@@ -185,24 +185,3 @@ You need to remove current directory where you clone the project, and clone the 
 ```console
 git clone -c core.symlinks=true git@github.com:openfoodfacts/openfoodfacts-server.git
 
-```console
-git clone -c core.symlinks=true git@github.com:openfoodfacts/openfoodfacts-server.git
-
-
-### make dev error: [create_mongodb_indexes] Error 126 - C:/Program Files/Git/usr/bin/sh: no such file or directory: unknown
-
-When running "make dev":
-
-```console
-ðŸ¥« Creating MongoDB indexes â€¦
-docker cp conf/mongodb/create_indexes.js 1aabb19cd6ad30ecf50ef24b7bc5f5e9fe60e69b218ea0db8273f4e8ec01a1aa:/data/db
-docker-compose --env-file=.env exec -T mongodb /bin/sh -c "mongo off /data/db/create_indexes.js"
-OCI runtime exec failed: exec failed: container_linux.go:380: starting container process caused: exec: "C:/Program Files/Git/usr/bin/sh": stat C:/Program Files/Git/usr/bin/sh: no such file or directory: unknown
-make: *** [create_mongodb_indexes] Error 126
-```
-
-Solution:
-Go to openfoodfacts-server and open the Makefile.
-Search for '/bin/sh', and replace it with '//bin/sh' - double the slashes. (There will be three /bin/sh, replace all three) 
-Save the Makefile and again run "make dev".
-
