@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ach\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-04-11 09:17\n"
+"PO-Revision-Date: 2022-04-19 02:40\n"
 "Language-Team: Acholi\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -44,11 +44,11 @@ msgstr ""
 
 msgctxt "add_user"
 msgid "Register"
-msgstr "86918091"
+msgstr ""
 
 msgctxt "add_user_display"
 msgid "Register"
-msgstr "86918091"
+msgstr ""
 
 msgctxt "add_user_process"
 msgid "Welcome!"
@@ -692,7 +692,7 @@ msgstr ""
 
 msgctxt "error_reset_unknown_email"
 msgid "There is no account with this email"
-msgstr "رمىررت"
+msgstr ""
 
 msgctxt "error_reset_unknown_id"
 msgid "This username does not exist."
@@ -1667,11 +1667,11 @@ msgstr ""
 
 msgctxt "pnns_groups_1"
 msgid "PNNS groups 1"
-msgstr "الووو"
+msgstr ""
 
 msgctxt "pnns_groups_1_p"
 msgid "PNNS groups 1"
-msgstr "الووو"
+msgstr ""
 
 msgctxt "pnns_groups_1_s"
 msgid "PNNS group 1"
@@ -2667,7 +2667,7 @@ msgstr ""
 
 msgctxt "translators_column_target_words"
 msgid "Target Words"
-msgstr "مرحبا ممكن سؤال"
+msgstr ""
 
 msgctxt "translators_column_approved_words"
 msgid "Approved (Words)"
@@ -4853,7 +4853,7 @@ msgstr ""
 # do not translate Eco-score
 msgctxt "ecoscore_calculation_details"
 msgid "Details of the calculation of the Eco-score"
-msgstr "Az ökopontszám kiszámításának részletei"
+msgstr ""
 
 # do not translate Eco-score
 msgctxt "ecoscore_information"
@@ -5290,8 +5290,9 @@ msgctxt "data_source_database_note_about_the_producers_platform"
 msgid "Manufacturers can use the Open Food Facts <a href=\"<producers_platform_url>\">free plaform for producers</a> to access and complete this data, and to obtain reports, analysis and product improvements opportunities (e.g. better Nutri-Score)."
 msgstr ""
 
-msgctxt "data_source_database_equadis"
-msgid "The manufacturer %s uses %s to automatically transmit data and photos for its products."
+# variable names between { } must not be translated
+msgctxt "f_data_source_database_provider"
+msgid "The manufacturer {manufacturer} uses {provider} to automatically transmit data and photos for its products."
 msgstr ""
 
 msgctxt "image_other_type"
@@ -5346,7 +5347,7 @@ msgstr ""
 
 msgctxt "ecoscore_category_exact_match"
 msgid "Exact match with the product category"
-msgstr "Jakjaka"
+msgstr ""
 
 msgctxt "ecoscore_pef_environmental_score"
 msgid "PEF environmental score"
