@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-04-21 22:04\n"
+"PO-Revision-Date: 2022-04-23 02:33\n"
 "Language-Team: French\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -5329,7 +5329,7 @@ msgstr "Les fabricants peuvent utiliser la <a href=\"<producers_platform_url>\">
 # variable names between { } must not be translated
 msgctxt "f_data_source_database_provider"
 msgid "The manufacturer {manufacturer} uses {provider} to automatically transmit data and photos for its products."
-msgstr ""
+msgstr "Le fabricant {manufacturer} utilise {provider} pour transmettre automatiquement des données et des photos pour ses produits."
 
 msgctxt "image_other_type"
 msgid "Type of the product photo"
@@ -5760,6 +5760,10 @@ msgstr "La somme des bonus et malus est plafonnée à +25."
 msgctxt "ecoscore_lca_score"
 msgid "Life cycle analysis score"
 msgstr "Score d'analyse du cycle de vie"
+
+msgctxt "impact_for_this_product"
+msgid "Impact for this product"
+msgstr ""
 
 msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
