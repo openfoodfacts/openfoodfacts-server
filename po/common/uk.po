@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uk\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-04-21 02:50\n"
+"PO-Revision-Date: 2022-04-23 02:37\n"
 "Language-Team: Ukrainian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -1137,7 +1137,7 @@ msgstr "Продукти, які містять позначку%s"
 
 msgctxt "labels_s"
 msgid "label"
-msgstr "етикетка"
+msgstr "етикетка\n"
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
@@ -4472,7 +4472,7 @@ msgstr "Коли ви хочете придбати товари для спра
 
 msgctxt "attribute_group_nutritional_quality_name"
 msgid "Nutritional quality"
-msgstr "Харчова якість"
+msgstr "Харчова якість\n"
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
@@ -5759,6 +5759,10 @@ msgstr "Сума бонусів і малусів обмежена +25."
 msgctxt "ecoscore_lca_score"
 msgid "Life cycle analysis score"
 msgstr "Оцінка аналізу циклів життя"
+
+msgctxt "impact_for_this_product"
+msgid "Impact for this product"
+msgstr ""
 
 msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
