@@ -7,13 +7,13 @@
 # <xx:Parent brand
 # zz:A unique key for the brand
 # xx:Child brand
-# eutrademarknumber:en: the trademark number of the eu database https://euipo.europa.eu/
+# eutrademarknumber:en: the trademark number of the eu database https://euipo.europa.eu/. There might be multiple related trademarks.
 # brand_owner:en: the owner of the brand as noted on https://euipo.europa.eu/
 # brand_owner_opencorporates:XX: the id on opencorporates (https://opencorporates.com/); XX defines the country where it is registered
 # brand_status:en: the status of the brand on eu database https://euipo.europa.eu/
-# website:en:
-# wikipedia:en:
-# wikidata:en:
+# website:en: the website or the brand (if any)
+# wikipedia:en: the wikipedia entry for the brand
+# wikidata:en: the wikidata entry for the brand
 # production_company:en: the company that produces the product
 # production_company_opencorporates:XX: the id on opencorporates; XX defines the country where it is registered
 #
@@ -22,7 +22,7 @@
 
 zz:aceitunasbarruz
 es:Aceitunas Barruz
-brand_owner:en:ACEITUNAS BARRUZ, S.A. - Avda. Monte Boyan 120 - P.I. Monte Boyan - E-45950 Casarrubios del Monte (Toledo)
+brand_owner:en:Aceitunas Barruz, S.A. - Avda. Monte Boyan 120 - P.I. Monte Boyan - E-45950 Casarrubios del Monte (Toledo)
 brand_owner_opencorporates:ES:78055712
 brand_status:en:expired
 #comment:en:Barruz is also a type of olive, that some products use as brand name
@@ -35,12 +35,35 @@ brand_owner:en:Adpan Europa SL - Avda. Langreo 12 - E-33186 Xixún - El berrón
 brand_owner_opencorporates:ES:33593740
 #13 products @2022-04-23
 
+zz:auchan
+xx:auchan
+ru:Ашан
+eutrademarknumber:en:000283101
+brand_owner:en:ELO - 40 Avenue de Flandre - F-59170 CROIX
+barcodeprefix:302017
+barcodeprefix:324567
+barcodeprefix:325456
+barcodeprefix:350562
+barcodeprefix:353756
+barcodeprefix:359671
+barcodeprefix:3660831
+barcodeprefix:3661121
+stores:en: fr:Auchan
+stores:en: ru:Ашан Супермаркет
+#14936 products @2022-04-23
+
+<xx:Auchan
+zz:atak
+xx:Atac
+ru:Атак
+#comment:en:Is this a russian brand?
+
 zz:azucarera
 xx:Azucarera
 website:es:https://www.azucarera.es
 wikipedia:en:none
 wikidata:en:none
-brand_owner:en:AB MAURI SPANISH HOLDINGS, S.L. - Calle Levadura, 5 - E-Cordoba
+brand_owner:en:AB Mauri Spanish Holdings, S.L. - Calle Levadura, 5 - E-Cordoba
 #64 products @2022-04-23
 
 ###################### B B B B B B B B B B B B B B B B B B
@@ -53,20 +76,93 @@ wikipedia:es:none
 wikidata:es:none
 #146 products @2022-04-23
 
+###################### C C C C C C C C C C C C C C C C C C
+
+zz:carrefour
+xx:Carrefour
+eutrademarknumber:en:005178371
+brand_owner:en:CARREFOUR, SA - 33, avenue Emile Zola - F-92100 Boulogne Billancourt
+brand_owner_opencorporates:LU:B44782
+#21268 products @2022-04-23
+
+<xx:Carrefour
+xx:Carrefour Baby
+
+<xx:Carrefour
+xx:Carrefour Bio
+labels:en: en:organic
+
+<xx:Carrefour
+xx:Carrefour Kids
+
+<xx:Carrefour
+es:Carrefour Selección, Carrefour Seleccion
+
+<xx:Carrefour
+fr:Carrefour Sélection, Sélection Carrefour, Carrefour Selection, Selection Carrefour
+
+<xx:Carrefour
+es:De Nuestra Tierra
+
+<xx:Carrefour
+xx:Carrefour France
+barcodeprefix:302033
+barcodeprefix:302047
+barcodeprefix:302108
+barcodeprefix:323758
+barcodeprefix:324539 (Grand Jury)
+barcodeprefix:324541
+barcodeprefix:327019
+barcodeprefix:327655
+barcodeprefix:339050
+barcodeprefix:346448
+barcodeprefix:356007 (Marque "1")
+barcodeprefix:357256
+barcodeprefix:357257
+barcodeprefix:359914
+barcodeprefix:360006
+barcodeprefix:3660239
+barcodeprefix:302182
+barcodeprefix:324703
+
+###################### B B B B B B B B B B B B B B B B B B
+
+zz:bonarea
+xx:bonÀrea
+eutrademarknumber:en:016813552
+brand_owner:en:Corporacion Alimentaria de Guissona, S.A. - Calle Traspalau, 8 - E-25210 Guissona (Lleida)
+brand_owner_opencorporates:eES:25445131
+wikidata:en:Q11924743
+# 10104 products @2022-04-23
+
 ###################### D D D D D D D D D D D D D D D D D D
 
 zz:dintel
 xx:Dintel
-brand_owner:en:ACEITES TOLEDO, S.A. - Pº Pintor Rosales Nos. 4 y 6 - E-28008 MADRID
+brand_owner:en:Aceites Toledo, S.A. - Pº Pintor Rosales Nos. 4 y 6 - E-28008 MADRID
 brand_owner_opencorporates:ES:45002581
 #6 products @2022-04-23
 
 ###################### E E E E E E E E E E E E E E E E E E
 
+zz:elninodelcampo
+xx:El Niño del Campo
+eutrademarknumber:en:017972172
+brand_owner:en:agricola el niño del campo, S.L - Camino Casa Murcia, s/n - La Hoya - E-30816 Lorca (Murcia)
+#4 products @2022-04-23
+
+zz:elvalledemadriles
+xx:El Valle de Madriles
+eutrademarknumber:en:none
+brand_owner:en:Agrícolas Promaver S.L.
+brand_owner_opencorporates:ES:40193658
+#6 products @2022-04-23
+#comment:en:Is this company still active?
+
 zz:excelenciadelolivar
 xx:Excelencia del Olivar
 eutrademarknumber:en:007365571
-brand_owner:en:ACEITUNAS GUADALQUIVIR, S.L. - Camino Alcoba, s/n - E-41530 Moron de la Frontera (Sevilla)
+brand_owner:en:Aceitunas Guadalquivir, S.L. - Camino Alcoba, s/n - E-41530 Moron de la Frontera (Sevilla)
 brand_owner_opencorporates:ES:41229188
 #1 products @2022-04-23
 
@@ -76,7 +172,7 @@ brand_owner_opencorporates:ES:41229188
 zz:guerra
 xx:Guerra
 trademarknumber:en:018420638
-brand_owner:en:ACEITUNAS GUERRA, S.L.U. - Pirotecnia, 33 - E-28052 MADRID
+brand_owner:en:aceitunas guerra, S.L.U. - Pirotecnia, 33 - E-28052 MADRID
 brand_owner_opencorporates:ES:83104745
 #25 products @2022-04-23
 
@@ -94,7 +190,7 @@ brand_owner_opencorporates:XX:not listed
 
 zz:laespanola
 xx:La Española
-brand_owner:en:ACEITES DEL SUR-COOSUR S.A. - Carretera de la Carolina, 29 - E-23220 Vilches (Jaén)
+brand_owner:en:Aceites del Sur-coosur S.A. - Carretera de la Carolina, 29 - E-23220 Vilches (Jaén)
 brand_owner_opencorporates:ES:80245129
 #94 products @2022-04-23
 
@@ -119,26 +215,22 @@ wikipedia:es:none
 wikidata:es:none
 #5 products @2022-04-23
 
+###################### S S S S S S S S S S S S S S S S S
+
+zz:sanjuandelvalle
+xx:San Juan del Valle
+eutrademarknumber:en:010362234
+brand_owner:en:Agricola Santa Eulalia S.L  - P.B. LEBOR ALTO S/N - E-30850 TOTANA
+brand_owner_opencorporates:ES:30417109
+
 ################################################################################################################################################
 #                                             BELOW THIS LINE, STILL NEED TO BE DONE
 ################################################################################################################################################
 
 
 
-es:Agrícolas Promaver S.L.
 
-<es:Agrícolas Promaver S.L.
-es:El Valle de Madriles
 
-es:Agrícola El Niño del Campo S.L. 
-
-<es:Agrícola El Niño del Campo S.L. 
-es:El Niño del Campo
-
-es:Agrícola Santa Eulalia S.L. 
-
-<es:Agrícola Santa Eulalia S.L. 
-es:San Juan del Valle
 
 es:Agrícola Villena Coop.V., Agrícola Villena COOP. V.
 
@@ -2200,50 +2292,6 @@ fr:Cora
 barcodeprefix:325798
 barcodeprefix:302470
 
-es:Carrefour S.A.
-stores:en: fr:Carrefour
-
-<es:Carrefour S.A.
-es:Carrefour
-
-<es:Carrefour S.A.
-es:Carrefour Baby
-
-<es:Carrefour S.A.
-es:Carrefour Bio
-labels:en: en:organic
-
-<es:Carrefour S.A.
-es:Carrefour Kids
-
-<es:Carrefour S.A.
-es:Carrefour Selección, Carrefour Seleccion
-
-<es:Carrefour S.A.
-fr:Carrefour Sélection, Sélection Carrefour, Carrefour Selection, Selection Carrefour
-
-<es:Carrefour S.A.
-es:De Nuestra Tierra
-
-fr:Carrefour France
-barcodeprefix:302033
-barcodeprefix:302047
-barcodeprefix:302108
-barcodeprefix:323758
-barcodeprefix:324539 (Grand Jury)
-barcodeprefix:324541
-barcodeprefix:327019
-barcodeprefix:327655
-barcodeprefix:339050
-barcodeprefix:346448
-barcodeprefix:356007 (Marque "1")
-barcodeprefix:357256
-barcodeprefix:357257
-barcodeprefix:359914
-barcodeprefix:360006
-barcodeprefix:3660239
-barcodeprefix:302182
-barcodeprefix:324703
 
 fr:Système U
 
@@ -3309,28 +3357,6 @@ es:Tom Cherry
 <es:Granada La Palma S.C.A. 
 es:Topmato
 
-fr:Groupe Auchan S.A.
-
-<fr:Groupe Auchan S.A.
-fr:Auchan
-ru:Ашан
-barcodeprefix:302017
-barcodeprefix:324567
-barcodeprefix:325456
-barcodeprefix:350562
-barcodeprefix:353756
-barcodeprefix:359671
-barcodeprefix:3660831
-barcodeprefix:3661121
-stores:en: fr:Auchan
-
-# I am not sure what to do with these two Russian chains, see https://ru.wikipedia.org/wiki/Auchan
-<fr:Auchan
-ru:Ашан Супермаркет
-
-<fr:Auchan
-fr:Atac
-ru:Атак
 
 Groupe Lactalis
 <es:B.S.A. International S.A.
