@@ -4,125 +4,81 @@
 # # comment
 #
 # Brand or company name / group, synonyms
-# <xx:Parent brand
-# zz:A unique key for the brand
-# xx:Child brand
-# website:en:
-# wikipedia:en:
-# wikidata:en:
-# production_company:en: the company that produces the product
-# production_company_opencorporates:XX: the id on opencorporates; XX defines the country where it is registered
-# brand_owner:en: the owner of the brand
-# brand_owner_opencorporates:XX: the id on opencorporates; XX defines the country where it is registered
+# <es:Parent brand or company name / group, synonyms
+# es:Child brand or company name / group, synonyms
 #
 
-###################### A A A A A A A A A A A A A A A A A A
+es:Abafoods S.R.L. 
 
-zz:aceitunasbarruz
-es:Aceitunas Barruz
-brand_owner:en:ACEITUNAS BARRUZ, S.A. - Avda. Monte Boyan 120 - P.I. Monte Boyan - E-45950 Casarrubios del Monte (Toledo)
-brand_owner_opencorporates:ES:78055712
-brand_status:en:expired
-#comment:en:Barruz is also a type of olive, that some products use as brand name
-#5 products @2022-04-23
+<es:Abafoods S.R.L. 
+es:Isola Bio
 
-zz:adpan
-xx:Adpan
-eutrademarknumber:en:013787528
-brand_owner:en:Adpan Europa SL - Avda. Langreo 12 - E-33186 Xixún - El berrón
-brand_owner_opencorporates:ES:33593740
-#13 products @2022-04-23
+nl:Abdij Onze Lieve Vrouw Van Koningshoeven
 
-zz:azucarera
-xx:Azucarera
-website:es:https://www.azucarera.es
-wikipedia:en:none
-wikidata:en:none
-brand_owner:en:AB MAURI SPANISH HOLDINGS, S.L. - Calle Levadura, 5 - E-Cordoba
-#64 products @2022-04-23
+<nl:Abdij Onze Lieve Vrouw Van Koningshoeven
+es:La Trappe
 
-###################### B B B B B B B B B B B B B B B B B B
+es:Abellán Biofoods S.L.
 
-zz:bluedragon
-xx:Blue Dragon
-brand_owner:en:AB World Foods Limited - Weston Centre - 10 Grosvenor Street - London - W1K 4QY - United Kingdom
-brand_owner_opencorporates:GB:01400901
-wikipedia:es:none
-wikidata:es:none
-#146 products @2022-04-23
+<es:Abellán Biofoods S.L.
+es:Abellán Ecological Foods, Abellan Ecological Foods
 
-###################### D D D D D D D D D D D D D D D D D D
+<es:Abellán Biofoods S.L.
+es:Bioaprica
 
-zz:dintel
-xx:Dintel
-brand_owner:en:ACEITES TOLEDO, S.A. - Pº Pintor Rosales Nos. 4 y 6 - E-28008 MADRID
-brand_owner_opencorporates:ES:45002581
-#6 products @2022-04-23
+<es:Abellán Biofoods S.L.
+es:Natural Bioaprica
 
-###################### E E E E E E E E E E E E E E E E E E
+en:Associated British Foods plc
+es:Associated British Foods plc
 
-zz:excelenciadelolivar
-xx:Excelencia del Olivar
-eutrademarknumber:en:007365571
-brand_owner:en:ACEITUNAS GUADALQUIVIR, S.L. - Camino Alcoba, s/n - E-41530 Moron de la Frontera (Sevilla)
-brand_owner_opencorporates:ES:41229188
-#1 products @2022-04-23
+<es:Associated British Foods plc
+en:AB Mauri Spanish Holdings S.L. 
 
-###################### G G G G G G G G G G G G G G G G G G
+<en:AB Mauri Spanish Holdings S.L.
+es:Azucarera
+
+<es:Associated British Foods plc
+en:AB World Foods Ltd.
+
+<en:AB World Foods Ltd.
+es:Blue Dragon
+
+es:Aceites del Sur - Coosur S.A. (Acesur)
+
+<es:Aceites del Sur - Coosur S.A. (Acesur) 
+es:Coosur
+
+<es:Aceites del Sur - Coosur S.A. (Acesur) 
+es:La Española
+
+es:Aceites Toledo S.A. 
+
+<es:Aceites Toledo S.A. 
+es:Dintel
+
+es:Aceitunas Barruz S.A.
+
+<es:Aceitunas Barruz S.A.
+es:Barruz
+
+es:Aceitunas Guadalquivir S.L.
+
+<es:Aceitunas Guadalquivir S.L. 
+es:Excelencia del Olivar
+
+es:Aceitunas Guerra S.L.U.
 
 <es:Aceitunas Guerra S.L.U.
-zz:guerra
-xx:Guerra
-trademarknumber:en:018420638
-brand_owner:en:ACEITUNAS GUERRA, S.L.U. - Pirotecnia, 33 - E-28052 MADRID
-brand_owner_opencorporates:ES:83104745
-#25 products @2022-04-23
+es:Aceitunas Guerra
 
-###################### I I I I I I I I I I I I I I I I I I
+<es:Aceitunas Guerra S.L.U.
+es:Guerra
 
-zz:isolabio
-xx:Isola Bio
-website:en:https://www.isolabio.com/en/
-production_company:en:Abafoods s.r.l.
-brand_owner:en:ABAFOODS S.R.L. - Via Cà Mignola Nuova, 1775 - I-45021 Badia Polesine (Rovigo)
-brand_owner_opencorporates:XX:not listed
-#106 products @2022-04-23
+es:Adpan Europa S.L 
 
-###################### L L L L L L L L L L L L L L L L L L
-
-zz:laespanola
-xx:La Española
-brand_owner:en:ACEITES DEL SUR-COOSUR S.A. - Carretera de la Carolina, 29 - E-23220 Vilches (Jaén)
-brand_owner_opencorporates:ES:80245129
-#94 products @2022-04-23
-
-zz:latrappe
-xx:La Trappe
-website:nl:https://nl.latrappetrappist.com/nl/nl.html
-brand_owner:en:Abdij O.L.V. van Koningshoeven - 3 Eindhovenseweg - NL-5056 RP BERKEL-ENSCHOT
-brand_owner_opencorporates:BE:0838355558
-production_company:nl:Bierbrouwerij De Koningshoeven NV
-production_company_opencorporates:NL:18042956
-wikidata:en:Q590921
-#11 products @2022-04-23
-
-###################### N N N N N N N N N N N N N N N N N
-
-zz:naturalbioaprica
-xx:Natural Bioaprica
-website:es:https://abellanbiofoods.com
-brand_owner:Abellán Biofoods S.L. - Cruce de El Raal nº 61 - E-30139 El Raal (Murcia)
-brand_owner_opencorporates:ES:30354625
-wikipedia:es:none
-wikidata:es:none
-#5 products @2022-04-23
-
-################################################################################################################################################
-#                                             BELOW THIS LINE, STILL NEED TO BE DONE
-################################################################################################################################################
-
-
-
+<es:Adpan Europa S.L 
+es:Adpan
 
 es:Agrícolas Promaver S.L.
 
