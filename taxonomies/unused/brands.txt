@@ -246,12 +246,16 @@ es:Marca Guía
 <zz:leclerc-marquerepere
 zz:leclerc-marquerepere-autourdudessert
 fr:Autour du Dessert
+barcodeprefix:en:3564700
 #15 products @2022-04-24
-#categories: fr:Gâteaux et pâtisseries surgelés
+category:en: en:Frozen cakes and pastries
 
 <zz:leclerc-marquerepere
 zz:leclerc-marquerepere-biovillage
-fr:Bio Village, Biovillage, Marque repere bio village
+xx:Bio Village, Biovillage, Marque repere bio village
+barcodeprefix:en: 3564707
+barcodeprefix:en: 2860360
+barcodeprefix:en: 2860350
 labels:en: en:organic
 #1670+52+14 products @2022-04-24
 
@@ -263,47 +267,71 @@ barcodeprefix:en:3564700
 category:en: en:cocoa-and-chocolate-powders
 
 <zz:leclerc-marquerepere
-fr:Brin de Jour
-#categories: fr:Céréales, fr:Barres de céréales
+zz:leclerc-marquerepere-brindejour
+xx:Brin de Jour
+category:en: en:cereal-bars
+category:en: en:breakfast-cereals
+#55 products @2022-04-24
 
 <zz:leclerc-marquerepere
 zz:leclerc-marquerepere-britley
 xx:Britley
 barcodeprefix:en:3564700
+category:en: en:Teas
 #20 products @2022-04-24
-#category:en: en:Teas
 
 <zz:leclerc-marquerepere
-fr:Chaque Jour Réduit en Lactose
+zz:leclerc-marquerepere-jourréduitenlactose
+xx:Chaque Jour Réduit en Lactose
+#0 products @2022-04-24
 
 <zz:leclerc-marquerepere
-fr:Chaque Jour sans Gluten
-labels:sans_gluten
-#language:fr
+zz:leclerc-marquerepere-joursansgluten
+xx:Chaque Jour sans Gluten
+labels:en: en:No gluten
+#1 products @2022-04-24
 
-<fr:Marque Repère
-fr:Chantegril
-#categories:
+<zz:leclerc-marquerepere
+zz:leclerc-marquerepere-chantegril
+xx:Chantegril
+barcodeprefix:en:3661112
+category:en: en:beef-steaks
+#7 products @2022-04-24
 
-<fr:Marque Repère
-fr:Comptoir du Grain
-#categories:en: fr:Céréales en grains
+<zz:leclerc-marquerepere
+zz:leclerc-marquerepere-comptoirdugrain
+xx:Comptoir du Grain
+barcodeprefix:en:3564700
+category:en: en:cereal-grains
+category:en: en:meals
+#59 products @2022-04-24
 
-<fr:Marque Repère
-fr:Côté' Snack, Côté Snack
-#categories:
+<zz:leclerc-marquerepere
+zz:leclerc-marquerepere-cotesnack
+xx:Côté Snack
+barcodeprefix:en:3564700
+category:en: en:meals
+#115 products @2022-04-24
 
-<fr:Marque Repère
-fr:Côté Table
-#categories:
+<zz:leclerc-marquerepere
+zz:leclerc-marquerepere-cotetable
+xx:Côté Table
+barcodeprefix:en:3564706
+#288 products @2022-04-24
 
-<fr:Marque Repère
-fr:Couleurs Vives
-#categories:en: fr:Fruits secs
+<zz:leclerc-marquerepere
+zz:leclerc-marquerepere- couleursvives
+xx:Couleurs Vives
+barcodeprefix:en:3564700
+category:en: en:plant-based-foods
+#44 products @2022-04-24
 
-<fr:Marque Repère
-fr:Confiséo
-#categories:en: fr:Bonbons
+<zz:leclerc-marquerepere
+zz:leclerc-marquerepere-confiseo
+xx:Confiséo
+barcodeprefix:en:3564700
+category:en: en:candies
+#18 products @2022-04-24
 
 <fr:Marque Repère
 fr:Copains Copines
