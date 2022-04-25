@@ -418,7 +418,7 @@ my %gs1_message_to_off = (
 																],
 															},
 														],
-														["type", "documentCommandHeader.type"],
+														["type", "documentCommandHeader_type"],
 													],
 												},
 											],
@@ -1616,6 +1616,7 @@ sub write_gs1_confirmation_file($$$$) {
 	my $confirmation_data_ref = {
 		Sender_Identifier => deep_get(\%options, qw(gs1 local_gln)),
 		Receiver_Identifier => deep_get(\%options, qw(gs1 agena3000 receiver_gln)),
+		recipientDataPool => deep_get(\%options, qw(gs1 agena3000 receiver_gln)),
 		InstanceIdentifier => $confirmation_instance_identifier,
 		CreationDateAndTime => display_date_iso($time),
 		catalogueItemConfirmationStateCode => 'RECEIVED',

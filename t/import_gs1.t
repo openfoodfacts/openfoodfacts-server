@@ -100,15 +100,16 @@ foreach my $file (sort(readdir($dh))) {
 	# Always use the same seed, so that the random instance identifier is always the same
 	srand(1);
 	my $instance_identifier = generate_gs1_message_identifier();
+	my $test_time = 1650902728;
 	
 	my $expected_gs1_confirmation_file = "$results_dir/$testid.off.gs1_confirmation.xml";
 
 	if ($update_expected_results) {
-		write_gs1_confirmation_file("$expected_gs1_confirmation_file", $messages_ref->[0], $instance_identifier, 1234567890);		
+		write_gs1_confirmation_file("$expected_gs1_confirmation_file", $messages_ref->[0], $instance_identifier, $test_time);		
 	}
 	else {
 		my $gs1_confirmation_file = "/tmp/import_gs1.$testid.off.gs1_confirmation.xml";
-		write_gs1_confirmation_file("$gs1_confirmation_file", $messages_ref->[0], $instance_identifier, 1234567890);
+		write_gs1_confirmation_file("$gs1_confirmation_file", $messages_ref->[0], $instance_identifier, $test_time);
 
 		my $result  = File::Spec->catfile($gs1_confirmation_file);
 		my $expected_result  = File::Spec->catfile($expected_gs1_confirmation_file);

@@ -34,17 +34,17 @@
 				</documentCommandIdentification>
 			</documentCommandHeader>
 			<catalogue_item_confirmation:catalogueItemConfirmation>
-				<creationDateTime>[% notification.CreationDateAndTime %]</creationDateTime>
-				<documentStatusCode>ORIGINAL</documentStatusCode>
+				<creationDateTime>[% notification.catalogueItemNotification_creationDateAndTime %]</creationDateTime>
+				<documentStatusCode>[% notification.catalogueItemNotification_documentStatusCode %]</documentStatusCode>
 				<catalogueItemConfirmationIdentification>
-					<entityIdentification>[% notification.catalogueItemConfirmationIdentification_entityIdentification %]</entityIdentification>
+					<entityIdentification>[% notification.catalogueItemNotificationIdentification_entityIdentification %]</entityIdentification>
 					<contentOwner>
-						<gln>[% notification.catalogueItemConfirmationIdentification_contentOwner_gln %]</gln>
+						<gln>[% notification.catalogueItemNotificationIdentification_contentOwner_gln %]</gln>
 					</contentOwner>
 				</catalogueItemConfirmationIdentification>
 				<catalogueItemConfirmationState>
 					<catalogueItemConfirmationStateCode>[% catalogueItemConfirmationStateCode %]</catalogueItemConfirmationStateCode>
-					<recipientGLN>[% recipientGLN %]</recipientGLN>
+					<recipientGLN>[% notification.transactionIdentification_contentOwner_gln %]</recipientGLN>
 					<recipientDataPool>[% recipientDataPool %]</recipientDataPool>
 				</catalogueItemConfirmationState>
 				<catalogueItemReference>

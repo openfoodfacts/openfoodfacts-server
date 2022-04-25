@@ -14,7 +14,7 @@
 			<sh:InstanceIdentifier>3770026870013_07d5903fc55921f293c29309e5e96eb3f01e1c4a6856abcd5fa2eb6974f4</sh:InstanceIdentifier>
 			<sh:Type>catalogueItemConfirmation</sh:Type>
 			<sh:MultipleType>false</sh:MultipleType>
-			<sh:CreationDateAndTime>2009-02-14T00:31:30</sh:CreationDateAndTime>
+			<sh:CreationDateAndTime>2022-04-25T18:05:28</sh:CreationDateAndTime>
 		</sh:DocumentIdentification>
 	</sh:StandardBusinessDocumentHeader>
 	<transaction>
@@ -25,7 +25,7 @@
 			</contentOwner>
 		</transactionIdentification>
 		<documentCommand>
-			<documentCommandHeader type="">
+			<documentCommandHeader type="CHANGE_BY_REFRESH">
 				<documentCommandIdentification>
 					<entityIdentification>3034012285008_000014f973cfe5a5634f09a24dfc435463baf5445ec2e7a0e140238cc61003</entityIdentification>
 					<contentOwner>
@@ -37,15 +37,15 @@
 				<creationDateTime></creationDateTime>
 				<documentStatusCode>ORIGINAL</documentStatusCode>
 				<catalogueItemConfirmationIdentification>
-					<entityIdentification></entityIdentification>
+					<entityIdentification>3034012285008_000014f973cfe5a5634f09a24dfc435463baf5445ec2e7a0e140238cc610</entityIdentification>
 					<contentOwner>
-						<gln></gln>
+						<gln>3014498600106</gln>
 					</contentOwner>
 				</catalogueItemConfirmationIdentification>
 				<catalogueItemConfirmationState>
 					<catalogueItemConfirmationStateCode>RECEIVED</catalogueItemConfirmationStateCode>
-					<recipientGLN></recipientGLN>
-					<recipientDataPool></recipientDataPool>
+					<recipientGLN>3014498600106</recipientGLN>
+					<recipientDataPool>3027000006006</recipientDataPool>
 				</catalogueItemConfirmationState>
 				<catalogueItemReference>
 					<dataSource></dataSource>

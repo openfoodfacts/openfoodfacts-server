@@ -14,7 +14,7 @@
 			<sh:InstanceIdentifier>3770026870013_07d5903fc55921f293c29309e5e96eb3f01e1c4a6856abcd5fa2eb6974f4</sh:InstanceIdentifier>
 			<sh:Type>catalogueItemConfirmation</sh:Type>
 			<sh:MultipleType>false</sh:MultipleType>
-			<sh:CreationDateAndTime>2009-02-14T00:31:30</sh:CreationDateAndTime>
+			<sh:CreationDateAndTime>2022-04-25T18:05:28</sh:CreationDateAndTime>
 		</sh:DocumentIdentification>
 	</sh:StandardBusinessDocumentHeader>
 	<transaction>
@@ -35,7 +35,7 @@
 			</documentCommandHeader>
 			<catalogue_item_confirmation:catalogueItemConfirmation>
 				<creationDateTime></creationDateTime>
-				<documentStatusCode>ORIGINAL</documentStatusCode>
+				<documentStatusCode></documentStatusCode>
 				<catalogueItemConfirmationIdentification>
 					<entityIdentification></entityIdentification>
 					<contentOwner>
@@ -45,7 +45,7 @@
 				<catalogueItemConfirmationState>
 					<catalogueItemConfirmationStateCode>RECEIVED</catalogueItemConfirmationStateCode>
 					<recipientGLN></recipientGLN>
-					<recipientDataPool></recipientDataPool>
+					<recipientDataPool>3027000006006</recipientDataPool>
 				</catalogueItemConfirmationState>
 				<catalogueItemReference>
 					<dataSource></dataSource>
