@@ -3,54 +3,54 @@
 	<sh:StandardBusinessDocumentHeader>
 		<sh:HeaderVersion>1.0</sh:HeaderVersion>
 		<sh:Sender>
-			<sh:Identifier Authority="GS1">[% Sender.Identifier %]</sh:Identifier>
+			<sh:Identifier Authority="GS1"></sh:Identifier>
 		</sh:Sender>
 		<sh:Receiver>
-			<sh:Identifier Authority="GS1">[% Receiver.Identifier %]</sh:Identifier>
+			<sh:Identifier Authority="GS1"></sh:Identifier>
 		</sh:Receiver>
 		<sh:DocumentIdentification>
 			<sh:Standard>GS1</sh:Standard>
 			<sh:TypeVersion>3.1</sh:TypeVersion>
-			<sh:InstanceIdentifier>[% InstanceIdentifier %]</sh:InstanceIdentifier>
+			<sh:InstanceIdentifier></sh:InstanceIdentifier>
 			<sh:Type>catalogueItemConfirmation</sh:Type>
 			<sh:MultipleType>false</sh:MultipleType>
-			<sh:CreationDateAndTime>[% CreationDateAndTime %]</sh:CreationDateAndTime>
+			<sh:CreationDateAndTime></sh:CreationDateAndTime>
 		</sh:DocumentIdentification>
 	</sh:StandardBusinessDocumentHeader>
 	<transaction>
 		<transactionIdentification>
-			<entityIdentification>[% notification.transactionIdentification_entityIdentification %]</entityIdentification>
+			<entityIdentification></entityIdentification>
 			<contentOwner>
-				<gln>[% notification.transactionIdentification_contentOwner_gln %]</gln>
+				<gln></gln>
 			</contentOwner>
 		</transactionIdentification>
 		<documentCommand>
-			<documentCommandHeader type="[% documentCommandHeader.type %]">
+			<documentCommandHeader type="">
 				<documentCommandIdentification>
-					<entityIdentification>[% documentCommandIdentification.entityIdentification %]</entityIdentification>
+					<entityIdentification></entityIdentification>
 					<contentOwner>
-						<gln>[% documentCommandIdentification.contentOwner %]</gln>
+						<gln></gln>
 					</contentOwner>
 				</documentCommandIdentification>
 			</documentCommandHeader>
 			<catalogue_item_confirmation:catalogueItemConfirmation>
-				<creationDateTime>[% CreationDateAndTime %]</creationDateTime>
+				<creationDateTime></creationDateTime>
 				<documentStatusCode>ORIGINAL</documentStatusCode>
 				<catalogueItemConfirmationIdentification>
-					<entityIdentification>[% catalogueItemConfirmationIdentification.entityIdentification %]</entityIdentification>
+					<entityIdentification></entityIdentification>
 					<contentOwner>
-						<gln>[% catalogueItemConfirmationIdentification.contentOwner %]</gln>
+						<gln></gln>
 					</contentOwner>
 				</catalogueItemConfirmationIdentification>
 				<catalogueItemConfirmationState>
-					<catalogueItemConfirmationStateCode>[% catalogueItemConfirmationStateCode %]</catalogueItemConfirmationStateCode>
-					<recipientGLN>[% recipientGLN %]</recipientGLN>
-					<recipientDataPool>[% recipientDataPool %]</recipientDataPool>
+					<catalogueItemConfirmationStateCode></catalogueItemConfirmationStateCode>
+					<recipientGLN></recipientGLN>
+					<recipientDataPool></recipientDataPool>
 				</catalogueItemConfirmationState>
 				<catalogueItemReference>
-					<dataSource>[% dataSource %]</dataSource>
-					<gtin>[% gtin %]</gtin>
-					<targetMarketCountryCode>[% targetMarketCountryCode %]</targetMarketCountryCode>
+					<dataSource></dataSource>
+					<gtin></gtin>
+					<targetMarketCountryCode></targetMarketCountryCode>
 				</catalogueItemReference>
 			</catalogue_item_confirmation:catalogueItemConfirmation>
 		</documentCommand>

@@ -57,6 +57,7 @@ BEGIN
 
 		&init_csv_fields
 		&read_gs1_json_file
+		&write_gs1_confirmation_file
 		&write_off_csv_file
 		&print_unknown_entries_in_gs1_maps
 
@@ -68,6 +69,7 @@ use vars @EXPORT_OK ;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::Display qw/$tt process_template/;
 
 use JSON::PP;
 use boolean;
@@ -388,10 +390,10 @@ my %gs1_message_to_off = (
 							fields => [
 								["transactionIdentification", {
 										fields => [
-											["entityIdentification", "transactionIdentification.entityIdentification"],
+											["entityIdentification", "transactionIdentification_entityIdentification"],
 											["contentOwner", {
 													fields => [
-														["gln", "transactionIdentification.contentOwner.gln"],
+														["gln", "transactionIdentification_contentOwner_gln"],
 													],
 												}
 											],
@@ -405,10 +407,10 @@ my %gs1_message_to_off = (
 													fields => [
 														["documentCommandIdentification", {
 																fields => [
-																	["entityIdentification", "documentCommandIdentification.entityIdentification"],
+																	["entityIdentification", "documentCommandIdentification_entityIdentification"],
 																	["contentOwner", {
 																			fields => [
-																				["gln", "documentCommandIdentification.contentOwner.gln"],
+																				["gln", "documentCommandIdentification_contentOwner_gln"],
 																			],
 																		}
 																	],
@@ -422,14 +424,14 @@ my %gs1_message_to_off = (
 
 											["catalogue_item_notification:catalogueItemNotification", {
 													fields => [
-														["creationDateTime", "catalogueItemNotification.creationDateTime"],
-														["documentStatusCode", "catalogueItemNotification.documentStatusCode"],
+														["creationDateTime", "catalogueItemNotification_creationDateTime"],
+														["documentStatusCode", "catalogueItemNotification_documentStatusCode"],
 														["catalogueItemNotificationIdentification", {
 																fields => [
-																	["entityIdentification", "catalogueItemNotificationIdentification.entityIdentification"],
+																	["entityIdentification", "catalogueItemNotificationIdentification_entityIdentification"],
 																	["contentOwner", {
 																			fields => [
-																				["gln", "catalogueItemNotificationIdentification.contentOwner.gln"],
+																				["gln", "catalogueItemNotificationIdentification_contentOwner_gln"],
 																			],
 																		}
 																	],
@@ -1433,7 +1435,7 @@ sub convert_single_text_property_to_direct_value($) {
 }
 
 
-=head2 convert_gs1_json_message_to_off_products_csv_fields ($json, $products_ref)
+=head2 convert_gs1_json_message_to_off_products_csv_fields ($json, $products_ref, $messages_ref)
 
 Thus function converts the data for one or more products in the GS1 format converted to JSON.
 GS1 format is in XML, it needs to be transformed to JSON with xml2json first.
@@ -1454,15 +1456,20 @@ Each product data will be added as one element (a hash ref) of the product data 
 
 For each product, the key of the hash is the name of the OFF csv field, and it is associated with the corresponding value for the product.
 
+=head4 $messages_ref - Reference to an array of GS1 messages data
+
+Each message will be added as one element (a hash ref) of the messages data array.
+
 =cut
 
 # pre-declare the function as it is recursive
-sub convert_gs1_json_message_to_off_products_csv($$);
+sub convert_gs1_json_message_to_off_products_csv($$$);
 
-sub convert_gs1_json_message_to_off_products_csv($$) {
+sub convert_gs1_json_message_to_off_products_csv($$$) {
 
 	my $json_ref = shift;
 	my $products_ref = shift;
+	my $messages_ref = shift;
 	
 	# Depending on how the original XML was converted to JSON,
 	# text values of XML tags can be assigned directly as the value of the corresponding key
@@ -1508,7 +1515,7 @@ sub convert_gs1_json_message_to_off_products_csv($$) {
 	my $child_product_json_ref = deep_get($json_ref, qw(catalogueItemChildItemLink catalogueItem));
 	if (defined $child_product_json_ref) {
 		$log->debug("convert_gs1_json_to_off_csv - found a child item", {  }) if $log->is_debug();
-		convert_gs1_json_message_to_off_products_csv($child_product_json_ref, $products_ref)
+		convert_gs1_json_message_to_off_products_csv($child_product_json_ref, $products_ref, $messages_ref)
 	}
 
 	if (defined $json_ref->{tradeItem}) {
@@ -1543,10 +1550,12 @@ sub convert_gs1_json_message_to_off_products_csv($$) {
 }
 
 
-=head2 read_gs1_json_file ($json_file, $products_ref)
+=head2 read_gs1_json_file ($json_file, $products_ref, $messages_ref)
 
 Read a GS1 message file in json format, convert the included products in the OFF format,
 and store the resulting products in the $products_ref array
+
+The encapsulating GS1 message is added to the $messages_ref array
 
 =head3 Arguments
 
@@ -1554,12 +1563,16 @@ and store the resulting products in the $products_ref array
 
 =head4 reference to output products array $products_ref
 
+=head4 reference to output messages array $messages_ref
+
+
 =cut
 
-sub read_gs1_json_file($$) {
+sub read_gs1_json_file($$$) {
 	
 	my $json_file = shift;
 	my $products_ref = shift;
+	my $messages_ref = shift;
 	
 	$log->debug("read_gs1_json_file", { json_file => $json_file }) if $log->is_debug();
 	
@@ -1574,7 +1587,31 @@ sub read_gs1_json_file($$) {
 	# which is the expected format of the ProductOpener::GS1 module
 	convert_single_text_property_to_direct_value($json_ref);
 		
-	convert_gs1_json_message_to_off_products_csv($json_ref, $products_ref);
+	convert_gs1_json_message_to_off_products_csv($json_ref, $products_ref, $messages_ref);
+}
+
+
+sub write_gs1_confirmation_file($$) {
+
+	my $file = shift;
+	my $message_ref = shift;
+
+	# Template data for the confirmation
+	my $confirmation_data_ref = {};
+
+	# Include the notification data in the template data for the confirmation
+	$confirmation_data_ref->{notification} = $message_ref;
+
+	my $xml;
+	if (process_template('gs1/catalogue_item_confirmation.tt.xml', $confirmation_data_ref, \$xml)) {
+		open (my $result, ">:encoding(UTF-8)", $file)
+			or die("Could not create $file: $!\n");
+		print $result $xml;
+		close $result;
+	}
+	else {
+		$log->debug("write_gs1_confirmation_file - template error", { error => $tt->error() }) if $log->is_error();
+	}
 }
 
 
