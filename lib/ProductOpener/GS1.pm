@@ -1492,10 +1492,11 @@ sub convert_gs1_json_message_to_off_products_csv($$$) {
 	# If there is an encapsulating message, extract the relevant fields
 	# that we will need to create a confirmation message
 	if (defined $json_ref->{"catalogue_item_notification:catalogueItemNotificationMessage"}) {
-		my $message_results_ref = {};
-		gs1_to_off(\%gs1_message_to_off, $json_ref, $message_results_ref);
-		$log->debug("convert_gs1_json_to_off_csv - GS1 message fields", { message_results_ref => $message_results_ref }) if $log->is_debug();
-		$log->error("convert_gs1_json_to_off_csv - GS1 message fields", { message_results_ref => $message_results_ref }) if $log->is_error();
+		my $message_ref = {};
+		gs1_to_off(\%gs1_message_to_off, $json_ref, $message_ref);
+		push @$messages_ref, $message_ref;
+		$log->debug("convert_gs1_json_to_off_csv - GS1 message fields", { message_ref => $message_ref }) if $log->is_debug();
+		$log->error("convert_gs1_json_to_off_csv - GS1 message fields", { message_ref => $message_ref }) if $log->is_error();
 	}
 	
 	foreach my $field (qw(
@@ -1533,20 +1534,20 @@ sub convert_gs1_json_message_to_off_products_csv($$$) {
 		return {};
 	}
 	
-	my $results_ref = {};
+	my $product_ref = {};
 	
-	gs1_to_off(\%gs1_product_to_off, $json_ref, $results_ref);
+	gs1_to_off(\%gs1_product_to_off, $json_ref, $product_ref);
 	
 	# assign the lang and lc fields
-	if (defined $results_ref->{languages}) {
-		my @sorted_languages = sort ( { $results_ref->{languages}{$b} <=> $results_ref->{languages}{$a} } keys %{$results_ref->{languages}});
+	if (defined $product_ref->{languages}) {
+		my @sorted_languages = sort ( { $product_ref->{languages}{$b} <=> $product_ref->{languages}{$a} } keys %{$product_ref->{languages}});
 		my $top_language = $sorted_languages[0];
-		$results_ref->{lc} = $top_language;
-		$results_ref->{lang} = $top_language;
-		delete $results_ref->{languages};
+		$product_ref->{lc} = $top_language;
+		$product_ref->{lang} = $top_language;
+		delete $product_ref->{languages};
 	}
 	
-	push @$products_ref, $results_ref;
+	push @$products_ref, $product_ref;
 }
 
 

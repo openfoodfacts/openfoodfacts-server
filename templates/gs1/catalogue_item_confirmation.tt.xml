@@ -25,21 +25,21 @@
 			</contentOwner>
 		</transactionIdentification>
 		<documentCommand>
-			<documentCommandHeader type="[% documentCommandHeader.type %]">
+			<documentCommandHeader type="[% notification.documentCommandHeader_type %]">
 				<documentCommandIdentification>
-					<entityIdentification>[% documentCommandIdentification.entityIdentification %]</entityIdentification>
+					<entityIdentification>[% notification.documentCommandIdentification_entityIdentification %]</entityIdentification>
 					<contentOwner>
-						<gln>[% documentCommandIdentification.contentOwner %]</gln>
+						<gln>[% notification.documentCommandIdentification_contentOwner_gln %]</gln>
 					</contentOwner>
 				</documentCommandIdentification>
 			</documentCommandHeader>
 			<catalogue_item_confirmation:catalogueItemConfirmation>
-				<creationDateTime>[% CreationDateAndTime %]</creationDateTime>
+				<creationDateTime>[% notification.CreationDateAndTime %]</creationDateTime>
 				<documentStatusCode>ORIGINAL</documentStatusCode>
 				<catalogueItemConfirmationIdentification>
-					<entityIdentification>[% catalogueItemConfirmationIdentification.entityIdentification %]</entityIdentification>
+					<entityIdentification>[% notification.catalogueItemConfirmationIdentification_entityIdentification %]</entityIdentification>
 					<contentOwner>
-						<gln>[% catalogueItemConfirmationIdentification.contentOwner %]</gln>
+						<gln>[% notification.catalogueItemConfirmationIdentification_contentOwner_gln %]</gln>
 					</contentOwner>
 				</catalogueItemConfirmationIdentification>
 				<catalogueItemConfirmationState>
@@ -49,8 +49,8 @@
 				</catalogueItemConfirmationState>
 				<catalogueItemReference>
 					<dataSource>[% dataSource %]</dataSource>
-					<gtin>[% gtin %]</gtin>
-					<targetMarketCountryCode>[% targetMarketCountryCode %]</targetMarketCountryCode>
+					<gtin>[% notification.gtin %]</gtin>
+					<targetMarketCountryCode>[% notification.targetMarketCountryCode %]</targetMarketCountryCode>
 				</catalogueItemReference>
 			</catalogue_item_confirmation:catalogueItemConfirmation>
 		</documentCommand>

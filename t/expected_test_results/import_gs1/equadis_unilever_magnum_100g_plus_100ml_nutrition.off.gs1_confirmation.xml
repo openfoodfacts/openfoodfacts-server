@@ -19,17 +19,17 @@
 	</sh:StandardBusinessDocumentHeader>
 	<transaction>
 		<transactionIdentification>
-			<entityIdentification></entityIdentification>
+			<entityIdentification>3027800020301_CIN3b6015e239214fb5a9d57dede6880d72342_TransactionID</entityIdentification>
 			<contentOwner>
-				<gln></gln>
+				<gln>3011780500106</gln>
 			</contentOwner>
 		</transactionIdentification>
 		<documentCommand>
 			<documentCommandHeader type="">
 				<documentCommandIdentification>
-					<entityIdentification></entityIdentification>
+					<entityIdentification>3027800020301_CIN3b6015e239214fb5a9d57dede6880d72342_DocID</entityIdentification>
 					<contentOwner>
-						<gln></gln>
+						<gln>3011780500106</gln>
 					</contentOwner>
 				</documentCommandIdentification>
 			</documentCommandHeader>
@@ -49,8 +49,8 @@
 				</catalogueItemConfirmationState>
 				<catalogueItemReference>
 					<dataSource></dataSource>
-					<gtin></gtin>
-					<targetMarketCountryCode></targetMarketCountryCode>
+					<gtin>08714100689370</gtin>
+					<targetMarketCountryCode>250</targetMarketCountryCode>
 				</catalogueItemReference>
 			</catalogue_item_confirmation:catalogueItemConfirmation>
 		</documentCommand>
