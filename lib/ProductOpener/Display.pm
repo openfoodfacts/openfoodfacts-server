@@ -1420,7 +1420,6 @@ sub display_text($)
 	# Replace included texts
 	$html =~ s/\[\[(.*?)\]\]/$replace_file->($1)/eg;
 
-
 	while ($html =~ /<scripts>(.*?)<\/scripts>/s) {
 		$html = $` . $';
 		$scripts .= $1;
@@ -1434,10 +1433,10 @@ sub display_text($)
 	# wikipedia style links [url text]
 	$html =~ s/\[(http\S*?) ([^\]]+)\]/<a href="$1">$2<\/a>/g;
 
-
-	if ($html =~ /<h1>(.*)<\/h1>/) {
+	# Remove the title from the content to put it in the title field
+	if ($html =~ /<h1>(.*?)<\/h1>/) {
 		$title = $1;
-		#$html =~ s/<h1>(.*)<\/h1>//;
+		$html = $` . $';
 	}
 
 	# Generate a table of content
@@ -1565,19 +1564,14 @@ sub display_mission($)
 
 	open(my $IN, "<:encoding(UTF-8)", "$data_root/lang/$lang/missions/$missionid.html");
 	my $html = join('', (<$IN>));
-	my $title = undef;
-	if ($html =~ /<h1>(.*)<\/h1>/) {
-		$title = $1;
-		#$html =~ s/<h1>(.*)<\/h1>//;
-	}
 
-	$request_ref->{title} = lang("mission_") . $title;
 	$request_ref->{content_ref} = \$html;
 	$request_ref->{canon_url} = canonicalize_tag_link("missions", $missionid);
 
 	display_page($request_ref);
 	exit();
 }
+
 
 sub get_cache_results($$){
 
@@ -4153,14 +4147,15 @@ HTML
 			$request_ref->{title} = $title;
 		}
 
-		my $itemtype = "https://schema.org/Thing";
 		if ($tagtype eq "brands") {
-			$itemtype = "https://schema.org/Brand";
+			$request_ref->{schema_org_itemtype} = "https://schema.org/Brand";
+		}
+		else {
+			$request_ref->{schema_org_itemtype} = "https://schema.org/Thing";
 		}
 
 		# TODO: Producer
 
-		$html = "<div itemscope itemtype=\"" . $itemtype . "\"><h1 itemprop=\"name\">" . $title ."</h1>" . $html . "</div>";
 		${$request_ref->{content_ref}} .= $html . search_and_display_products($request_ref, $query_ref, $sort_by, undef, undef);
 	}
 
@@ -5178,7 +5173,7 @@ sub search_and_display_products($$$$$) {
 	$template_data_ref->{sort_by} = $sort_by;
 
 	# Query from search form: display a link back to the search form
-	if ($request_ref->{current_link_query} =~ /action=process/) {
+	if (defined($request_ref->{current_link_query}) && $request_ref->{current_link_query} =~ /action=process/) {
 		$template_data_ref->{current_link_query_edit} = $request_ref->{current_link_query};
 		$template_data_ref->{current_link_query_edit} =~ s/action=process/action=display/;
 	}
@@ -6773,7 +6768,6 @@ sub display_page($) {
 	my $content_ref = $request_ref->{content_ref};
 	my $blocks_ref = $request_ref->{blocks_ref};
 
-
 	my $meta_description = '';
 
 	my $content_header = '';
@@ -6783,7 +6777,6 @@ sub display_page($) {
 	my $object_ref;
 	my $type;
 	my $id;
-
 
 	$log->debug("displaying blocks") if $log->is_debug();
 
@@ -6810,12 +6803,6 @@ sub display_page($) {
 
 	$title =~ s/<([^>]*)>//g;
 
-	my $h1_title= '';
-
-	if ((${$content_ref} !~ /<h1/) and (defined $title)) {
-		$h1_title = "<h1>$title</h1>";
-	}
-
 	my $textid = undef;
 	if ((defined $description) and ($description =~ /^textid:/)) {
 		$textid = $';
@@ -6830,8 +6817,6 @@ sub display_page($) {
 		$description =~ s/"/'/g;
 		$meta_description = "<meta name=\"description\" content=\"$description\">";
 	}
-
-
 
 	my $canon_title = '';
 	if (defined $title) {
@@ -6910,6 +6895,11 @@ sub display_page($) {
 	$template_data_ref->{formatted_subdomain} = $formatted_subdomain;
 	$template_data_ref->{css_timestamp} = $file_timestamps{'css/dist/app-' . lang('text_direction') . '.css'};
 	$template_data_ref->{header} = $header;
+	$template_data_ref->{page_type} = $request_ref->{page_type};
+
+	if ($request_ref->{schema_org_itemtype}) {
+		$template_data_ref->{schema_org_itemtype} = $request_ref->{schema_org_itemtype};
+	}
 
 	my $site_name = $Lang{site_name}{$lang};
 	if ($server_options{producers_platform}) {
@@ -7098,8 +7088,8 @@ JS
 	$template_data_ref->{aside_blocks} = $aside_blocks;
 	$template_data_ref->{tagline} = $tagline;
 	$template_data_ref->{blocks} = $blocks;
-	$template_data_ref->{h1_title} = $h1_title;
-	$template_data_ref->{content_ref} = $$content_ref;
+	$template_data_ref->{title} = $title;
+	$template_data_ref->{content} = $$content_ref;
 	$template_data_ref->{join_us_on_slack} = $join_us_on_slack;
 
 	# init javascript code
@@ -8257,11 +8247,6 @@ sub display_product_jqm ($) # jquerymobile
 
 
 	my @fields = qw(generic_name quantity packaging br brands br categories br labels br origins br manufacturing_places br emb_codes purchase_places stores);
-
-
-
-
-	$html .= "<h1>$product_ref->{product_name}</h1>";
 
 	if ($code =~ /^2000/) { # internal code
 	}

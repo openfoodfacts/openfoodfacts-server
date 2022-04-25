@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<catalogue_item_confirmation:catalogueItemConfirmationMessage xmlns:catalogue_item_confirmation="urn:gs1:gdsn:catalogue_item_confirmation:xsd:3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:gs1:gdsn:catalogue_item_confirmation:xsd:3 http://www.gdsregistry.org/3.1/schemas/gs1/gdsn/CatalogueItemConfirmation.xsd" xmlns:sh="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader">
+	<sh:StandardBusinessDocumentHeader>
+		<sh:HeaderVersion>1.0</sh:HeaderVersion>
+		<sh:Sender>
+			<sh:Identifier Authority="GS1"></sh:Identifier>
+		</sh:Sender>
+		<sh:Receiver>
+			<sh:Identifier Authority="GS1"></sh:Identifier>
+		</sh:Receiver>
+		<sh:DocumentIdentification>
+			<sh:Standard>GS1</sh:Standard>
+			<sh:TypeVersion>3.1</sh:TypeVersion>
+			<sh:InstanceIdentifier></sh:InstanceIdentifier>
+			<sh:Type>catalogueItemConfirmation</sh:Type>
+			<sh:MultipleType>false</sh:MultipleType>
+			<sh:CreationDateAndTime></sh:CreationDateAndTime>
+		</sh:DocumentIdentification>
+	</sh:StandardBusinessDocumentHeader>
+	<transaction>
+		<transactionIdentification>
+			<entityIdentification></entityIdentification>
+			<contentOwner>
+				<gln></gln>
+			</contentOwner>
+		</transactionIdentification>
+		<documentCommand>
+			<documentCommandHeader type="">
+				<documentCommandIdentification>
+					<entityIdentification></entityIdentification>
+					<contentOwner>
+						<gln></gln>
+					</contentOwner>
+				</documentCommandIdentification>
+			</documentCommandHeader>
+			<catalogue_item_confirmation:catalogueItemConfirmation>
+				<creationDateTime></creationDateTime>
+				<documentStatusCode>ORIGINAL</documentStatusCode>
+				<catalogueItemConfirmationIdentification>
+					<entityIdentification></entityIdentification>
+					<contentOwner>
+						<gln></gln>
+					</contentOwner>
+				</catalogueItemConfirmationIdentification>
+				<catalogueItemConfirmationState>
+					<catalogueItemConfirmationStateCode></catalogueItemConfirmationStateCode>
+					<recipientGLN></recipientGLN>
+					<recipientDataPool></recipientDataPool>
+				</catalogueItemConfirmationState>
+				<catalogueItemReference>
+					<dataSource></dataSource>
+					<gtin></gtin>
+					<targetMarketCountryCode></targetMarketCountryCode>
+				</catalogueItemReference>
+			</catalogue_item_confirmation:catalogueItemConfirmation>
+		</documentCommand>
+	</transaction>
+</catalogue_item_confirmation:catalogueItemConfirmationMessage>

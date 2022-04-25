@@ -57,6 +57,7 @@ BEGIN
 
 		&init_csv_fields
 		&read_gs1_json_file
+		&write_gs1_confirmation_file
 		&write_off_csv_file
 		&print_unknown_entries_in_gs1_maps
 
@@ -68,6 +69,7 @@ use vars @EXPORT_OK ;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::Display qw/$tt process_template/;
 
 use JSON::PP;
 use boolean;
@@ -365,13 +367,117 @@ foreach my $tag (sort keys %{$gs1_maps{packagingMarkedLabelAccreditationCode}}) 
 }
 
 
-=head2 %gs1_to_off
+=head2 %gs1_message_to_off
 
-Defines the structure of the GS1 data and how it maps to the OFF data.
+Defines the structure of the GS1 message data and how to extract the fields useful to create a message confirmation.
 
 =cut
 
-my %gs1_to_off = (
+my %gs1_message_to_off = (
+
+	fields => [
+
+		["catalogue_item_notification:catalogueItemNotificationMessage", {
+				fields => [
+					["sh:StandardBusinessDocumentHeader", {
+							fields => [
+
+							],
+						}
+					],
+
+					["transaction", {
+							fields => [
+								["transactionIdentification", {
+										fields => [
+											["entityIdentification", "transactionIdentification_entityIdentification"],
+											["contentOwner", {
+													fields => [
+														["gln", "transactionIdentification_contentOwner_gln"],
+													],
+												}
+											],
+										],
+									},
+								],
+
+								["documentCommand", {
+										fields => [
+											["documentCommandHeader", {
+													fields => [
+														["documentCommandIdentification", {
+																fields => [
+																	["entityIdentification", "documentCommandIdentification_entityIdentification"],
+																	["contentOwner", {
+																			fields => [
+																				["gln", "documentCommandIdentification_contentOwner_gln"],
+																			],
+																		}
+																	],
+																],
+															},
+														],
+														["type", "documentCommandHeader.type"],
+													],
+												},
+											],
+
+											["catalogue_item_notification:catalogueItemNotification", {
+													fields => [
+														["creationDateTime", "catalogueItemNotification_creationDateTime"],
+														["documentStatusCode", "catalogueItemNotification_documentStatusCode"],
+														["catalogueItemNotificationIdentification", {
+																fields => [
+																	["entityIdentification", "catalogueItemNotificationIdentification_entityIdentification"],
+																	["contentOwner", {
+																			fields => [
+																				["gln", "catalogueItemNotificationIdentification_contentOwner_gln"],
+																			],
+																		}
+																	],
+																],
+															},
+														],
+														["catalogueItem", {
+																fields => [
+																	["tradeItem", {
+																			fields => [
+																				["gtin", "gtin"],
+																				["targetMarket", {
+																						fields => [
+																							["targetMarketCountryCode", "targetMarketCountryCode"],
+																						],
+																					},
+																				],
+																			],
+																		},
+																	],
+																],
+															},
+														]
+													],
+												},
+											],
+										],
+									},
+								],
+							],
+						}
+					],
+				],
+			}
+		],
+	],
+);
+
+
+=head2 %gs1_product_to_off
+
+Defines the structure of the GS1 product data and how it maps to the OFF data.
+
+=cut
+
+my %gs1_product_to_off = (
 
 	match => [
 		["isTradeItemAConsumerUnit", "true"],
@@ -960,42 +1066,49 @@ sub gs1_to_off ($$$) {
 								my $nutrient_value;
 								my $nutrient_unit;
 								
-								# quantityContained may be an array with a single hash
-								if ((defined $nutrient_detail_ref->{quantityContained}) and (ref($nutrient_detail_ref->{quantityContained}) eq "ARRAY")) {
-									$nutrient_detail_ref->{quantityContained} = $nutrient_detail_ref->{quantityContained}[0];
+								# quantityContained may be a single hash, or an array of hashes
+								# e.g. for the energy ENER- field, there are values in kJ and kcal that can be specified in different ways:
+								# - Equadis has 2 ENER- nutrientDetail, each with a single quantityContained hash
+								# - Agena3000 has 1 ENER- nutrientDetail with an array of 2 quantityContained
+								# --> convert a single hash to an array with a hash
+								if ((defined $nutrient_detail_ref->{quantityContained}) and (ref($nutrient_detail_ref->{quantityContained}) ne "ARRAY")) {
+									$nutrient_detail_ref->{quantityContained} = [$nutrient_detail_ref->{quantityContained}];
 								}
+
+								foreach my $quantity_contained_ref (@{$nutrient_detail_ref->{quantityContained}}) {
 								
-								if (defined $nutrient_detail_ref->{quantityContained}{'#'}) {
-									$nutrient_value = $nutrient_detail_ref->{quantityContained}{'#'};
-									$nutrient_unit = $gs1_maps{measurementUnitCode}{$nutrient_detail_ref->{quantityContained}{'@'}{measurementUnitCode}};
-								}
-								elsif (defined $nutrient_detail_ref->{quantityContained}{'$t'}) {
-									$nutrient_value = $nutrient_detail_ref->{quantityContained}{'$t'};
-									$nutrient_unit = $gs1_maps{measurementUnitCode}{$nutrient_detail_ref->{quantityContained}{measurementUnitCode}};
-								}
-								else {
-									$log->error("gs1_to_off - unrecognized quantity contained",
-												{ quantityContained => $nutrient_detail_ref->{quantityContained} }) if $log->is_error();
-								}
-								
-								# less than < modifier
-								if ((defined $nutrient_detail_ref->{measurementPrecisionCode})
-									and ($nutrient_detail_ref->{measurementPrecisionCode} eq "LESS_THAN")) {
-									$nutrient_value = "< " . $nutrient_value;
-								}
-								
-								# energy: based on the nutrient unit, assign the energy-kj or energy-kcal field
-								if ($nid eq "energy") {
-									if ($nutrient_unit eq "kcal") {
-										$nutrient_field = "energy-kcal" . $type . "_" . $per;
+									if (defined $quantity_contained_ref->{'#'}) {
+										$nutrient_value = $quantity_contained_ref->{'#'};
+										$nutrient_unit = $gs1_maps{measurementUnitCode}{$quantity_contained_ref->{'@'}{measurementUnitCode}};
+									}
+									elsif (defined $quantity_contained_ref->{'$t'}) {
+										$nutrient_value = $quantity_contained_ref->{'$t'};
+										$nutrient_unit = $gs1_maps{measurementUnitCode}{$quantity_contained_ref->{measurementUnitCode}};
 									}
 									else {
-										$nutrient_field = "energy-kj" . $type . "_" . $per;
+										$log->error("gs1_to_off - unrecognized quantity contained",
+													{ quantityContained => $quantity_contained_ref }) if $log->is_error();
 									}
+									
+									# less than < modifier
+									if ((defined $nutrient_detail_ref->{measurementPrecisionCode})
+										and ($nutrient_detail_ref->{measurementPrecisionCode} eq "LESS_THAN")) {
+										$nutrient_value = "< " . $nutrient_value;
+									}
+									
+									# energy: based on the nutrient unit, assign the energy-kj or energy-kcal field
+									if ($nid eq "energy") {
+										if ($nutrient_unit eq "kcal") {
+											$nutrient_field = "energy-kcal" . $type . "_" . $per;
+										}
+										else {
+											$nutrient_field = "energy-kj" . $type . "_" . $per;
+										}
+									}
+									
+									assign_field($results_ref, $nutrient_field . "_value", $nutrient_value);
+									assign_field($results_ref, $nutrient_field . "_unit", $nutrient_unit);
 								}
-								
-								assign_field($results_ref, $nutrient_field . "_value", $nutrient_value);
-								assign_field($results_ref, $nutrient_field . "_unit", $nutrient_unit);
 							}
 							else {
 								$log->error("gs1_to_off - unrecognized nutrient",
@@ -1322,7 +1435,7 @@ sub convert_single_text_property_to_direct_value($) {
 }
 
 
-=head2 convert_gs1_json_message_to_off_products_csv_fields ($json, $products_ref)
+=head2 convert_gs1_json_message_to_off_products_csv_fields ($json, $products_ref, $messages_ref)
 
 Thus function converts the data for one or more products in the GS1 format converted to JSON.
 GS1 format is in XML, it needs to be transformed to JSON with xml2json first.
@@ -1343,15 +1456,20 @@ Each product data will be added as one element (a hash ref) of the product data 
 
 For each product, the key of the hash is the name of the OFF csv field, and it is associated with the corresponding value for the product.
 
+=head4 $messages_ref - Reference to an array of GS1 messages data
+
+Each message will be added as one element (a hash ref) of the messages data array.
+
 =cut
 
 # pre-declare the function as it is recursive
-sub convert_gs1_json_message_to_off_products_csv($$);
+sub convert_gs1_json_message_to_off_products_csv($$$);
 
-sub convert_gs1_json_message_to_off_products_csv($$) {
+sub convert_gs1_json_message_to_off_products_csv($$$) {
 
 	my $json_ref = shift;
 	my $products_ref = shift;
+	my $messages_ref = shift;
 	
 	# Depending on how the original XML was converted to JSON,
 	# text values of XML tags can be assigned directly as the value of the corresponding key
@@ -1370,6 +1488,15 @@ sub convert_gs1_json_message_to_off_products_csv($$) {
 	# --- catalogue_item_notification:catalogueItemNotification
 	# ---- catalogueItem
 	# ----- tradeItem
+
+	# If there is an encapsulating message, extract the relevant fields
+	# that we will need to create a confirmation message
+	if (defined $json_ref->{"catalogue_item_notification:catalogueItemNotificationMessage"}) {
+		my $message_results_ref = {};
+		gs1_to_off(\%gs1_message_to_off, $json_ref, $message_results_ref);
+		$log->debug("convert_gs1_json_to_off_csv - GS1 message fields", { message_results_ref => $message_results_ref }) if $log->is_debug();
+		$log->error("convert_gs1_json_to_off_csv - GS1 message fields", { message_results_ref => $message_results_ref }) if $log->is_error();
+	}
 	
 	foreach my $field (qw(
 		catalogue_item_notification:catalogueItemNotificationMessage
@@ -1388,7 +1515,7 @@ sub convert_gs1_json_message_to_off_products_csv($$) {
 	my $child_product_json_ref = deep_get($json_ref, qw(catalogueItemChildItemLink catalogueItem));
 	if (defined $child_product_json_ref) {
 		$log->debug("convert_gs1_json_to_off_csv - found a child item", {  }) if $log->is_debug();
-		convert_gs1_json_message_to_off_products_csv($child_product_json_ref, $products_ref)
+		convert_gs1_json_message_to_off_products_csv($child_product_json_ref, $products_ref, $messages_ref)
 	}
 
 	if (defined $json_ref->{tradeItem}) {
@@ -1408,7 +1535,7 @@ sub convert_gs1_json_message_to_off_products_csv($$) {
 	
 	my $results_ref = {};
 	
-	gs1_to_off(\%gs1_to_off, $json_ref, $results_ref);
+	gs1_to_off(\%gs1_product_to_off, $json_ref, $results_ref);
 	
 	# assign the lang and lc fields
 	if (defined $results_ref->{languages}) {
@@ -1423,10 +1550,12 @@ sub convert_gs1_json_message_to_off_products_csv($$) {
 }
 
 
-=head2 read_gs1_json_file ($json_file, $products_ref)
+=head2 read_gs1_json_file ($json_file, $products_ref, $messages_ref)
 
 Read a GS1 message file in json format, convert the included products in the OFF format,
 and store the resulting products in the $products_ref array
+
+The encapsulating GS1 message is added to the $messages_ref array
 
 =head3 Arguments
 
@@ -1434,12 +1563,16 @@ and store the resulting products in the $products_ref array
 
 =head4 reference to output products array $products_ref
 
+=head4 reference to output messages array $messages_ref
+
+
 =cut
 
-sub read_gs1_json_file($$) {
+sub read_gs1_json_file($$$) {
 	
 	my $json_file = shift;
 	my $products_ref = shift;
+	my $messages_ref = shift;
 	
 	$log->debug("read_gs1_json_file", { json_file => $json_file }) if $log->is_debug();
 	
@@ -1454,7 +1587,31 @@ sub read_gs1_json_file($$) {
 	# which is the expected format of the ProductOpener::GS1 module
 	convert_single_text_property_to_direct_value($json_ref);
 		
-	convert_gs1_json_message_to_off_products_csv($json_ref, $products_ref);
+	convert_gs1_json_message_to_off_products_csv($json_ref, $products_ref, $messages_ref);
+}
+
+
+sub write_gs1_confirmation_file($$) {
+
+	my $file = shift;
+	my $message_ref = shift;
+
+	# Template data for the confirmation
+	my $confirmation_data_ref = {};
+
+	# Include the notification data in the template data for the confirmation
+	$confirmation_data_ref->{notification} = $message_ref;
+
+	my $xml;
+	if (process_template('gs1/catalogue_item_confirmation.tt.xml', $confirmation_data_ref, \$xml)) {
+		open (my $result, ">:encoding(UTF-8)", $file)
+			or die("Could not create $file: $!\n");
+		print $result $xml;
+		close $result;
+	}
+	else {
+		$log->debug("write_gs1_confirmation_file - template error", { error => $tt->error() }) if $log->is_error();
+	}
 }
 
 

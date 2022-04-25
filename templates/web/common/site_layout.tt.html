@@ -201,17 +201,18 @@
 				
 				[% INCLUDE 'web/common/includes/donate_banner.tt.html' %]
 				
-				[% h1_title %]
-
-				[% IF  page_type != "product" &&  page_type != "list_of_products"%]
-				<div class="row"><div class="small-12 column">
+				[% IF page_type == "product" %]
+					<!-- product page content contains its own h1 title -->
+					[% content %]
+				[% ELSIF schema_org_itemtype.defined %]
+					<div itemscope itemtype="[% schema_org_itemtype %]">
+						<h1 itemprop="name">[% title %]</h1>
+						[% content %]
+					</div>
+				[% ELSE %]
+					<h1>[% title %]</h1>
+					[% content %]
 				[% END %]
-				[% content_ref %]
-				[% IF  page_type != "product" &&  page_type != "list_of_products"%]
-				</div></div>
-				[% END %]
-			
-				
 			</div>
         </div>
 	</div>

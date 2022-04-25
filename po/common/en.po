@@ -119,11 +119,9 @@ msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
 msgstr "Please enter the name of your organization (company name or brand)."
 
-msgctxt "this_is_a_pro_account_for_org"
-msgid "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
-msgstr "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
-
-
+msgctxt "f_this_is_a_pro_account_for_org"
+msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
+msgstr "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"

@@ -57,8 +57,9 @@ foreach my $userid (@userids)
 		my $lc = $user_ref->{initial_lc} || "";
 		my $cc = $user_ref->{initial_cc} || "";
 		my $t = $user_ref->{registered_t} || "";
+		my $userid = $user_ref->{userid} || "";
 		print lc($user_ref->{email}) . "\t" . $lc . "\t" .  $cc . "\t" . $t . "\t"
-			. $country . "\n";
+			. $country . "\t" . $userid . "\n";
 	}
 
 }

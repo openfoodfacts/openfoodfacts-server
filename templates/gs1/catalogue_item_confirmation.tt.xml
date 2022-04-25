@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<catalogue_item_confirmation:catalogueItemConfirmationMessage xmlns:catalogue_item_confirmation="urn:gs1:gdsn:catalogue_item_confirmation:xsd:3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:gs1:gdsn:catalogue_item_confirmation:xsd:3 http://www.gdsregistry.org/3.1/schemas/gs1/gdsn/CatalogueItemConfirmation.xsd" xmlns:sh="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader">
+	<sh:StandardBusinessDocumentHeader>
+		<sh:HeaderVersion>1.0</sh:HeaderVersion>
+		<sh:Sender>
+			<sh:Identifier Authority="GS1">[% Sender.Identifier %]</sh:Identifier>
+		</sh:Sender>
+		<sh:Receiver>
+			<sh:Identifier Authority="GS1">[% Receiver.Identifier %]</sh:Identifier>
+		</sh:Receiver>
+		<sh:DocumentIdentification>
+			<sh:Standard>GS1</sh:Standard>
+			<sh:TypeVersion>3.1</sh:TypeVersion>
+			<sh:InstanceIdentifier>[% InstanceIdentifier %]</sh:InstanceIdentifier>
+			<sh:Type>catalogueItemConfirmation</sh:Type>
+			<sh:MultipleType>false</sh:MultipleType>
+			<sh:CreationDateAndTime>[% CreationDateAndTime %]</sh:CreationDateAndTime>
+		</sh:DocumentIdentification>
+	</sh:StandardBusinessDocumentHeader>
+	<transaction>
+		<transactionIdentification>
+			<entityIdentification>[% notification.transactionIdentification_entityIdentification %]</entityIdentification>
+			<contentOwner>
+				<gln>[% notification.transactionIdentification_contentOwner_gln %]</gln>
+			</contentOwner>
+		</transactionIdentification>
+		<documentCommand>
+			<documentCommandHeader type="[% documentCommandHeader.type %]">
+				<documentCommandIdentification>
+					<entityIdentification>[% documentCommandIdentification.entityIdentification %]</entityIdentification>
+					<contentOwner>
+						<gln>[% documentCommandIdentification.contentOwner %]</gln>
+					</contentOwner>
+				</documentCommandIdentification>
+			</documentCommandHeader>
+			<catalogue_item_confirmation:catalogueItemConfirmation>
+				<creationDateTime>[% CreationDateAndTime %]</creationDateTime>
+				<documentStatusCode>ORIGINAL</documentStatusCode>
+				<catalogueItemConfirmationIdentification>
+					<entityIdentification>[% catalogueItemConfirmationIdentification.entityIdentification %]</entityIdentification>
+					<contentOwner>
+						<gln>[% catalogueItemConfirmationIdentification.contentOwner %]</gln>
+					</contentOwner>
+				</catalogueItemConfirmationIdentification>
+				<catalogueItemConfirmationState>
+					<catalogueItemConfirmationStateCode>[% catalogueItemConfirmationStateCode %]</catalogueItemConfirmationStateCode>
+					<recipientGLN>[% recipientGLN %]</recipientGLN>
+					<recipientDataPool>[% recipientDataPool %]</recipientDataPool>
+				</catalogueItemConfirmationState>
+				<catalogueItemReference>
+					<dataSource>[% dataSource %]</dataSource>
+					<gtin>[% gtin %]</gtin>
+					<targetMarketCountryCode>[% targetMarketCountryCode %]</targetMarketCountryCode>
+				</catalogueItemReference>
+			</catalogue_item_confirmation:catalogueItemConfirmation>
+		</documentCommand>
+	</transaction>
+</catalogue_item_confirmation:catalogueItemConfirmationMessage>
