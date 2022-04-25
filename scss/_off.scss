@@ -467,12 +467,10 @@ a[aria-controls="idOfLeftMenu"] {
 .share_button,
 .edit_button {
     float: right;
-    margin-top: -10px;
 }
 
 .delete_button {
     float: right;
-    margin-top: -10px;
     margin-right: 10px;
 }
 
@@ -565,7 +563,7 @@ html[dir="rtl"] {
 }
 
 #preferences_switch input:checked+label {
-    background-color: #4fa125;
+  
 }
 
 .ecoscore_panel {
@@ -714,7 +712,7 @@ a.attribute_card:hover {
 }
 
 .grade_unknown {
-    background-color: rgba($grade-unknown-color, 0.1) !important;
+    background-color: $white !important;
 }
 
 a.grade_unknown:hover {
@@ -794,6 +792,35 @@ a.grade_e:hover {
 @include foundation-card;
 
 ////
+.button {
+  border-radius:$button-radius;
+}
+.align-center {align-items:center;}
+
+/* Recommended icon sizes */
+span.size-20 {
+  font-size: 20px;
+  font-variation-settings: 'OPSZ' 20;
+}
+span.size-24 {
+  font-size: 24px;
+  font-variation-settings: 'OPSZ' 24;
+}
+span.size-40 {
+  font-size: 40px;
+  font-variation-settings: 'OPSZ' 40;
+}
+span.size-48 {
+  font-size: 48px;
+  font-variation-settings: 'OPSZ' 48;
+}
 
 
+span.ico-bold {
+  font-variation-settings: 'wght' 700;
+}
 @import "topbar";
+@import "footer";
+@import "product-list" ;
+@import "product-page" ;
+@import "inputs_redesign" ;

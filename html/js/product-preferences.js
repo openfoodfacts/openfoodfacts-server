@@ -89,9 +89,9 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
 
     var html = '';
 
-    var html_edit_preferences = '<a id="show_selection_form" class="button small  round" style="margin-left:3em;" role="button" tabindex="0">' +
-        '<img src="/images/icons/dist/food-cog.svg" alt="" class="icon" style="filter:invert(1)">' +
-        " " + lang().preferences_edit_your_food_preferences + '</a>';
+    var html_edit_preferences = '<a id="show_selection_form" class="button tiny  radius"  role="button" tabindex="0">' +
+        '<span class="material-symbols-outlined">&#xE556;</span><span class="h-space-tiny">' +
+        " " + lang().preferences_edit_your_food_preferences + '</span></a>';
 
     // Display a switch for classifying according to the user preferences if
     // we are on a page with multiple products
@@ -103,10 +103,10 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
             checked = " checked";
         }
 
-        html += '<div><fieldset class="switch round success unmarged" tabindex="0" id="preferences_switch" style="float:left;margin-right:.5rem;padding-top:0.1rem;">' +
+        html += '<div class="flex-grid  v-align-center align-center direction-row"><fieldset class="switch round success unmarged" tabindex="0" id="preferences_switch" style="float:left;margin-right:.5rem;padding-top:0.1rem;">' +
             '<input id="preferences_checkbox" type="checkbox"' + checked + '>' +
             '<label for="preferences_checkbox"></label></fieldset>' +
-            '<label for="preferences_checkbox" style="float:left;margin-right:1em;padding-top:0.5rem;">' + preferences_text + '</label></div>' + html_edit_preferences;
+            '<label for="preferences_checkbox" class="v-space-tiny h-space-tiny" style="float:left">' + preferences_text + '</label></div>' + '<div>' + html_edit_preferences + '</div>';
     } else {
 
         html += preferences_text + html_edit_preferences;
@@ -235,7 +235,7 @@ function display_user_product_preferences(target_selected, target_selection_form
         });
 
         $(target_selection_form).html(
-            '<div class="panel callout">' +
+            '<div class="panel radius callout">' +
             '<div class="edit_button">' +
             '<a class="show_selected button small success round" role="button" tabindex="0">' +
             '<img src="/images/icons/dist/cancel.svg" class="icon" alt="" style="filter:invert(1)">' +
@@ -243,7 +243,7 @@ function display_user_product_preferences(target_selected, target_selection_form
             "<h2>" + lang().preferences_edit_your_food_preferences + "</h2>" +
             "<p>" + lang().preferences_locally_saved + "</p>" +
             '<a id="delete_all_preferences_button" class="button small round success" role="button" tabindex="0">' + lang().delete_all_preferences + '</a>' +
-            '<ul id="user_product_preferences" class="accordion" data-accordion>' +
+            '<ul id="user_product_preferences" class="accordion text-left" data-accordion>' +
             attribute_groups_html.join("") +
             '</ul>' +
             '<br><br>' +

@@ -13,7 +13,95 @@ $decalTop:48px;
     margin-top: 82px;
     padding-bottom:0;
     }
+    .f-dropdown {
+        a {
+            color:$primary-color;
+        }
+    }
 }
 #prodInfos {
-    margin-top :-$decalTop
+    margin-top :-$decalTop;
+    margin-left:1rem;
+    margin-right:1rem;
+}
+
+.back-to-top {
+    display:none;
+    justify-content:center;
+    align-items:center;
+    background:$primary-color;
+    border-radius:50rem;
+    width:2rem;
+    height:2rem;
+    color:$white;
+    position:fixed;
+    z-index:999;
+    bottom:4rem;
+    right:4rem;
+    &.active {
+        display:flex;
+    }
+}
+.attribute_card {
+    border:1px solid #E0E0E0a0;
+    display:flex;
+    flex-direction:column;
+    .attr_card_header {
+        display:flex;
+        flex-direction:row;
+        align-items:center;
+        .title-6 {
+            padding-left:0.5rem;
+        }
+        .img_attr {
+            width:90px;
+            height:48px;
+            img {
+                width:100% !important;
+                height:100% !important;
+                object-fit:contain;
+                object-position: center left;
+            }
+        }
+    }
+}
+
+
+///accordion-navigation
+.accordion-navigation {
+    position:relative;
+    &:after {
+        pointer-events:none;
+        display:block;
+        position:absolute;
+        content:"\E5c5";
+        font-family: 'Material Symbols Outlined';
+        font-size: 24px;
+        right:1rem;
+        top:0;
+        -webkit-font-feature-settings: 'liga';
+    }
+    &.active {
+        &:after {
+        content:"\e5c7";
+        }
+    }
+    > .content.active {
+        border-bottom:4px solid $oceanblue;
+        margin-bottom:1rem;
+    }
+}
+
+.buttons_prod {
+    margin-left:auto;
+    > div {
+        margin-left:0.5rem;
+        .button {
+            display:flex;
+            align-items:center;
+            .material-symbols-outlined {
+                margin-right:0.25rem;
+            }
+        }
+    }
 }

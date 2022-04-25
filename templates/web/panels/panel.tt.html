@@ -1,7 +1,7 @@
 [% panel = panels.$panel_id %]
 <!-- start templates/[% template.name %] - panel_id: [% panel_id %] -->
 [% IF (panel.type == "card") OR (panel.type == "inline") %]
-<div class="panel_[% panel.type %]" id="panel_[% panel_id | replace(':','-') %]"
+<div class="panel_[% panel.type %] radius" id="panel_[% panel_id | replace(':','-') %]"
     [% IF panel.size == "small" %]
         style="margin-top:0.2rem;margin-bottom:0.2rem;"
     [% ELSE %]

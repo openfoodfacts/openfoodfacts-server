@@ -279,17 +279,18 @@ function display_product_summary(target, product) {
 
         // card_html will be either a <div> or a <a> element, depending on whether it is linked to a knowledge panel
         var card_html = 'class="attribute_card grade_' + grade + '">' +
-            '<img src="' + attribute.icon_url + '" style="height:72px;float:right;margin-left:0.5rem;">' +
-            '<h4 class="grade_' + grade + '_title">' + attribute.title + '</h4>';
+            '<div><div class="attr_card_header">'+
+            '<div class="img_attr"><img src="' + attribute.icon_url + '" style="height:72px;float:right;margin-left:0.5rem;"></div>' +
+            '<div><h4 class="grade_' + grade + '_title title-6 text-bold">' + attribute.title + '</h4></div></div>';
 
         if (attribute.description_short) {
-            card_html += '<span>' + attribute.description_short + '</span>';
+            card_html += '<span class="text-small">' + attribute.description_short + '</span>';
         }
 
         if (attribute.missing) {
             card_html += "<p class='attribute_missing'>" + attribute.missing + "</p>";
         }
-
+        card_html += "</div>"
         // check if the product attribute has an associated knowledge panel that exists
         if ((attribute.panel_id) && (document.getElementById("panel_" + attribute.panel_id))) {
             // onclick : open the panel content + reflow to make sur all column content is shown

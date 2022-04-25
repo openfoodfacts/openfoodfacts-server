@@ -23,7 +23,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@200;400;500;600;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,1,200" />
+<link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,600,1,0" />
 	[% header %]
     <style media="all">
         [% lang("css") %]
@@ -196,13 +196,20 @@
 			
 			<div id="main_column"  >
 				
+				
 				<!-- main column content - comment used to remove left column and center content on some pages -->
 				
 				[% INCLUDE 'web/common/includes/donate_banner.tt.html' %]
 				
 				[% h1_title %]
 
+				[% IF  page_type != "product" &&  page_type != "list_of_products"%]
+				<div class="row"><div class="small-12 column">
+				[% END %]
 				[% content_ref %]
+				[% IF  page_type != "product" &&  page_type != "list_of_products"%]
+				</div></div>
+				[% END %]
 			
 				
 			</div>

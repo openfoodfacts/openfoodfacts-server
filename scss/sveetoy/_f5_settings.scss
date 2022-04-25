@@ -64,7 +64,7 @@ $white-color-scheme: ( font-color: $gray25, background-color: $white, );
 $black-color-scheme: ( background-color: $black, );
 $lightskyblue-color-scheme: ( background-color: $lightskyblue, );
 $skyblue-color-scheme: ( background-color: $skyblue, );
-$oceanblue-color-scheme: (font-color: $white, background-color: $oceanblue, );
+$oceanblue-color-scheme: (font-color: $white, background-color: $oceanblue,link-color:$lightskyblue,link-color-hover:$white );
 $sveetoy-colors-scheme-default: $white-color-scheme;
 $sveetoy-colors-schemes: ( white: $white-color-scheme, black: $black-color-scheme, lightskyblue: $lightskyblue-color-scheme, oceanblue:$oceanblue-color-scheme, skyblue:$skyblue-color-scheme);
 $sveetoy-color-text-palette: ( white: $white, black: $black, oceanblue: $oceanblue, dark:$gray25);
