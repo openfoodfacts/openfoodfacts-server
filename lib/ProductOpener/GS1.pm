@@ -388,13 +388,74 @@ my %gs1_message_to_off = (
 							fields => [
 								["transactionIdentification", {
 										fields => [
-											["entityIdentification" => "transactionIdentification.entityIdentification"],
+											["entityIdentification", "transactionIdentification.entityIdentification"],
 											["contentOwner", {
 													fields => [
 														["gln", "transactionIdentification.contentOwner.gln"],
-													]
+													],
 												}
-											]
+											],
+										],
+									},
+								],
+
+								["documentCommand", {
+										fields => [
+											["documentCommandHeader", {
+													fields => [
+														["documentCommandIdentification", {
+																fields => [
+																	["entityIdentification", "documentCommandIdentification.entityIdentification"],
+																	["contentOwner", {
+																			fields => [
+																				["gln", "documentCommandIdentification.contentOwner.gln"],
+																			],
+																		}
+																	],
+																],
+															},
+														],
+														["type", "documentCommandHeader.type"],
+													],
+												},
+											],
+
+											["catalogue_item_notification:catalogueItemNotification", {
+													fields => [
+														["creationDateTime", "catalogueItemNotification.creationDateTime"],
+														["documentStatusCode", "catalogueItemNotification.documentStatusCode"],
+														["catalogueItemNotificationIdentification", {
+																fields => [
+																	["entityIdentification", "catalogueItemNotificationIdentification.entityIdentification"],
+																	["contentOwner", {
+																			fields => [
+																				["gln", "catalogueItemNotificationIdentification.contentOwner.gln"],
+																			],
+																		}
+																	],
+																],
+															},
+														],
+														["catalogueItem", {
+																fields => [
+																	["tradeItem", {
+																			fields => [
+																				["gtin", "gtin"],
+																				["targetMarket", {
+																						fields => [
+																							["targetMarketCountryCode", "targetMarketCountryCode"],
+																						],
+																					},
+																				],
+																			],
+																		},
+																	],
+																],
+															},
+														]
+													],
+												},
+											],
 										],
 									},
 								],

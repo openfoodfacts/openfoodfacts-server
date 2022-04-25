@@ -11,10 +11,10 @@
 		<sh:DocumentIdentification>
 			<sh:Standard>GS1</sh:Standard>
 			<sh:TypeVersion>3.1</sh:TypeVersion>
-			<sh:InstanceIdentifier>3779000002525_0c96e017d216a49648a09da2dcbc68746</sh:InstanceIdentifier>
+			<sh:InstanceIdentifier>[% InstanceIdentifier %]</sh:InstanceIdentifier>
 			<sh:Type>catalogueItemConfirmation</sh:Type>
 			<sh:MultipleType>false</sh:MultipleType>
-			<sh:CreationDateAndTime>2022-02-23T12:15:04+01:00</sh:CreationDateAndTime>
+			<sh:CreationDateAndTime>[% CreationDateAndTime %]</sh:CreationDateAndTime>
 		</sh:DocumentIdentification>
 	</sh:StandardBusinessDocumentHeader>
 	<transaction>
@@ -25,7 +25,7 @@
 			</contentOwner>
 		</transactionIdentification>
 		<documentCommand>
-			<documentCommandHeader type="ADD">
+			<documentCommandHeader type="[% documentCommandHeader.type %]">
 				<documentCommandIdentification>
 					<entityIdentification>[% documentCommandIdentification.entityIdentification %]</entityIdentification>
 					<contentOwner>
@@ -34,7 +34,7 @@
 				</documentCommandIdentification>
 			</documentCommandHeader>
 			<catalogue_item_confirmation:catalogueItemConfirmation>
-				<creationDateTime>2022-02-23T12:15:04+01:00</creationDateTime>
+				<creationDateTime>[% CreationDateAndTime %]</creationDateTime>
 				<documentStatusCode>ORIGINAL</documentStatusCode>
 				<catalogueItemConfirmationIdentification>
 					<entityIdentification>[% catalogueItemConfirmationIdentification.entityIdentification %]</entityIdentification>
@@ -43,31 +43,15 @@
 					</contentOwner>
 				</catalogueItemConfirmationIdentification>
 				<catalogueItemConfirmationState>
-					<catalogueItemConfirmationStateCode>REVIEW</catalogueItemConfirmationStateCode>
-					<recipientGLN>3020879082287</recipientGLN>
-					<recipientDataPool>3027000006006</recipientDataPool>
+					<catalogueItemConfirmationStateCode>[% catalogueItemConfirmationStateCode %]</catalogueItemConfirmationStateCode>
+					<recipientGLN>[% recipientGLN %]</recipientGLN>
+					<recipientDataPool>[% recipientDataPool %]</recipientDataPool>
 				</catalogueItemConfirmationState>
 				<catalogueItemReference>
-					<dataSource>3013953200103</dataSource>
-					<gtin>28414933570206</gtin>
-					<targetMarketCountryCode>250</targetMarketCountryCode>
+					<dataSource>[% dataSource %]</dataSource>
+					<gtin>[% gtin %]</gtin>
+					<targetMarketCountryCode>[% targetMarketCountryCode %]</targetMarketCountryCode>
 				</catalogueItemReference>
-				<catalogueItemConfirmationStatusDetail>
-					<confirmationStatusCatalogueItem>
-						<dataSource>3013953200103</dataSource>
-						<gtin>08414933570202</gtin>
-						<targetMarketCountryCode>250</targetMarketCountryCode>
-					</confirmationStatusCatalogueItem>
-					<catalogueItemConfirmationStatus>
-						<confirmationStatusCode>CIC999</confirmationStatusCode>
-						<confirmationStatusCodeDescription languageCode="fr">ELIOR_017 : L'indication matière premières irradiée est obligatoire.</confirmationStatusCodeDescription>
-					</catalogueItemConfirmationStatus>
-					<catalogueItemConfirmationStatus>
-						<confirmationStatusCode>CIC999</confirmationStatusCode>
-						<confirmationStatusCodeDescription languageCode="fr">ELIOR_021 : Le propriétaire de la marque est obligatoire.</confirmationStatusCodeDescription>
-					</catalogueItemConfirmationStatus>
-
-				</catalogueItemConfirmationStatusDetail>
 			</catalogue_item_confirmation:catalogueItemConfirmation>
 		</documentCommand>
 	</transaction>
