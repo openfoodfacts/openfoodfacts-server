@@ -3,18 +3,18 @@
 	<sh:StandardBusinessDocumentHeader>
 		<sh:HeaderVersion>1.0</sh:HeaderVersion>
 		<sh:Sender>
-			<sh:Identifier Authority="GS1"></sh:Identifier>
+			<sh:Identifier Authority="GS1">3770026870013</sh:Identifier>
 		</sh:Sender>
 		<sh:Receiver>
-			<sh:Identifier Authority="GS1"></sh:Identifier>
+			<sh:Identifier Authority="GS1">3027000006006</sh:Identifier>
 		</sh:Receiver>
 		<sh:DocumentIdentification>
 			<sh:Standard>GS1</sh:Standard>
 			<sh:TypeVersion>3.1</sh:TypeVersion>
-			<sh:InstanceIdentifier></sh:InstanceIdentifier>
+			<sh:InstanceIdentifier>3770026870013_07d5903fc55921f293c29309e5e96eb3f01e1c4a6856abcd5fa2eb6974f4</sh:InstanceIdentifier>
 			<sh:Type>catalogueItemConfirmation</sh:Type>
 			<sh:MultipleType>false</sh:MultipleType>
-			<sh:CreationDateAndTime></sh:CreationDateAndTime>
+			<sh:CreationDateAndTime>2009-02-14T00:31:30</sh:CreationDateAndTime>
 		</sh:DocumentIdentification>
 	</sh:StandardBusinessDocumentHeader>
 	<transaction>
@@ -43,7 +43,7 @@
 					</contentOwner>
 				</catalogueItemConfirmationIdentification>
 				<catalogueItemConfirmationState>
-					<catalogueItemConfirmationStateCode></catalogueItemConfirmationStateCode>
+					<catalogueItemConfirmationStateCode>RECEIVED</catalogueItemConfirmationStateCode>
 					<recipientGLN></recipientGLN>
 					<recipientDataPool></recipientDataPool>
 				</catalogueItemConfirmationState>

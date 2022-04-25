@@ -57,6 +57,7 @@ BEGIN
 
 		&init_csv_fields
 		&read_gs1_json_file
+		&generate_gs1_message_identifier
 		&write_gs1_confirmation_file
 		&write_off_csv_file
 		&print_unknown_entries_in_gs1_maps
@@ -69,7 +70,7 @@ use vars @EXPORT_OK ;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Display qw/$tt process_template/;
+use ProductOpener::Display qw/$tt process_template display_date_iso/;
 
 use JSON::PP;
 use boolean;
@@ -1592,16 +1593,37 @@ sub read_gs1_json_file($$$) {
 }
 
 
-sub write_gs1_confirmation_file($$) {
+sub generate_gs1_message_identifier() {
+
+	# local GLN + 60 random hexadecimal characters
+	my $identifier = deep_get(\%options, qw(gs1 local_gln)) . "_";
+	$identifier .= sprintf("%x", rand 16) for 1..60;
+
+	return $identifier;
+}
+
+
+sub write_gs1_confirmation_file($$$$) {
 
 	my $file = shift;
 	my $message_ref = shift;
+	my $confirmation_instance_identifier = shift;
+
+	# For testing, we will be passed a specific time, otherwise use the current time
+	my $time = shift or time();
 
 	# Template data for the confirmation
-	my $confirmation_data_ref = {};
+	my $confirmation_data_ref = {
+		Sender_Identifier => deep_get(\%options, qw(gs1 local_gln)),
+		Receiver_Identifier => deep_get(\%options, qw(gs1 agena3000 receiver_gln)),
+		InstanceIdentifier => $confirmation_instance_identifier,
+		CreationDateAndTime => display_date_iso($time),
+		catalogueItemConfirmationStateCode => 'RECEIVED',
+	};
 
 	# Include the notification data in the template data for the confirmation
 	$confirmation_data_ref->{notification} = $message_ref;
+
 
 	my $xml;
 	if (process_template('gs1/catalogue_item_confirmation.tt.xml', $confirmation_data_ref, \$xml)) {

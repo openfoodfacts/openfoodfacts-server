@@ -3,10 +3,10 @@
 	<sh:StandardBusinessDocumentHeader>
 		<sh:HeaderVersion>1.0</sh:HeaderVersion>
 		<sh:Sender>
-			<sh:Identifier Authority="GS1">[% Sender.Identifier %]</sh:Identifier>
+			<sh:Identifier Authority="GS1">[% Sender_Identifier %]</sh:Identifier>
 		</sh:Sender>
 		<sh:Receiver>
-			<sh:Identifier Authority="GS1">[% Receiver.Identifier %]</sh:Identifier>
+			<sh:Identifier Authority="GS1">[% Receiver_Identifier %]</sh:Identifier>
 		</sh:Receiver>
 		<sh:DocumentIdentification>
 			<sh:Standard>GS1</sh:Standard>
