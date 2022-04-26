@@ -10,9 +10,9 @@
 >
     [% IF panel.title_element.defined %]
         [% IF (panel.type == "card") %]
-            <h2 class="cpanel_title_[% panel.type %]">[% panel.title_element.title %]</h2>
+            <h3 class="cpanel_title_[% panel.type %] text-bold">[% panel.title_element.title %]</h2>
         [% ELSE %]
-            <h3 class="cpanel_title_[% panel.type %]">[% panel.title_element.title %]</h3>
+            <h4 class="cpanel_title_[% panel.type %]">[% panel.title_element.title %]</h3>
         [% END %]
     [% END %]
 [% ELSE %]
@@ -50,7 +50,7 @@
                 [% END %]
             >
             [% END %]
-            <h3 [% IF panel.title_element.type == "grade" %]class="grade_[% panel.title_element.grade %]_title"[% END %]
+            <h4 [% IF panel.title_element.type == "grade" %]class="grade_[% panel.title_element.grade %]_title"[% END %]
                 [% IF panel.evaluation.defined %]class="evaluation_[%panel.evaluation %]_title"[% END %]
                 [% IF panel.size == "small" %]style="font-size:1.1rem;"[% END %]
             >
@@ -70,9 +70,9 @@
                     </span>
                 [% END %]
                 [% panel.title_element.title %]
-            </h3>
+            </h4>
             [% IF panel.title_element.subtitle.defined %]
-                <h4>[% panel.title_element.subtitle %]</h4>
+                <h5>[% panel.title_element.subtitle %]</h5>
             [% END %]
             <hr class="floatclear">
         </a>

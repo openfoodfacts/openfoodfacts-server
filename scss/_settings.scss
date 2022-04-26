@@ -185,15 +185,15 @@ $header-top-margin: .2rem;
 $header-bottom-margin: .5rem;
 $header-text-rendering: optimizeLegibility;
 // We use these to control header font sizes
-$h1-font-size: rem-calc(37);
-$h2-font-size: rem-calc(27);
-$h3-font-size: rem-calc(23);
-$h4-font-size: rem-calc(20);
+$h1-font-size: rem-calc(42);
+$h2-font-size: rem-calc(36);
+$h3-font-size: rem-calc(24);
+$h4-font-size: rem-calc(21);
 $h5-font-size: rem-calc(18);
 $h6-font-size: 1rem;
 // We use these to control header size reduction on small screens
-$h1-font-reduction: rem-calc(10);
-$h2-font-reduction: rem-calc(10);
+$h1-font-reduction: rem-calc(5);
+$h2-font-reduction: rem-calc(5);
 $h3-font-reduction: rem-calc(5);
 $h4-font-reduction: rem-calc(5);
 $h5-font-reduction: 0;

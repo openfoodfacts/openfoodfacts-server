@@ -51,6 +51,12 @@ $sveetoy-hr-default-color: #000000;
     .text-bold {
         font-weight: $font-weight-bold !important;
     }
+    @if $font-weight-medium {
+        .text-medium {
+            font-weight: $font-weight-medium !important;
+        }
+    }
+    
     @if $font-weight-strong {
         strong,
         .text-strong {

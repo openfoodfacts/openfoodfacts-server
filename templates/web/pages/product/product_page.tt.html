@@ -24,7 +24,7 @@
     <div class="block oceanblue v-space-tiny" id="prodHead">
         <div class="row h-space-normal">
             <div class="large-12 flex-grid ">
-                <h1 class="title-3" property="food:name" itemprop="name">[% title %]</h1>
+                <h1 class="title-4" property="food:name" itemprop="name">[% title %]</h1>
                 <div class="buttons_prod">
                     <!-- Edit product page -->
                     <div class="edit_button">
@@ -189,7 +189,7 @@
 
                     <div id="preferences_selected" class="text-left"></div>
                         
-                    <div id="preferences_selection_form"  class="text-left" style="display:none"></div>
+                    <div id="preferences_selection_form"  class="text-left v-space-whide h-space-wide" style="display:none"></div>
                 </div>
             </section>
 
@@ -203,7 +203,7 @@
             <div class="card">
                 <div class="card-section">
                     <!-- ingredients -->
-                    <h2 id="ingredients">[% lang('ingredients') %]</h2>
+                    <h2 id="ingredients" class="text-medium">[% lang('ingredients') %]</h2>
                     <div class="row">
                         <div class="hide-for-large-up medium-12 columns">[% ingredients_image %]</div>
                         <div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
@@ -281,7 +281,7 @@
             <div class="card">
                 <div class="card-section">               
                     [% IF nutrition_table == 'defined' %]
-                    <h2 id="nutrition_data">[% lang("nutrition_data") %]</h2>
+                    <h2 id="nutrition_data" class="text-medium">[% lang("nutrition_data") %]</h2>
                     <div class="row">
                         <div class="hide-for-large-up medium-12 columns">
                             [% nutrition_image %]
@@ -329,7 +329,7 @@
             <div class="card">
                 <div class="card-section">
                     [% IF ecoscore_grade || forest_footprint_data %]
-                        <h2 id="environmental_impact">[% lang('environmental_impact') %]</h2>
+                        <h2 id="environmental_impact" class="text-medium">[% lang('environmental_impact') %]</h2>
                     [% END %]
 
 
@@ -473,7 +473,7 @@
             <div class="card">
                 <div class="card-section">
                            
-                <h2 id="packaging">[% lang('packaging') %]</h2>
+                <h2 id="packaging" class="text-medium">[% lang('packaging') %]</h2>
                 <div class="row">
                     <div class="hide-for-large-up medium-12 columns">[% packaging_image %]</div>
                     <div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
@@ -521,7 +521,7 @@
                  
                 
                 
-                    <h2 id="product_other_information">[% lang('product_other_information') %]</h2>
+                    <h2 id="product_other_information" class="text-medium">[% lang('product_other_information') %]</h2>
                     <div class="row">
                         <div class="small-12 columns">
                             [% other_fields %]
@@ -537,16 +537,15 @@
     <section class="row">
     <!-- product_characteristics -->
         <div class="large-12 column">
-            <div class="card">
-                <div class="card-section">
+
                     [% display_field_environment_infocard %]
                     [% IF carbon_footprint_from_meat_or_fish_debug.defined %]
                         <p>debug: [% carbon_footprint_from_meat_or_fish_debug %] </p>
                     [% END %]
-                </div>
-            </div>
+       
         </div>
     </section>
+    
 [% END %]
 
 </div>
@@ -562,11 +561,18 @@
 
 <!-- Platform for producers: data quality issues and improvements opportunities -->
 [% IF server_options_producers_platform %]
+
+    <section class="row" >
+        <div class="large-12 column">
     [% display_data_quality_issues_and_improvement_opportunities %]
+        </div>
+    </section>
 [% END %]
 
 <!-- photos and data sources -->
 [%IF sources %]
+    <section class="row" >
+        <div class="large-12 column">
 	[% lang("list_of_sources") %]
 	<ul>
 	[% FOREACH source IN unique_sources %]
@@ -585,42 +591,64 @@
 		</li>
 	[% END %]
 	</ul>
+    </div>
+    </section>
 [% END %]
 
 <!-- databases data sources -->
-<h2 id="data_sources">[% lang('data_sources_p') FILTER ucfirst %]</h2>
+    <section class="row" >
+        <div class="large-12 column">
+        <h2 id="data_sources" class="text-medium">[% lang('data_sources_p') FILTER ucfirst %]</h2>
 
-[% IF data_source_database_provider %]
-	<p>[% data_source_database_provider %]</p>
-[% END %]
-[% IF data_source_database_note_about_the_producers_platform %]
-	<p>[% data_source_database_note_about_the_producers_platform %]</p>
-[% END %]
+        [% IF data_source_database_provider %]
+            <p>[% data_source_database_provider %]</p>
+        [% END %]
+        [% IF data_source_database_note_about_the_producers_platform %]
+            <p>[% data_source_database_note_about_the_producers_platform %]</p>
+        [% END %]
 
 
-<p class="details">
-    [% lang('product_added') %] [% created_date %] [% lang('by') %] [% creator %]<br>
-    [% lang('product_last_edited') %] [% last_modified_date %] [% lang('by') %] [% last_editor %].
-    [% other_editors %]
-    [% checked %]
-</p>
+        <p class="details">
+            [% lang('product_added') %] [% created_date %] [% lang('by') %] [% creator %]<br>
+            [% lang('product_last_edited') %] [% last_modified_date %] [% lang('by') %] [% last_editor %].
+            [% other_editors %]
+            [% checked %]
+        </p>
+        </div>
+    </section>
 
-<div class="alert-box info">
-    [% lang('fixme_product') %]
-</div>
+    <section class="row" >
+        <div class="large-12 column">
+            <div class="alert-box info">
+                [% lang('fixme_product') %]
+            </div>
+        </div>
+    </section>
 
 </div>
 
 [% IF (user_id.defined) %]
-    [% display_field_states %]
+    <section class="row" >
+        <div class="large-12 column">
+        [% display_field_states %]
+        </div>
+    </section>
 [% END %]
+    <section class="row" >
+        <div class="large-12 column">
 [% display_product_history %]
+        </div>
+    </section>
 
-<div class="edit_button right" style="float:right;margin-top:-10px;">
-    <a href="/cgi/product.pl?type=edit&code=[% code %]" class="button small">
-        [% display_icon('edit') %]
-        [% lang('edit_product_page') %]
-    </a>
+<div class="row" >
+    <div class="large-12 column text-center">
+        <div class="edit_button center text-center" >
+            <a href="/cgi/product.pl?type=edit&code=[% code %]" class="button small">
+                [% display_icon('edit') %]
+                [% lang('edit_product_page') %]
+            </a>
+        </div>
+    </div>
 </div>
 
 [% INCLUDE web/common/includes/folksonomy_script.tt.html %]

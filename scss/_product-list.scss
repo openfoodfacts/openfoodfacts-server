@@ -138,6 +138,11 @@ $productsGutter:12;
         display: flex;
         align-items: center;
     }
+    .f-dropdown {
+        a {
+            color:$primary-color;
+        }
+    }
 }
 #preferences_selected {
     display: flex;

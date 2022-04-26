@@ -4,26 +4,114 @@
 // 
 .upper-nav {
     background-color: $dark;
+    .userlink {
+        line-height:1rem;
+    }
+    a:hover {
+        backgound-color:$oceanblue;
+    }
     nav {
         background-color: $dark;
+    }
+    .top-bar-section {
+        background:$dark;
+        ul {
+            background:$dark;
+            li {
+                background:$dark;
+                &.active {
+                    > a {
+                        background:$black;
+                        &:hover {
+                            background:$black;
+                        }
+                    }
+                }
+            }
+        }
+        
+        @media only screen and (max-width: 1024px) {
+            display:flex;
+            justify-content: space-between;
+           .left {
+               width:17rem;
+           }
+            .right {
+                display:flex;
+                margin-left: auto;
+                float: none !important;
+                width: auto;
+                height: 3.2rem !important;
+                align-items: center;
+                .userlink {
+                    padding-right: 2rem;
+                }
+                .button {
+                    height: auto;
+                    position: relative;
+                    top: auto;
+                }
+            }
+        }
+    }
+    .top-bar-section ul li.active>a.button {
+        background:$primary-color;
+        &:hover {
+            background:$oceanblue; 
+        }
+        &.white {
+            background:$white;
+            color:$primary-color;
+        }
+    }
+    .select2-container--default .select2-selection--multiple, .select2-container--default .select2-selection--single {
+        background-color: transparent;
+        border: 0px solid #aaa;
+        color:$white;
+        .select2-selection__placeholder ,.select2-selection__arrow,.select2-selection__arrow b,.select2-selection__clear{
+            color:$white;border-color:$white transparent transparent;
+        }
+    }
+    .userlink {
+        display:flex;
+        align-items:center;
+
+    }
+    .top-bar-section .has-dropdown>a:after {
+        border-color:$white transparent transparent
     }
 }
 
 .topbarsticky {
     background: $dark;
     z-index: 10;
+    .top-bar-section ul li {
+        background: inherit;
+    }
     #offNav {
-        border-radius: 24px 24px 0 0;
         background-color: $offblue;
-        height: 82px;
-        display: flex;
-        align-items: center;
         transition:all 0.3s;
+        @media #{$large-up} {
+            border-radius: 24px 24px 0 0;
+            height: 82px;
+            display: flex;
+            align-items: center;
+        }
         .top-bar {
-            height: 62px;
+            &:not(.expanded) {
+                    height: 124px;
+                @media #{$topbar-media-query} {
+                    height: 62px;
+                 }
+            }
+            &.expanded .title-area {
+                background:$primary-color;
+            }
             width: 100%;
-            a {
-                line-height: 62px;
+            .top-bar-section {
+                a {
+                    line-height: 62px;
+                }
             }
             .name {
                 height: 62px;
@@ -39,19 +127,39 @@
         .search-li {
             height: 64px;
             display: flex;
-            width: 400px;
+            width: 100%;
+            padding: 0 1rem;
             align-items: center;
+            @media #{$topbar-media-query} {
+                width: 220px;
+
+            }
+            @media #{$large-up} {
+                width: 400px;
+            }
             .postfix-radius {
                 display: flex;
+                div:first-child {
+                    width:100%;
+                }
+                div:last-child {
+                    width:4rem
+                }
             }
             form {
                 width: 100%;
                 input {
                     height: 2.35rem;
                     &[type=text] {
-                        width: 360px;
+                        width: 100%;
                         border-color:$white;
                         box-shadow:none;
+                        @media #{$topbar-media-query} {
+                            width: 180px;
+                        }
+                        @media #{$large-up} {
+                            width: 360px;
+                        }
                     }
                 }
             }
@@ -69,6 +177,12 @@
     }
     .top-bar {
         background-color: $offblue;
+        .name h2 {
+                font-size:1.2rem;
+            @media #{$large-up} {
+                font-size:1.5rem;
+            }
+        }
     }
     &.sticky {
       #offNav {
@@ -89,9 +203,6 @@
     .top-bar-section .has-dropdown>a:after {
         border-color: rgba(0, 0, 0, 0.4) transparent transparent transparent;
     }
-    .top-bar-section ul li {
-        background: inherit;
-    }
     #select_country_li {
         padding-left: 0;
     }
@@ -111,6 +222,10 @@
             display:flex;
             span {
                 white-space:nowrap;
+                font-size:1.2rem;
+                @media #{$large-up} {
+                    font-size:1.5rem;
+                }
             }
         }
         .top-bar-section {
@@ -129,6 +244,12 @@
             .getapp {
                 margin-left: auto;
                 align-items: center;
+                @media #{$medium-up} {
+                    margin-right: 1rem;
+                }
+                @media #{$xlarge-up} {
+                    margin-right: 0;
+                }
                 a {
                     height:36px;
                     line-height:16px;
@@ -136,6 +257,14 @@
                     align-items: center;
                     border-radius:$global-radius;
                     fill:$white;
+                    .bt-text {
+                        @media #{$medium-up} {
+                        display:none;
+                    }
+                        @media #{$medium-up} {
+                        display:inline-block;
+                    }
+                }
                     span {
                         font-weight:bold;
                         font-size: 13px;

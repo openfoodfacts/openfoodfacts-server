@@ -3,7 +3,10 @@ $productsGutter:12px;
 $decalTop:48px;
 
 #prodHead {
-    padding-bottom :0
+    padding-bottom :0;
+    .flex-grid {
+        flex-wrap: nowrap;
+    }
 }
 #prodNav {
     padding-top :$productsGutter;
@@ -68,8 +71,11 @@ $decalTop:48px;
 
 
 ///accordion-navigation
-.accordion-navigation {
+.accordion-navigation,.panel .accordion .accordion-navigation  {
     position:relative;
+    float: left;
+    width: 100%;
+    margin-bottom:1rem !important;
     &:after {
         pointer-events:none;
         display:block;
@@ -87,11 +93,15 @@ $decalTop:48px;
         }
     }
     > .content.active {
-        border-bottom:4px solid $oceanblue;
-        margin-bottom:1rem;
+        border-bottom:1px solid $primary-color;
+        float:left;
+        width:100%;
+        border-radius: 0 0 8px 8px  ;
     }
 }
-
+#preferences_selection_form {
+    margin:1rem;
+}
 .buttons_prod {
     margin-left:auto;
     > div {
@@ -99,9 +109,45 @@ $decalTop:48px;
         .button {
             display:flex;
             align-items:center;
+            white-space:nowrap;
             .material-symbols-outlined {
                 margin-right:0.25rem;
             }
         }
     }
+}
+
+
+// Make active (opened) accordion look like inactive accordion
+// as we use them only for knowledge panel, with only 1 openable element
+// per accordion
+.accordion .accordion-navigation>a,
+.accordion dd>a {
+    background: #ffffff;
+    border-radius: 8px;
+    float:left;
+    width:100%;
+}
+
+.accordion .accordion-navigation.active>a,
+.accordion dd.active>a {
+    background: #ffffff;
+    border-radius: 8px 8px 0 0 ;
+}
+
+.accordion .accordion-navigation>a:hover,
+.accordion dd>a:hover {
+    background: #f0f0f0;
+    text-decoration: none;
+}
+
+
+#navbar {
+a.active {
+    text-decoration:underline;
+}
+}
+.panel_card {
+    float:left;
+    width:100%;
 }
