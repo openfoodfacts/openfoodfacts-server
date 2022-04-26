@@ -47,4 +47,6 @@ my $redirect = $static_subdomain . "/css/dist/app-" . lang('text_direction') . "
 my $r = Apache2::RequestUtil->request();
 $r->headers_out->set(Location => $redirect);
 $r->status(302);
+#pc
 return 302;
+#pc
