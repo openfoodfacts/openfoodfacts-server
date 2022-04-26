@@ -33,6 +33,16 @@ brand_owner_opencorporates:ES:33593740
 barcodeprefix:en:84360188
 #13 products @2022-04-23
 
+zz:alpina-meats
+xx:Alpina
+barcodeprefix:en:4099200
+category:en: en:prepared-meats
+
+zz:alpina-dairies
+xx:Alpina
+barcodeprefix:en:7702001
+category/dairies
+
 zz:auchan
 xx:auchan
 ru:Ашан
@@ -718,7 +728,9 @@ barcodeprefix:en:376010952
 
 zz:naturalbioaprica
 xx:Natural Bioaprica
-eutrademarknumber:en:4503868
+84360203
+category:en: en:jams
+category:en: en:cocoa-powders
 website:es:https://abellanbiofoods.com
 brand_owner:en:Abellán Biofoods S.L. - Cruce de El Raal nº 61 - E-30139 El Raal (Murcia)
 brand_owner_opencorporates:ES:30354625
@@ -728,19 +740,23 @@ wikidata:es:none
 
 zz:nestle
 xx:Nestlé
-eutrademarknumber:en:0858929
 brand_owner:en:Société des Produits Nestlé SA - Avenue Nestlé, 55 - CH-Vevey 1800
 brand_owner_opencorporates:CH:179860
 # 8476 products @2022-04-23
 
 
 <zz:nestle
-zz:aftereight
+zz:nestle-aftereight
 xx:After Eight
-eutrademarknumber:en:537952
+category:en: en:filled-chocolates
+#49 products @2022-04-23
 
 <zz:nestle
+zz:nestle-alpina
 xx:Alpina
+barcodeprefix:en:3252970
+category:en: en:dry-pastas
+#261 products @2022-04-23
 
 <zz:nestle
 xx:Aquarel
@@ -751,12 +767,10 @@ xx:Bonka
 <zz:nestle
 zz:buitoni
 xx:Buitoni
-eutrademarknumber:en:979545
 
 <zz:nestle
 zz:Cheerios
 xx:Cheerios
-eutrademarknumber:en:1096228
 
 <zz:nestle
 xx:Crunch
@@ -797,80 +811,138 @@ xx:Maggi
 xx:Milkybar
 
 <zz:nestle
+zz:nestle-nescafe
 xx:Nescafé, Nescafe
+category:en: en:instant-coffees
+# 1108 products @2022-04-26
 
-<zz:nestle
+<zz:nestle-nescafe
+zz:nestle-nescafe-classic
 xx:Nescafé Classic, Nescafe Classic
+barcodeprefix:en:693433
+category:en: en:instant-coffees
+# 2 products @2022-04-26
+#should this be seen as a separate brand?
+
+<zz:nestle-nescafe
+zz:nestle-nescafe-dolce gusto
+xx:Nescafé Dolce Gusto, Dolce Gusto
+barcodeprefix:en:761303
+category:en: en:dolce-gusto-compatible-coffee-capsules
+# 32 products @2022-04-26
+
+<zz:nestle-nescafe
+zz:nestle-nescafe-gold
+xx:Nescafé Gold, Gold
+barcodeprefix:en:7613
+category:en: en:instant-coffees
+# 7 products @2022-04-26
 
 <zz:nestle
+zz:nestle-nespresso
 xx:Nespresso
+barcodeprefix:en:76300
+category:en: en:nespresso-compatible-coffee-capsules
+# 327 products @2022-04-26
+
+<zz:nestle-nespresso
+zz:nestle-nespresso-starbucks
+xx:Starbucks by Nespresso
+barcodeprefix:en:761303
+category:en: en:nespresso-compatible-coffee-capsules
 
 <zz:nestle
-xx:Nesquik
+zz:nestle-nesquik
+xx:Nesquik, Nesquick
+barcodeprefix:en:761303
+barcodeprefix:en:338739
+category:en: en:chocolate-powders
+# 127 products @2022-04-26
 
 <zz:nestle
+zz:nestle-nestea
 xx:Nestea
+barcodeprefix:en:761303
+barcodeprefix:en:544900
+category:en: en:beverages
+# 127 products @2022-04-26
 
 <zz:nestle
-xx:Nestlé, Nestle
-
-<zz:nestle
-xx:Nestlé Gold, Nestle Gold
-
-<zz:nestle
+zz:nestlewaters
 xx:Nestlé Waters
+category:en: en:beverages
+# 11 products @2022-04-26
 
-<en:Nestlé Waters
+<zz:nestlewaters
+zz:nestlewaters-acquapanna
 xx:Acqua Panna
+barcodeprefix:en:8002270
+category:en: en:mineral-waters
+# 6 products @2022-04-26
 
-<en:Nestlé Waters
+<zz:nestlewaters
+zz:nestlewaters-aquarel
 xx:Nestlé Aquarel
+category:en: en:waters
+# 1 products @2022-04-26
 
-<en:Nestlé Waters
+<zz:nestlewaters
+zz:nestlewaters-contrex
 xx:Contrex
+barcodeprefix:en:317973
+category:en: en:waters
+# 35 products @2022-04-26
 
-<zz:nestle
-zz:nestle-hepar
+<zz:nestlewaters-contrex
+zz:nestlewaters-contrex-green
+xx:Contrex Green
+category:en: en:flavored-waters
+barcodeprefix:en:761303
+
+<zz:nestlewaters
+zz:nestlewaters-hepar
 xx:Hépar
+barcodeprefix:en:7613035
 category:en: en:natural-mineral-waters
 # 17 products @2022-04-26
+#comment:en: there is no clear single barcode prefix
 
-<zz:nestle
-zz:nestle-purelife
+<zz:nestlewaters
+zz:nestlewaters-purelife
 xx:Nestlé Pure Life
+barcodeprefix:en:68274
 category:en: en:waters
 # 5 products @2022-04-26
 
-<zz:nestle
-zz:nestle-perrier
+<zz:nestlewaters
+zz:nestlewaters-perrier
 xx:Perrier
 barcodeprefix:en:0074780
 category:en: en:beverages
 # 272 products @2022-04-26
 
-<zz:nestle
-zz:nestle-quezac
+<zz:nestlewaters
+zz:nestlewaters-quezac
 xx:Quézac
 category:en: en:waters
 # 12 products @2022-04-25
 
-<zz:nestle
-zz:nestle-sanpellegrino
+<zz:nestlewaters
+zz:nestlewaters-sanpellegrino
 xx:San Pellegrino, S.Pellegrino, Pellegrino
 barcodeprefix:en:8002270
 category:en: en:beverages
 # 176 products @2022-04-25
 
-<zz:nestle
-zz:nestle-valvert
+<zz:nestlewaters
+zz:nestlewaters-valvert
 xx:Valvert
 barcodeprefix:en:5410789
 category:en: en:mineral-waters
 # 2 products @2022-04-25
 
-#<zz:nestle-waters
-<zz:nestle
-zz:nestle-vittel
+<zz:nestlewaters
+zz:nestlewaters-vittel
 xx:Vittel
 barcodeprefix:en:317973
 barcodeprefix:en:761303
@@ -929,7 +1001,7 @@ brand_owner_opencorporates:fr:304602956
 wikipedia:fr:https://fr.wikipedia.org/wiki/Système_U
 wikidata:en:Q2529029
 # 8451 products @2022-04-25
-#comment:en:None of the subrands have specific barcodes
+#comment:en:None of the subbrands have specific barcodes
 
 <zz:u
 zz:u-saveurs
