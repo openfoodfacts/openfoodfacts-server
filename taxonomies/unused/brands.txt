@@ -192,8 +192,6 @@ brand_owner_opencorporates:ES:41229188
 <es:Aceitunas Guerra S.L.U.
 zz:guerra
 xx:Guerra
-eutrademarknumber:en:018420638
-brand_owner:en:aceitunas guerra, S.L.U. - Pirotecnia, 33 - E-28052 MADRID
 brand_owner_opencorporates:ES:83104745
 #25 products @2022-04-23
 
@@ -203,7 +201,6 @@ zz:isolabio
 xx:Isola Bio
 website:en:https://www.isolabio.com/en/
 production_company:en:Abafoods s.r.l.
-brand_owner:en:ABAFOODS S.R.L. - Via Cà Mignola Nuova, 1775 - I-45021 Badia Polesine (Rovigo)
 brand_owner_opencorporates:XX:not listed
 #106 products @2022-04-23
 
@@ -211,26 +208,27 @@ brand_owner_opencorporates:XX:not listed
 
 zz:laespanola
 xx:La Española
-brand_owner:en:Aceites del Sur-coosur S.A. - Carretera de la Carolina, 29 - E-23220 Vilches (Jaén)
+barcodeprefix:en:8410226
+barcodeprefix:en:8410660
+category:en en:Olive tree products
 brand_owner_opencorporates:ES:80245129
 #94 products @2022-04-23
 
 zz:latrappe
 xx:La Trappe
-eutrademarknumber:en:586861
+barcodeprefix:en:8711406
+category:en en:belgian-beers
+label:en: en:authentic-trappist-product
 website:nl:https://nl.latrappetrappist.com/nl/nl.html
-brand_owner:en:Abdij O.L.V. van Koningshoeven - 3 Eindhovenseweg - NL-5056 RP BERKEL-ENSCHOT
 brand_owner_opencorporates:BE:0838355558
-production_company:nl:Bierbrouwerij De Koningshoeven NV
-production_company_opencorporates:NL:18042956
 wikidata:en:Q590921
 #11 products @2022-04-23
 
-fr:A.C.D. Lec, E. Leclerc, Association des Centres Distributeurs E. Leclerc
 zz:leclerc
 xx:Leclerc
+# fr:A.C.D. Lec, E. Leclerc, Association des Centres Distributeurs E. Leclerc
 
-<en: Leclerc
+<zz:leclerc
 fr: €CO+, ÉCO+, Économies comme Objectif, E.C.O.+
 
 <zz:leclerc
@@ -831,97 +829,160 @@ xx:Nestlé Aquarel
 <en:Nestlé Waters
 xx:Contrex
 
-<en:Nestlé Waters
+<zz:nestle
+zz:nestle-hepar
 xx:Hépar
+category:en: en:natural-mineral-waters
+# 17 products @2022-04-26
 
-<en:Nestlé Waters
+<zz:nestle
+zz:nestle-purelife
 xx:Nestlé Pure Life
+category:en: en:waters
+# 5 products @2022-04-26
 
-<en:Nestlé Waters
+<zz:nestle
+zz:nestle-perrier
 xx:Perrier
+barcodeprefix:en:0074780
+category:en: en:beverages
+# 272 products @2022-04-26
 
-<en:Nestlé Waters
+<zz:nestle
+zz:nestle-quezac
 xx:Quézac
+category:en: en:waters
+# 12 products @2022-04-25
 
-<en:Nestlé Waters
-xx:S.Pellegrino, San Pellegrino
+<zz:nestle
+zz:nestle-sanpellegrino
+xx:San Pellegrino, S.Pellegrino, Pellegrino
+barcodeprefix:en:8002270
+category:en: en:beverages
+# 176 products @2022-04-25
 
-<en:Nestlé Waters
+<zz:nestle
+zz:nestle-valvert
 xx:Valvert
+barcodeprefix:en:5410789
+category:en: en:mineral-waters
+# 2 products @2022-04-25
 
-<en:Nestlé Waters
-zz:vittel
+#<zz:nestle-waters
+<zz:nestle
+zz:nestle-vittel
 xx:Vittel
-eutrademarknumber:en:480787
-brand_owner:en:Nestlé Waters EMENA  - 34-40 rue Guynemer - F-92130 Issy-les-Moulineaux
+barcodeprefix:en:317973
+barcodeprefix:en:761303
+category:en: en:waters
+# 90 products @2022-04-25
 
 <zz:nestle
+zz:nestle-maxibon
 xx:Maxibon
+category:en en:ice-creams-and-sorbets
+# 4 products @2022-04-25
+
+#<zz:nestle
+#xx:Nestlé Purina PetCare, Purina
 
 <zz:nestle
-xx:Nestlé Purina PetCare, Purina
-
-<zz:nestle
+zz:nestle-solis
 xx:Solís, Solis
+barcodeprefix:en:7613031
+barcodeprefix:en:8413000
+# 33 products @2022-04-25
 
 <zz:nestle
+zz:nestle-sveltesse
 xx:Sveltesse
+barcodeprefix:en:3023290
+# 37 products @2022-04-25
 
-<zz:nestle.
-xx:Taster's Choice, Tasters Choice
+#<zz:nestle
+#zz:nestle-tasterschoice
+#xx:Taster's Choice, Tasters Choice
+# no products @2022-04-25
+
+###################### P P P P P P P P P P P P P P P P P
+
+zz:perrier-chocolate
+xx:Perrier
+category:en: en:cocoa-and-its-products
+barcodeprefix:en:7610036
+# 1 products @2022-04-25
 
 ###################### S S S S S S S S S S S S S S S S S
 
 zz:sanjuandelvalle
 xx:San Juan del Valle
-eutrademarknumber:en:010362234
-brand_owner:en:Agricola Santa Eulalia S.L  - P.B. LEBOR ALTO S/N - E-30850 TOTANA
+barcodeprefix:en:8437000
 brand_owner_opencorporates:ES:30417109
+# 1 products @2022-04-25
 
 ###################### U U U U U U U U U U U U U U U U U
 
 zz:u
 xx:U, Les produits U
+barcodeprefix:en:3256228
 brand_owner_opencorporates:fr:304602956
 wikipedia:fr:https://fr.wikipedia.org/wiki/Système_U
 wikidata:en:Q2529029
+# 8451 products @2022-04-25
+#comment:en:None of the subrands have specific barcodes
 
 <zz:u
-zz:usaveurs
+zz:u-saveurs
 xx:U Saveurs
+# 778 products @2022-04-25
 
 <zz:u
-zz:ubio
+zz:u-bio
 xx:U Bio
 labels:en: en:organic
+# 961 products @2022-04-25
+
+#<zz:u
+#zz:u-nature
+#xx:U Nature
+# no products @2022-04-25
+
+#<zz:u
+#zz:u-byu
+#xx:By U
+# no products @2022-04-25
 
 <zz:u
-zz:unature
-xx:U Nature
-
-<zz:u
-zz:byu
-xx:By U
-
-<zz:u
-zz:utoutpetits
+zz:u-toutpetits
 xx:U tout petits
+category:en: en:baby-foods
+# 118 products @2022-04-25
 
-<zz:u
-zz:ucollection
-xx:U collection
+#<zz:u
+#zz:u-collection
+#xx:U collection
+# no products @2022-04-25
 
-<zz:u
-zz:uessentiel
-xx:U essentiel
+#<zz:u
+#zz:u-essentiel
+#xx:U essentiel
+# no products @2022-04-25
 
-<zz:u
-zz:umaison
-xx:U maison
+#<zz:u
+#zz:u-maison
+#xx:U maison
+# no products @2022-04-25
 
-<zz:u
-zz:uclubvinsetterroirs
-xx:Club Vins & Terroirs
+#<zz:u
+#zz:u-clubvinsetterroirs
+#xx:Club Vins & Terroirs
+# no products @2022-04-25
+
+zz:valvert
+xx:Valvert
+barcodeprefix:en:370034
+category:en: en:butters
+# 1 products @2022-04-25
 
 ################################################################################################################################################
 #                                             BELOW THIS LINE, STILL NEED TO BE DONE
