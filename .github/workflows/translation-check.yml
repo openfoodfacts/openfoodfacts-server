@@ -2,7 +2,7 @@ name: Translations check
 
 on:
   pull_request:
-    paths: ["**.po", "**.pot"]
+    paths: ["**.po", "**.pot", ".github/workflows/translation-check.yml"]
 
 jobs:
   validate:
@@ -11,35 +11,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-
-      # taken from Tar-Minyatur/gettext-validation, (MIT License)
-      # but adding an exception for lol.po (crowdin ids tracking)
+      - name: install gettext (i18n) tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gettext
       - name: Validate translation files
         run: |
-        apt install -y gettext
-
-        echo "Checking .po files in po/..."
-        ERRORS=0
-        for filename in $(find po/ -type f -name \*.po)
-        do
-          if [ $filename = "lol.po"]
-            continue
-          fi
-          echo -n "→ $filename..."
-          msgfmt "$filename"
-          returnValue=$?
-          if [ $returnValue -ne 0 ]; then
-            ERRORS=`expr $ERRORS + 1`
-            echo "contains errors!"
-          else
-            echo "ok"
-          fi
-        done
-        echo ""
-        if [ $ERRORS -gt 0 ]; then
-          echo "FOUND $ERRORS ERROR(S) IN THE TRANSLATION FILES. SEE ABOVE FOR DETAILS."
-          exit 1
-        else
-          echo "No errors found."
-          exit 0
-        fi
+          scripts/check-translations.sh

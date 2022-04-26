@@ -193,6 +193,10 @@ check_perl_fast:
 	@echo "🥫checking ${TO_CHECK}"
 	${DOCKER_COMPOSE} run --rm backend make -j ${CPU_COUNT} ${TO_CHECK}
 
+check_translations:
+	@echo "🥫checking translations"
+	${DOCKER_COMPOSE} run --rm backend scripts/check-translations.sh
+
 # check all perl files compile (takes time, but needed to check a function rename did not break another module !)
 check_perl:
 	@echo "🥫checking all perl files"
