@@ -13,8 +13,17 @@
     nav {
         background-color: $dark;
     }
+
     .top-bar-section {
         background:$dark;
+        .dropdown li:not(.has-form):hover>a:not(.button) {
+            background:$primary-color;
+            color:$white;
+        }
+        .dropdown li.active:not(.has-form):hover>a:not(.button) {
+            
+            color:$black;
+        }
         ul {
             background:$dark;
             li {
@@ -99,6 +108,12 @@
         }
         .top-bar {
             width: 100%;
+            @media #{$medium-up} {
+             li:not(.has-form) a:not(.button):hover {
+                 background:transparent;
+                 color:$black;
+                }
+            }
             &:not(.expanded) {
                     height: 124px;
                 @media #{$topbar-media-query} {
