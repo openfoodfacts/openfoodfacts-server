@@ -172,13 +172,18 @@ $productsGutter:12;
         align-items: center;
         a {
             border-radius: 50%;
-            width: 1.8rem;
-            height: 1.8rem;
+            width: 2.2rem;
+            height: 2.2rem;
             text-align: center;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
+            font-size: 0.9em;
+            &[rel="next$nofollow"],&[rel="prev$nofollow"] {
+                width: 5rem;
+                border-radius: 1rem;
+            }
         }
     }
 }
