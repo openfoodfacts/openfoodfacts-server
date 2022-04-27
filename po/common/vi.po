@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: vi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-04-15 12:35\n"
+"PO-Revision-Date: 2022-04-23 02:38\n"
 "Language-Team: Vietnamese\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -122,9 +122,9 @@ msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
 msgstr "Vui lòng nhập tên tổ chức của bạn (tên công ty hoặc thương hiệu)."
 
-msgctxt "this_is_a_pro_account_for_org"
-msgid "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
-msgstr "Tài khoản này là tài khoản chuyện nghiệp được liên kết với nhà sản xuất hoặc thương hiệu %s. Bạn có quyền truy cập vào Nền Tảng dành cho Nhà Sản Xuất."
+msgctxt "f_this_is_a_pro_account_for_org"
+msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
+msgstr "Tài khoản này là tài khoản chuyện nghiệp được liên kết với nhà sản xuất hoặc thương hiệu {org}. Bạn có quyền truy cập vào Nền Tảng dành cho Nhà Sản Xuất."
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -3002,7 +3002,7 @@ msgstr "Khối lượng tịnh"
 
 msgctxt "drained_weight"
 msgid "Drained weight"
-msgstr ""
+msgstr "Trọng lượng rắn"
 
 msgctxt "volume"
 msgid "Volume"
@@ -3190,7 +3190,7 @@ msgstr "Phát thải cố định hàng năm: 2 tấn CO<sub>2</sub> tương đ�
 
 msgctxt "carbon_footprint_note_uncertainty"
 msgid "Carbon footprint calculations have high uncertainty. Values should be looked at with caution and are more intended for relative comparison than as absolute values."
-msgstr ""
+msgstr "Tính toán lượng carbon có độ không chắc chắn cao. Giá trị cần được xem xét một cách thận trọng và nhắm mục đích so sánh tương đối nhiều hơn là một giá trị tuyệt đối."
 
 msgctxt "error_too_many_products_to_export"
 msgid "Too many products (%d products, the limit is %d) to export, please download the <a href=\"/data\">complete database export</a> instead."
@@ -3202,7 +3202,7 @@ msgstr "Hỗ trợ dịch từ %s sang %s"
 
 msgctxt "translate_taxonomy_description"
 msgid "You can suggest translations for the entries below that have not yet been translated to your language. The blue link and the black text (both in English) show respectively the non-localized product and the original entry incl. optional synonyms separated by commas. Enter the translation in the text field, incl. optional synonyms, and then click the Save button. Thank you!"
-msgstr ""
+msgstr "Bạn có thể đề xuất bản dịch cho các mục chưa được dịch sang ngôn ngữ của bạn bên dưới. Các liên kết màu xanh và chữ màu đen (đều ở Tiếng Anh) lần lượt hiển thị các sản phẩm chưa được bản địa hóa và các mục nhập gốc bao gồm các từ đồng nghĩa tùy chọn được phân cách bởi dấu phẩy. Nhập bản dịch trong trường văn bản, bảo gồm các từ đồng nghĩa, sau đó bấm nút Lưu. Xin cảm ơn!"
 
 msgctxt "translate_taxonomy_add"
 msgid "Show only entries without pending translations."
@@ -3358,200 +3358,200 @@ msgstr "Thông tin khác"
 
 msgctxt "fields_group_images"
 msgid "Product photos"
-msgstr ""
+msgstr "Ảnh sản phẩm"
 
 msgctxt "image_front_url"
 msgid "Link to front product photo"
-msgstr ""
+msgstr "Liên kết đến ảnh mặt trước sản phẩm"
 
 msgctxt "image_ingredients_url"
 msgid "Link to ingredients list photo"
-msgstr ""
+msgstr "Liên kết đến ảnh danh sách thành phần"
 
 msgctxt "image_nutrition_url"
 msgid "Link to nutrition facts table photo"
-msgstr ""
+msgstr "Liên kết đến ảnh bảng thông tin dinh dưỡng"
 
 msgctxt "image_other_url"
 msgid "Link to other product photo"
-msgstr ""
+msgstr "Liên kết đến ảnh khác về sản phẩm"
 
 msgctxt "labels_specific"
 msgid "Specific label"
-msgstr ""
+msgstr "Nhãn dán cụ thể"
 
 msgctxt "categories_specific"
 msgid "Specific category"
-msgstr ""
+msgstr "Danh mục cụ thể"
 
 msgctxt "sources_fields_specific"
 msgid "Source specific field"
-msgstr ""
+msgstr "Nguồn trường cụ thể"
 
 msgctxt "select_a_field"
 msgid "Select a field"
-msgstr ""
+msgstr "Chọn một trường"
 
 msgctxt "specify"
 msgid "Specify"
-msgstr ""
+msgstr "Chỉ định"
 
 msgctxt "value_unit_dropdown"
 msgid "In the dropdown menu on the right, specify if the column contains:"
-msgstr ""
+msgstr "Trong menu thả xuống bên tay phải, chỉ định xem cột có chứa:"
 
 msgctxt "value_unit_dropdown_value_unit"
 msgid "the value and the unit"
-msgstr ""
+msgstr "giá trị và đơn vị"
 
 msgctxt "value_unit_dropdown_value_specific_unit"
 msgid "the value in a specific unit"
-msgstr ""
+msgstr "giá trị trong một đơn vị cụ thể"
 
 msgctxt "value_unit_dropdown_value"
 msgid "only the value, with the unit in another column"
-msgstr ""
+msgstr "chỉ giá trị, với đơn vị ở một cột khác"
 
 msgctxt "value_unit_dropdown_unit"
 msgid "only the unit, with the value in another column"
-msgstr ""
+msgstr "chỉ đơn vị, với giá trị trong một cột khác"
 
 # Please do not translate Y, Yes and 1
 msgctxt "labels_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
-msgstr ""
+msgstr "Chọn tùy chọn này nếu như cột thể hiện việc có dán nhãn cụ thể (ví dụ Hữu cơ, Thương mại công bằng) khi giá trị là C, Có hoặc 1."
 
 msgctxt "labels_specific_tag_value"
 msgid "Type the name of the label in the text field on the right."
-msgstr ""
+msgstr "Gõ tên của nhãn trong trường văn bản ở bên phải."
 
 # Please do not translate Y, Yes and 1
 msgctxt "categories_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
-msgstr ""
+msgstr "Chọn tùy chọn này nếu như cột thể hiện việc có danh mục cụ thể (ví dụ Đồ uống) khi giá trị là C, Có hoặc 1."
 
 msgctxt "categories_specific_tag_value"
 msgid "Type the name of the category in the text field on the right."
-msgstr ""
+msgstr "Gõ tên danh lục vào trường văn bản ở bên phải."
 
 # Please do not translate Y, Yes and 1
 msgctxt "sources_fields_specific_tag"
 msgid "Select this option for fields that are specific to the source, and that we want to keep as source specific fields."
-msgstr ""
+msgstr "Chọn tùy chọn này cho các trường cụ thể cho nguồn và chúng tôi muốn giữ lại làm trường cụ thể cho nguồn."
 
 msgctxt "sources_fields_specific_tag_value"
 msgid "Type the name of the target field in the text field on the right, or leave blank to use the name of the source field."
-msgstr ""
+msgstr "Nhập tên của trường đích vào trường văn bản ở bên phải hoặc để trống để sử dụng tên của trường nguồn."
 
 msgctxt "value"
 msgid "Value"
-msgstr ""
+msgstr "Giá trị"
 
 msgctxt "value_unit"
 msgid "Value + Unit"
-msgstr ""
+msgstr "Giá trị + Đơn vị"
 
 msgctxt "value_in_l"
 msgid "Value in L"
-msgstr ""
+msgstr "Giá trị tính bằng L"
 
 msgctxt "value_in_dl"
 msgid "Value in dl"
-msgstr ""
+msgstr "Giá trị tính bằng dl"
 
 msgctxt "value_in_cl"
 msgid "Value in cl"
-msgstr ""
+msgstr "Giá trị tính bằng cl"
 
 msgctxt "value_in_ml"
 msgid "Value in ml"
-msgstr ""
+msgstr "Giá trị tính bằng ml"
 
 msgctxt "value_in_kg"
 msgid "Value in kg"
-msgstr ""
+msgstr "Giá trị tính bằng kg"
 
 msgctxt "value_in_g"
 msgid "Value in g"
-msgstr ""
+msgstr "Giá trị tính bằng g"
 
 msgctxt "value_in_mg"
 msgid "Value in mg"
-msgstr ""
+msgstr "Giá trị tính bằng mg"
 
 msgctxt "value_in_mcg"
 msgid "Value in μg"
-msgstr ""
+msgstr "Giá trị tính bằng μg"
 
 msgctxt "value_in_iu"
 msgid "Value in IU"
-msgstr ""
+msgstr "Giá trị tính bằng IU"
 
 msgctxt "value_in_kcal"
 msgid "Value in kcal"
-msgstr ""
+msgstr "Giá trị tính bằng kcal"
 
 msgctxt "value_in_kj"
 msgid "Value in kJ"
-msgstr ""
+msgstr "Giá trị tính bằng kJ"
 
 msgctxt "value_in_percent"
 msgid "Value in %"
-msgstr ""
+msgstr "Giá trị tính bằng%"
 
 msgctxt "no_owner_defined"
 msgid "Please log-in to use this feature."
-msgstr ""
+msgstr "Xin hãy đăng nhập để sử dụng tính năng này."
 
 msgctxt "organization"
 msgid "Organization"
-msgstr ""
+msgstr "Tổ chức"
 
 msgctxt "column_in_file"
 msgid "Column in file"
-msgstr ""
+msgstr "Cột trong tệp"
 
 msgctxt "field_on_site"
 msgid "Field on %s"
-msgstr ""
+msgstr "Trường %s"
 
 msgctxt "producers_platform"
 msgid "Platform for producers"
-msgstr ""
+msgstr "Nền tảng cho nhà sản xuất"
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_description"
 msgid "The platform for producers allows manufacturers to easily manage their product photos and data on Open Food Facts."
-msgstr ""
+msgstr "Nền tảng dành cho nhà sản xuất cho phép các nhà sản xuất dễ dàng quản lý ảnh và dữ liệu sản phẩm của họ trên Open Food Facts."
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_private_database"
 msgid "The product data and photos you send on the platform for producers are stored in a private database. You will be able to check that all the data is correct before making it available on the public Open Food Facts database."
-msgstr ""
+msgstr "Dữ liệu sản phẩm và ảnh bạn gửi trên nền tảng dành cho nhà sản xuất được lưu trữ trong cơ sở dữ liệu riêng. Bạn có thể kiểm tra xem tất cả dữ liệu có chính xác hay không trước khi cung cấp dữ liệu đó lên cơ sở dữ liệu Open Food Facts công khai."
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_licence"
 msgid "The product data and photos will become publicly available in the Open Food Facts database, under the <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a>. Individual contents of the database are available under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents License</a> and products images are available under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike licence</a>."
-msgstr ""
+msgstr "Dữ liệu sản phẩm và hình ảnh sẽ được công bố rộng rãi trong cơ sở dữ liệu Open Food Facts, theo <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a>. Các nội dung riêng lẻ của cơ sở dữ liệu có sẵn theo Giấy phép Nội dung Cơ sở dữ liệu <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">và hình ảnh sản phẩm có sẵn theo giấy phép</a> Creative Commons Attribution ShareAlike </a><a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_product_data"
 msgid "Import product data"
-msgstr ""
+msgstr "Nhập dữ liệu sản phẩm"
 
 # "product photos" in this sentence means data for many products, not just one product
 msgctxt "import_product_photos"
 msgid "Import product photos"
-msgstr ""
+msgstr "Nhập hình ảnh sản phẩm"
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "export_product_data_photos"
 msgid "Export product data and photos to the public database"
-msgstr ""
+msgstr "Xuất dữ liệu và hình ảnh sản phẩm tới cơ sở dữ liệu công khai"
 
 msgctxt "export_product_data_photos_please_check"
 msgid "Please check that the data on the platform for producers is correct before exporting it to the public database."
-msgstr ""
+msgstr "Vui lòng kiểm tra xem dữ liệu trên nền tảng dành cho nhà sản xuất có chính xác hay không trước khi xuất lên cơ sở dữ liệu công khai."
 
 msgctxt "export_photos"
 msgid "Export photos to the public database"
@@ -3692,149 +3692,149 @@ msgstr "Sản phẩm của bạn"
 # Do not translate the e-mail address
 msgctxt "account_without_org"
 msgid "Your account is not associated with a company yet. Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to activate the free access to the platform for producers."
-msgstr ""
+msgstr "Tài khoản của bạn chưa được liên kết với công ty nào. Vui lòng gửi e-mail <a href=\"mailto:producers@openfoodfacts.org\">producer@openfoodfacts.org</a> để kích hoạt quyền truy cập miễn phí vào nền tảng cho các nhà sản xuất."
 
 msgctxt "import_products"
 msgid "Import products"
-msgstr ""
+msgstr "Nhập sản phẩm"
 
 msgctxt "empty_column"
 msgid "Empty column"
-msgstr ""
+msgstr "Cột trống"
 
 msgctxt "empty_column_description"
 msgid "The file does not contain any value in this column."
-msgstr ""
+msgstr "Tệp không chứa bất kỳ giá trị nào trong cột này."
 
 msgctxt "import_file_status_title"
 msgid "Data import in progress"
-msgstr ""
+msgstr "Đang trong quá trình nhập dữ liệu"
 
 # "product data" means data for many products
 msgctxt "import_file_status_description"
 msgid "The product data has been received and is going to be imported on the platform for producers."
-msgstr ""
+msgstr "Dữ liệu sản phẩm đã được nhận và sẽ được nhập lên nền tảng dành cho nhà sản xuất."
 
 msgctxt "import_file_status"
 msgid "Status"
-msgstr ""
+msgstr "Trạng thái"
 
 msgctxt "job_status_inactive"
 msgid "Scheduled"
-msgstr ""
+msgstr "Đã lên lịch"
 
 msgctxt "job_status_active"
 msgid "In progress"
-msgstr ""
+msgstr "Đang xử lý"
 
 msgctxt "job_status_finished"
 msgid "Finished"
-msgstr ""
+msgstr "Đã hoàn tất"
 
 msgctxt "job_status_failed"
 msgid "Failed"
-msgstr ""
+msgstr "Thất bại"
 
 msgctxt "import_file_result"
 msgid "Import result"
-msgstr ""
+msgstr "Kết quả nhập"
 
 msgctxt "products_added"
 msgid "Products added"
-msgstr ""
+msgstr "Các sản phẩm đã được thêm"
 
 msgctxt "products_modified"
 msgid "Products modified"
-msgstr ""
+msgstr "Các sản phẩm đã được sửa đổi"
 
 msgctxt "import_file_result_no_change"
 msgid "There were no product added or modified. The data has probably been already imported previously."
-msgstr ""
+msgstr "Không có sản phẩm nào được thêm hay sửa đổi. Dữ liệu có thể đã được nhập lên trước đó."
 
 msgctxt "import_file_result_products"
 msgid "List of products added or modified"
-msgstr ""
+msgstr "Danh sách các sản phẩm được thêm vào hoặc sửa đổi"
 
 msgctxt "imports_p"
 msgid "imports"
-msgstr ""
+msgstr "nhập"
 
 msgctxt "imports_s"
 msgid "import"
-msgstr ""
+msgstr "nhập"
 
 msgctxt "imports"
 msgid "imports"
-msgstr ""
+msgstr "nhập"
 
 msgctxt "number_of_products_with_data_quality_errors_producers"
 msgid "Number of products with data quality errors"
-msgstr ""
+msgstr "Số lượng sản phẩm có lỗi về chất lượng sữ liệu"
 
 msgctxt "number_of_products_with_data_quality_warnings_producers"
 msgid "Number of products with data quality warnings"
-msgstr ""
+msgstr "Số lượng sản phẩm có cảnh báo về chất lượng dữ liệu"
 
 msgctxt "number_of_products_with_improvements"
 msgid "Number of products with improvement opportunities"
-msgstr ""
+msgstr "Số lượng sản phẩm có cơ hội cải tiến"
 
 msgctxt "improvements_facet_description_1"
 msgid "This table lists possible opportunities to improve the nutritional quality, the Nutri-Score and the composition of food products."
-msgstr ""
+msgstr "Bảng này liệt kê các phần có thể để cải thiện chất lượng dinh dưỡng, Điểm dinh dưỡng và thành phần của các sản phẩm thực phẩm."
 
 msgctxt "improvements_facet_description_2"
 msgid "In order to get relevant results, please make sure the product data is complete (nutrition facts with values for fiber and fruits and vegetables to compute the Nutri-Score, and a precise category to compare each product to similar products)."
-msgstr ""
+msgstr "Để có được kết quả phù hợp, vui lòng đảm bảo dữ liệu sản phẩm đầy đủ (thông tin dinh dưỡng với giá trị chất xơ, trái cây và rau quả để tính Điểm dinh dưỡng, và một danh mục chính xác để so sánh từng sản phẩm với các sản phẩm tương tự)."
 
 # "product photos" in this sentence means photos for many products, not just one product
 msgctxt "import_photos_title"
 msgid "Import product photos"
-msgstr ""
+msgstr "Nhập hình ảnh sản phẩm"
 
 msgctxt "import_photos_description"
 msgid "You can use the form below to easily upload photos (front of product, ingredients list and nutrition facts table) for many products."
-msgstr ""
+msgstr "Bạn có thể sử dụng biểu mẫu bên dưới để dễ dàng tải lên hình ảnh (mặt trước của sản phẩm, danh sách thành phần và bảng thông tin dinh dưỡng) cho nhiều sản phẩm."
 
 msgctxt "import_photos_format_1"
 msgid "Each filename needs to contains the barcode of the product."
-msgstr ""
+msgstr "Mỗi tên tệp cần chứa mã vạch của sản phẩm."
 
 msgctxt "import_photos_format_2"
 msgid "And you can also specify the type of the photo in the filename:"
-msgstr ""
+msgstr "Và bạn cũng có thể chỉ định loại ảnh trong tên tệp:"
 
 # Do not translate the file name
 msgctxt "import_photos_format_barcode"
 msgid "3001234567890.jpg: front of the product in the current language."
-msgstr ""
+msgstr "3001234567890.jpg: mặt trước của sản phẩm bằng ngôn ngữ hiện tại."
 
 # Do not translate the file name
 msgctxt "import_photos_format_front"
 msgid "3001234567890.front_nl.jpg: front of the product in Dutch."
-msgstr ""
+msgstr "3001234567890.front_nl.jpg: mặt trước của sản phẩm bằng tiếng Hà Lan."
 
 # Do not translate the file name
 msgctxt "import_photos_format_ingredients"
 msgid "3001234567890.ingredients_fr.jpg: ingredients list in French."
-msgstr ""
+msgstr "3001234567890.ingredient_fr.jpg: danh sách thành phần bằng tiếng Pháp."
 
 # Do not translate the file name
 msgctxt "import_photos_format_nutrition"
 msgid "3001234567890.nutrition_es.jpg: nutrition table in Spanish."
-msgstr ""
+msgstr "3001234567890. Nutrition_es.jpg: bảng dinh dưỡng bằng tiếng Tây Ban Nha."
 
 msgctxt "add_photos"
 msgid "Add photos..."
-msgstr ""
+msgstr "Thêm ảnh..."
 
 msgctxt "start_upload"
 msgid "Start upload"
-msgstr ""
+msgstr "Bắt đầu tải lên"
 
 msgctxt "start"
 msgid "Start"
-msgstr ""
+msgstr "Bắt đầu"
 
 msgctxt "close"
 msgid "Close"
@@ -3842,55 +3842,55 @@ msgstr "Đóng"
 
 msgctxt "cancel_upload"
 msgid "Cancel upload"
-msgstr ""
+msgstr "Hủy bỏ tải lên"
 
 msgctxt "info"
 msgid "Info"
-msgstr ""
+msgstr "Thông tin"
 
 msgctxt "file_received"
 msgid "File received"
-msgstr ""
+msgstr "Tập tin đã được nhận"
 
 msgctxt "nutriscore_calculation_details"
 msgid "Details of the calculation of the Nutri-Score"
-msgstr ""
+msgstr "Chi tiết về cách tính điểm dinh dưỡng"
 
 msgctxt "nutriscore_is_beverage"
 msgid "This product is considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Sản phẩm này được coi là một loại nước giải khát khi tính điểm Nutri-Score."
 
 msgctxt "nutriscore_is_not_beverage"
 msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Sản phẩm này không được coi là một loại nước giải khát khi tính điểm Nutri-Score."
 
 msgctxt "nutriscore_positive_points"
 msgid "Positive points"
-msgstr ""
+msgstr "Điểm cộng"
 
 msgctxt "nutriscore_negative_points"
 msgid "Negative points"
-msgstr ""
+msgstr "Điểm trừ"
 
 msgctxt "nutriscore_proteins_negative_points_less_than_11"
 msgid "The points for proteins are counted because the negative points are less than 11."
-msgstr ""
+msgstr "Điểm cho protein được tính vì điểm trừ nhỏ hơn 11."
 
 msgctxt "nutriscore_proteins_negative_points_greater_or_equal_to_11"
 msgid "The points for proteins are not counted because the negative points are greater or equal to 11."
-msgstr ""
+msgstr "Điểm cho protein không được tính vì điểm trừ lớn hơn hoặc bằng 11."
 
 msgctxt "nutriscore_proteins_maximum_fruits_points"
 msgid "The points for proteins are counted because the points for the fruits, vegetables, nuts and colza/walnut/olive oils are at the maximum."
-msgstr ""
+msgstr "Điểm cho protein được tính vì điểm cho trái cây, rau, quả hạch và colza / quả óc chó / dầu ô liu là tối đa."
 
 msgctxt "nutriscore_proteins_is_cheese"
 msgid "The points for proteins are counted because the product is in the cheeses category."
-msgstr ""
+msgstr "Điểm cho protein được tính vì sản phẩm thuộc danh mục pho mát."
 
 msgctxt "nutriscore_proteins_is_added_fat"
 msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
-msgstr ""
+msgstr "Sản phẩm nằm trong danh mục chất béo, điểm cho chất béo bão hòa được thay thế bằng điểm cho tỷ lệ chất béo bão hòa / chất béo."
 
 msgctxt "nutriscore_points_for_energy"
 msgid "Energy"
@@ -3906,7 +3906,7 @@ msgstr "Chất béo bão hòa"
 
 msgctxt "nutriscore_points_for_saturated_fat_ratio"
 msgid "Saturated fat / fat ratio"
-msgstr ""
+msgstr "Tỷ lệ chất béo bão hòa / chất béo"
 
 msgctxt "nutriscore_points_for_sodium"
 msgid "Sodium"
@@ -3914,7 +3914,7 @@ msgstr "Natri"
 
 msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
 msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
-msgstr ""
+msgstr "Trái cây, rau, quả hạch và dầu colza / quả óc chó / dầu ô liu"
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
@@ -3930,36 +3930,36 @@ msgstr "giá trị"
 
 msgctxt "nutriscore_rounded_value"
 msgid "rounded value"
-msgstr ""
+msgstr "giá trị làm tròn"
 
 msgctxt "nutriscore_score"
 msgid "Nutritional score"
-msgstr ""
+msgstr "Điểm dinh dưỡng"
 
 # Do not translate
 msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "Điểm dinh dưỡng"
 
 # This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
 msgid "Nutri-Score score"
-msgstr ""
+msgstr "Điểm dinh dưỡng"
 
 # Do not translate
 msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "Điểm dinh dưỡng"
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
 msgid "Open Food Facts is 100% free and independent."
-msgstr ""
+msgstr "Open Food Facts là 100% miễn phí và độc lập."
 
 # leave empty link
 msgctxt "donate_help_and_donations"
 msgid "<a href=\"\">We need your help and donations</a> to continue and to grow the project."
-msgstr ""
+msgstr "<a href=\"\">Chúng tôi cần sự giúp đỡ và đóng góp của bạn</a> để tiếp tục và phát triển dự án."
 
 msgctxt "thank_you"
 msgid "Thank you!"
@@ -3967,25 +3967,25 @@ msgstr ""
 
 msgctxt "value_for_the_product"
 msgid "Value for the product"
-msgstr ""
+msgstr "Giá trị cho sản phẩm"
 
 # Do not translate %s, it will be replaced by the category name
 msgctxt "value_for_the_category"
 msgid "Mean value for the %s category"
-msgstr ""
+msgstr "Giá trị trung bình cho danh mục %s"
 
 # Keep the %s
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
-msgstr ""
+msgstr "Điểm dinh dưỡng có thể được thay đổi từ %s thành %s bằng cách thay đổi giá trị %s từ %s thành %s (chênh lệch %s phần trăm)."
 
 msgctxt "export_products_to_public_database_email"
 msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
-msgstr ""
+msgstr "Nền tảng dành cho nhà sản xuất vẫn đang được phát triển và chúng tôi thực hiện các kiểm tra thủ công trước khi nhập sản phẩm vào cơ sở dữ liệu công khai. Vui lòng gửi e-mail cho chúng tôi theo địa chỉ <a href=\"mailto:producers@openfoodfacts.org\">producer@openfoodfacts.org</a> để cập nhật cơ sở dữ liệu công khai."
 
 msgctxt "user_groups"
 msgid "Groups"
-msgstr ""
+msgstr "Nhóm"
 
 msgctxt "user_group_producer"
 msgid "Producer"
@@ -3993,47 +3993,47 @@ msgstr "Nhà sản xuất"
 
 msgctxt "user_group_producer_description"
 msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
-msgstr ""
+msgstr "Chỉ được kiểm tra đối với tài khoản của nhà sản xuất tự chỉnh sửa sản phẩm của họ. Quyền sở hữu sản phẩm sẽ được quy cho nhà sản xuất khi họ thêm hoặc chỉnh sửa một sản phẩm."
 
 msgctxt "user_group_database"
 msgid "Database"
-msgstr ""
+msgstr "Cơ sở dữ liệu"
 
 msgctxt "user_group_database_description"
 msgid "For external sources of data. Product ownership of imported products will not change."
-msgstr ""
+msgstr "Đối với các nguồn dữ liệu bên ngoài. Quyền sở hữu sản phẩm của các sản phẩm được nhập lên sẽ không thay đổi."
 
 msgctxt "user_group_app"
 msgid "App"
-msgstr ""
+msgstr "Ứng dụng"
 
 msgctxt "user_group_app_description"
 msgid "For applications."
-msgstr ""
+msgstr "Đối với các ứng dụng."
 
 msgctxt "user_group_bot"
 msgid "Bot"
-msgstr ""
+msgstr "Bot"
 
 msgctxt "user_group_bot_description"
 msgid "For robots, scripts etc."
-msgstr ""
+msgstr "Đối với rô bốt, tập lệnh, v. v."
 
 msgctxt "user_group_moderator"
 msgid "Moderator"
-msgstr ""
+msgstr "Điều hành viên"
 
 msgctxt "user_group_moderator_description"
 msgid "Moderators have access to special features to edit and review products."
-msgstr ""
+msgstr "Người điều hành có quyền truy cập vào các tính năng đặc biệt để chỉnh sửa và đánh giá sản phẩm."
 
 msgctxt "user_group_pro_moderator"
 msgid "Moderator for the producers platform"
-msgstr ""
+msgstr "Người kiểm duyệt trên nền tảng nhà sản xuất"
 
 msgctxt "user_group_pro_moderator_description"
 msgid "Moderators of the producers platform can view and edit the private products of all users and organizations on the producers platform."
-msgstr ""
+msgstr "Người điều hành nền tảng nhà sản xuất có thể xem và chỉnh sửa các sản phẩm riêng của tất cả người dùng và tổ chức trên nền tảng nhà sản xuất."
 
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
@@ -4474,7 +4474,7 @@ msgstr ""
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "Điểm dinh dưỡng"
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
@@ -4953,11 +4953,11 @@ msgstr ""
 
 msgctxt "packaging_recycling"
 msgid "Recycling"
-msgstr ""
+msgstr "Tái chế"
 
 msgctxt "products_on_this_page_are_sorted_according_to_your_preferences"
 msgid "Products on this page are sorted according to your preferences:"
-msgstr ""
+msgstr "Các sản phẩm trên trang này được sắp xếp theo sở thích của bạn:"
 
 msgctxt "choose_which_information_you_prefer_to_see_first"
 msgid "Choose which information you prefer to see first."
@@ -5261,15 +5261,15 @@ msgstr ""
 
 msgctxt "minion_status_active"
 msgid "In progress"
-msgstr ""
+msgstr "Đang xử lý"
 
 msgctxt "minion_status_finished"
 msgid "Finished"
-msgstr ""
+msgstr "Đã hoàn tất"
 
 msgctxt "minion_status_failed"
 msgid "Failed"
-msgstr ""
+msgstr "Thất bại"
 
 # Export: use a noun and not a verb
 msgctxt "export_job_export"
@@ -5401,15 +5401,15 @@ msgstr ""
 
 msgctxt "ecoscore_impact"
 msgid "Impact"
-msgstr ""
+msgstr "Tác động"
 
 msgctxt "ecoscore_agriculture"
 msgid "Agriculture"
-msgstr ""
+msgstr "Nông nghiệp"
 
 msgctxt "ecoscore_processing"
 msgid "Processing"
-msgstr ""
+msgstr "Đang xử lý"
 
 msgctxt "ecoscore_packaging"
 msgid "Packaging"
@@ -5417,19 +5417,19 @@ msgstr "Bao bì"
 
 msgctxt "ecoscore_transportation"
 msgid "Transportation"
-msgstr ""
+msgstr "Vận chuyển"
 
 msgctxt "ecoscore_distribution"
 msgid "Distribution"
-msgstr ""
+msgstr "Phân phối"
 
 msgctxt "ecoscore_consumption"
 msgid "Consumption"
-msgstr ""
+msgstr "Tiêu thụ"
 
 msgctxt "ecoscore_lca_score_out_of_100"
 msgid "LCA score out of 100"
-msgstr ""
+msgstr "Điểm LCA trên 100"
 
 msgctxt "ecoscore_no_agribalyse_category_match"
 msgid "No match between product categories and Agribalyse categories."
@@ -5445,7 +5445,7 @@ msgstr ""
 
 msgctxt "ecoscore_production_system"
 msgid "Production mode"
-msgstr ""
+msgstr "Chế độ sản xuất"
 
 msgctxt "ecoscore_no_labels_taken_into_account"
 msgid "No labels taken into account for the production system."
@@ -5469,11 +5469,11 @@ msgstr ""
 
 msgctxt "ecoscore_environmental_policy"
 msgid "Environmental policy"
-msgstr ""
+msgstr "Chính sách môi trường"
 
 msgctxt "ecoscore_threatened_species"
 msgid "Threatened species"
-msgstr ""
+msgstr "Các loài bị đe dọa"
 
 msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
 msgid "Ingredients that threatens species"
@@ -5493,15 +5493,15 @@ msgstr ""
 
 msgctxt "ecoscore_packaging_ratio"
 msgid "ratio"
-msgstr ""
+msgstr "tỷ lệ"
 
 msgctxt "ecoscore_packaging_score"
 msgid "score"
-msgstr ""
+msgstr "điểm"
 
 msgctxt "ecoscore_score_of_all_components"
 msgid "Score of all components"
-msgstr ""
+msgstr "Điểm của tất cả các thành phần"
 
 msgctxt "ecoscore_no_packaging_information"
 msgid "The information about the packaging of this product is not filled in."
@@ -5517,11 +5517,11 @@ msgstr ""
 
 msgctxt "ecoscore_final_score"
 msgid "Final score"
-msgstr ""
+msgstr "Điểm cuối cùng"
 
 msgctxt "ecoscore_lower_the_score_lower_the_impact"
 msgid "(the lower the score, the lower the impact)"
-msgstr ""
+msgstr "(điểm càng thấp, tác động càng thấp)"
 
 msgctxt "ecoscore_kg_co2_eq_kg_product"
 msgid "kg CO2 eq/kg of product"
@@ -5708,15 +5708,15 @@ msgstr ""
 
 msgctxt "health_card_title"
 msgid "Nutrition and health"
-msgstr ""
+msgstr "Dinh dưỡng và sức khỏe"
 
 msgctxt "contains_palm_oil"
 msgid "Contains palm oil"
-msgstr ""
+msgstr "Chứa dầu cọ"
 
 msgctxt "contains_palm_oil_subtitle"
 msgid "Drives deforestation and threatens species such as the orangutan"
-msgstr ""
+msgstr "Thúc đẩy nạn phá rừng và đe dọa các giống loài như đười ươi"
 
 msgctxt "contains_palm_oil_description"
 msgid "Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino."
@@ -5758,6 +5758,10 @@ msgctxt "ecoscore_lca_score"
 msgid "Life cycle analysis score"
 msgstr ""
 
+msgctxt "impact_for_this_product"
+msgid "Impact for this product"
+msgstr ""
+
 msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
 msgstr ""
@@ -5776,37 +5780,37 @@ msgstr ""
 
 msgctxt "health"
 msgid "Health"
-msgstr ""
+msgstr "Sức khoẻ"
 
 # will be followed by : and a value. e.g. "Compared to: bananas"
 msgctxt "compared_to"
 msgid "Compared to"
-msgstr ""
+msgstr "So sánh với"
 
 # name of an activity / a sport
 msgctxt "activity_walking"
 msgid "Walking"
-msgstr ""
+msgstr "Đi bộ"
 
 # name of an activity / a sport
 msgctxt "activity_swimming"
 msgid "Swimming"
-msgstr ""
+msgstr "Bơi"
 
 # name of an activity / a sport
 msgctxt "activity_bicycling"
 msgid "Bicycling"
-msgstr ""
+msgstr "Đạp xe"
 
 # name of an activity / a sport
 msgctxt "activity_running"
 msgid "Running"
-msgstr ""
+msgstr "Chạy"
 
 # Don't translate {kj}, it will be replaced by a number
 msgctxt "f_energy_per_100g"
 msgid "{kj} kJ per 100g"
-msgstr ""
+msgstr "{kj} kJ trên 100g"
 
 # Don't translate {kj}, it will be replaced by a number
 msgctxt "f_equal_to_walking_minutes_or_steps"
@@ -5820,11 +5824,11 @@ msgstr ""
 
 msgctxt "nutriscore_not_applicable_short"
 msgid "Not applicable for this product"
-msgstr ""
+msgstr "Không áp dụng cho sản phẩm này"
 
 msgctxt "nutriscore_missing_category_short"
 msgid "Missing category"
-msgstr ""
+msgstr "Danh mục còn thiếu"
 
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
@@ -5832,20 +5836,20 @@ msgstr ""
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
 msgid "Reduce or stop drinking alcohol"
-msgstr ""
+msgstr "Giảm hoặc ngừng uống rượu"
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_subtitle"
 msgid "Less is better"
-msgstr ""
+msgstr "Càng ít càng tốt"
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_text"
 msgid "This might not be the answer people want to hear, but there is no safe level for drinking alcohol. Of course there is lower-risk drinking, but WHO does not set particular limits, because the evidence shows that the ideal situation for health is to not drink at all. Alcohol is closely related to around 60 different diagnoses and for almost all there is a close dose–response relationship, so the more you drink, the higher your risk of disease. Less is better."
-msgstr ""
+msgstr "Đây có thể không phải là câu trả lời mà mọi người muốn nghe, nhưng không có một mức an toàn nào cho việc uống rượu. Đương nhiên có mức độ uống có rủi ro thấp hơn, nhưng WHO không đưa ra một giới hạn cụ thể, bởi có dẫn chứng cho rằng lý tưởng nhất cho sức khỏe là không uống rượu. Rượu gẫn như liên quan đến khoảng 60 chẩn đoán bệnh khác nhau và hầu hết đều có mối quan hệ chặt chẽ giữa liều lượng - phản ứng, vì thế bạn uống càng nhiều, nguy cơ mặc bệnh sẽ càng cao. Vì thế càng ít càng tốt."
 
 # "source" as in "source of the information"
 msgctxt "source"
 msgid "Source"
-msgstr ""
+msgstr "Nguồn"
 
 # variable names between { } must not be translated
 msgctxt "f_app_user"
@@ -5902,38 +5906,38 @@ msgstr "Thành phần không xác định"
 
 msgctxt "nova_1_unprocessed_ingredients"
 msgid "The product contains only unprocessed or minimally processed ingredients."
-msgstr ""
+msgstr "Sản phẩm chỉ chứa các thành phần chưa qua chế biến hoặc chế biến ở mức tối thiểu."
 
 # variable names between { } must not be translated
 msgctxt "f_nova_markers_for_nova_group"
 msgid "Elements that indicate the product is in the {nova_group} group"
-msgstr ""
+msgstr "Các yếu tố cho biết sản phẩm thuộc nhóm {nova_group}"
 
 msgctxt "nova_classification_description"
 msgid "Food products are classified into 4 groups according to their degree of processing:"
-msgstr ""
+msgstr "Thực phẩm được phân thành 4 nhóm theo mức độ chế biến:"
 
 msgctxt "nova_classification_how"
 msgid "The determination of the group is based on the category of the product and on the ingredients it contains."
-msgstr ""
+msgstr "Việc xác định nhóm dựa trên chủng loại của sản phẩm và thành phần của sản phẩm."
 
 msgctxt "nova_classification_learn_more"
 msgid "Learn more about the NOVA classification"
-msgstr ""
+msgstr "Tìm hiểu thêm về phân loại NOVA"
 
 msgctxt "nova_group_missing_category"
 msgid "The category of the product must be specified in order to determine the NOVA group."
-msgstr ""
+msgstr "Loại sản phẩm phải được chỉ định để xác định nhóm NOVA."
 
 msgctxt "nova_group_missing_ingredients"
 msgid "The ingredients of the product must be specified in order to determine the NOVA group."
-msgstr ""
+msgstr "Các thành phần của sản phẩm phải được chỉ định để xác định nhóm NOVA."
 
 msgctxt "nova_group_too_many_unknown_ingredient"
 msgid "We could not recognize some of the ingredients and determine the NOVA group."
-msgstr ""
+msgstr "Chúng tôi không thể nhận ra một số thành phần và xác định nhóm NOVA."
 
 msgctxt "unselect_image"
 msgid "Unselect Image"
-msgstr ""
+msgstr "Bỏ chọn hình ảnh"
 
