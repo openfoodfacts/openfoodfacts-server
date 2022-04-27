@@ -174,6 +174,12 @@ zz:dintelArgentina
 xx:Dintel
 barcodeprefix:en:779042
 
+zz:dolca-beverages
+xx:Dolca
+barcodeprefix:en:377001
+country:en: en:france
+#1 products @2022-04-23
+
 ###################### E E E E E E E E E E E E E E E E E E
 
 zz:elninodelcampo
@@ -209,6 +215,8 @@ brand_owner_opencorporates:ES:83104745
 
 zz:isolabio
 xx:Isola Bio
+barcodeprefix:en:8023678
+category:en: en:plant-based-beverages
 website:en:https://www.isolabio.com/en/
 production_company:en:Abafoods s.r.l.
 brand_owner_opencorporates:XX:not listed
@@ -223,6 +231,22 @@ barcodeprefix:en:8410660
 category:en en:Olive tree products
 brand_owner_opencorporates:ES:80245129
 #94 products @2022-04-23
+
+zz:laestralla-bolivia
+xx:La Estrella
+barcodeprefix:en:777170
+country:en: en:bolivia
+category:en: en:breakfast-cereals
+
+zz:laestralla-unitedstates
+xx:La Estrella
+country:en: en:united-states
+barcodeprefix:en:0071656
+
+zz:laestralla-wine
+xx:La Estrella
+category:en: en:wines
+barcodeprefix:en:403415
 
 zz:latrappe
 xx:La Trappe
@@ -341,9 +365,11 @@ barcodeprefix:en:3564700
 category:en: en:candies
 #18 products @2022-04-24
 
-<fr:Marque Repère
+<zz:leclerc-marquerepere
+zz:leclerc-marquerepere-copainscopines
 fr:Copains Copines
-#categories:
+categories:en: en:candies
+#50 products @2022-04-24
 
 <fr:Marque Repère
 fr:Day Break
@@ -614,7 +640,7 @@ fr:Leclerc
 <fr:Leclerc
 fr:Produits de boucheries par Kermené
 barcodeprefix:en:3661112
-barcodeprefix:en:376010952
+barcodeprefix:en:3760109
 
 #comment centrales d'achat not related to brands (I think)
 #
@@ -740,6 +766,7 @@ wikidata:es:none
 
 zz:nestle
 xx:Nestlé
+barcodeprefix:en:761303
 brand_owner:en:Société des Produits Nestlé SA - Avenue Nestlé, 55 - CH-Vevey 1800
 brand_owner_opencorporates:CH:179860
 # 8476 products @2022-04-23
@@ -758,54 +785,92 @@ barcodeprefix:en:3252970
 category:en: en:dry-pastas
 #261 products @2022-04-23
 
-<zz:nestle
-xx:Aquarel
+#<zz:nestle
+#zz:nestle-aquarel
+#xx:Aquarel
+# no products @2022-04-26
 
 <zz:nestle
+zz:nestle-bonka
 xx:Bonka
+category:en: en:coffees
+# 4 products @2022-04-26
 
 <zz:nestle
-zz:buitoni
+zz:nestle-buitoni
 xx:Buitoni
+# 453 products @2022-04-26
 
 <zz:nestle
-zz:Cheerios
+zz:nestle-cheerios
 xx:Cheerios
+barcode:en: en:00160001
+barcode:en: en:00656331
+category:en: en:breakfast-cereals
+# 97 products @2022-04-26
 
 <zz:nestle
+zz:nestle-crunch
 xx:Crunch
+# 21 products @2022-04-26
 
 <zz:nestle
+zz:nestle-dolca
 xx:Dolca
+category:en: en:instant-coffees
+country:en: en:argentina
+# 4 products @2022-04-26
 
 <zz:nestle
-xx:Dolce Gusto
-
-<zz:nestle
+zz:nestle-eko
 xx:Eko
+category:en: en:canned-vegetables
+country:en: en:russia
+# 41 products @2022-04-26
 
 <zz:nestle
-xx:Ideal
+zz:nestle-ideal
+xx:Idéal
+barcodeprefix:en:611118
+# 41 products @2022-04-26
 
 <zz:nestle
 zz:kitkat
 xx:Kit Kat, KitKat
+category:en: en:chocolate-biscuity-bars
 eutrademarknumber:en:1192348
+# 128 products @2022-04-26
+#comment:en:not a unique barcode
 
 <zz:nestle
+zz:nestle-laestrella
 xx:La Estrella
+barcodeprefix:en:841012
+# 15 products @2022-04-26
 
 <zz:nestle
+zz:nestle-cocinera
 xx:La Cocinera
+country:en: en:spain
+# 67 products @2022-04-26
 
 <zz:nestle
+zz:nestle-lalechera
 xx:La Lechera
+country:en: en:spain
+# 47 products @2022-04-26
 
 <zz:nestle
+zz:nestle-litoral
 xx:Litoral
+category:en: en:meals
+category:en: en:canned-foods
+# 47 products @2022-04-26
 
 <zz:nestle
+zz:nestle-maggi
 xx:Maggi
+# 1956 products @2022-04-26
 
 <zz:nestle
 zz:nestle-milkybar
@@ -830,14 +895,12 @@ category:en: en:instant-coffees
 <zz:nestle-nescafe
 zz:nestle-nescafe-dolce gusto
 xx:Nescafé Dolce Gusto, Dolce Gusto
-barcodeprefix:en:761303
 category:en: en:dolce-gusto-compatible-coffee-capsules
 # 32 products @2022-04-26
 
 <zz:nestle-nescafe
 zz:nestle-nescafe-gold
 xx:Nescafé Gold, Gold
-barcodeprefix:en:7613
 category:en: en:instant-coffees
 # 7 products @2022-04-26
 
@@ -851,13 +914,11 @@ category:en: en:nespresso-compatible-coffee-capsules
 <zz:nestle-nespresso
 zz:nestle-nespresso-starbucks
 xx:Starbucks by Nespresso
-barcodeprefix:en:761303
 category:en: en:nespresso-compatible-coffee-capsules
 
 <zz:nestle
 zz:nestle-nesquik
 xx:Nesquik, Nesquick
-barcodeprefix:en:761303
 barcodeprefix:en:338739
 category:en: en:chocolate-powders
 # 127 products @2022-04-26
@@ -865,7 +926,6 @@ category:en: en:chocolate-powders
 <zz:nestle
 zz:nestle-nestea
 xx:Nestea
-barcodeprefix:en:761303
 barcodeprefix:en:544900
 category:en: en:beverages
 # 127 products @2022-04-26
@@ -900,12 +960,10 @@ category:en: en:waters
 zz:nestlewaters-contrex-green
 xx:Contrex Green
 category:en: en:flavored-waters
-barcodeprefix:en:761303
 
 <zz:nestlewaters
 zz:nestlewaters-hepar
 xx:Hépar
-barcodeprefix:en:7613035
 category:en: en:natural-mineral-waters
 # 17 products @2022-04-26
 #comment:en: there is no clear single barcode prefix
@@ -948,7 +1006,6 @@ category:en: en:mineral-waters
 zz:nestlewaters-vittel
 xx:Vittel
 barcodeprefix:en:317973
-barcodeprefix:en:761303
 category:en: en:waters
 # 90 products @2022-04-25
 
@@ -964,7 +1021,6 @@ category:en en:ice-creams-and-sorbets
 <zz:nestle
 zz:nestle-solis
 xx:Solís, Solis
-barcodeprefix:en:7613031
 barcodeprefix:en:8413000
 # 33 products @2022-04-25
 
