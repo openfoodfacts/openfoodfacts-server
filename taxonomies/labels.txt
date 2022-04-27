@@ -2631,7 +2631,7 @@ fr:Sans colorants artificiels
 he:ללא צבעי מאכל מלאכותיים
 hu:Mesterséges színezék nélkül, Mesterséges színezéket nem tartalmaz, mesterséges színezék mentes
 it:Senza coloranti artificiali
-nl:Vrij van kunstmatige kleurstoffen
+nl:Zonder kunstmatige kleurstoffen, Vrij van kunstmatige kleurstoffen
 pt:Sem cores artificiais, sem cor artificial
 ru:без искусственных красителей
 th:ไม่เติมสีสังเคราะห์
@@ -2708,7 +2708,7 @@ he:ללא צבעי מאכל או חומרים משמרים מלאכותיים
 hu:Mesterséges színezék és ízesítők nélkül
 it:Senza coloranti o aromi artificiali
 nb:Ingen kunstige smakstilsetninger eller farger
-nl:Zonder kunstmatige kleurstoffen
+nl:Zonder kunstmatige kleurstoffen of smaakstoffen
 pt:Sem corantes nem aromas artificiais
 sv:Inga artificiella aromämnen eller färger
 th:ไม่ใช้กลิ่นและสีสังเคราะห์
@@ -16277,6 +16277,10 @@ country:en:Argentina
 wikidata:en:Q101928227
 auth_url:en:https://organicoargentina.magyp.gob.ar
 
+en:ActForPlanet
+fr:ActforPlanet, ActPlanet
+auth_url:en:https://www.actforplanet.org
+
 en:Class I, class 1
 ca:Classe I
 de:Klasse I
@@ -16488,6 +16492,11 @@ it:Alleanza della Foresta Pluviale
 nl:Rainforest Alliance
 wikidata:en:Q2034373
 auth_url:en:https://www.rainforest-alliance.org
+
+<en:Rainforest Alliance
+en:Rainforest Alliance Black Tea
+de:Rainforest Alliance Schwarzer Tee
+
 
 en:Reinheitsgebot
 de:Reinheitsgebot
@@ -16974,7 +16983,7 @@ wikidata:en:Q600580
 label_categories:en: en:Fishing method
 
 <en:Sustainable fishing method
-en:Angled fish
+en:Angled fish, Pole&line
 ca:Pescat amb canya
 de:Geangelter Fisch
 fi:koukulla pyydystettyä kalaa
@@ -17072,6 +17081,9 @@ zh:鸬鹚捕鱼
 wikidata:en:Q1784476
 label_categories:en: en:Fishing method
 
+en:Sustainable
+
+<en:Sustainable
 en:Sustainable fishing, Sustainable Seafood, Sustainable fishery
 bg:Устойчив риболов
 ca:Piscifactoria sostenible, Pesca sostenible, Marisc sostenible

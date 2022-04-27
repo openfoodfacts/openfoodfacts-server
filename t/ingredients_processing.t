@@ -323,7 +323,7 @@ my @tests = (
 				'text' => 'haricots blancs'
 			}
 		]
-	],	
+	],
 
 # test for jus and concentré with extra "de"
 #	[ { lc => "fr", ingredients_text => "jus concentré de baies de sureau"},
@@ -1367,6 +1367,16 @@ my @tests = (
 		]
 	],
 
+
+	[ { lc => "en", ingredients_text => "dry whey" },
+		[
+			{
+				'id' => 'en:whey',
+				'processing' => 'en:dried',
+				'text' => 'whey'
+			}
+		]
+	],
 
 	[ { lc => "es", ingredients_text => "pimientos amarillos deshidratados" },
 		[

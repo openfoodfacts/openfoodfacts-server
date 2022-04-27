@@ -1,14 +1,12 @@
 name: Crowdin Sync
-
-#on:
-#  push:
-   # branches: [ * ]
    
 on:
   push:
     branches:
       - crowdin-trigger
-
+  schedule:
+  - cron: "0 2 * * *"
+  
 jobs:         
   synchronize-with-crowdin:
     name: Synchronize with crowdin

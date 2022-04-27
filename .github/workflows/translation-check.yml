@@ -2,17 +2,19 @@ name: Translations check
 
 on:
   pull_request:
-    paths: ["**.po", "**.pot"]
+    paths: ["**.po", "**.pot", ".github/workflows/translation-check.yml"]
 
 jobs:
   validate:
     name: Validate translation files
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/checkout@v3
-
+      - name: install gettext (i18n) tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gettext
       - name: Validate translation files
-        uses: Tar-Minyatur/gettext-validation@master
-        with:
-          folder: po/
+        run: |
+          scripts/check-translations.sh
