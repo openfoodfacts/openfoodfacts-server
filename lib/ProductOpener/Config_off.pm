@@ -357,15 +357,14 @@ $page_size = 24;
 
 $google_analytics = <<HTML
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-31851927-1"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HQX9SYHB2P"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-31851927-1');
+  gtag('config', 'G-HQX9SYHB2P');
 </script>
-
 HTML
 ;
 
