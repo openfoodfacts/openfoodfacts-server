@@ -1,8 +1,9 @@
 
 <!-- start templates/[% template.name %] -->
 
-
+[% IF error %]
 <p>[% error %]</p>
+[% END %]
 [% IF (current_link_query.defined) && !(jqm.defined) %]
     [% IF country != 'en:world' %]
         <p>&rarr; <a href= "[% world_subdomain %][% current_link_query %]"> [% lang('view_results_from_the_entire_world') %]</a></p>
