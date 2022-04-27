@@ -11269,12 +11269,13 @@ id:patty
 it:hamburger
 jv:patty
 ko:패티
+nl:runderhamburger
 # lmo:svizzera
 wikidata:en:Q3200265
 wikipedia:en:https://en.wikipedia.org/wiki/Patty
 # ingredient/fr:steak-haché has 18 products in french @2019-02-07
 
-<fr:steak haché
+<en:meat patty
 fr:Steak haché pur boeuf, pure viande de boeuf hachée, viande hachée pur bœuf
 ca:stick tartar de vedella, stick tartar de res, filet mòlt de vedella, filet mòlt de res
 da:pandebøf
@@ -14875,7 +14876,7 @@ fi:neitsytoliiviöljy
 fr:huile d'olive vierge
 hu:szűz olívaolaj
 it:olio d'oliva vergine
-nl:olijfolie van de eerste persing
+nl:olijfolie van de eerste persing, extra vierge olijfolie
 no:virgin olivenolje, jomfru olivenolje
 pl:Oliwa z oliwek z pierwszego tłoczenia
 pt:Azeite de oliva virgem
@@ -16016,6 +16017,7 @@ es:Aceite de shorea robusta, aceite de sal
 fr:Huile de sal, huile végétale de sal, graisses végétales de sal, matières grasses de sal, matières grasses végétales de sal
 it:Olio di shorea robusta
 kn:ಅಶ್ವಕರ್ಣ ಎಣ್ಣೆ
+nl:sal
 te:సాల్‌సీడ్ నూనె
 from_palm_oil:en:no
 wikidata:en:Q15087371
@@ -17081,7 +17083,7 @@ ko:아마레토
 la:Amarettus
 lb:Amaretto
 lt:Amaretas
-nl:amaretto
+nl:amaretto, amaretto likeur
 pl:Amaretto
 pt:amaretto
 ru:Амаретто
@@ -20987,7 +20989,7 @@ hu:búzakorpa
 it:crusca di frumento
 lt:kviečių sėlenos
 nb:hvetekli
-nl:tarwezemelen
+nl:tarwezemelen, tarwezemel
 pl:Otręby pszenne
 pt:farelo de trigo
 ro:tărâțe de grâu
@@ -28020,6 +28022,11 @@ fr:sirop de sucres issus de fruits
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop-de-sucres-issus-de-fruits
 # 22 products @2019-05-30
 
+<en:sugar syrup
+en:brown sugar syrup
+de:brauner Zuckersirup
+fr:sirop de sucre mélassé
+nl:bruine suikerstroop
 
 <en:disaccharide
 en:wheat syrup
@@ -28050,9 +28057,6 @@ fr:sirop de sucre partiellement inverti
 it:sciroppo di zucchero parzialmente invertito
 sv:delvis inverterad sockersirap
 # ingredient/en:partially-inverted-sugar-syrup has 101 products in 2 languages @2020-06-08
-
-<en:disaccharide
-fr:sirop de sucre mélassé
 
 en:maltitol syrup
 fi:maltitolisiirappi
@@ -34956,11 +34960,6 @@ es:Manzana Pink Lady
 fr:pomme Pink Lady
 it:Mela Pink Lady
 
-<en:apple
-en:Granny apple
-es:manzana Granny
-fr:pomme Granny
-it:mela Granny
 
 <en:apple
 en:cinnamon apple
@@ -35298,6 +35297,13 @@ fr:pomme Gala, pommes Gala
 nl:Gala appel
 wikidata:en:Q494259
 wikipedia:en:https://en.wikipedia.org/wiki/Gala_(apple)
+
+<en:green apple
+en:Granny apple
+es:manzana Granny
+fr:pomme Granny
+it:mela Granny
+nl:Granny Smith, Granny Smith appel, Granny Smith appels
 
 #US plant patent 4121, Ten Hove, Oct 4 1977, muted from Gala variety
 <en:apple
@@ -48005,7 +48011,7 @@ ml:മരച്ചീനി
 ms:ubi kayu
 my:ပီလောပီနံ
 nb:maniok
-nl:maniok
+nl:maniok, cassave
 nn:kassava, maniokrot
 ny:chinangwa
 oc:manioc
@@ -53624,7 +53630,7 @@ es:semilla de anís,anis,matalahúga
 fi:anis
 fr:graine d'anis vert, anis vert, graine d'anis, anis
 it:Anice
-nl:anijszaad
+nl:anijszaad, anijs
 ru:семена аниса
 sv:anis, anisfrö
 te:సోపు
@@ -75269,7 +75275,7 @@ fr:blanc d'oeuf en poudre pasteurisé
 ru:продукты яичные, яичные-продукты
 
 <en:powdered egg white
-nl:scharrelei-eiwitpoeder
+nl:scharrelei-eiwitpoeder, scharreleiwitpoeder
 
 <en:powdered egg white
 fr:blanc d'oeuf en poudre de poules élevées au sol
@@ -75828,7 +75834,7 @@ ml:നാര്
 ms:Serat
 nb:fiber
 ne:रेसा
-nl:vezel, voedingsvezel, voedingsvezels
+nl:vezel, voedingsvezel, voedingsvezels, vezels
 nn:fiber
 oc:fibra
 pl:włókno
@@ -79132,6 +79138,7 @@ es:Caldo de carne de vaca
 fi:naudanlihaliemi
 fr:bouillon de bœuf, bouillon de boeuf
 it:brodo di manzo
+nl:runderbuillon
 sv:nötköttsbuljong
 wikidata:en:Q96362190
 #wikipedia:en:no entry

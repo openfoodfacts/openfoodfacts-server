@@ -5132,7 +5132,9 @@ ciqual_proxy_food_name:fr:Boisson plate aux fruits (teneur en jus non spécifié
 <en:Fruit-based beverages
 en:Aloe Vera drinks
 bg:Напитки с алое вера
+de:Aloe Vera Saften
 fr:Boissons à l'aloe-vera
+nl:ALoe Vera sappen
 #wikidata:en:
 
 <en:Fruit-based beverages
@@ -8067,6 +8069,11 @@ ciqual_food_name:en:Mix of chicory and coffee, instant, without sugar, ready-to-
 
 <en:Instant beverages
 <en:Plant-based beverages
+en:Cereals-based beverages
+fr:Cafés de céréales
+nl:Granenkoffies, Meergranenkoffies
+
+<en:Cereals-based beverages
 fr:Orge soluble
 it:Orzo solubile
 pt:Cevada solúvel
@@ -8351,6 +8358,11 @@ en:Mountain waters, Mountain water
 de:Bergwasser, Bergwässer
 fr:Eaux de montagne, eau de montagne
 nl:Bergwaters, Bergwater
+
+#waters with added vitamins and minerals
+<en:Waters
+en:Vitamin waters
+nl:Vitaminewaters
 
 <fr:Eaux-de-vie
 fr:Marc
@@ -31507,6 +31519,10 @@ nl:Bamischijven
 en:Kroketten
 nl:Kroketten
 
+<en:Breaded products
+en:Dutch Bami disks
+nl:Bamischijven
+
 <en:Cereals and potatoes
 en:Breads
 bg:Хляб
@@ -35246,9 +35262,14 @@ th:ลูกอมช็อกโกแลต
 zh:巧克力糖果
 
 <en:Chocolate candies
+en:Walnut whips, Chocolate-coated marshmallow treats
+da:Flødebolle, Negerbolle, Negerkys
 de:Schokokuss
-es:Beso de moza
+es:Beso de moza, Beso de Negro
 fr:Têtes choco
+he:קרמבו
+hu:Négercsók
+nl:Negerzoenen, Negerinnentetten
 wikidata:en:Q1578239
 
 <en:Chocolate candies
@@ -35903,12 +35924,15 @@ zh:黑牛扎糖
 <en:Confectioneries
 <en:Candies
 en:Marshmallows, Marshmallow, Marshmallow candies, Marshmallow candy
-de:Marshmallows, Mäusespeck
+da:Marshmallows
+de:Marshmallows, Mäusespeck, Speck
 es:Malvavisco
-fi:vaahtokarkit
+fi:vaahtokarkit, Vaahtokarkkeja
 fr:Guimauves, pâtes de guimauves, Chamallows, Guimauve, Marshmallows, Marshmallow
 it:Marshmallow
 nl:Marshmallows, Zoete Spekjes, Marshmellows
+nn:Marshmallows
+sv:Skum
 wikidata:en:Q272198
 agribalyse_food_code:en:31050
 ciqual_food_code:en:31050
@@ -37856,6 +37880,7 @@ en:Red rices, red rice
 bg:Червен ориз
 fr:Riz rouge
 it:Risso rosso
+nl:Rode rijsten
 agribalyse_food_code:en:9109
 ciqual_food_code:en:9109
 ciqual_food_name:en:Rice, red, raw
@@ -44132,6 +44157,10 @@ protected_name_type:en: pdo
 origins:en: en:France
 wikidata:en:Q2900324
 
+<en:Butters
+en:Herb butters
+nl:Kruidenboters, Knoflookboters
+
 <en:French cheeses
 <en:Cooked pressed cheeses
 en:Comté, Comté cheeses, Comté cheese from cow's milk
@@ -48016,6 +48045,13 @@ en:Salted cashews, Salted cashew nuts
 de:Gesalzene Cashewnüsse, Gesalzene Cashewkerne
 fr:Noix de cajou salées
 
+<en:Cashew nuts
+<fr:Fruits à coque salés
+en:Unsalted cashews, Unsalted cashew nuts
+de:Ungesalzene Cashewnüsse, Ungesalzene Cashewkerne
+fr:Noix de cajou non-salées
+nl:Cashewnoten (ongezouten), Ongezouten cashewnoten
+
 <en:Peanuts
 <fr:Fruits à coque salés
 en:Salted peanuts
@@ -48521,6 +48557,11 @@ ciqual_food_code:en:15046
 ciqual_food_name:en:Pecan nut, salted
 ciqual_food_name:fr:Noix de pécan, salées
 
+#for nuts that have not been salted nor roasted
+<en:Pecan nuts
+en:Plain pecan nuts
+nl:Pecannoten (onbehandeld)
+
 <en:Nuts
 en:Pistachios
 bg:Шам-фъстък
@@ -48757,6 +48798,11 @@ wikidata:en:Q3739599
 en:Chestnut flours T110
 es:Harinas de castañas T110
 fr:Farines de châtaigne T110
+
+<en:Nuts and their products
+<en:Dried fruits
+en:Nuts and dried fruits
+nl:Studentenhavers
 
 <en:Nuts and their products
 <en:Oilseed purees
@@ -61988,6 +62034,10 @@ es:Semillas de fenogreco molidas, Semillas de fenogreco en polvo, Fenogreco moli
 fr:Graines de fenugrec en poudre
 nl:Fenegriekzaadpoeder
 
+<en:Seeds
+en:Hemp seeds
+nl:Hennepzaden
+
 <en:Spices
 en:Ginger
 bg:Джинджифил
@@ -63306,7 +63356,7 @@ de:Teriyaki Soßen
 es:Salsas Teriyaki
 fi:teriyaki-kastikkeet
 fr:Sauces Teriyaki
-nl:Teriyakisaus
+nl:Teriyakisauzen, Teriyakisaus
 ciqual_food_code:en:11301
 ciqual_food_name:en:Teriyaki sauce, prepacked
 ciqual_food_name:fr:Sauce teriyaki, préemballée
@@ -65050,6 +65100,7 @@ ca:Productes carnis espanyols
 de:Spanische Fleischprodukte
 fi:Espanjalaiset lihatuotteet
 fr:Produits carnés espagnols
+nl:Spaanse vleesproducten, Vleesproducten uit Spanje
 
 <en:Spanish meat products
 es:Carne de Ávila
@@ -65226,6 +65277,7 @@ es:Jamón Serrano
 fi:Vuoristokinkku, Serranokinkku, Serranon kinkku, Jamón serrano
 fr:Jambons Serrano, jambon serrano, Jambon sec Serrano
 it:Prosciutto Serrano Stagionato
+nl:Serranoham
 agribalyse_food_code:en:28845
 ciqual_food_code:en:28845
 ciqual_food_name:en:Serrano dry-cured ham
@@ -67478,6 +67530,11 @@ ciqual_food_code:en:25969
 ciqual_food_name:en:Soup (average)
 ciqual_food_name:fr:Soupe (aliment moyen)
 
+# Multiple ingredients that can be used to make a soup (not just reheated). It might be necessary to add other ingredients. It is moren than just herbs.
+<en:Soups
+en:Soup mixes
+nl:Soepmixes, Soepmengsels
+
 <en:Soups
 <en:Canned meals
 en:Canned soups
@@ -67501,7 +67558,7 @@ fi:kuivatut keitot
 fr:Soupes déshydratées, soupes lyophilisées, soupe déshydratée, soupe lyophilisée, soupes concentrées, soupes instantanées, soupe concentrée, soupe instantanée
 he:מרקים מיובשים, מרקים יבשים, מרקי אינסטנט, מרק אינסטנט, מנה חמה
 it:Zuppe disidratate
-nl:Instantsoepen, Instant soepen
+nl:Instantsoepen, Instant soepen, Gedroogde soepen
 pt:Sopa Instantânea
 ro:Supă instant
 
@@ -67530,7 +67587,7 @@ de:Miso-Suppe
 es:Sopas de miso
 fi:Misokeitto
 fr:Soupe miso
-nl:Miso soepen
+nl:Misosoepen
 ru:Мисосиру
 wikidata:en:Q471866
 ciqual_food_code:en:25972
@@ -67649,7 +67706,7 @@ nl:Opwarmbare soepen
 <en:Reheatable soups
 en:Mushroom soups
 fr:Soupes aux champignons
-nl:Paddestoelensoepen
+nl:Paddestoelsoepen
 agribalyse_food_code:en:25912
 ciqual_food_code:en:25912
 ciqual_food_name:en:Soup, mushrooms, prepacked, to be reheated
@@ -67685,7 +67742,7 @@ ciqual_food_name:fr:Soupe à la volaille et aux légumes, déshydratée reconsti
 <en:Soups
 en:Chicken soups
 fr:Soupes à la volaille
-nl:Kippensoepen
+nl:Kippensoepen, Kippesoepen
 
 <en:Chicken soups
 en:Chicken and vermicelli soup
@@ -67797,7 +67854,7 @@ ciqual_food_name:fr:Soupe aux légumes variés, préemballée à réchauffer
 <en:Vegetable soups
 <en:Dehydrated soups
 en:Dehydrated mixed vegetables soup
-fr:Soupe aux légumes déshydratée
+fr:Soupe aux légenumes déshydratée
 agribalyse_food_code:en:25905
 ciqual_food_code:en:25905
 ciqual_food_name:en:Soup, mixed vegetables, dehydrated and reconstituted
@@ -67862,10 +67919,11 @@ wikidata:en:Q1066260
 en:Zucchini soups
 es:Sopas De Calabacín
 fr:Soupes aux courgettes
-nl:Corgettesoep
+nl:Courgettesoep
 
 <en:Vegetable soups
 en:Bean soups
+nl:Bonensoepen
 wikidata:en:Q1988612
 
 <en:Bean soups
@@ -67878,7 +67936,7 @@ en:Carrot soups, Reheatable carrot soups
 de:Karottensuppe, Möhrensuppe
 fr:Soupes de carottes, Soupe à la carotte à réchauffer
 he:מרקי גזר, מרק גזר, מרקי גזרים
-nl:Wortelsoep
+nl:Wortelsoepen
 agribalyse_food_code:en:25913
 ciqual_food_code:en:25913
 ciqual_food_name:en:Soup, carrots, prepacked, to be reheated
@@ -67954,7 +68012,7 @@ ciqual_food_name:fr:Soupe aux légumes verts, déshydratée reconstituée
 en:Asparagus soups, Reheatable asparagus soup
 de:Spargelsuppen
 fr:Soupes aux asperges, Soupe aux asperges à réchauffer
-nl:Aspergesoep
+nl:Aspergesoepen
 agribalyse_food_code:en:25968
 ciqual_food_code:en:25968
 ciqual_food_name:en:Soup, asparagus, prepacked, to be reheated
@@ -68136,7 +68194,7 @@ es:Cremas de verduras y hortalizas, Cremas de verduras, Cremas de hortalizas
 fi:kasviskermakeitot
 fr:Veloutés de légumes
 it:Vellutate di verdura
-nl:Groente crèmesoepen
+nl:Groentecrèmesoepen
 
 <en:Cream of vegetable soups
 fr:Veloutés de légumes verts
@@ -68152,13 +68210,13 @@ wikidata:en:Q18145066
 en:Cream of carrot soups
 es:Cremas de zanahoria
 fr:Veloutés de carottes
-nl:Wortel crème soepen
+nl:Wortelcrèmesoepen
 
 <en:Cream of vegetable soups
 en:Cream of leek soups
 es:Cremas de puerro
 fr:Veloutés de poireaux
-nl:Prei crèmesoepen
+nl:Preicrèmesoepen
 
 <en:Cream of vegetable soups
 en:Cream of pumpkin soups
@@ -68182,7 +68240,7 @@ nl:Tomatencrèmesoepen
 en:Cream of zucchini soups, Cream of courgette soups
 es:Cremas de calabacines
 fr:Veloutés de courgettes
-nl:Courgette crèmesoepen
+nl:Courgettecrèmesoepen
 
 <en:Cream of vegetable soups
 fr:Veloutés de légumes du soleil
@@ -71474,6 +71532,9 @@ it:Preparazioni a base di manzo
 nl:Rundvleesproducten
 
 <en:Beef preparations
+nl:Filet Americain
+
+<en:Beef preparations
 <en:Dried meats
 en:Meat of the grisons, Viande des Grisons, Bündnerfleisch, Dried beef meat
 de:Bündnerfleisch
@@ -72696,6 +72757,7 @@ en:Breaded chicken
 de:Paniertes Huhn
 fi:Leivitetty kana
 fr:Poulets panés, Poulet pané
+nl:Gepaneerde kippen
 agribalyse_proxy_food_code:en:25512
 agribalyse_proxy_food_code:en:25512
 agribalyse_proxy_food_name:en:Poultry nuggets
@@ -79634,7 +79696,7 @@ de:Windbeutel, Profiterole, Profiteroles
 es:Bocadito de nata, Profiterol, Profiteroles
 fr:Profiteroles, Profiterole, Profiterolles, Choux à la crème, Chou à la crème
 it:Profiterole, Profiteroles
-nl:Soesje, Profiterole
+nl:Soesjes, Profiterole
 wikidata:en:Q2513811
 agribalyse_food_code:en:23455
 ciqual_food_code:en:23455
@@ -86327,6 +86389,7 @@ it:Zucchero invertito
 nl:Invertsuikersiroop
 wikidata:en:Q412082
 
+
 <en:Sugars
 en:Powdered sugars, Confectioner's sugars, Icing sugars
 de:Puderzucker, Staubzucker, Dekorierzucker
@@ -86336,6 +86399,13 @@ fr:Sucres glaces, Sucres impalpables, Sucres à glacer, Sucre glace
 it:Zucchero a velo
 nl:Poedersuikers
 wikidata:en:Q151070
+
+
+<en:Sugars
+en:Caster sugars, Superfine sugars
+fr:Sucres en poudre, Sucre en poudre
+nl:Griessuiker
+#comment:en:has sugar grain size (0.35 mm) between powders and granulated
 
 <en:Sugars
 en:Granulated sugars, White sugars, Refined sugars, White sugar, Refined sugar
@@ -86363,9 +86433,6 @@ wikidata:en:Q849816
 fr:sucres complets, sucre complet
 it:Zucchero integrale
 
-<en:Sugars
-fr:Sucres en poudre, Sucre en poudre
-wikidata:en:Q151070
 
 <en:Sugars
 en:Lump sugar, Cube sugar, Sugar cubes
@@ -86624,6 +86691,7 @@ it:Dolcificanti da tavola
 nl:Tafelzoetstoffen
 nl_be:Tafelzoetstoffen
 
+
 #fr:Sirops et Boissons concentrées
 
 #<fr:Sirops et Boissons concentrées
@@ -86638,14 +86706,36 @@ fr:Sirops, sirop
 he:סירופ
 hu:Szirupok
 it:Sciroppi, Sciroppo
-nl:Siropen, Stropen
-nl_be:Siropen, Stroop
+nl:Siropen
 pl:Syrop, syropy
 pt:Xaropes
 ru:Сиропы
 th:น้ำเชื่อม
 zh:糖浆
 wikidata:en:Q6584340
+
+# These syrups have a thickness that require them to be applied with a knife on bread (#nl). In #nl they have a specific word.
+<en:Sweet spreads
+<en:Syrups
+<en:Bread coverings
+en:Thick syrups
+nl:Stropen
+
+<en:Thick syrups
+en:Thick sugar syrup
+nl:Suikerstropen
+
+<en:Thick syrups
+en:Thick fruit syrups
+nl:Fruitstropen
+
+<en:Thick fruit syrups
+en:Thick apple syrups
+nl:Appelstropen
+
+<en:Thick fruit syrups
+en:Thick apple pear syrups
+nl:Appel-perenstropen
 
 <en:Syrups
 en:Concentrate syrup without sugar and with artificial sweeteners
@@ -86777,7 +86867,7 @@ fi:hedelmäsiirapit
 fr:Sirops de fruits, sirop de fruits
 he:סירופים מפירות
 it:Sciroppi alla frutta
-nl:Fruitstropen
+nl:Fruitsiropen
 wikidata:en:Q5506416
 
 <en:Fruit syrups
@@ -93370,6 +93460,7 @@ ciqual_food_name:fr:Câpres, au vinaigre
 
 <en:Condiments
 en:Capers
+de:Kapernbeeren
 
 <en:Capers
 it:Cappero delle Isole Eolie
