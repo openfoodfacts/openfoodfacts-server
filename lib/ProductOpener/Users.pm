@@ -353,6 +353,9 @@ sub check_user_form($$$) {
 	if (length($user_ref->{name}) < 2) {
 		push @{$errors_ref}, $Lang{error_no_name}{$lang};
 	}
+	elsif (length($user_ref->{name}) > 60) {
+		push @{$errors_ref}, $Lang{error_name_too_long}{$lang};
+	}	
 
 	my $address;
 	eval {
