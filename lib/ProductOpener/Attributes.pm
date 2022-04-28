@@ -781,7 +781,7 @@ The return value is a reference to the resulting attribute data structure.
 
 - NOVA 1: 100%
 - NOVA 2: 100%
-- NOVA 3: 50%
+- NOVA 3: 75%
 - NOVA 4: 0%
 
 =cut
@@ -813,7 +813,7 @@ sub compute_attribute_nova($$) {
 			$match = 100;
 		}
 		elsif ($nova_group == 3) {
-			$match = 50;
+			$match = 75;
 		}
 	
 		$attribute_ref->{match} = $match;
