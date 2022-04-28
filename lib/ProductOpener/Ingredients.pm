@@ -1641,7 +1641,7 @@ sub parse_ingredients_text($) {
 						next if (length($maybe_origin) < 4);
 						
 						my $origin_id = canonicalize_taxonomy_tag($product_lc, "origins", $maybe_origin);
-						if (exists_taxonomy_tag("origins", $origin_id)) {
+						if ((exists_taxonomy_tag("origins", $origin_id)) and ($origin_id ne "en:unknown")) {
 							
 							$debug_ingredients and $log->debug("ingredient includes known origin", { ingredient => $ingredient, new_ingredient => $maybe_ingredient, origin_id => $origin_id }) if $log->is_debug();
 							
@@ -2831,8 +2831,16 @@ sub analyze_ingredients($) {
 					$property_value = "en:may-contain-" . $from_what_with_dashes ; # en:may-contain-palm-oil
 					$ingredients_analysis_ref->{$property_value} = $values{maybe};
 				}
-				elsif (defined $values{unknown_ingredients}) {
+				# If some ingredients are not recognized, there is a possibility that they could be palm oil or contain palm oil
+				# As there are relatively few ingredients with palm oil, we assume we are able to recognize them with the taxonomy
+				# and that unrecognized ingredients do not contain palm oil.
+				# --> We mark the product as palm oil free
+				# Exception: If there are lots of unrecognized ingredients though (e.g. more than 1 third), it may be that the ingredients list
+				# is bogus (e.g. OCR errors) and the likelyhood of missing a palm oil ingredient increases.
+				# --> In this case, we mark the product as palm oil content unknown
+				elsif ((defined $values{unknown_ingredients}) and ((scalar @{$values{unknown_ingredients}}) > (scalar(@{$product_ref->{ingredients}}) / 3))) {
 					# Some ingredients were not recognized
+					$log->debug("analyze_ingredients - unknown ingredients", { unknown_ingredients_n => (scalar @{$values{unknown_ingredients}}), ingredients_n => (scalar(@{$product_ref->{ingredients}})) }) if $log->is_debug();
 					$property_value = "en:" . $from_what_with_dashes . "-content-unknown"; # en:palm-oil-content-unknown
 					$ingredients_analysis_ref->{$property_value} = $values{unknown_ingredients};
 				}
