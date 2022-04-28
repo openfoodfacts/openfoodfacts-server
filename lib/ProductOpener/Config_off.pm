@@ -362,8 +362,8 @@ $google_analytics = <<HTML
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
-  gtag('config', 'G-HQX9SYHB2P', {"anonymize_ip": true});
+  gtag('set', 'allow_google_signals', false);
+  gtag('config', 'G-HQX9SYHB2P', {"anonymize_ip": true, 'allow_google_signals': false});
 </script>
 HTML
 ;
