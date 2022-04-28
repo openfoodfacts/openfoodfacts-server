@@ -80,7 +80,7 @@ my @tests = (
 		'en-emulsifier-synonyms',
 		{
 			lc => "en",
-			ingredients_text => " Emulsifying (INS 471, INS 477) & Stabilizing Agents (INS 412, INS 410)"
+			ingredients_text => "Emulsifying (INS 471) Agent, Emulsifying (INS 477) Agent"
 		}
 	],
 	# FR * label
