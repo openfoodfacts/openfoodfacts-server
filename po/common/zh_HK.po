@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-04-23 02:32\n"
+"PO-Revision-Date: 2022-04-28 02:58\n"
 "Language-Team: Chinese Traditional, Hong Kong\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -966,7 +966,7 @@ msgstr ""
 
 msgctxt "image_upload_error_could_not_read_image"
 msgid "The image could not be read."
-msgstr ""
+msgstr "Anti-Perspirant"
 
 msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
@@ -5692,6 +5692,10 @@ msgctxt "source_ademe_agribalyse"
 msgid "Source: ADEME Agribalyse Database"
 msgstr ""
 
+msgctxt "source_ademe_agribalyse_for_category"
+msgid "The carbon emission figure comes from ADEME's Agribalyse database, for the category:"
+msgstr ""
+
 msgctxt "environment_card_title"
 msgid "Environment"
 msgstr "環境"
@@ -5929,5 +5933,13 @@ msgstr ""
 
 msgctxt "unselect_image"
 msgid "Unselect Image"
+msgstr ""
+
+msgctxt "nutriscore_learn_more"
+msgid "Learn more about the Nutri-Score"
+msgstr "瞭解Nutri-Score"
+
+msgctxt "ecoscore_learn_more"
+msgid "Learn more about the Eco-Score"
 msgstr ""
 
