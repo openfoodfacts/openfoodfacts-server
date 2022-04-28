@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-04-23 02:33\n"
+"PO-Revision-Date: 2022-04-28 03:00\n"
 "Language-Team: German\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -5701,6 +5701,10 @@ msgctxt "source_ademe_agribalyse"
 msgid "Source: ADEME Agribalyse Database"
 msgstr "Quelle: ADEME Agribalyse-Datenbank"
 
+msgctxt "source_ademe_agribalyse_for_category"
+msgid "The carbon emission figure comes from ADEME's Agribalyse database, for the category:"
+msgstr "Die Zahlen zu den Kohlenstoffemissionen für diese Kategorie stammen aus der Agribalyse-Datenbank der ADEME:"
+
 msgctxt "environment_card_title"
 msgid "Environment"
 msgstr "Umweltauswirkungen"
@@ -5759,7 +5763,7 @@ msgstr "Ergebnis der Lebenszyklusanalyse"
 
 msgctxt "impact_for_this_product"
 msgid "Impact for this product"
-msgstr ""
+msgstr "Auswirkungen für dieses Produkt"
 
 msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
@@ -5939,4 +5943,12 @@ msgstr "Einige der Zutaten konnten nicht erkannt und die NOVA-Gruppe nicht besti
 msgctxt "unselect_image"
 msgid "Unselect Image"
 msgstr "Foto abwählen"
+
+msgctxt "nutriscore_learn_more"
+msgid "Learn more about the Nutri-Score"
+msgstr "Mehr über Nutri-Score erfahren"
+
+msgctxt "ecoscore_learn_more"
+msgid "Learn more about the Eco-Score"
+msgstr ""
 

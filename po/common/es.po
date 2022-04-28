@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-04-23 02:36\n"
+"PO-Revision-Date: 2022-04-28 03:06\n"
 "Language-Team: Spanish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -5700,6 +5700,10 @@ msgctxt "source_ademe_agribalyse"
 msgid "Source: ADEME Agribalyse Database"
 msgstr "Fuente: Base de datos ADEME Agribalyse"
 
+msgctxt "source_ademe_agribalyse_for_category"
+msgid "The carbon emission figure comes from ADEME's Agribalyse database, for the category:"
+msgstr "El dato de emisiones de carbono proviene de la base de datos Agribalyse de ADEME, para la categoría:"
+
 msgctxt "environment_card_title"
 msgid "Environment"
 msgstr "Medio ambiente"
@@ -5758,7 +5762,7 @@ msgstr "Puntuación del análisis del ciclo de vida"
 
 msgctxt "impact_for_this_product"
 msgid "Impact for this product"
-msgstr ""
+msgstr "Impacto de este producto"
 
 msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
@@ -5909,7 +5913,7 @@ msgstr "El producto solamente contiene ingredientes que no han sido procesados u
 # variable names between { } must not be translated
 msgctxt "f_nova_markers_for_nova_group"
 msgid "Elements that indicate the product is in the {nova_group} group"
-msgstr "Elementos que indican que el producto se encuentra en el grupo(nova_group)"
+msgstr "Elementos que indican que el producto se encuentra en el grupo {nova_group}"
 
 msgctxt "nova_classification_description"
 msgid "Food products are classified into 4 groups according to their degree of processing:"
@@ -5938,4 +5942,12 @@ msgstr ""
 msgctxt "unselect_image"
 msgid "Unselect Image"
 msgstr "No seleccionar imagen"
+
+msgctxt "nutriscore_learn_more"
+msgid "Learn more about the Nutri-Score"
+msgstr "Aprende más sobre el Nutri-Score"
+
+msgctxt "ecoscore_learn_more"
+msgid "Learn more about the Eco-Score"
+msgstr ""
 

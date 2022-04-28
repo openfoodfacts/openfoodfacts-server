@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ja\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-04-23 02:33\n"
+"PO-Revision-Date: 2022-04-28 03:01\n"
 "Language-Team: Japanese\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -124,7 +124,7 @@ msgstr "組織名（会社名またはブランド）を入力してください
 
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
-msgstr ""
+msgstr "このアカウントは、プロデューサーまたは{org} ブランドに関連付けられたプロフェッショナルアカウントです。プロデューサー向けのプラットフォームにアクセスできます。"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -5702,6 +5702,10 @@ msgctxt "source_ademe_agribalyse"
 msgid "Source: ADEME Agribalyse Database"
 msgstr ""
 
+msgctxt "source_ademe_agribalyse_for_category"
+msgid "The carbon emission figure comes from ADEME's Agribalyse database, for the category:"
+msgstr ""
+
 msgctxt "environment_card_title"
 msgid "Environment"
 msgstr "環境"
@@ -5760,7 +5764,7 @@ msgstr ""
 
 msgctxt "impact_for_this_product"
 msgid "Impact for this product"
-msgstr ""
+msgstr "この製品への影響"
 
 msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
@@ -5939,5 +5943,13 @@ msgstr ""
 
 msgctxt "unselect_image"
 msgid "Unselect Image"
+msgstr ""
+
+msgctxt "nutriscore_learn_more"
+msgid "Learn more about the Nutri-Score"
+msgstr "栄養スコアの詳細"
+
+msgctxt "ecoscore_learn_more"
+msgid "Learn more about the Eco-Score"
 msgstr ""
 

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uk\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-04-23 02:37\n"
+"PO-Revision-Date: 2022-04-28 03:07\n"
 "Language-Team: Ukrainian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -5704,6 +5704,10 @@ msgctxt "source_ademe_agribalyse"
 msgid "Source: ADEME Agribalyse Database"
 msgstr "Джерело: база даних Agribalyse та агентство охорони навколишнього середовища та енергетики ADEME"
 
+msgctxt "source_ademe_agribalyse_for_category"
+msgid "The carbon emission figure comes from ADEME's Agribalyse database, for the category:"
+msgstr ""
+
 msgctxt "environment_card_title"
 msgid "Environment"
 msgstr "Середовище"
@@ -5822,7 +5826,7 @@ msgstr "Дорівнює ходьбі {minutes} хвилин або {steps} кр
 # Don't translate {kg} and {lb}, it will be replaced by a number
 msgctxt "f_energy_expenditure_for_weight_in_kg_lb"
 msgid "Energy expenditure for a person weighting {kg} kg / {lb} lb"
-msgstr "Використання енергії для людини вагою кг/ фунт"
+msgstr "Використання енергії для людини вагою {kg} кг / {lb} фунт"
 
 msgctxt "nutriscore_not_applicable_short"
 msgid "Not applicable for this product"
@@ -5856,7 +5860,7 @@ msgstr "Джерело"
 # variable names between { } must not be translated
 msgctxt "f_app_user"
 msgid "A user of the {app_name} app"
-msgstr "Користувач додатку"
+msgstr "Користувач додатку {app_name}"
 
 msgctxt "food_groups_p"
 msgid "food groups"
@@ -5941,5 +5945,13 @@ msgstr ""
 
 msgctxt "unselect_image"
 msgid "Unselect Image"
+msgstr ""
+
+msgctxt "nutriscore_learn_more"
+msgid "Learn more about the Nutri-Score"
+msgstr "Дізнатися більше про Nutri-Score"
+
+msgctxt "ecoscore_learn_more"
+msgid "Learn more about the Eco-Score"
 msgstr ""
 
