@@ -1,0 +1,72 @@
+{
+   "ingredients" : [
+      {
+         "id" : "en:INS-471-emulsifying-agent",
+         "percent_estimate" : 75,
+         "percent_max" : 100,
+         "percent_min" : 50,
+         "text" : "Emulsifying (INS 471) Agent",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "id" : "en:INS-477-emulsifying-agent",
+         "percent_estimate" : 25,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "Emulsifying (INS 477) Agent",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en: maybe-vegan" : [
+         "en:INS-471-emulsifying-agent ",
+         "en:INS-477-emulsifying-agent"
+      ],
+      "en: maybe-vegetarian" : [
+         "en:INS-471-emulsifying-agent ",
+         "en:INS-477-emulsifying-agent"
+
+      ] 
+   },
+   "ingredients_analysis_tags" : [
+      "en:from-palm-oil",
+      "en: maybe-vegan",
+      "en: maybe-vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:INS-471-emulsifying-agent",
+      "en:emulsifying-agent ",
+      "en:emulsifying ",
+      "en:INS-477-emulsifying-agent "
+   ],
+   "ingredients_n" : 2,
+   "ingredients_n_tags" : [
+      "2",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:INS-471-emulsifying-agent ",
+      "en:INS-477-emulsifying-agent "
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:INS-471-emulsifying-agent",
+      "en:emulsifying-agent ",
+      "en:emulsifying ",
+      "en:INS-477-emulsifying-agent "
+   ],
+   "ingredients_text" : " Emulsifying (INS 471) Agent, Emulsifying (INS 477) Agent ",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 2,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "known_ingredients_n" : 4,
+   "lc" : "en",
+   "nutriments" : {
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
+   },
+   "unknown_ingredients_n" : 0
+}
