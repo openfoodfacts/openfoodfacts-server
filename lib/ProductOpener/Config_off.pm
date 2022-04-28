@@ -357,13 +357,13 @@ $page_size = 24;
 
 $google_analytics = <<HTML
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HQX9SYHB2P"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HQX9SYHB2P&aip=1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-HQX9SYHB2P');
+  gtag('config', 'G-HQX9SYHB2P', {"anonymize_ip": true});
 </script>
 HTML
 ;
