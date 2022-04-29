@@ -2838,11 +2838,19 @@ sub analyze_ingredients($) {
 				# Exception: If there are lots of unrecognized ingredients though (e.g. more than 1 third), it may be that the ingredients list
 				# is bogus (e.g. OCR errors) and the likelyhood of missing a palm oil ingredient increases.
 				# --> In this case, we mark the product as palm oil content unknown
-				elsif ((defined $values{unknown_ingredients}) and ((scalar @{$values{unknown_ingredients}}) > (scalar(@{$product_ref->{ingredients}}) / 3))) {
+				elsif (defined $values{unknown_ingredients}) {
 					# Some ingredients were not recognized
 					$log->debug("analyze_ingredients - unknown ingredients", { unknown_ingredients_n => (scalar @{$values{unknown_ingredients}}), ingredients_n => (scalar(@{$product_ref->{ingredients}})) }) if $log->is_debug();
-					$property_value = "en:" . $from_what_with_dashes . "-content-unknown"; # en:palm-oil-content-unknown
-					$ingredients_analysis_ref->{$property_value} = $values{unknown_ingredients};
+					my $unknown_rate = (scalar @{$values{unknown_ingredients}}) / (scalar @{$product_ref->{ingredients}});
+					# for palm-oil, as there are few products containing it, we consider status to be unknown only if there is more than 30% unknown ingredients (which may indicates bogus ingredient list, eg. OCR errors)
+					if (($from_what_with_dashes eq "palm-oil") and ($unknown_rate <= 0.3)) {
+						$property_value = "en:" . $from_what_with_dashes . "-free"; # en:palm-oil-free
+					}
+					else {
+						$property_value = "en:" . $from_what_with_dashes . "-content-unknown"; # en:palm-oil-content-unknown
+					}
+					# In all cases, keep track of the unknown ingredients
+					$ingredients_analysis_ref->{"en:" . $from_what_with_dashes . "-content-unknown"} = $values{unknown_ingredients};
 				}
 				else {
 					# no yes, maybe or unknown ingredients
