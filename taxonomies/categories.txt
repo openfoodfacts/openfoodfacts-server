@@ -8011,6 +8011,10 @@ ciqual_food_name:en:Coffee with milk or Cappuccino, powder, instant
 ciqual_food_name:fr:Café au lait ou cappuccino, poudre soluble
 # we need to associate the agribalyse category for the reconstituted product
 
+<en:Instant coffees
+en:Aromatised instant coffees
+nl:Gearomatiseerde oploskoffies, Gearomatiseerde instantkoffies
+
 #I don't know if натуральный (natural) makes any difference; most coffees have that anyway.
 <en:Freeze-dried plant-based foods
 <en:Instant coffees
@@ -60308,7 +60312,6 @@ fi:mausteyrtit, vihreitä kasvinosia mausteita
 fr:Herbes aromatiques, Herbes aromatiques fraîches
 it:Erbe aromatiche
 nl:Kruiden
-nl_be:Kruiden
 pt:Ervas aromáticas
 ru:Травы
 zh:香草
@@ -61381,7 +61384,7 @@ es:Mezclas de plantas aromáticas
 fi:maustekasvisekoitukset
 fr:Mélanges de plantes aromatiques
 it:Misto di piante aromatiche, Piante aromatiche miste
-nl:Kruidenmelanges, kruidenmengsels
+nl:Kruidenmelanges, Kruidenmengsels, Kruidenpastas
 
 <en:Mixtures of aromatic plants
 en:Bouquet garni
@@ -62743,6 +62746,10 @@ fr:Pulla
 
 <en:Chili peppers
 fr:Serrano
+
+<en:Chili peppers
+en:Sichuan pepper
+zh:花椒
 
 <en:Peppers
 en:Gray peppers
@@ -86416,6 +86423,7 @@ fr:Sucres blancs, saccharose, saccarose, sucres de table, sucroses, sucre blanc
 it:Zucchero bianco
 nl:Kristalsuikers
 pl:Cukier biały
+zh:冰糖
 wikidata:en:Q15631442
 agribalyse_food_code:en:31016
 ciqual_food_code:en:31016
@@ -88726,7 +88734,7 @@ tl:Haras
 tr:Rezene
 uk:фенхель
 ur:سونف
-zh:小茴香
+zh:茴香
 # aeb-arab:بسباس
 # azb:رازیانه
 # hil:inóho
@@ -98021,6 +98029,7 @@ nl:Rauwe groentensandwiche
 wikidata:en:Q7918342
 
 <en:Tea-based beverages
+<en:Fermented drinks
 en:Kombuchas
 de:Kombucha
 es:Té kombucha, Kombucha
