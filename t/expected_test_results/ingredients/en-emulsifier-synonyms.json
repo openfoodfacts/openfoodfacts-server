@@ -60,20 +60,22 @@
      "en:may-contain-palm-oil" : [
        "en:e471"
      ],
-     "en:vegan-status-unknown" : [
-       "en:Emulsifying"
+     "en:maybe-vegan" : [
+       "en:e471",
+       "en:e477"
      ],
-     "en:vegetarian-status-unknown" : [
-       "en:Emulsifying"
+     "en:maybe-vegetarian" : [
+       "en:e471",
+       "en:e477"
      ]
    },
    "ingredients_analysis_tags" : [
      "en:may-contain-palm-oil",
-     "en:vegan-status-unknown",
-     "en:vegetarian-status-unknown"
+     "en:maybe-vegan",
+     "en:maybe-vegetarian"
    ],
    "ingredients_hierarchy" : [
-     "en:Emulsifying",
+     "en:emulsifier",
      "en:stabiliser",
      "en:e471",
      "en:e477",
@@ -95,7 +97,7 @@
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
-     "en:emulsifying",
+     "en:emulsifier",
      "en:stabiliser",
      "en:e471",
      "en:e477",
