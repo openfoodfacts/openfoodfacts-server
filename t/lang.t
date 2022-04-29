@@ -94,7 +94,4 @@ foreach my $stringid (sort keys %Lang) {
 	}
 }
 
-print "en: $Lang{f_nova_markers_for_nova_group}{en}\n";
-print "es: $Lang{f_nova_markers_for_nova_group}{es}\n";
-
 done_testing();
