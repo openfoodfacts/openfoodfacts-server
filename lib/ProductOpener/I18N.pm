@@ -158,7 +158,6 @@ sub read_po_files {
 # read_po_files(), into two hashes. Obviously returned as two hashrefs.
 #
 
-=head1 FUNCTIONS
 
 =head2 split_tags()
 
