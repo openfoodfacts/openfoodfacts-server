@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-04-28 03:04\n"
+"PO-Revision-Date: 2022-04-29 02:49\n"
 "Language-Team: Russian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -679,6 +679,14 @@ msgstr "Неверный идентификатор пользователя."
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "Имя пользователя должно содержать только латинские буквы, цифры и дефисы."
+
+msgctxt "error_username_too_long"
+msgid "The user name is too long (maximum 20 characters)."
+msgstr ""
+
+msgctxt "error_name_too_long"
+msgid "The name is too long (maximum 60 characters)."
+msgstr ""
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -5927,7 +5935,7 @@ msgstr "Группа определяется на основании катег
 
 msgctxt "nova_classification_learn_more"
 msgid "Learn more about the NOVA classification"
-msgstr "Узнайте больше о классификации NOVA"
+msgstr "Подробнее о классификации NOVA"
 
 msgctxt "nova_group_missing_category"
 msgid "The category of the product must be specified in order to determine the NOVA group."
@@ -5951,5 +5959,5 @@ msgstr "Узнайте больше о Nutri-Score"
 
 msgctxt "ecoscore_learn_more"
 msgid "Learn more about the Eco-Score"
-msgstr ""
+msgstr "Подробнее об Eco-Score"
 
