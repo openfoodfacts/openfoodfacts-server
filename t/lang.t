@@ -82,7 +82,7 @@ test_logo_exists('logo2x');
 # Test that {variables} are kept in translations
 
 foreach my $stringid (sort keys %Lang) {
-	while ($Lang{$stringid}{en} =~ /{([^}]+)\}/g) {
+	while ($Lang{$stringid}{en} =~ /\{([^}]+)\}/g) {
 		my $variable = $1;
 		foreach my $l (sort keys %{$Lang{$stringid}}) {
 			# Note: the if below is added so that we don't have thousands of tests reported in the output
