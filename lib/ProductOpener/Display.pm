@@ -5408,7 +5408,7 @@ sub display_pagination($$$$) {
 	}
 	my $current_link_query = $request_ref->{current_link_query};
 
-	$log->info("current link: $current_link, current_link_query: $current_link_query") if $log->is_info();
+	$log->info("current link and current link query", { current_link => $current_link, current_link_query => $current_link_query }) if $log->is_info();
 
 	if (param("jqm")) {
 		$current_link_query .= "&jqm=1";
