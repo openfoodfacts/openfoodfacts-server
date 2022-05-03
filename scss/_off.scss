@@ -200,6 +200,10 @@ a {
     text-decoration: none;
 }
 
+strong {
+    font-weight: 700 !important
+}
+
 a,
 a:visited,
 a:hover {}
@@ -801,6 +805,7 @@ span.size-48 {
 span.ico-bold {
   font-variation-settings: 'wght' 700;
 }
+
 @import "topbar";
 @import "footer";
 @import "product-list" ;

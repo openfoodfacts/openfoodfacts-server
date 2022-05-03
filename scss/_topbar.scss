@@ -37,6 +37,19 @@
                     }
                 }
             }
+                &.left {
+                    li {
+                        
+
+                &:first-child {
+                    a {
+                    display: inline-flex;
+                    padding-top: 12px ;
+                    padding-bottom: 9px;}
+                }
+                        
+                        }
+                    }
         }
         
         @media only screen and (max-width: 1024px) {
@@ -101,7 +114,7 @@
         background-color: $offblue;
         transition:all 0.3s;
         @media #{$large-up} {
-            border-radius: 24px 24px 0 0;
+            border-radius:  0 0;
             height: 82px;
             display: flex;
             align-items: center;
@@ -196,9 +209,10 @@
             top: 0;
         }
         button[type=submit] {
-          height:2.35rem;
-          background-color:$pastelblue;
-          fill:$primary-color;
+            height:2.35rem;
+            background-color:$pastelblue;
+            fill:$primary-color;
+            padding: 0.4rem 0.5rem;
         }
     }
     .top-bar {

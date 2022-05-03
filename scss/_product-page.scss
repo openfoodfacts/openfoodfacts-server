@@ -2,6 +2,7 @@
 $productsGutter:12px;
 $decalTop:48px;
 
+
 #prodHead {
     padding-bottom :0;
     .flex-grid {
@@ -23,9 +24,13 @@ $decalTop:48px;
     }
 }
 #prodInfos {
-    margin-top :-$decalTop;
-    margin-left:1rem;
-    margin-right:1rem;
+     margin-top :-$decalTop;
+            margin-left:0rem;
+            margin-right:0rem;
+        @media #{$medium-up} {
+            margin-left:1rem;
+            margin-right:1rem;
+        }
 }
 
 .back-to-top {
