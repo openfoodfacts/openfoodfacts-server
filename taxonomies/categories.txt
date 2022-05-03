@@ -31013,6 +31013,10 @@ es:Galletas con tableta de chocolate con leche
 fr:Biscuits tablette de chocolat au lait, Petits beurres au chocolat au lait
 it:Biscotti con tavoletta di cioccolato al latte
 
+<fr:Biscuits tablette de chocolat
+<en:White chocolate biscuits
+fr:Biscuits tablette de chocolat blanc
+
 <en:Biscuits
 fr:Biscuits édulcorés, Biscuits avec édulcorants
 nl:Biscuits met zoetstoffen
@@ -31484,6 +31488,7 @@ ru:Хлебные продукты
 sv:Panerade produkter
 
 <en:Breaded products
+<en:Meat alternatives
 en:Breaded cheeses
 de:Panierter Käse
 fr:Fromages panés
@@ -33489,6 +33494,11 @@ wikidata:en:Q3665589
 en:Plum cakes, Plum cake
 it:Plum cakes, Plum cake
 wikidata:en:Q3906768
+
+#British dessert made with custard cream, fruit (or fruit jelly, or chocolate) and possibly sponge biscuits
+<en:Desserts
+en:Trifles
+wikidata:Q616601
 
 <en:Cakes
 <en:Desserts
@@ -96039,7 +96049,7 @@ nl:Foie gras moussen
 en:Foies gras pâtés
 fr:Pâtés de foie gras
 
-# All products that usually replace meat in vegetarian meals. E.g. falafels, tofu...
+# All products that usually replace meat in vegetarian meals. E.g. falafels, tofu, but also breaded cheese...
 <en:Plant-based foods
 en:Meat alternatives
 fr:Alternatives à la viande
@@ -96059,6 +96069,12 @@ ru:Мясозаменители
 wikidata:en:Q1343997
 
 <en:Meat analogues
+<en:Breaded products
+en:Vegetarian cordons bleus
+fr:Cordons bleus végétariens
+
+<en:Meat analogues
+<en:Breaded products
 en:Vegetarian nuggets, veggie nuggets
 de:Vegetarische Nuggets
 es:Nuggets vegetarianos
@@ -96068,8 +96084,8 @@ it:Nugget vegetarianeìi
 nl:Vegetarische nuggets
 
 <en:Vegetarian nuggets
-en:vegan nuggets, plant based nuggets
-fr:Nuggets végétaux, nuggets végans
+en:Vegan nuggets, plant based nuggets
+fr:Nuggets végans, Nuggets végétaux, 
 nl:Veganistische nuggets, Vegan-nuggets
 
 <en:Meat analogues
