@@ -31,5 +31,13 @@
                 "html": `[% panel.nutriscore_details %]`,
             }
         },
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `
+<p>&rarr; <a href="/nutriscore">[% lang('nutriscore_learn_more') %]</a></p>
+`
+            },
+        },
     ]
 }

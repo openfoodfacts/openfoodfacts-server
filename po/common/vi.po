@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: vi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-04-23 02:38\n"
+"PO-Revision-Date: 2022-04-29 02:52\n"
 "Language-Team: Vietnamese\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -602,11 +602,11 @@ msgstr "Mã xác định nguồn gốc"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr ""
+msgstr "Mã xác định nguồn gốc"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
-msgstr ""
+msgstr "Mã xác định nguồn gốc"
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
@@ -680,6 +680,14 @@ msgstr "Người dùng không hợp lệ."
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "Tên người dùng chỉ được chứa các chữ cái, chữ số và dấu gạch ngang không có dấu."
+
+msgctxt "error_username_too_long"
+msgid "The user name is too long (maximum 20 characters)."
+msgstr ""
+
+msgctxt "error_name_too_long"
+msgid "The name is too long (maximum 60 characters)."
+msgstr ""
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -3226,7 +3234,7 @@ msgstr "Bản dịch hiện tại"
 
 msgctxt "button_caption_yes"
 msgid "Yes"
-msgstr "Có"
+msgstr "Đồng ý"
 
 msgctxt "button_caption_no"
 msgid "No"
@@ -4552,7 +4560,7 @@ msgstr ""
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
-msgstr ""
+msgstr "Thực phẩm chưa qua chế biến hoặc chế biến sơ"
 
 msgctxt "attribute_nova_2_description_short"
 msgid "Processed culinary ingredients"
@@ -4560,7 +4568,7 @@ msgstr ""
 
 msgctxt "attribute_nova_3_description_short"
 msgid "Processed foods"
-msgstr ""
+msgstr "Thực phẩm đã qua chế biến"
 
 msgctxt "attribute_nova_4_description_short"
 msgid "Ultra processed foods"
@@ -4697,7 +4705,7 @@ msgstr ""
 
 msgctxt "attribute_group_environment_name"
 msgid "Environment"
-msgstr ""
+msgstr "Môi trường"
 
 msgctxt "attribute_ecoscore_name"
 msgid "Eco-Score"
@@ -5702,9 +5710,13 @@ msgctxt "source_ademe_agribalyse"
 msgid "Source: ADEME Agribalyse Database"
 msgstr ""
 
+msgctxt "source_ademe_agribalyse_for_category"
+msgid "The carbon emission figure comes from ADEME's Agribalyse database, for the category:"
+msgstr "Chỉ số Carbon từ dữ liệu Agribalyse của ADEME, cho danh mục:"
+
 msgctxt "environment_card_title"
 msgid "Environment"
-msgstr ""
+msgstr "Môi trường"
 
 msgctxt "health_card_title"
 msgid "Nutrition and health"
@@ -5940,4 +5952,12 @@ msgstr "Chúng tôi không thể nhận ra một số thành phần và xác đ�
 msgctxt "unselect_image"
 msgid "Unselect Image"
 msgstr "Bỏ chọn hình ảnh"
+
+msgctxt "nutriscore_learn_more"
+msgid "Learn more about the Nutri-Score"
+msgstr ""
+
+msgctxt "ecoscore_learn_more"
+msgid "Learn more about the Eco-Score"
+msgstr ""
 
