@@ -8,13 +8,14 @@ document.addEventListener('DOMContentLoaded', function() {
         followScroll: false,
         responsive: {
             1023: {
-              top: -20},
+                top: -20
+            },
             731: {
-            top: 40},
+                top: 40
+            },
         }
     });
     //StickyNav.update({
     //top: 20
     //});
-    console.log ($('#main_column').offset.top)
 });

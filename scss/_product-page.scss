@@ -50,10 +50,17 @@ $decalTop:48px;
         display:flex;
     }
 }
+#attributes_grid {
+    
+    display: flex;
+    flex-wrap: wrap;
+    align-content: stretch;
+    }
 .attribute_card {
     border:1px solid #E0E0E0a0;
     display:flex;
     flex-direction:column;
+    height: 100%;
     .attr_card_header {
         display:flex;
         flex-direction:row;
@@ -156,3 +163,29 @@ a.active {
     float:left;
     width:100%;
 }
+
+///
+////edit
+////
+    .bottom-validation {
+        position: fixed; 
+        bottom: 0; 
+        left:0;
+        width: 100%; 
+        border-top: 1px solid #eee; 
+        background-color: transparent; 
+        z-index: 100; 
+        padding: 2rem;
+        pointer-events: none;
+            background: $primary-color;
+        > div {
+            pointer-events: initial;
+            }
+        }
+
+    robotoff-asker {
+        padding-bottom:1rem;
+            #close {
+                background: $white;
+            }
+        } 

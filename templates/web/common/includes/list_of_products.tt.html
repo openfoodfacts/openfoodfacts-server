@@ -1,6 +1,8 @@
 
 <!-- start templates/[% template.name %] -->
 
+<div class="block white">
+    <div class="row">
 [% IF error %]
 <p>[% error %]</p>
 [% END %]
@@ -13,8 +15,12 @@
 [% IF (current_link_query_edit.defined) && !(jqm.defined) %]
     &rarr; <a href="[% current_link_query_edit %]">[% lang('search_edit') %]</a><br>
 [% END %]
+    </div>
+</div>
 
 [% IF count > 0 %]
+<div class="block white">
+    <div class="row">
     [% IF (current_link_query_download.defined) && !(jqm.defined) %]
         &rarr;[% lang('search_download_results') %]<br>
         [% IF count <= export_limit %]
@@ -24,46 +30,48 @@
             </ul>
         [% END %]
     [% END %]
+</div>
+</div>
 
     
 	<div class="block oceanblue short ">
-    <div class="row">
-		<div class="small-12 columns" id="filterProducts">
-			
-				<div style="float:left;margin-right:1em;padding-top:0.3rem;">
-					<span style="font-weight:bold;" class="svg-white">[% display_icon('subdirectory_arrow_right') %] [% html_count %]</span>
-				</div>
-					
-				<div style="float:left;margin-right:1em;">
-					<button href="#" data-dropdown="drop_sort" aria-controls="drop_sort" aria-expanded="false" class="button round dropdown small secondary unmarged">
-						[% display_icon('sort_arrows') %]
-						<span style="font-size:1rem;font-weight:bold;">[% lang("sort_by_${sort_by}") %]</span>
-					</button>
-					<ul id="drop_sort" data-dropdown-content class="f-dropdown" aria-hidden="true">
-						[% FOREACH sort_option IN sort_options %]
-							<li><a href="[% sort_option.link %]" onclick="\$.cookie('last_sort_by', '[% sort_option.value %]', { expires: 180, path: '/' });">[% sort_option.name %]</a></li>
-						[% END %]
-					</ul>
-					
-				</div>
-        
-        [% IF current_link.defined %]
+        <div class="row">
+            <div class="small-12 columns" id="filterProducts">
+                
+                    <div style="float:left;margin-right:1em;padding-top:0.3rem;">
+                        <span style="font-weight:bold;" class="svg-white">[% display_icon('subdirectory_arrow_right') %] [% html_count %]</span>
+                    </div>
+                        
+                    <div style="float:left;margin-right:1em;">
+                        <button href="#" data-dropdown="drop_sort" aria-controls="drop_sort" aria-expanded="false" class="button round dropdown small secondary unmarged">
+                            [% display_icon('sort_arrows') %]
+                            <span style="font-size:1rem;font-weight:bold;">[% lang("sort_by_${sort_by}") %]</span>
+                        </button>
+                        <ul id="drop_sort" data-dropdown-content class="f-dropdown" aria-hidden="true">
+                            [% FOREACH sort_option IN sort_options %]
+                                <li><a href="[% sort_option.link %]" onclick="\$.cookie('last_sort_by', '[% sort_option.value %]', { expires: 180, path: '/' });">[% sort_option.name %]</a></li>
+                            [% END %]
+                        </ul>
+                        
+                    </div>
+            
+            [% IF current_link.defined %]
 
-				[% IF explore_products == 'true' %]
-				<div>
-					<button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button round dropdown small unmarged">[% display_icon('sort') %] [% lang('explore_products_by') %]</button>
-					<ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true">
-						[% FOREACH newtagtype IN current_drilldown_fields %]
-							<li><a href="[% newtagtype.current_link %]/[% newtagtype.tag_type_plural %]"[% newtagtype.nofollow %]>[% lang("${newtagtype.tagtype}_p") FILTER ucfirst %]</a></li>
-						[% END %]
-					</ul>
+                    [% IF explore_products == 'true' %]
+                    <div>
+                        <button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button round dropdown small unmarged">[% display_icon('sort') %] [% lang('explore_products_by') %]</button>
+                        <ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true">
+                            [% FOREACH newtagtype IN current_drilldown_fields %]
+                                <li><a href="[% newtagtype.current_link %]/[% newtagtype.tag_type_plural %]"[% newtagtype.nofollow %]>[% lang("${newtagtype.tagtype}_p") FILTER ucfirst %]</a></li>
+                            [% END %]
+                        </ul>
 
-				</div>
-				[% END %]
+                    </div>
+                    [% END %]
 
-		[% END %]
-		</div>
-		</div>
+            [% END %]
+            </div>
+        </div>
 	</div>
      <div class="row">
 		<div class="small-12 columns">

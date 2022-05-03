@@ -231,7 +231,7 @@
         <input type="hidden"  name="code" value="[% code %]">
         <input type="hidden"  name="action" value="process">
 
-        <div id="fixed_bar" style="position: fixed; bottom: 0; width: 100%; border-top: 1px solid #eee; background-color: white; z-index: 100; padding-top: 10px;">
+        <div id="fixed_bar" class="bottom-validation">
             [% IF type == 'edit' %]
 
                 <div class="row">
@@ -239,7 +239,7 @@
                         <input id="comment" name="comment" placeholder="[% lang('edit_comment') %]" value="" type="text" class="text" />
                     </div>
                     <div class="small-6 medium-6 large-2 xlarge-2 columns">
-                        <button type="submit" name=".submit" class="button postfix small success">
+                        <button type="submit" name=".submit" class="button postfix small white">
                             [% display_icon('check') %] [% lang('save') %]
                         </button>
                     </div>
@@ -253,10 +253,8 @@
             [% ELSE %]
 
                 <div class="row">
-                    <div class="small-12 medium-12 large-8 xlarge-10 columns">
-                    </div>
-                    <div class="small-12 medium-12 large-4 xlarge-2 columns">
-                        <input type="submit" name=".submit" value="[% lang('save') %]" class="button small success">
+                    <div class="small-12 medium-12 large-12 xlarge-12 columns bg-primary h-space-normal v-space-normal text-center">
+                        <input type="submit" name=".submit" value="[% lang('save') %]" class="button  white">
                     </div>
                 </div>
 
