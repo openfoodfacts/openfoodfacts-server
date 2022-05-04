@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-04-23 02:37\n"
+"PO-Revision-Date: 2022-04-29 02:51\n"
 "Language-Team: Turkish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -124,7 +124,7 @@ msgstr "Lütfen kuruluşunuzun adını (şirket adı veya markası) girin."
 
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
-msgstr ""
+msgstr "Bu hesap üretici veya marka {org}. ile ilişkili profesyonel bir hesaptır. Üreticiler için olan Platforma erişiminiz vardır."
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -679,6 +679,14 @@ msgstr "Geçersiz kullanıcı."
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "Kullanıcı adı yalnızca renksiz rakamlar, rakamlar ve çizgiler içermelidir."
+
+msgctxt "error_username_too_long"
+msgid "The user name is too long (maximum 20 characters)."
+msgstr ""
+
+msgctxt "error_name_too_long"
+msgid "The name is too long (maximum 60 characters)."
+msgstr ""
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -3029,11 +3037,11 @@ msgstr "Ürünün ve/veya bileşenlerinin menşei"
 
 msgctxt "origin_note"
 msgid "Packaging mentions that indicate the manufacturing place and/or the origins of the ingredients"
-msgstr ""
+msgstr "Paketleme ifadeleri üretim yerini ve/veya içeriğin kökenlerini gösterir"
 
 msgctxt "origin_example"
 msgid "Made in France. Tomatoes from Italy. Origin of the rice: India, Thailand."
-msgstr ""
+msgstr "Fransa'da üretilmiştir. Domatesler İtalya'dandır. Pirincin kökeni: Hindistan, Tayland'tır."
 
 msgctxt "customer_service"
 msgid "Customer service"
@@ -4036,11 +4044,11 @@ msgstr "Ben zaten bağış yaptım ya da ilgilenmiyorum. Afişi gizle."
 
 msgctxt "donation_banner_independant"
 msgid "An independant and citizen-led project for food transparency?"
-msgstr ""
+msgstr "Gıda şeffafiyeti için bağımsız ve vatandaş öncülüğündeki bir proje mi?"
 
 msgctxt "donation_banner_public_health"
 msgid "Food product data for research that improves public health?"
-msgstr ""
+msgstr "Halk sağlığını iyileştiren araştırmalar için gıda ürün verileri mi?"
 
 msgctxt "donation_banner_choices"
 msgid "Easier and better food choices according to your own criteria?"
@@ -4179,7 +4187,7 @@ msgstr "Bazı içerikler tanınamadı."
 # variable names between { } must not be translated
 msgctxt "f_move_data_and_photos_to_main_language"
 msgid "Move all data and selected photos in {language} to the main language of the product: {main_language}"
-msgstr ""
+msgstr "(dilindeki) seçilen fotoğrafları ve tüm verileri ürünün ana diline yerleştirin(ana dil)"
 
 msgctxt "move_data_and_photos_to_main_language_replace"
 msgid "Replace existing values and selected photos"
@@ -4232,15 +4240,15 @@ msgstr "Katkı sağlayan"
 
 msgctxt "contributor_settings_description"
 msgid "Those settings allow you to personalize some aspect of the website"
-msgstr ""
+msgstr "Bu ayarlar size websitesinin bazı özelliklerini kişiselleştirmenizi sağlar"
 
 msgctxt "display_barcode_in_search"
 msgid "Display barcode in search results"
-msgstr ""
+msgstr "Arama sonuçlarındaki barkodu gösterin"
 
 msgctxt "edit_link_in_search"
 msgid "Add an edit link in search results"
-msgstr ""
+msgstr "Arama sonuçlarına bir düzenleme bağlantısı ekleyin"
 
 # leave the %d, it will be replaced by a number
 msgctxt "n_products_will_be_exported"
@@ -4320,15 +4328,15 @@ msgstr "Ürün artık mağazada bulunmuyorsa Evet, E veya 1 girin."
 
 msgctxt "specify_value_and_unit_or_use_default_unit"
 msgid "Specify both the value and unit, or use the default unit: %s"
-msgstr ""
+msgstr "hem değeri hem de birimi açıkça belirtin, veya hazır birimi kullanın: %s"
 
 msgctxt "specify_value_and_unit"
 msgid "Specify both the value and unit."
-msgstr ""
+msgstr "Hem değeri hem de birimi açıkça belirtin."
 
 msgctxt "download_sample_import_file"
 msgid "Download an XLSX template file for Excel or LibreOffice with the fields that can be imported."
-msgstr ""
+msgstr "Excel veya Libre Office için iç içe aktarılabilen alanlarla birlikte XLSX şablon dosyasını indirin."
 
 msgctxt "code_import_note"
 msgid "Barcode as it appears on the product."
@@ -4336,27 +4344,27 @@ msgstr "Ürünün üzerindeki barkod."
 
 msgctxt "producer_product_id_import_note"
 msgid "Internal code used by the producer to identify the product, different from the product's barcode."
-msgstr ""
+msgstr "Dahili kodlar üretici tarafından ürünün belirlenmesi için, ürün kodunun dışında kullanılır."
 
 msgctxt "producer_version_id_import_note"
 msgid "Internal code used by the producer to identify a specific version of a product when it changes."
-msgstr ""
+msgstr "Dahili kodlar değiştirildiğinde üretici tarafından bir ürünün belirli bir sürümünü tanımlamak için kullanılır."
 
 msgctxt "categories_import_note"
 msgid "Providing a category is very important to make the product easy to search for, and to compute the Nutri-Score"
-msgstr ""
+msgstr "Ürünün araştırılmasını kolaylaştırmak için ve besin skorunu(Nutri-Score) hesaplamak için bir kategorinin şart koşulması çok önemlidir"
 
 msgctxt "labels_import_note"
 msgid "Some labels such as the organic label are used to filter and/or rank search results, so it is strongly recommended to specify them."
-msgstr ""
+msgstr "Araştırma sonuçlarını sıralamak ve / veya filtrelemek için organik etiketler gibi bazı etiketler kullanılır bu yüzden kuvvetli anlamda onları nitelendirmek için önerilirler."
 
 msgctxt "origins_import_note"
 msgid "This field must contain only a comma separated list of countries of origin of the ingredients"
-msgstr ""
+msgstr "Bu alan içeriklerin menşe ülkelerinin listesinden sadece bir virgül ile ayrılmış şekilde içerilmelidir"
 
 msgctxt "origin_import_note"
 msgid "Text or sentences that indicate the origin of the product and/or its ingredients."
-msgstr ""
+msgstr "Metin veya cümleler ürün ve/veya içeriklerin kökenini gösterir."
 
 msgctxt "nutriscore_grade_producer_note"
 msgid "Nutri-Score grade from A to E displayed on the product label"
@@ -4388,7 +4396,7 @@ msgstr "Tavsiye edilen alan"
 
 msgctxt "recommended_field_note"
 msgid "If this information exists and is relevant for the product, it is recommended to provide it to make the product easier to search for and the product data more useful."
-msgstr ""
+msgstr "Bu bilgi varsa ve ürünle ilgiliyse, ürünün araştırılmasını daha kolay hale getirmesini ve ürün verisinin daha kullanışlı olmasını sağlaması için önerilir."
 
 msgctxt "optional_field"
 msgid "Optional field"
@@ -4396,7 +4404,7 @@ msgstr "Mecburi olmayan alan"
 
 msgctxt "optional_field_note"
 msgid "If available, this information will be displayed on the product page."
-msgstr ""
+msgstr "Varsa, bu bilgi ürün sayfasında gösterilecektir."
 
 # product photos here means photos of multiple products
 msgctxt "images_can_be_provided_separately"
@@ -4421,7 +4429,7 @@ msgstr "Organik ürün değil"
 
 msgctxt "attribute_labels_organic_unknown_title"
 msgid "Missing information: organic product?"
-msgstr ""
+msgstr "Eksik bilgi: organik ürün?"
 
 msgctxt "attribute_labels_organic_yes_description_short"
 msgid "Promotes ecological sustainability and biodiversity."
@@ -4429,7 +4437,7 @@ msgstr ""
 
 msgctxt "attribute_labels_organic_description_short"
 msgid "Organic products promote ecological sustainability and biodiversity."
-msgstr ""
+msgstr "Organik ürünler ekolojik sürdürülebilirlik ve bio çeşitliliği teşvik eder."
 
 msgctxt "attribute_labels_organic_description"
 msgid "Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives."
@@ -4441,19 +4449,19 @@ msgstr "Ticaret Fuarı"
 
 msgctxt "attribute_labels_fair_trade_yes_title"
 msgid "Fair trade product"
-msgstr ""
+msgstr "Ticaret dostu ürün"
 
 msgctxt "attribute_labels_fair_trade_no_title"
 msgid "Not a fair trade product"
-msgstr ""
+msgstr "Ticaret dostu olmayan ürün"
 
 msgctxt "attribute_labels_fair_trade_unknown_title"
 msgid "Missing information: fair trade product?"
-msgstr ""
+msgstr "Eksik bilgi: ticaret dostu ürün mü?"
 
 msgctxt "attribute_labels_fair_trade_yes_description_short"
 msgid "Helps producers in developing countries."
-msgstr ""
+msgstr "Gelişmekte olan ülkelerdeki üretimcilere yardım eder."
 
 msgctxt "attribute_labels_fair_trade_description_short"
 msgid "Fair trade products help producers in developing countries."
@@ -4494,11 +4502,11 @@ msgstr ""
 
 msgctxt "attribute_nutriscore_not_applicable_title"
 msgid "Nutri-Score not-applicable"
-msgstr ""
+msgstr "Nutri-score geçerli değildir"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
 msgid "Exempted category"
-msgstr ""
+msgstr "Muaf tutlan kategori"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -4522,7 +4530,7 @@ msgstr "Çok kötü beslenme kalitesi"
 
 msgctxt "attribute_group_processing_name"
 msgid "Food processing"
-msgstr ""
+msgstr "Gıda işleme"
 
 msgctxt "attribute_nova_name"
 msgid "NOVA group"
@@ -4534,16 +4542,16 @@ msgstr "NOVA hesaplanmadı"
 
 msgctxt "attribute_nova_unknown_description_short"
 msgid "Food processing level unknown"
-msgstr ""
+msgstr "Gıda işleme seviyesi bilinmemektedir"
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
-msgstr ""
+msgstr "Gıda işlemesi hiç ya da az (NOVA grup)"
 
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
 msgid "NOVA %s"
-msgstr ""
+msgstr "NOVA &s"
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
@@ -4563,19 +4571,19 @@ msgstr "Üst düzey işlemden geçmiş yiyecekler"
 
 msgctxt "export_product_page"
 msgid "Export product to public database"
-msgstr ""
+msgstr "Ürünleri herkese açık veritabanına aktarın"
 
 msgctxt "one_product_will_be_exported"
 msgid "1 product will be exported."
-msgstr ""
+msgstr "1 ürün ihraç edilecektir."
 
 msgctxt "no_products_to_export"
 msgid "No products to export."
-msgstr ""
+msgstr "Ihraç edilecek ürün yok."
 
 msgctxt "query_filter"
 msgid "Query filter"
-msgstr ""
+msgstr "Sorgulama filtresi"
 
 msgctxt "nova_group_producer"
 msgid "NOVA group"
@@ -4603,7 +4611,7 @@ msgstr ""
 
 msgctxt "attribute_low_saturated_fat_setting_note"
 msgid "The saturated fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low saturated fat diet."
-msgstr ""
+msgstr "İşlenmiş yağ seviyesi Nutri-Score tarafından dikkate alınır. Bu ayarları sadece siz özellikle düşük işlenmiş yağ diyetindeyseniz kullanın."
 
 msgctxt "attribute_group_allergens_name"
 msgid "Allergens"
@@ -5697,6 +5705,10 @@ msgctxt "source_ademe_agribalyse"
 msgid "Source: ADEME Agribalyse Database"
 msgstr ""
 
+msgctxt "source_ademe_agribalyse_for_category"
+msgid "The carbon emission figure comes from ADEME's Agribalyse database, for the category:"
+msgstr ""
+
 msgctxt "environment_card_title"
 msgid "Environment"
 msgstr "Çevre"
@@ -5934,5 +5946,13 @@ msgstr ""
 
 msgctxt "unselect_image"
 msgid "Unselect Image"
+msgstr ""
+
+msgctxt "nutriscore_learn_more"
+msgid "Learn more about the Nutri-Score"
+msgstr "Nutri-Score hakkında daha fazla bilgi edinin"
+
+msgctxt "ecoscore_learn_more"
+msgid "Learn more about the Eco-Score"
 msgstr ""
 

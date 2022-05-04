@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: en_GB\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-04-23 02:32\n"
+"PO-Revision-Date: 2022-04-29 02:45\n"
 "Language-Team: English, United Kingdom\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -666,6 +666,14 @@ msgstr "Invalid user."
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "The user name must contain only unaccented letters, digits and dashes."
+
+msgctxt "error_username_too_long"
+msgid "The user name is too long (maximum 20 characters)."
+msgstr ""
+
+msgctxt "error_name_too_long"
+msgid "The name is too long (maximum 60 characters)."
+msgstr ""
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -5688,6 +5696,10 @@ msgctxt "source_ademe_agribalyse"
 msgid "Source: ADEME Agribalyse Database"
 msgstr ""
 
+msgctxt "source_ademe_agribalyse_for_category"
+msgid "The carbon emission figure comes from ADEME's Agribalyse database, for the category:"
+msgstr ""
+
 msgctxt "environment_card_title"
 msgid "Environment"
 msgstr "Environment"
@@ -5925,5 +5937,13 @@ msgstr ""
 
 msgctxt "unselect_image"
 msgid "Unselect Image"
+msgstr ""
+
+msgctxt "nutriscore_learn_more"
+msgid "Learn more about the Nutri-Score"
+msgstr ""
+
+msgctxt "ecoscore_learn_more"
+msgid "Learn more about the Eco-Score"
 msgstr ""
 
