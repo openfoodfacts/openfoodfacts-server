@@ -473,7 +473,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	detect_allergens_from_text($product_ref);
 	compute_carbon_footprint_from_ingredients($product_ref);
 	compute_carbon_footprint_from_meat_or_fish($product_ref);
-	
+
 	# Food category rules for sweetened/sugared beverages
 	# French PNNS groups from categories
 
@@ -711,7 +711,7 @@ HTML
 	font-weight:normal;
 	font-size:0.8rem;
 }
-.select_manage .ui-selectable li { 
+.select_manage .ui-selectable li {
 	height: 180px
 }
 CSS
@@ -820,10 +820,10 @@ sub display_input_tabs($$$$$) {
 		my $language;
 
 		if ($tabid ne 'new') {
-			
+
 			$language = display_taxonomy_tag($lc,'languages',$language_codes{$tabid});	 # instead of $tabsids_hash_ref->{$tabid}
 			$display_tab_ref->{language} = $language;
-		
+
 			my $display_lc = $tabid;
 			$template_data_ref_tab->{display_lc} = $display_lc;
 
@@ -856,7 +856,7 @@ sub display_input_tabs($$$$$) {
 
 			$display_tab_ref->{fields} = \@fields_arr;
 		}
-		
+
 		# For moderators, add a checkbox to move all data and photos to the main language
 		# this needs to be below the "add (language name) in all field labels" above, so that it does not change this label.
 		if (($User{moderator}) and ($tabsid eq "front_image")) {
@@ -904,24 +904,28 @@ sub display_input_tabs($$$$$) {
 
 	my $checked = '';
 	my $tablestyle = 'display: table;';
+
 	my $disabled = '';
 	if ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
 		$checked = 'checked="checked"';
 		$tablestyle = 'display: none;';
 		$disabled = 'disabled="disabled"';
+
 	}
+
 
 	$template_data_ref_display->{nutrition_checked} = $checked;
 	$template_data_ref_display->{display_tab_ingredients_image} = display_input_tabs($product_ref, "ingredients_image", $product_ref->{sorted_langs}, \%Langs, \@ingredients_fields);
 	$template_data_ref_display->{display_field_allergens} =  display_input_field($product_ref, "allergens", undef);
 	$template_data_ref_display->{display_field_traces} =  display_input_field($product_ref, "traces", undef);
 	$template_data_ref_display->{display_field_origins} =  display_input_field($product_ref, "origins", undef);
-	$template_data_ref_display->{display_tab_nutrition_image} = display_input_tabs($product_ref, "nutrition_image", $product_ref->{sorted_langs}, \%Langs, ["nutrition_image"]);
+	#$template_data_ref_display->{display_tab_nutrition_image} = display_input_tabs($product_ref, "nutrition_image", $product_ref->{sorted_langs}, \%Langs, ["nutrition_image"]);
 	$template_data_ref_display->{display_field_serving_size} =   display_input_field($product_ref, "serving_size", undef);
 
 	$initjs .= display_select_crop_init($product_ref);
 
 	my $hidden_inputs = '';
+
 
 	#<p class="note">&rarr; $Lang{nutrition_data_table_note}{$lang}</p>
 
@@ -955,6 +959,9 @@ sub display_input_tabs($$$$$) {
 		}
 		else {
 			$column_display_style{$nutrition_data} = 'style="display:none"';
+			# $nutrition_data_per_display_style{$nutrition_data} = 'style="display:none"';
+			$hidden = 'style="display:none"';
+			$nutrition_data_per_display_style{$nutrition_data} = 'style="display:none"';
 			$hidden = 'style="display:none"';
 		}
 
@@ -975,7 +982,7 @@ sub display_input_tabs($$$$$) {
 		}
 
 		my $nutriment_col_class = "nutriment_col" . $product_type;
-		
+
 		my $product_type_as_sold_or_prepared = "as_sold";
 		if ($product_type eq "_prepared") {
 			$product_type_as_sold_or_prepared = "prepared";
@@ -1029,7 +1036,7 @@ sub display_input_tabs($$$$$) {
 		}
 	}
 
-	my @nutriments;	
+	my @nutriments;
 	foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}, @unknown_nutriments, 'new_0', 'new_1') {
 
 		my $nutriment_ref = {};
@@ -1136,7 +1143,7 @@ sub display_input_tabs($$$$$) {
 			elsif ($product_ref->{nutriments}{$nid . "_modifier"} eq '-') {
 				# The - minus sign indicates that there is no value specified on the product
 				$value = '-';
-			}		
+			}
 		}
 
 		if (defined $product_ref->{nutriments}{$nidp . "_modifier"}) {
@@ -1151,7 +1158,7 @@ sub display_input_tabs($$$$$) {
 			elsif ($product_ref->{nutriments}{$nidp . "_modifier"} eq '-') {
 				# The - minus sign indicates that there is no value specified on the product
 				$valuep = '-';
-			}		
+			}
 		}
 
 		if (lc($unit) eq "mcg") {
@@ -1239,9 +1246,9 @@ sub display_input_tabs($$$$$) {
 			}
 
 			$nutriment_ref->{units_arr} = \@units_arr;
-	
+
 		}
-		
+
 		$nutriment_ref->{shown} = $shown;
 		$nutriment_ref->{enid} = $enid;
 		$nutriment_ref->{enidp} = $enidp;
@@ -1254,7 +1261,7 @@ sub display_input_tabs($$$$$) {
 
 		push(@nutriments, $nutriment_ref);
 	}
-	
+
 	$template_data_ref_display->{nutriments} = \@nutriments;
 
 	# Compute a list of nutrients that will not be displayed in the nutrition facts table in the product edit form
@@ -1274,7 +1281,7 @@ sub display_input_tabs($$$$$) {
 			if (defined get_property("nutrients", "zz:$nid", "iu_value:en")) {
 				$supports_iu = "true";
 			}
-			
+
 			my $other_nutriment_unit = get_property("nutrients", "zz:$nid", "unit:en");
 			$other_nutriments .= '{ "value" : "' . $other_nutriment_value
 				. '", "unit" : "' . $other_nutriment_unit
