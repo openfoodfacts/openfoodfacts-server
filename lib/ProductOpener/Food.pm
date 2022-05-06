@@ -1487,7 +1487,7 @@ sub compute_nutrition_score($) {
 
 	# Initialize values
 
-	delete $product_ref->{nutrition_score_debug};
+	$product_ref->{nutrition_score_debug} = '';
 	delete $product_ref->{nutriments}{"nutrition-score"};
 	delete $product_ref->{nutriments}{"nutrition-score_100g"};
 	delete $product_ref->{nutriments}{"nutrition-score_serving"};
@@ -1520,13 +1520,13 @@ sub compute_nutrition_score($) {
 	# do not compute a score when we don't have a category
 	if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq '')) {
 		$product_ref->{"nutrition_grades_tags"} = [ "unknown" ];
-		$product_ref->{nutrition_score_debug} = "no score when the product does not have a category";
+		$product_ref->{nutrition_score_debug} = "no score when the product does not have a category" . " - ";;
 		add_tag($product_ref,"misc","en:nutriscore-missing-category");
 	}
 
 	if (not defined $product_ref->{nutrition_score_beverage}) {
 		$product_ref->{"nutrition_grades_tags"} = [ "unknown" ];
-		$product_ref->{nutrition_score_debug} = "did not determine if it was a beverage";
+		$product_ref->{nutrition_score_debug} = "did not determine if it was a beverage" . " - ";;
 		add_tag($product_ref,"misc","en:nutriscore-beverage-status-unknown");
 	}
 
@@ -1539,12 +1539,12 @@ sub compute_nutrition_score($) {
 		if (has_tag($product_ref, "categories", $category_tag)) {
 
 			if ((defined $product_ref->{nutriments}{"energy_prepared_100g"})) {
-				$product_ref->{nutrition_score_debug} = "using prepared product data for category $category_tag";
+				$product_ref->{nutrition_score_debug} = "using prepared product data for category $category_tag" . " - ";;
 				$prepared = '_prepared';
 			}
 			else {
 				$product_ref->{"nutrition_grades_tags"} = [ "unknown" ];
-				$product_ref->{nutrition_score_debug} = "no score for category $category_tag without data for prepared product";
+				$product_ref->{nutrition_score_debug} = "no score for category $category_tag without data for prepared product" . " - ";;
 				add_tag($product_ref,"misc","en:nutriscore-missing-prepared-nutrition-data");
 			}
 			last;
@@ -1572,7 +1572,7 @@ sub compute_nutrition_score($) {
 				if (has_tag($product_ref, "categories", $category_id)) {
 					$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
 					add_tag($product_ref,"misc","en:nutriscore-not-applicable");
-					$product_ref->{nutrition_score_debug} = "no nutriscore for category $category_id";
+					$product_ref->{nutrition_score_debug} = "no nutriscore for category $category_id" . " - ";;
 					last;
 				}
 			}
@@ -1593,7 +1593,7 @@ sub compute_nutrition_score($) {
 			if (not defined $product_ref->{nutriments}{$nid . $prepared . "_100g"}) {
 				$product_ref->{"nutrition_grades_tags"} = [ "unknown" ];
 				add_tag($product_ref,"misc","en:nutrition-not-enough-data-to-compute-nutrition-score");
-				$product_ref->{nutrition_score_debug} .= "missing " . $nid . $prepared;
+				$product_ref->{nutrition_score_debug} .= "missing " . $nid . $prepared . " - ";
 				add_tag($product_ref,"misc","en:nutriscore-missing-nutrition-data");
 				add_tag($product_ref,"misc","en:nutriscore-missing-nutrition-data-$nid");
 			}
@@ -1609,6 +1609,9 @@ sub compute_nutrition_score($) {
 			push @{$product_ref->{misc_tags}}, "en:nutrition-no-fiber";
 		}
 	}
+
+	# Remove ending -
+	$product_ref->{nutrition_score_debug} =~ s/ - $//;
 
 	# If the Nutri-Score is unknown or not applicable, exit the function
 	if ((defined $product_ref->{"nutrition_grades_tags"})
