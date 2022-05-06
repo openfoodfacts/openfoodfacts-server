@@ -1,23 +1,26 @@
 name: Feature request
 description: Suggest an idea for this project
-labels: ["feature"]
+labels: ["feature,needs-triage"]
 body:
   - type: textarea
     attributes:
-      label: Is your feature request related to a problem? Please describe.
+      label: What
       description: A clear and concise description of what the problem is. Ex. I'm always frustrated when […]
+      placeholder: Is your feature request related to a problem? Please describe.
     validations:
       required: true
   - type: textarea
     attributes:
-      label: Describe the solution you'd like
+      label: Proposed solution
       description: A clear and concise description of what you want to happen.
+      placeholder: Describe the solution you would like
     validations:
       required: true
   - type: textarea
     attributes:
-      label: Describe alternatives you've considered
+      label: Alternatives
       description: A clear and concise description of any alternative solutions or features you've considered.
+      placeholder: Describe alternatives you have considered
     validations:
       required: false
   - type: textarea
