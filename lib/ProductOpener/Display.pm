@@ -8853,8 +8853,14 @@ sub data_to_display_nutriscore_and_nutrient_levels($) {
 			# Missing nutrition facts?
 			if (has_tag($product_ref,"misc","en:nutriscore-missing-nutrition-data")) {
 				push @nutriscore_warnings, lang("nutriscore_missing_nutrition_data");
-				$result_data_ref->{nutriscore_unknown_reason} = "missing_nutrition_data"; # Takes precedence if the category is also missing
-				$result_data_ref->{nutriscore_unknown_reason_short} = lang("nutriscore_missing_nutrition_data_short");
+				if (not has_tag($product_ref,"misc","en:nutriscore-missing-category")) {
+					$result_data_ref->{nutriscore_unknown_reason} = "missing_nutrition_data";
+					$result_data_ref->{nutriscore_unknown_reason_short} = lang("nutriscore_missing_nutrition_data_short");
+				}
+				else {
+					$result_data_ref->{nutriscore_unknown_reason} = "missing_category_and_nutrition_data";
+					$result_data_ref->{nutriscore_unknown_reason_short} = lang("nutriscore_missing_category_and_nutrition_data_short");					
+				}
 			}
 		}
 	}
