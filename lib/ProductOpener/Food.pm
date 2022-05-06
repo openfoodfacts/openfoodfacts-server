@@ -1606,7 +1606,7 @@ sub compute_nutrition_score($) {
 			and (not defined $product_ref->{nutriments}{"fiber" . $prepared . "_modifier"})
 			and not (has_tag($product_ref, "categories", "en:sodas"))) {
 			$product_ref->{nutrition_score_warning_no_fiber} = 1;
-			push @{$product_ref->{misc_tags}}, "en:nutrition-no-fiber";
+			add_tag($product_ref,"misc","en:nutrition-no-fiber");
 		}
 	}
 
