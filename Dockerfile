@@ -21,6 +21,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         libapache2-mod-perl2 \
         # libexpat1-dev \
         make \
+        gettext \
         wget \
         imagemagick \
         graphviz \

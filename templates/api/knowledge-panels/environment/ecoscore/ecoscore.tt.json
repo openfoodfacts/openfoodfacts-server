@@ -58,5 +58,13 @@
                 "panel_ids": [ "ecoscore_total"],
             },
         },
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `
+<p>&rarr; <a href="[% url_for_text("ecoscore") %]">[% lang('ecoscore_learn_more') %]</a></p>
+`
+            },
+        },
     ]
 }
