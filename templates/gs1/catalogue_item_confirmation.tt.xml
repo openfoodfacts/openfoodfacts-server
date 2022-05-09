@@ -19,17 +19,17 @@
 	</sh:StandardBusinessDocumentHeader>
 	<transaction>
 		<transactionIdentification>
-			<entityIdentification>[% notification.transactionIdentification_entityIdentification %]</entityIdentification>
+			<entityIdentification>[% transactionIdentification_entityIdentification %]</entityIdentification>
 			<contentOwner>
-				<gln>[% notification.transactionIdentification_contentOwner_gln %]</gln>
+				<gln>[% Sender_Identifier %]</gln>
 			</contentOwner>
 		</transactionIdentification>
 		<documentCommand>
 			<documentCommandHeader type="[% notification.documentCommandHeader_type %]">
 				<documentCommandIdentification>
-					<entityIdentification>[% notification.documentCommandIdentification_entityIdentification %]</entityIdentification>
+					<entityIdentification>[% documentCommandIdentification_entityIdentification %]</entityIdentification>
 					<contentOwner>
-						<gln>[% notification.documentCommandIdentification_contentOwner_gln %]</gln>
+						<gln>[% Sender_Identifier %]</gln>
 					</contentOwner>
 				</documentCommandIdentification>
 			</documentCommandHeader>
@@ -37,18 +37,18 @@
 				<creationDateTime>[% notification.catalogueItemNotification_creationDateAndTime %]</creationDateTime>
 				<documentStatusCode>[% notification.catalogueItemNotification_documentStatusCode %]</documentStatusCode>
 				<catalogueItemConfirmationIdentification>
-					<entityIdentification>[% notification.catalogueItemNotificationIdentification_entityIdentification %]</entityIdentification>
+					<entityIdentification>[% catalogueItemNotificationIdentification_entityIdentification %]</entityIdentification>
 					<contentOwner>
-						<gln>[% notification.catalogueItemNotificationIdentification_contentOwner_gln %]</gln>
+						<gln>[% Sender_Identifier %]</gln>
 					</contentOwner>
 				</catalogueItemConfirmationIdentification>
 				<catalogueItemConfirmationState>
 					<catalogueItemConfirmationStateCode>[% catalogueItemConfirmationStateCode %]</catalogueItemConfirmationStateCode>
-					<recipientGLN>[% notification.transactionIdentification_contentOwner_gln %]</recipientGLN>
+					<recipientGLN>[% recipientGLN %]</recipientGLN>
 					<recipientDataPool>[% recipientDataPool %]</recipientDataPool>
 				</catalogueItemConfirmationState>
 				<catalogueItemReference>
-					<dataSource>[% dataSource %]</dataSource>
+					<dataSource>[% notification.transactionIdentification_contentOwner_gln %]</dataSource>
 					<gtin>[% notification.gtin %]</gtin>
 					<targetMarketCountryCode>[% notification.targetMarketCountryCode %]</targetMarketCountryCode>
 				</catalogueItemReference>

@@ -58,7 +58,7 @@ BEGIN
 		&init_csv_fields
 		&read_gs1_json_file
 		&generate_gs1_message_identifier
-		&write_gs1_confirmation_file
+		&generate_gs1_confirmation_message
 		&write_off_csv_file
 		&print_unknown_entries_in_gs1_maps
 
@@ -1497,7 +1497,6 @@ sub convert_gs1_json_message_to_off_products_csv($$$) {
 		gs1_to_off(\%gs1_message_to_off, $json_ref, $message_ref);
 		push @$messages_ref, $message_ref;
 		$log->debug("convert_gs1_json_to_off_csv - GS1 message fields", { message_ref => $message_ref }) if $log->is_debug();
-		$log->error("convert_gs1_json_to_off_csv - GS1 message fields", { message_ref => $message_ref }) if $log->is_error();
 	}
 	
 	foreach my $field (qw(
@@ -1603,39 +1602,44 @@ sub generate_gs1_message_identifier() {
 }
 
 
-sub write_gs1_confirmation_file($$$$) {
+sub generate_gs1_confirmation_message($$) {
 
-	my $file = shift;
-	my $message_ref = shift;
-	my $confirmation_instance_identifier = shift;
+	my $notification_message_ref = shift;
 
 	# For testing, we will be passed a specific time, otherwise use the current time
 	my $time = shift or time();
+
+	# We will need to generate a message identifier, put it in the XML content,
+	# and return it as it is used as the file name
+	my $confirmation_instance_identifier = generate_gs1_message_identifier();
 
 	# Template data for the confirmation
 	my $confirmation_data_ref = {
 		Sender_Identifier => deep_get(\%options, qw(gs1 local_gln)),
 		Receiver_Identifier => deep_get(\%options, qw(gs1 agena3000 receiver_gln)),
-		recipientDataPool => deep_get(\%options, qw(gs1 agena3000 receiver_gln)),
+		recipientGLN => deep_get(\%options, qw(gs1 local_gln)),
+		recipientDataPool => deep_get(\%options, qw(gs1 agena3000 data_pool_gln)),
 		InstanceIdentifier => $confirmation_instance_identifier,
+		transactionIdentification_entityIdentification => generate_gs1_message_identifier(),
+		documentCommandIdentification_entityIdentification => generate_gs1_message_identifier(),
+		catalogueItemNotificationIdentification_entityIdentification => generate_gs1_message_identifier(),
 		CreationDateAndTime => display_date_iso($time),
 		catalogueItemConfirmationStateCode => 'RECEIVED',
 	};
 
 	# Include the notification data in the template data for the confirmation
-	$confirmation_data_ref->{notification} = $message_ref;
+	$confirmation_data_ref->{notification} = $notification_message_ref;
 
 
 	my $xml;
 	if (process_template('gs1/catalogue_item_confirmation.tt.xml', $confirmation_data_ref, \$xml)) {
-		open (my $result, ">:encoding(UTF-8)", $file)
-			or die("Could not create $file: $!\n");
-		print $result $xml;
-		close $result;
+		$log->debug("generate_gs1_confirmation_message - success", { confirmation_instance_identifier => $confirmation_instance_identifier}) if $log->is_error();
 	}
 	else {
-		$log->debug("write_gs1_confirmation_file - template error", { error => $tt->error() }) if $log->is_error();
+		$log->error("generate_gs1_confirmation_message - template error", { error => $tt->error() }) if $log->is_error();
 	}
+
+	return ($confirmation_instance_identifier, $xml);
 }
 
 

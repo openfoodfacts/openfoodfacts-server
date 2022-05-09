@@ -6,7 +6,7 @@
 			<sh:Identifier Authority="GS1">3770026870013</sh:Identifier>
 		</sh:Sender>
 		<sh:Receiver>
-			<sh:Identifier Authority="GS1">3027000006006</sh:Identifier>
+			<sh:Identifier Authority="GS1">3034012285008</sh:Identifier>
 		</sh:Receiver>
 		<sh:DocumentIdentification>
 			<sh:Standard>GS1</sh:Standard>
@@ -19,17 +19,17 @@
 	</sh:StandardBusinessDocumentHeader>
 	<transaction>
 		<transactionIdentification>
-			<entityIdentification>3034012285008_000014f973cfe5a5634f09a24dfc435463baf5445ec2e7a0e140238cc610</entityIdentification>
+			<entityIdentification>3770026870013_8a98314bca9688af39194f3c59fae537e5d5e9f638fa9f5fada1231fda1d</entityIdentification>
 			<contentOwner>
-				<gln>3014498600106</gln>
+				<gln>3770026870013</gln>
 			</contentOwner>
 		</transactionIdentification>
 		<documentCommand>
 			<documentCommandHeader type="CHANGE_BY_REFRESH">
 				<documentCommandIdentification>
-					<entityIdentification>3034012285008_000014f973cfe5a5634f09a24dfc435463baf5445ec2e7a0e140238cc61003</entityIdentification>
+					<entityIdentification>3770026870013_4b5f24ebe64698fbc037718d6b3674b4a95135f84a1298946c5c7b4c5b51</entityIdentification>
 					<contentOwner>
-						<gln>3014498600106</gln>
+						<gln>3770026870013</gln>
 					</contentOwner>
 				</documentCommandIdentification>
 			</documentCommandHeader>
@@ -37,18 +37,18 @@
 				<creationDateTime></creationDateTime>
 				<documentStatusCode>ORIGINAL</documentStatusCode>
 				<catalogueItemConfirmationIdentification>
-					<entityIdentification>3034012285008_000014f973cfe5a5634f09a24dfc435463baf5445ec2e7a0e140238cc610</entityIdentification>
+					<entityIdentification>3770026870013_9f14fd6c588387e3c545ca9b27042bf8e7c88e6ca5fe4a08081d1d77909a</entityIdentification>
 					<contentOwner>
-						<gln>3014498600106</gln>
+						<gln>3770026870013</gln>
 					</contentOwner>
 				</catalogueItemConfirmationIdentification>
 				<catalogueItemConfirmationState>
 					<catalogueItemConfirmationStateCode>RECEIVED</catalogueItemConfirmationStateCode>
-					<recipientGLN>3014498600106</recipientGLN>
+					<recipientGLN>3770026870013</recipientGLN>
 					<recipientDataPool>3027000006006</recipientDataPool>
 				</catalogueItemConfirmationState>
 				<catalogueItemReference>
-					<dataSource></dataSource>
+					<dataSource>3014498600106</dataSource>
 					<gtin>03449862093657</gtin>
 					<targetMarketCountryCode>250</targetMarketCountryCode>
 				</catalogueItemReference>

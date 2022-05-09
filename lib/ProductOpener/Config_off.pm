@@ -1423,9 +1423,10 @@ $options{import_sources} = {
 # Configuration to receive GS1 notification messages and issue GS1 confirmation messages
 
 $options{gs1} = {
-	local_gln => "3770026870013",	# Open Food Facts GS1 GLN identifier
+	local_gln => "3770026870013",			# Open Food Facts GS1 GLN identifier
 	agena3000 => {
-		receiver_gln => "3027000006006", # GS1 France ?
+		receiver_gln => "3034012285008",	# Agena 3000
+		data_pool_gln => "3027000006006",	# GS1
 	},
 };
 
