@@ -364,6 +364,7 @@ sub normalize_product_for_test_comparison($) {
     my $product = shift;
     # fields we don't want to check for they vary from test to test
     # stars means there is a table of elements and we want to run through all (hash not supported yet)
+    # compared_to_category: depends on which products have been aggregated in index/categories_nutriments_per_country.world.sto
     my @fields_ignore_content = qw(
         last_modified_t created_t owner_fields
         entry_dates_tags last_edit_dates_tags

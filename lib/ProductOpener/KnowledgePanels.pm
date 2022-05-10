@@ -522,18 +522,20 @@ sub create_ecoscore_panel($$$) {
 
         # Create an extra panel for products that have extended ecoscore data from the impact estimator
 
-        if (defined $product_ref->{ecoscore_extended_data}) {
+        # 2022/05/06: disabled as we currently have few products with reliable extended ecoscore data
 
-            extract_data_from_impact_estimator_best_recipe($product_ref, $panel_data_ref);
+        # if (defined $product_ref->{ecoscore_extended_data}) {
 
-            compare_impact_estimator_data_to_category_average($product_ref, $panel_data_ref, $target_cc);
+        #     extract_data_from_impact_estimator_best_recipe($product_ref, $panel_data_ref);
 
-            # Display a panel only if we can compare the product extended impact
-            if (defined $panel_data_ref->{ecoscore_extended_data_for_category}) {
-                create_panel_from_json_template("ecoscore_extended", "api/knowledge-panels/environment/ecoscore/ecoscore_extended.tt.json",
-                    $panel_data_ref, $product_ref, $target_lc, $target_cc);
-            }
-        }
+        #     compare_impact_estimator_data_to_category_average($product_ref, $panel_data_ref, $target_cc);
+
+        #     # Display a panel only if we can compare the product extended impact
+        #     if (defined $panel_data_ref->{ecoscore_extended_data_for_category}) {
+        #         create_panel_from_json_template("ecoscore_extended", "api/knowledge-panels/environment/ecoscore/ecoscore_extended.tt.json",
+        #             $panel_data_ref, $product_ref, $target_lc, $target_cc);
+        #     }
+        # }
 
         create_panel_from_json_template("carbon_footprint", "api/knowledge-panels/environment/carbon_footprint.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);            
@@ -784,17 +786,11 @@ sub create_nutriscore_panel($$$) {
 	
     my $panel_data_ref = data_to_display_nutriscore_and_nutrient_levels($product_ref);
 
-    # Do not display the Nutri-Score panel if it is not applicable
-    if ((not $panel_data_ref->{do_not_display})
-        and (not $panel_data_ref->{nutriscore_grade} eq "not-applicable")) {
+    $panel_data_ref->{title} = lang_in_other_lc($target_lc, "attribute_nutriscore_" . $panel_data_ref->{nutriscore_grade} . "_description_short");
 
-        $panel_data_ref->{title} = lang_in_other_lc($target_lc, "attribute_nutriscore_" . $panel_data_ref->{nutriscore_grade} . "_description_short");
-
-        # Nutri-Score panel: score + details
-        create_panel_from_json_template("nutriscore", "api/knowledge-panels/health/nutriscore/nutriscore.tt.json",
-            $panel_data_ref, $product_ref, $target_lc, $target_cc);
-
-    }
+    # Nutri-Score panel: score + details
+    create_panel_from_json_template("nutriscore", "api/knowledge-panels/health/nutriscore/nutriscore.tt.json",
+        $panel_data_ref, $product_ref, $target_lc, $target_cc);
 }
 
 
