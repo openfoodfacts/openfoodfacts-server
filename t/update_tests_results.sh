@@ -3,6 +3,12 @@
 # Update the expected results with the content of the actual results
 # git diff can then be used to review the differences
 
+# This script should be run only inside the po_backend_1 container
+
+# Remove the categories stats file as it will not be present
+# for tests run through GitHub actions
+rm /mnt/podata/data/categories_stats/categories_nutriments_per_country.world.sto
+
 perl attributes.t --results expected_test_results/attributes/
 perl ecoscore.t --results expected_test_results/ecoscore/
 perl forest_footprint.t --results expected_test_results/forest_footprint/

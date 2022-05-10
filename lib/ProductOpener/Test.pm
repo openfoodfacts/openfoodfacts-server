@@ -369,7 +369,6 @@ sub normalize_product_for_test_comparison($) {
         last_modified_t created_t owner_fields
         entry_dates_tags last_edit_dates_tags
         sources.*.import_t
-        compared_to_category 
     );
     # fields that are array and need to sort to have predictable results
     my @fields_sort = qw(_keywords);
