@@ -107,17 +107,14 @@ foreach my $file (sort(readdir($dh))) {
 
 	my ($confirmation_instance_identifier, $xml) = generate_gs1_confirmation_message($messages_ref->[0], $test_time);
 
-	print $confirmation_instance_identifier . "\n";
-
 	if ($update_expected_results) {
-		open (my $result, ">:encoding(UTF-8)", $expected_gs1_confirmation_file) or die("Could not create $file: $!\n");
-		print $result $xml;
-		close $result;
+		open (my $file, ">:encoding(UTF-8)", $expected_gs1_confirmation_file) or die("Could not create $file: $!\n");
+		print $file $xml;
+		close $file;
 	}
 	else {
-		my $expected_result  = File::Spec->catfile($expected_gs1_confirmation_file);
-
-		compare_ok($xml, $expected_result, "confirmation xml files are the same");
+		# Check the xml generated match the content of the saved confirmation file
+		file_ok($expected_gs1_confirmation_file, $xml, "confirmation xml for $testid");
 	}
 }
 
