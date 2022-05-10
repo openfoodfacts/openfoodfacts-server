@@ -20,4 +20,5 @@ perl packaging.t --results expected_test_results/packaging/
 perl recipes.t --results expected_test_results/recipes/
 perl export.t --update-expected-results
 perl import_convert_carrefour_france.t --update-expected-results
+perl import_csv_file.t --update-expected-results
 
