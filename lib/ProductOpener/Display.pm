@@ -114,7 +114,7 @@ BEGIN
 		$formatted_subdomain
 		$images_subdomain
 		$static_subdomain
-		$world_subdomain
+		$get_world_subdomain
 		$producers_platform_url
 		$test
 		@lcs
@@ -305,9 +305,14 @@ $default_request_ref = {
 
 use vars qw();
 
+sub get_world_subdomain() {
+	my $prefix = ($lc eq "en")  ? "world" : "world-$lc";
+	return format_subdomain($prefix);
+}
+
 $static_subdomain = format_subdomain('static');
 $images_subdomain = format_subdomain('images');
-$world_subdomain = format_subdomain("world-" . $lc);
+
 
 my $user_preferences;	# enables using user preferences to show a product summary and to rank and filter results
 
@@ -542,7 +547,7 @@ sub init()
 	}
 	elsif ($ENV{QUERY_STRING} !~ /(cgi|api)\//) {
 		# redirect
-		my $redirect = "$world_subdomain/" . $ENV{QUERY_STRING};
+		my $redirect = get_world_subdomain() . "/" . $ENV{QUERY_STRING};
 		$log->info("request could not be matched to a known format, redirecting", { subdomain => $subdomain, lc => $lc, cc => $cc, country => $country, redirect => $redirect }) if $log->is_info();
 		$r->headers_out->set(Location => $redirect);
 		$r->status(301);
@@ -4044,7 +4049,7 @@ HTML
 			$word_link = lang('view_products_from_the_entire_world');
 		}
 		$html .= "<p>" . ucfirst(lang('countries_s')) . separator_before_colon($lc). ": " . display_taxonomy_tag($lc,"countries",$country) . " - "
-		. "<a href=\"" . $world_subdomain . $request_ref->{world_current_link} . "\">" . $word_link . "</a></p>";
+		. "<a href=\"" . get_world_subdomain() . $request_ref->{world_current_link} . "\">" . $word_link . "</a></p>";
 	}
 
 	my $query_ref = {};
@@ -5168,7 +5173,7 @@ sub search_and_display_products($$$$$) {
 
 	$template_data_ref->{jqm} = param("jqm");
 	$template_data_ref->{country} = $country;
-	$template_data_ref->{world_subdomain} = $world_subdomain;
+	$template_data_ref->{world_subdomain} = get_world_subdomain();
 	$template_data_ref->{current_link_query} = $request_ref->{current_link_query};
 	$template_data_ref->{sort_by} = $sort_by;
 
@@ -7444,7 +7449,7 @@ CSS
 	$request_ref->{canon_url} = product_url($product_ref);
 
 	if ($lc eq 'en') {
-		$request_ref->{canon_url} = $world_subdomain . product_url($product_ref);
+		$request_ref->{canon_url} = get_world_subdomain() . product_url($product_ref);
 	}
 
 	# Old UPC-12 in url? Redirect to EAN-13 url
