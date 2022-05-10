@@ -2920,14 +2920,17 @@ sub analyze_ingredients($) {
 		$product_ref->{ingredients_analysis} = {};
 
 		foreach my $property (@properties) {
-			my $property_value = $ingredients_analysis_properties_ref->{$property};
+			my $property_value = $ingredients_analysis_properties_ref->{$property};			
 			if (defined $property_value) {
 				# Store the property value in the ingredients_analysis_tags list
 				push @{$product_ref->{ingredients_analysis_tags}}, $property_value;
 				# Store the list of ingredients that caused a product to be non vegan/vegetarian/palm oil free
-				# (no list when a product is vegan/vegetarian/palm oil free)
 				if (defined $ingredients_analysis_ref->{$property_value}) {
 					$product_ref->{ingredients_analysis}{$property_value} = $ingredients_analysis_ref->{$property_value};
+				}
+				# for palm-oil-free products, we can have a	fraction of ingredients that have palm-oil-content-unknown
+				elsif (($property_value =~ /-free$/) and (defined $ingredients_analysis_ref->{$` . '-content-unknown'})) {
+					$product_ref->{ingredients_analysis}{$` . '-content-unknown'} = $ingredients_analysis_ref->{$` . '-content-unknown'};
 				}
 			}
 		}
