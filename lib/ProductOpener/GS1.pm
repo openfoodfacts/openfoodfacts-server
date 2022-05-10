@@ -1605,9 +1605,7 @@ sub generate_gs1_message_identifier() {
 sub generate_gs1_confirmation_message($$) {
 
 	my $notification_message_ref = shift;
-
-	# For testing, we will be passed a specific time, otherwise use the current time
-	my $time = shift or time();
+	my $time = shift;
 
 	# We will need to generate a message identifier, put it in the XML content,
 	# and return it as it is used as the file name
