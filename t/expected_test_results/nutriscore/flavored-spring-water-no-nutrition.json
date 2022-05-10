@@ -37,16 +37,22 @@
    "misc_tags" : [
       "en:nutriscore-not-computed",
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
-      "en:nutrition-no-saturated-fat",
       "en:nutriscore-missing-nutrition-data",
-      "en:nutriscore-missing-nutrition-data-energy"
+      "en:nutriscore-missing-nutrition-data-energy",
+      "en:nutriscore-missing-nutrition-data-fat",
+      "en:nutriscore-missing-nutrition-data-saturated-fat",
+      "en:nutriscore-missing-nutrition-data-sugars",
+      "en:nutriscore-missing-nutrition-data-sodium",
+      "en:nutriscore-missing-nutrition-data-proteins",
+      "en:nutrition-no-fiber"
    ],
    "nutriments" : {},
    "nutrition_grades_tags" : [
       "unknown"
    ],
    "nutrition_score_beverage" : 1,
-   "nutrition_score_debug" : "missing energy",
+   "nutrition_score_debug" : "missing energy - missing fat - missing saturated-fat - missing sugars - missing sodium - missing proteins",
+   "nutrition_score_warning_no_fiber" : 1,
    "pnns_groups_1" : "Beverages",
    "pnns_groups_1_tags" : [
       "beverages",
