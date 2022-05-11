@@ -97,6 +97,8 @@ BEGIN
 		&url_for_text
 		&process_template
 
+		$get_world_subdomain
+
 		@search_series
 
 		$admin
@@ -114,7 +116,6 @@ BEGIN
 		$formatted_subdomain
 		$images_subdomain
 		$static_subdomain
-		$get_world_subdomain
 		$producers_platform_url
 		$test
 		@lcs
