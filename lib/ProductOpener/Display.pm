@@ -64,8 +64,6 @@ BEGIN
 		&display_error
 		&gen_feeds
 
-        &get_world_subdomain
-
 		&add_product_nutriment_to_stats
 		&compute_stats_for_products
 		&compare_product_nutrition_facts_to_categories
@@ -90,6 +88,8 @@ BEGIN
 		&display_possible_improvement_description
 		&display_properties
 
+        &get_world_subdomain
+
 		&data_to_display_nutriscore_and_nutrient_levels
 		&data_to_display_ingredients_analysis
 
@@ -97,7 +97,7 @@ BEGIN
 		&add_params_to_query
 
 		&url_for_text
-		&process_template		
+		&process_template
 
 		@search_series
 
@@ -4070,7 +4070,7 @@ HTML
 		}
 
 		$tag_template_data_ref->{world_link} = $world_link;
-		$tag_template_data_ref->{world_link_url} = $world_subdomain . $request_ref->{world_current_link};
+		$tag_template_data_ref->{world_link_url} = get_world_subdomain() . $request_ref->{world_current_link};
 
 	}
 
