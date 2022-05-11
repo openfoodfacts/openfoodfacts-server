@@ -380,9 +380,13 @@
    "misc_tags" : [
       "en:nutriscore-not-computed",
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
-      "en:nutrition-no-saturated-fat",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-fat",
+      "en:nutriscore-missing-nutrition-data-saturated-fat",
+      "en:nutriscore-missing-nutrition-data-sugars",
+      "en:nutriscore-missing-nutrition-data-sodium",
+      "en:nutriscore-missing-nutrition-data-proteins",
+      "en:nutrition-no-fiber",
       "en:ecoscore-extended-data-not-computed",
       "en:ecoscore-not-computed",
       "en:main-countries-new-product"
@@ -423,7 +427,8 @@
       "unknown"
    ],
    "nutrition_score_beverage" : 0,
-   "nutrition_score_debug" : "missing fat",
+   "nutrition_score_debug" : "missing fat - missing saturated-fat - missing sugars - missing sodium - missing proteins",
+   "nutrition_score_warning_no_fiber" : 1,
    "origins" : "France",
    "origins_hierarchy" : [
       "en:france"

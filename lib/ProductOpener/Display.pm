@@ -3094,8 +3094,6 @@ sub display_tag($) {
 
 	my $request_ref = shift;
 
-	my $html = '';
-
 	my $title;
 
 	my $tagtype = $request_ref->{tagtype};
@@ -3278,6 +3276,11 @@ sub display_tag($) {
 
 	my $icid = $tagid;
 	(defined $icid) and $icid =~ s/^.*://;
+
+	# Gather data that will be passed to the tag template
+	my $tag_template_data_ref = {};
+
+	$tag_template_data_ref->{groupby_tagtype} = $request_ref->{groupby_tagtype};
 
 	if (defined $tagtype) {
 
@@ -3853,7 +3856,7 @@ HTML
 			wikidata => \@wikidata_objects,
 			pointers => \@markers
 		};
-		process_template('web/pages/tags_map/map_of_tags.tt.html', $map_template_data_ref, \$map_html) || ($html .= 'template error: ' . $tt->error());
+		process_template('web/pages/tags_map/map_of_tags.tt.html', $map_template_data_ref, \$map_html) || ($map_html .= 'template error: ' . $tt->error());
 	}
 
 	if ($map_html) {
@@ -3925,7 +3928,7 @@ HTML
 
 			# Display the user or organization profile
 
-			my $template_data_ref = dclone($user_or_org_ref);
+			my $user_template_data_ref = dclone($user_or_org_ref);
 
 			my $profile_html = "";
 
@@ -3934,22 +3937,22 @@ HTML
 				# Display the organization profile
 
 				if (is_user_in_org_group($user_or_org_ref, $User_id, "admins") or $admin) {
-					$template_data_ref->{edit_profile} = 1;
-					$template_data_ref->{orgid} = $orgid;
+					$user_template_data_ref->{edit_profile} = 1;
+					$user_template_data_ref->{orgid} = $orgid;
 				}
 
-				process_template('web/pages/org_profile/org_profile.tt.html', $template_data_ref, \$profile_html) or $profile_html = "<p>web/pages/org_profile/org_profile.tt.html template error: " . $tt->error() . "</p>";
+				process_template('web/pages/org_profile/org_profile.tt.html', $user_template_data_ref, \$profile_html) or $profile_html = "<p>web/pages/org_profile/org_profile.tt.html template error: " . $tt->error() . "</p>";
 			}
 			else {
 
 				# Display the user profile
 
 				if (($tagid eq $User_id) or $admin) {
-					$template_data_ref->{edit_profile} = 1;
-					$template_data_ref->{userid} = $tagid;
+					$user_template_data_ref->{edit_profile} = 1;
+					$user_template_data_ref->{userid} = $tagid;
 				}
 
-				$template_data_ref->{links} = [
+				$user_template_data_ref->{links} = [
 					{
 						text => sprintf(lang('editors_products'), $products_title),
 						url => canonicalize_tag_link("editors", get_string_id_for_lang("no_language",$tagid)),
@@ -3961,10 +3964,10 @@ HTML
 				];
 
 				if (defined $user_or_org_ref->{registered_t}) {
-					$template_data_ref->{registered_t} = $user_or_org_ref->{registered_t};
+					$user_template_data_ref->{registered_t} = $user_or_org_ref->{registered_t};
 				}
 
-				process_template('web/pages/user_profile/user_profile.tt.html', $template_data_ref, \$profile_html) or $profile_html = "<p>user_profile.tt.html template error: " . $tt->error() . "</p>";
+				process_template('web/pages/user_profile/user_profile.tt.html', $user_template_data_ref, \$profile_html) or $profile_html = "<p>user_profile.tt.html template error: " . $tt->error() . "</p>";
 			}
 
 			$description .= $profile_html;
@@ -4007,50 +4010,68 @@ HTML
 	}
 
 	if (not defined $request_ref->{groupby_tagtype}) {
+
+		# Pass template data to generate navigation links
+		$tag_template_data_ref->{tagtype} = $tagtype;
+		$tag_template_data_ref->{tagtype_path} = '/' . $tag_type_plural{$tagtype}{$lc};
+		$tag_template_data_ref->{tagtype_name} = lang($tagtype . '_s');
+		$tag_template_data_ref->{tagid} = $tagid;
+		$tag_template_data_ref->{tagid_path} = $newtagidpath;
+		$tag_template_data_ref->{tag_name} = $display_tag;
+
 		if (defined $tagid2) {
-			$html .= "<p><a href=\"/" . $tag_type_plural{$tagtype}{$lc} . "\">" . ucfirst(lang($tagtype . '_s')) . "</a>" . separator_before_colon($lc)
-				. ": <a href=\"$newtagidpath\">$display_tag</a>"
-				. "\n<br><a href=\"/" . $tag_type_plural{$tagtype2}{$lc} . "\">" . ucfirst(lang($tagtype2 . '_s')) . "</a>" . separator_before_colon($lc)
-				. ": <a href=\"$newtagid2path\">$display_tag2</a></p>";
+			$tag_template_data_ref->{tagtype2} = $tagtype2;
+			$tag_template_data_ref->{tagtype2_path} = '/' . $tag_type_plural{$tagtype2}{$lc};
+			$tag_template_data_ref->{tagtype2_name} = lang($tagtype2 . '_s');
+			$tag_template_data_ref->{tagid2} = $tagid2;
+			$tag_template_data_ref->{tagid2_path} = $newtagid2path;
+			$tag_template_data_ref->{tag2_name} = $display_tag2;
 		}
 		else {
-			$html .= "<p><a href=\"/" . $tag_type_plural{$tagtype}{$lc} . "\">" . ucfirst(lang($tagtype . '_s')) . "</a>" . separator_before_colon($lc). ": $display_tag</p>";
 
-			my $tag_html = display_tags_hierarchy_taxonomy($lc, $tagtype, [$canon_tagid]);
+			# We are on the main page of the tag (not a sub-page with another tag)
+			# so we display more information related to the tag
 
-			$tag_html =~ s/.*<\/a>(<br \/>)?//;    # remove link, keep only tag logo
+			my $tag_logo_html = display_tags_hierarchy_taxonomy($lc, $tagtype, [$canon_tagid]);
 
-			$html .= $tag_html;
+			$tag_logo_html =~ s/.*<\/a>(<br \/>)?//;    # remove link, keep only tag logo
 
-			my $share = lang('share');
-			$html .= <<HTML
-<div class="share_button right" style="float:right;margin-top:-10px;margin-left:10px;display:none;">
-<a href="$request_ref->{canon_url}" class="button small" title="$title">
-	@{[ display_icon('share') ]}
-	<span class="show-for-large-up"> $share</span>
-</a></div>
-HTML
-;
+			$tag_template_data_ref->{tag_logo} = $tag_logo_html;
 
-			$html .= $weblinks_html . display_parents_and_children($lc, $tagtype, $canon_tagid) . $description;
+			$tag_template_data_ref->{canon_url} = $request_ref->{canon_url};
+			$tag_template_data_ref->{title} = $title;
+
+			$tag_template_data_ref->{parents_and_children} = display_parents_and_children($lc, $tagtype, $canon_tagid);
+
+			if ($weblinks_html ne "") {
+				$tag_template_data_ref->{weblinks} = $weblinks_html;
+			}	
+
+			if ($description ne "") {
+				$tag_template_data_ref->{description} = $description;
+			}
 		}
 
-		$html .= "<h2>" . $products_title . "</h2>\n";
+		$tag_template_data_ref->{products_title} = $products_title;
 	}
 
 	} # end of if (defined $tagtype)
 
+	$tag_template_data_ref->{country} = $country;
+
 	if ($country ne 'en:world') {
 
-		my $word_link = "";
+		my $world_link = "";
 		if (defined $request_ref->{groupby_tagtype}) {
-			$word_link = lang('view_list_for_products_from_the_entire_world');
+			$world_link = lang('view_list_for_products_from_the_entire_world');
 		}
 		else {
-			$word_link = lang('view_products_from_the_entire_world');
+			$world_link = lang('view_products_from_the_entire_world');
 		}
-		$html .= "<p>" . ucfirst(lang('countries_s')) . separator_before_colon($lc). ": " . display_taxonomy_tag($lc,"countries",$country) . " - "
-		. "<a href=\"" . get_world_subdomain() . $request_ref->{world_current_link} . "\">" . $word_link . "</a></p>";
+
+		$tag_template_data_ref->{world_link} = $world_link;
+		$tag_template_data_ref->{world_link_url} = $world_subdomain . $request_ref->{world_current_link};
+
 	}
 
 	my $query_ref = {};
@@ -4129,15 +4150,17 @@ HTML
 			# issue 2285: second tag was not supporting the 'minus' query
 			$query_ref->{$field} = $tag2_is_negative ? { "\$ne" => $value} : $value;
 		}
-
 	}
+
+	my $tag_html;
+	process_template('web/pages/tag/tag.tt.html', $tag_template_data_ref, \$tag_html) or $tag_html = "<p>tag.tt.html template error: " . $tt->error() . "</p>";
 
 	if (defined $request_ref->{groupby_tagtype}) {
 		if (defined param("translate")) {
-			${$request_ref->{content_ref}} .= $html . display_list_of_tags_translate($request_ref, $query_ref);
+			${$request_ref->{content_ref}} .= $tag_html . display_list_of_tags_translate($request_ref, $query_ref);
 		}
 		else {
-			${$request_ref->{content_ref}} .= $html . display_list_of_tags($request_ref, $query_ref);
+			${$request_ref->{content_ref}} .= $tag_html . display_list_of_tags($request_ref, $query_ref);
 		}
 		if ($products_title ne '') {
 			$request_ref->{title} .= " " . lang("for") . " " . lcfirst($products_title);
@@ -4162,7 +4185,7 @@ HTML
 
 		# TODO: Producer
 
-		${$request_ref->{content_ref}} .= $html . search_and_display_products($request_ref, $query_ref, $sort_by, undef, undef);
+		${$request_ref->{content_ref}} .= $tag_html . search_and_display_products($request_ref, $query_ref, $sort_by, undef, undef);
 	}
 
 	display_page($request_ref);
@@ -4958,7 +4981,7 @@ sub search_and_display_products($$$$$) {
 	push @{$template_data_ref->{sort_options}}, { value => "last_modified_t", link => $request_ref->{current_link} . "?sort_by=last_modified_t", name => lang("sort_by_last_modified_t") };
 
 	my $count;
-	my $page_count;
+	my $page_count = 0;
 
 	my $fields_ref;
 
@@ -5393,7 +5416,7 @@ sub display_pagination($$$$) {
 	}
 	my $current_link_query = $request_ref->{current_link_query};
 
-	$log->info("current link: $current_link, current_link_query: $current_link_query") if $log->is_info();
+	$log->info("current link and current link query", { current_link => $current_link, current_link_query => $current_link_query }) if $log->is_info();
 
 	if (param("jqm")) {
 		$current_link_query .= "&jqm=1";
@@ -8838,8 +8861,14 @@ sub data_to_display_nutriscore_and_nutrient_levels($) {
 			# Missing nutrition facts?
 			if (has_tag($product_ref,"misc","en:nutriscore-missing-nutrition-data")) {
 				push @nutriscore_warnings, lang("nutriscore_missing_nutrition_data");
-				$result_data_ref->{nutriscore_unknown_reason} = "missing_nutrition_data"; # Takes precedence if the category is also missing
-				$result_data_ref->{nutriscore_unknown_reason_short} = lang("nutriscore_missing_nutrition_data_short");
+				if (not has_tag($product_ref,"misc","en:nutriscore-missing-category")) {
+					$result_data_ref->{nutriscore_unknown_reason} = "missing_nutrition_data";
+					$result_data_ref->{nutriscore_unknown_reason_short} = lang("nutriscore_missing_nutrition_data_short");
+				}
+				else {
+					$result_data_ref->{nutriscore_unknown_reason} = "missing_category_and_nutrition_data";
+					$result_data_ref->{nutriscore_unknown_reason_short} = lang("nutriscore_missing_category_and_nutrition_data_short");					
+				}
 			}
 		}
 	}

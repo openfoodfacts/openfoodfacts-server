@@ -28,26 +28,7 @@ function icons() {
   return src("*.svg", { cwd: "./icons" }).
     pipe(
       svgmin({
-      plugins: [
-        {
-          name: "removeViewBox",
-          active: false
-        },
-        {
-          name: "removeDimensions",
-          active: true,
-        },
-        {
-          name: "addClassesToSVGElement",
-          active: true,
-          params: { className: "icon" }
-        },
-        {
-          name: "addAttributesToSVGElement",
-          active: true,
-          params: { attributes: [{ "aria-hidden": "true", focusable: "false" }] }
-        }
-      ]
+        configFile: 'icons/svgo.config.js'
       })
     ).
     pipe(dest("./html/images/icons/dist"));

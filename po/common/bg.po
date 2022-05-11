@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: bg\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-04-17 17:40\n"
+"PO-Revision-Date: 2022-04-29 02:44\n"
 "Language-Team: Bulgarian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -122,9 +122,9 @@ msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
 msgstr "Моля, въведете името на вашата организация (име на фирма или марка)."
 
-msgctxt "this_is_a_pro_account_for_org"
-msgid "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
-msgstr "Този акаунт е професионален акаунт, свързан с производител или марка %s. Имате достъп до Платформата за производители."
+msgctxt "f_this_is_a_pro_account_for_org"
+msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
+msgstr ""
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -681,6 +681,14 @@ msgstr "Невалиден потребител."
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "Потребителското име трябва да съдържа само нецентрирани букви, цифри и тирета."
+
+msgctxt "error_username_too_long"
+msgid "The user name is too long (maximum 20 characters)."
+msgstr ""
+
+msgctxt "error_name_too_long"
+msgid "The name is too long (maximum 60 characters)."
+msgstr ""
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -1468,7 +1476,7 @@ msgstr "Хранителни стойности"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
-msgstr ""
+msgstr "Средни хранителни стойности за %d продукта от категория %s, за които са известни хранителните стойности (от %d продукта)."
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
@@ -1492,7 +1500,7 @@ msgstr ""
 
 msgctxt "nutrition_data_per_10"
 msgid "10th centile"
-msgstr ""
+msgstr "10-ти персентил"
 
 msgctxt "nutrition_data_per_100g"
 msgid "for 100 g / 100 ml"
@@ -1500,7 +1508,7 @@ msgstr "за 100 г / 100 мл"
 
 msgctxt "nutrition_data_per_5"
 msgid "5<sup>th</sup> centile"
-msgstr ""
+msgstr "5<sup>ти</sup>персентил"
 
 msgctxt "nutrition_data_per_50"
 msgid "Median"
@@ -1508,11 +1516,11 @@ msgstr "Средно"
 
 msgctxt "nutrition_data_per_90"
 msgid "90th centile"
-msgstr ""
+msgstr "90-ти персентил"
 
 msgctxt "nutrition_data_per_95"
 msgid "95<sup>th</sup> centile"
-msgstr ""
+msgstr "95<sup>ти</sup>персентил"
 
 msgctxt "nutrition_data_per_max"
 msgid "Maximum"
@@ -1902,7 +1910,7 @@ msgstr "Продукти"
 
 msgctxt "products_with_nutriments"
 msgid "with nutrition facts"
-msgstr ""
+msgstr "с хранителни стойности"
 
 msgctxt "products_you_edited"
 msgid "Products you added or edited"
@@ -1978,11 +1986,11 @@ msgstr "Здравей <NAME>,\n\n"
 
 msgctxt "reset_password_email_subject"
 msgid "Reset of your password on <<site_name>>"
-msgstr ""
+msgstr "Нулиране на паролата ти на <<site_name>>"
 
 msgctxt "reset_password_reset"
 msgid "Your password has been changed. You can now log-in with this password."
-msgstr ""
+msgstr "Паролата ти бе променена. Вече можеш да влизаш с тази парола."
 
 msgctxt "reset_password_reset_msg"
 msgid "Enter a new password."
@@ -2327,7 +2335,7 @@ msgstr "Показване на подробна статистика"
 
 msgctxt "show_category_stats_details"
 msgid "standard deviation, minimum, maximum, 10th and 90th percentiles"
-msgstr ""
+msgstr "стандартно отклонение, минимум, максимум, 10-ти и 90-ти персентил"
 
 msgctxt "signin_before_submit"
 msgid "If you already have an account on <SITE>, please sign-in before filling this form."
@@ -3001,7 +3009,7 @@ msgstr "Нетно количество"
 
 msgctxt "drained_weight"
 msgid "Drained weight"
-msgstr ""
+msgstr "Изцедено тегло"
 
 msgctxt "volume"
 msgid "Volume"
@@ -3752,7 +3760,7 @@ msgstr ""
 
 msgctxt "import_file_result_products"
 msgid "List of products added or modified"
-msgstr ""
+msgstr "Списък с добавени или променени продукти"
 
 msgctxt "imports_p"
 msgid "imports"
@@ -4269,11 +4277,11 @@ msgstr "Имаме нужда от твоята помощ!"
 
 msgctxt "you_can_help_improve_ingredients_analysis"
 msgid "You can help us recognize more ingredients and better analyze the list of ingredients for this product and others by:"
-msgstr ""
+msgstr "Можеш да ни помогнеш да разпознаваме повече съставки и да анализираме по-добре списъка със съставки за този продукт и други, като:"
 
 msgctxt "help_improve_ingredients_analysis_1"
 msgid "Edit this product page to correct spelling mistakes in the ingredients list, and/or to remove ingredients in other languages and sentences that are not related to the ingredients."
-msgstr ""
+msgstr "Редактирай тази продуктова страница, за да коригираш правописни грешки в списъка на съставките и/или да премахнеш съставки на други езици и изречения, които не са свързани със съставките."
 
 msgctxt "help_improve_ingredients_analysis_2"
 msgid "Add new entries, synonyms or translations to our multilingual lists of ingredients, ingredient processing methods, and labels."
@@ -4360,7 +4368,7 @@ msgstr ""
 
 msgctxt "origin_import_note"
 msgid "Text or sentences that indicate the origin of the product and/or its ingredients."
-msgstr ""
+msgstr "Текст или изречения, които показват произхода на продукта и/или неговите съставки."
 
 msgctxt "nutriscore_grade_producer_note"
 msgid "Nutri-Score grade from A to E displayed on the product label"
@@ -5701,6 +5709,10 @@ msgctxt "source_ademe_agribalyse"
 msgid "Source: ADEME Agribalyse Database"
 msgstr "Източник: ADEME Agribalyse Database"
 
+msgctxt "source_ademe_agribalyse_for_category"
+msgid "The carbon emission figure comes from ADEME's Agribalyse database, for the category:"
+msgstr ""
+
 msgctxt "environment_card_title"
 msgid "Environment"
 msgstr "Околна среда"
@@ -5756,6 +5768,10 @@ msgstr "Сбора на бонусите и малусите е ограниче
 msgctxt "ecoscore_lca_score"
 msgid "Life cycle analysis score"
 msgstr "Оценка за анализ на жизнения цикъл"
+
+msgctxt "impact_for_this_product"
+msgid "Impact for this product"
+msgstr "Въздействие на този продукт"
 
 msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
@@ -5935,4 +5951,12 @@ msgstr "Не можахме да разпознаем някои от съста
 msgctxt "unselect_image"
 msgid "Unselect Image"
 msgstr ""
+
+msgctxt "nutriscore_learn_more"
+msgid "Learn more about the Nutri-Score"
+msgstr "Научи повече за Nutri-Score"
+
+msgctxt "ecoscore_learn_more"
+msgid "Learn more about the Eco-Score"
+msgstr "Научи повече за Eco-Score"
 

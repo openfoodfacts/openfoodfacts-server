@@ -670,6 +670,14 @@ msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "The user name must contain only unaccented letters, digits and dashes."
 
+msgctxt "error_username_too_long"
+msgid "The user name is too long (maximum 20 characters)."
+msgstr "The user name is too long (maximum 20 characters)."
+
+msgctxt "error_name_too_long"
+msgid "The name is too long (maximum 60 characters)."
+msgstr "The name is too long (maximum 60 characters)."
+
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
 msgstr "A product already exists with the new code"
@@ -5858,6 +5866,10 @@ msgctxt "source_ademe_agribalyse"
 msgid "Source: ADEME Agribalyse Database"
 msgstr "Source: ADEME Agribalyse Database"
 
+msgctxt "source_ademe_agribalyse_for_category"
+msgid "The carbon emission figure comes from ADEME's Agribalyse database, for the category:"
+msgstr "The carbon emission figure comes from ADEME's Agribalyse database, for the category:"
+
 msgctxt "environment_card_title"
 msgid "Environment"
 msgstr "Environment"
@@ -5889,6 +5901,10 @@ msgstr "Malus"
 msgctxt "life_cycle_analysis"
 msgid "Life cycle analysis"
 msgstr "Life cycle analysis"
+
+msgctxt "impact_for_this_product"
+msgid "Impact for this product"
+msgstr "Impact for this product"
 
 msgctxt "ecoscore_bonuses_and_maluses"
 msgid "Bonuses and maluses"
@@ -5929,6 +5945,10 @@ msgstr "The category of the product must be specified in order to compute the Nu
 msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
+
+msgctxt "nutriscore_missing_category_and_nutrition_data"
+msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
+msgstr "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 
 msgctxt "health"
 msgid "Health"
@@ -5985,6 +6005,10 @@ msgstr "Missing category"
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr "Missing nutrition facts"
+
+msgctxt "nutriscore_missing_category_and_nutrition_data_short"
+msgid "Missing category and nutrition facts"
+msgstr "Missing category and nutrition facts"
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
 msgid "Reduce or stop drinking alcohol"
@@ -6093,3 +6117,11 @@ msgstr "We could not recognize some of the ingredients and determine the NOVA gr
 msgctxt "unselect_image"
 msgid "Unselect Image"
 msgstr "Unselect Image"
+
+msgctxt "nutriscore_learn_more"
+msgid "Learn more about the Nutri-Score"
+msgstr "Learn more about the Nutri-Score"
+
+msgctxt "ecoscore_learn_more"
+msgid "Learn more about the Eco-Score"
+msgstr "Learn more about the Eco-Score"
