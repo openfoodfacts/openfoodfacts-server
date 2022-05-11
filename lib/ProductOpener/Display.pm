@@ -64,6 +64,8 @@ BEGIN
 		&display_error
 		&gen_feeds
 
+        &get_world_subdomain
+
 		&add_product_nutriment_to_stats
 		&compute_stats_for_products
 		&compare_product_nutrition_facts_to_categories
@@ -95,9 +97,7 @@ BEGIN
 		&add_params_to_query
 
 		&url_for_text
-		&process_template
-
-		$get_world_subdomain
+		&process_template		
 
 		@search_series
 
