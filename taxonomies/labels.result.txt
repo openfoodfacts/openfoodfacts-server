@@ -122,25 +122,6 @@ nl:Zonder kunstmatige toevoegingen
 pt:Sem aditivos artificiais
 label_categories:en: en:Health, en:Additives
 
-bg:Без палмово масло
-ca:Lliure d'oli de palma, Sense oli de palma
-cs:Bez palmového oleje
-de:Ohne Palmöl
-es:Sin aceite de palma
-fi:palmuöljytön, ei palmuöljyä, ilman palmuöljyä
-fr:Sans huile de palme
-he:ללא שמן דקלים, נקי משמן דקלים
-hu:Pálmaolajmentes, Pálmaolaj nélkül, pálmaolajat nem tartalmaz
-it:Senza olio di palma
-nl:Zonder palmolie, Palmolie-vrij
-pl:Wolne od oleju palmowego, bez oleju palmowego
-pt:Sem óleo de palma
-ru:Без пальмового масла
-sv:Utan palmolja
-th:ไม่ใช้น้ำมันปาล์ม
-zh:不含棕榈油
-opposite:en: en:contains-palm-oil
-
 bg:Произведено в Европейския съюз
 ca:Fet a la Unió Europea
 cs:Vyrobeno v EU
@@ -297,6 +278,10 @@ fi:Ravintomerkintäkokeilu 2016
 fr:Experimentation Etiquetage Nutritionnel 2016
 it:Esperimento di etichettatura nutrizionale 2016
 nl:2016 Voedingslabel experiment
+
+en:ActForPlanet
+fr:ActforPlanet, ActPlanet
+auth_url:en: https://www.actforplanet.org
 
 en:Agri Natura, AgriNatura
 
@@ -747,6 +732,10 @@ th:มีส่วนผสมจีเอ็มโอ
 label_categories:en: en:Health, en:Environment
 opposite:en: en:No GMOs
 
+en:Contains lactose
+nl:Bevat melkeiwit, Bevat lactose
+opposite:en: en:no-lactose
+
 en:Contains milk
 bg:Съдържа мляко
 ca:Conté llet
@@ -766,6 +755,7 @@ th:มีส่วนผสมของนม
 en:Contains palm oil
 bg:Съдържа палмово масло
 fr:Contient de l'huile de palme
+nl:Bevat palmolie
 opposite:en: en:no-palm-oil
 
 en:Contains soy
@@ -2091,6 +2081,42 @@ ca:BG-BIO-16
 de:BG-BIO-16
 es:BG-BIO-16
 xx:BG-BIO-16
+country:en: Bulgaria
+
+< en:EU Organic
+en:BG-BIO-17
+bg:BG-BIO-17
+xx:BG-BIO-17
+country:en: Bulgaria
+
+< en:EU Organic
+en:BG-BIO-18
+bg:BG-BIO-18
+xx:BG-BIO-18
+country:en: Bulgaria
+
+< en:EU Organic
+en:BG-BIO-19
+bg:BG-BIO-19
+xx:BG-BIO-19
+country:en: Bulgaria
+
+< en:EU Organic
+en:BG-BIO-20
+bg:BG-BIO-20
+xx:BG-BIO-20
+country:en: Bulgaria
+
+< en:EU Organic
+en:BG-BIO-21
+bg:BG-BIO-21
+xx:BG-BIO-21
+country:en: Bulgaria
+
+< en:EU Organic
+en:BG-BIO-22
+bg:BG-BIO-22
+xx:BG-BIO-22
 country:en: Bulgaria
 
 < en:EU Organic
@@ -15139,6 +15165,12 @@ fi:NAPSI-sertifioitu
 fr:Certifiée NAPSI, Certifié NAPSI
 nl:NAPSI certificatie
 
+en:National standard for Bulgarian kashkaval
+bg:БДС 14:2010, Национален стандарт за български кашкавал
+
+en:National standard for Bulgarian white cheese in brine
+bg:БДС 15:2010, Национален стандарт за българско бяло саламурено сирене
+
 en:National standard for Bulgarian yoghurt
 bg:БДС 12:2010, Национален стандарт за българско кисело мляко
 image:en: National-standard-for-Bulgarian-yoghurt.97.90.png
@@ -15385,7 +15417,7 @@ fr:Sans colorants artificiels
 he:ללא צבעי מאכל מלאכותיים
 hu:Mesterséges színezék nélkül, Mesterséges színezéket nem tartalmaz, mesterséges színezék mentes
 it:Senza coloranti artificiali
-nl:Vrij van kunstmatige kleurstoffen
+nl:Zonder kunstmatige kleurstoffen, Vrij van kunstmatige kleurstoffen
 pt:Sem cores artificiais, sem cor artificial
 ru:без искусственных красителей
 th:ไม่เติมสีสังเคราะห์
@@ -15405,7 +15437,7 @@ he:ללא צבעי מאכל או חומרים משמרים מלאכותיים
 hu:Mesterséges színezék és ízesítők nélkül
 it:Senza coloranti o aromi artificiali
 nb:Ingen kunstige smakstilsetninger eller farger
-nl:Zonder kunstmatige kleurstoffen
+nl:Zonder kunstmatige kleurstoffen of smaakstoffen
 pt:Sem corantes nem aromas artificiais
 sv:Inga artificiella aromämnen eller färger
 th:ไม่ใช้กลิ่นและสีสังเคราะห์
@@ -15728,6 +15760,7 @@ ru:Без лактозы
 sk:Bez laktozy
 sv:Laktosfri, Laktosfritt
 th:ไม่มีแลคโตส
+opposite:en: en:contains-lactose
 
 en:No lecithine, lecithine-free
 bg:Без лецитин
@@ -15776,6 +15809,24 @@ en:No nuts, nut free
 nl:Zonder noten
 
 en:No palm oil, Palm oil free, Without palm oil
+bg:Без палмово масло
+ca:Lliure d'oli de palma, Sense oli de palma
+cs:Bez palmového oleje
+de:Ohne Palmöl
+es:Sin aceite de palma
+fi:palmuöljytön, ei palmuöljyä, ilman palmuöljyä
+fr:Sans huile de palme
+he:ללא שמן דקלים, נקי משמן דקלים
+hu:Pálmaolajmentes, Pálmaolaj nélkül, pálmaolajat nem tartalmaz
+it:Senza olio di palma
+nl:Zonder palmolie, Palmolie-vrij, Palmolievrij
+pl:Wolne od oleju palmowego, bez oleju palmowego
+pt:Sem óleo de palma
+ru:Без пальмового масла
+sv:Utan palmolja
+th:ไม่ใช้น้ำมันปาล์ม
+zh:不含棕榈油
+opposite:en: en:contains-palm-oil
 
 en:No peanuts, without peanuts, Peanut Free
 bg:Без фъстъци
@@ -16876,6 +16927,10 @@ nl:Rainforest Alliance
 auth_url:en: https://www.rainforest-alliance.org
 wikidata:en: Q2034373
 
+< en:Rainforest Alliance
+en:Rainforest Alliance Black Tea
+de:Rainforest Alliance Schwarzer Tee
+
 en:raised in Ireland
 de:aufgezogen in Irland, aufgewachsen in Irland
 fi:kasvatettu Irlannissa
@@ -17719,6 +17774,23 @@ it:qualità superiore
 nl:Superieure kwaliteit
 pl:najwyższa jakość
 
+en:Sustainable
+
+< en:Sustainable
+en:Sustainable fishing, Sustainable Seafood, Sustainable fishery
+bg:Устойчив риболов
+ca:Piscifactoria sostenible, Pesca sostenible, Marisc sostenible
+de:Nachhaltige Fischerei
+es:Pesca sostenible
+fi:Kestävä kalastus
+fr:Pêche durable, pêches durables
+he:דיג מקיים
+hu:Fenntartható halászat
+it:Pesca sostenibile
+nl:Duurzame visserij
+pl:Zrównoważone rybołówstwo
+label_categories:en: en:Fishing labels
+
 en:Sustainable farming
 bg:Устойчиво земеделие
 ca:Agricultura Sostenible
@@ -17741,29 +17813,18 @@ cs:UTZ certifikováno
 de:UTZ Zertifiziert, UTZ
 es:Certificado UTZ
 fi:UTZ-sertifioitu, UTZ
+fr:Certifié UTZ
 hu:UTZ Certified, UTZ, UTZ tanúsítás, UTZ tanúsítvány
 it:Certificato UTZ, UTZ
 nl:UTZ Gecertificeerd
+xx:UTZ Certified
 auth_url:en: https://utz.org
 wikidata:en: Q2305872
-
-en:Sustainable fishing, Sustainable Seafood, Sustainable fishery
-bg:Устойчив риболов
-ca:Piscifactoria sostenible, Pesca sostenible, Marisc sostenible
-de:Nachhaltige Fischerei
-es:Pesca sostenible
-fi:Kestävä kalastus
-fr:Pêche durable, pêches durables
-he:דיג מקיים
-hu:Fenntartható halászat
-it:Pesca sostenibile
-nl:Duurzame visserij
-pl:Zrównoważone rybołówstwo
-label_categories:en: en:Fishing labels
 
 < en:Sustainable fishing
 en:Sustainable fishing method, sustainable fishing technique
 fr:Méthode de pêche durable, Technique de pêche durable, Mode de pêche durable, Méthodes de pêche durables, techniques de pêche durables, modes de pêche durables
+nl:Duurzame vismethoden
 
 < en:Sustainable fishing
 en:Sustainable Seafood MSC, sustainable food msc
@@ -17781,7 +17842,7 @@ label_categories:en: en:Fishing labels
 wikidata:en: Q1891246
 
 < en:Sustainable fishing method
-en:Angled fish
+en:Angled fish, Pole&line
 ca:Pescat amb canya
 de:Geangelter Fisch
 fi:koukulla pyydystettyä kalaa
@@ -17970,6 +18031,7 @@ hu:UTZ Certified Cocoa, UTZ Certified Cacao, UTZ tanúsított kakaó
 it:Cacao certificato UTZ
 nl:UTZ gecertificeerde cacao
 pl:UTZ Certified Cacao
+xx:UTZ Certified Cocoa
 
 < en:UTZ Certified
 en:UTZ Certified Coffee
@@ -17980,7 +18042,9 @@ fi:UTZ-sertifioitua kahvia
 fr:Café certifié UTZ
 hu:UTZ Certified Coffee, UTZ tanúsított kávé
 it:Caffè certificato UTZ, Caffe certificato UTZ
+nl:UTZ Certified Coffee
 pl:UTZ Certified Coffee
+xx:UTZ Certified Coffee
 
 < en:Vegan
 en:EVE Vegan, Expertise Vegan Europe

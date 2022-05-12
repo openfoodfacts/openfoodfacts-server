@@ -31013,6 +31013,10 @@ es:Galletas con tableta de chocolate con leche
 fr:Biscuits tablette de chocolat au lait, Petits beurres au chocolat au lait
 it:Biscotti con tavoletta di cioccolato al latte
 
+<fr:Biscuits tablette de chocolat
+<en:White chocolate biscuits
+fr:Biscuits tablette de chocolat blanc
+
 <en:Biscuits
 fr:Biscuits édulcorés, Biscuits avec édulcorants
 nl:Biscuits met zoetstoffen
@@ -31484,6 +31488,7 @@ ru:Хлебные продукты
 sv:Panerade produkter
 
 <en:Breaded products
+<en:Meat alternatives
 en:Breaded cheeses
 de:Panierter Käse
 fr:Fromages panés
@@ -33489,6 +33494,11 @@ wikidata:en:Q3665589
 en:Plum cakes, Plum cake
 it:Plum cakes, Plum cake
 wikidata:en:Q3906768
+
+#British dessert made with custard cream, fruit (or fruit jelly, or chocolate) and possibly sponge biscuits
+<en:Desserts
+en:Trifles
+wikidata:Q616601
 
 <en:Cakes
 <en:Desserts
@@ -62800,6 +62810,30 @@ wikidata:en:Q178359
 who_id:en:17
 
 <en:Sauces
+en:Vegetarian sauces
+fr:Sauces végétariennes
+
+<en:Vegetarian sauces
+en:Bolognese-style vegetarian sauces
+fr:Sauces végétariennes façon bolognese
+
+<en:Vegetarian sauces
+en:Vegan sauces
+fr:Sauces véganes
+
+<en:Vegan sauces
+en:Egg-free mayonnaises
+bg:Майонеза без яйца
+de:Mayonnaise ohne Eier
+es:Mayonesas sin huevo, Mayonesas vegetales
+fi:Munattomat majoneesit
+fr:Mayonnaises sans œufs, mayonnaises sans oeufs
+hu:Tojásmentes majénz
+it:Maionese senza uovo
+nl:Eivrije mayonaises
+pl:majonez bezjajeczny
+
+<en:Sauces
 en:Peanut sauces
 de:Erdnusssauce
 fr:Sauces aux cacahuètes, Sauce aux cacahuètes, Sauces saté, Sauce saté, Sauces à l'arachide, Sauces à la cacahuète, Sauces aux arachides, Sauce à l'arachide, Sauce à la cacahuète, Sauce aux arachides
@@ -63622,18 +63656,6 @@ fr:Mayonnaises de Dijon, Mayonnaise de Dijon, Mayonnaise à la moutarde de Dijon
 he:מיונז דיז'ון
 hu:Dijoni majonéz
 nl:Dijonmayonnaises
-
-<en:Mayonnaises
-en:Egg-free mayonnaises
-bg:Майонеза без яйца
-de:Mayonnaise ohne Eier
-es:Mayonesas sin huevo, Mayonesas vegetales
-fi:Munattomat majoneesit
-fr:Mayonnaises sans œufs, mayonnaises sans oeufs
-hu:Tojásmentes majénz
-it:Maionese senza uovo
-nl:Eivrije mayonaises
-pl:majonez bezjajeczny
 
 <en:Mayonnaises
 en:Light mayonnaises, Reduced fat mayonnaise, Low fat mayonnaise, Light mayonnaise
@@ -69406,6 +69428,7 @@ nl:Pepperoninpizza
 
 <en:Pizzas
 en:Tuna pizzas, Tuna pizza
+bg:Пица с риба тон
 de:Thunfischpizzen
 es:Pizzas con atún
 fi:Tonnikalapizzat
@@ -69420,6 +69443,7 @@ ciqual_food_name:fr:Pizza au thon
 
 <en:Pizzas
 en:Seafood pizza
+bg:Пица с моркси дарове
 fr:Pizza aux fruits de mer
 agribalyse_food_code:en:25463
 ciqual_food_code:en:25463
@@ -69428,6 +69452,7 @@ ciqual_food_name:fr:Pizza aux fruits de mer
 
 <en:Pizzas
 en:Salmon pizza
+bg:Пица със сьомга
 fr:Pizza au saumon
 wikidata:en:Q54223338
 agribalyse_food_code:en:25464
@@ -69538,6 +69563,7 @@ agribalyse_proxy_food_name:fr:Pizza 4 fromages
 
 <en:Cheese pizzas
 en:Four Cheese Pizza
+bg:Пица с четири сирена
 de:Vier-Käse-Pizza
 es:Pizza de cuatro quesos
 fi:Neljän juuston pizza
@@ -70216,7 +70242,7 @@ nl:Chili sin carne
 wikidata:en:Q11680713
 
 en:Meats
-bg:Меса
+bg:Месо
 ca:Carns
 da:Kød
 de:Fleisch
@@ -70303,6 +70329,7 @@ wikidata:en:Q3230686
 <en:Snails
 <en:Canned meats
 en:Canned snails
+bg:Охлюви от консерва
 de:Dosen-Schnecken, Schnecken in der Dose
 es:Caracoles enlatados
 fr:Escargots en conserve
@@ -70389,6 +70416,7 @@ ciqual_food_name:fr:Autruche, viande cuite
 
 <en:Meats
 en:Frogs, Frog meat
+bg:Жаби
 de:Frösche
 fi:Sammakot, Sammakon liha
 fr:Grenouille, viande de grenouille
@@ -70397,6 +70425,7 @@ zh:青蛙, 青蛙肉
 
 <en:Frogs
 en:Frog legs
+bg:Жабешки крачета
 de:Froschschenkel
 fr:Cuisses de Grenouilles
 nl:Kikkerbillen
@@ -70482,6 +70511,7 @@ de:Fleischkäse
 en:Vegetarian balls
 fr:Boulettes végétariennes
 nl:Vegetarische balletjes
+it:Polpette vegetali
 
 <en:Vegetarian balls
 en:Falafels, Falafel
@@ -70529,17 +70559,20 @@ nl:Soepballetjes
 <en:Meat balls
 <en:Chicken
 en:Chicken meat balls
+bg:Пилешки кюфтета
 fr:Boulettes au poulet
 nl:Kippegehaktballen
 
 <en:Meat balls
 <en:Pork
 en:Pork meat balls
+bg:Свински кюфтета
 nl:Varkensgehaktballen
 
 <en:Meat balls
 <en:Beef
 en:Beef meat balls
+bg:Говежди кюфтета
 fr:Boulettes au bœuf
 nl:Runder soepballetjes
 
@@ -71724,6 +71757,7 @@ nl:Diepvriestartaarsteaks
 <en:Frozen meat preparations
 <en:Ground meat preparations
 en:Frozen ground meat preparations
+bg:Замразена кайма
 de:Gefrohrenes Hackfleisch
 es:Preparados de carne picada congelada
 fi:pakastetut jauhelihavalmisteet
@@ -71812,6 +71846,7 @@ nl:Vers rundvlees producten
 <en:Fresh meat preparations
 <en:Ground meat preparations
 en:Fresh ground meat preparations
+bg:Кайма
 de:Frisches Hackfleisch
 es:Preparados de carne fresca picada
 fi:Tuoreet jauhelihavalmisteet
@@ -80485,7 +80520,7 @@ ciqual_food_code:en:25502
 ciqual_food_name:en:Chicken burger , fast foods restaurant
 
 <en:Sandwiches
-en:Veggie burgers
+en:Vegetarien hamburgers, Veggie burgers
 ca:Hamburgueses vegetals
 de:Vegetarische Hamburger
 es:Hamburguesas vegetales
@@ -96027,7 +96062,7 @@ nl:Foie gras moussen
 en:Foies gras pâtés
 fr:Pâtés de foie gras
 
-# All products that usually replace meat in vegetarian meals. E.g. falafels, tofu...
+# All products that usually replace meat in vegetarian meals. E.g. falafels, tofu, but also breaded cheese...
 <en:Plant-based foods
 en:Meat alternatives
 fr:Alternatives à la viande
@@ -96047,6 +96082,12 @@ ru:Мясозаменители
 wikidata:en:Q1343997
 
 <en:Meat analogues
+<en:Breaded products
+en:Vegetarian cordons bleus
+fr:Cordons bleus végétariens
+
+<en:Meat analogues
+<en:Breaded products
 en:Vegetarian nuggets, veggie nuggets
 de:Vegetarische Nuggets
 es:Nuggets vegetarianos
@@ -96056,8 +96097,8 @@ it:Nugget vegetarianeìi
 nl:Vegetarische nuggets
 
 <en:Vegetarian nuggets
-en:vegan nuggets, plant based nuggets
-fr:Nuggets végétaux, nuggets végans
+en:Vegan nuggets, plant based nuggets
+fr:Nuggets végans, Nuggets végétaux, 
 nl:Veganistische nuggets, Vegan-nuggets
 
 <en:Meat analogues
@@ -96066,26 +96107,25 @@ de:Gemüsehack, Vegetarisches Hackfleisch
 fr:Hachés végétaux
 
 #Patties are a very generic term for anything flat baked in a pan 
-<en:Meat analogues
-en:Veggie patties, veggie burger patties, vegetarian cutlet, vegetarian steaks
+<en:Meat alternatives
+en:Vegetarian patties, Veggie patties, veggie burger patties, vegetarian cutlet, vegetarian steaks
 de:Gemüsebratling, Vegetarische Burger
 es:Filetes vegetales para hamburguesas
 fi:kasvishampurilaispihvit
-fr:Steaks végétariens, steaks végétariens pour hamburgers
-it:Polpettes vegetali
+fr:Galettes végétariennes, Steaks végétariens, steaks végétariens pour hamburgers
 nl:Plantaardige steaks voor hamburgers
 ciqual_food_code:en:20914
 ciqual_food_name:en:Soy burger or vegetable escalope
 ciqual_food_name:fr:Escalope végétale ou steak à base de soja
 
-<en:Veggie patties
+<en:Vegetarian patties
 en:Vegan patties, vegan burger patties, Vegetable escalope, vegan cutlet, vegan steaks
-fr:Steaks végétaux, steaks végétaux pour hamburgers
+fr:Galettes véganes, Steaks végétaux, steaks végétaux pour hamburgers
 ciqual_food_code:en:20914
 ciqual_food_name:en:Soy burger or vegetable escalope
 ciqual_food_name:fr:Escalope végétale ou steak à base de soja
 
-<en:Veggie patties
+<en:Vegetarian patties
 en:Soy steak, Soy burger
 fi:Soijapihvi
 fr:Galettes de soja, steaks de soja, Escalope végétale, Steak à base de soja
@@ -96094,11 +96134,11 @@ ciqual_food_code:en:20914
 ciqual_food_name:en:Soy burger or vegetable escalope
 ciqual_food_name:fr:Escalope végétale ou steak à base de soja
 
-<en:Veggie patties
+<en:Vegetarian patties
 en:Tofu patties
 fr:Galettes de tofu, steaks de tofu
 
-<en:Veggie patties
+<en:Vegetarian patties
 fr:Galettes de céréales aux légumes
 
 <en:Meat analogues
@@ -97352,6 +97392,7 @@ ro:Shake-uri cu proteine, Shake-uri proteice
 
 <en:Bodybuilding supplements
 en:Protein bars
+bg:Протеинови блокчета
 ca:Barretes de proteïna, barres de proteïna
 cs:Proteinové tyčinky
 de:Proteinriegel, Eiweißriegel
@@ -97417,6 +97458,7 @@ wikidata:en:Q419119
 
 <en:Bodybuilding supplements
 en:Creatine, Creatine supplements
+bg:Креатин
 de:Kreatin, N-Amidinosarkosin, N-(Aminoiminomethyl)-N-methyl-glycin, α-Methylguanidinoessigsäure
 fi:Kreatiini, Kreatiinilisäravinteet
 wikidata:en:Q1058872

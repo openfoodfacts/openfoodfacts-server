@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cy\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-04-28 03:09\n"
+"PO-Revision-Date: 2022-04-29 02:52\n"
 "Language-Team: Welsh\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -665,6 +665,14 @@ msgstr ""
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
+msgstr ""
+
+msgctxt "error_username_too_long"
+msgid "The user name is too long (maximum 20 characters)."
+msgstr ""
+
+msgctxt "error_name_too_long"
+msgid "The name is too long (maximum 60 characters)."
 msgstr ""
 
 msgctxt "error_new_code_already_exists"
