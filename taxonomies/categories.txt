@@ -7538,6 +7538,7 @@ it:Bevande istantanee
 nl:Oplosdranken, Warme oplosdranken, Warme oplosdrank
 ru:Быстрорастворимые горячие напитки
 
+<en:Dairies substitutes
 en:Milk substitute, milk replacement
 ca:Substitutius de la llet
 cs:Náhražky mléka
@@ -7746,6 +7747,7 @@ it:Capsule di caffè compatibili Dolce Gusto
 nl:Dolce Gusto-compatibele Koffiecapsules, Dolce Gusto
 
 #Dolce Gusto can be the, capuccino or hot chocolates
+<en:Capsules
 fr:Dosettes Dolce Gusto, Capsules Dolce Gusto
 
 <en:Coffee capsules
@@ -26211,6 +26213,7 @@ it:Valtellina Superiore Maroggia
 origins:en: en:Italy
 wikidata:en:Q16620331
 
+<it:Valtellina Superiore
 it:Valtellina superiore Maroggia riserva
 origins:en: en:Italy
 wikidata:en:Q16620334
@@ -30265,6 +30268,7 @@ en:White Ports
 fr:porto blancs, porto blanc
 nl:Witte porten, Witte port
 
+<en:Wines
 en:Sweet wines, natural sweet wines
 de:Süßweine
 es:Vinos dulces
@@ -31822,6 +31826,7 @@ origins:en: en:Germany
 wikidata:en:Q153254
 
 <en:German bakery products
+<en:marzipan
 de:Lübecker Marzipan
 protected_name_file_number:en: PGI-DE-0657
 protected_name_type:en: pgi
@@ -36011,12 +36016,17 @@ fr:Œufs en chocolat fourrés, oeufs en chocolat fourrés
 en:Hollow chocolate eggs
 fr:Œufs en chocolat creux, oeufs en chocolat creux
 
+<en:Festive foods
 nl:Sinterklaasproducten
+wikidata:en:Q110220935
+# https://en.wikipedia.org/wiki/Sinterklaas
+# https://en.wikipedia.org/wiki/Category:Sinterklaas_food
 
 <nl:Sinterklaasproducten
 <en:Cocoa and its products
 en:Chocolate letters
 nl:Chocoladeletters
+wikidata:en:Q657007
 
 en:Festive foods
 
@@ -36200,6 +36210,7 @@ fr:Mantecados et polvorones á l'huile d'olive
 # description:en:MARZIPAN is a confection consisting primarily of sugar or honey and almond meal (ground almonds), sometimes augmented with almond oil or extract.
 
 # mainIngredient:en:sugar
+<en:Confectioneries
 en:marzipan
 ar:مرصبان
 az:Badam xəmiri
@@ -43870,6 +43881,7 @@ de:Schmand mit 15% bis 19% Fettanteil
 fr:Smetana avec 15% à 19% de matières grasses
 ru:Сметана от 15% до 19% жирности, Сметана с массовой долей жира от 15% до 19%
 
+<en:Smetana
 en:Smetana with 15% fat
 de:Schmand mit 15% Fettanteil
 fr:Smetana avec 15% de matières grasses
@@ -47449,6 +47461,7 @@ ciqual_food_code:en:39211
 ciqual_food_name:en:Custard cream with eggs (a small jar of chocolate or vanilla cream or other flavour), refrigerated
 
 <en:Desserts
+<en:Dairies substitutes
 en:Non-dairy desserts, vegetal desserts, vegan desserts
 de:Milchfreie Nachtische, vegetarische Nachtische, vegane Nachtische
 es:Postres vegetales
@@ -47824,6 +47837,7 @@ ciqual_food_name:en:Soy dessert, w fruits, refrigerated
 ciqual_food_name:fr:Dessert au soja, aux fruits, rayon frais
 
 <en:fermented foods
+<en:Dairies substitutes
 en:Non-dairy fermented foods
 de:fermentierte Lebensmittel ohne Milch
 es:Comida no láctea fermentada
@@ -56286,6 +56300,7 @@ en:Artificially sweetened sorbets
 fr:Sorbets édulcorés
 
 <en:Ice creams and sorbets
+<en:Dairies substitutes
 en:Plant-based ice creams, Non-dairy ice creams
 de:Pflanzliche Eiscremes, Milchfreie Eiscremes
 es:Helados con leche vegetal, Helados con bebida vegetal, Helados vegetales
@@ -62789,6 +62804,7 @@ ciqual_food_code:en:11056
 ciqual_food_name:en:Mix of 4 spices
 ciqual_food_name:fr:Quatre épices
 
+<en:Condiments
 en:Sauces
 bg:Сосове
 ca:Salses
@@ -68728,6 +68744,7 @@ fr:Flammekueches aux Noix de St Jacques
 <fr:Flammekueches salées
 fr:Flammekueches aux gambas
 
+<en:Sweet pies
 fr:Flammekueches sucrées
 
 <fr:Flammekueches sucrées
@@ -70006,6 +70023,7 @@ fr:Salades de légumes
 it:Insalate di verdure
 nl:Groentesalade
 
+<en:Plant-based foods
 en:Vegetable pasta
 es:Pasta de verduras
 fr:Pâtes de légumes
@@ -79905,6 +79923,7 @@ food_groups:en: en:Salty and fatty products
 pnns_group_2:en:Salty and fatty products
 
 #Are these the sweet ones only?
+# Let's decide 
 en:Pies
 bg:Пайове
 ca:Pastissos
@@ -79919,6 +79938,7 @@ food_groups:en: en:Pizza pies and quiches
 pnns_group_2:en:Pizza pies and quiches
 
 #TBD should this fall under the pizza pies and ..,?
+# Let's decide 
 en:Sweet pies, sweet pie
 bg:Сладки пайове
 ca:Pastissos dolços
@@ -92628,6 +92648,7 @@ ciqual_food_code:en:20916
 ciqual_food_name:en:Miso
 ciqual_food_name:fr:Miso
 
+<en:Condiments
 en:Vinegars
 bg:Оцет
 ca:Vinagres
@@ -94019,6 +94040,7 @@ ciqual_food_code:en:20265
 ciqual_food_name:en:Thinly-shredded or diced vegetables, frozen, raw
 ciqual_food_name:fr:Julienne ou brunoise de légumes, surgelée, crue
 
+<en:Vegetables
 en:thinly-shredded vegetables, diced vegetables
 fr:Julienne de légumes, Brunoise de légumes
 
@@ -94026,6 +94048,7 @@ fr:Julienne de légumes, Brunoise de légumes
 fr:Poêlées, Poêlée
 
 <fr:Poêlées
+<en:Plant-based foods
 en:Pan-fried vegetables
 fr:Poêlée de légumes
 
@@ -94067,6 +94090,7 @@ fr:Poêlées savoyardes
 en:Frozen meat and vegetable mixes
 
 <en:Frozen mixed vegetables
+<en:Pan-fried vegetables
 en:Frozen pan-fried vegetables without mushrooms
 fr:Poêlée de légumes assaisonnés surgelée sans champignons
 agribalyse_food_code:en:20262
@@ -94075,6 +94099,7 @@ ciqual_food_name:en:Vegetables pan-fried without mushrooms, frozen, raw
 ciqual_food_name:fr:Poêlée de légumes assaisonnés sans champignon, surgelée, crue
 
 <en:Frozen mixed vegetables
+<en:Pan-fried vegetables
 en:Frozen pan-fried Asian-style vegetables, Frozen stir-fried Asian-style vegetables
 fr:Poêlée de légumes assaisonnés à l'asiatiques, Wok de légumes surgelés
 agribalyse_food_code:en:20273
@@ -94091,6 +94116,7 @@ ciqual_food_name:en:Grilled vegetables pan-fried, Mediterranean-style, frozen, r
 ciqual_food_name:fr:Poêlée de légumes assaisonnés grillée, méridionale ou méditerranéenne, surgelée, crue
 
 <en:Frozen mixed vegetables
+<en:Pan-fried vegetables
 en:Frozen pan-fried vegetables with mushrooms country-style
 fr:Poêlée de légumes assaisonnés aux champignons surgelée, Poêlée de légumes champêtre surgelée
 agribalyse_food_code:en:20498
@@ -96164,6 +96190,7 @@ fr:Saucisses végétales de Vienne
 nl:Vegetarische weense worstjes
 
 <en:Plant-based foods
+<en:Dairies substitutes
 en:Non-dairy cheeses, Plant cheeses, Vegan cheeses
 de:Milchfreie Käse, Pflanzliche Käse, Käseersatz, Vegane Käse
 es:Quesos vegetales
@@ -98266,6 +98293,7 @@ es:Quesos panelas
 fr:Fromages panelas
 #wikidata:en:
 
+<en:Meals
 en:skewers, Kebabs, kebab, kabobs, kabob, kababs, kabab
 es:Pinchos, Brochetas
 fi:vartaat
@@ -98493,7 +98521,7 @@ bg:книги
 fr:livres
 
 <en:Open Products Facts
-en:detergents
+en:Detergents
 
 # REAL Cigarettes
 <en:Non food products
@@ -98504,6 +98532,7 @@ fi:savukkeet
 fr:cigarettes
 it:Biscotti a sigaretta
 ru:Сигареты
+
 
 <en:Non food products
 en:Open Beauty Facts, OBF, Cosmetics, Hygiene
