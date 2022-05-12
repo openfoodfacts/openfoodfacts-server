@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-04-29 02:46\n"
+"PO-Revision-Date: 2022-05-11 19:08\n"
 "Language-Team: French\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -684,11 +684,11 @@ msgstr "Le nom d'utilisateur doit être composé de lettres minuscules sans acce
 
 msgctxt "error_username_too_long"
 msgid "The user name is too long (maximum 20 characters)."
-msgstr ""
+msgstr "Le nom d'utilisateur est trop long (20 caractères maximum)."
 
 msgctxt "error_name_too_long"
 msgid "The name is too long (maximum 60 characters)."
-msgstr ""
+msgstr "Le nom est trop long (60 caractères maximum)."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -2475,7 +2475,7 @@ msgstr "Nom d'utilisateur Twitter (optionel)"
 
 msgctxt "twitter_account"
 msgid "OpenFoodFacts"
-msgstr "OpenFoodFactsFr"
+msgstr ""
 
 msgctxt "unknown"
 msgid "Unknown"
@@ -5793,6 +5793,10 @@ msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "Les données nutritionnelles du produit doivent être spécifiées afin de calculer le Nutri-Score."
 
+msgctxt "nutriscore_missing_category_and_nutrition_data"
+msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
+msgstr ""
+
 msgctxt "health"
 msgid "Health"
 msgstr "Santé"
@@ -5848,6 +5852,10 @@ msgstr "Catégorie manquante"
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr "Données nutritionnelles manquantes"
+
+msgctxt "nutriscore_missing_category_and_nutrition_data_short"
+msgid "Missing category and nutrition facts"
+msgstr ""
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
 msgid "Reduce or stop drinking alcohol"

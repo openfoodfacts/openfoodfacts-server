@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-04-29 02:51\n"
+"PO-Revision-Date: 2022-05-11 19:15\n"
 "Language-Team: Turkish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -682,11 +682,11 @@ msgstr "Kullanıcı adı yalnızca renksiz rakamlar, rakamlar ve çizgiler içer
 
 msgctxt "error_username_too_long"
 msgid "The user name is too long (maximum 20 characters)."
-msgstr ""
+msgstr "Kullanıcı adı çok uzun (maksimum 20 karakter)."
 
 msgctxt "error_name_too_long"
 msgid "The name is too long (maximum 60 characters)."
-msgstr ""
+msgstr "Ad çok uzun (maksimum 60 karakter)."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -5707,7 +5707,7 @@ msgstr ""
 
 msgctxt "source_ademe_agribalyse_for_category"
 msgid "The carbon emission figure comes from ADEME's Agribalyse database, for the category:"
-msgstr ""
+msgstr "karbon emisyonu sayısı ADEME'nin Agribalyse veritabanından aşağıdaki kategori için türetilmiştir:"
 
 msgctxt "environment_card_title"
 msgid "Environment"
@@ -5785,6 +5785,10 @@ msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr ""
 
+msgctxt "nutriscore_missing_category_and_nutrition_data"
+msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
+msgstr ""
+
 msgctxt "health"
 msgid "Health"
 msgstr ""
@@ -5839,6 +5843,10 @@ msgstr "Eksik kategori"
 
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
+msgstr ""
+
+msgctxt "nutriscore_missing_category_and_nutrition_data_short"
+msgid "Missing category and nutrition facts"
 msgstr ""
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
@@ -5954,5 +5962,5 @@ msgstr "Nutri-Score hakkında daha fazla bilgi edinin"
 
 msgctxt "ecoscore_learn_more"
 msgid "Learn more about the Eco-Score"
-msgstr ""
+msgstr "Eco-Score hakkında daha fazla şey öğrenin"
 

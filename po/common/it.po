@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-04-29 02:47\n"
+"PO-Revision-Date: 2022-05-11 22:06\n"
 "Language-Team: Italian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -124,7 +124,7 @@ msgstr "Inserisci il nome della tua organizzazione (nome dell'azienda o marchio)
 
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
-msgstr ""
+msgstr "Questo profilo è professionale ed è associato al produttore o marchio {org}. Hai accesso alla Piattaforma per Produttori."
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -684,11 +684,11 @@ msgstr "Lo username può contenere solo caratteri senza accento, trattini e cifr
 
 msgctxt "error_username_too_long"
 msgid "The user name is too long (maximum 20 characters)."
-msgstr ""
+msgstr "Il nome utente è troppo lungo (massimo 20 caratteri)."
 
 msgctxt "error_name_too_long"
 msgid "The name is too long (maximum 60 characters)."
-msgstr ""
+msgstr "Il nome è troppo lungo (massimo 60 caratteri)."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -2474,7 +2474,7 @@ msgstr "Nome utente Twitter (opzionale)"
 
 msgctxt "twitter_account"
 msgid "OpenFoodFacts"
-msgstr "OpenFoodFactsIt"
+msgstr "OpenFoodFacts"
 
 msgctxt "unknown"
 msgid "Unknown"
@@ -5792,6 +5792,10 @@ msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "I valori nutrizionali del prodotto devono esser specificati per calcolare il Nutri-Score."
 
+msgctxt "nutriscore_missing_category_and_nutrition_data"
+msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
+msgstr "La categoria e i valori nutrizionali del prodotto devono esser specificati per poter calcolare il Nutri-Score."
+
 msgctxt "health"
 msgid "Health"
 msgstr "Salute"
@@ -5847,6 +5851,10 @@ msgstr "Categoria mancante"
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr "Dati nutrizionali mancanti"
+
+msgctxt "nutriscore_missing_category_and_nutrition_data_short"
+msgid "Missing category and nutrition facts"
+msgstr "Categoria e valori nutrizionali mancanti"
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
 msgid "Reduce or stop drinking alcohol"

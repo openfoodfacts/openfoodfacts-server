@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: vi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-04-29 02:52\n"
+"PO-Revision-Date: 2022-05-11 19:16\n"
 "Language-Team: Vietnamese\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -683,11 +683,11 @@ msgstr "Tên người dùng chỉ được chứa các chữ cái, chữ số v�
 
 msgctxt "error_username_too_long"
 msgid "The user name is too long (maximum 20 characters)."
-msgstr ""
+msgstr "Tên đăng nhập quá dài! (tối đa 20 ký tự)."
 
 msgctxt "error_name_too_long"
 msgid "The name is too long (maximum 60 characters)."
-msgstr ""
+msgstr "Tên hiển thị quá dài (tối đa 60 ký tự)."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -3686,7 +3686,7 @@ msgstr "các cải tiến khả thi"
 # Do not translate
 msgctxt "import_products_link"
 msgid "/import-products"
-msgstr ""
+msgstr "/import-products"
 
 msgctxt "add_or_update_products"
 msgid "Add or update products"
@@ -4045,105 +4045,105 @@ msgstr "Người điều hành nền tảng nhà sản xuất có thể xem và 
 
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
-msgstr ""
+msgstr "Tôi đã quyên góp hoặc tôi không quan tâm về điều này. Ẩn biểu ngữ đi."
 
 msgctxt "donation_banner_independant"
 msgid "An independant and citizen-led project for food transparency?"
-msgstr ""
+msgstr "Một dự án độc lập và do người mọi người quản lý để minh bạch thông tin về thực phẩm?"
 
 msgctxt "donation_banner_public_health"
 msgid "Food product data for research that improves public health?"
-msgstr ""
+msgstr "Dữ liệu sản phẩm thực phẩm phục vụ cho việc nghiên cứu cải thiện sức khỏe cộng đồng?"
 
 msgctxt "donation_banner_choices"
 msgid "Easier and better food choices according to your own criteria?"
-msgstr ""
+msgstr "Lựa chọn đồ ăn dễ dàng hơn và tốt hơn dựa theo các tiêu chí của riêng bạn?"
 
 msgctxt "donation_banner_cta"
 msgid "We need your support!"
-msgstr ""
+msgstr "Chúng tôi cần bạn giúp đỡ!"
 
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
-msgstr ""
+msgstr "Xin hãy quyên góp"
 
 msgctxt "alcohol_warning"
 msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-msgstr ""
+msgstr "Uống quá nhiều rượu có thể gây hại cho sức khỏe, cần hạn chế."
 
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
-msgstr ""
+msgstr "Kiểm duyệt nền tảng của nhà sản xuất"
 
 msgctxt "pro_moderator_owner_set"
 msgid "You are currently viewing products from %s."
-msgstr ""
+msgstr "Bạn đang xem sản phẩm từ %s."
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
-msgstr ""
+msgstr "Bạn đang xem sản phẩm của mình."
 
 msgctxt "pro_moderator_edit_owner_description"
 msgid "To see products from a specific user or organization, enter its id below. Leave field empty to unset."
-msgstr ""
+msgstr "Để xem các sản phẩm từ một người dùng hoặc tổ chức cụ thể, vui lòng nhập id của người dùng hoặc tổ chức vào bên dưới. Bỏ trống nếu không đặt thêm thông tin."
 
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
 msgid "Change"
-msgstr ""
+msgstr "Thay đổi"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
-msgstr ""
+msgstr "user-abc hoặc org-xyz"
 
 # keep %s, it is a variable for the name of the user
 msgctxt "error_user_does_not_exist"
 msgid "User %s does not exist"
-msgstr ""
+msgstr "Người dùng %s không tồn tại"
 
 msgctxt "error_malformed_owner"
 msgid "The id must be of the form user-abc or org-xyz"
-msgstr ""
+msgstr "Id phải ở dạng user-abc hoặc org-xyz"
 
 msgctxt "import_products_categories_from_public_database"
 msgid "Import product categories from the public database"
-msgstr ""
+msgstr "Nhập danh mục sản phẩm từ cơ sở dữ liệu công khai"
 
 msgctxt "import_products_categories_from_public_database_description"
 msgid "Add categories from the public database to the products on the platform for producers."
-msgstr ""
+msgstr "Thêm danh mục từ cơ sở dữ liệu công khai cho các sản phẩm trên nền tảng của nhà sản xuất."
 
 msgctxt "import_products_categories"
 msgid "Import the categories"
-msgstr ""
+msgstr "Nhập Danh Mục"
 
 msgctxt "nutri_score_score_from_producer"
 msgid "Nutri-Score score from producer"
-msgstr ""
+msgstr "Điểm dinh dưỡng từ nhà sản xuất"
 
 msgctxt "nutri_score_score_calculated"
 msgid "Calculated Nutri-Score score"
-msgstr ""
+msgstr "Điểm Dinh dưỡng được tính"
 
 msgctxt "nutri_score_grade_from_producer"
 msgid "Nutri-Score grade from producer"
-msgstr ""
+msgstr "Mức điểm dinh dưỡng từ nhà sản xuất"
 
 msgctxt "nutri_score_grade_calculated"
 msgid "Calculated Nutri-Score grade"
-msgstr ""
+msgstr "Mức điểm dinh dưỡng được tính"
 
 msgctxt "scanned_code"
 msgid "Scanned code"
-msgstr ""
+msgstr "Mã được quét"
 
 msgctxt "code_from_filename"
 msgid "Code from file name"
-msgstr ""
+msgstr "Mã từ tên tệp"
 
 msgctxt "using_previous_code"
 msgid "Using previous code"
-msgstr ""
+msgstr "Sử dụng mã trước đó"
 
 msgctxt "add_field_values"
 msgid "You can specify field values that will be added to all products for which you will send images."
@@ -5790,6 +5790,10 @@ msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr ""
 
+msgctxt "nutriscore_missing_category_and_nutrition_data"
+msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
+msgstr ""
+
 msgctxt "health"
 msgid "Health"
 msgstr "Sức khoẻ"
@@ -5844,6 +5848,10 @@ msgstr "Danh mục còn thiếu"
 
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
+msgstr ""
+
+msgctxt "nutriscore_missing_category_and_nutrition_data_short"
+msgid "Missing category and nutrition facts"
 msgstr ""
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
