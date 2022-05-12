@@ -81,7 +81,8 @@ function match_product_to_preferences (product, product_preferences) {
 							status = "does_not_match";
 						}
 						// Mandatory attribute with a bad score (e.g. may contain traces of an allergen) -> status: may not match
-						else if ((attribute_preference == "mandatory") && (attribute.match <= 50) && (status = "match")) {
+						else if ((attribute_preference == "mandatory") && (attribute.match <= 50)
+							&& ((status = "match") || (status = "may-not-match"))) {
 							status = "may_not_match";
 						}
 					}
