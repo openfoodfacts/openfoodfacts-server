@@ -98,7 +98,7 @@ function match_product_to_preferences (product, product_preferences) {
 	}
 
 	// Normalize the score from 0 to 100
-	score = score / sum_of_factors;
+	score /= sum_of_factors;
 
 	// If the product is compatible, check how well it matches user preferences
 	if (status == "compatible") {
@@ -204,14 +204,8 @@ function display_products(target, product_groups, user_prefs ) {
 		
 		$.each( product_group, function(key, product) {
 		
-			var product_html = "";
+			var product_html += `<li><a href="${product.url}">`;
 
-			// Show the green / grey / colors for matching products only if we are using the user preferences
-			let css_classes = 'list_product_un';
-			if (user_prefs.use_ranking) {
-				css_classes += ' list_product_a_match_' + product.match_status;
-			}
-			product_html += `<li><a href="${product.url}">`;
 			if (user_prefs.use_ranking) {
 				product_html += '<div class="list_product_banner list_product_banner_' + product.match_status + '">'
 				+ lang()["products_match_" + product.match_status] + ' ' + Math.round(product.match_score) + '/100</div>'
@@ -292,14 +286,14 @@ function display_products(target, product_groups, user_prefs ) {
 		}
 		
 		// Disable the tabs
-		if (user_prefs.use_ranking && 0) {
-			$("#products_tabs_titles").append(
-				'<li class="tabs tab-title tab_products-title' + active + '">'
-				+ '<a  id="tab_products_' + product_group_id + '" href="#products_' + product_group_id + '" title="' + lang()["products_match_" + product_group_id] +  '">'
-				+ text_or_icon
-				+ "</a></li>"
-			);
-		}
+		// if (user_prefs.use_ranking) {
+		// 	$("#products_tabs_titles").append(
+		// 		'<li class="tabs tab-title tab_products-title' + active + '">'
+		// 		+ '<a  id="tab_products_' + product_group_id + '" href="#products_' + product_group_id + '" title="' + lang()["products_match_" + product_group_id] +  '">'
+		// 		+ text_or_icon
+		// 		+ "</a></li>"
+		// 	);
+		// }
 		
 		$("#products_tabs_content").append(
 			'<div class="tabs content' + active + '" id="products_' + product_group_id + '">'
