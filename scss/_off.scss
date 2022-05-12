@@ -562,7 +562,50 @@ html[dir="rtl"] {
   position: relative;
 }
 
-.list_product_a {
+.list_product_banner {
+  border-top-left-radius:8px;
+  border-top-right-radius:8px;
+  padding:2px;
+  display:block;
+  color:white;
+  font-size:0.8rem;
+  text-align:center;
+}
+
+.list_product_banner_does_not_match {
+  background-color:$grade-e-color;
+}
+
+.list_product_banner_may_not_match {
+  background-color:$grade-d-color;
+}
+
+.list_product_banner_unknown_match {
+  background-color: $grade-unknown-color;
+}
+
+.list_product_banner_poor_match {
+  background-color: $grade-c-color;
+}
+
+.list_product_banner_good_match {
+  background-color: $grade-b-color;
+}
+
+.list_product_banner_very_good_match {
+  background-color: $grade-a-color;
+}
+
+.list_product_content {
+  border-bottom-left-radius:8px;
+  border-bottom-right-radius:8px;
+  padding:10px;
+  display:block;
+  background-color:#eee;
+  position:relative;
+}
+
+.list_product_unranked {
   border-radius:8px;
   padding:10px;
   display:block;
@@ -604,7 +647,7 @@ html[dir="rtl"] {
   position: absolute;
   top: 0;
   right: 0;
-  padding: 0 1em;
+  padding: 0 0.5em;
   border-radius: .3em;
 }
 

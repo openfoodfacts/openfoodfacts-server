@@ -28,6 +28,7 @@ function match_product_to_preferences (product, product_preferences) {
 	// Note: mandatory preferences is set to 0:
 	// The attribute is only used to check if a product is compatible or not
 	// It does not affect the very good / good / poor match status
+	// The score will be 0 if the product is not compatible
 	var preferences_factors = {
 		"mandatory" : 0,
 		"very_important" : 2,
@@ -63,10 +64,10 @@ function match_product_to_preferences (product, product_preferences) {
 						sum_of_factors_for_unknown_attributes += attribute_factor;
 
 						// If the attribute is mandatory and the attribute status is unknown
-						// then mark the product status not compatible
+						// then mark the product status unknown
 
 						if ((attribute_preference == "mandatory") && (status == "compatible")) {
-							status = "may_not_be_compatible";
+							status = "unknown_match";
 						}
 					}
 					else {
@@ -75,8 +76,13 @@ function match_product_to_preferences (product, product_preferences) {
 
 						score += attribute.match * attribute_factor;
 					
-						if ((attribute_preference == "mandatory") && (attribute.match <= 20)) {
-							status = "not_compatible";
+						// Mandatory attribute with a very bad score (e.g. contains an allergen) -> status: does not match
+						if ((attribute_preference == "mandatory") && (attribute.match <= 10)) {
+							status = "does_not_match";
+						}
+						// Mandatory attribute with a bad score (e.g. may contain traces of an allergen) -> status: may not match
+						else if ((attribute_preference == "mandatory") && (attribute.match <= 50) && (status = "match")) {
+							status = "may_not_match";
 						}
 					}
 					
@@ -109,6 +115,9 @@ function match_product_to_preferences (product, product_preferences) {
 		else {
 			status = "poor_match";
 		}
+	}
+	else if (status == "does_not_match") {
+		score = 0;
 	}
 
 	product.match_status = status;
@@ -157,8 +166,8 @@ function rank_products(products, product_preferences, use_user_product_preferenc
 		"good_match" : [],
 		"poor_match" : [],
 		"unknown_match" : [],
-		"not_compatible" : [],
-		"may_not_be_compatible" : [],
+		"may_not_match" : [],		
+		"does_not_match" : [],
 	};
 	
 	$.each( products, function(key, product) {
@@ -197,14 +206,20 @@ function display_products(target, product_groups, user_prefs ) {
 			var product_html = "";
 
 			// Show the green / grey / colors for matching products only if we are using the user preferences
-			let css_classes = 'list_product_a';
+			let css_classes = 'list_product_un';
 			if (user_prefs.use_ranking) {
 				css_classes += ' list_product_a_match_' + product.match_status;
 			}
-			product_html += `<li><a href="${product.url}" class="${css_classes}">`;
+			product_html += `<li><a href="${product.url}">`;
 			if (user_prefs.use_ranking) {
-				product_html += '<div>' + product.match_status + ' ' + product.match_score + '</div>';
-			}			
+				product_html += '<div class="list_product_banner list_product_banner_' + product.match_status + '">'
+				+ lang()["products_match_" + product.match_status] + ' ' + Math.round(product.match_score) + '/100</div>'
+				+ '<div class="list_product_content">';
+			}
+			else {
+				product_html += '<div class="list_product_unranked">';
+			}
+
 			product_html += '<div class="list_product_img_div">';
 
 			const img_src =
@@ -242,7 +257,6 @@ function display_products(target, product_groups, user_prefs ) {
 			if (user_prefs.display.display_barcode) {
 				product_html += `<span class="list_display_barcode">${product.code}</span>`;
 			}
-			product_html += "</a>";
 			if (user_prefs.display.edit_link) {
 				const edit_url = product_edit_url(product);
 				const edit_title = lang().edit_product_page;
@@ -255,7 +269,7 @@ function display_products(target, product_groups, user_prefs ) {
 				</a>
 				`;
 			}
-			product_html += "</li>";
+			product_html += "</div></a></li>";
 
 			products_html.push(product_html);
 		});
@@ -276,7 +290,8 @@ function display_products(target, product_groups, user_prefs ) {
 			+ ' <span style="color:grey">' + product_group.length + "</span>";
 		}
 		
-		if (user_prefs.use_ranking) {
+		// Disable the tabs
+		if (user_prefs.use_ranking && 0) {
 			$("#products_tabs_titles").append(
 				'<li class="tabs tab-title tab_products-title' + active + '">'
 				+ '<a  id="tab_products_' + product_group_id + '" href="#products_' + product_group_id + '" title="' + lang()["products_match_" + product_group_id] +  '">'
