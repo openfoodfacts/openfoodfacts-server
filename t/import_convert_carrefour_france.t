@@ -105,7 +105,7 @@ export_csv($export_args_ref);
 
 close($exported_csv);
 
-ProductOpener::Test::compare_csv_file_to_expected_results($exported_csv_file, results_dir, $update_expected_results);
+ProductOpener::Test::compare_csv_file_to_expected_results($exported_csv_file, $results_dir, $update_expected_results);
 
 
 done_testing();
