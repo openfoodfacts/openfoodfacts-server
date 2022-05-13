@@ -1481,7 +1481,7 @@ sub build_tags_taxonomy($$$) {
 			if (defined $direct_parents{$tagtype}{$tagid}) {
 				@queue = sort keys %{$direct_parents{$tagtype}{$tagid}};
 			}
-			else {
+			elsif (not defined $just_synonyms{$tagtype}{$tagid}) {
 				# Keep track of entries that are at the root level
 				$root_entries{$tagtype}{$tagid} = 1;
 			}
