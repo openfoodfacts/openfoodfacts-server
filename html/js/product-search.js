@@ -268,24 +268,27 @@ function display_products(target, product_groups, user_prefs ) {
 
 			products_html.push(product_html);
 		});
+
 		
-		var active = "";
-		var text_or_icon = "";
-		if (product_group_id == "all") {
-			active = " active";
-			if (product_group.length == 1) {
-				text_or_icon = lang()["1_product"];
-			}
-			else {
-				text_or_icon = product_group.length + ' ' + lang().products;
-			}
-		}
-		else {
-			text_or_icon = '<img src="/images/attributes/match-' + product_group_id + '.svg" class="icon">'
-			+ ' <span style="color:grey">' + product_group.length + "</span>";
-		}
-		
-		// Disable the tabs
+		// Disable the tabs: takes too much space on small spaces, many different values
+		// Might be reintroduced in another form		
+
+		// var active = "";
+		// var text_or_icon = "";
+		// if (product_group_id == "all") {
+		// 	active = " active";
+		// 	if (product_group.length == 1) {
+		// 		text_or_icon = lang()["1_product"];
+		// 	}
+		// 	else {
+		// 		text_or_icon = product_group.length + ' ' + lang().products;
+		// 	}
+		// }
+		// else {
+		// 	text_or_icon = '<img src="/images/attributes/match-' + product_group_id + '.svg" class="icon">'
+		// 	+ ' <span style="color:grey">' + product_group.length + "</span>";
+		// }
+
 		// if (user_prefs.use_ranking) {
 		// 	$("#products_tabs_titles").append(
 		// 		'<li class="tabs tab-title tab_products-title' + active + '">'
