@@ -204,7 +204,7 @@ function display_products(target, product_groups, user_prefs ) {
 		
 		$.each( product_group, function(key, product) {
 		
-			var product_html += `<li><a href="${product.url}">`;
+			var product_html = `<li><a href="${product.url}">`;
 
 			if (user_prefs.use_ranking) {
 				product_html += '<div class="list_product_banner list_product_banner_' + product.match_status + '">'
