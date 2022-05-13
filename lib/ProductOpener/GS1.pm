@@ -1602,10 +1602,34 @@ sub generate_gs1_message_identifier() {
 }
 
 
+=head2 generate_gs1_confirmation_message ($notification_message_ref, $timestamp)
+
+GS1 data pools (catalogs) send us GSDN Catalogue Item Notification (CIN) which are messages
+that contain the data for 1 product (and possibly sub-products).
+
+The GS1 standard offers data recipient (such as Open Food Facts) to send back
+Catalogue Item Confirmation (CIC) messages to acknowledge the notification and give
+its status.
+
+This function generates the CIC message corresponding to a CIN message.
+
+See https://www.gs1.org/docs/gdsn/tiig/3_1/GDSN_Trade_Item_Implementation_Guide.pdf for more details.
+
+=head3 Arguments
+
+=head4 reference to the notification message (as parsed by convert_gs1_json_message_to_off_products_csv)
+
+=head4 timestamp
+
+The current time is passed as a parameter to the function. This is so that we can 
+generate test confirmation messages which don't have a different content every time we run them.
+
+=cut
+
 sub generate_gs1_confirmation_message($$) {
 
 	my $notification_message_ref = shift;
-	my $time = shift;
+	my $timestamp = shift;
 
 	# We will need to generate a message identifier, put it in the XML content,
 	# and return it as it is used as the file name
@@ -1621,7 +1645,7 @@ sub generate_gs1_confirmation_message($$) {
 		transactionIdentification_entityIdentification => generate_gs1_message_identifier(),
 		documentCommandIdentification_entityIdentification => generate_gs1_message_identifier(),
 		catalogueItemNotificationIdentification_entityIdentification => generate_gs1_message_identifier(),
-		CreationDateAndTime => display_date_iso($time),
+		CreationDateAndTime => display_date_iso($timestamp),
 		catalogueItemConfirmationStateCode => 'RECEIVED',
 	};
 
