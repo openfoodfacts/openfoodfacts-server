@@ -70,11 +70,22 @@ pt:Caixa, caixas
 #Boxes for eggs
 <en:Box
 nl:Eierdoos
+fr:Boîte à œufs
+en:egg carton, egg box
+tr:Yumurta kartonu
+pl:wytłaczanka
+ja:卵パック
+de:Eierkarton
+wikidata:en:Q959287
 #suggest:packaging_materials:nl: en:cardboard
 
 # boxes for pizza's
 <en:Box
 nl:Pizzadoos, pizzadozen
+fr:carton à pizza
+it:Cartone della pizza
+de:Pizzakarton
+wikidata:en:Q2097650
 #suggest:packaging_materials:nl: en:cardboard
 
 en:Case, cases
@@ -121,6 +132,7 @@ it:Lattina, Latta
 nl:Blik, Blikje, Blikjes, Bus
 pt:Lata, latas
 packaging_materials:en: en:metal
+wikidata:en:Q2846150
 
 # Can for drink, not canned food
 <en:can
@@ -132,6 +144,7 @@ fr:Canette, cannette, canettes, cannettes
 hu:italos konzerv, italkonzerv, konzervital
 it:Lattina per bevande
 pt:Lata de bebida, latas de bebidas, lata de alumínio, latas de alumínio, lata de refrigerante, latas de refrigerante, lata de refrigerantes, latas de refrigerantes
+wikidata:en:Q3261783
 
 # Can for food, not canned drinks
 # Note: "canned", "conserve" : already used in the preservation taxonomy
@@ -163,6 +176,7 @@ pt:Pote individual, potes individuais, boião individual, boiões individuais
 en:Tumbler
 fr:Gobelet
 nl:Beker, Bekers, Koffiebeker, Cup
+wikidata:en:Q833823
 
 en:Tube, tubes
 de:Tube, Tuben
@@ -225,6 +239,7 @@ pt:Manga, mangas
 
 en:Mold
 fr:Moule
+wikidata:en:Q1432049
 
 en:Lid, cover, lids, covers
 de:Deckel
@@ -240,6 +255,7 @@ fr:Bouchon de bouteille, bouchon,  bouchons de bouteilles, bouchons
 hu:Kupak, borosdugó, dugó
 nl:Dop, Doppe
 pt:Cápsula de garrafa, cápsulas de garrafa, tampa de garrafa, tampas de garrafa, rolha, rolhas, rolha de garrafa, rolhas de garrafa, rolha de cortiça, rolhas de cortiça, rolha de plástico, rolhas de plástico, carica, caricas, cápsula de rosca, cápsulas de rosca
+wikidata:en:Q1440281
 
 # Note: cork is listed under materials, it cannot be a synonym of wine cork in the shapes taxonomy.
 <en:Bottle cap
@@ -247,6 +263,7 @@ en:Wine cork, wine bottle cork, wine corks, wine bottle corks
 bg:Коркова тапа за вино, Корк за вино
 fr:bouchon de bouteille de vin, bouchons de bouteille
 nl:Wijn kurk
+wikidata:en:Q86511715
 
 <en:Bottle cap
 en:Capsule, capsules
@@ -261,6 +278,7 @@ fr:Capsule de café, Capsules de café, capsules café, capsule café
 hu:Kávékapszula, kávé kapszula, kávékapszulák, kávé kapszulák
 nl:Koffiecapsule, Koffiecapsules, Nespressocapsule, Nespresso-capsule
 pt:Cápsula de café, cápsulas de café, cápsula de cafés, cápsulas de cafés
+wikidata:en:Q4236462
 
 #As are used in Senseo
 en:Coffee pad
@@ -458,10 +476,12 @@ nl:Spuitbus, spuitbussen
 
 en:neck seal
 fr:Collerette
+wikidata:en:Q61686575
 
 en:Wire cage and cap
 fr:Muselet, Muselet et plaque
 #goes_with:en:glass bottle
+wikidata:en:Q1061121
 # related_categories:en: en:Champagnes
 
 en:hanger
@@ -577,3 +597,5 @@ nl:Verpakking
 
 en:spout, pouring spout, pour spout
 fr:verseur, bec verseur
+wikidata:en:Q2893427
+#wikidata:en:Q54803638
