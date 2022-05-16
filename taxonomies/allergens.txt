@@ -10,6 +10,7 @@ stopwords:pt:traços,vestígios,vestígio,a,e,uma,em,ou,de,que,com,contém,cont�
 
 en:none, allergens-free, without allergens, without, n, no, no allergens, 0
 fr:aucun, aucune, sans allergènes, sans, pas, pas d'allergènes, aucun allergène, 0
+it:nessuno, nessuna, senza allergeni, no allergeni, no, n, 0
 sr:ništa, nijedan, nijedno, bez alergena, nema alergena, bez, 0
 
 en:gluten, cereals containing gluten, barley, barley malt flour, malted barley, malted barley extract, malted barley flour, kamut, rye, rye flour, spelt, speltflour, wheat, wheat flour, wheatflour, wheat semolina, oats, oat fiber
@@ -66,8 +67,7 @@ jp:甲殻類,カニ,エビ
 lt:vėžiagyviai
 lv:vēžveidīgie
 mt:krustaċej
-nl:schaaldieren
-nl_be:schaaldieren
+nl:schaaldieren, schaaldier
 pl:skorupiaki
 pt:crustáceos, caranguejo, lagosta, lagostim, gambas, gamba, camarão
 ro:crustacee
@@ -131,7 +131,7 @@ jp:魚,サバ,サケ
 lt:žuvis
 lv:zivis
 mt:ħut
-nb:fisk, sild, ansjos, brisling, kryddersild, kryddersildefilèt, eddiksild, pollock, hyse, sei, torsk, hvitlaks, kvitlaks, vassild 
+nb:fisk, sild, ansjos, brisling, kryddersild, kryddersildefilèt, eddiksild, pollock, hyse, sei, torsk, hvitlaks, kvitlaks, vassild
 nl:vis
 nl_be:vis
 pl:ryba
@@ -220,7 +220,7 @@ ar:حليبب, لاكتوز
 bg:суроватка, млечна, мляко,  лактоза
 cs:mléko, laktózy
 da:mælk, laktose, mælkepulver, skummetmælk, skummetmælkspulver, sødmælk, sødmælkspulver, komælk, fløde, piskefløde, mælkefedt, mælkeproteiner, mælkesukker, vallepulver, kærnemælk, letmælk, ost, emmentaler, cheddarost, ostepuler
-de:Milch, Bergkäse, Blauschimmelkäse, Butter, Buttermilch, Buttermilchpulver, Butterreinfett, Camembert, Cheddar, Edamer, Edamer-Käse, Emmentaler,  Frischkäse, Gorgonzola, Gouda, Hartkäse, Joghurt, Joghurtpulver, Käse, Käsepulver, Kondensmilch, Kuhmilch, Kuhvollmilch, Laktose, Rohmilch, Milchzucker, Milcheiweiß, Milchpulver, Milcherzeugnisse, Magermilchpulver, Magermilchjoghurt, Magermilchkonzentrat, Magermilchjoghurtpulver, Magermilch, Magerquark, Molkenpulver, Molkenerzeugnis, Molkeneiweißkäse, Milchschokolade,  Mozzarella, Pecorino, Quark, Ricotta, Speisequark, Sahne, Sahnepulver, Sahnejoghurt, Sauermilchquark, Sauerrahm, Rahm, Rahmjoghurt, Sauermilch, Sauerrahmpulver, Schlagsahne,  Süssmolkenpulver, Süßmolkenpulver, Vollmilch, Vollmilchschokolade, Vollmilchpulver, Ziegenmilch, Süßmolke, Süssmolke, Butterfett, Kondensmagermilch, Joghurterzeugnis, Schafsmilch, Schafmilch, Käsereimilch, Milchfett, Milchprotein, Molke, Sauermolke, Molkeneiweiß, Molkeneiweiss, Molkepulver, Milcheiweißerzeugnis, Milcheiweisserzeugnis, Magermilchpulverzusatz, Molkenprotein, Buttereinfett, Süßmolkepulver, Süssmolkepulver, Vollmilchschokoladeüberzug 
+de:Milch, Bergkäse, Blauschimmelkäse, Butter, Buttermilch, Buttermilchpulver, Butterreinfett, Camembert, Cheddar, Edamer, Edamer-Käse, Emmentaler,  Frischkäse, Gorgonzola, Gouda, Hartkäse, Joghurt, Joghurtpulver, Käse, Käsepulver, Kondensmilch, Kuhmilch, Kuhvollmilch, Laktose, Rohmilch, Milchzucker, Milcheiweiß, Milchpulver, Milcherzeugnisse, Magermilchpulver, Magermilchjoghurt, Magermilchkonzentrat, Magermilchjoghurtpulver, Magermilch, Magerquark, Molkenpulver, Molkenerzeugnis, Molkeneiweißkäse, Milchschokolade,  Mozzarella, Pecorino, Quark, Ricotta, Speisequark, Sahne, Sahnepulver, Sahnejoghurt, Sauermilchquark, Sauerrahm, Rahm, Rahmjoghurt, Sauermilch, Sauerrahmpulver, Schlagsahne,  Süssmolkenpulver, Süßmolkenpulver, Vollmilch, Vollmilchschokolade, Vollmilchpulver, Ziegenmilch, Süßmolke, Süssmolke, Butterfett, Kondensmagermilch, Joghurterzeugnis, Schafsmilch, Schafmilch, Käsereimilch, Milchfett, Milchprotein, Molke, Sauermolke, Molkeneiweiß, Molkeneiweiss, Molkepulver, Milcheiweißerzeugnis, Milcheiweisserzeugnis, Magermilchpulverzusatz, Molkenprotein, Buttereinfett, Süßmolkepulver, Süssmolkepulver, Vollmilchschokoladeüberzug
 el:γάλα, λακτόζης
 es:leche,  lactosa, lácteos, derivados lácteos, productos lácteos, leche y derivados, queso, proteína de leche, leche y sus derivados
 et:laktoos, lõssi, piim, piima, piimast

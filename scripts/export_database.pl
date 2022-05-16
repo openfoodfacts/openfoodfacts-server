@@ -283,7 +283,21 @@ XML
 
 		foreach my $field (@export_fields) {
 
-			my $field_value = ($product_ref->{$field} // "");
+			my $field_value;
+
+			# _tags field contain an array of values
+			if ($field =~ /_tags/) {
+				if (defined $product_ref->{$field}) {
+					$field_value = join(',', @{$product_ref->{$field}});
+				}
+				else {
+					$field_value = "";
+				}
+			}
+			# other fields
+			else {
+				$field_value = ($product_ref->{$field} // "");
+			}
 
 			# Language specific field?
 			if ((defined $language_fields{$field}) and (defined $product_ref->{$field . "_" . $l}) and ($product_ref->{$field . "_" . $l} ne '')) {

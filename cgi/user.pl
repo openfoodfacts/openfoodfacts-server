@@ -166,7 +166,7 @@ if ($action eq 'display') {
 
 	$template_data_ref->{sections} = [];
 
-		if ($user_ref) {
+	if ($user_ref) {
 		push @{$template_data_ref->{sections}}, {
 			id => "user",
 			fields => [
@@ -205,7 +205,6 @@ if ($action eq 'display') {
 					field => "pro",
 					type => "checkbox",
 					label => lang("this_is_a_pro_account"),
-					warning => sprintf(lang("this_is_a_pro_account_for_org"),"<b>" . $user_ref->{org} . "</b>"),
 					value => "off",
 				},
 				{
@@ -236,11 +235,34 @@ if ($action eq 'display') {
 				push @{$team_section_ref->{fields}}, {
 					field => "team_". $i,
 					label => sprintf(lang("team_s"), $i),
-				 };
+				};
 			};
 
 			push @{$template_data_ref->{sections}}, {%$team_section_ref};
 		}
+
+		# Contributor section
+		my $contributor_section_ref = {
+			id => "contributor_settings",
+			name => lang("contributor_settings") . " (" . lang("optional") . ")",
+			description => "contributor_settings_description",
+			fields => [
+				{
+					field => "display_barcode",
+					type => "checkbox",
+					label => display_icon("barcode") . lang("display_barcode_in_search"),
+					value => $user_ref->{display_barcode} && "on",
+				},
+				{
+					field => "edit_link",
+					type => "checkbox",
+					label => display_icon("edit") . lang("edit_link_in_search"),
+					value => $user_ref->{edit_link} && "on",
+				},
+			]
+		};
+
+		push @{$template_data_ref->{sections}}, {%$contributor_section_ref};
 
 		# Admin section
 		if ($admin) {
@@ -268,7 +290,6 @@ if ($action eq 'display') {
 	if ( ( defined $user_ref->{org} ) and ( $user_ref->{org} ne "" ) ) {
 
 		$template_data_ref->{accepted_organization} = $user_ref->{org};
-		$template_data_ref->{pro_account_org} = sprintf(lang("this_is_a_pro_account_for_org"),"<b>" . $user_ref->{org} . "</b>");
 	}
 	elsif ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 		my $requested_org_ref = retrieve_org($user_ref->{requested_org});

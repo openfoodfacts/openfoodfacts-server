@@ -114,6 +114,7 @@ use Time::Local;
 use Data::Dumper;
 use Text::CSV;
 use HTML::Entities qw(decode_entities);
+use XML::Rules;
 
 %fields = ();
 @fields = ();
@@ -291,14 +292,14 @@ sub assign_countries_for_product($$$) {
 	my $lcs_ref = shift;
 	my $default_country = shift;
 
-	foreach my $possible_lc (keys %{$lcs_ref}) {
+	foreach my $possible_lc (sort keys %{$lcs_ref}) {
 		if (defined $product_ref->{"product_name_" . $possible_lc}) {
 			assign_value($product_ref,"countries", $lcs_ref->{$possible_lc});
 			$log->info("assign_countries_for_product: found lc - assigning value", { lc => $possible_lc, countries => $lcs_ref->{$possible_lc}}) if $log->is_info();
 		}
 	}
 
-	if (not defined $product_ref->{countries}) {
+	if ((not defined $product_ref->{countries}) or ($product_ref->{countries} eq "")) {
 		assign_value($product_ref,"countries", $default_country);
 		$log->info("assign_countries_for_product: assigning default value", { countries => $default_country}) if $log->is_info();
 	}
@@ -536,14 +537,15 @@ sub remove_quantity_from_field($$) {
 		my $quantity = $product_ref->{quantity};
 		my $quantity_value = $product_ref->{quantity_value};
 		my $quantity_unit = $product_ref->{quantity_unit};
-
-		$quantity =~ s/\(/\\\(/g;
-		$quantity =~ s/\)/\\\)/g;
-		$quantity =~ s/\[/\\\[/g;
-		$quantity =~ s/\]/\\\]/g;
 		
-		if ((defined $quantity) and ($product_ref->{$field} =~ /\s*(\b|\s+)($quantity|(\(|\[)$quantity(\)|\]))\s*$/i)) {
-			$product_ref->{$field} = $`;
+		if (defined $quantity) {
+			$quantity =~ s/\(/\\\(/g;
+			$quantity =~ s/\)/\\\)/g;
+			$quantity =~ s/\[/\\\[/g;
+			$quantity =~ s/\]/\\\]/g;
+			if ($product_ref->{$field} =~ /\s*(\b|\s+)($quantity|(\(|\[)$quantity(\)|\]))\s*$/i) {
+				$product_ref->{$field} = $`;
+			}
 		}
 		elsif ((defined $quantity_value) and (defined $quantity_unit) and ($product_ref->{$field} =~ /\s*\b\(?$quantity_value $quantity_unit\)?\s*$/i)) {
 			$product_ref->{$field} = $`;
@@ -870,6 +872,11 @@ sub clean_fields($) {
 
 		$log->debug("clean_fields", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
 
+		if (not defined $product_ref->{$field}) {
+			print STDERR "undefined value for field $field\n";
+			next;
+		}
+
 		# HTML entities
 		# e.g. P&acirc;tes alimentaires cuites aromatis&eacute;es au curcuma
 		if ($product_ref->{$field} =~ /\&/) {
@@ -908,7 +915,7 @@ sub clean_fields($) {
 		
 		# Remove "unspecified" values
 		my @unspecified_lcs = ("en");
-		if (($product_ref->{lc} ne 'en') and (defined $unspecified{$product_ref->{lc}})) {
+		if ((defined $product_ref->{lc}) and ($product_ref->{lc} ne 'en') and (defined $unspecified{$product_ref->{lc}})) {
 			push @unspecified_lcs, $product_ref->{lc};
 		}
 		
@@ -1384,7 +1391,7 @@ sub load_xml_file($$$$) {
 			# multiple values in different languages
 
 			elsif ($source_tag eq '*') {
-				foreach my $tag ( keys %{$current_tag}) {
+				foreach my $tag ( sort keys %{$current_tag}) {
 					my $tag_target = $target;
 
 					# special case where we have something like allergens.nuts = traces
@@ -1776,12 +1783,14 @@ sub get_list_of_files(@) {
 
 
 
-sub print_csv_file() {
+sub print_csv_file($) {
 
-	my $csv_out = Text::CSV->new ( { binary => 1 , sep_char => "\t" } )  # should set binary attribute.
+	my $file_handle = shift;
+
+	my $csv_out = Text::CSV->new ( { binary => 1 , sep_char => "\t", eol => "\n", quote_space => 0 } )  # should set binary attribute.
                  or die "Cannot use CSV: ".Text::CSV->error_diag ();
 
-	print join("\t", @fields) . "\n";
+	$csv_out->print ($file_handle, \@fields) ;
 
 	foreach my $code (sort keys %products) {
 
@@ -1797,8 +1806,7 @@ sub print_csv_file() {
 			}
 		}
 
-		$csv_out->print (*STDOUT, \@values) ;
-		print "\n";
+		$csv_out->print ($file_handle, \@values) ;
 
 		print STDERR "code: $code\n";
 	}

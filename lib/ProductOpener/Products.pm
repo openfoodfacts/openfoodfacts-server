@@ -635,7 +635,7 @@ sub init_product($$$$) {
 		require ProductOpener::GeoIP;
 		$country = ProductOpener::GeoIP::get_country_for_ip(remote_addr());
 	}
-	else {
+	elsif (defined $countryid) {
 		$country = $countryid;
 		$country =~ s/^en://;
 	}
@@ -1263,7 +1263,12 @@ sub compute_data_sources($$) {
 				$data_sources{"Databases"} = 1;
 				$data_sources{"Database - Equadis"} = 1;
 				$data_sources{"Database - GDSN"} = 1;
-			}				
+			}
+			if ($source_ref->{id} eq 'agena3000') {
+				$data_sources{"Databases"} = 1;
+				$data_sources{"Database - Agena3000"} = 1;
+				$data_sources{"Database - GDSN"} = 1;
+			}
 		}
 	}
 

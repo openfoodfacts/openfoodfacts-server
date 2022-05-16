@@ -1641,7 +1641,7 @@ sub parse_ingredients_text($) {
 						next if (length($maybe_origin) < 4);
 						
 						my $origin_id = canonicalize_taxonomy_tag($product_lc, "origins", $maybe_origin);
-						if (exists_taxonomy_tag("origins", $origin_id)) {
+						if ((exists_taxonomy_tag("origins", $origin_id)) and ($origin_id ne "en:unknown")) {
 							
 							$debug_ingredients and $log->debug("ingredient includes known origin", { ingredient => $ingredient, new_ingredient => $maybe_ingredient, origin_id => $origin_id }) if $log->is_debug();
 							
@@ -2332,16 +2332,80 @@ sub compute_ingredients_percent_values($$$) {
 	return $changed_total;
 }
 
+
+=head2 init_percent_values($total_min, $total_max, $ingredients_ref)
+
+Initialize the percent, percent_min and percent_max value for each ingredient in list.
+
+$ingredients_ref is the list of ingredients (as hash), where parsed percent are already set.
+
+$total_min and $total_max might be set if we have a parent ingredient and are parsing a sub list.
+
+When a percent is specifically set, use this value for percent_min and percent_max.
+
+Warning: percent listed for sub-ingredients can be absolute (e.g. "Sugar, fruits 40% (pear 30%, apple 10%)")
+or they can be relative to the parent ingredient (e.g. "Sugar, fruits 40% (pear 75%, apple 25%)".
+We try to detect those cases and rescale the percent accordingly.
+
+Otherwise use 0 for percent_min and total_max for percent_max.
+
+=cut
+
 sub init_percent_values($$$) {
 
 	my $total_min = shift;
 	my $total_max = shift;
 	my $ingredients_ref = shift;
 
+	# Determine if percent listed are absolute (default) or relative to a parent ingredient
+
+	my $percent_mode = "absolute";
+
+	# Assume that percent listed is relative to the parent ingredient
+	# if the sum of specified percents for the ingredients is greater than the percent max of the parent.
+
+	my $percent_sum = 0;
 	foreach my $ingredient_ref (@{$ingredients_ref}) {
 		if (defined $ingredient_ref->{percent}) {
-			$ingredient_ref->{percent_min} = $ingredient_ref->{percent};
-			$ingredient_ref->{percent_max} = $ingredient_ref->{percent};
+			$percent_sum += $ingredient_ref->{percent};
+		}
+	}
+
+	if ($percent_sum > $total_max) {
+		$percent_mode = "relative";
+	}
+
+	$log->debug("init_percent_values - percent mode", { percent_mode => $percent_mode, ingredients_ref => $ingredients_ref,
+		total_min => $total_min, total_max => $total_max, percent_sum => $percent_sum }) if $log->is_debug();
+
+	# Go through each ingredient to set percent_min, percent_max, and if we can an absolute percent
+
+	foreach my $ingredient_ref (@{$ingredients_ref}) {
+		if (defined $ingredient_ref->{percent}) {
+			# There is a specified percent for the ingredient.
+			
+			if (($percent_mode eq "absolute") or ($total_min == $total_max)) {
+				# We can assign an absolute percent to the ingredient because
+				# 1. the percent mode is absolute
+				# or 2. we have a specific percent for the parent ingredient
+				# so we can rescale the relative percent of the ingredient to make it absolute
+				my $percent = ($percent_mode eq "absolute") ? 
+					$ingredient_ref->{percent} : 
+					$ingredient_ref->{percent} * $total_max / 100
+				;
+				$ingredient_ref->{percent} = $percent;
+				$ingredient_ref->{percent_min} = $percent;
+				$ingredient_ref->{percent_max} = $percent;
+			}
+			else {
+				# The percent mode is relative and we do not have a specific percent for the parent ingredient
+				# We cannot compute an absolute percent for the ingredient, but we can apply the relative percent
+				# to percent_min and percent_max
+				$ingredient_ref->{percent_min} = $ingredient_ref->{percent} * $total_min / 100;
+				$ingredient_ref->{percent_max} = $ingredient_ref->{percent} * $total_max / 100;
+				# The absolute percent is unknown, delete it
+				delete $ingredient_ref->{percent};
+			}
 		}
 		else {
 			if (not defined $ingredient_ref->{percent_min}) {
@@ -2353,8 +2417,11 @@ sub init_percent_values($$$) {
 		}
 	}
 
+	$log->debug("init_percent_values - result", { ingredients_ref => $ingredients_ref }) if $log->is_debug();
+
 	return;
 }
+
 
 sub set_percent_max_values($$$) {
 
@@ -2387,10 +2454,16 @@ sub set_percent_max_values($$$) {
 
 		# The max of an ingredient must be lower or equal to
 		# the total max minus the sum of the minimums of all
-		# ingredients that appear before.
+		# other ingredients
 
-		if ($ingredient_ref->{percent_max} > $total_max - $sum_of_mins_before) {
-			$ingredient_ref->{percent_max} = $total_max - $sum_of_mins_before;
+		my $sum_of_mins_after = 0;
+		for (my $j = $i; $j < $n; $j++) {
+			$sum_of_mins_after += $ingredients_ref->[$j]{percent_min};
+		}
+		my $max_percent_max = $total_max - $sum_of_mins_before - $sum_of_mins_after;
+
+		if (($max_percent_max >= 0) and ($ingredient_ref->{percent_max} > $max_percent_max)) {
+			$ingredient_ref->{percent_max} = $max_percent_max;
 			$changed++;
 		}
 
@@ -2494,12 +2567,16 @@ sub set_percent_min_values($$$) {
 			$changed++;
 		}
 
-		# The min of the first ingredient in the list must be greater or equal
-		# to the total min minus sum of of the maximums of all the ingredients after.
+		# The min of the ingredient must be greater or equal
+		# to the total min minus the sum of the maximums of all the other ingredients
 
-		my $min_percent_min = $total_min - $sum_of_maxs_after;
+		my $sum_of_maxs_before = 0;
+		for (my $j = 0; $j < ($n - $i); $j++) {
+			$sum_of_maxs_before += $ingredients_ref->[$j]{percent_max};
+		}
+		my $min_percent_min = $total_min - $sum_of_maxs_before - $sum_of_maxs_after;
 
-		if (($i == $n) and ($ingredient_ref->{percent_min} < $min_percent_min - 0.1)) {
+		if (($min_percent_min > 0) and ($ingredient_ref->{percent_min} < $min_percent_min - 0.1)) {
 
 			# Bail out if the values are not possible
 			if (($min_percent_min > $total_min) or ($min_percent_min > $ingredient_ref->{percent_max})) {
@@ -2754,10 +2831,26 @@ sub analyze_ingredients($) {
 					$property_value = "en:may-contain-" . $from_what_with_dashes ; # en:may-contain-palm-oil
 					$ingredients_analysis_ref->{$property_value} = $values{maybe};
 				}
+				# If some ingredients are not recognized, there is a possibility that they could be palm oil or contain palm oil
+				# As there are relatively few ingredients with palm oil, we assume we are able to recognize them with the taxonomy
+				# and that unrecognized ingredients do not contain palm oil.
+				# --> We mark the product as palm oil free
+				# Exception: If there are lots of unrecognized ingredients though (e.g. more than 1 third), it may be that the ingredients list
+				# is bogus (e.g. OCR errors) and the likelyhood of missing a palm oil ingredient increases.
+				# --> In this case, we mark the product as palm oil content unknown
 				elsif (defined $values{unknown_ingredients}) {
 					# Some ingredients were not recognized
-					$property_value = "en:" . $from_what_with_dashes . "-content-unknown"; # en:palm-oil-content-unknown
-					$ingredients_analysis_ref->{$property_value} = $values{unknown_ingredients};
+					$log->debug("analyze_ingredients - unknown ingredients", { unknown_ingredients_n => (scalar @{$values{unknown_ingredients}}), ingredients_n => (scalar(@{$product_ref->{ingredients}})) }) if $log->is_debug();
+					my $unknown_rate = (scalar @{$values{unknown_ingredients}}) / (scalar @{$product_ref->{ingredients}});
+					# for palm-oil, as there are few products containing it, we consider status to be unknown only if there is more than 30% unknown ingredients (which may indicates bogus ingredient list, eg. OCR errors)
+					if (($from_what_with_dashes eq "palm-oil") and ($unknown_rate <= 0.3)) {
+						$property_value = "en:" . $from_what_with_dashes . "-free"; # en:palm-oil-free
+					}
+					else {
+						$property_value = "en:" . $from_what_with_dashes . "-content-unknown"; # en:palm-oil-content-unknown
+					}
+					# In all cases, keep track of the unknown ingredients
+					$ingredients_analysis_ref->{"en:" . $from_what_with_dashes . "-content-unknown"} = $values{unknown_ingredients};
 				}
 				else {
 					# no yes, maybe or unknown ingredients
@@ -2827,14 +2920,17 @@ sub analyze_ingredients($) {
 		$product_ref->{ingredients_analysis} = {};
 
 		foreach my $property (@properties) {
-			my $property_value = $ingredients_analysis_properties_ref->{$property};
+			my $property_value = $ingredients_analysis_properties_ref->{$property};			
 			if (defined $property_value) {
 				# Store the property value in the ingredients_analysis_tags list
 				push @{$product_ref->{ingredients_analysis_tags}}, $property_value;
 				# Store the list of ingredients that caused a product to be non vegan/vegetarian/palm oil free
-				# (no list when a product is vegan/vegetarian/palm oil free)
 				if (defined $ingredients_analysis_ref->{$property_value}) {
 					$product_ref->{ingredients_analysis}{$property_value} = $ingredients_analysis_ref->{$property_value};
+				}
+				# for palm-oil-free products, we can have a	fraction of ingredients that have palm-oil-content-unknown
+				elsif (($property_value =~ /-free$/) and (defined $ingredients_analysis_ref->{$` . '-content-unknown'})) {
+					$product_ref->{ingredients_analysis}{$` . '-content-unknown'} = $ingredients_analysis_ref->{$` . '-content-unknown'};
 				}
 			}
 		}

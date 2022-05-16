@@ -17,28 +17,32 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Nutriscore qw/:all/;
 
-my $expected_dir = dirname(__FILE__) . "/expected_test_results";
-my $testdir = "nutriscore";
+
+
+my $test_name = "nutriscore";
+my $tests_dir = dirname(__FILE__);
+my $expected_dir = $tests_dir . "/expected_test_results/" . $test_name;
 
 my $usage = <<TXT
 
-The expected results of the tests are saved in $expected_dir/$testdir
+The expected results of the tests are saved in $tests_dir/expected_test_results/$test_name
 
-To verify differences and update the expected test results, actual test results
-can be saved to a directory by passing --results [path of results directory]
+To verify differences and update the expected test results,
+actual test results can be saved by passing --update-expected-results
 
 The directory will be created if it does not already exist.
 
 TXT
 ;
 
-my $resultsdir;
+my $update_expected_results;
 
-GetOptions ("results=s"   => \$resultsdir)
+GetOptions ("update-expected-results"   => \$update_expected_results)
   or die("Error in command line arguments.\n\n" . $usage);
+
   
-if ((defined $resultsdir) and (! -e $resultsdir)) {
-	mkdir($resultsdir, 0755) or die("Could not create $resultsdir directory: $!\n");
+if ((defined $update_expected_results) and (! -e $expected_dir)) {
+	mkdir($expected_dir, 0755) or die("Could not create $expected_dir directory: $!\n");
 }
 
 init_emb_codes();
@@ -88,6 +92,27 @@ my @tests = (
 ["flavored-spring-water-no-nutrition", { lc=>"en", categories=>"flavoured spring water", nutriments=>{}}],
 ["flavored-spring-with-nutrition", { lc=>"en", categories=>"flavoured spring water", nutriments=>{energy_100g=>378, fat_100g=>0, "saturated-fat_100g"=>0, sugars_100g=>3, sodium_100g=>0, fiber_100g=>0, proteins_100g=>0}}],
 
+# Cocoa and chocolate powders
+["cocoa-and-chocolate-powders", { lc => "en", "categories" => "cocoa and chocolate powders", nutriments=>{energy_prepared_100g=>287, fat_prepared_100g=>0, "saturated-fat_prepared_100g"=>1.1, sugars_prepared_100g=>6.3, sodium_prepared_100g=>0.045, fiber_prepared_100g=>1.9, proteins_prepared_100g=>3.8}}],
+
+# fruits and vegetables estimates from category or from ingredients
+[
+	"en-orange-juice-category-and-ingredients",
+	{
+			lc => "en",
+			categories => "orange juices",
+			ingredients_text => "orange juice 50%, water, sugar",
+			nutriments=>{energy_100g=>182, fat_100g=>0, "saturated-fat_100g"=>0, sugars_100g=>8.9, sodium_100g=>0.2, fiber_100g=>0.5, proteins_100g=>0.2},	
+	}
+],
+[
+	"en-orange-juice-category",
+	{
+			lc => "en",
+			categories => "orange juices",
+			nutriments=>{energy_100g=>182, fat_100g=>0, "saturated-fat_100g"=>0, sugars_100g=>8.9, sodium_100g=>0.2, fiber_100g=>0.5, proteins_100g=>0.2},	
+	}
+],
 
 );
 
@@ -106,25 +131,25 @@ foreach my $test_ref (@tests) {
 
 	# Save the result
 	
-	if (defined $resultsdir) {
-		open (my $result, ">:encoding(UTF-8)", "$resultsdir/$testid.json") or die("Could not create $resultsdir/$testid.json: $!\n");
+	if (defined $update_expected_results) {
+		open (my $result, ">:encoding(UTF-8)", "$expected_dir/$testid.json") or die("Could not create $expected_dir/$testid.json: $!\n");
 		print $result $json->pretty->encode($product_ref);
 		close ($result);
 	}
-	
-	# Compare the result with the expected result
-	
-	if (open (my $expected_result, "<:encoding(UTF-8)", "$expected_dir/$testdir/$testid.json")) {
-
-		local $/; #Enable 'slurp' mode
-		my $expected_product_ref = $json->decode(<$expected_result>);
-		is_deeply ($product_ref, $expected_product_ref) or diag explain $product_ref;
-	}
 	else {
-		fail("could not load expected_test_results/$testdir/$testid.json");
-		diag explain $product_ref;
-	}
+		# Compare the result with the expected result
+		
+		if (open (my $expected_result, "<:encoding(UTF-8)", "$expected_dir/$testid.json")) {
 
+			local $/; #Enable 'slurp' mode
+			my $expected_product_ref = $json->decode(<$expected_result>);
+			is_deeply ($product_ref, $expected_product_ref) or diag explain $product_ref;
+		}
+		else {
+			fail("could not load $expected_dir/$testid.json");
+			diag explain $product_ref;
+		}
+	}
 }
 
 is (compute_nutriscore_grade(1.56, 1, 0), "c");

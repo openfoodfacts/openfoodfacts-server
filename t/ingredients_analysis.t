@@ -44,6 +44,15 @@ my @tests = (
 # check that the label overrides the en:non-vegan for "miel" / honey
 # (just for testing, it should not happen)
 [ { lc => "fr", labels_tags => ["en:vegan"], ingredients_text => "miel" }, [ "en:palm-oil-free", "en:vegan", "en:vegetarian"] ],
+
+# unknown ingredients
+
+[ { lc => "en", ingredients_text => "" }, undef ],
+[ { lc => "en", ingredients_text => "unknown ingredient" }, ["en:palm-oil-content-unknown", "en:vegan-status-unknown", "en:vegetarian-status-unknown"] ],
+[ { lc => "en", ingredients_text => "flour, unknown ingredient" }, ["en:palm-oil-content-unknown", "en:vegan-status-unknown", "en:vegetarian-status-unknown"] ],
+# mark the product as palm oil free even though there is one unknown ingredients (out of many ingredients)
+[ { lc => "en", ingredients_text => "flour, sugar, eggs, milk, salt, water, unknown ingredient" }, ["en:palm-oil-free", "en:non-vegan", "en:vegetarian-status-unknown"] ],
+
 );
 
 

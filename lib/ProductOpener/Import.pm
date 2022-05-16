@@ -230,6 +230,20 @@ sub import_images_from_dir($$) {
 	return $images_ref;
 }
 
+# download image at given url parameter
+sub download_image($) {
+	my $image_url = shift;
+
+	require LWP::UserAgent;
+
+	my $ua = LWP::UserAgent->new(timeout => 10);
+
+	# Some platforms such as CloudFlare block the default LWP user agent.
+	$ua->agent(lang('site_name') . " (https://$server_domain)");
+
+	return $ua->get($image_url);
+}
+
 
 # deduplicate column names
 # We may have duplicate columns (e.g. image_other_url),
@@ -470,7 +484,7 @@ sub import_csv_file($) {
 
 	# first line contains headers
 	my $columns_ref = $csv->getline ($io);
-	$csv->column_names (@{deduped_colnames($columns_ref)});
+	$csv->column_names(@{deduped_colnames($columns_ref)});
 
 	my $i = 0;
 	my $j = 0;
@@ -584,10 +598,10 @@ sub import_csv_file($) {
 						next;
 					}
 					
-					# If it is a GS1 import (Equadis, CodeOnline), check if the org is associated with known issues
+					# If it is a GS1 import (Equadis, CodeOnline, Agena3000), check if the org is associated with known issues
 					
 					# Abbreviated product name
-					if ((defined $args_ref->{source_id}) and (($args_ref->{source_id} eq "codeonline") or ($args_ref->{source_id} eq "equadis"))
+					if ((defined $args_ref->{source_id}) and (($args_ref->{source_id} eq "codeonline") or ($args_ref->{source_id} eq "equadis") or ($args_ref->{source_id} eq "agena3000"))
 						and (defined $org_ref->{gs1_product_name_is_abbreviated}) and ($org_ref->{gs1_product_name_is_abbreviated})) {
 							
 						if ((defined $imported_product_ref->{product_name_fr}) and ($imported_product_ref->{product_name_fr} ne "")) {
@@ -597,7 +611,7 @@ sub import_csv_file($) {
 					}
 					
 					# Nutrition facts marked as "prepared" are in fact for unprepared / as sold product
-					if ((defined $args_ref->{source_id}) and (($args_ref->{source_id} eq "codeonline") or ($args_ref->{source_id} eq "equadis"))
+					if ((defined $args_ref->{source_id}) and (($args_ref->{source_id} eq "codeonline") or ($args_ref->{source_id} eq "equadis") or ($args_ref->{source_id} eq "agena3000"))
 						and (defined $org_ref->{gs1_nutrients_are_unprepared}) and ($org_ref->{gs1_nutrients_are_unprepared})) {
 						
 						foreach my $field (sort keys %$imported_product_ref) {
@@ -1070,7 +1084,10 @@ sub import_csv_file($) {
 						$product_ref->{owner_fields}{$field} = $time;
 					
 						# Save the imported value, before it is cleaned etc. so that we can avoid reimporting data that has been manually changed afterwards
-						if ((not defined $product_ref->{$field . "_imported"}) or ($product_ref->{$field . "_imported"} ne $imported_product_ref->{$field})) {
+						if ((not defined $product_ref->{$field . "_imported"}) or ($product_ref->{$field . "_imported"} ne $imported_product_ref->{$field})
+							# we had a bug that caused serving_size to be set to "serving": change it
+							or (($field eq "serving_size") and ($product_ref->{$field} eq "serving"))
+							) {
 							$log->debug("setting _imported field value", { field => $field, imported_value => $imported_product_ref->{$field}, current_value => $product_ref->{$field} }) if $log->is_debug();
 							$product_ref->{$field . "_imported"} = $imported_product_ref->{$field};
 							$modified++;
@@ -1081,6 +1098,8 @@ sub import_csv_file($) {
 						# Skip data that we have already imported before (even if it has been changed)
 						# But do import the field "obsolete"
 						elsif (($field ne "obsolete") and (defined $product_ref->{$field . "_imported"}) and ($product_ref->{$field . "_imported"} eq $imported_product_ref->{$field})) {
+							# we had a bug that caused serving_size to be set to "serving", this value should be overridden
+							next if (($field eq "serving_size") and ($product_ref->{"serving_size"} eq "serving"));
 							$log->debug("skipping field that was already imported", { field => $field, imported_value => $imported_product_ref->{$field}, current_value => $product_ref->{$field} }) if $log->is_debug();
 							next;
 						}
@@ -1552,7 +1571,10 @@ sub import_csv_file($) {
 				if ($imported_nutrition_data_per_value =~ /^100\s?(g|ml)$/i) {
 					$imported_nutrition_data_per_value = "100g";
 				}
-				# otherwise -> assign the per serving value, and assign serving size
+				elsif ($imported_nutrition_data_per_value =~ /^serving$/i) {
+					$imported_nutrition_data_per_value = "serving";
+				}
+				# otherwise, assign the per serving value, and assign serving size
 				else {
 					$log->debug("nutrition_data_per_field corresponds to serving size", { code => $code, nutrition_data_per_field => $nutrition_data_per_field, $imported_nutrition_data_per_value => $imported_nutrition_data_per_value }) if $log->is_debug();				
 					if ((not defined $product_ref->{serving_size}) or ($product_ref->{serving_size} ne $imported_nutrition_data_per_value)) {
@@ -1655,7 +1677,7 @@ sub import_csv_file($) {
 			# Food category rules for sweeetened/sugared beverages
 			# French PNNS groups from categories
 
-			if ($server_domain =~ /openfoodfacts/) {
+			if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 				ProductOpener::Food::special_process_product($product_ref);
 			}
 
@@ -1765,7 +1787,7 @@ sub import_csv_file($) {
 
 				$log->debug("storing product", { code => $code, product_id => $product_id, org_id => $org_id, Owner_id => $Owner_id }) if $log->is_debug();
 
-				store_product($user_id, $product_ref, "Editing product (import) - " . $product_comment );
+				store_product($user_id, $product_ref, "Editing product (import) - " . ($product_comment || "") );
 
 				push @edited, $code;
 				$edited{$code}++;
@@ -1851,18 +1873,23 @@ sub import_csv_file($) {
 
 							my $file = $images_download_dir . "/" . $filename;
 
+							# Skip PDF file has we have issues to convert them, and they are sometimes not images about the product
+							# but multi-pages product sheets, certificates etc.
+							if ($file =~ /\.pdf$/) {
+								$log->debug("skipping PDF file", { file => $file, imagefield => $imagefield, code => $code }) if $log->is_debug();
+							}
 							# Check if the image exists
-							if (-e $file) {
+							elsif (-e $file) {
 
 								$log->debug("we already have downloaded image file", { file => $file }) if $log->is_debug();
 
 								# Is the image readable?
 								my $magick = Image::Magick->new();
-								my $x = $magick->Read($file);
+								my $imagemagick_error = $magick->Read($file);
 								# we can get a warning that we can ignore: "Exception 365: CorruptImageProfile `xmp' "
 								# see https://github.com/openfoodfacts/openfoodfacts-server/pull/4221
-								if (("$x") and ($x =~ /(\d+)/) and ($1 >= 400)) {
-									$log->warn("cannot read existing image file", { error => $x, file => $file }) if $log->is_warn();
+								if (($imagemagick_error) and ($imagemagick_error =~ /(\d+)/) and ($1 >= 400)) {
+									$log->warn("cannot read existing image file", { error => $imagemagick_error, file => $file }) if $log->is_warn();
 									unlink($file);
 								}
 								# If the product has an images field, assume that the image has already been uploaded
@@ -1886,9 +1913,8 @@ sub import_csv_file($) {
 									$images_ref->{$code}{$new_imagefield} = $file;
 								}
 							}
-
-							# Download the image
-							if (! -e $file) {
+							else {
+								# Download the image
 
 								# We can try to transform some URLs to get the full size image instead of preview thumbs
 								
@@ -1921,14 +1947,7 @@ sub import_csv_file($) {
 
 									$log->debug("download image file", { file => $file, image_url => $image_url }) if $log->is_debug();
 
-									require LWP::UserAgent;
-
-									my $ua = LWP::UserAgent->new(timeout => 10);
-									
-									# Some platforms such as CloudFlare block the default LWP user agent.
-									$ua->agent(lang('site_name') . " (https://$server_domain)");
-
-									my $response = $ua->get($image_url);
+									my $response = download_image($image_url);
 
 									if ($response->is_success) {
 										$log->debug("downloaded image file", { file => $file }) if $log->is_debug();
@@ -1938,11 +1957,11 @@ sub import_csv_file($) {
 										
 										# Is the image readable?
 										my $magick = Image::Magick->new();
-										my $x = $magick->Read($file);
+										my $imagemagick_error = $magick->Read($file);
 										# we can get a warning that we can ignore: "Exception 365: CorruptImageProfile `xmp' "
 										# see https://github.com/openfoodfacts/openfoodfacts-server/pull/4221
-										if (("$x") and ($x =~ /(\d+)/) and ($1 >= 400)) {
-											$log->warn("cannot read downloaded image file", { error => $x, file => $file }) if $log->is_warn();
+										if (($imagemagick_error) and ($imagemagick_error =~ /(\d+)/) and ($1 >= 400)) {
+											$log->warn("cannot read downloaded image file", { error => $imagemagick_error, file => $file }) if $log->is_warn();
 											unlink($file);
 										}
 										else {
@@ -2024,7 +2043,12 @@ sub import_csv_file($) {
 					# upload the image
 					my $file = $images_ref->{$imagefield};
 
-					if (-e "$file") {
+					# Skip PDF file has we have issues to convert them, and they are sometimes not images about the product
+					# but multi-pages product sheets, certificates etc.
+					if ($file =~ /\.pdf$/) {
+						$log->debug("skipping PDF file", { file => $file, imagefield => $imagefield, code => $code }) if $log->is_debug();
+					}
+					elsif (-e "$file") {
 						$log->debug("found image file", { file => $file, imagefield => $imagefield, code => $code }) if $log->is_debug();
 
 						# upload a photo
@@ -2391,7 +2415,7 @@ sub import_products_categories_from_public_database($) {
 				if ((not defined $current_field) or ($current_field ne $product_ref->{$field})) {
 					$log->debug("import_product_categories - new categories", { categories => $product_ref->{$field} } ) if $log->is_debug();
 					compute_field_tags($product_ref, $product_ref->{lc}, $field);
-					if ($server_domain =~ /openfoodfacts/) {
+					if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 						$log->debug("Food::special_process_product") if $log->is_debug();
 						ProductOpener::Food::special_process_product($product_ref);
 					}

@@ -5,18 +5,18 @@
 <form method="post" action="/cgi/session.pl">
 	<div class="row">
 		<div class="small-12 columns">
-			<label>[% lang('login_username_email') %]
-				<input type="text" name="user_id" autocomplete="username" required>
+			<label for="user_id">[% lang('login_username_email') %]
+				<input type="text" name="user_id" id="user_id" autocomplete="username" required>
 			</label>
 		</div>
 		<div class="small-12 columns">
-			<label>[% lang('password') %]
-				<input type="password" name="password" autocomplete="current-password" required>
+			<label for="password" >[% lang('password') %]
+				<input type="password" name="password" id="password" autocomplete="current-password" required>
 			</label>
 		</div>
 		<div class="small-12 columns">
-			<label>
-				<input type="checkbox" name="remember_me" checked>
+			<label for="remember_me_checkbox">
+				<input type="checkbox" name="remember_me" id="remember_me_checkbox" checked>
 				[% lang('remember_me') %]
 			</label>
 		</div>

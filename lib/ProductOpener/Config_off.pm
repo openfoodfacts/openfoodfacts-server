@@ -357,14 +357,35 @@ $page_size = 24;
 
 $google_analytics = <<HTML
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-31851927-1"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HQX9SYHB2P&aip=1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
-  gtag('config', 'UA-31851927-1');
+  gtag('set', 'allow_google_signals', false);
+  gtag('config', 'G-HQX9SYHB2P', {"anonymize_ip": true, 'allow_google_signals': false});
 </script>
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+  _paq.push(["setCookieDomain", "*.openfoodfacts.org"]);
+  _paq.push(["setDomains", ["*.openfoodfacts.org"]]);
+  _paq.push(["setDoNotTrack", true]);
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//analytics.openfoodfacts.org/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '5']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.openfoodfacts.org/matomo.php?idsite=5&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+<!-- End Matomo Code -->
 
 HTML
 ;
@@ -639,6 +660,7 @@ $options{categories_exempted_from_nutrient_levels} = [qw(
 	stores
 	countries
 	ingredients_text
+	ingredients_tags
 	allergens
 	traces
 	serving_size
@@ -646,10 +668,6 @@ $options{categories_exempted_from_nutrient_levels} = [qw(
 	no_nutriments
 	additives_n
 	additives
-	ingredients_from_palm_oil_n
-	ingredients_from_palm_oil
-	ingredients_that_may_be_from_palm_oil_n
-	ingredients_that_may_be_from_palm_oil
 	nutriscore_score
 	nutriscore_grade
 	nova_group
@@ -658,11 +676,12 @@ $options{categories_exempted_from_nutrient_levels} = [qw(
 	food_groups
 	states
 	brand_owner
-	ecoscore_score_fr
-	ecoscore_grade_fr
+	ecoscore_score
+	ecoscore_grade
 );
 
-
+# List of fields that can be imported on the producers platform
+# and that are also exported from the producers platform to the public platform
 $options{import_export_fields_groups} = [
 	[   "identification",
 		[   "code",                      "producer_product_id",
@@ -706,6 +725,28 @@ $options{import_export_fields_groups} = [
 	],
 	[   "images",
 		[   "image_front_url", "image_ingredients_url", "image_nutrition_url", "image_packaging_url", "image_other_url", "image_other_type",
+		]
+	],
+];
+
+# Secondary fields that are computed by OFF from primary data
+# Those fields are only exported, they are not imported.
+$options{off_export_fields_groups} = [
+	[   "off",
+		[
+			"food_groups",
+			"nova_groups",
+			"nutriscore_grade",
+			"nutriscore_score",
+			"ecoscore_grade",
+			"ecoscore_score",
+			"ecoscore_data.missing_key_data",
+			"ecoscore_data.agribalyse.code",
+			"ecoscore_data.adjustments.origins_of_ingredients.value",
+			"ecoscore_data.adjustments.packaging.value",
+			"ecoscore_data.adjustments.packaging.non_recyclable_and_non_biodegradable_materials",
+			"ecoscore_data.adjustments.production_system.value",
+			"ecoscore_data.adjustments.threatened_species.value",
 		]
 	],
 ];
@@ -1373,6 +1414,7 @@ $options{nova_groups_tags} = {
 # Otherwise the org will be created and the source authorized for that org.
 
 $options{import_sources} = {
+	'agena3000' => "Agena3000",
 	'codeonline' => "CodeOnline Food",
 	'equadis' => "Equadis",
 	'database-usda' => "USDA Global Branded Food Products Database",

@@ -19,6 +19,7 @@
                "id" : "nutriscore",
                "match" : 0,
                "name" : "Nutri-Score",
+               "panel_id" : "nutriscore",
                "status" : "unknown",
                "title" : "Nutri-Score unknown"
             },
@@ -202,6 +203,7 @@
                "icon_url" : "https://server_domain/images/attributes/vegan-status-unknown.svg",
                "id" : "vegan",
                "name" : "Vegan",
+               "panel_id" : "ingredients_analysis_en-vegan",
                "status" : "unknown",
                "title" : "Vegan status unknown"
             },
@@ -210,6 +212,7 @@
                "icon_url" : "https://server_domain/images/attributes/vegetarian-status-unknown.svg",
                "id" : "vegetarian",
                "name" : "Vegetarian",
+               "panel_id" : "ingredients_analysis_en-vegetarian",
                "status" : "unknown",
                "title" : "Vegetarian status unknown"
             },
@@ -218,6 +221,7 @@
                "icon_url" : "https://server_domain/images/attributes/palm-oil-content-unknown.svg",
                "id" : "palm_oil_free",
                "name" : "Palm oil free",
+               "panel_id" : "ingredients_analysis_en-palm-oil-free",
                "status" : "unknown",
                "title" : "Palm oil content unknown"
             }
@@ -235,6 +239,7 @@
                "id" : "nova",
                "match" : 0,
                "name" : "NOVA group",
+               "panel_id" : "nova",
                "status" : "unknown",
                "title" : "NOVA not computed"
             },
@@ -247,6 +252,7 @@
                "match" : 0,
                "missing" : "Missing ingredients list",
                "name" : "Additives",
+               "panel_id" : "additives",
                "status" : "unknown",
                "title" : "Additives not computed"
             }
@@ -264,6 +270,7 @@
                "id" : "ecoscore",
                "match" : 21,
                "name" : "Eco-Score",
+               "panel_id" : "ecoscore",
                "status" : "known",
                "title" : "Eco-Score D"
             },
@@ -649,6 +656,7 @@
          "packagings" : 1
       },
       "missing_data_warning" : 1,
+      "missing_key_data" : 1,
       "score" : 20,
       "scores" : {
          "ad" : 20,
@@ -737,9 +745,14 @@
    "misc_tags" : [
       "en:nutriscore-not-computed",
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
-      "en:nutrition-no-saturated-fat",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-energy",
+      "en:nutriscore-missing-nutrition-data-fat",
+      "en:nutriscore-missing-nutrition-data-saturated-fat",
+      "en:nutriscore-missing-nutrition-data-sugars",
+      "en:nutriscore-missing-nutrition-data-sodium",
+      "en:nutriscore-missing-nutrition-data-proteins",
+      "en:nutrition-no-fiber",
       "en:ecoscore-extended-data-not-computed",
       "en:ecoscore-missing-data-warning",
       "en:ecoscore-missing-data-labels",
@@ -749,8 +762,9 @@
       "en:ecoscore-computed"
    ],
    "nova_group_debug" : "no nova group when the product does not have ingredients",
-   "nova_group_tags" : [
-      "not-applicable"
+   "nova_group_error" : "missing_ingredients",
+   "nova_groups_tags" : [
+      "unknown"
    ],
    "nucleotides_tags" : [],
    "nutrient_levels" : {},
@@ -760,7 +774,8 @@
       "unknown"
    ],
    "nutrition_score_beverage" : 0,
-   "nutrition_score_debug" : "missing energy",
+   "nutrition_score_debug" : "missing energy - missing fat - missing saturated-fat - missing sugars - missing sodium - missing proteins",
+   "nutrition_score_warning_no_fiber" : 1,
    "other_nutritional_substances_tags" : [],
    "packagings" : [],
    "pnns_groups_1" : "unknown",

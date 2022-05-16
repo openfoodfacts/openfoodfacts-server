@@ -9,6 +9,7 @@ x-backend-conf: &backend-conf
     args:
       USER_UID: ${USER_UID:-1000}
       USER_GID: ${USER_GID:-1000}
+      CPANMOPTS: "--with-develop"
   volumes:
     # mount local folder for reload on dev changes.
     # Note that this means /opt/product-opener/html/images/product wont be connected to product_images volume
@@ -71,6 +72,10 @@ services:
         USER_GID: ${USER_GID:-1000}
     volumes:
       - ./html:/opt/product-opener/html/
+      - ./icons:/opt/product-opener/icons
+      - ./scss:/opt/product-opener/scss
+      - ./gulpfile.js:/opt/product-opener/
+      - ./snyk:/opt/product-opener/
   mongodb:
     # Note: keep it as close a possible to mongodb.yml
     image: mongo:4.4
@@ -83,14 +88,15 @@ volumes:
   products:
   # those one are volumes shared between off and pro, so we assign hard-coded names
   # see docs/explanations/pro-dev-setup.md
+  # PO_COMMON_PREFIX is there to separate env, eg. for tests
   users:
-    name: po_users
+    name: ${PO_COMMON_PREFIX:-}po_users
   orgs:
-    name: po_orgs
+    name: ${PO_COMMON_PREFIX:-}po_orgs
   podata:  # we also need to share it because users_emails and orgs... are not separated yet
-    name: po_podata
+    name: ${PO_COMMON_PREFIX:-}po_podata
 
 networks:
   # this is a specific network to enable pro platform to join the postgres db
   minion_db:
-    name: minion_db
+    name: ${PO_COMMON_PREFIX:-}minion_db
