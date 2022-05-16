@@ -142,6 +142,10 @@ use ProductOpener::Config2;
 		unaccent => 1,
 		lowercase => 1,
 	},
+	sk => {
+		unaccent => 1,
+		lowercase => 1,
+	},
 	# English has very few accented words, and they are very often not accented by users or in ingredients lists etc.
 	en => {
 		unaccent => 1,
