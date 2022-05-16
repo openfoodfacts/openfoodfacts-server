@@ -134,6 +134,10 @@ use ProductOpener::Config2;
 		unaccent => 1,
 		lowercase => 1,
 	},
+	nl => {
+		unaccent => 1,
+		lowercase => 1,
+	},
 	pt => {
 		unaccent => 1,
 		lowercase => 1,
