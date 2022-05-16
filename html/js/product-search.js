@@ -131,6 +131,9 @@ function match_product_to_preferences (product, product_preferences) {
 // keep the initial order of each result
 var initial_order = 0;
 
+// option to enable tabs in results to filter on product match status
+var show_tabs_to_filter_by_match_status = 0;
+
 function rank_products(products, product_preferences, use_user_product_preferences_for_ranking) {
 	
 	// Score all products
@@ -149,10 +152,12 @@ function rank_products(products, product_preferences, use_user_product_preferenc
 	
 	if (use_user_product_preferences_for_ranking) {
 	
-		// Rank all products, and return them in 3 arrays: "yes", "no", "unknown"
+		// Rank all products
 		
 		products.sort(function(a, b) {
-			return (b.match_score - a.match_score) || (a.initial_order - b.initial_order);
+			return (b.match_score - a.match_score)	// Highest score first
+				|| ((a.match_status == "does_not_match" ? 1 : 0) - (b.match_status == "does_not_match" ? 1 : 0)) // Matching products second
+				|| (a.initial_order - b.initial_order);	// Initial order third
 		});	
 	}
 	else {
@@ -163,17 +168,14 @@ function rank_products(products, product_preferences, use_user_product_preferenc
 	
 	var product_groups = {
 		"all" : [],
-		"very_good_match" : [],
-		"good_match" : [],
-		"poor_match" : [],
-		"unknown_match" : [],
-		"may_not_match" : [],		
-		"does_not_match" : [],
 	};
 	
 	$.each( products, function(key, product) {
 
-		if (use_user_product_preferences_for_ranking) {
+		if (show_tabs_to_filter_by_match_status && use_user_product_preferences_for_ranking) {
+			if (! (product.match_status in product_groups)) {
+				product_groups[product.match_status] = [];
+			}
 			product_groups[product.match_status].push(product);
 		}
 		product_groups.all.push(product);
@@ -270,33 +272,36 @@ function display_products(target, product_groups, user_prefs ) {
 		});
 
 		
-		// Disable the tabs: takes too much space on small spaces, many different values
-		// Might be reintroduced in another form		
 
-		// var active = "";
-		// var text_or_icon = "";
-		// if (product_group_id == "all") {
-		// 	active = " active";
-		// 	if (product_group.length == 1) {
-		// 		text_or_icon = lang()["1_product"];
-		// 	}
-		// 	else {
-		// 		text_or_icon = product_group.length + ' ' + lang().products;
-		// 	}
-		// }
-		// else {
-		// 	text_or_icon = '<img src="/images/attributes/match-' + product_group_id + '.svg" class="icon">'
-		// 	+ ' <span style="color:grey">' + product_group.length + "</span>";
-		// }
+		var active = "";
+		var text_or_icon = "";
+		if (product_group_id == "all") {
+			active = " active";
+		}
 
-		// if (user_prefs.use_ranking) {
-		// 	$("#products_tabs_titles").append(
-		// 		'<li class="tabs tab-title tab_products-title' + active + '">'
-		// 		+ '<a  id="tab_products_' + product_group_id + '" href="#products_' + product_group_id + '" title="' + lang()["products_match_" + product_group_id] +  '">'
-		// 		+ text_or_icon
-		// 		+ "</a></li>"
-		// 	);
-		// }
+		if (show_tabs_to_filter_by_match_status) {
+			if (product_group_id == "all") {
+				if (product_group.length == 1) {
+					text_or_icon = lang()["1_product"];
+				}
+				else {
+					text_or_icon = product_group.length + ' ' + lang().products;
+				}
+			}
+			else {
+				text_or_icon = '<img src="/images/attributes/match-' + product_group_id + '.svg" class="icon">'
+				+ ' <span style="color:grey">' + product_group.length + "</span>";
+			}
+
+			if (user_prefs.use_ranking) {
+				$("#products_tabs_titles").append(
+					'<li class="tabs tab-title tab_products-title' + active + '">'
+					+ '<a  id="tab_products_' + product_group_id + '" href="#products_' + product_group_id + '" title="' + lang()["products_match_" + product_group_id] +  '">'
+					+ text_or_icon
+					+ "</a></li>"
+				);
+			}
+		}
 		
 		$("#products_tabs_content").append(
 			'<div class="tabs content' + active + '" id="products_' + product_group_id + '">'
