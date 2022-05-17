@@ -8,15 +8,22 @@
 //
 // Output values are returned in the product object
 //
-// - match_status: yes, no, unknown
-// - match_score: number (maximum depends on the preferences)
+// - match_status:
+// 		very_good_match
+//		good_match
+//		poor_match
+//		unknown_match
+//		may_not_match
+//		does_not_match
+//
+// - match_score: number from 0 to 100
+//
 // - match_attributes: array of arrays of attributes corresponding to the product and 
 // each set of preferences: mandatory, very_important, important
 
 function match_product_to_preferences (product, product_preferences) {
 
 	var score = 0;
-	var status = "compatible";
 	var debug = "";
 
 	product.match_attributes = {
@@ -40,6 +47,8 @@ function match_product_to_preferences (product, product_preferences) {
 	var sum_of_factors_for_unknown_attributes = 0;
 
 	if (product.attribute_groups) {
+
+		product.attributes_for_status = {};
 		
 		// Iterate over attribute groups
 		$.each( product.attribute_groups, function(key, attribute_group) {
@@ -49,8 +58,9 @@ function match_product_to_preferences (product, product_preferences) {
 			$.each(attribute_group.attributes, function(key, attribute) {
 
 				var attribute_preference = product_preferences[attribute.id];
+				var match_status_for_attribute = "match";
 				
-				if ((! attribute_preference) || (attribute_preference == "not_important")) {
+				if ((! attribute_preference) || (attribute_preference === "not_important")) {
 					// Ignore attribute
 					debug += attribute.id + " not_important" + "\n";
 				}
@@ -59,15 +69,15 @@ function match_product_to_preferences (product, product_preferences) {
 					var attribute_factor = preferences_factors[attribute_preference];
 					sum_of_factors += attribute_factor;
 					
-					if (attribute.status == "unknown") {
+					if (attribute.status === "unknown") {
 
 						sum_of_factors_for_unknown_attributes += attribute_factor;
 
 						// If the attribute is mandatory and the attribute status is unknown
 						// then mark the product status unknown
 
-						if ((attribute_preference == "mandatory") && (status == "compatible")) {
-							status = "unknown_match";
+						if (attribute_preference === "mandatory") {
+							match_status_for_attribute = "unknown_match";
 						}
 					}
 					else {
@@ -75,56 +85,69 @@ function match_product_to_preferences (product, product_preferences) {
 						debug += attribute.id + " " + attribute_preference + " - match: " + attribute.match + "\n";
 
 						score += attribute.match * attribute_factor;
-					
-						// Mandatory attribute with a very bad score (e.g. contains an allergen) -> status: does not match
-						if ((attribute_preference == "mandatory") && (attribute.match <= 10)) {
-							status = "does_not_match";
-						}
-						// Mandatory attribute with a bad score (e.g. may contain traces of an allergen) -> status: may not match
-						else if ((attribute_preference == "mandatory") && (attribute.match <= 50)
-							&& ((status = "match") || (status = "may-not-match"))) {
-							status = "may_not_match";
+						
+						if (attribute_preference === "mandatory") {
+							if (attribute.match <= 10) {
+								// Mandatory attribute with a very bad score (e.g. contains an allergen) -> status: does not match
+								match_status_for_attribute = "does_not_match";
+							}
+							// Mandatory attribute with a bad score (e.g. may contain traces of an allergen) -> status: may not match
+							else if (attribute.match <= 50) {
+								match_status_for_attribute = "may_not_match";
+							}
 						}
 					}
-					
+
+					if (!(match_status_for_attribute in product.attributes_for_status)) {
+						product.attributes_for_status[match_status_for_attribute] = [];
+					}
+					product.attributes_for_status[match_status_for_attribute].push(attribute);
+
 					product.match_attributes[attribute_preference].push(attribute);
 				}
 			});
-		});		
+		});
+
+		// Normalize the score from 0 to 100
+		score /= sum_of_factors;
+
+		// If one of the attributes does not match, the product does not match
+		if ("does_not_match" in product.attributes_for_status) {
+			// Set score to 0 for products that do not match
+			score = "0";
+			product.match_status = "does_not_match";
+		}
+		else if ("may_not_match" in product.attributes_for_status) {
+			product.match_status = "may_not_match";
+		}
+		// If the product matches, check how well it matches user preferences
+		else {
+
+			// If too many attributes are unknown, set an unknown match
+			if (sum_of_factors_for_unknown_attributes >= sum_of_factors / 2) {
+				product.match_status = "unknown_match";
+			}
+			else if (score >= 75) {
+				product.match_status = "very_good_match";
+			}
+			else if (score >= 50) {
+				product.match_status = "good_match";
+			}
+			else {
+				product.match_status = "poor_match";
+			}
+		}	
 	}
 	else {
-		// the product does not have the attribute_group field 
-		status = "unknown_match";
+		// the product does not have the attribute_groups field 
+		product.match_status = "unknown_match";
+		debug = "no attribute_groups"
 	}
 
-	// Normalize the score from 0 to 100
-	score /= sum_of_factors;
-
-	// If the product is compatible, check how well it matches user preferences
-	if (status == "compatible") {
-
-		// If too many attributes are unknown, set an unknown match
-		if (sum_of_factors_for_unknown_attributes >= sum_of_factors / 2) {
-			status = "unknown_match";
-		}
-		else if (score >= 75) {
-			status = "very_good_match";
-		}
-		else if (score >= 50) {
-			status = "good_match";
-		}
-		else {
-			status = "poor_match";
-		}
-	}
-	else if (status == "does_not_match") {
-		score = 0;
-	}
-
-	product.match_status = status;
 	product.match_score = score;
 	product.match_debug = debug;	
 }
+
 
 // rank_products (products, product_preferences)
 
@@ -156,7 +179,7 @@ function rank_products(products, product_preferences, use_user_product_preferenc
 		
 		products.sort(function(a, b) {
 			return (b.match_score - a.match_score)	// Highest score first
-				|| ((a.match_status == "does_not_match" ? 1 : 0) - (b.match_status == "does_not_match" ? 1 : 0)) // Matching products second
+				|| ((b.match_status === "does_not_match" ? 0 : 1) - (a.match_status === "does_not_match" ? 0 : 1)) // Matching products second
 				|| (a.initial_order - b.initial_order);	// Initial order third
 		});	
 	}
@@ -209,8 +232,8 @@ function display_products(target, product_groups, user_prefs ) {
 			var product_html = `<li><a href="${product.url}">`;
 
 			if (user_prefs.use_ranking) {
-				product_html += '<div class="list_product_banner list_product_banner_' + product.match_status + '">'
-				+ lang()["products_match_" + product.match_status] + ' ' + Math.round(product.match_score) + '/100</div>'
+				product_html += `<div class="list_product_banner list_product_banner_${product.match_status}">`
+				+ lang()["products_match_" + product.match_status] + ' ' + Math.round(product.match_score) + '%</div>'
 				+ '<div class="list_product_content">';
 			}
 			else {
@@ -275,13 +298,13 @@ function display_products(target, product_groups, user_prefs ) {
 
 		var active = "";
 		var text_or_icon = "";
-		if (product_group_id == "all") {
+		if (product_group_id === "all") {
 			active = " active";
 		}
 
 		if (show_tabs_to_filter_by_match_status) {
-			if (product_group_id == "all") {
-				if (product_group.length == 1) {
+			if (product_group_id === "all") {
+				if (product_group.length === 1) {
 					text_or_icon = lang()["1_product"];
 				}
 				else {
@@ -336,7 +359,7 @@ function display_product_summary(target, product) {
 		// vary the color from green to red
 		var grade ="unknown";
 		
-		if (attribute.status == "known") {
+		if (attribute.status === "known") {
 			grade = attribute.grade;
 		}
 
