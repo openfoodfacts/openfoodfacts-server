@@ -156,7 +156,9 @@ use ProductOpener::Config2;
 %admins = map { $_ => 1 } qw(
 	alex-off
 	charlesnepote
+	gala-nafikova
 	hangy
+	manoncorneille
 	raphael0202
 	stephane
 	tacinte
