@@ -381,8 +381,8 @@ wikidata:en:Q310667
 label_categories:en: en:Environnment
 
 <en:Carbon compensated product
-en:Climate Neutral Ceritfied
-xx:Climate Neutral Ceritfied
+en:Climate Neutral Certified
+xx:Climate Neutral Certified
 
 en:Carbon Trust
 xx:Carbon Trust
@@ -425,10 +425,13 @@ fi:belgialaiset perhepanimot
 it:Birrai Familiari Belgi
 nl:Belgische familiebrouwerijen
 image:en:belgian-family-brewers.90x90.svg
+wikidata:en:Q2855457
 
 en:World Beer Awards
 xx:World Beer Awards
 zh:世界啤酒奖
+wikidata:en:Q2612801
+label_categories:en: en:Food awards, en:Beers
 
 <en:World Beer Awards
 en:World Beer Awards 2019
@@ -481,21 +484,35 @@ ca:Millors Cerveses del Món 2009
 zh:世界啤酒奖 2009
 
 en:Australian International Beer Awards
+wikidata:en:Q2153681
+label_categories:en: en:Food awards, en:Beers
 
 en:Brazilian Beer Awards
+wikidata:en:Q4958708
+label_categories:en: en:Food awards, en:Beers
 
 en:Champion Beer of Britain
+wikidata:en:Q5069978
+label_categories:en: en:Food awards, en:Beers
 
 en:Champion Beer of Scotland
+wikidata:en:Q3910740
+label_categories:en: en:Food awards, en:Beers
 
 en:Champion Beer of Wales
+wikidata:en:Q599321
+label_categories:en: en:Food awards, en:Beers
 
 en:Champion Winter Beer of Britain
+wikidata:en:Q5070034
+label_categories:en: en:Food awards, en:Beers
 
 en:European Beer Star
 ca:Cervesa Estrella Europea
 he:כוכב בירה אירופי
 nl:European Beer Star, Europese Bier Ster
+wikidata:en:Q2404322
+label_categories:en: en:Food awards, en:Beers
 
 en:Belgian hops
 fi:belgialaisia humaloita, humalan alkuperä Belgia
@@ -817,6 +834,8 @@ de:DZG glutenfrei
 es:Sin TACC, Sin T.A.C.C.
 wikidata:en:Q101542317
 image:en:Sin-tacc.86x90.png
+wikidata:en:Q101542317
+#gluten free certification mark in Argentina
 
 en:Contains gluten
 bg:Съдържа глутен
@@ -832,6 +851,7 @@ nl:Bevat gluten
 pl:Zawiera gluten
 pt:Contem gluten
 opposite:en: en:no-gluten
+label_categories:en: en:Allergens
 
 nl:Korst is niet eetbaar
 
@@ -1404,9 +1424,11 @@ nl:Kosher parve
 en:Kosher Check, BC Kosher
 ca:Comprovat Kosher, BC Kosher
 he:בדיקת כשרות
+wikidata:en:Q4835301
 
 <en:Kosher
 en:Star-K Kosher, Vaad Hakashrus of Baltimore
+wikidata:en:Q7600512
 
 <en:Kosher
 en:Star-D Kosher
@@ -1736,6 +1758,7 @@ it:Con poco sale o senza sale
 nl:Geen of weinig zout
 pt:Baixo ou sem sal
 th:เกลือต่ำหรือไม่มีเลย
+label_categories:en: en:Health
 
 <en:Low or no salt
 en:Low salt
@@ -1924,6 +1947,7 @@ ru:Низкое содержание сахара или без сахара
 sv:Lågt eller inget socker
 th:น้ำตาลต่ำ
 zh:低糖或无糖
+label_categories:en: en:Health
 
 <en:Low or no sugar
 en:Low sugar
@@ -2167,6 +2191,7 @@ da:Fremstillet i Danmark
 fi:Valmistettu Tanskassa
 sv:Tillverkad i Danmark
 country:en:Denmark
+label_categories:en: en:Geographic label
 
 en:Made in Germany
 bg:Произведено в Германия
@@ -2285,6 +2310,7 @@ fi:Valmistettu Luxemburgissa
 pt:Produzido no Luxemburgo
 sv:Tillverkad i Luxemburg
 country:en:Luxembourg
+label_categories:en: en:Geographic label
 
 en:Made in Poland
 bg:Произведено в Полша
@@ -2292,6 +2318,7 @@ da:Fremstillet i Polen
 fi:Valmistettu Puolassa
 sv:Tillverkad i Polen
 country:en:Poland
+label_categories:en: en:Geographic label
 
 en:Made in Portugal
 bg:Произведено в Португалия
@@ -2368,6 +2395,7 @@ country:en:Mexico
 label_categories:en: en:Geographic label
 
 en:Made in the EU, Made in the European Union
+label_categories:en: en:Geographic label
 
 bg:Произведено в Европейския съюз
 ca:Fet a la Unió Europea
@@ -2413,6 +2441,7 @@ fr:Farine de sarrasin français, Farine de blé noir français
 origins:en: en:france
 
 fr:Nou la fé, NOU LA FE
+label_categories:en: en:Geographic label
 
 fr:PIL, Produit de l'Industrie Locale
 
@@ -2420,6 +2449,7 @@ fr:PIL, Produit de l'Industrie Locale
 
 fr:Saveurs de Normandie
 origins:en: en:france
+label_categories:en: en:Geographic label
 
 fr:Fabriqué en Gourmandie, Produit en Gourmandie
 
@@ -2464,6 +2494,7 @@ wikidata:en:Q11895580
 en:High in salt - Finland
 fi:Voimakassuolainen, Sisältää paljon suolaa
 sv:Kraftigt saltat, Innehåller mycket salt
+label_categories:en: en:Health
 
 en:natural colorings
 ca:Colorants naturals
@@ -2586,6 +2617,7 @@ th:ไม่มีสารเติมแต่ง
 label_categories:en: en:Health, en:Additives
 
 en:No artificial additives
+label_categories:en: en:Health
 
 bg:Без изкуствени добавки
 ca:Sense additius artificials
@@ -2826,6 +2858,7 @@ nl:Zonder toegevoegde smaakstoffen
 pt:Sem sabores, sem sabores adicionados
 ru:без ароматизаторов
 th:ไม่เติมกลิ่น
+label_categories:en: en:Health, en:Additives
 
 en:No flavour enhancer
 ca:Sense potenciador de sabor
@@ -3087,6 +3120,7 @@ pl:Zawiera mleko, Z mlekiem
 pt:Contem leite
 ru:Содержит молоко
 th:มีส่วนผสมของนม
+label_categories:en: en:Allergens
 
 en:No preservatives, no added preservatives, preservatives free
 bg:Без консерванти
@@ -3140,7 +3174,7 @@ nl:Sojavrij
 pt:Sem soja
 ru:Не содержит сои
 th:ไม่มีส่วนผสมของถั่วเหลือง
-label_categories:en: en:Environment, en:Health, en:Soy
+label_categories:en: en:Environment, en:Health, en:Soy, en:Allergens
 opposite:en: en:contains-soy
 
 en:Contains soy
@@ -3154,7 +3188,7 @@ hu:Szóját tartalmaz, Szójatartalmú
 it:Contiene soia
 nl:bevat soya
 pt:Contem soja
-label_categories:en: en:Environment, en:Soy
+label_categories:en: en:Environment, en:Soy, en:Allergens
 opposite:en: en:no-soy
 
 en:Certified by Ecocert, Ecocert
@@ -3437,7 +3471,6 @@ sv:EU-ekologisk
 zh:欧盟有机
 wikidata:en:Q380448
 
-
 en:non-EU Agriculture
 bg:Земеделие извън ЕС
 ca:Agricultura No-UE
@@ -3488,6 +3521,7 @@ en:Bio Austria
 de:Bio Austria
 country:en:Austria
 image:en:bio-austria.67x90.svg
+wikidata:en:Q864178
 
 <en:Organic
 en:Austria Bio Garantie
@@ -17187,9 +17221,11 @@ cs:UTZ certifikováno
 de:UTZ Zertifiziert, UTZ
 es:Certificado UTZ
 fi:UTZ-sertifioitu, UTZ
+fr:Certifié UTZ
 hu:UTZ Certified, UTZ, UTZ tanúsítás, UTZ tanúsítvány
 it:Certificato UTZ, UTZ
 nl:UTZ Gecertificeerd
+xx:UTZ Certified
 wikidata:en:Q2305872
 auth_url:en:https://utz.org
 
@@ -17203,6 +17239,7 @@ hu:UTZ Certified Cocoa, UTZ Certified Cacao, UTZ tanúsított kakaó
 it:Cacao certificato UTZ
 nl:UTZ gecertificeerde cacao
 pl:UTZ Certified Cacao
+xx:UTZ Certified Cocoa
 
 <en:UTZ Certified
 en:UTZ Certified Coffee
@@ -17215,6 +17252,7 @@ fr:Café certifié UTZ
 it:Caffè certificato UTZ, Caffe certificato UTZ
 nl:UTZ Certified Coffee
 pl:UTZ Certified Coffee
+xx:UTZ Certified Coffee
 
 en:Vegetarian, Suitable for vegetarians
 bg:Вегетарианско, Подходящо за вегетарианци
@@ -17531,6 +17569,7 @@ it:Contiene solfiti, con solfiti
 pt:Com sulfitos, contém sulfitos
 sv:Innehåller sulfiter, Innehåller sulfit
 th:ใช้ซัลไฟต์
+label_categories:en: en:Allergens
 
 <en:With sulfites
 en:With natural sulfites, Contains natural sulfites
@@ -18239,18 +18278,21 @@ label_categories:en: en:Wines
 
 fr:Concours des vins de Mâcon
 label_categories:en: en:Wines
+wikidata:en:Q2992152
 
 fr:Concours des vins d'Alsace de Colmar
 label_categories:en: en:Wines
 
 fr:Concours des vins d'Orange
 label_categories:en: en:Wines
+wikidata:en:Q2992151
 
 fr:Concours des vins du Grand Delta à Avignon
 label_categories:en: en:Wines
 
 fr:Concours des vins Féminalise
 label_categories:en: en:Wines
+wikidata:en:Q16543241
 
 fr:Concours international des vins à Lyon
 label_categories:en: en:Wines
@@ -19238,6 +19280,7 @@ fi:Kasvatettu Norjassa
 fr:élevé en Norvège, élevés en Norvège, élevée en Norvège, élevées en Norvège
 it:Cresciuto in Norvegia
 origins:en: en:Norway
+label_categories:en: en:Geographic label
 
 en:raised in Scotland
 de:In Schottland aufgewachsen
@@ -19245,12 +19288,14 @@ fi:Kasvatettu Skotlannissa
 fr:élevé en Ecosse, élevés en Ecosse, élevée en Ecosse, élevées en Ecosse
 it:Cresciuto in Scozia, Allevato in Scozia
 origins:en: en:Scotland, en:United Kingdom
+label_categories:en: en:Geographic label
 
 en:raised in Ireland
 de:aufgezogen in Irland, aufgewachsen in Irland
 fi:kasvatettu Irlannissa
 fr:élevé en Irlande, élevés en Irlande, élevée en Irlande, élevées en Irlande
 origins:en: en:Ireland
+label_categories:en: en:Geographic label
 
 en:Contains a source of phenylalanine
 ca:Conté una font de fenilalanina

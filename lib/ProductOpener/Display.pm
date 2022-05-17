@@ -88,6 +88,8 @@ BEGIN
 		&display_possible_improvement_description
 		&display_properties
 
+        &get_world_subdomain
+
 		&data_to_display_nutriscore_and_nutrient_levels
 		&data_to_display_ingredients_analysis
 
@@ -114,7 +116,6 @@ BEGIN
 		$formatted_subdomain
 		$images_subdomain
 		$static_subdomain
-		$world_subdomain
 		$producers_platform_url
 		$test
 		@lcs
@@ -305,9 +306,14 @@ $default_request_ref = {
 
 use vars qw();
 
+sub get_world_subdomain() {
+	my $prefix = ($lc eq "en")  ? "world" : "world-$lc";
+	return format_subdomain($prefix);
+}
+
 $static_subdomain = format_subdomain('static');
 $images_subdomain = format_subdomain('images');
-$world_subdomain = format_subdomain('world');
+
 
 my $user_preferences;	# enables using user preferences to show a product summary and to rank and filter results
 
@@ -542,7 +548,7 @@ sub init()
 	}
 	elsif ($ENV{QUERY_STRING} !~ /(cgi|api)\//) {
 		# redirect
-		my $redirect = "$world_subdomain/" . $ENV{QUERY_STRING};
+		my $redirect = get_world_subdomain() . "/" . $ENV{QUERY_STRING};
 		$log->info("request could not be matched to a known format, redirecting", { subdomain => $subdomain, lc => $lc, cc => $cc, country => $country, redirect => $redirect }) if $log->is_info();
 		$r->headers_out->set(Location => $redirect);
 		$r->status(301);
@@ -2959,7 +2965,7 @@ sub display_points($) {
 			}
 			$newtagidpath = canonicalize_taxonomy_tag_link($lc,$tagtype, $newtagid);
 			$request_ref->{current_link} = $newtagidpath;
-			$request_ref->{world_current_link} =  canonicalize_taxonomy_tag_link('en',$tagtype, $canon_tagid);
+			$request_ref->{world_current_link} =  canonicalize_taxonomy_tag_link($lc,$tagtype, $canon_tagid);
 		}
 		else {
 			$display_tag  = canonicalize_tag2($tagtype, $tagid);
@@ -3132,7 +3138,7 @@ sub display_tag($) {
 			}
 			$newtagidpath = canonicalize_taxonomy_tag_link($lc,$tagtype, $newtagid);
 			$request_ref->{current_link} = $newtagidpath;
-			$request_ref->{world_current_link} =  canonicalize_taxonomy_tag_link('en',$tagtype, $canon_tagid);
+			$request_ref->{world_current_link} =  canonicalize_taxonomy_tag_link($lc,$tagtype, $canon_tagid);
 		}
 		else {
 			$display_tag  = canonicalize_tag2($tagtype, $tagid);
@@ -3181,7 +3187,7 @@ sub display_tag($) {
 			}
 			$newtagid2path = canonicalize_taxonomy_tag_link($lc,$tagtype2, $newtagid2);
 			$request_ref->{current_link} .= $newtagid2path;
-			$request_ref->{world_current_link} .= canonicalize_taxonomy_tag_link('en',$tagtype2, $canon_tagid2);
+			$request_ref->{world_current_link} .= canonicalize_taxonomy_tag_link($lc,$tagtype2, $canon_tagid2);
 		}
 		else {
 			$display_tag2 = canonicalize_tag2($tagtype2, $tagid2);
@@ -3215,7 +3221,7 @@ sub display_tag($) {
 	}
 
 	if (defined $request_ref->{groupby_tagtype}) {
-		$request_ref->{world_current_link} .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{en};
+		$request_ref->{world_current_link} .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$lc};
 	}
 
 	if (((defined $newtagid) and ($newtagid ne $tagid)) or ((defined $newtagid2) and ($newtagid2 ne $tagid2))) {
@@ -4062,8 +4068,10 @@ HTML
 		else {
 			$world_link = lang('view_products_from_the_entire_world');
 		}
+
 		$tag_template_data_ref->{world_link} = $world_link;
-		$tag_template_data_ref->{world_link_url} = $world_subdomain . $request_ref->{world_current_link};
+		$tag_template_data_ref->{world_link_url} = get_world_subdomain() . $request_ref->{world_current_link};
+
 	}
 
 	my $query_ref = {};
@@ -5189,7 +5197,7 @@ sub search_and_display_products($$$$$) {
 
 	$template_data_ref->{jqm} = param("jqm");
 	$template_data_ref->{country} = $country;
-	$template_data_ref->{world_subdomain} = $world_subdomain;
+	$template_data_ref->{world_subdomain} = get_world_subdomain();
 	$template_data_ref->{current_link_query} = $request_ref->{current_link_query};
 	$template_data_ref->{sort_by} = $sort_by;
 
@@ -5408,7 +5416,7 @@ sub display_pagination($$$$) {
 	}
 	my $current_link_query = $request_ref->{current_link_query};
 
-	$log->info("current link: $current_link, current_link_query: $current_link_query") if $log->is_info();
+	$log->info("current link and current link query", { current_link => $current_link, current_link_query => $current_link_query }) if $log->is_info();
 
 	if (param("jqm")) {
 		$current_link_query .= "&jqm=1";
@@ -7465,7 +7473,7 @@ CSS
 	$request_ref->{canon_url} = product_url($product_ref);
 
 	if ($lc eq 'en') {
-		$request_ref->{canon_url} = $world_subdomain . product_url($product_ref);
+		$request_ref->{canon_url} = get_world_subdomain() . product_url($product_ref);
 	}
 
 	# Old UPC-12 in url? Redirect to EAN-13 url
@@ -8853,8 +8861,14 @@ sub data_to_display_nutriscore_and_nutrient_levels($) {
 			# Missing nutrition facts?
 			if (has_tag($product_ref,"misc","en:nutriscore-missing-nutrition-data")) {
 				push @nutriscore_warnings, lang("nutriscore_missing_nutrition_data");
-				$result_data_ref->{nutriscore_unknown_reason} = "missing_nutrition_data"; # Takes precedence if the category is also missing
-				$result_data_ref->{nutriscore_unknown_reason_short} = lang("nutriscore_missing_nutrition_data_short");
+				if (not has_tag($product_ref,"misc","en:nutriscore-missing-category")) {
+					$result_data_ref->{nutriscore_unknown_reason} = "missing_nutrition_data";
+					$result_data_ref->{nutriscore_unknown_reason_short} = lang("nutriscore_missing_nutrition_data_short");
+				}
+				else {
+					$result_data_ref->{nutriscore_unknown_reason} = "missing_category_and_nutrition_data";
+					$result_data_ref->{nutriscore_unknown_reason_short} = lang("nutriscore_missing_category_and_nutrition_data_short");					
+				}
 			}
 		}
 	}

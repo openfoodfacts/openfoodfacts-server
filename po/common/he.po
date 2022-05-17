@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-04-29 02:46\n"
+"PO-Revision-Date: 2022-05-11 19:08\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -683,11 +683,11 @@ msgstr "שם המשתמש יכול להכיל רק אותיות לטיניות �
 
 msgctxt "error_username_too_long"
 msgid "The user name is too long (maximum 20 characters)."
-msgstr ""
+msgstr "שם המשתמש ארוך מדי (20 תווים לכל היותר)."
 
 msgctxt "error_name_too_long"
 msgid "The name is too long (maximum 60 characters)."
-msgstr ""
+msgstr "השם ארוך מדי (60 תווים לכל היותר)."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -5789,6 +5789,10 @@ msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "יש לציין את העובדות התזונתיות של המוצר כדי לחשב Nutri-Score."
 
+msgctxt "nutriscore_missing_category_and_nutrition_data"
+msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
+msgstr "יש לציין את הקטגוריה ואת העובדות התזונתיות של המוצר כדי לחשב Nutri-Score."
+
 msgctxt "health"
 msgid "Health"
 msgstr "בריאות"
@@ -5844,6 +5848,10 @@ msgstr "חסרה קטגוריה"
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr "עובדות תזונתיות חסרות"
+
+msgctxt "nutriscore_missing_category_and_nutrition_data_short"
+msgid "Missing category and nutrition facts"
+msgstr "הקטגוריה והעובדות התזונתיות חסרים"
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
 msgid "Reduce or stop drinking alcohol"
@@ -5958,5 +5966,5 @@ msgstr "מידע נוסף על ציון תזונתי"
 
 msgctxt "ecoscore_learn_more"
 msgid "Learn more about the Eco-Score"
-msgstr ""
+msgstr "מידע נוסף על Eco-Score"
 

@@ -5,8 +5,6 @@ use utf8;
 
 use Test::More;
 use Test::Number::Delta relative => 1.001;
-use Test::Files;
-use File::Spec;
 use Log::Any::Adapter 'TAP';
 
 use Log::Any qw($log);
@@ -20,24 +18,20 @@ use ProductOpener::GS1 qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Tags qw/:all/;
 
-my $test_id = "import_gs1";
-my $test_dir = dirname(__FILE__);
-my $results_dir = "$test_dir/expected_test_results/$test_id";
+my $expected_dir = dirname(__FILE__) . "/expected_test_results";
+my $testdir = "import_gs1";
 
 my $usage = <<TXT
 
-The expected results of the tests are saved in $results_dir
+The input test files and the expected results of the tests are saved in $expected_dir/$testdir
 
-Use the --update-expected-results option to create or update the test results.
+To verify differences and update the expected test results, actual test results
+can be saved to a directory by passing --results [path of results directory]
+
+The directory will be created if it does not already exist.
 
 TXT
 ;
-
-my $update_expected_results;
-
-GetOptions ("update-expected-results"   => \$update_expected_results)
-  or die("Error in command line arguments.\n\n" . $usage);
-
 
 # Check that the GS1 nutrient codes are associated with existing OFF nutrient ids.
 
@@ -49,15 +43,21 @@ foreach my $gs1_nutrient (sort keys %{$ProductOpener::GS1::gs1_maps{nutrientType
 	}
 }
 
-if (! -e $results_dir) {
-	mkdir($results_dir, 0755) or die("Could not create $results_dir directory: $!\n");
+
+my $resultsdir;
+
+GetOptions ("results=s"   => \$resultsdir)
+  or die("Error in command line arguments.\n\n" . $usage);
+  
+if ((defined $resultsdir) and (! -e $resultsdir)) {
+	mkdir($resultsdir, 0755) or die("Could not create $resultsdir directory: $!\n");
 }
 
 my $json = JSON->new->allow_nonref->canonical;
 
 my $dh;
 
-opendir ($dh, $results_dir) or die("Could not open the $results_dir directory: $!\n");
+opendir ($dh, "$expected_dir/$testdir") or die("Could not open the $expected_dir/$testdir directory: $!\n");
 
 foreach my $file (sort(readdir($dh))) {
 	
@@ -71,45 +71,27 @@ foreach my $file (sort(readdir($dh))) {
 	init_csv_fields();
 	
 	my $products_ref = [];
-	my $messages_ref = [];
-	read_gs1_json_file("$results_dir/$file", $products_ref, $messages_ref);
+	read_gs1_json_file("$expected_dir/$testdir/$file", $products_ref);
 	
 	# Save the result
 	
-	if ($update_expected_results) {
-		open (my $result, ">:encoding(UTF-8)", "$results_dir/$testid.off.json") or die("Could not create $results_dir/$testid.off.json: $!\n");
+	if (defined $resultsdir) {
+		open (my $result, ">:encoding(UTF-8)", "$resultsdir/$testid.off.json") or die("Could not create $resultsdir/$testid.off.json: $!\n");
 		print $result $json->pretty->encode($products_ref);
 		close ($result);		
 	}
 	
 	# Compare the result with the expected result
 	
-	if (open (my $expected_result, "<:encoding(UTF-8)", "$results_dir/$testid.off.json")) {
+	if (open (my $expected_result, "<:encoding(UTF-8)", "$expected_dir/$testdir/$testid.off.json")) {
 
 		local $/; #Enable 'slurp' mode
 		my $expected_products_ref = $json->decode(<$expected_result>);
 		is_deeply ($products_ref, $expected_products_ref) or diag explain $products_ref;
 	}
 	else {
-		fail("could not load $results_dir/$testid.off.json");
+		fail("could not load expected_test_results/$testdir/$testid.off.json");
 		diag explain $products_ref;
-	}
-
-	# Write the XML confirmation message
-	
-	my $expected_gs1_confirmation_file = "$results_dir/$testid.off.gs1_confirmation.xml";
-
-	if ($update_expected_results) {
-		write_gs1_confirmation_file("$expected_gs1_confirmation_file", $messages_ref->[0]);		
-	}
-	else {
-		my $gs1_confirmation_file = "/tmp/import_gs1.$testid.off.gs1_confirmation.xml";
-		write_gs1_confirmation_file("$gs1_confirmation_file", $messages_ref->[0]);
-
-		my $result  = File::Spec->catfile($gs1_confirmation_file);
-		my $expected_result  = File::Spec->catfile($expected_gs1_confirmation_file);
-
-		compare_ok($result, $expected_result, "confirmation xml files are the same");
 	}
 }
 
