@@ -50,6 +50,7 @@ BEGIN
 		&display_form
 		&display_date
 		&display_date_tag
+		&display_date_iso
 		&display_pagination
 		&get_packager_code_coordinates
 		&display_icon
@@ -1263,7 +1264,19 @@ sub display_date_tag($) {
 	else {
 		return;
 	}
+}
 
+sub display_date_iso($) {
+
+	my $t = shift;
+	my $dt = _get_date($t);
+	if (defined $dt) {
+		my $iso = $dt->iso8601;
+		return $iso;
+	}
+	else {
+		return;
+	}
 }
 
 sub display_error($$)

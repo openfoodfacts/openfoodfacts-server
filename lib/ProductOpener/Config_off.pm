@@ -1428,6 +1428,16 @@ $options{import_sources} = {
 	'database-usda' => "USDA Global Branded Food Products Database",
 };
 
+# Configuration to receive GS1 notification messages and issue GS1 confirmation messages
+
+$options{gs1} = {
+	local_gln => "3770026870013",			# Open Food Facts GS1 GLN identifier
+	agena3000 => {
+		receiver_gln => "3034012285008",	# Agena 3000
+		data_pool_gln => "3027000006006",	# GS1
+	},
+};
+
 # Barcode of a sample product returned through the API when the requested code is "example"
 $options{sample_product_code} = "093270067481501";	# A good product for you - fake good product
 
