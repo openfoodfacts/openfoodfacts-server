@@ -134,7 +134,15 @@ use ProductOpener::Config2;
 		unaccent => 1,
 		lowercase => 1,
 	},
+	nl => {
+		unaccent => 1,
+		lowercase => 1,
+	},
 	pt => {
+		unaccent => 1,
+		lowercase => 1,
+	},
+	sk => {
 		unaccent => 1,
 		lowercase => 1,
 	},
@@ -148,7 +156,9 @@ use ProductOpener::Config2;
 %admins = map { $_ => 1 } qw(
 	alex-off
 	charlesnepote
+	gala-nafikova
 	hangy
+	manoncorneille
 	raphael0202
 	stephane
 	tacinte
@@ -1418,6 +1428,16 @@ $options{import_sources} = {
 	'codeonline' => "CodeOnline Food",
 	'equadis' => "Equadis",
 	'database-usda' => "USDA Global Branded Food Products Database",
+};
+
+# Configuration to receive GS1 notification messages and issue GS1 confirmation messages
+
+$options{gs1} = {
+	local_gln => "3770026870013",			# Open Food Facts GS1 GLN identifier
+	agena3000 => {
+		receiver_gln => "3034012285008",	# Agena 3000
+		data_pool_gln => "3027000006006",	# GS1
+	},
 };
 
 # Barcode of a sample product returned through the API when the requested code is "example"

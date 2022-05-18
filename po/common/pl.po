@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-04-29 02:49\n"
+"PO-Revision-Date: 2022-05-11 22:09\n"
 "Language-Team: Polish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -683,11 +683,11 @@ msgstr "Nazwa użytkownika powinna zawierać jedynie nieakcentowane litery, cyfr
 
 msgctxt "error_username_too_long"
 msgid "The user name is too long (maximum 20 characters)."
-msgstr ""
+msgstr "Nazwa użytkownika jest zbyt długa (maksymalnie 20 znaków)."
 
 msgctxt "error_name_too_long"
 msgid "The name is too long (maximum 60 characters)."
-msgstr ""
+msgstr "Nazwa jest zbyt długa (maksymalnie 60 znaków)."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -5786,6 +5786,10 @@ msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "W celu obliczenia Nutri-Score należy określić fakty żywieniowe."
 
+msgctxt "nutriscore_missing_category_and_nutrition_data"
+msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
+msgstr "W celu obliczenia Nutri-Score należy określić kategorię i wartości odżywcze produktu."
+
 msgctxt "health"
 msgid "Health"
 msgstr "Zdrowie"
@@ -5841,6 +5845,10 @@ msgstr "Brakująca kategoria"
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr "Brakujące fakty żywieniowe"
+
+msgctxt "nutriscore_missing_category_and_nutrition_data_short"
+msgid "Missing category and nutrition facts"
+msgstr "Brakujące informacje o kategorii i wartościach odżywczych"
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
 msgid "Reduce or stop drinking alcohol"
@@ -5955,5 +5963,5 @@ msgstr "Dowiedz się więcej o Nutri-Score"
 
 msgctxt "ecoscore_learn_more"
 msgid "Learn more about the Eco-Score"
-msgstr ""
+msgstr "Dowiedz się więcej o Eco-Score"
 

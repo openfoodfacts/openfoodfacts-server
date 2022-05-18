@@ -6452,12 +6452,6 @@ fr:Tranches de Bami panées
 nl:Bamischijven
 
 < en:Breaded products
-en:Breaded cheeses
-de:Panierter Käse
-fr:Fromages panés
-nl:Gepaneerde kazen, Gepaneerde kaas
-
-< en:Breaded products
 en:Cheese and ham breaded
 fr:Fromage pané au jambon
 agribalyse_food_code:en: 25546
@@ -6484,6 +6478,13 @@ ciqual_food_name:en: Fish, breaded, fried
 < en:Breaded products
 en:Kroketten
 nl:Kroketten
+
+< en:Breaded products
+< en:Meat alternatives
+en:Breaded cheeses
+de:Panierter Käse
+fr:Fromages panés
+nl:Gepaneerde kazen, Gepaneerde kaas
 
 < en:Breaded products
 < en:Meat alternatives
@@ -20333,6 +20334,9 @@ fr:Tartufo
 it:Tartufo
 nl:Tartufo
 wikidata:en: Q1432826
+
+< en:Desserts
+en:Trifles
 
 < en:Desserts
 en:Vacherins
@@ -40687,18 +40691,6 @@ hu:Dijoni majonéz
 nl:Dijonmayonnaises
 
 < en:Mayonnaises
-en:Egg-free mayonnaises
-bg:Майонеза без яйца
-de:Mayonnaise ohne Eier
-es:Mayonesas sin huevo, Mayonesas vegetales
-fi:Munattomat majoneesit
-fr:Mayonnaises sans œufs, mayonnaises sans oeufs
-hu:Tojásmentes majénz
-it:Maionese senza uovo
-nl:Eivrije mayonaises
-pl:majonez bezjajeczny
-
-< en:Mayonnaises
 en:Fried potato sauces
 nl:Fritessauzen, Fritessaus
 
@@ -41991,7 +41983,34 @@ wikidata:en: Q1343997
 < en:Meat alternatives
 en:Vegetarian balls
 fr:Boulettes végétariennes
+it:Polpette vegetali
 nl:Vegetarische balletjes
+
+< en:Meat alternatives
+en:Vegetarian patties, Veggie patties, veggie burger patties, vegetarian cutlet, vegetarian steaks
+de:Gemüsebratling, Vegetarische Burger
+es:Filetes vegetales para hamburguesas
+fi:kasvishampurilaispihvit
+fr:Galettes végétariennes, Steaks végétariens, steaks végétariens pour hamburgers
+nl:Plantaardige steaks voor hamburgers
+ciqual_food_code:en: 20914
+ciqual_food_name:en: Soy burger or vegetable escalope
+ciqual_food_name:fr: Escalope végétale ou steak à base de soja
+
+< en:Breaded products
+< en:Meat analogues
+en:Vegetarian cordons bleus
+fr:Cordons bleus végétariens
+
+< en:Breaded products
+< en:Meat analogues
+en:Vegetarian nuggets, veggie nuggets
+de:Vegetarische Nuggets
+es:Nuggets vegetarianos
+fi:Kavisnugetit
+fr:Nuggets végétariens
+it:Nugget vegetarianeìi
+nl:Vegetarische nuggets
 
 < en:Legumes and their products
 < en:Meat analogues
@@ -42001,15 +42020,6 @@ es:Soja texturizada, Proteína de soja texturizada
 fr:Protéine végétale texturée, Protéine de soja texturée
 nl:Gestructureerde groenteproteines
 wikidata:en: Q2120234
-
-< en:Meat analogues
-en:Vegetarian nuggets, veggie nuggets
-de:Vegetarische Nuggets
-es:Nuggets vegetarianos
-fi:Kavisnugetit
-fr:Nuggets végétariens
-it:Nugget vegetarianeìi
-nl:Vegetarische nuggets
 
 < en:Meat analogues
 en:Vegetarian sausages
@@ -42024,18 +42034,6 @@ nl:Vegetarische worstjes
 en:Veggie grounds
 de:Gemüsehack, Vegetarisches Hackfleisch
 fr:Hachés végétaux
-
-< en:Meat analogues
-en:Veggie patties, veggie burger patties, vegetarian cutlet, vegetarian steaks
-de:Gemüsebratling, Vegetarische Burger
-es:Filetes vegetales para hamburguesas
-fi:kasvishampurilaispihvit
-fr:Steaks végétariens, steaks végétariens pour hamburgers
-it:Polpettes vegetali
-nl:Plantaardige steaks voor hamburgers
-ciqual_food_code:en: 20914
-ciqual_food_name:en: Soy burger or vegetable escalope
-ciqual_food_name:fr: Escalope végétale ou steak à base de soja
 
 < en:Chickens
 < en:Meat balls
@@ -59215,7 +59213,7 @@ fr:Hot-dogs végétariens, hot-dog végétal, hots-dogs végétaux, Hot-dog vég
 nl:Vegetarische hotdogs
 
 < en:Sandwiches
-en:Veggie burgers
+en:Vegetarien hamburgers, Veggie burgers
 ca:Hamburgueses vegetals
 de:Vegetarische Hamburger
 es:Hamburguesas vegetales
@@ -60076,6 +60074,10 @@ he:רטבים צמחיים, רטבים צמחוניים, רטבי ירקות
 it:Salse a base di vegetali
 nl:Groentesauzen
 wikidata:en: Q24054596
+
+< en:Sauces
+en:Vegetarian sauces
+fr:Sauces végétariennes
 
 < en:Sauces
 en:Warm sauces
@@ -70309,6 +70311,18 @@ ciqual_food_code:en: 6524
 ciqual_food_name:en: Veal, tenderloin, roasted
 ciqual_food_name:fr: Veau, noix, rôtie
 
+< en:Vegan sauces
+en:Egg-free mayonnaises
+bg:Майонеза без яйца
+de:Mayonnaise ohne Eier
+es:Mayonesas sin huevo, Mayonesas vegetales
+fi:Munattomat majoneesit
+fr:Mayonnaises sans œufs, mayonnaises sans oeufs
+hu:Tojásmentes majénz
+it:Maionese senza uovo
+nl:Eivrije mayonaises
+pl:majonez bezjajeczny
+
 < en:Juices and nectars
 < en:Vegetable-based beverages
 en:Vegetable juices
@@ -71978,9 +71992,40 @@ ciqual_food_name:en: Lasagna or cannelloni with vegetables
 ciqual_food_name:fr: Lasagnes ou cannelloni aux légumes
 
 < en:Vegetarian nuggets
-en:vegan nuggets, plant based nuggets
-fr:Nuggets végétaux, nuggets végans
+en:Vegan nuggets, plant based nuggets
+fr:Nuggets végans, Nuggets végétaux
 nl:Veganistische nuggets, Vegan-nuggets
+
+< en:Vegetarian patties
+en:Soy steak, Soy burger
+fi:Soijapihvi
+fr:Galettes de soja, steaks de soja, Escalope végétale, Steak à base de soja
+nl:Sojasteaks
+ciqual_food_code:en: 20914
+ciqual_food_name:en: Soy burger or vegetable escalope
+ciqual_food_name:fr: Escalope végétale ou steak à base de soja
+
+< en:Vegetarian patties
+en:Tofu patties
+fr:Galettes de tofu, steaks de tofu
+
+< en:Vegetarian patties
+en:Vegan patties, vegan burger patties, Vegetable escalope, vegan cutlet, vegan steaks
+fr:Galettes véganes, Steaks végétaux, steaks végétaux pour hamburgers
+ciqual_food_code:en: 20914
+ciqual_food_name:en: Soy burger or vegetable escalope
+ciqual_food_name:fr: Escalope végétale ou steak à base de soja
+
+< en:Vegetarian patties
+fr:Galettes de céréales aux légumes
+
+< en:Vegetarian sauces
+en:Bolognese-style vegetarian sauces
+fr:Sauces végétariennes façon bolognese
+
+< en:Vegetarian sauces
+en:Vegan sauces
+fr:Sauces véganes
 
 < en:Vegetarian sausages
 en:Vegetarian Frankfurt sausages, Vegetarian Frankfurter Würstchen
@@ -72003,29 +72048,6 @@ de:Vegetaische Fleische, Fleischersatz
 es:Salchichas vegetales de tipo Viena
 fr:Saucisses végétales de Vienne
 nl:Vegetarische weense worstjes
-
-< en:Veggie patties
-en:Soy steak, Soy burger
-fi:Soijapihvi
-fr:Galettes de soja, steaks de soja, Escalope végétale, Steak à base de soja
-nl:Sojasteaks
-ciqual_food_code:en: 20914
-ciqual_food_name:en: Soy burger or vegetable escalope
-ciqual_food_name:fr: Escalope végétale ou steak à base de soja
-
-< en:Veggie patties
-en:Tofu patties
-fr:Galettes de tofu, steaks de tofu
-
-< en:Veggie patties
-en:Vegan patties, vegan burger patties, Vegetable escalope, vegan cutlet, vegan steaks
-fr:Steaks végétaux, steaks végétaux pour hamburgers
-ciqual_food_code:en: 20914
-ciqual_food_name:en: Soy burger or vegetable escalope
-ciqual_food_name:fr: Escalope végétale ou steak à base de soja
-
-< en:Veggie patties
-fr:Galettes de céréales aux légumes
 
 < en:Venison
 en:Scottish Wild Venison
@@ -73318,6 +73340,10 @@ agribalyse_food_code:en: 31026
 ciqual_food_code:en: 31026
 ciqual_food_name:en: White chocolate bar, with dried fruits -nuts, almonds, raisins, praline-
 ciqual_food_name:fr: Chocolat blanc aux fruits secs -noisettes, amandes, raisins, praliné- , tablette
+
+< en:Biscuit with a chocolate bar covering
+< en:White chocolate biscuits
+fr:Biscuits tablette de chocolat blanc
 
 < en:White chocolates
 en:White chocolate bars

@@ -356,6 +356,7 @@ sub is_a($$$) {
 }
 
 
+
 sub add_tag($$$) {
 
 	my $product_ref = shift;
@@ -365,13 +366,13 @@ sub add_tag($$$) {
 	(defined $product_ref->{$tagtype . "_tags"})  or $product_ref->{$tagtype . "_tags"} = [];
 	foreach my $existing_tagid (@{$product_ref->{$tagtype . "_tags"}}) {
 		if ($tagid eq $existing_tagid) {
-			return;
+			return 0;
 		}
 	}
 	push @{$product_ref->{$tagtype . "_tags"}}, $tagid;
-
-	return;
+	return 1;
 }
+
 
 sub remove_tag($$$) {
 
@@ -387,6 +388,9 @@ sub remove_tag($$$) {
 		foreach my $tag (@{$product_ref->{$tagtype . "_tags"}}) {
 			if ($tag ne $tagid) {
 				push @{$product_ref->{$tagtype . "_tags_new"}}, $tag;
+			}
+			else {
+				$return = 1;
 			}
 		}
 		$product_ref->{$tagtype . "_tags"} = $product_ref->{$tagtype . "_tags_new"};
@@ -1477,7 +1481,7 @@ sub build_tags_taxonomy($$$) {
 			if (defined $direct_parents{$tagtype}{$tagid}) {
 				@queue = sort keys %{$direct_parents{$tagtype}{$tagid}};
 			}
-			else {
+			elsif (not defined $just_synonyms{$tagtype}{$tagid}) {
 				# Keep track of entries that are at the root level
 				$root_entries{$tagtype}{$tagid} = 1;
 			}
