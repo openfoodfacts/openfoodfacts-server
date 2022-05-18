@@ -110,9 +110,9 @@ function match_product_to_preferences (product, product_preferences) {
 
 		// Normalize the score from 0 to 100
 		if (sum_of_factors === 0) {
-			score /= sum_of_factors;
-		} else {
 			score = 0;
+		} else {
+			score /= sum_of_factors;
 		}
 
 		// If one of the attributes does not match, the product does not match
