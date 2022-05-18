@@ -109,7 +109,11 @@ function match_product_to_preferences (product, product_preferences) {
 		});
 
 		// Normalize the score from 0 to 100
-		score /= sum_of_factors;
+		if (sum_of_factors === 0) {
+		  score /= sum_of_factors;
+		} else {
+		  score = 0;
+		}
 
 		// If one of the attributes does not match, the product does not match
 		if ("does_not_match" in product.attributes_for_status) {
