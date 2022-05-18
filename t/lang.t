@@ -79,4 +79,19 @@ sub test_logo_exists {
 test_logo_exists('logo');
 test_logo_exists('logo2x');
 
+# Test that {variables} are kept in translations
+
+foreach my $stringid (sort keys %Lang) {
+	while ($Lang{$stringid}{en} =~ /\{([^}]+)\}/g) {
+		my $variable = $1;
+		foreach my $l (sort keys %{$Lang{$stringid}}) {
+			# Note: the if below is added so that we don't have thousands of tests reported in the output
+			# only non passing tests are tested with like() and reported.
+			if ($Lang{$stringid}{$l} !~ /\{$variable\}/) {
+				like($Lang{$stringid}{$l}, qr/\{$variable\}/, "$stringid translation in $l contains {$variable}");
+			}
+		}
+	}
+}
+
 done_testing();
