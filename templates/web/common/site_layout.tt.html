@@ -50,13 +50,12 @@
 						</a>
 						<ul class="dropdown">
 							<li>
-								<a href="#">First link in dropdown</a>
+								<a href="/cgi/search.pl">[% lang('advanced_search') %]</a>
 							</li>
-							<li class="active">
-								<a href="#">Active link in dropdown</a>
+							<li>
+								<a href="/cgi/search.pl?graph=1">[% lang('graphs_and_maps') %]</a>
 							</li>
 						</ul>
-						
 					</li>
 				<li>
 					<ul class="country_language_selection">
@@ -77,27 +76,35 @@
 				</li>
 				</ul>
 				<!-- Right Nav Section -->
+				
 				<ul class="right">
-					<li class="h-space-tiny">
-						<a href="#" data-reveal-id="loginmodal" class="radius button primary">Login</a>
-					</li>
-					<li class="h-space-tiny">
-						<a href="#" data-reveal-id="loginmodal" class="radius button white">Sign up</a>
-					</li>
-				<li class="has-dropdown">
-					<a href="#" class="userlink h-space-tiny">
-						<span class="material-symbols-outlined">
-							account_circle
-						</span>
-						Jhon whomyname
-					</a>
-					<ul class="dropdown">
-					<li><a href="#">First link in dropdown</a></li>
-					<li class="active">
-						[% blocks %]
-						<a href="#">Active link in dropdown</a></li>
-					</ul>
-				</li>
+					[% IF not user_id.defined %]
+						<li class="h-space-tiny">
+							<a href="#" data-reveal-id="loginmodal" class="radius button primary">Login</a>
+						</li>
+						<li class="h-space-tiny">
+							<a href="#" data-reveal-id="loginmodal" class="radius button white">Sign up</a>
+						</li>
+					[% ELSE %]
+						<li class="has-dropdown">
+							<a href="#" class="userlink h-space-tiny">
+								<span class="material-symbols-outlined">
+									account_circle
+								</span> bla
+								[% user.name %]
+							</a>
+							<ul class="dropdown">
+								<li><a href="">Your account</a></li>
+								<li class="divider"></li>			
+								<li><label>Your contributions</label></li>
+								<li><a href="">Products added</a></li>
+								<li><a href="">Products edited</a></li>
+								<li><a href="">Products photographed</a></li>
+								<li class="divider"></li>			
+								<li><a href="">Sign out</a></li>
+							</ul>
+						</li>
+					[% END %]
 				</ul>
 			</section>
 			</nav>
@@ -111,9 +118,6 @@
 				<ul class="title-area">
 					<li class="name">
 						<h2><a href="/" style="font-size:1rem;"><img id="logo" src="/images/misc/openfoodfacts-logo-png-130x124.png"   alt="[% lang('logo_site_name') %]" ><span class="text-bold h-space-short text-white">[% site_name %]</span></a></h2>
-					</li>
-					<li class="toggle-topbar menu-icon">
-						<a href="#"><span>Menu</span></a>
 					</li>
 				</ul>
 				<section class="top-bar-section">
@@ -139,12 +143,6 @@
 					</ul>
 				<ul class="search_and_links">
 				
-				<!--
-				<li class="show-for-large-only"><a href="/cgi/search.pl" title="[% lang('advanced_search') %]">[% display_icon('add') %]</a></li>
-				<li class="show-for-xlarge-up"><a href="/cgi/search.pl">[% display_icon('add') %] [% lang('advanced_search') %]</span></a></li>
-				<li class="show-for-large-only"><a href="/cgi/search.pl?graph=1" title="[% lang('graphs_and_maps') %]">[% display_icon('bar_chart') %]</a></li>
-				<li class="show-for-xlarge-up"><a href="/cgi/search.pl?graph=1">[% display_icon('bar_chart') %] [% lang('graphs_and_maps') %]</span></a></li>
-				-->
 				[% IF !(server_options_producers_platform) %]
 					<li><a href="[% lang('menu_discover_link') %]">[% lang('menu_discover') %]</a></li>
 					<li><a href="[% lang('menu_contribute_link') %]">[% lang('menu_contribute') %]</a></li>
