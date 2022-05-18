@@ -781,7 +781,7 @@ The return value is a reference to the resulting attribute data structure.
 
 - NOVA 1: 100%
 - NOVA 2: 100%
-- NOVA 3: 50%
+- NOVA 3: 75%
 - NOVA 4: 0%
 
 =cut
@@ -807,16 +807,14 @@ sub compute_attribute_nova($$) {
 		
 		# Compute match based on NOVA group
 		
-		my $match = 0;
-		
-		if (($nova_group == 1) or ($nova_group == 2)) {
-			$match = 100;
-		}
-		elsif ($nova_group == 3) {
-			$match = 50;
-		}
+		my %nova_groups_scores = (
+			1 => 100,
+			2 => 100,
+			3 => 75,
+			4 => 0,
+		);
 	
-		$attribute_ref->{match} = $match;
+		$attribute_ref->{match} = $nova_groups_scores{$nova_group + 0};	# Make sure the key is a number
 		
 		if ($target_lc ne "data") {
 			$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "attribute_nova_group_title"), $nova_group);
@@ -1182,7 +1180,7 @@ The return value is a reference to the resulting attribute data structure.
 =head4 % Match
 
 100: no indication of the allergen or trace of the allergen
-20: may contain the allergen
+20: may contain the allergen as a trace
 0: contains allergen
 
 =cut
