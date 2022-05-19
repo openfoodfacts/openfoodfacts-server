@@ -8,15 +8,18 @@
 //
 // Output values are returned in the product object
 //
-// - match_status:
-// 		very_good_match
-//		good_match
-//		poor_match
-//		unknown_match
-//		may_not_match
-//		does_not_match
-//
 // - match_score: number from 0 to 100
+//		- the score is 0 if 
+//		- otherwise the score is a weighted average of how well the product matches
+//		each attribute selected by the user
+//
+// - match_status:
+// 		- very_good_match	score >= 75
+//		- good_match		score >= 50
+//		- poor_match		score < 50
+//		- unknown_match		at least one mandatory attribute is unknown, or unknown attributes weight more than 50% of the score
+//		- may_not_match		at least one mandatory attribute score is <= 50 (e.g. may contain traces of an allergen)
+//		- does_not_match	at least one mandatory attribute score is <= 10 (e.g. contains an allergen, is not vegan)
 //
 // - match_attributes: array of arrays of attributes corresponding to the product and 
 // each set of preferences: mandatory, very_important, important
