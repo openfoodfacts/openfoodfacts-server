@@ -127,6 +127,10 @@ function match_product_to_preferences (product, product_preferences) {
 		else if ("may_not_match" in product.attributes_for_status) {
 			product.match_status = "may_not_match";
 		}
+		// If one of the mandatory attribute is unknown, set an unknown match
+		else if ("unknown_match" in product.attributes_for_status) {
+			product.match_status = "unknown_match";
+		}		
 		// If too many attributes are unknown, set an unknown match
 		else if (sum_of_factors_for_unknown_attributes >= sum_of_factors / 2) {
 			product.match_status = "unknown_match";
