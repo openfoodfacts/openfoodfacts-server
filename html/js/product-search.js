@@ -35,12 +35,13 @@ function match_product_to_preferences (product, product_preferences) {
 		"important" : []
 	};
 
-	// Note: mandatory preferences is set to 0:
-	// The attribute is only used to check if a product is compatible or not
-	// It does not affect the very good / good / poor match status
-	// The score will be 0 if the product is not compatible
+	// Note: it is important that mandatory attributes also contribute to the score
+	// as some attributes like "low sugar" have scores from 0 to 100 that can still
+	// be very useful to rank products by how much sugar they contain.
+	// It is also needed in order not to have scores of 0 when only mandatory attributes
+	// are selected.
 	var preferences_factors = {
-		"mandatory" : 0,
+		"mandatory" : 2,
 		"very_important" : 2,
 		"important" : 1,
 		"not_important" : 0
