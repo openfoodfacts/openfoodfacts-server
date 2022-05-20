@@ -95,7 +95,7 @@ function generate_preferences_switch_button(preferences_text, checkbox_id) {
 	var html = '<fieldset class="switch round success" tabindex="0" id="' + checkbox_id +'_switch" style="float:left;margin:0;margin-right:.5rem;padding-top:0.1rem;">'
 	+ '<input class="preferences_checkboxes" id="' + checkbox_id + '" type="checkbox"' + checked + '>'
 	+ '<label for="' + checkbox_id +'"></label></fieldset>'
-	+ '<label for="' + checkbox_id +'" style="float:left;margin-right:1em;padding-top:4px">' + preferences_text + '</label>'
+	+ '<label for="' + checkbox_id +'" style="float:left;margin-right:1em;padding-top:4px">' + preferences_text + '</label>';
 
 	return html;
 }
