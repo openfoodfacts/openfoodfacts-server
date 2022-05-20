@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-05-12 02:46\n"
+"PO-Revision-Date: 2022-05-19 22:01\n"
 "Language-Team: Spanish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -2470,7 +2470,7 @@ msgstr "Nombre de usuario en Twitter (opcional)"
 
 msgctxt "twitter_account"
 msgid "OpenFoodFacts"
-msgstr "OpenFoodFactsEs"
+msgstr ""
 
 msgctxt "unknown"
 msgid "Unknown"
@@ -4756,7 +4756,7 @@ msgstr "No contiene: %s"
 # keep the %s, it will be replaced by an allergen
 msgctxt "without_s"
 msgid "Without %s"
-msgstr "Contiene %s"
+msgstr "Sin %s"
 
 msgctxt "owners_p"
 msgid "owners"
@@ -5966,4 +5966,34 @@ msgstr "Aprende más sobre el Nutri-Score"
 msgctxt "ecoscore_learn_more"
 msgid "Learn more about the Eco-Score"
 msgstr "Más información sobre el Eco-Score"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_very_good_match"
+msgid "Very good match"
+msgstr ""
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_good_match"
+msgid "Good match"
+msgstr ""
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_poor_match"
+msgid "Poor match"
+msgstr ""
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_unknown_match"
+msgid "Unknown match"
+msgstr "Coincidencia desconocida"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_may_not_match"
+msgid "May not match"
+msgstr ""
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_does_not_match"
+msgid "Does not match"
+msgstr "No coincide"
 
