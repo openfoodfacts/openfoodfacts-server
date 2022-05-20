@@ -82,6 +82,7 @@ BEGIN
 		&canonicalize_taxonomy_tag_link
 		&exists_taxonomy_tag
 		&display_taxonomy_tag
+		&display_taxonomy_tag_name
 		&display_taxonomy_tag_link
 		&get_taxonomy_tag_and_link_for_lang
 
@@ -3443,6 +3444,25 @@ sub exists_taxonomy_tag($$) {
 }
 
 
+=head2 display_taxonomy_tag ( $target_lc, $tagtype, $canon_tagid )
+
+Return the name of a tag for displaying it to the user
+
+=head3 Arguments
+
+=head4 $target_lc - target language code
+
+=head4 $tagtype
+
+=head4 $canon_tagid
+
+=head3 Return values
+
+The tag translation if it exists in target language,
+otherwise, the tag id.
+
+=cut
+
 sub display_taxonomy_tag($$$)
 {
 	my $target_lc = shift; $target_lc =~ s/_.*//;
@@ -3548,6 +3568,32 @@ sub display_taxonomy_tag($$$)
 }
 
 
+=head2 display_taxonomy_tag_name ( $target_lc, $tagtype, $canon_tagid )
+
+A version of display_taxonomy_tag that removes eventual language prefix
+
+=head3 Arguments
+
+=head4 $target_lc - target language code
+
+=head4 $tagtype
+
+=head4 $canon_tagid
+
+=head3 Return values
+
+The tag translation if it exists in target language,
+otherwise, the tag in its primary language
+
+=cut
+
+sub display_taxonomy_tag_name($$$)
+{
+	my $display_value = display_taxonomy_tag($_[0], $_[1], $_[2]);
+	# remove eventual leading language code
+    $display_value =~ s/^\w\w://;
+    return $display_value;
+}
 
 sub canonicalize_tag_link($$)
 {
