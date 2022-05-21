@@ -249,11 +249,16 @@ server {
         location = /haz-su-donacion-a-open-food-facts {
                 try_files /donate/es.html =404;
         }
+        location = /donate-to-open-food-facts-ko {
+                try_files /donate/ko.html =404;
+        }
 
-	location = /donate-to-open-food-facts-ko {
-		try_files /donate/ko.html =404;
-	}
-
+	location = /open-food-facts-mobile-app {
+                try_files /app/index.en.html =404;
+        }
+	location = /application-mobile-open-food-facts {
+                try_files /app/index.fr.html =404;
+        }
 	location = /hunger-game {
 		return 301 https://hunger.openfoodfacts.org;
 	}
