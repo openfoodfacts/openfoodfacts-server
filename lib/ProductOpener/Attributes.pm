@@ -302,6 +302,7 @@ sub initialize_attribute($$) {
 		my $allergen = $1;
 		$allergen =~ s/_/-/g;
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/no-$allergen.svg";
+		#$attribute_ref->{panel_id} = "$allergen";
 	}
 	elsif ($attribute_id =~ /^(low)_(salt|sugars|fat|saturated_fat)$/) {
 		my $nid = $2;
@@ -313,13 +314,14 @@ sub initialize_attribute($$) {
 		$analysis_tag =~ s/_/-/g;
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/$analysis_tag.svg";
 		$attribute_ref->{panel_id} = "ingredients_analysis_en-" . $analysis_tag;
+		# does not seem to be working
 	}
 	elsif ($attribute_id =~ /^(labels)_(.*)$/) {
 		my $tagtype = $1;
 		my $tag = $2;
 		$tag =~ s/_/-/g;
-		
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/${tag}.svg";	
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/${tag}.svg";
+		$attribute_ref->{panel_id} = "${tag}";
 	}
 	
 	# Initialize name and setting name if a language is requested
@@ -348,6 +350,8 @@ sub initialize_attribute($$) {
 			my $name = display_taxonomy_tag($target_lc, "ingredients_analysis", "en:$analysis_tag");
 			$attribute_ref->{name} = $name;
 			$attribute_ref->{setting_name} = $name;
+			$attribute_ref->{panel_id} = "ingredients_analysis_en-" . $analysis_tag;
+			
 			
 		}
 		
