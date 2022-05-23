@@ -312,7 +312,6 @@ sub initialize_attribute($$) {
 		my $analysis_tag = $attribute_id;
 		$analysis_tag =~ s/_/-/g;
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/$analysis_tag.svg";
-		$attribute_ref->{panel_id} = "ingredients_analysis_en-" . $analysis_tag;
 	}
 	elsif ($attribute_id =~ /^(labels)_(.*)$/) {
 		my $tagtype = $1;
@@ -1404,6 +1403,9 @@ sub compute_attribute_ingredients_analysis($$$) {
 	$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/$analysis_tag.svg";
 	# the ingredients_analysis taxonomy contains en:palm-oil and not en:contains-palm-oil
 	$analysis_tag =~ s/contains-(.*)$/$1/;
+
+	# Link to the corresponding knowledge panel (the panel id depends on the value of the property)
+	$attribute_ref->{panel_id} = "ingredients_analysis_en:" . $analysis_tag;
 
 	if ($target_lc ne "data") {
 		$attribute_ref->{title} = display_taxonomy_tag($target_lc, "ingredients_analysis", "en:$analysis_tag");	
