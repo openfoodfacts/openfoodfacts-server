@@ -407,6 +407,11 @@ sub process_template($$$) {
 
 	# Display one taxonomy entry in the target language
 	$template_data_ref->{display_taxonomy_tag} = sub ($$) {
+		return display_taxonomy_tag($lc, $_[0], $_[1]);
+	};
+
+	# Display one taxonomy entry in the target language, without language prefix
+	$template_data_ref->{display_taxonomy_tag_name} = sub ($$) {
 		return display_taxonomy_tag_name($lc, $_[0], $_[1]);
 	};
 
