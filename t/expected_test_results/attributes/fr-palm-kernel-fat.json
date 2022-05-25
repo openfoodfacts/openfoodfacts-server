@@ -220,7 +220,7 @@
                "id" : "vegan",
                "match" : 100,
                "name" : "Végétalien",
-               "panel_id" : "ingredients_analysis_en-vegan",
+               "panel_id" : "ingredients_analysis_en:vegan",
                "status" : "known",
                "title" : "Végétalien"
             },
@@ -230,7 +230,7 @@
                "id" : "vegetarian",
                "match" : 100,
                "name" : "Végétarien",
-               "panel_id" : "ingredients_analysis_en-vegetarian",
+               "panel_id" : "ingredients_analysis_en:vegetarian",
                "status" : "known",
                "title" : "Végétarien"
             },
@@ -240,7 +240,7 @@
                "id" : "palm_oil_free",
                "match" : 0,
                "name" : "Sans huile de palme",
-               "panel_id" : "ingredients_analysis_en-palm-oil-free",
+               "panel_id" : "ingredients_analysis_en:palm-oil",
                "status" : "known",
                "title" : "Huile de palme"
             }
