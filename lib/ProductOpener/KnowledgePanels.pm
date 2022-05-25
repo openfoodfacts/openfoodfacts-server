@@ -744,6 +744,8 @@ sub create_health_card_panel($$$) {
 
     create_physical_activities_panel($product_ref, $target_lc, $target_cc);
 
+    create_serving_size_panel($product_ref, $target_lc, $target_cc);
+
     create_ingredients_panel($product_ref, $target_lc, $target_cc);
 
     create_additives_panel($product_ref, $target_lc, $target_cc);
@@ -834,6 +836,42 @@ sub create_nutrition_facts_table_panel($$$) {
     }
 }
 
+
+
+=head2 create_serving_size_panel( $product_ref, $target_lc, $target_cc )
+
+Creates a knowledge panel with portion size.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head4 country code $target_cc
+
+=cut
+
+sub create_serving_size_panel($$$) {
+
+	my $product_ref = shift;
+	my $target_lc = shift;
+	my $target_cc = shift;
+
+	$log->debug("create serving size panel", { code => $product_ref->{code}, nutriscore_data => $product_ref->{nutriscore_data} }) if $log->is_debug();
+
+    # Generate a panel only for food products that have a serving size
+    if (defined $product_ref->{serving_size})  {
+        my $panel_data_ref = {};
+        create_panel_from_json_template("serving_size", "api/knowledge-panels/health/nutrition/serving_size.tt.json",
+            $panel_data_ref, $product_ref, $target_lc, $target_cc);
+    }
+}
 
 =head2 create_physical_activities_panel ( $product_ref, $target_lc, $target_cc )
 

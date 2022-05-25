@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: bg\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-05-11 19:05\n"
+"PO-Revision-Date: 2022-05-19 19:04\n"
 "Language-Team: Bulgarian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -2159,7 +2159,7 @@ msgstr "Постоянна връзка към тези резултати, за
 
 msgctxt "search_list_choice"
 msgid "Results in a list of products"
-msgstr ""
+msgstr "Резултати в списък от продукти"
 
 msgctxt "search_map"
 msgid "Map"
@@ -2367,11 +2367,11 @@ msgstr "Завършеност"
 
 msgctxt "sort_created_t"
 msgid "Add date"
-msgstr "Добави дата"
+msgstr "Дата на добавяне"
 
 msgctxt "sort_modified_t"
 msgid "Edit date"
-msgstr "Редактиране на дата"
+msgstr "Дата на редактиране"
 
 msgctxt "sort_popularity"
 msgid "Popularity"
@@ -4489,7 +4489,7 @@ msgstr "Добро хранително качество (Nutri-Score)"
 
 msgctxt "attribute_nutriscore_setting_note"
 msgid "The Nutri-Score is computed and can be taken into account for all products, even if is not displayed on the packaging."
-msgstr ""
+msgstr "Nutri-Score се изчислява и може да се вземе предвид за всички продукти, дори ако не е показан върху опаковката."
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_nutriscore_grade_title"
@@ -5472,7 +5472,7 @@ msgstr "Произходът на съставките на този проду�
 
 msgctxt "ecoscore_please_add_the_ingredients"
 msgid "If they are indicated on the packaging, you can modify the product sheet and add them."
-msgstr ""
+msgstr "Ако е посочено на опаковката, можеш да редактираш продуктовия лист и да ги добавиш."
 
 msgctxt "ecoscore_environmental_policy"
 msgid "Environmental policy"
@@ -5711,7 +5711,7 @@ msgstr "Източник: ADEME Agribalyse Database"
 
 msgctxt "source_ademe_agribalyse_for_category"
 msgid "The carbon emission figure comes from ADEME's Agribalyse database, for the category:"
-msgstr ""
+msgstr "Количеството въглеродни емисии идва от базата данни Agribalyse на ADEME за категорията:"
 
 msgctxt "environment_card_title"
 msgid "Environment"
@@ -5791,7 +5791,7 @@ msgstr "Хранителните стойности на продукта тря
 
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
-msgstr ""
+msgstr "Категорията и хранителните стойности на продукта трябва да бъдат посочени, за да се изчисли Nutri-Score."
 
 msgctxt "health"
 msgid "Health"
@@ -5851,7 +5851,7 @@ msgstr "Липсващи хранителни стойности"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
-msgstr ""
+msgstr "Липсваща категория и хранителни стойности"
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
 msgid "Reduce or stop drinking alcohol"
@@ -5967,4 +5967,34 @@ msgstr "Научи повече за Nutri-Score"
 msgctxt "ecoscore_learn_more"
 msgid "Learn more about the Eco-Score"
 msgstr "Научи повече за Eco-Score"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_very_good_match"
+msgid "Very good match"
+msgstr "Много добро съвпадение"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_good_match"
+msgid "Good match"
+msgstr "Добро съвпадение"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_poor_match"
+msgid "Poor match"
+msgstr "Лошо съвпадение"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_unknown_match"
+msgid "Unknown match"
+msgstr "Неизвестно съвпадение"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_may_not_match"
+msgid "May not match"
+msgstr "Може да не съвпада"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_does_not_match"
+msgid "Does not match"
+msgstr "Не съвпада"
 

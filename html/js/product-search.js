@@ -8,15 +8,18 @@
 //
 // Output values are returned in the product object
 //
-// - match_status:
-// 		very_good_match
-//		good_match
-//		poor_match
-//		unknown_match
-//		may_not_match
-//		does_not_match
-//
 // - match_score: number from 0 to 100
+//		- the score is 0 if 
+//		- otherwise the score is a weighted average of how well the product matches
+//		each attribute selected by the user
+//
+// - match_status:
+// 		- very_good_match	score >= 75
+//		- good_match		score >= 50
+//		- poor_match		score < 50
+//		- unknown_match		at least one mandatory attribute is unknown, or unknown attributes weight more than 50% of the score
+//		- may_not_match		at least one mandatory attribute score is <= 50 (e.g. may contain traces of an allergen)
+//		- does_not_match	at least one mandatory attribute score is <= 10 (e.g. contains an allergen, is not vegan)
 //
 // - match_attributes: array of arrays of attributes corresponding to the product and 
 // each set of preferences: mandatory, very_important, important
@@ -32,12 +35,13 @@ function match_product_to_preferences (product, product_preferences) {
 		"important" : []
 	};
 
-	// Note: mandatory preferences is set to 0:
-	// The attribute is only used to check if a product is compatible or not
-	// It does not affect the very good / good / poor match status
-	// The score will be 0 if the product is not compatible
+	// Note: it is important that mandatory attributes also contribute to the score
+	// as some attributes like "low sugar" have scores from 0 to 100 that can still
+	// be very useful to rank products by how much sugar they contain.
+	// It is also needed in order not to have scores of 0 when only mandatory attributes
+	// are selected.
 	var preferences_factors = {
-		"mandatory" : 0,
+		"mandatory" : 2,
 		"very_important" : 2,
 		"important" : 1,
 		"not_important" : 0
@@ -124,6 +128,10 @@ function match_product_to_preferences (product, product_preferences) {
 		else if ("may_not_match" in product.attributes_for_status) {
 			product.match_status = "may_not_match";
 		}
+		// If one of the mandatory attribute is unknown, set an unknown match
+		else if ("unknown_match" in product.attributes_for_status) {
+			product.match_status = "unknown_match";
+		}		
 		// If too many attributes are unknown, set an unknown match
 		else if (sum_of_factors_for_unknown_attributes >= sum_of_factors / 2) {
 			product.match_status = "unknown_match";
