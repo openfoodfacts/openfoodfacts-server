@@ -643,6 +643,7 @@ elsif ($action eq 'process') {
 	}
 
 	$request_ref->{current_link_query} = $current_link;
+	$request_ref->{current_link} = $current_link;
 
 	my $html = '';
 	#$query_ref->{lc} = $lc;
