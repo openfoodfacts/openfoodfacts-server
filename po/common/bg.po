@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: bg\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-05-19 19:04\n"
+"PO-Revision-Date: 2022-05-27 19:05\n"
 "Language-Team: Bulgarian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -2259,7 +2259,7 @@ msgstr "Търси продукт, марка, съставка, храните�
 
 msgctxt "search_title_graph"
 msgid "Results graph"
-msgstr ""
+msgstr "Графика на резултатите"
 
 msgctxt "search_title_map"
 msgid "Results map"
@@ -3341,7 +3341,7 @@ msgstr ""
 
 msgctxt "fields_group_identification"
 msgid "Product identification"
-msgstr ""
+msgstr "Идентификация на продукта"
 
 msgctxt "fields_group_origins"
 msgid "Origins"
@@ -3373,15 +3373,15 @@ msgstr ""
 
 msgctxt "image_ingredients_url"
 msgid "Link to ingredients list photo"
-msgstr ""
+msgstr "Връзка към снимката на списъка на съставките"
 
 msgctxt "image_nutrition_url"
 msgid "Link to nutrition facts table photo"
-msgstr ""
+msgstr "Връзка към снимката на таблицата с хранителните стойности"
 
 msgctxt "image_other_url"
 msgid "Link to other product photo"
-msgstr ""
+msgstr "Влъзка към друга снимка на продукта"
 
 msgctxt "labels_specific"
 msgid "Specific label"
@@ -4550,7 +4550,7 @@ msgstr "Нивото на обработка на храни не е извес�
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
-msgstr ""
+msgstr "Без или с малка хранитeлна преработка (група NOVA)"
 
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
@@ -5997,4 +5997,12 @@ msgstr "Може да не съвпада"
 msgctxt "products_match_does_not_match"
 msgid "Does not match"
 msgstr "Не съвпада"
+
+msgctxt "reset_preferences"
+msgid "Use default preferences"
+msgstr ""
+
+msgctxt "reset_preferences_details"
+msgid "Nutri-Score, Eco-Score and food processing level (NOVA)"
+msgstr ""
 

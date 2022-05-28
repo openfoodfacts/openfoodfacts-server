@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-05-19 22:01\n"
+"PO-Revision-Date: 2022-05-27 19:04\n"
 "Language-Team: Spanish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -52,7 +52,7 @@ msgstr "Registrarse"
 
 msgctxt "add_user_process"
 msgid "Welcome!"
-msgstr "¡Bienvenido!"
+msgstr "¡Te damos la bienvenida!"
 
 msgctxt "add_user_result"
 msgid "Thank you for joining us!"
@@ -1616,7 +1616,7 @@ msgstr "Productos sin ingredientes procedentes de %s"
 
 msgctxt "packaging"
 msgid "Packaging"
-msgstr "Envases"
+msgstr "Envase"
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
@@ -1748,7 +1748,7 @@ msgstr "Anterior"
 
 msgctxt "product_add_nutrient"
 msgid "Add a nutrient"
-msgstr "Añade un nutriente"
+msgstr "Añadir un nutriente"
 
 msgctxt "product_added"
 msgid "Product added on"
@@ -5419,7 +5419,7 @@ msgstr "Procesando"
 
 msgctxt "ecoscore_packaging"
 msgid "Packaging"
-msgstr "Envases"
+msgstr "Envase"
 
 msgctxt "ecoscore_transportation"
 msgid "Transportation"
@@ -5970,17 +5970,17 @@ msgstr "Más información sobre el Eco-Score"
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
-msgstr ""
+msgstr "Gran coincidencia"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_good_match"
 msgid "Good match"
-msgstr ""
+msgstr "Buena coincidencia"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_poor_match"
 msgid "Poor match"
-msgstr ""
+msgstr "Mala coincidencia"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_unknown_match"
@@ -5990,10 +5990,18 @@ msgstr "Coincidencia desconocida"
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_may_not_match"
 msgid "May not match"
-msgstr ""
+msgstr "Puede que no coincida"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_does_not_match"
 msgid "Does not match"
 msgstr "No coincide"
+
+msgctxt "reset_preferences"
+msgid "Use default preferences"
+msgstr "Utilizar preferencias predeterminadas"
+
+msgctxt "reset_preferences_details"
+msgid "Nutri-Score, Eco-Score and food processing level (NOVA)"
+msgstr "Nutri-Score, Eco-Score y nivel de procesamiento de alimentos (NOVA)"
 
