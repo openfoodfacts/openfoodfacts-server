@@ -770,6 +770,7 @@ bg:картофен декстрин
 de:Kartoffeldextrin, Kartoffel-Dextrin
 
 <en:E1400
+bg:пшеничен декстрин
 fr:dextrine de blé
 fi:vehnädekstriini
 # ingredient/fr:dextrine-de-blé has 63 products in french @2019-01-26
@@ -824,7 +825,7 @@ en:ferment
 az:fermentlər
 ba:Ферменттар
 be:Ферменты
-bg:закваска, закваски, българска закваска, млечнокисели култури, симбиотична закваска
+bg:закваска, закваски, българска закваска, млечнокисели култури, симбиотична закваска, стартерни млечнокисели култури, стартерна култура
 ca:ferment, ferments
 cs:Kvasnice
 da:gæret
@@ -879,6 +880,7 @@ vegetarian:en:maybe
 
 <en:coagulating enzyme
 en:microbial coagulating enzyme, microbial enzyme
+bg:микробиологичен ензим, сирищен ензим
 de:mikrobieller Labaustauschstoff
 es:coagulante de leche microbiano, Encima coagulate microbiana
 fr:enzyme coagulante microbienne, enzyme coagulante d'origine microbienne, coagulant microbien
@@ -4467,6 +4469,7 @@ sv:vassleprodukt
 
 <en:whey
 en:whey permeate, milk permeate
+bg:суроватъчен пермеат
 ca:permeat de sèrum de la llet
 de:Molkepermeat, Milchpermeat
 es:permeado de suero
@@ -4511,7 +4514,7 @@ af:Room
 ar:قشدة
 ba:Ҡаймаҡ
 be:Вяршкі
-bg:Сметана, млечна сметана
+bg:Сметана, млечна сметана, сметана от краве мляко
 br:dienn
 ca:nata, crema de la llet, crespell, cresp de la llet, doga
 cs:Smetana
@@ -4711,7 +4714,6 @@ es:crema de leche fresca líquida, nata fresca líquida
 
 <en:cream
 en:light cream
-bg:течна сметана
 ca:nata lleugera, crema de llet lleugera
 de:leichte Sahne
 es:Nata ligera, crema de leche ligera
@@ -9345,6 +9347,7 @@ fr:sel gros de mer
 
 <en:sea salt
 en:unrefined sea salt
+bg:нерафинирана морска сол
 ca:sal de mar no refinada, sal de mar sense refinar, sal marina sense refinar, sal de taula sense refinar
 de:Unraffiniertes Meersalz
 es:sal de mar no refinada, Sal de mar sin refinar, sal marina sin refinar, sal de mesa sin refinar
@@ -9370,6 +9373,7 @@ fr:sel de Noirmoutier, sel marin de Noirmoutier
 
 <en:sea salt
 en:Mediterranean salt, Mediterranean sea salt
+bg:средиземноморска сол
 ca:sal de la mar Mediterrània, sal mediterrània
 da:middelhavssalt
 de:Mediterranes Meersalz
@@ -9408,6 +9412,7 @@ nl:Zout uit de Camargue
 
 <en:sea salt
 en:grey salt, sel gris
+bg:сива сол
 ca:sal grisa sal de mar grisa, sal marina grisa
 de:graues Salz
 es:sal gris, sal de mar gris, sal marina gris
@@ -9601,6 +9606,7 @@ sv:joderat havssalt, joderad havssalt
 # mixes?
 
 en:Garlic salt
+bg:чеснова сол
 ca:sal d'all
 de:Knoblauchsalz
 es:sal de ajo
@@ -9747,6 +9753,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Meatball
 
 <en:meatball
 en:chicken meatball
+bg:пилешко кюфте, пилешки кюфтета
 es:albóndigas de pollo
 fi:broileripyörykkä, broileripyörykät
 fr:boulettes de poulet
@@ -9789,7 +9796,7 @@ description:pt:A quenelle é um bolinho feito com carne ou peixe muito condiment
 
 <en:animal
 en:beef, steers
-bg:говедо
+bg:говедо, говеждо
 cs:Hovězí
 da:oksekød
 de:Rind
@@ -10888,7 +10895,7 @@ it:Selvaggina
 # description:en:VENISON is the meat of a game animal and especially a deer. Venison can be used to refer to any part of the animal, so long as it can be consumed, including the flesh and internal organs. Venison, much like beef or pork, is categorized into specific cuts, including roast, sirloin, and ribs.
 <en:game animal
 en:deer
-bg:сърна
+bg:елен
 da:hjort
 de:Hirsch
 fi:hirvieläin
@@ -10900,6 +10907,7 @@ it:Cervo
 <en:deer
 en:venison, deer meat
 ar:لحم الغزال
+bg:еленско месо
 ca:carn de cérvol
 cs:zvěřina
 cy:cig carw
@@ -11437,6 +11445,7 @@ carbon_footprint_fr_foodges_ingredient_for_ingested_weight:en 7.4
 
 <en:pork meat
 en:minced pork
+bg:смляна свинска кайма, свинска кайма
 ca:carn picada de porc
 de:Schweinehackfleisch, Schweinegehacktes
 es:carne picada de cerdo
@@ -11727,6 +11736,7 @@ es:patas de cerdo
 
 <en:bacon
 en:smoked bacon
+bg:пушен бекон
 ca:cansalada fumada
 de:geräucherter Speck
 es:Tocino ahumado
@@ -11940,6 +11950,7 @@ fr:chipolatas aux herbes
 
 <en:pork
 en:pork skin
+bg:свинска кожа
 de:Schweinehaut
 fr:Peau de porc
 
@@ -12136,6 +12147,7 @@ fr:plasma de porc
 
 <en:pork meat
 en:pork loin
+bg:свинско филе
 ca:Llom de porc
 de:Schweinelende
 es:Lomo de cerdo
@@ -12189,7 +12201,7 @@ fr:jarret de porc désossé, jarrets de porc désossés
 
 <en:pork meat
 en:pork leg
-bg:свински бут
+bg:свински бут, свинско месо от бут
 de:Schweinekeule, Schweineschenkel
 fr:cuisse de porc
 it:coscia di suino, coscia suina
@@ -13964,7 +13976,7 @@ af:Plantaardige olie
 ar:زيت نباتي
 az:Bitki yağı
 be:Алеі
-bg:Растително масло, растителни масла
+bg:Растително масло, растителни масла, растително олио
 ca:Oli vegetal
 cs:Rostlinný olej
 da:vegetabilsk olie, vegetabilisk olie, vegetabilske olier
@@ -14445,6 +14457,7 @@ sv:fullhärdat palmfett
 
 <en:palm oil
 en:non-hydrogenated palm oil
+bg:нехидрогенирано палмово масло
 de:ungehärtetes Palmöl, Palmöl ungehärtet, nicht-hydriertes Palmöl
 es:aceite de palma no hidrogenado
 fi:kovettamaton palmuöljy, hydrogenoimaton palmuöljy
@@ -14479,6 +14492,7 @@ sl:popolnoma hidrogenirano palmino olje
 
 <en:hydrogenated palm oil
 en:partially hydrogenated palm oil
+bg:частично хидрогенирано палмово масло
 de:teilgehärtetes Palmöl, teilweise hydriertes Palmöl, teilweise gehärtetes Palmöl
 es:Aceite de palma parcialmente hidrogenado
 fi:osittain kovetettu palmuöljy, osittain hydrogenoitu palmuöljy
@@ -14714,6 +14728,7 @@ ru:масло кокосовое рафинированное дезодорир
 <en:vegetable fat
 # producedFrom:en:coconut
 en:coconut fat
+bg:кокосова мазнина
 ca:greix de coco
 da:kokosfedt
 de:Kokosfett
@@ -14867,12 +14882,14 @@ no:svart olivenolje
 
 <en:olive oil
 en:non-hydrogenated olive oil
+bg:нехидрогениран зехтин, нехидрогенирано маслиново масло
 de:ungehärtetes Olivenöl
 fr:huile d'olive non hydrogénée
 it:Olio di oliva non idrogenato
 
 <en:olive oil
 en:virgin olive oil
+bg:необработен зехтин
 ca:Oli d'oliva verge
 cs:Panenský olivový olej
 da:jomfruolivenolie
@@ -14892,6 +14909,7 @@ fr:huile d'olive extra
 
 <en:virgin olive oil
 en:extra virgin olive oil
+bg:екстра върджин зехтин, зехтин екстра върджин
 ca:Oli d'oliva verge extra, oli OVE
 cs:Extra panenský olivový olej
 da:ekstra jomfruolivenolie, ekstra jomfru olivenolie
@@ -14916,6 +14934,7 @@ es:aceite de oliva virgen extra de Lubrín
 
 <en:olive oil
 en:organic olive oil
+bg:био зехтин, био маслиново масло
 de:Bio-Olivenöl
 fi:luomu oliiviöljy
 fr:Huile d'olive bio
@@ -14926,6 +14945,7 @@ nl:olie van biologische olijven
 
 <en:olive oil
 en:refined olive oil
+bg:рафиниран зехтин, рафинирано маслиново масло
 de:raffiniertes Olivenöl, Olivenöl raffiniert
 es:aceite de oliva refinado
 fr:huile d'olive rafinée
@@ -14938,6 +14958,7 @@ nl:ongeraffineerde olijfolie
 <en:extra virgin olive oil
 <en:organic olive oil
 en:organic extra virgin olive oil
+bg:био екстра върджин зехтин
 de:Natives Bio-Olivenöl Extra
 es:aceite de oliva extra virgen orgánico
 fi:luomu ekstra-neitsytoliiviöljy
@@ -15103,6 +15124,7 @@ es:aceite hidrogenado de colza
 #fr:huile de colza non hydrogénée
 
 <en:colza oil
+bg:рафинирано рапично олио
 fr:huile de colza raffinée
 
 <en:colza oil
@@ -15393,6 +15415,7 @@ ciqual_food_name:fr:Huile de sésame
 
 <en:sesame oil
 en:organic sesame oil
+bg:био сусамово олио
 de:ökologisch hergestelltes Sesamöl
 es:aceite de sésamo orgánico
 fi:luomu seesamiöljy
@@ -15458,6 +15481,7 @@ ciqual_food_name:fr:Huile de soja
 
 <en:soya oil
 en:hydrogenated soy oil
+bg:хидрогенирано соево олио
 de:gehärtetes Sojaöl
 es:Aceite de soja hidrogenada
 fi:kovetettu soijaöljy, hydrogenoitu soijaöljy
@@ -16509,6 +16533,7 @@ sv:vitvinsvinäger
 
 <en:vinegar
 en:alcohol vinegar
+bg:алкохолен оцет
 ca:vinagre d'alcohol
 da:lagereddike
 de:Alkoholessig
@@ -19731,6 +19756,7 @@ sv:naturlig mintsmak
 
 <en:flavouring
 en:smoke flavouring, smoke flavour, aroma of smoke, smoked flavour
+bg:пушилен ароматизант
 ca:aroma de fum
 cs:kouřové aroma
 da:røgaroma
@@ -20851,7 +20877,7 @@ it:grano cotto
 
 <en:wheat
 en:wheat grain
-bg:пшенични зърна
+bg:пшенични зърна, пшенично зърно
 de:weizenkörner
 es:grano de trigo
 fi:vehjänjyvä, vehnänjyvät
@@ -21031,6 +21057,7 @@ de:Einkornmehl, Einkorn-Mehl
 <en:einkorn flour
 <en:wholemeal flour
 en:whole grain einkorn flour
+bg:пълнозърнесто брашно от лимец
 de:Einkornvollkornmehl, Einkorn-Vollkornmehl
 
 <en:wheat
@@ -21785,6 +21812,7 @@ allergens:en: en:gluten
 
 <en:barley
 en:wholemeal barley
+bg:пълнозърнест ечемик
 da:fuldkornsbyg
 de:Vollkorngerste
 es:cebada integral
@@ -21807,6 +21835,7 @@ ciqual_food_name:fr:Orge entière, crue
 
 <en:barley
 en:barley flakes
+bg:ечемичени люспи, люспи от ечемик
 de:Gerstenflocken
 es:copos de cebada
 fi:ohrahiutale
@@ -21879,6 +21908,7 @@ ciqual_food_name:fr:Orge perlée, crue
 
 <en:barley
 en:barley extract
+bg:екстракт от ечемик
 de:Gerstenextrakt
 es:extracto de cebada
 #38 @2021-10-22
@@ -23029,6 +23059,7 @@ fr:Graines de quinoa
 
 <en:quinoa
 en:red quinoa
+bg:червена киноа
 de:rotes Quinoa, roter Quinoa, Quinoa rot
 es:Quinoa roja
 fi:punainen kvinoa
@@ -23038,6 +23069,7 @@ it:Quinoa rossa
 
 <en:quinoa
 en:black quinoa
+bg:черна киноа
 de:schwarzes Quinoa, schwarzer Quinoa, Quinoa schwarz
 es:quinoa negra
 fr:quinoa noir
@@ -23048,6 +23080,7 @@ pt:quinoa preta
 
 <en:quinoa
 en:white quinoa
+bg:бяла киноа
 de:weiße Quinoa, weißer Quinoa, Quinoa weiß
 es:quinoa blanca
 fi:valkoinen kvinoa
@@ -25473,6 +25506,7 @@ ciqual_food_name:fr:Riz blanc, cru
 
 #<en:white rice
 #en:organic white rice
+#bg:био бял ориз
 #fi:luomu valkoinen riisi
 #fr:riz blanc bio
 #hhu:bio fehér rizs, bio fehérrizs
@@ -25532,7 +25566,7 @@ fr:riz long grain biologique de qualite superieure
 <en:long grain rice
 <en:white rice
 en:long grain white rice
-bg:бял дългозърнест ориз
+bg:бял дългозърнест ориз, дългозърнест бял ориз
 de:weißer Langkornreis
 fi:pitkäjyväinen valkoinen riisi
 fr:riz long grain blanc
@@ -25903,6 +25937,7 @@ nl:gekookte basmatirijst
 # <category:en:Jasmine rice
 <en:rice
 en:Thai rice, jasmine rice
+bg:ориз жасмин, тайландски ориз
 de:Thai-Reis, Jasmin-Reis
 es:Arroz jazmín, Arroz tailandes
 fi:Jasmiiniriisi
@@ -26505,6 +26540,7 @@ es:azucarada,azucaradas
 
 <en:sugar
 en:organic sugar
+bg:биологична захар, био захар
 de:Zucker aus ökologischem Anbau
 fi:luomusokeri, luomu sokeri
 fr:sucre bio, sucre issu de l'agriculture biologique
@@ -28051,6 +28087,7 @@ fr:sirop de sucres issus de fruits
 
 <en:sugar syrup
 en:brown sugar syrup
+bg:кафяв захарен сироп
 de:brauner Zuckersirup
 fr:sirop de sucre mélassé
 nl:bruine suikerstroop
@@ -28077,6 +28114,7 @@ it:Sciroppo di canna da zucchero
 
 <en:invert sugar syrup
 en:partially inverted sugar syrup
+bg:частично инвертиран захарен сироп
 de:teilweise invertierter Zuckersirup
 es:jarabe de azucar parcialmente invertido
 fi:osittain invertoitu sokerisiirappi
@@ -28086,6 +28124,7 @@ sv:delvis inverterad sockersirap
 # ingredient/en:partially-inverted-sugar-syrup has 101 products in 2 languages @2020-06-08
 
 en:maltitol syrup
+bg:малтитолов сироп
 fi:maltitolisiirappi
 fr:sirop de maltitol
 hu:maltit-szirup, maltitol szirup
@@ -28097,10 +28136,12 @@ fr:sorbitols et glycérol, glycérol et sorbitols
 fi:sorbitolia ja glyserolia, glyserolia ja sorbitolia
 
 <en:E420(ii)
+bg:сорбитолов сироп
 fr:sirop de sorbitol de blé
 
 <en:glucose syrup
 en:rice glucose syrup
+bg:оризов глюкозен сироп
 de:Reisglukosesirup
 es:sirope de glucosa de arroz
 fr:Sirop de glucose de riz
@@ -28131,6 +28172,7 @@ nl:bruin maisstroop
 
 <en:rice syrup
 en:caramelised rice syrup
+bg:карамелизиран оризов сироп
 hu:karamellizált rizsszirup
 
 
@@ -28147,6 +28189,7 @@ sv:sockerbetssirap
 
 <en:sugar syrup
 en:brown sugar syrup
+bg:сироп от кафява захар
 da:mørk sirup
 de:brauner zuckersirup
 fi:ruskea sokerisiirappi
@@ -30376,7 +30419,7 @@ carbon_footprint_fr_foodges_value:fr:0.4
 
 <en:water
 bg:drinking water
-bg:питейна вода
+bg:питейна вода, вода питейна
 fr:eau potable
 
 <en:water
@@ -31562,7 +31605,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Torula
 
 <en:yeast
 en:yeast extract
-bg:екстракт от мая
+bg:екстракт от мая, екстракти от мая
 bs:ekstrakt kvasca
 ca:Extracte de llevat
 cs:Výtažek z kvasnic, kvasnicový extrakt
@@ -31970,6 +32013,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Tripotassium_phosphate
 # description:en:CALCIUM PHOSPHATE is a family of materials and minerals containing calcium ions (Ca2+) together with inorganic phosphate anions.
 
 en:calcium phosphates, E341, E 341, E-341
+bg:калциеви фосфати
 de:Calciumphosphate, Calciumorthophosphate
 es:Fosfatos de calcio
 fi:kalsiumfosfaatit, kalsiumfosfaatteja
@@ -31985,6 +32029,7 @@ wikidata:en:Q426664
 
 <en:tricalcium phosphate
 en:calcium phosphate
+bg:калциев фосфат
 de:Calciumphosphat
 es:Fosfato de calcio, Fosfato cálcico
 fi:kalsiumfosfaatti
@@ -43665,6 +43710,7 @@ es:ajo tierno,ajete
 
 <en:garlic
 en:garlic puree
+bg:чесново пюре
 de:Knoblauchpüree
 es:puré de ajo
 fi:valkosipulipyree, valkosipulisose
@@ -43736,7 +43782,7 @@ ar:ثوم الدببة
 az:ayı soğanı
 ba:йыуа
 be:цыбуля мядзведжая
-bg:левурда
+bg:левурда, див чесън
 bs:medvjeđi luk
 ca:allium ursinum
 ce:хьонка
@@ -53983,6 +54029,7 @@ sv:melonfrön
 en:pine nuts
 ar:حبوب الصنوبر
 ba:кедр сәтләүеге
+bg:кедрови ядки
 ca:pinyó
 de:Pinienkerne
 el:Κουκουνάρι
@@ -54278,6 +54325,7 @@ de:Leinsaat geschrotet
 
 <en:flax seed
 en:golden flax seeds, golden linseed, yellow flax seeds
+bg:златно ленено семе
 de:goldgelbe Leinsaat
 es:semillas de lino dorado, lino dorado
 fr:graines de lin doré, graines de lin jaune
@@ -54289,6 +54337,7 @@ wikidata:en:none
 
 <en:flax seed
 en:brown flax seeds, brown linseed, Brown flaxseed
+bg:кафяво ленено семе
 de:brauner Leinsamen
 es:linaza marron,lino marron
 fi:ruskeat pellavansiemenet
@@ -64221,6 +64270,7 @@ wikidata:en:Q1142857
 
 <en:mushroom
 en:shiitake, lentinula edodes, lentinus edodes,shiitake mushrooms
+bg:шийтаке
 de:shiitake, schwarzer Pilz, shittakepilze
 es:shiitake, hongo de shiitake
 fi:siitake, lentinula edodes
@@ -64476,6 +64526,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Truffle
 
 <en:truffle
 en:black truffle
+bg:черен трюфел
 ca:tòfona negra
 cy:Cloronen Ffrengig
 de:Schwarze Trüffel, Perigord-Trüffel
@@ -64919,6 +64970,7 @@ nb:feit fisk, fet fisk. oljete fisk
 
 <en:fish
 en:white fish
+bg:бяла риба
 de:Weißfisch, weißer Fisch
 es:pescado blanco
 fr:poisson blanc, poissons blancs
@@ -74118,6 +74170,7 @@ en:cooked chicken with natural juices
 
 <en:chicken meat
 en:chicken fillet
+bg:пилешко филе
 da:kyllingefilet
 de:Hühnerfilet
 es:Filete de pechuga de pollo
