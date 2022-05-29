@@ -4311,8 +4311,6 @@ JS
 
 		my $query_ref = {};
 
-		$request_ref->{current_link_query} = $current_link;
-
 		if (defined param('parent_ingredients')) {
 			$html .= search_and_analyze_recipes($request_ref, $query_ref);
 		}
@@ -5211,12 +5209,12 @@ sub search_and_display_products($$$$$) {
 	$template_data_ref->{jqm} = param("jqm");
 	$template_data_ref->{country} = $country;
 	$template_data_ref->{world_subdomain} = get_world_subdomain();
-	$template_data_ref->{current_link_query} = $request_ref->{current_link_query};
+	$template_data_ref->{current_link} = $request_ref->{current_link};
 	$template_data_ref->{sort_by} = $sort_by;
 
 	# Query from search form: display a link back to the search form
-	if (defined($request_ref->{current_link_query}) && $request_ref->{current_link_query} =~ /action=process/) {
-		$template_data_ref->{current_link_query_edit} = $request_ref->{current_link_query};
+	if (defined($request_ref->{current_link}) && $request_ref->{current_link} =~ /action=process/) {
+		$template_data_ref->{current_link_query_edit} = $request_ref->{current_link};
 		$template_data_ref->{current_link_query_edit} =~ s/action=process/action=display/;
 	}
 
@@ -5227,8 +5225,8 @@ sub search_and_display_products($$$$$) {
 		# Show a download link only for search queries (and not for the home page of facets)
 
 		if ($request_ref->{search}) {
-			$request_ref->{current_link_query_download} = $request_ref->{current_link_query};
-			if ($request_ref->{current_link_query} =~ /\?/) {
+			$request_ref->{current_link_query_download} = $request_ref->{current_link};
+			if ($request_ref->{current_link} =~ /\?/) {
 				$request_ref->{current_link_query_download} .= "&download=on";
 			}
 			else {
@@ -5413,6 +5411,15 @@ JS
 	return $html;
 }
 
+=head2 display_pagination( $request_ref , $count , $limit , $page )
+
+This function is used for page navigation and gets called when there is more
+than one page of products.  The URL can be different, either page=<number> , or
+/<number> . page=<number> is used for search queries. /<number> is used for
+facets.
+
+=cut
+
 sub display_pagination($$$$) {
 	my $request_ref = shift;
 	my $count = shift;
@@ -5427,12 +5434,11 @@ sub display_pagination($$$$) {
 	if (not defined $current_link) {
 		$current_link = $request_ref->{world_current_link};
 	}
-	my $current_link_query = $request_ref->{current_link_query};
 
-	$log->info("current link and current link query", { current_link => $current_link, current_link_query => $current_link_query }) if $log->is_info();
+	$log->info("current link", { current_link => $current_link }) if $log->is_info();
 
 	if (param("jqm")) {
-		$current_link_query .= "&jqm=1";
+		$current_link .= "&jqm=1";
 	}
 
 	my $next_page_url;
@@ -5444,7 +5450,7 @@ sub display_pagination($$$$) {
 		$nofollow = ' nofollow';
 	}
 
-	if ((($nb_pages > 1) and ((defined $current_link) or (defined $current_link_query))) and (not defined $request_ref->{product_changes_saved})) {
+	if ((($nb_pages > 1) and (defined $current_link)) and (not defined $request_ref->{product_changes_saved})) {
 
 		my $prev = '';
 		my $next = '';
@@ -5466,7 +5472,7 @@ sub display_pagination($$$$) {
 
 					my $link;
 
-					if (defined $current_link) {
+					if ($current_link !~ /\?/) {
 						$link = $current_link;
 						#check if groupby_tag is used
 						if (defined $request_ref->{groupby_tagtype}) {
@@ -5484,14 +5490,8 @@ sub display_pagination($$$$) {
 							$link .= "?sort_by=" . $request_ref->{sort_by};
 						}
 					}
-					elsif (defined $current_link_query) {
-
-						if ($current_link_query !~ /\?/) {
-							$link = $current_link_query . "?page=$i";
-						}
-						else {
-							$link = $current_link_query . "&page=$i";
-						}
+					else {
+						$link = $current_link . "&page=$i";
 
 						# issue 2010: the limit, aka page_size is not persisted through the navigation links from some workflows,
 						# so it is lost on subsequent pages
@@ -5616,8 +5616,8 @@ sub search_and_export_products($$$) {
 
 	# Display an error message
 
-	if (defined $request_ref->{current_link_query}) {
-		$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
+	if (defined $request_ref->{current_link}) {
+		$request_ref->{current_link_query_display} = $request_ref->{current_link};
 		$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
 		$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_edit") . "</a><br>";
 	}
@@ -6480,8 +6480,8 @@ sub search_and_graph_products($$$) {
 		$html .= "<p>" . lang("no_products") . "</p>";
 	}
 
-	if (defined $request_ref->{current_link_query}) {
-		$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
+	if (defined $request_ref->{current_link}) {
+		$request_ref->{current_link_query_display} = $request_ref->{current_link};
 		$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
 		$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_edit") . "</a><br>";
 	}
@@ -6506,10 +6506,10 @@ sub search_and_graph_products($$$) {
 			$html .= display_scatter_plot($graph_ref, \@products);
 		}
 
-		if (defined $request_ref->{current_link_query}) {
-			$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
+		if (defined $request_ref->{current_link}) {
+			$request_ref->{current_link_query_display} = $request_ref->{current_link};
 			$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
-			$html .= "&rarr; <a href=\"$request_ref->{current_link_query}\">" . lang("search_graph_link") . "</a><br>";
+			$html .= "&rarr; <a href=\"$request_ref->{current_link}\">" . lang("search_graph_link") . "</a><br>";
 		}
 
 		$html .= "<p>" . lang("search_graph_warning") . "</p>";
@@ -6614,8 +6614,8 @@ sub search_and_map_products($$$) {
 		$html .= "<p>" . lang("no_products") . "</p>";
 	}
 
-	if (defined $request_ref->{current_link_query}) {
-		$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
+	if (defined $request_ref->{current_link}) {
+		$request_ref->{current_link_query_display} = $request_ref->{current_link};
 		$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
 		$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_edit") . "</a><br>";
 	}
@@ -6704,8 +6704,8 @@ sub search_and_map_products($$$) {
 		$count_string = sprintf(lang("map_count"), $count, $seen_products);
 	}
 
-	if (defined $request_ref->{current_link_query}) {
-		$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
+	if (defined $request_ref->{current_link}) {
+		$request_ref->{current_link_query_display} = $request_ref->{current_link};
 		$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
 	}
 
@@ -6718,7 +6718,7 @@ sub search_and_map_products($$$) {
 		},
 		title => $count_string,
 		pointers => \@pointers,
-		current_link_query => $request_ref->{current_link_query},
+		current_link => $request_ref->{current_link},
 	};
 	process_template('web/pages/products_map/map_of_products.tt.html', $map_template_data_ref, \$html) || ($html .= 'template error: ' . $tt->error());
 
@@ -6885,8 +6885,8 @@ sub display_page($) {
 	elsif (defined $request_ref->{canon_rel_url}) {
 		$canon_url .= $request_ref->{canon_rel_url};
 	}
-	elsif (defined $request_ref->{current_link_query}) {
-		$canon_url .= $request_ref->{current_link_query};
+	elsif (defined $request_ref->{current_link}) {
+		$canon_url .= $request_ref->{current_link};
 	}
 	elsif (defined $request_ref->{url}) {
 		$canon_url = $request_ref->{url};
@@ -10424,7 +10424,7 @@ sub display_structured_response_opensearch_rss {
 
 	$long_name = $xs->escape_value(encode_utf8($long_name));
 	$short_name = $xs->escape_value(encode_utf8($short_name));
-	my $query_link = $xs->escape_value(encode_utf8($formatted_subdomain . $request_ref->{current_link_query} . "&rss=1"));
+	my $query_link = $xs->escape_value(encode_utf8($formatted_subdomain . $request_ref->{current_link} . "&rss=1"));
 	my $description = $xs->escape_value(encode_utf8(lang("search_description_opensearch")));
 
 	my $search_terms = $xs->escape_value(encode_utf8(decode utf8=>param('search_terms')));
@@ -11094,8 +11094,8 @@ sub search_and_analyze_recipes($$) {
 		$html .= "<p>" . lang("no_products") . "</p>";
 	}
 
-	if (defined $request_ref->{current_link_query}) {
-		$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
+	if (defined $request_ref->{current_link}) {
+		$request_ref->{current_link_query_display} = $request_ref->{current_link};
 		$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
 		$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_edit") . "</a><br>";
 	}
