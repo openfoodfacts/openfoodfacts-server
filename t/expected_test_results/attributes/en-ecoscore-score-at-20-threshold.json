@@ -203,7 +203,7 @@
                "icon_url" : "https://server_domain/images/attributes/vegan-status-unknown.svg",
                "id" : "vegan",
                "name" : "Vegan",
-               "panel_id" : "ingredients_analysis_en-vegan",
+               "panel_id" : "ingredients_analysis_en:vegan-status-unknown",
                "status" : "unknown",
                "title" : "Vegan status unknown"
             },
@@ -212,7 +212,7 @@
                "icon_url" : "https://server_domain/images/attributes/vegetarian-status-unknown.svg",
                "id" : "vegetarian",
                "name" : "Vegetarian",
-               "panel_id" : "ingredients_analysis_en-vegetarian",
+               "panel_id" : "ingredients_analysis_en:vegetarian-status-unknown",
                "status" : "unknown",
                "title" : "Vegetarian status unknown"
             },
@@ -221,7 +221,7 @@
                "icon_url" : "https://server_domain/images/attributes/palm-oil-content-unknown.svg",
                "id" : "palm_oil_free",
                "name" : "Palm oil free",
-               "panel_id" : "ingredients_analysis_en-palm-oil-free",
+               "panel_id" : "ingredients_analysis_en:palm-oil-content-unknown",
                "status" : "unknown",
                "title" : "Palm oil content unknown"
             }

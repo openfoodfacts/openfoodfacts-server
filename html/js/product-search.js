@@ -386,9 +386,17 @@ function display_product_summary(target, product) {
 		}
 
 		// check if the product attribute has an associated knowledge panel that exists
-		if ((attribute.panel_id) && (document.getElementById("panel_" + attribute.panel_id))) {
-			// onclick : open the panel content + reflow to make sur all column content is shown
-			card_html = '<a href="#panel_' + attribute.panel_id + '" onclick="document.getElementById(\'panel_' + attribute.panel_id + '_content\').classList.add(\'active\'); $(document).foundation(\'equalizer\', \'reflow\');"' + card_html + '</a>';
+		if (attribute.panel_id) {
+			// note: on the website, the id for the panel contains : instead of - (e.g. for the ingredients_analysis_en:vegan panel)
+			var panel_element_id = 'panel_' + attribute.panel_id.replace(':', '-');
+			if (document.getElementById(panel_element_id)) {
+				// onclick : open the panel content + reflow to make sur all column content is shown			
+				card_html = '<a href="#' + panel_element_id
+				+ '" onclick="document.getElementById(\'' + panel_element_id + '_content\').classList.add(\'active\'); $(document).foundation(\'equalizer\', \'reflow\');"' + card_html + '</a>';
+			}
+			else {
+				card_html = '<div ' + card_html + '</div>';
+			}
 		}
 		else {
 			card_html = '<div ' + card_html + '</div>';
