@@ -6581,7 +6581,7 @@ el:Φέτα, Τυρί φέτα
 eo:Feta-fromaĝo
 es:Sirene, queso feta
 fa:پنیر فتا
-fr:fromage feta
+fr:feta, fromage feta
 he:פטה
 hu:fetasajt, feta sajt
 hy:Ֆեթա
@@ -9349,7 +9349,7 @@ ca:sal de mar no refinada, sal de mar sense refinar, sal marina sense refinar, s
 de:Unraffiniertes Meersalz
 es:sal de mar no refinada, Sal de mar sin refinar, sal marina sin refinar, sal de mesa sin refinar
 fi:raffinoimaton merisuola, puhdistamaton merisuola
-fr:sel marin non raffiné, sel marin non traité, sel marin gris de cuisine, , sel de mer non raffiné
+fr:sel marin non raffiné, sel marin non traité, sel marin gris de cuisine, sel de mer non raffiné
 hu:finomítatlan tengeri só
 it:sale marino integrale
 nl:ongeraffineerd zeezout
@@ -9513,6 +9513,13 @@ wikidata:en:Q390305
 wikipedia:en:https://en.wikipedia.org/wiki/Sodium_iodide
 # ingredient/fr:iodure-de-sodium has 35 products in french @2019-03-13
 
+<en:salt
+en:non-iodised salt
+fr:sel non iodé
+
+<en:non-iodised salt
+en:non-iodised sea salt
+fr:sel de mer non iodé
 
 # IODISED SALT - is #salt mixed with a minute amount of various salts of the element iodine.
 
@@ -28741,7 +28748,7 @@ bg:рехидратиран соев протеин
 de:Rehydriertes Sojaprotein, rehydriertes Sojaproteinisolat, angerührtes Sojaproteinisolat
 es:Proteina de soya rehidratada
 fi:uudelleen hydratoitu soijaproteiini
-fr:protéines de soja réhydratées, protéines végétales de soja réhydratées
+fr:protéines de soja réhydratées, protéines végétales de soja réhydratées, textures de soja réhydratées
 hu:rehidratált szójafehérje
 nl:gerehydrateerd soja-eiwit, gerehydrateerde soja-eiwit
 sv:rehydrerat sojaprotein
@@ -29361,7 +29368,7 @@ fr:beurre de cacao émulsifiant
 <en:cocoa
 en:cocoa paste, cocoa mass, chocolate liquor
 bg:какаова маса, какао маса
-ca:pasta de cacau
+ca:pasta de cacau, massa de cacau
 cs:kakaová hmota
 da:kakaomasse
 de:Kakaomasse
@@ -29457,7 +29464,7 @@ ciqual_food_name:fr:Cacao, non sucré, poudre soluble
 <en:cocoa powder
 en:fat reduced cocoa powder, low-fat cocoa powder, low fat cocoa powder, cocoa powder with low fat content
 bg:обеэмаслено какао на прах
-ca:cacau desgreixat en pols
+ca:cacau desgreixat en pols, cacau en pols reduït en greix
 cs:Kakaový prášek se sníženým obsahem tuku
 da:fedtfattigt kakaopulver, fedtreduceret kakaopulver, skummet kakaopulver
 de:fettarmes Kakaopulver, Kakaopulver stark entölt, fettreduziertes Kakaopulver, Kakaopulver mit reduziertem Fettgehalt
@@ -48846,6 +48853,9 @@ ciqual_food_name:fr:Piment, cru
 en:tabasco chile
 es:chiles tabasco
 
+<en:chili pepper
+fr:piment inca, piments inca
+
 #process:en: en:extract
 #<en:chili pepper
 #en:chili extract, chilli extract
@@ -54724,6 +54734,10 @@ sv:sesamfrön, sesamfrö
 ciqual_food_code:en:15010
 ciqual_food_name:en:Sesame seed
 ciqual_food_name:fr:Sésame, graine
+
+<en:sesame seeds
+en:white sesame seeds
+fr:graine de sésame blanc, graines de sésame blanc
 
 <en:sesame seeds
 en:Husked sesame seed
