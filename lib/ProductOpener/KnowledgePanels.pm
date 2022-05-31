@@ -70,6 +70,7 @@ use ProductOpener::PackagerCodes qw/:all/;
 
 use JSON::PP;
 use Encode;
+use Data::DeepAccess qw(deep_get);
 
 =head1 FUNCTIONS
 
@@ -555,6 +556,18 @@ sub create_ecoscore_panel($$$) {
         create_panel_from_json_template("ecoscore_total", "api/knowledge-panels/environment/ecoscore/total.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);
 	}
+    # Eco-Score is not applicable
+    elsif ((defined $product_ref->{ecoscore_grade}) and ($product_ref->{ecoscore_grade} eq "not-applicable")) {
+        my $panel_data_ref = {};
+        $panel_data_ref->{subtitle} = f_lang_in_lc($target_lc, "f_attribute_ecoscore_not_applicable_description", {
+                category => display_taxonomy_tag_name($target_lc, "categories",
+                    deep_get($product_ref, qw/ecoscore_data ecoscore_not_applicable_for_category/))
+            }
+        );
+        create_panel_from_json_template("ecoscore", "api/knowledge-panels/environment/ecoscore/ecoscore_not_applicable.tt.json",
+            $panel_data_ref, $product_ref, $target_lc, $target_cc);
+    }
+    # Eco-Score is unknown
 	else {
         my $panel_data_ref = {};
         create_panel_from_json_template("ecoscore", "api/knowledge-panels/environment/ecoscore/ecoscore_unknown.tt.json",
@@ -792,8 +805,13 @@ sub create_nutriscore_panel($$$) {
 	
     my $panel_data_ref = data_to_display_nutriscore_and_nutrient_levels($product_ref);
 
-    $panel_data_ref->{title} = lang_in_other_lc($target_lc, "attribute_nutriscore_" . $panel_data_ref->{nutriscore_grade} . "_description_short");
-
+    if ($panel_data_ref->{nutriscore_grade} eq "not-applicable") {
+        $panel_data_ref->{title} = lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_title");
+    }
+    else {
+        $panel_data_ref->{title} = lang_in_other_lc($target_lc, "attribute_nutriscore_" . $panel_data_ref->{nutriscore_grade} . "_description_short");
+    }
+    
     # Nutri-Score panel: score + details
     create_panel_from_json_template("nutriscore", "api/knowledge-panels/health/nutriscore/nutriscore.tt.json",
         $panel_data_ref, $product_ref, $target_lc, $target_cc);

@@ -75,6 +75,9 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
 
+use Data::DeepAccess qw(deep_get);
+
+
 =head1 CONFIGURATION
 
 =head2 Attribute groups and attributes
@@ -463,7 +466,7 @@ sub compute_attribute_nutriscore($$) {
 	my $attribute_ref = initialize_attribute($attribute_id, $target_lc);
 	
 	# Nutri-Score A, B, C, D or E
-	if (defined $product_ref->{nutriscore_data}) {
+	if ((defined $product_ref->{nutriscore_grade}) and ($product_ref->{nutriscore_grade} =~ /^[a-e]$/)) {
 		$attribute_ref->{status} = "known";
 		
 		my $nutriscore_data_ref = $product_ref->{nutriscore_data};
@@ -543,13 +546,17 @@ sub compute_attribute_nutriscore($$) {
 	}
 	
 	# Nutri-Score not-applicable: alcoholic beverages, baby food etc.
-	elsif (has_tag($product_ref,"misc","en:nutriscore-not-applicable")) {
+	elsif (has_tag($product_ref,"nutrition_grades","not-applicable")) {
 		$attribute_ref->{status} = "known";
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/nutriscore-not-applicable.svg";
 		$attribute_ref->{match} = 0;
 		if ($target_lc ne "data") {
-			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_title");		
-			$attribute_ref->{description} = lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_description");
+			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_title");	
+			$attribute_ref->{description} = f_lang_in_lc($target_lc, "f_attribute_nutriscore_not_applicable_description", {
+					category => display_taxonomy_tag_name($target_lc, "categories",
+						deep_get($product_ref, qw/nutriscore_data nutriscore_not_applicable_for_category/))
+				}
+			);
 			$attribute_ref->{description_short} = lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_description_short");		
 		}		
 	}
@@ -656,6 +663,22 @@ sub compute_attribute_ecoscore($$$) {
 		}
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/ecoscore-$grade.svg";
 	}
+	# Eco-Score is not-applicable
+	elsif ((defined $product_ref->{ecoscore_grade}) and ($product_ref->{ecoscore_grade} eq "not-applicable")) {
+		$attribute_ref->{status} = "unknown";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/ecoscore-unknown.svg";
+		$attribute_ref->{match} = 0;		
+		if ($target_lc ne "data") {
+			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_ecoscore_not_applicable_title");	
+			$attribute_ref->{description} = f_lang_in_lc($target_lc, "f_attribute_ecoscore_not_applicable_description", {
+					category => display_taxonomy_tag_name($target_lc, "categories",
+						deep_get($product_ref, qw/ecoscore_data ecoscore_not_applicable_for_category/))
+				}
+			);
+			$attribute_ref->{description_short} = lang_in_other_lc($target_lc, "attribute_ecoscore_not_applicable_description_short");					
+		}		
+	}
+	# Eco-Score is unknown
 	else {
 		$attribute_ref->{status} = "unknown";
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/ecoscore-unknown.svg";
@@ -663,7 +686,7 @@ sub compute_attribute_ecoscore($$$) {
 		if ($target_lc ne "data") {
 			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_ecoscore_unknown_title");		
 			$attribute_ref->{description} = lang_in_other_lc($target_lc, "attribute_ecoscore_unknown_description");
-			$attribute_ref->{description_short} = lang_in_other_lc($target_lc, "attribute_ecoscore_unknown_description_short");		
+			$attribute_ref->{description_short} = lang_in_other_lc($target_lc, "attribute_ecoscore_unknown_description_short");			
 		}
 	}
 	

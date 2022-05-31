@@ -4513,8 +4513,13 @@ msgid "Nutri-Score not-applicable"
 msgstr "Nutri-Score non applicable"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Exempted category"
-msgstr "Catégorie exemptée"
+msgid "Not-applicable for the category"
+msgstr "Non applicable pour la catégorie"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_nutriscore_not_applicable_description"
+msgid "Not-applicable for the category: {category}"
+msgstr "Non applicable pour la catégorie : {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
