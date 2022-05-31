@@ -1032,6 +1032,7 @@ sub create_ingredients_panel($$$) {
 	}
 
     my $panel_data_ref = {
+        ingredients_n => $product_ref->{ingredients_n},
         ingredients_text => $ingredients_text,
         ingredients_text_with_allergens => $ingredients_text_with_allergens,
         ingredients_text_lc => $ingredients_text_lc,

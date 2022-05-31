@@ -3,9 +3,12 @@
     "topics": [
         "health"
     ],
-    "type": "inline",
     "expanded": false,
     "expand_for": "large",
+    "title_element": {
+        "title": "[% f_lang('f_ingredients_with_number',  { 'number' => panel.ingredients_n } ) %]",
+        "icon_url": "[% static_subdomain %]/images/panels/ingredients.svg",
+    },
     "elements": [
         {
             "element_type": "text",
