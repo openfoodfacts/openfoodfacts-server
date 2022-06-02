@@ -3,16 +3,19 @@
     "topics": [
         "health"
     ],
-    "type": "inline",
     "expanded": false,
     "expand_for": "large",
+    "title_element": {
+        "title":"[% panel.title %]",
+        "icon_url": "[% static_subdomain %]/images/icons/dist/ingredients.svg",
+    },
     "elements": [
         {
             "element_type": "text",
             "text_element": {
                 "html": `[% panel.ingredients_text_with_allergens %]`,
                 "lc": "[% panel.ingredients_text_lc %]",
-                "language": "[% panel.ingredients_text_language %]",                
+                "language": "[% panel.ingredients_text_language %]",
                 "edit_field_type": "ingredients_text",
                 "edit_field_id": "ingredients_text_[% panel.ingredients_text_lc %]",
                 "edit_field_value": `[% panel.ingredients_text %]`,

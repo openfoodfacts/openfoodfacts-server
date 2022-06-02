@@ -1031,7 +1031,17 @@ sub create_ingredients_panel($$$) {
 		$ingredients_text_lc = $target_lc;
 	}
 
+    my $title ="";
+    if (!(defined $product_ref->{ingredients_n}) or ($product_ref->{ingredients_n} == 0)) {
+        $title = lang("no_ingredient");
+    } elsif ($product_ref->{ingredients_n} == 1) {
+        $title = lang("one_ingredient");
+    } else {
+        $title = f_lang("f_ingredients_with_number", { number => $product_ref->{ingredients_n} });
+    }
+
     my $panel_data_ref = {
+        title => $title,
         ingredients_text => $ingredients_text,
         ingredients_text_with_allergens => $ingredients_text_with_allergens,
         ingredients_text_lc => $ingredients_text_lc,
