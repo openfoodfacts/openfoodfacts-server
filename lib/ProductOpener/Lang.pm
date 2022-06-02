@@ -243,6 +243,8 @@ If a translation is not available, the function returns English.
 
 =head3 Arguments
 
+ =head4 target language $target_lc
+ 
 =head4 string id $stringid
 
 In the .po translation files, we use the msgctxt field for the string id.
