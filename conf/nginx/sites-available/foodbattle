@@ -14,36 +14,21 @@
 # Default server configuration
 #
 
-
-
 server {
-	server_name preprod.openfoodfacts.org;
-
-	root /home/off/html;
-
-	access_log /home/off-preprod/logs/nginx.access.log;
-	error_log /home/off-preprod/logs/nginx.error.log;
-
-	gzip on;
-	gzip_min_length 1000;
-
-    	ssi on;
-
-	index index.shtml;
-
-	include /etc/nginx/expires-no-json-xml.conf;
+	listen 80;
+	listen [::]:80;
+	server_name www.foodbattle.net;
+	return 301 http://foodbattle.net$request_uri;
 }
+
 
 server {
 	#listen 80 default_server;
-	#listen [::]:80 default_server;
 	listen 80;
+	#listen [::]:80 default_server;
 	listen [::]:80;
 
-	listen 443 http2 ssl;
-	listen [::]:443 http2 ssl;
-
-	server_name *.preprod.openfoodfacts.org preprod.openfoodfacts.eu *.preprod.openfoodfacts.eu;
+	server_name foodbattle.net;
 
 	# SSL configuration
 	#
@@ -54,16 +39,19 @@ server {
 	# Don't use them in a production server!
 	#
 	# include snippets/snakeoil.conf;
-        #listen [::]:443 ssl default_server;
-        #listen [::]:443 ssl;
-        include snippets/ssl.preprod.openfoodfacts.org;
-        include snippets/ssl-params.conf;
 
+	# 13/09/2016: got error "nginx: [emerg] invalid parameter "http2" "
+	#listen 443 ssl http2 default_server;
+	listen 443 ssl http2;
+	#listen [::]:443 ssl http2 default_server;
+	listen [::]:443 ssl http2;
+	include snippets/ssl.foodbattle.net;
+	include snippets/ssl-params.conf;
 
-	root /home/off/html;
+	root /srv2/foodbattle/html;
 
-	access_log /home/off-preprod/logs/nginx.access2.log;
-	error_log /home/off-preprod/logs/nginx.error2.log;
+	access_log /srv2/foodbattle/logs/nginx.foodbattle.access.log;
+	error_log /srv2/foodbattle/logs/nginx.foodbattle.error.log;
 
 	gzip on;
 	gzip_min_length 1000;
@@ -72,45 +60,41 @@ server {
 	# Add index.php to the list if you are using PHP
 	index index.html index.htm index.nginx-debian.html;
 
-	location ~* \.(json|csv)$ {
+	location ~* \.(eot|ttf|woff|woff2)$ {
 		add_header Access-Control-Allow-Origin *;
-	}
-
-	location ~ ^/images/products/ {
-		add_header Link "<http://creativecommons.org/licenses/by-sa/3.0/>; rel='license'; title='CC-BY-SA 3.0'";
 	}
 
 	location ~ ^/(favicon.ico) {
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
-		try_files $uri $uri/ =404;
+		try_files $uri /foodbattle-favicon.ico;
 	}
 
 
-	location ~ ^/(fonts|images|css|js|rss|data|files|resources)/ {
+	location ~ ^/(.well-known|images|js|rss|data|files|resources|foundation)/ {
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ =404;
 	}
 
 	location = /robots.txt {
-		root /home/off-preprod/html-preprod-override;
 		try_files $uri $uri/ =404;
 	}
 
-	location / {
-		proxy_set_header Host $host;
-		proxy_set_header X-Real-IP $remote_addr;
-        	proxy_set_header       X-Forwarded-For $proxy_add_x_forwarded_for;
+        location ~ ^/$ {
+		try_files $uri /foodbattle.html;
+	}
 
-		proxy_pass http://127.0.0.1:8100/cgi/display.pl?;
+	# redirect to .html files
+	location / {
+		try_files $uri $uri.html =404;
 	}
 
 	location /cgi/ {
 		proxy_set_header Host $host;
 		proxy_set_header X-Real-IP $remote_addr;
 		proxy_set_header       X-Forwarded-For $proxy_add_x_forwarded_for;
-		proxy_pass http://127.0.0.1:8100;
+		proxy_pass http://127.0.0.1:8888;
 	}
 
 	# deny access to .htaccess files, if Apache's document root
