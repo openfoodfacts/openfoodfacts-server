@@ -6581,7 +6581,7 @@ el:Φέτα, Τυρί φέτα
 eo:Feta-fromaĝo
 es:Sirene, queso feta
 fa:پنیر فتا
-fr:fromage feta
+fr:feta, fromage feta
 he:פטה
 hu:fetasajt, feta sajt
 hy:Ֆեթա
@@ -9349,7 +9349,7 @@ ca:sal de mar no refinada, sal de mar sense refinar, sal marina sense refinar, s
 de:Unraffiniertes Meersalz
 es:sal de mar no refinada, Sal de mar sin refinar, sal marina sin refinar, sal de mesa sin refinar
 fi:raffinoimaton merisuola, puhdistamaton merisuola
-fr:sel marin non raffiné, sel marin non traité, sel marin gris de cuisine, , sel de mer non raffiné
+fr:sel marin non raffiné, sel marin non traité, sel marin gris de cuisine, sel de mer non raffiné
 hu:finomítatlan tengeri só
 it:sale marino integrale
 nl:ongeraffineerd zeezout
@@ -9513,6 +9513,13 @@ wikidata:en:Q390305
 wikipedia:en:https://en.wikipedia.org/wiki/Sodium_iodide
 # ingredient/fr:iodure-de-sodium has 35 products in french @2019-03-13
 
+<en:salt
+en:non-iodised salt
+fr:sel non iodé
+
+<en:non-iodised salt
+en:non-iodised sea salt
+fr:sel de mer non iodé
 
 # IODISED SALT - is #salt mixed with a minute amount of various salts of the element iodine.
 
@@ -15056,6 +15063,7 @@ es:aceite de colza
 fr:huile de colza, huile végétale de colza, huile colza, graisses végétales de colza, graisses vegetales de colza
 it:olio di colza, olio vegetale di colza
 nl:koolzaadolie, plantaardige koolzaadolie
+pl:olej rzepakowy
 pt:óleo de colza
 wikipedia:en:https://en.wikipedia.org/wiki/Colza_oil
 wikidata:en:Q697248
@@ -22064,7 +22072,7 @@ lt:miežių salyklo ekstraktas
 lv:miežu iesala ekstrakts
 nb:byggmaltekstrakt, maltekstrakt av bygg
 nl:Gerstemoutextract, gerstmoutextract
-pl:Ekstrakt słodu jęczmiennego
+pl:ekstrakt słodu jęczmiennego, ekstrakt słodowy jęczmienny
 pt:extrato de malte de cevada
 ro:extract din malț de orz, extract din malt de orz, extract de malț de orz, extract de malt de orz
 sv:kornmaltextrakt, maltextrakt från korn, kornmaltsextrakt
@@ -28734,6 +28742,7 @@ hu:dehidratált szójafehérje
 
 <en:soy protein
 fr:protéines de soja texturées
+pl:teksturowane białko sojowe
 
 <en:dehydrated soy protein
 en:rehydrated soy protein
@@ -28741,7 +28750,7 @@ bg:рехидратиран соев протеин
 de:Rehydriertes Sojaprotein, rehydriertes Sojaproteinisolat, angerührtes Sojaproteinisolat
 es:Proteina de soya rehidratada
 fi:uudelleen hydratoitu soijaproteiini
-fr:protéines de soja réhydratées, protéines végétales de soja réhydratées
+fr:protéines de soja réhydratées, protéines végétales de soja réhydratées, textures de soja réhydratées
 hu:rehidratált szójafehérje
 nl:gerehydrateerd soja-eiwit, gerehydrateerde soja-eiwit
 sv:rehydrerat sojaprotein
@@ -28756,6 +28765,7 @@ es:Aislado de proteína de soja
 fi:soijaproteiini-isolaatti
 fr:isolat de protéine de soja
 it:Proteine isolate della soia
+pl:izolowane białko sojowe
 ru:изолированный белок сои
 
 <en:soy protein
@@ -29361,7 +29371,7 @@ fr:beurre de cacao émulsifiant
 <en:cocoa
 en:cocoa paste, cocoa mass, chocolate liquor
 bg:какаова маса, какао маса
-ca:pasta de cacau
+ca:pasta de cacau, massa de cacau
 cs:kakaová hmota
 da:kakaomasse
 de:Kakaomasse
@@ -29457,7 +29467,7 @@ ciqual_food_name:fr:Cacao, non sucré, poudre soluble
 <en:cocoa powder
 en:fat reduced cocoa powder, low-fat cocoa powder, low fat cocoa powder, cocoa powder with low fat content
 bg:обеэмаслено какао на прах
-ca:cacau desgreixat en pols
+ca:cacau desgreixat en pols, cacau en pols reduït en greix
 cs:Kakaový prášek se sníženým obsahem tuku
 da:fedtfattigt kakaopulver, fedtreduceret kakaopulver, skummet kakaopulver
 de:fettarmes Kakaopulver, Kakaopulver stark entölt, fettreduziertes Kakaopulver, Kakaopulver mit reduziertem Fettgehalt
@@ -43829,6 +43839,7 @@ fi:kuivattu valkosipuli
 it:aglio essicato, aglio secco
 nl:gedroogde knoflook
 nn:tørket hvitløk
+pl:suszony czosnek
 sv:torkad vitlök, torkad hvidlök
 # fr:ailséché contains 35 products in 8 languages @2018-10-22
 ciqual_food_code:en:11023
@@ -45584,6 +45595,8 @@ ciqual_food_name:fr:Carotte, crue
 
 <en:carrot
 en:dried carrot
+fr:carotte séchée, carottes séchées
+pl:suszona marchewka
 ru:морковь сушёная
 
 <en:carrot
@@ -46988,6 +47001,7 @@ fr:oignon frit, oignons frits
 hu:Sült hagyma
 it:Cipolla fritta
 nl:gefrituurde ui, gefrituurde uien
+pl:cebula smażona
 pt:cebola frita, cebolas fritas
 # ingredient/fr:oignon-frit has 347 products @2018-12-6
 
@@ -48846,6 +48860,9 @@ ciqual_food_name:fr:Piment, cru
 en:tabasco chile
 es:chiles tabasco
 
+<en:chili pepper
+fr:piment inca, piments inca
+
 #process:en: en:extract
 #<en:chili pepper
 #en:chili extract, chilli extract
@@ -49418,6 +49435,7 @@ en:dried tomatoes, Dried tomato
 ja:ドライトマト
 #nl:gedroogde tomaat
 #nn:tørket tomat
+#pl:suszony pomidor
 #ro:roșii uscate
 #sv:torkad tomat
 ciqual_food_code:en:20189
@@ -50342,8 +50360,8 @@ en:dried courgette
 de:getrocknete Zucchini
 es:calabacin deshidritado
 fi:kuivattu kesäkurpitsa
-fr:courgettes séchées
-
+fr:courgette séchée, courgettes séchées
+pl:suszona cukinia
 
 <en:root vegetable
 en:Rapeseed, rape, oilseed rape, rape seed
@@ -54726,6 +54744,10 @@ ciqual_food_name:en:Sesame seed
 ciqual_food_name:fr:Sésame, graine
 
 <en:sesame seeds
+en:white sesame seeds
+fr:graine de sésame blanc, graines de sésame blanc
+
+<en:sesame seeds
 en:Husked sesame seed
 fr:graine de sésame décortiquée
 ciqual_food_code:en:15035
@@ -58894,6 +58916,7 @@ ja:オレガノ
 lt:raudonėlis, raudonėlių
 lv:raudene
 nl:oregano
+pl:oregano
 pt:orégãos
 ru:орегано
 sl:origano
