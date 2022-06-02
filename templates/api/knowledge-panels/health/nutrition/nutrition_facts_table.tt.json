@@ -7,9 +7,9 @@
     "expand_for": "large",
     "title_element": {
         "title": "[% lang('nutrition_data_table') %]",
-        "icon_url": "[% static_subdomain %]/images/panels/nutrition.svg",
+        "icon_url": "[% static_subdomain %]/images/icons/dist/nutrition.svg",
     },
-    "elements": [   
+    "elements": [
         {
             "element_type": "table",
             "table_element": {
