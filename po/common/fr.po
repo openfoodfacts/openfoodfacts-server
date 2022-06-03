@@ -4513,8 +4513,13 @@ msgid "Nutri-Score not-applicable"
 msgstr "Nutri-Score non applicable"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Exempted category"
-msgstr "Catégorie exemptée"
+msgid "Not-applicable for the category"
+msgstr "Non applicable pour la catégorie"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_nutriscore_not_applicable_description"
+msgid "Not-applicable for the category: {category}"
+msgstr "Non applicable pour la catégorie : {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -5221,6 +5226,23 @@ msgstr "Supprimer toutes les valeurs nutritives"
 msgctxt "delete_user_process"
 msgid "User deleted."
 msgstr "Utilisateur supprimé."
+
+msgctxt "attribute_ecoscore_not_applicable_title"
+msgid "Eco-Score not yet applicable"
+msgstr "Eco-Score pas encore applicable"
+
+msgctxt "attribute_ecoscore_not_applicable_description_short"
+msgid "Not yet applicable for the category"
+msgstr "Pas encore applicable pour la catégorie"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_ecoscore_not_applicable_description"
+msgid "Not yet applicable for the category: {category}"
+msgstr "Pas encore applicable pour la catégorie : {category}"
+
+msgctxt "ecoscore_not_applicable_coming_soon"
+msgid "The Eco-Score is not yet applicable for this category, but we are working on adding support for it."
+msgstr "L'Eco-Score n'est pas encore applicable pour cette catégorie, mais nous travaillons pour l'ajouter."
 
 msgctxt "attribute_ecoscore_unknown_title"
 msgid "Eco-Score not computed"

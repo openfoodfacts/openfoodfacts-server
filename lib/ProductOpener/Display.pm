@@ -8863,7 +8863,11 @@ sub data_to_display_nutriscore_and_nutrient_levels($) {
 				push @nutriscore_warnings, lang("nutriscore_not_applicable");
 				$result_data_ref->{nutriscore_grade} = "not-applicable";
 				$result_data_ref->{nutriscore_unknown_reason} = "not_applicable";
-				$result_data_ref->{nutriscore_unknown_reason_short} = lang("nutriscore_not_applicable_short");
+				$result_data_ref->{nutriscore_unknown_reason_short} = f_lang("f_attribute_nutriscore_not_applicable_description", {
+					category => display_taxonomy_tag_name($lc, "categories",
+						deep_get($product_ref, qw/nutriscore_data nutriscore_not_applicable_for_category/))
+				}
+			);
 		}
 		else {
 
@@ -8895,7 +8899,8 @@ sub data_to_display_nutriscore_and_nutrient_levels($) {
 		$result_data_ref->{nutriscore_warnings} = \@nutriscore_warnings;
 	}
 
-	if (defined $product_ref->{nutriscore_data}) {
+	# Display the details of the computation of the Nutri-Score if we computed one
+	if ((defined $product_ref->{nutriscore_grade}) and ($product_ref->{nutriscore_grade} =~ /^[a-e]$/)) {
 		$result_data_ref->{nutriscore_details} = display_nutriscore_calculation_details($product_ref->{nutriscore_data});
 	}
 

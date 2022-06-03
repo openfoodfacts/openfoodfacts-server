@@ -1572,7 +1572,8 @@ sub compute_nutrition_score($) {
 				if (has_tag($product_ref, "categories", $category_id)) {
 					$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
 					add_tag($product_ref,"misc","en:nutriscore-not-applicable");
-					$product_ref->{nutrition_score_debug} = "no nutriscore for category $category_id" . " - ";;
+					$product_ref->{nutrition_score_debug} = "no nutriscore for category $category_id" . " - ";
+					$product_ref->{nutriscore_data} = {nutriscore_not_applicable_for_category => $category_id};
 					last;
 				}
 			}
