@@ -20,7 +20,7 @@
 
 =head1 NAME
 
-ProductOpener::Data - methods to fetch "data collections" from the MongoDB database;
+ProductOpener::Data - methods to create or get the mongoDB client and fetch "data collections" from the MongoDB database;
 
 =head1 DESCRIPTION
 
