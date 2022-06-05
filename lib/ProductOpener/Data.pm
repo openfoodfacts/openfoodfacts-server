@@ -18,6 +18,17 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=head1 NAME
+
+ProductOpener::Data - methods to fetch "data collections" from the MongoDB database;
+
+=head1 DESCRIPTION
+
+The module implements the methods required to fetch certain collections from the MongoDB database.
+The functions used in this module are responsible for executing queries, to get connection to database and also to select the collection required.
+
+=cut
+
 package ProductOpener::Data;
 
 use utf8;
@@ -56,6 +67,22 @@ use Action::Retry;
 my $client;
 my $action = Action::CircuitBreaker->new();
 
+=head1 FUNCTIONS
+
+=head2 execute_query()
+
+C<execute_query()> executes a query on the database.
+
+=head3 Arguments
+
+Takes in a subroutine with a return type T.
+
+=head3 Return values
+
+The return value is of type T where T is the return type of the passed subroutine.
+
+=cut
+
 sub execute_query {
 	my ($sub) = @_;
 
@@ -68,10 +95,41 @@ sub execute_query {
 	)->run();
 }
 
+=head2 get_products_collection()
+
+C<get_products_collection()> establishes a connection to MongoDB and uses timeout as an arugument. This then selects a collection
+from within the database.
+
+=head3 Arguments
+
+This method takes in aruguments of integer type (user defined timeout in milliseconds).
+It is optional for this subroutine to have an argument.
+
+=head3 Return values
+
+Returns a mongoDB collection object.
+
+=cut
+
 sub get_products_collection {
 	my ($timeout) = @_;
 	return get_collection($mongodb, 'products', $timeout);
 }
+
+=head2 get_products_tags_collection()
+
+C<get_products_collection()> This selects the product tag collection from within the database.
+
+=head3 Arguments
+
+This method takes in aruguments of integer type (user defined timeout in milliseconds).
+It is optional for this subroutine to have an argument.
+
+=head3 Return values
+
+Returns a mongoDB collection.
+
+=cut
 
 sub get_products_tags_collection {
 	my ($timeout) = @_;
@@ -97,6 +155,21 @@ sub get_database {
 	my $database = $_[0] // $mongodb;
 	return get_mongodb_client()->get_database($database);
 }
+
+=head2 get_mongodb_client()
+
+C<get_mongodb_client()> gets the MongoDB client. It first checks if the client already exists and if not,
+it creates and configures a new MongoDB::MongoClient.
+
+=head3 Arguments
+
+This method takes in aruguments of integer type (user defined timeout in milliseconds). It is optional for this subroutine to have an argument.
+
+=head3 Return values
+
+Returns $client of type MongoDB::MongoClient object.
+
+=cut
 
 sub get_mongodb_client() {
 	# Note that for web pages, $client will be cached in mod_perl,
