@@ -72,6 +72,9 @@ is( normalize_serving_size("42\N{U+516C}\N{U+5347}"), 42000 );
 is( unit_to_g(42, "\N{U+516C}\N{U+5347}"), 42000 );
 is( g_to_unit(42000, "\N{U+516C}\N{U+5347}"), 42 );
 
+#test for a bug
+is( normalize_serving_size("100grams"), 100 );
+
 # Russian units
 
 is( unit_to_g(1, "г"), 1 );
