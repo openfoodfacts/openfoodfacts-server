@@ -1513,6 +1513,18 @@ sub compute_completeness_and_missing_tags($$$) {
 For a specific change, analyze change identifiers (comment, user agent, userid etc.)
 to determine if the change was done through an app, the OFF userid, or an app specific UUID
 
+=head3 Parameters
+
+=head4 $change_ref reference to a change record
+
+=head3 Return value
+
+The function returns by order of preerence:
+- a real user userid if we have an userid which is not the userid of an app
+- an appid + app uuid (e.g. some-app.Z626FZF4RTFSG6)
+- an app userid if the app did not provide an app uuid
+- openfoodfacts-contributors
+
 =cut
 
 sub get_change_userid_or_uuid($) {
@@ -1525,22 +1537,23 @@ sub get_change_userid_or_uuid($) {
 	my $app_userid_prefix;
 	my $uuid;
 
-	# Is it an app that sent a app_name?
-	if (defined $change_ref->{app_name}) {
-		$app = get_string_id_for_lang("no_language", $change_ref->{app_name});
-	}
-	# or is the userid specific to an app?
-	elsif (defined $userid) {
+	# Is the userid the userid of an app?
+	if (defined $userid) {
 		$app = deep_get(\%options, "apps_userids", $userid);
+		if (defined $app) {
+			# If the userid is an an account for an app, unset the userid,
+			# so that it can be replaced by the app + an app uuid if provided
+			$userid = undef;
+		}
 	}
 
-	# If the userid is an an account for an app, unset the userid,
-	# so that it can be replaced by the app + an app uuid if provided
-	if (defined $app) {
-		$userid = undef;
+	# Is it an app that sent an app_name?
+	if ((not defined $app) and (defined $change_ref->{app_name})) {
+		$app = get_string_id_for_lang("no_language", $change_ref->{app_name});
 	}
+
 	# Set the app field for the Open Food Facts app
-	elsif ((defined $options{official_app_comment}) and ($change_ref->{comment} =~ /$options{official_app_comment}/i)) {
+	if ((not defined $app) and (defined $options{official_app_comment}) and ($change_ref->{comment} =~ /$options{official_app_comment}/i)) {
 		$app = $options{official_app_id};
 	}
 
