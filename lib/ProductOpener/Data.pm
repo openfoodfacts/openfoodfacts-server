@@ -69,17 +69,27 @@ my $action = Action::CircuitBreaker->new();
 
 =head1 FUNCTIONS
 
-=head2 execute_query()
+=head2 execute_query( $subroutine )
 
 C<execute_query()> executes a query on the database.
 
 =head3 Arguments
 
-Takes in a subroutine with a return type T.
+=head4 subroutine $sub
 
-=head3 Return values
+A query subroutine that performs a query against the database.
 
-The return value is of type T where T is the return type of the passed subroutine.
+=head3 Return value
+
+The function returns the return value of the query subroutine $sub passed as a parameter to it.
+
+=head3 Synopsys
+
+eval {
+	$result = execute_query(sub {
+		return get_products_collection()->query({})->sort({code => 1});
+	});
+}
 
 =cut
 
