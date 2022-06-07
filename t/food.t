@@ -72,7 +72,7 @@ is( normalize_serving_size("42\N{U+516C}\N{U+5347}"), 42000 );
 is( unit_to_g(42, "\N{U+516C}\N{U+5347}"), 42000 );
 is( g_to_unit(42000, "\N{U+516C}\N{U+5347}"), 42 );
 
-#test for a bug
+# Test a bug report: https://github.com/openfoodfacts/openfoodfacts-server/issues/6843
 is( normalize_serving_size("100grams"), 100 );
 
 # Russian units
