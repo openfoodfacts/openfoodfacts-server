@@ -5,9 +5,11 @@
     ],
     "expanded": false,
     "expand_for": "large",
+    "evaluation": "unknown",
     "title_element": {
         "title":"[% panel.title %]",
         "icon_url": "[% static_subdomain %]/images/icons/dist/ingredients.svg",
+        "icon_color_from_evaluation": true,
     },
     "elements": [
         {
