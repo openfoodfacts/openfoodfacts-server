@@ -14217,7 +14217,7 @@ ru:заменитель масла какао, заменитель какао �
 
 # <en:palm
 <en:palm oil and fat
-en:palm oil, palmoil, sustainable palm fruit oil
+en:palm oil, palmoil, sustainable palm fruit oil, palm vegetable oil
 ar:زيت النخيل
 be:Пальмавы алей
 bg:Палмово масло
@@ -15781,7 +15781,7 @@ nl:olie van biologisch geteelde zaden van de vlasplant
 # description:en:SUNFLOWER OIL is the non-volatile oil pressed from the seeds of sunflower (Helianthus annuus).
 
 <en:vegetable oil
-en:sunflower oil, sunflower seed oil
+en:sunflower oil, sunflower seed oil, sunflower vegetable oil
 ar:زيت زهرة الشمس
 az:Günəbaxan yağı
 be:Сланечнікавы алей
@@ -24650,7 +24650,7 @@ sv:kokosmjöl
 # comment:en:On ingredient lists it is known as corn (english/american issue?). Some translations refer to the latin name of the plant.
 
 <en:cereal
-en:corn, maize
+en:corn, maize, corn cereal
 af:Mielie
 am:በቆሎ
 an:Zea mays
@@ -24880,6 +24880,13 @@ no:gul mais
 pt:milho branco
 sv:vit majs
 tr:sari misir
+
+<en:corn
+en:sweet corn
+de:Süßmais, Zuckermais
+es:maíz dulce, maiz dulce
+fr:maïs doux, mais doux
+nl:suikermaïs
 
 <en:corn
 en:corn fiber
@@ -26788,7 +26795,7 @@ nl:Arenga bossuiker
 # description:en:Since the 6th century BC, cane sugar producers have crushed the harvested vegetable material from sugarcane in order to collect and filter the juice. They then treat the liquid (often with lime (calcium oxide)) to remove impurities and then neutralize it. Boiling the juice then allows the sediment to settle to the bottom for dredging out, while the scum rises to the surface for skimming off.
 
 <en:sugar
-en:cane sugar, pure cane sugar
+en:cane sugar, pure cane sugar, natural cane sugar
 bg:захар от захарна тръстика, тръстикова захар
 ca:Sucre de canya
 cs:třtinový cukr
@@ -29580,7 +29587,7 @@ fr:fèves de cacao bio
 nl:bio cacaobonen
 
 <en:cocoa bean
-en:cocoa bean chips
+en:cocoa nibs, cocoa bean chips
 de:kakaobohnenchips
 es:pepitas de cacao, trozos de habas de cacao, trocitos de pepitas de cacao
 fi:Kaakaopapusipsit
@@ -29826,7 +29833,7 @@ carbon_footprint_fr_foodges_value:fr:4.7
 # usage:en:chocolate powder (sugar, cocoa powder)
 
 <en:chocolate
-en:chocolate pieces, chocolate chips,semisweet Chocolate Chips
+en:chocolate chunk, chocolate chunks, chocolate pieces, chocolate chips,semisweet Chocolate Chips
 bg:парченца шоколад, шоколадов чипс
 ca:xips de xocolata
 da:Chokoladestykker, stykker af chokolade
