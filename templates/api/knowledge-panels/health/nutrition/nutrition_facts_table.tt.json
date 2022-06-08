@@ -14,6 +14,7 @@
             "element_type": "table",
             "table_element": {
                 "id": "nutrition_facts_table",
+                "title": "[% lang('nutrition_data_table') %]",
                 // Create a structure to check if we already have seen a column for a given scope
                 // so that we can mark the first one as the default column for the group
                 [% SET scopes = {} %]              
