@@ -220,7 +220,7 @@
                "id" : "vegan",
                "match" : 100,
                "name" : "Végétalien",
-               "panel_id" : "ingredients_analysis_en-vegan",
+               "panel_id" : "ingredients_analysis_en:vegan",
                "status" : "known",
                "title" : "Végétalien"
             },
@@ -230,7 +230,7 @@
                "id" : "vegetarian",
                "match" : 100,
                "name" : "Végétarien",
-               "panel_id" : "ingredients_analysis_en-vegetarian",
+               "panel_id" : "ingredients_analysis_en:vegetarian",
                "status" : "known",
                "title" : "Végétarien"
             },
@@ -240,7 +240,7 @@
                "id" : "palm_oil_free",
                "match" : 0,
                "name" : "Sans huile de palme",
-               "panel_id" : "ingredients_analysis_en-palm-oil-free",
+               "panel_id" : "ingredients_analysis_en:palm-oil",
                "status" : "known",
                "title" : "Huile de palme"
             }
@@ -652,6 +652,15 @@
    "misc_tags" : [
       "en:nutriscore-not-computed",
       "en:nutriscore-missing-category",
+      "en:nutrition-not-enough-data-to-compute-nutrition-score",
+      "en:nutriscore-missing-nutrition-data",
+      "en:nutriscore-missing-nutrition-data-energy",
+      "en:nutriscore-missing-nutrition-data-fat",
+      "en:nutriscore-missing-nutrition-data-saturated-fat",
+      "en:nutriscore-missing-nutrition-data-sugars",
+      "en:nutriscore-missing-nutrition-data-sodium",
+      "en:nutriscore-missing-nutrition-data-proteins",
+      "en:nutrition-no-fiber",
       "en:ecoscore-extended-data-not-computed",
       "en:ecoscore-not-computed"
    ],
@@ -671,7 +680,8 @@
       "unknown"
    ],
    "nutrition_score_beverage" : 0,
-   "nutrition_score_debug" : "no score when the product does not have a category",
+   "nutrition_score_debug" : "no score when the product does not have a category - missing energy - missing fat - missing saturated-fat - missing sugars - missing sodium - missing proteins",
+   "nutrition_score_warning_no_fiber" : 1,
    "other_nutritional_substances_tags" : [],
    "packagings" : [],
    "pnns_groups_1" : "unknown",

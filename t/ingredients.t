@@ -34,7 +34,7 @@ my $resultsdir;
 
 GetOptions ("results=s"   => \$resultsdir)
   or die("Error in command line arguments.\n\n" . $usage);
-  
+
 if ((defined $resultsdir) and (! -e $resultsdir)) {
 	mkdir($resultsdir, 0755) or die("Could not create $resultsdir directory: $!\n");
 }
@@ -42,23 +42,23 @@ if ((defined $resultsdir) and (! -e $resultsdir)) {
 my @tests = (
 
 	# FR
-	
+
 	[
 		'fr-chocolate-cake',
 		{
 			lc => "fr",
 			ingredients_text => "farine (12%), chocolat (beurre de cacao (15%), sucre [10%], protéines de lait, oeuf 1%) - émulsifiants : E463, E432 et E472 - correcteurs d'acidité : E322/E333 E474-E475, acidifiant (acide citrique, acide phosphorique) - sel"
 		}
-	],		
-		
+	],
+
 	[
 		'fr-palm-kernel-fat',
 		{
 			lc => "fr",
 			ingredients_text => "graisse de palmiste"
 		}
-	],		
-	
+	],
+
 	[
 		'fr-marmelade',
 		{
@@ -75,7 +75,14 @@ my @tests = (
 			ingredients_text => "Natural orange flavor, Lemon flavouring"
 		}
 	],
-
+    # test synonyms for emulsifier/emulsifying - also checking if synonyms are case sensitive
+	[
+		'en-emulsifier-synonyms',
+		{
+			lc => "en",
+			ingredients_text => "Emulsifying (INS 471, INS 477) & Stabilizing Agents (INS 412, INS 410)"
+		}
+	],
 	# FR * label
 	[
 		"fr-starred-label",
@@ -101,7 +108,7 @@ my @tests = (
 			lc => "fr",
 			ingredients_text => "Fraise 12,3% ; Orange 6.5%, Pomme (3,5%)",
 		}
-	],		
+	],
 
 	# FR origins labels
 	[
@@ -120,7 +127,7 @@ my @tests = (
 			ingredients_text => "80% jus de pomme biologique, 20% de coing biologique, sel marin, 98% chlorure de sodium (France, Italie)",
 		}
 	],
-	
+
 	[
 		"fr-percents-origins-2",
 		{
@@ -136,7 +143,7 @@ my @tests = (
 			lc => "fr",
 			ingredients_text => "mono - et diglycérides d'acides gras d'origine végétale, huile d'origine végétale, gélatine (origine végétale)",
 		}
-	],		
+	],
 
 	# from vegetal origin
 	[
@@ -145,7 +152,7 @@ my @tests = (
 			lc => "en",
 			ingredients_text => "Gelatin (vegetal), Charcoal (not from animals), ferments (from plants), non-animal rennet, flavours (derived from plants)",
 		}
-	],	
+	],
 
 	# FR labels
 	[
@@ -154,20 +161,20 @@ my @tests = (
 			lc => "fr",
 			ingredients_text => "jus d'orange (sans conservateur), saumon (msc), sans gluten",
 		}
-	],		
+	],
 
 	# Processing
-	
+
 	[
 		"fr-processing-multi",
 		 {
 			lc => "fr",
 			ingredients_text => "tomates pelées cuites, rondelle de citron, dés de courgette, lait cru, aubergines crues, jambon cru en tranches",
 		}
-	],		
+	],
 
 	# Bugs #3827, #3706, #3826 - truncated purée
-	
+
 	[
 		"fr-truncated-puree",
 		{
@@ -175,10 +182,10 @@ my @tests = (
 			ingredients_text =>
 				"19% purée de tomate, 90% boeuf, 100% pur jus de fruit, 45% de matière grasses",
 		}
-	],		
+	],
 
 	# FI additives, percent
-	
+
 	[
 		"fi-additives-percents",
 		{
@@ -188,7 +195,7 @@ my @tests = (
 	],
 
 	# FI percents
-	
+
 	[
 		"fi-percents",
 		{
@@ -206,7 +213,7 @@ my @tests = (
 			ingredients_text => "hyytelöimisaine (pektiinit)",
 		}
 	],
-		
+
 	[
 		"fi-origins",
 		{
@@ -214,14 +221,14 @@ my @tests = (
 		ingredients_text => "Mansikka alkuperä Suomi, Mustaherukka (alkuperä Etelä-Afrikka), Vadelma (alkuperä : Ruotsi), Appelsiini (luomu), kaakao ja kaakaovoi (reilu kauppa)",
 	}
 	],
-	
+
 	[
 		"fi-additives-origins",
 		{
 			lc => "fi",
 			ingredients_text => "emulgointiaine : auringonkukkalesitiini, aromi)(EU), vehnäjauho 33% (Ranska), sokeri",
 		}
-	],		
+	],
 
 	# FI labels
 	[
@@ -267,7 +274,7 @@ my @tests = (
 			ingredients_text => "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,0,1,2,3,4,5,6,7,8,9,10,100,1000,vt,leaf,something(bio),somethingelse(u)",
 		}
 	],
-	
+
 	# Origins with regions
 	[
 		"en-origins",
@@ -306,7 +313,7 @@ my @tests = (
 			ingredients_text => "emmental (Allemagne, France, Pays-Bas, contient lait)",
 		}
 	],
-	
+
 	# ES percent, too many loops
 
 	[
@@ -316,9 +323,9 @@ my @tests = (
 			ingredients_text => "Tomate, pimiento (12%), atún (10%), aceite de oliva virgen extra (4%), huevo (3%), cebolla (3%), azúcar, almidón de maíz, sal y acidulante: ácido cítrico.",
 		}
 	],
-	
+
 	# Ingredient that is also an existing label - https://github.com/openfoodfacts/openfoodfacts-server/issues/4907
-	
+
 	[
 		"fr-huile-de-palme-certifiee-durable",
 		{
@@ -326,7 +333,7 @@ my @tests = (
 			ingredients_text => "huiles végétales non hydrogénées (huile de palme certifiée durable, huile de colza)",
 		},
 	],
-	
+
 	# Russian oil parsing
 	[
 		"ru-russian-oil",
@@ -418,25 +425,25 @@ foreach my $test_ref (@tests) {
 
 	my $testid = $test_ref->[0];
 	my $product_ref = $test_ref->[1];
-	
+
 	# Run the test
 
 	if (defined $product_ref->{labels}) {
 		compute_field_tags($product_ref, $product_ref->{lc}, "labels");
 	}
-	
+
 	extract_ingredients_from_text($product_ref);
-	
+
 	# Save the result
-	
+
 	if (defined $resultsdir) {
 		open (my $result, ">:encoding(UTF-8)", "$resultsdir/$testid.json") or die("Could not create $resultsdir/$testid.json: $!\n");
 		print $result $json->pretty->encode($product_ref);
 		close ($result);
 	}
-	
+
 	# Compare the result with the expected result
-	
+
 	if (open (my $expected_result, "<:encoding(UTF-8)", "$expected_dir/$testdir/$testid.json")) {
 
 		local $/; #Enable 'slurp' mode

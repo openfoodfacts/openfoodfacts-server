@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: bg\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-04-17 17:40\n"
+"PO-Revision-Date: 2022-05-27 19:05\n"
 "Language-Team: Bulgarian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -122,9 +122,9 @@ msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
 msgstr "Моля, въведете името на вашата организация (име на фирма или марка)."
 
-msgctxt "this_is_a_pro_account_for_org"
-msgid "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
-msgstr "Този акаунт е професионален акаунт, свързан с производител или марка %s. Имате достъп до Платформата за производители."
+msgctxt "f_this_is_a_pro_account_for_org"
+msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
+msgstr ""
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -681,6 +681,14 @@ msgstr "Невалиден потребител."
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "Потребителското име трябва да съдържа само нецентрирани букви, цифри и тирета."
+
+msgctxt "error_username_too_long"
+msgid "The user name is too long (maximum 20 characters)."
+msgstr "Потребителското име е твърде дълго (максимум 20 знака)."
+
+msgctxt "error_name_too_long"
+msgid "The name is too long (maximum 60 characters)."
+msgstr "Името е твърде дълго (максимум 60 знака)."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -1468,7 +1476,7 @@ msgstr "Хранителни стойности"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
-msgstr ""
+msgstr "Средни хранителни стойности за %d продукта от категория %s, за които са известни хранителните стойности (от %d продукта)."
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
@@ -1492,7 +1500,7 @@ msgstr ""
 
 msgctxt "nutrition_data_per_10"
 msgid "10th centile"
-msgstr ""
+msgstr "10-ти персентил"
 
 msgctxt "nutrition_data_per_100g"
 msgid "for 100 g / 100 ml"
@@ -1500,7 +1508,7 @@ msgstr "за 100 г / 100 мл"
 
 msgctxt "nutrition_data_per_5"
 msgid "5<sup>th</sup> centile"
-msgstr ""
+msgstr "5<sup>ти</sup>персентил"
 
 msgctxt "nutrition_data_per_50"
 msgid "Median"
@@ -1508,11 +1516,11 @@ msgstr "Средно"
 
 msgctxt "nutrition_data_per_90"
 msgid "90th centile"
-msgstr ""
+msgstr "90-ти персентил"
 
 msgctxt "nutrition_data_per_95"
 msgid "95<sup>th</sup> centile"
-msgstr ""
+msgstr "95<sup>ти</sup>персентил"
 
 msgctxt "nutrition_data_per_max"
 msgid "Maximum"
@@ -1902,7 +1910,7 @@ msgstr "Продукти"
 
 msgctxt "products_with_nutriments"
 msgid "with nutrition facts"
-msgstr ""
+msgstr "с хранителни стойности"
 
 msgctxt "products_you_edited"
 msgid "Products you added or edited"
@@ -1978,11 +1986,11 @@ msgstr "Здравей <NAME>,\n\n"
 
 msgctxt "reset_password_email_subject"
 msgid "Reset of your password on <<site_name>>"
-msgstr ""
+msgstr "Нулиране на паролата ти на <<site_name>>"
 
 msgctxt "reset_password_reset"
 msgid "Your password has been changed. You can now log-in with this password."
-msgstr ""
+msgstr "Паролата ти бе променена. Вече можеш да влизаш с тази парола."
 
 msgctxt "reset_password_reset_msg"
 msgid "Enter a new password."
@@ -2151,7 +2159,7 @@ msgstr "Постоянна връзка към тези резултати, за
 
 msgctxt "search_list_choice"
 msgid "Results in a list of products"
-msgstr ""
+msgstr "Резултати в списък от продукти"
 
 msgctxt "search_map"
 msgid "Map"
@@ -2251,7 +2259,7 @@ msgstr "Търси продукт, марка, съставка, храните�
 
 msgctxt "search_title_graph"
 msgid "Results graph"
-msgstr ""
+msgstr "Графика на резултатите"
 
 msgctxt "search_title_map"
 msgid "Results map"
@@ -2327,7 +2335,7 @@ msgstr "Показване на подробна статистика"
 
 msgctxt "show_category_stats_details"
 msgid "standard deviation, minimum, maximum, 10th and 90th percentiles"
-msgstr ""
+msgstr "стандартно отклонение, минимум, максимум, 10-ти и 90-ти персентил"
 
 msgctxt "signin_before_submit"
 msgid "If you already have an account on <SITE>, please sign-in before filling this form."
@@ -2359,11 +2367,11 @@ msgstr "Завършеност"
 
 msgctxt "sort_created_t"
 msgid "Add date"
-msgstr "Добави дата"
+msgstr "Дата на добавяне"
 
 msgctxt "sort_modified_t"
 msgid "Edit date"
-msgstr "Редактиране на дата"
+msgstr "Дата на редактиране"
 
 msgctxt "sort_popularity"
 msgid "Popularity"
@@ -3001,7 +3009,7 @@ msgstr "Нетно количество"
 
 msgctxt "drained_weight"
 msgid "Drained weight"
-msgstr ""
+msgstr "Изцедено тегло"
 
 msgctxt "volume"
 msgid "Volume"
@@ -3125,15 +3133,15 @@ msgstr "Изтегли приложението"
 
 msgctxt "get_the_app_android"
 msgid "Get the Android app"
-msgstr ""
+msgstr "Инсталирай приложението за Android"
 
 msgctxt "get_the_app_iphone"
 msgid "Get the iPhone app"
-msgstr ""
+msgstr "Инсталирай приложението за iPhone"
 
 msgctxt "get_the_app_ipad"
 msgid "Get the iPad app"
-msgstr ""
+msgstr "Инсталирай приложението за iPad"
 
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
@@ -3333,7 +3341,7 @@ msgstr ""
 
 msgctxt "fields_group_identification"
 msgid "Product identification"
-msgstr ""
+msgstr "Идентификация на продукта"
 
 msgctxt "fields_group_origins"
 msgid "Origins"
@@ -3365,15 +3373,15 @@ msgstr ""
 
 msgctxt "image_ingredients_url"
 msgid "Link to ingredients list photo"
-msgstr ""
+msgstr "Връзка към снимката на списъка на съставките"
 
 msgctxt "image_nutrition_url"
 msgid "Link to nutrition facts table photo"
-msgstr ""
+msgstr "Връзка към снимката на таблицата с хранителните стойности"
 
 msgctxt "image_other_url"
 msgid "Link to other product photo"
-msgstr ""
+msgstr "Влъзка към друга снимка на продукта"
 
 msgctxt "labels_specific"
 msgid "Specific label"
@@ -3752,7 +3760,7 @@ msgstr ""
 
 msgctxt "import_file_result_products"
 msgid "List of products added or modified"
-msgstr ""
+msgstr "Списък с добавени или променени продукти"
 
 msgctxt "imports_p"
 msgid "imports"
@@ -4269,11 +4277,11 @@ msgstr "Имаме нужда от твоята помощ!"
 
 msgctxt "you_can_help_improve_ingredients_analysis"
 msgid "You can help us recognize more ingredients and better analyze the list of ingredients for this product and others by:"
-msgstr ""
+msgstr "Можеш да ни помогнеш да разпознаваме повече съставки и да анализираме по-добре списъка със съставки за този продукт и други, като:"
 
 msgctxt "help_improve_ingredients_analysis_1"
 msgid "Edit this product page to correct spelling mistakes in the ingredients list, and/or to remove ingredients in other languages and sentences that are not related to the ingredients."
-msgstr ""
+msgstr "Редактирай тази продуктова страница, за да коригираш правописни грешки в списъка на съставките и/или да премахнеш съставки на други езици и изречения, които не са свързани със съставките."
 
 msgctxt "help_improve_ingredients_analysis_2"
 msgid "Add new entries, synonyms or translations to our multilingual lists of ingredients, ingredient processing methods, and labels."
@@ -4360,7 +4368,7 @@ msgstr ""
 
 msgctxt "origin_import_note"
 msgid "Text or sentences that indicate the origin of the product and/or its ingredients."
-msgstr ""
+msgstr "Текст или изречения, които показват произхода на продукта и/или неговите съставки."
 
 msgctxt "nutriscore_grade_producer_note"
 msgid "Nutri-Score grade from A to E displayed on the product label"
@@ -4481,7 +4489,7 @@ msgstr "Добро хранително качество (Nutri-Score)"
 
 msgctxt "attribute_nutriscore_setting_note"
 msgid "The Nutri-Score is computed and can be taken into account for all products, even if is not displayed on the packaging."
-msgstr ""
+msgstr "Nutri-Score се изчислява и може да се вземе предвид за всички продукти, дори ако не е показан върху опаковката."
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_nutriscore_grade_title"
@@ -4542,7 +4550,7 @@ msgstr "Нивото на обработка на храни не е извес�
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
-msgstr ""
+msgstr "Без или с малка хранитeлна преработка (група NOVA)"
 
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
@@ -5379,7 +5387,7 @@ msgstr ""
 
 msgctxt "ecoscore_category_exact_match"
 msgid "Exact match with the product category"
-msgstr ""
+msgstr "Точно съвпадение с продуктовата категория"
 
 msgctxt "ecoscore_pef_environmental_score"
 msgid "PEF environmental score"
@@ -5464,7 +5472,7 @@ msgstr "Произходът на съставките на този проду�
 
 msgctxt "ecoscore_please_add_the_ingredients"
 msgid "If they are indicated on the packaging, you can modify the product sheet and add them."
-msgstr ""
+msgstr "Ако е посочено на опаковката, можеш да редактираш продуктовия лист и да ги добавиш."
 
 msgctxt "ecoscore_environmental_policy"
 msgid "Environmental policy"
@@ -5701,6 +5709,10 @@ msgctxt "source_ademe_agribalyse"
 msgid "Source: ADEME Agribalyse Database"
 msgstr "Източник: ADEME Agribalyse Database"
 
+msgctxt "source_ademe_agribalyse_for_category"
+msgid "The carbon emission figure comes from ADEME's Agribalyse database, for the category:"
+msgstr "Количеството въглеродни емисии идва от базата данни Agribalyse на ADEME за категорията:"
+
 msgctxt "environment_card_title"
 msgid "Environment"
 msgstr "Околна среда"
@@ -5757,6 +5769,10 @@ msgctxt "ecoscore_lca_score"
 msgid "Life cycle analysis score"
 msgstr "Оценка за анализ на жизнения цикъл"
 
+msgctxt "impact_for_this_product"
+msgid "Impact for this product"
+msgstr "Въздействие на този продукт"
+
 msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
 msgstr "Резултатът от продукти с нерециклируеми и неразграждащи се опаковъчни материали е ограничен до 79 (степен B)."
@@ -5772,6 +5788,10 @@ msgstr "Категорията на продукта трябва да бъде 
 msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "Хранителните стойности на продукта трябва да бъдат посочени, за да се изчисли Nutri-Score."
+
+msgctxt "nutriscore_missing_category_and_nutrition_data"
+msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
+msgstr "Категорията и хранителните стойности на продукта трябва да бъдат посочени, за да се изчисли Nutri-Score."
 
 msgctxt "health"
 msgid "Health"
@@ -5828,6 +5848,10 @@ msgstr "Липсваща категория"
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr "Липсващи хранителни стойности"
+
+msgctxt "nutriscore_missing_category_and_nutrition_data_short"
+msgid "Missing category and nutrition facts"
+msgstr "Липсваща категория и хранителни стойности"
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
 msgid "Reduce or stop drinking alcohol"
@@ -5934,5 +5958,51 @@ msgstr "Не можахме да разпознаем някои от съста
 
 msgctxt "unselect_image"
 msgid "Unselect Image"
+msgstr ""
+
+msgctxt "nutriscore_learn_more"
+msgid "Learn more about the Nutri-Score"
+msgstr "Научи повече за Nutri-Score"
+
+msgctxt "ecoscore_learn_more"
+msgid "Learn more about the Eco-Score"
+msgstr "Научи повече за Eco-Score"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_very_good_match"
+msgid "Very good match"
+msgstr "Много добро съвпадение"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_good_match"
+msgid "Good match"
+msgstr "Добро съвпадение"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_poor_match"
+msgid "Poor match"
+msgstr "Лошо съвпадение"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_unknown_match"
+msgid "Unknown match"
+msgstr "Неизвестно съвпадение"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_may_not_match"
+msgid "May not match"
+msgstr "Може да не съвпада"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_does_not_match"
+msgid "Does not match"
+msgstr "Не съвпада"
+
+msgctxt "reset_preferences"
+msgid "Use default preferences"
+msgstr ""
+
+msgctxt "reset_preferences_details"
+msgid "Nutri-Score, Eco-Score and food processing level (NOVA)"
 msgstr ""
 

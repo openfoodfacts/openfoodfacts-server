@@ -68,6 +68,11 @@ build:
 	@echo "🥫 Building containers …"
 	${DOCKER_COMPOSE} build 2>&1
 
+# this is needed for CI
+build_backend:
+	@echo "🥫 Building backend container …"
+	${DOCKER_COMPOSE} build backend 2>&1
+
 _up:
 	@echo "🥫 Starting containers …"
 	${DOCKER_COMPOSE} up -d 2>&1
@@ -134,13 +139,13 @@ init_backend: build_lang
 create_mongodb_indexes:
 	@echo "🥫 Creating MongoDB indexes …"
 	docker cp conf/mongodb/create_indexes.js $(shell docker-compose ps -q mongodb):/data/db
-	${DOCKER_COMPOSE} exec -T mongodb /bin/sh -c "mongo off /data/db/create_indexes.js"
+	${DOCKER_COMPOSE} exec -T mongodb //bin/sh -c "mongo off /data/db/create_indexes.js"
 
 refresh_product_tags:
 	@echo "🥫 Refreshing products tags (update MongoDB products_tags collection) …"
 # get id for mongodb container
 	docker cp scripts/refresh_products_tags.js $(shell docker-compose ps -q mongodb):/data/db
-	${DOCKER_COMPOSE} exec -T mongodb /bin/sh -c "mongo off /data/db/refresh_products_tags.js"
+	${DOCKER_COMPOSE} exec -T mongodb //bin/sh -c "mongo off /data/db/refresh_products_tags.js"
 
 import_sample_data:
 	@echo "🥫 Importing sample data (~200 products) into MongoDB …"
@@ -160,7 +165,7 @@ import_prod_data:
 	@echo "🥫 Copying the dump to MongoDB container …"
 	docker cp openfoodfacts-mongodbdump.tar.gz $(shell docker-compose ps -q mongodb):/data/db
 	@echo "🥫 Restoring the MongoDB dump …"
-	${DOCKER_COMPOSE} exec -T mongodb /bin/sh -c "cd /data/db && tar -xzvf openfoodfacts-mongodbdump.tar.gz && mongorestore --batchSize=1 && rm openfoodfacts-mongodbdump.tar.gz"
+	${DOCKER_COMPOSE} exec -T mongodb //bin/sh -c "cd /data/db && tar -xzvf openfoodfacts-mongodbdump.tar.gz && mongorestore --batchSize=1 && rm openfoodfacts-mongodbdump.tar.gz"
 	rm openfoodfacts-mongodbdump.tar.gz
 
 #--------#
@@ -192,6 +197,10 @@ TO_CHECK=$(shell git diff main --name-only | grep  '.*\.\(pl\|pm\)$$')
 check_perl_fast:
 	@echo "🥫checking ${TO_CHECK}"
 	${DOCKER_COMPOSE} run --rm backend make -j ${CPU_COUNT} ${TO_CHECK}
+
+check_translations:
+	@echo "🥫checking translations"
+	${DOCKER_COMPOSE} run --rm backend scripts/check-translations.sh
 
 # check all perl files compile (takes time, but needed to check a function rename did not break another module !)
 check_perl:

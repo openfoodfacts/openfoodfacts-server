@@ -1,0 +1,19 @@
+{
+    "level": "info",
+    "topics": [
+        "health"
+    ],
+    "type": "inline",
+    "expanded": true,
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `
+                    <strong>[% lang('serving_size')  %][% sep %]:</strong>
+                    [% product.serving_size %]
+                `,
+            }
+        },
+    ]
+}

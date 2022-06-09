@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-04-17 17:42\n"
+"PO-Revision-Date: 2022-06-06 14:05\n"
 "Language-Team: French\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -122,9 +122,9 @@ msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
 msgstr "Merci de saisir le nom de votre organisation (nom de l'entreprise ou marque)."
 
-msgctxt "this_is_a_pro_account_for_org"
-msgid "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
-msgstr "Ce compte est un compte professionnel associé au producteur ou à la marque %s. Vous avez accès à la plateforme pour les producteurs."
+msgctxt "f_this_is_a_pro_account_for_org"
+msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
+msgstr "Ce compte est un compte professionnel associé au producteur ou à la marque {org}. Vous avez accès à la Plateforme pour les Producteurs."
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -682,6 +682,14 @@ msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "Le nom d'utilisateur doit être composé de lettres minuscules sans accents, de tirets et/ou de chiffres."
 
+msgctxt "error_username_too_long"
+msgid "The user name is too long (maximum 20 characters)."
+msgstr "Le nom d'utilisateur est trop long (20 caractères maximum)."
+
+msgctxt "error_name_too_long"
+msgid "The name is too long (maximum 60 characters)."
+msgstr "Le nom est trop long (60 caractères maximum)."
+
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
 msgstr "Un produit existe déjà avec le nouveau code"
@@ -1014,6 +1022,18 @@ msgstr "informateurs"
 msgctxt "ingredients"
 msgid "Ingredients"
 msgstr "Ingrédients"
+
+msgctxt "no_ingredient"
+msgid "Ingredients are missing"
+msgstr "Les ingrédients sont manquants"
+
+msgctxt "one_ingredient"
+msgid "1 ingredient"
+msgstr "1 ingrédient"
+
+msgctxt "f_ingredients_with_number"
+msgid "{number} ingredients"
+msgstr "{number} ingrédients"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
@@ -2467,7 +2487,7 @@ msgstr "Nom d'utilisateur Twitter (optionel)"
 
 msgctxt "twitter_account"
 msgid "OpenFoodFacts"
-msgstr "OpenFoodFactsFr"
+msgstr "OpenFoodFactsFR"
 
 msgctxt "unknown"
 msgid "Unknown"
@@ -4505,8 +4525,13 @@ msgid "Nutri-Score not-applicable"
 msgstr "Nutri-Score non applicable"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Exempted category"
-msgstr "Catégorie exemptée"
+msgid "Not-applicable for the category"
+msgstr "Non applicable pour la catégorie"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_nutriscore_not_applicable_description"
+msgid "Not-applicable for the category: {category}"
+msgstr "Non applicable pour la catégorie : {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -5214,6 +5239,23 @@ msgctxt "delete_user_process"
 msgid "User deleted."
 msgstr "Utilisateur supprimé."
 
+msgctxt "attribute_ecoscore_not_applicable_title"
+msgid "Eco-Score not yet applicable"
+msgstr "Eco-Score n'est pas encore applicable"
+
+msgctxt "attribute_ecoscore_not_applicable_description_short"
+msgid "Not yet applicable for the category"
+msgstr "Pas encore applicable pour la catégorie"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_ecoscore_not_applicable_description"
+msgid "Not yet applicable for the category: {category}"
+msgstr "Pas encore applicable pour la catégorie : {category}"
+
+msgctxt "ecoscore_not_applicable_coming_soon"
+msgid "The Eco-Score is not yet applicable for this category, but we are working on adding support for it."
+msgstr "L'Eco-Score n'est pas encore applicable pour cette catégorie, mais nous travaillons à ajouter un support pour cela."
+
 msgctxt "attribute_ecoscore_unknown_title"
 msgid "Eco-Score not computed"
 msgstr "Eco-Score non calculé"
@@ -5329,7 +5371,7 @@ msgstr "Les fabricants peuvent utiliser la <a href=\"<producers_platform_url>\">
 # variable names between { } must not be translated
 msgctxt "f_data_source_database_provider"
 msgid "The manufacturer {manufacturer} uses {provider} to automatically transmit data and photos for its products."
-msgstr ""
+msgstr "Le fabricant {manufacturer} utilise {provider} pour transmettre automatiquement des données et des photos pour ses produits."
 
 msgctxt "image_other_type"
 msgid "Type of the product photo"
@@ -5705,6 +5747,10 @@ msgctxt "source_ademe_agribalyse"
 msgid "Source: ADEME Agribalyse Database"
 msgstr "Source : Base de données ADEME Agribalyse"
 
+msgctxt "source_ademe_agribalyse_for_category"
+msgid "The carbon emission figure comes from ADEME's Agribalyse database, for the category:"
+msgstr "Le chiffre d'émission carbone est issu de la base de données Agribalyse de l'ADEME, pour la catégorie :"
+
 msgctxt "environment_card_title"
 msgid "Environment"
 msgstr "Environnement"
@@ -5761,6 +5807,10 @@ msgctxt "ecoscore_lca_score"
 msgid "Life cycle analysis score"
 msgstr "Score d'analyse du cycle de vie"
 
+msgctxt "impact_for_this_product"
+msgid "Impact for this product"
+msgstr "Impact pour ce produit"
+
 msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
 msgstr "Le score des produits avec des matériaux d'emballage non recyclables et non biodégradables est plafonné à 79 (grade B)."
@@ -5776,6 +5826,10 @@ msgstr "La catégorie du produit doit être spécifiée afin de calculer le Nutr
 msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "Les données nutritionnelles du produit doivent être spécifiées afin de calculer le Nutri-Score."
+
+msgctxt "nutriscore_missing_category_and_nutrition_data"
+msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
+msgstr "La catégorie et la valeur nutritionnelle du produit doivent être précisées afin de calculer le Nutri-Score."
 
 msgctxt "health"
 msgid "Health"
@@ -5821,10 +5875,6 @@ msgctxt "f_energy_expenditure_for_weight_in_kg_lb"
 msgid "Energy expenditure for a person weighting {kg} kg / {lb} lb"
 msgstr "Dépenses énergétiques pour une personne pesant {kg} kg / {lb} lb"
 
-msgctxt "nutriscore_not_applicable_short"
-msgid "Not applicable for this product"
-msgstr "Non applicable à ce produit"
-
 msgctxt "nutriscore_missing_category_short"
 msgid "Missing category"
 msgstr "Catégorie manquante"
@@ -5832,6 +5882,10 @@ msgstr "Catégorie manquante"
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr "Données nutritionnelles manquantes"
+
+msgctxt "nutriscore_missing_category_and_nutrition_data_short"
+msgid "Missing category and nutrition facts"
+msgstr "Catégorie et informations nutritionnelles manquantes"
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
 msgid "Reduce or stop drinking alcohol"
@@ -5939,4 +5993,50 @@ msgstr "Nous n'avons pas pu reconnaître certains des ingrédients et détermine
 msgctxt "unselect_image"
 msgid "Unselect Image"
 msgstr "Désélectionner l'image"
+
+msgctxt "nutriscore_learn_more"
+msgid "Learn more about the Nutri-Score"
+msgstr "En savoir plus sur le Nutri-Score"
+
+msgctxt "ecoscore_learn_more"
+msgid "Learn more about the Eco-Score"
+msgstr "En savoir plus sur l'Eco-Score"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_very_good_match"
+msgid "Very good match"
+msgstr "Très compatible"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_good_match"
+msgid "Good match"
+msgstr "Compatible"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_poor_match"
+msgid "Poor match"
+msgstr "Peu compatible"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_unknown_match"
+msgid "Unknown match"
+msgstr "Correspondance inconnue"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_may_not_match"
+msgid "May not match"
+msgstr "Peut ne pas correspondre"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_does_not_match"
+msgid "Does not match"
+msgstr "Ne correspond pas"
+
+msgctxt "reset_preferences"
+msgid "Use default preferences"
+msgstr "Utiliser les préférences par défaut"
+
+msgctxt "reset_preferences_details"
+msgid "Nutri-Score, Eco-Score and food processing level (NOVA)"
+msgstr "Nutri-Score, Eco-Score et niveau de transformation alimentaire (NOVA)"
 

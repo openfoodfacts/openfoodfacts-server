@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-04-19 02:44\n"
+"PO-Revision-Date: 2022-05-27 19:05\n"
 "Language-Team: German\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -122,9 +122,9 @@ msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
 msgstr "Bitte geben Sie den Namen Ihrer Organisation ein (Firmen- oder Markenname)."
 
-msgctxt "this_is_a_pro_account_for_org"
-msgid "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
-msgstr "Dieses Konto ist ein professionelles Konto, das mit dem Hersteller oder der Marke „%s” verbunden ist. Sie haben Zugriff auf die Plattform für Produzenten."
+msgctxt "f_this_is_a_pro_account_for_org"
+msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
+msgstr "Dieses Konto ist ein Geschäftskonto, das mit dem Hersteller oder der Marke {org} verknüpft ist. Sie haben Zugriff auf die Plattform für Erzeuger."
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -680,6 +680,14 @@ msgstr "Ungültiger Benutzer."
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "Der Benutzername darf nur Buchstaben ohne Umlaute, Zahlen und Bindestriche enthalten."
+
+msgctxt "error_username_too_long"
+msgid "The user name is too long (maximum 20 characters)."
+msgstr "Benutzername ist zu lang (maximal 20 Zeichen)."
+
+msgctxt "error_name_too_long"
+msgid "The name is too long (maximum 60 characters)."
+msgstr "Name ist zu lang (maximal 60 Zeichen)."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -5701,6 +5709,10 @@ msgctxt "source_ademe_agribalyse"
 msgid "Source: ADEME Agribalyse Database"
 msgstr "Quelle: ADEME Agribalyse-Datenbank"
 
+msgctxt "source_ademe_agribalyse_for_category"
+msgid "The carbon emission figure comes from ADEME's Agribalyse database, for the category:"
+msgstr "Die Zahlen zu den Kohlenstoffemissionen für diese Kategorie stammen aus der Agribalyse-Datenbank der ADEME:"
+
 msgctxt "environment_card_title"
 msgid "Environment"
 msgstr "Umweltauswirkungen"
@@ -5757,6 +5769,10 @@ msgctxt "ecoscore_lca_score"
 msgid "Life cycle analysis score"
 msgstr "Ergebnis der Lebenszyklusanalyse"
 
+msgctxt "impact_for_this_product"
+msgid "Impact for this product"
+msgstr "Auswirkungen für dieses Produkt"
+
 msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
 msgstr "Die Wertung von Produkten mit nicht wiederverwertbaren und nicht biologisch abbaubaren Verpackungsmaterialien ist auf 79 (Note B) begrenzt."
@@ -5772,6 +5788,10 @@ msgstr "Zur Berechnung des Nutri-Score muss die Kategorie des Produkts angegeben
 msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "Die Nährwertangaben des Produkts müssen angegeben werden, um den Nutri-Score berechnen zu können."
+
+msgctxt "nutriscore_missing_category_and_nutrition_data"
+msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
+msgstr "Zur Berechnung des Nutri-Score muss die Kategorie des Produkts angegeben werden."
 
 msgctxt "health"
 msgid "Health"
@@ -5828,6 +5848,10 @@ msgstr "Fehlende Kategorie"
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr "Nährwertangaben fehlen"
+
+msgctxt "nutriscore_missing_category_and_nutrition_data_short"
+msgid "Missing category and nutrition facts"
+msgstr "Fehlende Kategorie- und Nährwertinformationen"
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
 msgid "Reduce or stop drinking alcohol"
@@ -5935,4 +5959,50 @@ msgstr "Einige der Zutaten konnten nicht erkannt und die NOVA-Gruppe nicht besti
 msgctxt "unselect_image"
 msgid "Unselect Image"
 msgstr "Foto abwählen"
+
+msgctxt "nutriscore_learn_more"
+msgid "Learn more about the Nutri-Score"
+msgstr "Mehr über Nutri-Score erfahren"
+
+msgctxt "ecoscore_learn_more"
+msgid "Learn more about the Eco-Score"
+msgstr "Erfahren Sie mehr über den Eco-Score"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_very_good_match"
+msgid "Very good match"
+msgstr "Sehr guter Treffer"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_good_match"
+msgid "Good match"
+msgstr "Guter Treffer"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_poor_match"
+msgid "Poor match"
+msgstr "Schlechter Treffer"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_unknown_match"
+msgid "Unknown match"
+msgstr "Unbekannte Übereinstimmung"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_may_not_match"
+msgid "May not match"
+msgstr "Weicht möglicherweise ab"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_does_not_match"
+msgid "Does not match"
+msgstr "Stimmt nicht überein"
+
+msgctxt "reset_preferences"
+msgid "Use default preferences"
+msgstr "Standardeinstellungen verwenden"
+
+msgctxt "reset_preferences_details"
+msgid "Nutri-Score, Eco-Score and food processing level (NOVA)"
+msgstr "Nutri-Score, Eco-Score und Grad der Lebensmittelverarbeitung (NOVA)"
 

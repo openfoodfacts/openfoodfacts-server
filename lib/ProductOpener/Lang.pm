@@ -59,6 +59,7 @@ BEGIN
 		&lang
 		&lang_sprintf
 		&f_lang
+		&f_lang_in_lc
 		&lang_in_other_lc
 		%lang_lc
 
@@ -210,6 +211,10 @@ If a translation is not available, the function returns English.
 
 In the .po translation files, we use the msgctxt field for the string id.
 
+=head4 variables hash reference $variables_ref
+
+Reference to a hash that contains values for the variables that will be replaced.
+
 =cut
 
 sub f_lang($$) {
@@ -217,7 +222,46 @@ sub f_lang($$) {
 	my $stringid = shift;
 	my $variables_ref = shift;
 
-	my $translation = lang($stringid);
+	return f_lang_in_lc($lc, $stringid, $variables_ref);
+}
+
+
+=head2 f_lang_in_lc ( $target_lc, $stringid, $variables_ref )
+
+Returns a translation for a specific string id with specific arguments
+in the language $target_lc.
+
+The translation is stored using Python's f-string format with
+named parameters between { }.
+
+e.g. "This is a string with {a_variable} and {another_variable}."
+
+Variables between { } are interpolated with the corresponding entry
+in the $variables_ref hash reference.
+
+If a translation is not available, the function returns English.
+
+=head3 Arguments
+
+ =head4 target language $target_lc
+ 
+=head4 string id $stringid
+
+In the .po translation files, we use the msgctxt field for the string id.
+
+=head4 variables hash reference $variables_ref
+
+Reference to a hash that contains values for the variables that will be replaced.
+
+=cut
+
+sub f_lang_in_lc($$$) {
+
+	my $target_lc = shift;
+	my $stringid = shift;
+	my $variables_ref = shift;
+
+	my $translation = $Lang{$stringid}{$target_lc};
 	if (defined $translation) {
 		# look for string keys between { } and replace them with the corresponding
 		# value in $variables_ref hash reference

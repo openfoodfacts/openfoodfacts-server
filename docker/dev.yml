@@ -42,6 +42,7 @@ services:
   # in dev we want to use watch assets and recompile on the fly
   # also we want to build at start time in case some files changed, as we want to avoid recreating volumes
   dynamicfront:
+    image: openfoodfacts-server/dynamicfront:dev
     build:
       context: .
       target: builder

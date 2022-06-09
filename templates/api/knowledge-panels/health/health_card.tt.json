@@ -25,6 +25,9 @@
                     [% IF panels.nutrition_facts_table.defined %]
                         "nutrition_facts_table",
                     [% END %]
+                    [% IF panels.serving_size.defined %]
+                        "serving_size",
+                    [% END %]
                 ],
             },
         },

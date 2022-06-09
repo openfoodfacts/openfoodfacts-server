@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-04-15 12:29\n"
+"PO-Revision-Date: 2022-05-27 19:16\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -122,9 +122,9 @@ msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
 msgstr "crwdns164912:0crwdne164912:0"
 
-msgctxt "this_is_a_pro_account_for_org"
-msgid "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
-msgstr "crwdns164914:0%scrwdne164914:0"
+msgctxt "f_this_is_a_pro_account_for_org"
+msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
+msgstr "crwdns192848:0{org}crwdne192848:0"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -665,6 +665,14 @@ msgstr "crwdns165170:0crwdne165170:0"
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "crwdns165172:0crwdne165172:0"
+
+msgctxt "error_username_too_long"
+msgid "The user name is too long (maximum 20 characters)."
+msgstr "crwdns192966:0crwdne192966:0"
+
+msgctxt "error_name_too_long"
+msgid "The name is too long (maximum 60 characters)."
+msgstr "crwdns192968:0crwdne192968:0"
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -5669,6 +5677,10 @@ msgctxt "source_ademe_agribalyse"
 msgid "Source: ADEME Agribalyse Database"
 msgstr "crwdns191213:0crwdne191213:0"
 
+msgctxt "source_ademe_agribalyse_for_category"
+msgid "The carbon emission figure comes from ADEME's Agribalyse database, for the category:"
+msgstr "crwdns192930:0crwdne192930:0"
+
 msgctxt "environment_card_title"
 msgid "Environment"
 msgstr "crwdns191215:0crwdne191215:0"
@@ -5725,6 +5737,10 @@ msgctxt "ecoscore_lca_score"
 msgid "Life cycle analysis score"
 msgstr "crwdns191273:0crwdne191273:0"
 
+msgctxt "impact_for_this_product"
+msgid "Impact for this product"
+msgstr "crwdns192872:0crwdne192872:0"
+
 msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
 msgstr "crwdns191275:0crwdne191275:0"
@@ -5740,6 +5756,10 @@ msgstr "crwdns191531:0crwdne191531:0"
 msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "crwdns191533:0crwdne191533:0"
+
+msgctxt "nutriscore_missing_category_and_nutrition_data"
+msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
+msgstr "crwdns193112:0crwdne193112:0"
 
 msgctxt "health"
 msgid "Health"
@@ -5796,6 +5816,10 @@ msgstr "crwdns192005:0crwdne192005:0"
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr "crwdns192007:0crwdne192007:0"
+
+msgctxt "nutriscore_missing_category_and_nutrition_data_short"
+msgid "Missing category and nutrition facts"
+msgstr "crwdns193114:0crwdne193114:0"
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
 msgid "Reduce or stop drinking alcohol"
@@ -5903,4 +5927,50 @@ msgstr "crwdns192578:0crwdne192578:0"
 msgctxt "unselect_image"
 msgid "Unselect Image"
 msgstr "crwdns192580:0crwdne192580:0"
+
+msgctxt "nutriscore_learn_more"
+msgid "Learn more about the Nutri-Score"
+msgstr "crwdns192958:0crwdne192958:0"
+
+msgctxt "ecoscore_learn_more"
+msgid "Learn more about the Eco-Score"
+msgstr "crwdns192960:0crwdne192960:0"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_very_good_match"
+msgid "Very good match"
+msgstr "crwdns193228:0crwdne193228:0"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_good_match"
+msgid "Good match"
+msgstr "crwdns193230:0crwdne193230:0"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_poor_match"
+msgid "Poor match"
+msgstr "crwdns193232:0crwdne193232:0"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_unknown_match"
+msgid "Unknown match"
+msgstr "crwdns193234:0crwdne193234:0"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_may_not_match"
+msgid "May not match"
+msgstr "crwdns193236:0crwdne193236:0"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_does_not_match"
+msgid "Does not match"
+msgstr "crwdns193238:0crwdne193238:0"
+
+msgctxt "reset_preferences"
+msgid "Use default preferences"
+msgstr "crwdns193320:0crwdne193320:0"
+
+msgctxt "reset_preferences_details"
+msgid "Nutri-Score, Eco-Score and food processing level (NOVA)"
+msgstr "crwdns193322:0crwdne193322:0"
 

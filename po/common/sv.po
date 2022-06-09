@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sv\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-04-15 12:34\n"
+"PO-Revision-Date: 2022-05-27 19:07\n"
 "Language-Team: Swedish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -122,9 +122,9 @@ msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
 msgstr "Ange namnet på din organisation (företagsnamn eller varumärke)."
 
-msgctxt "this_is_a_pro_account_for_org"
-msgid "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
-msgstr "Detta konto är ett professionellt konto som är associerat med tillverkaren eller varumärket %s. Du har tillgång till plattformen för producenter."
+msgctxt "f_this_is_a_pro_account_for_org"
+msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
+msgstr "Detta konto är ett professionellt konto kopplat till producenten eller varumärket {org}. Du har tillgång till Plattformen för producenter."
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -282,7 +282,7 @@ msgstr "Du kan också hjälpa till att finansiera Open Food Facts"
 
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
-msgstr ""
+msgstr "Producentens Admin manual"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
@@ -606,7 +606,7 @@ msgstr "Förpackningskod"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
-msgstr ""
+msgstr "Spårbarhetskod"
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
@@ -680,6 +680,14 @@ msgstr "Ogiltig användare."
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "Användarnamnet får endast innehålla bokstäver utan diakritiska tecken, siffror och bindestreck."
+
+msgctxt "error_username_too_long"
+msgid "The user name is too long (maximum 20 characters)."
+msgstr ""
+
+msgctxt "error_name_too_long"
+msgid "The name is too long (maximum 60 characters)."
+msgstr ""
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -1092,7 +1100,7 @@ msgstr "ingrediens som kan vara från palmolja"
 
 msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
-msgstr "Produkter som inte innehåller ingrediensen %s"
+msgstr "Produkter som ej innehåller ingrediensen %s"
 
 # Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
 msgctxt "ios_app_icon_url"
@@ -1177,7 +1185,7 @@ msgstr "Senast ändringsdatum"
 
 msgctxt "last_image_dates_p"
 msgid "Last picture dates"
-msgstr ""
+msgstr "Sista bilddatum"
 
 msgctxt "last_image_dates_s"
 msgid "Last picture date"
@@ -1499,7 +1507,7 @@ msgstr "för 100 g / 100 ml"
 
 msgctxt "nutrition_data_per_5"
 msgid "5<sup>th</sup> centile"
-msgstr ""
+msgstr "5:e centil"
 
 msgctxt "nutrition_data_per_50"
 msgid "Median"
@@ -1511,7 +1519,7 @@ msgstr "90:e centilen"
 
 msgctxt "nutrition_data_per_95"
 msgid "95<sup>th</sup> centile"
-msgstr ""
+msgstr "95:e centil"
 
 msgctxt "nutrition_data_per_max"
 msgid "Maximum"
@@ -1545,11 +1553,11 @@ msgstr "Tabellen visar som standard näringsämnen som ofta anges. Lämna fälte
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
-msgstr ""
+msgstr "Näringsbetyg"
 
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
-msgstr ""
+msgstr "Näringsbetyg"
 
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
@@ -1560,7 +1568,8 @@ msgstr "https://world.openfoodfacts.org/images/svg/openfoodfacts-logo-sv.svg"
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr ""
+msgstr "<p>För att lära dig mer om <<site_name>>, besök <a href=\"https://en.blog.openfoodfacts.org\">vår blogg</a>!</p>\n"
+"<p>Senaste nyheter:</p>\n"
 
 msgctxt "on_the_blog_title"
 msgid "News"
@@ -1569,7 +1578,8 @@ msgstr "Nyheter"
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> on <<site_name>> from Saturday February 21st 2015 to Sunday March 1st 2015! Contributors are awarded\n"
 "Explorer points for products they add and Ambassador points for new contributors they recruit. Points are updated every 30 minutes."
-msgstr ""
+msgstr "Det är <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> på <<site_name>> från lördag 21 februari 2015 till söndag 1 mars 2015! Bidragsgivare tilldelas\n"
+"Explorer-poäng för produkter de lägger till och ambassadörspoäng för nya bidragsgivare som de rekryterar. Poäng uppdateras var 30:e minut."
 
 msgctxt "or"
 msgid "or:"
@@ -1669,11 +1679,11 @@ msgstr "Tid efter öppnandet"
 
 msgctxt "periods_after_opening_note"
 msgid "Found in an open container logo with a number of months: e.g. 12 M"
-msgstr ""
+msgstr "Hittad i en öppen behållar-logotyp med ett antal månader: t.ex. 12 M"
 
 msgctxt "periods_after_opening_p"
 msgid "Periods after opening"
-msgstr ""
+msgstr "Perioder efter öppning"
 
 msgctxt "periods_after_opening_s"
 msgid "Period after opening"
@@ -1713,15 +1723,15 @@ msgstr "PNNS grupp 2"
 
 msgctxt "points_all_countries"
 msgid "There are %d Explorers and %d Ambassadors."
-msgstr ""
+msgstr "Det finns %d utforskare och %d ambassadörer."
 
 msgctxt "points_all_users"
 msgid "There are Explorers for %d countries and Ambassadors for %d countries."
-msgstr ""
+msgstr "Det finns utforskare för %d länder och ambassadörer för %d länder."
 
 msgctxt "points_country"
 msgid "%s has %d Explorers and %d Ambassadors."
-msgstr ""
+msgstr "%s har %d utforskare och %d ambassadörer."
 
 msgctxt "points_ranking"
 msgid "Ranking"
@@ -2911,7 +2921,7 @@ msgstr ""
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
 msgid "Groups with more than 50% of members exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "Grupper där fler än 50% av medlemmar överskrider acceptabelt dagligt intag (ADI)"
 
 msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_adi"
 msgid "Groups with more than 5% of members exceeding the acceptable daily intake (ADI)"
@@ -3519,7 +3529,7 @@ msgstr "Plattform för producenter"
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_description"
 msgid "The platform for producers allows manufacturers to easily manage their product photos and data on Open Food Facts."
-msgstr ""
+msgstr "Plattformen för producenter gör det möjligt för tillverkare att enkelt hantera sina produktfoton och data på Open Food Facts."
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_private_database"
@@ -4259,7 +4269,7 @@ msgstr ""
 
 msgctxt "ciqual_food_name_p"
 msgid "CIQUAL food names"
-msgstr ""
+msgstr "CIQUAL livsmedelsnamn"
 
 msgctxt "we_need_your_help"
 msgid "We need your help!"
@@ -5014,7 +5024,7 @@ msgstr ""
 
 msgctxt "deforestation_risk"
 msgid "Deforestation risk"
-msgstr ""
+msgstr "Risk för avskogning"
 
 msgctxt "total_forest_footprint"
 msgid "Total forest footprint"
@@ -5364,7 +5374,7 @@ msgstr ""
 
 msgctxt "ecoscore_panel_lca"
 msgid "Lifecyle Analysis (LCA)"
-msgstr ""
+msgstr "Livscykel Analys (LCA)"
 
 # do not translate Agribalyse
 msgctxt "ecoscore_agribalyse_category"
@@ -5699,6 +5709,10 @@ msgctxt "source_ademe_agribalyse"
 msgid "Source: ADEME Agribalyse Database"
 msgstr ""
 
+msgctxt "source_ademe_agribalyse_for_category"
+msgid "The carbon emission figure comes from ADEME's Agribalyse database, for the category:"
+msgstr ""
+
 msgctxt "environment_card_title"
 msgid "Environment"
 msgstr "Miljö"
@@ -5721,7 +5735,7 @@ msgstr ""
 
 msgctxt "bonus"
 msgid "Bonus"
-msgstr ""
+msgstr "Bonus"
 
 msgctxt "malus"
 msgid "Malus"
@@ -5755,6 +5769,10 @@ msgctxt "ecoscore_lca_score"
 msgid "Life cycle analysis score"
 msgstr ""
 
+msgctxt "impact_for_this_product"
+msgid "Impact for this product"
+msgstr ""
+
 msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
 msgstr ""
@@ -5769,6 +5787,10 @@ msgstr ""
 
 msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
+msgstr ""
+
+msgctxt "nutriscore_missing_category_and_nutrition_data"
+msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr ""
 
 msgctxt "health"
@@ -5825,6 +5847,10 @@ msgstr ""
 
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
+msgstr ""
+
+msgctxt "nutriscore_missing_category_and_nutrition_data_short"
+msgid "Missing category and nutrition facts"
 msgstr ""
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
@@ -5932,5 +5958,51 @@ msgstr ""
 
 msgctxt "unselect_image"
 msgid "Unselect Image"
+msgstr ""
+
+msgctxt "nutriscore_learn_more"
+msgid "Learn more about the Nutri-Score"
+msgstr "Läs mer om Nutri-Score"
+
+msgctxt "ecoscore_learn_more"
+msgid "Learn more about the Eco-Score"
+msgstr ""
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_very_good_match"
+msgid "Very good match"
+msgstr ""
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_good_match"
+msgid "Good match"
+msgstr ""
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_poor_match"
+msgid "Poor match"
+msgstr ""
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_unknown_match"
+msgid "Unknown match"
+msgstr "Okänd matchning"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_may_not_match"
+msgid "May not match"
+msgstr ""
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_does_not_match"
+msgid "Does not match"
+msgstr "Matchar inte"
+
+msgctxt "reset_preferences"
+msgid "Use default preferences"
+msgstr ""
+
+msgctxt "reset_preferences_details"
+msgid "Nutri-Score, Eco-Score and food processing level (NOVA)"
 msgstr ""
 

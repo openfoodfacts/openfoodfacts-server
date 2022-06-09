@@ -670,6 +670,14 @@ msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "The user name must contain only unaccented letters, digits and dashes."
 
+msgctxt "error_username_too_long"
+msgid "The user name is too long (maximum 20 characters)."
+msgstr "The user name is too long (maximum 20 characters)."
+
+msgctxt "error_name_too_long"
+msgid "The name is too long (maximum 60 characters)."
+msgstr "The name is too long (maximum 60 characters)."
+
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
 msgstr "A product already exists with the new code"
@@ -1009,6 +1017,18 @@ msgstr "informers"
 msgctxt "ingredients"
 msgid "Ingredients"
 msgstr "Ingredients"
+
+msgctxt "no_ingredient"
+msgid "Ingredients are missing"
+msgstr "Ingredients are missing"
+
+msgctxt "one_ingredient"
+msgid "1 ingredient"
+msgstr "1 ingredient"
+
+msgctxt "f_ingredients_with_number"
+msgid "{number} ingredients"
+msgstr "{number} ingredients"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
@@ -4652,8 +4672,13 @@ msgid "Nutri-Score not-applicable"
 msgstr "Nutri-Score not-applicable"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Exempted category"
-msgstr "Exempted category"
+msgid "Not-applicable for the category"
+msgstr "Not-applicable for the category"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_nutriscore_not_applicable_description"
+msgid "Not-applicable for the category: {category}"
+msgstr "Not-applicable for the category: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -4824,6 +4849,23 @@ msgstr "Low environmental impact (Eco-Score)"
 msgctxt "attribute_ecoscore_grade_title"
 msgid "Eco-Score %s"
 msgstr "Eco-Score %s"
+
+msgctxt "attribute_ecoscore_not_applicable_title"
+msgid "Eco-Score not yet applicable"
+msgstr "Eco-Score not yet applicable"
+
+msgctxt "attribute_ecoscore_not_applicable_description_short"
+msgid "Not yet applicable for the category"
+msgstr "Not yet applicable for the category"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_ecoscore_not_applicable_description"
+msgid "Not yet applicable for the category: {category}"
+msgstr "Not yet applicable for the category: {category}"
+
+msgctxt "ecoscore_not_applicable_coming_soon"
+msgid "The Eco-Score is not yet applicable for this category, but we are working on adding support for it."
+msgstr "The Eco-Score is not yet applicable for this category, but we are working on adding support for it."
 
 msgctxt "attribute_ecoscore_unknown_title"
 msgid "Eco-Score not computed"
@@ -5858,6 +5900,10 @@ msgctxt "source_ademe_agribalyse"
 msgid "Source: ADEME Agribalyse Database"
 msgstr "Source: ADEME Agribalyse Database"
 
+msgctxt "source_ademe_agribalyse_for_category"
+msgid "The carbon emission figure comes from ADEME's Agribalyse database, for the category:"
+msgstr "The carbon emission figure comes from ADEME's Agribalyse database, for the category:"
+
 msgctxt "environment_card_title"
 msgid "Environment"
 msgstr "Environment"
@@ -5889,6 +5935,10 @@ msgstr "Malus"
 msgctxt "life_cycle_analysis"
 msgid "Life cycle analysis"
 msgstr "Life cycle analysis"
+
+msgctxt "impact_for_this_product"
+msgid "Impact for this product"
+msgstr "Impact for this product"
 
 msgctxt "ecoscore_bonuses_and_maluses"
 msgid "Bonuses and maluses"
@@ -5929,6 +5979,10 @@ msgstr "The category of the product must be specified in order to compute the Nu
 msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
+
+msgctxt "nutriscore_missing_category_and_nutrition_data"
+msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
+msgstr "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 
 msgctxt "health"
 msgid "Health"
@@ -5974,10 +6028,6 @@ msgctxt "f_energy_expenditure_for_weight_in_kg_lb"
 msgid "Energy expenditure for a person weighting {kg} kg / {lb} lb"
 msgstr "Energy expenditure for a person weighting {kg} kg / {lb} lb"
 
-msgctxt "nutriscore_not_applicable_short"
-msgid "Not applicable for this product"
-msgstr "Not applicable for this product"
-
 msgctxt "nutriscore_missing_category_short"
 msgid "Missing category"
 msgstr "Missing category"
@@ -5985,6 +6035,10 @@ msgstr "Missing category"
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr "Missing nutrition facts"
+
+msgctxt "nutriscore_missing_category_and_nutrition_data_short"
+msgid "Missing category and nutrition facts"
+msgstr "Missing category and nutrition facts"
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
 msgid "Reduce or stop drinking alcohol"
@@ -6093,3 +6147,51 @@ msgstr "We could not recognize some of the ingredients and determine the NOVA gr
 msgctxt "unselect_image"
 msgid "Unselect Image"
 msgstr "Unselect Image"
+
+msgctxt "nutriscore_learn_more"
+msgid "Learn more about the Nutri-Score"
+msgstr "Learn more about the Nutri-Score"
+
+msgctxt "ecoscore_learn_more"
+msgid "Learn more about the Eco-Score"
+msgstr "Learn more about the Eco-Score"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_very_good_match"
+msgid "Very good match"
+msgstr "Very good match"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_good_match"
+msgid "Good match"
+msgstr "Good match"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_poor_match"
+msgid "Poor match"
+msgstr "Poor match"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_unknown_match"
+msgid "Unknown match"
+msgstr "Unknown match"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_may_not_match"
+msgid "May not match"
+msgstr "May not match"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_does_not_match"
+msgid "Does not match"
+msgstr "Does not match"
+
+msgctxt "reset_preferences"
+msgid "Use default preferences"
+msgstr "Use default preferences"
+
+msgctxt "reset_preferences_details"
+msgid "Nutri-Score, Eco-Score and food processing level (NOVA)"
+msgstr "Nutri-Score, Eco-Score and food processing level (NOVA)"
+
+

@@ -237,7 +237,7 @@
                "id" : "vegan",
                "match" : 0,
                "name" : "Vegan",
-               "panel_id" : "ingredients_analysis_en-vegan",
+               "panel_id" : "ingredients_analysis_en:non-vegan",
                "status" : "known",
                "title" : "Non-vegan"
             },
@@ -247,7 +247,7 @@
                "id" : "vegetarian",
                "match" : 0,
                "name" : "Vegetarian",
-               "panel_id" : "ingredients_analysis_en-vegetarian",
+               "panel_id" : "ingredients_analysis_en:non-vegetarian",
                "status" : "known",
                "title" : "Non-vegetarian"
             },
@@ -257,7 +257,7 @@
                "id" : "palm_oil_free",
                "match" : 100,
                "name" : "Palm oil free",
-               "panel_id" : "ingredients_analysis_en-palm-oil-free",
+               "panel_id" : "ingredients_analysis_en:palm-oil-free",
                "status" : "known",
                "title" : "Palm oil free"
             }
@@ -1163,6 +1163,7 @@
       "c"
    ],
    "nutrition_score_beverage" : 0,
+   "nutrition_score_debug" : "",
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 0,
    "other_nutritional_substances_tags" : [],

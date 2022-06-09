@@ -7,6 +7,7 @@
 # - Always set the unit:en property. If there is not unit (e.g. for the pH), use unit:en with no value.
 # - The "automatically_computed:en: yes" property is used for nutrients (or scores) that are not entered by users, but computed by Product Opener
 # (e.g. the NOVA group, Nutrition score, % of fruits/vegetables estimated by ingredients analysis etc.)
+# See also: https://wiki.openfoodfacts.org/Nutrients_handling_in_Open_Food_Facts
 
 stopwords:en: including, of, which
 stopwords:fr: dont
@@ -3963,7 +3964,7 @@ mn:Пантотений хүчил
 ms:Asid pantotenik
 mt:Aċidu Pantoteniku
 nb:pantotensyre
-nl:Vitamine B5, Pantotheenzuur, pantoteenzuur, B5
+nl:Vitamine B5 (Pantotheenzuur), Pantotheenzuur, pantoteenzuur, B5
 nl_be:Pantotheenzuur
 oc:Acid pantotenic, Vitamina B5
 pl:Kwas pantotenowy, kwas pantotenomy, Witamina B5, B5

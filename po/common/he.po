@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-04-19 02:45\n"
+"PO-Revision-Date: 2022-05-27 19:05\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -122,9 +122,9 @@ msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
 msgstr "נא למלא את שם הארגון שלך (חברה או מותג)."
 
-msgctxt "this_is_a_pro_account_for_org"
-msgid "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
-msgstr "זהו חשבון מקצועי שמשויך ליצרן או למותג %s. יש לך גישה לפלטפורמה ליצרנים."
+msgctxt "f_this_is_a_pro_account_for_org"
+msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
+msgstr "חשבון זה הוא חשבון מקצועי שמשויך עם היצרן או המותג {org}. יש לך גישה לפלטפורמה ליצרנים."
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -680,6 +680,14 @@ msgstr "משתמש שגוי."
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "שם המשתמש יכול להכיל רק אותיות לטיניות קטנות, ספרות ומקפים."
+
+msgctxt "error_username_too_long"
+msgid "The user name is too long (maximum 20 characters)."
+msgstr "שם המשתמש ארוך מדי (20 תווים לכל היותר)."
+
+msgctxt "error_name_too_long"
+msgid "The name is too long (maximum 60 characters)."
+msgstr "השם ארוך מדי (60 תווים לכל היותר)."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -5701,6 +5709,10 @@ msgctxt "source_ademe_agribalyse"
 msgid "Source: ADEME Agribalyse Database"
 msgstr "מקור: מסד הנתונים Agribalyse מבית ADEME"
 
+msgctxt "source_ademe_agribalyse_for_category"
+msgid "The carbon emission figure comes from ADEME's Agribalyse database, for the category:"
+msgstr "נתון פליטת הפחמן מגיע ממסד הנתונים Agribalyse של ADEME, עבור הקטגוריה:"
+
 msgctxt "environment_card_title"
 msgid "Environment"
 msgstr "סביבה"
@@ -5757,6 +5769,10 @@ msgctxt "ecoscore_lca_score"
 msgid "Life cycle analysis score"
 msgstr "ציון ניתוח מחזור חיים"
 
+msgctxt "impact_for_this_product"
+msgid "Impact for this product"
+msgstr "השפעת המוצר הזה"
+
 msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
 msgstr "הציון של מוצרים עם אריזה מחומרים שלא ניתן למחזר ואינם מתכלים מוגבל ל־79 (דרגה B)."
@@ -5772,6 +5788,10 @@ msgstr "יש לציין את קטגוריית המוצר כדי לחשב Nutri-S
 msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "יש לציין את העובדות התזונתיות של המוצר כדי לחשב Nutri-Score."
+
+msgctxt "nutriscore_missing_category_and_nutrition_data"
+msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
+msgstr "יש לציין את הקטגוריה ואת העובדות התזונתיות של המוצר כדי לחשב Nutri-Score."
 
 msgctxt "health"
 msgid "Health"
@@ -5828,6 +5848,10 @@ msgstr "חסרה קטגוריה"
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr "עובדות תזונתיות חסרות"
+
+msgctxt "nutriscore_missing_category_and_nutrition_data_short"
+msgid "Missing category and nutrition facts"
+msgstr "הקטגוריה והעובדות התזונתיות חסרים"
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
 msgid "Reduce or stop drinking alcohol"
@@ -5935,4 +5959,50 @@ msgstr "לא הצלחנו לזהות חלק מהרכיבים ולאתר את ק�
 msgctxt "unselect_image"
 msgid "Unselect Image"
 msgstr "ביטול בחירת התמונה"
+
+msgctxt "nutriscore_learn_more"
+msgid "Learn more about the Nutri-Score"
+msgstr "מידע נוסף על ציון תזונתי"
+
+msgctxt "ecoscore_learn_more"
+msgid "Learn more about the Eco-Score"
+msgstr "מידע נוסף על Eco-Score"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_very_good_match"
+msgid "Very good match"
+msgstr "התאמה טובה מאוד"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_good_match"
+msgid "Good match"
+msgstr "התאמה טובה"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_poor_match"
+msgid "Poor match"
+msgstr "התאמה גרועה"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_unknown_match"
+msgid "Unknown match"
+msgstr "התאמה לא ידועה"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_may_not_match"
+msgid "May not match"
+msgstr "אולי אין התאמה"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_does_not_match"
+msgid "Does not match"
+msgstr "אינו תואם"
+
+msgctxt "reset_preferences"
+msgid "Use default preferences"
+msgstr "להשתמש בהעדפות ברירת המחדל"
+
+msgctxt "reset_preferences_details"
+msgid "Nutri-Score, Eco-Score and food processing level (NOVA)"
+msgstr "Nutri-Score,‏ Eco-Score ורמת עיבוד מזון (NOVA)"
 

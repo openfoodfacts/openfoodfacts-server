@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-04-19 02:43\n"
+"PO-Revision-Date: 2022-05-27 22:01\n"
 "Language-Team: Danish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -122,9 +122,9 @@ msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
 msgstr "Angiv navnet på din organisation (firmanavn eller varemærke)."
 
-msgctxt "this_is_a_pro_account_for_org"
-msgid "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
-msgstr "Denne konto er en professionel konto tilknyttet producenten eller varemærket %s. Du har adgang til producentplatformen."
+msgctxt "f_this_is_a_pro_account_for_org"
+msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
+msgstr "Dette er en professionel konto tilknyttet producenten eller mærket {org}. Du har adgang til producentplatformen."
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -679,6 +679,14 @@ msgstr "Ugyldig bruger."
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "Brugernavn må kun indeholde versaler, minuskler, cifre og streger."
+
+msgctxt "error_username_too_long"
+msgid "The user name is too long (maximum 20 characters)."
+msgstr "Brugernavnet for langt (maks. 20 tegn)."
+
+msgctxt "error_name_too_long"
+msgid "The name is too long (maximum 60 characters)."
+msgstr "Navn for langt (maks. 60 tegn)."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -5702,6 +5710,10 @@ msgctxt "source_ademe_agribalyse"
 msgid "Source: ADEME Agribalyse Database"
 msgstr "Kilde: ADEME Agribalyse Database"
 
+msgctxt "source_ademe_agribalyse_for_category"
+msgid "The carbon emission figure comes from ADEME's Agribalyse database, for the category:"
+msgstr "Tallet for CO2-udslip hidrører fra ADEMEs Agribalyse-database for kategorien:"
+
 msgctxt "environment_card_title"
 msgid "Environment"
 msgstr "Miljø"
@@ -5758,6 +5770,10 @@ msgctxt "ecoscore_lca_score"
 msgid "Life cycle analysis score"
 msgstr "Livscyklusanalysescore"
 
+msgctxt "impact_for_this_product"
+msgid "Impact for this product"
+msgstr "Påvirkning fra dette produkt"
+
 msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
 msgstr "Scoren for produkter uden genanvendelige og biologisk nedbrydelige emballagematerialer er begrænset til 79 (klasse B)."
@@ -5773,6 +5789,10 @@ msgstr "Produktkategorien skal angives for at kunne beregne Nutri-Score."
 msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "Produktnæringsfakta skal angives for at kunne beregne Nutri-Score."
+
+msgctxt "nutriscore_missing_category_and_nutrition_data"
+msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
+msgstr "Produktkategori samt -ernæringsfakta skal angives for at kunne beregne Nutri-Score."
 
 msgctxt "health"
 msgid "Health"
@@ -5829,6 +5849,10 @@ msgstr "Mangler kategori"
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr "Manglende ernæringsfakta"
+
+msgctxt "nutriscore_missing_category_and_nutrition_data_short"
+msgid "Missing category and nutrition facts"
+msgstr "Mangler kategori og ernæringsfakta"
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
 msgid "Reduce or stop drinking alcohol"
@@ -5936,4 +5960,50 @@ msgstr "Nogle ingredienser kunne ikke genkendes, NOVA-gruppe kan ikke bestemmes.
 msgctxt "unselect_image"
 msgid "Unselect Image"
 msgstr "Afmarér foto"
+
+msgctxt "nutriscore_learn_more"
+msgid "Learn more about the Nutri-Score"
+msgstr "Få mere at vide om Nutri-Scoren"
+
+msgctxt "ecoscore_learn_more"
+msgid "Learn more about the Eco-Score"
+msgstr "Få mere at vide om Øko-Score"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_very_good_match"
+msgid "Very good match"
+msgstr "Meget godt match"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_good_match"
+msgid "Good match"
+msgstr "Godt match"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_poor_match"
+msgid "Poor match"
+msgstr "Dårligt match"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_unknown_match"
+msgid "Unknown match"
+msgstr "Ukendt match"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_may_not_match"
+msgid "May not match"
+msgstr "Matcher muligvis ikke"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_does_not_match"
+msgid "Does not match"
+msgstr "Matcher ikke"
+
+msgctxt "reset_preferences"
+msgid "Use default preferences"
+msgstr "Brug standardpræferencer"
+
+msgctxt "reset_preferences_details"
+msgid "Nutri-Score, Eco-Score and food processing level (NOVA)"
+msgstr "Nutri-Score, Øko-Score og fødevareforarbejdningsniveau (NOVA)"
 

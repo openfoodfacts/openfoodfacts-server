@@ -203,7 +203,7 @@
                "icon_url" : "https://server_domain/images/attributes/vegan-status-unknown.svg",
                "id" : "vegan",
                "name" : "Vegan",
-               "panel_id" : "ingredients_analysis_en-vegan",
+               "panel_id" : "ingredients_analysis_en:vegan-status-unknown",
                "status" : "unknown",
                "title" : "Vegan status unknown"
             },
@@ -212,7 +212,7 @@
                "icon_url" : "https://server_domain/images/attributes/vegetarian-status-unknown.svg",
                "id" : "vegetarian",
                "name" : "Vegetarian",
-               "panel_id" : "ingredients_analysis_en-vegetarian",
+               "panel_id" : "ingredients_analysis_en:vegetarian-status-unknown",
                "status" : "unknown",
                "title" : "Vegetarian status unknown"
             },
@@ -221,7 +221,7 @@
                "icon_url" : "https://server_domain/images/attributes/palm-oil-content-unknown.svg",
                "id" : "palm_oil_free",
                "name" : "Palm oil free",
-               "panel_id" : "ingredients_analysis_en-palm-oil-free",
+               "panel_id" : "ingredients_analysis_en:palm-oil-content-unknown",
                "status" : "unknown",
                "title" : "Palm oil content unknown"
             }
@@ -745,9 +745,14 @@
    "misc_tags" : [
       "en:nutriscore-not-computed",
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
-      "en:nutrition-no-saturated-fat",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-energy",
+      "en:nutriscore-missing-nutrition-data-fat",
+      "en:nutriscore-missing-nutrition-data-saturated-fat",
+      "en:nutriscore-missing-nutrition-data-sugars",
+      "en:nutriscore-missing-nutrition-data-sodium",
+      "en:nutriscore-missing-nutrition-data-proteins",
+      "en:nutrition-no-fiber",
       "en:ecoscore-extended-data-not-computed",
       "en:ecoscore-missing-data-warning",
       "en:ecoscore-missing-data-labels",
@@ -769,7 +774,8 @@
       "unknown"
    ],
    "nutrition_score_beverage" : 0,
-   "nutrition_score_debug" : "missing energy",
+   "nutrition_score_debug" : "missing energy - missing fat - missing saturated-fat - missing sugars - missing sodium - missing proteins",
+   "nutrition_score_warning_no_fiber" : 1,
    "other_nutritional_substances_tags" : [],
    "packagings" : [],
    "pnns_groups_1" : "unknown",

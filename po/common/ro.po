@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ro\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-04-19 02:48\n"
+"PO-Revision-Date: 2022-05-27 19:04\n"
 "Language-Team: Romanian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -122,9 +122,9 @@ msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
 msgstr "Vă rugăm să introduceți numele organizației dvs. (numele companiei sau marca)."
 
-msgctxt "this_is_a_pro_account_for_org"
-msgid "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
-msgstr "Acest cont este un cont profesional asociat cu producătorul sau marca %s. Ai acces la Platforma pentru Producători."
+msgctxt "f_this_is_a_pro_account_for_org"
+msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
+msgstr ""
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -283,7 +283,7 @@ msgstr "Manual de administrare pentru producători"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> este făcuta de o asociație non-profitabilă, independentă în industrie. Este facut pentru toată lumea. Pentru a ne susține lucrul<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donează lui Open Food Facts</a> și <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\"> pentru folosirea motorului de cautare Lilo</a>.<br/><b>Vă mulțumim</b></p>"
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> este făcută de o asociație non-profit, independentă în industrie. Este făcut pentru toată lumea. Pentru a ne susține munca <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"> donați la Open Food Facts </a> și <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\"> pentru folosirea motorului de căutare Lilo</a>.<br/><b>Vă mulțumim</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -677,6 +677,14 @@ msgstr "Utilizator invalid."
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "Numele de utilizator trebuie să conțină doar litere neaccentuate, cifre și liniuțe."
+
+msgctxt "error_username_too_long"
+msgid "The user name is too long (maximum 20 characters)."
+msgstr ""
+
+msgctxt "error_name_too_long"
+msgid "The name is too long (maximum 60 characters)."
+msgstr ""
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -5697,6 +5705,10 @@ msgctxt "source_ademe_agribalyse"
 msgid "Source: ADEME Agribalyse Database"
 msgstr "Sursa: Baza de date ADEME Agribalyse"
 
+msgctxt "source_ademe_agribalyse_for_category"
+msgid "The carbon emission figure comes from ADEME's Agribalyse database, for the category:"
+msgstr "Cifra emisiilor de carbon provine din baza de date Agribalyse a ADEME, pentru categoria:"
+
 msgctxt "environment_card_title"
 msgid "Environment"
 msgstr "Mediu"
@@ -5753,6 +5765,10 @@ msgctxt "ecoscore_lca_score"
 msgid "Life cycle analysis score"
 msgstr "Scorul analizei ciclului de viață"
 
+msgctxt "impact_for_this_product"
+msgid "Impact for this product"
+msgstr "Impact pentru acest produs"
+
 msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
 msgstr "Scorul produselor cu materiale de ambalare nereciclabile și nebiodegradabile este limitat la 79 (gradul B)."
@@ -5768,6 +5784,10 @@ msgstr "Categoria produsului trebuie specificată pentru a calcula Nutri-Score."
 msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "Valorile nutriționale ale produsului trebuie specificate pentru a calcula Nutri-Score."
+
+msgctxt "nutriscore_missing_category_and_nutrition_data"
+msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
+msgstr "Categoria și valorile nutriționale ale produsului trebuie specificate pentru a calcula Nutri-Score."
 
 msgctxt "health"
 msgid "Health"
@@ -5824,6 +5844,10 @@ msgstr "Lipsește categoria"
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr "Date nutriționale lipsă"
+
+msgctxt "nutriscore_missing_category_and_nutrition_data_short"
+msgid "Missing category and nutrition facts"
+msgstr "Lipsește categoria și datele nutriționale"
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
 msgid "Reduce or stop drinking alcohol"
@@ -5931,4 +5955,50 @@ msgstr "Nu am putut să recunoaștem unele dintre ingrediente și să stabilim g
 msgctxt "unselect_image"
 msgid "Unselect Image"
 msgstr "Deselectați imaginea"
+
+msgctxt "nutriscore_learn_more"
+msgid "Learn more about the Nutri-Score"
+msgstr "Aflați mai multe despre Nutri-Score"
+
+msgctxt "ecoscore_learn_more"
+msgid "Learn more about the Eco-Score"
+msgstr "Aflați mai multe despre Eco-Score"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_very_good_match"
+msgid "Very good match"
+msgstr "Potrivire foarte bună"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_good_match"
+msgid "Good match"
+msgstr "Potrivire bună"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_poor_match"
+msgid "Poor match"
+msgstr "Potrivire slabă"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_unknown_match"
+msgid "Unknown match"
+msgstr "Potrivire necunoscută"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_may_not_match"
+msgid "May not match"
+msgstr "Nu se potrivește"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_does_not_match"
+msgid "Does not match"
+msgstr "Nu se potrivește"
+
+msgctxt "reset_preferences"
+msgid "Use default preferences"
+msgstr ""
+
+msgctxt "reset_preferences_details"
+msgid "Nutri-Score, Eco-Score and food processing level (NOVA)"
+msgstr ""
 

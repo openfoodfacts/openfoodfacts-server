@@ -29,7 +29,7 @@
             <p>[% f_lang('f_nova_markers_for_nova_group', { 'nova_group' => panel.nova_group_name }) %][% sep %]:</p>
             <ul>
             [% FOREACH marker IN product.nova_groups_markers.$nova_group %]
-                <li>[% lang(marker.0 _ '_s') FILTER ucfirst %][% sep %]: [% display_taxonomy_tag(marker.0, marker.1) %]</li>
+                <li>[% lang(marker.0 _ '_s') FILTER ucfirst %][% sep %]: [% display_taxonomy_tag_name(marker.0, marker.1) %]</li>
             [% END %]
             </ul>
         [% END %]

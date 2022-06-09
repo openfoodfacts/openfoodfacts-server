@@ -134,7 +134,15 @@ use ProductOpener::Config2;
 		unaccent => 1,
 		lowercase => 1,
 	},
+	nl => {
+		unaccent => 1,
+		lowercase => 1,
+	},
 	pt => {
+		unaccent => 1,
+		lowercase => 1,
+	},
+	sk => {
 		unaccent => 1,
 		lowercase => 1,
 	},
@@ -148,7 +156,9 @@ use ProductOpener::Config2;
 %admins = map { $_ => 1 } qw(
 	alex-off
 	charlesnepote
+	gala-nafikova
 	hangy
+	manoncorneille
 	raphael0202
 	stephane
 	tacinte
@@ -357,14 +367,35 @@ $page_size = 24;
 
 $google_analytics = <<HTML
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-31851927-1"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HQX9SYHB2P&aip=1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
-  gtag('config', 'UA-31851927-1');
+  gtag('set', 'allow_google_signals', false);
+  gtag('config', 'G-HQX9SYHB2P', {"anonymize_ip": true, 'allow_google_signals': false});
 </script>
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+  _paq.push(["setCookieDomain", "*.openfoodfacts.org"]);
+  _paq.push(["setDomains", ["*.openfoodfacts.org"]]);
+  _paq.push(["setDoNotTrack", true]);
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//analytics.openfoodfacts.org/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '5']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.openfoodfacts.org/matomo.php?idsite=5&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+<!-- End Matomo Code -->
 
 HTML
 ;
@@ -1397,6 +1428,16 @@ $options{import_sources} = {
 	'codeonline' => "CodeOnline Food",
 	'equadis' => "Equadis",
 	'database-usda' => "USDA Global Branded Food Products Database",
+};
+
+# Configuration to receive GS1 notification messages and issue GS1 confirmation messages
+
+$options{gs1} = {
+	local_gln => "3770026870013",			# Open Food Facts GS1 GLN identifier
+	agena3000 => {
+		receiver_gln => "3034012285008",	# Agena 3000
+		data_pool_gln => "3027000006006",	# GS1
+	},
 };
 
 # Barcode of a sample product returned through the API when the requested code is "example"
