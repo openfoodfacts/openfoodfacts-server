@@ -14582,6 +14582,10 @@ fr:huile de palme ou de palmiste, huile de palme ou huile de palmiste, palme ou 
 hu:pálma- vagy pálmamagolaj, pálmaolaj vagy pálmamagolaj
 nl:palmolie of palmkernolie
 
+<en:vegetable oil
+en:cashew nut oil
+fr:huile de noix de cajou
+
 ############################## Pumpkin Seed Oil ##################
 
 <en:vegetable oil
@@ -37950,6 +37954,10 @@ ciqual_food_name:en:Cherry, pitted, raw
 ciqual_food_name:fr:Cerise, dénoyautée, crue
 
 <en:cherry
+en:wild cherry
+fr:cerise sauvage, cerises sauvages
+
+<en:cherry
 en:Pitted cherry 
 fr:Cerise dénoyautée
 ciqual_food_code:en:13008
@@ -52612,7 +52620,7 @@ description:nl:De paranoot wordt geleverd door een boom (Bertholletia excelsa) u
 ###################################################################################################
 
 <en:tree nut
-en:cashew nuts, cashews, cashew, cashewnut
+en:cashew nuts, cashews, cashew, cashewnut, cashew nut
 ar:كاجو
 bg:кашу
 ca:anacards
@@ -54719,6 +54727,10 @@ fr:sésame doré
 # ingredient/fr:sesame-dore has 13 products in french @2019-06-04
 
 <en:sesame
+en:white sesame
+fr:sésame blanc
+
+<en:sesame
 # <en:seed
 en:sesame seeds
 bg:сусамово семе
@@ -54751,6 +54763,7 @@ ciqual_food_name:en:Sesame seed
 ciqual_food_name:fr:Sésame, graine
 
 <en:sesame seeds
+<en:white sesame
 en:white sesame seeds
 fr:graine de sésame blanc, graines de sésame blanc
 
@@ -55433,7 +55446,7 @@ es:curry
 et:karri
 fa:ماليدن
 fi:curry
-fr:curry
+fr:curry, mélange d'épice curry
 gu:શાક
 hi:सालन
 hu:curry
@@ -60923,7 +60936,12 @@ it:foglie d'arancio
 # ingredient/fr:feuilles-d'oranger has 65 products in 4@2019-04-13
 
 <en:plant
+en:orange blossom
 fr:fleur d'oranger
+
+<en:orange blossom
+en:orange blossom water
+fr:eau de fleur d'oranger
 
 # <en:vegetable fibre
 <en:plant
