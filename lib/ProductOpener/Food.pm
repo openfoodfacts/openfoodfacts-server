@@ -287,7 +287,7 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 
 		$product_ref->{nutriments}{$nid . "_unit"} = $unit;
 		$product_ref->{nutriments}{$nid . "_value"} = $value;
-		
+
 		if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and (defined get_property("nutrients", "zz:$nid", "iu_value:en"))) {
 			$value = $value * get_property("nutrients", "zz:$nid", "iu_value:en") ;
 			$unit = get_property("nutrients", "zz:$nid", "iu_value:en");
@@ -321,7 +321,7 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 			delete $product_ref->{nutriments}{$nid . "_modifier"};
 		}
 	}
-	
+
 	return;
 }
 
@@ -351,7 +351,7 @@ sub kcal_to_unit($$) {
 	$unit = lc($unit);
 
 	(not defined $value) and return $value;
-	
+
 	($unit eq 'kj') and return int($value * 4.184 + 0.5);
 
 	# return value without modification if it's already in kcal
@@ -399,8 +399,14 @@ sub unit_to_g($$) {
 	$unit eq 'fl oz' and return $value * 30;
 
 	# return value without modification if it's already grams or 克 (kè) or 公克 (gōngkè) or г
-	return $value + 0; # + 0 to make sure the value is treated as number
+	# We return with + 0 to make sure the value is treated as number
 	# (needed when outputting json and to store in mongodb as a number)
+	(($unit eq 'g') or ($unit eq '克') or ($unit eq '公克') or ($unit eq 'г')
+		or ($unit eq 'мл') or ($unit = '\N{U+6BEB}\N{U+5347}')
+	) and return $value + 0;
+
+	# lets not assume that we have a valid unit
+	return 0;
 }
 
 
@@ -1210,7 +1216,6 @@ my $chinese_units = qr/
 my $russian_units = qr/г|мг|кг|л|дл|кл|мл/i;
 my $units = qr/$international_units|$chinese_units|$russian_units/i;
 
-
 =head2 normalize_quantity($)
 
 Return the size in g or ml for the whole product. Eg.:
@@ -1260,21 +1265,43 @@ normalize_serving_size(2.5kg)              returns 2500
 =cut
 
 sub normalize_serving_size($) {
-
 	my $serving = shift;
 
-	my $q = 0;
-	my $u;
-
-	if ($serving =~ /((\d+)(\.|,)?(\d+)?)( )?($units)\b/i) {
-		$q = lc($1);
-		$u = $6;
+	if ($serving =~ /(?<quantity>(\d+)(\.|,)?(\d+)?)( )?(?<unit>\w+)\b/i) {
+		my $q = $+{quantity};
+        my $u = normalize_unit($+{unit});
 		$q = convert_string_to_number($q);
-		$q = unit_to_g($q,$u);
+
+		return unit_to_g($q, $u);
 	}
 
 	#$log->trace("serving size normalized", { serving => $serving, q => $q, u => $u }) if $log->is_trace();
-	return $q;
+	return 0;
+}
+
+# @todo we should have equivalences for more units if we are supporting this
+my %unit_equivalence_map = (
+	'g' => qr/gram(s)?/
+);
+
+=head2 normalize_unit ( $unit )
+
+Normalizes units to their standard symbolic forms so that we can support unit names and alternative
+representations in our normalization logic.
+
+=cut
+
+sub normalize_unit($) {
+	my $originalUnit = shift;
+
+	keys %unit_equivalence_map;
+	while (my($u, $e) = each(%unit_equivalence_map)) {
+		if ($originalUnit =~ $e) {
+			return $u;
+		}
+	}
+
+	return $originalUnit;
 }
 
 
@@ -1318,10 +1345,10 @@ sub is_beverage_for_nutrition_score($) {
 				}
 			}
 		}
-		
+
 		# dairy drinks need to have at least 80% of milk to be considered as food instead of beverages
-		my $milk_percent = estimate_milk_percent_from_ingredients($product_ref); 
-			
+		my $milk_percent = estimate_milk_percent_from_ingredients($product_ref);
+
 		if ($milk_percent >= 80) {
 			$log->debug("milk >= 80%", { milk_percent => $milk_percent }) if $log->is_debug();
 			$is_beverage = 0;
@@ -1663,7 +1690,7 @@ sub compute_nutrition_score($) {
 			}
 		}
 
-		# If we do not have a fruits estimate, use 0 and add a warning		
+		# If we do not have a fruits estimate, use 0 and add a warning
 		if (not defined $fruits) {
 			$fruits = 0;
 			$product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} = 1;
@@ -1722,12 +1749,12 @@ sub compute_nutrition_score($) {
 
 	shift @{$product_ref->{misc_tags}};
 	push @{$product_ref->{misc_tags}}, "en:nutriscore-computed";
-	
+
 	# In order to be able to sort by nutrition score in MongoDB,
 	# we create an opposite of the nutrition score
 	# as otherwise, in ascending order on nutriscore_score, we first get products without the nutriscore_score field
 	# instead we can sort on descending order on nutriscore_score_opposite
-	$product_ref->{nutriscore_score_opposite} = -$nutriscore_score;		
+	$product_ref->{nutriscore_score_opposite} = -$nutriscore_score;
 
 	return;
 }
@@ -1829,7 +1856,7 @@ sub compute_serving_size_data($) {
 
 				my $unit = get_property("nutrients", "zz:$nid", "unit:en"); # $unit will be undef if the nutrient is not in the taxonomy
 				print STDERR "nid: $nid - unit: $unit\n";
-				
+
 				# If the nutrient has no unit (e.g. pH), or is a % (e.g. "% vol" for alcohol), it is the same regardless of quantity
 				# otherwise we adjust the value for 100g
 				if ((defined $unit) and (($unit eq '') or ($unit =~ /^\%/))) {
@@ -1861,7 +1888,7 @@ sub compute_serving_size_data($) {
 				delete $product_ref->{nutriments}{$nid . $product_type . "_serving"};
 
 				my $unit = get_property("nutrients", "zz:$nid", "unit:en");	# $unit will be undef if the nutrient is not in the taxonomy
-				
+
 				# If the nutrient has no unit (e.g. pH), or is a % (e.g. "% vol" for alcohol), it is the same regardless of quantity
 				# otherwise we adjust the value for the serving quantity
 				if ((defined $unit) and (($unit eq '') or ($unit =~ /^\%/))) {
@@ -2225,7 +2252,7 @@ sub compute_nova_group($) {
 	my %nova_groups_markers = ();
 
 	# We currently have 2 sources for tags that can trigger a given NOVA group:
-	# 1. tags specified in the %options of Config.pm 
+	# 1. tags specified in the %options of Config.pm
 	# 2. tags in the categories, ingredients and additives taxonomy that have a nova:en property
 
 	# We first generate lists of matching tags for each NOVA group, from the two sources
@@ -2236,7 +2263,7 @@ sub compute_nova_group($) {
 
 	if (defined $options{nova_groups_tags}) {
 
-		foreach my $tag (sort {($options{nova_groups_tags}{$a} <=> $options{nova_groups_tags}{$b}) || ($a cmp $b)} keys %{$options{nova_groups_tags}}) {			
+		foreach my $tag (sort {($options{nova_groups_tags}{$a} <=> $options{nova_groups_tags}{$b}) || ($a cmp $b)} keys %{$options{nova_groups_tags}}) {
 
 			if ($tag =~ /\//) {
 
@@ -2252,7 +2279,7 @@ sub compute_nova_group($) {
 
 
 	# Matching tags from taxonomies
-	
+
 	foreach my $tagtype ("categories", "ingredients", "additives") {
 
 		if ((defined $product_ref->{$tagtype . "_tags"}) and (defined $properties{$tagtype})) {
@@ -2527,9 +2554,9 @@ sub assign_categories_properties_to_product($) {
 	$product_ref->{categories_properties_tags} = [];
 
 	# Simple properties
-	
+
 	push @{$product_ref->{categories_properties_tags}}, "all-products";
-	
+
 	if (defined $product_ref->{categories}) {
 		push @{$product_ref->{categories_properties_tags}}, "categories-known";
 	}
@@ -2552,7 +2579,7 @@ sub assign_categories_properties_to_product($) {
 				}
 			}
 		}
-		
+
 		if ( defined $product_ref->{categories_properties}{$property} ) {
 			push @{ $product_ref->{categories_properties_tags} },
 				get_string_id_for_lang(
@@ -2617,7 +2644,7 @@ sub assign_nutriments_values_from_request_parameters($$) {
 		elsif (defined param($checkbox . "_displayed")) {
 			$product_ref->{$checkbox} = "";
 		}
-	}	
+	}
 
 	# Assign all the nutrient values
 
@@ -2765,7 +2792,7 @@ sub assign_nutriments_values_from_request_parameters($$) {
 			delete $product_ref->{nutriments}{$key . "_100g"};
 			delete $product_ref->{nutriments}{$key . "_serving"};
 		}
-	}	
+	}
 }
 
 
