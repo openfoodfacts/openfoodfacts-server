@@ -1267,7 +1267,9 @@ normalize_serving_size(2.5kg)              returns 2500
 sub normalize_serving_size($) {
 	my $serving = shift;
 
-	if ($serving =~ /(?<quantity>(\d+)(\.|,)?(\d+)?)( )?(?<unit>\w+)\b/i) {
+	# Regex captures any <number>( )?<unit-identifier> group, but leaves allowances for a preceding
+	# token to allow for patterns like "One bag (32g)", "1 small bottle (180ml)" etc
+	if ($serving =~ /^(.*[ \(])?(?<quantity>(\d+)(\.|,)?(\d+)?)( )?(?<unit>\w+)\b/i) {
 		my $q = $+{quantity};
         my $u = normalize_unit($+{unit});
 		$q = convert_string_to_number($q);
