@@ -18,6 +18,10 @@ my @serving_sizes = (
 ["1 plate (25g)", "25"],
 ["1 grilled link (82g)", "82"],
 ["2 buns = 20g", "20"],
+["20 someinvalidunit", "0"],
+["15aug", "0"],
+["43 someinvalidunit (430g)", "430"],
+["1500ml", "1500"],
 );
 
 foreach my $test_ref (@serving_sizes) {
