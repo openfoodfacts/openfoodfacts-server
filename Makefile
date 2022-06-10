@@ -153,7 +153,7 @@ import_sample_data:
 
 import_more_sample_data:
 	@echo "🥫 Importing sample data (~2000 products) into MongoDB …"
-	${DOCKER_COMPOSE} run --rm backend bash /opt/product-opener/scripts/import_more_sample_data.sh	
+	${DOCKER_COMPOSE} run --rm backend bash /opt/product-opener/scripts/import_more_sample_data.sh
 
 import_prod_data:
 	@echo "🥫 Importing production data (~2M products) into MongoDB …"
@@ -182,11 +182,16 @@ checks: front_build front_lint check_perl_fast
 
 
 tests: build_lang_test
-	@echo "🥫 Runing tests …"
+	@echo "🥫 Running tests …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
 	${DOCKER_COMPOSE_TEST} run --rm backend prove -l --jobs ${CPU_COUNT}
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 test success"
+
+test-one: guard-test # usage: make test-one test=t/test-file.t
+	@echo "🥫 Running test: '${test}' …"
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
+	${DOCKER_COMPOSE_TEST} run --rm backend perl ${test}
 
 # check perl compiles, (pattern rule) / but only for newer files
 %.pm %.pl: _FORCE
@@ -255,3 +260,13 @@ clean_folders:
 	( rm -f logs/* logs/apache2/* logs/nginx/* || true )
 
 clean: goodbye hdown prune prune_cache clean_folders
+
+#-----------#
+# Utilities #
+#-----------#
+
+guard-%: # guard clause for targets that require an environment variable (usually used as an argument)
+	@ if [ "${${*}}" = "" ]; then \
+   		echo "Environment variable '$*' is not set"; \
+   		exit 1; \
+	fi;
