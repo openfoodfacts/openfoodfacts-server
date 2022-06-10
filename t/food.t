@@ -580,4 +580,31 @@ is_deeply($product_ref,
  }
 ) or diag explain $product_ref;
 
+# Test IU and %DV values
+$product_ref = { 'nutrition_data_per' => '100g' };
+assign_nid_modifier_value_and_unit($product_ref, "vitamin-a", undef, 40, "IU");
+assign_nid_modifier_value_and_unit($product_ref, "vitamin-e", undef, 40, "IU");
+assign_nid_modifier_value_and_unit($product_ref, "calcium", undef, 20, "% DV");
+assign_nid_modifier_value_and_unit($product_ref, "vitamin-d", undef, 20, "% DV");
+
+is_deeply($product_ref,
+ {
+	nutriments => {
+		'calcium' => '0.2',
+		'calcium_unit' => '% DV',
+		'calcium_value' => 20,
+		'vitamin-a' => '1.2e-05',
+		'vitamin-a_unit' => 'IU',
+		'vitamin-a_value' => 40,
+		'vitamin-d' => '8e-06',
+		'vitamin-d_unit' => '% DV',
+		'vitamin-d_value' => 20,
+		'vitamin-e' => '0.0266666666666667',
+		'vitamin-e_unit' => 'IU',
+		'vitamin-e_value' => 40
+	 },
+   'nutrition_data_per' => '100g',
+ }
+) or diag explain $product_ref;
+
 done_testing();
