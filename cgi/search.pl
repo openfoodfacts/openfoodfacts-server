@@ -654,18 +654,10 @@ elsif ($action eq 'process') {
 
 	my $share = lang('share');
 
-	my $map = '';
-	if(defined param("generate_map")) {
-		$map = param("generate_map");
-	}
-	my $graph = '';
-	if(defined param("graph")) {
-		$map = param("graph");
-	}
-	my $download = '';
-	if(defined param("download")) {
-		$map = param("download");
-	}
+	my $map = param("generate_map") || '';
+	my $graph = param("graph") || '';
+	my $download = param("download") || '';
+
 	open (my $OUT, ">>:encoding(UTF-8)", "$data_root/logs/search_log_debug");
 	print $OUT remote_addr() . "\t" . time() . "\t" . decode utf8=>param('search_terms') . " - map: $map 
 	 - graph: $graph - download: $download - page: $page\n";
