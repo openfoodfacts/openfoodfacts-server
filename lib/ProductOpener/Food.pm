@@ -402,7 +402,7 @@ sub unit_to_g($$) {
 	# We return with + 0 to make sure the value is treated as number
 	# (needed when outputting json and to store in mongodb as a number)
 	(($unit eq 'g') or ($unit eq '克') or ($unit eq '公克') or ($unit eq 'г')
-		or ($unit eq 'мл') or ($unit eq '\N{U+6BEB}\N{U+5347}') or ($unit eq 'ml')
+		or ($unit eq 'мл') or ($unit eq "\N{U+6BEB}\N{U+5347}") or ($unit eq 'ml')
 	) and return $value + 0;
 
 	# lets not assume that we have a valid unit
