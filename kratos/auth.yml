@@ -7,25 +7,9 @@ services:
       - POSTGRES_USER=kratos
       - POSTGRES_PASSWORD=secret
       - POSTGRES_DB=kratos
-    networks:
-      - intranet
-
-  kratos-migrate:
-    image: oryd/kratos:v0.9.0-alpha.3
-    links:
-      - postgres-kratos:postgres-kratos
-    environment:
-      - DSN=postgres://kratos:secret@postgres-kratos:5432/kratos?sslmode=disable&max_conns=20&max_idle_conns=4
-    networks:
-      - intranet
-    volumes:
-      - type: bind
-        source: ./kratos
-        target: /etc/config/kratos
-    command: -c /etc/config/kratos/kratos.yml migrate sql -e --yes
 
   kratos:
-    image: oryd/kratos:v0.9.0-alpha.3
+    image: oryd/kratos:v0.10.1
     links:
       - postgres-kratos:postgres-kratos
     environment:
@@ -37,8 +21,6 @@ services:
       - type: bind
         source: ./kratos
         target: /etc/config/kratos
-    networks:
-      - intranet
     command: serve -c /etc/config/kratos/kratos.yml --dev --watch-courier
 
   kratos-selfservice-ui-node:
@@ -46,8 +28,6 @@ services:
     environment:
       - KRATOS_PUBLIC_URL=http://kratos:4433/
       - KRATOS_BROWSER_URL=http://127.0.0.1:4433/
-    networks:
-      - intranet
     ports:
       - '4455:3000'
     restart: on-failure
@@ -57,8 +37,3 @@ services:
     ports:
       - '4436:4436'
       - '4437:4437'
-    networks:
-      - intranet
-
-networks:
-  intranet:
