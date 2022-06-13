@@ -27,10 +27,10 @@ jobs:
          upload_translations: false # default is false
          download_translations: true
          skip_untranslated_files: false
-         commit_message: New Crowdin translations - ${{ matrix.lc }}
+         commit_message: "l10n: New Crowdin translations - ${{ matrix.lc }}"
          localization_branch_name: l10n_main_${{ matrix.lc }}
          pull_request_base_branch_name: main
-         pull_request_title: chore - New translations - ${{ matrix.lc }}
+         pull_request_title: "l10n: New translations - ${{ matrix.lc }}"
          pull_request_labels: "translations"
          download_language: ${{ matrix.lc }}
       env:
