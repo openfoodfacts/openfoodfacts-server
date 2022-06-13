@@ -1818,6 +1818,7 @@ fr:amandes crues
 
 < en:Almond
 en:whole almonds
+bg:цели бадеми
 de:Mandeln ganz
 es:almendras enteras
 fi:kokonainen manteli, kokonaiset mantelit
@@ -4795,6 +4796,7 @@ fr:olives noires confites entières
 
 < en:Black pepper
 en:black pepper extract
+bg:екстракт от черен пипер
 de:schwarzer Pfefferextrakt
 es:extracto de pimienta negra
 fi:mustapippuriuute
@@ -7560,6 +7562,8 @@ fr:carotte cuite
 
 < en:Carrot
 en:dried carrot
+fr:carotte séchée, carottes séchées
+pl:suszona marchewka
 ru:морковь сушёная
 
 < en:Carrot
@@ -8062,7 +8066,7 @@ it:Cereali contenenti glutine
 allergens:en: en:gluten
 
 < en:Cereal
-en:corn, maize
+en:corn, maize, corn cereal
 af:Mielie
 am:በቆሎ
 an:Zea mays
@@ -8943,8 +8947,14 @@ fr:Thé noir de Ceylan bio
 fr:champagne brut
 
 < en:Champignon
-en:chestnut mushroom
+en:chestnut mushroom, chestnut mushrooms
 de:braune Champignons, Champignons braun, braune Egerlinge
+fr:champignon brun, champignons bruns
+nl:kastanjechampignon, kastanjechampignons
+
+< en:Champignon
+en:white mushroom, white mushrooms
+fr:champignon blanc de Paris, Champignons blancs de Paris
 
 < en:Champignon
 fr:champignons de Paris émincés
@@ -9441,7 +9451,7 @@ el:Φέτα, Τυρί φέτα
 eo:Feta-fromaĝo
 es:Sirene, queso feta
 fa:پنیر فتا
-fr:fromage feta
+fr:feta, fromage feta
 he:פטה
 hu:fetasajt, feta sajt
 hy:Ֆեթա
@@ -10753,6 +10763,10 @@ zh:欧洲甜樱桃
 wikidata:en: Q165137
 
 < en:Cherry
+en:wild cherry
+fr:cerise sauvage, cerises sauvages
+
+< en:Cherry
 < en:Purée
 en:cherry purée
 bg:пюре от череши
@@ -11455,6 +11469,9 @@ en:tabasco chile
 es:chiles tabasco
 
 < en:Chili pepper
+fr:piment inca, piments inca
+
+< en:Chili pepper
 fr:piment Oiseau
 
 < en:Chives
@@ -11602,21 +11619,7 @@ nl:Belgische chocolade
 ro:ciocolată belgiană
 
 < en:Chocolate
-en:chocolate cream
-de:Schokoladencreme, Schokoladen-Crème
-es:crema de chocolate
-fr:Crème de chocolat
-
-< en:Chocolate
-en:chocolate filling, filling cream with chocolate
-de:Schokoladenfüllung
-es:Relleno de chocolate
-fi:suklaatäyte
-fr:fourrage au chocolat, fourrage chocolat
-it:ripieno al cioccolato
-
-< en:Chocolate
-en:chocolate pieces, chocolate chips, semisweet Chocolate Chips
+en:chocolate chunk, chocolate chunks, chocolate pieces, chocolate chips, semisweet Chocolate Chips
 bg:парченца шоколад, шоколадов чипс
 ca:xips de xocolata
 da:Chokoladestykker, stykker af chokolade
@@ -11630,6 +11633,20 @@ nl:Chocostukjes
 pl:Kawałki czekolady
 pt:raspas de chocolate
 sv:Choklad bitar, chokladbitar
+
+< en:Chocolate
+en:chocolate cream
+de:Schokoladencreme, Schokoladen-Crème
+es:crema de chocolate
+fr:Crème de chocolat
+
+< en:Chocolate
+en:chocolate filling, filling cream with chocolate
+de:Schokoladenfüllung
+es:Relleno de chocolate
+fi:suklaatäyte
+fr:fourrage au chocolat, fourrage chocolat
+it:ripieno al cioccolato
 
 < en:Chocolate
 en:chocolate powder
@@ -12929,7 +12946,7 @@ fr:Crème de cacao
 < en:Cocoa
 en:cocoa paste, cocoa mass, chocolate liquor
 bg:какаова маса, какао маса
-ca:pasta de cacau
+ca:pasta de cacau, massa de cacau
 cs:kakaová hmota
 da:kakaomasse
 de:Kakaomasse
@@ -13023,7 +13040,7 @@ sv:fettreducerad kakao
 fr:cacao cru
 
 < en:Cocoa bean
-en:cocoa bean chips
+en:cocoa nibs, cocoa bean chips
 de:kakaobohnenchips
 es:pepitas de cacao, trozos de habas de cacao, trocitos de pepitas de cacao
 fi:Kaakaopapusipsit
@@ -13036,18 +13053,6 @@ de:bio Kakaobohnen
 fi:luomukaakaopapu, luomukaakaopavut, luomu kaakaopapu, luomu kaakaopavut
 fr:fèves de cacao bio
 nl:bio cacaobonen
-
-< en:Cocoa bean chips
-es:trocitos de pepitas de cacao caramelizadas, pepitas de cacao caramelizadas, trozos de habas de cacao caramelizados
-fr:éclats de fèves de cacao caramélisés
-it:granella caramellata di semi di cacao
-nl:gekaramelliseerde schilfers van cacaobonen
-
-< en:Cocoa bean chips
-fr:éclats de fèves de cacao torréfiés
-es:trozos de habas de cacao tostados, trocitos de pepitas de cacao tostadas
-it:granella di fave di cacao tostate
-nl:geroosterde schilfers van cacaobonen
 
 < en:Cocoa butter
 en:organic cocoa butter
@@ -13080,6 +13085,18 @@ en:organic cocoa mass and organic cocoa butter
 fi:luomu kaakaomassa ja -voi
 fr:pâte de cacao issus de l‘agriculture biologique et beurre de cacao issus de l‘agriculture biologique
 
+< en:Cocoa nibs
+es:trocitos de pepitas de cacao caramelizadas, pepitas de cacao caramelizadas, trozos de habas de cacao caramelizados
+fr:éclats de fèves de cacao caramélisés
+it:granella caramellata di semi di cacao
+nl:gekaramelliseerde schilfers van cacaobonen
+
+< en:Cocoa nibs
+fr:éclats de fèves de cacao torréfiés
+es:trozos de habas de cacao tostados, trocitos de pepitas de cacao tostadas
+it:granella di fave di cacao tostate
+nl:geroosterde schilfers van cacaobonen
+
 < en:Cocoa paste
 en:cocoa paste processed with alkali, alkalized cocoa paste
 de:Kakaopaste mit Alkalisalzen versetzt
@@ -13111,7 +13128,7 @@ it:Polvere di cacao processata con alcalinizzanti
 < en:Cocoa powder
 en:fat reduced cocoa powder, low-fat cocoa powder, low fat cocoa powder, cocoa powder with low fat content
 bg:обеэмаслено какао на прах
-ca:cacau desgreixat en pols
+ca:cacau desgreixat en pols, cacau en pols reduït en greix
 cs:Kakaový prášek se sníženým obsahem tuku
 da:fedtfattigt kakaopulver, fedtreduceret kakaopulver, skummet kakaopulver
 de:fettarmes Kakaopulver, Kakaopulver stark entölt, fettreduziertes Kakaopulver, Kakaopulver mit reduziertem Fettgehalt
@@ -14651,12 +14668,17 @@ nl:biologische mais
 en:popcorn
 
 < en:Corn
+en:sweet corn
+de:Süßmais, Zuckermais
+es:maíz dulce, maiz dulce
+fr:maïs doux, mais doux
+nl:suikermaïs
+
+< en:Corn
 en:sweetcorn
 bg:сладка царевица
 de:Süssmais
-es:maíz dulce
 fi:sokerimaissi
-fr:maïs doux
 hu:csemegekukorica
 it:mais dolce
 ja:スイートコーン
@@ -14869,7 +14891,8 @@ en:dried courgette
 de:getrocknete Zucchini
 es:calabacin deshidritado
 fi:kuivattu kesäkurpitsa
-fr:courgettes séchées
+fr:courgette séchée, courgettes séchées
+pl:suszona cukinia
 
 < en:Courgette
 en:grilled courgette
@@ -15188,7 +15211,7 @@ sv:pastöriserad komjölk
 < en:Cow's milk
 < en:Whole milk
 en:whole cow's milk
-bg:пълномаслено краве мляко
+bg:пълномаслено краве мляко, краве пълномаслено мляко
 ca:llect de vaca sencera, llet sencera de vaca
 de:Kuhvollmilch
 es:Leche entera de vaca, leche de vaca entera
@@ -16638,7 +16661,7 @@ af:Room
 ar:قشدة
 ba:Ҡаймаҡ
 be:Вяршкі
-bg:Сметана
+bg:Сметана, млечна сметана
 br:dienn
 ca:nata, crema de la llet, crespell, cresp de la llet, doga
 cs:Smetana
@@ -17251,7 +17274,7 @@ bg:рехидратиран соев протеин
 de:Rehydriertes Sojaprotein, rehydriertes Sojaproteinisolat, angerührtes Sojaproteinisolat
 es:Proteina de soya rehidratada
 fi:uudelleen hydratoitu soijaproteiini
-fr:protéines de soja réhydratées, protéines végétales de soja réhydratées
+fr:protéines de soja réhydratées, protéines végétales de soja réhydratées, textures de soja réhydratées
 hu:rehidratált szójafehérje
 nl:gerehydrateerd soja-eiwit, gerehydrateerde soja-eiwit
 sv:rehydrerat sojaprotein
@@ -27893,7 +27916,7 @@ fi:E341i, Monokalsiumfosfaatti, Yhdenarvoinen kalsiumfosfaatti, Monokalsiumfosfa
 fr:E341i, Phosphate monocalcique, orthophosphate monocalcique, phosphate monocalcique, orthophosphate monocalcique
 ga:Sárfhosfáit
 hu:E341i, Monokalcium-foszfát, Egybázisú kalcium-foszfát, Monokalcium-foszfát, Egybázisú kalcium-foszfát
-it:E341i, Fosfato monocalcico, Fosfato monobasico di calcio, fosfato monocalcico
+it:E341i, Fosfato monocalcico, Fosfato monobasico di calcio, monocalcio fosfato, fosfato monocalcico
 ja:リン酸二水素カルシウム
 lt:E341i, Monokalcio fosfatas, Vienbazis kalcio fosfatas, Monokalcio fosfatas, Vienbazis kalcio fosfatas
 lv:E341i, Monokalcija fosfāts, Monobāziskais kalcija fosfāts, Monokalcija fosfāts, Monobāziskais kalcija fosfāts
@@ -33426,7 +33449,7 @@ bg:E500, E500 food additive
 ca:E500, E500 food additive
 cs:E500, E500 food additive
 da:E500, Natriumcarbonater
-de:E500, Natriumcarbonate
+de:E500, Natriumcarbonat, Natriumcarbonate
 el:E500, E500 food additive
 es:E500, Carbonatos de sodio
 et:E500, E500 food additive
@@ -33482,7 +33505,7 @@ bs:E500i, Natrij-karbonat
 ca:E500i, carbonat de sodi
 cs:E500i, Uhličitan sodný, Bezvodý uhličitan sodný, Soda na praní, uhličitan sodný
 da:E500i, Natriumcarbonat, Soda
-de:E500i, Natriumcarbonat, Natriumkarbonat, Calciniertes Soda, Calcinierte Soda, Waschsoda, Kalzinierte Soda, Kalziniertes Soda, Natriumcarbonat
+de:E500i, Natriumkarbonat, Calciniertes Soda, Calcinierte Soda, Waschsoda, Kalzinierte Soda, Kalziniertes Soda
 el:E500i, Ανθρακικα αλατα του νατριου, ανθρακικό νάτριο
 eo:E500i, natria karbonato
 es:E500i, Carbonato sódico, Carbonato de sodio, Sosa comercial, carbonato de sodio
@@ -33855,7 +33878,7 @@ bg:E503i, Амониев карбонат
 ca:E503i, Carbonat d'amoni
 cs:E503i, Uhličitan amonný
 da:E503i, Ammoniumcarbonat
-de:E503i, Ammoniumcarbonat
+de:E503i, Ammoniumcarbonat, ammoniumcarbonate
 el:E503i, Ανθρακικα αλατα του αμμωνιου
 eo:E503i, Amonia karbonato
 es:E503i, Carbonato de amonio, Carbonato amónico, carbonato de aminiaco
@@ -34230,7 +34253,7 @@ tr:E509, Kalsiyum klorür
 uk:E509, Кальцій хлористий
 vi:E509, canxi clorua
 zh:E509, 氯化钙
-additives_classes:en: en:stabiliser,en:thickener
+additives_classes:en: en:stabiliser,en:thickener,en:coagulant
 e_number:en: 509
 efsa_evaluation:en: Re‐evaluation of hydrochloric acid -E 507-, potassium chloride -E 508-, calcium chloride -E 509- and magnesium chloride -E 511- as food additives
 efsa_evaluation_date:en: 2019/07/06
@@ -34352,7 +34375,7 @@ ta:மெக்னீசயம் குளோரைடு
 uk:Хлорид магнію
 vi:Magie clorua
 zh:氯化镁
-additives_classes:en: en:stabiliser
+additives_classes:en: en:stabiliser,en:coagulant
 e_number:en: 511
 efsa_evaluation:en: Re‐evaluation of hydrochloric acid -E 507-, potassium chloride -E 508-, calcium chloride -E 509- and magnesium chloride -E 511- as food additives
 efsa_evaluation_date:en: 2019/07/06
@@ -40951,6 +40974,7 @@ nl:vloeibaar eigeel
 
 < en:Egg yolk
 en:pasteurised egg yolk, pasteurized egg yolk
+bg:пастьоризиран яйчен жълтък
 de:Pasteurisierter Eigelb Eier, pasteurisiertes Eigelb, pasteurisierter Eidotter
 es:yema de huevo pasteurizada, yemas de huevo pasteurizadas
 fr:jaune d'œuf pasteurisé, jaune d'oeuf pasteurisé
@@ -44876,7 +44900,7 @@ sc:Mela
 sd:اَنبِڙِي
 sh:Jabuka
 si:ඇපල්
-sk:Jablko
+sk:jablko
 sl:Jabolko
 sm:Apu
 sq:Molla
@@ -46791,7 +46815,7 @@ pt:ananas
 ro:ananas
 ru:ананас
 sd:انناس
-sk:Ananás pestovaný
+sk:ananás, Ananás pestovaný
 sm:Pineapu
 sq:Ananasi
 sv:ananas
@@ -47329,6 +47353,7 @@ fr:ail séché, ail déshydraté
 it:aglio essicato, aglio secco
 nl:gedroogde knoflook
 nn:tørket hvitløk
+pl:suszony czosnek
 sv:torkad vitlök, torkad hvidlök
 ciqual_food_code:en: 11023
 ciqual_food_name:en: Garlic, powder, dried
@@ -48733,6 +48758,7 @@ nl:gekookte groene linzen
 
 < en:Green lentils
 en:organic green lentils
+bg:био зелена леща
 de:Bio Linsen grün
 fi:vihreä luomulinssi, vihreät luomulinssit
 fr:lentilles vertes bio
@@ -49426,7 +49452,7 @@ ro:Busuioc
 ru:Базилик душистый, базилик
 sc:Frabica
 sh:Bosiljak
-sk:Bazalka pravá
+sk:bazalka, bazalka pravá
 sl:Navadna bazilika
 so:Reexaan
 sr:босиљак
@@ -50251,6 +50277,7 @@ ja:オレガノ
 lt:raudonėlis, raudonėlių
 lv:raudene
 nl:oregano
+pl:oregano
 pt:orégãos
 ru:орегано
 sl:origano
@@ -53732,6 +53759,7 @@ fr:extrait naturel de citron, extraits naturels de citron
 
 < en:Lemon juice
 en:concentrated lemon juice, Lemon juice concentrate
+bg:концентрат от лимонов сок
 ca:Suc de llimona concentrat, Concentrat de suc de llimona
 cs:Citronová šťáva z koncentrátu
 da:citronsaftkonsentrat, citronjuicekoncentrat
@@ -53880,6 +53908,7 @@ es:harina integral de lenteja
 
 < en:Lentils
 en:green lentils
+bg:зелена леща
 de:grüne Linsen, Linsen grün
 es:lentejas verdes
 fi:vihreä linssi, vihreät linssit
@@ -53894,6 +53923,7 @@ carbon_footprint_fr_foodges_value:fr: 0.3
 
 < en:Lentils
 en:lentil flour
+bg:брашно от леща
 ca:farina de llentia
 de:Linsenmehl
 es:harina de lenteja
@@ -53916,6 +53946,7 @@ nl:voorgekookte linzen
 
 < en:Lentils
 en:red lentils
+bg:червена леща
 de:Rote Linsen
 es:lentejas rojas
 fi:punainen linssi, punaiset linssit
@@ -55077,7 +55108,7 @@ lt:miežių salyklo ekstraktas
 lv:miežu iesala ekstrakts
 nb:byggmaltekstrakt, maltekstrakt av bygg
 nl:Gerstemoutextract, gerstmoutextract
-pl:Ekstrakt słodu jęczmiennego
+pl:ekstrakt słodu jęczmiennego, ekstrakt słodowy jęczmienny
 pt:extrato de malte de cevada
 ro:extract din malț de orz, extract din malt de orz, extract de malț de orz, extract de malt de orz
 sv:kornmaltextrakt, maltextrakt från korn, kornmaltsextrakt
@@ -59855,7 +59886,7 @@ wikidata:en: Q19740
 wikipedia:en: https://en.wikipedia.org/wiki/Boletus_edulis
 
 < en:Mushroom
-en:champignon, button mushrooms, cultivated mushrooms, Agaricus bisporus, white mushroom, cup mushroom
+en:champignon, button mushrooms, cultivated mushrooms, Agaricus bisporus, cup mushroom
 af:Sampioen
 ar:غاريقون ثنائي البوغ
 bg:култивирана печурка
@@ -59869,7 +59900,7 @@ es:Agaricus bisporus, champinon cultivado, champinon cultivados, setas cultivada
 et:šampinjon, šampinjonid, aedšampinjon
 fa:قارچ خوراکی تکمه‌ای
 fi:herkkusieni
-fr:champignons de Paris, champignon de paris, Champignons Blancs de Paris
+fr:champignon de Paris, champignons de Paris, Agaricus bisporus
 gl:Champiñón común
 he:פקועה דו-נבגית
 hi:श्वेत बटन खुम्ब
@@ -61479,6 +61510,10 @@ de:jodiertes Nitritpökelsalz
 < en:Modified corn starch
 < en:Non-gmo corn starch
 fr:amidon transformé de mais sans OGM
+
+< en:Non-iodised salt
+en:non-iodised sea salt
+fr:sel de mer non iodé
 
 en:nonpareils, nonpareilles
 de:liebesperlen, nonpareille
@@ -63165,6 +63200,7 @@ fr:oignon frit, oignons frits
 hu:Sült hagyma
 it:Cipolla fritta
 nl:gefrituurde ui, gefrituurde uien
+pl:cebula smażona
 pt:cebola frita, cebolas fritas
 
 < en:Onion
@@ -63551,6 +63587,10 @@ zh:橙汁
 wikidata:en: Q219059
 wikipedia:en: https://en.wikipedia.org/wiki/Orange_juice
 
+< en:Orange blossom
+en:orange blossom water
+fr:eau de fleur d'oranger
+
 < en:Natural flavouring
 < en:Orange blossom flavouring
 en:natural orange blossom flavouring
@@ -63738,6 +63778,7 @@ en:organic potato from France
 fr:Pommes de terre biologiques origine France
 
 en:Other nutritional substances, other nutritional substances
+bg:Други хранителни вещества
 de:Andere Nährstoffe
 es:Otras sustancias nutricionales, Otras sustancias nutricionales
 fi:Muut ravinnolliset aineet, Muita ravinnollisia aineita
@@ -64066,7 +64107,7 @@ sv:palmfett
 description:en: the solid state of the vegetable oil, obtained from the fruit of oil palms.
 
 < en:Palm oil and fat
-en:palm oil, palmoil, sustainable palm fruit oil, sustainable palm oil, sustainable palm fruit oil, sustainable palm
+en:palm oil, palmoil, sustainable palm fruit oil, palm vegetable oil, sustainable palm oil, sustainable palm fruit oil, sustainable palm
 ar:زيت النخيل
 be:Пальмавы алей
 bg:Палмово масло
@@ -64310,6 +64351,7 @@ nl:paprikapoeder
 
 < en:Paprika
 en:sweet paprika
+bg:сладък червен пипер
 de:Paprika edelsüß
 es:pimienta roja dulce
 
@@ -66253,6 +66295,10 @@ carbon_footprint_fr_foodges_value:fr: 1.7
 wikipedia:en: https://en.wikipedia.org/wiki/Olive
 
 < en:Plant
+en:orange blossom
+fr:fleur d'oranger
+
+< en:Plant
 en:orange leaves
 de:Orangenblätter
 fr:feuilles d'oranger
@@ -66806,9 +66852,6 @@ fr:feuilles de mûres douces
 
 < en:Plant
 fr:feuilles de mûrier
-
-< en:Plant
-fr:fleur d'oranger
 
 < en:Plant
 fr:pétales de jasmin
@@ -69406,6 +69449,7 @@ es:aceite de colza
 fr:huile de colza, huile végétale de colza, huile colza, graisses végétales de colza, graisses vegetales de colza
 it:olio di colza, olio vegetale di colza
 nl:koolzaadolie, plantaardige koolzaadolie
+pl:olej rzepakowy
 pt:óleo de colza
 carbon_footprint_fr_foodges_ingredient:fr: Huile de colza
 carbon_footprint_fr_foodges_value:fr: 2.2
@@ -69761,6 +69805,9 @@ de:Rentierschulter
 fi:poron lapa
 fr:épaule de renne
 sv:renbog
+
+en:release agent
+fr:agent de démoulage
 
 < en:Rennet
 en:animal-based rennet
@@ -73267,6 +73314,10 @@ sv:Koshersalt
 wikipedia:en: https://en.wikipedia.org/wiki/Kosher_salt
 
 < en:Salt
+en:non-iodised salt
+fr:sel non iodé
+
+< en:Salt
 en:pink salt
 bg:розова сол
 ca:Sal rosa
@@ -75671,6 +75722,10 @@ ciqual_food_name:en: Sesame seed
 ciqual_food_name:fr: Sésame, graine
 
 < en:Sesame
+en:white sesame
+fr:sésame blanc
+
+< en:Sesame
 fr:sésame complet
 
 < en:Sesame
@@ -76877,6 +76932,18 @@ it:lievito naturale secco
 nl:zuurdesempoeder, desempoeder
 
 < en:Sourdough
+en:natural rice sourdough
+da:rissurdej
+de:reisnatursauerteigeisnatursauerteig
+es:masa fermentada de arroz
+fi:hapatettu riisitaikina
+fr:levain naturel de riz
+it:lievito madre naturale di riso
+nl:rijstzuurdesem
+pl:naturalny zakwas ryżowy
+sv:rissurdeg
+
+< en:Sourdough
 en:rye sourdough
 bg:ръжена закваска
 da:rugsurdej
@@ -77006,6 +77073,7 @@ es:Aislado de proteína de soja
 fi:soijaproteiini-isolaatti
 fr:isolat de protéine de soja
 it:Proteine isolate della soia
+pl:izolowane białko sojowe
 ru:изолированный белок сои
 
 < en:Soy protein
@@ -77016,6 +77084,7 @@ fr:protéines de soja i.p
 
 < en:Soy protein
 fr:protéines de soja texturées
+pl:teksturowane białko sojowe
 
 < en:Soy sauce
 en:dark soy sauce
@@ -77793,7 +77862,7 @@ es:curry
 et:karri
 fa:ماليدن
 fi:curry
-fr:curry
+fr:curry, mélange d'épice curry
 gu:શાક
 hi:सालन
 hu:curry
@@ -79403,7 +79472,7 @@ da:kandissukker
 de:Kandiszucker
 
 < en:Sugar
-en:cane sugar, pure cane sugar
+en:cane sugar, pure cane sugar, natural cane sugar
 bg:захар от захарна тръстика, тръстикова захар
 ca:Sucre de canya
 cs:třtinový cukr
@@ -81473,7 +81542,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Flour_tortilla
 en:almond, almonds
 am:አልመንድ
 ar:لوز
-bg:бадеми
+bg:бадем, бадеми
 ca:ametlla, ametlles
 cs:mandle
 da:mandel, mandler
@@ -81570,7 +81639,7 @@ description:nl: De paranoot wordt geleverd door een boom -Bertholletia excelsa- 
 wikidata:en: Q22810770
 
 < en:Tree nut
-en:cashew nuts, cashews, cashew, cashewnut
+en:cashew nuts, cashews, cashew, cashewnut, cashew nut
 ar:كاجو
 bg:кашу
 ca:anacards
@@ -84539,6 +84608,7 @@ sa:मधुरकूष्माण्डम्
 sd:ڪدو
 sh:Tikva
 si:වට්ටක්කා
+sk:tekvica
 sl:Buča
 sn:Nhanga
 so:Bocor guduud
@@ -85116,6 +85186,7 @@ sv:bambufiber
 < en:Citrus fruit
 < en:Vegetable fiber
 en:citrus fibre, citrus fibres
+bg:цитрусови влакнини
 da:citrusfibre
 de:citrusfaser, zitrusfaser, Zitrusfasern, Zitrusfruchtfasern
 fi:sitruskuitu
@@ -85186,21 +85257,21 @@ ro:fibre de mazare
 < en:Vegetable fiber
 en:Psyllium, plantago, psyllium fibre, psyllium husk, psyllium seed husk
 ar:بزر قطونة
-da:Psyllium
-de:Psyllium
-es:Psilio, plantago
+da:Psyllium, psyllium skræl
+de:Psyllium, Flohsamenschalen
+es:Psilio, plantago, cáscara de semilla de psyllium
 fa:بارهنگ کتانی
-fi:psyllium, psylliumkuitu
-fr:fibres de psyllium, psyllium
+fi:psyllium, psylliumkuitu, psylliuminsiemenkuori
+fr:fibres de psyllium, psyllium, enveloppe de psyllium, enveloppes de psyllium
 he:פסיליום
 hi:isabgol
-it:psyllium
-nl:Psyllium, psylliumvezels
-pl:Babka
+it:psyllium, fibra di psillio
+nl:Psyllium, psylliumvezels, vlozaadvezels
+pl:Babka, łuski płesznika
 ro:Psyllium
 ru:Подорожник
 sd:اسپنگر
-sv:Loppfrö, psylliumfiber
+sv:Loppfrö, psylliumfiber, psylliumfröskal
 ta:Isabgol
 uk:Подорожник
 ur:اسپغول
@@ -85418,6 +85489,10 @@ hu:camelina olaj, sárgarepce olaj
 description:en: CAMELINA sativa is a flowering plant in the family Brassicaceae and is usually known in English as camelina. The crop is being researched due to its exceptionally high level -up to 45%- of omega-3 fatty acids, which is uncommon in vegetable sources.
 from_palm_oil:en: no
 wikipedia:en: https://en.wikipedia.org/wiki/Camelina_sativa
+
+< en:Vegetable oil
+en:cashew nut oil
+fr:huile de noix de cajou
 
 < en:Vegetable oil
 en:chia oil
@@ -85946,7 +86021,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Shorea_robusta_seed_oil
 en:soya oil, Soybean oil, soy oil, soyabean oil
 ar:زيت فول الصويا
 be:Соевы алей
-bg:соево олио
+bg:соево олио, соево масло
 ca:oli de soia
 cs:sójový olej
 da:Sojaolie
@@ -85991,7 +86066,7 @@ wikidata:en: Q926892
 wikipedia:en: https://en.wikipedia.org/wiki/Soybean_oil
 
 < en:Vegetable oil
-en:sunflower oil, sunflower seed oil
+en:sunflower oil, sunflower seed oil, sunflower vegetable oil
 ar:زيت زهرة الشمس
 az:Günəbaxan yağı
 be:Сланечнікавы алей
@@ -86137,6 +86212,7 @@ from_palm_oil:en: yes
 
 < en:Vegetable oil and fat
 en:rapeseed oil, rapeseed fat, rapeseed oil and fat
+bg:рапично масло
 cs:řepkový olej, olej řepkový
 da:rapsolie
 de:Rapsöl, Rapsol
@@ -88954,7 +89030,7 @@ ciqual_food_name:fr: Farine de blé tendre ou froment T150
 
 < en:Wheat flour
 en:wheat flour type 500, flour type 500
-bg:бяло пшенично брашно тип 500, брашно тип 500
+bg:бяло пшенично брашно тип 500, брашно тип 500, пшенично брашно тип 500
 
 < en:Wheat flour
 en:Wheat flour type 55, Wheat flour T55, Wheat flour type 55 for bread
@@ -89951,6 +90027,11 @@ fi:valkoinen jasmiiniriisi
 
 < en:White rum
 fr:Rhum blanc agricole
+
+< en:Sesame seeds
+< en:White sesame
+en:white sesame seeds
+fr:graine de sésame blanc, graines de sésame blanc
 
 < en:White wine
 en:dry white wine

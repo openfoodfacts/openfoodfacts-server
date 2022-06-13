@@ -642,7 +642,6 @@ elsif ($action eq 'process') {
 		}
 	}
 
-	$request_ref->{current_link_query} = $current_link;
 	$request_ref->{current_link} = $current_link;
 
 	my $html = '';
@@ -654,11 +653,13 @@ elsif ($action eq 'process') {
 
 	my $share = lang('share');
 
+	my $map = param("generate_map") || '';
+	my $graph = param("graph") || '';
+	my $download = param("download") || '';
 
 	open (my $OUT, ">>:encoding(UTF-8)", "$data_root/logs/search_log_debug");
-	print $OUT remote_addr() . "\t" . time() . "\t" . decode utf8=>param('search_terms') . " - map: " . param("generate_map")
-	. " - graph: " . param("graph") . " - download: " . param("download")
-		. "\tpage: $page\tcount:" . $request_ref->{count} . "\n";
+	print $OUT remote_addr() . "\t" . time() . "\t" . decode utf8=>param('search_terms') . " - map: $map 
+	 - graph: $graph - download: $download - page: $page\n";
 	close ($OUT);
 
 
@@ -666,7 +667,7 @@ elsif ($action eq 'process') {
 
 	if (param("generate_map")) {
 
-		$request_ref->{current_link_query} .= "&generate_map=1";
+		$request_ref->{current_link} .= "&generate_map=1";
 
 		# We want products with emb codes
 		$query_ref->{"emb_codes_tags"} = { '$exists' => 1 };
@@ -694,7 +695,7 @@ HTML
 		or param("graph")) {
 
 		$graph_ref->{type} = "scatter_plot";
-		$request_ref->{current_link_query} .= "&graph=1";
+		$request_ref->{current_link} .= "&graph=1";
 
 		# We want existing values for axis fields
 		foreach my $axis ('x','y') {
@@ -735,7 +736,7 @@ HTML
 
 		# Normal search results
 
-		$log->debug("displaying results", { current_link => $request_ref->{current_link}, current_link_query => $request_ref->{current_link_query} }) if $log->is_debug();
+		$log->debug("displaying results", { current_link => $request_ref->{current_link} }) if $log->is_debug();
 
 		${$request_ref->{content_ref}} .= $html . search_and_display_products($request_ref, $query_ref, $sort_by, $limit, $page);
 

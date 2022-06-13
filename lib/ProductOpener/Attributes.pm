@@ -666,7 +666,7 @@ sub compute_attribute_ecoscore($$$) {
 	# Eco-Score is not-applicable
 	elsif ((defined $product_ref->{ecoscore_grade}) and ($product_ref->{ecoscore_grade} eq "not-applicable")) {
 		$attribute_ref->{status} = "unknown";
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/ecoscore-unknown.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/ecoscore-not-applicable.svg";
 		$attribute_ref->{match} = 0;		
 		if ($target_lc ne "data") {
 			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_ecoscore_not_applicable_title");	
