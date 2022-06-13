@@ -151,20 +151,19 @@ else {
 		}
 
 		if (defined $tag) {
-			# matching at start
+			# matching at start, best matches
 			if ($tagid =~ /^$stringid/) {
 				push @suggestions, $tag;
+				# only matches at start are considered
 				$suggestions_count++;
 			}
 			# matching inside
 			elsif ($tagid =~ /$stringid/) {
 				push @suggestions_c, $tag;
-				$suggestions_count++;
 			}
 			# fuzzy match
 			elsif ($tagid =~ /$fuzzystringid/) {
 				push @suggestions_f, $tag;
-				# note that fuzzy match is not included in limit
 			}
 			# end as soon as we got enough
 			last if $suggestions_count >= $limit;
@@ -173,8 +172,14 @@ else {
 	# add cache to request
 	$cache_max_age = 3600;
 }
-# suggestions containing term are the lasts
-push @suggestions, @suggestions_c;
+# sort best suggestions
+@suggestions = sort @suggestions;
+# suggestions containing term
+my $contains_to_add = min($limit - (scalar @suggestions), scalar @suggestions_c) - 1;
+if ($contains_to_add >= 0) {
+	push @suggestions, @suggestions_c[0..$contains_to_add];
+}
+# Suggestions as fuzzy match
 my $fuzzy_to_add = min($limit - (scalar @suggestions), scalar @suggestions_f) - 1;
 if ($fuzzy_to_add >= 0) {
     push @suggestions, @suggestions_f[0..$fuzzy_to_add];
