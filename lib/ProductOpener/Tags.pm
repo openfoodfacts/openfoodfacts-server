@@ -783,6 +783,21 @@ sub remove_plurals($$) {
 
 
 
+=head2 build_tags_taxonomy( $tagtype, $file, $publish )
+
+Build taxonomy from the taxonomy file
+
+=head3 Arguments
+
+=head4 str $tagtype - the tagtype
+
+Like "categories", "ingredients"
+
+=head3 $file - name of the file to read in taxonomies folder
+
+=head3 $publish - if 1, store the result in sto
+
+=cut
 sub build_tags_taxonomy($$$) {
 
 	my $tagtype = shift;
@@ -807,6 +822,8 @@ sub build_tags_taxonomy($$$) {
 	$root_entries{$tagtype} = {};
 
 	$just_tags{$tagtype} = {};
+	# synonyms that are not real entries, but only enrich existing tags
+	# they correspond to synonyms: entries
 	$just_synonyms{$tagtype} = {};
 	$properties{$tagtype} = {};
 
