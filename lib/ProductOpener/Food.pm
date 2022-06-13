@@ -287,7 +287,6 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 
 		$product_ref->{nutriments}{$nid . "_unit"} = $unit;
 		$product_ref->{nutriments}{$nid . "_value"} = $value;
-    
 		# Convert values passed in international units IU or % of daily value % DV to the default unit for the nutrient
 		if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and (defined get_property("nutrients", "zz:$nid", "iu_value:en"))) {
 			$value = $value * get_property("nutrients", "zz:$nid", "iu_value:en") ;
