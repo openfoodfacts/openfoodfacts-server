@@ -76,9 +76,15 @@ is( g_to_unit(42000, "\N{U+516C}\N{U+5347}"), 42 );
 
 is( unit_to_g(1, "г"), 1 );
 is( unit_to_g(1, "мг"), 0.001 );
+
+# unit conversion tests
 is( unit_to_g(1, "kj"), 1 );
 is( unit_to_g(1, "unknownunit"), 0 );
 is( unit_to_g(11, "mL"), 11 );
+is( g_to_unit(42000, "kg"), 42 );
+is( g_to_unit(28.349523125, "oz"), 1 );
+is( g_to_unit(30, "fl oz"), 1 );
+is( g_to_unit(1, "mcg"), 1000000 );
 
 is ( normalize_quantity("1 г"), 1);
 is ( normalize_quantity("1 мг"), 0.001);

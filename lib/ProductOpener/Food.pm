@@ -438,24 +438,16 @@ sub g_to_unit($$) {
 
 	$value eq '' and return $value;
 
-	(($unit eq 'kcal') or ($unit eq 'ккал')) and return int($value / 4.184 + 0.5);
-	# kg = 公斤 - gōngjīn = кг
-	(($unit eq 'kg') or ($unit eq "\N{U+516C}\N{U+65A4}") or ($unit eq 'кг')) and return $value / 1000;
-	# 斤 - jīn = 500 Grams
-	$unit eq "\N{U+65A4}" and return $value / 500;
-	# mg = 毫克 - háokè = мг
-	(($unit eq 'mg') or ($unit eq "\N{U+6BEB}\N{U+514B}") or ($unit eq 'мг')) and return $value * 1000;
-	(($unit eq 'mcg') or ($unit eq 'µg')) and return $value * 1000000;
-	$unit eq 'oz' and return $value / 28.349523125;
+	# Divide with the values in the hash
+	if (exists($unit_conversion_map{$unit})) {
+		return $value/$unit_conversion_map{$unit};
+	}
 
-	# l = 公升 - gōngshēng = л = liter
-	(($unit eq 'l') or ($unit eq "\N{U+516C}\N{U+5347}") or ($unit eq 'л')) and return $value / 1000;
-	(($unit eq 'dl') or ($unit eq 'дл')) and return $value / 100;
-	(($unit eq 'cl') or ($unit eq 'кл')) and return $value / 10;
-	$unit eq 'fl oz' and return $value / 30;
+	(($unit eq 'kcal') or ($unit eq 'ккал')) and return int($value / 4.184 + 0.5);
 
 	# return value without modification if unit is already grams or 克 (kè) or 公克 (gōngkè) or г
-	return $value + 0; # + 0 to make sure the value is treated as number
+	return $value + 0; 
+	# + 0 to make sure the value is treated as number
 	# (needed when outputting json and to store in mongodb as a number)
 }
 
