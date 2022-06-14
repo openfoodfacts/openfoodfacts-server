@@ -192,6 +192,7 @@ wikidata:en:Q4969906
 
 nl:Beter Leven
 label_categories:en: en:Animal welfare
+wikidata:en:Q58477631
 
 <nl:Beter Leven
 nl:Beter Leven 1 ster
@@ -386,6 +387,7 @@ xx:Climate Neutral Certified
 
 en:Carbon Trust
 xx:Carbon Trust
+# https://www.carbontrust.com/what-we-do/assurance-and-certification/product-carbon-footprint-label
 
 <en:Carbon compensated product
 <en:Carbon Trust
@@ -611,6 +613,11 @@ en:ISO 22000:2005
 bg:ISO 22000:2005
 de:ISO 22000:2005
 xx:ISO 22000:2005
+# https://en.wikipedia.org/wiki/ISO_22000#History
+
+<en:ISO 22000
+en:ISO 22000:2018
+# https://en.wikipedia.org/wiki/ISO_22000#History
 
 <en:ISO 22000
 <ru:ГОСТ
@@ -772,6 +779,7 @@ hu:FSC Mix
 it:FSC Misto
 nl:FSC Mix
 pl:FSC Mix
+# https://fsc.org/en/fsc-labels
 
 <en:FSC
 en:FSC Recycling, FSC Recycled
@@ -962,9 +970,11 @@ fr:Association Culturelle Musulmane d’Ile de France, ACMIF
 
 <en:Halal
 fr:Muslim Conseil International, MCI
+# http://www.halalcontrole.com
 
 <en:Halal
 en:Halal Monitoring Committee, HMC
+# https://halalhmc.org/
 
 <en:Halal
 en:Junta Islamica
@@ -1133,6 +1143,7 @@ it:Fonte di vitamina A
 nl:bron van Vitamine A
 pt:Fonte de vitamina A
 ru:Источник витамина A
+wikidata:en:Q18225
 
 en:Vitamin B source, Source of vitamin B
 bg:Източник на витамин B
@@ -1145,6 +1156,7 @@ hu:B-vitaminforrás
 nl:Bron van Vitamine B
 pt:Fonte de vitamina B
 ru:Источник витамина B
+wikidata:en:Q183206
 
 en:Vitamin B1 source, Source of vitamin B1
 bg:Източник на витамин B1
@@ -1157,6 +1169,7 @@ hu:B1-vitaminforrás
 nl:Bron van Vitamine B1
 pt:Fonte de vitamina B1
 ru:Источник витамина B1
+wikidata:en:Q83187
 
 en:Vitamin B6 source, Source of vitamin B6
 bg:Източник на витамин B6
@@ -1169,6 +1182,7 @@ hu:B6-vitaminforrás
 nl:Bron van Vitamine B6
 pt:Fonte de vitamina B6
 ru:Источник витамина B6
+wikidata:en:Q205130
 
 en:Vitamin B9 source, Source of vitamin B9
 bg:Източник на витамин B9
@@ -1382,10 +1396,12 @@ fr:cRc Pareve, cRc
 <en:Kosher
 en:Kof-K
 xx:Kof-K
+wikidata:en:Q85774787
 
 <en:Kosher
 en:Kosher Supervision of America, KSA, KSA Kosher
 he:השגחת הכשרות של אמריקה
+wikidata:en:Q6433092
 
 <en:Kosher
 en:Orthodox Union Kosher, Orthodox Union, OU Kosher, OU, U, Ⓤ
@@ -1517,6 +1533,7 @@ nl:Geen vet of vetarm
 pt:Com pouca ou sem gordura
 ru:Низкожирный или обезжиренный
 th:ไขมันต่ำหรือไม่มีเลย
+label_categories:en: en:Health
 
 <en:Low or no fat
 en:Low fat, low in fat
@@ -1745,6 +1762,7 @@ nl:Natriumarm
 pt:Baixo teor de sódio
 ru:Низкое содержание натрия
 th:โซเดียมต่ำ
+label_categories:en: en:Health
 
 en:Low or no salt
 ca:Baix o sense sal
@@ -3245,8 +3263,6 @@ fr:Certifié par bureau Veritas certication France
 label_categories:en: en:Certification
 
 fr:Certifié écosocial par IBD
-label_categories:en: en:Certification
-
 es:Certificado organico ibd
 label_categories:en: en:Certification
 
@@ -3535,6 +3551,7 @@ en:Biogarantie
 xx:Biogarantie
 country:en:Belgium
 image:en:biogarantie.90x90.svg
+wikidata:en:Q2904088
 
 <en:Biogarantie
 en:Biogarantie BEL, Biogarantie Made in Belgium
@@ -18301,16 +18318,17 @@ fr:Concours International des Vins de Gastronomie d'Antibes
 label_categories:en: en:Wines
 
 fr:Concours International des Vins de Terroir de Brignoles
-categories:en: en:Wines
+label_categories:en: en:Wines
 
 fr:Concours International du Gamay
 
 fr:Concours mondial du savagnin
 
 fr:Femmes et Vins du Monde
+label_categories:en: en:Wines
 
 en:Wine Women Awards à l'Hôtel Bristol à Paris
-categories:en: en:Wines
+label_categories:en: en:Wines
 
 fr:Challenge International du Vin à Bordeaux
 label_categories:en: en:Wines
@@ -18323,7 +18341,7 @@ fr:Concours des 7 Ceps
 fr:Concours des Ligers
 
 fr:Concours des vins de Piolenc
-categories:en: en:Wines
+label_categories:en: en:Wines
 
 fr:Concours des Vins Jury Consommateurs de Vacqueyras
 
@@ -18332,10 +18350,10 @@ fr:Concours du Ginglet
 fr:Concours International des Best Of du Tourisme Vitivinicole à Bordeaux
 
 en:The Balkan International Wine Competition
-categories:en: en:Wines
+label_categories:en: en:Wines
 
 en:Thessaloniki International Wine Competition
-categories:en: en:Wines
+label_categories:en: en:Wines
 
 hu:Budapesti Borfesztivál
 
@@ -18349,6 +18367,7 @@ pt:Concurso Mundial de Vinhos
 label_categories:en: en:Wines
 
 ro:Concursul International de Vinuri
+label_categories:en: en:Wines
 
 en:The International Wine & Spirit Competition
 
@@ -18357,20 +18376,25 @@ label_categories:en: en:Wines
 
 sl:Vino Ljubljana
 fr:Concours International des vins de Ljubljana
+label_categories:en: en:Wines
 
 fr:Mondial du Chasselas
 
 fr:Mondial du Merlot & Assemblages by VINEA
+label_categories:en: en:Wines
 
 fr:Mondial des Pinots by VINEA
+label_categories:en: en:Wines
 
 fr:Concours International de dégustation des vins mousseux Nouveau Monde à Novyj Svit
 
 fr:Concours International des Vins et Spiritueux VINUS
 es:Vino, Nutricion y Salud
+label_categories:en: en:Wines
 
 fr:Concours International de Vin et Spiritueux
 es:La Mujer Elige
+label_categories:en: en:Wines
 
 es:Concours Internetionale du Vins, Vinandino
 label_categories:en: en:Wines
@@ -18380,6 +18404,7 @@ label_categories:en: en:Wines
 
 en:Indy International Wine Competition
 fr:Concours International des Vins de l'Indiana
+label_categories:en: en:Wines
 
 en:Iberwine in Miami
 label_categories:en: en:Wines
@@ -18800,6 +18825,7 @@ fi:Säteilytetty
 fr:Traité par rayonnement ionisant, Traité par rayonnements ionisants, traité par ionisation, ionisé, irradié
 nl:Bestraald, Bestraalde voeding
 pt:Alimentos Irradiados,Irradiados
+wikidata:en:Q1330911
 
 en:Tooth-health related labels
 de:Labels zur Zahngesundheit
@@ -19130,6 +19156,7 @@ en:Free from E number
 bg:Без E-номера
 fi:E-kooditon, ei E-koodeja
 hu:E-szám mentes
+label_categories:en: en:Health
 
 en:No antibiotics, Without antibiotics, antibiotic-free, antibiotics-free,no antibiotic, raised without antibiotics, no Antibiotics Administered
 bg:Без антибиотици
@@ -19330,6 +19357,7 @@ xx:Cocoa Life
 label_categories:en: en:Environment, en:Cocoa
 
 en:Ethical Tea Partnership, ETP
+wikidata:en:Q5403392
 label_categories:en: en:Faitrade
 
 en:pasteurized product
@@ -19341,7 +19369,6 @@ fr:produit pasteurisé
 hu:pasztőrözött termék
 it:Prodotto pastorizzato
 nl:gepasteuriseerd product
-
 
 en:Health Star Rating, Health Star Rating System, HSR
 it:Health Star Rating, Health Star Rating System, HSR
