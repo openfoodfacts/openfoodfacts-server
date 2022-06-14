@@ -76,6 +76,9 @@ is( g_to_unit(42000, "\N{U+516C}\N{U+5347}"), 42 );
 
 is( unit_to_g(1, "г"), 1 );
 is( unit_to_g(1, "мг"), 0.001 );
+is( unit_to_g(1, "kj"), 1 );
+is( unit_to_g(1, "unknownunit"), 0 );
+is( unit_to_g(11, "mL"), 11 );
 
 is ( normalize_quantity("1 г"), 1);
 is ( normalize_quantity("1 мг"), 0.001);
