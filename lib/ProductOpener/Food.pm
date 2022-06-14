@@ -366,6 +366,9 @@ unit_to_g(520,mg) => returns 0.52
 
 =cut
 
+# This is a key:value pairs
+# The keys are the unit names and the values are the multipliers we can use to convert to a standard unit. 
+# We can divide by these values to do the reverse ie, Convert from standard to non standard
 my %unit_conversion_map = (
 	# kg = 公斤 - gōngjīn = кг
 	"\N{U+516C}\N{U+65A4}" => 1000,
@@ -383,7 +386,17 @@ my %unit_conversion_map = (
 	"\N{U+65A4}" => 500,
 	# Standard units: No conversion units
 	# Value without modification if it's already grams or 克 (kè) or 公克 (gōngkè) or г
-	'g' => 1, 'kj' => 1, '克' => 1, '公克' => 1 , 'г' => 1, 'мл' => 1, 'ml'=> 1, 'grams' => 1, 'grammes' => 1, "\N{U+6BEB}\N{U+5347}" => 1
+	'g' => 1, 'kj' => 1, '克' => 1, '公克' => 1 , 'г' => 1, 'мл' => 1, 'ml'=> 1, 'grams' => 1, 'grammes' => 1, 'mmol/l' => 1, "\N{U+6BEB}\N{U+5347}" => 1,
+
+	# Division factors for "non standard unit" to mmoll conversions
+	'mol/l' => 0.001,
+	'mval/l' => 2,
+	'ppm' => 100,
+	"\N{U+00B0}rh" => 40.080,
+	"\N{U+00B0}fh" => 10.00,
+	"\N{U+00B0}e" => 7.02,
+	"\N{U+00B0}dh" => 5.6, 
+	'gpg' => 5.847
 );
 
 sub unit_to_g($$) {
@@ -462,15 +475,11 @@ sub unit_to_mmoll {
 	$value =~ s/,/\./;
 	$value =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
 
-	return $value * 1000 if $unit eq 'mol/l';
-	return $value + 0 if $unit eq 'mmol/l';
-	return $value / 2 if $unit eq 'mval/l';
-	return $value / 100 if $unit eq 'ppm';
-	return $value / 40.080 if $unit eq "\N{U+00B0}rh";
-	return $value / 10.00 if $unit eq "\N{U+00B0}fh";
-	return $value / 7.02 if $unit eq "\N{U+00B0}e";
-	return $value / 5.6 if $unit eq "\N{U+00B0}dh";
-	return $value / 5.847 if $unit eq 'gpg';
+	# Divide with the values in the hash
+	if (exists($unit_conversion_map{$unit})) {
+		return $value/$unit_conversion_map{$unit};
+	}
+
 	return $value + 0;
 }
 
@@ -485,15 +494,11 @@ sub mmoll_to_unit {
 	$value =~ s/,/\./;
 	$value =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
 
-	return $value / 1000 if $unit eq 'mol/l';
-	return $value + 0 if $unit eq 'mmol/l';
-	return $value * 2 if $unit eq 'mval/l';
-	return $value * 100 if $unit eq 'ppm';
-	return $value * 40.080 if $unit eq "\N{U+00B0}rh";
-	return $value * 10.00 if $unit eq "\N{U+00B0}fh";
-	return $value * 7.02 if $unit eq "\N{U+00B0}e";
-	return $value * 5.6 if $unit eq "\N{U+00B0}dh";
-	return $value * 5.847 if $unit eq 'gpg';
+	# Multiply with the values in the hash
+	if (exists($unit_conversion_map{$unit})) {
+		return $value*$unit_conversion_map{$unit};
+	}
+
 	return $value + 0;
 }
 
