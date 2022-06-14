@@ -366,6 +366,26 @@ unit_to_g(520,mg) => returns 0.52
 
 =cut
 
+my %unit_conversion_map = (
+	# kg = 公斤 - gōngjīn = кг
+	"\N{U+516C}\N{U+65A4}" => 1000,
+	# l = 公升 - gōngshēng = л = liter
+	"\N{U+516C}\N{U+5347}" => 1000,
+	'kg' => 1000, 'кг' => 1000,
+	'l' => 1000, 'л' => 1000,
+	# mg = 毫克 - háokè = мг
+	"\N{U+6BEB}\N{U+514B}" => 0.001, 'mg' => 0.001, 'мг' => 0.001,
+	'mcg' => 0.000001, 'µg' => 0.000001,
+	'oz' => 28.349523125, 'fl oz' => 30,
+	'dl' => 100, 'дл' => 100,
+	'cl' => 10, 'кл' => 10,
+	# 斤 - jīn = 500 Grams
+	"\N{U+65A4}" => 500,
+	# Standard units: No conversion units
+	# Value without modification if it's already grams or 克 (kè) or 公克 (gōngkè) or г
+	'g' => 1, '克' => 1, '公克' => 1 , 'г' => 1, 'мл' => 1, 'ml'=> 1, 'grams' => 1, 'grammes' => 1, "\N{U+6BEB}\N{U+5347}" => 1
+);
+
 sub unit_to_g($$) {
 	my $value = shift;
 	my $unit = shift;
@@ -379,32 +399,15 @@ sub unit_to_g($$) {
 
 	$value =~ s/,/\./;
 	$value =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
-
 	$value eq '' and return $value;
 
-	(($unit eq 'kcal') or ($unit eq 'ккал')) and return int($value * 4.184 + 0.5);
-	# kg = 公斤 - gōngjīn = кг
-	(($unit eq 'kg') or ($unit eq "\N{U+516C}\N{U+65A4}") or ($unit eq 'кг')) and return $value * 1000;
-	# 斤 - jīn = 500 Grams
-	$unit eq "\N{U+65A4}" and return $value * 500;
-	# mg = 毫克 - háokè = мг
-	(($unit eq 'mg') or ($unit eq "\N{U+6BEB}\N{U+514B}") or ($unit eq 'мг')) and return $value / 1000;
-	(($unit eq 'mcg') or ($unit eq 'µg')) and return $value / 1000000;
-	$unit eq 'oz' and return $value * 28.349523125;
+	if (exists($unit_conversion_map{$unit})) {
+		return $value*$unit_conversion_map{$unit};
+	}
 
-	# l = 公升 - gōngshēng = л = liter
-	(($unit eq 'l') or ($unit eq "\N{U+516C}\N{U+5347}") or ($unit eq 'л')) and return $value * 1000;
-	(($unit eq 'dl') or ($unit eq 'дл')) and return $value * 100;
-	(($unit eq 'cl') or ($unit eq 'кл')) and return $value * 10;
-	$unit eq 'fl oz' and return $value * 30;
+	(($unit eq 'kcal') or ($unit eq 'ккал')) and return int($value * 4.184 + 0.5);	
 
-	# return value without modification if it's already grams or 克 (kè) or 公克 (gōngkè) or г
-	# We return with + 0 to make sure the value is treated as number
-	# (needed when outputting json and to store in mongodb as a number)
-	(($unit eq 'g') or ($unit eq '克') or ($unit eq '公克') or ($unit eq 'г')
-		or ($unit eq 'мл') or ($unit eq "\N{U+6BEB}\N{U+5347}") or ($unit eq 'ml')
-	) and return $value + 0;
-
+	# We return with + 0 to make sure the value is treated as number (needed when outputting json and to store in mongodb as a number)
 	# lets not assume that we have a valid unit
 	return 0;
 }
@@ -1259,8 +1262,8 @@ sub normalize_quantity($) {
 =head2 normalize_serving_size($)
 
 Returns the size in g or ml for the serving. Eg.:
-normalize_serving_size(1 barquette de 40g) returns 40
-normalize_serving_size(2.5kg)              returns 2500
+normalize_serving_size(1 barquette de 40g)->returns 40
+normalize_serving_size(2.5kg)->returns 2500
 
 =cut
 
