@@ -5172,21 +5172,27 @@ ciqual_food_name:en:Fruit juice with milk
 ciqual_food_name:fr:Boisson au jus de fruit et au lait
 
 <en:Fruit-based beverages
+<en:Plant milks
 en:Fruit and plant-milk beverages
 fr:Boissons aux fruits et au lait végetal
 nl:Plantaardige fruitdranken
 
 <en:Fruit and plant-milk beverages
+<en:Oat milks
 en:Fruit and oat beverages
 fr:Boissons aux fruits et à l'avoine
 
 <en:Fruit and plant-milk beverages
-en:Fruit and soy beverages, Fruit juice and soy drinks
+<en:Soy milks
+en:Fruit and soy beverages, Fruit juice and soy drinks, Soy drinks with concentrated fruit juice
 de:Furchtsäfte und Sojagetränke
 es:Bebidas a base de zumo de frutas y soja, Bebidas de zumo de frutas y soja
 fi:soijamehujuomat
-fr:Boissons aux fruits et au soja, Boissons à base de jus de fruits et de soja
+fr:Boissons aux fruits et au soja, Boissons à base de jus de fruits et de soja, Boissons au soja et jus de fruits concentrés
 nl:Vruchten- en sojadranken, Vruchten- en sojadrank
+ciqual_food_code:en:29209
+ciqual_food_name:en:Soy drink, w concentrated fruit juice
+ciqual_food_name:fr:Boisson au soja et jus de fruits concentrés
 
 <en:Plant-based beverages
 en:Smoothies
@@ -35290,7 +35296,7 @@ th:ลูกอมช็อกโกแลต
 zh:巧克力糖果
 
 <en:Chocolate candies
-en:Walnut whips, Chocolate-coated marshmallow treats
+en:Chocolate-coated marshmallow treats, Walnut whips
 da:Flødebolle, Negerbolle, Negerkys
 de:Schokokuss
 es:Beso de moza, Beso de Negro
@@ -38589,6 +38595,16 @@ nl:Tapas
 food_groups:en: en:Appetizers
 pnns_group_2:en:Appetizers
 wikidata:en:Q220964
+
+<en:Salty snacks
+en:Arancini
+de:Arancini
+fr:Arancini
+es:Arancini
+it:Arancini
+nl:Arancini
+pt:Arancini
+wikidata:en:Q268857
 
 <en:Salty snacks
 en:Onigiri
@@ -45548,7 +45564,7 @@ ca:Beguda de soja sense edulcorar
 de:Ungesüßte natürliche Sojamilch, Ungesüßte natürliche Sojagetränke
 es:Bebidas de soja natural sin azúcar, Leches de soja natural sin azúcar
 fi:makeuttamattomat soijajuomat
-fr:Boissons végétales de soja nature, Laits de soja nature sans sucre
+fr:Boissons de soja nature non sucrées, Boissons végétales de soja nature, Laits de soja nature sans sucre
 it:Latte di soia naturale non zuccherato
 nl:Ongezoete sojadranken
 
@@ -45556,7 +45572,7 @@ nl:Ongezoete sojadranken
 en:Sweetened natural soy milks, Sweetened natural soy drinks
 de:Gesüßte natürliche Sojamilch, gesüßte natürliche Sojagetränke
 es:Bebidas de soja natural endulzadas, Leches de soja natural endulzadas
-fr:Laits de soja naturel avec du sucre
+fr:Boissons de soja nature sucrées, Laits de soja naturel avec du sucre
 nl:Gezoete sojadranken
 
 <en:Soy milks
@@ -45609,13 +45625,6 @@ agribalyse_food_code:en:18903
 ciqual_food_code:en:18903
 ciqual_food_name:en:Soy drink, flavoured, enriched in calcium, w sugar or fruit concentrate
 ciqual_food_name:fr:Boisson au soja, aromatisée, sucrée, enrichie en calcium
-
-<en:Soy milks
-en:Soy drinks with concentrated fruit juice
-fr:Boissons au soja et jus de fruits concentrés
-ciqual_food_code:en:29209
-ciqual_food_name:en:Soy drink, w concentrated fruit juice
-ciqual_food_name:fr:Boisson au soja et jus de fruits concentrés
 
 <en:Plant milks
 en:Mixed plant milks, Mixed plant drinks
@@ -75754,6 +75763,7 @@ en:Meat spreads
 fr:Préparations de viande à tartiner
 
 <en:Meat spread
+<en:Chicken preparations
 en:Chicken spreads
 fr:Préparations de poulet à tartiner
 
@@ -91411,7 +91421,7 @@ ca:Llegums secs
 de:Getrockenete Hülsenfrüchte
 es:Legumbres secas
 fi:Kuivattuja palkokasveja
-fr:Légumes secs
+fr:Légumineuses sèches, légumes secs
 it:Legumi secchi
 nl:Gedroogde bonen
 pt:Pulsos
@@ -96268,6 +96278,7 @@ en:Kefta substituts
 fr:Substituts des kefta
 
 <en:Meat analogues
+<en:Breaded products
 en:Schnitzel substituts
 fr:Susbtituts des escalopes panés
 
