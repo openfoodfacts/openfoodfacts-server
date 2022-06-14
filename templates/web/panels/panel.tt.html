@@ -175,6 +175,21 @@
                 <hr class="floatclear">
                 [% END %]
 
+            [% ELSIF element_type == "action" %]
+                <div>
+                [% action_element = element_ref.action_element %]
+
+                [% action_element.html %]
+
+                [% FOREACH action IN action_element.actions %]
+                    <a class="button small"
+                        href="/cgi/product.pl?type=edit&code=[% product.code %][% IF action == 'add_categories' %]#categories[% END %][% IF action == 'add_ingredients_text' %]#ingredients[% END %][% IF action == 'add_nutrition_facts' %]#nutrition[% END %]" >
+                        [% lang("action_$action") %]
+                    </a>
+                [% END %]
+
+                </div>
+
             [% ELSIF element_type == "image" %]
                 [% image_element = element_ref.image_element %]
                 [% IF image_element.link_url.defined %]<a href="[% image_element.link_url %]">[% END %]
