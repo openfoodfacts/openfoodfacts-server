@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.6.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v1.5.0...v1.6.0) (2022-06-13)
+
+
+### Features
+
+* activate agena3000 import in production ([#6886](https://github.com/openfoodfacts/openfoodfacts-server/issues/6886)) ([054ec1f](https://github.com/openfoodfacts/openfoodfacts-server/commit/054ec1fa3b7ffd8d779b2f821620fec84ba676f8))
+* new OFF logo [#6866](https://github.com/openfoodfacts/openfoodfacts-server/issues/6866) ([#6885](https://github.com/openfoodfacts/openfoodfacts-server/issues/6885)) ([7354ebf](https://github.com/openfoodfacts/openfoodfacts-server/commit/7354ebfff4bdb83022ac73ee646f999e229f8561))
+* small improvements to ingredients and nutrition table panels ([#6869](https://github.com/openfoodfacts/openfoodfacts-server/issues/6869)) ([154f881](https://github.com/openfoodfacts/openfoodfacts-server/commit/154f8815b351fd53692c999160cc8f3cf2f82748))
+* suggest fuzzy + limit as a param ([#6887](https://github.com/openfoodfacts/openfoodfacts-server/issues/6887)) ([a6622f8](https://github.com/openfoodfacts/openfoodfacts-server/commit/a6622f86af200b74043e26329b19fdaa69edff51))
+
+
+### Bug Fixes
+
+* add back nutrition facts table title in knowledge panel ([#6867](https://github.com/openfoodfacts/openfoodfacts-server/issues/6867)) ([2085f4f](https://github.com/openfoodfacts/openfoodfacts-server/commit/2085f4f99de8a0103c47626481addcacd55edc10))
+* flatten Nutri-Score and Eco-Score SVG icons ([#6872](https://github.com/openfoodfacts/openfoodfacts-server/issues/6872)) ([c7dae5c](https://github.com/openfoodfacts/openfoodfacts-server/commit/c7dae5c3342c7d4ce869ed68b5e18d72657b61a1))
+* Undefined variable in search.pl ([#6877](https://github.com/openfoodfacts/openfoodfacts-server/issues/6877)) ([0a91d79](https://github.com/openfoodfacts/openfoodfacts-server/commit/0a91d79cb65fef2413e3de1b1c034810cbd32d0c))
+* use correct unit for nutrients expressed in IU or %DV [#6882](https://github.com/openfoodfacts/openfoodfacts-server/issues/6882) ([#6883](https://github.com/openfoodfacts/openfoodfacts-server/issues/6883)) ([2e45a06](https://github.com/openfoodfacts/openfoodfacts-server/commit/2e45a06799bd581ee7f05c62c5eaf79509b9a561))
+
 ## [1.5.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v1.4.0...v1.5.0) (2022-06-06)
 
 
