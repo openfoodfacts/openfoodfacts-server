@@ -10,8 +10,6 @@ services:
 
   kratos-migrate:
     image: oryd/kratos:v0.10.1
-    links:
-      - postgres-kratos:postgres-kratos
     environment:
       - DSN=postgres://kratos:secret@postgres-kratos:5432/kratos?sslmode=disable&max_conns=20&max_idle_conns=4
     volumes:
@@ -22,8 +20,6 @@ services:
 
   kratos:
     image: oryd/kratos:v0.10.1
-    links:
-      - postgres-kratos:postgres-kratos
     environment:
       - DSN=postgres://kratos:secret@postgres-kratos:5432/kratos?sslmode=disable&max_conns=20&max_idle_conns=4
     ports:
