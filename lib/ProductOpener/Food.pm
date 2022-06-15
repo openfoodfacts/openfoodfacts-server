@@ -387,7 +387,7 @@ my %unit_conversion_map = (
 	# Standard units: No conversion units
 	# Value without modification if it's already grams or 克 (kè) or 公克 (gōngkè) or г
 	'g' => 1, '' => 1, ' ' => 1, 'kj' => 1, '克' => 1, '公克' => 1 , 'г' => 1, 'мл' => 1, 
-	'ml'=> 1, 'grams' => 1, 'grammes' => 1, 'mmol/l' => 1, "\N{U+6BEB}\N{U+5347}" => 1,
+	'ml'=> 1, 'mmol/l' => 1, "\N{U+6BEB}\N{U+5347}" => 1,
 	'% vol' => 1, 'ph' => 1, '%' => 1, '% DV' => 1, '% vol (alcohol)' => 1,
 	# Division factors for "non standard unit" to mmoll conversions
 	'mol/l' => 0.001,
@@ -423,7 +423,7 @@ sub unit_to_g($$) {
 
 	# We return with + 0 to make sure the value is treated as number (needed when outputting json and to store in mongodb as a number)
 	# lets not assume that we have a valid unit
-	return 0;
+	return undef;
 }
 
 
