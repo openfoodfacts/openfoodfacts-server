@@ -1,0 +1,32 @@
+{
+    "level": "info",
+    "topics": [
+        "health"
+    ],
+    "type": "inline",
+    "expanded": true,
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `<p class="text_info">[% lang("some_unknown_ingredients") %]</p>`,
+            }
+        },        
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "callout_info",
+                "html": `
+                <h3>[% lang("we_need_your_help") %]</h3>
+                <p>[% lang("you_can_help_improve_ingredients_analysis") %]</p>
+                <ul>
+                    <li>[% lang("help_improve_ingredients_analysis_1") %]</li>
+                    <li>[% lang("help_improve_ingredients_analysis_2") %]</li>
+                </ul>
+                <p>[% lang("help_improve_ingredients_analysis_instructions") %]</p>                
+                `,
+
+            }
+        },
+    ]
+}
