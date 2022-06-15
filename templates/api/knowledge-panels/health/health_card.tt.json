@@ -63,7 +63,12 @@
             "element_type": "panel_group",
             "panel_group_element": {
                 "title": "[% lang("ingredients_analysis") %]",
-                "panel_ids": ["ingredients_analysis"],
+                "panel_ids": [
+                    "ingredients_analysis",
+                    [% IF panels.ingredients_analysis_details.defined %]
+                    "ingredients_analysis_details",
+                    [% END %]
+                ],
             },
         }, 
         [% END %]        

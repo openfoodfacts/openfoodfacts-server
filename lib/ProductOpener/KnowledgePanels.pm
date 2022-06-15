@@ -1156,6 +1156,26 @@ sub create_ingredients_analysis_panel($$$) {
 
 	$log->debug("create ingredients analysis panel", { code => $product_ref->{code} }) if $log->is_debug();
 
+    # First create an ingredients analysis details sub-panel
+    # It will be included in the ingredients analysis panel
+
+    my $ingredients_analysis_details_data_ref = data_to_display_ingredients_analysis_details($product_ref);
+
+    # When we don't have ingredients, we don't display the ingredients analysis details
+	if (defined $ingredients_analysis_details_data_ref) {
+        create_panel_from_json_template("ingredients_analysis_details", "api/knowledge-panels/health/ingredients/ingredients_analysis_details.tt.json",
+            $ingredients_analysis_details_data_ref, $product_ref , $target_lc, $target_cc);
+
+        # If we have some unrecognized ingredients, create a call for help panel that will be displayed in the ingredients analysis details panel
+        # + the panels specific to each property (vegan, vegetarian, palm oil free)
+        if ($ingredients_analysis_details_data_ref->{unknown_ingredients}) {
+            create_panel_from_json_template("ingredients_analysis_help", "api/knowledge-panels/health/ingredients/ingredients_analysis_help.tt.json",
+                {}, $product_ref , $target_lc, $target_cc);
+        }
+	}
+
+    # Create the ingredients analysis panel    
+
     my $ingredients_analysis_data_ref = data_to_display_ingredients_analysis($product_ref);
 
     if (defined $ingredients_analysis_data_ref) {

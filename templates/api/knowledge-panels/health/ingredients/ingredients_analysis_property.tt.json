@@ -1,4 +1,6 @@
 [% SET property = panel.property %]
+[% property_unknown_ingredients = property %]
+[% property_unknown_ingredients = property_unknown_ingredients.replace('-free', '-content-unknown') %]
 {
     "level": "info",
     "topics": [
@@ -11,7 +13,7 @@
         "icon_color_from_evaluation": true,
         "icon_url": "[% static_subdomain %]/images/icons/dist/[% panel.icon %].svg",
         "icon_size": "small",
-    },    
+    },
     "elements": [
         {
             "element_type": "text",
@@ -20,8 +22,6 @@
                 "html": `
                 [% IF panel.evaluation == "good" %]
                     [% lang(panel.ingredients_title_id) %]
-                    [% property_unknown_ingredients = property %]
-                    [% property_unknown_ingredients = property_unknown_ingredients.replace('-free', '-content-unknown') %]
                     [% IF product.ingredients_analysis.$property_unknown_ingredients.defined %]
                         <br><br>
                         [% lang("unrecognized_ingredients") %][% sep %]:
@@ -34,5 +34,13 @@
                     `
             }
         },
+        [% IF product.ingredients_analysis.$property_unknown_ingredients.defined %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "ingredients_analysis_help",
+            }
+        },
+        [% END %]
     ]
 }
