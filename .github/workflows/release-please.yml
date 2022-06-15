@@ -15,7 +15,7 @@ jobs:
           token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
           release-type: simple
           changelog-types: |
-            '[
+            [
               {"type":"feat","section":"Features","hidden":false},
               {"type":"fix","section":"Bug Fixes","hidden":false},
               {"type":"taxonomy","section":"Taxonomy","hidden":false}
