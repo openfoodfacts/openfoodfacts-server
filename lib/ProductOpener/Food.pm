@@ -25,7 +25,7 @@ ProductOpener::Food - functions related to food products and nutrition
 =head1 DESCRIPTION
 
 C<ProductOpener::Food> contains functions specific to food products, in particular
-related to nutrition facts. It does not contain functions related to ingredients which
+related to nutrition facts. This module provides functions It does not contain functions related to ingredients which
 are in the C<ProductOpener::Ingredients> module.
 
 ..
@@ -386,8 +386,9 @@ my %unit_conversion_map = (
 	"\N{U+65A4}" => 500,
 	# Standard units: No conversion units
 	# Value without modification if it's already grams or 克 (kè) or 公克 (gōngkè) or г
-	'g' => 1, 'kj' => 1, '克' => 1, '公克' => 1 , 'г' => 1, 'мл' => 1, 'ml'=> 1, 'grams' => 1, 'grammes' => 1, 'mmol/l' => 1, "\N{U+6BEB}\N{U+5347}" => 1,
-
+	'g' => 1, '' => 1, ' ' => 1, 'kj' => 1, '克' => 1, '公克' => 1 , 'г' => 1, 'мл' => 1, 
+	'ml'=> 1, 'grams' => 1, 'grammes' => 1, 'mmol/l' => 1, "\N{U+6BEB}\N{U+5347}" => 1,
+	'% vol' => 1, 'ph' => 1, '%' => 1, '% DV' => 1, '% vol (alcohol)' => 1,
 	# Division factors for "non standard unit" to mmoll conversions
 	'mol/l' => 0.001,
 	'mval/l' => 2,

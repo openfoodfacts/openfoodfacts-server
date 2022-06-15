@@ -80,6 +80,12 @@ is( unit_to_g(1, "мг"), 0.001 );
 # unit conversion tests
 is( unit_to_g(1, "kj"), 1 );
 is( unit_to_g(1, "unknownunit"), 0 );
+is( unit_to_g(10, ""), 10 );
+is( unit_to_g(10, " "), 10 );
+is( unit_to_g(10, "% vol"), 10 );
+is( unit_to_g(10, "%"), 10 );
+is( unit_to_g(10, "% vol"), 10 );
+is( unit_to_g(10, "% DV"), 10 );
 is( unit_to_g(11, "mL"), 11 );
 is( g_to_unit(42000, "kg"), 42 );
 is( g_to_unit(28.349523125, "oz"), 1 );
