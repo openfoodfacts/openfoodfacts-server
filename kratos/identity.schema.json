@@ -1,61 +1,61 @@
 {
-    "$id": "https://schemas.ory.sh/presets/kratos/quickstart/email-password/identity.schema.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "Person",
-    "type": "object",
-    "properties": {
-      "traits": {
-        "type": "object",
-        "properties": {
-          "UserID": {
-            "type": "string",
-            "title": "User ID",
-            "ory.sh/kratos": {
-              "credentials": {
-                "password": {
-                  "identifier": true
-                }
-              }
-            }
-          },
-          "email": {
-            "type": "string",
-            "format": "email",
-            "title": "E-Mail",
-            "minLength": 3,
-            "ory.sh/kratos": {
-              "credentials": {
-                "password": {
-                  "identifier": true
-                }
-              },
-              "verification": {
-                "via": "email"
-              },
-              "recovery": {
-                "via": "email"
-              }
-            }
-          },
-          "name": {
-            "type": "object",
-            "properties": {
-              "first": {
-                "title": "First Name",
-                "type": "string"
-              },
-              "last": {
-                "title": "Last Name",
-                "type": "string"
+  "$id": "https://schemas.ory.sh/presets/kratos/quickstart/email-password/identity.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Person",
+  "type": "object",
+  "properties": {
+    "traits": {
+      "type": "object",
+      "properties": {
+        "UserID": {
+          "type": "string",
+          "title": "User ID",
+          "ory.sh/kratos": {
+            "credentials": {
+              "password": {
+                "identifier": true
               }
             }
           }
         },
-        "required": [
-          "email",
-          "UserID"
-        ],
-        "additionalProperties": false
-      }
+        "email": {
+          "type": "string",
+          "format": "email",
+          "title": "E-Mail",
+          "minLength": 3,
+          "ory.sh/kratos": {
+            "credentials": {
+              "password": {
+                "identifier": true
+              }
+            },
+            "verification": {
+              "via": "email"
+            },
+            "recovery": {
+              "via": "email"
+            }
+          }
+        },
+        "name": {
+          "type": "object",
+          "properties": {
+            "first": {
+              "title": "First Name",
+              "type": "string"
+            },
+            "last": {
+              "title": "Last Name",
+              "type": "string"
+            }
+          }
+        }
+      },
+      "required": [
+        "email",
+        "UserID"
+      ],
+      "additionalProperties": false
     }
   }
+}

@@ -8,7 +8,7 @@ serve:
     cors:
       enabled: true
   admin:
-    base_url: http://kratos:4434/
+    base_url: http://kratos.openfoodfacts.localhost:4434/
 
 selfservice:
   default_browser_return_url: http://127.0.0.1:4455/
