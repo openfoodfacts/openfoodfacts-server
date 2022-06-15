@@ -1282,9 +1282,9 @@ sub normalize_serving_size($) {
 }
 
 # @todo we should have equivalences for more units if we are supporting this
-my @unit_equivalence_list = (
-	('g', qr/gram(s)?/),
-	('g',qr/gramme(s)?/), # French
+my @unit_equivalences_list = (
+['g', qr/gram(s)?/],
+['g',qr/gramme(s)?/], # French
 );
 
 =head2 normalize_unit ( $unit )
@@ -1297,10 +1297,9 @@ representations in our normalization logic.
 sub normalize_unit($) {
 	my $originalUnit = shift;
 
-	keys @unit_equivalence_list;
-	while (my($u, $e) = each(@unit_equivalence_list)) {
-		if ($originalUnit =~ $e) {
-			return $u;
+	foreach my $unit_name (@unit_equivalences_list) {
+	if ($originalUnit =~ $unit_name->[1]) {
+			return $unit_name->[0];
 		}
 	}
 
