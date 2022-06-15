@@ -78,10 +78,11 @@ is( unit_to_g(1, "г"), 1 );
 is( unit_to_g(1, "мг"), 0.001 );
 
 # unit conversion tests
-if (!defined(unit_to_g(1, "unknown")))
-{
-	return 1;
-}
+# TODO
+# if (!defined(unit_to_g(1, "unknown")))
+# {
+# 	return 1;
+# }
 is( unit_to_g(1, "kj"), 1 );
 is( unit_to_g(10, ""), 10 );
 is( unit_to_g(10, " "), 10 );

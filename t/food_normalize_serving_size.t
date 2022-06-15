@@ -26,15 +26,16 @@ foreach my $test_ref (@serving_sizes) {
 	is(normalize_serving_size($test_ref->[0]), $test_ref->[1]);
 }
 
-if (!defined(normalize_serving_size("20 someinvalidunit")))
-{
-	return 1;
-}
+#TODO
+# if (!defined(normalize_serving_size("20 someinvalidunit")))
+# {
+# 	return 1;
+# }
 
-if (!defined(normalize_serving_size("15aug")))
-{
-	return 1;
-}
+# if (!defined(normalize_serving_size("15aug")))
+# {
+# 	return 1;
+# }
 
 
 done_testing();
