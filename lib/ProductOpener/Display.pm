@@ -403,6 +403,7 @@ sub process_template($$$) {
 	$template_data_ref->{display_date_tag} = \&display_date_tag;
 	$template_data_ref->{url_for_text} = \&url_for_text;
 	$template_data_ref->{product_url} = \&product_url;
+	$template_data_ref->{product_action_url} = \&product_action_url;
 	$template_data_ref->{product_name_brand_quantity} = \&product_name_brand_quantity;
 
 	# Display one taxonomy entry in the target language

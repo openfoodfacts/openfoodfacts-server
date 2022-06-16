@@ -36,7 +36,7 @@
                     [% IF panel.nutriscore_unknown_reason == "missing_category" %]
                         "add_categories"
                     [% ELSIF panel.nutriscore_unknown_reason == "missing_nutrition_data" %]
-                        "edit_nutrition"
+                        "add_nutrition_facts"
                     [% ELSIF panel.nutriscore_unknown_reason == "missing_category_and_nutrition_data" %]
                         "add_categories",
                         "add_nutrition_facts"

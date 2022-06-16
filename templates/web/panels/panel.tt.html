@@ -183,7 +183,7 @@
 
                 [% FOREACH action IN action_element.actions %]
                     <a class="button small action-[% action %]"
-                        href="/cgi/product.pl?type=edit&code=[% product.code %][% IF action == 'add_categories' %]#categories[% END %][% IF action == 'add_ingredients_text' %]#ingredients[% END %][% IF action == 'add_nutrition_facts' %]#nutrition[% END %]" >
+                        href="[% product_action_url(product.code, action) %]">
                         [% lang("action_$action") %]
                     </a>
                 [% END %]
