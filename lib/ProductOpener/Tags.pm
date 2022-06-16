@@ -835,7 +835,7 @@ sub sanitize_taxonomy_line($)
 }
 
 
-=head2 search_tag_c( $tag, $synonyms, $tagtype, $warning )
+=head2 search_tag_c( $tag, $synonyms_ref, $tagtype, $warning )
 
 Search for "current tag" (tag at start of line) for a given tag
 
@@ -843,12 +843,13 @@ Search for "current tag" (tag at start of line) for a given tag
 
 =head4 str $tag - tag string for which we search
 
-=head4 hash map $synonyms - the entries corresponding to $synonyms{$tagtype}{$lc}
+=head4 reference to hash map $synonyms_ref - the entries corresponding to $synonyms{$tagtype}{$lc}
 
 =head4 str $tagtype - tag type
 
 =head4 str $warning
-An eventual prefix to display errors if we had to use stopwords / plurals.
+
+An optional prefix to display errors if we had to use stopwords / plurals.
 
 If empty, no warning will be displayed.
 
@@ -858,21 +859,21 @@ If empty, no warning will be displayed.
 sub search_tag_c($$$$)
 {
 	my $tag = shift;
-	my $synonyms = shift;
+	my $synonyms_ref = shift;
 	my $tagtype = shift;
 	my $warning = shift;
 	$tag =~ s/^\s+//;  # normalize spaces
 	$tag = normalize_percentages($tag, $lc);
 	my $tagid = get_string_id_for_lang($lc, $tag);
-	# search if this tag is used as a canonical tag id
-	my $tagid_c = $synonyms{$tagid};
+	# search if this tag is associated to a canonical tag id
+	my $tagid_c = $synonyms_ref->{$tagid};
 	if (not defined $tagid_c) {
 		# try to remove stop words and plurals
 		my $stopped_tagid = $tagid;
 		$stopped_tagid = remove_stopwords($tagtype,$lc,$tagid);
 		$stopped_tagid = remove_plurals($lc,$stopped_tagid);
-		# and try again to see if it is used as a conanical tag id
-		$tagid_c = $synonyms{$stopped_tagid};
+		# and try again to see if it is associated to a canonical tag id
+		$tagid_c = $synonyms_ref->{$stopped_tagid};
 		if ($warning) {
 			print STDERR "$warning tagid $tagid, trying stopped_tagid $stopped_tagid - result canon_tagid: " . ($tagid_c // "") . "\n";
 		}
