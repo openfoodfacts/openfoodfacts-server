@@ -1182,7 +1182,7 @@ sub create_ingredients_analysis_panel($$$) {
 
         foreach my $property_panel_data_ref (@{$ingredients_analysis_data_ref->{ingredients_analysis_tags}}) {
 
-            my $property_panel_id = "ingredients_analysis_" . $property_panel_data_ref->{property};
+            my $property_panel_id = "ingredients_analysis_" . $property_panel_data_ref->{tag};
 
             create_panel_from_json_template($property_panel_id, "api/knowledge-panels/health/ingredients/ingredients_analysis_property.tt.json",
                 $property_panel_data_ref, $product_ref, $target_lc, $target_cc);

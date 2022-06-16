@@ -10886,10 +10886,18 @@ sub data_to_display_ingredients_analysis($) {
 
 			my $evaluation;
 			my $icon = "";
+			# $ingredients_analysis_tag is a tag like "en:palm-oil-free", "en:vegan-status-unknown", or "en:non-vegetarian"
+			# we will derive from it the associated property e.g. "palm_oil", "vegan", "vegetarian"
+			# and the tag corresponding to unknown status for the property e.g. "en:palm-oil-content-unknown", "en:vegan-status-unknown"
+			# so that we can display unknown ingredients for the property even if the status is different than unknown
+			my $property;
+			my $property_unknown_tag;
 
 			if ($ingredients_analysis_tag =~ /palm/) {
 
-				# Icon
+				# Set property and icon
+				$property = "palm_oil_free";
+				$property_unknown_tag = "en:palm-oil-content-unknown";
 				$icon = "palm-oil";
 
 				# Evaluation
@@ -10908,13 +10916,16 @@ sub data_to_display_ingredients_analysis($) {
 			}
 			else {
 
-				# Icon
+				# Set property (e.g. vegan for the tag vegan or non-vegan) and icon
 				if ($ingredients_analysis_tag =~ /vegan/) {
+					$property = "vegan";
 					$icon = "leaf";
 				}
 				elsif ($ingredients_analysis_tag =~ /vegetarian/) {
+					$property = "vegetarian";
 					$icon = "vegetarian";
 				}
+				$property_unknown_tag = "en:" . $property . "-status-unknown";
 
 				# Evaluation
 				if ($ingredients_analysis_tag =~ /^en:non-/) {
@@ -10945,7 +10956,9 @@ sub data_to_display_ingredients_analysis($) {
 			}
 
 			push @{$result_data_ref->{ingredients_analysis_tags}}, {
-				property => $ingredients_analysis_tag,
+				tag => $ingredients_analysis_tag,
+				property => $property,
+				property_unknown_tag => $property_unknown_tag,
 				evaluation => $evaluation,
 				icon => $icon,
 				title => display_taxonomy_tag($lc, "ingredients_analysis", $ingredients_analysis_tag),
