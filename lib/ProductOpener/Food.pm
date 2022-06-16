@@ -367,7 +367,7 @@ unit_to_g(520,mg) => returns 0.52
 =cut
 
 # This is a key:value pairs
-# The keys are the unit names and the values are the multipliers we can use to convert to a standard unit. 
+# The keys are the unit names and the values are the multipliers we can use to convert to a standard unit.
 # We can divide by these values to do the reverse ie, Convert from standard to non standard
 my %unit_conversion_map = (
 	# kg = 公斤 - gōngjīn = кг
@@ -386,9 +386,9 @@ my %unit_conversion_map = (
 	"\N{U+65A4}" => 500,
 	# Standard units: No conversion units
 	# Value without modification if it's already grams or 克 (kè) or 公克 (gōngkè) or г
-	'g' => 1, '' => 1, ' ' => 1, 'kj' => 1, '克' => 1, '公克' => 1 , 'г' => 1, 'мл' => 1, 
+	'g' => 1, '' => 1, ' ' => 1, 'kj' => 1, '克' => 1, '公克' => 1 , 'г' => 1, 'мл' => 1,
 	'ml'=> 1, 'mmol/l' => 1, "\N{U+6BEB}\N{U+5347}" => 1,
-	'% vol' => 1, 'ph' => 1, '%' => 1, '% DV' => 1, '% vol (alcohol)' => 1, 'IU' => 1,
+	'% vol' => 1, 'ph' => 1, '%' => 1, '% dv' => 1, '% vol (alcohol)' => 1, 'iu' => 1,
 	# Division factors for "non standard unit" to mmoll conversions
 	'mol/l' => 0.001,
 	'mval/l' => 2,
@@ -396,7 +396,7 @@ my %unit_conversion_map = (
 	"\N{U+00B0}rh" => 40.080,
 	"\N{U+00B0}fh" => 10.00,
 	"\N{U+00B0}e" => 7.02,
-	"\N{U+00B0}dh" => 5.6, 
+	"\N{U+00B0}dh" => 5.6,
 	'gpg' => 5.847
 );
 
@@ -419,7 +419,7 @@ sub unit_to_g($$) {
 		return $value*$unit_conversion_map{$unit};
 	}
 
-	(($unit eq 'kcal') or ($unit eq 'ккал')) and return int($value * 4.184 + 0.5);	
+	(($unit eq 'kcal') or ($unit eq 'ккал')) and return int($value * 4.184 + 0.5);
 
 	# We return with + 0 to make sure the value is treated as number (needed when outputting json and to store in mongodb as a number)
 	# lets not assume that we have a valid unit
@@ -460,7 +460,7 @@ sub g_to_unit($$) {
 	(($unit eq 'kcal') or ($unit eq 'ккал')) and return int($value / 4.184 + 0.5);
 
 	# return value without modification if unit is already grams or 克 (kè) or 公克 (gōngkè) or г
-	return $value + 0; 
+	return $value + 0;
 	# + 0 to make sure the value is treated as number
 	# (needed when outputting json and to store in mongodb as a number)
 }
