@@ -4,6 +4,8 @@
         "health"
     ],
     "size": "small",
+    // We display an orange icon when we could not recognize all ingredients
+    // and a grey icon otherwise (no a green icon that could be interpreted as all ingredients being good)
     [% IF panel.unknown_ingredients %]
     "evaluation": "average",
     [% ELSE %]
