@@ -6473,7 +6473,6 @@ sub search_and_graph_products($$$) {
 
 	my @products = $cursor->all;
 	my $count = @products;
-	$request_ref->{count} = $count;
 
 	my $html = '';
 
@@ -6607,7 +6606,6 @@ sub search_and_map_products($$$) {
 
 	my @products = $cursor->all;
 	my $count = @products;
-	$request_ref->{count} = $count;
 
 	my $html = '';
 
@@ -11092,7 +11090,6 @@ sub search_and_analyze_recipes($$) {
 
 	my @products = $cursor->all;
 	my $count = @products;
-	$request_ref->{count} = $count;
 
 	my $html = '';
 
