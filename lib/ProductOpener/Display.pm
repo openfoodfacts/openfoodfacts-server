@@ -325,6 +325,7 @@ my $user_preferences;	# enables using user preferences to show a product summary
 =head2 url_for_text ( $textid )
 
 Return the localized URL for a text. (e.g. "data" points to /data in English and /donnees in French)
+Note: This currently only has ecoscore
 
 =cut
 
