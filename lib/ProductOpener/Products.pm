@@ -88,6 +88,7 @@ BEGIN
 		&product_name_brand
 		&product_name_brand_quantity
 		&product_url
+		&product_action_url
 		&normalize_search_terms
 		&index_product
 		&log_change
@@ -2336,6 +2337,16 @@ sub product_name_brand_quantity($) {
 }
 
 
+=head2 product_url ( $code_or_ref )
+
+Returns a relative URL for a product on the website.
+
+=head3 Parameters
+
+=head4 Product code or reference to product object $code_or_ref
+
+=cut
+
 sub product_url($) {
 
 	my $code_or_ref = shift;
@@ -2371,6 +2382,89 @@ sub product_url($) {
 
 	$code = ($code // "");
 	return "/$path/$code" . $titleid;
+}
+
+=head2 product_url ( $code_or_ref )
+
+Returns a relative URL for a product on the website.
+
+=head3 Parameters
+
+=head4 Product code or reference to product object $code_or_ref
+
+=cut
+
+sub product_url($) {
+
+	my $code_or_ref = shift;
+	my $code;
+	my $ref;
+
+	my $product_lc = $lc;
+
+	if (ref($code_or_ref) eq 'HASH') {
+		$ref = $code_or_ref;
+		$code = $ref->{code};
+		#if (defined $ref->{lc}) {
+		#	$product_lc = $ref->{lc};
+		#}
+	}
+	else {
+		$code = $code_or_ref;
+	}
+
+	my $path = $tag_type_singular{products}{$product_lc};
+	if (not defined $path) {
+		$path = $tag_type_singular{products}{en};
+	}
+
+	my $titleid = '';
+	if (defined $ref) {
+		my $full_name = product_name_brand($ref);
+		$titleid = get_url_id_for_lang($product_lc, $full_name);
+		if ($titleid ne '') {
+			$titleid = '/' . $titleid;
+		}
+	}
+
+	$code = ($code // "");
+	return "/$path/$code" . $titleid;
+}
+
+
+=head2 product_action_url ( $code, $action )
+
+Returns a relative URL for an action on a product on the website.
+
+This function is called by the web/panels/panel.tt.html template for knowledge panels that have associated actions.
+
+=head3 Parameters
+
+=head4 Product code or reference to product object $code_or_ref
+
+=cut
+
+sub product_action_url($$) {
+
+	my $code = shift;
+	my $action = shift;
+
+	my $url = "/cgi/product.pl?type=edit&code=" . $code;
+
+	if ($action eq "add_categories") {
+		$url  .= "#categories";
+	}
+	elsif ($action eq "add_ingredients_text") {
+		$url .= "#ingredients";
+	}
+	elsif ($action eq "add_nutrition_facts") {
+		$url .= "#nutrition";
+	}
+	else {
+		$log->error("unknown product action", { code => $code, action => $action });
+	}
+
+	return $url;
 }
 
 

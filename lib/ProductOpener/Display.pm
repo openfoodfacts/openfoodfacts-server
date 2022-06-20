@@ -405,6 +405,7 @@ sub process_template($$$) {
 	$template_data_ref->{display_date_tag} = \&display_date_tag;
 	$template_data_ref->{url_for_text} = \&url_for_text;
 	$template_data_ref->{product_url} = \&product_url;
+	$template_data_ref->{product_action_url} = \&product_action_url;
 	$template_data_ref->{product_name_brand_quantity} = \&product_name_brand_quantity;
 
 	# Display one taxonomy entry in the target language
@@ -7538,8 +7539,8 @@ CSS
 	# Also activate them for moderators
 	if (($User{moderator}) or (param('panels'))) {
 		create_knowledge_panels($product_ref, $lc, $cc, $knowledge_panels_options_ref);
-		$template_data_ref->{environment_card_panel} = display_knowledge_panel($product_ref->{"knowledge_panels_" . $lc}, "environment_card");
-		$template_data_ref->{health_card_panel} = display_knowledge_panel($product_ref->{"knowledge_panels_" . $lc}, "health_card");
+		$template_data_ref->{environment_card_panel} = display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "environment_card");
+		$template_data_ref->{health_card_panel} = display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "health_card");
 	}
 
 	# On the producers platform, show a link to the public platform
