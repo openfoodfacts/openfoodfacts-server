@@ -65,6 +65,21 @@ is ( display_pagination( $request_ref , $count, $limit, $page), '</ul>' . "\n" .
 $request_ref->{current_link} = '/label/organic';
 is ( display_pagination( $request_ref , $count, $limit, $page), '</ul>' . "\n" . '<ul id="pages" class="pagination"><li class="unavailable">Pages:</li><li class="current"><a href="">1</a></li><li><a href="/label/organic/2">2</a></li><li><a href="/label/organic/2" rel="next$nofollow">Next</a></li><li class="unavailable">(24 products per page)</li></ul>' . "\n");
 
+# check integrity of display_preferences_api json structure
+eval {display_preferences_api($request_ref,'en'); };
+print("\n");
+is ( $request_ref->{structured_response}[0]{name}, 'Not important');
+is ( $request_ref->{structured_response}[0]{id}, 'not_important');
+is ( $request_ref->{structured_response}[1]{name}, 'Important');
+is ( $request_ref->{structured_response}[1]{id}, 'important');
+is ( $request_ref->{structured_response}[1]{factor}, 1);
+is ( $request_ref->{structured_response}[2]{name}, 'Very important');
+is ( $request_ref->{structured_response}[2]{id}, 'very_important');
+is ( $request_ref->{structured_response}[2]{factor}, 2);
+is ( $request_ref->{structured_response}[3]{name}, 'Mandatory');
+is ( $request_ref->{structured_response}[3]{id}, 'mandatory');
+is ( $request_ref->{structured_response}[3]{factor}, 4);
+is ( $request_ref->{structured_response}[3]{minimum_match}, 20);
 
 my $nutriscore_data_ref = {
           'negative_points' => 8,
@@ -101,13 +116,11 @@ my $nutriscore_data_ref = {
           'saturated_fat_points' => 3
         };
 
-print("-----------\n");
 like ( display_nutriscore_calculation_details($nutriscore_data_ref), qr/Score nutritionnel: 6/);
 like ( display_nutriscore_calculation_details($nutriscore_data_ref), qr/Proteins:\n2&nbsp;<\/strong>\/&nbsp;5/);
 like ( display_nutriscore_calculation_details($nutriscore_data_ref), qr/Positive points: 2/);
 like ( display_nutriscore_calculation_details($nutriscore_data_ref), qr/Negative points: 8/);
 like ( display_nutriscore_calculation_details($nutriscore_data_ref), qr/<strong>Nutri-Score: C<\/strong>/);
-print("-----------\n");
 
 
 
