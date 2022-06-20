@@ -185,8 +185,9 @@ elsif (($action eq "process") and $allow_submit) {
 	$html .= "<p>" . lang("export_job_import") .  " - <span id=\"result2\"></span></p>";
 	$html .= "<p>" . lang("export_job_status_update") .  " - <span id=\"result3\"></span></p>";
 
-	$initjs .= $js;
+	process_template('web/pages/import_file_process/export_products.tt.js', $template_data_ref, \$js);
 
+	$initjs .= $js;
 }
 else {
 
