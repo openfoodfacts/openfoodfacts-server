@@ -58,6 +58,7 @@ my $action = param('action') || 'display';
 my $title = lang("export_product_data_photos");
 my $html = '';
 my $js = '';
+my $template_data_ref;
 
  if (not defined $Owner_id) {
  	display_error(lang("no_owner_defined"), 200);
