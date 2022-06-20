@@ -41,12 +41,12 @@
                     [% ELSIF panel.evaluation == "bad" %]
                         class="filter-red"
                     [% ELSIF panel.evaluation == "average" %]
-                        class="filter-orange"                 
+                        class="filter-orange"
                     [% ELSIF panel.evaluation == "neutral" %]
                         class="filter-grey"
                     [% ELSIF panel.evaluation == "unknown" %]
                         class="filter-grey"
-                    [% END %]    
+                    [% END %]
                 [% END %]
             >
             [% END %]
@@ -92,7 +92,7 @@
     >
     [% FOREACH element_ref IN panel.elements %]
         [% element_type = element_ref.element_type %]
-       
+
         [% IF element_type == "panel" %]
             [% INCLUDE web/panels/panel.tt.html panel_id = element_ref.panel_element.panel_id %]
         [% ELSIF element_type == "panel_group" %]
@@ -108,7 +108,7 @@
         [% ELSE %]
 
             <div style="margin-bottom:0.5rem">
-        
+
             [% IF element_type == "text" %]
                 [% text_element = element_ref.text_element %]
 
@@ -122,12 +122,12 @@
                         [% ELSIF text_element.evaluation == "bad" %]
                             class="filter-red"
                         [% ELSIF text_element.evaluation == "average" %]
-                            class="filter-orange"                 
+                            class="filter-orange"
                         [% ELSIF text_element.evaluation == "neutral" %]
                             class="filter-grey"
                         [% ELSIF text_element.evaluation == "unknown" %]
                             class="filter-grey"
-                        [% END %]    
+                        [% END %]
                     [% END %]
                 >
                 <div style="float:left;[% IF text_element.valign == 'middle' %]line-height:72px;[% END %]">
@@ -135,15 +135,19 @@
                 <div>
                 [% END %]
 
-                
+
                 [% IF text_element.type == "h1" %]
                     <h4 class="panel_title">
                 [% ELSIF text_element.type == "quote" %]
                     <blockquote class="panel_text panel_text_quote">
                 [% ELSIF text_element.type == "note" %]
-                    <div class="panel_text panel_text_note">→ 
+                    <div class="panel_text panel_text_note">→
                 [% ELSIF text_element.type == "warning" %]
-                    <div class="panel_text panel_text_warning">⚠️ 
+                    <div class="panel_text panel_text_warning">⚠️
+                [% ELSIF text_element.type == "callout_info" %]
+                    <div class="panel_text alert-box info">
+                [% ELSIF text_element.type == "callout_warning" %]
+                        <div class="panel_text alert-box warning">⚠️
                 [% ELSE %]
                     <div class="panel_text">
                 [% END %]
@@ -190,7 +194,7 @@
                         [% END %]
                     </a>
                 </div>
-            [% END %]                
+            [% END %]
 
             [% ELSIF element_type == "table" %]
                 [% table_element = element_ref.table_element %]
@@ -243,7 +247,7 @@
                                             [% value.text %]
                                         </span>
                                     [% END %]
-                                </td>                          
+                                </td>
                             [% END %]
                         </tr>
                         [% END %]
@@ -270,7 +274,7 @@
 
                 <!-- end templates/[% template.name %] -->
             [% END %]
-            
+
             </div>
 
         [% END %]
@@ -279,7 +283,7 @@
     [% END %]
 [% IF (panel.type == "card") OR (panel.type == "inline") %]
 </div>
-[% ELSE %]    
+[% ELSE %]
 </li>
 </ul>
 [% END %]

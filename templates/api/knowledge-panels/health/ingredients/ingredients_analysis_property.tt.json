@@ -1,4 +1,6 @@
+[% SET tag = panel.tag %]
 [% SET property = panel.property %]
+[% SET property_unknown_tag = panel.property_unknown_tag %]
 {
     "level": "info",
     "topics": [
@@ -11,7 +13,7 @@
         "icon_color_from_evaluation": true,
         "icon_url": "[% static_subdomain %]/images/icons/dist/[% panel.icon %].svg",
         "icon_size": "small",
-    },    
+    },
     "elements": [
         {
             "element_type": "text",
@@ -20,19 +22,25 @@
                 "html": `
                 [% IF panel.evaluation == "good" %]
                     [% lang(panel.ingredients_title_id) %]
-                    [% property_unknown_ingredients = property %]
-                    [% property_unknown_ingredients = property_unknown_ingredients.replace('-free', '-content-unknown') %]
-                    [% IF product.ingredients_analysis.$property_unknown_ingredients.defined %]
+                    [% IF product.ingredients_analysis.$property_unknown_tag.defined %]
                         <br><br>
                         [% lang("unrecognized_ingredients") %][% sep %]:
-                        [% display_taxonomy_tags_list("ingredients", product.ingredients_analysis.$property_unknown_ingredients) %]
+                        [% display_taxonomy_tags_list("ingredients", product.ingredients_analysis.$property_unknown_tag) %]
                     [% END %]
-                [% ELSIF product.ingredients_analysis.$property.defined %]
+                [% ELSIF product.ingredients_analysis.$tag.defined %]
                     <strong>[% lang(panel.ingredients_title_id) %][% sep %]:</strong>
-                    [% display_taxonomy_tags_list("ingredients", product.ingredients_analysis.$property) %]
+                    [% display_taxonomy_tags_list("ingredients", product.ingredients_analysis.$tag) %]
                 [% END %]
                     `
             }
         },
+        [% IF product.ingredients_analysis.$property_unknown_tag.defined %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "ingredients_analysis_help",
+            }
+        },
+        [% END %]
     ]
 }

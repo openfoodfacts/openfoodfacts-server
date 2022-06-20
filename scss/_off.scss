@@ -853,6 +853,35 @@ a.attribute_card:hover {
   color:$grade-unknown-color;
 }
 
+.text_good {
+  background-color:rgba($evaluation-good-color,0.1) !important;
+}
+
+.text_average {
+  background-color:rgba($evaluation-average-color,0.1) !important;
+}
+
+.text_bad {
+  background-color:rgba($evaluation-bad-color,0.1) !important;
+}
+
+.text_info {
+  background-color:$info-color !important;
+}
+
+.text_warning {
+  background-color:$warning-color !important;
+  color: white;
+}
+
+.text_error {
+  background-color:$alert-color !important;
+}
+
+
+
+
+
 .grade_unknown {
   background-color:rgba($grade-unknown-color,0.1) !important;
 }

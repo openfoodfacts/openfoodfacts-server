@@ -93,6 +93,7 @@ BEGIN
 
 		&data_to_display_nutriscore_and_nutrient_levels
 		&data_to_display_ingredients_analysis
+		&data_to_display_ingredients_analysis_details
 
 		&count_products
 		&add_params_to_query
@@ -10698,7 +10699,7 @@ sub display_nested_list_of_ingredients($$$) {
 		my $ingredients_exists = exists_taxonomy_tag("ingredients", $ingredient_ref->{id});
 		my $class = '';
 		if (not $ingredients_exists) {
-			$class = ' class="unknown_ingredient"';
+			$class = ' class="text_info unknown_ingredient"';
 		}
 
 		${$ingredients_text_ref} .= "<span$class>" . $ingredient_ref->{text} . "</span>";
@@ -10780,6 +10781,54 @@ sub display_list_of_specific_ingredients($) {
 }
 
 
+=head2 data_to_display_ingredients_analysis_details ( $product_ref )
+
+Generates a data structure to display the details of ingredients analysis.
+
+The resulting data structure can be passed to a template to generate HTML or the JSON data for a knowledge panel.
+
+=head3 Arguments
+
+=head4 Product reference $product_ref
+
+=head3 Return values
+
+Reference to a data structure with needed data to display.
+
+=cut
+
+sub data_to_display_ingredients_analysis_details($) {
+
+	my $product_ref = shift;
+
+	# Do not display ingredients analysis details when we don't have ingredients
+
+	if ((not defined $product_ref->{ingredients})
+		or (scalar @{$product_ref->{ingredients}} == 0)) {
+		return undef;
+	}
+
+	my $result_data_ref = {};
+
+	my $ingredients_text = "";
+	my $ingredients_list = "";
+
+	display_nested_list_of_ingredients($product_ref->{ingredients}, \$ingredients_text, \$ingredients_list);
+
+	my $specific_ingredients = display_list_of_specific_ingredients($product_ref);
+
+	if (($ingredients_text . $specific_ingredients) =~ /unknown_ingredient/) {
+		$result_data_ref->{unknown_ingredients} = 1;
+	}
+
+	$result_data_ref->{ingredients_text} = $ingredients_text;
+	$result_data_ref->{ingredients_list} = $ingredients_list;
+	$result_data_ref->{specific_ingredients} = $specific_ingredients;
+
+	return $result_data_ref;
+}
+
+
 =head2 display_ingredients_analysis_details ( $product_ref )
 
 Generates HTML code with information on how the ingredient list was parsed and mapped to the ingredients taxonomy.
@@ -10790,45 +10839,13 @@ sub display_ingredients_analysis_details($) {
 
 	my $product_ref = shift;
 
-	# Do not display ingredients analysis details when we don't have ingredients
+	my $html = "";
 
-	if ((not defined $product_ref->{ingredients})
-		or (scalar @{$product_ref->{ingredients}} == 0)) {
-		return "";
+	my $template_data_ref = data_to_display_ingredients_analysis_details($product_ref);
+
+	if (defined $template_data_ref) {
+		process_template('web/pages/product/includes/ingredients_analysis_details.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 	}
-
-	my $template_data_ref = {
-		lang => \&lang,
-	};
-
-	my $ingredients_text = "";
-	my $ingredients_list = "";
-
-	display_nested_list_of_ingredients($product_ref->{ingredients}, \$ingredients_text, \$ingredients_list);
-
-	my $specific_ingredients = display_list_of_specific_ingredients($product_ref);
-
-	my $unknown_ingredients_html = '';
-	my $unknown_ingredients_help_html = '';
-
-	if (($ingredients_text . $specific_ingredients) =~ /unknown_ingredient/) {
-		$template_data_ref->{unknown_ingredients} = 1;
-
-		$styles .= <<CSS
-.unknown_ingredient {
-	background-color:cyan;
-}
-CSS
-;
-	}
-
-	$template_data_ref->{ingredients_text} = $ingredients_text;
-	$template_data_ref->{ingredients_list} = $ingredients_list;
-	$template_data_ref->{specific_ingredients} = $specific_ingredients;
-
-	my $html;
-
-	process_template('web/pages/product/includes/ingredients_analysis_details.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 
 	return $html;
 }
@@ -10868,10 +10885,18 @@ sub data_to_display_ingredients_analysis($) {
 
 			my $evaluation;
 			my $icon = "";
+			# $ingredients_analysis_tag is a tag like "en:palm-oil-free", "en:vegan-status-unknown", or "en:non-vegetarian"
+			# we will derive from it the associated property e.g. "palm_oil", "vegan", "vegetarian"
+			# and the tag corresponding to unknown status for the property e.g. "en:palm-oil-content-unknown", "en:vegan-status-unknown"
+			# so that we can display unknown ingredients for the property even if the status is different than unknown
+			my $property;
+			my $property_unknown_tag;
 
 			if ($ingredients_analysis_tag =~ /palm/) {
 
-				# Icon
+				# Set property and icon
+				$property = "palm_oil_free";
+				$property_unknown_tag = "en:palm-oil-content-unknown";
 				$icon = "palm-oil";
 
 				# Evaluation
@@ -10890,13 +10915,16 @@ sub data_to_display_ingredients_analysis($) {
 			}
 			else {
 
-				# Icon
+				# Set property (e.g. vegan for the tag vegan or non-vegan) and icon
 				if ($ingredients_analysis_tag =~ /vegan/) {
+					$property = "vegan";
 					$icon = "leaf";
 				}
 				elsif ($ingredients_analysis_tag =~ /vegetarian/) {
+					$property = "vegetarian";
 					$icon = "vegetarian";
 				}
+				$property_unknown_tag = "en:" . $property . "-status-unknown";
 
 				# Evaluation
 				if ($ingredients_analysis_tag =~ /^en:non-/) {
@@ -10927,7 +10955,9 @@ sub data_to_display_ingredients_analysis($) {
 			}
 
 			push @{$result_data_ref->{ingredients_analysis_tags}}, {
-				property => $ingredients_analysis_tag,
+				tag => $ingredients_analysis_tag,
+				property => $property,
+				property_unknown_tag => $property_unknown_tag,
 				evaluation => $evaluation,
 				icon => $icon,
 				title => display_taxonomy_tag($lc, "ingredients_analysis", $ingredients_analysis_tag),
