@@ -4672,13 +4672,13 @@ sub add_params_to_query($$) {
 }
 
 
-=head2 initialize_knowledge_panels_options_ref( $knowledge_panels_options_ref )
+=head2 initialize_knowledge_panels_options( $knowledge_panels_options_ref )
 
 Initialize the options for knowledge panels from parameters.
 
 =cut
 
-sub initialize_knowledge_panels_options_ref($) {
+sub initialize_knowledge_panels_options($) {
 
 	my $knowledge_panels_options_ref = shift;
 
