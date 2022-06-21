@@ -54,6 +54,20 @@ $link = "/spain";
 $tag_prefix = "-";
 is ( add_tag_prefix_to_link($link,$tag_prefix),"/-spain");
 
+#test for URL localization
+#test for path not existing in urls_for_text
+my $textid = '/doesnotexist';
+is (url_for_text($textid), '/doesnotexist');
+
+# test a language other than default (en)
+$textid = '/ecoscore';
+$lc = 'es';
+is (url_for_text($textid), '/eco-score-el-impacto-medioambiental-de-los-productos-alimenticios');
+
+# test for language that does not exist (test defaults to en)
+$lc = 'does not exist';
+is (url_for_text($textid), '/eco-score-the-environmental-impact-of-food-products');
+
 #test search query
 my $request_ref->{current_link} = '/cgi/search.pl?action=process&sort_by=unique_scans_n&page_size=24';
 my $count = 25;
