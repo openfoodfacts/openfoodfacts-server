@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: bg\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-05-27 19:05\n"
+"PO-Revision-Date: 2022-06-21 02:42\n"
 "Language-Team: Bulgarian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -1023,6 +1023,18 @@ msgctxt "ingredients"
 msgid "Ingredients"
 msgstr "Съставки"
 
+msgctxt "no_ingredient"
+msgid "Ingredients are missing"
+msgstr "Липсват съставките"
+
+msgctxt "one_ingredient"
+msgid "1 ingredient"
+msgstr "1 съставка"
+
+msgctxt "f_ingredients_with_number"
+msgid "{number} ingredients"
+msgstr "{number} съставки"
+
 msgctxt "ingredients_alt"
 msgid "Ingredients"
 msgstr "Съставки"
@@ -1830,7 +1842,7 @@ msgstr "Завърти надясно"
 
 msgctxt "product_js_image_save"
 msgid "Validate and/or resize image"
-msgstr ""
+msgstr "Одобри и/или преоразмери снимката"
 
 msgctxt "product_js_image_saved"
 msgid "Image saved"
@@ -1846,7 +1858,7 @@ msgstr "Грешка при качване на снимката"
 
 msgctxt "product_js_image_white_magic"
 msgid "Photo on white background: try to remove the background"
-msgstr ""
+msgstr "Снимка на бял фон: опит се да премахне фона"
 
 msgctxt "product_js_images_delete_error"
 msgid "Errors while deleting images"
@@ -1998,7 +2010,7 @@ msgstr "Въведи нова парола."
 
 msgctxt "reset_password_send_email"
 msgid "An email with a link to reset your password has been sent to the e-mail address associated with your account."
-msgstr ""
+msgstr "На имейл адреса, свързан с твоя акаунт, е изпратен имейл с връзка за нулиране на паролата."
 
 msgctxt "reset_password_send_email_msg"
 msgid "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password."
@@ -2622,16 +2634,16 @@ msgid "Warning: the amount of fruits, vegetables and nuts is not specified, thei
 msgstr ""
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d%"
-msgstr "Предупреждение: количеството плодове, зеленчуци и ядки не е посочено на етикета заради което е ръчно изчислено от списъка със съставки: %d%"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
+msgstr "Предупреждение: количеството плодове, зеленчуци и ядки не е посочено на етикета заради което е ръчно изчислено от списъка със съставки: %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
-msgstr "Предупреждение: количеството плодове, зеленчуци и ядки не е посочено на етикета, изчислено е от категорията (%s) на продукта: %d%"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
+msgstr "Предупреждение: количеството плодове, зеленчуци и ядки не е посочено на етикета, изчислено е от категория (%s) на продукта: %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr "Предупреждение: количеството плодове, зеленчуци и ядки не е посочено на етикета, беше изчислено от списъка със съставки: %d%"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
+msgstr "Предупреждение: количеството плодове, зеленчуци и ядки не е посочено на етикета, беше изчислено от списъка със съставки: %d"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -3009,7 +3021,7 @@ msgstr "Нетно количество"
 
 msgctxt "drained_weight"
 msgid "Drained weight"
-msgstr "Изцедено тегло"
+msgstr "Отцедено тегло"
 
 msgctxt "volume"
 msgid "Volume"
@@ -3357,7 +3369,7 @@ msgstr "Хранителни стойности"
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
-msgstr ""
+msgstr "Незадължителни хранителни стойности"
 
 msgctxt "fields_group_other"
 msgid "Other information"
@@ -3869,7 +3881,7 @@ msgstr ""
 
 msgctxt "nutriscore_is_not_beverage"
 msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Този продукт не се счита за напитка за изчисляване на Nutri-Score."
 
 msgctxt "nutriscore_positive_points"
 msgid "Positive points"
@@ -3913,7 +3925,7 @@ msgstr "Наситени мазнини"
 
 msgctxt "nutriscore_points_for_saturated_fat_ratio"
 msgid "Saturated fat / fat ratio"
-msgstr ""
+msgstr "Съотношение наситени мазнини / мазнини"
 
 msgctxt "nutriscore_points_for_sodium"
 msgid "Sodium"
@@ -4036,7 +4048,7 @@ msgstr ""
 
 msgctxt "user_group_pro_moderator"
 msgid "Moderator for the producers platform"
-msgstr ""
+msgstr "Модератор за платформата на производителите"
 
 msgctxt "user_group_pro_moderator_description"
 msgid "Moderators of the producers platform can view and edit the private products of all users and organizations on the producers platform."
@@ -4344,11 +4356,11 @@ msgstr ""
 
 msgctxt "code_import_note"
 msgid "Barcode as it appears on the product."
-msgstr ""
+msgstr "Баркода така както е изписан на продукта."
 
 msgctxt "producer_product_id_import_note"
 msgid "Internal code used by the producer to identify the product, different from the product's barcode."
-msgstr ""
+msgstr "Вътрешен код, използван от производителя за идентифициране на продукта, различен от баркода на продукта."
 
 msgctxt "producer_version_id_import_note"
 msgid "Internal code used by the producer to identify a specific version of a product when it changes."
@@ -4509,8 +4521,13 @@ msgid "Nutri-Score not-applicable"
 msgstr "Nutri-Score не е приложим"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Exempted category"
-msgstr "Освободена категория"
+msgid "Not-applicable for the category"
+msgstr "Не е приложимо за категорията"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_nutriscore_not_applicable_description"
+msgid "Not-applicable for the category: {category}"
+msgstr "Не е приложимо за категория: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -5218,6 +5235,23 @@ msgctxt "delete_user_process"
 msgid "User deleted."
 msgstr "Изтрит потребител."
 
+msgctxt "attribute_ecoscore_not_applicable_title"
+msgid "Eco-Score not yet applicable"
+msgstr "Eco-Score все още не е приложим"
+
+msgctxt "attribute_ecoscore_not_applicable_description_short"
+msgid "Not yet applicable for the category"
+msgstr "Все още не е приложимо за категорията"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_ecoscore_not_applicable_description"
+msgid "Not yet applicable for the category: {category}"
+msgstr "Все още не е приложимо за категория: {category}"
+
+msgctxt "ecoscore_not_applicable_coming_soon"
+msgid "The Eco-Score is not yet applicable for this category, but we are working on adding support for it."
+msgstr "Eco-Score все още не е приложим за тази категория към момента, но работим по въпроса."
+
 msgctxt "attribute_ecoscore_unknown_title"
 msgid "Eco-Score not computed"
 msgstr "Eco-Score не е изчислен"
@@ -5837,10 +5871,6 @@ msgctxt "f_energy_expenditure_for_weight_in_kg_lb"
 msgid "Energy expenditure for a person weighting {kg} kg / {lb} lb"
 msgstr "Разход на енергия за човек с тегло {kg} kg / {lb} lb"
 
-msgctxt "nutriscore_not_applicable_short"
-msgid "Not applicable for this product"
-msgstr "Не е приложимо за този продукт"
-
 msgctxt "nutriscore_missing_category_short"
 msgid "Missing category"
 msgstr "Липсваща категория"
@@ -6000,9 +6030,33 @@ msgstr "Не съвпада"
 
 msgctxt "reset_preferences"
 msgid "Use default preferences"
-msgstr ""
+msgstr "Използвай настройките по подразбиране"
 
 msgctxt "reset_preferences_details"
 msgid "Nutri-Score, Eco-Score and food processing level (NOVA)"
+msgstr "Nutri-Score, Eco-Score и ниво на обработка на храни (NOVA)"
+
+msgctxt "actions_add_ingredients"
+msgid "Could you add the ingredients list?"
+msgstr ""
+
+msgctxt "actions_to_compute_nutriscore"
+msgid "Could you add the information needed to compute the Nutri-Score?"
+msgstr ""
+
+msgctxt "actions_to_compute_ecoscore"
+msgid "Could you categorize the product so that we can compute the Eco-Score?"
+msgstr ""
+
+msgctxt "action_add_ingredients_text"
+msgid "Add the ingredients"
+msgstr ""
+
+msgctxt "action_add_categories"
+msgid "Add a category"
+msgstr ""
+
+msgctxt "action_add_nutrition_facts"
+msgid "Add nutrition facts"
 msgstr ""
 
