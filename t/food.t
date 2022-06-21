@@ -84,6 +84,10 @@ is( unit_to_g(1, "мг"), 0.001 );
 # 	return 1;
 # }
 is( unit_to_g(1, "kj"), 1 );
+is( unit_to_g(1, "kcal"), 4 );
+is( unit_to_g(1000, "kcal"), 4184 );
+is( unit_to_g(1.2345, "kg"), 1234.5 );
+is( unit_to_g(1, "kJ"), 1 );
 is( unit_to_g(10, ""), 10 );
 is( unit_to_g(10, " "), 10 );
 is( unit_to_g(10, "% vol"), 10 );
@@ -104,6 +108,7 @@ is ( normalize_quantity("1 дл"), 100);
 is ( normalize_quantity("1 кл"), 10);
 is ( normalize_quantity("1 мл"), 1);
 
+is ( normalize_quantity("250G"), 250);
 is ( normalize_quantity("4 x 25g"), 100);
 is ( normalize_quantity("4 x25g"), 100);
 is ( normalize_quantity("4 * 25g"), 100);
