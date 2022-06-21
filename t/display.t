@@ -115,15 +115,19 @@ my $nutriscore_data_ref = {
           'saturated_fat_points' => 3
         };
 
-print("-----------\n");
 like ( display_nutriscore_calculation_details($nutriscore_data_ref), qr/Score nutritionnel: 6/);
 like ( display_nutriscore_calculation_details($nutriscore_data_ref), qr/Proteins:\n2&nbsp;<\/strong>\/&nbsp;5/);
 like ( display_nutriscore_calculation_details($nutriscore_data_ref), qr/Positive points: 2/);
 like ( display_nutriscore_calculation_details($nutriscore_data_ref), qr/Negative points: 8/);
 like ( display_nutriscore_calculation_details($nutriscore_data_ref), qr/<strong>Nutri-Score: C<\/strong>/);
-print("-----------\n");
 
+# Test that display_icon successfully creates the cc and info icons
+use Digest::MD5  qw(md5_hex);
+my $cc_string = display_icon('cc');
+is(md5_hex($cc_string), '64b2e2b0a3f8a7a27f7e851c43333a8c');
 
+my $info_string = display_icon('info');
+is(md5_hex($info_string), 'b7da7779b48a2e9041e698291d92aefb');
 
 $lc = 'en';
 my $product_ref = {
