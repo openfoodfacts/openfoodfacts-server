@@ -47,7 +47,6 @@ BEGIN
 		&init
 		&analyze_request
 
-		&display_form
 		&display_date
 		&display_date_tag
 		&display_date_iso
@@ -1172,28 +1171,6 @@ sub analyze_request($)
 
 	return 1;
 }
-
-
-sub display_form($) {
-
-	my $s = shift;
-
-	# Activate links
-
-	$s =~ s/<a href="h/<a href="protectedh/g;
-
-	$uri_finder->find(\$s);
-
-	$s =~ s/<a href="protectedh/<a href="h/g;
-
-	# Change line feeds to <br> and <p>..</p>
-
-	$s =~ s/\n(\n+)/<\/p>\n<p>/g;
-	$s =~ s/\n/<br \/>\n/g;
-
-	return "<p>$s</p>";
-}
-
 
 sub _get_date($) {
 
