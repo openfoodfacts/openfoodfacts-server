@@ -137,10 +137,6 @@ if ($action eq "display") {
 	process_template('web/pages/export_products/export_products.tt.html', $template_data_ref, \$html) || ($html .= 'template error: ' . $tt->error());
 }
 
-$template_data_ref->{local_export_job_id} = $local_export_job_id;
-$template_data_ref->{remote_import_job_id} = $remote_import_job_id;
-$template_data_ref->{local_export_status_job_id} = $local_export_status_job_id;
-
 elsif (($action eq "process") and $allow_submit) {
 	
 	# First export CSV from the producers platform, then import on the public platform
@@ -184,8 +180,11 @@ elsif (($action eq "process") and $allow_submit) {
 	my $local_export_status_job_id = $results_ref->{local_export_status_job_id};
 	my $export_id = $results_ref->{export_id};
 	
-	$html .= "<p>" . lang("export_in_progress") . "</p>";
+	$template_data_ref->{local_export_job_id} = $local_export_job_id;
+	$template_data_ref->{remote_import_job_id} = $remote_import_job_id;
+	$template_data_ref->{local_export_status_job_id} = $local_export_status_job_id;
 	
+	$html .= "<p>" . lang("export_in_progress") . "</p>";
 	$html .= "<p>" . lang("export_job_export") .  " - <span id=\"result1\"></span></p>";
 	$html .= "<p>" . lang("export_job_import") .  " - <span id=\"result2\"></span></p>";
 	$html .= "<p>" . lang("export_job_status_update") .  " - <span id=\"result3\"></span></p>";
@@ -195,7 +194,7 @@ elsif (($action eq "process") and $allow_submit) {
 	$initjs .= $js;
 }
 else {
-
+	
 	my $template_data_ref2 = {};
 
 	# The organization does not have the permission enable_manual_export_to_public_platform checked
