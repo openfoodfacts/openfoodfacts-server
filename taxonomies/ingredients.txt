@@ -15026,7 +15026,7 @@ ro:ulei de rapiță, ulei vegetal de rapiță, ulei de rapita
 ru:Рапсовое масло
 sk:repkový olej
 sq:repičino ulje
-sv:Rapsolja, Rapsfett
+sv:Rapsolja, rybsolja, Rapsfett
 from_palm_oil:en:no
 wikipedia:en:Q1922338
 description:de:Rapsöl oder Rüböl (auch Rübsenöl, Kolzaöl und Kohlsaatöl genannt) ist ein pflanzliches Öl, welches aus den Samen vom Raps (Brassica napus), gewonnen wird.
@@ -76056,6 +76056,14 @@ fr:fibres solubles
 it:fibra solubile
 nl:oplosbare vezels
 
+<en:fiber
+en:flaxseed fiber, flax fiber, flax fibers
+da:hørfrøfiber
+fi:pellavansiemenkuitu
+fr:fibre de lin, fibres de lin, fibres de graines de lin
+no:linfrøfiber
+sv:linfröfiber
+
 # description:en:INULINS are a group of naturally occurring polysaccharides produced by many types of plants, industrially most often extracted from chicory. Chicory root is the main source of extraction for commercial production of inulin. It can be used to replace sugar, fat, and flour.
 
 # fodmap:en:yes
@@ -81685,18 +81693,25 @@ sv:falafel
 wikidata:en:Q188788
 wikipedia:en:https://en.wikipedia.org/wiki/Falafel
 
+# don't put fruit concentrate in fruit
+en:fruit concentrate
+fi:hedelmätiiviste
+fr:concentré de fruit, fruit concentré
+nl:vruchtconcentraten
 
 # Is an AGGREGATE ingredient, i.e.:extrait de fruit (caroube);
 
 # don't put fruit extract in fruit
 en:fruit extract
 bg:плодов екстракт, екстракт от плодове
+da:frugtekstrakt
 de:Fruchtextrakt, Frucht-Extrakt
 es:extracto de frutas, extracto de fruta
 fi:hedelmäuute
 fr:extrait de fruit
 it:Estratto di frutta
-nl:vruchtenextract, vruchtconcentraten
+nl:vruchtenextract
+sv:fruktextrakt
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-fruit
 # 54 products in 4 languages @2018-10-04
 
