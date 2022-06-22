@@ -137,6 +137,10 @@ if ($action eq "display") {
 	process_template('web/pages/export_products/export_products.tt.html', $template_data_ref, \$html) || ($html .= 'template error: ' . $tt->error());
 }
 
+$template_data_ref->{local_export_job_id} = $local_export_job_id;
+$template_data_ref->{remote_import_job_id} = $remote_import_job_id;
+$template_data_ref->{local_export_status_job_id} = $local_export_status_job_id;
+
 elsif (($action eq "process") and $allow_submit) {
 	
 	# First export CSV from the producers platform, then import on the public platform
