@@ -434,11 +434,4 @@ sub org_url($) {
 	return canonicalize_tag_link("orgs", $org_ref->{org_id});
 }
 
-sub org_link($) {
-	
-	my $org_ref = shift;
-	
-	return "<a href=\"" . org_url($org_ref) . "\">" . org_name($org_ref) . "</a>";
-}
-
 1;
