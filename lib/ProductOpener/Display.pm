@@ -4672,6 +4672,22 @@ sub add_params_to_query($$) {
 }
 
 
+=head2 initialize_knowledge_panels_options( $knowledge_panels_options_ref )
+
+Initialize the options for knowledge panels from parameters.
+
+=cut
+
+sub initialize_knowledge_panels_options($) {
+
+	my $knowledge_panels_options_ref = shift;
+
+	# Activate physical activity knowledge panel only when specified
+	if (param("activate_knowledge_panel_physical_activities")) {
+		$knowledge_panels_options_ref->{activate_knowledge_panel_physical_activities} = 1;
+	}
+}
+
 =head2 customize_response_for_product ( $request_ref, $product_ref )
 
 Using the fields parameter, API product or search queries can request
@@ -4819,6 +4835,7 @@ sub customize_response_for_product($$) {
 		}
 		# Knowledge panels in the $lc language
 		elsif ($field eq "knowledge_panels") {
+			initialize_knowledge_panels_options($knowledge_panels_options_ref);
 			create_knowledge_panels($product_ref, $lc, $cc, $knowledge_panels_options_ref);
 			$customized_product_ref->{$field} = $product_ref->{"knowledge_panels_" . $lc};
 		}
@@ -7539,6 +7556,7 @@ CSS
 	# for debugging and demonstration purposes
 	# Also activate them for moderators
 	if (($User{moderator}) or (param('panels'))) {
+		initialize_knowledge_panels_options($knowledge_panels_options_ref);
 		create_knowledge_panels($product_ref, $lc, $cc, $knowledge_panels_options_ref);
 		$template_data_ref->{environment_card_panel} = display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "environment_card");
 		$template_data_ref->{health_card_panel} = display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "health_card");
