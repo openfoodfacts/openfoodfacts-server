@@ -2336,54 +2336,6 @@ sub product_name_brand_quantity($) {
 	return $full_name;
 }
 
-
-=head2 product_url ( $code_or_ref )
-
-Returns a relative URL for a product on the website.
-
-=head3 Parameters
-
-=head4 Product code or reference to product object $code_or_ref
-
-=cut
-
-sub product_url($) {
-
-	my $code_or_ref = shift;
-	my $code;
-	my $ref;
-
-	my $product_lc = $lc;
-
-	if (ref($code_or_ref) eq 'HASH') {
-		$ref = $code_or_ref;
-		$code = $ref->{code};
-		#if (defined $ref->{lc}) {
-		#	$product_lc = $ref->{lc};
-		#}
-	}
-	else {
-		$code = $code_or_ref;
-	}
-
-	my $path = $tag_type_singular{products}{$product_lc};
-	if (not defined $path) {
-		$path = $tag_type_singular{products}{en};
-	}
-
-	my $titleid = '';
-	if (defined $ref) {
-		my $full_name = product_name_brand($ref);
-		$titleid = get_url_id_for_lang($product_lc, $full_name);
-		if ($titleid ne '') {
-			$titleid = '/' . $titleid;
-		}
-	}
-
-	$code = ($code // "");
-	return "/$path/$code" . $titleid;
-}
-
 =head2 product_url ( $code_or_ref )
 
 Returns a relative URL for a product on the website.
