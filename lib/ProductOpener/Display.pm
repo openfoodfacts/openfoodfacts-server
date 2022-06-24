@@ -90,7 +90,8 @@ BEGIN
 
         &get_world_subdomain
 
-		&data_to_display_nutriscore_and_nutrient_levels
+		&data_to_display_nutriscore
+		&data_to_display_nutrient_levels
 		&data_to_display_ingredients_analysis
 		&data_to_display_ingredients_analysis_details
 
@@ -7969,15 +7970,16 @@ HTML
 
 		# Display Nutri-Score and nutrient levels
 
-		my $template_data_nutriscore_and_nutrient_levels_ref = data_to_display_nutriscore_and_nutrient_levels($product_ref);
+		my $template_data_nutriscore_ref = data_to_display_nutriscore($product_ref);
+		my $template_data_nutrient_levels_ref = data_to_display_nutrient_levels($product_ref);
 
 		my $nutriscore_html = '';
 		my $nutrient_levels_html = '';
 
-		if (not $template_data_nutriscore_and_nutrient_levels_ref->{do_not_display}) {
+		if (not $template_data_nutrient_levels_ref->{do_not_display}) {
 
-			process_template('web/pages/product/includes/nutriscore.tt.html', $template_data_nutriscore_and_nutrient_levels_ref, \$nutriscore_html) || return "template error: " . $tt->error();
-			process_template('web/pages/product/includes/nutrient_levels.tt.html', $template_data_nutriscore_and_nutrient_levels_ref, \$nutrient_levels_html) || return "template error: " . $tt->error();
+			process_template('web/pages/product/includes/nutriscore.tt.html', $template_data_nutriscore_ref, \$nutriscore_html) || return "template error: " . $tt->error();
+			process_template('web/pages/product/includes/nutrient_levels.tt.html', $template_data_nutrient_levels_ref, \$nutrient_levels_html) || return "template error: " . $tt->error();
 		}
 
 		$template_data_ref->{display_nutriscore} =  $nutriscore_html;
@@ -8755,9 +8757,9 @@ sub display_nutriscore_calculation_details($) {
 }
 
 
-=head2 data_to_display_nutriscore_and_nutrient_levels ( $product_ref )
+=head2 data_to_display_nutrient_levels ( $product_ref )
 
-Generates a data structure to display the Nutri-Score and the nutrient levels (food trafic lights).
+Generates a data structure to display the nutrient levels (food trafic lights).
 
 The resulting data structure can be passed to a template to generate HTML or the JSON data for a knowledge panel.
 
@@ -8771,13 +8773,83 @@ Reference to a data structure with needed data to display.
 
 =cut
 
-sub data_to_display_nutriscore_and_nutrient_levels($) {
+sub data_to_display_nutrient_levels($) {
 
 	my $product_ref = shift;
 
 	my $result_data_ref = {};
 
-	# Populate the data templates needed to display the Nutri-Score and nutrient levels
+	# Do not display traffic lights for baby foods
+	if (has_tag($product_ref, "categories", "en:baby-foods")) {
+
+		$result_data_ref->{do_not_display} = 1;
+	}
+
+	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, coffee, tea)
+	# unless we have nutrition data for the prepared product
+
+	my $prepared = "";
+
+	foreach my $category_tag ("en:dried-products-to-be-rehydrated", "en:chocolate-powders", "en:dessert-mixes", "en:flavoured-syrups") {
+
+		if (has_tag($product_ref, "categories", $category_tag)) {
+
+			if ((defined $product_ref->{nutriments}{"energy_prepared_100g"})) {
+				$prepared = '_prepared';
+				last;
+			}
+			else {
+				$result_data_ref->{do_not_display} = 1;
+			}
+		}
+	}
+
+	if (not $result_data_ref->{do_not_display}) {
+
+		$result_data_ref->{nutrient_levels} = [];
+
+		foreach my $nutrient_level_ref (@nutrient_levels) {
+			my ($nid, $low, $high) = @{$nutrient_level_ref};
+
+			if ((defined $product_ref->{nutrient_levels}) and (defined $product_ref->{nutrient_levels}{$nid})) {
+
+				push @{$result_data_ref->{nutrient_levels}}, {
+					nid => $nid,
+					nutrient_level => $product_ref->{nutrient_levels}{$nid},
+					nutrient_quantity_in_grams => sprintf("%.2e", $product_ref->{nutriments}{$nid . $prepared . "_100g"}) + 0.0,
+					nutrient_in_quantity => sprintf(lang("nutrient_in_quantity"), display_taxonomy_tag($lc, "nutrients", "zz:$nid") , lang($product_ref->{nutrient_levels}{$nid} . "_quantity")),
+					# Needed for the current display on product page, can be removed once transitioned fully to knowledge panels
+					nutrient_bold_in_quantity => sprintf(lang("nutrient_in_quantity"), "<b>" . display_taxonomy_tag($lc, "nutrients", "zz:$nid") . "</b>", lang($product_ref->{nutrient_levels}{$nid} . "_quantity")),
+				};
+			}
+		}
+	}
+
+	return $result_data_ref;
+}
+
+
+=head2 data_to_display_nutriscore ( $product_ref )
+
+Generates a data structure to display the Nutri-Score.
+
+The resulting data structure can be passed to a template to generate HTML or the JSON data for a knowledge panel.
+
+=head3 Arguments
+
+=head4 Product reference $product_ref
+
+=head3 Return values
+
+Reference to a data structure with needed data to display.
+
+=cut
+
+sub data_to_display_nutriscore($) {
+
+	my $product_ref = shift;
+
+	my $result_data_ref = {};
 
 	# Nutri-Score data
 
@@ -8881,55 +8953,9 @@ sub data_to_display_nutriscore_and_nutrient_levels($) {
 		$result_data_ref->{nutriscore_details} = display_nutriscore_calculation_details($product_ref->{nutriscore_data});
 	}
 
-
-	# Nutrient levels data
-
-	# Do not display traffic lights for baby foods
-	if (has_tag($product_ref, "categories", "en:baby-foods")) {
-
-		$result_data_ref->{do_not_display} = 1;
-	}
-
-	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, coffee, tea)
-	# unless we have nutrition data for the prepared product
-
-	my $prepared = "";
-
-	foreach my $category_tag ("en:dried-products-to-be-rehydrated", "en:chocolate-powders", "en:dessert-mixes", "en:flavoured-syrups") {
-
-		if (has_tag($product_ref, "categories", $category_tag)) {
-
-			if ((defined $product_ref->{nutriments}{"energy_prepared_100g"})) {
-				$prepared = '_prepared';
-				last;
-			}
-			else {
-				$result_data_ref->{do_not_display} = 1;
-			}
-		}
-	}
-
-	if (not $result_data_ref->{do_not_display}) {
-
-		$result_data_ref->{nutrient_levels} = [];
-
-		foreach my $nutrient_level_ref (@nutrient_levels) {
-			my ($nid, $low, $high) = @{$nutrient_level_ref};
-
-			if ((defined $product_ref->{nutrient_levels}) and (defined $product_ref->{nutrient_levels}{$nid})) {
-
-				push @{$result_data_ref->{nutrient_levels}}, {
-					nutrient_level => $product_ref->{nutrient_levels}{$nid},
-					nutriment_prepared => sprintf("%.2e", $product_ref->{nutriments}{$nid . $prepared . "_100g"}) + 0.0,
-					nutriment_quantity => sprintf(lang("nutrient_in_quantity"), "<b>" . display_taxonomy_tag($lc, "nutrients", "zz:$nid") . "</b>", lang($product_ref->{nutrient_levels}{$nid} . "_quantity")),
-				};
-			}
-		}
-	}
-
-
 	return $result_data_ref;
 }
+
 
 
 sub add_product_nutriment_to_stats($$$) {

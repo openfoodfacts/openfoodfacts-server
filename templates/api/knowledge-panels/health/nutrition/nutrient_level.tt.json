@@ -1,0 +1,24 @@
+{
+    "level": "info",
+    "topics": [
+        "health"
+    ],
+    "size": "small",
+    "evaluation": "[% panel.evaluation %]",
+    "title_element": {
+        "title": "[% panel.nutrient_in_quantity %]",
+        "icon_url": "[% static_subdomain %]/images/misc/[% panel.nutrient_level %].svg",
+        "icon_size": "small",
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "summary",
+                "html": `
+ 
+                    `
+            }
+        },
+    ]
+}
