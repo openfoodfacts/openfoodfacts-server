@@ -4804,7 +4804,7 @@ fr:lait écrémé et crème pasteurisés
 # ingredient/fr:lait-écrémé-et-crème-pasteurisés has 64 products in 4 languages @2019-02-03
 
 <en:cream
-en:fresh cream
+en:fresh cream, heavy cream
 ca:nata fresca, crema de llet fresca
 da:frisk fløde
 de:Frische Sahne
@@ -4825,7 +4825,7 @@ sv:Färsk grädde
 # comment:en:In dutch zure room is sometimes wrongly translated to creme fraiche
 
 <en:Cream
-en:sour cream, soured cream, grade a cultured cream
+en:sour cream, soured cream, grade a cultured cream, cultured cream
 ar:كريمة حامضة
 bg:заквасена сметана
 ca:Crema agra, crema àcida
@@ -5032,7 +5032,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Filmj%C3%B6lk
 # description:en:BUTTERMILK was the liquid left behind after churning butter out of cultured cream.
 
 <en:dairy
-en:buttermilk
+en:buttermilk, sweet cream buttermilk
 af:karringmelk
 am:አሬራ
 ar:حليب رائب, حليبب
@@ -6467,7 +6467,9 @@ es:queso blanco fresco
 
 # description:en:QUARK is a type of fresh dairy product made by warming soured milk until the desired amount of curdling is met, and then straining it.
 
-# <en:category:en:Cream cheeses
+<en:Cheeses
+en:cream cheese
+
 <en:cheese
 en:Quark
 ar:كوارك

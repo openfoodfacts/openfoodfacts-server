@@ -32,8 +32,6 @@ my @tests = (
 [ { lc => "fr", ingredients_text => "huiles végétales (huile de tournesol', huile de colza)" }, [ "en:palm-oil-free", "en:vegan", "en:vegetarian"] ],
 [ { lc => "fr", ingredients_text => "huiles végétales" }, [ "en:may-contain-palm-oil", "en:vegan", "en:vegetarian"] ],
 [ { lc => "fr", ingredients_text => "huile de poisson" }, [ "en:palm-oil-free", "en:non-vegan", "en:non-vegetarian"] ],
-[ { lc => "en", ingredients_text => "maida, refined wheat flour" }, [ "en:palm-oil-free", "en:vegan", "en:vegetarian"] ],
-
 
 # labels overrides
 
