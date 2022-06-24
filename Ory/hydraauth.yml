@@ -44,9 +44,7 @@ services:
     ports:
       - "127.0.0.1:3000:3000"
     restart: unless-stopped
-    networks:
-      - intranet
-      
+
   postgresd:
     image: postgres:9.6
     ports:
@@ -55,3 +53,6 @@ services:
       - POSTGRES_USER=hydra
       - POSTGRES_PASSWORD=secret
       - POSTGRES_DB=hydra
+
+volumes:
+  hydra-sqlite:
