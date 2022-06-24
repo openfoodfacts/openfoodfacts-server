@@ -10371,16 +10371,13 @@ sub display_structured_response($)
 			$jsonp = param('callback');
 		}
 
-		if (defined $jsonp) {
-			$jsonp =~ s/[^a-zA-Z0-9_]//g;
-		}
-
 		my $status = $request_ref->{status};
 		if (defined $status) {
 			print header ( -status => $status );
 		}
 
 		if (defined $jsonp) {
+			$jsonp =~ s/[^a-zA-Z0-9_]//g;
 			print header( -type => 'text/javascript', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $jsonp . "(" . $data . ");" ;
 		}
 		else {
