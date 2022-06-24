@@ -2917,12 +2917,6 @@ sub list_taxonomy_tags_in_language($$$) {
 }
 
 
-sub canonicalize_saint($) {
-	my $s = shift;
-	return "Saint-" . ucfirst($s);
-}
-
-
 sub canonicalize_tag2($$)
 {
 	my $tagtype = shift;
