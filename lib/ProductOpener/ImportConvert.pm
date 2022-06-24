@@ -247,18 +247,6 @@ sub apply_global_params($) {
 	return;
 }
 
-sub apply_global_params_to_all_products() {
-
-	$mode = "append";
-
-	foreach my $code (sort keys %products) {
-		apply_global_params($products{$code});
-	}
-
-	return;
-}
-
-
 # some producers send us data for products in different languages sold in different markets
 
 sub assign_main_language_of_product($$$) {
