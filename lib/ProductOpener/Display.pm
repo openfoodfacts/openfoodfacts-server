@@ -6742,23 +6742,6 @@ sub display_on_the_blog($)
 	return;
 }
 
-
-
-sub display_top_block($)
-{
-	my $blocks_ref = shift;
-
-	if (defined $Lang{top_content}{$lang}) {
-		unshift @{$blocks_ref}, {
-			'title'=>lang("top_title"),
-			'content'=>lang("top_content"),
-		};
-	}
-
-	return;
-}
-
-
 sub display_bottom_block($)
 {
 	my $blocks_ref = shift;
@@ -6775,8 +6758,6 @@ sub display_bottom_block($)
 
 	return;
 }
-
-
 
 sub display_page($) {
 
