@@ -10610,10 +10610,17 @@ sub display_change($$) {
 	return "<li><a href=\"$product_url\">" . $change_ref->{code} . "</a>; $date - $user ($comment) [$diffs] - <a href=\"" . $product_url . "?rev=$change_rev\">" . lang("view") . "</a></li>\n";
 }
 
-our %icons_cache = ();
-sub display_icon {
 
-	my ($icon) = @_;
+=head2 display_icon ( $icon )
+
+Displays icons (e.g., the camera icon "Picture with barcode", the graph and maps button, etc)
+
+=cut
+
+our %icons_cache = ();
+sub display_icon($) {
+
+	my $icon = shift;
 
 	my $svg = $icons_cache{$icon};
 
