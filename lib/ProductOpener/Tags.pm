@@ -2923,17 +2923,6 @@ sub canonicalize_saint($) {
 }
 
 
-sub capitalize_tag($)
-{
-	my $tag = shift;
-	$tag = ucfirst($tag);
-	$tag =~ s/(?<= |_|')(\w)(?!')/uc($1)/eg;
-	$tag =~ s/\b(de|du|des|au|aux|des|à|a|en|le|la|les)\b/lcfirst($1)/eig;
-	$tag =~ s/(?<=_)(de|du|des|au|aux|des|à|a|en|le|la|les)(?=_)/lcfirst($1)/eig;
-	return $tag;
-}
-
-
 sub canonicalize_tag2($$)
 {
 	my $tagtype = shift;
