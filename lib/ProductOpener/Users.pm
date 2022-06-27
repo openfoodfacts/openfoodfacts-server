@@ -115,6 +115,12 @@ sub create_password_hash($) {
 	return scrypt_hash($password);
 }
 
+=head2 check_password_hash ($password, $hash)
+
+Turns $password into hash using md5 or scrypt and compares it to $hash
+
+=cut
+
 sub check_password_hash($$) {
 
 	my $password = shift;
