@@ -2974,12 +2974,6 @@ sub normalize_fr_a_de_b($$) {
 	}
 }
 
-sub normalize_fr_a_de_enumeration {
-
-	my $a = shift;
-
-	return join(", ", map { normalize_fr_a_de_b($a, $_)} @_);
-}
 
 # English: oil, olive -> olive oil
 # French: huile, olive -> huile d'olive
