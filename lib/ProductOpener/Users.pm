@@ -63,10 +63,7 @@ BEGIN
 		&check_edit_owner
 
 		&init_user
-		&save_user
 
-		&userpath
-		&create_user
 		&is_admin_user
 		&create_password_hash
 		&check_password_hash
@@ -133,41 +130,7 @@ sub check_password_hash($$) {
 	}
 }
 
-sub userpath($) {
-
-	my $file = shift;
-	$file =~ s/^(...)(.)/$1\/$2/;
-	return $file;
-}
-
-
-sub create_user($) {
-
-	my $user_ref = shift;
-	my $name_id = get_string_id_for_lang("no_language", $user_ref->{name});
-
-	if (length($name_id) > 3) {
-
-		my $i = 1;
-		my $name_id2 = $name_id;
-
-		while (-e "$data_root/users/$name_id2.sto") {
-			$name_id2 = $name_id . "-" . ++$i;
-		}
-
-		$user_ref->{userid} = $name_id2;
-
-		# TODO
-		# Assign a random password
-		# Send welcome e-mail + password - Might not be ideal, as passwords should not be sent over insecure channels such as e-mail.
-
-		$log->info("creating new user file", { userid => $name_id2 }) if $log->is_info();
-		store("$data_root/users/$name_id2.sto", $user_ref);
-	}
-
-	return;
-}
-
+# we use user_init() now and not create_user()
 
 sub delete_user($) {
 	
@@ -202,6 +165,7 @@ sub delete_user($) {
 Simply tells if a user is an admin of the platform
 
 =cut
+
 sub is_admin_user($) {
 	my $user_id = shift;
 
@@ -989,16 +953,6 @@ sub check_session($$) {
 	$results_ref->{user_id} = $user_id;
 
 	return $results_ref;
-}
-
-
-sub save_user() {
-
-	if (defined $User_id) {
-		store("$data_root/users/$User_id.sto", \%User);
-	}
-
-	return;
 }
 
 1;
