@@ -2599,15 +2599,6 @@ sub get_taxonomy_tag_and_link_for_lang($$$) {
 
 
 
-sub display_tags_list_orig($$) {
-
-	my $tagtype = shift;
-	my $tags_list = shift;
-	my $html = join(', ', map { display_tag_link($tagtype, $_) } split(/,/, $tags_list));
-	return $html;
-}
-
-
 sub display_tags_list($$) {
 
 	my $tagtype = shift;
