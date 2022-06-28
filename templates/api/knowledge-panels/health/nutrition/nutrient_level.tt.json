@@ -6,10 +6,11 @@
     "size": "small",
     "evaluation": "[% panel.evaluation %]",
     "title_element": {
-        "title": "[% panel.nutrient_in_quantity %]",
+        "title": "[% panel.nutrient_in_quantity %] ([% panel.nutrient_quantity_in_grams %]%)",
         "icon_url": "[% static_subdomain %]/images/misc/[% panel.nutrient_level %].svg",
         "icon_size": "small",
     },
+    "type":" inline",
     "elements": [
         {
             "element_type": "text",
