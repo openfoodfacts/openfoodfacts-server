@@ -106,6 +106,12 @@ sub generate_token {
 	return join '',map {$chars[irand @chars]} 1..$name_length;
 }
 
+=head2 create_password_hash ($password)
+
+Takes $password and hashes it using scrypt
+
+=cut
+
 sub create_password_hash($) {
 
 	my $password = shift;
