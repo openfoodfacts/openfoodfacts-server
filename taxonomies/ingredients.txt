@@ -22996,7 +22996,7 @@ sv:havrebas
 # mainIngredient:en:water
 # ingredient/fr:jus-d'avoine has 5 products in 2 languages @2020-06-08
 
-<en:vegetable protein
+<en:plant protein
 en:oat protein
 de:haferprotein
 fi:kauraproteiini
@@ -23997,6 +23997,9 @@ fr:Farine de froment T55, Farine de froment T55 pour pains
 <en:wheat flour
 fr:farine de blé type 65, farine de blé t65
 nl:tarwemeel T65
+
+<en:wheat flour
+en:refined wheat flour, maida
 
 <fr:farine de blé type 65
 en:Wheat flour type 65, Wheat flour T65
@@ -28642,7 +28645,7 @@ nl:gehydroliseerd eiwit, gehydrolyseerd eiwit, eiwithydrolysaat
 sv:proteinhydrolysat
 
 <en:protein
-en:vegetable protein
+en:plant protein
 bg:растителен протеин
 de:pflanzliches Eiweiß
 es:proteína vegetal
@@ -28660,16 +28663,16 @@ sv:grönsaksprotein
 vegan:en:yes
 vegetarian:en:yes
 
-<en:vegetable protein
+<en:plant protein
 de:Eiweißpulver aus Sonnenblumenkernen
 
-<en:vegetable protein
+<en:plant protein
 fr:protéines végétales réhydratées
 hu:rehidratált növényi fehérjék
 nl:gehydrolyseerde plantaardige eiwitten, plantaardig eiwithydrolysaat
 # ingredient/fr:protéines-végétales-réhydratées has 32 products in french @2019-03-11
 
-<en:vegetable protein
+<en:plant protein
 en:pea protein
 bg:грахов протеин
 ca:Proteïna de pèsol
@@ -28708,7 +28711,7 @@ fi:vedellä turvotettu herneproteiini
 sv:rehydrerat ärtprotein
 # ingredient/fi:vedellä-turvotettu-herneproteiini has 1 product in 1 language @2020-05-25
 
-<en:vegetable protein
+<en:plant protein
 en:broad bean protein
 de:Bohnenprotein
 fi:härkäpapuproteiini
@@ -28717,11 +28720,11 @@ sv:protein från bondböna
 ro:proteină de bob
 # ingredient/en:broad-bean-protein has 6 products in 1 language @2020-05-25
 
-<en:vegetable protein
+<en:plant protein
 en:sunflower protein
 ro:proteină de floarea-soarelui
 
-<en:vegetable protein
+<en:plant protein
 en:potato protein
 bg:картофен протеин
 de:kartoffelprotein
@@ -28733,7 +28736,7 @@ ro:proteină de cartofi
 
 # description:en:HYDROLYZED VEGETABLE PROTEIN -  products are foodstuffs obtained by protein hydrolysis
 
-<en:vegetable protein
+<en:plant protein
 en:hydrolysed vegetable protein, HVP, vegetable hydrolysed proteins
 da:hydrolyseret vegetabllsk protein. hydrolysert vegetabilsk protein
 de:hydrolysiertes Pflanzenprotein, aufgeschlossenes Pflanzeneiweiß
@@ -28851,13 +28854,14 @@ nl:gehydroliseerd soja-eiwit, gehydrolyseerd soja-eiwit
 <en:soy protein
 fr:protéines de soja i.p
 
-<en:vegetable protein
+<en:plant protein
 en:cereal protein
 nl:graneneiwit
 
-<en:vegetable protein
+<en:plant protein
 en:wheat protein
 bg:пшеничен протеин
+cs:pšeničná bílkovina, pšeničná bilkovina
 de:Weizenprotein, Weizeneiweiß, Weizeneiweiss
 es:Proteina de trigo
 fi:vehnäproteiini
@@ -29230,7 +29234,7 @@ it:Caseinato di calcio
 wikidata:en:Q522243
 wikipedia:en:https://en.wikipedia.org/wiki/Calcium_caseinate
 
-<en:vegetable protein
+<en:plant protein
 en:rapeseed protein
 bg:рапичен протеин
 de:Rapseiweiß
@@ -33325,7 +33329,7 @@ es:concentrados de fruta, concentrados de frutas
 fi:hedelmätiivisteet
 fr:concentré de fruit, concentré de fruits, concentrés de fruits
 it:concentrati di frutta
-nl:fruitconcentraat
+nl:fruitconcentraat, vruchtconcentraten
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:concentrés-de-fruits
 # 42 products in 3 languages @2018-10-04
 
@@ -51439,7 +51443,7 @@ fr:féverole, féverolle
 en:Vicia faba
 la:Vicia faba
 
-<en:vegetable protein
+<en:plant protein
 en:broad bean protein
 nl:tuinbooneiwit
 
@@ -81714,11 +81718,6 @@ sv:falafel
 wikidata:en:Q188788
 wikipedia:en:https://en.wikipedia.org/wiki/Falafel
 
-# don't put fruit concentrate in fruit
-en:fruit concentrate
-fi:hedelmätiiviste
-fr:concentré de fruit, fruit concentré
-nl:vruchtconcentraten
 
 # Is an AGGREGATE ingredient, i.e.:extrait de fruit (caroube);
 
