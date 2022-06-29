@@ -10,7 +10,7 @@ synonyms:en:pasteurised, pasteurized
 
 # comment:en:These are words that occur inside the name of one ingredient, but that can be removed for matching the ingredient with entries in the taxonomy
 
-stopwords:bg:съдържа, от, с, със, и, или, и/или, минимум, произведено с, с добавенo, включително
+stopwords:bg:съдържа, от, с, със, до, и, или, и/или, минимум, произведено с, с добавенo, включително
 stopwords:ca:i,de
 stopwords:da:av, af, blandt andet, bl a, inklusive, heraf, indeholder, tilsat
 stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens, in veränderlichen gewichtsanteilen
@@ -6326,7 +6326,7 @@ description:pt:O queijo Edam é um queijo semi-duro típico da cidade de Edam, n
 <en:cheese
 en:emmental, emmental cheese, emmentaler cheese, Emmental cheese from cow's milk
 ar:إمنتال
-bg:Ементал
+bg:Ементал, сирене Ементал
 bs:Ementaler
 ca:emmental, formatge emmental
 cs:Ementál, sýr ementál
@@ -46580,7 +46580,7 @@ de:Lauchpulver
 <en:root vegetable
 en:onion, onions
 ar:بصل
-bg:лук
+bg:лук, кромид лук
 bn:পিঁয়াজ
 ca:ceba
 cs:cibule
@@ -49751,6 +49751,7 @@ ciqual_food_name:fr:Tomate, concentré, appertisé
 
 <en:tomato concentrate
 en:double concentrated tomato
+bg:двойно концентрирано доматено пюре
 da:dobbelt tomatkoncentrat, dobbelt koncentreret tomatpuré
 de:Tomatenkonzentrat zweifach konzentriert, Tomatenmark doppelt konzentriert
 es:tomate doble concentrado, concentrado doble de tomate
@@ -55120,6 +55121,7 @@ ru:пряности натуральные
 #
 ###################################################################################################
 en:herb, mixed herbs
+bg:билка, билки
 ca:Herbes, herbes aromàtiques
 cs:Bylina, byliny
 da:urt, krydderurter
@@ -55141,6 +55143,7 @@ vegetarian:en:yes
 
 <en:herb
 en:herb extract
+bg:екстракт от билки
 da:krydderiekstrakt, krydderiekstrakter
 de:Kräuterextrakt, Kräuterextrakte
 es:Extracto de hierbas
@@ -61587,7 +61590,7 @@ ar:دوار الشمس
 az:günəbaxan
 ba:көнбағыш
 be:Сланечнік
-bg:слънчоглед
+bg:слънчоглед, слънчогледова
 ca:Gira-sol
 cs:slunečnice
 cv:Хĕвелçаврăнăш ретĕнчисем
