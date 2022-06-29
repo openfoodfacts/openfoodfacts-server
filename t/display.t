@@ -95,6 +95,15 @@ is ( $request_ref->{structured_response}[3]{id}, 'mandatory');
 is ( $request_ref->{structured_response}[3]{factor}, 4);
 is ( $request_ref->{structured_response}[3]{minimum_match}, 20);
 
+print '-------------------';
+
+my $query_ref = {};
+my $sort_by = 'unique_scans_n';
+is (search_and_display_products($request_ref, $query_ref, $sort_by, $limit, $page), '1YYXzpVsJ7wviv4C');
+#is (search_and_display_products($request_ref->{page}), '1YYXzpVsJ7wviv4C');
+
+print '-------------------';
+
 my $nutriscore_data_ref = {
           'negative_points' => 8,
           'proteins_points' => 2,
@@ -135,8 +144,6 @@ like ( display_nutriscore_calculation_details($nutriscore_data_ref), qr/Proteins
 like ( display_nutriscore_calculation_details($nutriscore_data_ref), qr/Positive points: 2/);
 like ( display_nutriscore_calculation_details($nutriscore_data_ref), qr/Negative points: 8/);
 like ( display_nutriscore_calculation_details($nutriscore_data_ref), qr/<strong>Nutri-Score: C<\/strong>/);
-
-
 
 $lc = 'en';
 my $product_ref = {

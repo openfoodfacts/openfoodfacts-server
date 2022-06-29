@@ -4869,7 +4869,7 @@ sub search_and_display_products($$$$$) {
 
 	add_params_to_query($request_ref, $query_ref);
 
-	$log->debug("obama") if $log->is_debug();
+	$log->debug("obama", {request_ref => $request_ref, query_ref => $query_ref, sort_by => $sort_by, limit => $limit, page=> $page}) if $log->is_debug();
 
 	$log->debug("search_and_display_products", { request_ref => $request_ref, query_ref => $query_ref, sort_by => $sort_by }) if $log->is_debug();
 
@@ -5074,6 +5074,7 @@ sub search_and_display_products($$$$$) {
 		my $cursor;
 		eval {
 			if (($options{mongodb_supports_sample}) and (defined $request_ref->{sample_size})) {
+				$log->debug("obama17a", {query_ref => $query_ref}) if $log->is_debug();
 				$log->debug("Counting MongoDB documents for query", { query => $query_ref }) if $log->is_debug();
 				$count = execute_query(sub {
 					return get_products_tags_collection()->count_documents($query_ref);
@@ -5090,6 +5091,7 @@ sub search_and_display_products($$$$$) {
 				});
 			}
 			else {
+				$log->debug("obama17b", {query_ref => $query_ref}) if $log->is_debug();
 				$log->debug("Counting MongoDB documents for query", { query => $query_ref }) if $log->is_debug();
 				# test if query_ref is empty
 				if (param('no_count')) {
