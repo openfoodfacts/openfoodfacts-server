@@ -62,8 +62,6 @@ if(defined param('flow')){
 				"Name" => param('Name')
 			}
 		}
-		
-		my $json = encode_json \%hash;
 
 		my $ua = LWP::UserAgent->new;
 		my $req = POST 'http://127.0.0.1:4433//self-service/registration';    
