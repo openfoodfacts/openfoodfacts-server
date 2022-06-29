@@ -47,7 +47,7 @@ selfservice:
 
     registration:
       lifespan: 10m
-      ui_url: http://127.0.0.1:4455/registration
+      ui_url: http://world.openfoodfacts.localhost/cgi/user.pl
       after:
         password:
           hooks:

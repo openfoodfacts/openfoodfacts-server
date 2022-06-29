@@ -40,12 +40,8 @@
         "name": {
           "type": "object",
           "properties": {
-            "first": {
-              "title": "First Name",
-              "type": "string"
-            },
-            "last": {
-              "title": "Last Name",
+            "name": {
+              "title": "Name",
               "type": "string"
             }
           }

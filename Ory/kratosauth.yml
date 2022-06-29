@@ -16,7 +16,7 @@ services:
       - DSN=postgres://kratos:secret@postgres-kratos:5432/kratos?sslmode=disable&max_conns=20&max_idle_conns=4
     volumes:
       - type: bind
-        source: ./kratos
+        source: ./Ory/kratos
         target: /etc/config/kratos
     command: -c /etc/config/kratos/kratos.yml migrate sql -e --yes
 
@@ -31,7 +31,7 @@ services:
       - '127.0.0.1:4434:4434'
     volumes:
       - type: bind
-        source: ./kratos
+        source: ./Ory/kratos
         target: /etc/config/kratos
     command: serve -c /etc/config/kratos/kratos.yml --dev --watch-courier
 
