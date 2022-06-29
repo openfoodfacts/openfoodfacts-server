@@ -30,7 +30,6 @@ BEGIN
 	@EXPORT_OK = qw(
 		&normalize
 		&decode_html
-		&decode_html_utf8
 		&decode_html_entities
 
 		&normalize
@@ -191,14 +190,6 @@ sub decode_html($)
 	return $utf8;
 }
 
-sub decode_html_utf8($)
-{
-	my $utf8 = shift;
-
-	$utf8 = decode_entities($utf8);
-
-	return $utf8;
-}
 
 sub decode_html_entities($)
 {
