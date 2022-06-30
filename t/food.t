@@ -77,6 +77,29 @@ is( g_to_unit(42000, "\N{U+516C}\N{U+5347}"), 42 );
 is( unit_to_g(1, "г"), 1 );
 is( unit_to_g(1, "мг"), 0.001 );
 
+# unit conversion tests
+# TODO
+# if (!defined(unit_to_g(1, "unknown")))
+# {
+# 	return 1;
+# }
+is( unit_to_g(1, "kj"), 1 );
+is( unit_to_g(1, "kcal"), 4 );
+is( unit_to_g(1000, "kcal"), 4184 );
+is( unit_to_g(1.2345, "kg"), 1234.5 );
+is( unit_to_g(1, "kJ"), 1 );
+is( unit_to_g(10, ""), 10 );
+is( unit_to_g(10, " "), 10 );
+is( unit_to_g(10, "% vol"), 10 );
+is( unit_to_g(10, "%"), 10 );
+is( unit_to_g(10, "% vol"), 10 );
+is( unit_to_g(10, "% DV"), 10 );
+is( unit_to_g(11, "mL"), 11 );
+is( g_to_unit(42000, "kg"), 42 );
+is( g_to_unit(28.349523125, "oz"), 1 );
+is( g_to_unit(30, "fl oz"), 1 );
+is( g_to_unit(1, "mcg"), 1000000 );
+
 is ( normalize_quantity("1 г"), 1);
 is ( normalize_quantity("1 мг"), 0.001);
 is ( normalize_quantity("1 кг"), 1000);
@@ -85,6 +108,7 @@ is ( normalize_quantity("1 дл"), 100);
 is ( normalize_quantity("1 кл"), 10);
 is ( normalize_quantity("1 мл"), 1);
 
+is ( normalize_quantity("250G"), 250);
 is ( normalize_quantity("4 x 25g"), 100);
 is ( normalize_quantity("4 x25g"), 100);
 is ( normalize_quantity("4 * 25g"), 100);
@@ -577,6 +601,33 @@ is_deeply($product_ref,
    },
    'nutrition_data_per' => '100g',
    'nutrition_data_prepared_per' => '100g'
+ }
+) or diag explain $product_ref;
+
+# Test IU and %DV values
+$product_ref = { 'nutrition_data_per' => '100g' };
+assign_nid_modifier_value_and_unit($product_ref, "vitamin-a", undef, 40, "IU");
+assign_nid_modifier_value_and_unit($product_ref, "vitamin-e", undef, 40, "IU");
+assign_nid_modifier_value_and_unit($product_ref, "calcium", undef, 20, "% DV");
+assign_nid_modifier_value_and_unit($product_ref, "vitamin-d", undef, 20, "% DV");
+
+is_deeply($product_ref,
+ {
+	nutriments => {
+		'calcium' => '0.2',
+		'calcium_unit' => '% DV',
+		'calcium_value' => 20,
+		'vitamin-a' => '1.2e-05',
+		'vitamin-a_unit' => 'IU',
+		'vitamin-a_value' => 40,
+		'vitamin-d' => '8e-06',
+		'vitamin-d_unit' => '% DV',
+		'vitamin-d_value' => 20,
+		'vitamin-e' => '0.0266666666666667',
+		'vitamin-e_unit' => 'IU',
+		'vitamin-e_value' => 40
+	 },
+   'nutrition_data_per' => '100g',
  }
 ) or diag explain $product_ref;
 

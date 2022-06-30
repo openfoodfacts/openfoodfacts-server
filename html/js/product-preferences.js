@@ -5,6 +5,7 @@
 var attribute_groups; // All supported attribute groups and attributes + translated strings
 var preferences; // All supported preferences + translated strings
 var use_user_product_preferences_for_ranking = JSON.parse(localStorage.getItem('use_user_product_preferences_for_ranking'));
+var default_preferences = { "nutriscore" : "very_important", "nova" : "important", "ecoscore" : "important" };
 
 function get_user_product_preferences() {
     // Retrieve user preferences from local storage
@@ -12,14 +13,15 @@ function get_user_product_preferences() {
     var user_product_preferences = {};
     var user_product_preferences_string = localStorage.getItem('user_product_preferences');
 
-    if (user_product_preferences_string) {
-        user_product_preferences = JSON.parse(user_product_preferences_string);
-    } else {
-        // Default preferences
-        user_product_preferences = { "nutriscore": "very_important", "nova": "important", "ecoscore": "important" };
-    }
-
-    return user_product_preferences;
+	if (user_product_preferences_string) {
+		user_product_preferences = JSON.parse(user_product_preferences_string);
+	}
+	else {
+		// Default preferences
+		user_product_preferences = default_preferences;
+	}
+	
+	return user_product_preferences;
 }
 
 // display a summary of the selected preferences
@@ -83,55 +85,67 @@ function display_selected_preferences(target_selected_summary, product_preferenc
 }
 
 
+function generate_preferences_switch_button(preferences_text, checkbox_id) {
+
+	var checked = '';
+	if (use_user_product_preferences_for_ranking) {
+		checked = " checked";
+	}	
+
+	var html = '<div class="flex-grid v-align-center align-center direction-row">' +
+    '<fieldset class="switch round success unmarged" tabindex="0" id="' + checkbox_id +'_switch" style="float:left;margin-right:.5rem;padding-top:0.1rem;">' +
+    '<input id="' + checkbox_id + '" type="checkbox"' + checked + '>' +
+    '<label for="' + checkbox_id +'"></label></fieldset>' +
+    '<label for="' + checkbox_id +'" class="v-space-tiny h-space-tiny" style="float:left">' + preferences_text + '</label></div>';    
+
+	return html;
+}
+
+function activate_preferences_switch_buttons(change) {
+
+	$(".preferences_checkboxes").change(function() {
+			
+		localStorage.setItem('use_user_product_preferences_for_ranking', this.checked);
+		use_user_product_preferences_for_ranking = this.checked;
+
+		// Update the other checkbox value
+		$(".preferences_checkboxes").prop('checked',use_user_product_preferences_for_ranking);
+			
+		// Call the change callback if we have one (e.g. to update search results)
+		if (change) {
+			change();
+		}	
+	});
+
+}
+
 // display a switch to use preferences (on list of products pages) and a button to edit preferences
 
 function display_use_preferences_switch_and_edit_preferences_button(target_selected, target_selection_form, change) {
-
-    var html = '';
-
-    var html_edit_preferences = '<a id="show_selection_form" class="button tiny  radius"  role="button" tabindex="0">' +
+	
+	var html = '';
+	
+	var html_edit_preferences = '<a id="show_selection_form" class="button tiny  radius"  role="button" tabindex="0">' +
         '<span class="material-symbols-outlined">&#xE556;</span><span class="h-space-tiny">' +
         " " + lang().preferences_edit_your_food_preferences + '</span></a>';
-
-    // Display a switch for classifying according to the user preferences if
-    // we are on a page with multiple products
-
-    if (page_type == 'products') {
-
-        var checked = '';
-        if (use_user_product_preferences_for_ranking) {
-            checked = " checked";
-        }
-
-        html += '<div class="flex-grid  v-align-center align-center direction-row"><fieldset class="switch round success unmarged" tabindex="0" id="preferences_switch" style="float:left;margin-right:.5rem;padding-top:0.1rem;">' +
-            '<input id="preferences_checkbox" type="checkbox"' + checked + '>' +
-            '<label for="preferences_checkbox"></label></fieldset>' +
-            '<label for="preferences_checkbox" class="v-space-tiny h-space-tiny" style="float:left">' + preferences_text + '</label></div>' + '<div>' + html_edit_preferences + '</div>';
-    } else {
-
-        html += preferences_text + html_edit_preferences;
-    }
-
-    $(target_selected).html(html);
-
-    if (page_type == 'products') {
-        $("#preferences_checkbox").change(function() {
-
-            localStorage.setItem('use_user_product_preferences_for_ranking', this.checked);
-            use_user_product_preferences_for_ranking = this.checked;
-
-            // Call the change callback if we have one (e.g. to update search results)
-            if (change) {
-                change();
-            }
-        });
-    }
-
-    $("#show_selection_form").on("click", function() {
-        $(target_selected).hide();
-        $(target_selection_form).show();
-        $(document).foundation('equalizer', 'reflow');
-    });
+	
+	// Display a switch for classifying according to the user preferences if
+	// we are on a page with multiple products
+	
+	if (page_type == 'products') {
+			
+		html += generate_preferences_switch_button(preferences_text, "preferences_switch_in_list_of_products") + html_edit_preferences;
+	}
+	else {
+		
+		html += preferences_text + html_edit_preferences;
+	}
+			
+	$( target_selected ).html(html);
+	
+	if (page_type == 'products') {
+		activate_preferences_switch_buttons(change);
+	}
 
     $("#show_selection_form").on('keydown', (event) => {
         if (event.key === 'Space' || event.key === 'Enter') {
@@ -158,7 +172,6 @@ function display_user_product_preferences(target_selected, target_selection_form
         $.getJSON("/api/v0/attribute_groups", function(data) {
 
             attribute_groups = data;
-
             display_user_product_preferences(target_selected, target_selection_form, change);
         });
     }
@@ -168,7 +181,6 @@ function display_user_product_preferences(target_selected, target_selection_form
         $.getJSON("/api/v0/preferences", function(data) {
 
             preferences = data;
-
             display_user_product_preferences(target_selected, target_selection_form, change);
         });
     }
@@ -234,25 +246,29 @@ function display_user_product_preferences(target_selected, target_selection_form
             attribute_groups_html.push(attribute_group_html);
         });
 
-        $(target_selection_form).html(
-            '<div class="panel radius callout">' +
-            '<div class="edit_button">' +
-            '<a class="show_selected button small success round" role="button" tabindex="0">' +
-            '<img src="/images/icons/dist/cancel.svg" class="icon" alt="" style="filter:invert(1)">' +
-            " " + lang().close + '</a></div>' +
-            "<h2>" + lang().preferences_edit_your_food_preferences + "</h2>" +
-            "<p>" + lang().preferences_locally_saved + "</p>" +
-            '<a id="delete_all_preferences_button" class="button small round success" role="button" tabindex="0">' + lang().delete_all_preferences + '</a>' +
-            '<ul id="user_product_preferences" class="accordion text-left" data-accordion>' +
-            attribute_groups_html.join("") +
-            '</ul>' +
-            '<br><br>' +
-            '<div class="edit_button">' +
-            '<a class="show_selected button small round success" role="button" tabindex="0">' +
-            '<img src="/images/icons/dist/cancel.svg" class="icon" alt="" style="filter:invert(1)">' +
-            " " + lang().close + '</a></div><br><br>' +
-            '</div>'
-        );
+		$(target_selection_form).html(
+			'<div class="panel callout">'
+			+ '<div class="edit_button">'
+			+ '<a class="show_selected button small success round" role="button" tabindex="0">'
+			+ '<img src="/images/icons/dist/cancel.svg" class="icon" alt="" style="filter:invert(1)">'
+			+ " " + lang().close + '</a></div>'
+			+ "<h2>" + lang().preferences_edit_your_food_preferences + "</h2>"
+			+ "<p>" + lang().preferences_locally_saved + "</p>"
+			+ generate_preferences_switch_button(lang().classify_products_according_to_your_preferences, "preferences_switch_in_preferences") + "<hr class='clear:left;'>"
+			+ '<a id="reset_preferences_button" class="button small round success" role="button" tabindex="0">' + lang().reset_preferences + '</a>'
+			+ ' ' + lang().reset_preferences_details
+			+ '<ul id="user_product_preferences" class="accordion" data-accordion>'
+			+ attribute_groups_html.join( "" )
+			+ '</ul>'
+			+ '<br><br>'
+			+ '<div class="edit_button">'
+			+ '<a class="show_selected button small round success" role="button" tabindex="0">'
+			+ '<img src="/images/icons/dist/cancel.svg" class="icon" alt="" style="filter:invert(1)">'
+			+ " " + lang().close + '</a></div><br><br>'
+			+ '</div>'
+		);
+
+		activate_preferences_switch_buttons(change);        
 
         $(".attribute_radio").change(function() {
             if (this.checked) {
@@ -273,26 +289,25 @@ function display_user_product_preferences(target_selected, target_selection_form
             display_use_preferences_switch_and_edit_preferences_button(target_selected, target_selection_form, change);
         }
 
-        $("#delete_all_preferences_button").on("click", function() {
-            user_product_preferences = {};
-            localStorage.setItem('user_product_preferences', JSON.stringify(user_product_preferences));
+		$( "#reset_preferences_button").on("click", function() {
+			user_product_preferences = default_preferences;
+			localStorage.setItem('user_product_preferences', JSON.stringify(user_product_preferences));
+			
+			// Redisplay user preferences
+			displayed_user_product_preferences = false;
+			display_user_product_preferences(target_selected, target_selection_form, change);
+			
+			// Call the change callback if we have one (e.g. to update search results)
+			if (change) {
+				change();
+			}
+		});
 
-            // Redisplay user preferences
-            displayed_user_product_preferences = false;
-            display_user_product_preferences(target_selected, target_selection_form, change);
-
-            // Call the change callback if we have one (e.g. to update search results)
-            if (change) {
-                change();
-            }
-        });
-
-        $("#delete_all_preferences_button").on('keydown', (event) => {
-            if (event.key === 'Space' || event.key === 'Enter') {
-                $("#delete_all_preferences_button").trigger("click");
-            }
-        });
-
+		$("#reset_preferences_button").on('keydown', (event) => {
+			if (event.key === 'Space' || event.key === 'Enter') {
+				$("#reset_preferences_button").trigger("click");
+			}
+		});
 
         $(".show_selected").on("click", function() {
             $(target_selection_form).hide();

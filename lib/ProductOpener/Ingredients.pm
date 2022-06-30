@@ -2736,6 +2736,11 @@ sub analyze_ingredients($) {
 	delete $product_ref->{ingredients_analysis_tags};
 
 	my @properties = ("from_palm_oil", "vegan", "vegetarian");
+	my %properties_unknown_tags = (
+		"from_palm_oil" => "en:palm-oil-content-unknown",
+		"vegan" => "en:vegan-status-unknown",
+		"vegetarian" => "en:vegetarian-status-unknown",
+	);
 
 	# Structure to store the result of the ingredient analysis for each property
 	my $ingredients_analysis_properties_ref = {};
@@ -2847,10 +2852,10 @@ sub analyze_ingredients($) {
 						$property_value = "en:" . $from_what_with_dashes . "-free"; # en:palm-oil-free
 					}
 					else {
-						$property_value = "en:" . $from_what_with_dashes . "-content-unknown"; # en:palm-oil-content-unknown
+						$property_value = $properties_unknown_tags{$property}; # en:palm-oil-content-unknown
 					}
 					# In all cases, keep track of the unknown ingredients
-					$ingredients_analysis_ref->{"en:" . $from_what_with_dashes . "-content-unknown"} = $values{unknown_ingredients};
+					$ingredients_analysis_ref->{$properties_unknown_tags{$property}} = $values{unknown_ingredients};
 				}
 				else {
 					# no yes, maybe or unknown ingredients
@@ -2869,10 +2874,10 @@ sub analyze_ingredients($) {
 					$property_value = "en:non-" . $property ; # en:non-vegetarian
 					$ingredients_analysis_ref->{$property_value} = $values{no};
 				}
-				elsif (defined $values{undef}) {
+				elsif (defined $values{"undef"}) {
 					# Some ingredients were not recognized or we do not have a property value for them
-					$property_value = "en:" . $property . "-status-unknown"; # en:vegetarian-status-unknown
-					$ingredients_analysis_ref->{$property_value} = $values{undef};
+					$property_value = $properties_unknown_tags{$property}; # en:vegetarian-status-unknown
+					$ingredients_analysis_ref->{$property_value} = $values{"undef"};
 				}
 				elsif (defined $values{maybe}) {
 					# One maybe ingredient -> maybe for the whole product
@@ -2882,6 +2887,12 @@ sub analyze_ingredients($) {
 				else {
 					# all ingredients known and with a value, no no or maybe value -> yes
 					$property_value = "en:" . $property ; # en:vegetarian
+				}
+
+				# In all cases, keep track of unknown ingredients so that we can display unknown ingredients
+				# even if some ingredients also triggered non-vegan or non-vegetarian
+				if (defined $values{"undef"}) {
+					$ingredients_analysis_ref->{$properties_unknown_tags{$property}} = $values{"undef"};
 				}
 			}
 
@@ -2928,9 +2939,10 @@ sub analyze_ingredients($) {
 				if (defined $ingredients_analysis_ref->{$property_value}) {
 					$product_ref->{ingredients_analysis}{$property_value} = $ingredients_analysis_ref->{$property_value};
 				}
-				# for palm-oil-free products, we can have a	fraction of ingredients that have palm-oil-content-unknown
-				elsif (($property_value =~ /-free$/) and (defined $ingredients_analysis_ref->{$` . '-content-unknown'})) {
-					$product_ref->{ingredients_analysis}{$` . '-content-unknown'} = $ingredients_analysis_ref->{$` . '-content-unknown'};
+
+				# Also store the list of ingredients that are not recognized
+				if (defined $ingredients_analysis_ref->{$properties_unknown_tags{$property}}) {
+					$product_ref->{ingredients_analysis}{$properties_unknown_tags{$property}} = $ingredients_analysis_ref->{$properties_unknown_tags{$property}};
 				}
 			}
 		}
@@ -2962,12 +2974,6 @@ sub normalize_fr_a_de_b($$) {
 	}
 }
 
-sub normalize_fr_a_de_enumeration {
-
-	my $a = shift;
-
-	return join(", ", map { normalize_fr_a_de_b($a, $_)} @_);
-}
 
 # English: oil, olive -> olive oil
 # French: huile, olive -> huile d'olive

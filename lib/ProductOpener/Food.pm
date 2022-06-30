@@ -25,7 +25,7 @@ ProductOpener::Food - functions related to food products and nutrition
 =head1 DESCRIPTION
 
 C<ProductOpener::Food> contains functions specific to food products, in particular
-related to nutrition facts. It does not contain functions related to ingredients which
+related to nutrition facts. This module provides functions It does not contain functions related to ingredients which
 are in the C<ProductOpener::Ingredients> module.
 
 ..
@@ -287,14 +287,14 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 
 		$product_ref->{nutriments}{$nid . "_unit"} = $unit;
 		$product_ref->{nutriments}{$nid . "_value"} = $value;
-		
+		# Convert values passed in international units IU or % of daily value % DV to the default unit for the nutrient
 		if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and (defined get_property("nutrients", "zz:$nid", "iu_value:en"))) {
 			$value = $value * get_property("nutrients", "zz:$nid", "iu_value:en") ;
-			$unit = get_property("nutrients", "zz:$nid", "iu_value:en");
+			$unit = get_property("nutrients", "zz:$nid", "unit:en");
 		}
 		elsif  ((uc($unit) eq '% DV') and (defined get_property("nutrients", "zz:$nid", "dv_value:en"))) {
 			$value = $value / 100 * get_property("nutrients", "zz:$nid", "dv_value:en");
-			$unit = get_property("nutrients", "zz:$nid", "dv_value:en");
+			$unit = get_property("nutrients", "zz:$nid", "unit:en");
 		}
 		if ($nid =~ /^water-hardness(_prepared)?$/) {
 			$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit) + 0;
@@ -321,7 +321,7 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 			delete $product_ref->{nutriments}{$nid . "_modifier"};
 		}
 	}
-	
+
 	return;
 }
 
@@ -351,7 +351,7 @@ sub kcal_to_unit($$) {
 	$unit = lc($unit);
 
 	(not defined $value) and return $value;
-	
+
 	($unit eq 'kj') and return int($value * 4.184 + 0.5);
 
 	# return value without modification if it's already in kcal
@@ -366,6 +366,40 @@ unit_to_g(520,mg) => returns 0.52
 
 =cut
 
+# This is a key:value pairs
+# The keys are the unit names and the values are the multipliers we can use to convert to a standard unit.
+# We can divide by these values to do the reverse ie, Convert from standard to non standard
+my %unit_conversion_map = (
+	# kg = 公斤 - gōngjīn = кг
+	"\N{U+516C}\N{U+65A4}" => 1000,
+	# l = 公升 - gōngshēng = л = liter
+	"\N{U+516C}\N{U+5347}" => 1000,
+	'kg' => 1000, 'кг' => 1000,
+	'l' => 1000, 'л' => 1000,
+	# mg = 毫克 - háokè = мг
+	"\N{U+6BEB}\N{U+514B}" => 0.001, 'mg' => 0.001, 'мг' => 0.001,
+	'mcg' => 0.000001, 'µg' => 0.000001,
+	'oz' => 28.349523125, 'fl oz' => 30,
+	'dl' => 100, 'дл' => 100,
+	'cl' => 10, 'кл' => 10,
+	# 斤 - jīn = 500 Grams
+	"\N{U+65A4}" => 500,
+	# Standard units: No conversion units
+	# Value without modification if it's already grams or 克 (kè) or 公克 (gōngkè) or г
+	'g' => 1, '' => 1, ' ' => 1, 'kj' => 1, '克' => 1, '公克' => 1 , 'г' => 1, 'мл' => 1,
+	'ml'=> 1, 'mmol/l' => 1, "\N{U+6BEB}\N{U+5347}" => 1,
+	'% vol' => 1, 'ph' => 1, '%' => 1, '% dv' => 1, '% vol (alcohol)' => 1, 'iu' => 1,
+	# Division factors for "non standard unit" to mmoll conversions
+	'mol/l' => 0.001,
+	'mval/l' => 2,
+	'ppm' => 100,
+	"\N{U+00B0}rh" => 40.080,
+	"\N{U+00B0}fh" => 10.00,
+	"\N{U+00B0}e" => 7.02,
+	"\N{U+00B0}dh" => 5.6,
+	'gpg' => 5.847
+);
+
 sub unit_to_g($$) {
 	my $value = shift;
 	my $unit = shift;
@@ -379,28 +413,17 @@ sub unit_to_g($$) {
 
 	$value =~ s/,/\./;
 	$value =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
-
 	$value eq '' and return $value;
 
+	if (exists($unit_conversion_map{$unit})) {
+		return $value*$unit_conversion_map{$unit};
+	}
+
 	(($unit eq 'kcal') or ($unit eq 'ккал')) and return int($value * 4.184 + 0.5);
-	# kg = 公斤 - gōngjīn = кг
-	(($unit eq 'kg') or ($unit eq "\N{U+516C}\N{U+65A4}") or ($unit eq 'кг')) and return $value * 1000;
-	# 斤 - jīn = 500 Grams
-	$unit eq "\N{U+65A4}" and return $value * 500;
-	# mg = 毫克 - háokè = мг
-	(($unit eq 'mg') or ($unit eq "\N{U+6BEB}\N{U+514B}") or ($unit eq 'мг')) and return $value / 1000;
-	(($unit eq 'mcg') or ($unit eq 'µg')) and return $value / 1000000;
-	$unit eq 'oz' and return $value * 28.349523125;
 
-	# l = 公升 - gōngshēng = л = liter
-	(($unit eq 'l') or ($unit eq "\N{U+516C}\N{U+5347}") or ($unit eq 'л')) and return $value * 1000;
-	(($unit eq 'dl') or ($unit eq 'дл')) and return $value * 100;
-	(($unit eq 'cl') or ($unit eq 'кл')) and return $value * 10;
-	$unit eq 'fl oz' and return $value * 30;
-
-	# return value without modification if it's already grams or 克 (kè) or 公克 (gōngkè) or г
-	return $value + 0; # + 0 to make sure the value is treated as number
-	# (needed when outputting json and to store in mongodb as a number)
+	# We return with + 0 to make sure the value is treated as number (needed when outputting json and to store in mongodb as a number)
+	# lets not assume that we have a valid unit
+	return undef;
 }
 
 
@@ -429,24 +452,16 @@ sub g_to_unit($$) {
 
 	$value eq '' and return $value;
 
-	(($unit eq 'kcal') or ($unit eq 'ккал')) and return int($value / 4.184 + 0.5);
-	# kg = 公斤 - gōngjīn = кг
-	(($unit eq 'kg') or ($unit eq "\N{U+516C}\N{U+65A4}") or ($unit eq 'кг')) and return $value / 1000;
-	# 斤 - jīn = 500 Grams
-	$unit eq "\N{U+65A4}" and return $value / 500;
-	# mg = 毫克 - háokè = мг
-	(($unit eq 'mg') or ($unit eq "\N{U+6BEB}\N{U+514B}") or ($unit eq 'мг')) and return $value * 1000;
-	(($unit eq 'mcg') or ($unit eq 'µg')) and return $value * 1000000;
-	$unit eq 'oz' and return $value / 28.349523125;
+	# Divide with the values in the hash
+	if (exists($unit_conversion_map{$unit})) {
+		return $value/$unit_conversion_map{$unit};
+	}
 
-	# l = 公升 - gōngshēng = л = liter
-	(($unit eq 'l') or ($unit eq "\N{U+516C}\N{U+5347}") or ($unit eq 'л')) and return $value / 1000;
-	(($unit eq 'dl') or ($unit eq 'дл')) and return $value / 100;
-	(($unit eq 'cl') or ($unit eq 'кл')) and return $value / 10;
-	$unit eq 'fl oz' and return $value / 30;
+	(($unit eq 'kcal') or ($unit eq 'ккал')) and return int($value / 4.184 + 0.5);
 
 	# return value without modification if unit is already grams or 克 (kè) or 公克 (gōngkè) or г
-	return $value + 0; # + 0 to make sure the value is treated as number
+	return $value + 0;
+	# + 0 to make sure the value is treated as number
 	# (needed when outputting json and to store in mongodb as a number)
 }
 
@@ -461,15 +476,11 @@ sub unit_to_mmoll {
 	$value =~ s/,/\./;
 	$value =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
 
-	return $value * 1000 if $unit eq 'mol/l';
-	return $value + 0 if $unit eq 'mmol/l';
-	return $value / 2 if $unit eq 'mval/l';
-	return $value / 100 if $unit eq 'ppm';
-	return $value / 40.080 if $unit eq "\N{U+00B0}rh";
-	return $value / 10.00 if $unit eq "\N{U+00B0}fh";
-	return $value / 7.02 if $unit eq "\N{U+00B0}e";
-	return $value / 5.6 if $unit eq "\N{U+00B0}dh";
-	return $value / 5.847 if $unit eq 'gpg';
+	# Divide with the values in the hash
+	if (exists($unit_conversion_map{$unit})) {
+		return $value/$unit_conversion_map{$unit};
+	}
+
 	return $value + 0;
 }
 
@@ -484,15 +495,11 @@ sub mmoll_to_unit {
 	$value =~ s/,/\./;
 	$value =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
 
-	return $value / 1000 if $unit eq 'mol/l';
-	return $value + 0 if $unit eq 'mmol/l';
-	return $value * 2 if $unit eq 'mval/l';
-	return $value * 100 if $unit eq 'ppm';
-	return $value * 40.080 if $unit eq "\N{U+00B0}rh";
-	return $value * 10.00 if $unit eq "\N{U+00B0}fh";
-	return $value * 7.02 if $unit eq "\N{U+00B0}e";
-	return $value * 5.6 if $unit eq "\N{U+00B0}dh";
-	return $value * 5.847 if $unit eq 'gpg';
+	# Multiply with the values in the hash
+	if (exists($unit_conversion_map{$unit})) {
+		return $value*$unit_conversion_map{$unit};
+	}
+
 	return $value + 0;
 }
 
@@ -1210,7 +1217,6 @@ my $chinese_units = qr/
 my $russian_units = qr/г|мг|кг|л|дл|кл|мл/i;
 my $units = qr/$international_units|$chinese_units|$russian_units/i;
 
-
 =head2 normalize_quantity($)
 
 Return the size in g or ml for the whole product. Eg.:
@@ -1254,27 +1260,51 @@ sub normalize_quantity($) {
 =head2 normalize_serving_size($)
 
 Returns the size in g or ml for the serving. Eg.:
-normalize_serving_size(1 barquette de 40g) returns 40
-normalize_serving_size(2.5kg)              returns 2500
+normalize_serving_size(1 barquette de 40g)->returns 40
+normalize_serving_size(2.5kg)->returns 2500
 
 =cut
 
 sub normalize_serving_size($) {
-
 	my $serving = shift;
 
-	my $q = 0;
-	my $u;
-
-	if ($serving =~ /((\d+)(\.|,)?(\d+)?)( )?($units)\b/i) {
-		$q = lc($1);
-		$u = $6;
+	# Regex captures any <number>( )?<unit-identifier> group, but leaves allowances for a preceding
+	# token to allow for patterns like "One bag (32g)", "1 small bottle (180ml)" etc
+	if ($serving =~ /^(.*[ \(])?(?<quantity>(\d+)(\.|,)?(\d+)?)( )?(?<unit>\w+)\b/i) {
+		my $q = $+{quantity};
+        my $u = normalize_unit($+{unit});
 		$q = convert_string_to_number($q);
-		$q = unit_to_g($q,$u);
+
+		return unit_to_g($q, $u);
 	}
 
 	#$log->trace("serving size normalized", { serving => $serving, q => $q, u => $u }) if $log->is_trace();
-	return $q;
+	return 0;
+}
+
+# @todo we should have equivalences for more units if we are supporting this
+my @unit_equivalences_list = (
+['g', qr/gram(s)?/],
+['g',qr/gramme(s)?/], # French
+);
+
+=head2 normalize_unit ( $unit )
+
+Normalizes units to their standard symbolic forms so that we can support unit names and alternative
+representations in our normalization logic.
+
+=cut
+
+sub normalize_unit($) {
+	my $originalUnit = shift;
+
+	foreach my $unit_name (@unit_equivalences_list) {
+	if ($originalUnit =~ $unit_name->[1]) {
+			return $unit_name->[0];
+		}
+	}
+
+	return $originalUnit;
 }
 
 
@@ -1318,10 +1348,10 @@ sub is_beverage_for_nutrition_score($) {
 				}
 			}
 		}
-		
+
 		# dairy drinks need to have at least 80% of milk to be considered as food instead of beverages
-		my $milk_percent = estimate_milk_percent_from_ingredients($product_ref); 
-			
+		my $milk_percent = estimate_milk_percent_from_ingredients($product_ref);
+
 		if ($milk_percent >= 80) {
 			$log->debug("milk >= 80%", { milk_percent => $milk_percent }) if $log->is_debug();
 			$is_beverage = 0;
@@ -1572,7 +1602,8 @@ sub compute_nutrition_score($) {
 				if (has_tag($product_ref, "categories", $category_id)) {
 					$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
 					add_tag($product_ref,"misc","en:nutriscore-not-applicable");
-					$product_ref->{nutrition_score_debug} = "no nutriscore for category $category_id" . " - ";;
+					$product_ref->{nutrition_score_debug} = "no nutriscore for category $category_id" . " - ";
+					$product_ref->{nutriscore_data} = {nutriscore_not_applicable_for_category => $category_id};
 					last;
 				}
 			}
@@ -1672,7 +1703,7 @@ sub compute_nutrition_score($) {
 			}
 		}
 
-		# If we do not have a fruits estimate, use 0 and add a warning		
+		# If we do not have a fruits estimate, use 0 and add a warning
 		if (not defined $fruits) {
 			$fruits = 0;
 			$product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} = 1;
@@ -1731,12 +1762,12 @@ sub compute_nutrition_score($) {
 
 	shift @{$product_ref->{misc_tags}};
 	push @{$product_ref->{misc_tags}}, "en:nutriscore-computed";
-	
+
 	# In order to be able to sort by nutrition score in MongoDB,
 	# we create an opposite of the nutrition score
 	# as otherwise, in ascending order on nutriscore_score, we first get products without the nutriscore_score field
 	# instead we can sort on descending order on nutriscore_score_opposite
-	$product_ref->{nutriscore_score_opposite} = -$nutriscore_score;		
+	$product_ref->{nutriscore_score_opposite} = -$nutriscore_score;
 
 	return;
 }
@@ -1838,7 +1869,7 @@ sub compute_serving_size_data($) {
 
 				my $unit = get_property("nutrients", "zz:$nid", "unit:en"); # $unit will be undef if the nutrient is not in the taxonomy
 				print STDERR "nid: $nid - unit: $unit\n";
-				
+
 				# If the nutrient has no unit (e.g. pH), or is a % (e.g. "% vol" for alcohol), it is the same regardless of quantity
 				# otherwise we adjust the value for 100g
 				if ((defined $unit) and (($unit eq '') or ($unit =~ /^\%/))) {
@@ -1870,7 +1901,7 @@ sub compute_serving_size_data($) {
 				delete $product_ref->{nutriments}{$nid . $product_type . "_serving"};
 
 				my $unit = get_property("nutrients", "zz:$nid", "unit:en");	# $unit will be undef if the nutrient is not in the taxonomy
-				
+
 				# If the nutrient has no unit (e.g. pH), or is a % (e.g. "% vol" for alcohol), it is the same regardless of quantity
 				# otherwise we adjust the value for the serving quantity
 				if ((defined $unit) and (($unit eq '') or ($unit =~ /^\%/))) {
@@ -2158,6 +2189,13 @@ TXT
 	return;
 }
 
+=head2 compute_units_of_alcohol ($product_ref, $serving_size_in_ml)
+
+calculate the number of units of alcohol in one serving of an alcoholic beverage.
+(https://en.wikipedia.org/wiki/Unit_of_alcohol)
+
+=cut
+
 sub compute_units_of_alcohol($$) {
 
 	my ( $product_ref, $serving_size_in_ml ) = @_;
@@ -2234,7 +2272,7 @@ sub compute_nova_group($) {
 	my %nova_groups_markers = ();
 
 	# We currently have 2 sources for tags that can trigger a given NOVA group:
-	# 1. tags specified in the %options of Config.pm 
+	# 1. tags specified in the %options of Config.pm
 	# 2. tags in the categories, ingredients and additives taxonomy that have a nova:en property
 
 	# We first generate lists of matching tags for each NOVA group, from the two sources
@@ -2245,7 +2283,7 @@ sub compute_nova_group($) {
 
 	if (defined $options{nova_groups_tags}) {
 
-		foreach my $tag (sort {($options{nova_groups_tags}{$a} <=> $options{nova_groups_tags}{$b}) || ($a cmp $b)} keys %{$options{nova_groups_tags}}) {			
+		foreach my $tag (sort {($options{nova_groups_tags}{$a} <=> $options{nova_groups_tags}{$b}) || ($a cmp $b)} keys %{$options{nova_groups_tags}}) {
 
 			if ($tag =~ /\//) {
 
@@ -2261,7 +2299,7 @@ sub compute_nova_group($) {
 
 
 	# Matching tags from taxonomies
-	
+
 	foreach my $tagtype ("categories", "ingredients", "additives") {
 
 		if ((defined $product_ref->{$tagtype . "_tags"}) and (defined $properties{$tagtype})) {
@@ -2536,9 +2574,9 @@ sub assign_categories_properties_to_product($) {
 	$product_ref->{categories_properties_tags} = [];
 
 	# Simple properties
-	
+
 	push @{$product_ref->{categories_properties_tags}}, "all-products";
-	
+
 	if (defined $product_ref->{categories}) {
 		push @{$product_ref->{categories_properties_tags}}, "categories-known";
 	}
@@ -2561,7 +2599,7 @@ sub assign_categories_properties_to_product($) {
 				}
 			}
 		}
-		
+
 		if ( defined $product_ref->{categories_properties}{$property} ) {
 			push @{ $product_ref->{categories_properties_tags} },
 				get_string_id_for_lang(
@@ -2626,7 +2664,7 @@ sub assign_nutriments_values_from_request_parameters($$) {
 		elsif (defined param($checkbox . "_displayed")) {
 			$product_ref->{$checkbox} = "";
 		}
-	}	
+	}
 
 	# Assign all the nutrient values
 
@@ -2774,7 +2812,7 @@ sub assign_nutriments_values_from_request_parameters($$) {
 			delete $product_ref->{nutriments}{$key . "_100g"};
 			delete $product_ref->{nutriments}{$key . "_serving"};
 		}
-	}	
+	}
 }
 
 

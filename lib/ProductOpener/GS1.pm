@@ -57,7 +57,8 @@ BEGIN
 
 		&init_csv_fields
 		&read_gs1_json_file
-		&write_gs1_confirmation_file
+		&generate_gs1_message_identifier
+		&generate_gs1_confirmation_message
 		&write_off_csv_file
 		&print_unknown_entries_in_gs1_maps
 
@@ -69,7 +70,7 @@ use vars @EXPORT_OK ;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Display qw/$tt process_template/;
+use ProductOpener::Display qw/$tt process_template display_date_iso/;
 
 use JSON::PP;
 use boolean;
@@ -417,7 +418,7 @@ my %gs1_message_to_off = (
 																],
 															},
 														],
-														["type", "documentCommandHeader.type"],
+														["type", "documentCommandHeader_type"],
 													],
 												},
 											],
@@ -1492,10 +1493,10 @@ sub convert_gs1_json_message_to_off_products_csv($$$) {
 	# If there is an encapsulating message, extract the relevant fields
 	# that we will need to create a confirmation message
 	if (defined $json_ref->{"catalogue_item_notification:catalogueItemNotificationMessage"}) {
-		my $message_results_ref = {};
-		gs1_to_off(\%gs1_message_to_off, $json_ref, $message_results_ref);
-		$log->debug("convert_gs1_json_to_off_csv - GS1 message fields", { message_results_ref => $message_results_ref }) if $log->is_debug();
-		$log->error("convert_gs1_json_to_off_csv - GS1 message fields", { message_results_ref => $message_results_ref }) if $log->is_error();
+		my $message_ref = {};
+		gs1_to_off(\%gs1_message_to_off, $json_ref, $message_ref);
+		push @$messages_ref, $message_ref;
+		$log->debug("convert_gs1_json_to_off_csv - GS1 message fields", { message_ref => $message_ref }) if $log->is_debug();
 	}
 	
 	foreach my $field (qw(
@@ -1533,20 +1534,20 @@ sub convert_gs1_json_message_to_off_products_csv($$$) {
 		return {};
 	}
 	
-	my $results_ref = {};
+	my $product_ref = {};
 	
-	gs1_to_off(\%gs1_product_to_off, $json_ref, $results_ref);
+	gs1_to_off(\%gs1_product_to_off, $json_ref, $product_ref);
 	
 	# assign the lang and lc fields
-	if (defined $results_ref->{languages}) {
-		my @sorted_languages = sort ( { $results_ref->{languages}{$b} <=> $results_ref->{languages}{$a} } keys %{$results_ref->{languages}});
+	if (defined $product_ref->{languages}) {
+		my @sorted_languages = sort ( { $product_ref->{languages}{$b} <=> $product_ref->{languages}{$a} } keys %{$product_ref->{languages}});
 		my $top_language = $sorted_languages[0];
-		$results_ref->{lc} = $top_language;
-		$results_ref->{lang} = $top_language;
-		delete $results_ref->{languages};
+		$product_ref->{lc} = $top_language;
+		$product_ref->{lang} = $top_language;
+		delete $product_ref->{languages};
 	}
 	
-	push @$products_ref, $results_ref;
+	push @$products_ref, $product_ref;
 }
 
 
@@ -1591,27 +1592,76 @@ sub read_gs1_json_file($$$) {
 }
 
 
-sub write_gs1_confirmation_file($$) {
+sub generate_gs1_message_identifier() {
 
-	my $file = shift;
-	my $message_ref = shift;
+	# local GLN + 60 random hexadecimal characters
+	my $identifier = deep_get(\%options, qw(gs1 local_gln)) . "_";
+	$identifier .= sprintf("%x", rand 16) for 1..60;
+
+	return $identifier;
+}
+
+
+=head2 generate_gs1_confirmation_message ($notification_message_ref, $timestamp)
+
+GS1 data pools (catalogs) send us GSDN Catalogue Item Notification (CIN) which are messages
+that contain the data for 1 product (and possibly sub-products).
+
+The GS1 standard offers data recipient (such as Open Food Facts) to send back
+Catalogue Item Confirmation (CIC) messages to acknowledge the notification and give
+its status.
+
+This function generates the CIC message corresponding to a CIN message.
+
+See https://www.gs1.org/docs/gdsn/tiig/3_1/GDSN_Trade_Item_Implementation_Guide.pdf for more details.
+
+=head3 Arguments
+
+=head4 reference to the notification message (as parsed by convert_gs1_json_message_to_off_products_csv)
+
+=head4 timestamp
+
+The current time is passed as a parameter to the function. This is so that we can 
+generate test confirmation messages which don't have a different content every time we run them.
+
+=cut
+
+sub generate_gs1_confirmation_message($$) {
+
+	my $notification_message_ref = shift;
+	my $timestamp = shift;
+
+	# We will need to generate a message identifier, put it in the XML content,
+	# and return it as it is used as the file name
+	my $confirmation_instance_identifier = generate_gs1_message_identifier();
 
 	# Template data for the confirmation
-	my $confirmation_data_ref = {};
+	my $confirmation_data_ref = {
+		Sender_Identifier => deep_get(\%options, qw(gs1 local_gln)),
+		Receiver_Identifier => deep_get(\%options, qw(gs1 agena3000 receiver_gln)),
+		recipientGLN => deep_get(\%options, qw(gs1 local_gln)),
+		recipientDataPool => deep_get(\%options, qw(gs1 agena3000 data_pool_gln)),
+		InstanceIdentifier => $confirmation_instance_identifier,
+		transactionIdentification_entityIdentification => generate_gs1_message_identifier(),
+		documentCommandIdentification_entityIdentification => generate_gs1_message_identifier(),
+		catalogueItemNotificationIdentification_entityIdentification => generate_gs1_message_identifier(),
+		CreationDateAndTime => display_date_iso($timestamp),
+		catalogueItemConfirmationStateCode => 'RECEIVED',
+	};
 
 	# Include the notification data in the template data for the confirmation
-	$confirmation_data_ref->{notification} = $message_ref;
+	$confirmation_data_ref->{notification} = $notification_message_ref;
+
 
 	my $xml;
 	if (process_template('gs1/catalogue_item_confirmation.tt.xml', $confirmation_data_ref, \$xml)) {
-		open (my $result, ">:encoding(UTF-8)", $file)
-			or die("Could not create $file: $!\n");
-		print $result $xml;
-		close $result;
+		$log->debug("generate_gs1_confirmation_message - success", { confirmation_instance_identifier => $confirmation_instance_identifier}) if $log->is_error();
 	}
 	else {
-		$log->debug("write_gs1_confirmation_file - template error", { error => $tt->error() }) if $log->is_error();
+		$log->error("generate_gs1_confirmation_message - template error", { error => $tt->error() }) if $log->is_error();
 	}
+
+	return ($confirmation_instance_identifier, $xml);
 }
 
 

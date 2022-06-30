@@ -111,6 +111,13 @@ my @tests = (
 		}
 	],
 	[
+		'exempted-category-sodas',
+		{
+			lc => "en",
+			categories_tags=>["en:sodas"],
+		}
+	],	
+	[
 		'label-organic',
 		{
 			lc => "en",

@@ -413,7 +413,16 @@ Teneur en citron de 5,5%",
 			ingredients_text => "endives 40%, jambon cuit, jaunes d'oeufs, sel",
 			labels => "viande porcine française, oeufs de France",
 		}
-	]
+	],
+
+	# Ingredients analysis: keep track of unknown ingredients even if a product is non vegan
+	[
+		"en-ingredients-analysis-unknown-ingredients",
+		{
+			lc => "en",
+			ingredients_text => "milk, some unknown ingredient, another unknown ingredient, salt, sugar, pepper, spices, water",
+		}
+	],	
 
 );
 

@@ -8,8 +8,19 @@
 //
 // Output values are returned in the product object
 //
-// - match_status: yes, no, unknown
-// - match_score: number (maximum depends on the preferences)
+// - match_score: number from 0 to 100
+//		- the score is 0 if 
+//		- otherwise the score is a weighted average of how well the product matches
+//		each attribute selected by the user
+//
+// - match_status:
+// 		- very_good_match	score >= 75
+//		- good_match		score >= 50
+//		- poor_match		score < 50
+//		- unknown_match		at least one mandatory attribute is unknown, or unknown attributes weight more than 50% of the score
+//		- may_not_match		at least one mandatory attribute score is <= 50 (e.g. may contain traces of an allergen)
+//		- does_not_match	at least one mandatory attribute score is <= 10 (e.g. contains an allergen, is not vegan)
+//
 // - match_attributes: array of arrays of attributes corresponding to the product and 
 // each set of preferences: mandatory, very_important, important
 
@@ -81,10 +92,14 @@ function match_product_to_preferences(product, product_preferences) {
     product.match_debug = debug;
 }
 
+
 // rank_products (products, product_preferences)
 
 // keep the initial order of each result
 var initial_order = 0;
+
+// option to enable tabs in results to filter on product match status
+var show_tabs_to_filter_by_match_status = 0;
 
 function rank_products(products, product_preferences, use_user_product_preferences_for_ranking) {
 
@@ -147,21 +162,30 @@ function display_products(target, product_groups, user_prefs) {
     } else {
         $(target).html('<div id="products_tabs_content" class="tabs-content"></div>');
     }
+	
+	$.each(product_groups, function(product_group_id, product_group) {
+	
+		var products_html = [];
+		
+		$.each( product_group, function(key, product) {
 
-    $.each(product_groups, function(product_group_id, product_group) {
-
-        var products_html = [];
-
-        $.each(product_group, function(key, product) {
-
-            var product_html = "";
-
-            // Show the green / grey / colors for matching products only if we are using the user preferences
+			// Show the green / grey / colors for matching products only if we are using the user preferences
             let css_classes = 'list_product_a';
             if (user_prefs.use_ranking) {
                 css_classes += ' list_product_a_match_' + product.match_status;
             }
-            product_html += `<li><a href="${product.url}" class="${css_classes}">`;
+		
+			var product_html = `<li><a href="${product.url} class="${css_classes}">`;
+
+			if (user_prefs.use_ranking) {
+				product_html += `<div class="list_product_banner list_product_banner_${product.match_status}">`
+				+ lang()["products_match_" + product.match_status] + ' ' + Math.round(product.match_score) + '%</div>'
+				+ '<div class="list_product_content">';
+			}
+			else {
+				product_html += '<div class="list_product_unranked">';
+			}
+
             product_html += '<div class="list_product_img_div">';
 
             const img_src =
@@ -195,15 +219,14 @@ function display_products(target, product_groups, user_prefs) {
                 }
             });
             product_html += '</div>';
-            // add some specific fields
-            if (user_prefs.display.display_barcode) {
-                product_html += `<span class="list_display_barcode">${product.code}</span>`;
-            }
-            product_html += "</a>";
-            if (user_prefs.display.edit_link) {
-                const edit_url = product_edit_url(product);
-                const edit_title = lang().edit_product_page;
-                product_html += `
+			// add some specific fields
+			if (user_prefs.display.display_barcode) {
+				product_html += `<span class="list_display_barcode">${product.code}</span>`;
+			}
+			if (user_prefs.display.edit_link) {
+				const edit_url = product_edit_url(product);
+				const edit_title = lang().edit_product_page;
+				product_html += `
 				<a class="list_edit_link" 
 				    alt="Edit ${product.product_display_name}" 
 				    href="${edit_url}"
@@ -211,49 +234,55 @@ function display_products(target, product_groups, user_prefs) {
 					<img src="/images/icons/dist/edit.svg">
 				</a>
 				`;
-            }
-            product_html += "</li>";
+			}
+			product_html += "</div></a></li>";
 
-            products_html.push(product_html);
-        });
+			products_html.push(product_html);
+		});
 
-        var active = "";
-        var text_or_icon = "";
-        if (product_group_id == "all") {
-            active = " active";
-            if (product_group.length == 1) {
-                text_or_icon = lang()["1_product"];
-            } else {
-                text_or_icon = product_group.length + ' ' + lang().products;
-            }
-        } else {
-            text_or_icon = '<img src="/images/attributes/match-' + product_group_id + '.svg" class="icon">' +
-                ' <span style="color:grey">' + product_group.length + "</span>";
-        }
+		var active = "";
+		var text_or_icon = "";
+		if (product_group_id === "all") {
+			active = " active";
+		}
 
-        if (user_prefs.use_ranking) {
-            $("#products_tabs_titles").append(
-                '<li class="tabs tab-title tab_products-title' + active + '">' +
-                '<a  id="tab_products_' + product_group_id + '" href="#products_' + product_group_id + '" title="' + lang()["products_match_" + product_group_id] + '">' +
-                text_or_icon +
-                "</a></li>"
-            );
-        }
+		if (show_tabs_to_filter_by_match_status) {
+			if (product_group_id === "all") {
+				if (product_group.length === 1) {
+					text_or_icon = lang()["1_product"];
+				}
+				else {
+					text_or_icon = product_group.length + ' ' + lang().products;
+				}
+			}
+			else {
+				text_or_icon = '<img src="/images/attributes/match-' + product_group_id + '.svg" class="icon">'
+				+ ' <span style="color:grey">' + product_group.length + "</span>";
+			}
 
-        $("#products_tabs_content").append(
-            '<div class="tabs content' + active + '" id="products_' + product_group_id + '">' +
-            '<ul class="search_results " id="products_match_' + product_group_id + '" style="list-style:none">' +
-            products_html.join("") +
-            '</ul>'
-        );
-
-        $(document).foundation('tab', 'reflow');
-        $(document).foundation('equalizer', 'reflow');
-
-        $('#products_tabs_titles').on('toggled', function() {
-            $(document).foundation('equalizer', 'reflow');
-        });
-
+			if (user_prefs.use_ranking) {
+				$("#products_tabs_titles").append(
+					'<li class="tabs tab-title tab_products-title' + active + '">'
+					+ '<a  id="tab_products_' + product_group_id + '" href="#products_' + product_group_id + '" title="' + lang()["products_match_" + product_group_id] +  '">'
+					+ text_or_icon
+					+ "</a></li>"
+				);
+			}
+		}
+		
+		$("#products_tabs_content").append(
+			'<div class="tabs content' + active + '" id="products_' + product_group_id + '">'
+			+ '<ul class="search_results small-block-grid-1 medium-block-grid-4 large-block-grid-6 xlarge-block-grid-8 xxlarge-block-grid-10" id="products_match_' + product_group_id + '" style="list-style:none">'
+			+ products_html.join( "" )
+			+ '</ul>'
+		);
+		
+		$(document).foundation('tab', 'reflow');
+		$(document).foundation('equalizer', 'reflow');
+		
+		$('#products_tabs_titles').on('toggled', function () {
+			$(document).foundation('equalizer', 'reflow');
+		});
     });
 }
 
@@ -261,10 +290,10 @@ function display_products(target, product_groups, user_prefs) {
 /* exported display_product_summary */
 
 function display_product_summary(target, product) {
-
-    var user_product_preferences = get_user_product_preferences();
-
-    match_product_to_preferences(product, user_product_preferences);
+	
+	var user_product_preferences = get_user_product_preferences();
+	
+	match_product_to_preferences(product, user_product_preferences);
 
     var attributes_html = '';
 
@@ -291,13 +320,22 @@ function display_product_summary(target, product) {
             card_html += "<p class='attribute_missing'>" + attribute.missing + "</p>";
         }
         card_html += "</div>"
-        // check if the product attribute has an associated knowledge panel that exists
-        if ((attribute.panel_id) && (document.getElementById("panel_" + attribute.panel_id))) {
-            // onclick : open the panel content + reflow to make sur all column content is shown
-            card_html = '<a href="#panel_' + attribute.panel_id + '" onclick="document.getElementById(\'panel_' + attribute.panel_id + '_content\').classList.add(\'active\'); $(document).foundation(\'equalizer\', \'reflow\');"' + card_html + '</a>';
-        } else {
-            card_html = '<div ' + card_html + '</div>';
-        }
+		// check if the product attribute has an associated knowledge panel that exists
+		if (attribute.panel_id) {
+			// note: on the website, the id for the panel contains : instead of - (e.g. for the ingredients_analysis_en:vegan panel)
+			var panel_element_id = 'panel_' + attribute.panel_id.replace(':', '-');
+			if (document.getElementById(panel_element_id)) {
+				// onclick : open the panel content + reflow to make sur all column content is shown			
+				card_html = '<a href="#' + panel_element_id
+				+ '" onclick="document.getElementById(\'' + panel_element_id + '_content\').classList.add(\'active\'); $(document).foundation(\'equalizer\', \'reflow\');"' + card_html + '</a>';
+			}
+			else {
+				card_html = '<div ' + card_html + '</div>';
+			}
+		}
+		else {
+			card_html = '<div ' + card_html + '</div>';
+		}
 
         attributes_html += '<li>' + card_html + '</li>';
     });

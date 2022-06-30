@@ -30,12 +30,13 @@ use JSON;
 
 my $test_id = "import_convert_carrefour_france";
 my $test_dir = dirname(__FILE__);
+my $results_dir = "$test_dir/expected_test_results/$test_id";
 
 my $usage = <<TXT
 
-The expected results of the tests are saved in $test_dir/expected_test_results/$test_id
+The expected results of the tests are saved in $results_dir
 
-Specify the --update-expected-results to create or update the test results.
+Use the --update-expected-results option to create or update the test results.
 
 TXT
 ;
@@ -104,7 +105,7 @@ export_csv($export_args_ref);
 
 close($exported_csv);
 
-ProductOpener::Test::compare_csv_file_to_expected_results($exported_csv_file, $test_dir . "/expected_test_results/import_convert_carrefour_france_export", $update_expected_results);
+ProductOpener::Test::compare_csv_file_to_expected_results($exported_csv_file, $results_dir, $update_expected_results);
 
 
 done_testing();

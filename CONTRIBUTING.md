@@ -14,8 +14,17 @@ Get started running server in development mode, see [Dev environment quick start
 
 1. Ensure any install or build dependencies are removed before the end of the layer when doing a build.
 2. Check that there are no conflicts and your request passes [Travis](https://travis-ci.org) build. Check the log of the pass test if it fails the build.
-3. Give the description of the issue that you want to resolve in the pull request message. The format of the commit message to be fixed is  - **Fixes #[issue number] [Description of the issue]** Example: **Fixes #529: Add toast warning in `MainActivity.java`**
-4. Wait for the maintainers to review your pull request and do the changes if requested.
+3. Give the description of the issue that you want to resolve in the pull request message.
+   * The format of the commit message to be fixed is  
+     **fix:[Description of the issue] Fixes #[issue number]**  
+     Example: **fix: Add toast warning in `MainActivity.java` Fixes #529**
+   * We are following [conventional commit](https://www.conventionalcommits.org/en/v1.0.0-beta.2/)
+     we a [set of standard prefixes](https://github.com/commitizen/conventional-commit-types/blob/master/index.json)
+     (`fix`, `feat`, `doc`, `build`, `test`…),
+     with the addition of:
+     * `l10n` for translations
+     * `taxonomy` for PR modifying a taxonomy
+5. Wait for the maintainers to review your pull request and do the changes if requested.
 
 ## Contributions Best Practices
 

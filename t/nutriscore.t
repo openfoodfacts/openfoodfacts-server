@@ -114,6 +114,17 @@ my @tests = (
 	}
 ],
 
+# categories without Nutri-Score
+
+[
+	"en-beers-category",
+	{
+			lc => "en",
+			categories => "beers",
+			nutriments=>{energy_100g=>182, fat_100g=>0, "saturated-fat_100g"=>0, sugars_100g=>8.9, sodium_100g=>0.2, fiber_100g=>0.5, proteins_100g=>0.2},	
+	}
+],
+
 );
 
 

@@ -31,3 +31,4 @@ zip en.openfoodfacts.org.products.small.csv.zip en.openfoodfacts.org.products.sm
 
 # Equadis import
 /srv/off-pro/scripts/equadis-import/run_equadis_import.sh
+/srv/off-pro/scripts/agena3000/run_agena3000_import.sh
