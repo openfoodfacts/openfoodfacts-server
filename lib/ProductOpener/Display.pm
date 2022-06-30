@@ -4869,41 +4869,32 @@ sub search_and_display_products($$$$$) {
 
 	add_params_to_query($request_ref, $query_ref);
 
-	$log->debug("obama", {request_ref => $request_ref, query_ref => $query_ref, sort_by => $sort_by, limit => $limit, page=> $page}) if $log->is_debug();
-
 	$log->debug("search_and_display_products", { request_ref => $request_ref, query_ref => $query_ref, sort_by => $sort_by }) if $log->is_debug();
 
 	add_country_and_owner_filters_to_query($request_ref, $query_ref);
 
 	if (defined $limit) {
-		$log->debug("obama1") if $log->is_debug();
 	}
 	elsif (defined $request_ref->{page_size}) {
-		$log->debug("obama2") if $log->is_debug();
 		$limit = $request_ref->{page_size};
 	}
 	# If user preferences are turned on, return 100 products per page
 	elsif ((not defined $request_ref->{api}) and ($user_preferences)) {
-		$log->debug("obama3") if $log->is_debug();
 		$limit = 100;
 	}
 	else {
-		$log->debug("obama4") if $log->is_debug();
 		$limit = $page_size;
 	}
 
 	my $skip = 0;
 	if (defined $page) {
-		$log->debug("obama5") if $log->is_debug();
 		$skip = ($page - 1) * $limit;
 	}
 	elsif (defined $request_ref->{page}) {
-		$log->debug("obama6") if $log->is_debug();
 		$page = $request_ref->{page};
 		$skip = ($page - 1) * $limit;
 	}
 	else {
-		$log->debug("obama7") if $log->is_debug();
 		$page = 1;
 	}
 
@@ -4914,18 +4905,15 @@ sub search_and_display_products($$$$$) {
 	# Use the sort order provided by the query if it is defined (overrides default sort order)
 	# e.g. ?sort_by=popularity
 	if (defined $request_ref->{sort_by}) {
-		$log->debug("obama8") if $log->is_debug();
 		$sort_by = $request_ref->{sort_by};
 		$log->debug("sort_by was passed through request_ref", { sort_by => $sort_by }) if $log->is_debug();
 	}
 	# otherwise use the sort order from the last_sort_by cookie
 	elsif (defined cookie('last_sort_by')) {
-		$log->debug("obama9") if $log->is_debug();
 		$sort_by = cookie('last_sort_by');
 		$log->debug("sort_by was passed through last_sort_by cookie", { sort_by => $sort_by }) if $log->is_debug();
 	}
 	elsif (defined $sort_by) {
-		$log->debug("obama10") if $log->is_debug();
 		$log->debug("sort_by was passed as a function parameter", { sort_by => $sort_by }) if $log->is_debug();
 	}
 
@@ -4935,7 +4923,6 @@ sub search_and_display_products($$$$$) {
 			and ($sort_by ne 'completeness') and ($sort_by ne 'popularity_key') and ($sort_by ne 'popularity')
 			and ($sort_by ne 'nutriscore_score') and ($sort_by ne 'nova_score') and ($sort_by ne 'ecoscore_score')
 			and ($sort_by ne 'nothing') )) {
-			$log->debug("obama11") if $log->is_debug();
 
 			if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 				$sort_by = 'popularity_key';
@@ -4946,7 +4933,6 @@ sub search_and_display_products($$$$$) {
 	}
 
 	if ((defined $sort_by) and ($sort_by ne "nothing")) {
-		$log->debug("obama12") if $log->is_debug();
 		my $order = 1;
 		my $sort_by_key = $sort_by;
 
@@ -4994,7 +4980,6 @@ sub search_and_display_products($$$$$) {
 	# Nutri-Score and Eco-Score are only for food products
 	# and currently scan data is only loaded for Open Food Facts
 	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
-		$log->debug("obama13") if $log->is_debug();
 
 		push @{$template_data_ref->{sort_options}}, { value => "popularity", link => $request_ref->{current_link} . "?sort_by=popularity", name => lang("sort_by_popularity") };
 		push @{$template_data_ref->{sort_options}}, { value => "nutriscore_score", link => $request_ref->{current_link} . "?sort_by=nutriscore_score", name => lang("sort_by_nutriscore_score") };
@@ -5015,17 +5000,14 @@ sub search_and_display_products($$$$$) {
 
 	# - for API (json, xml, rss,...), display all fields
 	if (param("json") or param("jsonp") or param("xml") or param("jqm") or $request_ref->{rss}) {
-		$log->debug("obama14") if $log->is_debug();
 		$fields_ref = {};
 	}
 	# - if we use user preferences, we need a lot of fields to compute product attributes: load them all
 	elsif ($user_preferences) {
-		$log->debug("obama15") if $log->is_debug();
 		# when product attributes become more stable, we could try to restrict the fields
 		$fields_ref = {};
 	}
 	else {
-		$log->debug("obama16") if $log->is_debug();
 	#for HTML, limit the fields we retrieve from MongoDB
 		$fields_ref = {
 		"lc" => 1,
@@ -5062,7 +5044,6 @@ sub search_and_display_products($$$$$) {
 	$request_ref->{structured_response} = get_cache_results($key,$request_ref);
 
 	if (not defined $request_ref->{structured_response}) {
-		$log->debug("obama17") if $log->is_debug();
 
 		$request_ref->{structured_response} = {
 			page => $page,
@@ -5074,7 +5055,6 @@ sub search_and_display_products($$$$$) {
 		my $cursor;
 		eval {
 			if (($options{mongodb_supports_sample}) and (defined $request_ref->{sample_size})) {
-				$log->debug("obama17a", {query_ref => $query_ref}) if $log->is_debug();
 				$log->debug("Counting MongoDB documents for query", { query => $query_ref }) if $log->is_debug();
 				$count = execute_query(sub {
 					return get_products_tags_collection()->count_documents($query_ref);
@@ -5091,7 +5071,6 @@ sub search_and_display_products($$$$$) {
 				});
 			}
 			else {
-				$log->debug("obama17b", {query_ref => $query_ref}) if $log->is_debug();
 				$log->debug("Counting MongoDB documents for query", { query => $query_ref }) if $log->is_debug();
 				# test if query_ref is empty
 				if (param('no_count')) {
@@ -5203,7 +5182,6 @@ sub search_and_display_products($$$$$) {
 	$page_count = $request_ref->{structured_response}{page_count};
 
 	if (defined $request_ref->{description}) {
-		$log->debug("obama18") if $log->is_debug();
 		$request_ref->{description} =~ s/<nb_products>/$count/g;
 	}
 
@@ -5214,7 +5192,6 @@ sub search_and_display_products($$$$$) {
 	my $decf = get_decimal_formatter($lc);
 
 	if (not defined $request_ref->{jqm_loadmore}) {
-		$log->debug("obama19") if $log->is_debug();
 		if ($count < 0) {
 			$error = lang("error_database");
 		}
@@ -5239,7 +5216,6 @@ sub search_and_display_products($$$$$) {
 
 	# Query from search form: display a link back to the search form
 	if (defined($request_ref->{current_link}) && $request_ref->{current_link} =~ /action=process/) {
-		$log->debug("obama20") if $log->is_debug();
 		$template_data_ref->{current_link_query_edit} = $request_ref->{current_link};
 		$template_data_ref->{current_link_query_edit} =~ s/action=process/action=display/;
 	}
@@ -5247,7 +5223,6 @@ sub search_and_display_products($$$$$) {
 	$template_data_ref->{count} = $count;
 
 	if ($count > 0) {
-		$log->debug("obama21") if $log->is_debug();
 
 		# Show a download link only for search queries (and not for the home page of facets)
 
@@ -5388,13 +5363,11 @@ sub search_and_display_products($$$$$) {
 	# if cc and/or lc have been overridden, change the relative paths to absolute paths using the new subdomain
 
 	if ($subdomain ne $original_subdomain) {
-		$log->debug("obama22") if $log->is_debug();
 		$log->debug("subdomain not equal to original_subdomain, converting relative paths to absolute paths", { subdomain => $subdomain, original_subdomain => $original_subdomain }) if $log->is_debug();
 		$html =~ s/(href|src)=("\/)/$1="$formatted_subdomain\//g;
 	}
 
 	if ($user_preferences) {
-		$log->debug("obama23") if $log->is_debug();
 
 		my $preferences_text = sprintf(lang("classify_the_d_products_below_according_to_your_preferences"), $page_count);
 
