@@ -2189,6 +2189,13 @@ TXT
 	return;
 }
 
+=head2 compute_units_of_alcohol ($product_ref, $serving_size_in_ml)
+
+calculate the number of units of alcohol in one serving of an alcoholic beverage.
+(https://en.wikipedia.org/wiki/Unit_of_alcohol)
+
+=cut
+
 sub compute_units_of_alcohol($$) {
 
 	my ( $product_ref, $serving_size_in_ml ) = @_;
