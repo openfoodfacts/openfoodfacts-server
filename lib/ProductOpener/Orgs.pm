@@ -58,7 +58,6 @@ BEGIN
 
 		&org_name
 		&org_url
-		&org_link
 
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
