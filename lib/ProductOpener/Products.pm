@@ -238,12 +238,30 @@ sub assign_new_code() {
 	return ($code, $product_id);
 }
 
+=head2 normalize_code()
+
+C<normalize_code()> this function normalizes the product code by:
+- Keeps only digits and removes spaces/dahes etc.
+- Normalizes the length by adding leading zeroes or removing the leading zero (in case of 14 digit codes)
+
+=head3 Arguments
+
+Product Code in the Raw form: $code
+
+=head3 Return Values
+
+Normalized version of the code
+
+=cut
 
 sub normalize_code($) {
 
 	my $code = shift;
 	if (defined $code) {
-		$code =~ s/\D//g; # Keep only digits, remove spaces, dashes and everything else
+		
+		# Keep only digits, remove spaces, dashes and everything else
+		$code =~ s/\D//g; 
+		
 		# Add a leading 0 to valid UPC-12 codes
 		# invalid 12 digit codes may be EAN-13s with a missing number
 		if ((length($code) eq 12) and ($ean_check->is_valid('0' . $code))) {
@@ -267,13 +285,31 @@ sub normalize_code($) {
 	return $code;
 }
 
+
 # - When products are public, the _id is the code, and the path is of the form 123/456/789/0123
 # - When products are private, the _id is [owner]/[code] (e.g. user-abc/1234567890123 or org-xyz/1234567890123
-
 # FIXME: bug #677
+
+=head2 split_code()
+
+C<split_code()> this function splits the product code for determining the product path and the _id.
+product_path_from_id() utilizes this for the said purpose.
+
+=head3 Arguments
+
+Product Code: $code
+
+=head3 Return Values
+
+Code that has been split into 3 sections of three digits and one fourth section with the remaining digits.
+Example: 1234567890123  :-  123/456/789/0123
+
+=cut
+
 sub split_code($) {
 
 	my $code = shift;
+	
 	# Require at least 4 digits (some stores use very short internal barcodes, they are likely to be conflicting)
 	if ($code !~ /^\d{4,24}$/) {
 
@@ -281,8 +317,9 @@ sub split_code($) {
 		return "invalid";
 	}
 
+	# First splits into 3 sections of 3 numbers and the ast section with the remaining numbers
 	my $path = $code;
-	if ($code =~ /^(...)(...)(...)(.*)$/) {
+	if ($code =~ /^(.{3})(.{3})(.{3})(.*)$/) {
 		$path = "$1/$2/$3/$4";
 	}
 	return $path;
@@ -304,16 +341,12 @@ e.g. off:[code]
 
 =head3 Parameters
 
-=head4 Owner id
+$Owner id & $code [Product barcode]
 
 In most cases, pass $Owner_id which is initialized by ProductOpener::Users::init_user()
 
   undef for public products
   user-[user id] or org-[organization id] for private products
-
-=head4 Code
-
-Product barcode.
 
 =head3 Return values
 
@@ -347,8 +380,7 @@ Returns the server for the product, if it is not on the current server.
 
 =head3 Parameters
 
-=head4 $product_id
-
+$product_id
 Product id of the form [code], [owner-id]/[code], or [server-id]:[code] or [server-id]:[owner-id]/[code]
 
 =head3 Return values
@@ -378,9 +410,8 @@ Returns the data root for the product, possibly on another server.
 
 =head3 Parameters
 
-=head4 $product_id
-
-Product id of the form [code], [owner-id]/[code], or [server-id]:[code]
+$product_id
+- Product id of the form [code], [owner-id]/[code], or [server-id]:[code]
 
 =head3 Return values
 
@@ -411,9 +442,8 @@ Returns the www root for the product, possibly on another server.
 
 =head3 Parameters
 
-=head4 $product_id
-
-Product id of the form [code], [owner-id]/[code], or [server-id]:[code]
+$product_id
+- Product id of the form [code], [owner-id]/[code], or [server-id]:[code]
 
 =head3 Return values
 
@@ -577,10 +607,13 @@ sub get_owner_id($$$) {
 
 =head2 init_product ( $userid, $orgid, $code, $countryid )
 
-Initialize and return a $product_ref structure for a new product.
-
+Initializes and return a $product_ref structure for a new product. 
 If $countryid is defined and is not "en:world", then assign this country for the countries field.
 Otherwise, use the country associated with the ip address of the user.
+
+=head3 Return Type
+
+Returns a $product_ref structure
 
 =cut
 
@@ -1516,7 +1549,7 @@ to determine if the change was done through an app, the OFF userid, or an app sp
 
 =head3 Parameters
 
-=head4 $change_ref reference to a change record
+$change_ref reference to a change record
 
 =head3 Return value
 
@@ -2165,8 +2198,8 @@ sub compute_product_history_and_completeness($$$$) {
 # traverse the history to see if a particular user has removed values for tag fields
 # add back the removed values
 
+# NOT sure if this is useful, it's being used in one of the "obsolete" scripts
 sub add_back_field_values_removed_by_user($$$$) {
-
 
 	my $current_product_ref = shift;
 	my $changes_ref = shift;
@@ -2392,7 +2425,7 @@ This function is called by the web/panels/panel.tt.html template for knowledge p
 
 =head3 Parameters
 
-=head4 Product code or reference to product object $code_or_ref
+Product code or reference to product object $code_or_ref
 
 =cut
 
@@ -2418,7 +2451,6 @@ sub product_action_url($$) {
 
 	return $url;
 }
-
 
 sub index_product($)
 {
@@ -2518,7 +2550,6 @@ sub compute_languages($) {
 	my %languages_codes = ();
 
 	# check all the fields of the product
-
 	foreach my $field (keys %{$product_ref}) {
 
 		if (($field =~ /_([a-z]{2})$/) and (defined $language_fields{$`}) and (defined $product_ref->{$field}) and ($product_ref->{$field} ne '')) {
@@ -2900,6 +2931,10 @@ sub log_change {
 
 Generates a text that describes the changes made. The text is displayed in the edit history of products.
 
+=head3 Arguments
+
+$change_ref: reference to a change record
+
 =cut
 
 sub compute_changes_diff_text {
@@ -2935,6 +2970,10 @@ sub compute_changes_diff_text {
 =head2 add_user_teams ( $product_ref )
 
 If the user who add or edits the product belongs to one or more teams, add them to the teams_tags array.
+
+=head3 Parameters
+
+$product_ref
 
 =cut
 
@@ -2977,7 +3016,7 @@ the "protect data" checkbox checked.
 
 =head3 Parameters
 
-=head4 $product_ref
+$product_ref
 
 =head3 Return values
 
