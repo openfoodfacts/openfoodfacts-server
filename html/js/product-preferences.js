@@ -94,7 +94,7 @@ function generate_preferences_switch_button(preferences_text, checkbox_id) {
 
 	var html = '<div class="flex-grid v-align-center align-center direction-row">' +
     '<fieldset class="switch round success unmarged" tabindex="0" id="' + checkbox_id +'_switch" style="float:left;margin-right:.5rem;padding-top:0.1rem;">' +
-    '<input id="' + checkbox_id + '" type="checkbox"' + checked + '>' +
+    '<input class="preferences_checkboxes" id="' + checkbox_id + '" type="checkbox"' + checked + '>' +
     '<label for="' + checkbox_id +'"></label></fieldset>' +
     '<label for="' + checkbox_id +'" class="v-space-tiny h-space-tiny" style="float:left">' + preferences_text + '</label></div>';    
 
@@ -146,6 +146,12 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
 	if (page_type == 'products') {
 		activate_preferences_switch_buttons(change);
 	}
+
+    $("#show_selection_form").on("click", function() {
+        $(target_selected).hide();
+        $(target_selection_form).show();
+        $(document).foundation('equalizer', 'reflow');
+    });
 
     $("#show_selection_form").on('keydown', (event) => {
         if (event.key === 'Space' || event.key === 'Enter') {

@@ -11,7 +11,10 @@ const svgmin = require("gulp-svgmin");
 const jsSrc = [
   './html/js/display*.js',
   './html/js/product-multilingual.js',
-  './html/js/search.js'
+  './html/js/search.js',
+  './html/js/hc-sticky.js',
+  './html/js/stikelem.js',
+  './html/js/scrollNav.js'
 ];
 
 const sassSrc = "./scss/**/*.scss";
