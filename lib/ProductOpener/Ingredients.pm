@@ -2053,18 +2053,13 @@ sub compute_ingredients_tags($) {
 	# Delete ingredients related fields
 	# They will be recreated, unless the ingredients list was deleted
 
-	delete $product_ref->{ingredients_tags};
-	delete $product_ref->{ingredients_original_tags};
-
-	delete $product_ref->{ingredients_n};
-	delete $product_ref->{known_ingredients_n};
-	delete $product_ref->{unknown_ingredients_n};
-	delete $product_ref->{ingredients_n_tags};
-
-	delete $product_ref->{ingredients_with_specified_percent_n};
-	delete $product_ref->{ingredients_with_unspecified_percent_n};
-	delete $product_ref->{ingredients_with_specified_percent_sum};
-	delete $product_ref->{ingredients_with_unspecified_percent_sum};	
+	my @ingredient_keys = (ingredients_tags, ingredients_original_tags, ingredients_n, known_ingredients_n, unknown_ingredients_n, 
+	ingredients_n_tags, ingredients_with_specified_percent_n, ingredients_with_unspecified_percent_n, 
+	ingredients_with_specified_percent_sum, ingredients_with_unspecified_percent_sum );
+	
+	foreach my $ingredient_key (@ingredient_keys) {
+		delete $product_ref->{$ingredient_key};
+	}
 
 	return if not defined $product_ref->{ingredients};
 

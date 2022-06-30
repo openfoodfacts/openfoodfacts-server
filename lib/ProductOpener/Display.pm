@@ -10329,9 +10329,10 @@ sub display_structured_response($)
 		# remove the languages field which has keys like "en:english"
 		# keys with the : character break the XML export
 
-		delete $request_ref->{structured_response}{product}{languages};
-		delete $request_ref->{structured_response}{product}{category_properties};
-		delete $request_ref->{structured_response}{product}{categories_properties};
+		my @foo = (languages, category_properties, categories_properties);
+		foreach my $bar (@foo) {
+			delete $request_ref->{structured_response}{product}{$bar};
+		}
 
 		if (defined $request_ref->{structured_response}{products}) {
 			foreach my $product_ref (@{$request_ref->{structured_response}{products}}) {
