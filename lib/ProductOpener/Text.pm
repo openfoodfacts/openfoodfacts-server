@@ -58,7 +58,6 @@ BEGIN
 
 		&remove_tags
 		&remove_tags_and_quote
-		&remove_tags_except_links
 		&xml_escape		
 
 		);    # symbols to export on request
@@ -309,22 +308,6 @@ sub remove_tags($) {
 	# Remove tags
 	$s =~ s/</&lt;/g;
 	$s =~ s/>/&gt;/g;
-
-	return $s;
-}
-
-
-sub remove_tags_except_links($) {
-
-	my $s = shift;
-
-	# Transform links
-	$s =~ s/<a href="?'?([^>"' ]+?)"?'?>([^>]+?)<\/a>/\[a href="$1"\]$2\[\/a\]/isg;
-
-	$s = remove_tags($s);
-
-	# Transform back links
-	$s =~ s/\[a href="?'?([^>"' ]+?)"?'?\]([^\]]+?)\[\/a\]/\<a href="$1">$2<\/a>/isg;
 
 	return $s;
 }
