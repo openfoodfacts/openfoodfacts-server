@@ -1527,11 +1527,11 @@ sub compute_nutrition_score($) {
 		delete $product_ref->{nutriments}{$score_type};
 	}
 
-	my @ref_types = (nutrition_score_warning_no_fiber, nutrition_score_warning_fruits_vegetables_nuts_estimate, 
-	nutrition_score_warning_fruits_vegetables_nuts_from_category, nutrition_score_warning_fruits_vegetables_nuts_from_category_value, 
-	nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients, 
-	nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value, nutrition_score_warning_no_fruits_vegetables_nuts, 
-	nutriscore_score, nutriscore_score_opposite, nutriscore_grade, nutriscore_data, nutriscore_points,
+	my @ref_types = ("nutrition_score_warning_no_fiber", "nutrition_score_warning_fruits_vegetables_nuts_estimate", 
+	"nutrition_score_warning_fruits_vegetables_nuts_from_category", "nutrition_score_warning_fruits_vegetables_nuts_from_category_value", 
+	"nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients", 
+	"nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value", "nutrition_score_warning_no_fruits_vegetables_nuts", 
+	"nutriscore_score", "nutriscore_score_opposite", "nutriscore_grade", "nutriscore_data", "nutriscore_points",
 	"nutrition_grade_fr", "nutrition_grades", "nutrition_grades_tags");
 
 	foreach my $ref_type (@ref_types) {
@@ -2236,8 +2236,8 @@ sub compute_nova_group($) {
 
 	my $product_ref = shift;
 
-	my @nova_keys = (nova_group_debug, nova_group, nova_groups, nova_groups_tags, nova_group_tags, 
-	nova_groups_markers, nova_group_error);
+	my @nova_keys = ("nova_group_debug", "nova_group", "nova_groups", "nova_groups_tags", "nova_group_tags", 
+	"nova_groups_markers", "nova_group_error");
 	
 	foreach my $nova_key (@nova_keys) {
 		delete $product_ref->{$nova_key};
