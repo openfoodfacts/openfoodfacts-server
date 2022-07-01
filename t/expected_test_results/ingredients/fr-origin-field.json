@@ -196,7 +196,7 @@
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
-   "origin_fr" : "Origine des coquillettes : Italie. Origine du Comté AOP 4 mois : France. Origine du jambon supérieur : France. Origine du Vin blanc : Europe. Origine Crème UHT : France. Origine du parmesan : Italie. Fabriqué en France. Tomates d'Italie. Origine du riz : Inde, Thaïlande.",
+   "origin_fr" : "Origine des coquillettes : Italie. Origine du Comté AOP 4 mois : France. Origine du jambon supérieur : France. Vin blanc : Europe. Origine Crème UHT : France. Origine du parmesan : Italie. Fabriqué en France. Tomates d'Italie. Origine du riz : Inde, Thaïlande.",
    "specific_ingredients" : [
       {
          "id" : "fr:coquillettes",
@@ -217,16 +217,22 @@
          "text" : "Origine du jambon supérieur : France."
       },
       {
-         "id" : "en:white-wine",
-         "ingredient" : "Vin blanc",
-         "origins" : "en:europe",
-         "text" : "Origine du Vin blanc : Europe."
-      },
-      {
          "id" : "en:parmesan",
          "ingredient" : "parmesan",
          "origins" : "en:italy",
          "text" : "Origine du parmesan : Italie."
+      },
+      {
+         "id" : "en:white-wine",
+         "ingredient" : "Vin blanc",
+         "origins" : "en:europe",
+         "text" : "Vin blanc : Europe."
+      },
+      {
+         "id" : "fr:Origine Crème UHT",
+         "ingredient" : "Origine Crème UHT",
+         "origins" : "en:france",
+         "text" : "Origine Crème UHT : France."
       },
       {
          "id" : "en:pepper",
