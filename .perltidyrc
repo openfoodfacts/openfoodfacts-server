@@ -24,4 +24,4 @@
 # Don't outdent long quoted strings
 --no-outdent-long-lines
 # Break before all operators
--wbb="% + - * / x != == >= <= =~ !~ < > | & >= < = **= += *= &= <<= &&= -= /= |= >>= ||= .= %= ^= x="
+--break-before-all-operators

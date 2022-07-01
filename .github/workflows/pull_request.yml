@@ -59,8 +59,12 @@ jobs:
         fetch-depth: 50
     - name: install perltidy
       run: sudo apt-get install -y perltidy
+    - name: get tidy version
+      run: perltidy --version
     - name: reformat all perl files
       run: find . -type f \( -name "*.t" -o -name "*.pl" -o -name "*.pm" \) -exec perltidy -pro=.perltidyrc {} \;
+    - name: print error
+      run: cat ./lib/ProductOpener/GeoIP.pm.ERR
     - name: test perl formatting
       run: |
         for i in $(find . -type f \( -name "*.t" -o -name "*.pl" -o -name "*.pm" \))
