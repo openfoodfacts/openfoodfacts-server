@@ -37,10 +37,6 @@ use URI::Escape::XS;
 use Storable qw/dclone/;
 use Log::Any qw($log);
 
-use LWP::UserAgent;
-use JSON;
-
-
 my @user_groups = qw(producer database app bot moderator pro_moderator);
 
 my $type = param('type') || 'add';
@@ -48,32 +44,6 @@ my $action = param('action') || 'display';
 
 # Passing values to the template
 my $template_data_ref = {};
-
-#redirect to ory kratos api 
-if(defined param('flow')){
-	if($action eq 'process'){
-		my $json = {
-			"csrf_token" => "string",
-			"method" => "password",
-			"password" => param('password'),
-			"traits" { 
-				"E-Mail" => param("email"),
-				"User ID" => param('userid'),
-				"Name" => param('Name')
-			}
-		}
-
-		my $ua = LWP::UserAgent->new;
-		my $req = POST 'http://127.0.0.1:4433//self-service/registration';    
-		$req->header( 'Content-Type' => 'application/json' );
-		$req->content( $json );
-
-		my $res = $ua->request($req);
-	}
-}
-else{
-	print redirect(-url=>'http://127.0.0.1:4433//self-service/registration/browser');
-}
 
 # If the "Create user" form was submitted from the product edit page
 # save the password parameter and unset it so that the ProductOpener::Display::init()
