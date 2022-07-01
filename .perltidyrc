@@ -23,7 +23,5 @@
 --nospace-for-semicolon
 # Don't outdent long quoted strings
 --no-outdent-long-lines
-# Add a newline to end of file.
---add-terminal-newline
 # Break before all operators
 -wbb="% + - * / x != == >= <= =~ !~ < > | & >= < = **= += *= &= <<= &&= -= /= |= >>= ||= .= %= ^= x="
