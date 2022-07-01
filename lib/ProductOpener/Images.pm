@@ -92,7 +92,6 @@ BEGIN
 {
 	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-		&display_image_form
 		&process_image_form
 
 		&display_search_image_form
