@@ -3071,15 +3071,21 @@ sub normalize_vitamin($$) {
 	$a =~ s/\s+$//;
 	$a =~ s/^\s+//;
 
+	my %vitamin_translation_map = (
+    'es' => "vitamina $a", 'fr' => "vitamine $a", 
+	'fi' => "$a-vitamiini", 
+	'it' => "vitamina $a", 
+    'is' => "vitamine $a",
+	'nl' => "$a-vítamín",
+	'pl' => "witamina $a"
+	);
+
 	# does it look like a vitamin code?
 	if ($a =~ /^[a-z][a-z]?-? ?\d?\d?$/i) {
-		($lc eq 'es') and return "vitamina $a";
-		($lc eq 'fr') and return "vitamine $a";
-		($lc eq 'fi') and return "$a-vitamiini";
-		($lc eq 'it') and return "vitamina $a";
-		($lc eq 'nl') and return "vitamine $a";
-		($lc eq 'is') and return "$a-vítamín";
-		($lc eq 'pl') and return "witamina $a";
+
+		if (exists($vitamin_translation_map{$lc})) {
+		return $vitamin_translation_map{$lc};
+		}
 		return "vitamin $a";
 	}
 	else {
@@ -4877,24 +4883,24 @@ sub preparse_ingredients_text($$) {
 	# vitamines (A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E)	
 
 	my @vitaminssuffixes = (
-"a", "rétinol",
-"b", "b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9", "b10", "b11", "b12",
-"thiamine",
-"riboflavine",
-"niacine",
-"pyridoxine",
-"cobalamine",
-"biotine",
-"acide pantothénique",
-"acide folique",
-"c", "acide ascorbique",
-"d", "d2", "d3", "cholécalciférol",
-"e", "tocophérol", "alphatocophérol", "alpha-tocophérol",
-"f",
-"h",
-"k", "k1", "k2", "k3",
-"p", "pp",
-);
+		"a", "rétinol",
+		"b", "b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9", "b10", "b11", "b12",
+		"thiamine",
+		"riboflavine",
+		"niacine",
+		"pyridoxine",
+		"cobalamine",
+		"biotine",
+		"acide pantothénique",
+		"acide folique",
+		"c", "acide ascorbique",
+		"d", "d2", "d3", "cholécalciférol",
+		"e", "tocophérol", "alphatocophérol", "alpha-tocophérol",
+		"f",
+		"h",
+		"k", "k1", "k2", "k3",
+		"p", "pp",
+	);
 	my $vitaminsprefixregexp = "vit|vit\.|vitamine|vitamines";
 
 	# Add synonyms in target language

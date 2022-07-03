@@ -228,7 +228,19 @@ sub normalize_nutriment_value_and_modifier($$) {
 	return;
 }
 
-# Return the default unit that we convert everything to internally
+=head2 default_unit_for_nid ( $nid)
+
+Return the default unit that we convert everything to internally
+
+=head3 Parameters
+
+$nid: String
+
+=head3 Return values
+
+Default value for that certain unit
+
+=cut
 
 sub default_unit_for_nid($) {
 
@@ -236,23 +248,16 @@ sub default_unit_for_nid($) {
 
 	$nid =~ s/_prepared//;
 
-	if ($nid eq "energy-kj") {
-		return "kJ";
-	}
-	elsif ($nid eq "energy-kcal") {
-		return "kcal";
-	}
-	elsif ($nid eq "energy") {
-		return "kJ";
-	}
-	elsif ($nid eq "alcohol") {
-		return "% vol";
+	my %default_unit_for_nid_map = (
+    "energy-kj" => "kJ", "energy-kcal" => "kcal", "energy" => "kJ", "alcohol" => "% vol", 
+    'water-hardness' => "mmol/l"
+	);
+
+	if (exists($default_unit_for_nid_map{$nid})) {
+		return $default_unit_for_nid_map{$nid};
 	}
 	elsif (($nid =~ /^fruits/) or ($nid =~ /^collagen/)) {
 		return "%";
-	}
-	elsif ($nid eq 'water-hardness') {
-		return "mmol/l";
 	}
 	else {
 		return "g";
@@ -1184,6 +1189,24 @@ foreach my $l (@Langs) {
 
 $log->debug("Nutrient levels initialized") if $log->is_debug();
 
+=head2 canonicalize_nutriment ( $product_ref )
+
+Canonicalizes the nutrients unput by the user in the nutrition table product edit. 
+This sub converts these nutrients (which are arguments to this function), into a recognizable/standard form.
+
+=head3 Parameters
+
+Two strings are passed,
+$target_lc: The language in which the nutriment is (example: "en", "fr")
+$nutrient: The nutrient that needs to be canonicalized. (the user input nutrient, example: "AGS", "unsaturated-fat")
+
+=head3 Return values
+
+Returns the $nid (a string)
+
+Example: For the parameter "dont saturés", we get the $nid as "saturated fat"
+
+=cut
 
 sub canonicalize_nutriment($$) {
 
@@ -1431,8 +1454,6 @@ sub special_process_product($) {
 sub fix_salt_equivalent($) {
 
 	my $product_ref = shift;
-
-	# salt
 
 	# EU fixes the conversion: sodium = salt / 2.5 (instead of 2.54 previously)
 
@@ -1773,8 +1794,6 @@ sub compute_nutrition_score($) {
 }
 
 
-
-
 sub compute_serving_size_data($) {
 
 	my $product_ref = shift;
@@ -1970,11 +1989,12 @@ sub compute_carbon_footprint_infocard($) {
 
 	if (not ((has_tag($product_ref, "countries", "en:france")) and (defined $product_ref->{ingredients_text})
 		and (length($product_ref->{ingredients_text}) > 5))) {
-		delete $product_ref->{environment_impact_level};
-		delete $product_ref->{environment_impact_level_tags};
-		delete $product_ref->{environment_infocard};
-		delete $product_ref->{environment_infocard_en};
-		delete $product_ref->{environment_infocard_fr};
+		
+		foreach my $ref_type ("environment_impact_level", "environment_impact_level_tags", 
+		"environment_infocard", "environment_infocard_en", "environment_infocard_fr") {
+			delete $product_ref->{$ref_type};
+		}
+
 		return;
 	}
 
