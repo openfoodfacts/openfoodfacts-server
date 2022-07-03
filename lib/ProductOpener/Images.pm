@@ -440,7 +440,7 @@ JS
 ;
 
 	process_template('web/common/includes/display_search_image_form.tt.html', 
-	$template_data_ref_tags_translate, \$html) || return "template error: " . $tt->error();
+	$template_data_ref, \$html) || return "template error: " . $tt->error();
 
 	return $html;
 }
