@@ -361,7 +361,6 @@ sub display_search_image_form($) {
 	my $template_data_ref = {
 		product_image_with_barcode => $product_image_with_barcode,
 		id => $id,
-		display => $display,
 		lang => \&lang,
 		display_icon => \&display_icon,
 	};
