@@ -4730,7 +4730,7 @@ sub customize_response_for_product($$) {
 		# The environment infocard now displays the Eco-Score details
 		elsif (($field =~ /^environment_infocard/) or ($field eq "ecoscore_details_simple_html")) {
 				if ((1 or $show_ecoscore) and (defined $product_ref->{ecoscore_data})) {
-						$customized_product_ref->{$field} = display_ecoscore_calculation_details_simple_html($cc, $product_ref->{ecoscore_data});
+						$customized_product_ref->{$field} = display_ecoscore_calculation_details_simple_html($cc, $product_ref->{ecoscore_data}, 1);
 				}
 		}
 
@@ -10991,23 +10991,24 @@ sub _format_comment {
 	return $comment;
 }
 
+=head2 display_ecoscore_calculation( $cc, $ecoscore_data_ref )
 
-=head2 display_ecoscore_calculation_details( $cc, $ecoscore_data_ref )
-
-Generates HTML code with information on how the Eco-score was computed for a particular product.
+Generates HTML code with information on how the Eco-score was computed for a particular product. 
+Depending on the third parameter passed, it will generate a simple html for mobile or the standard html.
 
 =head3 Parameters
 
-=head4 country code $cc
-
-=head4 ecoscore data $ecoscore_data_ref
+country code $cc
+boolean $simple_html_mobile (1/0)
+ecoscore data $ecoscore_data_ref
 
 =cut
 
-sub display_ecoscore_calculation_details($$) {
+sub display_ecoscore_calculation_details($$$) {
 
 	my $ecoscore_cc = shift;
 	my $ecoscore_data_ref = shift;
+	my $simple_html_mobile = shift;
 
 	# Generate a data structure that we will pass to the template engine
 
@@ -11015,34 +11016,17 @@ sub display_ecoscore_calculation_details($$) {
 
 	# Eco-score Calculation Template
 
-	my $html;
-	process_template('web/pages/product/includes/ecoscore_details.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
+	if ($simple_html_mobile == 1) {
+		my $html;
+		process_template('web/pages/product/includes/ecoscore_details_simple_html.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
+		return $html;	
+	}
+	else {
+		my $html;
+		process_template('web/pages/product/includes/ecoscore_details.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
+		return $html;
+	}
 
-	return $html;
-}
-
-
-=head2 display_ecoscore_calculation_details_simple_html( $ecoscore_cc, $ecoscore_data_ref )
-
-Generates simple HTML code (to display in a mobile app) with information on how the Eco-score was computed for a particular product.
-
-=cut
-
-sub display_ecoscore_calculation_details_simple_html($$) {
-
-	my $ecoscore_cc = shift;
-	my $ecoscore_data_ref = shift;
-
-	# Generate a data structure that we will pass to the template engine
-
-	my $template_data_ref = dclone($ecoscore_data_ref);
-
-	# Eco-score Calculation Template
-
-	my $html;
-	process_template('web/pages/product/includes/ecoscore_details_simple_html.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
-
-	return $html;
 }
 
 
@@ -11163,6 +11147,7 @@ sub search_and_analyze_recipes($$) {
 	return $html;
 }
 
+# This Sub is not being called anywhere currently. how useful is it?
 
 =head2 display_properties( $cc, $ecoscore_data_ref )
 
