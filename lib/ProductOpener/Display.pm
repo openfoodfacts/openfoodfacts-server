@@ -8218,7 +8218,7 @@ JS
 	return;
 }
 
-sub display_product_jqm ($) # jquerymobile
+sub display_product_jqm ($) 
 {
 	my $request_ref = shift;
 
