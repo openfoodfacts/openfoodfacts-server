@@ -3065,33 +3065,26 @@ sub normalize_vitamin($$) {
 
 	my $lc = shift;
 	my $a = shift;
-
 	$log->debug("normalize vitamin", { vitamin => $a }) if $log->is_debug();
-
 	$a =~ s/\s+$//;
 	$a =~ s/^\s+//;
 
-	my %vitamin_translation_map = (
-    'es' => "vitamina $a", 'fr' => "vitamine $a", 
-	'fi' => "$a-vitamiini", 
-	'it' => "vitamina $a", 
-    'is' => "vitamine $a",
-	'nl' => "$a-vítamín",
-	'pl' => "witamina $a"
-	);
-
 	# does it look like a vitamin code?
 	if ($a =~ /^[a-z][a-z]?-? ?\d?\d?$/i) {
-
-		if (exists($vitamin_translation_map{$lc})) {
-		return $vitamin_translation_map{$lc};
-		}
+		($lc eq 'es') and return "vitamina $a";
+		($lc eq 'fr') and return "vitamine $a";
+		($lc eq 'fi') and return "$a-vitamiini";
+		($lc eq 'it') and return "vitamina $a";
+		($lc eq 'nl') and return "vitamine $a";
+		($lc eq 'is') and return "$a-vítamín";
+		($lc eq 'pl') and return "witamina $a";
 		return "vitamin $a";
 	}
 	else {
 		return $a;
 	}
 }
+
 
 sub normalize_vitamins_enumeration($$) {
 

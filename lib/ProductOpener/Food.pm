@@ -250,7 +250,7 @@ sub default_unit_for_nid($) {
 
 	my %default_unit_for_nid_map = (
     "energy-kj" => "kJ", "energy-kcal" => "kcal", "energy" => "kJ", "alcohol" => "% vol", 
-    'water-hardness' => "mmol/l"
+    "water-hardness" => "mmol/l"
 	);
 
 	if (exists($default_unit_for_nid_map{$nid})) {
