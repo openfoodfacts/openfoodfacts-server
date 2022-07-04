@@ -332,7 +332,7 @@ sub has_baby_brand_tag($) {
 				return $flag;
 			}
 		}
-	return flag;
+	return $flag;
 }
 
 # Determine if a tag is a child of another tag (or the same tag)
