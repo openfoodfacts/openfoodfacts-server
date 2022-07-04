@@ -6822,10 +6822,6 @@ sub display_page($) {
 
 	${$content_ref} =~ s/<SITE>/$site/g;
 
-	$title =~ s/<SITE>/$site/g;
-
-	$title =~ s/<([^>]*)>//g;
-
 	my $textid = undef;
 	if ((defined $description) and ($description =~ /^textid:/)) {
 		$textid = $';
@@ -6843,6 +6839,10 @@ sub display_page($) {
 
 	my $canon_title = '';
 	if (defined $title) {
+		$title =~ s/<SITE>/$site/g;
+
+		$title =~ s/<([^>]*)>//g;
+
 		$title = remove_tags_and_quote($title);
 	}
 	my $canon_description = '';
