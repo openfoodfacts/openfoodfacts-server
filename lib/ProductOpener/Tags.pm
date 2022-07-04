@@ -318,6 +318,22 @@ sub has_tag($$$) {
 	return $return;
 }
 
+# Helper function to tell if a product is a "baby product"
+sub has_baby_brand_tag($) {
+
+	my $product_ref = shift;
+	my $flag = 0;
+	foreach my $brand_name ("amilk", "babycare", "celia-ad", "celia-develop", "celia-expert", "celia-nutrition",
+	"enfastar", "fbb", "fl", "frezylac", "gromore", "malyatko", "mamy", "milumel", "milumel", "neoangelac", "nophenyl",
+	"novil", "ostricare", "pc", "picot", "sanutri") {
+			if ( has_tag($product_ref, "brands", $brand_name) ) {
+				$flag = 1;
+				return $flag;
+			}
+		}
+	return flag;
+}
+
 # Determine if a tag is a child of another tag (or the same tag)
 # assume tags are already canonicalized
 sub is_a($$$) {
