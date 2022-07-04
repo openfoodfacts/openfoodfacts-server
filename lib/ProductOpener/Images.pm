@@ -499,12 +499,6 @@ sub process_search_image_form($) {
 }
 
 
-sub dims {
-	my ($image) = @_;
-	return $image->Get('width') . 'x' . $image->Get('height');
-}
-
-
 
 =head2 get_code_and_imagefield_from_file_name ( $l $filename )
 
