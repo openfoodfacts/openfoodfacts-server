@@ -7507,7 +7507,7 @@ CSS
 		$template_data_ref->{ecoscore_grade_lc} = $product_ref->{ecoscore_data}{"grade"};
 		$template_data_ref->{ecoscore_score} = $product_ref->{ecoscore_data}{"score"};
 		$template_data_ref->{ecoscore_data} = $product_ref->{ecoscore_data};
-		$template_data_ref->{ecoscore_calculation_details} = display_ecoscore_calculation_details($cc, $product_ref->{ecoscore_data});
+		$template_data_ref->{ecoscore_calculation_details} = display_ecoscore_calculation_details($cc, $product_ref->{ecoscore_data}, 0);
 	}
 
 	# Knowledge panels are in development, they can be activated with the "panels" parameter
@@ -11146,8 +11146,6 @@ sub search_and_analyze_recipes($$) {
 
 	return $html;
 }
-
-# This Sub is not being called anywhere currently. how useful is it?
 
 =head2 display_properties( $cc, $ecoscore_data_ref )
 
