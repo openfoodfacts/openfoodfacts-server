@@ -4730,7 +4730,7 @@ sub customize_response_for_product($$) {
 		# The environment infocard now displays the Eco-Score details
 		elsif (($field =~ /^environment_infocard/) or ($field eq "ecoscore_details_simple_html")) {
 				if ((1 or $show_ecoscore) and (defined $product_ref->{ecoscore_data})) {
-						$customized_product_ref->{$field} = display_ecoscore_calculation_details_simple_html($cc, $product_ref->{ecoscore_data}, 1);
+						$customized_product_ref->{$field} = display_ecoscore_calculation_details($cc, $product_ref->{ecoscore_data}, 1);
 				}
 		}
 
