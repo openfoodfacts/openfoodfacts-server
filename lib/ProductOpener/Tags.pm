@@ -329,10 +329,10 @@ sub has_one_of_the_tags_from_the_list {
 	foreach my $tag_name (@$tag_list_ref) {
 			if ( has_tag($product_ref, $tagtype, $tag_name) ) {
 				$flag = 1;
-				return $flag;
+				return 1;
 			}
 		}
-	return $flag;
+	return 0;
 }
 
 # Determine if a tag is a child of another tag (or the same tag)
