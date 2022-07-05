@@ -62,7 +62,6 @@ BEGIN
 		&display_tag
 		&display_search_results
 		&display_error
-		&gen_feeds
 
 		&add_product_nutriment_to_stats
 		&compute_stats_for_products
