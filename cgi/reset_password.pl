@@ -60,6 +60,13 @@ my $userid = undef;
 
 my $html = '';
 
+if(defined param('flow')){
+	
+}
+else{
+	print redirect(-url=>'http://127.0.0.1:4433//self-service/recovery/browser');
+}
+
 if (defined $User_id) {
 	display_error($Lang{error_reset_already_connected}{$lang}, undef);
 }

@@ -29,7 +29,7 @@ selfservice:
 
     recovery:
       enabled: true
-      ui_url: http://127.0.0.1:4455/recovery
+      ui_url: http://world.openfoodfacts.localhost/cgi/reset_password.pl
 
     verification:
       enabled: true
