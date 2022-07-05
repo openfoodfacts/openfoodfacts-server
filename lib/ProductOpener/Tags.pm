@@ -323,12 +323,9 @@ sub has_tag($$$) {
 sub has_one_of_the_tags_from_the_list {
 	
 	my($product_ref, $tagtype, $tag_list_ref) = @_;
-	
-	my $flag = 0;
 
 	foreach my $tag_name (@$tag_list_ref) {
 			if ( has_tag($product_ref, $tagtype, $tag_name) ) {
-				$flag = 1;
 				return 1;
 			}
 		}
