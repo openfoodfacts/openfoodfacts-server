@@ -26,7 +26,7 @@ use utf8;
 use CGI::Carp qw(fatalsToBrowser);
 use CGI       qw/:cgi :form escapeHTML/;
 
-use ProductOpener::Config    qw/:all/;
+use ProductOpener::Config        qw/:all/;
 use ProductOpener::Store         qw/:all/;
 use ProductOpener::Index         qw/:all/;
 use ProductOpener::Display       qw/:all/;
