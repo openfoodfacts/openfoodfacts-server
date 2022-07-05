@@ -38,13 +38,40 @@
           }
         },
         "name": {
-          "type": "object",
+          "title": "Name",
+          "type": "string"  
+        },
+        "Teams": {
           "properties": {
-            "name": {
-              "title": "Name",
-              "type": "string"
+            "Team 1": {
+              "type": "string",
+              "title": "Team 1"
+            },
+            "Team 2": {
+              "type": "string",
+              "title": "Team 2"
+            },
+            "Team 3": {
+              "type": "string",
+              "title": "Team 3"
             }
           }
+        },
+        "Professional Account": {
+          "title": "Professional Account",
+          "type": "boolean"
+        },
+        "newsletter": {
+          "title": "Subscribe to newsletter",
+          "type": "boolean"
+        },
+        "Display Barcode": {
+          "title": "Display barcode in search results",
+          "type": "boolean"
+        },
+        "Add Edit Link": {
+          "title": "Add an edit link in search results",
+          "type": "boolean"
         }
       },
       "required": [
