@@ -60,10 +60,7 @@ my $userid = undef;
 
 my $html = '';
 
-if(defined param('flow')){
-	
-}
-else{
+if(not defined param('flow')){
 	print redirect(-url=>'http://127.0.0.1:4433//self-service/recovery/browser');
 }
 
