@@ -62,7 +62,6 @@ BEGIN
 		&display_tag
 		&display_search_results
 		&display_error
-		&gen_feeds
 
 		&add_product_nutriment_to_stats
 		&compute_stats_for_products
@@ -6822,10 +6821,6 @@ sub display_page($) {
 
 	${$content_ref} =~ s/<SITE>/$site/g;
 
-	$title =~ s/<SITE>/$site/g;
-
-	$title =~ s/<([^>]*)>//g;
-
 	my $textid = undef;
 	if ((defined $description) and ($description =~ /^textid:/)) {
 		$textid = $';
@@ -6843,6 +6838,10 @@ sub display_page($) {
 
 	my $canon_title = '';
 	if (defined $title) {
+		$title =~ s/<SITE>/$site/g;
+
+		$title =~ s/<([^>]*)>//g;
+
 		$title = remove_tags_and_quote($title);
 	}
 	my $canon_description = '';

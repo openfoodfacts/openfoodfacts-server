@@ -112,7 +112,6 @@ BEGIN
 
 		&find_and_replace_user_id_in_products
 
-		&add_users_team
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }

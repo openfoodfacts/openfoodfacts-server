@@ -30640,6 +30640,7 @@ pnns_group_2:en:Biscuits and cakes
 # for English, we make cookies a synonym of biscuits
 # for other languages, cookies a separate entry corresponding to "Drop cookies" in English
 # <en:compound
+
 <en:Biscuits and cakes
 en:Biscuits, biscuit, cookies, cookie
 ar:بسكويت
@@ -44284,8 +44285,8 @@ ca:Skyr
 da:Skyr
 de:Skyr
 es:Skyr
-fi:Skyrs, Skyr
-fr:Skyr
+fi:Skyr
+fr:Skyrs, Skyr
 is:Skyr
 it:Skyr
 ja:スキール
@@ -54435,6 +54436,9 @@ agribalyse_proxy_food_name:en:Wheat flour, type 45 (for pastry)
 agribalyse_proxy_food_name:fr:Farine de blé tendre ou froment T45 (pour pâtisserie)
 
 <en:Wheat flours
+en:refined wheat flour, maida
+
+<en:Wheat flours
 en:Self-raising wheat flour
 fr:Farine de blé tendre avec levure incorporée, Farine de froment avec levure incorporée
 agribalyse_food_code:en:9437
@@ -54591,9 +54595,6 @@ bg:Брашно от лимец
 es:Harinas de trigo escaña cultivada, Harinas de escaña
 fr:Farines de petit épeautre, Farines d'engrain
 nl:Eenkoornmelen
-
-<en:Wheat flours
-en:refined wheat flour, maida
 
 <en:Einkorn wheat flours
 <en:Wheat flour T405
@@ -70442,6 +70443,39 @@ it:Jerky di manzo, Manzo essiccato
 nl:Beef jerkies, Beef jerky
 
 <en:Meats
+en:Steaks
+de:Steaks
+es:Filetes
+fi:pihvit
+fr:Steaks, steacks
+he:סטייקים
+it:Bistecche
+nl:Steaks
+zh:肉排
+
+<en:Meats
+en:Meat patties
+fr:Galettes de viande
+
+<en:Steaks
+<en:Meat patties
+en:Ground steaks
+de:Hackfleischsteaks, Hacksteaks
+es:Filetes picado
+fi:jauhelihapihvit
+fr:Steaks hachés, Steak haché
+it:Carne macinata e hamburger
+nl:Tartaarsteaks
+
+<en:Meat patties
+en:Beef based burger with 15% fat
+fr:Haché à base de bœuf cru à 15% de matières grasses, Préparation de viande hachée de boeuf crue à 15% de matières grasses
+agribalyse_food_code:en:6260
+ciqual_food_code:en:6260
+ciqual_food_name:en:Burger, beef based, 15% fat, raw
+ciqual_food_name:fr:Haché à base de bœuf ou Préparation de viande hachée de boeuf, 15% MG, cru
+
+<en:Meats
 en:Snails
 bg:Охлюви
 de:Schnecken
@@ -71574,26 +71608,6 @@ en:Quail fresh meat
 nl:Verse kwartelvlezen
 
 <en:Meats
-en:Steaks
-de:Steaks
-es:Filetes
-fi:pihvit
-fr:Steaks, steacks
-he:סטייקים
-it:Bistecche
-nl:Steaks
-zh:肉排
-
-<en:Steaks
-en:Ground steaks
-de:Hackfleischsteaks, Hacksteaks
-es:Filetes picado
-fi:jauhelihapihvit
-fr:Steaks hachés, Steak haché
-it:Carne macinata e hamburger
-nl:Tartaarsteaks
-
-<en:Meats
 en:Meat preparations
 bg:Месни заготовки
 ca:Preparat de carn
@@ -71690,6 +71704,7 @@ fr:Tartares de boeuf
 fr:Américains préparés, hâchés américains
 
 <en:Beef
+<en:Steaks
 en:Beef steaks
 de:Rindersteaks
 es:Filetes de ternera
@@ -71876,6 +71891,7 @@ ciqual_food_name:en:Veal stock, prepacked
 ciqual_food_name:fr:Fond de veau, préemballé
 
 <en:Frozen meats
+<en:Steaks
 en:Frozen steaks
 de:Tiefkühlsteaks, Gefrorene Steaks
 fi:pakastetut pihvit
@@ -71972,6 +71988,7 @@ ru:Свежее мясо
 zh:鲜肉
 
 <en:Fresh meats
+<en:Steaks
 en:Fresh ground steaks
 de:Frische Hacksteaks
 fi:Tuoreet jauhelihapihvit
@@ -72926,6 +72943,11 @@ agribalyse_food_code:en:28927
 ciqual_food_code:en:28927
 ciqual_food_name:en:Poultry, minced meat
 ciqual_food_name:fr:Haché de volaille
+
+# Chicken patties are generally called "chicken burgers", but it is not put as a synonym since it could be confused with "chicken hamburgers"
+<en:Chickens
+en:Chicken patties
+fr:Galettes au poulet
 
 <en:Chickens
 <en:Meat preparations
@@ -80624,18 +80646,6 @@ ciqual_food_name:en:Cheeseburger, double, from fast foods restaurant
 ciqual_food_name:fr:Double cheeseburger, provenant de fast food
 
 <en:Sandwiches
-en:Fish burgers
-fr:Burgers au poisson, Burgers de la mer, Burgers de cabillaud
-agribalyse_food_code:en:25416
-ciqual_food_code:en:25416
-ciqual_food_name:en:Fish burger, fast foods restaurant
-ciqual_food_name:fr:Burger au poisson
-
-<en:Fish burgers
-en:Salmon burger
-wikidata:en:Q7405551
-
-<en:Sandwiches
 en:Pan bagnat, Large round sandwich with lettuce tuna anchovy and black olives
 fr:Pan bagnat
 agribalyse_food_code:en:25513
@@ -80692,21 +80702,21 @@ ciqual_food_name:en:Hamburger, from fast foods restaurant
 ciqual_food_name:fr:Hamburger, provenant de fast food
 
 <en:Hamburgers
-en:Beef based burger with 15% fat
-fr:Haché à base de bœuf cru à 15% de matières grasses, Préparation de viande hachée de boeuf crue à 15% de matières grasses
-agribalyse_food_code:en:6260
-ciqual_food_code:en:6260
-ciqual_food_name:en:Burger, beef based, 15% fat, raw
-ciqual_food_name:fr:Haché à base de bœuf ou Préparation de viande hachée de boeuf, 15% MG, cru
-
-<en:Sandwiches
-en:Chicken burger
-fr:Burger au poulet
+en:Chicken hamburgers, Chicken burger
+fr:Hamburgers au poulet, Burger au poulet
 agribalyse_food_code:en:25502
 ciqual_food_code:en:25502
 ciqual_food_name:en:Chicken burger , fast foods restaurant
 
-<en:Sandwiches
+<en:Hamburgers
+en:Fish hamburgers, Fish burgers
+fr:Hamburgers au poisson, Burgers au poisson, Burgers de la mer, Burgers de cabillaud
+agribalyse_food_code:en:25416
+ciqual_food_code:en:25416
+ciqual_food_name:en:Fish burger, fast foods restaurant
+ciqual_food_name:fr:Burger au poisson
+
+<en:Hamburgers
 en:Vegetarian hamburgers, Veggie burgers
 ca:Hamburgueses vegetals
 de:Vegetarische Hamburger
@@ -82242,6 +82252,11 @@ ru:Рыба
 sv:Fiskar, fisk
 zh:鱼类
 wikidata:en:Q600396
+
+# Fish patties are generally called "fish burgers", but it is not put as a synonym since it could be confused with "fish hamburgers"
+<en:Fishes
+en:Fish patties
+fr:Galettes au poisson
 
 <en:Seafood
 <en:Frozen foods
