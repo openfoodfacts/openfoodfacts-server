@@ -206,4 +206,14 @@ foreach my $change_ref (@get_change_userid_or_uuid_tests) {
 
 }
 
+$product_ref = {"languages" => {}, "category_properties" => {}, "categories_properties" => {}, "name" => "test_prod"};
+my $fields_to_remove = ["languages", "category_properties", "categories_properties"];
+
+remove_fields($product_ref, $fields_to_remove);
+
+foreach my $rem_field (@$fields_to_remove) {
+	is ($product_ref->{$rem_field}, undef);
+}
+is ($product_ref->{name}, "test_prod");
+
 done_testing();

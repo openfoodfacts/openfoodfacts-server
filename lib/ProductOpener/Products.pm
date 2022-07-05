@@ -114,7 +114,7 @@ BEGIN
 
 		&add_users_team
 
-		remove_fields
+		&remove_fields
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
