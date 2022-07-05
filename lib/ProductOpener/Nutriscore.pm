@@ -65,7 +65,7 @@ to the hash passed in parameter with the corresponding amount of positive or neg
 
 package ProductOpener::Nutriscore;
 
-use ProductOpener::Module;
+use ProductOpener::PerlStandards;
 
 use Exporter    qw< import >;
 

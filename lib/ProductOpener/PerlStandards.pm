@@ -18,7 +18,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-package ProductOpener::Module;
+package ProductOpener::PerlStandards;
 
 use 5.24.0;
 use strict;
@@ -47,11 +47,11 @@ __END__
 
 =head1 NAME
 
-ProductOpener::Module - Use modern Perl features
+ProductOpener::PerlStandards - Use modern Perl features
 
 =head1 SYNOPSIS
 
-    use ProductOpener::Module;
+    use ProductOpener::PerlStandards;
 
 =head1 DESCRIPTION
 
