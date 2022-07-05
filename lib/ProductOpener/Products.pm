@@ -241,7 +241,7 @@ sub assign_new_code() {
 =head2 normalize_code()
 
 C<normalize_code()> this function normalizes the product code by:
-- Keeps only digits and removes spaces/dahes etc.
+- Keeps only digits and removes spaces/dashes etc.
 - Normalizes the length by adding leading zeroes or removing the leading zero (in case of 14 digit codes)
 
 =head3 Arguments
