@@ -3005,7 +3005,7 @@ sub product_data_is_protected($) {
 
 =head2 delete_fields ($product_ref, $fields_ref)
 
-Utility function to delete fields from a product_ref.
+Utility function to delete fields from a product_ref or a subfield.
 
 =head3 Parameters
 

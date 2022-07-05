@@ -117,6 +117,7 @@ use ProductOpener::Numbers qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Text qw/:all/;
 use ProductOpener::FoodGroups qw/:all/;
+use ProductOpener::Products qw(&remove_fields);
 
 use Hash::Util;
 use Encode;
@@ -1519,24 +1520,18 @@ sub compute_nutrition_score($) {
 
 	$product_ref->{nutrition_score_debug} = '';
 
-	my @score_types = ("nutrition-score", "nutrition-score_100g", "nutrition-score_serving", "nutrition-score-fr", 
-	"nutrition-score-fr_100g", "nutrition-score-fr_serving", "nutrition-score-uk", 
-	"nutrition-score-uk_100g", "nutrition-score-uk_serving");
-	
-	foreach my $score_type (@score_types) {
-		delete $product_ref->{nutriments}{$score_type};
-	}
+	# remove reference type fields from the product
+	remove_fields($product_ref, ["nutrition_score_warning_no_fiber", "nutrition_score_warning_fruits_vegetables_nuts_estimate",
+		"nutrition_score_warning_fruits_vegetables_nuts_from_category", "nutrition_score_warning_fruits_vegetables_nuts_from_category_value",
+		"nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients",
+		"nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value", "nutrition_score_warning_no_fruits_vegetables_nuts",
+		"nutriscore_score", "nutriscore_score_opposite", "nutriscore_grade", "nutriscore_data", "nutriscore_points",
+		"nutrition_grade_fr", "nutrition_grades", "nutrition_grades_tags"]);
 
-	my @ref_types = ("nutrition_score_warning_no_fiber", "nutrition_score_warning_fruits_vegetables_nuts_estimate", 
-	"nutrition_score_warning_fruits_vegetables_nuts_from_category", "nutrition_score_warning_fruits_vegetables_nuts_from_category_value", 
-	"nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients", 
-	"nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value", "nutrition_score_warning_no_fruits_vegetables_nuts", 
-	"nutriscore_score", "nutriscore_score_opposite", "nutriscore_grade", "nutriscore_data", "nutriscore_points",
-	"nutrition_grade_fr", "nutrition_grades", "nutrition_grades_tags");
-
-	foreach my $ref_type (@ref_types) {
-		delete $product_ref->{$ref_type};
-	}
+	# strip score-type fields from the product
+	remove_fields($product_ref->{nutriments}, ["nutrition-score", "nutrition-score_100g", "nutrition-score_serving", "nutrition-score-fr",
+		"nutrition-score-fr_100g", "nutrition-score-fr_serving", "nutrition-score-uk",
+	"nutrition-score-uk_100g", "nutrition-score-uk_serving"]);
 
 	$product_ref->{misc_tags} = ["en:nutriscore-not-computed"];
 
@@ -2236,16 +2231,10 @@ sub compute_nova_group($) {
 
 	my $product_ref = shift;
 
-	my @nova_keys = ("nova_group_debug", "nova_group", "nova_groups", "nova_groups_tags", "nova_group_tags", 
-	"nova_groups_markers", "nova_group_error");
-	
-	foreach my $nova_key (@nova_keys) {
-		delete $product_ref->{$nova_key};
-	}
-
-	delete $product_ref->{nutriments}{"nova-group"};
-	delete $product_ref->{nutriments}{"nova-group_100g"};
-	delete $product_ref->{nutriments}{"nova-group_serving"};
+	# remove nova keys.
+	remove_fields($product_ref, ["nova_group_debug", "nova_group", "nova_groups", "nova_groups_tags", "nova_group_tags",
+		"nova_groups_markers", "nova_group_error"]);
+	remove_fields($product_ref->{nutriments}, ["nova-group", "nova-group_100g", "nova-group_serving"]);
 
 	$product_ref->{nova_group_debug} = "";
 

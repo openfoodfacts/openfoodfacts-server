@@ -38,7 +38,6 @@ package ProductOpener::Display;
 use utf8;
 use Modern::Perl '2017';
 use Exporter qw(import);
-use ProductOpener::Products qw(remove_fields);
 
 BEGIN
 {
