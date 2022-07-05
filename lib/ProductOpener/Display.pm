@@ -8302,17 +8302,18 @@ HTML
 ;
 
 	}
-	elsif (($lc eq 'fr') and (has_tag($product_ref, "categories","en:baby-milks")) and (has_baby_brand_tag($product_ref))) 
+	elsif (($lc eq 'fr') and (has_tag($product_ref, "categories","en:baby-milks")) and (has_one_of_the_tags_from_the_list($product_ref, "brands", ["amilk", "babycare", "celia-ad", "celia-develop", "celia-expert", "celia-nutrition",
+	"enfastar", "fbb", "fl", "frezylac", "gromore", "malyatko", "mamy", "milumel", "milumel", "neoangelac", "nophenyl", "novil", "ostricare", "pc", "picot", "sanutri"]))) 
 	{
 
-			$html .= <<HTML
-	<div id="warning_lactalis_201712" style="display: block; background:#ffcc33;color:black;padding:1em;text-decoration:none;">
-	Certains produits de cette marque font partie d'une liste de produits retirés du marché.
-	<br><br>
-	&rarr; <a href="http://www.lactalis.fr/wp-content/uploads/2017/12/ici-1.pdf">Liste des produits et lots concernés</a> sur le site de <a href="http://www.lactalis.fr/information-consommateur/">Lactalis</a>.
-	</div>
-	HTML
-	;
+		$html .= <<HTML
+<div id="warning_lactalis_201712" style="display: block; background:#ffcc33;color:black;padding:1em;text-decoration:none;">
+Certains produits de cette marque font partie d'une liste de produits retirés du marché.
+<br><br>
+&rarr; <a href="http://www.lactalis.fr/wp-content/uploads/2017/12/ici-1.pdf">Liste des produits et lots concernés</a> sur le site de <a href="http://www.lactalis.fr/information-consommateur/">Lactalis</a>.
+</div>
+HTML
+;
 
 	}
 
