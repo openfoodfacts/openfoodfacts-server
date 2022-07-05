@@ -341,7 +341,11 @@ e.g. off:[code]
 
 =head3 Parameters
 
-$Owner id & $code [Product barcode]
+=head4 Owner id
+
+=head4 Code 
+
+Product barcode
 
 In most cases, pass $Owner_id which is initialized by ProductOpener::Users::init_user()
 
@@ -380,7 +384,8 @@ Returns the server for the product, if it is not on the current server.
 
 =head3 Parameters
 
-$product_id
+=head4 $product_id
+
 Product id of the form [code], [owner-id]/[code], or [server-id]:[code] or [server-id]:[owner-id]/[code]
 
 =head3 Return values
@@ -410,8 +415,9 @@ Returns the data root for the product, possibly on another server.
 
 =head3 Parameters
 
-$product_id
-- Product id of the form [code], [owner-id]/[code], or [server-id]:[code]
+=head4 $product_id
+
+Product id of the form [code], [owner-id]/[code], or [server-id]:[code]
 
 =head3 Return values
 
@@ -442,8 +448,9 @@ Returns the www root for the product, possibly on another server.
 
 =head3 Parameters
 
-$product_id
-- Product id of the form [code], [owner-id]/[code], or [server-id]:[code]
+=head4 $product_id
+
+Product id of the form [code], [owner-id]/[code], or [server-id]:[code]
 
 =head3 Return values
 
@@ -1549,7 +1556,8 @@ to determine if the change was done through an app, the OFF userid, or an app sp
 
 =head3 Parameters
 
-$change_ref reference to a change record
+=head4 $change_ref 
+reference to a change record
 
 =head3 Return value
 
@@ -2425,7 +2433,7 @@ This function is called by the web/panels/panel.tt.html template for knowledge p
 
 =head3 Parameters
 
-Product code or reference to product object $code_or_ref
+=head4 Product code or reference to product object $code_or_ref
 
 =cut
 
@@ -3014,9 +3022,9 @@ e.g. official producer data that should not be changed by anonymous users throug
 Product data is protected if it has an owner and if the corresponding organization has
 the "protect data" checkbox checked.
 
-=head3 Parameters
+=head3 Parameters 
 
-$product_ref
+=head4 $product_ref
 
 =head3 Return values
 
