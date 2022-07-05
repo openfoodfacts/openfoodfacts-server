@@ -53,7 +53,7 @@ BEGIN
 		&canonicalize_tag_link
 
 		&has_tag
-		&has_baby_brand_tag
+		&has_one_of_the_tags_from_the_list
 		&add_tag
 		&remove_tag
 		&is_a
