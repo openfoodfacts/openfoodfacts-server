@@ -114,7 +114,6 @@ sub load_agribalyse_data() {
 
 	my $agribalyse_details_by_step_csv_file = $data_root . "/ecoscore/agribalyse/AGRIBALYSE3.0.1_vf.csv.2";
 	
-	my $headers_ref;
 	my $rows_ref = [];
 
 	my $encoding = "UTF-8";
