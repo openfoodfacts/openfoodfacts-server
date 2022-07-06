@@ -47,6 +47,7 @@ BEGIN
 		$crowdin_project_key
 		$robotoff_url
 		%server_options
+		$ORY_ENABLED
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -108,3 +109,5 @@ $robotoff_url = $ENV{ROBOTOFF_URL};
 		minion_admin_server_and_port => "http://0.0.0.0:3003",
 );
 1;
+
+my $ory_enabled = int($ENV{ORY_ENABLED} || 0);

@@ -20,6 +20,7 @@ x-backend-conf: &backend-conf
     - LOG_LEVEL_ROOT
     - LOG_LEVEL_MONGODB
     - INFLUXDB_HOST
+    - ORY_ENABLED
   depends_on:
     - memcached
   volumes:

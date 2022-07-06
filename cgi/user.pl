@@ -47,9 +47,12 @@ my $action = param('action') || 'display';
 # Passing values to the template
 my $template_data_ref = {};
 
-#redirect to ory kratos api if no flow
-if(not defined param('flow')){
-	print redirect(-url=>'http://127.0.0.1:4433//self-service/registration/browser');
+
+if(ORY_ENABLED){
+	#redirect to ory kratos api if no flow
+	if(not defined param('flow')){
+		print redirect(-url=>'http://127.0.0.1:4433//self-service/registration/browser');
+	}
 }
 
 # If the "Create user" form was submitted from the product edit page
@@ -374,24 +377,30 @@ elsif ($action eq 'process') {
 
 		$template_data_ref->{add_user_you_can_edit} = sprintf(lang("add_user_you_can_edit"), lang("get_the_app_link"));
 		$template_data_ref->{add_user_join_the_project} = sprintf(lang("add_user_join_the_project"), lang("site_name"));
-	}
 
-	my $json = {
-		"csrf_token" => "string",
-		"method" => "password",
-		"password" => param('password'),
-		"traits" { 
-			"E-Mail" => param("email"),
-			"User ID" => param('userid'),
-			"Name" => param('Name')
+		if(ORY_ENABLED){
+			my $json = {
+				"csrf_token" => "string",
+				"method" => "password",
+				"password" => param('password'),
+				"traits" => { 
+					"E-Mail" => param("email"),
+					"User ID" => param('userid'),
+					"Name" => param('Name')
+				}
+			};
+
+			my $flow = param("flow");
+			my $uri = 'http://127.0.0.1:4433//self-service/registration';
+			my $url = $uri.$flow;
+			my $req = HTTP::Request->new( 'POST', $url );
+			$req->header( 'Content-Type' => 'application/json' );
+			$req->content( $json );
+
+			my $lwp = LWP::UserAgent->new;
+			$lwp->request( $req );
 		}
 	}
-
-	my $ua = LWP::UserAgent->new;
-	my $req = POST 'http://127.0.0.1:4433//self-service/registration';    
-	$req->header( 'Content-Type' => 'application/json' );
-	$req->content( $json );
-	my $res = $ua->request($req);
 }
 
 $template_data_ref->{debug} = $debug;
