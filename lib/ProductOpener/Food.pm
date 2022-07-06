@@ -1990,7 +1990,7 @@ sub compute_carbon_footprint_infocard($) {
 	if (not ((has_tag($product_ref, "countries", "en:france")) and (defined $product_ref->{ingredients_text})
 		and (length($product_ref->{ingredients_text}) > 5))) {
 		
-		state @product_fields_to_delete = ("environment_impact_level", "environment_impact_level_tags", 
+		my @product_fields_to_delete = ("environment_impact_level", "environment_impact_level_tags", 
 		"environment_infocard", "environment_infocard_en", "environment_infocard_fr");
 		
 		remove_fields($product_ref, \@product_fields_to_delete);
