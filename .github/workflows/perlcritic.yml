@@ -19,12 +19,6 @@ jobs:
       run: sudo apt-get install -y cpanminus
     - name: install perlcritic
       run: sudo cpanm Perl::Critic
-#    - name: "Run Perl::Critic" 
-#      uses: Difegue/action-perlcritic@2.1.0
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#      with:
-#        args: cgi/*.pl scripts/*.pl lib/ProductOpener/*.pm lib/*.pl t/*.t
 
     - name: "Run Perl::Critic"
       run: |
@@ -34,7 +28,7 @@ jobs:
           then    
                   echo $result
           else    
-                  echo -e "${i}\n${result}"
+                  echo -e "Problem found with ${i}:\n${result}"
                   exit 1
           fi      
         done
