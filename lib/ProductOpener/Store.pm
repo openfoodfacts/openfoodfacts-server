@@ -30,7 +30,6 @@ BEGIN
 	@EXPORT_OK = qw(
 		&get_urlid
 		&get_fileid
-		&get_ascii_fileid
 		&store
 		&retrieve
 		&store_json
