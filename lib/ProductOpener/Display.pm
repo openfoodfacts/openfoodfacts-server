@@ -35,8 +35,7 @@ and the JSON responses for the API.
 
 package ProductOpener::Display;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter qw(import);
 
 BEGIN
@@ -343,9 +342,7 @@ my %urls_for_texts = (
 	},
 );
 
-sub url_for_text($) {
-
-	my $textid = shift;
+sub url_for_text($textid) {
 
 	# remove starting / if passed
 	$textid =~ s/^\///;
@@ -371,11 +368,7 @@ Add some functions and variables needed by many templates and process the templa
 
 =cut
 
-sub process_template($$$) {
-
-	my $template_filename = shift;
-	my $template_data_ref = shift;
-	my $result_content_ref = shift;
+sub process_template($template_filename, $template_data_ref, $result_content_ref) {
 
 	# Add functions and values that are passed to all templates
 
@@ -454,8 +447,8 @@ $lc : language code
 
 =cut
 
-sub init()
-{
+sub init() {
+
 	# Clear the context
 	delete $log->context->{user_id};
 	delete $log->context->{user_session};
@@ -734,8 +727,7 @@ CSS
 }
 
 # component was specified as en:product, fr:produit etc.
-sub _component_is_singular_tag_in_specific_lc($$) {
-	my ($component, $tag) = @_;
+sub _component_is_singular_tag_in_specific_lc($component, $tag) {
 
 	my $component_lc;
 	if ($component =~ /^(\w\w):/) {
@@ -783,9 +775,8 @@ Sometimes we modify request parameters (param) to correspond to request_ref:
 - code parameter
 
 =cut
-sub analyze_request($)
-{
-	my $request_ref = shift;
+
+sub analyze_request($request_ref) {
 
 	$log->debug("analyzing query_string, step 0 - unmodified", { query_string => $request_ref->{query_string} } ) if $log->is_debug();
 
@@ -1171,9 +1162,7 @@ sub analyze_request($)
 	return 1;
 }
 
-sub _get_date($) {
-
-	my $t = shift;
+sub _get_date($t) {
 
 	if (defined $t) {
 		my @codes = DateTime::Locale->codes;
@@ -1197,9 +1186,8 @@ sub _get_date($) {
 
 }
 
-sub display_date($) {
+sub display_date($t) {
 
-	my $t = shift;
 	my $dt = _get_date($t);
 
 	if (defined $dt) {
@@ -1211,9 +1199,8 @@ sub display_date($) {
 
 }
 
-sub display_date_without_time($) {
+sub display_date_without_time($t) {
 
-	my $t = shift;
 	my $dt = _get_date($t);
 
 	if (defined $dt) {
@@ -1225,8 +1212,8 @@ sub display_date_without_time($) {
 
 }
 
-sub display_date_ymd() {
-	my $t = shift;
+sub display_date_ymd($t) {
+
 	my $dt = _get_date($t);
 	if (defined $dt) {
 		return $dt->ymd;
@@ -1237,9 +1224,8 @@ sub display_date_ymd() {
 }
 
 
-sub display_date_tag($) {
+sub display_date_tag($t) {
 
-	my $t = shift;
 	my $dt = _get_date($t);
 	if (defined $dt) {
 		my $iso = $dt->iso8601;
@@ -1251,9 +1237,8 @@ sub display_date_tag($) {
 	}
 }
 
-sub display_date_iso($) {
+sub display_date_iso($t) {
 
-	my $t = shift;
 	my $dt = _get_date($t);
 	if (defined $dt) {
 		my $iso = $dt->iso8601;
@@ -1264,10 +1249,8 @@ sub display_date_iso($) {
 	}
 }
 
-sub display_error($$)
-{
-	my $error_message = shift;
-	my $status = shift;
+sub display_error($error_message, $status) {
+
 	my $html = "<p>$error_message</p>";
 	display_page( {
 		title => lang('error'),
@@ -1279,9 +1262,7 @@ sub display_error($$)
 }
 
 # Specific index for producer on the platform for producers
-sub display_index_for_producer($) {
-
-	my $request_ref = shift;
+sub display_index_for_producer($request_ref) {
 
 	my $html = "";
 
@@ -1326,9 +1307,8 @@ sub display_index_for_producer($) {
 }
 
 
-sub display_text($)
-{
-	my $request_ref = shift;
+sub display_text($request_ref) {
+
 	my $textid = $request_ref->{text};
 
 	$request_ref->{page_type} = "text";
@@ -1561,9 +1541,8 @@ sub display_text($)
 }
 
 
-sub display_mission($)
-{
-	my $request_ref = shift;
+sub display_mission($request_ref) {
+
 	my $missionid = $request_ref->{missionid};
 
 	open(my $IN, "<:encoding(UTF-8)", "$data_root/lang/$lang/missions/$missionid.html");
@@ -1577,10 +1556,8 @@ sub display_mission($)
 }
 
 
-sub get_cache_results($$){
+sub get_cache_results($key, $request_ref) {
 
-	my $key = shift;
-	my $request_ref = shift;
 	my $results;
 
 	$log->debug("MongoDB hashed query key", { key => $key }) if $log->is_debug();
@@ -1611,9 +1588,8 @@ sub get_cache_results($$){
 	return $results;
 }
 
-sub set_cache_results($$){
-	my $key = shift;
-	my $results = shift;
+sub set_cache_results($key, $results) {
+
 	$log->debug("Setting value for MongoDB query key", { key => $key }) if $log->is_debug();
 
 	if ($mongodb_log->is_debug()) {
@@ -1631,11 +1607,7 @@ sub set_cache_results($$){
 	return;
 }
 
-sub query_list_of_tags($$) {
-
-
-	my $request_ref = shift;
-	my $query_ref = shift;
+sub query_list_of_tags($request_ref, $query_ref) {
 
 	add_country_and_owner_filters_to_query($request_ref, $query_ref);
 
@@ -1834,11 +1806,7 @@ sub query_list_of_tags($$) {
 }
 
 
-sub display_list_of_tags($$) {
-
-
-	my $request_ref = shift;
-	my $query_ref = shift;
+sub display_list_of_tags($request_ref, $query_ref) {
 
 	my $results = query_list_of_tags($request_ref, $query_ref);
 
@@ -2516,11 +2484,7 @@ HEADER
 }
 
 
-sub display_list_of_tags_translate($$) {
-
-
-	my $request_ref = shift;
-	my $query_ref = shift;
+sub display_list_of_tags_translate($request_ref, $query_ref) {
 
 	my $results = query_list_of_tags($request_ref, $query_ref);
 
@@ -2804,10 +2768,7 @@ HEADER
 }
 
 
-sub display_points_ranking($$) {
-
-	my $tagtype = shift;    # users or countries
-	my $tagid   = shift;
+sub display_points_ranking($tagtype, $tagid) {
 
 	local $log->context->{tagtype} = $tagtype;
 	local $log->context->{tagid} = $tagid;
@@ -2927,9 +2888,7 @@ JS
 # explorers and ambassadors points
 # can be called without a tagtype or a tagid, or with a user or a country tag
 
-sub display_points($) {
-
-	my $request_ref = shift;
+sub display_points($request_ref) {
 
 	my $html = "<p>" . lang("openfoodhunt_points") . "</p>\n";
 
@@ -3053,9 +3012,7 @@ HEADER
 # during processing this prefix may be removed from the current url link
 # this will add the prefix back
 # it will put the prefix before the string following the last forward slash in the link
-sub add_tag_prefix_to_link($$) {
-	my $link = shift;
-	my $tag_prefix = shift;
+sub add_tag_prefix_to_link($link, $tag_prefix) {
 	$link =~ s/^(.*)\/(.*)$/$1\/$tag_prefix$2/;
 	return $link;
 }
@@ -3084,9 +3041,7 @@ When displaying a list of tags, the function calls display_list_of_tags().
 
 =cut
 
-sub display_tag($) {
-
-	my $request_ref = shift;
+sub display_tag($request_ref) {
 
 	my $title;
 
@@ -4207,9 +4162,7 @@ The function calls search_and_display_products() to display the paginated list o
 
 =cut
 
-sub display_search_results($) {
-
-	my $request_ref = shift;
+sub display_search_results($request_ref) {
 
 	my $html = '';
 
@@ -4309,10 +4262,7 @@ JS
 }
 
 
-sub add_country_and_owner_filters_to_query($$) {
-
-	my $request_ref = shift;
-	my $query_ref = shift;
+sub add_country_and_owner_filters_to_query($request_ref, $query_ref) {
 
 	delete $query_ref->{lc};
 
@@ -4364,10 +4314,7 @@ sub add_country_and_owner_filters_to_query($$) {
 }
 
 
-sub count_products($$) {
-
-	my $request_ref = shift;
-	my $query_ref = shift;
+sub count_products($request_ref, $query_ref) {
 
 	add_country_and_owner_filters_to_query($request_ref, $query_ref);
 
@@ -4434,10 +4381,7 @@ my %valid_params = (
 	code => 1,
 );
 
-sub add_params_to_query($$) {
-
-	my $request_ref = shift;
-	my $query_ref = shift;
+sub add_params_to_query($request_ref, $query_ref) {
 
 	$log->debug("add_params_to_query", { params => {CGI::Vars()} }) if $log->is_debug();
 
@@ -4651,9 +4595,7 @@ Initialize the options for knowledge panels from parameters.
 
 =cut
 
-sub initialize_knowledge_panels_options($) {
-
-	my $knowledge_panels_options_ref = shift;
+sub initialize_knowledge_panels_options($knowledge_panels_options_ref) {
 
 	# Activate physical activity knowledge panel only when specified
 	if (param("activate_knowledge_panel_physical_activities")) {
@@ -4686,10 +4628,7 @@ Reference to the customized product object.
 
 =cut
 
-sub customize_response_for_product($$) {
-
-	my $request_ref = shift;
-	my $product_ref = shift;
+sub customize_response_for_product($request_ref, $product_ref) {
 
 	my $customized_product_ref = {};
 
@@ -4850,13 +4789,7 @@ sub customize_response_for_product($$) {
 }
 
 
-sub search_and_display_products($$$$$) {
-
-	my $request_ref = shift;
-	my $query_ref = shift;
-	my $sort_by = shift;
-	my $limit = shift;
-	my $page = shift;
+sub search_and_display_products($request_ref, $query_ref, $sort_by, $limit, $page) {
 
 	$request_ref->{page_type} = "list_of_products";
 
@@ -5418,11 +5351,8 @@ facets.
 
 =cut
 
-sub display_pagination($$$$) {
-	my $request_ref = shift;
-	my $count = shift;
-	my $limit = shift;
-	my $page = shift;
+sub display_pagination($request_ref, $count, $limit, $page) {
+
 	my $html = '';
 	my $html_pages = '';
 
@@ -5551,11 +5481,7 @@ HTML
 
 
 
-sub search_and_export_products($$$) {
-
-	my $request_ref = shift;
-	my $query_ref = shift;
-	my $sort_by = shift;
+sub search_and_export_products($request_ref, $query_ref, $sort_by) {
 
 	my $format = "csv";
 	if ((defined $request_ref->{format}) and ($request_ref->{format} eq "xlsx")) {
@@ -5626,8 +5552,8 @@ sub search_and_export_products($$$) {
 }
 
 
-sub escape_single_quote($) {
-	my ($s) = @_;
+sub escape_single_quote($s) {
+
 	# some app escape single quotes already, so we have \' already
 	if (not defined $s) {
 		return '';
@@ -5661,10 +5587,7 @@ unknown => { r => 128, g=> 128, b=>128},
 
 
 
-sub display_scatter_plot($$) {
-
-		my $graph_ref = shift;
-		my $products_ref = shift;
+sub display_scatter_plot($graph_ref, $products_ref) {
 
 		my @products = @{$products_ref};
 		my $count = @products;
@@ -6026,10 +5949,7 @@ HTML
 
 
 
-sub display_histogram($$) {
-
-		my $graph_ref = shift;
-		my $products_ref = shift;
+sub display_histogram($graph_ref, $products_ref) {
 
 		my @products = @{$products_ref};
 		my $count = @products;
@@ -6392,11 +6312,7 @@ HTML
 }
 
 
-sub search_and_graph_products($$$) {
-
-	my $request_ref = shift;
-	my $query_ref = shift;
-	my $graph_ref = shift;
+sub search_and_graph_products($request_ref, $query_ref, $graph_ref) {
 
 	add_params_to_query($request_ref, $query_ref);
 
@@ -6518,9 +6434,8 @@ sub search_and_graph_products($$$) {
 }
 
 
-sub get_packager_code_coordinates($) {
+sub get_packager_code_coordinates($emb_code) {
 
-	my $emb_code = shift;
 	my $lat;
 	my $lng;
 
@@ -6567,11 +6482,7 @@ sub get_packager_code_coordinates($) {
 
 }
 
-sub search_and_map_products($$$) {
-
-	my $request_ref = shift;
-	my $query_ref = shift;
-	my $graph_ref = shift;
+sub search_and_map_products($request_ref, $query_ref, $graph_ref) {
 
 	add_params_to_query($request_ref, $query_ref);
 
@@ -6721,9 +6632,8 @@ sub search_and_map_products($$$) {
 	return $html;
 }
 
-sub display_on_the_blog($)
-{
-	my $blocks_ref = shift;
+sub display_on_the_blog($blocks_ref) {
+
 	if (open (my $IN, "<:encoding(UTF-8)", "$data_root/lang/$lang/texts/blog-foundation.html")) {
 
 		my $html = join('', (<$IN>));
@@ -6738,9 +6648,7 @@ sub display_on_the_blog($)
 	return;
 }
 
-sub display_bottom_block($)
-{
-	my $blocks_ref = shift;
+sub display_bottom_block($blocks_ref) {
 
 	if (defined $Lang{bottom_content}{$lang}) {
 
@@ -6755,9 +6663,8 @@ sub display_bottom_block($)
 	return;
 }
 
-sub display_page($) {
+sub display_page($request_ref) {
 
-	my $request_ref = shift;
 	#$log->trace("Start of display_page " . Dumper($request_ref)) if $log->is_trace();
 	$log->trace("Start of display_page") if $log->is_trace();
 
@@ -7179,11 +7086,7 @@ HTML
 	return;
 }
 
-sub display_image_box($$$) {
-
-	my $product_ref = shift;
-	my $id = shift;
-	my $minheight_ref = shift;
+sub display_image_box($product_ref, $id, $minheight_ref) {
 
 	# print STDERR "display_image_box : $id\n";
 
@@ -7288,10 +7191,7 @@ data stored in $product_ref->{improvements_data}
 
 =cut
 
-sub display_possible_improvement_description($$) {
-
-	my $product_ref = shift;
-	my $tagid = shift;
+sub display_possible_improvement_description($product_ref, $tagid) {
 
 	my $html = "";
 
@@ -7331,9 +7231,7 @@ sub display_possible_improvement_description($$) {
 	return $html;
 }
 
-sub display_product($)
-{
-	my $request_ref = shift;
+sub display_product($request_ref) {
 
 	my $request_code = $request_ref->{code};
 	my $code = normalize_code($request_code);
@@ -8214,9 +8112,7 @@ JS
 	return;
 }
 
-sub display_product_jqm ($) # jquerymobile
-{
-	my $request_ref = shift;
+sub display_product_jqm ($request_ref) {	# jquerymobile
 
 	my $code = normalize_code($request_ref->{code});
 	my $product_id = product_id_for_owner($Owner_id, $code);
@@ -8621,9 +8517,7 @@ the rounded value according to the Nutri-Score rules, and the corresponding poin
 
 =cut
 
-sub display_nutriscore_calculation_details($) {
-
-	my $nutriscore_data_ref = shift;
+sub display_nutriscore_calculation_details($nutriscore_data_ref) {
 
 	my $beverage_view;
 
@@ -8738,9 +8632,7 @@ Reference to a data structure with needed data to display.
 
 =cut
 
-sub data_to_display_nutriscore_and_nutrient_levels($) {
-
-	my $product_ref = shift;
+sub data_to_display_nutriscore_and_nutrient_levels($product_ref) {
 
 	my $result_data_ref = {};
 
@@ -8899,11 +8791,7 @@ sub data_to_display_nutriscore_and_nutrient_levels($) {
 }
 
 
-sub add_product_nutriment_to_stats($$$) {
-
-	my $nutriments_ref = shift;
-	my $nid = shift;
-	my $value = shift // '';
+sub add_product_nutriment_to_stats($nutriments_ref, $nid, $value) {
 
 	if ($value ne '') {
 
@@ -8922,14 +8810,14 @@ sub add_product_nutriment_to_stats($$$) {
 }
 
 
-sub compute_stats_for_products($$$$$$) {
+sub compute_stats_for_products($stats_ref, $nutriments_ref, $count, $n, $min_products, $id) {
 
-	my $stats_ref      = shift;    # where we will store the stats
-	my $nutriments_ref = shift;    # values for some nutriments
-	my $count          = shift;    # total number of products (including products that have no values for the nutriments we are interested in)
-	my $n              = shift;    # number of products with defined values for specified nutriments
-	my $min_products   = shift;    # min number of products needed to compute stats
-	my $id             = shift;    # id (e.g. category id)
+	#my $stats_ref        ->    where we will store the stats
+	#my $nutriments_ref   ->    values for some nutriments
+	#my $count            ->    total number of products (including products that have no values for the nutriments we are interested in)
+	#my $n                ->    number of products with defined values for specified nutriments
+	#my $min_products     ->    min number of products needed to compute stats
+	#my $id               ->    id (e.g. category id)
 
 
 	$stats_ref->{stats} = 1;
@@ -9027,11 +8915,7 @@ Reference to a comparisons data structure that can be passed to the data_to_disp
 
 =cut
 
-sub compare_product_nutrition_facts_to_categories($$$) {
-
-	my $product_ref = shift;
-	my $target_cc = shift;
-	my $max_number_of_categories = shift;
+sub compare_product_nutrition_facts_to_categories($product_ref, $target_cc, $max_number_of_categories) {
 
 	my @comparisons = ();
 
@@ -9099,10 +8983,7 @@ Reference to a data structure with needed data to display.
 
 =cut
 
-sub data_to_display_nutrition_table($$) {
-
-	my $product_ref = shift;
-	my $comparisons_ref = shift;
+sub data_to_display_nutrition_table($product_ref, $comparisons_ref) {
 
 	# This function populates a data structure that is used by the template to display the nutrition facts table
 	my $template_data_ref = {
@@ -9766,10 +9647,7 @@ HTML for the nutrition table.
 
 =cut
 
-sub display_nutrition_table($$) {
-
-	my $product_ref = shift;
-	my $comparisons_ref = shift;
+sub display_nutrition_table($product_ref, $comparisons_ref) {
 
 	my $html = '';
 
@@ -9798,10 +9676,7 @@ Sets the desired language for the user facing strings.
 
 =cut
 
-sub display_preferences_api($$)
-{
-	my $request_ref = shift;
-	my $target_lc = shift;
+sub display_preferences_api($request_ref, $target_lc) {
 
 	if (not defined $target_lc) {
 		$target_lc = $lc;
@@ -9858,10 +9733,7 @@ This parameter sets the desired language for the user facing strings.
 =cut
 
 
-sub display_attribute_groups_api($$)
-{
-	my $request_ref = shift;
-	my $target_lc = shift;
+sub display_attribute_groups_api($request_ref, $target_lc) {
 
 	if (not defined $target_lc) {
 		$target_lc = $lc;
@@ -9903,9 +9775,7 @@ e.g. https://world.openfoodfacts.org/api/v2/taxonomy?type=labels&tags=en:organic
 
 =cut
 
-sub display_taxonomy_api($) {
-
-	my $request_ref = shift;
+sub display_taxonomy_api($request_ref) {
 
 	my $tagtype = param('tagtype');
 	my $tags = param('tags');
@@ -9929,9 +9799,7 @@ sub display_taxonomy_api($) {
 }
 
 
-sub display_product_api($) {
-
-	my $request_ref = shift;
+sub display_product_api($request_ref) {
 
 	# Is a sample product requested?
 	if ((defined $request_ref->{code}) and ($request_ref->{code} eq "example")) {
@@ -10158,10 +10026,7 @@ sub display_rev_info {
 
 }
 
-sub display_product_history($$) {
-
-	my $code = shift;
-	my $product_ref = shift;
+sub display_product_history($code, $product_ref) {
 
 	if ($product_ref->{rev} <= 0) {
 		return;
@@ -10215,9 +10080,7 @@ sub display_product_history($$) {
 
 }
 
-sub add_images_urls_to_product($) {
-
-	my $product_ref = shift;
+sub add_images_urls_to_product($product_ref) {
 
 	my $path = product_path($product_ref);
 
@@ -10276,11 +10139,8 @@ sub add_images_urls_to_product($) {
 
 
 
-sub display_structured_response($)
-{
+sub display_structured_response($request_ref) {
 	# directly serve structured data from $request_ref->{structured_response}
-
-	my $request_ref = shift;
 
 	$log->debug("Displaying structured response", { json => scalar param("json"), jsonp => scalar param("jsonp"),
 		xml => scalar param("xml"), jqm => scalar param("jqm"), rss => scalar $request_ref->{rss} }) if $log->is_debug();
@@ -10555,9 +10415,7 @@ sub display_recent_changes {
 	return;
 }
 
-sub display_change($$) {
-
-	my ($change_ref, $diffs) = @_;
+sub display_change($change_ref, $diffs) {
 
 	my $date = display_date_tag($change_ref->{t});
 	my $user = "";
@@ -10585,9 +10443,7 @@ Displays icons (e.g., the camera icon "Picture with barcode", the graph and maps
 =cut
 
 our %icons_cache = ();
-sub display_icon($) {
-
-	my $icon = shift;
+sub display_icon($icon) {
 
 	my $svg = $icons_cache{$icon};
 
@@ -10629,11 +10485,7 @@ Reference to an HTML list of ingredients in ordered nested list format that corr
 
 =cut
 
-sub display_nested_list_of_ingredients($$$) {
-
-	my $ingredients_ref = shift;
-	my $ingredients_text_ref = shift;
-	my $ingredients_list_ref = shift;
+sub display_nested_list_of_ingredients($ingredients_ref, $ingredients_text_ref, $ingredients_list_ref) {
 
 	${$ingredients_list_ref} .= "<ol id=\"ordered_ingredients_list\">\n";
 
@@ -10695,9 +10547,7 @@ Empty string if no specific ingredients were detected, or HTML describing the sp
 
 =cut
 
-sub display_list_of_specific_ingredients($) {
-
-	my $product_ref = shift;
+sub display_list_of_specific_ingredients($product_ref) {
 
 	if (not defined $product_ref->{specific_ingredients}) {
 		return "";
@@ -10746,9 +10596,7 @@ Reference to a data structure with needed data to display.
 
 =cut
 
-sub data_to_display_ingredients_analysis_details($) {
-
-	my $product_ref = shift;
+sub data_to_display_ingredients_analysis_details($product_ref) {
 
 	# Do not display ingredients analysis details when we don't have ingredients
 
@@ -10784,9 +10632,7 @@ Generates HTML code with information on how the ingredient list was parsed and m
 
 =cut
 
-sub display_ingredients_analysis_details($) {
-
-	my $product_ref = shift;
+sub display_ingredients_analysis_details($product_ref) {
 
 	my $html = "";
 
@@ -10816,9 +10662,7 @@ Reference to a data structure with needed data to display.
 
 =cut
 
-sub data_to_display_ingredients_analysis($) {
-
-	my $product_ref = shift;
+sub data_to_display_ingredients_analysis($product_ref) {
 
 	my $result_data_ref;
 
@@ -10925,9 +10769,7 @@ Generates HTML code with icons that show if the product is vegetarian, vegan and
 
 =cut
 
-sub display_ingredients_analysis($) {
-
-	my $product_ref = shift;
+sub display_ingredients_analysis($product_ref) {
 
 	# Ingredient analysis
 
@@ -10971,10 +10813,7 @@ Generates HTML code with information on how the Eco-score was computed for a par
 
 =cut
 
-sub display_ecoscore_calculation_details($$) {
-
-	my $ecoscore_cc = shift;
-	my $ecoscore_data_ref = shift;
+sub display_ecoscore_calculation_details($ecoscore_cc, $ecoscore_data_ref) {
 
 	# Generate a data structure that we will pass to the template engine
 
@@ -10995,10 +10834,7 @@ Generates simple HTML code (to display in a mobile app) with information on how 
 
 =cut
 
-sub display_ecoscore_calculation_details_simple_html($$) {
-
-	my $ecoscore_cc = shift;
-	my $ecoscore_data_ref = shift;
+sub display_ecoscore_calculation_details_simple_html($ecoscore_cc, $ecoscore_data_ref) {
 
 	# Generate a data structure that we will pass to the template engine
 
@@ -11019,10 +10855,7 @@ Analyze the distribution of selected parent ingredients in the searched products
 
 =cut
 
-sub search_and_analyze_recipes($$) {
-
-	my $request_ref = shift;
-	my $query_ref = shift;
+sub search_and_analyze_recipes($request_ref, $query_ref) {
 
 	add_params_to_query($request_ref, $query_ref);
 
@@ -11137,9 +10970,7 @@ Load the Folksonomy Engine properties script
 
 =cut
 
-sub display_properties($) {
-
-	my $request_ref = shift;
+sub display_properties($request_ref) {
 
 	my $html;
 	process_template('web/common/includes/folksonomy_script.tt.html', {}, \$html) || return "template error: " . $tt->error();
