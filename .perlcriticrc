@@ -3,6 +3,7 @@ severity        = 1
 color           = 1
 only 		= 1
 
+
 # severity 5:
 [BuiltinFunctions::ProhibitSleepViaSelect]
 [BuiltinFunctions::ProhibitStringyEval]
@@ -36,11 +37,16 @@ equivalent_modules = Modern::Perl
 
 
 # severity 4 was not actually being run because severity was set to 5.
-## severity 4:
+# severity 4:
 #[TestingAndDebugging::RequireUseWarnings]
 #equivalent_modules = Modern::Perl
 
-## Allow `$`', `$&', `$'', because since Perl 5.20.0
-## there are no performance implications any more.
+# Allow `$`', `$&', `$'', because since Perl 5.20.0
+# there are no performance implications any more.
 #[-Variables::ProhibitMatchVars]
-## /end severity 4
+# /end severity 4
+
+
+# severity 3
+[Variables::ProhibitUnusedVariables]
+# /end severity 3
