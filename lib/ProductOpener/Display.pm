@@ -1654,10 +1654,7 @@ sub query_list_of_tags($$) {
 		tags => [],
 	};
 
-	#if ($admin)
-	{
-		$log->debug("MongoDB query built", { query => $query_ref }) if $log->is_debug();
-	}
+	$log->debug("MongoDB query built", { query => $query_ref }) if $log->is_debug();
 
 	# define limit and skip values
 	my $limit;
