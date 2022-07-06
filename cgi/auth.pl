@@ -47,7 +47,14 @@ if (defined $User_id) {
 	$status = 200;
 }
 
-print header ( -status => $status );
+print header(-status => $status);
+
+# We need to send the header Access-Control-Allow-Credentials=true so that websites
+# such has hunger.openfoodfacts.org that send a query to world.openfoodfacts.org/cgi/auth.pl
+# can read the resulting response.
+
+print header(-Access_Control_Allow_Credentials => "true");
+
 my $r = Apache2::RequestUtil->request();
 $r->rflush;
 $r->status($status);
