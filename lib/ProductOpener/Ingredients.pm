@@ -1275,12 +1275,6 @@ sub parse_origins_from_text($$) {
 				my $ingredient = $matched_ingredient_ref->{ingredient};
 				my $ingredient_id = canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient);
 
-				print STDERR "match - matched_text $matched_text\n";
-
-
-
-
-
 				# Remove extra spaces
 				$ingredient =~ s/\s+$//;
 				$matched_text =~ s/^\s+//;
