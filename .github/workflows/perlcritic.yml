@@ -15,6 +15,10 @@ jobs:
       with:
         fetch-depth: 50
 
+    - name: install cpanminus to install perlcritic
+      run: sudo apt-get install -y cpanminus
+    - name: install perlcritic
+      run: sudo cpanm Perl::Critic
 #    - name: "Run Perl::Critic" 
 #      uses: Difegue/action-perlcritic@2.1.0
 #      env:
@@ -26,5 +30,11 @@ jobs:
       run: |
         for i in $(find . -type f \( -name "*.t" -o -name "*.pl" -o -name "*.pm" \))
         do
-          perlcritic ${i}
+          if result=$(perlcritic ${i})
+          then    
+                  echo $result
+          else    
+                  echo -e "${i}\n${result}"
+                  exit 1
+          fi      
         done
