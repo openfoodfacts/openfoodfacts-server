@@ -31,8 +31,7 @@ on the platform for producers, specific to food producers.
 
 package ProductOpener::ProducersFood;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter qw(import);
 
 
@@ -64,9 +63,7 @@ Run all functions to detect food product improvement opportunities.
 
 =cut
 
-sub detect_possible_improvements($) {
-
-	my $product_ref = shift;
+sub detect_possible_improvements($product_ref) {
 
 	$product_ref->{improvements_tags} = [];
 	$product_ref->{improvements_data} = {};
@@ -84,9 +81,7 @@ of nutrients like sugar, salt, saturated fat, fiber, proteins etc.
 
 =cut
 
-sub detect_possible_improvements_nutriscore($) {
-
-	my $product_ref = shift;
+sub detect_possible_improvements_nutriscore($product_ref) {
 
 	$log->debug("detect_possible_improvements_nutriscore - start") if $log->debug();
 
@@ -200,9 +195,7 @@ to identify possible improvement opportunities.
 
 =cut
 
-sub detect_possible_improvements_compare_nutrition_facts($) {
-
-	my $product_ref = shift;
+sub detect_possible_improvements_compare_nutrition_facts($product_ref) {
 
 	my $categories_nutriments_ref = $categories_nutriments_per_country{"world"};
 
