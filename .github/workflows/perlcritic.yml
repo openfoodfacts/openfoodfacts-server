@@ -22,13 +22,13 @@ jobs:
 
     - name: "Run Perl::Critic"
       run: |
+        exit=0
         for i in $(find . -type f \( -name "*.t" -o -name "*.pl" -o -name "*.pm" \))
         do
-          if result=$(perlcritic ${i})
+          if ! result=$(perlcritic ${i})
           then    
-                  echo $result
-          else    
                   echo -e "Problem found with ${i}:\n${result}"
-                  exit 1
-          fi      
+                  exit=1
+          fi
         done
+        exit ${exit}
