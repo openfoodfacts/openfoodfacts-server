@@ -140,6 +140,5 @@ sub convert_string_to_number($value) {
 	return $value;
 }
 
-
 1;
 
