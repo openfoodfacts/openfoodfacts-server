@@ -202,7 +202,6 @@ sub delete_user($) {
 	unlink("$data_root/users/$userid.sto");
 	
 	# Remove the e-mail
-
 	my $emails_ref = retrieve("$data_root/users/users_emails.sto");
 	my $email = $user_ref->{email};
 
@@ -240,6 +239,12 @@ sub is_admin_user($) {
 	return ((%admins) and (defined $user_id) and (exists $admins{$user_id}));
 }
 
+=head2 check_user_form()
+
+C<check_user_form()> This method checks and validates the different entries in the user form. 
+It also handles Spam-usernames, feilds for the organisation accounts. 
+
+=cut
 
 sub check_user_form($$$) {
 
@@ -247,9 +252,12 @@ sub check_user_form($$$) {
 	my $user_ref = shift;
 	my $errors_ref = shift;
 
+	# Removing the tabs, spaces and white space characters
+	# Assigning 'userid' to 0 -- if userid is not defined
 	$user_ref->{userid} = remove_tags_and_quote(param('userid'));
-	$user_ref->{name} = remove_tags_and_quote(decode utf8=>param('name'));
 
+	# Allow for sending the 'name' & 'email' as a form parameter instead of a HTTP header, as web based apps may not be able to change the header sent by the browser
+	$user_ref->{name} = remove_tags_and_quote(decode utf8=>param('name'));
 	my $email = remove_tags_and_quote(decode utf8=>param('email'));
 
 	$log->debug("check_user_form", { type => $type, user_ref => $user_ref, email => $email }) if $log->is_debug();
@@ -450,7 +458,6 @@ sub process_user_form($$) {
 
 	
     # Professional account with a requested org (existing or new)
-
     if (defined $user_ref->{requested_org_id}) {
 
 		my $requested_org_ref = retrieve_org($user_ref->{requested_org_id});
@@ -471,8 +478,8 @@ sub process_user_form($$) {
 		}
 
 		if (defined $requested_org_ref) {
-			# The requested org already exists
 			
+			# The requested org already exists
 			$mail = '';
 			process_template("emails/user_new_pro_account_org_request_validated.tt.txt", $template_data_ref, \$mail);
 			if ($mail =~ /^\s*Subject:\s*(.*)\n/im) {
@@ -487,8 +494,8 @@ sub process_user_form($$) {
 			}
 		}
 		else {
+			
 			# The requested org does not exist, create it
-
 			my $org_ref = create_org($userid, $user_ref->{requested_org});
 			add_user_to_org($org_ref, $userid, ["admins", "members"]);
 
@@ -500,7 +507,6 @@ sub process_user_form($$) {
 		}
 		
 		# Send an e-mail notification to admins, with links to the organization
-		
 		$mail = '';
 		process_template("emails/user_new_pro_account_admin_notification.tt.html", $template_data_ref, \$mail);
 		if ($mail =~ /^\s*Subject:\s*(.*)\n/im) {
@@ -939,7 +945,14 @@ sub init_user()
 	return 0;
 }
 
+=head2 is_ip_known_or_whitelisted ()
+
+This sub introduces a server option to whitelist IPs for all cookies.
+
+=cut
+
 sub is_ip_known_or_whitelisted {
+	
 	my ($user_ref, $user_session, $ip, $shorten_ip) = @_;
 
 	my $short_ip = $shorten_ip->($ip);

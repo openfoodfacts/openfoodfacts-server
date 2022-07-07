@@ -169,28 +169,6 @@ sub normalize($) {
 	return $s;
 }
 
-
-sub decode_html($)
-{
-	my $string = shift;
-
-	my $encoding = "windows-1252";
-	if ($string =~ /charset=(.?)utf(-?)8/i) {
-		$encoding = "UTF-8";
-	}
-
-	my $utf8 = $string;
-	if (not utf8::is_utf8($string)) {
-		$utf8 = decode($encoding, $string);
-	}
-
-	$log->debug("decoding", { encoding => $encoding }) if $log->is_debug();
-	$utf8 = decode_entities($utf8);
-
-	return $utf8;
-}
-
-
 sub decode_html_entities($)
 {
 	my $string = shift;
