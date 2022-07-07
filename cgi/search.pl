@@ -24,18 +24,18 @@ use Modern::Perl '2017';
 use utf8;
 
 use CGI::Carp qw(fatalsToBrowser);
-use CGI       qw/:cgi :form escapeHTML/;
+use CGI qw/:cgi :form escapeHTML/;
 
-use ProductOpener::Config        qw/:all/;
-use ProductOpener::Store         qw/:all/;
-use ProductOpener::Index         qw/:all/;
-use ProductOpener::Display       qw/:all/;
-use ProductOpener::Users         qw/:all/;
-use ProductOpener::Products      qw/:all/;
-use ProductOpener::Food          qw/:all/;
-use ProductOpener::Tags          qw/:all/;
+use ProductOpener::Config qw/:all/;
+use ProductOpener::Store qw/:all/;
+use ProductOpener::Index qw/:all/;
+use ProductOpener::Display qw/:all/;
+use ProductOpener::Users qw/:all/;
+use ProductOpener::Products qw/:all/;
+use ProductOpener::Food qw/:all/;
+use ProductOpener::Tags qw/:all/;
 use ProductOpener::PackagerCodes qw/:all/;
-use ProductOpener::Text          qw/:all/;
+use ProductOpener::Text qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -107,33 +107,33 @@ my @search_fields
 $admin and push @search_fields, "lang";
 
 my %search_tags_fields = (
-	packaging            => 1,
-	brands               => 1,
-	categories           => 1,
-	labels               => 1,
-	origins              => 1,
+	packaging => 1,
+	brands => 1,
+	categories => 1,
+	labels => 1,
+	origins => 1,
 	manufacturing_places => 1,
-	emb_codes            => 1,
-	allergens            => 1,
-	traces               => 1,
-	nutrition_grades     => 1,
-	purchase_places      => 1,
-	stores               => 1,
-	countries            => 1,
-	additives            => 1,
-	states               => 1,
-	editors              => 1,
-	languages            => 1
+	emb_codes => 1,
+	allergens => 1,
+	traces => 1,
+	nutrition_grades => 1,
+	purchase_places => 1,
+	stores => 1,
+	countries => 1,
+	additives => 1,
+	states => 1,
+	editors => 1,
+	languages => 1
 );
 
 my @search_ingredient_classes = (
-	'additives',                             'ingredients_from_palm_oil',
+	'additives', 'ingredients_from_palm_oil',
 	'ingredients_that_may_be_from_palm_oil', 'ingredients_from_or_that_may_be_from_palm_oil'
 );
 
 # Read all the parameters, watch for XSS
 
-my $tags_n       = 2;
+my $tags_n = 2;
 my $nutriments_n = 2;
 
 my $search_terms = remove_tags_and_quote(decode utf8 => param('search_terms2'));    #advanced search takes precedence
@@ -170,16 +170,16 @@ if (    (not defined param('json'))
 	}
 }
 
-my @search_tags                       = ();
-my @search_nutriments                 = ();
-my %search_ingredient_classes         = ();
+my @search_tags = ();
+my @search_nutriments = ();
+my %search_ingredient_classes = ();
 my %search_ingredient_classes_checked = ();
 
 for (my $i = 0; defined param("tagtype_$i"); $i++) {
 
-	my $tagtype      = remove_tags_and_quote(decode utf8 => param("tagtype_$i"));
+	my $tagtype = remove_tags_and_quote(decode utf8 => param("tagtype_$i"));
 	my $tag_contains = remove_tags_and_quote(decode utf8 => param("tag_contains_$i"));
-	my $tag          = remove_tags_and_quote(decode utf8 => param("tag_$i"));
+	my $tag = remove_tags_and_quote(decode utf8 => param("tag_$i"));
 
 	push @search_tags, [$tagtype, $tag_contains, $tag,];
 }
@@ -193,9 +193,9 @@ foreach my $tagtype (@search_ingredient_classes) {
 
 for (my $i = 0; defined param("nutriment_$i"); $i++) {
 
-	my $nutriment         = remove_tags_and_quote(decode utf8 => param("nutriment_$i"));
+	my $nutriment = remove_tags_and_quote(decode utf8 => param("nutriment_$i"));
 	my $nutriment_compare = remove_tags_and_quote(decode utf8 => param("nutriment_compare_$i"));
-	my $nutriment_value   = remove_tags_and_quote(decode utf8 => param("nutriment_value_$i"));
+	my $nutriment_value = remove_tags_and_quote(decode utf8 => param("nutriment_value_$i"));
 
 	if ($lc eq 'fr') {
 		$nutriment_value =~ s/,/\./g;
@@ -240,22 +240,22 @@ if ($action eq 'display') {
 
 	$template_data_ref->{search_terms} = $search_terms;
 
-	my $active_list  = 'active';
-	my $active_map   = '';
+	my $active_list = 'active';
+	my $active_map = '';
 	my $active_graph = '';
 
 	if (param("generate_map")) {
 		$active_list = '';
-		$active_map  = 'active';
+		$active_map = 'active';
 	}
 	elsif (param("graph")) {
-		$active_list  = '';
+		$active_list = '';
 		$active_graph = 'active';
 	}
 
-	$template_data_ref->{active_list}  = $active_list;
+	$template_data_ref->{active_list} = $active_list;
 	$template_data_ref->{active_graph} = $active_graph;
-	$template_data_ref->{active_map}   = $active_map;
+	$template_data_ref->{active_map} = $active_map;
 
 	my %search_fields_labels = ();
 	my @tags_fields_options;
@@ -295,7 +295,7 @@ if ($action eq 'display') {
 	$template_data_ref->{tags_fields_options} = \@tags_fields_options;
 
 	$template_data_ref->{contain_options} = [
-		{value => "contains",         label => lang("search_contains")},
+		{value => "contains", label => lang("search_contains")},
 		{value => "does_not_contain", label => lang("search_does_not_contain")},
 	];
 
@@ -303,10 +303,10 @@ if ($action eq 'display') {
 
 		push @{$template_data_ref->{criteria}},
 		  {
-			id                        => $i,
+			id => $i,
 			selected_tags_field_value => $search_tags[$i][0],
-			selected_contain_value    => $search_tags[$i][1],
-			input_value               => $search_tags[$i][2],
+			selected_contain_value => $search_tags[$i][1],
+			input_value => $search_tags[$i][2],
 		  };
 	}
 
@@ -316,9 +316,9 @@ if ($action eq 'display') {
 
 		push @{$template_data_ref->{ingredients}},
 		  {
-			tagtype                                       => $tagtype,
-			search_ingredient_classes_checked_without     => $search_ingredient_classes_checked{$tagtype}{without},
-			search_ingredient_classes_checked_with        => $search_ingredient_classes_checked{$tagtype}{with},
+			tagtype => $tagtype,
+			search_ingredient_classes_checked_without => $search_ingredient_classes_checked{$tagtype}{without},
+			search_ingredient_classes_checked_with => $search_ingredient_classes_checked{$tagtype}{with},
 			search_ingredient_classes_checked_indifferent => $search_ingredient_classes_checked{$tagtype}{indifferent},
 		  };
 	}
@@ -333,13 +333,13 @@ if ($action eq 'display') {
 	push @axis_values, "additives_n", "ingredients_n", "known_ingredients_n", "unknown_ingredients_n";
 	push @axis_values, "fruits-vegetables-nuts-estimate-from-ingredients";
 	push @axis_values, "forest_footprint";
-	$axis_labels{additives_n}           = lang("number_of_additives");
-	$axis_labels{ingredients_n}         = lang("ingredients_n_s");
-	$axis_labels{known_ingredients_n}   = lang("known_ingredients_n_s");
+	$axis_labels{additives_n} = lang("number_of_additives");
+	$axis_labels{ingredients_n} = lang("ingredients_n_s");
+	$axis_labels{known_ingredients_n} = lang("known_ingredients_n_s");
 	$axis_labels{unknown_ingredients_n} = lang("unknown_ingredients_n_s");
-	$axis_labels{search_nutriment}      = lang("search_nutriment");
-	$axis_labels{products_n}            = lang("number_of_products");
-	$axis_labels{forest_footprint}      = lang("forest_footprint");
+	$axis_labels{search_nutriment} = lang("search_nutriment");
+	$axis_labels{products_n} = lang("number_of_products");
+	$axis_labels{forest_footprint} = lang("forest_footprint");
 
 	my @sorted_axis_values = ("", sort({lc($axis_labels{$a}) cmp lc($axis_labels{$b})} @axis_values));
 
@@ -382,10 +382,10 @@ if ($action eq 'display') {
 
 		push @{$template_data_ref->{nutriments}},
 		  {
-			id                     => $i,
-			selected_field_value   => $search_nutriments[$i][0],
+			id => $i,
+			selected_field_value => $search_nutriments[$i][0],
 			selected_compare_value => $search_nutriments[$i][1],
-			input_value            => $search_nutriments[$i][2],
+			input_value => $search_nutriments[$i][2],
 		  };
 	}
 
@@ -423,7 +423,7 @@ if ($action eq 'display') {
 	foreach my $axis ('x', 'y') {
 		push @{$template_data_ref->{axes}},
 		  {
-			id                   => $axis,
+			id => $axis,
 			selected_field_value => $graph_ref->{"axis_" . $axis},
 		  };
 	}
@@ -438,7 +438,7 @@ if ($action eq 'display') {
 
 		push @{$template_data_ref->{search_series}},
 		  {
-			series  => $series,
+			series => $series,
 			checked => $checked,
 		  };
 
@@ -697,9 +697,9 @@ elsif ($action eq 'process') {
 
 	my $share = lang('share');
 
-	my $map      = param("generate_map") || '';
-	my $graph    = param("graph")        || '';
-	my $download = param("download")     || '';
+	my $map = param("generate_map") || '';
+	my $graph = param("graph") || '';
+	my $download = param("download") || '';
 
 	open(my $OUT, ">>:encoding(UTF-8)", "$data_root/logs/search_log_debug");
 	print $OUT remote_addr() . "\t" . time() . "\t" . decode utf8 => param('search_terms') . " - map: $map 
