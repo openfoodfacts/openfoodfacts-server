@@ -422,8 +422,28 @@ Teneur en citron de 5,5%",
 			lc => "en",
 			ingredients_text => "milk, some unknown ingredient, another unknown ingredient, salt, sugar, pepper, spices, water",
 		}
+	],
+
+	# origins field
+	# also test an ingredient with 2 words: bell peppers, which used to break.
+	[
+		"en-origin-field",
+		{
+			lc => "en",
+			ingredients_text => "Strawberries (Spain), raspberries, blueberries, gooseberries, white peaches, bell peppers. Origin of bell peppers: Guatemala",
+			origin_en => "Origin of raspberries: New Caledonia. Blueberries: Canada ; White peaches : Mexico",
+		}
 	],	
 
+	# origins field
+	[
+		"fr-origin-field",
+		{
+			lc => "fr",
+			ingredients_text => "Coquillettes, comté, jambon supérieur, vin blanc, vin rouge (italie), vin rosé (origine : Espagne), crème UHT, parmesan, ricotta (origine Italie), sel, poivre. Origine du poivre: Népal.",
+			origin_fr => "Origine des coquillettes : Italie. Origine du Comté AOP 4 mois : France. Origine du jambon supérieur : France. Vin blanc : Europe. Origine Crème UHT : France. Origine du parmesan : Italie. Fabriqué en France. Tomates d'Italie. Origine du riz : Inde, Thaïlande.",
+		}
+	],
 );
 
 
