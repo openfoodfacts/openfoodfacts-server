@@ -10296,15 +10296,17 @@ sub display_structured_response($)
 		# remove the languages field which has keys like "en:english"
 		# keys with the : character break the XML export
 
-		delete $request_ref->{structured_response}{product}{languages};
-		delete $request_ref->{structured_response}{product}{category_properties};
-		delete $request_ref->{structured_response}{product}{categories_properties};
+		# Remove some select fields from products before rendering them.
+		# Note: use "state" to avoid re-initializing the array. This can be seen as a premature optimisation
+		# here but this new perl feature can be used at other places to encapsulate large lists while avoiding
+		# inefficiencies from reinitialization.
+		state @product_fields_to_delete = ("languages", "category_properties", "categories_properties");
+
+		remove_fields($request_ref->{structured_response}{product}, \@product_fields_to_delete);
 
 		if (defined $request_ref->{structured_response}{products}) {
 			foreach my $product_ref (@{$request_ref->{structured_response}{products}}) {
-				delete $product_ref->{languages};
-				delete $product_ref->{category_property};
-				delete $product_ref->{categories_property};
+                remove_fields($product_ref, \@product_fields_to_delete);
 			}
 		}
 

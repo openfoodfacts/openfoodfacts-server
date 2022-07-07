@@ -116,6 +116,7 @@ use ProductOpener::Numbers qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Text qw/:all/;
 use ProductOpener::FoodGroups qw/:all/;
+use ProductOpener::Products qw(&remove_fields);
 
 use Hash::Util;
 use Encode;
@@ -1505,30 +1506,19 @@ sub compute_nutrition_score($) {
 	# Initialize values
 
 	$product_ref->{nutrition_score_debug} = '';
-	delete $product_ref->{nutriments}{"nutrition-score"};
-	delete $product_ref->{nutriments}{"nutrition-score_100g"};
-	delete $product_ref->{nutriments}{"nutrition-score_serving"};
-	delete $product_ref->{nutriments}{"nutrition-score-fr"};
-	delete $product_ref->{nutriments}{"nutrition-score-fr_100g"};
-	delete $product_ref->{nutriments}{"nutrition-score-fr_serving"};
-	delete $product_ref->{nutriments}{"nutrition-score-uk"};
-	delete $product_ref->{nutriments}{"nutrition-score-uk_100g"};
-	delete $product_ref->{nutriments}{"nutrition-score-uk_serving"};
-	delete $product_ref->{"nutrition_grade_fr"};
-	delete $product_ref->{"nutrition_grades"};
-	delete $product_ref->{"nutrition_grades_tags"};
-	delete $product_ref->{nutrition_score_warning_no_fiber};
-	delete $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate};
-	delete $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category};
-	delete $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value};
-	delete $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients};
-	delete $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value};
-	delete $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts};
-	delete $product_ref->{nutriscore_score};
-	delete $product_ref->{nutriscore_score_opposite};
-	delete $product_ref->{nutriscore_grade};
-	delete $product_ref->{nutriscore_data};
-	delete $product_ref->{nutriscore_points};
+
+	# remove reference type fields from the product
+	remove_fields($product_ref, ["nutrition_score_warning_no_fiber", "nutrition_score_warning_fruits_vegetables_nuts_estimate",
+		"nutrition_score_warning_fruits_vegetables_nuts_from_category", "nutrition_score_warning_fruits_vegetables_nuts_from_category_value",
+		"nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients",
+		"nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value", "nutrition_score_warning_no_fruits_vegetables_nuts",
+		"nutriscore_score", "nutriscore_score_opposite", "nutriscore_grade", "nutriscore_data", "nutriscore_points",
+		"nutrition_grade_fr", "nutrition_grades", "nutrition_grades_tags"]);
+
+	# strip score-type fields from the product
+	remove_fields($product_ref->{nutriments}, ["nutrition-score", "nutrition-score_100g", "nutrition-score_serving", "nutrition-score-fr",
+		"nutrition-score-fr_100g", "nutrition-score-fr_serving", "nutrition-score-uk",
+	"nutrition-score-uk_100g", "nutrition-score-uk_serving"]);
 
 	$product_ref->{misc_tags} = ["en:nutriscore-not-computed"];
 
@@ -2228,16 +2218,10 @@ sub compute_nova_group($) {
 
 	my $product_ref = shift;
 
-	delete $product_ref->{nova_group_debug};
-	delete $product_ref->{nutriments}{"nova-group"};
-	delete $product_ref->{nutriments}{"nova-group_100g"};
-	delete $product_ref->{nutriments}{"nova-group_serving"};
-	delete $product_ref->{nova_group};
-	delete $product_ref->{nova_groups};
-	delete $product_ref->{nova_groups_tags};
-	delete $product_ref->{nova_group_tags};	# wrongly named field that was added to some products
-	delete $product_ref->{nova_groups_markers};
-	delete $product_ref->{nova_group_error};
+	# remove nova keys.
+	remove_fields($product_ref, ["nova_group_debug", "nova_group", "nova_groups", "nova_groups_tags", "nova_group_tags",
+		"nova_groups_markers", "nova_group_error"]);
+	remove_fields($product_ref->{nutriments}, ["nova-group", "nova-group_100g", "nova-group_serving"]);
 
 	$product_ref->{nova_group_debug} = "";
 

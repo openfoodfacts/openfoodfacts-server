@@ -112,6 +112,9 @@ BEGIN
 
 		&find_and_replace_user_id_in_products
 
+		&add_users_team
+
+		&remove_fields
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -2998,6 +3001,31 @@ sub product_data_is_protected($) {
 		}
 	}
 	return $protected_data;
+}
+
+=head2 delete_fields ($product_ref, $fields_ref)
+
+Utility function to delete fields from a product_ref or a subfield.
+
+=head3 Parameters
+
+=head4 $product_ref
+
+Reference to a complete product a subfield.
+
+=head4 $fields_ref
+
+An array of field names to remove.
+
+=cut
+sub remove_fields($$) {
+	my $product_ref = shift;
+	my $fields_ref = shift;
+
+	foreach my $field (@$fields_ref) {
+		delete $product_ref->{$field};
+	}
+	return;
 }
 
 1;
