@@ -28,7 +28,8 @@ only 		= 1
 
 [TestingAndDebugging::ProhibitNoStrict]
 [TestingAndDebugging::RequireUseStrict]
-equivalent_modules = Modern::Perl
+equivalent_modules = Modern::Perl # remove this when all updated to ProductOpener::PerlStandards
+equivalent_modules = ProductOpener::PerlStandards
 
 [ValuesAndExpressions::ProhibitLeadingZeros]
 [Variables::ProhibitConditionalDeclarations]
