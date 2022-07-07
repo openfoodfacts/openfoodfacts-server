@@ -178,6 +178,4 @@ sub send_email_to_producers_admin($subject, $text) {
 }
 
 
-
-
 1;

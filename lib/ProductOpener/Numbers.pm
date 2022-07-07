@@ -29,6 +29,7 @@ with different sets of separators for digit grouping and to indicate decimals.
 
 package ProductOpener::Numbers;
 
+use ProductOpener::PerlStandards;
 use utf8;
 use Modern::Perl '2017';
 use Exporter    qw< import >;
@@ -87,10 +88,8 @@ The desired output is thus:
 =cut
 
 
-sub remove_insignificant_digits($) {
+sub remove_insignificant_digits($value) {
 
-	my $value = shift;
-	
 	# Make the value a string
 	$value .= '';
 	
@@ -120,10 +119,8 @@ digit grouping separators or used to indicate decimals.
 
 =cut
 
-sub convert_string_to_number($) {
-	
-	my $value = shift;
-	
+sub convert_string_to_number($value) {
+
 	$value =~ s/(\d) (\d)/$1$2/g;
 	
 	# In some languages like French, a comma is used instead of a dot to indicate decimals
