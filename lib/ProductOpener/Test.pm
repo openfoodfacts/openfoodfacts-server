@@ -28,8 +28,7 @@ ProductOpener::Test - utility functions used by unit and integration tests
 
 package ProductOpener::Test;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 BEGIN
@@ -75,7 +74,8 @@ This function should only be called by tests, and never on production environmen
 =cut
 
 sub remove_all_products () {
-    # check we are not on a prod database, by checking there are not more than 1000 products
+
+   # check we are not on a prod database, by checking there are not more than 1000 products
     my $products_count = execute_query(sub {
 		return get_products_collection()->count_documents({});
 	});
@@ -120,8 +120,8 @@ Returns an array with std output, std error, result of the method as array.
 
 =cut
 
-sub capture_ouputs ($) {
-    my $meth = shift;
+sub capture_ouputs ($meth) {
+
     my $out = IO::Capture::Stdout::Extended->new();
     my $err = IO::Capture::Stderr::Extended->new();
     $out->start();
@@ -135,9 +135,7 @@ sub capture_ouputs ($) {
 
 
 # Ensure expected_results_dir exists or reset it if needed
-sub ensure_expected_results_dir ($$) {
-    my $expected_results_dir = shift;
-    my $update_expected_results = shift;
+sub ensure_expected_results_dir ($expected_results_dir, $update_expected_results) {
 
     if ($update_expected_results) {
         # Reset the expected results dir
@@ -177,11 +175,7 @@ Tests will pass when this flag is passed, and the new expected results can be di
 
 =cut
 
-sub compare_csv_file_to_expected_results($$$) {
-
-    my $csv_file = shift;
-    my $expected_results_dir = shift;
-    my $update_expected_results = shift;
+sub compare_csv_file_to_expected_results($csv_file, $expected_results_dir, $update_expected_results) {
 
     # Read the CSV file
 
@@ -230,11 +224,7 @@ and the new expected results can be diffed / commited in GitHub.
 
 =cut
 
-sub compare_array_to_expected_results($$$) {
-
-    my $array_ref = shift;
-    my $expected_results_dir = shift;
-    my $update_expected_results = shift;
+sub compare_array_to_expected_results($array_ref, $expected_results_dir, $update_expected_results) {
 
     ensure_expected_results_dir($expected_results_dir, $update_expected_results);
 
@@ -312,24 +302,23 @@ Path of source json file
 Path of target sto file
 
 =cut
-sub create_sto_from_json ($$) {
-    my $json_path = shift;
-    my $sto_path = shift;
+sub create_sto_from_json ($json_path, $sto_path) {
+
     my $data = decode_json(path($json_path)->slurp_raw());
     store($sto_path, $data);
 }
 
 
-sub _sub_items($$);  # declare for recursivity
+sub _sub_items($item_ref, $subfields_ref);  # declare for recursivity
 
 # this method is an helper method for normalize_product_for_test_comparison
 # $item_ref is a product hash ref, or subpart there of
 # $subfields_ref is an array of arrays of keys.
 # Each array of key leads to a sub array of $item_ref, but the last which is target element.
 # _sub_items will reach every targeted elements, running through all sub-arrays
-sub _sub_items($$) {
-    my $item_ref = shift;
-    my $subfields_ref = shift;
+
+sub _sub_items($item_ref, $subfields_ref) {
+
     if (scalar @$subfields_ref == 0) {
         return $item_ref;
     } else {
@@ -360,8 +349,7 @@ We remove time dependant fields and sort some lists.
 
 =cut
 
-sub normalize_product_for_test_comparison($) {
-    my $product = shift;
+sub normalize_product_for_test_comparison($product) {
     # fields we don't want to check for they vary from test to test
     # stars means there is a table of elements and we want to run through all (hash not supported yet)
     # compared_to_category: depends on which products have been aggregated in index/categories_nutriments_per_country.world.sto
@@ -407,8 +395,7 @@ Like normalize_product_for_test_comparison for a list of products
 Array of products
 
 =cut
-sub normalize_products_for_test_comparison($) {
-    my $array_ref = shift;
+sub normalize_products_for_test_comparison($array_ref) {
 
     for my $product_ref (@$array_ref) {
         normalize_product_for_test_comparison($product_ref);
