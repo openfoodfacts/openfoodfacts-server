@@ -200,8 +200,7 @@ use Apache2::Const ();
 
 use URI::Find;
 
-my $uri_finder = URI::Find->new(sub {
-      my($uri, $orig_uri) = @_;
+my $uri_finder = URI::Find->new(sub($uri, $orig_uri) {
 	  if ($uri =~ /\http/) {
 		return qq|<a href="$uri">$orig_uri</a>|;
 	  }
@@ -401,19 +400,17 @@ sub process_template($template_filename, $template_data_ref, $result_content_ref
 	$template_data_ref->{product_name_brand_quantity} = \&product_name_brand_quantity;
 
 	# Display one taxonomy entry in the target language
-	$template_data_ref->{display_taxonomy_tag} = sub ($$) {
-		return display_taxonomy_tag($lc, $_[0], $_[1]);
+	$template_data_ref->{display_taxonomy_tag} = sub ($tagtype, $tag) {
+		return display_taxonomy_tag($lc, $tagtype, $tag);
 	};
 
 	# Display one taxonomy entry in the target language, without language prefix
-	$template_data_ref->{display_taxonomy_tag_name} = sub ($$) {
-		return display_taxonomy_tag_name($lc, $_[0], $_[1]);
+	$template_data_ref->{display_taxonomy_tag_name} = sub ($tagtype, $tag) {
+		return display_taxonomy_tag_name($lc, $tagtype, $tag);
 	};
 
 	# Display a list of taxonomy entries in the target language
-	$template_data_ref->{display_taxonomy_tags_list} = sub ($$) {
-		my $tagtype = shift;
-		my $tags_ref = shift;
+	$template_data_ref->{display_taxonomy_tags_list} = sub ($tagtype, $tags_ref) {
 		if (defined $tags_ref) {
 			return join(", ", map {display_taxonomy_tag($lc, $tagtype, $_) } @$tags_ref) ;
 		}
@@ -422,15 +419,15 @@ sub process_template($template_filename, $template_data_ref, $result_content_ref
 		}
 	};
 
-	$template_data_ref->{round} = sub($) {
-		return sprintf ("%.0f", $_[0]);
+	$template_data_ref->{round} = sub($var) {
+		return sprintf ("%.0f", $var);
 	};
-	$template_data_ref->{sprintf} = sub($$) {
-		return sprintf ($_[0], $_[1]);
+	$template_data_ref->{sprintf} = sub($var1, $var2) {
+		return sprintf ($var1, $var2);
 	};
 
-	$template_data_ref->{encode_json} = sub($) {
-		return JSON::PP->new->utf8->canonical->encode($_[0]);
+	$template_data_ref->{encode_json} = sub($var) {
+		return JSON::PP->new->utf8->canonical->encode($var);
 	};
 
 	return($tt->process($template_filename, $template_data_ref, $result_content_ref));
@@ -1357,8 +1354,7 @@ sub display_text($request_ref) {
 		$html .= '</h1>';
 	}
 
-	my $replace_file = sub ($) {
-		my $fileid = shift;
+	my $replace_file = sub ($fileid) {
 		($fileid =~ /\.\./) and return '';
 		$fileid =~ s/^texts\///;
 		my $file = "$data_root/lang/$lc/texts/$fileid";
@@ -1374,9 +1370,8 @@ sub display_text($request_ref) {
 		return $html;
 	};
 
-	my $replace_query = sub ($) {
+	my $replace_query = sub ($query) {
 
-		my $query = shift;
 		my $query_ref = decode_json($query);
 		my $sort_by = undef;
 		if (defined $query_ref->{sort_by}) {
@@ -3798,8 +3793,7 @@ HTML
 		my $json = JSON::PP->new->utf8(0);
 		my $map_template_data_ref = {
 			lang => \&lang,
-			encode_json => sub {
-				my ($obj_ref) = @_;
+			encode_json => sub($obj_ref) {
 				return $json->encode($obj_ref);
 			},
 			wikidata => \@wikidata_objects,
@@ -6619,8 +6613,7 @@ sub search_and_map_products($request_ref, $query_ref, $graph_ref) {
 	my $json = JSON::PP->new->utf8(0);
 	my $map_template_data_ref = {
 		lang => \&lang,
-		encode_json => sub {
-			my ($obj_ref) = @_;
+		encode_json => sub($obj_ref) {
 			return $json->encode($obj_ref);
 		},
 		title => $count_string,
@@ -9979,10 +9972,8 @@ HTML
 	return;
 }
 
-sub display_rev_info {
+sub display_rev_info($product_ref, $rev) {
 
-	my $product_ref = shift;
-	my $rev = shift;
 	my $code = $product_ref->{code};
 
 	my $path = product_path($product_ref);
@@ -10066,8 +10057,7 @@ sub display_product_history($code, $product_ref) {
 
 	my $template_data_ref = {
 		lang => \&lang,
-		display_editor_link => sub {
-			my ($uid) = @_;
+		display_editor_link => sub($uid) {
 			return display_tag_link('editors', $uid);
 		},
 		this_product_url => product_url($product_ref),
@@ -10219,8 +10209,7 @@ sub display_structured_response($request_ref) {
 	exit();
 }
 
-sub display_structured_response_opensearch_rss {
-	my ($request_ref) = @_;
+sub display_structured_response_opensearch_rss($request_ref) {
 
 	my $xs = XML::Simple->new(NumericEscape => 2);
 
@@ -10291,9 +10280,7 @@ XML
 	return;
 }
 
-sub display_recent_changes {
-
-	my ($request_ref, $query_ref, $limit, $page) = @_;
+sub display_recent_changes($request_ref, $query_ref, $limit, $page) {
 
 	add_params_to_query($request_ref, $query_ref);
 
@@ -10785,8 +10772,7 @@ sub display_ingredients_analysis($product_ref) {
 }
 
 
-sub _format_comment {
-	my ($comment) = @_;
+sub _format_comment($comment) {
 
 	$comment = lang($comment) if $comment eq 'product_created';
 
