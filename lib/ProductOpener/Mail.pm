@@ -59,6 +59,7 @@ BEGIN
 
 use vars @EXPORT_OK ;
 
+use ProductOpener::PerlStandards;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Lang qw/:all/;
@@ -91,11 +92,7 @@ On the other hand, if there was no error, it returns 0 indicating that the email
 
 =cut
 
-sub send_email($$$)
-{
-	my $user_ref = shift;
-	my $subject = shift;
-	my $text = shift;
+sub send_email($user_ref, $subject, $text) {
 	
 	my $email = $user_ref->{email};
 	my $name = $user_ref->{name};
@@ -134,11 +131,7 @@ On the other hand, if there was no error, it returns 0 indicating that the email
 
 =cut
 
-sub send_email_to_admin($$)
-{
-	my $subject = shift;
-	my $text = shift;
-
+sub send_email_to_admin($subject, $text) {
 	eval {
 		Email::Stuffer
 			->from( lang("site_name") . " <$contact_email>" )
@@ -170,11 +163,7 @@ On the other hand, if there was no error, it returns 1 indicating that email has
 
 =cut
 
-sub send_email_to_producers_admin($$)
-{
-	my $subject = shift;
-	my $text = shift;
-
+sub send_email_to_producers_admin($subject, $text) {
 	eval {
 		Email::Stuffer
 			->from( lang("site_name") . " <$contact_email>" )
