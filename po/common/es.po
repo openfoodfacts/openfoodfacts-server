@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-06-26 19:04\n"
+"PO-Revision-Date: 2022-07-07 19:04\n"
 "Language-Team: Spanish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -2462,7 +2462,7 @@ msgstr "Trazas"
 
 msgctxt "traces_example"
 msgid "Milk, Gluten, Nuts"
-msgstr "Leche, Gluten, Cacahuetes, Nueces"
+msgstr "Leche, gluten, cacahuetes, frutos secos"
 
 msgctxt "traces_note"
 msgid "Indicate ingredients from mentions like \"May contain traces of\", \"Made in a factory that also uses\" etc."
@@ -5481,7 +5481,7 @@ msgstr "Puedes modificar la página del producto para añadir una categoría má
 
 msgctxt "ecoscore_additional_bonuses_and_maluses"
 msgid "Additional bonuses and maluses"
-msgstr "Bonificaciones y maluses adicionales"
+msgstr "Bonificaciones y penalizaciones extra"
 
 msgctxt "ecoscore_production_system"
 msgid "Production mode"
@@ -5517,11 +5517,11 @@ msgstr "Especies amenazadas"
 
 msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
 msgid "Ingredients that threatens species"
-msgstr "Ingredientes cuyo cultivo amenaza a las especies"
+msgstr "Ingredientes cuya plantación perjudica al entorno"
 
 msgctxt "ecoscore_no_species_threatening_ingredients"
 msgid "No ingredients that threaten species"
-msgstr "Ningún ingrediente pueda ser amenaza para las especies"
+msgstr "Sin ingredientes cuya plantación perjudique al entorno"
 
 msgctxt "ecoscore_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
@@ -5760,7 +5760,7 @@ msgstr "Contiene aceite de palma"
 
 msgctxt "contains_palm_oil_subtitle"
 msgid "Drives deforestation and threatens species such as the orangutan"
-msgstr "Genera deforestación y amenaza a especies como el orangután"
+msgstr "Impulsa la deforestación y amenaza a especies como el orangután"
 
 msgctxt "contains_palm_oil_description"
 msgid "Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino."
@@ -5772,7 +5772,7 @@ msgstr "Bonificación"
 
 msgctxt "malus"
 msgid "Malus"
-msgstr "Malus"
+msgstr "Penalización"
 
 msgctxt "life_cycle_analysis"
 msgid "Life cycle analysis"
@@ -5780,7 +5780,7 @@ msgstr "Análisis del ciclo de vida"
 
 msgctxt "ecoscore_bonuses_and_maluses"
 msgid "Bonuses and maluses"
-msgstr "Bonos y malus"
+msgstr "Bonificaciones y penalizaciones"
 
 msgctxt "ecoscore_for_this_product"
 msgid "Eco-Score for this product"
@@ -5792,11 +5792,11 @@ msgstr "Media de impacto de los productos de la misma categoría"
 
 msgctxt "ecoscore_sum_of_bonuses_and_maluses"
 msgid "Sum of bonuses and maluses"
-msgstr "Suma de bonos y malos"
+msgstr "Suma de bonificaciones y penalizaciones"
 
 msgctxt "ecoscore_sum_of_bonuses_and_maluses_is_capped"
 msgid "The sum of bonuses and maluses is capped at +25."
-msgstr "La suma de bonos y malus está limitada a +25."
+msgstr "La suma de bonificaciones y penalizaciones tiene un tope de +25."
 
 msgctxt "ecoscore_lca_score"
 msgid "Life cycle analysis score"
