@@ -309,8 +309,6 @@ sub create_sto_from_json ($json_path, $sto_path) {
 }
 
 
-sub _sub_items($item_ref, $subfields_ref);  # declare for recursivity
-
 # this method is an helper method for normalize_product_for_test_comparison
 # $item_ref is a product hash ref, or subpart there of
 # $subfields_ref is an array of arrays of keys.
