@@ -42,8 +42,7 @@ and to manage user sessions.
 
 package ProductOpener::Users;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 BEGIN
@@ -112,8 +111,8 @@ Creates a new session ID
 
 =cut
 
-sub generate_token {
-	my $name_length = shift;
+sub generate_token($name_length) {
+
 	my @chars=('a'..'z', 'A'..'Z', 0..9);
 	return join '',map {$chars[irand @chars]} 1..$name_length;
 }
@@ -135,9 +134,8 @@ Returns the salted hashed sequence.
 
 =cut
 
-sub create_password_hash($) {
+sub create_password_hash($password) {
 
-	my $password = shift;
 	return scrypt_hash($password);
 }
 
@@ -159,10 +157,7 @@ Boolean: This function returns a 1/0 (True or False)
 
 =cut
 
-sub check_password_hash($$) {
-
-	my $password = shift;
-	my $hash = shift;
+sub check_password_hash($password, $hash) {
 
 	if ($hash =~ /^\$1\$(?:.*)/) {
 		if ($hash eq unix_md5_crypt($password, $hash)) {
@@ -190,9 +185,8 @@ Takes in the $user_ref of the user to be deleted
 
 =cut
 
-sub delete_user($) {
+sub delete_user($user_ref) {
 	
-	my $user_ref = shift;
 	my $userid = get_string_id_for_lang("no_language", $user_ref->{userid});
 	my $new_userid = "openfoodfacts-contributors";
 	
@@ -231,8 +225,7 @@ Boolean: This function returns a 1/0 (True or False)
 
 =cut
 
-sub is_admin_user($) {
-	my $user_id = shift;
+sub is_admin_user($user_id) {
 
 	# %admin is defined in Config.pm
 	# admins can change permissions for all users
@@ -246,11 +239,7 @@ It also handles Spam-usernames, feilds for the organisation accounts.
 
 =cut
 
-sub check_user_form($$$) {
-
-	my $type = shift;
-	my $user_ref = shift;
-	my $errors_ref = shift;
+sub check_user_form($type, $user_ref, $errors_ref) {
 
 	# Removing the tabs, spaces and white space characters
 	# Assigning 'userid' to 0 -- if userid is not defined
@@ -441,10 +430,8 @@ sub check_user_form($$$) {
 }
 
 
-sub process_user_form($$) {
+sub process_user_form($type, $user_ref) {
 
-	my $type = shift;
-	my $user_ref = shift;
 	my $userid = $user_ref->{userid};
     my $error = 0;
 
@@ -573,10 +560,7 @@ EMAIL
 }
 
 
-sub check_edit_owner($$) {
-
-	my $user_ref = shift;
-	my $errors_ref = shift;
+sub check_edit_owner($user_ref, $errors_ref) {
 
 	$user_ref->{pro_moderator_owner} = get_string_id_for_lang("no_language", remove_tags_and_quote(param('pro_moderator_owner')));
 	
@@ -631,8 +615,8 @@ sub check_edit_owner($$) {
 }
 
 
-sub init_user()
-{
+sub init_user() {
+
 	my $user_id = undef ;
 	my $user_ref = undef;
 	my $org_ref = undef;
@@ -951,9 +935,7 @@ This sub introduces a server option to whitelist IPs for all cookies.
 
 =cut
 
-sub is_ip_known_or_whitelisted {
-	
-	my ($user_ref, $user_session, $ip, $shorten_ip) = @_;
+sub is_ip_known_or_whitelisted($user_ref, $user_session, $ip, $shorten_ip) {
 
 	my $short_ip = $shorten_ip->($ip);
 
@@ -973,10 +955,7 @@ sub is_ip_known_or_whitelisted {
 	return 0;
 }
 
-sub check_session($$) {
-
-	my $user_id = shift;
-	my $user_session = shift;
+sub check_session($user_id, $user_session) {
 
 	$log->debug("checking session", { user_id => $user_id, users_session => $user_session }) if $log->is_debug();
 
