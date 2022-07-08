@@ -416,7 +416,7 @@ sub unit_to_g($$) {
 
 	# We return with + 0 to make sure the value is treated as number (needed when outputting json and to store in mongodb as a number)
 	# lets not assume that we have a valid unit
-	return undef;
+	return;
 }
 
 
