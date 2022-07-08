@@ -42,8 +42,7 @@ and to manage user sessions.
 
 package ProductOpener::Users;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 BEGIN
@@ -112,8 +111,8 @@ Creates a new session ID
 
 =cut
 
-sub generate_token {
-	my $name_length = shift;
+sub generate_token($name_length) {
+
 	my @chars=('a'..'z', 'A'..'Z', 0..9);
 	return join '',map {$chars[irand @chars]} 1..$name_length;
 }
@@ -135,9 +134,8 @@ Returns the salted hashed sequence.
 
 =cut
 
-sub create_password_hash($) {
+sub create_password_hash($password) {
 
-	my $password = shift;
 	return scrypt_hash($password);
 }
 
@@ -159,10 +157,7 @@ Boolean: This function returns a 1/0 (True or False)
 
 =cut
 
-sub check_password_hash($$) {
-
-	my $password = shift;
-	my $hash = shift;
+sub check_password_hash($password, $hash) {
 
 	if ($hash =~ /^\$1\$(?:.*)/) {
 		if ($hash eq unix_md5_crypt($password, $hash)) {
@@ -190,9 +185,8 @@ Takes in the $user_ref of the user to be deleted
 
 =cut
 
-sub delete_user($) {
+sub delete_user($user_ref) {
 	
-	my $user_ref = shift;
 	my $userid = get_string_id_for_lang("no_language", $user_ref->{userid});
 	my $new_userid = "openfoodfacts-contributors";
 	
@@ -202,7 +196,6 @@ sub delete_user($) {
 	unlink("$data_root/users/$userid.sto");
 	
 	# Remove the e-mail
-
 	my $emails_ref = retrieve("$data_root/users/users_emails.sto");
 	my $email = $user_ref->{email};
 
@@ -232,24 +225,28 @@ Boolean: This function returns a 1/0 (True or False)
 
 =cut
 
-sub is_admin_user($) {
-	my $user_id = shift;
+sub is_admin_user($user_id) {
 
 	# %admin is defined in Config.pm
 	# admins can change permissions for all users
 	return ((%admins) and (defined $user_id) and (exists $admins{$user_id}));
 }
 
+=head2 check_user_form()
 
-sub check_user_form($$$) {
+C<check_user_form()> This method checks and validates the different entries in the user form. 
+It also handles Spam-usernames, feilds for the organisation accounts. 
 
-	my $type = shift;
-	my $user_ref = shift;
-	my $errors_ref = shift;
+=cut
 
+sub check_user_form($type, $user_ref, $errors_ref) {
+
+	# Removing the tabs, spaces and white space characters
+	# Assigning 'userid' to 0 -- if userid is not defined
 	$user_ref->{userid} = remove_tags_and_quote(param('userid'));
-	$user_ref->{name} = remove_tags_and_quote(decode utf8=>param('name'));
 
+	# Allow for sending the 'name' & 'email' as a form parameter instead of a HTTP header, as web based apps may not be able to change the header sent by the browser
+	$user_ref->{name} = remove_tags_and_quote(decode utf8=>param('name'));
 	my $email = remove_tags_and_quote(decode utf8=>param('email'));
 
 	$log->debug("check_user_form", { type => $type, user_ref => $user_ref, email => $email }) if $log->is_debug();
@@ -433,10 +430,8 @@ sub check_user_form($$$) {
 }
 
 
-sub process_user_form($$) {
+sub process_user_form($type, $user_ref) {
 
-	my $type = shift;
-	my $user_ref = shift;
 	my $userid = $user_ref->{userid};
     my $error = 0;
 
@@ -450,7 +445,6 @@ sub process_user_form($$) {
 
 	
     # Professional account with a requested org (existing or new)
-
     if (defined $user_ref->{requested_org_id}) {
 
 		my $requested_org_ref = retrieve_org($user_ref->{requested_org_id});
@@ -471,8 +465,8 @@ sub process_user_form($$) {
 		}
 
 		if (defined $requested_org_ref) {
-			# The requested org already exists
 			
+			# The requested org already exists
 			$mail = '';
 			process_template("emails/user_new_pro_account_org_request_validated.tt.txt", $template_data_ref, \$mail);
 			if ($mail =~ /^\s*Subject:\s*(.*)\n/im) {
@@ -487,8 +481,8 @@ sub process_user_form($$) {
 			}
 		}
 		else {
+			
 			# The requested org does not exist, create it
-
 			my $org_ref = create_org($userid, $user_ref->{requested_org});
 			add_user_to_org($org_ref, $userid, ["admins", "members"]);
 
@@ -500,7 +494,6 @@ sub process_user_form($$) {
 		}
 		
 		# Send an e-mail notification to admins, with links to the organization
-		
 		$mail = '';
 		process_template("emails/user_new_pro_account_admin_notification.tt.html", $template_data_ref, \$mail);
 		if ($mail =~ /^\s*Subject:\s*(.*)\n/im) {
@@ -567,10 +560,7 @@ EMAIL
 }
 
 
-sub check_edit_owner($$) {
-
-	my $user_ref = shift;
-	my $errors_ref = shift;
+sub check_edit_owner($user_ref, $errors_ref) {
 
 	$user_ref->{pro_moderator_owner} = get_string_id_for_lang("no_language", remove_tags_and_quote(param('pro_moderator_owner')));
 	
@@ -625,8 +615,8 @@ sub check_edit_owner($$) {
 }
 
 
-sub init_user()
-{
+sub init_user() {
+
 	my $user_id = undef ;
 	my $user_ref = undef;
 	my $org_ref = undef;
@@ -939,8 +929,13 @@ sub init_user()
 	return 0;
 }
 
-sub is_ip_known_or_whitelisted {
-	my ($user_ref, $user_session, $ip, $shorten_ip) = @_;
+=head2 is_ip_known_or_whitelisted ()
+
+This sub introduces a server option to whitelist IPs for all cookies.
+
+=cut
+
+sub is_ip_known_or_whitelisted($user_ref, $user_session, $ip, $shorten_ip) {
 
 	my $short_ip = $shorten_ip->($ip);
 
@@ -960,10 +955,7 @@ sub is_ip_known_or_whitelisted {
 	return 0;
 }
 
-sub check_session($$) {
-
-	my $user_id = shift;
-	my $user_session = shift;
+sub check_session($user_id, $user_session) {
 
 	$log->debug("checking session", { user_id => $user_id, users_session => $user_session }) if $log->is_debug();
 

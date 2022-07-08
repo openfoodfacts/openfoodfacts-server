@@ -1156,9 +1156,6 @@ sub parse_specific_ingredients_from_text($$$) {
 }
 
 
-
-
-
 # Note: in regular expressions below, use non-capturing groups (starting with (?: )
 # for all groups, except groups that capture actual data: ingredient name, percent, origins
 
@@ -2209,19 +2206,9 @@ sub compute_ingredients_tags($) {
 	
 	# Delete ingredients related fields
 	# They will be recreated, unless the ingredients list was deleted
-
-	delete $product_ref->{ingredients_tags};
-	delete $product_ref->{ingredients_original_tags};
-
-	delete $product_ref->{ingredients_n};
-	delete $product_ref->{known_ingredients_n};
-	delete $product_ref->{unknown_ingredients_n};
-	delete $product_ref->{ingredients_n_tags};
-
-	delete $product_ref->{ingredients_with_specified_percent_n};
-	delete $product_ref->{ingredients_with_unspecified_percent_n};
-	delete $product_ref->{ingredients_with_specified_percent_sum};
-	delete $product_ref->{ingredients_with_unspecified_percent_sum};	
+	remove_fields($product_ref, ["ingredients_tags, ingredients_original_tags", "ingredients_n", "known_ingredients_n", "unknown_ingredients_n",
+		"ingredients_n_tags", "ingredients_with_specified_percent_n", "ingredients_with_unspecified_percent_n",
+		"ingredients_with_specified_percent_sum", "ingredients_with_unspecified_percent_sum"]);
 
 	return if not defined $product_ref->{ingredients};
 
@@ -3235,9 +3222,7 @@ sub normalize_vitamin($$) {
 
 	my $lc = shift;
 	my $a = shift;
-
 	$log->debug("normalize vitamin", { vitamin => $a }) if $log->is_debug();
-
 	$a =~ s/\s+$//;
 	$a =~ s/^\s+//;
 
@@ -3256,6 +3241,7 @@ sub normalize_vitamin($$) {
 		return $a;
 	}
 }
+
 
 sub normalize_vitamins_enumeration($$) {
 
@@ -5047,24 +5033,24 @@ sub preparse_ingredients_text($$) {
 	# vitamines (A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E)	
 
 	my @vitaminssuffixes = (
-"a", "rétinol",
-"b", "b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9", "b10", "b11", "b12",
-"thiamine",
-"riboflavine",
-"niacine",
-"pyridoxine",
-"cobalamine",
-"biotine",
-"acide pantothénique",
-"acide folique",
-"c", "acide ascorbique",
-"d", "d2", "d3", "cholécalciférol",
-"e", "tocophérol", "alphatocophérol", "alpha-tocophérol",
-"f",
-"h",
-"k", "k1", "k2", "k3",
-"p", "pp",
-);
+		"a", "rétinol",
+		"b", "b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9", "b10", "b11", "b12",
+		"thiamine",
+		"riboflavine",
+		"niacine",
+		"pyridoxine",
+		"cobalamine",
+		"biotine",
+		"acide pantothénique",
+		"acide folique",
+		"c", "acide ascorbique",
+		"d", "d2", "d3", "cholécalciférol",
+		"e", "tocophérol", "alphatocophérol", "alpha-tocophérol",
+		"f",
+		"h",
+		"k", "k1", "k2", "k3",
+		"p", "pp",
+	);
 	my $vitaminsprefixregexp = "vit|vit\.|vitamine|vitamines";
 
 	# Add synonyms in target language

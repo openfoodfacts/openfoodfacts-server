@@ -53,6 +53,7 @@ BEGIN
 		&canonicalize_tag_link
 
 		&has_tag
+		&has_one_of_the_tags_from_the_list
 		&add_tag
 		&remove_tag
 		&is_a
@@ -316,6 +317,19 @@ sub has_tag($$$) {
 		}
 	}
 	return $return;
+}
+
+# Helper function to tell if a product has a certain tag from the passed list
+sub has_one_of_the_tags_from_the_list {
+	
+	my($product_ref, $tagtype, $tag_list_ref) = @_;
+
+	foreach my $tag_name (@$tag_list_ref) {
+			if ( has_tag($product_ref, $tagtype, $tag_name) ) {
+				return 1;
+			}
+		}
+	return 0;
 }
 
 # Determine if a tag is a child of another tag (or the same tag)
