@@ -53,8 +53,16 @@ print header(-status => $status);
 # such has hunger.openfoodfacts.org that send a query to world.openfoodfacts.org/cgi/auth.pl
 # can read the resulting response.
 
-print header(-Access_Control_Allow_Credentials => "true");
-
+# The Access-Control-Allow-Origin header must be set to the value of the Origin header
 my $r = Apache2::RequestUtil->request();
+my $origin = $r->headers_in->{Origin} || '';
+
+# Only allow requests from hunger.openfoodfacts.org to see if a user is logged in or not
+
+if ($origin =~ /^https:\/\/hunger\.openfoodfacts\.org\//) {
+	$r->err_headers_out->set("Access-Control-Allow-Credentials", "true");
+	$r->err_headers_out->set("Access-Control-Allow-Origin", $origin);
+}
+
 $r->rflush;
 $r->status($status);
