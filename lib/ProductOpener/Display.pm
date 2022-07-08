@@ -3745,7 +3745,7 @@ HTML
 
 			if ($packager_codes{$canon_tagid}{cc} eq 'uk') {
 
-				my $district = '';
+				my $dis10759trict = '';
 				my $local_authority = '';
 				if ($packager_codes{$canon_tagid}{district} =~ /\w/) {
 					$district = "District: $packager_codes{$canon_tagid}{district}<br>";
@@ -10593,7 +10593,7 @@ sub data_to_display_ingredients_analysis_details($product_ref) {
 
 	if ((not defined $product_ref->{ingredients})
 		or (scalar @{$product_ref->{ingredients}} == 0)) {
-		return undef;
+		return;
 	}
 
 	my $result_data_ref = {};
