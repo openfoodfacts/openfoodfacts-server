@@ -43,25 +43,30 @@ use JSON::PP;
 
 ProductOpener::Display::init();
 
-my $term = decode utf8=>param('term');
+my $term = decode utf8 => param('term');
 
 my %result = ();
-foreach my $country (sort {(get_string_id_for_lang("no_language", $translations_to{countries}{$a}{$lang})
-	|| get_string_id_for_lang("no_language", $translations_to{countries}{$a}{'en'}) )
-	cmp (get_string_id_for_lang("no_language", $translations_to{countries}{$b}{$lang})
-		|| get_string_id_for_lang("no_language", $translations_to{countries}{$b}{'en'}))}
-		keys %{$properties{countries}}
-	) {
+foreach my $country (
+	sort {
+		(        get_string_id_for_lang("no_language", $translations_to{countries}{$a}{$lang})
+			  || get_string_id_for_lang("no_language", $translations_to{countries}{$a}{'en'}))
+		  cmp(   get_string_id_for_lang("no_language", $translations_to{countries}{$b}{$lang})
+			  || get_string_id_for_lang("no_language", $translations_to{countries}{$b}{'en'}))
+	}
+	keys %{$properties{countries}}
+  )
+{
 
 	my $cc = country_to_cc($country);
-	if (not (defined $cc)) {
+	if (not(defined $cc)) {
 		next;
 	}
 
-	my $tag = display_taxonomy_tag($lang, 'countries', $country);;
-	if ((not defined $term)
+	my $tag = display_taxonomy_tag($lang, 'countries', $country);
+	if (   (not defined $term)
 		or ($term eq '')
-		or ($tag =~ /$term/i)) {
+		or ($tag =~ /$term/i))
+	{
 		$result{$cc} = $tag;
 	}
 }
