@@ -3745,7 +3745,7 @@ HTML
 
 			if ($packager_codes{$canon_tagid}{cc} eq 'uk') {
 
-				my $dis10759trict = '';
+				my $district = '';
 				my $local_authority = '';
 				if ($packager_codes{$canon_tagid}{district} =~ /\w/) {
 					$district = "District: $packager_codes{$canon_tagid}{district}<br>";
