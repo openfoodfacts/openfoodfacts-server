@@ -30,8 +30,6 @@ with different sets of separators for digit grouping and to indicate decimals.
 package ProductOpener::Numbers;
 
 use ProductOpener::PerlStandards;
-use utf8;
-use Modern::Perl '2017';
 use Exporter    qw< import >;
 
 use Log::Any qw($log);

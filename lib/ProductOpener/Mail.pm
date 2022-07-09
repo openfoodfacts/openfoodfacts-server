@@ -41,8 +41,7 @@ These emails can be used to reply to user queries, submit feedback, or to reques
 
 package ProductOpener::Mail;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 BEGIN
@@ -59,7 +58,6 @@ BEGIN
 
 use vars @EXPORT_OK ;
 
-use ProductOpener::PerlStandards;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Lang qw/:all/;

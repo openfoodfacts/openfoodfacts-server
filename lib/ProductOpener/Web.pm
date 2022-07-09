@@ -36,8 +36,6 @@ This module consists of different functions for displaying the different parts o
 package ProductOpener::Web;
 
 use ProductOpener::PerlStandards;
-use Modern::Perl '2017';
-use utf8;
 use Exporter qw(import);
 
 use ProductOpener::Store qw(:all);

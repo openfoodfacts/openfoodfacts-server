@@ -37,8 +37,6 @@ all the functions of the submodule.
 package ProductOpener::DataQualityFood;
 
 use ProductOpener::PerlStandards;
-use utf8;
-use Modern::Perl '2017';
 use Exporter qw(import);
 
 
