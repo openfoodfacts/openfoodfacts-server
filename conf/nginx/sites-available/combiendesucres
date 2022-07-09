@@ -18,7 +18,7 @@ server {
 	listen 80;
 	listen [::]:80;
 	server_name www.combiendesucres.fr combiendesucre.fr www.combiendesucre.fr;
-	return 301 combiendesucres.fr$request_uri;
+	return 301 http://combiendesucres.fr$request_uri;
 }
 
 
@@ -40,18 +40,15 @@ server {
 	#
 	# include snippets/snakeoil.conf;
 
-	# 13/09/2016: got error "nginx: [emerg] invalid parameter "http2" "
-	#listen 443 ssl http2 default_server;
-	listen 443 http2 ssl;
-	#listen [::]:443 ssl http2 default_server;
-	listen [::]:443 http2 ssl;
-	#include snippets/ssl-ssl-api-test.openfoodfacts.org;
+	listen 443 ssl http2;
+	listen [::]:443 ssl http2;
+	include snippets/ssl.combiendesucres.fr;
 	include snippets/ssl-params.conf;
 
-	root /home/sucres/html;
+	root /srv/sucres/html;
 
-	access_log /home/sucres/logs/nginx.combiendesucres.access.log;
-	error_log /home/sucres/logs/nginx.combiendesucres.error.log;
+	access_log /srv/sucres/logs/nginx.combiendesucres.access.log;
+	error_log /srv/sucres/logs/nginx.combiendesucres.error.log;
 
 	gzip on;
 	gzip_min_length 1000;

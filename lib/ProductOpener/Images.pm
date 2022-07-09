@@ -18,6 +18,70 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=head1 NAME
+
+ProductOpener::Images - adds, processes, manages and displays product photos
+
+=head1 DESCRIPTION
+
+C<ProductOpener::Images> is used to:
+- upload product images
+- select and crop product images
+- run OCR on images
+- display product images
+
+=head1 Product images on disk
+
+Product images are stored in html/images/products/[product barcode splitted with slashes]/
+
+For each product, this directory contains:
+
+=over
+
+=item [image number].[extension].orig (e.g. 1.jpg.orig, 2.jpg.orig etc.)
+
+Original images uploaded by users or imported
+
+=item [image number].jpg
+
+Same image saved as JPEG with specific settings, and after some minimal processing (autoorientation, removing EXIF data, flattening PNG images to remove transparency).
+
+Those images are not displayed on the web site (except on the product edit form), but can be selected and cropped.
+
+=item [image number].[100|400].jpg
+
+Same image saved with a maximum width and height of 100 and 400 pixels. Those thumbnails are used in the product edit form to show the available images.
+
+=item [image number].json
+
+OCR output from Google Cloud Vision.
+
+When a new image is uploaded, a symbolic link to it is created in /new_images. This triggers a script to generate and save the OCR:
+
+incrontab -l -u off
+/srv/off/new_images IN_ATTRIB,IN_CREATE,IN_MOVED_TO /srv/off/scripts/process_new_image_off.sh $@/$#
+
+=item [front|ingredients|nutrition|packaging]_[2 letter language code].[product revision].[full|100|200|400].jpg
+
+Cropped and selected image for the front of the product, the ingredients list, the nutrition facts table, and the packaging information / recycling instructions,
+in 4 different sizes (full size, 100 / 200 / 400 pixels maximum width or height).
+
+The product revision is a number that is incremented for each change to the product (each image upload and each image selection are also individual changes that
+create a new revision).
+
+The selected images are shown on the website, in the app etc.
+
+When a new image is selected for a given field (e.g. ingredients) and language (e.g. French), the existing selected images are kept.
+(e.g. we can have ingredients_fr.21.100.jpg and a new ingredients_fr.28.100.jpg).
+
+Previously selected images are shown only when people access old product revisions.
+
+Cropping coordinates for all revisions are stored in the "images" field of the product, so we could regenerate old selected and cropped images on demand.
+
+=back
+
+=cut
+
 package ProductOpener::Images;
 
 use utf8;
@@ -28,13 +92,11 @@ BEGIN
 {
 	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-		&display_image_form
-		&process_image_form
-
 		&display_search_image_form
 		&process_search_image_form
 
 		&get_code_and_imagefield_from_file_name
+		&get_imagefield_from_string
 		&process_image_upload
 		&process_image_move
 
@@ -75,6 +137,7 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::Users qw/:all/;
+use ProductOpener::Text qw/:all/;
 
 use Log::Any qw($log);
 use Encode;
@@ -82,7 +145,18 @@ use JSON::PP;
 use MIME::Base64;
 use LWP::UserAgent;
 
-my $extensions = "gif|jpeg|jpg|png|heic";
+=head1 SUPPORTED IMAGE TYPES
+
+gif, jpeg, jpf, png, heic
+
+=cut
+
+my $supported_extensions = "gif|jpeg|jpg|png|heic";
+
+
+=head1 FUNCTIONS
+
+=cut
 
 
 sub display_select_manage($) {
@@ -101,10 +175,11 @@ HTML
 
 
 
-sub display_select_crop($$) {
+sub display_select_crop($$$) {
 
 	my $object_ref = shift;
 	my $id_lc = shift;    #  id_lc = [front|ingredients|nutrition|packaging]_[new_]?[lc]
+	my $language = shift;
 	my $id    = $id_lc;
 
 	my $imagetype = $id_lc;
@@ -123,7 +198,7 @@ sub display_select_crop($$) {
 	my $label = $Lang{"image_" . $imagetype}{$lang};
 
 	my $html = <<HTML
-<label for="$id">$label</label>
+<label for="$id">$label (<span class="tab_language">$language</span>)</label>
 $note
 <div class=\"select_crop\" id=\"$id\"></div>
 <hr class="floatclear" />
@@ -217,14 +292,14 @@ sub scan_code($) {
 
 	# obtain image data
 	my $magick = Image::Magick->new();
-	my $x = $magick->Read($file);
+	my $imagemagick_error = $magick->Read($file);
 	local $log->context->{file} = $file;
 	
 	# ImageMagick can trigger an exception for some images that it can read anyway
 	# Exception codes less than 400 are warnings and not errors (see https://www.imagemagick.org/script/perl-magick.php#exceptions )
 	# e.g. Exception 365: CorruptImageProfile `xmp' @ warning/profile.c/SetImageProfileInternal/1704
-	if (("$x") and ($x =~ /(\d+)/) and ($1 >= 400)) {
-		$log->warn("cannot read file to scan barcode", { error => $x }) if $log->is_warn();
+	if (($imagemagick_error) and ($imagemagick_error =~ /(\d+)/) and ($1 >= 400)) {
+		$log->warn("cannot read file to scan barcode", { error => $imagemagick_error }) if $log->is_warn();
 	}
 	else {
 		# wrap image data
@@ -285,14 +360,9 @@ sub display_search_image_form($) {
 	$html .= <<HTML
 <div id="imgsearchdiv_$id">
 
-<a href="#" class="button small expand" id="imgsearchbutton_$id">@{[ display_icon('photo_camera') ]} $product_image_with_barcode
-<input type="file" accept="image/*" class="img_input" name="imgupload_search" id="imgupload_search_$id" style="position: absolute;
-    right:0;
-    bottom:0;
-    top:0;
-    cursor:pointer;
-    opacity:0;
-    font-size:40px;"/>
+<a class="button small expand" id="imgsearchbutton_$id">@{[ display_icon('photo_camera') ]} $product_image_with_barcode
+<input type="file" accept="image/*" class="img_input" name="imgupload_search" id="imgupload_search_$id"
+	style="position: absolute;right:0;bottom:0;top:0;cursor:pointer;opacity:0;width:100%;height:100%;"/>
 </a>
 </div>
 
@@ -313,14 +383,19 @@ sub display_search_image_form($) {
 HTML
 ;
 
+	# Do not load jquery file upload twice, if it was loaded by another form
 
-	$scripts .= <<JS
+	if ($scripts !~ /jquery.fileupload.js/) {
+
+		$scripts .= <<JS
 <script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
 <script type="text/javascript" src="/js/dist/load-image.all.min.js"></script>
 <script type="text/javascript" src="/js/dist/canvas-to-blob.js"></script>
 JS
 ;
+
+	}
 
 	$initjs .= <<JS
 
@@ -397,7 +472,7 @@ sub process_search_image_form($) {
 	my $file = undef;
 	my $code = undef;
 	if ($file = param($imgid)) {
-		if ($file =~ /\.($extensions)$/i) {
+		if ($file =~ /\.($supported_extensions)$/i) {
 
 			$log->debug("processing image search form", { imgid => $imgid, file => $file }) if $log->is_debug();
 
@@ -422,11 +497,41 @@ sub process_search_image_form($) {
 }
 
 
-sub dims {
-	my ($image) = @_;
-	return $image->Get('width') . 'x' . $image->Get('height');
-}
 
+=head2 get_code_and_imagefield_from_file_name ( $l $filename )
+
+This function is used to guess if an image is the front of the product,
+its list of ingredients, or the nutrition facts table, based on the filename.
+
+It is used in particular for bulk upload of photos sent by manufacturers.
+The file names have many different formats, but they very often include the barcode of the product,
+and sometimes an indication of what the image is.
+
+Producers are advised to use the [front|ingredients|nutrition|packaging]_[language code] format,
+but in practice we receive many other names.
+
+The %file_names_to_imagefield_regexps structure below contains some patterns
+used to guess what the image is about.
+
+=cut
+
+# the regexps apply to canonicalized strings
+# i.e. lowercased / unaccented strings in most European languages
+my %file_names_to_imagefield_regexps = (
+
+	en => [
+		["ingredients" => "ingredients"],
+		["nutrition" => "nutrition"],
+	],
+	es => [
+		["ingredientes" => "ingredients"],
+		["nutricion" => "nutrition"],	
+	],
+	fr => [
+		["ingredients" => "ingredients"],
+		["nutrition" => "nutrition"],
+	],
+);
 
 sub get_code_and_imagefield_from_file_name($$) {
 
@@ -458,16 +563,29 @@ sub get_code_and_imagefield_from_file_name($$) {
 	$filename =~ s/(table|nutrition(_|-)table)/nutrition/i;
 	
 	if ($filename =~ /((front|ingredients|nutrition|packaging)((_|-)\w\w\b)?)/i) {
-		$imagefield = $1;
+		$imagefield = lc($1);
 		$imagefield =~ s/-/_/;
 	}
 	# If the photo file name is just the barcode + some stopwords, assume it is the front image
 	# but [code]_2.jpg etc. should not be considered the front image
-	elsif (($filename =~ /^\d{8}\d*(-|_|\.| )*(photo|visuel|image)?(-|_|\.| )*\d*\.($extensions)$/i)
-		and not ($filename =~ /^\d{8}\d*(-|_|\.| )*\d{1,2}\.($extensions)$/i)) {    # [code] + number between 0 and 99
+	elsif (($filename =~ /^\d{8}\d*(-|_|\.| )*(photo|visuel|image)?(-|_|\.| )*\d*\.($supported_extensions)$/i)
+		and not ($filename =~ /^\d{8}\d*(-|_|\.| )+\d{1,2}\.($supported_extensions)$/i)) {    # [code] + number between 0 and 99
 		$imagefield = "front";
 	}
-	else {
+	elsif (defined $file_names_to_imagefield_regexps{$l}) {
+		
+		my $filenameid = get_string_id_for_lang($l,$filename);
+		
+		foreach my $regexp_ref (@{$file_names_to_imagefield_regexps{$l}}) {
+			my $regexp = $regexp_ref->[0];
+			if ($filenameid =~ /$regexp/) {
+				$imagefield = $regexp_ref->[1];
+				last;
+			}
+		}
+	}
+	
+	if (not defined $imagefield) {
 		$imagefield = "other";
 	}
 
@@ -477,11 +595,85 @@ sub get_code_and_imagefield_from_file_name($$) {
 }
 
 
+sub get_imagefield_from_string($$) {
+
+	my $l = shift;
+	my $filename = shift;
+
+	my $imagefield;
+	
+	# Check for a specified imagefield
+	
+	$filename =~ s/(table|nutrition(_|-)table)/nutrition/i;
+	
+	if ($filename =~ /((front|ingredients|nutrition|packaging)((_|-)\w\w\b)?)/i) {
+		$imagefield = lc($1);
+		$imagefield =~ s/-/_/;
+	}
+	elsif (defined $file_names_to_imagefield_regexps{$l}) {
+		
+		my $filenameid = get_string_id_for_lang($l,$filename);
+		
+		foreach my $regexp_ref (@{$file_names_to_imagefield_regexps{$l}}) {
+			my $regexp = $regexp_ref->[0];
+			if ($filenameid =~ /$regexp/) {
+				$imagefield = $regexp_ref->[1];
+				last;
+			}
+		}
+	}
+	
+	if (not defined $imagefield) {
+		$imagefield = "other";
+	}
+
+	$log->debug("get_imagefield_from_string", { l => $l, filename => $filename, imagefield => $imagefield }) if $log->is_debug();
+
+	return $imagefield;
+}
+
+
+=head2 process_image_upload ( $product_id, $imagefield, $user_id, $time, $comment, $imgid_ref, $debug_string_ref )
+
+Process an image uploaded to a product (from the web site, from the API, or from an import):
+
+- Read the image
+- Create a JPEG version
+- Create resized versions
+- Store the image in the product data
+
+=head3 Arguments
+
+=head4 Product id $product_id
+
+=head4 Image field $imagefield
+
+Indicates what the image is and its language.
+
+Format: [front|ingredients|nutrition|packaging|other]_[2 letter language code]
+
+=head4 User id $user_id
+
+=head4 Timestamp of the image $time
+
+=head4 Comment $comment
+
+=head4 Reference to an imgid $img_id
+
+Used to return the number identifying the image to the caller.
+
+=head4 Debug string reference $debug_string_ref
+
+Used to return some debug information to the caller.
+
+
+=cut
+
 sub process_image_upload($$$$$$$) {
 
 	my $product_id = shift;
 	my $imagefield = shift;
-	my $userid     = shift;
+	my $user_id     = shift;
 	my $time       = shift; # usually current time (images just uploaded), except for images moved from another product
 	my $comment   = shift;
 	my $imgid_ref = shift; # to return the imgid (new image or existing image)
@@ -495,7 +687,7 @@ sub process_image_upload($$$$$$$) {
 
 	# debug message passed back to apps in case of an error
 
-	my $debug = "product_id: $product_id - userid: $userid - imagefield: $imagefield";
+	my $debug = "product_id: $product_id - user_id: $user_id - imagefield: $imagefield";
 
 	my $bogus_imgid;
 	not defined $imgid_ref and $imgid_ref = \$bogus_imgid;
@@ -516,11 +708,10 @@ sub process_image_upload($$$$$$$) {
 
 		if ($tmp_filename) {
 			open ($file, q{<}, "$tmp_filename") or $log->error("Could not read file", { path => $tmp_filename, error => $! });
-			if ($tmp_filename =~ /\.($extensions)$/i) {
+			if ($tmp_filename =~ /\.($supported_extensions)$/i) {
 				$extension = lc($1);
 			}
 		}
-
 	}
 	else {
 		$file = param('imgupload_' . $imagefield);
@@ -538,7 +729,7 @@ sub process_image_upload($$$$$$$) {
 	}
 	
 	local $log->context->{imagefield} = $imagefield;
-	local $log->context->{uploader}   = $userid;
+	local $log->context->{uploader}   = $user_id;
 	local $log->context->{file}       = $file;
 	local $log->context->{time}       = $time;
 
@@ -557,244 +748,256 @@ sub process_image_upload($$$$$$$) {
 	}
 
 	if ($file) {
-		$log->debug("processing uploaded file") if $log->is_debug();
+		$log->debug("processing uploaded file", { file => $file}) if $log->is_debug();
 
-		if ($file !~ /\.($extensions)$/i) {
-			# We have a "blob" without file name and extension?
-			# try to assume it is jpeg (and let ImageMagick read it anyway if it's something else)
-			# $file .= ".jpg";
+		# We may have a "blob" without file name and extension
+		# extension was initialized to jpg and we will let ImageMagick read it anyway if it's something else.
+
+		if ($file =~ /\.($supported_extensions)$/i) {
+			$extension = lc($1);
+			$extension eq 'jpeg' and $extension = 'jpg';
 		}
 
-		if (1 or ($file =~ /\.($extensions)$/i)) {
-			$log->debug("file type validated") if $log->is_debug();
+		my $filename = get_string_id_for_lang("no_language", remote_addr(). '_' . $`);
 
-			if ($file =~ /\.($extensions)$/i) {
-				$extension = lc($1) ;
-			}
-			$extension eq 'jpeg' and $extension = 'jpg';
-			my $filename = get_string_id_for_lang("no_language", remote_addr(). '_' . $`);
+		my $current_product_ref = retrieve_product($product_id);
+		$imgid = $current_product_ref->{max_imgid} + 1;
 
-			my $current_product_ref = retrieve_product($product_id);
-			$imgid = $current_product_ref->{max_imgid} + 1;
+		# if for some reason the images directories were not created at product creation (it can happen if the images directory's permission / ownership are incorrect at some point)
+		# create them
 
-			# if for some reason the images directories were not created at product creation (it can happen if the images directory's permission / ownership are incorrect at some point)
-			# create them
-
-			# Create the directories for the product
-			foreach my $current_dir  ($product_www_root . "/images/products") {
+		# Create the directories for the product
+		foreach my $current_dir  ($product_www_root . "/images/products") {
+			(-e "$current_dir") or mkdir($current_dir, 0755);
+			foreach my $component (split("/", $path)) {
+				$current_dir .= "/$component";
 				(-e "$current_dir") or mkdir($current_dir, 0755);
-				foreach my $component (split("/", $path)) {
-					$current_dir .= "/$component";
-					(-e "$current_dir") or mkdir($current_dir, 0755);
-				}
+			}
+		}
+
+		my $lock_path = "$product_www_root/images/products/$path/$imgid.lock";
+		while ((-e $lock_path) or (-e "$product_www_root/images/products/$path/$imgid.jpg")) {
+			$imgid++;
+			$lock_path = "$product_www_root/images/products/$path/$imgid.lock";
+		}
+
+		mkdir ($lock_path, 0755) or $log->warn("could not create lock file for the image", { path => $lock_path, error => $! });
+
+		local $log->context->{imgid} = $imgid;
+		$log->debug("new imgid: ", {imgid => $imgid, extension => $extension}) if $log->is_debug();
+
+		my $img_orig = "$product_www_root/images/products/$path/$imgid.$extension.orig";
+		open (my $out, ">", $img_orig) or $log->warn("could not open image path for saving", { path => $img_orig, error => $! });
+		while (my $chunk = <$file>) {
+			print $out $chunk;
+		}
+		close ($out);
+
+		# Read the image
+
+		my $source = Image::Magick->new;
+		my $imagemagick_error = $source->Read($img_orig);
+		if (($imagemagick_error) and ($imagemagick_error =~ /(\d+)/) and ($1 >= 400)) { # ImageMagick returns a string starting with a number greater than 400 for errors
+			$log->error("cannot read image", { path => "$product_www_root/images/products/$path/$imgid.$extension", error => $imagemagick_error });
+			$debug .= " - could not read image: $imagemagick_error";
+			${$debug_string_ref} = $debug;
+			return -5;
+		}
+
+		$source->AutoOrient();
+		$source->Strip(); #remove orientation data and all other metadata (EXIF)
+
+		# remove the transparency for PNG files
+		if ($extension eq "png") {
+			$log->debug("png file, trying to remove the alpha background") if $log->is_debug();
+			my $bg = Image::Magick->new;
+			$bg->Set(size=>$source->Get('width') . "x" . $source->Get('height'));
+			$bg->ReadImage('canvas:white');
+			$bg->Composite(compose => 'Over', image => $source);
+			$source = $bg;
+		}
+
+		my $img_jpg = "$product_www_root/images/products/$path/$imgid.jpg";
+
+		$source->Set('quality',95);
+		$imagemagick_error = $source->Write("jpeg:$img_jpg");
+		# We also check for the existence of the image file as sometimes ImageMagick does not return an error
+		# but does not write the file (e.g. conversion from pdf to jpg)
+		if (($imagemagick_error) or (! -e $img_jpg)) {
+			$log->error("cannot write image", { path => $img_jpg, error => $imagemagick_error });
+			$debug .= " - could not write image: $imagemagick_error";
+			${$debug_string_ref} = $debug;
+			return -5;
+		}		
+
+		# Check that we don't already have the image
+		my $size_orig = -s $img_orig;
+		my $size_jpg = -s $img_jpg;
+
+		local $log->context->{img_size_orig} = $size_orig;
+		local $log->context->{img_size_jpg} = $size_jpg;
+
+		$debug .= " - size of image file received: $size_orig - saved jpg: $size_jpg";
+
+		$log->debug("comparing existing images with size of new image", { img_orig => $img_orig, size_orig => $size_orig, img_jpg => $img_jpg, size_jpg => $size_jpg }) if $log->is_debug();
+		for (my $i = 0; $i < $imgid; $i++) {
+
+			# We did not store original files sizes in images.sto and original files in [imgid].[extension].orig before July 2020,
+			# but we stored original PNG files before they were converted to JPG in [imgid].png
+			# We compare both the sizes of the original files and the converted files
+
+			my @existing_images = ("$product_www_root/images/products/$path/$i.jpg");
+			if (-e "$product_www_root/images/products/$path/$i.$extension.orig") {
+				push @existing_images, "$product_www_root/images/products/$path/$i.$extension.orig";
+			}
+			if (($extension ne "jpg") and (-e "$product_www_root/images/products/$path/$i.$extension")) {
+				push @existing_images, "$product_www_root/images/products/$path/$i.$extension";
 			}
 
-			my $lock_path = "$product_www_root/images/products/$path/$imgid.lock";
-			while ((-e $lock_path) or (-e "$product_www_root/images/products/$path/$imgid.jpg")) {
-				$imgid++;
-				$lock_path = "$product_www_root/images/products/$path/$imgid.lock";
-			}
+			foreach my $existing_image (@existing_images) {
 
-			mkdir ($lock_path, 0755) or $log->warn("could not create lock file for the image", { path => $lock_path, error => $! });
+				my $existing_image_size = -s $existing_image;
 
-			local $log->context->{imgid} = $imgid;
-			$log->debug("new imgid: ", {imgid => $imgid, extension => $extension}) if $log->is_debug();
+				foreach my $size ($size_orig, $size_jpg) {
 
-			my $img_orig = "$product_www_root/images/products/$path/$imgid.$extension.orig";
-			open (my $out, ">", $img_orig) or $log->warn("could not open image path for saving", { path => $img_orig, error => $! });
-			while (my $chunk = <$file>) {
-				print $out $chunk;
-			}
-			close ($out);
-
-			# Generate resized versions
-
-			my $source = Image::Magick->new;
-			my $x = $source->Read($img_orig);
-
-			$source->AutoOrient();
-			$source->Strip(); #remove orientation data and all other metadata (EXIF)
-
-			if ($extension eq "png") {
-				$log->debug("png file, trying to remove the alpha background") if $log->is_debug();
-				my $bg = Image::Magick->new;
-				$bg->Set(size=>$source->Get('width') . "x" . $source->Get('height'));
-				$bg->ReadImage('canvas:white');
-				$bg->Composite(compose => 'Over', image => $source);
-				$source = $bg;
-			}
-			
-			my $img_jpg = "$product_www_root/images/products/$path/$imgid.jpg";
-
-			$source->Set('quality',95);
-			$x = $source->Write("jpeg:$img_jpg");
-
-			# Check that we don't already have the image
-			my $size_orig = -s $img_orig;
-			my $size_jpg = -s $img_jpg;
-			
-			local $log->context->{img_size_orig} = $size_orig;
-			local $log->context->{img_size_jpg} = $size_jpg;
-
-			$debug .= " - size of image file received: $size_orig - saved jpg: $size_jpg";
-
-			$log->debug("comparing existing images with size of new image", { img_orig => $img_orig, size_orig => $size_orig, img_jpg => $img_jpg, size_jpg => $size_jpg }) if $log->is_debug();
-			for (my $i = 0; $i < $imgid; $i++) {
-				
-				# We did not store original files sizes in images.sto and original files in [imgid].[extension].orig before July 2020,
-				# but we stored original PNG files before they were converted to JPG in [imgid].png
-				# We compare both the sizes of the original files and the converted files
-						
-				my @existing_images = ("$product_www_root/images/products/$path/$i.jpg");
-				if (-e "$product_www_root/images/products/$path/$i.$extension.orig") {
-					push @existing_images, "$product_www_root/images/products/$path/$i.$extension.orig";
-				}
-				if (($extension ne "jpg") and (-e "$product_www_root/images/products/$path/$i.$extension")) {
-					push @existing_images, "$product_www_root/images/products/$path/$i.$extension";
-				}
-				
-				foreach my $existing_image (@existing_images) {
-					
-					my $existing_image_size = -s $existing_image;
-					
-					foreach my $size ($size_orig, $size_jpg) {
-					
-						$log->debug("comparing image", { existing_image_index => $i, existing_image => $existing_image, existing_image_size => $existing_image_size }) if $log->is_debug();
-						if ((defined $existing_image_size) and ($existing_image_size == $size)) {
-							$log->debug("image with same size detected", { existing_image_index => $i, existing_image => $existing_image, existing_image_size => $existing_image_size }) if $log->is_debug();
-							# check the image was stored inside the
-							# product, it is sometimes missing
-							# (e.g. during crashes)
-							my $product_ref = retrieve_product($product_id);
-							if ((defined $product_ref) and (defined $product_ref->{images}) and (exists $product_ref->{images}{$i})) {
-								$log->debug("unlinking image", { imgid => $imgid, file => "$product_www_root/images/products/$path/$imgid.$extension" }) if $log->is_debug();
-								unlink $img_orig;
-								unlink $img_jpg;
-								rmdir ("$product_www_root/images/products/$path/$imgid.lock");
-								${$imgid_ref} = $i;
-								$debug .= " - we already have an image with this file size: $size - imgid: $i";
-								${$debug_string_ref} = $debug;
-								return -3;
-							}
-							else {
-								print STDERR "missing image $i in product.sto, keeping image $imgid\n";
-							}
+					$log->debug("comparing image", { existing_image_index => $i, existing_image => $existing_image, existing_image_size => $existing_image_size }) if $log->is_debug();
+					if ((defined $existing_image_size) and ($existing_image_size == $size)) {
+						$log->debug("image with same size detected", { existing_image_index => $i, existing_image => $existing_image, existing_image_size => $existing_image_size }) if $log->is_debug();
+						# check the image was stored inside the
+						# product, it is sometimes missing
+						# (e.g. during crashes)
+						my $product_ref = retrieve_product($product_id);
+						if ((defined $product_ref) and (defined $product_ref->{images}) and (exists $product_ref->{images}{$i})) {
+							$log->debug("unlinking image", { imgid => $imgid, file => "$product_www_root/images/products/$path/$imgid.$extension" }) if $log->is_debug();
+							unlink $img_orig;
+							unlink $img_jpg;
+							rmdir ("$product_www_root/images/products/$path/$imgid.lock");
+							${$imgid_ref} = $i;
+							$debug .= " - we already have an image with this file size: $size - imgid: $i";
+							${$debug_string_ref} = $debug;
+							return -3;
+						}
+						else {
+							print STDERR "missing image $i in product.sto, keeping image $imgid\n";
 						}
 					}
 				}
 			}
+		}
 
-			if ("$x") {
-				$log->error("cannot read image", { path => "$product_www_root/images/products/$path/$imgid.$extension", error => $x });
-				$debug .= " - could not read image: $x";
+		# Check the image is big enough so that we do not get thumbnails from other sites
+		if (  (($source->Get('width') < 640) and ($source->Get('height') < 160))
+			and ((not defined $options{users_who_can_upload_small_images})
+				or (not defined $options{users_who_can_upload_small_images}{$user_id}))){
+			unlink "$product_www_root/images/products/$path/$imgid.$extension";
+			rmdir ("$product_www_root/images/products/$path/$imgid.lock");
+			$debug .= " - image too small - width: " . $source->Get('width') . " - height: " . $source->Get('height');
+			${$debug_string_ref} = $debug;
+			return -4;
+		}
+
+		# Generate resized versions
+
+		$new_product_ref->{"images.$imgid.w"} = $source->Get('width');
+		$new_product_ref->{"images.$imgid.h"} = $source->Get('height');
+
+		foreach my $max ($thumb_size, $crop_size) {
+
+			my ($w, $h) = ($source->Get('width'), $source->Get('height'));
+			if ($w > $h) {
+				if ($w > $max) {
+					$h = $h * $max / $w;
+					$w = $max;
+				}
+			}
+			else {
+				if ($h > $max) {
+					$w = $w * $max / $h;
+					$h = $max;
+				}
+			}
+			my $geometry = $w . 'x' . $h;
+			my $img = $source->Clone();
+			$img->Resize(geometry=>"$geometry^");
+			$img->Extent(geometry=>"$geometry",
+				gravity=>"center");
+			_set_magickal_options($img, $w);
+
+			$imagemagick_error = $img->Write("jpeg:$product_www_root/images/products/$path/$imgid.$max.jpg");
+			if (($imagemagick_error) and ($imagemagick_error =~ /(\d+)/) and ($1 >= 400)) { # ImageMagick returns a string starting with a number greater than 400 for errors
+				$log->warn("could not write jpeg", { path => "jpeg:$product_www_root/images/products/$path/$imgid.$max.jpg", error => $imagemagick_error }) if $log->is_warn();
+				last;
+			}
+			else {
+				$log->info("jpeg written", { path => "jpeg:$product_www_root/images/products/$path/$imgid.$max.jpg" }) if $log->is_info();
 			}
 
-			# Check the image is big enough so that we do not get thumbnails from other sites
-			if (  (($source->Get('width') < 640) and ($source->Get('height') < 160))
-				and ((not defined $options{users_who_can_upload_small_images})
-					or (not defined $options{users_who_can_upload_small_images}{$userid}))){
-				unlink "$product_www_root/images/products/$path/$imgid.$extension";
-				rmdir ("$product_www_root/images/products/$path/$imgid.lock");
-				$debug .= " - image too small - width: " . $source->Get('width') . " - height: " . $source->Get('height');
-				${$debug_string_ref} = $debug;
-				return -4;
-			}
+			$new_product_ref->{"images.$imgid.$max"} = "$imgid.$max";
+			$new_product_ref->{"images.$imgid.$max.w"} = $img->Get('width');
+			$new_product_ref->{"images.$imgid.$max.h"} = $img->Get('height');
 
-			$new_product_ref->{"images.$imgid.w"} = $source->Get('width');
-			$new_product_ref->{"images.$imgid.h"} = $source->Get('height');
+		}
+
+		if (not $imagemagick_error) {
+
+			# Update the product image data
+			$log->debug("update the product image data", { imgid => $imgid, product_id => $product_id }) if $log->is_debug();
+			my $product_ref = retrieve_product($product_id);
+			
+			if (not defined $product_ref) {
+				$log->debug("product could not be loaded", { imgid => $imgid, product_id => $product_id }) if $log->is_debug();
+			}
+			
+			defined $product_ref->{images} or $product_ref->{images} = {};
+			$product_ref->{images}{$imgid} = {
+				uploader => $user_id,
+				uploaded_t => $time,
+				sizes => {
+					full => {w => $new_product_ref->{"images.$imgid.w"}, h => $new_product_ref->{"images.$imgid.h"}},
+				},
+			};
 
 			foreach my $max ($thumb_size, $crop_size) {
 
-				my ($w, $h) = ($source->Get('width'), $source->Get('height'));
-				if ($w > $h) {
-					if ($w > $max) {
-						$h = $h * $max / $w;
-						$w = $max;
-					}
-				}
-				else {
-					if ($h > $max) {
-						$w = $w * $max / $h;
-						$h = $max;
-					}
-				}
-				my $geometry = $w . 'x' . $h;
-				my $img = $source->Clone();
-				$img->Resize(geometry=>"$geometry^");
-				$img->Extent(geometry=>"$geometry",
-					gravity=>"center");
-				_set_magickal_options($img, $w);
-
-				my $x = $img->Write("jpeg:$product_www_root/images/products/$path/$imgid.$max.jpg");
-				if ("$x") {
-					$log->warn("could not write jpeg", { path => "jpeg:$product_www_root/images/products/$path/$imgid.$max.jpg", error => $x }) if $log->is_warn();
-				}
-				else {
-					$log->info("jpeg written", { path => "jpeg:$product_www_root/images/products/$path/$imgid.$max.jpg" }) if $log->is_info();
-				}
-
-				$new_product_ref->{"images.$imgid.$max"} = "$imgid.$max";
-				$new_product_ref->{"images.$imgid.$max.w"} = $img->Get('width');
-				$new_product_ref->{"images.$imgid.$max.h"} = $img->Get('height');
+				$product_ref->{images}{$imgid}{sizes}{$max} =
+					{w => $new_product_ref->{"images.$imgid.$max.w"}, h => $new_product_ref->{"images.$imgid.$max.h"}};
 
 			}
-
-			if (not "$x") {
-
-				# Update the product image data
-				my $product_ref = retrieve_product($product_id);
-				defined $product_ref->{images} or $product_ref->{images} = {};
-				$product_ref->{images}{$imgid} = {
-					uploader => $userid,
-					uploaded_t => $time,
-					sizes => {
-						full => {w => $new_product_ref->{"images.$imgid.w"}, h => $new_product_ref->{"images.$imgid.h"}},
-					},
-				};
-
-				foreach my $max ($thumb_size, $crop_size) {
-
-					$product_ref->{images}{$imgid}{sizes}{$max} =
-						{w => $new_product_ref->{"images.$imgid.$max.w"}, h => $new_product_ref->{"images.$imgid.$max.h"}};
-
-				}
-				if ($imgid > $product_ref->{max_imgid}) {
-					$product_ref->{max_imgid} = $imgid;
-				}
-				my $store_comment = "new image $imgid";
-				if ((defined $comment) and ($comment ne '')) {
-					$store_comment .= ' - ' . $comment;
-				}
-				store_product($product_ref, $store_comment);
-
-				# Create a link to the image in /new_images so that it can be batch processed by OCR
-				# and computer vision algorithms
-
-				(-e "$product_data_root/new_images") or mkdir("$product_data_root/new_images", 0755);
-				my $code = $product_id;
-				$code =~ s/.*\///;
-				symlink("$product_www_root/images/products/$path/$imgid.jpg", "$product_data_root/new_images/" . time() . "." . $code . "." . $imagefield . "." . $imgid . ".jpg");
-				
-				# Save the image file size so that we can skip the image before processing it if it is uploaded again
-				$images_ref->{$size_orig} = $imgid;
-				store("$product_data_root/products/$path/images.sto", $images_ref);
+			if ($imgid > $product_ref->{max_imgid}) {
+				$product_ref->{max_imgid} = $imgid;
 			}
-			else {
-				# Could not read image
-				$debug .= " - could not read image : $x";
-				$imgid = -5;
+			my $store_comment = "new image $imgid";
+			if ((defined $comment) and ($comment ne '')) {
+				$store_comment .= ' - ' . $comment;
 			}
+			
+			$log->debug("storing product", {product_id => $product_id }) if $log->is_debug();
+			store_product($user_id, $product_ref, $store_comment);
 
-			rmdir ("$product_www_root/images/products/$path/$imgid.lock");
+			# Create a link to the image in /new_images so that it can be batch processed by OCR
+			# and computer vision algorithms
+
+			(-e "$product_data_root/new_images") or mkdir("$product_data_root/new_images", 0755);
+			my $code = $product_id;
+			$code =~ s/.*\///;
+			symlink("$product_www_root/images/products/$path/$imgid.jpg", "$product_data_root/new_images/" . time() . "." . $code . "." . $imagefield . "." . $imgid . ".jpg");
+			
+			# Save the image file size so that we can skip the image before processing it if it is uploaded again
+			$images_ref->{$size_orig} = $imgid;
+			store("$product_data_root/products/$path/images.sto", $images_ref);
+		}
+		else {
+			# Could not read image
+			$debug .= " - could not read image : $imagemagick_error";
+			$imgid = -5;
 		}
 
+		rmdir ("$product_www_root/images/products/$path/$imgid.lock");
+
 		# make sure to close the file so that it does not stay in /tmp forever
-		#close ($file);
-		#unlink($file);
 		my $tmpfilename = tmpFileName($file);
 		$log->debug("unlinking image", { file => $file, tmpfilename => $tmpfilename }) if $log->is_debug();
 		unlink ($tmpfilename);
-
 	}
 	else {
 		$log->debug("imgupload field not set", { field => "imgupload_$imagefield" }) if $log->is_debug();
@@ -817,23 +1020,23 @@ sub process_image_upload($$$$$$$) {
 }
 
 
+sub process_image_move($$$$$) {
 
-sub process_image_move($$$$) {
-
+	my $user_id = shift;
 	my $code = shift;
 	my $imgids = shift;
 	my $move_to = shift;
 	my $ownerid = shift;
 
 	# move images only to trash or another valid barcode (number)
-	if (($move_to ne 'trash') and ($move_to !~ /^\d+$/)) {
+	if (($move_to ne 'trash') and ($move_to !~ /^((off|obf|opf|opff):)?\d+$/)) {
 		return "invalid barcode number: $move_to";
 	}
 
 	my $product_id = product_id_for_owner($ownerid, $code);
 	my $move_to_id = product_id_for_owner($ownerid, $move_to);
 
-	$log->debug("process_image_move", { product_id => $product_id, imgids => $imgids, move_to_id => $move_to_id }) if $log->is_debug();
+	$log->debug("process_image_move - start", { product_id => $product_id, imgids => $imgids, move_to_id => $move_to_id }) if $log->is_debug();
 
 	my $path = product_path_from_id($product_id);
 
@@ -855,14 +1058,17 @@ sub process_image_move($$$$) {
 			my $new_imgid;
 			my $debug;
 
-			if ($move_to =~ /^\d+$/) {
-				$ok = process_image_upload($move_to_id, "$www_root/images/products/$path/$imgid.jpg", $product_ref->{images}{$imgid}{uploader}, $product_ref->{images}{$imgid}{uploaded_t}, "image moved from product $code by $User_id -- uploader: $product_ref->{images}{$imgid}{uploader} - time: $product_ref->{images}{$imgid}{uploaded_t}", \$new_imgid, \$debug);
+			if ($move_to =~ /^((off|obf|opf|opff):)?\d+$/) {
+				$ok = process_image_upload($move_to_id, "$www_root/images/products/$path/$imgid.jpg", $product_ref->{images}{$imgid}{uploader}, $product_ref->{images}{$imgid}{uploaded_t}, "image moved from product $code on $server_domain by $user_id -- uploader: $product_ref->{images}{$imgid}{uploader} - time: $product_ref->{images}{$imgid}{uploaded_t}", \$new_imgid, \$debug);
 				if ($ok < 0) {
-					$log->error("could not move image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", old_code => $code, ownerid => $ownerid, user_id => $User_id, result => $ok });
+					$log->error("could not move image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", move_to => $move_to, old_code => $code, ownerid => $ownerid, user_id => $user_id, result => $ok });
 				}
 				else {
-					$log->info("moved image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", old_code => $code, ownerid => $ownerid, user_id => $User_id, result => $ok });
+					$log->info("moved image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", move_to => $move_to, old_code => $code, ownerid => $ownerid, user_id => $user_id, result => $ok });
 				}
+			}
+			else {
+				$log->info("moved image to trash", { source_path => "$www_root/images/products/$path/$imgid.jpg", old_code => $code, ownerid => $ownerid, user_id => $user_id, result => $ok });
 			}
 
 			# Don't delete images to be moved if they weren't moved correctly
@@ -888,14 +1094,17 @@ sub process_image_move($$$$) {
 
 	}
 
-	store_product($product_ref, "Moved images $imgids to $move_to");
+	store_product($user_id, $product_ref, "Moved images $imgids to $move_to");
+	
+	$log->debug("process_image_move - end", { product_id => $product_id, imgids => $imgids, move_to_id => $move_to_id }) if $log->is_debug();
 
 	return 0;
 }
 
 
-sub process_image_crop($$$$$$$$$$$) {
+sub process_image_crop($$$$$$$$$$$$) {
 
+	my $user_id = shift;
 	my $product_id = shift;
 	my $id = shift;
 	my $imgid = shift;
@@ -971,8 +1180,8 @@ sub process_image_crop($$$$$$$$$$$) {
 
 
 	my $source = Image::Magick->new;
-	my $x = $source->Read($source_path);
-	("$x") and $log->error("cannot read image", { path => $source_path, error => $x });
+	my $imagemagick_error = $source->Read($source_path);
+	($imagemagick_error) and $log->error("cannot read image", { path => $source_path, error => $imagemagick_error });
 
 	if ($angle != 0) {
 		$source->Rotate($angle);
@@ -1004,8 +1213,8 @@ sub process_image_crop($$$$$$$$$$$) {
 	my $geometry = "${nw}x${nh}\+${ox1}\+${oy1}";
 	$log->debug("geometry calculated", { geometry => $geometry, ox1 => $ox1, oy1 => $oy1, ox2 => $ox2, oy2 => $oy2, w => $w, h => $h }) if $log->is_debug();
 	if ($nw > 0) { # image not cropped
-		my $x = $source->Crop(geometry=>$geometry);
-		("$x") and $log->error("could not crop to geometry", { geometry => $geometry, error => $x });
+		my $imagemagick_error = $source->Crop(geometry=>$geometry);
+		($imagemagick_error) and $log->error("could not crop to geometry", { geometry => $geometry, error => $imagemagick_error });
 	}
 
 	# add auto trim to remove white borders (e.g. from some producers that send us images with white borders)
@@ -1033,7 +1242,7 @@ sub process_image_crop($$$$$$$$$$$) {
 		my $h = $image->Get('height');
 		my $background = Image::Magick->new();
 		$background->Set(size=>'2x2');
-		my $x = $background->ReadImage('xc:white');
+		my $imagemagick_error = $background->ReadImage('xc:white');
 		my @rgb;
 		@rgb = $image->GetPixel(x=>0,y=>0);
 		$background->SetPixel(x=>0,y=>0, color=>\@rgb);
@@ -1051,24 +1260,24 @@ sub process_image_crop($$$$$$$$$$$) {
 
 		my $bg_path = "$product_www_root/images/products/$path/$imgid.${crop_size}.background.jpg";
 		$log->debug("writing background image to file", { width => $background->Get('width'), path => $bg_path }) if $log->is_debug();
-		$x = $background->Write("jpeg:${bg_path}");
-		$x and $log->error("could write background image", { path => $bg_path, error => $x });
+		$imagemagick_error = $background->Write("jpeg:${bg_path}");
+		$imagemagick_error and $log->error("could write background image", { path => $bg_path, error => $imagemagick_error });
 
 
 		#$image->Negate();
 		#$background->Modulate(brightness=>95);
 		#$background->Negate();
-		#$x = $image->Composite(image=>$background, compose=>"Divide");
+		#$imagemagick_error = $image->Composite(image=>$background, compose=>"Divide");
 
 
 		#$background->Modulate(brightness=>130);
-		$x = $image->Composite(image=>$background, compose=>"Minus");
-		$x and $log->error("magic composide failed", { error => $x });
+		$imagemagick_error = $image->Composite(image=>$background, compose=>"Minus");
+		$imagemagick_error and $log->error("magic composide failed", { error => $imagemagick_error });
 
 		$image->Negate();
 		#$image->Normalize( channel=>'RGB' );
 
-		#$x = $image->Composite(image=>$background, compose=>"Screen");
+		#$imagemagick_error = $image->Composite(image=>$background, compose=>"Screen");
 		#$image->Negate();
 
 
@@ -1116,30 +1325,30 @@ sub process_image_crop($$$$$$$$$$$) {
 
 		# Remove dark corners
 		if (1) {
-		$x = $image->FloodfillPaint(x=>1,y=>1,fill=>"#ffffff", fuzz=>"5%", bordercolor=>"#ffffff");
-		$x = $image->FloodfillPaint(x=>$w-1,y=>1,fill=>"#ffffff", fuzz=>"5%", bordercolor=>"#ffffff");
-		$x = $image->FloodfillPaint(x=>1,y=>$h-1,fill=>"#ffffff", fuzz=>"5%", bordercolor=>"#ffffff");
-		$x = $image->FloodfillPaint(x=>$w-1,y=>$h-1,fill=>"#ffffff", fuzz=>"5%", bordercolor=>"#ffffff");
+			$imagemagick_error = $image->FloodfillPaint(x=>1,y=>1,fill=>"#ffffff", fuzz=>"5%", bordercolor=>"#ffffff");
+			$imagemagick_error = $image->FloodfillPaint(x=>$w-1,y=>1,fill=>"#ffffff", fuzz=>"5%", bordercolor=>"#ffffff");
+			$imagemagick_error = $image->FloodfillPaint(x=>1,y=>$h-1,fill=>"#ffffff", fuzz=>"5%", bordercolor=>"#ffffff");
+			$imagemagick_error = $image->FloodfillPaint(x=>$w-1,y=>$h-1,fill=>"#ffffff", fuzz=>"5%", bordercolor=>"#ffffff");
 		}
 		elsif (0) { # use trim instead
-			# $x = $image->Trim(fuzz=>"5%"); # fuzz factor does not work...
+			# $imagemagick_error = $image->Trim(fuzz=>"5%"); # fuzz factor does not work...
 		}
 
 		if (0) {
-		my $n = 10;
-		for (my $i = 0; $i <= $n; $i++) {
-			$x = $image->FloodfillPaint(x=>int($i*($w-1)/$n),y=>0,fill=>"#ffffff", fuzz=>"5%", xbordercolor=>"#ffffff");
-			$x = $image->FloodfillPaint(x=>int($i*($w-1)/$n),y=>$h-2,fill=>"#ffffff", fuzz=>"5%", xbordercolor=>"#ffffff");
-		}
-		$n = 10;
-		for (my $i = 0; $i <= $n; $i++) {
-			$x = $image->FloodfillPaint(y=>int($i*($h-1)/$n),x=>0,fill=>"#ffffff", fuzz=>"5%", xbordercolor=>"#ffffff");
-			$x = $image->FloodfillPaint(y=>int($i*($h-1)/$n),x=>$w-2,fill=>"#ffffff", fuzz=>"5%", xbordercolor=>"#ffffff");
-		}
+			my $n = 10;
+			for (my $i = 0; $i <= $n; $i++) {
+				$imagemagick_error = $image->FloodfillPaint(x=>int($i*($w-1)/$n),y=>0,fill=>"#ffffff", fuzz=>"5%", xbordercolor=>"#ffffff");
+				$imagemagick_error = $image->FloodfillPaint(x=>int($i*($w-1)/$n),y=>$h-2,fill=>"#ffffff", fuzz=>"5%", xbordercolor=>"#ffffff");
+			}
+			$n = 10;
+			for (my $i = 0; $i <= $n; $i++) {
+				$imagemagick_error = $image->FloodfillPaint(y=>int($i*($h-1)/$n),x=>0,fill=>"#ffffff", fuzz=>"5%", xbordercolor=>"#ffffff");
+				$imagemagick_error = $image->FloodfillPaint(y=>int($i*($h-1)/$n),x=>$w-2,fill=>"#ffffff", fuzz=>"5%", xbordercolor=>"#ffffff");
+			}
 		}
 		#$image->Deskew();
 
-		$x and $log->error("could not floodfill", { error => $x });
+		$imagemagick_error and $log->error("could not floodfill", { error => $imagemagick_error });
 
 	}
 
@@ -1156,13 +1365,13 @@ sub process_image_crop($$$$$$$$$$$) {
 	_set_magickal_options($source, undef);
 	my $full_path = "$product_www_root/images/products/$path/$filename.full.jpg";
 	local $log->context->{full_path} = $full_path;
-	$x = $source->Write("jpeg:${full_path}");
-	("$x") and $log->error("could not write JPEG file", { path => $full_path, error => $x });
+	$imagemagick_error = $source->Write("jpeg:${full_path}");
+	($imagemagick_error) and $log->error("could not write JPEG file", { path => $full_path, error => $imagemagick_error });
 
 	# Re-read cropped image
 	my $cropped_source = Image::Magick->new;
-	$x = $cropped_source->Read($full_path);
-	("$x") and $log->error("could not re-read the cropped image", { path => $full_path, error => $x });
+	$imagemagick_error = $cropped_source->Read($full_path);
+	($imagemagick_error) and $log->error("could not re-read the cropped image", { path => $full_path, error => $imagemagick_error });
 
 	my $img2 = $cropped_source->Clone();
 	my $window = $nw;
@@ -1203,9 +1412,9 @@ sub process_image_crop($$$$$$$$$$$) {
 		_set_magickal_options($img, $w);
 
 		my $final_path = "$product_www_root/images/products/$path/$filename.$max.jpg";
-		my $x = $img->Write("jpeg:${final_path}");
-		if ("$x") {
-			$log->error("could not write final cropped image", { path => $final_path, error => $x }) if $log->is_error();
+		my $imagemagick_error = $img->Write("jpeg:${final_path}");
+		if (($imagemagick_error) and ($imagemagick_error =~ /(\d+)/) and ($1 >= 400)) { # ImageMagick returns a string starting with a number greater than 400 for errors
+			$log->error("could not write final cropped image", { path => $final_path, error => $imagemagick_error }) if $log->is_error();
 		}
 		else {
 			$log->info("wrote final cropped image", { path => $final_path }) if $log->is_info();
@@ -1243,14 +1452,15 @@ sub process_image_crop($$$$$$$$$$$) {
 			{w => $new_product_ref->{"images.$id.$max.w"}, h => $new_product_ref->{"images.$id.$max.h"}};
 	}
 
-	store_product($product_ref, "new image $id : $imgid.$rev");
+	store_product($user_id, $product_ref, "new image $id : $imgid.$rev");
 
 	$log->trace("image crop done") if $log->is_trace();
 	return $product_ref;
 }
 
-sub process_image_unselect($$) {
+sub process_image_unselect($$$) {
 
+	my $user_id = shift;
 	my $product_id = shift;
 	my $id = shift;
 
@@ -1282,7 +1492,7 @@ sub process_image_unselect($$) {
 	}
 
 
-	store_product($product_ref, "unselected image $id");
+	store_product($user_id, $product_ref, "unselected image $id");
 
 	$log->debug("unselected image") if $log->is_debug();
 	return $product_ref;
@@ -1349,7 +1559,8 @@ sub display_image_thumb($$) {
 	# last try the field without a language (for old products without updated images)
 	push @display_ids, $imagetype;
 
-	my $static = format_subdomain('static');
+	my $images_subdomain = format_subdomain('images');
+	my $static_subdomain = format_subdomain('static');
 	foreach my $id (@display_ids) {
 
 		if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
@@ -1360,7 +1571,7 @@ sub display_image_thumb($$) {
 			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lang};
 
 				$html .= <<HTML
-<img src="$static/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="$static/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" loading="lazy" $css/>
+<img src="$images_subdomain/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="$images_subdomain/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" loading="lazy" $css/>
 HTML
 ;
 
@@ -1372,7 +1583,7 @@ HTML
 	if ($html eq '') {
 
 		$html = <<HTML
-<img src="$static/images/svg/product-silhouette.svg" style="width:$thumb_size;height:$thumb_size">
+<img src="$static_subdomain/images/svg/product-silhouette.svg" style="width:$thumb_size;height:$thumb_size">
 </img>
 HTML
 ;
@@ -1560,6 +1771,34 @@ sub compute_orientation_from_cloud_vision_annotations($) {
 	return;
 }
 
+=head2 extract_text_from_image( $product_ref, $id, $field, $ocr_engine, $results_ref )
+
+Perform OCR for a specific image (either a source image, or a selected image) and return the results.
+
+OCR can be performed with a locally installed Tesseract, or through Google Cloud Vision.
+
+In the case of Google Cloud Vision, we also store the results of the OCR as a JSON file (requested through HTTP by Robotoff).
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+=head4 id of the image $id
+
+Either a number like 1, 2 etc. to perform the OCR on a source image (1.jpg, 2.jpg) or a field name
+in the form of [front|ingredients|nutrition|packaging]_[2 letter language code].
+
+If $id is a field name, the last selected image for that field is used.
+
+=head4 OCR engine $ocr_engine
+
+Either "tesseract" or "google_cloud_vision"
+
+=head4 Results reference $results_ref
+
+A hash reference to store the results.
+
+=cut
 
 sub extract_text_from_image($$$$$) {
 
@@ -1629,8 +1868,7 @@ sub extract_text_from_image($$$$$) {
 	}
 	elsif ($ocr_engine eq 'google_cloud_vision') {
 
-		my $url = "https://alpha-vision.googleapis.com/v1/images:annotate?key=" . $ProductOpener::Config::google_cloud_vision_api_key;
-		# alpha-vision.googleapis.com/
+		my $url = "https://vision.googleapis.com/v1/images:annotate?key=" . $ProductOpener::Config::google_cloud_vision_api_key;
 
 		my $ua = LWP::UserAgent->new();
 
@@ -1660,6 +1898,7 @@ sub extract_text_from_image($$$$$) {
 		$request->content( $json );
 
 		my $res = $ua->request($request);
+		# $log->info("google cloud vision response", { json_response => $res->decoded_content, api_token => $ProductOpener::Config::google_cloud_vision_api_key });
 
 		if ($res->is_success) {
 

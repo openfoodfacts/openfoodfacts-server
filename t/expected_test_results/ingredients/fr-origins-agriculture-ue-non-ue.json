@@ -6,12 +6,12 @@
          "percent_estimate" : 100,
          "percent_max" : 100,
          "percent_min" : 100,
-         "rank" : 1,
          "text" : "Fraises",
          "vegan" : "yes",
          "vegetarian" : "yes"
       }
    ],
+   "ingredients_analysis" : {},
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
       "en:vegan",
@@ -37,10 +37,15 @@
       "en:berries"
    ],
    "ingredients_text" : "Fraises (agriculture UE/Non UE)",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 1,
+   "ingredients_with_unspecified_percent_sum" : 100,
    "known_ingredients_n" : 3,
    "lc" : "fr",
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100
    },
    "unknown_ingredients_n" : 0
 }

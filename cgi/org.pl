@@ -33,6 +33,8 @@ use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Orgs qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::Text qw/:all/;
+
 
 use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
@@ -66,12 +68,18 @@ my $org_ref = retrieve_org($orgid);
 
 if (not defined $org_ref) {
 	$log->debug("org does not exist", { orgid => $orgid }) if $log->is_debug();
-	display_error($Lang{error_org_does_not_exist}{$lang}, 404);
+	
+	if ($admin or $User{pro_moderator}) {
+		$template_data_ref->{org_does_not_exist} = 1;
+	}
+	else {
+		display_error($Lang{error_org_does_not_exist}{$lang}, 404);
+	}
 }
 
 # Does the user have permission to edit the org profile?
 
-if (not (is_user_in_org_group($org_ref, $User_id, "admins") or $admin)) {
+if (not (is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pro_moderator})) {
 	$log->debug("user does not have permission to edit org", { orgid => $orgid, org_admins => $org_ref->{admins}, User_id => $User_id }) if $log->is_debug();
 	display_error($Lang{error_no_permission}{$lang}, 403);
 }
@@ -91,6 +99,41 @@ if ($action eq 'process') {
 		}
 		else {
 			
+			# Administrator fields
+			
+			if ($admin or $User{pro_moderator}) {
+				
+				# If the org does not exist yet, create it
+				if (not defined $org_ref) {
+					$org_ref = create_org($User_id, $orgid);
+				}
+
+				my @admin_fields = ();
+				
+				push (@admin_fields, ("enable_manual_export_to_public_platform",
+					"activate_automated_daily_export_to_public_platform",
+					"protect_data",
+					"do_not_import_codeonline",
+					"gs1_product_name_is_abbreviated",
+					"gs1_nutrients_are_unprepared",
+				));
+
+				if (defined $options{import_sources}) {
+					foreach my $source_id (sort keys %{$options{import_sources}}) {
+						push (@admin_fields, "import_source_" . $source_id);
+					}
+				}				
+				
+				foreach my $field (@admin_fields) {
+					$org_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
+				}			
+				
+				# Set the list of org GLNs
+				set_org_gs1_gln($org_ref, remove_tags_and_quote(decode utf8=>param("list_of_gs1_gln")));
+			}
+			
+			# Other fields
+			
 			foreach my $field ("name", "link") {
 				$org_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
 				if ($org_ref->{$field} eq "") {
@@ -101,6 +144,8 @@ if ($action eq 'process') {
 			if (not defined $org_ref->{name}) {
 				push @errors, $Lang{error_missing_org_name}{$lang};
 			}
+			
+			# Contact sections
 			
 			foreach my $contact ("customer_service", "commercial_service") {
 				
@@ -138,23 +183,80 @@ if ($action eq 'display') {
 	
 	# Create the list of sections and fields
 	
-	$template_data_ref->{sections} = [
-		{
-			fields => [
-				{
-					field => "name",
-				},
-				{
-					field => "link",
-				},
-			]
+	$template_data_ref->{sections} = [];
+	
+	# Admin
+	
+	if ($admin or $User{pro_moderator}) {
+
+		my $admin_fields_ref = [];
+
+		push (@$admin_fields_ref, (
+			{
+				field => "enable_manual_export_to_public_platform",
+				type => "checkbox",
+			},
+			{
+				field => "activate_automated_daily_export_to_public_platform",
+				type => "checkbox",
+			},
+			{
+				field => "protect_data",
+				type => "checkbox",
+			},			
+		));
+
+		if (defined $options{import_sources}) {
+			foreach my $source_id (sort keys %{$options{import_sources}}) {
+				push (@$admin_fields_ref, 
+					{
+						field => "import_source_" . $source_id,
+						type => "checkbox",
+						label => sprintf(lang("import_source_string"), $options{import_sources}{$source_id}),
+					},
+				);
+			}
 		}
-	];
+
+		push (@$admin_fields_ref, (
+			{
+				field => "list_of_gs1_gln",
+			},
+			{
+				field => "gs1_product_name_is_abbreviated",
+				type => "checkbox",
+			},
+			{
+				field => "gs1_nutrients_are_unprepared",
+				type => "checkbox",
+			},	
+		));
+
+		push @{$template_data_ref->{sections}}, {
+			id => "admin",
+			fields => $admin_fields_ref,
+		};		
+	}
+	
+	# Name and information of the organization
+	
+	push @{$template_data_ref->{sections}}, {
+		fields => [
+			{
+				field => "name",
+			},
+			{
+				field => "link",
+			},
+		]
+	};
+	
+	# Contact information
 	
 	foreach my $contact ("customer_service", "commercial_service") {
 		
 		push @{$template_data_ref->{sections}}, {
-			section => $contact,
+			id => $contact,
 			fields => [
 				{ field => $contact . "_name" },
 				{ field => $contact . "_address", type => "textarea" },
@@ -171,15 +273,15 @@ if ($action eq 'display') {
 	foreach my $section_ref (@{$template_data_ref->{sections}}) {
 		
 		# Descriptions and notes for sections
-		if (defined $section_ref->{section}) {
-			if (lang("org_" . $section_ref->{section})) {
-				$section_ref->{name} = lang("org_" . $section_ref->{section});
+		if (defined $section_ref->{id}) {
+			if (lang("org_" . $section_ref->{id})) {
+				$section_ref->{name} = lang("org_" . $section_ref->{id});
 			}			
-			if (lang("org_" . $section_ref->{section} . "_description")) {
-				$section_ref->{description} = lang("org_" . $section_ref->{section} . "_description");
+			if (lang("org_" . $section_ref->{id} . "_description")) {
+				$section_ref->{description} = lang("org_" . $section_ref->{id} . "_description");
 			}
-			if (lang("org_" . $section_ref->{section} . "_note")) {
-				$section_ref->{note} = lang("org_" . $section_ref->{section} . "_note");
+			if (lang("org_" . $section_ref->{id} . "_note")) {
+				$section_ref->{note} = lang("org_" . $section_ref->{id} . "_note");
 			}
 		}
 		
@@ -212,8 +314,10 @@ if ($action eq 'display') {
 				$field_lang_id = "org_" . $field;
 			}
 			
-			# Label
-			$field_ref->{label} = lang($field_lang_id);
+			# Label if it has not been set already
+			if (not defined $field_ref->{label}) {
+				$field_ref->{label} = lang($field_lang_id);
+			}
 			
 			# Descriptions and notes for fields
 			if (lang($field_lang_id . "_description")) {
@@ -251,9 +355,9 @@ my $title = lang($type . '_org_title');
 
 $log->debug("org form - template data", { template_data_ref => $template_data_ref }) if $log->is_debug();
 
-$tt->process('org_form.tt.html', $template_data_ref, \$html) or $html = "<p>template error: " . $tt->error() . "</p>";
+$tt->process('web/pages/org_form/org_form.tt.html', $template_data_ref, \$html) or $html = "<p>template error: " . $tt->error() . "</p>";
 
-display_new( {
+display_page( {
 	title=>$title,
 	content_ref=>\$html,
 	full_width=>$full_width,

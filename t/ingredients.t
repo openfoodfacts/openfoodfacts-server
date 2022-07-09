@@ -1,8 +1,6 @@
 #!/usr/bin/perl -w
 
-use strict;
-use warnings;
-
+use Modern::Perl '2017';
 use utf8;
 
 use Test::More;
@@ -10,17 +8,19 @@ use Log::Any::Adapter 'TAP';
 
 use JSON;
 use Getopt::Long;
+use File::Basename "dirname";
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 
+my $expected_dir = dirname(__FILE__) . "/expected_test_results";
 my $testdir = "ingredients";
 
 my $usage = <<TXT
 
-The expected results of the tests are saved in $data_root/t/expected_test_results/$testdir
+The expected results of the tests are saved in $expected_dir/$testdir
 
 To verify differences and update the expected test results, actual test results
 can be saved to a directory by passing --results [path of results directory]
@@ -34,7 +34,7 @@ my $resultsdir;
 
 GetOptions ("results=s"   => \$resultsdir)
   or die("Error in command line arguments.\n\n" . $usage);
-  
+
 if ((defined $resultsdir) and (! -e $resultsdir)) {
 	mkdir($resultsdir, 0755) or die("Could not create $resultsdir directory: $!\n");
 }
@@ -42,23 +42,23 @@ if ((defined $resultsdir) and (! -e $resultsdir)) {
 my @tests = (
 
 	# FR
-	
+
 	[
 		'fr-chocolate-cake',
 		{
 			lc => "fr",
 			ingredients_text => "farine (12%), chocolat (beurre de cacao (15%), sucre [10%], protéines de lait, oeuf 1%) - émulsifiants : E463, E432 et E472 - correcteurs d'acidité : E322/E333 E474-E475, acidifiant (acide citrique, acide phosphorique) - sel"
 		}
-	],		
-		
+	],
+
 	[
 		'fr-palm-kernel-fat',
 		{
 			lc => "fr",
 			ingredients_text => "graisse de palmiste"
 		}
-	],		
-	
+	],
+
 	[
 		'fr-marmelade',
 		{
@@ -75,7 +75,14 @@ my @tests = (
 			ingredients_text => "Natural orange flavor, Lemon flavouring"
 		}
 	],
-
+    # test synonyms for emulsifier/emulsifying - also checking if synonyms are case sensitive
+	[
+		'en-emulsifier-synonyms',
+		{
+			lc => "en",
+			ingredients_text => "Emulsifying (INS 471, INS 477) & Stabilizing Agents (INS 412, INS 410)"
+		}
+	],
 	# FR * label
 	[
 		"fr-starred-label",
@@ -101,7 +108,7 @@ my @tests = (
 			lc => "fr",
 			ingredients_text => "Fraise 12,3% ; Orange 6.5%, Pomme (3,5%)",
 		}
-	],		
+	],
 
 	# FR origins labels
 	[
@@ -120,7 +127,7 @@ my @tests = (
 			ingredients_text => "80% jus de pomme biologique, 20% de coing biologique, sel marin, 98% chlorure de sodium (France, Italie)",
 		}
 	],
-	
+
 	[
 		"fr-percents-origins-2",
 		{
@@ -136,7 +143,16 @@ my @tests = (
 			lc => "fr",
 			ingredients_text => "mono - et diglycérides d'acides gras d'origine végétale, huile d'origine végétale, gélatine (origine végétale)",
 		}
-	],		
+	],
+
+	# from vegetal origin
+	[
+		"en-vegetal-ingredients",
+		{
+			lc => "en",
+			ingredients_text => "Gelatin (vegetal), Charcoal (not from animals), ferments (from plants), non-animal rennet, flavours (derived from plants)",
+		}
+	],
 
 	# FR labels
 	[
@@ -145,20 +161,20 @@ my @tests = (
 			lc => "fr",
 			ingredients_text => "jus d'orange (sans conservateur), saumon (msc), sans gluten",
 		}
-	],		
+	],
 
 	# Processing
-	
+
 	[
 		"fr-processing-multi",
 		 {
 			lc => "fr",
 			ingredients_text => "tomates pelées cuites, rondelle de citron, dés de courgette, lait cru, aubergines crues, jambon cru en tranches",
 		}
-	],		
+	],
 
 	# Bugs #3827, #3706, #3826 - truncated purée
-	
+
 	[
 		"fr-truncated-puree",
 		{
@@ -166,10 +182,10 @@ my @tests = (
 			ingredients_text =>
 				"19% purée de tomate, 90% boeuf, 100% pur jus de fruit, 45% de matière grasses",
 		}
-	],		
+	],
 
 	# FI additives, percent
-	
+
 	[
 		"fi-additives-percents",
 		{
@@ -179,7 +195,7 @@ my @tests = (
 	],
 
 	# FI percents
-	
+
 	[
 		"fi-percents",
 		{
@@ -197,7 +213,7 @@ my @tests = (
 			ingredients_text => "hyytelöimisaine (pektiinit)",
 		}
 	],
-		
+
 	[
 		"fi-origins",
 		{
@@ -205,14 +221,14 @@ my @tests = (
 		ingredients_text => "Mansikka alkuperä Suomi, Mustaherukka (alkuperä Etelä-Afrikka), Vadelma (alkuperä : Ruotsi), Appelsiini (luomu), kaakao ja kaakaovoi (reilu kauppa)",
 	}
 	],
-	
+
 	[
 		"fi-additives-origins",
 		{
 			lc => "fi",
 			ingredients_text => "emulgointiaine : auringonkukkalesitiini, aromi)(EU), vehnäjauho 33% (Ranska), sokeri",
 		}
-	],		
+	],
 
 	# FI labels
 	[
@@ -258,7 +274,7 @@ my @tests = (
 			ingredients_text => "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,0,1,2,3,4,5,6,7,8,9,10,100,1000,vt,leaf,something(bio),somethingelse(u)",
 		}
 	],
-	
+
 	# Origins with regions
 	[
 		"en-origins",
@@ -297,7 +313,7 @@ my @tests = (
 			ingredients_text => "emmental (Allemagne, France, Pays-Bas, contient lait)",
 		}
 	],
-	
+
 	# ES percent, too many loops
 
 	[
@@ -306,8 +322,128 @@ my @tests = (
 			lc => "es",
 			ingredients_text => "Tomate, pimiento (12%), atún (10%), aceite de oliva virgen extra (4%), huevo (3%), cebolla (3%), azúcar, almidón de maíz, sal y acidulante: ácido cítrico.",
 		}
+	],
+
+	# Ingredient that is also an existing label - https://github.com/openfoodfacts/openfoodfacts-server/issues/4907
+
+	[
+		"fr-huile-de-palme-certifiee-durable",
+		{
+			lc => "fr",
+			ingredients_text => "huiles végétales non hydrogénées (huile de palme certifiée durable, huile de colza)",
+		},
+	],
+
+	# Russian oil parsing
+	[
+		"ru-russian-oil",
+		{
+			lc => "ru",
+			ingredients_text => "масло растительное (подсолнечное, соевое), Масло (Пальмовое)",
+		},
+	],
+
+	# Spanish label with "e" meaning "y"
+	[
+		"es-procedente-e-agricultura-biologica",
+		{
+			lc => "es",
+			ingredients_text => "Leche entera pasteurizada de vaca*, fermentos lácticos de gránulos de kéfir. *Procedente e agricultura ecológica.",
+		},
+	],
+
+	# Irradiated spices
+	[
+		"fr-epices-irradiees",
+		{
+			lc => "fr",
+			ingredients_text => "Epices irradiées, sésame (irradié), thym (non-irradié)",
+		}
+	],
+
+	# E471 (niet dierlijk)
+	[
+		"nl-e471-niet-dierlijk",
+		{
+			lc => "nl",
+			ingredients_text => "E471 (niet dierlijk)",
+		}
+	],
+
+	# Specific ingredients mentions
+	[
+		"fr-specific-ingredients",
+		{
+			lc => "fr",
+			ingredients_text => "Sucre de canne*, abricots*, jus de citrons concentré*, gélifiant : pectines de fruits. *biologique.
+Préparée avec 50 grammes de fruits pour 100gr de produit fini.
+Préparé avec 32,5 % de légumes -
+Préparés avec 25,2g de tomates.
+PREPARE AVEC 30% DE TRUC INCONNU.
+Teneur totale en sucres : 60 g pour 100 g de produit fini.
+Teneur en lait: minimum 40%.
+Teneur minimum en jus de fruits 35 grammes pour 100 grammes de produit fini.
+Présence exceptionnelle possible de noyaux ou de morceaux de noyaux.
+Origine des abricots: Provence.
+Teneur en citron de 5,5%",
+		}
+	],
+
+	[
+		"en-specific-ingredients",
+		{
+			lc => "en",
+			ingredients_text => "Milk, cream, sugar. Sugar content: 3 %. Total milk content: 75.2g",
+		},
+	],
+
+	[
+		"en-specific-ingredients-multiple-strings-of-one-ingredient",
+		{
+			lc => "en",
+			ingredients_text => "Milk, cream, sugar. Total milk content: 88%. Origin of milk: UK",
+		},
+	],
+
+	# Labels that indicate the origin of some ingredients
+	[
+		"fr-viande-porcine-francaise",
+		{
+			lc => "fr",
+			ingredients_text => "endives 40%, jambon cuit, jaunes d'oeufs, sel",
+			labels => "viande porcine française, oeufs de France",
+		}
+	],
+
+	# Ingredients analysis: keep track of unknown ingredients even if a product is non vegan
+	[
+		"en-ingredients-analysis-unknown-ingredients",
+		{
+			lc => "en",
+			ingredients_text => "milk, some unknown ingredient, another unknown ingredient, salt, sugar, pepper, spices, water",
+		}
+	],
+
+	# origins field
+	# also test an ingredient with 2 words: bell peppers, which used to break.
+	[
+		"en-origin-field",
+		{
+			lc => "en",
+			ingredients_text => "Strawberries (Spain), raspberries, blueberries, gooseberries, white peaches, bell peppers. Origin of bell peppers: Guatemala",
+			origin_en => "Origin of raspberries: New Caledonia. Blueberries: Canada ; White peaches : Mexico",
+		}
 	],	
 
+	# origins field
+	[
+		"fr-origin-field",
+		{
+			lc => "fr",
+			ingredients_text => "Coquillettes, comté, jambon supérieur, vin blanc, vin rouge (italie), vin rosé (origine : Espagne), crème UHT, parmesan, ricotta (origine Italie), sel, poivre. Origine du poivre: Népal.",
+			origin_fr => "Origine des coquillettes : Italie. Origine du Comté AOP 4 mois : France. Origine du jambon supérieur : France. Vin blanc : Europe. Origine Crème UHT : France. Origine du parmesan : Italie. Fabriqué en France. Tomates d'Italie. Origine du riz : Inde, Thaïlande.",
+		}
+	],
 );
 
 
@@ -318,22 +454,26 @@ foreach my $test_ref (@tests) {
 
 	my $testid = $test_ref->[0];
 	my $product_ref = $test_ref->[1];
-	
+
 	# Run the test
-	
+
+	if (defined $product_ref->{labels}) {
+		compute_field_tags($product_ref, $product_ref->{lc}, "labels");
+	}
+
 	extract_ingredients_from_text($product_ref);
-	
+
 	# Save the result
-	
+
 	if (defined $resultsdir) {
 		open (my $result, ">:encoding(UTF-8)", "$resultsdir/$testid.json") or die("Could not create $resultsdir/$testid.json: $!\n");
 		print $result $json->pretty->encode($product_ref);
 		close ($result);
 	}
-	
+
 	# Compare the result with the expected result
-	
-	if (open (my $expected_result, "<:encoding(UTF-8)", "$data_root/t/expected_test_results/$testdir/$testid.json")) {
+
+	if (open (my $expected_result, "<:encoding(UTF-8)", "$expected_dir/$testdir/$testid.json")) {
 
 		local $/; #Enable 'slurp' mode
 		my $expected_product_ref = $json->decode(<$expected_result>);

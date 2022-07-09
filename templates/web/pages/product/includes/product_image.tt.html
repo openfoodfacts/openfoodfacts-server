@@ -1,0 +1,12 @@
+<!-- start templates/[% component.name %] -->
+
+<figure itemscope itemtype="https://schema.org/ImageObject">
+    <img src="[% display_image_url %]" width="[% display_size_width %]" height="[% display_size_height %]" alt="[% alt %]" itemprop="thumbnail" loading="lazy">
+	<figcaption>
+		<p><a href="[% full_image_url %]" itemprop="contentUrl">[% full_size %]</a></p>
+		<p>[% creativecommons %][% original_link %]</p>
+		<p>[% attribution %]</p>
+	</figcaption>
+</figure>
+
+<!-- end templates/[% component.name %] -->

@@ -5,6 +5,7 @@
 var attribute_groups;	// All supported attribute groups and attributes + translated strings
 var preferences;	// All supported preferences + translated strings
 var use_user_product_preferences_for_ranking = JSON.parse(localStorage.getItem('use_user_product_preferences_for_ranking'));
+var default_preferences = { "nutriscore" : "very_important", "nova" : "important", "ecoscore" : "important" };
 
 function get_user_product_preferences () {
 	// Retrieve user preferences from local storage
@@ -17,7 +18,7 @@ function get_user_product_preferences () {
 	}
 	else {
 		// Default preferences
-		user_product_preferences = { "nutriscore" : "very_important", "nova" : "important", "ecoscore" : "important" };
+		user_product_preferences = default_preferences;
 	}
 	
 	return user_product_preferences;
@@ -84,30 +85,55 @@ function display_selected_preferences (target_selected_summary, product_preferen
 }
 
 
+function generate_preferences_switch_button(preferences_text, checkbox_id) {
+
+	var checked = '';
+	if (use_user_product_preferences_for_ranking) {
+		checked = " checked";
+	}	
+
+	var html = '<fieldset class="switch round success" tabindex="0" id="' + checkbox_id +'_switch" style="float:left;margin:0;margin-right:.5rem;padding-top:0.1rem;">'
+	+ '<input class="preferences_checkboxes" id="' + checkbox_id + '" type="checkbox"' + checked + '>'
+	+ '<label for="' + checkbox_id +'"></label></fieldset>'
+	+ '<label for="' + checkbox_id +'" style="float:left;margin-right:1em;padding-top:4px">' + preferences_text + '</label>';
+
+	return html;
+}
+
+function activate_preferences_switch_buttons(change) {
+
+	$(".preferences_checkboxes").change(function() {
+			
+		localStorage.setItem('use_user_product_preferences_for_ranking', this.checked);
+		use_user_product_preferences_for_ranking = this.checked;
+
+		// Update the other checkbox value
+		$(".preferences_checkboxes").prop('checked',use_user_product_preferences_for_ranking);
+			
+		// Call the change callback if we have one (e.g. to update search results)
+		if (change) {
+			change();
+		}	
+	});
+
+}
+
 // display a switch to use preferences (on list of products pages) and a button to edit preferences
 
 function display_use_preferences_switch_and_edit_preferences_button (target_selected, target_selection_form, change) {
 	
 	var html = '';
 	
-	var html_edit_preferences = '<a id="show_selection_form" class="button small success round" style="margin-left:3em;">'
-		+ '<img src="/images/icons/dist/food-cog.svg" class="icon" style="filter:invert(1)">'
+	var html_edit_preferences = '<a id="show_selection_form" class="button small success round" style="margin-left:3em;" role="button" tabindex="0">'
+		+ '<img src="/images/icons/dist/food-cog.svg" alt="" class="icon" style="filter:invert(1)">'
 		+ " " + lang().preferences_edit_your_food_preferences + '</a>';
 	
 	// Display a switch for classifying according to the user preferences if
 	// we are on a page with multiple products
 	
 	if (page_type == 'products') {
-		
-		var checked = '';
-		if (use_user_product_preferences_for_ranking) {
-			checked = " checked";
-		}
-	
-		html += '<div class="switch round success" id="preferences_switch" style="float:left;margin-right:.5rem;padding-top:0.1rem;">'
-		+ '<input id="preferences_checkbox" type="checkbox"' + checked + '>'
-		+ '<label for="preferences_checkbox"></label></div>'
-		+ '<label for="preferences_checkbox" style="float:left;margin-right:1em;padding-top:0.5rem;">' + preferences_text + '</label>' + html_edit_preferences;
+			
+		html += generate_preferences_switch_button(preferences_text, "preferences_switch_in_list_of_products") + html_edit_preferences;
 	}
 	else {
 		
@@ -117,22 +143,19 @@ function display_use_preferences_switch_and_edit_preferences_button (target_sele
 	$( target_selected ).html(html);
 	
 	if (page_type == 'products') {
-		$("#preferences_checkbox").change(function() {
-			
-			localStorage.setItem('use_user_product_preferences_for_ranking', this.checked);
-			use_user_product_preferences_for_ranking = this.checked;
-				
-			// Call the change callback if we have one (e.g. to update search results)
-			if (change) {
-				change();
-			}	
-		});
+		activate_preferences_switch_buttons(change);
 	}
 		
-	$( "#show_selection_form").click(function() {
+	$( "#show_selection_form").on( "click", function() {
 		$( target_selected ).hide();
 		$( target_selection_form ).show();
 		$(document).foundation('equalizer', 'reflow');
+	});
+
+	$("#show_selection_form").on('keydown', (event) => {
+		if (event.key === 'Space' || event.key === 'Enter') {
+			$("#show_selection_form").trigger("click");
+		}
 	});
 	
 	$(document).foundation('reflow');
@@ -197,7 +220,8 @@ function display_user_product_preferences (target_selected, target_selection_for
 			$.each(attribute_group.attributes, function(key, attribute) {
 				
 				attribute_group_html += "<li id='attribute_" + attribute.id + "' class='attribute'>"
-				+ "<div style='width:96px;float:left;margin-right:1em;'><img src='" + attribute.icon_url + "' class='match_icons'></div>"
+				+ "<fieldset style='margin:0;padding:0;border:none'>"
+				+ "<div style='width:96px;float:left;margin-right:1em;'><img src='" + attribute.icon_url + "' class='match_icons' alt=''></div>"
 				+ "<span class='attribute_name'>" + attribute.setting_name + "</span><br>";
 							
 				$.each(preferences, function (key, preference) {
@@ -220,7 +244,7 @@ function display_user_product_preferences (target_selected, target_selection_for
 				
 				attribute_group_html += "<hr style='clear:left;border:none;margin:0;margin-bottom:0.5rem;padding:0;'>";
 				
-				attribute_group_html += "</li>";
+				attribute_group_html += "</fieldset></li>";
 			});
 						
 			attribute_group_html += "</ul></div></li>";
@@ -231,22 +255,26 @@ function display_user_product_preferences (target_selected, target_selection_for
 		$(target_selection_form).html(
 			'<div class="panel callout">'
 			+ '<div class="edit_button">'
-			+ '<a class="show_selected button small success round">'
-			+ '<img src="/images/icons/dist/cancel.svg" class="icon" style="filter:invert(1)">'
+			+ '<a class="show_selected button small success round" role="button" tabindex="0">'
+			+ '<img src="/images/icons/dist/cancel.svg" class="icon" alt="" style="filter:invert(1)">'
 			+ " " + lang().close + '</a></div>'
 			+ "<h2>" + lang().preferences_edit_your_food_preferences + "</h2>"
 			+ "<p>" + lang().preferences_locally_saved + "</p>"
-			+ '<a id="delete_all_preferences_button" class="button small round success">' + lang().delete_all_preferences + '</a>'
+			+ generate_preferences_switch_button(lang().classify_products_according_to_your_preferences, "preferences_switch_in_preferences") + "<hr class='clear:left;'>"
+			+ '<a id="reset_preferences_button" class="button small round success" role="button" tabindex="0">' + lang().reset_preferences + '</a>'
+			+ ' ' + lang().reset_preferences_details
 			+ '<ul id="user_product_preferences" class="accordion" data-accordion>'
 			+ attribute_groups_html.join( "" )
 			+ '</ul>'
 			+ '<br><br>'
 			+ '<div class="edit_button">'
-			+ '<a class="show_selected button small round success">'
-			+ '<img src="/images/icons/dist/cancel.svg" class="icon" style="filter:invert(1)">'
+			+ '<a class="show_selected button small round success" role="button" tabindex="0">'
+			+ '<img src="/images/icons/dist/cancel.svg" class="icon" alt="" style="filter:invert(1)">'
 			+ " " + lang().close + '</a></div><br><br>'
 			+ '</div>'
 		);
+
+		activate_preferences_switch_buttons(change);
 		
 		$( ".attribute_radio").change( function () {
 			if (this.checked) {
@@ -267,8 +295,8 @@ function display_user_product_preferences (target_selected, target_selection_for
 			display_use_preferences_switch_and_edit_preferences_button(target_selected, target_selection_form, change);
 		}
 
-		$( "#delete_all_preferences_button").click(function() {
-			user_product_preferences = {};
+		$( "#reset_preferences_button").on("click", function() {
+			user_product_preferences = default_preferences;
 			localStorage.setItem('user_product_preferences', JSON.stringify(user_product_preferences));
 			
 			// Redisplay user preferences
@@ -281,9 +309,22 @@ function display_user_product_preferences (target_selected, target_selection_for
 			}
 		});
 
-		$( ".show_selected").click(function() {
+		$("#reset_preferences_button").on('keydown', (event) => {
+			if (event.key === 'Space' || event.key === 'Enter') {
+				$("#reset_preferences_button").trigger("click");
+			}
+		});
+				
+
+		$(".show_selected").on("click", function() {
 			$( target_selection_form ).hide();
 			$( target_selected ).show();
+		});
+
+		$(".show_selected").on('keydown', (event) => {
+			if (event.key === 'Space' || event.key === 'Enter') {
+				$(".show_selected").trigger("click");
+			}
 		});
 
 		$("#user_product_preferences").foundation();

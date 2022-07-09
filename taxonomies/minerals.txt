@@ -990,7 +990,7 @@ wikidata:en: Q57657491
 # ingredient/calcium-salts-from-orthophosphoric-acid has 9 products in french @2019-04-04
 # mineral/calcium-salts-of-orthophosphoric-acid has 28 products in 4 langages @2019-04-04
 
-comment:en:CALCIUM GLUCONATE is for the moment listed in both the additves and ingredients taxonomy.
+# comment:en:CALCIUM GLUCONATE is for the moment listed in both the additves and ingredients taxonomy.
 <en:Calcium
 #<en:E578
 en:calcium gluconate
@@ -1863,7 +1863,7 @@ hu:magnézium-L-pidolát
 it:L-pidolato di magnesio
 lt:magnio L-pidolatas
 lv:magnija L-pidolāts
-mt:L-aspartat tal-manjesju
+mt:L-pidolat tal-manjesju
 nl:magnesium-L-pidolaat
 pl:L-pidolan magnezu
 pt:L-pidolato de magnésio
@@ -2173,7 +2173,7 @@ sk:citran železnatý
 sl:železov citrat
 sv:ferrocitrat
 
-comment:en:FERRIC AMMONIUM CITRATE is for the moment listed in both the additves and ingredients taxonomy.
+#comment:en:FERRIC AMMONIUM CITRATE is for the moment listed in both the additves and ingredients taxonomy.
 <en:Iron
 #<en:E381
 en:ferric ammonium citrate, ammonium ferric citrate
@@ -2244,7 +2244,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Iron(II)_gluconate
 <en:iron gluconate
 en:ferrous gluconate to stabilize color
 
-description:en:IRON(II) FUMARATE is the iron(II) salt of fumaric acid, occurring as a reddish-orange powder, used to supplement iron intake.
+#description:en:IRON(II) FUMARATE is the iron(II) salt of fumaric acid, occurring as a reddish-orange powder, used to supplement iron intake.
 
 <en:iron
 en:iron fumarate, iron(II) fumarate, ferrous fumarate
@@ -4096,7 +4096,7 @@ lt:natrio selenitas
 lv:nātrija selenīts
 mt:selenit tas-sodju
 nl:natriumseleniet
-pl:selenian sodu
+pl:selenin sodu
 pt:selenito de sódio
 ro:selenit de sodiu
 ru:селенит натрия
@@ -5139,7 +5139,6 @@ id:Natrium klorida
 it:cloruro di sodio
 ja:塩化ナトリウム
 ka:ნატრიუმქლორიდი
-kk:Ас тұзы
 ko:염화 나트륨
 ky:Натрий хлориди
 la:Natrii chloridum
@@ -5185,26 +5184,25 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sodium_chloride
 # usage:fr:sel (chlorure de sodium)
 description:en:SODIUM CHLORIDE commonly known as salt (though sea salt also contains other chemical salts), is an ionic compound with the chemical formula NaCl, representing a 1:1 ratio of sodium and chloride ions. Salt is added to food, either by the food producer or by the consumer, as a flavor enhancer, preservative, binder, fermentation-control additive, texture-control agent and color developer.
 
+#<en:E331
 <en:Sodium
 en:sodium citrate
 bg:Натриев цитрат
-cs:citronan sodný
+ca:citronan sodný
 de:Natriumcitrat
 el:κιτρικό νάτριο
 es:citrato de sodio
-et:naatriumtsitraat
-fi:natriumsitraatti
+et:Naatriumtsitraat
 fr:citrate de sodium
 hu:nátrium-citrát
 it:citrato di sodio
-lt:natrio citratas
-lv:nātrija citrāts
-mt:ċitrat tas-sodju
+nb:Natriumsitrat
 nl:natriumcitraat
 pl:cytrynian sodu
 pt:citrato de sódio
 ro:citrat de sodiu
-sk:citran sodný
+ru:цитрат натрия, натрия цитрат
+sk:Nátrium citrát
 sl:natrijev citrat
 sv:natriumcitrat
 

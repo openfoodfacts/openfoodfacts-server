@@ -6,7 +6,6 @@
          "percent_estimate" : 75,
          "percent_max" : 100,
          "percent_min" : 50,
-         "rank" : 1,
          "text" : "appelsiinimehu",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -17,12 +16,19 @@
          "percent_estimate" : 25,
          "percent_max" : 50,
          "percent_min" : 0,
-         "rank" : 2,
          "text" : "lohi",
          "vegan" : "no",
          "vegetarian" : "no"
       }
    ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:salmon"
+      ],
+      "en:non-vegetarian" : [
+         "en:salmon"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
       "en:non-vegan",
@@ -59,6 +65,10 @@
       "en:oily-fish"
    ],
    "ingredients_text" : "appelsiinimehu (säilöntäaineeton), lohi (msc), gluteeniton",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 2,
+   "ingredients_with_unspecified_percent_sum" : 100,
    "known_ingredients_n" : 8,
    "labels" : "en:no-gluten",
    "labels_hierarchy" : [
@@ -70,7 +80,8 @@
    ],
    "lc" : "fi",
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 50
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 50,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 50
    },
    "unknown_ingredients_n" : 0
 }

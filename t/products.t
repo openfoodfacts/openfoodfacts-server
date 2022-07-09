@@ -1,6 +1,7 @@
 #!/usr/bin/perl -w
 
 use Modern::Perl '2017';
+use utf8;
 
 use Test::More;
 use Test::Number::Delta;
@@ -91,20 +92,130 @@ foreach my $field (@string_fields) {
 
 compute_and_test_completeness($product_ref, 1.0, 'product all fields');
 
+# Test the function that recognizes the app and app uuid from changes and sets the app and userid
+
 my @get_change_userid_or_uuid_tests = (
-["real-user", "some random comment", "real-user"],
-["stephane", "Updated via Power User Script", "stephane"],
-["kiliweb", "User : WjR3OExvb3M5dWNobU1Za29EUHJvdmtwN0p1SVh6MjNDZGdySVE9PQ", "yuka.WjR3OExvb3M5dWNobU1Za29EUHJvdmtwN0p1SVh6MjNDZGdySVE9PQ"],
+
+	{
+		userid => undef,
+		comment => "some random comment",
+		expected_app => undef,
+		expected_userid => "openfoodfacts-contributors",
+	},
+	{
+		userid => "real-user",
+		comment => "some random comment",
+		expected_app => undef,
+		expected_userid => "real-user",
+	},	
+	{
+		userid => "stephane",
+		comment => "Updated via Power User Script",
+		expected_app => undef,
+		expected_userid => "stephane",
+	},
+	{
+		userid => "stephane",
+		comment => "Official Open Food Facts Android app 3.6.6 (Added by a99a030f-c836-4551-9ec7-3d387f293e73)",
+		expected_app => "off",
+		expected_userid => "stephane",
+	},
+	{
+		userid => undef,
+		comment => "Official Open Food Facts Android app 3.6.6 (Added by a99a030f-c836-4551-9ec7-3d387f293e73)",
+		expected_app => "off",
+		expected_userid => "off.a99a030f-c836-4551-9ec7-3d387f293e73",
+	},	
+	{
+		userid => "kiliweb",
+		comment => "User : WjR3OExvb3M5dWNobU1Za29EUHJvdmtwN0p1SVh6MjNDZGdySVE9PQ",
+		expected_app => "yuka",
+		expected_userid => "yuka.WjR3OExvb3M5dWNobU1Za29EUHJvdmtwN0p1SVh6MjNDZGdySVE9PQ",
+	},
+	{
+		userid => "prepperapp",
+		comment => "Edited by a user of https://speisekammer-app.de",
+		expected_app => "speisekammer",
+		expected_userid => "prepperapp",
+	},
+	{
+		userid => "scanfood",
+		comment => "96ce87ae-2f2b-4fd6-90d2-7bfc4388d173-ScanFood",
+		expected_app => "scanfood",
+		expected_userid => "scanfood.96ce87ae-2f2b-4fd6-90d2-7bfc4388d173",
+	},
+	{
+		userid => "someuser",
+		comment => "some comment",
+		app_name => "Some App",
+		expected_app => "some-app",
+		expected_userid => "someuser",
+	},
+	{
+		userid => "someuser",
+		comment => "some comment",
+		app_name => "Some App",
+		app_uuid => "423T42fFST423",
+		expected_app => "some-app",
+		# if someuser is not registered as an app user in Config_off.pm
+		# we assume that it is the real userid (not the app's userid), and we ignore the app_uuid
+		expected_userid => "someuser",
+	},
+	{
+		userid => "waistline-app",
+		comment => "some comment",
+		app_name => "Waistline",
+		app_uuid => "423T42fFST423",
+		# waistline-app is registered as an app user for the app waistline
+		# so we use the app_uuid provided
+		expected_app => "waistline",
+		expected_userid => "waistline.423T42fFST423",
+	},
+	{
+		userid => "waistline-app",
+		comment => "some comment",
+		app_name => "Waistline",
+		# waistline-app is registered as an app user for the app waistline
+		# it did not provide an app_uuid, so we return the userid of the app
+		expected_app => "waistline",
+		expected_userid => "waistline-app",
+	},	
+	{
+		# App that does not send any userid, but sends an app uuid
+		comment => "some comment",
+		app_name => "Some App",
+		app_uuid => "423T42fFST423",
+		expected_app => "some-app",
+		expected_userid => "some-app.423T42fFST423",
+	},
+	{
+		# App that does not send any userid, and does not send an app uuid
+		comment => "some comment",
+		app_name => "Some App",
+		expected_app => "some-app",
+		expected_userid => "openfoodfacts-contributors",
+	},		
 );
 
-foreach my $test_ref (@get_change_userid_or_uuid_tests) {
+foreach my $change_ref (@get_change_userid_or_uuid_tests) {
 
-	my $change_ref = { userid => $test_ref->[0], comment => $test_ref->[1] };
+	$change_ref->{resulting_userid} = get_change_userid_or_uuid($change_ref);
 
-	my $userid = get_change_userid_or_uuid($change_ref);
-
-	is ($userid, $test_ref->[2]) or diag explain $test_ref;
+	is ($change_ref->{app}, $change_ref->{expected_app}) or diag explain $change_ref;
+	is ($change_ref->{resulting_userid}, $change_ref->{expected_userid}) or diag explain $change_ref;
 
 }
+
+# Test remove_fields
+
+$product_ref = {"languages" => {}, "category_properties" => {}, "categories_properties" => {}, "name" => "test_prod"};
+my $fields_to_remove = ["languages", "category_properties", "categories_properties"];
+
+remove_fields($product_ref, $fields_to_remove);
+
+foreach my $rem_field (@$fields_to_remove) {
+	is ($product_ref->{$rem_field}, undef);
+}
+is ($product_ref->{name}, "test_prod");
 
 done_testing();

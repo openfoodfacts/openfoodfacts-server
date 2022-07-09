@@ -34,6 +34,7 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Products qw/:all/;
+use ProductOpener::Text qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -44,9 +45,7 @@ use Log::Any qw($log);
 
 ProductOpener::Display::init();
 
-my $template_data_ref = {
-	lang => \&lang,
-};
+my $template_data_ref = {};
 
 my $code = normalize_code(param('code'));
 my $id = param('id');
@@ -164,10 +163,10 @@ $template_data_ref->{original_link} = $original_link;
 $template_data_ref->{attribution} = $attribution;
 
 my $html;
-$tt->process('product_image.tt.html', $template_data_ref, \$html);
+process_template('product_image.tt.html', $template_data_ref, \$html) or $html = '';
 $html .= "<p>" . $tt->error() . "</p>";
 
-display_new( {
+display_page( {
 	title=>$alt,
 	content_ref=>\$html,
 	full_width=>0,

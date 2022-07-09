@@ -1,7 +1,6 @@
 #!/usr/bin/perl -w
 
 use Modern::Perl '2017';
-
 use utf8;
 
 use Test::More;
@@ -9,6 +8,8 @@ use Test::More;
 
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Store qw/:all/;
+# Display.pm is currently needed, as we need $lc to be defined for canonicalize_tag2
+use ProductOpener::Display qw/:all/;
 
 init_emb_codes();
 
@@ -346,17 +347,29 @@ is_deeply($product_ref->{brands_tags},
 
 my @tags = ();
 
+# ingredients taxonomy (@2021-09-03):
+# en:salt is at top-level (4)?
+# en:orange is child of en:fruit AND en:citrus-fruit (3)
+# en:citrus-fruit is child of en:fruit (2) and (3)
+# en:fruit is at top-level (4)
+# en:fruit-juice is child of en:fruit (3)
+# en:orange-juice is child of en:orange AND en:fruit-juice (2)
+# en:concentrated-orange-juice is child of en:orange-juice (1)
+# en:sugar is at the top-level (4)?
+
 @tags = gen_tags_hierarchy_taxonomy("en", "ingredients", "en:concentrated-orange-juice, en:sugar, en:salt, en:orange");
 
 is_deeply (\@tags, [
+	'en:added-sugar',
 	'en:fruit',
-	'en:citrus-fruit',
-	'en:fruit-juice',
-	'en:salt',
+	'en:citrus-fruit', 
+	'en:disaccharide',
 	'en:sugar',
-	'en:orange',
-	'en:orange-juice',
-	'en:concentrated-orange-juice'
+	'en:fruit-juice', 
+	'en:salt', 
+	'en:orange', 
+	'en:orange-juice', 
+	'en:concentrated-orange-juice' 
 ]
 ) or diag explain(\@tags);
 
@@ -377,7 +390,9 @@ is_deeply (\@tags, [
 	'en:orange',
 	'en:orange-juice',
 	'en:sugar',
-	'en:salt',
+	'en:added-sugar',
+	'en:disaccharide',
+	'en:salt'
 ]
 ) or diag explain(\@tags);
 
@@ -481,6 +496,7 @@ is(ProductOpener::Tags::remove_stopwords("ingredients", "fr", "yaourt-a-la-frais
 is(ProductOpener::Tags::remove_stopwords("ingredients", "fr", "du-miel"), "miel");
 is(ProductOpener::Tags::remove_stopwords("ingredients", "fr", "fruits-en-proportion-variable"), "fruits");
 is(ProductOpener::Tags::remove_stopwords("ingredients", "fr", "des-de-tomate"), "des-de-tomate");
+is(ProductOpener::Tags::remove_stopwords("ingredients", "en", "edible-vegetable-oil"), "vegetable-oil");
 
 my $tag_ref = get_taxonomy_tag_and_link_for_lang("fr", "categories", "en:strawberry-yogurts");
 is_deeply($tag_ref, {
@@ -726,5 +742,19 @@ is_deeply ($product_ref->{test_tags},
 
 # Double synonym: zumo/jugo and soja/soya
 is( canonicalize_taxonomy_tag('es', 'ingredients', 'jugo de soya'), 'en:soy-base' );
+
+# check that properties are taxonomized if their name match a previously loaded taxonomy
+is(get_property("additives", "en:e170i", "additives_classes:en"), "en:colour,en:stabiliser");
+
+# test list_taxonomy_tags_in_language
+
+is(list_taxonomy_tags_in_language("en", "labels", ["fr:un label français inconnu","en:organic","en:A New English label","missing language prefix","en:Fair Trade", "en:one-percent-for-the-planet"]),
+	"fr:un label français inconnu, Organic, A New English label, Missing language prefix, Fair trade, One-percent-for-the-planet");
+
+is(list_taxonomy_tags_in_language("fr", "labels", ["fr:un label français inconnu","en:organic","en:A New English label","missing language prefix","en:Fair Trade", "en:one-percent-for-the-planet"]),
+	"Un label français inconnu, Bio, en:A New English label, Missing language prefix, Commerce équitable, en:one-percent-for-the-planet");
+
+is(list_taxonomy_tags_in_language("es", "labels", ["fr:un label français inconnu","en:organic","en:A New English label","missing language prefix","en:Fair Trade", "en:one-percent-for-the-planet"]),
+	"fr:un label français inconnu, Ecológico, en:A New English label, Missing language prefix, Comercio justo, en:one-percent-for-the-planet");
 
 done_testing();

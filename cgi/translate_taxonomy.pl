@@ -31,6 +31,7 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
+use ProductOpener::Text qw/:all/;
 
 use Encode;
 use CGI qw/:cgi :form escapeHTML/;

@@ -2,9 +2,7 @@
 
 # Tests of Ingredients::compute_ingredients_percent_values()
 
-use strict;
-use warnings;
-
+use Modern::Perl '2017';
 use utf8;
 
 use Test::More;
@@ -536,7 +534,7 @@ my @tests = (
 				'text' => 'piment'
 			},
 			{
-				'id' => 'en:cumin-seeds',
+				'id' => 'en:cumin',
 				'percent' => '0.4',
 				'percent_estimate' => '0.4',
 				'text' => 'cumin'
@@ -546,6 +544,243 @@ my @tests = (
 				'percent' => '0.1',
 				'percent_estimate' => '64.6',
 				'text' => 'ail'
+			}
+		]
+	],
+
+	# Relative percent
+
+	[ { lc => "en", ingredients_text => "fruits 50% (apple 40%, pear 30%, cranberry, lemon), sugar"},
+		[
+			{
+				'id' => 'en:fruit',
+				'ingredients' => [
+				{
+					'id' => 'en:apple',
+					'percent' => 20,
+					'percent_estimate' => 20,
+					'percent_max' => 20,
+					'percent_min' => 20,
+					'text' => 'apple'
+				},
+				{
+					'id' => 'en:pear',
+					'percent' => 15,
+					'percent_estimate' => 15,
+					'percent_max' => 15,
+					'percent_min' => 15,
+					'text' => 'pear'
+				},
+				{
+					'id' => 'en:cranberry',
+					'percent_estimate' => '11.25',
+					'percent_max' => 15,
+					'percent_min' => '7.5',
+					'text' => 'cranberry'
+				},
+				{
+					'id' => 'en:lemon',
+					'percent_estimate' => '3.75',
+					'percent_max' => '7.5',
+					'percent_min' => 0,
+					'text' => 'lemon'
+				}
+				],
+				'percent' => 50,
+				'percent_estimate' => 50,
+				'percent_max' => 50,
+				'percent_min' => 50,
+				'text' => 'fruits'
+			},
+			{
+				'id' => 'en:sugar',
+				'percent_estimate' => 50,
+				'percent_max' => 50,
+				'percent_min' => 50,
+				'text' => 'sugar'
+			}
+		]
+	],
+
+	# Absolute percent
+
+	[ { lc => "en", ingredients_text => "fruits 50% (apple 20%, pear 15%, cranberry, lemon), sugar"},
+		[
+			{
+				'id' => 'en:fruit',
+				'ingredients' => [
+				{
+					'id' => 'en:apple',
+					'percent' => 20,
+					'percent_estimate' => 20,
+					'percent_max' => 20,
+					'percent_min' => 20,
+					'text' => 'apple'
+				},
+				{
+					'id' => 'en:pear',
+					'percent' => 15,
+					'percent_estimate' => 15,
+					'percent_max' => 15,
+					'percent_min' => 15,
+					'text' => 'pear'
+				},
+				{
+					'id' => 'en:cranberry',
+					'percent_estimate' => '11.25',
+					'percent_max' => 15,
+					'percent_min' => '7.5',
+					'text' => 'cranberry'
+				},
+				{
+					'id' => 'en:lemon',
+					'percent_estimate' => '3.75',
+					'percent_max' => '7.5',
+					'percent_min' => 0,
+					'text' => 'lemon'
+				}
+				],
+				'percent' => 50,
+				'percent_estimate' => 50,
+				'percent_max' => 50,
+				'percent_min' => 50,
+				'text' => 'fruits'
+			},
+			{
+				'id' => 'en:sugar',
+				'percent_estimate' => 50,
+				'percent_max' => 50,
+				'percent_min' => 50,
+				'text' => 'sugar'
+			}
+		]
+	],	
+
+	# Relative percent with no indicated percent on the parent ingredient, but with a percent min = percent max on the parent ingredient
+	[ { lc => "en", ingredients_text => "water (60%), fruit concentrate (apple 40%, mango 30%, citrus)"},
+		[
+			{
+				'id' => 'en:water',
+				'percent' => 60,
+				'percent_estimate' => 60,
+				'percent_max' => 60,
+				'percent_min' => 60,
+				'text' => 'water'
+			},
+			{
+				'id' => 'en:fruit-concentrates',
+				'ingredients' => [
+				{
+					'id' => 'en:apple',
+					'percent' => 16,
+					'percent_estimate' => 16,
+					'percent_max' => 16,
+					'percent_min' => 16,
+					'text' => 'apple'
+				},
+				{
+					'id' => 'en:mango',
+					'percent' => 12,
+					'percent_estimate' => 12,
+					'percent_max' => 12,
+					'percent_min' => 12,
+					'text' => 'mango'
+				},
+				{
+					'id' => 'en:citrus-fruit',
+					'percent_estimate' => 12,
+					'percent_max' => 12,
+					'percent_min' => 12,
+					'text' => 'citrus'
+				}
+				],
+				'percent_estimate' => 40,
+				'percent_max' => 40,
+				'percent_min' => 40,
+				'text' => 'fruit concentrate'
+			}
+		]
+	],
+
+
+	# Relative percent with a different percent min and percent max on the parent ingredient
+	[ { lc => "en", ingredients_text => "water (60%), fruit concentrate (apple 40%, mango 30%, citrus), sugar"},
+		[
+			{
+				'id' => 'en:water',
+				'percent' => 60,
+				'percent_estimate' => 60,
+				'percent_max' => 60,
+				'percent_min' => 60,
+				'text' => 'water'
+			},
+			{
+				'id' => 'en:fruit-concentrates',
+				'ingredients' => [
+				{
+					'id' => 'en:apple',
+					'percent_estimate' => 12,
+					'percent_max' => 16,
+					'percent_min' => 8,
+					'text' => 'apple'
+				},
+				{
+					'id' => 'en:mango',
+					'percent_estimate' => 9,
+					'percent_max' => 12,
+					'percent_min' => 6,
+					'text' => 'mango'
+				},
+				{
+					'id' => 'en:citrus-fruit',
+					'percent_estimate' => 9,
+					'percent_max' => 12,
+					'percent_min' => 0,
+					'text' => 'citrus'
+				}
+				],
+				'percent_estimate' => 30,
+				'percent_max' => 40,
+				'percent_min' => 20,
+				'text' => 'fruit concentrate'
+			},
+			{
+				'id' => 'en:sugar',
+				'percent_estimate' => 10,
+				'percent_max' => 20,
+				'percent_min' => 0,
+				'text' => 'sugar'
+			}
+		]
+
+	],
+
+	# Missing % that is not the first or the last
+	[ { lc => "fr", ingredients_text => "Jus de pomme (57,3%), jus de carotte, jus de gingembre (2,5%)."},
+		[
+			{
+				'id' => 'en:apple-juice',
+				'percent' => '57.3',
+				'percent_estimate' => '57.3',
+				'percent_max' => '57.3',
+				'percent_min' => '57.3',
+				'text' => 'Jus de pomme'
+			},
+			{
+				'id' => 'en:carrot-juice',
+				'percent_estimate' => '40.2',
+				'percent_max' => '40.2',
+				'percent_min' => '40.2',
+				'text' => 'jus de carotte'
+			},
+			{
+				'id' => 'en:ginger',
+				'percent' => '2.5',
+				'percent_estimate' => '2.5',
+				'percent_max' => '2.5',
+				'percent_min' => '2.5',
+				'processing' => 'en:juice',
+				'text' => 'gingembre'
 			}
 		]
 	],

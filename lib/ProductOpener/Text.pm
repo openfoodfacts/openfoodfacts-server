@@ -56,6 +56,10 @@ BEGIN
 		&get_decimal_formatter
 		&get_percent_formatter
 
+		&remove_tags
+		&remove_tags_and_quote
+		&xml_escape		
+
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -258,5 +262,55 @@ sub _format_percentage($$$) {
 	return $perf->format($value);
 
 }
+
+sub remove_tags_and_quote($) {
+
+	my $s = shift;
+
+	if (not defined $s) {
+		$s = "";
+	}
+
+	# Remove tags
+	$s =~ s/<(([^>]|\n)*)>//g;
+	$s =~ s/</&lt;/g;
+	$s =~ s/>/&gt;/g;
+	$s =~ s/"/&quot;/g;
+
+	# Remove whitespace
+	$s =~ s/^\s+|\s+$//g;
+
+	return $s;
+}
+
+sub xml_escape($) {
+
+	my $s = shift;
+
+	# Remove tags
+	$s =~ s/<(([^>]|\n)*)>//g;
+	$s =~ s/\&/\&amp;/g;
+	$s =~ s/</&lt;/g;
+	$s =~ s/>/&gt;/g;
+	$s =~ s/"/&quot;/g;
+
+	# Remove whitespace
+	$s =~ s/^\s+|\s+$//g;
+
+	return $s;
+
+}
+
+sub remove_tags($) {
+
+	my $s = shift;
+
+	# Remove tags
+	$s =~ s/</&lt;/g;
+	$s =~ s/>/&gt;/g;
+
+	return $s;
+}
+
 
 1;

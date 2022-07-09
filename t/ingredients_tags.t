@@ -1,8 +1,6 @@
 #!/usr/bin/perl -w
 
-use strict;
-use warnings;
-
+use Modern::Perl '2017';
 use utf8;
 
 use Test::More;
@@ -55,7 +53,7 @@ my @tests = (
 
 	[ { lc => "de", ingredients_text => "Zucker, Gewürze, Antioxidations-mittel: Ascorbinsäure, Konservierungsstoff: Natriumnitrit. Kann Spuren von Senf und Sellerie enthalten."}, [ "en:sugar", "en:spice", "en:antioxidant", "en:preservative", "en:e300", "en:e250" ], ],
 
-	[ { lc => "fr", ingredients_text => "Lait de vache pasteurisé (origine: France), crème pasteurisée (origine France), sel (origine UE), ferments."}, [ 'en:pasteurised-cow-s-milk', 'en:pasteurized-cream', 'en:salt', 'en:ferment'  ], ],
+	[ { lc => "fr", ingredients_text => "Lait de vache pasteurisé (origine: France), crème pasteurisée (origine France), sel (origine UE), ferments."}, [ 'en:pasteurised-cow-s-milk', 'en:cream', 'en:salt', 'en:ferment'  ], ],
 	[ { lc => "en", ingredients_text => "Organically grown green tea"}, [ "en:green-tea" ], ],
 	[ { lc => "fr", ingredients_text => "Céleri - rave, choux - fleurs, béta - carotène"}, [ "en:celeriac", "en:cauliflower", "en:e160ai" ], ],
 	[ { lc => "fr", ingredients_text => "Pâte de cacao de Madagascar, café"},["en:cocoa-paste", "en:coffee"]],
@@ -103,7 +101,7 @@ my @tests = (
 	# don't have sub-ingredients
 	[ { lc => "en", ingredients_text => "pure juice (orange juice)"}, [ 'en:pure juice', 'en:orange-juice' ]],
 	# using vegan in case we add "pure juice" as an ingredient at some point
-	[ { lc => "en", ingredients_text => "vegan (orange juice)"}, [ 'en:vegan', 'en:orange-juice' ]],
+	[ { lc => "en", ingredients_text => "vegan (orange juice)"}, [ 'en:orange-juice' ]],
 
 	# Spanish and is "e" before "i" or "hi"
 	[ { lc => "es", ingredients_text => "agua de coco e hielo"} , ['en:coconut-water', 'en:ice']],
@@ -135,6 +133,19 @@ my @tests = (
 	[ { lc => "fr", ingredients_text => "poisson ascorbique"}, [ "fr:poisson ascorbique" ], ],
 	# AOP
 	[ { lc => "fr", ingredients_text => "piment d'Espelette AOP"}, [ "en:espelette-chili-pepper" ], ],
+
+	# palm oil false negative
+	[ { lc => "fr", ingredients_text => "huiles végétales non hydrogénées (huile de palme certifiée durable, huile de colza)"}, ['en:non-hydrogenated-vegetable-oils', 'en:palm-oil', 'en:colza-oil']],
+	[ { lc => "fr", ingredients_text => "huile de palme certifiée durable"}, ['en:palm-oil']],
+	[ { lc => "fr", ingredients_text => "huile de palme RSPO"}, ['en:palm-oil']],
+	
+	# Russian and / or
+	[ { lc => "ru", ingredients_text => "яблоко и малина"}, ["en:apple","en:raspberry"]],
+	[ { lc => "ru", ingredients_text => "яблоко и / или малина"}, ["en:apple","en:raspberry"]],
+	[ { lc => "ru", ingredients_text => "бензоат натрия и сорбат калия"}, ["en:e211", "en:e202"]],
+	
+	# Russian oil
+	[ { lc => "ru", ingredients_text => "масло растительное (подсолнечное, соевое), Масло (Пальмовое)"}, ["en:sunflower-oil", "en:soya-oil", "en:palm-oil"]],
 	
 );
 

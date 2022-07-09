@@ -33,7 +33,7 @@ database and file system.
 
 	$product_ref->{product_name_en} = "Chocolate cookies";
 
-	store_product($product_ref, 'helpful comment');
+	store_product("my-user", $product_ref, 'helpful comment');
 
 
 =head1 DESCRIPTION
@@ -88,6 +88,7 @@ BEGIN
 		&product_name_brand
 		&product_name_brand_quantity
 		&product_url
+		&product_action_url
 		&normalize_search_terms
 		&index_product
 		&log_change
@@ -104,6 +105,7 @@ BEGIN
 		&add_back_field_values_removed_by_user
 
 		&process_product_edit_rules
+		&product_data_is_protected
 
 		&make_sure_numbers_are_stored_as_numbers
 		&change_product_server_or_code
@@ -111,6 +113,8 @@ BEGIN
 		&find_and_replace_user_id_in_products
 
 		&add_users_team
+
+		&remove_fields
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -120,16 +124,20 @@ use vars @EXPORT_OK ;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Users qw/:all/;
+use ProductOpener::Orgs qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::Data qw/:all/;
+use ProductOpener::MainCountries qw/:all/;
+use ProductOpener::Text qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
 use Log::Any qw($log);
+use Data::DeepAccess qw(deep_get);
 
 use LWP::UserAgent;
 use Storable qw(dclone);
@@ -232,12 +240,30 @@ sub assign_new_code() {
 	return ($code, $product_id);
 }
 
+=head2 normalize_code()
+
+C<normalize_code()> this function normalizes the product code by:
+- Keeps only digits and removes spaces/dashes etc.
+- Normalizes the length by adding leading zeroes or removing the leading zero (in case of 14 digit codes)
+
+=head3 Arguments
+
+Product Code in the Raw form: $code
+
+=head3 Return Values
+
+Normalized version of the code
+
+=cut
 
 sub normalize_code($) {
 
 	my $code = shift;
 	if (defined $code) {
-		$code =~ s/\D//g; # Keep only digits, remove spaces, dashes and everything else
+		
+		# Keep only digits, remove spaces, dashes and everything else
+		$code =~ s/\D//g; 
+		
 		# Add a leading 0 to valid UPC-12 codes
 		# invalid 12 digit codes may be EAN-13s with a missing number
 		if ((length($code) eq 12) and ($ean_check->is_valid('0' . $code))) {
@@ -261,13 +287,31 @@ sub normalize_code($) {
 	return $code;
 }
 
+
 # - When products are public, the _id is the code, and the path is of the form 123/456/789/0123
 # - When products are private, the _id is [owner]/[code] (e.g. user-abc/1234567890123 or org-xyz/1234567890123
-
 # FIXME: bug #677
+
+=head2 split_code()
+
+C<split_code()> this function splits the product code for determining the product path and the _id.
+product_path_from_id() utilizes this for the said purpose.
+
+=head3 Arguments
+
+Product Code: $code
+
+=head3 Return Values
+
+Code that has been split into 3 sections of three digits and one fourth section with the remaining digits.
+Example: 1234567890123  :-  123/456/789/0123
+
+=cut
+
 sub split_code($) {
 
 	my $code = shift;
+	
 	# Require at least 4 digits (some stores use very short internal barcodes, they are likely to be conflicting)
 	if ($code !~ /^\d{4,24}$/) {
 
@@ -275,8 +319,9 @@ sub split_code($) {
 		return "invalid";
 	}
 
+	# First splits into 3 sections of 3 numbers and the ast section with the remaining numbers
 	my $path = $code;
-	if ($code =~ /^(...)(...)(...)(.*)$/) {
+	if ($code =~ /^(.{3})(.{3})(.{3})(.*)$/) {
 		$path = "$1/$2/$3/$4";
 	}
 	return $path;
@@ -300,14 +345,14 @@ e.g. off:[code]
 
 =head4 Owner id
 
+=head4 Code 
+
+Product barcode
+
 In most cases, pass $Owner_id which is initialized by ProductOpener::Users::init_user()
 
   undef for public products
   user-[user id] or org-[organization id] for private products
-
-=head4 Code
-
-Product barcode.
 
 =head3 Return values
 
@@ -318,7 +363,7 @@ The product id.
 sub product_id_for_owner($$) {
 
 	my $ownerid = shift;
-	my $code = shift;
+	my $code = shift;	
 
 	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
 		if (defined $ownerid) {
@@ -343,7 +388,7 @@ Returns the server for the product, if it is not on the current server.
 
 =head4 $product_id
 
-Product id of the form [code], [owner-id]/[code], or [server-id]:[code]
+Product id of the form [code], [owner-id]/[code], or [server-id]:[code] or [server-id]:[owner-id]/[code]
 
 =head3 Return values
 
@@ -501,21 +546,17 @@ sub product_path($) {
 
 sub product_exists($) {
 
-	my $id = shift;
+	my $product_id = shift;
 
-	my $path = product_path_from_id($id);
-	if (-e "$data_root/products/$path") {
-
-		my $product_ref = retrieve("$data_root/products/$path/product.sto");
-		if ((not defined $product_ref) or ($product_ref->{deleted})) {
-			return 0;
-		}
-		else {
-			return $product_ref;
-		}
+	# deprecated, just use retrieve_product()
+	
+	my $product_ref = retrieve_product($product_id);
+	
+	if (not defined $product_ref) {
+		return 0;
 	}
 	else {
-		return 0;
+		return $product_ref;
 	}
 }
 
@@ -575,10 +616,13 @@ sub get_owner_id($$$) {
 
 =head2 init_product ( $userid, $orgid, $code, $countryid )
 
-Initialize and return a $product_ref structure for a new product.
-
+Initializes and return a $product_ref structure for a new product. 
 If $countryid is defined and is not "en:world", then assign this country for the countries field.
 Otherwise, use the country associated with the ip address of the user.
+
+=head3 Return Type
+
+Returns a $product_ref structure
 
 =cut
 
@@ -590,6 +634,14 @@ sub init_product($$$$) {
 	my $countryid = shift;
 
 	$log->debug("init_product", { userid => $userid, orgid => $orgid, code => $code, countryid => $countryid }) if $log->is_debug();
+	
+	# We can have a server passed in the code. e.g. obf:43242345
+	my $server;
+	if ($code =~ /:/) {
+		$server = $`;
+		$code = $';
+		$log->debug("init_product - found server in code", { userid => $userid, orgid => $orgid, server => $server, code => $code, countryid => $countryid }) if $log->is_debug();
+	}
 
 	my $creator = $userid;
 
@@ -605,6 +657,10 @@ sub init_product($$$$) {
 		creator   => $creator,
 		rev       => 0,
 	};
+	
+	if (defined $server) {
+		$product_ref->{server} = $server;
+	}
 
 	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
 		my $ownerid = get_owner_id($userid, $orgid, $Owner_id);
@@ -617,12 +673,12 @@ sub init_product($$$$) {
 
 	my $country;
 
-	if ((not defined $countryid) or ($countryid eq "en:world")) {
+	if (((not defined $countryid) or ($countryid eq "en:world")) and (remote_addr() ne "127.0.0.1")) {
 
 		require ProductOpener::GeoIP;
 		$country = ProductOpener::GeoIP::get_country_for_ip(remote_addr());
 	}
-	else {
+	elsif (defined $countryid) {
 		$country = $countryid;
 		$country =~ s/^en://;
 	}
@@ -693,16 +749,18 @@ sub send_notification_for_product_change($$) {
 
 	my $product_ref = shift;
 	my $action = shift;
-
 	if ((defined $robotoff_url) and (length($robotoff_url) > 0)) {
 		my $ua = LWP::UserAgent->new();
+		my $endpoint = "$robotoff_url/api/v1/webhook/product";
 		$ua->timeout(2);
 
-		my $response = $ua->post( "$robotoff_url/api/v1/webhook/product",  {
+		$log->debug("send_notif_robotoff_product_update", { endpoint => $endpoint, barcode => $product_ref->{code}, action => $action, server_domain => "api." . $server_domain }) if $log->is_debug();
+		my $response = $ua->post($endpoint,  {
 			'barcode' => $product_ref->{code},
 			'action' => $action,
 			'server_domain' => "api." . $server_domain
 		} );
+		$log->debug("send_notif_robotoff_product_update", { endpoint => $endpoint, is_success => $response->is_success, code => $response->code, status_line => $response->status_line }) if $log->is_debug();
 	}
 
 	return;
@@ -714,18 +772,28 @@ sub retrieve_product($) {
 	my $path = product_path_from_id($product_id);
 	my $product_data_root = data_root_for_product_id($product_id);
 
-	$log->debug("retrieve_product", { product_id => $product_id, product_data_root => $product_data_root, path => $path } ) if $log->is_debug();
+	my $full_product_path = "$product_data_root/products/$path/product.sto";
 
-	my $product_ref = retrieve("$product_data_root/products/$path/product.sto");
+	$log->debug("retrieve_product", { product_id => $product_id, product_data_root => $product_data_root, path => $path, full_product_path => $full_product_path } ) if $log->is_debug();
+
+	my $product_ref = retrieve($full_product_path);
 	
 	# If the product is on another server, set the server field so that it will be saved in the other server if we save it
 	my $server = server_for_product_id($product_id);
-	if ((defined $product_ref) and (defined $server)) {
-		$product_ref->{server} = $server;
+	
+	if (not defined $product_ref) {
+		$log->debug("retrieve_product - product does not exist", { product_id => $product_id, product_data_root => $product_data_root, path => $path, server => $server } ) if $log->is_debug();
 	}
+	else {
+		if (defined $server) {
+			$product_ref->{server} = $server;
+			$log->debug("retrieve_product - product on another server", { product_id => $product_id, product_data_root => $product_data_root, path => $path, server => $server } ) if $log->is_debug();
+		}
 
-	if ((defined $product_ref) and ($product_ref->{deleted})) {
-		return;
+		if ($product_ref->{deleted}) {
+			$log->debug("retrieve_product - deleted product", { product_id => $product_id, product_data_root => $product_data_root, path => $path, server => $server } ) if $log->is_debug();
+			return;
+		}
 	}
 
 	return $product_ref;
@@ -897,8 +965,9 @@ sub compute_sort_keys($) {
 }
 
 
-sub store_product($$) {
+sub store_product($$$) {
 
+	my $user_id = shift;
 	my $product_ref = shift;
 	my $comment = shift;
 
@@ -1008,7 +1077,7 @@ sub store_product($$) {
 			(-e "$new_www_root/products/$path") and $log->error("cannot move product images data, because the destination already exists", { source => "$www_root/images/products/$old_path", destination => "$new_www_root/images/products/$path" });
 		}
 
-		$comment .= " - barcode changed from $old_code to $code by $User_id";
+		$comment .= " - barcode changed from $old_code to $code by $user_id";
 	}
 
 
@@ -1046,11 +1115,11 @@ sub store_product($$) {
 	$rev++;
 
 	$product_ref->{rev} = $rev;
-	$product_ref->{last_modified_by} = $User_id;
+	$product_ref->{last_modified_by} = $user_id;
 	$product_ref->{last_modified_t} = time() + 0;
 	if (not exists $product_ref->{creator}) {
-		my $creator = $User_id;
-		if ((not defined $User_id) or ($User_id eq '')) {
+		my $creator = $user_id;
+		if ((not defined $user_id) or ($user_id eq '')) {
 			$creator = "openfoodfacts-contributors";
 		}
 		$product_ref->{creator} = $creator;
@@ -1063,13 +1132,33 @@ sub store_product($$) {
 		delete $product_ref->{owners_tags};
 	}
 
-	push @{$changes_ref}, {
-		userid => $User_id,
+	my $change_ref = {
+		userid => $user_id,
 		ip => remote_addr(),
 		t => $product_ref->{last_modified_t},
 		comment => $comment,
 		rev => $rev,
 	};
+
+	# Allow apps to send the user agent as a form parameter instead of a HTTP header, as some web based apps can't change the User-Agent header sent by the browser
+	my $user_agent = remove_tags_and_quote(decode utf8=>param("User-Agent"))
+		|| remove_tags_and_quote(decode utf8=>param("user-agent"))
+		|| remove_tags_and_quote(decode utf8=>param("user_agent"))
+		|| user_agent();
+
+	if ((defined $user_agent) and ($user_agent ne "")) {
+		$change_ref->{user_agent} = $user_agent;
+	}
+
+	# Allow apps to send app_name, app_version and app_uuid parameters
+	foreach my $field (qw(app_name app_version app_uuid)) {
+		my $value = remove_tags_and_quote(decode utf8=>param($field));
+		if ((defined $value) and ($value ne "")) {
+			$change_ref->{$field} = $value;
+		}
+	}
+
+	push @{$changes_ref}, $change_ref; 
 
 	add_user_teams($product_ref);
 
@@ -1081,7 +1170,9 @@ sub store_product($$) {
 
 	compute_product_history_and_completeness($new_data_root, $product_ref, $changes_ref, $blame_ref);
 
-	compute_data_sources($product_ref);
+	compute_data_sources($product_ref, $changes_ref);
+	
+	compute_main_countries($product_ref);
 
 	compute_sort_keys($product_ref);
 
@@ -1105,7 +1196,7 @@ sub store_product($$) {
 	# make sure nutrient values are numbers
 	make_sure_numbers_are_stored_as_numbers($product_ref);
 
-	my $change_ref = $changes_ref->[-1];
+	$change_ref = $changes_ref->[-1];
 	my $diffs = $change_ref->{diffs};
 	my %diffs = %{$diffs};
 	if ((!$diffs) or (!keys %diffs)) {
@@ -1140,13 +1231,21 @@ sub store_product($$) {
 	return 1;
 }
 
-# Update the data-sources tag from the sources field
-# This function is for historic products, new sources should set the data_sources_tags field directly
-# through import_csv_file.pl / upload_photos.pl etc.
 
-sub compute_data_sources($) {
+=head2 compute_data_sources ( $product_ref, $changes_ref )
+
+Analyze the sources field of the product, as well as the changes to add to the data_sources field.
+
+Sources allows to add some producers imports that were done before the producers platform was created.
+
+The changes structure allows to add apps.
+
+=cut
+
+sub compute_data_sources($$) {
 
 	my $product_ref = shift;
+	my $changes_ref = shift;
 
 	my %data_sources = ();
 
@@ -1198,24 +1297,35 @@ sub compute_data_sources($) {
 				$data_sources{"Databases"} = 1;
 				$data_sources{"Database - USDA NDB"} = 1;
 			}
+			if ($source_ref->{id} eq 'codeonline') {
+				$data_sources{"Databases"} = 1;
+				$data_sources{"Database - CodeOnline"} = 1;
+				$data_sources{"Database - GDSN"} = 1;
+			}
+			if ($source_ref->{id} eq 'equadis') {
+				$data_sources{"Databases"} = 1;
+				$data_sources{"Database - Equadis"} = 1;
+				$data_sources{"Database - GDSN"} = 1;
+			}
+			if ($source_ref->{id} eq 'agena3000') {
+				$data_sources{"Databases"} = 1;
+				$data_sources{"Database - Agena3000"} = 1;
+				$data_sources{"Database - GDSN"} = 1;
+			}
 		}
 	}
 
 
-	# Add a data source forapps
+	# Add a data source for apps
 
-	%data_sources = ();
+	foreach my $change_ref (@$changes_ref) {
+	
+		if (defined $change_ref->{app}) {
 
-	if (defined $product_ref->{editors_tags}) {
-		foreach my $editor (@{$product_ref->{editors_tags}}) {
+			my $app_name = deep_get(\%options, "apps_names", $change_ref->{app}) || $change_ref->{app};
 
-			if ($editor =~ /\./) {
-
-				my $app = $`;
-
-				$data_sources{"Apps"} = 1;
-				$data_sources{"App - $app"} = 1;
-			}
+			$data_sources{"Apps"} = 1;
+			$data_sources{"App - " . $app_name} = 1;
 		}
 	}
 
@@ -1393,6 +1503,9 @@ sub compute_completeness_and_missing_tags($$$) {
 		}
 		else {
 			push @states_tags, "en:to-be-exported";
+			if ($product_ref->{to_be_automatically_exported}) {
+				push @states_tags, "en:to-be-automatically-exported";
+			}
 		}
 	}
 
@@ -1438,21 +1551,58 @@ sub compute_completeness_and_missing_tags($$$) {
 }
 
 
+=head2 get_change_userid_or_uuid ( $change_ref )
+
+For a specific change, analyze change identifiers (comment, user agent, userid etc.)
+to determine if the change was done through an app, the OFF userid, or an app specific UUID
+
+=head3 Parameters
+
+=head4 $change_ref 
+reference to a change record
+
+=head3 Return value
+
+The function returns by order of preerence:
+- a real user userid if we have an userid which is not the userid of an app
+- an appid + app uuid (e.g. some-app.Z626FZF4RTFSG6)
+- an app userid if the app did not provide an app uuid
+- openfoodfacts-contributors
+
+=cut
+
 sub get_change_userid_or_uuid($) {
 
 	my $change_ref = shift;
 
 	my $userid = $change_ref->{userid};
 
-	my $app = "";
+	my $app;
+	my $app_userid_prefix;
 	my $uuid;
 
-	if ((defined $userid) and (defined $options{apps_userids}) and (defined $options{apps_userids}{$userid})) {
-		$app = $options{apps_userids}{$userid} . "\.";
+	# Is the userid the userid of an app?
+	if (defined $userid) {
+		$app = deep_get(\%options, "apps_userids", $userid);
+		if (defined $app) {
+			# If the userid is an an account for an app, unset the userid,
+			# so that it can be replaced by the app + an app uuid if provided
+			$userid = undef;
+		}
 	}
-	elsif ((defined $options{official_app_comment}) and ($change_ref->{comment} =~ /$options{official_app_comment}/i)) {
-		$app = $options{official_app_id} . "\.";
+
+	# Is it an app that sent an app_name?
+	if ((not defined $app) and (defined $change_ref->{app_name})) {
+		$app = get_string_id_for_lang("no_language", $change_ref->{app_name});
 	}
+
+	# Set the app field for the Open Food Facts app
+	if ((not defined $app) and (defined $options{official_app_comment}) and ($change_ref->{comment} =~ /$options{official_app_comment}/i)) {
+		$app = $options{official_app_id};
+	}
+
+	# If we do not have a user specific userid (e.g. a logged in user using the Open Food Facts app),
+	# try to identify the UUID passed in the comment by some apps
 
 	# use UUID provided by some apps like Yuka
 	# UUIDs are mix of [a-zA-Z0-9] chars, they must not be lowercased by getfile_id
@@ -1463,20 +1613,53 @@ sub get_change_userid_or_uuid($) {
 	#
 	# but not:
 	# (app)Updated via Power User Script
-	if ((defined $userid) and (defined $options{apps_uuid_prefix}) and (defined $options{apps_uuid_prefix}{$userid})
-		and ($change_ref->{comment} =~ /$options{apps_uuid_prefix}{$userid}/i)) {
-		$uuid = $';
+
+	if ((defined $app) and ((not defined $userid) or ($userid eq ''))) {
+
+		$app_userid_prefix = deep_get(\%options, "apps_uuid_prefix", $app);
+
+		# Check if the app passed the app_uuid parameter
+		if (defined $change_ref->{app_uuid}) {
+			$uuid = $change_ref->{app_uuid};
+		}
+		# Extract UUID from comment
+		elsif ((defined $app_userid_prefix)
+			and ($change_ref->{comment} =~ /$app_userid_prefix/i)) {
+			$uuid = $';
+		}
+
+		if (defined $uuid) {
+
+			# Remove any app specific suffix
+			my $app_userid_suffix = deep_get(\%options, "apps_uuid_suffix", $app);
+			if (defined $app_userid_suffix) {
+				$uuid =~ s/$app_userid_suffix(\s|\(|\[])*$//i;
+			}
+
+			$uuid =~ s/^(-|_|\s|\(|\[])+//;
+			$uuid =~ s/(-|_|\s|\)|\])+$//;
+		}
+
+		# If we have a uuid from an app, make the userid a combination of app + uuid
+		if ((defined $uuid) and ($uuid !~ /^(-|_|\s|-|_|\.)*$/)) {
+			$userid = $app . '.' . $uuid;
+		}
+		# otherwise use the original userid used for the API if any
+		elsif (defined $change_ref->{userid}) {
+			$userid = $change_ref->{userid};
+		}	
 	}
 
-	if ((defined $uuid) and ($uuid !~ /^(\s|-|_|\.)*$/)) {
-		$uuid =~ s/^(\s*)//;
-		$uuid =~ s/(\s*)$//;
-		$userid = $app . $uuid;
-	}
-
-	if ((not defined $userid) or ($userid eq '')) {
+	if (not defined $userid) {
 		$userid = "openfoodfacts-contributors";
+	}	
+
+	# Add the app to the change structure if we identified one, this will be used to populate the data sources field
+	if (defined $app) {
+		$change_ref->{app} = $app;
 	}
+
+	$log->debug("get_change_userid_or_uuid", { change_ref => $change_ref, app => $app, app_userid_prefix => $app_userid_prefix, uuid => $uuid, userid => $userid } ) if $log->is_debug();
 
 	return $userid;
 }
@@ -1741,7 +1924,7 @@ sub compute_product_history_and_completeness($$$$) {
 		# if not found, we may be be updating the product, with the latest rev not set yet
 		if ((not defined $product_ref) or ($rev == $current_product_ref->{rev})) {
 			$product_ref = $current_product_ref;
-			$log->warn("specified product revision was not found, using current product ref", { revision => $rev }) if $log->is_warn();
+			$log->debug("specified product revision was not found, using current product ref", { revision => $rev }) if $log->is_debug();
 		}
 
 		if (defined $product_ref) {
@@ -1893,7 +2076,7 @@ sub compute_product_history_and_completeness($$$$) {
 					$diff = 'delete';
 				}
 				elsif ((defined $previous{$group}{$id}) and (defined $current{$group}{$id}) and ($previous{$group}{$id} ne $current{$group}{$id}) ) {
-					$log->info("difference in products detected", { id => $id, previous_rev => $previous{rev}, previous => $previous{$group}{$id}, current_rev => $current{rev}, current => $current{$group}{$id} }) if $log->is_info();
+					$log->debug("difference in products detected", { id => $id, previous_rev => $previous{rev}, previous => $previous{$group}{$id}, current_rev => $current{rev}, current => $current{$group}{$id} }) if $log->is_debug();
 					$diff = 'change';
 				}
 
@@ -2025,8 +2208,8 @@ sub compute_product_history_and_completeness($$$$) {
 # traverse the history to see if a particular user has removed values for tag fields
 # add back the removed values
 
+# NOT sure if this is useful, it's being used in one of the "obsolete" scripts
 sub add_back_field_values_removed_by_user($$$$) {
-
 
 	my $current_product_ref = shift;
 	my $changes_ref = shift;
@@ -2148,6 +2331,12 @@ sub product_name_brand($) {
 	elsif ((defined $ref->{product_name}) and ($ref->{product_name} ne '')) {
 		$full_name = $ref->{product_name};
 	}
+	elsif ((defined $ref->{"generic_name_$lc"}) and ($ref->{"generic_name_$lc"} ne '')) {
+		$full_name = $ref->{"generic_name_$lc"};
+	}
+	elsif ((defined $ref->{generic_name}) and ($ref->{generic_name} ne '')) {
+		$full_name = $ref->{generic_name};
+	}	
 	elsif ((defined $ref->{"abbreviated_product_name_$lc"}) and ($ref->{"abbreviated_product_name_$lc"} ne '')) {
 		$full_name = $ref->{"abbreviated_product_name_$lc"};
 	}
@@ -2190,6 +2379,15 @@ sub product_name_brand_quantity($) {
 	return $full_name;
 }
 
+=head2 product_url ( $code_or_ref )
+
+Returns a relative URL for a product on the website.
+
+=head3 Parameters
+
+=head4 Product code or reference to product object $code_or_ref
+
+=cut
 
 sub product_url($) {
 
@@ -2228,6 +2426,41 @@ sub product_url($) {
 	return "/$path/$code" . $titleid;
 }
 
+
+=head2 product_action_url ( $code, $action )
+
+Returns a relative URL for an action on a product on the website.
+
+This function is called by the web/panels/panel.tt.html template for knowledge panels that have associated actions.
+
+=head3 Parameters
+
+=head4 Product code or reference to product object $code_or_ref
+
+=cut
+
+sub product_action_url($$) {
+
+	my $code = shift;
+	my $action = shift;
+
+	my $url = "/cgi/product.pl?type=edit&code=" . $code;
+
+	if ($action eq "add_categories") {
+		$url  .= "#categories";
+	}
+	elsif ($action eq "add_ingredients_text") {
+		$url .= "#ingredients";
+	}
+	elsif ($action eq "add_nutrition_facts") {
+		$url .= "#nutrition";
+	}
+	else {
+		$log->error("unknown product action", { code => $code, action => $action });
+	}
+
+	return $url;
+}
 
 sub index_product($)
 {
@@ -2327,7 +2560,6 @@ sub compute_languages($) {
 	my %languages_codes = ();
 
 	# check all the fields of the product
-
 	foreach my $field (keys %{$product_ref}) {
 
 		if (($field =~ /_([a-z]{2})$/) and (defined $language_fields{$`}) and (defined $product_ref->{$field}) and ($product_ref->{$field} ne '')) {
@@ -2705,6 +2937,16 @@ sub log_change {
 	return;
 }
 
+=head2 compute_changes_diff_text ( $change_ref )
+
+Generates a text that describes the changes made. The text is displayed in the edit history of products.
+
+=head3 Arguments
+
+$change_ref: reference to a change record
+
+=cut
+
 sub compute_changes_diff_text {
 
 	my $change_ref = shift;
@@ -2720,19 +2962,6 @@ sub compute_changes_diff_text {
 					if (defined $diffs{$group}{$diff}) {
 						$diffs .= "(" . lang("diff_$diff") . ' ' ;
 						my @diffs = @{$diffs{$group}{$diff}};
-						if ($group eq 'fields') {
-							# @diffs = map( lang($_), @diffs);
-						}
-						elsif ($group eq 'nutriments') {
-							# @diffs = map( $Nutriments{$_}{$lc}, @diffs);
-							# Attempt to access disallowed key 'nutrition-score' in a restricted hash at /home/off-fr/cgi/product.pl line 1039.
-							my @lc_diffs = ();
-							foreach my $nid (@diffs) {
-								if (exists $Nutriments{$nid}) {
-									push @lc_diffs, $Nutriments{$nid}{$lc};
-								}
-							}
-						}
 						$diffs .= join(", ", @diffs) ;
 						$diffs .= ") ";
 					}
@@ -2751,6 +2980,10 @@ sub compute_changes_diff_text {
 =head2 add_user_teams ( $product_ref )
 
 If the user who add or edits the product belongs to one or more teams, add them to the teams_tags array.
+
+=head3 Parameters
+
+$product_ref
 
 =cut
 
@@ -2779,6 +3012,66 @@ sub add_user_teams ($) {
 		}
 	}
 
+	return;
+}
+
+
+=head2 product_data_is_protected ( $product_ref )
+
+Checks if the product data should be protected from edits.
+e.g. official producer data that should not be changed by anonymous users through the API
+
+Product data is protected if it has an owner and if the corresponding organization has
+the "protect data" checkbox checked.
+
+=head3 Parameters 
+
+=head4 $product_ref
+
+=head3 Return values
+
+- 1 if the data is protected
+- 0 if the data is not protected
+
+=cut
+
+sub product_data_is_protected($) {
+
+	my $product_ref = shift;
+
+	my $protected_data = 0;
+	if ((defined $product_ref->{owner}) and ($product_ref->{owner} =~ /^org-(.+)$/)) {
+		my $org_id = $1;
+		my $org_ref = retrieve_org($org_id);
+		if ((defined $org_ref) and ($org_ref->{protect_data})) {
+			$protected_data = 1;
+		}
+	}
+	return $protected_data;
+}
+
+=head2 delete_fields ($product_ref, $fields_ref)
+
+Utility function to delete fields from a product_ref or a subfield.
+
+=head3 Parameters
+
+=head4 $product_ref
+
+Reference to a complete product a subfield.
+
+=head4 $fields_ref
+
+An array of field names to remove.
+
+=cut
+sub remove_fields($$) {
+	my $product_ref = shift;
+	my $fields_ref = shift;
+
+	foreach my $field (@$fields_ref) {
+		delete $product_ref->{$field};
+	}
 	return;
 }
 

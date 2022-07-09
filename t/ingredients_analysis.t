@@ -1,8 +1,6 @@
 #!/usr/bin/perl -w
 
-use strict;
-use warnings;
-
+use Modern::Perl '2017';
 use utf8;
 
 use Test::More;
@@ -27,9 +25,10 @@ my @tests = (
 [ { lc => "fr", ingredients_text => "unknown ingredient" }, [ "en:palm-oil-content-unknown", "en:vegan-status-unknown", "en:vegetarian-status-unknown"] ],
 [ { lc => "fr", ingredients_text => "sucre, unknown ingredient" }, [ "en:palm-oil-content-unknown", "en:vegan-status-unknown", "en:vegetarian-status-unknown"] ],
 [ { lc => "fr", ingredients_text => "sucre, colorant: e150" }, [ "en:palm-oil-free", "en:vegan", "en:vegetarian"] ],
-[ { lc => "en", ingredients_text => "fat, proteins" }, [ "en:palm-oil-free", "en:non-vegan", "en:maybe-vegetarian"] ],
+[ { lc => "en", ingredients_text => "fat, proteins" }, [ "en:may-contain-palm-oil", "en:maybe-vegan", "en:maybe-vegetarian"] ],
 [ { lc => "en", ingredients_text => "vegetable fat, vegetable proteins" }, [ "en:may-contain-palm-oil", "en:vegan", "en:vegetarian"] ],
 [ { lc => "en", ingredients_text => "modified palm oil" }, [ "en:palm-oil", "en:vegan", "en:vegetarian"] ],
+[ { lc => "en", ingredients_text => "lactic ferments" }, [ "en:palm-oil-free", "en:maybe-vegan", "en:vegetarian"] ],
 [ { lc => "fr", ingredients_text => "huiles végétales (huile de tournesol', huile de colza)" }, [ "en:palm-oil-free", "en:vegan", "en:vegetarian"] ],
 [ { lc => "fr", ingredients_text => "huiles végétales" }, [ "en:may-contain-palm-oil", "en:vegan", "en:vegetarian"] ],
 [ { lc => "fr", ingredients_text => "huile de poisson" }, [ "en:palm-oil-free", "en:non-vegan", "en:non-vegetarian"] ],
@@ -45,6 +44,15 @@ my @tests = (
 # check that the label overrides the en:non-vegan for "miel" / honey
 # (just for testing, it should not happen)
 [ { lc => "fr", labels_tags => ["en:vegan"], ingredients_text => "miel" }, [ "en:palm-oil-free", "en:vegan", "en:vegetarian"] ],
+
+# unknown ingredients
+
+[ { lc => "en", ingredients_text => "" }, undef ],
+[ { lc => "en", ingredients_text => "unknown ingredient" }, ["en:palm-oil-content-unknown", "en:vegan-status-unknown", "en:vegetarian-status-unknown"] ],
+[ { lc => "en", ingredients_text => "flour, unknown ingredient" }, ["en:palm-oil-content-unknown", "en:vegan-status-unknown", "en:vegetarian-status-unknown"] ],
+# mark the product as palm oil free even though there is one unknown ingredients (out of many ingredients)
+[ { lc => "en", ingredients_text => "flour, sugar, eggs, milk, salt, water, unknown ingredient" }, ["en:palm-oil-free", "en:non-vegan", "en:vegetarian-status-unknown"] ],
+
 );
 
 

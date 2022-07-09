@@ -40,7 +40,7 @@ use Apache2::RequestRec ();
 use Apache2::Const ();
 
 # The nginx reverse proxy turns /somepath?someparam=somevalue to /cgi/display.pl?/somepath?someparam=somevalue
-# so that all non /cgi/ queries are sent to display.pl and that we can get the path in the querty string
+# so that all non /cgi/ queries are sent to display.pl and that we can get the path in the query string
 # CGI.pm thus adds somepath? at the start of the name of the first parameter.
 # we need to remove it so that we can use the CGI.pm param() function to later access the parameters
 
@@ -63,6 +63,7 @@ my %request = (
 
 $log->debug("before analyze_request", { query_string => $request{query_string} });
 
+# analyze request will fill request with action and parameters
 analyze_request(\%request);
 
 $log->debug("after analyze_request", { blogid => $request{blogid}, tagid => $request{tagid}, urlsdate => $request{urlsdate}, urlid => $request{urlid}, user => $request{user}, query => $request{query} });
@@ -92,6 +93,9 @@ if ((defined $request{api}) and (defined $request{api_method})) {
 		# /api/v0/attribute_groups or /api/v0/attribute_groups_[language code]
 		display_attribute_groups_api(\%request, $2);
 	}
+	elsif (param("api_method") eq "taxonomy") {
+		display_taxonomy_api(\%request);
+	}	
 	else {
 		# /api/v0/product/[code] or a local name like /api/v0/produit/[code] so that we can easily add /api/v0/ to any product url
 		display_product_api(\%request);
@@ -106,6 +110,9 @@ elsif (defined $request{search}) {
 		display_search_results(\%request);
 	}
 }
+elsif (defined $request{properties}) {
+	display_properties(\%request);
+}
 elsif (defined $request{text}) {
 	display_text(\%request);
 }
@@ -113,7 +120,14 @@ elsif (defined $request{mission}) {
 	display_mission(\%request);
 }
 elsif (defined $request{product}) {
-	display_product(\%request);
+	# if we are passed the field parameter, make the request an API request
+	# this is so that we can easily add ?fields=something at the end of a product url
+	if (defined param("fields")) {
+		display_product_api(\%request);
+	}
+	else {
+		display_product(\%request);
+	}
 }
 elsif (defined $request{points}) {
 	display_points(\%request);
