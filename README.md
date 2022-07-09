@@ -31,7 +31,7 @@ Open Food Facts is a non-profit association of volunteers.
 
 ### For everyone
 
-Data about food is of public interest and has to be open(i.e available to everyone). The complete database is published as open data and can be reused by anyone and for any use. Check-out the cool reuses or make your own!
+Data about food is of public interest and has to be open (i.e available to everyone). The complete database is published as open data and can be reused by anyone and for any use. Check-out the cool reuses or make your own!
 
 * <https://world.openfoodfacts.org>
 
