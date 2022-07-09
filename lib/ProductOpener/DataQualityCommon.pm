@@ -34,8 +34,6 @@ and that are thus run for all products.
 package ProductOpener::DataQualityCommon;
 
 use ProductOpener::PerlStandards;
-use utf8;
-use Modern::Perl '2017';
 use Exporter qw(import);
 
 
