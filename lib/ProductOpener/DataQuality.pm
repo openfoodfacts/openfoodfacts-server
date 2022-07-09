@@ -70,8 +70,6 @@ The type of product is specified through Config.pm
 package ProductOpener::DataQuality;
 
 use ProductOpener::PerlStandards;
-use utf8;
-use Modern::Perl '2017';
 use Exporter qw(import);
 
 BEGIN
