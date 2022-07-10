@@ -47,7 +47,7 @@ BEGIN
 		$crowdin_project_key
 		$robotoff_url
 		%server_options
-		$ORY_ENABLED
+		$ory_enabled
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }

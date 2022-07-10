@@ -48,7 +48,7 @@ my $action = param('action') || 'display';
 my $template_data_ref = {};
 
 
-if(ORY_ENABLED){
+if($ory_enabled){
 	#redirect to ory kratos api if no flow
 	if(not defined param('flow')){
 		print redirect(-url=>'http://127.0.0.1:4433//self-service/registration/browser');
@@ -378,7 +378,7 @@ elsif ($action eq 'process') {
 		$template_data_ref->{add_user_you_can_edit} = sprintf(lang("add_user_you_can_edit"), lang("get_the_app_link"));
 		$template_data_ref->{add_user_join_the_project} = sprintf(lang("add_user_join_the_project"), lang("site_name"));
 
-		if(ORY_ENABLED){
+		if($ory_enabled){
 			my $json = {
 				"csrf_token" => "string",
 				"method" => "password",
