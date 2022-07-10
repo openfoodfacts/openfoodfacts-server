@@ -361,8 +361,6 @@ sub display_search_image_form($) {
 	my $template_data_ref = {
 		product_image_with_barcode => $product_image_with_barcode,
 		id => $id,
-		lang => \&lang,
-		display_icon => \&display_icon,
 	};
 
 	# Do not load jquery file upload twice, if it was loaded by another form
