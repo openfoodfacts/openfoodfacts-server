@@ -808,7 +808,7 @@ Sanitize a taxonomy line before processing
 sub sanitize_taxonomy_line($)
 {
 	my $line = shift;
-
+ 	
 	chomp($line);
 
 	$line =~ s/’/'/g;  # normalize quotes
@@ -835,7 +835,7 @@ sub sanitize_taxonomy_line($)
 }
 
 
-=head2 search_tag_c( $tag, $synonyms_ref, $tagtype, $warning )
+=head2 search_tag_c( $tag, $synonyms, $tagtype, $lc, $warning )
 
 Search for "current tag" (tag at start of line) for a given tag
 
@@ -843,9 +843,11 @@ Search for "current tag" (tag at start of line) for a given tag
 
 =head4 str $tag - tag string for which we search
 
-=head4 reference to hash map $synonyms_ref - the entries corresponding to $synonyms{$tagtype}{$lc}
+=head4 reference to hash map $synonyms - ref to $synonyms for $tagtype
 
 =head4 str $tagtype - tag type
+
+=head4 str $lc - language
 
 =head4 str $warning
 
@@ -856,24 +858,24 @@ If empty, no warning will be displayed.
 =head3 return str - found current tagid or undef
 
 =cut
-sub search_tag_c($$$$)
+sub search_tag_c($$$$$)
 {
 	my $tag = shift;
-	my $synonyms_ref = shift;
+	my $synonyms = shift;
 	my $tagtype = shift;
+	my $lc = shift;
 	my $warning = shift;
 	$tag =~ s/^\s+//;  # normalize spaces
 	$tag = normalize_percentages($tag, $lc);
 	my $tagid = get_string_id_for_lang($lc, $tag);
 	# search if this tag is associated to a canonical tag id
-	my $tagid_c = $synonyms_ref->{$tagid};
+	my $tagid_c = $synonyms{$lc}{$tagid};
 	if (not defined $tagid_c) {
 		# try to remove stop words and plurals
-		my $stopped_tagid = $tagid;
-		$stopped_tagid = remove_stopwords($tagtype,$lc,$tagid);
+		my $stopped_tagid = remove_stopwords($tagtype,$lc,$tagid);
 		$stopped_tagid = remove_plurals($lc,$stopped_tagid);
 		# and try again to see if it is associated to a canonical tag id
-		$tagid_c = $synonyms_ref->{$stopped_tagid};
+		$tagid_c = $synonyms{$lc}{$stopped_tagid};
 		if ($warning) {
 			print STDERR "$warning tagid $tagid, trying stopped_tagid $stopped_tagid - result canon_tagid: " . ($tagid_c // "") . "\n";
 		}
@@ -1054,7 +1056,7 @@ sub build_tags_taxonomy($$$) {
 
 						my $tag = $tag2;
 						my $possible_canon_tagid = search_tag_c(
-							$tag, $synonyms{$tagtype}{$lc}, $tagtype, ""
+							$tag, $synonyms{$tagtype}, $tagtype, $lc, ""
 						);
 						if ((not defined $canon_tagid) and (defined $possible_canon_tagid)) {
 							$canon_tagid = "$lc:" . $possible_canon_tagid;
@@ -1415,8 +1417,9 @@ sub build_tags_taxonomy($$$) {
 				my $parent = $';
 				my $canon_parentid = search_tag_c(
 					$parent,
-					$synonyms{$tagtype}{$lc},
+					$synonyms{$tagtype},
 					$tagtype,
+					$lc,
 					"taxonomy : $tagtype : did not find parent");
 				my $main_parentid = $translations_from{$tagtype}{"$lc:" . $canon_parentid};
 				$parents{$main_parentid}++;
@@ -1449,7 +1452,7 @@ sub build_tags_taxonomy($$$) {
 
 							my $tag = $tag2;
 							my $possible_canon_tagid = search_tag_c(
-								$tag, $synonyms{$tagtype}{$lc}, $tagtype, ""
+								$tag, $synonyms{$tagtype}, $tagtype, $lc, ""
 							);
 
 							if ((not defined $canon_tagid) and (defined $possible_canon_tagid)) {
