@@ -1,5 +1,10 @@
 # Dev environment quick start guide
 
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/https://github.com/openfoodfacts/openfoodfacts-server/)
+> Gitpod will automatically clone and build the repository for you and comes with Docker pre-installed. It is one of the fastest
+> ways to spin up an environment for `openfoodfacts-servbr`, but requires some additional setup to access your development deployment documented
+> in [use-gitpod how-to](../how-to-guides/use-gitpod.md).
+
 This guide will allow you to rapidly build a ready-to-use development environment for **Product Opener** running in Docker.
 
 First setup time estimate is `~10min` with the following specs:

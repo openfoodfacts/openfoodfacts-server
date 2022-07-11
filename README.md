@@ -7,6 +7,7 @@
 [![Open Source Helpers](https://www.codetriage.com/openfoodfacts/openfoodfacts-server/badges/users.svg)](https://www.codetriage.com/openfoodfacts/openfoodfacts-server)
 [![Backers on Open Collective](https://opencollective.com/openfoodfacts-server/backers/badge.svg)](#backers)
 [![Sponsors on Open Collective](https://opencollective.com/openfoodfacts-server/sponsors/badge.svg)](#sponsors)
+[![Contribute with Gitpod](https://img.shields.io/badge/Contribute%20with-Gitpod-908a85?logo=gitpod)](https://gitpod.io/#https://github.com/openfoodfacts/openfoodfacts-server)
 
 ## Tests
 [![Perl::Critic](https://github.com/openfoodfacts/openfoodfacts-server/actions/workflows/perlcritic.yml/badge.svg)](https://github.com/openfoodfacts/openfoodfacts-server/actions/workflows/perlcritic.yml)
@@ -49,6 +50,7 @@ Data about food is of public interest and has to be open. The complete database 
 * Developer documentation:
    * [Quick start guide (Docker)](./docs/introduction/dev-environment-quick-start-guide.md)
    * [Developer guide (Docker)](./docs/how-to-guides/docker-developer-guide.md)
+   * [Developer guide (Gitpod)](./docs/how-to-guides/use-gitpod.md)
    * [Manual installation](https://wiki.openfoodfacts.org/Product_Opener/Installation)
    * Configuration [TBA]
    * Dependencies [TBA]
