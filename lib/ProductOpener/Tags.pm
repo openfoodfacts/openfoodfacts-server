@@ -2512,7 +2512,6 @@ sub get_taxonomy_tag_and_link_for_lang($$$) {
 	my $tagid = shift;
 
 	my $tag_lc;
-	my $tag_url;
 
 	if ($tagid =~ /^(\w\w):/) {
 		$tag_lc = $1;

@@ -1271,7 +1271,6 @@ if (opendir (DH, "$dir/json")) {
 			#print $json;
 			
 			my @modified_fields;
-			my @images_ids;
 			
 			my $openfood_ref = decode_json($json);
 			my $openfood_id = $openfood_ref->{data}{id};
