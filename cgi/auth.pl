@@ -59,7 +59,7 @@ my $origin = $r->headers_in->{Origin} || '';
 
 # Only allow requests from one of our subdomains to see if a user is logged in or not
 
-if ($origin =~ /^https:\/\/[a-z0-9-.]+\.${server_domain}\//) {
+if ($origin =~ /^https:\/\/[a-z0-9-.]+\.${server_domain}$/) {
 	$r->err_headers_out->set("Access-Control-Allow-Credentials", "true");
 	$r->err_headers_out->set("Access-Control-Allow-Origin", $origin);
 }
