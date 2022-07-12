@@ -7,13 +7,29 @@ serve:
     base_url: http://127.0.0.1:4433/
     cors:
       enabled: true
+      allowed_origins:
+        - http://world.openfoodfacts.localhost/
+        - http://*.openfoodfacts.localhost/
+      allowed_methods:
+        - POST
+        - GET
+        - PUT
+        - PATCH
+        - DELETE
+      allowed_headers:
+        - Authorization
+        - Cookie
+        - Content-Type
+      exposed_headers:
+        - Content-Type
+        - Set-Cookie
   admin:
     base_url: http://kratos.openfoodfacts.localhost:4434/
 
 selfservice:
-  default_browser_return_url: http://127.0.0.1:4455/
+  default_browser_return_url: http://world.openfoodfacts.localhost/
   allowed_return_urls:
-    - http://127.0.0.1:4455
+    - http://world.openfoodfacts.localhost/
 
   methods:
     password:
@@ -29,7 +45,7 @@ selfservice:
 
     recovery:
       enabled: true
-      ui_url: http://world.openfoodfacts.localhost/cgi/reset_password.pl
+      ui_url: http://127.0.0.1:4455/recovery
 
     verification:
       enabled: true
@@ -47,7 +63,7 @@ selfservice:
 
     registration:
       lifespan: 10m
-      ui_url: http://world.openfoodfacts.localhost/cgi/user.pl
+      ui_url: http://127.0.0.1:4455/registration
       after:
         password:
           hooks:
