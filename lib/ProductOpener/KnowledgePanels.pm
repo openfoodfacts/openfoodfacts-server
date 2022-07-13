@@ -101,7 +101,8 @@ Needed for some country specific panels like the Eco-Score.
 
 Defines how some panels should be created (or not created)
 
-- skip_[panel_id] : do not create a specific panel
+- deactivate_[panel_id] : do not create a default panel -- currently unimplemented
+- activate_[panel_id] : create an on demand panel -- currently only for physical_activities panel
 
 =head3 Return values
 
@@ -165,12 +166,12 @@ sub create_knowledge_panels($$$$) {
     # Create recommendation panels first, as they will be included in cards such has the health card and environment card
     create_recommendation_panels($product_ref, $target_lc, $target_cc);
 
-    create_health_card_panel($product_ref, $target_lc, $target_cc);
+    create_health_card_panel($product_ref, $target_lc, $target_cc, $options_ref);
     create_environment_card_panel($product_ref, $target_lc, $target_cc);
 
     # Create the root panel that contains the panels we want to show directly on the product page
     create_panel_from_json_template("root", "api/knowledge-panels/root.tt.json",
-        {}, $product_ref, $target_lc, $target_cc);    
+        {}, $product_ref, $target_lc, $target_cc);
 }
 
 
@@ -724,7 +725,7 @@ sub create_manufacturing_place_panel($$$) {
 }
 
 
-=head2 create_health_card_panel ( $product_ref, $target_lc, $target_cc )
+=head2 create_health_card_panel ( $product_ref, $target_lc, $target_cc, $options_ref )
 
 Creates a knowledge panel card that contains all knowledge panels related to health.
 
@@ -743,13 +744,16 @@ This parameter sets the desired language for the user facing strings.
 
 We may display country specific recommendations from health authorities, or country specific scores.
 
+=head4 options reference $options_ref
+
 =cut
 
-sub create_health_card_panel($$$) {
+sub create_health_card_panel($$$$) {
 
 	my $product_ref = shift;
 	my $target_lc = shift;
 	my $target_cc = shift;
+    my $options_ref = shift;
 
 	$log->debug("create health card panel", { code => $product_ref->{code} }) if $log->is_debug();
 
@@ -759,7 +763,9 @@ sub create_health_card_panel($$$) {
 
     create_nutrition_facts_table_panel($product_ref, $target_lc, $target_cc);
 
-    create_physical_activities_panel($product_ref, $target_lc, $target_cc);
+    if ($options_ref->{activate_knowledge_panel_physical_activities}) {
+        create_physical_activities_panel($product_ref, $target_lc, $target_cc);
+    }
 
     create_serving_size_panel($product_ref, $target_lc, $target_cc);
 

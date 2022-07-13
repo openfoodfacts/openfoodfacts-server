@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nl_BE\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-06-21 02:50\n"
+"PO-Revision-Date: 2022-07-07 19:16\n"
 "Language-Team: Dutch, Belgium\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -112,7 +112,7 @@ msgstr "Dit is een producent- of merkaccount."
 
 msgctxt "producer_or_brand"
 msgid "Name of producer or name of brand"
-msgstr "Producent- of merknaam"
+msgstr "Naam van producent of merknaam"
 
 msgctxt "error_missing_org"
 msgid "Professional accounts must have an associated organization (company name or brand)."
@@ -5485,7 +5485,7 @@ msgstr "Extra bonussen en malussen"
 
 msgctxt "ecoscore_production_system"
 msgid "Production mode"
-msgstr ""
+msgstr "Productiemodus"
 
 msgctxt "ecoscore_no_labels_taken_into_account"
 msgid "No labels taken into account for the production system."
@@ -5654,7 +5654,7 @@ msgstr "Ontbrekende informatie over de oorsprong van ingrediënten"
 
 msgctxt "percent_of_ingredients"
 msgid "% of ingredients"
-msgstr ""
+msgstr "% ingrediënten"
 
 # medium as in "medium impact"
 msgctxt "medium"
@@ -5764,7 +5764,7 @@ msgstr "Stimuleert ontbossing en bedreigt soorten zoals de orang-oetan"
 
 msgctxt "contains_palm_oil_description"
 msgid "Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino."
-msgstr ""
+msgstr "Tropische bossen in Azië, Afrika en Latijns-Amerika worden vernietigd om oliepalmplantages aan te leggen en uit te breiden. De ontbossing draagt bij aan klimaatverandering en brengt soorten als de orang-oetan, de dwergolifant en de Sumatraanse neushoorn in gevaar."
 
 msgctxt "bonus"
 msgid "Bonus"
@@ -5812,15 +5812,15 @@ msgstr "De score van producten met niet-recycleerbare en niet-biologisch afbreek
 
 msgctxt "nutriscore_not_applicable"
 msgid "Nutri-Score not applicable for this product category."
-msgstr ""
+msgstr "Nutri-Score niet van toepassing op deze productcategorie."
 
 msgctxt "nutriscore_missing_category"
 msgid "The category of the product must be specified in order to compute the Nutri-Score."
-msgstr ""
+msgstr "Productcategorie moet gespecificeerd worden om de Nutri-Score te berekenen."
 
 msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
-msgstr ""
+msgstr "De voedingswaarden van het product moeten worden gespecificeerd om de Nutri-Score te berekenen."
 
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
@@ -5828,47 +5828,47 @@ msgstr "De categorie en de voedingswaarden van het product moeten worden gespeci
 
 msgctxt "health"
 msgid "Health"
-msgstr ""
+msgstr "Gezondheid"
 
 # will be followed by : and a value. e.g. "Compared to: bananas"
 msgctxt "compared_to"
 msgid "Compared to"
-msgstr ""
+msgstr "Vergeleken met"
 
 # name of an activity / a sport
 msgctxt "activity_walking"
 msgid "Walking"
-msgstr ""
+msgstr "Wandelen"
 
 # name of an activity / a sport
 msgctxt "activity_swimming"
 msgid "Swimming"
-msgstr ""
+msgstr "Zwemmen"
 
 # name of an activity / a sport
 msgctxt "activity_bicycling"
 msgid "Bicycling"
-msgstr ""
+msgstr "Fietsen"
 
 # name of an activity / a sport
 msgctxt "activity_running"
 msgid "Running"
-msgstr ""
+msgstr "Hardlopen"
 
 # Don't translate {kj}, it will be replaced by a number
 msgctxt "f_energy_per_100g"
 msgid "{kj} kJ per 100g"
-msgstr ""
+msgstr "{kj} kJ per 100g"
 
 # Don't translate {kj}, it will be replaced by a number
 msgctxt "f_equal_to_walking_minutes_or_steps"
 msgid "Equal to walking {minutes} minutes or {steps} steps"
-msgstr ""
+msgstr "Gelijk aan {minutes} minuten lopen of {steps} stappen"
 
 # Don't translate {kg} and {lb}, it will be replaced by a number
 msgctxt "f_energy_expenditure_for_weight_in_kg_lb"
 msgid "Energy expenditure for a person weighting {kg} kg / {lb} lb"
-msgstr ""
+msgstr "Energieverbruik voor een persoon met een gewicht van {kg} kg / {lb} lb"
 
 msgctxt "nutriscore_missing_category_short"
 msgid "Missing category"
@@ -6025,7 +6025,7 @@ msgstr "Komt mogelijk niet overeen"
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_does_not_match"
 msgid "Does not match"
-msgstr ""
+msgstr "Komt niet overeen"
 
 msgctxt "reset_preferences"
 msgid "Use default preferences"
@@ -6037,25 +6037,25 @@ msgstr "Nutri-Score, Eco-Score en voedselverwerkingsniveau (NOVA)"
 
 msgctxt "actions_add_ingredients"
 msgid "Could you add the ingredients list?"
-msgstr ""
+msgstr "Kun je de ingrediëntenlijst toevoegen?"
 
 msgctxt "actions_to_compute_nutriscore"
 msgid "Could you add the information needed to compute the Nutri-Score?"
-msgstr ""
+msgstr "Kunt u de informatie toevoegen die nodig is om de Nutri-Score te berekenen?"
 
 msgctxt "actions_to_compute_ecoscore"
 msgid "Could you categorize the product so that we can compute the Eco-Score?"
-msgstr ""
+msgstr "Kunt u het product categoriseren zodat we de Eco-Score kunnen berekenen?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
-msgstr ""
+msgstr "Voeg de ingrediënten toe"
 
 msgctxt "action_add_categories"
 msgid "Add a category"
-msgstr ""
+msgstr "Voeg een categorie toe"
 
 msgctxt "action_add_nutrition_facts"
 msgid "Add nutrition facts"
-msgstr ""
+msgstr "Voer voedingswaarden in"
 

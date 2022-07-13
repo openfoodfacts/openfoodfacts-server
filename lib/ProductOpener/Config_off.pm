@@ -169,6 +169,7 @@ $options{export_limit} = 10000;
 
 $options{users_who_can_upload_small_images} = {
 	map { $_ => 1 } qw(
+		manoncorneille
 		systeme-u
 		stephane
 		teolemon
