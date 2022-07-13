@@ -64,6 +64,8 @@ jobs:
         image: "openfoodfacts-server/backend:dev"
     - name: check perltidy
       run: make check_perltidy
+    - name: check perlcritic
+      run: make check_critic
     - name: check perl
       run: make check_perl
 
