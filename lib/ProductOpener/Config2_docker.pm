@@ -47,7 +47,6 @@ BEGIN
 		$crowdin_project_key
 		$robotoff_url
 		%server_options
-		$ory_enabled
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -89,9 +88,6 @@ my $postgres_user = $ENV{POSTGRES_USER};
 my $postgres_password = $ENV{POSTGRES_PASSWORD};
 my $postgres_db = $ENV{POSTGRES_DB} || "minion";
 my $postgres_url = "postgresql://${postgres_user}:${postgres_password}\@${postgres_host}/${postgres_db}";
-
-#Ory feature
-my $ory_enabled = int($ENV{ORY_ENABLED} || 0);
 
 # Set this to your instance of https://github.com/openfoodfacts/robotoff/ to
 # enable an in-site robotoff-asker in the product page

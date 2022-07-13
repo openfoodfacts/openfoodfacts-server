@@ -47,9 +47,9 @@ my $action = param('action') || 'display';
 # Passing values to the template
 my $template_data_ref = {};
 
-my $ory_enabled = 0;
+my $ORY_ENABLED = 0;
 
-if($ory_enabled){
+if($ORY_ENABLED){
 	#redirect to ory kratos api if no flow
 	if(not defined param('flow')){
 		print redirect(-url=>'http://127.0.0.1:4433//self-service/registration/browser');

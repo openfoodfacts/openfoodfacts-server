@@ -81,6 +81,8 @@ BEGIN
 		%weblink_templates
 
 		@edit_rules
+		
+		$ORY_ENABLED
 
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -1443,5 +1445,8 @@ $options{sample_product_code} = "093270067481501";	# A good product for you - fa
 #$options{sample_product_code_country_uk} = "5060042641000"; # Tyrrell's lighty salted chips
 #$options{sample_product_code_language_de} = "20884680"; # Waffeln Sondey
 #$options{sample_product_code_country_at_language_de} = "5411188119098"; # Natur miss kokosnuss Alpro
+
+#Ory feature
+my $ORY_ENABLED = int($ENV{ORY_ENABLED} || 0);
 
 1;
