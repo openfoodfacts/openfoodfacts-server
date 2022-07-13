@@ -869,13 +869,13 @@ sub search_tag_c($$$$$)
 	$tag = normalize_percentages($tag, $lc);
 	my $tagid = get_string_id_for_lang($lc, $tag);
 	# search if this tag is associated to a canonical tag id
-	my $tagid_c = $synonyms{$lc}{$tagid};
+	my $tagid_c = $synonyms->{$lc}{$tagid};
 	if (not defined $tagid_c) {
 		# try to remove stop words and plurals
 		my $stopped_tagid = remove_stopwords($tagtype,$lc,$tagid);
 		$stopped_tagid = remove_plurals($lc,$stopped_tagid);
 		# and try again to see if it is associated to a canonical tag id
-		$tagid_c = $synonyms{$lc}{$stopped_tagid};
+		$tagid_c = $synonyms->{$lc}{$stopped_tagid};
 		if ($warning) {
 			print STDERR "$warning tagid $tagid, trying stopped_tagid $stopped_tagid - result canon_tagid: " . ($tagid_c // "") . "\n";
 		}
