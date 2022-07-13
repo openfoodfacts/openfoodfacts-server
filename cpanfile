@@ -101,4 +101,5 @@ on 'develop' => sub {
   requires 'Perl::LanguageServer';
   requires 'Hash::SafeKeys';  # Perl::LanguageServer dependency
   requires 'Perl::Tidy';
+  requires 'Perl::Critic';
 }
