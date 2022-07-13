@@ -979,7 +979,7 @@ vegan:en:yes
 vegetarian:en:yes
 # usage:fr:cultures lactiques véganes (S. thermophilus, L. bulgaricus, L. acidophilus, B. lactis)
 
-<en:lactic ferment
+<en:lactic ferments
 en:lactic and aging ferments
 de:Milch- und Alterungsfermente
 es:fermentos lácticos y de maduración
@@ -5389,17 +5389,6 @@ de:gereifter Käse
 es:queso curado,queso madurado
 
 <en:cheese
-en:blue cheese
-bg:синьо сирене
-ca:formatge blau
-de:Blauschimmelkäse
-es:queso azul
-fr:Fromage bleu, fromage bleu
-it:Formaggio erborinato
-pt:Queijo azul
-sv:blåmögelost
-
-<en:cheese
 fr:fromages râpées séchés
 ca:formatge ratllat sec
 es:queso rallado seco
@@ -6468,7 +6457,7 @@ es:queso blanco fresco
 
 # description:en:QUARK is a type of fresh dairy product made by warming soured milk until the desired amount of curdling is met, and then straining it.
 
-<en:Cheeses
+<en:Cheese
 en:cream cheese
 
 <en:cheese
@@ -7841,7 +7830,7 @@ description:pt:Saint-nectaire é um queijo de leite de vaca francês AOC feito n
 
 #<en:cow cheese
 #category/salers-cheese
-<en:cheese,
+<en:cheese
 en:Salers, Salers cheese
 ar:ساليرس
 de:Salers-Käse
@@ -8006,6 +7995,7 @@ en:blue cheese
 af:Bloukaas
 ar:جبنة زرقاء
 be:Блакітныя сыры
+bg:синьо сирене
 ca:formatge blau
 cs:Sýr s modrou plísní
 da:blåskimmelost
@@ -8017,13 +8007,13 @@ et:Sinihallitusjuust
 eu:Gazta urdin
 fa:پنیر آبی
 fi:sinihomejuusto, homejuusto
-fr:fromage à pâte persillée, bleu
+fr:fromage à pâte persillée, bleu, Fromage bleu, fromage bleu
 gl:Queixo azul
 he:גבינה כחולה
 hy:կապույտ պանիրներ
 ia:Caseo blau
 is:Gráðostur
-it:formaggio a pasta erborinata
+it:formaggio a pasta erborinata, Formaggio erborinato
 ja:ブルーチーズ
 jv:Kèju biru
 ko:블루 치즈
@@ -8037,7 +8027,7 @@ pt:queijo azul
 ro:Brânză cu mucegai
 ru:Голубые сыры
 sr:бупави сир
-sv:Blågrön mögelost
+sv:Blågrön mögelost, blåmögelost
 th:บลูชีส
 tt:зәңгәр сыр
 uk:Блакитні сири
@@ -9213,6 +9203,8 @@ fr:concentré salin liquide
 en:black salt
 bg:черна сол
 nl:zwart zout
+ur:کالا نمک
+wikipedia:en:https://en.wikipedia.org/wiki/Kala_namak
 
 <en:salt
 en:Himalayan salt
@@ -9563,11 +9555,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Iodised_salt
 ciqual_food_code:en:11058
 ciqual_food_name:en:Salt, white, for human consumption (sea, igneous or rock), iodine added, no other enrichment
 ciqual_food_name:fr:Sel blanc alimentaire, iodé, non fluoré (marin, ignigène ou gemme)
-
-<en:salt
-en:black salt
-ur:کالا نمک
-wikipedia:en:https://en.wikipedia.org/wiki/Kala_namak
 
 # description:en:CURING SALT is used in meat processing to generate a pinkish shade and to extend shelf life.
 
@@ -10116,6 +10103,9 @@ es:callos de vacuno
 en:bresaola
 fr:bresaola
 it:bresaola
+ciqual_food_code:en:28503
+ciqual_food_name:en:Bresaola
+ciqual_food_name:fr:Bresaola
 wikidata:en:Q910095
 wikipedia:en:https://en.wikipedia.org/wiki/Bresaola
 
@@ -11387,7 +11377,6 @@ ciqual_food_code:en:21800
 ciqual_food_name:en:Young goat, raw
 ciqual_food_name:fr:Chevreau, cru
 
-"
 <en:young goat
 en:Cooked young goat
 fr:Chevreau cuit
@@ -12889,12 +12878,6 @@ carbon_footprint_fr_foodges_value:fr:5.1
 
 <en:meat
 fr:saucisse de strasbourg
-
-en:Bresaola
-fr:Bresaola
-ciqual_food_code:en:28503
-ciqual_food_name:en:Bresaola
-ciqual_food_name:fr:Bresaola
 
 fr:plasma déshydraté
 # ingredient/fr:plasma-déshydraté has 46 products in french @2019-02-10
@@ -17388,11 +17371,16 @@ fr:marc de bourgogne
 it:Marc de Bourgogne
 # ingredient/fr:marc-de-bourgogne has 43 products in 4 languages @2019-03-29
 
+
+<en:brandy
 <en:pomace brandy
 en:Marc de Champagne
 de:Marc de Champagne, Marc de Champagner
+fi:marc de champagne, marc de champagne -brandy, marc de champagne -brandya
 fr:marc de champagne
 it:Marc de Champagne
+sv:marc de champagne
+wikidata:en:Q1892862
 # ingredient/fr:marc-de-champagne has 30 products in 4 languages @2018-12-14
 
 
@@ -18448,13 +18436,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Brandy
 # <category:en:brandys
 # ingredient/fr:brandy has 152 products in 4 languages @2020-06-08
 
-<en:brandy
-en:marc de champagne
-de:marc de champagne
-fi:marc de champagne, marc de champagne -brandy, marc de champagne -brandya
-sv:marc de champagne
-wikidata:en:Q1892862
-
 <en:alcohol
 en:eau de vie
 de:Obstbrand
@@ -18981,7 +18962,14 @@ fr:arôme naturel d'aneth
 
 <en:flavouring
 en:chicken flavouring
-es:sabor pollo
+da:kyllingearoma
+de:Hühnergewürz, Hühnerfleischaroma, Hühnerfleisch-Aroma, Hühnerfleischextrakt
+es:Sabor a pollo, sabor pollo
+fi:kana-aromi
+fr:arôme de poulet, arôme de poule
+it:Aroma di pollo
+ro:aromă de pui, aroma de pui
+sv:kycklingarom
 
 #http://www.sice.oas.org/trade/mrcsrs/resolutions/an4693.asp
 <en:chicken flavouring
@@ -19280,15 +19268,6 @@ fi:luontainen kana-aromi
 fr:arôme naturel de poulet, arôme naturel de poule
 hu:természetes csirke aroma
 
-en:chicken flavouring
-da:kyllingearoma
-de:Hühnergewürz, Hühnerfleischaroma, Hühnerfleisch-Aroma, Hühnerfleischextrakt
-es:Sabor a pollo
-fi:kana-aromi
-fr:arôme de poulet, arôme de poule
-it:Aroma di pollo
-ro:aromă de pui, aroma de pui
-sv:kycklingarom
 
 <en:natural flavouring
 en:natural cinammon flavouring
@@ -23270,11 +23249,6 @@ ro:fulgi de secară
 sv:rågflingor
 # 811 in 17 @ 2021-10-28
 
-<en:rye flakes
-en:wholemeal rye flakes
-de:Roggenvollkornflocken
-es:copos integrales de centeno
-
 
 <en:rye
 en:rye grains
@@ -23331,6 +23305,7 @@ sv:fullkornsråg
 <en:rye flakes
 en:wholemeal rye flakes
 de:Roggenvollkornflocken
+es:copos integrales de centeno
 fi:täysjyväruishiutale
 
 <en:wholemeal rye flakes
@@ -24230,39 +24205,6 @@ fr:farine d’orge dextrinée
 hu:dextrinált árpaliszt
 nl:gedextrineerd gerstemeel, gedextrineerd gerstmeel
 
-<en:buckwheat
-en:buckwheat flour
-bg:брашно от елда
-da:boghvedemel
-de:Buchweizenmehl
-el:αλέυρι φαγόπυρου
-es:harina de sarraceno, harina de alforfon
-fi:tattarijauho
-fr:farine de sarrasin, farine de blé noir
-hu:hajdinaliszt
-it:farina di grano saraceno
-ja:蕎麦粉
-nb:bokhvetemel
-nl:boekweitmeel
-pl:mąka gryczana
-pt:farinha de trigo mourisco
-ru:мука гречневая
-sv:bovetemjöl
-wikidata:en:Q11621982
-ciqual_food_code:en:9540
-ciqual_food_name:en:Buckwheat flour
-ciqual_food_name:fr:Farine de sarrasin
-#1493 @2021-09-27
-
-<en:buckwheat flour
-fr:galette en blé noir
-
-<en:buckwheat flour
-<en:wholemeal flour
-en:whole grain buckwheat flour
-de:Buchweizenvollkornmehl, Buchweizen-Vollkornmehl
-nl:volkoren boekweitmeel
-
 <en:cereal flour
 en:rye flour
 bg:ръжено брашно, брашно от ръж
@@ -24392,16 +24334,20 @@ description:en:Chestnuts can be dried and milled into flour, which can then be u
 
 
 <en:flour
+<en:tapioca
 en:tapioca flour
+bg:брашно от тапиока
 da:Tapiocamel
 de:Tapiokamehl
 es:Harina de tapioca
 fi:tapiokajauho
-fr:farine de tapioca
+fr:farine de tapioca, fécule de tapioca, fécule de manioc
 hu:tápiókaliszt
 it:Farina di tapioca
 nl:tapiocameel
+nn:tapiokamel
 pt:Farinha de tapioca
+sv:tapiokamjöl
 nutriscore_fruits_vegetables_nuts:en:no
 
 
@@ -25351,7 +25297,7 @@ hu:rizsfehérje
 en:whole rice protein
 de:Vollkornreisprotein
 
-<en:rice
+#<en:rice
 #en:organic rice
 #bg:био ориз
 #de:Bio Reis
@@ -25547,12 +25493,6 @@ es:Arroz Integral Venere Vaporizado
 fr:Riz moyen à grains noirs complet étuvé
 it:Riso Venere Integrale Parboiled
 pt:Arroz Integral Venere Parboiled
-
-<en:rice
-en:extruded rice
-de:extrudierter Reis
-es:arroz extruido
-hu:extrudált rizs
 
 ########################### LONG GRAIN RICES #######################
 
@@ -26184,7 +26124,8 @@ ja:ライスフレーク
 
 <en:rice
 en:extruded rice
-de:Reis extrudiert
+de:Reis extrudiert, extrudierter Reis
+es:arroz extruido
 fi:ekstrudoitu riisi
 fr:riz extrudé
 hu:extrudált rizs
@@ -28111,13 +28052,6 @@ fr:sirop de sucres issus de fruits
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop-de-sucres-issus-de-fruits
 # 22 products @2019-05-30
 
-<en:sugar syrup
-en:brown sugar syrup
-bg:кафяв захарен сироп
-de:brauner Zuckersirup
-fr:sirop de sucre mélassé
-nl:bruine suikerstroop
-
 <en:disaccharide
 en:wheat syrup
 bg:пшеничен сироп
@@ -28215,12 +28149,13 @@ sv:sockerbetssirap
 
 <en:sugar syrup
 en:brown sugar syrup
-bg:сироп от кафява захар
+bg:сироп от кафява захар, кафяв захарен сироп
 da:mørk sirup
 de:brauner zuckersirup
 fi:ruskea sokerisiirappi
-fr:Sirop de sucre brun
+fr:Sirop de sucre brun, sirop de sucre mélassé
 nb:mørk sirup
+nl:bruine suikerstroop
 sv:mörk sirap
 # ingredient/en:brown-sugar-syrup has 386 products in 3 languages @2020-06-08
 
@@ -28705,6 +28640,7 @@ en:broad bean protein
 de:Bohnenprotein
 fi:härkäpapuproteiini
 fr:protéine de fèves, protéines de fèves
+nl:tuinbooneiwit
 sv:protein från bondböna
 ro:proteină de bob
 # ingredient/en:broad-bean-protein has 6 products in 1 language @2020-05-25
@@ -29018,7 +28954,7 @@ vegetarian:en:yes
 allergens:en: en:milk
 # ingredient/fr:lactoprotéines has 40 products in french @2019-02-03
 
-<en:milk protein
+<en:milk proteins
 en:milk protein isolate
 de:Milcheiweißisolat
 fr:isolat de protéines du lait
@@ -30096,8 +30032,7 @@ pl:kawalki czekolady mlecznej
 pt:pepitas de chocolate de leite
 sv:bitar av mjölkchoklad
 # ingredient/fr:pépites-de-chocolat-au-lait has 108 products in 7 languages @2019-05-25
-# usage:nl:stukjes melkchocolade (suiker, volle melkpoeder, cacaomassa, cacaoboter, 
-, emulgator (zonnebloemlecithine))
+# usage:nl:stukjes melkchocolade (suiker, volle melkpoeder, cacaomassa, cacaoboter, emulgator (zonnebloemlecithine))
 
 <en:milk chocolate
 de:Feine Milchschokolade, Vollmilchschokolade, Edel-Vollmilchschokolade
@@ -33808,23 +33743,38 @@ ciqual_food_name:fr:Banane, pulpe, sèche
 
 <en:fruit
 en:breadfruit
+af:broodvrugt
 az:Çörək ağacı
 bi:Bredfrut
 bo:གོ་རེ་ཤིང་འབྲས།
+ca:fruit del pa
 da:Brødfrugt
 de:Brotfrucht
 dv:ބަނބުކެޔޮ
-es:fruto del pan
+eo:panfrukto
+es:fruto del pan, frutipan, fruta del pan
 fi:leipäpuu
 fr:fruit à pain
+id:sukun
+ja:パンの実
+ko:빵열매
+La:Artocarpus Altilis
+ms:sukun, ‏سوكون‎‎, kulur, كولور‎
 nl:broodvrucht
+pt:fruta-pão
 ru:плод хлебного дерева
 rw:Urubuto rw’umugati
+th:สาเก
 ty:Ùru
+vi:xa kê, sa kê
+#akr:levu
 # bcl:Rimas
+#msn:biēg
+#zdj:furiapa, friapa
 wikidata:en:Q5869893
 wikipedia:en:https://en.wikipedia.org/wiki/Breadfruit
 # ingredient/breadfruit has 1 product in french @2019-04-29
+#plant:wikidata:en:Q14677
 
 <en:fruit
 en:jackfruit
@@ -37641,43 +37591,6 @@ de:Boysenbeersaft
 fi:boysenmarjamehu, boysenmarjatäysmehu
 sv:boysenbärsjuice
 
-###################################################################################################
-#
-#                                Carambola
-#
-###################################################################################################
-
-<en:fruit
-en:breadfruit
-af:broodvrugt
-az:çörək ağacı
-bi:bredfrut
-bo:གོ་རེ་ཤིང་འབྲས།
-ca:fruit del pa
-da:brødfrugt
-de:Brotfrucht
-dv:ބަނބުކެޔޮ
-eo:panfrukto
-es:frutipan, fruta del pan
-fr:fruit à pain
-id:sukun
-ja:パンの実
-ko:빵열매
-La:Artocarpus Altilis
-ms:sukun, ‏سوكون‎‎, kulur, كولور‎
-nl:broodvrucht
-pt:fruta-pão
-ru:плод хлебного дерева
-rw:urubuto rw’umugati
-th:สาเก
-ty:ùru
-vi:xa kê, sa kê
-#akr:levu
-#bcl:rimas
-#msn:biēg
-#zdj:furiapa, friapa
-wikidata:en:Q5869893
-#plant:wikidata:en:Q14677
 
 ###################################################################################################
 #
@@ -40090,7 +40003,7 @@ de:Maracujasaft aus Maracujasaftkonzentrat, Passionfruchtsaft aus Konzentrat
 
 #processing:en: en:pureed
 #processing:en: en:pulp
-<en:passionfruit
+#<en:passionfruit
 #<en:purée
 #en:passionfruit puree, passion fruits puree
 #de:Passionfruchtmark
@@ -47303,12 +47216,17 @@ ciqual_food_code:en:20045
 ciqual_food_name:en:Radish, raw
 ciqual_food_name:fr:Radis rouge, cru
 
+<en:radish
 en:Black radish
-fr:Radis noir
+bg:черна ряпа
+de:Schwarzer Winter-Rettich
+fr:Radis noir, radis d'Espagne
+nl:Rammenas
 ciqual_food_code:en:20089
 ciqual_food_name:en:Radish, black, raw
 ciqual_food_name:fr:Radis noir, cru
 
+<en:radish
 en:Red radish
 fr:Radis rouge
 ciqual_food_code:en:20045
@@ -47334,12 +47252,6 @@ it:ravanello bianco
 ja:大根
 nl:witte rammenas
 
-<en:radish
-en:black radish
-bg:черна ряпа
-de:Schwarzer Winter-Rettich
-fr:radis noir, radis d'Espagne
-nl:Rammenas
 
 <en:root vegetable
 en:lotus root
@@ -48278,22 +48190,6 @@ sv:modifierad tapiokastärkelse, modifierad tapioka stärkelse
 
 # Is this the same as tapioca starch? This is not cassave flour, as that is diluted.
 
-<en:flour
-<en:tapioca
-en:tapioca flour
-bg:брашно от тапиока
-da:Tapiocamel
-de:Tapiokamehl
-es:harina de tapioca
-fi:tapiokajauho
-fr:farine de tapioca, fécule de tapioca, fécule de manioc
-hu:tápiókaliszt
-it:Farina di tapioca
-nl:tapiocameel
-nn:tapiokamel
-pt:Farinha de tapioca
-sv:tapiokamjöl
-nutriscore_fruits_vegetables_nuts:en:no
 
 # description:en:Yam is the common name for some plant species in the genus Dioscorea (family Dioscoreaceae) that form edible tubers.
 # In some places, other (unrelated) root vegetables are sometimes referred to as "yams".
@@ -48795,7 +48691,6 @@ sv:röd och grön paprika
 <en:yellow pepper
 en:red and yellow peppers, red and yellow bell peppers, yellow and red peppers, yellow and red bell peppers
 bg:червени и жълти чушки, жълти и червени чушки
-fr:poivrons rouges et jaunes, poivrons jaunes et rouges
 de:Peperoni rot und gelb
 fr:poivrons rouges et jaunes, poivrons jaunes et rouges
 it:peperoni rossi e gialli
@@ -49530,8 +49425,6 @@ description:en:Sun-dried tomatoes are ripe tomatoes that lose most of their wate
 description:es:El tomate seco consiste en un proceso de secado al sol realizado a tomates maduros.
 description:fr:Les tomates séchées sont un aliment déshydraté traditionnel, à base de tomates déshydratées par séchage au soleil.
 # ingredient/fr:tomates-sechees-au-soleil has 281 products in 1 language @2020-05-21
-
-<en:sundried tomatoes
 
 #<en:sundried tomatoes
 #en:Dried tomato in oil, Dried tomatoes in oil, Sun-Dried tomato in oil, Sun-Dried tomatoes in oil
@@ -50866,7 +50759,7 @@ vegetarian:en:yes
 
 #category/butter-beans
 <en:legume
-en:lima bean, butter bean
+en:lima bean, lima beans, butter bean
 ca:garrofó, fesol de la peladilla, mongeta de Lima
 da:limabønne, månebønne, sukkerbønne
 de:Limabohne, Mondbohne
@@ -51430,10 +51323,6 @@ fr:féverole, féverolle
 en:Vicia faba
 la:Vicia faba
 
-<en:vegetable protein
-en:broad bean protein
-nl:tuinbooneiwit
-
 # description:en:The pea is most commonly the small spherical seed or the seed-pod of the pod fruit Pisum sativum. Fresh peas are often eaten boiled and flavored with butter and/or spearmint as a side dish vegetable. Peas are usually boiled or steamed, which breaks down the cell walls and makes the taste sweeter and the nutrients more bioavailable.
 # comment:en:The wikidata translations are not clear between seed name, plant name and latin name.
 
@@ -51824,7 +51713,7 @@ vegan:en:yes
 vegetarian:en:yes
 #3142 in 20 @2021-10-05
 
-<en:green pea
+<en:green peas
 en:garden peas
 de:Markerbsen, Gartenerbsen, Markerbsenschoten
 es:guisantes de jardín
@@ -52060,10 +51949,6 @@ carbon_footprint_fr_foodges_ingredient:fr:Lentilles vertes
 carbon_footprint_fr_foodges_value:fr:0.3
 
 <en:lentils
-en:sprouted lentils
-de:gekeimte Linsen, gekeimte Linsensamen, Linsensprossen
-
-<en:lentils
 en:pardina lentils
 de:Pardina Linsen
 es:lenteja pardina
@@ -52181,6 +52066,7 @@ fr:lentillons
 
 <en:lentils
 en:sprouted lentils
+de:gekeimte Linsen, gekeimte Linsensamen, Linsensprossen
 fr:lentilles germées
 ciqual_food_code:en:20521
 ciqual_food_name:en:Lentils, sprouted
@@ -60231,10 +60117,6 @@ ciqual_food_name:en:Lettuce, raw
 ciqual_food_name:fr:Laitue, crue
 # 2021 in 5 languages @2021-08-10
 
-<en:lettuce
-fr:jeunes pousses de laitue verte
-#20 in fr @2021-10-05
-
 #category/romaine-lettuce
 <en:lettuce
 en:romaine lettuce, cos
@@ -60868,7 +60750,7 @@ carbon_footprint_fr_foodges_ingredient:fr:Olives "Pays du Sud" en boite
 carbon_footprint_fr_foodges_value:fr:1.7
 
 <en:olive
-en:green olives
+en:green olives, green olive
 bg:зелени маслини
 ca:oliva verda, oliva mançanenca verda
 da:Grønne oliven
@@ -67821,7 +67703,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Surimi
 # ingredient/fr:surimi has 145 products in 2 languages @2019-01-12
 # surimi (protéines de muscles de poisson, sucre)
 
-<ensurimi
+<en:surimi
 fr:surimi à base de protéines de muscles de poisson
 de:Surimi-Krebsfleischimitat aus Fischmuskeleiweiß geformt
 
@@ -74721,10 +74603,6 @@ fr:jambon de dinde cuit standard goût fumé
 <en:turkey
 en:roasted turkey including natural turkey juices
 de:Gebratener Truthahn mit natürlichen Truthahnsäften
-
-<en:turkey
-en:turkey liver
-fr:foie de dinde
 
 <en:poultry
 en:quail
