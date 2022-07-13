@@ -179,10 +179,10 @@ front_build:
 	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker-compose run --rm dynamicfront  npm run build
 
 
-checks: front_build front_lint check_perltidy check_perl_fast
+checks: front_build front_lint check_perltidy check_perl_fast check_critic
 
 lint: lint_perltidy
-
+	
 
 tests: build_lang_test
 	@echo "🥫 Running tests …"
@@ -229,6 +229,13 @@ check_perltidy:
 lint_perltidy:
 	@echo "🥫 Linting with perltidy ${TO_TIDY_CHECK}"
 	${DOCKER_COMPOSE} run --rm --no-deps backend perltidy --standard-error-output -b -bext=/ ${TO_TIDY_CHECK}
+
+
+#Checking with Perl::Critic
+TO_CRITIC_CHECK=$(shell git diff main --name-only | grep  '.*\.\(pl\|pm\|t\)$$')
+check_critic:
+	@echo "🥫 Checking with perlcritic"
+	${DOCKER_COMPOSE} run --rm --no-deps backend perlcritic ${TO_CRITIC_CHECK}
 
 #-------------#
 # Compilation #
