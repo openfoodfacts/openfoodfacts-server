@@ -2940,7 +2940,7 @@ sub display_points($request_ref) {
 	$request_ref->{current_link} .= "/points";
 
 	if ((defined $tagid) and ($newtagid ne $tagid) ) {
-		$request_ref->{redirect} = $request_ref->{current_link};
+		$request_ref->{redirect} = $formatted_subdomain . $request_ref->{current_link};
 		$log->info("newtagid does not equal the original tagid, redirecting", { newtagid => $newtagid, redirect => $request_ref->{redirect} }) if $log->is_info();
 		return 301;
 	}
@@ -3168,15 +3168,17 @@ sub display_tag($request_ref) {
 		$request_ref->{world_current_link} .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$lc};
 	}
 
+	# If the query contained tags in non-canonical form, redirect to the form with the canonical tags
+	# The redirect is temporary (302), as the canonicalization could change if the corresponding taxonomies change
 	if (((defined $newtagid) and ($newtagid ne $tagid)) or ((defined $newtagid2) and ($newtagid2 ne $tagid2))) {
-		$request_ref->{redirect} = $request_ref->{current_link};
+		$request_ref->{redirect} = $formatted_subdomain . $request_ref->{current_link};
 		# Re-add file suffix, so that the correct response format is kept. https://github.com/openfoodfacts/openfoodfacts-server/issues/894
 		$request_ref->{redirect} .= '.json' if param("json");
 		$request_ref->{redirect} .= '.jsonp' if param("jsonp");
 		$request_ref->{redirect} .= '.xml' if param("xml");
 		$request_ref->{redirect} .= '.jqm' if param("jqm");
 		$log->info("one or more tagids mismatch, redirecting to correct url", { redirect => $request_ref->{redirect} }) if $log->is_info();
-		return 301;
+		return 302;
 	}
 
 	my $weblinks_html = '';
