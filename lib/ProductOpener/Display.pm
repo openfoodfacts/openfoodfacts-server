@@ -10152,7 +10152,7 @@ sub display_structured_response($request_ref) {
 		# Note: use "state" to avoid re-initializing the array. This can be seen as a premature optimisation
 		# here but this new perl feature can be used at other places to encapsulate large lists while avoiding
 		# inefficiencies from reinitialization.
-		state @product_fields_to_delete = ("languages", "category_properties", "categories_properties");
+		my @product_fields_to_delete = ("languages", "category_properties", "categories_properties");
 
 		remove_fields($request_ref->{structured_response}{product}, \@product_fields_to_delete);
 
