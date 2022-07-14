@@ -232,7 +232,8 @@ lint_perltidy:
 
 
 #Checking with Perl::Critic
-TO_CRITIC_CHECK=$(shell git diff main --name-only | grep  '.*\.\(pl\|pm\|t\)$$')
+# adding an echo of search.pl in case no files are edited
+TO_CRITIC_CHECK=$(shell git fetch origin main ; git diff remotes/origin/main --name-only | grep  '.*\.\(pl\|pm\|t\)$$' || echo './cgi/search.pl')
 check_critic:
 	@echo "🥫 Checking with perlcritic"
 	${DOCKER_COMPOSE} run --rm --no-deps backend perlcritic ${TO_CRITIC_CHECK}
