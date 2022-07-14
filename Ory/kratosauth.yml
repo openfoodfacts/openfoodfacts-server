@@ -27,8 +27,8 @@ services:
     environment:
       - DSN=postgres://kratos:secret@postgres-kratos:5432/kratos?sslmode=disable&max_conns=20&max_idle_conns=4
     ports:
-      - '127.0.0.1:4433:4433'
-      - '127.0.0.1:4434:4434'
+      - '4433:4433'
+      - '4434:4434'
     volumes:
       - type: bind
         source: ./Ory/kratos
@@ -39,9 +39,9 @@ services:
     image: oryd/kratos-selfservice-ui-node:latest
     environment:
       - KRATOS_PUBLIC_URL=http://kratos:4433/
-      - KRATOS_BROWSER_URL=http://127.0.0.1:4433/
+      - KRATOS_BROWSER_URL=http://kratos.openfoodfacts.localhost:4433/
     ports:
-      - '127.0.0.1:4455:3000'
+      - '4455:3000'
     restart: on-failure
 
   mailslurper:
