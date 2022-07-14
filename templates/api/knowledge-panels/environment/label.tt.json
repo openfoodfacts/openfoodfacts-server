@@ -5,7 +5,7 @@
     ],
     "evaluation": "good",
     "title_element": {
-        "title": "[% display_taxonomy_tag("labels",panel.label) %]",
+        "title": "[% display_taxonomy_tag_name("labels", panel.label) %]",
         [% IF panel.icon_url.defined %]
             "icon_url": "[% panel.icon_url %]",
         [% END %]

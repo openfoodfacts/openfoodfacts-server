@@ -40,7 +40,7 @@ use Apache2::RequestRec ();
 use Apache2::Const ();
 
 # The nginx reverse proxy turns /somepath?someparam=somevalue to /cgi/display.pl?/somepath?someparam=somevalue
-# so that all non /cgi/ queries are sent to display.pl and that we can get the path in the querty string
+# so that all non /cgi/ queries are sent to display.pl and that we can get the path in the query string
 # CGI.pm thus adds somepath? at the start of the name of the first parameter.
 # we need to remove it so that we can use the CGI.pm param() function to later access the parameters
 

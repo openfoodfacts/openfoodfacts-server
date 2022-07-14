@@ -496,6 +496,7 @@ is(ProductOpener::Tags::remove_stopwords("ingredients", "fr", "yaourt-a-la-frais
 is(ProductOpener::Tags::remove_stopwords("ingredients", "fr", "du-miel"), "miel");
 is(ProductOpener::Tags::remove_stopwords("ingredients", "fr", "fruits-en-proportion-variable"), "fruits");
 is(ProductOpener::Tags::remove_stopwords("ingredients", "fr", "des-de-tomate"), "des-de-tomate");
+is(ProductOpener::Tags::remove_stopwords("ingredients", "en", "edible-vegetable-oil"), "vegetable-oil");
 
 my $tag_ref = get_taxonomy_tag_and_link_for_lang("fr", "categories", "en:strawberry-yogurts");
 is_deeply($tag_ref, {

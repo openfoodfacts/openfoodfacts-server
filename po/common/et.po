@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: et\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-05-11 19:07\n"
+"PO-Revision-Date: 2022-07-07 19:11\n"
 "Language-Team: Estonian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -112,7 +112,7 @@ msgstr ""
 
 msgctxt "producer_or_brand"
 msgid "Name of producer or name of brand"
-msgstr ""
+msgstr "Tootja nimi või kaubamärk"
 
 msgctxt "error_missing_org"
 msgid "Professional accounts must have an associated organization (company name or brand)."
@@ -359,11 +359,11 @@ msgstr ""
 
 msgctxt "change_selected_images"
 msgid "Selected images"
-msgstr ""
+msgstr "Valitud pildid"
 
 msgctxt "change_uploaded_images"
 msgid "Uploaded images"
-msgstr ""
+msgstr "Üleslaaditud pildid"
 
 msgctxt "checkers_p"
 msgid "checkers"
@@ -431,7 +431,7 @@ msgstr ""
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (not including stores specialising in foreign products)"
-msgstr ""
+msgstr "Riigid, kus toode on laialdaselt saadaval (välja arvatud välismaistele toodetele spetsialiseerunud kauplused)"
 
 msgctxt "countries_p"
 msgid "countries"
@@ -439,7 +439,7 @@ msgstr "riigid"
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
-msgstr ""
+msgstr "Toode on müügil riigis: %s"
 
 msgctxt "countries_s"
 msgid "country"
@@ -447,7 +447,7 @@ msgstr "riik"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
-msgstr ""
+msgstr "Toode ei ole müügil riigis: %s"
 
 msgctxt "data_source"
 msgid "Data source"
@@ -479,7 +479,7 @@ msgstr ""
 
 msgctxt "delete_product_page"
 msgid "Delete the page"
-msgstr ""
+msgstr "Kustuta leht"
 
 msgctxt "delete_the_images"
 msgid "Delete the images"
@@ -491,11 +491,11 @@ msgstr "Kasutaja kustutamine"
 
 msgctxt "diff_add"
 msgid "Added:"
-msgstr ""
+msgstr "Lisatud:"
 
 msgctxt "diff_change"
 msgid "Changed:"
-msgstr ""
+msgstr "Muudetud:"
 
 msgctxt "diff_delete"
 msgid "Deleted:"
@@ -511,7 +511,7 @@ msgstr "https://ee.openfoodfacts.org/donate-to-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
-msgstr ""
+msgstr "Ökoloogiline jalajälg"
 
 msgctxt "ecological_data_table_note"
 msgid "If the carbon footprint is specified on the label (rarely at this time), indicate it for the same quantity than the nutritional composition."
@@ -523,7 +523,7 @@ msgstr "muuda"
 
 msgctxt "edit_comment"
 msgid "Changes summary"
-msgstr ""
+msgstr "Muudatuste kokkuvõte"
 
 msgctxt "edit_product"
 msgid "Edit a product"
@@ -543,27 +543,27 @@ msgstr "Avaliku profiili muudatused on salvestatud."
 
 msgctxt "edit_profile_msg"
 msgid "Information below is visible in your public profile."
-msgstr ""
+msgstr "Alljärgnev teave on nähtav sinu avalikus profiilis."
 
 msgctxt "edit_settings"
 msgid "Change your account parameters"
-msgstr ""
+msgstr "Muuda kasutajakonto seadistusi"
 
 msgctxt "edit_user"
 msgid "Account parameters"
-msgstr ""
+msgstr "Kasutajakonto seadistused"
 
 msgctxt "edit_user_display"
 msgid "Account parameters"
-msgstr ""
+msgstr "Kasutajakonto seadistused"
 
 msgctxt "edit_user_process"
 msgid "Account parameters"
-msgstr ""
+msgstr "Kasutajakonto seadistused"
 
 msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
-msgstr ""
+msgstr "Sinu kasutajakonto muudatused on salvestatud."
 
 msgctxt "editors_p"
 msgid "editors"
@@ -636,7 +636,7 @@ msgstr "Vale kasutajanimi või parool. <a href=\"/cgi/reset_password.pl\">Unusta
 
 msgctxt "error_database"
 msgid "An error occurred while reading the data, try to refresh the page."
-msgstr ""
+msgstr "Andmete lugemisel tekkis viga, palun proovi lehte värskendada."
 
 msgctxt "error_different_passwords"
 msgid "The password and confirmation password are different."
@@ -644,51 +644,51 @@ msgstr "Parool ja selle kinnitus ei kattu."
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr ""
+msgstr "Selline e-posti aadress on juba teise kasutajakontoga seotud. Võib-olla on sul kasutajakonto juba olemas? Siin saad <a href=\"/cgi/reset_password.pl\">oma teise konto salasõna</a> lähtestada."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
-msgstr ""
+msgstr "Vigane aadress."
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
-msgstr ""
+msgstr "Vigane e-posti aadress"
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be at least 6 characters long."
-msgstr ""
+msgstr "Salasõna peab olema vähemalt 6 tähemärki pikk."
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
-msgstr ""
+msgstr "Vigane kasutajatunnus."
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
-msgstr ""
+msgstr "Kasutajanimes võivad olla vaid ilma täppdeta tähed, numbrid ja kriipsud."
 
 msgctxt "error_username_too_long"
 msgid "The user name is too long (maximum 20 characters)."
-msgstr ""
+msgstr "Liiga pikk kasutajanimi (lubatud on kuni 20 tähemärki)."
 
 msgctxt "error_name_too_long"
 msgid "The name is too long (maximum 60 characters)."
-msgstr ""
+msgstr "Liiga pikk nimi (lubatud on kuni 60 tähemärki)."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
-msgstr ""
+msgstr "Uue koodiga toode on juba olemas"
 
 msgctxt "error_no_name"
 msgid "You need to enter a name or nickname."
-msgstr ""
+msgstr "Palun sisesta nimi või hüüdnimi."
 
 msgctxt "error_no_permission"
 msgid "Permission denied."
-msgstr ""
+msgstr "Õigused puuduvad."
 
 msgctxt "error_no_username"
 msgid "You need to enter a user name"
-msgstr ""
+msgstr "Palun sisesta kasutajanimi"
 
 msgctxt "error_reset_already_connected"
 msgid "You are already signed in."
@@ -696,19 +696,19 @@ msgstr "Olete juba sisse logitud."
 
 msgctxt "error_reset_invalid_token"
 msgid "The reset password link is invalid or has expired."
-msgstr ""
+msgstr "Salasõna lähtestamise link on kehtetu või aegunud."
 
 msgctxt "error_reset_unknown_email"
 msgid "There is no account with this email"
-msgstr ""
+msgstr "Sellise e-posti aadressiga kasutajakontot ei leidu"
 
 msgctxt "error_reset_unknown_id"
 msgid "This username does not exist."
-msgstr ""
+msgstr "Sellist kasutajanime ei leidu."
 
 msgctxt "error_username_not_available"
 msgid "This username already exists, please choose another."
-msgstr ""
+msgstr "Valitud kasutajanimi on juba olemas. Palun vali mõni teine."
 
 msgctxt "example"
 msgid "Example:"
@@ -779,7 +779,7 @@ msgstr ""
 
 msgctxt "footer_faq"
 msgid "Frequently asked questions"
-msgstr ""
+msgstr "Korduma kippuvad küsimused"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
@@ -799,7 +799,9 @@ msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
-msgstr ""
+msgstr "Jälgi meid <a href=\"https://twitter.com/openfoodfacts\">Twitteris</a>,\n"
+"<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebookis</a> ja\n"
+"<a href=\"https://www.instagram.com/open.food.facts/\">Instagramis</a>\n"
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
@@ -1003,6 +1005,18 @@ msgstr ""
 msgctxt "ingredients"
 msgid "Ingredients"
 msgstr "Koostisosad"
+
+msgctxt "no_ingredient"
+msgid "Ingredients are missing"
+msgstr ""
+
+msgctxt "one_ingredient"
+msgid "1 ingredient"
+msgstr ""
+
+msgctxt "f_ingredients_with_number"
+msgid "{number} ingredients"
+msgstr ""
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
@@ -1907,7 +1921,7 @@ msgstr ""
 
 msgctxt "purchase_places_products"
 msgid "Products sold in %s"
-msgstr ""
+msgstr "Toode on müügil riigis: %s"
 
 msgctxt "purchase_places_s"
 msgid "purchase place"
@@ -1919,7 +1933,7 @@ msgstr ""
 
 msgctxt "purchase_places_without_products"
 msgid "Products not sold in %s"
-msgstr ""
+msgstr "Toode ei ole müügil riigis: %s"
 
 msgctxt "quantity"
 msgid "Quantity"
@@ -2590,15 +2604,15 @@ msgid "Warning: the amount of fruits, vegetables and nuts is not specified, thei
 msgstr ""
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d%"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
 msgstr ""
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
 msgstr ""
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
 msgstr ""
 
 msgctxt "nutrition_grade_fr_title"
@@ -4477,7 +4491,12 @@ msgid "Nutri-Score not-applicable"
 msgstr ""
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Exempted category"
+msgid "Not-applicable for the category"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_nutriscore_not_applicable_description"
+msgid "Not-applicable for the category: {category}"
 msgstr ""
 
 msgctxt "attribute_nutriscore_a_description_short"
@@ -5186,6 +5205,23 @@ msgctxt "delete_user_process"
 msgid "User deleted."
 msgstr ""
 
+msgctxt "attribute_ecoscore_not_applicable_title"
+msgid "Eco-Score not yet applicable"
+msgstr ""
+
+msgctxt "attribute_ecoscore_not_applicable_description_short"
+msgid "Not yet applicable for the category"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_ecoscore_not_applicable_description"
+msgid "Not yet applicable for the category: {category}"
+msgstr ""
+
+msgctxt "ecoscore_not_applicable_coming_soon"
+msgid "The Eco-Score is not yet applicable for this category, but we are working on adding support for it."
+msgstr ""
+
 msgctxt "attribute_ecoscore_unknown_title"
 msgid "Eco-Score not computed"
 msgstr ""
@@ -5805,10 +5841,6 @@ msgctxt "f_energy_expenditure_for_weight_in_kg_lb"
 msgid "Energy expenditure for a person weighting {kg} kg / {lb} lb"
 msgstr ""
 
-msgctxt "nutriscore_not_applicable_short"
-msgid "Not applicable for this product"
-msgstr ""
-
 msgctxt "nutriscore_missing_category_short"
 msgid "Missing category"
 msgstr ""
@@ -5934,5 +5966,67 @@ msgstr "Lisateave Nutri-Score kohta"
 
 msgctxt "ecoscore_learn_more"
 msgid "Learn more about the Eco-Score"
+msgstr ""
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_very_good_match"
+msgid "Very good match"
+msgstr ""
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_good_match"
+msgid "Good match"
+msgstr ""
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_poor_match"
+msgid "Poor match"
+msgstr ""
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_unknown_match"
+msgid "Unknown match"
+msgstr ""
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_may_not_match"
+msgid "May not match"
+msgstr ""
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_does_not_match"
+msgid "Does not match"
+msgstr ""
+
+msgctxt "reset_preferences"
+msgid "Use default preferences"
+msgstr ""
+
+msgctxt "reset_preferences_details"
+msgid "Nutri-Score, Eco-Score and food processing level (NOVA)"
+msgstr ""
+
+msgctxt "actions_add_ingredients"
+msgid "Could you add the ingredients list?"
+msgstr ""
+
+msgctxt "actions_to_compute_nutriscore"
+msgid "Could you add the information needed to compute the Nutri-Score?"
+msgstr ""
+
+msgctxt "actions_to_compute_ecoscore"
+msgid "Could you categorize the product so that we can compute the Eco-Score?"
+msgstr ""
+
+msgctxt "action_add_ingredients_text"
+msgid "Add the ingredients"
+msgstr ""
+
+msgctxt "action_add_categories"
+msgid "Add a category"
+msgstr ""
+
+msgctxt "action_add_nutrition_facts"
+msgid "Add nutrition facts"
 msgstr ""
 

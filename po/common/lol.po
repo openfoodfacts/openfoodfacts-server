@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-05-11 19:10\n"
+"PO-Revision-Date: 2022-07-07 19:19\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -1003,6 +1003,18 @@ msgstr "crwdns165328:0crwdne165328:0"
 msgctxt "ingredients"
 msgid "Ingredients"
 msgstr "crwdns165330:0crwdne165330:0"
+
+msgctxt "no_ingredient"
+msgid "Ingredients are missing"
+msgstr "crwdns193356:0crwdne193356:0"
+
+msgctxt "one_ingredient"
+msgid "1 ingredient"
+msgstr "crwdns193358:0crwdne193358:0"
+
+msgctxt "f_ingredients_with_number"
+msgid "{number} ingredients"
+msgstr "crwdns193360:0{number}crwdne193360:0"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
@@ -2590,16 +2602,16 @@ msgid "Warning: the amount of fruits, vegetables and nuts is not specified, thei
 msgstr "crwdns166110:0crwdne166110:0"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d%"
-msgstr "crwdns191525:0%dcrwdne191525:0"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
+msgstr "crwdns194132:0%dcrwdne194132:0"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
-msgstr "crwdns166114:0%scrwdnd166114:0%dcrwdne166114:0"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
+msgstr "crwdns194134:0%scrwdnd194134:0%dcrwdne194134:0"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr "crwdns191527:0%dcrwdne191527:0"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
+msgstr "crwdns194136:0%dcrwdne194136:0"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -4477,8 +4489,13 @@ msgid "Nutri-Score not-applicable"
 msgstr "crwdns192015:0crwdne192015:0"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Exempted category"
-msgstr "crwdns192017:0crwdne192017:0"
+msgid "Not-applicable for the category"
+msgstr "crwdns194064:0crwdne194064:0"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_nutriscore_not_applicable_description"
+msgid "Not-applicable for the category: {category}"
+msgstr "crwdns194066:0{category}crwdne194066:0"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -5186,6 +5203,23 @@ msgctxt "delete_user_process"
 msgid "User deleted."
 msgstr "crwdns177492:0crwdne177492:0"
 
+msgctxt "attribute_ecoscore_not_applicable_title"
+msgid "Eco-Score not yet applicable"
+msgstr "crwdns194068:0crwdne194068:0"
+
+msgctxt "attribute_ecoscore_not_applicable_description_short"
+msgid "Not yet applicable for the category"
+msgstr "crwdns194070:0crwdne194070:0"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_ecoscore_not_applicable_description"
+msgid "Not yet applicable for the category: {category}"
+msgstr "crwdns194072:0{category}crwdne194072:0"
+
+msgctxt "ecoscore_not_applicable_coming_soon"
+msgid "The Eco-Score is not yet applicable for this category, but we are working on adding support for it."
+msgstr "crwdns194074:0crwdne194074:0"
+
 msgctxt "attribute_ecoscore_unknown_title"
 msgid "Eco-Score not computed"
 msgstr "crwdns177812:0crwdne177812:0"
@@ -5805,10 +5839,6 @@ msgctxt "f_energy_expenditure_for_weight_in_kg_lb"
 msgid "Energy expenditure for a person weighting {kg} kg / {lb} lb"
 msgstr "crwdns191719:0{kg}crwdnd191719:0{lb}crwdne191719:0"
 
-msgctxt "nutriscore_not_applicable_short"
-msgid "Not applicable for this product"
-msgstr "crwdns192003:0crwdne192003:0"
-
 msgctxt "nutriscore_missing_category_short"
 msgid "Missing category"
 msgstr "crwdns192005:0crwdne192005:0"
@@ -5935,4 +5965,66 @@ msgstr "crwdns192958:0crwdne192958:0"
 msgctxt "ecoscore_learn_more"
 msgid "Learn more about the Eco-Score"
 msgstr "crwdns192960:0crwdne192960:0"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_very_good_match"
+msgid "Very good match"
+msgstr "crwdns193228:0crwdne193228:0"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_good_match"
+msgid "Good match"
+msgstr "crwdns193230:0crwdne193230:0"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_poor_match"
+msgid "Poor match"
+msgstr "crwdns193232:0crwdne193232:0"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_unknown_match"
+msgid "Unknown match"
+msgstr "crwdns193234:0crwdne193234:0"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_may_not_match"
+msgid "May not match"
+msgstr "crwdns193236:0crwdne193236:0"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_does_not_match"
+msgid "Does not match"
+msgstr "crwdns193238:0crwdne193238:0"
+
+msgctxt "reset_preferences"
+msgid "Use default preferences"
+msgstr "crwdns193320:0crwdne193320:0"
+
+msgctxt "reset_preferences_details"
+msgid "Nutri-Score, Eco-Score and food processing level (NOVA)"
+msgstr "crwdns193322:0crwdne193322:0"
+
+msgctxt "actions_add_ingredients"
+msgid "Could you add the ingredients list?"
+msgstr "crwdns194166:0crwdne194166:0"
+
+msgctxt "actions_to_compute_nutriscore"
+msgid "Could you add the information needed to compute the Nutri-Score?"
+msgstr "crwdns194168:0crwdne194168:0"
+
+msgctxt "actions_to_compute_ecoscore"
+msgid "Could you categorize the product so that we can compute the Eco-Score?"
+msgstr "crwdns194170:0crwdne194170:0"
+
+msgctxt "action_add_ingredients_text"
+msgid "Add the ingredients"
+msgstr "crwdns194172:0crwdne194172:0"
+
+msgctxt "action_add_categories"
+msgid "Add a category"
+msgstr "crwdns194174:0crwdne194174:0"
+
+msgctxt "action_add_nutrition_facts"
+msgid "Add nutrition facts"
+msgstr "crwdns194176:0crwdne194176:0"
 

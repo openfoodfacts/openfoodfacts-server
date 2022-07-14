@@ -82,7 +82,7 @@
                     {
                         "values": [
                             {
-                                "text": "[% display_taxonomy_tag("origins",origin.origin) %]",
+                                "text": "[% display_taxonomy_tag_name("origins",origin.origin) %]",
                             },
                             {
                                 "text": "[% round(origin.percent) %] %",

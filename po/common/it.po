@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-05-11 22:06\n"
+"PO-Revision-Date: 2022-07-07 19:07\n"
 "Language-Team: Italian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -1022,6 +1022,18 @@ msgstr "informatori"
 msgctxt "ingredients"
 msgid "Ingredients"
 msgstr "Ingredienti"
+
+msgctxt "no_ingredient"
+msgid "Ingredients are missing"
+msgstr "Mancano gli ingredienti"
+
+msgctxt "one_ingredient"
+msgid "1 ingredient"
+msgstr "1 ingrediente"
+
+msgctxt "f_ingredients_with_number"
+msgid "{number} ingredients"
+msgstr "{number} ingredienti"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
@@ -2474,7 +2486,7 @@ msgstr "Nome utente Twitter (opzionale)"
 
 msgctxt "twitter_account"
 msgid "OpenFoodFacts"
-msgstr "OpenFoodFactsIt"
+msgstr "OpenFoodFactsIT"
 
 msgctxt "unknown"
 msgid "Unknown"
@@ -2625,16 +2637,16 @@ msgid "Warning: the amount of fruits, vegetables and nuts is not specified, thei
 msgstr "Attenzione: la quantità di frutta, verdura e noci non è specificata. Il loro possibile contributo positivo al punteggio non può essere preso in considerazione."
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d%"
-msgstr "Attenzione: la quantità di frutta, verdura e noci non è specificata sull'etichetta, è stata stimata manualmente dall'elenco di ingredienti: %d%"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
+msgstr "Attenzione: la quantità di frutta, verdura e noci non è specificata sull'etichetta, è stata stimata manualmente dall'elenco di ingredienti: %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
-msgstr "Attenzione: la quantità di frutta, verdura e noci non è specificata sull'etichetta, è stata stimata dalla categoria (%s) del prodotto: %d%"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
+msgstr "Attenzione: la quantità di frutta, verdura e noci non è specificata sull'etichetta, è stata stimata dalla categoria (%s) del prodotto: %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr "Attenzione: la quantità di frutta, verdura e noci non è specificata sull'etichetta, è stata stimata dalla lista degli ingredienti: %d%"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
+msgstr "Attenzione: la quantità di frutta, verdura e noci non è specificata sull'etichetta, è stata stimata dalla lista degli ingredienti: %d"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -4512,8 +4524,13 @@ msgid "Nutri-Score not-applicable"
 msgstr "Nutri-Score non applicabile"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Exempted category"
-msgstr "Categoria esentata"
+msgid "Not-applicable for the category"
+msgstr "Non applicabile per la categoria"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_nutriscore_not_applicable_description"
+msgid "Not-applicable for the category: {category}"
+msgstr "Non applicabile per la categoria: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -5221,6 +5238,23 @@ msgctxt "delete_user_process"
 msgid "User deleted."
 msgstr "Utente rimosso."
 
+msgctxt "attribute_ecoscore_not_applicable_title"
+msgid "Eco-Score not yet applicable"
+msgstr "Eco-Score non ancora applicabile"
+
+msgctxt "attribute_ecoscore_not_applicable_description_short"
+msgid "Not yet applicable for the category"
+msgstr "Non ancora applicabile per la categoria"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_ecoscore_not_applicable_description"
+msgid "Not yet applicable for the category: {category}"
+msgstr "Non ancora applicabile per la categoria: {category}"
+
+msgctxt "ecoscore_not_applicable_coming_soon"
+msgid "The Eco-Score is not yet applicable for this category, but we are working on adding support for it."
+msgstr "L'Eco-Score non è ancora applicabile a questa categoria, ma stiamo lavorando per aggiungere supporto."
+
 msgctxt "attribute_ecoscore_unknown_title"
 msgid "Eco-Score not computed"
 msgstr "Eco-Score non calcolato"
@@ -5840,10 +5874,6 @@ msgctxt "f_energy_expenditure_for_weight_in_kg_lb"
 msgid "Energy expenditure for a person weighting {kg} kg / {lb} lb"
 msgstr "Consumo energetico per una persona di peso {kg} kg / {lb} lb"
 
-msgctxt "nutriscore_not_applicable_short"
-msgid "Not applicable for this product"
-msgstr "Non applicabile per questo prodotto"
-
 msgctxt "nutriscore_missing_category_short"
 msgid "Missing category"
 msgstr "Categoria mancante"
@@ -5970,4 +6000,66 @@ msgstr "Ulteriori informazioni su Punteggio-Nutri"
 msgctxt "ecoscore_learn_more"
 msgid "Learn more about the Eco-Score"
 msgstr "Ulteriori informazioni sull'Eco-Score"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_very_good_match"
+msgid "Very good match"
+msgstr "Corrispondenza molto buona"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_good_match"
+msgid "Good match"
+msgstr "Buona corrispondenza"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_poor_match"
+msgid "Poor match"
+msgstr "Corrispondenza debole"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_unknown_match"
+msgid "Unknown match"
+msgstr "Corrispondenza sconosciuta"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_may_not_match"
+msgid "May not match"
+msgstr "Potrebbe non corrispondere"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_does_not_match"
+msgid "Does not match"
+msgstr "Non corrisponde"
+
+msgctxt "reset_preferences"
+msgid "Use default preferences"
+msgstr "Usa preferenze predefinite"
+
+msgctxt "reset_preferences_details"
+msgid "Nutri-Score, Eco-Score and food processing level (NOVA)"
+msgstr "Nutri-Score, Eco-Score e livello di trasformazione alimentare (NOVA)"
+
+msgctxt "actions_add_ingredients"
+msgid "Could you add the ingredients list?"
+msgstr "Potresti aggiungere la lista degli ingredienti?"
+
+msgctxt "actions_to_compute_nutriscore"
+msgid "Could you add the information needed to compute the Nutri-Score?"
+msgstr "Potresti aggiungere le informazioni necessarie per calcolare il Nutri-Score?"
+
+msgctxt "actions_to_compute_ecoscore"
+msgid "Could you categorize the product so that we can compute the Eco-Score?"
+msgstr "Potresti categorizzare il prodotto in modo da poter calcolare l'Eco-Score?"
+
+msgctxt "action_add_ingredients_text"
+msgid "Add the ingredients"
+msgstr "Aggiungi gli ingredienti"
+
+msgctxt "action_add_categories"
+msgid "Add a category"
+msgstr "Aggiungi una categoria"
+
+msgctxt "action_add_nutrition_facts"
+msgid "Add nutrition facts"
+msgstr "Aggiungi dati nutrizionali"
 

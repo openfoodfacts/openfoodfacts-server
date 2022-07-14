@@ -1,5 +1,91 @@
 # Changelog
 
+## [1.7.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v1.6.0...v1.7.0) (2022-06-27)
+
+
+### Features
+
+* "edible" should be recognized as a stop word ([#6940](https://github.com/openfoodfacts/openfoodfacts-server/issues/6940)) ([7082172](https://github.com/openfoodfacts/openfoodfacts-server/commit/7082172154d634aa4e8dac3133703f199ed1e6e9))
+* add actions to panels [#6902](https://github.com/openfoodfacts/openfoodfacts-server/issues/6902) ([#6903](https://github.com/openfoodfacts/openfoodfacts-server/issues/6903)) ([e03e2e1](https://github.com/openfoodfacts/openfoodfacts-server/commit/e03e2e196fd27d5f18cabcb1ad073c7a3400d8c3))
+* add new Open Food Facts logos ([#6901](https://github.com/openfoodfacts/openfoodfacts-server/issues/6901)) ([3d2ec49](https://github.com/openfoodfacts/openfoodfacts-server/commit/3d2ec4930704048f50b645bd23548758d8a9c28b))
+* deactivate physical activities equivalence panel ([#6943](https://github.com/openfoodfacts/openfoodfacts-server/issues/6943)) ([855b127](https://github.com/openfoodfacts/openfoodfacts-server/commit/855b127349fc8fae82482a53495a33191af2fc38))
+* extend ingredients analysis panels with details and call for help ([#6905](https://github.com/openfoodfacts/openfoodfacts-server/issues/6905)) ([8690daf](https://github.com/openfoodfacts/openfoodfacts-server/commit/8690dafcc67b671a4b5ac3f3fc08a6e212efc88c))
+* Support for unit name normalization ([#6878](https://github.com/openfoodfacts/openfoodfacts-server/issues/6878)) ([b1bc521](https://github.com/openfoodfacts/openfoodfacts-server/commit/b1bc5210fea2d7c054e6949895b0909bfe192185))
+
+
+### Bug Fixes
+
+* "refined wheat flour" and "maida" should be recognized as a type of flour ([#6939](https://github.com/openfoodfacts/openfoodfacts-server/issues/6939)) ([0559775](https://github.com/openfoodfacts/openfoodfacts-server/commit/0559775ad31e797604b3cdb082fb9d3ee0ae9ef6))
+* $request_ref->{count} not used ([#6914](https://github.com/openfoodfacts/openfoodfacts-server/issues/6914)) ([3c12065](https://github.com/openfoodfacts/openfoodfacts-server/commit/3c12065f05a8b96f487db7ce135aaf8d62ea04d4))
+* add test for cream cheese ([24f52cb](https://github.com/openfoodfacts/openfoodfacts-server/commit/24f52cb70e253e94f91e72cb8a3c5437ffdde30b))
+* cream cheese is under cheeses ([24f52cb](https://github.com/openfoodfacts/openfoodfacts-server/commit/24f52cb70e253e94f91e72cb8a3c5437ffdde30b))
+* display_structured_response syntax ([#6948](https://github.com/openfoodfacts/openfoodfacts-server/issues/6948)) ([525ad83](https://github.com/openfoodfacts/openfoodfacts-server/commit/525ad833604071f0a66c9b478763118b67253a95))
+* duplicate `sub product_url($)` in Products.pm ([#6949](https://github.com/openfoodfacts/openfoodfacts-server/issues/6949)) ([668454e](https://github.com/openfoodfacts/openfoodfacts-server/commit/668454ef31388bca10dffda4ace679aa161936c7))
+* Invalid conversion ([#6890](https://github.com/openfoodfacts/openfoodfacts-server/issues/6890)) ([dc74c0d](https://github.com/openfoodfacts/openfoodfacts-server/commit/dc74c0d61003a48cb19925326e324d4d4348e9bf))
+* invalid json ([#6934](https://github.com/openfoodfacts/openfoodfacts-server/issues/6934)) ([26ca8f8](https://github.com/openfoodfacts/openfoodfacts-server/commit/26ca8f8dd27697432ae83d011ebfc9b95c281697))
+* release please workflow missing a quote ([#6906](https://github.com/openfoodfacts/openfoodfacts-server/issues/6906)) ([77125d0](https://github.com/openfoodfacts/openfoodfacts-server/commit/77125d07b79356c8fc3307e56ec4083786818322))
+* release please workflow pt.2 ([#6910](https://github.com/openfoodfacts/openfoodfacts-server/issues/6910)) ([9fe8d64](https://github.com/openfoodfacts/openfoodfacts-server/commit/9fe8d643b6888130c000b0b3ea1848d27b91e3e9))
+* removed the `display_top_block()` sub ([6d2d1ba](https://github.com/openfoodfacts/openfoodfacts-server/commit/6d2d1ba74ec8e475b9094b6204f62030d08d516b))
+* support for some common and popular US dairy ingredients ([#6955](https://github.com/openfoodfacts/openfoodfacts-server/issues/6955)) ([24f52cb](https://github.com/openfoodfacts/openfoodfacts-server/commit/24f52cb70e253e94f91e72cb8a3c5437ffdde30b))
+* syntax on display_icon ([#6935](https://github.com/openfoodfacts/openfoodfacts-server/issues/6935)) ([c919b18](https://github.com/openfoodfacts/openfoodfacts-server/commit/c919b18ca004f82bad45c277519a32b3799568c0))
+* typo in %DV and IU units property names  ([#6944](https://github.com/openfoodfacts/openfoodfacts-server/issues/6944)) ([dc95de9](https://github.com/openfoodfacts/openfoodfacts-server/commit/dc95de9c13f33e0b3c41052dd7d28bffc12195e9))
+* typo in %DV and IU units property names [#6942](https://github.com/openfoodfacts/openfoodfacts-server/issues/6942) ([dc95de9](https://github.com/openfoodfacts/openfoodfacts-server/commit/dc95de9c13f33e0b3c41052dd7d28bffc12195e9))
+* typo in release-please github action ([#6958](https://github.com/openfoodfacts/openfoodfacts-server/issues/6958)) ([cabd3fa](https://github.com/openfoodfacts/openfoodfacts-server/commit/cabd3fa26f1ee0b9d288f938155b21d4a0899d81))
+* uninitialized value ([#6912](https://github.com/openfoodfacts/openfoodfacts-server/issues/6912)) ([9f4c5ea](https://github.com/openfoodfacts/openfoodfacts-server/commit/9f4c5ea697d105558d4d8a595eabdebce5ef4cf0))
+* zh_CN, pt_PT and nl_NL ([#6967](https://github.com/openfoodfacts/openfoodfacts-server/issues/6967)) ([5aebdfc](https://github.com/openfoodfacts/openfoodfacts-server/commit/5aebdfcdace255296f1a77c07bb1cb8166104847))
+
+
+### Taxonomy
+
+* Minor change ([#6911](https://github.com/openfoodfacts/openfoodfacts-server/issues/6911)) ([d1ec3f8](https://github.com/openfoodfacts/openfoodfacts-server/commit/d1ec3f824e98d7178d128b43dc8a7ab870c88935))
+* More minor changes to vegetarian / vegan categories ([#6924](https://github.com/openfoodfacts/openfoodfacts-server/issues/6924)) ([a979f98](https://github.com/openfoodfacts/openfoodfacts-server/commit/a979f9813bc312953d3ac7a76d8186835b8f00c1))
+
+
+### Translations
+
+* New Crowdin translations to review and merge ([#6937](https://github.com/openfoodfacts/openfoodfacts-server/issues/6937)) ([fbd4f81](https://github.com/openfoodfacts/openfoodfacts-server/commit/fbd4f811be6a62fd9be3f89ef538a2da0c0e6430))
+
+## [1.6.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v1.5.0...v1.6.0) (2022-06-13)
+
+
+### Features
+
+* activate agena3000 import in production ([#6886](https://github.com/openfoodfacts/openfoodfacts-server/issues/6886)) ([054ec1f](https://github.com/openfoodfacts/openfoodfacts-server/commit/054ec1fa3b7ffd8d779b2f821620fec84ba676f8))
+* new OFF logo [#6866](https://github.com/openfoodfacts/openfoodfacts-server/issues/6866) ([#6885](https://github.com/openfoodfacts/openfoodfacts-server/issues/6885)) ([7354ebf](https://github.com/openfoodfacts/openfoodfacts-server/commit/7354ebfff4bdb83022ac73ee646f999e229f8561))
+* small improvements to ingredients and nutrition table panels ([#6869](https://github.com/openfoodfacts/openfoodfacts-server/issues/6869)) ([154f881](https://github.com/openfoodfacts/openfoodfacts-server/commit/154f8815b351fd53692c999160cc8f3cf2f82748))
+* suggest fuzzy + limit as a param ([#6887](https://github.com/openfoodfacts/openfoodfacts-server/issues/6887)) ([a6622f8](https://github.com/openfoodfacts/openfoodfacts-server/commit/a6622f86af200b74043e26329b19fdaa69edff51))
+
+
+### Bug Fixes
+
+* add back nutrition facts table title in knowledge panel ([#6867](https://github.com/openfoodfacts/openfoodfacts-server/issues/6867)) ([2085f4f](https://github.com/openfoodfacts/openfoodfacts-server/commit/2085f4f99de8a0103c47626481addcacd55edc10))
+* flatten Nutri-Score and Eco-Score SVG icons ([#6872](https://github.com/openfoodfacts/openfoodfacts-server/issues/6872)) ([c7dae5c](https://github.com/openfoodfacts/openfoodfacts-server/commit/c7dae5c3342c7d4ce869ed68b5e18d72657b61a1))
+* Undefined variable in search.pl ([#6877](https://github.com/openfoodfacts/openfoodfacts-server/issues/6877)) ([0a91d79](https://github.com/openfoodfacts/openfoodfacts-server/commit/0a91d79cb65fef2413e3de1b1c034810cbd32d0c))
+* use correct unit for nutrients expressed in IU or %DV [#6882](https://github.com/openfoodfacts/openfoodfacts-server/issues/6882) ([#6883](https://github.com/openfoodfacts/openfoodfacts-server/issues/6883)) ([2e45a06](https://github.com/openfoodfacts/openfoodfacts-server/commit/2e45a06799bd581ee7f05c62c5eaf79509b9a561))
+
+## [1.5.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v1.4.0...v1.5.0) (2022-06-06)
+
+
+### Features
+
+* add explanation with category in the Nutri-Score and Eco-Score knowledge panels when not applicable ([#6844](https://github.com/openfoodfacts/openfoodfacts-server/issues/6844)) ([1c95c8a](https://github.com/openfoodfacts/openfoodfacts-server/commit/1c95c8a02534a5d766db150ba08bd9e5d4d72419))
+* add serving size to health knowledge panel ([#6793](https://github.com/openfoodfacts/openfoodfacts-server/issues/6793)) ([1144af5](https://github.com/openfoodfacts/openfoodfacts-server/commit/1144af53783aec5ad790b45b1af6431168dda0fd))
+* expand some panels only on large devices ([#6834](https://github.com/openfoodfacts/openfoodfacts-server/issues/6834)) ([6331777](https://github.com/openfoodfacts/openfoodfacts-server/commit/6331777efd5b909fd92b061b201b13bc28b7caef)), closes [#6786](https://github.com/openfoodfacts/openfoodfacts-server/issues/6786)
+* refresh the Nutri-Score and Eco-Score logos ([#6848](https://github.com/openfoodfacts/openfoodfacts-server/issues/6848)) ([a677457](https://github.com/openfoodfacts/openfoodfacts-server/commit/a677457120ebafdf7c9c2878e130cc86564dd839))
+* reset preferences instead of deleting + add switch to use preferences in preferences + fix bug for unknown mandatory attributes ([#6800](https://github.com/openfoodfacts/openfoodfacts-server/issues/6800)) ([9251301](https://github.com/openfoodfacts/openfoodfacts-server/commit/9251301e57da44f30ab793ebdbe3ee05dbdff66c))
+* tagline for Smoothie ([#6823](https://github.com/openfoodfacts/openfoodfacts-server/issues/6823)) ([b669661](https://github.com/openfoodfacts/openfoodfacts-server/commit/b66966108e70e051c05546430e3afe8cabc46412))
+
+
+### Bug Fixes
+
+* bigger timeout for Made Near Me generation [#6789](https://github.com/openfoodfacts/openfoodfacts-server/issues/6789) ([#6790](https://github.com/openfoodfacts/openfoodfacts-server/issues/6790)) ([a791c75](https://github.com/openfoodfacts/openfoodfacts-server/commit/a791c75404d788a98bfc753b0a497a299919b0ca))
+* defining current_link ([#6817](https://github.com/openfoodfacts/openfoodfacts-server/issues/6817)) ([19e2e3c](https://github.com/openfoodfacts/openfoodfacts-server/commit/19e2e3c21f539834ba291aa2f85d18e1add0f571))
+* fallback to english for knowledge panels ([#6804](https://github.com/openfoodfacts/openfoodfacts-server/issues/6804)) ([43712b5](https://github.com/openfoodfacts/openfoodfacts-server/commit/43712b50e65f31af8f2cef222344c0f189e2a62a))
+* ingredients and nutrition should have titles ([#6839](https://github.com/openfoodfacts/openfoodfacts-server/issues/6839)) ([8048013](https://github.com/openfoodfacts/openfoodfacts-server/commit/8048013eaef26f7d153e37870746a51d54559850)), closes [#6835](https://github.com/openfoodfacts/openfoodfacts-server/issues/6835)
+* make panel ids consistent for ingredients analysis knowledge panels ([#6815](https://github.com/openfoodfacts/openfoodfacts-server/issues/6815)) ([726fb92](https://github.com/openfoodfacts/openfoodfacts-server/commit/726fb92d75c579692d051b353cf09f92ca7fbcf4))
+* prefer real user userid to app uuid #- an app userid if the app did not provide an app uuid [#6847](https://github.com/openfoodfacts/openfoodfacts-server/issues/6847) ([#6851](https://github.com/openfoodfacts/openfoodfacts-server/issues/6851)) ([367913c](https://github.com/openfoodfacts/openfoodfacts-server/commit/367913c30c28e88878ced17b45d6c7ed4e583d86))
+* use mandatory food preferences for score ([#6797](https://github.com/openfoodfacts/openfoodfacts-server/issues/6797)) ([b8e36da](https://github.com/openfoodfacts/openfoodfacts-server/commit/b8e36da1b575c8787108477396db42e4f51e1f43))
+
 ## [1.4.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v1.3.0...v1.4.0) (2022-05-18)
 
 

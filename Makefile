@@ -68,6 +68,11 @@ build:
 	@echo "🥫 Building containers …"
 	${DOCKER_COMPOSE} build 2>&1
 
+# this is needed for CI
+build_backend:
+	@echo "🥫 Building backend container …"
+	${DOCKER_COMPOSE} build backend 2>&1
+
 _up:
 	@echo "🥫 Starting containers …"
 	${DOCKER_COMPOSE} up -d 2>&1
@@ -148,7 +153,7 @@ import_sample_data:
 
 import_more_sample_data:
 	@echo "🥫 Importing sample data (~2000 products) into MongoDB …"
-	${DOCKER_COMPOSE} run --rm backend bash /opt/product-opener/scripts/import_more_sample_data.sh	
+	${DOCKER_COMPOSE} run --rm backend bash /opt/product-opener/scripts/import_more_sample_data.sh
 
 import_prod_data:
 	@echo "🥫 Importing production data (~2M products) into MongoDB …"
@@ -173,15 +178,23 @@ front_lint:
 front_build:
 	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker-compose run --rm dynamicfront  npm run build
 
-checks: front_build front_lint check_perl_fast
+
+checks: front_build front_lint check_perltidy check_perl_fast
+
+lint: lint_perltidy
 
 
 tests: build_lang_test
-	@echo "🥫 Runing tests …"
+	@echo "🥫 Running tests …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
 	${DOCKER_COMPOSE_TEST} run --rm backend prove -l --jobs ${CPU_COUNT}
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 test success"
+
+test-one: guard-test # usage: make test-one test=t/test-file.t
+	@echo "🥫 Running test: '${test}' …"
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
+	${DOCKER_COMPOSE_TEST} run --rm backend perl ${test}
 
 # check perl compiles, (pattern rule) / but only for newer files
 %.pm %.pl: _FORCE
@@ -190,19 +203,32 @@ tests: build_lang_test
 # check all modified (compared to main) perl file compiles
 TO_CHECK=$(shell git diff main --name-only | grep  '.*\.\(pl\|pm\)$$')
 check_perl_fast:
-	@echo "🥫checking ${TO_CHECK}"
+	@echo "🥫 Checking ${TO_CHECK}"
 	${DOCKER_COMPOSE} run --rm backend make -j ${CPU_COUNT} ${TO_CHECK}
 
 check_translations:
-	@echo "🥫checking translations"
+	@echo "🥫 Checking translations"
 	${DOCKER_COMPOSE} run --rm backend scripts/check-translations.sh
 
 # check all perl files compile (takes time, but needed to check a function rename did not break another module !)
 check_perl:
-	@echo "🥫checking all perl files"
+	@echo "🥫 Checking all perl files"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
 	${DOCKER_COMPOSE_TEST} run --rm --no-deps backend make -j ${CPU_COUNT} cgi/*.pl scripts/*.pl lib/*.pl lib/ProductOpener/*.pm
 	${DOCKER_COMPOSE_TEST} stop
+
+
+# check with perltidy
+# we only look at changed files (compared to main) with extensions .pl, .pm, .t
+TO_TIDY_CHECK=$(shell git diff main --name-only | grep  '.*\.\(pl\|pm\|t\)$$' | grep -vFf .perltidy_excludes )
+check_perltidy:
+	@echo "🥫 Checking with perltidy ${TO_TIDY_CHECK}"
+	${DOCKER_COMPOSE} run --rm --no-deps backend perltidy --assert-tidy --standard-error-output ${TO_TIDY_CHECK}
+
+# same as check_perltidy, but this time applying changes
+lint_perltidy:
+	@echo "🥫 Linting with perltidy ${TO_TIDY_CHECK}"
+	${DOCKER_COMPOSE} run --rm --no-deps backend perltidy --standard-error-output -b -bext=/ ${TO_TIDY_CHECK}
 
 #-------------#
 # Compilation #
@@ -250,3 +276,13 @@ clean_folders:
 	( rm -f logs/* logs/apache2/* logs/nginx/* || true )
 
 clean: goodbye hdown prune prune_cache clean_folders
+
+#-----------#
+# Utilities #
+#-----------#
+
+guard-%: # guard clause for targets that require an environment variable (usually used as an argument)
+	@ if [ "${${*}}" = "" ]; then \
+   		echo "Environment variable '$*' is not set"; \
+   		exit 1; \
+	fi;

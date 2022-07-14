@@ -2,11 +2,11 @@
 <!-- start templates/[% template.name %] -->
 
 <p>[% error %]</p>
-[% IF (current_link_query.defined) && !(jqm.defined) %]
+[% IF (current_link.defined) && !(jqm.defined) %]
     [% IF country != 'en:world' %]
-        <p>&rarr; <a href= "[% world_subdomain %][% current_link_query %]"> [% lang('view_results_from_the_entire_world') %]</a></p>
+        <p>&rarr; <a href= "[% world_subdomain %][% current_link %]"> [% lang('view_results_from_the_entire_world') %]</a></p>
     [% END %]
-    &rarr; <a href="[% current_link_query %]">[% lang('search_link') %]</a><br>
+    &rarr; <a href="[% current_link %]">[% lang('search_link') %]</a><br>
 [% END %]
 [% IF (current_link_query_edit.defined) && !(jqm.defined) %]
     &rarr; <a href="[% current_link_query_edit %]">[% lang('search_edit') %]</a><br>

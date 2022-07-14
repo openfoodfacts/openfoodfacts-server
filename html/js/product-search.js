@@ -8,15 +8,18 @@
 //
 // Output values are returned in the product object
 //
-// - match_status:
-// 		very_good_match
-//		good_match
-//		poor_match
-//		unknown_match
-//		may_not_match
-//		does_not_match
-//
 // - match_score: number from 0 to 100
+//		- the score is 0 if 
+//		- otherwise the score is a weighted average of how well the product matches
+//		each attribute selected by the user
+//
+// - match_status:
+// 		- very_good_match	score >= 75
+//		- good_match		score >= 50
+//		- poor_match		score < 50
+//		- unknown_match		at least one mandatory attribute is unknown, or unknown attributes weight more than 50% of the score
+//		- may_not_match		at least one mandatory attribute score is <= 50 (e.g. may contain traces of an allergen)
+//		- does_not_match	at least one mandatory attribute score is <= 10 (e.g. contains an allergen, is not vegan)
 //
 // - match_attributes: array of arrays of attributes corresponding to the product and 
 // each set of preferences: mandatory, very_important, important
@@ -125,6 +128,10 @@ function match_product_to_preferences (product, product_preferences) {
 		else if ("may_not_match" in product.attributes_for_status) {
 			product.match_status = "may_not_match";
 		}
+		// If one of the mandatory attribute is unknown, set an unknown match
+		else if ("unknown_match" in product.attributes_for_status) {
+			product.match_status = "unknown_match";
+		}		
 		// If too many attributes are unknown, set an unknown match
 		else if (sum_of_factors_for_unknown_attributes >= sum_of_factors / 2) {
 			product.match_status = "unknown_match";
@@ -379,9 +386,17 @@ function display_product_summary(target, product) {
 		}
 
 		// check if the product attribute has an associated knowledge panel that exists
-		if ((attribute.panel_id) && (document.getElementById("panel_" + attribute.panel_id))) {
-			// onclick : open the panel content + reflow to make sur all column content is shown
-			card_html = '<a href="#panel_' + attribute.panel_id + '" onclick="document.getElementById(\'panel_' + attribute.panel_id + '_content\').classList.add(\'active\'); $(document).foundation(\'equalizer\', \'reflow\');"' + card_html + '</a>';
+		if (attribute.panel_id) {
+			// note: on the website, the id for the panel contains : instead of - (e.g. for the ingredients_analysis_en:vegan panel)
+			var panel_element_id = 'panel_' + attribute.panel_id.replace(':', '-');
+			if (document.getElementById(panel_element_id)) {
+				// onclick : open the panel content + reflow to make sur all column content is shown			
+				card_html = '<a href="#' + panel_element_id
+				+ '" onclick="document.getElementById(\'' + panel_element_id + '_content\').classList.add(\'active\'); $(document).foundation(\'equalizer\', \'reflow\');"' + card_html + '</a>';
+			}
+			else {
+				card_html = '<div ' + card_html + '</div>';
+			}
 		}
 		else {
 			card_html = '<div ' + card_html + '</div>';

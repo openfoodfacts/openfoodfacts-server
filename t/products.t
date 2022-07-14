@@ -157,8 +157,44 @@ my @get_change_userid_or_uuid_tests = (
 		app_name => "Some App",
 		app_uuid => "423T42fFST423",
 		expected_app => "some-app",
-		expected_userid => "some-app.423T42fFST423",
+		# if someuser is not registered as an app user in Config_off.pm
+		# we assume that it is the real userid (not the app's userid), and we ignore the app_uuid
+		expected_userid => "someuser",
+	},
+	{
+		userid => "waistline-app",
+		comment => "some comment",
+		app_name => "Waistline",
+		app_uuid => "423T42fFST423",
+		# waistline-app is registered as an app user for the app waistline
+		# so we use the app_uuid provided
+		expected_app => "waistline",
+		expected_userid => "waistline.423T42fFST423",
+	},
+	{
+		userid => "waistline-app",
+		comment => "some comment",
+		app_name => "Waistline",
+		# waistline-app is registered as an app user for the app waistline
+		# it did not provide an app_uuid, so we return the userid of the app
+		expected_app => "waistline",
+		expected_userid => "waistline-app",
 	},	
+	{
+		# App that does not send any userid, but sends an app uuid
+		comment => "some comment",
+		app_name => "Some App",
+		app_uuid => "423T42fFST423",
+		expected_app => "some-app",
+		expected_userid => "some-app.423T42fFST423",
+	},
+	{
+		# App that does not send any userid, and does not send an app uuid
+		comment => "some comment",
+		app_name => "Some App",
+		expected_app => "some-app",
+		expected_userid => "openfoodfacts-contributors",
+	},		
 );
 
 foreach my $change_ref (@get_change_userid_or_uuid_tests) {
@@ -169,5 +205,17 @@ foreach my $change_ref (@get_change_userid_or_uuid_tests) {
 	is ($change_ref->{resulting_userid}, $change_ref->{expected_userid}) or diag explain $change_ref;
 
 }
+
+# Test remove_fields
+
+$product_ref = {"languages" => {}, "category_properties" => {}, "categories_properties" => {}, "name" => "test_prod"};
+my $fields_to_remove = ["languages", "category_properties", "categories_properties"];
+
+remove_fields($product_ref, $fields_to_remove);
+
+foreach my $rem_field (@$fields_to_remove) {
+	is ($product_ref->{$rem_field}, undef);
+}
+is ($product_ref->{name}, "test_prod");
 
 done_testing();
