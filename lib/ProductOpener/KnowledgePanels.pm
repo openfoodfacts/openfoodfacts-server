@@ -761,6 +761,8 @@ sub create_health_card_panel($$$$) {
 
     create_nutriscore_panel($product_ref, $target_lc, $target_cc);
 
+    create_nutrient_levels_panels($product_ref, $target_lc, $target_cc);
+
     create_nutrition_facts_table_panel($product_ref, $target_lc, $target_cc);
 
     if ($options_ref->{activate_knowledge_panel_physical_activities}) {
@@ -809,7 +811,9 @@ sub create_nutriscore_panel($$$) {
 
 	$log->debug("create nutriscore panel", { code => $product_ref->{code}, nutriscore_data => $product_ref->{nutriscore_data} }) if $log->is_debug();
 	
-    my $panel_data_ref = data_to_display_nutriscore_and_nutrient_levels($product_ref);
+    my $panel_data_ref = data_to_display_nutriscore($product_ref);
+
+    # Nutri-Score panel
 
     if ($panel_data_ref->{nutriscore_grade} eq "not-applicable") {
         $panel_data_ref->{title} = lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_title");
@@ -821,6 +825,46 @@ sub create_nutriscore_panel($$$) {
     # Nutri-Score panel: score + details
     create_panel_from_json_template("nutriscore", "api/knowledge-panels/health/nutriscore/nutriscore.tt.json",
         $panel_data_ref, $product_ref, $target_lc, $target_cc);
+}
+
+
+=head2 create_nutrient_levels_panels ( $product_ref, $target_lc, $target_cc )
+
+Creates knowledge panels for nutrient levels for fat, saturated fat, sugars and salt.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head4 country code $target_cc
+
+=cut
+
+sub create_nutrient_levels_panels($$$) {
+
+	my $product_ref = shift;
+	my $target_lc = shift;
+	my $target_cc = shift;
+
+	$log->debug("create nutriscore panel", { code => $product_ref->{code}, nutriscore_data => $product_ref->{nutriscore_data} }) if $log->is_debug();
+	
+    my $nutrient_levels_ref = data_to_display_nutrient_levels($product_ref);
+
+    # Nutrient levels panels
+    if (not $nutrient_levels_ref->{do_not_display}) {
+        foreach my $nutrient_level_ref (@{$nutrient_levels_ref->{nutrient_levels}}) {
+            my $nid = $nutrient_level_ref->{nid};
+            create_panel_from_json_template("nutrient_level_" . $nid, "api/knowledge-panels/health/nutrition/nutrient_level.tt.json",
+                $nutrient_level_ref, $product_ref, $target_lc, $target_cc);
+        }
+    }    
 }
 
 
