@@ -760,7 +760,6 @@ is_deeply(
 	$product_ref->{additives_original_tags},
 	[
 		'en:e500',
-
 		#'en:e503',
 		'en:e502',
 		'en:e450',
@@ -774,7 +773,6 @@ is_deeply(
 		'en:e385',
 		'en:e541',
 		'en:e450i',
-
 		#'en:e451',
 		'en:e340',
 		'en:e470a',
@@ -827,7 +825,6 @@ is_deeply(
 		"en:e450i",
 		"en:e500",
 		"en:e471",
-
 		#	"en:e415",
 	],
 );
@@ -871,7 +868,6 @@ diag explain $product_ref->{additives};
 		'en:e175',
 		'en:e14xx',
 		'en:e503i',
-
 		#'en:e120', # does not have color before it
 		'en:e960',
 		'en:e250',
