@@ -26,6 +26,8 @@ use utf8;
 use ProductOpener::Users qw/:all/;
 
 use LWP::UserAgent;
+use JSON;
+use Log::Any qw($log);
 
 my $myCookie = cookie("ory_kratos_session");
 print $myCookie;
@@ -44,14 +46,23 @@ if(defined $myCookie){
 
     if ($resp->is_success) {
         my $json = $resp->decoded_content;
-        print $json;
+        log->debug($json);
     }
     else {
-        print "HTTP GET error code: ", $resp->code, "n";
-        print "HTTP GET error message: ", $resp->message, "n";
+        log->debug("HTTP GET error code: ", $resp->code, "n");
+        log->debug("HTTP GET error message: ", $resp->message, "n");
     }
 }
 
+#Below code is test code for json hash to get UserID
+# my $json = '';
+
+# my $content = decode_json($json);
+# my %contentdecoded = %$content;
+
+# my $UserID = $contentdecoded{identity}{traits}{UserID};
+
+# $log->debug("User ID: ", $UserID);
 
 
 
