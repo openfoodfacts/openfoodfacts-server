@@ -610,6 +610,7 @@ assign_nid_modifier_value_and_unit($product_ref, "vitamin-a", undef, 40, "IU");
 assign_nid_modifier_value_and_unit($product_ref, "vitamin-e", undef, 40, "IU");
 assign_nid_modifier_value_and_unit($product_ref, "calcium", undef, 20, "% DV");
 assign_nid_modifier_value_and_unit($product_ref, "vitamin-d", undef, 20, "% DV");
+assign_nid_modifier_value_and_unit($product_ref, "vitamin-b1", undef, 100, "% DV");
 
 is_deeply($product_ref,
  {
@@ -620,6 +621,9 @@ is_deeply($product_ref,
 		'vitamin-a' => '1.2e-05',
 		'vitamin-a_unit' => 'IU',
 		'vitamin-a_value' => 40,
+		'vitamin-b1' => '0.0012',
+		'vitamin-b1_unit' => '% DV',
+		'vitamin-b1_value' => 100,
 		'vitamin-d' => '8e-06',
 		'vitamin-d_unit' => '% DV',
 		'vitamin-d_value' => 20,
