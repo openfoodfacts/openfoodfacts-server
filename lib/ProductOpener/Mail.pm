@@ -41,8 +41,7 @@ These emails can be used to reply to user queries, submit feedback, or to reques
 
 package ProductOpener::Mail;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 BEGIN
@@ -91,11 +90,7 @@ On the other hand, if there was no error, it returns 0 indicating that the email
 
 =cut
 
-sub send_email($$$)
-{
-	my $user_ref = shift;
-	my $subject = shift;
-	my $text = shift;
+sub send_email($user_ref, $subject, $text) {
 	
 	my $email = $user_ref->{email};
 	my $name = $user_ref->{name};
@@ -134,11 +129,7 @@ On the other hand, if there was no error, it returns 0 indicating that the email
 
 =cut
 
-sub send_email_to_admin($$)
-{
-	my $subject = shift;
-	my $text = shift;
-
+sub send_email_to_admin($subject, $text) {
 	eval {
 		Email::Stuffer
 			->from( lang("site_name") . " <$contact_email>" )
@@ -170,11 +161,7 @@ On the other hand, if there was no error, it returns 1 indicating that email has
 
 =cut
 
-sub send_email_to_producers_admin($$)
-{
-	my $subject = shift;
-	my $text = shift;
-
+sub send_email_to_producers_admin($subject, $text) {
 	eval {
 		Email::Stuffer
 			->from( lang("site_name") . " <$contact_email>" )
@@ -187,8 +174,6 @@ sub send_email_to_producers_admin($$)
 
     return $@ ? 1 : 0;
 }
-
-
 
 
 1;
