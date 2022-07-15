@@ -835,7 +835,7 @@ sub sanitize_taxonomy_line($)
 }
 
 
-=head2 search_tag_c( $tag, $synonyms, $tagtype, $lc, $warning )
+=head2 get_lc_tagid( $synonyms_ref, $lc, $tagtype, $tag, $warning )
 
 Search for "current tag" (tag at start of line) for a given tag
 
@@ -843,7 +843,7 @@ Search for "current tag" (tag at start of line) for a given tag
 
 =head4 str $tag - tag string for which we search
 
-=head4 reference to hash map $synonyms - ref to $synonyms for $tagtype
+=head4 reference to hash map $synonyms_ref - ref to %synonyms for $tagtype
 
 =head4 str $tagtype - tag type
 
@@ -858,30 +858,30 @@ If empty, no warning will be displayed.
 =head3 return str - found current tagid or undef
 
 =cut
-sub search_tag_c($$$$$)
+sub get_lc_tagid($$$$$)
 {
-	my $tag = shift;
-	my $synonyms = shift;
-	my $tagtype = shift;
+	my $synonyms_ref = shift;
 	my $lc = shift;
+	my $tagtype = shift;
+	my $tag = shift;
 	my $warning = shift;
 	$tag =~ s/^\s+//;  # normalize spaces
 	$tag = normalize_percentages($tag, $lc);
 	my $tagid = get_string_id_for_lang($lc, $tag);
 	# search if this tag is associated to a canonical tag id
-	my $tagid_c = $synonyms->{$lc}{$tagid};
-	if (not defined $tagid_c) {
+	my $lc_tagid = $synonyms_ref->{$lc}{$tagid};
+	if (not defined $lc_tagid) {
 		# try to remove stop words and plurals
 		my $stopped_tagid = remove_stopwords($tagtype,$lc,$tagid);
 		$stopped_tagid = remove_plurals($lc,$stopped_tagid);
 		# and try again to see if it is associated to a canonical tag id
-		$tagid_c = $synonyms->{$lc}{$stopped_tagid};
+		$lc_tagid = $synonyms_ref->{$lc}{$stopped_tagid};
 		if ($warning) {
-			print STDERR "$warning tagid $tagid, trying stopped_tagid $stopped_tagid - result canon_tagid: " . ($tagid_c // "") . "\n";
+			print STDERR "$warning tagid $tagid, trying stopped_tagid $stopped_tagid - result canon_tagid: " . ($lc_tagid // "") . "\n";
 		}
 
 	}
-	return $tagid_c;
+	return $lc_tagid;
 }
 
 
@@ -918,11 +918,11 @@ sub build_tags_taxonomy($$$) {
 	# it's the tag value where we lowercased, replace separators by dash etc.,
 	# see get_string_id_for_lang
 
-	# line tagid (or tagid_c) in particular is the first entry in a line
+	# language code tagid, aka lc_tagid in particular is the first entry in a line
 	# that is the id for this tag in a particular language
 
 	# when we speak about canonical tagid (or canon_tagid),
-	# this is the line tagid for the first line of a definition block,
+	# this is the lc_tagid for the first line of a definition block,
 	# This is the id for the tag among languages,
 	# we keep the language code as prefix, as it may be in any language
 
@@ -934,7 +934,7 @@ sub build_tags_taxonomy($$$) {
 	$stopwords{$tagtype} = {};
 	# synonyms track know synonyms and associate to their tagid, by language
 	# Note that it contains synonyms and extended synonyms
-	# tagtype -> lc -> tagid stores the line tagid
+	# tagtype -> lc -> tagid stores the lc tagid for this tagid
 	# Note: it could have been named synonym_of
 	$synonyms{$tagtype} = {};
 	# synonyms by language for each tagid (this is the reverse lookup of synonyms)
@@ -975,9 +975,13 @@ sub build_tags_taxonomy($$$) {
 
 	if (open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$file")) {
 
-		my $line_tagid;  # tracks the tag normalized form
-		my $current_tag;  # tracks tag on current line
-		my $canon_tagid;  # tracks canonical form, tagid of first line of tag block
+		# Main name of a tag in a specific language (display form) - e.g. "Café au lait"
+		my $lc_tag;
+		# Main id of a tag in a specific language (normalized form) - e.g. "cafe-au-lait"
+		my $lc_tagid;
+		# Canonical id of the tag (main language prefix + normalized form in the main language)
+		# e.g. "en:coffee-with-milk"
+		my $canon_tagid;
 
 		# print STDERR "Tags.pm - load_tags_taxonomy - tagtype: $tagtype \n";
 
@@ -1039,9 +1043,9 @@ sub build_tags_taxonomy($$$) {
 				my @tags = split(/\s*,\s*/, $line);
 
 				# first entry gives id of tag
-				$current_tag = $tags[0];
-				$current_tag = ucfirst($current_tag);
-				$line_tagid = get_string_id_for_lang($lc, $current_tag);
+				$lc_tag = $tags[0];
+				$lc_tag = ucfirst($lc_tag);
+				$lc_tagid = get_string_id_for_lang($lc, $lc_tag);
 
 				# check if we already have an entry listed for one of the synonyms
 				# this is useful for taxonomies that need to be merged, and that are concatenated
@@ -1055,12 +1059,12 @@ sub build_tags_taxonomy($$$) {
 					foreach my $tag2 (@tags) {
 
 						my $tag = $tag2;
-						my $possible_canon_tagid = search_tag_c(
-							$tag, $synonyms{$tagtype}, $tagtype, $lc, ""
+						my $possible_canon_tagid = get_lc_tagid(
+							$synonyms{$tagtype}, $lc, $tagtype, $tag, ""
 						);
 						if ((not defined $canon_tagid) and (defined $possible_canon_tagid)) {
 							$canon_tagid = "$lc:" . $possible_canon_tagid;
-							$line_tagid = $possible_canon_tagid;
+							$lc_tagid = $possible_canon_tagid;
 							# we already have a canon_tagid $canon_tagid for the tag
 							last;
 						}
@@ -1070,15 +1074,15 @@ sub build_tags_taxonomy($$$) {
 					# do we already have a translation from a previous definition?
 					if ((defined $canon_tagid) and (defined $translations_to{$tagtype}{$canon_tagid}{$lc})) {
 						# in this case change current_tag
-						$current_tag = $translations_to{$tagtype}{$canon_tagid}{$lc};
-						$line_tagid = get_string_id_for_lang($lc, $current_tag);
+						$lc_tag = $translations_to{$tagtype}{$canon_tagid}{$lc};
+						$lc_tagid = get_string_id_for_lang($lc, $lc_tag);
 					}
 
 				}
 
 				if (not defined $canon_tagid) {
 					# this is the first entry for the block, so it defines the canonical tagid
-					$canon_tagid = "$lc:$line_tagid";
+					$canon_tagid = "$lc:$lc_tagid";
 					# print STDERR "new canon_tagid: $canon_tagid\n";
 					if ((defined $qualifier) and ($qualifier eq 'synonyms:')) {
 						# register that it's just a synonym
@@ -1086,15 +1090,15 @@ sub build_tags_taxonomy($$$) {
 					}
 				}
 				# update translations_from
-				if (not defined $translations_from{$tagtype}{"$lc:$line_tagid"}) {
-					$translations_from{$tagtype}{"$lc:$line_tagid"} = $canon_tagid;
-					# print STDERR "taxonomy - translation_from{$tagtype}{$lc:$line_tagid} = $canon_tagid \n";
+				if (not defined $translations_from{$tagtype}{"$lc:$lc_tagid"}) {
+					$translations_from{$tagtype}{"$lc:$lc_tagid"} = $canon_tagid;
+					# print STDERR "taxonomy - translation_from{$tagtype}{$lc:$lc_tagid} = $canon_tagid \n";
 				}
 				# check that we have same canon_tagid as before
-				elsif ($translations_from{$tagtype}{"$lc:$line_tagid"} ne $canon_tagid) {
+				elsif ($translations_from{$tagtype}{"$lc:$lc_tagid"} ne $canon_tagid) {
 					# issue an error message and continue
-					my $msg = "$lc:$line_tagid already is associated to " . $translations_from{$tagtype}{"$lc:$line_tagid"}
-						. " - $lc:$line_tagid cannot be mapped to entry $canon_tagid\n";
+					my $msg = "$lc:$lc_tagid already is associated to " . $translations_from{$tagtype}{"$lc:$lc_tagid"}
+						. " - $lc:$lc_tagid cannot be mapped to entry $canon_tagid\n";
 						$errors .= "ERROR - " . $msg;
 						next;
 				}
@@ -1102,14 +1106,14 @@ sub build_tags_taxonomy($$$) {
 				defined $translations_to{$tagtype}{$canon_tagid} or $translations_to{$tagtype}{$canon_tagid} = {};
 				# update translations_to
 				if (not defined $translations_to{$tagtype}{$canon_tagid}{$lc}) {
-					$translations_to{$tagtype}{$canon_tagid}{$lc} = $current_tag;
-					# print STDERR "taxonomy - translations_to{$tagtype}{$canon_tagid}{$lc} = $current_tag \n";
+					$translations_to{$tagtype}{$canon_tagid}{$lc} = $lc_tag;
+					# print STDERR "taxonomy - translations_to{$tagtype}{$canon_tagid}{$lc} = $lc_tag \n";
 				}
 
 
 				# Initialize the synonyms list
 				(defined $synonyms_for{$tagtype}{$lc}) or $synonyms_for{$tagtype}{$lc} = {};
-				defined $synonyms_for{$tagtype}{$lc}{$line_tagid} or $synonyms_for{$tagtype}{$lc}{$line_tagid} = [];
+				defined $synonyms_for{$tagtype}{$lc}{$lc_tagid} or $synonyms_for{$tagtype}{$lc}{$lc_tagid} = [];
 
 				# note: Include the main tag as a synonym of itself,
 				# useful later to compute other synonyms
@@ -1119,20 +1123,20 @@ sub build_tags_taxonomy($$$) {
 
 					# Check if the synonym is already associated with another tag
 					if ((defined $synonyms{$tagtype}{$lc}{$tagid})
-						and ($synonyms{$tagtype}{$lc}{$tagid} ne $line_tagid)
+						and ($synonyms{$tagtype}{$lc}{$tagid} ne $lc_tagid)
 						# for additives, E101 contains synonyms that corresponds to E101(i) etc.   Make E101(i) override E101.
 						and (not ($tagtype =~ /^additives(|_prev|_next|_debug)$/))) {
 						# issue an error
 						my $msg = "$lc:$tagid already is a synonym of $lc:" . $synonyms{$tagtype}{$lc}{$tagid}
 								. " for entry " . $translations_from{$tagtype}{$lc . ":" . $synonyms{$tagtype}{$lc}{$tagid}}
-								. " - $lc:$tagid cannot be mapped to entry $canon_tagid / $lc:$line_tagid\n";
+								. " - $lc:$tagid cannot be mapped to entry $canon_tagid / $lc:$lc_tagid\n";
 						$errors .= "ERROR - " . $msg;
 						next;
 					}
 					# add synonym to both tracking lists
-					push @{$synonyms_for{$tagtype}{$lc}{$line_tagid}}, $tag;
-					$synonyms{$tagtype}{$lc}{$tagid} = $line_tagid;
-					# print STDERR "taxonomy - synonyms - synonyms{$tagtype}{$lc}{$tagid} = $line_tagid \n";
+					push @{$synonyms_for{$tagtype}{$lc}{$lc_tagid}}, $tag;
+					$synonyms{$tagtype}{$lc}{$tagid} = $lc_tagid;
+					# print STDERR "taxonomy - synonyms - synonyms{$tagtype}{$lc}{$tagid} = $lc_tagid \n";
 				}
 
 			}
@@ -1162,7 +1166,7 @@ sub build_tags_taxonomy($$$) {
 		# en:banana yogurts
 		#
 		# --> also compute banana yoghurts
-		# Note that tris does not happens on tag string but on tagid (banana-yoghurts)
+		# Note that this does not happen on tag string but on tagid (banana-yoghurts)
 
 		#print "synonyms: initializing synonyms_for_extended - tagtype: $tagtype - lc keys: " . scalar(keys %{$synonyms_for{$tagtype}{$lc}}) . "\n";
 
@@ -1178,16 +1182,16 @@ sub build_tags_taxonomy($$$) {
 			# lc -> tagid -> synonym_canonical_tagid
 			$synonym_contains_synonyms{$lc} = {};
 			# for each list of synonyms
-			foreach my $line_tagid (sort keys %{$synonyms_for{$tagtype}{$lc}}) {
-				# print STDERR "synonyms_for{$tagtype}{$lc} - $line_tagid - " . scalar(@{$synonyms_for{$tagtype}{$lc}{$line_tagid}}) . "\n";
+			foreach my $lc_tagid (sort keys %{$synonyms_for{$tagtype}{$lc}}) {
+				# print STDERR "synonyms_for{$tagtype}{$lc} - $lc_tagid - " . scalar(@{$synonyms_for{$tagtype}{$lc}{$lc_tagid}}) . "\n";
 
 				(defined $synonyms_for_extended{$tagtype}{$lc}) or $synonyms_for_extended{$tagtype}{$lc} = {};
 				# iterate over synonyms to register in synonyms_for_extended
-				foreach my $tag (@{$synonyms_for{$tagtype}{$lc}{$line_tagid}}) {
+				foreach my $tag (@{$synonyms_for{$tagtype}{$lc}{$lc_tagid}}) {
 					my $tagid = get_string_id_for_lang($lc, $tag);
-					(defined $synonyms_for_extended{$tagtype}{$lc}{$line_tagid}) or $synonyms_for_extended{$tagtype}{$lc}{$line_tagid} = {};
-					$synonyms_for_extended{$tagtype}{$lc}{$line_tagid}{$tagid} = 1;
-					# print STDERR "synonyms_for_extended{$tagtype}{$lc}{$line_tagid}{$tagid} = 1 \n";
+					(defined $synonyms_for_extended{$tagtype}{$lc}{$lc_tagid}) or $synonyms_for_extended{$tagtype}{$lc}{$lc_tagid} = {};
+					$synonyms_for_extended{$tagtype}{$lc}{$lc_tagid}{$tagid} = 1;
+					# print STDERR "synonyms_for_extended{$tagtype}{$lc}{$lc_tagid}{$tagid} = 1 \n";
 				}
 			}
 		}
@@ -1226,16 +1230,16 @@ sub build_tags_taxonomy($$$) {
 					# check if the synonym contains another small synonym
 
 					# the canonical tagid this tag is a synonym for
-					my $tagid_c = $synonyms{$tagtype}{$lc}{$tagid};
+					my $lc_tagid1 = $synonyms{$tagtype}{$lc}{$tagid};
 
-					#print "computing synonyms for $tagid (canon: $tagid_c)\n";
+					#print "computing synonyms for $tagid (canon: $lc_tagid1)\n";
 
 					# Does $tagid have other synonyms?
-					if (scalar @{$synonyms_for{$tagtype}{$lc}{$tagid_c}} > 1) {
+					if (scalar @{$synonyms_for{$tagtype}{$lc}{$lc_tagid1}} > 1) {
 						# limit length of synonyms for performance
 						if (length($tagid) < (30 / $pass)) {
 							push @smaller_synonyms, $tagid;
-							#print "$tagid (canon: $tagid_c) has other synonyms\n";
+							#print "$tagid (canon: $lc_tagid1) has other synonyms\n";
 						}
 					}
 
@@ -1248,14 +1252,14 @@ sub build_tags_taxonomy($$$) {
 						# e.g. bio, agriculture biologique, biologique -> agriculture bio -> agriculture agriculture biologique etc.
 
 						# canonical tagid for tagid2
-						my $tagid2_c = $synonyms{$tagtype}{$lc}{$tagid2};
+						my $lc_tagid2 = $synonyms{$tagtype}{$lc}{$tagid2};
 
 						# tag is not candidate to its own sustitution !
-						next if $tagid2_c eq $tagid_c;
+						next if $lc_tagid2 eq $lc_tagid1;
 
 						# do not apply same synonym twice
 						next if ((defined $synonym_contains_synonyms{$lc}{$tagid})
-							and (defined $synonym_contains_synonyms{$lc}{$tagid}{$tagid2_c}));
+							and (defined $synonym_contains_synonyms{$lc}{$tagid}{$lc_tagid2}));
 
 						my $replace;
 						my $before = '';
@@ -1289,10 +1293,10 @@ sub build_tags_taxonomy($$$) {
 
 						if (defined $replace) {
 
-							#print "computing synonyms for $tagid ($tagid_c): replace: $replace \n";
+							#print "computing synonyms for $tagid ($lc_tagid1): replace: $replace \n";
 
 							# now that we know we have a candidate, we will substitute with all its synonyms
-							foreach my $tagid2_s (sort keys %{$synonyms_for_extended{$tagtype}{$lc}{$tagid2_c}}) {
+							foreach my $tagid2_s (sort keys %{$synonyms_for_extended{$tagtype}{$lc}{$lc_tagid2}}) {
 
 								# don't replace a synonym by itself
 								next if $tagid2_s eq $tagid2;
@@ -1312,11 +1316,11 @@ sub build_tags_taxonomy($$$) {
 
 								#print "computing synonyms for $tagid ($tagid0): replaceby: $replaceby - tagid4: $tagid4\n";
 
-								if (not defined $synonyms_for_extended{$tagtype}{$lc}{$tagid_c}{$tagid_new}) {
+								if (not defined $synonyms_for_extended{$tagtype}{$lc}{$lc_tagid1}{$tagid_new}) {
 									# register substitution as a new synonym
-									$synonyms_for_extended{$tagtype}{$lc}{$tagid_c}{$tagid_new} = 1;
+									$synonyms_for_extended{$tagtype}{$lc}{$lc_tagid1}{$tagid_new} = 1;
 									# register in synonyms
-									$synonyms{$tagtype}{$lc}{$tagid_new} = $tagid_c;
+									$synonyms{$tagtype}{$lc}{$tagid_new} = $lc_tagid1;
 									# and register the supstitution happened
 									if (defined $synonym_contains_synonyms{$lc}{$tagid_new}) {
 										# we inherit substitutions already made on original tagid
@@ -1325,8 +1329,8 @@ sub build_tags_taxonomy($$$) {
 									else {
 										$synonym_contains_synonyms{$lc}{$tagid_new} = {};
 									}
-									$synonym_contains_synonyms{$lc}{$tagid_new}{$tagid2_c} = 1;
-									# print STDERR "synonyms_extended : synonyms{$tagtype}{$lc}{$tagid_new} = $tagid_c (tagid: $tagid - tagid2: $tagid2 - tagid2_c: $tagid2_c - tagid2_s: $tagid2_s - replace: $replace - replaceby: $replaceby)\n";
+									$synonym_contains_synonyms{$lc}{$tagid_new}{$lc_tagid2} = 1;
+									# print STDERR "synonyms_extended : synonyms{$tagtype}{$lc}{$tagid_new} = $lc_tagid1 (tagid: $tagid - tagid2: $tagid2 - tagid2_c: $lc_tagid2 - tagid2_s: $tagid2_s - replace: $replace - replaceby: $replaceby)\n";
 								}
 							}
 						}
@@ -1345,8 +1349,7 @@ sub build_tags_taxonomy($$$) {
 		# TODO we could mark this kind of thing in a header for taxonomy
 		if (($tagtype ne "countries") and ($tagtype ne "origins")) {
 
-			# TODO: explan why we do it in synonyms and not in extended synonyms
-			# or why we don't do it before computing extended synonyms
+			# Remember: synonyms also contains extended synonyms
 			foreach my $lc (sort keys %{$synonyms{$tagtype}}) {
 
 				foreach my $tagid (sort keys %{$synonyms{$tagtype}{$lc}}) {
@@ -1415,11 +1418,11 @@ sub build_tags_taxonomy($$$) {
 
 				my $lc = $2;
 				my $parent = $';
-				my $canon_parentid = search_tag_c(
-					$parent,
+				my $canon_parentid = get_lc_tagid(
 					$synonyms{$tagtype},
-					$tagtype,
 					$lc,
+					$tagtype,
+					$parent,
 					"taxonomy : $tagtype : did not find parent");
 				my $main_parentid = $translations_from{$tagtype}{"$lc:" . $canon_parentid};
 				$parents{$main_parentid}++;
@@ -1432,13 +1435,13 @@ sub build_tags_taxonomy($$$) {
 				$line = $';
 				$line =~ s/^\s+//;
 				my @tags = split(/\s*,\s*/, $line);
-				$current_tag = normalize_percentages($tags[0], $lc);
-				$line_tagid = get_string_id_for_lang($lc, $current_tag);
+				$lc_tag = normalize_percentages($tags[0], $lc);
+				$lc_tagid = get_string_id_for_lang($lc, $lc_tag);
 
 				# we are only interested with the line that defines the canonical tagid
 				if (not defined $canon_tagid) {
 
-					$canon_tagid = "$lc:$line_tagid";
+					$canon_tagid = "$lc:$lc_tagid";
 
 
 					# check if we already have an entry listed for one of the synonyms
@@ -1451,8 +1454,8 @@ sub build_tags_taxonomy($$$) {
 						foreach my $tag2 (@tags) {
 
 							my $tag = $tag2;
-							my $possible_canon_tagid = search_tag_c(
-								$tag, $synonyms{$tagtype}, $tagtype, $lc, ""
+							my $possible_canon_tagid = get_lc_tagid(
+								$synonyms{$tagtype}, $lc, $tagtype, $tag, ""
 							);
 
 							if ((not defined $canon_tagid) and (defined $possible_canon_tagid)) {
@@ -1547,15 +1550,15 @@ sub build_tags_taxonomy($$$) {
 			if ($line =~ /^(\w\w):/) {
 				my $lc = $1;
 				$line = $';
-				# TODO: why not use search_tag_c here ?
+				# TODO: why not use get_lc_tagid here ?
 				$line =~ s/^\s+//;
 				my @tags = split(/\s*,\s*/, $line);
-				$current_tag = normalize_percentages($tags[0], $lc);
-				$line_tagid = get_string_id_for_lang($lc, $current_tag);
+				$lc_tag = normalize_percentages($tags[0], $lc);
+				$lc_tagid = get_string_id_for_lang($lc, $lc_tag);
 
 				# this is the first line of the block
 				if (not defined $canon_tagid) {
-					$canon_tagid = "$lc:$line_tagid";
+					$canon_tagid = "$lc:$lc_tagid";
 				}
 			}
 			elsif ($line =~ /^([a-z0-9_\-\.]+):(\w\w):(\s*)/) {
