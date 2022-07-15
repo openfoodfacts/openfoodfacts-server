@@ -1265,6 +1265,7 @@ fr:ferments lactiques dont lactobacillus casei
 en:Streptococcus thermophilus, s.thermophilus
 xx:Streptococcus thermophilus, s.thermophilus
 bg:streptococcus thermophilus, Streptococcus salivarius subsp. thermophilus
+fi:Streptococcus thermophilus, s. thermophilus
 es:Streptococcus thermophilus, thermophilus
 ja:サーモフィラス菌
 zh:嗜热链球菌
@@ -4601,6 +4602,12 @@ description:pt:A nata ou creme de leite é a gordura do leite, um tipo de latic�
 # ingredient/cream has 27881 products in 29 languages @2019-07-12
 
 <en:cream
+en:lactose-free cream
+fi:laktoositon kerma
+fr:crème sans lactose
+sv:laktosfri grädde
+
+<en:cream
 en:Refrigerated 30% fat thick cream 
 fr:Crème de lait épaisse à 30% de matières grasses rayon frais
 ciqual_food_code:en:19410
@@ -6510,6 +6517,12 @@ wikidata:en:Q259642
 wikipedia:en:https://en.wikipedia.org/wiki/Quark_(dairy_product)
 # ingredient/nl:kwark has 2 products @2019-05-24
 # category/quark has 221 products @2019-05-24
+
+<en:quark
+en:lactose-free quark
+fi:laktoositon maitorahka
+fr:quark sans lactose
+sv:laktosfritt kvark
 
 <en:Quark
 nl:volle kwark
@@ -15018,7 +15031,7 @@ ro:ulei de rapiță, ulei vegetal de rapiță, ulei de rapita
 ru:Рапсовое масло
 sk:repkový olej
 sq:repičino ulje
-sv:Rapsolja, Rapsfett
+sv:Rapsolja, rybsolja, Rapsfett
 from_palm_oil:en:no
 wikipedia:en:Q1922338
 description:de:Rapsöl oder Rüböl (auch Rübsenöl, Kolzaöl und Kohlsaatöl genannt) ist ein pflanzliches Öl, welches aus den Samen vom Raps (Brassica napus), gewonnen wird.
@@ -16523,6 +16536,7 @@ carbon_footprint_fr_foodges_value:fr:4.2
 en:white wine vinegar
 bg:бял винен оцет
 ca:Vinagre de vi blanc
+cs:bílý vinný ocet
 da:Hvidvinseddike
 de:Weißweinessig, Weissweinessig
 es:Vinagre de vino blanco
@@ -22743,11 +22757,12 @@ it:Avena integrale
 nl:volkoren haver
 sv:fullkornshavre
 
-
 <en:oat
 en:gluten free oats
 es:avena sin gluten, avena libre de gluten
+fi:gluteeniton kaura
 fr:avoine sans gluten
+sv:glutenfri havre
 
 # description:en:ROLLED OATS are a type of lightly processed whole-grain food. Traditionally, they are made from oat groats that have been dehusked and steamed, before being rolled into flat flakes under heavy rollers and then stabilized by being lightly toasted. Rolled oats that are sold for porridge usually have had the tough outer bran removed. They have often, but not always, been lightly baked, pressure-cooked, or otherwise processed in some fashion.
 
@@ -22972,7 +22987,7 @@ sv:havrebas
 # mainIngredient:en:water
 # ingredient/fr:jus-d'avoine has 5 products in 2 languages @2020-06-08
 
-<en:vegetable protein
+<en:plant protein
 en:oat protein
 de:haferprotein
 fi:kauraproteiini
@@ -28580,8 +28595,9 @@ nl:gehydroliseerd eiwit, gehydrolyseerd eiwit, eiwithydrolysaat
 sv:proteinhydrolysat
 
 <en:protein
-en:vegetable protein
+en:plant protein, vegetable protein, vegetal protein
 bg:растителен протеин
+cs:rostlinné proteiny
 de:pflanzliches Eiweiß
 es:proteína vegetal
 fi:kasviproteiini
@@ -28598,19 +28614,20 @@ sv:grönsaksprotein
 vegan:en:yes
 vegetarian:en:yes
 
-<en:vegetable protein
+<en:plant protein
 de:Eiweißpulver aus Sonnenblumenkernen
 
-<en:vegetable protein
+<en:plant protein
 fr:protéines végétales réhydratées
 hu:rehidratált növényi fehérjék
 nl:gehydrolyseerde plantaardige eiwitten, plantaardig eiwithydrolysaat
 # ingredient/fr:protéines-végétales-réhydratées has 32 products in french @2019-03-11
 
-<en:vegetable protein
+<en:plant protein
 en:pea protein
 bg:грахов протеин
 ca:Proteïna de pèsol
+cs:hrachový protein
 da:Ærteprotein
 de:Erbsenprotein, erbseneiweiß
 es:Proteína de guisante
@@ -28629,6 +28646,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Pea_protein
 
 <en:pea protein
 en:pea protein isolate
+cs:izolovaný hrachový protein
 de:Erbsenproteinisolat
 es:aislado de proteina de guisante
 fi:herneproteiini-isolaatti
@@ -28646,7 +28664,7 @@ fi:vedellä turvotettu herneproteiini
 sv:rehydrerat ärtprotein
 # ingredient/fi:vedellä-turvotettu-herneproteiini has 1 product in 1 language @2020-05-25
 
-<en:vegetable protein
+<en:plant protein
 en:broad bean protein
 de:Bohnenprotein
 fi:härkäpapuproteiini
@@ -28656,11 +28674,11 @@ sv:protein från bondböna
 ro:proteină de bob
 # ingredient/en:broad-bean-protein has 6 products in 1 language @2020-05-25
 
-<en:vegetable protein
+<en:plant protein
 en:sunflower protein
 ro:proteină de floarea-soarelui
 
-<en:vegetable protein
+<en:plant protein
 en:potato protein
 bg:картофен протеин
 de:kartoffelprotein
@@ -28672,7 +28690,7 @@ ro:proteină de cartofi
 
 # description:en:HYDROLYZED VEGETABLE PROTEIN -  products are foodstuffs obtained by protein hydrolysis
 
-<en:vegetable protein
+<en:plant protein
 en:hydrolysed vegetable protein, HVP, vegetable hydrolysed proteins
 da:hydrolyseret vegetabllsk protein. hydrolysert vegetabilsk protein
 de:hydrolysiertes Pflanzenprotein, aufgeschlossenes Pflanzeneiweiß
@@ -28749,6 +28767,7 @@ fr:protéines de soja déshydratées
 hu:dehidratált szójafehérje
 
 <en:soy protein
+cs:texturovaná sojová bílkovina
 fr:protéines de soja texturées
 pl:teksturowane białko sojowe
 
@@ -28768,6 +28787,7 @@ fr:concentré de protéines de soja
 
 <en:soy protein
 en:soy protein isolate, soya protein isolate, isolated soy protein
+cs:izolovaná sojová bílkovina
 de:Sojaproteinisolat, Sojaeiweißisolat
 es:Aislado de proteína de soja
 fi:soijaproteiini-isolaatti
@@ -28790,13 +28810,14 @@ nl:gehydroliseerd soja-eiwit, gehydrolyseerd soja-eiwit
 <en:soy protein
 fr:protéines de soja i.p
 
-<en:vegetable protein
+<en:plant protein
 en:cereal protein
 nl:graneneiwit
 
-<en:vegetable protein
+<en:plant protein
 en:wheat protein
 bg:пшеничен протеин
+cs:pšeničná bílkovina, pšeničná bilkovina
 de:Weizenprotein, Weizeneiweiß, Weizeneiweiss
 es:Proteina de trigo
 fi:vehnäproteiini
@@ -29169,7 +29190,7 @@ it:Caseinato di calcio
 wikidata:en:Q522243
 wikipedia:en:https://en.wikipedia.org/wiki/Calcium_caseinate
 
-<en:vegetable protein
+<en:plant protein
 en:rapeseed protein
 bg:рапичен протеин
 de:Rapseiweiß
@@ -31162,6 +31183,7 @@ nl:gerstgluten
 en:wheat gluten
 bg:пшеничен глутен
 ca:gluten de blat
+cs:pšeničný lepek
 da:hvedegluten
 de:Weizengluten, Weizenkleber
 es:gluten de trigo
@@ -33097,7 +33119,7 @@ fi:eksoottiset hedelmät
 # 24 products in 1 language @2018-10-02
 
 # <en:fruit and vegetable
-<en:fruit concentrates
+<en:fruit concentrate
 <en:vegetable concentrate
 en:fruit and vegetable concentrates, vegetable and fruit concentrates
 da:frugt- og grøntsagskoncentrater
@@ -33241,8 +33263,8 @@ fi:hedelmäliha
 
 # Is an AGGREGATE ingredient, i.e.:fruit and plant concentrates:safflower, apple, spirulina, radish, lemon, sweet potato, carrot, blackcurrant, hibiscus;
 
-<en:fruit concentrates
-<en:plant concentrates
+<en:fruit concentrate
+<en:plant concentrate
 en:fruit and plant concentrates
 de:Frucht- und Pflanzenkonzentrate
 es:Concentrado de frutas y plantas
@@ -33257,23 +33279,23 @@ sv:frukt- och plantkoncentrat
 # Is an AGGREGATE ingredient, i.e.:concentrés de fruits (framboise, orange, citron)
 
 <en:fruit
-en:fruit concentrates
+en:fruit concentrate, fruit concentrates
 de:Früchtekonzentrate
 es:concentrados de fruta, concentrados de frutas
 fi:hedelmätiivisteet
-fr:concentrés de fruits
+fr:concentré de fruit, concentré de fruits, concentrés de fruits
 it:concentrati di frutta
-nl:fruitconcentraat
+nl:fruitconcentraat, vruchtconcentraten
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:concentrés-de-fruits
 # 42 products in 3 languages @2018-10-04
 
 <en:plant
-en:plant concentrates
+en:plant concentrate, plant concentrates
 da:plantekoncentrater
 de:pflanzenkonzentrate
 es:concentrados de plantas, concentrados vegetales
 fi:kasvitiivisteet, kasvitiiviste
-fr:concentrés de plantes
+fr:concentré de plante, concentré de plantes, concentrés de plantes
 it:Concentrati vegetali
 nl:plantconcentraat, plantconcentraten
 sv:växtkoncentrat, plantkoncentrat
@@ -37455,7 +37477,7 @@ nl:zwarte bessensap op basis van concentraat
 # comment:en:usually only the generic name is in use
 
 <en:berries
-en:blueberry, blueberries, bilberry
+en:blueberry, blueberries
 ar:عنب الأحراج
 be:Ягаднік
 bg:боровинка, боровинки
@@ -37501,6 +37523,7 @@ nl:blauwe bes, blauwe bessen
 
 <en:blueberry
 en:billberry, common blueberry
+fi:mustikka, mustikat
 la:Vaccinium myrtillus
 
 #comment:en:
@@ -38290,6 +38313,7 @@ ciqual_food_name:fr:Lait de coco ou Crème de coco
 en:coconut milk
 bg:кокосово мляко
 ca:llet de coco
+cs:kokosové mléko
 da:Kokosmælk
 de:Kokosnussmilch, Kokosmilch
 es:Leche de coco
@@ -38368,6 +38392,7 @@ fr:lait de coco reconstitué
 #en:coconut extract
 #bg:екстракт от кокос
 #ca:extracte de coco
+#cs:kokosový extrakt
 #de:Kokosnussextrakt
 #es:extracto de coco
 #fi:kookosuute, kookospähkinäuute
@@ -44511,6 +44536,7 @@ sv:betfiber
 <en:beetroot
 en:red beetroot
 bg:червено цвекло
+cs:červená řepa
 de:Rote Bete, Rote Beete
 es:Remolacha roja
 fi:punajuuri
@@ -49063,6 +49089,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Bird%27s_eye_chili
 <en:chili pepper
 en:allspice, all spice, jamaica pepper, myrtle pepper
 bg:бахар
+cs:nové kořeni
 de:Jamaikapfeffer
 es:pimienta de Jamaica
 fi:maustepippuri
@@ -51334,6 +51361,10 @@ fr:féverole, féverolle
 <en:broad bean
 en:Vicia faba
 la:Vicia faba
+
+<en:plant protein
+en:broad bean protein
+nl:tuinbooneiwit
 
 # description:en:The pea is most commonly the small spherical seed or the seed-pod of the pod fruit Pisum sativum. Fresh peas are often eaten boiled and flavored with butter and/or spearmint as a side dish vegetable. Peas are usually boiled or steamed, which breaks down the cell walls and makes the taste sweeter and the nutrients more bioavailable.
 # comment:en:The wikidata translations are not clear between seed name, plant name and latin name.
@@ -55071,6 +55102,7 @@ fr:plantes aromatiques et épices dont herbes aromatiques
 <en:spice
 en:spice extract, spices extract
 ca:Extracte d'espècies
+cs:extrakty koření
 de:Gewürz Extrakte, Gewürzextrakte, Gewurzextrakte, Gewürzextrakt
 es:Extracto de especias
 fi:mausteuute, mausteuutteet
@@ -55747,7 +55779,7 @@ en:nutmeg nut
 bg:индийско орехче
 bs:muskatni oraščić
 ca:nou moscada
-cs:muškátový oříšek
+cs:muškátový oříšek, muškátový ořech
 cv:мускат мăйăрĕ
 da:muskatnød
 de:Muskatnuss
@@ -58883,6 +58915,7 @@ ciqual_food_name:fr:Herbes de Provence, séchées
 en:oregano
 bg:риган
 ca:orenga, herba musca, roca morera
+cs:oregano
 de:oregano
 el:ρίξανη
 es:orégano
@@ -71594,6 +71627,7 @@ it:gambero, gamberi
 <en:vegetable fiber
 en:Psyllium, plantago, psyllium fibre, psyllium husk, psyllium seed husk
 ar:بزر قطونة
+cs:psyllium
 da:Psyllium, psyllium skræl
 de:Psyllium, Flohsamenschalen
 es:Psilio, plantago, cáscara de semilla de psyllium
@@ -75956,6 +75990,20 @@ es:fibra soluble
 fr:fibres solubles
 it:fibra solubile
 nl:oplosbare vezels
+
+<en:fiber
+<en:flax seed
+en:flax seed fiber, flaxseed fiber, flax fiber, flax fibers
+da:hørfrøfiber
+fi:pellavansiemenkuitu
+fr:fibre de lin, fibres de lin, fibres de graines de lin
+no:linfrøfiber
+sv:linfröfiber
+
+<en:fiber
+<en:sugarcane
+en:sugarcane fiber, sugarcane fibers
+fr:fibre de canne à sucre, fibres de canne à sucre
 
 # description:en:INULINS are a group of naturally occurring polysaccharides produced by many types of plants, industrially most often extracted from chicory. Chicory root is the main source of extraction for commercial production of inulin. It can be used to replace sugar, fat, and flour.
 
@@ -81592,12 +81640,14 @@ wikipedia:en:https://en.wikipedia.org/wiki/Falafel
 # don't put fruit extract in fruit
 en:fruit extract
 bg:плодов екстракт, екстракт от плодове
+da:frugtekstrakt
 de:Fruchtextrakt, Frucht-Extrakt
 es:extracto de frutas, extracto de fruta
 fi:hedelmäuute
 fr:extrait de fruit
 it:Estratto di frutta
-nl:vruchtenextract, vruchtconcentraten
+nl:vruchtenextract
+sv:fruktextrakt
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-fruit
 # 54 products in 4 languages @2018-10-04
 
