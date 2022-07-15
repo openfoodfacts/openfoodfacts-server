@@ -27,10 +27,10 @@ serve:
     base_url: http://kratos.openfoodfacts.localhost:4434/
 
 selfservice:
-  default_browser_return_url: http://world.openfoodfacts.localhost/cgi/kratos_auth.pl
+  default_browser_return_url: http://kratos.openfoodfacts.localhost/cgi/kratos_auth.pl
   allowed_return_urls:
     - http://world.openfoodfacts.localhost/
-    - http://world.openfoodfacts.localhost/cgi/kratos_auth.pl
+    - http://kratos.openfoodfacts.localhost/cgi/kratos_auth.pl
 
   methods:
     password:
@@ -83,10 +83,10 @@ secrets:
 
 session:
   cookie:
-    domain: http://openfoodfacts.localhost/
+    domain: openfoodfacts.localhost
 
 cookies:
-  domain: http://openfoodfacts.localhost/
+  domain: openfoodfacts.localhost
 
 ciphers:
   algorithm: xchacha20-poly1305
