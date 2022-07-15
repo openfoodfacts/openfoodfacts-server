@@ -3,19 +3,19 @@
 //// topbar
 // 
 .upper-nav {
-    background-color: $dark;
+    background-color: $ristreto;
     .userlink {
         line-height:1rem;
     }
     a:hover {
-        backgound-color:$oceanblue;
+        background-color:$oceanblue;
     }
     nav {
-        background-color: $dark;
+        background-color: $ristreto;
     }
 
     .top-bar-section {
-        background:$dark;
+        background:$ristreto;
         .dropdown li:not(.has-form):hover>a:not(.button) {
             background:$primary-color;
             color:$white;
@@ -25,9 +25,9 @@
             color:$black;
         }
         ul {
-            background:$dark;
+            background:$ristreto;
             li {
-                background:$dark;
+                background:$ristreto;
                 &.active {
                     > a {
                         background:$black;
@@ -105,13 +105,13 @@
 }
 
 .topbarsticky {
-    background: $dark;
+    background: $ristreto;
     z-index: 200;
     .top-bar-section ul li {
         background: inherit;
     }
     #offNav {
-        background-color: $offblue;
+        background-color: $latte;
         transition:all 0.3s;
         @media #{$large-up} {
             border-radius:  0 0;
@@ -216,7 +216,7 @@
         }
     }
     .top-bar {
-        background-color: $offblue;
+        background-color: $latte;
         .name h2 {
                 font-size:1.2rem;
             @media #{$large-up} {
