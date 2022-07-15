@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-06-21 02:42\n"
+"PO-Revision-Date: 2022-07-07 19:05\n"
 "Language-Team: Czech\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -5387,7 +5387,7 @@ msgstr "Můžete upravit stránku produktu a přidat přesnější kategorii."
 
 msgctxt "ecoscore_platform_promo"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
-msgstr "Pokud jste výrobcem tohoto produktu, můžete nám zaslat informace prostřednictvím naší <a href=\"https://world.pro.openfoodfacts.org\">bezlatné platformy pro výrobce</a>."
+msgstr "Pokud jste výrobcem tohoto produktu, můžete nám zaslat informace prostřednictvím naší <a href=\"https://world.pro.openfoodfacts.org\">bezplatné platformy pro výrobce</a>."
 
 msgctxt "ecoscore_warning_missing_information"
 msgid "Warning: some information necessary to calculate the Eco-Score with precision is not provided (see the details of the calculation below)."
@@ -5566,7 +5566,7 @@ msgstr "kg CO2 ekv./kg produktu"
 # do not translate the link
 msgctxt "ecoscore_platform_prompt_ecoscore_modal"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
-msgstr "Pokud jste výrobcem tohoto produktu, můžete nám zaslat informace prostřednictvím naší <a href=\"https://world.pro.openfoodfacts.org\">bezlatné platformy pro výrobce</a>."
+msgstr "Pokud jste výrobcem tohoto produktu, můžete nám zaslat informace prostřednictvím naší <a href=\"https://world.pro.openfoodfacts.org\">bezplatné platformy pro výrobce</a>."
 
 # do not translate Eco-Score and the link
 msgctxt "ecoscore_description"
@@ -5593,7 +5593,7 @@ msgstr "Názvy produktů GS1 tohoto výrobce jsou zkrácené."
 
 msgctxt "org_gs1_nutrients_are_unprepared"
 msgid "GS1 prepared nutrients for this manufacturer are in fact for the product as sold."
-msgstr ""
+msgstr "Živiny připravené GS1 pro tohoto výrobce jsou ve skutečnosti určeny pro prodávaný výrobek."
 
 msgctxt "org_gs1_nutrients_are_unprepared_note"
 msgid "Check that the manufacturer does not make products that really have nutrients for the prepared product."
@@ -6011,12 +6011,12 @@ msgstr "Špatná shoda"
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_unknown_match"
 msgid "Unknown match"
-msgstr ""
+msgstr "Neznámá shoda"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_may_not_match"
 msgid "May not match"
-msgstr ""
+msgstr "Nemusí se shodovat"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_does_not_match"
@@ -6033,25 +6033,25 @@ msgstr "Nutri-Score, Eco-Score a úroveň zpracování potravin (NOVA)"
 
 msgctxt "actions_add_ingredients"
 msgid "Could you add the ingredients list?"
-msgstr ""
+msgstr "Mohl byste přidat seznam ingrediencí?"
 
 msgctxt "actions_to_compute_nutriscore"
 msgid "Could you add the information needed to compute the Nutri-Score?"
-msgstr ""
+msgstr "Mohl byste přidat informace potřebné k výpočtu Nutri-Score?"
 
 msgctxt "actions_to_compute_ecoscore"
 msgid "Could you categorize the product so that we can compute the Eco-Score?"
-msgstr ""
+msgstr "Mohl byste produkt kategorizovat tak, abychom mohli vypočítat Eco-Score?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
-msgstr ""
+msgstr "Přidat ingredience"
 
 msgctxt "action_add_categories"
 msgid "Add a category"
-msgstr ""
+msgstr "Přidat kategorii"
 
 msgctxt "action_add_nutrition_facts"
 msgid "Add nutrition facts"
-msgstr ""
+msgstr "Přidat výživová fakta"
 

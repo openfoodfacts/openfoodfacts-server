@@ -178,7 +178,10 @@ front_lint:
 front_build:
 	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker-compose run --rm dynamicfront  npm run build
 
-checks: front_build front_lint check_perl_fast
+
+checks: front_build front_lint check_perltidy check_perl_fast
+
+lint: lint_perltidy
 
 
 tests: build_lang_test
@@ -200,19 +203,32 @@ test-one: guard-test # usage: make test-one test=t/test-file.t
 # check all modified (compared to main) perl file compiles
 TO_CHECK=$(shell git diff main --name-only | grep  '.*\.\(pl\|pm\)$$')
 check_perl_fast:
-	@echo "🥫checking ${TO_CHECK}"
+	@echo "🥫 Checking ${TO_CHECK}"
 	${DOCKER_COMPOSE} run --rm backend make -j ${CPU_COUNT} ${TO_CHECK}
 
 check_translations:
-	@echo "🥫checking translations"
+	@echo "🥫 Checking translations"
 	${DOCKER_COMPOSE} run --rm backend scripts/check-translations.sh
 
 # check all perl files compile (takes time, but needed to check a function rename did not break another module !)
 check_perl:
-	@echo "🥫checking all perl files"
+	@echo "🥫 Checking all perl files"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
 	${DOCKER_COMPOSE_TEST} run --rm --no-deps backend make -j ${CPU_COUNT} cgi/*.pl scripts/*.pl lib/*.pl lib/ProductOpener/*.pm
 	${DOCKER_COMPOSE_TEST} stop
+
+
+# check with perltidy
+# we only look at changed files (compared to main) with extensions .pl, .pm, .t
+TO_TIDY_CHECK=$(shell git diff main --name-only | grep  '.*\.\(pl\|pm\|t\)$$' | grep -vFf .perltidy_excludes )
+check_perltidy:
+	@echo "🥫 Checking with perltidy ${TO_TIDY_CHECK}"
+	${DOCKER_COMPOSE} run --rm --no-deps backend perltidy --assert-tidy --standard-error-output ${TO_TIDY_CHECK}
+
+# same as check_perltidy, but this time applying changes
+lint_perltidy:
+	@echo "🥫 Linting with perltidy ${TO_TIDY_CHECK}"
+	${DOCKER_COMPOSE} run --rm --no-deps backend perltidy --standard-error-output -b -bext=/ ${TO_TIDY_CHECK}
 
 #-------------#
 # Compilation #

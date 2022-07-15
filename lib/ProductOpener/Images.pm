@@ -92,9 +92,6 @@ BEGIN
 {
 	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-		&display_image_form
-		&process_image_form
-
 		&display_search_image_form
 		&process_search_image_form
 
@@ -175,7 +172,6 @@ HTML
 
 	return $html;
 }
-
 
 
 sub display_select_crop($$$) {
@@ -360,31 +356,10 @@ sub display_search_image_form($) {
 	my $product_image_with_barcode = $Lang{product_image_with_barcode}{$lang};
 	$product_image_with_barcode =~ s/( |\&nbsp;)?:$//;
 
-	$html .= <<HTML
-<div id="imgsearchdiv_$id">
-
-<a class="button small expand" id="imgsearchbutton_$id">@{[ display_icon('photo_camera') ]} $product_image_with_barcode
-<input type="file" accept="image/*" class="img_input" name="imgupload_search" id="imgupload_search_$id"
-	style="position: absolute;right:0;bottom:0;top:0;cursor:pointer;opacity:0;width:100%;height:100%;"/>
-</a>
-</div>
-
-<div id="progressbar_$id" class="progress" style="display:none">
-  <span id="progressmeter_$id" class="meter" style="width:0%"></span>
-</div>
-
-<div id="imgsearchmsg_$id" data-alert class="alert-box info" style="display:none">
-  $Lang{sending_image}{$lang}
-  <a href="#" class="close">&times;</a>
-</div>
-
-<div id="imgsearcherror_$id" data-alert class="alert-box alert" style="display:none">
-  $Lang{send_image_error}{$lang}
-  <a href="#" class="close">&times;</a>
-</div>
-
-HTML
-;
+	my $template_data_ref = {
+		product_image_with_barcode => $product_image_with_barcode,
+		id => $id,
+	};
 
 	# Do not load jquery file upload twice, if it was loaded by another form
 
@@ -459,13 +434,11 @@ JS
 JS
 ;
 
+	process_template('web/common/includes/display_search_image_form.tt.html', 
+	$template_data_ref, \$html) || return "template error: " . $tt->error();
+
 	return $html;
 }
-
-
-
-
-
 
 sub process_search_image_form($) {
 
@@ -498,14 +471,6 @@ sub process_search_image_form($) {
 	}
 	return $code;
 }
-
-
-sub dims {
-	my ($image) = @_;
-	return $image->Get('width') . 'x' . $image->Get('height');
-}
-
-
 
 =head2 get_code_and_imagefield_from_file_name ( $l $filename )
 
@@ -1849,7 +1814,7 @@ sub extract_text_from_image($$$$$) {
 	if ($ocr_engine eq 'tesseract') {
 
 		my $lan;
-
+		
 		if (defined $ProductOpener::Config::tesseract_ocr_available_languages{$lc}) {
 			$lan = $ProductOpener::Config::tesseract_ocr_available_languages{$lc};
 		}

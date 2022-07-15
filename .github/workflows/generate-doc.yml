@@ -27,7 +27,7 @@ jobs:
           perl -CS -I lib scripts/generate_perl_html_doc_from_pod.pl
 
       - name: Deploy API documentation to Github Pages
-        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        uses: JamesIves/github-pages-deploy-action@v4.3.4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: "gh-pages"

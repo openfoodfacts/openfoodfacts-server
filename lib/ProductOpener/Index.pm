@@ -20,8 +20,7 @@
 
 package ProductOpener::Index;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards; 
 use Exporter    qw< import >;
 
 BEGIN
@@ -30,7 +29,6 @@ BEGIN
 	@EXPORT_OK = qw(
 		&normalize
 		&decode_html
-		&decode_html_utf8
 		&decode_html_entities
 
 		&normalize
@@ -136,9 +134,7 @@ else {
 # Converting them to global variables.
 # - better solution: create a class?
 
-sub normalize($) {
-
-	my $s = shift;
+sub normalize($s) {
 
 	# Remove comments
 	$s =~ s/(<|\&lt;)!--(.*?)--(>|\&gt;)//sg;
@@ -170,39 +166,7 @@ sub normalize($) {
 	return $s;
 }
 
-
-sub decode_html($)
-{
-	my $string = shift;
-
-	my $encoding = "windows-1252";
-	if ($string =~ /charset=(.?)utf(-?)8/i) {
-		$encoding = "UTF-8";
-	}
-
-	my $utf8 = $string;
-	if (not utf8::is_utf8($string)) {
-		$utf8 = decode($encoding, $string);
-	}
-
-	$log->debug("decoding", { encoding => $encoding }) if $log->is_debug();
-	$utf8 = decode_entities($utf8);
-
-	return $utf8;
-}
-
-sub decode_html_utf8($)
-{
-	my $utf8 = shift;
-
-	$utf8 = decode_entities($utf8);
-
-	return $utf8;
-}
-
-sub decode_html_entities($)
-{
-	my $string = shift;
+sub decode_html_entities($string) {
 
 	# utf8::is_utf8($string) or $string = decode("UTF8", $string);
 

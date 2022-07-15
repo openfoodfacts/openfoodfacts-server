@@ -41,8 +41,12 @@ ProductOpener::Display::init();
 # Redirect the left to right or right to left CSS based on the subdomain
 # This is useful for static HTML files (e.g. donation page translated by CrowdIn)
 
-my $redirect = $static_subdomain . "/css/dist/app-" . lang('text_direction') . ".css?v=" . $file_timestamps{'css/dist/app-' . lang('text_direction') . '.css'};
-
+my $redirect
+  = $static_subdomain
+  . "/css/dist/app-"
+  . lang('text_direction')
+  . ".css?v="
+  . $file_timestamps{'css/dist/app-' . lang('text_direction') . '.css'};
 
 my $r = Apache2::RequestUtil->request();
 $r->headers_out->set(Location => $redirect);
