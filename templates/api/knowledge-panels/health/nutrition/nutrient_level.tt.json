@@ -63,5 +63,80 @@
         },
 
         [% END %]
+
+        [% IF panel.nid == 'sugars' %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "summary",
+                    "html":
+`
+<b>[% lang("knowledge_panels_facts") %]</b>
+<ul>
+<li>[% lang('nutrient_info_sugars_risk') %]</li>
+</ul>
+<br>
+<b>[% lang("knowledge_panels_recommendation") %]</b>[% sep %]:
+<b>[% lang('nutrient_recommendation_sugars_title') %]</b>
+<ul>
+<li>[% lang('nutrient_recommendation_sugars_drinks') %]</li>
+<li>[% lang('nutrient_recommendation_sugars_food') %]</li>
+</ul>
+`,                  
+            }
+        },
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "summary",
+                    "html":
+`
+`,                  
+                    "source_text": "National Health Service UK (NHS) - Sugar: the facts",
+                    "source_url": "https://www.nhs.uk/live-well/eat-well/food-types/how-does-sugar-in-our-diet-affect-our-health/",
+                    "source_language": "en",
+            }
+        },
+
+        [% END %]
+
+        [% IF panel.nid == 'fat'|| panel.nid == 'saturated-fat' %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "summary",
+                    "html":
+`
+<b>[% lang("knowledge_panels_facts") %]</b>
+<ul>
+<li>[% lang('nutrient_info_fat_and_saturated_fat_risk') %]</li>
+</ul>
+<br>
+<b>[% lang("knowledge_panels_recommendation") %]</b>[% sep %]:
+<b>[% lang('nutrient_recommendation_fat_and_saturated_fat_title') %]</b>
+<ul>
+<li>[% lang('nutrient_recommendation_fat_and_saturated_fat') %]</li>
+</ul>
+`,                  
+            }
+        },
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "summary",
+                    "html":
+`
+`,                  
+                    "source_text": "National Health Service UK (NHS) - Fat: the facts",
+                    "source_url": "https://www.nhs.uk/live-well/eat-well/food-types/different-fats-nutrition/",
+                    "source_language": "en",
+            }
+        },
+
+        [% END %]          
     ]
 }
+
+
+
+
