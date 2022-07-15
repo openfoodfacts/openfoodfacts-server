@@ -8811,18 +8811,10 @@ sub data_to_display_nutriscore($) {
 }
 
 
-<<<<<<< HEAD
-
-sub add_product_nutriment_to_stats($$$) {
-
-	my $nutriments_ref = shift;
-	my $nid = shift;
-	my $value = shift // '';
-=======
 sub add_product_nutriment_to_stats($nutriments_ref, $nid, $value) {
->>>>>>> main
 
-	if ($value ne '') {
+
+	if ((defined $value) and ($value ne '')) {
 
 		if (not defined $nutriments_ref->{"${nid}_n"}) {
 			$nutriments_ref->{"${nid}_n"} = 0;
