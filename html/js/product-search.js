@@ -290,7 +290,7 @@ function display_products(target, product_groups, user_prefs) {
 				product_html += `<span class="list_display_barcode">${product.code}</span>`;
 			}
 			
-			product_html += "</div></a>";
+			product_html += "</div>";
 
 			if (user_prefs.display.edit_link) {
 				const edit_url = product_edit_url(product);
@@ -305,8 +305,7 @@ function display_products(target, product_groups, user_prefs) {
 				`;
 			}
 			
-			
-			product_html += "</li>";
+			product_html += "</a></li>";
 
 			products_html.push(product_html);
 		});
