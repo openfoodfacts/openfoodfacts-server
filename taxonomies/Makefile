@@ -10,7 +10,7 @@ all_taxonomies: _reset_taxonomies taxonomies
 
 _reset_taxonomies:
 # touch taxonomies sources, then launch build
-	for f in *.txt; do if [[ ! "$$f" =~ "result" ]]; then touch  $$f; fi; done
+	find  . -maxdepth 1  -name "*.txt" -and -not -name "*.result.txt" -and -not -name "*.all.txt" -exec touch '{}' ';'
 
 
 .DEFAULT_GOAL := taxonomies
