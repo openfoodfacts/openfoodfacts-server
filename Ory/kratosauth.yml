@@ -38,7 +38,7 @@ services:
   kratos-selfservice-ui-node:
     image: oryd/kratos-selfservice-ui-node:latest
     environment:
-      - KRATOS_PUBLIC_URL=http://kratos.openfoodfacts.localhost:4433/
+      - KRATOS_PUBLIC_URL=http://kratos:4433/
       - KRATOS_BROWSER_URL=http://kratos.openfoodfacts.localhost:4433/
     ports:
       - '127.0.0.1:4455:3000'

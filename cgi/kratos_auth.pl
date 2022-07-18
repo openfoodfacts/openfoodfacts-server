@@ -33,14 +33,14 @@ my $kratos_cookie = cookie('ory_kratos_session');
 log->debug($kratos_cookie);
 
 if(defined $kratos_cookie){
-    my $url = "http://kratos.openfoodfacts.localhost/cgi/kratos_auth.pl/session/whoami";
+    my $url = "http://kratos.openfoodfacts.localhost:4433/sessions/whoami";
 
     my $ua = LWP::UserAgent->new;
 
     # set custom HTTP request header fields, must include cookie for /session/whoami
     my $req = HTTP::Request->new(GET => $url);
     $req->header('content-type' => 'application/json');
-    $req->header('X-Session-Cookie' => $kratos_cookie);
+    $req->header('Cookie' => $kratos_cookie);
 
     my $resp = $ua->request($req);
 
