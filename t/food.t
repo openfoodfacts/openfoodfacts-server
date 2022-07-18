@@ -486,7 +486,6 @@ $product_ref = {};
 
 my $value = "50.1";
 my $modifier;
-my $unit;
 # test we have no modifier
 normalize_nutriment_value_and_modifier(\$value, \$modifier);
 is($value, "50.1");
