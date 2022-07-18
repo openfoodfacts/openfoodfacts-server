@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ja\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-07-07 19:07\n"
+"PO-Revision-Date: 2022-07-17 19:06\n"
 "Language-Team: Japanese\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -6046,7 +6046,7 @@ msgid "Could you add the information needed to compute the Nutri-Score?"
 msgstr "ニュートリスコアの計算に必要な情報を追加していただけますか？"
 
 msgctxt "actions_to_compute_ecoscore"
-msgid "Could you categorize the product so that we can compute the Eco-Score?"
+msgid "Could you add a precise product category so that we can compute the Eco-Score?"
 msgstr "エコスコアを計算できるように製品を分類していただけますか？"
 
 msgctxt "action_add_ingredients_text"
@@ -6060,4 +6060,65 @@ msgstr "カテゴリを追加"
 msgctxt "action_add_nutrition_facts"
 msgid "Add nutrition facts"
 msgstr "栄養成分を入力する"
+
+# Used as a header for key facts
+msgctxt "knowledge_panels_facts"
+msgid "What you need to know"
+msgstr "知っておくべきこと"
+
+msgctxt "knowledge_panels_recommendation"
+msgid "Recommendation"
+msgstr "知識_パネル_おすすめ"
+
+msgctxt "nutrient_info_salt_risk"
+msgid "A high consumption of salt (or sodium) can cause raised blood pressure, which can increase the risk of heart disease and stroke."
+msgstr "塩分（またはナトリウム）を大量に摂取すると血圧が上昇し、心臓病や脳卒中のリスクが高まる可能性があります。"
+
+msgctxt "nutrient_info_salt_high_blood_pressure"
+msgid "Many people who have high blood pressure do not know it, as there are often no symptoms."
+msgstr "高血圧の人の多くは、症状がないことが多いので、それを知りません。"
+
+msgctxt "nutrient_info_salt_high_consumption"
+msgid "Most people consume too much salt (on average 9 to 12 grams per day), around twice the recommended maximum level of intake."
+msgstr "ほとんどの人は塩分を過剰に消費し（平均して1日あたり9〜12グラム）、推奨される最大摂取量の約2倍です。"
+
+msgctxt "nutrient_recommendation_salt_title"
+msgid "Limit the consumption of salt and salted food"
+msgstr "塩と塩が含まれている食品の消費を制限する"
+
+msgctxt "nutrient_recommendation_salt_cooking_and_table"
+msgid "Reduce the quantity of salt used when cooking, and don't salt again at the table."
+msgstr "調理時に使用する塩の量を減らし、テーブルで再び塩をかけないでください。"
+
+msgctxt "nutrient_recommendation_salt_limit_salty_snacks"
+msgid "Limit the consumption of salty snacks and choose products with lower salt content."
+msgstr "塩味のあるスナックの消費を制限し、塩分が少ない製品を選択してください。"
+
+msgctxt "nutrient_info_sugars_risk"
+msgid "A high consumption of sugar can cause weight gain and tooth decay. It also augments the risk of type 2 diabetes and cardio-vascular diseases."
+msgstr "砂糖の大量消費は、体重増加や虫歯を引き起こす可能性があります。また、2型糖尿病や心血管疾患のリスクを高めます。"
+
+msgctxt "nutrient_recommendation_sugars_title"
+msgid "Limit the consumption of sugar and sugary drinks"
+msgstr "砂糖と甘い飲み物の消費を制限する"
+
+msgctxt "nutrient_recommendation_sugars_drinks"
+msgid "Sugary drinks (such as sodas, fruit beverages, and fruit juices and nectars) should be limited as much as possible (no more than 1 glass a day)."
+msgstr "甘い飲み物（ソーダ、フルーツ飲料、フルーツジュース、ネクターなど）は、できるだけ制限する必要があります（1日1杯以下）。"
+
+msgctxt "nutrient_recommendation_sugars_food"
+msgid "Choose products with lower sugar content and reduce the consumption of products with added sugars."
+msgstr "糖度の低い製品を選び、糖分を加えた製品の消費を減らします。"
+
+msgctxt "nutrient_info_fat_and_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "脂肪、特に飽和脂肪を大量に摂取するとコレステロールが上昇し、心臓病のリスクが高まります。"
+
+msgctxt "nutrient_recommendation_fat_and_saturated_fat_title"
+msgid "Reduce the consumption of fat and saturated fat"
+msgstr "脂肪と飽和脂肪の消費を減らしましょう"
+
+msgctxt "nutrient_recommendation_fat_and_saturated_fat"
+msgid "Choose products with lower fat and saturated fat content."
+msgstr "低脂肪および飽和脂肪含有量の製品を選択してください。"
 

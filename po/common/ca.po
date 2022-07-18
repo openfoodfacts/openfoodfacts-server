@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ca\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-07-07 19:05\n"
+"PO-Revision-Date: 2022-07-17 19:05\n"
 "Language-Team: Catalan\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -6046,7 +6046,7 @@ msgid "Could you add the information needed to compute the Nutri-Score?"
 msgstr ""
 
 msgctxt "actions_to_compute_ecoscore"
-msgid "Could you categorize the product so that we can compute the Eco-Score?"
+msgid "Could you add a precise product category so that we can compute the Eco-Score?"
 msgstr ""
 
 msgctxt "action_add_ingredients_text"
@@ -6060,4 +6060,65 @@ msgstr ""
 msgctxt "action_add_nutrition_facts"
 msgid "Add nutrition facts"
 msgstr ""
+
+# Used as a header for key facts
+msgctxt "knowledge_panels_facts"
+msgid "What you need to know"
+msgstr "Què us cal saber"
+
+msgctxt "knowledge_panels_recommendation"
+msgid "Recommendation"
+msgstr "Recomanació"
+
+msgctxt "nutrient_info_salt_risk"
+msgid "A high consumption of salt (or sodium) can cause raised blood pressure, which can increase the risk of heart disease and stroke."
+msgstr "Un alt consum de sal (o sodi) pot provocar un augment de la pressió arterial, que pot augmentar el risc de patir malalties del cor i ictus."
+
+msgctxt "nutrient_info_salt_high_blood_pressure"
+msgid "Many people who have high blood pressure do not know it, as there are often no symptoms."
+msgstr "Moltes persones que tenen hipertensió no ho saben, ja que sovint no en tenen símptomes."
+
+msgctxt "nutrient_info_salt_high_consumption"
+msgid "Most people consume too much salt (on average 9 to 12 grams per day), around twice the recommended maximum level of intake."
+msgstr "La majoria de la gent consumeix massa sal (de 9 a 12 grams de mitjana al dia), al voltant del doble del nivell màxim d'ingesta recomanat."
+
+msgctxt "nutrient_recommendation_salt_title"
+msgid "Limit the consumption of salt and salted food"
+msgstr "Limitau la ingesta de sal i d'aliments rics en sal"
+
+msgctxt "nutrient_recommendation_salt_cooking_and_table"
+msgid "Reduce the quantity of salt used when cooking, and don't salt again at the table."
+msgstr "Reduïu la sal que emprau quan cuinau, i no afegiu sal a taula."
+
+msgctxt "nutrient_recommendation_salt_limit_salty_snacks"
+msgid "Limit the consumption of salty snacks and choose products with lower salt content."
+msgstr "Limiteu el consum d'aperitius salats i trieu productes amb menor contingut de sal."
+
+msgctxt "nutrient_info_sugars_risk"
+msgid "A high consumption of sugar can cause weight gain and tooth decay. It also augments the risk of type 2 diabetes and cardio-vascular diseases."
+msgstr "Un alt consum de sucre pot provocar augment de pes i càries dental. També augmenta el risc de patir diabetis tipus 2 i malalties cardiovasculars."
+
+msgctxt "nutrient_recommendation_sugars_title"
+msgid "Limit the consumption of sugar and sugary drinks"
+msgstr "Limitau el consum de sucre i de begudes ensucrades"
+
+msgctxt "nutrient_recommendation_sugars_drinks"
+msgid "Sugary drinks (such as sodas, fruit beverages, and fruit juices and nectars) should be limited as much as possible (no more than 1 glass a day)."
+msgstr "Les begudes ensucrades (com ara refrescos, begudes de fruites i sucs i nèctars de fruites) s'han de limitar tant com sigui possible (no més d'1 got al dia)."
+
+msgctxt "nutrient_recommendation_sugars_food"
+msgid "Choose products with lower sugar content and reduce the consumption of products with added sugars."
+msgstr "Triau productes amb menor contingut de sucre i reduïu el consum de productes amb sucres afegits."
+
+msgctxt "nutrient_info_fat_and_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "Un alt consum de greixos, especialment de greixos saturats, pot augmentar el colesterol, que augmenta el risc de patir malalties del cor."
+
+msgctxt "nutrient_recommendation_fat_and_saturated_fat_title"
+msgid "Reduce the consumption of fat and saturated fat"
+msgstr "Reduïu el consum de greixos i greixos saturats"
+
+msgctxt "nutrient_recommendation_fat_and_saturated_fat"
+msgid "Choose products with lower fat and saturated fat content."
+msgstr "Trieu productes amb menys greixos i greixos saturats."
 

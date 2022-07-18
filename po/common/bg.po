@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: bg\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-07-07 22:01\n"
+"PO-Revision-Date: 2022-07-17 19:05\n"
 "Language-Team: Bulgarian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -6047,8 +6047,8 @@ msgid "Could you add the information needed to compute the Nutri-Score?"
 msgstr "Може ли да добавиш необходимата информация, за изчисляването на Nutri-Score?"
 
 msgctxt "actions_to_compute_ecoscore"
-msgid "Could you categorize the product so that we can compute the Eco-Score?"
-msgstr "Може ли да категоризираш продукта, за да можем да изчислим Eco-Score?"
+msgid "Could you add a precise product category so that we can compute the Eco-Score?"
+msgstr "Би ли добавил точна продуктова категория, за да можем да изчислим Eco-Score?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -6061,4 +6061,65 @@ msgstr "Добави категорията"
 msgctxt "action_add_nutrition_facts"
 msgid "Add nutrition facts"
 msgstr "Добави хранителните стойности"
+
+# Used as a header for key facts
+msgctxt "knowledge_panels_facts"
+msgid "What you need to know"
+msgstr "Какво трябва да знаеш"
+
+msgctxt "knowledge_panels_recommendation"
+msgid "Recommendation"
+msgstr "Препоръка"
+
+msgctxt "nutrient_info_salt_risk"
+msgid "A high consumption of salt (or sodium) can cause raised blood pressure, which can increase the risk of heart disease and stroke."
+msgstr "Високата консумация на сол (или натрий) може да причини повишено кръвно налягане, което може да увеличи риска от сърдечни заболявания и инсулт."
+
+msgctxt "nutrient_info_salt_high_blood_pressure"
+msgid "Many people who have high blood pressure do not know it, as there are often no symptoms."
+msgstr "Много хора, които имат високо кръвно налягане, не го знаят, тъй като често няма симптоми."
+
+msgctxt "nutrient_info_salt_high_consumption"
+msgid "Most people consume too much salt (on average 9 to 12 grams per day), around twice the recommended maximum level of intake."
+msgstr "Повечето хора консумират твърде много сол (средно 9 до 12 грама на ден), около два пъти повече от препоръчителната доза."
+
+msgctxt "nutrient_recommendation_salt_title"
+msgid "Limit the consumption of salt and salted food"
+msgstr "Ограничи консумацията на сол и солени храни"
+
+msgctxt "nutrient_recommendation_salt_cooking_and_table"
+msgid "Reduce the quantity of salt used when cooking, and don't salt again at the table."
+msgstr "Намали количеството сол, използвано при готвене, и не соли отново на масата."
+
+msgctxt "nutrient_recommendation_salt_limit_salty_snacks"
+msgid "Limit the consumption of salty snacks and choose products with lower salt content."
+msgstr "Ограничи консумацията на солени закуски и избери продукти с по-ниско съдържание на сол."
+
+msgctxt "nutrient_info_sugars_risk"
+msgid "A high consumption of sugar can cause weight gain and tooth decay. It also augments the risk of type 2 diabetes and cardio-vascular diseases."
+msgstr "Високата консумация на захар може да причини повишаване на теглото и кариеси. Тя също така увеличава риска от диабет тип 2 и сърдечно-съдови заболявания."
+
+msgctxt "nutrient_recommendation_sugars_title"
+msgid "Limit the consumption of sugar and sugary drinks"
+msgstr "Ограничи консумацията на захар и подсладени напитки"
+
+msgctxt "nutrient_recommendation_sugars_drinks"
+msgid "Sugary drinks (such as sodas, fruit beverages, and fruit juices and nectars) should be limited as much as possible (no more than 1 glass a day)."
+msgstr "Подсладените напитки (като газирани напитки, плодови напитки и плодови сокове и нектари) трябва да бъдат максимално ограничени (не повече от 1 чаша на ден)."
+
+msgctxt "nutrient_recommendation_sugars_food"
+msgid "Choose products with lower sugar content and reduce the consumption of products with added sugars."
+msgstr "Избирай продукти с по-ниско съдържание на захар и намали консумацията на продукти с добавена захар."
+
+msgctxt "nutrient_info_fat_and_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "Високата консумация на мазнини, особено на наситени мазнини, може да повиши холестерола, което увеличава риска от сърдечни заболявания."
+
+msgctxt "nutrient_recommendation_fat_and_saturated_fat_title"
+msgid "Reduce the consumption of fat and saturated fat"
+msgstr "Намали консумацията на мазнини и наситени мазнини"
+
+msgctxt "nutrient_recommendation_fat_and_saturated_fat"
+msgid "Choose products with lower fat and saturated fat content."
+msgstr "Избери продукти с по-ниско съдържание на мазнини и наситени мазнини."
 

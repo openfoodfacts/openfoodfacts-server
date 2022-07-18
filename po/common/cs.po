@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-07-07 19:05\n"
+"PO-Revision-Date: 2022-07-17 19:05\n"
 "Language-Team: Czech\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -6040,8 +6040,8 @@ msgid "Could you add the information needed to compute the Nutri-Score?"
 msgstr "Mohl byste přidat informace potřebné k výpočtu Nutri-Score?"
 
 msgctxt "actions_to_compute_ecoscore"
-msgid "Could you categorize the product so that we can compute the Eco-Score?"
-msgstr "Mohl byste produkt kategorizovat tak, abychom mohli vypočítat Eco-Score?"
+msgid "Could you add a precise product category so that we can compute the Eco-Score?"
+msgstr "Mohl byste přidat přesnou produktovou kategorii, abychom mohli vypočítat Eco-Score?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -6054,4 +6054,65 @@ msgstr "Přidat kategorii"
 msgctxt "action_add_nutrition_facts"
 msgid "Add nutrition facts"
 msgstr "Přidat výživová fakta"
+
+# Used as a header for key facts
+msgctxt "knowledge_panels_facts"
+msgid "What you need to know"
+msgstr "Co potřebujete vědět"
+
+msgctxt "knowledge_panels_recommendation"
+msgid "Recommendation"
+msgstr "Doporučení"
+
+msgctxt "nutrient_info_salt_risk"
+msgid "A high consumption of salt (or sodium) can cause raised blood pressure, which can increase the risk of heart disease and stroke."
+msgstr "Vysoká konzumace soli (nebo sodíku) může způsobit zvýšený krevní tlak, což může zvýšit riziko srdečních onemocnění a mrtvice."
+
+msgctxt "nutrient_info_salt_high_blood_pressure"
+msgid "Many people who have high blood pressure do not know it, as there are often no symptoms."
+msgstr "Mnoho lidí, kteří mají vysoký krevní tlak, to neví, protože často nejsou žádné příznaky."
+
+msgctxt "nutrient_info_salt_high_consumption"
+msgid "Most people consume too much salt (on average 9 to 12 grams per day), around twice the recommended maximum level of intake."
+msgstr "Většina lidí konzumuje příliš mnoho soli (v průměru 9 až 12 gramů denně), přibližně dvojnásobek doporučené maximální dávky."
+
+msgctxt "nutrient_recommendation_salt_title"
+msgid "Limit the consumption of salt and salted food"
+msgstr "Omezte konzumaci soli a solených potravin"
+
+msgctxt "nutrient_recommendation_salt_cooking_and_table"
+msgid "Reduce the quantity of salt used when cooking, and don't salt again at the table."
+msgstr "Snižte množství soli používané při vaření a již u stolu nesolte."
+
+msgctxt "nutrient_recommendation_salt_limit_salty_snacks"
+msgid "Limit the consumption of salty snacks and choose products with lower salt content."
+msgstr "Omezte konzumaci slaných pochutin a vybírejte produkty s nižším obsahem soli."
+
+msgctxt "nutrient_info_sugars_risk"
+msgid "A high consumption of sugar can cause weight gain and tooth decay. It also augments the risk of type 2 diabetes and cardio-vascular diseases."
+msgstr "Vysoká konzumace cukru může způsobit nárůst hmotnosti a zubní kaz. Zvyšuje také riziko cukrovky 2. typu a kardiovaskulárních onemocnění."
+
+msgctxt "nutrient_recommendation_sugars_title"
+msgid "Limit the consumption of sugar and sugary drinks"
+msgstr "Omezte konzumaci cukru a slazených nápojů"
+
+msgctxt "nutrient_recommendation_sugars_drinks"
+msgid "Sugary drinks (such as sodas, fruit beverages, and fruit juices and nectars) should be limited as much as possible (no more than 1 glass a day)."
+msgstr "Slazené nápoje (jako jsou limonády, ovocné nápoje a ovocné šťávy a nektary) by měly být co nejvíce omezeny (ne více než 1 sklenice denně)."
+
+msgctxt "nutrient_recommendation_sugars_food"
+msgid "Choose products with lower sugar content and reduce the consumption of products with added sugars."
+msgstr "Vybírejte výrobky s nižším obsahem cukru a omezte spotřebu výrobků s přidanými cukry."
+
+msgctxt "nutrient_info_fat_and_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "Vysoká konzumace tuků, zejména nasycených, může zvýšit hladinu cholesterolu, což zvyšuje riziko srdečních onemocnění."
+
+msgctxt "nutrient_recommendation_fat_and_saturated_fat_title"
+msgid "Reduce the consumption of fat and saturated fat"
+msgstr "Snižte spotřebu tuků a nasycených tuků"
+
+msgctxt "nutrient_recommendation_fat_and_saturated_fat"
+msgid "Choose products with lower fat and saturated fat content."
+msgstr "Vybírejte produkty s nižším obsahem tuku a nasycených tuků."
 
