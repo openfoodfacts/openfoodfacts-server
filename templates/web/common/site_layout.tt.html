@@ -122,7 +122,7 @@
 
 				<ul class="title-area">
 					<li class="name">
-						<h2><a href="/" style="font-size:1rem;"><img id="logo" src="[% static_subdomain %]/images/logos/off-logo-horizontal-light.svg" alt="[% lang('logo_site_name') %]" style="height:48px;width:auto;"></h2>
+						<h2><a href="/" style="font-size:1rem;"><img id="logo" src="[% static_subdomain %]/images/logos/off-logo-horizontal-light.svg" alt="[% lang('logo_site_name') %]" style="margin:8px;height:48px;width:auto;"></h2>
 					</li>
 				</ul>
 				<section class="top-bar-section">
@@ -134,7 +134,7 @@
 							<div class="row"><div class="small-12">
 							<div class="row collapse postfix-round">
 								<div class="columns">
-								<input type="text" placeholder="[% lang('search_a_product_placeholder') %]" name="search_terms" value="[% search_terms %]" class="round info">
+								<input type="text" placeholder="[% lang('search_a_product_placeholder') %]" name="search_terms" value="[% search_terms %]" style="background-color:##EDE0DB">
 								<input name="search_simple" value="1" type="hidden">
 								<input name="action" value="process" type="hidden">
 								</div>
@@ -151,7 +151,7 @@
 				[% IF !(server_options_producers_platform) %]
 					<li><a href="[% lang('menu_discover_link') %]">[% lang('menu_discover') %]</a></li>
 					<li><a href="[% lang('menu_contribute_link') %]">[% lang('menu_contribute') %]</a></li>
-					<li class=" flex-grid getapp"><a href="[% lang('get_the_app_link') %]" class="buttonbar  oceanblue">[% display_icon('phone_android') %] <span class="bt-text">[% lang('get_the_app') %]</span></a></li>
+					<li class=" flex-grid getapp"><a href="[% lang('get_the_app_link') %]" class="buttonbar button" style="top:0;">[% display_icon('phone_android') %] <span class="bt-text">[% lang('get_the_app') %]</span></a></li>
 				[% END %]
 				</ul>
 				</section>

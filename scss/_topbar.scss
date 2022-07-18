@@ -192,7 +192,7 @@
                     height: 2.35rem;
                     &[type=text] {
                         width: 100%;
-                        border-color:$white;
+                        //border-color:$white;
                         box-shadow:none;
                         @media #{$topbar-media-query} {
                             width: 180px;
