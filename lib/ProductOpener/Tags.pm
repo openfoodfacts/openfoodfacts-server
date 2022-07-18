@@ -146,6 +146,7 @@ BEGIN
 		&add_users_translations_to_taxonomy
 
 		&remove_stopwords_from_start_or_end_of_string
+		&get_lc_tagid
 
 		&generate_tags_taxonomy_extract
 
