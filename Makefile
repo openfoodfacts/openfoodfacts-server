@@ -220,7 +220,7 @@ check_perl:
 
 # check with perltidy
 # we only look at changed files (compared to main) with extensions .pl, .pm, .t
-TO_TIDY_CHECK=$(shell git diff main --name-only | grep  '.*\.\(pl\|pm\|t\)$$' | grep -vFf .perltidy_excludes )
+TO_TIDY_CHECK=$(shell git diff origin/main --name-only | grep  '.*\.\(pl\|pm\|t\)$$' | grep -vFf .perltidy_excludes )
 check_perltidy:
 	@echo "🥫 Checking with perltidy ${TO_TIDY_CHECK}"
 	${DOCKER_COMPOSE} run --rm --no-deps backend perltidy --assert-tidy --standard-error-output ${TO_TIDY_CHECK}
@@ -233,7 +233,7 @@ lint_perltidy:
 
 #Checking with Perl::Critic
 # adding an echo of search.pl in case no files are edited
-TO_CRITIC_CHECK=$(shell git fetch origin main ; git diff remotes/origin/main --name-only | grep  '.*\.\(pl\|pm\|t\)$$' || echo './cgi/search.pl')
+TO_CRITIC_CHECK=$(shell git diff origin/main --name-only | grep  '.*\.\(pl\|pm\|t\)$$' || echo './cgi/search.pl')
 check_critic:
 	@echo "🥫 Checking with perlcritic"
 	${DOCKER_COMPOSE} run --rm --no-deps backend perlcritic ${TO_CRITIC_CHECK}
