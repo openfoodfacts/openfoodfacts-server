@@ -77,29 +77,36 @@
 				
 				<ul class="right">
 					[% IF not user_id.defined %]
-						<li class="h-space-tiny">
-							<a href="#" data-reveal-id="loginmodal" class="radius button primary">Login</a>
-						</li>
-						<li class="h-space-tiny">
-							<a href="#" data-reveal-id="loginmodal" class="radius button white">Sign up</a>
+						<li class="h-space-tiny has-form">
+							<a href="#" data-reveal-id="loginmodal" class="round button secondary">
+								<span class="material-symbols-outlined material-symbols-button">account_circle</span>
+								&nbsp;
+								Sign on
+							</a>
 						</li>
 					[% ELSE %]
 						<li class="has-dropdown">
 							<a href="#" class="userlink h-space-tiny">
 								<span class="material-symbols-outlined">
 									account_circle
-								</span> bla
-								[% user.name %]
+								</span>
+								&nbsp;
+								[% user.name %]</span>
 							</a>
 							<ul class="dropdown">
-								<li><a href="">Your account</a></li>
+								<li><a href=""><span class="material-symbols-outlined">settings</span> Parameters</a></li>
 								<li class="divider"></li>			
 								<li><label>Your contributions</label></li>
 								<li><a href="">Products added</a></li>
 								<li><a href="">Products edited</a></li>
 								<li><a href="">Products photographed</a></li>
 								<li class="divider"></li>			
-								<li><a href="">Sign out</a></li>
+								<li class="has-form">
+									<form method="post" action="/cgi/session.pl">
+    <input type="hidden" name="length" value="logout">
+    <input type="submit" name=".submit" value="Sign out" class="button small">
+</form>
+								</li>
 							</ul>
 						</li>
 					[% END %]
@@ -125,14 +132,14 @@
 						
 							<form action="/cgi/search.pl">
 							<div class="row"><div class="small-12">
-							<div class="row collapse postfix-radius">
-								<div class=" columns">
-								<input type="text" placeholder="[% lang('search_a_product_placeholder') %]" name="search_terms" value="[% search_terms %]">
+							<div class="row collapse postfix-round">
+								<div class="columns">
+								<input type="text" placeholder="[% lang('search_a_product_placeholder') %]" name="search_terms" value="[% search_terms %]" class="round info">
 								<input name="search_simple" value="1" type="hidden">
 								<input name="action" value="process" type="hidden">
 								</div>
-								<div class=" columns">
-								<button type="submit" title="[% lang('search') %]" class="button white postfix">[% display_icon('search') %]</button>
+								<div class="columns">
+								<button type="submit" title="[% lang('search') %]" class="button postfix" style="line-height:normal">[% display_icon('search') %]</button>
 								</div>
 							</div>
 							</div></div>

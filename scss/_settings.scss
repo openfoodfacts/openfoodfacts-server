@@ -110,12 +110,14 @@ $jet: #222222;
 $black: #000000;
 // We use these as default colors throughout
 // $primary-color: #0066ff;
-$primary-color: $offblue;
-$secondary-color: #e7e7e7;
+// $primary-color: $offblue;
+$primary-color: $primary-button-color;
+// $secondary-color: #e7e7e7;
+$secondary-color: $secondary-button-color;
 $alert-color: #ff0000;
 $success-color: #4FA125;
 $warning-color: #ff7e00;
-$info-color: #9debff;
+$info-color: $secondary-button-color-dark;
 // We use these to control various global styles
 $body-bg: $white;
 $body-font-color: $jet;
@@ -1125,7 +1127,8 @@ $switch-active-color: $primary-color;
 // $include-html-top-bar-classes: $include-html-classes;
 // Background color for the top bar
 // $topbar-bg-color: #EFEFEF;
-$topbar-bg-color: $silver;
+//$topbar-bg-color: $silver;
+$topbar-bg-color: $ristreto;
 $topbar-bg: $topbar-bg-color;
 // Height and margin
 $topbar-height: rem-calc(45);
@@ -1143,10 +1146,11 @@ $topbar-link-font-size: rem-calc(13);
 $topbar-link-hover-lightness: -10%; // Darken by 10%
 $topbar-link-bg: #ffffff00;
 // $topbar-link-bg-hover: $jet;
-$topbar-link-bg-hover: $gainsboro;
-$topbar-link-bg-color-hover: $charcoal;
+$topbar-link-bg-hover: $primary-color;
+$topbar-link-bg-color-hover: scale-color($primary-color, $lightness: -14%);
 // $topbar-link-bg-active: $primary-color;
-$topbar-link-bg-active: $smoke;
+// $topbar-link-bg-active: $smoke;
+$topbar-link-bg-active: $primary-color;
 $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
 $topbar-link-font-family: $body-font-family;
 $topbar-link-text-transform: none;

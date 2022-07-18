@@ -1,11 +1,3 @@
-// OFF colors
-
-$top-bar-color: $ristreto;
-$menu-bar-color: $latte;
-$text-color: $black;
-$text-color-dark: $white;
-$primary-button-color: $chocolate;
-
 
 // background colors for attributes and panels
 $grade-a-color: #219653;
@@ -372,8 +364,8 @@ details.recent {
 
 .top-bar .button,
 .top-bar button {
-    padding-top: 0.4rem;
-    padding-bottom: 0.4rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
 }
 
 .button.small,
@@ -400,6 +392,12 @@ button.postfix.small {
     font-size: 18px;
     width: 1em;
     height: 1em;
+}
+
+// Style material symbols like the SVG icons
+.material-symbols-button {
+    vertical-align:middle;
+    font-size:18px;
 }
 
 h3>.icon {

@@ -71,7 +71,8 @@
                 .button {
                     height: auto;
                     position: relative;
-                    top: auto;
+                    //not sure why top: auto; is added, breaks buttons in the top bar
+                    //top: auto;
                 }
             }
         }
@@ -176,7 +177,7 @@
             @media #{$large-up} {
                 width: 400px;
             }
-            .postfix-radius {
+            .postfix-round {
                 display: flex;
                 div:first-child {
                     width:100%;
@@ -210,8 +211,8 @@
         }
         button[type=submit] {
             height:2.35rem;
-            background-color:$pastelblue;
-            fill:$primary-color;
+            background-color:$primary-button-color;
+            fill:white;
             padding: 0.4rem 0.5rem;
         }
     }
