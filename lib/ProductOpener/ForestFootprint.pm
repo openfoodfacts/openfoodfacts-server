@@ -440,8 +440,6 @@ sub compute_footprints_of_ingredients($$$) {
 	
 	foreach my $ingredient_ref (@$ingredients_ref) {
 		
-		my $ingredient_origins_ref;
-		
 		# If we are at the first level of the ingredients array,
 		# ingredients have a rank, except the sub-ingredients listed at the end
 		if ($ingredient_ref->{rank}) {

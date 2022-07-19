@@ -51,8 +51,6 @@ use Text::CSV();
 
 ProductOpener::Display::init();
 
-my $import_files_ref;
-
 my $job_id = param("job_id");
 
 my %data;

@@ -5243,7 +5243,6 @@ sub extract_ingredients_classes_from_text($) {
 		}
 	}
 
-	my $with_sweeteners;
 
 	my %all_seen = (); # used to not tag "huile végétale" if we have seen "huile de palme" already
 

@@ -259,7 +259,6 @@ if ($action eq 'display') {
 
 	my %search_fields_labels = ();
 	my @tags_fields_options;
-	my @contains;
 
 	push(
 		@tags_fields_options,
