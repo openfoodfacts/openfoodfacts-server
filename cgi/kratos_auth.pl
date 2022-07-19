@@ -28,9 +28,11 @@ use ProductOpener::Users qw/:all/;
 use LWP::UserAgent;
 use JSON;
 use Log::Any qw($log);
+use CGI qw(:standard);
 
-my $kratos_cookie = cookie('ory_kratos_session');
-log->debug($kratos_cookie);
+#Retrieve ory_kratos_session cookie 
+my $kratos_cookie = "ory_kratos_session=".cookie('ory_kratos_session');
+$log->debug($kratos_cookie);
 
 if(defined $kratos_cookie){
     my $url = "http://kratos.openfoodfacts.localhost:4433/sessions/whoami";
@@ -45,27 +47,20 @@ if(defined $kratos_cookie){
     my $resp = $ua->request($req);
 
     if ($resp->is_success) {
+        #decode json to a hash
         my $json = $resp->decoded_content;
-        log->debug($json);
+        my $content = decode_json($json);
+        my %contentdecoded = %$content;
+
+        #get UserID from json hash
+        my $UserID = $contentdecoded{identity}{traits}{UserID};
+
+        #$log->debug($json);
+        $log->debug("User ID: ", $UserID);
     }
     else {
-        log->debug("HTTP GET error code: ", $resp->code, "n");
-        log->debug("HTTP GET error message: ", $resp->message, "n");
+        $log->debug("HTTP GET error code: ", $resp->code, "n");
+        $log->debug("HTTP GET error message: ", $resp->message, "n");
     }
 }
-
-#Below code is test code for json hash to get UserID
-# my $json = '';
-
-# my $content = decode_json($json);
-# my %contentdecoded = %$content;
-
-# my $UserID = $contentdecoded{identity}{traits}{UserID};
-
-# $log->debug("User ID: ", $UserID);
-
-
-
-
-
 

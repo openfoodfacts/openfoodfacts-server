@@ -29,6 +29,10 @@ services:
     ports:
       - '127.0.0.1:4433:4433'
       - '127.0.0.1:4434:4434'
+    networks:
+      default:
+        aliases:
+          - kratos.openfoodfacts.localhost
     volumes:
       - type: bind
         source: ./Ory/kratos
