@@ -67,8 +67,7 @@ if (defined $User_id) {
 	}
 	elsif ( (defined $referer)
 		and ($referer =~ /^https?:\/\/$subdomain\.$server_domain/)
-		and (not($referer =~ /(?:session|user|reset_password)\.pl/)))
-	{
+		and (not($referer =~ /(?:session|user|reset_password)\.pl/))) {
 		$url = $referer;
 	}
 
@@ -78,13 +77,12 @@ if (defined $User_id) {
 
 		$r->err_headers_out->add('Set-Cookie' => $cookie);
 		$r->headers_out->set(Location => "$url");
-		$r->status(301);
-		return 301;
+		$r->status(302);
+		return 302;
 	}
 }
 
-process_template('web/pages/session/session.tt.html', $template_data_ref, \$html)
-  or $html = "<p>" . $tt->error() . "</p>";
+
 
 if (param('jqm')) {
 
@@ -102,6 +100,25 @@ if (param('jqm')) {
 
 }
 else {
+
+	my $template;
+
+	if ((defined param('length')) and (param('length') eq 'logout')) {
+		# The user is signing out
+		$template = "signed_out";
+	}
+	elsif (defined $User_id) {
+		# The user is signed in
+		$template = "signed_in";
+	}
+	else {
+		# The user is signing in: display the login form
+		$template = "sign_in_form";
+	}
+
+	process_template("web/pages/session/$template.tt.html", $template_data_ref, \$html)
+  			or $html = "<p>" . $tt->error() . "</p>";
+
 	display_page(
 		{
 			title => lang('session_title'),

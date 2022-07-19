@@ -78,10 +78,10 @@
 				<ul class="right">
 					[% IF not user_id.defined %]
 						<li class="h-space-tiny has-form">
-							<a href="#" data-reveal-id="loginmodal" class="round button secondary">
+							<a href="/cgi/session.pl" data-reveal-id="loginmodal" class="round button secondary">
 								<span class="material-symbols-outlined material-symbols-button">account_circle</span>
 								&nbsp;
-								Sign on
+								Sign in
 							</a>
 						</li>
 					[% ELSE %]
@@ -134,7 +134,7 @@
 							<div class="row"><div class="small-12">
 							<div class="row collapse postfix-round">
 								<div class="columns">
-								<input type="text" placeholder="[% lang('search_a_product_placeholder') %]" name="search_terms" value="[% search_terms %]" style="background-color:##EDE0DB">
+								<input type="text" placeholder="[% lang('search_a_product_placeholder') %]" name="search_terms" value="[% search_terms %]" style="background-color:#EDE0DB">
 								<input name="search_simple" value="1" type="hidden">
 								<input name="action" value="process" type="hidden">
 								</div>
