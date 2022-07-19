@@ -201,10 +201,17 @@ integration_test:
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 integration tests success"
 
-test-one: guard-test # usage: make test-one test=t/test-file.t
-	@echo "🥫 Running test: '${test}' …"
+test-unit: guard-test # usage: make test-one test=t/test-file.t
+	@echo "🥫 Running test: 'tests/unit/${test}' …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run --rm backend perl ${test}
+	${DOCKER_COMPOSE_TEST} run --rm backend perl tests/unit/${test}
+
+test-int: guard-test # usage: make test-one test=t/test-file.t
+	@echo "🥫 Running test: 'tests/integration/${test}' …"
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend
+	${DOCKER_COMPOSE_TEST} exec backend perl tests/integration/${test}
+# better shutdown, for if we do a modification of the code, we need a restart
+	${DOCKER_COMPOSE_TEST} stop backend
 
 # check perl compiles, (pattern rule) / but only for newer files
 %.pm %.pl: _FORCE
