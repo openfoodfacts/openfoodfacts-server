@@ -422,6 +422,7 @@ sub override_general_value($$$$) {
 	if ($string ne "") {
 		$attribute_ref->{$field} = $string;
 	}
+	return;
 }
 
 
@@ -1522,6 +1523,7 @@ sub add_attribute_to_group($$$$) {
 		
 		push @{$group_ref->{attributes}}, $attribute_ref;
 	}
+	return;
 }
 
 
@@ -1632,6 +1634,7 @@ sub compute_attributes($$$$) {
 	
 	$log->debug("computed attributes for product", { code => $product_ref->{code}, target_lc => $target_lc,
 		"attribute_groups_" . $target_lc => $product_ref->{"attribute_groups_" . $target_lc} }) if $log->is_debug();
+	return;
 }
 
 1;
