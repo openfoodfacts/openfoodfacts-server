@@ -959,6 +959,7 @@ sub add_properties_from_specific_ingredients($) {
 			}
 		}
 	}
+	return;
 }
 
 
@@ -1013,6 +1014,7 @@ sub add_specific_ingredients_from_labels($) {
 			}
 		}
 	}
+	return;
 }
 
 
@@ -2182,6 +2184,7 @@ sub flatten_sub_ingredients($) {
 		# Delete the sub-ingredients, as they have been pushed at the end of the list
 		delete $product_ref->{ingredients}[$i]{ingredients};
 	}
+	return;
 }
 
 
@@ -2284,6 +2287,7 @@ sub compute_ingredients_tags($) {
 		# ensure $product_ref->{ingredients_n} is last used as an int so that it is not saved as a strings
 		$product_ref->{ingredients_n} += 0;
 	}
+	return;
 }
 
 
@@ -2871,6 +2875,7 @@ sub compute_ingredients_percent_estimates($$) {
 	}
 
 	$log->debug("compute_ingredients_percent_estimates - done", { ingredients_ref => $ingredients_ref }) if $log->is_debug();
+	return;
 }
 
 
@@ -3107,6 +3112,7 @@ sub analyze_ingredients($) {
 
 	# Uncomment the following line to add an extra field with more data for debugging purposes
 	#$product_ref->{ingredients_analysis_debug} = $ingredients_analysis_ref;
+	return;
 }
 
 
@@ -5940,6 +5946,7 @@ sub detect_allergens_from_ingredients($) {
 			$log->debug("detect_allergens_from_ingredients -- found allergen", { allergens => $allergens }) if $log->is_debug();
 		}
 	}	
+	return;
 }
 
 
