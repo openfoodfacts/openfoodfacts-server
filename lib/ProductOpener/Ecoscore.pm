@@ -162,6 +162,7 @@ sub load_agribalyse_data() {
 	else {
 		die("Could not open agribalyse CSV $agribalyse_details_by_step_csv_file: $!");
 	}
+	return;
 }
 
 
@@ -252,6 +253,7 @@ sub load_ecoscore_data_origins_of_ingredients_distances() {
 	else {
 		die("Could not open ecoscore origins distances CSV $csv_file: $!");
 	}
+	return;
 }
 
 
@@ -348,6 +350,7 @@ sub load_ecoscore_data_origins_of_ingredients() {
 	else {
 		die("Could not open ecoscore origins CSV $csv_file: $!");
 	}
+	return;
 }
 
 
@@ -555,6 +558,7 @@ sub load_ecoscore_data_packaging() {
 	}	
 	
 	$log->debug("ecoscore packaging_shapes data", { packaging_materials => $ecoscore_data{packaging_shapes} }) if $log->is_debug();
+	return;
 }
 
 
@@ -568,6 +572,7 @@ sub load_ecoscore_data() {
 
 	load_ecoscore_data_origins_of_ingredients();
 	load_ecoscore_data_packaging();
+	return;
 }
 
 
@@ -795,6 +800,7 @@ sub compute_ecoscore($) {
 			add_tag($product_ref,"misc","en:ecoscore-not-computed");
 		}
 	}
+	return;
 }
 
 
@@ -904,6 +910,7 @@ sub compute_ecoscore_agribalyse($) {
 	else {
 		$product_ref->{ecoscore_data}{agribalyse}{warning} = "missing_agribalyse_match";
 	}
+	return;
 }
 
 
@@ -1001,7 +1008,7 @@ sub compute_ecoscore_production_system_adjustment($) {
 		defined $product_ref->{ecoscore_data}{missing} or $product_ref->{ecoscore_data}{missing} = {};
 		$product_ref->{ecoscore_data}{missing}{labels} = 1;
 	}	
-	
+	return;	
 }
 
 
@@ -1047,7 +1054,7 @@ sub compute_ecoscore_threatened_species_adjustment($) {
 		defined $product_ref->{ecoscore_data}{missing} or $product_ref->{ecoscore_data}{missing} = {};
 		$product_ref->{ecoscore_data}{missing}{ingredients} = 1;
 	}
-	
+	return;	
 }
 
 
@@ -1128,6 +1135,7 @@ sub aggregate_origins_of_ingredients($$$) {
 			}
 		}
 	}
+	return;
 }
 
 =head2 compute_ecoscore_origins_of_ingredients_adjustment ( $product_ref )
@@ -1256,6 +1264,7 @@ sub compute_ecoscore_origins_of_ingredients_adjustment($) {
 		defined $product_ref->{ecoscore_data}{missing} or $product_ref->{ecoscore_data}{missing} = {};
 		$product_ref->{ecoscore_data}{missing}{origins} = 1;
 	}
+	return;
 }
 
 
@@ -1430,7 +1439,7 @@ sub compute_ecoscore_packaging_adjustment($) {
 		defined $product_ref->{ecoscore_data}{missing} or $product_ref->{ecoscore_data}{missing} = {};
 		$product_ref->{ecoscore_data}{missing}{packagings} = 1;		
 	}
-	
+	return;	
 }
 
 
@@ -1506,6 +1515,7 @@ sub localize_ecoscore ($$) {
 			}
 		}
 	}		
+	return;
 }
 
 
