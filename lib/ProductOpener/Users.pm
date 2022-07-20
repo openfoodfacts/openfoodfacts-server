@@ -209,6 +209,7 @@ sub delete_user($user_ref) {
 	
 	#  re-assign product edits to openfoodfacts-contributors-[random number]
 	find_and_replace_user_id_in_products($userid, $new_userid);
+	return;
 }
 
 =head2 is_admin_user()
