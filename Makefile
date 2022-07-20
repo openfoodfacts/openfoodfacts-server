@@ -247,7 +247,7 @@ build_taxonomies:
 	${DOCKER_COMPOSE} run --no-deps --rm backend make -C taxonomies -j ${CPU_COUNT}
 
 rebuild_taxonomies:
-	@echo "🥫 re-build taxonomies on ${CPU_COUNT} procs"
+	@echo "🥫 re-build all taxonomies on ${CPU_COUNT} procs"
 	${DOCKER_COMPOSE} run --rm backend make -C taxonomies all_taxonomies -j ${CPU_COUNT}
 
 #------------#
