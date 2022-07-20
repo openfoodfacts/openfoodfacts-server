@@ -218,8 +218,11 @@ test-int: guard-test # usage: make test-one test=t/test-file.t
 %.pm %.pl: _FORCE
 	if [ -f $@ ]; then perl -c -CS -Ilib $@; else true; fi
 
-# check all modified (compared to main) perl file compiles
-TO_CHECK=$(shell git diff main --name-only | grep  '.*\.\(pl\|pm\)$$')
+
+# TO_CHECK look at changed files (compared to main) with extensions .pl, .pm, .t
+# the ls at the end is to avoid removed files
+TO_CHECK=$(shell git diff origin/main --name-only | grep  '.*\.\(pl\|pm\|t\)$$' | xargs ls -d 2>/dev/null )
+
 check_perl_fast:
 	@echo "🥫 Checking ${TO_CHECK}"
 	${DOCKER_COMPOSE} run --rm backend make -j ${CPU_COUNT} ${TO_CHECK}
@@ -237,11 +240,11 @@ check_perl:
 
 
 # check with perltidy
-# we only look at changed files (compared to main) with extensions .pl, .pm, .t
-TO_TIDY_CHECK=$(shell git diff origin/main --name-only | grep  '.*\.\(pl\|pm\|t\)$$' | grep -vFf .perltidy_excludes )
+# we exclude files that are in .perltidy_excludes
+TO_TIDY_CHECK = $(shell echo ${TO_CHECK}| tr " " "\n" | grep -vFf .perltidy_excludes)
 check_perltidy:
 	@echo "🥫 Checking with perltidy ${TO_TIDY_CHECK}"
-	${DOCKER_COMPOSE} run --rm --no-deps backend perltidy --assert-tidy --standard-error-output ${TO_TIDY_CHECK}
+	${DOCKER_COMPOSE} run --rm --no-deps backend perltidy --assert-tidy -opath=/tmp/ --standard-error-output ${TO_TIDY_CHECK}
 
 # same as check_perltidy, but this time applying changes
 lint_perltidy:
@@ -251,10 +254,9 @@ lint_perltidy:
 
 #Checking with Perl::Critic
 # adding an echo of search.pl in case no files are edited
-TO_CRITIC_CHECK=$(shell git diff origin/main --name-only | grep  '.*\.\(pl\|pm\|t\)$$' || echo './cgi/search.pl')
 check_critic:
 	@echo "🥫 Checking with perlcritic"
-	${DOCKER_COMPOSE} run --rm --no-deps backend perlcritic ${TO_CRITIC_CHECK}
+	${DOCKER_COMPOSE} run --rm --no-deps backend perlcritic ${TO_CHECK}
 
 #-------------#
 # Compilation #
