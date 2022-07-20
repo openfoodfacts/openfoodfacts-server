@@ -172,6 +172,7 @@ sub create_knowledge_panels($$$$) {
     # Create the root panel that contains the panels we want to show directly on the product page
     create_panel_from_json_template("root", "api/knowledge-panels/root.tt.json",
         {}, $product_ref, $target_lc, $target_cc);
+    return;
 }
 
 
@@ -337,8 +338,8 @@ sub create_panel_from_json_template ($$$$$$) {
             };            
         }
     }
+    return;
 }
-
 
 =head2 extract_data_from_impact_estimator_best_recipe ($product_ref, $panel_data_ref)
 
@@ -389,6 +390,7 @@ sub extract_data_from_impact_estimator_best_recipe($$) {
     $panel_data_ref->{ecoscore_extended_data_more_precise_than_agribalyse} = is_ecoscore_extended_data_more_precise_than_agribalyse($product_ref);
 
     # TODO: compute the complete score, using Agribalyse impacts except for agriculture where we use the estimator impact
+    return;
 }
 
 
@@ -429,6 +431,7 @@ sub compare_impact_estimator_data_to_category_average($$$) {
             }
         }
     }
+    return;
 }
 
 
@@ -608,6 +611,7 @@ sub create_ecoscore_panel($$$) {
                 $label_panel_data_ref, $product_ref, $target_lc, $target_cc);
         }
     }    
+    return;
 }
 
 
@@ -668,6 +672,7 @@ sub create_environment_card_panel($$$) {
     # Create the environment_card panel
     create_panel_from_json_template("environment_card", "api/knowledge-panels/environment/environment_card.tt.json",
         $panel_data_ref, $product_ref, $target_lc, $target_cc);    
+    return;
 }
 
 
@@ -722,6 +727,7 @@ sub create_manufacturing_place_panel($$$) {
             }
         }
     }
+    return;
 }
 
 
@@ -781,6 +787,7 @@ sub create_health_card_panel($$$$) {
 
     create_panel_from_json_template("health_card", "api/knowledge-panels/health/health_card.tt.json",
         $panel_data_ref, $product_ref, $target_lc, $target_cc);    
+    return;
 }
 
 
@@ -825,6 +832,7 @@ sub create_nutriscore_panel($$$) {
     # Nutri-Score panel: score + details
     create_panel_from_json_template("nutriscore", "api/knowledge-panels/health/nutriscore/nutriscore.tt.json",
         $panel_data_ref, $product_ref, $target_lc, $target_cc);
+    return;
 }
 
 
@@ -864,7 +872,8 @@ sub create_nutrient_levels_panels($$$) {
             create_panel_from_json_template("nutrient_level_" . $nid, "api/knowledge-panels/health/nutrition/nutrient_level.tt.json",
                 $nutrient_level_ref, $product_ref, $target_lc, $target_cc);
         }
-    }    
+    }
+    return;
 }
 
 
@@ -906,6 +915,7 @@ sub create_nutrition_facts_table_panel($$$) {
         create_panel_from_json_template("nutrition_facts_table", "api/knowledge-panels/health/nutrition/nutrition_facts_table.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);
     }
+    return;
 }
 
 
@@ -943,6 +953,7 @@ sub create_serving_size_panel($$$) {
         create_panel_from_json_template("serving_size", "api/knowledge-panels/health/nutrition/serving_size.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);
     }
+    return;
 }
 
 =head2 create_physical_activities_panel ( $product_ref, $target_lc, $target_cc )
@@ -1057,6 +1068,7 @@ sub create_physical_activities_panel($$$) {
         create_panel_from_json_template("physical_activities", "api/knowledge-panels/health/nutrition/physical_activities.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);
     }
+    return;
 }
 
 
@@ -1118,6 +1130,7 @@ sub create_ingredients_panel($$$) {
 
     create_panel_from_json_template("ingredients", "api/knowledge-panels/health/ingredients/ingredients.tt.json",
         $panel_data_ref, $product_ref, $target_lc, $target_cc);
+    return;
 }
 
 
@@ -1176,6 +1189,7 @@ sub create_additives_panel($$$) {
             $additives_panel_data_ref, $product_ref, $target_lc, $target_cc);
 
     }
+    return;
 }
 
 
@@ -1241,6 +1255,7 @@ sub create_ingredients_analysis_panel($$$) {
         create_panel_from_json_template("ingredients_analysis", "api/knowledge-panels/health/ingredients/ingredients_analysis.tt.json",
             {}, $product_ref, $target_lc, $target_cc);
     }
+    return;
 }
 
 
@@ -1296,6 +1311,7 @@ sub add_taxonomy_properties_in_target_languages_to_object ($$$$$) {
             $object_ref->{$property . "_language"} = display_taxonomy_tag($target_lcs_ref->[0], "languages", $language_codes{$property_lc});
         }
     }
+    return;
 }
 
 
@@ -1366,6 +1382,7 @@ sub create_recommendation_panels($$$) {
                 {}, $product_ref, $target_lc, $target_cc);
         }
     }
+    return;
 }
 
 
@@ -1411,6 +1428,7 @@ sub create_nova_panel($$$) {
             $panel_data_ref, $product_ref, $target_lc, $target_cc);
 
     }
+    return;
 }
 
 1;
