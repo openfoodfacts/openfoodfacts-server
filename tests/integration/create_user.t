@@ -19,3 +19,5 @@ my $response = $ua->get("http://world.openfoodfacts.localhost/cgi/user.pl?type=e
 
 #$DB::single = 1;
 is $response->{_rc}, 200;
+
+done_testing();
