@@ -221,6 +221,7 @@ sub load_forest_footprint_data() {
 			die("Could not open forest footprint CSV $csv_file: $!");
 		}
 	}
+	return;
 }
 
 
@@ -302,6 +303,7 @@ sub compute_forest_footprint($) {
 		delete $product_ref->{forest_footprint_data};
 		remove_tag($product_ref,"misc","en:forest-footprint-computed");
 	}
+	return;
 }
 
 =head2 add_footprint ( $product_ref, $ingredient_ref, $footprints_ref, $ingredients_category_ref, $footprint_ref )
@@ -391,6 +393,7 @@ sub add_footprint ($$$$$) {
 			last;
 		}
 	}
+	return;
 }
 
 
@@ -580,6 +583,7 @@ sub compute_footprint_of_category($$) {
 			last;
 		}
 	}
+	return;
 }
 
 
