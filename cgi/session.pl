@@ -38,7 +38,7 @@ use Encode;
 use JSON::PP;
 use Log::Any qw($log);
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 use ProductOpener::Lang qw/:all/;
 
 my $html = '';
@@ -76,7 +76,7 @@ if (defined $User_id) {
 
 		$log->info("redirecting after login", {url => $url}) if $log->is_info();
 
-		$r->err_headers_out->add('Set-Cookie' => $cookie);
+		$r->err_headers_out->add('Set-Cookie' => $request_ref->{cookie});
 		$r->headers_out->set(Location => "$url");
 		$r->status(301);
 		return 301;
@@ -102,11 +102,8 @@ if (param('jqm')) {
 
 }
 else {
-	display_page(
-		{
-			title => lang('session_title'),
-			content_ref => \$html
-		}
-	);
+	$request_ref->{title} = lang('session_title');
+	$request_ref->{content_ref} = \$html;
+	display_page($request_ref);
 }
 

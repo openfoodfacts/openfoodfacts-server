@@ -346,7 +346,7 @@ if ($action eq 'display') {
 elsif ($action eq 'process') {
 
 	if (($type eq 'add') or ($type =~ /^edit/)) {
-		ProductOpener::Users::process_user_form($type, $user_ref);
+		ProductOpener::Users::process_user_form($type, $user_ref, $request_ref);
 	}
 	elsif ($type eq 'delete') {
 		ProductOpener::Users::delete_user($user_ref);

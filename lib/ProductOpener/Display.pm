@@ -435,7 +435,7 @@ sub process_template($template_filename, $template_data_ref, $result_content_ref
 }
 
 
-=head2 init ()
+=head2 init_request ()
 
 C<init()> is called at the start of each new request (web page or API).
 It initializes a number of variables, in particular:
@@ -443,15 +443,28 @@ It initializes a number of variables, in particular:
 $cc : country code
 $lc : language code
 
+It also initializes a request object that is returned.
+
+=head3 Return value
+
+Reference to request object.
+
 =cut
 
-sub init() {
+sub init_request() {
 
 	# Clear the context
 	delete $log->context->{user_id};
 	delete $log->context->{user_session};
 	$log->context->{request} = generate_token(16);
 
+	# Create and initialize a request object
+	my $request_ref = {
+		'query_string'=>$ENV{QUERY_STRING},
+		'referer'=>referer()
+	};
+
+	# TODO: global variables should be moved to $request_ref
 	$styles = '';
 	$scripts = '';
 	$initjs = '';
@@ -492,16 +505,9 @@ sub init() {
 	local $log->context->{ip} = remote_addr();
 	local $log->context->{query_string} = $ENV{QUERY_STRING};
 
-	$test = 0;
-	if ($subdomain =~ /\.test\./) {
-		$subdomain =~ s/\.test\./\./;
-		$test = 1;
-	}
-
 	$subdomain =~ s/\..*//;
 
 	$original_subdomain = $subdomain;    # $subdomain can be changed if there are cc and/or lc overrides
-
 
 	$log->debug("initializing request", { subdomain => $subdomain }) if $log->is_debug();
 
@@ -550,10 +556,9 @@ sub init() {
 		my $redirect = get_world_subdomain() . "/" . $ENV{QUERY_STRING};
 		$log->info("request could not be matched to a known format, redirecting", { subdomain => $subdomain, lc => $lc, cc => $cc, country => $country, redirect => $redirect }) if $log->is_info();
 		$r->headers_out->set(Location => $redirect);
-		$r->status(301);
-		return 301;
+		$r->status(302);
+		return 302;
 	}
-
 
 	$lc =~ s/_.*//;     # PT_PT doest not work yet: categories
 
@@ -571,8 +576,8 @@ sub init() {
 		my $redirect = "$ccdom/" . $ENV{QUERY_STRING};
 		$log->info("lc is equal to first lc of the country, redirecting to countries main domain", { subdomain => $subdomain, lc => $lc, cc => $cc, country => $country, redirect => $redirect }) if $log->is_info();
 		$r->headers_out->set(Location => $redirect);
-		$r->status(301);
-		return 301;
+		$r->status(302);
+		return 302;
 	}
 
 
@@ -621,7 +626,7 @@ sub init() {
 
 	$log->debug("URI parsed for additional information", { subdomain => $subdomain, original_subdomain => $original_subdomain, lc => $lc, lang => $lang, cc => $cc, country => $country }) if $log->is_debug();
 
-	my $error = ProductOpener::Users::init_user();
+	my $error = ProductOpener::Users::init_user($request_ref);
 	if ($error) {
 		if (not param('jqm')) { # API
 			display_error($error, undef);
@@ -721,7 +726,7 @@ CSS
 
 	$log->debug("owner, org and user", { private_products => $server_options{private_products}, owner_id => $Owner_id, user_id => $User_id, org_id => $Org_id }) if $log->is_debug();
 
-	return;
+	return $request_ref;
 }
 
 # component was specified as en:product, fr:produit etc.
@@ -7046,22 +7051,18 @@ HTML
 	# Replace urls for texts in links like <a href="/ecoscore"> with a localized name
 	$html =~ s/(href=")(\/[^"]+)/$1 . url_for_text($2)/eg;
 
-	if ((defined param('length')) and (param('length') eq 'logout')) {
-		my $test = '';
-		if ($data_root =~ /-test/) {
-			$test = "-test";
-		}
-		my $session = {} ;
-		my $cookie2 = cookie (-name=>'session', -expires=>'-1d',-value=>$session, domain=>".$lc$test.$server_domain", -path=>'/', -samesite=>'Lax') ;
-		print header (-cookie=>[$cookie, $cookie2], -expires=>'-1d', -charset=>'UTF-8');
-	}
-	elsif (defined $cookie) {
-		print header (-cookie=>[$cookie], -expires=>'-1d', -charset=>'UTF-8');
-	}
-	else {
-		print header ( -expires=>'-1d', -charset=>'UTF-8');
+	my $http_headers_ref = {
+		'-expires' => '-1d',
+		'-charset' => 'UTF-8',
+	};
+
+	# init_user() may set or unset the session cookie
+	if (defined $request_ref->{cookie}) {
+		$http_headers_ref->{'-cookie'} = [$request_ref->{cookie}];
 	}
 
+	print header(%$http_headers_ref);
+	
 	my $status = $request_ref->{status};
 	if (defined $status) {
 		print header ( -status => $status );
