@@ -43,6 +43,8 @@ BEGIN
         &normalize_product_for_test_comparison
         &normalize_products_for_test_comparison
         &remove_all_products
+        &remove_all_users
+        &check_not_production
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -64,6 +66,24 @@ use Path::Tiny qw/path/;
 use Log::Any qw($log);
 
 
+=head2 check_not_production ()
+
+Fail unless we have less than 1000 products in database.
+
+This is a simple heuristic to ensure we are not in a production database
+
+=cut
+
+sub check_not_production() {
+    my $products_count = execute_query(sub {
+		return get_products_collection()->count_documents({});
+	});
+    unless ((0 <= $products_count) && ($products_count < 1000)) {
+        die("Refusing to run destructive test on a DB of more than 1000 items");
+    }
+}
+
+
 =head2 remove_all_products ()
 
 For integration tests, we need to start from an empty database, so that the results of the tests
@@ -75,13 +95,8 @@ This function should only be called by tests, and never on production environmen
 
 sub remove_all_products () {
 
-   # check we are not on a prod database, by checking there are not more than 1000 products
-    my $products_count = execute_query(sub {
-		return get_products_collection()->count_documents({});
-	});
-    unless ((0 <= $products_count) && ($products_count < 1000)) {
-        die("Refusing to run destructive test on a DB of more than 1000 items");
-    }
+    # Important: check we are not on a prod database
+    check_not_production();
     # clean database
     execute_query(sub {
 		return get_products_collection()->delete_many({});
@@ -90,6 +105,27 @@ sub remove_all_products () {
     remove_tree("$data_root/products", {keep_root => 1, error => \my $err});
     if (@$err) {
         die("not able to remove some products directories: ". join(":", @$err));
+    }
+}
+
+
+
+=head2 remove_all_users ()
+
+For integration tests, we need to start from an empty user base
+
+This function should only be called by tests, and never on production environments.
+
+=cut
+
+sub remove_all_users () {
+    # Important: check we are not on a prod database
+    check_not_production();
+    # clean files
+    # clean files
+    remove_tree("$data_root/users", {keep_root => 1, error => \my $err});
+    if (@$err) {
+        die("not able to remove some users directories: ". join(":", @$err));
     }
 }
 

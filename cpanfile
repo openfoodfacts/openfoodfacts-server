@@ -90,6 +90,7 @@ on 'test' => sub {
   requires 'Log::Any::Adapter::TAP'; # liblog-any-adapter-tap-perl
   requires 'IO::Capture::Stdout::Extended';
   requires 'IO::Capture::Stderr::Extended';
+  requires 'HTTP::CookieJar::LWP';
 };
 
 on 'develop' => sub {

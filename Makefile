@@ -182,26 +182,47 @@ front_build:
 checks: front_build front_lint check_perltidy check_perl_fast check_critic
 
 lint: lint_perltidy
-	
 
-tests: build_lang_test
-	@echo "🥫 Running tests …"
+tests: build_lang_test unit_test integration_test
+
+unit_test:
+	@echo "🥫 Running unit tests …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run --rm backend prove -l --jobs ${CPU_COUNT}
+	${DOCKER_COMPOSE_TEST} run --rm backend prove -l --jobs ${CPU_COUNT} -r tests/unit
 	${DOCKER_COMPOSE_TEST} stop
-	@echo "🥫 test success"
+	@echo "🥫 unit tests success"
 
-test-one: guard-test # usage: make test-one test=t/test-file.t
-	@echo "🥫 Running test: '${test}' …"
+integration_test:
+	@echo "🥫 Running unit tests …"
+# we launch the server and run tests within same container
+# we also need dynamicfront for some assets to exists
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront
+# note: we need the -T option for ci (non tty environment)
+	${DOCKER_COMPOSE_TEST} exec -T backend prove -l -r tests/integration
+	${DOCKER_COMPOSE_TEST} stop
+	@echo "🥫 integration tests success"
+
+test-unit: guard-test # usage: make test-one test=t/test-file.t
+	@echo "🥫 Running test: 'tests/unit/${test}' …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run --rm backend perl ${test}
+	${DOCKER_COMPOSE_TEST} run --rm backend perl tests/unit/${test}
+
+test-int: guard-test # usage: make test-one test=t/test-file.t
+	@echo "🥫 Running test: 'tests/integration/${test}' …"
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront
+	${DOCKER_COMPOSE_TEST} exec backend perl tests/integration/${test}
+# better shutdown, for if we do a modification of the code, we need a restart
+	${DOCKER_COMPOSE_TEST} stop backend
 
 # check perl compiles, (pattern rule) / but only for newer files
 %.pm %.pl: _FORCE
 	if [ -f $@ ]; then perl -c -CS -Ilib $@; else true; fi
 
-# check all modified (compared to main) perl file compiles
-TO_CHECK=$(shell git diff main --name-only | grep  '.*\.\(pl\|pm\)$$')
+
+# TO_CHECK look at changed files (compared to main) with extensions .pl, .pm, .t
+# the ls at the end is to avoid removed files
+TO_CHECK=$(shell git diff origin/main --name-only | grep  '.*\.\(pl\|pm\|t\)$$' | xargs ls -d 2>/dev/null )
+
 check_perl_fast:
 	@echo "🥫 Checking ${TO_CHECK}"
 	${DOCKER_COMPOSE} run --rm backend make -j ${CPU_COUNT} ${TO_CHECK}
@@ -219,11 +240,11 @@ check_perl:
 
 
 # check with perltidy
-# we only look at changed files (compared to main) with extensions .pl, .pm, .t
-TO_TIDY_CHECK=$(shell git diff origin/main --name-only | grep  '.*\.\(pl\|pm\|t\)$$' | grep -vFf .perltidy_excludes )
+# we exclude files that are in .perltidy_excludes
+TO_TIDY_CHECK = $(shell echo ${TO_CHECK}| tr " " "\n" | grep -vFf .perltidy_excludes)
 check_perltidy:
 	@echo "🥫 Checking with perltidy ${TO_TIDY_CHECK}"
-	${DOCKER_COMPOSE} run --rm --no-deps backend perltidy --assert-tidy --standard-error-output ${TO_TIDY_CHECK}
+	${DOCKER_COMPOSE} run --rm --no-deps backend perltidy --assert-tidy -opath=/tmp/ --standard-error-output ${TO_TIDY_CHECK}
 
 # same as check_perltidy, but this time applying changes
 lint_perltidy:
@@ -233,10 +254,9 @@ lint_perltidy:
 
 #Checking with Perl::Critic
 # adding an echo of search.pl in case no files are edited
-TO_CRITIC_CHECK=$(shell git diff origin/main --name-only | grep  '.*\.\(pl\|pm\|t\)$$' || echo './cgi/search.pl')
 check_critic:
 	@echo "🥫 Checking with perlcritic"
-	${DOCKER_COMPOSE} run --rm --no-deps backend perlcritic ${TO_CRITIC_CHECK}
+	${DOCKER_COMPOSE} run --rm --no-deps backend perlcritic ${TO_CHECK}
 
 #-------------#
 # Compilation #
