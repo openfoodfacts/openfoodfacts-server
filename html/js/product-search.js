@@ -255,7 +255,7 @@ function display_products(target, product_groups, user_prefs) {
             product_html += '<div class="list_product_img_div">';
 
             const img_src =
-                product.image_front_thumb_url ||
+                product.image_front_small_url ||
                 "/images/icons/product-silhouette-transparent.svg";
             product_html += `<img src="${img_src}" class="list_product_img">`;
 

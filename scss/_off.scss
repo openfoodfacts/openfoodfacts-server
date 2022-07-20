@@ -1,3 +1,20 @@
+// OFF colored blocks
+
+.block_ristreto {
+    background-color: $ristreto; 
+    color: $white;
+}
+
+.block_latte {
+    background-color: $latte;
+    color: $black;
+}
+
+.block_light_cyan {
+    background-color: #E3F6FF;
+    color: $black;
+}
+
 
 // background colors for attributes and panels
 $grade-a-color: #219653;
@@ -586,15 +603,17 @@ html[dir="rtl"] {
   border-bottom-right-radius:8px;
   padding:10px;
   display:block;
-  background-color:#eee;
+  background-color:#fff;
   position:relative;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .list_product_unranked {
   border-radius:8px;
   padding:10px;
   display:block;
-  background-color:#eee;
+  background-color:#fff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .list_product_a:hover {

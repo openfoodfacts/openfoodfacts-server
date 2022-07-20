@@ -4188,7 +4188,7 @@ sub display_search_results($request_ref) {
 
 		my $search_api_url = $formatted_subdomain . "/api/v0" . $current_link;
 		$search_api_url =~ s/(\&|\?)(page|page_size|limit)=(\d+)//;
-		$search_api_url .= "&fields=code,product_display_name,url,image_front_thumb_url,attribute_groups";
+		$search_api_url .= "&fields=code,product_display_name,url,image_front_small_url,attribute_groups";
 		$search_api_url .= "&page_size=100";
 		if ($search_api_url !~ /\?/) {
 			$search_api_url =~ s/\&/\?/;
@@ -4635,7 +4635,7 @@ sub customize_response_for_product($request_ref, $product_ref) {
 
 	# For non API queries, we need to compute attributes for personal search
 	if (((not defined $fields) or ($fields eq "")) and ($user_preferences) and (not $request_ref->{api})) {
-		$fields = "code,product_display_name,url,image_front_thumb_url,attribute_groups";
+		$fields = "code,product_display_name,url,image_front_small_url,attribute_groups";
 	}
 
 	# Localize the Eco-Score fields that depend on the country of the request
