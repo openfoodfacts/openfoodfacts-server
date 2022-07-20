@@ -182,7 +182,6 @@ front_build:
 checks: front_build front_lint check_perltidy check_perl_fast check_critic
 
 lint: lint_perltidy
-	
 
 tests: build_lang_test unit_test integration_test
 
@@ -198,7 +197,8 @@ integration_test:
 # we launch the server and run tests within same container
 # we also need dynamicfront for some assets to exists
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront
-	${DOCKER_COMPOSE_TEST} exec backend prove -l -r tests/integration
+# note: we need the -T option for ci (non tty environment)
+	${DOCKER_COMPOSE_TEST} exec -T backend prove -l -r tests/integration
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 integration tests success"
 
