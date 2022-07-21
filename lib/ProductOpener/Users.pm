@@ -642,7 +642,7 @@ sub open_user_session($user_ref, $request_ref) {
 
 	my $user_id = $user_ref->{'userid'};
 
-	# Maximum of sessions for a given user
+	# Maximum number sessions to store for a given user in sto file
 	my $max_session = 10 ;
 
 	# Generate a secure session key, store the cookie
