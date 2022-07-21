@@ -680,6 +680,7 @@ sub open_user_session($user_ref, $request_ref) {
 		$log->info("crypt password upgraded to scrypt_hash") if $log->is_info();
 	}
 
+        # Store user data
 	my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
 	store($user_file, $user_ref);
 
