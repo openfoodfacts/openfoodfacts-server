@@ -667,11 +667,11 @@ sub open_user_session($user_ref, $request_ref) {
 		}
 	}
 
-	$user_ref->{'user_sessions'}{$user_session} = {};
-
 	# Store the ip and time corresponding to the given session
-	$user_ref->{'user_sessions'}{$user_session}{'ip'} = remote_addr();
-	$user_ref->{'user_sessions'}{$user_session}{'time'} = time();
+	$user_ref->{'user_sessions'}{$user_session} = {
+	    ip => remote_addr(),
+	    time => time()
+	};
 	my $session_ref = { 'user_id'=>$user_id, 'user_session'=>$user_session };
 
 	# Upgrade hashed password to scrypt, if it is still in crypt format
