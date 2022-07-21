@@ -49,11 +49,10 @@ if(defined $kratos_cookie){
     if ($resp->is_success) {
         #decode json to a hash
         my $json = $resp->decoded_content;
-        my $content = decode_json($json);
-        my %contentdecoded = %$content;
+        my $content_ref = decode_json($json);
 
         #get UserID from json hash
-        my $UserID = $contentdecoded{identity}{traits}{UserID};
+        my $UserID = $content_ref->{identity}{traits}{UserID};
 
         #$log->debug($json);
         $log->debug("User ID: ", $UserID);

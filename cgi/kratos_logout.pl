@@ -49,18 +49,18 @@ if(defined $kratos_cookie){
     if ($resp->is_success) {
         #decode json to a hash
         my $json = $resp->decoded_content;
-        my $content = decode_json($json);
-        my %contentdecoded = %$content;
+        my $content_ref = decode_json($json);
+
         #$log->debug($json);
 
         #get logout url from json
-        my $logouturl = $contentdecoded{logout_url};
-        $log->debug("logouturl ", $logouturl);
+        my $logout_url = $content_ref->{logout_url};
+        $log->debug("logout_url: ", $logout_url);
 
         #Unset OFF cookie
 
         #Go to the given logout url, this logout url redirects to the logout.after url in kratos.yml
-        print redirect(-url=>$logouturl);
+        print redirect(-url=>$logout_url);
 
     }
     else {
