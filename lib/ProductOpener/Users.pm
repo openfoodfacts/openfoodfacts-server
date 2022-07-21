@@ -695,6 +695,7 @@ sub open_user_session($user_ref, $request_ref) {
 		$length = 31536000 * 10;
 	}
 
+	# generate session cookie
 	my $cookie_ref = {
 		'-name'=>$cookie_name,
 		'-value'=>$session_ref,
