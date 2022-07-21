@@ -674,7 +674,7 @@ sub open_user_session($user_ref, $request_ref) {
 	};
 	my $session_ref = { 'user_id'=>$user_id, 'user_session'=>$user_session };
 
-	# Upgrade hashed password to scrypt, if it is still in crypt format
+	# Migration: take the occasion of having password to upgrade to scrypt, if it is still in crypt format
 	if ($user_ref->{'encrypted_password'} =~ /^\$1\$(?:.*)/) {
 		$user_ref->{'encrypted_password'} = create_password_hash(encode_utf8(decode utf8=>param('password')) );
 		$log->info("crypt password upgraded to scrypt_hash") if $log->is_info();
