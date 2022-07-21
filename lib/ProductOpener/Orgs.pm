@@ -281,6 +281,7 @@ sub set_org_gs1_gln($$) {
 		}
 	}
 	store("$data_root/orgs/orgs_glns.sto", $glns_ref);
+	return;
 }
 
 

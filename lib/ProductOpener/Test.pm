@@ -342,6 +342,7 @@ sub create_sto_from_json ($json_path, $sto_path) {
 
     my $data = decode_json(path($json_path)->slurp_raw());
     store($sto_path, $data);
+    return;
 }
 
 
@@ -415,6 +416,7 @@ sub normalize_product_for_test_comparison($product) {
             deep_set($product, @key, \@sorted);
         }
     }
+    return;
 }
 
 
@@ -434,6 +436,7 @@ sub normalize_products_for_test_comparison($array_ref) {
     for my $product_ref (@$array_ref) {
         normalize_product_for_test_comparison($product_ref);
     }
+    return;
 }
 
 1;

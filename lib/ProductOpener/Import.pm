@@ -2286,7 +2286,7 @@ sub update_export_status_for_csv_file($) {
 	$log->debug("update export status done", { products => $i }) if $log->is_debug();
 
 	print STDERR "\n\nupdate export status done\n\n";
-
+	return;
 }
 
 

@@ -256,7 +256,7 @@ sub init_packager_codes() {
 		my $packager_codes_ref = retrieve("$data_root/packager-codes/packager_codes.sto");
 		%packager_codes = %{$packager_codes_ref};
 	}
-
+	return;
 }
 
 sub init_geocode_addresses() {
@@ -266,7 +266,7 @@ sub init_geocode_addresses() {
 		my $geocode_addresses_ref = retrieve("$data_root/packager-codes/geocode_addresses.sto");
 		%geocode_addresses = %{$geocode_addresses_ref};
 	}
-
+	return;
 }
 
 # Slow, so only run these when actually executing, not just checking syntax. See also startup_apache2.pl.

@@ -144,6 +144,7 @@ sub init_packaging_taxonomies_regexps() {
 	
 	# used only for debugging
 	#store("packaging_taxonomies_regexps.sto", \%packaging_taxonomies_regexps);
+	return;
 }
 
 
@@ -522,6 +523,7 @@ sub analyze_and_combine_packaging_data($) {
 	}
 	
 	$log->debug("analyze_and_combine_packaging_data - done", { packagings => $product_ref->{packagings} }) if $log->is_debug();
+	return;
 }
 
 1;
