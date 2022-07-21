@@ -40,7 +40,7 @@ use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 my $short_name = lang("site_name");
 my $long_name = $short_name;

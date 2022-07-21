@@ -437,7 +437,7 @@ sub process_template($template_filename, $template_data_ref, $result_content_ref
 
 =head2 init_request ()
 
-C<init()> is called at the start of each new request (web page or API).
+C<init_request()> is called at the start of each new request (web page or API).
 It initializes a number of variables, in particular:
 
 $cc : country code
@@ -792,7 +792,7 @@ sub analyze_request($request_ref) {
 		$request_ref->{query_string} = $`;
 	}
 
-	# cc and lc query overrides have already been consumed by init(), remove them
+	# cc and lc query overrides have already been consumed by init_request(), remove them
 	# so that they do not interfere with the query string analysis after
 	$request_ref->{query_string} =~ s/(\&|\?)(cc|lc)=([^&]*)//g;
 

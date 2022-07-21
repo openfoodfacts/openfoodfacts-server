@@ -44,7 +44,7 @@ use CGI qw/:cgi :form escapeHTML :cgi-lib/;
 use Log::Any qw($log);
 use Excel::Writer::XLSX;
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 my $r = Apache2::RequestUtil->request();
 

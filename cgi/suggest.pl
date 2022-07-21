@@ -44,7 +44,7 @@ use Encode;
 use JSON::PP;
 use List::Util qw/min/;
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 =head1 CGI script to auto-complete entries for tags
 

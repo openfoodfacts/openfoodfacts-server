@@ -56,8 +56,7 @@ if (($type eq "add") and (defined param('prdct_mult'))) {
 	param("password", "");
 }
 
-ProductOpener::Display::init();
-
+my $request_ref = ProductOpener::Display::init_request();
 
 # $userid will contain the user to be edited, possibly different than $User_id
 # if an administrator edits another user
@@ -390,9 +389,6 @@ if (($type eq "edit_owner") and ($action eq "process")) {
 	return 302;
 }
 else {
-
-	my $title = lang($type . '_user_' . $action);
-
 	$log->debug("user form - template data", { template_data_ref => $template_data_ref }) if $log->is_debug();
 
 	process_template('web/pages/user_form/user_form_page.tt.html', $template_data_ref, \$html) or $html = "<p>" . $tt->error() . "</p>";
@@ -400,9 +396,8 @@ else {
 
 	$initjs .= $js;
 
-	display_page( {
-		title=>$title,
-		content_ref=>\$html,
-		full_width=>$full_width,
-	});
+	$request_ref->{title} = lang($type . '_user_' . $action);
+	$request_ref->{content_ref} = \$html;
+	$request_ref->{full_width} = $full_width;
+	display_page($request_ref);
 }

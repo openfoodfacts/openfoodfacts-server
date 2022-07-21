@@ -30,6 +30,7 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/:all/;
+use ProductOpener::Lang qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -39,7 +40,6 @@ use JSON::PP;
 use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();
-use ProductOpener::Lang qw/:all/;
 
 my $html = '';
 my $template_data_ref = {};
