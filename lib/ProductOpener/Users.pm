@@ -621,6 +621,111 @@ sub check_edit_owner($user_ref, $errors_ref) {
 }
 
 
+=head2 migrate_password_hash($user_ref)
+
+We used to use crypt instead of scrypt to store hashed passwords.
+If the user is logging in with a correct password, we can update the password hash.
+
+=head3 Arguments
+
+=head4 User object $user_ref
+
+=cut
+
+sub migrate_password_hash($user_ref) {
+
+	# Migration: take the occasion of having password to upgrade to scrypt, if it is still in crypt format
+	if ($user_ref->{'encrypted_password'} =~ /^\$1\$(?:.*)/) {
+		$user_ref->{'encrypted_password'} = create_password_hash(encode_utf8(decode utf8=>param('password')) );
+		$log->info("crypt password upgraded to scrypt_hash") if $log->is_info();
+	}
+}
+
+
+=head2 remove_old_sessions($user_ref)
+
+Remove the oldest session if we have too many sessions opened for an user.
+
+=head3 Arguments
+
+=head4 User object $user_ref
+
+=cut
+
+sub remove_old_sessions($user_ref) {
+
+	# Maximum number sessions to store for a given user in sto file
+	my $max_session = 10 ;
+
+	# Check if we need to delete the oldest session
+	# delete $user_ref->{'user_session'};
+	if ((scalar keys %{$user_ref->{'user_sessions'}}) >= $max_session) {
+		my %user_session_stored = %{$user_ref->{'user_sessions'}} ;
+
+		# Find the older session and remove it
+		my @session_by_time = sort { $user_session_stored{$a}{'time'} <=>
+						$user_session_stored{$b}{'time'} } (keys %user_session_stored);
+
+		while (($#session_by_time + 1)> $max_session)
+		{
+			my $oldest_session = shift @session_by_time;
+			delete $user_ref->{'user_sessions'}{$oldest_session};
+		}
+	}
+}
+
+
+=head2 generate_session_cookie($user_id, $user_session)
+
+Generate a session cookie.
+
+=head3 Arguments
+
+=head4 User id $user_id
+
+=head4 Session token $user_session
+
+=head3 Return values
+
+Session cookie.
+
+=cut
+
+sub generate_session_cookie($user_id, $user_session) {
+
+	my $length = 0;
+
+	if ((defined param('length')) and (param('length') > 0)) {
+		$length = param('length');
+	}
+	elsif ((defined param('remember_me')) and (param('remember_me') eq 'on')) {
+		$length = 31536000 * 10;
+	}
+
+	my $session_ref = { 'user_id'=>$user_id, 'user_session'=>$user_session };
+
+	# generate session cookie
+	my $cookie_ref = {
+		'-name'=>$cookie_name,
+		'-value'=>$session_ref,
+		'-path'=>'/',
+		'-domain'=>$cookie_domain,
+		'-samesite'=>'Lax',
+	};
+
+	if ($length > 0) {
+		# Set a persistent cookie
+		$log->debug("setting persistent cookie") if $log->is_debug();
+		$cookie_ref->{'-expires'} = '+' . $length . 's';
+	}
+	else {
+		# Set a session cookie
+		$log->debug("setting session cookie") if $log->is_debug();
+	}
+
+	return cookie(%$cookie_ref);
+}
+
 
 =head2 open_user_session($user_ref, $request_ref)
 
@@ -642,79 +747,27 @@ sub open_user_session($user_ref, $request_ref) {
 
 	my $user_id = $user_ref->{'userid'};
 
-	# Maximum number sessions to store for a given user in sto file
-	my $max_session = 10 ;
-
 	# Generate a secure session key, store the cookie
 	my $user_session = generate_token(64);
 	$log->context->{user_session} = $user_session;
 
 	defined $user_ref->{'user_sessions'} or $user_ref->{'user_sessions'} = {};
 
-	# Check if we need to delete the oldest session
-	# delete $user_ref->{'user_session'};
-	if ((scalar keys %{$user_ref->{'user_sessions'}}) >= $max_session) {
-		my %user_session_stored = %{$user_ref->{'user_sessions'}} ;
-
-		# Find the older session and remove it
-		my @session_by_time = sort { $user_session_stored{$a}{'time'} <=>
-						$user_session_stored{$b}{'time'} } (keys %user_session_stored);
-
-		while (($#session_by_time + 1)> $max_session)
-		{
-			my $oldest_session = shift @session_by_time;
-			delete $user_ref->{'user_sessions'}{$oldest_session};
-		}
-	}
+	remove_old_sessions($user_ref);
 
 	# Store the ip and time corresponding to the given session
 	$user_ref->{'user_sessions'}{$user_session} = {
 	    ip => remote_addr(),
 	    time => time()
 	};
-	my $session_ref = { 'user_id'=>$user_id, 'user_session'=>$user_session };
 
-	# Migration: take the occasion of having password to upgrade to scrypt, if it is still in crypt format
-	if ($user_ref->{'encrypted_password'} =~ /^\$1\$(?:.*)/) {
-		$user_ref->{'encrypted_password'} = create_password_hash(encode_utf8(decode utf8=>param('password')) );
-		$log->info("crypt password upgraded to scrypt_hash") if $log->is_info();
-	}
-
-        # Store user data
+    # Store user data
 	my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
 	store($user_file, $user_ref);
 
 	$log->debug("session initialized and user info stored") if $log->is_debug();
 
-	my $length = 0;
-
-	if ((defined param('length')) and (param('length') > 0)) {
-		$length = param('length');
-	}
-	elsif ((defined param('remember_me')) and (param('remember_me') eq 'on')) {
-		$length = 31536000 * 10;
-	}
-
-	# generate session cookie
-	my $cookie_ref = {
-		'-name'=>$cookie_name,
-		'-value'=>$session_ref,
-		'-path'=>'/',
-		'-domain'=>$cookie_domain,
-		'-samesite'=>'Lax',
-	};
-
-	if ($length > 0) {
-		# Set a persistent cookie
-		$log->debug("setting persistent cookie") if $log->is_debug();
-		$cookie_ref->{'-expires'} = '+' . $length . 's';
-	}
-	else {
-		# Set a session cookie
-		$log->debug("setting session cookie") if $log->is_debug();
-	}
-
-	$request_ref->{cookie} = cookie(%$cookie_ref);
+	$request_ref->{cookie} = generate_session_cookie($user_id, $user_session);
 
 	return;
 }
@@ -796,6 +849,8 @@ sub init_user($request_ref) {
 				elsif (not defined param('no_log'))    # no need to store sessions for internal requests
 				{
 					$log->info("correct password for user provided") if $log->is_info();
+					
+					migrate_password_hash($user_ref);
 
 					open_user_session($user_ref, $request_ref);
 				}
