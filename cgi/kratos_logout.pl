@@ -35,15 +35,15 @@ my $kratos_cookie = "ory_kratos_session=".cookie('ory_kratos_session');
 $log->debug($kratos_cookie);
 
 if(defined $kratos_cookie){
-    my $url = "http://kratos.openfoodfacts.localhost:4433/sessions/whoami";
+    my $url = "http://kratos.openfoodfacts.localhost:4433/self-service/logout/browser";
 
     my $ua = LWP::UserAgent->new;
 
-    # set custom HTTP request header fields, must include cookie for /session/whoami
+    # set custom HTTP request header fields, must include cookie for /self-service/logout/browser
     my $req = HTTP::Request->new(GET => $url);
-    $req->header('content-type' => 'application/json');
     $req->header('Cookie' => $kratos_cookie);
 
+    #responds with logout url used to logout the user
     my $resp = $ua->request($req);
 
     if ($resp->is_success) {
@@ -51,14 +51,16 @@ if(defined $kratos_cookie){
         my $json = $resp->decoded_content;
         my $content = decode_json($json);
         my %contentdecoded = %$content;
-
-        #get UserID from json hash
-        my $UserID = $contentdecoded{identity}{traits}{UserID};
-
         #$log->debug($json);
-        $log->debug("User ID: ", $UserID);
 
-        #Set OFF cookie
+        #get logout url from json
+        my $logouturl = $contentdecoded{logout_url};
+        $log->debug("logouturl ", $logouturl);
+
+        #Unset OFF cookie
+
+        #Go to the given logout url, this logout url redirects to the logout.after url in kratos.yml
+        print redirect(-url=>$logouturl);
 
     }
     else {
@@ -66,5 +68,3 @@ if(defined $kratos_cookie){
         $log->debug("HTTP GET error message: ", $resp->message, "n");
     }
 }
-
-print redirect(-url=>'http://world.openfoodfacts.localhost//');
