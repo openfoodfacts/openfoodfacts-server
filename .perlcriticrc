@@ -42,6 +42,9 @@ equivalent_modules = ProductOpener::PerlStandards
 #[TestingAndDebugging::RequireUseWarnings]
 #equivalent_modules = Modern::Perl
 
+[BuiltinFunctions::RequireBlockMap]
+[BuiltinFunctions::RequireBlockGrep]
+
 # Allow `$`', `$&', `$'', because since Perl 5.20.0
 # there are no performance implications any more.
 #[-Variables::ProhibitMatchVars]

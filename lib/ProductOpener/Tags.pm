@@ -2997,7 +2997,7 @@ sub list_taxonomy_tags_in_language($$$) {
 	my $tags_ref = shift;
 
 	if (defined $tags_ref) {
-		return join(', ', map{ display_taxonomy_tag($target_lc, $tagtype, $_), @{$tags_ref}} );
+		return join(', ', map( {display_taxonomy_tag($target_lc, $tagtype, $_)} @{$tags_ref}) );
 	}
 	else {
 		return "";
