@@ -4588,6 +4588,7 @@ sub add_params_to_query($request_ref, $query_ref) {
 			}
 		}
 	}
+	return;
 }
 
 
@@ -4603,6 +4604,7 @@ sub initialize_knowledge_panels_options($knowledge_panels_options_ref) {
 	if (param("activate_knowledge_panel_physical_activities")) {
 		$knowledge_panels_options_ref->{activate_knowledge_panel_physical_activities} = 1;
 	}
+	return;
 }
 
 =head2 customize_response_for_product ( $request_ref, $product_ref )
@@ -5549,6 +5551,7 @@ sub search_and_export_products($request_ref, $query_ref, $sort_by) {
 	$request_ref->{title} = lang("search_results");
 	$request_ref->{content_ref} = \$html;
 	display_page($request_ref);
+	return;
 }
 
 
@@ -10991,6 +10994,7 @@ sub display_properties($request_ref) {
 	$request_ref->{page_type} = "properties";
 
 	display_page($request_ref);
+	return;
 }
 
 1;

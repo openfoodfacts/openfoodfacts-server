@@ -542,6 +542,7 @@ sub remove_quantity_from_field($$) {
 			$product_ref->{$field} = $`;
 		}		
 	}
+	return;
 }
 
 

@@ -389,15 +389,16 @@ sub convert_file($$$$) {
 
 			$log->debug("convert_file - found matching column", { column => $column, field => $field, col => $col }) if $log->is_debug();
 
-			if (defined $seen_fields{$field}) {
-				$seen_fields{$field}++;
-				$field = $field . "." . $seen_fields{$field};
-			}
-			else {
-				$seen_fields{$field} = 1;
-			}
-
 			if (defined $field) {
+				# If we have already seen the field, suffix it with a number
+				if (defined $seen_fields{$field}) {
+					$seen_fields{$field}++;
+					$field = $field . "." . $seen_fields{$field};
+				}
+				else {
+					$seen_fields{$field} = 1;
+				}
+
 				push @headers, $field;
 				$headers_cols{$field} = $col;
 			}
@@ -538,7 +539,7 @@ my %fields_synonyms = (
 
 en => {
 	lc => ["lang"],
-	code => ["code", "codes", "barcodes", "barcode", "ean", "ean-13", "ean13", "gtin", "eans", "gtins", "upc", "ean/gtin1", "gencod", "gencods", "gencode", "gencodes", "ean-barcode","ean-barcode-number","ean-code"],
+	code => ["code", "codes", "barcodes", "barcode", "ean", "ean-13", "ean13", "gtin", "eans", "gtins", "upc", "ean/gtin1", "gencod", "gencods", "gencode", "gencodes", "ean-barcode","ean-barcode-number","ean-code", "ean codes", "ean barcodes"],
 	producer_product_id => ["internal code"],
 	product_name => ["name", "name of the product", "name of product", "product name", "product", "commercial name"],
 	carbohydrates_100g_value_unit => ["carbohydronate", "carbohydronates"], # yuka bug, does not exist
@@ -564,7 +565,7 @@ es => {
 },
 
 fr => {
-	code => ["code barre", "codebarre", "codes barres", "code barre EAN/GTIN", "code barre EAN", "code barre GTIN", "code-barres"],
+	code => ["code barre", "codebarre", "codes barres", "code barre EAN/GTIN", "code barre EAN", "code barre GTIN", "code-barres", "code EAN", "codes EAN", "code GTIN", "codes GTIN"],
 	producer_product_id => ["code interne", "code int"],
 	categories => ["Catégorie(s)"],
 	brands => ["Marque(s)", "libellé marque"],
@@ -572,8 +573,9 @@ fr => {
 	abbreviated_product_name => ["nom abrégé", "nom abrégé du produit", "nom du produit abrégé", "nom du produit avec abbréviations"],
 	generic_name => ["dénomination légale", "déno légale", "dénomination légale de vente"],
 	ingredients_text => ["ingrédients", "ingredient", "liste des ingrédients", "liste d'ingrédients", "liste ingrédients", "listes d'ingrédients"],
-	allergens => ["Substances ou produits provoquant des allergies ou intolérances", "Allergènes et Traces Potentielles", "allergènes et traces"],
-	traces => ["Traces éventuelles"],
+	allergens => ["Substances ou produits provoquant des allergies ou intolérances", "Allergènes et Traces Potentielles", "allergènes et traces", "allergènes (ingrédients)"],
+	traces => ["Traces éventuelles", "allergènes (traces)"],
+	origin => ["Origine(s) des ingrédients"],
 	image_front_url_fr => ["visuel", "photo", "photo produit"],
 	labels => ["signes qualité", "signe qualité", "Allégations santé", "Labels, certifications, récompenses"],
 	countries => ["pays de vente"],
@@ -583,7 +585,8 @@ fr => {
 	drained_weight_value_unit => ["poids net égoutté"],
 	recycling_instructions_to_recycle => ["à recycler", "consigne à recycler"],
 	recycling_instructions_to_discard => ["à jeter", "consigne à jeter"],
-	conservation_conditions => ["Conditions de conservation et d'utilisation"],
+	packaging => ["Etat physique du produit", "état physique"],
+	conservation_conditions => ["Conservation", "Conditions de conservation et d'utilisation"],
 	preparation => ["conseils de préparation", "instructions de préparation", "Mode d'emploi"],
 	link => ["lien", "lien du produit", "lien internet", "lien vers la page internet"],
 	manufacturing_places => ["lieu de conditionnement", "lieux de conditionnement", "lieu de fabrication", "lieux du fabrication", "lieu de fabrication du produit"],
@@ -969,7 +972,7 @@ sub init_other_fields_columns_names_for_lang($) {
 	}
 
 	# Specific labels that can have a dedicated column
-	my @labels = ("en:organic", "en:fair-trade", "en:palm-oil-free", "en:contains-palm-oil", "en:gluten-free", "en:contains-gluten", "en:vegan", "en:vegetarian", "fr:ab-agriculture-biologique","fr:label-rouge");
+	my @labels = ("en:organic", "en:fair-trade", "en:palm-oil-free", "en:contains-palm-oil", "en:gluten-free", "en:contains-gluten", "en:vegan", "en:vegetarian", "fr:ab-agriculture-biologique","fr:label-rouge", "en:pdo", "en:pgi", "en:tsg");
 	foreach my $labelid (@labels) {
 		next if not defined $translations_to{labels}{$labelid}{$l};
 		my $results_ref = { field => "labels_specific", tag => $translations_to{labels}{$labelid}{$l} };

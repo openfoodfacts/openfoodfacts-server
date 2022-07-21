@@ -576,6 +576,7 @@ sub convert_carrefour_france_files($$) {
     foreach my $nutrient (sort { $nutrients{$b} <=> $nutrients{$a} } keys %nutrients) {
         #print STDERR $nutrient . "\t" . $nutrients{$nutrient} . "\n";
     }
+    return;
 }
 
 

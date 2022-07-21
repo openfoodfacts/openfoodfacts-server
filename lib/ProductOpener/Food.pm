@@ -2804,6 +2804,7 @@ sub assign_nutriments_values_from_request_parameters($$) {
 			delete $product_ref->{nutriments}{$key . "_serving"};
 		}
 	}
+	return;
 }
 
 
