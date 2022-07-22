@@ -119,9 +119,36 @@ sub create_user ($ua, $args_ref) {
 	while (my ($key, $value) = each %{$args_ref}) {
 		$fields{$key} = $value;
 	}
-	my $response = $ua->post("http://world.openfoodfacts.localhost/cgi/user.pl", Content => \%fields,);
+	my $response = $ua->post("http://frontend", Content => \%fields,);
 	$response->is_success or die("Couldn't create user with " . dump(\%fields) . "\n");
 	return;
+}
+
+sub create_product ($ua, $args_ref) {
+	
+	my %fields = (
+		code => "2000000000099",
+		lang => "en",
+		product_name => "Test-75ml",
+		generic_name => "Tester",
+		quantity => "75 ml",
+		link => "https://github.com/openfoodfacts/openfoodfacts-server",
+		expiration_date => "test"
+		ingredients_text => "apple, milk",
+		origin => "france",
+		serving_size => "10g",
+		packaging_text => "no",
+		action => "process",
+		type => "add",
+		".submit" => "Save"
+	);
+
+	# overrides
+	while (my ($key, $value) = each %{$args_ref}) {
+		$fields{$key} = $value;
+	}
+	my $response = $ua->post("http://frontend/cgi/product.pl", Content => \%fields,);
+	$response->is_success or die("Couldn't create product with " . dump(\%fields) . "\n");
 }
 
 1;
