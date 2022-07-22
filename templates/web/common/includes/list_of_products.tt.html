@@ -19,20 +19,19 @@
 </div>
 
 [% IF count > 0 %]
-<div class="block white">
-    <div class="row">
     [% IF (current_link_query_download.defined) && !(jqm.defined) %]
-        &rarr;[% lang('search_download_results') %]<br>
-        [% IF count <= export_limit %]
-            <ul>
-                <li><a href="[% current_link_query_download %]&format=xlsx">[% lang('search_download_xlsx') %]</a> ([% lang('search_download_xlsx_description') %])</li>
-                <li><a href="[% current_link_query_download %]&format=csv">[% lang('search_download_csv') %]</a> ([% lang('search_download_csv_description') %])</li>
-            </ul>
-        [% END %]
+    <div class="block white">
+        <div class="row">
+            &rarr;[% lang('search_download_results') %]<br>
+            [% IF count <= export_limit %]
+                <ul>
+                    <li><a href="[% current_link_query_download %]&format=xlsx">[% lang('search_download_xlsx') %]</a> ([% lang('search_download_xlsx_description') %])</li>
+                    <li><a href="[% current_link_query_download %]&format=csv">[% lang('search_download_csv') %]</a> ([% lang('search_download_csv_description') %])</li>
+                </ul>
+            [% END %]
+        </div>
+    </div>
     [% END %]
-</div>
-</div>
-
     
 	<div class="block short block_ristreto">
         <div class="row">
@@ -59,7 +58,7 @@
 
                     [% IF explore_products == 'true' %]
                     <div>
-                        <button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button round dropdown small unmarged">[% display_icon('sort') %] [% lang('explore_products_by') %]</button>
+                        <button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button round dropdown small secondary unmarged">[% display_icon('sort') %] [% lang('explore_products_by') %]</button>
                         <ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true">
                             [% FOREACH newtagtype IN current_drilldown_fields %]
                                 <li><a href="[% newtagtype.current_link %]/[% newtagtype.tag_type_plural %]"[% newtagtype.nofollow %]>[% lang("${newtagtype.tagtype}_p") FILTER ucfirst %]</a></li>
