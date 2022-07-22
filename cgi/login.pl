@@ -37,7 +37,7 @@ use URI::Escape::XS;
 use Encode;
 use Log::Any qw($log);
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 my $template_data_ref = {};
 
@@ -92,9 +92,7 @@ if ($tt->error()) {
 	$html .= '<p>' . $tt->error() . '</p>';
 }
 
-display_page(
-	{
-		title => lang('login_register_title'),
-		content_ref => \$html,
-	}
-);
+$request_ref->{title} = lang('login_register_title');
+$request_ref->{content_ref} = \$html;
+display_page($request_ref);
+

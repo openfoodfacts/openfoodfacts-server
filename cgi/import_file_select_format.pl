@@ -53,7 +53,7 @@ use Text::CSV();
 
 my $action = param('action') || 'display';
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 my $title = '';
 my $html = '';
@@ -184,10 +184,9 @@ if ($action eq "display") {
 	process_template('web/pages/import_file_select_format/import_file_select_format.tt.js', $template_data_ref, \$js);
 	$initjs .= $js;
 
-	display_page( {
-		title=>$title,
-		content_ref=>\$html,
-	});
+	$request_ref->{title} = $title;
+	$request_ref->{content_ref} = \$html;
+	display_page($request_ref);
 }
 
 exit(0);

@@ -49,7 +49,7 @@ use Log::Any qw($log);
 use Spreadsheet::CSV();
 use Text::CSV();
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 my $title = lang("import_file_status_title");
 my $html = '';
@@ -212,9 +212,8 @@ $scripts .= <<HTML
 HTML
 ;
 
-display_page( {
-	title=>$title,
-	content_ref=>\$html,
-});
+$request_ref->{title} = $title;
+$request_ref->{content_ref} = \$html;
+display_page($request_ref);
 
 exit(0);

@@ -60,7 +60,7 @@ my $env = $ENV{QUERY_STRING};
 
 $log->debug("calling init()", { query_string => $env });
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 $log->debug("parsing code", { subdomain => $subdomain, original_subdomain => $original_subdomain, user => $User_id, code => $code, previous_code => $previous_code, previous_imgid => $previous_imgid, cc => $cc, lc => $lc, imagefield => $imagefield, ip => remote_addr() }) if $log->is_debug();
 

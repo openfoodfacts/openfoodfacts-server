@@ -51,7 +51,7 @@ use Spreadsheet::CSV();
 use Text::CSV();
 use boolean;
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 my $action = param('action') || 'display';
 
@@ -314,9 +314,9 @@ EMAIL
 	
 }
 
-display_page( {
-	title=>$title,
-	content_ref=>\$html,
-});
+$request_ref->{title} = $title;
+$request_ref->{content_ref} = \$html;
+display_page($request_ref);
+
 
 exit(0);

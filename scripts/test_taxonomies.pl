@@ -54,7 +54,6 @@ my $targetlc = 'fr';
 
 GetOptions ('tags=s' => \$tag, 'type=s' => \$tagtype, 'taglc=s'=>\$taglc, 'targetlc=s'=>\$targetlc);
 
-#ProductOpener::Display::init();
 
 $lc = $targetlc;
 
