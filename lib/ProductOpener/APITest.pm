@@ -145,9 +145,7 @@ For the example cited above this returns: "http://world-fr.openfoodfacts.localho
 
 =cut
 
-sub construct_test_url ($$) {
-	my $target = shift;
-	my $prefix = shift;
+sub construct_test_url ($target, $prefix) {
 	my $link = "openfoodfacts.localhost";
 	my $url = "http://${prefix}.${link}${target}";
 	return $url;
