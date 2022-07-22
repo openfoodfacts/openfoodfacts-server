@@ -67,6 +67,7 @@ sub wait_dynamic_front() {
 			print("Wainting for dynamicfront to be ready since $count seconds...\n");
 		}
 	}
+	return;
 }
 
 =head2 new_client()
@@ -120,6 +121,7 @@ sub create_user ($ua, $args_ref) {
 	}
 	my $response = $ua->post("http://world.openfoodfacts.localhost/cgi/user.pl", Content => \%fields,);
 	$response->is_success or die("Couldn't create user with " . dump(\%fields) . "\n");
+	return;
 }
 
 1;

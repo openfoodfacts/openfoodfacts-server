@@ -214,18 +214,23 @@ test-int: guard-test # usage: make test-one test=t/test-file.t
 # better shutdown, for if we do a modification of the code, we need a restart
 	${DOCKER_COMPOSE_TEST} stop backend
 
+# stop all docker tests containers
+stop_tests:
+	${DOCKER_COMPOSE_TEST} stop
+
 # check perl compiles, (pattern rule) / but only for newer files
 %.pm %.pl: _FORCE
 	if [ -f $@ ]; then perl -c -CS -Ilib $@; else true; fi
 
 
 # TO_CHECK look at changed files (compared to main) with extensions .pl, .pm, .t
-# the ls at the end is to avoid removed files
-TO_CHECK=$(shell git diff origin/main --name-only | grep  '.*\.\(pl\|pm\|t\)$$' | xargs ls -d 2>/dev/null )
+# the ls at the end is to avoid removed files. 
+# We have to finally filter out "." as this will the output if we have no file
+TO_CHECK=$(shell git diff origin/main --name-only | grep  '.*\.\(pl\|pm\|t\)$$' | xargs ls -d 2>/dev/null | grep -v "^.$$" )
 
 check_perl_fast:
 	@echo "🥫 Checking ${TO_CHECK}"
-	${DOCKER_COMPOSE} run --rm backend make -j ${CPU_COUNT} ${TO_CHECK}
+	test -z "${TO_CHECK}" || ${DOCKER_COMPOSE} run --rm backend make -j ${CPU_COUNT} ${TO_CHECK}
 
 check_translations:
 	@echo "🥫 Checking translations"
@@ -244,19 +249,19 @@ check_perl:
 TO_TIDY_CHECK = $(shell echo ${TO_CHECK}| tr " " "\n" | grep -vFf .perltidy_excludes)
 check_perltidy:
 	@echo "🥫 Checking with perltidy ${TO_TIDY_CHECK}"
-	${DOCKER_COMPOSE} run --rm --no-deps backend perltidy --assert-tidy -opath=/tmp/ --standard-error-output ${TO_TIDY_CHECK}
+	test -z "${TO_TIDY_CHECK}" || ${DOCKER_COMPOSE} run --rm --no-deps backend perltidy --assert-tidy -opath=/tmp/ --standard-error-output ${TO_TIDY_CHECK}
 
 # same as check_perltidy, but this time applying changes
 lint_perltidy:
 	@echo "🥫 Linting with perltidy ${TO_TIDY_CHECK}"
-	${DOCKER_COMPOSE} run --rm --no-deps backend perltidy --standard-error-output -b -bext=/ ${TO_TIDY_CHECK}
+	test -z "${TO_TIDY_CHECK}" || ${DOCKER_COMPOSE} run --rm --no-deps backend perltidy --standard-error-output -b -bext=/ ${TO_TIDY_CHECK}
 
 
 #Checking with Perl::Critic
 # adding an echo of search.pl in case no files are edited
 check_critic:
 	@echo "🥫 Checking with perlcritic"
-	${DOCKER_COMPOSE} run --rm --no-deps backend perlcritic ${TO_CHECK}
+	test -z "${TO_CHECK}" || ${DOCKER_COMPOSE} run --rm --no-deps backend perlcritic ${TO_CHECK}
 
 #-------------#
 # Compilation #

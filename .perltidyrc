@@ -25,6 +25,8 @@
 --no-outdent-long-lines
 # Break before all operators
 --break-before-all-operators
-# no vertical alignments
+# No vertical alignments
 -novalign
+# No blanks before comments
+--noblanks-before-comments
 # NOTE: see .perltidy_excludes for file excluded from checks

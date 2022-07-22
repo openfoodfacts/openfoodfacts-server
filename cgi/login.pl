@@ -59,15 +59,20 @@ my @errors = ();
 if ($ENV{'REQUEST_METHOD'} eq 'POST') {
 	my $user_file = "$data_root/users/" . get_string_id_for_lang('no_language', $User_id) . '.sto';
 	my $user_ref = retrieve($user_file);
-	if (not (defined $user_ref)) {
+	if (not(defined $user_ref)) {
 		push @errors, 'undefined user';
 		$template_data_ref->{success} = 0;
 	}
 
-	my $hash_is_correct = check_password_hash(encode_utf8(decode utf8=>param('password')), $user_ref->{'encrypted_password'} );
+	my $hash_is_correct
+	  = check_password_hash(encode_utf8(decode utf8 => param('password')), $user_ref->{'encrypted_password'});
+
 	# We don't have the right password
 	if (not $hash_is_correct) {
-		$log->info('bad password - input does not match stored hash', { encrypted_password => $user_ref->{'encrypted_password'} }) if $log->is_info();
+		$log->info(
+			'bad password - input does not match stored hash',
+			{encrypted_password => $user_ref->{'encrypted_password'}}
+		) if $log->is_info();
 		push @errors, lang('error_bad_login_password');
 	}
 
@@ -90,3 +95,4 @@ if ($tt->error()) {
 $request_ref->{title} = lang('login_register_title');
 $request_ref->{content_ref} = \$html;
 display_page($request_ref);
+
