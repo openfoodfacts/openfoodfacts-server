@@ -47,6 +47,21 @@
 							</span>
 						</a>
 						<ul class="dropdown">
+
+					<ul class="country_language_selection">
+
+						[% IF langs.match('<a') %]
+							<li class="has-dropdown">
+								[% selected_lang %]
+								<ul class="dropdown">
+									[% langs %]
+								</ul>
+							</li>
+						[% END %]
+					</ul>							
+
+							<li><a href="[% lang('menu_discover_link') %]">[% lang('menu_discover') %]</a></li>
+							<li><a href="[% lang('menu_contribute_link') %]">[% lang('menu_contribute') %]</a></li>
 							<li>
 								<a href="/cgi/search.pl">[% lang('advanced_search') %]</a>
 							</li>
@@ -122,12 +137,12 @@
 
 				<ul class="title-area">
 					<li class="name">
-						<h2><a href="/" style="font-size:1rem;"><img id="logo" src="[% static_subdomain %]/images/logos/off-logo-horizontal-light.svg" alt="[% lang('logo_site_name') %]" style="margin:8px;height:48px;width:auto;"></h2>
+						<a href="/" style="font-size:1rem;"><img id="logo" src="[% static_subdomain %]/images/logos/off-logo-horizontal-light.svg" alt="[% lang('logo_site_name') %]" style="margin:8px;height:48px;width:auto;"></a>
 					</li>
 				</ul>
 				<section class="top-bar-section">
 				
-					<ul class="left small-4">
+					<ul class="left small-4" style="margin-right:2rem;">
 						<li class="search-li">
 						
 							<form action="/cgi/search.pl">
@@ -149,9 +164,9 @@
 				<ul class="search_and_links">
 				
 				[% IF !(server_options_producers_platform) %]
-					<li><a href="[% lang('menu_discover_link') %]">[% lang('menu_discover') %]</a></li>
-					<li><a href="[% lang('menu_contribute_link') %]">[% lang('menu_contribute') %]</a></li>
-					<li class=" flex-grid getapp"><a href="[% lang('get_the_app_link') %]" class="buttonbar button" style="top:0;">[% display_icon('phone_android') %] <span class="bt-text">[% lang('get_the_app') %]</span></a></li>
+					<li><a href="[% lang('menu_discover_link') %]" class="top-bar-links">[% lang('menu_discover') %]</a></li>
+					<li><a href="[% lang('menu_contribute_link') %]" class="top-bar-links">[% lang('menu_contribute') %]</a></li>
+					<li class="flex-grid getapp"><a href="[% lang('get_the_app_link') %]" class="buttonbar button" style="top:0;">[% display_icon('phone_android') %] <span class="bt-text">[% lang('get_the_app') %]</span></a></li>
 				[% END %]
 				</ul>
 				</section>

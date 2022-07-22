@@ -52,11 +52,11 @@
                     }
         }
         
-        @media only screen and (max-width: 1024px) {
+        @media only screen and (max-width: 732px) {
             display:flex;
             justify-content: space-between;
            .left {
-               width:17rem;
+               width:5rem;
            }
             .right {
                 display:flex;
@@ -152,6 +152,9 @@
                 a {
                     line-height: 62px;
                 }
+            }
+	    .top-bar-links {
+		color:black;
             }
             .name {
                 height: 62px;
