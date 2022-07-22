@@ -8,6 +8,10 @@ use Test::More;
 use ProductOpener::APITest qw/:all/;
 use ProductOpener::Test qw/:all/;
 
+remove_all_products();
+wait_dynamic_front();
+my $ua = new_client();
+
 my %args_ref = (
 	code => "2000000000099",
 	lang => "en",
@@ -24,10 +28,6 @@ my %args_ref = (
 	type => "add",
 	".submit" => "Save"
 );
-
-remove_all_products();
-wait_dynamic_front();
-my $ua = new_client();
 
 create_product($ua, \%args_ref);
 
