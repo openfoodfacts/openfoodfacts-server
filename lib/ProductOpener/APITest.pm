@@ -37,6 +37,7 @@ BEGIN {
 	  &create_user
 	  &new_client
 	  &wait_dynamic_front
+	  &construct_test_url
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
