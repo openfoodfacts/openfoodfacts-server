@@ -15,7 +15,9 @@ my $ua = new_client();
 create_user($ua, {});
 
 # edit preference accessible
-my $response = $ua->get("http://world.openfoodfacts.localhost/cgi/user.pl?type=edit&userid=test");
+my $url = construct_test_url("/cgi/user.pl?type=edit&userid=test", "world");
+my $response = $ua->get($url);
+
 
 #$DB::single = 1;
 is $response->{_rc}, 200;
