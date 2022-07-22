@@ -373,7 +373,6 @@ $log->debug("org form - template data", {template_data_ref => $template_data_ref
 $tt->process('web/pages/org_form/org_form.tt.html', $template_data_ref, \$html)
   or $html = "<p>template error: " . $tt->error() . "</p>";
 
-
 $request_ref->{title} = $title;
 $request_ref->{content_ref} = \$html;
 $request_ref->{full_width} = $full_width;
