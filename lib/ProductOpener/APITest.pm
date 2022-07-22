@@ -134,6 +134,7 @@ sub create_product ($ua, $args_ref) {
 	}
 	my $response = $ua->post("http://world.openfoodfacts.localhost/cgi/product.pl", Content => $args_ref,);
 	$response->is_success or die("Couldn't create product with " . dump($args_ref) . "\n");
+	return;
 }
 
 1;
