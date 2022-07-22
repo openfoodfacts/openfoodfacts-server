@@ -39,7 +39,7 @@ use Log::Any qw($log);
 
 $log->info('start') if $log->is_info();
 
-ProductOpener::Users::init_user($request_ref);
+my $request_ref = ProductOpener::Display::init_request();
 
 my $status = 403;
 
