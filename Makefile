@@ -202,11 +202,13 @@ integration_test:
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 integration tests success"
 
-test-unit: guard-test # usage: make test-one test=t/test-file.t
+# usage:  make test-unit test=test-name.t
+test-unit: guard-test 
 	@echo "🥫 Running test: 'tests/unit/${test}' …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
 	${DOCKER_COMPOSE_TEST} run --rm backend perl tests/unit/${test}
 
+# usage:  make test-int test=test-name.t
 test-int: guard-test # usage: make test-one test=t/test-file.t
 	@echo "🥫 Running test: 'tests/integration/${test}' …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront
