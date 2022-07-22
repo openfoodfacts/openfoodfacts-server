@@ -126,8 +126,8 @@ sub create_user ($ua, $args_ref) {
 }
 
 sub create_product ($ua, $args_ref) {
-	
-	my $fields; 
+
+	my $fields;
 
 	while (my ($key, $value) = each %{$fields}) {
 		$args_ref->{$key} = $value;
