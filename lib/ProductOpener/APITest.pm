@@ -150,7 +150,6 @@ sub construct_test_url ($$) {
     my $prefix = shift;
 	my $link = "openfoodfacts.localhost";
 	my $url = "http://${prefix}.${link}${target}";
-
 	return $url;
 }
 
