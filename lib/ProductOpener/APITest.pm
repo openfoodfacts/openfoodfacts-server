@@ -37,6 +37,7 @@ BEGIN {
 	  &create_user
 	  &new_client
 	  &wait_dynamic_front
+	  &create_product
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -126,29 +127,13 @@ sub create_user ($ua, $args_ref) {
 
 sub create_product ($ua, $args_ref) {
 	
-	my %fields = (
-		code => "2000000000099",
-		lang => "en",
-		product_name => "Test-75ml",
-		generic_name => "Tester",
-		quantity => "75 ml",
-		link => "https://github.com/openfoodfacts/openfoodfacts-server",
-		expiration_date => "test"
-		ingredients_text => "apple, milk",
-		origin => "france",
-		serving_size => "10g",
-		packaging_text => "no",
-		action => "process",
-		type => "add",
-		".submit" => "Save"
-	);
+	my $fields; 
 
-	# overrides
-	while (my ($key, $value) = each %{$args_ref}) {
-		$fields{$key} = $value;
+	while (my ($key, $value) = each %{$fields}) {
+		$args_ref->{$key} = $value;
 	}
-	my $response = $ua->post("http://world.openfoodfacts.localhost/cgi/product.pl", Content => \%fields,);
-	$response->is_success or die("Couldn't create product with " . dump(\%fields) . "\n");
+	my $response = $ua->post("http://world.openfoodfacts.localhost/cgi/product.pl", Content => $args_ref,);
+	$response->is_success or die("Couldn't create product with " . dump($args_ref) . "\n");
 }
 
 1;

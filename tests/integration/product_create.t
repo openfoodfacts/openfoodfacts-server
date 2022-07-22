@@ -8,11 +8,28 @@ use Test::More;
 use ProductOpener::APITest qw/:all/;
 use ProductOpener::Test qw/:all/;
 
+my %args_ref = (
+	code => "2000000000099",
+	lang => "en",
+	product_name => "Test-75ml",
+	generic_name => "Tester",
+	quantity => "75 ml",
+	link => "https://github.com/openfoodfacts/openfoodfacts-server",
+	expiration_date => "test",
+	ingredients_text => "apple, milk",
+	origin => "france",
+	serving_size => "10g",
+	packaging_text => "no",
+	action => "process",
+	type => "add",
+	".submit" => "Save"
+);
+
 remove_all_products();
 wait_dynamic_front();
 my $ua = new_client();
 
-create_product($ua, {});
+create_product($ua, \%args_ref);
 
 # edit preference accessible
 my $response = $ua->get("http://frontend/cgi/product.pl?type=edit&code=2000000000099");
