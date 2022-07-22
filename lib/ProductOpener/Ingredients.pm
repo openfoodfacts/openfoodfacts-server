@@ -1262,7 +1262,6 @@ sub parse_origins_from_text($$) {
 		# Initialize values
 		$matched_ingredient = undef;
 		my $matched_ingredient_ref = {};
-		my $matched_text;
 		my $origins;
 
 		# Call match functions to look for different ways to specify origins etc.
