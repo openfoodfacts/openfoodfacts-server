@@ -1503,7 +1503,7 @@ sub build_tags_taxonomy($$$) {
 					# we can map it to en:stabilizer (the canonical name in the additives_classes taxonomy)
 					if (exists $translations_from{$property}) {
 						$properties{$tagtype}{$canon_tagid}{"$property:$lc"} = join(",",
-							map(canonicalize_taxonomy_tag($lc,$property, $_), split(/\s*,\s*/, $line)));
+							map({ canonicalize_taxonomy_tag($lc,$property, $_)} split(/\s*,\s*/, $line)));
 					}
 					else {
 						# TODO print a warning if the property is already defined
@@ -2040,7 +2040,7 @@ sub generate_tags_taxonomy_extract ($$$$) {
 					# or if the fields parameter is not specified.
 					
 					((($include_all_fields) or (defined $fields_ref->{$prop}))
-						and (grep( /^$lc$/, @$lcs_ref)))
+						and (grep( {/^$lc$/} @$lcs_ref)))
 
 					# Also include the property if it was requested in a specific language
 					# e.g. fields=vegan:en
@@ -2997,7 +2997,7 @@ sub list_taxonomy_tags_in_language($$$) {
 	my $tags_ref = shift;
 
 	if (defined $tags_ref) {
-		return join(', ', map( display_taxonomy_tag($target_lc, $tagtype, $_), @{$tags_ref}) );
+		return join(', ', map( {display_taxonomy_tag($target_lc, $tagtype, $_)} @{$tags_ref}) );
 	}
 	else {
 		return "";
