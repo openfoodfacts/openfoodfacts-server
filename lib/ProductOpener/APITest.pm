@@ -119,7 +119,7 @@ sub create_user ($ua, $args_ref) {
 	while (my ($key, $value) = each %{$args_ref}) {
 		$fields{$key} = $value;
 	}
-	my $response = $ua->post("http://frontend", Content => \%fields,);
+	my $response = $ua->post("http://world.openfoodfacts.localhost/cgi/user.pl", Content => \%fields,);
 	$response->is_success or die("Couldn't create user with " . dump(\%fields) . "\n");
 	return;
 }
@@ -147,7 +147,7 @@ sub create_product ($ua, $args_ref) {
 	while (my ($key, $value) = each %{$args_ref}) {
 		$fields{$key} = $value;
 	}
-	my $response = $ua->post("http://frontend/cgi/product.pl", Content => \%fields,);
+	my $response = $ua->post("http://world.openfoodfacts.localhost/cgi/product.pl", Content => \%fields,);
 	$response->is_success or die("Couldn't create product with " . dump(\%fields) . "\n");
 }
 
