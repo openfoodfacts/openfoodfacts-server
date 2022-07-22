@@ -6,7 +6,8 @@ taxonomies/nutrient_levels.txt
 po/site-specific
 
 # tests outputs
-t/outputs/
+tests/unit/outputs/
+tests/integration/outputs/
 
 # Local files
 .DS_Store?
@@ -22,7 +23,7 @@ Thumbs.db
 .vscode/launch.json
 .vscode/perl-lang/
 .vscode/settings.json
-
+.idea/
 
 # Logs
 logs/

@@ -7,6 +7,7 @@
 # - Always set the unit:en property. If there is not unit (e.g. for the pH), use unit:en with no value.
 # - The "automatically_computed:en: yes" property is used for nutrients (or scores) that are not entered by users, but computed by Product Opener
 # (e.g. the NOVA group, Nutrition score, % of fruits/vegetables estimated by ingredients analysis etc.)
+# See also: https://wiki.openfoodfacts.org/Nutrients_handling_in_Open_Food_Facts
 
 stopwords:en: including, of, which
 stopwords:fr: dont
@@ -3668,6 +3669,7 @@ sk:Vitamín B1
 sl:Vitamin B1 (Tiamin)
 zh:维生素B1(硫胺)
 dv_2016_value:en: 1.2
+dv_value:en: 1.2
 unit:en: mg
 
 zz:vitamin-b2

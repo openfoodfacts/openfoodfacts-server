@@ -75,6 +75,9 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
 
+use Data::DeepAccess qw(deep_get);
+
+
 =head1 CONFIGURATION
 
 =head2 Attribute groups and attributes
@@ -312,7 +315,6 @@ sub initialize_attribute($$) {
 		my $analysis_tag = $attribute_id;
 		$analysis_tag =~ s/_/-/g;
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/$analysis_tag.svg";
-		$attribute_ref->{panel_id} = "ingredients_analysis_en-" . $analysis_tag;
 	}
 	elsif ($attribute_id =~ /^(labels)_(.*)$/) {
 		my $tagtype = $1;
@@ -420,6 +422,7 @@ sub override_general_value($$$$) {
 	if ($string ne "") {
 		$attribute_ref->{$field} = $string;
 	}
+	return;
 }
 
 
@@ -464,7 +467,7 @@ sub compute_attribute_nutriscore($$) {
 	my $attribute_ref = initialize_attribute($attribute_id, $target_lc);
 	
 	# Nutri-Score A, B, C, D or E
-	if (defined $product_ref->{nutriscore_data}) {
+	if ((defined $product_ref->{nutriscore_grade}) and ($product_ref->{nutriscore_grade} =~ /^[a-e]$/)) {
 		$attribute_ref->{status} = "known";
 		
 		my $nutriscore_data_ref = $product_ref->{nutriscore_data};
@@ -544,13 +547,17 @@ sub compute_attribute_nutriscore($$) {
 	}
 	
 	# Nutri-Score not-applicable: alcoholic beverages, baby food etc.
-	elsif (has_tag($product_ref,"misc","en:nutriscore-not-applicable")) {
+	elsif (has_tag($product_ref,"nutrition_grades","not-applicable")) {
 		$attribute_ref->{status} = "known";
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/nutriscore-not-applicable.svg";
 		$attribute_ref->{match} = 0;
 		if ($target_lc ne "data") {
-			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_title");		
-			$attribute_ref->{description} = lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_description");
+			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_title");	
+			$attribute_ref->{description} = f_lang_in_lc($target_lc, "f_attribute_nutriscore_not_applicable_description", {
+					category => display_taxonomy_tag_name($target_lc, "categories",
+						deep_get($product_ref, qw/nutriscore_data nutriscore_not_applicable_for_category/))
+				}
+			);
 			$attribute_ref->{description_short} = lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_description_short");		
 		}		
 	}
@@ -657,6 +664,22 @@ sub compute_attribute_ecoscore($$$) {
 		}
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/ecoscore-$grade.svg";
 	}
+	# Eco-Score is not-applicable
+	elsif ((defined $product_ref->{ecoscore_grade}) and ($product_ref->{ecoscore_grade} eq "not-applicable")) {
+		$attribute_ref->{status} = "unknown";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/ecoscore-not-applicable.svg";
+		$attribute_ref->{match} = 0;		
+		if ($target_lc ne "data") {
+			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_ecoscore_not_applicable_title");	
+			$attribute_ref->{description} = f_lang_in_lc($target_lc, "f_attribute_ecoscore_not_applicable_description", {
+					category => display_taxonomy_tag_name($target_lc, "categories",
+						deep_get($product_ref, qw/ecoscore_data ecoscore_not_applicable_for_category/))
+				}
+			);
+			$attribute_ref->{description_short} = lang_in_other_lc($target_lc, "attribute_ecoscore_not_applicable_description_short");					
+		}		
+	}
+	# Eco-Score is unknown
 	else {
 		$attribute_ref->{status} = "unknown";
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/ecoscore-unknown.svg";
@@ -664,7 +687,7 @@ sub compute_attribute_ecoscore($$$) {
 		if ($target_lc ne "data") {
 			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_ecoscore_unknown_title");		
 			$attribute_ref->{description} = lang_in_other_lc($target_lc, "attribute_ecoscore_unknown_description");
-			$attribute_ref->{description_short} = lang_in_other_lc($target_lc, "attribute_ecoscore_unknown_description_short");		
+			$attribute_ref->{description_short} = lang_in_other_lc($target_lc, "attribute_ecoscore_unknown_description_short");			
 		}
 	}
 	
@@ -781,7 +804,7 @@ The return value is a reference to the resulting attribute data structure.
 
 - NOVA 1: 100%
 - NOVA 2: 100%
-- NOVA 3: 50%
+- NOVA 3: 75%
 - NOVA 4: 0%
 
 =cut
@@ -807,16 +830,14 @@ sub compute_attribute_nova($$) {
 		
 		# Compute match based on NOVA group
 		
-		my $match = 0;
-		
-		if (($nova_group == 1) or ($nova_group == 2)) {
-			$match = 100;
-		}
-		elsif ($nova_group == 3) {
-			$match = 50;
-		}
+		my %nova_groups_scores = (
+			1 => 100,
+			2 => 100,
+			3 => 75,
+			4 => 0,
+		);
 	
-		$attribute_ref->{match} = $match;
+		$attribute_ref->{match} = $nova_groups_scores{$nova_group + 0};	# Make sure the key is a number
 		
 		if ($target_lc ne "data") {
 			$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "attribute_nova_group_title"), $nova_group);
@@ -1182,7 +1203,7 @@ The return value is a reference to the resulting attribute data structure.
 =head4 % Match
 
 100: no indication of the allergen or trace of the allergen
-20: may contain the allergen
+20: may contain the allergen as a trace
 0: contains allergen
 
 =cut
@@ -1407,6 +1428,9 @@ sub compute_attribute_ingredients_analysis($$$) {
 	# the ingredients_analysis taxonomy contains en:palm-oil and not en:contains-palm-oil
 	$analysis_tag =~ s/contains-(.*)$/$1/;
 
+	# Link to the corresponding knowledge panel (the panel id depends on the value of the property)
+	$attribute_ref->{panel_id} = "ingredients_analysis_en:" . $analysis_tag;
+
 	if ($target_lc ne "data") {
 		$attribute_ref->{title} = display_taxonomy_tag($target_lc, "ingredients_analysis", "en:$analysis_tag");	
 	}	
@@ -1499,6 +1523,7 @@ sub add_attribute_to_group($$$$) {
 		
 		push @{$group_ref->{attributes}}, $attribute_ref;
 	}
+	return;
 }
 
 
@@ -1609,6 +1634,7 @@ sub compute_attributes($$$$) {
 	
 	$log->debug("computed attributes for product", { code => $product_ref->{code}, target_lc => $target_lc,
 		"attribute_groups_" . $target_lc => $product_ref->{"attribute_groups_" . $target_lc} }) if $log->is_debug();
+	return;
 }
 
 1;

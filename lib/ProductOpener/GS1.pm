@@ -57,6 +57,8 @@ BEGIN
 
 		&init_csv_fields
 		&read_gs1_json_file
+		&generate_gs1_message_identifier
+		&generate_gs1_confirmation_message
 		&write_off_csv_file
 		&print_unknown_entries_in_gs1_maps
 
@@ -68,6 +70,7 @@ use vars @EXPORT_OK ;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::Display qw/$tt process_template display_date_iso/;
 
 use JSON::PP;
 use boolean;
@@ -365,13 +368,117 @@ foreach my $tag (sort keys %{$gs1_maps{packagingMarkedLabelAccreditationCode}}) 
 }
 
 
-=head2 %gs1_to_off
+=head2 %gs1_message_to_off
 
-Defines the structure of the GS1 data and how it maps to the OFF data.
+Defines the structure of the GS1 message data and how to extract the fields useful to create a message confirmation.
 
 =cut
 
-my %gs1_to_off = (
+my %gs1_message_to_off = (
+
+	fields => [
+
+		["catalogue_item_notification:catalogueItemNotificationMessage", {
+				fields => [
+					["sh:StandardBusinessDocumentHeader", {
+							fields => [
+
+							],
+						}
+					],
+
+					["transaction", {
+							fields => [
+								["transactionIdentification", {
+										fields => [
+											["entityIdentification", "transactionIdentification_entityIdentification"],
+											["contentOwner", {
+													fields => [
+														["gln", "transactionIdentification_contentOwner_gln"],
+													],
+												}
+											],
+										],
+									},
+								],
+
+								["documentCommand", {
+										fields => [
+											["documentCommandHeader", {
+													fields => [
+														["documentCommandIdentification", {
+																fields => [
+																	["entityIdentification", "documentCommandIdentification_entityIdentification"],
+																	["contentOwner", {
+																			fields => [
+																				["gln", "documentCommandIdentification_contentOwner_gln"],
+																			],
+																		}
+																	],
+																],
+															},
+														],
+														["type", "documentCommandHeader_type"],
+													],
+												},
+											],
+
+											["catalogue_item_notification:catalogueItemNotification", {
+													fields => [
+														["creationDateTime", "catalogueItemNotification_creationDateTime"],
+														["documentStatusCode", "catalogueItemNotification_documentStatusCode"],
+														["catalogueItemNotificationIdentification", {
+																fields => [
+																	["entityIdentification", "catalogueItemNotificationIdentification_entityIdentification"],
+																	["contentOwner", {
+																			fields => [
+																				["gln", "catalogueItemNotificationIdentification_contentOwner_gln"],
+																			],
+																		}
+																	],
+																],
+															},
+														],
+														["catalogueItem", {
+																fields => [
+																	["tradeItem", {
+																			fields => [
+																				["gtin", "gtin"],
+																				["targetMarket", {
+																						fields => [
+																							["targetMarketCountryCode", "targetMarketCountryCode"],
+																						],
+																					},
+																				],
+																			],
+																		},
+																	],
+																],
+															},
+														]
+													],
+												},
+											],
+										],
+									},
+								],
+							],
+						}
+					],
+				],
+			}
+		],
+	],
+);
+
+
+=head2 %gs1_product_to_off
+
+Defines the structure of the GS1 product data and how it maps to the OFF data.
+
+=cut
+
+my %gs1_product_to_off = (
 
 	match => [
 		["isTradeItemAConsumerUnit", "true"],
@@ -723,6 +830,7 @@ sub init_csv_fields() {
 
 	%seen_csv_fields = ();
 	@csv_fields = ();	
+	return;
 }
 
 
@@ -745,6 +853,7 @@ sub assign_field($$$) {
 		push @csv_fields, $target_field;
 		$seen_csv_fields{$target_field} = 1;
 	}
+	return;
 }
 
 
@@ -961,7 +1070,7 @@ sub gs1_to_off ($$$) {
 								my $nutrient_unit;
 								
 								# quantityContained may be a single hash, or an array of hashes
-								# e.g. for the energy ENER- field, there are values in kJ and kcal that can be given in different ways:
+								# e.g. for the energy ENER- field, there are values in kJ and kcal that can be specified in different ways:
 								# - Equadis has 2 ENER- nutrientDetail, each with a single quantityContained hash
 								# - Agena3000 has 1 ENER- nutrientDetail with an array of 2 quantityContained
 								# --> convert a single hash to an array with a hash
@@ -1260,6 +1369,7 @@ sub gs1_to_off ($$$) {
 			}
 		}
 	}
+	return;
 }
 
 
@@ -1326,10 +1436,11 @@ sub convert_single_text_property_to_direct_value($) {
             }
         }
     }
+    return;
 }
 
 
-=head2 convert_gs1_json_message_to_off_products_csv_fields ($json, $products_ref)
+=head2 convert_gs1_json_message_to_off_products_csv_fields ($json, $products_ref, $messages_ref)
 
 Thus function converts the data for one or more products in the GS1 format converted to JSON.
 GS1 format is in XML, it needs to be transformed to JSON with xml2json first.
@@ -1350,15 +1461,20 @@ Each product data will be added as one element (a hash ref) of the product data 
 
 For each product, the key of the hash is the name of the OFF csv field, and it is associated with the corresponding value for the product.
 
+=head4 $messages_ref - Reference to an array of GS1 messages data
+
+Each message will be added as one element (a hash ref) of the messages data array.
+
 =cut
 
 # pre-declare the function as it is recursive
-sub convert_gs1_json_message_to_off_products_csv($$);
+sub convert_gs1_json_message_to_off_products_csv($$$);
 
-sub convert_gs1_json_message_to_off_products_csv($$) {
+sub convert_gs1_json_message_to_off_products_csv($$$) {
 
 	my $json_ref = shift;
 	my $products_ref = shift;
+	my $messages_ref = shift;
 	
 	# Depending on how the original XML was converted to JSON,
 	# text values of XML tags can be assigned directly as the value of the corresponding key
@@ -1377,6 +1493,15 @@ sub convert_gs1_json_message_to_off_products_csv($$) {
 	# --- catalogue_item_notification:catalogueItemNotification
 	# ---- catalogueItem
 	# ----- tradeItem
+
+	# If there is an encapsulating message, extract the relevant fields
+	# that we will need to create a confirmation message
+	if (defined $json_ref->{"catalogue_item_notification:catalogueItemNotificationMessage"}) {
+		my $message_ref = {};
+		gs1_to_off(\%gs1_message_to_off, $json_ref, $message_ref);
+		push @$messages_ref, $message_ref;
+		$log->debug("convert_gs1_json_to_off_csv - GS1 message fields", { message_ref => $message_ref }) if $log->is_debug();
+	}
 	
 	foreach my $field (qw(
 		catalogue_item_notification:catalogueItemNotificationMessage
@@ -1395,7 +1520,7 @@ sub convert_gs1_json_message_to_off_products_csv($$) {
 	my $child_product_json_ref = deep_get($json_ref, qw(catalogueItemChildItemLink catalogueItem));
 	if (defined $child_product_json_ref) {
 		$log->debug("convert_gs1_json_to_off_csv - found a child item", {  }) if $log->is_debug();
-		convert_gs1_json_message_to_off_products_csv($child_product_json_ref, $products_ref)
+		convert_gs1_json_message_to_off_products_csv($child_product_json_ref, $products_ref, $messages_ref)
 	}
 
 	if (defined $json_ref->{tradeItem}) {
@@ -1413,27 +1538,30 @@ sub convert_gs1_json_message_to_off_products_csv($$) {
 		return {};
 	}
 	
-	my $results_ref = {};
+	my $product_ref = {};
 	
-	gs1_to_off(\%gs1_to_off, $json_ref, $results_ref);
+	gs1_to_off(\%gs1_product_to_off, $json_ref, $product_ref);
 	
 	# assign the lang and lc fields
-	if (defined $results_ref->{languages}) {
-		my @sorted_languages = sort ( { $results_ref->{languages}{$b} <=> $results_ref->{languages}{$a} } keys %{$results_ref->{languages}});
+	if (defined $product_ref->{languages}) {
+		my @sorted_languages = sort ( { $product_ref->{languages}{$b} <=> $product_ref->{languages}{$a} } keys %{$product_ref->{languages}});
 		my $top_language = $sorted_languages[0];
-		$results_ref->{lc} = $top_language;
-		$results_ref->{lang} = $top_language;
-		delete $results_ref->{languages};
+		$product_ref->{lc} = $top_language;
+		$product_ref->{lang} = $top_language;
+		delete $product_ref->{languages};
 	}
 	
-	push @$products_ref, $results_ref;
+	push @$products_ref, $product_ref;
+	return;
 }
 
 
-=head2 read_gs1_json_file ($json_file, $products_ref)
+=head2 read_gs1_json_file ($json_file, $products_ref, $messages_ref)
 
 Read a GS1 message file in json format, convert the included products in the OFF format,
 and store the resulting products in the $products_ref array
+
+The encapsulating GS1 message is added to the $messages_ref array
 
 =head3 Arguments
 
@@ -1441,12 +1569,16 @@ and store the resulting products in the $products_ref array
 
 =head4 reference to output products array $products_ref
 
+=head4 reference to output messages array $messages_ref
+
+
 =cut
 
-sub read_gs1_json_file($$) {
+sub read_gs1_json_file($$$) {
 	
 	my $json_file = shift;
 	my $products_ref = shift;
+	my $messages_ref = shift;
 	
 	$log->debug("read_gs1_json_file", { json_file => $json_file }) if $log->is_debug();
 	
@@ -1461,7 +1593,81 @@ sub read_gs1_json_file($$) {
 	# which is the expected format of the ProductOpener::GS1 module
 	convert_single_text_property_to_direct_value($json_ref);
 		
-	convert_gs1_json_message_to_off_products_csv($json_ref, $products_ref);
+	convert_gs1_json_message_to_off_products_csv($json_ref, $products_ref, $messages_ref);
+	return;
+}
+
+
+sub generate_gs1_message_identifier() {
+
+	# local GLN + 60 random hexadecimal characters
+	my $identifier = deep_get(\%options, qw(gs1 local_gln)) . "_";
+	$identifier .= sprintf("%x", rand 16) for 1..60;
+
+	return $identifier;
+}
+
+
+=head2 generate_gs1_confirmation_message ($notification_message_ref, $timestamp)
+
+GS1 data pools (catalogs) send us GSDN Catalogue Item Notification (CIN) which are messages
+that contain the data for 1 product (and possibly sub-products).
+
+The GS1 standard offers data recipient (such as Open Food Facts) to send back
+Catalogue Item Confirmation (CIC) messages to acknowledge the notification and give
+its status.
+
+This function generates the CIC message corresponding to a CIN message.
+
+See https://www.gs1.org/docs/gdsn/tiig/3_1/GDSN_Trade_Item_Implementation_Guide.pdf for more details.
+
+=head3 Arguments
+
+=head4 reference to the notification message (as parsed by convert_gs1_json_message_to_off_products_csv)
+
+=head4 timestamp
+
+The current time is passed as a parameter to the function. This is so that we can 
+generate test confirmation messages which don't have a different content every time we run them.
+
+=cut
+
+sub generate_gs1_confirmation_message($$) {
+
+	my $notification_message_ref = shift;
+	my $timestamp = shift;
+
+	# We will need to generate a message identifier, put it in the XML content,
+	# and return it as it is used as the file name
+	my $confirmation_instance_identifier = generate_gs1_message_identifier();
+
+	# Template data for the confirmation
+	my $confirmation_data_ref = {
+		Sender_Identifier => deep_get(\%options, qw(gs1 local_gln)),
+		Receiver_Identifier => deep_get(\%options, qw(gs1 agena3000 receiver_gln)),
+		recipientGLN => deep_get(\%options, qw(gs1 local_gln)),
+		recipientDataPool => deep_get(\%options, qw(gs1 agena3000 data_pool_gln)),
+		InstanceIdentifier => $confirmation_instance_identifier,
+		transactionIdentification_entityIdentification => generate_gs1_message_identifier(),
+		documentCommandIdentification_entityIdentification => generate_gs1_message_identifier(),
+		catalogueItemNotificationIdentification_entityIdentification => generate_gs1_message_identifier(),
+		CreationDateAndTime => display_date_iso($timestamp),
+		catalogueItemConfirmationStateCode => 'RECEIVED',
+	};
+
+	# Include the notification data in the template data for the confirmation
+	$confirmation_data_ref->{notification} = $notification_message_ref;
+
+
+	my $xml;
+	if (process_template('gs1/catalogue_item_confirmation.tt.xml', $confirmation_data_ref, \$xml)) {
+		$log->debug("generate_gs1_confirmation_message - success", { confirmation_instance_identifier => $confirmation_instance_identifier}) if $log->is_error();
+	}
+	else {
+		$log->error("generate_gs1_confirmation_message - template error", { error => $tt->error() }) if $log->is_error();
+	}
+
+	return ($confirmation_instance_identifier, $xml);
 }
 
 
@@ -1526,6 +1732,7 @@ sub write_off_csv_file($$) {
 	}
 	
 	close $filehandle;
+	return;
 }
 
 

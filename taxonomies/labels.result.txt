@@ -122,25 +122,6 @@ nl:Zonder kunstmatige toevoegingen
 pt:Sem aditivos artificiais
 label_categories:en: en:Health, en:Additives
 
-bg:Без палмово масло
-ca:Lliure d'oli de palma, Sense oli de palma
-cs:Bez palmového oleje
-de:Ohne Palmöl
-es:Sin aceite de palma
-fi:palmuöljytön, ei palmuöljyä, ilman palmuöljyä
-fr:Sans huile de palme
-he:ללא שמן דקלים, נקי משמן דקלים
-hu:Pálmaolajmentes, Pálmaolaj nélkül, pálmaolajat nem tartalmaz
-it:Senza olio di palma
-nl:Zonder palmolie, Palmolie-vrij
-pl:Wolne od oleju palmowego, bez oleju palmowego
-pt:Sem óleo de palma
-ru:Без пальмового масла
-sv:Utan palmolja
-th:ไม่ใช้น้ำมันปาล์ม
-zh:不含棕榈油
-opposite:en: en:contains-palm-oil
-
 bg:Произведено в Европейския съюз
 ca:Fet a la Unió Europea
 cs:Vyrobeno v EU
@@ -298,6 +279,10 @@ fr:Experimentation Etiquetage Nutritionnel 2016
 it:Esperimento di etichettatura nutrizionale 2016
 nl:2016 Voedingslabel experiment
 
+en:ActForPlanet
+fr:ActforPlanet, ActPlanet
+auth_url:en: https://www.actforplanet.org
+
 en:Agri Natura, AgriNatura
 
 en:Animal welfare
@@ -330,6 +315,8 @@ image:en: assured-food-standards.82x90.svg
 wikidata:en: Q4810404
 
 en:Australian International Beer Awards
+label_categories:en: en:Food awards, en:Beers
+wikidata:en: Q2153681
 
 en:Australian made
 bg:Произведено в Австралия
@@ -366,6 +353,7 @@ fi:belgialaiset perhepanimot
 it:Birrai Familiari Belgi
 nl:Belgische familiebrouwerijen
 image:en: belgian-family-brewers.90x90.svg
+wikidata:en: Q2855457
 
 en:Belgian hops
 fi:belgialaisia humaloita, humalan alkuperä Belgia
@@ -409,6 +397,8 @@ label_categories:en: en:Environnment
 wikidata:en: Q882616
 
 en:Brazilian Beer Awards
+label_categories:en: en:Food awards, en:Beers
+wikidata:en: Q4958708
 
 en:British Lion Quality, Lion Quality, British Lion Eggs, Lion Eggs, The Lion Mark, Lion Mark
 wikidata:en: Q4969906
@@ -511,8 +501,8 @@ pt:Produto produzido em neutralidade de carbono, Produto neutral de carbono
 ru:углерод компенсирующий продукт, углерод нейтральный
 
 < en:Carbon compensated product
-en:Climate Neutral Ceritfied
-xx:Climate Neutral Ceritfied
+en:Climate Neutral Certified
+xx:Climate Neutral Certified
 
 < en:Carbon compensated product
 en:CO2e neutral, CO2e compensated, CO2-equivalent neutral, CO2-equivalent compensated
@@ -653,12 +643,20 @@ en:Certified quality
 fr:Qualité certifiée
 
 en:Champion Beer of Britain
+label_categories:en: en:Food awards, en:Beers
+wikidata:en: Q5069978
 
 en:Champion Beer of Scotland
+label_categories:en: en:Food awards, en:Beers
+wikidata:en: Q3910740
 
 en:Champion Beer of Wales
+label_categories:en: en:Food awards, en:Beers
+wikidata:en: Q599321
 
 en:Champion Winter Beer of Britain
+label_categories:en: en:Food awards, en:Beers
+wikidata:en: Q5070034
 
 en:Charte LU Harmony, Charte Harmony, LU Harmony, Charte LU
 it:Progetto Harmony di Charte LU
@@ -730,6 +728,7 @@ it:Contiene glutine
 nl:Bevat gluten
 pl:Zawiera gluten
 pt:Contem gluten
+label_categories:en: en:Allergens
 opposite:en: en:no-gluten
 
 en:Contains GMOs, with GMOs
@@ -747,6 +746,10 @@ th:มีส่วนผสมจีเอ็มโอ
 label_categories:en: en:Health, en:Environment
 opposite:en: en:No GMOs
 
+en:Contains lactose
+nl:Bevat melkeiwit, Bevat lactose
+opposite:en: en:no-lactose
+
 en:Contains milk
 bg:Съдържа мляко
 ca:Conté llet
@@ -762,10 +765,12 @@ pl:Zawiera mleko, Z mlekiem
 pt:Contem leite
 ru:Содержит молоко
 th:มีส่วนผสมของนม
+label_categories:en: en:Allergens
 
 en:Contains palm oil
 bg:Съдържа палмово масло
 fr:Contient de l'huile de palme
+nl:Bevat palmolie
 opposite:en: en:no-palm-oil
 
 en:Contains soy
@@ -779,7 +784,7 @@ hu:Szóját tartalmaz, Szójatartalmú
 it:Contiene soia
 nl:bevat soya
 pt:Contem soja
-label_categories:en: en:Environment, en:Soy
+label_categories:en: en:Environment, en:Soy, en:Allergens
 opposite:en: en:no-soy
 
 en:Cooked in France
@@ -1007,6 +1012,7 @@ pt:Enriquecido com cálcio
 
 en:Ethical Tea Partnership, ETP
 label_categories:en: en:Faitrade
+wikidata:en: Q5403392
 
 en:EU Agriculture, European Union agriculture
 bg:Земеделие от ЕС
@@ -2091,6 +2097,42 @@ ca:BG-BIO-16
 de:BG-BIO-16
 es:BG-BIO-16
 xx:BG-BIO-16
+country:en: Bulgaria
+
+< en:EU Organic
+en:BG-BIO-17
+bg:BG-BIO-17
+xx:BG-BIO-17
+country:en: Bulgaria
+
+< en:EU Organic
+en:BG-BIO-18
+bg:BG-BIO-18
+xx:BG-BIO-18
+country:en: Bulgaria
+
+< en:EU Organic
+en:BG-BIO-19
+bg:BG-BIO-19
+xx:BG-BIO-19
+country:en: Bulgaria
+
+< en:EU Organic
+en:BG-BIO-20
+bg:BG-BIO-20
+xx:BG-BIO-20
+country:en: Bulgaria
+
+< en:EU Organic
+en:BG-BIO-21
+bg:BG-BIO-21
+xx:BG-BIO-21
+country:en: Bulgaria
+
+< en:EU Organic
+en:BG-BIO-22
+bg:BG-BIO-22
+xx:BG-BIO-22
 country:en: Bulgaria
 
 < en:EU Organic
@@ -13598,6 +13640,8 @@ en:European Beer Star
 ca:Cervesa Estrella Europea
 he:כוכב בירה אירופי
 nl:European Beer Star, Europese Bier Ster
+label_categories:en: en:Food awards, en:Beers
+wikidata:en: Q2404322
 
 en:European Fruit Juice Control System, EQCS, European Quality Control System for Juice, European Quality Control System for Juice and Nectars from Fruits and Vegetables
 
@@ -13766,6 +13810,7 @@ en:Free from E number
 bg:Без E-номера
 fi:E-kooditon, ei E-koodeja
 hu:E-szám mentes
+label_categories:en: en:Health
 
 en:Free range
 bg:Свободно отглеждане
@@ -14348,6 +14393,7 @@ th:แคลเซียมสูง
 en:High in salt - Finland
 fi:Voimakassuolainen, Sisältää paljon suolaa
 sv:Kraftigt saltat, Innehåller mycket salt
+label_categories:en: en:Health
 
 en:High level of fat - Israel
 he:שומן בכמות גבוהה
@@ -14457,6 +14503,7 @@ th:ข้อมูลในฉลากโภชนาการไม่ถู�
 
 en:Indy International Wine Competition
 fr:Concours International des Vins de l'Indiana
+label_categories:en: en:Wines
 
 en:Institut Fresenius
 de:Institut Fresenius, Institut Fresenius Lebensmittel Siegel
@@ -14477,6 +14524,7 @@ fi:Säteilytetty
 fr:Traité par rayonnement ionisant, Traité par rayonnements ionisants, traité par ionisation, ionisé, irradié
 nl:Bestraald, Bestraalde voeding
 pt:Alimentos Irradiados, Irradiados
+wikidata:en: Q1330911
 
 en:ISO 22000
 bg:ISO 22000
@@ -14495,6 +14543,9 @@ en:ISO 22000:2005
 bg:ISO 22000:2005
 de:ISO 22000:2005
 xx:ISO 22000:2005
+
+< en:ISO 22000
+en:ISO 22000:2018
 
 en:ISO 9001
 bg:ISO 9001
@@ -14568,11 +14619,13 @@ nl:Kashrut divisie van de London Beth Din
 < en:Kosher
 en:Kof-K
 xx:Kof-K
+wikidata:en: Q85774787
 
 < en:Kosher
 en:Kosher Check, BC Kosher
 ca:Comprovat Kosher, BC Kosher
 he:בדיקת כשרות
+wikidata:en: Q4835301
 
 < en:Kosher
 en:Kosher-parve, Kosher parve
@@ -14585,6 +14638,7 @@ nl:Kosher parve
 < en:Kosher
 en:Kosher Supervision of America, KSA, KSA Kosher
 he:השגחת הכשרות של אמריקה
+wikidata:en: Q6433092
 
 < en:Kosher
 en:Kosher under supervision of Rabbi Weitman Tnuva
@@ -14625,6 +14679,7 @@ en:Star-D Kosher
 
 < en:Kosher
 en:Star-K Kosher, Vaad Hakashrus of Baltimore
+wikidata:en: Q7600512
 
 < en:Kosher
 en:Tablet-K Kosher
@@ -14707,6 +14762,7 @@ nl:Geen vet of vetarm
 pt:Com pouca ou sem gordura
 ru:Низкожирный или обезжиренный
 th:ไขมันต่ำหรือไม่มีเลย
+label_categories:en: en:Health
 
 < en:Low or no fat
 en:Low fat, low in fat
@@ -14766,6 +14822,7 @@ it:Con poco sale o senza sale
 nl:Geen of weinig zout
 pt:Baixo ou sem sal
 th:เกลือต่ำหรือไม่มีเลย
+label_categories:en: en:Health
 
 < en:Low or no salt
 en:Low salt
@@ -14831,6 +14888,7 @@ ru:Низкое содержание сахара или без сахара
 sv:Lågt eller inget socker
 th:น้ำตาลต่ำ
 zh:低糖或无糖
+label_categories:en: en:Health
 
 < en:Low or no sugar
 en:Low sugar
@@ -14892,6 +14950,7 @@ nl:Natriumarm
 pt:Baixo teor de sódio
 ru:Низкое содержание натрия
 th:โซเดียมต่ำ
+label_categories:en: en:Health
 
 < en:Low sugar
 en:Reduced sugar, Less sugar
@@ -14948,6 +15007,7 @@ da:Fremstillet i Danmark
 fi:Valmistettu Tanskassa
 sv:Tillverkad i Danmark
 country:en: Denmark
+label_categories:en: en:Geographic label
 
 en:Made in France
 bg:Произведено във Франция
@@ -15022,6 +15082,7 @@ fi:Valmistettu Luxemburgissa
 pt:Produzido no Luxemburgo
 sv:Tillverkad i Luxemburg
 country:en: Luxembourg
+label_categories:en: en:Geographic label
 
 en:Made in Mexico
 bg:Произведено в Мексико
@@ -15043,6 +15104,7 @@ da:Fremstillet i Polen
 fi:Valmistettu Puolassa
 sv:Tillverkad i Polen
 country:en: Poland
+label_categories:en: en:Geographic label
 
 en:Made in Portugal
 bg:Произведено в Португалия
@@ -15105,6 +15167,7 @@ country:en: Switzerland
 label_categories:en: en:Geographic label
 
 en:Made in the EU, Made in the European Union
+label_categories:en: en:Geographic label
 
 < en:Max Havelaar
 en:Max Havelaar Belgium
@@ -15138,6 +15201,12 @@ ca:Certificat NAPSI
 fi:NAPSI-sertifioitu
 fr:Certifiée NAPSI, Certifié NAPSI
 nl:NAPSI certificatie
+
+en:National standard for Bulgarian kashkaval
+bg:БДС 14:2010, Национален стандарт за български кашкавал
+
+en:National standard for Bulgarian white cheese in brine
+bg:БДС 15:2010, Национален стандарт за българско бяло саламурено сирене
 
 en:National standard for Bulgarian yoghurt
 bg:БДС 12:2010, Национален стандарт за българско кисело мляко
@@ -15374,6 +15443,7 @@ fr:Sans antibiotique dès la naissance, sans antibiotique de la naissance à l'a
 pt:Sem antibióticos desde o nascimento, nenhum antibiótico nunca
 
 en:No artificial additives
+label_categories:en: en:Health
 
 en:No artificial colors, free of artificial color, no artificial colours
 bg:Без изкуствени оцветители
@@ -15385,7 +15455,7 @@ fr:Sans colorants artificiels
 he:ללא צבעי מאכל מלאכותיים
 hu:Mesterséges színezék nélkül, Mesterséges színezéket nem tartalmaz, mesterséges színezék mentes
 it:Senza coloranti artificiali
-nl:Vrij van kunstmatige kleurstoffen
+nl:Zonder kunstmatige kleurstoffen, Vrij van kunstmatige kleurstoffen
 pt:Sem cores artificiais, sem cor artificial
 ru:без искусственных красителей
 th:ไม่เติมสีสังเคราะห์
@@ -15405,7 +15475,7 @@ he:ללא צבעי מאכל או חומרים משמרים מלאכותיים
 hu:Mesterséges színezék és ízesítők nélkül
 it:Senza coloranti o aromi artificiali
 nb:Ingen kunstige smakstilsetninger eller farger
-nl:Zonder kunstmatige kleurstoffen
+nl:Zonder kunstmatige kleurstoffen of smaakstoffen
 pt:Sem corantes nem aromas artificiais
 sv:Inga artificiella aromämnen eller färger
 th:ไม่ใช้กลิ่นและสีสังเคราะห์
@@ -15574,6 +15644,7 @@ nl:Zonder toegevoegde smaakstoffen
 pt:Sem sabores, sem sabores adicionados
 ru:без ароматизаторов
 th:ไม่เติมกลิ่น
+label_categories:en: en:Health, en:Additives
 
 en:No flavour enhancer
 ca:Sense potenciador de sabor
@@ -15728,6 +15799,7 @@ ru:Без лактозы
 sk:Bez laktozy
 sv:Laktosfri, Laktosfritt
 th:ไม่มีแลคโตส
+opposite:en: en:contains-lactose
 
 en:No lecithine, lecithine-free
 bg:Без лецитин
@@ -15776,6 +15848,24 @@ en:No nuts, nut free
 nl:Zonder noten
 
 en:No palm oil, Palm oil free, Without palm oil
+bg:Без палмово масло
+ca:Lliure d'oli de palma, Sense oli de palma
+cs:Bez palmového oleje
+de:Ohne Palmöl
+es:Sin aceite de palma
+fi:palmuöljytön, ei palmuöljyä, ilman palmuöljyä
+fr:Sans huile de palme
+he:ללא שמן דקלים, נקי משמן דקלים
+hu:Pálmaolajmentes, Pálmaolaj nélkül, pálmaolajat nem tartalmaz
+it:Senza olio di palma
+nl:Zonder palmolie, Palmolie-vrij, Palmolievrij
+pl:Wolne od oleju palmowego, bez oleju palmowego
+pt:Sem óleo de palma
+ru:Без пальмового масла
+sv:Utan palmolja
+th:ไม่ใช้น้ำมันปาล์ม
+zh:不含棕榈油
+opposite:en: en:contains-palm-oil
 
 en:No peanuts, without peanuts, Peanut Free
 bg:Без фъстъци
@@ -15841,7 +15931,7 @@ nl:Sojavrij
 pt:Sem soja
 ru:Не содержит сои
 th:ไม่มีส่วนผสมของถั่วเหลือง
-label_categories:en: en:Environment, en:Health, en:Soy
+label_categories:en: en:Environment, en:Health, en:Soy, en:Allergens
 opposite:en: en:contains-soy
 
 en:No thickening agent, No thickeners
@@ -16253,6 +16343,7 @@ en:Bio Austria
 de:Bio Austria
 country:en: Austria
 image:en: bio-austria.67x90.svg
+wikidata:en: Q864178
 
 < en:Organic
 en:Bio Suisse, BioSuisse
@@ -16281,6 +16372,7 @@ en:Biogarantie
 xx:Biogarantie
 country:en: Belgium
 image:en: biogarantie.90x90.svg
+wikidata:en: Q2904088
 
 < en:Organic
 en:Biokreis
@@ -16876,10 +16968,15 @@ nl:Rainforest Alliance
 auth_url:en: https://www.rainforest-alliance.org
 wikidata:en: Q2034373
 
+< en:Rainforest Alliance
+en:Rainforest Alliance Black Tea
+de:Rainforest Alliance Schwarzer Tee
+
 en:raised in Ireland
 de:aufgezogen in Irland, aufgewachsen in Irland
 fi:kasvatettu Irlannissa
 fr:élevé en Irlande, élevés en Irlande, élevée en Irlande, élevées en Irlande
+label_categories:en: en:Geographic label
 origins:en: en:ireland
 
 en:raised in Norway
@@ -16889,6 +16986,7 @@ es:Criado en Noruega
 fi:Kasvatettu Norjassa
 fr:élevé en Norvège, élevés en Norvège, élevée en Norvège, élevées en Norvège
 it:Cresciuto in Norvegia
+label_categories:en: en:Geographic label
 origins:en: en:norway
 
 en:raised in Scotland
@@ -16896,6 +16994,7 @@ de:In Schottland aufgewachsen
 fi:Kasvatettu Skotlannissa
 fr:élevé en Ecosse, élevés en Ecosse, élevée en Ecosse, élevées en Ecosse
 it:Cresciuto in Scozia, Allevato in Scozia
+label_categories:en: en:Geographic label
 origins:en: en:scotland,en:united-kingdom
 
 en:Real California Cheese
@@ -17719,6 +17818,23 @@ it:qualità superiore
 nl:Superieure kwaliteit
 pl:najwyższa jakość
 
+en:Sustainable
+
+< en:Sustainable
+en:Sustainable fishing, Sustainable Seafood, Sustainable fishery
+bg:Устойчив риболов
+ca:Piscifactoria sostenible, Pesca sostenible, Marisc sostenible
+de:Nachhaltige Fischerei
+es:Pesca sostenible
+fi:Kestävä kalastus
+fr:Pêche durable, pêches durables
+he:דיג מקיים
+hu:Fenntartható halászat
+it:Pesca sostenibile
+nl:Duurzame visserij
+pl:Zrównoważone rybołówstwo
+label_categories:en: en:Fishing labels
+
 en:Sustainable farming
 bg:Устойчиво земеделие
 ca:Agricultura Sostenible
@@ -17741,29 +17857,18 @@ cs:UTZ certifikováno
 de:UTZ Zertifiziert, UTZ
 es:Certificado UTZ
 fi:UTZ-sertifioitu, UTZ
+fr:Certifié UTZ
 hu:UTZ Certified, UTZ, UTZ tanúsítás, UTZ tanúsítvány
 it:Certificato UTZ, UTZ
 nl:UTZ Gecertificeerd
+xx:UTZ Certified
 auth_url:en: https://utz.org
 wikidata:en: Q2305872
-
-en:Sustainable fishing, Sustainable Seafood, Sustainable fishery
-bg:Устойчив риболов
-ca:Piscifactoria sostenible, Pesca sostenible, Marisc sostenible
-de:Nachhaltige Fischerei
-es:Pesca sostenible
-fi:Kestävä kalastus
-fr:Pêche durable, pêches durables
-he:דיג מקיים
-hu:Fenntartható halászat
-it:Pesca sostenibile
-nl:Duurzame visserij
-pl:Zrównoważone rybołówstwo
-label_categories:en: en:Fishing labels
 
 < en:Sustainable fishing
 en:Sustainable fishing method, sustainable fishing technique
 fr:Méthode de pêche durable, Technique de pêche durable, Mode de pêche durable, Méthodes de pêche durables, techniques de pêche durables, modes de pêche durables
+nl:Duurzame vismethoden
 
 < en:Sustainable fishing
 en:Sustainable Seafood MSC, sustainable food msc
@@ -17781,7 +17886,7 @@ label_categories:en: en:Fishing labels
 wikidata:en: Q1891246
 
 < en:Sustainable fishing method
-en:Angled fish
+en:Angled fish, Pole&line
 ca:Pescat amb canya
 de:Geangelter Fisch
 fi:koukulla pyydystettyä kalaa
@@ -17863,12 +17968,12 @@ en:Thailand Diversity & Refinement
 origins:en: en:thailand
 
 en:The Balkan International Wine Competition
-categories:en: en:wines
+label_categories:en: en:Wines
 
 en:The International Wine & Spirit Competition
 
 en:Thessaloniki International Wine Competition
-categories:en: en:wines
+label_categories:en: en:Wines
 
 en:Tooth-health related labels
 de:Labels zur Zahngesundheit
@@ -17970,6 +18075,7 @@ hu:UTZ Certified Cocoa, UTZ Certified Cacao, UTZ tanúsított kakaó
 it:Cacao certificato UTZ
 nl:UTZ gecertificeerde cacao
 pl:UTZ Certified Cacao
+xx:UTZ Certified Cocoa
 
 < en:UTZ Certified
 en:UTZ Certified Coffee
@@ -17980,7 +18086,9 @@ fi:UTZ-sertifioitua kahvia
 fr:Café certifié UTZ
 hu:UTZ Certified Coffee, UTZ tanúsított kávé
 it:Caffè certificato UTZ, Caffe certificato UTZ
+nl:UTZ Certified Coffee
 pl:UTZ Certified Coffee
+xx:UTZ Certified Coffee
 
 < en:Vegan
 en:EVE Vegan, Expertise Vegan Europe
@@ -18187,6 +18295,7 @@ it:Fonte di vitamina A
 nl:bron van Vitamine A
 pt:Fonte de vitamina A
 ru:Источник витамина A
+wikidata:en: Q18225
 
 en:Vitamin B source, Source of vitamin B
 bg:Източник на витамин B
@@ -18199,6 +18308,7 @@ hu:B-vitaminforrás
 nl:Bron van Vitamine B
 pt:Fonte de vitamina B
 ru:Источник витамина B
+wikidata:en: Q183206
 
 en:Vitamin B1 source, Source of vitamin B1
 bg:Източник на витамин B1
@@ -18211,6 +18321,7 @@ hu:B1-vitaminforrás
 nl:Bron van Vitamine B1
 pt:Fonte de vitamina B1
 ru:Источник витамина B1
+wikidata:en: Q83187
 
 en:Vitamin B12 source, Source of vitamin B12
 bg:Източник на витамин B12
@@ -18239,6 +18350,7 @@ hu:B6-vitaminforrás
 nl:Bron van Vitamine B6
 pt:Fonte de vitamina B6
 ru:Источник витамина B6
+wikidata:en: Q205130
 
 en:Vitamin B9 source, Source of vitamin B9
 bg:Източник на витамин B9
@@ -18302,7 +18414,7 @@ pt:Concurso Mundial de Vinhos
 label_categories:en: en:Wines
 
 en:Wine Women Awards à l'Hôtel Bristol à Paris
-categories:en: en:wines
+label_categories:en: en:Wines
 
 en:Winner of the "consumer rights and quality of service" (Russia)
 fi:Kuluttajien oikeuksien ja palvelun laadun voittaja (Venäjä)
@@ -18336,6 +18448,7 @@ it:Contiene solfiti, con solfiti
 pt:Com sulfitos, contém sulfitos
 sv:Innehåller sulfiter, Innehåller sulfit
 th:ใช้ซัลไฟต์
+label_categories:en: en:Allergens
 
 < en:With sulfites
 en:Sulfites and SO2 > 10ppm
@@ -18486,6 +18599,8 @@ zh:不含植物油
 en:World Beer Awards
 xx:World Beer Awards
 zh:世界啤酒奖
+label_categories:en: en:Food awards, en:Beers
+wikidata:en: Q2612801
 
 < en:World Beer Awards
 en:World Beer Awards 2009
@@ -18539,9 +18654,6 @@ zh:世界啤酒奖 2019
 
 es:Cata Concurso Nacional de Vinos Jóvenes Cosecha
 label_categories:en: en:Wines
-
-es:Certificado organico ibd
-label_categories:en: en:Certification
 
 es:Concours Internetionale du Vins, Vinandino
 label_categories:en: en:Wines
@@ -18635,6 +18747,7 @@ fr:Bleu Blanc Cœur Porc, Porc BBC, BBC Porc
 fr:Bleu Blanc Cœur Poulet, BBC poulet, poulet BBC
 
 fr:Certifié écosocial par IBD
+es:Certificado organico ibd
 label_categories:en: en:Certification
 
 fr:Certifié par bureau Veritas, Certifié par Veritas
@@ -18670,18 +18783,21 @@ label_categories:en: en:Wines
 
 fr:Concours des vins d'Orange
 label_categories:en: en:Wines
+wikidata:en: Q2992151
 
 fr:Concours des vins de Mâcon
 label_categories:en: en:Wines
+wikidata:en: Q2992152
 
 fr:Concours des vins de Piolenc
-categories:en: en:wines
+label_categories:en: en:Wines
 
 fr:Concours des vins du Grand Delta à Avignon
 label_categories:en: en:Wines
 
 fr:Concours des vins Féminalise
 label_categories:en: en:Wines
+wikidata:en: Q16543241
 
 fr:Concours des Vins Jury Consommateurs de Vacqueyras
 
@@ -18709,6 +18825,7 @@ fr:Concours International de dégustation des vins mousseux Nouveau Monde à Nov
 
 fr:Concours International de Vin et Spiritueux
 es:La Mujer Elige
+label_categories:en: en:Wines
 
 fr:Concours International des Best Of du Tourisme Vitivinicole à Bordeaux
 
@@ -18722,10 +18839,11 @@ fr:Concours International des Vins de Montagne d'Aoste
 label_categories:en: en:Wines
 
 fr:Concours International des Vins de Terroir de Brignoles
-categories:en: en:wines
+label_categories:en: en:Wines
 
 fr:Concours International des Vins et Spiritueux VINUS
 es:Vino, Nutricion y Salud
+label_categories:en: en:Wines
 
 fr:Concours International du Gamay
 
@@ -18759,6 +18877,7 @@ fr:Farine de sarrasin français, Farine de blé noir français
 origins:en: en:france
 
 fr:Femmes et Vins du Monde
+label_categories:en: en:Wines
 
 fr:fermenté en barrique
 
@@ -19003,12 +19122,15 @@ fr:Mis en bouteille au domaine
 packaging:en: en:bottle
 
 fr:Mondial des Pinots by VINEA
+label_categories:en: en:Wines
 
 fr:Mondial du Chasselas
 
 fr:Mondial du Merlot & Assemblages by VINEA
+label_categories:en: en:Wines
 
 fr:Nou la fé, NOU LA FE
+label_categories:en: en:Geographic label
 
 fr:Nouvelle Agriculture
 
@@ -19109,6 +19231,7 @@ fr:Saveurs de l'Année 2022, Saveur de l'Année 2022
 fr:Saveurs de l'Année 2023, Saveur de l'Année 2023
 
 fr:Saveurs de Normandie
+label_categories:en: en:Geographic label
 origins:en: en:france
 
 fr:Saveurs en Or, Saveurs en'Or
@@ -19255,6 +19378,7 @@ label_categories:en: en:Wines
 
 nl:Beter Leven
 label_categories:en: en:Animal welfare
+wikidata:en: Q58477631
 
 < nl:Beter Leven
 nl:Beter Leven 1 ster
@@ -19282,6 +19406,7 @@ pt:Ecoponto verde
 xx:Ecoponto verde
 
 ro:Concursul International de Vinuri
+label_categories:en: en:Wines
 
 ru:высший сорт, сорт высший
 
@@ -19292,4 +19417,5 @@ wikidata:en: Q4192703
 
 sl:Vino Ljubljana
 fr:Concours International des vins de Ljubljana
+label_categories:en: en:Wines
 

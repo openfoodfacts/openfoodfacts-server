@@ -18,6 +18,29 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=head1 NAME
+
+ProductOpener::Data - methods to create or get the mongoDB client and fetch "data collections" from the MongoDB database;
+
+=head1 DESCRIPTION
+
+The module implements the methods required to fetch certain collections from the MongoDB database.
+The functions used in this module are responsible for executing queries, to get connection to database and also to select the collection required.
+
+The module exposes 2 distinct kinds of collections, products and products_tags, returned by the Data::get_products_collections
+and the Data::get_products_tags_collections methods respectively.
+
+The products collection contains a complete document for each product in the OpenFoodFacts database which exposes all
+available information about the product.
+
+The products_tags collection contains a stripped down version of the data in the products collection, where each
+product entry has a select few fields, including fields used in tags. The main purpose of having this copy is to
+improve performance of aggregate queries for an improved user experience and more efficient resource usage. This
+collection was initially proposed in L<issue#1610|https://github.com/openfoodfacts/openfoodfacts-server/issues/1610> on
+GitHub, where some additional context is available.
+
+=cut
+
 package ProductOpener::Data;
 
 use utf8;
@@ -56,6 +79,32 @@ use Action::Retry;
 my $client;
 my $action = Action::CircuitBreaker->new();
 
+=head1 FUNCTIONS
+
+=head2 execute_query( $subroutine )
+
+C<execute_query()> executes a query on the database.
+
+=head3 Arguments
+
+=head4 subroutine $sub
+
+A query subroutine that performs a query against the database.
+
+=head3 Return value
+
+The function returns the return value of the query subroutine $sub passed as a parameter to it.
+
+=head3 Synopsys
+
+eval {
+	$result = execute_query(sub {
+		return get_products_collection()->query({})->sort({code => 1});
+	});
+}
+
+=cut
+
 sub execute_query {
 	my ($sub) = @_;
 
@@ -68,10 +117,41 @@ sub execute_query {
 	)->run();
 }
 
+=head2 get_products_collection()
+
+C<get_products_collection()> establishes a connection to MongoDB and uses timeout as an arugument. This then selects a collection
+from within the database.
+
+=head3 Arguments
+
+This method takes in aruguments of integer type (user defined timeout in milliseconds).
+It is optional for this subroutine to have an argument.
+
+=head3 Return values
+
+Returns a mongoDB collection object.
+
+=cut
+
 sub get_products_collection {
 	my ($timeout) = @_;
 	return get_collection($mongodb, 'products', $timeout);
 }
+
+=head2 get_products_tags_collection()
+
+C<get_products_collection()> This selects the product tag collection from within the database.
+
+=head3 Arguments
+
+This method takes in aruguments of integer type (user defined timeout in milliseconds).
+It is optional for this subroutine to have an argument.
+
+=head3 Return values
+
+Returns a mongoDB collection.
+
+=cut
 
 sub get_products_tags_collection {
 	my ($timeout) = @_;
@@ -97,6 +177,21 @@ sub get_database {
 	my $database = $_[0] // $mongodb;
 	return get_mongodb_client()->get_database($database);
 }
+
+=head2 get_mongodb_client()
+
+C<get_mongodb_client()> gets the MongoDB client. It first checks if the client already exists and if not,
+it creates and configures a new MongoDB::MongoClient.
+
+=head3 Arguments
+
+This method takes in aruguments of integer type (user defined timeout in milliseconds). It is optional for this subroutine to have an argument.
+
+=head3 Return values
+
+Returns $client of type MongoDB::MongoClient object.
+
+=cut
 
 sub get_mongodb_client() {
 	# Note that for web pages, $client will be cached in mod_perl,

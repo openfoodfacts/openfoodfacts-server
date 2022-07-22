@@ -70,6 +70,7 @@ use ProductOpener::PackagerCodes qw/:all/;
 
 use JSON::PP;
 use Encode;
+use Data::DeepAccess qw(deep_get);
 
 =head1 FUNCTIONS
 
@@ -100,7 +101,8 @@ Needed for some country specific panels like the Eco-Score.
 
 Defines how some panels should be created (or not created)
 
-- skip_[panel_id] : do not create a specific panel
+- deactivate_[panel_id] : do not create a default panel -- currently unimplemented
+- activate_[panel_id] : create an on demand panel -- currently only for physical_activities panel
 
 =head3 Return values
 
@@ -164,12 +166,13 @@ sub create_knowledge_panels($$$$) {
     # Create recommendation panels first, as they will be included in cards such has the health card and environment card
     create_recommendation_panels($product_ref, $target_lc, $target_cc);
 
-    create_health_card_panel($product_ref, $target_lc, $target_cc);
+    create_health_card_panel($product_ref, $target_lc, $target_cc, $options_ref);
     create_environment_card_panel($product_ref, $target_lc, $target_cc);
 
     # Create the root panel that contains the panels we want to show directly on the product page
     create_panel_from_json_template("root", "api/knowledge-panels/root.tt.json",
-        {}, $product_ref, $target_lc, $target_cc);    
+        {}, $product_ref, $target_lc, $target_cc);
+    return;
 }
 
 
@@ -335,8 +338,8 @@ sub create_panel_from_json_template ($$$$$$) {
             };            
         }
     }
+    return;
 }
-
 
 =head2 extract_data_from_impact_estimator_best_recipe ($product_ref, $panel_data_ref)
 
@@ -387,6 +390,7 @@ sub extract_data_from_impact_estimator_best_recipe($$) {
     $panel_data_ref->{ecoscore_extended_data_more_precise_than_agribalyse} = is_ecoscore_extended_data_more_precise_than_agribalyse($product_ref);
 
     # TODO: compute the complete score, using Agribalyse impacts except for agriculture where we use the estimator impact
+    return;
 }
 
 
@@ -427,6 +431,7 @@ sub compare_impact_estimator_data_to_category_average($$$) {
             }
         }
     }
+    return;
 }
 
 
@@ -522,18 +527,20 @@ sub create_ecoscore_panel($$$) {
 
         # Create an extra panel for products that have extended ecoscore data from the impact estimator
 
-        if (defined $product_ref->{ecoscore_extended_data}) {
+        # 2022/05/06: disabled as we currently have few products with reliable extended ecoscore data
 
-            extract_data_from_impact_estimator_best_recipe($product_ref, $panel_data_ref);
+        # if (defined $product_ref->{ecoscore_extended_data}) {
 
-            compare_impact_estimator_data_to_category_average($product_ref, $panel_data_ref, $target_cc);
+        #     extract_data_from_impact_estimator_best_recipe($product_ref, $panel_data_ref);
 
-            # Display a panel only if we can compare the product extended impact
-            if (defined $panel_data_ref->{ecoscore_extended_data_for_category}) {
-                create_panel_from_json_template("ecoscore_extended", "api/knowledge-panels/environment/ecoscore/ecoscore_extended.tt.json",
-                    $panel_data_ref, $product_ref, $target_lc, $target_cc);
-            }
-        }
+        #     compare_impact_estimator_data_to_category_average($product_ref, $panel_data_ref, $target_cc);
+
+        #     # Display a panel only if we can compare the product extended impact
+        #     if (defined $panel_data_ref->{ecoscore_extended_data_for_category}) {
+        #         create_panel_from_json_template("ecoscore_extended", "api/knowledge-panels/environment/ecoscore/ecoscore_extended.tt.json",
+        #             $panel_data_ref, $product_ref, $target_lc, $target_cc);
+        #     }
+        # }
 
         create_panel_from_json_template("carbon_footprint", "api/knowledge-panels/environment/carbon_footprint.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);            
@@ -553,6 +560,18 @@ sub create_ecoscore_panel($$$) {
         create_panel_from_json_template("ecoscore_total", "api/knowledge-panels/environment/ecoscore/total.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);
 	}
+    # Eco-Score is not applicable
+    elsif ((defined $product_ref->{ecoscore_grade}) and ($product_ref->{ecoscore_grade} eq "not-applicable")) {
+        my $panel_data_ref = {};
+        $panel_data_ref->{subtitle} = f_lang_in_lc($target_lc, "f_attribute_ecoscore_not_applicable_description", {
+                category => display_taxonomy_tag_name($target_lc, "categories",
+                    deep_get($product_ref, qw/ecoscore_data ecoscore_not_applicable_for_category/))
+            }
+        );
+        create_panel_from_json_template("ecoscore", "api/knowledge-panels/environment/ecoscore/ecoscore_not_applicable.tt.json",
+            $panel_data_ref, $product_ref, $target_lc, $target_cc);
+    }
+    # Eco-Score is unknown
 	else {
         my $panel_data_ref = {};
         create_panel_from_json_template("ecoscore", "api/knowledge-panels/environment/ecoscore/ecoscore_unknown.tt.json",
@@ -579,6 +598,10 @@ sub create_ecoscore_panel($$$) {
             # Add properties of interest
             foreach my $property (qw(environmental_benefits description)) {
                 my $property_value = get_inherited_property("labels", $labelid, $property . ":" . $target_lc);
+                if (not defined $property_value && $target_lc != "en") {
+                    # fallback to english
+                    $property_value = get_inherited_property("labels", $labelid, $property . ":" . "en");
+                }
                 if (defined $property_value) {
                     $label_panel_data_ref->{$property} = $property_value;
                 }
@@ -588,6 +611,7 @@ sub create_ecoscore_panel($$$) {
                 $label_panel_data_ref, $product_ref, $target_lc, $target_cc);
         }
     }    
+    return;
 }
 
 
@@ -648,6 +672,7 @@ sub create_environment_card_panel($$$) {
     # Create the environment_card panel
     create_panel_from_json_template("environment_card", "api/knowledge-panels/environment/environment_card.tt.json",
         $panel_data_ref, $product_ref, $target_lc, $target_cc);    
+    return;
 }
 
 
@@ -702,10 +727,11 @@ sub create_manufacturing_place_panel($$$) {
             }
         }
     }
+    return;
 }
 
 
-=head2 create_health_card_panel ( $product_ref, $target_lc, $target_cc )
+=head2 create_health_card_panel ( $product_ref, $target_lc, $target_cc, $options_ref )
 
 Creates a knowledge panel card that contains all knowledge panels related to health.
 
@@ -724,13 +750,16 @@ This parameter sets the desired language for the user facing strings.
 
 We may display country specific recommendations from health authorities, or country specific scores.
 
+=head4 options reference $options_ref
+
 =cut
 
-sub create_health_card_panel($$$) {
+sub create_health_card_panel($$$$) {
 
 	my $product_ref = shift;
 	my $target_lc = shift;
 	my $target_cc = shift;
+    my $options_ref = shift;
 
 	$log->debug("create health card panel", { code => $product_ref->{code} }) if $log->is_debug();
 
@@ -738,9 +767,15 @@ sub create_health_card_panel($$$) {
 
     create_nutriscore_panel($product_ref, $target_lc, $target_cc);
 
+    create_nutrient_levels_panels($product_ref, $target_lc, $target_cc);
+
     create_nutrition_facts_table_panel($product_ref, $target_lc, $target_cc);
 
-    create_physical_activities_panel($product_ref, $target_lc, $target_cc);
+    if ($options_ref->{activate_knowledge_panel_physical_activities}) {
+        create_physical_activities_panel($product_ref, $target_lc, $target_cc);
+    }
+
+    create_serving_size_panel($product_ref, $target_lc, $target_cc);
 
     create_ingredients_panel($product_ref, $target_lc, $target_cc);
 
@@ -752,6 +787,7 @@ sub create_health_card_panel($$$) {
 
     create_panel_from_json_template("health_card", "api/knowledge-panels/health/health_card.tt.json",
         $panel_data_ref, $product_ref, $target_lc, $target_cc);    
+    return;
 }
 
 
@@ -782,19 +818,62 @@ sub create_nutriscore_panel($$$) {
 
 	$log->debug("create nutriscore panel", { code => $product_ref->{code}, nutriscore_data => $product_ref->{nutriscore_data} }) if $log->is_debug();
 	
-    my $panel_data_ref = data_to_display_nutriscore_and_nutrient_levels($product_ref);
+    my $panel_data_ref = data_to_display_nutriscore($product_ref);
 
-    # Do not display the Nutri-Score panel if it is not applicable
-    if ((not $panel_data_ref->{do_not_display})
-        and (not $panel_data_ref->{nutriscore_grade} eq "not-applicable")) {
+    # Nutri-Score panel
 
-        $panel_data_ref->{title} = lang_in_other_lc($target_lc, "attribute_nutriscore_" . $panel_data_ref->{nutriscore_grade} . "_description_short");
-
-        # Nutri-Score panel: score + details
-        create_panel_from_json_template("nutriscore", "api/knowledge-panels/health/nutriscore/nutriscore.tt.json",
-            $panel_data_ref, $product_ref, $target_lc, $target_cc);
-
+    if ($panel_data_ref->{nutriscore_grade} eq "not-applicable") {
+        $panel_data_ref->{title} = lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_title");
     }
+    else {
+        $panel_data_ref->{title} = lang_in_other_lc($target_lc, "attribute_nutriscore_" . $panel_data_ref->{nutriscore_grade} . "_description_short");
+    }
+    
+    # Nutri-Score panel: score + details
+    create_panel_from_json_template("nutriscore", "api/knowledge-panels/health/nutriscore/nutriscore.tt.json",
+        $panel_data_ref, $product_ref, $target_lc, $target_cc);
+    return;
+}
+
+
+=head2 create_nutrient_levels_panels ( $product_ref, $target_lc, $target_cc )
+
+Creates knowledge panels for nutrient levels for fat, saturated fat, sugars and salt.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head4 country code $target_cc
+
+=cut
+
+sub create_nutrient_levels_panels($$$) {
+
+	my $product_ref = shift;
+	my $target_lc = shift;
+	my $target_cc = shift;
+
+	$log->debug("create nutriscore panel", { code => $product_ref->{code}, nutriscore_data => $product_ref->{nutriscore_data} }) if $log->is_debug();
+	
+    my $nutrient_levels_ref = data_to_display_nutrient_levels($product_ref);
+
+    # Nutrient levels panels
+    if (not $nutrient_levels_ref->{do_not_display}) {
+        foreach my $nutrient_level_ref (@{$nutrient_levels_ref->{nutrient_levels}}) {
+            my $nid = $nutrient_level_ref->{nid};
+            create_panel_from_json_template("nutrient_level_" . $nid, "api/knowledge-panels/health/nutrition/nutrient_level.tt.json",
+                $nutrient_level_ref, $product_ref, $target_lc, $target_cc);
+        }
+    }
+    return;
 }
 
 
@@ -836,8 +915,46 @@ sub create_nutrition_facts_table_panel($$$) {
         create_panel_from_json_template("nutrition_facts_table", "api/knowledge-panels/health/nutrition/nutrition_facts_table.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);
     }
+    return;
 }
 
+
+
+=head2 create_serving_size_panel( $product_ref, $target_lc, $target_cc )
+
+Creates a knowledge panel with portion size.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head4 country code $target_cc
+
+=cut
+
+sub create_serving_size_panel($$$) {
+
+	my $product_ref = shift;
+	my $target_lc = shift;
+	my $target_cc = shift;
+
+	$log->debug("create serving size panel", { code => $product_ref->{code}, nutriscore_data => $product_ref->{nutriscore_data} }) if $log->is_debug();
+
+    # Generate a panel only for food products that have a serving size
+    if (defined $product_ref->{serving_size})  {
+        my $panel_data_ref = {};
+        create_panel_from_json_template("serving_size", "api/knowledge-panels/health/nutrition/serving_size.tt.json",
+            $panel_data_ref, $product_ref, $target_lc, $target_cc);
+    }
+    return;
+}
 
 =head2 create_physical_activities_panel ( $product_ref, $target_lc, $target_cc )
 
@@ -951,6 +1068,7 @@ sub create_physical_activities_panel($$$) {
         create_panel_from_json_template("physical_activities", "api/knowledge-panels/health/nutrition/physical_activities.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);
     }
+    return;
 }
 
 
@@ -993,7 +1111,17 @@ sub create_ingredients_panel($$$) {
 		$ingredients_text_lc = $target_lc;
 	}
 
+    my $title ="";
+    if (!(defined $product_ref->{ingredients_n}) or ($product_ref->{ingredients_n} == 0)) {
+        $title = lang("no_ingredient");
+    } elsif ($product_ref->{ingredients_n} == 1) {
+        $title = lang("one_ingredient");
+    } else {
+        $title = f_lang("f_ingredients_with_number", { number => $product_ref->{ingredients_n} });
+    }
+
     my $panel_data_ref = {
+        title => $title,
         ingredients_text => $ingredients_text,
         ingredients_text_with_allergens => $ingredients_text_with_allergens,
         ingredients_text_lc => $ingredients_text_lc,
@@ -1002,6 +1130,7 @@ sub create_ingredients_panel($$$) {
 
     create_panel_from_json_template("ingredients", "api/knowledge-panels/health/ingredients/ingredients.tt.json",
         $panel_data_ref, $product_ref, $target_lc, $target_cc);
+    return;
 }
 
 
@@ -1060,6 +1189,7 @@ sub create_additives_panel($$$) {
             $additives_panel_data_ref, $product_ref, $target_lc, $target_cc);
 
     }
+    return;
 }
 
 
@@ -1090,13 +1220,33 @@ sub create_ingredients_analysis_panel($$$) {
 
 	$log->debug("create ingredients analysis panel", { code => $product_ref->{code} }) if $log->is_debug();
 
+    # First create an ingredients analysis details sub-panel
+    # It will be included in the ingredients analysis panel
+
+    my $ingredients_analysis_details_data_ref = data_to_display_ingredients_analysis_details($product_ref);
+
+    # When we don't have ingredients, we don't display the ingredients analysis details
+	if (defined $ingredients_analysis_details_data_ref) {
+        create_panel_from_json_template("ingredients_analysis_details", "api/knowledge-panels/health/ingredients/ingredients_analysis_details.tt.json",
+            $ingredients_analysis_details_data_ref, $product_ref , $target_lc, $target_cc);
+
+        # If we have some unrecognized ingredients, create a call for help panel that will be displayed in the ingredients analysis details panel
+        # + the panels specific to each property (vegan, vegetarian, palm oil free)
+        if ($ingredients_analysis_details_data_ref->{unknown_ingredients}) {
+            create_panel_from_json_template("ingredients_analysis_help", "api/knowledge-panels/health/ingredients/ingredients_analysis_help.tt.json",
+                {}, $product_ref , $target_lc, $target_cc);
+        }
+	}
+
+    # Create the ingredients analysis panel    
+
     my $ingredients_analysis_data_ref = data_to_display_ingredients_analysis($product_ref);
 
     if (defined $ingredients_analysis_data_ref) {
 
         foreach my $property_panel_data_ref (@{$ingredients_analysis_data_ref->{ingredients_analysis_tags}}) {
 
-            my $property_panel_id = "ingredients_analysis_" . $property_panel_data_ref->{property};
+            my $property_panel_id = "ingredients_analysis_" . $property_panel_data_ref->{tag};
 
             create_panel_from_json_template($property_panel_id, "api/knowledge-panels/health/ingredients/ingredients_analysis_property.tt.json",
                 $property_panel_data_ref, $product_ref, $target_lc, $target_cc);
@@ -1105,6 +1255,7 @@ sub create_ingredients_analysis_panel($$$) {
         create_panel_from_json_template("ingredients_analysis", "api/knowledge-panels/health/ingredients/ingredients_analysis.tt.json",
             {}, $product_ref, $target_lc, $target_cc);
     }
+    return;
 }
 
 
@@ -1160,6 +1311,7 @@ sub add_taxonomy_properties_in_target_languages_to_object ($$$$$) {
             $object_ref->{$property . "_language"} = display_taxonomy_tag($target_lcs_ref->[0], "languages", $language_codes{$property_lc});
         }
     }
+    return;
 }
 
 
@@ -1230,6 +1382,7 @@ sub create_recommendation_panels($$$) {
                 {}, $product_ref, $target_lc, $target_cc);
         }
     }
+    return;
 }
 
 
@@ -1275,6 +1428,7 @@ sub create_nova_panel($$$) {
             $panel_data_ref, $product_ref, $target_lc, $target_cc);
 
     }
+    return;
 }
 
 1;

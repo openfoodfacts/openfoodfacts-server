@@ -1187,12 +1187,12 @@ sub display_input_tabs($$$$$) {
 				@units = ('mol/l', 'mmol/l', 'mval/l', 'ppm', "\N{U+00B0}rH", "\N{U+00B0}fH", "\N{U+00B0}e", "\N{U+00B0}dH", 'gpg');
 			}
 
-			if ((defined get_property("nutrients", "zz:$nid", "dv:en"))
+			if ((defined get_property("nutrients", "zz:$nid", "dv_value:en"))
 				or ($nid =~ /^new_/)
 				or (uc($unit) eq '% DV')) {
 				push @units, '% DV';
 			}
-			if ((defined get_property("nutrients", "zz:$nid", "iu:en"))
+			if ((defined get_property("nutrients", "zz:$nid", "iu_value:en"))
 				or ($nid =~ /^new_/)
 				or (uc($unit) eq 'IU')
 				or (uc($unit) eq 'UI')) {

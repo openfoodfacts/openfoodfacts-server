@@ -163,6 +163,9 @@ server {
 	        add_header Access-Control-Allow-Methods 'GET, POST, OPTIONS';
 		add_header Access-Control-Allow-Headers 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match';
 		add_header Access-Control-Expose-Headers 'Content-Length,Content-Range';
+		# optimize gzip compressed content (like OCR .json stored next to .jpg files)
+		gzip_static always;
+		gunzip on;
 	}
 
         if ($http_referer ~* (jobothoniel.com) ) { return 403; } # blocked since 2021-07-13
@@ -187,7 +190,8 @@ server {
 	location ~ ^/(.well-known|images|css|js|rss|files|resources|foundation|bower_components)/ {
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
-		try_files $uri $uri/ =404;
+		gzip_static always;
+		gunzip on;
 	}
 
 	location = /robots.txt {
@@ -261,6 +265,31 @@ server {
 	location = /ecoscore {
 		return 301 https://$host/eco-score-l-impact-environnemental-des-produits-alimentaires;
 	}
+
+	# 2022-06-13 Redirect press pages to blog post about the new Flutter app
+	location = /presse {
+		return 302 https://blog.openfoodfacts.org/fr/communique-de-presse-nouvelle-appli;
+	}
+
+	location = /press {
+		return 302 https://blog.openfoodfacts.org/en/press-release-new-mobile-app;
+	}
+
+        location = /prensa {
+                return 302 https://blog.openfoodfacts.org/en/press-release-new-mobile-app;
+        }
+
+        location = /stampa {
+                return 302 https://blog.openfoodfacts.org/en/press-release-new-mobile-app;
+        }
+
+        location = /press-and-blogs {
+                return 302 https://blog.openfoodfacts.org/en/press-release-new-mobile-app;
+        }
+
+        location = /pers {
+                return 302 https://blog.openfoodfacts.org/en/press-release-new-mobile-app;
+        }
 
 
 	# Dynamically generated files and CGI scripts are passed

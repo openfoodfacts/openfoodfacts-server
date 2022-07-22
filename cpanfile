@@ -85,9 +85,12 @@ on 'test' => sub {
   requires 'Test::MockModule';
   requires 'Mock::Quick';
   requires 'Test::Number::Delta'; # libtest-number-delta-perl
+  requires 'Test::Files';
+  requires 'File::Spec';
   requires 'Log::Any::Adapter::TAP'; # liblog-any-adapter-tap-perl
   requires 'IO::Capture::Stdout::Extended';
   requires 'IO::Capture::Stderr::Extended';
+  requires 'HTTP::CookieJar::LWP';
 };
 
 on 'develop' => sub {
@@ -98,4 +101,6 @@ on 'develop' => sub {
   requires 'Term::ReadLine::Gnu', '>= 1.42, < 2.0'; # readline support for the Perl debugger. libterm-readline-gnu-perl is available.
   requires 'Perl::LanguageServer';
   requires 'Hash::SafeKeys';  # Perl::LanguageServer dependency
+  requires 'Perl::Tidy';
+  requires 'Perl::Critic';
 }

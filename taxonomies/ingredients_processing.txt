@@ -102,6 +102,7 @@ jv:Wiji
 ko:양귀비 씨
 nb:frø
 nl:zaad, zaden
+pl:ziarna, pestki
 pt:sementes
 sv:frön
 zh:籽
@@ -126,7 +127,7 @@ fr:feuille de, feuille d'
 hr:list
 hu:levél
 nl:blad, bladeren
-pl:natka
+pl:natka, liść, liście
 ro:frunze de
 sr:list
 
@@ -202,9 +203,8 @@ de:gehobelt, gehobelte, in scheiben geschnitten
 es:lamina,laminada,laminado, laminadas,laminados,rodajas
 fr:tranché, tranchée, tranchés, tranchées, en lamelles, en tranches, en lanières, en rondelles, tranches de, lamelles de, lanières de, rondelle de, rondelles de, tranches d', lamelles d', lanières d', rondelles d'
 hu:szeletelt, szelt, szeletelve
-nl:schijfjes
+nl:schijfjesamande émondée
 pt:laminado, laminada, laminados, laminadas, em lâminas, em lâmina, em rodela, em rodelas, rodela de, rodelas de
-
 
 # en:description:Cut or diced into small pieces
 en:chopped
@@ -370,6 +370,7 @@ fi:kokonainen, kokonaiset
 fr:entier, entière, entiers, entières
 hu:egész, egészben
 it:intero, intera, interi, intere
+pl:całe
 pt:inteiro, inteira, inteiros, inteiras
 sv:hel, hela
 # unclear what the dutch variant is
@@ -378,6 +379,7 @@ en:halved, halves
 bg:наполовина
 de:halbiert, halbierte, halbierter, halbiertes, halbe
 fr:demi
+pl:połówki
 pt:metade, metades
 # de:false-positives:Halbbitterschokolade, halbfettstufe, halbgetrocknete, halbfester, halberstädter, halbbitter, Halbrahm
 
@@ -392,6 +394,7 @@ es:trozo,troza,trozos,trozas
 fr:morceaux, pièces de, en morceaux, morceaux de, morceaux d'
 hu:darabok, darabolt, darab, darabka
 nl:stukjes
+pl:kawałki
 pt:pedaço, pedaços
 sv:bitar, i bitar
 # de:false-positive:früchstück
@@ -557,13 +560,13 @@ pt:desensoçado, desossado, sem osso
 #en:description:To remove the outer covering or shell of something
 en:shelled
 es:sin cascara, pelada, pelado, peladas, pelados
-fr:décortiqué, décortiquée, décortiqués, décortiquées, décoquillé, décoquillée, décoquillés, décoquillées
+fr:décortiqué, décortiquée, décortiqués, décortiquées, décoquillé, décoquillée, décoquillés, décoquillées, émondé, émondée, émondés, émondées
 it:decorticati
 pt:descascado, descascada, descascados, descascadas, sem casca, sem cascas
 
 # en:description:With the outermost layer or skin removed
 en:peeled, hulled
-bg:обелен, обелено, обелена, обелени, белен, белена, белено, белени
+bg:обелен, обелено, обелена, обелени, белен, белена, белено, белени, грухана
 da:afskallede
 # de:geschälte is a separate entry
 es:sin piel, repelada, repelado, repeladas, repelados, descascarrillado, descascarrillada, descascarrillados, descascarrilladas, descascarilladas
@@ -667,6 +670,7 @@ fr:dégraissé, dégraissée, dégraissés, dégraissées
 hu:zsírtalanított
 it:sgrassato, sgrassata
 nl:ontvet, ontvette
+pl:odtłuszczone
 pt:desengordurado, desengordurada
 ro:degresat
 
@@ -674,6 +678,7 @@ ro:degresat
 en:partially defatted
 bg:частично обезмаслен, частично обезмаслено
 de:teilentfettet, teilentfettetes
+pl:częściowo odtłuszczone
 pt:parcialmente desengordurado, parcialmente desengordurada
 ro:demidegresat
 
@@ -697,6 +702,7 @@ it:succo, succo di, succo d'
 nb:juice
 nl:sap
 nn:juice
+pl:sok z, sok
 pt:suco, sucos, sumo, sumos, suco de, sucos de, sumo de, sumos de, em suco, em sumos
 ro:suc de, suc
 ru:сок
@@ -755,7 +761,7 @@ hu:sűrítmény, sűrített, koncentrátum
 it:concentrato
 ko:농축물
 nl:concentraten, concentraat, geconcentreerd, geconcentreerde
-pl:koncentrat, koncentraty
+pl:koncentrat, koncentraty, koncentrat z
 pt:concentrado, concentrada, concentrados, concentradas, concentrado de, concentrados de, concentratos
 ro:concentrat de
 ru:концентрированный
@@ -806,6 +812,7 @@ hu:sűrítményből, koncentrátumból, sűrítményekből, koncentrátumokból
 it:da concentrato
 lt:iš koncentrąto
 nl:uit concentraat, van concentraat, op basis van concentraat
+pl:z koncentratu
 pt:a partir de concentrado, à base de concentrado
 ro:din concentrat
 sk:z koncentrátu
@@ -912,6 +919,7 @@ es:deshidratado, deshidratada, deshidratados, deshidratadas
 fr:déshydraté, déshydratée, déshydratés, déshydratées
 hu:dehidratált, liofilizált
 it:disidratato, disidratata, disidratati, disidratate
+pl:odwodniony, odwodnione
 pt:desidratado, desidratada, desidratados, desidratadas
 ro:deshidratată
 
@@ -969,7 +977,7 @@ ja:エキス
 #it:falsePositive:antiossidante estratto ricco di tocoferolo
 nb:ekstrakt, ekstrakter
 nl:extract
-pl:ekstrakt
+pl:ekstrakt, ekstrakt z
 pt:extrato, extratos, extracto, extractos, extrato de, extratos de, extracto de, extractos de, extrato da, extratos da, extracto da, extractos da
 ro:extract de
 sv:extrakt, extrakt av
@@ -980,6 +988,7 @@ sv:extrakt, extrakt av
 
 #<en:extract
 #<en:natural
+bg:натурален екстракт от
 fr:extrait naturel de, extrait naturel d'
 pt:extrato natural, extratos naturais, extracto natural, extractos naturais, extrato natural de, extratos naturais de, extracto natural de, extractos naturais de, extrato natural da, extratos naturais da, extracto natural da, extractos naturais da
 
@@ -1040,6 +1049,7 @@ bg:механично отделено, механично отделен, ме�
 es:separada mecánicamente
 fr:séparée mécaniquement
 hu:mechanikai úton leválasztott
+pl:oddzielone mechanicznie, oddzielona mechanicznie, oddzielone mechanicznie z
 pt:separado mecanicamente, separada mecanicamente, separados mecanicamente, separadas mecanicamente
 sv:maskinurbenat
 
@@ -1088,7 +1098,7 @@ it:pastorizzato, pastorizzata, pastorizzate, pastorizzati
 ja:パスチャライズ
 nb:pasteurisert
 nl:gepasteuriseerd, gepasteuriseerde
-pl:Pasteryzowana
+pl:pasteryzowana, pasteryzowane, pasteryzowany
 pt:pasteurizado, pasteurizados, pasteurizada, pasteurizadas
 ro:pasteurizat, pasteurizata
 ru:пастеризованные
@@ -1099,7 +1109,9 @@ ca:termitzada
 es:termizada
 
 en:unpasteurized, unpasteurised
+bg:непастьоризиран, непастьоризирано, непастьоризирана
 fr:non pasteurisé
+pl:niepasteryzowana, niepasteryzowane, niepasteryzowany
 pt:não pasteurizado, não pasteurizados, não pasteurizada, não pasteurizadas
 
 en:pre-cooked, precooked
@@ -1167,9 +1179,11 @@ fr:non-blanchie
 de:dampfgegart, dampfgegarte, dampfgegarter
 
 en:caramelized, caramelised
+bg:карамелизиран, карамелизирана, карамелизирано, карамелизирани
 ca:caramel-litzat
 hu:karamellizált
 nl:gekarameliseerde, gekaramelliseerde
+pl:karmelizowany, karmelizowana, karmelizowane
 pt:caramelizado, caramelizada, caramelizados, caramelizadas
 
 en:puffed, inflated
@@ -1305,6 +1319,7 @@ fr:salé, salée, salés, salées, sales, salees
 hu:sózott
 it:salato, salata, salate, salati
 nl:gezouten
+pl:solony, solona, solone
 pt:salgado, salgada, salgados, salgadas, com sal
 sv:saltat
 
@@ -1367,6 +1382,7 @@ fr:sucré, sucrée, sucrés, sucrées, sucree, sucrees
 #better not add fr:sucre and fr:sucres
 hu:cukrozott
 nl:gesuikerd, gesuikerde
+pl:słodzony, słodzona, słodzone
 pt:açucarado, açucarada, açucarados, açucaradas
 sv:sockrad
 
@@ -1497,7 +1513,9 @@ en:fermented
 bg:ферментирало, ферментирал, ферментирала, ферментирали
 es:fermentado
 hu:fermentált
+pl:fermentowany, fermentowana, fermentowane
 pt:fermentado, fermentada, fermentados, fermentadas
+wikidata:en:Q6950796
 
 en:marinated
 bg:мариновано, маринован, маринована, мариновани
@@ -1508,8 +1526,10 @@ fr:mariné, marinée, marinés, marinées
 hu:marinált
 it:marinato, marinata
 nl:gemarineerd, gemarineerde
+pl:marynowany, marynowana, marynowane
 pt:marinado, marinada, marinados, marinadas
 sv:marinerad
+wikidata:en:Q725668
 
 # pickled can be in vinegar or salt
 
@@ -1519,6 +1539,7 @@ de:eingelegt, eingelegte, eingelegter, eingelegtes
 es:en escabeche, en vinagre
 hu:savanyított, pácolt
 pt:en escabeche, en vinagre, avinagrado, avinagrada
+wikidata:en:Q1361741
 
 # en:description:Marinated in salt (note different from en:salted)
 en:brined
@@ -1527,6 +1548,7 @@ de:gepökelt, gepökelte, gepökelter, gepökeltes
 fr:traité en salaison, traitée en salaison, traités en salaison, traitées en salaison, saumuré, saumurée, saumurés, saumurées
 nl:gepekeld
 pt:em salmoura
+wikidata:en:Q29560
 
 de:ungepökelt
 
@@ -1690,6 +1712,7 @@ fr:hydrogénée
 hu:hidrogénezett
 it:idrogenato
 nl:Gehydrogeneerde
+pl:uwodorniony
 sv:hårdat
 
 #<en:hydrogenated
@@ -1699,4 +1722,5 @@ de::ganz gehärtetes, vollständig hydriertes
 fr:totalement hydrogénée
 fi:kokonaan kovetettu
 nb:fullherdet
+pl:całkowicie uwodorniony
 sv:fullhärdad

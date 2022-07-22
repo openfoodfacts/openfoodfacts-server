@@ -88,6 +88,7 @@ BEGIN
 		&product_name_brand
 		&product_name_brand_quantity
 		&product_url
+		&product_action_url
 		&normalize_search_terms
 		&index_product
 		&log_change
@@ -112,6 +113,8 @@ BEGIN
 		&find_and_replace_user_id_in_products
 
 		&add_users_team
+
+		&remove_fields
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -237,12 +240,30 @@ sub assign_new_code() {
 	return ($code, $product_id);
 }
 
+=head2 normalize_code()
+
+C<normalize_code()> this function normalizes the product code by:
+- Keeps only digits and removes spaces/dashes etc.
+- Normalizes the length by adding leading zeroes or removing the leading zero (in case of 14 digit codes)
+
+=head3 Arguments
+
+Product Code in the Raw form: $code
+
+=head3 Return Values
+
+Normalized version of the code
+
+=cut
 
 sub normalize_code($) {
 
 	my $code = shift;
 	if (defined $code) {
-		$code =~ s/\D//g; # Keep only digits, remove spaces, dashes and everything else
+		
+		# Keep only digits, remove spaces, dashes and everything else
+		$code =~ s/\D//g; 
+		
 		# Add a leading 0 to valid UPC-12 codes
 		# invalid 12 digit codes may be EAN-13s with a missing number
 		if ((length($code) eq 12) and ($ean_check->is_valid('0' . $code))) {
@@ -266,13 +287,31 @@ sub normalize_code($) {
 	return $code;
 }
 
+
 # - When products are public, the _id is the code, and the path is of the form 123/456/789/0123
 # - When products are private, the _id is [owner]/[code] (e.g. user-abc/1234567890123 or org-xyz/1234567890123
-
 # FIXME: bug #677
+
+=head2 split_code()
+
+C<split_code()> this function splits the product code for determining the product path and the _id.
+product_path_from_id() utilizes this for the said purpose.
+
+=head3 Arguments
+
+Product Code: $code
+
+=head3 Return Values
+
+Code that has been split into 3 sections of three digits and one fourth section with the remaining digits.
+Example: 1234567890123  :-  123/456/789/0123
+
+=cut
+
 sub split_code($) {
 
 	my $code = shift;
+	
 	# Require at least 4 digits (some stores use very short internal barcodes, they are likely to be conflicting)
 	if ($code !~ /^\d{4,24}$/) {
 
@@ -280,8 +319,9 @@ sub split_code($) {
 		return "invalid";
 	}
 
+	# First splits into 3 sections of 3 numbers and the ast section with the remaining numbers
 	my $path = $code;
-	if ($code =~ /^(...)(...)(...)(.*)$/) {
+	if ($code =~ /^(.{3})(.{3})(.{3})(.*)$/) {
 		$path = "$1/$2/$3/$4";
 	}
 	return $path;
@@ -305,14 +345,14 @@ e.g. off:[code]
 
 =head4 Owner id
 
+=head4 Code 
+
+Product barcode
+
 In most cases, pass $Owner_id which is initialized by ProductOpener::Users::init_user()
 
   undef for public products
   user-[user id] or org-[organization id] for private products
-
-=head4 Code
-
-Product barcode.
 
 =head3 Return values
 
@@ -576,10 +616,13 @@ sub get_owner_id($$$) {
 
 =head2 init_product ( $userid, $orgid, $code, $countryid )
 
-Initialize and return a $product_ref structure for a new product.
-
+Initializes and return a $product_ref structure for a new product. 
 If $countryid is defined and is not "en:world", then assign this country for the countries field.
 Otherwise, use the country associated with the ip address of the user.
+
+=head3 Return Type
+
+Returns a $product_ref structure
 
 =cut
 
@@ -1513,6 +1556,19 @@ sub compute_completeness_and_missing_tags($$$) {
 For a specific change, analyze change identifiers (comment, user agent, userid etc.)
 to determine if the change was done through an app, the OFF userid, or an app specific UUID
 
+=head3 Parameters
+
+=head4 $change_ref 
+reference to a change record
+
+=head3 Return value
+
+The function returns by order of preerence:
+- a real user userid if we have an userid which is not the userid of an app
+- an appid + app uuid (e.g. some-app.Z626FZF4RTFSG6)
+- an app userid if the app did not provide an app uuid
+- openfoodfacts-contributors
+
 =cut
 
 sub get_change_userid_or_uuid($) {
@@ -1525,22 +1581,23 @@ sub get_change_userid_or_uuid($) {
 	my $app_userid_prefix;
 	my $uuid;
 
-	# Is it an app that sent a app_name?
-	if (defined $change_ref->{app_name}) {
-		$app = get_string_id_for_lang("no_language", $change_ref->{app_name});
-	}
-	# or is the userid specific to an app?
-	elsif (defined $userid) {
+	# Is the userid the userid of an app?
+	if (defined $userid) {
 		$app = deep_get(\%options, "apps_userids", $userid);
+		if (defined $app) {
+			# If the userid is an an account for an app, unset the userid,
+			# so that it can be replaced by the app + an app uuid if provided
+			$userid = undef;
+		}
 	}
 
-	# If the userid is an an account for an app, unset the userid,
-	# so that it can be replaced by the app + an app uuid if provided
-	if (defined $app) {
-		$userid = undef;
+	# Is it an app that sent an app_name?
+	if ((not defined $app) and (defined $change_ref->{app_name})) {
+		$app = get_string_id_for_lang("no_language", $change_ref->{app_name});
 	}
+
 	# Set the app field for the Open Food Facts app
-	elsif ((defined $options{official_app_comment}) and ($change_ref->{comment} =~ /$options{official_app_comment}/i)) {
+	if ((not defined $app) and (defined $options{official_app_comment}) and ($change_ref->{comment} =~ /$options{official_app_comment}/i)) {
 		$app = $options{official_app_id};
 	}
 
@@ -2151,8 +2208,8 @@ sub compute_product_history_and_completeness($$$$) {
 # traverse the history to see if a particular user has removed values for tag fields
 # add back the removed values
 
+# NOT sure if this is useful, it's being used in one of the "obsolete" scripts
 sub add_back_field_values_removed_by_user($$$$) {
-
 
 	my $current_product_ref = shift;
 	my $changes_ref = shift;
@@ -2322,6 +2379,15 @@ sub product_name_brand_quantity($) {
 	return $full_name;
 }
 
+=head2 product_url ( $code_or_ref )
+
+Returns a relative URL for a product on the website.
+
+=head3 Parameters
+
+=head4 Product code or reference to product object $code_or_ref
+
+=cut
 
 sub product_url($) {
 
@@ -2360,6 +2426,41 @@ sub product_url($) {
 	return "/$path/$code" . $titleid;
 }
 
+
+=head2 product_action_url ( $code, $action )
+
+Returns a relative URL for an action on a product on the website.
+
+This function is called by the web/panels/panel.tt.html template for knowledge panels that have associated actions.
+
+=head3 Parameters
+
+=head4 Product code or reference to product object $code_or_ref
+
+=cut
+
+sub product_action_url($$) {
+
+	my $code = shift;
+	my $action = shift;
+
+	my $url = "/cgi/product.pl?type=edit&code=" . $code;
+
+	if ($action eq "add_categories") {
+		$url  .= "#categories";
+	}
+	elsif ($action eq "add_ingredients_text") {
+		$url .= "#ingredients";
+	}
+	elsif ($action eq "add_nutrition_facts") {
+		$url .= "#nutrition";
+	}
+	else {
+		$log->error("unknown product action", { code => $code, action => $action });
+	}
+
+	return $url;
+}
 
 sub index_product($)
 {
@@ -2459,7 +2560,6 @@ sub compute_languages($) {
 	my %languages_codes = ();
 
 	# check all the fields of the product
-
 	foreach my $field (keys %{$product_ref}) {
 
 		if (($field =~ /_([a-z]{2})$/) and (defined $language_fields{$`}) and (defined $product_ref->{$field}) and ($product_ref->{$field} ne '')) {
@@ -2841,6 +2941,10 @@ sub log_change {
 
 Generates a text that describes the changes made. The text is displayed in the edit history of products.
 
+=head3 Arguments
+
+$change_ref: reference to a change record
+
 =cut
 
 sub compute_changes_diff_text {
@@ -2876,6 +2980,10 @@ sub compute_changes_diff_text {
 =head2 add_user_teams ( $product_ref )
 
 If the user who add or edits the product belongs to one or more teams, add them to the teams_tags array.
+
+=head3 Parameters
+
+$product_ref
 
 =cut
 
@@ -2916,7 +3024,7 @@ e.g. official producer data that should not be changed by anonymous users throug
 Product data is protected if it has an owner and if the corresponding organization has
 the "protect data" checkbox checked.
 
-=head3 Parameters
+=head3 Parameters 
 
 =head4 $product_ref
 
@@ -2940,6 +3048,31 @@ sub product_data_is_protected($) {
 		}
 	}
 	return $protected_data;
+}
+
+=head2 delete_fields ($product_ref, $fields_ref)
+
+Utility function to delete fields from a product_ref or a subfield.
+
+=head3 Parameters
+
+=head4 $product_ref
+
+Reference to a complete product a subfield.
+
+=head4 $fields_ref
+
+An array of field names to remove.
+
+=cut
+sub remove_fields($$) {
+	my $product_ref = shift;
+	my $fields_ref = shift;
+
+	foreach my $field (@$fields_ref) {
+		delete $product_ref->{$field};
+	}
+	return;
 }
 
 1;
