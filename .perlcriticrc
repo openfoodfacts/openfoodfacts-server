@@ -55,5 +55,7 @@ equivalent_modules = ProductOpener::PerlStandards
 
 
 # severity 3
+[ControlStructures::ProhibitDeepNests]
+max_nests = 12
 [Variables::ProhibitUnusedVariables]
 # /end severity 3
