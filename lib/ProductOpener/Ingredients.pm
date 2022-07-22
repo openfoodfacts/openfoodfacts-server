@@ -1262,7 +1262,6 @@ sub parse_origins_from_text($$) {
 		# Initialize values
 		$matched_ingredient = undef;
 		my $matched_ingredient_ref = {};
-		my $matched_text;
 		my $origins;
 
 		# Call match functions to look for different ways to specify origins etc.
@@ -1270,7 +1269,7 @@ sub parse_origins_from_text($$) {
 		foreach my $match_function_ref (\&match_origin_of_the_ingredient_origin, \&match_ingredient_origin) {
 			if ($match_function_ref->($product_lc, \$text, $matched_ingredient_ref)) {
 
-				$matched_text = $matched_ingredient_ref->{matched_text};
+				my $matched_text = $matched_ingredient_ref->{matched_text};
 				my $ingredient = $matched_ingredient_ref->{ingredient};
 				my $ingredient_id = canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient);
 
