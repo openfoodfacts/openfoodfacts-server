@@ -13,7 +13,7 @@ wait_dynamic_front();
 my $ua = new_client();
 
 my %args_ref = (
-	code => "200000000099",
+	code => '200000000099',
 	lang => "en",
 	product_name => "Test-75ml",
 	generic_name => "Tester",
