@@ -13,7 +13,7 @@ wait_dynamic_front();
 my $ua = new_client();
 
 my %args_ref = (
-	code => "2000000000099",
+	code => "200000000099",
 	lang => "en",
 	product_name => "Test-75ml",
 	generic_name => "Tester",
@@ -26,7 +26,7 @@ my %args_ref = (
 	packaging_text => "no",
 	action => "process",
 	type => "add",
-	".submit" => "Save"
+	".submit" => "submit'
 );
 
 create_product($ua, \%args_ref);
