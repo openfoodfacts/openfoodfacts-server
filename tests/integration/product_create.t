@@ -26,7 +26,7 @@ my %args_ref = (
 	packaging_text => "no",
 	action => "process",
 	type => "add",
-	".submit" => "submit'
+	".submit" => "submit"
 );
 
 create_product($ua, \%args_ref);
