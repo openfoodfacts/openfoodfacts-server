@@ -11,6 +11,7 @@ use ProductOpener::Test qw/:all/;
 remove_all_products();
 wait_dynamic_front();
 my $ua = new_client();
+create_user($ua, {});
 
 my %args_ref = (
 	code => '200000000099',
