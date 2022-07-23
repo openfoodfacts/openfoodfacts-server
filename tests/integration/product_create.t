@@ -32,7 +32,7 @@ my %args_ref = (
 create_product($ua, \%args_ref);
 
 # edit preference accessible
-my $response = $ua->get("http://frontend/cgi/product.pl?type=edit&code=2000000000099");
+my $response = $ua->get("http://frontend/cgi/product.pl?type=edit&code=200000000099");
 
 #$DB::single = 1;
 is $response->{_rc}, 200;
