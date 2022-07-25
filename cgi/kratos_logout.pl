@@ -58,6 +58,9 @@ if(defined $kratos_cookie){
         $log->debug("logout_url: ", $logout_url);
 
         #Unset OFF cookie
+        my $request_ref = ProductOpener::Display::init_request();
+        my $session = {} ;
+		$request_ref->{cookie} = cookie(-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>"$cookie_domain") ;
 
         #Go to the given logout url, this logout url redirects to the logout.after url in kratos.yml
         print redirect(-url=>$logout_url);

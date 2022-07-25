@@ -34,9 +34,6 @@ use CGI qw(:standard);
 my $kratos_cookie = "ory_kratos_session=".cookie('ory_kratos_session');
 $log->debug($kratos_cookie);
 
-my $user_ref = {};
-my $request_ref = ProductOpener::Display::init_request();
-
 if(defined $kratos_cookie){
     
     my $url = "http://kratos.openfoodfacts.localhost:4433/sessions/whoami";
@@ -60,6 +57,17 @@ if(defined $kratos_cookie){
 
         #$log->debug($json);
         $log->debug("User ID: ", $UserID);
+
+        #retrieve users sto file
+        my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $UserID) . ".sto";
+        if (-e $user_file) {
+            $user_ref = retrieve($user_file) ;
+        }
+        else{
+            #create the user file
+        }
+
+        my $request_ref = ProductOpener::Display::init_request();
 
         #Set OFF cookie
         open_user_session($user_ref, $request_ref);
