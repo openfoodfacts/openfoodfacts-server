@@ -95,7 +95,7 @@ A query subroutine that performs a query against the database.
 
 The function returns the return value of the query subroutine $sub passed as a parameter to it.
 
-=head3 Synopsys
+=head3 Synopsis
 
 eval {
 	$result = execute_query(sub {
@@ -119,12 +119,12 @@ sub execute_query {
 
 =head2 get_products_collection()
 
-C<get_products_collection()> establishes a connection to MongoDB and uses timeout as an arugument. This then selects a collection
+C<get_products_collection()> establishes a connection to MongoDB and uses timeout as an argument. This then selects a collection
 from within the database.
 
 =head3 Arguments
 
-This method takes in aruguments of integer type (user defined timeout in milliseconds).
+This method takes in arguments of integer type (user defined timeout in milliseconds).
 It is optional for this subroutine to have an argument.
 
 =head3 Return values
@@ -144,7 +144,7 @@ C<get_products_collection()> This selects the product tag collection from within
 
 =head3 Arguments
 
-This method takes in aruguments of integer type (user defined timeout in milliseconds).
+This method takes in arguments of integer type (user defined timeout in milliseconds).
 It is optional for this subroutine to have an argument.
 
 =head3 Return values
@@ -185,7 +185,7 @@ it creates and configures a new MongoDB::MongoClient.
 
 =head3 Arguments
 
-This method takes in aruguments of integer type (user defined timeout in milliseconds). It is optional for this subroutine to have an argument.
+This method takes in arguments of integer type (user defined timeout in milliseconds). It is optional for this subroutine to have an argument.
 
 =head3 Return values
 

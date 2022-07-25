@@ -221,7 +221,7 @@ When the module is loaded (at the start of Apache with mod_perl), we record the 
 of static files like CSS styles an JS code so that we can add a version parameter to the request
 in order to make sure the browser will not serve an old cached version.
 
-=head3 Synopsys
+=head3 Synopsis
 
     $scripts .= <<HTML
         <script type="text/javascript" src="/js/dist/product-multilingual.js?v=$file_timestamps{"js/dist/product-multilingual.js"}"></script>
@@ -771,7 +771,7 @@ Some information is set in request_ref, notably
 - some boolean for routing : search / taxonomy / mission / product / tag / points
 - parameters for products, mission, tags, etc.
 
-It handles redirect for remamed texts or products, .well-known/change-password
+It handles redirect for renamed texts or products, .well-known/change-password
 
 Sometimes we modify request parameters (param) to correspond to request_ref:
 - parameters for response format : json, jsonp, xml, ...
@@ -8615,7 +8615,7 @@ sub display_nutriscore_calculation_details($nutriscore_data_ref) {
 
 =head2 data_to_display_nutrient_levels ( $product_ref )
 
-Generates a data structure to display the nutrient levels (food trafic lights).
+Generates a data structure to display the nutrient levels (food traffic lights).
 
 The resulting data structure can be passed to a template to generate HTML or the JSON data for a knowledge panel.
 
