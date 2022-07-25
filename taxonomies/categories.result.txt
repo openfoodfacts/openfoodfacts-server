@@ -3216,21 +3216,6 @@ ciqual_food_name:en: Beef, sirloin steak, raw
 ciqual_food_name:fr: Boeuf, faux-filet, cru
 
 < en:Beef
-en:Beef steaks
-de:Rindersteaks
-es:Filetes de ternera
-fi:naudanpihvit
-fr:Steaks de bœuf, steak de bœuf
-it:Bistecche di manzo
-nl:Rundersteaks
-pl:Stek wołowy
-zh:牛排
-agribalyse_food_code:en: 6201
-ciqual_food_code:en: 6201
-ciqual_food_name:en: Beef, steak or beef steak, raw
-ciqual_food_name:fr: Boeuf, steak ou bifteck, cru
-
-< en:Beef
 en:Beef stew meat
 fr:Boeuf à bourguignon, Boeuf à Pot-au-feu
 agribalyse_food_code:en: 6231
@@ -5347,26 +5332,14 @@ wikidata:en: Q2904639
 < en:Biscuits
 it:Paste di meliga
 
-en:Biscuits and cakes
-bg:Бисквити и сладкиши
-ca:Galetes i pastissos
-da:Kiks og kage
-de:Kekse und Kuchen
-es:Galletas y pasteles
-fi:Keksit ja kakut
-fr:Biscuits et gâteaux
-he:עוגיות ועוגות
-hu:Kekszek és sütemények
-it:Biscotti e torte, Biscotti e dolci
-nl:Koekjes en cakes
-pt:Biscoitos e Bolos
-ro:Biscuiți și prăjituri
-ru:Пироги и печенье
-sv:Kakor och tårtor
-th:ขนมปังกรอบและเค๊ก
-zh:饼干和蛋糕
-food_groups:en: en:biscuits-and-cakes
-pnns_group_2:en: Biscuits and cakes
+< en:Biscuits and cakes
+< en:Frozen foods
+en:Frozen cakes and pastries, frozen cakes, frozen pastries
+de:Tiefkühlgebäck
+fi:Pakastekakut ja -leivonnaiset
+fr:Gâteaux et pâtisseries surgelés, gâteaux surgelés, pâtisseries surgelées, desserts pâtissiers surgelés, Gâteaux et pâtisseries surgelées
+it:Torte e pasticcini congelati
+nl:Diepvriesgebak
 
 < en:Biscuits and cakes
 en:Biscuit with chocolate covering, Cookie with chocolate covering, Chocolate covered biscuit
@@ -5374,6 +5347,69 @@ fr:Biscuits nappés au chocolat, Biscuits avec nappage au chocolat, Biscuit sec 
 agribalyse_food_code:en: 24038
 ciqual_food_code:en: 24038
 ciqual_food_name:en: Biscuit -cookie-, chocolate covering
+
+< en:Biscuits and cakes
+en:Biscuits, biscuit, cookies, cookie
+ar:بسكويت
+az:Biskvit
+bg:Бисквити
+br:Gwispid
+ca:Galetes, galeta
+cs:Sušenky
+cy:Bisged
+da:kiks
+de:Kekse, Biskuit
+el:Μπισκότο
+eo:biskvito
+es:Galletas, galleta
+eu:Gaileta
+fa:بیسکویت
+fi:Keksit
+fr:biscuits, biscuit, biscuits sucrés, biscuit sucré
+ga:Briosca
+gd:Briosgaid
+gl:Galleta
+he:ביסקוויט
+hr:Biskvit
+hu:Kekszek, Keksz
+hy:բիսկվիտ
+id:Biskuit
+io:Bisquito
+is:Kex
+it:Biscotti, biscotto
+ja:ビスケット
+ko:비스킷
+ku:Hindok
+mk:бисквит
+ms:Biskut
+nb:kjeks
+nl:Koekjes, biscuit, biscuits
+nn:Kjeks
+oc:biscuèit
+pl:herbatnik
+pt:biscoitos, Biscoito
+ro:Biscuiți, Biscuit, Fursecuri
+ru:бисквит
+si:විස්කොටටුහ්
+so:Buskud
+sr:бисквит
+sv:Kex
+ta:மாச்சில்லு
+th:บิสกิต
+tl:Biskwit
+tr:Bisküvi
+uk:Бісквіт
+ur:بسکٹ
+vi:Bích quy
+wa:Biscûte
+zh:面饼
+agribalyse_proxy_food_code:en: 24000
+carbon_footprint_fr_foodges_ingredient:fr: Biscuit au beurre
+ciqual_proxy_food_code:en: 24000
+ciqual_proxy_food_name:en: Biscuit -cookie-
+ciqual_proxy_food_name:fr: Biscuit sec, sans précision
+wikidata:en: Q13270
+wikipedia:en: https://en.wikipedia.org/wiki/Biscuit
 
 < en:Biscuits and cakes
 en:Brookies
@@ -5474,15 +5510,6 @@ ciqual_food_name:en: Cone, wafer for ice cream
 ciqual_food_name:fr: Cône ou cornet classique, pour glace
 
 < en:Biscuits and cakes
-< en:Frozen foods
-en:Frozen cakes and pastries, frozen cakes, frozen pastries
-de:Tiefkühlgebäck
-fi:Pakastekakut ja -leivonnaiset
-fr:Gâteaux et pâtisseries surgelés, gâteaux surgelés, pâtisseries surgelées, desserts pâtissiers surgelés, Gâteaux et pâtisseries surgelées
-it:Torte e pasticcini congelati
-nl:Diepvriesgebak
-
-< en:Biscuits and cakes
 en:Fruit biscuits
 fr:Biscuits aux fruits
 nl:Vruchtenbiscuits
@@ -5552,70 +5579,6 @@ ciqual_food_name:en: Biscuit -cookie-, snack with fruits filling
 ciqual_food_name:fr: Goûter sec fourré -sandwiché- parfum fruits
 
 < en:Biscuits and cakes
-< en:Sweet snacks
-en:Biscuits, biscuit, cookies, cookie
-ar:بسكويت
-az:Biskvit
-bg:Бисквити
-br:Gwispid
-ca:Galetes, galeta
-cs:Sušenky
-cy:Bisged
-da:kiks
-de:Kekse, Biskuit
-el:Μπισκότο
-eo:biskvito
-es:Galletas, galleta
-eu:Gaileta
-fa:بیسکویت
-fi:Keksit
-fr:biscuits, biscuit, biscuits sucrés, biscuit sucré
-ga:Briosca
-gd:Briosgaid
-gl:Galleta
-he:ביסקוויט
-hr:Biskvit
-hu:Kekszek, Keksz
-hy:բիսկվիտ
-id:Biskuit
-io:Bisquito
-is:Kex
-it:Biscotti, biscotto
-ja:ビスケット
-ko:비스킷
-ku:Hindok
-mk:бисквит
-ms:Biskut
-nb:kjeks
-nl:Koekjes, biscuit, biscuits
-nn:Kjeks
-oc:biscuèit
-pl:herbatnik
-pt:biscoitos, Biscoito
-ro:Biscuiți, Biscuit, Fursecuri
-ru:бисквит
-si:විස්කොටටුහ්
-so:Buskud
-sr:бисквит
-sv:Kex
-ta:மாச்சில்லு
-th:บิสกิต
-tl:Biskwit
-tr:Bisküvi
-uk:Бісквіт
-ur:بسکٹ
-vi:Bích quy
-wa:Biscûte
-zh:面饼
-agribalyse_proxy_food_code:en: 24000
-carbon_footprint_fr_foodges_ingredient:fr: Biscuit au beurre
-ciqual_proxy_food_code:en: 24000
-ciqual_proxy_food_name:en: Biscuit -cookie-
-ciqual_proxy_food_name:fr: Biscuit sec, sans précision
-wikidata:en: Q13270
-wikipedia:en: https://en.wikipedia.org/wiki/Biscuit
-
-< en:Biscuits and cakes
 en:Thin biscuits with fruits
 fr:Biscuits secs aux fruits, tuiles aux fruits
 agribalyse_food_code:en: 24616
@@ -5625,14 +5588,6 @@ ciqual_food_name:fr: Biscuit sec type tuile, aux fruits
 
 < en:Biscuits and cakes
 fr:Biscuits fourrés aux fruits
-
-< en:Biscuits with nuts
-en:Lightly chocolate-flavoured biscuits with nuts
-fr:Biscuits légèrement chocolatés fourrés aux noix
-agribalyse_food_code:en: 24055
-ciqual_food_code:en: 24055
-ciqual_food_name:en: Biscuit -cookie- with nuts -no chocolate or lightly chocolate-flavoured-
-ciqual_food_name:fr: Biscuit sec fourré fruits à coque -non ou légèrement chocolaté-
 
 < en:Black beans
 en:Canned black beans
@@ -8154,6 +8109,66 @@ en:Muffins mix
 nl:Muffinmixes
 
 < en:Cakes
+< en:Desserts
+en:Black Forest gâteau, Black Forest cake, Chocolate sponge cake with cherry, Chocolate sponge cake without cherry
+de:Schwarzwälder Kirschtorte, Schwarzwälderkirschtorte, Schwarzwäldertorte
+es:Pastel de la Selva Negra, Torta Selva Negra, Tarta Selva Negra
+fr:Forêt-noires, Forêts noires, Gâteau au chocolat type forêt noire, Génoise au chocolat et crème multi-couches avec cerises, Génoise au chocolat et crème multi-couches sans cerises
+it:Torta della Foresta Nera
+nl:Schwarzwälder Kirschtaarten
+agribalyse_food_code:en: 23006
+ciqual_food_code:en: 23006
+ciqual_food_name:en: Sponge cake w chocolate w or wo cherry
+ciqual_food_name:fr: Gâteau au chocolat type forêt noire -génoise au chocolat et crème multi-couches, avec ou sans cerises-
+wikidata:en: Q19028
+
+< en:Cakes
+< en:Desserts
+en:Chocolate soft cake
+fr:Gâteau moelleux au chocolat
+agribalyse_food_code:en: 23586
+ciqual_food_code:en: 23586
+ciqual_food_name:en: Chocolate soft cake, prepacked
+ciqual_food_name:fr: Gâteau moelleux au chocolat, préemballé
+
+< en:Cakes
+< en:Desserts
+en:Clafoutis, clafouti
+de:Clafoutis
+es:Clafoutis
+fr:Clafoutis, Milliards, Milliard
+it:Clafoutis
+nl:Clafoutis, Clafouti
+wikidata:en: Q1094707
+
+< en:Cakes
+< en:Desserts
+en:Soft cake filled with chocolate, Soft cake filled with chocolate drops, Soft cake filled with milk
+fr:Gâteau moelleux fourré au chocolat, Gâteau moelleux fourré aux pépites de chocolat, Gâteau moelleux fourré au lait
+agribalyse_food_code:en: 23939
+ciqual_food_code:en: 23939
+ciqual_food_name:en: Soft cake filled with chocolate or chocolate drops or milk
+ciqual_food_name:fr: Gâteau moelleux fourré au chocolat ou aux pépites de chocolat ou au lait
+
+< en:Cakes
+< en:Desserts
+en:Soft cake filled with fruit paste and coated with sugar icing, Soft cake filled with fruit puree and coated with sugar icing
+fr:Biscuit moelleux fourré à l'orange et enrobé de sucre glace
+agribalyse_food_code:en: 24680
+ciqual_food_code:en: 24680
+ciqual_food_name:en: Soft cake, filled with fruit paste or fruit puree and sugar icing coated
+ciqual_food_name:fr: Biscuit moelleux fourré à l'orange et enrobé de sucre glace
+
+< en:Cakes
+< en:Desserts
+en:Sponge cake
+fr:Génoise, Gâteau moelleux nature
+agribalyse_food_code:en: 23594
+ciqual_food_code:en: 23594
+ciqual_food_name:en: Soft cake, plain, sponge cake type
+ciqual_food_name:fr: Gâteau moelleux nature type génoise
+
+< en:Cakes
 en:Almond cakes
 de:Mandelkuchen
 es:Tartas de almendra
@@ -8220,66 +8235,6 @@ agribalyse_food_code:en: 23585
 ciqual_food_code:en: 23585
 ciqual_food_name:en: Chocolate cake
 wikidata:en: Q30186
-
-< en:Cakes
-< en:Desserts
-en:Black Forest gâteau, Black Forest cake, Chocolate sponge cake with cherry, Chocolate sponge cake without cherry
-de:Schwarzwälder Kirschtorte, Schwarzwälderkirschtorte, Schwarzwäldertorte
-es:Pastel de la Selva Negra, Torta Selva Negra, Tarta Selva Negra
-fr:Forêt-noires, Forêts noires, Gâteau au chocolat type forêt noire, Génoise au chocolat et crème multi-couches avec cerises, Génoise au chocolat et crème multi-couches sans cerises
-it:Torta della Foresta Nera
-nl:Schwarzwälder Kirschtaarten
-agribalyse_food_code:en: 23006
-ciqual_food_code:en: 23006
-ciqual_food_name:en: Sponge cake w chocolate w or wo cherry
-ciqual_food_name:fr: Gâteau au chocolat type forêt noire -génoise au chocolat et crème multi-couches, avec ou sans cerises-
-wikidata:en: Q19028
-
-< en:Cakes
-< en:Desserts
-en:Chocolate soft cake
-fr:Gâteau moelleux au chocolat
-agribalyse_food_code:en: 23586
-ciqual_food_code:en: 23586
-ciqual_food_name:en: Chocolate soft cake, prepacked
-ciqual_food_name:fr: Gâteau moelleux au chocolat, préemballé
-
-< en:Cakes
-< en:Desserts
-en:Clafoutis, clafouti
-de:Clafoutis
-es:Clafoutis
-fr:Clafoutis, Milliards, Milliard
-it:Clafoutis
-nl:Clafoutis, Clafouti
-wikidata:en: Q1094707
-
-< en:Cakes
-< en:Desserts
-en:Soft cake filled with chocolate, Soft cake filled with chocolate drops, Soft cake filled with milk
-fr:Gâteau moelleux fourré au chocolat, Gâteau moelleux fourré aux pépites de chocolat, Gâteau moelleux fourré au lait
-agribalyse_food_code:en: 23939
-ciqual_food_code:en: 23939
-ciqual_food_name:en: Soft cake filled with chocolate or chocolate drops or milk
-ciqual_food_name:fr: Gâteau moelleux fourré au chocolat ou aux pépites de chocolat ou au lait
-
-< en:Cakes
-< en:Desserts
-en:Soft cake filled with fruit paste and coated with sugar icing, Soft cake filled with fruit puree and coated with sugar icing
-fr:Biscuit moelleux fourré à l'orange et enrobé de sucre glace
-agribalyse_food_code:en: 24680
-ciqual_food_code:en: 24680
-ciqual_food_name:en: Soft cake, filled with fruit paste or fruit puree and sugar icing coated
-ciqual_food_name:fr: Biscuit moelleux fourré à l'orange et enrobé de sucre glace
-
-< en:Cakes
-< en:Desserts
-en:Sponge cake
-fr:Génoise, Gâteau moelleux nature
-agribalyse_food_code:en: 23594
-ciqual_food_code:en: 23594
-ciqual_food_name:en: Soft cake, plain, sponge cake type
-ciqual_food_name:fr: Gâteau moelleux nature type génoise
 
 < en:Cakes
 en:Dorayaki
@@ -13539,6 +13494,10 @@ fr:Viande de poulet sans peau
 agribalyse_food_code:en: 36003
 ciqual_food_code:en: 36003
 ciqual_food_name:en: Chicken, meat, raw
+
+< en:Chickens
+en:Chicken patties
+fr:Galettes au poulet
 
 < en:Chickens
 en:Chicken thighs, chicken legs
@@ -19397,7 +19356,7 @@ wikidata:en: Q3064619
 
 < en:Dairy desserts
 < en:Fermented milk products
-en:Quark, Plain quark, Quark with fruits
+en:Quarks, quark
 ar:كوارك
 az:Kəsmik
 be:тварог
@@ -19406,7 +19365,7 @@ da:Kvark
 de:Quark, Weißkäse, Topfen, Schotten, Speisequark
 es:Queso quark
 fi:Rahka
-fr:Quark
+fr:Quarks, Quark
 he:גבינה לבנה
 hu:Túró
 hy:Կաթնաշոռ
@@ -19440,13 +19399,13 @@ wikipedia:en: https://en.wikipedia.org/wiki/Quark_-dairy_product-
 
 < en:Dairy desserts
 < en:Fermented milk products
-en:Skyr
+en:Skyrs, Skyr
 ca:Skyr
 da:Skyr
 de:Skyr
 es:Skyr
 fi:Skyr
-fr:Skyr
+fr:Skyrs, Skyr
 is:Skyr
 it:Skyr
 ja:スキール
@@ -20376,11 +20335,16 @@ wikidata:en: Q1432826
 
 < en:Desserts
 en:Trifles
+wikidata:en: Q616601
 
 < en:Desserts
 en:Vacherins
 fr:Vacherins
 nl:Vacherin
+
+< en:Desserts
+fi:Mämmi
+wikidata:en: Q1630666
 
 < en:Diet beverages
 en:Dietary drink for sport
@@ -24093,10 +24057,6 @@ nl:Orgaanvlezen, Orgaanvlees, Slachtafval
 food_groups:en: en:offals
 pnns_group_2:en: Offals
 
-< en:Fish burgers
-en:Salmon burger
-wikidata:en: Q7405551
-
 < en:Fish eggs
 en:Bottarga
 ca:Botàriga
@@ -24658,6 +24618,10 @@ it:Filetti di pesce
 nl:Visfilets
 pl:Filety rybne, filet rybny
 ru:Рыбные филе
+
+< en:Fishes
+en:Fish patties
+fr:
 
 < en:Fishes
 en:Fish preparations, Preparations made from fish
@@ -26431,15 +26395,6 @@ wikidata:en: Q510126
 < en:Cow cheeses
 < en:French cheeses
 < en:Soft cheeses with bloomy rind
-en:Soft-ripened round cheese with bloomy rind around 11% fat Coulommiers-type cheese reduced fat
-fr:Fromage rond à pâte molle et croûte fleurie environ 11% MG type coulommiers allégé en matière grasse
-agribalyse_food_code:en: 12012
-ciqual_food_code:en: 12012
-ciqual_food_name:en: Soft-ripened round cheese with bloomy rind, around 11% fat, Coulommiers-type cheese, reduced fat
-
-< en:Cow cheeses
-< en:French cheeses
-< en:Soft cheeses with bloomy rind
 fr:Brillat-Savarin
 origins:en: en:france
 protected_name_file_number:en: PGI-FR-02102
@@ -27437,13 +27392,6 @@ fr:Viande fraîche de dromadaire, Viande de dromadaire fraîche
 nl:Verse dromedarisvlezen
 
 < en:Fresh meats
-en:Fresh ground steaks
-de:Frische Hacksteaks
-fi:Tuoreet jauhelihapihvit
-fr:Steaks hachés frais
-nl:Verse tartaarsteaks
-
-< en:Fresh meats
 en:Fresh meat preparations
 de:Frischfleischprodukte
 es:Preparados de carne fresca
@@ -27509,6 +27457,14 @@ nl:Verse loopvogelvlezen
 en:Wild boar fresh meat
 fr:Viande fraîche de sanglier, viande de sanglier fraîche
 nl:Verse everzwijnvlezen
+
+< en:Fresh meats
+< en:Steaks
+en:Fresh ground steaks
+de:Frische Hacksteaks
+fi:Tuoreet jauhelihapihvit
+fr:Steaks hachés frais
+nl:Verse tartaarsteaks
 
 < en:Fresh milks
 de:traditionell hergestellte Frischmilch, traditionell hergestellte Frischmilche, traditionell hergestellte Frischmilchen, traditionell hergestellt
@@ -28687,6 +28643,7 @@ it:Preparazioni surgelate a base di carne
 nl:Bevroren vleesbereidingen
 
 < en:Frozen meats
+< en:Steaks
 en:Frozen steaks
 de:Tiefkühlsteaks, Gefrorene Steaks
 fi:pakastetut pihvit
@@ -28882,7 +28839,7 @@ en:Frozen potatoes
 de:Gefrohrene Kartoffeln
 es:Patatas congeladas
 fi:Perunapakasteet
-fr:Pommes de terre surgelés
+fr:Pommes de terre surgelées, Pommes de terre surgelés
 it:Patate surgelate
 nl:Diepvriesaardappelen
 
@@ -33921,12 +33878,19 @@ en:Ham and goat cheese wraps
 fr:Wraps Jambon Chèvre
 
 < en:Hamburgers
-en:Beef based burger with 15% fat
-fr:Haché à base de bœuf cru à 15% de matières grasses, Préparation de viande hachée de boeuf crue à 15% de matières grasses
-agribalyse_food_code:en: 6260
-ciqual_food_code:en: 6260
-ciqual_food_name:en: Burger, beef based, 15% fat, raw
-ciqual_food_name:fr: Haché à base de bœuf ou Préparation de viande hachée de boeuf, 15% MG, cru
+en:Chicken hamburgers, Chicken burger
+fr:Hamburgers au poulet, Burger au poulet
+agribalyse_food_code:en: 25502
+ciqual_food_code:en: 25502
+ciqual_food_name:en: Chicken burger , fast foods restaurant
+
+< en:Hamburgers
+en:Fish hamburgers, Fish burgers
+fr:Hamburgers au poisson, Burgers au poisson, Burgers de la mer, Burgers de cabillaud
+agribalyse_food_code:en: 25416
+ciqual_food_code:en: 25416
+ciqual_food_name:en: Fish burger, fast foods restaurant
+ciqual_food_name:fr: Burger au poisson
 
 < en:Hamburgers
 en:Hamburgers from fast food
@@ -33935,6 +33899,17 @@ agribalyse_food_code:en: 25413
 ciqual_food_code:en: 25413
 ciqual_food_name:en: Hamburger, from fast foods restaurant
 ciqual_food_name:fr: Hamburger, provenant de fast food
+
+< en:Hamburgers
+en:Vegetarian hamburgers, Veggie burgers
+ca:Hamburgueses vegetals
+de:Vegetarische Hamburger
+es:Hamburguesas vegetales
+fi:Kasvishampurilaiset
+fr:Hamburgers végétariens, Hamburger végétarien, Hamburgers végétales, Hamburgers végétaux, Hamburger végétal
+it:Hamburger vegetali
+nl:Vegetarische hamburgers
+wikidata:en: Q1884503
 
 < en:Hams
 en:Braised hams
@@ -42335,6 +42310,14 @@ agribalyse_food_code:en: 25551
 ciqual_food_code:en: 25551
 ciqual_food_name:en: Meat, poultry or fish fritters, home-made
 
+< en:Meat patties
+en:Beef based burger with 15% fat
+fr:Haché à base de bœuf cru à 15% de matières grasses, Préparation de viande hachée de boeuf crue à 15% de matières grasses
+agribalyse_food_code:en: 6260
+ciqual_food_code:en: 6260
+ciqual_food_name:en: Burger, beef based, 15% fat, raw
+ciqual_food_name:fr: Haché à base de bœuf ou Préparation de viande hachée de boeuf, 15% MG, cru
+
 < en:Meat pies
 < en:Salted pies
 en:Chicken and mushroom pies
@@ -42646,6 +42629,10 @@ it:Carne di agnello, Agnello
 nl:Schapevlezen
 zh:羊肉, 羊, 羊羔, 羊羔肉
 wikidata:en: Q643419
+
+< en:Meats
+en:Meat patties
+fr:Galettes de viande
 
 < en:Meats
 en:Meat preparations
@@ -44928,7 +44915,12 @@ nl:Plantaardige yoghurts, plantaardige yoghurt
 < en:Non-dairy yogurts
 en:Almond milk yogurts
 es:Yogures de leche de almendras
+fr:Desserts de lait d'amande fermenté
 it:Yogurt al latte di mandorla
+
+< en:Non-dairy yogurts
+en:Oat milk yogurts
+fr:Desserts de jus d'avoine fermenté
 
 < en:Non-dairy yogurts
 en:Soy milk yogurts, soy yogurts, soya yogurts, soygurts, yofu
@@ -44936,7 +44928,7 @@ ca:Iogurt de soja
 de:Sojajoghurt, Sojajogurt, Sojajoghurts, Sojajogurts
 es:Yogures de soja, Yogures de soya
 fi:Soijapohjaiset jogurtit
-fr:Yaourts au soja, Yaourts soja, yaourts au lait de soja
+fr:Desserts de jus de soja fermenté, Yaourts au soja, Yaourts soja, yaourts au lait de soja
 it:Yogurt di soia, Soia yogurt
 nl:Sojayoghurts
 agribalyse_food_code:en: 19693
@@ -48442,62 +48434,6 @@ it:Camembert pastorizzato
 nl:Gepasteuriseerde camemberts
 wikidata:en: Q47472053
 
-< en:Pastries
-de:Mandelhörnchen
-
-< en:Pastries
-de:Nussecken
-
-< en:Pastries
-en:Basque cake with cherries, Shortbread with cherries
-fr:Gâteau basque aux cerises
-agribalyse_food_code:en: 23803
-ciqual_food_code:en: 23803
-ciqual_food_name:en: Basque cake -shortbread-, with cherries
-ciqual_food_name:fr: Gâteau basque, cerises
-
-< en:Pastries
-en:Basque cake with custard, Basque shortbread with custard
-fr:Gâteau basque à la crème pâtissière
-agribalyse_food_code:en: 23802
-ciqual_food_code:en: 23802
-ciqual_food_name:en: Basque cake -shortbread-, with custard
-ciqual_food_name:fr: Gâteau basque, crème pâtissière
-
-< en:Pastries
-en:Churros
-bg:Чурос
-de:Churros
-es:Churros
-fr:Churros
-nl:Churros
-wikidata:en: Q727605
-
-< en:Pastries
-en:Coconut Macaroons, Coconut macaroon, Rock-shaped coconut cak
-fi:Kookosmakronit, Kookosmacaronit
-fr:Rochers à la noix de coco, Congolais, Rochers coco, rocher à la noix de coco, rocher coco, Petit gâteau à la noix de coco
-it:Biscotti al cocco
-nl:Kokosmacaron
-agribalyse_food_code:en: 23033
-ciqual_food_code:en: 23033
-ciqual_food_name:en: Rock-shaped coconut cake
-ciqual_food_name:fr: Rocher coco, Congolais, Petit gâteau à la noix de coco
-wikidata:en: Q2993000
-
-< en:Pastries
-en:Cream puff, Pastry cream puff
-de:Windbeutel, Profiterole, Profiteroles
-es:Bocadito de nata, Profiterol, Profiteroles
-fr:Profiteroles, Profiterole, Profiterolles, Choux à la crème, Chou à la crème
-it:Profiterole, Profiteroles
-nl:Soesjes, Profiterole
-agribalyse_food_code:en: 23455
-ciqual_food_code:en: 23455
-ciqual_food_name:en: Pastry cream puff
-ciqual_food_name:fr: Chou à la crème -chantilly ou pâtissière-
-wikidata:en: Q2513811
-
 < en:Desserts
 < en:Pastries
 en:Baklava
@@ -48606,6 +48542,62 @@ fr:Pastel de nata, Pastéis de nata
 pt:Pastéis de nata, Pastel de nata
 
 < en:Pastries
+de:Mandelhörnchen
+
+< en:Pastries
+de:Nussecken
+
+< en:Pastries
+en:Basque cake with cherries, Shortbread with cherries
+fr:Gâteau basque aux cerises
+agribalyse_food_code:en: 23803
+ciqual_food_code:en: 23803
+ciqual_food_name:en: Basque cake -shortbread-, with cherries
+ciqual_food_name:fr: Gâteau basque, cerises
+
+< en:Pastries
+en:Basque cake with custard, Basque shortbread with custard
+fr:Gâteau basque à la crème pâtissière
+agribalyse_food_code:en: 23802
+ciqual_food_code:en: 23802
+ciqual_food_name:en: Basque cake -shortbread-, with custard
+ciqual_food_name:fr: Gâteau basque, crème pâtissière
+
+< en:Pastries
+en:Churros
+bg:Чурос
+de:Churros
+es:Churros
+fr:Churros
+nl:Churros
+wikidata:en: Q727605
+
+< en:Pastries
+en:Coconut Macaroons, Coconut macaroon, Rock-shaped coconut cak
+fi:Kookosmakronit, Kookosmacaronit
+fr:Rochers à la noix de coco, Congolais, Rochers coco, rocher à la noix de coco, rocher coco, Petit gâteau à la noix de coco
+it:Biscotti al cocco
+nl:Kokosmacaron
+agribalyse_food_code:en: 23033
+ciqual_food_code:en: 23033
+ciqual_food_name:en: Rock-shaped coconut cake
+ciqual_food_name:fr: Rocher coco, Congolais, Petit gâteau à la noix de coco
+wikidata:en: Q2993000
+
+< en:Pastries
+en:Cream puff, Pastry cream puff
+de:Windbeutel, Profiterole, Profiteroles
+es:Bocadito de nata, Profiterol, Profiteroles
+fr:Profiteroles, Profiterole, Profiterolles, Choux à la crème, Chou à la crème
+it:Profiterole, Profiteroles
+nl:Soesjes, Profiterole
+agribalyse_food_code:en: 23455
+ciqual_food_code:en: 23455
+ciqual_food_name:en: Pastry cream puff
+ciqual_food_name:fr: Chou à la crème -chantilly ou pâtissière-
+wikidata:en: Q2513811
+
+< en:Pastries
 en:Eclairs
 fr:Éclairs
 nl:Eclairs
@@ -48702,6 +48694,12 @@ ciqual_food_name:en: Rum baba, prepacked
 ciqual_food_name:fr: Baba au rhum, préemballé
 oqali_family:en: fr:Biscuits et gateaux industriels - Babas au rhum
 wikidata:en: Q265457
+
+< en:Pastries
+en:Runeberg torte
+fi:Runebergintorttu
+sv:Runebergstårta
+wikidata:en: Q1817903
 
 < en:Pastries
 en:Strudels
@@ -55636,57 +55634,65 @@ ciqual_food_code:en: 36100
 ciqual_food_name:en: Quail, meat and skin, raw
 ciqual_food_name:fr: Caille, viande et peau, crue
 
-< en:Quark
+< en:Quarks
 en:Buttermilk quark, Quark from buttermilk
 de:Buttermilchquark
 fr:Quark au babeurre, quark au lait ribot, quark au lait battu
 
-< en:Quark
+< en:Quarks
 en:Creamy quark, Quark with 40% fat in dry mass
 de:Quark Fettstufe, Sahnequark, Quark 40% Fett i. Tr.
 fr:Quark allégé
 
-< en:Quark
+< en:Quarks
+en:Fruit quarks, Fruit quark
+fr:Quarks aux fruits, Quark aux fruits
+
+< en:Quarks
 en:Lean quark
 de:Magerquark, Quark Magerstufe
 fi:Kevytrahka
 fr:Quark maigre
 nl:Magere kwark
 
-< en:Quark
+< en:Quarks
+en:Plain quarks, Plain quark
+fr:Quarks nature, Quark nature
+
+< en:Quarks
 en:Quark with 10% fat in dry mass
 de:Viertelfettquark, Quark Viertelfettstufe, Quark 10% Fett i. Tr.
 fr:Séré avec 10% de graisse en masse sèche, Quark avec 10% de graisse en masse sèche
 
-< en:Quark
+< en:Quarks
 en:Quark with 20% fat in dry mass
 de:Halbfettquark, Quark Halbfettstufe, Quark 20% Fett i. Tr.
 fr:Séré avec 20% de graisse en masse sèche, Quark avec 20% de graisse en masse sèche
 it:Formaggio Quark con il 20% di grassi in massa secca
 nl:Kwark met 20% vetgehalte
 
-< en:Quark
+< en:Quarks
 en:Quark with 30% fat in dry mass
 de:Dreiviertelfettquark, Quark Dreiviertelfettstufe, Quark 30% Fett i. Tr.
 
-< en:Quark
+< en:Quarks
 en:Quark with 45% fat in dry mass
 de:Quark Vollfettstufe, Quark 45% Fett i. Tr.
 
-< en:Quark
+< en:Quarks
 en:Quark with 50% fat in dry mass
 de:Quark Rahmstufe, Quark 50% Fett i. Tr.
 fr:Séré avec 50% de graisse en masse sèche, Quark avec 50% de graisse en masse sèche
 
-< en:Quark
+< en:Quarks
 en:Quark with 65% to 85% fat in dry mass
 de:Quark Doppelrahmstufe, Quark 65% bis 85% Fett i. Tr.
 
-< en:Quark
+< en:Quarks
 en:Rennet quark
 de:Labquark
 
-< en:Quark
+< en:Quarks
 en:Soured milk quark, Quark from soured milk
 de:Sauermilchquark
 fr:Quark au lait caillé, Quark caillé
@@ -58142,6 +58148,22 @@ es:Salvia seca molida
 fr:Sauge sèche moulue
 nl:Gemalen gedroogde salie
 
+< en:Saint-Nectaire
+en:Saint-Nectaire cheese from milk collected in an unique farm, Saint-Nectaire cheese from cow's milk milk collected in an unique farm
+fr:Saint-Nectaire fermier
+agribalyse_food_code:en: 12751
+ciqual_food_code:en: 12751
+ciqual_food_name:en: Saint-Nectaire cheese, from cow's milk, milk collected in an unique farm
+origins:en: en:france
+
+< en:Saint-Nectaire
+en:Saint-Nectaire from milks collected in many farms, Saint-Nectaire cheese from cow's milk milks collected in many farms
+fr:Saint-Nectaire laitier
+agribalyse_food_code:en: 12748
+ciqual_food_code:en: 12748
+ciqual_food_name:en: Saint-Nectaire cheese, from cow's milk, milks collected in many farms
+origins:en: en:france
+
 < en:Saithe
 en:Saithe cooked
 fr:Lieu noir cuit
@@ -59166,13 +59188,6 @@ agribalyse_proxy_food_name:fr: Cheeseburger, provenant de fast food
 wikidata:en: Q667478
 
 < en:Sandwiches
-en:Chicken burger
-fr:Burger au poulet
-agribalyse_food_code:en: 25502
-ciqual_food_code:en: 25502
-ciqual_food_name:en: Chicken burger , fast foods restaurant
-
-< en:Sandwiches
 en:Crisp sandwich
 wikidata:en: Q3002792
 
@@ -59194,14 +59209,6 @@ en:Falafel sandwiches
 es:Sándwiches de falafel
 fr:Sandwichs aux falafels, Sandwiches de falafel
 nl:Falafelsandwiches
-
-< en:Sandwiches
-en:Fish burgers
-fr:Burgers au poisson, Burgers de la mer, Burgers de cabillaud
-agribalyse_food_code:en: 25416
-ciqual_food_code:en: 25416
-ciqual_food_name:en: Fish burger, fast foods restaurant
-ciqual_food_name:fr: Burger au poisson
 
 < en:Sandwiches
 en:Fish sandwiches
@@ -59345,17 +59352,6 @@ fi:Raakakasvisvoileivät
 fr:Sandwichs aux crudités
 nl:Rauwe groentensandwiche
 wikidata:en: Q7918342
-
-< en:Sandwiches
-en:Vegetarian hamburgers, Veggie burgers
-ca:Hamburgueses vegetals
-de:Vegetarische Hamburger
-es:Hamburguesas vegetales
-fi:Kasvishampurilaiset
-fr:Hamburgers végétariens, Hamburger végétarien, Hamburgers végétales, Hamburgers végétaux, Hamburger végétal
-it:Hamburger vegetali
-nl:Vegetarische hamburgers
-wikidata:en: Q1884503
 
 < en:Sandwiches
 en:Vegetarian hot dog sandwiches
@@ -62007,6 +62003,14 @@ ciqual_food_code:en: 19050
 ciqual_food_name:en: Milk, skimmed, UHT
 ciqual_food_name:fr: Lait écrémé, UHT
 
+< en:Skyrs
+en:Fruit skyrs, Fruit skyr
+fr:Skyrs aux fruits, Skyr aux fruits
+
+< en:Skyrs
+en:Plain skyrs, Plain skyr
+fr:Skyrs nature, Skyr nature
+
 < en:Sliced breads
 en:Bran sliced breads, Bran grain sandwich loaf
 fr:Pain de mie au son
@@ -62900,15 +62904,6 @@ zh:水果汽水
 < en:French cheeses
 < en:Goat cheeses
 < en:Soft cheese with a natural rind
-en:Cheese from goat's milk
-fr:Fromage de chèvre lactique affiné, bûchette crottin Sainte-Maure
-agribalyse_food_code:en: 12803
-ciqual_food_code:en: 12803
-ciqual_food_name:en: Cheese, from goat's milk
-
-< en:French cheeses
-< en:Goat cheeses
-< en:Soft cheese with a natural rind
 en:Crottin de Chavignol cheese
 fr:Crottins de Chavignol, Crottin de Chavignol, Chavignol
 agribalyse_food_code:en: 12834
@@ -63076,6 +63071,14 @@ fr:Fromage rond à pâte molle et croûte fleurie 5 à 11% MG, Fromage de type C
 agribalyse_food_code:en: 12009
 ciqual_food_code:en: 12009
 ciqual_food_name:en: Soft-ripened round cheese with bloomy rind, 5 to 11% fat, Camembert-type cheese, reduced fat
+
+< en:Cow cheeses
+< en:Soft cheeses with bloomy rind
+en:Soft-ripened round cheese with bloomy rind around 11% fat Coulommiers-type cheese reduced fat
+fr:Fromage rond à pâte molle et croûte fleurie environ 11% MG type coulommiers allégé en matière grasse
+agribalyse_food_code:en: 12012
+ciqual_food_code:en: 12012
+ciqual_food_name:en: Soft-ripened round cheese with bloomy rind, around 11% fat, Coulommiers-type cheese, reduced fat
 
 < en:Cow cheeses
 < en:Soft cheeses with bloomy rind
@@ -65288,7 +65291,7 @@ en:Paprika
 af:Paprika
 br:Paprika
 cy:Paprica
-de:Paprika
+de:Paprikapulver
 eo:Papriko
 es:Pimentón
 fi:paprika
@@ -65296,7 +65299,7 @@ fr:Paprika
 io:Papriko
 it:paprica
 ja:パプリカ
-nl:Paprika
+nl:Paprikapoeder
 nn:Paprika
 pl:Papryka
 pt:Páprica
@@ -65891,6 +65894,23 @@ ciqual_food_code:en: 4090
 ciqual_food_name:en: Potato starch
 ciqual_food_name:fr: Fécule de pomme de terre
 
+< en:Beef
+< en:Steaks
+en:Beef steaks
+de:Rindersteaks
+es:Filetes de ternera
+fi:naudanpihvit
+fr:Steaks de bœuf, steak de bœuf
+it:Bistecche di manzo
+nl:Rundersteaks
+pl:Stek wołowy
+zh:牛排
+agribalyse_food_code:en: 6201
+ciqual_food_code:en: 6201
+ciqual_food_name:en: Beef, steak or beef steak, raw
+ciqual_food_name:fr: Boeuf, steak ou bifteck, cru
+
+< en:Meat patties
 < en:Steaks
 en:Ground steaks
 de:Hackfleischsteaks, Hacksteaks
@@ -67187,6 +67207,28 @@ pt:Barras
 ro:Batoane
 ru:Батончики
 zh:棒状零食
+food_groups:en: en:biscuits-and-cakes
+pnns_group_2:en: Biscuits and cakes
+
+< en:Sweet snacks
+en:Biscuits and cakes
+bg:Бисквити и сладкиши
+ca:Galetes i pastissos
+da:Kiks og kage
+de:Kekse und Kuchen
+es:Galletas y pasteles
+fi:Keksit ja kakut
+fr:Biscuits et gâteaux
+he:עוגיות ועוגות
+hu:Kekszek és sütemények
+it:Biscotti e torte, Biscotti e dolci
+nl:Koekjes en cakes
+pt:Biscoitos e Bolos
+ro:Biscuiți și prăjituri
+ru:Пироги и печенье
+sv:Kakor och tårtor
+th:ขนมปังกรอบและเค๊ก
+zh:饼干和蛋糕
 food_groups:en: en:biscuits-and-cakes
 pnns_group_2:en: Biscuits and cakes
 
@@ -69940,26 +69982,6 @@ wikidata:en: Q548309
 < en:Cow cheeses
 < en:French cheeses
 < en:Uncooked pressed cheeses
-en:Saint-Nectaire cheese from cow's milk milk collected in an unique farm
-fr:Saint-Nectaire fermier
-agribalyse_food_code:en: 12751
-ciqual_food_code:en: 12751
-ciqual_food_name:en: Saint-Nectaire cheese, from cow's milk, milk collected in an unique farm
-origins:en: en:france
-
-< en:Cow cheeses
-< en:French cheeses
-< en:Uncooked pressed cheeses
-en:Saint-Nectaire cheese from cow's milk milks collected in many farms
-fr:Saint-Nectaire laitier
-agribalyse_food_code:en: 12748
-ciqual_food_code:en: 12748
-ciqual_food_name:en: Saint-Nectaire cheese, from cow's milk, milks collected in many farms
-origins:en: en:france
-
-< en:Cow cheeses
-< en:French cheeses
-< en:Uncooked pressed cheeses
 en:Salers cheese
 fr:Salers
 agribalyse_food_code:en: 12725
@@ -71859,7 +71881,7 @@ fr:Légumes espagnols
 < en:Vegetables based foods
 en:Sweet peppers, Bell peppers
 bg:Чушки
-de:Süße Pfeffer
+de:Paprika, Süße Pfeffer
 es:Pimientos
 fi:Makea paprikat
 fr:Poivrons, Poivron, Capsicum annuum, piment doux, Piment Poivron
@@ -89032,6 +89054,18 @@ agribalyse_food_code:en: 7002
 ciqual_food_code:en: 7002
 ciqual_food_name:en: Bread, French bread -baguette or ball-, with yeast
 ciqual_food_name:fr: Pain, baguette ou boule, au levain
+
+< fr:Palette
+fr:Palette blanc
+wikidata:en: Q42863181
+
+< fr:Palette
+fr:Palette rosé
+wikidata:en: Q42863182
+
+< fr:Palette
+fr:Palette rouge
+wikidata:en: Q42863183
 
 < fr:Pâtes à tartiner
 en:Almonds spreads
