@@ -88,6 +88,7 @@ my $all_products_scans_ref;
 sub load_scans_data() {
 	
 	$all_products_scans_ref = retrieve_json("$data_root/products/all_products_scans.json");
+	return;
 }
 
 
@@ -246,6 +247,7 @@ sub compute_main_countries($) {
 			push @{$product_ref->{misc_tags}}, "en:main-countries-new-product";
 		}
 	}
+	return;
 }
 
 1;

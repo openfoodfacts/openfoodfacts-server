@@ -959,6 +959,7 @@ sub add_properties_from_specific_ingredients($) {
 			}
 		}
 	}
+	return;
 }
 
 
@@ -1013,15 +1014,30 @@ sub add_specific_ingredients_from_labels($) {
 			}
 		}
 	}
+	return;
 }
 
 
-=head2 parse_specific_ingredients_from_text ( product_ref, $text )
+=head2 parse_specific_ingredients_from_text ( product_ref, $text, $percent_regexp )
 
 Lists of ingredients sometime include extra mentions for specific ingredients
 at the end of the ingredients list. e.g. "Prepared with 50g of fruits for 100g of finished product".
 
 This function extracts those mentions and adds them to the specific_ingredients structure.
+
+This function is also used to parse the origins of ingredients field.
+
+=head3 Arguments
+
+=head4 product_ref
+
+=head4 text $text
+
+=head4 percent regular expression $percent_regexp
+
+Used to find % values, language specific.
+
+Pass undef in order to skip % recognition. This is useful if we know the text is only for the origins of ingredients.
 
 =head3 Return values
 
@@ -1049,6 +1065,7 @@ sub parse_specific_ingredients_from_text($$$) {
 
 		# Initialize values
 		$ingredient = undef;
+		my $matched_ingredient_ref = {};
 		my $matched_text;
 		my $percent;
 		my $origins;
@@ -1062,7 +1079,8 @@ sub parse_specific_ingredients_from_text($$$) {
 			# examples:
 			# Total Milk Content 73%.
 
-			if ($text =~ /\s*(?:total |min |minimum )?([^,.;]+?)\s+content(?::| )+$percent_regexp\s*(?:per 100\s*(?:g)(?:[^,.;-]*?))?(?:;|\.| - |$)/i) {
+			if ((defined $percent_regexp)
+				and ($text =~ /\s*(?:total |min |minimum )?([^,.;]+?)\s+content(?::| )+$percent_regexp\s*(?:per 100\s*(?:g)(?:[^,.;-]*?))?(?:;|\.| - |$)/i)) {
 				$percent = $2;	# $percent_regexp
 				$ingredient = $1;
 				$matched_text = $&;
@@ -1071,17 +1089,13 @@ sub parse_specific_ingredients_from_text($$$) {
 			}
 
 			# Origin of the milk: United Kingdom
-			elsif ($text =~ /\s*(?:origin of (?:the )?)([^,.;]+?)(?::| )+([^,.;]+?)\s*(?:;|\.| - |$)/i) {
-				# Note: the regexp above does not currently match multiple origins with commas (e.g. "Origins of milk: UK, UE")
-				# in order to not overmatch something like "Origin of milk: UK, some other mention."
-				# In the future, we could try to be smarter and match more if we can recognize the next words exist in the origins taxonomy.
-				$origins = $2;
-				$ingredient = $1;
-				$matched_text = $&;
-				# Remove the matched text
-				$text = $` . ' ' . $';
+			elsif (match_origin_of_the_ingredient_origin($product_lc, \$text, $matched_ingredient_ref)) {
+				$origins = $matched_ingredient_ref->{origins};
+				$ingredient = $matched_ingredient_ref->{ingredient};
+				$matched_text = $matched_ingredient_ref->{matched_text};
+				# Remove extra spaces
+				$ingredient =~ s/\s+$//;
 			}
-
 		}
 		elsif ($product_lc eq "fr") {
 
@@ -1090,7 +1104,8 @@ sub parse_specific_ingredients_from_text($$$) {
 			# Teneur en lactose < 0,01 g/100 g.
 			# Préparée avec 50 g de fruits pour 100 g de produit fini.
 
-			if ($text =~ /\s*(?:(?:préparé|prepare)(?:e|s|es)? avec)(?: au moins)?(?::| )+$percent_regexp (?:de |d')?([^,.;]+?)\s*(?:pour 100\s*(?:g)(?:[^,.;-]*?))?(?:;|\.| - |$)/i) {
+			if ((defined $percent_regexp)
+				and ($text =~ /\s*(?:(?:préparé|prepare)(?:e|s|es)? avec)(?: au moins)?(?::| )+$percent_regexp (?:de |d')?([^,.;]+?)\s*(?:pour 100\s*(?:g)(?:[^,.;-]*?))?(?:;|\.| - |$)/i)) {
 				$percent = $1;	# $percent_regexp
 				$ingredient = $2;
 				$matched_text = $&;
@@ -1100,7 +1115,8 @@ sub parse_specific_ingredients_from_text($$$) {
 
 			# Teneur totale en sucres : 60 g pour 100 g de produit fini.
 			# Teneur en citron de 100%
-			elsif ($text =~ /\s*teneur(?: min| minimum| minimale| totale)?(?: en | de | d'| du )([^,.;]+?)\s*(?:pour 100\s*(?:g)(?: de produit(?: fini)?)?)?(?: de)?(?::| )+$percent_regexp\s*(?:pour 100\s*(?:g)(?:[^,.;]*?))?(?:;|\.| - |$)/i) {
+			elsif ((defined $percent_regexp)
+				and ($text =~ /\s*teneur(?: min| minimum| minimale| totale)?(?: en | de | d'| du )([^,.;]+?)\s*(?:pour 100\s*(?:g)(?: de produit(?: fini)?)?)?(?: de)?(?::| )+$percent_regexp\s*(?:pour 100\s*(?:g)(?:[^,.;]*?))?(?:;|\.| - |$)/i)) {
 				$percent = $2;	# $percent_regexp
 				$ingredient = $1;
 				$matched_text = $&;
@@ -1109,15 +1125,12 @@ sub parse_specific_ingredients_from_text($$$) {
 			}
 
 			# Origine du Cacao: Pérou
-			elsif ($text =~ /\s*(?:origine (?:de |du |de la |des |de l'))([^,.;]+?)(?::| )+([^,.;]+?)\s*(?:;|\.| - |$)/i) {
-				# Note: the regexp above does not currently match multiple origins with commas (e.g. "Origins of milk: UK, UE")
-				# in order to not overmatch something like "Origin of milk: UK, some other mention."
-				# In the future, we could try to be smarter and match more if we can recognize the next words exist in the origins taxonomy.
-				$origins = $2;
-				$ingredient = $1;
-				$matched_text = $&;
-				# Remove the matched text
-				$text = $` . ' ' . $';
+			elsif (match_origin_of_the_ingredient_origin($product_lc, \$text, $matched_ingredient_ref)) {
+				$origins = $matched_ingredient_ref->{origins};
+				$ingredient = $matched_ingredient_ref->{ingredient};
+				$matched_text = $matched_ingredient_ref->{matched_text};
+				# Remove extra spaces
+				$ingredient =~ s/\s+$//;
 			}
 
 		}
@@ -1138,6 +1151,148 @@ sub parse_specific_ingredients_from_text($$$) {
 			defined $origins and $specific_ingredients_ref->{origins} = join(",", map {canonicalize_taxonomy_tag($product_lc, "origins", $_)} split(/,/, $origins ));
 			
 			push @{$product_ref->{specific_ingredients}}, $specific_ingredients_ref;
+		}
+	}
+
+	return $text;
+}
+
+
+# Note: in regular expressions below, use non-capturing groups (starting with (?: )
+# for all groups, except groups that capture actual data: ingredient name, percent, origins
+
+# Regexps should match until we reach a . ; or the end of the text
+
+sub match_ingredient_origin($$$) {
+
+	my $product_lc = shift;
+	my $text_ref = shift;
+	my $matched_ingredient_ref = shift;
+
+	# Strawberries: Spain
+	if ($$text_ref =~ /\s*([^,.;:]+)(?::)\s*([^,.;]+?)\s*(?:;|\.| - |$)/i) {
+		# Note: the regexp above does not currently match multiple origins with commas (e.g. "Origins of milk: UK, UE")
+		# in order to not overmatch something like "Origin of milk: UK, some other mention."
+		# In the future, we could try to be smarter and match more if we can recognize the next words exist in the origins taxonomy.
+
+		$matched_ingredient_ref->{ingredient} = $1;
+		$matched_ingredient_ref->{origins} = $2;
+		$matched_ingredient_ref->{matched_text} = $&;
+
+		# Remove the matched text
+		$$text_ref = $` . ' ' . $';
+
+		return 1;
+	}
+	return 0;
+}
+
+
+sub match_origin_of_the_ingredient_origin($$$) {
+
+	my $product_lc = shift;
+	my $text_ref = shift;
+	my $matched_ingredient_ref = shift;
+
+	my %origin_of_the_regexp_in_lc = (
+		en => "(?:origin of (?:the )?)",
+		fr => "(?:origine (?:de |du |de la |des |de l'))",
+	);
+
+	my $origin_of_the_regexp = $origin_of_the_regexp_in_lc{$product_lc} || $origin_of_the_regexp_in_lc{en};
+
+	# Origin of the milk: United Kingdom.
+	if ($$text_ref =~ /\s*${origin_of_the_regexp}([^,.;:]+)(?::| )+([^,.;]+?)\s*(?:;|\.| - |$)/i) {
+		# Note: the regexp above does not currently match multiple origins with commas (e.g. "Origins of milk: UK, UE")
+		# in order to not overmatch something like "Origin of milk: UK, some other mention."
+		# In the future, we could try to be smarter and match more if we can recognize the next words exist in the origins taxonomy.
+
+		$matched_ingredient_ref->{ingredient} = $1;
+		$matched_ingredient_ref->{origins} = $2;
+		$matched_ingredient_ref->{matched_text} = $&;
+
+		# Remove the matched text
+		$$text_ref = $` . ' ' . $';
+
+		return 1;
+	}
+	return 0;
+}
+
+
+=head2 parse_origins_from_text ( product_ref, $text)
+
+This function parses the origins of ingredients field to extract the origins of specific ingredients.
+The origins are stored in the specific_ingredients structure of the product.
+
+Note: this function is similar to parse_specific_ingredients_from_text() that operates on ingredients lists.
+The difference is that parse_specific_ingredients_from_text() only extracts and recognizes text that is
+an extra mention at the end of an ingredient list (e.g. "Origin of strawberries: Spain"),
+while parse_origins_from_text() will also recognize text like "Strawberries: Spain".
+
+=head3 Arguments
+
+=head4 product_ref
+
+=head4 text $text
+
+=head3 Return values
+
+=head4 specific_ingredients structure
+
+Array of specific ingredients.
+
+=head4 
+
+=cut
+
+sub parse_origins_from_text($$) {
+
+	my $product_ref = shift;
+	my $text = shift;
+
+	my $product_lc = $product_ref->{lc};
+
+	# Go through the ingredient lists multiple times
+	# as long as we have one match
+	my $matched_ingredient = "start";
+
+	while ($matched_ingredient) {
+
+		# Initialize values
+		$matched_ingredient = undef;
+		my $matched_ingredient_ref = {};
+		my $origins;
+
+		# Call match functions to look for different ways to specify origins etc.
+
+		foreach my $match_function_ref (\&match_origin_of_the_ingredient_origin, \&match_ingredient_origin) {
+			if ($match_function_ref->($product_lc, \$text, $matched_ingredient_ref)) {
+
+				my $matched_text = $matched_ingredient_ref->{matched_text};
+				my $ingredient = $matched_ingredient_ref->{ingredient};
+				my $ingredient_id = canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient);
+
+				# Remove extra spaces
+				$ingredient =~ s/\s+$//;
+				$matched_text =~ s/^\s+//;
+
+				my $specific_ingredients_ref = {
+					id => $ingredient_id,
+					ingredient => $ingredient,
+					text => $matched_text,
+				};
+
+				if (defined $matched_ingredient_ref->{origins}) {
+					$specific_ingredients_ref->{origins} = join(",",
+						map {canonicalize_taxonomy_tag($product_lc, "origins", $_)} split(/,/, $matched_ingredient_ref->{origins}));
+				}
+				
+				push @{$product_ref->{specific_ingredients}}, $specific_ingredients_ref;
+
+				$matched_ingredient = $ingredient;
+				last;
+			}
 		}
 	}
 
@@ -2028,6 +2183,7 @@ sub flatten_sub_ingredients($) {
 		# Delete the sub-ingredients, as they have been pushed at the end of the list
 		delete $product_ref->{ingredients}[$i]{ingredients};
 	}
+	return;
 }
 
 
@@ -2052,19 +2208,9 @@ sub compute_ingredients_tags($) {
 	
 	# Delete ingredients related fields
 	# They will be recreated, unless the ingredients list was deleted
-
-	delete $product_ref->{ingredients_tags};
-	delete $product_ref->{ingredients_original_tags};
-
-	delete $product_ref->{ingredients_n};
-	delete $product_ref->{known_ingredients_n};
-	delete $product_ref->{unknown_ingredients_n};
-	delete $product_ref->{ingredients_n_tags};
-
-	delete $product_ref->{ingredients_with_specified_percent_n};
-	delete $product_ref->{ingredients_with_unspecified_percent_n};
-	delete $product_ref->{ingredients_with_specified_percent_sum};
-	delete $product_ref->{ingredients_with_unspecified_percent_sum};	
+	remove_fields($product_ref, ["ingredients_tags, ingredients_original_tags", "ingredients_n", "known_ingredients_n", "unknown_ingredients_n",
+		"ingredients_n_tags", "ingredients_with_specified_percent_n", "ingredients_with_unspecified_percent_n",
+		"ingredients_with_specified_percent_sum", "ingredients_with_unspecified_percent_sum"]);
 
 	return if not defined $product_ref->{ingredients};
 
@@ -2140,6 +2286,7 @@ sub compute_ingredients_tags($) {
 		# ensure $product_ref->{ingredients_n} is last used as an int so that it is not saved as a strings
 		$product_ref->{ingredients_n} += 0;
 	}
+	return;
 }
 
 
@@ -2165,15 +2312,28 @@ sub extract_ingredients_from_text($) {
 
 	delete $product_ref->{ingredients_percent_analysis};
 
-	# Parse the ingredients list to extract individual ingredients and sub-ingredients
-	# to create the ingredients array with nested sub-ingredients arrays
+	# The specific ingredients array will contain indications regarding the percentage,
+	# origins, labels etc. of specific ingredients. Those information may come from:
+	# - the origin of ingredients field ("origin")
+	# - labels (e.g. "British eggs")
+	# - the end of the list of the ingredients. e.g. "Origin of the rice: Thailand"
 
 	$product_ref->{specific_ingredients} = [];
 
-	parse_ingredients_text($product_ref);
+	# Ingredients origins may be listed in the origin field
+	# e.g. "Origin of the rice: Thailand."
+	my $product_lc = $product_ref->{lc};
+	if (defined $product_ref->{"origin_" . $product_lc}) {
+		parse_origins_from_text($product_ref, $product_ref->{"origin_" . $product_lc});
+	}
 
 	# Add specific ingredients from labels
-	add_specific_ingredients_from_labels($product_ref);	
+	add_specific_ingredients_from_labels($product_ref);		
+
+	# Parse the ingredients list to extract individual ingredients and sub-ingredients
+	# to create the ingredients array with nested sub-ingredients arrays	
+
+	parse_ingredients_text($product_ref);
 
 	if (defined $product_ref->{ingredients}) {
 
@@ -2714,6 +2874,7 @@ sub compute_ingredients_percent_estimates($$) {
 	}
 
 	$log->debug("compute_ingredients_percent_estimates - done", { ingredients_ref => $ingredients_ref }) if $log->is_debug();
+	return;
 }
 
 
@@ -2950,6 +3111,7 @@ sub analyze_ingredients($) {
 
 	# Uncomment the following line to add an extra field with more data for debugging purposes
 	#$product_ref->{ingredients_analysis_debug} = $ingredients_analysis_ref;
+	return;
 }
 
 
@@ -3065,9 +3227,7 @@ sub normalize_vitamin($$) {
 
 	my $lc = shift;
 	my $a = shift;
-
 	$log->debug("normalize vitamin", { vitamin => $a }) if $log->is_debug();
-
 	$a =~ s/\s+$//;
 	$a =~ s/^\s+//;
 
@@ -3086,6 +3246,7 @@ sub normalize_vitamin($$) {
 		return $a;
 	}
 }
+
 
 sub normalize_vitamins_enumeration($$) {
 
@@ -4877,24 +5038,24 @@ sub preparse_ingredients_text($$) {
 	# vitamines (A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E)	
 
 	my @vitaminssuffixes = (
-"a", "rétinol",
-"b", "b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9", "b10", "b11", "b12",
-"thiamine",
-"riboflavine",
-"niacine",
-"pyridoxine",
-"cobalamine",
-"biotine",
-"acide pantothénique",
-"acide folique",
-"c", "acide ascorbique",
-"d", "d2", "d3", "cholécalciférol",
-"e", "tocophérol", "alphatocophérol", "alpha-tocophérol",
-"f",
-"h",
-"k", "k1", "k2", "k3",
-"p", "pp",
-);
+		"a", "rétinol",
+		"b", "b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9", "b10", "b11", "b12",
+		"thiamine",
+		"riboflavine",
+		"niacine",
+		"pyridoxine",
+		"cobalamine",
+		"biotine",
+		"acide pantothénique",
+		"acide folique",
+		"c", "acide ascorbique",
+		"d", "d2", "d3", "cholécalciférol",
+		"e", "tocophérol", "alphatocophérol", "alpha-tocophérol",
+		"f",
+		"h",
+		"k", "k1", "k2", "k3",
+		"p", "pp",
+	);
 	my $vitaminsprefixregexp = "vit|vit\.|vitamine|vitamines";
 
 	# Add synonyms in target language
@@ -5087,7 +5248,6 @@ sub extract_ingredients_classes_from_text($) {
 		}
 	}
 
-	my $with_sweeteners;
 
 	my %all_seen = (); # used to not tag "huile végétale" if we have seen "huile de palme" already
 
@@ -5785,6 +5945,7 @@ sub detect_allergens_from_ingredients($) {
 			$log->debug("detect_allergens_from_ingredients -- found allergen", { allergens => $allergens }) if $log->is_debug();
 		}
 	}	
+	return;
 }
 
 

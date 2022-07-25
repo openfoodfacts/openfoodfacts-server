@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-06-26 19:04\n"
+"PO-Revision-Date: 2022-07-17 19:04\n"
 "Language-Team: Spanish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -2462,7 +2462,7 @@ msgstr "Trazas"
 
 msgctxt "traces_example"
 msgid "Milk, Gluten, Nuts"
-msgstr "Leche, Gluten, Cacahuetes, Nueces"
+msgstr "Leche, gluten, cacahuetes, frutos secos"
 
 msgctxt "traces_note"
 msgid "Indicate ingredients from mentions like \"May contain traces of\", \"Made in a factory that also uses\" etc."
@@ -5481,7 +5481,7 @@ msgstr "Puedes modificar la página del producto para añadir una categoría má
 
 msgctxt "ecoscore_additional_bonuses_and_maluses"
 msgid "Additional bonuses and maluses"
-msgstr "Bonificaciones y maluses adicionales"
+msgstr "Bonificaciones y penalizaciones extra"
 
 msgctxt "ecoscore_production_system"
 msgid "Production mode"
@@ -5517,11 +5517,11 @@ msgstr "Especies amenazadas"
 
 msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
 msgid "Ingredients that threatens species"
-msgstr "Ingredientes cuyo cultivo amenaza a las especies"
+msgstr "Ingredientes cuya plantación perjudica al entorno"
 
 msgctxt "ecoscore_no_species_threatening_ingredients"
 msgid "No ingredients that threaten species"
-msgstr "Ningún ingrediente pueda ser amenaza para las especies"
+msgstr "Sin ingredientes cuya plantación perjudique al entorno"
 
 msgctxt "ecoscore_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
@@ -5760,7 +5760,7 @@ msgstr "Contiene aceite de palma"
 
 msgctxt "contains_palm_oil_subtitle"
 msgid "Drives deforestation and threatens species such as the orangutan"
-msgstr "Genera deforestación y amenaza a especies como el orangután"
+msgstr "Impulsa la deforestación y amenaza a especies como el orangután"
 
 msgctxt "contains_palm_oil_description"
 msgid "Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino."
@@ -5772,7 +5772,7 @@ msgstr "Bonificación"
 
 msgctxt "malus"
 msgid "Malus"
-msgstr "Malus"
+msgstr "Penalización"
 
 msgctxt "life_cycle_analysis"
 msgid "Life cycle analysis"
@@ -5780,7 +5780,7 @@ msgstr "Análisis del ciclo de vida"
 
 msgctxt "ecoscore_bonuses_and_maluses"
 msgid "Bonuses and maluses"
-msgstr "Bonos y malus"
+msgstr "Bonificaciones y penalizaciones"
 
 msgctxt "ecoscore_for_this_product"
 msgid "Eco-Score for this product"
@@ -5792,11 +5792,11 @@ msgstr "Media de impacto de los productos de la misma categoría"
 
 msgctxt "ecoscore_sum_of_bonuses_and_maluses"
 msgid "Sum of bonuses and maluses"
-msgstr "Suma de bonos y malos"
+msgstr "Suma de bonificaciones y penalizaciones"
 
 msgctxt "ecoscore_sum_of_bonuses_and_maluses_is_capped"
 msgid "The sum of bonuses and maluses is capped at +25."
-msgstr "La suma de bonos y malus está limitada a +25."
+msgstr "La suma de bonificaciones y penalizaciones tiene un tope de +25."
 
 msgctxt "ecoscore_lca_score"
 msgid "Life cycle analysis score"
@@ -6044,7 +6044,7 @@ msgid "Could you add the information needed to compute the Nutri-Score?"
 msgstr "¿Puedes añadir la información que falta para poder calcular el Nutri-Score?"
 
 msgctxt "actions_to_compute_ecoscore"
-msgid "Could you categorize the product so that we can compute the Eco-Score?"
+msgid "Could you add a precise product category so that we can compute the Eco-Score?"
 msgstr "¿Puedes proporcionarnos la categoría o clasificar el producto para que podamos mostrar su Eco-Score?"
 
 msgctxt "action_add_ingredients_text"
@@ -6058,4 +6058,65 @@ msgstr "Categorizar el producto"
 msgctxt "action_add_nutrition_facts"
 msgid "Add nutrition facts"
 msgstr "Proporcionar información nutricional"
+
+# Used as a header for key facts
+msgctxt "knowledge_panels_facts"
+msgid "What you need to know"
+msgstr "Qué necesitas saber"
+
+msgctxt "knowledge_panels_recommendation"
+msgid "Recommendation"
+msgstr "Recomendaciones"
+
+msgctxt "nutrient_info_salt_risk"
+msgid "A high consumption of salt (or sodium) can cause raised blood pressure, which can increase the risk of heart disease and stroke."
+msgstr "Un alto consumo de sal (o sodio) puede provocar un aumento de la presión arterial, lo que puede aumentar el riesgo de enfermedades cardíacas y accidentes cerebrovasculares."
+
+msgctxt "nutrient_info_salt_high_blood_pressure"
+msgid "Many people who have high blood pressure do not know it, as there are often no symptoms."
+msgstr "Muchas personas que tienen presión arterial alta no lo saben, ya que a menudo no presentan síntomas."
+
+msgctxt "nutrient_info_salt_high_consumption"
+msgid "Most people consume too much salt (on average 9 to 12 grams per day), around twice the recommended maximum level of intake."
+msgstr "La mayoría de las personas consumen demasiada sal (9-12 gramos diarios de media), el doble del nivel máximo recomendado."
+
+msgctxt "nutrient_recommendation_salt_title"
+msgid "Limit the consumption of salt and salted food"
+msgstr "Limita el consumo de sal y alimentos salados"
+
+msgctxt "nutrient_recommendation_salt_cooking_and_table"
+msgid "Reduce the quantity of salt used when cooking, and don't salt again at the table."
+msgstr "Reduce la cantidad de sal utilizada al cocinar y no dejes que los comensales le añadan más a posteriori."
+
+msgctxt "nutrient_recommendation_salt_limit_salty_snacks"
+msgid "Limit the consumption of salty snacks and choose products with lower salt content."
+msgstr "Limita el consumo de snacks salados y elige alimentos más sanos."
+
+msgctxt "nutrient_info_sugars_risk"
+msgid "A high consumption of sugar can cause weight gain and tooth decay. It also augments the risk of type 2 diabetes and cardio-vascular diseases."
+msgstr "Un alto consumo de azúcar puede causar aumento de peso y caries. También aumenta el riesgo de diabetes tipo 2 y enfermedades cardiovasculares."
+
+msgctxt "nutrient_recommendation_sugars_title"
+msgid "Limit the consumption of sugar and sugary drinks"
+msgstr "Limita el consumo de azúcar y bebidas azucaradas"
+
+msgctxt "nutrient_recommendation_sugars_drinks"
+msgid "Sugary drinks (such as sodas, fruit beverages, and fruit juices and nectars) should be limited as much as possible (no more than 1 glass a day)."
+msgstr "Las bebidas azucaradas (como refrescos, bebidas de frutas y jugos y néctares de frutas) deben limitarse tanto como sea posible (no más de 1 vaso al día)."
+
+msgctxt "nutrient_recommendation_sugars_food"
+msgid "Choose products with lower sugar content and reduce the consumption of products with added sugars."
+msgstr "Elige productos con menor contenido de azúcar y reduce el consumo de productos con azúcares añadidos."
+
+msgctxt "nutrient_info_fat_and_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "Un alto consumo de grasas, especialmente grasas saturadas, puede elevar el colesterol, lo que aumenta el riesgo de enfermedades del corazón."
+
+msgctxt "nutrient_recommendation_fat_and_saturated_fat_title"
+msgid "Reduce the consumption of fat and saturated fat"
+msgstr "Reduce el consumo de grasa y grasas saturada"
+
+msgctxt "nutrient_recommendation_fat_and_saturated_fat"
+msgid "Choose products with lower fat and saturated fat content."
+msgstr "Busca alimentos con menos grasas, sobre todo saturadas."
 

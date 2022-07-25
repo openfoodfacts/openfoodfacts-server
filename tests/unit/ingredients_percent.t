@@ -668,7 +668,7 @@ my @tests = (
 				'text' => 'water'
 			},
 			{
-				'id' => 'en:fruit-concentrates',
+				'id' => 'en:fruit-concentrate',
 				'ingredients' => [
 				{
 					'id' => 'en:apple',
@@ -715,7 +715,7 @@ my @tests = (
 				'text' => 'water'
 			},
 			{
-				'id' => 'en:fruit-concentrates',
+				'id' => 'en:fruit-concentrate',
 				'ingredients' => [
 				{
 					'id' => 'en:apple',

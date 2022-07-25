@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-06-26 22:01\n"
+"PO-Revision-Date: 2022-07-17 19:05\n"
 "Language-Team: German\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4285,7 +4285,7 @@ msgstr "CIQUAL Lebensmittelnamen"
 
 msgctxt "we_need_your_help"
 msgid "We need your help!"
-msgstr "### Wir benötigen Ihre Hilfe!"
+msgstr "Wir benötigen Ihre Hilfe!"
 
 msgctxt "you_can_help_improve_ingredients_analysis"
 msgid "You can help us recognize more ingredients and better analyze the list of ingredients for this product and others by:"
@@ -6045,8 +6045,8 @@ msgid "Could you add the information needed to compute the Nutri-Score?"
 msgstr "Könnten Sie bitte die für die Berechnung des Nutri-Score erforderlichen Informationen hinzufügen?"
 
 msgctxt "actions_to_compute_ecoscore"
-msgid "Could you categorize the product so that we can compute the Eco-Score?"
-msgstr "Könnten Sie bitte das Produkt so kategorisieren, dass wir den Eco-Score berechnen können?"
+msgid "Could you add a precise product category so that we can compute the Eco-Score?"
+msgstr "Könnten Sie bitte eine genaue Produktkategorie angeben, damit wir den Eco-Score berechnen können?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -6059,4 +6059,65 @@ msgstr "Eine Kategorie hinzufügen"
 msgctxt "action_add_nutrition_facts"
 msgid "Add nutrition facts"
 msgstr "Nährwertangaben hinzufügen"
+
+# Used as a header for key facts
+msgctxt "knowledge_panels_facts"
+msgid "What you need to know"
+msgstr "Was Sie wissen sollten"
+
+msgctxt "knowledge_panels_recommendation"
+msgid "Recommendation"
+msgstr "Empfehlung"
+
+msgctxt "nutrient_info_salt_risk"
+msgid "A high consumption of salt (or sodium) can cause raised blood pressure, which can increase the risk of heart disease and stroke."
+msgstr "Ein hoher Salz- (oder Natrium-) Konsum kann zu einem erhöhten Blutdruck führen, was das Risiko von Herzkrankheiten und Schlaganfällen erhöhen kann."
+
+msgctxt "nutrient_info_salt_high_blood_pressure"
+msgid "Many people who have high blood pressure do not know it, as there are often no symptoms."
+msgstr "Viele Menschen, die unter Bluthochdruck leiden, wissen es nicht, da sie oft keine Symptome haben."
+
+msgctxt "nutrient_info_salt_high_consumption"
+msgid "Most people consume too much salt (on average 9 to 12 grams per day), around twice the recommended maximum level of intake."
+msgstr "Die meisten Menschen nehmen zu viel Salz zu sich (im Durchschnitt 9 bis 12 Gramm pro Tag), etwa das Doppelte der empfohlenen Höchstmenge."
+
+msgctxt "nutrient_recommendation_salt_title"
+msgid "Limit the consumption of salt and salted food"
+msgstr "Begrenzen Sie den Konsum von Salz und gesalzenen Lebensmitteln"
+
+msgctxt "nutrient_recommendation_salt_cooking_and_table"
+msgid "Reduce the quantity of salt used when cooking, and don't salt again at the table."
+msgstr "Reduzieren Sie die Salzmenge beim Kochen und salzen Sie bei Tisch nicht nach."
+
+msgctxt "nutrient_recommendation_salt_limit_salty_snacks"
+msgid "Limit the consumption of salty snacks and choose products with lower salt content."
+msgstr "Schränken Sie den Konsum von salzigen Snacks ein und wählen Sie Produkte mit geringerem Salzgehalt."
+
+msgctxt "nutrient_info_sugars_risk"
+msgid "A high consumption of sugar can cause weight gain and tooth decay. It also augments the risk of type 2 diabetes and cardio-vascular diseases."
+msgstr "Ein hoher Zuckerkonsum kann zu Gewichtszunahme und Zahnverfall führen. Außerdem erhöht er das Risiko für Typ-2-Diabetes und Herz-Kreislauf-Erkrankungen."
+
+msgctxt "nutrient_recommendation_sugars_title"
+msgid "Limit the consumption of sugar and sugary drinks"
+msgstr "Begrenzen Sie den Konsum von Zucker und zuckerhaltigen Getränken"
+
+msgctxt "nutrient_recommendation_sugars_drinks"
+msgid "Sugary drinks (such as sodas, fruit beverages, and fruit juices and nectars) should be limited as much as possible (no more than 1 glass a day)."
+msgstr "Zuckerhaltige Getränke (wie Limonaden, Fruchtgetränke, Fruchtsäfte und -nektare) sollten so weit wie möglich eingeschränkt werden (nicht mehr als 1 Glas pro Tag)."
+
+msgctxt "nutrient_recommendation_sugars_food"
+msgid "Choose products with lower sugar content and reduce the consumption of products with added sugars."
+msgstr "Wählen Sie Produkte mit geringerem Zuckergehalt und reduzieren Sie den Konsum von Produkten mit Zuckerzusatz."
+
+msgctxt "nutrient_info_fat_and_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "Ein hoher Konsum von Fett, insbesondere von gesättigten Fettsäuren, kann den Cholesterinspiegel erhöhen, was das Risiko von Herzkrankheiten steigert."
+
+msgctxt "nutrient_recommendation_fat_and_saturated_fat_title"
+msgid "Reduce the consumption of fat and saturated fat"
+msgstr "Reduzieren Sie den Konsum von Fett und gesättigten Fettsäuren"
+
+msgctxt "nutrient_recommendation_fat_and_saturated_fat"
+msgid "Choose products with lower fat and saturated fat content."
+msgstr "Wählen Sie Produkte mit einem geringeren Gehalt an Fett und gesättigten Fettsäuren."
 

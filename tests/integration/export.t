@@ -26,7 +26,6 @@ use File::Basename "dirname";
 use Getopt::Long;
 use JSON;
 
-
 my $test_id = "export";
 my $test_dir = dirname(__FILE__);
 
@@ -40,13 +39,13 @@ actual test results can be saved by passing --update-expected-results
 The directory will be created if it does not already exist.
 
 TXT
-;
+  ;
 
 my $update_expected_results;
 
-GetOptions ("update-expected-results"   => \$update_expected_results)
+GetOptions("update-expected-results" => \$update_expected_results)
   or die("Error in command line arguments.\n\n" . $usage);
-  
+
 # Remove all products
 
 ProductOpener::Test::remove_all_products();
@@ -70,7 +69,7 @@ my $import_args_ref = {
 	no_source => 1,
 };
 
-my $stats_ref = import_csv_file( $import_args_ref );
+my $stats_ref = import_csv_file($import_args_ref);
 
 # Export products
 
@@ -80,20 +79,22 @@ my $separator = "\t";
 # CSV export
 
 my $exported_csv_file = "/tmp/export.csv";
-open (my $exported_csv, ">:encoding(UTF-8)", $exported_csv_file) or die("Could not create $exported_csv_file: $!\n");
+open(my $exported_csv, ">:encoding(UTF-8)", $exported_csv_file) or die("Could not create $exported_csv_file: $!\n");
 
-my $export_args_ref = {filehandle=>$exported_csv, separator=>$separator, query=>$query_ref, cc => "fr" };
+my $export_args_ref = {filehandle => $exported_csv, separator => $separator, query => $query_ref, cc => "fr"};
 
 export_csv($export_args_ref);
 
 close($exported_csv);
 
-ProductOpener::Test::compare_csv_file_to_expected_results($exported_csv_file, $test_dir . "/expected_test_results/export", $update_expected_results);
+ProductOpener::Test::compare_csv_file_to_expected_results($exported_csv_file,
+	$test_dir . "/expected_test_results/export",
+	$update_expected_results);
 
 # Export more fields
 
 $exported_csv_file = "/tmp/export_more_fields.csv";
-open ($exported_csv, ">:encoding(UTF-8)", $exported_csv_file) or die("Could not create $exported_csv_file: $!\n");
+open($exported_csv, ">:encoding(UTF-8)", $exported_csv_file) or die("Could not create $exported_csv_file: $!\n");
 
 $export_args_ref->{filehandle} = $exported_csv;
 $export_args_ref->{export_computed_fields} = 1;
@@ -103,7 +104,8 @@ export_csv($export_args_ref);
 
 close($exported_csv);
 
-ProductOpener::Test::compare_csv_file_to_expected_results($exported_csv_file, $test_dir . "/expected_test_results/export_more_fields", $update_expected_results);
-
+ProductOpener::Test::compare_csv_file_to_expected_results($exported_csv_file,
+	$test_dir . "/expected_test_results/export_more_fields",
+	$update_expected_results);
 
 done_testing();

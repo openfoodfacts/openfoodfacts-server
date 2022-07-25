@@ -1,4 +1,4 @@
-<img height='175' src="https://static.openfoodfacts.org/images/svg/openfoodfacts-logo-en.svg" align="left" hspace="1" vspace="1">
+<img alt="openfoodfacts-logo" height='175' src="https://static.openfoodfacts.org/images/svg/openfoodfacts-logo-en.svg" align="left" hspace="1" vspace="1">
 
 # Open Food Facts - Product Opener (Web Server)
 
@@ -14,15 +14,15 @@
 
 ## What is Product Opener?
 
-**Product Opener** is the server software for **Open Food Facts** and **Open Beauty Facts**. It is released under the AGPL license and is being developed in Perl, HTML and JavaScript as [Free and Open-Source Software](https://en.wikipedia.org/wiki/Free_and_open-source_software). 
+**Product Opener** is the server software for **Open Food Facts** and **Open Beauty Facts**. It is released under the AGPL license and is being developed in Perl, HTML and JavaScript as [Free and Open-Source Software](https://en.wikipedia.org/wiki/Free_and_open-source_software).
 
 It works together with [Robotoff](https://github.com/openfoodfacts/robotoff), Open Food Facts' AI system (in Python, which can also be installed locally) and the [Open Food Facts apps](https://github.com/openfoodfacts/smooth-app) (which can work with your local instance after enabling dev mode)
 
 ## What is Open Food Facts?
 
-### A food products database
+### A food product database
 
-Open Food Facts is a database of food products with ingredients, allergens, nutrition facts and all the tidbits of information we can find on product labels.
+Open Food Facts is a database of food products with ingredients, allergens, nutritional facts and all the tidbits of information that is available on various product labels.
 
 ### Made by everyone
 
@@ -31,12 +31,12 @@ Open Food Facts is a non-profit association of volunteers.
 
 ### For everyone
 
-Data about food is of public interest and has to be open. The complete database is published as open data and can be reused by anyone and for any use. Check-out the cool reuses or make your own!
+Data about food is of public interest and has to be open (i.e available to everyone). The complete database is published as open data and can be reused by anyone and for any use. Check-out the cool reuses or make your own!
 
 * <https://world.openfoodfacts.org>
 
 ## Priorities
-* Please list priority issues here 
+* Please list priority issues here
 * Please add roadmaps here
 * [P1 problems](https://github.com/openfoodfacts/openfoodfacts-server/labels/P1)
 * [P1 candidates](https://github.com/openfoodfacts/openfoodfacts-server/labels/P1%20candidate)
@@ -49,6 +49,7 @@ Data about food is of public interest and has to be open. The complete database 
 * Developer documentation:
    * [Quick start guide (Docker)](./docs/introduction/dev-environment-quick-start-guide.md)
    * [Developer guide (Docker)](./docs/how-to-guides/docker-developer-guide.md)
+   * [Developer guide (Gitpod)](./docs/how-to-guides/use-gitpod.md)
    * [Manual installation](https://wiki.openfoodfacts.org/Product_Opener/Installation)
    * Configuration [TBA]
    * Dependencies [TBA]
@@ -60,7 +61,7 @@ Note: documentation follows the [Diátaxis Framework](https://diataxis.fr/)
 
 ## Contribution guidelines
 
-If you're new to Open-Source, we recommend you to Checkout our [_Contributing Guidelines_](https://github.com/openfoodfacts/openfoodfacts-server/blob/master/CONTRIBUTING.md). Feel free to fork the project and send us a pull request.
+If you're new to Open-Source, we recommend you to check out our [_Contributing Guidelines_](https://github.com/openfoodfacts/openfoodfacts-server/blob/master/CONTRIBUTING.md). Feel free to fork the project and send us a pull request.
 
 * Writing tests
 * Code review

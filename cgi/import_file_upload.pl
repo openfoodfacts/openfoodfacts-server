@@ -46,7 +46,7 @@ use Encode;
 use JSON::PP;
 use Log::Any qw($log);
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 my $type = param('type') || 'upload';
 my $action = param('action') || 'display';
@@ -146,10 +146,9 @@ else {
 HTML
 ;
 
-	display_page( {
-		title=>$title,
-		content_ref=>\$html,
-	});
+	$request_ref->{title} = $title;
+	$request_ref->{content_ref} = \$html;
+	display_page($request_ref);
 }
 
 exit(0);

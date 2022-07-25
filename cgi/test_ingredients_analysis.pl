@@ -43,7 +43,7 @@ use JSON::PP;
 
 use Log::Any qw($log);
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 my $template_data_ref = {};
 
@@ -97,9 +97,7 @@ if ($action ne 'display') {
 
 process_template('web/pages/test_ingredients/test_ingredients_analysis.tt.html', $template_data_ref, \$html) or $html = '';
 
-display_page( {
-	title=>"Ingredient Analysis Test",
-	content_ref=>\$html,
-	full_width=>$full_width,
-});
-
+$request_ref->{title} = "Ingredients analysis test";
+$request_ref->{content_ref} = \$html;
+$request_ref->{full_width} = $full_width;
+display_page($request_ref);

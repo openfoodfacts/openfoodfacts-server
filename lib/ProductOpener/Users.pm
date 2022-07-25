@@ -31,7 +31,7 @@ and to manage user sessions.
 
 	[..]
 
-	init_user();
+	init_user($request_ref);
 
 
 =head1 DESCRIPTION
@@ -42,8 +42,7 @@ and to manage user sessions.
 
 package ProductOpener::Users;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 BEGIN
@@ -55,8 +54,6 @@ BEGIN
 		%Org
 		$Org_id
 		$Owner_id
-
-		$cookie
 
 		&check_user_form
 		&process_user_form
@@ -100,6 +97,14 @@ use Log::Any qw($log);
 
 my @user_groups = qw(producer database app bot moderator pro_moderator);
 
+# Initialize some constants
+
+my $cookie_name   = 'session';
+my $cookie_domain = "." . $server_domain;    # e.g. fr.openfoodfacts.org sets the domain to .openfoodfacts.org
+if (defined $server_options{cookie_domain}) {
+	$cookie_domain = "." . $server_options{cookie_domain};    # e.g. fr.import.openfoodfacts.org sets domain to .openfoodfacts.org
+}
+
 =head1 FUNCTIONS
 
 =head2 generate_token()
@@ -112,8 +117,8 @@ Creates a new session ID
 
 =cut
 
-sub generate_token {
-	my $name_length = shift;
+sub generate_token($name_length) {
+
 	my @chars=('a'..'z', 'A'..'Z', 0..9);
 	return join '',map {$chars[irand @chars]} 1..$name_length;
 }
@@ -135,9 +140,8 @@ Returns the salted hashed sequence.
 
 =cut
 
-sub create_password_hash($) {
+sub create_password_hash($password) {
 
-	my $password = shift;
 	return scrypt_hash($password);
 }
 
@@ -159,10 +163,7 @@ Boolean: This function returns a 1/0 (True or False)
 
 =cut
 
-sub check_password_hash($$) {
-
-	my $password = shift;
-	my $hash = shift;
+sub check_password_hash($password, $hash) {
 
 	if ($hash =~ /^\$1\$(?:.*)/) {
 		if ($hash eq unix_md5_crypt($password, $hash)) {
@@ -190,9 +191,8 @@ Takes in the $user_ref of the user to be deleted
 
 =cut
 
-sub delete_user($) {
+sub delete_user($user_ref) {
 	
-	my $user_ref = shift;
 	my $userid = get_string_id_for_lang("no_language", $user_ref->{userid});
 	my $new_userid = "openfoodfacts-contributors";
 	
@@ -202,7 +202,6 @@ sub delete_user($) {
 	unlink("$data_root/users/$userid.sto");
 	
 	# Remove the e-mail
-
 	my $emails_ref = retrieve("$data_root/users/users_emails.sto");
 	my $email = $user_ref->{email};
 
@@ -216,6 +215,7 @@ sub delete_user($) {
 	
 	#  re-assign product edits to openfoodfacts-contributors-[random number]
 	find_and_replace_user_id_in_products($userid, $new_userid);
+	return;
 }
 
 =head2 is_admin_user()
@@ -232,24 +232,28 @@ Boolean: This function returns a 1/0 (True or False)
 
 =cut
 
-sub is_admin_user($) {
-	my $user_id = shift;
+sub is_admin_user($user_id) {
 
 	# %admin is defined in Config.pm
 	# admins can change permissions for all users
 	return ((%admins) and (defined $user_id) and (exists $admins{$user_id}));
 }
 
+=head2 check_user_form()
 
-sub check_user_form($$$) {
+C<check_user_form()> This method checks and validates the different entries in the user form. 
+It also handles Spam-usernames, feilds for the organisation accounts. 
 
-	my $type = shift;
-	my $user_ref = shift;
-	my $errors_ref = shift;
+=cut
 
+sub check_user_form($type, $user_ref, $errors_ref) {
+
+	# Removing the tabs, spaces and white space characters
+	# Assigning 'userid' to 0 -- if userid is not defined
 	$user_ref->{userid} = remove_tags_and_quote(param('userid'));
-	$user_ref->{name} = remove_tags_and_quote(decode utf8=>param('name'));
 
+	# Allow for sending the 'name' & 'email' as a form parameter instead of a HTTP header, as web based apps may not be able to change the header sent by the browser
+	$user_ref->{name} = remove_tags_and_quote(decode utf8=>param('name'));
 	my $email = remove_tags_and_quote(decode utf8=>param('email'));
 
 	$log->debug("check_user_form", { type => $type, user_ref => $user_ref, email => $email }) if $log->is_debug();
@@ -433,10 +437,8 @@ sub check_user_form($$$) {
 }
 
 
-sub process_user_form($$) {
+sub process_user_form($type, $user_ref, $request_ref) {
 
-	my $type = shift;
-	my $user_ref = shift;
 	my $userid = $user_ref->{userid};
     my $error = 0;
 
@@ -450,7 +452,6 @@ sub process_user_form($$) {
 
 	
     # Professional account with a requested org (existing or new)
-
     if (defined $user_ref->{requested_org_id}) {
 
 		my $requested_org_ref = retrieve_org($user_ref->{requested_org_id});
@@ -471,8 +472,8 @@ sub process_user_form($$) {
 		}
 
 		if (defined $requested_org_ref) {
-			# The requested org already exists
 			
+			# The requested org already exists
 			$mail = '';
 			process_template("emails/user_new_pro_account_org_request_validated.tt.txt", $template_data_ref, \$mail);
 			if ($mail =~ /^\s*Subject:\s*(.*)\n/im) {
@@ -487,8 +488,8 @@ sub process_user_form($$) {
 			}
 		}
 		else {
+			
 			# The requested org does not exist, create it
-
 			my $org_ref = create_org($userid, $user_ref->{requested_org});
 			add_user_to_org($org_ref, $userid, ["admins", "members"]);
 
@@ -500,7 +501,6 @@ sub process_user_form($$) {
 		}
 		
 		# Send an e-mail notification to admins, with links to the organization
-		
 		$mail = '';
 		process_template("emails/user_new_pro_account_admin_notification.tt.html", $template_data_ref, \$mail);
 		if ($mail =~ /^\s*Subject:\s*(.*)\n/im) {
@@ -537,7 +537,7 @@ sub process_user_form($$) {
 		# so that newly created users do not have to login right after
 
 		param("user_id", $userid);
-		init_user();
+		init_user($request_ref);
 
 
 		my $email = lang("add_user_email_body");
@@ -567,10 +567,7 @@ EMAIL
 }
 
 
-sub check_edit_owner($$) {
-
-	my $user_ref = shift;
-	my $errors_ref = shift;
+sub check_edit_owner($user_ref, $errors_ref) {
 
 	$user_ref->{pro_moderator_owner} = get_string_id_for_lang("no_language", remove_tags_and_quote(param('pro_moderator_owner')));
 	
@@ -625,19 +622,163 @@ sub check_edit_owner($$) {
 }
 
 
-sub init_user()
-{
+=head2 migrate_password_hash($user_ref)
+
+We used to use crypt instead of scrypt to store hashed passwords.
+If the user is logging in with a correct password, we can update the password hash.
+
+=head3 Arguments
+
+=head4 User object $user_ref
+
+=cut
+
+sub migrate_password_hash($user_ref) {
+
+	# Migration: take the occasion of having password to upgrade to scrypt, if it is still in crypt format
+	if ($user_ref->{'encrypted_password'} =~ /^\$1\$(?:.*)/) {
+		$user_ref->{'encrypted_password'} = create_password_hash(encode_utf8(decode utf8=>param('password')) );
+		$log->info("crypt password upgraded to scrypt_hash") if $log->is_info();
+	}
+}
+
+
+=head2 remove_old_sessions($user_ref)
+
+Remove the oldest session if we have too many sessions opened for an user.
+
+=head3 Arguments
+
+=head4 User object $user_ref
+
+=cut
+
+sub remove_old_sessions($user_ref) {
+
+	# Maximum number sessions to store for a given user in sto file
+	my $max_session = 10 ;
+
+	# Check if we need to delete the oldest session
+	# delete $user_ref->{'user_session'};
+	if ((scalar keys %{$user_ref->{'user_sessions'}}) >= $max_session) {
+		my %user_session_stored = %{$user_ref->{'user_sessions'}} ;
+
+		# Find the older session and remove it
+		my @session_by_time = sort { $user_session_stored{$a}{'time'} <=>
+						$user_session_stored{$b}{'time'} } (keys %user_session_stored);
+
+		while (($#session_by_time + 1)> $max_session)
+		{
+			my $oldest_session = shift @session_by_time;
+			delete $user_ref->{'user_sessions'}{$oldest_session};
+		}
+	}
+}
+
+
+=head2 generate_session_cookie($user_id, $user_session)
+
+Generate a session cookie.
+
+=head3 Arguments
+
+=head4 User id $user_id
+
+=head4 Session token $user_session
+
+=head3 Return values
+
+Session cookie.
+
+=cut
+
+sub generate_session_cookie($user_id, $user_session) {
+
+	my $length = 0;
+
+	if ((defined param('length')) and (param('length') > 0)) {
+		$length = param('length');
+	}
+	elsif ((defined param('remember_me')) and (param('remember_me') eq 'on')) {
+		$length = 31536000 * 10;
+	}
+
+	my $session_ref = { 'user_id'=>$user_id, 'user_session'=>$user_session };
+
+	# generate session cookie
+	my $cookie_ref = {
+		'-name'=>$cookie_name,
+		'-value'=>$session_ref,
+		'-path'=>'/',
+		'-domain'=>$cookie_domain,
+		'-samesite'=>'Lax',
+	};
+
+	if ($length > 0) {
+		# Set a persistent cookie
+		$log->debug("setting persistent cookie") if $log->is_debug();
+		$cookie_ref->{'-expires'} = '+' . $length . 's';
+	}
+	else {
+		# Set a session cookie
+		$log->debug("setting session cookie") if $log->is_debug();
+	}
+
+	return cookie(%$cookie_ref);
+}
+
+
+=head2 open_user_session($user_ref, $request_ref)
+
+Open a session, store it in the user object, and return a cookie with the session id in the request object.
+
+=head3 Arguments
+
+=head4 User object $user_ref
+
+=head4 Request object $request_ref
+
+=head3 Return values
+
+The cookie is returned in $request_ref
+
+=cut
+
+sub open_user_session($user_ref, $request_ref) {
+
+	my $user_id = $user_ref->{'userid'};
+
+	# Generate a secure session key, store the cookie
+	my $user_session = generate_token(64);
+	$log->context->{user_session} = $user_session;
+
+	defined $user_ref->{'user_sessions'} or $user_ref->{'user_sessions'} = {};
+
+	remove_old_sessions($user_ref);
+
+	# Store the ip and time corresponding to the given session
+	$user_ref->{'user_sessions'}{$user_session} = {
+	    ip => remote_addr(),
+	    time => time()
+	};
+
+    # Store user data
+	my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
+	store($user_file, $user_ref);
+
+	$log->debug("session initialized and user info stored") if $log->is_debug();
+
+	$request_ref->{cookie} = generate_session_cookie($user_id, $user_session);
+
+	return;
+}
+
+
+sub init_user($request_ref) {
+
 	my $user_id = undef ;
 	my $user_ref = undef;
 	my $org_ref = undef;
-
-	my $cookie_name   = 'session';
-	my $cookie_domain = "." . $server_domain;    # e.g. fr.openfoodfacts.org sets the domain to .openfoodfacts.org
-	if ( defined $server_options{cookie_domain} ) {
-		$cookie_domain = "." . $server_options{cookie_domain};    # e.g. fr.import.openfoodfacts.org sets domain to .openfoodfacts.org
-	}
-
-	$cookie = undef;
 
 	$User_id = undef;
 	$Org_id = undef;
@@ -648,7 +789,7 @@ sub init_user()
 	if ((defined param('length')) and (param('length') eq 'logout')) {
 		$log->debug("user logout") if $log->is_debug();
 		my $session = {} ;
-		$cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>"$cookie_domain") ;
+		$request_ref->{cookie} = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>"$cookie_domain") ;
 	}
 
 	# Retrieve user_id and password from form parameters
@@ -690,7 +831,7 @@ sub init_user()
 		# If the user exists
 		if (defined $user_id) {
 
-           my  $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
+           my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
 
 			if (-e $user_file) {
 				$user_ref = retrieve($user_file) ;
@@ -709,76 +850,10 @@ sub init_user()
 				elsif (not defined param('no_log'))    # no need to store sessions for internal requests
 				{
 					$log->info("correct password for user provided") if $log->is_info();
+					
+					migrate_password_hash($user_ref);
 
-					# Maximum of sessions for a given user
-					my $max_session = 10 ;
-
-					# Generate a secure session key, store the cookie
-					my $user_session = generate_token(64);
-					$log->context->{user_session} = $user_session;
-
-					# Check if we need to delete the oldest session
-					# delete $user_ref->{'user_session'};
-					if ((defined ($user_ref->{'user_sessions'})) and
-					((scalar keys %{$user_ref->{'user_sessions'}}) >= $max_session)) {
-						my %user_session_stored = %{$user_ref->{'user_sessions'}} ;
-
-						# Find the older session and remove it
-						my @session_by_time = sort { $user_session_stored{$a}{'time'} <=>
-									 $user_session_stored{$b}{'time'} } (keys %user_session_stored);
-
-						while (($#session_by_time + 1)> $max_session)
-						{
-							my $oldest_session = shift @session_by_time;
-							delete $user_ref->{'user_sessions'}{$oldest_session};
-						}
-					}
-
-					if (not defined $user_ref->{'user_sessions'}) {
-						$user_ref->{'user_sessions'} = {};
-					}
-					$user_ref->{'user_sessions'}{$user_session} = {};
-
-					# Store the ip and time corresponding to the given session
-					$user_ref->{'user_sessions'}{$user_session}{'ip'} = remote_addr();
-					$user_ref->{'user_sessions'}{$user_session}{'time'} = time();
-					$session = { 'user_id'=>$user_id, 'user_session'=>$user_session };
-
-					# Upgrade hashed password to scrypt, if it is still in crypt format
-					if ($user_ref->{'encrypted_password'} =~ /^\$1\$(?:.*)/) {
-						$user_ref->{'encrypted_password'} = create_password_hash(encode_utf8(decode utf8=>param('password')) );
-						$log->info("crypt password upgraded to scrypt_hash") if $log->is_info();
-					}
-
-					store("$user_file", $user_ref);
-
-					$log->debug("session initialized and user info stored") if $log->is_debug();
-					# Check if the user is logging in
-
-					my $length = 0;
-
-					if ((defined param('length')) and (param('length') > 0))
-					{
-						$length = param('length');
-					}
-					elsif ((defined param('remember_me')) and (param('remember_me') eq 'on'))
-					{
-						$length = 31536000 * 10;
-					}
-
-					if ($length > 0)
-					{
-						# Set a persistent cookie
-						$log->debug("setting persistent cookie") if $log->is_debug();
-						$cookie = cookie (-name=>$cookie_name, -value=>$session, -path=>'/', -domain=>"$cookie_domain", -samesite=>'Lax',
-								-expires=>'+' . $length . 's');
-					}
-					else
-					{
-					# Set a session cookie
-						$log->debug("setting session cookie") if $log->is_debug();
-						$cookie = cookie (-name=>$cookie_name, -value=>$session, -path=>'/', -domain=>"$cookie_domain", -samesite=>'Lax');
-					}
+					open_user_session($user_ref, $request_ref);
 				}
 		    }
 		    else
@@ -844,7 +919,7 @@ sub init_user()
 				$user_ref = undef;
 				# Remove the cookie
 				my $session = {} ;
-				$cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>"$cookie_domain") ;
+				$request_ref->{cookie} = cookie(-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>"$cookie_domain") ;
 		    }
 		    else
 		    {
@@ -856,7 +931,7 @@ sub init_user()
 		{
 		    # Remove the cookie
 		    my $session = {} ;
-		    $cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>"$cookie_domain") ;
+		    $request_ref->{cookie} = cookie(-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>"$cookie_domain") ;
 
 		    $user_id = undef ;
 		}
@@ -865,7 +940,7 @@ sub init_user()
 	    {
 			# Remove the cookie
 			my $session = {} ;
-			$cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>"$cookie_domain") ;
+			$request_ref->{cookie} = cookie(-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>"$cookie_domain") ;
 
 			$user_id = undef ;
 	    }
@@ -875,7 +950,7 @@ sub init_user()
 		$log->info("no user found") if $log->is_info();
 	}
 
-	$log->debug("cookie", { user_id => $user_id, cookie => $cookie }) if $log->is_debug();
+	$log->debug("cookie", { user_id => $user_id, cookie => $request_ref->{cookie} }) if $log->is_debug();
 
 	$User_id = $user_id;
 	if (defined $user_ref) {
@@ -939,8 +1014,13 @@ sub init_user()
 	return 0;
 }
 
-sub is_ip_known_or_whitelisted {
-	my ($user_ref, $user_session, $ip, $shorten_ip) = @_;
+=head2 is_ip_known_or_whitelisted ()
+
+This sub introduces a server option to whitelist IPs for all cookies.
+
+=cut
+
+sub is_ip_known_or_whitelisted($user_ref, $user_session, $ip, $shorten_ip) {
 
 	my $short_ip = $shorten_ip->($ip);
 
@@ -960,10 +1040,7 @@ sub is_ip_known_or_whitelisted {
 	return 0;
 }
 
-sub check_session($$) {
-
-	my $user_id = shift;
-	my $user_session = shift;
+sub check_session($user_id, $user_session) {
 
 	$log->debug("checking session", { user_id => $user_id, users_session => $user_session }) if $log->is_debug();
 

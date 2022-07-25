@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nl_BE\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-06-26 22:07\n"
+"PO-Revision-Date: 2022-07-17 19:13\n"
 "Language-Team: Dutch, Belgium\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -602,11 +602,11 @@ msgstr "Traceerbaarheidscodes"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr ""
+msgstr "Traceerbaarheidscode"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
-msgstr ""
+msgstr "Traceerbaarheidscode"
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
@@ -5517,11 +5517,11 @@ msgstr "Bedreigde soorten"
 
 msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
 msgid "Ingredients that threatens species"
-msgstr ""
+msgstr "Ingrediënten die soorten bedreigen"
 
 msgctxt "ecoscore_no_species_threatening_ingredients"
 msgid "No ingredients that threaten species"
-msgstr ""
+msgstr "Geen ingrediënten die soorten bedreigen"
 
 msgctxt "ecoscore_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
@@ -6044,8 +6044,8 @@ msgid "Could you add the information needed to compute the Nutri-Score?"
 msgstr "Kunt u de informatie toevoegen die nodig is om de Nutri-Score te berekenen?"
 
 msgctxt "actions_to_compute_ecoscore"
-msgid "Could you categorize the product so that we can compute the Eco-Score?"
-msgstr "Kunt u het product categoriseren zodat we de Eco-Score kunnen berekenen?"
+msgid "Could you add a precise product category so that we can compute the Eco-Score?"
+msgstr "Kunt u een precieze productcategorie toevoegen zodat we de Eco-Score kunnen berekenen?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -6058,4 +6058,65 @@ msgstr "Voeg een categorie toe"
 msgctxt "action_add_nutrition_facts"
 msgid "Add nutrition facts"
 msgstr "Voer voedingswaarden in"
+
+# Used as a header for key facts
+msgctxt "knowledge_panels_facts"
+msgid "What you need to know"
+msgstr "Wat je moet weten"
+
+msgctxt "knowledge_panels_recommendation"
+msgid "Recommendation"
+msgstr "Aanbeveling"
+
+msgctxt "nutrient_info_salt_risk"
+msgid "A high consumption of salt (or sodium) can cause raised blood pressure, which can increase the risk of heart disease and stroke."
+msgstr "Een hoge consumptie van zout (of natrium) kan een verhoogde bloeddruk veroorzaken, wat het risico op hartaandoeningen en beroertes kan vergroten."
+
+msgctxt "nutrient_info_salt_high_blood_pressure"
+msgid "Many people who have high blood pressure do not know it, as there are often no symptoms."
+msgstr "Veel mensen met hoge bloeddruk weten het niet, omdat er vaak geen symptomen zijn."
+
+msgctxt "nutrient_info_salt_high_consumption"
+msgid "Most people consume too much salt (on average 9 to 12 grams per day), around twice the recommended maximum level of intake."
+msgstr "De meeste mensen consumeren te veel zout (gemiddeld 9 tot 12 gram per dag), ongeveer twee keer de aanbevolen maximale inname."
+
+msgctxt "nutrient_recommendation_salt_title"
+msgid "Limit the consumption of salt and salted food"
+msgstr "Beperk de consumptie van zout en gezouten voedsel"
+
+msgctxt "nutrient_recommendation_salt_cooking_and_table"
+msgid "Reduce the quantity of salt used when cooking, and don't salt again at the table."
+msgstr "Verminder de hoeveelheid zout die je gebruikt bij het koken en gebruik geen zout meer aan tafel."
+
+msgctxt "nutrient_recommendation_salt_limit_salty_snacks"
+msgid "Limit the consumption of salty snacks and choose products with lower salt content."
+msgstr "Beperk de consumptie van zoute snacks en kies voor producten met een lager zoutgehalte."
+
+msgctxt "nutrient_info_sugars_risk"
+msgid "A high consumption of sugar can cause weight gain and tooth decay. It also augments the risk of type 2 diabetes and cardio-vascular diseases."
+msgstr "Een hoge consumptie van suiker kan gewichtstoename en tandbederf veroorzaken. Het verhoogt ook het risico op diabetes type 2 en hart- en vaatziekten."
+
+msgctxt "nutrient_recommendation_sugars_title"
+msgid "Limit the consumption of sugar and sugary drinks"
+msgstr "Beperk de consumptie van suiker en suikerhoudende dranken"
+
+msgctxt "nutrient_recommendation_sugars_drinks"
+msgid "Sugary drinks (such as sodas, fruit beverages, and fruit juices and nectars) should be limited as much as possible (no more than 1 glass a day)."
+msgstr "Suikerhoudende dranken (zoals frisdranken, fruitdranken en vruchtensappen) moeten zoveel mogelijk worden beperkt (niet meer dan 1 glas per dag)."
+
+msgctxt "nutrient_recommendation_sugars_food"
+msgid "Choose products with lower sugar content and reduce the consumption of products with added sugars."
+msgstr "Kies producten met een lager suikergehalte en verminder de consumptie van producten met toegevoegde suikers."
+
+msgctxt "nutrient_info_fat_and_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "Een hoge consumptie van vet, vooral verzadigde vetten, kan het cholesterol verhogen, wat het risico op hartaandoeningen verhoogt."
+
+msgctxt "nutrient_recommendation_fat_and_saturated_fat_title"
+msgid "Reduce the consumption of fat and saturated fat"
+msgstr "Verminder de consumptie van vet en verzadigd vet"
+
+msgctxt "nutrient_recommendation_fat_and_saturated_fat"
+msgid "Choose products with lower fat and saturated fat content."
+msgstr "Kies producten met een lager vet- en verzadigd vetgehalte."
 

@@ -63,7 +63,6 @@ BEGIN
 		&lang_in_other_lc
 		%lang_lc
 
-		&init_languages
 
 		&separator_before_colon
 

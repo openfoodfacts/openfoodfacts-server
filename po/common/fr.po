@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-06-26 19:04\n"
+"PO-Revision-Date: 2022-07-17 19:04\n"
 "Language-Team: French\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -2133,7 +2133,7 @@ msgstr "Graphique sur 2 axes"
 
 msgctxt "search_graph_blog"
 msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"/graphs-in-3-clicks\">Graphs in 3 clicks</a> (blog).</p>"
-msgstr "<p>→ en savoir plus sur les graphiques d'<<site_name>>: <a href=\"<a href=\"https://blog.openfoodfacts.org/fr/news/des-graphiques-en-3-clics\">graphiques en 3 clics</a> (blog).</p>"
+msgstr "<p>→ en savoir plus sur les graphiques d'<<site_name>>: <a href=\"https://blog.openfoodfacts.org/fr/news/des-graphiques-en-3-clics\">graphiques en 3 clics</a> (blog).</p>"
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
@@ -6049,7 +6049,7 @@ msgid "Could you add the information needed to compute the Nutri-Score?"
 msgstr "Pourriez-vous ajouter les informations nécessaires pour calculer le Nutri-Score ?"
 
 msgctxt "actions_to_compute_ecoscore"
-msgid "Could you categorize the product so that we can compute the Eco-Score?"
+msgid "Could you add a precise product category so that we can compute the Eco-Score?"
 msgstr "Pourriez-vous catégoriser le produit pour que nous puissions calculer l'Eco-Score ?"
 
 msgctxt "action_add_ingredients_text"
@@ -6063,4 +6063,65 @@ msgstr "Ajouter une catégorie"
 msgctxt "action_add_nutrition_facts"
 msgid "Add nutrition facts"
 msgstr "Ajouter les informations nutritionnelles"
+
+# Used as a header for key facts
+msgctxt "knowledge_panels_facts"
+msgid "What you need to know"
+msgstr "Ce que vous devez savoir"
+
+msgctxt "knowledge_panels_recommendation"
+msgid "Recommendation"
+msgstr "Recommandation"
+
+msgctxt "nutrient_info_salt_risk"
+msgid "A high consumption of salt (or sodium) can cause raised blood pressure, which can increase the risk of heart disease and stroke."
+msgstr ""
+
+msgctxt "nutrient_info_salt_high_blood_pressure"
+msgid "Many people who have high blood pressure do not know it, as there are often no symptoms."
+msgstr ""
+
+msgctxt "nutrient_info_salt_high_consumption"
+msgid "Most people consume too much salt (on average 9 to 12 grams per day), around twice the recommended maximum level of intake."
+msgstr ""
+
+msgctxt "nutrient_recommendation_salt_title"
+msgid "Limit the consumption of salt and salted food"
+msgstr "Limiter la consommation de sel et d'aliments salés"
+
+msgctxt "nutrient_recommendation_salt_cooking_and_table"
+msgid "Reduce the quantity of salt used when cooking, and don't salt again at the table."
+msgstr "Réduisez la quantité de sel utilisée lors de la cuisson et ne salez plus à table."
+
+msgctxt "nutrient_recommendation_salt_limit_salty_snacks"
+msgid "Limit the consumption of salty snacks and choose products with lower salt content."
+msgstr "Limitez la consommation de collations salées et choisissez des produits à faible teneur en sel."
+
+msgctxt "nutrient_info_sugars_risk"
+msgid "A high consumption of sugar can cause weight gain and tooth decay. It also augments the risk of type 2 diabetes and cardio-vascular diseases."
+msgstr ""
+
+msgctxt "nutrient_recommendation_sugars_title"
+msgid "Limit the consumption of sugar and sugary drinks"
+msgstr "Limiter la consommation de sucre et de boissons sucrées"
+
+msgctxt "nutrient_recommendation_sugars_drinks"
+msgid "Sugary drinks (such as sodas, fruit beverages, and fruit juices and nectars) should be limited as much as possible (no more than 1 glass a day)."
+msgstr "Les boissons sucrées (comme les sodas, les boissons aux fruits, les jus et nectars de fruits) doivent être limitées au maximum (pas plus d'un verre par jour)."
+
+msgctxt "nutrient_recommendation_sugars_food"
+msgid "Choose products with lower sugar content and reduce the consumption of products with added sugars."
+msgstr "Choisissez des produits à faible teneur en sucre et réduisez la consommation de produits avec des sucres ajoutés."
+
+msgctxt "nutrient_info_fat_and_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr ""
+
+msgctxt "nutrient_recommendation_fat_and_saturated_fat_title"
+msgid "Reduce the consumption of fat and saturated fat"
+msgstr "Réduire la consommation de graisses et de graisses saturées"
+
+msgctxt "nutrient_recommendation_fat_and_saturated_fat"
+msgid "Choose products with lower fat and saturated fat content."
+msgstr "Choisissez des produits à faible teneur en graisses et en graisses saturées."
 
