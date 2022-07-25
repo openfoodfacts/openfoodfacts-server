@@ -944,7 +944,7 @@ sub add_properties_from_specific_ingredients($) {
 		
 		# Remove and process the first ingredient
 		my $ingredient_ref = shift @ingredients;
-		my $ingredientid = $product_ref->{lc}, $ingredient_ref->{id};
+		my $ingredientid = $ingredient_ref->{id};
 						
 		# Add sub-ingredients at the beginning of the ingredients array
 		if (defined $ingredient_ref->{ingredients}) {

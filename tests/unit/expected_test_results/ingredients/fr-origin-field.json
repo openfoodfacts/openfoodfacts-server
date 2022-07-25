@@ -2,6 +2,7 @@
    "ingredients" : [
       {
          "id" : "fr:coquillettes",
+         "origins" : "en:italy",
          "percent_estimate" : 54.5454545454545,
          "percent_max" : 100,
          "percent_min" : 9.09090909090909,
@@ -18,6 +19,7 @@
       },
       {
          "id" : "fr:jambon-superieur",
+         "origins" : "en:france",
          "percent_estimate" : 11.3636363636364,
          "percent_max" : 33.3333333333333,
          "percent_min" : 0,
@@ -25,6 +27,7 @@
       },
       {
          "id" : "en:white-wine",
+         "origins" : "en:europe",
          "percent_estimate" : 5.68181818181818,
          "percent_max" : 25,
          "percent_min" : 0,
@@ -63,6 +66,7 @@
       },
       {
          "id" : "en:parmesan",
+         "origins" : "en:italy",
          "percent_estimate" : 0.35511363636364,
          "percent_max" : 12.5,
          "percent_min" : 0,
@@ -91,6 +95,7 @@
       },
       {
          "id" : "en:pepper",
+         "origins" : "en:nepal",
          "percent_estimate" : 0.0887784090909065,
          "percent_max" : 9.09090909090909,
          "percent_min" : 0,
