@@ -24,11 +24,15 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Users qw/:all/;
+use ProductOpener::Config qw/:all/;
 
 use LWP::UserAgent;
 use JSON;
 use Log::Any qw($log);
 use CGI qw(:standard);
+
+use Storable qw(store retrieve freeze thaw dclone);
+
 
 #Retrieve ory_kratos_session cookie 
 my $kratos_cookie = "ory_kratos_session=".cookie('ory_kratos_session');
@@ -52,25 +56,46 @@ if(defined $kratos_cookie){
         my $json = $resp->decoded_content;
         my $content_ref = decode_json($json);
 
-        #get UserID from json hash
+        #get user info from kratos json hash
         my $UserID = $content_ref->{identity}{traits}{UserID};
+        my $email_kratos = $content_ref->{identity}{traits}{email};
+        my $newsletter_kratos = $content_ref->{identity}{traits}{newsletter};
+        my $edit_link_kratos = $content_ref->{identity}{traits}{"Add Edit Link"};
+        my $display_barcode_kratos = $content_ref->{identity}{traits}{"Display Barcode"};
+        
+        # $log->debug($json);
+        # $log->debug("User ID: ", $UserID);
+        # $log->debug("Email: ", $email_kratos);
+        # $log->debug("newsletter: ", $newsletter_kratos);
+        # $log->debug("edit link: ", $edit_link_kratos);
+        # $log->debug("display barcode: ", $display_barcode_kratos);
 
-        #$log->debug($json);
-        $log->debug("User ID: ", $UserID);
-
-        #retrieve users sto file
+        #retrieve users storable file
         my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $UserID) . ".sto";
         if (-e $user_file) {
-            $user_ref = retrieve($user_file) ;
+
+            my $request_ref = ProductOpener::Display::init_request();   
+            my $user_ref = retrieve($user_file) ;
+
+            open_user_session($user_ref, $request_ref);
         }
         else{
-            #create the user file
+            #store user file in storable if user has no sto file
+
+            #create hash for storable
+            my $hash = {    
+                userid => $UserID,
+                email => $email_kratos
+
+            };
+
+            store($hash, $user_file);
+
+            my $request_ref = ProductOpener::Display::init_request();   
+            my $user_ref = retrieve($user_file) ;
+
+            open_user_session($user_ref, $request_ref);
         }
-
-        my $request_ref = ProductOpener::Display::init_request();
-
-        #Set OFF cookie
-        open_user_session($user_ref, $request_ref);
     }
     else {
         $log->debug("HTTP GET error code: ", $resp->code, "n");
@@ -78,4 +103,4 @@ if(defined $kratos_cookie){
     }
 }
 
-#print redirect(-url=>'http://world.openfoodfacts.localhost//');
+print redirect(-url=>'http://world.openfoodfacts.localhost//');
