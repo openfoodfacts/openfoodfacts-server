@@ -69,6 +69,8 @@ BEGIN
 
 		&generate_token
 
+		&open_user_session
+
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }

@@ -34,7 +34,11 @@ use CGI qw(:standard);
 my $kratos_cookie = "ory_kratos_session=".cookie('ory_kratos_session');
 $log->debug($kratos_cookie);
 
+my $user_ref = {};
+my $request_ref = ProductOpener::Display::init_request();
+
 if(defined $kratos_cookie){
+    
     my $url = "http://kratos.openfoodfacts.localhost:4433/sessions/whoami";
 
     my $ua = LWP::UserAgent->new;
@@ -58,7 +62,7 @@ if(defined $kratos_cookie){
         $log->debug("User ID: ", $UserID);
 
         #Set OFF cookie
-
+        open_user_session($user_ref, $request_ref);
     }
     else {
         $log->debug("HTTP GET error code: ", $resp->code, "n");
@@ -66,4 +70,4 @@ if(defined $kratos_cookie){
     }
 }
 
-print redirect(-url=>'http://world.openfoodfacts.localhost//');
+#print redirect(-url=>'http://world.openfoodfacts.localhost//');
