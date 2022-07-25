@@ -944,7 +944,7 @@ sub add_properties_from_specific_ingredients($) {
 		
 		# Remove and process the first ingredient
 		my $ingredient_ref = shift @ingredients;
-		my $ingredientid = $ingredient_ref->{id};
+		my $ingredientid = $product_ref->{lc}, $ingredient_ref->{id};
 						
 		# Add sub-ingredients at the beginning of the ingredients array
 		if (defined $ingredient_ref->{ingredients}) {
@@ -1137,7 +1137,7 @@ sub parse_specific_ingredients_from_text($$$) {
 
 		# If we found an ingredient, save it in specific_ingredients
 		if (defined $ingredient) {
-			my $ingredient_id = canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient);
+			my $ingredient_id = get_taxonomyid($product_lc, canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient));
 
 			$matched_text =~ s/^\s+//;
 
@@ -1271,7 +1271,7 @@ sub parse_origins_from_text($$) {
 
 				my $matched_text = $matched_ingredient_ref->{matched_text};
 				my $ingredient = $matched_ingredient_ref->{ingredient};
-				my $ingredient_id = canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient);
+				my $ingredient_id = get_taxonomyid($product_lc, canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient));
 
 				# Remove extra spaces
 				$ingredient =~ s/\s+$//;
@@ -2075,7 +2075,7 @@ sub parse_ingredients_text($) {
 			if (not $skip_ingredient) {
 
 				my %ingredient = (
-					id => $ingredient_id,
+					id => get_taxonomyid($product_ref->{lc},$ingredient_id),
 					text => $ingredient
 				);
 
@@ -5749,13 +5749,9 @@ sub extract_ingredients_classes_from_text($) {
 		delete $product_ref->{$field . "_next_tags" };
 	}
 
-
-
-
 	if ((defined $product_ref->{ingredients_that_may_be_from_palm_oil_n}) or (defined $product_ref->{ingredients_from_palm_oil_n})) {
 		$product_ref->{ingredients_from_or_that_may_be_from_palm_oil_n} = $product_ref->{ingredients_that_may_be_from_palm_oil_n} + $product_ref->{ingredients_from_palm_oil_n};
 	}
-
 
 	delete $product_ref->{with_sweeteners};
 	if (defined $product_ref->{'additives_tags'}) {

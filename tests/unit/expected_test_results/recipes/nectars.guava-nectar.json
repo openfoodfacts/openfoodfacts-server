@@ -41,7 +41,7 @@
          "vegetarian" : "yes"
       },
       {
-         "id" : "en:some unknown ingredient",
+         "id" : "en:some-unknown-ingredient",
          "percent" : 1,
          "percent_estimate" : 1,
          "percent_max" : 1,
@@ -51,13 +51,13 @@
    ],
    "ingredients_analysis" : {
       "en:palm-oil-content-unknown" : [
-         "en:some unknown ingredient"
+         "en:some-unknown-ingredient"
       ],
       "en:vegan-status-unknown" : [
-         "en:some unknown ingredient"
+         "en:some-unknown-ingredient"
       ],
       "en:vegetarian-status-unknown" : [
-         "en:some unknown ingredient"
+         "en:some-unknown-ingredient"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -74,7 +74,7 @@
       "en:disaccharide",
       "en:sugar",
       "en:e330",
-      "en:some unknown ingredient"
+      "en:some-unknown-ingredient"
    ],
    "ingredients_n" : 5,
    "ingredients_n_tags" : [
@@ -86,7 +86,7 @@
       "en:guava",
       "en:cane-sugar",
       "en:e330",
-      "en:some unknown ingredient"
+      "en:some-unknown-ingredient"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [

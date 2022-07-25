@@ -444,6 +444,16 @@ Teneur en citron de 5,5%",
 			origin_fr => "Origine des coquillettes : Italie. Origine du Comté AOP 4 mois : France. Origine du jambon supérieur : France. Vin blanc : Europe. Origine Crème UHT : France. Origine du parmesan : Italie. Fabriqué en France. Tomates d'Italie. Origine du riz : Inde, Thaïlande.",
 		}
 	],
+
+	# origins with not taxonomized entries
+	[
+		"en-origin-field-with-not-taxonomized-entries",
+		{
+			lc => "en",
+			ingredients_text => "Peaches. Some unknown ingredient, another unknown ingredient.
+Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of Another Unknown Ingredient: Malta",
+		}
+	],	
 );
 
 

@@ -1,7 +1,7 @@
 {
    "ingredients" : [
       {
-         "id" : "fr:Coquillettes",
+         "id" : "fr:coquillettes",
          "percent_estimate" : 54.5454545454545,
          "percent_max" : 100,
          "percent_min" : 9.09090909090909,
@@ -17,8 +17,7 @@
          "vegetarian" : "maybe"
       },
       {
-         "id" : "fr:jambon supérieur",
-         "origins" : "en:france",
+         "id" : "fr:jambon-superieur",
          "percent_estimate" : 11.3636363636364,
          "percent_max" : 33.3333333333333,
          "percent_min" : 0,
@@ -26,7 +25,6 @@
       },
       {
          "id" : "en:white-wine",
-         "origins" : "en:europe",
          "percent_estimate" : 5.68181818181818,
          "percent_max" : 25,
          "percent_min" : 0,
@@ -65,7 +63,6 @@
       },
       {
          "id" : "en:parmesan",
-         "origins" : "en:italy",
          "percent_estimate" : 0.35511363636364,
          "percent_max" : 12.5,
          "percent_min" : 0,
@@ -94,7 +91,6 @@
       },
       {
          "id" : "en:pepper",
-         "origins" : "en:nepal",
          "percent_estimate" : 0.0887784090909065,
          "percent_max" : 9.09090909090909,
          "percent_min" : 0,
@@ -111,16 +107,16 @@
          "en:ricotta"
       ],
       "en:palm-oil-content-unknown" : [
-         "fr:Coquillettes",
-         "fr:jambon supérieur"
+         "fr:coquillettes",
+         "fr:jambon-superieur"
       ],
       "en:vegan-status-unknown" : [
-         "fr:Coquillettes",
-         "fr:jambon supérieur"
+         "fr:coquillettes",
+         "fr:jambon-superieur"
       ],
       "en:vegetarian-status-unknown" : [
-         "fr:Coquillettes",
-         "fr:jambon supérieur"
+         "fr:coquillettes",
+         "fr:jambon-superieur"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -129,11 +125,11 @@
       "en:vegetarian-status-unknown"
    ],
    "ingredients_hierarchy" : [
-      "fr:Coquillettes",
+      "fr:coquillettes",
       "en:comte",
       "en:dairy",
       "en:cheese",
-      "fr:jambon supérieur",
+      "fr:jambon-superieur",
       "en:white-wine",
       "en:alcohol",
       "en:wine",
@@ -153,9 +149,9 @@
       "11-20"
    ],
    "ingredients_original_tags" : [
-      "fr:Coquillettes",
+      "fr:coquillettes",
       "en:comte",
-      "fr:jambon supérieur",
+      "fr:jambon-superieur",
       "en:white-wine",
       "en:red-wine",
       "en:rose-wine",
@@ -205,13 +201,13 @@
          "text" : "Origine des coquillettes : Italie."
       },
       {
-         "id" : "fr:Comté AOP 4 mois",
+         "id" : "fr:comte-aop-4-mois",
          "ingredient" : "Comté AOP 4 mois",
          "origins" : "en:france",
          "text" : "Origine du Comté AOP 4 mois : France."
       },
       {
-         "id" : "fr:jambon supérieur",
+         "id" : "fr:jambon-superieur",
          "ingredient" : "jambon supérieur",
          "origins" : "en:france",
          "text" : "Origine du jambon supérieur : France."
@@ -229,7 +225,7 @@
          "text" : "Vin blanc : Europe."
       },
       {
-         "id" : "fr:Origine Crème UHT",
+         "id" : "fr:origine-creme-uht",
          "ingredient" : "Origine Crème UHT",
          "origins" : "en:france",
          "text" : "Origine Crème UHT : France."
