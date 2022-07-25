@@ -78,8 +78,8 @@ if (defined $User_id) {
 
 		$r->err_headers_out->add('Set-Cookie' => $request_ref->{cookie});
 		$r->headers_out->set(Location => "$url");
-		$r->status(301);
-		return 301;
+		$r->status(302);
+		return 302;
 	}
 }
 
