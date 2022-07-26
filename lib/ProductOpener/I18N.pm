@@ -25,12 +25,12 @@ ProductOpener::I18N - Reads the .po files from a certain directory and processes
 =head1 SYNOPSIS
 
 C<ProductOpener::I18N> is used to read all ".po" files from a certain directory and merge them 
-in one hash. The singular & plural entries are seperated into two hashes.
+in one hash. The singular & plural entries are separated into two hashes.
 
 =head1 DESCRIPTION
 
 The module implements the functionality to read and process the .po files from a certain directory.
-The .po files are read and then merged into a single hash which is then seperated into two hashes.
+The .po files are read and then merged into a single hash which is then separated into two hashes.
 One of these hashes have all plural entries and the other one has all singular entries.
 The functions used in this module take the directory to look for the .po files and returns two hashrefs.
 
@@ -161,7 +161,7 @@ sub read_po_files {
 
 =head2 split_tags()
 
-C<split_tags()> takes the hashref returned by read_po_files as input parameter seperates it into two hashes seperated by
+C<split_tags()> takes the hashref returned by read_po_files as input parameter separates it into two hashes separated by
 if they are singular or plural, respectively and returns them as 2 hashrefs.
 
 =head3 Arguments
