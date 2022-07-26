@@ -77,6 +77,7 @@ if(defined $kratos_cookie){
         $user_ref->{email} => $email_kratos;
         $user_ref->{name} => $name_kratos;
 
+        #updating users info
         if($newsletter_kratos == 0){
             $user_ref->{newsletter} = '';
         }
@@ -84,7 +85,6 @@ if(defined $kratos_cookie){
             $user_ref->{newsletter} = 'on';
         }
 
-        
         if($edit_link_kratos == 0){
             $user_ref->{edit_link} = '';
         }
