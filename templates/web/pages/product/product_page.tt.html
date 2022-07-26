@@ -81,7 +81,7 @@
             <div class="large-12">
                <nav id="navbar" class="navbar v-space-tiny h-space-tiny">
                     <ul class="inline-list">
-                        <li><a class="nav-link scrollto " href="#characteristics"><span>Générale</span></a></li>
+                        <li><a class="nav-link scrollto button small round" href="#characteristics"><span>Générale</span></a></li>
                         <li><a class="nav-link scrollto " href="#composition"><span>Vos critères</span></a></li>
                         <li><a href="#" data-dropdown="hoverHeal" data-options="is_hover:true; hover_timeout:500">Santé</a>
                             <ul id="hoverHeal" class="f-dropdown" data-dropdown-content>
@@ -111,30 +111,6 @@
                     <h2 class="title-1" property="food:name" itemprop="name">[% title %]</h1>
                     
                     <!--<h2 id="product_characteristics">[% lang('product_characteristics') %]</h2>-->
-                    
-                    <!-- Display UPC code if the EAN starts with 0 -->
-                        [% IF upc_code == 'defined' %]
-                            <p id="barcode_paragraph">
-                                [% lang("barcode") %]:  <span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">[% code %]</span> [% upc %]
-                            </p>
-                            <div property="gr:hasEAN_UCC-13" content="[% code %]" datatype="xsd:string"></div>
-                        [% END %]
-                        
-                    <div class="hide-for-large-up medium-12 columns">[% front_image %]</div>
-                    <div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
-                        [% product_fields %]
-                    </div>
-                    <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">$[% front_image %]</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- product summary -->
-    <section class="row">
-        <div class="large-12 column">
-            
 
             <!-- Obsolete product -->
             [% IF product_is_obsolete %]
@@ -178,11 +154,33 @@
                             [% END %]
                     [% END %]
                 </p>
-            [% END %]
-
+            [% END %]                    
+                    
+                    <!-- Display UPC code if the EAN starts with 0 -->
+                        [% IF upc_code == 'defined' %]
+                            <p id="barcode_paragraph">
+                                [% lang("barcode") %]:  <span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">[% code %]</span> [% upc %]
+                            </p>
+                            <div property="gr:hasEAN_UCC-13" content="[% code %]" datatype="xsd:string"></div>
+                        [% END %]
                         
-            <section class=" column text-center large-12 v-space-normal">
-                <div class="large-12 column">
+                    <div class="hide-for-large-up medium-12 columns">[% front_image %]</div>
+                    <div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
+                        [% product_fields %]
+                    </div>
+                    <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">$[% front_image %]</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- product summary -->
+    <section class="row" id="summary">
+        <div class="large-12 column">
+            
+            <div class="card">
+                <div class="card-section">
                     <h2>Correspondance avec vos critères</h2>
                             
                     <div id="product_summary" class="v-space-short text-left"></div>
@@ -191,7 +189,7 @@
                         
                     <div id="preferences_selection_form"  class="text-left v-space-whide h-space-wide" style="display:none"></div>
                 </div>
-            </section>
+            </div>
 
         </div>
     </section>
