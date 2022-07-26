@@ -75,7 +75,7 @@ let countriesData;
 function countries() {
     if (!countriesData) {
         $.ajax({
-            url: '/cgi/i18n/countries.pl',
+            url: '/cgi/countries.pl',
             dataType: 'json',
             async: false,
             success: function(json) {
@@ -125,6 +125,24 @@ $(function() {
         var subdomain = e.params.data.id;
         if (!subdomain) {
             subdomain = 'world';
+=======
+$(function () {
+  $("#select_country").select2({
+    allowClear: true,
+    ajax: {
+      url: '/cgi/countries.pl',
+      dataType: 'json',
+      processResults: function (data) {
+        const results = [];
+        var worldresult;
+        // eslint-disable-next-line guard-for-in
+        for (var k in data) {
+          if (k == 'world') {
+            worldresult = { id: k, text: data[k] };
+          } else {
+            results.push({ id: k, text: data[k] });
+          }
+>>>>>>> main
         }
 
         window.location.href = document.location.protocol + '//' + subdomain + '.' + document.querySelector('html').dataset.serverdomain;

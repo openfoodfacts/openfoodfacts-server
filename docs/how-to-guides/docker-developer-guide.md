@@ -12,11 +12,19 @@ This page describes how to test and debug your changes once you have set up the 
 make log
 ```
 
+You will get logs from nginx, mongodb, postgres, etc.
+
 ### Tail other logs
+
+Most logs from perl are not (yet ?) displayed on the docker logs,
+but are instead available in specific directories.
+
+To see them use:
 
 ```
 make tail
 ```
+
 It will `tail -f` all the files present in the `logs/` directory:
 
 * `apache2/error.log`
@@ -32,17 +40,19 @@ tail -f <FILEPATH>
 ```
 to check a specific log.
 
+One of the most important is `log4perl.log`.
+
+
 ### Increasing log verbosity
 
-By default, the `log4perl` configuration `conf/log.conf` matches production 
-settings. You can tweak that file with your own dev configuration settings and 
+By default, the `log4perl` configuration `conf/log.conf` matches production
+settings. You can tweak that file with your own dev configuration settings and
 run `make restart` to reload the changes.
 
 A setting useful for local environments is to set `TRACE` log level:
 ```
 log4perl.rootLogger=TRACE, LOGFILE
 ```
-
 
 ## Opening a shell in a Docker container
 
@@ -106,41 +116,45 @@ In the dev environment, any code change to the local directory will be written
 on the container. That said, some code changes require a restart of the `backend` 
 container, or rebuilding the NPM assets.
 
-### Manual reload
 
-To restart the `backend` container after a config (`docker-compose.yml`, `docker/`, `.env`):
-```
-make restart
-```
+## Getting away from make up
 
-To restart `Apache` within the backend container after a code change (`lib/`):
-```
-make restart_apache
-```
+`make up` is a good command for starters,
+but it's not the right one to use if you develop on a daily bases, because it maybe slow,
+as it does a full rebuild, which, in dev mode, should only be necessary in a few cases.
 
-**Note:** restart is not necessary when making changes in the `cgi/` directory.
+On a daily bases you could better run those:
 
-To rebuild frontend assets after an asset change (`html/` folder):
-```
-make up
-```
+* `docker-compose up` to start and monitor the stack.
+* `docker-compose restart backend` to account for a code change in a `.pm` file
+  (cgi `pl` files do not need a restart)
+* `docker-compose stop` to stop them all
+
+If some important file changed (like Dockerfile or cpanfile, etc.), or in case of doubt,
+you can run `docker-compose build` (or maybe it's a good time to use `make up` once)
+
+You should explore the [docker-compose commands](https://docs.docker.com/compose/reference/)
+most are useful!
+
 
 ### Live reload
 To automate the live reload on code changes, you can install the Python package `when-changed`:
 ```
 pip3 install when-changed
 when-changed -r docker/ docker-compose.yml .env -c "make restart"                                         # restart backend container on compose changes
-when-changed -r lib/ -r docker/ docker-compose.yml -c "make restart_apache"                               # restart Apache on code changes
-when-changed -r html/ -r css/ -r scss/ -r icons/ Dockerfile Dockerfile.frontend package.json -c "make up" # rebuild containers on asset or Dockerfile changes
+when-changed -r lib/ -r docker/ docker-compose.yml -c "docker-compose backend restart" # restart Apache on code changes
+when-changed -r html/ Dockerfile Dockerfile.frontend package.json -c "make up" # rebuild containers on asset or Dockerfile changes
 ```
 
 An alternative to `when-changed` is `inotifywait`.
 
 
 ## Run queries on MongoDB database
+
 ```
 docker-compose exec mongodb mongo
 ```
+
 The above command will open a MongoDB shell, allowing you to use all the `mongo` 
 commands to interact with the database:
 
@@ -172,7 +186,40 @@ The call stack goes like this:
 
 ## Managing multiple deployments
 
-To juggle between multiple local deployments (e.g: to run different flavors of Open Food Facts on the same host), you will need:
+To juggle between multiple local deployments (e.g: to run different flavors of Open Food Facts on the same host),
+there are different possible strategies.
+
+### a set env script
+
+Docker-compose takes it settings from, in order of priority:
+* the environment
+* the `.env` file
+
+So one strategy to have a different instance,
+can be to keep same `.env` file, but super-seed some env variables to tweak the configuration.
+This is a good strategy for the pro plateform.
+
+For this case we have a 
+[`setenv-pro.sh`](https://github.com/openfoodfacts/openfoodfacts-server/blob/main/setenv-pro.sh)
+script.
+
+To use it, open a terminal, where you want to be in pro environment and simply use:
+
+```bash
+. setenv-pro.sh
+```
+
+then you can use whatever docker-compose command.
+
+**Note:** This terminal will remain in `pro` mode until you end its session.
+
+See also [Developing on the producers platform](./pro-development.md)
+
+### different .env file
+
+This strategy might be the right one if your settings differs a lot.
+
+You will need:
 
 * Multiple `.env` files (one per deployment), such as:
 
@@ -184,9 +231,12 @@ To juggle between multiple local deployments (e.g: to run different flavors of O
 
 * `COMPOSE_PROJECT_NAME` set to different values in each `.env` file, so that container names across deployments are unique.
 
-* `FRONTEND_PORT` set to different values in each `.env` file, so that frontend containers don't port-conflict with each other.
+* `FRONTEND_PORT` and `MONGODB_PORT` 
+  set to different values in each `.env` file, 
+  so that frontend containers don't port-conflict with each other.
 
-To switch between configurations, set `ENV_FILE` before running `make` commands:
+To switch between configurations, set `ENV_FILE` before running `make` commands,
+(or `docker-compose` command):
 
 ```
 ENV_FILE=.env.off-pro make up # starts the OFF Producer's Platform containers.
@@ -195,6 +245,7 @@ ENV_FILE=.env.opff    make up # starts the OPFF containers.
 ```
 
 or export it to keep it for a while:
+
 ```
 export ENV_FILE=.env.off # going to work on OFF for a while
 make up
