@@ -36,7 +36,7 @@ BEGIN
 
 use vars @EXPORT_OK ;
 
-my %default_product_form= (
+my %default_product_form = (
     code => '200000000099',
 	lang => "en",
 	product_name => "Test-75ml",
