@@ -1739,7 +1739,7 @@ sub write_off_csv_file($$) {
 =head2 print_unknown_entries_in_gs1_maps ()
 
 Prints the entries for GS1 data types for which we do not have a corresponding OFF match,
-ordered by the number of occurences in the GS1 data
+ordered by the number of occurrences in the GS1 data
 
 =cut
 

@@ -167,7 +167,7 @@ existing packaging tags will be prefixed by the product language.
 
 =head4 $text_language default text language
 
-Can be overriden if the text is prefixed with a language code (e.g. fr:boite en carton)
+Can be overrode if the text is prefixed with a language code (e.g. fr:boite en carton)
 
 =head3 Return value
 

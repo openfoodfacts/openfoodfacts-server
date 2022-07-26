@@ -1179,7 +1179,7 @@ $log->debug("Nutrient levels initialized") if $log->is_debug();
 
 =head2 canonicalize_nutriment ( $product_ref )
 
-Canonicalizes the nutrients unput by the user in the nutrition table product edit. 
+Canonicalizes the nutrients input by the user in the nutrition table product edit. 
 This sub converts these nutrients (which are arguments to this function), into a recognizable/standard form.
 
 =head3 Parameters
@@ -1516,7 +1516,7 @@ my @fruits_vegetables_nuts_by_category_sorted = sort { $fruits_vegetables_nuts_b
 Determines if we have enough data to compute the Nutri-Score (category + nutrition facts),
 and if the Nutri-Score is applicable to the product the category.
 
-Populates the data structure needed to commpute the Nutri-Score and computes it.
+Populates the data structure needed to compute the Nutri-Score and computes it.
 
 =cut
 
