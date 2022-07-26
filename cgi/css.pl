@@ -48,7 +48,4 @@ my $redirect
   . ".css?v="
   . $file_timestamps{'css/dist/app-' . lang('text_direction') . '.css'};
 
-my $r = Apache2::RequestUtil->request();
-$r->headers_out->set(Location => $redirect);
-$r->status(302);
-return 302;
+redirect(302, $redirect);
