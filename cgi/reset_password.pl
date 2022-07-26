@@ -199,7 +199,7 @@ elsif ($action eq 'process') {
 
 process_template('web/pages/reset_password/reset_password.tt.html', $template_data_ref, \$html) or $html = "<p>" . $tt->error() . "</p>";
 
-$request_ref->{title} = $title;
+$request_ref->{title} = $Lang{'reset_password'}{$lang};
 $request_ref->{content_ref} = \$html;
 display_page($request_ref);
 

@@ -44,7 +44,6 @@ equivalent_modules = Modern::Perl
 equivalent_modules = ProductOpener::PerlStandards
 [Subroutines::RequireFinalReturn]
 
-
 [BuiltinFunctions::RequireBlockMap]
 [BuiltinFunctions::RequireBlockGrep]
 
@@ -55,5 +54,9 @@ equivalent_modules = ProductOpener::PerlStandards
 
 
 # severity 3
+[ControlStructures::ProhibitDeepNests]
+max_nests = 12
+[ControlStructures::ProhibitCascadingIfElse]
+max_elsif = 13
 [Variables::ProhibitUnusedVariables]
 # /end severity 3

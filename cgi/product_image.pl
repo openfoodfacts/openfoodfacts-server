@@ -174,7 +174,7 @@ my $html;
 process_template('product_image.tt.html', $template_data_ref, \$html) or $html = '';
 $html .= "<p>" . $tt->error() . "</p>";
 
-$request_ref->{title} = $title;
+$request_ref->{title} = $alt;
 $request_ref->{content_ref} = \$html;
 $request_ref->{full_width} = 0;
 display_page($request_ref);
