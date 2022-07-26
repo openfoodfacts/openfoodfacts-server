@@ -15,7 +15,8 @@ export CPU_COUNT=$(shell nproc || echo 1)
 
 DOCKER_COMPOSE=docker-compose --env-file=${ENV_FILE}
 # we run tests in a specific project name to be separated from dev instances
-DOCKER_COMPOSE_TEST=COMPOSE_PROJECT_NAME=po_test PO_COMMON_PREFIX=test_ docker-compose --env-file=${ENV_FILE}
+# we also publish mongodb on a separate port to avoid conflicts
+DOCKER_COMPOSE_TEST=COMPOSE_PROJECT_NAME=po_test PO_COMMON_PREFIX=test_ MONGO_EXPOSE_PORT=27027 docker-compose --env-file=${ENV_FILE}
 
 .DEFAULT_GOAL := dev
 
