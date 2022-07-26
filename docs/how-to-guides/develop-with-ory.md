@@ -59,6 +59,12 @@ What should be done:
 - When user clicks change account parameters in OFF send them to http://kratos.openfoodfacts.localhost:4455/settings
 - Add redirect in kratos_update_settings.pl either back to the settings page or to OFF
 
+After Updating Settings you can see the users updated sto file with 
+  - launch docker-compose run --rm backend re.pl
+  - use ProductOpener::Store qw/:all/;
+  - my $user_id= "xxxxx" (<- put user ID)
+  - my $user_ref = retrieve("/mnt/podata/users/$user_id.sto")
+
 ## Account recovery and Email verification 
 Will configure with the OFF courier see the docs https://www.ory.sh/docs/kratos/guides/account-activation-email-verification
 
