@@ -17,18 +17,19 @@ init_emb_codes();
 
 my @tests = (
 	[ { lc => "en", ingredients_text => "sugar and water"}, [ "en:sugar", "en:water"], ],
-	[ { lc => "en", ingredients_text => "something and something else"}, [ "en:something and something else", ], ],
+	[ { lc => "en", ingredients_text => "something and something else"}, [ "en:something-and-something-else", ], ],
 	[ { lc => "en", ingredients_text => "apple juice, water and sugar. May contain celery, mustard and gluten."}, [ "en:apple-juice", "en:water", "en:sugar" ], ],
 
 	[ { lc => "fr", ingredients_text => "lait demi-écrémé 67%" }, ["en:semi-skimmed-milk"] ],
-	[ { lc => "fr", ingredients_text => "Saveur vanille : lait demi-écrémé 77%, sucre" }, [ "fr:Saveur vanille", "en:sugar", "en:semi-skimmed-milk" ], ],
+	[ { lc => "fr", ingredients_text => "Saveur vanille : lait demi-écrémé 77%, sucre" }, [ "fr:saveur-vanille", "en:sugar", "en:semi-skimmed-milk" ], ],
 	[ { lc => "fr", ingredients_text => "lécithine de soja"}, [ "en:soya-lecithin", ], ],
 	[ { lc => "fr", ingredients_text => "sel et épices"}, [ "en:salt", "en:spice" ], ],
 	[ { lc => "fr", ingredients_text => "cire d'abeille blanche et jaune"}, [ "en:e901", ], ],
 	[ { lc => "fr", ingredients_text => "viande de porc 50% du poids total"}, [ "en:pork-meat" ], ],
 	[ { lc => "fr", ingredients_text => "arôme naturel"}, [ "en:natural-flavouring" ], ],
 	[ { lc => "fr", ingredients_text => "arôme naturel de pomme avec d'autres arômes naturels"}, [ "en:natural-apple-flavouring", "en:natural-flavouring" ], ],
-	[ { lc => "fr", ingredients_text => "Eau minérale naturelle Volvic (96%), sucre (3,7%), acidifiant : acide citrique, arôme naturel​, extraits de thé (0,02%)"}, [ "en:volvic-natural-mineral-water", "en:sugar", "en:acid", "en:natural-flavouring", "en:tea-extract", "en:e330" ], ],
+	[ { lc => "fr", ingredients_text => "Eau minérale naturelle Volvic (96%), sucre (3,7%), acidifiant : acide citrique, arôme naturel​, extraits de thé (0,02%)"},
+		[ "en:volvic-natural-mineral-water", "en:sugar", "en:acid", "en:natural-flavouring", "en:tea-extract", "en:e330" ], ],
 	[ { lc => "fr", ingredients_text => "jus de pomme, eau, sucre. Traces possibles de céleri, moutarde et gluten."}, [ "en:apple-juice", "en:water", "en:sugar" ], ],
 	[ { lc => "fr", ingredients_text => "100 % semoule de BLE dur de qualité supérieure, Traces de moutarde"}, [ "en:superior-quality-durum-wheat-semolina" ], ],
 	[ { lc => "fr", ingredients_text => "100 % semoule de BLE dur de qualité supérieure Traces éventuelles d'oeufs"}, [ "en:superior-quality-durum-wheat-semolina",  ], ],
@@ -43,7 +44,8 @@ my @tests = (
 	[ { lc => "es", ingredients_text => "sal y acidulante (ácido cítrico). Puede contener trazas de cacahuete, huevo y frutos de cáscara."}, [ "en:salt", "en:acid", "en:e330" ], ],
 
 	[ { lc => "fi", ingredients_text => "valkosipulijauhe ja suola"}, [ "en:garlic-powder", "en:salt", ], ],
-	[ { lc => "fi", ingredients_text => "Sokeri, Mausteet, Hapettumisenestoaine (Askorbiinihappo), Säilöntäaine (Natriumnitriitti). Saattaa sisältää pieniä määriä sinappi ja selleri"}, [ "en:sugar", "en:spice", "en:antioxidant", "en:preservative", "en:e300", "en:e250" ], ],
+	[ { lc => "fi", ingredients_text => "Sokeri, Mausteet, Hapettumisenestoaine (Askorbiinihappo), Säilöntäaine (Natriumnitriitti). Saattaa sisältää pieniä määriä sinappi ja selleri"},
+		[ "en:sugar", "en:spice", "en:antioxidant", "en:preservative", "en:e300", "en:e250" ], ],
 	[ { lc => "fi", ingredients_text => "Aspartaami ja Asesulfaami K"}, [ "en:e951", "en:e950" ], ],
 	[ { lc => "fi", ingredients_text => "Värit (Punajuuriväri, Paprikauute, Kurkumiini)"}, [ "en:colour", "en:e162", "en:e160c", "en:e100" ], ],
 	[ { lc => "fi", ingredients_text => "Vitamiinit (A, B2, B12, C, D2)"}, [ "en:vitamins", "en:vitamin-a", "en:e101", "en:vitamin-b12", "en:e300",  "en:ergocalciferol"], ],
@@ -53,21 +55,25 @@ my @tests = (
 
 	[ { lc => "de", ingredients_text => "Zucker, Gewürze, Antioxidations-mittel: Ascorbinsäure, Konservierungsstoff: Natriumnitrit. Kann Spuren von Senf und Sellerie enthalten."}, [ "en:sugar", "en:spice", "en:antioxidant", "en:preservative", "en:e300", "en:e250" ], ],
 
-	[ { lc => "fr", ingredients_text => "Lait de vache pasteurisé (origine: France), crème pasteurisée (origine France), sel (origine UE), ferments."}, [ 'en:pasteurised-cow-s-milk', 'en:cream', 'en:salt', 'en:ferment'  ], ],
+	[ { lc => "fr", ingredients_text => "Lait de vache pasteurisé (origine: France), crème pasteurisée (origine France), sel (origine UE), ferments."},
+		[ 'en:pasteurised-cow-s-milk', 'en:cream', 'en:salt', 'en:ferment'  ], ],
 	[ { lc => "en", ingredients_text => "Organically grown green tea"}, [ "en:green-tea" ], ],
 	[ { lc => "fr", ingredients_text => "Céleri - rave, choux - fleurs, béta - carotène"}, [ "en:celeriac", "en:cauliflower", "en:e160ai" ], ],
 	[ { lc => "fr", ingredients_text => "Pâte de cacao de Madagascar, café"},["en:cocoa-paste", "en:coffee"]],
 	[ { lc => "es", ingredients_text => "Vinagre, chile rojo y sal."},["en:vinegar", "en:red-chili-pepper", "en:salt"]],
-	[ { lc => "fr", ingredients_text => "Farine de blé 56 g* ; beurre concentré 25 g* (soit 30 g* en beurre reconstitué); sucre 22 g* ; œufs frais 2 g"}, [ "en:wheat-flour", "en:butterfat", "en:sugar", "en:fresh-egg" ], ],
-	[ { lc => "fr", ingredients_text => "Farine de blé 60%. Les pourcentages sont exprimés sur le produit avant cuisson. Sucre 40% (% exprimé sur la pâte)"}, [ "en:wheat-flour", "en:sugar" ], ],
+	[ { lc => "fr", ingredients_text => "Farine de blé 56 g* ; beurre concentré 25 g* (soit 30 g* en beurre reconstitué); sucre 22 g* ; œufs frais 2 g"},
+		[ "en:wheat-flour", "en:butterfat", "en:sugar", "en:fresh-egg" ], ],
+	[ { lc => "fr", ingredients_text => "Farine de blé 60%. Les pourcentages sont exprimés sur le produit avant cuisson. Sucre 40% (% exprimé sur la pâte)"},
+		[ "en:wheat-flour", "en:sugar" ], ],
 	[ { lc => "fr", ingredients_text => "Artichaut coupé"}, [ "en:artichoke" ], ],
 	[ { lc => "fr", ingredients_text => "Artichaut coupe"}, [ "en:artichoke" ], ],
 	[ { lc => "fr", ingredients_text => "Banane cuite"}, [ "en:banana" ], ],
 	[ { lc => "fr", ingredients_text => "Banane coupée cuite"}, [ "en:banana" ], ],
-	[ { lc => "fr", ingredients_text => "Fromage étrange à pâte cuite"}, [ "fr:Fromage étrange à pâte cuite" ], ],
+	[ { lc => "fr", ingredients_text => "Fromage étrange à pâte cuite"}, [ "fr:fromage-etrange-a-pate-cuite" ], ],
 	[ { lc => "fr", ingredients_text => "Banane coupée et cuite au naturel"}, [ "en:banana" ], ],
 	[ { lc => "fr", ingredients_text => "Lamelles de bananes déshydratées"}, [ "en:banana" ], ],
-	[ { lc => "fr", ingredients_text => "émincé de filet de poulet traité en salaison cuit rôti, Pourcentages exprimés sur les pâtes alimentaires aux oeufs "}, ["fr:filet-de-poulet-traite-en-salaison-cuit" ], ],
+	[ { lc => "fr", ingredients_text => "émincé de filet de poulet traité en salaison cuit rôti, Pourcentages exprimés sur les pâtes alimentaires aux oeufs "},
+		["fr:filet-de-poulet-traite-en-salaison-cuit" ], ],
 	[ { lc => "fr", ingredients_text => "sucre 22g**"}, [ "en:sugar" ], ],
 
 	# [ { lc => "de", ingredients_text => "Wasser, Kohlensäure, Farbstoff Zuckerkulör E 150d, Süßungsmittel Aspartam* und Acesulfam-K, Säuerungsmittel Phosphorsäure und Citronensäure, Säureregulator Natriumcitrat, Aroma Koffein, Aroma. enthält eine Phenylalaninquelle"}, [ "en:sugar" ], ],
@@ -77,8 +83,8 @@ my @tests = (
 
 	[ { lc => "fr", ingredients_text => "graisse végétale bio (colza)"}, ["en:colza-oil"]],
 
-	[ { lc => "fr", ingredients_text => "lait cru de lapin"}, ["fr:lait cru de lapin"]],
-	[ { lc => "fr", ingredients_text => "aubergine crue, dés de jambon cru coupés, jambon de montagne cru"}, ["en:aubergine", "en:raw-ham", "fr:jambon de montagne cru"]],
+	[ { lc => "fr", ingredients_text => "lait cru de lapin"}, ["fr:lait-cru-de-lapin"]],
+	[ { lc => "fr", ingredients_text => "aubergine crue, dés de jambon cru coupés, jambon de montagne cru"}, ["en:aubergine", "en:raw-ham", "fr:jambon-de-montagne-cru"]],
 	[ { lc => "en", ingredients_text => "raw cane sugar, raw bananas, raw sliced tomatoes, cooked raw sugar"}, ["en:unrefined-cane-sugar", "en:banana", "en:tomato", "en:unrefined-sugar"]],
 
 	[ { lc => "en", ingredients_text => "vegetable oil (coconut & rapeseed)" }, ["en:vegetable-oil", "en:coconut", "en:rapeseed"]],
@@ -94,12 +100,12 @@ my @tests = (
 	# issue with "Organic 100% juice" being turned into the en:pure-juice label
 	# and all sub-ingredients being discarded
 	[ { lc => "en", ingredients_text => "Organic 100% juice (organic pear, organic apple), natural flavor."}, ['en:juice','en:natural-flavouring','en:pear','en:apple']],
-	[ { lc => "en", ingredients_text => "au jus (beef stock, water)"}, [ 'en:au jus', 'en:beef-broth', 'en:water' ]],
+	[ { lc => "en", ingredients_text => "au jus (beef stock, water)"}, [ 'en:au-jus', 'en:beef-broth', 'en:water' ]],
 	# pure juice is a label, and currently not an ingredient
 	# it makes the sub ingredients being discarded
 	# recognize unknown ingredients that are labels as labels only if they
 	# don't have sub-ingredients
-	[ { lc => "en", ingredients_text => "pure juice (orange juice)"}, [ 'en:pure juice', 'en:orange-juice' ]],
+	[ { lc => "en", ingredients_text => "pure juice (orange juice)"}, [ 'en:pure-juice', 'en:orange-juice' ]],
 	# using vegan in case we add "pure juice" as an ingredient at some point
 	[ { lc => "en", ingredients_text => "vegan (orange juice)"}, [ 'en:orange-juice' ]],
 
@@ -118,7 +124,7 @@ my @tests = (
 	# caramel: e150, match e150c
 	[ { lc => "es", ingredients_text => "caramelo E-150c"} , ["en:e150c"]],
 	# mismatch between name and number
-	[ { lc => "fr", ingredients_text => "acide citrique E120"} , ["fr:acide citrique e120"]],
+	[ { lc => "fr", ingredients_text => "acide citrique E120"} , ["fr:acide-citrique-e120"]],
 	
 	# removal of "allergy advice..." in %ignore_regexps
 	[ { lc => "en", ingredients_text => "salt, spice. allergy advice! for allergens, see ingredients in bold, water."}, ['en:salt','en:spice','en:water']],
@@ -130,7 +136,7 @@ my @tests = (
 
 	# MSC
 	[ { lc => "fr", ingredients_text => "72% saumon MSC, colin d'Alaska certifié MSC, Cabillaud labellisé MSC"}, ['en:salmon', 'en:alaska-pollock', 'en:cod']],
-	[ { lc => "fr", ingredients_text => "poisson ascorbique"}, [ "fr:poisson ascorbique" ], ],
+	[ { lc => "fr", ingredients_text => "poisson ascorbique"}, [ "fr:poisson-ascorbique" ], ],
 	# AOP
 	[ { lc => "fr", ingredients_text => "piment d'Espelette AOP"}, [ "en:espelette-chili-pepper" ], ],
 
