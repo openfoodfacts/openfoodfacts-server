@@ -24,11 +24,13 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Users qw/:all/;
+use ProductOpener::Config qw/:all/;
 
 use LWP::UserAgent;
 use JSON;
 use Log::Any qw($log);
 use CGI qw(:standard);
+
 
 #Retrieve ory_kratos_session cookie 
 my $kratos_cookie = "ory_kratos_session=".cookie('ory_kratos_session');
@@ -58,6 +60,8 @@ if(defined $kratos_cookie){
         $log->debug("logout_url: ", $logout_url);
 
         #Unset OFF cookie
+        my $cookie_name   = 'session';
+        my $cookie_domain = "." . $server_domain;
         my $request_ref = ProductOpener::Display::init_request();
         my $session = {} ;
 		$request_ref->{cookie} = cookie(-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>"$cookie_domain") ;
