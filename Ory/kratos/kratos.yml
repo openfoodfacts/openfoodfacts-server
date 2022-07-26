@@ -27,7 +27,7 @@ serve:
     base_url: http://kratos.openfoodfacts.localhost:4434/
 
 selfservice:
-  default_browser_return_url: http://kratos.openfoodfacts.localhost/cgi/kratos_auth.pl
+  default_browser_return_url: http://world.openfoodfacts.localhost/cgi/kratos_auth.pl
   allowed_return_urls:
     - http://world.openfoodfacts.localhost/
     - http://kratos.openfoodfacts.localhost/cgi/kratos_auth.pl
