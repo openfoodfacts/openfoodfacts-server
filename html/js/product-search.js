@@ -380,16 +380,16 @@ function display_product_summary(target, product) {
         var card_html = 'class="attribute_card grade_' + grade + '">' +
             '<div><div class="attr_card_header">'+
             '<div class="img_attr"><img src="' + attribute.icon_url + '" style="height:72px;float:right;margin-left:0.5rem;"></div>' +
-            '<div><h4 class="grade_' + grade + '_title title-6 text-bold">' + attribute.title + '</h4></div></div>';
+            '<div class="attr_text"><h4 class="grade_' + grade + '_title attr_title">' + attribute.title + '</h4>';
 
         if (attribute.description_short) {
-            card_html += '<span class="text-small">' + attribute.description_short + '</span>';
+            card_html += '<span>' + attribute.description_short + '</span>';
         }
 
         if (attribute.missing) {
             card_html += "<p class='attribute_missing'>" + attribute.missing + "</p>";
         }
-        card_html += "</div>"
+        card_html += "</div></div></div>";
 		// check if the product attribute has an associated knowledge panel that exists
 		if (attribute.panel_id) {
 			// note: on the website, the id for the panel contains : instead of - (e.g. for the ingredients_analysis_en:vegan panel)

@@ -138,7 +138,7 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
 	}
 	else {
 		
-		html += preferences_text + html_edit_preferences;
+		html += html_edit_preferences;
 	}
 			
 	$( target_selected ).html(html);

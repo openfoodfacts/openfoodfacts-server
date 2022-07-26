@@ -66,7 +66,6 @@ $decalTop:48px;
         flex-direction:row;
         align-items:center;
         .title-6 {
-            padding-left:0.5rem;
         }
         .img_attr {
             width:90px;
@@ -77,6 +76,13 @@ $decalTop:48px;
                 object-fit:contain;
                 object-position: center left;
             }
+        }
+        .attr_text {
+            padding-left:0.5rem;
+        }
+        .attr_title {
+            margin:0;
+            padding:0;
         }
     }
 }
