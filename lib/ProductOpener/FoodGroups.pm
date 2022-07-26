@@ -206,6 +206,7 @@ sub compute_pnns_groups($product_ref) {
 		$product_ref->{pnns_groups_1} = "unknown";
 		$product_ref->{pnns_groups_1_tags} = ["unknown", "missing-association"];
 	}
+	return;
 }
 
 
@@ -259,6 +260,7 @@ sub compute_food_groups($product_ref) {
 		$product_ref->{categories_tags} = [@{$product_ref->{original_categories_tags}}];
 		delete $product_ref->{original_categories_tags};
 	}	
+	return;
 }
 
 
@@ -451,6 +453,7 @@ sub temporarily_change_categories_for_food_groups_computation($product_ref) {
 			remove_tag($product_ref, "categories", "en:unsweetened-beverages");
 		}
 	}
+	return;
 }
 
 1;

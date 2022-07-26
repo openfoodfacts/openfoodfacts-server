@@ -42,7 +42,7 @@ use Encode;
 use JSON::PP;
 use Log::Any qw($log);
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 my $code = normalize_code(param('code'));
 my $id = param('id');
@@ -51,10 +51,11 @@ my $annotations = param('annotations') | 0;
 
 if (not defined $ocr_engine) {
 	$ocr_engine = "tesseract";
+
 	# $ocr_engine = "google_cloud_vision";
 }
 
-$log->debug("start", { code => $code, id => $id }) if $log->is_debug();
+$log->debug("start", {code => $code, id => $id}) if $log->is_debug();
 
 if (not defined $code) {
 
@@ -75,12 +76,11 @@ if (($id =~ /^packaging/) and (param('process_image'))) {
 		}
 	}
 }
-my $data =  encode_json($results_ref);
+my $data = encode_json($results_ref);
 
-$log->debug("JSON data output", { data => $data }) if $log->is_debug();
+$log->debug("JSON data output", {data => $data}) if $log->is_debug();
 
-print header ( -charset=>'UTF-8', -access_control_allow_origin => '*' ) . $data;
-
+print header (-charset => 'UTF-8', -access_control_allow_origin => '*') . $data;
 
 exit(0);
 

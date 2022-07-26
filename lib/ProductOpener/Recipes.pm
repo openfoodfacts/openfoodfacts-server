@@ -200,6 +200,7 @@ sub add_product_recipe_to_set($recipes_ref, $product_ref, $recipe_ref) {
             recipe => $recipe_ref,
         };
     }
+    return;
 }
 
 

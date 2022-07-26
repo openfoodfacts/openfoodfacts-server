@@ -110,7 +110,7 @@ The hash must contain values for the following keys:
 - saturated_fat -> saturated fats in g / 100g or 100ml
 - saturated_fat_ratio -> saturated fat divided by fat * 100 (in %)
 - sodium -> sodium in mg / 100g or 100ml (if sodium is computed from salt, it needs to use a sodium = salt / 2.5 conversion factor
-- fruits_vegetables_nuts_colza_walnut_olive_oils -> % of fruits, vegetables, nuts, and colza / walnut / olive oiles
+- fruits_vegetables_nuts_colza_walnut_olive_oils -> % of fruits, vegetables, nuts, and colza / walnut / olive oils
 - fiber -> fiber in g / 100g or 100ml
 - proteins -> proteins in g / 100g or 100ml
 
@@ -141,7 +141,7 @@ The nutrients that are counted for the negative and positive points depend on th
 The function returns a list of 2 values:
 
 - Nutri-Score score from -15 to 40
-- Corresponding nutri-Score letter grade from a to e (in lowercase)
+- Corresponding Nutri-Score letter grade from a to e (in lowercase)
 
 The letter grade depends on the score and on whether the product is a beverage, or is a water.
 

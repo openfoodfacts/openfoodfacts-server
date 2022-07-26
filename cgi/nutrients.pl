@@ -35,7 +35,7 @@ use Log::Any qw($log);
 use CGI qw/:cgi :form escapeHTML/;
 use JSON::PP;
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 # Turn the flat nutriments table array into a nested array of nutrients
 # The level of each nutrient is indicated by leading dashes before its id:

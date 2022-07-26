@@ -172,6 +172,7 @@ sub create_knowledge_panels($$$$) {
     # Create the root panel that contains the panels we want to show directly on the product page
     create_panel_from_json_template("root", "api/knowledge-panels/root.tt.json",
         {}, $product_ref, $target_lc, $target_cc);
+    return;
 }
 
 
@@ -337,8 +338,8 @@ sub create_panel_from_json_template ($$$$$$) {
             };            
         }
     }
+    return;
 }
-
 
 =head2 extract_data_from_impact_estimator_best_recipe ($product_ref, $panel_data_ref)
 
@@ -389,6 +390,7 @@ sub extract_data_from_impact_estimator_best_recipe($$) {
     $panel_data_ref->{ecoscore_extended_data_more_precise_than_agribalyse} = is_ecoscore_extended_data_more_precise_than_agribalyse($product_ref);
 
     # TODO: compute the complete score, using Agribalyse impacts except for agriculture where we use the estimator impact
+    return;
 }
 
 
@@ -429,6 +431,7 @@ sub compare_impact_estimator_data_to_category_average($$$) {
             }
         }
     }
+    return;
 }
 
 
@@ -608,6 +611,7 @@ sub create_ecoscore_panel($$$) {
                 $label_panel_data_ref, $product_ref, $target_lc, $target_cc);
         }
     }    
+    return;
 }
 
 
@@ -668,6 +672,7 @@ sub create_environment_card_panel($$$) {
     # Create the environment_card panel
     create_panel_from_json_template("environment_card", "api/knowledge-panels/environment/environment_card.tt.json",
         $panel_data_ref, $product_ref, $target_lc, $target_cc);    
+    return;
 }
 
 
@@ -722,6 +727,7 @@ sub create_manufacturing_place_panel($$$) {
             }
         }
     }
+    return;
 }
 
 
@@ -761,6 +767,8 @@ sub create_health_card_panel($$$$) {
 
     create_nutriscore_panel($product_ref, $target_lc, $target_cc);
 
+    create_nutrient_levels_panels($product_ref, $target_lc, $target_cc);
+
     create_nutrition_facts_table_panel($product_ref, $target_lc, $target_cc);
 
     if ($options_ref->{activate_knowledge_panel_physical_activities}) {
@@ -779,6 +787,7 @@ sub create_health_card_panel($$$$) {
 
     create_panel_from_json_template("health_card", "api/knowledge-panels/health/health_card.tt.json",
         $panel_data_ref, $product_ref, $target_lc, $target_cc);    
+    return;
 }
 
 
@@ -809,7 +818,9 @@ sub create_nutriscore_panel($$$) {
 
 	$log->debug("create nutriscore panel", { code => $product_ref->{code}, nutriscore_data => $product_ref->{nutriscore_data} }) if $log->is_debug();
 	
-    my $panel_data_ref = data_to_display_nutriscore_and_nutrient_levels($product_ref);
+    my $panel_data_ref = data_to_display_nutriscore($product_ref);
+
+    # Nutri-Score panel
 
     if ($panel_data_ref->{nutriscore_grade} eq "not-applicable") {
         $panel_data_ref->{title} = lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_title");
@@ -821,6 +832,48 @@ sub create_nutriscore_panel($$$) {
     # Nutri-Score panel: score + details
     create_panel_from_json_template("nutriscore", "api/knowledge-panels/health/nutriscore/nutriscore.tt.json",
         $panel_data_ref, $product_ref, $target_lc, $target_cc);
+    return;
+}
+
+
+=head2 create_nutrient_levels_panels ( $product_ref, $target_lc, $target_cc )
+
+Creates knowledge panels for nutrient levels for fat, saturated fat, sugars and salt.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head4 country code $target_cc
+
+=cut
+
+sub create_nutrient_levels_panels($$$) {
+
+	my $product_ref = shift;
+	my $target_lc = shift;
+	my $target_cc = shift;
+
+	$log->debug("create nutriscore panel", { code => $product_ref->{code}, nutriscore_data => $product_ref->{nutriscore_data} }) if $log->is_debug();
+	
+    my $nutrient_levels_ref = data_to_display_nutrient_levels($product_ref);
+
+    # Nutrient levels panels
+    if (not $nutrient_levels_ref->{do_not_display}) {
+        foreach my $nutrient_level_ref (@{$nutrient_levels_ref->{nutrient_levels}}) {
+            my $nid = $nutrient_level_ref->{nid};
+            create_panel_from_json_template("nutrient_level_" . $nid, "api/knowledge-panels/health/nutrition/nutrient_level.tt.json",
+                $nutrient_level_ref, $product_ref, $target_lc, $target_cc);
+        }
+    }
+    return;
 }
 
 
@@ -862,6 +915,7 @@ sub create_nutrition_facts_table_panel($$$) {
         create_panel_from_json_template("nutrition_facts_table", "api/knowledge-panels/health/nutrition/nutrition_facts_table.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);
     }
+    return;
 }
 
 
@@ -899,6 +953,7 @@ sub create_serving_size_panel($$$) {
         create_panel_from_json_template("serving_size", "api/knowledge-panels/health/nutrition/serving_size.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);
     }
+    return;
 }
 
 =head2 create_physical_activities_panel ( $product_ref, $target_lc, $target_cc )
@@ -1013,6 +1068,7 @@ sub create_physical_activities_panel($$$) {
         create_panel_from_json_template("physical_activities", "api/knowledge-panels/health/nutrition/physical_activities.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);
     }
+    return;
 }
 
 
@@ -1074,6 +1130,7 @@ sub create_ingredients_panel($$$) {
 
     create_panel_from_json_template("ingredients", "api/knowledge-panels/health/ingredients/ingredients.tt.json",
         $panel_data_ref, $product_ref, $target_lc, $target_cc);
+    return;
 }
 
 
@@ -1132,6 +1189,7 @@ sub create_additives_panel($$$) {
             $additives_panel_data_ref, $product_ref, $target_lc, $target_cc);
 
     }
+    return;
 }
 
 
@@ -1197,6 +1255,7 @@ sub create_ingredients_analysis_panel($$$) {
         create_panel_from_json_template("ingredients_analysis", "api/knowledge-panels/health/ingredients/ingredients_analysis.tt.json",
             {}, $product_ref, $target_lc, $target_cc);
     }
+    return;
 }
 
 
@@ -1252,6 +1311,7 @@ sub add_taxonomy_properties_in_target_languages_to_object ($$$$$) {
             $object_ref->{$property . "_language"} = display_taxonomy_tag($target_lcs_ref->[0], "languages", $language_codes{$property_lc});
         }
     }
+    return;
 }
 
 
@@ -1322,6 +1382,7 @@ sub create_recommendation_panels($$$) {
                 {}, $product_ref, $target_lc, $target_cc);
         }
     }
+    return;
 }
 
 
@@ -1367,6 +1428,7 @@ sub create_nova_panel($$$) {
             $panel_data_ref, $product_ref, $target_lc, $target_cc);
 
     }
+    return;
 }
 
 1;

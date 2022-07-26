@@ -36,6 +36,7 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::PackagerCodes qw/:all/;
 use ProductOpener::Text qw/:all/;
+use ProductOpener::Lang qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -77,12 +78,10 @@ JSON
 	}
 }
 
-ProductOpener::Display::init();
-use ProductOpener::Lang qw/:all/;
+my $request_ref = ProductOpener::Display::init_request();
+$request_ref->{search} = 1;
 
 my $action = param('action') || 'display';
-
-my $request_ref = {'search' => 1};
 
 if ((defined param('search_terms')) and (not defined param('action'))) {
 	$action = 'process';
@@ -259,7 +258,6 @@ if ($action eq 'display') {
 
 	my %search_fields_labels = ();
 	my @tags_fields_options;
-	my @contains;
 
 	push(
 		@tags_fields_options,

@@ -114,8 +114,6 @@ $request->content( $json );
 
 my $cloud_vision_response = $ua->request($request);
 
-my $status;
-	
 if ($cloud_vision_response->is_success) {
 
 	$log->info("request to google cloud vision was successful") if $log->is_info();

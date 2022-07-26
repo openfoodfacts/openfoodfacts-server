@@ -32,6 +32,7 @@ sub import {
     strict->import;
     feature->import(qw/signatures :5.24/);
     utf8->import;
+    return;
 }
 
 sub unimport {
@@ -39,6 +40,7 @@ sub unimport {
     strict->unimport;
     feature->unimport;
     utf8->unimport;
+    return;
 }
 
 1;

@@ -15,7 +15,8 @@ export CPU_COUNT=$(shell nproc || echo 1)
 
 DOCKER_COMPOSE=docker-compose --env-file=${ENV_FILE}
 # we run tests in a specific project name to be separated from dev instances
-DOCKER_COMPOSE_TEST=COMPOSE_PROJECT_NAME=po_test PO_COMMON_PREFIX=test_ docker-compose --env-file=${ENV_FILE}
+# we also publish mongodb on a separate port to avoid conflicts
+DOCKER_COMPOSE_TEST=COMPOSE_PROJECT_NAME=po_test PO_COMMON_PREFIX=test_ MONGO_EXPOSE_PORT=27027 docker-compose --env-file=${ENV_FILE}
 
 .DEFAULT_GOAL := dev
 
@@ -179,32 +180,60 @@ front_build:
 	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker-compose run --rm dynamicfront  npm run build
 
 
-checks: front_build front_lint check_perltidy check_perl_fast
+checks: front_build front_lint check_perltidy check_perl_fast check_critic
 
 lint: lint_perltidy
 
+tests: build_lang_test unit_test integration_test
 
-tests: build_lang_test
-	@echo "🥫 Running tests …"
+unit_test:
+	@echo "🥫 Running unit tests …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run --rm backend prove -l --jobs ${CPU_COUNT}
+	${DOCKER_COMPOSE_TEST} run --rm backend prove -l --jobs ${CPU_COUNT} -r tests/unit
 	${DOCKER_COMPOSE_TEST} stop
-	@echo "🥫 test success"
+	@echo "🥫 unit tests success"
 
-test-one: guard-test # usage: make test-one test=t/test-file.t
-	@echo "🥫 Running test: '${test}' …"
+integration_test:
+	@echo "🥫 Running unit tests …"
+# we launch the server and run tests within same container
+# we also need dynamicfront for some assets to exists
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront
+# note: we need the -T option for ci (non tty environment)
+	${DOCKER_COMPOSE_TEST} exec -T backend prove -l -r tests/integration
+	${DOCKER_COMPOSE_TEST} stop
+	@echo "🥫 integration tests success"
+
+# usage:  make test-unit test=test-name.t
+test-unit: guard-test 
+	@echo "🥫 Running test: 'tests/unit/${test}' …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run --rm backend perl ${test}
+	${DOCKER_COMPOSE_TEST} run --rm backend perl tests/unit/${test}
+
+# usage:  make test-int test=test-name.t
+test-int: guard-test # usage: make test-one test=t/test-file.t
+	@echo "🥫 Running test: 'tests/integration/${test}' …"
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront
+	${DOCKER_COMPOSE_TEST} exec backend perl tests/integration/${test}
+# better shutdown, for if we do a modification of the code, we need a restart
+	${DOCKER_COMPOSE_TEST} stop backend
+
+# stop all docker tests containers
+stop_tests:
+	${DOCKER_COMPOSE_TEST} stop
 
 # check perl compiles, (pattern rule) / but only for newer files
 %.pm %.pl: _FORCE
 	if [ -f $@ ]; then perl -c -CS -Ilib $@; else true; fi
 
-# check all modified (compared to main) perl file compiles
-TO_CHECK=$(shell git diff main --name-only | grep  '.*\.\(pl\|pm\)$$')
+
+# TO_CHECK look at changed files (compared to main) with extensions .pl, .pm, .t
+# the ls at the end is to avoid removed files. 
+# We have to finally filter out "." as this will the output if we have no file
+TO_CHECK=$(shell git diff origin/main --name-only | grep  '.*\.\(pl\|pm\|t\)$$' | xargs ls -d 2>/dev/null | grep -v "^.$$" )
+
 check_perl_fast:
 	@echo "🥫 Checking ${TO_CHECK}"
-	${DOCKER_COMPOSE} run --rm backend make -j ${CPU_COUNT} ${TO_CHECK}
+	test -z "${TO_CHECK}" || ${DOCKER_COMPOSE} run --rm backend make -j ${CPU_COUNT} ${TO_CHECK}
 
 check_translations:
 	@echo "🥫 Checking translations"
@@ -219,16 +248,23 @@ check_perl:
 
 
 # check with perltidy
-# we only look at changed files (compared to main) with extensions .pl, .pm, .t
-TO_TIDY_CHECK=$(shell git diff main --name-only | grep  '.*\.\(pl\|pm\|t\)$$' | grep -vFf .perltidy_excludes )
+# we exclude files that are in .perltidy_excludes
+TO_TIDY_CHECK = $(shell echo ${TO_CHECK}| tr " " "\n" | grep -vFf .perltidy_excludes)
 check_perltidy:
 	@echo "🥫 Checking with perltidy ${TO_TIDY_CHECK}"
-	${DOCKER_COMPOSE} run --rm --no-deps backend perltidy --assert-tidy --standard-error-output ${TO_TIDY_CHECK}
+	test -z "${TO_TIDY_CHECK}" || ${DOCKER_COMPOSE} run --rm --no-deps backend perltidy --assert-tidy -opath=/tmp/ --standard-error-output ${TO_TIDY_CHECK}
 
 # same as check_perltidy, but this time applying changes
 lint_perltidy:
 	@echo "🥫 Linting with perltidy ${TO_TIDY_CHECK}"
-	${DOCKER_COMPOSE} run --rm --no-deps backend perltidy --standard-error-output -b -bext=/ ${TO_TIDY_CHECK}
+	test -z "${TO_TIDY_CHECK}" || ${DOCKER_COMPOSE} run --rm --no-deps backend perltidy --standard-error-output -b -bext=/ ${TO_TIDY_CHECK}
+
+
+#Checking with Perl::Critic
+# adding an echo of search.pl in case no files are edited
+check_critic:
+	@echo "🥫 Checking with perlcritic"
+	test -z "${TO_CHECK}" || ${DOCKER_COMPOSE} run --rm --no-deps backend perlcritic ${TO_CHECK}
 
 #-------------#
 # Compilation #
@@ -239,7 +275,7 @@ build_taxonomies:
 	${DOCKER_COMPOSE} run --no-deps --rm backend make -C taxonomies -j ${CPU_COUNT}
 
 rebuild_taxonomies:
-	@echo "🥫 re-build taxonomies on ${CPU_COUNT} procs"
+	@echo "🥫 re-build all taxonomies on ${CPU_COUNT} procs"
 	${DOCKER_COMPOSE} run --rm backend make -C taxonomies all_taxonomies -j ${CPU_COUNT}
 
 #------------#

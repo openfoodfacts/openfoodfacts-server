@@ -30,6 +30,7 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/:all/;
+use ProductOpener::Lang qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -38,8 +39,7 @@ use Encode;
 use JSON::PP;
 use Log::Any qw($log);
 
-ProductOpener::Display::init();
-use ProductOpener::Lang qw/:all/;
+my $request_ref = ProductOpener::Display::init_request();
 
 my $html = '';
 my $template_data_ref = {};
@@ -75,7 +75,7 @@ if (defined $User_id) {
 
 		$log->info("redirecting after login", {url => $url}) if $log->is_info();
 
-		$r->err_headers_out->add('Set-Cookie' => $cookie);
+		$r->err_headers_out->add('Set-Cookie' => $request_ref->{cookie});
 		$r->headers_out->set(Location => "$url");
 		$r->status(302);
 		return 302;
@@ -100,7 +100,6 @@ if (param('jqm')) {
 
 }
 else {
-
 	my $template;
 
 	if ((defined param('length')) and (param('length') eq 'logout')) {
@@ -119,11 +118,8 @@ else {
 	process_template("web/pages/session/$template.tt.html", $template_data_ref, \$html)
   			or $html = "<p>" . $tt->error() . "</p>";
 
-	display_page(
-		{
-			title => lang('session_title'),
-			content_ref => \$html
-		}
-	);
+	$request_ref->{title} = lang('session_title');
+	$request_ref->{content_ref} = \$html;
+	display_page($request_ref);
 }
 

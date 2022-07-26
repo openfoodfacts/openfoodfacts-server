@@ -21,7 +21,19 @@
                     [% END %]
                     [% IF panels.physical_activities.defined %]
                         "physical_activities",
-                    [% END %]                    
+                    [% END %]                   
+                    [% IF panels.nutrient_level_fat.defined %]
+                        "nutrient_level_fat",
+                    [% END %] 
+                    [% IF panels.${'nutrient_level_saturated-fat'}.defined %]
+                        "nutrient_level_saturated-fat",
+                    [% END %] 
+                    [% IF panels.nutrient_level_sugars.defined %]
+                        "nutrient_level_sugars",
+                    [% END %] 
+                    [% IF panels.nutrient_level_salt.defined %]
+                        "nutrient_level_salt",
+                    [% END %]                                                             
                     [% IF panels.nutrition_facts_table.defined %]
                         "nutrition_facts_table",
                     [% END %]

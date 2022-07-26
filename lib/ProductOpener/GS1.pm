@@ -830,6 +830,7 @@ sub init_csv_fields() {
 
 	%seen_csv_fields = ();
 	@csv_fields = ();	
+	return;
 }
 
 
@@ -852,6 +853,7 @@ sub assign_field($$$) {
 		push @csv_fields, $target_field;
 		$seen_csv_fields{$target_field} = 1;
 	}
+	return;
 }
 
 
@@ -1367,6 +1369,7 @@ sub gs1_to_off ($$$) {
 			}
 		}
 	}
+	return;
 }
 
 
@@ -1433,6 +1436,7 @@ sub convert_single_text_property_to_direct_value($) {
             }
         }
     }
+    return;
 }
 
 
@@ -1548,6 +1552,7 @@ sub convert_gs1_json_message_to_off_products_csv($$$) {
 	}
 	
 	push @$products_ref, $product_ref;
+	return;
 }
 
 
@@ -1589,6 +1594,7 @@ sub read_gs1_json_file($$$) {
 	convert_single_text_property_to_direct_value($json_ref);
 		
 	convert_gs1_json_message_to_off_products_csv($json_ref, $products_ref, $messages_ref);
+	return;
 }
 
 
@@ -1726,6 +1732,7 @@ sub write_off_csv_file($$) {
 	}
 	
 	close $filehandle;
+	return;
 }
 
 

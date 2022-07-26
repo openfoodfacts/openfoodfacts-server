@@ -959,6 +959,7 @@ sub add_properties_from_specific_ingredients($) {
 			}
 		}
 	}
+	return;
 }
 
 
@@ -1013,6 +1014,7 @@ sub add_specific_ingredients_from_labels($) {
 			}
 		}
 	}
+	return;
 }
 
 
@@ -1135,7 +1137,7 @@ sub parse_specific_ingredients_from_text($$$) {
 
 		# If we found an ingredient, save it in specific_ingredients
 		if (defined $ingredient) {
-			my $ingredient_id = canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient);
+			my $ingredient_id = get_taxonomyid($product_lc, canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient));
 
 			$matched_text =~ s/^\s+//;
 
@@ -1260,7 +1262,6 @@ sub parse_origins_from_text($$) {
 		# Initialize values
 		$matched_ingredient = undef;
 		my $matched_ingredient_ref = {};
-		my $matched_text;
 		my $origins;
 
 		# Call match functions to look for different ways to specify origins etc.
@@ -1270,7 +1271,7 @@ sub parse_origins_from_text($$) {
 
 				my $matched_text = $matched_ingredient_ref->{matched_text};
 				my $ingredient = $matched_ingredient_ref->{ingredient};
-				my $ingredient_id = canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient);
+				my $ingredient_id = get_taxonomyid($product_lc, canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient));
 
 				# Remove extra spaces
 				$ingredient =~ s/\s+$//;
@@ -2074,7 +2075,7 @@ sub parse_ingredients_text($) {
 			if (not $skip_ingredient) {
 
 				my %ingredient = (
-					id => $ingredient_id,
+					id => get_taxonomyid($product_ref->{lc},$ingredient_id),
 					text => $ingredient
 				);
 
@@ -2182,6 +2183,7 @@ sub flatten_sub_ingredients($) {
 		# Delete the sub-ingredients, as they have been pushed at the end of the list
 		delete $product_ref->{ingredients}[$i]{ingredients};
 	}
+	return;
 }
 
 
@@ -2284,6 +2286,7 @@ sub compute_ingredients_tags($) {
 		# ensure $product_ref->{ingredients_n} is last used as an int so that it is not saved as a strings
 		$product_ref->{ingredients_n} += 0;
 	}
+	return;
 }
 
 
@@ -2871,6 +2874,7 @@ sub compute_ingredients_percent_estimates($$) {
 	}
 
 	$log->debug("compute_ingredients_percent_estimates - done", { ingredients_ref => $ingredients_ref }) if $log->is_debug();
+	return;
 }
 
 
@@ -3107,6 +3111,7 @@ sub analyze_ingredients($) {
 
 	# Uncomment the following line to add an extra field with more data for debugging purposes
 	#$product_ref->{ingredients_analysis_debug} = $ingredients_analysis_ref;
+	return;
 }
 
 
@@ -5243,7 +5248,6 @@ sub extract_ingredients_classes_from_text($) {
 		}
 	}
 
-	my $with_sweeteners;
 
 	my %all_seen = (); # used to not tag "huile végétale" if we have seen "huile de palme" already
 
@@ -5745,13 +5749,9 @@ sub extract_ingredients_classes_from_text($) {
 		delete $product_ref->{$field . "_next_tags" };
 	}
 
-
-
-
 	if ((defined $product_ref->{ingredients_that_may_be_from_palm_oil_n}) or (defined $product_ref->{ingredients_from_palm_oil_n})) {
 		$product_ref->{ingredients_from_or_that_may_be_from_palm_oil_n} = $product_ref->{ingredients_that_may_be_from_palm_oil_n} + $product_ref->{ingredients_from_palm_oil_n};
 	}
-
 
 	delete $product_ref->{with_sweeteners};
 	if (defined $product_ref->{'additives_tags'}) {
@@ -5941,6 +5941,7 @@ sub detect_allergens_from_ingredients($) {
 			$log->debug("detect_allergens_from_ingredients -- found allergen", { allergens => $allergens }) if $log->is_debug();
 		}
 	}	
+	return;
 }
 
 

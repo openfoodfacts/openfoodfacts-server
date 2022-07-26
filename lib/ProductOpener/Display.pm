@@ -43,8 +43,9 @@ BEGIN
 	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&startup
-		&init
+		&init_request
 		&analyze_request
+		&redirect
 
 		&display_date
 		&display_date_tag
@@ -88,7 +89,8 @@ BEGIN
 
         &get_world_subdomain
 
-		&data_to_display_nutriscore_and_nutrient_levels
+		&data_to_display_nutriscore
+		&data_to_display_nutrient_levels
 		&data_to_display_ingredients_analysis
 		&data_to_display_ingredients_analysis_details
 
@@ -220,7 +222,7 @@ When the module is loaded (at the start of Apache with mod_perl), we record the 
 of static files like CSS styles an JS code so that we can add a version parameter to the request
 in order to make sure the browser will not serve an old cached version.
 
-=head3 Synopsys
+=head3 Synopsis
 
     $scripts .= <<HTML
         <script type="text/javascript" src="/js/dist/product-multilingual.js?v=$file_timestamps{"js/dist/product-multilingual.js"}"></script>
@@ -435,23 +437,63 @@ sub process_template($template_filename, $template_data_ref, $result_content_ref
 }
 
 
-=head2 init ()
+=head2 redirect($status_code, $redirect_url)
 
-C<init()> is called at the start of each new request (web page or API).
+This function instructs mod_perl to print redirect HTTP header (Location) and to terminate the request immediately.
+The mod_perl process is not terminated and will continue to serve future requests.
+
+=head3 Arguments
+
+=head4 Status code $status_code
+
+e.g. 302 for a temporary redirect
+
+=head4 Redirect url $redirect_url
+
+
+=cut
+
+sub redirect($status_code, $redirect_url) {
+		
+	my $r = Apache2::RequestUtil->request();
+	
+	$r->headers_out->set(Location => $redirect_url);
+	$r->status($status_code);
+	# note: under mod_perl, exit() will end the request without terminating the Apache mod_perl process
+	exit();
+}
+
+
+=head2 init_request ()
+
+C<init_request()> is called at the start of each new request (web page or API).
 It initializes a number of variables, in particular:
 
 $cc : country code
 $lc : language code
 
+It also initializes a request object that is returned.
+
+=head3 Return value
+
+Reference to request object.
+
 =cut
 
-sub init() {
+sub init_request() {
 
 	# Clear the context
 	delete $log->context->{user_id};
 	delete $log->context->{user_session};
 	$log->context->{request} = generate_token(16);
 
+	# Create and initialize a request object
+	my $request_ref = {
+		'query_string'=>$ENV{QUERY_STRING},
+		'referer'=>referer()
+	};
+
+	# TODO: global variables should be moved to $request_ref
 	$styles = '';
 	$scripts = '';
 	$initjs = '';
@@ -459,16 +501,12 @@ sub init() {
 	$bodyabout = '';
 	$admin = 0;
 
-	my $r = shift;
+	my $r = Apache2::RequestUtil->request();
 
 	$cc = 'world';
 	$lc = 'en';
 	@lcs = ();
 	$country = 'en:world';
-
-	if (not defined $r) {
-		$r = Apache2::RequestUtil->request();
-	}
 
 	$r->headers_out->set(Server => "Product Opener");
 	$r->headers_out->set("X-Frame-Options" => "DENY");
@@ -492,16 +530,9 @@ sub init() {
 	local $log->context->{ip} = remote_addr();
 	local $log->context->{query_string} = $ENV{QUERY_STRING};
 
-	$test = 0;
-	if ($subdomain =~ /\.test\./) {
-		$subdomain =~ s/\.test\./\./;
-		$test = 1;
-	}
-
 	$subdomain =~ s/\..*//;
 
 	$original_subdomain = $subdomain;    # $subdomain can be changed if there are cc and/or lc overrides
-
 
 	$log->debug("initializing request", { subdomain => $subdomain }) if $log->is_debug();
 
@@ -547,13 +578,10 @@ sub init() {
 	}
 	elsif ($ENV{QUERY_STRING} !~ /(cgi|api)\//) {
 		# redirect
-		my $redirect = get_world_subdomain() . "/" . $ENV{QUERY_STRING};
-		$log->info("request could not be matched to a known format, redirecting", { subdomain => $subdomain, lc => $lc, cc => $cc, country => $country, redirect => $redirect }) if $log->is_info();
-		$r->headers_out->set(Location => $redirect);
-		$r->status(301);
-		return 301;
+		my $redirect_url = get_world_subdomain() . $ENV{QUERY_STRING};
+		$log->info("request could not be matched to a known format, redirecting", { subdomain => $subdomain, lc => $lc, cc => $cc, country => $country, redirect => $redirect_url }) if $log->is_info();
+		redirect(302, $redirect_url);
 	}
-
 
 	$lc =~ s/_.*//;     # PT_PT doest not work yet: categories
 
@@ -568,11 +596,9 @@ sub init() {
 	if ((defined $lc) and (defined $cc) and (defined $country_languages{$cc}[0]) and ($country_languages{$cc}[0] eq $lc) and ($subdomain ne $cc) and ($subdomain !~ /^(ssl-)?api/) and ($r->method() eq 'GET') and ($ENV{QUERY_STRING} !~ /(cgi|api)\//)) {
 		# redirect
 		my $ccdom = format_subdomain($cc);
-		my $redirect = "$ccdom/" . $ENV{QUERY_STRING};
-		$log->info("lc is equal to first lc of the country, redirecting to countries main domain", { subdomain => $subdomain, lc => $lc, cc => $cc, country => $country, redirect => $redirect }) if $log->is_info();
-		$r->headers_out->set(Location => $redirect);
-		$r->status(301);
-		return 301;
+		my $redirect_url = $ccdom . $ENV{QUERY_STRING};
+		$log->info("lc is equal to first lc of the country, redirecting to countries main domain", { subdomain => $subdomain, lc => $lc, cc => $cc, country => $country, redirect => $redirect_url }) if $log->is_info();
+		redirect(302, $redirect_url);
 	}
 
 
@@ -621,7 +647,7 @@ sub init() {
 
 	$log->debug("URI parsed for additional information", { subdomain => $subdomain, original_subdomain => $original_subdomain, lc => $lc, lang => $lang, cc => $cc, country => $country }) if $log->is_debug();
 
-	my $error = ProductOpener::Users::init_user();
+	my $error = ProductOpener::Users::init_user($request_ref);
 	if ($error) {
 		if (not param('jqm')) { # API
 			display_error($error, undef);
@@ -721,7 +747,7 @@ CSS
 
 	$log->debug("owner, org and user", { private_products => $server_options{private_products}, owner_id => $Owner_id, user_id => $User_id, org_id => $Org_id }) if $log->is_debug();
 
-	return;
+	return $request_ref;
 }
 
 # component was specified as en:product, fr:produit etc.
@@ -766,7 +792,7 @@ Some information is set in request_ref, notably
 - some boolean for routing : search / taxonomy / mission / product / tag / points
 - parameters for products, mission, tags, etc.
 
-It handles redirect for remamed texts or products, .well-known/change-password
+It handles redirect for renamed texts or products, .well-known/change-password
 
 Sometimes we modify request parameters (param) to correspond to request_ref:
 - parameters for response format : json, jsonp, xml, ...
@@ -787,7 +813,7 @@ sub analyze_request($request_ref) {
 		$request_ref->{query_string} = $`;
 	}
 
-	# cc and lc query overrides have already been consumed by init(), remove them
+	# cc and lc query overrides have already been consumed by init_request(), remove them
 	# so that they do not interfere with the query string analysis after
 	$request_ref->{query_string} =~ s/(\&|\?)(cc|lc)=([^&]*)//g;
 
@@ -912,7 +938,7 @@ sub analyze_request($request_ref) {
 	elsif ((defined $options{redirect_texts}) and (defined $options{redirect_texts}{$lang . "/" . $components[0]})) {
 		$request_ref->{redirect} = $formatted_subdomain . "/" . $options{redirect_texts}{$lang . "/" . $components[0]};
 		$log->info("renamed text, redirecting", { textid => $components[0], redirect => $request_ref->{redirect} }) if $log->is_info();
-		return 301;
+		redirect(302, $request_ref->{redirect});
 	}
 
 	# First check if the request is for a text
@@ -971,7 +997,7 @@ sub analyze_request($request_ref) {
 	elsif ((scalar(@components) == 2) and ($components[0] eq '.well-known') and ($components[1] eq 'change-password')) {
 		$request_ref->{redirect} = $formatted_subdomain . '/cgi/change_password.pl';
 		$log->info('well-known password change page - redirecting', { redirect => $request_ref->{redirect} }) if $log->is_info();
-		return 307;
+		redirect(307, $request_ref->{redirect});
 	}
 
 	elsif ($#components == -1) {
@@ -2943,7 +2969,7 @@ sub display_points($request_ref) {
 	if ((defined $tagid) and ($newtagid ne $tagid) ) {
 		$request_ref->{redirect} = $formatted_subdomain . $request_ref->{current_link};
 		$log->info("newtagid does not equal the original tagid, redirecting", { newtagid => $newtagid, redirect => $request_ref->{redirect} }) if $log->is_info();
-		return 301;
+		redirect(302, $request_ref->{redirect});
 	}
 
 
@@ -3179,7 +3205,7 @@ sub display_tag($request_ref) {
 		$request_ref->{redirect} .= '.xml' if param("xml");
 		$request_ref->{redirect} .= '.jqm' if param("jqm");
 		$log->info("one or more tagids mismatch, redirecting to correct url", { redirect => $request_ref->{redirect} }) if $log->is_info();
-		return 302;
+		redirect(302, $request_ref->{redirect});
 	}
 
 	my $weblinks_html = '';
@@ -4583,6 +4609,7 @@ sub add_params_to_query($request_ref, $query_ref) {
 			}
 		}
 	}
+	return;
 }
 
 
@@ -4598,6 +4625,7 @@ sub initialize_knowledge_panels_options($knowledge_panels_options_ref) {
 	if (param("activate_knowledge_panel_physical_activities")) {
 		$knowledge_panels_options_ref->{activate_knowledge_panel_physical_activities} = 1;
 	}
+	return;
 }
 
 =head2 customize_response_for_product ( $request_ref, $product_ref )
@@ -5209,8 +5237,6 @@ sub search_and_display_products($request_ref, $query_ref, $sort_by, $limit, $pag
 
 		for my $product_ref (@{$request_ref->{structured_response}{products}}) {
 			my $img_url;
-			my $img_w;
-			my $img_h;
 
 			my $code = $product_ref->{code};
 			my $img = display_image_thumb($product_ref, 'front');
@@ -5546,6 +5572,7 @@ sub search_and_export_products($request_ref, $query_ref, $sort_by) {
 	$request_ref->{title} = lang("search_results");
 	$request_ref->{content_ref} = \$html;
 	display_page($request_ref);
+	return;
 }
 
 
@@ -6696,7 +6723,6 @@ sub display_page($request_ref) {
 
 	$log->debug("displaying page", { title => $title }) if $log->is_debug();
 
-	my $object_ref;
 	my $type;
 	my $id;
 
@@ -6909,7 +6935,6 @@ sub display_page($request_ref) {
 	my $image_banner = "";
 	my $link = lang("donate_link");
 	my $image;
-	my $utm;
 	my @banners = qw(independent personal research);
 	my $banner = $banners[time() % @banners];
 	$image = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
@@ -7050,22 +7075,18 @@ HTML
 	# Replace urls for texts in links like <a href="/ecoscore"> with a localized name
 	$html =~ s/(href=")(\/[^"]+)/$1 . url_for_text($2)/eg;
 
-	if ((defined param('length')) and (param('length') eq 'logout')) {
-		my $test = '';
-		if ($data_root =~ /-test/) {
-			$test = "-test";
-		}
-		my $session = {} ;
-		my $cookie2 = cookie (-name=>'session', -expires=>'-1d',-value=>$session, domain=>".$lc$test.$server_domain", -path=>'/', -samesite=>'Lax') ;
-		print header (-cookie=>[$cookie, $cookie2], -expires=>'-1d', -charset=>'UTF-8');
-	}
-	elsif (defined $cookie) {
-		print header (-cookie=>[$cookie], -expires=>'-1d', -charset=>'UTF-8');
-	}
-	else {
-		print header ( -expires=>'-1d', -charset=>'UTF-8');
+	my $http_headers_ref = {
+		'-expires' => '-1d',
+		'-charset' => 'UTF-8',
+	};
+
+	# init_user() may set or unset the session cookie
+	if (defined $request_ref->{cookie}) {
+		$http_headers_ref->{'-cookie'} = [$request_ref->{cookie}];
 	}
 
+	print header(%$http_headers_ref);
+	
 	my $status = $request_ref->{status};
 	if (defined $status) {
 		print header ( -status => $status );
@@ -7363,8 +7384,8 @@ CSS
 	# Old UPC-12 in url? Redirect to EAN-13 url
 	if ($request_code ne $code) {
 		$request_ref->{redirect} = $request_ref->{canon_url};
-		$log->info("301 redirecting user because request_code does not match code", { redirect => $request_ref->{redirect}, lc => $lc, request_code => $code }) if $log->is_info();
-		return 301;
+		$log->info("302 redirecting user because request_code does not match code", { redirect => $request_ref->{redirect}, lc => $lc, request_code => $code }) if $log->is_info();
+		redirect(302, $request_ref->{redirect});
 	}
 
 	# Check that the titleid is the right one
@@ -7373,8 +7394,8 @@ CSS
 			(($titleid ne '') and ((not defined $request_ref->{titleid}) or ($request_ref->{titleid} ne $titleid))) or
 			(($titleid eq '') and ((defined $request_ref->{titleid}) and ($request_ref->{titleid} ne ''))) )) {
 		$request_ref->{redirect} = $request_ref->{canon_url};
-		$log->info("301 redirecting user because titleid is incorrect", { redirect => $request_ref->{redirect}, lc => $lc, product_lc => $product_ref->{lc}, titleid => $titleid, request_titleid => $request_ref->{titleid} }) if $log->is_info();
-		return 301;
+		$log->info("302 redirecting user because titleid is incorrect", { redirect => $request_ref->{redirect}, lc => $lc, product_lc => $product_ref->{lc}, titleid => $titleid, request_titleid => $request_ref->{titleid} }) if $log->is_info();
+		redirect(302, $request_ref->{redirect});
 	}
 
 	# Note: the product_url function is automatically added to all templates
@@ -7859,15 +7880,16 @@ HTML
 
 		# Display Nutri-Score and nutrient levels
 
-		my $template_data_nutriscore_and_nutrient_levels_ref = data_to_display_nutriscore_and_nutrient_levels($product_ref);
+		my $template_data_nutriscore_ref = data_to_display_nutriscore($product_ref);
+		my $template_data_nutrient_levels_ref = data_to_display_nutrient_levels($product_ref);
 
 		my $nutriscore_html = '';
 		my $nutrient_levels_html = '';
 
-		if (not $template_data_nutriscore_and_nutrient_levels_ref->{do_not_display}) {
+		if (not $template_data_nutrient_levels_ref->{do_not_display}) {
 
-			process_template('web/pages/product/includes/nutriscore.tt.html', $template_data_nutriscore_and_nutrient_levels_ref, \$nutriscore_html) || return "template error: " . $tt->error();
-			process_template('web/pages/product/includes/nutrient_levels.tt.html', $template_data_nutriscore_and_nutrient_levels_ref, \$nutrient_levels_html) || return "template error: " . $tt->error();
+			process_template('web/pages/product/includes/nutriscore.tt.html', $template_data_nutriscore_ref, \$nutriscore_html) || return "template error: " . $tt->error();
+			process_template('web/pages/product/includes/nutrient_levels.tt.html', $template_data_nutrient_levels_ref, \$nutrient_levels_html) || return "template error: " . $tt->error();
 		}
 
 		$template_data_ref->{display_nutriscore} =  $nutriscore_html;
@@ -8612,9 +8634,9 @@ sub display_nutriscore_calculation_details($nutriscore_data_ref) {
 }
 
 
-=head2 data_to_display_nutriscore_and_nutrient_levels ( $product_ref )
+=head2 data_to_display_nutrient_levels ( $product_ref )
 
-Generates a data structure to display the Nutri-Score and the nutrient levels (food trafic lights).
+Generates a data structure to display the nutrient levels (food traffic lights).
 
 The resulting data structure can be passed to a template to generate HTML or the JSON data for a knowledge panel.
 
@@ -8628,11 +8650,81 @@ Reference to a data structure with needed data to display.
 
 =cut
 
-sub data_to_display_nutriscore_and_nutrient_levels($product_ref) {
+sub data_to_display_nutrient_levels($product_ref) {
 
 	my $result_data_ref = {};
 
-	# Populate the data templates needed to display the Nutri-Score and nutrient levels
+	# Do not display traffic lights for baby foods
+	if (has_tag($product_ref, "categories", "en:baby-foods")) {
+
+		$result_data_ref->{do_not_display} = 1;
+	}
+
+	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, coffee, tea)
+	# unless we have nutrition data for the prepared product
+
+	my $prepared = "";
+
+	foreach my $category_tag ("en:dried-products-to-be-rehydrated", "en:chocolate-powders", "en:dessert-mixes", "en:flavoured-syrups") {
+
+		if (has_tag($product_ref, "categories", $category_tag)) {
+
+			if ((defined $product_ref->{nutriments}{"energy_prepared_100g"})) {
+				$prepared = '_prepared';
+				last;
+			}
+			else {
+				$result_data_ref->{do_not_display} = 1;
+			}
+		}
+	}
+
+	if (not $result_data_ref->{do_not_display}) {
+
+		$result_data_ref->{nutrient_levels} = [];
+
+		foreach my $nutrient_level_ref (@nutrient_levels) {
+			my ($nid, $low, $high) = @{$nutrient_level_ref};
+
+			if ((defined $product_ref->{nutrient_levels}) and (defined $product_ref->{nutrient_levels}{$nid})) {
+
+				push @{$result_data_ref->{nutrient_levels}}, {
+					nid => $nid,
+					nutrient_level => $product_ref->{nutrient_levels}{$nid},
+					nutrient_quantity_in_grams => sprintf("%.2e", $product_ref->{nutriments}{$nid . $prepared . "_100g"}) + 0.0,
+					nutrient_in_quantity => sprintf(lang("nutrient_in_quantity"), display_taxonomy_tag($lc, "nutrients", "zz:$nid") , lang($product_ref->{nutrient_levels}{$nid} . "_quantity")),
+					# Needed for the current display on product page, can be removed once transitioned fully to knowledge panels
+					nutrient_bold_in_quantity => sprintf(lang("nutrient_in_quantity"), "<b>" . display_taxonomy_tag($lc, "nutrients", "zz:$nid") . "</b>", lang($product_ref->{nutrient_levels}{$nid} . "_quantity")),
+				};
+			}
+		}
+	}
+
+	return $result_data_ref;
+}
+
+
+=head2 data_to_display_nutriscore ( $product_ref )
+
+Generates a data structure to display the Nutri-Score.
+
+The resulting data structure can be passed to a template to generate HTML or the JSON data for a knowledge panel.
+
+=head3 Arguments
+
+=head4 Product reference $product_ref
+
+=head3 Return values
+
+Reference to a data structure with needed data to display.
+
+=cut
+
+sub data_to_display_nutriscore($) {
+
+	my $product_ref = shift;
+
+	my $result_data_ref = {};
 
 	# Nutri-Score data
 
@@ -8736,60 +8828,14 @@ sub data_to_display_nutriscore_and_nutrient_levels($product_ref) {
 		$result_data_ref->{nutriscore_details} = display_nutriscore_calculation_details($product_ref->{nutriscore_data});
 	}
 
-
-	# Nutrient levels data
-
-	# Do not display traffic lights for baby foods
-	if (has_tag($product_ref, "categories", "en:baby-foods")) {
-
-		$result_data_ref->{do_not_display} = 1;
-	}
-
-	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, coffee, tea)
-	# unless we have nutrition data for the prepared product
-
-	my $prepared = "";
-
-	foreach my $category_tag ("en:dried-products-to-be-rehydrated", "en:chocolate-powders", "en:dessert-mixes", "en:flavoured-syrups") {
-
-		if (has_tag($product_ref, "categories", $category_tag)) {
-
-			if ((defined $product_ref->{nutriments}{"energy_prepared_100g"})) {
-				$prepared = '_prepared';
-				last;
-			}
-			else {
-				$result_data_ref->{do_not_display} = 1;
-			}
-		}
-	}
-
-	if (not $result_data_ref->{do_not_display}) {
-
-		$result_data_ref->{nutrient_levels} = [];
-
-		foreach my $nutrient_level_ref (@nutrient_levels) {
-			my ($nid, $low, $high) = @{$nutrient_level_ref};
-
-			if ((defined $product_ref->{nutrient_levels}) and (defined $product_ref->{nutrient_levels}{$nid})) {
-
-				push @{$result_data_ref->{nutrient_levels}}, {
-					nutrient_level => $product_ref->{nutrient_levels}{$nid},
-					nutriment_prepared => sprintf("%.2e", $product_ref->{nutriments}{$nid . $prepared . "_100g"}) + 0.0,
-					nutriment_quantity => sprintf(lang("nutrient_in_quantity"), "<b>" . display_taxonomy_tag($lc, "nutrients", "zz:$nid") . "</b>", lang($product_ref->{nutrient_levels}{$nid} . "_quantity")),
-				};
-			}
-		}
-	}
-
-
 	return $result_data_ref;
 }
 
 
 sub add_product_nutriment_to_stats($nutriments_ref, $nid, $value) {
 
-	if ($value ne '') {
+
+	if ((defined $value) and ($value ne '')) {
 
 		if (not defined $nutriments_ref->{"${nid}_n"}) {
 			$nutriments_ref->{"${nid}_n"} = 0;
@@ -9271,7 +9317,6 @@ CSS
 			}
 			my @columns;
 			my @extra_row_columns;
-			my @ecological_impact_columns;
 
 			my $extra_row = 0;	# Some rows will trigger an extra row (e.g. Salt adds Sodium)
 
@@ -10594,7 +10639,7 @@ sub data_to_display_ingredients_analysis_details($product_ref) {
 
 	if ((not defined $product_ref->{ingredients})
 		or (scalar @{$product_ref->{ingredients}} == 0)) {
-		return undef;
+		return;
 	}
 
 	my $result_data_ref = {};
@@ -10970,6 +11015,7 @@ sub display_properties($request_ref) {
 	$request_ref->{page_type} = "properties";
 
 	display_page($request_ref);
+	return;
 }
 
 1;
