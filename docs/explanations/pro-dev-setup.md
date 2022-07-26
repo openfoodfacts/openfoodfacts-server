@@ -40,6 +40,7 @@ For the moment it is not a problem for we don't need to communicate directly
 between instances.
 If it was, we would have to define custom aliases for those services on the `minion_db` network.
 
+```
 network    OFF              network       PRO              network
 po_default containers       minion_db     containers       po_pro_default
     |                          |                              |
@@ -56,3 +57,4 @@ po_default containers       minion_db     containers       po_pro_default
     +------frontend            |          frontend------------+
     +------mongodb             |          mongodb-------------+
     |                          |                              |
+```
