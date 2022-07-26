@@ -50,12 +50,14 @@ Currently to logout go to world.openfoodfacts.localhost/cgi/kratos_logout.pl, ev
 - Kratos knows where to go after redirecting from logout url as this is configured in kratos.yml
 
 ## Account Settings
-Currently can only be done in Ory Managed UI, but eventually can simply redirect account settings button to http://kratos.openfoodfacts.localhost:4455/settings
+To change the account settings go to http://kratos.openfoodfacts.localhost:4455/settings
+
+Have created an kratos_update_settings.pl that will update the users sto file after user has updating settings in kratos
 
 What should be done:
-- After completing the settings flow update the users sto file with new kratos JSON parameters
-
-Can configure where to go after settings flow is complete in kratos.yml
+- After completing the settings flow send the user to http://world.openfoodfacts.localhost/cgi/kratos_update_settings.pl
+- When user clicks change account parameters in OFF send them to http://kratos.openfoodfacts.localhost:4455/settings
+- Add redirect in kratos_update_settings.pl either back to the settings page or to OFF
 
 ## Account recovery and Email verification 
 Will configure with the OFF courier see the docs https://www.ory.sh/docs/kratos/guides/account-activation-email-verification
