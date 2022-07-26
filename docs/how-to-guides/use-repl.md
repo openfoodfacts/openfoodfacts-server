@@ -1,7 +1,7 @@
 # Using Repl
 
 On your local dev instance, the "backend" container
-comes with [Devel::REPL](https://metacpan.org/pod/) installed.
+comes with [Devel::REPL](https://metacpan.org/pod/Devel::REPL) installed.
 
 Thanks to `PERL5LIB` variable which is already configured,
 you can load any module of `ProductOpener` from within it.
