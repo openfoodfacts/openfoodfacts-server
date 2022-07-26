@@ -43,8 +43,9 @@ BEGIN
 	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&startup
-		&init
+		&init_request
 		&analyze_request
+		&redirect
 
 		&display_date
 		&display_date_tag
@@ -505,10 +506,6 @@ sub init_request() {
 	$lc = 'en';
 	@lcs = ();
 	$country = 'en:world';
-
-	if (not defined $r) {
-		$r = Apache2::RequestUtil->request();
-	}
 
 	$r->headers_out->set(Server => "Product Opener");
 	$r->headers_out->set("X-Frame-Options" => "DENY");
