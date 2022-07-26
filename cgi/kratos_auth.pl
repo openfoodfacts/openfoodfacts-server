@@ -25,6 +25,8 @@ use utf8;
 
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Lang qw/:all/;
+use ProductOpener::Display qw/:all/;
 
 use LWP::UserAgent;
 use JSON;
@@ -58,10 +60,14 @@ if(defined $kratos_cookie){
 
         #get user info from kratos json hash
         my $UserID = $content_ref->{identity}{traits}{UserID};
+        my $name_kratos = $content_ref->{identity}{traits}{name};
         my $email_kratos = $content_ref->{identity}{traits}{email};
         my $newsletter_kratos = $content_ref->{identity}{traits}{newsletter};
         my $edit_link_kratos = $content_ref->{identity}{traits}{"Add Edit Link"};
         my $display_barcode_kratos = $content_ref->{identity}{traits}{"Display Barcode"};
+        my $team_1_kratos = $content_ref->{identity}{traits}{Teams}{"Team 1"};
+        my $team_2_kratos = $content_ref->{identity}{traits}{Teams}{"Team 2"};
+        my $team_3_kratos = $content_ref->{identity}{traits}{Teams}{"Team 3"};
         
         # $log->debug($json);
         # $log->debug("User ID: ", $UserID);
@@ -85,9 +91,51 @@ if(defined $kratos_cookie){
             #create hash for storable
             my $hash = {    
                 userid => $UserID,
-                email => $email_kratos
-
+                email => $email_kratos,
+                name => $name_kratos,
+                initial_lc => $lc,
+                initial_cc => $cc,
+                initial_user_agent => user_agent(),
+                ip => remote_addr()
             };
+
+            if($newsletter_kratos == 0){
+                $hash->{newsletter} = '';
+            }
+            else{
+                $hash->{newsletter} = 'on';
+            }
+
+            #if set to false do not set
+            if($edit_link_kratos == 0){
+                $hash->{edit_link} = '';
+            }
+
+            #if set to false do not set
+            if($display_barcode_kratos == 0){
+                $hash->{display_barcode} = '';
+            }
+
+            if($team_1_kratos eq ''){
+                $hash->{team_1} = '';
+            }
+            else{
+                $hash->{team_1} = $team_1_kratos;
+            }
+
+            if($team_2_kratos eq ''){
+                $hash->{team_2} = '';
+            }
+            else{
+                $hash->{team_2} = $team_2_kratos;
+            }
+
+            if($team_3_kratos eq ''){
+                $hash->{team_3} = '';
+            }
+            else{
+                $hash->{team_3} = $team_3_kratos;
+            }
 
             store($hash, $user_file);
 
