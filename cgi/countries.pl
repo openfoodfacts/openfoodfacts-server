@@ -41,7 +41,10 @@ use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
 
-ProductOpener::Display::init();
+# This script returns a list of countries in the language of the interface in a JSON format
+# it is used to display the dropdown list of countries
+
+ProductOpener::Display::init_request();
 
 my $term = decode utf8 => param('term');
 
