@@ -640,6 +640,7 @@ sub migrate_password_hash($user_ref) {
 		$user_ref->{'encrypted_password'} = create_password_hash(encode_utf8(decode utf8=>param('password')) );
 		$log->info("crypt password upgraded to scrypt_hash") if $log->is_info();
 	}
+	return;
 }
 
 
@@ -673,6 +674,7 @@ sub remove_old_sessions($user_ref) {
 			delete $user_ref->{'user_sessions'}{$oldest_session};
 		}
 	}
+	return;
 }
 
 
