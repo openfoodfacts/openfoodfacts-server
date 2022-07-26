@@ -26,7 +26,7 @@ ProductOpener::Ingredients - process and analyze ingredients lists
 
 C<ProductOpener::Ingredients> processes, normalize, parses and analyze
 ingredients lists to extract and recognize individual ingredients,
-additives and allernes, and to compute product properties related to
+additives and allergens, and to compute product properties related to
 ingredients (is the product vegetarian, vegan, does it contain palm oil etc.)
 
     use ProductOpener::Ingredients qw/:all/;
@@ -2883,7 +2883,7 @@ sub compute_ingredients_percent_estimates($$) {
 This function analyzes ingredients to see the ones that are vegan, vegetarian, from palm oil etc.
 and computes the resulting value for the complete product.
 
-The results are overriden by labels like "Vegan", "Vegetarian" or "Palm oil free"
+The results are overrode by labels like "Vegan", "Vegetarian" or "Palm oil free"
 
 Results are stored in the ingredients_analysis_tags array.
 

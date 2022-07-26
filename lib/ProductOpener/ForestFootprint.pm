@@ -31,7 +31,7 @@ C<ProductOpener::Ecoscore> is used to compute the forest footprint of a food pro
 The modules implements the forest footprint computation as defined by the French NGO Envol Vert.
 
 The computation is based on the amount of soy needed to produce the ingredients,
-and the risk that thay soy contributed to deforestation.
+and the risk that that soy contributed to deforestation.
 
 =cut
 
@@ -312,7 +312,7 @@ This function is called when we have an ingredient or a category for which we ha
 It determines the type of the footprint based on labels, origins etc. and adds a corresponding footprint
 to the list of footprints for the products (possibly several if the product has multiple ingredients with a footprint)
 
-=head3 Synopsys
+=head3 Synopsis
 
 add_footprint($product_ref, $ingredient_ref, $footprints_ref, $ingredients_category_ref, {
 							tag => ["ingredients", $ingredients_ref->{id}, $category_ingredient_id],

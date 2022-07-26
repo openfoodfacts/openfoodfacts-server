@@ -907,7 +907,7 @@ Used on the web site for facets pages, except the index page.
 
 =head3 popularity_key - Popular and recent products
 
-Used for the Personal Search project to provide generic search results that apps can personlize later.
+Used for the Personal Search project to provide generic search results that apps can personalize later.
 
 =cut
 

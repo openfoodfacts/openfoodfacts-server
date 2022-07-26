@@ -207,7 +207,7 @@ This is so that we can easily see diffs with git diffs:
 
 =head4 $update_expected_results - flag to indicate to save test results as expected results
 
-Tests will pass when this flag is passed, and the new expected results can be diffed / commited in GitHub.
+Tests will pass when this flag is passed, and the new expected results can be diffed / committed in GitHub.
 
 =cut
 
@@ -256,7 +256,7 @@ This is so that we can easily see diffs with git diffs:
 =head4 $update_expected_results - flag to indicate to save test results as expected results
 
 Tests will always pass when this flag is passed,
-and the new expected results can be diffed / commited in GitHub.
+and the new expected results can be diffed / committed in GitHub.
 
 =cut
 
@@ -374,9 +374,9 @@ sub _sub_items($item_ref, $subfields_ref) {
 
 =head2 normalize_product_for_test_comparison(product_ref)
 
-Normalize a product to be able to compare them accross tests runs.
+Normalize a product to be able to compare them across tests runs.
 
-We remove time dependant fields and sort some lists.
+We remove time dependent fields and sort some lists.
 
 =head3 Arguments
 

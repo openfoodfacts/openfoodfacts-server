@@ -242,7 +242,7 @@ sub is_admin_user($user_id) {
 =head2 check_user_form()
 
 C<check_user_form()> This method checks and validates the different entries in the user form. 
-It also handles Spam-usernames, feilds for the organisation accounts. 
+It also handles Spam-usernames, fields for the organization accounts. 
 
 =cut
 
