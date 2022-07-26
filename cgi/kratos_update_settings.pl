@@ -28,21 +28,20 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Store qw/:all/;
+use ProductOpener::Text qw/:all/;
+
+use Storable qw(store retrieve freeze thaw dclone);
 
 use LWP::UserAgent;
 use JSON;
 use Log::Any qw($log);
 use CGI qw(:standard);
 
-use Storable qw(store retrieve freeze thaw dclone);
-
-
 #Retrieve ory_kratos_session cookie 
 my $kratos_cookie = "ory_kratos_session=".cookie('ory_kratos_session');
 $log->debug($kratos_cookie);
 
 if(defined $kratos_cookie){
-    
     my $url = "http://kratos.openfoodfacts.localhost:4433/sessions/whoami";
 
     my $ua = LWP::UserAgent->new;
@@ -69,87 +68,63 @@ if(defined $kratos_cookie){
         my $team_1_kratos = $content_ref->{identity}{traits}{Teams}{"Team 1"};
         my $team_2_kratos = $content_ref->{identity}{traits}{Teams}{"Team 2"};
         my $team_3_kratos = $content_ref->{identity}{traits}{Teams}{"Team 3"};
-        
-        # $log->debug($json);
-        # $log->debug("User ID: ", $UserID);
-        # $log->debug("Email: ", $email_kratos);
-        # $log->debug("newsletter: ", $newsletter_kratos);
-        # $log->debug("edit link: ", $edit_link_kratos);
-        # $log->debug("display barcode: ", $display_barcode_kratos);
 
         #retrieve users storable file
         my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $UserID) . ".sto";
-        if (-e $user_file) {
+        my $user_ref = retrieve($user_file);
 
-            my $request_ref = ProductOpener::Display::init_request();   
-            my $user_ref = retrieve($user_file) ;
+        $user_ref->{userid} => $UserID;
+        $user_ref->{email} => $email_kratos;
+        $user_ref->{name} => $name_kratos;
 
-            open_user_session($user_ref, $request_ref);
+        if($newsletter_kratos == 0){
+            $user_ref->{newsletter} = '';
         }
         else{
-            #store user file in storable if user has no sto file
-
-            #create hash for storable
-            my $hash = {    
-                userid => $UserID,
-                email => $email_kratos,
-                name => $name_kratos,
-                initial_lc => $lc,
-                initial_cc => $cc,
-                initial_user_agent => user_agent(),
-                ip => remote_addr()
-            };
-
-            if($newsletter_kratos == 0){
-                $hash->{newsletter} = '';
-            }
-            else{
-                $hash->{newsletter} = 'on';
-            }
-
-            #if set to true do not set
-            if($edit_link_kratos == 0){
-                $hash->{edit_link} = '';
-            }
-
-            #if set to true do not set
-            if($display_barcode_kratos == 0){
-                $hash->{display_barcode} = '';
-            }
-
-            if($team_1_kratos eq ''){
-                $hash->{team_1} = '';
-            }
-            else{
-                $hash->{team_1} = $team_1_kratos;
-            }
-
-            if($team_2_kratos eq ''){
-                $hash->{team_2} = '';
-            }
-            else{
-                $hash->{team_2} = $team_2_kratos;
-            }
-
-            if($team_3_kratos eq ''){
-                $hash->{team_3} = '';
-            }
-            else{
-                $hash->{team_3} = $team_3_kratos;
-            }
-
-            store($hash, $user_file);
-
-            my $request_ref = ProductOpener::Display::init_request();   
-            my $user_ref = retrieve($user_file) ;
-
-            open_user_session($user_ref, $request_ref);
+            $user_ref->{newsletter} = 'on';
         }
+
+        
+        if($edit_link_kratos == 0){
+            $user_ref->{edit_link} = '';
+        }
+        else{
+            delete $user_ref->{edit_link};
+        }
+
+        if($display_barcode_kratos == 0){
+            $user_ref->{display_barcode} = '';
+        }
+        else{
+            delete $user_ref->{display_barcode};
+        }
+
+        if($team_1_kratos eq ''){
+            $user_ref->{team_1} = '';
+        }
+        else{
+            $user_ref->{team_1} = $team_1_kratos;
+        }
+
+        if($team_2_kratos eq ''){
+            $user_ref->{team_2} = '';
+        }
+        else{
+            $user_ref->{team_2} = $team_2_kratos;
+        }
+
+        if($team_3_kratos eq ''){
+            $user_ref->{team_3} = '';
+        }
+        else{
+            $user_ref->{team_3} = $team_3_kratos;
+        }
+
+        #store the updated sto file
+        store($user_ref, $user_file);
     }
     else {
         $log->debug("HTTP GET error code: ", $resp->code, "n");
         $log->debug("HTTP GET error message: ", $resp->message, "n");
     }
 }
-
-print redirect(-url=>'http://world.openfoodfacts.localhost//');
