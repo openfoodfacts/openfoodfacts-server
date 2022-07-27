@@ -85,6 +85,7 @@ if(defined $kratos_cookie){
             my $user_ref = retrieve($user_file) ;
 
             open_user_session($user_ref, $request_ref);
+            display_page($request_ref);
         }
         else{
             #store user file in storable if user has no sto file
@@ -144,6 +145,7 @@ if(defined $kratos_cookie){
             my $user_ref = retrieve($user_file) ;
 
             open_user_session($user_ref, $request_ref);
+            display_page($request_ref);
         }
     }
     else {
@@ -151,5 +153,3 @@ if(defined $kratos_cookie){
         $log->debug("HTTP GET error message: ", $resp->message, "n");
     }
 }
-
-print redirect(-url=>'http://world.openfoodfacts.localhost//');

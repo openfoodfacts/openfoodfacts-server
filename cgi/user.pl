@@ -49,9 +49,13 @@ my $template_data_ref = {};
 
 
 if($ORY_ENABLED){
-	#redirect to ory kratos api if no flow
-	if(not defined param('flow')){
-		print redirect(-url=>'http://127.0.0.1:4433//self-service/registration/browser');
+	my $kratos_cookie = cookie('ory_kratos_session');
+	#if kratos cookie go to settings else go to create an account
+	if(defined $kratos_cookie){
+		print redirect(-url=>'http://kratos.openfoodfacts.localhost:4455/settings');
+	}
+	else{
+		print redirect(-url=>'http://kratos.openfoodfacts.localhost:4455/registration');
 	}
 }
 

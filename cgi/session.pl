@@ -45,6 +45,14 @@ my $template_data_ref = {};
 
 $template_data_ref->{user_id} = $User_id;
 
+if($ORY_ENABLED){
+	my $kratos_cookie = cookie('ory_kratos_session');
+	#if kratos cookie go to settings else go to create an account
+	if(defined $kratos_cookie){
+		print redirect(-url=>'http://world.openfoodfacts.localhost/cgi/kratos_logout.pl');
+	}
+}
+
 if (defined $User_id) {
 
 	$template_data_ref->{user_name} = $User{name};
