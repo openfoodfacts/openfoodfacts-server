@@ -45,7 +45,7 @@ BEGIN
 		&startup
 		&init_request
 		&analyze_request
-		&redirect
+		&redirect_to_url
 
 		&display_date
 		&display_date_tag
