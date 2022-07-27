@@ -47,7 +47,6 @@ my $action = param('action') || 'display';
 # Passing values to the template
 my $template_data_ref = {};
 
-my $ORY_ENABLED = 0;
 
 if($ORY_ENABLED){
 	#redirect to ory kratos api if no flow

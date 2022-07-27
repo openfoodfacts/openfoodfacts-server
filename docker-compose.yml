@@ -3,6 +3,8 @@
 x-backend-conf: &backend-conf
   image: ghcr.io/openfoodfacts/openfoodfacts-server/backend:${TAG}
   environment:
+    # WARNING: if you want to pass variables to perl script served by apache,
+    # you also have to use PerlPassEnv in apache.conf
     - PRODUCERS_PLATFORM
     - PRODUCT_OPENER_DOMAIN
     - PRODUCT_OPENER_PORT
