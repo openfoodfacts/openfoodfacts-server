@@ -1,0 +1,3204 @@
+---
+openapi: 3.0.1
+info:
+  title: Open Food Facts Open API
+  description: As a developer, the Open Food Facts API allows you to get information and contribute to the products database. You can create great apps to help people make better food choices and also provide data to enhance the database.
+  termsOfService: https://openweathermap.org/terms
+  contact:
+    name: Open Food Facts
+    url: https://slack-ssl-openfoodfacts.herokuapp.com/
+    email: contact@openfoodfacts.org
+  license:
+    name: License (MIT, Apache 2.0, etc)
+    url: https://opendatacommons.org/licenses/odbl/summary/index.html
+  version: "2"
+servers:
+- url: https://world.openfoodfacts.org
+  description: prod
+paths:
+  /api/v2/product/{barcode}:
+    get:
+      tags:
+      - Read Requests
+      summary: Get for a specific product by barcode
+      parameters:
+      - name: barcode
+        in: path
+        description: The barcode of the product to be fetched
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: "04963406"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+components:
+  schemas:
+    inline_response_200:
+      type: object
+      properties:
+        code:
+          type: string
+        product:
+          type: object
+          properties:
+            _id:
+              type: string
+            _keywords:
+              type: array
+              items:
+                type: string
+            added_countries_tags:
+              type: array
+              items:
+                type: object
+            additives_debug_tags:
+              type: array
+              items:
+                type: object
+            additives_n:
+              type: integer
+            additives_old_n:
+              type: integer
+            additives_old_tags:
+              type: array
+              items:
+                type: string
+            additives_original_tags:
+              type: array
+              items:
+                type: string
+            additives_prev_original_tags:
+              type: array
+              items:
+                type: string
+            additives_tags:
+              type: array
+              items:
+                type: string
+            additives_tags_n:
+              nullable: true
+            allergens:
+              type: string
+            allergens_from_ingredients:
+              type: string
+            allergens_from_user:
+              type: string
+            allergens_hierarchy:
+              type: array
+              items:
+                type: object
+            allergens_lc:
+              type: string
+            allergens_tags:
+              type: array
+              items:
+                type: object
+            amino_acids_prev_tags:
+              type: array
+              items:
+                type: object
+            amino_acids_tags:
+              type: array
+              items:
+                type: object
+            brands:
+              type: string
+            brands_tags:
+              type: array
+              items:
+                type: string
+            categories:
+              type: string
+            categories_hierarchy:
+              type: array
+              items:
+                type: string
+            categories_lc:
+              type: string
+            categories_old:
+              type: string
+            categories_properties:
+              type: object
+              properties:
+                agribalyse_proxy_food_code:en:
+                  type: string
+                ciqual_food_code:en:
+                  type: string
+            categories_properties_tags:
+              type: array
+              items:
+                type: string
+            categories_tags:
+              type: array
+              items:
+                type: string
+            category_properties:
+              type: object
+              properties:
+                ciqual_food_name:en:
+                  type: string
+                ciqual_food_name:fr:
+                  type: string
+            checkers_tags:
+              type: array
+              items:
+                type: object
+            ciqual_food_name_tags:
+              type: array
+              items:
+                type: string
+            cities_tags:
+              type: array
+              items:
+                type: object
+            code:
+              type: string
+            codes_tags:
+              type: array
+              items:
+                type: string
+            compared_to_category:
+              type: string
+            complete:
+              type: integer
+            completeness:
+              type: number
+            correctors_tags:
+              type: array
+              items:
+                type: string
+            countries:
+              type: string
+            countries_hierarchy:
+              type: array
+              items:
+                type: string
+            countries_lc:
+              type: string
+            countries_tags:
+              type: array
+              items:
+                type: string
+            created_t:
+              type: integer
+            creator:
+              type: string
+            data_quality_bugs_tags:
+              type: array
+              items:
+                type: object
+            data_quality_errors_tags:
+              type: array
+              items:
+                type: object
+            data_quality_info_tags:
+              type: array
+              items:
+                type: string
+            data_quality_tags:
+              type: array
+              items:
+                type: string
+            data_quality_warnings_tags:
+              type: array
+              items:
+                type: string
+            data_sources:
+              type: string
+            data_sources_tags:
+              type: array
+              items:
+                type: string
+            debug_param_sorted_langs:
+              type: array
+              items:
+                type: string
+            ecoscore_data:
+              type: object
+              properties:
+                adjustments:
+                  type: object
+                ecoscore_not_applicable_for_category:
+                  type: string
+                status:
+                  type: string
+            ecoscore_extended_data:
+              type: object
+              properties:
+                impact:
+                  type: object
+                  properties:
+                    ef_single_score_log_stddev:
+                      type: number
+                    likeliest_impacts:
+                      type: object
+                      properties:
+                        Climate_change:
+                          type: number
+                        EF_single_score:
+                          type: number
+                    likeliest_recipe:
+                      type: object
+                      properties:
+                        en:caffeine:
+                          type: number
+                        en:carbonated_water:
+                          type: number
+                        en:e150a:
+                          type: number
+                        en:e338:
+                          type: number
+                        en:high_fructose_corn_syrup:
+                          type: number
+                        en:natural_flavouring:
+                          type: number
+                        en:water:
+                          type: number
+                    mass_ratio_uncharacterized:
+                      type: number
+                    uncharacterized_ingredients:
+                      type: object
+                      properties:
+                        impact:
+                          type: array
+                          items:
+                            type: string
+                        nutrition:
+                          type: array
+                          items:
+                            type: string
+                    uncharacterized_ingredients_mass_proportion:
+                      type: object
+                      properties:
+                        impact:
+                          type: number
+                        nutrition:
+                          type: number
+                    uncharacterized_ingredients_ratio:
+                      type: object
+                      properties:
+                        impact:
+                          type: number
+                        nutrition:
+                          type: number
+                    warnings:
+                      type: array
+                      items:
+                        type: string
+            ecoscore_extended_data_version:
+              type: string
+            ecoscore_grade:
+              type: string
+            ecoscore_tags:
+              type: array
+              items:
+                type: string
+            editors:
+              type: array
+              items:
+                type: string
+            editors_tags:
+              type: array
+              items:
+                type: string
+            emb_codes:
+              type: string
+            emb_codes_20141016:
+              type: string
+            emb_codes_orig:
+              type: string
+            emb_codes_tags:
+              type: array
+              items:
+                type: object
+            entry_dates_tags:
+              type: array
+              items:
+                type: string
+            expiration_date:
+              type: string
+            food_groups:
+              type: string
+            food_groups_tags:
+              type: array
+              items:
+                type: string
+            fruits-vegetables-nuts_100g_estimate:
+              type: integer
+            generic_name:
+              type: string
+            generic_name_en:
+              type: string
+            id:
+              type: string
+            image_front_small_url:
+              type: string
+            image_front_thumb_url:
+              type: string
+            image_front_url:
+              type: string
+            image_ingredients_small_url:
+              type: string
+            image_ingredients_thumb_url:
+              type: string
+            image_ingredients_url:
+              type: string
+            image_nutrition_small_url:
+              type: string
+            image_nutrition_thumb_url:
+              type: string
+            image_nutrition_url:
+              type: string
+            image_small_url:
+              type: string
+            image_thumb_url:
+              type: string
+            image_url:
+              type: string
+            images:
+              type: object
+              properties:
+                "1":
+                  type: object
+                  properties:
+                    sizes:
+                      type: object
+                      properties:
+                        "100":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        "400":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        full:
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                    uploaded_t:
+                      type: integer
+                    uploader:
+                      type: string
+                "2":
+                  type: object
+                  properties:
+                    sizes:
+                      type: object
+                      properties:
+                        "100":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        "400":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        full:
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                    uploaded_t:
+                      type: integer
+                    uploader:
+                      type: string
+                "3":
+                  type: object
+                  properties:
+                    sizes:
+                      type: object
+                      properties:
+                        "100":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        "400":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        full:
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                    uploaded_t:
+                      type: integer
+                    uploader:
+                      type: string
+                "4":
+                  type: object
+                  properties:
+                    sizes:
+                      type: object
+                      properties:
+                        "100":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        "400":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        full:
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                    uploaded_t:
+                      type: integer
+                    uploader:
+                      type: string
+                "5":
+                  type: object
+                  properties:
+                    sizes:
+                      type: object
+                      properties:
+                        "100":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        "400":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        full:
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                    uploaded_t:
+                      type: string
+                    uploader:
+                      type: string
+                "6":
+                  type: object
+                  properties:
+                    sizes:
+                      type: object
+                      properties:
+                        "100":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        "400":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        full:
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                    uploaded_t:
+                      type: string
+                    uploader:
+                      type: string
+                "7":
+                  type: object
+                  properties:
+                    sizes:
+                      type: object
+                      properties:
+                        "100":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        "400":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        full:
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                    uploaded_t:
+                      type: string
+                    uploader:
+                      type: string
+                "8":
+                  type: object
+                  properties:
+                    sizes:
+                      type: object
+                      properties:
+                        "100":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        "400":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        full:
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                    uploaded_t:
+                      type: string
+                    uploader:
+                      type: string
+                "9":
+                  type: object
+                  properties:
+                    sizes:
+                      type: object
+                      properties:
+                        "100":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        "400":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        full:
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                    uploaded_t:
+                      type: string
+                    uploader:
+                      type: string
+                "10":
+                  type: object
+                  properties:
+                    sizes:
+                      type: object
+                      properties:
+                        "100":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        "400":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        full:
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                    uploaded_t:
+                      type: string
+                    uploader:
+                      type: string
+                "11":
+                  type: object
+                  properties:
+                    sizes:
+                      type: object
+                      properties:
+                        "100":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        "400":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        full:
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                    uploaded_t:
+                      type: string
+                    uploader:
+                      type: string
+                "12":
+                  type: object
+                  properties:
+                    sizes:
+                      type: object
+                      properties:
+                        "100":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        "400":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        full:
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                    uploaded_t:
+                      type: integer
+                    uploader:
+                      type: string
+                "13":
+                  type: object
+                  properties:
+                    sizes:
+                      type: object
+                      properties:
+                        "100":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        "400":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        full:
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                    uploaded_t:
+                      type: integer
+                    uploader:
+                      type: string
+                "14":
+                  type: object
+                  properties:
+                    sizes:
+                      type: object
+                      properties:
+                        "100":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        "400":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        full:
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                    uploaded_t:
+                      type: integer
+                    uploader:
+                      type: string
+                "15":
+                  type: object
+                  properties:
+                    sizes:
+                      type: object
+                      properties:
+                        "100":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        "400":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        full:
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                    uploaded_t:
+                      type: integer
+                    uploader:
+                      type: string
+                "16":
+                  type: object
+                  properties:
+                    sizes:
+                      type: object
+                      properties:
+                        "100":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        "400":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        full:
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                    uploaded_t:
+                      type: integer
+                    uploader:
+                      type: string
+                "17":
+                  type: object
+                  properties:
+                    sizes:
+                      type: object
+                      properties:
+                        "100":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        "400":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        full:
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                    uploaded_t:
+                      type: integer
+                    uploader:
+                      type: string
+                "19":
+                  type: object
+                  properties:
+                    sizes:
+                      type: object
+                      properties:
+                        "100":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        "400":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        full:
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                    uploaded_t:
+                      type: integer
+                    uploader:
+                      type: string
+                "20":
+                  type: object
+                  properties:
+                    sizes:
+                      type: object
+                      properties:
+                        "100":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        "400":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        full:
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                    uploaded_t:
+                      type: integer
+                    uploader:
+                      type: string
+                "21":
+                  type: object
+                  properties:
+                    sizes:
+                      type: object
+                      properties:
+                        "100":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        "400":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        full:
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                    uploaded_t:
+                      type: integer
+                    uploader:
+                      type: string
+                "22":
+                  type: object
+                  properties:
+                    sizes:
+                      type: object
+                      properties:
+                        "100":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        "400":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        full:
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                    uploaded_t:
+                      type: integer
+                    uploader:
+                      type: string
+                front_en:
+                  type: object
+                  properties:
+                    angle:
+                      nullable: true
+                    coordinates_image_size:
+                      type: string
+                    geometry:
+                      type: string
+                    imgid:
+                      type: string
+                    normalize:
+                      nullable: true
+                    rev:
+                      type: string
+                    sizes:
+                      type: object
+                      properties:
+                        "100":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        "200":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        "400":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        full:
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                    white_magic:
+                      nullable: true
+                    x1:
+                      type: string
+                    x2:
+                      type: string
+                    y1:
+                      type: string
+                    y2:
+                      type: string
+                ingredients:
+                  type: object
+                  properties:
+                    geometry:
+                      type: string
+                    imgid:
+                      type: string
+                    normalize:
+                      nullable: true
+                    rev:
+                      type: string
+                    sizes:
+                      type: object
+                      properties:
+                        "100":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        "200":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        "400":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        full:
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                    white_magic:
+                      nullable: true
+                ingredients_en:
+                  type: object
+                  properties:
+                    angle:
+                      type: string
+                    geometry:
+                      type: string
+                    imgid:
+                      type: string
+                    normalize:
+                      type: string
+                    rev:
+                      type: string
+                    sizes:
+                      type: object
+                      properties:
+                        "100":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        "200":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        "400":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        full:
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                    white_magic:
+                      type: string
+                    x1:
+                      type: string
+                    x2:
+                      type: string
+                    y1:
+                      type: string
+                    y2:
+                      type: string
+                nutrition:
+                  type: object
+                  properties:
+                    geometry:
+                      type: string
+                    imgid:
+                      type: string
+                    normalize:
+                      type: string
+                    rev:
+                      type: string
+                    sizes:
+                      type: object
+                      properties:
+                        "100":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        "200":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        "400":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        full:
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                    white_magic:
+                      nullable: true
+                nutrition_en:
+                  type: object
+                  properties:
+                    angle:
+                      type: integer
+                    coordinates_image_size:
+                      type: string
+                    geometry:
+                      type: string
+                    imgid:
+                      type: string
+                    normalize:
+                      nullable: true
+                    rev:
+                      type: string
+                    sizes:
+                      type: object
+                      properties:
+                        "100":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        "200":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        "400":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        full:
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                    white_magic:
+                      nullable: true
+                    x1:
+                      type: string
+                    x2:
+                      type: string
+                    y1:
+                      type: string
+                    y2:
+                      type: string
+                nutrition_fr:
+                  type: object
+                  properties:
+                    angle:
+                      type: string
+                    coordinates_image_size:
+                      type: string
+                    geometry:
+                      type: string
+                    imgid:
+                      type: string
+                    normalize:
+                      nullable: true
+                    rev:
+                      type: string
+                    sizes:
+                      type: object
+                      properties:
+                        "100":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        "200":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        "400":
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                        full:
+                          type: object
+                          properties:
+                            h:
+                              type: integer
+                            w:
+                              type: integer
+                    white_magic:
+                      nullable: true
+                    x1:
+                      nullable: true
+                    x2:
+                      nullable: true
+                    y1:
+                      nullable: true
+                    y2:
+                      nullable: true
+            informers_tags:
+              type: array
+              items:
+                type: string
+            ingredients:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  percent_estimate:
+                    type: number
+                  percent_max:
+                    type: string
+                  percent_min:
+                    type: string
+                  text:
+                    type: string
+                  vegan:
+                    type: string
+                  vegetarian:
+                    type: string
+            ingredients_analysis:
+              type: object
+              properties:
+                en:maybe-vegan:
+                  type: array
+                  items:
+                    type: string
+                en:maybe-vegetarian:
+                  type: array
+                  items:
+                    type: string
+            ingredients_analysis_tags:
+              type: array
+              items:
+                type: string
+            ingredients_debug:
+              type: array
+              items:
+                type: string
+            ingredients_from_or_that_may_be_from_palm_oil_n:
+              type: integer
+            ingredients_from_palm_oil_n:
+              type: integer
+            ingredients_from_palm_oil_tags:
+              type: array
+              items:
+                type: object
+            ingredients_hierarchy:
+              type: array
+              items:
+                type: string
+            ingredients_ids_debug:
+              type: array
+              items:
+                type: string
+            ingredients_n:
+              type: integer
+            ingredients_n_tags:
+              type: array
+              items:
+                type: string
+            ingredients_original_tags:
+              type: array
+              items:
+                type: string
+            ingredients_percent_analysis:
+              type: integer
+            ingredients_tags:
+              type: array
+              items:
+                type: string
+            ingredients_text:
+              type: string
+            ingredients_text_debug:
+              type: string
+            ingredients_text_en:
+              type: string
+            ingredients_text_with_allergens:
+              type: string
+            ingredients_text_with_allergens_en:
+              type: string
+            ingredients_that_may_be_from_palm_oil_n:
+              type: integer
+            ingredients_that_may_be_from_palm_oil_tags:
+              type: array
+              items:
+                type: object
+            ingredients_with_specified_percent_n:
+              type: integer
+            ingredients_with_specified_percent_sum:
+              type: integer
+            ingredients_with_unspecified_percent_n:
+              type: integer
+            ingredients_with_unspecified_percent_sum:
+              type: integer
+            interface_version_created:
+              type: string
+            interface_version_modified:
+              type: string
+            known_ingredients_n:
+              type: integer
+            labels:
+              type: string
+            labels_hierarchy:
+              type: array
+              items:
+                type: string
+            labels_lc:
+              type: string
+            labels_tags:
+              type: array
+              items:
+                type: string
+            lang:
+              type: string
+            languages:
+              type: object
+              properties:
+                en:english:
+                  type: integer
+                en:french:
+                  type: integer
+            languages_codes:
+              type: object
+              properties:
+                en:
+                  type: integer
+                fr:
+                  type: integer
+            languages_hierarchy:
+              type: array
+              items:
+                type: string
+            languages_tags:
+              type: array
+              items:
+                type: string
+            last_edit_dates_tags:
+              type: array
+              items:
+                type: string
+            last_editor:
+              type: string
+            last_image_dates_tags:
+              type: array
+              items:
+                type: string
+            last_image_t:
+              type: integer
+            last_modified_by:
+              type: string
+            last_modified_t:
+              type: integer
+            lc:
+              type: string
+            link:
+              type: string
+            main_countries_tags:
+              type: array
+              items:
+                type: object
+            manufacturing_places:
+              type: string
+            manufacturing_places_tags:
+              type: array
+              items:
+                type: object
+            max_imgid:
+              type: string
+            minerals_prev_tags:
+              type: array
+              items:
+                type: object
+            minerals_tags:
+              type: array
+              items:
+                type: object
+            misc_tags:
+              type: array
+              items:
+                type: string
+            new_additives_n:
+              type: integer
+            no_nutrition_data:
+              type: string
+            nova_group:
+              type: integer
+            nova_group_debug:
+              type: string
+            nova_groups:
+              type: string
+            nova_groups_markers:
+              type: object
+              properties:
+                "3":
+                  type: array
+                  items:
+                    type: string
+                "4":
+                  type: array
+                  items:
+                    type: string
+            nova_groups_tags:
+              type: array
+              items:
+                type: string
+            nucleotides_prev_tags:
+              type: array
+              items:
+                type: object
+            nucleotides_tags:
+              type: array
+              items:
+                type: object
+            nutrient_levels:
+              type: object
+              properties:
+                fat:
+                  type: string
+                salt:
+                  type: string
+                saturated-fat:
+                  type: string
+                sugars:
+                  type: string
+            nutrient_levels_tags:
+              type: array
+              items:
+                type: string
+            nutriments:
+              type: object
+              properties:
+                carbohydrates:
+                  type: number
+                carbohydrates_100g:
+                  type: number
+                carbohydrates_serving:
+                  type: integer
+                carbohydrates_unit:
+                  type: string
+                carbohydrates_value:
+                  type: number
+                energy:
+                  type: integer
+                energy-kcal:
+                  type: number
+                energy-kcal_100g:
+                  type: number
+                energy-kcal_serving:
+                  type: integer
+                energy-kcal_unit:
+                  type: string
+                energy-kcal_value:
+                  type: number
+                energy_100g:
+                  type: integer
+                energy_serving:
+                  type: integer
+                energy_unit:
+                  type: string
+                energy_value:
+                  type: number
+                fat:
+                  type: integer
+                fat_100g:
+                  type: integer
+                fat_serving:
+                  type: integer
+                fat_unit:
+                  type: string
+                fat_value:
+                  type: integer
+                fiber:
+                  type: integer
+                fiber_100g:
+                  type: integer
+                fiber_serving:
+                  type: integer
+                fiber_unit:
+                  type: string
+                fiber_value:
+                  type: integer
+                fruits-vegetables-nuts-estimate-from-ingredients_100g:
+                  type: integer
+                fruits-vegetables-nuts-estimate-from-ingredients_serving:
+                  type: integer
+                nova-group:
+                  type: integer
+                nova-group_100g:
+                  type: integer
+                nova-group_serving:
+                  type: integer
+                nutrition-score-fr:
+                  type: integer
+                nutrition-score-fr_100g:
+                  type: integer
+                proteins:
+                  type: integer
+                proteins_100g:
+                  type: integer
+                proteins_serving:
+                  type: integer
+                proteins_unit:
+                  type: string
+                proteins_value:
+                  type: integer
+                salt:
+                  type: number
+                salt_100g:
+                  type: number
+                salt_serving:
+                  type: number
+                salt_unit:
+                  type: string
+                salt_value:
+                  type: number
+                saturated-fat:
+                  type: integer
+                saturated-fat_100g:
+                  type: integer
+                saturated-fat_serving:
+                  type: integer
+                saturated-fat_unit:
+                  type: string
+                saturated-fat_value:
+                  type: integer
+                sodium:
+                  type: number
+                sodium_100g:
+                  type: number
+                sodium_serving:
+                  type: number
+                sodium_unit:
+                  type: string
+                sodium_value:
+                  type: number
+                sugars:
+                  type: number
+                sugars_100g:
+                  type: number
+                sugars_serving:
+                  type: integer
+                sugars_unit:
+                  type: string
+                sugars_value:
+                  type: number
+            nutriscore_data:
+              type: object
+              properties:
+                energy:
+                  type: integer
+                energy_points:
+                  type: integer
+                energy_value:
+                  type: integer
+                fiber:
+                  type: integer
+                fiber_points:
+                  type: integer
+                fiber_value:
+                  type: integer
+                fruits_vegetables_nuts_colza_walnut_olive_oils:
+                  type: integer
+                fruits_vegetables_nuts_colza_walnut_olive_oils_points:
+                  type: integer
+                fruits_vegetables_nuts_colza_walnut_olive_oils_value:
+                  type: integer
+                grade:
+                  type: string
+                is_beverage:
+                  type: integer
+                is_cheese:
+                  type: integer
+                is_fat:
+                  type: integer
+                is_water:
+                  type: integer
+                negative_points:
+                  type: integer
+                positive_points:
+                  type: integer
+                proteins:
+                  type: integer
+                proteins_points:
+                  type: integer
+                proteins_value:
+                  type: integer
+                saturated_fat:
+                  type: integer
+                saturated_fat_points:
+                  type: integer
+                saturated_fat_ratio:
+                  type: integer
+                saturated_fat_ratio_points:
+                  type: integer
+                saturated_fat_ratio_value:
+                  type: integer
+                saturated_fat_value:
+                  type: integer
+                score:
+                  type: integer
+                sodium:
+                  type: number
+                sodium_points:
+                  type: integer
+                sodium_value:
+                  type: number
+                sugars:
+                  type: number
+                sugars_points:
+                  type: integer
+                sugars_value:
+                  type: number
+            nutriscore_grade:
+              type: string
+            nutriscore_score:
+              type: integer
+            nutriscore_score_opposite:
+              type: integer
+            nutrition_data:
+              type: string
+            nutrition_data_per:
+              type: string
+            nutrition_data_prepared:
+              type: string
+            nutrition_data_prepared_per:
+              type: string
+            nutrition_grade_fr:
+              type: string
+            nutrition_grades:
+              type: string
+            nutrition_grades_tags:
+              type: array
+              items:
+                type: string
+            nutrition_score_beverage:
+              type: integer
+            nutrition_score_debug:
+              type: string
+            nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients:
+              type: integer
+            nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value:
+              type: integer
+            origins:
+              type: string
+            origins_hierarchy:
+              type: array
+              items:
+                type: object
+            origins_lc:
+              type: string
+            origins_old:
+              type: string
+            origins_tags:
+              type: array
+              items:
+                type: object
+            other_nutritional_substances_tags:
+              type: array
+              items:
+                type: object
+            packaging:
+              type: string
+            packaging_hierarchy:
+              type: array
+              items:
+                type: string
+            packaging_lc:
+              type: string
+            packaging_old:
+              type: string
+            packaging_old_before_taxonomization:
+              type: string
+            packaging_tags:
+              type: array
+              items:
+                type: string
+            packagings:
+              type: array
+              items:
+                type: object
+                properties:
+                  material:
+                    type: string
+                  shape:
+                    type: string
+            photographers_tags:
+              type: array
+              items:
+                type: string
+            pnns_groups_1:
+              type: string
+            pnns_groups_1_tags:
+              type: array
+              items:
+                type: string
+            pnns_groups_2:
+              type: string
+            pnns_groups_2_tags:
+              type: array
+              items:
+                type: string
+            popularity_key:
+              type: integer
+            popularity_tags:
+              type: array
+              items:
+                type: string
+            product_name:
+              type: string
+            product_name_en:
+              type: string
+            product_quantity:
+              type: string
+            purchase_places:
+              type: string
+            purchase_places_tags:
+              type: array
+              items:
+                type: string
+            quantity:
+              type: string
+            removed_countries_tags:
+              type: array
+              items:
+                type: object
+            rev:
+              type: integer
+            scans_n:
+              type: integer
+            selected_images:
+              type: object
+              properties:
+                front:
+                  type: object
+                  properties:
+                    display:
+                      type: object
+                      properties:
+                        en:
+                          type: string
+                    small:
+                      type: object
+                      properties:
+                        en:
+                          type: string
+                    thumb:
+                      type: object
+                      properties:
+                        en:
+                          type: string
+                ingredients:
+                  type: object
+                  properties:
+                    display:
+                      type: object
+                      properties:
+                        en:
+                          type: string
+                    small:
+                      type: object
+                      properties:
+                        en:
+                          type: string
+                    thumb:
+                      type: object
+                      properties:
+                        en:
+                          type: string
+                nutrition:
+                  type: object
+                  properties:
+                    display:
+                      type: object
+                      properties:
+                        en:
+                          type: string
+                        fr:
+                          type: string
+                    small:
+                      type: object
+                      properties:
+                        en:
+                          type: string
+                        fr:
+                          type: string
+                    thumb:
+                      type: object
+                      properties:
+                        en:
+                          type: string
+                        fr:
+                          type: string
+            serving_quantity:
+              type: string
+            serving_size:
+              type: string
+            sortkey:
+              type: integer
+            states:
+              type: string
+            states_hierarchy:
+              type: array
+              items:
+                type: string
+            states_tags:
+              type: array
+              items:
+                type: string
+            stores:
+              type: string
+            stores_tags:
+              type: array
+              items:
+                type: object
+            teams:
+              type: string
+            teams_tags:
+              type: array
+              items:
+                type: string
+            traces:
+              type: string
+            traces_from_ingredients:
+              type: string
+            traces_from_user:
+              type: string
+            traces_hierarchy:
+              type: array
+              items:
+                type: object
+            traces_lc:
+              type: string
+            traces_tags:
+              type: array
+              items:
+                type: object
+            unique_scans_n:
+              type: integer
+            unknown_ingredients_n:
+              type: integer
+            unknown_nutrients_tags:
+              type: array
+              items:
+                type: object
+            update_key:
+              type: string
+            vitamins_prev_tags:
+              type: array
+              items:
+                type: object
+            vitamins_tags:
+              type: array
+              items:
+                type: object
+        status:
+          type: integer
+        status_verbose:
+          type: string
+      x-examples:
+        example-1:
+          code: "04963406"
+          product:
+            _id: "04963406"
+            _keywords:
+            - drink
+            - beverage
+            - cola
+            - haagen-daz
+            - sweetened
+            - coca-cola
+            - carbonated
+            - kosher
+            - soda
+            added_countries_tags: []
+            additives_debug_tags: []
+            additives_n: 2
+            additives_old_n: 1
+            additives_old_tags:
+            - en:e150c
+            additives_original_tags:
+            - en:e150c
+            - en:e338
+            additives_prev_original_tags:
+            - en:e150a
+            - en:e338
+            additives_tags:
+            - en:e150c
+            - en:e338
+            allergens: ""
+            allergens_from_ingredients: ""
+            allergens_from_user: '(en) '
+            allergens_hierarchy: []
+            allergens_lc: en
+            allergens_tags: []
+            amino_acids_prev_tags: []
+            amino_acids_tags: []
+            brands: Häagen-Dazs
+            brands_tags:
+            - haagen-dazs
+            categories: Beverages, Carbonated drinks, Sodas, Colas, Sweetened beverages
+            categories_hierarchy:
+            - en:beverages
+            - en:carbonated-drinks
+            - en:sodas
+            - en:colas
+            - en:sweetened-beverages
+            categories_lc: en
+            categories_old: Beverages, Carbonated drinks, Sodas, Colas, Sweetened beverages
+            categories_properties:
+              agribalyse_proxy_food_code:en: "18018"
+              ciqual_food_code:en: "18063"
+            categories_properties_tags:
+            - all-products
+            - categories-known
+            - agribalyse-food-code-unknown
+            - agribalyse-proxy-food-code-18018
+            - agribalyse-proxy-food-code-known
+            - ciqual-food-code-18063
+            - ciqual-food-code-known
+            - agribalyse-known
+            - agribalyse-18018
+            categories_tags:
+            - en:beverages
+            - en:carbonated-drinks
+            - en:sodas
+            - en:colas
+            - en:sweetened-beverages
+            category_properties:
+              ciqual_food_name:en: Cola, sugar and sweetener-s- content -average-
+              ciqual_food_name:fr: Cola, teneur en sucre et édulcorant inconnue -aliment moyen-
+            checkers_tags: []
+            ciqual_food_name_tags:
+            - cola-sugar-and-sweetener-s-content-average
+            cities_tags: []
+            code: "04963406"
+            codes_tags:
+            - code-8
+            - 04963xxx
+            - 0496xxxx
+            - 049xxxxx
+            - 04xxxxxx
+            - 0xxxxxxx
+            compared_to_category: en:sweetened-beverages
+            complete: 0
+            completeness: 0.7875
+            correctors_tags:
+            - tacinte
+            - alexfloresveliz
+            - cc0000
+            - inf
+            - bredowmax
+            - yuka.sY2b0xO6T85zoF3NwEKvlkNMbebBiGLbCxHTvGur5fy2AozBOf9Rx5XTM6s
+            - kiliweb
+            - ecoscore-impact-estimator
+            - openfoodfacts-contributors
+            - packbot
+            - pakkie
+            countries: United States
+            countries_hierarchy:
+            - en:united-states
+            countries_lc: en
+            countries_tags:
+            - en:united-states
+            created_t: 1375384688
+            creator: openfoodfacts-contributors
+            data_quality_bugs_tags: []
+            data_quality_errors_tags: []
+            data_quality_info_tags:
+            - en:packaging-data-incomplete
+            - en:ingredients-percent-analysis-ok
+            - en:ecoscore-extended-data-computed
+            - en:ecoscore-extended-data-less-precise-than-agribalyse
+            - en:food-groups-1-known
+            - en:food-groups-2-known
+            - en:food-groups-3-unknown
+            data_quality_tags:
+            - en:packaging-data-incomplete
+            - en:ingredients-percent-analysis-ok
+            - en:ecoscore-extended-data-computed
+            - en:ecoscore-extended-data-less-precise-than-agribalyse
+            - en:food-groups-1-known
+            - en:food-groups-2-known
+            - en:food-groups-3-unknown
+            - en:ingredients-en-ending-comma
+            - en:nutrition-value-under-0-1-g-salt
+            data_quality_warnings_tags:
+            - en:ingredients-en-ending-comma
+            - en:nutrition-value-under-0-1-g-salt
+            data_sources: App - yuka, Apps, App - InFood
+            data_sources_tags:
+            - app-yuka
+            - apps
+            - app-infood
+            debug_param_sorted_langs:
+            - en
+            ecoscore_data:
+              adjustments: {}
+              ecoscore_not_applicable_for_category: en:sodas
+              status: unknown
+            ecoscore_extended_data:
+              impact:
+                ef_single_score_log_stddev: 0.118596882354402
+                likeliest_impacts:
+                  Climate_change: 4.98003926580931E-4
+                  EF_single_score: 8.58735212527783E-5
+                likeliest_recipe:
+                  en:caffeine: 0.831060853548231
+                  en:carbonated_water: 71.5789319919692
+                  en:e150a: 3.88986710399025
+                  en:e338: 3.59892145238023
+                  en:high_fructose_corn_syrup: 14.6665439657862
+                  en:natural_flavouring: 0.978691378408506
+                  en:water: 5.00779268136126
+                mass_ratio_uncharacterized: 0.38865903846307
+                uncharacterized_ingredients:
+                  impact:
+                  - en:e150a
+                  - en:e338
+                  - en:high-fructose-corn-syrup
+                  - en:caffeine
+                  - en:natural-flavouring
+                  nutrition:
+                  - en:natural-flavouring
+                uncharacterized_ingredients_mass_proportion:
+                  impact: 0.38865903846307
+                  nutrition: 0.0501370201667396
+                uncharacterized_ingredients_ratio:
+                  impact: 0.833333333333333
+                  nutrition: 0.166666666666667
+                warnings:
+                - 'The product has a high number of impact uncharacterized ingredients: 83%'
+                - 'The estimated mass of impact uncharacterized ingredients in the product is high: 39%'
+            ecoscore_extended_data_version: "4"
+            ecoscore_grade: not-applicable
+            ecoscore_tags:
+            - not-applicable
+            editors:
+            - ""
+            - tacinte
+            - stephane
+            editors_tags:
+            - alexfloresveliz
+            - inf
+            - pakkie
+            - yuka.sY2b0xO6T85zoF3NwEKvlkNMbebBiGLbCxHTvGur5fy2AozBOf9Rx5XTM6s
+            - yuka.sY2b0xO6T85zoF3NwEKvllJtVsOOumj5MQXusHK73PeSK4fGf4B189TkLag
+            - packbot
+            - ecoscore-impact-estimator
+            - charlesnepote
+            - cramik
+            - tacinte
+            - cc0000
+            - bredowmax
+            - kiliweb
+            - g123k
+            - openfoodfacts-contributors
+            - stephane
+            - elmahnuel
+            emb_codes: ""
+            emb_codes_20141016: ""
+            emb_codes_orig: ""
+            emb_codes_tags: []
+            entry_dates_tags:
+            - 2013-08-01
+            - 2013-08
+            - "2013"
+            expiration_date: ""
+            food_groups: en:sweetened-beverages
+            food_groups_tags:
+            - en:beverages
+            - en:sweetened-beverages
+            fruits-vegetables-nuts_100g_estimate: 0
+            generic_name: ""
+            generic_name_en: ""
+            id: "04963406"
+            image_front_small_url: https://images.openfoodfacts.org/images/products/04963406/front_en.71.200.jpg
+            image_front_thumb_url: https://images.openfoodfacts.org/images/products/04963406/front_en.71.100.jpg
+            image_front_url: https://images.openfoodfacts.org/images/products/04963406/front_en.71.400.jpg
+            image_ingredients_small_url: https://images.openfoodfacts.org/images/products/04963406/ingredients_en.32.200.jpg
+            image_ingredients_thumb_url: https://images.openfoodfacts.org/images/products/04963406/ingredients_en.32.100.jpg
+            image_ingredients_url: https://images.openfoodfacts.org/images/products/04963406/ingredients_en.32.400.jpg
+            image_nutrition_small_url: https://images.openfoodfacts.org/images/products/04963406/nutrition_en.47.200.jpg
+            image_nutrition_thumb_url: https://images.openfoodfacts.org/images/products/04963406/nutrition_en.47.100.jpg
+            image_nutrition_url: https://images.openfoodfacts.org/images/products/04963406/nutrition_en.47.400.jpg
+            image_small_url: https://images.openfoodfacts.org/images/products/04963406/front_en.71.200.jpg
+            image_thumb_url: https://images.openfoodfacts.org/images/products/04963406/front_en.71.100.jpg
+            image_url: https://images.openfoodfacts.org/images/products/04963406/front_en.71.400.jpg
+            images:
+              "1":
+                sizes:
+                  "100":
+                    h: 100
+                    w: 75
+                  "400":
+                    h: 400
+                    w: 300
+                  full:
+                    h: 3264
+                    w: 2448
+                uploaded_t: 1375384725
+                uploader: openfoodfacts-contributors
+              "2":
+                sizes:
+                  "100":
+                    h: 100
+                    w: 74
+                  "400":
+                    h: 400
+                    w: 297
+                  full:
+                    h: 4208
+                    w: 3120
+                uploaded_t: 1421397406
+                uploader: tacinte
+              "3":
+                sizes:
+                  "100":
+                    h: 100
+                    w: 74
+                  "400":
+                    h: 400
+                    w: 297
+                  full:
+                    h: 4208
+                    w: 3120
+                uploaded_t: 1421397412
+                uploader: tacinte
+              "4":
+                sizes:
+                  "100":
+                    h: 100
+                    w: 74
+                  "400":
+                    h: 400
+                    w: 297
+                  full:
+                    h: 4208
+                    w: 3120
+                uploaded_t: 1421397413
+                uploader: tacinte
+              "5":
+                sizes:
+                  "100":
+                    h: 75
+                    w: 100
+                  "400":
+                    h: 300
+                    w: 400
+                  full:
+                    h: 2448
+                    w: 3264
+                uploaded_t: "1374776967"
+                uploader: stephane
+              "6":
+                sizes:
+                  "100":
+                    h: 75
+                    w: 100
+                  "400":
+                    h: 300
+                    w: 400
+                  full:
+                    h: 2448
+                    w: 3264
+                uploaded_t: "1374776970"
+                uploader: stephane
+              "7":
+                sizes:
+                  "100":
+                    h: 75
+                    w: 100
+                  "400":
+                    h: 300
+                    w: 400
+                  full:
+                    h: 2448
+                    w: 3264
+                uploaded_t: "1374776974"
+                uploader: stephane
+              "8":
+                sizes:
+                  "100":
+                    h: 75
+                    w: 100
+                  "400":
+                    h: 300
+                    w: 400
+                  full:
+                    h: 2448
+                    w: 3264
+                uploaded_t: "1374776980"
+                uploader: stephane
+              "9":
+                sizes:
+                  "100":
+                    h: 75
+                    w: 100
+                  "400":
+                    h: 300
+                    w: 400
+                  full:
+                    h: 2448
+                    w: 3264
+                uploaded_t: "1374776984"
+                uploader: stephane
+              "10":
+                sizes:
+                  "100":
+                    h: 75
+                    w: 100
+                  "400":
+                    h: 300
+                    w: 400
+                  full:
+                    h: 2448
+                    w: 3264
+                uploaded_t: "1374776998"
+                uploader: stephane
+              "11":
+                sizes:
+                  "100":
+                    h: 100
+                    w: 58
+                  "400":
+                    h: 400
+                    w: 233
+                  full:
+                    h: 516
+                    w: 300
+                uploaded_t: "1478331702"
+                uploader: alexfloresveliz
+              "12":
+                sizes:
+                  "100":
+                    h: 75
+                    w: 100
+                  "400":
+                    h: 300
+                    w: 400
+                  full:
+                    h: 3024
+                    w: 4032
+                uploaded_t: 1579389977
+                uploader: bredowmax
+              "13":
+                sizes:
+                  "100":
+                    h: 75
+                    w: 100
+                  "400":
+                    h: 300
+                    w: 400
+                  full:
+                    h: 3024
+                    w: 4032
+                uploaded_t: 1579389984
+                uploader: bredowmax
+              "14":
+                sizes:
+                  "100":
+                    h: 75
+                    w: 100
+                  "400":
+                    h: 300
+                    w: 400
+                  full:
+                    h: 3024
+                    w: 4032
+                uploaded_t: 1579389989
+                uploader: bredowmax
+              "15":
+                sizes:
+                  "100":
+                    h: 100
+                    w: 75
+                  "400":
+                    h: 400
+                    w: 300
+                  full:
+                    h: 4032
+                    w: 3024
+                uploaded_t: 1579389992
+                uploader: bredowmax
+              "16":
+                sizes:
+                  "100":
+                    h: 100
+                    w: 75
+                  "400":
+                    h: 400
+                    w: 300
+                  full:
+                    h: 4032
+                    w: 3024
+                uploaded_t: 1579389995
+                uploader: bredowmax
+              "17":
+                sizes:
+                  "100":
+                    h: 100
+                    w: 75
+                  "400":
+                    h: 400
+                    w: 300
+                  full:
+                    h: 4032
+                    w: 3024
+                uploaded_t: 1579389999
+                uploader: bredowmax
+              "19":
+                sizes:
+                  "100":
+                    h: 100
+                    w: 100
+                  "400":
+                    h: 400
+                    w: 400
+                  full:
+                    h: 750
+                    w: 750
+                uploaded_t: 1635286049
+                uploader: kiliweb
+              "20":
+                sizes:
+                  "100":
+                    h: 100
+                    w: 53
+                  "400":
+                    h: 400
+                    w: 212
+                  full:
+                    h: 514
+                    w: 272
+                uploaded_t: 1642303897
+                uploader: kiliweb
+              "21":
+                sizes:
+                  "100":
+                    h: 100
+                    w: 53
+                  "400":
+                    h: 400
+                    w: 212
+                  full:
+                    h: 2805
+                    w: 1487
+                uploaded_t: 1644367080
+                uploader: openfoodfacts-contributors
+              "22":
+                sizes:
+                  "100":
+                    h: 100
+                    w: 75
+                  "400":
+                    h: 400
+                    w: 300
+                  full:
+                    h: 4032
+                    w: 3024
+                uploaded_t: 1645224176
+                uploader: openfoodfacts-contributors
+              front_en:
+                coordinates_image_size: "400"
+                geometry: 1523x1525-0-0
+                imgid: "2"
+                rev: "71"
+                sizes:
+                  "100":
+                    h: 100
+                    w: 100
+                  "200":
+                    h: 200
+                    w: 200
+                  "400":
+                    h: 400
+                    w: 399
+                  full:
+                    h: 1525
+                    w: 1523
+                x1: "0"
+                x2: "145"
+                y1: "0"
+                y2: "145"
+              ingredients:
+                geometry: 1355x473-777-2377
+                imgid: "3"
+                rev: "10"
+                sizes:
+                  "100":
+                    h: 35
+                    w: 100
+                  "200":
+                    h: 70
+                    w: 200
+                  "400":
+                    h: 140
+                    w: 400
+                  full:
+                    h: 473
+                    w: 1355
+              ingredients_en:
+                angle: "0"
+                geometry: 3516x323-173-1135
+                imgid: "12"
+                normalize: "false"
+                rev: "32"
+                sizes:
+                  "100":
+                    h: 9
+                    w: 100
+                  "200":
+                    h: 18
+                    w: 200
+                  "400":
+                    h: 37
+                    w: 400
+                  full:
+                    h: 323
+                    w: 3516
+                white_magic: "false"
+                x1: "17.20703125"
+                x2: "366.01953125"
+                y1: "112.6328125"
+                y2: "144.6875"
+              nutrition:
+                geometry: 1303x2325-798-147
+                imgid: "3"
+                normalize: checked
+                rev: "9"
+                sizes:
+                  "100":
+                    h: 100
+                    w: 56
+                  "200":
+                    h: 200
+                    w: 112
+                  "400":
+                    h: 400
+                    w: 224
+                  full:
+                    h: 2325
+                    w: 1303
+              nutrition_en:
+                angle: 0
+                coordinates_image_size: full
+                geometry: 0x0--1--1
+                imgid: "19"
+                rev: "47"
+                sizes:
+                  "100":
+                    h: 100
+                    w: 100
+                  "200":
+                    h: 200
+                    w: 200
+                  "400":
+                    h: 400
+                    w: 400
+                  full:
+                    h: 750
+                    w: 750
+                x1: "-1"
+                x2: "-1"
+                y1: "-1"
+                y2: "-1"
+              nutrition_fr:
+                angle: "90"
+                coordinates_image_size: "400"
+                geometry: 0x0-0-0
+                imgid: "1"
+                rev: "65"
+                sizes:
+                  "100":
+                    h: 75
+                    w: 100
+                  "200":
+                    h: 150
+                    w: 200
+                  "400":
+                    h: 300
+                    w: 400
+                  full:
+                    h: 2448
+                    w: 3264
+            informers_tags:
+            - openfoodfacts-contributors
+            - tacinte
+            - stephane
+            - cc0000
+            - bredowmax
+            - yuka.sY2b0xO6T85zoF3NwEKvlkNMbebBiGLbCxHTvGur5fy2AozBOf9Rx5XTM6s
+            - kiliweb
+            - pakkie
+            ingredients:
+            - id: en:carbonated-water
+              percent_estimate: 58.3333333333333
+              percent_max: 100
+              percent_min: 16.6666666666667
+              text: carbonated water
+              vegan: "yes"
+              vegetarian: "yes"
+            - id: en:high-fructose-corn-syrup
+              percent_estimate: 20.8333333333333
+              percent_max: 50
+              percent_min: 0
+              text: high fructose corn syrup
+              vegan: "yes"
+              vegetarian: "yes"
+            - id: en:e150a
+              percent_estimate: 10.4166666666667
+              percent_max: 33.3333333333333
+              percent_min: 0
+              text: caramel color
+              vegan: "yes"
+              vegetarian: "yes"
+            - id: en:e338
+              percent_estimate: 5.20833333333333
+              percent_max: 25
+              percent_min: 0
+              text: phosphoric acid
+              vegan: "yes"
+              vegetarian: "yes"
+            - id: en:natural-flavouring
+              percent_estimate: 2.60416666666666
+              percent_max: 20
+              percent_min: 0
+              text: natural flavors
+              vegan: maybe
+              vegetarian: maybe
+            - id: en:caffeine
+              percent_estimate: 2.60416666666666
+              percent_max: 16.6666666666667
+              percent_min: 0
+              text: caffeine
+              vegan: "yes"
+              vegetarian: "yes"
+            ingredients_analysis:
+              en:maybe-vegan:
+              - en:natural-flavouring
+              en:maybe-vegetarian:
+              - en:natural-flavouring
+            ingredients_analysis_tags:
+            - en:palm-oil-free
+            - en:maybe-vegan
+            - en:maybe-vegetarian
+            ingredients_debug:
+            - Carbonated Water
+            - ','
+            - null
+            - null
+            - null
+            - ' High Fructose Corn Syrup'
+            - ','
+            - null
+            - null
+            - null
+            - ' Caramel Color'
+            - ','
+            - null
+            - null
+            - null
+            - ' Phosphoric Acid'
+            - ','
+            - null
+            - null
+            - null
+            - ' '
+            - ':'
+            - ':'
+            - null
+            - null
+            - ' Natural Flavors '
+            - ':'
+            - ':'
+            - null
+            - null
+            - ' '
+            - ','
+            - null
+            - null
+            - null
+            - ' Caffeine'
+            ingredients_from_or_that_may_be_from_palm_oil_n: 0
+            ingredients_from_palm_oil_n: 0
+            ingredients_from_palm_oil_tags: []
+            ingredients_hierarchy:
+            - en:carbonated-water
+            - en:water
+            - en:high-fructose-corn-syrup
+            - en:added-sugar
+            - en:disaccharide
+            - en:monosaccharide
+            - en:fructose
+            - en:glucose
+            - en:corn-syrup
+            - en:glucose-fructose-syrup
+            - en:e150a
+            - en:e338
+            - en:natural-flavouring
+            - en:flavouring
+            - en:caffeine
+            ingredients_ids_debug:
+            - carbonated-water
+            - high-fructose-corn-syrup
+            - caramel-color
+            - phosphoric-acid
+            - natural-flavors
+            - caffeine
+            ingredients_n: 6
+            ingredients_n_tags:
+            - "6"
+            - 1-10
+            ingredients_original_tags:
+            - en:carbonated-water
+            - en:high-fructose-corn-syrup
+            - en:e150a
+            - en:e338
+            - en:natural-flavouring
+            - en:caffeine
+            ingredients_percent_analysis: 1
+            ingredients_tags:
+            - en:carbonated-water
+            - en:water
+            - en:high-fructose-corn-syrup
+            - en:added-sugar
+            - en:disaccharide
+            - en:monosaccharide
+            - en:fructose
+            - en:glucose
+            - en:corn-syrup
+            - en:glucose-fructose-syrup
+            - en:e150a
+            - en:e338
+            - en:natural-flavouring
+            - en:flavouring
+            - en:caffeine
+            ingredients_text: carbonated water, high fructose corn syrup, caramel color, phosphoric acid, natural flavors, caffeine,
+            ingredients_text_debug: 'Carbonated Water, High Fructose Corn Syrup, Caramel Color, Phosphoric Acid, : Natural Flavors : , Caffeine'
+            ingredients_text_en: carbonated water, high fructose corn syrup, caramel color, phosphoric acid, natural flavors, caffeine,
+            ingredients_text_with_allergens: carbonated water, high fructose corn syrup, caramel color, phosphoric acid, natural flavors, caffeine,
+            ingredients_text_with_allergens_en: carbonated water, high fructose corn syrup, caramel color, phosphoric acid, natural flavors, caffeine,
+            ingredients_that_may_be_from_palm_oil_n: 0
+            ingredients_that_may_be_from_palm_oil_tags: []
+            ingredients_with_specified_percent_n: 0
+            ingredients_with_specified_percent_sum: 0
+            ingredients_with_unspecified_percent_n: 6
+            ingredients_with_unspecified_percent_sum: 100
+            interface_version_created: 20130323.jqm
+            interface_version_modified: 20150316.jqm2
+            known_ingredients_n: 15
+            labels: kosher
+            labels_hierarchy:
+            - en:kosher
+            labels_lc: en
+            labels_tags:
+            - en:kosher
+            lang: en
+            languages:
+              en:english: 5
+              en:french: 1
+            languages_codes:
+              en: 5
+              fr: 1
+            languages_hierarchy:
+            - en:french
+            - en:english
+            languages_tags:
+            - en:french
+            - en:english
+            - en:2
+            - en:multilingual
+            last_edit_dates_tags:
+            - 2022-06-30
+            - 2022-06
+            - "2022"
+            last_editor: elmahnuel
+            last_image_dates_tags:
+            - 2022-02-18
+            - 2022-02
+            - "2022"
+            last_image_t: 1645224178
+            last_modified_by: elmahnuel
+            last_modified_t: 1656590320
+            lc: en
+            link: ""
+            main_countries_tags: []
+            manufacturing_places: ""
+            manufacturing_places_tags: []
+            max_imgid: "22"
+            minerals_prev_tags: []
+            minerals_tags: []
+            misc_tags:
+            - en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients
+            - en:nutrition-all-nutriscore-values-known
+            - en:nutriscore-computed
+            - en:ecoscore-extended-data-computed
+            - en:ecoscore-extended-data-version-4
+            - en:ecoscore-not-applicable
+            - en:ecoscore-not-computed
+            new_additives_n: 1
+            no_nutrition_data: ""
+            nova_group: 4
+            nova_group_debug: ""
+            nova_groups: "4"
+            nova_groups_markers:
+              "3":
+              - - categories
+                - en:sodas
+              "4":
+              - - additives
+                - en:e150c
+              - - ingredients
+                - en:flavouring
+              - - ingredients
+                - en:glucose
+              - - ingredients
+                - en:high-fructose-corn-syrup
+            nova_groups_tags:
+            - en:4-ultra-processed-food-and-drink-products
+            nucleotides_prev_tags: []
+            nucleotides_tags: []
+            nutrient_levels:
+              fat: low
+              salt: low
+              saturated-fat: low
+              sugars: high
+            nutrient_levels_tags:
+            - en:fat-in-low-quantity
+            - en:saturated-fat-in-low-quantity
+            - en:sugars-in-high-quantity
+            - en:salt-in-low-quantity
+            nutriments:
+              carbohydrates: 11.8182
+              carbohydrates_100g: 11.8182
+              carbohydrates_serving: 42
+              carbohydrates_unit: g
+              carbohydrates_value: 11.8182
+              energy: 178
+              energy-kcal: 42.4242
+              energy-kcal_100g: 42.4242
+              energy-kcal_serving: 151
+              energy-kcal_unit: kcal
+              energy-kcal_value: 42.4242
+              energy_100g: 178
+              energy_serving: 632
+              energy_unit: kcal
+              energy_value: 42.4242
+              fat: 0
+              fat_100g: 0
+              fat_serving: 0
+              fat_unit: g
+              fat_value: 0
+              fiber: 0
+              fiber_100g: 0
+              fiber_serving: 0
+              fiber_unit: g
+              fiber_value: 0
+              fruits-vegetables-nuts-estimate-from-ingredients_100g: 0
+              fruits-vegetables-nuts-estimate-from-ingredients_serving: 0
+              nova-group: 4
+              nova-group_100g: 4
+              nova-group_serving: 4
+              nutrition-score-fr: 14
+              nutrition-score-fr_100g: 14
+              proteins: 0
+              proteins_100g: 0
+              proteins_serving: 0
+              proteins_unit: g
+              proteins_value: 0
+              salt: 0.034091
+              salt_100g: 0.034091
+              salt_serving: 0.121
+              salt_unit: g
+              salt_value: 0.034091
+              saturated-fat: 0
+              saturated-fat_100g: 0
+              saturated-fat_serving: 0
+              saturated-fat_unit: g
+              saturated-fat_value: 0
+              sodium: 0.0136364
+              sodium_100g: 0.0136364
+              sodium_serving: 0.0484
+              sodium_unit: g
+              sodium_value: 0.0136364
+              sugars: 11.8182
+              sugars_100g: 11.8182
+              sugars_serving: 42
+              sugars_unit: g
+              sugars_value: 11.8182
+            nutriscore_data:
+              energy: 178
+              energy_points: 6
+              energy_value: 178
+              fiber: 0
+              fiber_points: 0
+              fiber_value: 0
+              fruits_vegetables_nuts_colza_walnut_olive_oils: 0
+              fruits_vegetables_nuts_colza_walnut_olive_oils_points: 0
+              fruits_vegetables_nuts_colza_walnut_olive_oils_value: 0
+              grade: e
+              is_beverage: 1
+              is_cheese: 0
+              is_fat: 0
+              is_water: 0
+              negative_points: 14
+              positive_points: 0
+              proteins: 0
+              proteins_points: 0
+              proteins_value: 0
+              saturated_fat: 0
+              saturated_fat_points: 0
+              saturated_fat_ratio: 0
+              saturated_fat_ratio_points: 0
+              saturated_fat_ratio_value: 0
+              saturated_fat_value: 0
+              score: 14
+              sodium: 13.6364
+              sodium_points: 0
+              sodium_value: 13.6
+              sugars: 11.8182
+              sugars_points: 8
+              sugars_value: 11.82
+            nutriscore_grade: e
+            nutriscore_score: 14
+            nutriscore_score_opposite: -14
+            nutrition_data: "on"
+            nutrition_data_per: 100g
+            nutrition_data_prepared: ""
+            nutrition_data_prepared_per: 100g
+            nutrition_grade_fr: e
+            nutrition_grades: e
+            nutrition_grades_tags:
+            - e
+            nutrition_score_beverage: 1
+            nutrition_score_debug: ""
+            nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients: 1
+            nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value: 0
+            origins: ""
+            origins_hierarchy: []
+            origins_lc: en
+            origins_old: ""
+            origins_tags: []
+            other_nutritional_substances_tags: []
+            packaging: Can - metal
+            packaging_hierarchy:
+            - en:Can - metal
+            packaging_lc: en
+            packaging_old: Can - metal
+            packaging_old_before_taxonomization: can - metal
+            packaging_tags:
+            - en:can-metal
+            packagings:
+            - material: en:metal
+              shape: en:can
+            photographers_tags:
+            - openfoodfacts-contributors
+            - tacinte
+            - stephane
+            - alexfloresveliz
+            - bredowmax
+            - kiliweb
+            pnns_groups_1: Beverages
+            pnns_groups_1_tags:
+            - beverages
+            - known
+            pnns_groups_2: Sweetened beverages
+            pnns_groups_2_tags:
+            - sweetened-beverages
+            - known
+            popularity_key: 20950000043
+            popularity_tags:
+            - top-50000-scans-2019
+            - top-100000-scans-2019
+            - at-least-5-scans-2019
+            - at-least-10-scans-2019
+            - top-75-percent-scans-2019
+            - top-80-percent-scans-2019
+            - top-85-percent-scans-2019
+            - top-90-percent-scans-2019
+            - top-10-us-scans-2019
+            - top-50-us-scans-2019
+            - top-100-us-scans-2019
+            - top-500-us-scans-2019
+            - top-1000-us-scans-2019
+            - top-5000-us-scans-2019
+            - top-10000-us-scans-2019
+            - top-50000-us-scans-2019
+            - top-100000-us-scans-2019
+            - top-country-us-scans-2019
+            - at-least-5-us-scans-2019
+            - at-least-10-us-scans-2019
+            - top-50000-be-scans-2019
+            - top-100000-be-scans-2019
+            - top-50000-ch-scans-2019
+            - top-100000-ch-scans-2019
+            - top-5000-ca-scans-2019
+            - top-10000-ca-scans-2019
+            - top-50000-ca-scans-2019
+            - top-100000-ca-scans-2019
+            - top-50000-scans-2020
+            - top-100000-scans-2020
+            - at-least-5-scans-2020
+            - at-least-10-scans-2020
+            - top-75-percent-scans-2020
+            - top-80-percent-scans-2020
+            - top-85-percent-scans-2020
+            - top-90-percent-scans-2020
+            - top-10-us-scans-2020
+            - top-50-us-scans-2020
+            - top-100-us-scans-2020
+            - top-500-us-scans-2020
+            - top-1000-us-scans-2020
+            - top-5000-us-scans-2020
+            - top-10000-us-scans-2020
+            - top-50000-us-scans-2020
+            - top-100000-us-scans-2020
+            - top-country-us-scans-2020
+            - at-least-5-us-scans-2020
+            - at-least-10-us-scans-2020
+            - top-5000-mx-scans-2020
+            - top-10000-mx-scans-2020
+            - top-50000-mx-scans-2020
+            - top-100000-mx-scans-2020
+            - top-500-in-scans-2020
+            - top-1000-in-scans-2020
+            - top-5000-in-scans-2020
+            - top-10000-in-scans-2020
+            - top-50000-in-scans-2020
+            - top-100000-in-scans-2020
+            - top-50000-es-scans-2020
+            - top-100000-es-scans-2020
+            - top-500-pk-scans-2020
+            - top-1000-pk-scans-2020
+            - top-5000-pk-scans-2020
+            - top-10000-pk-scans-2020
+            - top-50000-pk-scans-2020
+            - top-100000-pk-scans-2020
+            - top-50000-scans-2021
+            - top-100000-scans-2021
+            - at-least-5-scans-2021
+            - at-least-10-scans-2021
+            - top-75-percent-scans-2021
+            - top-80-percent-scans-2021
+            - top-85-percent-scans-2021
+            - top-90-percent-scans-2021
+            - top-10-us-scans-2021
+            - top-50-us-scans-2021
+            - top-100-us-scans-2021
+            - top-500-us-scans-2021
+            - top-1000-us-scans-2021
+            - top-5000-us-scans-2021
+            - top-10000-us-scans-2021
+            - top-50000-us-scans-2021
+            - top-100000-us-scans-2021
+            - top-country-us-scans-2021
+            - at-least-5-us-scans-2021
+            - at-least-10-us-scans-2021
+            - top-500-ru-scans-2021
+            - top-1000-ru-scans-2021
+            - top-5000-ru-scans-2021
+            - top-10000-ru-scans-2021
+            - top-50000-ru-scans-2021
+            - top-100000-ru-scans-2021
+            - top-5000-se-scans-2021
+            - top-10000-se-scans-2021
+            - top-50000-se-scans-2021
+            - top-100000-se-scans-2021
+            - top-1000-sn-scans-2021
+            - top-5000-sn-scans-2021
+            - top-10000-sn-scans-2021
+            - top-50000-sn-scans-2021
+            - top-100000-sn-scans-2021
+            product_name: Coca-Cola
+            product_name_en: Coca-Cola
+            product_quantity: "360"
+            purchase_places: Chicago,Illinois,USA
+            purchase_places_tags:
+            - chicago
+            - illinois
+            - usa
+            quantity: 12 fl oz (355 ml)
+            removed_countries_tags: []
+            rev: 72
+            scans_n: 97
+            selected_images:
+              front:
+                display:
+                  en: https://images.openfoodfacts.org/images/products/04963406/front_en.71.400.jpg
+                small:
+                  en: https://images.openfoodfacts.org/images/products/04963406/front_en.71.200.jpg
+                thumb:
+                  en: https://images.openfoodfacts.org/images/products/04963406/front_en.71.100.jpg
+              ingredients:
+                display:
+                  en: https://images.openfoodfacts.org/images/products/04963406/ingredients_en.32.400.jpg
+                small:
+                  en: https://images.openfoodfacts.org/images/products/04963406/ingredients_en.32.200.jpg
+                thumb:
+                  en: https://images.openfoodfacts.org/images/products/04963406/ingredients_en.32.100.jpg
+              nutrition:
+                display:
+                  en: https://images.openfoodfacts.org/images/products/04963406/nutrition_en.47.400.jpg
+                  fr: https://images.openfoodfacts.org/images/products/04963406/nutrition_fr.65.400.jpg
+                small:
+                  en: https://images.openfoodfacts.org/images/products/04963406/nutrition_en.47.200.jpg
+                  fr: https://images.openfoodfacts.org/images/products/04963406/nutrition_fr.65.200.jpg
+                thumb:
+                  en: https://images.openfoodfacts.org/images/products/04963406/nutrition_en.47.100.jpg
+                  fr: https://images.openfoodfacts.org/images/products/04963406/nutrition_fr.65.100.jpg
+            serving_quantity: "355"
+            serving_size: 355 ml
+            sortkey: 1580240420
+            states: en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-completed, en:packaging-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-validated, en:packaging-photo-to-be-selected, en:nutrition-photo-selected, en:ingredients-photo-selected, en:front-photo-selected, en:photos-uploaded
+            states_hierarchy:
+            - en:to-be-completed
+            - en:nutrition-facts-completed
+            - en:ingredients-completed
+            - en:expiration-date-to-be-completed
+            - en:packaging-code-to-be-completed
+            - en:characteristics-to-be-completed
+            - en:origins-to-be-completed
+            - en:categories-completed
+            - en:brands-completed
+            - en:packaging-completed
+            - en:quantity-completed
+            - en:product-name-completed
+            - en:photos-to-be-validated
+            - en:packaging-photo-to-be-selected
+            - en:nutrition-photo-selected
+            - en:ingredients-photo-selected
+            - en:front-photo-selected
+            - en:photos-uploaded
+            states_tags:
+            - en:to-be-completed
+            - en:nutrition-facts-completed
+            - en:ingredients-completed
+            - en:expiration-date-to-be-completed
+            - en:packaging-code-to-be-completed
+            - en:characteristics-to-be-completed
+            - en:origins-to-be-completed
+            - en:categories-completed
+            - en:brands-completed
+            - en:packaging-completed
+            - en:quantity-completed
+            - en:product-name-completed
+            - en:photos-to-be-validated
+            - en:packaging-photo-to-be-selected
+            - en:nutrition-photo-selected
+            - en:ingredients-photo-selected
+            - en:front-photo-selected
+            - en:photos-uploaded
+            stores: ""
+            stores_tags: []
+            teams: stakano,chocolatine,scanner
+            teams_tags:
+            - stakano
+            - chocolatine
+            - scanner
+            traces: ""
+            traces_from_ingredients: ""
+            traces_from_user: '(en) '
+            traces_hierarchy: []
+            traces_lc: en
+            traces_tags: []
+            unique_scans_n: 35
+            unknown_ingredients_n: 0
+            unknown_nutrients_tags: []
+            update_key: ingredients20220627
+            vitamins_prev_tags: []
+            vitamins_tags: []
+          status: 1
+          status_verbose: product found
