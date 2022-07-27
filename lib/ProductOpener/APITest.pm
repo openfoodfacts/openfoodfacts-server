@@ -152,7 +152,7 @@ sub create_product ($ua, $product_feilds) {
 	my $response = $ua->post("http://world.openfoodfacts.localhost/cgi/product.pl", Content => \%fields,);
 	$response->is_success or die("Couldn't create product with " . dump(\%fields) . "\n");
 	return;
-	}
+}
 
 =head2 construct_test_url()
 
