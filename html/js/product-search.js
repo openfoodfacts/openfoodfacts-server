@@ -361,9 +361,21 @@ function display_products(target, product_groups, user_prefs) {
 
 function display_product_summary(target, product) {
 	
-	var user_product_preferences = get_user_product_preferences();
+	var user_prefs = get_user_preferences();
 	
-	match_product_to_preferences(product, user_product_preferences);
+	match_product_to_preferences(product, user_prefs.product);
+
+
+			// Show the green / grey / colors for matching products only if we are using the user preferences
+            if (user_prefs.use_ranking) {
+		
+				var match_status_html = `<div class="match_status match_status_${product.match_status}">`
+				+ `<div class="match_score match_score_${product.match_status}">` + Math.round(product.match_score) + '%</div>'
+				+ '<span style="padding-left:0.5rem;padding-right:1rem;">' + lang()["products_match_" + product.match_status] + '</span></div>' ;
+
+				$("#match_score_and_status").html(match_status_html);
+
+			}	
 
     var attributes_html = '';
 
@@ -416,18 +428,24 @@ function display_product_summary(target, product) {
 }
 
 
-function rank_and_display_products(target, products, contributor_prefs) {
+// Retrieve user preferences from local storage
 
+function get_user_preferences(contributor_prefs) {
 
-    // Retrieve user preferences from local storage
-
-    var user_prefs = {
+	return {
+		// Retrieve whether we should use the preferences for scoring and ranking, or only for displaying the attributes of the products
         use_ranking: JSON.parse(localStorage.getItem('use_user_product_preferences_for_ranking')),
+		// Product preferences
         product: get_user_product_preferences(),
         display: contributor_prefs,
     };
+}
 
-    // Retrieve whether we should use the preferences for ranking, or only for displaying the products
+function rank_and_display_products(target, products, contributor_prefs) {
+
+    var user_prefs = get_user_preferences(contributor_prefs);
+
+    
     var ranked_products = rank_products(products, user_prefs.product, user_prefs.use_ranking);
     display_products(target, ranked_products, user_prefs);
 

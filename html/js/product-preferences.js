@@ -125,8 +125,8 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
 	
 	var html = '';
 	
-	var html_edit_preferences = '<a id="show_selection_form" class="button tiny round secondary"  role="button" tabindex="0">' +
-        '<span class="material-symbols-outlined">&#xE556;</span><span class="h-space-tiny">' +
+	var html_edit_preferences = '<a id="show_selection_form" class="button small round secondary"  role="button" tabindex="0">' +
+        '<span class="material-symbols-outlined">&#xE556;</span><span style="padding-left:0.5rem;">' +
         " " + lang().preferences_edit_your_food_preferences + '</span></a>';
 	
 	// Display a switch for classifying according to the user preferences if

@@ -21,14 +21,15 @@
     </span>
 </a>
 <div itemscope itemtype="[% itemtype %]" class="main-product">
-    <div class="block oceanblue v-space-tiny" id="prodHead">
+    <div id="product_banner" class="product_banner_unranked">
+    <div class="block v-space-tiny" id="prodHead" style="background-color:transparent;">
         <div class="row h-space-normal">
             <div class="large-12 flex-grid ">
-                <h1 class="title-4" property="food:name" itemprop="name">[% title %]</h1>
+                <h1 class="title-3" property="food:name" itemprop="name">[% title %]</h1>
                 <div class="buttons_prod">
                     <!-- Edit product page -->
                     <div class="edit_button">
-                        <a href="/cgi/product.pl?type=edit&code=[% code %]" class="button small" title="[% lang('edit_product_page') %]">
+                        <a href="/cgi/product.pl?type=edit&code=[% code %]" class="button small secondary" title="[% lang('edit_product_page') %]">
                             <span class="material-symbols-outlined size-20 ">
                             edit
                             </span>
@@ -76,7 +77,7 @@
             </div> 
         </div> 
     </div>
-    <div class="block oceanblue v-space-tiny prod-nav" id="prodNav">
+    <div class="block oceanblue v-space-tiny prod-nav" id="prodNav" style="background-color:transparent;">
         <div class="row h-space-normal">
             <div class="large-12">
                <nav id="navbar" class="navbar v-space-tiny h-space-tiny">
@@ -101,6 +102,7 @@
                 </nav><!-- .navbar -->
             </div> 
         </div> 
+    </div>
     </div>
 <div id="prodInfos">
     <!-- product_characteristics -->
@@ -181,7 +183,9 @@
             
             <div class="card">
                 <div class="card-section">
-                    <h2>Correspondance avec vos critères</h2>
+                    <h2 id="match_title">Correspondance avec vos critères</h2>
+
+                    <div id="match_score_and_status"></div>
                             
                     <div id="product_summary" class="v-space-short text-left"></div>
 

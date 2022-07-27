@@ -636,6 +636,98 @@ html[dir="rtl"] {
   background-color:#faa;
 }
 
+#product_banner {
+  color:black;
+}
+
+.product_banner_unranked {
+  background-color:#DFF4FF;
+}
+
+#match_title {
+  float:left;
+}
+
+#match_score_and_status {
+  float:right;
+}
+
+#product_summary {
+  clear:both;
+}
+
+.match_status {
+  text-align:center;
+  display:inline-block;
+  font-size:16px;
+  border-radius:200px;
+}
+
+.match_score {
+  color:white;
+  font-weight:bold;
+  padding:12px 0px;
+  width:50px;
+  height:50px;
+  border-radius:200px;
+  display:inline-block;
+}
+
+.match_status_does_not_match {
+  color:$grade-e-color;
+  background-color:rgba($grade-e-color,0.3);
+}
+
+.match_status_may_not_match {
+  color:$grade-d-color;
+  background-color:lighten($grade-d-color,50%);
+}
+
+.match_status_unknown_match {
+  color: #888;
+  background-color: lighten(#888,50%);
+}
+
+.match_status_poor_match {
+  color: $grade-c-color;
+  background-color: lighten($grade-c-color,50%);
+}
+
+.match_status_good_match {
+  color: $grade-b-color;
+  background-color: lighten($grade-b-color,50%);
+}
+
+.match_status_very_good_match {
+  color: $grade-a-color;
+  background-color: lighten($grade-a-color,50%);
+}
+
+
+.match_score_does_not_match {
+  background-color:$grade-e-color;
+}
+
+.match_score_may_not_match {
+  background-color:$grade-d-color;
+}
+
+.match_score_unknown_match {
+  background-color: #888;
+}
+
+.match_score_poor_match {
+  background-color: $grade-c-color;
+}
+
+.match_score_good_match {
+  background-color: $grade-b-color;
+}
+
+.match_score_very_good_match {
+  background-color: $grade-a-color;
+}
+
 .search_results .list_display_barcode {
   color: black;
   font-size: .8em;
