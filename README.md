@@ -1,5 +1,8 @@
-![Open Food Facts](https://static.openfoodfacts.org/images/logos/off-logo-horizontal-dark.svg#gh-dark-mode-only)
-![Open Food Facts](https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg#gh-light-mode-only)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.png">
+  <img height="100" src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg">
+</picture>
 
 
 # Open Food Facts - Product Opener (Web Server)
