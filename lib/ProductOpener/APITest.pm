@@ -147,7 +147,7 @@ sub create_product ($ua, $product_feilds) {
 		$fields{$key} = $value;
 	}
 	
-	my $response = $ua->post("http://world.openfoodfacts.localhost/cgi/product_jqm2", Content => \%fields,);
+	my $response = $ua->post("http://world.openfoodfacts.localhost/cgi/product_jqm2.pl", Content => \%fields,);
 	$response->is_success or die("Couldn't create product with " . dump(\%fields) . "\n");
 	return;
 }
