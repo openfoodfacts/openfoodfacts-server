@@ -46,7 +46,7 @@ equivalent_modules = ProductOpener::PerlStandards
 
 [BuiltinFunctions::RequireBlockMap]
 [BuiltinFunctions::RequireBlockGrep]
-
+[ValuesAndExpressions::ProhibitMixedBooleanOperators]
 # Allow `$`', `$&', `$'', because since Perl 5.20.0
 # there are no performance implications any more.
 [-Variables::ProhibitMatchVars]
