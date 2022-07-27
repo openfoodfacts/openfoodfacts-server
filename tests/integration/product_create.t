@@ -10,13 +10,13 @@ use ProductOpener::Test qw/:all/;
 
 remove_all_products();
 wait_dynamic_front();
-my $ua = new_client();
-create_user($ua, {});
 
-my %args_ref = (
+my $ua = new_client();
+
+my %product_feilds = (
 	code => '200000000099',
 	lang => "en",
-	product_name => "Test-75ml",
+	product_name => "Testttt-75ml",
 	generic_name => "Tester",
 	quantity => "75 ml",
 	link => "https://github.com/openfoodfacts/openfoodfacts-server",
@@ -30,7 +30,7 @@ my %args_ref = (
 	".submit" => "submit"
 );
 
-create_product($ua, \%args_ref);
+create_product($ua, \%product_feilds);
 
 # edit preference accessible
 my $response = $ua->get("http://world.openfoodfacts.localhost/cgi/product.pl?type=edit&code=200000000099");
