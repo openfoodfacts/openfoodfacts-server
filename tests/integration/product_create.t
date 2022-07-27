@@ -3,6 +3,7 @@
 use ProductOpener::PerlStandards;
 
 use Test;
+use Test::More;
 use ProductOpener::APITest qw/:all/;
 use ProductOpener::Test qw/:all/;
 
@@ -34,6 +35,6 @@ create_product($ua, \%product_feilds);
 my $response = $ua->get("http://world.openfoodfacts.localhost/cgi/product.pl?type=edit&code=200000000099");
 
 #$DB::single = 1;
-is $response->{_rc}, 200;
+is ($response->{_rc}, 200);
 
 done_testing();
