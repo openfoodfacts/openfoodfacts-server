@@ -43,8 +43,9 @@ BEGIN
 	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&startup
-		&init
+		&init_request
 		&analyze_request
+		&redirect
 
 		&display_date
 		&display_date_tag
@@ -221,7 +222,7 @@ When the module is loaded (at the start of Apache with mod_perl), we record the 
 of static files like CSS styles an JS code so that we can add a version parameter to the request
 in order to make sure the browser will not serve an old cached version.
 
-=head3 Synopsys
+=head3 Synopsis
 
     $scripts .= <<HTML
         <script type="text/javascript" src="/js/dist/product-multilingual.js?v=$file_timestamps{"js/dist/product-multilingual.js"}"></script>
@@ -435,6 +436,33 @@ sub process_template($template_filename, $template_data_ref, $result_content_ref
 }
 
 
+=head2 redirect($status_code, $redirect_url)
+
+This function instructs mod_perl to print redirect HTTP header (Location) and to terminate the request immediately.
+The mod_perl process is not terminated and will continue to serve future requests.
+
+=head3 Arguments
+
+=head4 Status code $status_code
+
+e.g. 302 for a temporary redirect
+
+=head4 Redirect url $redirect_url
+
+
+=cut
+
+sub redirect($status_code, $redirect_url) {
+		
+	my $r = Apache2::RequestUtil->request();
+	
+	$r->headers_out->set(Location => $redirect_url);
+	$r->status($status_code);
+	# note: under mod_perl, exit() will end the request without terminating the Apache mod_perl process
+	exit();
+}
+
+
 =head2 init_request ()
 
 C<init_request()> is called at the start of each new request (web page or API).
@@ -472,16 +500,12 @@ sub init_request() {
 	$bodyabout = '';
 	$admin = 0;
 
-	my $r = shift;
+	my $r = Apache2::RequestUtil->request();
 
 	$cc = 'world';
 	$lc = 'en';
 	@lcs = ();
 	$country = 'en:world';
-
-	if (not defined $r) {
-		$r = Apache2::RequestUtil->request();
-	}
 
 	$r->headers_out->set(Server => "Product Opener");
 	$r->headers_out->set("X-Frame-Options" => "DENY");
@@ -553,11 +577,9 @@ sub init_request() {
 	}
 	elsif ($ENV{QUERY_STRING} !~ /(cgi|api)\//) {
 		# redirect
-		my $redirect = get_world_subdomain() . "/" . $ENV{QUERY_STRING};
-		$log->info("request could not be matched to a known format, redirecting", { subdomain => $subdomain, lc => $lc, cc => $cc, country => $country, redirect => $redirect }) if $log->is_info();
-		$r->headers_out->set(Location => $redirect);
-		$r->status(302);
-		return 302;
+		my $redirect_url = get_world_subdomain() . $ENV{QUERY_STRING};
+		$log->info("request could not be matched to a known format, redirecting", { subdomain => $subdomain, lc => $lc, cc => $cc, country => $country, redirect => $redirect_url }) if $log->is_info();
+		redirect(302, $redirect_url);
 	}
 
 	$lc =~ s/_.*//;     # PT_PT doest not work yet: categories
@@ -573,11 +595,9 @@ sub init_request() {
 	if ((defined $lc) and (defined $cc) and (defined $country_languages{$cc}[0]) and ($country_languages{$cc}[0] eq $lc) and ($subdomain ne $cc) and ($subdomain !~ /^(ssl-)?api/) and ($r->method() eq 'GET') and ($ENV{QUERY_STRING} !~ /(cgi|api)\//)) {
 		# redirect
 		my $ccdom = format_subdomain($cc);
-		my $redirect = "$ccdom/" . $ENV{QUERY_STRING};
-		$log->info("lc is equal to first lc of the country, redirecting to countries main domain", { subdomain => $subdomain, lc => $lc, cc => $cc, country => $country, redirect => $redirect }) if $log->is_info();
-		$r->headers_out->set(Location => $redirect);
-		$r->status(302);
-		return 302;
+		my $redirect_url = $ccdom . $ENV{QUERY_STRING};
+		$log->info("lc is equal to first lc of the country, redirecting to countries main domain", { subdomain => $subdomain, lc => $lc, cc => $cc, country => $country, redirect => $redirect_url }) if $log->is_info();
+		redirect(302, $redirect_url);
 	}
 
 
@@ -771,7 +791,7 @@ Some information is set in request_ref, notably
 - some boolean for routing : search / taxonomy / mission / product / tag / points
 - parameters for products, mission, tags, etc.
 
-It handles redirect for remamed texts or products, .well-known/change-password
+It handles redirect for renamed texts or products, .well-known/change-password
 
 Sometimes we modify request parameters (param) to correspond to request_ref:
 - parameters for response format : json, jsonp, xml, ...
@@ -917,7 +937,7 @@ sub analyze_request($request_ref) {
 	elsif ((defined $options{redirect_texts}) and (defined $options{redirect_texts}{$lang . "/" . $components[0]})) {
 		$request_ref->{redirect} = $formatted_subdomain . "/" . $options{redirect_texts}{$lang . "/" . $components[0]};
 		$log->info("renamed text, redirecting", { textid => $components[0], redirect => $request_ref->{redirect} }) if $log->is_info();
-		return 301;
+		redirect(302, $request_ref->{redirect});
 	}
 
 	# First check if the request is for a text
@@ -976,7 +996,7 @@ sub analyze_request($request_ref) {
 	elsif ((scalar(@components) == 2) and ($components[0] eq '.well-known') and ($components[1] eq 'change-password')) {
 		$request_ref->{redirect} = $formatted_subdomain . '/cgi/change_password.pl';
 		$log->info('well-known password change page - redirecting', { redirect => $request_ref->{redirect} }) if $log->is_info();
-		return 307;
+		redirect(307, $request_ref->{redirect});
 	}
 
 	elsif ($#components == -1) {
@@ -2948,7 +2968,7 @@ sub display_points($request_ref) {
 	if ((defined $tagid) and ($newtagid ne $tagid) ) {
 		$request_ref->{redirect} = $formatted_subdomain . $request_ref->{current_link};
 		$log->info("newtagid does not equal the original tagid, redirecting", { newtagid => $newtagid, redirect => $request_ref->{redirect} }) if $log->is_info();
-		return 301;
+		redirect(302, $request_ref->{redirect});
 	}
 
 
@@ -3184,7 +3204,7 @@ sub display_tag($request_ref) {
 		$request_ref->{redirect} .= '.xml' if param("xml");
 		$request_ref->{redirect} .= '.jqm' if param("jqm");
 		$log->info("one or more tagids mismatch, redirecting to correct url", { redirect => $request_ref->{redirect} }) if $log->is_info();
-		return 302;
+		redirect(302, $request_ref->{redirect});
 	}
 
 	my $weblinks_html = '';
@@ -7363,8 +7383,8 @@ CSS
 	# Old UPC-12 in url? Redirect to EAN-13 url
 	if ($request_code ne $code) {
 		$request_ref->{redirect} = $request_ref->{canon_url};
-		$log->info("301 redirecting user because request_code does not match code", { redirect => $request_ref->{redirect}, lc => $lc, request_code => $code }) if $log->is_info();
-		return 301;
+		$log->info("302 redirecting user because request_code does not match code", { redirect => $request_ref->{redirect}, lc => $lc, request_code => $code }) if $log->is_info();
+		redirect(302, $request_ref->{redirect});
 	}
 
 	# Check that the titleid is the right one
@@ -7373,8 +7393,8 @@ CSS
 			(($titleid ne '') and ((not defined $request_ref->{titleid}) or ($request_ref->{titleid} ne $titleid))) or
 			(($titleid eq '') and ((defined $request_ref->{titleid}) and ($request_ref->{titleid} ne ''))) )) {
 		$request_ref->{redirect} = $request_ref->{canon_url};
-		$log->info("301 redirecting user because titleid is incorrect", { redirect => $request_ref->{redirect}, lc => $lc, product_lc => $product_ref->{lc}, titleid => $titleid, request_titleid => $request_ref->{titleid} }) if $log->is_info();
-		return 301;
+		$log->info("302 redirecting user because titleid is incorrect", { redirect => $request_ref->{redirect}, lc => $lc, product_lc => $product_ref->{lc}, titleid => $titleid, request_titleid => $request_ref->{titleid} }) if $log->is_info();
+		redirect(302, $request_ref->{redirect});
 	}
 
 	# Note: the product_url function is automatically added to all templates
@@ -8615,7 +8635,7 @@ sub display_nutriscore_calculation_details($nutriscore_data_ref) {
 
 =head2 data_to_display_nutrient_levels ( $product_ref )
 
-Generates a data structure to display the nutrient levels (food trafic lights).
+Generates a data structure to display the nutrient levels (food traffic lights).
 
 The resulting data structure can be passed to a template to generate HTML or the JSON data for a knowledge panel.
 

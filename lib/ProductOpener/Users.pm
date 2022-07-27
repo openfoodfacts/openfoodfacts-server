@@ -242,7 +242,7 @@ sub is_admin_user($user_id) {
 =head2 check_user_form()
 
 C<check_user_form()> This method checks and validates the different entries in the user form. 
-It also handles Spam-usernames, feilds for the organisation accounts. 
+It also handles Spam-usernames, fields for the organization accounts. 
 
 =cut
 
@@ -640,6 +640,7 @@ sub migrate_password_hash($user_ref) {
 		$user_ref->{'encrypted_password'} = create_password_hash(encode_utf8(decode utf8=>param('password')) );
 		$log->info("crypt password upgraded to scrypt_hash") if $log->is_info();
 	}
+	return;
 }
 
 
@@ -673,6 +674,7 @@ sub remove_old_sessions($user_ref) {
 			delete $user_ref->{'user_sessions'}{$oldest_session};
 		}
 	}
+	return;
 }
 
 

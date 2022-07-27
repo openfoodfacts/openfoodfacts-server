@@ -29,10 +29,10 @@ This module contains functions to compute the distribution of specific ingredien
 a specified set of products.
 
 For instance, one can compute the distribution of water, sugar and fruits 
-for products in the fruit nectars category.
+for products in the fruit nectar category.
 
 Functions in this module can be called through scripts for batch processing,
-and/or they could also be called for realtime analysis through the API or web interface
+and/or they could also be called for real time analysis through the API or web interface
 (for a small enough set of products).
 
 =head1 DESCRIPTION

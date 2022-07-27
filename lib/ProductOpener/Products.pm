@@ -907,7 +907,7 @@ Used on the web site for facets pages, except the index page.
 
 =head3 popularity_key - Popular and recent products
 
-Used for the Personal Search project to provide generic search results that apps can personnalize later.
+Used for the Personal Search project to provide generic search results that apps can personalize later.
 
 =cut
 
@@ -1563,7 +1563,7 @@ reference to a change record
 
 =head3 Return value
 
-The function returns by order of preerence:
+The function returns by order of preference:
 - a real user userid if we have an userid which is not the userid of an app
 - an appid + app uuid (e.g. some-app.Z626FZF4RTFSG6)
 - an app userid if the app did not provide an app uuid

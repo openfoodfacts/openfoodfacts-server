@@ -32,7 +32,7 @@ C<ProductOpener::Images> is used to:
 
 =head1 Product images on disk
 
-Product images are stored in html/images/products/[product barcode splitted with slashes]/
+Product images are stored in html/images/products/[product barcode split with slashes]/
 
 For each product, this directory contains:
 
@@ -44,7 +44,7 @@ Original images uploaded by users or imported
 
 =item [image number].jpg
 
-Same image saved as JPEG with specific settings, and after some minimal processing (autoorientation, removing EXIF data, flattening PNG images to remove transparency).
+Same image saved as JPEG with specific settings, and after some minimal processing (auto orientation, removing EXIF data, flattening PNG images to remove transparency).
 
 Those images are not displayed on the web site (except on the product edit form), but can be selected and cropped.
 

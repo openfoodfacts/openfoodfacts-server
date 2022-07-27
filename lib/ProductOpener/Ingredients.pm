@@ -26,7 +26,7 @@ ProductOpener::Ingredients - process and analyze ingredients lists
 
 C<ProductOpener::Ingredients> processes, normalize, parses and analyze
 ingredients lists to extract and recognize individual ingredients,
-additives and allernes, and to compute product properties related to
+additives and allergens, and to compute product properties related to
 ingredients (is the product vegetarian, vegan, does it contain palm oil etc.)
 
     use ProductOpener::Ingredients qw/:all/;
@@ -1137,7 +1137,7 @@ sub parse_specific_ingredients_from_text($$$) {
 
 		# If we found an ingredient, save it in specific_ingredients
 		if (defined $ingredient) {
-			my $ingredient_id = canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient);
+			my $ingredient_id = get_taxonomyid($product_lc, canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient));
 
 			$matched_text =~ s/^\s+//;
 
@@ -1271,7 +1271,7 @@ sub parse_origins_from_text($$) {
 
 				my $matched_text = $matched_ingredient_ref->{matched_text};
 				my $ingredient = $matched_ingredient_ref->{ingredient};
-				my $ingredient_id = canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient);
+				my $ingredient_id = get_taxonomyid($product_lc, canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient));
 
 				# Remove extra spaces
 				$ingredient =~ s/\s+$//;
@@ -2075,7 +2075,7 @@ sub parse_ingredients_text($) {
 			if (not $skip_ingredient) {
 
 				my %ingredient = (
-					id => $ingredient_id,
+					id => get_taxonomyid($product_ref->{lc},$ingredient_id),
 					text => $ingredient
 				);
 
@@ -2883,7 +2883,7 @@ sub compute_ingredients_percent_estimates($$) {
 This function analyzes ingredients to see the ones that are vegan, vegetarian, from palm oil etc.
 and computes the resulting value for the complete product.
 
-The results are overriden by labels like "Vegan", "Vegetarian" or "Palm oil free"
+The results are overrode by labels like "Vegan", "Vegetarian" or "Palm oil free"
 
 Results are stored in the ingredients_analysis_tags array.
 
@@ -5749,13 +5749,9 @@ sub extract_ingredients_classes_from_text($) {
 		delete $product_ref->{$field . "_next_tags" };
 	}
 
-
-
-
 	if ((defined $product_ref->{ingredients_that_may_be_from_palm_oil_n}) or (defined $product_ref->{ingredients_from_palm_oil_n})) {
 		$product_ref->{ingredients_from_or_that_may_be_from_palm_oil_n} = $product_ref->{ingredients_that_may_be_from_palm_oil_n} + $product_ref->{ingredients_from_palm_oil_n};
 	}
-
 
 	delete $product_ref->{with_sweeteners};
 	if (defined $product_ref->{'additives_tags'}) {

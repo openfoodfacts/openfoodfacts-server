@@ -204,7 +204,7 @@ Some special features that are not included in the JSON format are supported:
 
 1. Relative links are converted to absolute links using the requested country / language subdomain
 
-2. Multiline strings can be included using backticks ` at the start and end of the multinine strings.
+2. Multiline strings can be included using backticks ` at the start and end of the multiline strings.
 - The multiline strings will be converted to a single string.
 - Quotes " are automatically escaped unless they are already escaped
 

@@ -279,7 +279,7 @@ my @tests = (
 				'text' => "cr\x{e8}me"
 			},
 			{
-				'id' => "fr:fra\x{ee}che",
+				'id' => "fr:fraiche",
 				'text' => "fra\x{ee}che"
 			},
 			{
@@ -735,25 +735,25 @@ my @tests = (
 				'processing' => 'en:concentrated',
 				'text'       => 'acerolakirschen'
 			},
-			{	'id'   => 'de:zweifach konzentriert',
+			{	'id'   => 'de:zweifach-konzentriert',
 				'text' => 'zweifach konzentriert'
 			},
-			{	'id'   => 'de:2 fach konzentriert',
+			{	'id'   => 'de:2-fach-konzentriert',
 				'text' => '2 fach konzentriert'
 			},
-			{	'id'   => 'de:doppelt konzentriertes',
+			{	'id'   => 'de:doppelt-konzentriertes',
 				'text' => 'doppelt konzentriertes'
 			},
-			{	'id'   => 'de:zweifach konzentriertes',
+			{	'id'   => 'de:zweifach-konzentriertes',
 				'text' => 'zweifach konzentriertes'
 			},
-			{	'id'   => 'de:2-fach konzentriert',
+			{	'id'   => 'de:2-fach-konzentriert',
 				'text' => '2-fach konzentriert'
 			},
-			{	'id'   => 'de:dreifach konzentriert',
+			{	'id'   => 'de:dreifach-konzentriert',
 				'text' => 'dreifach konzentriert'
 			},
-			{	'id'   => 'de:200fach konzentriertes',
+			{	'id'   => 'de:200fach-konzentriertes',
 				'text' => '200fach konzentriertes'
 			},
 			{	'id'   => 'de:eingekochter',

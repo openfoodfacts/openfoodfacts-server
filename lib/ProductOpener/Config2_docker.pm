@@ -61,10 +61,10 @@ my $is_localhost = index($po_domain, 'localhost') != -1;
 
 $server_domain = $is_localhost && $po_port != '80' ? "$po_domain:$po_port" : $po_domain;
 @ssl_subdomains = $is_localhost ? qw() : qw(*);
-$producers_platform = $ENV{PRODUCERS_PLATFORM} || undef;
-if (defined $producers_platform && $producers_platform && $producers_platform != "0") {
-	$producers_platform = undef;
-}
+
+# Set PRODUCERS_PLATFORM to a non empty and non 0 value to enable the producers platform
+# by default, the producers platform is not activated
+$producers_platform = $ENV{PRODUCERS_PLATFORM} ? 1 : 0;
 
 # server paths
 $data_root = "/mnt/podata";
@@ -74,7 +74,7 @@ $geolite2_path = $ENV{GEOLITE2_PATH};
 
 my $mongodb_url = $ENV{MONGODB_HOST} || "mongodb";
 $mongodb_host = "mongodb://$mongodb_url:27017";
-$mongodb = $producers_platform == "1" ? "off-pro" : "off";
+$mongodb = $producers_platform ? "off-pro" : "off";
 $mongodb_timeout_ms = 50000; # config option max_time_ms/maxTimeMS
 
 $memd_servers = [ "memcached:11211" ];
@@ -97,7 +97,7 @@ $robotoff_url = $ENV{ROBOTOFF_URL};
         private_products => $producers_platform,  # 1 to make products visible only to the owner (producer platform)
 		producers_platform => $producers_platform,
 		minion_backend => { Pg => $postgres_url},
-		minion_local_queue => $producers_platform == "1" ? "pro.$server_domain" : $server_domain,
+		minion_local_queue => $producers_platform ? "pro.$server_domain" : $server_domain,
 		minion_export_queue => $server_domain,
 		cookie_domain => $po_domain,
 		export_servers => { public => "off", experiment => "off-exp"},

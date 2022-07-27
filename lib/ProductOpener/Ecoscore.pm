@@ -20,7 +20,7 @@
 
 =head1 NAME
 
-ProductOpener::Ecoscore - compute the Ecoscore environemental grade of a food product
+ProductOpener::Ecoscore - compute the Ecoscore environmental grade of a food product
 
 =head1 SYNOPSIS
 
@@ -92,7 +92,7 @@ The list is different from %ecoscore_countries that can contain more countries f
 data to compute the Eco-Score (e.g. distances).
 
 2021-10-28: we will now enable Eco-Score for all available countries,
-so this list will be overriden when we load the Eco-Score data.
+so this list will be overrode when we load the Eco-Score data.
 
 =cut
 

@@ -131,12 +131,4 @@ elsif ((defined $request_ref->{groupby_tagtype}) or ((defined $request_ref->{tag
 	display_tag($request_ref);
 }
 
-if (defined $request_ref->{redirect}) {
-	my $r = shift;
-
-	$r->headers_out->set(Location => $request_ref->{redirect});
-	$r->status(301);
-	return 301;
-}
-
 exit 0;

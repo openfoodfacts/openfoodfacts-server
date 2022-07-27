@@ -38,6 +38,7 @@ BEGIN {
 	  &new_client
 	  &wait_dynamic_front
 	  &create_product
+	  &construct_test_url
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -151,6 +152,32 @@ sub create_product ($ua, $product_feilds) {
 	my $response = $ua->post("http://world.openfoodfacts.localhost/cgi/product.pl", Content => \%fields,);
 	$response->is_success or die("Couldn't create product with " . dump(\%fields) . "\n");
 	return;
+
+=head2 construct_test_url()
+
+Constructs the URL to send the HTTP request to for the API.
+
+=head3 Arguments
+
+Takes in two string arguments, One being the the target and other a prefix. 
+The prefix could be simply the country code (eg: US for America or "World") OR something like ( {country-code}-{language-code} )
+
+An example below
+$target = "/product/35242200055"
+$prefix= "world-fr"  
+
+=head3 Return Value
+
+Returns the constructed URL for the query 
+
+For the example cited above this returns: "http://world-fr.openfoodfacts.localhost/product/35242200055"
+
+=cut
+
+sub construct_test_url ($target, $prefix) {
+	my $link = "openfoodfacts.localhost";
+	my $url = "http://${prefix}.${link}${target}";
+	return $url;
 }
 
 1;
