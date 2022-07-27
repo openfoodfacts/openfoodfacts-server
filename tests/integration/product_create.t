@@ -24,8 +24,8 @@ my %product_feilds = (
 	serving_size => "10g",
 	packaging_text => "no",
 	action => "process",
-	type => "add",
-	".submit" => "submit"
+	".submit" => "submit",
+	type => "add"
 );
 
 create_product($ua, \%product_feilds);
