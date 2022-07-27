@@ -48,4 +48,4 @@ my $redirect
   . ".css?v="
   . $file_timestamps{'css/dist/app-' . lang('text_direction') . '.css'};
 
-redirect(302, $redirect);
+redirect($request_ref, 302, $redirect);
