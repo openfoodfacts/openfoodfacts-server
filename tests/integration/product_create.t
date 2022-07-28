@@ -9,7 +9,7 @@ use ProductOpener::Test qw/:all/;
 remove_all_products();
 wait_dynamic_front();
 
-my $ua = new_client();
+my $admin_ua = new_client();
 
 my %product_fields = (
 	code => '200000000099',
@@ -26,8 +26,7 @@ my %product_fields = (
 	".submit" => "submit"
 );
 
-my $admin_ua = new_client();
-create_user($admin_ua, {userid => "stephane", email => 'stephane@test.com'});
+create_user($admin_ua, {});
 create_product($admin_ua, \%product_fields);
 
 my $response = $ua->get("http://world.openfoodfacts.localhost/product/200000000099");

@@ -127,7 +127,6 @@ sub create_user ($ua, $args_ref) {
 }
 
 sub create_product ($ua, $product_fields) {
-
 	my %fields = (
 	code => '200000000099',
 	lang => "en",
