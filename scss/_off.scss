@@ -598,26 +598,9 @@ html[dir="rtl"] {
 }
 
 .list_product_content {
-  border-bottom-left-radius:8px;
-  border-bottom-right-radius:8px;
-  padding:10px;
-  display:block;
-  background-color:#fff;
-  position:relative;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.list_product_unranked {
   border-radius:8px;
   padding:10px;
   display:block;
-  background-color:#fff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.list_product_a:hover {
-  background-color:#ddd;
-  text-decoration:none;
 }
 
 .list_product_a_match_yes {
@@ -1086,6 +1069,8 @@ a.grade_e:hover {
         display: none;
     }
 }
+
+@import "cards";
 @include foundation-card;
 
 ////

@@ -245,13 +245,10 @@ function display_products(target, product_groups, user_prefs) {
 
 			if (user_prefs.use_ranking) {
 				product_html += `<div class="list_product_banner list_product_banner_${product.match_status}">`
-				+ lang()["products_match_" + product.match_status] + ' ' + Math.round(product.match_score) + '%</div>'
-				+ '<div class="list_product_content">';
-			}
-			else {
-				product_html += '<div class="list_product_unranked">';
+				+ lang()["products_match_" + product.match_status] + ' ' + Math.round(product.match_score) + '%</div>';
 			}
 
+			product_html += '<div class="list_product_content">';
             product_html += '<div class="list_product_img_div">';
 
             const img_src =
