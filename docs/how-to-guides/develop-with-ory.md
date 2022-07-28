@@ -55,10 +55,6 @@ To change the account settings click change account parameters in OFF which will
 
 kratos_update_settings.pl will update the users sto file after user has updating settings in kratos
 
-What should be done:
-- After completing the settings flow send the user to http://world.openfoodfacts.localhost/cgi/kratos_update_settings.pl
-- Add redirect in kratos_update_settings.pl either back to the settings page or to OFF
-
 After Updating Settings you can see the users updated sto file with 
   - launch docker-compose run --rm backend re.pl
   - use ProductOpener::Store qw/:all/;
