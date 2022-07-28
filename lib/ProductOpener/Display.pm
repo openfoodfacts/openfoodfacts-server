@@ -7421,15 +7421,13 @@ CSS
 		$template_data_ref->{ecoscore_calculation_details} = display_ecoscore_calculation_details($cc, $product_ref->{ecoscore_data});
 	}
 
-	# Knowledge panels are in development, they can be activated with the "panels" parameter
-	# for debugging and demonstration purposes
-	# Also activate them for moderators
-	if (($User{moderator}) or (param('panels'))) {
-		initialize_knowledge_panels_options($knowledge_panels_options_ref);
-		create_knowledge_panels($product_ref, $lc, $cc, $knowledge_panels_options_ref);
-		$template_data_ref->{environment_card_panel} = display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "environment_card");
-		$template_data_ref->{health_card_panel} = display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "health_card");
-	}
+	# Activate knowledge panels for all users
+
+	initialize_knowledge_panels_options($knowledge_panels_options_ref);
+	create_knowledge_panels($product_ref, $lc, $cc, $knowledge_panels_options_ref);
+	$template_data_ref->{environment_card_panel} = display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "environment_card");
+	$template_data_ref->{health_card_panel} = display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "health_card");
+
 
 	# On the producers platform, show a link to the public platform
 

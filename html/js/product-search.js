@@ -234,15 +234,10 @@ function display_products(target, product_groups, user_prefs) {
 		var products_html = [];
 		
 		$.each( product_group, function(key, product) {
-
-			// Show the green / grey / colors for matching products only if we are using the user preferences
-            let css_classes = 'list_product_a';
-            if (user_prefs.use_ranking) {
-                css_classes += ' list_product_a_match_' + product.match_status;
-            }
 		
-			var product_html = `<li><a href="${product.url}" class="${css_classes}">`;
+			var product_html = `<li><a href="${product.url}" class="list_product_a">`;
 
+			// Add a colored banner to show how the product matches the user's preferences
 			if (user_prefs.use_ranking) {
 				product_html += `<div class="list_product_banner list_product_banner_${product.match_status}">`
 				+ lang()["products_match_" + product.match_status] + ' ' + Math.round(product.match_score) + '%</div>';
@@ -376,9 +371,16 @@ function display_product_summary(target, product) {
 				$("#prodHead").addClass("product_banner_" + product.match_status);				
 
 				$("#prodNav").removeClass("product_banner_unranked product_banner_does_not_match product_banner_may_not_match product_banner_unknown_match product_banner_poor_match product_banner_good_match product_banner_very_good_match");
-				$("#prodNav").addClass("product_banner_" + product.match_status);				
-
-			}	
+				$("#prodNav").addClass("product_banner_" + product.match_status);
+				
+				$("#prodBanner").html(lang()["products_match_" + product.match_status] + ' ' + Math.round(product.match_score) + '%');
+				$("#prodBanner").removeClass();
+				$("#prodBanner").addClass(`list_product_banner_${product.match_status}`);
+				$("#prodBanner").show();
+			}
+			else {
+				$("#prodBanner").hide();
+			}
 
     var attributes_html = '';
 

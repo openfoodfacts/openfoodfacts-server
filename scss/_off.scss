@@ -563,6 +563,14 @@ html[dir="rtl"] {
     color: #ff6600
 }
 
+#prodBanner {
+  padding:5px;
+  display:block;
+  color:white;
+  font-size:1rem;
+  text-align:center;
+}
+
 .list_product_banner {
   border-top-left-radius:8px;
   border-top-right-radius:8px;
@@ -603,21 +611,6 @@ html[dir="rtl"] {
   display:block;
 }
 
-.list_product_a_match_yes {
-  background-color:#cfc;
-}
-
-.list_product_a_match_yes:hover {
-  background-color:#afa;
-}
-
-.list_product_a_match_no {
-  background-color:#fcc;
-}
-
-.list_product_a_match_no:hover {
-  background-color:#faa;
-}
 
 #product_banner {
   color:black;
@@ -992,7 +985,7 @@ a.attribute_card:hover {
 
 
 .grade_unknown {
-    background-color: $white !important;
+    background-color: rgba($grade-unknown-color, 0.1) !important;
 }
 
 a.grade_unknown:hover {
