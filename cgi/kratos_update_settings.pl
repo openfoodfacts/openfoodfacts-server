@@ -128,3 +128,5 @@ if(defined $kratos_cookie){
         $log->debug("HTTP GET error message: ", $resp->message, "n");
     }
 }
+
+print redirect(-url=>'http://world.openfoodfacts.localhost/');

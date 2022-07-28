@@ -31,6 +31,7 @@ selfservice:
   allowed_return_urls:
     - http://world.openfoodfacts.localhost/
     - http://kratos.openfoodfacts.localhost/cgi/kratos_auth.pl
+    - http://world.openfoodfacts.localhost/cgi/kratos_update_settings.pl
 
   methods:
     password:
@@ -43,6 +44,8 @@ selfservice:
     settings:
       ui_url: http://kratos.openfoodfacts.localhost:4455/settings
       privileged_session_max_age: 15m
+      after:
+        default_browser_return_url: http://world.openfoodfacts.localhost/cgi/kratos_update_settings.pl
 
     recovery:
       enabled: true
