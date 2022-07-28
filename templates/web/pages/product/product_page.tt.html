@@ -21,8 +21,7 @@
     </span>
 </a>
 <div itemscope itemtype="[% itemtype %]" class="main-product">
-    <div id="product_banner" class="product_banner_unranked">
-    <div class="block v-space-tiny" id="prodHead" style="background-color:transparent;">
+    <div class="block v-space-tiny product_banner_unranked" id="prodHead">
         <div class="row h-space-normal">
             <div class="large-12 flex-grid ">
                 <h1 class="title-3" property="food:name" itemprop="name">[% title %]</h1>
@@ -75,14 +74,14 @@
                     [% END %]
                 </div>
             </div> 
-        </div> 
+        </div>
     </div>
-    <div class="block oceanblue v-space-tiny prod-nav" id="prodNav" style="background-color:transparent;">
+    <div class="block v-space-tiny prod-nav product_banner_unranked" id="prodNav">
         <div class="row h-space-normal">
             <div class="large-12">
                <nav id="navbar" class="navbar v-space-tiny h-space-tiny">
                     <ul class="inline-list">
-                        <li><a class="nav-link scrollto button small round" href="#characteristics"><span>Générale</span></a></li>
+                        <li><a class="nav-link scrollto button small round secondary" href="#characteristics"><span>Caractéristiques</span></a></li>
                         <li><a class="nav-link scrollto " href="#composition"><span>Vos critères</span></a></li>
                         <li><a href="#" data-dropdown="hoverHeal" data-options="is_hover:true; hover_timeout:500">Santé</a>
                             <ul id="hoverHeal" class="f-dropdown" data-dropdown-content>
@@ -101,8 +100,7 @@
                 
                 </nav><!-- .navbar -->
             </div> 
-        </div> 
-    </div>
+        </div>
     </div>
 <div id="prodInfos">
     <!-- product_characteristics -->
@@ -200,7 +198,7 @@
 
 
     <!-- product_characteristics -->
-    <section class="row"  id="composition">
+    <section class="row" id="composition">
         <div class="large-12 column">
             <div class="card">
                 <div class="card-section">

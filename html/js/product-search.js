@@ -375,6 +375,12 @@ function display_product_summary(target, product) {
 
 				$("#match_score_and_status").html(match_status_html);
 
+				$("#prodHead").removeClass("product_banner_unranked product_banner_does_not_match product_banner_may_not_match product_banner_unknown_match product_banner_poor_match product_banner_good_match product_banner_very_good_match");
+				$("#prodHead").addClass("product_banner_" + product.match_status);				
+
+				$("#prodNav").removeClass("product_banner_unranked product_banner_does_not_match product_banner_may_not_match product_banner_unknown_match product_banner_poor_match product_banner_good_match product_banner_very_good_match");
+				$("#prodNav").addClass("product_banner_" + product.match_status);				
+
 			}	
 
     var attributes_html = '';
