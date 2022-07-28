@@ -30,7 +30,7 @@ my $admin_ua = new_client();
 create_user($admin_ua, {userid => "stephane", email => 'stephane@test.com'});
 create_product($admin_ua, \%product_fields);
 
-my $response = $ua->get("http://world.openfoodfacts.localhost/product/200000000099");
+my %response = $ua->get("http://world.openfoodfacts.localhost/product/200000000099");
 
 is ($response{_rc}, 200);
 
