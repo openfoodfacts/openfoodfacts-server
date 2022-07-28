@@ -598,7 +598,7 @@ sub create_ecoscore_panel($$$) {
             # Add properties of interest
             foreach my $property (qw(environmental_benefits description)) {
                 my $property_value = get_inherited_property("labels", $labelid, $property . ":" . $target_lc);
-                if (not defined $property_value && $target_lc != "en") {
+                if (!(defined $property_value) && ($target_lc ne "en")) {
                     # fallback to english
                     $property_value = get_inherited_property("labels", $labelid, $property . ":" . "en");
                 }
@@ -1112,7 +1112,7 @@ sub create_ingredients_panel($$$) {
 	}
 
     my $title ="";
-    if (!(defined $product_ref->{ingredients_n}) or ($product_ref->{ingredients_n} == 0)) {
+    if (!(defined $product_ref->{ingredients_n}) || ($product_ref->{ingredients_n} == 0)) {
         $title = lang("no_ingredient");
     } elsif ($product_ref->{ingredients_n} == 1) {
         $title = lang("one_ingredient");
