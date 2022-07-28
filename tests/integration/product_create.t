@@ -26,7 +26,9 @@ my %product_feilds = (
 	".submit" => "submit"
 );
 
-create_product($ua, \%product_feilds);
+$admin_ua = new_client();
+create_user($admin_ua, {userid => "stephane", email => 'stephane@test.com'});
+create_product($admin_ua, \%product_feilds);
 
 # edit preference accessible
 my $response = $ua->get("http://world.openfoodfacts.localhost/cgi/product.pl?type=edit&code=200000000099");
