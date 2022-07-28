@@ -2,7 +2,7 @@
 
 use ProductOpener::PerlStandards;
 
-use Test;
+use Test::More;
 use ProductOpener::APITest qw/:all/;
 use ProductOpener::Test qw/:all/;
 
@@ -11,7 +11,7 @@ wait_dynamic_front();
 
 my $ua = new_client();
 
-my %product_feilds = (
+my %product_fields = (
 	code => '200000000099',
 	lang => "en",
 	product_name => "Testttt-75ml",
@@ -26,12 +26,12 @@ my %product_feilds = (
 	".submit" => "submit"
 );
 
-$admin_ua = new_client();
+my $admin_ua = new_client();
 create_user($admin_ua, {userid => "stephane", email => 'stephane@test.com'});
-create_product($admin_ua, \%product_feilds);
+create_product($admin_ua, \%product_fields);
 
 # edit preference accessible
-my $response = $ua->get("http://world.openfoodfacts.localhost/cgi/product.pl?type=edit&code=200000000099");
+my $response = $admin_ua->get("http://world.openfoodfacts.localhost/product.pl/200000000099");
 
 #$DB::single = 1;
 is ($response->{_rc}, 200);
