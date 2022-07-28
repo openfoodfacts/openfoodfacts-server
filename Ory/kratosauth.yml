@@ -46,6 +46,10 @@ services:
       - KRATOS_BROWSER_URL=http://kratos.openfoodfacts.localhost:4433/
     ports:
       - '127.0.0.1:4455:3000'
+    volumes:
+      - type: bind
+        source: ./Ory/kratos_ui/settings.hbs
+        target: /usr/src/app/views/settings.hbs
     restart: on-failure
 
   mailslurper:

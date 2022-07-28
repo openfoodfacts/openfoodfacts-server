@@ -1,0 +1,80 @@
+<div class="app-container" id="settings">
+
+  <h2 class="typography-h2 card-title">Profile Management and Security Settings</h2>
+
+  {{#if ui.messages}}
+    <div class="card">
+      {{> messages messages=ui.messages className="standalone" }}
+    </div>
+  {{/if}}
+
+  <div class="card">
+    <form action="{{ui.action}}" method="{{ui.method}}">
+      <h3 class="typography-h3">Profile Settings</h3>
+      {{> ui_nodes nodes=ui.nodes only="profile,default" }}
+    </form>
+  </div>
+
+  {{#if (onlyNodes ui.nodes "password")}}
+    <div class="card">
+      <form action="{{ui.action}}" method="{{ui.method}}">
+        <h3 class="typography-h3">Change Password</h3>
+        {{> ui_nodes nodes=ui.nodes only="password,default" }}
+      </form>
+    </div>
+  {{/if}}
+
+  {{#if (onlyNodes ui.nodes "oidc")}}
+    <div class="card">
+      <form action="{{ui.action}}" method="{{ui.method}}">
+        <h3 class="typography-h3">Manage Social Sign In</h3>
+        {{> ui_nodes nodes=ui.nodes only="oidc,default" }}
+      </form>
+    </div>
+  {{/if}}
+
+  {{#if (onlyNodes ui.nodes "lookup_secret")}}
+    <div class="card">
+      <form action="{{ui.action}}" method="{{ui.method}}">
+        <h3 class="typography-h3">Manage 2FA Backup Recovery Codes</h3>
+        <p class="typography-paragraph">Recovery codes can be used in panic situations where you have lost access to
+          your 2FA device.</p>
+        {{> ui_nodes nodes=ui.nodes only="lookup_secret,default" }}
+      </form>
+    </div>
+  {{/if}}
+
+  {{#if (onlyNodes ui.nodes "totp")}}
+    <div class="card">
+      <form action="{{ui.action}}" method="{{ui.method}}">
+        <h3 class="typography-h3">Manage 2FA TOTP Authenticator App</h3>
+        <p class="typography-paragraph">Add a TOTP Authenticator App to your account to improve your account security.
+          Popular Authenticator Apps are <a href="https://www.lastpass.com" target="_blank">LastPass</a> and Google
+          Authenticator (<a href="https://apps.apple.com/us/app/google-authenticator/id388497605"
+                            target="_blank">iOS</a>, <a
+            href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en&gl=US"
+            target="_blank">Android</a>).
+        </p>
+        {{> ui_nodes nodes=ui.nodes only="totp,default" }}
+      </form>
+    </div>
+  {{/if}}
+
+  {{#if (onlyNodes ui.nodes "webauthn")}}
+    <div class="card">
+      <form action="{{ui.action}}" method="{{ui.method}}">
+        <h3 class="typography-h3">Manage Hardware Tokens and Biometrics</h3>
+        <p class="typography-paragraph">
+          Use Hardware Tokens (e.g. YubiKey) or Biometrics (e.g. FaceID, TouchID) to enhance your account security.
+        </p>
+        {{> ui_nodes nodes=ui.nodes only="webauthn,default" }}
+      </form>
+    </div>
+  {{/if}}
+
+  <div class="card">
+    <div class="card-action">
+      <a class="typography-link typography-h2" href="http://world.openfoodfacts.localhost/cgi/kratos_update_settings.pl">Back</a>
+    </div>
+  </div>
+</div>
