@@ -31,7 +31,7 @@ my %product_fields = (
 create_user($admin_ua, {});
 create_product($admin_ua, \%product_fields);
 
-my $response = $ua->get("http://world.openfoodfacts.localhost/cgi/product.pl?type=edit&code=200000000099");
+my $response = $admin_ua->get("http://world.openfoodfacts.localhost/cgi/product.pl?type=edit&code=200000000099");
 
 is ($response->{_rc}, 200);
 
