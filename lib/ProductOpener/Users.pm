@@ -96,6 +96,8 @@ use Crypt::PasswdMD5 qw(unix_md5_crypt);
 use Math::Random::Secure qw(irand);
 use Crypt::ScryptKDF qw(scrypt_hash scrypt_hash_verify);
 use Log::Any qw($log);
+use LWP::UserAgent;
+use JSON;
 
 my @user_groups = qw(producer database app bot moderator pro_moderator);
 
@@ -800,6 +802,59 @@ sub init_user($request_ref) {
 	elsif ( (defined param('user_id')) and (param('user_id') ne '') and
                        ( ( (defined param('password')) and (param('password') ne ''))
                          ) ) {
+
+		if($ORY_ENABLED){
+			#kratos get request url
+			my $kratos_get_url = "http://kratos.openfoodfacts.localhost:4433/self-service/login/api";
+
+			my $ua = LWP::UserAgent->new;
+
+			my $get_req = HTTP::Request->new(GET => $kratos_get_url);
+			$get_req->header('accept' => 'application/json');
+
+			my $get_resp = $ua->request($get_req);
+
+			if($get_resp->is_success){
+				my $json = $resp->decoded_content;
+        		my $content_ref = decode_json($json);
+
+				#get post url from json
+				my $login_url = $content_ref->{ui}{action};
+
+				#create json to post
+				my $post_json = JSON->new;
+
+				my $data_to_json = {
+					"identifier"=>param('user_id'),
+					"password"=>param('password'),
+					"method"=>"password"
+				};
+
+				$post_json->encode($data_to_json);
+
+				#post json
+				my $post_req = HTTP::Request->new(POST => $login_url);
+				$post_req->header('accept' => 'application/json');
+				$post_req->header('content-type' => 'application/json');
+				$post_req->content($post_json);
+
+				my $post_resp = $ua->request($post_req);
+
+				if($post_rep->is_success){
+					$log->debug("User logged in api flow");
+					#need to open user session with response from json
+				}
+				else{
+					$log->debug("HTTP POST error code: ", $resp->code, "n");
+        			$log->debug("HTTP POST error message: ", $resp->message, "n");
+				}
+			}
+			else{
+				$log->debug("HTTP GET error code: ", $resp->code, "n");
+        		$log->debug("HTTP GET error message: ", $resp->message, "n");
+			}
+		}
+
 
 		# CGI::param called in list context from package ProductOpener::Users line 373, this can lead to vulnerabilities.
 		# See the warning in "Fetching the value or values of a single named parameter"
