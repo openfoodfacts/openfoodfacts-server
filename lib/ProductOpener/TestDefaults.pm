@@ -36,24 +36,7 @@ BEGIN
 
 use vars @EXPORT_OK ;
 
-my %default_product_form = (
-    code => '200000000099',
-	lang => "en",
-	product_name => "Test-75ml",
-	generic_name => "Tester",
-	quantity => "75 ml",
-	link => "https://github.com/openfoodfacts/openfoodfacts-server",
-	expiration_date => "test",
-	ingredients_text => "apple, milk",
-	origin => "france",
-	serving_size => "10g",
-	packaging_text => "no",
-	action => "process",
-	type => "add",
-	".submit" => "submit"
-);
-
-my %default_user_form = (
+%default_user_form = (
 	email => 'test@test.com',
 	userid => "test",
 	name => "Test",
@@ -68,7 +51,5 @@ my %default_user_form = (
 	type => "add",
 	".submit" => "Register"
 );
-
-
 
 1;
