@@ -126,7 +126,7 @@ sub create_user ($ua, $args_ref) {
 	return;
 }
 
-sub create_product ($ua, $product_feilds) {
+sub create_product ($ua, $product_fields) {
 
 	my %fields = (
 	code => '200000000099',
@@ -143,7 +143,7 @@ sub create_product ($ua, $product_feilds) {
 	".submit" => "submit"
 	);
 
-	while (my ($key, $value) = each %{$product_feilds}) {
+	while (my ($key, $value) = each %{$product_fields}) {
 		$fields{$key} = $value;
 	}
 	

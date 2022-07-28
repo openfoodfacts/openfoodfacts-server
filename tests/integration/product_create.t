@@ -32,6 +32,6 @@ create_product($admin_ua, \%product_fields);
 
 my $response = $ua->get("http://world.openfoodfacts.localhost/product/200000000099");
 
-is ($response->{_rc}, 200);
+is ($response{_rc}, 200);
 
 done_testing();
