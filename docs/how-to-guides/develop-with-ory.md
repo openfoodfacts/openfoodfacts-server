@@ -28,7 +28,7 @@ From here you can login, sign up, recover account, verify account, and change ac
 
 ## Signing in and Creating an Account
 
-Sign in: Need a button to go to http://kratos.openfoodfacts.localhost:4455/login ; Can login by clicking creating an account in OFF then clicking sign in <br/>
+Sign in: Can login by clicking creating an account in OFF then clicking sign in ; Need a button to go to http://kratos.openfoodfacts.localhost:4455/login <br/>
 Create an account: Click create an account in OFF which redirects you to http://kratos.openfoodfacts.localhost:4455/registration <br/>
 
 - After completing login and sign up flows you will be redirected to world.openfoodfacts.localhost/cgi/kratos_auth.pl
