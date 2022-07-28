@@ -31,7 +31,7 @@ create_user($admin_ua, {userid => "stephane", email => 'stephane@test.com'});
 create_product($admin_ua, \%product_fields);
 
 # edit preference accessible
-my $response = $admin_ua->get("http://world.openfoodfacts.localhost/product.pl/200000000099");
+my $response = $admin_ua->get("http://world.openfoodfacts.localhost/product/200000000099");
 
 #$DB::single = 1;
 is ($response->{_rc}, 200);
