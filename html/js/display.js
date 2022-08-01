@@ -93,7 +93,7 @@ $(function() {
     $("#select_country").select2({
         allowClear: true,
         ajax: {
-            url: '/cgi/i18n/countries.pl',
+            url: '/cgi/countries.pl',
             dataType: 'json',
             processResults: function(data) {
                 const results = [];
