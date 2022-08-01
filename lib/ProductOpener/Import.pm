@@ -413,7 +413,14 @@ my %no = (
 
 
 
-sub apply_organization_settings_to_product() {
+sub apply_organization_settings_to_product($$$$$$) {
+	
+	my $imported_product_ref = shift;
+	my $org_id = shift;
+	my $org_ref = shift;
+	my %stats = shift;
+	my $args_ref = shift;
+	my $glns_ref = shift;
 
 	$org_id = get_string_id_for_lang("no_language", $imported_product_ref->{org_name});
 	if ($org_id eq "") {
@@ -546,7 +553,6 @@ sub apply_organization_settings_to_product() {
 
 	store_org($org_ref);
 	}
-
 	return;
 }
 
@@ -673,7 +679,7 @@ sub import_csv_file($) {
 		# If the CSV includes an org_name (e.g. from GS1 partyName field)
 		# set the owner of the product to the org_name
 		if ((defined $imported_product_ref->{org_name}) and ($imported_product_ref->{org_name} ne "")) {
-			apply_organization_settings_to_product()
+			apply_organization_settings_to_product($imported_product_ref, $org_id, $org_ref, $args_ref, $glns_ref, %stats)
 		}
 
 		$Org_id = $org_id;
