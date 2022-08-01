@@ -127,21 +127,7 @@ sub create_user ($ua, $args_ref) {
 }
 
 sub create_product ($ua, $product_fields) {
-	my %fields = (
-		code => '200000000099',
-		lang => "en",
-		product_name => "Test-75ml",
-		generic_name => "Tester",
-		quantity => "75 ml",
-		link => "https://github.com/openfoodfacts/openfoodfacts-server",
-		expiration_date => "test",
-		ingredients_text => "apple, milk",
-		origin => "france",
-		serving_size => "10g",
-		packaging_text => "no",
-		".submit" => "submit"
-	);
-
+	my %fields;
 	while (my ($key, $value) = each %{$product_fields}) {
 		$fields{$key} = $value;
 	}
