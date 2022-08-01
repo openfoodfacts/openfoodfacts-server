@@ -45,7 +45,7 @@ BEGIN
 		&startup
 		&init_request
 		&analyze_request
-		&redirect
+		&redirect_to_url
 
 		&display_date
 		&display_date_tag
@@ -437,12 +437,16 @@ sub process_template($template_filename, $template_data_ref, $result_content_ref
 }
 
 
-=head2 redirect($status_code, $redirect_url)
+=head2 redirect_to_url($request_ref, $status_code, $redirect_url)
 
 This function instructs mod_perl to print redirect HTTP header (Location) and to terminate the request immediately.
 The mod_perl process is not terminated and will continue to serve future requests.
 
 =head3 Arguments
+
+=head4 Request object $request_ref
+
+The request object may contain a cookie.
 
 =head4 Status code $status_code
 
@@ -450,14 +454,18 @@ e.g. 302 for a temporary redirect
 
 =head4 Redirect url $redirect_url
 
-
 =cut
 
-sub redirect($status_code, $redirect_url) {
+sub redirect_to_url($request_ref, $status_code, $redirect_url) {
 		
 	my $r = Apache2::RequestUtil->request();
 	
 	$r->headers_out->set(Location => $redirect_url);
+
+	if (defined $request_ref->{cookie}) {
+		$r->headers_out->set("Set-Cookie" => $request_ref->{cookie});
+	}
+
 	$r->status($status_code);
 	# note: under mod_perl, exit() will end the request without terminating the Apache mod_perl process
 	exit();
@@ -580,7 +588,7 @@ sub init_request() {
 		# redirect
 		my $redirect_url = get_world_subdomain() . $ENV{QUERY_STRING};
 		$log->info("request could not be matched to a known format, redirecting", { subdomain => $subdomain, lc => $lc, cc => $cc, country => $country, redirect => $redirect_url }) if $log->is_info();
-		redirect(302, $redirect_url);
+		redirect_to_url($request_ref, 302, $redirect_url);
 	}
 
 	$lc =~ s/_.*//;     # PT_PT doest not work yet: categories
@@ -598,7 +606,7 @@ sub init_request() {
 		my $ccdom = format_subdomain($cc);
 		my $redirect_url = $ccdom . $ENV{QUERY_STRING};
 		$log->info("lc is equal to first lc of the country, redirecting to countries main domain", { subdomain => $subdomain, lc => $lc, cc => $cc, country => $country, redirect => $redirect_url }) if $log->is_info();
-		redirect(302, $redirect_url);
+		redirect_to_url($request_ref, 302, $redirect_url);
 	}
 
 
@@ -938,7 +946,7 @@ sub analyze_request($request_ref) {
 	elsif ((defined $options{redirect_texts}) and (defined $options{redirect_texts}{$lang . "/" . $components[0]})) {
 		$request_ref->{redirect} = $formatted_subdomain . "/" . $options{redirect_texts}{$lang . "/" . $components[0]};
 		$log->info("renamed text, redirecting", { textid => $components[0], redirect => $request_ref->{redirect} }) if $log->is_info();
-		redirect(302, $request_ref->{redirect});
+		redirect_to_url($request_ref, 302, $request_ref->{redirect});
 	}
 
 	# First check if the request is for a text
@@ -997,7 +1005,7 @@ sub analyze_request($request_ref) {
 	elsif ((scalar(@components) == 2) and ($components[0] eq '.well-known') and ($components[1] eq 'change-password')) {
 		$request_ref->{redirect} = $formatted_subdomain . '/cgi/change_password.pl';
 		$log->info('well-known password change page - redirecting', { redirect => $request_ref->{redirect} }) if $log->is_info();
-		redirect(307, $request_ref->{redirect});
+		redirect_to_url($request_ref, 307, $request_ref->{redirect});
 	}
 
 	elsif ($#components == -1) {
@@ -2969,7 +2977,7 @@ sub display_points($request_ref) {
 	if ((defined $tagid) and ($newtagid ne $tagid) ) {
 		$request_ref->{redirect} = $formatted_subdomain . $request_ref->{current_link};
 		$log->info("newtagid does not equal the original tagid, redirecting", { newtagid => $newtagid, redirect => $request_ref->{redirect} }) if $log->is_info();
-		redirect(302, $request_ref->{redirect});
+		redirect_to_url($request_ref, 302, $request_ref->{redirect});
 	}
 
 
@@ -3205,7 +3213,7 @@ sub display_tag($request_ref) {
 		$request_ref->{redirect} .= '.xml' if param("xml");
 		$request_ref->{redirect} .= '.jqm' if param("jqm");
 		$log->info("one or more tagids mismatch, redirecting to correct url", { redirect => $request_ref->{redirect} }) if $log->is_info();
-		redirect(302, $request_ref->{redirect});
+		redirect_to_url($request_ref, 302, $request_ref->{redirect});
 	}
 
 	my $weblinks_html = '';
@@ -7385,7 +7393,7 @@ CSS
 	if ($request_code ne $code) {
 		$request_ref->{redirect} = $request_ref->{canon_url};
 		$log->info("302 redirecting user because request_code does not match code", { redirect => $request_ref->{redirect}, lc => $lc, request_code => $code }) if $log->is_info();
-		redirect(302, $request_ref->{redirect});
+		redirect_to_url($request_ref, 302, $request_ref->{redirect});
 	}
 
 	# Check that the titleid is the right one
@@ -7395,7 +7403,7 @@ CSS
 			(($titleid eq '') and ((defined $request_ref->{titleid}) and ($request_ref->{titleid} ne ''))) )) {
 		$request_ref->{redirect} = $request_ref->{canon_url};
 		$log->info("302 redirecting user because titleid is incorrect", { redirect => $request_ref->{redirect}, lc => $lc, product_lc => $product_ref->{lc}, titleid => $titleid, request_titleid => $request_ref->{titleid} }) if $log->is_info();
-		redirect(302, $request_ref->{redirect});
+		redirect_to_url($request_ref, 302, $request_ref->{redirect});
 	}
 
 	# Note: the product_url function is automatically added to all templates

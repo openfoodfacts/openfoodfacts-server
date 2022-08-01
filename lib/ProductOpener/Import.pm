@@ -290,7 +290,7 @@ If the user_id is 'all', the change will be attributed to the org of the product
 
 =head4 org_id - optional
 
-Organisation id to which the changes (new products, added or changed values, new images)
+Organization id to which the changes (new products, added or changed values, new images)
 will be attributed.
 
 =head4 owner_id - optional
@@ -301,7 +301,7 @@ Values are of the form user-[user id] or org-[organization id].
 If not set, for databases with private products, it will be constructed from the user_id
 and org_id parameters.
 
-The owner can be overriden if the CSV file contains a org_name field.
+The owner can be overrode if the CSV file contains a org_name field.
 In that case, the owner is set to the value of the org_name field, and
 a new org is created if it does not exist yet.
 
@@ -344,11 +344,11 @@ URL for the source.
 
 =head4 source_licence - optional (unless no_source is indicated)
 
-Licence that the source data is available in.
+License that the source data is available in.
 
 =head4 source_licence_url - optional (unless no_source is indicated)
 
-URL for the licence.
+URL for the license.
 
 =head4 manufacturer - optional
 
@@ -504,7 +504,7 @@ sub import_csv_file($) {
 		$i++;
 
 		# By default, use the orgid passed in the arguments
-		# it may be overriden later on a per product basis
+		# it may be overrode later on a per product basis
 		my $org_id = $args_ref->{org_id};
 		my $org_ref;
 
@@ -669,7 +669,7 @@ sub import_csv_file($) {
 		$Owner_id = get_owner_id($User_id, $Org_id, $args_ref->{owner_id});
 		my $product_id = product_id_for_owner($Owner_id, $code);
 
-		# The userid can be overriden on a per product basis
+		# The userid can be overrode on a per product basis
 		# when we import data from the producers platform to the public platform
 		# we use the orgid as the userid
 		my $user_id = $args_ref->{user_id};
@@ -2177,7 +2177,7 @@ will be attributed.
 
 =head4 org_id - optional
 
-Organisation id to which the changes (new products, added or changed values, new images)
+Organization id to which the changes (new products, added or changed values, new images)
 will be attributed.
 
 =head4 owner_id - optional
@@ -2188,7 +2188,7 @@ Values are of the form user-[user id] or org-[organization id].
 If not set, for databases with private products, it will be constructed from the user_id
 and org_id parameters.
 
-The owner can be overriden if the CSV file contains a org_name field.
+The owner can be overrode if the CSV file contains a org_name field.
 In that case, the owner is set to the value of the org_name field, and
 a new org is created if it does not exist yet.
 
@@ -2234,7 +2234,7 @@ sub update_export_status_for_csv_file($) {
 		$i++;
 
 		# By default, use the orgid passed in the arguments
-		# it may be overriden later on a per product basis
+		# it may be overrode later on a per product basis
 		my $org_id = $args_ref->{org_id};		
 
 		# The option import_owner is used when exporting from the producers database to the public database
@@ -2310,7 +2310,7 @@ will be attributed.
 
 =head4 org_id - optional
 
-Organisation id to which the changes (new products, added or changed values, new images)
+Organization id to which the changes (new products, added or changed values, new images)
 will be attributed.
 
 =head4 owner_id - required

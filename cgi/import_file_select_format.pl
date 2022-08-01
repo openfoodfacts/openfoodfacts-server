@@ -117,9 +117,6 @@ if ($action eq "display") {
 	# Upload a file
 
 	my $selected_columns_count = sprintf(lang("import_file_selected_columns"), '<span class="selected_columns"></span>', @$headers_ref + 0);
-	my $field_on_site = sprintf(lang("field_on_site"), lang("site_name"));
-
-	my $selected_columns_count = sprintf(lang("import_file_selected_columns"), '<span class="selected_columns"></span>', @$headers_ref + 0);
 
 	my $field_on_site = sprintf(lang("field_on_site"), lang("site_name"));
 

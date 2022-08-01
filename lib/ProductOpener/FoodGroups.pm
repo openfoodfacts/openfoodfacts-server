@@ -25,7 +25,7 @@ ProductOpener::Food - functions related to food products and nutrition
 =head1 DESCRIPTION
 
 The C<ProductOpener::FoodGroups> module contains functions to determine a product
-food group. Food groups are a 3 level hiearchy of groups that are used by researchers
+food group. Food groups are a 3 level hierarchy of groups that are used by researchers
 (in particular researches from the EREN team that created the Nutri-Score).
 
 In France, food groups are referred to as "PNNS groups" (PNNS stands for "Programme National Nutrition et Santé").

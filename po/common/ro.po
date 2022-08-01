@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ro\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-07-17 19:04\n"
+"PO-Revision-Date: 2022-07-25 10:05\n"
 "Language-Team: Romanian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -124,7 +124,7 @@ msgstr "Vă rugăm să introduceți numele organizației dvs. (numele companiei 
 
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
-msgstr ""
+msgstr "Acest cont este un cont profesional asociat cu producătorul sau marca {org}. Aveți acces la Platforma pentru Producători."
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -680,11 +680,11 @@ msgstr "Numele de utilizator trebuie să conțină doar litere neaccentuate, cif
 
 msgctxt "error_username_too_long"
 msgid "The user name is too long (maximum 20 characters)."
-msgstr ""
+msgstr "Numele de utilizator este prea lung (maxim 20 de caractere)."
 
 msgctxt "error_name_too_long"
 msgid "The name is too long (maximum 60 characters)."
-msgstr ""
+msgstr "Numele este prea lung (maxim 60 de caractere)."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -1020,15 +1020,15 @@ msgstr "Ingrediente"
 
 msgctxt "no_ingredient"
 msgid "Ingredients are missing"
-msgstr ""
+msgstr "Lipsesc ingrediente"
 
 msgctxt "one_ingredient"
 msgid "1 ingredient"
-msgstr ""
+msgstr "1 ingredient"
 
 msgctxt "f_ingredients_with_number"
 msgid "{number} ingredients"
-msgstr ""
+msgstr "{number} ingrediente"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
@@ -6059,61 +6059,61 @@ msgstr "Adăugați informații nutriționale"
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
 msgid "What you need to know"
-msgstr ""
+msgstr "Ce trebuie să ştiţi"
 
 msgctxt "knowledge_panels_recommendation"
 msgid "Recommendation"
-msgstr ""
+msgstr "Recomandare"
 
 msgctxt "nutrient_info_salt_risk"
 msgid "A high consumption of salt (or sodium) can cause raised blood pressure, which can increase the risk of heart disease and stroke."
-msgstr ""
+msgstr "Un consum mare de sare (sau sodiu) poate cauza creșterea tensiunii arteriale, ceea ce poate crește riscul de boli de inimă și accident vascular cerebral."
 
 msgctxt "nutrient_info_salt_high_blood_pressure"
 msgid "Many people who have high blood pressure do not know it, as there are often no symptoms."
-msgstr ""
+msgstr "Mulți oameni care au hipertensiune arterială nu știu asta, deoarece adesea nu există simptome."
 
 msgctxt "nutrient_info_salt_high_consumption"
 msgid "Most people consume too much salt (on average 9 to 12 grams per day), around twice the recommended maximum level of intake."
-msgstr ""
+msgstr "Majoritatea oamenilor consumă prea multă sare (în medie 9 până la 12 grame pe zi), aproximativ de două ori nivelul maxim recomandat de aport."
 
 msgctxt "nutrient_recommendation_salt_title"
 msgid "Limit the consumption of salt and salted food"
-msgstr ""
+msgstr "Limitați consumul de sare și alimente sărate"
 
 msgctxt "nutrient_recommendation_salt_cooking_and_table"
 msgid "Reduce the quantity of salt used when cooking, and don't salt again at the table."
-msgstr ""
+msgstr "Reduceți cantitatea de sare folosită la gătit și nu mai sărați la masă."
 
 msgctxt "nutrient_recommendation_salt_limit_salty_snacks"
 msgid "Limit the consumption of salty snacks and choose products with lower salt content."
-msgstr ""
+msgstr "Limitați consumul de gustări sărate și alegeți produse cu conținut mai mic de sare."
 
 msgctxt "nutrient_info_sugars_risk"
 msgid "A high consumption of sugar can cause weight gain and tooth decay. It also augments the risk of type 2 diabetes and cardio-vascular diseases."
-msgstr ""
+msgstr "Un consum mare de zahăr poate provoca creșterea în greutate și carii dentare. De asemenea, crește riscul de diabet de tip 2 și boli cardiovasculare."
 
 msgctxt "nutrient_recommendation_sugars_title"
 msgid "Limit the consumption of sugar and sugary drinks"
-msgstr ""
+msgstr "Limitați consumul de zahăr și băuturi dulci"
 
 msgctxt "nutrient_recommendation_sugars_drinks"
 msgid "Sugary drinks (such as sodas, fruit beverages, and fruit juices and nectars) should be limited as much as possible (no more than 1 glass a day)."
-msgstr ""
+msgstr "Băuturile dulci (cum ar fi sucurile, băuturile din fructe și sucuri și nectaruri de fructe) trebuie limitate cât mai mult posibil (nu mai mult de 1 pahar pe zi)."
 
 msgctxt "nutrient_recommendation_sugars_food"
 msgid "Choose products with lower sugar content and reduce the consumption of products with added sugars."
-msgstr ""
+msgstr "Alegeți produse cu conținut mai mic de zahăr și reduceți consumul de produse cu adaos de zaharuri."
 
 msgctxt "nutrient_info_fat_and_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr ""
+msgstr "Un consum crescut de grăsimi, în special de grăsimi saturate, poate creşte colesterolul, ceea ce creşte riscul de boli cardiace."
 
 msgctxt "nutrient_recommendation_fat_and_saturated_fat_title"
 msgid "Reduce the consumption of fat and saturated fat"
-msgstr ""
+msgstr "Reduceți consumul de grăsimi și grăsimi saturate"
 
 msgctxt "nutrient_recommendation_fat_and_saturated_fat"
 msgid "Choose products with lower fat and saturated fat content."
-msgstr ""
+msgstr "Alegeți produse cu conținut scăzut de grăsimi și grăsimi saturate."
 

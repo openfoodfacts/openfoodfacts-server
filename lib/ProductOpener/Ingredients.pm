@@ -26,7 +26,7 @@ ProductOpener::Ingredients - process and analyze ingredients lists
 
 C<ProductOpener::Ingredients> processes, normalize, parses and analyze
 ingredients lists to extract and recognize individual ingredients,
-additives and allernes, and to compute product properties related to
+additives and allergens, and to compute product properties related to
 ingredients (is the product vegetarian, vegan, does it contain palm oil etc.)
 
     use ProductOpener::Ingredients qw/:all/;
@@ -1354,8 +1354,6 @@ sub parse_ingredients_text($) {
 
 	# farine (12%), chocolat (beurre de cacao (15%), sucre [10%], protéines de lait, oeuf 1%) - émulsifiants : E463, E432 et E472 - correcteurs d'acidité : E322/E333 E474-E475, acidifiant (acide citrique, acide phosphorique) - sel : 1% ...
 
-	my $level = 0;
-
 	# assume commas between numbers are part of the name
 	# e.g. en:2-Bromo-2-Nitropropane-1,3-Diol, Bronopol
 	# replace by a lower comma ‚
@@ -1764,7 +1762,6 @@ sub parse_ingredients_text($) {
 					# Build an array of origins / ingredients possibilities
 					
 					my @maybe_origins_ingredients = ();
-					my $maybe_ingredient;
 					
 					# California almonds
 					if (($product_lc eq "en") and ($ingredient =~ /^(\S+) (.+)$/)) {
@@ -1804,7 +1801,7 @@ sub parse_ingredients_text($) {
 							$ingredient = $maybe_ingredient;
 							$ingredient_id = canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient);
 							last;
-						}						
+						}
 					}
 	
 					# Try to remove ingredients processing "cooked rice" -> "rice"
@@ -2883,7 +2880,7 @@ sub compute_ingredients_percent_estimates($$) {
 This function analyzes ingredients to see the ones that are vegan, vegetarian, from palm oil etc.
 and computes the resulting value for the complete product.
 
-The results are overriden by labels like "Vegan", "Vegetarian" or "Palm oil free"
+The results are overrode by labels like "Vegan", "Vegetarian" or "Palm oil free"
 
 Results are stored in the ingredients_analysis_tags array.
 

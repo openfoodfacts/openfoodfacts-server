@@ -5,14 +5,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uk\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-07-17 19:08\n"
 "Language-Team: Ukrainian\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: uk\n"
-"X-Crowdin-File: openproductsfacts.pot\n"
 "X-Crowdin-File-ID: 1814\n"
 
 #. do not translate
@@ -23,7 +21,7 @@ msgstr "https://world.openproductsfacts.org/images/apps/off.apk"
 #. change hl=en by hl=fr or hl=de and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner&hl=en"
-msgstr "https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner&hl=en"
+msgstr "https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner&hl=uk"
 
 #. change https://apps.apple.com/app/ to https://apps.apple.com/fr/app/ (for instance) and make sure the url works
 msgctxt "ios_app_link"
@@ -135,4 +133,3 @@ msgstr "АКВА/ВОДА, ЛАУРЕТСУЛЬФАТ НАТРІЮ, ДИНАТР
 msgctxt "get_the_app_link"
 msgid "/open-products-facts-mobile-app"
 msgstr "/open-products-facts-mobile-app"
-
