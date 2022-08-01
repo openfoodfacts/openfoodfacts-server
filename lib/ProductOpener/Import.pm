@@ -440,6 +440,7 @@ sub apply_organization_settings_to_product($$$$) {
 		$log->debug("skipping codeonline import for org with do_not_import_codeonline", { org_ref => $org_ref }) if $log->is_debug();
 		next;
 	}
+	return;
 }
 
 
