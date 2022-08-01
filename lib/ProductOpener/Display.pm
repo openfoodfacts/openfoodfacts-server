@@ -8090,7 +8090,7 @@ HTML
 		compute_attributes($product_ref, $lc, $cc, $attributes_options_ref);
 
 		my $product_attribute_groups_json = decode_utf8(encode_json({"attribute_groups" => $product_ref->{"attribute_groups_" . $lc}}));
-		my $preferences_text = lang("choose_which_information_you_prefer_to_see_first");
+		my $preferences_text = lang("classify_products_according_to_your_preferences");
 
 		$scripts .= <<JS
 <script type="text/javascript">

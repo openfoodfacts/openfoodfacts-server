@@ -357,30 +357,33 @@ function display_product_summary(target, product) {
 	
 	match_product_to_preferences(product, user_prefs.product);
 
+	// Show the green / grey / colors for matching products only if we are using the user preferences
 
-			// Show the green / grey / colors for matching products only if we are using the user preferences
-            if (user_prefs.use_ranking) {
+	$("#prodHead").removeClass("product_banner_unranked product_banner_does_not_match product_banner_may_not_match product_banner_unknown_match product_banner_poor_match product_banner_good_match product_banner_very_good_match");
+	$("#prodNav").removeClass("product_banner_unranked product_banner_does_not_match product_banner_may_not_match product_banner_unknown_match product_banner_poor_match product_banner_good_match product_banner_very_good_match");
+
+	if (user_prefs.use_ranking) {
+
+		var match_status_html = `<div class="match_status match_status_${product.match_status}">`
+		+ `<div class="match_score match_score_${product.match_status}">` + Math.round(product.match_score) + '%</div>'
+		+ '<span style="padding-left:0.5rem;padding-right:1rem;">' + lang()["products_match_" + product.match_status] + '</span></div>' ;
+
+		$("#match_score_and_status").html(match_status_html);
+
+		$("#prodHead").addClass("product_banner_" + product.match_status);				
+		$("#prodNav").addClass("product_banner_" + product.match_status);
 		
-				var match_status_html = `<div class="match_status match_status_${product.match_status}">`
-				+ `<div class="match_score match_score_${product.match_status}">` + Math.round(product.match_score) + '%</div>'
-				+ '<span style="padding-left:0.5rem;padding-right:1rem;">' + lang()["products_match_" + product.match_status] + '</span></div>' ;
-
-				$("#match_score_and_status").html(match_status_html);
-
-				$("#prodHead").removeClass("product_banner_unranked product_banner_does_not_match product_banner_may_not_match product_banner_unknown_match product_banner_poor_match product_banner_good_match product_banner_very_good_match");
-				$("#prodHead").addClass("product_banner_" + product.match_status);				
-
-				$("#prodNav").removeClass("product_banner_unranked product_banner_does_not_match product_banner_may_not_match product_banner_unknown_match product_banner_poor_match product_banner_good_match product_banner_very_good_match");
-				$("#prodNav").addClass("product_banner_" + product.match_status);
-				
-				$("#prodBanner").html(lang()["products_match_" + product.match_status] + ' ' + Math.round(product.match_score) + '%');
-				$("#prodBanner").removeClass();
-				$("#prodBanner").addClass(`list_product_banner_${product.match_status}`);
-				$("#prodBanner").show();
-			}
-			else {
-				$("#prodBanner").hide();
-			}
+		$("#prodBanner").html(lang()["products_match_" + product.match_status] + ' ' + Math.round(product.match_score) + '%');
+		$("#prodBanner").removeClass();
+		$("#prodBanner").addClass(`list_product_banner_${product.match_status}`);
+		$("#prodBanner").show();
+	}
+	else {
+		$("#prodHead").addClass("product_banner_unranked");
+		$("#prodNav").addClass("product_banner_unranked");
+		$("#prodBanner").hide();
+		$("#match_score_and_status").html('');
+	}
 
     var attributes_html = '';
 

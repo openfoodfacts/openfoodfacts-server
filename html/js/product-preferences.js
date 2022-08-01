@@ -92,14 +92,15 @@ function generate_preferences_switch_button(preferences_text, checkbox_id) {
 		checked = " checked";
 	}	
 
-	var html = '<div class="flex-grid v-align-center align-center direction-row">' +
-    '<fieldset class="switch round success unmarged" tabindex="0" id="' + checkbox_id +'_switch" style="float:left;margin-right:.5rem;padding-top:0.1rem;">' +
+	var html = '<div class="flex-grid direction-row" style="margin-right:2rem;">' +
+    '<fieldset class="switch round success unmarged" tabindex="0" id="' + checkbox_id +'_switch" style="float:left;margin-right:0.5rem;padding-top:0.1rem;">' +
     '<input class="preferences_checkboxes" id="' + checkbox_id + '" type="checkbox"' + checked + '>' +
     '<label for="' + checkbox_id +'"></label></fieldset>' +
     '<label for="' + checkbox_id +'" class="v-space-tiny h-space-tiny" style="float:left">' + preferences_text + '</label></div>';    
 
 	return html;
 }
+
 
 function activate_preferences_switch_buttons(change) {
 
@@ -116,8 +117,8 @@ function activate_preferences_switch_buttons(change) {
 			change();
 		}	
 	});
-
 }
+
 
 // display a switch to use preferences (on list of products pages) and a button to edit preferences
 
@@ -129,23 +130,13 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
         '<span class="material-symbols-outlined">&#xE556;</span><span style="padding-left:0.5rem;">' +
         " " + lang().preferences_edit_your_food_preferences + '</span></a>';
 	
-	// Display a switch for classifying according to the user preferences if
-	// we are on a page with multiple products
-	
-	if (page_type == 'products') {
+	// Display a switch for scoring and ranking products according to the user preferences 
 			
-		html += generate_preferences_switch_button(preferences_text, "preferences_switch_in_list_of_products") + html_edit_preferences;
-	}
-	else {
-		
-		html += html_edit_preferences;
-	}
+	html += generate_preferences_switch_button(preferences_text, "preferences_switch_in_list_of_products") + html_edit_preferences;
 			
 	$( target_selected ).html(html);
 	
-	if (page_type == 'products') {
-		activate_preferences_switch_buttons(change);
-	}
+	activate_preferences_switch_buttons(change);
 
     $("#show_selection_form").on("click", function() {
         $(target_selected).hide();
@@ -260,7 +251,7 @@ function display_user_product_preferences(target_selected, target_selection_form
 			+ " " + lang().close + '</a></div>'
 			+ "<h2>" + lang().preferences_edit_your_food_preferences + "</h2>"
 			+ "<p>" + lang().preferences_locally_saved + "</p>"
-			+ generate_preferences_switch_button(lang().classify_products_according_to_your_preferences, "preferences_switch_in_preferences") + "<hr class='clear:left;'>"
+			+ generate_preferences_switch_button(lang().classify_products_according_to_your_preferences, "preferences_switch_in_preferences")
 			+ '<a id="reset_preferences_button" class="button small round success" role="button" tabindex="0">' + lang().reset_preferences + '</a>'
 			+ ' ' + lang().reset_preferences_details
 			+ '<ul id="user_product_preferences" class="accordion" data-accordion>'
