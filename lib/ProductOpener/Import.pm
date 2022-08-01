@@ -412,8 +412,39 @@ my %no = (
 );
 
 
+sub apply_organization_settings_to_product($$$$) {
 
-sub apply_organization_settings_to_product($$$$$$) {
+	my %stats = shift;
+	my $org_id = shift;
+	my $org_ref = shift;
+	my $args_ref = shift;
+
+	# Make sure the source as the authorization to load data to the org
+	# e.g. if an org has loaded fresh data manually or through Equadis,
+	# don't overwrite it with potentially stale CodeOnline or USDA data
+
+	if (defined $args_ref->{source_id}) {
+		if (not $org_ref->{"import_source_" . $args_ref->{source_id}}) {
+			$log->debug("skipping import for org without authorization for the source", { org_ref => $org_ref, source_id => $args_ref->{source_id} }) if $log->is_debug();
+			$stats{orgs_without_source_authorization}{$org_id} or $stats{orgs_without_source_authorization}{$org_id} = 0;
+			$stats{orgs_without_source_authorization}{$org_id}++;
+			next;
+		};
+	}
+
+	# The do_not_import_codeonline checkbox will be replaced by the new system above that will work for all sources
+
+	# Check if it is a CodeOnline import for an org with do_not_import_codeonline
+	if ((defined $args_ref->{source_id}) and ($args_ref->{source_id} eq "codeonline")
+		and (defined $org_ref->{do_not_import_codeonline}) and ($org_ref->{do_not_import_codeonline})) {
+		$log->debug("skipping codeonline import for org with do_not_import_codeonline", { org_ref => $org_ref }) if $log->is_debug();
+		next;
+	}
+}
+
+
+
+sub get_org_id_for_product($$$$$$) {
 	
 	my $imported_product_ref = shift;
 	my $org_id = shift;
@@ -471,23 +502,7 @@ sub apply_organization_settings_to_product($$$$$$) {
 		# e.g. if an org has loaded fresh data manually or through Equadis,
 		# don't overwrite it with potentially stale CodeOnline or USDA data
 
-		if (defined $args_ref->{source_id}) {
-			if (not $org_ref->{"import_source_" . $args_ref->{source_id}}) {
-				$log->debug("skipping import for org without authorization for the source", { org_ref => $org_ref, source_id => $args_ref->{source_id} }) if $log->is_debug();
-				$stats{orgs_without_source_authorization}{$org_id} or $stats{orgs_without_source_authorization}{$org_id} = 0;
-				$stats{orgs_without_source_authorization}{$org_id}++;
-				next;
-			};
-		}
-
-		# The do_not_import_codeonline checkbox will be replaced by the new system above that will work for all sources
-
-		# Check if it is a CodeOnline import for an org with do_not_import_codeonline
-		if ((defined $args_ref->{source_id}) and ($args_ref->{source_id} eq "codeonline")
-			and (defined $org_ref->{do_not_import_codeonline}) and ($org_ref->{do_not_import_codeonline})) {
-			$log->debug("skipping codeonline import for org with do_not_import_codeonline", { org_ref => $org_ref }) if $log->is_debug();
-			next;
-		}
+		apply_organization_settings_to_product(%stats, $org_id, $org_ref, $args_ref);
 
 		# If it is a GS1 import (Equadis, CodeOnline, Agena3000), check if the org is associated with known issues
 
@@ -679,7 +694,7 @@ sub import_csv_file($) {
 		# If the CSV includes an org_name (e.g. from GS1 partyName field)
 		# set the owner of the product to the org_name
 		if ((defined $imported_product_ref->{org_name}) and ($imported_product_ref->{org_name} ne "")) {
-			apply_organization_settings_to_product($imported_product_ref, $org_id, $org_ref, $args_ref, $glns_ref, %stats)
+			get_org_id_for_product($imported_product_ref, $org_id, $org_ref, $args_ref, $glns_ref, %stats);
 		}
 
 		$Org_id = $org_id;
