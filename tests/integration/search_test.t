@@ -107,13 +107,17 @@ create_product($ua, \%product_fields_6);
 my $query_1_json = get("http://world.openfoodfacts.localhost//cgi/search.pl?action=process&json=1");
 my $query_1_json_decoded = decode_json($query_1_json);
 
-my $query_2_json = get("http://world.openfoodfacts.localhost//cgi/search.pl?action=process&json=1&ingredients_from_palm_oil=without");
+my $query_2_json = get("http://world.openfoodfacts.localhost/cgi/search.pl?action=process&json=1&ingredients_from_palm_oil=without");
 my $query_2_json_decoded = decode_json($query_2_json);
 
 # my $query_3_json = get("http://world.openfoodfacts.localhost/api/v2/search?code=200000000039,200000000038&fields=code,product_name");
 # my $query_3_json_decoded = decode_json($query_3_json);
 
-my $update_expected_results;
+my $update_expected_results =1;
+
+if ((defined $update_expected_results) and (! -e $expected_dir)) {
+	mkdir($expected_dir, 0755) or die("Could not create $expected_dir directory: $!\n");
+}
 
 compare_to_expected_results($query_1_json_decoded, "$expected_dir/q1.json", $update_expected_results);
 compare_to_expected_results($query_2_json_decoded, "$expected_dir/q2.json", $update_expected_results);
