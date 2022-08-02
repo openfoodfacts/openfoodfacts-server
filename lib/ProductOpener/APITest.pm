@@ -47,6 +47,7 @@ use vars @EXPORT_OK;
 
 use LWP::UserAgent;
 use HTTP::CookieJar::LWP;
+use ProductOpener::TestDefaults qw/:all/;
 
 use Data::Dump qw/dump/;
 
@@ -101,23 +102,7 @@ Call API to create a user
 =cut
 
 sub create_user ($ua, $args_ref) {
-	my %fields = (
-		email => 'test@test.com',
-		userid => "test",
-		name => "Test",
-		password => "testtest",
-		confirm_password => "testtest",
-		pro_checkbox => 0,
-		requested_org => "",
-		team_1 => "",
-		team_2 => "",
-		team_3 => "",
-		action => "process",
-		type => "add",
-		".submit" => "Register"
-	);
-
-	# apply overrides
+	my %fields;
 	while (my ($key, $value) = each %{$args_ref}) {
 		$fields{$key} = $value;
 	}
