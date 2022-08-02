@@ -140,27 +140,7 @@ foreach my $test_ref (@tests) {
 	special_process_product($product_ref);
 	compute_nutrition_score($product_ref);
 
-	# Save the result
-	
-	if (defined $update_expected_results) {
-		open (my $result, ">:encoding(UTF-8)", "$expected_dir/$testid.json") or die("Could not create $expected_dir/$testid.json: $!\n");
-		print $result $json->pretty->encode($product_ref);
-		close ($result);
-	}
-	else {
-		# Compare the result with the expected result
-		
-		if (open (my $expected_result, "<:encoding(UTF-8)", "$expected_dir/$testid.json")) {
-
-			local $/; #Enable 'slurp' mode
-			my $expected_product_ref = $json->decode(<$expected_result>);
-			is_deeply ($product_ref, $expected_product_ref) or diag explain $product_ref;
-		}
-		else {
-			fail("could not load $expected_dir/$testid.json");
-			diag explain $product_ref;
-		}
-	}
+	compare_to_expected_results($product_ref, "$expected_dir/$testid.json", $update_expected_results);
 }
 
 is (compute_nutriscore_grade(1.56, 1, 0), "c");
