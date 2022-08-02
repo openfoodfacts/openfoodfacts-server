@@ -61,3 +61,9 @@ max_nests = 12
 max_elsif = 13
 [Variables::ProhibitUnusedVariables]
 # /end severity 3
+
+
+# severity 1
+[Documentation::PodSpelling]
+stop_words_file = stop_words.txt
+# /end severity 1
