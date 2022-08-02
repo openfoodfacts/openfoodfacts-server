@@ -48,8 +48,7 @@ use vars @EXPORT_OK ;
 	team_2 => "",
 	team_3 => "",
 	action => "process",
-	type => "add",
-	".submit" => "Register"
+	type => "add"
 );
 
 1;
