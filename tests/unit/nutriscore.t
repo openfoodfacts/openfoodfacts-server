@@ -16,6 +16,7 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Nutriscore qw/:all/;
+use ProductOpener::Test qw/:all/;
 
 
 
