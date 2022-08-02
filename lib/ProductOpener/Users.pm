@@ -815,113 +815,117 @@ sub init_user($request_ref) {
 			my $get_resp = $ua->request($get_req);
 
 			if($get_resp->is_success){
-				my $json = $resp->decoded_content;
-        		my $content_ref = decode_json($json);
+				my $json = $get_resp->decoded_content;
+				my $content_ref = decode_json($json);
 
 				#get post url from json
 				my $login_url = $content_ref->{ui}{action};
-
+				$log->debug("Login url: ", $login_url);
 				#create json to post
 				my $post_json = JSON->new;
 
 				my $data_to_json = {
-					"identifier"=>param('user_id'),
-					"password"=>param('password'),
-					"method"=>"password"
+					'identifier' => param('user_id'),
+					'password' => param('password'),
+					'method' => "password"
 				};
 
-				$post_json->encode($data_to_json);
+				my $str = encode_json($data_to_json);
+
+				$log->debug("json: ", $str);
 
 				#post json
 				my $post_req = HTTP::Request->new(POST => $login_url);
 				$post_req->header('accept' => 'application/json');
 				$post_req->header('content-type' => 'application/json');
-				$post_req->content($post_json);
+				$post_req->content($str);
 
 				my $post_resp = $ua->request($post_req);
 
-				if($post_rep->is_success){
+				if($post_resp->is_success){
 					$log->debug("User logged in api flow");
-					#need to open user session with response from json
+					#open user session?
 				}
 				else{
-					$log->debug("HTTP POST error code: ", $resp->code, "n");
-        			$log->debug("HTTP POST error message: ", $resp->message, "n");
+					$log->debug("HTTP POST error code: ", $post_resp->code);
+					$log->debug("HTTP POST error message: ", $post_resp->message);
 				}
 			}
 			else{
-				$log->debug("HTTP GET error code: ", $resp->code, "n");
-        		$log->debug("HTTP GET error message: ", $resp->message, "n");
+				$log->debug("HTTP GET error code: ", $get_resp->code);
+				$log->debug("HTTP GET error message: ", $get_resp->message);
 			}
+			
 		}
+		else{
+			# CGI::param called in list context from package ProductOpener::Users line 373, this can lead to vulnerabilities.
+			# See the warning in "Fetching the value or values of a single named parameter"
+			# -> use a scalar to avoid calling param() in the list of arguments to remove_tags_and_quote
+			my $param_user_id = param('user_id');
+			$user_id = remove_tags_and_quote($param_user_id) ;
 
-
-		# CGI::param called in list context from package ProductOpener::Users line 373, this can lead to vulnerabilities.
-		# See the warning in "Fetching the value or values of a single named parameter"
-		# -> use a scalar to avoid calling param() in the list of arguments to remove_tags_and_quote
-		my $param_user_id = param('user_id');
-		$user_id = remove_tags_and_quote($param_user_id) ;
-
-		if ($user_id =~ /\@/) {
-			$log->info("got email while initializing user", { email => $user_id }) if $log->is_info();
-			my $emails_ref = retrieve("$data_root/users/users_emails.sto");
-			if (not defined $emails_ref->{$user_id}) {
-				# not found, try with lower case email
-				$user_id = lc $user_id;
-			}
-			if (not defined $emails_ref->{$user_id}) {
-				$user_id = undef;
-				$log->info("Unknown user e-mail", {email => $user_id}) if $log->is_info();
-				# Trigger an error
-				return ($Lang{error_bad_login_password}{$lang}) ;
-			}
-			else {
-				my @userids = @{$emails_ref->{$user_id}};
-				$user_id = $userids[0];
-			}
-
-			$log->info("corresponding user_id", { userid => $user_id }) if $log->is_info();
-		}
-
-		$log->context->{user_id} = $user_id;
-		$log->debug("user_id is defined") if $log->is_debug();
-		my $session = undef ;
-
-		# If the user exists
-		if (defined $user_id) {
-
-           my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
-
-			if (-e $user_file) {
-				$user_ref = retrieve($user_file) ;
-				$user_id = $user_ref->{'userid'} ;
-				$log->context->{user_id} = $user_id;
-
-				my $hash_is_correct = check_password_hash(encode_utf8(decode utf8=>param('password')), $user_ref->{'encrypted_password'} );
-				# We don't have the right password
-				if (not $hash_is_correct) {
-					$user_id = undef ;
-					$log->info("bad password - input does not match stored hash", { encrypted_password => $user_ref->{'encrypted_password'} }) if $log->is_info();
+			if ($user_id =~ /\@/) {
+				$log->info("got email while initializing user", { email => $user_id }) if $log->is_info();
+				my $emails_ref = retrieve("$data_root/users/users_emails.sto");
+				if (not defined $emails_ref->{$user_id}) {
+					# not found, try with lower case email
+					$user_id = lc $user_id;
+				}
+				if (not defined $emails_ref->{$user_id}) {
+					$user_id = undef;
+					$log->info("Unknown user e-mail", {email => $user_id}) if $log->is_info();
 					# Trigger an error
 					return ($Lang{error_bad_login_password}{$lang}) ;
 				}
-				# We have the right login/password
-				elsif (not defined param('no_log'))    # no need to store sessions for internal requests
-				{
-					$log->info("correct password for user provided") if $log->is_info();
-					
-					migrate_password_hash($user_ref);
-
-					open_user_session($user_ref, $request_ref);
+				else {
+					my @userids = @{$emails_ref->{$user_id}};
+					$user_id = $userids[0];
 				}
-		    }
-		    else
-		    {
-				$user_id = undef ;
-				$log->info("bad user") if $log->is_info();
-				# Trigger an error
-				return ($Lang{error_bad_login_password}{$lang}) ;
-		    }
+
+				$log->info("corresponding user_id", { userid => $user_id }) if $log->is_info();
+			}
+
+			$log->context->{user_id} = $user_id;
+			$log->debug("user_id is defined") if $log->is_debug();
+			my $session = undef ;
+
+			# If the user exists
+			if (defined $user_id) {
+
+			my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
+
+				if (-e $user_file) {
+					$user_ref = retrieve($user_file) ;
+					$user_id = $user_ref->{'userid'} ;
+					$log->context->{user_id} = $user_id;
+
+					my $hash_is_correct = check_password_hash(encode_utf8(decode utf8=>param('password')), $user_ref->{'encrypted_password'} );
+					# We don't have the right password
+					if (not $hash_is_correct) {
+						$user_id = undef ;
+						$log->info("bad password - input does not match stored hash", { encrypted_password => $user_ref->{'encrypted_password'} }) if $log->is_info();
+						# Trigger an error
+						return ($Lang{error_bad_login_password}{$lang}) ;
+					}
+					# We have the right login/password
+					elsif (not defined param('no_log'))    # no need to store sessions for internal requests
+					{
+						$log->info("correct password for user provided") if $log->is_info();
+						
+						migrate_password_hash($user_ref);
+
+						open_user_session($user_ref, $request_ref);
+					}
+				}
+				else
+				{
+					$user_id = undef ;
+					$log->info("bad user") if $log->is_info();
+					# Trigger an error
+					return ($Lang{error_bad_login_password}{$lang}) ;
+				}
+			}
+
 		}
 	}
 
