@@ -101,10 +101,7 @@ Call API to create a user
 =cut
 
 sub create_user ($ua, $args_ref) {
-
-	my %fields = (%default_user_form, (userid => "tea", email => 'tea@boba.com'));
-
-	# apply overrides
+	my %fields;
 	while (my ($key, $value) = each %{$args_ref}) {
 		$fields{$key} = $value;
 	}
