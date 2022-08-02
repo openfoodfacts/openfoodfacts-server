@@ -37,6 +37,7 @@ BEGIN {
 	  &create_user
 	  &new_client
 	  &wait_dynamic_front
+	  &create_product
 	  &construct_test_url
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -122,6 +123,17 @@ sub create_user ($ua, $args_ref) {
 	}
 	my $response = $ua->post("http://world.openfoodfacts.localhost/cgi/user.pl", Content => \%fields,);
 	$response->is_success or die("Couldn't create user with " . dump(\%fields) . "\n");
+	return;
+}
+
+sub create_product ($ua, $product_fields) {
+	my %fields;
+	while (my ($key, $value) = each %{$product_fields}) {
+		$fields{$key} = $value;
+	}
+
+	my $response = $ua->post("http://world.openfoodfacts.localhost/cgi/product_jqm2.pl", Content => \%fields,);
+	$response->is_success or die("Couldn't create product with " . dump(\%fields) . "\n");
 	return;
 }
 
