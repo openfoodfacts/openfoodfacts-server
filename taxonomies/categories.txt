@@ -41420,6 +41420,18 @@ nl:Notenkazen
 
 <en:Dairy desserts
 <en:Fermented milk products
+en:Fermented dairy desserts
+fr:Desserts lactés fermentés
+
+<en:Fermented dairy desserts
+en:Plain dairy specialty with sugar
+fr:Spécialité laitière nature sucrée
+agribalyse_food_code:en:19599
+ciqual_food_code:en:19599
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, plain, w sugar
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature, sucré
+
+<en:Fermented dairy desserts
 en:Faiselles, Drained soft fresh cheese around 6% fat
 fr:Faisselles
 wikidata:en:Q3064619
@@ -41427,8 +41439,7 @@ agribalyse_food_code:en:19641
 ciqual_food_code:en:19641
 ciqual_food_name:en:Drained soft fresh cheese, around 6% fat
 
-<en:Dairy desserts
-<en:Fermented milk products
+<en:Fermented dairy desserts
 fr:Fromages blancs, fromage blanc
 de:Weißer Käse
 wikidata:en:Q15080546
@@ -43629,7 +43640,7 @@ en:Chubut Cheese
 es:Queso Chubut, Queso Chubutense
 wikidata:en:Q6094556
 
-<en:Dairy desserts
+<en:Fermented dairy desserts
 en:Petits suisses
 de:Milchdesserts
 es:Petit-suisse, Petit suisse
@@ -44274,8 +44285,7 @@ protected_name_type:en: pdo
 origins:en: en:Spain
 wikidata:en:Q11934902
 
-<en:Dairy desserts
-<en:Fermented milk products
+<en:Fermented dairy desserts
 en:Skyrs, Skyr
 ca:Skyr
 da:Skyr
@@ -44306,8 +44316,7 @@ fr:Skyrs aux fruits, Skyr aux fruits
 
 # description:en:QUARK is a type of fresh dairy product made by warming soured milk until the desired amount of curdling is met, and then straining it.
 
-<en:Dairy desserts
-<en:Fermented milk products
+<en:Fermented dairy desserts
 # <en:ingredient:en:cheese
 en:Quarks, quark
 ar:كوارك
@@ -45974,7 +45983,7 @@ agribalyse_food_code:en:19530
 ciqual_food_code:en:19530
 ciqual_food_name:en:Uncured soft cheese, spreadable, around 30-40% fat, flavoured (ex : garlic and herbs)
 
-<en:Fermented milk products
+<en:Fermented dairy desserts
 en:Yogurts, yoghourts, yoghurts, yogourts, jogurts
 af:Jogurt
 ar:لبن
@@ -46059,14 +46068,6 @@ nl:Lactose-vrije yoghurt, Lactose-vrije yoghurts, Yoghurt zonder lactose, Yoghur
 #wikidata:en:
 
 <en:Yogurts
-en:Dairy-free yoghurts
-nl:Zuivelvrije yoghurts
-
-<en:Dairy-free yoghurts
-en:Dairy-free coconut-based yoghurts
-nl:Zuivelvrije kokosnootyoghurts
-
-<en:Yogurts
 en:Yogurt with fruits and sweetener, Yogurt fruit flavoured with sweetener, Fermented milk with fruits and sweetener, Fermented milk fruit flavoured with sweetener, Dairy specialty with fruits and sweetener, Dairy specialty fruit flavoured with sweetener
 fr:Yaourt aromatisé avec édulcorants, Yaourt aux fruits avec édulcorants, Lait fermenté aromatisé avec édulcorants, Lait fermenté aux fruits avec édulcorants, Spécialité laitière aromatisée avec édulcorants, Spécialité laitière aux fruits avec édulcorants
 ciqual_food_code:en:19675
@@ -46104,22 +46105,6 @@ agribalyse_food_code:en:19592
 ciqual_food_code:en:19592
 ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, with fruits, with sugar, fortified with vitamin D
 ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux fruits, sucré, enrichi en vitamine D
-
-<en:Yogurts
-en:Plain dairy specialty with sugar
-fr:Spécialité laitière nature sucrée
-agribalyse_food_code:en:19599
-ciqual_food_code:en:19599
-ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, plain, w sugar
-ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature, sucré
-
-<en:Yogurts
-en:Plain fermented milk with sugar
-fr:lait fermenté nature sucré
-agribalyse_food_code:en:19599
-ciqual_food_code:en:19599
-ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, plain, w sugar
-ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature, sucré
 
 <en:Yogurts
 en:Plain yogurt with sugar
@@ -47917,13 +47902,18 @@ nl:Non-zuivel gefermenteerd voedsel
 
 <en:Non-dairy fermented foods
 <en:Non-dairy desserts
-en:Non-dairy yogurts, vegan yogurts
+en:Non-dairy yogurts, vegan yogurts, Dairy-free yoghurts
 de:pflanzenbasierte Joghurts, milchfreie Joghurts
 es:Yogures vegetales
 fi:Vegaanijogurtit
-fr:Yaourts végétaux, yaourt végétal, yaourt végan, yaourts sans lait
+fr:Desserts végétaliens fermentés, Yaourts végétaux, yaourt végétal, yaourt végan, yaourts sans lait
 it:Yogurt vegetali, yogurt vegani
-nl:Plantaardige yoghurts, plantaardige yoghurt
+nl:Plantaardige yoghurts, plantaardige yoghurt, Zuivelvrije yoghurts
+
+<en:Non-dairy yogurts
+en:Coconutmilk yogurts, Dairy-free coconut-based yoghurts
+fr:Desserts de lait de coco fermenté
+nl:Zuivelvrije kokosnootyoghurts
 
 <en:Non-dairy yogurts
 en:Oat milk yogurts
@@ -85044,6 +85034,12 @@ it:Spalmabili a base di piante
 nl:Plantaardige smeerbare producten
 pl:Roślinne smarowidła, Warzywne smarowidła, Produkty do smarowania na bazie roślin, warzyw
 pt:Produtos para barrar à base de plantas, Produtos para barrar vegetais, patés vegetais
+
+#Vegetarian alternative to "Fleischsalat"
+<en:Plant-based spreads
+<en:Salted spreads
+en:Vegetarian spreads with meat-like pieces
+fr:Tartinades avec des morceaux végétariens
 
 <en:Spreadable fats
 <en:Plant-based spreads
