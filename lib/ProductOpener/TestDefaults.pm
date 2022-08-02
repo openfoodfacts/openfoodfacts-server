@@ -38,7 +38,7 @@ use vars @EXPORT_OK ;
 
 %default_user_form = (
 	email => 'test@test.com',
-	userid => "test",
+	userid => "tests",
 	name => "Test",
 	password => "testtest",
 	confirm_password => "testtest",
