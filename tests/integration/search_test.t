@@ -8,9 +8,15 @@ use ProductOpener::Test qw/:all/;
 use LWP::Simple "get";
 use Data::Dumper;
 use Encode;
+use File::Basename "dirname";
 use JSON::PP;
 use ProductOpener::TestDefaults qw/:all/;
 use ProductOpener::Test qw/:all/;
+use Getopt::Long;
+
+my $test_name = "search_test";
+my $tests_dir = dirname(__FILE__);
+my $expected_dir = $tests_dir . "/expected_test_results/" . $test_name;
 
 my %product_fields_1 = (
 	code => '200000000034',
@@ -109,8 +115,8 @@ my $query_2_json_decoded = decode_json($query_2_json);
 
 my $update_expected_results;
 
-compare_to_expected_results($query_1_json_decoded, "expected_test_results/search_api_results/q1.json", $update_expected_results);
-compare_to_expected_results($query_2_json_decoded, "expected_test_results/search_api_results/q2.json", $update_expected_results);
+compare_to_expected_results($query_1_json_decoded, "$expected_dir/q1.json", $update_expected_results);
+compare_to_expected_results($query_2_json_decoded, "$expected_dir/q2.json", $update_expected_results);
 # compare_to_expected_results($query_3_json_decoded, "expected_test_results/search_api_results/q3.json", $update_expected_results);
 
-
+done_testing();
