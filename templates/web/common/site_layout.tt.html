@@ -96,7 +96,7 @@
 							<a href="/cgi/session.pl" data-reveal-id="loginmodal" class="round button secondary">
 								<span class="material-symbols-outlined material-symbols-button">account_circle</span>
 								&nbsp;
-								Sign in
+								[% lang('sign_in') %]
 							</a>
 						</li>
 					[% ELSE %]
@@ -111,15 +111,15 @@
 							<ul class="dropdown">
 								<li><a href=""><span class="material-symbols-outlined">settings</span> Parameters</a></li>
 								<li class="divider"></li>			
-								<li><label>Your contributions</label></li>
-								<li><a href="">Products added</a></li>
-								<li><a href="">Products edited</a></li>
-								<li><a href="">Products photographed</a></li>
+								<li><label>[% lang('your_contributions') %]</label></li>
+								<li><a href="">[% lang('products_added') %]</a></li>
+								<li><a href="">[% lang('products_edited') %]</a></li>
+								<li><a href="">[% lang('products_photographed') %]</a></li>
 								<li class="divider"></li>			
 								<li class="has-form">
 									<form method="post" action="/cgi/session.pl">
     <input type="hidden" name="length" value="logout">
-    <input type="submit" name=".submit" value="Sign out" class="button small">
+    <input type="submit" name=".submit" value="[% lang('sign_out') %]" class="button small">
 </form>
 								</li>
 							</ul>
