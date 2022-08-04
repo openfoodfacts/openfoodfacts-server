@@ -56,7 +56,7 @@ my $request_ref = ProductOpener::Display::init_request();
 
 =head3 term - term to search
 
-If string and term are passed together, they are contatenated together as separated words
+If string and term are passed together, they are concatenated together as separate words
 
 =head3 limit - max number of suggestions
 

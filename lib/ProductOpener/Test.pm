@@ -212,7 +212,7 @@ sub ensure_expected_results_dir ($expected_results_dir, $update_expected_results
 
 =head2 compare_to_expected_results($object_ref, $expected_results_file, $update_expected_results) {
 
-Compare an onject (e.g. product data or an API result) to expected results.
+Compare an object (e.g. product data or an API result) to expected results.
 
 The expected result is stored as a JSON file.
 
