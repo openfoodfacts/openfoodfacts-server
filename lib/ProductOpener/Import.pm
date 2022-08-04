@@ -1836,163 +1836,162 @@ sub import_csv_file($) {
 
 			$log->debug("image file", { field => $field, imagefield => $imagefield, field_value => $imported_product_ref->{$field} }) if $log->is_debug();
 			
-			if (defined $imported_product_ref->{$field}) {
+			next if ! defined $imported_product_ref->{$field};
+
+			# We may have several URLs separated by commas
+			foreach my $image_url (split(/\s*,\s*/, $imported_product_ref->{$field})) {
 			
-				# We may have several URLs separated by commas
-				foreach my $image_url (split(/\s*,\s*/, $imported_product_ref->{$field})) {
-				
-					if ($image_url =~ /^http/) {
+				if ($image_url =~ /^http/) {
 
-						# Create a local filename from the url
-						
-						# https://secure.equadis.com/Equadis/MultimediaFileViewer?key=49172280_A8E8029F60B478AE56CFA5A87B7E0F4C&idFile=1502347&file=10144/08710522680612_C8N1_s35.png
-						# https://nestlecontenthub-dam.esko-saas.com/mediabeacon/servlet/dload?apikey=3FB047E2-3E1B-4177-AF64-3999E0543B78&id=202078864&filename=08593893749702_A1L1_s03.jpg
-						
-						my $filename = $image_url;
-						$filename =~ s/.*\///;
-						$filename =~ s/.*(file|filename=)//i;
-						$filename =~ s/[^A-Za-z0-9-_\.]/_/g;
+					# Create a local filename from the url
+					
+					# https://secure.equadis.com/Equadis/MultimediaFileViewer?key=49172280_A8E8029F60B478AE56CFA5A87B7E0F4C&idFile=1502347&file=10144/08710522680612_C8N1_s35.png
+					# https://nestlecontenthub-dam.esko-saas.com/mediabeacon/servlet/dload?apikey=3FB047E2-3E1B-4177-AF64-3999E0543B78&id=202078864&filename=08593893749702_A1L1_s03.jpg
+					
+					my $filename = $image_url;
+					$filename =~ s/.*\///;
+					$filename =~ s/.*(file|filename=)//i;
+					$filename =~ s/[^A-Za-z0-9-_\.]/_/g;
 
-						# If the filename does not include the product code, prefix it
-						if ($filename !~ /$code/) {
+					# If the filename does not include the product code, prefix it
+					if ($filename !~ /$code/) {
 
-							$filename = $code . "_" . $filename;
+						$filename = $code . "_" . $filename;
+					}
+					
+					# Add a hash of the URL
+					my $md5 = md5_hex($image_url);
+					$filename = $md5 . "_" . $filename;
+
+					my $images_download_dir = $args_ref->{images_download_dir};
+
+					if ((defined $images_download_dir) and ($images_download_dir ne '')) {
+						if (not -d $images_download_dir) {
+							$log->debug("Creating images_download_dir", { images_download_dir => $images_download_dir}) if $log->is_debug();
+							mkdir($images_download_dir, 0755) or $log->warn("Could not create images_download_dir", { images_download_dir => $images_download_dir, error=> $!}) if $log->is_warn();
 						}
-						
-						# Add a hash of the URL
-						my $md5 = md5_hex($image_url);
-						$filename = $md5 . "_" . $filename;
 
-						my $images_download_dir = $args_ref->{images_download_dir};
+						my $file = $images_download_dir . "/" . $filename;
 
-						if ((defined $images_download_dir) and ($images_download_dir ne '')) {
-							if (not -d $images_download_dir) {
-								$log->debug("Creating images_download_dir", { images_download_dir => $images_download_dir}) if $log->is_debug();
-								mkdir($images_download_dir, 0755) or $log->warn("Could not create images_download_dir", { images_download_dir => $images_download_dir, error=> $!}) if $log->is_warn();
+						# Skip PDF file has we have issues to convert them, and they are sometimes not images about the product
+						# but multi-pages product sheets, certificates etc.
+						if ($file =~ /\.pdf$/) {
+							$log->debug("skipping PDF file", { file => $file, imagefield => $imagefield, code => $code }) if $log->is_debug();
+						}
+						# Check if the image exists
+						elsif (-e $file) {
+
+							$log->debug("we already have downloaded image file", { file => $file }) if $log->is_debug();
+
+							# Is the image readable?
+							my $magick = Image::Magick->new();
+							my $imagemagick_error = $magick->Read($file);
+							# we can get a warning that we can ignore: "Exception 365: CorruptImageProfile `xmp' "
+							# see https://github.com/openfoodfacts/openfoodfacts-server/pull/4221
+							if (($imagemagick_error) and ($imagemagick_error =~ /(\d+)/) and ($1 >= 400)) {
+								$log->warn("cannot read existing image file", { error => $imagemagick_error, file => $file }) if $log->is_warn();
+								unlink($file);
 							}
-
-							my $file = $images_download_dir . "/" . $filename;
-
-							# Skip PDF file has we have issues to convert them, and they are sometimes not images about the product
-							# but multi-pages product sheets, certificates etc.
-							if ($file =~ /\.pdf$/) {
-								$log->debug("skipping PDF file", { file => $file, imagefield => $imagefield, code => $code }) if $log->is_debug();
-							}
-							# Check if the image exists
-							elsif (-e $file) {
-
-								$log->debug("we already have downloaded image file", { file => $file }) if $log->is_debug();
-
-								# Is the image readable?
-								my $magick = Image::Magick->new();
-								my $imagemagick_error = $magick->Read($file);
-								# we can get a warning that we can ignore: "Exception 365: CorruptImageProfile `xmp' "
-								# see https://github.com/openfoodfacts/openfoodfacts-server/pull/4221
-								if (($imagemagick_error) and ($imagemagick_error =~ /(\d+)/) and ($1 >= 400)) {
-									$log->warn("cannot read existing image file", { error => $imagemagick_error, file => $file }) if $log->is_warn();
-									unlink($file);
-								}
-								# If the product has an images field, assume that the image has already been uploaded
-								# otherwise, upload it
-								# This can happen when testing: we download the images once, then delete the products and reimport them again
-								elsif (not defined $product_ref->{images}) {
-									# Assign the download image to the field
-									
-									# We may have multiple images for the other field, in that case give them an imagefield of other.2, other.3 etc.
-									my $new_imagefield = $imagefield;
-									if (defined $images_ref->{$code}{$new_imagefield}) {
-										my $image_number = 2;
-										while (defined $images_ref->{$code}{$imagefield . '.' . $image_number}) {
-											$image_number++;
-										}
-										$new_imagefield = $imagefield . '.' . $image_number;
-									}	
+							# If the product has an images field, assume that the image has already been uploaded
+							# otherwise, upload it
+							# This can happen when testing: we download the images once, then delete the products and reimport them again
+							elsif (not defined $product_ref->{images}) {
+								# Assign the download image to the field
 								
-									$log->debug("assigning image file", { new_imagefield => $new_imagefield, file => $file }) if $log->is_debug();
-									(defined $images_ref->{$code}) or $images_ref->{$code} = {};
-									$images_ref->{$code}{$new_imagefield} = $file;
-								}
-							}
-							else {
-								# Download the image
-
-								# We can try to transform some URLs to get the full size image instead of preview thumbs
-								
-								my @image_urls = ($image_url);
-
-								# https://secure.equadis.com/Equadis/MultimediaFileViewer?thumb=true&idFile=601231&file=10210/8076800105735.JPG
-								# -> remove thumb=true to get the full image
-
-								$image_url =~ s/thumb=true&//;
-								
-								# https://www.elle-et-vire.com/uploads/cache/400x400/uploads/recip/product_media/108/3451790013737-ev-bio-creme-epaisse-entiere-poche-33cl.png
-								$image_url =~ s/\/uploads\/cache\/(\d+)x(\d+)\/uploads\//\/uploads\//;
-								
-								if ($image_url ne $image_urls[0]) {
-									unshift @image_urls, $image_url;
-								}
-								
-								my $downloaded_image = 0;
-								
-								while ((not $downloaded_image) and ($#image_urls >= 0)) {
-									
-									$image_url = shift(@image_urls);
-								
-									# http://www.Kimagesvc.com/03159470204634_A1N1.jpg
-									# -> lowercase subdomain / domain
-									
-									my $uri = URI->new($image_url);
-									$image_url = $uri->canonical;
-									
-
-									$log->debug("download image file", { file => $file, image_url => $image_url }) if $log->is_debug();
-
-									my $response = download_image($image_url);
-
-									if ($response->is_success) {
-										$log->debug("downloaded image file", { file => $file }) if $log->is_debug();
-										open (my $out, ">", $file);
-										print $out $response->decoded_content;
-										close($out);
-										
-										# Is the image readable?
-										my $magick = Image::Magick->new();
-										my $imagemagick_error = $magick->Read($file);
-										# we can get a warning that we can ignore: "Exception 365: CorruptImageProfile `xmp' "
-										# see https://github.com/openfoodfacts/openfoodfacts-server/pull/4221
-										if (($imagemagick_error) and ($imagemagick_error =~ /(\d+)/) and ($1 >= 400)) {
-											$log->warn("cannot read downloaded image file", { error => $imagemagick_error, file => $file }) if $log->is_warn();
-											unlink($file);
-										}
-										else {
-											# Assign the download image to the field
-											
-											# We may have multiple images for the other field, in that case give them an imagefield of other.2, other.3 etc.
-											my $new_imagefield = $imagefield;
-											if (defined $images_ref->{$code}{$new_imagefield}) {
-												my $image_number = 2;
-												while (defined $images_ref->{$code}{$imagefield . '.' . $image_number}) {
-													$image_number++;
-												}
-												$new_imagefield = $imagefield . '.' . $image_number;
-											}	
-										
-											$log->debug("assigning image file", { new_imagefield => $new_imagefield, file => $file }) if $log->is_debug();
-											(defined $images_ref->{$code}) or $images_ref->{$code} = {};
-											$images_ref->{$code}{$new_imagefield} = $file;
-											
-											$downloaded_image = 1;
-										}
+								# We may have multiple images for the other field, in that case give them an imagefield of other.2, other.3 etc.
+								my $new_imagefield = $imagefield;
+								if (defined $images_ref->{$code}{$new_imagefield}) {
+									my $image_number = 2;
+									while (defined $images_ref->{$code}{$imagefield . '.' . $image_number}) {
+										$image_number++;
 									}
-									else {
-										$log->debug("could not download image file", { file => $file, response => $response }) if $log->is_debug();
-									}
-								}
+									$new_imagefield = $imagefield . '.' . $image_number;
+								}	
+							
+								$log->debug("assigning image file", { new_imagefield => $new_imagefield, file => $file }) if $log->is_debug();
+								(defined $images_ref->{$code}) or $images_ref->{$code} = {};
+								$images_ref->{$code}{$new_imagefield} = $file;
 							}
 						}
 						else {
-							$log->warn("no image download dir specified", { }) if $log->is_warn();
+							# Download the image
+
+							# We can try to transform some URLs to get the full size image instead of preview thumbs
+							
+							my @image_urls = ($image_url);
+
+							# https://secure.equadis.com/Equadis/MultimediaFileViewer?thumb=true&idFile=601231&file=10210/8076800105735.JPG
+							# -> remove thumb=true to get the full image
+
+							$image_url =~ s/thumb=true&//;
+							
+							# https://www.elle-et-vire.com/uploads/cache/400x400/uploads/recip/product_media/108/3451790013737-ev-bio-creme-epaisse-entiere-poche-33cl.png
+							$image_url =~ s/\/uploads\/cache\/(\d+)x(\d+)\/uploads\//\/uploads\//;
+							
+							if ($image_url ne $image_urls[0]) {
+								unshift @image_urls, $image_url;
+							}
+							
+							my $downloaded_image = 0;
+							
+							while ((not $downloaded_image) and ($#image_urls >= 0)) {
+								
+								$image_url = shift(@image_urls);
+							
+								# http://www.Kimagesvc.com/03159470204634_A1N1.jpg
+								# -> lowercase subdomain / domain
+								
+								my $uri = URI->new($image_url);
+								$image_url = $uri->canonical;
+								
+
+								$log->debug("download image file", { file => $file, image_url => $image_url }) if $log->is_debug();
+
+								my $response = download_image($image_url);
+
+								if ($response->is_success) {
+									$log->debug("downloaded image file", { file => $file }) if $log->is_debug();
+									open (my $out, ">", $file);
+									print $out $response->decoded_content;
+									close($out);
+									
+									# Is the image readable?
+									my $magick = Image::Magick->new();
+									my $imagemagick_error = $magick->Read($file);
+									# we can get a warning that we can ignore: "Exception 365: CorruptImageProfile `xmp' "
+									# see https://github.com/openfoodfacts/openfoodfacts-server/pull/4221
+									if (($imagemagick_error) and ($imagemagick_error =~ /(\d+)/) and ($1 >= 400)) {
+										$log->warn("cannot read downloaded image file", { error => $imagemagick_error, file => $file }) if $log->is_warn();
+										unlink($file);
+									}
+									else {
+										# Assign the download image to the field
+										
+										# We may have multiple images for the other field, in that case give them an imagefield of other.2, other.3 etc.
+										my $new_imagefield = $imagefield;
+										if (defined $images_ref->{$code}{$new_imagefield}) {
+											my $image_number = 2;
+											while (defined $images_ref->{$code}{$imagefield . '.' . $image_number}) {
+												$image_number++;
+											}
+											$new_imagefield = $imagefield . '.' . $image_number;
+										}	
+									
+										$log->debug("assigning image file", { new_imagefield => $new_imagefield, file => $file }) if $log->is_debug();
+										(defined $images_ref->{$code}) or $images_ref->{$code} = {};
+										$images_ref->{$code}{$new_imagefield} = $file;
+										
+										$downloaded_image = 1;
+									}
+								}
+								else {
+									$log->debug("could not download image file", { file => $file, response => $response }) if $log->is_debug();
+								}
+							}
 						}
+					}
+					else {
+						$log->warn("no image download dir specified", { }) if $log->is_warn();
 					}
 				}
 			}
