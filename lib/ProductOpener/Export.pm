@@ -74,8 +74,8 @@ If the fields to exports are specified with the C<fields> parameter, the first p
 
 package ProductOpener::Export;
 
-use utf8;
-use Modern::Perl '2017';
+
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 use Log::Any qw($log);
@@ -170,9 +170,7 @@ Note: if the max_count parameter is passed
 
 =cut
 
-sub export_csv($) {
-
-	my $args_ref = shift;
+sub export_csv($args_ref) {
 
 	my $filehandle = $args_ref->{filehandle};
 	my $filename = $args_ref->{filename};
