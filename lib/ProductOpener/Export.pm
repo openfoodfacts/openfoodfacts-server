@@ -279,7 +279,7 @@ sub export_csv($args_ref) {
 				elsif ($group_id eq "images") {
 					if ($args_ref->{include_images_paths}) {
 						if (defined $product_ref->{images}) {
-							(%other_images, %populated_fields) = include_image_paths($product_ref, %populated_fields, %other_images);
+							(%other_images, %populated_fields) = include_image_paths($product_ref, \%populated_fields, \%other_images);
 						}
 					}
 				}
@@ -592,10 +592,8 @@ sub export_csv($args_ref) {
 }
 
 
-sub include_image_paths($$$) {
-	my $product_ref = shift;
-	my %populated_fields = shift;
-	my %other_images = shift;
+
+sub include_image_paths($product_ref, $populated_fields_ref, $other_images_ref) {
 
 	# First list the selected images
 	my %selected_images = ();
@@ -604,13 +602,13 @@ sub include_image_paths($$$) {
 		if ($imageid =~ /^(front|ingredients|nutrition|packaging|other)_(\w\w)$/) {
 
 			$selected_images{$product_ref->{images}{$imageid}{imgid}} = 1;
-			$populated_fields{"image_" . $imageid . "_file"} = sprintf("%08d", 10 * 1000 ) . "_" . $imageid;
+			$populated_fields_ref->{"image_" . $imageid . "_file"} = sprintf("%08d", 10 * 1000 ) . "_" . $imageid;
 			# Also export the crop coordinates
 			foreach my $coord (qw(x1 x2 y1 y2 angle normalize white_magic coordinates_image_size)) {
 				if ((defined $product_ref->{images}{$imageid}{$coord})
 					and (($coord !~ /^(x|y)/) or ($product_ref->{images}{$imageid}{$coord} != -1))  # -1 is passed when the image is not cropped
 					) {
-						$populated_fields{"image_" . $imageid . "_" . $coord} = sprintf("%08d", 10 * 1000 ) . "_" . $imageid . "_" . $coord;
+						$populated_fields_ref->{"image_" . $imageid . "_" . $coord} = sprintf("%08d", 10 * 1000 ) . "_" . $imageid . "_" . $coord;
 				}
 			}
 		}
@@ -622,12 +620,12 @@ sub include_image_paths($$$) {
 
 		if (($imageid =~ /^(\d+)$/) and (not defined $selected_images{$imageid})) {
 			$other++;
-			$populated_fields{"image_" . "other_" . $other . "_file"} = sprintf("%08d", 10 * 1000 ) . "_" . "other_" . $other;
+			$populated_fields_ref->{"image_" . "other_" . $other . "_file"} = sprintf("%08d", 10 * 1000 ) . "_" . "other_" . $other;
 			# Keep the imgid for second loop on products
-			$other_images{$product_ref->{code} . "." . "other_" . $other} = { imgid => $imageid};
+			$other_images_ref->{$product_ref->{code} . "." . "other_" . $other} = { imgid => $imageid};
 		}
 	}
-	return (%other_images, %populated_fields);
+	return ($other_images_ref, $populated_fields_ref);
 }
 
 1;
