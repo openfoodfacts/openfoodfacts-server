@@ -39,8 +39,7 @@ C<ProductOpener::Producers> contains the functions specific to the producers pla
 
 package ProductOpener::Producers;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 use Log::Any qw($log);
@@ -142,9 +141,7 @@ A reference to an array of rows, containing each an array of column values
 
 =cut
 
-sub load_csv_or_excel_file($) {
-
-	my $file = shift;    # path and file name
+sub load_csv_or_excel_file($file) {	# path and file name
 
 	my $headers_ref;
 	my $rows_ref = [];
@@ -291,12 +288,9 @@ sub load_csv_or_excel_file($) {
 
 # Convert an uploaded file to OFF CSV format
 
-sub convert_file($$$$) {
-
-	my $default_values_ref  = shift;    # default values for lc, countries
-	my $file                = shift;    # path and file name
-	my $columns_fields_file = shift;
-	my $converted_file      = shift;
+sub convert_file($default_values_ref, $file, $columns_fields_file, $converted_file) {
+	# $default_values_ref  ->  values for lc, countries
+	# $file  ->  path and file name
 
 	my $load_results_ref = load_csv_or_excel_file($file);
 
@@ -472,9 +466,7 @@ sub convert_file($$$$) {
 
 # Normalize column names
 
-sub normalize_column_name($) {
-
-	my $name = shift;
+sub normalize_column_name($name) {
 	
 	# remove HTML tags
 	
@@ -669,9 +661,7 @@ Language code (string)
 
 =cut
 
-sub init_fields_columns_names_for_lang($) {
-
-	my $l = shift;
+sub init_fields_columns_names_for_lang($l) {
 
 	if (defined $fields_columns_names_for_lang{$l}) {
 		return;
@@ -699,9 +689,7 @@ sub init_fields_columns_names_for_lang($) {
 }
 
 
-sub init_nutrients_columns_names_for_lang($) {
-
-	my $l = shift;
+sub init_nutrients_columns_names_for_lang($l) {
 
 	$nutriment_table = $cc_nutriment_table{default};
 
@@ -855,9 +843,8 @@ sub init_nutrients_columns_names_for_lang($) {
 }
 
 
-sub init_other_fields_columns_names_for_lang($) {
+sub init_other_fields_columns_names_for_lang($l) {
 
-	my $l = shift;
 	my $fields_groups_ref = $options{import_export_fields_groups};
 
 	foreach my $group_ref (@{$fields_groups_ref}) {
@@ -1007,10 +994,7 @@ sub init_other_fields_columns_names_for_lang($) {
 }
 
 
-sub match_column_name_to_field($$) {
-
-	my $l = shift;
-	my $column_id = shift;
+sub match_column_name_to_field($l, $column_id) {
 
 	my $results_ref = {};
 
@@ -1052,11 +1036,7 @@ sub match_column_name_to_field($$) {
 
 # Go through all rows to extract examples, compute stats etc.
 
-sub compute_statistics_and_examples($$$) {
-
-	my $headers_ref = shift;
-	my $rows_ref = shift;
-	my $columns_fields_ref = shift;
+sub compute_statistics_and_examples($headers_ref, $rows_ref, $columns_fields_ref) {
 
 	foreach my $column (@{$headers_ref}) {
 		if (not defined $columns_fields_ref->{$column}) {
@@ -1133,10 +1113,7 @@ sub compute_statistics_and_examples($$$) {
 
 # Analyze the headers column names and rows content to pre-assign fields to columns
 
-sub init_columns_fields_match($$) {
-
-	my $headers_ref = shift;
-	my $rows_ref = shift;
+sub init_columns_fields_match($headers_ref, $rows_ref) {
 
 	my $columns_fields_ref = {};
 
@@ -1244,9 +1221,8 @@ sub init_columns_fields_match($$) {
 
 # Generate an array of options for select2
 
-sub generate_import_export_columns_groups_for_select2($) {
+sub generate_import_export_columns_groups_for_select2($lcs_ref) {	# array of language codes
 
-	my $lcs_ref = shift; # array of language codes
 	my $fields_groups_ref = $options{import_export_fields_groups};
 
 	# Sample select2 groups and fields definition format from Config.pm:
@@ -1397,9 +1373,7 @@ JSON
 
 
 
-sub export_and_import_to_public_database($) {
-	
-	my $args_ref = shift;
+sub export_and_import_to_public_database($args_ref) {
 	
 	my $started_t = time();
 	my $export_id = $started_t;
@@ -1534,10 +1508,7 @@ WantedBy=multi-user.target
 
 =cut
 
-sub import_csv_file_task() {
-
-	my $job = shift;
-	my $args_ref = shift;
+sub import_csv_file_task($job, $args_ref) {
 
 	return if not defined $job;
 
@@ -1559,10 +1530,7 @@ sub import_csv_file_task() {
 }
 
 
-sub export_csv_file_task() {
-
-	my $job = shift;
-	my $args_ref = shift;
+sub export_csv_file_task($job, $args_ref) {
 
 	return if not defined $job;
 
@@ -1597,10 +1565,7 @@ sub export_csv_file_task() {
 }
 
 
-sub import_products_categories_from_public_database_task() {
-
-	my $job = shift;
-	my $args_ref = shift;
+sub import_products_categories_from_public_database_task($job, $args_ref) {
 
 	return if not defined $job;
 
@@ -1626,10 +1591,7 @@ sub import_products_categories_from_public_database_task() {
 }
 
 
-sub update_export_status_for_csv_file_task() {
-
-	my $job = shift;
-	my $args_ref = shift;
+sub update_export_status_for_csv_file_task($job, $args_ref) {
 
 	return if not defined $job;
 
