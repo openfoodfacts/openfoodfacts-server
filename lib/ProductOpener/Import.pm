@@ -54,7 +54,7 @@ It is also used in the C<scripts/import_csv_file.pl> script.
 
 package ProductOpener::Import;
 
-use ProductOpener::PerlStandards
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 use Log::Any qw($log);
