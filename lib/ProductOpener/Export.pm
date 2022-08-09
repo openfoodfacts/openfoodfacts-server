@@ -279,7 +279,7 @@ sub export_csv($args_ref) {
 				elsif ($group_id eq "images") {
 					if ($args_ref->{include_images_paths}) {
 						if (defined $product_ref->{images}) {
-							(%other_images, %populated_fields) = include_image_paths($product_ref, \%populated_fields, \%other_images);
+							include_image_paths($product_ref, \%populated_fields, \%other_images);
 						}
 					}
 				}
