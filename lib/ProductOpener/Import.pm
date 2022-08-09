@@ -54,8 +54,7 @@ It is also used in the C<scripts/import_csv_file.pl> script.
 
 package ProductOpener::Import;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 use Log::Any qw($log);
@@ -118,9 +117,7 @@ use Digest::MD5 qw(md5_hex);
 # image_dir: path to image directory
 # stats: stats map
 # return
-sub import_images_from_dir($$) {
-	my $image_dir = shift;
-	my $stats = shift;
+sub import_images_from_dir($image_dir, $stats) {
 	my $images_ref = {};
 
 	if (not -d $image_dir) {
@@ -231,8 +228,7 @@ sub import_images_from_dir($$) {
 }
 
 # download image at given url parameter
-sub download_image($) {
-	my $image_url = shift;
+sub download_image($image_url) {
 
 	require LWP::UserAgent;
 
@@ -250,8 +246,7 @@ sub download_image($) {
 # turn them to image_other_url.2 etc.
 # arguments: column ref
 # return array ref column_names
-sub deduped_colnames($) {
-	my $columns_ref = shift;
+sub deduped_colnames($columns_ref) {
 	my %seen_columns = ();
 	my @column_names = ();
 
@@ -413,9 +408,7 @@ my %no = (
 
 
 
-sub import_csv_file($) {
-
-	my $args_ref = shift;
+sub import_csv_file($args_ref) {
 
 	$User_id = $args_ref->{user_id};
 	$Org_id = $args_ref->{org_id};
@@ -2205,9 +2198,7 @@ Time of the export.
 
 =cut
 
-sub update_export_status_for_csv_file($) {
-
-	my $args_ref = shift;
+sub update_export_status_for_csv_file($args_ref) {
 
 	$User_id = $args_ref->{user_id};
 	$Org_id = $args_ref->{org_id};
@@ -2319,9 +2310,7 @@ Owner of the products on the producers platform.
 
 =cut
 
-sub import_products_categories_from_public_database($) {
-
-	my $args_ref = shift;
+sub import_products_categories_from_public_database($args_ref) {
 
 	my $user_id = $args_ref->{user_id};
 	$Org_id = $args_ref->{org_id};
