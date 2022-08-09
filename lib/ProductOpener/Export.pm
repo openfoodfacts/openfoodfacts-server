@@ -625,7 +625,7 @@ sub include_image_paths($product_ref, $populated_fields_ref, $other_images_ref) 
 			$other_images_ref->{$product_ref->{code} . "." . "other_" . $other} = { imgid => $imageid};
 		}
 	}
-	return ($other_images_ref, $populated_fields_ref);
+	return;
 }
 
 1;
