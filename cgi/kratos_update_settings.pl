@@ -68,6 +68,7 @@ if(defined $kratos_cookie){
         my $team_1_kratos = $content_ref->{identity}{traits}{Teams}{"Team 1"};
         my $team_2_kratos = $content_ref->{identity}{traits}{Teams}{"Team 2"};
         my $team_3_kratos = $content_ref->{identity}{traits}{Teams}{"Team 3"};
+        my $professional_account_kratos = $content_ref->{identity}{traits}{"professional_account"};
 
         #retrieve users storable file
         my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $UserID) . ".sto";
@@ -89,35 +90,33 @@ if(defined $kratos_cookie){
             $user_ref->{edit_link} = '';
         }
         else{
-            delete $user_ref->{edit_link};
+            $user_ref->{edit_link} = 1;
         }
 
         if($display_barcode_kratos == 0){
             $user_ref->{display_barcode} = '';
         }
         else{
-            delete $user_ref->{display_barcode};
+            $user_ref->{display_barcode} = 1;
         }
 
-        if($team_1_kratos eq ''){
-            $user_ref->{team_1} = '';
-        }
-        else{
+        if($team_1_kratos ne ''){
             $user_ref->{team_1} = $team_1_kratos;
         }
 
-        if($team_2_kratos eq ''){
-            $user_ref->{team_2} = '';
-        }
-        else{
+        if($team_2_kratos ne ''){
             $user_ref->{team_2} = $team_2_kratos;
         }
 
-        if($team_3_kratos eq ''){
-            $user_ref->{team_3} = '';
-        }
-        else{
+        if($team_3_kratos ne ''){
             $user_ref->{team_3} = $team_3_kratos;
+        }
+
+        #update only if user does not already have a pro account
+        if($professional_account_kratos ne '' and $user_ref->{pro} ne 1){
+            $user_ref->{org} = $professional_account_kratos;
+            $user_ref->{org_id} = $professional_account_kratos;
+            $user_ref->{pro} = 1;
         }
 
         #store the updated sto file

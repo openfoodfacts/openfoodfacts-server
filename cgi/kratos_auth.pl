@@ -69,6 +69,7 @@ if(defined $kratos_cookie){
         my $team_1_kratos = $content_ref->{identity}{traits}{Teams}{"Team 1"};
         my $team_2_kratos = $content_ref->{identity}{traits}{Teams}{"Team 2"};
         my $team_3_kratos = $content_ref->{identity}{traits}{Teams}{"Team 3"};
+        my $professional_account_kratos = $content_ref->{identity}{traits}{"professional_account"};
         
         # $log->debug($json);
         # $log->debug("User ID: ", $UserID);
@@ -98,7 +99,8 @@ if(defined $kratos_cookie){
                 initial_lc => $lc,
                 initial_cc => $cc,
                 initial_user_agent => user_agent(),
-                ip => remote_addr()
+                ip => remote_addr(),
+                discussion => ''
             };
 
             if($newsletter_kratos == 0){
@@ -108,35 +110,36 @@ if(defined $kratos_cookie){
                 $hash->{newsletter} = 'on';
             }
 
-            #if set to true do not set
             if($edit_link_kratos == 0){
                 $hash->{edit_link} = '';
             }
+            else{
+                $hash->{edit_link} = 1;
+            }
 
-            #if set to true do not set
             if($display_barcode_kratos == 0){
                 $hash->{display_barcode} = '';
             }
-
-            if($team_1_kratos eq ''){
-                $hash->{team_1} = '';
-            }
             else{
+                $hash->{display_barcode} = 1;
+            }
+
+            if($team_1_kratos ne ''){
                 $hash->{team_1} = $team_1_kratos;
             }
 
-            if($team_2_kratos eq ''){
-                $hash->{team_2} = '';
-            }
-            else{
+            if($team_2_kratos ne ''){
                 $hash->{team_2} = $team_2_kratos;
             }
 
-            if($team_3_kratos eq ''){
-                $hash->{team_3} = '';
-            }
-            else{
+            if($team_3_kratos ne ''){
                 $hash->{team_3} = $team_3_kratos;
+            }
+
+            if($professional_account_kratos ne ''){
+                $hash->{org} = $professional_account_kratos;
+                $hash->{org_id} = $professional_account_kratos;
+                $hash->{pro} = 1;
             }
 
             store($hash, $user_file);

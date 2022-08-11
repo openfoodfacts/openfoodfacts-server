@@ -57,9 +57,9 @@
             }
           }
         },
-        "Professional Account": {
-          "title": "Professional Account",
-          "type": "boolean"
+        "professional_account": {
+          "title": "Professional Account (company or brand name)",
+          "type": "string"  
         },
         "newsletter": {
           "title": "Subscribe to newsletter",
