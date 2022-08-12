@@ -32,7 +32,7 @@ services:
     networks:
       default:
         aliases:
-          - kratos.openfoodfacts.localhost
+          - kratos.${PRODUCT_OPENER_DOMAIN}.localhost
     volumes:
       - type: bind
         source: ./Ory/kratos
@@ -43,7 +43,7 @@ services:
     image: oryd/kratos-selfservice-ui-node:latest
     environment:
       - KRATOS_PUBLIC_URL=http://kratos:4433/
-      - KRATOS_BROWSER_URL=http://kratos.openfoodfacts.localhost:4433/
+      - KRATOS_BROWSER_URL=http://kratos.${PRODUCT_OPENER_DOMAIN}:4433/
     ports:
       - '127.0.0.1:4455:3000'
     volumes:
