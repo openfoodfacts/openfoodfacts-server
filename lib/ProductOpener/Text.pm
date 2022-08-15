@@ -43,9 +43,8 @@ The decimal sign could be a '.' (most languages), or it could be a ',' (de - DEC
 
 package ProductOpener::Text;
 
-use utf8;
+use ProductOpener::PerlStandards;
 use Modern::Perl '2017';
-use Exporter    qw< import >;
 
 BEGIN
 {
@@ -86,9 +85,7 @@ If text (scalar variable passed as argument) is not defined or percent sign is n
 
 =cut
 
-sub normalize_percentages($$) {
-
-	my ($text, $locale) = @_;
+sub normalize_percentages($text, $locale) {
 
 	# Bail out of this function if no known percent sign is found.
 	# This is purely for performance reasons: CLDR functions are
@@ -112,9 +109,7 @@ sub normalize_percentages($$) {
 }
 
 %ProductOpener::Text::cldrs = ();
-sub _get_cldr {
-
-	my ($locale) = @_;
+sub _get_cldr($locale) {
 
 	if (defined $ProductOpener::Text::cldrs{$locale}) {
 		return $ProductOpener::Text::cldrs{$locale};
@@ -144,9 +139,7 @@ The function returns a scalar variable that is formatted on the basis of locale.
 =cut
 
 %ProductOpener::Text::decimal_formatters = ();
-sub get_decimal_formatter {
-
-	my ($locale) = @_;
+sub get_decimal_formatter($locale) {
 
 	my $decf = $ProductOpener::Text::decimal_formatters{$locale};
 	if (defined $decf) {
@@ -176,9 +169,7 @@ The function returns a scalar variable of percentage value that is formatted by 
 =cut
 
 %ProductOpener::Text::percent_formatters = ();
-sub get_percent_formatter {
-
-	my ($locale, $maximum_fraction_digits) = @_;
+sub get_percent_formatter($locale, $maximum_fraction_digits) {
 
 	my $formatters_ref = $ProductOpener::Text::percent_formatters{$locale};
 	my %formatters;
@@ -204,9 +195,7 @@ sub get_percent_formatter {
 }
 
 %ProductOpener::Text::regexes = ();
-sub _get_locale_percent_regex {
-
-	my ($cldr, $perf, $locale) = @_;
+sub _get_locale_percent_regex($cldr, $perf, $locale) {
 
 	if (defined $ProductOpener::Text::regexes{$locale}) {
 		return $ProductOpener::Text::regexes{$locale};
@@ -232,9 +221,7 @@ sub _get_locale_percent_regex {
 
 }
 
-sub _format_percentage($$$) {
-
-	my ($value, $cldr, $perf) = @_;
+sub _format_percentage($value, $cldr, $perf) {
 
 	# this should escape '.' to '\.' to be used in the regex ...
 	my $g = quotemeta($cldr->group_sign);
@@ -263,9 +250,7 @@ sub _format_percentage($$$) {
 
 }
 
-sub remove_tags_and_quote($) {
-
-	my $s = shift;
+sub remove_tags_and_quote($s) {
 
 	if (not defined $s) {
 		$s = "";
@@ -283,9 +268,7 @@ sub remove_tags_and_quote($) {
 	return $s;
 }
 
-sub xml_escape($) {
-
-	my $s = shift;
+sub xml_escape($s) {
 
 	# Remove tags
 	$s =~ s/<(([^>]|\n)*)>//g;
@@ -301,9 +284,7 @@ sub xml_escape($) {
 
 }
 
-sub remove_tags($) {
-
-	my $s = shift;
+sub remove_tags($s) {
 
 	# Remove tags
 	$s =~ s/</&lt;/g;
