@@ -4,12 +4,8 @@ dsn: memory
 
 serve:
   public:
-    base_url: http://kratos.openfoodfacts.localhost:4433/
     cors:
       enabled: true
-      allowed_origins:
-        - http://world.openfoodfacts.localhost/
-        - http://*.openfoodfacts.localhost/
       allowed_methods:
         - POST
         - GET
@@ -23,51 +19,32 @@ serve:
       exposed_headers:
         - Content-Type
         - Set-Cookie
-  admin:
-    base_url: http://kratos.openfoodfacts.localhost:4434/
 
 selfservice:
   default_browser_return_url: http://world.openfoodfacts.localhost/cgi/kratos_auth.pl
-  allowed_return_urls:
-    - http://world.openfoodfacts.localhost/
-    - http://kratos.openfoodfacts.localhost/cgi/kratos_auth.pl
-    - http://world.openfoodfacts.localhost/cgi/kratos_update_settings.pl
 
   methods:
     password:
       enabled: true
 
   flows:
-    error:
-      ui_url: http://kratos.openfoodfacts.localhost:4455/error
 
     settings:
-      ui_url: http://kratos.openfoodfacts.localhost:4455/settings
       privileged_session_max_age: 15m
-      after:
-        default_browser_return_url: http://world.openfoodfacts.localhost/cgi/kratos_update_settings.pl
 
     recovery:
       enabled: true
-      ui_url: http://kratos.openfoodfacts.localhost:4455/recovery
 
     verification:
       enabled: true
-      ui_url: http://kratos.openfoodfacts.localhost:4455/verification
       after:
         default_browser_return_url: http://kratos.openfoodfacts.localhost:4455/
 
-    logout:
-      after:
-        default_browser_return_url: http://kratos.openfoodfacts.localhost:4455/login
-
     login:
-      ui_url: http://kratos.openfoodfacts.localhost:4455/login
       lifespan: 10m
 
     registration:
       lifespan: 10m
-      ui_url: http://kratos.openfoodfacts.localhost:4455/registration
       after:
         password:
           hooks:
@@ -83,13 +60,6 @@ secrets:
     - PLEASE-CHANGE-ME-I-AM-VERY-INSECURE
   cipher:
     - 32-LONG-SECRET-NOT-SECURE-AT-ALL
-
-session:
-  cookie:
-    domain: openfoodfacts.localhost
-
-cookies:
-  domain: openfoodfacts.localhost
 
 ciphers:
   algorithm: xchacha20-poly1305

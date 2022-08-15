@@ -37,75 +37,71 @@ use JSON;
 use Log::Any qw($log);
 use CGI qw(:standard);
 
-#input a userid
-my $UserID = "testimport5";
+#get all users files and put in array
+my $dir = "$data_root/users/";
+opendir DIR,$dir;
+my @dir = readdir(DIR);
+close DIR;
+# $log->debug(@dir)
 
-#get user file
-my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $UserID) . ".sto";
-my $user_ref = retrieve($user_file);
+#for each in array open user file
+for my $el (@dir){
+    $log->debug($el, "\n");
 
-#get user info from sto file
-my $userid = $user_ref->{userid};
-my $email = $user_ref->{email};
-my $name = $user_ref->{name};
-my $password = $user_ref->{encrypted_password};
+    #if string does not contain .sto or only contains sto next iteration
+    if (($el !~ /.sto/) or ($el == ".sto")){
+        next;
+    }
 
-# $log->debug("userid: ", $userid);
-# $log->debug("email: ", $email);
-# $log->debug("name: ", $name);
+    #open user file
+    my $user_file = "$data_root/users/" . $el;
+    my $user_ref = retrieve($user_file);
 
-#modify string to fit how kratos wants PBKDF2 password Example: $pbkdf2-sha256$i=100000,l=32$1jP+5Zxpxgtee/iPxGgOz0RfE9/KJuDElP1ley4VxXc$QJxzfvdbHYBpydCbHoFg3GJEqMFULwskiuqiJctoYpI
-my $beginning_of_password = "\$pbkdf2-sha256\$i=100000,l=32";
-my($scrypt, $cost, $block_size, $parallel_param, $salt, $password) = split /:/, $password;
-$salt = "\$".$salt;
-$password = "\$".$password;
-chop($salt);
-chop($password);
+    #get user info from sto file
+    my $userid = $user_ref->{userid};
+    my $email = $user_ref->{email};
+    my $name = $user_ref->{name};
+    my $password = $user_ref->{encrypted_password};
 
-# $log->debug("salt: ", $salt);
-# $log->debug("password: ", $password);
+    #create json to post
+    my $post_json = JSON->new;
 
-#combine salt and password to import to kratos
-my $kratos_password = $beginning_of_password.$salt.$password;
-
-# $log->debug("kratos_password: ", $kratos_password);
-
-#create json to post
-my $post_json = JSON->new;
-
-my $data_to_json = {
-    'traits' => {
-        'UserID' => $userid,
-        'email' => $email,
-        'name' => $name
-    },
-    'credentials' => {
-        'password' => {
-            'config' => {
-                'hashed_password' => $kratos_password
+    my $data_to_json = {
+        'traits' => {
+            'UserID' => $userid,
+            'email' => $email,
+            'name' => $name
+        },
+        'credentials' => {
+            'password' => {
+                'config' => {
+                    'hashed_password' => $password
+                }
             }
         }
+    };
+
+    my $str = encode_json($data_to_json);
+
+    $log->debug("json: ", $str);
+
+    my $ua = LWP::UserAgent->new;
+
+    #post request to create identity
+    my $post_req = HTTP::Request->new(POST => "http://kratos.openfoodfacts.localhost:4434/admin/identities");
+    $post_req->header('accept' => 'application/json');
+    $post_req->header('content-type' => 'application/json');
+    $post_req->content($str);
+
+    my $post_resp = $ua->request($post_req);
+
+    if($post_resp->is_success){
+        $log->debug("User Created");
     }
-};
+    else{
+        $log->debug("HTTP POST error code: ", $post_resp->code);
+        $log->debug("HTTP POST error message: ", $post_resp->message);
+    }
 
-my $str = encode_json($data_to_json);
 
-$log->debug("json: ", $str);
-
-my $ua = LWP::UserAgent->new;
-
-#post request to create identity
-my $post_req = HTTP::Request->new(POST => "http://kratos.openfoodfacts.localhost:4434/admin/identities");
-$post_req->header('accept' => 'application/json');
-$post_req->header('content-type' => 'application/json');
-$post_req->content($str);
-
-my $post_resp = $ua->request($post_req);
-
-if($post_resp->is_success){
-    $log->debug("User Created");
-}
-else{
-    $log->debug("HTTP POST error code: ", $post_resp->code);
-    $log->debug("HTTP POST error message: ", $post_resp->message);
 }
