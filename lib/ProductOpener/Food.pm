@@ -176,7 +176,7 @@ Output modifier reference.
 
 sub normalize_nutriment_value_and_modifier($value_ref, $modifier_ref) {
 
-	$modifier_ref = undef;
+	${$modifier_ref} = undef;
 
 	return if not defined ${$value_ref};
 
