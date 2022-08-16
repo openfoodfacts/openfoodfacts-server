@@ -7551,7 +7551,7 @@ ru:Пон-л’Эвек
 uk:Пон-л'Евек
 xx:pont l'evêque
 zh:龐特伊維克芝士
-wikidata:Q1233145
+wikidata:en:Q1233145
 wikipedia:en:wiki/Pont-l%27Évêque_cheese
 ciqual_food_code:en:12042
 ciqual_food_name:en:Pont l'Evêque cheese, from cow's milk
@@ -10207,7 +10207,7 @@ fr:cotelettes d'agneau
 ciqual_food_code:en:21501
 ciqual_food_name:en:Lamb cutlet, grilled
 ciqual_food_name:fr:Agneau, côtelette, grillée
-ingredient/fr:cotelettes-d’agneau has no products @2019-4-16
+# ingredient/fr:cotelettes-d’agneau has no products @2019-4-16
 
 <en:meat
 <en:lamb
@@ -11457,9 +11457,9 @@ zh:猪肉
 carbon_footprint_fr_foodges_ingredient:fr:Viande de porc
 carbon_footprint_fr_foodges_value:fr:7.4
 # Facteur GES kg CO2 eq / kg d'ingrédient en sortie de magasin (poids net)
-carbon_footprint_fr_foodges_ingredient_for_net_weight:en 5.9
+carbon_footprint_fr_foodges_ingredient_for_net_weight:en:5.9
 # Facteur GES kg CO2 eq / kg d'ingrédient ingéré
-carbon_footprint_fr_foodges_ingredient_for_ingested_weight:en 7.4
+carbon_footprint_fr_foodges_ingredient_for_ingested_weight:en:7.4
 
 <en:pork meat
 en:minced pork
@@ -16191,7 +16191,7 @@ fr:huile d’anis,huile essentielle d'anis
 it:olio de semi di anice
 nl:anijsolie
 sv:anisolja
-wikidata:Q549313
+wikidata:en:Q549313
 # derivedFrom:en:aniseed
 # ingredient/en:aniseed-oil has 27 products in 3 languages @2020-06-08
 
@@ -23855,6 +23855,10 @@ sv:mjölblanding
 # ingredient/fr:melange-de-farine has 7 products in 1 language @2020-06-08
 
 <en:flour
+<en:flour blend
+en:whole grain flour blend
+
+<en:flour
 en:cereal flour
 ca:farina de cereal
 cs:obilná mouka
@@ -27029,7 +27033,7 @@ id:Gula kelapa
 it:zucchero di fiori di cocco, zucchero di cocco
 nl:kokossuiker
 nn:kokosnøttsukker
-pt:jagra
+pl:cukier kokosowy
 su:Gula kalapa
 sv:kokossocker, kokospalmsocker
 ta:தென்னை சர்க்கரை
@@ -40988,7 +40992,7 @@ de:Sanddornsaft
 fi:tyrnimehu, tyrnitäysmehu
 fr:Jus d'argousier
 sv:havtornsjuice
-wikidata:Q68192318
+wikidata:en:Q68192318
 
 <en:fruit
 en:tamarillo
@@ -49135,7 +49139,7 @@ fi:habanero, habanero chili
 fr:Piment Habanero
 it:Peperoncino Habanero
 wikipedia:en:https://en.wikipedia.org/wiki/Habanero
-wikidata:Q764375
+wikidata:en:Q764375
 # scoville:en:100000-350000
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:habanero-chili
 # 1 entry @ 2019-10-31
@@ -56101,7 +56105,7 @@ zh:桂皮
 wikidata:en:Q28165
 carbon_footprint_fr_foodges_ingredient:fr:Cannelle
 carbon_footprint_fr_foodges_value:fr:2.2
-"# fr:cannelle has 1851 products in 14 languages @2018-10-24
+# fr:cannelle has 1851 products in 14 languages @2018-10-24
 
 #<en:Cinnamon
 #en:organic cinnamon
@@ -78256,7 +78260,7 @@ fr:intérieur cône
 # This is a compound ingredient, e.g.:chapelure (farine de blé, levure, sel)
 
 <en:coating
-en:bread crumbs, breadcrumbs
+en:bread crumbs, breadcrumbs, breading
 ar:بقسماط
 be:Паніровачныя сухары
 bg:Галета
