@@ -19,7 +19,7 @@ my $tests_dir = dirname(__FILE__);
 my $expected_dir = $tests_dir . "/expected_test_results/" . $test_name;
 
 my %product_fields = (
-	code => '200000000037',
+	code => '200000000111',
 	lang => "en",
 	product_name => "vegan & palm oil free",
 	generic_name => "Tester",
@@ -52,7 +52,7 @@ if ((defined $update_expected_results) and (! -e $expected_dir)) {
 	mkdir($expected_dir, 0755) or die("Could not create $expected_dir directory: $!\n");
 }
 
-my $query = get("http://world.openfoodfacts.localhost/cgi/search.pl?search_terms=&search_simple=1&action=process&json=true");
+my $query = get("http://world.openfoodfacts.localhost/cgi/search.pl?search_terms=&search_simple=200000000111&action=process&json=true");
 my $query_json_decoded = decode_json($query);
 
 is (compare_to_expected_results($query_json_decoded, "$expected_dir/$test_name.json", $update_expected_results), 1);
