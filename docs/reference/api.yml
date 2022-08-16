@@ -21,7 +21,8 @@ paths:
       tags:
       - Read Requests
       summary: Get for a specific product by barcode
-      parameters:
+     # TODO: add all optional parameters
+     parameters:
       - name: barcode
         in: path
         description: The barcode of the product to be fetched
