@@ -3547,9 +3547,9 @@ otherwise, the tag in its primary language
 
 =cut
 
-sub display_taxonomy_tag_name($tagtype)
+sub display_taxonomy_tag_name($target_lc, $tagtype, $canon_tagid)
 {
-	my $display_value = display_taxonomy_tag($_[0], $_[1], $_[2]);
+	my $display_value = display_taxonomy_tag($target_lc, $tagtype, $canon_tagid);
 	# remove eventual leading language code
     $display_value =~ s/^\w\w://;
     return $display_value;
