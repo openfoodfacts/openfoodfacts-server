@@ -1216,7 +1216,7 @@ Array of specific ingredients.
 
 =cut
 
-sub parse_origins_from_text($text, $text_ref, $matched_ingredient_ref, $product_ref) {
+sub parse_origins_from_text($product_ref, $text) {
 
 	my $product_lc = $product_ref->{lc};
 
@@ -5688,8 +5688,7 @@ sub replace_allergen_in_caps($language, $product_ref, $allergen, $before) {
 }
 
 
-sub replace_allergen_between_separators($language, $product_ref, $before, $start_separator, $end_separator, $allergen) {
-
+sub replace_allergen_between_separators($language, $product_ref, $start_separator, $allergen, $end_separator, $before ) {
 	my $field = "allergens";
 
 	#print STDERR "replace_allergen_between_separators - allergen: $allergen\n";
