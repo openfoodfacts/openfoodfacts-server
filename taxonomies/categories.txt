@@ -40629,6 +40629,66 @@ nl:Notenkazen
 
 <en:Dairy desserts
 <en:Fermented milk products
+en:Fermented dairy desserts
+fr:Desserts lactés fermentés
+
+#Yogurt-like dessert containing additives (i.e. gellant agent) that prevents it to be called "yogurt" according to the French legislation. This category shouldn't be translated since it arises from a particularity of the French legislation
+<en:Fermented dairy desserts
+fr:Spécialités laitières, spécialité laitière
+
+<fr:Spécialités laitières
+fr:Spécialités laitières nature sucrées, Spécialité laitière nature sucrée
+agribalyse_food_code:en:19599
+ciqual_food_code:en:19599
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, plain, w sugar
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature, sucré
+
+<fr:Spécialités laitières
+fr:Spécialités laitières nature non sucrées
+
+<fr:Spécialités laitières
+fr:Spécialités laitières aux fruits
+
+<en:Fermented dairy desserts
+en:Bifidus yogurts
+de:Bifidus-Joghurt
+es:Yogures bifidus, Yogures con bifidus
+fi:Bifidus-jogurtit
+fr:Yaourts au Bifidus
+it:Yogurt allo Bifidus
+nl:Bifidus yoghurts
+#wikidata:en:
+
+<en:Bifidus yogurts
+en:Plain bifidus yogurts
+fr:Yaourts au bifidus nature
+
+<en:Bifidus yogurts
+en:Fruit bifidus yogurts, Yogurt-type fermented milk with fruits with sugar with bifidus, Yogurt-type dairy specialty with fruits with sugar with bifidus
+fr:Yaourts au bifidus aux fruits, Lait fermenté de type yaourt aux fruits sucré au bifidus, Spécialité laitière de type yaourt aromatisé aux fruits au bifidus
+agribalyse_food_code:en:19542
+ciqual_food_code:en:19542
+ciqual_food_name:en:Fermented milk or dairy specialty, yogurt type, with fruits, with sugar, with bifidus
+ciqual_food_name:fr:Lait fermenté ou spécialité laitière type yaourt, aux fruits, sucré, au bifidus
+
+<en:Bifidus yogurts
+en:Flavoured bifidus yogurts, Yogurt-type fermented flavoured milk with sugar with bifidus, Yogurt-type flavoured dairy specialty with sugar with bifidus
+fr:Yaourts au bifidus aromatisés, Lait fermenté de type yaourt aromatisé sucré au bifidus, spécialité laitière de type yaourt aromatisé sucré au bifidus
+it:Yogurt aromatizzato al bifidus
+agribalyse_food_code:en:19539
+ciqual_food_code:en:19539
+ciqual_food_name:en:Fermented milk or dairy specialty, yogurt type, flavoured, with sugar, with bifidus
+ciqual_food_name:fr:Lait fermenté ou spécialité laitière type yaourt, aromatisé, sucré, au bifidus
+
+<en:Bifidus yogurts
+en:Sweetened plain bifidus yogurts, Yogurt-type plain fermented milk with sugar with bifidus, Yogurt-type plain dairy specialty with sugar with bifidus
+fr:Yaourts au bifidus sucrés natures, Lait fermenté de type yaourt nature sucré au bifidus, spécialité laitière de type yaourt nature sucré au bifidus
+agribalyse_food_code:en:19546
+ciqual_food_code:en:19546
+ciqual_food_name:en:Fermented milk or dairy specialty, yogurt type, plain, with bifidus
+ciqual_food_name:fr:Lait fermenté ou spécialité laitière type yaourt, nature, au bifidus
+
+<en:Fermented dairy desserts
 en:Faiselles, Drained soft fresh cheese around 6% fat
 fr:Faisselles
 wikidata:en:Q3064619
@@ -40636,8 +40696,7 @@ agribalyse_food_code:en:19641
 ciqual_food_code:en:19641
 ciqual_food_name:en:Drained soft fresh cheese, around 6% fat
 
-<en:Dairy desserts
-<en:Fermented milk products
+<en:Fermented dairy desserts
 fr:Fromages blancs, fromage blanc
 de:Weißer Käse
 wikidata:en:Q15080546
@@ -42828,7 +42887,7 @@ en:Chubut Cheese
 es:Queso Chubut, Queso Chubutense
 wikidata:en:Q6094556
 
-<en:Dairy desserts
+<en:Fermented dairy desserts
 en:Petits suisses
 de:Milchdesserts
 es:Petit-suisse, Petit suisse
@@ -43473,8 +43532,7 @@ protected_name_type:en: pdo
 origins:en: en:Spain
 wikidata:en:Q11934902
 
-<en:Dairy desserts
-<en:Fermented milk products
+<en:Fermented dairy desserts
 en:Skyrs, Skyr
 ca:Skyr
 da:Skyr
@@ -43505,7 +43563,6 @@ fr:Skyrs aux fruits, Skyr aux fruits
 
 # description:en:QUARK is a type of fresh dairy product made by warming soured milk until the desired amount of curdling is met, and then straining it.
 
-<en:Dairy desserts
 <en:Fermented milk products
 # <en:ingredient:en:cheese
 en:Quarks, quark
@@ -43560,13 +43617,20 @@ ciqual_food_name:fr:Fromage blanc nature ou aux fruits (aliment moyen)
 # ingredient/nl:kwark has 2 products @2019-05-24
 # category/quark has 221 products @2019-05-24
 
+<en:Fermented dairy desserts
 <en:Quarks
 en:Plain quarks, Plain quark
 fr:Quarks nature, Quark nature
 
+<en:Fermented dairy desserts
 <en:Quarks
 en:Fruit quarks, Fruit quark
 fr:Quarks aux fruits, Quark aux fruits
+
+<en:Quarks
+en:Herb quarks
+de:Kräuterquark
+fr:Quarks aux herbes aromatiques
 
 <en:Quarks
 en:Lean quark
@@ -45169,7 +45233,7 @@ agribalyse_food_code:en:19530
 ciqual_food_code:en:19530
 ciqual_food_name:en:Uncured soft cheese, spreadable, around 30-40% fat, flavoured (ex : garlic and herbs)
 
-<en:Fermented milk products
+<en:Fermented dairy desserts
 en:Yogurts, yoghourts, yoghurts, yogourts, jogurts
 af:Jogurt
 ar:لبن
@@ -45254,14 +45318,6 @@ nl:Lactose-vrije yoghurt, Lactose-vrije yoghurts, Yoghurt zonder lactose, Yoghur
 #wikidata:en:
 
 <en:Yogurts
-en:Dairy-free yoghurts
-nl:Zuivelvrije yoghurts
-
-<en:Dairy-free yoghurts
-en:Dairy-free coconut-based yoghurts
-nl:Zuivelvrije kokosnootyoghurts
-
-<en:Yogurts
 en:Yogurt with fruits and sweetener, Yogurt fruit flavoured with sweetener, Fermented milk with fruits and sweetener, Fermented milk fruit flavoured with sweetener, Dairy specialty with fruits and sweetener, Dairy specialty fruit flavoured with sweetener
 fr:Yaourt aromatisé avec édulcorants, Yaourt aux fruits avec édulcorants, Lait fermenté aromatisé avec édulcorants, Lait fermenté aux fruits avec édulcorants, Spécialité laitière aromatisée avec édulcorants, Spécialité laitière aux fruits avec édulcorants
 ciqual_food_code:en:19675
@@ -45299,22 +45355,6 @@ agribalyse_food_code:en:19592
 ciqual_food_code:en:19592
 ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, with fruits, with sugar, fortified with vitamin D
 ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux fruits, sucré, enrichi en vitamine D
-
-<en:Yogurts
-en:Plain dairy specialty with sugar
-fr:Spécialité laitière nature sucrée
-agribalyse_food_code:en:19599
-ciqual_food_code:en:19599
-ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, plain, w sugar
-ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature, sucré
-
-<en:Yogurts
-en:Plain fermented milk with sugar
-fr:lait fermenté nature sucré
-agribalyse_food_code:en:19599
-ciqual_food_code:en:19599
-ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, plain, w sugar
-ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature, sucré
 
 <en:Yogurts
 en:Plain yogurt with sugar
@@ -45412,47 +45452,6 @@ ciqual_food_name:en:Dairy drink or fermented milk or yogurt, plain, with sugar, 
 ciqual_food_name:fr:Boisson lactée, lait fermenté ou yaourt à boire, nature, sucré, au L Casei
 
 <en:Yogurts
-en:Bifidus yogurts
-de:Bifidus-Joghurt
-es:Yogures bifidus, Yogures con bifidus
-fi:Bifidus-jogurtit
-fr:Yaourts au Bifidus
-it:Yogurt allo Bifidus
-nl:Bifidus yoghurts
-#wikidata:en:
-
-<en:Bifidus yogurts
-en:Plain bifidus yogurts
-fr:Yaourts au bifidus nature
-
-<en:Bifidus yogurts
-<en:Fruit yogurts
-en:Fruit bifidus yogurts, Yogurt-type fermented milk with fruits with sugar with bifidus, Yogurt-type dairy specialty with fruits with sugar with bifidus
-fr:Yaourts au bifidus aux fruits, Lait fermenté de type yaourt aux fruits sucré au bifidus, Spécialité laitière de type yaourt aromatisé aux fruits au bifidus
-agribalyse_food_code:en:19542
-ciqual_food_code:en:19542
-ciqual_food_name:en:Fermented milk or dairy specialty, yogurt type, with fruits, with sugar, with bifidus
-ciqual_food_name:fr:Lait fermenté ou spécialité laitière type yaourt, aux fruits, sucré, au bifidus
-
-<en:Bifidus yogurts
-<en:Flavoured yogurts
-en:Flavoured bifidus yogurts, Yogurt-type fermented flavoured milk with sugar with bifidus, Yogurt-type flavoured dairy specialty with sugar with bifidus
-fr:Yaourts au bifidus aromatisés, Lait fermenté de type yaourt aromatisé sucré au bifidus, spécialité laitière de type yaourt aromatisé sucré au bifidus
-it:Yogurt aromatizzato al bifidus
-agribalyse_food_code:en:19539
-ciqual_food_code:en:19539
-ciqual_food_name:en:Fermented milk or dairy specialty, yogurt type, flavoured, with sugar, with bifidus
-ciqual_food_name:fr:Lait fermenté ou spécialité laitière type yaourt, aromatisé, sucré, au bifidus
-
-<en:Plain bifidus yogurts
-en:Sweetened plain bifidus yogurts, Yogurt-type plain fermented milk with sugar with bifidus, Yogurt-type plain dairy specialty with sugar with bifidus
-fr:Yaourts au bifidus sucrés natures, Lait fermenté de type yaourt nature sucré au bifidus, spécialité laitière de type yaourt nature sucré au bifidus
-agribalyse_food_code:en:19546
-ciqual_food_code:en:19546
-ciqual_food_name:en:Fermented milk or dairy specialty, yogurt type, plain, with bifidus
-ciqual_food_name:fr:Lait fermenté ou spécialité laitière type yaourt, nature, au bifidus
-
-<en:Yogurts
 en:Flavoured yogurts, Flavoured fermented milk yogurt with sugar, Flavoured dairy specialty with sugar
 bg:Ароматизирани кисели млека
 de:aromatisierte Joghurts
@@ -45546,7 +45545,6 @@ fr:Spécialité laitière aux fruits sucrée non allégée en matières grasses
 ciqual_food_code:en:19677
 ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits or flavoured, w sugar, no 0% fat (average)
 ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé ou aux fruits, sucré, non allégé en MG (aliment moyen)
-
 
 <en:Fruit yogurts
 en:Fruit yogurts with fruit chunks
@@ -47112,13 +47110,18 @@ nl:Non-zuivel gefermenteerd voedsel
 
 <en:Non-dairy fermented foods
 <en:Non-dairy desserts
-en:Non-dairy yogurts, vegan yogurts
+en:Non-dairy yogurts, vegan yogurts, Dairy-free yoghurts
 de:pflanzenbasierte Joghurts, milchfreie Joghurts
 es:Yogures vegetales
 fi:Vegaanijogurtit
-fr:Yaourts végétaux, yaourt végétal, yaourt végan, yaourts sans lait
+fr:Desserts végétaliens fermentés, Yaourts végétaux, yaourt végétal, yaourt végan, yaourts sans lait
 it:Yogurt vegetali, yogurt vegani
-nl:Plantaardige yoghurts, plantaardige yoghurt
+nl:Plantaardige yoghurts, plantaardige yoghurt, Zuivelvrije yoghurts
+
+<en:Non-dairy yogurts
+en:Coconutmilk yogurts, Dairy-free coconut-based yoghurts
+fr:Desserts de lait de coco fermenté
+nl:Zuivelvrije kokosnootyoghurts
 
 <en:Non-dairy yogurts
 en:Oat milk yogurts
@@ -84131,6 +84134,12 @@ nl:Plantaardige smeerbare producten
 pl:Roślinne smarowidła, Warzywne smarowidła, Produkty do smarowania na bazie roślin, warzyw
 pt:Produtos para barrar à base de plantas, Produtos para barrar vegetais, patés vegetais
 
+#Vegetarian alternative to "Fleischsalat"
+<en:Plant-based spreads
+<en:Salted spreads
+en:Vegetarian spreads with meat-like pieces
+fr:Tartinades avec des morceaux végétariens
+
 <en:Spreadable fats
 <en:Plant-based spreads
 de:Streichfette, Streichfett
@@ -89800,36 +89809,28 @@ la:Solanum lycopersicum var. Cucurbita, Lycopersicon lycopersicum var. Cucurbita
 wikidata:en:Q7259857
 
 <en:Canned tomatoes
-en:Peeled tomatoes
-bg:Белени домати
+en:Peeled tomatoes, Canned peeled tomatoes
+bg:Белени домати, Белени домати в консерва
 de:Geschälte Tomaten
 es:Tomates pelados
 fi:kuoritut tomaatit
-fr:Tomates pelées
+fr:Tomates pelées, Tomates pelées en conserve, Tomates pelées appertisées
 it:Pelati, Pomodori pelati
 nl:Geschilde tomaten
 pt:Tomates pelados
-agribalyse_proxy_food_code:en:20048
-agribalyse_proxy_food_name:en:Tomato, peeled, canned, drained
-agribalyse_proxy_food_name:fr:Tomate, pelée, appertisée, égouttée
-
-<en:Peeled tomatoes
-en:Canned peeled tomatoes
-bg:Белени домати в консерва
-fr:Tomates pelées en conserve, Tomates pelées appertisées
 agribalyse_food_code:en:20048
 ciqual_food_code:en:20048
 ciqual_food_name:en:Tomato, peeled, canned, drained
 ciqual_food_name:fr:Tomate, pelée, appertisée, égouttée
 
 <en:Peeled tomatoes
-fr:Chair de tomates
-
-<en:Peeled tomatoes
 fr:Tomates entières pelées au jus
 agribalyse_proxy_food_code:en:20048
 agribalyse_proxy_food_name:en:Tomato, peeled, canned, drained
 agribalyse_proxy_food_name:fr:Tomate, pelée, appertisée, égouttée
+
+<en:Canned tomatoes
+fr:Chair de tomates
 
 <en:Vegetables
 en:Zucchini, Courgettes
@@ -93627,22 +93628,17 @@ nl:Diepvries aubergines
 
 <en:Broccoli
 <en:Frozen vegetables
-en:Frozen broccoli florets
+en:Frozen broccolis, Frozen broccoli florets, Frozen broccoli
 de:Tiefkühl-Brokkoli
-es:Brócoli en floretes congelado, Brócolis congelados, Brócoli congelado
+es:Brócolis congelados, Brócoli en floretes congelado, Brócoli congelado
 fi:pakastetut parsakaalinuput
-fr:Brocolis en fleurettes surgelés, Brocolis surgelés
-it:Cime di broccoli surgelate
+fr:Brocolis surgelés, Brocolis en fleurettes surgelés, Brocoli surgelé
+it:Broccoli surgelati, Cime di broccoli surgelate
 nl:Diepvries broccoli
 pl:Brokuł (różyczki) głęboko mrożony
 agribalyse_proxy_food_code:en:20204
 agribalyse_proxy_food_name:en:Broccoli, frozen, raw
 agribalyse_proxy_food_name:fr:Brocoli, surgelé, cru
-
-<en:Frozen broccoli florets
-en:Frozen broccoli
-fr:Brocoli surgelé
-agribalyse_food_code:en:20204
 ciqual_food_code:en:20204
 ciqual_food_name:en:Broccoli, frozen, raw
 ciqual_food_name:fr:Brocoli, surgelé, cru
