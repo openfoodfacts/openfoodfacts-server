@@ -478,10 +478,10 @@ my @tests = (
 
 	# recycling code should apply to all languages
 	[
-		'en-aa-84-c-pap',
+		'en-aa-84-c-x',
 		{
 			lc => "aa",
-			packaging => "84-C/PAP",
+			packaging => "84-C/X",
 		}
 	],
 
