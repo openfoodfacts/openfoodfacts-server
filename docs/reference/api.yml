@@ -36,9 +36,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './schemas/index.yaml'
+                $ref: './schemas/get_product_response.yaml'
       description: A product can be fetched via its unique barcode.Its returns  all the details of that product response.
       operationId: get-product-by-barcode
 components:
   schemas:
-    $ref: './schemas/index.yaml'
+    Product:
+      $ref: "./schemas/get_product_response.yaml"
