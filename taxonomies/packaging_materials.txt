@@ -777,13 +777,13 @@ en:Paper and fibreboard/miscellaneous metals, Paper and fibreboard + miscellaneo
 de:Papier und Pappe/verschiedene Metalle, Papier und Pappe + verschiedene Metalle
 xx:80 C/X, 80 C/*, 80 CX, 80 C*
 
-<en:80 C/X
+<xx:80 C/X
 xx:80 C/PAP
 
-<en:80 C/X
+<xx:80 C/X
 xx:80 C/FE
 
-<en:80 C/X
+<xx:80 C/X
 xx:80 C/ALU
 
 <en:Multilayer composite
@@ -796,36 +796,72 @@ nl:Papier en plastic
 pt:Papel e plástico, Papel + plástico
 xx:81 C/X, 81 C/*, 81 CX, 81 C*, 81 PapPet
 
-<en:81 C/X
+<xx:81 C/X
 xx:81 C/PAP
 
-<en:81 C/X
+<xx:81 C/X
 xx:81 C/PET
 
-<en:81 C/X
-xx:81 C/HDPE, 81 C/PEHE
+<xx:81 C/X
+xx:81 C/PVDC
 
-<en:81 C/X
+<xx:81 C/X
+xx:81 C/rPET
+
+<xx:81 C/X
 xx:81 C/HDPE, 81 C/PEHD
 
-<en:81 C/X
+<xx:81 C/X
 xx:81 C/PVC
 
-<en:81 C/X
+<xx:81 C/X
 xx:81 C/LDPE, 81 C/PELD
 
-<en:81 C/X
+<xx:81 C/X
 xx:81 C/PP
+
+<xx:81 C/X
+xx:81 C/CPP
+
+<xx:81 C/X
+xx:81 C/OPP
+
+<xx:81 C/X
+xx:81 C/PC
+
+<xx:81 C/X
+xx:81 C/PA
+
+<xx:81 C/X
+xx:81 C/ABS
+
+<xx:81 C/X
+xx:81 C/PLA
+
+<xx:81 C/X
+xx:81 C/LLDPE
+
+<xx:81 C/X
+xx:81 C/PETmet
+
+<xx:81 C/X
+xx:81 C/PEmet
+
+<xx:81 C/X
+xx:81 C/MDPE, 81 C/PEMD
+
+<xx:81 C/X
+xx:81 C/EVOH
 
 <en:Multilayer composite
 en:Paper and fibreboard/aluminium, Paper and fibreboard + aluminium
 de:Papier und Pappe/Aluminium, Papier und Pappe + Aluminium
 xx:82 C/X, 82 C/*, 82 CX, 82 C*
 
-<en:82 C/X
+<xx:82 C/X
 xx:82 C/PAP
 
-<en:82 C/X
+<xx:82 C/X
 xx:82 C/ALU
 
 <en:Multilayer composite
@@ -833,10 +869,10 @@ en:Paper and fibreboard/tinplate, Paper and fibreboard + tinplate
 de:Papier und Pappe/Weißblech, Papier und Pappe + Weißblech, Papier und Pappe/Weissblech, Papier und Pappe + Weissblech
 xx:83 C/X, 83 C/*, 83 CX, 83 C*
 
-<en:83 C/X
+<xx:83 C/X
 xx:83 C/PAP
 
-<en:83 C/X
+<xx:83 C/X
 xx:83 C/FE
 
 <en:Multilayer composite
@@ -846,28 +882,64 @@ bg:Хартия и картон / Пластмаси / Алуминий
 hu:Papír és karton / Műanyag / Alumínium
 xx:84 C/X, 84 C/*, 84 CX, 84 C*, PapAl
 
-<en:84 C/X
+<xx:84 C/X
 xx:84 C/PAP
 
-<en:84 C/X
+<xx:84 C/X
 xx:84 C/PET
 
-<en:84 C/X
-xx:84 C/HDPE, 84 C/PEHE
+<xx:84 C/X
+xx:84 C/PVDC
 
-<en:84 C/X
+<xx:84 C/X
+xx:84 C/rPET
+
+<xx:84 C/X
 xx:84 C/HDPE, 84 C/PEHD
 
-<en:84 C/X
+<xx:84 C/X
 xx:84 C/PVC
 
-<en:84 C/X
+<xx:84 C/X
 xx:84 C/LDPE, 84 C/PELD
 
-<en:84 C/X
+<xx:84 C/X
 xx:84 C/PP
 
-<en:84 C/X
+<xx:84 C/X
+xx:84 C/CPP
+
+<xx:84 C/X
+xx:84 C/OPP
+
+<xx:84 C/X
+xx:84 C/PC
+
+<xx:84 C/X
+xx:84 C/PA
+
+<xx:84 C/X
+xx:84 C/ABS
+
+<xx:84 C/X
+xx:84 C/PLA
+
+<xx:84 C/X
+xx:84 C/LLDPE
+
+<xx:84 C/X
+xx:84 C/PETmet
+
+<xx:84 C/X
+xx:84 C/PEmet
+
+<xx:84 C/X
+xx:84 C/MDPE, 84 C/PEMD
+
+<xx:84 C/X
+xx:84 C/EVOH
+
+<xx:84 C/X
 xx:84 C/ALU
 
 <en:Multilayer composite
@@ -875,31 +947,67 @@ en:Paper and fibreboard/plastic/aluminium/tinplate, Paper and fibreboard + plast
 de:Papier und Pappe/Kunststoff/Aluminium/Weißblech, Papier und Pappe + Kunststoff + Aluminium + Weißblech, Papier und Pappe/Kunststoff/Aluminium/Weissblech, Papier und Pappe + Kunststoff + Aluminium + Weissblech
 xx:85 C/X, 85 C/*, 85 CX, 85 C*
 
-<en:85 C/X
+<xx:85 C/X
 xx:85 C/PAP
 
-<en:85 C/X
+<xx:85 C/X
 xx:85 C/PET
 
-<en:85 C/X
-xx:85 C/HDPE, 85 C/PEHE
+<xx:85 C/X
+xx:85 C/PVDC
 
-<en:85 C/X
+<xx:85 C/X
+xx:85 C/rPET
+
+<xx:85 C/X
 xx:85 C/HDPE, 85 C/PEHD
 
-<en:85 C/X
+<xx:85 C/X
 xx:85 C/PVC
 
-<en:85 C/X
+<xx:85 C/X
 xx:85 C/LDPE, 85 C/PELD
 
-<en:85 C/X
+<xx:85 C/X
 xx:85 C/PP
 
-<en:85 C/X
+<xx:85 C/X
+xx:85 C/CPP
+
+<xx:85 C/X
+xx:85 C/OPP
+
+<xx:85 C/X
+xx:85 C/PC
+
+<xx:85 C/X
+xx:85 C/PA
+
+<xx:85 C/X
+xx:85 C/ABS
+
+<xx:85 C/X
+xx:85 C/PLA
+
+<xx:85 C/X
+xx:85 C/LLDPE
+
+<xx:85 C/X
+xx:85 C/PETmet
+
+<xx:85 C/X
+xx:85 C/PEmet
+
+<xx:85 C/X
+xx:85 C/MDPE, 85 C/PEMD
+
+<xx:85 C/X
+xx:85 C/EVOH
+
+<xx:85 C/X
 xx:85 C/ALU
 
-<en:85 C/X
+<xx:85 C/X
 xx:85 C/FE
 
 <en:Plastic
@@ -916,25 +1024,61 @@ en:Plastic/aluminium, Plastic + aluminium
 de:Kunststoff/Aluminium, Kunststoff + Aluminium
 xx:90 C/X, 90 C/*, 90 CX, 90 C*
 
-<en:90 C/X
+<xx:90 C/X
 xx:90 C/PET
 
-<en:90 C/X
-xx:90 C/HDPE, 90 C/PEHE
+<xx:90 C/X
+xx:90 C/PVDC
 
-<en:90 C/X
+<xx:90 C/X
+xx:90 C/rPET
+
+<xx:90 C/X
 xx:90 C/HDPE, 90 C/PEHD
 
-<en:90 C/X
+<xx:90 C/X
 xx:90 C/PVC
 
-<en:90 C/X
+<xx:90 C/X
 xx:90 C/LDPE, 90 C/PELD
 
-<en:90 C/X
+<xx:90 C/X
 xx:90 C/PP
 
-<en:90 C/X
+<xx:90 C/X
+xx:90 C/CPP
+
+<xx:90 C/X
+xx:90 C/OPP
+
+<xx:90 C/X
+xx:90 C/PC
+
+<xx:90 C/X
+xx:90 C/PA
+
+<xx:90 C/X
+xx:90 C/ABS
+
+<xx:90 C/X
+xx:90 C/PLA
+
+<xx:90 C/X
+xx:90 C/LLDPE
+
+<xx:90 C/X
+xx:90 C/PETmet
+
+<xx:90 C/X
+xx:90 C/PEmet
+
+<xx:90 C/X
+xx:90 C/MDPE, 90 C/PEMD
+
+<xx:90 C/X
+xx:90 C/EVOH
+
+<xx:90 C/X
 xx:90 C/ALU
 
 <en:Multilayer composite
@@ -942,25 +1086,61 @@ en:Plastic/tinplate, Plastic + tinplate
 de:Kunststoff/Weißblech, Kunststoff + Weißblech, Kunststoff/Weissblech, Kunststoff + Weissblech
 xx:91 C/X, 91 C/*, 91 CX, 91 C*
 
-<en:91 C/X
+<xx:91 C/X
 xx:91 C/PET
 
-<en:91 C/X
-xx:91 C/HDPE, 91 C/PEHE
+<xx:91 C/X
+xx:91 C/PVDC
 
-<en:91 C/X
+<xx:91 C/X
+xx:91 C/rPET
+
+<xx:91 C/X
 xx:91 C/HDPE, 91 C/PEHD
 
-<en:91 C/X
+<xx:91 C/X
 xx:91 C/PVC
 
-<en:91 C/X
+<xx:91 C/X
 xx:91 C/LDPE, 91 C/PELD
 
-<en:91 C/X
+<xx:91 C/X
 xx:91 C/PP
 
-<en:91 C/X
+<xx:91 C/X
+xx:91 C/CPP
+
+<xx:91 C/X
+xx:91 C/OPP
+
+<xx:91 C/X
+xx:91 C/PC
+
+<xx:91 C/X
+xx:91 C/PA
+
+<xx:91 C/X
+xx:91 C/ABS
+
+<xx:91 C/X
+xx:91 C/PLA
+
+<xx:91 C/X
+xx:91 C/LLDPE
+
+<xx:91 C/X
+xx:91 C/PETmet
+
+<xx:91 C/X
+xx:91 C/PEmet
+
+<xx:91 C/X
+xx:91 C/MDPE, 91 C/PEMD
+
+<xx:91 C/X
+xx:91 C/EVOH
+
+<xx:91 C/X
 xx:91 C/FE
 
 <en:Multilayer composite
@@ -968,28 +1148,64 @@ en:Plastic/miscellaneous metals, Plastic + miscellaneous metals
 de:Kunststoff/verschiedene Metalle, Kunststoff + verschiedene Metalle
 xx:92 C/X, 92 C/*, 92 CX, 92 C*
 
-<en:92 C/X
+<xx:92 C/X
 xx:92 C/PET
 
-<en:92 C/X
-xx:92 C/HDPE, 92 C/PEHE
+<xx:92 C/X
+xx:92 C/PVDC
 
-<en:92 C/X
+<xx:92 C/X
+xx:92 C/rPET
+
+<xx:92 C/X
 xx:92 C/HDPE, 92 C/PEHD
 
-<en:92 C/X
+<xx:92 C/X
 xx:92 C/PVC
 
-<en:92 C/X
+<xx:92 C/X
 xx:92 C/LDPE, 92 C/PELD
 
-<en:92 C/X
+<xx:92 C/X
 xx:92 C/PP
 
-<en:92 C/X
+<xx:92 C/X
+xx:92 C/CPP
+
+<xx:92 C/X
+xx:92 C/OPP
+
+<xx:92 C/X
+xx:92 C/PC
+
+<xx:92 C/X
+xx:92 C/PA
+
+<xx:92 C/X
+xx:92 C/ABS
+
+<xx:92 C/X
+xx:92 C/PLA
+
+<xx:92 C/X
+xx:92 C/LLDPE
+
+<xx:92 C/X
+xx:92 C/PETmet
+
+<xx:92 C/X
+xx:92 C/PEmet
+
+<xx:92 C/X
+xx:92 C/MDPE, 92 C/PEMD
+
+<xx:92 C/X
+xx:92 C/EVOH
+
+<xx:92 C/X
 xx:92 C/ALU
 
-<en:92 C/X
+<xx:92 C/X
 xx:92 C/FE
 
 <en:Multilayer composite
@@ -997,36 +1213,72 @@ en:Glass/Plastic, Glass + Plastic
 de:Glas/Kunststoff, Glas + Kunststoff
 xx:95 C/X, 95 C/*, 95 CX, 95 C*
 
-<en:95 C/X
+<xx:95 C/X
 xx:95 C/GL
 
-<en:95 C/X
+<xx:95 C/X
 xx:95 C/PET
 
-<en:95 C/X
-xx:95 C/HDPE, 95 C/PEHE
+<xx:95 C/X
+xx:95 C/PVDC
 
-<en:95 C/X
+<xx:95 C/X
+xx:95 C/rPET
+
+<xx:95 C/X
 xx:95 C/HDPE, 95 C/PEHD
 
-<en:95 C/X
+<xx:95 C/X
 xx:95 C/PVC
 
-<en:95 C/X
+<xx:95 C/X
 xx:95 C/LDPE, 95 C/PELD
 
-<en:95 C/X
+<xx:95 C/X
 xx:95 C/PP
+
+<xx:95 C/X
+xx:95 C/CPP
+
+<xx:95 C/X
+xx:95 C/OPP
+
+<xx:95 C/X
+xx:95 C/PC
+
+<xx:95 C/X
+xx:95 C/PA
+
+<xx:95 C/X
+xx:95 C/ABS
+
+<xx:95 C/X
+xx:95 C/PLA
+
+<xx:95 C/X
+xx:95 C/LLDPE
+
+<xx:95 C/X
+xx:95 C/PETmet
+
+<xx:95 C/X
+xx:95 C/PEmet
+
+<xx:95 C/X
+xx:95 C/MDPE, 95 C/PEMD
+
+<xx:95 C/X
+xx:95 C/EVOH
 
 <en:Multilayer composite
 en:Glass/aluminium, Glass + aluminium
 de:Glas/Aluminium, Glas + Aluminium
 xx:96 C/X, 96 C/*, 96 CX, 96 C*
 
-<en:96 C/X
+<xx:96 C/X
 xx:96 C/GL
 
-<en:96 C/X
+<xx:96 C/X
 xx:96 C/ALU
 
 <en:Multilayer composite
@@ -1034,10 +1286,10 @@ en:Glass/tinplate, Glass + tinplate
 de:Glas/Weißblech, Glas + Weißblech, Glas/Weissblech, Glas + Weissblech
 xx:97 C/X, 97 C/*, 97 CX, 97 C*
 
-<en:97 C/X
+<xx:97 C/X
 xx:97 C/GL
 
-<en:97 C/X
+<xx:97 C/X
 xx:97 C/FE
 
 <en:Multilayer composite
@@ -1045,13 +1297,13 @@ en:Glass/miscellaneous metals, Glass + miscellaneous metals
 de:Glas/verschiedene Metalle, Glas + verschiedene Metalle
 xx:98 C/X, 98 C/*, 98 CX, 98 C*
 
-<en:98 C/X
+<xx:98 C/X
 xx:98 C/GL
 
-<en:98 C/X
+<xx:98 C/X
 xx:98 C/FE
 
-<en:98 C/X
+<xx:98 C/X
 xx:98 C/ALU
 
 en:SIG, SIG Combibloc
