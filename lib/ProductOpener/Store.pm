@@ -150,7 +150,7 @@ sub get_string_id_for_lang($lc, $string) {
 
 }
 
-sub get_fileid($file, $unaccent, $lc) {
+sub get_fileid($file, $unaccent = undef, $lc = undef) {
 
 	if (not defined $file) {
 		return "";
