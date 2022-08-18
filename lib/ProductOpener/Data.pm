@@ -131,7 +131,7 @@ Returns a mongoDB collection object.
 
 =cut
 
-sub get_products_collection($timeout) {
+sub get_products_collection($timeout=undef) {
 	return get_collection($mongodb, 'products', $timeout);
 }
 
@@ -158,7 +158,7 @@ sub get_emb_codes_collection($timeout) {
 	return get_collection($mongodb, 'emb_codes', $timeout);
 }
 
-sub get_recent_changes_collection($timeout) {
+sub get_recent_changes_collection($timeout=undef) {
 	return get_collection($mongodb, 'recent_changes', $timeout);
 }
 
