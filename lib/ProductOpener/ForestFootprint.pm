@@ -415,7 +415,7 @@ The footprints are stored in $footprints_ref
 =cut
 
 
-sub compute_footprints_of_ingredients($product_ref, $ingredients_ref, $footprints_ref) {
+sub compute_footprints_of_ingredients($product_ref, $footprints_ref, $ingredients_ref)  {
 	
 	# The ingredients array contains sub-ingredients in nested ingredients properties
 	# and they are also listed at the end on the ingredients array, without the rank property
