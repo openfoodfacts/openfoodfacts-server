@@ -318,7 +318,7 @@ add_footprint($product_ref, $ingredient_ref, $footprints_ref, $ingredients_categ
 					
 =cut
 
-sub add_footprint ($product_ref, $ingredient_ref, $ingredients_category_ref, $footprint_ref, $footprints_ref) {
+sub add_footprint ($product_ref, $ingredient_ref, $footprints_ref, $ingredients_category_ref, $footprint_ref) {
 	
 	# Check which type has matching conditions for the product
 	
