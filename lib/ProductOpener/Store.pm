@@ -215,7 +215,7 @@ sub get_url_id_for_lang($lc, $input) {
 }
 
 
-sub get_urlid($input, $unaccent, $lc) {
+sub get_urlid($input, $unaccent = undef, $lc = undef) {
 
 	my $file = $input;
 
