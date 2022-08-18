@@ -44,7 +44,7 @@ The decimal sign could be a '.' (most languages), or it could be a ',' (de - DEC
 package ProductOpener::Text;
 
 use ProductOpener::PerlStandards;
-use Modern::Perl '2017';
+use Exporter qw< import >;
 
 BEGIN
 {
