@@ -8,7 +8,7 @@ use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Store qw/:all/;
 
-is( get_fileid('Do not challenge me!', 0, 'en'), 'do-not-challenge-me' );
+is( get_fileid('Do not challenge me!'), 'do-not-challenge-me' );
 
 my @tests = ("Bonjour !", "Café Olé! 3€ -10%", "No hablo Español, señor", "สำนักงานคณะกรรมการกลางอิสลามแห่งประเทศไทย, คณะกรรมการกลางอิสลามแห่งประเทศไทย", "예네버르", "ラム酒", "DLG Jährlich Prämiert", "fr:Bœuf");
 foreach my $test (@tests) {
