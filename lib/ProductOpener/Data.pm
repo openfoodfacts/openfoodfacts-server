@@ -150,11 +150,11 @@ Returns a mongoDB collection.
 
 =cut
 
-sub get_products_tags_collection($timeout) {
+sub get_products_tags_collection($timeout=undef) {
 	return get_collection($mongodb, 'products_tags', $timeout);
 }
 
-sub get_emb_codes_collection($timeout) {
+sub get_emb_codes_collection($timeout=undef) {
 	return get_collection($mongodb, 'emb_codes', $timeout);
 }
 
@@ -162,7 +162,7 @@ sub get_recent_changes_collection($timeout=undef) {
 	return get_collection($mongodb, 'recent_changes', $timeout);
 }
 
-sub get_collection($database, $collection, $timeout) {
+sub get_collection($database, $collection, $timeout=undef) {
 	return get_mongodb_client($timeout)->get_database($database)->get_collection($collection);
 }
 
@@ -186,7 +186,7 @@ Returns $client of type MongoDB::MongoClient object.
 
 =cut
 
-sub get_mongodb_client($timeout) {
+sub get_mongodb_client($timeout=undef) {
 	# Note that for web pages, $client will be cached in mod_perl,
 	# so passing in different options for different queries won't do anything after the first call.
 
