@@ -56,7 +56,7 @@ equivalent_modules = ProductOpener::PerlStandards
 
 # severity 3
 [ControlStructures::ProhibitDeepNests]
-max_nests = 12
+max_nests = 11
 [ControlStructures::ProhibitCascadingIfElse]
 max_elsif = 13
 [Variables::ProhibitUnusedVariables]
