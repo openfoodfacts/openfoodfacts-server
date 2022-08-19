@@ -1050,7 +1050,7 @@ sub compare_nutriscore_with_value_from_producer($product_ref) {
 
 =head2 check_ingredients_percent_analysis( PRODUCT_REF )
 
-Checks if we were able to analyse the minimum and maximum percent values for ingredients and sub-ingredients.
+Checks if we were able to analyze the minimum and maximum percent values for ingredients and sub-ingredients.
 
 =cut
 

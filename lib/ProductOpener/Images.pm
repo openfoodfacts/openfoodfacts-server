@@ -32,7 +32,7 @@ C<ProductOpener::Images> is used to:
 
 =head1 Product images on disk
 
-Product images are stored in html/images/products/[product barcode splitted with slashes]/
+Product images are stored in html/images/products/[product barcode split with slashes]/
 
 For each product, this directory contains:
 
@@ -44,7 +44,7 @@ Original images uploaded by users or imported
 
 =item [image number].jpg
 
-Same image saved as JPEG with specific settings, and after some minimal processing (autoorientation, removing EXIF data, flattening PNG images to remove transparency).
+Same image saved as JPEG with specific settings, and after some minimal processing (auto orientation, removing EXIF data, flattening PNG images to remove transparency).
 
 Those images are not displayed on the web site (except on the product edit form), but can be selected and cropped.
 
@@ -84,8 +84,7 @@ Cropping coordinates for all revisions are stored in the "images" field of the p
 
 package ProductOpener::Images;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 BEGIN
@@ -159,9 +158,8 @@ my $supported_extensions = "gif|jpeg|jpg|png|heic";
 =cut
 
 
-sub display_select_manage($) {
+sub display_select_manage($object_ref) {
 
-	my $object_ref = shift;
 	my $id = "manage";
 
 	my $html = <<HTML
@@ -174,11 +172,9 @@ HTML
 }
 
 
-sub display_select_crop($$$) {
+sub display_select_crop($object_ref, $id_lc, $language) {
 
-	my $object_ref = shift;
-	my $id_lc = shift;    #  id_lc = [front|ingredients|nutrition|packaging]_[new_]?[lc]
-	my $language = shift;
+	# $id_lc = shift  ->  id_lc = [front|ingredients|nutrition|packaging]_[new_]?[lc]
 	my $id    = $id_lc;
 
 	my $imagetype = $id_lc;
@@ -225,9 +221,7 @@ HTML
 }
 
 
-sub display_select_crop_init($) {
-
-	my $object_ref = shift;
+sub display_select_crop_init($object_ref) {
 
 	$log->debug("display_select_crop_init", { object_ref => $object_ref }) if $log->is_debug();
 
@@ -276,9 +270,8 @@ HTML
 }
 
 
-sub scan_code($) {
+sub scan_code($file) {
 
-	my $file = shift;
 	my $code = undef;
 
 	# create a reader
@@ -347,9 +340,7 @@ sub scan_code($) {
 
 
 
-sub display_search_image_form($) {
-
-	my $id = shift;
+sub display_search_image_form($id) {
 
 	my $html = '';
 
@@ -440,9 +431,7 @@ JS
 	return $html;
 }
 
-sub process_search_image_form($) {
-
-	my $filename_ref = shift;
+sub process_search_image_form($filename_ref) {
 
 	my $imgid = "imgupload_search";
 	my $file = undef;
@@ -507,10 +496,7 @@ my %file_names_to_imagefield_regexps = (
 	],
 );
 
-sub get_code_and_imagefield_from_file_name($$) {
-
-	my $l = shift;
-	my $filename = shift;
+sub get_code_and_imagefield_from_file_name($l, $filename) {
 
 	my $code;
 	my $imagefield;
@@ -569,10 +555,7 @@ sub get_code_and_imagefield_from_file_name($$) {
 }
 
 
-sub get_imagefield_from_string($$) {
-
-	my $l = shift;
-	my $filename = shift;
+sub get_imagefield_from_string($l, $filename) {
 
 	my $imagefield;
 	
@@ -643,15 +626,11 @@ Used to return some debug information to the caller.
 
 =cut
 
-sub process_image_upload($$$$$$$) {
+sub process_image_upload($product_id, $imagefield, $user_id, $time, $comment, $imgid_ref, $debug_string_ref) {
 
-	my $product_id = shift;
-	my $imagefield = shift;
-	my $user_id     = shift;
-	my $time       = shift; # usually current time (images just uploaded), except for images moved from another product
-	my $comment   = shift;
-	my $imgid_ref = shift; # to return the imgid (new image or existing image)
-	my $debug_string_ref = shift;    # to return debug information to clients
+	# $time = shift  ->  usually current time (images just uploaded), except for images moved from another product
+	# $imgid_ref = shift  ->  to return the imgid (new image or existing image)
+	# $debug_string_ref = shift  ->  to return debug information to clients
 
 	$log->debug("process_image_upload", { product_id => $product_id, imagefield => $imagefield }) if $log->is_debug();
 	
@@ -994,13 +973,7 @@ sub process_image_upload($$$$$$$) {
 }
 
 
-sub process_image_move($$$$$) {
-
-	my $user_id = shift;
-	my $code = shift;
-	my $imgids = shift;
-	my $move_to = shift;
-	my $ownerid = shift;
+sub process_image_move($user_id, $code, $imgids, $move_to, $ownerid) {
 
 	# move images only to trash or another valid barcode (number)
 	if (($move_to ne 'trash') and ($move_to !~ /^((off|obf|opf|opff):)?\d+$/)) {
@@ -1076,21 +1049,8 @@ sub process_image_move($$$$$) {
 }
 
 
-sub process_image_crop($$$$$$$$$$$$) {
+sub process_image_crop($product_id, $user_id, $imgid, $id, $normalize, $angle, $white_magic, $coordinates_image_size, $x1, $y1, $x2, $y2) {
 
-	my $user_id = shift;
-	my $product_id = shift;
-	my $id = shift;
-	my $imgid = shift;
-	my $angle = shift;
-	my $normalize = shift;
-	my $white_magic = shift;
-	my $x1 = shift;
-	my $y1 = shift;
-	my $x2 = shift;
-	my $y2 = shift;
-	my $coordinates_image_size = shift;
-	
 	$log->debug("process_image_crop - start", { product_id => $product_id, imgid => $imgid, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, coordinates_image_size => $coordinates_image_size }) if $log->is_debug();
 
 	# The crop coordinates used to be in reference to a smaller image (400x400)
@@ -1260,9 +1220,7 @@ sub process_image_crop($$$$$$$$$$$$) {
 		my $original = $image->Clone();
 		my @white = (1,1,1);
 
-		my $distance = sub ($$) {
-			my $a = shift;
-			my $b = shift;
+		my $distance = sub ($a, $b) {
 
 			my $d = ($a->[0] - $b->[0]) * ($a->[0] - $b->[0]) + ($a->[1] - $b->[1]) * ($a->[1] - $b->[1]) + ($a->[2] - $b->[2]) * ($a->[2] - $b->[2]);
 			return $d;
@@ -1432,11 +1390,7 @@ sub process_image_crop($$$$$$$$$$$$) {
 	return $product_ref;
 }
 
-sub process_image_unselect($$$) {
-
-	my $user_id = shift;
-	my $product_id = shift;
-	my $id = shift;
+sub process_image_unselect($user_id, $product_id, $id) {
 
 	my $path = product_path_from_id($product_id);
 
@@ -1472,11 +1426,9 @@ sub process_image_unselect($$$) {
 	return $product_ref;
 }
 
-sub _set_magickal_options($$) {
+sub _set_magickal_options($magick, $width) {
 
 	# https://www.smashingmagazine.com/2015/06/efficient-image-resizing-with-imagemagick/
-	my $magick = shift;
-	my $width = shift;
 
 	if (defined $width) {
 		$magick->Set(thumbnail => $width);
@@ -1500,10 +1452,9 @@ sub _set_magickal_options($$) {
 	return;
 }
 
-sub display_image_thumb($$) {
+sub display_image_thumb($product_ref, $id_lc) {
 
-	my $product_ref = shift;
-	my $id_lc       = shift;    #  id_lc = [front|ingredients|nutrition|packaging]_[lc]
+	# $id_lc = shift  ->  id_lc = [front|ingredients|nutrition|packaging]_[lc]
 
 	my $imagetype = $id_lc;
 	my $display_lc = $lc;
@@ -1568,11 +1519,10 @@ HTML
 }
 
 
-sub display_image($$$) {
+sub display_image($product_ref, $id_lc, $size) {
 
-	my $product_ref = shift;
-	my $id_lc       = shift;    #  id_lc = [front|ingredients|nutrition|packaging]_[lc]
-	my $size        = shift;    # currently = $small_size , 200px
+	# $id_lc = shift  ->  id_lc = [front|ingredients|nutrition|packaging]_[lc]
+	# $size  = shift  ->  currently = $small_size , 200px
 
 	my $html = '';
 
@@ -1687,9 +1637,7 @@ HTML
 
 # Use google cloud vision output to determine of the image should be rotated
 
-sub compute_orientation_from_cloud_vision_annotations($) {
-
-	my $annotations_ref = shift;
+sub compute_orientation_from_cloud_vision_annotations($annotations_ref) {
 
 	if ((defined $annotations_ref) and (defined $annotations_ref->{responses})
 		and (defined $annotations_ref->{responses}[0])
@@ -1774,13 +1722,7 @@ A hash reference to store the results.
 
 =cut
 
-sub extract_text_from_image($$$$$) {
-
-	my $product_ref = shift;
-	my $id = shift;
-	my $field = shift;
-	my $ocr_engine = shift;
-	my $results_ref = shift;
+sub extract_text_from_image($product_ref, $results_ref, $id, $field, $ocr_engine) {
 
 	delete $product_ref->{$field};
 

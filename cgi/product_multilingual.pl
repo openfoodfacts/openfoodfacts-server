@@ -46,7 +46,6 @@ use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Web qw(get_languages_options_list);
 use ProductOpener::Text qw/:all/;
 
-
 use Apache2::RequestRec ();
 use Apache2::Const ();
 
@@ -59,7 +58,7 @@ use Log::Any qw($log);
 use File::Copy qw(move);
 use Data::Dumper;
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 if ($User_id eq 'unwanted-user-french') {
 	display_error("<b>Il y a des problèmes avec les modifications de produits que vous avez effectuées. Ce compte est temporairement bloqué, merci de nous contacter.</b>", 403);
@@ -1415,13 +1414,9 @@ MAIL
 
 }
 
-display_page( {
-	blog_ref=>undef,
-	blogid=>'all',
-	tagid=>'all',
-	title=>lang($type . '_product'),
-	content_ref=>\$html,
-	full_width=>1,
-});
+$request_ref->{title} = lang($type . '_product');
+$request_ref->{content_ref} = \$html;
+$request_ref->{full_width} = 1;
+display_page($request_ref);
 
 exit(0);

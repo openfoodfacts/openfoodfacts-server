@@ -37,7 +37,7 @@ gen_users_emails_list.pl - lists Open Food Facts users
 
 =item B<--all>
 
-Export all the users, not just the ones registred to Open Food Facts newsletter.
+Export all the users, not just the ones registered to Open Food Facts newsletter.
 
 =back
 
@@ -57,7 +57,7 @@ It contains:
 
 Each field is separated by a tab (TSV).
 
-By default, the list is restricted to users registred to Open Food Facts newsletter.
+By default, the list is restricted to users registered to Open Food Facts newsletter.
 
 =cut
 

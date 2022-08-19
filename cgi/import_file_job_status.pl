@@ -49,7 +49,7 @@ use Log::Any qw($log);
 use Spreadsheet::CSV();
 use Text::CSV();
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 my $import_files_ref;
 

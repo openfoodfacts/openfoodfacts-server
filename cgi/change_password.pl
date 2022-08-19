@@ -37,7 +37,7 @@ use URI::Escape::XS;
 use Encode;
 use Log::Any qw($log);
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 my $template_data_ref = {method => $ENV{'REQUEST_METHOD'}};
 
@@ -97,9 +97,6 @@ if ($tt->error()) {
 	$html .= '<p>' . $tt->error() . '</p>';
 }
 
-display_page(
-	{
-		title => lang('change_password'),
-		content_ref => \$html,
-	}
-);
+$request_ref->{title} = lang('change_password');
+$request_ref->{content_ref} = \$html;
+display_page($request_ref);

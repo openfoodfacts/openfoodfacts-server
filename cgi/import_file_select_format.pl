@@ -53,7 +53,7 @@ use Text::CSV();
 
 my $action = param('action') || 'display';
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 my $title = '';
 my $html = '';
@@ -115,9 +115,6 @@ if ($action eq "display") {
 	$log->debug("after generate_import_export_columns_groups_for_select2", { lc=>$lc }) if $log->is_debug();
 
 	# Upload a file
-
-	my $selected_columns_count = sprintf(lang("import_file_selected_columns"), '<span class="selected_columns"></span>', @$headers_ref + 0);
-	my $field_on_site = sprintf(lang("field_on_site"), lang("site_name"));
 
 	my $selected_columns_count = sprintf(lang("import_file_selected_columns"), '<span class="selected_columns"></span>', @$headers_ref + 0);
 
@@ -184,10 +181,9 @@ if ($action eq "display") {
 	process_template('web/pages/import_file_select_format/import_file_select_format.tt.js', $template_data_ref, \$js);
 	$initjs .= $js;
 
-	display_page( {
-		title=>$title,
-		content_ref=>\$html,
-	});
+	$request_ref->{title} = $title;
+	$request_ref->{content_ref} = \$html;
+	display_page($request_ref);
 }
 
 exit(0);

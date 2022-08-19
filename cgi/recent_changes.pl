@@ -35,15 +35,15 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Tags qw/:all/;
 
-
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
 
-ProductOpener::Display::init();
 use ProductOpener::Lang qw/:all/;
+
+my $request_ref = ProductOpener::Display::init_request();
 
 my $query_ref = {};
 

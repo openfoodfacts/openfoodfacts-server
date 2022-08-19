@@ -38,19 +38,32 @@ equivalent_modules = ProductOpener::PerlStandards
 
 
 # severity 4 was not actually being run because severity was set to 5.
-# severity 4:
-#[TestingAndDebugging::RequireUseWarnings]
-#equivalent_modules = Modern::Perl
+# severity 4
+[TestingAndDebugging::RequireUseWarnings]
+equivalent_modules = Modern::Perl
+equivalent_modules = ProductOpener::PerlStandards
+[Subroutines::RequireFinalReturn]
 
 [BuiltinFunctions::RequireBlockMap]
 [BuiltinFunctions::RequireBlockGrep]
+[ValuesAndExpressions::ProhibitMixedBooleanOperators]
 
 # Allow `$`', `$&', `$'', because since Perl 5.20.0
 # there are no performance implications any more.
-#[-Variables::ProhibitMatchVars]
+[-Variables::ProhibitMatchVars]
 # /end severity 4
 
 
 # severity 3
+[ControlStructures::ProhibitDeepNests]
+max_nests = 11
+[ControlStructures::ProhibitCascadingIfElse]
+max_elsif = 13
 [Variables::ProhibitUnusedVariables]
 # /end severity 3
+
+
+# severity 1
+[Documentation::PodSpelling]
+stop_words_file = stop_words.txt
+# /end severity 1

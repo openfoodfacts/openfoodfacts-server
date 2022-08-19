@@ -34,7 +34,7 @@ use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 # Passing values to the template
 my $template_data_ref = {};
@@ -99,7 +99,6 @@ my $html;
 process_template('web/pages/top_translators/top_translators.tt.html', $template_data_ref, \$html) or $html = '';
 $html .= "<p>" . $tt->error() . "</p>";
 
-display_page( {
-	title=>lang('translators_title'),
-	content_ref=>\$html
-});
+$request_ref->{title} = lang('translators_title');
+$request_ref->{content_ref} = \$html;
+display_page($request_ref);

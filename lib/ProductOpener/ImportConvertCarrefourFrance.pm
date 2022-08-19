@@ -39,8 +39,7 @@ It is a separate module so that it can be easily tested in t/import_convert_carr
 
 package ProductOpener::ImportConvertCarrefourFrance;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 use Log::Any qw($log);
@@ -78,10 +77,7 @@ Convert a set of files provided by Carrefour France in OFF CSV format.
 
 =cut
 
-sub convert_carrefour_france_files($$) {
-
-    my $file_handle = shift;
-    my $files_ref = shift;
+sub convert_carrefour_france_files($file_handle, $files_ref) {
 
     # Warning some Carrefour XML files are broken with 2 <TabNutXMLPF>.*</TabNutXMLPF>
 

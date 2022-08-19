@@ -38,7 +38,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use Log::Any qw($log);
 use JSON::PP;
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 my $tagtype = remove_tags_and_quote(decode utf8=>param('tagtype'));
 my $from = remove_tags_and_quote(decode utf8=>param('from'));

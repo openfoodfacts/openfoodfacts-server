@@ -24,54 +24,21 @@ use Modern::Perl '2017';
 use utf8;
 
 use CGI::Carp qw(fatalsToBrowser);
-use CGI qw/:cgi :form escapeHTML/;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::Images qw/:all/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::URL qw/:all/;
+use ProductOpener::Mail qw/:all/;
 use ProductOpener::Lang qw/:all/;
-use ProductOpener::Tags qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
-use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
 
-ProductOpener::Display::init();
-
-my $term = decode utf8 => param('term');
-
-my %result = ();
-foreach my $country (
-	sort {
-		(        get_string_id_for_lang("no_language", $translations_to{countries}{$a}{$lang})
-			  || get_string_id_for_lang("no_language", $translations_to{countries}{$a}{'en'}))
-		  cmp(   get_string_id_for_lang("no_language", $translations_to{countries}{$b}{$lang})
-			  || get_string_id_for_lang("no_language", $translations_to{countries}{$b}{'en'}))
-	}
-	keys %{$properties{countries}}
-  )
-{
-
-	my $cc = country_to_cc($country);
-	if (not(defined $cc)) {
-		next;
-	}
-
-	my $tag = display_taxonomy_tag($lang, 'countries', $country);
-	if (   (not defined $term)
-		or ($term eq '')
-		or ($tag =~ /$term/i))
-	{
-		$result{$cc} = $tag;
-	}
-}
-
-my $data = encode_json(\%result);
-
-print "Content-Type: application/manifest+json; charset=UTF-8\r\nCache-Control: max-age=86400\r\n\r\n" . $data;
-
+my $userid = $ARGV[0];
+my $user_ref = retrieve("$data_root/users/$userid.sto");
+$user_ref->{encrypted_password} = create_password_hash(encode_utf8(decode utf8 => $ARGV[1]));
+store("$data_root/users/$userid.sto", $user_ref);

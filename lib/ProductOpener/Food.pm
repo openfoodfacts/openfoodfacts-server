@@ -34,8 +34,7 @@ are in the C<ProductOpener::Ingredients> module.
 
 package ProductOpener::Food;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 BEGIN
@@ -175,12 +174,9 @@ Output modifier reference.
 
 =cut
 
-sub normalize_nutriment_value_and_modifier($$) {
+sub normalize_nutriment_value_and_modifier($value_ref, $modifier_ref) {
 
-	my $value_ref = shift;
-	my $modifier_ref = shift;
-
-	$$modifier_ref = undef;
+	${$modifier_ref} = undef;
 
 	return if not defined ${$value_ref};
 
@@ -242,9 +238,7 @@ Default value for that certain unit
 
 =cut
 
-sub default_unit_for_nid($) {
-
-	my $nid = shift;
+sub default_unit_for_nid($nid) {
 
 	$nid =~ s/_prepared//;
 
@@ -264,13 +258,7 @@ sub default_unit_for_nid($) {
 	}
 }
 
-sub assign_nid_modifier_value_and_unit($$$$$) {
-
-	my $product_ref = shift;
-	my $nid = shift;
-	my $modifier = shift;
-	my $value = shift;
-	my $unit = shift;
+sub assign_nid_modifier_value_and_unit($product_ref, $nid, $modifier, $value, $unit) {
 
 	# We can have only a modifier with value '-' to indicate that we have no value
 
@@ -331,15 +319,13 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 }
 
 
-=head2 unit_to_kcal($$)
+=head2 unit_to_kcal($value, $unit)
 
 Converts <xx><unit> into <xx> kcal.
 
 =cut
 
-sub unit_to_kcal($$) {
-	my $value = shift;
-	my $unit = shift;
+sub unit_to_kcal($value, $unit) {
 	$unit = lc($unit);
 
 	(not defined $value) and return $value;
@@ -351,7 +337,7 @@ sub unit_to_kcal($$) {
 }
 
 
-=head2 unit_to_g($$)
+=head2 unit_to_g($value, $unit)
 
 Converts <xx><unit> into <xx>grams. Eg.:
 unit_to_g(2,kg) => returns 2000
@@ -393,9 +379,7 @@ my %unit_conversion_map = (
 	'gpg' => 5.847
 );
 
-sub unit_to_g($$) {
-	my $value = shift;
-	my $unit = shift;
+sub unit_to_g($value, $unit) {
 	$unit = lc($unit);
 
 	if ($unit =~ /^(fl|fluid)(\.| )*(oz|once|ounce)/) {
@@ -420,7 +404,7 @@ sub unit_to_g($$) {
 }
 
 
-=head2 g_to_unit($$)
+=head2 g_to_unit($value, $unit)
 
 Converts <xx>grams into <xx><unit>. Eg.:
 g_to_unit(2000,kg) => returns 2
@@ -428,9 +412,7 @@ g_to_unit(0.52,mg) => returns 520
 
 =cut
 
-sub g_to_unit($$) {
-	my $value = shift;
-	my $unit = shift;
+sub g_to_unit($value, $unit) {
 	$unit = lc($unit);
 
 	if ((not defined $value) or ($value eq '')) {
@@ -458,8 +440,7 @@ sub g_to_unit($$) {
 	# (needed when outputting json and to store in mongodb as a number)
 }
 
-sub unit_to_mmoll {
-	my ($value, $unit) = @_;
+sub unit_to_mmoll($value, $unit) {
 	$unit = lc($unit);
 
 	if ((not defined $value) or ($value eq '')) {
@@ -477,8 +458,7 @@ sub unit_to_mmoll {
 	return $value + 0;
 }
 
-sub mmoll_to_unit {
-	my ($value, $unit) = @_;
+sub mmoll_to_unit($value, $unit) {
 	$unit = lc($unit);
 
 	if ((not defined $value) or ($value eq '')) {
@@ -1179,7 +1159,7 @@ $log->debug("Nutrient levels initialized") if $log->is_debug();
 
 =head2 canonicalize_nutriment ( $product_ref )
 
-Canonicalizes the nutrients unput by the user in the nutrition table product edit. 
+Canonicalizes the nutrients input by the user in the nutrition table product edit. 
 This sub converts these nutrients (which are arguments to this function), into a recognizable/standard form.
 
 =head3 Parameters
@@ -1196,10 +1176,7 @@ Example: For the parameter "dont saturés", we get the $nid as "saturated fat"
 
 =cut
 
-sub canonicalize_nutriment($$) {
-
-	my $target_lc = shift;
-	my $nutrient = shift;
+sub canonicalize_nutriment($target_lc, $nutrient) {
 
 	my $nid = canonicalize_taxonomy_tag($target_lc, "nutrients", $nutrient);
 
@@ -1228,7 +1205,7 @@ my $chinese_units = qr/
 my $russian_units = qr/г|мг|кг|л|дл|кл|мл/i;
 my $units = qr/$international_units|$chinese_units|$russian_units/i;
 
-=head2 normalize_quantity($)
+=head2 normalize_quantity($quantity)
 
 Return the size in g or ml for the whole product. Eg.:
 normalize_quantity(1 barquette de 40g) returns 40
@@ -1238,9 +1215,7 @@ normalize_quantity(2kg)                returns 2000
 
 =cut
 
-sub normalize_quantity($) {
-
-	my $quantity = shift;
+sub normalize_quantity($quantity) {
 
 	my $q = undef;
 	my $u = undef;
@@ -1268,7 +1243,7 @@ sub normalize_quantity($) {
 }
 
 
-=head2 normalize_serving_size($)
+=head2 normalize_serving_size($serving)
 
 Returns the size in g or ml for the serving. Eg.:
 normalize_serving_size(1 barquette de 40g)->returns 40
@@ -1276,8 +1251,7 @@ normalize_serving_size(2.5kg)->returns 2500
 
 =cut
 
-sub normalize_serving_size($) {
-	my $serving = shift;
+sub normalize_serving_size($serving) {
 
 	# Regex captures any <number>( )?<unit-identifier> group, but leaves allowances for a preceding
 	# token to allow for patterns like "One bag (32g)", "1 small bottle (180ml)" etc
@@ -1306,8 +1280,7 @@ representations in our normalization logic.
 
 =cut
 
-sub normalize_unit($) {
-	my $originalUnit = shift;
+sub normalize_unit($originalUnit) {
 
 	foreach my $unit_name (@unit_equivalences_list) {
 	if ($originalUnit =~ $unit_name->[1]) {
@@ -1328,9 +1301,7 @@ Dairy drinks are not considered as beverages if they have at least 80% of milk.
 
 =cut
 
-sub is_beverage_for_nutrition_score($) {
-
-	my $product_ref = shift;
+sub is_beverage_for_nutrition_score($product_ref) {
 
 	my $is_beverage = 0;
 
@@ -1380,9 +1351,7 @@ based on the product categories.
 
 =cut
 
-sub is_water_for_nutrition_score($) {
-
-	my $product_ref = shift;
+sub is_water_for_nutrition_score($product_ref) {
 
 	return ((has_tag($product_ref, "categories", "en:spring-waters"))
 		and not (has_tag($product_ref, "categories", "en:flavored-waters") or has_tag($product_ref, "categories", "en:flavoured-waters")));
@@ -1396,9 +1365,7 @@ based on the product categories.
 
 =cut
 
-sub is_cheese_for_nutrition_score($) {
-
-	my $product_ref = shift;
+sub is_cheese_for_nutrition_score($product_ref) {
 
 	return ((has_tag($product_ref, "categories", "en:cheeses")) and not (has_tag($product_ref, "categories", "fr:fromages-blancs")));
 }
@@ -1411,9 +1378,7 @@ based on the product categories.
 
 =cut
 
-sub is_fat_for_nutrition_score($) {
-
-	my $product_ref = shift;
+sub is_fat_for_nutrition_score($product_ref) {
 
 	return has_tag($product_ref, "categories", "en:fats");
 }
@@ -1427,9 +1392,7 @@ Ingredients analysis (extract_ingredients_from_text) needs to be done before cal
 
 =cut
 
-sub special_process_product($) {
-
-	my $product_ref = shift;
+sub special_process_product($product_ref) {
 
 	assign_categories_properties_to_product($product_ref);
 
@@ -1439,9 +1402,7 @@ sub special_process_product($) {
 }
 
 
-sub fix_salt_equivalent($) {
-
-	my $product_ref = shift;
+sub fix_salt_equivalent($product_ref) {
 
 	# EU fixes the conversion: sodium = salt / 2.5 (instead of 2.54 previously)
 
@@ -1516,13 +1477,11 @@ my @fruits_vegetables_nuts_by_category_sorted = sort { $fruits_vegetables_nuts_b
 Determines if we have enough data to compute the Nutri-Score (category + nutrition facts),
 and if the Nutri-Score is applicable to the product the category.
 
-Populates the data structure needed to commpute the Nutri-Score and computes it.
+Populates the data structure needed to compute the Nutri-Score and computes it.
 
 =cut
 
-sub compute_nutrition_score($) {
-
-	my $product_ref = shift;
+sub compute_nutrition_score($product_ref) {
 
 	# Initialize values
 
@@ -1771,9 +1730,7 @@ sub compute_nutrition_score($) {
 }
 
 
-sub compute_serving_size_data($) {
-
-	my $product_ref = shift;
+sub compute_serving_size_data($product_ref) {
 
 	# identify products that do not have comparable nutrition data
 	# e.g. products with multiple nutrition facts tables
@@ -1955,9 +1912,7 @@ sub compute_serving_size_data($) {
 }
 
 
-sub compute_carbon_footprint_infocard($) {
-
-	my $product_ref = shift;
+sub compute_carbon_footprint_infocard($product_ref) {
 
 	# compute the environment impact level
 	# -> currently only for prepared meals
@@ -2054,9 +2009,7 @@ sub compute_carbon_footprint_infocard($) {
 }
 
 
-sub compute_unknown_nutrients($) {
-
-	my $product_ref = shift;
+sub compute_unknown_nutrients($product_ref) {
 
 	$product_ref->{unknown_nutrients_tags} = [];
 
@@ -2073,9 +2026,7 @@ sub compute_unknown_nutrients($) {
 }
 
 
-sub compute_nutrient_levels($) {
-
-	my $product_ref = shift;
+sub compute_nutrient_levels($product_ref) {
 
 	#$product_ref->{nutrient_levels_debug} .= " -- start ";
 
@@ -2193,9 +2144,7 @@ calculate the number of units of alcohol in one serving of an alcoholic beverage
 
 =cut
 
-sub compute_units_of_alcohol($$) {
-
-	my ( $product_ref, $serving_size_in_ml ) = @_;
+sub compute_units_of_alcohol($product_ref, $serving_size_in_ml) {
 
 	if ( (defined $product_ref) and (defined $serving_size_in_ml)
 		and (defined $product_ref->{nutriments}{'alcohol'})
@@ -2207,10 +2156,9 @@ sub compute_units_of_alcohol($$) {
 	}
 }
 
-sub compare_nutriments($$) {
+sub compare_nutriments($a_ref, $b_ref) {
 
-	my $a_ref = shift; # can be a product, a category, ajr etc. -> needs {nutriments}{$nid} values
-	my $b_ref = shift;
+	# $a_ref can be a product, a category, ajr etc. -> needs {nutriments}{$nid} values
 
 	my %nutriments = ();
 
@@ -2231,12 +2179,10 @@ sub compare_nutriments($$) {
 }
 
 
-sub compute_nova_group($) {
+sub compute_nova_group($product_ref) {
 
 	# compute Nova group
 	# http://archive.wphna.org/wp-content/uploads/2016/01/WN-2016-7-1-3-28-38-Monteiro-Cannon-Levy-et-al-NOVA.pdf
-
-	my $product_ref = shift;
 
 	# remove nova keys.
 	remove_fields($product_ref, ["nova_group_debug", "nova_group", "nova_groups", "nova_groups_tags", "nova_group_tags",
@@ -2523,12 +2469,7 @@ sub compute_nova_group($) {
 }
 
 
-sub extract_nutrition_from_image($$$$) {
-
-	my $product_ref = shift;
-	my $id = shift;
-	my $ocr_engine = shift;
-	my $results_ref = shift;
+sub extract_nutrition_from_image($product_ref, $id, $ocr_engine, $results_ref) {
 
 	extract_text_from_image($product_ref, $id, "nutrition_text_from_image", $ocr_engine, $results_ref);
 
@@ -2557,9 +2498,7 @@ agribalyse_proxy_food_code:en:43244
 
 =cut
 
-sub assign_categories_properties_to_product($) {
-
-	my $product_ref = shift;
+sub assign_categories_properties_to_product($product_ref) {
 
 	$product_ref->{categories_properties} = {};
 	$product_ref->{categories_properties_tags} = [];
@@ -2626,10 +2565,7 @@ and assigns them to the product.
 
 =cut
 
-sub assign_nutriments_values_from_request_parameters($$) {
-
-	my $product_ref = shift;
-	my $nutriment_table = shift;
+sub assign_nutriments_values_from_request_parameters($product_ref, $nutriment_table) {
 
 	# Nutrition data
 

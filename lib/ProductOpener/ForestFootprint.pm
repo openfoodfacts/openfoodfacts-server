@@ -31,14 +31,13 @@ C<ProductOpener::Ecoscore> is used to compute the forest footprint of a food pro
 The modules implements the forest footprint computation as defined by the French NGO Envol Vert.
 
 The computation is based on the amount of soy needed to produce the ingredients,
-and the risk that thay soy contributed to deforestation.
+and the risk that that soy contributed to deforestation.
 
 =cut
 
 package ProductOpener::ForestFootprint;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 use Log::Any qw($log);
@@ -246,9 +245,7 @@ Returned values:
 
 =cut
 
-sub compute_forest_footprint($) {
-
-	my $product_ref = shift;
+sub compute_forest_footprint($product_ref) {
 	
 	$product_ref->{forest_footprint_data} = {
 		ingredients => [],
@@ -312,7 +309,7 @@ This function is called when we have an ingredient or a category for which we ha
 It determines the type of the footprint based on labels, origins etc. and adds a corresponding footprint
 to the list of footprints for the products (possibly several if the product has multiple ingredients with a footprint)
 
-=head3 Synopsys
+=head3 Synopsis
 
 add_footprint($product_ref, $ingredient_ref, $footprints_ref, $ingredients_category_ref, {
 							tag => ["ingredients", $ingredients_ref->{id}, $category_ingredient_id],
@@ -321,14 +318,8 @@ add_footprint($product_ref, $ingredient_ref, $footprints_ref, $ingredients_categ
 					
 =cut
 
-sub add_footprint ($$$$$) {
+sub add_footprint ($product_ref, $ingredient_ref, $footprints_ref, $ingredients_category_ref, $footprint_ref) {
 	
-	my $product_ref = shift;
-	my $ingredient_ref = shift;
-	my $footprints_ref = shift;
-	my $ingredients_category_ref = shift;
-	my $footprint_ref = shift;
-
 	# Check which type has matching conditions for the product
 	
 	foreach my $type_ref (@{$ingredients_category_ref->{types}}) {
@@ -423,14 +414,8 @@ The footprints are stored in $footprints_ref
 
 =cut
 
-# Pre-declare the function as it is recursive
-sub compute_footprints_of_ingredients($$$);
 
-sub compute_footprints_of_ingredients($$$) {
-	
-	my $product_ref = shift;
-	my $footprints_ref = shift;
-	my $ingredients_ref = shift;
+sub compute_footprints_of_ingredients($product_ref, $footprints_ref, $ingredients_ref)  {
 	
 	# The ingredients array contains sub-ingredients in nested ingredients properties
 	# and they are also listed at the end on the ingredients array, without the rank property
@@ -544,10 +529,7 @@ The footprints are stored in $footprints_ref
 
 =cut
 
-sub compute_footprint_of_category($$) {
-	
-	my $product_ref = shift;
-	my $footprints_ref = shift;
+sub compute_footprint_of_category($product_ref, $footprints_ref) {
 		
 	# Check if the ingredient belongs to one of the categories for which their is a forest footprint
 	

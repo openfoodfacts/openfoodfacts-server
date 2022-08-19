@@ -40,7 +40,7 @@ use Storable qw/dclone/;
 use Encode;
 
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 # Passing values to the template
 my $template_data_ref = {};
@@ -122,9 +122,7 @@ if ($action ne 'display') {
 process_template('web/pages/spellcheck/spellcheck_test.tt.html', $template_data_ref, \$html) or $html = '';
 $html .= "<p>" . $tt->error() . "</p>";
 
-display_page( {
-	title=>"Spellcheck Test",
-	content_ref=>\$html,
-	full_width=>$full_width,
-});
-
+$request_ref->{title} = "Spellcheck test";
+$request_ref->{content_ref} = \$html;
+$request_ref->{full_width} = $full_width;
+display_page($request_ref);

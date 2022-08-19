@@ -44,7 +44,7 @@ use Encode;
 use JSON::PP;
 use List::Util qw/min/;
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 =head1 CGI script to auto-complete entries for tags
 
@@ -56,7 +56,7 @@ ProductOpener::Display::init();
 
 =head3 term - term to search
 
-If string and term are passed together, they are contatenated together as separated words
+If string and term are passed together, they are concatenated together as separate words
 
 =head3 limit - max number of suggestions
 

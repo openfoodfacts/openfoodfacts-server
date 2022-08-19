@@ -144,6 +144,8 @@ To learn more about developing with Docker, see the [Docker developer's guide](.
 
 To have all site page on your dev instance, see [Using pages from openfoodfacts-web](../how-to-guides/using-pages-from-openfoodfacts-web.md)
 
+[Using Repl](../how-to-guides/use-repl.md) offers you a way to play with perl.
+
 ## Visual Studio Code
 
 **WARNING**: for now this is deprecated, some work needs to be done.

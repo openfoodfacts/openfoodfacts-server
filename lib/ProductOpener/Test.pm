@@ -37,6 +37,7 @@ BEGIN
 	@EXPORT_OK = qw(
         &capture_ouputs
         &compare_arr
+        &compare_to_expected_results
         &compare_array_to_expected_results
         &compare_csv_file_to_expected_results
         &create_sto_from_json
@@ -44,6 +45,7 @@ BEGIN
         &normalize_products_for_test_comparison
         &remove_all_products
         &remove_all_users
+        &remove_all_orgs
         &check_not_production
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -130,6 +132,25 @@ sub remove_all_users () {
 }
 
 
+=head2 remove_all_orgs ()
+
+For integration tests, we need to start from an empty organizations base
+
+This function should only be called by tests, and never on production environments.
+
+=cut
+
+sub remove_all_orgs () {
+    # Important: check we are not on a prod database
+    check_not_production();
+    # clean files
+    remove_tree("$data_root/orgs", {keep_root => 1, error => \my $err});
+    if (@$err) {
+        die("not able to remove some orgs directories: ". join(":", @$err));
+    }
+}
+
+
 =head2 capture_ouputs ($meth)
 
 Capturing out / err with Stdout/Stderr::Extended
@@ -188,6 +209,56 @@ sub ensure_expected_results_dir ($expected_results_dir, $update_expected_results
     return 1;
 }
 
+
+=head2 compare_to_expected_results($object_ref, $expected_results_file, $update_expected_results) {
+
+Compare an object (e.g. product data or an API result) to expected results.
+
+The expected result is stored as a JSON file.
+
+This is so that we can easily see diffs with git diffs.
+
+=head3 Arguments
+
+=head4 $object_ref - reference to an object (e.g. $product_ref)
+
+=head4 $expected_results_file - path to the file with stored results
+
+=head4 $update_expected_results - flag to indicate to save test results as expected results
+
+Tests will always pass when this flag is passed,
+and the new expected results can be diffed / committed in GitHub.
+
+=cut
+
+sub compare_to_expected_results($object_ref, $expected_results_file, $update_expected_results) {
+
+    my $json = JSON->new->allow_nonref->canonical;
+
+	if (defined $update_expected_results) {
+		open (my $result, ">:encoding(UTF-8)", $expected_results_file) or die("Could not create $expected_results_file: $!\n");
+		print $result $json->pretty->encode($object_ref);
+		close ($result);
+	}
+	else {
+		# Compare the result with the expected result
+		
+		if (open (my $expected_result, "<:encoding(UTF-8)", $expected_results_file)) {
+
+			local $/; #Enable 'slurp' mode
+			my $expected_object_ref = $json->decode(<$expected_result>);
+			is_deeply ($object_ref, $expected_object_ref) or diag explain $object_ref;
+		}
+		else {
+			fail("could not load $expected_results_file");
+			diag explain $object_ref;
+		}
+	}
+
+    return 1;
+}
+
+
 =head2 compare_csv_file_to_expected_results($csv_file, $expected_results_dir, $update_expected_results)
 
 Compare a CSV file containing product data (e.g. the result of a CSV export) to expected results.
@@ -207,7 +278,7 @@ This is so that we can easily see diffs with git diffs:
 
 =head4 $update_expected_results - flag to indicate to save test results as expected results
 
-Tests will pass when this flag is passed, and the new expected results can be diffed / commited in GitHub.
+Tests will pass when this flag is passed, and the new expected results can be diffed / committed in GitHub.
 
 =cut
 
@@ -256,7 +327,7 @@ This is so that we can easily see diffs with git diffs:
 =head4 $update_expected_results - flag to indicate to save test results as expected results
 
 Tests will always pass when this flag is passed,
-and the new expected results can be diffed / commited in GitHub.
+and the new expected results can be diffed / committed in GitHub.
 
 =cut
 
@@ -374,9 +445,9 @@ sub _sub_items($item_ref, $subfields_ref) {
 
 =head2 normalize_product_for_test_comparison(product_ref)
 
-Normalize a product to be able to compare them accross tests runs.
+Normalize a product to be able to compare them across tests runs.
 
-We remove time dependant fields and sort some lists.
+We remove time dependent fields and sort some lists.
 
 =head3 Arguments
 

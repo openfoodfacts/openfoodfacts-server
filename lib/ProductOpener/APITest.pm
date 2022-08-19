@@ -37,6 +37,8 @@ BEGIN {
 	  &create_user
 	  &new_client
 	  &wait_dynamic_front
+	  &create_product
+	  &construct_test_url
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -45,6 +47,7 @@ use vars @EXPORT_OK;
 
 use LWP::UserAgent;
 use HTTP::CookieJar::LWP;
+use ProductOpener::TestDefaults qw/:all/;
 
 use Data::Dump qw/dump/;
 
@@ -99,29 +102,51 @@ Call API to create a user
 =cut
 
 sub create_user ($ua, $args_ref) {
-	my %fields = (
-		email => 'test@test.com',
-		userid => "test",
-		name => "Test",
-		password => "testtest",
-		confirm_password => "testtest",
-		pro_checkbox => 0,
-		requested_org => "",
-		team_1 => "",
-		team_2 => "",
-		team_3 => "",
-		action => "process",
-		type => "add",
-		".submit" => "Register"
-	);
-
-	# apply overrides
+	my %fields;
 	while (my ($key, $value) = each %{$args_ref}) {
 		$fields{$key} = $value;
 	}
 	my $response = $ua->post("http://world.openfoodfacts.localhost/cgi/user.pl", Content => \%fields,);
 	$response->is_success or die("Couldn't create user with " . dump(\%fields) . "\n");
 	return;
+}
+
+sub create_product ($ua, $product_fields) {
+	my %fields;
+	while (my ($key, $value) = each %{$product_fields}) {
+		$fields{$key} = $value;
+	}
+
+	my $response = $ua->post("http://world.openfoodfacts.localhost/cgi/product_jqm2.pl", Content => \%fields,);
+	$response->is_success or die("Couldn't create product with " . dump(\%fields) . "\n");
+	return;
+}
+
+=head2 construct_test_url()
+
+Constructs the URL to send the HTTP request to for the API.
+
+=head3 Arguments
+
+Takes in two string arguments, One being the the target and other a prefix. 
+The prefix could be simply the country code (eg: US for America or "World") OR something like ( {country-code}-{language-code} )
+
+An example below
+$target = "/product/35242200055"
+$prefix= "world-fr"  
+
+=head3 Return Value
+
+Returns the constructed URL for the query 
+
+For the example cited above this returns: "http://world-fr.openfoodfacts.localhost/product/35242200055"
+
+=cut
+
+sub construct_test_url ($target, $prefix) {
+	my $link = "openfoodfacts.localhost";
+	my $url = "http://${prefix}.${link}${target}";
+	return $url;
 }
 
 1;

@@ -35,7 +35,7 @@ synonyms:en:GMOs, Genetically Modified Organisms, GMO
 synonyms:bg:ГМО, Генетично модифицирани организми
 synonyms:fi:GMO:ita, muuntogeenisiä organismeja, muuntogeeninen, GMO, GM
 synonyms:ru:ГМО, Генетически Модифицированные Организмы
-synonyms:OGMs, Organismes génétiquement modifiés, OGM
+synonyms:fr:OGMs, Organismes génétiquement modifiés, OGM
 synonyms:es:OGMs, Organismos genéticamente modificados, transgénicos, OGM
 
 synonyms:en:Rich in, High in
@@ -4518,16 +4518,6 @@ xx:FR-BIO-16
 country:en:france
 
 <en:EU Organic
-en:RS-BIO-140
-xx:RS-BIO-140
-country:en:Serbia
-
-<en:EU Organic
-en:RS-BIO-162
-xx:RS-BIO-162
-country:en:Serbia
-
-<en:EU Organic
 en:GB-ORG-01
 xx:GB-ORG-01
 country:en:United Kingdom
@@ -4919,14 +4909,6 @@ xx:LV-BIO-01
 en:LV-BIO-02
 de:LV-BIO-02
 xx:LV-BIO-02
-
-en:LK-BIO-149
-ca:LK-BIO-149
-de:LK-BIO-149
-es:LK-BIO-149
-it:LK-BIO-149
-nl:LK-BIO-149
-xx:LK-BIO-149
 
 <en:EU Organic
 en:MT-ORG-01
@@ -8567,6 +8549,7 @@ exceptions:en: en: except products covered by Annex III,en:in-conversion product
 
 <en:EU organic
 en:RS-BIO-140
+xx:RS-BIO-140
 country:en:Serbia
 eu_groups:en: en:EU Group A: unprocessed plant products,en:EU Group B: live animals or unprocessed animal products,en:EU Group D: processed agricultural products for use as food (*),en:EU Group F: vegetative propagating material and seeds for cultivation
 auth_name:en:CERES Certification of Environmental Standards GmbH
@@ -9843,6 +9826,7 @@ de:LK-BIO-149
 es:LK-BIO-149
 it:LK-BIO-149
 nl:LK-BIO-149
+xx:LK-BIO-149
 country:en:Sri Lanka
 eu_groups:en: en:EU Group A: unprocessed plant products,en:EU Group B: live animals or unprocessed animal products,en:EU Group C: unprocessed aquaculture products and algae,en:EU Group D: processed agricultural products for use as food (*),en:EU Group E: processed agricultural products for use as feed (*),en:EU Group F: vegetative propagating material and seeds for cultivation
 auth_name:en:Control Union Certifications
@@ -15140,6 +15124,7 @@ exceptions:en: en:in-conversion products,en:wine
 
 <en:EU organic
 en:RS-BIO-162
+xx:RS-BIO-162
 country:en:Serbia
 eu_groups:en: en:EU Group A: unprocessed plant products,en:EU Group D: processed agricultural products for use as food (*),
 auth_name:en:Organic Control System
@@ -17723,8 +17708,6 @@ it:Cresciuto in Francia, Allevato in Francia
 pt:Cultivada na França
 origins:en: en:france
 
-fr:Entrepreneurs Engagés, E+
-
 en:Harvested in France
 ca:Veremat a França
 de:In Frankreich geerntet
@@ -19281,8 +19264,6 @@ image:en:Quality-food-from-hungary.90x90.jpg
 
 hu:Magyar baromfi, Hatósági állatorvos ellenőrizte
 
-hu:Magyar baromfi
-
 hu:Prémium Hungaricum
 
 hu:Kiváló minőségű sertéshús
@@ -19477,7 +19458,7 @@ auth_url:en:https://www.fairforlife.org/
 <en:fair-trade
 fr:Agri-Éthique France, Agri-Éthique
 xx:Agri-Éthique France
-https://www.agriethique.fr/
+auth_url:fr:https://www.agriethique.fr/
 
 fr:Agri-Confiance
 xx:Agri-Confiance

@@ -140,7 +140,7 @@ my @tests = (
 	[ { lc => "fr", ingredients_text => "Teneur en légumes : 74 % : tomate ( Espagne) eau"},
 		[
 			{
-				'id' => "fr:Teneur en l\x{e9}gumes",
+				'id' => "fr:teneur-en-legumes",
 				'percent' => '74',
 				'text' => "Teneur en l\x{e9}gumes"
 			},
@@ -160,7 +160,7 @@ my @tests = (
 	[ { lc => "fr", ingredients_text => "Teneur en légumes : 74 % : tomate (60 %, Espagne) eau, Sel (France, Italie)"},
 		[
 			{
-				'id' => "fr:Teneur en l\x{e9}gumes",
+				'id' => "fr:teneur-en-legumes",
 				'percent' => '74',
 				'text' => "Teneur en l\x{e9}gumes"
 			},

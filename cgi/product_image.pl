@@ -43,7 +43,7 @@ use Encode;
 use JSON::PP;
 use Log::Any qw($log);
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 my $template_data_ref = {};
 
@@ -174,13 +174,10 @@ my $html;
 process_template('product_image.tt.html', $template_data_ref, \$html) or $html = '';
 $html .= "<p>" . $tt->error() . "</p>";
 
-display_page(
-	{
-		title => $alt,
-		content_ref => \$html,
-		full_width => 0,
-	}
-);
+$request_ref->{title} = $alt;
+$request_ref->{content_ref} = \$html;
+$request_ref->{full_width} = 0;
+display_page($request_ref);
 
 exit(0);
 

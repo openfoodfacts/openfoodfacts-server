@@ -5,7 +5,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-07-17 19:06\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -14,7 +13,6 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: he\n"
-"X-Crowdin-File: common.pot\n"
 "X-Crowdin-File-ID: 1808\n"
 
 msgctxt "1_product"
@@ -5392,7 +5390,7 @@ msgstr "באפשרותך לשנות את עמוד המוצר כדי להוסיף
 
 msgctxt "ecoscore_platform_promo"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
-msgstr "אם ייצרת את המוצר הזה, ניתן לשלוח לנו מידע עליו עם <a href=\"https://world.pro.openfoodfacts.org\">הפלטפורמה החינמית שלנו ליצרנים</a>."
+msgstr "אם ייצרת את המוצר הזה, ניתן לשלוח לנו מידע עליו עם <a href=\"https://il.pro.openfoodfacts.org\">הפלטפורמה החינמית שלנו ליצרנים</a>."
 
 msgctxt "ecoscore_warning_missing_information"
 msgid "Warning: some information necessary to calculate the Eco-Score with precision is not provided (see the details of the calculation below)."
@@ -5571,7 +5569,7 @@ msgstr "ק״ג CO2 שווה ערך לק״ג מוצר"
 # do not translate the link
 msgctxt "ecoscore_platform_prompt_ecoscore_modal"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
-msgstr "אם ייצרת את המוצר הזה, ניתן לשלוח לנו מידע עליו עם <a href=\"https://world.pro.openfoodfacts.org\">הפלטפורמה החינמית שלנו ליצרנים</a>."
+msgstr "אם ייצרת את המוצר הזה, ניתן לשלוח לנו מידע עליו עם <a href=\"https://il.pro.openfoodfacts.org\">הפלטפורמה החינמית שלנו ליצרנים</a>."
 
 # do not translate Eco-Score and the link
 msgctxt "ecoscore_description"
@@ -6075,49 +6073,49 @@ msgstr "צריכה של כמות גדולה של מלח (או נתרן) עלול
 
 msgctxt "nutrient_info_salt_high_blood_pressure"
 msgid "Many people who have high blood pressure do not know it, as there are often no symptoms."
-msgstr ""
+msgstr "אנשים רבים הסובלים מלחץ דם גבוה אינם יודעים זאת, מכיוון שלעתים קרובות אין תסמינים."
 
 msgctxt "nutrient_info_salt_high_consumption"
 msgid "Most people consume too much salt (on average 9 to 12 grams per day), around twice the recommended maximum level of intake."
-msgstr ""
+msgstr "רוב האנשים צורכים יותר מדי מלח (בממוצע 9 עד 12 גרם ליום), בערך פי שניים מרמת הצריכה המרבית המומלצת."
 
 msgctxt "nutrient_recommendation_salt_title"
 msgid "Limit the consumption of salt and salted food"
-msgstr ""
+msgstr "הגבלת צריכת המלח והמאכלים המלוחים"
 
 msgctxt "nutrient_recommendation_salt_cooking_and_table"
 msgid "Reduce the quantity of salt used when cooking, and don't salt again at the table."
-msgstr ""
+msgstr "כדאי להפחית את כמות המלח לטובת הבישול ולא להוסיף מלח שוב בזמן הארוחה."
 
 msgctxt "nutrient_recommendation_salt_limit_salty_snacks"
 msgid "Limit the consumption of salty snacks and choose products with lower salt content."
-msgstr ""
+msgstr "מוטב להגביל את צריכת החטיפים המלוחים ולבחור במוצרים עם תכולת מלח נמוכה יותר."
 
 msgctxt "nutrient_info_sugars_risk"
 msgid "A high consumption of sugar can cause weight gain and tooth decay. It also augments the risk of type 2 diabetes and cardio-vascular diseases."
-msgstr ""
+msgstr "צריכה של סוכר בכמות גדולה עלולה לגרום לעלייה במשקל ולעששת. והיא גם מגבירה את הסיכון ללקות בסוכרת מסוג 2 ולמחלות לב וכלי דם."
 
 msgctxt "nutrient_recommendation_sugars_title"
 msgid "Limit the consumption of sugar and sugary drinks"
-msgstr ""
+msgstr "הגבלת צריכת הסוכר והמשקאות הממותקים"
 
 msgctxt "nutrient_recommendation_sugars_drinks"
 msgid "Sugary drinks (such as sodas, fruit beverages, and fruit juices and nectars) should be limited as much as possible (no more than 1 glass a day)."
-msgstr ""
+msgstr "יש להגביל משקאות ממותקים (כגון משקאות מוגזים, משקאות פרי ומיצי פירות ונקטרים) ככל האפשר (לא יותר מכוס אחת ביום)."
 
 msgctxt "nutrient_recommendation_sugars_food"
 msgid "Choose products with lower sugar content and reduce the consumption of products with added sugars."
-msgstr ""
+msgstr "מוטב לבחור במוצרים עם תכולת סוכר נמוכה יותר ולהפחית צריכת מוצרים עם תוספת סוכר."
 
 msgctxt "nutrient_info_fat_and_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr ""
+msgstr "צריכה גבוהה של שומן, במיוחד שומנים רוויים, עלולה להעלות את הכולסטרול, מה שמגביר את הסיכון למחלות לב."
 
 msgctxt "nutrient_recommendation_fat_and_saturated_fat_title"
 msgid "Reduce the consumption of fat and saturated fat"
-msgstr ""
+msgstr "להפחית צריכה של שומן ושומן רווי"
 
 msgctxt "nutrient_recommendation_fat_and_saturated_fat"
 msgid "Choose products with lower fat and saturated fat content."
-msgstr ""
+msgstr "כדאי לבחור מוצרים עם מעט שומן ושומן רווי."
 
