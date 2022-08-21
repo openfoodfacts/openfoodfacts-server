@@ -10,9 +10,13 @@ use File::Path qw/make_path remove_tree/;
 use Getopt::Long qw/GetOptions/;
 use Log::Any::Adapter 'TAP';
 use Mock::Quick qw/qobj qmeth/;
+use ProductOpener::TestDefaults qw/:all/;
+use HTTP::Request::Common;
 
+my $test_id = "image_upload";
 my $test_dir = dirname(__FILE__);
-my $inputs_dir = "$test_dir/inputs/image_upload/";
+my $inputs_dir = "$test_dir/inputs/$test_id/";
+
 
 my $update_expected_results;
 
@@ -23,7 +27,8 @@ remove_all_products();
 wait_dynamic_front();
 
 my $admin_ua = new_client();
-create_user($admin_ua, {});
+my %create_user_args = (%default_user_form, (email => 'bob@test.com'));
+create_user($admin_ua, \%create_user_args);
 
 my %product_fields = (
 	code => '200000000099',
@@ -31,7 +36,7 @@ my %product_fields = (
 	product_name => "Testttt-75ml",
 	generic_name => "Tester",
 	quantity => "75 ml",
-	link => "https://github.com/openfoodfacts/openfoodfacts-server",
+	link => "#",
 	expiration_date => "test",
 	ingredients_text => "apple, milk",
 	origin => "france",
@@ -42,7 +47,20 @@ my %product_fields = (
 	".submit" => "submit"
 );
 
+
+# my $file = open(fh, "$inputs_dir/apple.jpg");
+
 create_product($admin_ua, \%product_fields);
 
-my $response = $admin_ua->post("http://world.openfoodfacts.localhost/cgi/product_jqm2.pl?code=200000000099&product_image_upload.pl/imgupload_front=$inputs_dir/apple.jpg", Content => "$inputs_dir/apple.jpg");
+# my $response = $admin_ua->post("http://world.openfoodfacts.localhost/cgi/product_jqm2.pl?code=200000000099&product_image_upload.pl/imgupload_front=$inputs_dir/apple.jpg", Content => "$inputs_dir/apple.jpg");
+
+my $response = $admin_ua->request(POST "http://world.openfoodfacts.localhost/cgi/product_jqm2.pl", 
+Content_Type => 'form-data', 
+Content => [ code => "200000000099", imagefield => "front", imgupload => ["$inputs_dir/apple.jpg"] ] );
+
+
+is($response->{_rc}, 200);
+
+done_testing();
+
 
