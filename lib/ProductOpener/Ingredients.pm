@@ -1267,6 +1267,27 @@ sub parse_origins_from_text($product_ref, $text) {
 }
 
 
+sub processing_method($product_lc, $between, $processing=undef) {
+
+	my $processingid
+		= canonicalize_taxonomy_tag(
+		$product_lc,
+		"ingredients_processing",
+		$between );
+	if (exists_taxonomy_tag("ingredients_processing", $processingid)) {
+		if (defined $processing) {
+			$processing .= ", " . $processingid;
+		}
+		else {
+			$processing = ${$processingid};
+		}
+		$log->debug("between is a processing", { between => $between, processing => $processingid }) if $log->is_debug();
+		$between = '';
+	}
+	return $between, $processing;
+}
+
+
 =head2 parse_ingredients_text ( product_ref )
 
 Parse the ingredients_text field to extract individual ingredients.
@@ -1500,23 +1521,7 @@ sub parse_ingredients_text($product_ref) {
 										}
 									}
 									else {
-
-										# processing method?
-										my $processingid
-											= canonicalize_taxonomy_tag(
-											$product_lc,
-											"ingredients_processing",
-											$between );
-										if (exists_taxonomy_tag("ingredients_processing", $processingid)) {
-											if (defined $processing) {
-												$processing .= ", " . $processingid;
-											}
-											else {
-												$processing = ${$processingid};
-											}
-											$debug_ingredients and $log->debug("between is a processing", { between => $between, processing => $processingid }) if $log->is_debug();
-											$between = '';
-										}
+										($between, $processing) = processing_method($product_lc, $between, $processing);
 									}
 
 								}
