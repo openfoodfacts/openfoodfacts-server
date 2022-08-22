@@ -496,9 +496,13 @@ sub init_request() {
 
 	# Create and initialize a request object
 	my $request_ref = {
-		'query_string'=>$ENV{QUERY_STRING},
+		'original_query_string'=>$ENV{QUERY_STRING},
 		'referer'=>referer()
 	};
+
+	# Depending on web server configuration, we may get or not get a / at the start of the QUERY_STRING environment variable
+	# remove the / to normalize the query string, as we use it to build some redirect urls
+	$request_ref->{original_query_string} =~ s/^\///;
 
 	# TODO: global variables should be moved to $request_ref
 	$styles = '';
@@ -535,7 +539,7 @@ sub init_request() {
 
 	local $log->context->{hostname} = $hostname;
 	local $log->context->{ip} = remote_addr();
-	local $log->context->{query_string} = $ENV{QUERY_STRING};
+	local $log->context->{query_string} = $request_ref->{original_query_string};
 
 	$subdomain =~ s/\..*//;
 
@@ -583,9 +587,9 @@ sub init_request() {
 
 		$log->debug("subdomain matches known country name", { subdomain => $subdomain, lc => $lc, cc => $cc, country => $country }) if $log->is_debug();
 	}
-	elsif ($ENV{QUERY_STRING} !~ /(cgi|api)\//) {
+	elsif ($request_ref->{original_query_string} !~ /^(cgi|api)\//) {
 		# redirect
-		my $redirect_url = get_world_subdomain() . $ENV{QUERY_STRING};
+		my $redirect_url = get_world_subdomain() . '/' . $request_ref->{original_query_string};
 		$log->info("request could not be matched to a known format, redirecting", { subdomain => $subdomain, lc => $lc, cc => $cc, country => $country, redirect => $redirect_url }) if $log->is_info();
 		redirect_to_url($request_ref, 302, $redirect_url);
 	}
@@ -600,10 +604,11 @@ sub init_request() {
 	$lang = $lc;
 
 	# If the language is equal to the first language of the country, but we are on a different subdomain, redirect to the main country subdomain. (fr-fr => fr)
-	if ((defined $lc) and (defined $cc) and (defined $country_languages{$cc}[0]) and ($country_languages{$cc}[0] eq $lc) and ($subdomain ne $cc) and ($subdomain !~ /^(ssl-)?api/) and ($r->method() eq 'GET') and ($ENV{QUERY_STRING} !~ /(cgi|api)\//)) {
+	if ((defined $lc) and (defined $cc) and (defined $country_languages{$cc}[0]) and ($country_languages{$cc}[0] eq $lc) and ($subdomain ne $cc) and ($subdomain !~ /^(ssl-)?api/)
+		and ($r->method() eq 'GET') and ($request_ref->{original_query_string} !~ /^(cgi|api)\//)) {
 		# redirect
 		my $ccdom = format_subdomain($cc);
-		my $redirect_url = $ccdom . $ENV{QUERY_STRING};
+		my $redirect_url = $ccdom . '/' . $request_ref->{original_query_string};
 		$log->info("lc is equal to first lc of the country, redirecting to countries main domain", { subdomain => $subdomain, lc => $lc, cc => $cc, country => $country, redirect => $redirect_url }) if $log->is_info();
 		redirect_to_url($request_ref, 302, $redirect_url);
 	}
@@ -809,6 +814,8 @@ Sometimes we modify request parameters (param) to correspond to request_ref:
 
 sub analyze_request($request_ref) {
 
+	$request_ref->{query_string} = $request_ref->{original_query_string};
+
 	$log->debug("analyzing query_string, step 0 - unmodified", { query_string => $request_ref->{query_string} } ) if $log->is_debug();
 
 	# Remove ref and utm_* parameters
@@ -848,8 +855,7 @@ sub analyze_request($request_ref) {
 
 	$log->debug("analyzing query_string, step 2 - fields, rev, json, jsonp, jqm, and xml removed", { query_string => $request_ref->{query_string} } ) if $log->is_debug();
 
-	# Remove initial slash (if present) and decode
-	$request_ref->{query_string} =~ s/^\///;
+	# Decode the escaped characters in the query string
 	$request_ref->{query_string} = decode("utf8",URI::Escape::XS::decodeURIComponent($request_ref->{query_string}));
 
 	$log->debug("analyzing query_string, step 3 - components UTF8 decoded", { query_string => $request_ref->{query_string} } ) if $log->is_debug();
