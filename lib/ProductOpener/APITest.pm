@@ -107,7 +107,7 @@ sub create_user ($ua, $args_ref) {
 		$fields{$key} = $value;
 	}
 	my $response = $ua->post("http://world.openfoodfacts.localhost/cgi/user.pl", Content => \%fields,);
-	$response->is_success or die("Couldn't create user with " . dump(\%fields) . "\nResponse:\n" . $response->as_string);
+	$response->is_success or die("Couldn't create user with " . dump(\%fields) . "\n");
 	return;
 }
 
@@ -118,7 +118,7 @@ sub create_product ($ua, $product_fields) {
 	}
 
 	my $response = $ua->post("http://world.openfoodfacts.localhost/cgi/product_jqm2.pl", Content => \%fields,);
-	$response->is_success or die("Couldn't create product with " . dump(\%fields) . "\nResponse:\n" . $response->as_string);
+	$response->is_success or die("Couldn't create product with " . dump(\%fields) . "\n");
 	return;
 }
 
