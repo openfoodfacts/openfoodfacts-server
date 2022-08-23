@@ -35,7 +35,7 @@ through the lang() and lang_sprintf() functions.
 
 package ProductOpener::Lang;
 
-use ProductOpener::PerlStandards
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 BEGIN
