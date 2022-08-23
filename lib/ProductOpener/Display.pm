@@ -3325,19 +3325,21 @@ sub display_tag($request_ref) {
 					foreach my $dose (@doses) {
 						foreach my $percentile (@percentiles) {
 							my $exposure_property = "efsa_evaluation_exposure_" . $percentile . "_greater_than_" . $dose . ":en";
-							if (defined $properties{$tagtype}{$canon_tagid}{$exposure_property}) {
-								foreach my $groupid (split(/,/, $properties{$tagtype}{$canon_tagid}{$exposure_property})) {
-									my $group = $groupid;
-									$group =~ s/^\s*en://;
-									$group =~ s/\s+$//;
+							if (! defined $properties{$tagtype}{$canon_tagid}{$exposure_property}) {
+								next;
+							}
+							foreach my $groupid (split(/,/, $properties{$tagtype}{$canon_tagid}{$exposure_property})) {
+								my $group = $groupid;
+								$group =~ s/^\s*en://;
+								$group =~ s/\s+$//;
 
-									# NOAEL has priority over ADI
-									if (not exists $exposure{$percentile}{$group}) {
-										$exposure{$percentile}{$group} = $dose;
-										$doses{$dose} = 1; # to display legend for the dose
-										$log->debug("display_tag - exposure_table ", { group => $group, percentile => $percentile, dose => $dose }) if $log->is_debug();
-									}
+								# NOAEL has priority over ADI
+								if ( exists $exposure{$percentile}{$group}) {
+									next;
 								}
+								$exposure{$percentile}{$group} = $dose;
+								$doses{$dose} = 1; # to display legend for the dose
+								$log->debug("display_tag - exposure_table ", { group => $group, percentile => $percentile, dose => $dose }) if $log->is_debug();
 							}
 						}
 					}
