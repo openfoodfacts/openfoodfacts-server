@@ -42,8 +42,7 @@ The functions used in this module take the IP address and return the geolocation
 
 package ProductOpener::GeoIP;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 BEGIN
@@ -87,9 +86,8 @@ If the function executes successfully it returns the country name. On the other 
 
 =cut
 
-sub get_country_for_ip {
+sub get_country_for_ip($ip) {
 	return unless $gi;
-	my $ip = shift;
 
 	my $country;
 	eval {
@@ -123,9 +121,8 @@ On the other hand, if it throws an exception, it simply returns undefined.
 
 =cut
 
-sub get_country_code_for_ip {
+sub get_country_code_for_ip($ip) {
 	return unless $gi;
-	my $ip = shift;
 
 	my $country;
 	eval {
