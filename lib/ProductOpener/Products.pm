@@ -142,6 +142,8 @@ use Data::DeepAccess qw(deep_get);
 use LWP::UserAgent;
 use Storable qw(dclone);
 
+use Redis::Client;
+
 use Algorithm::CheckDigits;
 my $ean_check = CheckDigits('ean');
 
@@ -1177,6 +1179,9 @@ sub store_product($user_id, $product_ref, $comment) {
 
 	store("$new_data_root/products/$path/changes.sto", $changes_ref);
 	log_change($product_ref, $change_ref);
+
+	# index for search service
+	index_search_service($product_ref);
 
 	$log->debug("store_product - done", { code => $code, product_id => $product_id } ) if $log->is_debug();
 
@@ -2414,6 +2419,16 @@ sub index_product($product_ref)
 	return;
 }
 
+sub index_search_service($product_ref) {
+	# Now send the barcode to Redis so that it can be indexed
+	eval {
+		my $redis_client = Redis::Client->new(host => $ProductOpener::Config2::redis_url);
+		$redis_client->rpush('search_import_queue', $product_ref->{code});
+	};
+	if ($@) {
+		$log->warn("Error connecting to Redis", { error => $@ }) if $log->is_warn();
+	}
+}
 
 sub compute_codes($product_ref) {
 

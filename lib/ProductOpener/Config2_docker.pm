@@ -49,6 +49,7 @@ BEGIN
 		$events_url
 		$events_username
 		$events_password
+		$redis_url
 		%server_options
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -96,11 +97,16 @@ my $postgres_url = "postgresql://${postgres_user}:${postgres_password}\@${postgr
 # enable an in-site robotoff-asker in the product page
 $robotoff_url = $ENV{ROBOTOFF_URL};
 
+<<<<<<< HEAD
 # Set this to your instance of https://github.com/openfoodfacts/openfoodfacts-events
 # enable creating events for some actions (e.g. when a product is edited)
 $events_url = $ENV{EVENTS_URL};
 $events_username = $ENV{EVENTS_USERNAME};
 $events_password = $ENV{EVENTS_PASSWORD};
+=======
+# Set this to your instance of the search service to enable writes to it
+$redis_url = $ENV{REDIS_URL};
+>>>>>>> 1e7d429684 (Connect to Redis)
 
 %server_options = (
         private_products => $producers_platform,  # 1 to make products visible only to the owner (producer platform)
