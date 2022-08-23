@@ -48,8 +48,7 @@ The determination is currently made on different factors:
 
 package ProductOpener::MainCountries;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 use Log::Any qw($log);
@@ -103,9 +102,7 @@ sub load_scans_data() {
 
 =cut
 
-sub compute_main_countries($) {
-
-	my $product_ref = shift;
+sub compute_main_countries($product_ref) {
 	
 	$product_ref->{main_countries_tags} = [];
 	$product_ref->{removed_countries_tags} = [];

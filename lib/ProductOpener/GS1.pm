@@ -41,8 +41,7 @@ And the %gs1_maps translate the GS1 specific identifiers (e.g. for allergens or 
 
 package ProductOpener::GS1;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 use Log::Any qw($log);
@@ -841,11 +840,7 @@ so that we can output the fields in the same order when we export a CSV.
 
 =cut
 
-sub assign_field($$$) {
-
-	my $results_ref = shift;
-	my $target_field = shift;
-	my $target_value = shift;
+sub assign_field($results_ref, $target_field, $target_value) {
 	
 	$results_ref->{$target_field} = $target_value;
 	
@@ -878,12 +873,8 @@ The same hash reference is passed to recursive calls to the gs1_to_off function.
 
 sub gs1_to_off;
 
-sub gs1_to_off ($$$) {
-	
-	my $gs1_to_off_ref = shift;
-	my $json_ref = shift;
-	my $results_ref = shift;
-	
+sub gs1_to_off ($gs1_to_off_ref, $json_ref, $results_ref) {
+
 	# We should have a hash
 	if (ref($json_ref) ne "HASH") {
 		$log->error("gs1_to_off - json_ref is not a hash", { gs1_to_off_ref => $gs1_to_off_ref, json_ref => $json_ref, results_ref => $results_ref }) if $log->is_error();
@@ -1406,12 +1397,8 @@ gtin: "03449865355608"
 
 =cut
 
-# pre-declare the function as it is recursive
-sub convert_single_text_property_to_direct_value($);
 
-sub convert_single_text_property_to_direct_value($) {
-    
-	my $json_ref = shift;
+sub convert_single_text_property_to_direct_value($json_ref) {
 
     my $type = ref $json_ref or return;
 
@@ -1467,14 +1454,8 @@ Each message will be added as one element (a hash ref) of the messages data arra
 
 =cut
 
-# pre-declare the function as it is recursive
-sub convert_gs1_json_message_to_off_products_csv($$$);
 
-sub convert_gs1_json_message_to_off_products_csv($$$) {
-
-	my $json_ref = shift;
-	my $products_ref = shift;
-	my $messages_ref = shift;
+sub convert_gs1_json_message_to_off_products_csv($json_ref, $products_ref, $messages_ref) {
 	
 	# Depending on how the original XML was converted to JSON,
 	# text values of XML tags can be assigned directly as the value of the corresponding key
@@ -1574,12 +1555,8 @@ The encapsulating GS1 message is added to the $messages_ref array
 
 =cut
 
-sub read_gs1_json_file($$$) {
-	
-	my $json_file = shift;
-	my $products_ref = shift;
-	my $messages_ref = shift;
-	
+sub read_gs1_json_file($json_file, $products_ref, $messages_ref) {
+
 	$log->debug("read_gs1_json_file", { json_file => $json_file }) if $log->is_debug();
 	
 	open (my $in, "<", $json_file) or die("Cannot open json file $json_file : $!\n");
@@ -1632,10 +1609,7 @@ generate test confirmation messages which don't have a different content every t
 
 =cut
 
-sub generate_gs1_confirmation_message($$) {
-
-	my $notification_message_ref = shift;
-	my $timestamp = shift;
+sub generate_gs1_confirmation_message($notification_message_ref, $timestamp) {
 
 	# We will need to generate a message identifier, put it in the XML content,
 	# and return it as it is used as the file name
@@ -1683,11 +1657,8 @@ Write all product data from the $products_ref array to a CSV file in OFF format.
 
 =cut
 
-sub write_off_csv_file($$) {
-	
-	my $csv_file = shift;
-	my $products_ref = shift;
-	
+sub write_off_csv_file($csv_file, $products_ref) {
+
 	$log->debug("write_off_csv_file", { csv_file => $csv_file }) if $log->is_debug();
 	
 	open(my $filehandle, ">:encoding(UTF-8)", $csv_file) or die("Cannot write csv file $csv_file : $!\n");

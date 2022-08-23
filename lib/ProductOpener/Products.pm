@@ -59,8 +59,7 @@ and the edit history.
 
 package ProductOpener::Products;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 BEGIN
@@ -162,9 +161,7 @@ See https://metacpan.org/pod/JSON%3a%3aXS#PERL---JSON
 
 =cut
 
-sub make_sure_numbers_are_stored_as_numbers($) {
-
-	my $product_ref = shift;
+sub make_sure_numbers_are_stored_as_numbers($product_ref) {
 
 	if (defined $product_ref->{nutriments}) {
 		foreach my $field (keys %{$product_ref->{nutriments}}) {
@@ -256,9 +253,8 @@ Normalized version of the code
 
 =cut
 
-sub normalize_code($) {
+sub normalize_code($code) {
 
-	my $code = shift;
 	if (defined $code) {
 		
 		# Keep only digits, remove spaces, dashes and everything else
@@ -308,9 +304,7 @@ Example: 1234567890123  :-  123/456/789/0123
 
 =cut
 
-sub split_code($) {
-
-	my $code = shift;
+sub split_code($code) {
 	
 	# Require at least 4 digits (some stores use very short internal barcodes, they are likely to be conflicting)
 	if ($code !~ /^\d{4,24}$/) {
@@ -360,10 +354,7 @@ The product id.
 
 =cut
 
-sub product_id_for_owner($$) {
-
-	my $ownerid = shift;
-	my $code = shift;	
+sub product_id_for_owner($ownerid, $code) {
 
 	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
 		if (defined $ownerid) {
@@ -396,9 +387,7 @@ undef is the product is on the current server, or server id of the server of the
 
 =cut
 
-sub server_for_product_id($) {
-
-	my $product_id = shift;
+sub server_for_product_id($product_id) {
 	
 	if ($product_id =~ /:/) {
 	
@@ -427,9 +416,7 @@ The data root for the product.
 
 =cut
 
-sub data_root_for_product_id($) {
-
-	my $product_id = shift;
+sub data_root_for_product_id($product_id) {
 	
 	if ($product_id =~ /:/) {
 	
@@ -460,9 +447,7 @@ The www root for the product.
 
 =cut
 
-sub www_root_for_product_id($) {
-
-	my $product_id = shift;
+sub www_root_for_product_id($product_id) {
 	
 	if ($product_id =~ /:/) {
 	
@@ -493,9 +478,7 @@ The relative path for the product.
 
 =cut
 
-sub product_path_from_id($) {
-
-	my $product_id = shift;
+sub product_path_from_id($product_id) {
 	
 	my $product_id_without_server = $product_id;
 	$product_id_without_server =~ s/(.*)://;
@@ -526,9 +509,7 @@ The relative path for the product.
 
 =cut
 
-sub product_path($) {
-
-	my $product_ref = shift;
+sub product_path($product_ref) {
 
 	# Previous version of product_path() was expecting the code instead of a reference to the product object
 	if (ref($product_ref) ne 'HASH') {
@@ -544,9 +525,7 @@ sub product_path($) {
 }
 
 
-sub product_exists($) {
-
-	my $product_id = shift;
+sub product_exists($product_id) {
 
 	# deprecated, just use retrieve_product()
 	
@@ -561,10 +540,7 @@ sub product_exists($) {
 }
 
 
-sub product_exists_on_other_server($$) {
-
-	my $server = shift;
-	my $id = shift;
+sub product_exists_on_other_server($server, $id) {
 		
 	if (not ((defined $options{other_servers}) and (defined $options{other_servers}{$server}))) {
 		return 0;
@@ -592,11 +568,7 @@ sub product_exists_on_other_server($$) {
 }
 
 
-sub get_owner_id($$$) {
-
-	my $userid = shift;
-	my $orgid = shift;
-	my $ownerid = shift;
+sub get_owner_id($userid, $orgid, $ownerid) {
 
 	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
 
@@ -626,12 +598,7 @@ Returns a $product_ref structure
 
 =cut
 
-sub init_product($$$$) {
-
-	my $userid = shift;
-	my $orgid = shift;
-	my $code = shift;
-	my $countryid = shift;
+sub init_product($userid, $orgid, $code, $countryid) {
 
 	$log->debug("init_product", { userid => $userid, orgid => $orgid, code => $code, countryid => $countryid }) if $log->is_debug();
 	
@@ -745,10 +712,8 @@ sub init_product($$$$) {
 
 # Notify robotoff when products are updated
 
-sub send_notification_for_product_change($$) {
+sub send_notification_for_product_change($product_ref, $action) {
 
-	my $product_ref = shift;
-	my $action = shift;
 	if ((defined $robotoff_url) and (length($robotoff_url) > 0)) {
 		my $ua = LWP::UserAgent->new();
 		my $endpoint = "$robotoff_url/api/v1/webhook/product";
@@ -766,9 +731,8 @@ sub send_notification_for_product_change($$) {
 	return;
 }
 
-sub retrieve_product($) {
+sub retrieve_product($product_id) {
 
-	my $product_id = shift;
 	my $path = product_path_from_id($product_id);
 	my $product_data_root = data_root_for_product_id($product_id);
 
@@ -799,10 +763,8 @@ sub retrieve_product($) {
 	return $product_ref;
 }
 
-sub retrieve_product_or_deleted_product($$) {
+sub retrieve_product_or_deleted_product($product_id, $deleted_ok) {
 
-	my $product_id = shift;
-	my $deleted_ok = shift;
 	my $path = product_path_from_id($product_id);
 	my $product_data_root = data_root_for_product_id($product_id);
 	
@@ -823,10 +785,7 @@ sub retrieve_product_or_deleted_product($$) {
 }
 
 
-sub retrieve_product_rev($$) {
-
-	my $product_id = shift;
-	my $rev = shift;
+sub retrieve_product_rev($product_id, $rev) {
 
 	if ($rev !~ /^\d+$/) {
 		return;
@@ -851,13 +810,9 @@ sub retrieve_product_rev($$) {
 }
 
 
-sub change_product_server_or_code($$$) {
+sub change_product_server_or_code($product_ref, $new_code, $errors_ref) {
 
 	# Currently only called by admins, can cause issues because of bug #677
-
-	my $product_ref = shift;
-	my $new_code = shift;
-	my $errors_ref = shift;
 
 	my $code = $product_ref->{code};
 	my $new_server = "";
@@ -911,9 +866,7 @@ Used for the Personal Search project to provide generic search results that apps
 
 =cut
 
-sub compute_sort_keys($) {
-
-	my $product_ref = shift;
+sub compute_sort_keys($product_ref) {
 	
 	my $popularity_key = 0;
 	
@@ -965,11 +918,7 @@ sub compute_sort_keys($) {
 }
 
 
-sub store_product($$$) {
-
-	my $user_id = shift;
-	my $product_ref = shift;
-	my $comment = shift;
+sub store_product($user_id, $product_ref, $comment) {
 
 	my $code = $product_ref->{code};
 	my $product_id = $product_ref->{_id};
@@ -1242,10 +1191,7 @@ The changes structure allows to add apps.
 
 =cut
 
-sub compute_data_sources($$) {
-
-	my $product_ref = shift;
-	my $changes_ref = shift;
+sub compute_data_sources($product_ref, $changes_ref) {
 
 	my %data_sources = ();
 
@@ -1338,11 +1284,7 @@ sub compute_data_sources($$) {
 
 
 
-sub compute_completeness_and_missing_tags($$$) {
-
-	my $product_ref = shift;
-	my $current_ref = shift;
-	my $previous_ref = shift;
+sub compute_completeness_and_missing_tags($product_ref, $current_ref, $previous_ref) {
 
 	my $lc = $product_ref->{lc};
 	if (not defined $lc) {
@@ -1571,9 +1513,7 @@ The function returns by order of preference:
 
 =cut
 
-sub get_change_userid_or_uuid($) {
-
-	my $change_ref = shift;
+sub get_change_userid_or_uuid($change_ref) {
 
 	my $userid = $change_ref->{userid};
 
@@ -1685,11 +1625,7 @@ we can rename it to a generic user account like openfoodfacts-contributors.
 
 my @users_fields = qw(editors_tags photographers_tags informers_tags correctors_tags checkers_tags);
 
-sub replace_user_id_in_product($$$) {
-
-	my $product_id = shift;
-	my $user_id = shift;
-	my $new_user_id = shift;
+sub replace_user_id_in_product($product_id, $user_id, $new_user_id) {
 
 	my $path = product_path_from_id($product_id);
 
@@ -1794,10 +1730,7 @@ we can rename it to a generic user account like openfoodfacts-contributors.
 
 =cut
 
-sub find_and_replace_user_id_in_products($$) {
-
-	my $user_id = shift;
-	my $new_user_id = shift;
+sub find_and_replace_user_id_in_products($user_id, $new_user_id) {
 
 	$log->debug("find_and_replace_user_id_in_products", { user_id => $user_id, new_user_id => $new_user_id } ) if $log->is_debug();
 
@@ -1840,12 +1773,8 @@ sub find_and_replace_user_id_in_products($$) {
 
 
 
-sub compute_product_history_and_completeness($$$$) {
+sub compute_product_history_and_completeness($product_data_root, $current_product_ref, $changes_ref, $blame_ref) {
 
-	my $product_data_root = shift;
-	my $current_product_ref = shift;
-	my $changes_ref = shift;
-	my $blame_ref = shift;
 	my $code = $current_product_ref->{code};
 	my $product_id = $current_product_ref->{_id};
 	my $path = product_path($current_product_ref);
@@ -2209,12 +2138,8 @@ sub compute_product_history_and_completeness($$$$) {
 # add back the removed values
 
 # NOT sure if this is useful, it's being used in one of the "obsolete" scripts
-sub add_back_field_values_removed_by_user($$$$) {
+sub add_back_field_values_removed_by_user($current_product_ref, $changes_ref, $field, $userid) {
 
-	my $current_product_ref = shift;
-	my $changes_ref = shift;
-	my $field = shift;
-	my $userid = shift;
 	my $code = $current_product_ref->{code};
 	my $path = product_path($current_product_ref);
 
@@ -2311,9 +2236,7 @@ sub add_back_field_values_removed_by_user($$$$) {
 }
 
 
-sub normalize_search_terms($) {
-
-	my $term = shift;
+sub normalize_search_terms($term) {
 
 	# plural?
 	$term =~ s/s$//;
@@ -2322,8 +2245,8 @@ sub normalize_search_terms($) {
 
 
 
-sub product_name_brand($) {
-	my $ref = shift;
+sub product_name_brand($ref) {
+
 	my $full_name = '';
 	if ((defined $ref->{"product_name_$lc"}) and ($ref->{"product_name_$lc"} ne '')) {
 		$full_name = $ref->{"product_name_$lc"};
@@ -2360,8 +2283,8 @@ sub product_name_brand($) {
 
 # product full name is a combination of product name, first brand and quantity
 
-sub product_name_brand_quantity($) {
-	my $ref = shift;
+sub product_name_brand_quantity($ref) {
+
 	my $full_name = product_name_brand($ref);
 	my $full_name_id = '-' . get_string_id_for_lang($lc, $full_name) . '-';
 
@@ -2389,9 +2312,8 @@ Returns a relative URL for a product on the website.
 
 =cut
 
-sub product_url($) {
+sub product_url($code_or_ref) {
 
-	my $code_or_ref = shift;
 	my $code;
 	my $ref;
 
@@ -2439,10 +2361,7 @@ This function is called by the web/panels/panel.tt.html template for knowledge p
 
 =cut
 
-sub product_action_url($$) {
-
-	my $code = shift;
-	my $action = shift;
+sub product_action_url($code, $action) {
 
 	my $url = "/cgi/product.pl?type=edit&code=" . $code;
 
@@ -2462,9 +2381,8 @@ sub product_action_url($$) {
 	return $url;
 }
 
-sub index_product($)
+sub index_product($product_ref)
 {
-	my $product_ref = shift;
 
 	my @string_fields = qw(product_name generic_name);
 	my @tag_fields = qw(brands categories origins labels);
@@ -2494,10 +2412,8 @@ sub index_product($)
 }
 
 
-sub compute_codes($) {
+sub compute_codes($product_ref) {
 
-
-	my $product_ref = shift;
 	my $code = $product_ref->{code};
 
 	my @codes = ();
@@ -2551,10 +2467,7 @@ sub compute_codes($) {
 # [n] -> number of languages
 # en:multi -> indicates n > 1
 
-sub compute_languages($) {
-
-	my $product_ref = shift;
-
+sub compute_languages($product_ref) {
 
 	my %languages = ();
 	my %languages_codes = ();
@@ -2639,9 +2552,8 @@ sub compute_languages($) {
 #
 
 
-sub process_product_edit_rules($) {
+sub process_product_edit_rules($product_ref) {
 
-	my $product_ref = shift;
 	my $code = $product_ref->{code};
 
 	local $log->context->{user_id} = $User_id;
@@ -2918,9 +2830,7 @@ sub process_product_edit_rules($) {
 	return $proceed_with_edit;
 }
 
-sub log_change {
-
-	my ($product_ref, $change_ref) = @_;
+sub log_change($product_ref, $change_ref) {
 
 	my $change_document = {
 		code => $product_ref->{code},
@@ -2947,9 +2857,7 @@ $change_ref: reference to a change record
 
 =cut
 
-sub compute_changes_diff_text {
-
-	my $change_ref = shift;
+sub compute_changes_diff_text($change_ref) {
 
 	my $diffs = '';
 	if (defined $change_ref->{diffs}) {
@@ -2987,9 +2895,7 @@ $product_ref
 
 =cut
 
-sub add_user_teams ($) {
-
-	my $product_ref = shift;
+sub add_user_teams ($product_ref) {
 
 	if (defined $User_id) {
 
@@ -3035,9 +2941,7 @@ the "protect data" checkbox checked.
 
 =cut
 
-sub product_data_is_protected($) {
-
-	my $product_ref = shift;
+sub product_data_is_protected($product_ref) {
 
 	my $protected_data = 0;
 	if ((defined $product_ref->{owner}) and ($product_ref->{owner} =~ /^org-(.+)$/)) {
@@ -3065,9 +2969,7 @@ Reference to a complete product a subfield.
 An array of field names to remove.
 
 =cut
-sub remove_fields($$) {
-	my $product_ref = shift;
-	my $fields_ref = shift;
+sub remove_fields($product_ref, $fields_ref) {
 
 	foreach my $field (@$fields_ref) {
 		delete $product_ref->{$field};

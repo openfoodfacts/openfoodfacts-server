@@ -2054,7 +2054,7 @@ xx:Added sugars, Added sugar
 bg:Добавена захар 
 fr:Sucres ajoutés, sucre ajouté
 nl:Toegevoegde suikers, Toegevoegd suiker
-unit_en: g
+unit:en: g
 evaluation:en: bad
 
 zz:sucrose
@@ -3008,7 +3008,7 @@ xx:Added salt
 bg:Добавена сол
 fr:Sel ajouté
 nl:Toegevoegd zout
-unit_en: g
+unit:en: g
 evaluation:en: bad
 
 zz:sodium
@@ -4090,6 +4090,30 @@ sv:bikarbonat
 unit:en: mg
 wikidata:en: Q56810858
 wikipedia:en: https://en.wikipedia.org/wiki/Bicarbonate
+
+# SO4--
+zz:Sulphate
+en:Sulphate
+xx:Sulphate
+nl:Sulfaat, Sulfaten
+
+# NO3-
+zz:Nitrate
+en:Nitrate
+xx:Nitrate
+nl:Nitraat, Nitraten
+
+# HCO3-
+zz:Hydrogencarbonate
+en:Hydrogencarbonate
+xx:Hydrogencarbonate
+nl:Waterstofcarbonaat, Waterstofcarbonaten
+
+# NO2-
+zz:Nitrite
+en:Nitrite
+xx:Nitrite
+nl:Nitriet, Nitrieten
 
 zz:potassium
 en:Potassium

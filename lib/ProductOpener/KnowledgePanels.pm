@@ -37,8 +37,7 @@ See https://docs.google.com/document/d/1vJ9gatmv8pCXxyOERmYD16jOKRWJpz1RaQQ5MEcT
 
 package ProductOpener::KnowledgePanels;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 use Log::Any qw($log);
@@ -111,12 +110,7 @@ passed as input.
 
 =cut
 
-sub create_knowledge_panels($$$$) {
-
-	my $product_ref = shift;
-	my $target_lc = shift;
-	my $target_cc = shift;
-	my $options_ref = shift;	
+sub create_knowledge_panels($product_ref, $target_lc, $target_cc, $options_ref) {
 
 	$log->debug("create knowledge panels for product", { code => $product_ref->{code}, target_lc => $target_lc }) if $log->is_debug();
 
@@ -183,8 +177,8 @@ The function converts the multiline string into a single line string.
 
 =cut
 
-sub convert_multiline_string_to_singleline($) {
-    my $line = shift;
+sub convert_multiline_string_to_singleline($line) {
+
     # \R will match all Unicode newline sequence
     $line =~ s/\R/\\n/sg;
     # Escape quotes unless they have been escaped already
@@ -243,14 +237,7 @@ The Eco-Score depends on the country of the consumer (as the transport bonus/mal
 
 =cut
 
-sub create_panel_from_json_template ($$$$$$) {
-
-    my $panel_id = shift;
-    my $panel_template = shift;
-    my $panel_data_ref = shift;
-    my $product_ref = shift;
-    my $target_lc = shift;
-    my $target_cc = shift;
+sub create_panel_from_json_template ($panel_id, $panel_template, $panel_data_ref, $product_ref, $target_lc, $target_cc) {
 
     my $panel_json;
 
@@ -347,10 +334,7 @@ The impact estimator adds a lot of data to products. This function extracts the 
 
 =cut
 
-sub extract_data_from_impact_estimator_best_recipe($$) {
-
-    my $product_ref = shift;
-    my $panel_data_ref = shift;
+sub extract_data_from_impact_estimator_best_recipe($product_ref, $panel_data_ref) {
 
     # Copy data from product data (which format may change) to panel data to make it easier to use in the template
 
@@ -403,11 +387,7 @@ For a specific product, this function finds the most specific category for which
 
 =cut
 
-sub compare_impact_estimator_data_to_category_average($$$) {
-
-    my $product_ref = shift;
-    my $panel_data_ref = shift;
-    my $target_cc = shift;
+sub compare_impact_estimator_data_to_category_average($product_ref, $panel_data_ref, $target_cc) {
 
     # Comparison to other products
 
@@ -457,11 +437,7 @@ The Eco-Score depends on the country of the consumer (as the transport bonus/mal
 
 =cut
 
-sub create_ecoscore_panel($$$) {
-
-	my $product_ref = shift;
-	my $target_lc = shift;
-	my $target_cc = shift;
+sub create_ecoscore_panel($product_ref, $target_lc, $target_cc) {
 
 	$log->debug("create ecoscore panel", { code => $product_ref->{code}, ecoscore_data => $product_ref->{ecoscore_data} }) if $log->is_debug();
 		
@@ -636,11 +612,7 @@ The Eco-Score depends on the country of the consumer (as the transport bonus/mal
 
 =cut
 
-sub create_environment_card_panel($$$) {
-
-	my $product_ref = shift;
-	my $target_lc = shift;
-	my $target_cc = shift;
+sub create_environment_card_panel($product_ref, $target_lc, $target_cc) {
 
 	$log->debug("create environment card panel", { code => $product_ref->{code} }) if $log->is_debug();
 
@@ -698,11 +670,7 @@ The Eco-Score depends on the country of the consumer (as the transport bonus/mal
 
 =cut
 
-sub create_manufacturing_place_panel($$$) {
-
-	my $product_ref = shift;
-	my $target_lc = shift;
-	my $target_cc = shift;
+sub create_manufacturing_place_panel($product_ref, $target_lc, $target_cc) {
 
 	$log->debug("create_manufacturing_place_panel", { code => $product_ref->{code} }) if $log->is_debug();
 
@@ -754,12 +722,7 @@ We may display country specific recommendations from health authorities, or coun
 
 =cut
 
-sub create_health_card_panel($$$$) {
-
-	my $product_ref = shift;
-	my $target_lc = shift;
-	my $target_cc = shift;
-    my $options_ref = shift;
+sub create_health_card_panel($product_ref, $target_lc, $target_cc, $options_ref) {
 
 	$log->debug("create health card panel", { code => $product_ref->{code} }) if $log->is_debug();
 
@@ -810,11 +773,7 @@ This parameter sets the desired language for the user facing strings.
 
 =cut
 
-sub create_nutriscore_panel($$$) {
-
-	my $product_ref = shift;
-	my $target_lc = shift;
-	my $target_cc = shift;
+sub create_nutriscore_panel($product_ref, $target_lc, $target_cc) {
 
 	$log->debug("create nutriscore panel", { code => $product_ref->{code}, nutriscore_data => $product_ref->{nutriscore_data} }) if $log->is_debug();
 	
@@ -855,11 +814,7 @@ This parameter sets the desired language for the user facing strings.
 
 =cut
 
-sub create_nutrient_levels_panels($$$) {
-
-	my $product_ref = shift;
-	my $target_lc = shift;
-	my $target_cc = shift;
+sub create_nutrient_levels_panels($product_ref, $target_lc, $target_cc) {
 
 	$log->debug("create nutriscore panel", { code => $product_ref->{code}, nutriscore_data => $product_ref->{nutriscore_data} }) if $log->is_debug();
 	
@@ -896,11 +851,7 @@ This parameter sets the desired language for the user facing strings.
 
 =cut
 
-sub create_nutrition_facts_table_panel($$$) {
-
-	my $product_ref = shift;
-	my $target_lc = shift;
-	my $target_cc = shift;
+sub create_nutrition_facts_table_panel($product_ref, $target_lc, $target_cc) {
 
 	$log->debug("create nutrition facts panel", { code => $product_ref->{code}, nutriscore_data => $product_ref->{nutriscore_data} }) if $log->is_debug();
 
@@ -939,11 +890,7 @@ This parameter sets the desired language for the user facing strings.
 
 =cut
 
-sub create_serving_size_panel($$$) {
-
-	my $product_ref = shift;
-	my $target_lc = shift;
-	my $target_cc = shift;
+sub create_serving_size_panel($product_ref, $target_lc, $target_cc) {
 
 	$log->debug("create serving size panel", { code => $product_ref->{code}, nutriscore_data => $product_ref->{nutriscore_data} }) if $log->is_debug();
 
@@ -998,11 +945,7 @@ my %activities_met = (
 
 my @sorted_activities = sort ({ $activities_met{$a} <=> $activities_met{$b} } keys %activities_met);
 
-sub create_physical_activities_panel($$$) {
-
-	my $product_ref = shift;
-	my $target_lc = shift;
-	my $target_cc = shift;
+sub create_physical_activities_panel($product_ref, $target_lc, $target_cc) {
 
 	$log->debug("create physical_activities panel", { code => $product_ref->{code}, nutriscore_data => $product_ref->{nutriscore_data} }) if $log->is_debug();
 
@@ -1091,11 +1034,7 @@ This parameter sets the desired language for the user facing strings.
 
 =cut
 
-sub create_ingredients_panel($$$) {
-
-	my $product_ref = shift;
-	my $target_lc = shift;
-	my $target_cc = shift;
+sub create_ingredients_panel($product_ref, $target_lc, $target_cc) {
 
 	$log->debug("create ingredients panel", { code => $product_ref->{code} }) if $log->is_debug();
 
@@ -1148,11 +1087,7 @@ Creates knowledge panels for additives.
 
 =cut
 
-sub create_additives_panel($$$) {
-
-	my $product_ref = shift;
-	my $target_lc = shift;
-	my $target_cc = shift;
+sub create_additives_panel($product_ref, $target_lc, $target_cc) {
 
 	$log->debug("create additives panel", { code => $product_ref->{code} }) if $log->is_debug();
 
@@ -1212,11 +1147,7 @@ This parameter sets the desired language for the user facing strings.
 
 =cut
 
-sub create_ingredients_analysis_panel($$$) {
-
-	my $product_ref = shift;
-	my $target_lc = shift;
-	my $target_cc = shift;
+sub create_ingredients_analysis_panel($product_ref, $target_lc, $target_cc) {
 
 	$log->debug("create ingredients analysis panel", { code => $product_ref->{code} }) if $log->is_debug();
 
@@ -1285,14 +1216,7 @@ Reference to an array of preferred languages, with the preferred language first.
 
 =cut
 
-sub add_taxonomy_properties_in_target_languages_to_object ($$$$$) {
-
-    my $object_ref = shift;
-    my $tagtype = shift;
-    my $tagid = shift;
-
-    my $properties_ref = shift;
-    my $target_lcs_ref = shift;
+sub add_taxonomy_properties_in_target_languages_to_object ($object_ref, $tagtype, $tagid, $properties_ref, $target_lcs_ref) {
 
     foreach my $property (@$properties_ref) {
         my $property_value;
@@ -1337,11 +1261,7 @@ This parameter sets the desired language for the user facing strings.
 
 =cut
 
-sub create_recommendation_panels($$$) {
-
-	my $product_ref = shift;
-	my $target_lc = shift;
-	my $target_cc = shift;
+sub create_recommendation_panels($product_ref, $target_lc, $target_cc) {
 
 	$log->debug("create health recommendation panels", { code => $product_ref->{code}, }) if $log->is_debug();
 
@@ -1405,11 +1325,7 @@ This parameter sets the desired language for the user facing strings.
 
 =cut
 
-sub create_nova_panel($$$) {
-
-	my $product_ref = shift;
-	my $target_lc = shift;
-	my $target_cc = shift;
+sub create_nova_panel($product_ref, $target_lc, $target_cc) {
 
 	$log->debug("create nova panel", { code => $product_ref->{code} }) if $log->is_debug();
 	

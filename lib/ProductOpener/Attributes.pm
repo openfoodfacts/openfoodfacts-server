@@ -37,8 +37,7 @@ See https://wiki.openfoodfacts.org/Product_Attributes
 
 package ProductOpener::Attributes;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 use Log::Any qw($log);
@@ -144,9 +143,7 @@ The return value is cached for each language in the %localized_attribute_groups 
 # Global structure to cache the return structure for each language
 my %localized_attribute_groups = ();
 
-sub list_attributes($) {
-
-	my $target_lc = shift;	
+sub list_attributes($target_lc) {
 
 	$log->debug("list attributes", { target_lc => $target_lc }) if $log->is_debug();
 
@@ -211,10 +208,7 @@ A reference to the created attribute group object.
 
 =cut
 
-sub initialize_attribute_group($$) {
-
-	my $group_id = shift;		
-	my $target_lc = shift;
+sub initialize_attribute_group($group_id, $target_lc) {
 	
 	my $group_ref = {
 		id => $group_id,
@@ -273,10 +267,7 @@ A reference to the created attribute object.
 
 =cut
 
-sub initialize_attribute($$) {
-	
-	my $attribute_id = shift;
-	my $target_lc = shift;
+sub initialize_attribute($attribute_id, $target_lc) {
 	
 	my $attribute_ref = {id => $attribute_id};
 	
@@ -411,12 +402,7 @@ e.g. "attribute_labels_fair_trade_yes_description_short"
 
 =cut
 
-sub override_general_value($$$$) {
-	
-	my $attribute_ref = shift;
-	my $target_lc = shift;
-	my $field = shift;
-	my $stringid = shift;
+sub override_general_value($attribute_ref, $target_lc, $field, $stringid) {
 	
 	my $string = lang_in_other_lc($target_lc, $stringid);
 	if ($string ne "") {
@@ -455,10 +441,7 @@ that is used to define the Nutri-Score grade from A to E.
 
 =cut
 
-sub compute_attribute_nutriscore($$) {
-
-	my $product_ref = shift;
-	my $target_lc = shift;
+sub compute_attribute_nutriscore($product_ref, $target_lc) {
 
 	$log->debug("compute nutriscore attribute", { code => $product_ref->{code}, nutriscore_data => $product_ref->{nutriscore_data} }) if $log->is_debug();
 
@@ -614,11 +597,7 @@ that is used to define the Eco-Score grade from A to E.
 
 =cut
 
-sub compute_attribute_ecoscore($$$) {
-
-	my $product_ref = shift;
-	my $target_lc = shift;
-	my $target_cc = shift;
+sub compute_attribute_ecoscore($product_ref, $target_lc, $target_cc) {
 
 	$log->debug("compute ecoscore attribute", { code => $product_ref->{code}, ecoscore_data => $product_ref->{ecoscore_data} }) if $log->is_debug();
 
@@ -729,11 +708,7 @@ If the forest footprint is not computed, we mark it as non-computed and make the
 
 =cut
 
-sub compute_attribute_forest_footprint($$) {
-
-	my $product_ref = shift;
-	my $target_lc = shift;
-
+sub compute_attribute_forest_footprint($product_ref, $target_lc) {
 
 	$log->debug("compute forest footprint attribute", { code => $product_ref->{code}, forest_footprint_data => $product_ref->{forest_footprint_data} }) if $log->is_debug();
 
@@ -809,10 +784,7 @@ The return value is a reference to the resulting attribute data structure.
 
 =cut
 
-sub compute_attribute_nova($$) {
-
-	my $product_ref = shift;
-	my $target_lc = shift;
+sub compute_attribute_nova($product_ref, $target_lc) {
 
 	$log->debug("compute nova attribute", { code => $product_ref->{code} }) if $log->is_debug();
 
@@ -889,10 +861,7 @@ The return value is a reference to the resulting attribute data structure.
 
 =cut
 
-sub compute_attribute_additives($$) {
-
-	my $product_ref = shift;
-	my $target_lc = shift;
+sub compute_attribute_additives($product_ref, $target_lc) {
 
 	$log->debug("compute additives attribute", { code => $product_ref->{code} }) if $log->is_debug();
 
@@ -989,12 +958,7 @@ The return value is a reference to the resulting attribute data structure.
 
 =cut
 
-sub compute_attribute_has_tag($$$$) {
-
-	my $product_ref = shift;
-	my $target_lc = shift;
-	my $tagtype = shift;
-	my $tagid = shift;	
+sub compute_attribute_has_tag($product_ref, $target_lc, $tagtype, $tagid) {
 
 	$log->debug("compute attributes for product", { code => $product_ref->{code} }) if $log->is_debug();
 
@@ -1091,12 +1055,7 @@ Traffic lights levels are defined in Food.pm:
 
 =cut
 
-sub compute_attribute_nutrient_level($$$$) {
-
-	my $product_ref = shift;
-	my $target_lc = shift;
-	my $level = shift;
-	my $nid = shift;	
+sub compute_attribute_nutrient_level($product_ref, $target_lc, $level, $nid) {
 
 	$log->debug("compute attributes nutrient quantity for product", { code => $product_ref->{code}, level => $level, nid => $nid }) if $log->is_debug();
 
@@ -1208,11 +1167,8 @@ The return value is a reference to the resulting attribute data structure.
 
 =cut
 
-sub compute_attribute_allergen($$$) {
-
-	my $product_ref = shift;
-	my $target_lc = shift;
-	my $attribute_id = shift;	# e.g. "allergens_no_gluten",
+sub compute_attribute_allergen($product_ref, $target_lc, $attribute_id) {
+	# $attribute_id  ->  e.g. "allergens_no_gluten",
 	
 	my $allergen = $attribute_id;
 	$allergen =~ s/^allergens_no_//;
@@ -1347,11 +1303,7 @@ For "low" levels:
 
 =cut
 
-sub compute_attribute_ingredients_analysis($$$) {
-
-	my $product_ref = shift;
-	my $target_lc = shift;
-	my $analysis = shift;
+sub compute_attribute_ingredients_analysis($product_ref, $target_lc, $analysis) {
 	
 	my $attribute_id = $analysis;
 	$attribute_id =~ s/-/_/g;
@@ -1462,12 +1414,7 @@ e.g. nutritional_quality, allergens, labels
 
 =cut
 
-sub add_attribute_to_group($$$$) {
-	
-	my $product_ref = shift;
-	my $target_lc = shift;
-	my $group_id = shift;
-	my $attribute_ref = shift;
+sub add_attribute_to_group($product_ref, $target_lc, $group_id, $attribute_ref) {
 	
 	$log->debug("add_attribute_to_group", { target_lc => $target_lc, group_id => $group_id, attribute_ref => $attribute_ref }) if $log->is_debug();	
 	
@@ -1564,12 +1511,7 @@ The array contains attribute groups, and each attribute group contains individua
 
 =cut
 
-sub compute_attributes($$$$) {
-
-	my $product_ref = shift;
-	my $target_lc = shift;
-	my $target_cc = shift;
-	my $options_ref = shift;	
+sub compute_attributes($product_ref, $target_lc, $target_cc, $options_ref) {
 
 	$log->debug("compute attributes for product", { code => $product_ref->{code}, target_lc => $target_lc }) if $log->is_debug();
 

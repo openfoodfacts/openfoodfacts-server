@@ -74,8 +74,8 @@ If the fields to exports are specified with the C<fields> parameter, the first p
 
 package ProductOpener::Export;
 
-use utf8;
-use Modern::Perl '2017';
+
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 use Log::Any qw($log);
@@ -170,9 +170,7 @@ Note: if the max_count parameter is passed
 
 =cut
 
-sub export_csv($) {
-
-	my $args_ref = shift;
+sub export_csv($args_ref) {
 
 	my $filehandle = $args_ref->{filehandle};
 	my $filename = $args_ref->{filename};
@@ -281,37 +279,7 @@ sub export_csv($) {
 				elsif ($group_id eq "images") {
 					if ($args_ref->{include_images_paths}) {
 						if (defined $product_ref->{images}) {
-
-							# First list the selected images
-							my %selected_images = ();
-							foreach my $imageid (sort keys %{$product_ref->{images}}) {
-
-								if ($imageid =~ /^(front|ingredients|nutrition|packaging|other)_(\w\w)$/) {
-
-									$selected_images{$product_ref->{images}{$imageid}{imgid}} = 1;
-									$populated_fields{"image_" . $imageid . "_file"} = sprintf("%08d", 10 * 1000 ) . "_" . $imageid;
-									# Also export the crop coordinates
-									foreach my $coord (qw(x1 x2 y1 y2 angle normalize white_magic coordinates_image_size)) {
-										if ((defined $product_ref->{images}{$imageid}{$coord})
-											and (($coord !~ /^(x|y)/) or ($product_ref->{images}{$imageid}{$coord} != -1))  # -1 is passed when the image is not cropped
-											) {
-												$populated_fields{"image_" . $imageid . "_" . $coord} = sprintf("%08d", 10 * 1000 ) . "_" . $imageid . "_" . $coord;
-										}
-									}
-								}
-							}
-
-							# Then list unselected images as other
-							my $other = 0;
-							foreach my $imageid (sort keys %{$product_ref->{images}}) {
-
-								if (($imageid =~ /^(\d+)$/) and (not defined $selected_images{$imageid})) {
-									$other++;
-									$populated_fields{"image_" . "other_" . $other . "_file"} = sprintf("%08d", 10 * 1000 ) . "_" . "other_" . $other;
-									# Keep the imgid for second loop on products
-									$other_images{$product_ref->{code} . "." . "other_" . $other} = { imgid => $imageid};
-								}
-							}
+							include_image_paths($product_ref, \%populated_fields, \%other_images);
 						}
 					}
 				}
@@ -623,6 +591,42 @@ sub export_csv($) {
 	return $j;
 }
 
+
+
+sub include_image_paths($product_ref, $populated_fields_ref, $other_images_ref) {
+
+	# First list the selected images
+	my %selected_images = ();
+	foreach my $imageid (sort keys %{$product_ref->{images}}) {
+
+		if ($imageid =~ /^(front|ingredients|nutrition|packaging|other)_(\w\w)$/) {
+
+			$selected_images{$product_ref->{images}{$imageid}{imgid}} = 1;
+			$populated_fields_ref->{"image_" . $imageid . "_file"} = sprintf("%08d", 10 * 1000 ) . "_" . $imageid;
+			# Also export the crop coordinates
+			foreach my $coord (qw(x1 x2 y1 y2 angle normalize white_magic coordinates_image_size)) {
+				if ((defined $product_ref->{images}{$imageid}{$coord})
+					and (($coord !~ /^(x|y)/) or ($product_ref->{images}{$imageid}{$coord} != -1))  # -1 is passed when the image is not cropped
+					) {
+						$populated_fields_ref->{"image_" . $imageid . "_" . $coord} = sprintf("%08d", 10 * 1000 ) . "_" . $imageid . "_" . $coord;
+				}
+			}
+		}
+	}
+
+	# Then list unselected images as other
+	my $other = 0;
+	foreach my $imageid (sort keys %{$product_ref->{images}}) {
+
+		if (($imageid =~ /^(\d+)$/) and (not defined $selected_images{$imageid})) {
+			$other++;
+			$populated_fields_ref->{"image_" . "other_" . $other . "_file"} = sprintf("%08d", 10 * 1000 ) . "_" . "other_" . $other;
+			# Keep the imgid for second loop on products
+			$other_images_ref->{$product_ref->{code} . "." . "other_" . $other} = { imgid => $imageid};
+		}
+	}
+	return;
+}
 
 1;
 

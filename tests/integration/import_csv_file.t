@@ -73,6 +73,8 @@ sub fake_download_image ($) {
 
 	# clean data
 	remove_all_products();
+	# import csv can create some organizations if they don't exist, remove them
+	remove_all_orgs();
 
 	# step1: parse xls
 	my ($out, $err, $csv_result) = capture_ouputs(
@@ -109,10 +111,12 @@ sub fake_download_image ($) {
 		"exported_t" => $datestring,
 	};
 
+	my $stats_ref;
+
 	# run
 	($out, $err) = capture_ouputs(
 		sub {
-			ProductOpener::Import::import_csv_file($args);
+			$stats_ref = ProductOpener::Import::import_csv_file($args);
 		}
 	);
 
@@ -143,17 +147,7 @@ sub fake_download_image ($) {
 		compare_array_to_expected_results(\@products, $expected_dir, $update_expected_results);
 	}
 
-	# TODO check outputs ? for
-	# import done
-	# 1 products
-	# 1 new products
-	# 0 skipped not existing products
-	# 0 skipped no images products
-	# 0 existing products
-	# 0 differing values
-	# 1 products with edited nutrients
-	# 1 products with edited fields or nutrients
-	# 1 products updated
+	compare_to_expected_results($stats_ref, $expected_dir . "/stats.json", $update_expected_results);
 
 	# TODO verify images
 	# clean csv and sto
