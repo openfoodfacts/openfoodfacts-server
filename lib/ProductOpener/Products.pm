@@ -2428,6 +2428,8 @@ sub index_search_service($product_ref) {
 	if ($@) {
 		$log->warn("Error connecting to Redis", { error => $@ }) if $log->is_warn();
 	}
+
+	return;
 }
 
 sub compute_codes($product_ref) {
