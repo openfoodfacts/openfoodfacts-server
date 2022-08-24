@@ -1,4 +1,6 @@
 type: object
+x-stoplight:
+  id: be695a4b100b6
 x-examples:
   example-1:
     code: '3017620422003'
@@ -4728,6 +4730,7 @@ properties:
 
 
 
+
            Date when the product was added (UNIX timestamp format).
            
       creator:
@@ -9340,7 +9343,7 @@ properties:
         items:
           type: string
       ingredients:
-        $ref: "./get_ingredients.yaml"
+        $ref: ./ingredient.yaml
       ingredients_analysis:
         type: object
         properties:
