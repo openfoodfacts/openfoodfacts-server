@@ -5,28 +5,7 @@
             id:
               type: string
             ingredients:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  percent_estimate:
-                    type: number
-                  percent_max:
-                    type:
-                      - integer
-                      - number
-                  percent_min:
-                    type:
-                      - integer
-                      - number
-                  text:
-                    type: string
-                  vegan:
-                    type: string
-                  vegetarian:
-                    type: string
+              $ref: "./get_ingredients.yaml"
             percent:
               type: integer
             percent_estimate:
