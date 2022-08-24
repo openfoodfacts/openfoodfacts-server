@@ -230,7 +230,7 @@
 		[% END %]
 		
 		<!-- main row - comment used to remove left column and center content on some pages -->
-		<div class="main block_latte" >
+		<div class="main block_light block_latte" >
 			
 			<div id="main_column"  >
 				
@@ -279,7 +279,7 @@
 
 </div>
 <footer >
-<div class="bg-white">
+<div class="block_light bg-white" id="install_the_app_block">
 	<div class="row">
 		<div class="small-12 flex-grid v-space-short v-align-center direction-row h-space-tiny">
 			<div class="cell small-100 medium-100 large-25 v-align-center">
@@ -294,7 +294,7 @@
 		</div>
 	</div>
 </div>
-<div class="bg-skyblue">
+<div class="block_light block_cappucino" id="contribute_and_discover_links_block">
 	<div class="row">
 		<div class="small-12 large-6 columns v-space-normal h-space-large">
 			<h3 class="title-3 text-strong text-oceanblue v-space-tiny text-upper">[% lang('footer_join_the_community') %]</h3>
@@ -312,8 +312,8 @@
 			</p>
 		</div>
 		<div class="small-12 large-6 columns project v-space-normal  h-space-large">
-			<h3 class="title-3 text-strong text-oceanblue v-space-tiny text-upper">[% lang('footer_discover_the_project') %]</h3>
-			<ul class="inline-list navbadge v-space-tiny h-space-tiny" >
+			<h3 class="title-5">[% lang('footer_discover_the_project') %]</h3>
+			<ul class="inline-list tags_links v-space-tiny h-space-tiny" >
 				<li><a class="button small white radius" href="[% lang('footer_who_we_are_link') %]">[% lang('footer_who_we_are') %]</a></li>
 				<li><a class="button small white radius" href="[% lang('footer_vision_link') %]">[% lang('footer_vision') %]</a></li>
 				<li><a class="button small white radius" href="[% lang('footer_faq_link') %]">[% lang('footer_faq') %]</a></li>
@@ -327,18 +327,31 @@
 		</div>
 	</div>
 </div>
-<div class="bg-white off" id="siteEnd">
-	<div class="small-12 text-center v-space-short h-space-large">
-		<h3 class="title-5 text-black text-uppercase text-strong ">[% lang('site_name') %]</h3>
-		<p>[% lang('footer_tagline') %]</p>
-		
-		<ul class="inline-list text-center text-small">
-			<li><a href="[% lang('footer_legal_link') %]">[% lang('footer_legal') %]</a></li>
-			<li><a href="[% lang('footer_terms_link') %]">[% lang('footer_terms') %]</a></li>
-			<li><a href="[% lang('footer_data_link') %]">[% lang('footer_data') %]</a></li>
-			<li><a href="[% lang('donate_link') %]">[% lang('donate') %]</a></li>
-			<li><a href="[% lang('footer_producers_link') %]">[% lang('footer_producers') %]</a></li>
-		</ul>
+<div class="block_off block_dark block_ristreto" id="footer_block">
+
+	<div id="footer_block_image_banner_outside">
+		<div id="footer_block_image_banner_outside2">
+
+			<div class="row">
+
+				<div class="small-12 text-center v-space-short h-space-large">
+
+					<a href="/" style="font-size:1rem;"><img id="logo" src="[% static_subdomain %]/images/logos/off-logo-horizontal-mono-white.svg" alt="[% lang('logo_site_name') %]" style="margin:8px;height:48px;width:auto;"></a>
+
+					<p>[% lang('footer_tagline') %]</p>
+					
+					<ul class="inline-list text-center text-small">
+						<li><a href="[% lang('footer_legal_link') %]">[% lang('footer_legal') %]</a></li>
+						<li><a href="[% lang('footer_terms_link') %]">[% lang('footer_terms') %]</a></li>
+						<li><a href="[% lang('footer_data_link') %]">[% lang('footer_data') %]</a></li>
+						<li><a href="[% lang('donate_link') %]">[% lang('donate') %]</a></li>
+						<li><a href="[% lang('footer_producers_link') %]">[% lang('footer_producers') %]</a></li>
+					</ul>
+				</div>
+
+			</div>
+
+		</div>
 	</div>
 </div>
 

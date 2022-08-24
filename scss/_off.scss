@@ -1,18 +1,36 @@
 // OFF colored blocks
+// combine classes block_light or block_dark with a color like block_ristreto
+
+.block_off a {
+    text-decoration:underline;
+}
+
+.block_dark {
+    color: $white;
+}
+
+.block_light {
+    color: $black;
+}
+
+.block_dark.block_off a {
+    color:$white;
+}
 
 .block_ristreto {
     background-color: $ristreto; 
-    color: $white;
 }
 
 .block_latte {
     background-color: $latte;
-    color: $black;
+}
+
+.block_cappucino {
+    background-color: $cappucino;
 }
 
 .block_light_cyan {
     background-color: #E3F6FF;
-    color: $black;
 }
 
 
