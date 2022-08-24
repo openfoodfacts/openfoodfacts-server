@@ -4069,7 +4069,7 @@ de:Vollmilchjoghurt, Joghurt mit natürlichem Fettgehalt, Joghurt aus Vollmilch
 es:yogur de leche entera
 fi:täysmaitojogurtti
 fr:yogourt au lait entier, yaourt au lait entier
-nl:volle melk yoghurt
+nl:volle yoghurt, volle melk yoghurt
 
 <en:yogurt
 de:Joghurtpulver
@@ -9196,7 +9196,7 @@ en:rock salt
 bg:каменна сол
 de:Steinsalz
 hu:Kősó
-nl:steenzout
+nl:steenzout, mineraalzout
 
 # description:en:SMOKED SALT is an aromatic salt smoked with any number of select bark free woods for up to 14 days.
 
@@ -9233,7 +9233,6 @@ es:Sal del Himalaya
 fr:Sel de l'Himalaya
 it:Sale dell'Himalaya
 pl:Sól himalajska
-
 
 <en:salt
 en:pink salt
@@ -14502,7 +14501,7 @@ es:aceite de palma totalmente hidrogenado
 fi:kokonaan kovetettu palmuöljy, kokonaan hydrogenoitu palmuöljy
 fr:huile de palme totalement hydrogénée, palme totalement hydrogénée
 hu:teljes mértékben hidrogénezett pálmaolaj, teljesen hidrogénezett pálmaolaj, teljes mértékben hidrogénezett pálmamag-olaj
-nl:geheel geharde palm
+nl:geheel geharde palm, geheel geharde palmolie
 ro:unt de palmier complet hidrogenat
 sl:popolnoma hidrogenirano palmino olje
 
@@ -21030,7 +21029,7 @@ fi:vehnäkuitu
 fr:fibre de blé, fibres de blé
 hu:búzarost
 it:fibra di frumento, fibre di frumento
-nl:tarwevezel
+nl:tarwevezel, tarwevezels
 pl:błonnik pszenny, błonnik pszeniczny
 pt:fibras de trigo
 ru:Пшеничные волокна, пищевые волокна пшеничные
@@ -23521,6 +23520,9 @@ it:fiocchi di quinoa
 # 69 products in 3 languages @2018-09-22
 
 <en:spelt
+nl:speltschroot
+
+<en:spelt
 fr:Petit épeautre
 # ingredient/fr:petit-epeautre has 37 products @2019-06-03
 
@@ -24970,7 +24972,7 @@ fi:maissisuurimo
 fr:semoule de maïs, semoule de mais
 hu:kukoricadara
 it:spezzato di mais, semolino di granoturco
-nl:Maïsgrits, maisgrut
+nl:Maïsgrits, maisgrut, maïsgrut
 pl:grys kukurydziany, kasza kukurydziana
 pt:grãos de milho
 ro:porumb boabe
@@ -25407,7 +25409,7 @@ lv:lipīgie rīsi
 ms:pulut
 my:ကောက်ညှင်း
 nb:kleberis
-nl:plakrijst, kleverige rijst, kleefrijst
+nl:plakrijst, kleverige rijst, kleefrijst, ketan rijst, ketanrijst
 pl:ryż kleisty
 pt:arroz glutinoso, arroz empapado
 ru:kлейкий рис
@@ -31105,6 +31107,7 @@ de:Sojabohnenpaste
 #en:soy grits
 #de:Sojaschrot, Sojagrieß
 #fi:soijarouhe
+#nl:sojagrut
 #sv:sojafärs
 
 <en:bran
@@ -31732,7 +31735,7 @@ fi:vehnätaikinanjuuri, vehnähapantaikina
 fr:levain de blé, levain panaire de blé
 it:lievito madre di frumento
 nb:surdeig av hvete
-nl:tarwe zuurdesem, tarwedesem
+nl:tarwe zuurdesem, tarwedesem, tarwezuurdesem
 sv:vetesurdeg, surdeg av vete, surdeg på vete
 allergens:en: en:gluten
 
@@ -34200,7 +34203,7 @@ it:pesca, pesche
 ja:桃
 kk:Шабдалы
 lb:Piisch
-nl:perziken
+nl:perziken, perzik
 oc:Persec
 pl:Brzoskwinia
 pt:pêssegos
@@ -34321,7 +34324,7 @@ en:peach juice
 #fi:persikkamehu
 #fr:jus de pêche
 #it:Succo di pesca
-#nl:perzikkensap
+#nl:perzikensap
 #pt:sumo de pêssego
 #ro:suc de piersici
 #ru:Персиковый сок
@@ -34348,7 +34351,7 @@ de:Pfirsichsirup
 fi:persikkasiirappi
 fr:sirop de pêche
 it:sciroppo di pesca
-nl:perzikkensiroop
+nl:perzikensiroop
 vegan:en:yes
 vegetarian:en:yes
 # ingredient/en:peach-syrup has 7 product in 4 languages @2021-08-19
@@ -34372,7 +34375,7 @@ sv:persikopasta
 #compound
 <en:peach
 fr:pêche au sirop
-nl:perzikken op siroop
+nl:perziken op siroop
 
 ###################################################################################################
 #
@@ -35075,6 +35078,7 @@ en:Pink Lady apple
 es:Manzana Pink Lady
 fr:pomme Pink Lady
 it:Mela Pink Lady
+nl:Pink Lady appels, Pink Lady
 
 
 <en:apple
@@ -48604,7 +48608,7 @@ ms:lada benggala
 mt:bżar ħelu
 my:ငရုပ်ပွ
 ne:भेडे खुर्सानी
-nl:paprika's
+nl:paprika's, zoete peper
 oc:pebron
 ps:خواږه مرچ
 pt:pimentão
@@ -52684,6 +52688,7 @@ en:raw cashews
 de:Rohe Cashewkerne
 es:cayú entero​, nuez de la India entera, anacardo entero, anacardos enteros, merey entero, cajú entero, castaña de cajú entera, castañas de cajú enteras, marañón entero, cajuil entero, caguil entero
 fr:Noix de cajou crues
+hr:indijski oraščić sirovi
 
 <en:cashew nuts
 en:cashew nut paste
@@ -54140,10 +54145,14 @@ de:Kürbiskerne
 es:semillas de calabaza
 fi:kurpitsansiemen, kurpitsansiemenet
 fr:graine de courge, graines de courge, graines de potiron, graines de citrouille
+hr:bučine koštice
+hu:tökmag
 it:semi di zucca
 nl:pompoenpitten
 pl:nasiona dyni
 pt:Sementes de abóbora
+ro:seminţe de dovleac
+sl:bučna semena
 sv:pumpafrön, pumpakärnor
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graine-de-courge
 # 234 products in 5 languages @2018-10-07
@@ -58438,6 +58447,7 @@ es:extracto de albahaca
 fi:basilikauute
 fr:extrait de basilic
 it:Estratto di basilico
+nl:basilicumextract
 pt:extracto de manjericão
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-basilic
 # 32 products in 4 languages @2108-10-10
@@ -63836,7 +63846,7 @@ fr:champignon blanc de Paris, Champignons blancs de Paris
 en:chestnut mushroom, chestnut mushrooms
 de:braune Champignons, Champignons braun, braune Egerlinge
 fr:champignon brun, champignons bruns
-nl:kastanjechampignon, kastanjechampignons
+nl:kastanjechampignon, kastanjechampignons, bruine champignon
 
 
 # description:en:HORN OF PLENTY, is an edible mushroom. This fungus is found in woods in North America, Europe, Japan and Korea.
