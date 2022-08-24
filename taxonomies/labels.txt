@@ -1087,7 +1087,7 @@ he:עשיר בחלבונים
 hu:Magas fehérjetartalom, Fehérjékben gazdag
 it:Alto contenuto proteico, ricco di proteine, fonte di proteine
 nb:Rik på protein
-nl:Eiwitrijk, Rijk aan protéines
+nl:Eiwitrijk, Rijk aan protéines, Rijk aan Eiwit
 pt:Proteínas altas, fonte de proteínas
 ru:Обогащено протеинами
 th:โปรตีนสูง
@@ -1266,7 +1266,7 @@ fi:Raudan lähde
 fr:Source de fer
 hu:Vasforrás
 it:Fonte di ferro
-nl:Bron van IJzer
+nl:Bron van IJzer, Rijk aan IJzer
 pt:Fonte de ferro
 
 en:Natural source of calcium, Natural calcium source
@@ -1773,7 +1773,7 @@ fr:Peu ou pas de sel, peu ou pas salé
 he:דל או נטול מלח
 hu:Alacsony sótartalmú vagy sótlan
 it:Con poco sale o senza sale
-nl:Geen of weinig zout
+nl:Geen of weinig zout, Laag in zout
 pt:Baixo ou sem sal
 th:เกลือต่ำหรือไม่มีเลย
 label_categories:en: en:Health
@@ -1926,7 +1926,7 @@ fr:Sans sel ajouté, sans sel ajoutés, sans ajout de sel
 he:ללא תוספת מלח
 hu:Hozzáadott só nélkül, hozzáadott sót nem tartalmaz, nincs hozzáadott só
 it:Senza aggiunta di sale
-nl:Geen zout toegevoegd, 0% zout toegevoegd
+nl:Zonder toegevoegd zout, Geen zout toegevoegd, 0% zout toegevoegd
 pl:Bez dodatku soli, Bez soli
 pt:Sem sal adicionado
 ru:Без добавления соли
@@ -3219,7 +3219,7 @@ fi:Ecocert-sertifioitu
 fr:Ecocert, Distribution certifiée par Ecocert
 he:באישור Ecocert
 it:Certificato da Ecocert, Ecocert
-nl:Gecerificeerd door Ecocert
+nl:Gecertificeerd door Ecocert
 label_categories:en: en:Certification
 
 <en:Ecocert
@@ -3515,6 +3515,11 @@ hu:EU mezőgazdaság
 it:Agricoltura dell'Unione Europea
 nl:EU landbouw
 ru:EU агрокультура, агрокультура Европейского Союза
+
+<en:EU Agriculture
+en:French agriculture
+fr:Agriculture France
+nl:Franse landbouw
 
 <en:non-EU Agriculture
 <en:EU Agriculture
@@ -16632,6 +16637,13 @@ it:Ricco di vitamina E
 nl:rijk aan vitamine E
 pt:Rico em vitamina E
 
+#label for more sustainable production of agricultural products
+<en:Sustainable
+en:Planet Proof
+xx:Planet Proof
+website:en:https://www.planetproof.eu/en/
+
+<en:Sustainable
 en:Sustainable Palm Oil
 bg:Устойчиво палмово масло
 ca:Oli de Palma Sostenible
@@ -17068,6 +17080,12 @@ fr:Pêché au filet maillant, Pêchés au filet maillant, Pêché aux filets mai
 fr:Pêché à la bolinche, Pêchés à la bolinche, Pêchée à la bolinche, Pêchées à la bolinche
 label_categories:en: en:Fishing method
 
+nl:ringnetten, ringnet
+label_categories:en: en:Fishing method
+
+nl:kruisnetten, kruisnet
+label_categories:en: en:Fishing method
+
 en:Lift net fishing, Lifting net fishing
 de:Lift Netz Fischerei
 fr:Pêché au filet soulevé, Pêchés au filet soulevé, Pêché aux filets soulevés, Pêchés aux filets soulevés, Pêchée au filet soulevé, Pêchées au filet soulevé
@@ -17117,6 +17135,7 @@ wikidata:en:Q1784476
 label_categories:en: en:Fishing method
 
 en:Sustainable
+nl:Duurzaam
 
 <en:Sustainable
 en:Sustainable fishing, Sustainable Seafood, Sustainable fishery
