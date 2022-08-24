@@ -844,7 +844,12 @@ sub init_user($request_ref) {
 
 				if($post_resp->is_success){
 					$log->debug("User logged in api flow");
-					#open user session?
+						#get user file and open session
+						my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", param('user_id')) . ".sto";
+						if (-e $user_file) {
+							my $user_ref = retrieve($user_file) ;
+							open_user_session($user_ref, $request_ref);
+						}
 				}
 				else{
 					$log->debug("HTTP POST error code: ", $post_resp->code);
