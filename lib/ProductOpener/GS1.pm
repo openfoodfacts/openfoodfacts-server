@@ -902,6 +902,7 @@ sub nutrient_per_quantity ($type, $per, $results_ref, $nid=undef, $nutrient_deta
 		assign_field($results_ref, $nutrient_field . "_value", $nutrient_value);
 		assign_field($results_ref, $nutrient_field . "_unit", $nutrient_unit);
 	}
+	return;
 }
 
 
