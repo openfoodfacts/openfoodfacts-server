@@ -3,6 +3,7 @@
 use ProductOpener::PerlStandards;
 
 use Test::More;
+use Test::MockModule;
 use ProductOpener::APITest qw/:all/;
 use ProductOpener::Test qw/:all/;
 use File::Basename "dirname";
@@ -16,6 +17,10 @@ use HTTP::Request::Common;
 my $test_id = "image_upload";
 my $test_dir = dirname(__FILE__);
 my $inputs_dir = "$test_dir/inputs/$test_id/";
+
+sub send_notification_for_product_change($product_ref, $action) {
+	return 1;
+}
 
 
 my $update_expected_results;
@@ -50,14 +55,21 @@ my %product_fields = (
 
 # my $file = open(fh, "$inputs_dir/apple.jpg");
 
+# print "$inputs_dir/apple.jpg";
+
 create_product($admin_ua, \%product_fields);
 
 # my $response = $admin_ua->post("http://world.openfoodfacts.localhost/cgi/product_jqm2.pl?code=200000000099&product_image_upload.pl/imgupload_front=$inputs_dir/apple.jpg", Content => "$inputs_dir/apple.jpg");
 
-my $response = $admin_ua->request(POST "http://world.openfoodfacts.localhost/cgi/product_jqm2.pl", 
+my $response = $admin_ua->request(POST "http://world.openfoodfacts.localhost/cgi/product_image_upload.pl", 
 Content_Type => 'form-data', 
-Content => [ code => "200000000099", imagefield => "front", imgupload => ["$inputs_dir/apple.jpg"] ] );
+Content => [ code => "200000000099", imagefield => "front", imgupload_front => ["$inputs_dir/apple.jpg"] ], );
 
+#it tries to contact robotoff
+#fake implementation with mock module
+
+# read the product + see the images feild +  front etc. other params 
+# "blackbox", may want to check if the file that's on OFF is the same image
 
 is($response->{_rc}, 200);
 
