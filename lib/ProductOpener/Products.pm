@@ -1018,7 +1018,7 @@ sub store_product($user_id, $product_ref, $comment) {
 				return $products_collection->delete_one({"_id" => $product_ref->{_id}});
 			});
 
-			$product_ref->{_id} = $product_ref->{code};
+			$product_ref->{_id} = $product_ref->{code} . ''; # treat id as string;
 
 		}
 		else {
