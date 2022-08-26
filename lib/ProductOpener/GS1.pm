@@ -852,7 +852,7 @@ sub assign_field($results_ref, $target_field, $target_value) {
 }
 
 
-sub nutrient_per_quantity ($type, $per, $results_ref, $nid=undef, $nutrient_detail_ref=undef) {
+sub extract_nutrient_quantity_contained($type, $per, $results_ref, $nid, $nutrient_detail_ref ) {
 
 	my $nutrient_field = $nid . $type . "_" . $per;
 
@@ -1109,7 +1109,7 @@ sub gs1_to_off ($gs1_to_off_ref, $json_ref, $results_ref) {
 							my $nid = $gs1_maps{nutrientTypeCode}{$nutrient_detail_ref->{nutrientTypeCode}};
 							
 							if (defined $nid) {
-								nutrient_per_quantity($type, $per, $results_ref, $nid, $nutrient_detail_ref)
+								extract_nutrient_quantity_contained($type, $per, $results_ref, $nid, $nutrient_detail_ref)
 							}
 							else {
 								$log->error("gs1_to_off - unrecognized nutrient",
