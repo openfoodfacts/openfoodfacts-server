@@ -1,4 +1,4 @@
-remove_tags_and_quote(param#!/usr/bin/perl -w
+#!/usr/bin/perl -w
 
 # This file is part of Product Opener.
 #
