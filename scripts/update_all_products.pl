@@ -1275,4 +1275,11 @@ if ($restore_values_deleted_by_user) {
 	}
 }
 
+if ($fix_non_string_ids) {
+	print STDERR "\nproducts stored in MongoDB with a non string _id have been reloaded from .sto files (if the products still exist) and stored with a string _id.\n";
+	print STDERR "products with non string ids can now be deleted from MongoDB with this command:"
+	. 'db.products.remove({_id : { $type : "long" }})' . "\n";
+}
+
+
 exit(0);
