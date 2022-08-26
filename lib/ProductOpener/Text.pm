@@ -250,7 +250,7 @@ sub _format_percentage($value, $cldr, $perf) {
 
 }
 
-sub remove_tags_and_quote($s) {
+sub remove_tags_and_quote($s=undef) {
 
 	if (not defined $s) {
 		$s = "";
