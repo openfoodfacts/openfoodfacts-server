@@ -10,8 +10,8 @@ en: Acid, Acidifier, Acidulant, tartness, provides tartness
 bg: Киселина
 ca:Àcid, Acidulant
 cs: Kyselina
-da: Syre, Syrer
-de: Säuerungsmittel, Sauerungsmittel, Säure
+# da: Syre, Syrer is also en:sorel
+de: Säuerungsmittel, Sauerungsmittel, Säure, säurungsmittel
 el: Μέσο οξίνισης
 es: Acidulante,acidulantes,acidificante, acido
 et: Hape
@@ -57,7 +57,7 @@ description:sv:Syror: ämnen som ökar surheten hos ett livsmedel och/eller ger 
 
 
 en: Acidity regulator, alkali, base, buffer, buffering agent, pH adjusting agent, corrector of acidity, acid regulator, controls acidity
-bg: Регулатор на киселинност, регулатор на киселинността
+bg: Регулатор на киселинност, регулатор на киселинността, регулатори на киселинността
 ca: Corrector de l'acidesa, correctors de l'acidesa, correctiu de l acidesa
 cs: Regulátor kyselosti
 da: Surhedsregulerende middel, Surhedsregulerende midler
@@ -80,7 +80,7 @@ nb: Surhetsregulerende middel, Surhetsregulerende midler
 nl: Zuurteregelaar, Zuurteregelaars
 pl: Regulator kwasowości, Regulatory kwasowości
 pt: Regulador de acidez, regulador de ácidez, reguladores de acidez
-ro: Corector de aciditate, Regulator de aciditate
+ro: Corector de aciditate, Regulator de aciditate, regulatori de aciditate
 ru:Регулятор кислотности, регуляторы кислотности
 sk: Regulátor kyslosti
 sl: Sredstvo za uravnavanje kislosti
@@ -200,7 +200,7 @@ description:sl:Sredstva proti penjenju so snovi, ki preprečujejo ali zmanjšuje
 description:sv:Skumdämpningsmedel: ämnen som förhindrar eller minskar skumbildning.
 
 en: Antioxidant, antibrowning agent, antioxidant synergist
-bg: Антиоксидант
+bg: Антиоксидант, антиоксиданти
 ca: Antioxidant, antioxidants, agent antienfosquiment
 cs: Antioxidant, antioxidanty
 da: Antioxidant, Antioxidanter
@@ -249,6 +249,9 @@ description:sv:Antioxidationsmedel: ämnen som förlänger hållbarheten hos liv
 <en:antioxidant
 en:natural antioxidant
 
+
+en:release agent
+fr:agent de démoulage
 
 en:Bleaching agent
 es:Decolorante, blanqueador, blanqueadores
@@ -314,8 +317,10 @@ description:sv:Fyllnadsmedel: ämnen som ökar ett livsmedels volym utan att vä
 en:anti-bulking agent
 
 # nova:en:carbonating-agent
-comment:en:The word carbonating should be in here, otherwise it is a gasificant. And carbon dioxide is a specific carbonating agent,
+#comment:en:The word carbonating should be in here, otherwise it is a gasificant. And carbon dioxide is a specific carbonating agent,
 en: Carbonating agent, carbonation
+de:Karbonisierungsmittel, Karbonisiermittel
+es:agente de carbonatación
 fi: Karbonointiaine, Karbonointiainetta, Karbonointiaineet, Karbonointiaineita
 fr: Agent de carbonation
 description:en:A food additive used to provide carbonation in a food.
@@ -344,7 +349,7 @@ fr: Colorant, colorant de surface, pigment décoratif, pigment colorant, coloran
 ga:Dath
 he:צבע
 hr:Boja
-hu: Színezék, mesterséges színezék, színezőanyag
+hu: Színezék, mesterséges színezék, színezőanyag, színezékek, színezőanyagok, színező anyag
 is: Litarefni
 it: Colorante, coloranti, alimento colorante
 lt: Dažiklis
@@ -354,7 +359,7 @@ nb: Farge, Farve, Fargestoff, Fargestoffer, fødevarer der farver
 nl: Kleuren, Kleurstof, kleurstoffen, kleurend levensmiddel
 pl: Barwnik, Barwniki
 pt: Corante, corantes
-ro: Colorant
+ro: Colorant, coloranți
 ru: Краситель, красители, краситель пищевой, пищевые красители, пищевой краситель
 sl: Barvilo
 sk: Farbivo
@@ -385,17 +390,19 @@ description:sv:Färgämnen: ämnen som tillför eller återställer färg hos li
 <en:colour
 en:concentrated plant colour
 de:färbendes Pflanzenkonzentrat, färbende Pflanzenkonzentrate
+es:colorante vegetal concentrado
 
 <en:colour
 en:natural colours
 ca:Color natural, colors naturals
+da:naturlig farve
 de:natürliche Farbstoffe
-es:Color natural, colores naturales
+es:Color natural, colores naturales, colorante natural, colorantes naturales
 fi:luontainen väriaine, luontainen väri, luontainen elintarvikeväri
 fr:colorant naturel, colorants naturels
-hu:természetes színezék
+hu:természetes színezék, természetes színezékek, természetes színezőanyag, természetes színezőanyagok
 it:coloranti naturali, colorante naturale
-nl:Natuurlijke kleurstoffen
+nl:Natuurlijke kleurstoffen, natuurlijk kleurstof
 ru:краситель натуральный, натуральный краситель, натуральные красители
 # ingredient/fr:colorant-naturel has 283 products in 5 languages @2019-04-20
 
@@ -425,7 +432,7 @@ description:fr:Additif alimentaire qui stabilise, retient ou intensifie la coule
 
 
 # nova:en:emulsifier
-en: Emulsifier, clouding agent, crystallization inhibitor, density adjustment agent, dispersing agent, emulsifier blend, emulsifying agent, plasticizer, surface active agent, suspension agent
+en: Emulsifier, clouding agent, crystallization inhibitor, density adjustment agent, dispersing agent, emulsifier blend, emulsifying agent, emulsifying, plasticizer, surface active agent, suspension agent
 bg: Емулгатор, емулгатори
 ca:Emulsionant, emulgent, emulgents, emulsiu, agent dispersant, agents dispersants
 cs: Emulgátor
@@ -478,8 +485,7 @@ description:sv:Emulgeringsmedel: ämnen som gör det möjligt att skapa eller bi
 <en:emulsifier
 en:natural emulsifier
 
-
-en: Emulsifying salts, emulsifying salt synergist, melding salt, Emulsifying salt
+en: Emulsifying salts, emulsifying salt synergist, melding salt, Emulsifying salt, melting salt
 bg: Емулгаторни соли
 ca: Surts de fos
 cs: Tavicí soli
@@ -644,7 +650,7 @@ fi: Jauhonparanne, Jauhoparannetta, Jauhonparanteet, Jauhonparanteita
 fr: Agent de traitement de la farine, agents de traitement de la farine, agent de traitement de farine, agent de blanchiment de la farine, agent de conditionnement des pâtes, agent de réhaussement des pâtes, améliorant de la farine
 ga: Oibreán plúrchóireála
 hu: Lisztkezelő szer, lisztkezelőszer, lisztjavító szer, lisztjavítószer
-it: Agente di trattamento della farina, agenti di trattamento della farina
+it: Agente di trattamento della farina, agenti di trattamento della farina, agente di trattamento delle farine
 lv: Miltu apstrādes līdzeklis
 lt: Miltų apdorojimo medžiaga
 mt: Aġent għat-trattament tad-dqiq
@@ -834,7 +840,7 @@ et: Niiskusesäilitaja
 fr: Humectant, agent de rétention d'eau, agent de rétention d'humidité, mouillant, agent mouillant
 ga: Taisleán
 hu: Nedvesítőszer
-it: Umidificante, umidificanti, agente umidificante, agenti umidificanti
+it: Umidificante, umidificanti, agente umidificante, agenti umidificanti, umettante, umettanti
 lt: Drėgmę išlaikanti medžiaga
 lv: Mitrumuzturētājs
 nb: Fuktighetsbevarer
@@ -868,6 +874,7 @@ description:sl:Sredstva za ohranjanje vlage so snovi, ki preprečujejo izsušite
 description:sv:Fuktighetsbevarande medel: ämnen som förhindrar uttorkning av livsmedel genom att motverka effekten av luft med låg fuktighet, eller förbättrar upplösningen av pulver i vattenlösningar.
 
 en: Modified starch
+bg: Модифицирано нишесте, модифицирана скорбяла
 ca: Midó modificat
 ga: Stáirse modhnaithe
 de: Modifizierte Stärke, Modifizierte Stärken
@@ -964,7 +971,7 @@ fr:conservateur de fruit, conservateur du fruit
 en:natural preservative
 
 
-comment:en:do not mix with packaging gas.
+# comment:en:do not mix with packaging gas.
 en: Propellent gas, propellant gas, propellent, propellant
 bg: Опаковъчен газ
 ca:gas propellent
@@ -1137,7 +1144,7 @@ nb: Stabilisator, Stabilisatorer
 nl: Stabilisator, Stabilisatoren
 pt: Estabilizador, Estabilizadores, estabilizante
 pl: Stabilizator, Stabilizatory
-ro: Stabilizator
+ro: Stabilizator, stabilizatori
 ru: Стабилизатор, стабилизаторы
 sk: Stabilizátor
 sl: Vezivo
@@ -1226,7 +1233,7 @@ description:sv:Sötningsmedel: ämnen som används för att ge livsmedel söt sm
 
 en: Thickener, bodying agent, texturizing agent, thickener synergist, thickening agent, provides body, provides thickness
 bg: Сгъстител, сгъстители
-ca:Espessidor, espessidors, agent espessidor, agents espessidors, espessant, espessants
+ca: Espessidor, espessidors, agent espessidor, agents espessidors, espessant, espessants
 cs: Zahušťovadlo
 da: Fortykningsmiddel, Fortykningsmidler
 de: Verdickungsmittel
@@ -1246,7 +1253,7 @@ nb: Fortykningsmiddel, Fortykningsmidler
 nl: Verdikkingsmiddel, Verdikkingsmiddelen
 pl: Substancja zagęszczająca, Substancje zagęszczające
 pt: Espessante, espessantes
-ro: Agent de îngroșare
+ro: Agent de îngroșare, agenți de îngroșare
 ru:Загуститель
 sk: Zahusťovadlo
 sl: Sladilo
@@ -1328,7 +1335,7 @@ sv:Mineraler
 en:vitamin and mineral blend, vitamin and mineral mix
 ru:витаминно минеральный премикс, витаминный премикс
 
-en:Amino acids
+en:Amino acids, amino acid
 bg:Аминокиселини
 cs:Aminokyseliny
 de:Aminosäuren
@@ -1342,6 +1349,7 @@ it:Amminoacidi
 lt:Aminorūgštys
 lv:Aminoskābes
 mt:Aċidi amminiċi
+nl:Aminozuur, Aminozuren
 pl:Aminokwasy
 pt:Aminoácidos
 ro:Aminoacizi
@@ -1349,6 +1357,85 @@ sk:Aminokyseliny
 sl:Aminokisline
 sv:Aminosyror
 #wikidata:en:
+
+# description:en:L-tryptophan—pyruvate aminotransferase is an enzyme with systematic name L-tryptophan:pyruvate aminotransferase.
+
+<en:Amino acids
+en:L-tryptophan
+af:Triptofaan
+ar:تريبتوفان
+be:Трыптафан
+bg:Триптофан
+bn:ট্রিপ্টোফ্যান
+ca:triptòfan
+cs:L-tryptofan, tryptofan
+da:Tryptofan
+de:L-Tryptophan, Tryptophan
+el:Τρυπτοφάνη
+eo:triptofano
+es:L-Triptófano, Triptófano
+et:Trüptofaan
+eu:Triptofano
+fa:تریپتوفان
+fi:tryptofaani, l-tryptofaani
+fr:l-tryptophane, tryptophane
+gl:Triptófano
+he:טריפטופן
+hr:Triptofan
+hu:Triptofán
+hy:Տրիպտոֆան
+id:Triptofan
+it:L-triptofano, triptofano
+ja:トリプトファン
+jv:Triptofan
+ko:트립토판
+ku:Trîptofan
+lb:Tryptophan
+lt:Triptofanas
+lv:triptofāns
+mk:Триптофан
+ms:Triptofan
+nb:Tryptofan
+nl:L-Tryptofaan, tryptofaan
+nn:L-tryptofan
+oc:Triptofan
+pl:L-tryptofan
+pt:Triptófano
+ro:Triptofan
+ru:триптофан
+sh:Triptofan
+sk:Tryptofán
+sl:Triptofan
+sr:триптофан
+sv:Tryptofan
+ta:டிரிப்டோபான்
+th:ทริปโตเฟน
+tr:Triptofan
+uk:Триптофан
+vi:Tryptophan
+zh:色氨酸
+# azb:تریپتوفان
+# be-tarask:Трыптафан
+# de-ch:Tryptophan
+# en-ca:Tryptophan# en-gb:Tryptophan
+# ku-arab:تریپتۆفان
+# ku-latn:Trîptofan
+# nan:Tryptophan
+# pt-br:Triptófano
+# sco:tryptophan
+# sr-ec:триптофан
+# sr-el:Triptofan
+# yue:色氨酸
+# zh-cn:色氨酸
+# zh-hans:色氨酸
+# zh-hant:色氨酸
+# zh-hk:色胺酸
+# zh-sg:色氨酸
+# zh-tw:色胺酸
+wikidata:en:Q181003
+wikipedia:en:https://en.wikipedia.org/wiki/L-tryptophan—pyruvate_aminotransferase
+# amino-acid/l-tryptophan has 79 products @2019-03-16
+# ingredient/fr:l-tryptophane has 61 products in 4 languages @2019-03-16
 
 en:Nucleotides
 bg:Нуклеотиди
@@ -1364,7 +1451,7 @@ it:Nucleotidi
 lt:Nukleotidai
 lv:Nukleotīdi
 mt:Nukleotidi
-nl:Nucleotiden
+nl:Nucleotiden, Nucleotide
 pl:Nukleotydy
 pt:Nucleótidos
 ro:Nucleotide
@@ -1382,20 +1469,21 @@ hu:Egyéb táplálkozási anyagok, egyéb tápanyagok
 it:Altre sostanze nutrizionali, altre sostanze nutritive
 
 # See also Firming agent
-# also in ingredients.txt
 en:coagulant, coagulum, coagulating agent
+bg:коагулант
 ca:Agent coagulant, agents coagulants
-de:Koagulat, Gerinnungsmittel
+de:Koagulationsmittel, Koagulat, Gerinnungsmittel
 en:agente coagulante, agentes coagulantes, coagulante
 es:Agente coagulante, agentes coagulantes
 fi:hyydyte, koagulantti
 fr:agent de coagulation, coagulant
+hu:koagulálószer, koaguláló, koaguláns
 it:agente coagulante, coagulante, agenti coagulanti, coagulanti
 # ingredient/fr:agents-de-coagulation has 37 products in 5 languages @2019-02-08
 
 
-# also in ingredients.txt
 en:salt substitute
+bg:заместител на сол
 de:Speisesalzersatz, kochsalzersatz
 fr:substitut du sel
 hu:Sópótló
@@ -1408,12 +1496,6 @@ it:sostituto del sale
 fr:agent crémeux
 # ingredient/fr:agent-cremeux has 16 products in french @2018-02-17
 
-#<en:anti-caking agent
-#fr:poudre de fleurage
-# ingredient/fr:poudre-de-fleurage has 80 products in french @2019-02-25
-# poudre de fleurage : carbonate de calcium, talc
-
-
 # also in ingredients.txt
 fr:conservateur de surface
 # ingredient/fr:conservateur-de-surface has 43 products in french @2019-03-02
@@ -1422,6 +1504,7 @@ fr:conservateur de surface
 # also in ingredients.txt
 #comment:en:This is very generic. It is not specified what is enhanced.
 en:enhancer
+bg:подобрител
 es:Potenciador
 fi:vahvenne
 fr:améliorant, améliorants
@@ -1434,8 +1517,10 @@ nl:verbeteraar
 # also in ingredients.txt
 <en:enhancer
 en:bread improver
+bg:подобрител за хляб
 de:Backmittel
 it:miglioranti per panificazione
+ru:улучшитель хлебопекарный
 
 # also in ingredients.txt
 <en:enhancer

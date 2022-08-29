@@ -1,0 +1,305 @@
+{
+   "tradeItem" : {
+      "brandOwner" : {
+         "gln" : "3014517900101",
+         "partyName" : "."
+      },
+      "gdsnTradeItemClassification" : {
+         "gpcCategoryCode" : "10000312"
+      },
+      "gtin" : "03161910352577",
+      "informationProviderOfTradeItem" : {
+         "gln" : "3014517900101",
+         "partyName" : "ELVIR"
+      },
+      "isTradeItemAConsumerUnit" : "true",
+      "targetMarket" : {
+         "targetMarketCountryCode" : "250"
+      },
+      "tradeItemContactInformation" : [
+         {
+            "contactAddress" : "50890 Condé-sur-Vire - France",
+            "contactName" : "ELVIR",
+            "contactTypeCode" : "BZL"
+         },
+         {
+            "contactAddress" : "50890 Condé-sur-Vire, France",
+            "contactName" : "ELVIR",
+            "contactTypeCode" : "CXC"
+         }
+      ],
+      "tradeItemInformation" : {
+         "extension" : {
+            "allergen_information:allergenInformationModule" : {
+               "allergenRelatedInformation" : [
+                  {
+                     "allergen" : [
+                        {
+                           "allergenTypeCode" : "AM",
+                           "levelOfContainmentCode" : "CONTAINS"
+                        },
+                        {
+                           "allergenTypeCode" : "AE",
+                           "levelOfContainmentCode" : "CONTAINS"
+                        }
+                     ],
+                     "allergenStatement" : {
+                        "#" : "Lait, Oeuf, Soja",
+                        "@" : {
+                           "languageCode" : "fr"
+                        }
+                     },
+                     "isAllergenRelevantDataProvided" : "true"
+                  }
+               ]
+            },
+            "diet_information:dietInformationModule" : {
+               "dietInformation" : {
+                  "dietTypeInformation" : [
+                     {
+                        "dietTypeCode" : "VEGETARIAN"
+                     }
+                  ]
+               }
+            },
+            "food_and_beverage_ingredient:foodAndBeverageIngredientModule" : {
+               "ingredientStatement" : {
+                  "#" : "Ingrédients : LAIT entier (78%), sucre, amidon modifié, sirop de glucose, crème de LAIT, LAIT écrémé en poudre, épaississant : carraghénanes, colorants : E150c, E120, arôme, sel, OEUF",
+                  "@" : {
+                     "languageCode" : "fr"
+                  }
+               },
+               "isIngredientRelevantDataProvided" : "TRUE"
+            },
+            "food_and_beverage_preparation_serving:foodAndBeveragePreparationServingModule" : {
+               "preparationServing" : {
+                  "preparationInstructions" : {
+                     "#" : "Meilleur servi frais",
+                     "@" : {
+                        "languageCode" : "fr"
+                     }
+                  }
+               }
+            },
+            "nutritional_information:nutritionalInformationModule" : {
+               "isNutrientRelevantDataProvided" : "true",
+               "nutrientHeader" : [
+                  {
+                     "nutrientDetail" : [
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "ENER-",
+                           "quantityContained" : [
+                              {
+                                 "#" : "476",
+                                 "@" : {
+                                    "measurementUnitCode" : "KJO"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "ENER-",
+                           "quantityContained" : [
+                              {
+                                 "#" : "113",
+                                 "@" : {
+                                    "measurementUnitCode" : "E14"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "FAT",
+                           "quantityContained" : [
+                              {
+                                 "#" : "3.4",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "FASAT",
+                           "quantityContained" : [
+                              {
+                                 "#" : "2.4",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "CHOAVL",
+                           "quantityContained" : [
+                              {
+                                 "#" : "17.6",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "SUGAR-",
+                           "quantityContained" : [
+                              {
+                                 "#" : "13",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "PRO-",
+                           "quantityContained" : [
+                              {
+                                 "#" : "3",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "SALTEQ",
+                           "quantityContained" : [
+                              {
+                                 "#" : "0.19",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        }
+                     ],
+                     "preparationStateCode" : "UNPREPARED",
+                     "servingSize" : {
+                        "#" : "100.0",
+                        "@" : {
+                           "measurementUnitCode" : "GRM"
+                        }
+                     }
+                  }
+               ]
+            },
+            "packaging_marking:packagingMarkingModule" : {
+               "packagingMarking" : {
+                  "packagingMarkedLabelAccreditationCode" : [
+                     "GREEN_DOT"
+                  ]
+               }
+            },
+            "place_of_item_activity:placeOfItemActivityModule" : {
+               "placeOfProductActivity" : {
+                  "countryOfOrigin" : {
+                     "countryCode" : "250"
+                  }
+               }
+            },
+            "referenced_file_detail_information:referencedFileDetailInformationModule" : {
+               "referencedFileHeader" : [
+                  {
+                     "contentDescription" : {
+                        "#" : "Produit emballé / Packshot",
+                        "@" : {
+                           "languageCode" : "fr"
+                        }
+                     },
+                     "fileEffectiveStartDateTime" : "2020-09-30T00:00:00+02:00",
+                     "isPrimaryFile" : "FALSE",
+                     "referencedFileTypeCode" : "PRODUCT_IMAGE",
+                     "uniformResourceIdentifier" : "https://secure.equadis.com/Equadis/MultimediaFileViewer?key=58000504_F56811911A80BF1A03F3D8FCDF99F1D9&idFile=1778204&file=10168/03161910352577_C1N1_s17.tif"
+                  },
+                  {
+                     "contentDescription" : {
+                        "#" : "Produit emballé / Packshot",
+                        "@" : {
+                           "languageCode" : "fr"
+                        }
+                     },
+                     "fileEffectiveStartDateTime" : "2020-09-30T00:00:00+02:00",
+                     "isPrimaryFile" : "TRUE",
+                     "referencedFileTypeCode" : "PRODUCT_IMAGE",
+                     "uniformResourceIdentifier" : "https://secure.equadis.com/Equadis/MultimediaFileViewer?key=58000408_6E236EAAB19316472759B4DF87E1C077&idFile=1778201&file=10168/03161910352577_C1L1_s14.tif"
+                  },
+                  {
+                     "contentDescription" : {
+                        "#" : "Produit emballé / Packshot",
+                        "@" : {
+                           "languageCode" : "fr"
+                        }
+                     },
+                     "fileEffectiveStartDateTime" : "2020-09-30T00:00:00+02:00",
+                     "isPrimaryFile" : "FALSE",
+                     "referencedFileTypeCode" : "PRODUCT_IMAGE",
+                     "uniformResourceIdentifier" : "https://secure.equadis.com/Equadis/MultimediaFileViewer?key=58000440_F9A15D560675FBA72B03DADDB75CEAA1&idFile=1778202&file=10168/03161910352577_C2N1_s15.tif"
+                  },
+                  {
+                     "contentDescription" : {
+                        "#" : "Produit emballé / Packshot",
+                        "@" : {
+                           "languageCode" : "fr"
+                        }
+                     },
+                     "fileEffectiveStartDateTime" : "2020-09-30T00:00:00+02:00",
+                     "isPrimaryFile" : "FALSE",
+                     "referencedFileTypeCode" : "PRODUCT_IMAGE",
+                     "uniformResourceIdentifier" : "https://secure.equadis.com/Equadis/MultimediaFileViewer?key=58000472_FF1894446FEE757C71A0AB984F40EB83&idFile=1778203&file=10168/03161910352577_C7N1_s16.tif"
+                  }
+               ]
+            },
+            "trade_item_description:tradeItemDescriptionModule" : {
+               "tradeItemDescriptionInformation" : {
+                  "brandNameInformation" : {
+                     "brandName" : "ELLE & VIRE",
+                     "subBrand" : "ELLE & VIRE CRÈME DESSERT"
+                  },
+                  "descriptionShort" : {
+                     "#" : "EV C D PRALINE 125GX4",
+                     "@" : {
+                        "languageCode" : "fr"
+                     }
+                  },
+                  "regulatedProductName" : {
+                     "#" : "Crème dessert aromatisée saveur praliné stérilisée UHT.",
+                     "@" : {
+                        "languageCode" : "fr"
+                     }
+                  },
+                  "tradeItemDescription" : {
+                     "#" : "ELLE&VIRE C DESSERT 125X4 SAVEUR PRALINE",
+                     "@" : {
+                        "languageCode" : "fr"
+                     }
+                  }
+               }
+            },
+            "trade_item_measurements:tradeItemMeasurementsModule" : {
+               "tradeItemMeasurements" : {
+                  "netContent" : {
+                     "#" : "500",
+                     "@" : {
+                        "measurementUnitCode" : "GRM"
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "tradeItemSynchronisationDates" : {
+         "lastChangeDateTime" : "2020-12-11T22:07:36+01:00"
+      },
+      "tradeItemUnitDescriptorCode" : "BASE_UNIT_OR_EACH"
+   }
+}

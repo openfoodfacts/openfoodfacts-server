@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -41,7 +40,7 @@ use Encode;
 use JSON::PP;
 use Log::Any qw($log);
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 my $type = param('type') || 'add';
 my $action = param('action') || 'display';
@@ -73,7 +72,12 @@ if (not defined $code) {
 
 my $product_ref = retrieve_product($product_id);
 
-if ((defined $product_ref) and (has_tag($product_ref,"data_sources","producers")) and (defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
+
+# Do not allow edits / removal through API for data provided by producers (only additions for non existing fields)
+# when the corresponding organization has the protect_data checkbox checked
+my $protected_data = product_data_is_protected($product_ref);
+
+if ((defined $product_ref) and ($protected_data) and (defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
 	and (referer() !~ /\/cgi\/product.pl/)) {
 	$log->debug("do not select image: data_sources contains producers and referer is not the web product edit form", { code => $code, id => $id, referer => referer() }) if $log->is_debug();;
 }
@@ -84,11 +88,11 @@ elsif ((defined $User_id) and (($User_id eq 'kiliweb')) or (remote_addr() eq "20
 
 	# 2019/08/28: accept images if there is already an image selected for the language
 	if ((defined $product_ref) and (defined $product_ref->{images}) and (defined $product_ref->{images}{$imgid})) {
-		$product_ref = process_image_crop($product_id, $id, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size);
+		$product_ref = process_image_crop($User_id, $product_id, $id, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size);
 	}
 }
 else {
-	$product_ref = process_image_crop($product_id, $id, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size);
+	$product_ref = process_image_crop($User_id, $product_id, $id, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size);
 }
 
 my $data =  encode_json({ status => 'status ok',

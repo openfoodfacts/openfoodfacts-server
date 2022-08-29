@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
@@ -36,6 +35,7 @@ use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Producers qw/:all/;
+use ProductOpener::Text qw/:all/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -50,7 +50,7 @@ use Spreadsheet::CSV();
 use Text::CSV();
 use boolean;
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 my $action = param('action') || 'display';
 
@@ -131,8 +131,7 @@ if ($action eq "display") {
 		$template_data_ref->{allow_submit} = 1;
 	}
 	
-	$tt->process('export_products.tt.html', $template_data_ref, \$html) || ($html .= 'template error: ' . $tt->error());
-
+	process_template('web/pages/export_products/export_products.tt.html', $template_data_ref, \$html) || ($html .= 'template error: ' . $tt->error());
 }
 
 elsif (($action eq "process") and $allow_submit) {
@@ -161,6 +160,12 @@ elsif (($action eq "process") and $allow_submit) {
 	
 	if ((defined param("only_export_products_with_changes")) and (param("only_export_products_with_changes"))) {
 		$args_ref->{query}{states_tags} = 'en:to-be-exported';
+	}
+	
+	if ($admin) {
+		if ((defined param("overwrite_owner")) and (param("overwrite_owner"))) {
+			$args_ref->{overwrite_owner} = 1;
+		}		
 	}
 	
 	# Create Minion tasks for export and import
@@ -257,31 +262,60 @@ JS
 
 }
 else {
-	
-	# The organization does not have the permission enable_manual_export_to_public_platform checked
-	
-	my $admin_mail_body = <<EMAIL
-org_id: $Org_id
-user id: $User_id
-user name: $User{name}
-user email: $User{email}
 
-https://world.pro.openfoodfacts.org/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-$Org_id
+	my $template_data_ref2 = {};
+
+	# The organization does not have the permission enable_manual_export_to_public_platform checked
+
+		my $mailto_body = URI::Escape::XS::encodeURIComponent(<<TEXT
+Bonjour,
+Vos produits ont été exportés vers la base publique. Voici la page publique avec vos produits : https://fr.openfoodfacts.org/editeur/org-$Org_id
+
+Merci beaucoup pour votre démarche de transparence,
+Bien cordialement,
+TEXT
+);
+
+my $mailto_subject = URI::Escape::XS::encodeURIComponent(<<TEXT
+Export de vos produits vers la base Open Food Facts publique
+TEXT
+);
+
+
+
+	my $admin_mail_body = <<EMAIL
+org_id: $Org_id <br>
+<br>
+user id: $User_id <br>
+<br>
+user name: $User{name} <br>
+<br>
+user email: $User{email} <br>
+<br>
+TODO:<br>
+<br>
+1. <a href="https://world.pro.openfoodfacts.org/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-$Org_id">Control products on pro platform</a>. <br>
+<br>
+2. Validate the export. <br>
+<br>
+2b. Or, email to the producer if there are too many issues with their data.<br>
+<br>
+3. <a href="mailto:$User{email}?subject=$mailto_subject&cc=producteurs\@openfoodfacts.org&body=$mailto_body">Email to tell the producer its products have been exported</a>. <br>
+<br>
 
 EMAIL
 ;
 	send_email_to_producers_admin(
 		"Export to public database requested: user: $User_id - org: $Org_id",
 		$admin_mail_body );
-		
-	$html .= "<p>" . lang('export_products_to_public_database_request_email') . "</p>";
+
+	process_template('web/pages/export_products_results/export_products_results.tt.html', $template_data_ref2, \$html) || ($html .= 'template error: ' . $tt->error());
 	
 }
 
-display_new( {
-	title=>$title,
-	content_ref=>\$html,
-});
+$request_ref->{title} = $title;
+$request_ref->{content_ref} = \$html;
+display_page($request_ref);
+
 
 exit(0);
-

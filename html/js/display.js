@@ -73,7 +73,7 @@ let countriesData;
 function countries() {
   if (!countriesData) {
     $.ajax({
-      url: '/cgi/i18n/countries.pl',
+      url: '/cgi/countries.pl',
       dataType: 'json',
       async: false,
       success: function (json) {
@@ -91,7 +91,7 @@ $(function () {
   $("#select_country").select2({
     allowClear: true,
     ajax: {
-      url: '/cgi/i18n/countries.pl',
+      url: '/cgi/countries.pl',
       dataType: 'json',
       processResults: function (data) {
         const results = [];

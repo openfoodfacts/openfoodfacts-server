@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
@@ -46,7 +45,7 @@ use Encode;
 use JSON::PP;
 use Log::Any qw($log);
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 my $type = param('type') || 'upload';
 my $action = param('action') || 'display';
@@ -134,8 +133,8 @@ else {
 		url => "/cgi/import_file_upload.pl",
 	};
 	
-	$tt->process('import_file_upload.tt.html', $template_data_ref, \$html);
-	$tt->process('import_file_upload.tt.js', $template_data_ref, \$js);
+	$tt->process('web/pages/import_file_upload/import_file_upload.tt.html', $template_data_ref, \$html);
+	$tt->process('web/pages/import_file_upload/import_file_upload.tt.js', $template_data_ref, \$js);
 	
 	$initjs .= $js;
 
@@ -146,10 +145,9 @@ else {
 HTML
 ;
 
-	display_new( {
-		title=>$title,
-		content_ref=>\$html,
-	});
+	$request_ref->{title} = $title;
+	$request_ref->{content_ref} = \$html;
+	display_page($request_ref);
 }
 
 exit(0);

@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
@@ -49,10 +48,12 @@ use Log::Any qw($log);
 use Spreadsheet::CSV();
 use Text::CSV();
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 my $title = lang("import_file_status_title");
-my $html = "<p>" . lang("import_file_status_description") . "</p>";
+my $html = '';
+my $js = '';
+my $template_data_ref;
 
 if (not defined $Owner_id) {
 	display_error(lang("no_owner_defined"), 200);
@@ -108,7 +109,11 @@ foreach my $field (keys %$columns_fields_ref) {
 	delete $columns_fields_ref->{$field}{max};
 	delete $columns_fields_ref->{$field}{n};
 
-	$all_columns_fields_ref->{get_string_id_for_lang("no_language", normalize_column_name($field))} = $columns_fields_ref->{$field};
+	my $column_id = get_string_id_for_lang("no_language", normalize_column_name($field));
+
+	$all_columns_fields_ref->{$column_id} = $columns_fields_ref->{$field};
+
+	$log->debug("Field in columns_field_json", { field => $field, column_id => $column_id, value =>  $columns_fields_ref->{$field}}) if $log->is_debug();
 }
 
 defined $import_files_ref->{$file_id}{imports} or $import_files_ref->{$file_id}{imports} = {};
@@ -191,57 +196,23 @@ $import_files_ref->{$file_id}{imports}{$import_id}{job_id} = $job_id;
 
 store("$data_root/import_files/${Owner_id}/import_files.sto", $import_files_ref);
 
-$html .= "<p>" . lang("import_file_status") . lang("sep"). ': <span id="result">' . lang("job_status_inactive") . '</span>';
+$template_data_ref->{process_file_id} = $file_id;
+$template_data_ref->{process_import_id} = $import_id;
+$template_data_ref->{link} = "/cgi/import_file_job_status.pl?file_id=$file_id&import_id=$import_id";
 
-if ($admin) {
-	$html .= " (shown to admins only: <a href=\"/cgi/import_file_job_status.pl?file_id=$file_id&import_id=$import_id\">status</a>) - poll: <div id=\"span\"></span>";
-}
+process_template('web/pages/import_file_process/import_file_process.tt.html', $template_data_ref, \$html);
+process_template('web/pages/import_file_process/import_file_process.tt.js', $template_data_ref, \$js);
 
-$html .= "</p>";
+$initjs .= $js;
 
-$initjs .= <<JS
-
-var poll_n = 0;
-var timeout = 5000;
-var job_info_state;
-
-var statuses = {
-	"inactive" : "$Lang{job_status_inactive}{$lc}",
-	"active" : "$Lang{job_status_active}{$lc}",
-	"finished" : "$Lang{job_status_finished}{$lc}",
-	"failed" : "$Lang{job_status_failed}{$lc}"
-};
-
-(function poll() {
-  \$.ajax({
-    url: '/cgi/import_file_job_status.pl?file_id=$file_id&import_id=$import_id',
-    success: function(data) {
-      \$('#result').html(statuses[data.job_info.state]);
-	  job_info_state = data.job_info.state;
-    },
-    complete: function() {
-      // Schedule the next request when the current one's complete
-	  if ((job_info_state == "inactive") || (job_info_state == "active")) {
-		setTimeout(poll, timeout);
-		timeout += 1000;
-	}
-	if (job_info_state == "finished") {
-	}
-	  poll_n++;
-	  \$('#poll').html(poll_n);
-    }
-  });
-})();
-JS
+$scripts .= <<HTML
+<script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
+<script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
+HTML
 ;
 
-display_new( {
-	title=>$title,
-	content_ref=>\$html,
-});
-
-
-
+$request_ref->{title} = $title;
+$request_ref->{content_ref} = \$html;
+display_page($request_ref);
 
 exit(0);
-

@@ -130,7 +130,6 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 			my $modified = 0;
 			
 			my @modified_fields;
-			my @images_ids;
 			
 			my $code = $imported_product_ref->{"EAN PRINCIPAL"};
 			
@@ -256,7 +255,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 				
 				
 				
-				store_product($product_ref, "Editing product (import_systemeu.pl bulk import) - " . $comment );
+				store_product($User_id, $product_ref, "Editing product (import_systemeu.pl bulk import) - " . $comment );
 				
 				push @edited, $code;
 				$edited{$code}++;

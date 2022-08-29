@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -35,7 +34,7 @@ use Apache2::Const qw(OK HTTP_BAD_REQUEST HTTP_NOT_FOUND HTTP_INTERNAL_SERVER_ER
 use CGI qw/:cgi :form escapeHTML/;
 use Log::Any qw($log);
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 my $code = normalize_code(param('code'));
 my $product_id = product_id_for_owner($Owner_id, $code);

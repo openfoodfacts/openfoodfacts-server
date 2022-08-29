@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -61,7 +60,7 @@ my $env = $ENV{QUERY_STRING};
 
 $log->debug("calling init()", { query_string => $env });
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 $log->debug("parsing code", { user => $User_id, code => $code, cc => $cc, lc => $lc, ip => remote_addr() }) if $log->is_debug();
 
@@ -188,7 +187,7 @@ if ($move_to ne 'trash') {
 			}
 		}
 
-		store_product($new_product_ref, "Creating product (moving image from product $code");
+		store_product($User_id, $new_product_ref, "Creating product (moving image from product $code");
 	}
 
 	$response{url} = product_url($move_to);
@@ -204,7 +203,7 @@ if ($move_to ne 'trash') {
 	$response{link} = '<a href="' . $response{url} . '">' . $move_to . '</a>';
 }
 
-my $error = process_image_move($code, $imgids, $move_to, $Owner_id);
+my $error = process_image_move($User_id, $code, $imgids, $move_to, $Owner_id);
 
 my $data;
 

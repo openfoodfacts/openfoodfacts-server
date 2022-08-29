@@ -1,0 +1,227 @@
+github_actions:
+- .github/**/*
+
+nginx:
+- conf/nginx/**/*
+
+mongodb:
+- conf/mongodb/create_indexes.js
+- scripts/refresh_products_tags.js
+- .github/workflows/mongo-deploy.yml
+
+tagline:
+- html/files/app/tagline/tagline-off-ios.json
+- html/files/tagline-off.json
+- html/files/tagline.txt
+- html/files/tagline-obf.json
+- html/files/tagline-opf.json
+- html/files/tagline-opff.json
+  
+taxonomies:
+- taxonomies/**/*
+
+taxonomies rebuild:
+- taxonomies/additives.result.sto
+- taxonomies/additives.result.txt
+- taxonomies/allergens.result.sto
+- taxonomies/allergens.result.txt
+- taxonomies/categories.result.sto
+- taxonomies/categories.result.txt
+- taxonomies/countries.result.sto
+- taxonomies/countries.result.txt
+- taxonomies/ingredients.result.sto
+- taxonomies/ingredients.result.txt
+- taxonomies/states.result.sto
+- taxonomies/states.result.txt
+
+open pet food facts:
+- taxonomies.opff/**/*
+- po/openpetfoodfacts/**/*
+
+open beauty facts:
+- taxonomies.obf/**/*
+- po/openbeautyfacts/**/*
+
+open products facts:
+- taxonomies.opf/**/*
+- po/openproductsfacts/**/*
+
+icons:
+- icons/**/*
+
+css:
+- scss/**/*
+
+translations:
+- po/**/*
+- po/common/**/*
+- po/openfoodfacts/**/*
+- po/openbeautyfacts/**/*
+- po/openpetfoodfacts/**/*
+- po/openproductsfacts/**/*
+
+tests:
+- test/**/*
+- tests/**/*
+- t/**/*
+
+dependancies:
+- package.json
+- package-lock.json
+
+Template::Toolkit:
+- templates/**/*
+
+documentation:
+- docs/**/*
+
+docker:
+- docker/**/*
+
+folksonomy project:
+- html/js/folksonomy.js
+
+Attributes:
+- lib/ProductOpener/Attributes.pm
+
+data quality:
+- lib/ProductOpener/DataQuality.pm
+- lib/ProductOpener/DataQualityCommon.pm
+- lib/ProductOpener/DataQualityFood.pm
+
+Display:
+- lib/ProductOpener/Display.pm
+
+ecoscore:
+- lib/ProductOpener/Ecoscore.pm
+- ecoscore/**/*
+- templates/api/knowledge-panels/environment/ecoscore/ecoscore_unknown.tt.json
+
+Export:
+- lib/ProductOpener/Export.pm
+- t/expected_test_results/export/**/*
+
+Food.pm:
+- lib/ProductOpener/Food.pm
+
+Food groups:
+- lib/ProductOpener/FoodGroups.pm
+
+forest footprint:
+- lib/ProductOpener/ForestFootprint.pm
+
+geolite:
+- lib/ProductOpener/GeoIP.pm
+
+gs1:
+- lib/ProductOpener/GS1.pm
+
+images:
+- lib/ProductOpener/Images.pm
+
+data import:
+- lib/ProductOpener/Import.pm
+- lib/ProductOpener/ImportConvert.pm
+
+ingredients:
+- lib/ProductOpener/Ingredients.pm
+- taxonomies/ingredients.txt
+
+ingredients analysis:
+- templates/web/pages/product/includes/ingredients_analysis.tt.html
+
+labels:
+- taxonomies/labels.txt
+
+categories:
+- taxonomies/categories.txt
+
+additives:
+- taxonomies/additives.txt
+
+origins:
+- taxonomies/origins.txt
+
+knowledge-panels:
+- lib/ProductOpener/KnowledgePanels.pm
+- templates/api/knowledge-panels/**/*
+- templates/api/knowledge-panels/environment/ecoscore/ecoscore_unknown.tt.json
+
+lang:
+- lib/ProductOpener/Lang.pm
+
+Mail:
+- lib/ProductOpener/Mail.pm
+
+MainCountries:
+- lib/ProductOpener/MainCountries.pm
+
+Numbers:
+- lib/ProductOpener/Numbers.pm
+
+nutriscore:
+- lib/ProductOpener/Nutriscore.pm
+
+Orgs:
+- lib/ProductOpener/Orgs.pm
+
+packager codes:
+- lib/ProductOpener/PackagerCodes.pm
+
+Packaging:
+- lib/ProductOpener/Packaging.pm
+- taxonomies/packaging_materials.txt
+- t/packaging.t
+- cgi/packaging.pl
+- icons/packaging.svg
+- taxonomies/old/packagings.txt
+- taxonomies/packaging.result.sto
+- taxonomies/packaging.result.txt
+- taxonomies/packaging_shapes.txt
+- taxonomies/packaging_materials.txt
+- taxonomies/packaging_recycling.txt
+- taxonomies/packaging_shapes.result.sto
+- taxonomies/packaging_shapes.result.txt
+- html/images/lang/en/packaging/**/*
+- html/images/icons/packaging-shapes/README
+- taxonomies/packaging_materials.result.sto
+- taxonomies/packaging_materials.result.txt
+- taxonomies/packaging_recycling.result.sto
+- taxonomies/packaging_recycling.result.txt
+- html/images/icons/packaging-shapes/LICENCE
+- html/images/lang/jp/packaging/**/*
+- html/images/lang/de/packaging/**/*
+- t/expected_test_results/packaging/**/*
+- html/images/icons/packaging-shapes/dark-mode/**/*
+  
+producers platform:
+- lib/ProductOpener/GS1.pm
+- lib/ProductOpener/Orgs.pm
+- lib/ProductOpener/Import.pm
+- lib/ProductOpener/ImportConvert.pm
+- lib/ProductOpener/Producers.pm
+- lib/ProductOpener/ProducersFood.pm
+- lib/ProductOpener/Producers.pm
+- scripts/export_producers_platform_data_to_public_database.sh
+- lib/ProductOpener/ProducersFood.pm
+
+Products:
+- lib/ProductOpener/Products.pm
+
+Recipes:
+- lib/ProductOpener/Recipes.pm
+
+Tags:
+- lib/ProductOpener/Tags.pm
+
+Text:
+- lib/ProductOpener/Text.pm
+
+Url:
+- lib/ProductOpener/URL.pm
+
+Users:
+- lib/ProductOpener/Users.pm
+
+Web:
+- lib/ProductOpener/Web.pm

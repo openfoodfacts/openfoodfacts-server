@@ -36,8 +36,7 @@ all the functions of the submodule.
 
 package ProductOpener::DataQualityFood;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter qw(import);
 
 
@@ -54,6 +53,9 @@ use ProductOpener::Config qw(:all);
 use ProductOpener::Store qw(:all);
 use ProductOpener::Tags qw(:all);
 use ProductOpener::Food qw(:all);
+use ProductOpener::Ecoscore qw(:all);
+
+use Data::DeepAccess qw(deep_exists);
 
 use Log::Any qw($log);
 
@@ -383,9 +385,7 @@ such as brands, product name, generic name and ingredients.
 
 =cut
 
-sub detect_categories ($) {
-
-	my $product_ref = shift;
+sub detect_categories ($product_ref) {
 
 	# match on fr product name, generic name, ingredients
 	my $match_fr = "";
@@ -436,9 +436,8 @@ the score and grade provided by manufacturers.
 
 =cut
 
-sub check_nutrition_grades($) {
-	my $product_ref = shift;
-
+sub check_nutrition_grades($product_ref) {
+	 
 	if ((defined $product_ref->{nutrition_grade_fr_producer}) and (defined $product_ref->{nutrition_grade_fr}) ) {
 
 		if ($product_ref->{nutrition_grade_fr_producer} eq $product_ref->{nutrition_grade_fr}) {
@@ -470,9 +469,8 @@ Checks related to the carbon footprint computed from ingredients analysis.
 
 =cut
 
-sub check_carbon_footprint($) {
-	my $product_ref = shift;
-
+sub check_carbon_footprint($product_ref) {
+	 
 	if (defined $product_ref->{nutriments}) {
 
 		if ((defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"})
@@ -507,9 +505,8 @@ In particular, checks for obviously invalid values (e.g. more than 105 g of any 
 
 =cut
 
-sub check_nutrition_data($) {
-	my $product_ref = shift;
-
+sub check_nutrition_data($product_ref) {
+	 
 	if ((defined $product_ref->{multiple_nutrition_data}) and ($product_ref->{multiple_nutrition_data} eq 'on')) {
 
 		push @{$product_ref->{data_quality_info_tags}}, "en:multiple-nutrition-data";
@@ -553,6 +550,7 @@ sub check_nutrition_data($) {
 
 		my $nid_n = 0;
 		my $nid_zero = 0;
+		my $nid_non_zero = 0;
 
 		my $total = 0;
 
@@ -579,22 +577,31 @@ sub check_nutrition_data($) {
 				$has_prepared_data = 1;
 			}
 
-			next if $nid =~ /_/;
+			if ($nid =~ /_100g/) {
+				
+				my $nid2 = $`;
+				$nid2 =~ s/_/-/g;
 
-			if (($nid !~ /energy/) and ($nid !~ /footprint/) and ($product_ref->{nutriments}{$nid . "_100g"} > 105)) {
+				if (($nid !~ /energy/) and ($nid !~ /footprint/) and ($product_ref->{nutriments}{$nid} > 105)) {
 
-				push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-105-$nid";
+					push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-105-$nid2";
+				}
+
+				if (($nid !~ /energy/) and ($nid !~ /footprint/) and ($product_ref->{nutriments}{$nid} > 1000)) {
+
+					push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-1000-$nid2";
+				}
+		# fruits vegetables estimate is a computed value, it should not count for empty / non-empty values
+				if ($nid !~ /fruits-vegetables-nuts-estimate-from-ingredients/) {	
+					if ($product_ref->{nutriments}{$nid} == 0) {
+						$nid_zero++;
+					}
+					else {
+						$nid_non_zero++;
+					}
+				}
 			}
 
-			if (($nid !~ /energy/) and ($nid !~ /footprint/) and ($product_ref->{nutriments}{$nid . "_100g"} > 1000)) {
-
-				push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-1000-$nid";
-			}
-
-			if ((defined $product_ref->{nutriments}{$nid . "_100g"})
-				and ($product_ref->{nutriments}{$nid . "_100g"} == 0)) {
-				$nid_zero++;
-			}
 			$nid_n++;
 
 			if (($nid eq 'fat') or ($nid eq 'carbohydrates') or ($nid eq 'proteins') or ($nid eq 'salt')) {
@@ -614,8 +621,8 @@ sub check_nutrition_data($) {
 			push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-3800-energy";
 		}
 
-		if (($nid_n >= 1) and ($nid_zero == $nid_n)) {
-			push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-all-values-zero";
+		if (($nid_non_zero == 0) and ($nid_zero > 0) and ($nid_zero == $nid_n)) {
+			push @{$product_ref->{data_quality_errors_tags}}, "en:all-nutrition-values-are-set-to-0";
 		}
 
 		if ((defined $product_ref->{nutriments}{"carbohydrates_100g"}) and
@@ -666,8 +673,7 @@ Compare with the most specific category that has enough products to compute stat
 
 =cut
 
-sub compare_nutrition_facts_with_products_from_same_category($) {
-	my $product_ref = shift;
+sub compare_nutrition_facts_with_products_from_same_category($product_ref) {	 
 
 	my $categories_nutriments_ref = $categories_nutriments_per_country{"world"};
 
@@ -730,11 +736,13 @@ sub compare_nutrition_facts_with_products_from_same_category($) {
 }
 
 
-sub calculate_digit_percentage($) {
-	my $text = shift;
+sub calculate_digit_percentage($text) {
+
 	return 0.0 if not defined $text;
+
 	my $tl = length($text);
 	return 0.0 if $tl <= 0;
+
 	my $dc = () = $text =~ /\d/g;
 	return $dc / ($tl * 1.0);
 }
@@ -745,9 +753,8 @@ Checks related to the ingredients list and ingredients analysis.
 
 =cut
 
-sub check_ingredients($) {
-	my $product_ref = shift;
-
+sub check_ingredients($product_ref) {
+	 
 	# spell corrected additives
 
 	if ((defined $product_ref->{additives}) and ($product_ref->{additives} =~ /spell correction/)) {
@@ -923,9 +930,7 @@ Checks related to the quantity and serving quantity.
 
 =cut
 
-sub check_quantity($) {
-
-	my $product_ref = shift;
+sub check_quantity($product_ref) {
 
 	# quantity contains "e" - might be an indicator that the user might have wanted to use "℮" \N{U+212E}
 	if ((defined $product_ref->{quantity})
@@ -987,9 +992,8 @@ Alcoholic beverages: check that there is an alcohol value in the nutrients.
 
 =cut
 
-sub check_categories($) {
-	my $product_ref = shift;
-
+sub check_categories($product_ref) {
+	 
 	# Check alcohol content
 	if (has_tag($product_ref, "categories", "en:alcoholic-beverages")) {
 		if (!(defined $product_ref->{alcohol_value}) || $product_ref->{alcohol_value} == 0) {
@@ -1018,9 +1022,7 @@ sub check_categories($) {
 }
 
 
-sub compare_nutriscore_with_value_from_producer($) {
-
-	my $product_ref = shift;
+sub compare_nutriscore_with_value_from_producer($product_ref) {
 
 	if ((defined $product_ref->{nutriscore_score}) and (defined $product_ref->{nutriscore_score_producer}
 		and ($product_ref->{nutriscore_score} ne lc($product_ref->{nutriscore_score_producer})))) {
@@ -1048,13 +1050,12 @@ sub compare_nutriscore_with_value_from_producer($) {
 
 =head2 check_ingredients_percent_analysis( PRODUCT_REF )
 
-Checks if we were able to analyse the minimum and maximum percent values for ingredients and sub-ingredients.
+Checks if we were able to analyze the minimum and maximum percent values for ingredients and sub-ingredients.
 
 =cut
 
-sub check_ingredients_percent_analysis($) {
-	my $product_ref = shift;
-
+sub check_ingredients_percent_analysis($product_ref) {
+	 
 	if (defined $product_ref->{ingredients_percent_analysis}) {
 
 		if ($product_ref->{ingredients_percent_analysis} < 0) {
@@ -1064,7 +1065,41 @@ sub check_ingredients_percent_analysis($) {
 			push @{$product_ref->{data_quality_info_tags}}, 'en:ingredients-percent-analysis-ok';
 		}
 
-		delete $product_ref->{ingredients_percent_analysis};
+	}
+
+	return;
+}
+
+
+=head2 check_ingredients_with_specified_percent( PRODUCT_REF )
+
+Check if all or almost all the ingredients have a specified percentage in the ingredients list.
+
+=cut
+
+sub check_ingredients_with_specified_percent($product_ref) {
+	 
+	if (defined $product_ref->{ingredients_with_specified_percent_n}) {
+
+		if (($product_ref->{ingredients_with_specified_percent_n} > 0) and ($product_ref->{ingredients_with_unspecified_percent_n} == 0)) {
+			push @{$product_ref->{data_quality_info_tags}}, 'en:all-ingredients-with-specified-percent';
+		}
+		elsif ($product_ref->{ingredients_with_unspecified_percent_n} == 1) {
+			push @{$product_ref->{data_quality_info_tags}}, 'en:all-but-one-ingredient-with-specified-percent';
+		}
+
+		if (($product_ref->{ingredients_with_specified_percent_n} > 0) and ($product_ref->{ingredients_with_specified_percent_sum} >= 90) and ($product_ref->{ingredients_with_unspecified_percent_sum} < 10)) {
+			push @{$product_ref->{data_quality_info_tags}}, 'en:sum-of-ingredients-with-unspecified-percent-lesser-than-10';
+		}
+
+		# Flag products where the sum of % is higher than 100
+		if (($product_ref->{ingredients_with_specified_percent_n} > 0) and ($product_ref->{ingredients_with_specified_percent_sum} > 100)) {
+			push @{$product_ref->{data_quality_info_tags}}, 'en:sum-of-ingredients-with-specified-percent-greater-than-100';
+		}
+
+		if (($product_ref->{ingredients_with_specified_percent_n} > 0) and ($product_ref->{ingredients_with_specified_percent_sum} > 200)) {
+			push @{$product_ref->{data_quality_warning_tags}}, 'en:sum-of-ingredients-with-specified-percent-greater-than-200';
+		}				
 	}
 
 	return;
@@ -1077,8 +1112,7 @@ Checks for data needed to compute the Eco-score.
 
 =cut
 
-sub check_ecoscore_data($) {
-	my $product_ref = shift;
+sub check_ecoscore_data($product_ref) {
 
 	if (defined $product_ref->{ecoscore_data}) {
 
@@ -1092,6 +1126,44 @@ sub check_ecoscore_data($) {
 		}
 	}
 
+	# Extended Eco-Score data from impact estimator
+	if (defined $product_ref->{ecoscore_extended_data}) {
+
+		push @{$product_ref->{data_quality_info_tags}}, 'en:ecoscore-extended-data-computed';
+
+		if (is_ecoscore_extended_data_more_precise_than_agribalyse($product_ref)) {
+			push @{$product_ref->{data_quality_info_tags}}, 'en:ecoscore-extended-data-more-precise-than-agribalyse';
+		}
+		else {
+			push @{$product_ref->{data_quality_info_tags}}, 'en:ecoscore-extended-data-less-precise-than-agribalyse';
+		}
+	}
+	else {
+		push @{$product_ref->{data_quality_info_tags}}, 'en:ecoscore-extended-data-not-computed';
+	}
+
+	return;
+}
+
+
+=head2 check_food_groups( PRODUCT_REF )
+
+Add info tags about food groups.
+
+=cut
+
+sub check_food_groups($product_ref) {
+
+	for (my $level = 1; $level <= 3; $level++) {
+
+		if (deep_exists($product_ref, "food_groups_tags", $level - 1)) {
+			push @{$product_ref->{data_quality_info_tags}}, 'en:food-groups-' . $level . '-known';
+		}
+		else {
+			push @{$product_ref->{data_quality_info_tags}}, 'en:food-groups-' . $level . '-unknown';
+		}
+	}
+
 	return;
 }
 
@@ -1102,12 +1174,11 @@ Run all quality checks defined in the module.
 
 =cut
 
-sub check_quality_food($) {
-
-	my $product_ref = shift;
+sub check_quality_food($product_ref) {
 
 	check_ingredients($product_ref);
 	check_ingredients_percent_analysis($product_ref);
+	check_ingredients_with_specified_percent($product_ref);
 	check_nutrition_data($product_ref);
 	compare_nutrition_facts_with_products_from_same_category($product_ref);
 	check_nutrition_grades($product_ref);
@@ -1117,6 +1188,7 @@ sub check_quality_food($) {
 	check_categories($product_ref);
 	compare_nutriscore_with_value_from_producer($product_ref);
 	check_ecoscore_data($product_ref);
+	check_food_groups($product_ref);
 
 	return;
 }

@@ -1,0 +1,19 @@
+name: Add bugs to the Server GitHub Project
+
+on:
+  issues:
+    types:
+      - opened
+jobs:
+  add-to-project:
+    name: Add issue to project
+    runs-on: ubuntu-latest
+    if: | 
+     github.event.pull_request.head.repo.full_name == github.repository ||
+     github.actor != 'dependabot[bot]'
+    steps:
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/12
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          label-operator: AND

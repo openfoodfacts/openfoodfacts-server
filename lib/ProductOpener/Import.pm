@@ -54,8 +54,7 @@ It is also used in the C<scripts/import_csv_file.pl> script.
 
 package ProductOpener::Import;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 use Log::Any qw($log);
@@ -98,6 +97,7 @@ use ProductOpener::Data qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
+use ProductOpener::PackagerCodes qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -108,6 +108,161 @@ use Time::Local;
 use Data::Dumper;
 use Text::CSV;
 use DateTime::Format::ISO8601;
+use URI;
+use Digest::MD5 qw(md5_hex);
+
+
+# private function to import images from dir
+# args:
+# image_dir: path to image directory
+# stats: stats map
+# return
+sub import_images_from_dir($image_dir, $stats) {
+	my $images_ref = {};
+
+	if (not -d $image_dir) {
+		die("images_dir $image_dir is not a directory\n");
+	}
+
+	# images rules to assign front/ingredients/nutrition image ids
+
+	my @images_rules = ();
+
+	if (-e "$image_dir/images.rules") {
+
+		$log->debug("found images.rules in images_dir", { images_dir => $image_dir }) if $log->is_debug();
+
+		open (my $in, '<', "$image_dir/images.rules") or die "Could not open $image_dir/images.rules : $!\n";
+		my $line_number = 0;
+		while (<$in>) {
+
+			my $line = $_;
+			chomp($line);
+
+			$line_number++;
+
+			if ($line =~ /^#/) {
+				next;
+			}
+			elsif ($line =~ /^([^\t]+)\t([^\t]+)/) {
+				push @images_rules, [$1, $2];
+				print STDERR "adding rule - find: $1 - replace: $2\n";
+				$log->debug("adding rule", { find => $1, replace => $2 }) if $log->is_debug();
+			}
+			else {
+				die("Unrecognized line number $line: $line_number\n");
+			}
+		}
+	}
+	else {
+		$log->debug("did not find images.rules in images_dir", { images_dir => $image_dir }) if $log->is_debug();
+	}
+
+	$log->debug("opening images_dir", { images_dir => $image_dir }) if $log->is_debug();
+
+	if (opendir (DH, "$image_dir")) {
+		foreach my $file (sort { $a cmp $b } readdir(DH)) {
+
+			# apply image rules to the file name to assign front/ingredients/nutrition
+			my $file2 = $file;
+
+			foreach my $images_rule_ref (@images_rules) {
+				my $find = $images_rule_ref->[0];
+				my $replace = $images_rule_ref->[1];
+				#$file2 =~ s/$find/$replace/e;
+				# above line does not work
+
+				my $str = $file2;
+				my $pat = $find;
+				my $repl = $replace;
+
+				# make $repl safe to eval
+				$repl =~ tr/\0//d;
+				$repl =~ s/([^A-Za-z0-9\$])/\\$1/g;
+				$repl = '"' . $repl . '"';
+				$str =~ s/$pat/$repl/eeg;
+
+				$file2 = $str;
+
+				if ($file2 ne $file) {
+					$log->debug("applied rule", { find => $find, replace => $replace, file => $file, file2 => $file2 }) if $log->is_debug();
+				}
+			}
+
+			if ($file2 =~ /(\d+)(_|-|\.)?([^\.-]*)?((-|\.)(.*))?\.(jpg|jpeg|png)/i) {
+
+				if ((-s $image_dir . "/" . "$file") < 10000) {
+					$log->debug("skipping too small image file", { file => $file, size => (-s $file)}) if $log->is_debug();
+					next;
+				}
+
+				my $code = $1;
+				$code = normalize_code($code);
+				my $imagefield = $3;    # front / ingredients / nutrition , optionally with _[language code] suffix
+
+				if ((not defined $imagefield) or ($imagefield eq '')) {
+					$imagefield = "front";
+				}
+
+				$stats->{products_with_images_even_if_no_data}{$code} = 1;
+
+				$log->debug("found image", { code => $code, imagefield => $imagefield, file => $file, file2 => $file2 }) if $log->is_debug();
+
+				# skip jpg and keep png for front product image
+
+				defined $images_ref->{$code} or $images_ref->{$code} = {};
+
+				# push @{$images_ref->{$code}}, $file;
+				# keep jpg if there is also a png
+				if (not defined $images_ref->{$code}{$imagefield}) {
+					$images_ref->{$code}{$imagefield} = $image_dir . "/" . $file;
+				}
+			}
+		}
+	}
+	else {
+		die ("Could not open images_dir $image_dir : $!\n");
+	}
+
+	return $images_ref;
+}
+
+# download image at given url parameter
+sub download_image($image_url) {
+
+	require LWP::UserAgent;
+
+	my $ua = LWP::UserAgent->new(timeout => 10);
+
+	# Some platforms such as CloudFlare block the default LWP user agent.
+	$ua->agent(lang('site_name') . " (https://$server_domain)");
+
+	return $ua->get($image_url);
+}
+
+
+# deduplicate column names
+# We may have duplicate columns (e.g. image_other_url),
+# turn them to image_other_url.2 etc.
+# arguments: column ref
+# return array ref column_names
+sub deduped_colnames($columns_ref) {
+	my %seen_columns = ();
+	my @column_names = ();
+
+	foreach my $column (@{$columns_ref}) {
+		if (defined $seen_columns{$column}) {
+			$seen_columns{$column}++;
+			push @column_names, $column . "." . $seen_columns{$column};
+		}
+		else {
+			$seen_columns{$column} = 1;
+			push @column_names, $column;
+		}
+	}
+	return \@column_names;
+}
+
 
 =head1 FUNCTIONS
 
@@ -125,9 +280,12 @@ Arguments are passed through a single hash reference with the following keys:
 User id to which the changes (new products, added or changed values, new images)
 will be attributed.
 
+If the user_id is 'all', the change will be attributed to the org of the product.
+(e.g. when importing products from the producers database to the public database)
+
 =head4 org_id - optional
 
-Organisation id to which the changes (new products, added or changed values, new images)
+Organization id to which the changes (new products, added or changed values, new images)
 will be attributed.
 
 =head4 owner_id - optional
@@ -138,7 +296,7 @@ Values are of the form user-[user id] or org-[organization id].
 If not set, for databases with private products, it will be constructed from the user_id
 and org_id parameters.
 
-The owner can be overriden if the CSV file contains a org_name field.
+The owner can be overrode if the CSV file contains a org_name field.
 In that case, the owner is set to the value of the org_name field, and
 a new org is created if it does not exist yet.
 
@@ -181,11 +339,11 @@ URL for the source.
 
 =head4 source_licence - optional (unless no_source is indicated)
 
-Licence that the source data is available in.
+License that the source data is available in.
 
 =head4 source_licence_url - optional (unless no_source is indicated)
 
-URL for the licence.
+URL for the license.
 
 =head4 manufacturer - optional
 
@@ -234,27 +392,33 @@ uploaded and added to the product, but it will not be selected.
 
 my %yes = (
 	en => "on|yes|y",	# on is a special value, it does not need to be translated to other languages
+	de => "ja|j",
 	es => "si|s",
 	fr => "oui|o",
+	it => "si|s",
 );
 
 my %no = (
 	en => "off|no|n|not",	# off is a special value, it does not need to be translated to other languages
+	de => "nein|n",
 	es => "no|n",
 	fr => "non|n",
+	it => "no|n",
 );
 
 
 
-sub import_csv_file($) {
-
-	my $args_ref = shift;
+sub import_csv_file($args_ref) {
 
 	$User_id = $args_ref->{user_id};
 	$Org_id = $args_ref->{org_id};
 	$Owner_id = get_owner_id($User_id, $Org_id, $args_ref->{owner_id});
 
-	$log->debug("starting import_csv_file", { User_id => $User_id, Org_id => $Org_id, Owner_id => $Owner_id }) if $log->is_debug();
+	$log->debug("starting import_csv_file", { User_id => $User_id, Org_id => $Org_id, Owner_id => $Owner_id, args_ref => $args_ref }) if $log->is_debug();
+	
+	# Load GS1 GLNs so that we can map products to the owner orgs
+	my $glns_ref = retrieve("$data_root/orgs/orgs_glns.sto");
+	not defined $glns_ref and $glns_ref = {};
 
 	my %global_values = ();
 	if (defined $args_ref->{global_values}) {
@@ -262,39 +426,58 @@ sub import_csv_file($) {
 	}
 
 	my %stats = (
-	'products_in_file' => {},
-	'products_already_existing' => {},
-	'products_created' => {},
-	'products_data_updated' => {},
-	'products_data_not_updated' => {},
-	'products_info_added' => {},
-	'products_info_changed' => {},
-	'products_info_updated' => {},
-	'products_info_not_updated' => {},
-	'products_nutrition_added' => {},
-	'products_nutrition_changed' => {},
-	'products_nutrition_updated' => {},
-	'products_nutrition_not_updated' => {},
-	'products_images_added' => {},
-	'products_with_images' => {},
-	'products_with_data' => {},
-	'products_with_info' => {},
-	'products_with_ingredients' => {},
-	'products_with_nutrition' => {},
-	'products_with_nutrition_prepared' => {},
-	'products_without_images' => {},
-	'products_without_data' => {},
-	'products_without_info' => {},
-	'products_without_info' => {},
-	'products_without_nutrition' => {},
-	'products_updated' => {},
-
+		'products_in_file' => {},
+		'products_already_existing' => {},
+		'products_created' => {},
+		'products_data_updated' => {},
+		'products_data_not_updated' => {},
+		'products_info_added' => {},
+		'products_info_changed' => {},
+		'products_info_updated' => {},
+		'products_info_not_updated' => {},
+		'products_nutrition_added' => {},
+		'products_nutrition_changed' => {},
+		'products_nutrition_updated' => {},
+		'products_nutrition_not_updated' => {},
+		'products_images_added' => {},
+		'products_with_images' => {},
+		'products_with_data' => {},
+		'products_with_info' => {},
+		'products_with_ingredients' => {},
+		'products_with_nutrition' => {},
+		'products_with_nutrition_prepared' => {},
+		'products_without_images' => {},
+		'products_without_data' => {},
+		'products_without_info' => {},
+		'products_without_info' => {},
+		'products_without_nutrition' => {},
+		'products_updated' => {},
+		# Keep track of the number of products that are not imported
+		# because the source does not have authorization for the org
+		'orgs_without_source_authorization' => {},
+		'orgs_created' => {},
+		'orgs_existing' => {},
+		'orgs_in_file' => {},
 	);
 
 	my $csv = Text::CSV->new ( { binary => 1 , sep_char => "\t" } )  # should set binary attribute.
-					 or die "Cannot use CSV: ".Text::CSV->error_diag ();
+			  or die "Cannot use CSV: ".Text::CSV->error_diag ();
 
 	my $time = time();
+
+	# Read images from directory if supplied
+	my $images_ref = {};
+	if ((defined $args_ref->{images_dir}) and ($args_ref->{images_dir} ne '')) {
+		$images_ref = import_images_from_dir($args_ref->{images_dir}, \%stats)
+	}
+
+	$log->debug("importing products", { }) if $log->is_debug();
+
+	open (my $io, '<:encoding(UTF-8)', $args_ref->{csv_file}) or die("Could not open " . $args_ref->{csv_file} . ": $!");
+
+	# first line contains headers
+	my $columns_ref = $csv->getline ($io);
+	$csv->column_names(@{deduped_colnames($columns_ref)});
 
 	my $i = 0;
 	my $j = 0;
@@ -305,169 +488,49 @@ sub import_csv_file($) {
 	my @edited = ();
 	my %edited = ();
 	my %nutrients_edited = ();
-
-	# Read images if supplied
-
-	my @sorted_nutriments = sort keys %Nutriments;
-
-	my $images_ref = {};
-
-	if ((defined $args_ref->{images_dir}) and ($args_ref->{images_dir} ne '')) {
-
-		if (not -d $args_ref->{images_dir}) {
-			die("images_dir $args_ref->{images_dir} is not a directory\n");
-		}
-
-		# images rules to assign front/ingredients/nutrition image ids
-
-		my @images_rules = ();
-
-		if (-e "$args_ref->{images_dir}/images.rules") {
-
-			$log->debug("found images.rules in images_dir", { images_dir => $args_ref->{images_dir} }) if $log->is_debug();
-
-			open (my $in, '<', "$args_ref->{images_dir}/images.rules") or die "Could not open $args_ref->{images_dir}/images.rules : $!\n";
-			my $line_number = 0;
-			while (<$in>) {
-
-				my $line = $_;
-				chomp($line);
-
-				$line_number++;
-
-				if ($line =~ /^#/) {
-					next;
-				}
-				elsif ($line =~ /^([^\t]+)\t([^\t]+)/) {
-					push @images_rules, [$1, $2];
-					print STDERR "adding rule - find: $1 - replace: $2\n";
-					$log->debug("adding rule", { find => $1, replace => $2 }) if $log->is_debug();
-				}
-				else {
-					die("Unrecognized line number $i: $line_number\n");
-				}
-			}
-		}
-		else {
-			$log->debug("did not find images.rules in images_dir", { images_dir => $args_ref->{images_dir} }) if $log->is_debug();
-		}
-
-		$log->debug("opening images_dir", { images_dir => $args_ref->{images_dir} }) if $log->is_debug();
-
-		if (opendir (DH, "$args_ref->{images_dir}")) {
-			foreach my $file (sort { $a cmp $b } readdir(DH)) {
-
-				# apply image rules to the file name to assign front/ingredients/nutrition
-				my $file2 = $file;
-
-				foreach my $images_rule_ref (@images_rules) {
-					my $find = $images_rule_ref->[0];
-					my $replace = $images_rule_ref->[1];
-					#$file2 =~ s/$find/$replace/e;
-					# above line does not work
-
-					my $str = $file2;
-					my $pat = $find;
-					my $repl = $replace;
-
-					# make $repl safe to eval
-					$repl =~ tr/\0//d;
-					$repl =~ s/([^A-Za-z0-9\$])/\\$1/g;
-					$repl = '"' . $repl . '"';
-					$str =~ s/$pat/$repl/eeg;
-
-					$file2 = $str;
-
-					if ($file2 ne $file) {
-						$log->debug("applied rule", { find => $find, replace => $replace, file => $file, file2 => $file2 }) if $log->is_debug();
-					}
-				}
-
-				if ($file2 =~ /(\d+)(_|-|\.)?([^\.-]*)?((-|\.)(.*))?\.(jpg|jpeg|png)/i) {
-
-					if ((-s $args_ref->{images_dir} . "/" . "$file") < 10000) {
-						$log->debug("skipping too small image file", { file => $file, size => (-s $file)}) if $log->is_debug();
-						next;
-					}
-
-					my $code = $1;
-					$code = normalize_code($code);
-					my $imagefield = $3;    # front / ingredients / nutrition , optionnaly with _[language code] suffix
-
-					if ((not defined $imagefield) or ($imagefield eq '')) {
-						$imagefield = "front";
-					}
-
-					$stats{products_with_images_even_if_no_data}{$code} = 1;
-
-					$log->debug("found image", { code => $code, imagefield => $imagefield, file => $file, file2 => $file2 }) if $log->is_debug();
-
-					# skip jpg and keep png for front product image
-
-					defined $images_ref->{$code} or $images_ref->{$code} = {};
-
-					# push @{$images_ref->{$code}}, $file;
-					# keep jpg if there is also a png
-					if (not defined $images_ref->{$code}{$imagefield}) {
-						$images_ref->{$code}{$imagefield} = $args_ref->{images_dir} . "/" . $file;
-					}
-				}
-			}
-		}
-		else {
-			die ("Could not open images_dir $args_ref->{images_dir} : $!\n");
-		}
-	}
-
-	$log->debug("importing products", { }) if $log->is_debug();
-
-	open (my $io, '<:encoding(UTF-8)', $args_ref->{csv_file}) or die("Could not open " . $args_ref->{csv_file} . ": $!");
-
-	my $columns_ref = $csv->getline ($io);
-
-	# We may have duplicate columns (e.g. image_other_url),
-	# turn them to image_other_url.2 etc.
-
-	my %seen_columns = ();
-	my @column_names = ();
-
-	foreach my $column (@{$columns_ref}) {
-		if (defined $seen_columns{$column}) {
-			$seen_columns{$column}++;
-			push @column_names, $column . "." . $seen_columns{$column};
-		}
-		else {
-			$seen_columns{$column} = 1;
-			push @column_names, $column;
-		}
-	}
-
-	$csv->column_names (@column_names);
-
 	my $skip_not_existing = 0;
 	my $skip_no_images = 0;
 
+	# go through file
 	while (my $imported_product_ref = $csv->getline_hr ($io)) {
 
 		$i++;
 
+		# By default, use the orgid passed in the arguments
+		# it may be overrode later on a per product basis
+		my $org_id = $args_ref->{org_id};
+		my $org_ref;
+
+		# read code
+		my $code = $imported_product_ref->{code};
+		$code = normalize_code($code);
+
 		my $modified = 0;
 
-		# Keep track of fields that have been modified, so that we don't import products that have not been modified
+		# Keep track of fields that have been modified,
+		# so that we don't import products that have not been modified
 		my @modified_fields;
 
 		my @images_ids;
-				
+
+		# The option import_owner is used when exporting from the producers database to the public database
+		if (($args_ref->{import_owner}) and (defined $imported_product_ref->{owner})
+			and ($imported_product_ref->{owner} =~ /^org-(.+)$/)) {
+			$org_id = $1;
+		}
+		elsif (($args_ref->{use_brand_owner_as_org_name}) and (defined $imported_product_ref->{brand_owner})) {
+			# The option -use_brand_owner_as_org_name can be used to set the org name
+			# e.g. for the USDA branded food database import
+			$imported_product_ref->{org_name} = $imported_product_ref->{brand_owner};
+		}
+
 		# If the CSV includes an org_name (e.g. from GS1 partyName field)
 		# set the owner of the product to the org_name
-		
 		if ((defined $imported_product_ref->{org_name}) and ($imported_product_ref->{org_name} ne "")) {
-			my $org_id = get_string_id_for_lang("no_language", $imported_product_ref->{org_name});
+			$org_id = get_string_id_for_lang("no_language", $imported_product_ref->{org_name});
 			if ($org_id ne "") {
-				
 				# Re-assign some organizations
 				# e.g. nestle-france-div-choc-cul-bi-inf -> nestle-france
-				
 				$org_id =~ s/^nestle-france-.*/nestle-france/;
 				$org_id =~ s/^cereal-partners-france$/nestle-france/;
 				$org_id =~ s/^nestle-spac$/nestle-france/;
@@ -481,26 +544,101 @@ sub import_csv_file($) {
 					"3013873929306" => "nestle-france",	# Cereal Partners
 					"3011797320001" => "nestle-france",	# Nestlé Waters
 					"3010737870309" => "groupe-bel",	# BEL FRANCE
-					"3700935300011" => "panzani-sa",	# Garofalo France
-					"3012409300206" => "panzani-sa",	# Lustucru Frais
 				);
-
-				if ((defined $imported_product_ref->{"sources_fields:org-gs1:gln"})
-					and (defined $gln{$imported_product_ref->{"sources_fields:org-gs1:gln"}})) {
-					$org_id = $gln{$imported_product_ref->{"sources_fields:org-gs1:gln"}};	
+				
+				# GLNs can now be stored inside organization profiles (loaded in $glns_ref)
+				
+				if (defined $imported_product_ref->{"sources_fields:org-gs1:gln"}) {
+					if ($glns_ref->{$imported_product_ref->{"sources_fields:org-gs1:gln"}}) {
+						$org_id = $glns_ref->{$imported_product_ref->{"sources_fields:org-gs1:gln"}};	
+					}
+					elsif (defined $gln{$imported_product_ref->{"sources_fields:org-gs1:gln"}}) {
+						$org_id = $gln{$imported_product_ref->{"sources_fields:org-gs1:gln"}};	
+					}
 				}
 				
-				$Org_id = $org_id;
-				$Owner_id = "org-" . $org_id;
-				
 				$log->debug("org", { org_name => $imported_product_ref->{org_name}, org_id => $org_id, gln => $imported_product_ref->{"sources_fields:org-gs1:gln"} }) if $log->is_debug();
+
+				defined $stats{orgs_in_file}{$org_id} or $stats{orgs_in_file}{$org_id} = 0;
+				$stats{orgs_in_file}{$org_id}++;
 				
-				# Create the org if it does not exist yet
-				if (not defined retrieve_org($org_id)) {
+				$org_ref = retrieve_org($org_id);
+		
+				if (defined $org_ref) {
+
+					defined $stats{orgs_existing}{$org_id} or $stats{orgs_existing}{$org_id} = 0;
+					$stats{orgs_existing}{$org_id}++;
+
+					# Make sure the source as the authorization to load data to the org
+					# e.g. if an org has loaded fresh data manually or through Equadis,
+					# don't overwrite it with potentially stale CodeOnline or USDA data
+
+					if (defined $args_ref->{source_id}) {
+						if (not $org_ref->{"import_source_" . $args_ref->{source_id}}) {
+							$log->debug("skipping import for org without authorization for the source", { org_ref => $org_ref, source_id => $args_ref->{source_id} }) if $log->is_debug();
+							$stats{orgs_without_source_authorization}{$org_id} or $stats{orgs_without_source_authorization}{$org_id} = 0;
+							$stats{orgs_without_source_authorization}{$org_id}++;
+							next;
+						};
+					}
+
+					# The do_not_import_codeonline checkbox will be replaced by the new system above that will work for all sources
+
+					# Check if it is a CodeOnline import for an org with do_not_import_codeonline
+					if ((defined $args_ref->{source_id}) and ($args_ref->{source_id} eq "codeonline")
+						and (defined $org_ref->{do_not_import_codeonline}) and ($org_ref->{do_not_import_codeonline})) {
+						$log->debug("skipping codeonline import for org with do_not_import_codeonline", { org_ref => $org_ref }) if $log->is_debug();
+						next;
+					}
 					
-					my $org_ref = create_org($User_id, $org_id);
+					# If it is a GS1 import (Equadis, CodeOnline, Agena3000), check if the org is associated with known issues
 					
+					# Abbreviated product name
+					if ((defined $args_ref->{source_id}) and (($args_ref->{source_id} eq "codeonline") or ($args_ref->{source_id} eq "equadis") or ($args_ref->{source_id} eq "agena3000"))
+						and (defined $org_ref->{gs1_product_name_is_abbreviated}) and ($org_ref->{gs1_product_name_is_abbreviated})) {
+							
+						if ((defined $imported_product_ref->{product_name_fr}) and ($imported_product_ref->{product_name_fr} ne "")) {
+							$imported_product_ref->{abbreviated_product_name_fr} = $imported_product_ref->{product_name_fr};
+							delete $imported_product_ref->{product_name_fr};
+						}
+					}
+					
+					# Nutrition facts marked as "prepared" are in fact for unprepared / as sold product
+					if ((defined $args_ref->{source_id}) and (($args_ref->{source_id} eq "codeonline") or ($args_ref->{source_id} eq "equadis") or ($args_ref->{source_id} eq "agena3000"))
+						and (defined $org_ref->{gs1_nutrients_are_unprepared}) and ($org_ref->{gs1_nutrients_are_unprepared})) {
+						
+						foreach my $field (sort keys %$imported_product_ref) {
+							if ($field =~ /_prepared/) {
+								my $unprepared_field = $` . $';
+								if (((defined $imported_product_ref->{$field}) and ($imported_product_ref->{$field} ne ''))
+									and not ((defined $imported_product_ref->{$unprepared_field}) and ($imported_product_ref->{$unprepared_field} ne "")) ) {
+									$imported_product_ref->{$unprepared_field} = $imported_product_ref->{$field};
+									delete $imported_product_ref->{$field};
+								}
+							}
+						}
+					}	
+				}
+				else {
+					# The org does not exist yet, create it
+
+					defined $stats{orgs_created}{$org_id} or $stats{orgs_created}{$org_id} = 0;
+					$stats{orgs_created}{$org_id}++;
+					
+					$org_ref = create_org($User_id, $org_id);
 					$org_ref->{name} = $imported_product_ref->{org_name};
+
+					# Set the sources field to authorize imports from the source that created the org
+					# e.g. if the org was created by an import of Codeonline or the USDA,
+					# then that source will be able to load new imports automatically
+					# (unless the authorization is revoked by an admin or the org owner)
+
+					if (defined $args_ref->{source_id}) {
+						$org_ref->{"import_source_" . $args_ref->{source_id}} = "on";
+
+						# Check the checkbox for automated exports to the public database
+						$org_ref->{"activate_automated_daily_export_to_public_platform"} = "on";
+					}
 					
 					if (defined $imported_product_ref->{"sources_fields:org-gs1:gln"}) {
 						$org_ref->{sources_field} = {
@@ -511,25 +649,26 @@ sub import_csv_file($) {
 						if (defined $imported_product_ref->{"sources_fields:org-gs1:partyName"}) {
 							$org_ref->{sources_field}{"org-gs1"}{"partyName"} = $imported_product_ref->{"sources_fields:org-gs1:partyName"};
 						}
+						set_org_gs1_gln($org_ref, $imported_product_ref->{"sources_fields:org-gs1:gln"});
+						$glns_ref = retrieve("$data_root/orgs/orgs_glns.sto");
 					}
 			
 					store_org($org_ref);
-					
-					my $admin_mail_body = <<EMAIL
-user_id: $User_id
-org_id: $org_id
-org_name: $imported_product_ref->{org_name}
-EMAIL
-;
-					send_email_to_admin("Import - Created org - user: $User_id - org: " . $Org_id, $admin_mail_body);
 				}
 			}
 		}
-		
 
-		my $code = $imported_product_ref->{code};
-		$code = normalize_code($code);
+		$Org_id = $org_id;
+		$Owner_id = get_owner_id($User_id, $Org_id, $args_ref->{owner_id});
 		my $product_id = product_id_for_owner($Owner_id, $code);
+
+		# The userid can be overrode on a per product basis
+		# when we import data from the producers platform to the public platform
+		# we use the orgid as the userid
+		my $user_id = $args_ref->{user_id};
+		if ($user_id eq 'all') {
+			$user_id = "org-" . $org_id;
+		}
 
 		if ((defined $args_ref->{skip_if_not_code}) and ($code ne $args_ref->{skip_if_not_code})) {
 			next;
@@ -556,18 +695,28 @@ EMAIL
 			}
 		}
 
-		if (not defined $imported_product_ref->{lc})  {
-			$log->error("Error - missing language code lc in csv file or global field values", { i => $i, code => $code, product_id => $product_id, imported_product_ref => $imported_product_ref }) if $log->is_error();
-			next;
+		# add data_source "Producers"
+		if ((defined $Org_id) and ($Org_id !~ /^app-/) and ( $Org_id !~ /^database-/ ) and ($Org_id !~ /^label-/)) {
+			if (defined $imported_product_ref->{data_sources}) {
+				$imported_product_ref->{data_sources} .= ", Producers, Producer - " . $Org_id;
+			}
+			else {
+				$imported_product_ref->{data_sources} = "Producers, Producer - " . $Org_id;
+			}
 		}
 
-		if ($imported_product_ref->{lc} !~ /^\w\w$/) {
-			$log->error("Error - lc is not a 2 letter language code", { lc => $lc, i => $i, code => $code, product_id => $product_id, imported_product_ref => $imported_product_ref }) if $log->is_error();
-			next;
+		if (not defined $imported_product_ref->{lc})  {
+			$log->warning("Warning - missing language code lc in csv file or global field values", { i => $i, code => $code, product_id => $product_id, imported_product_ref => $imported_product_ref }) if $log->is_warning();
 		}
-		
-		# Set the $lang field to $lc
-		$imported_product_ref->{lang} = $imported_product_ref->{lc};
+		else {
+			if ($imported_product_ref->{lc} !~ /^\w\w$/) {
+				$log->error("Error - lc is not a 2 letter language code", { lc => $lc, i => $i, code => $code, product_id => $product_id, imported_product_ref => $imported_product_ref }) if $log->is_error();
+				next;
+			}
+
+			# Set the $lang field to $lc
+			$imported_product_ref->{lang} = $imported_product_ref->{lc};
+		}
 
 		# Clean the input data, populate some fields from other fields (e.g. split quantity found in product name)
 
@@ -582,7 +731,7 @@ EMAIL
 				foreach my $file (split(/\s*,\s*/, $imported_product_ref->{"image_" . $imagefield})) {
 					$file =~ s/^\s+//;
 					$file =~ s/\s+$//;
-					
+
 					$log->debug("images", { file => $file }) if $log->is_debug();
 
 					defined $images_ref->{$code} or $images_ref->{$code} = {};
@@ -592,10 +741,10 @@ EMAIL
 					else {
 						$k++;
 						$images_ref->{$code}{$imagefield . "_$k"} = $file;
-						
+
 						$log->debug("images - other", { file => $file, imagefield => $imagefield, k => $k }) if $log->is_debug();
 
-						# No front image?
+						# No front image yet? --> take this one
 						if (not (defined $images_ref->{$code}{front})) {
 							$images_ref->{$code}{front} = $file;
 						}
@@ -635,18 +784,18 @@ EMAIL
 				next;
 			}
 		}
-		
+
 		# If we are importing on the public platform, check if the product exists on other servers
 		# (e.g. Open Beauty Facts, Open Products Facts), unless it already exists on the target server
-		
+
 		my $product_ref;
-		
+
 		if ((defined $options{other_servers})
 			and not ((defined $server_options{private_products}) and ($server_options{private_products}))
 			and not (product_exists($product_id))) {
 			foreach my $server (sort keys %{$options{other_servers}}) {
 				next if ($server eq $options{current_server});
-								
+
 				$product_ref = product_exists_on_other_server($server, $product_id);
 				if ($product_ref) {
 					# Indicate to store_product() that the product is on another server
@@ -654,7 +803,7 @@ EMAIL
 					# Indicate to Images.pm functions that the product is on another server
 					$product_id = $server . ":" . $product_id;
 					$log->debug("product exists on another server", { code => $code, server => $server, product_id => $product_id }) if $log->is_debug();
-					last;
+					last;  # no need to search on other servers
 				}
 			}
 		}
@@ -683,7 +832,7 @@ EMAIL
 
 				$stats{products_created}{$code} = 1;
 
-				$product_ref = init_product($args_ref->{user_id}, $args_ref->{org_id}, $code, undef);
+				$product_ref = init_product($user_id, $org_id, $code, undef);
 				$product_ref->{interface_version_created} = "import_csv_file - version 2019/09/17";
 
 				$product_ref->{lc} = $imported_product_ref->{lc};
@@ -692,9 +841,6 @@ EMAIL
 				delete $product_ref->{countries};
 				delete $product_ref->{countries_tags};
 				delete $product_ref->{countries_hierarchy};
-				if (not $args_ref->{test}) {
-					# store_product($product_ref, "Creating product - " . $product_comment );
-				}
 			}
 		}
 		else {
@@ -702,22 +848,22 @@ EMAIL
 			$existing++;
 			$stats{products_already_existing}{$code} = 1;
 		}
-		
+
 		# If the data comes from GS1 / GSDN (e.g. through Equadis or Code Online Food)
 		# skip the data if it less recent than the last publication date we have in sources_fields:org-gs1:publicationDateTime
 		# use lastChangeDateTime if publicationDateTime is not available (e.g. CodeOnline)
 		# e.g. if we have real time Equadis data, do not overwrite it with monthly Code Online Food extracts
-		
+
 		if ((defined $product_ref->{sources_fields}) and (defined $product_ref->{sources_fields}{"org-gs1"})) {
-		
+
 			my $imported_date = $imported_product_ref->{"sources_fields:org-gs1:publicationDateTime"}
 				// $imported_product_ref->{"sources_fields:org-gs1:lastChangeDateTime"};
-				
+
 			my $existing_date = $product_ref->{sources_fields}{"org-gs1"}{publicationDateTime}
 				// $product_ref->{sources_fields}{"org-gs1"}{lastChangeDateTime};
-			
+
 			if ((defined $imported_date) and (defined $existing_date)) {
-				
+
 				if (DateTime::Format::ISO8601->parse_datetime($imported_date)->epoch
 					< DateTime::Format::ISO8601->parse_datetime($existing_date)->epoch) {
 					$log->debug("existing GS1 data with a greater sources_fields:org-gs1:publicationDateTime - skipping product", { 
@@ -771,9 +917,25 @@ EMAIL
 			and ($Owner_id !~ /^org-app-/)
 			and ($Owner_id !~ /^org-database-/)
 			and ($Owner_id !~ /^org-label-/) ) {
+
+			# If the product already has an owner different from the imported owner,
+			# skip the product, unless the overwrite_owner property is set
+			if ((defined $product_ref->{owner}) and ($product_ref->{owner} ne $Owner_id)
+				and (not defined $args_ref->{overwrite_owner})) {
+				$log->info("existing product has a different owner, skip the product", { 
+						product_owner => $product_ref->{owner}, owner_id => $Owner_id, args_ref_overwrite_owner => $args_ref->{overwrite_owner} }) if $log->is_info();
+				next;
+			}
+				
 			defined $product_ref->{owner_fields} or $product_ref->{owner_fields} = {};
-			$product_ref->{owner} = $Owner_id;
-			$product_ref->{owners_tags} = $product_ref->{owner};
+			if ((not defined $product_ref->{owner}) or ($product_ref->{owner} ne $Owner_id)) {
+				$product_ref->{owner} = $Owner_id;
+				$product_ref->{owners_tags} = [$product_ref->{owner}];
+				$modified++;
+				my $field = "owner";
+				defined $stats{"products_sources_field_" . $field . "_updated"} or $stats{"products_sources_field_" . $field . "_updated"} = {};
+				$stats{"products_sources_field_" . $field . "_updated"}{$code} = 1;
+			}
 		}
 
 		# We can have source specific fields of the form : sources_fields:org-database-usda:fdc_category
@@ -880,6 +1042,13 @@ EMAIL
 							}
 						}
 					}
+
+					# We may have multiple columns for the same tag field. e.g. brands, brands.2, brands.3 etc.
+					# Concatenate them with a comma
+
+					if ($subfield =~ /^${field}\.(\d+)$/) {
+						$imported_product_ref->{$field} .= ',' . $imported_product_ref->{$subfield};
+					}
 				}
 			}
 
@@ -906,22 +1075,35 @@ EMAIL
 						and ($Owner_id !~ /^org-database-/)
 						and ($Owner_id !~ /^org-label-/)) {
 						$product_ref->{owner_fields}{$field} = $time;
-					}
+					
+						# Save the imported value, before it is cleaned etc. so that we can avoid reimporting data that has been manually changed afterwards
+						if ((not defined $product_ref->{$field . "_imported"}) or ($product_ref->{$field . "_imported"} ne $imported_product_ref->{$field})
+							# we had a bug that caused serving_size to be set to "serving": change it
+							or (($field eq "serving_size") and ($product_ref->{$field} eq "serving"))
+							) {
+							$log->debug("setting _imported field value", { field => $field, imported_value => $imported_product_ref->{$field}, current_value => $product_ref->{$field} }) if $log->is_debug();
+							$product_ref->{$field . "_imported"} = $imported_product_ref->{$field};
+							$modified++;
+							defined $stats{"products_imported_field_" . $field . "_updated"} or $stats{"products_imported_field_" . $field . "_updated"} = {};
+							$stats{"products_imported_field_" . $field . "_updated"}{$code} = 1;
+						}
 
-					# Save the imported value, before it is cleaned etc. so that we can avoid reimporting data that has been manually changed afterwards
-					if ((not defined $product_ref->{$field . "_imported"}) or ($product_ref->{$field . "_imported"} ne $imported_product_ref->{$field})) {
-						$log->debug("setting _imported field value", { field => $field, imported_value => $imported_product_ref->{$field}, current_value => $product_ref->{$field} }) if $log->is_debug();
-						$product_ref->{$field . "_imported"} = $imported_product_ref->{$field};
-						$modified++;
-						defined $stats{"products_imported_field_" . $field . "_updated"} or $stats{"products_imported_field_" . $field . "_updated"} = {};
-						$stats{"products_imported_field_" . $field . "_updated"}{$code} = 1;
+						# Skip data that we have already imported before (even if it has been changed)
+						# But do import the field "obsolete"
+						elsif (($field ne "obsolete") and (defined $product_ref->{$field . "_imported"}) and ($product_ref->{$field . "_imported"} eq $imported_product_ref->{$field})) {
+							# we had a bug that caused serving_size to be set to "serving", this value should be overridden
+							next if (($field eq "serving_size") and ($product_ref->{"serving_size"} eq "serving"));
+							$log->debug("skipping field that was already imported", { field => $field, imported_value => $imported_product_ref->{$field}, current_value => $product_ref->{$field} }) if $log->is_debug();
+							next;
+						}
 					}
-
-					# Skip data that we have already imported before (even if it has been changed)
-					# But do import the field "obsolete"
-					elsif (($field ne "obsolete") and (defined $product_ref->{$field . "_imported"}) and ($product_ref->{$field . "_imported"} eq $imported_product_ref->{$field})) {
-						$log->debug("skipping field that was already imported", { field => $field, imported_value => $imported_product_ref->{$field}, current_value => $product_ref->{$field} }) if $log->is_debug();
-						next;
+					# For apps, databases, labels: do not overwrite fields provided by the owner
+					else {
+						# Tags field will be added, we can import them
+						if ((not defined $tags_fields{$field}) and (defined $product_ref->{owner_fields}{$field})) {
+							$log->debug("skipping field that was already imported by the owner", { field => $field, imported_value => $imported_product_ref->{$field}, current_value => $product_ref->{$field} }) if $log->is_debug();
+							next;
+						}
 					}
 				}
 
@@ -1012,8 +1194,8 @@ EMAIL
 						push @modified_fields, $field;
 						$modified++;
 						$stats{products_info_added}{$code} = 1;
-						defined $stats{"products_info_added_" . $current_field } or $stats{"products_info_added_" . $current_field } = {};
-						$stats{"products_info_added_field_" . $current_field }{$code} = 1;
+						defined $stats{"products_info_added_" . $field } or $stats{"products_info_added_" . $field } = {};
+						$stats{"products_info_added_field_" . $field }{$code} = 1;
 					}
 					elsif ($current_field ne $product_ref->{$field}) {
 						$log->debug("changed value for field", { field => $field, value => $product_ref->{$field}, old_value => $current_field }) if $log->is_debug();
@@ -1155,13 +1337,10 @@ EMAIL
 
 		my $seen_salt = 0;
 
-		foreach my $nutriment (@sorted_nutriments) {
+		foreach my $nutrient_tagid (sort(get_all_taxonomy_entries("nutrients"))) {
 
-			next if $nutriment =~ /^\#/;
-
-			my $nid = $nutriment;
-			$nid =~ s/^(-|!)+//g;
-			$nid =~ s/-$//g;
+			my $nid = $nutrient_tagid;
+			$nid =~ s/^zz://g;
 
 			# don't set sodium if we have salt
 			next if (($nid eq 'sodium') and ($seen_salt));
@@ -1219,7 +1398,7 @@ EMAIL
 							# Assign energy-kj and energy-kcal values from energy field
 
 							if (($nid eq "energy") and ($imported_product_ref->{$nid . $type . $per . "_value_unit"} =~ /\b([0-9]+)(\s*)kJ/i)) {
-								if (not defined $imported_product_ref->{$nid . "-j" . $type . $per . "_value_unit"}) {
+								if (not defined $imported_product_ref->{$nid . "-kj" . $type . $per . "_value_unit"}) {
 									$imported_product_ref->{$nid . "-kj" . $type . $per . "_value_unit"} = $1 . " kJ";
 								}
 							}
@@ -1297,6 +1476,11 @@ EMAIL
 
 					$log->debug("nutrient with defined and non empty value", { nid => $nid, type => $type, value => $values{$type}, unit => $unit }) if $log->is_debug();
 					$stats{"products_with_nutrition" . $type}{$code} = 1;
+
+					# if the nid is "energy" and we have a unit, set "energy-kj" or "energy-kcal"
+					if (($nid eq "energy") and ((lc($unit) eq "kj") or (lc($unit) eq "kcal"))) {
+						$nid = "energy-" . lc($unit);
+					}
 
 					assign_nid_modifier_value_and_unit($product_ref, $nid . $type, $modifier, $values{$type}, $unit);
 
@@ -1380,7 +1564,10 @@ EMAIL
 				if ($imported_nutrition_data_per_value =~ /^100\s?(g|ml)$/i) {
 					$imported_nutrition_data_per_value = "100g";
 				}
-				# otherwise -> assign the per serving value, and assign serving size
+				elsif ($imported_nutrition_data_per_value =~ /^serving$/i) {
+					$imported_nutrition_data_per_value = "serving";
+				}
+				# otherwise, assign the per serving value, and assign serving size
 				else {
 					$log->debug("nutrition_data_per_field corresponds to serving size", { code => $code, nutrition_data_per_field => $nutrition_data_per_field, $imported_nutrition_data_per_value => $imported_nutrition_data_per_value }) if $log->is_debug();				
 					if ((not defined $product_ref->{serving_size}) or ($product_ref->{serving_size} ne $imported_nutrition_data_per_value)) {
@@ -1410,8 +1597,7 @@ EMAIL
 					$stats{products_data_updated}{$code} = 1;
 				}
 			}
-		}		
-
+		}	
 
 		if ((defined $stats{products_info_added}{$code}) or (defined $stats{products_info_changed}{$code})) {
 			$stats{products_info_updated}{$code} = 1;
@@ -1484,7 +1670,7 @@ EMAIL
 			# Food category rules for sweeetened/sugared beverages
 			# French PNNS groups from categories
 
-			if ($server_domain =~ /openfoodfacts/) {
+			if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 				ProductOpener::Food::special_process_product($product_ref);
 			}
 
@@ -1583,9 +1769,18 @@ EMAIL
 
 				ProductOpener::DataQuality::check_quality($product_ref);
 
-				$log->debug("storing product", { code => $code, product_id => $product_id }) if $log->is_debug();
+				# set the autoexport field if the org is auto exported to the public platform
+				if ((defined $server_options{private_products}) and ($server_options{private_products})
+					and (defined $org_ref) and ($org_ref->{"activate_automated_daily_export_to_public_platform"})) {
+					$product_ref->{to_be_automatically_exported} = 1;
+				}
+				else {
+					delete $product_ref->{to_be_automatically_exported};
+				}
 
-				store_product($product_ref, "Editing product (import) - " . $product_comment );
+				$log->debug("storing product", { code => $code, product_id => $product_id, org_id => $org_id, Owner_id => $Owner_id }) if $log->is_debug();
+
+				store_product($user_id, $product_ref, "Editing product (import) - " . ($product_comment || "") );
 
 				push @edited, $code;
 				$edited{$code}++;
@@ -1624,93 +1819,128 @@ EMAIL
 			next if $field !~ /^image_((front|ingredients|nutrition|packaging|other)(_[a-z]{2})?)_url/;
 
 			my $imagefield = $1 . $'; # e.g. image_front_url_fr -> front_fr
+			
+					# If the imagefield is other, and we have a value for image_other_type, try to identify the imagefield
+					if (($imagefield eq "other") and (defined $imported_product_ref->{"image_other_type"}) and ($imported_product_ref->{"image_other_type"} ne "")) {
+						my $type_imagefield = get_imagefield_from_string($product_ref->{lc}, $imported_product_ref->{"image_other_type"});
+						$log->debug("imagefield is other, tried to guess it image_other_type", { imagefield => $imagefield, type_imagefield => $type_imagefield, image_other_type => $imported_product_ref->{"image_other_type"} }) if $log->is_debug();
+						$imagefield = $type_imagefield;
+					}			
 
 			$log->debug("image file", { field => $field, imagefield => $imagefield, field_value => $imported_product_ref->{$field} }) if $log->is_debug();
 			
-			if (defined $imported_product_ref->{$field}) {
+			next if ! defined $imported_product_ref->{$field};
+
+			# We may have several URLs separated by commas
+			foreach my $image_url (split(/\s*,\s*/, $imported_product_ref->{$field})) {
 			
-				# We may have several URLs separated by commas
-				foreach my $image_url (split(/\s*,\s*/, $imported_product_ref->{$field})) {
-				
-					if ($image_url =~ /^http/) {
+				if ($image_url =~ /^http/) {
 
-						# Create a local filename from the url
-						
-						# https://secure.equadis.com/Equadis/MultimediaFileViewer?key=49172280_A8E8029F60B478AE56CFA5A87B7E0F4C&idFile=1502347&file=10144/08710522680612_C8N1_s35.png
-						# https://nestlecontenthub-dam.esko-saas.com/mediabeacon/servlet/dload?apikey=3FB047E2-3E1B-4177-AF64-3999E0543B78&id=202078864&filename=08593893749702_A1L1_s03.jpg
-						
-						my $filename = $image_url;
-						$filename =~ s/.*\///;
-						$filename =~ s/.*(file|filename=)//i;
-						$filename =~ s/[^A-Za-z0-9-_\.]/_/g;
+					# Create a local filename from the url
+					
+					# https://secure.equadis.com/Equadis/MultimediaFileViewer?key=49172280_A8E8029F60B478AE56CFA5A87B7E0F4C&idFile=1502347&file=10144/08710522680612_C8N1_s35.png
+					# https://nestlecontenthub-dam.esko-saas.com/mediabeacon/servlet/dload?apikey=3FB047E2-3E1B-4177-AF64-3999E0543B78&id=202078864&filename=08593893749702_A1L1_s03.jpg
+					
+					my $filename = $image_url;
+					$filename =~ s/.*\///;
+					$filename =~ s/.*(file|filename=)//i;
+					$filename =~ s/[^A-Za-z0-9-_\.]/_/g;
 
-						# If the filename does not include the product code, prefix it
-						if ($filename !~ /$code/) {
+					# If the filename does not include the product code, prefix it
+					if ($filename !~ /$code/) {
 
-							$filename = $code . "_" . $filename;
+						$filename = $code . "_" . $filename;
+					}
+					
+					# Add a hash of the URL
+					my $md5 = md5_hex($image_url);
+					$filename = $md5 . "_" . $filename;
+
+					my $images_download_dir = $args_ref->{images_download_dir};
+
+					if ((defined $images_download_dir) and ($images_download_dir ne '')) {
+						if (not -d $images_download_dir) {
+							$log->debug("Creating images_download_dir", { images_download_dir => $images_download_dir}) if $log->is_debug();
+							mkdir($images_download_dir, 0755) or $log->warn("Could not create images_download_dir", { images_download_dir => $images_download_dir, error=> $!}) if $log->is_warn();
 						}
 
-						my $images_download_dir = $args_ref->{images_download_dir};
+						my $file = $images_download_dir . "/" . $filename;
 
-						if ((defined $images_download_dir) and ($images_download_dir ne '')) {
-							if (not -d $images_download_dir) {
-								$log->debug("Creating images_download_dir", { images_download_dir => $images_download_dir}) if $log->is_debug();
-								mkdir($images_download_dir, 0755) or $log->warn("Could not create images_download_dir", { images_download_dir => $images_download_dir, error=> $!}) if $log->is_warn();
+						# Skip PDF file has we have issues to convert them, and they are sometimes not images about the product
+						# but multi-pages product sheets, certificates etc.
+						if ($file =~ /\.pdf$/) {
+							$log->debug("skipping PDF file", { file => $file, imagefield => $imagefield, code => $code }) if $log->is_debug();
+						}
+						# Check if the image exists
+						elsif (-e $file) {
+
+							$log->debug("we already have downloaded image file", { file => $file }) if $log->is_debug();
+
+							# Is the image readable?
+							my $magick = Image::Magick->new();
+							my $imagemagick_error = $magick->Read($file);
+							# we can get a warning that we can ignore: "Exception 365: CorruptImageProfile `xmp' "
+							# see https://github.com/openfoodfacts/openfoodfacts-server/pull/4221
+							if (($imagemagick_error) and ($imagemagick_error =~ /(\d+)/) and ($1 >= 400)) {
+								$log->warn("cannot read existing image file", { error => $imagemagick_error, file => $file }) if $log->is_warn();
+								unlink($file);
 							}
-
-							my $file = $images_download_dir . "/" . $filename;
-
-							# Check if the image exists
-							if (-e $file) {
-
-								$log->debug("we already have downloaded image file", { file => $file }) if $log->is_debug();
-
-								# Is the image readable?
-								my $magick = Image::Magick->new();
-								my $x = $magick->Read($file);
-								# we can get a warning that we can ignore: "Exception 365: CorruptImageProfile `xmp' "
-								# see https://github.com/openfoodfacts/openfoodfacts-server/pull/4221
-								if (("$x") and ($x =~ /(\d+)/) and ($1 >= 400)) {
-									$log->warn("cannot read existing image file", { error => $x, file => $file }) if $log->is_warn();
-									unlink($file);
-								}
-								# If the product has an images field, assume that the image has already been uploaded
-								# otherwise, upload it
-								# This can happen when testing: we download the images once, then delete the products and reimport them again
-								elsif (not defined $product_ref->{images}) {
-									# Assign the download image to the field
-									
-									# We may have multiple images for the other field, in that case give them an imagefield of other.2, other.3 etc.
-									my $new_imagefield = $imagefield;
-									if (defined $images_ref->{$code}{$new_imagefield}) {
-										my $image_number = 2;
-										while (defined $images_ref->{$code}{$imagefield . '.' . $image_number}) {
-											$image_number++;
-										}
-										$new_imagefield = $imagefield . '.' . $image_number;
-									}	
+							# If the product has an images field, assume that the image has already been uploaded
+							# otherwise, upload it
+							# This can happen when testing: we download the images once, then delete the products and reimport them again
+							elsif (not defined $product_ref->{images}) {
+								# Assign the download image to the field
 								
-									$log->debug("assigning image file", { new_imagefield => $new_imagefield, file => $file }) if $log->is_debug();
-									(defined $images_ref->{$code}) or $images_ref->{$code} = {};
-									$images_ref->{$code}{$new_imagefield} = $file;
-								}
+								# We may have multiple images for the other field, in that case give them an imagefield of other.2, other.3 etc.
+								my $new_imagefield = $imagefield;
+								if (defined $images_ref->{$code}{$new_imagefield}) {
+									my $image_number = 2;
+									while (defined $images_ref->{$code}{$imagefield . '.' . $image_number}) {
+										$image_number++;
+									}
+									$new_imagefield = $imagefield . '.' . $image_number;
+								}	
+							
+								$log->debug("assigning image file", { new_imagefield => $new_imagefield, file => $file }) if $log->is_debug();
+								(defined $images_ref->{$code}) or $images_ref->{$code} = {};
+								$images_ref->{$code}{$new_imagefield} = $file;
 							}
-
+						}
+						else {
 							# Download the image
-							if (! -e $file) {
 
-								# https://secure.equadis.com/Equadis/MultimediaFileViewer?thumb=true&idFile=601231&file=10210/8076800105735.JPG
-								# -> remove thumb=true to get the full image
+							# We can try to transform some URLs to get the full size image instead of preview thumbs
+							
+							my @image_urls = ($image_url);
 
-								$image_url =~ s/thumb=true&//;
+							# https://secure.equadis.com/Equadis/MultimediaFileViewer?thumb=true&idFile=601231&file=10210/8076800105735.JPG
+							# -> remove thumb=true to get the full image
+
+							$image_url =~ s/thumb=true&//;
+							
+							# https://www.elle-et-vire.com/uploads/cache/400x400/uploads/recip/product_media/108/3451790013737-ev-bio-creme-epaisse-entiere-poche-33cl.png
+							$image_url =~ s/\/uploads\/cache\/(\d+)x(\d+)\/uploads\//\/uploads\//;
+							
+							if ($image_url ne $image_urls[0]) {
+								unshift @image_urls, $image_url;
+							}
+							
+							my $downloaded_image = 0;
+							
+							while ((not $downloaded_image) and ($#image_urls >= 0)) {
+								
+								$image_url = shift(@image_urls);
+							
+								# http://www.Kimagesvc.com/03159470204634_A1N1.jpg
+								# -> lowercase subdomain / domain
+								
+								my $uri = URI->new($image_url);
+								$image_url = $uri->canonical;
+								
 
 								$log->debug("download image file", { file => $file, image_url => $image_url }) if $log->is_debug();
 
-								require LWP::UserAgent;
-
-								my $ua = LWP::UserAgent->new(timeout => 10);
-
-								my $response = $ua->get($image_url);
+								my $response = download_image($image_url);
 
 								if ($response->is_success) {
 									$log->debug("downloaded image file", { file => $file }) if $log->is_debug();
@@ -1720,11 +1950,11 @@ EMAIL
 									
 									# Is the image readable?
 									my $magick = Image::Magick->new();
-									my $x = $magick->Read($file);
+									my $imagemagick_error = $magick->Read($file);
 									# we can get a warning that we can ignore: "Exception 365: CorruptImageProfile `xmp' "
 									# see https://github.com/openfoodfacts/openfoodfacts-server/pull/4221
-									if (("$x") and ($x =~ /(\d+)/) and ($1 >= 400)) {
-										$log->warn("cannot read downloaded image file", { error => $x, file => $file }) if $log->is_warn();
+									if (($imagemagick_error) and ($imagemagick_error =~ /(\d+)/) and ($1 >= 400)) {
+										$log->warn("cannot read downloaded image file", { error => $imagemagick_error, file => $file }) if $log->is_warn();
 										unlink($file);
 									}
 									else {
@@ -1743,6 +1973,8 @@ EMAIL
 										$log->debug("assigning image file", { new_imagefield => $new_imagefield, file => $file }) if $log->is_debug();
 										(defined $images_ref->{$code}) or $images_ref->{$code} = {};
 										$images_ref->{$code}{$new_imagefield} = $file;
+										
+										$downloaded_image = 1;
 									}
 								}
 								else {
@@ -1750,9 +1982,9 @@ EMAIL
 								}
 							}
 						}
-						else {
-							$log->warn("no image download dir specified", { }) if $log->is_warn();
-						}
+					}
+					else {
+						$log->warn("no image download dir specified", { }) if $log->is_warn();
 					}
 				}
 			}
@@ -1803,13 +2035,18 @@ EMAIL
 					# upload the image
 					my $file = $images_ref->{$imagefield};
 
-					if (-e "$file") {
+					# Skip PDF file has we have issues to convert them, and they are sometimes not images about the product
+					# but multi-pages product sheets, certificates etc.
+					if ($file =~ /\.pdf$/) {
+						$log->debug("skipping PDF file", { file => $file, imagefield => $imagefield, code => $code }) if $log->is_debug();
+					}
+					elsif (-e "$file") {
 						$log->debug("found image file", { file => $file, imagefield => $imagefield, code => $code }) if $log->is_debug();
 
 						# upload a photo
 						my $imgid;
 						my $debug;
-						my $return_code = process_image_upload($product_id, "$file", $args_ref->{user_id}, undef, $product_comment, \$imgid, \$debug);
+						my $return_code = process_image_upload($product_id, "$file", $user_id, undef, $product_comment, \$imgid, \$debug);
 						$log->debug("process_image_upload", { file => $file, imagefield => $imagefield, code => $code, return_code => $return_code, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc, debug => $debug }) if $log->is_debug();
 
 						if (($imgid > 0) and ($imgid > $current_max_imgid)) {
@@ -1836,7 +2073,7 @@ EMAIL
 
 								$log->debug("assigning image imgid to imagefield_with_lc", { code => $code, current_max_imgid => $current_max_imgid, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, angle => $angle, normalize => $normalize, white_magic => $white_magic }) if $log->is_debug();
 								$selected_images{$imagefield_with_lc} = 1;
-								eval { process_image_crop($product_id, $imagefield_with_lc, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size); };
+								eval { process_image_crop($user_id, $product_id, $imagefield_with_lc, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size); };
 								# $modified++;
 
 							}
@@ -1860,7 +2097,7 @@ EMAIL
 									$log->debug("re-assigning image imgid to imagefield_with_lc", { code => $code, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2,
 										 coordinates_image_size => $coordinates_image_size, angle => $angle, normalize => $normalize, white_magic => $white_magic }) if $log->is_debug();
 									$selected_images{$imagefield_with_lc} = 1;
-									eval { process_image_crop($product_id, $imagefield_with_lc, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size); };
+									eval { process_image_crop($user_id, $product_id, $imagefield_with_lc, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size); };
 									# $modified++;
 								}
 
@@ -1874,7 +2111,7 @@ EMAIL
 							# Keep track that we have selected an image, so that we don't select another one after,
 							# as we don't reload the product_ref after calling process_image_crop()
 							$selected_images{"front_" . $product_ref->{lc}} = 1;
-							eval { process_image_crop($product_id, "front_" . $product_ref->{lc}, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size); };
+							eval { process_image_crop($user_id, $product_id, "front_" . $product_ref->{lc}, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size); };
 						}
 					}
 					else {
@@ -1932,7 +2169,7 @@ will be attributed.
 
 =head4 org_id - optional
 
-Organisation id to which the changes (new products, added or changed values, new images)
+Organization id to which the changes (new products, added or changed values, new images)
 will be attributed.
 
 =head4 owner_id - optional
@@ -1943,7 +2180,7 @@ Values are of the form user-[user id] or org-[organization id].
 If not set, for databases with private products, it will be constructed from the user_id
 and org_id parameters.
 
-The owner can be overriden if the CSV file contains a org_name field.
+The owner can be overrode if the CSV file contains a org_name field.
 In that case, the owner is set to the value of the org_name field, and
 a new org is created if it does not exist yet.
 
@@ -1960,9 +2197,7 @@ Time of the export.
 
 =cut
 
-sub update_export_status_for_csv_file($) {
-
-	my $args_ref = shift;
+sub update_export_status_for_csv_file($args_ref) {
 
 	$User_id = $args_ref->{user_id};
 	$Org_id = $args_ref->{org_id};
@@ -1980,31 +2215,24 @@ sub update_export_status_for_csv_file($) {
 	open (my $io, '<:encoding(UTF-8)', $args_ref->{csv_file}) or die("Could not open " . $args_ref->{csv_file} . ": $!");
 
 	my $columns_ref = $csv->getline ($io);
-
-	# We may have duplicate columns (e.g. image_other_url),
-	# turn them to image_other_url.2 etc.
-
-	my %seen_columns = ();
-	my @column_names = ();
-
-	foreach my $column (@{$columns_ref}) {
-		if (defined $seen_columns{$column}) {
-			$seen_columns{$column}++;
-			push @column_names, $column . "." . $seen_columns{$column};
-		}
-		else {
-			$seen_columns{$column} = 1;
-			push @column_names, $column;
-		}
-	}
-
-	$csv->column_names (@column_names);
+	$csv->column_names (@{deduped_colnames($columns_ref)});
 	
 	my $products_collection = get_products_collection();
 
 	while (my $imported_product_ref = $csv->getline_hr ($io)) {
 
 		$i++;
+
+		# By default, use the orgid passed in the arguments
+		# it may be overrode later on a per product basis
+		my $org_id = $args_ref->{org_id};		
+
+		# The option import_owner is used when exporting from the producers database to the public database
+		if (($args_ref->{import_owner}) and (defined $imported_product_ref->{owner})
+			and ($imported_product_ref->{owner} =~ /^org-(.+)$/)) {
+			$org_id = $1;
+			$Owner_id = "org-" . $org_id;
+		}
 
 		my $code = $imported_product_ref->{code};
 		$code = normalize_code($code);
@@ -2029,6 +2257,7 @@ sub update_export_status_for_csv_file($) {
 			if ($product_ref->{last_exported_t} > $product_ref->{last_modified_t}) {
 				add_tag($product_ref, "states", "en:exported");
 				remove_tag($product_ref, "states", "en:to-be-exported");
+				remove_tag($product_ref, "states", "en:to-be-automatically-exported");
 			}
 			else {
 				add_tag($product_ref, "states", "en:to-be-exported");
@@ -2047,7 +2276,7 @@ sub update_export_status_for_csv_file($) {
 	$log->debug("update export status done", { products => $i }) if $log->is_debug();
 
 	print STDERR "\n\nupdate export status done\n\n";
-
+	return;
 }
 
 
@@ -2071,7 +2300,7 @@ will be attributed.
 
 =head4 org_id - optional
 
-Organisation id to which the changes (new products, added or changed values, new images)
+Organization id to which the changes (new products, added or changed values, new images)
 will be attributed.
 
 =head4 owner_id - required
@@ -2080,11 +2309,9 @@ Owner of the products on the producers platform.
 
 =cut
 
-sub import_products_categories_from_public_database($) {
+sub import_products_categories_from_public_database($args_ref) {
 
-	my $args_ref = shift;
-
-	$User_id = $args_ref->{user_id};
+	my $user_id = $args_ref->{user_id};
 	$Org_id = $args_ref->{org_id};
 	$Owner_id = get_owner_id($User_id, $Org_id, $args_ref->{owner_id});
 
@@ -2176,7 +2403,7 @@ sub import_products_categories_from_public_database($) {
 				if ((not defined $current_field) or ($current_field ne $product_ref->{$field})) {
 					$log->debug("import_product_categories - new categories", { categories => $product_ref->{$field} } ) if $log->is_debug();
 					compute_field_tags($product_ref, $product_ref->{lc}, $field);
-					if ($server_domain =~ /openfoodfacts/) {
+					if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 						$log->debug("Food::special_process_product") if $log->is_debug();
 						ProductOpener::Food::special_process_product($product_ref);
 					}
@@ -2185,7 +2412,7 @@ sub import_products_categories_from_public_database($) {
 					compute_nutrient_levels($product_ref);
 					compute_unknown_nutrients($product_ref);
 					ProductOpener::DataQuality::check_quality($product_ref);
-					store_product($product_ref, "imported categories from public database");
+					store_product($user_id, $product_ref, "imported categories from public database");
 				}
 
 			}

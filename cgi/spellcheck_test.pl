@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -32,6 +31,7 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::Text qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
@@ -39,12 +39,10 @@ use Storable qw/dclone/;
 use Encode;
 
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 # Passing values to the template
-my $template_data_ref = {
-	lang => \&lang,
-};
+my $template_data_ref = {};
 
 # MIDDLE DOT with common substitutes (BULLET variants, BULLET OPERATOR and DOT OPERATOR (multiplication))
 my $middle_dot = qr/(?:\N{U+00B7}|\N{U+2022}|\N{U+2023}|\N{U+25E6}|\N{U+2043}|\N{U+204C}|\N{U+204D}|\N{U+2219}|\N{U+22C5})/i;
@@ -120,12 +118,10 @@ if ($action ne 'display') {
 	$full_width = 0;
 }
 
-$tt->process('spellcheck_test.tt.html', $template_data_ref, \$html);
+process_template('web/pages/spellcheck/spellcheck_test.tt.html', $template_data_ref, \$html) or $html = '';
 $html .= "<p>" . $tt->error() . "</p>";
 
-display_new( {
-	title=>"Spellcheck Test",
-	content_ref=>\$html,
-	full_width=>$full_width,
-});
-
+$request_ref->{title} = "Spellcheck test";
+$request_ref->{content_ref} = \$html;
+$request_ref->{full_width} = $full_width;
+display_page($request_ref);

@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -40,7 +39,7 @@ use URI::Escape::XS;
 use Encode;
 use Log::Any qw($log);
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 my $template_data_ref = {
 	lang => \&lang,
@@ -72,7 +71,11 @@ if ($action eq 'process') {
 	# Is it an email?
 
 		if ($id =~ /\@/) {
-			my $emails_ref = retrieve("$data_root/users_emails.sto");
+			my $emails_ref = retrieve("$data_root/users/users_emails.sto");
+			if (not defined $emails_ref->{$id}) {
+				# not found, try with lower case email
+				$id = lc $id;
+			}
 			if (not defined $emails_ref->{$id}) {
 				push @errors, $Lang{error_reset_unknown_email}{$lang};
 			}
@@ -193,12 +196,9 @@ elsif ($action eq 'process') {
 	}
 }
 
-process_template('reset_password.tt.html', $template_data_ref, \$html) or $html = "<p>" . $tt->error() . "</p>";
+process_template('web/pages/reset_password/reset_password.tt.html', $template_data_ref, \$html) or $html = "<p>" . $tt->error() . "</p>";
 
-display_new( {
-
-	title=> $Lang{'reset_password'}{$lang},
-	content_ref=>\$html,
-#	full_width=>1,
-});
+$request_ref->{title} = $Lang{'reset_password'}{$lang};
+$request_ref->{content_ref} = \$html;
+display_page($request_ref);
 

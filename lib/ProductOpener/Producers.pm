@@ -39,8 +39,7 @@ C<ProductOpener::Producers> contains the functions specific to the producers pla
 
 package ProductOpener::Producers;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 use Log::Any qw($log);
@@ -142,9 +141,7 @@ A reference to an array of rows, containing each an array of column values
 
 =cut
 
-sub load_csv_or_excel_file($) {
-
-	my $file = shift;    # path and file name
+sub load_csv_or_excel_file($file) {	# path and file name
 
 	my $headers_ref;
 	my $rows_ref = [];
@@ -161,146 +158,111 @@ sub load_csv_or_excel_file($) {
 	my $extension = $file;
 	$extension =~ s/^(.*)\.//;
 	$extension = lc($extension);
+	my $csv_file = $file;
 
 	my $encoding = "UTF-8";
-	
+
 	# By default, assume the separator is a comma
 	my $separator = ",";
-	
-	# If there are tabs in the first line, assume the separator is tab
-	if (open (my $io, "<:encoding($encoding)", $file)) {
-		my $line = <$io>;
-		if ($line =~ /\t/) {
-			$separator = "\t";
+
+	if ($extension =~ /^xls.?$/) {
+		$log->debug("converting Excel file with gnumeric's ssconvert", { file => $file, extension => $extension }) if $log->is_debug();
+		$csv_file = $file . ".csv";
+		system("ssconvert", $file, $csv_file);
+		$log->debug("converting Excel file with gnumeric's ssconvert - output", { file => $file, extension => $extension, command => $0, error => $? }) if $log->is_debug();
+	} else {
+		# If there are tabs in the first line, assume the separator is tab
+		if (open (my $io, "<:encoding($encoding)", $file)) {
+			my $line = <$io>;
+			if ($line =~ /\t/) {
+				$separator = "\t";
+			}
 		}
 	}
 
-	if (($extension eq "csv") or ($extension eq "tsv") or ($extension eq "txt")) {
+	$log->debug("opening CSV file", { file => $csv_file, extension => $extension }) if $log->is_debug();
 
-		$log->debug("opening CSV file", { file => $file, extension => $extension }) if $log->is_debug();
+	my $csv_options_ref = { binary => 1, sep_char => $separator };    # should set binary attribute.
 
-		my $csv_options_ref = { binary => 1, sep_char => $separator };    # should set binary attribute.
+	$log->debug("opening CSV file with Text::CSV", { file => $csv_file, extension => $extension }) if $log->is_debug();
 
-		my $csv = Text::CSV->new ( $csv_options_ref )
-			or die("Cannot use CSV: " . Text::CSV->error_diag ());
+	my $csv = Text::CSV->new ( $csv_options_ref )
+	or die("Cannot use CSV: " . Text::CSV->error_diag ());
 
-		if (open (my $io, "<:encoding($encoding)", $file)) {
+	if (open (my $io, "<:encoding($encoding)", $csv_file)) {
 
-			# @$headers_ref = $csv->header ($io, { detect_bom => 1 });
-			# the header function crashes with some csv files... use getline instead
-			my $row_ref;
+		$log->debug("opened file with Text::CSV", { file => $csv_file, extension => $extension }) if $log->is_debug();
 
-			while ((not defined $row_ref) and ($row_ref = $csv->getline ($io))) {
-			}
+		# Remove completely empty rows and columns
 
-			if (defined $row_ref) {
+		my @original_rows = ();
+		my @non_empty_columns = ();
 
-				@{$headers_ref} = @{$row_ref};
-
-				while ($row_ref = $csv->getline ($io)) {
-					push @{$rows_ref}, $row_ref;
+		while (my $row_ref = $csv->getline ($io)) {
+			my $non_empty_values= 0;
+			for (my $i = 0; $i < scalar(@$row_ref); $i++) {
+				if ((defined $row_ref->[$i]) and ($row_ref->[$i] ne "")) {
+					$non_empty_values++;
 				}
 			}
-			else {
-				$results_ref->{error} = "Could not read header line in CSV $file: $!";
+			# Remove rows with a value for only one column, and do not use that value for non empty columns
+			if ($non_empty_values >= 2) {
+				push @original_rows, $row_ref;
+
+				for (my $i = 0; $i < scalar(@$row_ref); $i++) {
+					if ((defined $row_ref->[$i]) and ($row_ref->[$i] ne "")) {
+						$non_empty_columns[$i] = 1;
+					}
+				}
 			}
 		}
-		else {
-			$results_ref->{error} = "Could not open CSV $file: $!";
+
+		$log->debug("non empty columns", { number_of_original_rows => scalar(@original_rows) , non_empty_columns => \@non_empty_columns}) if $log->is_debug();
+
+		# Copy non empty columns and rows
+
+		my $seen_header = 0;
+
+		foreach my $row_ref (@original_rows) {
+			my @new_row = ();
+			for (my $i = 0; $i < scalar(@$row_ref); $i++) {
+				if ($non_empty_columns[$i]) {
+					push @new_row, $row_ref->[$i];
+				}
+			}
+
+			$log->debug("new_row", { new_row => \@new_row }) if $log->is_debug();
+
+			# Is it a header? (column 1 or 2 should not be empty)
+			if (not $seen_header) {
+
+				if ((defined $new_row[0]) and ($new_row[0] ne "") and (defined $new_row[1]) and ($new_row[1] ne "")) {
+					$seen_header = 1;
+					@{$headers_ref} = @new_row;
+
+					$log->debug("seen header", { headers_ref => $headers_ref}) if $log->is_debug();
+				}
+
+				# Otherwise skip the line until we see a header
+			}
+			else {
+				# Skip empty lines or lines without a barcode (at least 8 digits)
+				my $line = join(",", @new_row);
+				# some barcodes may have spaces or dots (e.g. 3 770 0131 300 38)
+				$line =~ s/ |_|-|\.//g;
+				if ($line !~ /[0-9]{8}/) {
+					$log->debug("skipping row without barcode", { new_row => \@new_row, line => $line}) if $log->is_debug();
+				}
+				else {
+					push @{$rows_ref}, \@new_row;
+				}
+			}
 		}
 	}
 	else {
-		$log->debug("opening Excel file", { file => $file, extension => $extension }) if $log->is_debug();
-
-		# my $csv = Spreadsheet::CSV->new();
-		# Spreadsheet::CSV does not handle well some Excel files (some cells are missing)
-		# use gnumeric's ssconvert to first convert to CSV format
-
-		$log->debug("converting Excel file with gnumeric's ssconvert", { file => $file, extension => $extension }) if $log->is_debug();
-
-		system("ssconvert", $file, $file . ".csv");
-
-		my $csv_options_ref = { binary => 1, sep_char => "," };    # should set binary attribute.
-
-		$log->debug("opening CSV file with Text::CSV", { file => $file . ".csv", extension => $extension }) if $log->is_debug();
-
-		my $csv = Text::CSV->new ( $csv_options_ref )
-		or die("Cannot use CSV: " . Text::CSV->error_diag ());
-
-		if (open (my $io, "<:encoding($encoding)", $file . ".csv")) {
-
-			$log->debug("opened file with Text::CSV", { file => $file . ".csv", extension => $extension }) if $log->is_debug();
-
-			# Remove completely empty rows and columns
-
-			my @original_rows = ();
-			my @non_empty_columns = ();
-
-			while (my $row_ref = $csv->getline ($io)) {
-				my $non_empty_values= 0;
-				for (my $i = 0; $i < scalar(@$row_ref); $i++) {
-					if ((defined $row_ref->[$i]) and ($row_ref->[$i] ne "")) {
-						$non_empty_values++;
-					}
-				}
-				# Remove rows with a value for only one column, and do not use that value for non empty columns
-				if ($non_empty_values >= 2) {
-					push @original_rows, $row_ref;
-					
-					for (my $i = 0; $i < scalar(@$row_ref); $i++) {
-						if ((defined $row_ref->[$i]) and ($row_ref->[$i] ne "")) {
-							$non_empty_columns[$i] = 1;
-						}
-					}
-				}
-			}
-			
-			$log->debug("non empty columns", { number_of_original_rows => scalar(@original_rows) , non_empty_columns => \@non_empty_columns}) if $log->is_debug();
-			
-			# Copy non empty columns and rows
-			
-			my $seen_header = 0;
-			
-			foreach my $row_ref (@original_rows) {
-				my @new_row = ();
-				for (my $i = 0; $i < scalar(@$row_ref); $i++) {
-					if ($non_empty_columns[$i]) {
-						push @new_row, $row_ref->[$i];
-					}
-				}
-				
-				$log->debug("new_row", { new_row => \@new_row }) if $log->is_debug();
-				
-				# Is it a header? (column 1 or 2 should not be empty)
-				if (not $seen_header) {
-					
-					if ((defined $new_row[0]) and ($new_row[0] ne "") and (defined $new_row[1]) and ($new_row[1] ne "")) {
-						$seen_header = 1;
-						@{$headers_ref} = @new_row;
-						
-						$log->debug("seen header", { headers_ref => $headers_ref}) if $log->is_debug();
-					}
-					
-					# Otherwise skip the line until we see a header
-				}
-				else {
-					# Skip empty lines or lines without a barcode (at least 8 digits)
-					my $line = join(",", @new_row);
-					# some barcodes may have spaces or dots (e.g. 3 770 0131 300 38)
-					$line =~ s/ |_|-|\.//g;
-					if ($line !~ /[0-9]{8}/) {
-						$log->debug("skipping row without barcode", { new_row => \@new_row, line => $line}) if $log->is_debug();
-					}
-					else {
-						push @{$rows_ref}, \@new_row;
-					}
-				}
-			}
-		}
-		else {
-			$results_ref->{error} = "Could not open CSV $file.csv: $!";
-		}
+		$results_ref->{error} = "Could not open CSV $file.csv: $!";
 	}
+
 
 	if (not $results_ref->{error}) {
 
@@ -326,12 +288,9 @@ sub load_csv_or_excel_file($) {
 
 # Convert an uploaded file to OFF CSV format
 
-sub convert_file($$$$) {
-
-	my $default_values_ref  = shift;    # default values for lc, countries
-	my $file                = shift;    # path and file name
-	my $columns_fields_file = shift;
-	my $converted_file      = shift;
+sub convert_file($default_values_ref, $file, $columns_fields_file, $converted_file) {
+	# $default_values_ref  ->  values for lc, countries
+	# $file  ->  path and file name
 
 	my $load_results_ref = load_csv_or_excel_file($file);
 
@@ -364,8 +323,21 @@ sub convert_file($$$$) {
 
 	foreach my $column (@{$headers_ref}) {
 
+		my $field;
+
+		# columns_fields_ref may contain unnormalized or normalized column names
+		# we will try to match both
+		my $columnid = get_string_id_for_lang("no_language", normalize_column_name($column));
+
 		if ((defined $columns_fields_ref->{$column}) and (defined $columns_fields_ref->{$column}{field})) {
-			my $field = $columns_fields_ref->{$column}{field};
+			$field = $columns_fields_ref->{$column}{field};
+		}
+		elsif ((defined $columns_fields_ref->{$columnid}) and (defined $columns_fields_ref->{$columnid}{field})) {
+			$field = $columns_fields_ref->{$columnid}{field};
+			$column = $columnid;
+		}
+
+		if (defined $field) {
 
 			# For columns mapped to a specific label, output labels:Label name as the column name
 			if ($field =~ /^(labels|categories)_specific$/) {
@@ -379,7 +351,15 @@ sub convert_file($$$$) {
 			}
 			# Source specific fields
 			elsif ($field eq "sources_fields_specific") {
-				$field = "sources_fields:" . $Owner_id . ":";
+				my $source_id;
+				if (defined $default_values_ref->{source_id}) {
+					# e.g. org-database-usda
+					$source_id = "org-" . $default_values_ref->{source_id};
+				}
+				elsif (defined $Owner_id) {
+					$source_id = $Owner_id;
+				}
+				$field = "sources_fields:" . $source_id . ":";
 				if (defined $columns_fields_ref->{$column}{tag}) {
 					$field .= $columns_fields_ref->{$column}{tag};
 				}
@@ -396,21 +376,29 @@ sub convert_file($$$$) {
 					$field = undef;
 				}
 			}
-
-			$log->debug("convert_file", { column => $column, field => $field, col => $col }) if $log->is_debug();
-
-			if (defined $seen_fields{$field}) {
-				$seen_fields{$field}++;
-				$field = $field . "." . $seen_fields{$field};
+			# For language specific field, add the language code at the end of the field name
+			elsif ((defined $language_fields{$field}) and (defined $columns_fields_ref->{$column}{lc})) {
+				$field .= "_" . $columns_fields_ref->{$column}{lc};
 			}
-			else {
-				$seen_fields{$field} = 1;
-			}
+
+			$log->debug("convert_file - found matching column", { column => $column, field => $field, col => $col }) if $log->is_debug();
 
 			if (defined $field) {
+				# If we have already seen the field, suffix it with a number
+				if (defined $seen_fields{$field}) {
+					$seen_fields{$field}++;
+					$field = $field . "." . $seen_fields{$field};
+				}
+				else {
+					$seen_fields{$field} = 1;
+				}
+
 				push @headers, $field;
 				$headers_cols{$field} = $col;
 			}
+		}
+		else {
+			$log->debug("convert_file - no matching column", { column => $column }) if $log->is_debug();
 		}
 
 		$col++;
@@ -478,9 +466,7 @@ sub convert_file($$$$) {
 
 # Normalize column names
 
-sub normalize_column_name($) {
-
-	my $name = shift;
+sub normalize_column_name($name) {
 	
 	# remove HTML tags
 	
@@ -545,11 +531,11 @@ my %fields_synonyms = (
 
 en => {
 	lc => ["lang"],
-	code => ["code", "codes", "barcodes", "barcode", "ean", "ean-13", "ean13", "gtin", "eans", "gtins", "upc", "ean/gtin1", "gencod", "gencods", "gencode", "gencodes", "ean-barcode","ean-barcode-number","ean-code"],
+	code => ["code", "codes", "barcodes", "barcode", "ean", "ean-13", "ean13", "gtin", "eans", "gtins", "upc", "ean/gtin1", "gencod", "gencods", "gencode", "gencodes", "ean-barcode","ean-barcode-number","ean-code", "ean codes", "ean barcodes"],
 	producer_product_id => ["internal code"],
-	product_name_en => ["name", "name of the product", "name of product", "product name", "product", "commercial name"],
+	product_name => ["name", "name of the product", "name of product", "product name", "product", "commercial name"],
 	carbohydrates_100g_value_unit => ["carbohydronate", "carbohydronates"], # yuka bug, does not exist
-	ingredients_text_en => ["ingredients", "ingredients list", "ingredient list", "list of ingredients"],
+	ingredients_text => ["ingredients", "ingredients list", "ingredient list", "list of ingredients"],
 	allergens => ["allergens", "allergens list", "allergen list", "list of allergens"],
 	traces => ["traces", "traces list", "trace list", "list of traces"],
 	nutriscore_grade_producer => ["nutri-score", "nutriscore"],
@@ -557,26 +543,31 @@ en => {
 	obsolete => ["The product is no longer sold", "Product is no longer sold.", "Product no longer sold"],
 },
 
+de => {
+	code => ["Strichcode"],
+},
+
 es => {
 	code => ["Código de barras", "Códigos de barras"],
-	product_name_es => ["nombre", "nombre producto", "nombre del producto"],
-	ingredients_text_es => ["ingredientes", "lista ingredientes", "lista de ingredientes"],
+	product_name => ["nombre", "nombre producto", "nombre del producto"],
+	ingredients_text => ["ingredientes", "lista ingredientes", "lista de ingredientes"],
 	net_weight_value_unit => ["peso unitrario", "peso unitario"],   # Yuka
 	"energy-kcal_100g_value_unit" => ["calorias"],
 	"link" => ["Enlace a la página del producto en el sitio oficial del fabricante"],
 },
 
 fr => {
-	code => ["code barre", "codebarre", "codes barres", "code barre EAN/GTIN", "code barre EAN", "code barre GTIN", "code-barres"],
+	code => ["code barre", "codebarre", "codes barres", "code barre EAN/GTIN", "code barre EAN", "code barre GTIN", "code-barres", "code EAN", "codes EAN", "code GTIN", "codes GTIN"],
 	producer_product_id => ["code interne", "code int"],
 	categories => ["Catégorie(s)"],
 	brands => ["Marque(s)", "libellé marque"],
-	product_name_fr => ["nom", "nom produit", "nom du produit", "produit", "nom commercial", "dénomination", "dénomination commerciale", "dénomination marketing", "nom marketing", "libellé marketing", "libellé", "désignation"],
-	abbreviated_product_name_fr => ["nom abrégé", "nom abrégé du produit", "nom du produit abrégé", "nom du produit avec abbréviations"],
-	generic_name_fr => ["dénomination légale", "déno légale", "dénomination légale de vente"],
-	ingredients_text_fr => ["ingrédients", "ingredient", "liste des ingrédients", "liste d'ingrédients", "liste ingrédients", "listes d'ingrédients"],
-	allergens => ["Substances ou produits provoquant des allergies ou intolérances", "Allergènes et Traces Potentielles", "allergènes et traces"],
-	traces => ["Traces éventuelles"],
+	product_name => ["nom", "nom produit", "nom du produit", "produit", "nom commercial", "dénomination", "dénomination commerciale", "dénomination marketing", "nom marketing", "libellé marketing", "libellé", "désignation"],
+	abbreviated_product_name => ["nom abrégé", "nom abrégé du produit", "nom du produit abrégé", "nom du produit avec abbréviations"],
+	generic_name => ["dénomination légale", "déno légale", "dénomination légale de vente"],
+	ingredients_text => ["ingrédients", "ingredient", "liste des ingrédients", "liste d'ingrédients", "liste ingrédients", "listes d'ingrédients"],
+	allergens => ["Substances ou produits provoquant des allergies ou intolérances", "Allergènes et Traces Potentielles", "allergènes et traces", "allergènes (ingrédients)"],
+	traces => ["Traces éventuelles", "allergènes (traces)"],
+	origin => ["Origine(s) des ingrédients"],
 	image_front_url_fr => ["visuel", "photo", "photo produit"],
 	labels => ["signes qualité", "signe qualité", "Allégations santé", "Labels, certifications, récompenses"],
 	countries => ["pays de vente"],
@@ -584,10 +575,11 @@ fr => {
 	volume_value_unit => ["volume net"],
 	net_weight_value_unit => ["poids"],
 	drained_weight_value_unit => ["poids net égoutté"],
-	recycling_instructions_to_recycle_fr => ["à recycler", "consigne à recycler"],
-	recycling_instructions_to_discard_fr => ["à jeter", "consigne à jeter"],
-	conservation_conditions_fr => ["Conditions de conservation et d'utilisation"],
-	preparation_fr => ["conseils de préparation", "instructions de préparation", "Mode d'emploi"],
+	recycling_instructions_to_recycle => ["à recycler", "consigne à recycler"],
+	recycling_instructions_to_discard => ["à jeter", "consigne à jeter"],
+	packaging => ["Etat physique du produit", "état physique"],
+	conservation_conditions => ["Conservation", "Conditions de conservation et d'utilisation"],
+	preparation => ["conseils de préparation", "instructions de préparation", "Mode d'emploi"],
 	link => ["lien", "lien du produit", "lien internet", "lien vers la page internet"],
 	manufacturing_places => ["lieu de conditionnement", "lieux de conditionnement", "lieu de fabrication", "lieux du fabrication", "lieu de fabrication du produit"],
 	nutriscore_grade_producer => ["note nutri-score", "note nutriscore", "lettre nutri-score", "lettre nutriscore"],
@@ -595,6 +587,7 @@ fr => {
 	emb_codes => ["estampilles sanitaires / localisation", "codes emballeurs / localisation"],
 	lc => ["langue", "langue du produit"],
 	obsolete => ["Le produit n'est plus en vente.", "Produit retiré de la vente", "Produit obsolète", "Obsolète"],
+	packaging_text => ["Instruction de recyclage et/ou information d'emballage"],
 },
 
 );
@@ -655,10 +648,20 @@ my %in = (
 	"fr" => "en",
 );
 
+=head2 init_fields_columns_names_for_lang ( $l )
 
-sub init_fields_columns_names_for_lang($) {
+Populates global $fields_columns_names_for_lang
+for the specified language.
 
-	my $l = shift;
+=head3 Arguments
+
+=head4 $l - required
+
+Language code (string)
+
+=cut
+
+sub init_fields_columns_names_for_lang($l) {
 
 	if (defined $fields_columns_names_for_lang{$l}) {
 		return;
@@ -686,27 +689,17 @@ sub init_fields_columns_names_for_lang($) {
 }
 
 
-sub init_nutrients_columns_names_for_lang($) {
-
-	my $l = shift;
+sub init_nutrients_columns_names_for_lang($l) {
 
 	$nutriment_table = $cc_nutriment_table{default};
 
-	# Go through the nutriment table
-	foreach my $nutriment (sort keys %Nutriments) {
+	# Go through all the nutrients in the nutrients taxonomy
+	foreach my $nutrient_tagid (sort(get_all_taxonomy_entries("nutrients"))) {
 
-		next if $nutriment =~ /^\#/;
-		my $nid = $nutriment;
-		$nid =~ s/^(-|!)+//g;
-		$nid =~ s/-$//g;
+		my $nid = $nutrient_tagid;
+		$nid =~ s/^zz://g;
 
-		my @synonyms = ();
-		if (exists $Nutriments{$nid}{$l . "_synonyms"}) {
-			@synonyms = @{$Nutriments{$nid}{$l . "_synonyms"}};
-		}
-		if (exists $Nutriments{$nid}{$l}) {
-			unshift @synonyms, $Nutriments{$nid}{$l};
-		}
+		my @synonyms = get_taxonomy_tag_synonyms($l, "nutrients", $nutrient_tagid);
 
 		# Synonyms for each nutrient
 
@@ -841,8 +834,6 @@ sub init_nutrients_columns_names_for_lang($) {
 							}
 						}
 					}
-
-					# $log->debug("nutrient", { l=>$l, nid=>$nid, nutriment_lc=>$Nutriments{$nid}{$l} }) if $log->is_debug();
 				}
 			}
 		}
@@ -852,9 +843,8 @@ sub init_nutrients_columns_names_for_lang($) {
 }
 
 
-sub init_other_fields_columns_names_for_lang($) {
+sub init_other_fields_columns_names_for_lang($l) {
 
-	my $l = shift;
 	my $fields_groups_ref = $options{import_export_fields_groups};
 
 	foreach my $group_ref (@{$fields_groups_ref}) {
@@ -941,17 +931,17 @@ sub init_other_fields_columns_names_for_lang($) {
 					foreach my $field_l ($l, "en") {
 
 						my @synonyms = ($field, $Lang{$field}{$field_l});
-						if ((defined $fields_synonyms{$field_l}) and (defined $fields_synonyms{$field_l}{$field . "_" . $field_l})) {
-							foreach my $synonym (@{$fields_synonyms{$field_l}{$field . "_" . $field_l}}) {
+						if ((defined $fields_synonyms{$field_l}) and (defined $fields_synonyms{$field_l}{$field})) {
+							foreach my $synonym (@{$fields_synonyms{$field_l}{$field}}) {
 								push @synonyms, $synonym;
 							}
 						}
 
 						foreach my $synonym (@synonyms) {
-							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym)} = {field => $field . "_$l"};
-							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $l)} = {field => $field . "_$l"};
-							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $language_codes{$l})} = {field => $field . "_$l"};
-							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . display_taxonomy_tag($l,'languages',$language_codes{$l}))} = {field => $field . "_$l"};
+							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym)} = {field => $field, lc => $l};
+							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $l)} = {field => $field , lc => $l};
+							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $language_codes{$l})} = {field => $field, lc => $l};
+							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . display_taxonomy_tag($field_l,'languages',$language_codes{$l}))} = {field => $field, lc => $l};
 						}
 					}
 				}
@@ -969,7 +959,7 @@ sub init_other_fields_columns_names_for_lang($) {
 	}
 
 	# Specific labels that can have a dedicated column
-	my @labels = ("en:organic", "en:fair-trade", "en:palm-oil-free", "en:contains-palm-oil", "en:gluten-free", "en:contains-gluten", "en:vegan", "en:vegetarian", "fr:ab-agriculture-biologique","fr:label-rouge");
+	my @labels = ("en:organic", "en:fair-trade", "en:palm-oil-free", "en:contains-palm-oil", "en:gluten-free", "en:contains-gluten", "en:vegan", "en:vegetarian", "fr:ab-agriculture-biologique","fr:label-rouge", "en:pdo", "en:pgi", "en:tsg");
 	foreach my $labelid (@labels) {
 		next if not defined $translations_to{labels}{$labelid}{$l};
 		my $results_ref = { field => "labels_specific", tag => $translations_to{labels}{$labelid}{$l} };
@@ -987,9 +977,12 @@ sub init_other_fields_columns_names_for_lang($) {
 	# Extra synonyms
 	if (defined $fields_synonyms{$l}) {
 		foreach my $field (keys %{$fields_synonyms{$l}}) {
-			foreach my $synonym (@{$fields_synonyms{$l}{$field}}) {
-				# $log->debug("synonyms", { l=>$l, field=>$field, synonym=>$synonym }) if $log->is_debug();
-				$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym) } = {field => $field};
+			# Language specific fields synonyms have already been included
+			if (not defined $language_fields{$field}) {
+				foreach my $synonym (@{$fields_synonyms{$l}{$field}}) {
+					# $log->debug("synonyms", { l=>$l, field=>$field, synonym=>$synonym }) if $log->is_debug();
+					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym) } = {field => $field};
+				}
 			}
 		}
 	}
@@ -1001,10 +994,7 @@ sub init_other_fields_columns_names_for_lang($) {
 }
 
 
-sub match_column_name_to_field($$) {
-
-	my $l = shift;
-	my $column_id = shift;
+sub match_column_name_to_field($l, $column_id) {
 
 	my $results_ref = {};
 
@@ -1024,6 +1014,20 @@ sub match_column_name_to_field($$) {
 			$results_ref = $fields_columns_names_for_lang{en}{$column_id};
 		}
 	}
+	# try to see if there is a trailing language code
+	# e.g. ingredients-text-fr 
+	elsif ($column_id =~ /-([a-z]{2})$/) {
+		$column_id = $`;
+		my $field_lc = $1;
+		if (defined $fields_columns_names_for_lang{$l}{$column_id}) {
+			$results_ref = dclone($fields_columns_names_for_lang{$l}{$column_id});
+			$results_ref->{lc} = $field_lc;
+		}
+		elsif (defined $fields_columns_names_for_lang{en}{$column_id}) {
+			$results_ref = dclone($fields_columns_names_for_lang{en}{$column_id});
+			$results_ref->{lc} = $field_lc;
+		}
+	}
 
 	return $results_ref;
 }
@@ -1032,11 +1036,7 @@ sub match_column_name_to_field($$) {
 
 # Go through all rows to extract examples, compute stats etc.
 
-sub compute_statistics_and_examples($$$) {
-
-	my $headers_ref = shift;
-	my $rows_ref = shift;
-	my $columns_fields_ref = shift;
+sub compute_statistics_and_examples($headers_ref, $rows_ref, $columns_fields_ref) {
 
 	foreach my $column (@{$headers_ref}) {
 		if (not defined $columns_fields_ref->{$column}) {
@@ -1113,10 +1113,7 @@ sub compute_statistics_and_examples($$$) {
 
 # Analyze the headers column names and rows content to pre-assign fields to columns
 
-sub init_columns_fields_match($$) {
-
-	my $headers_ref = shift;
-	my $rows_ref = shift;
+sub init_columns_fields_match($headers_ref, $rows_ref) {
 
 	my $columns_fields_ref = {};
 
@@ -1143,6 +1140,7 @@ sub init_columns_fields_match($$) {
 	init_fields_columns_names_for_lang($lc);
 
 	if ($lc ne "en") {
+		# we also add english names
 		init_fields_columns_names_for_lang("en");
 	}
 
@@ -1223,9 +1221,8 @@ sub init_columns_fields_match($$) {
 
 # Generate an array of options for select2
 
-sub generate_import_export_columns_groups_for_select2($) {
+sub generate_import_export_columns_groups_for_select2($lcs_ref) {	# array of language codes
 
-	my $lcs_ref = shift; # array of language codes
 	my $fields_groups_ref = $options{import_export_fields_groups};
 
 	# Sample select2 groups and fields definition format from Config.pm:
@@ -1304,16 +1301,13 @@ JSON
 				my $nid = $nutriment;
 
 				# %Food::nutriments_tables ids have an ending - for nutrients that are not displayed by default
-
-				if ($group_id eq "nutrition") {
-					if ($nid =~ /-$/) {
-						next;
-					}
+				# Keep the % of fruits/vegetables/nuts in the main nutrition group
+				
+				if (($nid =~ /-$/) and ($nid ne 'fruits-vegetables-nuts-') and ($nid ne 'fruits-vegetables-nuts-dried-')) {
+					next if ($group_id eq "nutrition");
 				}
 				else {
-					if ($nid !~ /-$/) {
-						next;
-					}
+					next if ($group_id eq "nutrition_other");
 				}
 
 				$nid =~ s/^(-|!)+//g;
@@ -1321,13 +1315,7 @@ JSON
 
 				my $field = $nid;
 
-				my $name;
-				if (exists $Nutriments{$nid}{$lc}) {
-					$name = $Nutriments{$nid}{$lc};
-				}
-				else {
-					$name = $Nutriments{$nid}{en};
-				}
+				my $name = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
 
 				push @{$select2_group_ref->{children}}, { id => $nid . "_100g_value_unit", text => ucfirst($name) . " " . lang("nutrition_data_per_100g")};
 				push @{$select2_group_ref->{children}}, { id => $nid . "_serving_value_unit", text => ucfirst($name) . " " . lang("nutrition_data_per_serving") };
@@ -1360,7 +1348,7 @@ JSON
 
 				$log->debug("Select2 option", { group_id => $group_id, field=>$field, name=>$name }) if $log->is_debug();
 
-				if ((defined $language_fields{$field}) or (($group_id eq "images") and ($field =~ /image_(front|ingredients|nutrition|packaging)/))) {
+				if (($group_id eq "images") and ($field =~ /image_(front|ingredients|nutrition|packaging)/)) {
 
 					foreach my $l (@{$lcs_ref}) {
 						my $language = "";    # Don't specify the language if there is just one
@@ -1385,9 +1373,7 @@ JSON
 
 
 
-sub export_and_import_to_public_database($) {
-	
-	my $args_ref = shift;
+sub export_and_import_to_public_database($args_ref) {
 	
 	my $started_t = time();
 	my $export_id = $started_t;
@@ -1412,6 +1398,9 @@ sub export_and_import_to_public_database($) {
 	}
 	elsif ($Owner_id =~ /^(org)-/) {
 		$user_id = $Owner_id;
+	}
+	elsif ($Owner_id eq 'all') {
+		$user_id = 'all';
 	}
 
 	# First export the data locally
@@ -1519,10 +1508,7 @@ WantedBy=multi-user.target
 
 =cut
 
-sub import_csv_file_task() {
-
-	my $job = shift;
-	my $args_ref = shift;
+sub import_csv_file_task($job, $args_ref) {
 
 	return if not defined $job;
 
@@ -1544,10 +1530,7 @@ sub import_csv_file_task() {
 }
 
 
-sub export_csv_file_task() {
-
-	my $job = shift;
-	my $args_ref = shift;
+sub export_csv_file_task($job, $args_ref) {
 
 	return if not defined $job;
 
@@ -1582,10 +1565,7 @@ sub export_csv_file_task() {
 }
 
 
-sub import_products_categories_from_public_database_task() {
-
-	my $job = shift;
-	my $args_ref = shift;
+sub import_products_categories_from_public_database_task($job, $args_ref) {
 
 	return if not defined $job;
 
@@ -1611,10 +1591,7 @@ sub import_products_categories_from_public_database_task() {
 }
 
 
-sub update_export_status_for_csv_file_task() {
-
-	my $job = shift;
-	my $args_ref = shift;
+sub update_export_status_for_csv_file_task($job, $args_ref) {
 
 	return if not defined $job;
 
