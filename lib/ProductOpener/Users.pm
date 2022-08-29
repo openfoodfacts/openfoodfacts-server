@@ -272,19 +272,13 @@ sub check_user_form($type, $user_ref, $errors_ref) {
 		$user_ref->{email} = $email;
 	}
 
-	if (defined param('twitter')) {
-		$user_ref->{twitter} = remove_tags_and_quote(decode utf8=>param('twitter'));
-		$user_ref->{twitter} =~ s/^http:\/\/twitter.com\///;
-		$user_ref->{twitter} =~ s/^\@//;
-	}
-
 	# Is there a checkbox to make a professional account
-	if (defined param("pro_checkbox")) {
+	if (defined scalar param("pro_checkbox")) {
 
-		if (param("pro")) {
+		if (scalar param("pro")) {
 			$user_ref->{pro} = 1;
 
-			if (defined param("requested_org")) {
+			if (defined scalar param("requested_org")) {
 				$user_ref->{requested_org} = remove_tags_and_quote(decode utf8=>param("requested_org"));
 
 				my $requested_org_id = get_string_id_for_lang("no_language", $user_ref->{requested_org});
@@ -356,7 +350,7 @@ sub check_user_form($type, $user_ref, $errors_ref) {
 	defined $user_ref->{registered_t} or $user_ref->{registered_t} = time();
 
 	for (my $i = 1; $i <= 3; $i++) {
-		if (defined param('team_' . $i)) {
+		if (defined scalar param('team_' . $i)) {
 			$user_ref->{'team_' . $i} = remove_tags_and_quote(decode utf8=>param('team_' . $i));
 			$user_ref->{'team_' . $i} =~ s/\&lt;/ /g;
 			$user_ref->{'team_' . $i} =~ s/\&gt;/ /g;
@@ -426,10 +420,10 @@ sub check_user_form($type, $user_ref, $errors_ref) {
 		}
 	}
 
-	if (param('password') ne param('confirm_password')) {
+	if (param('password') ne scalar param('confirm_password')) {
 		push @{$errors_ref}, $Lang{error_different_passwords}{$lang};
 	}
-	elsif (param('password') ne '') {
+	elsif (scalar param('password') ne '') {
 		$user_ref->{encrypted_password} = create_password_hash( encode_utf8(decode utf8=>param('password')) );
 	}
 
@@ -698,10 +692,10 @@ sub generate_session_cookie($user_id, $user_session) {
 
 	my $length = 0;
 
-	if ((defined param('length')) and (param('length') > 0)) {
-		$length = param('length');
+	if ((defined scalar param('length')) and (scalar param('length') > 0)) {
+		$length = scalar param('length');
 	}
-	elsif ((defined param('remember_me')) and (param('remember_me') eq 'on')) {
+	elsif ((defined scalar param('remember_me')) and (scalar param('remember_me') eq 'on')) {
 		$length = 31536000 * 10;
 	}
 
@@ -788,22 +782,18 @@ sub init_user($request_ref) {
 	%Org = ();
 
 	# Remove persistent cookie if user is logging out
-	if ((defined param('length')) and (param('length') eq 'logout')) {
+	if ((defined scalar param('length')) and (scalar param('length') eq 'logout')) {
 		$log->debug("user logout") if $log->is_debug();
 		my $session = {} ;
 		$request_ref->{cookie} = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>"$cookie_domain") ;
 	}
 
 	# Retrieve user_id and password from form parameters
-	elsif ( (defined param('user_id')) and (param('user_id') ne '') and
-                       ( ( (defined param('password')) and (param('password') ne ''))
+	elsif ( (defined scalar param('user_id')) and (scalar param('user_id') ne '') and
+                       ( ( (defined scalar param('password')) and (scalar param('password') ne ''))
                          ) ) {
 
-		# CGI::param called in list context from package ProductOpener::Users line 373, this can lead to vulnerabilities.
-		# See the warning in "Fetching the value or values of a single named parameter"
-		# -> use a scalar to avoid calling param() in the list of arguments to remove_tags_and_quote
-		my $param_user_id = param('user_id');
-		$user_id = remove_tags_and_quote($param_user_id) ;
+		$user_id = remove_tags_and_quote(scalar param('user_id')) ;
 
 		if ($user_id =~ /\@/) {
 			$log->info("got email while initializing user", { email => $user_id }) if $log->is_info();
@@ -849,7 +839,7 @@ sub init_user($request_ref) {
 					return ($Lang{error_bad_login_password}{$lang}) ;
 				}
 				# We have the right login/password
-				elsif (not defined param('no_log'))    # no need to store sessions for internal requests
+				elsif (not defined scalar param('no_log'))    # no need to store sessions for internal requests
 				{
 					$log->info("correct password for user provided") if $log->is_info();
 					
@@ -869,11 +859,11 @@ sub init_user($request_ref) {
 	}
 
 	# Retrieve user_id and session from cookie
-	elsif ((defined cookie($cookie_name)) or ((defined param('user_session')) and (defined param('user_id')))) {
+	elsif ((defined cookie($cookie_name)) or ((defined scalar param('user_session')) and (defined scalar param('user_id')))) {
 		my $user_session;
-		if (defined param('user_session')) {
-			$user_session = param('user_session');
-			$user_id = param('user_id');
+		if (defined scalar param('user_session')) {
+			$user_session = scalar param('user_session');
+			$user_id = scalar param('user_id');
 			$log->debug("user_session parameter found", { user_id => $user_id, user_session => $user_session }) if $log->is_debug();
 		}
 		else {

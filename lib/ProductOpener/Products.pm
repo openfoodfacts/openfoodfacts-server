@@ -652,8 +652,8 @@ sub init_product($userid, $orgid, $code, $countryid) {
 
 	# ugly fix: products added by yuka should have country france, regardless of the server ip
 	if ($creator eq 'kiliweb') {
-		if (defined param('cc')) {
-			$country = lc(param('cc'));
+		if (defined scalar param('cc')) {
+			$country = lc(scalar param('cc'));
 			$country =~ s/^en://;
 
 			# 01/06/2019 --> Yuka always sends fr fields even for Spanish products, try to correct it
@@ -2654,7 +2654,7 @@ sub process_product_edit_rules($product_ref) {
 						if (defined $condition) {
 
 							# if field is not passed, skip rule
-							if (not defined param($field)) {
+							if (not defined scalar param($field)) {
 								$log->debug("no value passed -> skip edit rule") if $log->is_debug();
 								next;
 							}
@@ -2696,32 +2696,32 @@ sub process_product_edit_rules($product_ref) {
 								}
 							}
 							elsif ($condition eq '0') {
-								if ((defined param($field)) and ($param_field == 0)) {
+								if ((defined scalar param($field)) and ($param_field == 0)) {
 									$condition_ok = 1;
 								}
 							}
 							elsif ($condition eq 'equal') {
-								if ((defined param($field)) and ($param_field == $value)) {
+								if ((defined scalar param($field)) and ($param_field == $value)) {
 									$condition_ok = 1;
 								}
 							}
 							elsif ($condition eq 'lesser') {
-								if ((defined param($field)) and ($param_field < $value)) {
+								if ((defined scalar param($field)) and ($param_field < $value)) {
 									$condition_ok = 1;
 								}
 							}
 							elsif ($condition eq 'greater') {
-								if ((defined param($field)) and ($param_field > $value)) {
+								if ((defined scalar param($field)) and ($param_field > $value)) {
 									$condition_ok = 1;
 								}
 							}
 							elsif ($condition eq 'match') {
-								if ((defined param($field)) and ($param_field eq $value)) {
+								if ((defined scalar param($field)) and ($param_field eq $value)) {
 									$condition_ok = 1;
 								}
 							}
 							elsif ($condition eq 'regexp_match') {
-								if ((defined param($field)) and ($param_field  =~ /$value/i)) {
+								if ((defined scalar param($field)) and ($param_field  =~ /$value/i)) {
 									$condition_ok = 1;
 								}
 							}

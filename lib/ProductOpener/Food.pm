@@ -2585,10 +2585,10 @@ sub assign_nutriments_values_from_request_parameters($product_ref, $nutriment_ta
 
 	foreach my $checkbox ("no_nutrition_data", "nutrition_data", "nutrition_data_prepared") {
 
-		if (defined param($checkbox)) {
+		if (defined scalar param($checkbox)) {
 			$product_ref->{$checkbox} = remove_tags_and_quote(decode utf8=>param($checkbox));
 		}
-		elsif (defined param($checkbox . "_displayed")) {
+		elsif (defined scalar param($checkbox . "_displayed")) {
 			$product_ref->{$checkbox} = "";
 		}
 	}
@@ -2625,8 +2625,8 @@ sub assign_nutriments_values_from_request_parameters($product_ref, $nutriment_ta
 		my $saltnid = "salt${product_type}";
 		my $sodiumnid = "sodium${product_type}";
 
-		my $salt = param("nutriment_${saltnid}");
-		my $sodium = param("nutriment_${sodiumnid}");
+		my $salt = scalar param("nutriment_${saltnid}");
+		my $sodium = scalar param("nutriment_${sodiumnid}");
 
 		if ((defined $sodium) and (not defined $salt)) {
 			delete $product_ref->{nutriments}{$saltnid};
@@ -2666,7 +2666,7 @@ sub assign_nutriments_values_from_request_parameters($product_ref, $nutriment_ta
 		foreach my $product_type ("", "_prepared") {
 
 			# do not delete values if the nutriment is not provided
-			next if (not defined param("nutriment_${enid}${product_type}"));
+			next if (not defined scalar param("nutriment_${enid}${product_type}"));
 
 			my $value = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}${product_type}"));
 
