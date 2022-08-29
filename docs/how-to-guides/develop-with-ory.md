@@ -40,7 +40,6 @@ To see the users sto file run following commands:
   - my $user_id= "xxxxx" (<- put user ID)
   - my $user_ref = retrieve("/mnt/podata/users/$user_id.sto")
 - The user will then be given a session with the open_user_session() function and be redirected back to openfoodfacts.localhost, you can see the session in sto file with above commands
-- **OFF still does not display that the user is signed in right after being signed in, refresh page and you'll see you're signed in**
 
 ## Logging Out
 Click logout in OFF, taking you to http://world.openfoodfacts.localhost/cgi/kratos_logout.pl
