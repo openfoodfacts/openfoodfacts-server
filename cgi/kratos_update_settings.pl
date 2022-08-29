@@ -128,4 +128,4 @@ if(defined $kratos_cookie){
     }
 }
 
-print redirect(-url=>'http://world.openfoodfacts.localhost/');
+redirect_to_url($request_ref, 302, "display.pl");

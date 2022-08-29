@@ -86,7 +86,7 @@ if(defined $kratos_cookie){
             my $user_ref = retrieve($user_file) ;
 
             open_user_session($user_ref, $request_ref);
-            display_page($request_ref);
+            redirect_to_url($request_ref, 302, "display.pl");
         }
         else{
             #store user file in storable if user has no sto file
@@ -148,7 +148,7 @@ if(defined $kratos_cookie){
             my $user_ref = retrieve($user_file) ;
 
             open_user_session($user_ref, $request_ref);
-            display_page($request_ref);
+            redirect_to_url($request_ref, 302, "display.pl");
         }
     }
     else {

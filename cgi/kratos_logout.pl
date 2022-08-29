@@ -25,6 +25,7 @@ use utf8;
 
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Display qw/:all/;
 
 use LWP::UserAgent;
 use JSON;
@@ -67,7 +68,7 @@ if(defined $kratos_cookie){
 		$request_ref->{cookie} = cookie(-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>"$cookie_domain") ;
 
         #Go to the given logout url, this logout url redirects to the logout.after url in kratos.yml
-        print redirect(-url=>$logout_url);
+        redirect_to_url($request_ref, 302, $logout_url);
 
     }
     else {
