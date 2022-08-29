@@ -51,6 +51,9 @@ services:
         USER_UID: ${USER_UID:-1000}
         USER_GID: ${USER_GID:-1000}
     command: ["npm", "run", "build:dynamic"]
+    environment:
+      PRODUCT_OPENER_PROTOCOL: http
+      PRODUCT_OPENER_DOMAIN: ${PRODUCT_OPENER_DOMAIN}
     volumes:
       # Static dist/ assets (JS, CSS, Icons, Image attributes)
       - icons_dist:/opt/product-opener/html/images/icons/dist
@@ -63,6 +66,7 @@ services:
       - ./icons:/opt/product-opener/icons
       - ./scss:/opt/product-opener/scss
       - ./gulpfile.js:/opt/product-opener/gulpfile.js
+      - ./test:/opt/product-opener/test
   frontend:
     image: openfoodfacts-server/frontend:dev
     build:
@@ -77,6 +81,16 @@ services:
       - ./scss:/opt/product-opener/scss
       - ./gulpfile.js:/opt/product-opener/
       - ./snyk:/opt/product-opener/
+    networks:
+      default:
+        # a trick to make it possible to reach the server by it's name from other containers
+        aliases:
+          - openfoodfacts.localhost
+          - world.openfoodfacts.localhost
+          - static.openfoodfacts.localhost
+          - image.openfoodfacts.localhost
+          - de.openfoodfacts.localhost
+          - fr.openfoodfacts.localhost
   mongodb:
     # Note: keep it as close a possible to mongodb.yml
     image: mongo:4.4
