@@ -28,8 +28,8 @@ x-examples:
       added_countries_tags: []
       additives_debug_tags: []
       additives_n: 1
-      additives_old_n: 0
-      additives_old_tags: []
+      # additives_old_n: 0
+      # additives_old_tags: []
       additives_original_tags:
         - 'en:e322'
       additives_prev_original_tags:
@@ -66,7 +66,7 @@ x-examples:
         - 'en:chocolate-spreads'
         - 'en:cocoa-and-hazelnuts-spreads'
       categories_lc: fr
-      categories_old: 'Produits à tartiner,Petit-déjeuners,Aides culinaires,Produits à tartiner sucrés,Aides à la pâtisserie,Pâtes à tartiner,Pâtes à tartiner aux noisettes,Pâtes à tartiner au chocolat,Pâtes à tartiner aux noisettes et au cacao,Aide culinaire sucrée'
+      # categories_old: 'Produits à tartiner,Petit-déjeuners,Aides culinaires,Produits à tartiner sucrés,Aides à la pâtisserie,Pâtes à tartiner,Pâtes à tartiner aux noisettes,Pâtes à tartiner au chocolat,Pâtes à tartiner aux noisettes et au cacao,Aide culinaire sucrée'
       categories_properties:
         'agribalyse_food_code:en': '31032'
         'agribalyse_proxy_food_code:en': '31032'
@@ -2629,7 +2629,7 @@ x-examples:
         - 'en:no-gluten'
         - 'en:nonorganic'
       labels_lc: fr
-      labels_old: 'Sans gluten,Point Vert'
+      # labels_old: 'Sans gluten,Point Vert'
       labels_tags:
         - 'en:no-gluten'
         - 'en:nonorganic'
@@ -2860,7 +2860,7 @@ x-examples:
       origins: ''
       origins_hierarchy: []
       origins_lc: fr
-      origins_old: ''
+      # origins_old: ''
       origins_tags: []
       other_nutritional_substances_tags: []
       owner: org-ferrero-france-commerciale
@@ -2901,8 +2901,8 @@ x-examples:
         - 'fr:PP 5 Ummi PLASTIQUE / PLASTIEK PAP 27 WWW PAPIER / PAPIER CIPAP 82 PANNEAU DE FIBRE COMPOSITES/ COMPOSIET VEZELPLAAT GL 70 VERRE / GLAS'
       packaging_imported: bocal
       packaging_lc: fr
-      packaging_old: Vetro
-      packaging_old_before_taxonomization: verre
+      # packaging_old: Vetro
+      # packaging_old_before_taxonomization: verre
       packaging_tags:
         - 'fr:pp-5-ummi-plastique-plastiek-pap-27-www-papier-papier-cipap-82-panneau-de-fibre-composites-composiet-vezelplaat-gl-70-verre-glas'
       packaging_text: ''
@@ -4581,12 +4581,12 @@ properties:
       additives_n:
         type: integer
         description: Number of food additives
-      additives_old_n:
-        type: integer
-      additives_old_tags:
-        type: array
-        items:
-          type: object
+      # additives_old_n:
+      #   type: integer
+      # additives_old_tags:
+      #   type: array
+      #   items:
+      #     type: object
       additives_original_tags:
         type: array
         items:
@@ -4643,8 +4643,8 @@ properties:
           type: string
       categories_lc:
         type: string
-      categories_old:
-        type: string
+      # categories_old:
+      #   type: string
       categories_properties:
         type: object
         properties:
@@ -9480,8 +9480,8 @@ properties:
           type: string
       labels_lc:
         type: string
-      labels_old:
-        type: string
+      # labels_old:
+      #   type: string
       labels_tags:
         type: array
         items:
@@ -9899,8 +9899,8 @@ properties:
           type: object
       origins_lc:
         type: string
-      origins_old:
-        type: string
+      # origins_old:
+      #   type: string
       origins_tags:
         type: array
         items:
@@ -9987,10 +9987,10 @@ properties:
         type: string
       packaging_lc:
         type: string
-      packaging_old:
-        type: string
-      packaging_old_before_taxonomization:
-        type: string
+      # packaging_old:
+      #   type: string
+      # packaging_old_before_taxonomization:
+      #   type: string
       packaging_tags:
         type: array
         items:
