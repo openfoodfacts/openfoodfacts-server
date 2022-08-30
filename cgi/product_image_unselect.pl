@@ -42,11 +42,11 @@ use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();
 
-my $type = param('type') || 'add';
-my $action = param('action') || 'display';
+my $type = scalar param('type') || 'add';
+my $action = scalar param('action') || 'display';
 
-my $code = normalize_code(param('code'));
-my $id = param('id');
+my $code = normalize_code(scalar param('code'));
+my $id = scalar param('id');
 
 my $product_id = product_id_for_owner($Owner_id, $code);
 

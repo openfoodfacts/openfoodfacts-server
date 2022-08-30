@@ -43,7 +43,7 @@ my $template_data_ref = {};
 $log->info('start') if $log->is_info();
 
 my $r = shift;
-my $redirect = param('redirect');
+my $redirect = scalar param('redirect');
 $template_data_ref->{redirect} = $redirect;
 if (defined $User_id) {
 	my $loc = $redirect || $formatted_subdomain;

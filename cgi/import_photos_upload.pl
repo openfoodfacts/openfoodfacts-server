@@ -47,8 +47,8 @@ use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();
 
-my $type = param('type') || 'upload';
-my $action = param('action') || 'display';
+my $type = scalar param('type') || 'upload';
+my $action = scalar param('action') || 'display';
 
 my $title = lang("import_photos_title");
 my $html = '';

@@ -52,7 +52,7 @@ use boolean;
 
 my $request_ref = ProductOpener::Display::init_request();
 
-my $action = param('action') || 'display';
+my $action = scalar param('action') || 'display';
 
 my $title = lang("export_product_data_photos");
 my $html = '';
@@ -66,7 +66,7 @@ if (not defined $Owner_id) {
 # or if the organization has the permission enable_manual_export_to_public_platform checked
 
 my $allow_submit = ($User{moderator}
-		or (defined param("query_code"))
+		or (defined scalar param("query_code"))
 		or ((defined $Org{enable_manual_export_to_public_platform}) and ($Org{enable_manual_export_to_public_platform} eq "on")));
 
 if ($action eq "display") {
@@ -150,20 +150,20 @@ elsif (($action eq "process") and $allow_submit) {
 			$args_ref->{query}{$query} = remove_tags_and_quote(decode utf8=>param($param));
 		}
 	}
-	if (not ((defined param("export_photos")) and (param("export_photos")))) {
+	if (not ((defined scalar param("export_photos")) and (scalar param("export_photos")))) {
 		$args_ref->{do_not_upload_images} = 1;
 	}
 	
-	if (not ((defined param("replace_selected_photos")) and (param("replace_selected_photos")))) {
+	if (not ((defined scalar param("replace_selected_photos")) and (scalar param("replace_selected_photos")))) {
 		$args_ref->{only_select_not_existing_images} = 1;
 	}
 	
-	if ((defined param("only_export_products_with_changes")) and (param("only_export_products_with_changes"))) {
+	if ((defined scalar param("only_export_products_with_changes")) and (scalar param("only_export_products_with_changes"))) {
 		$args_ref->{query}{states_tags} = 'en:to-be-exported';
 	}
 	
 	if ($admin) {
-		if ((defined param("overwrite_owner")) and (param("overwrite_owner"))) {
+		if ((defined scalar param("overwrite_owner")) and (scalar param("overwrite_owner"))) {
 			$args_ref->{overwrite_owner} = 1;
 		}		
 	}

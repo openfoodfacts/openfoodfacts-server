@@ -64,15 +64,15 @@ if ($User_id eq 'unwanted-user-french') {
 }
 
 
-my $type = param('type') || 'search_or_add';
-my $action = param('action') || 'display';
+my $type = scalar param('type') || 'search_or_add';
+my $action = scalar param('action') || 'display';
 
 my $comment = 'Modification : ';
 
 my @errors = ();
 
 my $html = '';
-my $code = normalize_code(param('code'));
+my $code = normalize_code(scalar param('code'));
 my $product_id;
 
 my $product_ref = undef;
@@ -98,7 +98,7 @@ if ($type eq 'search_or_add') {
 
 	my $r = Apache2::RequestUtil->request();
 	my $method = $r->method();
-	if ((not defined $code) and ((not defined param("imgupload_search")) or ( param("imgupload_search") eq '')) and ($method eq 'POST')) {
+	if ((not defined $code) and ((not defined scalar param("imgupload_search")) or ( scalar param("imgupload_search") eq '')) and ($method eq 'POST')) {
 
 		($code, $product_id) = assign_new_code();
 	}
@@ -118,7 +118,7 @@ if ($type eq 'search_or_add') {
 			$location = product_url($product_ref);
 
 			# jquery.fileupload ?
-			if (param('jqueryfileupload')) {
+			if (scalar param('jqueryfileupload')) {
 
 				$type = 'show';
 			}
@@ -148,7 +148,7 @@ if ($type eq 'search_or_add') {
 		}
 	}
 	else {
-		if (defined param("imgupload_search")) {
+		if (defined scalar param("imgupload_search")) {
 			$log->info("no code found in image") if $log->is_info();
 			$data{error} = lang("image_upload_error_no_barcode_found_in_image_short");
 		}
@@ -161,7 +161,7 @@ if ($type eq 'search_or_add') {
 	$data{location} = $location;
 
 	# jquery.fileupload ?
-	if (param('jqueryfileupload')) {
+	if (scalar param('jqueryfileupload')) {
 
 		my $data = encode_json(\%data);
 
@@ -171,7 +171,7 @@ if ($type eq 'search_or_add') {
 		exit();
 	}
 
-	$template_data_ref->{param_imgupload_search} = param("imgupload_search");
+	$template_data_ref->{param_imgupload_search} = scalar param("imgupload_search");
 
 }
 
@@ -227,8 +227,8 @@ if ($admin) {
 	push @fields, "environment_impact_level";
 
 	# Let admins edit any other fields
-	if (defined param("fields")) {
-		push @fields, split(/,/, param("fields"));
+	if (defined scalar param("fields")) {
+		push @fields, split(/,/, scalar param("fields"));
 	}
 
 }
@@ -253,9 +253,9 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	exists $product_ref->{new_server} and delete $product_ref->{new_server};
 
 	# 26/01/2017 - disallow barcode changes until we fix bug #677
-	if ($User{moderator} and (defined param("new_code")) and (param("new_code") ne "")) {
+	if ($User{moderator} and (defined scalar param("new_code")) and (scalar param("new_code") ne "")) {
 
-		change_product_server_or_code($product_ref, param("new_code"), \@errors);
+		change_product_server_or_code($product_ref, scalar param("new_code"), \@errors);
 		$code = $product_ref->{code};
 	}
 
@@ -263,8 +263,8 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	my @param_sorted_langs = ();
 	my %param_sorted_langs = ();
-	if (defined param("sorted_langs")) {
-		foreach my $display_lc (split(/,/, param("sorted_langs"))) {
+	if (defined scalar param("sorted_langs")) {
+		foreach my $display_lc (split(/,/, scalar param("sorted_langs"))) {
 			if ($display_lc =~ /^\w\w$/) {
 				push @param_sorted_langs, $display_lc;
 				$param_sorted_langs{$display_lc} = 1;
@@ -277,8 +277,8 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	# Make sure we have the main language of the product (which could be new)
 	# needed if we are moving data from one language to the main language
-	if ((defined param("lang")) and (param("lang") =~ /^\w\w$/) and (not defined $param_sorted_langs{param("lang")} )) {
-		push @param_sorted_langs, param("lang");
+	if ((defined scalar param("lang")) and (scalar param("lang") =~ /^\w\w$/) and (not defined $param_sorted_langs{scalar param("lang")} )) {
+		push @param_sorted_langs, scalar param("lang");
 	}
 
 	$product_ref->{"debug_param_sorted_langs"} = \@param_sorted_langs;
@@ -298,15 +298,15 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	# Move all data and photos from one language to another?
 	if ($User{moderator}) {
 
-		my $product_lc = param("lang");
+		my $product_lc = scalar param("lang");
 
 		foreach my $from_lc (@param_sorted_langs) {
 
 			my $moveid = "move_" . $from_lc . "_data_and_images_to_main_language";
 
-			if (($from_lc ne $product_lc) and (defined param($moveid)) and (param($moveid) eq "on")) {
+			if (($from_lc ne $product_lc) and (defined scalar param($moveid)) and (scalar param($moveid) eq "on")) {
 
-				my $mode = param($moveid . "_mode") || "replace";
+				my $mode = scalar param($moveid . "_mode") || "replace";
 
 				$log->debug("moving all data and photos from one language to another",
 					{ from_lc => $from_lc, product_lc => $product_lc, mode => $mode }) if $log->is_debug();
@@ -318,14 +318,14 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 					my $from_field = $field . "_" . $from_lc;
 					my $to_field = $field . "_" . $product_lc;
 
-					my $from_value = param($from_field);
+					my $from_value = scalar param($from_field);
 
 					$log->debug("moving field value?",
 							{ from_field => $from_field, from_value => $from_value, to_field => $to_field }) if $log->is_debug();
 
 					if ((defined $from_value) and ($from_value ne "")) {
 
-						my $to_value = param($to_field);
+						my $to_value = scalar param($to_field);
 
 						$log->debug("moving field value",
 							{ from_field => $from_field, from_value => $from_value, to_field => $to_field, to_value => $to_value, mode => $mode }) if $log->is_debug();
@@ -384,7 +384,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	foreach my $field (@param_fields) {
 
-		if (defined param($field)) {
+		if (defined scalar param($field)) {
 
 			# If we are on the public platform, and the field data has been imported from the producer platform
 			# ignore the field changes for non tag fields, unless made by a moderator
@@ -482,7 +482,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	# Obsolete products
 
-	if (($User{moderator} or $Owner_id) and (defined param('obsolete_since_date'))) {
+	if (($User{moderator} or $Owner_id) and (defined scalar param('obsolete_since_date'))) {
 		$product_ref->{obsolete} = remove_tags_and_quote(decode utf8=>param("obsolete"));
 		$product_ref->{obsolete_since_date} = remove_tags_and_quote(decode utf8=>param("obsolete_since_date"));
 	}
@@ -1312,7 +1312,7 @@ HTML
 
 	}
 
-	$template_data_ref_display->{param_fields} = param("fields");
+	$template_data_ref_display->{param_fields} = scalar param("fields");
 	$template_data_ref_display->{type} = $type;
 	$template_data_ref_display->{code} = $code;
 	$template_data_ref_display->{display_product_history} = display_product_history($code, $product_ref);

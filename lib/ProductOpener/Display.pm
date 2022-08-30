@@ -4213,7 +4213,7 @@ sub display_search_results($request_ref) {
 
 	my $current_link = '';
 
-	foreach my $field (param()) {
+	foreach my $field (multi_param()) {
 		if (
 			($field eq "page")
 			or ($field eq "fields")
@@ -4435,7 +4435,7 @@ sub add_params_to_query($request_ref, $query_ref) {
 
 	my $and = $query_ref->{"\$and"};
 
-	foreach my $field (param()) {
+	foreach my $field (multi_param()) {
 
 		$log->debug("add_params_to_query - field", { field => $field }) if $log->is_debug();
 

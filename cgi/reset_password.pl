@@ -45,11 +45,11 @@ my $template_data_ref = {
 	lang => \&lang,
 };
 
-my $type = param('type') || 'send_email';
-my $action = param('action') || 'display';
+my $type = scalar param('type') || 'send_email';
+my $action = scalar param('action') || 'display';
 
-my $id = param('userid_or_email');
-my $resetid = param('resetid');
+my $id = scalar param('userid_or_email');
+my $resetid = scalar param('resetid');
 
 $log->info("start", { type => $type, action => $action, userid_or_email => $id, resetid => $resetid }) if $log->is_info();
 
@@ -94,13 +94,13 @@ if ($action eq 'process') {
 		}
 
 	}
-	elsif (($type eq 'reset') and (defined param('resetid'))) {
+	elsif (($type eq 'reset') and (defined scalar param('resetid'))) {
 
-		if (length(param('password')) < 6) {
+		if (length(scalar param('password')) < 6) {
 			push @errors, $Lang{error_invalid_password}{$lang};
 		}
 
-		if (param('password') ne param('confirm_password')) {
+		if (scalar(param('password')) ne scalar(param('confirm_password'))) {
 			push @errors, $Lang{error_different_passwords}{$lang};
 		}
 
@@ -124,8 +124,8 @@ if ($action eq 'display') {
 	push @{$template_data_ref->{errors}}, @errors;
 	
 	if ($type eq 'reset') {
-		$template_data_ref->{token} = param('token');
-		$template_data_ref->{resetid} = param('resetid');
+		$template_data_ref->{token} = scalar param('token');
+		$template_data_ref->{resetid} = scalar param('resetid');
 	}
 }
 
@@ -166,7 +166,7 @@ elsif ($action eq 'process') {
 		}
 	}
 	elsif ($type eq 'reset') {
-		my $userid = get_string_id_for_lang("no_language", param('resetid'));
+		my $userid = get_string_id_for_lang("no_language", scalar param('resetid'));
 		my $user_ref = retrieve("$data_root/users/$userid.sto");
 		
 		$log->debug("resetting password", {userid => $userid }) if $log->is_debug();
@@ -175,7 +175,7 @@ elsif ($action eq 'process') {
 		
 		if (defined $user_ref) {
 
-			if ((defined $user_ref->{token}) and (defined param('token')) and (param('token') eq $user_ref->{token}) and (time() < ($user_ref->{token_t} + 86400*3))) {
+			if ((defined $user_ref->{token}) and (defined scalar param('token')) and (scalar param('token') eq $user_ref->{token}) and (time() < ($user_ref->{token_t} + 86400*3))) {
 				
 				$log->debug("token is valid, updating password", {userid => $userid }) if $log->is_debug();
 				

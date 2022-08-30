@@ -61,10 +61,10 @@ my $separators = qr/($stops\s|$commas|$separators_except_comma)/i;
 
 
 
-my $type = param('type') || 'add';
-my $action = param('action') || 'display';
+my $type = scalar param('type') || 'add';
+my $action = scalar param('action') || 'display';
 
-my $tagtype= get_fileid(param('tagtype'));
+my $tagtype= get_fileid(scalar param('tagtype'));
 
 not defined $tagtype and $tagtype eq 'ingredients';
 
