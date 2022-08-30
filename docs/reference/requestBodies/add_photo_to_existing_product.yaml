@@ -1,0 +1,21 @@
+              type: object
+              x-examples:
+                example-1:
+                  code: '3017620422003'
+                  imagefield: front_en
+                  imgupload_front_en: file
+              properties:
+                code:
+                  type: string
+                  description: Barcode of the product
+                  example: '3017620422003'
+                imagefield:
+                  type: string
+                  description: Indicates the type of the image and the corresponding language
+                  example: front_en
+                imgupload_front_en:
+                  type: string
+                  description: JPEG or PNG image file. The name of the field needs to be imgupload_ + the value of the imagefield e.g imageupload_front_en for the front image in English.
+              required:
+                - code
+                - imagefield
