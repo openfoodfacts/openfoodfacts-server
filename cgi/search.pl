@@ -118,7 +118,8 @@ my @search_ingredient_classes = (
 my $tags_n = 2;
 my $nutriments_n = 2;
 
-my $search_terms = remove_tags_and_quote(decode utf8 => scalar param('search_terms2'));    #advanced search takes precedence
+my $search_terms
+  = remove_tags_and_quote(decode utf8 => scalar param('search_terms2'));    #advanced search takes precedence
 if ((not defined $search_terms) or ($search_terms eq '')) {
 	$search_terms = remove_tags_and_quote(decode utf8 => scalar param('search_terms'));
 }
