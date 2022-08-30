@@ -26,7 +26,7 @@ x-examples:
       abbreviated_product_name_fr: Nutella t.400
       abbreviated_product_name_fr_imported: Nutella t.400
       added_countries_tags: []
-      additives_debug_tags: []
+      # additives_debug_tags: []
       additives_n: 1
       # additives_old_n: 0
       # additives_old_tags: []
@@ -241,15 +241,15 @@ x-examples:
         - app-open-food-facts
         - app-halal-healthy
         - app-smoothie-openfoodfacts
-      debug_param_sorted_langs:
-        - fr
-        - ar
-        - de
-        - en
-        - es
-        - it
-      debug_tags:
-        - '43'
+      # debug_param_sorted_langs:
+      #   - fr
+      #   - ar
+      #   - de
+      #   - en
+      #   - es
+      #   - it
+      # debug_tags:
+      #   - '43'
       ecoscore_data:
         adjustments:
           origins_of_ingredients:
@@ -2464,63 +2464,63 @@ x-examples:
         - 'en:palm-oil'
         - 'en:vegan-status-unknown'
         - 'en:vegetarian-status-unknown'
-      ingredients_debug:
-        - Sucre
-        - ','
-        - null
-        - null
-        - null
-        - ' huile de palme'
-        - ','
-        - null
-        - null
-        - null
-        - ' noisettes 13%'
-        - ','
-        - null
-        - null
-        - null
-        - ' cacao maigre 7'
-        - ','
-        - null
-        - null
-        - null
-        - 4%
-        - ','
-        - null
-        - null
-        - null
-        - ' lait écrémé en poudre 6'
-        - ','
-        - null
-        - null
-        - null
-        - 6%
-        - ','
-        - null
-        - null
-        - null
-        - ' lactoserum en poudre'
-        - ','
-        - null
-        - null
-        - null
-        - ' émulsifiants '
-        - ':'
-        - ':'
-        - null
-        - null
-        - '  lécithines '
-        - '['
-        - '['
-        - null
-        - null
-        - 'soja]'
-        - ','
-        - null
-        - null
-        - null
-        - ' vanilline.'
+      # ingredients_debug:
+      #   - Sucre
+      #   - ','
+      #   - null
+      #   - null
+      #   - null
+      #   - ' huile de palme'
+      #   - ','
+      #   - null
+      #   - null
+      #   - null
+      #   - ' noisettes 13%'
+      #   - ','
+      #   - null
+      #   - null
+      #   - null
+      #   - ' cacao maigre 7'
+      #   - ','
+      #   - null
+      #   - null
+      #   - null
+      #   - 4%
+      #   - ','
+      #   - null
+      #   - null
+      #   - null
+      #   - ' lait écrémé en poudre 6'
+      #   - ','
+      #   - null
+      #   - null
+      #   - null
+      #   - 6%
+      #   - ','
+      #   - null
+      #   - null
+      #   - null
+      #   - ' lactoserum en poudre'
+      #   - ','
+      #   - null
+      #   - null
+      #   - null
+      #   - ' émulsifiants '
+      #   - ':'
+      #   - ':'
+      #   - null
+      #   - null
+      #   - '  lécithines '
+      #   - '['
+      #   - '['
+      #   - null
+      #   - null
+      #   - 'soja]'
+      #   - ','
+      #   - null
+      #   - null
+      #   - null
+      #   - ' vanilline.'
       ingredients_from_or_that_may_be_from_palm_oil_n: 0
       ingredients_from_palm_oil_n: 0
       ingredients_from_palm_oil_tags: []
@@ -2542,19 +2542,19 @@ x-examples:
         - 'en:soya-lecithin'
         - 'en:e322'
         - 'en:e322i'
-      ingredients_ids_debug:
-        - sucre
-        - huile-de-palme
-        - noisettes-13
-        - cacao-maigre-7
-        - '4'
-        - lait-ecreme-en-poudre-6
-        - '6'
-        - lactoserum-en-poudre
-        - emulsifiants
-        - lecithines
-        - soja
-        - vanilline
+      # ingredients_ids_debug:
+      #   - sucre
+      #   - huile-de-palme
+      #   - noisettes-13
+      #   - cacao-maigre-7
+      #   - '4'
+      #   - lait-ecreme-en-poudre-6
+      #   - '6'
+      #   - lactoserum-en-poudre
+      #   - emulsifiants
+      #   - lecithines
+      #   - soja
+      #   - vanilline
       ingredients_n: 8
       ingredients_n_tags:
         - '8'
@@ -2590,7 +2590,7 @@ x-examples:
       ingredients_text: 'sugar, palm oil,  hazelnuts 13%, skim milk powder 8, 7%, lean cocoa 7, 4%, emulsifiers: soy lecithins, vanillin'
       ingredients_text_ar: ''
       ingredients_text_de: 'Zucker, Palmöl, HASELNÜSSE 13 %, MAGERMILCHPULVER 8,7 %, fettarmer Kakao, Emulgator Lecithine (Soja), Vanillin'
-      ingredients_text_debug: 'Sucre, huile de palme, noisettes 13%, cacao maigre 7,4%, lait écrémé en poudre 6,6%, lactoserum en poudre, émulsifiants :  lécithines [soja], vanilline.'
+      # ingredients_text_debug: 'Sucre, huile de palme, noisettes 13%, cacao maigre 7,4%, lait écrémé en poudre 6,6%, lactoserum en poudre, émulsifiants :  lécithines [soja], vanilline.'
       ingredients_text_en: 'sugar, palm oil,  hazelnuts 13%, skim milk powder 8, 7%, lean cocoa 7, 4%, emulsifiers: soy lecithins, vanillin'
       ingredients_text_en_ocr_1642445989: 'ingredients: sugar, palm oil, hazelnuts 13%, lean cocoa 7.4%, skim milk powder 6.6%, lactoserum powder, emulsifiers: soy lecithins], vanillin, gluten free,'
       ingredients_text_en_ocr_1642445989_result: 'Sugar, palm oil, hazelnuts 13%, lean cocoa 7.4%, skim milk powder 6.6%, lactoserum powder, emulsifiers: soy lecithins], vanillin, gluten free,'
@@ -2707,7 +2707,7 @@ x-examples:
       no_nutrition_data: 'null'
       no_nutrition_data_imported: 'false'
       nova_group: 4
-      nova_group_debug: ''
+      # nova_group_debug: ''
       nova_groups: '4'
       nova_groups_markers:
         '3':
@@ -2843,7 +2843,7 @@ x-examples:
       nutrition_grades_tags:
         - e
       nutrition_score_beverage: 0
-      nutrition_score_debug: ''
+      # nutrition_score_debug: ''
       nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients: 1
       nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value: 13
       nutrition_score_warning_no_fiber: 1
@@ -4574,10 +4574,10 @@ properties:
         type: array
         items:
           type: object
-      additives_debug_tags:
-        type: array
-        items:
-          type: object
+      # additives_debug_tags:
+      #   type: array
+      #   items:
+      #     type: object
       additives_n:
         type: integer
         description: Number of food additives
@@ -4772,14 +4772,14 @@ properties:
         type: array
         items:
           type: string
-      debug_param_sorted_langs:
-        type: array
-        items:
-          type: string
-      debug_tags:
-        type: array
-        items:
-          type: string
+      # debug_param_sorted_langs:
+      #   type: array
+      #   items:
+      #     type: string
+      # debug_tags:
+      #   type: array
+      #   items:
+      #     type: string
       ecoscore_data:
         type: object
         properties:
@@ -9363,10 +9363,10 @@ properties:
         type: array
         items:
           type: string
-      ingredients_debug:
-        type: array
-        items:
-          type: string
+      # ingredients_debug:
+      #   type: array
+      #   items:
+      #     type: string
       ingredients_from_or_that_may_be_from_palm_oil_n:
         type: integer
       ingredients_from_palm_oil_n:
@@ -9379,10 +9379,10 @@ properties:
         type: array
         items:
           type: string
-      ingredients_ids_debug:
-        type: array
-        items:
-          type: string
+      # ingredients_ids_debug:
+      #   type: array
+      #   items:
+      #     type: string
       ingredients_n:
         type: integer
       ingredients_n_tags:
@@ -9406,8 +9406,8 @@ properties:
         type: string
       ingredients_text_de:
         type: string
-      ingredients_text_debug:
-        type: string
+      # ingredients_text_debug:
+      #   type: string
       ingredients_text_en:
         type: string
       ingredients_text_en_ocr_1642445989:
@@ -9590,8 +9590,8 @@ properties:
         type: string
       nova_group:
         type: integer
-      nova_group_debug:
-        type: string
+      # nova_group_debug:
+      #   type: string
       nova_groups:
         type: string
       nova_groups_markers:
@@ -9862,8 +9862,8 @@ properties:
           type: string
       nutrition_score_beverage:
         type: integer
-      nutrition_score_debug:
-        type: string
+      # nutrition_score_debug:
+      #   type: string
       nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients:
         type: integer
       nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value:
