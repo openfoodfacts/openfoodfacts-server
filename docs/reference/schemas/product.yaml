@@ -1,6 +1,4 @@
 type: object
-x-stoplight:
-  id: be695a4b100b6
 x-examples:
   example-1:
     code: '3017620422003'
@@ -4722,17 +4720,7 @@ properties:
           type: string
       created_t:
         type: integer
-        description: |2-
-
-
-
-
-
-
-
-
-           Date when the product was added (UNIX timestamp format).
-           
+        description: Date when the product was added (UNIX timestamp format).    
       creator:
         type: string
         description: The contributor who added the product first.
@@ -9639,6 +9627,7 @@ properties:
             type: integer
           alcohol_100g:
             type: integer
+            description: '% vol of alcohol'
           alcohol_serving:
             type: integer
           alcohol_unit:
