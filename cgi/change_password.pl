@@ -70,11 +70,11 @@ if ($ENV{'REQUEST_METHOD'} eq 'POST') {
 		push @errors, lang('error_bad_login_password');
 	}
 
-	if (length(scalar param('password')) < 6) {
+	if (length(single_param('password')) < 6) {
 		push @errors, lang('error_invalid_password');
 	}
 
-	if ((scalar param('password')) ne (scalar param('confirm_password'))) {
+	if ((single_param('password')) ne (single_param('confirm_password'))) {
 		push @errors, lang('error_different_passwords');
 	}
 

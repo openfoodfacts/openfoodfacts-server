@@ -250,7 +250,7 @@ sub check_user_form($type, $user_ref, $errors_ref) {
 
 	# Removing the tabs, spaces and white space characters
 	# Assigning 'userid' to 0 -- if userid is not defined
-	$user_ref->{userid} = remove_tags_and_quote(scalar param('userid'));
+	$user_ref->{userid} = remove_tags_and_quote(single_param('userid'));
 
 	# Allow for sending the 'name' & 'email' as a form parameter instead of a HTTP header, as web based apps may not be able to change the header sent by the browser
 	$user_ref->{name} = remove_tags_and_quote(decode utf8=>param('name'));
@@ -273,12 +273,12 @@ sub check_user_form($type, $user_ref, $errors_ref) {
 	}
 
 	# Is there a checkbox to make a professional account
-	if (defined scalar param("pro_checkbox")) {
+	if (defined single_param("pro_checkbox")) {
 
-		if (scalar param("pro")) {
+		if (single_param("pro")) {
 			$user_ref->{pro} = 1;
 
-			if (defined scalar param("requested_org")) {
+			if (defined single_param("requested_org")) {
 				$user_ref->{requested_org} = remove_tags_and_quote(decode utf8=>param("requested_org"));
 
 				my $requested_org_id = get_string_id_for_lang("no_language", $user_ref->{requested_org});
@@ -302,8 +302,8 @@ sub check_user_form($type, $user_ref, $errors_ref) {
 
 
 	if ($type eq 'add') {
-		$user_ref->{newsletter} = remove_tags_and_quote(scalar param('newsletter'));
-		$user_ref->{discussion} = remove_tags_and_quote(scalar param('discussion'));
+		$user_ref->{newsletter} = remove_tags_and_quote(single_param('newsletter'));
+		$user_ref->{discussion} = remove_tags_and_quote(single_param('discussion'));
 		$user_ref->{ip} = remote_addr();
 		$user_ref->{initial_lc} = $lc;
 		$user_ref->{initial_cc} = $cc;
@@ -343,14 +343,14 @@ sub check_user_form($type, $user_ref, $errors_ref) {
 		# Permission groups
 
 		foreach my $group (@user_groups) {
-			$user_ref->{$group} = remove_tags_and_quote(scalar param("user_group_$group"));
+			$user_ref->{$group} = remove_tags_and_quote(single_param("user_group_$group"));
 		}
 	}
 
 	defined $user_ref->{registered_t} or $user_ref->{registered_t} = time();
 
 	for (my $i = 1; $i <= 3; $i++) {
-		if (defined scalar param('team_' . $i)) {
+		if (defined single_param('team_' . $i)) {
 			$user_ref->{'team_' . $i} = remove_tags_and_quote(decode utf8=>param('team_' . $i));
 			$user_ref->{'team_' . $i} =~ s/\&lt;/ /g;
 			$user_ref->{'team_' . $i} =~ s/\&gt;/ /g;
@@ -359,8 +359,8 @@ sub check_user_form($type, $user_ref, $errors_ref) {
 	}
 
 	# contributor settings
-	$user_ref->{display_barcode} = !! remove_tags_and_quote(scalar param("display_barcode"));
-	$user_ref->{edit_link} = !! remove_tags_and_quote(scalar param("edit_link"));
+	$user_ref->{display_barcode} = !! remove_tags_and_quote(single_param("display_barcode"));
+	$user_ref->{edit_link} = !! remove_tags_and_quote(single_param("edit_link"));
 
 	# Check for spam
 	# e.g. name with "Lydia want to meet you! Click here:" + an url
@@ -420,10 +420,10 @@ sub check_user_form($type, $user_ref, $errors_ref) {
 		}
 	}
 
-	if (param('password') ne scalar param('confirm_password')) {
+	if (param('password') ne single_param('confirm_password')) {
 		push @{$errors_ref}, $Lang{error_different_passwords}{$lang};
 	}
-	elsif (scalar param('password') ne '') {
+	elsif (single_param('password') ne '') {
 		$user_ref->{encrypted_password} = create_password_hash( encode_utf8(decode utf8=>param('password')) );
 	}
 
@@ -563,7 +563,7 @@ EMAIL
 
 sub check_edit_owner($user_ref, $errors_ref) {
 
-	$user_ref->{pro_moderator_owner} = get_string_id_for_lang("no_language", remove_tags_and_quote(scalar param('pro_moderator_owner')));
+	$user_ref->{pro_moderator_owner} = get_string_id_for_lang("no_language", remove_tags_and_quote(single_param('pro_moderator_owner')));
 	
 	# If the owner id looks like a GLN, see if we have a corresponding org
 	
@@ -692,10 +692,10 @@ sub generate_session_cookie($user_id, $user_session) {
 
 	my $length = 0;
 
-	if ((defined scalar param('length')) and (scalar param('length') > 0)) {
-		$length = scalar param('length');
+	if ((defined single_param('length')) and (single_param('length') > 0)) {
+		$length = single_param('length');
 	}
-	elsif ((defined scalar param('remember_me')) and (scalar param('remember_me') eq 'on')) {
+	elsif ((defined single_param('remember_me')) and (single_param('remember_me') eq 'on')) {
 		$length = 31536000 * 10;
 	}
 
@@ -782,18 +782,18 @@ sub init_user($request_ref) {
 	%Org = ();
 
 	# Remove persistent cookie if user is logging out
-	if ((defined scalar param('length')) and (scalar param('length') eq 'logout')) {
+	if ((defined single_param('length')) and (single_param('length') eq 'logout')) {
 		$log->debug("user logout") if $log->is_debug();
 		my $session = {} ;
 		$request_ref->{cookie} = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>"$cookie_domain") ;
 	}
 
 	# Retrieve user_id and password from form parameters
-	elsif ( (defined scalar param('user_id')) and (scalar param('user_id') ne '') and
-                       ( ( (defined scalar param('password')) and (scalar param('password') ne ''))
+	elsif ( (defined single_param('user_id')) and (single_param('user_id') ne '') and
+                       ( ( (defined single_param('password')) and (single_param('password') ne ''))
                          ) ) {
 
-		$user_id = remove_tags_and_quote(scalar param('user_id')) ;
+		$user_id = remove_tags_and_quote(single_param('user_id')) ;
 
 		if ($user_id =~ /\@/) {
 			$log->info("got email while initializing user", { email => $user_id }) if $log->is_info();
@@ -839,7 +839,7 @@ sub init_user($request_ref) {
 					return ($Lang{error_bad_login_password}{$lang}) ;
 				}
 				# We have the right login/password
-				elsif (not defined scalar param('no_log'))    # no need to store sessions for internal requests
+				elsif (not defined single_param('no_log'))    # no need to store sessions for internal requests
 				{
 					$log->info("correct password for user provided") if $log->is_info();
 					
@@ -859,11 +859,11 @@ sub init_user($request_ref) {
 	}
 
 	# Retrieve user_id and session from cookie
-	elsif ((defined cookie($cookie_name)) or ((defined scalar param('user_session')) and (defined scalar param('user_id')))) {
+	elsif ((defined cookie($cookie_name)) or ((defined single_param('user_session')) and (defined single_param('user_id')))) {
 		my $user_session;
-		if (defined scalar param('user_session')) {
-			$user_session = scalar param('user_session');
-			$user_id = scalar param('user_id');
+		if (defined single_param('user_session')) {
+			$user_session = single_param('user_session');
+			$user_id = single_param('user_id');
 			$log->debug("user_session parameter found", { user_id => $user_id, user_session => $user_session }) if $log->is_debug();
 		}
 		else {

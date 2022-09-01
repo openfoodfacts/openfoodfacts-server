@@ -436,7 +436,7 @@ sub process_search_image_form($filename_ref) {
 	my $imgid = "imgupload_search";
 	my $file = undef;
 	my $code = undef;
-	if ($file = scalar param($imgid)) {
+	if ($file = single_param($imgid)) {
 		if ($file =~ /\.($supported_extensions)$/i) {
 
 			$log->debug("processing image search form", { imgid => $imgid, file => $file }) if $log->is_debug();
@@ -667,16 +667,16 @@ sub process_image_upload($product_id, $imagefield, $user_id, $time, $comment, $i
 		}
 	}
 	else {
-		$file = scalar param('imgupload_' . $imagefield);
+		$file = single_param('imgupload_' . $imagefield);
 		if (! $file) {
 			# mobile app may not set language code
 			my $old_imagefield = $imagefield;
 			$old_imagefield =~ s/_\w\w$//;
-			$file = scalar param('imgupload_' . $old_imagefield);
+			$file = single_param('imgupload_' . $old_imagefield);
 
 			if (! $file) {
 				# producers platform: name="files[]"
-				$file = scalar param("files[]");
+				$file = single_param("files[]");
 			}
 		}
 	}

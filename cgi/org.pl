@@ -40,8 +40,8 @@ use Storable qw/dclone/;
 use Encode;
 use Log::Any qw($log);
 
-my $type = scalar param('type') || 'edit';
-my $action = scalar param('action') || 'display';
+my $type = single_param('type') || 'edit';
+my $action = single_param('action') || 'display';
 
 # Passing values to the template
 my $template_data_ref = {lang => \&lang,};
@@ -50,8 +50,8 @@ my $request_ref = ProductOpener::Display::init_request();
 
 my $orgid = $Org_id;
 
-if (defined scalar param('orgid')) {
-	$orgid = get_fileid(scalar param('orgid'), 1);
+if (defined single_param('orgid')) {
+	$orgid = get_fileid(single_param('orgid'), 1);
 }
 
 $log->debug("org profile form - start", {type => $type, action => $action, orgid => $orgid, User_id => $User_id})
@@ -88,7 +88,7 @@ my @errors = ();
 if ($action eq 'process') {
 
 	if ($type eq 'edit') {
-		if (scalar param('delete') eq 'on') {
+		if (single_param('delete') eq 'on') {
 			if ($admin) {
 				$type = 'delete';
 			}

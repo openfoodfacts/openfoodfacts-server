@@ -64,22 +64,22 @@ if (user_agent() =~ /apps-spreadsheets/) {
 my $request_ref = ProductOpener::Display::init_request();
 $request_ref->{search} = 1;
 
-my $action = scalar(param('action')) || 'display';
+my $action = single_param('action') || 'display';
 
-if ((defined scalar param('search_terms')) and (not defined scalar param('action'))) {
+if ((defined single_param('search_terms')) and (not defined single_param('action'))) {
 	$action = 'process';
 }
 
 foreach my $parameter ('fields', 'json', 'jsonp', 'jqm', 'jqm_loadmore', 'xml', 'rss') {
 
-	if (defined scalar param($parameter)) {
-		$request_ref->{$parameter} = scalar param($parameter);
+	if (defined single_param($parameter)) {
+		$request_ref->{$parameter} = single_param($parameter);
 	}
 }
 
 # if the query request json or xml, either through the json=1 parameter or a .json extension
 # set the $request_ref->{api} field
-if ((defined scalar param('json')) or (defined scalar param('jsonp')) or (defined scalar param('xml'))) {
+if ((defined single_param('json')) or (defined single_param('jsonp')) or (defined single_param('xml'))) {
 	$request_ref->{api} = 'v0';
 }
 
@@ -119,19 +119,19 @@ my $tags_n = 2;
 my $nutriments_n = 2;
 
 my $search_terms
-  = remove_tags_and_quote(decode utf8 => scalar param('search_terms2'));    #advanced search takes precedence
+  = remove_tags_and_quote(decode utf8 => single_param('search_terms2'));    #advanced search takes precedence
 if ((not defined $search_terms) or ($search_terms eq '')) {
-	$search_terms = remove_tags_and_quote(decode utf8 => scalar param('search_terms'));
+	$search_terms = remove_tags_and_quote(decode utf8 => single_param('search_terms'));
 }
 
 # check if the search term looks like a barcode
 
-if (    (not defined scalar param('json'))
-	and (not defined scalar param('jsonp'))
-	and (not defined scalar param('jqm'))
-	and (not defined scalar param('jqm_loadmore'))
-	and (not defined scalar param('xml'))
-	and (not defined scalar param('rss'))
+if (    (not defined single_param('json'))
+	and (not defined single_param('jsonp'))
+	and (not defined single_param('jqm'))
+	and (not defined single_param('jqm_loadmore'))
+	and (not defined single_param('xml'))
+	and (not defined single_param('rss'))
 	and ($search_terms =~ /^(\d{4,24})$/))
 {
 
@@ -158,7 +158,7 @@ my @search_nutriments = ();
 my %search_ingredient_classes = ();
 my %search_ingredient_classes_checked = ();
 
-for (my $i = 0; defined scalar param("tagtype_$i"); $i++) {
+for (my $i = 0; defined single_param("tagtype_$i"); $i++) {
 
 	my $tagtype = remove_tags_and_quote(decode utf8 => param("tagtype_$i"));
 	my $tag_contains = remove_tags_and_quote(decode utf8 => param("tag_contains_$i"));
@@ -169,12 +169,12 @@ for (my $i = 0; defined scalar param("tagtype_$i"); $i++) {
 
 foreach my $tagtype (@search_ingredient_classes) {
 
-	$search_ingredient_classes{$tagtype} = scalar param($tagtype);
+	$search_ingredient_classes{$tagtype} = single_param($tagtype);
 	not defined $search_ingredient_classes{$tagtype} and $search_ingredient_classes{$tagtype} = 'indifferent';
 	$search_ingredient_classes_checked{$tagtype} = {$search_ingredient_classes{$tagtype} => 'checked="checked"'};
 }
 
-for (my $i = 0; defined scalar param("nutriment_$i"); $i++) {
+for (my $i = 0; defined single_param("nutriment_$i"); $i++) {
 
 	my $nutriment = remove_tags_and_quote(decode utf8 => param("nutriment_$i"));
 	my $nutriment_compare = remove_tags_and_quote(decode utf8 => param("nutriment_compare_$i"));
@@ -199,7 +199,7 @@ if (    ($sort_by ne 'created_t')
 	$sort_by = 'unique_scans_n';
 }
 
-my $limit = 0 + (scalar param('page_size') || $page_size);
+my $limit = 0 + (single_param('page_size') || $page_size);
 if (($limit < 2) or ($limit > 1000)) {
 	$limit = $page_size;
 }
@@ -227,11 +227,11 @@ if ($action eq 'display') {
 	my $active_map = '';
 	my $active_graph = '';
 
-	if (scalar param("generate_map")) {
+	if (single_param("generate_map")) {
 		$active_list = '';
 		$active_map = 'active';
 	}
-	elsif (scalar param("graph")) {
+	elsif (single_param("graph")) {
 		$active_list = '';
 		$active_graph = 'active';
 	}
@@ -281,7 +281,7 @@ if ($action eq 'display') {
 		{value => "does_not_contain", label => lang("search_does_not_contain")},
 	];
 
-	for (my $i = 0; ($i < $tags_n) or defined scalar param("tagtype_$i"); $i++) {
+	for (my $i = 0; ($i < $tags_n) or defined single_param("tagtype_$i"); $i++) {
 
 		push @{$template_data_ref->{criteria}},
 		  {
@@ -360,7 +360,7 @@ if ($action eq 'display') {
 		},
 	];
 
-	for (my $i = 0; ($i < $nutriments_n) or (defined scalar param("nutriment_$i")); $i++) {
+	for (my $i = 0; ($i < $nutriments_n) or (defined single_param("nutriment_$i")); $i++) {
 
 		push @{$template_data_ref->{nutriments}},
 		  {
@@ -473,7 +473,7 @@ elsif ($action eq 'process') {
 
 	my $query_ref = {};
 
-	my $page = 0 + (scalar param('page') || 1);
+	my $page = 0 + (single_param('page') || 1);
 	if (($page < 1) or ($page > 1000)) {
 		$page = 1;
 	}
@@ -632,7 +632,7 @@ elsif ($action eq 'process') {
 
 		next if defined $search_ingredient_classes{$field};
 
-		if ((defined scalar param($field)) and (scalar param($field) ne '')) {
+		if ((defined single_param($field)) and (single_param($field) ne '')) {
 
 			$query_ref->{$field} = decode utf8 => param($field);
 			$current_link .= "\&$field=" . URI::Escape::XS::encodeURIComponent(decode utf8 => param($field));
@@ -648,16 +648,16 @@ elsif ($action eq 'process') {
 	# Graphs
 
 	foreach my $axis ('x', 'y') {
-		if ((defined scalar param("axis_$axis")) and (scalar param("axis_$axis") ne '')) {
+		if ((defined single_param("axis_$axis")) and (single_param("axis_$axis") ne '')) {
 			$current_link .= "\&axis_$axis=" . URI::Escape::XS::encodeURIComponent(decode utf8 => param("axis_$axis"));
 		}
 	}
 
-	if ((defined scalar param('graph_title')) and (scalar param('graph_title') ne '')) {
+	if ((defined single_param('graph_title')) and (single_param('graph_title') ne '')) {
 		$current_link .= "\&graph_title=" . URI::Escape::XS::encodeURIComponent(decode utf8 => param("graph_title"));
 	}
 
-	if ((defined scalar param('map_title')) and (scalar param('map_title') ne '')) {
+	if ((defined single_param('map_title')) and (single_param('map_title') ne '')) {
 		$current_link .= "\&map_title=" . URI::Escape::XS::encodeURIComponent(decode utf8 => param("map_title"));
 	}
 
@@ -679,18 +679,18 @@ elsif ($action eq 'process') {
 
 	my $share = lang('share');
 
-	my $map = scalar param("generate_map") || '';
-	my $graph = scalar param("graph") || '';
-	my $download = scalar param("download") || '';
+	my $map = single_param("generate_map") || '';
+	my $graph = single_param("graph") || '';
+	my $download = single_param("download") || '';
 
 	open(my $OUT, ">>:encoding(UTF-8)", "$data_root/logs/search_log_debug");
-	print $OUT remote_addr() . "\t" . time() . "\t" . decode utf8 => scalar(param('search_terms')) . " - map: $map 
+	print $OUT remote_addr() . "\t" . time() . "\t" . decode utf8 => single_param('search_terms') . " - map: $map 
 	 - graph: $graph - download: $download - page: $page\n";
 	close($OUT);
 
 	# Graph, map, export or search
 
-	if (scalar param("generate_map")) {
+	if (single_param("generate_map")) {
 
 		$request_ref->{current_link} .= "&generate_map=1";
 
@@ -717,8 +717,8 @@ HTML
 		display_page($request_ref);
 	}
 	elsif (
-		scalar param("generate_graph_scatter_plot")    # old parameter, kept for existing links
-		or scalar param("graph")
+		single_param("generate_graph_scatter_plot")    # old parameter, kept for existing links
+		or single_param("graph")
 	  )
 	{
 
@@ -756,11 +756,11 @@ HTML
 
 		display_page($request_ref);
 	}
-	elsif (scalar param("download")) {
+	elsif (single_param("download")) {
 
 		# CSV export
 
-		$request_ref->{format} = scalar param('format');
+		$request_ref->{format} = single_param('format');
 		search_and_export_products($request_ref, $query_ref, $sort_by);
 
 	}
@@ -797,7 +797,7 @@ HTML
 			print "Content-Type: application/json; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . $data;
 		}
 
-		if (scalar param('search_terms')) {
+		if (single_param('search_terms')) {
 			open(my $OUT, ">>:encoding(UTF-8)", "$data_root/logs/search_log");
 			print $OUT remote_addr() . "\t" . time() . "\t" . decode utf8 => param('search_terms') . "\tpage: $page\n";
 			close($OUT);

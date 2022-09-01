@@ -61,7 +61,7 @@ my $interface_version = '20150316.jqm2';
 
 my %response = ();
 
-my $code = scalar param('code');
+my $code = single_param('code');
 my $product_id;
 
 $log->debug("start", { code => $code, lc => $lc }) if $log->is_debug();
@@ -127,9 +127,9 @@ else {
 
 	# Fix too low salt values
 	# 2020/02/25 - https://github.com/openfoodfacts/openfoodfacts-server/issues/2945
-	if ((defined $User_id) and ($User_id eq 'kiliweb') and (defined scalar param("nutriment_salt"))) {
+	if ((defined $User_id) and ($User_id eq 'kiliweb') and (defined single_param("nutriment_salt"))) {
 
-		my $salt = scalar param("nutriment_salt");
+		my $salt = single_param("nutriment_salt");
 
 		if ((defined $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{salt_100g})) {
 
@@ -191,9 +191,9 @@ else {
 	}
 
 	# 26/01/2017 - disallow barcode changes until we fix bug #677
-	if ($User{moderator} and (defined scalar param('new_code'))) {
+	if ($User{moderator} and (defined single_param('new_code'))) {
 
-		change_product_server_or_code($product_ref, scalar param('new_code'), \@errors);
+		change_product_server_or_code($product_ref, single_param('new_code'), \@errors);
 		$code = $product_ref->{code};
 		
 		if ($#errors >= 0) {
@@ -233,7 +233,7 @@ else {
 			if (defined $language_fields{$1}) {
 				$param_langs{$2} = 1;
 				# set the product_name_pt value to the value of product_name_pt-BR
-				param($1 . "_" . $2, scalar param($1 . "_" . $2 . "-" . $3));
+				param($1 . "_" . $2, single_param($1 . "_" . $2 . "-" . $3));
 			}
 		}
 	}
@@ -241,9 +241,9 @@ else {
 
 	# 01/06/2019 --> Yuka always sends fr fields even for Spanish products, try to correct it
 
-	if ((defined $User_id) and ($User_id eq 'kiliweb') and (defined scalar param('cc'))) {
+	if ((defined $User_id) and ($User_id eq 'kiliweb') and (defined single_param('cc'))) {
 
-		my $param_cc = lc(scalar param('cc'));
+		my $param_cc = lc(single_param('cc'));
 		$param_cc =~ s/^en://;
 
 		my %lc_overrides = (
@@ -287,16 +287,16 @@ else {
 
 		# 11/6/2018 --> force add_brands and add_countries for yuka / kiliweb
 		if ((defined $User_id) and ($User_id eq 'kiliweb')
-			and (defined scalar param($field))
+			and (defined single_param($field))
 			and (($field eq 'brands') or ($field eq 'countries'))) {
 
-			param(-name => "add_" . $field, -value => scalar param($field));
+			param(-name => "add_" . $field, -value => single_param($field));
 			$log->debug("yuka - kiliweb : force add_field", { field => $field, code => $code }) if $log->is_debug();
 
 		}
 
 		# add_brands=additional brand : only add if it does not exist yet
-		if ((defined $tags_fields{$field}) and (defined scalar param("add_$field"))) {
+		if ((defined $tags_fields{$field}) and (defined single_param("add_$field"))) {
 
 			my $additional_fields = remove_tags_and_quote(decode utf8=>param("add_$field"));
 
@@ -305,7 +305,7 @@ else {
 			$log->debug("add_field", { field => $field, code => $code, additional_fields => $additional_fields, existing_value => $product_ref->{$field} }) if $log->is_debug();
 		}
 
-		elsif (defined scalar param($field)) {
+		elsif (defined single_param($field)) {
 
 			# Do not allow edits / removal through API for data provided by producers (only additions for non existing fields)
 			if (($protected_data) and (defined $product_ref->{$field}) and ($product_ref->{$field} ne "")) {
@@ -329,8 +329,8 @@ else {
 				}
 				elsif ($field eq "ecoscore_extended_data") {
 					# we expect a JSON value
-					if (defined scalar param($field)) {
-						$product_ref->{$field} = decode_json(scalar param($field));
+					if (defined single_param($field)) {
+						$product_ref->{$field} = decode_json(single_param($field));
 					}
 				}
 				else {
@@ -350,7 +350,7 @@ else {
 
 			foreach my $param_lang (@param_langs) {
 				my $field_lc = $field . '_' . $param_lang;
-				if (defined scalar param($field_lc)) {
+				if (defined single_param($field_lc)) {
 
 					# Do not allow edits / removal through API for data provided by producers (only additions for non existing fields)
 					if (($protected_data) and (defined $product_ref->{$field_lc}) and ($product_ref->{$field_lc} ne "")) {
