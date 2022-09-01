@@ -1,0 +1,66 @@
+openapi: 3.0.1
+info:
+  title: Open Food Facts Open API
+  description: 'As a developer, the Open Food Facts API allows you to get information and contribute to the products database. You can create great apps to help people make better food choices and also provide data to enhance the database.'
+  termsOfService: 'https://openweathermap.org/terms'
+  contact:
+    name: Open Food Facts
+    url: 'https://slack-ssl-openfoodfacts.herokuapp.com/'
+    email: contact@openfoodfacts.org
+  license:
+    name: 'License (MIT, Apache 2.0, etc)'
+    url: 'https://opendatacommons.org/licenses/odbl/summary/index.html'
+  version: '2'
+servers:
+  - url: 'https://world.openfoodfacts.org'
+    description: prod
+paths:
+  '/api/v2/product/{barcode}':
+    get:
+      tags:
+        - Read Requests
+      summary: Get for a specific product by barcode
+      parameters:
+        - name: barcode
+          in: path
+          description: The barcode of the product to be fetched
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: '3017620422003'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: './schemas/product.yaml'
+      description: A product can be fetched via its unique barcode.Its returns  all the details of that product response.
+      operationId: get-product-by-barcode
+  /cgi/product_image_upload.pl:
+    post:
+      tags:
+        - Write Requests
+      summary: Add a Photo to an Existing Product
+      operationId: get-cgi-product_image_upload.pl
+      description: 'Photos are source and proof of data. When you upload an image to Open Food Facts, the image is stored as is. The first photo uploaded for a product is auto-selected as the product’s “front” photo.'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: './responses/add_photo_to_existing_product.yaml'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: './requestBodies/add_photo_to_existing_product.yaml'
+            examples: {}
+        description: ''
+components:
+  schemas:
+    Product:
+      $ref: './schemas/product.yaml'
