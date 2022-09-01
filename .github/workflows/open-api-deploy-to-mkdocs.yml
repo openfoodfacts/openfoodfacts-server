@@ -33,8 +33,8 @@ jobs:
      #     publish_dir: swagger-ui
 
 
-      #- name: Generate HTML documentation
-       # run: docgen build -i off-pm-collection.json -e ${{ env.off_env }}-env.json -o index.html
+      - name: Generate HTML documentation
+        run: cat swagger-ui/index.html
 
       # TODO: Debug this as it hangs
       # - name: Generate Markdown documentation
