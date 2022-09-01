@@ -17,33 +17,20 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v3
-        
-     # - name: Install docgen
-      #  run: curl https://raw.githubusercontent.com/thedevsaddam/docgen/v3/install.sh -o install.sh && chmod +x install.sh && ./install.sh && rm install.sh
 
       - name: Generate Swagger UI
         uses: Legion2/swagger-ui-action@v1
         with:
           output: swagger-ui
           spec-file: docs/reference/api.yml
-  #    - name: Deploy to GitHub Pages
-     #   uses: peaceiris/actions-gh-pages@v3
-     #   with:
-     #     github_token: ${{ secrets.GITHUB_TOKEN }}
-     #     publish_dir: swagger-ui
 
-
-      - name: Generate HTML documentation
+      - name: Cat Swagger
         run: cat swagger-ui/index.html
-
-      # TODO: Debug this as it hangs
-      # - name: Generate Markdown documentation
-      #   run: docgen build -i off-pm-collection.json -e off-pm-env.json -o index.md -m
 
       - name: Commit generated documentation to current branch
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          repository: .
+          repository: swagger-ui
           file_pattern: api.*
           commit_message: Commit docgen-generated docs
           commit_options: '--no-verify --signoff'
@@ -57,36 +44,10 @@ jobs:
           repository-name: openfoodfacts/openfoodfacts-server
           folder: swagger-ui  # <- Folder containing our generated HTML docs
 
-      - name: Add comment to PR
-        uses: thollander/actions-comment-pull-request@v1.4.1
-        if: ${{ startsWith(github.ref, 'refs/pull') }}
-        with:
-          message: Staging documentation deployed to https://openfoodfacts.github.io/api-documentation-staging
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Deploy HTML docs to Github Pages [PROD]
         uses: JamesIves/github-pages-deploy-action@v4.4.0
         if: ${{ github.ref == 'refs/heads/master' }}
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages # <- Branch on which commit will be made
-          folder: .  # <- Folder containing our generated HTML docs
-
-  test:
-    name: Run API integration tests
-    runs-on: ubuntu-18.04
-    steps:
-      - name: Set deploy env
-        run: |
-          echo "off_env=${{ github.ref == 'refs/heads/master' && 'off-org' || 'off-net'}}" >> $GITHUB_ENV
-      - name: Checkout
-        uses: actions/checkout@v3
-     # - name: Run API Tests
-      #  id: run-newman
-       # uses: anthonyvscode/newman-action@v1
-        #with:
-         # collection: off-pm-collection.json
-          #environment: ${{ env.off_env }}-env.json
-          #reporters: cli
-    #  - name: Output summary to console
-    #    run: echo ${{ steps.run-newman.outputs.summary }}
+          folder: swagger-ui  # <- Folder containing our generated HTML docs
