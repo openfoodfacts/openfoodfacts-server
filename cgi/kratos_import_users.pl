@@ -44,14 +44,17 @@ my @dir = readdir(DIR);
 close DIR;
 # $log->debug(@dir)
 
+#open or create users.txt to write
+open (my $fh, ">", "users.txt");
+
 #for each in array open user file
 for my $el (@dir){
     $log->debug($el, "\n");
 
     #if string does not contain .sto or only contains sto next iteration
-    if (($el !~ /.sto/) or ($el == ".sto")){
+    if (($el !~ /.sto/) or ($el eq ".sto")){
         next;
-    }
+    }  
 
     #open user file
     my $user_file = "$data_root/users/" . $el;
@@ -84,24 +87,40 @@ for my $el (@dir){
     my $str = encode_json($data_to_json);
 
     $log->debug("json: ", $str);
+    
+    #print json to line with new line
+    print $fh $str;
+    print $fh "\n";
+}
+close $fh;
 
+#open for reading
+open ($fh, "<", "users.txt");
+my $line = <$fh>;
+#read line by line
+while(<$fh>){
     my $ua = LWP::UserAgent->new;
 
     #post request to create identity
     my $post_req = HTTP::Request->new(POST => "http://kratos.openfoodfacts.localhost:4434/admin/identities");
     $post_req->header('accept' => 'application/json');
     $post_req->header('content-type' => 'application/json');
-    $post_req->content($str);
+    $post_req->content($_);
 
     my $post_resp = $ua->request($post_req);
 
     if($post_resp->is_success){
         $log->debug("User Created");
+        #remove line if the user was created in kratos
+        chomp $line
     }
     else{
+        #display error message leave user in .txt
         $log->debug("HTTP POST error code: ", $post_resp->code);
         $log->debug("HTTP POST error message: ", $post_resp->message);
     }
-
-
 }
+
+close $fh;
+
+#users.txt will be left with all the users not imported
