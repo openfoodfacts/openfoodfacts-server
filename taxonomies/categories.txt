@@ -40318,6 +40318,11 @@ it:Formaggi freschi
 nl:Verse kazen
 wikidata:en:Q3323634
 
+#Polish cheese made of curled milk, then homogenized and thicked with cream. It is popular for breakfast
+<en:Fresh cheeses
+<en:Fermented dairy desserts
+pl:Serek homogenizowany
+
 <en:Fresh cheeses
 en:Brousse
 es:Brousse
@@ -40363,6 +40368,16 @@ uk:Кисломолочний сир
 zh:茅屋起司
 #yue:茅屋芝士
 wikidata:en:Q13221624
+
+<en:Cottage cheeses
+<en:Plain fermented dairy desserts
+en:Plain cottage cheeses
+fr:Cottage cheeses nature
+
+<en:Cottage cheeses
+<en:Fermented dairy desserts with fruits
+en:Fruit cottage cheeses
+fr:Cottage cheeses aux fruits
 
 <en:French cheeses
 <en:Brousse
@@ -40651,6 +40666,14 @@ nl:Notenkazen
 en:Fermented dairy desserts
 fr:Desserts lactés fermentés
 
+<en:Fermented dairy desserts
+en:Plain fermented dairy desserts
+fr:Desserts lactés fermentés nature
+
+<en:Fermented dairy desserts
+en:Fermented dairy desserts with fruits
+fr:Desserts lactés fermentés aux fruits
+
 #Yogurt-like dessert containing additives (i.e. gellant agent) that prevents it to be called "yogurt" according to the French legislation. This category shouldn't be translated since it arises from a particularity of the French legislation
 <en:Fermented dairy desserts
 fr:Spécialités laitières, spécialité laitière
@@ -40663,9 +40686,11 @@ ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, plain, w sugar
 ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature, sucré
 
 <fr:Spécialités laitières
+<en:Plain fermented dairy desserts
 fr:Spécialités laitières nature non sucrées
 
 <fr:Spécialités laitières
+<en:Fermented dairy desserts with fruits
 fr:Spécialités laitières aux fruits
 
 <en:Fermented dairy desserts
@@ -40679,10 +40704,12 @@ nl:Bifidus yoghurts
 #wikidata:en:
 
 <en:Bifidus yogurts
+<en:Plain fermented dairy desserts
 en:Plain bifidus yogurts
 fr:Yaourts au bifidus nature
 
 <en:Bifidus yogurts
+<en:Fermented dairy desserts with fruits
 en:Fruit bifidus yogurts, Yogurt-type fermented milk with fruits with sugar with bifidus, Yogurt-type dairy specialty with fruits with sugar with bifidus
 fr:Yaourts au bifidus aux fruits, Lait fermenté de type yaourt aux fruits sucré au bifidus, Spécialité laitière de type yaourt aromatisé aux fruits au bifidus
 agribalyse_food_code:en:19542
@@ -40724,6 +40751,7 @@ agribalyse_proxy_food_name:en:Fresh cream cheese, plain, around 3% fat
 agribalyse_proxy_food_name:fr:Fromage blanc nature, 3% MG environ
 
 <fr:Fromages blancs
+<en:Plain fermented dairy desserts
 fr:Fromages blancs natures
 agribalyse_proxy_food_code:en:19646
 agribalyse_proxy_food_name:en:Fresh cream cheese, plain, around 3% fat
@@ -40754,6 +40782,7 @@ ciqual_food_name:en:Fresh cream cheese, plain, creamy, around 8% fat
 ciqual_food_name:fr:Fromage blanc nature, gourmand, 8% MG environ
 
 <fr:Fromages blancs
+<en:Fermented dairy desserts with fruits
 en:Fromages blancs with fruits, Fresh cream cheese with fruits and sugar around 7% fat
 fr:Fromages blancs aux fruits, Fromage blanc gourmand sucré aux fruits à 7% de matières grasses environ, Spécialité laitière sucrée aux fruits à 7% de matières grasses environ
 agribalyse_food_code:en:19659
@@ -42921,10 +42950,12 @@ ciqual_proxy_food_name:en:Petit-Suisse like fresh cream cheese, plain, around 9%
 ciqual_proxy_food_name:fr:Fromage frais type petit suisse, nature, 10% MG environ
 
 <en:Petits suisses
+<en:Plain fermented dairy desserts
 en:Plain Petit-Suisse, Plain fresh cream cheese
 fr:Petits suisses nature, Fromage frais nature
 
 <en:Petits suisses
+<en:Fermented dairy desserts with fruits
 en:Petit-Suisse with fruits, fat fresh cream cheese with fruits
 fr:Petits suisses au fruits, Fromage frais aux fruits
 
@@ -43575,10 +43606,12 @@ zh:Skyr
 wikidata:en:Q742127
 
 <en:Skyrs
+<en:Plain fermented dairy desserts
 en:Plain skyrs, Plain skyr
 fr:Skyrs nature, Skyr nature
 
 <en:Skyr
+<en:Fermented dairy desserts with fruits
 en:Fruit skyrs, Fruit skyr
 fr:Skyrs aux fruits, Skyr aux fruits
 
@@ -43638,12 +43671,12 @@ ciqual_food_name:fr:Fromage blanc nature ou aux fruits (aliment moyen)
 # ingredient/nl:kwark has 2 products @2019-05-24
 # category/quark has 221 products @2019-05-24
 
-<en:Fermented dairy desserts
+<en:Plain fermented dairy desserts
 <en:Quarks
 en:Plain quarks, Plain quark
 fr:Quarks nature, Quark nature
 
-<en:Fermented dairy desserts
+<en:Fermented dairy desserts with fruits
 <en:Quarks
 en:Fruit quarks, Fruit quark
 fr:Quarks aux fruits, Quark aux fruits
@@ -45339,21 +45372,6 @@ nl:Lactose-vrije yoghurt, Lactose-vrije yoghurts, Yoghurt zonder lactose, Yoghur
 #wikidata:en:
 
 <en:Yogurts
-<<<<<<< HEAD
-en:Low fat yoghurts
-nl:Magere yoghurts
-
-<en:Yogurts
-en:Dairy-free yoghurts
-nl:Zuivelvrije yoghurts
-
-<en:Dairy-free yoghurts
-en:Dairy-free coconut-based yoghurts
-nl:Zuivelvrije kokosnootyoghurts
-
-<en:Yogurts
-=======
->>>>>>> main
 en:Yogurt with fruits and sweetener, Yogurt fruit flavoured with sweetener, Fermented milk with fruits and sweetener, Fermented milk fruit flavoured with sweetener, Dairy specialty with fruits and sweetener, Dairy specialty fruit flavoured with sweetener
 fr:Yaourt aromatisé avec édulcorants, Yaourt aux fruits avec édulcorants, Lait fermenté aromatisé avec édulcorants, Lait fermenté aux fruits avec édulcorants, Spécialité laitière aromatisée avec édulcorants, Spécialité laitière aux fruits avec édulcorants
 ciqual_food_code:en:19675
@@ -95586,8 +95604,9 @@ fr:Saucisses végétariennes, Saucisses végétales, Saucisse végétale
 it:Salsicce vegetariane
 nl:Vegetarische worstjes
 
+#Meat and fish categories are separated while Fish analogues is under meat analogue. This difference is intended, since fishes are animals and therefore considered as meat by vegetarians 
 <en:Meat analogues
-en:Plantbased fish
+en:Fish analogues, Plantbased fish
 nl:Plantaardige vissen
 
 <en:Vegetarian sausages
@@ -95623,19 +95642,19 @@ it:Formaggi vegani
 nl:Veganistische kazen
 
 <en:Legumes and their products
-en:Cakes of pulses
+en:Puffed pulse cakes
 de:Hülsenfruchtwaffeln
 es:Tortitas de legumbres
-fr:Galettes de légumineuses
+fr:Galettes de légumineuses soufflées
 it:Galetti di legumi
 nl:Peulvruchtenwafels
 
 <en:Cakes of pulses
-en:Lentil cakes
+en:Puffed lentil cakes
 de:linsenwaffeln
-es:Tortitas de lentejas
-fr:Galettes de lentilles
-it:Galetti di lenticchie
+es:Tortitas de lentejas infladas
+fr:Galettes de lentilles soufflées
+it:Galetti di lenticchie soffiate
 nl:Linzenwafels
 pt:Geletes de lentilha
 
@@ -95652,7 +95671,7 @@ de:gepuffte Getreidewaffeln
 es:Tortitas de cereales
 fr:Galettes de céréales soufflées, galettes de céréales
 hu:Puffasztott gabonakészítmények
-it:Gallette di cereali
+it:Gallette di cereali soffiati, gallette di cereali
 nl:Graanwafels
 ru:Воздушные хлопья
 agribalyse_proxy_food_code:en:7353

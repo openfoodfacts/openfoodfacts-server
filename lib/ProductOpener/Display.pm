@@ -463,7 +463,10 @@ sub redirect_to_url($request_ref, $status_code, $redirect_url) {
 	$r->headers_out->set(Location => $redirect_url);
 
 	if (defined $request_ref->{cookie}) {
-		$r->headers_out->set("Set-Cookie" => $request_ref->{cookie});
+		# Note: mod_perl will not output the Set-Cookie header on a 302 response
+		# unless it is set with err_headers_out instead of headers_out
+		# https://perl.apache.org/docs/2.0/api/Apache2/RequestRec.html#C_err_headers_out_
+		$r->err_headers_out->set("Set-Cookie" => $request_ref->{cookie});
 	}
 
 	$r->status($status_code);
@@ -3326,19 +3329,21 @@ sub display_tag($request_ref) {
 					foreach my $dose (@doses) {
 						foreach my $percentile (@percentiles) {
 							my $exposure_property = "efsa_evaluation_exposure_" . $percentile . "_greater_than_" . $dose . ":en";
-							if (defined $properties{$tagtype}{$canon_tagid}{$exposure_property}) {
-								foreach my $groupid (split(/,/, $properties{$tagtype}{$canon_tagid}{$exposure_property})) {
-									my $group = $groupid;
-									$group =~ s/^\s*en://;
-									$group =~ s/\s+$//;
+							if (! defined $properties{$tagtype}{$canon_tagid}{$exposure_property}) {
+								next;
+							}
+							foreach my $groupid (split(/,/, $properties{$tagtype}{$canon_tagid}{$exposure_property})) {
+								my $group = $groupid;
+								$group =~ s/^\s*en://;
+								$group =~ s/\s+$//;
 
-									# NOAEL has priority over ADI
-									if (not exists $exposure{$percentile}{$group}) {
-										$exposure{$percentile}{$group} = $dose;
-										$doses{$dose} = 1; # to display legend for the dose
-										$log->debug("display_tag - exposure_table ", { group => $group, percentile => $percentile, dose => $dose }) if $log->is_debug();
-									}
+								# NOAEL has priority over ADI
+								if ( exists $exposure{$percentile}{$group}) {
+									next;
 								}
+								$exposure{$percentile}{$group} = $dose;
+								$doses{$dose} = 1; # to display legend for the dose
+								$log->debug("display_tag - exposure_table ", { group => $group, percentile => $percentile, dose => $dose }) if $log->is_debug();
 							}
 						}
 					}
