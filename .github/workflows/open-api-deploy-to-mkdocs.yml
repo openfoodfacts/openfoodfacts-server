@@ -30,7 +30,7 @@ jobs:
       - name: Commit generated documentation to current branch
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          repository: swagger-ui
+          repository: openfoodfacts-server
           file_pattern: api.*
           commit_message: Commit docgen-generated docs
           commit_options: '--no-verify --signoff'
