@@ -1,0 +1,80 @@
+name: Build, test and deploy OpenAPI collection
+
+on:
+  push:
+    branches:
+      - open-api-deploy
+  pull_request:
+
+jobs:
+  build:
+    name: Build documentation
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Set deploy env
+        run: |
+          echo "off_env=${{ github.ref == 'refs/heads/develop' && 'off-org' || 'off-net'}}" >> $GITHUB_ENV
+
+      - name: Checkout
+        uses: actions/checkout@v3
+        
+     # - name: Install docgen
+      #  run: curl https://raw.githubusercontent.com/thedevsaddam/docgen/v3/install.sh -o install.sh && chmod +x install.sh && ./install.sh && rm install.sh
+
+      #- name: Generate HTML documentation
+       # run: docgen build -i off-pm-collection.json -e ${{ env.off_env }}-env.json -o index.html
+
+      # TODO: Debug this as it hangs
+      # - name: Generate Markdown documentation
+      #   run: docgen build -i off-pm-collection.json -e off-pm-env.json -o index.md -m
+
+      - name: Commit generated documentation to current branch
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          repository: .
+          file_pattern: index.*
+          commit_message: Commit docgen-generated docs
+          commit_options: '--no-verify --signoff'
+      
+      - name: Deploy HTML docs to Github Pages [STAGING]
+        uses: JamesIves/github-pages-deploy-action@v4.4.0
+        if: ${{ startsWith(github.ref, 'refs/pull') }}
+        with:
+          token: ${{ secrets.CROSS_REPO_TOKEN }}
+          branch: gh-pages # <- Branch on which commit will be made
+          repository-name: openfoodfacts/api-documentation-staging
+          folder: .  # <- Folder containing our generated HTML docs
+
+      - name: Add comment to PR
+        uses: thollander/actions-comment-pull-request@v1.4.1
+        if: ${{ startsWith(github.ref, 'refs/pull') }}
+        with:
+          message: Staging documentation deployed to https://openfoodfacts.github.io/api-documentation-staging
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Deploy HTML docs to Github Pages [PROD]
+        uses: JamesIves/github-pages-deploy-action@v4.4.0
+        if: ${{ github.ref == 'refs/heads/master' }}
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages # <- Branch on which commit will be made
+          folder: .  # <- Folder containing our generated HTML docs
+
+  test:
+    name: Run API integration tests
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Set deploy env
+        run: |
+          echo "off_env=${{ github.ref == 'refs/heads/master' && 'off-org' || 'off-net'}}" >> $GITHUB_ENV
+      - name: Checkout
+        uses: actions/checkout@v3
+     # - name: Run API Tests
+      #  id: run-newman
+       # uses: anthonyvscode/newman-action@v1
+        #with:
+         # collection: off-pm-collection.json
+          #environment: ${{ env.off_env }}-env.json
+          #reporters: cli
+    #  - name: Output summary to console
+    #    run: echo ${{ steps.run-newman.outputs.summary }}
