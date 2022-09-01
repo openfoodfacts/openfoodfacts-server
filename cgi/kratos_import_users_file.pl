@@ -93,34 +93,3 @@ for my $el (@dir){
     print $fh "\n";
 }
 close $fh;
-
-#open for reading
-open ($fh, "<", "users.txt");
-my $line = <$fh>;
-#read line by line
-while(<$fh>){
-    my $ua = LWP::UserAgent->new;
-
-    #post request to create identity
-    my $post_req = HTTP::Request->new(POST => "http://kratos.openfoodfacts.localhost:4434/admin/identities");
-    $post_req->header('accept' => 'application/json');
-    $post_req->header('content-type' => 'application/json');
-    $post_req->content($_);
-
-    my $post_resp = $ua->request($post_req);
-
-    if($post_resp->is_success){
-        $log->debug("User Created");
-        #remove line if the user was created in kratos
-        chomp $line
-    }
-    else{
-        #display error message leave user in .txt
-        $log->debug("HTTP POST error code: ", $post_resp->code);
-        $log->debug("HTTP POST error message: ", $post_resp->message);
-    }
-}
-
-close $fh;
-
-#users.txt will be left with all the users not imported
