@@ -26,11 +26,11 @@ jobs:
         with:
           output: swagger-ui
           spec-file: docs/reference/api.yml
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: swagger-ui
+  #    - name: Deploy to GitHub Pages
+     #   uses: peaceiris/actions-gh-pages@v3
+     #   with:
+     #     github_token: ${{ secrets.GITHUB_TOKEN }}
+     #     publish_dir: swagger-ui
 
 
       #- name: Generate HTML documentation
@@ -44,7 +44,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           repository: .
-          file_pattern: index.*
+          file_pattern: api.*
           commit_message: Commit docgen-generated docs
           commit_options: '--no-verify --signoff'
       
@@ -54,8 +54,8 @@ jobs:
         with:
           token: ${{ secrets.CROSS_REPO_TOKEN }}
           branch: gh-pages # <- Branch on which commit will be made
-          repository-name: openfoodfacts/api-documentation-staging
-          folder: .  # <- Folder containing our generated HTML docs
+          repository-name: openfoodfacts/openfoodfacts-server
+          folder: swagger-ui  # <- Folder containing our generated HTML docs
 
       - name: Add comment to PR
         uses: thollander/actions-comment-pull-request@v1.4.1
