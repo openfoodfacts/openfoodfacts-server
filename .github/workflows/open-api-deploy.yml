@@ -1,3 +1,11 @@
+name: Build, test and deploy OpenAPI collection
+
+on:
+  push:
+    branches:
+      - open-api-recipe
+  pull_request:
+
 jobs:
   updateSwagger:
     runs-on: ubuntu-latest
