@@ -5,7 +5,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: af\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-07-24 19:04\n"
 "Language-Team: Afrikaans\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -14,8 +13,7 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: af\n"
-"X-Crowdin-File: common.pot\n"
-"X-Crowdin-File-ID: 1808\n"
+"X-Crowdin-File-ID: 2538\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -24,7 +22,7 @@ msgstr ""
 # leave a space before and after, unless there are no spaces between "A and B" in the target language
 msgctxt "_and_"
 msgid " and "
-msgstr ""
+msgstr " en "
 
 msgctxt "about"
 msgid "About me"
@@ -32,11 +30,11 @@ msgstr ""
 
 msgctxt "add"
 msgid "Add"
-msgstr ""
+msgstr "Voeg by"
 
 msgctxt "add_language"
 msgid "Add language"
-msgstr ""
+msgstr "Voeg taal by"
 
 msgctxt "add_product"
 msgid "Add a product"
@@ -44,15 +42,15 @@ msgstr ""
 
 msgctxt "add_user"
 msgid "Register"
-msgstr ""
+msgstr "Registreer"
 
 msgctxt "add_user_display"
 msgid "Register"
-msgstr ""
+msgstr "Registreer"
 
 msgctxt "add_user_process"
 msgid "Welcome!"
-msgstr ""
+msgstr "Welkom!"
 
 msgctxt "add_user_result"
 msgid "Thank you for joining us!"
@@ -64,7 +62,7 @@ msgstr ""
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
-msgstr ""
+msgstr "Sluit by ons aan op Slack"
 
 msgctxt "add_user_join_the_project"
 msgid "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
@@ -183,7 +181,7 @@ msgstr ""
 
 msgctxt "all_missions"
 msgid "All missions"
-msgstr ""
+msgstr "Alle missies"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
@@ -203,7 +201,7 @@ msgstr ""
 
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/android-apk.svg"
-msgstr ""
+msgstr "/images/misc/android-apk.svg"
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
@@ -217,7 +215,7 @@ msgstr ""
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
-msgstr ""
+msgstr "/images/misc/google-play-badge-svg-master/img/en_get.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -235,11 +233,11 @@ msgstr ""
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
-msgstr ""
+msgstr "Neem 'n foto"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
-msgstr ""
+msgstr "Let wel: die prente wat jy stuur, word gepubliseer onder die gratis lisensie Creative Commons Erkenning en Deel Alike."
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
@@ -247,11 +245,11 @@ msgstr ""
 
 msgctxt "axis_x"
 msgid "Horizontal axis"
-msgstr ""
+msgstr "Horisontale as"
 
 msgctxt "axis_y"
 msgid "Vertical axis"
-msgstr ""
+msgstr "Vertikale as"
 
 msgctxt "barcode"
 msgid "Barcode"
@@ -263,7 +261,7 @@ msgstr ""
 
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
-msgstr ""
+msgstr "Jy kan ook help om die Open Food Facts-projek te finansier"
 
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
@@ -331,7 +329,7 @@ msgstr ""
 
 msgctxt "categories_p"
 msgid "categories"
-msgstr ""
+msgstr "kategorieë"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
@@ -339,19 +337,19 @@ msgstr ""
 
 msgctxt "categories_s"
 msgid "category"
-msgstr ""
+msgstr "kategorie"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
-msgstr ""
+msgstr "voeg 'n kategorie by"
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
-msgstr ""
+msgstr "Produkte nie uit die %s -kategorie nie"
 
 msgctxt "change_fields"
 msgid "Data"
-msgstr ""
+msgstr "Data"
 
 msgctxt "change_nutriments"
 msgid "Nutriments"
@@ -391,11 +389,11 @@ msgstr ""
 
 msgctxt "codes_p"
 msgid "Codes"
-msgstr ""
+msgstr "Kodes"
 
 msgctxt "codes_s"
 msgid "Code"
-msgstr ""
+msgstr "Kode"
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
@@ -1303,7 +1301,7 @@ msgstr ""
 
 msgctxt "menu_contribute"
 msgid "Contribute"
-msgstr ""
+msgstr "Dra by"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
@@ -1312,7 +1310,7 @@ msgstr ""
 
 msgctxt "menu_discover"
 msgid "Discover"
-msgstr ""
+msgstr "Ontdek"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
@@ -2332,11 +2330,11 @@ msgstr ""
 
 msgctxt "site_name"
 msgid "Open Food Facts"
-msgstr ""
+msgstr "Open Food Facts"
 
 msgctxt "logo_site_name"
 msgid "Open Food Facts logo"
-msgstr ""
+msgstr "Open Food Facts logo"
 
 msgctxt "sort_by"
 msgid "Sort by"
