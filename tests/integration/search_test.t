@@ -77,12 +77,30 @@ my %product_fields_6 = (
 	quantity => "100 ml",
 	link => "https://github.com/openfoodfacts/openfoodfacts-server",
 	expiration_date => "test",
-	ingredients_text => "apple, water",
+	ingredients_text => "apple, water, palm oil",
 	origin => "spain",
 	serving_size => "5g",
 	packaging_text => "no",
 	action => "process",
     categories => "snacks",
+	type => "add",
+	".submit" => "submit"
+);
+
+my %product_fields_7 = (
+	code => '200000000045',
+	lang => "es",
+	product_name => "Vegan Test Snack",
+	generic_name => "Tester",
+	quantity => "100 ml",
+	link => "https://github.com/openfoodfacts/openfoodfacts-server",
+	expiration_date => "test",
+	ingredients_text => "apple, water",
+	origin => "France",
+	serving_size => "5g",
+	packaging_text => "no",
+	action => "process",
+    categories => "breakfast cereals",
 	type => "add",
 	".submit" => "submit"
 );
@@ -103,9 +121,14 @@ create_product($ua, \%product_fields_1);
 create_product($ua, \%product_fields_4);
 create_product($ua, \%product_fields_5);
 create_product($ua, \%product_fields_6);
+create_product($ua, \%product_fields_7);
 
 my @tests = ( ["q1", "http://world.openfoodfacts.localhost//cgi/search.pl?action=process&json=1"], 
-["q2", "http://world.openfoodfacts.localhost/cgi/search.pl?action=process&json=1&ingredients_from_palm_oil=without"] );
+["q2", "http://world.openfoodfacts.localhost/cgi/search.pl?action=process&json=1&ingredients_from_palm_oil=without"],
+["q3", "http://world.openfoodfacts.localhost/cgi/search.pl?action=process&code=200000000034,200000000039&fields=code,product_name&json=1"], 
+["q4", "http://world.openfoodfacts.localhost/cgi/search.pl?action=process&tagtype_0=categories&tag_contains_0=contains&tag_0=breakfast_cereals&tagtype_1=nutrition_grades&tag_contains_1=contains&ingredients_from_palm_oil=without&json=1"] );
+
+
 
 
 # my $query_3_json = get("http://world.openfoodfacts.localhost/api/v2/search?code=200000000039,200000000038&fields=code,product_name");
@@ -126,7 +149,6 @@ foreach my $test_ref (@tests) {
 	my $json = get($query_ref);
 
 	my $decoded_json = decode_json($json);
-
 	my $key = 'products';
 
 	my $length = @{$decoded_json->{$key}};
