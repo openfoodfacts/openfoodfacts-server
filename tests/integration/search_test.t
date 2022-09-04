@@ -123,12 +123,14 @@ foreach my $test_ref (@tests) {
 	my $testid = $test_ref->[0];
 	my $query_ref = $test_ref->[1];
 
-	my $json = get("$query_ref");
-	my $decoded_json = decode_json($query_ref);
+	my $json = get($query_ref);
+
+	my $decoded_json = decode_json($json);
 
 	my $key = "created_t";
-	delete($decoded_json{$key});
-	compare_to_expected_results($decoded_json, "$expected_dir/$testid.json", $update_expected_results);
+
+	my $hash = delete($decoded_json->{$key});
+	compare_to_expected_results($hash, "$expected_dir/$testid.json", $update_expected_results);
 }
 
 done_testing();
