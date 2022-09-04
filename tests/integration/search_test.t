@@ -127,10 +127,12 @@ foreach my $test_ref (@tests) {
 
 	my $decoded_json = decode_json($json);
 
-	my $key = "created_t";
+	my $key = 'created_t';
 
-	my $hash = delete($decoded_json->{$key});
-	compare_to_expected_results($hash, "$expected_dir/$testid.json", $update_expected_results);
+	delete($decoded_json->{created_t});
+	compare_to_expected_results($decoded_json, "$expected_dir/$testid.json", $update_expected_results);
+
+	print Dumper $decoded_json;
 }
 
 done_testing();
