@@ -82,7 +82,7 @@ my %product_fields_6 = (
 	serving_size => "5g",
 	packaging_text => "no",
 	action => "process",
-    categories => "snacks",
+	categories => "snacks",
 	type => "add",
 	".submit" => "submit"
 );
@@ -100,11 +100,10 @@ my %product_fields_7 = (
 	serving_size => "5g",
 	packaging_text => "no",
 	action => "process",
-    categories => "breakfast cereals",
+	categories => "breakfast cereals",
 	type => "add",
 	".submit" => "submit"
 );
-
 
 remove_all_users();
 
@@ -123,18 +122,28 @@ create_product($ua, \%product_fields_5);
 create_product($ua, \%product_fields_6);
 create_product($ua, \%product_fields_7);
 
-my @tests = ( ["q1", "http://world.openfoodfacts.localhost//cgi/search.pl?action=process&json=1"], 
-["q2", "http://world.openfoodfacts.localhost/cgi/search.pl?action=process&json=1&ingredients_from_palm_oil=without"],
-["q3", "http://world.openfoodfacts.localhost/cgi/search.pl?action=process&code=200000000034,200000000039&fields=code,product_name&json=1"], 
-["q4", "http://world.openfoodfacts.localhost/cgi/search.pl?action=process&tagtype_0=categories&tag_contains_0=contains&tag_0=breakfast_cereals&tagtype_1=nutrition_grades&tag_contains_1=contains&ingredients_from_palm_oil=without&json=1"] );
+my @tests = (
+	["q1", "http://world.openfoodfacts.localhost//cgi/search.pl?action=process&json=1"],
+	[
+		"q2",
+		"http://world.openfoodfacts.localhost/cgi/search.pl?action=process&json=1&ingredients_from_palm_oil=without"
+	],
+	[
+		"q3",
+		"http://world.openfoodfacts.localhost/cgi/search.pl?action=process&code=200000000034,200000000039&fields=code,product_name&json=1"
+	],
+	[
+		"q4",
+		"http://world.openfoodfacts.localhost/cgi/search.pl?action=process&tagtype_0=categories&tag_contains_0=contains&tag_0=breakfast_cereals&tagtype_1=nutrition_grades&tag_contains_1=contains&ingredients_from_palm_oil=without&json=1"
+	]
+);
 
 # my $query_3_json = get("http://world.openfoodfacts.localhost/api/v2/search?code=200000000039,200000000038&fields=code,product_name");
 # my $query_3_json_decoded = decode_json($query_3_json);
 
+my $update_expected_results = 1;
 
-my $update_expected_results =1;
-
-if ((defined $update_expected_results) and (! -e $expected_dir)) {
+if ((defined $update_expected_results) and (!-e $expected_dir)) {
 	mkdir($expected_dir, 0755) or die("Could not create $expected_dir directory: $!\n");
 }
 
@@ -152,10 +161,10 @@ foreach my $test_ref (@tests) {
 
 	my $count;
 
-	for ($count = 0; $count < $length; $count++ ) {
-   		delete ($decoded_json->{$key}[$count]{created_t});
+	for ($count = 0; $count < $length; $count++) {
+		delete($decoded_json->{$key}[$count]{created_t});
 	}
-	is (compare_to_expected_results($decoded_json, "$expected_dir/$testid.json", $update_expected_results), 1);
+	is(compare_to_expected_results($decoded_json, "$expected_dir/$testid.json", $update_expected_results), 1);
 }
 
 done_testing();
