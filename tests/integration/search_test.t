@@ -130,9 +130,7 @@ foreach my $test_ref (@tests) {
 	my $key = 'created_t';
 
 	delete($decoded_json->{created_t});
-	compare_to_expected_results($decoded_json, "$expected_dir/$testid.json", $update_expected_results);
-
-	print Dumper $decoded_json;
+	is (compare_to_expected_results($decoded_json, "$expected_dir/$testid.json", $update_expected_results), 1);
 }
 
 done_testing();
