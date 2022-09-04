@@ -128,9 +128,6 @@ my @tests = ( ["q1", "http://world.openfoodfacts.localhost//cgi/search.pl?action
 ["q3", "http://world.openfoodfacts.localhost/cgi/search.pl?action=process&code=200000000034,200000000039&fields=code,product_name&json=1"], 
 ["q4", "http://world.openfoodfacts.localhost/cgi/search.pl?action=process&tagtype_0=categories&tag_contains_0=contains&tag_0=breakfast_cereals&tagtype_1=nutrition_grades&tag_contains_1=contains&ingredients_from_palm_oil=without&json=1"] );
 
-
-
-
 # my $query_3_json = get("http://world.openfoodfacts.localhost/api/v2/search?code=200000000039,200000000038&fields=code,product_name");
 # my $query_3_json_decoded = decode_json($query_3_json);
 
