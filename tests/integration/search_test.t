@@ -127,9 +127,15 @@ foreach my $test_ref (@tests) {
 
 	my $decoded_json = decode_json($json);
 
-	my $key = 'created_t';
+	my $key = 'products';
 
-	delete($decoded_json->{created_t});
+	my $length = @{$decoded_json->{$key}};
+
+	my $count;
+
+	for ($count = 0; $count < $length; $count++ ) {
+   		delete ($decoded_json->{$key}[$count]{created_t});
+	}
 	is (compare_to_expected_results($decoded_json, "$expected_dir/$testid.json", $update_expected_results), 1);
 }
 
