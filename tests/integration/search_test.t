@@ -35,7 +35,7 @@ my @products = (
 		type => "add",
 		".submit" => "submit"
 	},
-	{	
+	{
 		code => '200000000037',
 		lang => "en",
 		product_name => "vegan & palm oil free",
@@ -50,7 +50,7 @@ my @products = (
 		action => "process",
 		type => "add",
 		".submit" => "submit"
-		
+
 	},
 	{
 		code => '200000000038',
@@ -119,7 +119,6 @@ foreach my $ref (@products) {
 	create_product($ua, $ref);
 }
 
-
 my @tests = (
 	["q1", "http://world.openfoodfacts.localhost//cgi/search.pl?action=process&json=1"],
 	[
@@ -156,8 +155,7 @@ foreach my $test_ref (@tests) {
 	my $length = @{$decoded_json->{'products'}};
 	my $count;
 	for ($count = 0; $count < $length; $count++) {
-		foreach my $field ("created_t", "last_modified_t") 
-		{
+		foreach my $field ("created_t", "last_modified_t") {
 			delete($decoded_json->{'products'}[$count]{created_t});
 		}
 	}
