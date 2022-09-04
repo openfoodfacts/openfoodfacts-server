@@ -131,12 +131,4 @@ foreach my $test_ref (@tests) {
 	compare_to_expected_results($decoded_json, "$expected_dir/$testid.json", $update_expected_results);
 }
 
-##TODOTODOTODTROTO
-#	make a list of feilds to ignore
-# 	acess the json and remove those feilds
-
-
-
-# compare_to_expected_results($query_3_json_decoded, "expected_test_results/search_api_results/q3.json", $update_expected_results);
-
 done_testing();
