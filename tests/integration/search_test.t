@@ -126,8 +126,14 @@ foreach my $test_ref (@tests) {
 	my $json = get("$query_ref");
 	my $decoded_json = decode_json($query_ref);
 
+	my $key = "created_t";
+	delete($decoded_json{$key});
 	compare_to_expected_results($decoded_json, "$expected_dir/$testid.json", $update_expected_results);
 }
+
+##TODOTODOTODTROTO
+#	make a list of feilds to ignore
+# 	acess the json and remove those feilds
 
 
 
