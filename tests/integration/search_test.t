@@ -120,19 +120,10 @@ foreach my $ref (@products) {
 }
 
 my @tests = (
-	["q1", "http://world.openfoodfacts.localhost//cgi/search.pl?action=process&json=1"],
-	[
-		"q2",
-		"http://world.openfoodfacts.localhost/cgi/search.pl?action=process&json=1&ingredients_from_palm_oil=without"
-	],
-	[
-		"q3",
-		"http://world.openfoodfacts.localhost/cgi/search.pl?action=process&code=200000000034,200000000039&fields=code,product_name&json=1"
-	],
-	[
-		"q4",
-		"http://world.openfoodfacts.localhost/cgi/search.pl?action=process&tagtype_0=categories&tag_contains_0=contains&tag_0=breakfast_cereals&tagtype_1=nutrition_grades&tag_contains_1=contains&ingredients_from_palm_oil=without&json=1"
-	]
+	["q1", construct_test_url("/cgi/search.pl?action=process&json=1", "world")],
+	["q2", construct_test_url("/cgi/search.pl?action=process&json=1&ingredients_from_palm_oil=without", "world")],
+	["q3", construct_test_url("/cgi/search.pl?action=process&code=200000000034,200000000039&fields=code,product_name&json=1", "world")],
+	["q4", construct_test_url("/cgi/search.pl?action=process&tagtype_0=categories&tag_contains_0=contains&tag_0=breakfast_cereals&tagtype_1=nutrition_grades&tag_contains_1=contains&ingredients_from_palm_oil=without&json=1", "world")]
 );
 
 ## TODO : find out whats up with these quesries below :(
