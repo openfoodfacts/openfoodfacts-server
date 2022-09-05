@@ -5275,10 +5275,12 @@ properties:
                 type: number
               is_beverage:
                 type: integer
+              #TODO: Define fields returned in various languages e.g name_fr (try regexp)
               name_en:
                 type: string
-              name_fr:
-                type: string
+                description: |
+                  This can be returned in many other languages
+                  like name_fr (for french).
               score:
                 type: integer
           grade:
