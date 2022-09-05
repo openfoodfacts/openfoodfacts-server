@@ -41,7 +41,7 @@ jobs:
           token: ${{ secrets.CROSS_REPO_TOKEN }}
           branch: gh-pages # <- Branch on which commit will be made
           repository-name: openfoodfacts/openfoodfacts-server
-          folder: swagger-ui  # <- Folder containing our generated HTML docs
+          folder: docs/output/api/html/  # <- Folder containing our generated HTML docs
 
       - name: Deploy HTML docs to Github Pages [PROD]
         uses: JamesIves/github-pages-deploy-action@v4.4.0
