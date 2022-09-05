@@ -7,7 +7,8 @@
           properties:
             code:
               type: string
-              description: Barcode of the product
+              description: |
+                Barcode of the product
               example: '3017620422003'
             imagefield:
               type: string
