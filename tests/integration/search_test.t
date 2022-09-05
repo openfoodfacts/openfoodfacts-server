@@ -168,8 +168,8 @@ foreach my $test_ref (@tests) {
 	my $length = @{$decoded_json->{'products'}};
 	my $count;
 	for ($count = 0; $count < $length; $count++) {
-		foreach my $field ("created_t", "last_modified_t") {
-			delete($decoded_json->{'products'}[$count]{created_t});
+		foreach my $field ("created_t", "last_modified_t", "last_edit_dates_tags", "entry_dates_tags") {
+			delete($decoded_json->{'products'}[$count]{$field});
 		}
 	}
 	is(compare_to_expected_results($decoded_json, "$expected_dir/$testid.json", $update_expected_results), 1);
