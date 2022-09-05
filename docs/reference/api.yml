@@ -63,6 +63,7 @@ paths:
           content:
             application/json:
               schema:
+                #TODO: There are 2 possible responses for this endpoint.Only one has been documented.
                 $ref: './responses/add_photo_to_existing_product.yaml'
       requestBody:
         content:

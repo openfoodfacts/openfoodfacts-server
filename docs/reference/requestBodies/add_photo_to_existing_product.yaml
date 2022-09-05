@@ -1,21 +1,30 @@
-              type: object
-              x-examples:
-                example-1:
-                  code: '3017620422003'
-                  imagefield: front_en
-                  imgupload_front_en: file
-              properties:
-                code:
-                  type: string
-                  description: Barcode of the product
-                  example: '3017620422003'
-                imagefield:
-                  type: string
-                  description: Indicates the type of the image and the corresponding language
-                  example: front_en
-                imgupload_front_en:
-                  type: string
-                  description: JPEG or PNG image file. The name of the field needs to be imgupload_ + the value of the imagefield e.g imageupload_front_en for the front image in English.
-              required:
-                - code
-                - imagefield
+          type: object
+          x-examples:
+            example-1:
+              code: '3017620422003'
+              imagefield: front_en
+              imgupload_front_en: file
+          properties:
+            code:
+              type: string
+              description: Barcode of the product
+              example: '3017620422003'
+            imagefield:
+              type: string
+              description: |
+                Indicates the type of the image and the corresponding language.
+                Image types can be front, ingredients, nutrition, packaging, other.
+                The language will be respresented by a 2-letter code.
+              example: front_en
+            imgupload_front_en:
+              type: string
+              description: |
+                It must be a JPEG or PNG image file. 
+                The image name must be same as the product name.
+                This field is dynamic and dependent on the value of 
+                imagefield in the request body. It wil be
+                imgupload_the value of the imagefield stated earlier.
+          required:
+            - code
+            - imagefield
+            - imgupload_front_en
