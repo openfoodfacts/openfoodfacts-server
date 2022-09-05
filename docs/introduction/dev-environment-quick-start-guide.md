@@ -108,6 +108,10 @@ make dev
 ```
 
 > **Note:**
+> 
+> If you are using Windows, you may encounter issues regarding this command. Take a look at the **Troubleshooting** section further in this tutorial.
+
+> **Note:**
 >
 > If docker complains about
 > ```
@@ -155,6 +159,18 @@ This repository comes with a configuration for Visual Studio Code (VS Code) [dev
 To use the devcontainer, install [prerequisites](#1-prerequisites), [clone the repository from GitHub](#2-clone-the-repository-from-github), and [(optionally) review Product Opener's environment](#3-optional-review-product-openers-environment). Additionally, install [Visual Studio Code](https://code.visualstudio.com/). VS Code will automatically recommend some extensions, but if you don't want to install all of them, please do install [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) manually. You can then use the extension command **Remote-Containers: Reopen Folder in Container**, which will automatically build the container and start the services. No need to use `make`!
 
 ## Troubleshooting
+
+### make dev error: make: command not found
+
+When running "make dev":
+
+```console
+bash: make: command not found
+```
+
+Solution: 
+Click the Windows button, then type “environment properties” into the search bar and hit Enter. Click Environment Variables, then under System variables choose Path and click Edit. Click New and insert C:\Program Files (x86)\GnuWin32\bin, then save the changes. Open a new terminal and test that the command works.
+(see [Make Windows](https://pakstech.com/blog/make-windows/) for more)
 
 ### make dev error: [build_lang] Error 2 - Could not load taxonomy: /mnt/podata/taxonomies/traces.result.sto
 
