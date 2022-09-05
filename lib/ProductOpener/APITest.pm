@@ -37,7 +37,7 @@ BEGIN {
 	  &create_user
 	  &new_client
 	  &wait_dynamic_front
-	  &create_product
+	  &edit_product
 	  &construct_test_url
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -45,6 +45,7 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
+use Test::More;
 use LWP::UserAgent;
 use HTTP::CookieJar::LWP;
 use ProductOpener::TestDefaults qw/:all/;
@@ -67,7 +68,7 @@ sub wait_dynamic_front() {
 		sleep 1;
 		$count++;
 		if (($count % 3) == 0) {
-			print("Wainting for dynamicfront to be ready since $count seconds...\n");
+			print("Waiting for dynamicfront to be ready since $count seconds...\n");
 		}
 	}
 	return;
@@ -111,14 +112,32 @@ sub create_user ($ua, $args_ref) {
 	return;
 }
 
-sub create_product ($ua, $product_fields) {
+
+=head2 edit_product($ua, $product_fields_ref)
+
+Call the API to edit a product. If the product does not exist, it will be created.
+
+=head3 Arguments
+
+=head4 $ua - user agent
+
+=head4 $product_fields_ref
+
+Reference of a hash of product fields to pass to the API
+
+=cut
+
+sub edit_product ($ua, $product_fields) {
 	my %fields;
 	while (my ($key, $value) = each %{$product_fields}) {
 		$fields{$key} = $value;
 	}
 
 	my $response = $ua->post("http://world.openfoodfacts.localhost/cgi/product_jqm2.pl", Content => \%fields,);
-	$response->is_success or die("Couldn't create product with " . dump(\%fields) . "\n");
+	if (not $response->is_success) {
+		diag("Couldn't create product with " . dump(\%fields) . "\n");
+		diag explain $response;
+	}
 	return;
 }
 
