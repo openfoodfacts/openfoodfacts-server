@@ -112,7 +112,6 @@ sub create_user ($ua, $args_ref) {
 	return;
 }
 
-
 =head2 edit_product($ua, $product_fields_ref)
 
 Call the API to edit a product. If the product does not exist, it will be created.
