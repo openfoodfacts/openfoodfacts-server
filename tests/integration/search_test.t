@@ -125,7 +125,7 @@ my @tests = (
 	[
 		"q3",
 		construct_test_url(
-			"/cgi/search.pl?action=process&code=200000000034,200000000039&fields=code,product_name&json=1", "world"
+			"/api/v2/search?code=200000000039,200000000038&fields=code,product_name", "world"
 		)
 	],
 	[
@@ -149,10 +149,21 @@ if ((defined $update_expected_results) and (!-e $expected_dir)) {
 
 foreach my $test_ref (@tests) {
 	my $testid = $test_ref->[0];
-	my $query_ref = $test_ref->[1];
-	my $json = get($query_ref);
+	my $query_url = $test_ref->[1];
+	my $json = get($query_url);
 
-	my $decoded_json = decode_json($json);
+	my $decoded_json;
+	eval {
+            $decoded_json = decode_json($json);
+            1;
+    }
+	or do {
+		my $json_decode_error = $@;	
+		diag("The query_url $query_url returned a response that is not valid JSON: $json_decode_error");
+		diag("Response content: " . $json);
+		fail($testid);
+		next;
+	};
 
 	my $length = @{$decoded_json->{'products'}};
 	my $count;
