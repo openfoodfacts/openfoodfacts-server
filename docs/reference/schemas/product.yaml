@@ -5606,24 +5606,11 @@ properties:
         description: |
           Legal name of the product as regulated 
           by the European authorities.
-      generic_name_ar:
-        type: string
-      generic_name_de:
-        type: string
       generic_name_en:
         type: string
-      generic_name_es:
-        type: string
-      generic_name_fr:
-        type: string
-      generic_name_fr_imported:
-        type: string
-      generic_name_id:
-        type: string
-      generic_name_it:
-        type: string
-      generic_name_nl:
-        type: string
+        description: |
+          This can be returned in many other languages
+          like generic_name_fr (for french).
       grades:
         type: object
       id:
@@ -6215,18 +6202,11 @@ properties:
         type: string
       origin:
         type: string
-      origin_ar:
-        type: string
-      origin_de:
-        type: string
       origin_en:
         type: string
-      origin_es:
-        type: string
-      origin_fr:
-        type: string
-      origin_it:
-        type: string
+        description: |
+         This can be returned in many other languages
+          like origin_fr (for french).
       origins:
         type: string
         description: |
@@ -6345,22 +6325,11 @@ properties:
           You can either request it (if it exists) or 
           send it in a specific language.
         example: packaging_text_en
-      packaging_text_ar:
-        type: string
-      packaging_text_de:
-        type: string
       packaging_text_en:
         type: string
-      packaging_text_es:
-        type: string
-      packaging_text_fr:
-        type: string
-      packaging_text_id:
-        type: string
-      packaging_text_it:
-        type: string
-      packaging_text_nl:
-        type: string
+        description: |
+           This can be returned in many other languages
+           like packaging_text_fr (for french).
       packagings:
         type: array
         items:
@@ -6398,24 +6367,12 @@ properties:
         type: string
         description: |
           The name of the product
-      product_name_de:
-        type: string
-      product_name_ar:
-        type: string
       product_name_en:
         type: string
-      product_name_es:
-        type: string
-      product_name_fr:
-        type: string
-      product_name_fr_imported:
-        type: string
-      product_name_id:
-        type: string
-      product_name_it:
-        type: string
-      product_name_nl:
-        type: string
+        description: |
+          The name of the product can also
+          be in many other languages like
+          product_name_fr (for french).
       product_quantity:
         type: string
       purchase_places:
