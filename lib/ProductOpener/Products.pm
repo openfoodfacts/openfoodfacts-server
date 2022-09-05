@@ -1090,9 +1090,9 @@ sub store_product($user_id, $product_ref, $comment) {
 	};
 
 	# Allow apps to send the user agent as a form parameter instead of a HTTP header, as some web based apps can't change the User-Agent header sent by the browser
-	my $user_agent = remove_tags_and_quote(decode utf8=>param("User-Agent"))
-		|| remove_tags_and_quote(decode utf8=>param("user-agent"))
-		|| remove_tags_and_quote(decode utf8=>param("user_agent"))
+	my $user_agent = remove_tags_and_quote(decode utf8=>single_param("User-Agent"))
+		|| remove_tags_and_quote(decode utf8=>single_param("user-agent"))
+		|| remove_tags_and_quote(decode utf8=>single_param("user_agent"))
 		|| user_agent();
 
 	if ((defined $user_agent) and ($user_agent ne "")) {
@@ -1101,7 +1101,7 @@ sub store_product($user_id, $product_ref, $comment) {
 
 	# Allow apps to send app_name, app_version and app_uuid parameters
 	foreach my $field (qw(app_name app_version app_uuid)) {
-		my $value = remove_tags_and_quote(decode utf8=>param($field));
+		my $value = remove_tags_and_quote(decode utf8=>single_param($field));
 		if ((defined $value) and ($value ne "")) {
 			$change_ref->{$field} = $value;
 		}
@@ -2659,7 +2659,7 @@ sub process_product_edit_rules($product_ref) {
 								next;
 							}
 
-							my $param_field = remove_tags_and_quote(decode utf8=>param($field));
+							my $param_field = remove_tags_and_quote(decode utf8=>single_param($field));
 
 							my $current_value = $product_ref->{$field};
 							if ($field =~ /^nutriment_(.*)/) {
@@ -2671,7 +2671,7 @@ sub process_product_edit_rules($product_ref) {
 							if ($field =~ /_(\w\w)$/) {
 								$default_field = $`;
 								if (not defined $param_field) {
-									$param_field = remove_tags_and_quote(decode utf8=>param($default_field));
+									$param_field = remove_tags_and_quote(decode utf8=>single_param($default_field));
 								}
 							}
 

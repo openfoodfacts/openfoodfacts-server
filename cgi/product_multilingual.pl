@@ -393,11 +393,11 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 				and (not $User{moderator})) {
 				$log->debug("skipping field with a value set by the owner",
 					{ code => $code, field_name => $field, existing_field_value => $product_ref->{$field},
-					new_field_value => remove_tags_and_quote(decode utf8=>param($field))}) if $log->is_debug();
+					new_field_value => remove_tags_and_quote(decode utf8=>single_param($field))}) if $log->is_debug();
 			}
 
 			if ($field eq "lang") {
-				my $value = remove_tags_and_quote(decode utf8=>param($field));
+				my $value = remove_tags_and_quote(decode utf8=>single_param($field));
 
 				# strip variants fr-BE fr_BE
 				$value =~ s/^([a-z][a-z])(-|_).*$/$1/i;
@@ -413,10 +413,10 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 			else {
 				# infocards set by admins can contain HTML
 				if (($admin) and ($field =~ /infocard/)) {
-					$product_ref->{$field} = decode utf8=>param($field);
+					$product_ref->{$field} = decode utf8=>single_param($field);
 				}
 				else {
-					$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
+					$product_ref->{$field} = remove_tags_and_quote(decode utf8=>single_param($field));
 				}
 			}
 
@@ -483,8 +483,8 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	# Obsolete products
 
 	if (($User{moderator} or $Owner_id) and (defined single_param('obsolete_since_date'))) {
-		$product_ref->{obsolete} = remove_tags_and_quote(decode utf8=>param("obsolete"));
-		$product_ref->{obsolete_since_date} = remove_tags_and_quote(decode utf8=>param("obsolete_since_date"));
+		$product_ref->{obsolete} = remove_tags_and_quote(decode utf8=>single_param("obsolete"));
+		$product_ref->{obsolete_since_date} = remove_tags_and_quote(decode utf8=>single_param("obsolete_since_date"));
 	}
 
 	# Update the nutrients
@@ -495,10 +495,10 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	if ($User{moderator}) {
 
-		my $checked = remove_tags_and_quote(decode utf8=>param("photos_and_data_checked"));
+		my $checked = remove_tags_and_quote(decode utf8=>single_param("photos_and_data_checked"));
 		if ((defined $checked) and ($checked eq 'on')) {
 			if ((defined $product_ref->{checked}) and ($product_ref->{checked} eq 'on')) {
-				my $rechecked = remove_tags_and_quote(decode utf8=>param("photos_and_data_rechecked"));
+				my $rechecked = remove_tags_and_quote(decode utf8=>single_param("photos_and_data_rechecked"));
 				if ((defined $rechecked) and ($rechecked eq 'on')) {
 					$product_ref->{last_checker} = $User_id;
 					$product_ref->{last_checked_t} = time();
@@ -1352,7 +1352,7 @@ elsif ($action eq 'process') {
 	}
 
 	my $time = time();
-	$comment = $comment . remove_tags_and_quote(decode utf8=>param('comment'));
+	$comment = $comment . remove_tags_and_quote(decode utf8=>single_param('comment'));
 	store_product($User_id, $product_ref, $comment);
 
 	my $edited_product_url = product_url($product_ref);

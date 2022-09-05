@@ -181,7 +181,7 @@ elsif ($action eq 'process') {
 				
 				$template_data_ref->{status} = "password_reset";
 
-				$user_ref->{encrypted_password} = create_password_hash( encode_utf8 (decode utf8=>param('password')) );
+				$user_ref->{encrypted_password} = create_password_hash( encode_utf8 (decode utf8=>single_param('password')) );
 
 				delete $user_ref->{token};
 

@@ -49,7 +49,7 @@ my $template_data_ref = {};
 my $type = single_param('type') || 'add';
 my $action = single_param('action') || 'display';
 
-my $ingredients_text = remove_tags_and_quote(decode utf8=>param('ingredients_text'));
+my $ingredients_text = remove_tags_and_quote(decode utf8=>single_param('ingredients_text'));
 
 
 my $html= '';

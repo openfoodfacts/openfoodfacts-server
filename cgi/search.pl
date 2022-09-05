@@ -160,9 +160,9 @@ my %search_ingredient_classes_checked = ();
 
 for (my $i = 0; defined single_param("tagtype_$i"); $i++) {
 
-	my $tagtype = remove_tags_and_quote(decode utf8 => param("tagtype_$i"));
-	my $tag_contains = remove_tags_and_quote(decode utf8 => param("tag_contains_$i"));
-	my $tag = remove_tags_and_quote(decode utf8 => param("tag_$i"));
+	my $tagtype = remove_tags_and_quote(decode utf8=>single_param("tagtype_$i"));
+	my $tag_contains = remove_tags_and_quote(decode utf8=>single_param("tag_contains_$i"));
+	my $tag = remove_tags_and_quote(decode utf8=>single_param("tag_$i"));
 
 	push @search_tags, [$tagtype, $tag_contains, $tag,];
 }
@@ -176,9 +176,9 @@ foreach my $tagtype (@search_ingredient_classes) {
 
 for (my $i = 0; defined single_param("nutriment_$i"); $i++) {
 
-	my $nutriment = remove_tags_and_quote(decode utf8 => param("nutriment_$i"));
-	my $nutriment_compare = remove_tags_and_quote(decode utf8 => param("nutriment_compare_$i"));
-	my $nutriment_value = remove_tags_and_quote(decode utf8 => param("nutriment_value_$i"));
+	my $nutriment = remove_tags_and_quote(decode utf8=>single_param("nutriment_$i"));
+	my $nutriment_compare = remove_tags_and_quote(decode utf8=>single_param("nutriment_compare_$i"));
+	my $nutriment_value = remove_tags_and_quote(decode utf8=>single_param("nutriment_value_$i"));
 
 	if ($lc eq 'fr') {
 		$nutriment_value =~ s/,/\./g;
@@ -186,7 +186,7 @@ for (my $i = 0; defined single_param("nutriment_$i"); $i++) {
 	push @search_nutriments, [$nutriment, $nutriment_compare, $nutriment_value,];
 }
 
-my $sort_by = remove_tags_and_quote(decode utf8 => param("sort_by"));
+my $sort_by = remove_tags_and_quote(decode utf8=>single_param("sort_by"));
 if (    ($sort_by ne 'created_t')
 	and ($sort_by ne 'last_modified_t')
 	and ($sort_by ne 'last_modified_t_complete_first')
@@ -204,16 +204,16 @@ if (($limit < 2) or ($limit > 1000)) {
 	$limit = $page_size;
 }
 
-my $graph_ref = {graph_title => remove_tags_and_quote(decode utf8 => param("graph_title"))};
-my $map_title = remove_tags_and_quote(decode utf8 => param("map_title"));
+my $graph_ref = {graph_title => remove_tags_and_quote(decode utf8=>single_param("graph_title"))};
+my $map_title = remove_tags_and_quote(decode utf8=>single_param("map_title"));
 
 foreach my $axis ('x', 'y') {
-	$graph_ref->{"axis_$axis"} = remove_tags_and_quote(decode utf8 => param("axis_$axis"));
+	$graph_ref->{"axis_$axis"} = remove_tags_and_quote(decode utf8=>single_param("axis_$axis"));
 }
 
 foreach my $series (@search_series, "nutrition_grades") {
 
-	$graph_ref->{"series_$series"} = remove_tags_and_quote(decode utf8 => param("series_$series"));
+	$graph_ref->{"series_$series"} = remove_tags_and_quote(decode utf8=>single_param("series_$series"));
 	if ($graph_ref->{"series_$series"} ne 'on') {
 		delete $graph_ref->{"series_$series"};
 	}
@@ -634,8 +634,8 @@ elsif ($action eq 'process') {
 
 		if ((defined single_param($field)) and (single_param($field) ne '')) {
 
-			$query_ref->{$field} = decode utf8 => param($field);
-			$current_link .= "\&$field=" . URI::Escape::XS::encodeURIComponent(decode utf8 => param($field));
+			$query_ref->{$field} = decode utf8=>single_param($field);
+			$current_link .= "\&$field=" . URI::Escape::XS::encodeURIComponent(decode utf8=>single_param($field));
 		}
 	}
 
@@ -649,16 +649,16 @@ elsif ($action eq 'process') {
 
 	foreach my $axis ('x', 'y') {
 		if ((defined single_param("axis_$axis")) and (single_param("axis_$axis") ne '')) {
-			$current_link .= "\&axis_$axis=" . URI::Escape::XS::encodeURIComponent(decode utf8 => param("axis_$axis"));
+			$current_link .= "\&axis_$axis=" . URI::Escape::XS::encodeURIComponent(decode utf8=>single_param("axis_$axis"));
 		}
 	}
 
 	if ((defined single_param('graph_title')) and (single_param('graph_title') ne '')) {
-		$current_link .= "\&graph_title=" . URI::Escape::XS::encodeURIComponent(decode utf8 => param("graph_title"));
+		$current_link .= "\&graph_title=" . URI::Escape::XS::encodeURIComponent(decode utf8=>single_param("graph_title"));
 	}
 
 	if ((defined single_param('map_title')) and (single_param('map_title') ne '')) {
-		$current_link .= "\&map_title=" . URI::Escape::XS::encodeURIComponent(decode utf8 => param("map_title"));
+		$current_link .= "\&map_title=" . URI::Escape::XS::encodeURIComponent(decode utf8=>single_param("map_title"));
 	}
 
 	foreach my $series (@search_series, "nutrition_grades") {
@@ -799,7 +799,7 @@ HTML
 
 		if (single_param('search_terms')) {
 			open(my $OUT, ">>:encoding(UTF-8)", "$data_root/logs/search_log");
-			print $OUT remote_addr() . "\t" . time() . "\t" . decode utf8 => param('search_terms') . "\tpage: $page\n";
+			print $OUT remote_addr() . "\t" . time() . "\t" . decode utf8=>single_param('search_terms') . "\tpage: $page\n";
 			close($OUT);
 		}
 	}

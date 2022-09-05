@@ -128,17 +128,17 @@ if ($action eq 'process') {
 				}
 
 				foreach my $field (@admin_fields) {
-					$org_ref->{$field} = remove_tags_and_quote(decode utf8 => param($field));
+					$org_ref->{$field} = remove_tags_and_quote(decode utf8=>single_param($field));
 				}
 
 				# Set the list of org GLNs
-				set_org_gs1_gln($org_ref, remove_tags_and_quote(decode utf8 => param("list_of_gs1_gln")));
+				set_org_gs1_gln($org_ref, remove_tags_and_quote(decode utf8=>single_param("list_of_gs1_gln")));
 			}
 
 			# Other fields
 
 			foreach my $field ("name", "link") {
-				$org_ref->{$field} = remove_tags_and_quote(decode utf8 => param($field));
+				$org_ref->{$field} = remove_tags_and_quote(decode utf8=>single_param($field));
 				if ($org_ref->{$field} eq "") {
 					delete $org_ref->{$field};
 				}
@@ -156,7 +156,7 @@ if ($action eq 'process') {
 
 				foreach my $field ("name", "address", "email", "phone", "link", "info") {
 
-					$org_ref->{$contact}{$field} = remove_tags_and_quote(decode utf8 => param($contact . "_" . $field));
+					$org_ref->{$contact}{$field} = remove_tags_and_quote(decode utf8=>single_param($contact . "_" . $field));
 					if ($org_ref->{$contact}{$field} eq "") {
 						delete $org_ref->{$contact}{$field};
 					}
