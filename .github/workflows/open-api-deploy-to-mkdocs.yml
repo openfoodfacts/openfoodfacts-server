@@ -21,17 +21,16 @@ jobs:
       - name: Generate Swagger UI
         uses: Legion2/swagger-ui-action@v1
         with:
-          output: swagger-ui
+          output: docs/output/api/html/
           spec-file: docs/reference/api.yml
 
       - name: Cat Swagger
-        run: cat swagger-ui/index.html
+        run: cat docs/output/api/html/index.html
 
       - name: Commit generated documentation to current branch
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          repository: openfoodfacts-server
-          file_pattern: api.*
+          repository: .
           commit_message: Commit docgen-generated docs
           commit_options: '--no-verify --signoff'
       
