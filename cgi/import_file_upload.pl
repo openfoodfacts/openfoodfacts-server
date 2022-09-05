@@ -65,7 +65,7 @@ if ($action eq "process") {
 
 	# Process uploaded files
 
-	my $file = param('file_input_data');
+	my $file = single_param('file_input_data');
 	my $filename = decode utf8=>single_param('file_input_data');
 
 	my %data = ();
