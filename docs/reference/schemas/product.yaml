@@ -4552,7 +4552,11 @@ examples: []
 properties:
   code:
     type: string
-    description: 'Barcode of the product (can be EAN-13 or internal codes for some food stores). For products without a barcode, Open Food Facts assigns a number starting with the 200 reserved prefix.'
+    description: |
+      Barcode of the product
+      (can be EAN-13 or internal codes for some food stores).
+      For products without a barcode, Open Food Facts assigns a 
+      number starting with the 200 reserved prefix.
   product:
     type: object
     properties:
@@ -4578,7 +4582,8 @@ properties:
       #     type: object
       additives_n:
         type: integer
-        description: Number of food additives
+        description: |
+          Number of food additives.
       # additives_old_n:
       #   type: integer
       # additives_old_tags:
@@ -4703,7 +4708,8 @@ properties:
           type: string
       countries:
         type: string
-        description: List of countries where the product is sold.
+        description: |
+          List of countries where the product is sold.
       countries_beforescanbot:
         type: string
       countries_hierarchy:
@@ -4720,13 +4726,16 @@ properties:
           type: string
       created_t:
         type: integer
-        description: Date when the product was added (UNIX timestamp format).    
+        description: |
+          Date when the product was added (UNIX timestamp format).    
       creator:
         type: string
-        description: The contributor who added the product first.
+        description: |
+          The contributor who added the product first.
       customer_service:
         type: string
-        description: Contact info of customer service
+        description: |
+          Contact info of customer service.
       customer_service_fr:
         type: string
       customer_service_fr_imported:
@@ -4753,7 +4762,8 @@ properties:
           type: string
       data_sources:
         type: string
-        description: Source of data imported from producers
+        description: |
+          Source of data imported from producers.
       data_sources_imported:
         type: string
       data_sources_tags:
@@ -5212,7 +5222,7 @@ properties:
                 properties:
                   labels:
                     type: array
-                    description: 'Example: vegan, fat free, Kosher.'
+                    example: vegan, fat free, Kosher
                     items:
                       type: object
                   value:
@@ -5562,7 +5572,9 @@ properties:
           type: string
       emb_codes:
         type: string
-        description: 'packager code. Example: EMB 2013330'
+        description: |
+          Packager code.
+        example: EMB 2013330
       emb_codes_orig:
         type: string
       emb_codes_tags:
@@ -5591,7 +5603,9 @@ properties:
         type: integer
       generic_name:
         type: string
-        description: Legal name of the product as regulated by the European authorities.
+        description: |
+          Legal name of the product as regulated 
+          by the European authorities.
       generic_name_ar:
         type: string
       generic_name_de:
@@ -5700,7 +5714,11 @@ properties:
           type: string
       ingredients_text:
         type: string
-        description: 'Raw list of ingredients. This will get automatically parsed and get used to compute the Eco-Score. You can either request if (if it exists) or send it in a specific language, e.g: ingredients_text_en'
+        description: |
+          Raw list of ingredients. This will get automatically
+          parsed and get used to compute the Eco-Score. You can 
+          either request it (if it exists) or send it in a specific language.
+        example: ingredients_text_en
       ingredients_text_ar:
         type: string
       ingredients_text_de:
@@ -5851,7 +5869,8 @@ properties:
         type: string
       last_modified_t:
         type: integer
-        description: Date when the product page was last modified.
+        description: |
+          Date when the product page was last modified.
       lc:
         type: string
       lc_imported:
@@ -5864,7 +5883,8 @@ properties:
           type: object
       manufacturing_places:
         type: string
-        description: Places where the product was manufactured or transformed.
+        description: |
+          Places where the product was manufactured or transformed.
       manufacturing_places_tags:
         type: array
         items:
@@ -5968,10 +5988,16 @@ properties:
             type: number
           energy-kcal_unit:
             type: string
-            description: 'The unit used in the field energy-kcal_unit (example in JSON: “energy_unit”: “kcal”). The only possible value is “kcal.”'
+            description: |
+              The unit used in the field energy-kcal_unit 
+              (example in JSON: “energy_unit”: “kcal”). 
+              The only possible value is “kcal.”'
           energy-kcal_value:
             type: integer
-            description: 'The standardized value of a serving of 100g (or 100ml for liquids) for energy expressed in kcal (example in JSON: “energy-kcal_value”:“190”)'
+            description: |
+              The standardized value of a serving of 100g 
+              (or 100ml for liquids) for energy expressed in kcal.
+            example: 190
           energy-kj:
             type: integer
           energy-kj_100g:
@@ -5988,10 +6014,17 @@ properties:
             type: integer
           energy_unit:
             type: string
-            description: 'The unit used in the energy_value field (example in JSON: “energy_unit”: “kJ”). Possible values are “kJ” or “kcal”.'
+            description: |
+              The unit used in the energy_value field 
+              (example in JSON: “energy_unit”: “kJ”). 
+              Possible values are “kJ” or “kcal”.'
           energy_value:
             type: integer
-            description: 'The standardized value of a serving of 100g (or 100ml for liquids) for energy expressed in the unit specified in the field energy_unit (example in JSON: “energy_value”:“190”).'
+            description: |
+              The standardized value of a serving of 100g 
+              (or 100ml for liquids) for energy expressed in 
+              the unit specified in the field energy_unit.
+            example: 190
           fat:
             type: number
           fat_100g:
@@ -6016,7 +6049,10 @@ properties:
             type: integer
           nutrition-score-fr_100g:
             type: integer
-            description: Experimental nutrition score derived from the UK FSA score and adapted for the French market (formula defined by the team of Professor Hercberg)
+            description: |
+              Experimental nutrition score derived from 
+              the UK FSA score and adapted for the French market 
+              (formula defined by the team of Professor Hercberg).
           proteins:
             type: number
           proteins_100g:
@@ -6152,7 +6188,9 @@ properties:
         type: string
       nutrition_grade_fr:
         type: string
-        description: 'Nutrition grade (‘a’ to ‘e’). see https://world.openfoodfacts.org/nutriscore'
+        description: |
+          Nutrition grade (‘a’ to ‘e’),
+          https://world.openfoodfacts.org/nutriscore.
       nutrition_grades:
         type: string
       nutrition_grades_tags:
@@ -6191,7 +6229,8 @@ properties:
         type: string
       origins:
         type: string
-        description: Origins of ingredients
+        description: |
+          Origins of ingredients
       origins_hierarchy:
         type: array
         items:
@@ -6255,7 +6294,9 @@ properties:
             type: integer
           packaging:
             type: integer
-            description: 'shape, material. Example: Cardboard'
+            description: |
+              shape, material.
+            example: Cardboard
           producer_version_id:
             type: integer
           product_name_fr:
@@ -6296,7 +6337,14 @@ properties:
           type: string
       packaging_text:
         type: string
-        description: 'Recycling instructions as raw text, e.g. Plastic bottle to recycle, Plastic cap to recycle”. This will get automatically parsed and get used to compute the Eco-Score. You can either request it (if it exists) or send it in a specific language, e.g., packaging_text_en for the above example'
+        description: |
+          Recycling instructions as raw text, e.g. Plastic 
+          bottle to recycle, Plastic cap to recycle.
+          This will get automatically parsed and 
+          will be used to compute the Eco-Score. 
+          You can either request it (if it exists) or 
+          send it in a specific language.
+        example: packaging_text_en
       packaging_text_ar:
         type: string
       packaging_text_de:
@@ -6348,7 +6396,8 @@ properties:
         type: string
       product_name:
         type: string
-        description: The name of the product
+        description: |
+          The name of the product
       product_name_de:
         type: string
       product_name_ar:
@@ -6371,14 +6420,17 @@ properties:
         type: string
       purchase_places:
         type: string
-        description: 'Country, state, or city where the product can be purchased. For example, Paris, France'
+        description: |
+          Country, state, or city where the product can be purchased.
+        example: Paris
       purchase_places_tags:
         type: array
         items:
           type: string
       quantity:
         type: string
-        description: Quantity and Unit
+        description: |
+          Quantity and Unit.
       quantity_imported:
         type: string
       removed_countries_tags:
@@ -6506,7 +6558,8 @@ properties:
         type: string
       serving_size:
         type: string
-        description: Serving size in g (or ml)
+        description: |
+          Serving size in g (or ml).
       serving_size_imported:
         type: string
       sortkey:
@@ -6576,7 +6629,9 @@ properties:
           type: string
       stores:
         type: string
-        description: 'Distributor name. Example: Tesco, Walmart, Carrefour.'
+        description: |
+          Distributor name.
+        example: Walmart
       stores_tags:
         type: array
         items:
@@ -6589,7 +6644,12 @@ properties:
           type: string
       traces:
         type: string
-        description: 'List of substances that might cause allergies that are present in trace amounts in the product (this does not include the ingredients, as they are not only present in trace amounts). It is taxonomized with the allergens taxonomy.'
+        description: |
+          List of substances that might cause allergies 
+          that are present in trace amounts in the product 
+          (this does not include the ingredients, as they 
+          are not only present in trace amounts). 
+          It is taxonomized with the allergens taxonomy.
       traces_from_ingredients:
         type: string
       traces_from_user:

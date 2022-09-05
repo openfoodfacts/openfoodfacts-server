@@ -1,7 +1,10 @@
 openapi: 3.0.1
 info:
   title: Open Food Facts Open API
-  description: 'As a developer, the Open Food Facts API allows you to get information and contribute to the products database. You can create great apps to help people make better food choices and also provide data to enhance the database.'
+  description: |
+    As a developer, the Open Food Facts API allows you to get information 
+    and contribute to the products database. You can create great apps to 
+    help people make better food choices and also provide data to enhance the database.
   termsOfService: 'https://openweathermap.org/terms'
   contact:
     name: Open Food Facts
@@ -23,7 +26,8 @@ paths:
       parameters:
         - name: barcode
           in: path
-          description: The barcode of the product to be fetched
+          description: |
+            The barcode of the product to be fetched
           required: true
           style: simple
           explode: false
@@ -37,7 +41,9 @@ paths:
             application/json:
               schema:
                 $ref: './schemas/product.yaml'
-      description: A product can be fetched via its unique barcode.Its returns  all the details of that product response.
+      description: |
+        A product can be fetched via its unique barcode.
+        It returns all the details of that product response.
       operationId: get-product-by-barcode
   /cgi/product_image_upload.pl:
     post:
@@ -45,7 +51,12 @@ paths:
         - Write Requests
       summary: Add a Photo to an Existing Product
       operationId: get-cgi-product_image_upload.pl
-      description: 'Photos are source and proof of data. When you upload an image to Open Food Facts, the image is stored as is. The first photo uploaded for a product is auto-selected as the product’s “front” photo.'
+      description: |
+        Photos are source and proof of data. 
+        When you upload an image to Open Food Facts, 
+        the image is stored as is. 
+        The first photo uploaded for a product is 
+        auto-selected as the product’s “front” photo.'
       responses:
         '200':
           description: OK
