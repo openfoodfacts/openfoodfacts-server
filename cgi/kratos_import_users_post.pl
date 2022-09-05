@@ -37,12 +37,14 @@ use JSON;
 use Log::Any qw($log);
 use CGI qw(:standard);
 
+my @user_strings_imported = ();
+my @user_strings_not_imported = ();
+
 #open for reading
 open (my $fh, "<", "users.txt");
-my $line = <$fh>;
 
 #read line by line
-while(<$fh>){
+while(my $line = <$fh>){
     my $ua = LWP::UserAgent->new;
 
     #post request to create identity
@@ -55,16 +57,37 @@ while(<$fh>){
 
     if($post_resp->is_success){
         $log->debug("User Created");
-        #remove line if the user was created in kratos
-        chomp $line
+        
+        push(@user_strings_imported, $line);
     }
     else{
         #display error message leave user in .txt
         $log->debug("HTTP POST error code: ", $post_resp->code);
         $log->debug("HTTP POST error message: ", $post_resp->message);
+        #append user not imported to an array
+        push(@user_strings_not_imported, $line);
     }
 }
-
 close $fh;
 
-#users.txt will be left with all the users not imported
+
+#create file for users imported
+open(my $fh2, ">", "users_not_imported.txt");
+#iterate through array for each user imported
+for my $el (@user_strings_imported){
+    print $fh2 $el;
+    print $fh2 "\n";
+}
+close $fh2;
+
+
+#create file for users not imported
+open(my $fh3, ">", "users_not_imported.txt");
+#iterate through array for each user not imported
+for my $el (@user_strings_not_imported){
+    print $fh3 $el;
+}
+close $fh3;
+
+
+
