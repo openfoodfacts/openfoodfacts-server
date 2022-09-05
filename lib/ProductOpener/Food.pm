@@ -116,6 +116,7 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Text qw/:all/;
 use ProductOpener::FoodGroups qw/:all/;
 use ProductOpener::Products qw(&remove_fields);
+use ProductOpener::Display qw/single_param/;
 
 use Hash::Util;
 use Encode;

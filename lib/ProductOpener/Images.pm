@@ -1049,7 +1049,7 @@ sub process_image_move($user_id, $code, $imgids, $move_to, $ownerid) {
 }
 
 
-sub process_image_crop($product_id, $user_id, $imgid, $id, $normalize, $angle, $white_magic, $coordinates_image_size, $x1, $y1, $x2, $y2) {
+sub process_image_crop($user_id, $product_id, $id, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size) {
 
 	$log->debug("process_image_crop - start", { product_id => $product_id, imgid => $imgid, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, coordinates_image_size => $coordinates_image_size }) if $log->is_debug();
 

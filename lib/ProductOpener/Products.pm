@@ -132,6 +132,7 @@ use ProductOpener::URL qw/:all/;
 use ProductOpener::Data qw/:all/;
 use ProductOpener::MainCountries qw/:all/;
 use ProductOpener::Text qw/:all/;
+use ProductOpener::Display qw/single_param/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
