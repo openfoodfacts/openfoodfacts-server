@@ -250,7 +250,7 @@ sub check_user_form($type, $user_ref, $errors_ref) {
 
 	# Removing the tabs, spaces and white space characters
 	# Assigning 'userid' to 0 -- if userid is not defined
-	$user_ref->{userid} = remove_tags_and_quote(param('userid'));
+	$user_ref->{userid} = remove_tags_and_quote(scalar param('userid'));
 
 	# Allow for sending the 'name' & 'email' as a form parameter instead of a HTTP header, as web based apps may not be able to change the header sent by the browser
 	$user_ref->{name} = remove_tags_and_quote(decode utf8=>param('name'));
@@ -308,8 +308,8 @@ sub check_user_form($type, $user_ref, $errors_ref) {
 
 
 	if ($type eq 'add') {
-		$user_ref->{newsletter} = remove_tags_and_quote(param('newsletter'));
-		$user_ref->{discussion} = remove_tags_and_quote(param('discussion'));
+		$user_ref->{newsletter} = remove_tags_and_quote(scalar param('newsletter'));
+		$user_ref->{discussion} = remove_tags_and_quote(scalar param('discussion'));
 		$user_ref->{ip} = remote_addr();
 		$user_ref->{initial_lc} = $lc;
 		$user_ref->{initial_cc} = $cc;
@@ -349,7 +349,7 @@ sub check_user_form($type, $user_ref, $errors_ref) {
 		# Permission groups
 
 		foreach my $group (@user_groups) {
-			$user_ref->{$group} = remove_tags_and_quote(param("user_group_$group"));
+			$user_ref->{$group} = remove_tags_and_quote(scalar param("user_group_$group"));
 		}
 	}
 
@@ -365,8 +365,8 @@ sub check_user_form($type, $user_ref, $errors_ref) {
 	}
 
 	# contributor settings
-	$user_ref->{display_barcode} = !! remove_tags_and_quote(param("display_barcode"));
-	$user_ref->{edit_link} = !! remove_tags_and_quote(param("edit_link"));
+	$user_ref->{display_barcode} = !! remove_tags_and_quote(scalar param("display_barcode"));
+	$user_ref->{edit_link} = !! remove_tags_and_quote(scalar param("edit_link"));
 
 	# Check for spam
 	# e.g. name with "Lydia want to meet you! Click here:" + an url
@@ -569,7 +569,7 @@ EMAIL
 
 sub check_edit_owner($user_ref, $errors_ref) {
 
-	$user_ref->{pro_moderator_owner} = get_string_id_for_lang("no_language", remove_tags_and_quote(param('pro_moderator_owner')));
+	$user_ref->{pro_moderator_owner} = get_string_id_for_lang("no_language", remove_tags_and_quote(scalar param('pro_moderator_owner')));
 	
 	# If the owner id looks like a GLN, see if we have a corresponding org
 	

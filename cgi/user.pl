@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -144,7 +143,7 @@ if ($action eq 'display') {
 	# e.g. when a non-logged user clicks on the "Edit product" button
 
 	if (($type eq "add") and (defined param("user_id"))) {
-		my $user_info = remove_tags_and_quote(param('user_id'));
+		my $user_info = remove_tags_and_quote(scalar param('user_id'));
 		$user_info =~ /^(.+?)@/;
 		if ( defined ($1) ){
 			$user_ref->{email} = $user_info;

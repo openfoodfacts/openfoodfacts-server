@@ -1018,7 +1018,7 @@ sub store_product($user_id, $product_ref, $comment) {
 				return $products_collection->delete_one({"_id" => $product_ref->{_id}});
 			});
 
-			$product_ref->{_id} = $product_ref->{code};
+			$product_ref->{_id} = $product_ref->{code} . ''; # treat id as string;
 
 		}
 		else {
@@ -1132,8 +1132,10 @@ sub store_product($user_id, $product_ref, $comment) {
 	# index for full text search
 	index_product($product_ref);
 
-	# make sure that code is saved as a string, otherwise mongodb saves it as number, and leading 0s are removed
-	$product_ref->{code} = $product_ref->{code} . '';
+	# make sure that the _id and code are saved as a string, otherwise mongodb may save them as numbers
+	# for _id , it makes them possibly non unique, and for code, we would lose leading 0s
+	$product_ref->{_id} .= '';
+	$product_ref->{code} .= '';
 
 	# make sure we have numbers, perl can convert numbers to string depending on the last operation done...
 	$product_ref->{last_modified_t} += 0;

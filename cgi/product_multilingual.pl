@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -565,11 +564,8 @@ my %remember_fields = ('purchase_places'=>1, 'stores'=>1);
 
 # Display each field
 
-sub display_input_field($$$) {
-
-	my $product_ref = shift;
-	my $field = shift;	# can be in %language_fields and suffixed by _[lc]
-	my $language = shift;
+sub display_input_field($product_ref, $field, $language) {
+	# $field can be in %language_fields and suffixed by _[lc]
 
 	my $fieldtype = $field;
 	my $display_lc = $lc;
@@ -782,13 +778,7 @@ CSS
 
 	$template_data_ref_display->{product_ref_sorted_langs} = join(',', @{$product_ref->{sorted_langs}});
 
-sub display_input_tabs($$$$$) {
-
-	my $product_ref = shift;
-	my $tabsid = shift;
-	my $tabsids_array_ref = shift;
-	my $tabsids_hash_ref = shift;
-	my $fields_array_ref = shift;
+sub display_input_tabs($product_ref, $tabsid, $tabsids_array_ref, $tabsids_hash_ref, $fields_array_ref) {
 
 	my $template_data_ref_tab = {};
 	my @display_tabs;

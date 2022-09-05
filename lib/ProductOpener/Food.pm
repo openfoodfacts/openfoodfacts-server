@@ -2613,7 +2613,7 @@ sub assign_nutriments_values_from_request_parameters($product_ref, $nutriment_ta
 	}
 
 	my @new_nutriments = ();
-	my $new_max = remove_tags_and_quote(param('new_max'));
+	my $new_max = remove_tags_and_quote(scalar param('new_max'));
 	for (my $i = 1; $i <= $new_max; $i++) {
 		push @new_nutriments, "new_$i";
 	}
