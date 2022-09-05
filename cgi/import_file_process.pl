@@ -64,7 +64,7 @@ if (not defined $import_files_ref) {
 	$import_files_ref = {};
 }
 
-my $file_id = get_string_id_for_lang("no_language", param('file_id'));
+my $file_id = get_string_id_for_lang("no_language", single_param('file_id'));
 
 local $log->context->{file_id} = $file_id;
 
@@ -98,7 +98,7 @@ if ($results_ref->{error}) {
 my $headers_ref = $results_ref->{headers};
 my $rows_ref = $results_ref->{rows};
 
-my $columns_fields_json = param("columns_fields_json");
+my $columns_fields_json = single_param("columns_fields_json");
 my $columns_fields_ref = decode_json($columns_fields_json);
 
 foreach my $field (keys %$columns_fields_ref) {

@@ -47,8 +47,8 @@ use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();
 
-my $type = param('type') || 'upload';
-my $action = param('action') || 'display';
+my $type = single_param('type') || 'upload';
+my $action = single_param('action') || 'display';
 
 my $title = lang("import_data_file_title");
 my $html = '';
@@ -65,8 +65,8 @@ if ($action eq "process") {
 
 	# Process uploaded files
 
-	my $file = param('file_input_data');
-	my $filename = decode utf8=>param('file_input_data');
+	my $file = single_param('file_input_data');
+	my $filename = decode utf8 => single_param('file_input_data');
 
 	my %data = ();
 
