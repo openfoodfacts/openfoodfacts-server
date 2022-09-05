@@ -109,7 +109,7 @@ make dev
 
 > **Note:**
 > 
-> If you are using Windows, you may encounter issue regarding this command. Take a look at the **Troubleshooting** section further in this tutorial.
+> If you are using Windows, you may encounter issues regarding this command. Take a look at the **Troubleshooting** section further in this tutorial.
 
 > **Note:**
 >
@@ -168,7 +168,7 @@ When running "make dev":
 bash: make: command not found
 ```
 
-Solution : 
+Solution: 
 Click the Windows button, then type “environment properties” into the search bar and hit Enter. Click Environment Variables, then under System variables choose Path and click Edit. Click New and insert C:\Program Files (x86)\GnuWin32\bin, then save the changes. Open a new terminal and test that the command works.
 (see [Make Windows](https://pakstech.com/blog/make-windows/) for more)
 
@@ -192,7 +192,7 @@ and the time and date of the error.
 make: *** [build_lang] Error 2
 ```
 
-Solution :
+Solution:
 Project needs Symlinks to be enabled.
 traces.result.sto is a symlink to allergens.result.sto
 
