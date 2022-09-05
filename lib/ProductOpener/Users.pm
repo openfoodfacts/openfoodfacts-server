@@ -253,8 +253,8 @@ sub check_user_form($type, $user_ref, $errors_ref) {
 	$user_ref->{userid} = remove_tags_and_quote(single_param('userid'));
 
 	# Allow for sending the 'name' & 'email' as a form parameter instead of a HTTP header, as web based apps may not be able to change the header sent by the browser
-	$user_ref->{name} = remove_tags_and_quote(decode utf8=>single_param('name'));
-	my $email = remove_tags_and_quote(decode utf8=>single_param('email'));
+	$user_ref->{name} = remove_tags_and_quote(decode utf8 => single_param('name'));
+	my $email = remove_tags_and_quote(decode utf8 => single_param('email'));
 
 	$log->debug("check_user_form", { type => $type, user_ref => $user_ref, email => $email }) if $log->is_debug();
 
@@ -279,7 +279,7 @@ sub check_user_form($type, $user_ref, $errors_ref) {
 			$user_ref->{pro} = 1;
 
 			if (defined single_param("requested_org")) {
-				$user_ref->{requested_org} = remove_tags_and_quote(decode utf8=>single_param("requested_org"));
+				$user_ref->{requested_org} = remove_tags_and_quote(decode utf8 => single_param("requested_org"));
 
 				my $requested_org_id = get_string_id_for_lang("no_language", $user_ref->{requested_org});
 
@@ -315,7 +315,7 @@ sub check_user_form($type, $user_ref, $errors_ref) {
 		# Org
 
 		my $previous_org = $user_ref->{org};
-		$user_ref->{org} = remove_tags_and_quote(decode utf8=>single_param('org'));
+		$user_ref->{org} = remove_tags_and_quote(decode utf8 => single_param('org'));
 		if ($user_ref->{org} ne "") {
 			$user_ref->{org_id} = get_string_id_for_lang("no_language", $user_ref->{org});
 			# Admin field for org overrides the requested org field
@@ -351,7 +351,7 @@ sub check_user_form($type, $user_ref, $errors_ref) {
 
 	for (my $i = 1; $i <= 3; $i++) {
 		if (defined single_param('team_' . $i)) {
-			$user_ref->{'team_' . $i} = remove_tags_and_quote(decode utf8=>single_param('team_' . $i));
+			$user_ref->{'team_' . $i} = remove_tags_and_quote(decode utf8 => single_param('team_' . $i));
 			$user_ref->{'team_' . $i} =~ s/\&lt;/ /g;
 			$user_ref->{'team_' . $i} =~ s/\&gt;/ /g;
 			$user_ref->{'team_' . $i} =~ s/\&quot;/"/g;
@@ -415,7 +415,7 @@ sub check_user_form($type, $user_ref, $errors_ref) {
 			push @{$errors_ref}, $Lang{error_username_too_long}{$lang};
 		}		
 
-		if (length(decode utf8=>single_param('password')) < 6) {
+		if (length(decode utf8 => single_param('password')) < 6) {
 			push @{$errors_ref}, $Lang{error_invalid_password}{$lang};
 		}
 	}
@@ -424,7 +424,7 @@ sub check_user_form($type, $user_ref, $errors_ref) {
 		push @{$errors_ref}, $Lang{error_different_passwords}{$lang};
 	}
 	elsif (single_param('password') ne '') {
-		$user_ref->{encrypted_password} = create_password_hash( encode_utf8(decode utf8=>single_param('password')) );
+		$user_ref->{encrypted_password} = create_password_hash( encode_utf8(decode utf8 => single_param('password')) );
 	}
 
 	return;
@@ -631,7 +631,7 @@ sub migrate_password_hash($user_ref) {
 
 	# Migration: take the occasion of having password to upgrade to scrypt, if it is still in crypt format
 	if ($user_ref->{'encrypted_password'} =~ /^\$1\$(?:.*)/) {
-		$user_ref->{'encrypted_password'} = create_password_hash(encode_utf8(decode utf8=>single_param('password')) );
+		$user_ref->{'encrypted_password'} = create_password_hash(encode_utf8(decode utf8 => single_param('password')) );
 		$log->info("crypt password upgraded to scrypt_hash") if $log->is_info();
 	}
 	return;
@@ -830,7 +830,7 @@ sub init_user($request_ref) {
 				$user_id = $user_ref->{'userid'} ;
 				$log->context->{user_id} = $user_id;
 
-				my $hash_is_correct = check_password_hash(encode_utf8(decode utf8=>single_param('password')), $user_ref->{'encrypted_password'} );
+				my $hash_is_correct = check_password_hash(encode_utf8(decode utf8 => single_param('password')), $user_ref->{'encrypted_password'} );
 				# We don't have the right password
 				if (not $hash_is_correct) {
 					$user_id = undef ;

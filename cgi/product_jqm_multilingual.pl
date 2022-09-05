@@ -298,7 +298,7 @@ else {
 		# add_brands=additional brand : only add if it does not exist yet
 		if ((defined $tags_fields{$field}) and (defined single_param("add_$field"))) {
 
-			my $additional_fields = remove_tags_and_quote(decode utf8=>single_param("add_$field"));
+			my $additional_fields = remove_tags_and_quote(decode utf8 => single_param("add_$field"));
 
 			add_tags_to_field($product_ref, $lc, $field, $additional_fields);
 
@@ -314,7 +314,7 @@ else {
 			}
 			else {
 				if ($field eq "lang") {
-					my $value = remove_tags_and_quote(decode utf8=>single_param($field));
+					my $value = remove_tags_and_quote(decode utf8 => single_param($field));
 					
 					# strip variants fr-BE fr_BE
 					$value =~ s/^([a-z][a-z])(-|_).*$/$1/i;
@@ -334,7 +334,7 @@ else {
 					}
 				}
 				else {
-					$product_ref->{$field} = remove_tags_and_quote(decode utf8=>single_param($field));
+					$product_ref->{$field} = remove_tags_and_quote(decode utf8 => single_param($field));
 
 					if ((defined $language_fields{$field}) and (defined $product_ref->{lc})) {
 						my $field_lc = $field . "_" . $product_ref->{lc};
@@ -358,7 +358,7 @@ else {
 					}
 					else {
 
-						$product_ref->{$field_lc} = remove_tags_and_quote(decode utf8=>single_param($field_lc));
+						$product_ref->{$field_lc} = remove_tags_and_quote(decode utf8 => single_param($field_lc));
 						compute_field_tags($product_ref, $lc, $field_lc);
 					}
 				}
@@ -447,7 +447,7 @@ else {
 
 
 	my $time = time();
-	$comment = $comment . remove_tags_and_quote(decode utf8=>single_param('comment'));
+	$comment = $comment . remove_tags_and_quote(decode utf8 => single_param('comment'));
 	if (store_product($User_id, $product_ref, $comment)) {
 		# Notify robotoff
 		send_notification_for_product_change($product_ref, "updated");

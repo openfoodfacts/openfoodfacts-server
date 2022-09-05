@@ -4247,7 +4247,7 @@ sub display_search_results($request_ref) {
 			next;
 		}
 
-		$current_link .= "\&$field=" . URI::Escape::XS::encodeURIComponent(decode utf8=>single_param($field));
+		$current_link .= "\&$field=" . URI::Escape::XS::encodeURIComponent(decode utf8 => single_param($field));
 	}
 
 	$current_link =~ s/^\&/\?/;
@@ -4492,7 +4492,7 @@ sub add_params_to_query($request_ref, $query_ref) {
 			# xyz_tags=-c	products without the c tag
 			# xyz_tags=a,b,-c,-d
 
-			my $values = remove_tags_and_quote(decode utf8=>single_param($field));
+			my $values = remove_tags_and_quote(decode utf8 => single_param($field));
 
 			$log->debug("add_params_to_query - tags param", { field => $field, lc => $lc, tag_lc => $tag_lc, values => $values }) if $log->is_debug();
 
@@ -4626,7 +4626,7 @@ sub add_params_to_query($request_ref, $query_ref) {
 		# Exact match on a specific field (e.g. "code")
 		elsif (defined $valid_params{$field}) {
 
-			my $values = remove_tags_and_quote(decode utf8=>single_param($field));
+			my $values = remove_tags_and_quote(decode utf8 => single_param($field));
 
 			# Possible values:
 			# xyz=a
@@ -6973,7 +6973,7 @@ sub display_page($request_ref) {
 
 	my $search_terms = '';
 	if (defined single_param('search_terms')) {
-		$search_terms = remove_tags_and_quote(decode utf8=>single_param('search_terms'))
+		$search_terms = remove_tags_and_quote(decode utf8 => single_param('search_terms'))
 	}
 
 	my $image_banner = "";
@@ -10321,7 +10321,7 @@ sub display_structured_response_opensearch_rss($request_ref) {
 	my $query_link = $xs->escape_value(encode_utf8($formatted_subdomain . $request_ref->{current_link} . "&rss=1"));
 	my $description = $xs->escape_value(encode_utf8(lang("search_description_opensearch")));
 
-	my $search_terms = $xs->escape_value(encode_utf8(decode utf8=>single_param('search_terms')));
+	my $search_terms = $xs->escape_value(encode_utf8(decode utf8 => single_param('search_terms')));
 	my $count = $xs->escape_value($request_ref->{structured_response}{count});
 	my $skip = $xs->escape_value($request_ref->{structured_response}{skip});
 	my $page_size = $xs->escape_value($request_ref->{structured_response}{page_size});

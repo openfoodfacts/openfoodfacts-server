@@ -68,7 +68,7 @@ my $tagtype= get_fileid(single_param('tagtype'));
 
 not defined $tagtype and $tagtype eq 'ingredients';
 
-my $text = remove_tags_and_quote(decode utf8=>single_param('text'));
+my $text = remove_tags_and_quote(decode utf8 => single_param('text'));
 
 my $html;
 

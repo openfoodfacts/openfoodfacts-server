@@ -64,9 +64,9 @@ Warning, we are currently doing a brute force search, so avoid setting it too hi
 =cut
 
 my $tagtype = single_param('tagtype');
-my $string = decode utf8=>single_param('string');
+my $string = decode utf8 => single_param('string');
 # searched term
-my $term = decode utf8=>single_param('term');
+my $term = decode utf8 => single_param('term');
 
 # search language code
 my $search_lc = $lc;

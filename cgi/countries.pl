@@ -45,7 +45,7 @@ use JSON::PP;
 
 ProductOpener::Display::init_request();
 
-my $term = decode utf8=>single_param('term');
+my $term = decode utf8 => single_param('term');
 
 my %result = ();
 foreach my $country (

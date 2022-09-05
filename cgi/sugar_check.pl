@@ -29,12 +29,12 @@ use JSON::PP;
 
 my $debug = 0;
 
-my $code = decode utf8=>single_param('code');
-my $product = decode utf8=>single_param('product');
-my $name = decode utf8=>single_param('name');
-my $answer = decode utf8=>single_param('answer');
-my $actual = decode utf8=>single_param('actual');
-my $points = decode utf8=>single_param('points');
+my $code = decode utf8 => single_param('code');
+my $product = decode utf8 => single_param('product');
+my $name = decode utf8 => single_param('name');
+my $answer = decode utf8 => single_param('answer');
+my $actual = decode utf8 => single_param('actual');
+my $points = decode utf8 => single_param('points');
 
 open (my $OUT, ">>" , "/srv/sugar/logs/sugar_log");
 print $OUT remote_addr() . "\t" . time() . "\t" . $product . "\t" . $code . "\t" . $actual . "\t" . $answer . "\t" . $points . "\n";

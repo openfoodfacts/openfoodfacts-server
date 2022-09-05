@@ -82,7 +82,7 @@ if ($action eq "display") {
 	foreach my $param (multi_param()) {
 		if ($param =~ /^query_/) {
 			my $field = $';
-			my $value = remove_tags_and_quote(decode utf8=>single_param($param));
+			my $value = remove_tags_and_quote(decode utf8 => single_param($param));
 			
 			if (not defined $template_data_ref->{query_filters}) {
 				$template_data_ref->{query_filters} = [];
@@ -147,7 +147,7 @@ elsif (($action eq "process") and $allow_submit) {
 	foreach my $param (multi_param()) {
 		if ($param =~ /^query_/) {
 			my $query = $';
-			$args_ref->{query}{$query} = remove_tags_and_quote(decode utf8=>single_param($param));
+			$args_ref->{query}{$query} = remove_tags_and_quote(decode utf8 => single_param($param));
 		}
 	}
 	if (not ((defined single_param("export_photos")) and (single_param("export_photos")))) {
