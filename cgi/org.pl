@@ -156,7 +156,8 @@ if ($action eq 'process') {
 
 				foreach my $field ("name", "address", "email", "phone", "link", "info") {
 
-					$org_ref->{$contact}{$field} = remove_tags_and_quote(decode utf8 => single_param($contact . "_" . $field));
+					$org_ref->{$contact}{$field}
+					  = remove_tags_and_quote(decode utf8 => single_param($contact . "_" . $field));
 					if ($org_ref->{$contact}{$field} eq "") {
 						delete $org_ref->{$contact}{$field};
 					}

@@ -649,12 +649,14 @@ elsif ($action eq 'process') {
 
 	foreach my $axis ('x', 'y') {
 		if ((defined single_param("axis_$axis")) and (single_param("axis_$axis") ne '')) {
-			$current_link .= "\&axis_$axis=" . URI::Escape::XS::encodeURIComponent(decode utf8 => single_param("axis_$axis"));
+			$current_link
+			  .= "\&axis_$axis=" . URI::Escape::XS::encodeURIComponent(decode utf8 => single_param("axis_$axis"));
 		}
 	}
 
 	if ((defined single_param('graph_title')) and (single_param('graph_title') ne '')) {
-		$current_link .= "\&graph_title=" . URI::Escape::XS::encodeURIComponent(decode utf8 => single_param("graph_title"));
+		$current_link
+		  .= "\&graph_title=" . URI::Escape::XS::encodeURIComponent(decode utf8 => single_param("graph_title"));
 	}
 
 	if ((defined single_param('map_title')) and (single_param('map_title') ne '')) {
@@ -799,7 +801,10 @@ HTML
 
 		if (single_param('search_terms')) {
 			open(my $OUT, ">>:encoding(UTF-8)", "$data_root/logs/search_log");
-			print $OUT remote_addr() . "\t" . time() . "\t" . decode utf8 => single_param('search_terms') . "\tpage: $page\n";
+			print $OUT remote_addr() . "\t"
+			  . time() . "\t"
+			  . decode utf8 => single_param('search_terms')
+			  . "\tpage: $page\n";
 			close($OUT);
 		}
 	}
