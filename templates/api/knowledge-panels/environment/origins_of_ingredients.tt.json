@@ -12,6 +12,15 @@
         "icon_color_from_evaluation": true,
         "icon_url": "[% static_subdomain %]/images/icons/dist/public.svg",
     },
+        {
+            "element_type": "action",
+            "action_element": {
+                "html": `[% lang("actions_add_origins") %]`,
+                "actions": [
+                    "add_origins",
+                ]
+            }
+        },
     "elements": [
         {
             "element_type": "text",
