@@ -2372,23 +2372,24 @@ sub product_action_url($code, $action) {
 		$url  .= "#categories";
 	}
 	elsif ($action eq "add_ingredients_image") {
-		$url .= "#ingredients_image";
+		$url .= "#ingredients";
 	}
 	elsif ($action eq "add_ingredients_text") {
 		$url .= "#ingredients";
 	}
 	elsif ($action eq "add_nutrition_facts_image") {
-		$url .= "#nutrition_image";
+		$url .= "#nutrition;
 	}
 	elsif ($action eq "add_nutrition_facts") {
 		$url .= "#nutrition";
 	}
 	elsif ($action eq "add_packaging_image") {
-		$url .= "#packaging_image";
+		$url .= "#packaging";
 	}
 	elsif ($action eq "add_packaging_text") {
 		$url .= "#packaging";
 	}
+	# will do nothing unless a custom section is added
 	elsif ($action eq "add_origins") {
 		$url .= "#origins";
 	}
@@ -2404,6 +2405,7 @@ sub product_action_url($code, $action) {
 	elsif ($action eq "add_countries") {
 		$url .= "#contries";
 	}
+	# END will do nothing unless a custom section is added
 	else {
 		$log->error("unknown product action", { code => $code, action => $action });
 	}
