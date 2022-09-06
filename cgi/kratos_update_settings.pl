@@ -128,4 +128,5 @@ if(defined $kratos_cookie){
     }
 }
 
+my $request_ref = ProductOpener::Display::init_request();
 redirect_to_url($request_ref, 302, "display.pl");

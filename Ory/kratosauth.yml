@@ -41,6 +41,8 @@ services:
       - SELFSERVICE_DEFAULT_BROWSER_RETURN_URL=${ORY_SCHEME}://world.${PRODUCT_OPENER_DOMAIN}/cgi/kratos_auth.pl
       - SESSION_COOKIE_DOMAIN=${PRODUCT_OPENER_DOMAIN}
       - COOKIES_DOMAIN=${PRODUCT_OPENER_DOMAIN}
+      - SELFSERVICE_ALLOWED_RETURN_URLS_0=http://world.openfoodfacts.localhost/cgi/kratos_auth.pl
+      - SELFSERVICE_ALLOWED_RETURN_URLS_1=http://world.openfoodfacts.localhost/cgi/kratos_update_settings.pl
     ports:
       - '127.0.0.1:4433:4433'
       - '127.0.0.1:4434:4434'
