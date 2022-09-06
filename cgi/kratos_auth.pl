@@ -77,6 +77,8 @@ if(defined $kratos_cookie){
         # $log->debug("newsletter: ", $newsletter_kratos);
         # $log->debug("edit link: ", $edit_link_kratos);
         # $log->debug("display barcode: ", $display_barcode_kratos);
+        
+        my $return_url = url_param('return_to_url');
 
         #retrieve users storable file
         my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $UserID) . ".sto";
@@ -86,7 +88,7 @@ if(defined $kratos_cookie){
             my $user_ref = retrieve($user_file) ;
 
             open_user_session($user_ref, $request_ref);
-            redirect_to_url($request_ref, 302, "display.pl");
+            redirect_to_url($request_ref, 302, $return_url);
         }
         else{
             #store user file in storable if user has no sto file
@@ -148,7 +150,7 @@ if(defined $kratos_cookie){
             my $user_ref = retrieve($user_file) ;
 
             open_user_session($user_ref, $request_ref);
-            redirect_to_url($request_ref, 302, "display.pl");
+            redirect_to_url($request_ref, 302, $return_url);
         }
     }
     else {
