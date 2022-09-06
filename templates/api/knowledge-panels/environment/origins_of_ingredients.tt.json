@@ -15,7 +15,7 @@
         {
             "element_type": "action",
             "action_element": {
-                "html": `[% lang("actions_add_origins") %]`,
+                "html": `[% lang("actions_origins") %]`,
                 "actions": [
                     "add_origins",
                 ]
