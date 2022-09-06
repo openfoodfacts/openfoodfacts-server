@@ -2371,11 +2371,38 @@ sub product_action_url($code, $action) {
 	if ($action eq "add_categories") {
 		$url  .= "#categories";
 	}
+	elsif ($action eq "add_ingredients_image") {
+		$url .= "#ingredients_image";
+	}
 	elsif ($action eq "add_ingredients_text") {
 		$url .= "#ingredients";
 	}
+	elsif ($action eq "add_nutrition_facts_image") {
+		$url .= "#nutrition_image";
+	}
 	elsif ($action eq "add_nutrition_facts") {
 		$url .= "#nutrition";
+	}
+	elsif ($action eq "add_packaging_image") {
+		$url .= "#packaging_image";
+	}
+	elsif ($action eq "add_packaging_text") {
+		$url .= "#packaging";
+	}
+	elsif ($action eq "add_origins") {
+		$url .= "#origins";
+	}
+	elsif ($action eq "add_stores") {
+		$url .= "#stores";
+	}
+	elsif ($action eq "add_packager_codes_image") {
+		$url .= "#packager_codes";
+	}
+	elsif ($action eq "add_labels") {
+		$url .= "#labels";
+	}
+	elsif ($action eq "add_countries") {
+		$url .= "#contries";
 	}
 	else {
 		$log->error("unknown product action", { code => $code, action => $action });
