@@ -23,8 +23,8 @@ serve:
 selfservice:
   default_browser_return_url: http://world.openfoodfacts.localhost/cgi/kratos_auth.pl
   allowed_return_urls:
-    - "http://world.openfoodfacts.localhost/cgi/kratos_auth.pl"
-    - "http://world.openfoodfacts.localhost/cgi/kratos_update_settings.pl"
+    - http://world.openfoodfacts.localhost/cgi/kratos_auth.pl
+    - http://world.openfoodfacts.localhost/cgi/kratos_update_settings.pl
 
   methods:
     password:

@@ -79,7 +79,10 @@ if(defined $kratos_cookie){
         # $log->debug("display barcode: ", $display_barcode_kratos);
         
         my $return_url = url_param('return_to_url');
-
+        if($return_url eq ""){
+            $return_url = "http://world.openfoodfacts.localhost";
+        }
+        $log->debug("Return: ", $return_url);
         #retrieve users storable file
         my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $UserID) . ".sto";
         if (-e $user_file) {
