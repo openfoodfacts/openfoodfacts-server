@@ -116,7 +116,7 @@ my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
 create_user($ua, \%create_user_args);
 
 foreach my $ref (@products) {
-	create_product($ua, $ref);
+	edit_product($ua, $ref);
 }
 
 my @tests = (
