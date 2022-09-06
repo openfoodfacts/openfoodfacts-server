@@ -46,6 +46,7 @@ BEGIN
 		$crowdin_project_identifier
 		$crowdin_project_key
 		$robotoff_url
+		$events_url
 		%server_options
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -92,6 +93,10 @@ my $postgres_url = "postgresql://${postgres_user}:${postgres_password}\@${postgr
 # Set this to your instance of https://github.com/openfoodfacts/robotoff/ to
 # enable an in-site robotoff-asker in the product page
 $robotoff_url = $ENV{ROBOTOFF_URL};
+
+# Set this to your instance of https://github.com/openfoodfacts/openfoodfacts-events
+# enable creating events for some actions (e.g. when a product is edited)
+$events_url = $ENV{EVENTS_URL};
 
 %server_options = (
         private_products => $producers_platform,  # 1 to make products visible only to the owner (producer platform)
