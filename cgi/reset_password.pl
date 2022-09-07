@@ -62,7 +62,8 @@ my $html = '';
 
 if($ORY_ENABLED){
 	if(not defined param('flow')){
-		print redirect(-url=>'http://kratos.openfoodfacts.localhost:4455/recovery');
+		my $reset_password_redirect = 'http://kratos.openfoodfacts.localhost:4455/recovery';
+		redirect_to_url($request_ref, 302, $reset_password_redirect);
 	}
 }
 
