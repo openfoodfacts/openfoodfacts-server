@@ -39,18 +39,17 @@ See https://github.com/openfoodfacts/openfoodfacts-events
 package ProductOpener::Events;
 
 use ProductOpener::PerlStandards;
-use Exporter    qw< import >;
+use Exporter qw< import >;
 
-BEGIN
-{
-	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
+BEGIN {
+	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-		&send_event
-		);    # symbols to export on request
+	  &send_event
+	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
-use vars @EXPORT_OK ;
+use vars @EXPORT_OK;
 
 use Log::Any qw($log);
 
@@ -82,45 +81,63 @@ Barcode of the product.
 
 =cut
 
-sub send_event($event_ref) {
+sub send_event ($event_ref) {
 
-    if ((defined $events_url) and ($events_url ne "") > 0) {
+	if ((defined $events_url) and ($events_url ne "") > 0) {
 
-        # Add timestamp if we event does not contain one already
-        if (not defined $event_ref->{timestamp}) {
-            $event_ref->{timestamp} = display_date_iso(time());
-        }
+		# Add timestamp if we event does not contain one already
+		if (not defined $event_ref->{timestamp}) {
+			$event_ref->{timestamp} = display_date_iso(time());
+		}
 
 		my $ua = LWP::UserAgent->new();
 		my $endpoint = "$events_url/events";
 		$ua->timeout(2);
 
-        my $request = POST $endpoint, $event_ref;
-        $request->header('content-type' => 'application/json');
-        $request->content(decode_utf8(encode_json($event_ref)));        
+		my $request = POST $endpoint, $event_ref;
+		$request->header('content-type' => 'application/json');
+		$request->content(decode_utf8(encode_json($event_ref)));
 
-        # Add basic HTTP authentification credentials if we have some
-        # (as of August 2022, they are required to post to /events)
-        if ((defined $events_username) and ($events_username ne "")) {
-            $request->authorization_basic($events_username, $events_password);
-        }
+		# Add basic HTTP authentification credentials if we have some
+		# (as of August 2022, they are required to post to /events)
+		if ((defined $events_username) and ($events_username ne "")) {
+			$request->authorization_basic($events_username, $events_password);
+		}
 
-        $log->debug("send_event request", { endpoint => $endpoint, event => $event_ref }) if $log->is_debug();
-        my $response = $ua->request($request);
+		$log->debug("send_event request", {endpoint => $endpoint, event => $event_ref}) if $log->is_debug();
+		my $response = $ua->request($request);
 
-        if ($response->is_success) {
-		    $log->debug("send_event response ok", { endpoint => $endpoint, event => $event_ref, is_success => $response->is_success, code => $response->code, status_line => $response->status_line }) if $log->is_debug();
-        }
-        else {
-		    $log->debug("send_event response not ok", { endpoint => $endpoint, event => $event_ref, is_success => $response->is_success, code => $response->code, status_line => $response->status_line, response => $response }) if $log->is_debug();
-        }
+		if ($response->is_success) {
+			$log->debug(
+				"send_event response ok",
+				{
+					endpoint => $endpoint,
+					event => $event_ref,
+					is_success => $response->is_success,
+					code => $response->code,
+					status_line => $response->status_line
+				}
+			) if $log->is_debug();
+		}
+		else {
+			$log->debug(
+				"send_event response not ok",
+				{
+					endpoint => $endpoint,
+					event => $event_ref,
+					is_success => $response->is_success,
+					code => $response->code,
+					status_line => $response->status_line,
+					response => $response
+				}
+			) if $log->is_debug();
+		}
 	}
-    else {
-        $log->debug("send_event EVENTS_URL not defined", { events_url => $events_url }) if $log->is_debug();
-    }
+	else {
+		$log->debug("send_event EVENTS_URL not defined", {events_url => $events_url}) if $log->is_debug();
+	}
 
 	return;
 }
-
 
 1;
