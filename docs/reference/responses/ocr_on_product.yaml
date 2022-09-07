@@ -1,0 +1,7 @@
+                type: object
+                properties:
+                  status:
+                    type: integer
+                x-examples:
+                  example-1:
+                    status: 1
