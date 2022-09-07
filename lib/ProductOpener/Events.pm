@@ -52,10 +52,12 @@ BEGIN
 
 use vars @EXPORT_OK ;
 
-use Encode;
 use Log::Any qw($log);
 
+use Encode;
+use JSON::PP;
 use LWP::UserAgent;
+use HTTP::Request::Common;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Display qw/display_date_iso/;
@@ -82,20 +84,36 @@ Barcode of the product.
 
 sub send_event($event_ref) {
 
-    if ((defined $events_url) and (length($events_url) > 0)) {
+    if ((defined $events_url) and ($events_url ne "") > 0) {
 
         # Add timestamp if we event does not contain one already
-        if (not defined $event_ref->timestamp) {
-            $event_ref->timestamp = display_date_iso(time());
+        if (not defined $event_ref->{timestamp}) {
+            $event_ref->{timestamp} = display_date_iso(time());
         }
 
 		my $ua = LWP::UserAgent->new();
 		my $endpoint = "$events_url/events";
 		$ua->timeout(2);
 
-		$log->debug("send_event request", { endpoint => $endpoint, event => $event_ref }) if $log->is_debug();
-		my $response = $ua->post($endpoint,  $event_ref );
-		$log->debug("send_event response", { endpoint => $endpoint, event => $event_ref, is_success => $response->is_success, code => $response->code, status_line => $response->status_line }) if $log->is_debug();
+        my $request = POST $endpoint, $event_ref;
+        $request->header('content-type' => 'application/json');
+        $request->content(decode_utf8(encode_json($event_ref)));        
+
+        # Add basic HTTP authentification credentials if we have some
+        # (as of August 2022, they are required to post to /events)
+        if ((defined $events_username) and ($events_username ne "")) {
+            $request->authorization_basic($events_username, $events_password);
+        }
+
+        $log->debug("send_event request", { endpoint => $endpoint, event => $event_ref }) if $log->is_debug();
+        my $response = $ua->request($request);
+
+        if ($response->is_success) {
+		    $log->debug("send_event response ok", { endpoint => $endpoint, event => $event_ref, is_success => $response->is_success, code => $response->code, status_line => $response->status_line }) if $log->is_debug();
+        }
+        else {
+		    $log->debug("send_event response not ok", { endpoint => $endpoint, event => $event_ref, is_success => $response->is_success, code => $response->code, status_line => $response->status_line, response => $response }) if $log->is_debug();
+        }
 	}
     else {
         $log->debug("send_event EVENTS_URL not defined", { events_url => $events_url }) if $log->is_debug();

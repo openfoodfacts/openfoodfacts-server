@@ -50,6 +50,8 @@ BEGIN
 
 		$robotoff_url
 		$events_url
+		$events_username
+		$events_password
 
 		$mongodb
 		$mongodb_host
@@ -207,6 +209,8 @@ $robotoff_url = $ProductOpener::Config2::robotoff_url;
 # Set this to your instance of https://github.com/openfoodfacts/openfoodfacts-events
 # enable creating events for some actions (e.g. when a product is edited)
 $events_url = $ProductOpener::Config2::events_url;
+$events_username = $ProductOpener::Config2::events_username;
+$events_password = $ProductOpener::Config2::events_password;
 
 # server options
 
