@@ -76,7 +76,8 @@
       },
       "required": [
         "email",
-        "UserID"
+        "UserID",
+        "name"
       ],
       "additionalProperties": false
     }
