@@ -52,7 +52,7 @@ if($ORY_ENABLED){
 	
 	#if kratos cookie go to settings else go to create an account
 	if(defined $kratos_cookie){
-		$red_url = 'http://kratos.openfoodfacts.localhost:4455/settings';
+		$red_url = 'http://kratos.openfoodfacts.localhost:4455/settings?return_to=/cgi/kratos_update_settings.pl?return_to_url='.$referer;
 		print redirect(-url=>$red_url);
 	}
 	else{

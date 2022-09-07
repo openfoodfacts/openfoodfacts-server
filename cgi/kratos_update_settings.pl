@@ -128,5 +128,10 @@ if(defined $kratos_cookie){
     }
 }
 
+my $return_url = url_param('return_to_url');
+if($return_url eq ""){
+    $return_url = "http://world.openfoodfacts.localhost";
+}
+
 my $request_ref = ProductOpener::Display::init_request();
-redirect_to_url($request_ref, 302, "display.pl");
+redirect_to_url($request_ref, 302, $return_url);
