@@ -50,7 +50,7 @@ use Text::CSV();
 
 my $request_ref = ProductOpener::Display::init_request();
 
-my $action = param('action') || 'display';
+my $action = single_param('action') || 'display';
 
 my $title = lang("import_products_categories_from_public_database");
 my $html = '';

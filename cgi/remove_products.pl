@@ -46,7 +46,7 @@ use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();
 
-my $action = param('action') || 'display';
+my $action = single_param('action') || 'display';
 
 my $title = lang("remove_products_from_producers_platform");
 my $html = '';

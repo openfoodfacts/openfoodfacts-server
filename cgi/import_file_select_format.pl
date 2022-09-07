@@ -50,7 +50,7 @@ use Log::Any qw($log);
 use Spreadsheet::CSV();
 use Text::CSV();
 
-my $action = param('action') || 'display';
+my $action = single_param('action') || 'display';
 
 my $request_ref = ProductOpener::Display::init_request();
 
@@ -68,7 +68,7 @@ if (not defined $import_files_ref) {
 	$import_files_ref = {};
 }
 
-my $param_file_id = param('file_id');
+my $param_file_id = single_param('file_id');
 my $file_id = get_string_id_for_lang("no_language", $param_file_id);
 
 local $log->context->{file_id} = $file_id;

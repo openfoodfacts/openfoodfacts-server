@@ -46,8 +46,8 @@ my $request_ref = ProductOpener::Display::init_request();
 
 my $template_data_ref = {};
 
-my $code = normalize_code(param('code'));
-my $id = param('id');
+my $code = normalize_code(single_param('code'));
+my $id = single_param('id');
 
 $log->debug("start", {code => $code, id => $id}) if $log->is_debug();
 

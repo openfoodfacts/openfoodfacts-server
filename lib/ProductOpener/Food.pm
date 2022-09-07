@@ -116,6 +116,7 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Text qw/:all/;
 use ProductOpener::FoodGroups qw/:all/;
 use ProductOpener::Products qw(&remove_fields);
+use ProductOpener::Display qw/single_param/;
 
 use Hash::Util;
 use Encode;
@@ -2585,10 +2586,10 @@ sub assign_nutriments_values_from_request_parameters($product_ref, $nutriment_ta
 
 	foreach my $checkbox ("no_nutrition_data", "nutrition_data", "nutrition_data_prepared") {
 
-		if (defined param($checkbox)) {
-			$product_ref->{$checkbox} = remove_tags_and_quote(decode utf8=>param($checkbox));
+		if (defined single_param($checkbox)) {
+			$product_ref->{$checkbox} = remove_tags_and_quote(decode utf8 => single_param($checkbox));
 		}
-		elsif (defined param($checkbox . "_displayed")) {
+		elsif (defined single_param($checkbox . "_displayed")) {
 			$product_ref->{$checkbox} = "";
 		}
 	}
@@ -2613,7 +2614,7 @@ sub assign_nutriments_values_from_request_parameters($product_ref, $nutriment_ta
 	}
 
 	my @new_nutriments = ();
-	my $new_max = remove_tags_and_quote(scalar param('new_max'));
+	my $new_max = remove_tags_and_quote(single_param('new_max'));
 	for (my $i = 1; $i <= $new_max; $i++) {
 		push @new_nutriments, "new_$i";
 	}
@@ -2625,8 +2626,8 @@ sub assign_nutriments_values_from_request_parameters($product_ref, $nutriment_ta
 		my $saltnid = "salt${product_type}";
 		my $sodiumnid = "sodium${product_type}";
 
-		my $salt = param("nutriment_${saltnid}");
-		my $sodium = param("nutriment_${sodiumnid}");
+		my $salt = single_param("nutriment_${saltnid}");
+		my $sodium = single_param("nutriment_${sodiumnid}");
 
 		if ((defined $sodium) and (not defined $salt)) {
 			delete $product_ref->{nutriments}{$saltnid};
@@ -2659,16 +2660,16 @@ sub assign_nutriments_values_from_request_parameters($product_ref, $nutriment_ta
 
 		# Unit and label are the same for as sold and prepared nutrition table
 		my $enid = encodeURIComponent($nid);
-		my $unit = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_unit"));
-		my $label = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_label"));
+		my $unit = remove_tags_and_quote(decode utf8 => single_param("nutriment_${enid}_unit"));
+		my $label = remove_tags_and_quote(decode utf8 => single_param("nutriment_${enid}_label"));
 
 		# We can have nutrient values for the product as sold, or prepared
 		foreach my $product_type ("", "_prepared") {
 
 			# do not delete values if the nutriment is not provided
-			next if (not defined param("nutriment_${enid}${product_type}"));
+			next if (not defined single_param("nutriment_${enid}${product_type}"));
 
-			my $value = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}${product_type}"));
+			my $value = remove_tags_and_quote(decode utf8 => single_param("nutriment_${enid}${product_type}"));
 
 			# energy: (see bug https://github.com/openfoodfacts/openfoodfacts-server/issues/2396 )
 			# 1. if energy-kcal or energy-kj is set, delete existing energy data

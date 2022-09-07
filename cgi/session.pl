@@ -50,8 +50,8 @@ if (defined $User_id) {
 	$template_data_ref->{user_name} = $User{name};
 	$template_data_ref->{server_options_producers} = $server_options{producers_platform};
 
-	my $next_action = param('next_action');
-	my $code = param('code');
+	my $next_action = single_param('next_action');
+	my $code = single_param('code');
 	my $r = shift;
 	my $referer = $r->headers_in->{Referer};
 	my $url;
@@ -83,7 +83,7 @@ if (defined $User_id) {
 
 
 
-if (param('jqm')) {
+if (single_param('jqm')) {
 
 	my %response;
 	if (defined $User_id) {
