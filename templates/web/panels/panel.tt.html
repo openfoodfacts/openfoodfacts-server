@@ -98,12 +98,27 @@
         [% ELSIF element_type == "panel_group" %]
             [% panel_group_element = element_ref.panel_group_element %]
             <div class="panel_group">
+
+                [% IF panel_group_element.image.defined %]
+                    <div class="row">
+                        <div class="large-8 small-12 columns">
+                [% END %]
+
                 [% IF panel_group_element.title.defined %]
                     <h3>[% panel_group_element.title %]</h3>
                 [% END %]
                 [% FOREACH panel_id IN panel_group_element.panel_ids %]
                     [% INCLUDE web/panels/panel.tt.html panel_id = panel_id %]
                 [% END %]
+
+                [% IF panel_group_element.image.defined %]
+                        </div>
+                        <div class="large-4 small-12 columns">
+                            [% INCLUDE web/panels/image.tt.html image = panel_group_element.image %]
+                        </div>
+                    </div>
+                [% END %]                
+                
             </div>
         [% ELSE %]
 

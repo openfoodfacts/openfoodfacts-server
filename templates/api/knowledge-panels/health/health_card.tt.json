@@ -11,17 +11,24 @@
         {
             "element_type": "panel_group",
             "panel_group_element": {
+                "panel_ids": [
+                    [% IF panels.recommendation_health.defined %]
+                        "recommendation_health",
+                    [% END %]
+                ],
+            },
+        },        
+        {
+            "element_type": "panel_group",
+            "panel_group_element": {
                 "title": "[% lang('nutrition') %]",
+                [% IF panel.nutrition_image.defined %]
+                "image": [% encode_json(panel.nutrition_image) %],
+                [% END %]                
                 "panel_ids": [
                     [% IF panels.nutriscore.defined %]
                         "nutriscore",
                     [% END %]
-                    [% IF panels.recommendation_health.defined %]
-                        "recommendation_health",
-                    [% END %]
-                    [% IF panels.physical_activities.defined %]
-                        "physical_activities",
-                    [% END %]                   
                     [% IF panels.nutrient_level_fat.defined %]
                         "nutrient_level_fat",
                     [% END %] 
@@ -34,6 +41,22 @@
                     [% IF panels.nutrient_level_salt.defined %]
                         "nutrient_level_salt",
                     [% END %]                                                             
+                ],
+            },
+        },
+        {
+            "element_type": "panel_group",
+            "panel_group_element": {
+                "panel_ids": [
+                    [% IF panels.nutriscore.defined %]
+                        "nutriscore",
+                    [% END %]
+                    [% IF panels.recommendation_health.defined %]
+                        "recommendation_health",
+                    [% END %]
+                    [% IF panels.physical_activities.defined %]
+                        "physical_activities",
+                    [% END %]                                                                              
                     [% IF panels.nutrition_facts_table.defined %]
                         "nutrition_facts_table",
                     [% END %]
@@ -42,13 +65,16 @@
                     [% END %]
                 ],
             },
-        },
+        },        
         [% IF panels.ingredients.defined %]
         {
             "element_type": "panel_group",
             "panel_group_element": {
                 "title": "[% lang('ingredients') %]",
                 "panel_ids": ["ingredients"],
+                [% IF panel.ingredients_image.defined %]
+                "image": [% encode_json(panel.ingredients_image) %],
+                [% END %]
             },
         },
         [% END %]

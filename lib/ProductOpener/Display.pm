@@ -94,6 +94,7 @@ BEGIN
 		&data_to_display_nutrient_levels
 		&data_to_display_ingredients_analysis
 		&data_to_display_ingredients_analysis_details
+		&data_to_display_image
 
 		&count_products
 		&add_params_to_query
@@ -11061,6 +11062,76 @@ sub display_properties($request_ref) {
 
 	display_page($request_ref);
 	return;
+}
+
+=head2 data_to_display_image ( $product_ref, $imagetype, $target_lc )
+
+Generates a data structure to display a product image.
+
+The resulting data structure can be passed to a template to generate HTML or the JSON data for a knowledge panel.
+
+=head3 Arguments
+
+=head4 Product reference $product_ref
+
+=head4 Image type $image_type: one of [front|ingredients|nutrition|packaging]
+
+=head4 Language code $target_lc
+
+=head3 Return values
+
+- Reference to a data structure with needed data to display.
+- undef if no image is available for the requested image type
+
+=cut
+
+sub data_to_display_image($product_ref, $imagetype, $target_lc) {
+
+	my $image_ref;
+
+	# first try the requested language
+	my @img_lcs = ($target_lc);
+
+	# next try the main language of the product
+	if ($product_ref->{lc} ne $target_lc) {
+		push @img_lcs, $product_ref->{lc};
+	}
+
+	foreach my $img_lc (@img_lcs) {
+
+		my $id = $imagetype . "_" . $img_lc;
+
+		if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})) {
+
+			my $path = product_path($product_ref);
+			my $rev = $product_ref->{images}{$id}{rev};
+			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lang};
+			if ($img_lc ne $target_lc) {
+				$alt .= ' - ' .  $img_lc;
+			}
+
+			$image_ref = {
+				type => $imagetype,
+				lc => $img_lc,
+				alt => $alt,
+				sizes => {},
+			};
+
+			foreach my $size ($thumb_size, $small_size, $display_size, "full") {
+				if (defined $product_ref->{images}{$id}{sizes}{$size}) {
+					$image_ref->{sizes}{$size} = {
+						url => "$images_subdomain/images/products/$path/$id.$rev.$size.jpg",
+						width => $product_ref->{images}{$id}{sizes}{$size}{w},
+						height => $product_ref->{images}{$id}{sizes}{$size}{h},
+					};
+				}
+			}
+
+			last;
+		}
+	}
+
+	return $image_ref;
 }
 
 1;

@@ -726,8 +726,6 @@ sub create_health_card_panel($product_ref, $target_lc, $target_cc, $options_ref)
 
 	$log->debug("create health card panel", { code => $product_ref->{code} }) if $log->is_debug();
 
-    my $panel_data_ref = {};
-
     create_nutriscore_panel($product_ref, $target_lc, $target_cc);
 
     create_nutrient_levels_panels($product_ref, $target_lc, $target_cc);
@@ -747,6 +745,12 @@ sub create_health_card_panel($product_ref, $target_lc, $target_cc, $options_ref)
     create_ingredients_analysis_panel($product_ref, $target_lc, $target_cc);
 
     create_nova_panel($product_ref, $target_lc, $target_cc);
+
+
+    my $panel_data_ref = {
+        ingredients_image => data_to_display_image($product_ref, "ingredients", $target_lc),
+        nutrition_image => data_to_display_image($product_ref, "nutrition", $target_lc),
+    };
 
     create_panel_from_json_template("health_card", "api/knowledge-panels/health/health_card.tt.json",
         $panel_data_ref, $product_ref, $target_lc, $target_cc);    
