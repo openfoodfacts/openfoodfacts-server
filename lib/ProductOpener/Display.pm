@@ -11115,6 +11115,7 @@ sub data_to_display_image($product_ref, $imagetype, $target_lc) {
 				lc => $img_lc,
 				alt => $alt,
 				sizes => {},
+				id => $id,
 			};
 
 			foreach my $size ($thumb_size, $small_size, $display_size, "full") {

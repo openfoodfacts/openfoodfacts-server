@@ -1,0 +1,24 @@
+<!-- start templates/[% template.name %] -->
+
+<figure id="image_box_[% image.type %]" class="image_box" itemprop="image" itemscope="" itemtype="https://schema.org/ImageObject">
+    <a data-reveal-id="drop_[% image.type %]" class="th">
+        <img [% IF image.type == 'front' %]id="og_image" [% END %] src="[% image.sizes.400.url %]" width="[% image.sizes.400.width %]" height="[% image.sizes.400.height %]" alt="[% image.alt %]" itemprop="thumbnail" loading="lazy">
+    </a>
+    <div id="drop_[% image.type %]" class="reveal-modal" data-reveal="" aria-labelledby="modalTitle_[% image.type %]" aria-hidden="true" role="dialog" about="[% image.full_url %]">
+        <h2 id="modalTitle_[% image.type %]"></h2>
+        <img src="[% image.full_url %]" alt="[% image.alt %]" itemprop="contentUrl" loading="lazy">
+        <a class="close-reveal-modal" aria-label="Close" href="#">×</a>
+        <meta itemprop="representativeOfPage" content="false">
+        <meta itemprop="license" content="https://creativecommons.org/licenses/by-sa/3.0/">
+        <meta itemprop="caption" content="[% image.alt %]">
+    </div>
+    <meta itemprop="imgid" content="[% image.type %]">
+    
+    <figcaption>
+        <a href="/cgi/product_image.pl?code=[% product.code %]&amp;id=[% image.id %]" title="Photo detail and attribution information">
+            [% display_icon('cc') %]
+        </a>
+    </figcaption>
+</figure>
+  
+<!-- end templates/[% template.name %] -->
