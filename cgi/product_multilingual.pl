@@ -44,6 +44,7 @@ use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Web qw(get_languages_options_list);
 use ProductOpener::Text qw/:all/;
+use ProductOpener::Events qw/:all/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -1500,6 +1501,9 @@ MAIL
 		# Notify robotoff
 		send_notification_for_product_change($product_ref, "updated");
 
+		# Create an event
+		send_event( { user_id => $User_id, event_type => "product_edited", barcode => $code, points => 5});
+
 		$template_data_ref_process->{display_random_sample_of_products_after_edits_options}
 		  = $options{display_random_sample_of_products_after_edits};
 
@@ -1518,9 +1522,10 @@ MAIL
 			);
 
 			display_product(\%request);
-
 		}
 	}
+
+	$log->debug("product edited", { code => $code }) if $log->is_debug();
 
 	$template_data_ref_process->{edited_product_url} = $edited_product_url;
 	process_template('web/pages/product_edit/product_edit_form_process.tt.html', $template_data_ref_process, \$html)
