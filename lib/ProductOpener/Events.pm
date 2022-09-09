@@ -83,7 +83,7 @@ Barcode of the product.
 
 sub send_event ($event_ref) {
 
-	if ((defined $events_url) and ($events_url ne "") > 0) {
+	if ((defined $events_url) and ($events_url ne "")) {
 
 		# Add timestamp if we event does not contain one already
 		if (not defined $event_ref->{timestamp}) {
@@ -120,7 +120,7 @@ sub send_event ($event_ref) {
 			) if $log->is_debug();
 		}
 		else {
-			$log->debug(
+			$log->warn(
 				"send_event response not ok",
 				{
 					endpoint => $endpoint,
@@ -130,7 +130,7 @@ sub send_event ($event_ref) {
 					status_line => $response->status_line,
 					response => $response
 				}
-			) if $log->is_debug();
+			) if $log->is_warn();
 		}
 	}
 	else {

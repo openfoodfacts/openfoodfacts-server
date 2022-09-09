@@ -1502,7 +1502,7 @@ MAIL
 		send_notification_for_product_change($product_ref, "updated");
 
 		# Create an event
-		send_event( { user_id => $User_id, event_type => "product_edited", barcode => $code});
+		send_event( { user_id => $User_id, event_type => "product_edited", barcode => $code, points => 5});
 
 		$template_data_ref_process->{display_random_sample_of_products_after_edits_options}
 		  = $options{display_random_sample_of_products_after_edits};
