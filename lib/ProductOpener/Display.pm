@@ -7334,60 +7334,6 @@ SCRIPTS
 JS
 ;
 
-	$styles .= <<CSS
-
-.image_box {
-	text-align:center;
-	margin-bottom:2rem;
-}
-
-figure.image_box  {
-	position: relative;
-	padding: 0;
-}
-
-.image_box > img {
-	display: block;
-	width: 100%;
-	height: auto;
-}
-
-figure.image_box figcaption {
-	position: absolute;
-	right: 0px;
-	bottom: 0px;
-}
-
-html[dir="rtl"] figure.image_box figcaption {
-	right: unset;
-	left: 0px;
-}
-
-figure.image_box figcaption img {
-	width: 16px;
-	height: 16px;
-}
-
-.field_div {
-	display:inline;
-	float:left;
-	margin-right:30px;
-	margin-top:10px;
-	margin-bottom:10px;
-}
-
-.field {
-	font-weight:bold;
-}
-
-.allergen {
-	font-weight:bold;
-}
-
-
-CSS
-;
-
 	# Check that the product exist, is published, is not deleted, and has not moved to a new url
 
 	$log->info("displaying product", { request_code => $request_code, product_id => $product_id }) if $log->is_info();

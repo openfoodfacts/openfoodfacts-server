@@ -196,3 +196,52 @@ a.active {
                 background: $white;
             }
         } 
+
+
+.image_box {
+	text-align:center;
+	margin-bottom:2rem;
+}
+
+.image_box figure  {
+	position: relative;
+	padding: 0;
+}
+
+.image_box > img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.image_box figure figcaption {
+	position: absolute;
+	right: 0px;
+	bottom: -20px;
+}
+
+html[dir="rtl"] .image_box figure figcaption {
+	right: unset;
+	left: 0px;
+}
+
+.image_box figure figcaption img {
+	width: 16px;
+	height: 16px;
+}
+
+.field_div {
+	display:inline;
+	float:left;
+	margin-right:30px;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+.field {
+	font-weight:bold;
+}
+
+.allergen {
+	font-weight:bold;
+}
