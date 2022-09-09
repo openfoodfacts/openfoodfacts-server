@@ -103,16 +103,23 @@
     </div>
 <div id="prodInfos">
     <!-- product_characteristics -->
-    <section class="row" id="characteristics">
+    <section class="row" id="product">
         <div class="large-12 column">
             
             <div class="card" style="border-top:none">
                 <div id="prodBanner" style="display:none"></div>
                 <div class="card-section">
+                    [% IF front_image %]
+                        <div class="row">
+                            <div class="medium-4 small-12 columns">
+                                [% INCLUDE web/panels/image.tt.html image = front_image %]
+                            </div>
+                            <div class="medium-8 small-12 columns">
+                    [% END %]   
+
+
                     <h2 class="title-1" property="food:name" itemprop="name">[% title %]</h1>
                     
-                    <!--<h2 id="product_characteristics">[% lang('product_characteristics') %]</h2>-->
-
             <!-- Obsolete product -->
             [% IF product_is_obsolete %]
                 <div data-alert class="alert-box warn" id="obsolete" style="display: block; background:#ffaa33;color:black;">
@@ -165,11 +172,14 @@
                             <div property="gr:hasEAN_UCC-13" content="[% code %]" datatype="xsd:string"></div>
                         [% END %]
                         
-                    <div class="hide-for-large-up medium-12 columns">[% front_image %]</div>
-                    <div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
                         [% product_fields %]
+
+                    [% IF front_image.defined %]
+                            </div>
+                        </div>
+                    [% END %]   
+
                     </div>
-                    <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">$[% front_image %]</div>
                 </div>
             </div>
         </div>
@@ -177,7 +187,7 @@
 
 
     <!-- product summary -->
-    <section class="row" id="summary">
+    <section class="row" id="match">
         <div class="large-12 column">
             
             <div class="card">
@@ -199,7 +209,7 @@
 
 
     <!-- product_characteristics -->
-    <section class="row" id="composition">
+    <section class="row" id="health">
         <div class="large-12 column">
             <div class="card">
                 <div class="card-section">

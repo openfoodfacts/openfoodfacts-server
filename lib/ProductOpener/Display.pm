@@ -7423,6 +7423,10 @@ JS
 	$template_data_ref->{environment_card_panel} = display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "environment_card");
 	$template_data_ref->{health_card_panel} = display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "health_card");
 
+	# The front product image is rendered with the same template as the ingredients, nutrition and packaging images
+	# that are displayed directly through the knowledge panels
+	$template_data_ref->{front_image} = data_to_display_image($product_ref, "front", $lc);
+
 	# On the producers platform, show a link to the public platform
 
 	if ($server_options{producers_platform}) {
@@ -7578,7 +7582,7 @@ JS
 		$product_fields .= display_field($product_ref, $field);
 	}
 
-	$template_data_ref->{front_image} = $front_image;
+	$template_data_ref->{front_image_html} = $front_image;
 	$template_data_ref->{product_fields} = $product_fields;
 
 	# try to display ingredients in the local language if available
