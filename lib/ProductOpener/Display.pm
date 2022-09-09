@@ -432,7 +432,7 @@ sub process_template($template_filename, $template_data_ref, $result_content_ref
 	};
 
 	$template_data_ref->{encode_json} = sub($var) {
-		return JSON::PP->new->utf8->canonical->encode($var);
+		return decode_utf8(JSON::PP->new->utf8->canonical->encode($var));
 	};
 
 	return($tt->process($template_filename, $template_data_ref, $result_content_ref));
