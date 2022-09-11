@@ -132,9 +132,6 @@ my @tests = (
 	]
 );
 
-## TODO : find out whats up with these quesries below :(
-# my $query_3_json = get("http://world.openfoodfacts.localhost/api/v2/search?code=200000000039,200000000038&fields=code,product_name");
-# my $query_3_json_decoded = decode_json($query_3_json);
 
 my $update_expected_results = 1;
 

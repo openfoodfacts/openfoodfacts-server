@@ -1,27 +1,15 @@
 {
-   "count" : 5,
-   "page" : "1",
-   "page_count" : 5,
-   "page_size" : "24",
+   "count" : 2,
+   "page" : 1,
+   "page_count" : 2,
+   "page_size" : 24,
    "products" : [
-      {
-         "code" : "200000000034",
-         "product_name" : "test_1"
-      },
-      {
-         "code" : "200000000037",
-         "product_name" : "vegan & palm oil free"
-      },
       {
          "code" : "200000000038",
          "product_name" : "palm oil free & non vegan"
       },
       {
          "code" : "200000000039",
-         "product_name" : "Vegan Test Snack"
-      },
-      {
-         "code" : "200000000045",
          "product_name" : "Vegan Test Snack"
       }
    ],

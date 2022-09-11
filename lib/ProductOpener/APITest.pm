@@ -145,16 +145,17 @@ For the example cited above this returns: "http://world-fr.openfoodfacts.localho
 
 sub construct_test_url ($target, $prefix) {
 	my $link = "openfoodfacts.localhost";
-	my $url = "http://${prefix}.${link}${target}";
+	# my $api_end = "/api/v2/search?";
+	my $api_end = "api/v2";
 
-	my $api_end = "/api/v2/search?";
-	my $cgi_end = "/cgi/search.pl?action=process&";
-
-	if (index($url, $api_end) != -1) {
-		$url =~ s/$api_end/$cgi_end/g;
-		$url .= "&json=1";
+	if (index($target, $api_end) != -1) {
+		$link .= "/cgi/display.pl?";
 	}
+
+	my $url = "http://${prefix}.${link}${target}";
+	print $url;
 	return $url;
 }
+
 
 1;
