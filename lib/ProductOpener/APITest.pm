@@ -153,7 +153,7 @@ sub construct_test_url ($target, $prefix) {
 	if (index($url, $api_end) != -1) {
 		$url =~ s/$api_end/$cgi_end/g;
 		$url .= "&json=1";
-	} 
+	}
 	return $url;
 }
 

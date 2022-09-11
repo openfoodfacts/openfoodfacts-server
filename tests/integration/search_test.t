@@ -122,12 +122,7 @@ foreach my $ref (@products) {
 my @tests = (
 	["q1", construct_test_url("/cgi/search.pl?action=process&json=1", "world")],
 	["q2", construct_test_url("/cgi/search.pl?action=process&json=1&ingredients_from_palm_oil=without", "world")],
-	[
-		"q3",
-		construct_test_url(
-			"/api/v2/search?code=200000000039,200000000038&fields=code,product_name", "world"
-		)
-	],
+	["q3", construct_test_url("/api/v2/search?code=200000000039,200000000038&fields=code,product_name", "world")],
 	[
 		"q4",
 		construct_test_url(
@@ -154,11 +149,10 @@ foreach my $test_ref (@tests) {
 
 	my $decoded_json;
 	eval {
-            $decoded_json = decode_json($json);
-            1;
-    }
-	or do {
-		my $json_decode_error = $@;	
+		$decoded_json = decode_json($json);
+		1;
+	} or do {
+		my $json_decode_error = $@;
 		diag("The query_url $query_url returned a response that is not valid JSON: $json_decode_error");
 		diag("Response content: " . $json);
 		fail($testid);
