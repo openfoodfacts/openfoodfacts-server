@@ -157,5 +157,4 @@ sub construct_test_url ($target, $prefix) {
 	return $url;
 }
 
-
 1;

@@ -132,7 +132,6 @@ my @tests = (
 	]
 );
 
-
 my $update_expected_results = 1;
 
 if ((defined $update_expected_results) and (!-e $expected_dir)) {
