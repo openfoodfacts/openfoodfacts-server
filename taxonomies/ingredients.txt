@@ -11284,8 +11284,19 @@ wikidata:en:Q1124327
 wikipedia:https://en.wikipedia.org/wiki/Horse_meat
 # ingredient/fr:viande-de-cheval has 21 products in 4 languages @2020-05-21
 
+# description:en:serving of chopped ingredients formed into a disc.
+
+en:patty, patties
+fi:pihvi
+fr:steak
+id:patty
+jv:patty
+wikidata:en:Q3200265
+wikipedia:en:https://en.wikipedia.org/wiki/Patty
+
 # description:en:A MEAT PATTY is a flattened, usually round, serving of ground meat.
 
+<en:patty
 <en:meat
 en:meat patty
 ca:filet mòlt, stick tartar
@@ -11295,14 +11306,9 @@ es:filete picado stick tartar
 fi:jauhelihapihvi
 fr:steak haché
 ga:spíosbhurgair
-id:patty
-it:hamburger
-jv:patty
 ko:패티
 nl:runderhamburger
 # lmo:svizzera
-wikidata:en:Q3200265
-wikipedia:en:https://en.wikipedia.org/wiki/Patty
 # ingredient/fr:steak-haché has 18 products in french @2019-02-07
 
 <en:meat patty
@@ -34330,23 +34336,26 @@ en:peach juice
 #da:ferskenjuice
 #de:Pfirsichsaft
 #es:Jugo de melocotón, Zumo de melocotón
-#fi:persikkamehu
+#fi:persikkamehu, persikkatäysmehu
 #fr:jus de pêche
 #it:Succo di pesca
 #nl:perzikensap
 #pt:sumo de pêssego
 #ro:suc de piersici
 #ru:Персиковый сок
+#sv:persikojuice
 # ingredient/en:peach-juice has 736 products in 18 languages @2021-08-19
 
 #process:en:juice
 #process:en:from-concentrate
 <en:peach juice
 en:peach juice from concentrate
+#fi:persikkamehu tiivisteestä, persikkatäysmehu tiivisteestä
 #fr:jus de pêche à base de concentré
 de:pfirsichsaft aus pfirsichsaftkonzentrat
 #nl:perziksap van concentraat
 #ro:suc de piersici din concentrat
+#sv:persikojuice av koncentrat
 
 <en:peach juice from concentrate
 <en:white peach
@@ -58989,6 +58998,7 @@ de:oregano
 el:ρίξανη
 es:orégano
 et:pune, oregaano
+fi:oregano
 fr:origan
 hu:oregánó, szurokfű
 it:origano
@@ -76477,6 +76487,11 @@ sv:karamellfyllning
 # mainIngredient:en:glucose syrup
 # ingredient/en:caramel-filling 94 in 3  @2020-12-19
 
+#category/pains-au-chocolat
+fr:pain au chocolat
+carbon_footprint_fr_foodges_ingredient:fr:Viennoiseries pain au chocolat
+carbon_footprint_fr_foodges_value:fr:2.3
+# ingredient/fr:pain-au-chocolat has 17 products in french @2019-03-07
 
 #category/brioches
 en:brioche, Brioches
@@ -77679,17 +77694,13 @@ fr:pain spécial cuit
 # usage:fr:Pain spécial cuit 41,2 % (farine de blé ; eau ; œufs ; beurre ; sucre ; poudre de lait écrémé ; huile de colza ; poudres à lever : E450i, E500ii ; sel ; levure ; gluten de blé ; épaississant : gomme guar)
 
 <en:bread
-en:breadmeal, bread roll
-de:Toastbrot, brotmehl
-fi:paahtoleipä
 fr:pain de mie
-it:pane per toast
 # ingredient/fr:pain-de-mie has 104 products in 4 languages @2019-03-07
 
-<en:breadmeal
+<en:pain de mie
 fr:Pain de mie aux céréales
 
-<en:breadmeal
+<en:pain de mie
 fr:pain de mie complet
 
 <en:special bread
@@ -77698,13 +77709,12 @@ fr:pain spécial bretzel
 <en:special bread
 fr:pain spécial de campagne
 
-<en:special bread
-fr:pain au chocolat
-carbon_footprint_fr_foodges_ingredient:fr:Viennoiseries pain au chocolat
-carbon_footprint_fr_foodges_value:fr:2.3
-# ingredient/fr:pain-au-chocolat has 17 products in french @2019-03-07
-
 # comment:en:the parent en:sesam is here for sesam allergen detection
+
+<en:special bread
+en:bread roll
+de:brötchen
+fi:sämpylä
 
 #<en:sesame
 <en:special bread
