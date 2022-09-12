@@ -19,9 +19,10 @@
               example: front_en
             imgupload_front_en:
               type: string
+              format: binary
               description: |
-                It must be a JPEG or PNG image file. 
-                The image name must be same as the product name.
+                The format and extension must be one of 
+                gif|jpeg|jpg|png|heic.            
                 This field is dynamic and dependent on the value of 
                 imagefield in the request body. It wil be
                 imgupload_the value of the imagefield stated earlier.

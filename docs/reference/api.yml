@@ -64,7 +64,7 @@ paths:
                 $ref: ./responses/add_photo_to_existing_product.yaml
       requestBody:
         content:
-          application/json:
+          multipart/form-data:
             schema:
               $ref: ./requestBodies/add_photo_to_existing_product.yaml
             examples: {}
@@ -82,6 +82,7 @@ paths:
               schema:
                 $ref: ./responses/ocr_on_product.yaml
       description: Open Food Facts uses optical character recognition (OCR) to retrieve nutritional data and other information from the product labels.
+      #TODO: Confirm if all parameters are required, add thier descriptions.
       parameters:
         - schema:
             type: string
@@ -114,6 +115,7 @@ paths:
       summary: Crop a Photo
       operationId: post-cgi-product_image_crop.pl
       responses:
+        #TODO: Document a proper response for photo crop.
         '200':
           description: OK
           content:
