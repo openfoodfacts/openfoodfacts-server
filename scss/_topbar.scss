@@ -17,12 +17,16 @@
     .top-bar-section {
         background:$ristreto;
         .dropdown li:not(.has-form):hover>a:not(.button) {
-            background:$primary-color;
+            background:$ristreto;
+            color:$white;
+        }
+	.dropdown li.has-form:hover>a:not(.button) {
+            background:$cortado;
             color:$white;
         }
         .dropdown li.active:not(.has-form):hover>a:not(.button) {
             
-            color:$black;
+            color:$white;
         }
         ul {
             background:$ristreto;
@@ -112,7 +116,7 @@
         background: inherit;
     }
     #offNav {
-        background-color: $latte;
+        background-color: $cafecreme;
         transition:all 0.3s;
         @media #{$large-up} {
             border-radius:  0 0;
@@ -220,7 +224,7 @@
         }
     }
     .top-bar {
-        background-color: $latte;
+        background-color: $cafecreme;
         .name h2 {
                 font-size:1.2rem;
             @media #{$large-up} {
