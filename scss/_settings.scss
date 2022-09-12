@@ -1128,8 +1128,6 @@ $switch-active-color: $primary-color;
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 // $include-html-top-bar-classes: $include-html-classes;
 // Background color for the top bar
-// $topbar-bg-color: #EFEFEF;
-//$topbar-bg-color: $silver;
 $topbar-bg-color: $ristreto;
 $topbar-bg: $topbar-bg-color;
 // Height and margin
@@ -1163,23 +1161,24 @@ $topbar-button-font-size: .75rem;
 $topbar-button-top: 7px;
 // Style the top bar dropdown elements
 // $topbar-dropdown-bg: $oil;
-$topbar-dropdown-bg: scale-color($topbar-bg-color, $lightness: +50%);
+// $topbar-dropdown-bg: scale-color($topbar-bg-color, $lightness: +50%);
+$topbar-dropdown-bg: $white;
 // $topbar-dropdown-link-color: $white;
 $topbar-dropdown-link-color: $black;
-$topbar-dropdown-link-color-hover: $topbar-link-color-hover;
+$topbar-dropdown-link-color-hover: $white;
 // $topbar-dropdown-link-bg: $oil;
 $topbar-dropdown-link-bg: $topbar-dropdown-bg;
 // $topbar-dropdown-link-bg-hover: $jet;
-$topbar-dropdown-link-bg-hover: $gainsboro;
+$topbar-dropdown-link-bg-hover: $chocolate;
 $topbar-dropdown-link-weight: $font-weight-normal;
 $topbar-dropdown-toggle-size: 5px;
 $topbar-dropdown-toggle-color: $white;
 $topbar-dropdown-toggle-alpha: .4;
-$topbar-dropdown-label-color: $monsoon;
-$topbar-dropdown-label-text-transform: uppercase;
-$topbar-dropdown-label-font-weight: $font-weight-bold;
+$topbar-dropdown-label-color: $black;
+//$topbar-dropdown-label-text-transform: uppercase;
+//$topbar-dropdown-label-font-weight: $font-weight-bold;
 $topbar-dropdown-label-font-size: rem-calc(10);
-$topbar-dropdown-label-bg: $oil;
+$topbar-dropdown-label-bg: $white;
 // Top menu icon styles
 // $topbar-menu-link-transform: uppercase;
 $topbar-menu-link-font-size: rem-calc(13);

@@ -2,41 +2,55 @@
 ////////////////
 //// topbar
 // 
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: $chocolate !important;
+}
+
 .upper-nav {
+    .dropdown {
+    background-color: #fff;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    border-top:none;
+    }
     background-color: $ristreto;
     .userlink {
         line-height:1rem;
     }
     a:hover {
-        background-color:$oceanblue;
+//        background-color:$oceanblue;
     }
     nav {
-        background-color: $ristreto;
+       background-color: $ristreto;
     }
 
     .top-bar-section {
-        background:$ristreto;
+//        background:$ristreto;
         .dropdown li:not(.has-form):hover>a:not(.button) {
-            background:$ristreto;
-            color:$white;
+//            background:$ristreto;
+//            color:$white;
         }
-	.dropdown li.has-form:hover>a:not(.button) {
-            background:$cortado;
-            color:$white;
+        .dropdown li.has-form {
+            background:$white;
+        }
+	.dropdown li:hover>a:not(.button) {
+            background:$white;
+//            color:$white;
         }
         .dropdown li.active:not(.has-form):hover>a:not(.button) {
             
-            color:$white;
+//            color:$white;
         }
         ul {
-            background:$ristreto;
+//           background:$ristreto;
             li {
                 background:$ristreto;
                 &.active {
                     > a {
-                        background:$black;
+//                       background:$black;
                         &:hover {
-                            background:$black;
+//                            background:$black;
                         }
                     }
                 }
