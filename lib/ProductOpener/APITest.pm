@@ -153,7 +153,6 @@ sub construct_test_url ($target, $prefix) {
 	}
 
 	my $url = "http://${prefix}.${link}${target}";
-	print $url;
 	return $url;
 }
 
