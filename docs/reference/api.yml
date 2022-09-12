@@ -53,8 +53,6 @@ paths:
       operationId: get-cgi-product_image_upload.pl
       description: |
         Photos are source and proof of data. 
-        When you upload an image to Open Food Facts, 
-        the image is stored as is. 
         The first photo uploaded for a product is 
         auto-selected as the product’s “front” photo.'
       responses:
@@ -111,6 +109,26 @@ paths:
           name: ocr_engine
           description: Open Food Facts uses optical character recognition (OCR) to retrieve nutritional data and other information from the product labels.
           required: true
+  /cgi/product_image_crop.pl:
+    post:
+      summary: Crop a Photo
+      operationId: post-cgi-product_image_crop.pl
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+      description: |
+        Cropping is only relevant for editing existing products. You cannot crop an image the first time you upload it to the system.
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ./requestBodies/crop_a_photo.yaml
 components:
   schemas:
     Product:
