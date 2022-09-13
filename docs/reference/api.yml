@@ -81,8 +81,8 @@ paths:
             application/json:
               schema:
                 $ref: ./responses/ocr_on_product.yaml
-      description: Open Food Facts uses optical character recognition (OCR) to retrieve nutritional data and other information from the product labels.
-      #TODO: Confirm if all parameters are required, add thier descriptions.
+      description: |
+        Open Food Facts uses optical character recognition (OCR) to retrieve nutritional data and other information from the product labels.
       parameters:
         - schema:
             type: string
@@ -112,10 +112,9 @@ paths:
           required: true
   /cgi/product_image_crop.pl:
     post:
-      summary: Crop a Photo
+      summary: Crop A Photo
       operationId: post-cgi-product_image_crop.pl
       responses:
-        #TODO: Document a proper response for photo crop.
         '200':
           description: OK
           content:
@@ -131,6 +130,46 @@ paths:
           application/json:
             schema:
               $ref: ./requestBodies/crop_a_photo.yaml
+    get:
+      summary: Rotate A Photo
+      operationId: get-cgi-product_image_crop.pl
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./responses/rotate_a_photo.yaml
+      description: |
+        Although we recommend rotating photos manually and uploading a new version of the image, the OFF API allows you to make api calls to automate this process.
+        You can rotate existing photos by setting the angle to 90º, 180º, or 270º clockwise.
+      parameters:
+        #TODO: Describe these parameters
+        - schema:
+            type: string
+            example: '3266110700910'
+          in: query
+          name: code
+          description: Barcode of the product
+          required: true
+        - schema:
+            type: string
+            example: nutrition_fr
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+            example: '1'
+          in: query
+          name: imgid
+          required: true
+        - schema:
+            type: string
+            example: '90'
+          in: query
+          name: angle
+          required: true
 components:
   schemas:
     Product:
