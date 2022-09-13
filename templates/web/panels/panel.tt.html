@@ -10,9 +10,9 @@
 >
     [% IF panel.title_element.defined %]
         [% IF (panel.type == "card") %]
-            <h3 class="cpanel_title_[% panel.type %] text-bold">[% panel.title_element.title %]</h2>
-        [% ELSE %]
-            <h4 class="cpanel_title_[% panel.type %]">[% panel.title_element.title %]</h3>
+            <h2 class="panel_title_[% panel.type %] text-medium">[% panel.title_element.title %]</h2>
+        [% ELSE %]        
+            <h3 class="panel_title_[% panel.type %]">[% panel.title_element.title %]</h3>
         [% END %]
     [% END %]
 [% ELSE %]
@@ -105,7 +105,7 @@
                 [% END %]
 
                 [% IF panel_group_element.title.defined %]
-                    <h3>[% panel_group_element.title %]</h3>
+                    <h3 [% IF panel_group_element.panel_group_id.defined %]id="panel_group_[% panel_group_element.panel_group_id | replace(':','-') %]"[% END %] class="panel_title_[% panel.type %][% IF panel_group_element.type == 'subcard' %] text-medium[% END %]">[% panel_group_element.title %]</h3>
                 [% END %]
                 [% FOREACH panel_id IN panel_group_element.panel_ids %]
                     [% INCLUDE web/panels/panel.tt.html panel_id = panel_id %]

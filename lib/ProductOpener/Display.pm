@@ -4663,18 +4663,32 @@ sub add_params_to_query($request_ref, $query_ref) {
 }
 
 
-=head2 initialize_knowledge_panels_options( $knowledge_panels_options_ref )
+=head2 initialize_knowledge_panels_options( $knowledge_panels_options_ref, $request_ref )
 
 Initialize the options for knowledge panels from parameters.
 
 =cut
 
-sub initialize_knowledge_panels_options($knowledge_panels_options_ref) {
+sub initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref) {
 
 	# Activate physical activity knowledge panel only when specified
 	if (single_param("activate_knowledge_panel_physical_activities")) {
 		$knowledge_panels_options_ref->{activate_knowledge_panel_physical_activities} = 1;
 	}
+
+	# Specify if we knowledge panels are requested from the app or the website
+	# in order to allow different behaviours (e.g. showing ingredients before nutrition on the web)
+	# possible values: "web", "app"
+	my $knowledge_panels_client = single_param("knowledge_panels_client");
+	if ((not defined $knowledge_panels_client) or (($knowledge_panels_client ne "web")) and ($knowledge_panels_client ne "app")) {
+		# Default to app mode
+		$knowledge_panels_client = 'app';
+		if (not defined $request_ref->{api}) {
+			$knowledge_panels_client = "web";
+		}
+	}
+	$knowledge_panels_options_ref->{knowledge_panels_client} = $knowledge_panels_client;
+
 	return;
 }
 
@@ -4822,7 +4836,7 @@ sub customize_response_for_product($request_ref, $product_ref) {
 		}
 		# Knowledge panels in the $lc language
 		elsif ($field eq "knowledge_panels") {
-			initialize_knowledge_panels_options($knowledge_panels_options_ref);
+			initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref);
 			create_knowledge_panels($product_ref, $lc, $cc, $knowledge_panels_options_ref);
 			$customized_product_ref->{$field} = $product_ref->{"knowledge_panels_" . $lc};
 		}
@@ -7418,7 +7432,7 @@ JS
 
 	# Activate knowledge panels for all users
 
-	initialize_knowledge_panels_options($knowledge_panels_options_ref);
+	initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref);
 	create_knowledge_panels($product_ref, $lc, $cc, $knowledge_panels_options_ref);
 	$template_data_ref->{environment_card_panel} = display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "environment_card");
 	$template_data_ref->{health_card_panel} = display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "health_card");
