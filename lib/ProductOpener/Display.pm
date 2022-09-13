@@ -1336,6 +1336,7 @@ sub display_error($error_message, $status) {
 		status => $status,
 		page_type => "error",
 	});
+	return;
 }
 
 
