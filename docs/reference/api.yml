@@ -17,6 +17,8 @@ info:
 servers:
   - url: 'https://world.openfoodfacts.org'
     description: prod
+  - description: dev
+    url: 'https://off:off@world.openfoodfacts.net'
 paths:
   '/api/v2/product/{barcode}':
     get:
@@ -170,6 +172,26 @@ paths:
           in: query
           name: angle
           required: true
+  /cgi/product_jqm2.pl:
+    post:
+      summary: Add a New Product
+      #TODO: Explain auth in openapi and extensively in gitbooks.
+      operationId: post-cgi-product_jqm2.pl
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                #TODO: Explain the different response fields
+                $ref: ./responses/add_new_product.yaml
+      parameters: []
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              #TODO: Include all possible request body like comment, brand , label etc. Are they all required? 
+              $ref: ./requestBodies/add_new_photo.yaml
 components:
   schemas:
     Product:
