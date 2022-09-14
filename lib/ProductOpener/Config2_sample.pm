@@ -77,15 +77,13 @@ $crowdin_project_key = '';
 # enable an in-site robotoff-asker in the product page
 $robotoff_url = '';
 
-<<<<<<< HEAD
 # Set this to your instance of https://github.com/openfoodfacts/openfoodfacts-events
 # enable creating events for some actions (e.g. when a product is edited)
 $events_url = '';
 $events_username = '';
 $events_password = '';
-=======
+
 $redis_url = '';
->>>>>>> 1e7d429684 (Connect to Redis)
 
 %server_options = (
 
