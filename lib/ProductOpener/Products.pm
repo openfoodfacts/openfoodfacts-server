@@ -2420,6 +2420,11 @@ sub index_product($product_ref)
 }
 
 sub index_search_service($product_ref) {
+	if ($ProductOpener::Config2::redis_url eq "")
+	{
+		$log->warn("Redis URL not provided for search indexing", { error => $@ }) if $log->is_warn();
+		return;
+	}
 	# Now send the barcode to Redis so that it can be indexed
 	eval {
 		my $redis_client = Redis::Client->new(host => $ProductOpener::Config2::redis_url);
