@@ -170,7 +170,7 @@ $template_data_ref->{original_link} = $original_link;
 $template_data_ref->{attribution} = $attribution;
 
 my $html;
-process_template('product_image.tt.html', $template_data_ref, \$html) or $html = '';
+process_template('web/pages/product/includes/product_image.tt.html', $template_data_ref, \$html) or $html = '';
 $html .= "<p>" . $tt->error() . "</p>";
 
 $request_ref->{title} = $alt;
