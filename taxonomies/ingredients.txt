@@ -19,7 +19,7 @@ stopwords:en:contains, contain, from, with, produced with, with added, minimum,i
 stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
 stopwords:fi:sisältää,muun muassa,valio, koskenlaskija, snellmanin, jossa, noin, käymisen aikana muodostuva
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout, sachet
-stopwords:hr:sastojci
+stopwords:hr:sastojci, i, u različitim omjerima
 stopwords:hu:tartalmaz, változó arányban, min, zsírtartalom, összetevő, összetétel, amelyből, amiből
 stopwords:id:mengandung
 stopwords:is:úr
@@ -382,7 +382,7 @@ es:lecitina de girasol, lecitinas de girasol
 et:päevalilleletsitiin, päevalille letsitiin
 fi:auringonkukkalesitiini, auringonkukkalesitiiniä
 fr:lécithine de tournesol
-hr:suncokretov lecitin
+hr:suncokretov lecitin, E322 suncokretov lecitin
 hu:napraforgó lecitin
 it:lecitina girasole, lecitina di girasole, lecitine di girasole
 lt:saulėgrąžu lecitinas, saulėgrąžų lecitinai
@@ -13411,7 +13411,7 @@ et:taimsed rasvad ja õlid
 fi:kasviöljy ja -rasva, kasviöljyt ja -rasvat
 fr:huiles et graisses végétales, graisses et huiles végétales, graisse et huile végétales, huiles et matières grasses végétales, huile et graisses végétales, huile et graisse végétale, graisse et huiles végétales, huile et graisse végétales, graisses et huile végétales, huiles végétales hydrogénées et non hydrogénées
 he:שומן ושמן מן הצומח
-hr:Biljna ulja i masnoće
+hr:biljna ulja i masnoće, biljna ulja i masti
 hu:növényi olaj és zsír
 it:oli e grassi vegetali, olio e grasso vegetale
 ja:植物油脂
@@ -14129,6 +14129,7 @@ de:gehärtetes Pflanzenfett
 es:Grasa vegetal hidrogenada
 fi:kovetettu kasvirasva, hydrogenoitu kasvirasva
 fr:graisse végétale hydrogénée, matière grasse végétale hydrogénée, graisses végétales hydrogénées
+hr:djelomično hidrogenirane masti
 hu:hidrogénezett növényi zsír
 it:Grasso vegetale idrogenato
 pt:gordura vegetal hidrogenada
@@ -14376,7 +14377,7 @@ es:palma
 fi:palmu
 fr:palme
 he:דקל
-hr:palma, palmino
+hr:palma, palmino, palmine
 hu:pálma
 it:palma
 ja:パーム
@@ -18880,7 +18881,7 @@ et:lõhna- ja maitseaine, lõhna- ja maitseained, aroomiaine, lõhnaained
 fi:aromi, aromit, aromeja, aromiaine, aromiaineet, aromiaineita, makuaineet
 fr:arôme, arômes
 he:חומרי טעם
-hr:aroma
+hr:aroma, arome
 hu:aroma, aromák
 is:bragðefni
 it:aroma, aromi
@@ -24749,7 +24750,7 @@ gu:મકાઈ
 ha:Masara
 he:תירס
 hi:मक्का
-hr:Kukuruz
+hr:kukuruz, kukuruzno
 ht:Mayi
 hu:kukorica, tengeri, törökbúza, málé
 hy:Եգիպտացորեն
@@ -30941,7 +30942,7 @@ ga:soighe
 gl:Soia
 gn:Sóha
 he:סויה
-hr:Soja, soju
+hr:soja, soju, sojino
 hu:szója, szójatej, szójaliszt, szójából, szóját
 ia:soya
 id:Kedelai
@@ -50465,7 +50466,7 @@ de:Raps
 es:Colza,nabina
 fi:rapsi, rapsinsiemenet
 fr:Colza
-hr:repice
+hr:repice, repičino
 it:Colza
 ja:菜種
 la:Brassica napus
