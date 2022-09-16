@@ -15,7 +15,7 @@
 	<robotoff-asker url='[% robotoff_url %]' code='[% code %]' lang='[% lc %]' style='display: none;' caption-yes='[% lang("button_caption_yes") %]' caption-no='[% lang("button_caption_no") %]' caption-skip='[% lang("button_caption_skip") %]'></robotoff-asker>
 [% END %]
 
-<a href="#upNav" class="back-to-top scrollto">
+<a href="#upNav" class="back-to-top scrollto button">
     <span class="material-symbols-outlined size-20 ">
         arrow_upward
     </span>
@@ -80,23 +80,12 @@
         <div class="row h-space-normal">
             <div class="large-12">
                <nav id="navbar" class="navbar h-space-tiny">
-                    <ul class="inline-list" style="margin-bottom:0">
+                    <ul class="inline-list">
                         <li><a class="nav-link scrollto button small round white-button" href="#product"><span>Product</span></a></li>
                         <li><a class="nav-link scrollto button small round white-button" href="#match"><span>Your criteria</span></a></li>
-                        <li><a href="#panel_health_card" data-dropdown="hoverHeal" data-options="is_hover:true; hover_timeout:500" class="nav-link scrollto button small round white-button">Health</a>
-                            <ul id="hoverHeal" class="f-dropdown" data-dropdown-content>
-                                <li><a class="nav-link scrollto " href="#panel_group_ingredients"><span>Ingredients</span></a></li>
-                                <li><a class="nav-link scrollto " href="#panel_group_nutrition"><span>Nutrition</span></a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#panel_environment_card" data-dropdown="hoverEnv" data-options="is_hover:true; hover_timeout:500" class="nav-link scrollto button small round white-button">Environment</a>
-                            <ul id="hoverEnv" class="f-dropdown" data-dropdown-content>
-                                <li><a class="nav-link scrollto" href="#panel_ecoscore"><span>Eco-Score</span></a></li>
-                                <li><a class="nav-link scrollto" href="#panel_group_packaging_recycling"><span>Packaging</span> </a></li>
-                            </ul>
-                        </li>
+                        <li><a class="nav-link scrollto button small round white-button" href="#health"><span>Health</span></a></li>
+                        <li><a class="nav-link scrollto button small round white-button" href="#environment"><span>Environment</span></a></li>
                     </ul>
-                
                 </nav><!-- .navbar -->
             </div> 
         </div>
