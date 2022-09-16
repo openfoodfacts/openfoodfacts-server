@@ -71372,6 +71372,12 @@ ciqual_food_code:en:28451
 ciqual_food_name:en:Pork, loin, roasted/baked
 ciqual_food_name:fr:Porc, échine, rôtie/cuite au four
 
+<en:Pork meat
+fr:échine de porc
+agribalyse_food_code:en:28302
+ciqual_food_code:en:28302
+ciqual_food_name:fr:Porc, échine, crue
+
 <en:Pork
 <en:Meat preparations
 en:Rolled escalope of pork with pistachios
@@ -72364,7 +72370,7 @@ protected_name_type:en: pgi
 origins:en: en:France
 #wikidata:en:
 
-<en:Ducks
+<en:Duck breasts
 fr:aiguillettes de canard
 
 <en:Ducks
@@ -88692,6 +88698,14 @@ ciqual_food_code:en:20200
 ciqual_food_name:en:Iceberg lettuce, raw
 ciqual_food_name:fr:Laitue iceberg, crue
 
+<en:Lettuces
+fr:Batavia
+agribalyse_proxy_food_code:en:20200
+agribalyse_proxy_food_name:en:Iceberg lettuce, raw
+agribalyse_proxy_food_name:fr:Laitue iceberg, crue
+ciqual_food_code:en:20123
+ciqual_food_name:fr:Batavia, crue
+
 # description:en:The ONION (Allium cepa L.), also known as the bulb onion or common onion, is a vegetable that is the most widely cultivated species of the genus Allium. They are usually served cooked, as a vegetable or part of a prepared savoury dish, but can also be eaten raw or used to make pickles or chutneys.
 
 <en:Culinary plants
@@ -89292,6 +89306,14 @@ agribalyse_food_code:en:20136
 ciqual_food_code:en:20136
 ciqual_food_name:en:Squash, melonnette jaspée from Vendée, pulp, raw
 ciqual_food_name:fr:Courge melonnette, pulpe, crue
+
+<en:Pumpkins
+en:Pattypan squash
+fr:Pâtisson, Patisson
+de:Patisson
+wikidata:en:Q876892
+agribalyse_proxy_food_code:en:20136
+agribalyse_proxy_food_name:fr:Courge melonnette, pulpe, crue
 
 <en:Pumpkins
 <en:Cooked vegetables
