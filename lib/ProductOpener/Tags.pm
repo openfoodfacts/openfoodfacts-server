@@ -3734,7 +3734,7 @@ sub init_emb_codes {
 		$emb_codes_cities{'FREMB' . $dep . $com } = $td[$th{NCCENR}] . " ($departements{$dep}, France)";
 		#print STDERR 'FR' . $dep . $com. ' =  ' . $td[$th{NCCENR}] . " ($departements{$dep}, France)\n";
 
-		$cities{get_string_id_for_lang("no_language", $td[$th{NCCENR}] . " ($departements{$dep}, France)", 1)} = $td[$th{NCCENR}] . " ($departements{$dep}, France)";
+		$cities{get_string_id_for_lang("no_language", $td[$th{NCCENR}] . " ($departements{$dep}, France)")} = $td[$th{NCCENR}] . " ($departements{$dep}, France)";
 	}
 	close($IN);
 

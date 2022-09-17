@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
@@ -48,8 +47,8 @@ use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();
 
-my $type = param('type') || 'upload';
-my $action = param('action') || 'display';
+my $type = single_param('type') || 'upload';
+my $action = single_param('action') || 'display';
 
 my $title = lang("import_photos_title");
 my $html = '';

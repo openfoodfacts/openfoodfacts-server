@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -39,8 +38,8 @@ use Log::Any qw($log);
 
 my @user_groups = qw(producer database app bot moderator pro_moderator);
 
-my $type = param('type') || 'add';
-my $action = param('action') || 'display';
+my $type = single_param('type') || 'add';
+my $action = single_param('action') || 'display';
 
 # Passing values to the template
 my $template_data_ref = {};
@@ -50,9 +49,9 @@ my $template_data_ref = {};
 # function does not try to authenticate the user (which does not exist yet) with that password
 
 my $new_user_password;
-if (($type eq "add") and (defined param('prdct_mult'))) {
+if (($type eq "add") and (defined single_param('prdct_mult'))) {
 
-	$new_user_password = param('password');
+	$new_user_password = single_param('password');
 	param("password", "");
 }
 
@@ -63,9 +62,9 @@ my $request_ref = ProductOpener::Display::init_request();
 
 my $userid = $User_id;
 
-if (defined param('userid')) {
+if (defined single_param('userid')) {
 
-	$userid = param('userid');
+	$userid = single_param('userid');
 
 	# The userid looks like an e-mail
 	if ($admin and ($userid =~ /\@/)) {
@@ -105,7 +104,7 @@ my @errors = ();
 if ($action eq 'process') {
 
 	if ($type eq 'edit') {
-		if (param('delete') eq 'on') {
+		if (single_param('delete') eq 'on') {
 			if ($admin) {
 				$type = 'delete';
 			}
@@ -143,8 +142,8 @@ if ($action eq 'display') {
 	# passed in a form to open a session.
 	# e.g. when a non-logged user clicks on the "Edit product" button
 
-	if (($type eq "add") and (defined param("user_id"))) {
-		my $user_info = remove_tags_and_quote(param('user_id'));
+	if (($type eq "add") and (defined single_param("user_id"))) {
+		my $user_info = remove_tags_and_quote(single_param('user_id'));
 		$user_info =~ /^(.+?)@/;
 		if ( defined ($1) ){
 			$user_ref->{email} = $user_info;

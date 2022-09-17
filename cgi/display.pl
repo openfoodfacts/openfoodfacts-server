@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -44,10 +43,10 @@ use Apache2::Const ();
 # CGI.pm thus adds somepath? at the start of the name of the first parameter.
 # we need to remove it so that we can use the CGI.pm param() function to later access the parameters
 
-my @params = param();
+my @params = multi_param();
 if (defined $params[0]) {
 	my $first_param = $params[0];
-	my $first_param_value = param($first_param);
+	my $first_param_value = single_param($first_param);
 	$log->debug("replacing first param to remove path from parameter name", { first_param => $first_param, $first_param_value => $first_param_value });
 	CGI::delete($first_param);
 	$first_param =~ s/^(.*?)\?//;
@@ -72,7 +71,7 @@ if ( ((defined $server_options{private_products}) and ($server_options{private_p
 }
 
 if ((defined $request_ref->{api}) and (defined $request_ref->{api_method})) {
-	if (param("api_method") eq "search") {
+	if (single_param("api_method") eq "search") {
 		# /api/v0/search
 		# FIXME: for an unknown reason, using display_search_results() here results in some attributes being randomly not set
 		# because of missing fields like nova_group or nutriscore_data, but not for all products.
@@ -80,15 +79,15 @@ if ((defined $request_ref->{api}) and (defined $request_ref->{api_method})) {
 		# display_search_results($request_ref);
 		display_tag($request_ref);
 	}
-	elsif (param("api_method") =~ /^preferences(_(\w\w))?$/) {
+	elsif (single_param("api_method") =~ /^preferences(_(\w\w))?$/) {
 		# /api/v0/preferences or /api/v0/preferences_[language code]
 		display_preferences_api($request_ref, $2);
 	}	
-	elsif (param("api_method") =~ /^attribute_groups(_(\w\w))?$/) {
+	elsif (single_param("api_method") =~ /^attribute_groups(_(\w\w))?$/) {
 		# /api/v0/attribute_groups or /api/v0/attribute_groups_[language code]
 		display_attribute_groups_api($request_ref, $2);
 	}
-	elsif (param("api_method") eq "taxonomy") {
+	elsif (single_param("api_method") eq "taxonomy") {
 		display_taxonomy_api($request_ref);
 	}	
 	else {
@@ -97,8 +96,8 @@ if ((defined $request_ref->{api}) and (defined $request_ref->{api_method})) {
 	}
 }
 elsif (defined $request_ref->{search}) {
-	if (param("download") and param("format")) {
-		$request_ref->{format} = param('format');
+	if (single_param("download") and single_param("format")) {
+		$request_ref->{format} = single_param('format');
 		search_and_export_products($request_ref,{}, undef);
 	}
 	else {
@@ -117,7 +116,7 @@ elsif (defined $request_ref->{mission}) {
 elsif (defined $request_ref->{product}) {
 	# if we are passed the field parameter, make the request an API request
 	# this is so that we can easily add ?fields=something at the end of a product url
-	if (defined param("fields")) {
+	if (defined single_param("fields")) {
 		display_product_api($request_ref);
 	}
 	else {

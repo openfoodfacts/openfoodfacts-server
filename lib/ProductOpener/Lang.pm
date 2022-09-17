@@ -35,8 +35,7 @@ through the lang() and lang_sprintf() functions.
 
 package ProductOpener::Lang;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 BEGIN
@@ -97,9 +96,7 @@ This function returns a non-breaking space character for those languages.
 
 =cut
 
-sub separator_before_colon($) {
-
-	my $l = shift;
+sub separator_before_colon($l) {
 
 	if ($l eq 'fr') {
 		return "\N{U+00A0}";
@@ -124,9 +121,7 @@ In the .po translation files, we use the msgctxt field for the string id.
 
 =cut
 
-sub lang($) {
-
-	my $stringid = shift;
+sub lang($stringid) {
 
 	my $short_l = undef;
 	if ($lang =~ /_/) {
@@ -175,9 +170,7 @@ Arguments to be interpolated.
 
 =cut
 
-sub lang_sprintf() {
-
-	my $stringid = shift;
+sub lang_sprintf($stringid) {
 
 	my $translation = lang($stringid);
 	if (defined $translation) {
@@ -216,10 +209,7 @@ Reference to a hash that contains values for the variables that will be replaced
 
 =cut
 
-sub f_lang($$) {
-
-	my $stringid = shift;
-	my $variables_ref = shift;
+sub f_lang($stringid, $variables_ref) {
 
 	return f_lang_in_lc($lc, $stringid, $variables_ref);
 }
@@ -254,11 +244,7 @@ Reference to a hash that contains values for the variables that will be replaced
 
 =cut
 
-sub f_lang_in_lc($$$) {
-
-	my $target_lc = shift;
-	my $stringid = shift;
-	my $variables_ref = shift;
+sub f_lang_in_lc($target_lc, $stringid, $variables_ref) {
 
 	my $translation = $Lang{$stringid}{$target_lc};
 	if (defined $translation) {
@@ -289,10 +275,7 @@ In the .po translation files, we use the msgctxt field for the string id.
 
 =cut
 
-sub lang_in_other_lc($$) {
-
-	my $target_lc = shift;
-	my $stringid = shift;	
+sub lang_in_other_lc($target_lc, $stringid) {
 
 	my $short_l = undef;
 	if ($target_lc =~ /_/) {
@@ -427,10 +410,8 @@ my @debug_taxonomies = ("categories", "labels", "additives");
 # - load .po files
 # - compute missing values by assigning English values
 
-sub build_lang($) {
-
-	# Hash of languages with translations initialized from the languages taxonomy by Tags.pm
-	my $Languages_ref = shift;
+sub build_lang($Languages_ref) {
+	# $Languages_ref is a hash of languages with translations initialized from the languages taxonomy by Tags.pm
 
 	# Load the strings from the .po files
 	# UI strings, non-Roman characters can be used

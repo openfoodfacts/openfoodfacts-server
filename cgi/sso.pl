@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -37,8 +36,8 @@ use JSON::PP;
 
 use ProductOpener::Lang qw/:all/;
 
-my $user_id = param('user_id');
-my $user_session = param('user_session');
+my $user_id = single_param('user_id');
+my $user_session = single_param('user_session');
 
 my $response_ref = check_session($user_id, $user_session);
 

@@ -19,7 +19,7 @@ stopwords:en:contains, contain, from, with, produced with, with added, minimum,i
 stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
 stopwords:fi:sisältää,muun muassa,valio, koskenlaskija, snellmanin, jossa, noin, käymisen aikana muodostuva
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout, sachet
-stopwords:hr:sastojci
+stopwords:hr:sastojci, i, u različitim omjerima
 stopwords:hu:tartalmaz, változó arányban, min, zsírtartalom, összetevő, összetétel, amelyből, amiből
 stopwords:id:mengandung
 stopwords:is:úr
@@ -334,7 +334,7 @@ et:sojaletsitiin
 fi:soijalesitiini, soijalesitiiniä, soijalesitiinit, E322 soijasta
 fr:lécithine de soja, lécithines de soja, émulsifiant lécithines de soja, lécithine de soja e322
 he:לציטין סויה
-hr:sojin lecitin, emulgator sojin lecitin
+hr:sojin lecitin, emulgator sojin lecitin, sojin lecithin, emulgator soja lecitin
 hu:szójalecitin, szójalecitinek
 is:sojalesitin
 it:lecitina di soia, lecitine di soia
@@ -382,7 +382,7 @@ es:lecitina de girasol, lecitinas de girasol
 et:päevalilleletsitiin, päevalille letsitiin
 fi:auringonkukkalesitiini, auringonkukkalesitiiniä
 fr:lécithine de tournesol
-hr:suncokretov lecitin
+hr:suncokretov lecitin, E322 suncokretov lecitin
 hu:napraforgó lecitin
 it:lecitina girasole, lecitina di girasole, lecitine di girasole
 lt:saulėgrąžu lecitinas, saulėgrąžų lecitinai
@@ -392,7 +392,7 @@ nl:zonnebloemlecithine, zonnebloem-lecithine
 nn:solsikkelecithin
 pl:lecytyny ze słonecznika, lecytyna słonecznika, lecytyna słonecznikowa
 pt:lecitina de girassol
-ro:lecitina de florarea-soarelui
+ro:lecitina de florarea-soarelui, lecitine din floarea soarelui
 ru:лецитин подсолнечный
 sk:slnečnicový lecitín
 sv:solroslecitin, solroslecithin
@@ -804,6 +804,7 @@ it:amido di patate modificiate, amido modificato di patata
 nb:modifisert potetstivelse
 nl:gemodificeerd aardappelzetmeel
 pt:amido modificado de batata, amido de batata modificado
+ro:amidon modificat din cartofi
 ru:модифицированный крахмал
 sv:modifierad potatisstärkelse
 # fr:fécule-de-pomme-de-terre-modifiée has 40 products in 3 languages @2018-10-15
@@ -880,7 +881,7 @@ vegetarian:en:maybe
 
 <en:coagulating enzyme
 en:microbial coagulating enzyme, microbial enzyme
-bg:микробиологичен ензим, сирищен ензим
+bg:микробиологичен ензим, сирищен ензим, сирище с микробиален произход
 de:mikrobieller Labaustauschstoff
 es:coagulante de leche microbiano, Encima coagulate microbiana
 fr:enzyme coagulante microbienne, enzyme coagulante d'origine microbienne, coagulant microbien
@@ -922,7 +923,7 @@ vegetarian:en:maybe
 
 <en:microbial culture
 en:lactic ferments, lactic starters, lactic cultures, live yoghurt bacteria cultures, live yoghurt cultures, culture of acid-lactic bacteria, lactic acid bacteria, yogurt lactic ferment, cheese culture, cheese cultures, yogurt ferments
-bg:Млечни ферментации, млечни закваски, млечни култури, закваски за кисело мляко, закваска за кисело мляко
+bg:Млечни ферментации, млечна закваска, млечни закваски, млечни култури, закваски за кисело мляко, закваска за кисело мляко
 ca:Ferments làctics
 da:yoghurtkultur, starterkultur, mælkesyrekultur, ostekulturer
 de:Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur, Milchsäurebakterien, Käsekultur, Milchsäurebakterienkulturen, Joghurtkulturen, Säuerungskulturen, milchsauer vergoren, Milchsäuerungskulturen, Milchsäurekultur, Käsereikulturen, Starterkulturen, Biogarde-Markenkulturen
@@ -931,6 +932,7 @@ es:fermentos lácticos, fermentos lácteos, cultivos lácticos, ferments del yog
 et:juuretis
 fi:maitohappokäyte, maitohappokannat, maitohappoviljelmä, elävä jogurttiviljelmä, elävä jogurttibakteeriviljelmä, elävät jogurttibakteeriviljelmät, maitohappobakteeriviljelmä, maitohappobakteeriviljelmät, maitohappobakteerit, maitohappobakteerikanta, maitohappobakteerikannat, juustoviljelmä, juustoviljelmät, hapankulttuuri, jogurttihapate, maitohappobakteeri, käynnistin kulttuuri
 fr:ferment lactique, ferments lactique, ferments lactiques, ferment lactiques, culture de bactéries lactiques, cultures lactiques, ferment lactique du yaourt, ferments lactiques du yaourt, ferments vivants du yaourt
+hr:mljekarske kulture
 hu:tejsavbaktériumok, tejsavbaktérium, starterkultúra, starter kultúra, tejsavbaktérium-tenyészet, tejsavbaktérium kultúra, joghurtkultúra, joghurtkultúrák, sajtkultúra, sajtkultúrák
 it:fermenti lattici, coltura di batteri acidolattici, fermenti lattici vivi, fermenti latici vivi, fermenti lattici dello yogurt
 nb:melkesyrekultur, starterkultur, yoghurtkultur, yoghurtbakterier, syrekultur
@@ -1436,7 +1438,7 @@ gd:Binid
 gl:Callo
 gu:Reenet
 he:אנזים הגבנה
-hr:Sirište
+hr:sirište, sirilo
 hu:Oltóenzim, oltóanyag
 id:Rennet
 is:ostahleypir
@@ -2238,7 +2240,7 @@ gn:Kamby
 gu:દૂધ
 gv:Bainney
 he:חלב
-hr:Mlijeko
+hr:mlijeko, mlijeko tekuća
 ht:Lèt
 hu:Tej, Tejet
 hy:Կաթ
@@ -2417,6 +2419,7 @@ es:leche pasteurizada
 et:pastöriseeritud piim
 fi:pastöroitu maito, pastöroidusta maidosta
 fr:lait pasteurisé
+hr:pasterizirano mlijeko
 hu:pasztőrözött tej, pasztörizált tej
 it:latte pastorizzato
 nb:pasteurisert melk
@@ -2918,6 +2921,7 @@ de:Kuhmilch
 es:leche de vaca
 fi:lehmänmaito
 fr:lait de vache
+hr:kravlje mlijeko
 hu:tehéntej
 it:latte di mucca, latte vaccino
 ja:牛乳
@@ -3667,7 +3671,7 @@ et:lõssipulber, lössipulber, kooritud piimapulber
 fi:rasvaton maitojauhe, rasvatonta maitojauhetta, rasvatonmaitojauhe
 fr:lait en poudre écrémé, lait écrémé en poudre, poudre de lait écrémé
 he:אבקת חלב רזה
-hr:obrano mlijeko u orahu
+hr:obrano mlijeko u prahu
 hu:sovány tejpor
 is:undanrennuduft
 it:latte scremato in polvere, latte in polvere scremato
@@ -4069,7 +4073,7 @@ de:Vollmilchjoghurt, Joghurt mit natürlichem Fettgehalt, Joghurt aus Vollmilch
 es:yogur de leche entera
 fi:täysmaitojogurtti
 fr:yogourt au lait entier, yaourt au lait entier
-nl:volle melk yoghurt
+nl:volle yoghurt, volle melk yoghurt
 
 <en:yogurt
 de:Joghurtpulver
@@ -4153,6 +4157,7 @@ fr:yaourt britannique à faible teneur en matières grasses
 #comment:en:There is a lot of discussion on this subject https://en.wikipedia.org/wiki/Talk:Strained_yogurt. Many marketing issues, so lets just follow what is found as ingredients and not merge them.
 <en:yogurt
 en:greek yogurt
+bg:цедено мляко
 de:griechischer Joghurt
 es:yogur griego, yogurt griego
 fr:yaourt grec
@@ -4357,6 +4362,7 @@ es:suero de leche en polvo, lactoserum en polvo, suero en polvo
 et:vadakupulber
 fi:herajauhe, herajauhetta, herajauho
 fr:lactosérum en poudre, petit-lait en poudre, sérum de lait en poudre, poudre de lactosérum
+hr:sirutka u prahu
 hu:tejsavópor, savópor, étkezési savópor
 is:mysuduft
 it:siero di latte in polvere, siero di latte polvere
@@ -4416,6 +4422,7 @@ es:suero de leche azucarado en polvo, lactosuero azucarado en polvo
 et:magus vadakupulber
 fi:makea herajauhe, makeutettu herajauhe
 fr:lactosérum doux en poudre, poudre de lactosérum sucré, petit-lait doux en poudre
+hr:slatka sirutka u prahu
 it:siero di latte dolce in polvere
 nl:Zoete weipoeder
 pl:słodka serwatka w proszku
@@ -4850,6 +4857,7 @@ fa:خامه ترش
 fi:Hapankerma
 fr:Crème aigre, crème sure, crème acidulée
 he:שמנת חמוצה
+hr:kiselo vrhnje
 hu:Tejföl
 id:Krim asam
 is:Sýrður rjómi
@@ -4922,6 +4930,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Smetana_(dairy_product)
 
 <en:Sour cream
 en:sour cream powder
+bg:заквасена сметана на прах
 de:Sauerrahmpulver
 es:nata agria en polvo
 fi:hapankermajauhe
@@ -8305,7 +8314,7 @@ ga:Vitimín
 gl:Vitamina
 he:ויטמין
 hi:विटामिन
-hr:vitamin
+hr:vitamin, vitamini
 ht:Vitamin
 hu:Vitaminok, vitamin
 hy:Վիտամին
@@ -8535,7 +8544,7 @@ ga:Ribeaflaivin
 gl:Riboflavina, Vitamina B2
 he:ויטמין B2
 hi:रिबोफ्लेविन, विटामिन बी२
-hr:Riboflavin, Vitamin B2
+hr:Riboflavin, Vitamin B2, B2
 hu:Riboflavin, B2-vitamin
 hy:Վիտամին B2
 id:Riboflavin, Vitamin B2
@@ -8626,7 +8635,7 @@ ga:Aigéad nicitíneach
 gl:Niacina, Vitamina B3
 he:ויטמין B3
 hi:नाइयासिन
-hr:Niacin, Vitamin B3
+hr:Niacin, Vitamin B3, B3
 hu:Niacin, B3-vitamin, PP-vitamin, B3
 hy:Վիտամին B3
 id:Niasin, Vitamin B3
@@ -9196,7 +9205,7 @@ en:rock salt
 bg:каменна сол
 de:Steinsalz
 hu:Kősó
-nl:steenzout
+nl:steenzout, mineraalzout
 
 # description:en:SMOKED SALT is an aromatic salt smoked with any number of select bark free woods for up to 14 days.
 
@@ -9233,7 +9242,6 @@ es:Sal del Himalaya
 fr:Sel de l'Himalaya
 it:Sale dell'Himalaya
 pl:Sól himalajska
-
 
 <en:salt
 en:pink salt
@@ -11283,8 +11291,19 @@ wikidata:en:Q1124327
 wikipedia:https://en.wikipedia.org/wiki/Horse_meat
 # ingredient/fr:viande-de-cheval has 21 products in 4 languages @2020-05-21
 
+# description:en:serving of chopped ingredients formed into a disc.
+
+en:patty, patties
+fi:pihvi
+fr:steak
+id:patty
+jv:patty
+wikidata:en:Q3200265
+wikipedia:en:https://en.wikipedia.org/wiki/Patty
+
 # description:en:A MEAT PATTY is a flattened, usually round, serving of ground meat.
 
+<en:patty
 <en:meat
 en:meat patty
 ca:filet mòlt, stick tartar
@@ -11294,14 +11313,9 @@ es:filete picado stick tartar
 fi:jauhelihapihvi
 fr:steak haché
 ga:spíosbhurgair
-id:patty
-it:hamburger
-jv:patty
 ko:패티
 nl:runderhamburger
 # lmo:svizzera
-wikidata:en:Q3200265
-wikipedia:en:https://en.wikipedia.org/wiki/Patty
 # ingredient/fr:steak-haché has 18 products in french @2019-02-07
 
 <en:meat patty
@@ -13399,7 +13413,7 @@ et:taimsed rasvad ja õlid
 fi:kasviöljy ja -rasva, kasviöljyt ja -rasvat
 fr:huiles et graisses végétales, graisses et huiles végétales, graisse et huile végétales, huiles et matières grasses végétales, huile et graisses végétales, huile et graisse végétale, graisse et huiles végétales, huile et graisse végétales, graisses et huile végétales, huiles végétales hydrogénées et non hydrogénées
 he:שומן ושמן מן הצומח
-hr:Biljna ulja i masnoće
+hr:biljna ulja i masnoće, biljna ulja i masti
 hu:növényi olaj és zsír
 it:oli e grassi vegetali, olio e grasso vegetale
 ja:植物油脂
@@ -13694,7 +13708,7 @@ vegetarian:en:maybe
 
 <en:hydrogenated fat
 en:fully hydrogenated fat
-bg:напълно хидрогенирана мазнина
+bg:напълно хидрогенирана мазнина, напълно хидрогенирано масло
 de:komplett hydriertes Fett
 es:grasa totalmente hidrogenada
 fi:kokonaan kovetettu rasva, kokonaan hydrogenoitu rasva
@@ -13816,7 +13830,7 @@ es:materia grasa láctea, grasa de leche,grasa lactea,grasa láctea anhidra,mate
 et:piimarasv
 fi:maitorasva
 fr:matière grasse lactique, matière grasse laitière, matière grasse de lait, matière grasse du lait
-hr:mlijecnu mast
+hr:mlijecnu mast, mliječna mast
 hu:tejzsír
 is:mjólkurfita
 it:grasso del latte
@@ -14008,7 +14022,7 @@ fr:huile végétale, huiles végétales, huiles végétale, huile végétales
 gl:Aceite vexetal
 he:שמן מן הצומח
 hi:वनस्पति तेल
-hr:Biljno ulje
+hr:biljno ulje, biljna ulja
 hu:növényi olaj, növényi olajak
 id:Minyak nabati
 is:Grænmetisolía
@@ -14064,7 +14078,7 @@ et:taimne rasv, taimsed rasvad
 fi:kasvirasva, kasvirasvat, kasvisrasva, kasvisrasvat, kasvisrasvoja, kasvirasvoja, kasvisrasvasta
 fr:matière grasse végétale, matières grasses végétales, matière graisse végétale, graisse végétale, graisses végétales, grasse végétale
 he:שמנים צמחיים, שמן צמחי, שומן צמחי, שומן מן הצומח
-hr:biljna mast
+hr:biljna mast, biljne masti
 hu:növényi zsír, növényi zsírok
 is:jurtafeiti, jurtafeta
 it:grasso vegetale, grassi vegetali, Grasso alimentare vegetale
@@ -14117,6 +14131,7 @@ de:gehärtetes Pflanzenfett
 es:Grasa vegetal hidrogenada
 fi:kovetettu kasvirasva, hydrogenoitu kasvirasva
 fr:graisse végétale hydrogénée, matière grasse végétale hydrogénée, graisses végétales hydrogénées
+hr:djelomično hidrogenirane masti
 hu:hidrogénezett növényi zsír
 it:Grasso vegetale idrogenato
 pt:gordura vegetal hidrogenada
@@ -14124,7 +14139,7 @@ sv:härdat vegetabiliskt fett
 
 <en:hydrogenated vegetable fat
 en:fully hydrogenated vegetable fat
-bg:напълно хидрогенирана растителна мазнина
+bg:напълно хидрогенирана растителна мазнина, растително напълно хидрогенирано масло
 de:komplett hydriertes Pflanzenfett
 es:grasa vegetal totalmente hidrogenada
 fi:kokonaan kovetettu kasvirasva, kokonaan hydrogenoitu kasvirasva
@@ -14364,6 +14379,7 @@ es:palma
 fi:palmu
 fr:palme
 he:דקל
+hr:palma, palmino, palmine
 hu:pálma
 it:palma
 ja:パーム
@@ -14502,7 +14518,7 @@ es:aceite de palma totalmente hidrogenado
 fi:kokonaan kovetettu palmuöljy, kokonaan hydrogenoitu palmuöljy
 fr:huile de palme totalement hydrogénée, palme totalement hydrogénée
 hu:teljes mértékben hidrogénezett pálmaolaj, teljesen hidrogénezett pálmaolaj, teljes mértékben hidrogénezett pálmamag-olaj
-nl:geheel geharde palm
+nl:geheel geharde palm, geheel geharde palmolie
 ro:unt de palmier complet hidrogenat
 sl:popolnoma hidrogenirano palmino olje
 
@@ -14636,7 +14652,7 @@ nl:olie van biologische pompoenpitten
 # producedFrom:en:coconut
 en:coconut oil, copra oil, copra
 ar:زيت جوز الهند
-bg:Кокосово масло
+bg:Кокосово масло, кокосово
 bn:নারিকেল তেল
 ca:Oli de coco, oli de copra, copra
 cs:Kokosový olej
@@ -14712,6 +14728,7 @@ fr:huile de coco vierge biologique, huile vierge de noix de coco bio
 en:extra virgin coconut oil
 es:aceite de coco extra virgen
 fr:huile de coco extra vierge
+hr:ekstradjevičansko kokosovo ulje
 
 <en:coconut oil
 en:unhydrogenated coconut oil
@@ -18866,7 +18883,7 @@ et:lõhna- ja maitseaine, lõhna- ja maitseained, aroomiaine, lõhnaained
 fi:aromi, aromit, aromeja, aromiaine, aromiaineet, aromiaineita, makuaineet
 fr:arôme, arômes
 he:חומרי טעם
-hr:aroma
+hr:aroma, arome
 hu:aroma, aromák
 is:bragðefni
 it:aroma, aromi
@@ -18914,7 +18931,7 @@ es:aroma natural, aromas naturales,saborizante natural
 fi:luontainen aromi, luontaiset aromit, luonnollinen aromi, luonnolliset aromit, luontaisia aromeja
 fr:arôme naturel, arômes naturels
 he:חומרי טעם טבעיים
-hr:Prirodna aroma
+hr:prirodna aroma, prirodne arome
 hu:természetes aroma, természetes aromák, természetazonos aroma, természetazonos aromák
 is:náttúruleg bragðefni
 it:aroma naturale, aromi naturali
@@ -19587,6 +19604,7 @@ es:aroma de vainilla
 fi:vanilja-aromi
 fr:arôme vanille, arôme de vanille
 he:חומר טעם וניל, חומרי טעם וניל
+hr:aroma vanilije
 hu:vanília aroma, vaníliaaroma
 it:aroma di vaniglia
 nl:vanillearoma, vanille aroma
@@ -19660,6 +19678,7 @@ fa:وانیلین
 fi:vanilliini, vaniliini, vanilliinia
 fr:vanilline
 he:ונילין
+hr:vanilin
 hu:vanillin
 hy:Վանիլին
 it:vanillina
@@ -20977,7 +20996,7 @@ fr:flocons de blé malté
 <en:wheat flakes
 en:whole wheat flakes
 ca:flocs de blat integral
-de:Weizenvollkornflocken, Vollkorn-Weizenflocken
+de:Vollkorn-Weizenflocken, Weizenvollkornflocken
 es:copos de trigo integral
 fi:täysjyvävehnähiutale
 fr:pétales de blé complet, flocons de blé complet
@@ -21030,7 +21049,7 @@ fi:vehnäkuitu
 fr:fibre de blé, fibres de blé
 hu:búzarost
 it:fibra di frumento, fibre di frumento
-nl:tarwevezel
+nl:tarwevezel, tarwevezels
 pl:błonnik pszenny, błonnik pszeniczny
 pt:fibras de trigo
 ru:Пшеничные волокна, пищевые волокна пшеничные
@@ -21875,7 +21894,7 @@ sv:kornflingor
 <en:wholemeal barley
 <en:barley flakes
 en:whole grain barley flakes, wholegrain barley flakes
-de:vollkorn-gerstenflocken, Vollkorngerstenflocken, Gerstenvollkornflocken
+de:Vollkorn-Gerstenflocken, Vollkorngerstenflocken, Gerstenvollkornflocken
 fi:täysjyväohrahiutale, täysjyväohrahiutaleet
 fr:flocons d'orge complète
 nl:volkoren gerstvlokken
@@ -22113,6 +22132,7 @@ es:extracto de malta de cebada, extracto de cebada malteada, jarabe de cebada ma
 et:odralinnaseekstrakt
 fi:ohramallasuute, ohramallasuutetta
 fr:extrait de malte d'orge, extrait d'orge malté, extrait d'orge maltée, extrait de malt d'orge
+hr:ekstrakt ječmenog slada
 hu:árpamaláta kivonat
 it:estratto di malto d'orzo
 lt:miežių salyklo ekstraktas
@@ -23280,6 +23300,10 @@ ro:fulgi de secară
 sv:rågflingor
 # 811 in 17 @ 2021-10-28
 
+<en:rye flakes
+en:whole grain rye flakes
+de:Vollkorn-Roggenflocken
+fr:flocons de seigle complet
 
 <en:rye
 en:rye grains
@@ -23519,6 +23543,9 @@ hu:tönkölybúzapehely
 it:fiocchi di quinoa
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-d'épeautre
 # 69 products in 3 languages @2018-09-22
+
+<en:spelt
+nl:speltschroot
 
 <en:spelt
 fr:Petit épeautre
@@ -24023,12 +24050,16 @@ nl:biologische tarwemeel
 en:wheat flour type 0, flour type 0
 de:Weizenmehl Type 0
 fr:Farine blanche type 0
+hr:pšenično brašno tip "0"
 it:farina di grano tenero tipo 0, farina di grano tipo 0
 
 <en:wheat flour
 en:wheat flour type 00, flour type 00
 de:Weichweizenmehl Typ 00, Typ 00 Weichweizenmehl, Weizenmehl Typ 00
 it:farina di grano tenero tipo 00, farina di grano tipo 00
+
+<en:wheat flour
+hr:pšenično brašno tip 400
 
 <en:wheat flour
 en:wheat flour type 500, flour type 500
@@ -24038,6 +24069,7 @@ bg:бяло пшенично брашно тип 500, брашно тип 500, �
 en:wheat flour type 550, flour type 550
 bg:бяло пшенично брашно тип 550, брашно тип 500
 de:Weizenmehl Type 550
+hr:pšenično brašno tip 550
 
 <en:wheat flour
 es:Harina de trigo enriquecida segun ley 25630, Harina de trigo enriquecida s/ley 25630,Harina de trigo 000 enriquecida Ley 25630
@@ -24720,7 +24752,7 @@ gu:મકાઈ
 ha:Masara
 he:תירס
 hi:मक्का
-hr:Kukuruz
+hr:kukuruz, kukuruzno
 ht:Mayi
 hu:kukorica, tengeri, törökbúza, málé
 hy:Եգիպտացորեն
@@ -24970,7 +25002,7 @@ fi:maissisuurimo
 fr:semoule de maïs, semoule de mais
 hu:kukoricadara
 it:spezzato di mais, semolino di granoturco
-nl:Maïsgrits, maisgrut
+nl:Maïsgrits, maisgrut, maïsgrut
 pl:grys kukurydziany, kasza kukurydziana
 pt:grãos de milho
 ro:porumb boabe
@@ -25407,7 +25439,7 @@ lv:lipīgie rīsi
 ms:pulut
 my:ကောက်ညှင်း
 nb:kleberis
-nl:plakrijst, kleverige rijst, kleefrijst
+nl:plakrijst, kleverige rijst, kleefrijst, ketan rijst, ketanrijst
 pl:ryż kleisty
 pt:arroz glutinoso, arroz empapado
 ru:kлейкий рис
@@ -26833,6 +26865,7 @@ fi:ruokosokeri
 fr:sucre de canne, pur sucre de canne, sucre pure canne, sucre 100 pure canne
 ga:siúcra cána
 he:סוכר קנים
+hr:šećer od šećerne trske
 hu:nádcukor
 it:zucchero di canna
 ja:きび糖
@@ -26945,6 +26978,7 @@ el:ακατέργαστη ζάχαρη ζαχαροκάλαμου
 es:Azucar de caña sin refinar, azucar de caña no refinada,azucar de caña en bruto
 fi:raakaruokosokeri
 fr:sucre de canne non raffiné, sucre de canne brut, sucre de canne roux, sucre roux de canne, sucre de canne roux non raffiné, sucre brut de canne
+hr:smeđi šećer od šećerne trske
 hu:finomítatlan nádcukor
 it:zucchero di canna grezzo
 ja:黒糖
@@ -27878,7 +27912,7 @@ de:Glukose-Fruktose-Sirup, Glukose-Fruktosesirup, Glukose Fruktose sirup, Glucos
 el:σιρόπι γλυκόζης-φρουκτόζης
 es:jarabe de glucosa y fructosa, jarabe de glucosa-fructosa
 et:glükoosi-fruktoosisiirup, glükoosifruktoosisiirup
-fi:glukoosi-fruktoosisiirappi, glukoosi-fruktoosisiirappia, fruktoosi-glukoosisiirappi
+fi:glukoosi-fruktoosisiirappi, glukoosi-fruktoosisiirappia, fruktoosi-glukoosisiirappi, glukoosi-fruktoosi-siirappi
 fr:sirop de glucose-fructose, sirop de glucose et de fructose, sirop de fructose-glucose
 hr:glukozno-fruktozni sirup
 hu:glükóz-fruktóz szirup, fruktóz-glükóz-szirup, glükóz-fruktózszirup, fruktóz-glükózszörp, glükóz-fruktózszörp
@@ -29308,6 +29342,7 @@ nb:fettfattig kakao
 nl:vetarme cacao, magere cacao
 pl:Odtłuszczone kakao, kakao o obniżonej zawartości tłuszczu
 pt:cacau magro
+ro:cacao cu conținut redus de grăsime
 sv:fettreducerad kakao
 
 <en:fat reduced cocoa
@@ -29342,7 +29377,7 @@ fi:kaakaovoi, kaakaovoita
 fr:beurre de cacao
 gl:Manteiga de cacao
 he:חמאת קקאו
-hr:kakao maslac
+hr:kakao maslac, kakaov maslac
 hu:Kakaóvaj
 id:Budidaya kakao
 is:kakósmjör
@@ -29425,7 +29460,7 @@ es:Pasta de cacao, masa del cacao, masa de cacao
 et:kakaomass, kakaopasta
 fi:kaakaomassa, kaakaomassaa
 fr:pâte de cacao, cacao en pâte, masse de cacao
-hr:kakaova masa
+hr:kakaova masa, kakao masa
 hu:kakaómassza
 is:kakómassi
 it:pasta di cacao, massa di cacao
@@ -29478,6 +29513,7 @@ fa:پودر کاکائو
 fi:kaakaojauhe, kaakaojauhetta
 fr:poudre de cacao, cacao en poudre
 he:אבקת קקאו
+hr:kakao prah
 hu:kakaópor
 id:Kakao padat
 it:cacao in polvere
@@ -29520,7 +29556,7 @@ es:cacao magro en polvo, cacao desgrasado en polvo, cacao en polvo desgrasado, c
 et:lahja kakaopulber, vähendatud rasvasisaldusega kakaopulber
 fi:vähärasvainen kaakaojauhe, vähärasvaista kaakaojauhetta
 fr:poudre de cacao maigre, poudre de cacao dégraissé, cacao dégraissé en poudre, cacao en poudre dégraissé, cacao maigre en poudre, cacao sec dégraissé, poudre de cacao à teneur réduite en matières grasses
-hr:kakao u prahu smanjene masnoce
+hr:kakao u prahu smanjene masnoce, nemasni kakao prah, kakao prah smanjene masti
 hu:zsírszegény kakaópor
 it:cacao magro in polvere, cacao scremato in polvere
 lt:liesi kakavos milteliai
@@ -29858,6 +29894,7 @@ de:Schokoladenpulver
 es:chocolate en polvo
 fi:suklaajauhe
 fr:chocolat en poudre, poudre de chocolat
+hr:čokolada u prahu
 it:cioccolato in polvere
 nl:chocoladepoeder
 pt:Chocolate em pó
@@ -29995,6 +30032,7 @@ de:Bitterschokoladenstückchen
 es:Trozos de chocolate negro,pepitas de chocolate negro,pedacitos de chocolate negro
 fi:tumma suklaarouhe
 fr:morceaux de chocolat noir, pépites de chocolat noir, copeaux de chocolat noir
+hr:kapljice tamne čokolade
 it:pezzetti di cioccolato fondente
 nl:stukjes pure chocolade
 pl:kawalki czekolday deserowej
@@ -30125,6 +30163,7 @@ fr:chocolat blanc, Chocolat blanc en tablette, Tablette de chocolat blanc
 gl:Chcolate branco
 he:שוקולד לבן
 hi:सफेद चॉकलेट
+hr:bijela čokolada
 hu:Fehér csokoládé
 hy:Սպիտակ շոկոլադ
 it:cioccolato bianco
@@ -30139,6 +30178,7 @@ nn:kvit sjokolade
 or:ଧଳା ଚୋକୋଲେଟ
 pa:ਸਫ਼ੇਦ ਚਾਕਲੇਟ
 pt:chocolate branco
+ro:ciocolată albă
 ru:белый шоколад
 sk:Biela čokoláda
 sq:çokollatë e bardhë
@@ -30904,7 +30944,7 @@ ga:soighe
 gl:Soia
 gn:Sóha
 he:סויה
-hr:Soja, soju
+hr:soja, soju, sojino
 hu:szója, szójatej, szójaliszt, szójából, szóját
 ia:soya
 id:Kedelai
@@ -31105,6 +31145,7 @@ de:Sojabohnenpaste
 #en:soy grits
 #de:Sojaschrot, Sojagrieß
 #fi:soijarouhe
+#nl:sojagrut
 #sv:sojafärs
 
 <en:bran
@@ -31229,6 +31270,7 @@ et:maltodekstriin
 fi:maltodekstriini, maltodekstriiniä
 fr:Maltodextrines, maltodextrine, malto-dextrine
 he:מלטודקסטרינים
+hr:maltodekstrin
 hu:Maltodextrin
 is:maltódextrín
 it:Maltodestrine, maltodestrina
@@ -31302,6 +31344,7 @@ fi:nostatusaine, nostatusaineet
 fr:agent levant, agent de levuration, agents levants, agents de levage
 ga:Oibreán éiritheach
 he:התפחה
+hr:sredstvo za rahljenje, tvari za rahljenje
 hu:Térfogatnövelő szer
 id:Bahan pengembang
 is:lyftiefni
@@ -31501,6 +31544,7 @@ et:küpsetuspulber
 fi:leivinjauhe
 fr:levure chimique
 he:אבקת אפייה, אבקת אפיה
+hr:prašak za pecivo
 hu:sütőpor
 nb:bakepulver
 nl:bakpoeder
@@ -31732,7 +31776,7 @@ fi:vehnätaikinanjuuri, vehnähapantaikina
 fr:levain de blé, levain panaire de blé
 it:lievito madre di frumento
 nb:surdeig av hvete
-nl:tarwe zuurdesem, tarwedesem
+nl:tarwe zuurdesem, tarwedesem, tarwezuurdesem
 sv:vetesurdeg, surdeg av vete, surdeg på vete
 allergens:en: en:gluten
 
@@ -32873,6 +32917,7 @@ da:ammonium - og natriumcarbonat
 de:Ammonium und Natriumcarbonat
 fi:ammonium- ja natriumkarbonaatit
 fr:carbonates d'ammonium et de sodium
+hr:amonijev bikarbonat
 it:carbonati di amonio e di sodio
 nl:ammonium- en natriumcarbonaten, ammonium carbonaten en natrium
 # ingredient/fr:carbonates-d’ammonium-et-de-sodium has 110 products in 7 languages @2019-04-06
@@ -34200,7 +34245,7 @@ it:pesca, pesche
 ja:桃
 kk:Шабдалы
 lb:Piisch
-nl:perziken
+nl:perziken, perzik
 oc:Persec
 pl:Brzoskwinia
 pt:pêssegos
@@ -34318,23 +34363,26 @@ en:peach juice
 #da:ferskenjuice
 #de:Pfirsichsaft
 #es:Jugo de melocotón, Zumo de melocotón
-#fi:persikkamehu
+#fi:persikkamehu, persikkatäysmehu
 #fr:jus de pêche
 #it:Succo di pesca
-#nl:perzikkensap
+#nl:perzikensap
 #pt:sumo de pêssego
 #ro:suc de piersici
 #ru:Персиковый сок
+#sv:persikojuice
 # ingredient/en:peach-juice has 736 products in 18 languages @2021-08-19
 
 #process:en:juice
 #process:en:from-concentrate
 <en:peach juice
 en:peach juice from concentrate
+#fi:persikkamehu tiivisteestä, persikkatäysmehu tiivisteestä
 #fr:jus de pêche à base de concentré
 de:pfirsichsaft aus pfirsichsaftkonzentrat
 #nl:perziksap van concentraat
 #ro:suc de piersici din concentrat
+#sv:persikojuice av koncentrat
 
 <en:peach juice from concentrate
 <en:white peach
@@ -34348,7 +34396,7 @@ de:Pfirsichsirup
 fi:persikkasiirappi
 fr:sirop de pêche
 it:sciroppo di pesca
-nl:perzikkensiroop
+nl:perzikensiroop
 vegan:en:yes
 vegetarian:en:yes
 # ingredient/en:peach-syrup has 7 product in 4 languages @2021-08-19
@@ -34372,7 +34420,7 @@ sv:persikopasta
 #compound
 <en:peach
 fr:pêche au sirop
-nl:perzikken op siroop
+nl:perziken op siroop
 
 ###################################################################################################
 #
@@ -35075,6 +35123,7 @@ en:Pink Lady apple
 es:Manzana Pink Lady
 fr:pomme Pink Lady
 it:Mela Pink Lady
+nl:Pink Lady appels, Pink Lady
 
 
 <en:apple
@@ -36186,6 +36235,7 @@ de:Zitronenpulpe
 es:pulpa de limón
 fi:sitruunan hedelmäliha
 fr:pulpe de citron, pulpes de citron
+hr:pulpa limuna
 it:polpa di limone
 nl:citroenpulp
 pt:polpa de limão
@@ -38292,6 +38342,7 @@ fi:kookos, kookospähkinä
 fr:noix de coco, coco
 gl:Coco
 he:קוקוס
+hr:kokos
 hu:kókuszdió, kókusz
 it:cocco, noce di cocco
 ja:ココナッツ
@@ -48604,7 +48655,7 @@ ms:lada benggala
 mt:bżar ħelu
 my:ငရုပ်ပွ
 ne:भेडे खुर्सानी
-nl:paprika's
+nl:paprika's, zoete peper
 oc:pebron
 ps:خواږه مرچ
 pt:pimentão
@@ -49010,6 +49061,9 @@ protected_name_type:en: en:aoc
 origins:en: en:France
 # ingredient/fr:piment-d’espelette has 371 products in 5 languages @2019-04-15
 # scoville:en:1500-2500
+
+<en:chili pepper
+fr:piment doux
 
 # description:en:The JALAPEÑO is a medium-sized chili pepper pod type cultivar of the species Capsicum annuum.
 
@@ -50414,6 +50468,7 @@ de:Raps
 es:Colza,nabina
 fi:rapsi, rapsinsiemenet
 fr:Colza
+hr:repice, repičino
 it:Colza
 ja:菜種
 la:Brassica napus
@@ -50665,7 +50720,7 @@ ciqual_food_name:fr:Haricots verts, purée
 <en:green bean
 en:wax bean, yellow bean
 de:Butterbohne
-fr:haricot beurre, haricots beurre
+fr:haricot beurre, haricots beurre, haricots beurre très fins
 gv:poanrey eeymey
 it:fagiolo giallo
 nl:boterboon
@@ -52521,6 +52576,7 @@ de:Mandelstückchen, Mandelstücke, Zerkleinerte Mandeln
 es:trozos de almendras, almendras en trozos
 fi:mantelipala, mantelipalat
 fr:éclats d'amandes
+hr:komadići badema
 it:mandorle spezzate
 nl:amandelstukjes
 # ingredient/fr:éclats-d'amandes has 73 products in 4 languages @2018-10-06
@@ -52572,10 +52628,11 @@ sv:sötmandel
 
 <en:almond
 en:almond paste
-fr:pâte d'amande, pâte d'amandes
 de:Mandelpaste, Mandelmasse
 es:masa fina de mazapán, pasta de almendra
 fi:mantelitahna
+fr:pâte d'amande, pâte d'amandes
+hr:pasta od badema
 it:pasta di mandorle
 pt:Pasta de amêndoa
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pâte-d'amande
@@ -52684,6 +52741,7 @@ en:raw cashews
 de:Rohe Cashewkerne
 es:cayú entero​, nuez de la India entera, anacardo entero, anacardos enteros, merey entero, cajú entero, castaña de cajú entera, castañas de cajú enteras, marañón entero, cajuil entero, caguil entero
 fr:Noix de cajou crues
+hr:indijski oraščić sirovi
 
 <en:cashew nuts
 en:cashew nut paste
@@ -52880,7 +52938,7 @@ fr:noisette, noisettes
 ga:cnónna coill
 gl:Abelá
 he:אגוז לוז
-hr:lješnjaci
+hr:lješnjak, lješnjaci
 ht:Nwazèt
 hu:mogyoró
 id:Kacang hazel
@@ -53877,6 +53935,7 @@ nb:Chiafrø
 nl:chiazaad
 pl:nasiona chia
 pt:sementes de chia
+ro:semințe de chia, seminte de chia
 sr:Семенке чиа
 sv:chiafrö, chiafrön
 th:เมล็ดชีอา
@@ -54140,10 +54199,14 @@ de:Kürbiskerne
 es:semillas de calabaza
 fi:kurpitsansiemen, kurpitsansiemenet
 fr:graine de courge, graines de courge, graines de potiron, graines de citrouille
+hr:bučine koštice
+hu:tökmag
 it:semi di zucca
 nl:pompoenpitten
 pl:nasiona dyni
 pt:Sementes de abóbora
+ro:seminţe de dovleac
+sl:bučna semena
 sv:pumpafrön, pumpakärnor
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graine-de-courge
 # 234 products in 5 languages @2018-10-07
@@ -54391,6 +54454,7 @@ fi:pippuri
 fr:poivre, poivres
 gl:Pementa
 # he:פלפל overlap with bell pepper
+hr:papar
 ht:Pwav
 hu:Bors
 is:pipar
@@ -58438,6 +58502,7 @@ es:extracto de albahaca
 fi:basilikauute
 fr:extrait de basilic
 it:Estratto di basilico
+nl:basilicumextract
 pt:extracto de manjericão
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-basilic
 # 32 products in 4 languages @2108-10-10
@@ -58967,6 +59032,7 @@ de:oregano
 el:ρίξανη
 es:orégano
 et:pune, oregaano
+fi:oregano
 fr:origan
 hu:oregánó, szurokfű
 it:origano
@@ -59689,6 +59755,7 @@ de:Guaranasamenextrakt
 es:extracto de semillas de guaraná
 fi:guaranasiemenuute
 fr:extrait de graine de guarana
+hr:ekstrakt sjemena guarane
 sv:guaranafröextrakt
 # ingredient/en:guarana-seed-extract has 142 products in 1 language @2020-05-23
 
@@ -60323,6 +60390,7 @@ en:panax ginseng root extract
 de:Panax ginseng Wurzelextrakt
 fi:panax ginseng-juuriuute
 fr:extrait de racine de panax ginseng
+hr:ekstrakt korijena panaks ginsenga, panax ginseng
 ru:экстракт женьшеня
 sv:panax ginseng rotextrakt
 # ingredient/en:panax-ginseng-root-extract has 117 products in 2 languages @2020-05-21
@@ -61578,7 +61646,7 @@ fa:گل‌آفتاب‌گردانیان
 fi:auringonkukka
 fr:tournesol
 he:חמנית
-hr:suncokret
+hr:suncokret, suncokretovo
 hu:napraforgó
 hy:արևածաղիկ
 is:Sólblóm
@@ -62358,6 +62426,7 @@ de:Bourbon Vanille Extrakt, Vanille-Extrakt Bourbon, Bourbon-Vanille-Extrakt, Bo
 es:extracto de vainilla de Bourbon
 fi:bourbon-vaniljauute
 fr:extrait de vanille bourbon, extrait de vanille de Bourbon
+hr:ekstrakt bourbon vanilije
 it:estratto di vaniglia Bourbon
 nl:Bourbon vanille-extract
 ro:extract de vanilie Bourbon
@@ -63836,7 +63905,7 @@ fr:champignon blanc de Paris, Champignons blancs de Paris
 en:chestnut mushroom, chestnut mushrooms
 de:braune Champignons, Champignons braun, braune Egerlinge
 fr:champignon brun, champignons bruns
-nl:kastanjechampignon, kastanjechampignons
+nl:kastanjechampignon, kastanjechampignons, bruine champignon
 
 
 # description:en:HORN OF PLENTY, is an edible mushroom. This fungus is found in woods in North America, Europe, Japan and Korea.
@@ -72714,6 +72783,7 @@ es:glucuronolactona
 fa:گلوکورونولاکتون
 fi:glukuronolaktoni
 fr:glucuronolactone
+hr:glukuronolakton
 hu:glükuronolakton
 it:glucuronolattone
 ja:グルクロノラクトン
@@ -73566,7 +73636,7 @@ ciqual_food_name:fr:Concombre, pulpe, cru
 
 <en:cucumber
 en:gherkin
-bg:корнишон, кисела краставичка
+bg:корнишон, кисела краставичка, кисели краставички
 da:cornichon
 de:Cornichons
 es:pepinillos
@@ -75023,6 +75093,7 @@ fr:quartiers d'œufs durs
 #<en:egg
 #fr:œuf pasteurisé, œufs pasteurisés, oeuf pasteurisé, oeufs pasteurisés
 #de:Eier pasteurisiert
+#hr:pasterizirana jaja
 #it:uova pastorizzate
 # ingredient/fr:oeuf-pasteurisé has 57 products in 4 languages @2018-12-18
 
@@ -75152,6 +75223,7 @@ el:αλεύρι σίτου αυγό σκόνη
 es:huevo en polvo
 fi:munajauhe, kananmunajauhe
 fr:œuf en poudre, œufs en poudre, poudre d'œuf, oeuf en poudre, oeufs en poudre, poudre d'oeuf
+hr:jaja u prahu
 hu:tojáspor
 it:uova in polvere
 lv:kiausšinių milteliai
@@ -76455,6 +76527,11 @@ sv:karamellfyllning
 # mainIngredient:en:glucose syrup
 # ingredient/en:caramel-filling 94 in 3  @2020-12-19
 
+#category/pains-au-chocolat
+fr:pain au chocolat
+carbon_footprint_fr_foodges_ingredient:fr:Viennoiseries pain au chocolat
+carbon_footprint_fr_foodges_value:fr:2.3
+# ingredient/fr:pain-au-chocolat has 17 products in french @2019-03-07
 
 #category/brioches
 en:brioche, Brioches
@@ -77168,6 +77245,7 @@ en:rice noodles
 da:risnudler
 de:Reisnudeln
 es:fideos de arroz
+fi:riisinuudeli
 fr:nouilles de riz
 nl:rijstnoedels
 wikidata:en:Q1322949
@@ -77657,17 +77735,13 @@ fr:pain spécial cuit
 # usage:fr:Pain spécial cuit 41,2 % (farine de blé ; eau ; œufs ; beurre ; sucre ; poudre de lait écrémé ; huile de colza ; poudres à lever : E450i, E500ii ; sel ; levure ; gluten de blé ; épaississant : gomme guar)
 
 <en:bread
-en:breadmeal, bread roll
-de:Toastbrot, brotmehl
-fi:paahtoleipä
 fr:pain de mie
-it:pane per toast
 # ingredient/fr:pain-de-mie has 104 products in 4 languages @2019-03-07
 
-<en:breadmeal
+<en:pain de mie
 fr:Pain de mie aux céréales
 
-<en:breadmeal
+<en:pain de mie
 fr:pain de mie complet
 
 <en:special bread
@@ -77676,13 +77750,12 @@ fr:pain spécial bretzel
 <en:special bread
 fr:pain spécial de campagne
 
-<en:special bread
-fr:pain au chocolat
-carbon_footprint_fr_foodges_ingredient:fr:Viennoiseries pain au chocolat
-carbon_footprint_fr_foodges_value:fr:2.3
-# ingredient/fr:pain-au-chocolat has 17 products in french @2019-03-07
-
 # comment:en:the parent en:sesam is here for sesam allergen detection
+
+<en:special bread
+en:bread roll
+de:brötchen
+fi:sämpylä
 
 #<en:sesame
 <en:special bread

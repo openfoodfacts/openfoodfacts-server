@@ -5,7 +5,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ro\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-07-25 10:05\n"
 "Language-Team: Romanian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -14,8 +13,7 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: ro\n"
-"X-Crowdin-File: common.pot\n"
-"X-Crowdin-File-ID: 1808\n"
+"X-Crowdin-File-ID: 2588\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -599,7 +597,7 @@ msgstr "Codul EMB:"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr "Codul ambalatorului"
+msgstr "Cod de trasabilitate EMB"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
@@ -1567,8 +1565,8 @@ msgstr "Scor nutrițional"
 
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
-msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
-msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
+msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
+msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -2295,7 +2293,7 @@ msgstr "Vedeți pagina produsului"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr "Țările unde se vinde"
+msgstr "Țară"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -3933,7 +3931,7 @@ msgstr "Fructe, legume, nuci și uleiuri de colza/nucă/măsline"
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
-msgstr "Fibre"
+msgstr "Fibră"
 
 msgctxt "nutriscore_points_for_proteins"
 msgid "Proteins"

@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -62,14 +61,14 @@ my $separators = qr/($stops\s|$commas|$separators_except_comma)/i;
 
 
 
-my $type = param('type') || 'add';
-my $action = param('action') || 'display';
+my $type = single_param('type') || 'add';
+my $action = single_param('action') || 'display';
 
-my $tagtype= get_fileid(param('tagtype'));
+my $tagtype= get_fileid(single_param('tagtype'));
 
 not defined $tagtype and $tagtype eq 'ingredients';
 
-my $text = remove_tags_and_quote(decode utf8=>param('text'));
+my $text = remove_tags_and_quote(decode utf8 => single_param('text'));
 
 my $html;
 

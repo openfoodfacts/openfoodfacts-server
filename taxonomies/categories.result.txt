@@ -296,6 +296,7 @@ wikidata:en: Q44
 
 < en:Alcoholic beverages
 en:Bulgarian wines spirit
+bg:Ракия
 
 < en:Alcoholic beverages
 en:Ciders
@@ -487,7 +488,7 @@ ciqual_food_name:fr: Luzerne, graine germée
 en:Canned alfalfa sprouts
 es:Germinados de alfalfa en conserva, Brotes de alfalfa en conserva
 fr:Pousses d'alfalfa en conserve, Pousses de luzerne cultivée en conserve
-nl:Alfalfakiemen in blik
+nl:Alfalfakiemen in blik/pot
 
 < en:Alfalfa sprouts
 < en:Fresh legume sprouts
@@ -1093,6 +1094,10 @@ en:Kanzi apples
 nl:Kanzi-appels
 
 < en:Apples
+en:Pink Lady, Cripps Pink
+xx:Pink Lady, Cripps Pink
+
+< en:Apples
 en:Red Delicious apples, Red Delicious
 de:Delikate rote Äpfel
 es:Manzanas Red Delicious
@@ -1150,9 +1155,9 @@ protected_name_file_number:en: PGI-IT-0207
 protected_name_type:en: pgi
 
 < en:Apples
-it:Mela di Valtellina, Mela di Valtellina
+it:Mela di Valtellina
 origins:en: en:italy
-protected_name_file_number:en: PGI-IT-0574-AM01
+protected_name_file_number:en: PGI-IT-0574-AM01, PGI-IT-0574
 protected_name_type:en: pgi
 
 < en:Apples
@@ -1665,7 +1670,7 @@ es:Mezclas de plantas aromáticas
 fi:maustekasvisekoitukset
 fr:Mélanges de plantes aromatiques
 it:Misto di piante aromatiche, Piante aromatiche miste
-nl:Kruidenmelanges, kruidenmengsels
+nl:Kruidenmelanges, Kruidenmengsels, Kruidenpastas
 
 < en:Artichoke hearts
 < en:Canned artichokes
@@ -1710,7 +1715,7 @@ es:Alcachofas en conserva
 fi:purkitetut artisokat
 fr:Artichauts en conserve, Artichauts appertisés
 it:Carciofi in scatola
-nl:Artisjokken en blik
+nl:Artisjokken en blik/pot
 agribalyse_food_code:en: 20067
 ciqual_food_code:en: 20067
 ciqual_food_name:en: Artichoke, canned, drained
@@ -1919,7 +1924,7 @@ es:Espárragos en conserva
 fi:purkitettu parsa
 fr:Asperges en conserve, Asperges appertisées
 it:Asparagi in scatola
-nl:Asperges in blik
+nl:Asperges in blik/pot
 agribalyse_food_code:en: 20076
 ciqual_food_code:en: 20076
 ciqual_food_name:en: Asparagus, canned, drained
@@ -2583,7 +2588,9 @@ en:Czech bakery products
 fr:Produits de boulangerie tchèques
 
 < en:Bakery products
-en:Dutch bakery products
+en:Dutch bakery products, Dutch bakery products
+de:Nederlandse bakkersproducten
+fr:Produits de boulangerie néerlandais
 
 < en:Bakery products
 en:Finnish bakery products
@@ -2697,12 +2704,9 @@ ta:செவ்வாழை
 wikidata:en: Q2427471
 
 < en:Barley
-en:Pearled barley, Pearled barley
-fr:Orge perlée, Orge perlée
+en:Pearled barley
+fr:Orge perlée
 agribalyse_food_code:en: 9321
-agribalyse_proxy_food_code:en: 9321
-agribalyse_proxy_food_name:en: Pearled barley, raw
-agribalyse_proxy_food_name:fr: Orge perlée, crue
 ciqual_food_code:en: 9321
 ciqual_food_name:en: Pearled barley, raw
 ciqual_food_name:fr: Orge perlée, crue
@@ -4193,7 +4197,7 @@ es:Remolacha en conserva
 fi:purkitetut punajuuret
 fr:Betteraves en conserve
 it:Barbabietole in scatola
-nl:Rode bieten in blik
+nl:Rode bieten in blik/pot
 
 < en:Beet
 < en:Cooked vegetables
@@ -4393,6 +4397,7 @@ ciqual_food_name:fr: Mûre noire -du mûrier-, crue
 
 < en:Berries
 en:Blackberries
+bg:Къпини
 de:Brombeeren
 es:Moras
 fr:Mûres
@@ -4613,7 +4618,7 @@ fr:Confitures de fraises
 he:ריבות תותים
 hu:Eper lekvár
 it:Confetture di fragole
-nl:Aardbeienjam, Aardbeienjams
+nl:Aardbeienjams, Aardbeienjam
 pl:Dżem truskawkowy
 pt:Doces de morango
 ru:Клубничные джемы
@@ -4957,8 +4962,33 @@ fr:Citronnades, citronnade
 wikidata:en: Q13204
 
 < en:Bifidus yogurts
+en:Flavoured bifidus yogurts, Yogurt-type fermented flavoured milk with sugar with bifidus, Yogurt-type flavoured dairy specialty with sugar with bifidus
+fr:Yaourts au bifidus aromatisés, Lait fermenté de type yaourt aromatisé sucré au bifidus, spécialité laitière de type yaourt aromatisé sucré au bifidus
+it:Yogurt aromatizzato al bifidus
+agribalyse_food_code:en: 19539
+ciqual_food_code:en: 19539
+ciqual_food_name:en: Fermented milk or dairy specialty, yogurt type, flavoured, with sugar, with bifidus
+ciqual_food_name:fr: Lait fermenté ou spécialité laitière type yaourt, aromatisé, sucré, au bifidus
+
+< en:Bifidus yogurts
+en:Fruit bifidus yogurts, Yogurt-type fermented milk with fruits with sugar with bifidus, Yogurt-type dairy specialty with fruits with sugar with bifidus
+fr:Yaourts au bifidus aux fruits, Lait fermenté de type yaourt aux fruits sucré au bifidus, Spécialité laitière de type yaourt aromatisé aux fruits au bifidus
+agribalyse_food_code:en: 19542
+ciqual_food_code:en: 19542
+ciqual_food_name:en: Fermented milk or dairy specialty, yogurt type, with fruits, with sugar, with bifidus
+ciqual_food_name:fr: Lait fermenté ou spécialité laitière type yaourt, aux fruits, sucré, au bifidus
+
+< en:Bifidus yogurts
 en:Plain bifidus yogurts
 fr:Yaourts au bifidus nature
+
+< en:Bifidus yogurts
+en:Sweetened plain bifidus yogurts, Yogurt-type plain fermented milk with sugar with bifidus, Yogurt-type plain dairy specialty with sugar with bifidus
+fr:Yaourts au bifidus sucrés natures, Lait fermenté de type yaourt nature sucré au bifidus, spécialité laitière de type yaourt nature sucré au bifidus
+agribalyse_food_code:en: 19546
+ciqual_food_code:en: 19546
+ciqual_food_name:en: Fermented milk or dairy specialty, yogurt type, plain, with bifidus
+ciqual_food_name:fr: Lait fermenté ou spécialité laitière type yaourt, nature, au bifidus
 
 < en:Bilberries
 en:Bog bilberries, Northern bilberries
@@ -4972,10 +5002,6 @@ en:Common bilberries
 es:Arándanos comunes
 la:Vaccinium myrtillus
 nl:Blauwe bosbessen
-
-< en:Bircher-style mueslis
-en:Bircher-style mueslis with fruits, Bircher-style muesli flakes with fruits
-fr:Mueslis floconneux aux fruits, Muesli floconneux aux fruits
 
 < en:Bircher-style mueslis
 en:Muesli flakes fortified with vitamins and chemical elements
@@ -5038,6 +5064,7 @@ de:Amaretti
 es:Amaretti
 fr:Amaretti
 it:Amaretti, amaretto
+nl:Bitterkoekjes
 wikidata:en: Q3748739
 
 < en:Biscuits
@@ -5521,7 +5548,7 @@ de:Lebkuchen
 fi:piparit
 fr:Pains d'épices, pains d'épice, pain d'épices, pain d'épice
 it:Pan di zenzero
-nl:Ontbijtkoeken, Ontbijtkoek
+nl:Ontbijtkoeken, Ontbijtkoek, Kruidkoeken, Kruidkoek
 ru:Имбирное печенье и пряники
 sv:Pepparkakor, Pepparkaka
 agribalyse_food_code:en: 23200
@@ -5738,6 +5765,7 @@ agribalyse_food_code:en: 26241
 ciqual_food_code:en: 26241
 ciqual_food_name:en: Blue shark, fillet, without skin, raw
 ciqual_food_name:fr: Empereur, filet, sans peau, cru
+cooking_method:en: en:raw
 
 < en:Blue-veined cheeses
 en:French blue-veined cheeses
@@ -6108,8 +6136,7 @@ protected_name_type:en: pdo
 wikidata:en: Q1543969
 
 < en:Bordeaux
-< en:Wines from France
-fr:graves-de-vayres, Graves de Vayres
+fr:Graves de Vayres
 grape_variety:fr: sémillon, sauvignon, muscadelle
 origins:en: en:france
 protected_name_file_number:en: PDO-FR-A0927
@@ -6584,7 +6611,7 @@ de:Knäckebrote, Knäckebrot
 es:Tostadas ligeras crujientes
 fi:näkkileivät
 fr:Tartines craquantes, tartine craquante, tartines croustillantes, tartine croustillante
-nl:Knäckebrot
+nl:Knäckebrot, Knäckebröd
 agribalyse_proxy_food_code:en: 7410
 agribalyse_proxy_food_name:en: Crispbread, extruded and grilled
 agribalyse_proxy_food_name:fr: Tartine craquante, extrudée et grillée
@@ -6780,7 +6807,7 @@ fi:vaaleat leivät
 fr:Pains blancs, Pain blanc
 he:לחמים לבנים
 it:Pane bianco
-nl:Witbroden, Witbrood
+nl:Witte broden, Witbrood
 ro:Pâini albe, Pâine albă
 ru:Белый хлеб, Хлеб белый
 wikidata:en: Q1501889
@@ -7002,6 +7029,7 @@ en:Porridge
 de:Haferbrei, Porridge, Haferschleim
 fi:Puuro
 fr:Porridge
+nl:Pappen
 
 < en:Breakfast cereals
 en:Wheat bran sticks
@@ -7342,7 +7370,7 @@ en:Canned broad beans, Canned fava beans, Canned faba beans
 es:Habas en conserva, Habitas en conserva
 fr:Fèves en conserve, Féverolles en conserve
 it:Fave in scatola
-nl:Tuinbonen in blik
+nl:Tuinbonen in blik/pot
 
 < en:Broad beans
 < en:Cooked vegetables
@@ -7381,18 +7409,40 @@ ciqual_food_name:en: Broad bean, dried
 ciqual_food_name:fr: Fève, sèche
 
 < en:Broccoli
+< en:Cooked vegetables
+en:Cooked broccoli
+fr:Brocolis cuits
+nl:gekookte broccolis
+agribalyse_food_code:en: 20006
+ciqual_food_code:en: 20006
+ciqual_food_name:en: Broccoli, cooked
+ciqual_food_name:fr: Brocoli, cuit
+
+< en:Broccoli
+< en:Fresh vegetables
+en:Fresh broccoli
+de:Frischer Brokkoli
+es:Brócoli fresco
+fi:Tuore parsakaali
+fr:Brocolis frais
+season_in_country_fr:en: 9‚10‚11
+
+< en:Broccoli
 < en:Frozen vegetables
-en:Frozen broccoli florets
+en:Frozen broccolis, Frozen broccoli florets, Frozen broccoli
 de:Tiefkühl-Brokkoli
-es:Brócoli en floretes congelado, Brócolis congelados, Brócoli congelado
+es:Brócolis congelados, Brócoli en floretes congelado, Brócoli congelado
 fi:pakastetut parsakaalinuput
-fr:Brocolis en fleurettes surgelés, Brocolis surgelés
-it:Cime di broccoli surgelate
+fr:Brocolis surgelés, Brocolis en fleurettes surgelés, Brocoli surgelé
+it:Broccoli surgelati, Cime di broccoli surgelate
 nl:Diepvries broccoli
 pl:Brokuł (różyczki) głęboko mrożony
 agribalyse_proxy_food_code:en: 20204
 agribalyse_proxy_food_name:en: Broccoli, frozen, raw
 agribalyse_proxy_food_name:fr: Brocoli, surgelé, cru
+ciqual_food_code:en: 20204
+ciqual_food_name:en: Broccoli, frozen, raw
+ciqual_food_name:fr: Brocoli, surgelé, cru
 
 en:broths, broths, stock, bouillon, Stocks
 af:bouillon
@@ -7548,7 +7598,7 @@ fr:cassonades, cassonade
 en:Canned Brussels sprouts
 es:Coles de Bruselas en conserva
 fr:Choux de Bruxelles en conserve, Choux de Bruxelles appertisés
-nl:Spruiten in blik
+nl:Spruiten in blik/pot
 agribalyse_food_code:en: 20077
 ciqual_food_code:en: 20077
 ciqual_food_name:en: Brussels sprout, canned, drained
@@ -7572,10 +7622,10 @@ season_in_country_fr:en: 1‚2,3‚10‚11‚12
 
 < en:Brussels sprouts
 < en:Frozen vegetables
-en:Frozen Brussels sprouts, Frozen Brussels sprouts
+en:Frozen Brussels sprouts
 de:Tiefkühl-Rosenkohl
 es:Coles de Bruselas congeladas
-fr:Choux de Bruxelles surgelés, Choux de Bruxelles surgelés
+fr:Choux de Bruxelles surgelés
 nl:Diepvriesspruitjes
 agribalyse_food_code:en: 20206
 agribalyse_proxy_food_code:en: 20206
@@ -7636,6 +7686,7 @@ en:Mozzarella di Bufala Campana
 de:Mozzarella di Bufala Campana
 fr:Mozzarella di Bufala Campana
 it:Mozzarella di Bufala Campana
+nl:Buffelmozzarellas uit Campana
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-0014
 protected_name_type:en: pdo
@@ -8082,13 +8133,12 @@ ciqual_food_name:en: Turnip cabbage, raw
 ciqual_food_name:fr: Chou-rave, cru
 
 < en:Cabbages
-< en:Leaf vegetables
-en:Red cabbage, Red cabbage
+en:Red cabbage
 bg:Червено зеле, Червено зеле
 de:Rotkraut
 es:Lombardas, Lombarda, Col lombarda
 fi:punakaali
-fr:Chou rouge
+fr:Chou rouge, Choux rouges
 nl:Rode kolen
 agribalyse_food_code:en: 20014
 ciqual_food_code:en: 20014
@@ -8389,6 +8439,15 @@ it:Ciambelle e ciambelloni, ciambelle, ciambellone, ciambella
 < en:Cakes
 nl:Roze koeken
 
+< en:Cakes of pulses
+en:Lentil cakes
+de:linsenwaffeln
+es:Tortitas de lentejas
+fr:Galettes de lentilles
+it:Galetti di lenticchie
+nl:Linzenwafels
+pt:Geletes de lentilha
+
 < en:Calamari
 en:Squid
 fr:Calmar, Calamar, Encornet
@@ -8628,12 +8687,16 @@ ciqual_food_code:en: 20156
 ciqual_food_name:en: Artichoke base, canned, drained
 ciqual_food_name:fr: Artichaut, fond, appertisé, égoutté
 
+< en:Canned artichokes
+en:Marinated canned artichokes
+nl:Gemarineerde artisjokken in blik/pot
+
 < en:Canned asparagus
 en:Canned green asparagus
 bg:Зелени аспержи в консерва
 es:Espárragos verdes en conserva
 fr:Asperges vertes en conserve
-nl:Groene asperges in blik
+nl:Groene asperges in blik/pot
 
 < en:Canned asparagus
 < en:White asparagus
@@ -8645,7 +8708,7 @@ es:Espárragos blancos en conserva
 fi:purkitettu valkoinen parsa
 fr:Asperges blanches en conserve
 it:Asparagi bianchi in scatola
-nl:Witte asperges in blik
+nl:Witte asperges in blik/pot
 
 < en:Canned cereals
 < en:Canned vegetables
@@ -8657,7 +8720,7 @@ fi:purkitettu maissi
 fr:Maïs en conserve
 hu:Kukorica konzerv
 it:Mais in scatola
-nl:Maïs in conserven, Maïs in blik
+nl:Maïs in conserven, Maïs in blik/pot
 pl:Kukurydza w puszce
 ru:Консервированая кукуруза
 agribalyse_proxy_food_code:en: 20066
@@ -8669,26 +8732,26 @@ wikidata:en: Q67858763
 en:Canned quartered champignon mushrooms, Canned quartered common mushrooms, Canned quartered white mushrooms, Canned quartered white button mushrooms, Canned quartered button mushrooms
 es:Champiñones en cuartos en conserva, Champiñones cuarteados en conserva, Champiñones de París en cuartos en conserva, Champiñones de París cuarteados en conserva
 fr:Quartiers de champignons de Paris en conserve
-nl:Gevierendeelde champignons in blik
+nl:Gevierendeelde champignons in blik/pot
 
 < en:Canned champignon mushrooms
 en:Canned sliced champignon mushrooms, Canned sliced common mushrooms, Canned sliced white mushrooms, Canned sliced white button mushrooms, Canned sliced button mushrooms
 es:Champiñones laminados en conserva, Champiñones de París laminados en conserva
 fr:Champignons de Paris émincés en conserve
 it:Funghi champignon a fettine in scatola
-nl:Champignons in plakjes in blik
+nl:Champignons in plakjes in blik/pot
 
 < en:Canned champignon mushrooms
 en:Canned whole champignon mushrooms, Canned whole common mushrooms, Canned whole white mushrooms, Canned whole white button mushrooms, Canned whole button mushrooms
 es:Champiñones enteros en conserva, Champiñones de París enteros en conserva
 fr:Champignons de Paris entiers en conserve
-nl:Hele champignons in blik
+nl:Hele champignons in blik/pot
 
 < en:Canned common beans
 en:Canned flageolet beans, Canned flageolet beans
 es:Flageolets en conserva
 fr:Flageolets en conserve, Flageolets appertisés égouttés, Flageolets en conserve égouttés, Haricots flageolets appertisés, Haricots flageolets en conserve égouttés
-nl:Flageoletbonen in blik
+nl:Flageoletbonen in blik/pot
 agribalyse_food_code:en: 20508
 ciqual_food_code:en: 20508
 ciqual_food_name:en: Flageolet bean, canned, drained
@@ -8701,7 +8764,7 @@ es:Alubias rojas cocidas en conserva
 fi:purkitettuja kidneypapuja
 fr:Haricots rouges en conserve, Haricots rouges appertisés
 it:Fagioli comuni in scatola
-nl:Rode bonen in blik
+nl:Rode bonen in blik/pot
 agribalyse_food_code:en: 20524
 ciqual_food_code:en: 20524
 ciqual_food_name:en: Red kidney bean, canned, drained
@@ -8715,7 +8778,7 @@ es:Alubias blancas cocidas en conserva
 fi:Säilykkeet valkoiset tavalliset pavut
 fr:Haricots blancs en conserve, Haricots blancs appertisés
 it:Fagioli bianchi in scatola
-nl:Witte bonen in blik
+nl:Witte bonen in blik/pot
 agribalyse_food_code:en: 20511
 ciqual_food_code:en: 20511
 ciqual_food_name:en: Haricot bean, canned, drained
@@ -8729,7 +8792,7 @@ es:Maíz dulce en conserva
 fi:purkitettu makea maissi
 fr:Maïs doux en conserve, Maïs doux appertisé, Maïs doux en conserve égoutté
 it:Mais dolce in scatola
-nl:Suikermaïs in blik
+nl:Suikermaïs in blik/pot
 agribalyse_food_code:en: 20066
 ciqual_food_code:en: 20066
 ciqual_food_name:en: Sweet corn, canned, drained
@@ -8776,7 +8839,7 @@ fi:Purkitetut kasvipohjaiset ruoat
 fr:Aliments à base de plantes en conserve
 hu:Növényialapú élelmiszerek konzervben
 it:Cibi in scatola di origine vegetale
-nl:Conserven Producten in blik
+nl:Conserven Producten in blik/pot
 pl:Konserwy roślinne w puszkach i słoikach
 pt:Alimentos à base de plantas enlatados
 ru:Консервы из растительных продуктов
@@ -8787,7 +8850,7 @@ de:Dosenfrüchte im Saft
 es:Conservas de frutas en zumo
 fi:Purkitetut hedelmät omassa mehussaan
 fr:Fruits en conserve au jus
-nl:Fruit in blik op sap
+nl:Fruit in blik/pot op sap
 pt:Conservas de frutas em suco
 
 < en:Canned fruits
@@ -8797,7 +8860,7 @@ es:Piña enlatada
 fi:Purkkiananakset
 fr:Ananas en conserve
 it:Ananas in scatola
-nl:Ananas in blik
+nl:Ananas in blik/pot
 
 < en:Canned fruits
 < en:Desserts
@@ -8823,7 +8886,7 @@ nl:Ananas op sap
 en:Canned flat green beans
 es:Judías verdes enlatadas
 fr:Haricots verts plats en conserve
-nl:Snijbonen in blik
+nl:Snijbonen in blik/pot
 
 < en:Canned legumes
 en:Canned common beans, Canned string beans, Canned beans
@@ -8832,7 +8895,7 @@ es:Alubias cocidas en conserva, Alubias en conserva, Judías en conserva
 fi:purkitetut pavut
 fr:Haricots en conserve
 it:Fagioli in scatola
-nl:Gewone bonen in blik
+nl:Gewone bonen in blik/pot
 ru:Бобы в консервах
 agribalyse_proxy_food_code:en: 20062
 agribalyse_proxy_food_name:en: French bean, canned, drained
@@ -8846,7 +8909,7 @@ es:Lentejas cocidas en conserva, Lentejas en conserva
 fi:purkitettuja linssejä
 fr:Lentilles en conserve
 it:Lenticchie in scatola
-nl:Linzen in blik
+nl:Linzen in blik/pot
 agribalyse_proxy_food_code:en: 20510
 agribalyse_proxy_food_name:en: Lentil, seasoned, canned, drained
 agribalyse_proxy_food_name:fr: Lentille, cuisinée, appertisée, égouttée
@@ -8855,7 +8918,7 @@ agribalyse_proxy_food_name:fr: Lentille, cuisinée, appertisée, égouttée
 en:Canned scarlet runner beans, Canned runner beans, Canned multiflora beans
 es:Judiones cocidos en conserva, Judiones de la Granja cocidos en conserva
 fr:Haricots d'Espagne en conserve, Haricots écarlates en conserve
-nl:Pronkbonen in blik
+nl:Pronkbonen in blik/pot
 
 < en:Canned legumes
 en:Canned seasoned lentils
@@ -8879,7 +8942,7 @@ ciqual_food_name:fr: Haricot beurre, appertisé, égoutté
 en:Canned green pigeon peas
 es:Gandules verdes en conserva
 fr:Pois d'Angole verts en conserve
-nl:Duivenbonen in blik
+nl:Duivenbonen in blik/pot
 
 < en:Canned legumes
 < en:Chickpeas
@@ -8889,7 +8952,7 @@ es:Garbanzos cocidos en conserva, Garbanzos en conserva
 fi:purkitetut kikherneet
 fr:Pois chiches en conserve, Pois chiche appertisés
 it:Ceci in scatola
-nl:Kikkererwten in blik
+nl:Kikkererwten in blik/pot
 agribalyse_food_code:en: 20532
 ciqual_food_code:en: 20532
 ciqual_food_name:en: Chick pea, canned, drained
@@ -8905,7 +8968,7 @@ es:Judías verdes en conserva
 fi:purkitettuja vihreitä papuja
 fr:Haricots verts en conserve, Haricots verts appertisés égouttés
 it:Fagiolini in scatola
-nl:Sperziebonen in blik
+nl:Sperziebonen in blik/pot
 agribalyse_food_code:en: 20062
 ciqual_food_code:en: 20062
 ciqual_food_name:en: French bean, canned, drained
@@ -8928,7 +8991,7 @@ fi:purkitetut raviolit
 fr:Ravioli en conserve, raviolis en conserve, ravioli en boite, raviolis en boite
 hu:Konzerv ravioli, Ravioli konzervdobozban
 it:Ravioli in scatola
-nl:Ravioli in blik
+nl:Ravioli in blik/pot
 ro:Conserve de ravioli
 
 < en:Canned meals
@@ -8939,7 +9002,7 @@ es:Sopas en conserva, Sopas enlatadas
 fi:purkitetut keitot
 fr:Soupes en conserve
 it:Zuppe in scatola
-nl:Soepen in blik
+nl:Soepen in blik/pot
 ro:Conserve cu supă
 ru:Консервированные супы
 zh:汤罐头
@@ -8951,14 +9014,14 @@ bg:Охлюви от консерва
 de:Dosen-Schnecken, Schnecken in der Dose
 es:Caracoles enlatados
 fr:Escargots en conserve
-nl:Slakken in blik
+nl:Slakken in blik/pot
 zh:罐装蜗牛, 罐装田螺
 
 < en:Canned mushrooms
 en:Canned bloody milk cap
 es:Rovellones en conserva, Rovellón en conserva, Lactarius sanguifluus en conserva
 fr:Lactaires sanguins en conserve, Lactarius sanguifluus en conserve
-nl:Bloedmelkzammen in blik
+nl:Bloedmelkzammen in blik/pot
 
 < en:Canned mushrooms
 en:Canned champignon mushrooms, Canned common mushrooms, Canned white mushrooms, Canned white button mushrooms, Canned button mushrooms, Canned Agaricus bisporus, Canned cultivated mushrooms
@@ -8967,7 +9030,7 @@ es:Champiñones en conserva, Champiñones de París en conserva, Champiñones co
 fi:Säilykkeet herkkusienet
 fr:Champignons de Paris en conserve, Conserves de champignons de Paris, Agaricus bisporus en conserve, Champignons de Paris appertisés, Champignons de couche appertisés
 it:Funghi champignon in scatola, Champignon in scatola
-nl:Champignons in blik
+nl:Champignons in blik/pot
 ciqual_food_code:en: 20079
 ciqual_food_name:en: Button mushroom or cultivated mushroom, canned, drained
 ciqual_food_name:fr: Champignon de Paris ou champignon de couche, appertisé, égoutté
@@ -8976,25 +9039,25 @@ ciqual_food_name:fr: Champignon de Paris ou champignon de couche, appertisé, é
 en:Canned chanterelles, Canned golden chanterelles, Canned girolles, Canned Cantharellus cibarius
 es:Rebozuelos en conserva, Chantarelas en conserva, Cantharellus cibarius en conserva
 fr:Girolles en conserve, Cantharellus cibarius en conserve
-nl:Cantharellen in blik, Hanekammen in blik
+nl:Cantharellen in blik/pot, Hanekammen in blik/pot
 
 < en:Canned mushrooms
 en:Canned Hygrophorus latitabundus
 es:Setas babosa negra en conserva, Setas llanega en conserva, Setas llanega negra en conserva, Hygrophorus latitabundus en conserva
 fr:Hygrophorus latitabundus en conserve
-nl:Hygrophorus latitabundus in blik
+nl:Hygrophorus latitabundus in blik/pot
 
 < en:Canned mushrooms
 en:Canned king trumpet mushrooms, Canned french horn mushrooms, Canned king oyster mushrooms, Canned king brown mushrooms, Canned boletus of the steppes, Canned trumpet royale, Canned Pleurotus eryngii
 es:Setas de cardo en conserva, Pleurotus eryngii en conserva
 fr:Pleurotes du panicaut en conserve, Encore argouane en conserve, Bérigoule en conserve, Girboulot en conserve, Pleurotus eryngii en conserve
-nl:Kruisdisteloesterzwam in blik
+nl:Kruisdisteloesterzwam in blik/pot
 
 < en:Canned mushrooms
 en:Canned mixed mushrooms
 es:Mezclas de setas en conserva, Surtidos de setas en conserva, Surtido de setas en conserva, Setas surtidas en conserva
 fr:Mélanges de champignons en conserve
-nl:Paddestoelmengsels in blik
+nl:Paddestoelmengsels in blik/pot
 
 < en:Canned mushrooms
 en:Canned nameko mushrooms, Canned nameko, Canned Pholiota nameko
@@ -9005,31 +9068,31 @@ fr:Champignons nameko en conserve, Nameko en conserve, Pholiota nameko en conser
 en:Canned oyster mushrooms, Canned Pleurotus ostreatus
 es:Setas de ostra en conserva, Setas ostra en conserva, Champiñones ostra en conserva, Gírgolas en conserva, Pleurotus ostreatus en conserva
 fr:Pleurotes en huître en conserve, Pleurotus ostreatus en conserve
-nl:Oesterzwammen in blik
+nl:Oesterzwammen in blik/pot
 
 < en:Canned mushrooms
 en:Canned paddy straw mushrooms, Canned straw mushrooms, Canned Volvariella volvacea
 es:Champiñones de Straw en conserva, Setas de arroz en conserva, Paja seta en conserva, Setas volvarea en conserva, Seta volvarea en conserva, Volvariella volvacea en conserva
 fr:Volvaire volvacée en conserve, Volvaire cultivée en conserve, Volvaire asiatique en conserve, Volvariella volvacea en conserve
-nl:Tropische beurszwammen in blik
+nl:Tropische beurszwammen in blik/pot
 
 < en:Canned mushrooms
 en:Canned porcini mushrooms, Canned porcini, Canned penny bun, Canned porcino, Canned Boletus edulis
 es:Boletos comestibles en conserva, Boletus comestible en conserva, Setas de calabaza en conserva, Boletus edulis en conserva
 fr:Cèpes en conserve, Cèpes de Bordeaux en conserve, Boletus edulis en conserve
-nl:Gewoon eekhoorntjesbrood in blik
+nl:Gewoon eekhoorntjesbrood in blik/pot
 
 < en:Canned mushrooms
 en:Canned red pine mushrooms, Canned saffron milk caps, Canned Lactarius deliciosus
 es:Níscalos en conserva, Lactarius deliciosus en conserva
 fr:Lactaires délicieux en conserve, Rudes en conserve, Lactarius deliciosus en conserve
-nl:Oranjegroene melkzwammen in blik, Smakelijke melkzwammen in blik
+nl:Oranjegroene melkzwammen in blik/pot, Smakelijke melkzwammen in blik/pot
 
 < en:Canned mushrooms
 en:Canned truffles
 es:Trufas en conserva
 fr:Truffes en conserve
-nl:Truffels in blik
+nl:Truffels in blik/pot
 
 < en:Canned mussels
 en:Canned mussels in Catalan sauce, Canned mussels in Catalan-style sauce, Canned mussels in Catalan-style marinade, Canned mussels in tomato sauce
@@ -9063,7 +9126,7 @@ es:Frutas en conserva, Conservas de frutas
 fi:purkitetut hedelmät
 fr:Fruits en conserve
 it:Frutta in scatola
-nl:Fruit in Blik
+nl:Fruit in blik/pot
 pt:Frutos enlatados
 ru:Консервированные фрукты
 who_id:en: 16
@@ -9074,7 +9137,7 @@ de:Palmherzen in der Dose
 es:Palmitos en conserva, Palmito en conserva
 fr:Cœurs de palmier en conserve
 it:Cuori di palma in scatola
-nl:Palmharten in blik
+nl:Palmharten in blik/pot
 agribalyse_proxy_food_code:en: 20018
 agribalyse_proxy_food_name:en: Palm heart, canned, drained
 agribalyse_proxy_food_name:fr: Coeur de palmier, appertisé, égoutté
@@ -9090,7 +9153,7 @@ fi:purkitetut palkokasvit
 fr:Légumineuses en conserve
 hu:Hüvelyes konzervek
 it:Legumi in scatola
-nl:Bonen in blik
+nl:Bonen in blik/pot
 pt:Legumes enlatados
 ru:Бобовые в консервах
 who_id:en: 16
@@ -9187,7 +9250,7 @@ es:Sopas de verduras y hortalizas en conserva, Sopas de verduras en conserva, So
 fi:purkitetut vihanneskeitot
 fr:Soupes de légumes en conserve
 it:Zuppe di verdura in scatola
-nl:Groentesoepen in blik
+nl:Groentesoepen in blik/pot
 
 < en:Canned sprouts
 < en:Legumes and their products
@@ -9197,21 +9260,25 @@ es:Germinados de leguminosas en conserva
 fi:purkitetut palkokasvin idut
 fr:Pousses de légumineuses en conserve
 it:Germogli di legumi in scatola
-nl:Peulvruchtenkiemen in blik
+nl:Peulvruchtenkiemen in blik/pot
 
 < en:Canned tomatoes
-en:Peeled tomatoes
-bg:Белени домати
+en:Peeled tomatoes, Canned peeled tomatoes
+bg:Белени домати, Белени домати в консерва
 de:Geschälte Tomaten
 es:Tomates pelados
 fi:kuoritut tomaatit
-fr:Tomates pelées
+fr:Tomates pelées, Tomates pelées en conserve, Tomates pelées appertisées
 it:Pelati, Pomodori pelati
 nl:Geschilde tomaten
 pt:Tomates pelados
-agribalyse_proxy_food_code:en: 20048
-agribalyse_proxy_food_name:en: Tomato, peeled, canned, drained
-agribalyse_proxy_food_name:fr: Tomate, pelée, appertisée, égouttée
+agribalyse_food_code:en: 20048
+ciqual_food_code:en: 20048
+ciqual_food_name:en: Tomato, peeled, canned, drained
+ciqual_food_name:fr: Tomate, pelée, appertisée, égouttée
+
+< en:Canned tomatoes
+fr:Chair de tomates
 
 < en:Canned tunas
 en:Tuna chunks
@@ -9263,14 +9330,14 @@ en:Canned cabbage
 de:Kohl in Dosen
 es:Repollo en conserva
 fr:Choux en conserve
-nl:Kool in blik
+nl:Kool in blik/pot
 
 < en:Canned vegetables
 en:Canned celery
 de:Dosen-Sellerie, Sellerie aus der Dose
 es:Apio en conserva
 fr:Céleri en conserve
-nl:Selderij in blik
+nl:Selderij in blik/pot
 
 < en:Canned vegetables
 en:Canned diced mixed vegetables
@@ -9287,7 +9354,7 @@ es:Guisantes y zanahorias en conserva
 fi:purkitetut herneet ja porkkanat
 fr:Petits pois et carottes en conserve, Carottes et petits pois en conserve, Petits pois et carottes appertisés égouttés
 it:Piselli e carote in scatola
-nl:Doperwten met worteltjes in blik
+nl:Doperwten met worteltjes in blik/pot
 agribalyse_food_code:en: 20093
 ciqual_food_code:en: 20093
 ciqual_food_name:en: Garden peas and carrots, canned, drained
@@ -9297,7 +9364,7 @@ ciqual_food_name:fr: Petits pois et carottes, appertisés, égouttés
 en:Canned salsifis
 es:Salsifis en conserva
 fr:Salsifis en conserve, Salsifis appertisés
-nl:Schorseneer in blik
+nl:Schorseneer in blik/pot
 agribalyse_food_code:en: 20081
 ciqual_food_code:en: 20081
 ciqual_food_name:en: Salsify, canned, drained
@@ -9736,12 +9803,12 @@ fr:Soupes de carottes déshydratées
 
 < en:Canned vegetables
 < en:Carrots
-en:Canned carrots, Canned carrots
+en:Canned carrots
 de:Karotten in Dosen, Dosenkarotten
 es:Zanahorias en conserva
 fi:purkitetut porkkanat
-fr:Carottes en conserve, Carottes en conserve, Carottes appertisées
-it:Carote in scatola, Carote in scatola
+fr:Carottes en conserve, Carottes appertisées
+it:Carote in scatola
 nl:Wortels in blik
 agribalyse_food_code:en: 20007
 ciqual_food_code:en: 20007
@@ -9868,7 +9935,7 @@ ciqual_food_name:fr: Chou-fleur, cuit
 en:Canned cauliflowers, canned cauliflower
 es:Coliflor en conserva
 fr:Choux-fleurs en conserve
-nl:Bloemkool in blik
+nl:Bloemkool in blik/pot
 
 < en:Cauliflowers
 < en:Frozen vegetables
@@ -10984,6 +11051,7 @@ nl:Tarwezetmelen
 
 < en:Cereal syrups
 en:Barley malt syrup
+bg:Сироп ечемичен малц
 de:Gerstenmalzsirup
 es:Siropes de cebada malteada, Jarabes de cebada malteada
 fr:Sirops d'orge malté, sirop d'orge malté
@@ -11153,7 +11221,7 @@ fi:purkitetut viljat
 fr:Céréales en conserve
 hu:Gabonakonzervek
 it:Cereali in scatola
-nl:Conservengranen, Graan in blik
+nl:Conservengranen, Graan in pot
 
 < en:Breakfasts
 < en:Cereals and their products
@@ -11282,21 +11350,6 @@ th:ธัญพืช
 fr:Orge soluble
 it:Orzo solubile
 pt:Cevada solúvel
-
-< en:Cereals with fruits
-< en:Mueslis
-en:Mueslis with fruits
-de:Müslis mit Früchten, Müsli mit Früchten, Früchtemüslis
-es:Mueslis con frutas
-fi:hedelmämyslit
-fr:Mueslis aux fruits
-it:Muesli alla frutta, muesli con frutta
-nl:Mueslis met fruit, Muesli met fruit
-ro:Müsli cu fructe
-ru:Мюсли с фруктами
-agribalyse_proxy_food_code:en: 32111
-agribalyse_proxy_food_name:en: Muesli, crunchy, with fruits or dried fruits, fortified with vitamins and chemical elements
-agribalyse_proxy_food_name:fr: Muesli croustillant aux fruits ou fruits secs, enrichi en vitamines et minéraux
 
 < en:Cervelat
 en:Pork brain
@@ -11687,7 +11740,7 @@ season_in_country_fr:en: 1‚2,3‚4,5‚6,7‚8,9‚10‚11‚12
 en:Canned chards
 es:Acelgas en conserva
 fr:Bettes en conserve, Blettes en conserve
-nl:Snijbiet in blik
+nl:Snijbiet in blik/pot
 
 < en:Chards
 < en:Frozen vegetables
@@ -12048,7 +12101,11 @@ en:Canned cheeses
 de:Dosenkäse, Käsekonserve
 fr:Fromages en conserve
 hu:Konzerv sajtok, Konzerves sajtok
-nl:Kazen in blik
+nl:Kazen in blik/pot
+
+< en:Cheeses
+en:Cheeses for grilling, Baking cheeses
+nl:Grillkazen, Bakkazen
 
 < en:Cheeses
 en:Cheeses for kids
@@ -12275,17 +12332,6 @@ nl:Halfverhitte geperste kazen
 wikidata:en: Q3088328
 
 < en:Cheeses
-en:Halloumi
-de:Halloumi
-es:Halloumi
-fr:Halloumi
-it:Halloumi
-nl:Halloumi
-sv:Halloumi
-origins:en: en:cyprus
-wikidata:en: Q549793
-
-< en:Cheeses
 en:Hungarian cheeses, Cheeses from Hungary
 fr:Fromages hongrois
 wikidata:en: Q3088360
@@ -12391,9 +12437,9 @@ origins:en: en:portugal
 wikidata:en: Q3088371
 
 < en:Cheeses
-en:Processed cheese, Processed cheese
+en:Processed cheese
 de:Schmelzkäse
-es:Queso procesado, Queso procesado
+es:Queso procesado
 fi:sulatejuusto
 fr:Fromages à pâte fondue, snack à base de fromage fondu
 nl:Smeltkazen
@@ -12418,6 +12464,7 @@ wikidata:en: Q3088373
 < en:Cheeses
 en:Saint-Paulin cheese
 fr:Saint-Paulin
+nl:Saint Paulin kazen
 agribalyse_food_code:en: 12755
 ciqual_food_code:en: 12755
 ciqual_food_name:en: Saint-Paulin cheese, from cow's milk -semi-hard cheese-
@@ -12491,11 +12538,6 @@ fr:Fromages fumés
 hu:Füstölt sajtok
 nl:Gerookte kazen, Rookkaas
 wikidata:en: Q2632885
-
-< en:Cheeses
-< en:Snacks
-en:Cheese doodles
-ro:Pufuleți cu brânză
 
 < en:Cheeses
 en:Soft cheese with a natural rind
@@ -12597,8 +12639,8 @@ it:Robiolino
 
 < en:Cheeses
 < en:Meals
-fr:Fondues, fondue, fondues de fromage, fondue de fromage, Fondues, fondue, fondues de fromage, fondue de fromage
-nl:Fondus, Kaasfondus, Fondus, Kaasfondus
+fr:Fondues, fondue, fondues de fromage, fondue de fromage
+nl:Fondus, Kaasfondus
 wikidata:en: Q190531
 
 < en:Cheeses
@@ -13019,6 +13061,7 @@ wikidata:en: Q7707149
 < en:Cheeses from the United Kingdom
 en:White Stilton cheese
 origins:en: en:united-kingdom
+wikidata:en: Q12902652
 
 < en:Cheeses from Wales
 en:Caerphilly, Traditional Welsh Caerphilly, Traditional Welsh Caerffili
@@ -13193,8 +13236,8 @@ ciqual_food_name:fr: Crème de marrons vanillée, appertisée
 
 < en:Canned nuts
 < en:Chestnuts
-en:Canned chestnut, Canned chestnut
-fr:Marrons en conserve
+en:Canned chestnut
+fr:Châtaigne en conserve, Châtaignes en conserve, Marrons en conserve
 agribalyse_food_code:en: 15039
 ciqual_food_code:en: 15039
 ciqual_food_name:en: Chestnut, canned
@@ -13594,6 +13637,10 @@ la:Cicer arietinum var. macrocarpum
 < en:Chili peppers
 en:Chili powders
 nl:Chilipoeders, Chillipoeders
+
+< en:Chili peppers
+en:Sichuan pepper
+zh:花椒
 
 < en:Chili peppers
 fr:Anaheim, Capsicum annuum Anaheim, aji Colorado, piment de Californie, piment du Nouveau Mexique, piment du Rio Grande
@@ -14060,7 +14107,7 @@ fr:Barres chocolatées, barres au chocolat, Chocolat en tablette
 he:חטיפי שוקולד
 hu:Csokoládés szelet, Csoki
 it:Barrette di cioccolato
-nl:Chocorepen
+nl:Chocolade repen
 pt:Barras de chocolate
 ru:Шоколадные плитки, плитки шоколада, шоколадная плитка, плитка шоколада
 zh:巧克力棒
@@ -15070,6 +15117,7 @@ agribalyse_proxy_food_name:fr: Citron, pulpe, cru
 
 < en:Citrus
 en:Limes
+bg:Зелен лимон
 de:Limetten
 es:Limas
 fr:Citrons verts
@@ -15080,6 +15128,7 @@ ru:Лаймы, Лайм
 
 < en:Citrus
 en:Mandarin oranges, Mandarins, Mandarines
+bg:Мандарини
 ca:mandarina
 co:mandarina
 cs:mandarinka
@@ -15117,6 +15166,7 @@ uk:мандарин
 
 < en:Citrus
 en:Oranges
+bg:Портокали
 de:Orangen
 es:Naranjas
 fi:appelsiinit
@@ -15128,7 +15178,7 @@ pl:Pomarańcza, Pomarańcze
 ru:Апельсины
 
 < en:Citrus
-en:Pomelos, Pomelos
+en:Pomelos
 de:Pampelmusen
 es:Pomelos chinos, Pampelmusas
 fr:Pamplemousses
@@ -15252,15 +15302,15 @@ protected_name_file_number:en: PDO-FR-0062
 protected_name_type:en: pdo
 
 < en:Cocoa and chocolate powders
-en:Cocoa powders, cocoa powder, Cocoa, Cacao, Cacao powders, Instant cocoa powder without sugar, Cocoa powders
+en:Cocoa powders, cocoa powder, Cocoa, Cacao, Cacao powders, Instant cocoa powder without sugar
 ca:Cacau en pols, Cacau
 de:Kakaopulver, Kakao
 es:Cacaos en polvo, cacao en polvo, cacao
 fi:kaakaojauheet
-fr:Cacaos en poudre, cacao en poudre, cacao, poudres de cacao, Cacao non sucré en poudre soluble, Cacao en poudre non sucré
-it:Cacao in polvere, Cacao in polvere
+fr:Cacaos en poudre, cacao en poudre, cacao, poudres de cacao, Cacao non sucré en poudre soluble, Cacao en poudre non sucré, Poudres cacaotées
+it:Cacao in polvere
 nl:Cacaopoeders, Cacaopoeder, Cacao
-ru:Какао-порошок, Какао-порошок
+ru:Какао-порошок
 agribalyse_food_code:en: 18100
 ciqual_food_code:en: 18100
 ciqual_food_name:en: Cocoa powder, without sugar, powder, instant
@@ -15543,8 +15593,8 @@ nl:Koffiedranken met melk
 ro:Lapte pentru cafea
 
 < en:Coffee milks
-en:Dried Coffee milks, Dried Coffee milks
-nl:Koffiecreamers, Koffiecreamers
+en:Dried Coffee milks
+nl:Koffiecreamers
 
 < en:Coffees
 en:Arabica coffees
@@ -15796,6 +15846,7 @@ wikidata:en: Q827098
 < en:Diet sodas
 en:Sugar-free colas with artificial sweeteners and without caffeine
 fr:Colas non sucrés avec édulcorants sans caféine
+nl:Colas (zonder suiker en caffeine)
 agribalyse_food_code:en: 18068
 ciqual_food_code:en: 18068
 ciqual_food_name:en: Cola, without sugar, with artificial sweetener-s- and with caffeine
@@ -15951,6 +16002,7 @@ fr:Sole frite
 agribalyse_food_code:en: 26062
 ciqual_food_code:en: 26062
 ciqual_food_name:en: Common sole, fried
+cooking_method:en: en:fried
 
 < en:Common sole
 en:Grilled common sole, Common sole grilled
@@ -15958,6 +16010,7 @@ fr:Sole poêlée
 agribalyse_food_code:en: 26248
 ciqual_food_code:en: 26248
 ciqual_food_name:en: Common sole, grilled
+cooking_method:en: en:grilled
 
 < en:Common sole
 en:Roasted common sole, Baked common sole
@@ -15972,6 +16025,7 @@ fr:Sole cuite à la vapeur
 agribalyse_food_code:en: 26059
 ciqual_food_code:en: 26059
 ciqual_food_name:en: Common sole, steamed
+cooking_method:en: en:steamed
 
 < en:Common wheat flours
 en:Semi-polished wheat flours, Wheat flour type 80, Wheat flour T80
@@ -16171,7 +16225,7 @@ es:Mezclas de hierbas aromáticas y especias
 fi:Yrttimausteseokset
 fr:Mélanges d'herbes et d'épices
 it:Misto di erbe e spezie, Erbe e spezie miste
-nl:Mengeling van aromatische kruiden en specerijen
+nl:Kruiden/specerijenmengsel, Mengeling van aromatische kruiden en specerijen
 
 < en:Condiments
 < en:Plant-based foods
@@ -17119,16 +17173,6 @@ ciqual_food_code:en: 20000
 ciqual_food_name:en: Artichoke, globe, cooked
 ciqual_food_name:fr: Artichaut, cuit
 
-< en:Broccoli
-< en:Cooked vegetables
-en:Cooked broccoli
-fr:Brocolis cuits
-nl:gekookte broccolis
-agribalyse_food_code:en: 20006
-ciqual_food_code:en: 20006
-ciqual_food_name:en: Broccoli, cooked
-ciqual_food_name:fr: Brocoli, cuit
-
 < en:Carrots
 < en:Cooked vegetables
 en:Cooked carrots
@@ -17231,6 +17275,13 @@ fi:Leivonta-avut
 fr:Aides à la pâtisserie
 nl:Banketbakkerhulpmiddelen
 ru:Добавки для мучных изделий
+
+< en:Cooking helpers
+< en:Plant-based foods
+en:Psyllium
+fr:Psyllium
+nl:Psylliumvezels
+wikidata:en: Q311228
 
 < en:Cooking helpers
 en:Sugary cooking helpers
@@ -17654,6 +17705,11 @@ ciqual_food_name:en: Salty snacks, crackers, reduced fat
 ciqual_food_name:fr: Biscuit apéritif, crackers, nature, allégé en matière grasse
 
 < en:Crackers
+en:Small Crackers
+it:Scrocchi
+nl:Toastjes
+
+< en:Crackers
 en:Wheat crackers
 fr:Crackers au froment, Biscuits apéritifs au froment
 ciqual_food_code:en: 7351
@@ -17888,6 +17944,7 @@ fr:Crèmes semi-épaisses, Crème de lait semi-épaisse
 es:Turrón de Jijona
 origins:en: en:spain
 protected_name_type:en: pgi
+wikidata:en: Q3995785
 
 < en:Crepe filled with cheese
 en:Crepe filled with cheese and bechamel sauce, buckwheat crepe filled with cheese and bechamel sauce
@@ -18429,6 +18486,38 @@ fr:Pépites de céréales aux fruits à coques
 en:Cereal clusters with chocolate
 fr:Pépites de céréales au chocolat
 
+< en:Crunchy mueslis with chocolate
+en:Crunchy chocolate muesli fortified with vitamins and chemical elements
+fr:Muesli croustillant au chocolat enrichi en vitamines et minéraux
+agribalyse_food_code:en: 32112
+ciqual_food_code:en: 32112
+ciqual_food_name:en: Muesli, crunchy, with chocolate, with or without fruits, fortified with vitamins and chemical elements
+ciqual_food_name:fr: Muesli croustillant au chocolat, avec ou sans fruits, enrichi en vitamines et minéraux
+
+< en:Crunchy mueslis with chocolate
+en:Crunchy muesli with chocolate not fortified with vitamins and chemical elements
+fr:Muesli croustillant au chocolat non enrichi en vitamines et minéraux
+agribalyse_food_code:en: 32109
+ciqual_food_code:en: 32109
+ciqual_food_name:en: Muesli, crunchy, with chocolate -not fortified with vitamins and chemical elements-
+ciqual_food_name:fr: Muesli croustillant au chocolat -non enrichi en vitamines et minéraux-
+
+< en:Crunchy mueslis with fruits
+en:Crunchy muesli with fruits fortified with vitamins and chemical elements, Crunchy muesli with dried fruits fortified with vitamins and chemical elements
+fr:Muesli croustillant aux fruits enrichi en vitamines et minéraux, Muesli croustillant aux fruits secs enrichi en vitamines et minéraux
+agribalyse_food_code:en: 32111
+ciqual_food_code:en: 32111
+ciqual_food_name:en: Muesli, crunchy, with fruits or dried fruits, fortified with vitamins and chemical elements
+ciqual_food_name:fr: Muesli croustillant aux fruits ou fruits secs, enrichi en vitamines et minéraux
+
+< en:Crunchy mueslis with fruits
+en:Crunchy muesli with fruits not fortified with vitamins and chemical elements, Crunchy Muesli with fruits dried fruits grains not fortified with vitamins and chemical elements
+fr:Muesli croustillant aux fruits non enrichi en vitamines et minéraux, Muesli croustillant aux fruits secs et aux graines non enrichi en vitamines et minéraux
+agribalyse_food_code:en: 32108
+ciqual_food_code:en: 32108
+ciqual_food_name:en: Muesli, crunchy, with fruits and/or dried fruits, grains -not fortified with vitamins and chemical elements-
+ciqual_food_name:fr: Muesli croustillant aux fruits et/ou fruits secs, graines -non enrichi en vitamines et minéraux-
+
 < en:Crustacean rillettes
 en:Crab rillettes
 fr:Rillettes de crabe, Rillettes de chair de crabe, Rillettes au crabe
@@ -18820,7 +18909,7 @@ nl:Gele Currypastas
 wikidata:en: Q67201117
 
 < en:Curry sauces
-en:Madras curry sauce, Madras curry sauce
+en:Madras curry sauce
 
 < en:Cypriot bakery products
 en:Glyko Triantafyllo Agrou
@@ -18842,13 +18931,6 @@ el:Λουκούμι Γεροσκήπου, Loukoumi Geroskipou
 origins:en: en:cyprus
 protected_name_file_number:en: PGI-CY-0454
 protected_name_type:en: pgi
-
-< en:Cypriot cheeses
-el:Χαλλούμι, Hellim, Halloumi, Hellim
-origins:en: en:cyprus
-protected_name_file_number:en: PDO-CY-01243
-protected_name_type:en: pdo
-wikidata:en: Q549793
 
 < en:Cypriot meat products
 en:Hiromeri Pitsilias
@@ -19290,18 +19372,6 @@ agribalyse_proxy_food_name:fr: Panna cotta, rayon frais
 wikidata:en: Q504941
 
 < en:Dairy desserts
-en:Petits suisses
-de:Milchdesserts
-es:Petit-suisse, Petit suisse
-fr:Petits suisses
-nl:Petits suisses
-agribalyse_proxy_food_code:en: 19666
-ciqual_proxy_food_code:en: 19666
-ciqual_proxy_food_name:en: Petit-Suisse like fresh cream cheese, plain, around 9% fat
-ciqual_proxy_food_name:fr: Fromage frais type petit suisse, nature, 10% MG environ
-wikidata:en: Q585246
-
-< en:Dairy desserts
 en:Semolina desserts
 de:Grießpuddings, Grießpudding
 es:Sémolas de leche
@@ -19347,86 +19417,8 @@ fr:Oeufs au lait
 
 < en:Dairy desserts
 < en:Fermented milk products
-en:Faiselles, Drained soft fresh cheese around 6% fat
-fr:Faisselles
-agribalyse_food_code:en: 19641
-ciqual_food_code:en: 19641
-ciqual_food_name:en: Drained soft fresh cheese, around 6% fat
-wikidata:en: Q3064619
-
-< en:Dairy desserts
-< en:Fermented milk products
-en:Quarks, quark
-ar:كوارك
-az:Kəsmik
-be:тварог
-cs:tvaroh
-da:Kvark
-de:Quark, Weißkäse, Topfen, Schotten, Speisequark
-es:Queso quark
-fi:Rahka
-fr:Quarks, Quark
-he:גבינה לבנה
-hu:Túró
-hy:Կաթնաշոռ
-id:Quark
-it:Quark
-ja:クワルク
-ka:ხაჭო
-ko:크바르크
-lb:Stoffi
-lt:Varškės sūris
-lv:biezpiens
-nb:kvarg
-nl:kwark, plattekaas
-nn:kvarg
-pl:Twaróg
-pt:quark
-ru:творог
-sh:quark
-sk:Tvaroh
-sv:Kvarg
-tr:Kesmik
-tt:эремчек
-uk:домашній сир
-wa:Makêye
-zh:奶渣
-ciqual_food_code:en: 19501
-ciqual_food_name:en: Quark, plain or fruit -average-
-ciqual_food_name:fr: Fromage blanc nature ou aux fruits -aliment moyen-
-wikidata:en: Q259642
-wikipedia:en: https://en.wikipedia.org/wiki/Quark_-dairy_product-
-
-< en:Dairy desserts
-< en:Fermented milk products
-en:Skyrs, Skyr
-ca:Skyr
-da:Skyr
-de:Skyr
-es:Skyr
-fi:Skyr
-fr:Skyrs, Skyr
-is:Skyr
-it:Skyr
-ja:スキール
-nl:Skyr
-nn:Skyr
-no:Skyr
-pl:Skyr
-pt:Skyr
-ru:Скир
-sv:Skyr
-zh:Skyr
-wikidata:en: Q742127
-
-< en:Dairy desserts
-< en:Fermented milk products
-fr:Fromages blancs, fromage blanc
-de:Weißer Käse
-agribalyse_proxy_food_code:en: 19646
-agribalyse_proxy_food_name:en: Fresh cream cheese, plain, around 3% fat
-agribalyse_proxy_food_name:fr: Fromage blanc nature, 3% MG environ
-wikidata:en: Q15080546
+en:Fermented dairy desserts
+fr:Desserts lactés fermentés
 
 < en:Dairy drinks
 en:Flavoured milks, Flavored milks, Flavoured milks with sugar partially skimmed fortified with vitamins and chemicals elements
@@ -19567,7 +19559,7 @@ ciqual_food_name:en: Dark chocolate bar, more than 40% cocoa, for cooking
 ciqual_food_name:fr: Chocolat noir à 40% de cacao minimum, à pâtisser, tablette
 
 < en:Dark chocolates
-en:Dark chocolate bar with dried fruits, Dark chocolate bar with dried fruits
+en:Dark chocolate bar with dried fruits
 fr:Chocolat noir en tablette aux fruits secs
 agribalyse_food_code:en: 31070
 ciqual_food_code:en: 31070
@@ -19879,7 +19871,7 @@ ciqual_food_name:fr: Soupe aux poireaux et pommes de terre, déshydratée recons
 < en:Dehydrated soups
 < en:Vegetable soups
 en:Dehydrated mixed vegetables soup
-fr:Soupe aux légenumes déshydratée
+fr:Soupe aux légumes déshydratée
 agribalyse_food_code:en: 25905
 ciqual_food_code:en: 25905
 ciqual_food_name:en: Soup, mixed vegetables, dehydrated and reconstituted
@@ -20042,6 +20034,11 @@ fr:Sauce au chocolat, Sauces au chocolat
 agribalyse_food_code:en: 11300
 ciqual_food_code:en: 11300
 ciqual_food_name:en: Chocolate sauce
+
+< en:Dessert sauces
+en:Fruit Sauces
+fr:Sauces aux fruits
+nl:Vruchtensauzen
 
 < en:Dairies
 < en:Dessert sauces
@@ -20970,7 +20967,7 @@ es:Arándanos secos
 fi:kuivatut karpalot
 fr:Canneberges séchées, Cranberries séchées
 it:Ossicocchi secchi
-nl:Gedrooge cranberries
+nl:Gedroogde cranberries
 pl:żurawina suszona
 
 < en:Dried fruits
@@ -21039,7 +21036,7 @@ de:getrocknete Pfirsiche, gedörrte Pfirsiche
 es:Melocotones deshidratados, Melocotones desecados, Orejones de melocotón
 fi:Kuivatut persikat
 fr:Pêches séchées
-nl:Gedroogde perzikken
+nl:Gedroogde perziken
 pt:Pêssegos secos
 ru:Персики и нектарины сушёные, сушёные персики и нектарины, персики и нектарины сушеные, сушеные персики и нектарины, сушеные персики, персики сушеные
 agribalyse_food_code:en: 13118
@@ -21255,6 +21252,7 @@ nl:Noribladeren
 < en:Dried peas
 en:Dried split peas
 fr:Pois cassés secs
+nl:Spliterwten
 agribalyse_food_code:en: 20515
 ciqual_food_code:en: 20515
 ciqual_food_name:en: Split pea, dried
@@ -21484,6 +21482,7 @@ ciqual_food_name:fr: Pâtes sèches, au blé complet, cuites, non salées
 < en:Drinkable yogurts
 en:Dairy drinks with sugar and fruits, Fermented milks with sugar and fruits, Yogurts with sugar and fruits
 fr:Boisson lactée sucrée au lait fermenté et aux fruits, Yaourt à boire sucré aux fruits, Lait fermenté sucré aux fruits
+nl:Yoghurtdranken met fruit en suiker
 agribalyse_food_code:en: 19535
 ciqual_food_code:en: 19535
 ciqual_food_name:en: Dairy drink or fermented milk or yogurt, with fruits, with sugar
@@ -21516,6 +21515,7 @@ ciqual_food_name:fr: Boisson lactée, lait fermenté ou yaourt à boire, nature,
 < en:Drinkable yogurts
 en:Strawberry yogurt drinks
 fr:Yaourts à boire goût fraise, Yaourts à boire fraise, Yaourts à boire saveur fraise
+nl:Aardbeiendrinkyoghurts
 
 < en:Drinkable yogurts
 en:Vanilla yogurt drinks
@@ -21999,11 +21999,9 @@ fr:Spaghettis de blé dur complet, Spaghetti au blé dur complet, Spaghettis au 
 nl:Volkoren durum tarwespaghettis, Volkorenspaghettis
 
 < en:Dutch bakery products
-nl:Suikerstroop
-origins:en: en:netherlands
-protected_name_file_number:en: TSG-NL-1203
-protected_name_type:en: tsg
-wikidata:en: Q106783007
+en:Sugar breads
+fr:Pains au sucre
+nl:Suikerbroden
 
 < en:Dutch vegetables
 nl:Brabantse Wal Asperges
@@ -22387,11 +22385,13 @@ protected_name_type:en: pgi
 < en:Edamame
 en:Canned edamame
 fr:Edamame en conserve
+nl:Edamame in blik
 
 < en:Edamame
 < en:Frozen legumes
 en:Frozen edamame
 fr:Edamame surgelés
+nl:Diepvries-edamame
 
 < en:Eels
 en:Cooked eels, Cooked eel
@@ -22399,6 +22399,13 @@ fr:Anguilles cuites, Anguille cuite
 ciqual_food_code:en: 26999
 ciqual_food_name:en: Eel, cooked -average-
 ciqual_food_name:fr: Anguille, cuite -aliment moyen-
+
+< en:Eels
+en:Raw eels, Raw eel
+fr:Anguilles crues, Anguille crue
+ciqual_food_code:en: 27016
+ciqual_food_name:en: Eel, raw
+ciqual_food_name:fr: Anguille, crue
 
 < en:Egg noodles
 en:Egg spaghetti
@@ -22902,6 +22909,7 @@ fr:Truite d'élevage fumée, Truites fumées d'élevage
 agribalyse_food_code:en: 27029
 ciqual_food_code:en: 27029
 ciqual_food_name:en: Trout, farmed, smoked
+cooking_method:en: en:smoked
 
 < en:Farmed trouts
 fr:Filets de truite d'élevage
@@ -23061,6 +23069,7 @@ zh:蔬菜脂肪
 < en:Fats
 it:olio di noce di cedro
 fr:huile de noix de cèdre
+wikidata:en: Q184315
 
 < en:Fatty fishes
 < en:Fishes
@@ -23300,6 +23309,135 @@ sl:Kisla smetana
 sv:Gräddfil
 food_groups:en: en:milk-and-yogurt
 pnns_group_2:en: Milk and yogurt
+
+< en:Fermented dairy desserts
+en:Bifidus yogurts
+de:Bifidus-Joghurt
+es:Yogures bifidus, Yogures con bifidus
+fi:Bifidus-jogurtit
+fr:Yaourts au Bifidus
+it:Yogurt allo Bifidus
+nl:Bifidus yoghurts
+
+< en:Fermented dairy desserts
+en:Faiselles, Drained soft fresh cheese around 6% fat
+fr:Faisselles
+agribalyse_food_code:en: 19641
+ciqual_food_code:en: 19641
+ciqual_food_name:en: Drained soft fresh cheese, around 6% fat
+wikidata:en: Q3064619
+
+< en:Fermented dairy desserts
+en:Petits suisses
+de:Milchdesserts
+es:Petit-suisse, Petit suisse
+fr:Petits suisses
+nl:Petits suisses
+agribalyse_proxy_food_code:en: 19666
+ciqual_proxy_food_code:en: 19666
+ciqual_proxy_food_name:en: Petit-Suisse like fresh cream cheese, plain, around 9% fat
+ciqual_proxy_food_name:fr: Fromage frais type petit suisse, nature, 10% MG environ
+wikidata:en: Q585246
+
+< en:Fermented dairy desserts
+en:Skyrs, Skyr
+ca:Skyr
+da:Skyr
+de:Skyr
+es:Skyr
+fi:Skyr
+fr:Skyrs, Skyr
+is:Skyr
+it:Skyr
+ja:スキール
+nl:Skyr
+nn:Skyr
+no:Skyr
+pl:Skyr
+pt:Skyr
+ru:Скир
+sv:Skyr
+zh:Skyr
+wikidata:en: Q742127
+
+< en:Fermented dairy desserts
+en:Yogurts, yoghourts, yoghurts, yogourts, jogurts
+af:Jogurt
+ar:لبن
+bg:Кисело мляко
+bn:দই
+br:Yaourt
+bs:Jogurt
+ca:Iogurt
+cs:Jogurt
+cy:Iogwrt
+da:Yoghurt
+de:Joghurt, Jogurt, Joghurts, Jogurts
+el:Γιαούρτι
+eo:Jogurto
+es:Yogures, yogur
+et:Jogurt
+eu:Jogurt
+fa:ماست
+fi:Jogurtti
+fr:Yaourts, yahourts, yogourts, yoghourts
+gl:Iogur
+he:יוגורט
+hi:दही
+hr:Jogurt
+hu:Joghurtok
+id:Yoghurt
+is:Jógúrt
+it:yogurt, iogurt, yoghurt
+ja:ヨーグルト
+jv:Yoghurt
+ko:요구르트
+ku:Mast
+la:Iogurtum
+lt:Jogurtas
+lv:Jogurts
+ml:തൈര്
+my:ဒိန်ချဉ်
+ne:दही
+nl:Yoghurts
+nn:yoghurt
+pl:jogurty, jogurt
+pt:Iogurtes, yogurtes
+qu:Yugur
+ro:Iaurturi
+ru:Йогурт
+rw:Yawurute
+sh:Jogurt
+sk:Jogurt
+sl:Jogurt
+sq:Jogurti
+sr:јогурт
+sv:Yoghurtar, Yoghurt
+ta:தயிர்
+te:పెరుగు
+th:นมเปรี้ยว
+ti:ርግኦ
+tr:Yoğurt
+tt:Qatıq
+zh:酸奶
+ciqual_food_code:en: 19624
+ciqual_food_name:en: Yoghurt, plain or fruit -average-
+ciqual_food_name:fr: Yaourt ou spécialité laitière nature ou aux fruits -aliment moyen-
+food_groups:en: en:milk-and-yogurt
+pnns_group_2:en: Milk and yogurt
+who_id:en: 7
+wikidata:en: Q13317
+
+< en:Fermented dairy desserts
+fr:Fromages blancs, fromage blanc
+de:Weißer Käse
+agribalyse_proxy_food_code:en: 19646
+agribalyse_proxy_food_name:en: Fresh cream cheese, plain, around 3% fat
+agribalyse_proxy_food_name:fr: Fromage blanc nature, 3% MG environ
+wikidata:en: Q15080546
+
+< en:Fermented dairy desserts
+fr:Spécialités laitières, spécialité laitière
 
 < en:Dairy drinks
 < en:Fermented drinks
@@ -23542,74 +23680,48 @@ who_id:en: 8
 wikidata:en: Q10943
 
 < en:Fermented milk products
-en:Yogurts, yoghourts, yoghurts, yogourts, jogurts
-af:Jogurt
-ar:لبن
-bg:Кисело мляко
-bn:দই
-br:Yaourt
-bs:Jogurt
-ca:Iogurt
-cs:Jogurt
-cy:Iogwrt
-da:Yoghurt
-de:Joghurt, Jogurt, Joghurts, Jogurts
-el:Γιαούρτι
-eo:Jogurto
-es:Yogures, yogur
-et:Jogurt
-eu:Jogurt
-fa:ماست
-fi:Jogurtti
-fr:Yaourts, yahourts, yogourts, yoghourts
-gl:Iogur
-he:יוגורט
-hi:दही
-hr:Jogurt
-hu:Joghurtok
-id:Yoghurt
-is:Jógúrt
-it:yogurt, iogurt, yoghurt
-ja:ヨーグルト
-jv:Yoghurt
-ko:요구르트
-ku:Mast
-la:Iogurtum
-lt:Jogurtas
-lv:Jogurts
-ml:തൈര്
-my:ဒိန်ချဉ်
-ne:दही
-nl:Yoghurts
-nn:yoghurt
-pl:jogurty, jogurt
-pt:Iogurtes, yogurtes
-qu:Yugur
-ro:Iaurturi
-ru:Йогурт
-rw:Yawurute
-sh:Jogurt
-sk:Jogurt
-sl:Jogurt
-sq:Jogurti
-sr:јогурт
-sv:Yoghurtar, Yoghurt
-ta:தயிர்
-te:పెరుగు
-th:นมเปรี้ยว
-ti:ርግኦ
-tr:Yoğurt
-tt:Qatıq
-zh:酸奶
-ciqual_food_code:en: 19624
-ciqual_food_name:en: Yoghurt, plain or fruit -average-
-ciqual_food_name:fr: Yaourt ou spécialité laitière nature ou aux fruits -aliment moyen-
-food_groups:en: en:milk-and-yogurt
-pnns_group_2:en: Milk and yogurt
-who_id:en: 7
-wikidata:en: Q13317
+en:Quarks, quark
+ar:كوارك
+az:Kəsmik
+be:тварог
+cs:tvaroh
+da:Kvark
+de:Quark, Weißkäse, Topfen, Schotten, Speisequark
+es:Queso quark
+fi:Rahka
+fr:Quarks, Quark
+he:גבינה לבנה
+hu:Túró
+hy:Կաթնաշոռ
+id:Quark
+it:Quark
+ja:クワルク
+ka:ხაჭო
+ko:크바르크
+lb:Stoffi
+lt:Varškės sūris
+lv:biezpiens
+nb:kvarg
+nl:kwark, plattekaas
+nn:kvarg
+pl:Twaróg
+pt:quark
+ru:творог
+sh:quark
+sk:Tvaroh
+sv:Kvarg
+tr:Kesmik
+tt:эремчек
+uk:домашній сир
+wa:Makêye
+zh:奶渣
+ciqual_food_code:en: 19501
+ciqual_food_name:en: Quark, plain or fruit -average-
+ciqual_food_name:fr: Fromage blanc nature ou aux fruits -aliment moyen-
+wikidata:en: Q259642
+wikipedia:en: https://en.wikipedia.org/wiki/Quark_-dairy_product-
 
-en:Festive foods, Festive foods
+en:Festive foods
 
 < en:Festive foods
 en:Christmas foods and drinks
@@ -24422,7 +24534,7 @@ fi:purkitetut kalat
 fr:Poissons en conserve, conserves de poisson, conserves de poissons, conserve de poisson, conserve de poissons, poisson en conserve
 hu:Halak konzervben
 it:Pesce in scatola
-nl:Vis in blik
+nl:Vis in blik/pot
 pt:Peixe enlatado
 ro:Conserve de pește, Conservă de pește
 ru:Рыбные консервы
@@ -24534,6 +24646,7 @@ fr:Sole
 agribalyse_food_code:en: 26058
 ciqual_food_code:en: 26058
 ciqual_food_name:en: Common sole, raw
+cooking_method:en: en:raw
 wikidata:en: Q27773
 
 < en:Fishes
@@ -24543,6 +24656,7 @@ agribalyse_food_code:en: 26127
 ciqual_food_code:en: 26127
 ciqual_food_name:en: Conger, raw
 ciqual_food_name:fr: Congre, cru
+cooking_method:en: en:raw
 wikidata:en: Q137144
 
 < en:Fishes
@@ -24585,15 +24699,12 @@ ciqual_food_name:en: Crevalle jack, raw
 ciqual_food_name:fr: Carangue, cru
 
 < en:Fishes
-en:Eels, eels, eel
+en:Eels
 fr:Anguilles
-ciqual_food_code:en: 27016
-ciqual_food_name:en: Eel, raw
-ciqual_food_name:fr: Anguille, crue
 
 < en:Fishes
-en:European whitefish, European whitefish
-fr:Lavaret
+en:European whitefish
+fr:Corégone lavaret, Lavaret
 ciqual_food_code:en: 26175
 ciqual_food_name:en: European whitefish, raw
 ciqual_food_name:fr: Corégone lavaret, cru
@@ -24651,6 +24762,7 @@ agribalyse_food_code:en: 26213
 ciqual_food_code:en: 26213
 ciqual_food_name:en: Grenadier, from any fishing spot, raw
 ciqual_food_name:fr: Hoki, tout lieu de pêche, cru
+cooking_method:en: en:raw
 
 < en:Fishes
 en:Grouper
@@ -24667,6 +24779,7 @@ agribalyse_food_code:en: 26122
 ciqual_food_code:en: 26122
 ciqual_food_name:en: Haddock, raw
 ciqual_food_name:fr: Églefin, cru
+cooking_method:en: en:raw
 wikidata:en: Q202406
 
 < en:Fishes
@@ -24732,6 +24845,7 @@ fr:Perche du Nil
 agribalyse_food_code:en: 27025
 ciqual_food_code:en: 27025
 ciqual_food_name:en: Nile perch, raw
+cooking_method:en: en:raw
 wikidata:en: Q654130
 
 < en:Fishes
@@ -24816,6 +24930,7 @@ nl:Gerookte vis
 pl:Wędzone ryby, wędzona ryba
 ru:Копченая рыба
 zh:烟熏鱼类
+cooking_method:en: en:smoked
 
 < en:Fishes
 en:Snapper
@@ -24887,6 +25002,7 @@ agribalyse_food_code:en: 26219
 ciqual_food_code:en: 26219
 ciqual_food_name:en: Tub gurnard, raw
 ciqual_food_name:fr: Grondin perlon, cru
+cooking_method:en: en:raw
 wikidata:en: Q630618
 
 < en:Fishes
@@ -25463,16 +25579,6 @@ ciqual_food_code:en: 5209
 ciqual_food_name:en: Wine, white, sparkling, flavoured
 ciqual_food_name:fr: Vin blanc mousseux aromatisé
 
-< en:Bifidus yogurts
-< en:Flavoured yogurts
-en:Flavoured bifidus yogurts, Yogurt-type fermented flavoured milk with sugar with bifidus, Yogurt-type flavoured dairy specialty with sugar with bifidus
-fr:Yaourts au bifidus aromatisés, Lait fermenté de type yaourt aromatisé sucré au bifidus, spécialité laitière de type yaourt aromatisé sucré au bifidus
-it:Yogurt aromatizzato al bifidus
-agribalyse_food_code:en: 19539
-ciqual_food_code:en: 19539
-ciqual_food_name:en: Fermented milk or dairy specialty, yogurt type, flavoured, with sugar, with bifidus
-ciqual_food_name:fr: Lait fermenté ou spécialité laitière type yaourt, aromatisé, sucré, au bifidus
-
 < en:Flavoured yogurts
 en:Fat free flavoured fermented milk yogurt with sweetener, Fat free flavoured dairy specialty with sweetener
 fr:Yaourt au lait fermenté avec édulcorants à 0% de matières grasses, Spécialité laitière aromatisée avec édulcorants à 0% de matières grasses
@@ -25614,6 +25720,7 @@ nl:Rozeblaadjesjams
 < en:Focaccia
 en:Filled Focaccia
 fr:Focaccia garnie
+nl:Gevulde focaccias
 agribalyse_food_code:en: 7811
 ciqual_food_code:en: 7811
 ciqual_food_name:en: Focaccia, filled
@@ -26526,7 +26633,7 @@ nl:Wijn eau-de-vies uit de Savoie
 origins:en: en:france,en:savoy
 
 < en:French Eaux-de-vie
-fr:Eau-de-vie de vin des Côtes-du-Rhône, Eau-de-vie de vin des Côtes-du-Rhone
+fr:Eau-de-vie de vin des Côtes-du-Rhône
 de:Branntwein aus dem Rhône Tal, Branntwein aus Côtes-du-Rhône
 nl:Wijn-eau-de-vies uit de Côtes-du-Rhône
 origins:en: en:france,fr:Côtes-du-Rhône
@@ -26966,7 +27073,7 @@ wikidata:en: Q37970833
 
 < en:French sausages
 en:Chipolatas, Chipolata slim sausage
-fr:Chipolatas
+xx:Chipolatas
 agribalyse_food_code:en: 30115
 ciqual_food_code:en: 30115
 ciqual_food_name:en: Chipolata slim sausage, raw
@@ -27104,6 +27211,7 @@ fr:Asperge des sables des Landes
 origins:en: en:france,fr:Landes
 protected_name_file_number:en: PGI-FR-0272
 protected_name_type:en: pgi
+wikidata:en: Q18578209
 
 < en:Asparagus
 < en:French vegetables
@@ -27652,15 +27760,6 @@ de:Frische Auberginen
 fr:Aubergines fraîches
 season_in_country_fr:en: 6‚7,8‚9
 
-< en:Broccoli
-< en:Fresh vegetables
-en:Fresh broccoli
-de:Frischer Brokkoli
-es:Brócoli fresco
-fi:Tuore parsakaali
-fr:Brocolis frais
-season_in_country_fr:en: 9‚10‚11
-
 < en:Carrots
 < en:Fresh vegetables
 en:Fresh carrots
@@ -27712,17 +27811,6 @@ fi:Tuoreet sienet
 fr:Champignons frais
 it:Funghi freschi
 nl:Verse paddestoelen
-
-< en:Fresh vegetables
-< en:Tomatoes
-en:Fresh tomatoes
-de:Frische Tomaten
-es:Tomates frescos
-fi:Tuoreet tomaatit
-fr:Tomates fraîches
-it:Pomodori freschi
-nl:Verse tomaten, Verse tomaat
-season_in_country_fr:en: 6‚7,8‚9
 
 < en:Fresh vegetables sprouts
 en:Fresh cabbage sprouts
@@ -28042,15 +28130,7 @@ es:Judías verdes redondas troceadas congeladas
 en:Frozen whole broad green beans
 es:Judías verdes redondas enteras congeladas
 
-< en:Frozen broccoli florets
-en:Frozen broccoli
-fr:Brocoli surgelé
-agribalyse_food_code:en: 20204
-ciqual_food_code:en: 20204
-ciqual_food_name:en: Broccoli, frozen, raw
-ciqual_food_name:fr: Brocoli, surgelé, cru
-
-< en:Frozen broccoli florets
+< en:Frozen broccolis
 en:Frozen cooked broccoli
 fr:Brocoli surgelé cuit
 agribalyse_food_code:en: 20205
@@ -29664,7 +29744,7 @@ es:Zumos de melocotón
 fi:Persikkamehut
 fr:Jus de pêche, jus de pêches
 it:Succo di pesca
-nl:Perzikkensappen, Perzikkensap
+nl:Perzikensappen, Perzikensap
 zh:桃子汁, 桃汁
 
 < en:Fruit juices
@@ -29761,6 +29841,7 @@ wikidata:en: Q1068602
 
 < en:Fruit juices
 en:Tangerine juices
+bg:Сок от мандарини
 de:Mandarinensäfte
 es:Zumos de mandarina
 fr:Jus de mandarine, jus de mandarines
@@ -29980,7 +30061,7 @@ es:Néctares de melocotón, Néctares de durazno
 fi:persikkanektarit
 fr:Nectars de pêche, nectar de pêche, nectar pêche
 it:Nettare di pesca
-nl:Perzikkennectars, Perzikkennectar
+nl:Perzikennectars, Perzikennectar
 pt:Néctares de pêssego
 zh:桃花蜜, 桃子花蜜
 ciqual_food_code:en: 2371
@@ -30074,7 +30155,7 @@ en:Peach pastes
 de:Pfirsichpaste
 es:Dulces de melocotón, Pastas de melocotón, Cremas de melocotón
 fr:Pâtes de pêches
-nl:Perzikkenpastas
+nl:Perzikenpastas
 
 < en:Fruit pastes
 en:Plum pastes
@@ -30221,7 +30302,7 @@ en:Peach soy yogurts
 de:Pfirsich-Soja-Joghurt
 es:Yogures de soja con melocotón
 fr:Yaourts de soja à la pêche
-nl:Perzikkensojayoghurts
+nl:Perzikensojayoghurts
 
 < en:Fruit soy yogurts
 en:Raspberry soy yogurts
@@ -30352,15 +30433,6 @@ de:Rote Früchtetees
 fr:Infusions aux fruits rouges, Infusion aux fruits rouges
 it:Tisane ai frutti rossi, Infusi ai frutti rossi
 nl:Rode vruchtentheeën, Rode vruchtenthee
-
-< en:Bifidus yogurts
-< en:Fruit yogurts
-en:Fruit bifidus yogurts, Yogurt-type fermented milk with fruits with sugar with bifidus, Yogurt-type dairy specialty with fruits with sugar with bifidus
-fr:Yaourts au bifidus aux fruits, Lait fermenté de type yaourt aux fruits sucré au bifidus, Spécialité laitière de type yaourt aromatisé aux fruits au bifidus
-agribalyse_food_code:en: 19542
-ciqual_food_code:en: 19542
-ciqual_food_name:en: Fermented milk or dairy specialty, yogurt type, with fruits, with sugar, with bifidus
-ciqual_food_name:fr: Lait fermenté ou spécialité laitière type yaourt, aux fruits, sucré, au bifidus
 
 < en:Fruit yogurts
 en:Apple yogurts
@@ -30546,7 +30618,7 @@ fi:Mangojogurtit
 fr:Yaourts à la mangue
 hu:Mangós joghurtok
 it:Yogurt al mango
-nl:Mangoyoghurt, Mangoyoghurts, Yoghurt met mango, Yoghurts met mango
+nl:Mangoyoghurts, Mangoyoghurt, Yoghurt met mango, Yoghurts met mango
 ro:Iaurturi cu mango
 
 < en:Fruit yogurts
@@ -30618,7 +30690,7 @@ fi:Mansikkajogurtit
 fr:Yaourts à la fraise
 hu:Epres joghurtok
 it:Yogurt alla fragola
-nl:Aardbeienyoghurt, Aardbeienyoghurts, Yoghurt met aardbeien, Yoghurts met aardbeien
+nl:Aardbeienyoghurts, Aardbeienyoghurt, Yoghurt met aardbeien, Yoghurts met aardbeien
 ro:Iaurturi cu căpșune
 
 < en:Fruit yogurts
@@ -30855,6 +30927,7 @@ nl:Kaapse goudbessen
 
 < en:Fruits
 en:Grapes
+bg:Грозде
 de:Weintrauben
 es:Uvas
 fi:viinirypäleet
@@ -30990,7 +31063,7 @@ es:Melocotones
 fi:persikat
 fr:Pêches
 it:Pesche
-nl:Perzikken
+nl:Perziken
 
 < en:Fruits
 en:Pears
@@ -31401,7 +31474,7 @@ es:Melocotones en almíbar
 fi:persikoita sokeriliemessä
 fr:Pêches au sirop
 it:Pesche sciroppate
-nl:Perzikken op siroop
+nl:Perziken op siroop
 agribalyse_proxy_food_code:en: 13731
 agribalyse_proxy_food_name:en: Peach, canned in light syrup, not drained
 agribalyse_proxy_food_name:fr: Pêche au sirop léger, appertisée, non égouttée
@@ -31721,6 +31794,7 @@ de:Altenburger Ziegenkäse
 origins:en: en:germany
 protected_name_file_number:en: PDO-DE-0461
 protected_name_type:en: pdo
+wikidata:en: Q436943
 
 < en:German cheeses
 de:Hessischer Handkäse, Hessischer Handkäs
@@ -32063,9 +32137,9 @@ protected_name_type:en: pgi
 
 < en:Carp
 < en:German sea products
-de:Aischgründer Karpfen, Aischgründer Karpfen
+de:Aischgründer Karpfen
 origins:en: en:germany
-protected_name_file_number:en: PGI-DE-0689
+protected_name_file_number:en: PGI-DE-0689, PGI-DE-0689-AM01
 protected_name_type:en: pgi
 
 < en:German sea products
@@ -33124,7 +33198,7 @@ protected_name_type:en: pgi
 
 < en:Greek oils and fats
 < en:Olive oils
-en:Olive oils from Greece, Olive oils from Greece, Greek olive oils, Olive oils from Greece, Greek olive oil
+en:Olive oils from Greece, Greek olive oils, Olive oils from Greece, Greek olive oil
 de:Olivenöle aus Griechenland
 el:Eλαιόλαδα από την Ελλάδα
 fr:Huiles d'olive de Grèce
@@ -33142,11 +33216,10 @@ ciqual_food_code:en: 19860
 ciqual_food_name:en: Yogurt, Greek-style, plain
 ciqual_food_name:fr: Yaourt à la grecque, nature
 
-< en:Asparagus
 < en:Green asparagus
-it:Asparago verde di Altedo, Asparago verde di Altedo
+it:Asparago verde di Altedo
 origins:en: en:italy
-protected_name_file_number:en: PGI-IT-0127
+protected_name_file_number:en: PGI-IT-0127-AM01, PGI-IT-0127
 protected_name_type:en: pgi
 wikidata:en: Q3625258
 
@@ -33250,7 +33323,7 @@ fi:purkitetut herneet
 fr:Petits pois en conserve, Petits pois appertisés
 hu:Borsó konzervek
 it:Piselli in scatola
-nl:Doperwten in blik
+nl:Doperwten in blik/pot
 ru:Горошек консервированный, зелёный горошек консервированный, консервированный зелёный горошек
 agribalyse_food_code:en: 20036
 ciqual_food_code:en: 20036
@@ -33440,6 +33513,21 @@ ciqual_food_code:en: 21501
 ciqual_food_name:en: Lamb cutlet, grilled
 ciqual_food_name:fr: Agneau, côtelette, grillée
 
+< en:Cypriot cheeses
+< en:Grilling cheeses
+en:Halloumi
+de:Halloumi
+el:Χαλλούμι, Hellim, Halloumi, Hellim
+es:Halloumi
+fr:Halloumi
+it:Halloumi
+nl:Halloumi
+sv:Halloumi
+origins:en: en:cyprus
+protected_name_file_number:en: PDO-CY-01243
+protected_name_type:en: pdo
+wikidata:en: Q549793
+
 < en:Groats
 en:Millet groats
 es:Grañones de mijo
@@ -33553,14 +33641,6 @@ en:Sea lettuce seaweed powders, Ground dried sea lettuce seaweeds
 es:Algas lechuga de mar en polvo, Algas lechuga de mar deshidratadas en polvo
 nl:Groenwierpoeders
 
-< en:Condiments
-< en:Ground dried vegetables
-< en:Tomatoes and their products
-en:Dried tomato powder, Tomato powder, Ground dried tomato
-es:Tomate seco molido, Tomates en polvo
-fr:Poudre de tomate séchée
-nl:Tomatenpoeders
-
 < en:Garlic and their products
 < en:Ground dried vegetables
 en:Garlic powder, Granulated garlic, Dried garlic powder
@@ -33597,6 +33677,14 @@ sk:sušená cibuľa
 sl:čebula v prahu
 sv:lökpulver
 wikidata:en: Q7093931
+
+< en:Condiments
+< en:Ground dried vegetables
+< en:Tomatoes and their products
+en:Dried tomato powder, Tomato powder, Ground dried tomato
+es:Tomate seco molido, Tomates en polvo
+fr:Poudre de tomate séchée
+nl:Tomatenpoeders
 
 < en:Fresh meat preparations
 < en:Ground meat preparations
@@ -33763,6 +33851,7 @@ agribalyse_food_code:en: 26126
 ciqual_food_code:en: 26126
 ciqual_food_name:en: Haddock, grilled/pan-fried
 ciqual_food_name:fr: Églefin, grillé/poêlé
+cooking_method:en: en:pan-fried, en:grilled
 
 < en:Haddock
 en:Steamed haddock
@@ -33771,6 +33860,7 @@ agribalyse_food_code:en: 26008
 ciqual_food_code:en: 26008
 ciqual_food_name:en: Haddock, steamed
 ciqual_food_name:fr: Églefin, cuit à la vapeur
+cooking_method:en: en:steamed
 
 < en:Hake
 < en:Meals with fish
@@ -34198,6 +34288,7 @@ wikidata:en: Q14169150
 
 < en:Herbal teas
 en:Common nettle, Stinging nettle
+bg:Коприва
 de:Brennessel
 es:Ortiga verde, Ortiga mayor
 fr:Grande ortie, Ortie dioïque, Ortie commune
@@ -34550,7 +34641,7 @@ es:Arenques enlatados
 fi:purkitetut sillit
 fr:Harengs en conserve
 it:Aringhe in scatola
-nl:Haring in blik
+nl:Haring in blik/pot
 
 < en:Fatty fishes
 < en:Herring
@@ -34899,7 +34990,7 @@ fr:Miels de litchi
 nl:Litchibloesemhoningen
 
 < en:Honeys
-en:Manuka honeys, Manuka honeys
+en:Manuka honeys
 es:Mieles de manuka
 fr:Miels de manuka
 it:Miele di manuka
@@ -35268,10 +35359,10 @@ protected_name_file_number:en: PGI-HU-02408
 protected_name_type:en: gi
 
 < en:Hungarian fruit spirit
-hu:Újfehértói meggypálinka, Újfehértói meggypálinka
+hu:Újfehértói meggypálinka
 fr:Pálinka de griotte d'Újfehértó
 origins:en: en:hungary
-protected_name_file_number:en: PGI-HU-01829
+protected_name_file_number:en: PGI-HU-01829-AM01, PGI-HU-01829
 protected_name_type:en: gi
 wikidata:en: Q428621
 
@@ -35796,7 +35887,7 @@ de:Pfirsicheistees
 fi:persikan makuiset jääteet
 fr:Thés glacés saveur pêche
 it:Tè freddo alla pesca
-nl:Perzikken Ice Teas, Perzikken Ice Tea, Perzik Ice Tea, Perzik Ice Teas
+nl:Perziken Ice Teas, Perziken Ice Tea, Perzik Ice Tea, Perzik Ice Teas
 zh:桃味冰茶
 
 < en:Diet beverages
@@ -35979,6 +36070,10 @@ en:Freeze-dried instant coffees
 de:Gefriergetrocknete Instant-Kaffees
 nl:Gevriesdroogde oploskoffies, Gevriesdroogde oploskoffie
 ru:Кофе растворимый сублимированный, Растворимый сублимированный кофе, Кофе сублимированный растворимый, Сублимированный растворимый кофе, Кофе натуральный растворимый сублимированный, Натуральный растворимый сублимированный кофе
+
+< en:Instant coffees
+en:Aromatised instant coffees
+nl:Gearomatiseerde oploskoffies, Gearomatiseerde instantkoffies
 
 < en:Instant coffees
 en:Instant coffee without sugar
@@ -36301,6 +36396,7 @@ fi:Scamorza
 fr:Scamorza
 it:Scamorza
 nl:Scamorza
+wikidata:en: Q248149
 
 < en:Italian cheeses
 en:Stracchino
@@ -37330,7 +37426,7 @@ fi:persikkahillot
 fr:Confitures de pêches
 hu:Őszibarack lekvár, Barack lekvár
 it:Confitture di pesca
-nl:Perzikkenjams
+nl:Perzikenjams
 pt:Doces de pêssego
 sv:Persikasylter
 agribalyse_proxy_food_code:en: 31037
@@ -37435,15 +37531,6 @@ wikidata:en: Q90000103
 en:Watermelon jams
 fr:Confitures de pastèque
 wikidata:en: Q2992512
-
-< en:Jams
-< en:Tomatoes and their products
-en:Tomato jams, tomate jams
-es:Mermeladas y confituras de tomate, Mermeladas de tomate, Confituras de tomate
-fr:Confitures de tomates
-hu:Paradicsom lekvár
-nl:Tomatenjams
-wikidata:en: Q25041585
 
 < en:Japanese green teas
 en:Bancha teas, Bancha
@@ -38619,6 +38706,7 @@ fr:Perche
 agribalyse_food_code:en: 27010
 ciqual_food_code:en: 27010
 ciqual_food_name:en: European perch, raw
+cooking_method:en: en:raw
 wikidata:en: Q166812
 
 < en:Fishes
@@ -38682,6 +38770,7 @@ agribalyse_food_code:en: 26128
 ciqual_food_code:en: 26128
 ciqual_food_name:en: Roundnose grenadier, raw
 ciqual_food_name:fr: Grenadier -de roche-, cru
+cooking_method:en: en:raw
 wikidata:en: Q2176319
 
 < en:Fishes
@@ -38724,10 +38813,10 @@ season_in_country_fr:en: 1‚2,3‚4,9‚10‚11‚12
 
 < en:Frozen vegetables
 < en:Leeks
-en:Frozen leeks, Frozen leeks
+en:Frozen leeks
 de:Tiefkühl-Lauch, Gefrohrene Lauche
-es:Puerro congelado, Puerro congelado
-fr:Poireaux surgelés, Poireaux surgelés
+es:Puerro congelado
+fr:Poireaux surgelés
 nl:Diepvries prei
 agribalyse_food_code:en: 20236
 agribalyse_proxy_food_code:en: 20236
@@ -38742,7 +38831,7 @@ ciqual_food_name:fr: Poireau, surgelé, cru
 en:Canned leeks
 es:Puerros en conserva
 fr:Poireaux en conserve
-nl:Prei in blik
+nl:Prei in blik/pot
 
 < en:Leeks
 en:Leeks fondue, Slow-simmered leeks
@@ -38949,6 +39038,14 @@ protected_name_file_number:en: PGI-FR-02450
 protected_name_type:en: pgi
 
 < en:Legumes and their products
+en:Cakes of pulses
+de:Hülsenfruchtwaffeln
+es:Tortitas de legumbres
+fr:Galettes de légumineuses
+it:Galetti di legumi
+nl:Peulvruchtenwafels
+
+< en:Legumes and their products
 en:Legumes
 bg:Зеленчуци
 ca:Llegums
@@ -38983,10 +39080,6 @@ ciqual_food_code:en: 20916
 ciqual_food_name:en: Miso
 ciqual_food_name:fr: Miso
 wikidata:en: Q235169
-
-< en:Legumes and their products
-en:Puffed lentil cakes
-fr:Galettes de lentilles soufflées
 
 < en:Lemon juice
 en:Home-made lemon juice
@@ -39877,7 +39970,7 @@ es:Caballas enlatadas
 fi:purkitettuja makrilleja
 fr:Maquereaux en conserve
 it:Sgombro in lattina
-nl:Makreel in blik
+nl:Makreel in blik/pot
 
 < en:Mackerels
 en:Atlantic chub mackerel
@@ -40896,7 +40989,7 @@ fi:purkitetut ateriat
 fr:Plats préparés en conserve, plats cuisinés en conserve, plat préparé en conserve
 hu:Konzerv ételek
 it:Piatti pronti in scatola
-nl:Kant en klaargerechten in blik
+nl:Kant en klaargerechten in blik/pot
 ru:Консервированные блюда
 zh:罐头饭菜
 
@@ -41024,8 +41117,13 @@ en:Filled fritters
 fr:Bricks garnis
 
 < en:Meals
+en:Filled steamed buns
+nl:Bapao, Gevulde gestoomde broodjes
+
+< en:Meals
 en:Focaccia
 fr:Focaccia
+nl:Focaccias
 agribalyse_proxy_food_code:en: 7811
 agribalyse_proxy_food_name:en: Focaccia, filled
 agribalyse_proxy_food_name:fr: Focaccia, garnie
@@ -41502,12 +41600,12 @@ ciqual_food_name:en: Chicken tagine
 en:Chicken Tikka
 
 < en:Meals with chicken
-en:Chicken tikka masala, Chicken tikka masala
+en:Chicken tikka masala
 fr:Poulet tikka masala
 wikidata:en: Q654159
 
 < en:Meals with chicken
-en:Coronation chicken, Coronation chicken
+en:Coronation chicken
 wikidata:en: Q531184
 
 < en:Meals with chicken
@@ -41882,6 +41980,7 @@ ciqual_food_name:fr: Beignet de crevette
 
 en:Meat alternatives
 fr:Alternatives à la viande
+nl:Vleesvervangers
 
 < en:Cereals and their products
 < en:Meat alternatives
@@ -41893,6 +41992,12 @@ fr:Seitan
 it:Seitan
 nl:Seitans
 wikidata:en: Q943935
+
+< en:Cheeses
+< en:Meat alternatives
+en:Grilling cheeses, Cheeses to grill
+de:Grillkäse
+fr:Fromages à griller
 
 < en:Frozen foods
 < en:Meat alternatives
@@ -42007,7 +42112,7 @@ fi:Lihankorvikkeet
 fr:Substituts de viande
 hu:Húspótlók
 it:Sostituti della carne
-nl:Vleesvervangers
+nl:Vleeskopieën
 ru:Мясозаменители
 wikidata:en: Q1343997
 
@@ -42058,6 +42163,11 @@ en:Bacon substitutes, bacon substituts
 fr:Substituts du bacon
 
 < en:Meat analogues
+en:Frikandel substitutes
+de:Frikadellen-Ersatzprodukte
+fr:Substituts des fricadelles
+
+< en:Meat analogues
 en:Ham substituts
 fr:Substituts du jambon
 
@@ -42077,6 +42187,10 @@ wikidata:en: Q2120234
 < en:Meat analogues
 en:Meat analogues from soy or wheat proteins
 fr:Substituts de viande à partir de protéines de soja ou blé
+
+< en:Meat analogues
+en:Plantbased fish
+nl:Plantaardige vissen
 
 < en:Meat analogues
 en:Vegetarian sausages
@@ -42228,6 +42342,7 @@ en:Hungarian meat products
 en:Italian meat products
 fi:Italialaiset lihatuotteet
 fr:Produits carnés italiens
+nl:Italiaanse vleesproducten
 
 < en:Meat-based products
 en:Jugging
@@ -42533,7 +42648,7 @@ es:Carnes enlatadas
 fi:purkitetut lihat
 fr:Viandes en conserve
 it:Carne in scatola
-nl:Vlees in blik, Conservenvlees
+nl:Vlees in blik/pot, Conservenvlees
 ro:Conserve carne, Conserve de carne
 ru:Консервированное мясо
 zh:罐装肉, 肉罐头
@@ -43209,7 +43324,7 @@ es:Leche semidesnatada
 fi:vähärasvaiset maidot
 fr:Laits demi-écrémés, lait demi-écrémé
 it:Latte parzialmente scremato
-nl:Halfvolle melk
+nl:Halfvolle melken
 pt:Leites meio gordo, Leites semi-desnatados, leite semi-desnatado
 ru:Молоко 2% жирности
 sv:Mellanmjölk, Mellan mjölk
@@ -43633,7 +43748,7 @@ nl:Tropische vruchtensojayoghurts
 < en:Mixed seaweeds
 en:Canned mixed seaweeds, Tinned mixtures of algae
 es:Mezclas de algas en conserva
-nl:Algenmengsels in blik
+nl:Algenmengsels in blik/pot
 
 < en:Dried seaweeds
 < en:Mixed seaweeds
@@ -43950,6 +44065,7 @@ es:Mozzarella de búfalo, Mozzarella de búfala
 fi:Puhvelimozzarella
 fr:Mozzarella de bufflonne
 it:Mozzarella di bufala
+nl:Buffelmozzarellas
 
 < en:Cow cheeses
 < en:Mozzarella
@@ -43968,6 +44084,10 @@ agribalyse_food_code:en: 32128
 ciqual_food_code:en: 32128
 ciqual_food_name:en: Muesli, flakes -Bircher-style-
 ciqual_food_name:fr: Muesli floconneux ou de type traditionnel
+
+< en:Mueslis
+en:Crunchy mueslis
+fr:
 
 < en:Mueslis
 en:Mueslis with chocolate
@@ -43989,38 +44109,37 @@ fr:Mueslis aux fruits à coque, Mueslis aux noix
 it:Muesli con nocciole
 nl:Mueslis met noten
 
+< en:Cereals with fruits
+< en:Mueslis
+en:Mueslis with fruits
+de:Müslis mit Früchten, Müsli mit Früchten, Früchtemüslis
+es:Mueslis con frutas
+fi:hedelmämyslit
+fr:Mueslis aux fruits
+it:Muesli alla frutta, muesli con frutta
+nl:Mueslis met fruit, Muesli met fruit
+ro:Müsli cu fructe
+ru:Мюсли с фруктами
+agribalyse_proxy_food_code:en: 32111
+agribalyse_proxy_food_name:en: Muesli, crunchy, with fruits or dried fruits, fortified with vitamins and chemical elements
+agribalyse_proxy_food_name:fr: Muesli croustillant aux fruits ou fruits secs, enrichi en vitamines et minéraux
+
+< en:Bircher-style mueslis
 < en:Mueslis with chocolate
-en:Crunchy chocolate muesli fortified with vitamins and chemical elements
-fr:Muesli croustillant au chocolat enrichi en vitamines et minéraux
-agribalyse_food_code:en: 32112
-ciqual_food_code:en: 32112
-ciqual_food_name:en: Muesli, crunchy, with chocolate, with or without fruits, fortified with vitamins and chemical elements
-ciqual_food_name:fr: Muesli croustillant au chocolat, avec ou sans fruits, enrichi en vitamines et minéraux
+en:Bircher-style mueslis with chocolate
+fr:Mueslis floconneux au chocolat
 
+< en:Crunchy mueslis
 < en:Mueslis with chocolate
-en:Crunchy muesli with chocolate not fortified with vitamins and chemical elements
-fr:Muesli croustillant au chocolat non enrichi en vitamines et minéraux
-agribalyse_food_code:en: 32109
-ciqual_food_code:en: 32109
-ciqual_food_name:en: Muesli, crunchy, with chocolate -not fortified with vitamins and chemical elements-
-ciqual_food_name:fr: Muesli croustillant au chocolat -non enrichi en vitamines et minéraux-
+en:Crunchy mueslis with chocolate
+fr:Mueslis croustillant au chocolat
 
+< en:Bircher-style mueslis
 < en:Mueslis with fruits
-en:Crunchy muesli with fruits fortified with vitamins and chemical elements, Crunchy muesli with dried fruits fortified with vitamins and chemical elements
-fr:Muesli croustillant aux fruits enrichi en vitamines et minéraux, Muesli croustillant aux fruits secs enrichi en vitamines et minéraux
-agribalyse_food_code:en: 32111
-ciqual_food_code:en: 32111
-ciqual_food_name:en: Muesli, crunchy, with fruits or dried fruits, fortified with vitamins and chemical elements
-ciqual_food_name:fr: Muesli croustillant aux fruits ou fruits secs, enrichi en vitamines et minéraux
+en:Bircher-style mueslis with fruits, Bircher-style muesli flakes with fruits
+fr:Mueslis floconneux aux fruits, Muesli floconneux aux fruits
 
-< en:Mueslis with fruits
-en:Crunchy Muesli with fruits not fortified with vitamins and chemical elements, Crunchy Muesli with fruits dried fruits grains not fortified with vitamins and chemical elements
-fr:Muesli croustillant aux fruits non enrichi en vitamines et minéraux, Muesli croustillant aux fruits secs et aux graines non enrichi en vitamines et minéraux
-agribalyse_food_code:en: 32108
-ciqual_food_code:en: 32108
-ciqual_food_name:en: Muesli, crunchy, with fruits and/or dried fruits, grains -not fortified with vitamins and chemical elements-
-ciqual_food_name:fr: Muesli croustillant aux fruits et/ou fruits secs, graines -non enrichi en vitamines et minéraux-
-
+< en:Crunchy mueslis
 < en:Mueslis with fruits
 en:Crunchy mueslis with fruits, Crunchy muesli with fruits
 fr:Mueslis croustillants aux fruits, Muesli croustillant aux fruits
@@ -44134,7 +44253,7 @@ fi:purkitetut sienet
 fr:Champignons en conserve, Champignons appertisés
 hu:Növényi alapú konzerv élelmiszerek
 it:Funghi in scatola
-nl:Paddestoelen in blik
+nl:Paddestoelen in blik/pot
 ru:Консервированные грибы
 ciqual_food_code:en: 20011
 ciqual_food_name:en: Mushroom, all types, canned, drained
@@ -44472,7 +44591,7 @@ es:Mejillones enlatados
 fi:purkitetut simpukat
 fr:Moules en conserve, Moules appertisées
 it:Mitili in scatola
-nl:Mossels in blik
+nl:Mossels in blik/pot
 ro:Conserve de midii
 agribalyse_food_code:en: 10028
 ciqual_food_code:en: 10028
@@ -44482,6 +44601,7 @@ ciqual_food_name:fr: Moule, appertisée, égouttée
 < en:Mussels
 en:Boiled mussels, Mussels cooked in water
 fr:Moules bouillies, Moules cuites à l'eau
+nl:Gekookte mosselen
 agribalyse_food_code:en: 10013
 ciqual_food_code:en: 10013
 ciqual_food_name:en: Mussel, boiled/cooked in water
@@ -44577,6 +44697,7 @@ nl:Kruidenmosterds
 
 < en:Mustards
 en:French mustards
+bg:Френска горчица
 fr:Moutardes françaises
 
 < en:Mustards
@@ -44908,7 +45029,7 @@ en:Non-dairy yogurts, vegan yogurts
 de:pflanzenbasierte Joghurts, milchfreie Joghurts
 es:Yogures vegetales
 fi:Vegaanijogurtit
-fr:Yaourts végétaux, yaourt végétal, yaourt végan, yaourts sans lait
+fr:Desserts végétaliens fermentés, Yaourts végétaux, yaourt végétal, yaourt végan, yaourts sans lait
 it:Yogurt vegetali, yogurt vegani
 nl:Plantaardige yoghurts, plantaardige yoghurt
 
@@ -44917,6 +45038,10 @@ en:Almond milk yogurts
 es:Yogures de leche de almendras
 fr:Desserts de lait d'amande fermenté
 it:Yogurt al latte di mandorla
+
+< en:Non-dairy yogurts
+en:Coconutmilk yogurts
+fr:Desserts de lait de coco fermenté
 
 < en:Non-dairy yogurts
 en:Oat milk yogurts
@@ -45206,7 +45331,7 @@ agribalyse_proxy_food_name:fr: Beurre de cacahuète ou Pâte d'arachide
 
 < en:Chocolate covered nuts
 < en:Nut confectioneries
-en:Chocolate covered hazelnuts, Chocolate-covered hazelnuts, Chocolate-coated hazelnuts
+en:Chocolate covered hazelnuts, Chocolate-coated hazelnuts
 fr:Noisettes enrobées de chocolat
 
 < en:Nut confectioneries
@@ -45698,9 +45823,9 @@ protected_name_type:en: pdo
 wikidata:en: Q3849848
 
 < en:Nuts
-it:Marrone di Castel del Rio, Marrone di Castel del Rio
+it:Marrone di Castel del Rio
 origins:en: en:italy
-protected_name_file_number:en: PGI-IT-1523-AM01
+protected_name_file_number:en: PGI-IT-1523, PGI-IT-1523-AM01
 protected_name_type:en: pgi
 wikidata:en: Q3849851
 
@@ -45744,7 +45869,7 @@ en:Canned nuts
 de:Nüsse in Dosen
 es:Frutos de cáscara en conserva, Conservas de frutos de cáscara
 fr:Fruits à coques en conserve
-nl:Noten in blik
+nl:Noten in blik/pot
 
 < en:Confectioneries
 < en:Nuts and their products
@@ -45860,6 +45985,10 @@ fr:Beurres de légumineuses
 he:חמאות קטניות
 it:Burro di legumi
 nl:Peulvruchtenpastas
+
+< en:Okras
+en:Okra powders
+nl:Okrapoeders
 
 < en:Olive oils
 en:Hungarian oils and fats
@@ -46066,9 +46195,9 @@ protected_name_type:en: pdo
 
 < en:Greek oils and fats
 < en:Olive oils from Greece
-el:Σητεία Λασιθίου Κρήτης, Sitia Lasithiou Kritis, Σητεία Λασιθίου Κρήτης, Sitia Lasithiou Kritis
+el:Σητεία Λασιθίου Κρήτης, Sitia Lasithiou Kritis
 origins:en: en:greece
-protected_name_file_number:en: PDO-GR-0052
+protected_name_file_number:en: PDO-GR-0052, PDO-GR-0052-AM01
 protected_name_type:en: pdo
 wikidata:en: Q6130049
 
@@ -47470,7 +47599,7 @@ fi:paistetut sipulit
 fr:Oignons frits
 hu:Sült hagyma
 it:Cipolle fritte
-nl:Gebakken ui
+nl:Gebakken uien
 agribalyse_proxy_food_code:en: 20180
 agribalyse_proxy_food_name:en: Onion, dried
 agribalyse_proxy_food_name:fr: Oignon, séché
@@ -47927,10 +48056,10 @@ ciqual_food_name:en: Prepared pasta salad, with vegetable, meat or fish
 ciqual_food_name:fr: Salade de pâtes aux légumes, avec poisson ou viande
 
 < en:Pasta salads
-en:Vegetarian pasta salads, Vegetarian pasta salads, Prepared vegetarian pasta salad
+en:Vegetarian pasta salads, Prepared vegetarian pasta salad
 de:vegetarische Nudelsalate
-fi:Kasvispastasalaatit, Kasvispastasalaatit
-fr:Salades de pâtes végétariennes, Salades de pâtes végétariennes
+fi:Kasvispastasalaatit
+fr:Salades de pâtes végétariennes
 nl:Vegetarische pasta salades
 agribalyse_food_code:en: 25615
 ciqual_food_code:en: 25615
@@ -48145,6 +48274,7 @@ nl:Havermoutpastas
 < en:Pastas
 en:Orecchiette
 xx:Orecchiette
+wikidata:en: Q19969
 
 < en:Pastas
 en:Penne
@@ -48624,6 +48754,7 @@ wikidata:en: Q177166
 en:Makroudh
 de:Makroud
 fr:Makrout, Makroud
+wikidata:en: Q1886522
 
 < en:Pastries
 en:Meringues, meringue
@@ -48806,11 +48937,9 @@ wikidata:en: Q635219
 < en:Bread coverings
 < en:Food decorations
 < en:Pastry helpers
-en:Sprinkles, Multi-coloured vermicelli, Rainbow sprinkles
-fr:Vermicelles multicolores
-ciqual_food_code:en: 11510
-ciqual_food_name:en: Multi-coloured vermicelli
-ciqual_food_name:fr: Vermicelles multicolores
+en:Sprinkles
+fr:Vermicelles
+nl:Hagelslag
 
 < en:Pâté
 en:Breton pâté
@@ -48893,7 +49022,7 @@ de:Pfirsichsäfte aus Konzentrat
 es:Zumos de melocotón procedente de concentrado
 fr:Jus de pêche à base de concentré, jus de pêches à base de concentré
 it:Succo di pesca da concentrato
-nl:Perzikkensappen uit concentraat, Perzikkensap uit concentraat
+nl:Perzikensappen uit concentraat, Perzikensap uit concentraat
 
 < en:Fresh fruits
 < en:Peaches
@@ -48925,7 +49054,7 @@ en:Platerines
 es:Platerinas
 fr:Pêches plates, Platerines, Pêche plate, Platerine
 la:Prunus persica var. platerina
-nl:Wilde perzik
+nl:Wilde perziken, Platte perziken
 
 < en:Peaches
 it:Pesca di Delia
@@ -48985,7 +49114,7 @@ de:ungeschälte Erdnüsse
 es:Cacahuetes sin cascara
 fr:Cacahuètes décortiquées
 hu:Nogyoró héjjal, Héjas földimogyoró
-nl:Ongepelde pinda's
+nl:Ongepelde pinda's, doppindas, doppinda's
 
 < en:Peanuts
 < en:Roasted nuts
@@ -49195,18 +49324,6 @@ agribalyse_food_code:en: 4002
 ciqual_food_code:en: 4002
 ciqual_food_name:en: Potato, peeled, baked
 ciqual_food_name:fr: Pomme de terre, sans peau, cuite au four
-
-< en:Peeled tomatoes
-en:Canned peeled tomatoes
-bg:Белени домати в консерва
-fr:Tomates pelées en conserve, Tomates pelées appertisées
-agribalyse_food_code:en: 20048
-ciqual_food_code:en: 20048
-ciqual_food_name:en: Tomato, peeled, canned, drained
-ciqual_food_name:fr: Tomate, pelée, appertisée, égouttée
-
-< en:Peeled tomatoes
-fr:Chair de tomates
 
 < en:Peeled tomatoes
 fr:Tomates entières pelées au jus
@@ -49504,6 +49621,9 @@ ciqual_food_code:en: 26010
 ciqual_food_name:en: Atlantic herring, marinated, or rollmops
 ciqual_food_name:fr: Hareng mariné ou rollmops
 wikidata:en: Q1424531
+
+< en:Pickled onions
+nl:Zilveruitjes
 
 < en:Pickled peppers
 en:Pickled guindilla peppers, Pickled guindilla chillis
@@ -50055,14 +50175,6 @@ pnns_group_2:en: Pizza pies and quiches
 it:Calzone
 fr:Calzone, Pizzas calzone
 
-< en:Plain bifidus yogurts
-en:Sweetened plain bifidus yogurts, Yogurt-type plain fermented milk with sugar with bifidus, Yogurt-type plain dairy specialty with sugar with bifidus
-fr:Yaourts au bifidus sucrés natures, Lait fermenté de type yaourt nature sucré au bifidus, spécialité laitière de type yaourt nature sucré au bifidus
-agribalyse_food_code:en: 19546
-ciqual_food_code:en: 19546
-ciqual_food_name:en: Fermented milk or dairy specialty, yogurt type, plain, with bifidus
-ciqual_food_name:fr: Lait fermenté ou spécialité laitière type yaourt, nature, au bifidus
-
 < en:Plain corn flakes
 en:Plain corn flakes fortified with vitamins and chemical elements
 fr:Pétales de maïs natures enrichis en vitamines et minéraux
@@ -50444,7 +50556,7 @@ tl:Haras
 tr:Rezene
 uk:фенхель
 ur:سونف
-zh:小茴香
+zh:茴香
 agribalyse_food_code:en: 20028
 ciqual_food_code:en: 20028
 ciqual_food_name:en: Fennel, raw
@@ -50547,8 +50659,8 @@ food_groups:en: en:legumes
 pnns_group_2:en: Legumes
 
 < en:Plant-based foods
-en:Liquorice roots, licorice roots, Liquorice roots, licorice roots
-fr:Bâtons de réglisse, bâton de réglisse, Bâtons de réglisse, bâton de réglisse
+en:Liquorice roots, licorice roots
+fr:Bâtons de réglisse, bâton de réglisse
 
 < en:Plant-based foods
 en:Nutmeg tree products
@@ -50738,11 +50850,6 @@ pt:Legumes preparados
 ru:Приготовленные овощи
 
 < en:Plant-based foods
-en:Psyllium
-fr:Psyllium
-wikidata:en: Q311228
-
-< en:Plant-based foods
 en:Puffed grains, Popped grains
 de:Puffkörner, gepuffte körner
 es:Granos inflados
@@ -50854,6 +50961,7 @@ zh:植物性食物与饮品
 
 < en:Plant-based foods and beverages
 en:Dairies substitutes
+bg:Заместители на млечни продукти
 fr:Substituts de produits laitiers
 
 < en:Plant-based foods and beverages
@@ -51522,6 +51630,7 @@ ciqual_food_name:fr: Pop-corn ou Maïs éclaté, à l'air, non salé
 < en:Popcorn
 < en:Sweet snacks
 en:Popcorn with caramel, Popped maize with caramel, Salted caramel popcorn
+bg:Пуканки с карамел
 fr:Popcorn au caramel, Maïs éclaté au caramel
 agribalyse_food_code:en: 9232
 ciqual_food_code:en: 9232
@@ -52129,16 +52238,19 @@ ciqual_food_name:en: Pork tenderloin, lean, raw
 < en:Porridge
 en:Plain porridge
 fr:Porridge nature
+nl:Pappen (gewoon)
 
 < en:Cereals with fruits
 < en:Porridge
 en:Porridge with fruits
 fr:Porridge aux fruits
+nl:Pappen met fruit
 
 < en:Chocolate cereals
 < en:Porridge
 en:Porridge with chocolate
 fr:Porridge au chocolat
+nl:Pappen met chocolade
 
 < en:Portuguese bakery products
 pt:Amêndoa Coberta de Moncorvo
@@ -52411,6 +52523,7 @@ pt:Chouriço de Portalegre
 origins:en: en:portugal
 protected_name_file_number:en: PGI-PT-0024
 protected_name_type:en: pgi
+wikidata:en: Q18464577
 
 < en:Portuguese meat products
 pt:Chouriço grosso de Estremoz e Borba
@@ -52783,7 +52896,7 @@ bg:Картофи от консерва
 es:Patatas en conserva
 fr:Pommes de terre en conserve, Pommes de terre appertisées
 it:Patate in scatola
-nl:Aardappel in blik
+nl:Aardappel in blik/pot
 ciqual_food_code:en: 4011
 ciqual_food_name:en: Potato, canned, drained
 ciqual_food_name:fr: Pomme de terre, appertisée, égouttée
@@ -53236,6 +53349,7 @@ protected_name_type:en: pdo
 en:Poultries from Janzé
 fr:Volaille de Janzé, Volailles de Janzé
 origins:en: en:france,fr:Janzé
+protected_name_file_number:en: PGI-FR-0168
 protected_name_type:en: pgi
 
 < en:Poultries
@@ -53396,7 +53510,7 @@ protected_name_file_number:en: PGI-FR-0172
 protected_name_type:en: pgi
 
 < en:Poultries
-fr:Volailles de la Drôme, Volailles de la Drôme
+fr:Volailles de la Drôme
 origins:en: en:france,en:drome
 protected_name_file_number:en: PGI-FR-0299
 protected_name_type:en: pgi
@@ -53420,7 +53534,7 @@ protected_name_file_number:en: PGI-FR-0154
 protected_name_type:en: pgi
 
 < en:Poultries
-fr:Volailles de Vendée, Volailles de Vendée
+fr:Volailles de Vendée
 origins:en: en:france,en:vendee
 protected_name_file_number:en: PGI-FR-0169
 protected_name_type:en: pgi
@@ -53428,6 +53542,7 @@ protected_name_type:en: pgi
 < en:Poultries
 fr:Volailles des Landes
 origins:en: en:france
+protected_name_file_number:en: PGI-FR-0163
 protected_name_type:en: pgi
 
 < en:Poultries
@@ -54148,8 +54263,8 @@ fr:Salades de concombres
 nl:Komkommersalades
 
 < en:Prepared salads
-en:Egg salads, Egg salads
-nl:Eisalades, Eiersalades, Eisalades, Eiersalades
+en:Egg salads
+nl:Eisalades, Eiersalades
 
 < en:Prepared salads
 en:Mexican salads
@@ -54310,17 +54425,6 @@ fr:Haricots aux légumes
 < en:Prepared vegetables
 fr:Haricots préparés, Haricots cuisinés
 nl:Kant-en-klaar bonen
-
-< en:Prepared vegetables
-< en:Tomatoes and their products
-en:Stuffed tomatoes, Stuffed tomato
-fr:Tomates farcies, Tomate farcie
-nl:Gevulde tomaat
-agribalyse_food_code:en: 25103
-ciqual_food_code:en: 25103
-ciqual_food_name:en: Stuffed tomatoes
-ciqual_food_name:fr: Tomate farcie
-wikidata:en: Q6778637
 
 < en:Pretzel
 fr:mélange Sticks et Bretzels
@@ -55634,6 +55738,16 @@ ciqual_food_code:en: 36100
 ciqual_food_name:en: Quail, meat and skin, raw
 ciqual_food_name:fr: Caille, viande et peau, crue
 
+< en:Fermented dairy desserts
+< en:Quarks
+en:Fruit quarks, Fruit quark
+fr:Quarks aux fruits, Quark aux fruits
+
+< en:Fermented dairy desserts
+< en:Quarks
+en:Plain quarks, Plain quark
+fr:Quarks nature, Quark nature
+
 < en:Quarks
 en:Buttermilk quark, Quark from buttermilk
 de:Buttermilchquark
@@ -55645,8 +55759,9 @@ de:Quark Fettstufe, Sahnequark, Quark 40% Fett i. Tr.
 fr:Quark allégé
 
 < en:Quarks
-en:Fruit quarks, Fruit quark
-fr:Quarks aux fruits, Quark aux fruits
+en:Herb quarks
+de:Kräuterquark
+fr:Quarks aux herbes aromatiques
 
 < en:Quarks
 en:Lean quark
@@ -55654,10 +55769,6 @@ de:Magerquark, Quark Magerstufe
 fi:Kevytrahka
 fr:Quark maigre
 nl:Magere kwark
-
-< en:Quarks
-en:Plain quarks, Plain quark
-fr:Quarks nature, Quark nature
 
 < en:Quarks
 en:Quark with 10% fat in dry mass
@@ -55847,9 +55958,9 @@ oqali_family:en: fr:Fromages - Fromage a raclette
 
 < en:French cheeses
 < en:Raclette
-fr:Raclette de Savoie, Raclette de Savoie, Raclette de Savoie
+fr:Raclette de Savoie
 origins:en: en:france
-protected_name_file_number:en: PGI-FR-02095
+protected_name_file_number:en: PGI-FR-02095, PGI-FR-02095-AM02
 protected_name_type:en: pgi
 
 < en:Goat cheeses
@@ -56052,7 +56163,7 @@ en:Canned sweet red peppers
 bg:Червени чушки от консерва
 es:Pimientos rojos en conserva
 fr:Poivrons rouges en conserve, Poivrons rouges appertisés, Poivrons rouges en conserve
-nl:Rode paprikas in blik
+nl:Rode paprikas in blik/pot
 agribalyse_food_code:en: 20275
 ciqual_food_code:en: 20275
 ciqual_food_name:en: Sweet pepper, red, canned, drained
@@ -56877,7 +56988,7 @@ en:Glutinous rices, Sticky rices
 de:Klebreis
 es:Arroces glutinosos
 fr:Riz gluant, riz glutineux, riz collant, riz doux
-nl:Paprijsten, Plakrijsten, Dessertrijsten, Dessert rijsten
+nl:Paprijsten, Plakrijsten, Dessertrijsten, Dessert rijsten, Kleefrijsten, Ketan rijsten
 wikidata:en: Q115443
 
 < en:Rices
@@ -58224,8 +58335,8 @@ ciqual_food_name:fr: Salade de pâtes aux légumes, avec poisson ou viande
 
 < en:Prepared salads
 < en:Salads with meat
-en:Chicken salads, Chicken salads
-nl:Kipsalades, Kipsalades
+en:Chicken salads
+nl:Kipsalades
 wikidata:en: Q5096323
 
 < en:Salami
@@ -58281,7 +58392,7 @@ en:Canned salmons
 de:Lachs in Dosen, Dosen-Lachs
 es:Salmon enlatado
 fr:Saumon en conserve, Saumons en conserve, Saumons appertisés
-nl:Zalm in blik
+nl:Zalm in blik/pot
 agribalyse_food_code:en: 26119
 ciqual_food_code:en: 26119
 ciqual_food_name:en: Salmon, canned, drained
@@ -58320,6 +58431,7 @@ ciqual_food_name:en: Salmon, raw, farmed
 < en:Salmons
 en:Wild salmons
 fr:Saumons sauvages, saumon sauvage
+nl:Wilde zalmen, Wilde zalm
 ciqual_food_code:en: 26161
 ciqual_food_name:en: Salmon, raw, wild
 
@@ -58689,6 +58801,11 @@ en:Lentil spreads, Lentil dips
 de:Linsen-Aufstriche, Linsen-Aufstrich
 fr:Tartinades de lentilles, houmous de lentilles
 
+< en:Plant-based spreads
+< en:Salted spreads
+en:Vegetarian spreads with meat-like pieces
+fr:Tartinades avec des morceaux végétariens
+
 < en:Prepared meats
 < en:Salted spreads
 en:Savory mousses, savory mousse, savoury mousses, savoury mousse
@@ -58801,6 +58918,7 @@ wikidata:en: Q1790817
 
 < en:Salts
 en:Iodised salts, iodised salt
+bg:Йодирана сол
 it:Sale iodato
 agribalyse_proxy_food_code:en: 11017
 agribalyse_proxy_food_name:en: Salt, white, for human consumption -sea, igneous or rock-, no enrichment
@@ -59472,7 +59590,7 @@ fr:Sardines en conserve
 he:סרדינים בשימורים
 hu:Szardíniakonzervek
 it:Sardine in scatola
-nl:Sardientjes in blik
+nl:Sardientjes in blik/pot
 pl:Sardynki w puszce
 pt:Sardinhas enlatadas
 ro:Conserve de sardine
@@ -59564,7 +59682,7 @@ es:Aliolis, Salsas alioli, Alioli, Salsa alioli
 fi:Aiolit, Aiolikastikkeet
 fr:Aïolis, Aiolis, sauces Aïoli, sauces Aïolis, sauce Aïoli
 it:Salsa aioli
-nl:KnoflooksauzenAiolisauzen
+nl:Knoflooksauzen, Aiolisauzen
 agribalyse_food_code:en: 11168
 ciqual_food_code:en: 11168
 ciqual_food_name:en: Aioli sauce -garlic and olive oil mayonnaise-, prepacked
@@ -59769,7 +59887,7 @@ de:Dessert Soßen
 fi:Jälkiruokakastikkeet
 fr:Sauces dessert
 it:Salse da dessert
-nl:Dessertsaus, Dessertsauzen
+nl:Dessertsauzen, Dessertsaus
 wikidata:en: Q25327021
 
 < en:Sauces
@@ -59972,7 +60090,7 @@ en:Oyster sauces
 es:Salsa de ostras
 fi:Osterikastikkeet
 fr:Sauces à l'huitre, sauce à l'huitre, sauce d'huitre, sauce huitre
-nl:Oestersaus
+nl:Oestersauzen
 wikidata:en: Q780827
 
 < en:Sauces
@@ -60117,6 +60235,7 @@ wikidata:en: Q1147677
 < en:Condiments
 < en:Sauces
 en:Soy sauces, Soya sauces, Shoyu, Soy sauce
+bg:Соев сос
 de:Sojasoßen, Sojasoße, Sojasaucen, Sojasauce
 es:Salsas de soja, Shoyu
 fi:soijakastikkeet
@@ -60659,14 +60778,14 @@ wikidata:en: Q76605
 
 < en:Meals
 < en:Savoury filled crêpes
-en:Crepe filled with cheese, Crepe filled with cheese
-de:Käsepfannkuchen, Käse Pfannkuchen, Pfannkuchen mit Käse, Käsepfannkuchen, Käse Pfannkuchen, Pfannkuchen mit Käse
-fr:Crêpes au fromage, Crêpes garnies au fromage, Crêpes garnie au fromage, Crêpe au fromage, Crêpes fourrées au fromage, Crêpe fourrée au fromage, Galettes au fromage, Crêpes au fromage, Crêpes garnies au fromage, Crêpes garnie au fromage, Crêpe au fromage, Crêpes fourrées au fromage, Crêpe fourrée au fromage, Galettes au fromage
+en:Crepe filled with cheese
+de:Käsepfannkuchen, Käse Pfannkuchen, Pfannkuchen mit Käse
+fr:Crêpes au fromage, Crêpes garnies au fromage, Crêpes garnie au fromage, Crêpe au fromage, Crêpes fourrées au fromage, Crêpe fourrée au fromage, Galettes au fromage
 agribalyse_proxy_food_code:en: 25549
 
 < en:Meals
 < en:Savoury filled crêpes
-fr:Crêpes au jambon, Crêpes au jambon
+fr:Crêpes au jambon
 
 < en:Scallop
 en:American sea scallop without coral, Canadian sea scallop without coral
@@ -60768,7 +60887,7 @@ wikidata:en: Q3469812
 < en:Sea spaghetti seaweeds
 en:Canned sea spaghetti seaweeds
 es:Algas espagueti de mar en conserva
-nl:Riemwier in blik
+nl:Riemwier in blik/pot
 
 < en:Dried seaweeds
 < en:Sea spaghetti seaweeds
@@ -61049,7 +61168,7 @@ en:Canned seaweeds, Tinned algae
 de:Eingemachte Algen, Algenkonserven
 es:Algas en conserva
 fr:Algues en conserve
-nl:Algen in blik
+nl:Algen in blik/pot
 
 < en:Dried plant-based foods
 < en:Seaweeds and their products
@@ -61625,7 +61744,7 @@ nl:Geroosterde gepelde zonnebloempitten
 en:Canned shiitake mushrooms, Canned shiitake, Canned Lentinula edodes
 es:Setas shiitake en conserva, Shiitake en conserva, Setas shitake en conserva, Shitake en conserva, Lentinula edodes en conserva
 fr:Champignons shiitake en conserve, Shiitake en conserve, Lentins du chêne en conserve, Lentinula edodes en conserve
-nl:Shiitakes in blik
+nl:Shiitakes in blik/pot
 
 < en:Dried mushrooms
 < en:Shiitake mushrooms
@@ -62579,7 +62698,7 @@ de:Fruchtsmoothies
 fi:hedelmäsmoothiet
 fr:Smoothies aux fruits
 it:Frappè alla frutta, Milkshake alla frutta, Smoothie alla frutta
-nl:Fruit smoothie
+nl:Fruitsmoothies
 
 < en:Smoothies
 fr:Smoothie kiwi pomme ananas
@@ -62605,6 +62724,10 @@ sv:Snacks, Tilltugg
 th:ขนม-ของว่าง
 zh:零食
 wikidata:en: Q749316
+
+< en:Snacks
+en:Cheese doodles
+ro:Pufuleți cu brânză
 
 < en:Snacks
 en:Popcorn, pop-corn, Popped popcorn
@@ -63496,7 +63619,7 @@ wikidata:ru: Q326061
 
 < en:Soy beans
 en:Edamame
-fr:Edamame
+xx:Edamame
 
 < en:Soy desserts
 en:Flavoured soy dessert
@@ -65270,6 +65393,21 @@ agribalyse_proxy_food_name:fr: Cumin, graine
 wikidata:en: Q132624
 
 < en:Spices
+en:Curry powder
+de:Curry Pulver, Curry
+es:Curry en polvo
+fr:Curry en poudre, Poudre de curry, Curry, kari
+nl:Kerriepoeders, Kerriepoeder, Curry, Kerrie
+agribalyse_food_code:en: 11005
+ciqual_food_code:en: 11005
+ciqual_food_name:en: Curry, powder
+ciqual_food_name:fr: Curry, poudre
+
+< en:Spices
+en:Garam masala
+xx:Garam masala
+
+< en:Spices
 en:Ginger
 bg:Джинджифил
 de:Ingwer
@@ -65397,14 +65535,6 @@ la:Vanilla
 nl:Vanille
 wikidata:en: Q13241
 
-< en:Spices
-fr:Curry, kari
-de:Curry
-nl:Curry
-agribalyse_proxy_food_code:en: 11005
-agribalyse_proxy_food_name:en: Curry, powder
-agribalyse_proxy_food_name:fr: Curry, poudre
-
 < en:Spicy pork sausage in large slices
 en:Spicy pork sausage with red pepper in large slices
 fr:Chorizo supérieur doux en tranches, Chorizo supérieur fort en tranches
@@ -65439,7 +65569,7 @@ es:Espinacas en conserva
 fi:purkitetut pinaatit
 fr:Épinards en conserve, Épinards appertisés
 it:Spinaci in scatola
-nl:Spinazie in blik
+nl:Spinazie in blik/pot
 agribalyse_food_code:en: 20060
 ciqual_food_code:en: 20060
 ciqual_food_name:en: Spinach, canned, drained
@@ -65463,7 +65593,7 @@ ciqual_food_name:fr: Épinard, surgelé, cru
 < en:Spinachs
 en:Spinach with cream sauce
 fr:Épinards à la crème
-nl:SPinazies met room
+nl:Spinazies met room
 agribalyse_food_code:en: 25026
 ciqual_food_code:en: 25026
 ciqual_food_name:en: Spinach w cream sauce
@@ -65689,13 +65819,21 @@ wikidata:en: Q178921
 < en:Sprinkles
 en:Chocolate sprinkles
 fr:Vermicelles en chocolat
-nl:Hagelslag, Chocolade hagel
+nl:Chocoladehagelslag, Chocolade hagel
 wikidata:en: Q152547
+
+< en:Sprinkles
+en:Multi-coloured vermicelli, Rainbow sprinkles
+fr:Vermicelles multicolores
+nl:Meerkleurenhagelsag
+ciqual_food_code:en: 11510
+ciqual_food_name:en: Multi-coloured vermicelli
+ciqual_food_name:fr: Vermicelles multicolores
 
 < en:Sprinkles
 en:Sugar sprinkles
 fr:Vermicelles en sucre
-nl:Suikerhagel
+nl:Suikerhagelslag
 
 < en:Sprits biscuits
 en:Plain sprits biscuits
@@ -65713,7 +65851,7 @@ es:Germinados de judía mungo en conserva, Brotes de judía mungo en conserva, B
 fi:Purkitetut mungpavun idut
 fr:Pousses de haricot mungo en conserve, Haricots mungo germés en conserve, Haricots mungo germés appertisés, Pousses de soja en conserve, Pousses de soja appertisées
 it:Germogli di fagiolo mungo in scatola, Germogli di soia in scatola
-nl:Mungoboonkiemen in blik
+nl:Mungoboonkiemen in blik/pot
 agribalyse_food_code:en: 20029
 ciqual_food_code:en: 20029
 ciqual_food_name:en: Mung bean, sprouted or soy spouts, canned, drained
@@ -65734,7 +65872,7 @@ es:Germinados en conserva, Semillas germinadas en conserva, Brotes en conserva
 fi:purkitettuja ituja
 fr:Pousses en conserve, Graines germées en conserve
 it:Germogli in scatola
-nl:Kiemen in blik
+nl:Kiemen in pot
 
 < en:Fresh plant-based foods
 < en:Sprouts
@@ -65902,7 +66040,7 @@ es:Filetes de ternera
 fi:naudanpihvit
 fr:Steaks de bœuf, steak de bœuf
 it:Bistecche di manzo
-nl:Rundersteaks
+nl:Biefstukken
 pl:Stek wołowy
 zh:牛排
 agribalyse_food_code:en: 6201
@@ -66350,6 +66488,10 @@ it:Dolcificanti da tavola
 nl:Tafelzoetstoffen
 
 < en:Sugars
+en:Beet sugars
+nl:Bietsuikers
+
+< en:Sugars
 en:Brown sugars, Brown sugar
 de:braune Zucker
 es:Azúcar moreno
@@ -66412,6 +66554,7 @@ fr:Sucres blancs, saccharose, saccarose, sucres de table, sucroses, sucre blanc
 it:Zucchero bianco
 nl:Kristalsuikers
 pl:Cukier biały
+zh:冰糖
 agribalyse_food_code:en: 31016
 ciqual_food_code:en: 31016
 ciqual_food_name:en: Sugar, white
@@ -66900,7 +67043,7 @@ es:Pimientos en conserva
 fi:purkitetut chilipaprikat
 fr:Poivrons en conserve
 it:Peperoni in scatola
-nl:Pepers in blik
+nl:Pepers in blik/pot
 
 < en:Cooked vegetables
 < en:Sweet peppers
@@ -67708,7 +67851,7 @@ nl:Gedroogde gemalen dragon
 < en:Tartiflettes
 en:Canned tartiflettes
 fr:Tartiflettes en conserve
-nl:Tartiflette in blik
+nl:Tartiflette in blik/pot
 
 < en:Tartlets
 en:Biscuit (small tart) with chocolate pre-packed
@@ -67760,6 +67903,13 @@ it:Tartufo bianco
 it:Tartufo nero
 
 < en:Tea-based beverages
+en:Still soft drink with tea extract
+fr:Boisson au thé aromatisée
+agribalyse_proxy_food_code:en: 18015
+agribalyse_proxy_food_name:en: Still soft drink with tea extract, with sugar and artificial sweetener-s-
+
+< en:Fermented drinks
+< en:Tea-based beverages
 en:Kombuchas
 de:Kombucha
 es:Té kombucha, Kombucha
@@ -67767,12 +67917,6 @@ fi:Kombutsat, Kombuchat
 fr:Kombuchas, combuchas
 nl:Kombucha
 wikidata:en: Q657032
-
-< en:Tea-based beverages
-en:Still soft drink with tea extract
-fr:Boisson au thé aromatisée
-agribalyse_proxy_food_code:en: 18015
-agribalyse_proxy_food_name:en: Still soft drink with tea extract, with sugar and artificial sweetener-s-
 
 < en:Teas
 en:Black teas, black tea
@@ -68139,7 +68283,11 @@ nl:Fruitstropen
 
 < en:Thick syrups
 en:Thick sugar syrup
-nl:Suikerstropen
+nl:Suikerstropen, Suikerstroop
+origins:en: en:netherlands
+protected_name_file_number:en: TSG-NL-1203
+protected_name_type:en: tsg
+wikidata:en: Q106783007
 
 < en:Thickeners
 en:Gelatin, Gelatine
@@ -68302,10 +68450,12 @@ ciqual_food_name:fr: Pain grillé suédois au blé complet
 < en:Tofu
 en:Plain tofu
 fr:Tofu nature
+nl:Tofu natuur
 
 < en:Tofu
 en:Smoked tofu
 fr:Tofu fumé
+nl:Gerookte tofu
 
 < en:Dehydrated soups
 < en:Tomato and vermicelli soups
@@ -68487,6 +68637,17 @@ fr:Sauces tomates au parmesan
 en:Tomato sauces with ricotta
 fr:Sauces tomates à la ricotta
 
+< en:Fresh vegetables
+< en:Tomatoes
+en:Fresh tomatoes
+de:Frische Tomaten
+es:Tomates frescos
+fi:Tuoreet tomaatit
+fr:Tomates fraîches
+it:Pomodori freschi
+nl:Verse tomaten, Verse tomaat
+season_in_country_fr:en: 6‚7,8‚9
+
 < en:Canned vegetables
 < en:Tomatoes
 en:Canned tomatoes
@@ -68496,7 +68657,7 @@ es:Tomates en conserva
 fi:purkitetut tomaatit
 fr:Tomates en conserve, conserves de tomate
 it:Pomodori in scatola
-nl:Tomaten in blik
+nl:Tomaten in blik/pot
 pt:Tomates enlatados
 
 < en:Tomatoes
@@ -68519,6 +68680,7 @@ wikidata:en: Q6540634
 en:Green tomatoes
 bg:Зелени домати
 fr:Tomates vertes
+nl:Groene tomaten
 agribalyse_food_code:en: 20119
 ciqual_food_code:en: 20119
 ciqual_food_name:en: Tomato, green, raw
@@ -68539,6 +68701,26 @@ wikidata:en: Q7259857
 
 < en:Tomatoes
 fr:Tomate olivette, Tomates olivettes
+
+< en:Jams
+< en:Tomatoes and their products
+en:Tomato jams, tomate jams
+es:Mermeladas y confituras de tomate, Mermeladas de tomate, Confituras de tomate
+fr:Confitures de tomates
+hu:Paradicsom lekvár
+nl:Tomatenjams
+wikidata:en: Q25041585
+
+< en:Prepared vegetables
+< en:Tomatoes and their products
+en:Stuffed tomatoes, Stuffed tomato
+fr:Tomates farcies, Tomate farcie
+nl:Gevulde tomaat
+agribalyse_food_code:en: 25103
+ciqual_food_code:en: 25103
+ciqual_food_name:en: Stuffed tomatoes
+ciqual_food_name:fr: Tomate farcie
+wikidata:en: Q6778637
 
 < en:Tomatoes and their products
 en:Boiled tomato pulp and peel, Tomato pulp and peel cooked in water
@@ -68633,28 +68815,29 @@ agribalyse_food_code:en: 12759
 ciqual_food_code:en: 12759
 ciqual_food_name:en: Tomme cheese, from mountain or Savoy
 origins:en: en:france
+protected_name_file_number:en: PGI-FR-0177-AM03, en: PGI-FR-0177
 protected_name_type:en: pgi
 
 < en:French cheeses
 < en:Tomme cheese from cow's milk
-fr:Tomme des Pyrénées, Tommes des Pyrénées, Tomme des Pyrénées
+fr:Tomme des Pyrénées, Tommes des Pyrénées
 origins:en: en:france
-protected_name_file_number:en: PGI-FR-0176
+protected_name_file_number:en: PGI-FR-0176-AM01, PGI-FR-0176
 protected_name_type:en: pgi
 
 < en:Tomme cheese from cow's milk
 fr:Tomme d'Italie, Tommes d'Italie
 
 < en:Tomme cheese from cow's milk
-fr:Tomme de Suisse, Tommes de Suisse, Tomme de Suisse, Tommes de Suisse
+fr:Tomme de Suisse, Tommes de Suisse
 origins:en: en:switzerland
 
 < en:Tomme cheese from cow's milk
-fr:Tomme du Canada, Tommes du Canada, Tomme du Canada, Tommes du Canada
+fr:Tomme du Canada, Tommes du Canada
 origins:en: en:canada
 
 < en:Tomme cheese from cow's milk
-fr:Tomme du Massif central, Tommes du Massif central, Tomme du Massif central, Tommes du Massif central
+fr:Tomme du Massif central, Tommes du Massif central
 
 < en:Tonic water
 en:Tonic drink with sugar
@@ -69216,6 +69399,7 @@ fr:Truites d'élevage
 agribalyse_food_code:en: 27008
 ciqual_food_code:en: 27008
 ciqual_food_name:en: Trout, farmed, raw
+cooking_method:en: en:raw
 
 < en:Fishes
 < en:Trouts
@@ -69225,6 +69409,7 @@ fr:Truite saumonée
 agribalyse_food_code:en: 27021
 ciqual_food_code:en: 27021
 ciqual_food_name:en: Salmon trout, raw
+cooking_method:en: en:raw
 
 < en:Trouts
 en:Steamed trouts, Trout steamed
@@ -69232,6 +69417,7 @@ fr:Truite cuite à la vapeur
 agribalyse_food_code:en: 27007
 ciqual_food_code:en: 27007
 ciqual_food_name:en: Trout, steamed
+cooking_method:en: en:steamed
 
 < en:Trouts
 fr:Filets de truite
@@ -69342,7 +69528,7 @@ fi:purkitetut tonnikalat
 fr:Thons en conserve, Conserve de thons
 he:טונה בקופסה, טונה בקופסא, שימורי טונה
 it:Tonno in scatola, tonni in scatola
-nl:Tonijn in blik
+nl:Tonijn in blik/pot
 ro:Conserve de ton
 ru:Консервы из тунца, Консервы тунцовые
 wikidata:en: Q5711293
@@ -69725,9 +69911,9 @@ season_in_country_fr:en: 1‚2,3‚4,5‚10‚11‚12
 
 < en:Frozen vegetables
 < en:Turnip
-en:Frozen turnips, Frozen turnip, Frozen turnips
+en:Frozen turnips, Frozen turnip
 de:Tiefkühl-Rüben
-fr:Navets surgelés, navet surgelé, Navets surgelés
+fr:Navets surgelés, navet surgelé
 nl:Diepvries knolrapen
 agribalyse_food_code:en: 20234
 agribalyse_proxy_food_code:en: 20234
@@ -70599,7 +70785,7 @@ fr:Huiles, huiles végétales
 he:שמנים מן הצומח
 hu:Nővényi olajok, Nővény alapú olajok
 it:Olio vegetale
-nl:Plantaardige oliën
+nl:Plantaardige oliën, Slaolies
 pl:Oleje roślinne, oleje pochodzenia roślinnego
 pt:Olios vegetais, olios baseados om plantas
 ru:Масло растительное, Растительное масло
@@ -70660,6 +70846,22 @@ ciqual_food_code:en: 25588
 ciqual_food_name:en: Vegetables au gratin -oven grilled- in bechamel sauce
 ciqual_food_name:fr: Gratin de légumes en sauce blanche type béchamel, cuit
 
+< en:Tomatoes and their products
+< en:Vegetable juices
+en:Tomato juices
+bg:Сок от домати
+de:Tomatensaft, Tomatensäfte
+es:Zumos de tomate
+fi:tomaattimehut
+fr:Jus de tomates, jus de tomate
+it:Succo di pomodoro
+nl:Tomatensappen, Tomatensap
+pl:Soki pomidorowe, sok pomidorowy
+ro:Suc de roșii
+ru:Томатный сок, Томатные соки
+zh:番茄汁
+wikidata:en: Q787325
+
 < en:Vegetable juices
 en:Beetroot juices
 bg:Сок от червено цвекло
@@ -70680,22 +70882,6 @@ nl:Wortelsappen, Wortelsap
 ru:Морковные соки
 zh:胡萝卜汁
 wikidata:en: Q1190074
-
-< en:Tomatoes and their products
-< en:Vegetable juices
-en:Tomato juices
-bg:Сок от домати
-de:Tomatensaft, Tomatensäfte
-es:Zumos de tomate
-fi:tomaattimehut
-fr:Jus de tomates, jus de tomate
-it:Succo di pomodoro
-nl:Tomatensappen, Tomatensap
-pl:Soki pomidorowe, sok pomidorowy
-ro:Suc de roșii
-ru:Томатный сок, Томатные соки
-zh:番茄汁
-wikidata:en: Q787325
 
 < en:Olive tree products
 < en:Vegetable oil sprays
@@ -70950,7 +71136,7 @@ en:Pickled onions, Onions pickled in vinegar
 es:Cebollas encurtidas, Cebollitas encurtidas
 fr:Oignons au vinaigre
 it:Cipolle sottaceto
-nl:Ingemaakte ui
+nl:Ingemaakte uien
 ciqual_food_code:en: 11055
 ciqual_food_name:en: Onion, pickled in vinegar
 ciqual_food_name:fr: Oignon au vinaigre
@@ -71210,11 +71396,10 @@ fr:Sauces aux olives
 he:ממרחי זיתים, ממרח זית
 nl:Sauzen met olijven
 
-< en:Sauces
 < en:Tomato sauces
 < en:Vegetable sauces
-en:Tomato sauces with vegetables, Tomato sauces with vegetables
-fr:Sauces tomate aux petits légumes
+en:Tomato sauces with vegetables
+fr:Sauces tomate aux petits légumes, Sauces tomates aux légumes
 nl:Tomatensauzen met groente
 agribalyse_food_code:en: 11207
 ciqual_food_code:en: 11207
@@ -71312,6 +71497,7 @@ wikidata:en: Q21888014
 < en:Vegetable soups
 en:Onion soups
 fr:Soupes à l'oignon
+nl:Uiensoepen
 wikidata:en: Q244617
 
 < en:Vegetable soups
@@ -71348,6 +71534,7 @@ nl:Courgettesoep
 
 < en:Vegetable soups
 fr:Soupes à l'ortie
+nl:Brandnetelsoepen
 
 < en:Canned plant-based foods
 < en:Vegetables based foods
@@ -71361,7 +71548,7 @@ fi:purkitetut kasvikset
 fr:Légumes en conserve, conserves de légumes
 hu:Zöldségkonzervek
 it:Verdure in scatola
-nl:Groenten in blik, Groenteconserven
+nl:Groenten in blik/pot, Groenteconserven
 pl:Warzywa w puszcze
 pt:Vegetais enlatados
 ru:Консервированные овощи, Овощи консервированные, Консервы из овощей
@@ -71708,6 +71895,11 @@ nl:Paddestoel- en afgeleide producten
 ru:Грибы и продукты из них
 food_groups:en: en:vegetables
 pnns_group_2:en: Vegetables
+
+< en:Vegetables based foods
+en:Okras
+fr:Gombos
+nl:Okras
 
 < en:Vegetables based foods
 en:Onions and their products
@@ -72538,6 +72730,7 @@ nl:Honingazijnen
 
 < en:Vinegars
 en:Rice vinegars
+bg:Оризов оцет
 de:Reisessig, Reisessige
 es:Vinagres de arroz
 fi:riisietikat
@@ -72781,7 +72974,7 @@ ciqual_food_name:fr: Gaufre moelleuse -type bruxelloise ou liégeoise-, nature o
 < en:Wakame seaweeds
 en:Canned wakame seaweeds
 es:Algas wakame en conserva
-nl:Wakame in blik
+nl:Wakame in blik/pot
 
 < en:Dried seaweeds
 < en:Wakame seaweeds
@@ -76964,7 +77157,7 @@ origins:en: en:france
 wikidata:en: Q10214
 
 < en:Wines from France
-fr:Saint Sardos, Saint-Sardos
+fr:Saint-Sardos
 origins:en: en:france
 protected_name_file_number:en: PDO-FR-A0408
 protected_name_type:en: pdo
@@ -77014,7 +77207,7 @@ fr:Savennières, Savennières Val de Loire
 origins:en: en:france
 
 < en:Wines from France
-fr:Savennières Coulée de Serrant, Savennières-Coulée de Serrant, Savennières-Coulée de Serrant Val de Loire
+fr:Savennières-Coulée de Serrant, Savennières-Coulée de Serrant Val de Loire
 origins:en: en:france
 protected_name_file_number:en: PDO-FR-A0983-AM01, en:PDO-FR-A0983
 protected_name_type:en: pdo
@@ -77490,7 +77683,7 @@ protected_name_file_number:en: PGI-DE-A1302
 protected_name_type:en: pgi
 
 < en:Wines from Germany
-de:Sachsen, Sachsen
+de:Sachsen
 origins:en: en:germany
 protected_name_file_number:en: PDO-DE-A1277
 protected_name_type:en: pdo
@@ -78379,7 +78572,7 @@ protected_name_type:en: pdo
 wikidata:en: Q374645
 
 < en:Wines from Italy
-it:Aglianico del Vulture, Aglianico del Vulture
+it:Aglianico del Vulture
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0222
 protected_name_type:en: pdo
@@ -78432,7 +78625,7 @@ protected_name_type:en: pdo
 wikidata:en: Q2640595
 
 < en:Wines from Italy
-it:Alezio, Alezio
+it:Alezio
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0541
 protected_name_type:en: pdo
@@ -78457,25 +78650,25 @@ protected_name_file_number:en: PDO-IT-A1252
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Alta Valle della Greve, Alta Valle della Greve
+it:Alta Valle della Greve
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-A1443
 protected_name_type:en: pgi
 
 < en:Wines from Italy
-it:Alto Adige, dell'Alto Adige, Südtirol, Südtiroler, Alto Adige, dell'Alto Adige, Südtirol, Südtiroler
+it:Alto Adige, dell'Alto Adige, Südtirol, Südtiroler
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0293
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Alto Livenza, Alto Livenza
+it:Alto Livenza
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-A0864
 protected_name_type:en: pgi
 
 < en:Wines from Italy
-it:Alto Mincio, Alto Mincio
+it:Alto Mincio
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-A1076
 protected_name_type:en: pgi
@@ -78507,7 +78700,7 @@ protected_name_type:en: pdo
 wikidata:en: Q3618365
 
 < en:Wines from Italy
-it:Aprilia, Aprilia
+it:Aprilia
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0691
 protected_name_type:en: pdo
@@ -78525,20 +78718,20 @@ protected_name_file_number:en: PDO-IT-A0438
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Arghillà, Arghillà
+it:Arghillà
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-A0662
 protected_name_type:en: pgi
 wikidata:en: Q3622414
 
 < en:Wines from Italy
-it:Assisi, Assisi
+it:Assisi
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0837
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Asti, Asti spumante, Moscato di Asti, Moscato di Asti spumante, Asti
+it:Asti, Asti spumante, Moscato di Asti, Moscato di Asti spumante
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A1396
 protected_name_type:en: pdo
@@ -78576,13 +78769,13 @@ protected_name_type:en: pdo
 wikidata:en: Q3632920
 
 < en:Wines from Italy
-it:Barbagia, Barbagia
+it:Barbagia
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-A0784
 protected_name_type:en: pgi
 
 < en:Wines from Italy
-it:Barbaresco, Barbaresco
+it:Barbaresco
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A1399
 protected_name_type:en: pdo
@@ -78595,7 +78788,7 @@ protected_name_type:en: pdo
 wikidata:en: Q807803
 
 < en:Wines from Italy
-it:Barbera d'Asti, Barbera d'Asti Colli Astiani, Barbera d'Asti Colli Astiano, Barbera d'Asti
+it:Barbera d'Asti, Barbera d'Asti Colli Astiani, Barbera d'Asti Colli Astiano
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A1398
 protected_name_type:en: pdo
@@ -78685,7 +78878,7 @@ protected_name_type:en: pdo
 wikidata:en: Q2900837
 
 < en:Wines from Italy
-it:Bianco del Sillaro, Sillaro, Bianco del Sillaro, Sillaro
+it:Bianco del Sillaro, Sillaro
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-A0526
 protected_name_type:en: pgi
@@ -78701,19 +78894,19 @@ it:Bianco della Valdinievole
 origins:en: en:italy
 
 < en:Wines from Italy
-it:Bianco di Castelfranco Emilia, Bianco di Castelfranco Emilia, Bianco di Castelfranco Emilia
+it:Bianco di Castelfranco Emilia
 origins:en: en:italy
-protected_name_file_number:en: PGI-IT-A0508
+protected_name_file_number:en: PGI-IT-A0508-AM04, PGI-IT-A0508
 protected_name_type:en: pgi
 
 < en:Wines from Italy
-it:Bianco di Custoza, Custoza, Bianco di Custoza, Custoza, Bianco di Custoza, Custoza
+it:Bianco di Custoza, Custoza
 origins:en: en:italy
-protected_name_file_number:en: PDO-IT-A0468
+protected_name_file_number:en: PDO-IT-A0468-AM03, PDO-IT-A0468
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Bianco di Pitigliano, Bianco di Pitigliano
+it:Bianco di Pitigliano
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A1339
 protected_name_type:en: pdo
@@ -78729,13 +78922,13 @@ protected_name_file_number:en: PDO-IT-A0674
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Bivongi, Bivongi
+it:Bivongi
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0605
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Boca, Boca
+it:Boca
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A1074
 protected_name_type:en: pdo
@@ -78767,13 +78960,13 @@ protected_name_type:en: pdo
 wikidata:en: Q894397
 
 < en:Wines from Italy
-it:Botticino, Botticino
+it:Botticino
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A1104
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Brachetto d'Acqui, Acqui, Brachetto d'Acqui, Acqui
+it:Brachetto d'Acqui, Acqui
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A1382
 protected_name_type:en: pdo
@@ -78811,7 +79004,7 @@ protected_name_file_number:en: PDO-IT-A0978
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Cacc'e' mmitte di Lucera, Cacc'e mmitte di Lucera
+it:Cacc'e mmitte di Lucera
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0544
 protected_name_type:en: pdo
@@ -78823,7 +79016,7 @@ protected_name_file_number:en: PDO-IT-A1313
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Calabria, Calabria
+it:Calabria
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-A0637
 protected_name_type:en: pgi
@@ -78853,25 +79046,25 @@ protected_name_file_number:en: PDO-IT-A0239
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Campidano di Terralba, Terralba, Campidano di Terralba, Terralba
+it:Campidano di Terralba, Terralba
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A1167
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Canavese, Canavese
+it:Canavese
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A1083
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Candia dei Colli Apuani, Candia dei Colli Apuani
+it:Candia dei Colli Apuani
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A1377
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Cannara, Cannara
+it:Cannara
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-A0854
 protected_name_type:en: pgi
@@ -78884,7 +79077,7 @@ protected_name_type:en: pdo
 wikidata:en: Q3655405
 
 < en:Wines from Italy
-it:Cannonau di Sardegna, Cannonau di Sardegna
+it:Cannonau di Sardegna
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A1099
 protected_name_type:en: pdo
@@ -78908,7 +79101,7 @@ protected_name_file_number:en: PDO-IT-A1379
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Capri, Capri
+it:Capri
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0240
 protected_name_type:en: pdo
@@ -78920,7 +79113,7 @@ protected_name_file_number:en: PDO-IT-A1124
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Carema, Carema
+it:Carema
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A1084
 protected_name_type:en: pdo
@@ -78932,13 +79125,13 @@ protected_name_file_number:en: PDO-IT-A1172
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Carmignano, Carmignano
+it:Carmignano
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A1220
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Carso, Carso, Carso - Kras
+it:Carso, Carso - Kras
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0910
 protected_name_type:en: pdo
@@ -78956,7 +79149,7 @@ protected_name_file_number:en: PDO-IT-A0974
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Castel del Monte, Castel del Monte
+it:Castel del Monte
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0545
 protected_name_type:en: pdo
@@ -78988,7 +79181,7 @@ protected_name_file_number:en: PDO-IT-A0242
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Casteller, Casteller
+it:Casteller
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0748
 protected_name_type:en: pdo
@@ -79138,31 +79331,31 @@ protected_name_file_number:en: PGI-IT-A0884
 protected_name_type:en: pgi
 
 < en:Wines from Italy
-it:Colli Asolani - Prosecco, Asolo - Prosecco, Colli Asolani - Prosecco, Asolo - Prosecco, Colli Asolani - Prosecco, Asolo - Prosecco
+it:Colli Asolani - Prosecco, Asolo - Prosecco
 origins:en: en:italy
-protected_name_file_number:en: PDO-IT-A0514
+protected_name_file_number:en: PDO-IT-A0514-AM02, PDO-IT-A0514
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Colli Berici, Colli Berici
+it:Colli Berici
 origins:en: en:italy
-protected_name_file_number:en: PDO-IT-A0450-AM02
+protected_name_file_number:en: PDO-IT-A0450, PDO-IT-A0450-AM02
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Colli Bolognesi, Colli Bolognesi
+it:Colli Bolognesi
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0289
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Colli Bolognesi Classico - Pignoletto, Colli Bolognesi Classico Pignoletto, Colli Bolognesi Classico Pignoletto
+it:Colli Bolognesi Classico Pignoletto
 origins:en: en:italy
-protected_name_file_number:en: PDO-IT-A0284
+protected_name_file_number:en: PDO-IT-A0284-AM02, PDO-IT-A0284
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Colli Cimini, Colli Cimini
+it:Colli Cimini
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-A0767
 protected_name_type:en: pgi
@@ -79174,19 +79367,19 @@ protected_name_file_number:en: PDO-IT-A0290
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Colli del Limbara, Colli del Limbara
+it:Colli del Limbara
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-A0788
 protected_name_type:en: pgi
 
 < en:Wines from Italy
-it:Colli del Sangro, Colli del Sangro
+it:Colli del Sangro
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-A0744
 protected_name_type:en: pgi
 
 < en:Wines from Italy
-it:Colli del Trasimeno, Trasimeno, Colli del Trasimeno, Trasimeno
+it:Colli del Trasimeno, Trasimeno
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0839
 protected_name_type:en: pdo
@@ -79332,7 +79525,7 @@ protected_name_file_number:en: PDO-IT-A1097
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Colli Trevigiani, Colli Trevigiani
+it:Colli Trevigiani
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-A0518
 protected_name_type:en: pgi
@@ -79366,7 +79559,7 @@ protected_name_file_number:en: PDO-IT-A0354
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Colline Frentane, Colline Frentane
+it:Colline Frentane
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-A0745
 protected_name_type:en: pgi
@@ -79412,31 +79605,31 @@ protected_name_file_number:en: PGI-IT-A0362
 protected_name_type:en: pgi
 
 < en:Wines from Italy
-it:Colline Teatine, Colline Teatine
+it:Colline Teatine
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-A0891
 protected_name_type:en: pgi
 
 < en:Wines from Italy
-it:Collio Goriziano, Collio, Collio Goriziano, Collio
+it:Collio Goriziano, Collio
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0908
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Conegliano - Valdobbiadene - Prosecco, Conegliano Valdobbiadene - Prosecco, Valdobbiadene - Prosecco, Conegliano - Prosecco
+it:Conegliano Valdobbiadene - Prosecco, Valdobbiadene - Prosecco, Conegliano - Prosecco
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0515
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Cònero, Cònero
+it:Cònero
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0449
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Conselvano, Conselvano
+it:Conselvano
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-A0519
 protected_name_type:en: pgi
@@ -79448,7 +79641,7 @@ protected_name_file_number:en: PDO-IT-A0775
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Contessa Entellina, Contessa Entellina
+it:Contessa Entellina
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0776
 protected_name_type:en: pdo
@@ -79466,13 +79659,13 @@ protected_name_file_number:en: PDO-IT-A0547
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Cori, Cori
+it:Cori
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0706
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Cortese dell'Alto Monferrato, Cortese dell'Alto Monferrato
+it:Cortese dell'Alto Monferrato
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A1111
 protected_name_type:en: pdo
@@ -79532,7 +79725,7 @@ protected_name_file_number:en: PGI-IT-A0599
 protected_name_type:en: pgi
 
 < en:Wines from Italy
-it:Del Vastese, Histonium, del Vastese, Histonium
+it:del Vastese, Histonium
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-A0893
 protected_name_type:en: pgi
@@ -79544,16 +79737,16 @@ protected_name_file_number:en: PDO-IT-A0777
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:dell'Emilia, Emilia, dell'Emilia, Emilia
+it:dell'Emilia, Emilia
 origins:en: en:italy
-protected_name_file_number:en: PGI-IT-A0509
+protected_name_file_number:en: PGI-IT-A0509-AM06, PGI-IT-A0509
 protected_name_type:en: pgi
 
 < en:Wines from Italy
-it:delle Venezie, delle Venezie, delle Venezie, Beneških okolišev
+it:delle Venezie, Beneških okolišev
 origins:en: en:italy
-protected_name_file_number:en: PDO-IT-02360
-protected_name_type:en: pdo
+protected_name_file_number:en: PDO-IT-02360, PGI-IT-A0862-AM03, PGI-IT-A0862
+protected_name_type:en: pdo, pgi
 
 < en:Wines from Italy
 it:Dogliani
@@ -79580,13 +79773,13 @@ protected_name_file_number:en: PDO-IT-A1174
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Dolcetto di Diano d'Alba, Diano d'Alba, Dolcetto di Diano d'Alba, Diano d'Alba
+it:Dolcetto di Diano d'Alba, Diano d'Alba
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A1324
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Dolcetto di Ovada, Dolcetto d'Ovada, Dolcetto di Ovada
+it:Dolcetto di Ovada, Dolcetto d'Ovada
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A1176
 protected_name_type:en: pdo
@@ -79624,7 +79817,7 @@ protected_name_file_number:en: PDO-IT-A1237
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Eloro, Eloro Pachino, Eloro
+it:Eloro, Eloro Pachino
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0778
 protected_name_type:en: pdo
@@ -79636,7 +79829,7 @@ protected_name_file_number:en: PGI-IT-A0258
 protected_name_type:en: pgi
 
 < en:Wines from Italy
-it:Erbaluce di Caluso, Caluso, Erbaluce di Caluso, Caluso
+it:Erbaluce di Caluso, Caluso
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A1315
 protected_name_type:en: pdo
@@ -79654,7 +79847,7 @@ protected_name_file_number:en: PDO-IT-A0434
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Est!Est!!Est!!! di Montefiascone, Est! Est!! Est!!! di Montefiascone
+it:Est! Est!! Est!!! di Montefiascone
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0705
 protected_name_type:en: pdo
@@ -79713,9 +79906,9 @@ protected_name_file_number:en: PGI-IT-A0806
 protected_name_type:en: pgi
 
 < en:Wines from Italy
-it:Forlì, Forlì
+it:Forlì
 origins:en: en:italy
-protected_name_file_number:en: PGI-IT-A0512
+protected_name_file_number:en: PGI-IT-A0512-AM03, PGI-IT-A0512
 protected_name_type:en: pgi
 
 < en:Wines from Italy
@@ -79787,7 +79980,7 @@ protected_name_file_number:en: PDO-IT-A0954
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Friuli Isonzo, Isonzo del Friuli, Friuli Isonzo, Isonzo del Friuli
+it:Friuli Isonzo, Isonzo del Friuli
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0959
 protected_name_type:en: pdo
@@ -79799,7 +79992,7 @@ protected_name_file_number:en: PDO-IT-A0976
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Frusinate, del Frusinate, Frusinate, del Frusinate
+it:Frusinate, del Frusinate
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-A0770
 protected_name_type:en: pgi
@@ -79829,9 +80022,9 @@ protected_name_file_number:en: PDO-IT-A0469
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Garda, Garda, Garda
+it:Garda
 origins:en: en:italy
-protected_name_file_number:en: PDO-IT-A1320
+protected_name_file_number:en: PDO-IT-A1320-AM02, PDO-IT-A1320, PDO-IT-1516
 protected_name_type:en: pdo
 
 < en:Wines from Italy
@@ -79847,7 +80040,7 @@ protected_name_file_number:en: PDO-IT-A1311
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Gavi, Cortese di Gavi, Gavi, Cortese di Gavi
+it:Gavi, Cortese di Gavi
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A1310
 protected_name_type:en: pdo
@@ -79951,7 +80144,7 @@ protected_name_file_number:en: PDO-IT-A0279
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Ischia, Ischia
+it:Ischia
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0251
 protected_name_type:en: pdo
@@ -79963,14 +80156,14 @@ protected_name_file_number:en: PGI-IT-A1140
 protected_name_type:en: pgi
 
 < en:Wines from Italy
-it:Lacrima di Morro, Lacrima di Morro d'Alba, Lacrima di Morro, Lacrima di Morro d'Alba
+it:Lacrima di Morro, Lacrima di Morro d'Alba
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0431
 protected_name_type:en: pdo
 wikidata:en: Q1799803
 
 < en:Wines from Italy
-it:Lago di Caldaro, Caldaro, Kalterer, Kalterersee, Lago di Caldaro, Kalterersee, Caldaro, Kalterer
+it:Lago di Caldaro, Kalterersee, Caldaro, Kalterer
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0294
 protected_name_type:en: pdo
@@ -80025,13 +80218,13 @@ protected_name_file_number:en: PDO-IT-A0618
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Langhe, Langhe
+it:Langhe
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A1189
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Lazio, Lazio
+it:Lazio
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-A0771
 protected_name_type:en: pgi
@@ -80062,7 +80255,7 @@ protected_name_file_number:en: PGI-IT-A0363
 protected_name_type:en: pgi
 
 < en:Wines from Italy
-it:Lipuda, Lipuda
+it:Lipuda
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-A0665
 protected_name_type:en: pgi
@@ -80123,13 +80316,13 @@ protected_name_file_number:en: PDO-IT-A0907
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Malvasia di Casorzo d'Asti, Cosorzo, Malvasia di Cosorzo, Malvasia di Casorzo d'Asti, Malvasia di Casorzo, Casorzo
+it:Malvasia di Casorzo d'Asti, Malvasia di Casorzo, Casorzo
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A1194
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Malvasia di Castelnuovo Don Bosco, Malvasia di Castelnuovo Don Bosco
+it:Malvasia di Castelnuovo Don Bosco
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A1201
 protected_name_type:en: pdo
@@ -80153,7 +80346,7 @@ protected_name_file_number:en: PGI-IT-A0520
 protected_name_type:en: pgi
 
 < en:Wines from Italy
-it:Marche, Marche
+it:Marche
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-A0484
 protected_name_type:en: pgi
@@ -80214,13 +80407,13 @@ protected_name_file_number:en: PDO-IT-A0619
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Menfi, Menfi
+it:Menfi
 origins:en: en:italy
-protected_name_file_number:en: PDO-IT-A0786-AM02
+protected_name_file_number:en: PDO-IT-A0786, PDO-IT-A0786-AM02
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Merlara, Merlara
+it:Merlara
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0440
 protected_name_type:en: pdo
@@ -80237,13 +80430,13 @@ de:Mitterberg zwischen Gfrill und Toll
 origins:en: en:italy
 
 < en:Wines from Italy
-it:Modena, Provincia di Modena, di Modena, Modena, di Modena
+it:Modena, Provincia di Modena, di Modena
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0347
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Molise, del Molise, Molise, del Molise
+it:Molise, del Molise
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0575
 protected_name_type:en: pdo
@@ -80259,7 +80452,7 @@ it:Monferrato Casalese
 origins:en: en:italy
 
 < en:Wines from Italy
-it:Monica di Sardegna, Monica di Sardegna
+it:Monica di Sardegna
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A1158
 protected_name_type:en: pdo
@@ -80272,7 +80465,7 @@ protected_name_file_number:en: PDO-IT-A0787
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Montecarlo, Montecarlo
+it:Montecarlo
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A1421
 protected_name_type:en: pdo
@@ -80284,7 +80477,7 @@ protected_name_file_number:en: PGI-IT-A1438
 protected_name_type:en: pgi
 
 < en:Wines from Italy
-it:Montecompatri-Colonna, Montecompatri, Colonna, Montecompatri Colonna, Montecompatri, Colonna
+it:Montecompatri Colonna, Montecompatri, Colonna
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0757
 protected_name_type:en: pdo
@@ -80302,9 +80495,9 @@ protected_name_file_number:en: PDO-IT-A1246
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Montefalco, Montefalco
+it:Montefalco
 origins:en: en:italy
-protected_name_file_number:en: PDO-IT-A0845-AM03
+protected_name_file_number:en: PDO-IT-A0845, PDO-IT-A0845-AM03
 protected_name_type:en: pdo
 wikidata:en: Q3322609
 
@@ -80335,7 +80528,7 @@ protected_name_file_number:en: PGI-IT-A1256
 protected_name_type:en: pgi
 
 < en:Wines from Italy
-it:Montepulciano d'Abruzzo, Montepulciano d'Abruzzo
+it:Montepulciano d'Abruzzo
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0723
 protected_name_type:en: pdo
@@ -80368,7 +80561,7 @@ protected_name_file_number:en: PDO-IT-A1260
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Moscadello di Montalcino, Moscadello di Montalcino
+it:Moscadello di Montalcino
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A1440
 protected_name_type:en: pdo
@@ -80393,26 +80586,26 @@ protected_name_file_number:en: PDO-IT-A0909
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Moscato di Trani, Moscato di Trani
+it:Moscato di Trani
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0555
 protected_name_type:en: pdo
 wikidata:en: Q3866027
 
 < en:Wines from Italy
-it:Murgia, Murgia
+it:Murgia
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-A0600
 protected_name_type:en: pgi
 
 < en:Wines from Italy
-it:Nardò, Nardò
+it:Nardò
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0556
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Narni, Narni
+it:Narni
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-A0855
 protected_name_type:en: pgi
@@ -80425,7 +80618,7 @@ protected_name_type:en: pdo
 wikidata:en: Q1540598
 
 < en:Wines from Italy
-it:Nebbiolo d'Alba, Nebbiolo d'Alba
+it:Nebbiolo d'Alba
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A1213
 protected_name_type:en: pdo
@@ -80451,7 +80644,7 @@ protected_name_file_number:en: PDO-IT-01896
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Noto, Noto
+it:Noto
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0790
 protected_name_type:en: pdo
@@ -80530,7 +80723,7 @@ protected_name_file_number:en: PDO-IT-A0846
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Osco, Terre degli Osci, Osco, Terre degli Osci
+it:Osco, Terre degli Osci
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-A0693
 protected_name_type:en: pgi
@@ -80578,19 +80771,19 @@ protected_name_file_number:en: PGI-IT-A0648
 protected_name_type:en: pgi
 
 < en:Wines from Italy
-it:Penisola Sorrentina, Penisola Sorrentina
+it:Penisola Sorrentina
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0280
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Pentro di Isernia, Pentro, Pentro di Isernia, Pentro
+it:Pentro di Isernia, Pentro
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0684
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Pergola, Pergola
+it:Pergola
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0429
 protected_name_type:en: pdo
@@ -80628,19 +80821,19 @@ protected_name_file_number:en: PDO-IT-A1001
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Planargia, Planargia
+it:Planargia
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-A0799
 protected_name_type:en: pgi
 
 < en:Wines from Italy
-it:Pomino, Pomino
+it:Pomino
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A1453
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Pompeiano, Pompeiano
+it:Pompeiano
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-A0262
 protected_name_type:en: pgi
@@ -80695,7 +80888,7 @@ protected_name_file_number:en: PGI-IT-A1015
 protected_name_type:en: pgi
 
 < en:Wines from Italy
-it:Puglia, Puglia
+it:Puglia
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-A0601
 protected_name_type:en: pgi
@@ -80713,9 +80906,9 @@ protected_name_file_number:en: PDO-IT-A0939
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Ravenna, Ravenna, Ravenna
+it:Ravenna
 origins:en: en:italy
-protected_name_file_number:en: PGI-IT-A0523
+protected_name_file_number:en: PGI-IT-A0523-AM03, PGI-IT-A0523
 protected_name_type:en: pgi
 
 < en:Wines from Italy
@@ -80738,13 +80931,13 @@ protected_name_file_number:en: PDO-IT-A0465
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Reggiano, Reggiano
+it:Reggiano
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0351
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Reno, Reno
+it:Reno
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0506
 protected_name_type:en: pdo
@@ -80762,13 +80955,13 @@ protected_name_file_number:en: PDO-IT-A0471
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Riviera del Garda Bresciano, Garda Bresciano, Riviera del Garda Bresciano, Garda Bresciano, Riviera del Garda Bresciano, Garda Bresciano
+it:Riviera del Garda Bresciano, Garda Bresciano
 origins:en: en:italy
-protected_name_file_number:en: PDO-IT-A1137
+protected_name_file_number:en: PDO-IT-A1137-AM02, PDO-IT-A1137
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Riviera ligure di ponente, Riviera ligure di Ponente
+it:Riviera ligure di Ponente
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0357
 protected_name_type:en: pdo
@@ -80780,9 +80973,9 @@ protected_name_file_number:en: PGI-IT-A0263
 protected_name_type:en: pgi
 
 < en:Wines from Italy
-it:Roero, Roero
+it:Roero
 origins:en: en:italy
-protected_name_file_number:en: PDO-IT-A1261-AM03
+protected_name_file_number:en: PDO-IT-A1261, PDO-IT-A1261-AM03
 protected_name_type:en: pdo
 
 < en:Wines from Italy
@@ -80838,7 +81031,7 @@ it:Rosso Barletta
 origins:en: en:italy
 
 < en:Wines from Italy
-it:Rosso Conero, Rosso Cònero
+it:Rosso Conero
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0428
 protected_name_type:en: pdo
@@ -80850,14 +81043,14 @@ protected_name_file_number:en: PDO-IT-A0566
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Rosso di Montalcino, Rosso di Montalcino
+it:Rosso di Montalcino
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A1456
 protected_name_type:en: pdo
 wikidata:en: Q25993
 
 < en:Wines from Italy
-it:Rosso di Montepulciano, Rosso di Montepulciano
+it:Rosso di Montepulciano
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A1458
 protected_name_type:en: pdo
@@ -80870,21 +81063,21 @@ protected_name_file_number:en: PDO-IT-A0847
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Rosso Piceno, Rosso Piceno, Piceno
+it:Rosso Piceno, Piceno
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0427
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Rotae, Rotae
+it:Rotae
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-A0688
 protected_name_type:en: pgi
 
 < en:Wines from Italy
-it:Rubicone, Rubicone, Rubicone
+it:Rubicone
 origins:en: en:italy
-protected_name_file_number:en: PGI-IT-A0525
+protected_name_file_number:en: PGI-IT-A0525-AM04, PGI-IT-A0525
 protected_name_type:en: pgi
 
 < en:Wines from Italy
@@ -80926,7 +81119,7 @@ protected_name_file_number:en: PGI-IT-A0807
 protected_name_type:en: pgi
 
 < en:Wines from Italy
-it:Salento, Salento
+it:Salento
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-A0602
 protected_name_type:en: pgi
@@ -80951,7 +81144,7 @@ protected_name_file_number:en: PDO-IT-A0797
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:San Colombano al Lambro, San Colombano, San Colombano al Lambro, San Colombano
+it:San Colombano al Lambro, San Colombano
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A1054
 protected_name_type:en: pdo
@@ -81063,7 +81256,7 @@ protected_name_file_number:en: PDO-IT-A0451
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Sforzato di Valtellina, Sfursat di Valtellina, Sforzato di Valtellina, Sfursat di Valtellina
+it:Sforzato di Valtellina, Sfursat di Valtellina
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A1035
 protected_name_type:en: pdo
@@ -81075,9 +81268,9 @@ protected_name_file_number:en: PGI-IT-A0813
 protected_name_type:en: pgi
 
 < en:Wines from Italy
-it:Sicilia, Sicilia
+it:Sicilia
 origins:en: en:italy
-protected_name_file_number:en: PDO-IT-A0801-AM03
+protected_name_file_number:en: PDO-IT-A0801, PDO-IT-A0801-AM03
 protected_name_type:en: pdo
 
 < en:Wines from Italy
@@ -81093,9 +81286,9 @@ protected_name_file_number:en: PDO-IT-A1236
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Soave, Soave Colli Scaligeri, Soave, Soave
+it:Soave, Soave Colli Scaligeri
 origins:en: en:italy
-protected_name_file_number:en: PDO-IT-A0472
+protected_name_file_number:en: PDO-IT-A0472-AM04, PDO-IT-A0472
 protected_name_type:en: pdo
 wikidata:en: Q1933708
 
@@ -81181,7 +81374,7 @@ protected_name_type:en: pdo
 wikidata:en: Q26898065
 
 < en:Wines from Italy
-it:Terracina, Moscato di Terracina, Terracina, Moscato di Terracina
+it:Terracina, Moscato di Terracina
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0761
 protected_name_type:en: pdo
@@ -81200,9 +81393,9 @@ protected_name_file_number:en: PGI-IT-A0364
 protected_name_type:en: pgi
 
 < en:Wines from Italy
-it:Terrazze Retiche di Sondrio, Terrazze Retiche di Sondrio
+it:Terrazze Retiche di Sondrio
 origins:en: en:italy
-protected_name_file_number:en: PGI-IT-A1352
+protected_name_file_number:en: PGI-IT-A1352, PGI-IT-A1352-AM02
 protected_name_type:en: pgi
 
 < en:Wines from Italy
@@ -81212,7 +81405,7 @@ protected_name_file_number:en: PDO-IT-A1241
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Terre Aquilane, Terre de L'Aquila, Terre Aquilane, Terre dell'Aquila
+it:Terre Aquilane, Terre de L'Aquila
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-A0898
 protected_name_type:en: pgi
@@ -81230,7 +81423,7 @@ protected_name_file_number:en: PGI-IT-A0264
 protected_name_type:en: pgi
 
 < en:Wines from Italy
-it:Terre dell'Alta Val d'Agri, Terre dell'Alta Val d'Agri
+it:Terre dell'Alta Val d'Agri
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0530
 protected_name_type:en: pdo
@@ -81286,9 +81479,9 @@ protected_name_file_number:en: PGI-IT-A0810
 protected_name_type:en: pgi
 
 < en:Wines from Italy
-it:Terre Tollesi, Tullum, Terre Tollesi, Tullum, Terre Tollesi, Tullum
+it:Terre Tollesi, Tullum
 origins:en: en:italy
-protected_name_file_number:en: PDO-IT-A0742-AM04
+protected_name_file_number:en: PDO-IT-A0742-AM04, PDO-IT-A0742
 protected_name_type:en: pdo
 
 < en:Wines from Italy
@@ -81323,7 +81516,7 @@ protected_name_file_number:en: PDO-IT-A0834
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Toscano, Toscana, Toscano, Toscana
+it:Toscano, Toscana
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-A1517
 protected_name_type:en: pgi
@@ -81409,7 +81602,7 @@ protected_name_file_number:en: PGI-IT-A0655
 protected_name_type:en: pgi
 
 < en:Wines from Italy
-it:Val Polcèvera, Val Polcèvera Coronata, Val Polcèvera
+it:Val Polcèvera, Val Polcèvera Coronata
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0359
 protected_name_type:en: pdo
@@ -81427,7 +81620,7 @@ protected_name_file_number:en: PDO-IT-A1366
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Valcamonica, Valcamonica
+it:Valcamonica
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-A1317
 protected_name_type:en: pgi
@@ -81581,7 +81774,7 @@ protected_name_file_number:en: PDO-IT-A0762
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Veneto, Veneto
+it:Veneto
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-A0521
 protected_name_type:en: pgi
@@ -81593,9 +81786,9 @@ protected_name_file_number:en: PGI-IT-A0522
 protected_name_type:en: pgi
 
 < en:Wines from Italy
-it:Venezia, Venezia
+it:Venezia
 origins:en: en:italy
-protected_name_file_number:en: PDO-IT-A0517-AM03
+protected_name_file_number:en: PDO-IT-A0517, PDO-IT-A0517-AM03
 protected_name_type:en: pdo
 
 < en:Wines from Italy
@@ -81673,9 +81866,9 @@ protected_name_file_number:en: PDO-IT-A0252-AM02, en: PDO-IT-A0252
 protected_name_type:en: pdo
 
 < en:Wines from Italy
-it:Vicenza, Vicenza
+it:Vicenza
 origins:en: en:italy
-protected_name_file_number:en: PDO-IT-A0476
+protected_name_file_number:en: PDO-IT-A0476, PDO-IT-A0476-AM03
 protected_name_type:en: pdo
 
 < en:Wines from Italy
@@ -81692,7 +81885,7 @@ protected_name_type:en: pdo
 wikidata:en: Q25385581
 
 < en:Wines from Italy
-it:Vigneti delle Dolomiti, Weinberg Dolomiten, Vigneti delle Dolomiti, Weinberg Dolomiten
+it:Vigneti delle Dolomiti, Weinberg Dolomiten
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-A0755
 protected_name_type:en: pgi
@@ -83160,33 +83353,6 @@ ciqual_food_name:en: Yellowfin tuna, canned in brine, drained
 en:Blue cheese yogurt dressings
 nl:Blauwe kaassauzen
 
-< en:Fermented milk drinks
-< en:Yogurts
-en:Drinkable yogurts, Yogurt drinks
-bg:Кисело мляко за пиене
-ca:Iogurt per beure
-de:Trinkjoghurt, Trinkjogurt, Trinkjoghurts, Trinkjogurts
-es:Yogures para beber
-fi:Juotavat jogurtit
-fr:Yaourts à boire, Yaourts à boire aromatisés, Yaourts à boire sucrés
-he:יוגורטים לשתייה
-hu:Ivójoghurtok, Iható joghurtok
-it:Yogurt da bere
-nl:Drinkyoghurts
-ru:Питьевые йогурты
-agribalyse_proxy_food_code:en: 19508
-agribalyse_proxy_food_name:en: Dairy drink or fermented milk or yogurt, flavoured, with sugar
-agribalyse_proxy_food_name:fr: Boisson lactée, lait fermenté ou yaourt à boire, aromatisé, sucré
-
-< en:Yogurts
-en:Bifidus yogurts
-de:Bifidus-Joghurt
-es:Yogures bifidus, Yogures con bifidus
-fi:Bifidus-jogurtit
-fr:Yaourts au Bifidus
-it:Yogurt allo Bifidus
-nl:Bifidus yoghurts
-
 < en:Yogurts
 en:Caramel yogurts
 de:Karamell-Joghurt
@@ -83336,6 +83502,10 @@ it:Yogurt senza lattosio
 nl:Lactose-vrije yoghurt, Lactose-vrije yoghurts, Yoghurt zonder lactose, Yoghurts zonder lactose
 
 < en:Yogurts
+en:Low fat yoghurts
+nl:Magere yoghurts
+
+< en:Yogurts
 en:Low-fat yogurts, Yogurt with fruits and 0% fat, Yogurt fruit flavoured with 0% fat, Fermented milk with fruits and 0% fat, Fermented milk fruit flavoured with 0% fat, Dairy specialty with fruits and 0% fat, Dairy specialty fruit flavoured with 0% fat
 bg:Нискомаслено кисело мляко
 de:fettarme Joghurt, fettarme Jogurt, fettarme Joghurts, fettarme Jogurts
@@ -83357,22 +83527,6 @@ fr:Yaourts mixés
 hu:Vegyes joghurtok
 it:Yogurt misti
 nl:Gemengde yoghurts
-
-< en:Yogurts
-en:Plain dairy specialty with sugar
-fr:Spécialité laitière nature sucrée
-agribalyse_food_code:en: 19599
-ciqual_food_code:en: 19599
-ciqual_food_name:en: Yogurt, fermented milk or dairy specialty, plain, w sugar
-ciqual_food_name:fr: Yaourt, lait fermenté ou spécialité laitière, nature, sucré
-
-< en:Yogurts
-en:Plain fermented milk with sugar
-fr:lait fermenté nature sucré
-agribalyse_food_code:en: 19599
-ciqual_food_code:en: 19599
-ciqual_food_name:en: Yogurt, fermented milk or dairy specialty, plain, w sugar
-ciqual_food_name:fr: Yaourt, lait fermenté ou spécialité laitière, nature, sucré
 
 < en:Yogurts
 en:Plain fermented milk yogurt with cream, Plain dairy specialty with cream
@@ -83483,6 +83637,24 @@ ru:Биойогурт, Биойогурты
 
 < en:Yogurts
 ru:Йогурт фруктово-ягодный
+
+< en:Fermented milk drinks
+< en:Yogurts
+en:Drinkable yogurts, Yogurt drinks
+bg:Кисело мляко за пиене
+ca:Iogurt per beure
+de:Trinkjoghurt, Trinkjogurt, Trinkjoghurts, Trinkjogurts
+es:Yogures para beber
+fi:Juotavat jogurtit
+fr:Yaourts à boire, Yaourts à boire aromatisés, Yaourts à boire sucrés
+he:יוגורטים לשתייה
+hu:Ivójoghurtok, Iható joghurtok
+it:Yogurt da bere
+nl:Drinkyoghurts
+ru:Питьевые йогурты
+agribalyse_proxy_food_code:en: 19508
+agribalyse_proxy_food_name:en: Dairy drink or fermented milk or yogurt, flavoured, with sugar
+agribalyse_proxy_food_name:fr: Boisson lactée, lait fermenté ou yaourt à boire, aromatisé, sucré
 
 < en:Yogurts with cereals
 en:Fat-free fermented yogurt with cereals, Fat-free fermented milk dairy specialty with cereals
@@ -86150,16 +86322,6 @@ ciqual_food_name:fr: Crêpe dentelle -pour apéritif- au fromage, préemballée
 < fr:Crozets
 fr:Crozets de Savoie
 
-< fr:Curry
-en:Curry powder
-de:Curry Pulver
-es:Curry en polvo
-fr:Curry en poudre, Poudre de curry
-agribalyse_food_code:en: 11005
-ciqual_food_code:en: 11005
-ciqual_food_name:en: Curry, powder
-ciqual_food_name:fr: Curry, poudre
-
 < en:French sausages
 < fr:Diots
 en:Sausage from Savoy
@@ -87445,11 +87607,6 @@ protected_name_type:en: pdo
 
 < fr:Meursault
 fr:Meursault premier cru Perrières, Meursault Perrières
-origins:en: en:france,en:burgundy
-protected_name_type:en: pdo
-
-< fr:Meursault
-fr:Meursault premier cru Porusot, Meursault Porusot
 origins:en: en:france,en:burgundy
 protected_name_type:en: pdo
 
@@ -89677,7 +89834,7 @@ fr:Puligny-Montrachet premier cru Clos de la Mouchère rouge
 wikidata:en: Q42862488
 
 < fr:Puligny-Montrachet
-fr:Puligny-Montrachet premier cru Hameau de Blagny blanc, Puligny-Montrachet premier cru Hameau de Blagny blanc
+fr:Puligny-Montrachet premier cru Hameau de Blagny blanc
 wikidata:en: Q42862490
 
 < fr:Puligny-Montrachet
@@ -89800,6 +89957,11 @@ fr:Quenelle de volaille
 agribalyse_food_code:en: 8910
 ciqual_food_code:en: 8910
 ciqual_food_name:en: Poultry quenelle, raw
+
+< fr:Rasteau Rancio
+fr:Rasteau tuilé rancio
+origins:en: en:france
+wikidata:en: Q42862550
 
 < en:Stuffed pastas
 < fr:Ravioles
@@ -90614,11 +90776,11 @@ fr:Saint-Romain côte-de-beaune, Saint Romain Côte de Beaune
 origins:en: en:france,en:burgundy
 protected_name_type:en: pdo
 
-< fr:Saint Sardos
+< fr:Saint-Sardos
 fr:Saint-Sardos rosé
 wikidata:en: Q43019232
 
-< fr:Saint Sardos
+< fr:Saint-Sardos
 fr:Saint-Sardos rouge
 wikidata:en: Q43019228
 
@@ -91193,6 +91355,19 @@ fr:Soupes de crustacés reconstituée
 agribalyse_food_code:en: 25919
 ciqual_food_code:en: 25919
 ciqual_food_name:en: Soup, fish and/or crustacean, dehydrated and reconstituted
+
+< fr:Spécialités laitières
+fr:Spécialités laitières aux fruits
+
+< fr:Spécialités laitières
+fr:Spécialités laitières nature non sucrées
+
+< fr:Spécialités laitières
+fr:Spécialités laitières nature sucrées, Spécialité laitière nature sucrée
+agribalyse_food_code:en: 19599
+ciqual_food_code:en: 19599
+ciqual_food_name:en: Yogurt, fermented milk or dairy specialty, plain, w sugar
+ciqual_food_name:fr: Yaourt, lait fermenté ou spécialité laitière, nature, sucré
 
 < fr:Specks
 it:Speck dell' Alto Adige, Specks dell' Alto Adige
@@ -92453,9 +92628,9 @@ it:Pinerolese rosato
 wikidata:en: Q3388688
 
 < it:Radicchio
-it:Radicchio di Chioggia, Radicchio di Chioggia
+it:Radicchio di Chioggia
 origins:en: en:italy
-protected_name_file_number:en: PGI-IT-0484-AM01
+protected_name_file_number:en: PGI-IT-0484, PGI-IT-0484-AM01
 protected_name_type:en: pgi
 wikidata:en: Q3928640
 
@@ -92474,21 +92649,21 @@ protected_name_type:en: pgi
 wikidata:en: Q15141292
 
 < it:Radicchio
-it:Radicchio Variegato di Castelfranco, Radicchio Variegato di Castelfranco
+it:Radicchio Variegato di Castelfranco
 origins:en: en:italy
-protected_name_file_number:en: PGI-IT-1515
+protected_name_file_number:en: PGI-IT-1515, PGI-IT-1515-AM01
 protected_name_type:en: pgi
 wikidata:en: Q3928641
 
-< it:Riviera ligure di ponente
+< it:Riviera ligure di Ponente
 it:Riviera ligure di ponente Albenga, Riviera ligure di ponente Albengalese
 origins:en: en:italy
 
-< it:Riviera ligure di ponente
+< it:Riviera ligure di Ponente
 it:Riviera ligure di ponente Finale, Riviera ligure di ponente Finalese
 origins:en: en:italy
 
-< it:Riviera ligure di ponente
+< it:Riviera ligure di Ponente
 it:Riviera ligure di ponente Riviera dei Fiori
 origins:en: en:italy
 
@@ -92585,7 +92760,7 @@ it:Tintilia del Molise Rosso riserva
 origins:en: en:italy
 
 < it:Tintilia del Molise
-it:vino DOC molisano, vino DOC molisano, vino DOC molisano
+it:vino DOC molisano
 
 < it:Tintilia del Molise
 it:wino DOC del Molise
@@ -92648,9 +92823,8 @@ it:Valtellina superiore Valgella riserva
 origins:en: en:italy
 wikidata:en: Q17274674
 
-< en:Wines from Italy
 < it:Verdicchio dei Castelli di Jesi
-it:Castelli di Jesi Verdicchio Riserva, Castelli di Jesi Verdicchio riserva
+it:Castelli di Jesi Verdicchio Riserva
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0483
 protected_name_type:en: pdo

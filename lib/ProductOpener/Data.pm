@@ -43,8 +43,7 @@ GitHub, where some additional context is available.
 
 package ProductOpener::Data;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 BEGIN
@@ -105,8 +104,7 @@ eval {
 
 =cut
 
-sub execute_query {
-	my ($sub) = @_;
+sub execute_query($sub) {
 
 	return Action::Retry->new(
 		attempt_code => sub { $action->run($sub) },
@@ -133,8 +131,7 @@ Returns a mongoDB collection object.
 
 =cut
 
-sub get_products_collection {
-	my ($timeout) = @_;
+sub get_products_collection($timeout=undef) {
 	return get_collection($mongodb, 'products', $timeout);
 }
 
@@ -153,23 +150,19 @@ Returns a mongoDB collection.
 
 =cut
 
-sub get_products_tags_collection {
-	my ($timeout) = @_;
+sub get_products_tags_collection($timeout=undef) {
 	return get_collection($mongodb, 'products_tags', $timeout);
 }
 
-sub get_emb_codes_collection {
-	my ($timeout) = @_;
+sub get_emb_codes_collection($timeout=undef) {
 	return get_collection($mongodb, 'emb_codes', $timeout);
 }
 
-sub get_recent_changes_collection {
-	my ($timeout) = @_;
+sub get_recent_changes_collection($timeout=undef) {
 	return get_collection($mongodb, 'recent_changes', $timeout);
 }
 
-sub get_collection {
-	my ($database, $collection, $timeout) = @_;
+sub get_collection($database, $collection, $timeout=undef) {
 	return get_mongodb_client($timeout)->get_database($database)->get_collection($collection);
 }
 
@@ -193,10 +186,9 @@ Returns $client of type MongoDB::MongoClient object.
 
 =cut
 
-sub get_mongodb_client() {
+sub get_mongodb_client($timeout=undef) {
 	# Note that for web pages, $client will be cached in mod_perl,
 	# so passing in different options for different queries won't do anything after the first call.
-	my ($timeout) = @_;
 
 	my $max_time_ms = $timeout // $mongodb_timeout_ms;
 

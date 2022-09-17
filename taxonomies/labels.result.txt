@@ -49,6 +49,7 @@ synonyms:en:GMOs, Genetically Modified Organisms, GMO
 synonyms:bg:ГМО, Генетично модифицирани организми
 synonyms:es:OGMs, Organismos genéticamente modificados, transgénicos, OGM
 synonyms:fi:GMO:ita, muuntogeenisiä organismeja, muuntogeeninen, GMO, GM
+synonyms:fr:OGMs, Organismes génétiquement modifiés, OGM
 synonyms:ru:ГМО, Генетически Модифицированные Организмы
 
 synonyms:en:MSG, glutamate
@@ -604,7 +605,7 @@ fi:Ecocert-sertifioitu
 fr:Ecocert, Distribution certifiée par Ecocert
 he:באישור Ecocert
 it:Certificato da Ecocert, Ecocert
-nl:Gecerificeerd door Ecocert
+nl:Gecertificeerd door Ecocert
 label_categories:en: en:Certification
 
 < en:Certified by Ecocert
@@ -1027,6 +1028,11 @@ hu:EU mezőgazdaság
 it:Agricoltura dell'Unione Europea
 nl:EU landbouw
 ru:EU агрокультура, агрокультура Европейского Союза
+
+< en:EU Agriculture
+en:French agriculture
+fr:Agriculture France
+nl:Franse landbouw
 
 < en:EU Agriculture
 < en:Non-EU Agriculture
@@ -7506,12 +7512,12 @@ eu_groups:en: en:EU Group A: unprocessed plant products,
 exceptions:en: en:in-conversion products,en:wine
 
 < en:EU Organic
-en:LK-BIO-149, LK-BIO-149
-ca:LK-BIO-149, LK-BIO-149
-de:LK-BIO-149, LK-BIO-149
-es:LK-BIO-149, LK-BIO-149
-it:LK-BIO-149, LK-BIO-149
-nl:LK-BIO-149, LK-BIO-149
+en:LK-BIO-149
+ca:LK-BIO-149
+de:LK-BIO-149
+es:LK-BIO-149
+it:LK-BIO-149
+nl:LK-BIO-149
 xx:LK-BIO-149
 auth_address:en: Meeuwenlaan 4-6, 8011 BZ, Zwolle, Netherlands
 auth_name:en: Control Union Certifications
@@ -10451,7 +10457,7 @@ eu_groups:en: en:EU Group A: unprocessed plant products,en:EU Group B: live anim
 exceptions:en: en: in conversion products,en:wine
 
 < en:EU Organic
-en:RS-BIO-140, RS-BIO-140
+en:RS-BIO-140
 xx:RS-BIO-140
 auth_address:en: Vorderhaslach 1, 91230, Happurg, Germany
 auth_name:en: CERES Certification of Environmental Standards GmbH
@@ -10506,7 +10512,7 @@ eu_groups:en: en:EU Group A: unprocessed plant products,en:EU Group B: live anim
 exceptions:en: en:wine,en:until 30 June 2021
 
 < en:EU Organic
-en:RS-BIO-162, RS-BIO-162
+en:RS-BIO-162
 xx:RS-BIO-162
 auth_address:en: Trg cara Jovana Nenada 15, 24000, Subotica, Serbia
 auth_name:en: Organic Control System
@@ -13786,6 +13792,7 @@ en:TransFer, TransFer Canada
 < en:Fair trade
 fr:Agri-Éthique France, Agri-Éthique
 xx:Agri-Éthique France
+auth_url:fr: https://www.agriethique.fr/
 
 en:Fed without GMOs, Fed without GMO
 bg:Хранене без ГМО
@@ -14417,7 +14424,7 @@ he:עשיר בחלבונים
 hu:Magas fehérjetartalom, Fehérjékben gazdag
 it:Alto contenuto proteico, ricco di proteine, fonte di proteine
 nb:Rik på protein
-nl:Eiwitrijk, Rijk aan protéines
+nl:Eiwitrijk, Rijk aan protéines, Rijk aan Eiwit
 pt:Proteínas altas, fonte de proteínas
 ru:Обогащено протеинами
 th:โปรตีนสูง
@@ -14819,7 +14826,7 @@ fr:Peu ou pas de sel, peu ou pas salé
 he:דל או נטול מלח
 hu:Alacsony sótartalmú vagy sótlan
 it:Con poco sale o senza sale
-nl:Geen of weinig zout
+nl:Geen of weinig zout, Laag in zout
 pt:Baixo ou sem sal
 th:เกลือต่ำหรือไม่มีเลย
 label_categories:en: en:Health
@@ -14850,7 +14857,7 @@ fr:Sans sel ajouté, sans sel ajoutés, sans ajout de sel
 he:ללא תוספת מלח
 hu:Hozzáadott só nélkül, hozzáadott sót nem tartalmaz, nincs hozzáadott só
 it:Senza aggiunta di sale
-nl:Geen zout toegevoegd, 0% zout toegevoegd
+nl:Zonder toegevoegd zout, Geen zout toegevoegd, 0% zout toegevoegd
 pl:Bez dodatku soli, Bez soli
 pt:Sem sal adicionado
 ru:Без добавления соли
@@ -17742,7 +17749,7 @@ fi:Raudan lähde
 fr:Source de fer
 hu:Vasforrás
 it:Fonte di ferro
-nl:Bron van IJzer
+nl:Bron van IJzer, Rijk aan IJzer
 pt:Fonte de ferro
 
 en:South African National Bottled Water Association, SANBWA, SAN BWA
@@ -17826,6 +17833,12 @@ nl:Superieure kwaliteit
 pl:najwyższa jakość
 
 en:Sustainable
+nl:Duurzaam
+
+< en:Sustainable
+en:Planet Proof
+xx:Planet Proof
+website:en: https://www.planetproof.eu/en/
 
 < en:Sustainable
 en:Sustainable fishing, Sustainable Seafood, Sustainable fishery
@@ -17841,6 +17854,20 @@ it:Pesca sostenibile
 nl:Duurzame visserij
 pl:Zrównoważone rybołówstwo
 label_categories:en: en:Fishing labels
+
+< en:Sustainable
+en:Sustainable Palm Oil
+bg:Устойчиво палмово масло
+ca:Oli de Palma Sostenible
+de:Nachhaltiges Palmöl
+es:Aceite de Palma Sostenible
+fi:Kestävästi tuotettua palmuöljyä
+fr:Huile de palme durable, Huile de palme certifiée durable, Huile de palme issue de forêts gérées durablement
+hu:Fenntartható pálmaolaj
+it:Olio di palma sostenibile
+nl:Duurzame palmolie
+ingredients:en: en:palm-oil
+wikidata:en: Q686421
 
 en:Sustainable farming
 bg:Устойчиво земеделие
@@ -17917,19 +17944,6 @@ fr:Pêché au casier, Pêchés au casier, Pêché aux casiers, Pêchés aux casi
 hu:csapdás halászat, csapdahalászat
 label_categories:en: en:Fishing method
 wikidata:en: Q2941001
-
-en:Sustainable Palm Oil
-bg:Устойчиво палмово масло
-ca:Oli de Palma Sostenible
-de:Nachhaltiges Palmöl
-es:Aceite de Palma Sostenible
-fi:Kestävästi tuotettua palmuöljyä
-fr:Huile de palme durable, Huile de palme certifiée durable, Huile de palme issue de forêts gérées durablement
-hu:Fenntartható pálmaolaj
-it:Olio di palma sostenibile
-nl:Duurzame palmolie
-ingredients:en: en:palm-oil
-wikidata:en: Q686421
 
 < en:Sustainable Palm Oil
 en:Roundtable on Sustainable Palm Oil, RSPO
@@ -18869,7 +18883,7 @@ fr:Contrat Biolait
 
 fr:élevé en fût de chêne
 
-fr:Entrepreneurs + Engagés, E+, Entrepreneurs Engagés, Entrepreneurs Engagés, E+
+fr:Entrepreneurs + Engagés, E+, Entrepreneurs Engagés
 label_categories:en: en:Social responsibility
 
 fr:Entreprise du Patrimoine Vivant, EPV
@@ -19321,7 +19335,7 @@ hu:Jó magyar árú
 
 hu:Kiváló minőségű sertéshús
 
-hu:Magyar baromfi, Hatósági állatorvos ellenőrizte, Magyar baromfi
+hu:Magyar baromfi, Hatósági állatorvos ellenőrizte
 
 hu:Magyar lista
 
@@ -19403,6 +19417,12 @@ nl:Beter Leven 3 ster, Beter Leven 3 sterren
 label_categories:en: en:Animal welfare
 
 nl:Korst is niet eetbaar
+
+nl:kruisnetten, kruisnet
+label_categories:en: en:Fishing method
+
+nl:ringnetten, ringnet
+label_categories:en: en:Fishing method
 
 pl:Gwarancja jakości
 

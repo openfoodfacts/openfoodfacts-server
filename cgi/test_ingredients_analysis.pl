@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -47,10 +46,10 @@ my $request_ref = ProductOpener::Display::init_request();
 
 my $template_data_ref = {};
 
-my $type = param('type') || 'add';
-my $action = param('action') || 'display';
+my $type = single_param('type') || 'add';
+my $action = single_param('action') || 'display';
 
-my $ingredients_text = remove_tags_and_quote(decode utf8=>param('ingredients_text'));
+my $ingredients_text = remove_tags_and_quote(decode utf8 => single_param('ingredients_text'));
 
 
 my $html= '';

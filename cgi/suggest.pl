@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
@@ -64,16 +63,16 @@ Warning, we are currently doing a brute force search, so avoid setting it too hi
 
 =cut
 
-my $tagtype = param('tagtype');
-my $string = decode utf8=>param('string');
+my $tagtype = single_param('tagtype');
+my $string = decode utf8 => single_param('string');
 # searched term
-my $term = decode utf8=>param('term');
+my $term = decode utf8 => single_param('term');
 
 # search language code
 my $search_lc = $lc;
 # superseed by request parameter
-if (defined param('lc')) {
-	$search_lc = param('lc');
+if (defined single_param('lc')) {
+	$search_lc = single_param('lc');
 }
 
 my $original_lc = $search_lc;
@@ -87,9 +86,9 @@ if ($term =~ /^(\w\w):/) {
 # max results
 my $limit = 25;
 # superseed by request parameter
-if (defined param('limit')) {
+if (defined single_param('limit')) {
 	# we put a hard limit however
-	$limit = min(int(param('limit')), 400);
+	$limit = min(int(single_param('limit')), 400);
 }
 
 

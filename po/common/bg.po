@@ -5,7 +5,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: bg\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-07-26 10:05\n"
 "Language-Team: Bulgarian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -14,8 +13,7 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: bg\n"
-"X-Crowdin-File: common.pot\n"
-"X-Crowdin-File-ID: 1808\n"
+"X-Crowdin-File-ID: 2588\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -1573,8 +1571,8 @@ msgstr "Хранителна оценка"
 
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
-msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
-msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
+msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
+msgstr ""
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -2301,7 +2299,7 @@ msgstr "Виж продуктовата страница"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr "Държава"
+msgstr "Страна"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -3939,7 +3937,7 @@ msgstr "Плодове, зеленчуци, ядки и рапица/орех/з
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
-msgstr "Хранителните влакнини"
+msgstr "Влакна"
 
 msgctxt "nutriscore_points_for_proteins"
 msgid "Proteins"
@@ -4622,19 +4620,19 @@ msgstr "Неизвестен потребител."
 
 msgctxt "attribute_low_salt_setting_note"
 msgid "The salt level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low salt diet."
-msgstr "Нивото на сол се взема предвид от Nutri-Score. Използвайте тази настройка само ако сте на диета с ниско съдържание на сол."
+msgstr "Нивото на сол се взема предвид от Nutri-Score. Използвай тази настройка само ако си на диета с ниско съдържание на сол."
 
 msgctxt "attribute_low_sugars_setting_note"
 msgid "The sugars level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low sugars diet."
-msgstr "Нивото на захарите се взема предвид от Nutri-Score. Използвайте тази настройка само ако сте на диета с ниско съдържание на захар."
+msgstr "Нивото на захарите се взема предвид от Nutri-Score. Използвай тази настройка само ако си на диета с ниско съдържание на захар."
 
 msgctxt "attribute_low_fat_setting_note"
 msgid "The fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low fat diet."
-msgstr "Нивото на мазнините се взема предвид от Nutri-Score. Използвайте тази настройка само ако сте на диета с ниско съдържание на мазнини."
+msgstr "Нивото на мазнините се взема предвид от Nutri-Score. Използвай тази настройка само ако си на диета с ниско съдържание на мазнини."
 
 msgctxt "attribute_low_saturated_fat_setting_note"
 msgid "The saturated fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low saturated fat diet."
-msgstr "Нивото на наситени мазнини се взема предвид от Nutri-Score. Използвайте тази настройка само ако сте на диета с ниско съдържание на наситени мазнини."
+msgstr "Нивото на наситени мазнини се взема предвид от Nutri-Score. Използвай тази настройка само ако си на диета с ниско съдържание на наситени мазнини."
 
 msgctxt "attribute_group_allergens_name"
 msgid "Allergens"

@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -43,26 +42,26 @@ use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();
 
-my $type = param('type') || 'add';
-my $action = param('action') || 'display';
+my $type = single_param('type') || 'add';
+my $action = single_param('action') || 'display';
 
-my $code = normalize_code(param('code'));
+my $code = normalize_code(single_param('code'));
 
 my $product_id = product_id_for_owner($Owner_id, $code);
 
-my $imgid = param('imgid');
-my $angle = param('angle');
-my $id = param('id');
-my ($x1,$y1,$x2,$y2) = (param('x1'),param('y1'),param('x2'),param('y2'));
-my $normalize = param('normalize');
-my $white_magic = param('white_magic');
+my $imgid = single_param('imgid');
+my $angle = single_param('angle');
+my $id = single_param('id');
+my ($x1,$y1,$x2,$y2) = (single_param('x1'),single_param('y1'),single_param('x2'),single_param('y2'));
+my $normalize = single_param('normalize');
+my $white_magic = single_param('white_magic');
 
 # The new product_multilingual.pl form will set $coordinates_image_size to "full"
 # the current Android app will not send it, and it will send coordinates related to the ".400" image
 # that has a max width and height of 400 pixels
-my $coordinates_image_size = param('coordinates_image_size') || $crop_size;
+my $coordinates_image_size = single_param('coordinates_image_size') || $crop_size;
 
-$log->debug("start", { code => $code, imgid => $imgid, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, param_coordinates_image_size => param('coordinates_image_size'), coordinates_image_size => $coordinates_image_size }) if $log->is_debug();
+$log->debug("start", { code => $code, imgid => $imgid, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, param_coordinates_image_size => single_param('coordinates_image_size'), coordinates_image_size => $coordinates_image_size }) if $log->is_debug();
 
 if (not defined $code) {
 

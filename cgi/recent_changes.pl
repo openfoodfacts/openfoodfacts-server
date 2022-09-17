@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
@@ -47,12 +46,12 @@ my $request_ref = ProductOpener::Display::init_request();
 
 my $query_ref = {};
 
-my $limit = 0 + (param('page_size') || $page_size);
+my $limit = 0 + (single_param('page_size') || $page_size);
 if (($limit < 2) or ($limit > 1000)) {
 	$limit = $page_size;
 }
 
-my $page = 0 + (param('page') || 1);
+my $page = 0 + (single_param('page') || 1);
 if (($page < 1) or ($page > 1000)) {
 	$page = 1;
 }
@@ -63,8 +62,8 @@ my $request_ref = {
 
 foreach my $parameter ('json') {
 
-	if (defined param($parameter)) {
-		$request_ref->{$parameter} = param($parameter);
+	if (defined single_param($parameter)) {
+		$request_ref->{$parameter} = single_param($parameter);
 	}
 }
 

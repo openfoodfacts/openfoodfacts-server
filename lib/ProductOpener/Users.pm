@@ -250,11 +250,11 @@ sub check_user_form($type, $user_ref, $errors_ref) {
 
 	# Removing the tabs, spaces and white space characters
 	# Assigning 'userid' to 0 -- if userid is not defined
-	$user_ref->{userid} = remove_tags_and_quote(param('userid'));
+	$user_ref->{userid} = remove_tags_and_quote(single_param('userid'));
 
 	# Allow for sending the 'name' & 'email' as a form parameter instead of a HTTP header, as web based apps may not be able to change the header sent by the browser
-	$user_ref->{name} = remove_tags_and_quote(decode utf8=>param('name'));
-	my $email = remove_tags_and_quote(decode utf8=>param('email'));
+	$user_ref->{name} = remove_tags_and_quote(decode utf8 => single_param('name'));
+	my $email = remove_tags_and_quote(decode utf8 => single_param('email'));
 
 	$log->debug("check_user_form", { type => $type, user_ref => $user_ref, email => $email }) if $log->is_debug();
 
@@ -272,20 +272,14 @@ sub check_user_form($type, $user_ref, $errors_ref) {
 		$user_ref->{email} = $email;
 	}
 
-	if (defined param('twitter')) {
-		$user_ref->{twitter} = remove_tags_and_quote(decode utf8=>param('twitter'));
-		$user_ref->{twitter} =~ s/^http:\/\/twitter.com\///;
-		$user_ref->{twitter} =~ s/^\@//;
-	}
-
 	# Is there a checkbox to make a professional account
-	if (defined param("pro_checkbox")) {
+	if (defined single_param("pro_checkbox")) {
 
-		if (param("pro")) {
+		if (single_param("pro")) {
 			$user_ref->{pro} = 1;
 
-			if (defined param("requested_org")) {
-				$user_ref->{requested_org} = remove_tags_and_quote(decode utf8=>param("requested_org"));
+			if (defined single_param("requested_org")) {
+				$user_ref->{requested_org} = remove_tags_and_quote(decode utf8 => single_param("requested_org"));
 
 				my $requested_org_id = get_string_id_for_lang("no_language", $user_ref->{requested_org});
 
@@ -308,8 +302,8 @@ sub check_user_form($type, $user_ref, $errors_ref) {
 
 
 	if ($type eq 'add') {
-		$user_ref->{newsletter} = remove_tags_and_quote(param('newsletter'));
-		$user_ref->{discussion} = remove_tags_and_quote(param('discussion'));
+		$user_ref->{newsletter} = remove_tags_and_quote(single_param('newsletter'));
+		$user_ref->{discussion} = remove_tags_and_quote(single_param('discussion'));
 		$user_ref->{ip} = remote_addr();
 		$user_ref->{initial_lc} = $lc;
 		$user_ref->{initial_cc} = $cc;
@@ -321,7 +315,7 @@ sub check_user_form($type, $user_ref, $errors_ref) {
 		# Org
 
 		my $previous_org = $user_ref->{org};
-		$user_ref->{org} = remove_tags_and_quote(decode utf8=>param('org'));
+		$user_ref->{org} = remove_tags_and_quote(decode utf8 => single_param('org'));
 		if ($user_ref->{org} ne "") {
 			$user_ref->{org_id} = get_string_id_for_lang("no_language", $user_ref->{org});
 			# Admin field for org overrides the requested org field
@@ -349,15 +343,15 @@ sub check_user_form($type, $user_ref, $errors_ref) {
 		# Permission groups
 
 		foreach my $group (@user_groups) {
-			$user_ref->{$group} = remove_tags_and_quote(param("user_group_$group"));
+			$user_ref->{$group} = remove_tags_and_quote(single_param("user_group_$group"));
 		}
 	}
 
 	defined $user_ref->{registered_t} or $user_ref->{registered_t} = time();
 
 	for (my $i = 1; $i <= 3; $i++) {
-		if (defined param('team_' . $i)) {
-			$user_ref->{'team_' . $i} = remove_tags_and_quote(decode utf8=>param('team_' . $i));
+		if (defined single_param('team_' . $i)) {
+			$user_ref->{'team_' . $i} = remove_tags_and_quote(decode utf8 => single_param('team_' . $i));
 			$user_ref->{'team_' . $i} =~ s/\&lt;/ /g;
 			$user_ref->{'team_' . $i} =~ s/\&gt;/ /g;
 			$user_ref->{'team_' . $i} =~ s/\&quot;/"/g;
@@ -365,8 +359,8 @@ sub check_user_form($type, $user_ref, $errors_ref) {
 	}
 
 	# contributor settings
-	$user_ref->{display_barcode} = !! remove_tags_and_quote(param("display_barcode"));
-	$user_ref->{edit_link} = !! remove_tags_and_quote(param("edit_link"));
+	$user_ref->{display_barcode} = !! remove_tags_and_quote(single_param("display_barcode"));
+	$user_ref->{edit_link} = !! remove_tags_and_quote(single_param("edit_link"));
 
 	# Check for spam
 	# e.g. name with "Lydia want to meet you! Click here:" + an url
@@ -421,16 +415,16 @@ sub check_user_form($type, $user_ref, $errors_ref) {
 			push @{$errors_ref}, $Lang{error_username_too_long}{$lang};
 		}		
 
-		if (length(decode utf8=>param('password')) < 6) {
+		if (length(decode utf8 => single_param('password')) < 6) {
 			push @{$errors_ref}, $Lang{error_invalid_password}{$lang};
 		}
 	}
 
-	if (param('password') ne param('confirm_password')) {
+	if (param('password') ne single_param('confirm_password')) {
 		push @{$errors_ref}, $Lang{error_different_passwords}{$lang};
 	}
-	elsif (param('password') ne '') {
-		$user_ref->{encrypted_password} = create_password_hash( encode_utf8(decode utf8=>param('password')) );
+	elsif (single_param('password') ne '') {
+		$user_ref->{encrypted_password} = create_password_hash( encode_utf8(decode utf8 => single_param('password')) );
 	}
 
 	return;
@@ -569,7 +563,7 @@ EMAIL
 
 sub check_edit_owner($user_ref, $errors_ref) {
 
-	$user_ref->{pro_moderator_owner} = get_string_id_for_lang("no_language", remove_tags_and_quote(param('pro_moderator_owner')));
+	$user_ref->{pro_moderator_owner} = get_string_id_for_lang("no_language", remove_tags_and_quote(single_param('pro_moderator_owner')));
 	
 	# If the owner id looks like a GLN, see if we have a corresponding org
 	
@@ -637,7 +631,7 @@ sub migrate_password_hash($user_ref) {
 
 	# Migration: take the occasion of having password to upgrade to scrypt, if it is still in crypt format
 	if ($user_ref->{'encrypted_password'} =~ /^\$1\$(?:.*)/) {
-		$user_ref->{'encrypted_password'} = create_password_hash(encode_utf8(decode utf8=>param('password')) );
+		$user_ref->{'encrypted_password'} = create_password_hash(encode_utf8(decode utf8 => single_param('password')) );
 		$log->info("crypt password upgraded to scrypt_hash") if $log->is_info();
 	}
 	return;
@@ -698,10 +692,10 @@ sub generate_session_cookie($user_id, $user_session) {
 
 	my $length = 0;
 
-	if ((defined param('length')) and (param('length') > 0)) {
-		$length = param('length');
+	if ((defined single_param('length')) and (single_param('length') > 0)) {
+		$length = single_param('length');
 	}
-	elsif ((defined param('remember_me')) and (param('remember_me') eq 'on')) {
+	elsif ((defined single_param('remember_me')) and (single_param('remember_me') eq 'on')) {
 		$length = 31536000 * 10;
 	}
 
@@ -788,22 +782,18 @@ sub init_user($request_ref) {
 	%Org = ();
 
 	# Remove persistent cookie if user is logging out
-	if ((defined param('length')) and (param('length') eq 'logout')) {
+	if ((defined single_param('length')) and (single_param('length') eq 'logout')) {
 		$log->debug("user logout") if $log->is_debug();
 		my $session = {} ;
 		$request_ref->{cookie} = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>"$cookie_domain") ;
 	}
 
 	# Retrieve user_id and password from form parameters
-	elsif ( (defined param('user_id')) and (param('user_id') ne '') and
-                       ( ( (defined param('password')) and (param('password') ne ''))
+	elsif ( (defined single_param('user_id')) and (single_param('user_id') ne '') and
+                       ( ( (defined single_param('password')) and (single_param('password') ne ''))
                          ) ) {
 
-		# CGI::param called in list context from package ProductOpener::Users line 373, this can lead to vulnerabilities.
-		# See the warning in "Fetching the value or values of a single named parameter"
-		# -> use a scalar to avoid calling param() in the list of arguments to remove_tags_and_quote
-		my $param_user_id = param('user_id');
-		$user_id = remove_tags_and_quote($param_user_id) ;
+		$user_id = remove_tags_and_quote(single_param('user_id')) ;
 
 		if ($user_id =~ /\@/) {
 			$log->info("got email while initializing user", { email => $user_id }) if $log->is_info();
@@ -840,7 +830,7 @@ sub init_user($request_ref) {
 				$user_id = $user_ref->{'userid'} ;
 				$log->context->{user_id} = $user_id;
 
-				my $hash_is_correct = check_password_hash(encode_utf8(decode utf8=>param('password')), $user_ref->{'encrypted_password'} );
+				my $hash_is_correct = check_password_hash(encode_utf8(decode utf8 => single_param('password')), $user_ref->{'encrypted_password'} );
 				# We don't have the right password
 				if (not $hash_is_correct) {
 					$user_id = undef ;
@@ -849,7 +839,7 @@ sub init_user($request_ref) {
 					return ($Lang{error_bad_login_password}{$lang}) ;
 				}
 				# We have the right login/password
-				elsif (not defined param('no_log'))    # no need to store sessions for internal requests
+				elsif (not defined single_param('no_log'))    # no need to store sessions for internal requests
 				{
 					$log->info("correct password for user provided") if $log->is_info();
 					
@@ -869,11 +859,11 @@ sub init_user($request_ref) {
 	}
 
 	# Retrieve user_id and session from cookie
-	elsif ((defined cookie($cookie_name)) or ((defined param('user_session')) and (defined param('user_id')))) {
+	elsif ((defined cookie($cookie_name)) or ((defined single_param('user_session')) and (defined single_param('user_id')))) {
 		my $user_session;
-		if (defined param('user_session')) {
-			$user_session = param('user_session');
-			$user_id = param('user_id');
+		if (defined single_param('user_session')) {
+			$user_session = single_param('user_session');
+			$user_id = single_param('user_id');
 			$log->debug("user_session parameter found", { user_id => $user_id, user_session => $user_session }) if $log->is_debug();
 		}
 		else {

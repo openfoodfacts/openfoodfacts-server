@@ -103,7 +103,7 @@ jobs:
       run: |
         make dev
         make status
-    - name: test all is runing
+    - name: test all is running
       run: make livecheck
     - name: test clean
       run: make hdown

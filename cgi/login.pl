@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -44,7 +43,7 @@ my $template_data_ref = {};
 $log->info('start') if $log->is_info();
 
 my $r = shift;
-my $redirect = param('redirect');
+my $redirect = single_param('redirect');
 $template_data_ref->{redirect} = $redirect;
 if (defined $User_id) {
 	my $loc = $redirect || $formatted_subdomain;
@@ -65,7 +64,7 @@ if ($ENV{'REQUEST_METHOD'} eq 'POST') {
 	}
 
 	my $hash_is_correct
-	  = check_password_hash(encode_utf8(decode utf8 => param('password')), $user_ref->{'encrypted_password'});
+	  = check_password_hash(encode_utf8(decode utf8 => single_param('password')), $user_ref->{'encrypted_password'});
 
 	# We don't have the right password
 	if (not $hash_is_correct) {

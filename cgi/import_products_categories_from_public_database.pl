@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
@@ -51,7 +50,7 @@ use Text::CSV();
 
 my $request_ref = ProductOpener::Display::init_request();
 
-my $action = param('action') || 'display';
+my $action = single_param('action') || 'display';
 
 my $title = lang("import_products_categories_from_public_database");
 my $html = '';
