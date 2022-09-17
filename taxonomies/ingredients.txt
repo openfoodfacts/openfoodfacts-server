@@ -74981,8 +74981,8 @@ ciqual_food_code:en:22000
 ciqual_food_name:en:Egg, raw
 ciqual_food_name:fr:Oeuf, cru
 
-
-<en:flavour
+# do not add egg as parent, as it does have to be derived from eggs
+<en:flavouring
 en:egg flavour
 de:Eiaroma, Ei-Aroma
 es:aroma de huevo
