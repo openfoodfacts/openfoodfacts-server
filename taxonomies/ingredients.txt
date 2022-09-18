@@ -19,7 +19,7 @@ stopwords:en:contains, contain, from, with, produced with, with added, minimum,i
 stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
 stopwords:fi:sisältää,muun muassa,valio, koskenlaskija, snellmanin, jossa, noin, käymisen aikana muodostuva
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout, sachet
-stopwords:hr:sastojci, i, u različitim omjerima, u promjenjivim udjelima
+stopwords:hr:i, sastojci, u promjenjivim omjerima, u promjenjivim udjelima, u različitim omjerima
 stopwords:hu:tartalmaz, változó arányban, min, zsírtartalom, összetevő, összetétel, amelyből, amiből
 stopwords:id:mengandung
 stopwords:is:úr
@@ -20559,7 +20559,7 @@ fi:vilja, viljat
 fr:céréale, céréales
 ga:céréeale, céréales
 he:דגן
-hr:Žitarice
+hr:žitarice
 hu:gabona, gabonafélék
 it:cereali
 nl:granen, gemaakt van granen
@@ -21919,7 +21919,7 @@ eo:hordea grio
 fi:ohrasuurimo
 fy:grôt
 he:גריסים
-hr:ječmena prekrupa
+hr:ječmena prekrupa, ječmena kaša
 ko:보리쌀
 nl:gort
 pt:cevadinha
@@ -50571,6 +50571,7 @@ ga:Pónaire Fhrancach
 gl:Feixón
 he:שעועית מצויה
 hi:सामान्य फलियाँ
+hr:grah
 ht:Pwa nouris
 hu:Veteménybab
 hy:լոբի
@@ -50858,6 +50859,7 @@ gu:વાલ
 ha:Legum
 he:קטניות
 hi:फली
+hr:mahunarke
 hu:hüvelyesek
 hy:Հատիկաընդեղեն բույսեր
 ia:Legumine
@@ -51865,6 +51867,7 @@ de:grüne Erbsen
 es:guisante verde, guisantes verdes
 fi:vihreät herneet, vihreä herne
 fr:pois vert
+hr:grašak zeleni
 it:piselli verde
 ja:グリーンピース
 kk:көк буршақ
@@ -52136,6 +52139,7 @@ nl:voorgekookte linzen
 
 <en:lentils
 fr:lentilles blondes
+hr:leća žuta
 
 <en:lentils
 en:green lentils
@@ -52144,6 +52148,7 @@ de:grüne Linsen, Linsen grün
 es:lentejas verdes
 fi:vihreä linssi, vihreät linssit
 fr:lentille verte, lentilles vertes
+hr:leća zelena
 it:lenticchie verdi
 nl:groene linzen
 pl:soczewicy zielonej
@@ -52187,6 +52192,7 @@ de:Rote Linsen
 es:lentejas rojas
 fi:punainen linssi, punaiset linssit
 fr:lentilles corail, lentilles rouges, lentilles corail rouge
+hr:leća svijetlo crvena, leća tamnocrvena
 it:lenticchie rosse
 ja:赤レンズ豆
 nl:rode linzen
