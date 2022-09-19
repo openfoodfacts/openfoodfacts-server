@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.1.0
 info:
   title: Open Food Facts Open API
   description: |
@@ -110,8 +110,9 @@ paths:
             example: google_cloud_vision
           in: query
           name: ocr_engine
-          description: Open Food Facts uses optical character recognition (OCR) to retrieve nutritional data and other information from the product labels.
           required: true
+      tags:
+        - Read Requests
   /cgi/product_image_crop.pl:
     post:
       summary: Crop A Photo
@@ -125,13 +126,16 @@ paths:
                 type: object
                 properties: {}
       description: |
-        Cropping is only relevant for editing existing products. You cannot crop an image the first time you upload it to the system.
+        Cropping is only relevant for editing existing products. 
+        You cannot crop an image the first time you upload it to the system.
       parameters: []
       requestBody:
         content:
           application/json:
             schema:
               $ref: ./requestBodies/crop_a_photo.yaml
+      tags:
+        - Write Requests
     get:
       summary: Rotate A Photo
       operationId: get-cgi-product_image_crop.pl
@@ -143,7 +147,8 @@ paths:
               schema:
                 $ref: ./responses/rotate_a_photo.yaml
       description: |
-        Although we recommend rotating photos manually and uploading a new version of the image, the OFF API allows you to make api calls to automate this process.
+        Although we recommend rotating photos manually and uploading a new version of the image, 
+        the OFF API allows you to make api calls to automate this process.
         You can rotate existing photos by setting the angle to 90º, 180º, or 270º clockwise.
       parameters:
         #TODO: Describe these parameters
@@ -172,10 +177,11 @@ paths:
           in: query
           name: angle
           required: true
+      tags:
+        - Write Requests
   /cgi/product_jqm2.pl:
     post:
-      summary: Add a New Product
-      #TODO: Explain auth in openapi and extensively in gitbooks.
+      summary: Add or Edit A Product
       operationId: post-cgi-product_jqm2.pl
       responses:
         '200':
@@ -192,8 +198,16 @@ paths:
             schema:
               #TODO: Include all possible request body like comment, brand , label etc. Are they all required? 
               $ref: ./requestBodies/add_new_photo.yaml
+      tags:
+        - Write Requests
+      description: |
+        If a barcode exists then you will be editing a product, 
+        However if it doesn''t you qill be creating a new product with that unique barcode.
 components:
   schemas:
     Product:
       $ref: ./schemas/product.yaml
   parameters: {}
+tags:
+  - name: Read Requests
+  - name: Write Requests
