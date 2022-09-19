@@ -1,51 +1,51 @@
-                #TODO: Describe these response fields
-                type: object
-                properties:
-                  files:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        url:
-                          type: string
-                        filename:
-                          type: string
-                        name:
-                          type: string
-                        thumbnailUrl:
-                          type: string
-                        code:
-                          type: string
-                  image:
-                    type: object
-                    properties:
-                      thumb_url:
-                        type: string
-                      imgid:
-                        type: integer
-                      crop_url:
-                        type: string
-                  imgid:
-                    type: integer
-                  status:
-                    type: string
-                  imagefield:
-                    type: string
-                  code:
-                    type: string
-                x-examples:
-                  example-1:
-                    files:
-                      - url: /product/3017620422003/nutella-ferrero
-                        filename: ''
-                        name: Nutella - Ferrero - 400g
-                        thumbnailUrl: /images/products/301/762/042/2003/123.100.jpg
-                        code: '3017620422003'
-                    image:
-                      thumb_url: 123.100.jpg
-                      imgid: 123
-                      crop_url: 123.400.jpg
-                    imgid: 123
-                    status: status ok
-                    imagefield: front_en
-                    code: '3017620422003'
+#TODO: Describe these response fields
+type: object
+properties:
+  files:
+    type: array
+    items:
+      type: object
+      properties:
+        url:
+          type: string
+        filename:
+          type: string
+        name:
+          type: string
+        thumbnailUrl:
+          type: string
+        code:
+          type: string
+  image:
+    type: object
+    properties:
+      thumb_url:
+        type: string
+      imgid:
+        type: integer
+      crop_url:
+        type: string
+  imgid:
+    type: integer
+  status:
+    type: string
+  imagefield:
+    type: string
+  code:
+    type: string
+x-examples:
+  example-1:
+    files:
+      - url: /product/3017620422003/nutella-ferrero
+        filename: ''
+        name: Nutella - Ferrero - 400g
+        thumbnailUrl: /images/products/301/762/042/2003/123.100.jpg
+        code: '3017620422003'
+    image:
+      thumb_url: 123.100.jpg
+      imgid: 123
+      crop_url: 123.400.jpg
+    imgid: 123
+    status: status ok
+    imagefield: front_en
+    code: '3017620422003'

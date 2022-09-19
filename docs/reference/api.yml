@@ -191,7 +191,7 @@ paths:
             application/json:
               schema:
                 #TODO: Explain the different response fields
-                $ref: ./responses/add_new_product.yaml
+                $ref: ./responses/add_or_edit_a_product.yaml
       parameters: []
       requestBody:
         content:
