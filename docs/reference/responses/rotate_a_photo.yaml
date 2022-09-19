@@ -4,16 +4,14 @@ type: object
 properties:
   status:
     type: string
+    example: status ok
   imagefield:
     type: string
+    example: nutrition_fr
   image:
     type: object
     properties:
       display_url:
         type: string
-x-examples:
-  example-1:
-    status: status ok
-    imagefield: nutrition_fr
-    image:
-      display_url: nutrition_fr.67.400.jpg
+        example: nutrition_fr.67.400.jpg
+

@@ -1,8 +1,5 @@
-#TODO : Add the correct response for OCR
 type: object
 properties:
   status:
     type: integer
-x-examples:
-  example-1:
-    status: 1
+    example: 1
