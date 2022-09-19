@@ -1170,7 +1170,7 @@ sub create_ingredients_analysis_panel($product_ref, $target_lc, $target_cc, $opt
         # + the panels specific to each property (vegan, vegetarian, palm oil free)
         if ($ingredients_analysis_details_data_ref->{unknown_ingredients}) {
             create_panel_from_json_template("ingredients_analysis_help", "api/knowledge-panels/health/ingredients/ingredients_analysis_help.tt.json",
-                {}, $product_ref , $target_lc, $target_cc);
+                {}, $product_ref , $target_lc, $target_cc, $options_ref);
         }
 	}
 
