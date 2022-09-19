@@ -36,7 +36,7 @@ use URI::Escape::XS;
 use Log::Any qw($log);
 
 use Apache2::RequestRec ();
-use Apache2::Const ();
+use Apache2::Const qw(:common);
 
 # The nginx reverse proxy turns /somepath?someparam=somevalue to /cgi/display.pl?/somepath?someparam=somevalue
 # so that all non /cgi/ queries are sent to display.pl and that we can get the path in the query string
@@ -60,14 +60,23 @@ $log->debug("before analyze_request", { query_string => $request_ref->{query_str
 # analyze request will fill request with action and parameters
 analyze_request($request_ref);
 
-$log->debug("after analyze_request", { blogid => $request_ref->{blogid}, tagid => $request_ref->{tagid}, urlsdate => $request_ref->{urlsdate}, urlid => $request_ref->{urlid}, user => $request_ref->{user}, query => $request_ref->{query} });
+# If we have an error, display the error page and return
+
+if (defined $request_ref->{error_status}) {
+	$log->debug("analyze_request error", { request_ref => $request_ref });
+	display_error($request_ref->{error_message}, $request_ref->{error_status});
+	$log->debug("analyze_request error - return Apache2::Const::OK");
+	return Apache2::Const::OK;
+}
+
+$log->debug("after analyze_request", { tagid => $request_ref->{tagid}, urlsdate => $request_ref->{urlsdate}, urlid => $request_ref->{urlid}, user => $request_ref->{user}, query => $request_ref->{query} });
 
 # Only display texts if products are private and no owner is defined
 if ( ((defined $server_options{private_products}) and ($server_options{private_products}))
 	and ((defined $request_ref->{api}) or (defined $request_ref->{product}) or (defined $request_ref->{groupby_tagtype}) or ((defined $request_ref->{tagtype}) and (defined $request_ref->{tagid})))
 	and (not defined $Owner_id)) {
 
-	display_error(lang("no_owner_defined"), 200);
+	display_error_and_exit(lang("no_owner_defined"), 200);
 }
 
 if ((defined $request_ref->{api}) and (defined $request_ref->{api_method})) {

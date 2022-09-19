@@ -87,7 +87,7 @@ my $user_ref = {};
 if ($type =~ /^edit/) {
 	$user_ref = retrieve("$data_root/users/$userid.sto");
 	if (not defined $user_ref) {
-		display_error($Lang{error_invalid_user}{$lang}, 404);
+		display_error_and_exit($Lang{error_invalid_user}{$lang}, 404);
 	}
 }
 else {
@@ -95,7 +95,7 @@ else {
 }
 
 if (($type =~ /^edit/) and ($User_id ne $userid) and not $admin) {
-	display_error($Lang{error_no_permission}{$lang}, 403);
+	display_error_and_exit($Lang{error_no_permission}{$lang}, 403);
 }
 
 my $debug = 0;
@@ -109,7 +109,7 @@ if ($action eq 'process') {
 				$type = 'delete';
 			}
 			else {
-				display_error($Lang{error_no_permission}{$lang}, 403);
+				display_error_and_exit($Lang{error_no_permission}{$lang}, 403);
 			}
 		}
 	}
