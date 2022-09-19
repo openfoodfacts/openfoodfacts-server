@@ -55,7 +55,7 @@ my $html;
 
 if (user_agent() =~ /apps-spreadsheets/) {
 
-	display_error(
+	display_error_and_exit(
 		"Automated queries using Google Spreadsheet overload the Open Food Facts server. We cannot support them. You can contact us at contact\@openfoodfacts.org to tell us about your use case, so that we can see if there is another way to support it.",
 		200
 	);
