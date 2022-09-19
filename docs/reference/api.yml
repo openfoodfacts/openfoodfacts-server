@@ -132,7 +132,7 @@ paths:
       parameters: []
       requestBody:
         content:
-          application/json:
+          multipart/form-data:
             schema:
               $ref: ./requestBodies/crop_a_photo.yaml
       tags:
