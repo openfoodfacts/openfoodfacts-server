@@ -56,9 +56,11 @@ my $action = single_param('action') || 'display';
 
 my $title = lang("export_product_data_photos");
 my $html = '';
+my $js = '';
+my $template_data_ref;
 
-if (not defined $Owner_id) {
-	display_error(lang("no_owner_defined"), 200);
+ if (not defined $Owner_id) {
+ 	display_error(lang("no_owner_defined"), 200);
 }
 
 # Require moderator status to launch the export / import process,
@@ -177,92 +179,21 @@ elsif (($action eq "process") and $allow_submit) {
 	my $local_export_status_job_id = $results_ref->{local_export_status_job_id};
 	my $export_id = $results_ref->{export_id};
 	
-	$html .= "<p>" . lang("export_in_progress") . "</p>";
+	$template_data_ref->{local_export_job_id} = $local_export_job_id;
+	$template_data_ref->{remote_import_job_id} = $remote_import_job_id;
+	$template_data_ref->{local_export_status_job_id} = $local_export_status_job_id;
 	
+	$html .= "<p>" . lang("export_in_progress") . "</p>";
 	$html .= "<p>" . lang("export_job_export") .  " - <span id=\"result1\"></span></p>";
 	$html .= "<p>" . lang("export_job_import") .  " - <span id=\"result2\"></span></p>";
 	$html .= "<p>" . lang("export_job_status_update") .  " - <span id=\"result3\"></span></p>";
 
-	$initjs .= <<JS
-	
-var minion_status = {
-	"inactive" : "$Lang{minion_status_inactive}{$lc}",
-	"active" : "$Lang{minion_status_active}{$lc}",
-	"finished" : "$Lang{minion_status_finished}{$lc}",
-	"failed" : "$Lang{minion_status_failed}{$lc}"
-};
+	process_template('web/pages/export_products/export_products.tt.js', $template_data_ref, \$js);
 
-var poll_n1 = 0;
-var timeout1 = 5000;
-var job_info_state1;
-
-var poll_n2 = 0;
-var timeout2 = 5000;
-var job_info_state2;
-
-var poll_n3 = 0;
-var timeout3 = 5000;
-var job_info_state3;
-
-(function poll1() {
-  \$.ajax({
-    url: '/cgi/minion_job_status.pl?job_id=$local_export_job_id',
-    success: function(data) {
-      \$('#result1').html(minion_status[data.job_info.state]);
-	  job_info_state1 = data.job_info.state;
-    },
-    complete: function() {
-      // Schedule the next request when the current one's complete
-	  if ((job_info_state1 == "inactive") || (job_info_state1 == "active")) {
-		setTimeout(poll1, timeout1);
-		timeout1 += 1000;
-	}
-	  poll_n1++;
-    }
-  });
-})();
-
-(function poll2() {
-  \$.ajax({
-    url: '/cgi/minion_job_status.pl?job_id=$remote_import_job_id',
-    success: function(data) {
-      \$('#result2').html(minion_status[data.job_info.state]);
-	  job_info_state2 = data.job_info.state;
-    },
-    complete: function() {
-      // Schedule the next request when the current one's complete
-	  if ((job_info_state2 == "inactive") || (job_info_state2 == "active")) {
-		setTimeout(poll2, timeout2);
-		timeout2 += 1000;
-	}
-	  poll_n2++;
-    }
-  });
-})();
-
-(function poll3() {
-  \$.ajax({
-    url: '/cgi/minion_job_status.pl?job_id=$local_export_status_job_id',
-    success: function(data) {
-      \$('#result3').html(minion_status[data.job_info.state]);
-	  job_info_state3 = data.job_info.state;
-    },
-    complete: function() {
-      // Schedule the next request when the current one's complete
-	  if ((job_info_state3 == "inactive") || (job_info_state3 == "active")) {
-		setTimeout(poll3, timeout3);
-		timeout2 += 1000;
-	}
-	  poll_n3++;
-    }
-  });
-})();
-JS
-;
-
+	$initjs .= $js;
 }
 else {
-
+	
 	my $template_data_ref2 = {};
 
 	# The organization does not have the permission enable_manual_export_to_public_platform checked
