@@ -2,10 +2,15 @@ name: Top issues action.
 #on:
 #  schedule:
 #  - cron:  '0 0 */1 * *'
+#on:
+#  issues:
+#    types: [opened, transferred]
 on:
-  issues:
-    types: [opened, transferred]
-
+  pull_request_target:
+    types:
+      - opened
+      - edited
+      - synchronize
 jobs:
   ShowAndLabelTopIssues:
     name: Display and label top issues.
