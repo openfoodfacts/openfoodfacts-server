@@ -6,11 +6,9 @@ name: Top issues action.
 #  issues:
 #    types: [opened, transferred]
 on:
-  pull_request_target:
-    types:
-      - opened
-      - edited
-      - synchronize
+  push:
+    branches:
+      - top-issues
 jobs:
   ShowAndLabelTopIssues:
     name: Display and label top issues.
