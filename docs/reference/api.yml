@@ -42,7 +42,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ./schemas/product.yaml
+                $ref: ./responses/get_product_by_barcode.yaml
       description: |
         A product can be fetched via its unique barcode.
         It returns all the details of that product response.
