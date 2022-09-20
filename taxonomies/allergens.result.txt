@@ -10,6 +10,7 @@ stopwords:fr:d'autres,autre,autres,ce,produit,est,fabriqué,élaboré,transform�
 stopwords:is:í,snefilmagni
 stopwords:it:derivanti,del,de,la,e,tracce,contiene,una,fonte,di,puo,contenere,altra,contenenti,a,base,semi
 stopwords:pt:traços,vestígios,vestígio,a,e,uma,em,ou,de,que,com,contém,contêm,possível,eventual,outros,produto,produtos,derivado,derivados,incluido,incluidos,incluida,incluidas,fonte,pode,elaborado,onde,se,processa,grãos,possível,possíveis,este,feito,manofaturado,fabricado,fábrica,também,usa,subproduto,subprodutos,mín,min,mínimo,refinado
+stopwords:sk:obsahuje, s obsahom, výrobky zo, výrobok zo, výrobky z, výrobok z
 
 
 en:celery, celeriac
@@ -37,7 +38,7 @@ pl:seler
 pt:aipo
 ro:țelină
 ru:сельдерей
-sk:zeler
+sk:zeler, zeleru
 sl:listna zelena
 sr:celer, celera
 sv:selleri, rotselleri, blekselleri, sellerifrö
@@ -68,7 +69,7 @@ pl:skorupiaki
 pt:crustáceos, caranguejo, lagosta, lagostim, gambas, gamba, camarão
 ro:crustacee
 ru:ракообразные
-sk:kôrovce
+sk:kôrovce, kôrovcov
 sl:raki
 sv:kräftdjur, skaldjur, räkor, räkkrydda, krabba, krabbarom, krabbextrakt, räkarom, räkpulver
 th:ครัสเตเชียน, ปู, กั้ง, กุ้ง, กะปิ
@@ -99,7 +100,7 @@ pl:jaja, jajo, jajka, jajko
 pt:ovos, ovo, clara de ovo, claras de ovo, claras de ovos, gema de ovo, gemas de ovo, gemas de ovos, derivados de ovo, derivado de ovo
 ro:ouă, ou
 ru:яйца, яйцо
-sk:vajcia
+sk:vajcia, vajec
 sl:jajca, jajce
 sr:jaja, jaje, jajeta, žumance, belance
 sv:ägg, äggula, äggulor, äggulepulver, äggvita, äggvitor, äggvitepulver
@@ -132,7 +133,7 @@ pl:ryba
 pt:peixe, peixes, bacalhau, cavalinha, linguado, halibute, pregado, eglefim, hadoque, arinca, salmão, solha, truta, atum, sardinha, sardinhas
 ro:pește
 ru:рыба
-sk:ryby
+sk:ryby, rýb
 sl:ribe
 sr:riba, ribe, tuna, tunjevina, losos, pastrmka, sardina, sardine
 sv:fisk, torsk, torskrom, lax, laxfilé, sej, sill, alaska pollock, hoki, fiskolja, fiskpulver, fisksås, ansjovis, ansjovisextrakt
@@ -167,7 +168,7 @@ pl:gluten, gluten pszenny, jęczmień, jęczmienny, kamut, owies, orkisz, owsian
 pt:glúten, trigo, centeio, cevada, aveia, malte, extrato de malte, espelta, trigo-vermelho, farinha de espelta, farinha de trigo-vermelho, kamut, cereais com glúten, cereais, farinha de trigo, farinha de trigo integral, farinha de centeio, farinha de malte, cereais que contêm glúten, sêmola de trigo
 ro:gluten, grâu, secară, orz, ovăz, grâu spelt, grâu dur, griș de grău
 ru:глютен, пшеница, рожь, ячмень, овёс, полба (камут) (спельта) (двузернянка) (фарро), манная крупа
-sk:glutén, lepok, obyčajná, raž, jačmeň, ovos, špalda, cirok
+sk:pšenica, pšenica obyčajná, raž, jačmeň, ovos, pšenica, špalda, cirok, glutén, lepok
 sl:gluten, pšenica, rž, ječmen, oves, pira, kamut
 sr:pšenica, pšenično, pšenični, gluten, glutenom, glutenski, surutka, surutke, surutkom, spelta, pšenični griz
 sv:gluten, vete, durumvete, råg, korn, havre, spelt, kamut, dinkel, dinkelvete, vetemjöl, durumvetemjöl, rågmjöl, kornmjöl, havremjöl, speltmjöl, kamutmjöl, havrekorn, vetekli, rågkli, kornkli, havrekli, speltkli, kamutkli, veteflingor, rågflingor, kornflingor, havreflingor, speltflingor, kamutflingor, dinkelflingor, fullkornsvete, fullkornsdurumvete, fullkornsråg, fullkornskorn, fullkornshavre, fullkornsspelt, fullkornskamut, fullkornsvetemjöl, fullkornsdurumvetemjöl, fullkornsrågmjöl, fullkornshavremjöl, fullkornsveteflingor, fullkornsrågflingor, fullkornshavreflingor, fullkornsspeltflingor, fullkornskamutflingor, fullkornsrågkross, malt, vetemalt, vetemaltextrakt, rågmalt, rågmaltextrakt, kornmalt, kornmaltextrakt, kornmaltsextrakt, havremalt, havremaltextrakt, speltmalt, speltmaltextrakt, kamutmalt, kamutmaltextrakt, dinkelmalt, vetegryn, råggryn, korngryn, havregryn, speltgryn, kamutgryn, vetegroddar, råggroddar, korngroddar, havregroddar, speltgroddar, kamutgroddar, vetefibrer, vetestärkelse, kornmaltvinäger, vetedextros, vetegluten, råggluten, korngluten, havreglute, sädesslag, andra sädesslag, spannmål som innehåller gluten
@@ -198,7 +199,7 @@ pl:łubin
 pt:tremoço, tremoços
 ro:lupin
 ru:люпин
-sk:vlčí bôb
+sk:vlčí bôb, lupina, vlčieho bôbu
 sl:volčji
 sv:lupin
 th:ลูพิน
@@ -231,7 +232,7 @@ pl:mleko, laktozą, mleka, mleczny
 pt:leite, lactose, soro, lactéos, manteiga, iogurte, queijo, proteína de leite, leite e seus derivados, derivados de leite
 ro:lapte, lactoză
 ru:молоко, лактоза, сливки, молочная сыворотка, йогурт
-sk:mlieko, laktózy
+sk:mlieko, mlieka, laktózy, laktóza, mliečne výrobky, mliečnych výrobkov, mliečne, mliečnych
 sl:mleko, laktozo
 sr:mleko, mlečno, mlečni, laktoza
 sv:mjölk, mjölkpulver, skummjölk, skummjölkspulver, mellanmjölk, mellanmjölkspulver, kärnmjölk, standardmjölk, standardmjölkspulver, helmjölk, helmjölkspulver, laktos, grädde, matlagningsgrädde, gräddpulver, vispgrädde, smör, smörfett, fårmjölk, getmjölk, komjölk, vassle, vasslepulver, vassleprotein, mjölkfett, mjölkprotein, mjölkproteiner, mjölksocker, mjölkprodukt, ost, emmentaler, emmentalerost, hårdost, mozzarellaost, halloumi, cheddarost, ostpulver, yoghurt, kvarg, crème fraiche
@@ -261,7 +262,7 @@ pl:mięczaki
 pt:moluscos, molusco, lulas, lula, chocos, choco, ostras, ostra, mexilhões, mexilhão, amêijoas, amêijoa, vieiras, vieira
 ro:moluște
 ru:моллюск, моллюски, кальмар, каракатица, устрицы, устрица, ракушки, гребешок, улитка, улитки
-sk:mäkkýše
+sk:mäkkýše, mäkkýšov
 sl:mehkužci
 sv:blötdjur
 th:มอลลัสกา
@@ -293,7 +294,7 @@ pl:gorczyca, gorczycę
 pt:mostarda
 ro:muștar
 ru:горчица
-sk:horčica
+sk:horčica, horčice
 sl:gorčično seme
 sr:senf, slačica
 sv:senap, senapsfrö, senapsfröpulver, senapspulver, senapsmjöl
@@ -304,6 +305,8 @@ wikidata:en: Q1937700
 en:none, allergens-free, without allergens, without, n, no, no allergens, 0
 fr:aucun, aucune, sans allergènes, sans, pas, pas d'allergènes, aucun allergène, 0
 it:nessuno, nessuna, senza allergeni, no allergeni, no, n, 0
+nl:Geen, Allergeenvrij, Zonder allergenen, Zonder, Geen allergenen, 0
+sk:žiadne, bez alergénov, bez, 0
 sr:ništa, nijedan, nijedno, bez alergena, nema alergena, bez, 0
 
 en:nuts, almonds, hazelnuts, walnuts, cashews, cashew, pecan nuts, pecan, Brazil nuts, pistachio nuts, pistachio, macadamia, Macadamia nuts, Queensland nuts, tree nuts, treenuts, other nuts
@@ -332,7 +335,7 @@ pl:orzechy, migdały, orzechy laskowe, orzechy włoskie, orzechy nerkowca, orzes
 pt:nozes, frutos de casca rija, amêndoas, avelãs, castanhas de caju, nozes pécan, castanhas do Brasil, pistácios, pistáchios, nozes de macadâmia, nozes do Queensland
 ro:fructe cu coajă lemnoasă, migdale, alune de pădure, nuci, nuci Caju, nuci Pecan, nuci de Brazilia, fistic, nuci de macadamia, nuci de Queensland
 ru:орехи, миндаль, кешью, пекан, бразильский орех, макадамия, фисташки, орехи Куинсленд
-sk:orechy, mandle, lieskové oriešky, vlašské orechy, kešu oriešky, pekanové orechy, brazílske orechy, pistáciové oriešky, makadamové orechy, queenslandské orechy
+sk:orechy, mandle, Amygdalus communis L., lieskové oriešky, Corylus avellana, vlašské orechy, Juglans regia, kešu oriešky, Anacardium occidentale, pekanové orechy, Carya illinoinensis, brazílske orechy, Bertholletia excelsa, pistáciové oriešky, Pistacia vera, makadamové orechy, queenslandské orechy, Macadamia ternifolia
 sl:oreški, mandlji, lešniki, orehi, indijski oreščki, ameriški orehi, brazilski oreščki, pistacija, makadamija, orehi Queensland
 sr:jezgrasto voće, orasi, badem, bademi, indijski orah, indijski orasi, pekan, pekan orasi, pistaći, makadamija
 sv:nötter, mandel, mandlar, hasselnöt, hasselnötter, hasselnötshalvor, valnöt, valnötter, cashewnöt, cashewnötter, pekannöt, pekannötter, paranöt, paranötter, pistachnöt, pistagenöt, pistagenötter, pistaschmandel, makadamianöt, makadamianötter, macadamianöt, macadamianötter, Queenslandsnöt, Queenslandsnötter, hasselnötssmör, andra nötter
@@ -364,7 +367,7 @@ pl:orzeszki ziemne, arachidowe, arachis hypogaea
 pt:amendoins, amendoim, arachis hypogaea, manteiga de amendoim, óleo de amendoim
 ro:arahide, arachis hypogaea
 ru:арахис, arachis hypogaea
-sk:arašidy, arachis hypogaea
+sk:arašidy, arachis hypogaea, arašidov
 sl:arašidi, kikiriki, arachis hypogaea
 sr:kikiriki, kikirikija
 sv:jordnöt, jordnötter, arachis hypogaea, jordnötsolja
@@ -397,7 +400,7 @@ pl:nasiona sezamu, sezamu, sezamowy, sezamków, sezamowe, sezam, ziarno sezamu
 pt:sementes de sésamo, sésamo
 ro:semințe de susan
 ru:сезам, кунжут
-sk:sezamové semeno
+sk:sezamové semeno, sezamových semien
 sl:sezamovo seme, sezamovo
 sr:susam, susamovo seme, seme susama
 sv:sesamfrön, sesam
@@ -432,7 +435,7 @@ pl:soja, lecytyna sojowa, soi, lecytyny z soi, sojowa, sojowe, soję
 pt:soja, sementes de soja, grão de soja, lecitina de soja
 ro:soia, lecitină din soia
 ru:соя, соевые бобы
-sk:sójové bôby, sójové
+sk:sójové bôby, sójové, sója, sóje, sójových bôbov
 sl:zrnje soje, soje
 sr:soja, sojin, sojino, sojin lecitin, sojino brašno
 sv:soja, sojabönor, sojalecitin, sojabönolja, sojaprotein, sojasås, sojamjöl
