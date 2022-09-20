@@ -63,6 +63,7 @@ BEGIN
 		&display_tag
 		&display_search_results
 		&display_error
+		&display_error_and_exit
 
 		&add_product_nutriment_to_stats
 		&compute_stats_for_products
@@ -200,7 +201,7 @@ our $mongodb_log = Log::Log4perl->get_logger('mongodb');
 $mongodb_log->info("start") if $mongodb_log->is_info();
 
 use Apache2::RequestRec ();
-use Apache2::Const ();
+use Apache2::Const qw(:http :common);
 
 use URI::Find;
 
@@ -693,9 +694,7 @@ sub init_request() {
 
 	my $error = ProductOpener::Users::init_user($request_ref);
 	if ($error) {
-		if (not single_param('jqm')) { # API
-			display_error($error, undef);
-		}
+		display_error_and_exit($error, 403);
 	}
 
 	# %admin is defined in Config.pm
@@ -999,7 +998,8 @@ sub analyze_request($request_ref) {
 			$request_ref->{redirect} = $formatted_subdomain . '/' . $tag_type_singular{products}{$lc} . '/' . $components[1];;
 		}
 		else {
-			display_error(lang("error_invalid_address"), 404);
+			$request_ref->{error_status} = 404;
+			$request_ref->{error_message} = lang("error_invalid_address");
 		}
 	}
 
@@ -1019,7 +1019,8 @@ sub analyze_request($request_ref) {
 			}
 		}
 		else {
-			display_error(lang("error_invalid_address"), 404);
+			$request_ref->{error_status} = 404;
+			$request_ref->{error_message} = lang("error_invalid_address");
 		}
 	}
 
@@ -1209,7 +1210,8 @@ sub analyze_request($request_ref) {
 		}
 		elsif (not defined $request_ref->{groupby_tagtype}) {
 			$log->warn("invalid address, confused by number of components left", { left_components => $#components }) if $log->is_warn();
-			display_error(lang("error_invalid_address"), 404);
+			$request_ref->{error_status} = 404;
+			$request_ref->{error_message} = lang("error_invalid_address");
 		}
 
 		if (($#components >=0) and ($components[-1] =~ /^\d+$/)) {
@@ -1225,7 +1227,7 @@ sub analyze_request($request_ref) {
 		$request_ref->{text} = 'index-pro';
 	}
 
-	$log->debug("request analyzed", { lc => $lc, lang => $lang, request_ref => Dumper($request_ref)}) if $log->is_debug();
+	$log->debug("request analyzed", { lc => $lc, lang => $lang, request_ref => $request_ref}) if $log->is_debug();
 
 
 	return 1;
@@ -1318,6 +1320,15 @@ sub display_date_iso($t) {
 	}
 }
 
+
+=head2 display_error ( $error_message, $status )
+
+Display an error message using the site template.
+
+The request is not terminated by this function, it will continue to run.
+
+=cut
+
 sub display_error($error_message, $status) {
 
 	my $html = "<p>$error_message</p>";
@@ -1327,8 +1338,24 @@ sub display_error($error_message, $status) {
 		status => $status,
 		page_type => "error",
 	});
+	return;
+}
+
+
+=head2 display_error_and_exit ( $error_message, $status )
+
+Display an error message using the site template, and terminate the request immediately.
+
+Any code after the call to display_error_and_exit() will not be executed.
+
+=cut
+
+sub display_error_and_exit($error_message, $status) {
+
+	display_error($error_message, $status);
 	exit();
 }
+
 
 # Specific index for producer on the platform for producers
 sub display_index_for_producer($request_ref) {
@@ -3913,7 +3940,7 @@ HTML
 			$user_or_org_ref = retrieve_org($orgid);
 
 			if (not defined $user_or_org_ref) {
-				display_error(lang("error_unknown_org"), 404);
+				display_error_and_exit(lang("error_unknown_org"), 404);
 			}
 		}
 		elsif ($tagid =~ /\./) {
@@ -3936,7 +3963,7 @@ HTML
 			$user_or_org_ref = retrieve("$data_root/users/$tagid.sto");
 
 			if (not defined $user_or_org_ref) {
-				display_error(lang("error_unknown_user"), 404);
+				display_error_and_exit(lang("error_unknown_user"), 404);
 			}
 		}
 
@@ -7138,7 +7165,10 @@ HTML
 	# Replace urls for texts in links like <a href="/ecoscore"> with a localized name
 	$html =~ s/(href=")(\/[^"]+)/$1 . url_for_text($2)/eg;
 
+	my $status = $request_ref->{status} || $request_ref->{error_status} || 200;
+
 	my $http_headers_ref = {
+		'-status' => $status,
 		'-expires' => '-1d',
 		'-charset' => 'UTF-8',
 	};
@@ -7149,14 +7179,13 @@ HTML
 	}
 
 	print header(%$http_headers_ref);
-	
-	my $status = $request_ref->{status};
-	if (defined $status) {
-		print header ( -status => $status );
-		my $r = Apache2::RequestUtil->request();
-		$r->rflush;
-		$r->status($status);
-	}
+
+	my $r = Apache2::RequestUtil->request();
+	$r->rflush;
+	# Setting the status makes mod_perl append a default error to the body
+	# $r->status($status);
+	# Send 200 instead.
+	$r->status(200);
 
 	binmode(STDOUT, ":encoding(UTF-8)");
 
@@ -7165,6 +7194,7 @@ HTML
 	print $html;
 	return;
 }
+
 
 sub display_image_box($product_ref, $id, $minheight_ref) {
 
@@ -7318,7 +7348,7 @@ sub display_product($request_ref) {
 	local $log->context->{code} = $code;
 
 	if ($code !~ /^\d{4,24}$/) {
-		display_error($Lang{invalid_barcode}{$lang}, 403);
+		display_error_and_exit($Lang{invalid_barcode}{$lang}, 403);
 	}
 
 	my $product_id = product_id_for_owner($Owner_id, $code);
@@ -7368,7 +7398,7 @@ JS
 	}
 
 	if (not defined $product_ref) {
-		display_error(sprintf(lang("no_product_for_barcode"), $code), 404);
+		display_error_and_exit(sprintf(lang("no_product_for_barcode"), $code), 404);
 	}
 
 	$title = product_name_brand_quantity($product_ref);
