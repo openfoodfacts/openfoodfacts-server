@@ -1,9 +1,9 @@
 # Use direnv
 
-As a developper, it can be better not to think too much about setting right env variables as you enter a project.
+As a developer, it can be better not to think too much about setting right env variables as you enter a project.
 [`direnv`](https://direnv.net/) aims at providing a solution.
 
-As a quick guide as an openfoodfacts developper:
+As a quick guide as an openfoodfacts developer:
 
 - install direnv on your system using usual package manager
 - in your .bashrc add:
