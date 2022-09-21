@@ -245,6 +245,34 @@ paths:
             The fields to be returned from the product object can also be limited.
             If not specified, it returns the entire product object response.
     parameters: []
+  /cgi/suggest.pl:
+    get:
+      summary: Get Suggestions to Aid Adding/Editing Products
+      tags:
+        - Read Requests
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                #TODO: Document example response properly
+                type: array
+              examples: {}
+      operationId: get-cgi-suggest.pl
+      parameters:
+        - schema:
+            type: string
+            example: additives
+          in: query
+          name: tagtype
+        - schema:
+            type: string
+            example: f
+          in: query
+          name: term
+      description: |
+        These suggestions help you know the to possible valuest when editing or adding a new product.
 components:
   schemas:
     Product:
