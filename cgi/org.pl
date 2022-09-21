@@ -70,7 +70,7 @@ if (not defined $org_ref) {
 		$template_data_ref->{org_does_not_exist} = 1;
 	}
 	else {
-		display_error($Lang{error_org_does_not_exist}{$lang}, 404);
+		display_error_and_exit($Lang{error_org_does_not_exist}{$lang}, 404);
 	}
 }
 
@@ -80,7 +80,7 @@ if (not(is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pr
 	$log->debug("user does not have permission to edit org",
 		{orgid => $orgid, org_admins => $org_ref->{admins}, User_id => $User_id})
 	  if $log->is_debug();
-	display_error($Lang{error_no_permission}{$lang}, 403);
+	display_error_and_exit($Lang{error_no_permission}{$lang}, 403);
 }
 
 my @errors = ();
@@ -93,7 +93,7 @@ if ($action eq 'process') {
 				$type = 'delete';
 			}
 			else {
-				display_error($Lang{error_no_permission}{$lang}, 403);
+				display_error_and_exit($Lang{error_no_permission}{$lang}, 403);
 			}
 		}
 		else {

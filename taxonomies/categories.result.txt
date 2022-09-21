@@ -38,6 +38,15 @@ synonyms:fr:thon-crudités, crudités-thon
 
 synonyms:ru:икра овощная, овощная икра
 
+
+en:Puffed lentil cakes
+de:linsenwaffeln
+es:Tortitas de lentejas infladas
+fr:Galettes de lentilles soufflées
+it:Galetti di lenticchie soffiate
+nl:Linzenwafels
+pt:Geletes de lentilha
+
 < de:Austrian Weinbrand
 de:Wachauer Weinbrand
 origins:en: en:austria
@@ -2208,6 +2217,7 @@ ciqual_food_name:fr: Boisson infantile céréales lactées -aliment moyen-
 < en:Baby drinks
 en:Plant-based beverage for baby
 fr:Boisson à base de plantes pour bébé
+nl:Dranken voor babies gebaseerd op planten
 ciqual_food_code:en: 13160
 ciqual_food_name:en: Plant-based beverage for baby
 ciqual_food_name:fr: Boisson à base de plantes pour bébé
@@ -3867,7 +3877,7 @@ fi:Italialaiset oluet, Oluet Italiasta
 fr:Bières italiennes
 hu:Olasz sörök, Olaszországi sörök
 it:Birre italiane, birre dall'italia
-nl:Italiaanse bieren
+nl:Italiaanse bieren, Bieren uit Italië
 ro:Beri italiene, Beri italia, Bere italia, Bere italiana, Bere italiană
 wikidata:en: Q3640378
 
@@ -3989,6 +3999,7 @@ wikidata:en: Q1168351
 
 < en:Beers
 fr:Bières de Noël
+nl:Kerstbieren
 wikidata:en: Q3621354
 
 < en:Beers
@@ -4971,6 +4982,15 @@ ciqual_food_name:en: Fermented milk or dairy specialty, yogurt type, flavoured, 
 ciqual_food_name:fr: Lait fermenté ou spécialité laitière type yaourt, aromatisé, sucré, au bifidus
 
 < en:Bifidus yogurts
+en:Sweetened plain bifidus yogurts, Yogurt-type plain fermented milk with sugar with bifidus, Yogurt-type plain dairy specialty with sugar with bifidus
+fr:Yaourts au bifidus sucrés natures, Lait fermenté de type yaourt nature sucré au bifidus, spécialité laitière de type yaourt nature sucré au bifidus
+agribalyse_food_code:en: 19546
+ciqual_food_code:en: 19546
+ciqual_food_name:en: Fermented milk or dairy specialty, yogurt type, plain, with bifidus
+ciqual_food_name:fr: Lait fermenté ou spécialité laitière type yaourt, nature, au bifidus
+
+< en:Bifidus yogurts
+< en:Fermented dairy desserts with fruits
 en:Fruit bifidus yogurts, Yogurt-type fermented milk with fruits with sugar with bifidus, Yogurt-type dairy specialty with fruits with sugar with bifidus
 fr:Yaourts au bifidus aux fruits, Lait fermenté de type yaourt aux fruits sucré au bifidus, Spécialité laitière de type yaourt aromatisé aux fruits au bifidus
 agribalyse_food_code:en: 19542
@@ -4979,16 +4999,9 @@ ciqual_food_name:en: Fermented milk or dairy specialty, yogurt type, with fruits
 ciqual_food_name:fr: Lait fermenté ou spécialité laitière type yaourt, aux fruits, sucré, au bifidus
 
 < en:Bifidus yogurts
+< en:Plain fermented dairy desserts
 en:Plain bifidus yogurts
 fr:Yaourts au bifidus nature
-
-< en:Bifidus yogurts
-en:Sweetened plain bifidus yogurts, Yogurt-type plain fermented milk with sugar with bifidus, Yogurt-type plain dairy specialty with sugar with bifidus
-fr:Yaourts au bifidus sucrés natures, Lait fermenté de type yaourt nature sucré au bifidus, spécialité laitière de type yaourt nature sucré au bifidus
-agribalyse_food_code:en: 19546
-ciqual_food_code:en: 19546
-ciqual_food_name:en: Fermented milk or dairy specialty, yogurt type, plain, with bifidus
-ciqual_food_name:fr: Lait fermenté ou spécialité laitière type yaourt, nature, au bifidus
 
 < en:Bilberries
 en:Bog bilberries, Northern bilberries
@@ -8439,15 +8452,6 @@ it:Ciambelle e ciambelloni, ciambelle, ciambellone, ciambella
 < en:Cakes
 nl:Roze koeken
 
-< en:Cakes of pulses
-en:Lentil cakes
-de:linsenwaffeln
-es:Tortitas de lentejas
-fr:Galettes de lentilles
-it:Galetti di lenticchie
-nl:Linzenwafels
-pt:Geletes de lentilha
-
 < en:Calamari
 en:Squid
 fr:Calmar, Calamar, Encornet
@@ -11313,7 +11317,7 @@ de:gepuffte Getreidewaffeln
 es:Tortitas de cereales
 fr:Galettes de céréales soufflées, galettes de céréales
 hu:Puffasztott gabonakészítmények
-it:Gallette di cereali
+it:Gallette di cereali soffiati, gallette di cereali
 nl:Graanwafels
 ru:Воздушные хлопья
 agribalyse_proxy_food_code:en: 7353
@@ -15881,6 +15885,7 @@ ro:Cola fără cafeină
 en:Cola with sugar
 bg:Кола със захар
 fr:Cola sucré
+nl:Cola met suiker
 agribalyse_food_code:en: 18018
 ciqual_food_code:en: 18018
 ciqual_food_name:en: Cola, with sugar
@@ -17484,6 +17489,16 @@ origins:en: en:france
 fr:Côtes d'Auvergne Madargue
 origins:en: en:france
 
+< en:Cottage cheeses
+< en:Fermented dairy desserts with fruits
+en:Fruit cottage cheeses
+fr:Cottage cheeses aux fruits
+
+< en:Cottage cheeses
+< en:Plain fermented dairy desserts
+en:Plain cottage cheeses
+fr:Cottage cheeses nature
+
 < en:Country-style Pâtés
 fr:Pâté de Campagne Breton
 origins:en: en:france
@@ -18559,6 +18574,7 @@ ciqual_food_name:fr: Crabe, cru
 < en:Crustaceans
 en:Crayfish
 fr:Écrevisse
+nl:Rivierkreeft
 ciqual_food_code:en: 10030
 ciqual_food_name:en: Crayfish, raw
 ciqual_food_name:fr: Écrevisse, crue
@@ -18576,7 +18592,6 @@ ciqual_food_name:fr: Langoustine, crue
 en:Lobsters
 de:Hummer
 fr:Homards
-nl:Kreeft
 agribalyse_proxy_food_code:en: 10024
 agribalyse_proxy_food_name:en: Norway lobster, raw
 agribalyse_proxy_food_name:fr: Langoustine, crue
@@ -19433,10 +19448,6 @@ nl:Gearomatiseerde zuiveldranken
 ciqual_food_code:en: 19120
 ciqual_food_name:en: Flavoured milk, with sugar, partially skimmed, fortified with vitamins and chemicals elements
 ciqual_food_name:fr: Boisson lactée aromatisée -arôme inconnu-, sucrée, au lait partiellement écrémé, enrichie et/ou restaurée en vitamines et/ou minéraux -aliment moyen-
-
-< en:Dairy-free yoghurts
-en:Dairy-free coconut-based yoghurts
-nl:Zuivelvrije kokosnootyoghurts
 
 < en:Dairy spread
 en:Butters
@@ -21690,6 +21701,9 @@ ciqual_food_code:en: 8111
 ciqual_food_name:en: Duck breast fillet, smoked
 ciqual_food_name:fr: Canard, magret fumé
 
+< en:Duck breasts
+fr:aiguillettes de canard
+
 < en:Duck dishes
 en:Blanquettes of duck, Blanquette of duck
 fr:Blanquettes de canard, Blanquette de canard
@@ -21820,9 +21834,6 @@ agribalyse_food_code:en: 8109
 ciqual_food_code:en: 8109
 ciqual_food_name:en: Duck confit -conserved in rendered fat-, meat -leg- without skin, reheated
 ciqual_food_name:fr: Confit de canard, viande -cuisse-, sans peau, réchauffé
-
-< en:Ducks
-fr:aiguillettes de canard
 
 < en:Ducks
 fr:Filets de canard
@@ -22688,6 +22699,7 @@ en:Energy drink with sugar
 bg:Енергийна напитка със захар
 de:Energydrink mit Zucker
 fr:Boisson énergisante sucrée
+nl:Energiedranken met suiker
 agribalyse_food_code:en: 18352
 ciqual_food_code:en: 18352
 ciqual_food_name:en: Energy drink, with sugar
@@ -22697,6 +22709,7 @@ ciqual_food_name:fr: Boisson énergisante, sucrée
 en:Energy drink without sugar and with artificial sweeteners
 bg:Енергийна напитка без захар и с изкуствени подсладители
 fr:Boisson énergisante non sucrée avec édulcorants
+nl:Energiedrankenzonder suiker met artificiële zoetstoffen
 agribalyse_food_code:en: 18353
 ciqual_food_code:en: 18353
 ciqual_food_name:en: Energy drink, without sugar and with artificial sweetener-s-
@@ -23328,6 +23341,10 @@ ciqual_food_name:en: Drained soft fresh cheese, around 6% fat
 wikidata:en: Q3064619
 
 < en:Fermented dairy desserts
+en:Fermented dairy desserts with fruits
+fr:Desserts lactés fermentés aux fruits
+
+< en:Fermented dairy desserts
 en:Petits suisses
 de:Milchdesserts
 es:Petit-suisse, Petit suisse
@@ -23340,7 +23357,12 @@ ciqual_proxy_food_name:fr: Fromage frais type petit suisse, nature, 10% MG envir
 wikidata:en: Q585246
 
 < en:Fermented dairy desserts
+en:Plain fermented dairy desserts
+fr:Desserts lactés fermentés nature
+
+< en:Fermented dairy desserts
 en:Skyrs, Skyr
+bg:Скир
 ca:Skyr
 da:Skyr
 de:Skyr
@@ -24635,6 +24657,7 @@ ciqual_food_name:fr: Limande, crue
 < en:Fishes
 en:Common dentex
 fr:Denté
+nl:Tandbrasem
 agribalyse_food_code:en: 26103
 ciqual_food_code:en: 26103
 ciqual_food_name:en: Common dentex, raw
@@ -24701,6 +24724,7 @@ ciqual_food_name:fr: Carangue, cru
 < en:Fishes
 en:Eels
 fr:Anguilles
+nl:Paling, Aal
 
 < en:Fishes
 en:European whitefish
@@ -26345,13 +26369,6 @@ origins:en: en:france
 protected_name_file_number:en: PGI-FR-0612
 protected_name_type:en: pgi
 
-< en:French cheeses
-fr:Morbier
-origins:en: en:france
-protected_name_file_number:en: PDO-FR-0179
-protected_name_type:en: pdo
-wikidata:en: Q1247472
-
 < en:Cooked pressed cheeses
 < en:French cheeses
 en:Beaufort
@@ -27351,6 +27368,10 @@ uk:Кисломолочний сир
 zh:茅屋起司
 wikidata:en: Q13221624
 
+< en:Fermented dairy desserts
+< en:Fresh cheeses
+pl:Serek homogenizowany
+
 < en:Aromatic herbs
 < en:Fresh chervil
 en:Garden chervil leaves, Chervil leaves
@@ -27747,9 +27768,6 @@ nl:Kiemgroentes
 < en:Fresh vegetables
 en:Fresh artichokes, Artichoke globe
 fr:Artichauts frais
-agribalyse_food_code:en: 20052
-ciqual_food_code:en: 20052
-ciqual_food_name:en: Artichoke, globe, raw
 season_in_country_fr:en: 5‚6,7‚8,9
 
 < en:Aubergines
@@ -30376,7 +30394,7 @@ ciqual_food_name:fr: Tarte aux abricots
 en:Blueberry pies, blueberry pie
 fi:Mustikkapiirakat, mustikkapiirakka
 fr:Tartes aux myrtilles, Tartes à la myrtille, Tarte aux myrtilles, Tarte à la myrtille
-nl:Bosbestaart, Bosbessentaarten
+nl:Bosbessentaarten, Bosbessentaart, Bosbestaart
 wikidata:en: Q2722559
 
 < en:Fruit tarts
@@ -30418,6 +30436,14 @@ ciqual_food_code:en: 23491
 ciqual_food_name:en: Strawberries tart
 ciqual_food_name:fr: Tarte aux fraises
 wikidata:en: Q12320332
+
+< en:Fruit tarts
+en:
+nl:Taarten met aardbeien
+agribalyse_food_code:en: 23491
+ciqual_food_code:en: 23491
+ciqual_food_name:en: Strawberries tart
+ciqual_food_name:fr: Tarte aux fraises
 
 < en:Fruit teas
 en:Citrus fruit teas
@@ -39038,14 +39064,6 @@ protected_name_file_number:en: PGI-FR-02450
 protected_name_type:en: pgi
 
 < en:Legumes and their products
-en:Cakes of pulses
-de:Hülsenfruchtwaffeln
-es:Tortitas de legumbres
-fr:Galettes de légumineuses
-it:Galetti di legumi
-nl:Peulvruchtenwafels
-
-< en:Legumes and their products
 en:Legumes
 bg:Зеленчуци
 ca:Llegums
@@ -39080,6 +39098,14 @@ ciqual_food_code:en: 20916
 ciqual_food_name:en: Miso
 ciqual_food_name:fr: Miso
 wikidata:en: Q235169
+
+< en:Legumes and their products
+en:Puffed pulse cakes
+de:Hülsenfruchtwaffeln
+es:Tortitas de legumbres
+fr:Galettes de légumineuses soufflées
+it:Galetti di legumi
+nl:Peulvruchtenwafels
 
 < en:Lemon juice
 en:Home-made lemon juice
@@ -39153,6 +39179,7 @@ en:Lemonade with sugar
 bg:Лимонада със захар
 fi:Sokerinen limonadi
 fr:Limonade sucrée
+nl:Limonade met suiker
 agribalyse_food_code:en: 18010
 ciqual_food_code:en: 18010
 ciqual_food_name:en: Lemonade, with sugar
@@ -39162,6 +39189,7 @@ ciqual_food_name:fr: Limonade, sucrée
 en:Lemonade with sugar and artificial sweeteners
 bg:Лимонада със захар и изкуствени подсладители
 fr:Limonade sucrée avec édulcorants
+nl:Limonade met suiker en artificiële zoetstoffen
 agribalyse_food_code:en: 18016
 ciqual_food_code:en: 18016
 ciqual_food_name:en: Lemonade, with sugar and artificial sweetener-s-
@@ -39170,6 +39198,7 @@ ciqual_food_name:fr: Limonade, sucrée, avec édulcorants
 < en:Lemonade
 en:Lemonade without sugar with artificial sweeteners
 fr:Limonade non sucrée avec édulcorants
+nl:Limonade zonder suiker met artificiële zoetstoffen
 agribalyse_food_code:en: 18035
 ciqual_food_code:en: 18035
 ciqual_food_name:en: Lemonade, without sugar, with artificial sweetener-s-
@@ -39430,6 +39459,14 @@ ciqual_food_name:en: Cos or romaine lettuce, raw
 ciqual_food_name:fr: Laitue romaine, crue
 
 < en:Lettuces
+fr:Batavia
+agribalyse_proxy_food_code:en: 20200
+agribalyse_proxy_food_name:en: Iceberg lettuce, raw
+agribalyse_proxy_food_name:fr: Laitue iceberg, crue
+ciqual_food_code:en: 20123
+ciqual_food_name:fr: Batavia, crue
+
+< en:Lettuces
 fr:Laitue fraîche
 season_in_country_fr:en: 5‚6,7‚8,9
 
@@ -39631,6 +39668,7 @@ en:Portuguese liqueur
 < en:Liqueurs
 en:Spanish liqueur
 fr:Liqueurs espagnoles
+nl:Spaanse Likeur
 
 < en:Liqueurs
 fr:Génépi des Alpes
@@ -39766,6 +39804,7 @@ ciqual_food_name:fr: Homard, bouilli/cuit à l'eau
 < en:Lobsters
 en:lobster
 fr:Homard
+nl:Kreeft, Zeekreeft
 ciqual_food_code:en: 10010
 ciqual_food_name:en: Lobster, raw
 ciqual_food_name:fr: Homard, cru
@@ -40142,6 +40181,7 @@ ciqual_food_name:fr: Soupe pour bébé légumes, céréales et lait
 < en:Main meals for babies
 en:Soup for baby with vegetables and potatoes
 fr:Soupe pour bébé aux légumes et aux pommes de terre
+nl:Babysoepen met groenten en aardappelen
 agribalyse_food_code:en: 20252
 ciqual_food_code:en: 20252
 ciqual_food_name:en: Soup for baby, with vegetables and potatoes
@@ -40899,6 +40939,7 @@ agribalyse_proxy_food_name:en: Meal replacement low calorie, ready-to-drink
 agribalyse_proxy_food_name:fr: Substitut de repas hypocalorique, prêt à boire
 
 en:Meals, Prepared meals, Prepared dishes
+bg:Готови ястия
 ca:Menjar preparat
 da:Måltider, Tilberedte måltider, Tilberedte retter, Færdigretter
 de:Fertiggerichte
@@ -42163,6 +42204,10 @@ en:Bacon substitutes, bacon substituts
 fr:Substituts du bacon
 
 < en:Meat analogues
+en:Fish analogues, Plantbased fish
+nl:Plantaardige vissen
+
+< en:Meat analogues
 en:Frikandel substitutes
 de:Frikadellen-Ersatzprodukte
 fr:Substituts des fricadelles
@@ -42187,10 +42232,6 @@ wikidata:en: Q2120234
 < en:Meat analogues
 en:Meat analogues from soy or wheat proteins
 fr:Substituts de viande à partir de protéines de soja ou blé
-
-< en:Meat analogues
-en:Plantbased fish
-nl:Plantaardige vissen
 
 < en:Meat analogues
 en:Vegetarian sausages
@@ -42247,6 +42288,7 @@ nl:Soepballetjes
 < en:Pork
 en:Pork meat balls
 bg:Свински кюфтета
+fr:Boulettes au porc
 nl:Varkensgehaktballen
 
 < en:Meat-based pasta sauces
@@ -45025,13 +45067,13 @@ ciqual_food_name:fr: Dessert au soja, nature, rayon frais
 
 < en:Non-dairy desserts
 < en:Non-dairy fermented foods
-en:Non-dairy yogurts, vegan yogurts
+en:Non-dairy yogurts, vegan yogurts, Dairy-free yoghurts
 de:pflanzenbasierte Joghurts, milchfreie Joghurts
 es:Yogures vegetales
 fi:Vegaanijogurtit
 fr:Desserts végétaliens fermentés, Yaourts végétaux, yaourt végétal, yaourt végan, yaourts sans lait
 it:Yogurt vegetali, yogurt vegani
-nl:Plantaardige yoghurts, plantaardige yoghurt
+nl:Plantaardige yoghurts, plantaardige yoghurt, Zuivelvrije yoghurts
 
 < en:Non-dairy yogurts
 en:Almond milk yogurts
@@ -45040,8 +45082,9 @@ fr:Desserts de lait d'amande fermenté
 it:Yogurt al latte di mandorla
 
 < en:Non-dairy yogurts
-en:Coconutmilk yogurts
+en:Coconutmilk yogurts, Dairy-free coconut-based yoghurts
 fr:Desserts de lait de coco fermenté
+nl:Zuivelvrije kokosnootyoghurts
 
 < en:Non-dairy yogurts
 en:Oat milk yogurts
@@ -47630,12 +47673,15 @@ wikidata:en: Q6648982
 en:books
 bg:книги
 fr:livres
+nl:Boeken
 
 < en:Open Products Facts
-en:Detergents
+en:detergents
+nl:Detergenten
 
 < en:Open Products Facts
 en:kitchenware
+nl:Keukenproducten, Keukenbenodigdheden
 
 < en:Concentrated fruit juices
 < en:Orange juices
@@ -49503,12 +49549,13 @@ nl:Droog dierenvoedsel
 en:Fish food
 de:Fischfutter
 fr:Nourriture pour poissons
-nl:Visvoeding
+nl:Visvoeding, Vissenvoer
 
 < en:Pet food
 en:Horse food
 de:Pferdefutter
 fr:Nourriture pour chevaux
+nl:Voer voor paarden
 
 < en:Pet food
 en:miscellaneous pet food, miscellaneous animal food
@@ -49519,11 +49566,13 @@ fr:nourriture pour animaux variés
 en:Rabbit food
 de:Kaninchenfutter
 fr:Nourriture pour lapins
+nl:Voer voor konijnen
 
 < en:Pet food
 en:reptile food
 de:Futter für Reptilien, Terrarientierfutter
 fr:nourriture pour reptiles
+nl:Voer voor reptielen
 ru:корм для пресмыкающихся, корм для рептилий
 
 < en:Pet food
@@ -49556,13 +49605,10 @@ fr:Fromage frais aromatisé aux fruits, Petit suisse aromatisé aux fruits
 en:Petit-Suisse fortified with calcium and vitamin D
 fr:Fromage frais enrichi en calcium et vitamine D
 
+< en:Fermented dairy desserts with fruits
 < en:Petits suisses
 en:Petit-Suisse with fruits, fat fresh cream cheese with fruits
 fr:Petits suisses au fruits, Fromage frais aux fruits
-
-< en:Petits suisses
-en:Plain Petit-Suisse, Plain fresh cream cheese
-fr:Petits suisses nature, Fromage frais nature
 
 < en:Cooked poultries
 < en:Pheasant
@@ -50196,6 +50242,11 @@ agribalyse_food_code:en: 23799
 ciqual_food_code:en: 23799
 ciqual_food_name:en: Crepe, plain, prepacked, refrigerated
 ciqual_food_name:fr: Crêpe, nature, préemballée, rayon frais
+
+< en:Petits suisses
+< en:Plain fermented dairy desserts
+en:Plain Petit-Suisse, Plain fresh cream cheese
+fr:Petits suisses nature, Fromage frais nature
 
 < en:Plain Petit-Suisse
 en:Fat free plain Petit-Suisse
@@ -50940,6 +50991,13 @@ en:Vegetable pasta
 es:Pasta de verduras
 fr:Pâtes de légumes
 nl:Groentenpasta, Groentenpaté
+
+< en:Plant-based foods
+fr:Cerfeuil tubéreux, Cerfeuil bulbeux
+de:Knolliger Kälberkropf, Knollenkerbel, Rüben-Kälberkropf, Kerbelrübe, Knollen-Kälberkropf
+agribalyse_proxy_food_code:en: 20181
+agribalyse_proxy_food_name:fr: Panais, cru
+wikidata:en: Q1777420
 
 en:Plant-based foods and beverages
 ca:Aliments i begudes amb base vegetal
@@ -51956,6 +52014,12 @@ en:Traditionally Reared Pedigree Welsh Pork
 origins:en: en:united-kingdom,en:wales
 protected_name_file_number:en: TSG-GB-1396
 protected_name_type:en: tsg
+
+< en:Pork
+fr:échine de porc
+agribalyse_food_code:en: 28302
+ciqual_food_code:en: 28302
+ciqual_food_name:fr: Porc, échine, crue
 
 < en:Pork
 fr:Escalopes de porc
@@ -53434,10 +53498,10 @@ ciqual_food_code:en: 36700
 ciqual_food_name:en: Guinea fowl, raw
 
 < en:Poultries
-fr:Poularde du Périgord
-origins:en: en:france
-protected_name_file_number:en: PGI-FR-01373
-protected_name_type:en: pgi
+fr:Poulardes
+agribalyse_proxy_food_code:en: 36050
+agribalyse_proxy_food_name:en: Capon, meat and skin, raw
+agribalyse_proxy_food_name:fr: Chapon, viande et peau, cru
 
 < en:Poultries
 fr:Volaille de Gascogne
@@ -53612,13 +53676,14 @@ protected_name_file_number:en: PDO-FR-0145-AM01
 protected_name_type:en: pdo
 
 < en:Poultries from Bresse
-fr:Poularde de Bresse
+fr:Poulet de Bresse
 origins:en: en:france
 protected_name_file_number:en: PDO-FR-0145-AM01
 protected_name_type:en: pdo
 
 < en:Poultries from Bresse
-fr:Poulet de Bresse
+< fr:Poulardes
+fr:Poularde de Bresse
 origins:en: en:france
 protected_name_file_number:en: PDO-FR-0145-AM01
 protected_name_type:en: pdo
@@ -55617,6 +55682,14 @@ ciqual_food_name:en: Pumpkin, canned, drained
 ciqual_food_name:fr: Potiron, appertisé, égoutté
 
 < en:Pumpkins
+en:Pattypan squash
+de:Patisson
+fr:Pâtisson, Patisson
+agribalyse_proxy_food_code:en: 20136
+agribalyse_proxy_food_name:fr: Courge melonnette, pulpe, crue
+wikidata:en: Q876892
+
+< en:Pumpkins
 en:Pulp of melonnette jaspée from Vendée, Squash of melonnette jaspée from Vendée
 fr:Pulpe de courge melonnette
 agribalyse_food_code:en: 20136
@@ -55738,15 +55811,10 @@ ciqual_food_code:en: 36100
 ciqual_food_name:en: Quail, meat and skin, raw
 ciqual_food_name:fr: Caille, viande et peau, crue
 
-< en:Fermented dairy desserts
+< en:Fermented dairy desserts with fruits
 < en:Quarks
 en:Fruit quarks, Fruit quark
 fr:Quarks aux fruits, Quark aux fruits
-
-< en:Fermented dairy desserts
-< en:Quarks
-en:Plain quarks, Plain quark
-fr:Quarks nature, Quark nature
 
 < en:Quarks
 en:Buttermilk quark, Quark from buttermilk
@@ -55807,6 +55875,11 @@ de:Labquark
 en:Soured milk quark, Quark from soured milk
 de:Sauermilchquark
 fr:Quark au lait caillé, Quark caillé
+
+< en:Plain fermented dairy desserts
+< en:Quarks
+en:Plain quarks, Plain quark
+fr:Quarks nature, Quark nature
 
 < en:British sea products
 < en:Queen scallops
@@ -58817,6 +58890,11 @@ nl:Smeerworsten
 < en:Salted spreads
 en:Artichoke spreads
 fr:Crèmes d'artichaut
+
+< en:Salted spreads
+en:Egg spreads
+de:Eiaufstriche
+fr:Tartinades d'œufs, tartinades d'oeufs, tartinades aux oeufs
 
 < en:Salted spreads
 en:Rillettes
@@ -61995,6 +62073,7 @@ fr:Crevettes décortiquées, Crevettes décortiquées cuites, queues de crevette
 < en:Shrimps
 en:Frozen shrimps
 fr:Crevettes surgelées
+nl:Bevroren garnalen
 agribalyse_food_code:en: 10038
 ciqual_food_code:en: 10038
 ciqual_food_name:en: Shrimp, frozen, raw
@@ -62122,10 +62201,12 @@ ciqual_food_code:en: 19050
 ciqual_food_name:en: Milk, skimmed, UHT
 ciqual_food_name:fr: Lait écrémé, UHT
 
+< en:Fermented dairy desserts with fruits
 < en:Skyrs
 en:Fruit skyrs, Fruit skyr
 fr:Skyrs aux fruits, Skyr aux fruits
 
+< en:Plain fermented dairy desserts
 < en:Skyrs
 en:Plain skyrs, Plain skyr
 fr:Skyrs nature, Skyr nature
@@ -62702,6 +62783,7 @@ nl:Fruitsmoothies
 
 < en:Smoothies
 fr:Smoothie kiwi pomme ananas
+nl:Smoothie kiwi appel ananas
 
 en:Snacks
 bg:Снаксове
@@ -62852,6 +62934,7 @@ ciqual_food_name:fr: Poudre cacaotée pour bébé
 < en:Snacks and desserts for babies
 en:Dairy dessert for baby
 fr:Dessert lacté pour bébé
+nl:Melktoetje voor babies
 
 < en:Meat preparations
 < en:Snails
@@ -67259,6 +67342,7 @@ wikidata:en: Q3080422
 < en:Sweet pies
 en:Red berries tart
 fr:Tarte aux fruits rouges
+nl:Taart met rode vruchten
 agribalyse_food_code:en: 23495
 ciqual_food_code:en: 23495
 ciqual_food_name:en: Red berries tart
@@ -68817,6 +68901,7 @@ ciqual_food_name:en: Tomme cheese, from mountain or Savoy
 origins:en: en:france
 protected_name_file_number:en: PGI-FR-0177-AM03, en: PGI-FR-0177
 protected_name_type:en: pgi
+wikidata:en: Q1247472
 
 < en:French cheeses
 < en:Tomme cheese from cow's milk
@@ -71211,6 +71296,9 @@ it:Carciofi
 la:Cynara scolymus
 nl:Artisjokken
 ru:Артишоки
+agribalyse_food_code:en: 20052
+ciqual_food_code:en: 20052
+ciqual_food_name:en: Artichoke, globe, raw
 
 < en:Vegetable rods
 en:Asparagus
@@ -72767,6 +72855,7 @@ nl:Umeboshi azijnen
 
 < en:Vinegars
 en:White vinegars
+bg:Бял оцет
 de:Weiße Essige
 fr:Vinaigres blancs, vinaigre blanc
 hu:Fehér ecet
@@ -83390,10 +83479,6 @@ nl:Koemelkyoghurts, Koemelkyoghurt
 ro:Iaurturi din lapte de vacă
 
 < en:Yogurts
-en:Dairy-free yoghurts
-nl:Zuivelvrije yoghurts
-
-< en:Yogurts
 en:Fat free plain fermented milk yogurt, Fat free plain dairy specialty
 fr:Yaourt nature au lait fermenté à 0% de matières grasses, Spécialité laitière à 0% de matières grasses
 agribalyse_food_code:en: 19594
@@ -83500,10 +83585,6 @@ fi:Laktoosittomat jogurtit
 fr:Yaourts sans lactose
 it:Yogurt senza lattosio
 nl:Lactose-vrije yoghurt, Lactose-vrije yoghurts, Yoghurt zonder lactose, Yoghurts zonder lactose
-
-< en:Yogurts
-en:Low fat yoghurts
-nl:Magere yoghurts
 
 < en:Yogurts
 en:Low-fat yogurts, Yogurt with fruits and 0% fat, Yogurt fruit flavoured with 0% fat, Fermented milk with fruits and 0% fat, Fermented milk fruit flavoured with 0% fat, Dairy specialty with fruits and 0% fat, Dairy specialty fruit flavoured with 0% fat
@@ -86443,14 +86524,6 @@ en:Fresh cream cheese with cow's milk
 fr:Fromages blancs au lait de vache
 
 < fr:Fromages blancs
-en:Fromages blancs with fruits, Fresh cream cheese with fruits and sugar around 7% fat
-fr:Fromages blancs aux fruits, Fromage blanc gourmand sucré aux fruits à 7% de matières grasses environ, Spécialité laitière sucrée aux fruits à 7% de matières grasses environ
-agribalyse_food_code:en: 19659
-ciqual_food_code:en: 19659
-ciqual_food_name:en: Fresh cream cheese, with fruits, creamy, with sugar, around 7% fat
-ciqual_food_name:fr: Fromage blanc ou spécialité laitière, aux fruits, sucré, gourmand, 7% MG environ
-
-< fr:Fromages blancs
 en:Plain creamy fresh cream cheese around 8% fat
 fr:Fromage blanc nature gourmand à 8% de matières grasses environ
 agribalyse_food_code:en: 19649
@@ -86477,6 +86550,16 @@ en:Fresh cream cheese with sheeps's milk
 fr:Fromages blancs au lait de chèvre
 en:Fresh cream cheese with goat's milk
 
+< en:Fermented dairy desserts with fruits
+< fr:Fromages blancs
+en:Fromages blancs with fruits, Fresh cream cheese with fruits and sugar around 7% fat
+fr:Fromages blancs aux fruits, Fromage blanc gourmand sucré aux fruits à 7% de matières grasses environ, Spécialité laitière sucrée aux fruits à 7% de matières grasses environ
+agribalyse_food_code:en: 19659
+ciqual_food_code:en: 19659
+ciqual_food_name:en: Fresh cream cheese, with fruits, creamy, with sugar, around 7% fat
+ciqual_food_name:fr: Fromage blanc ou spécialité laitière, aux fruits, sucré, gourmand, 7% MG environ
+
+< en:Plain fermented dairy desserts
 < fr:Fromages blancs
 fr:Fromages blancs natures
 agribalyse_proxy_food_code:en: 19646
@@ -89692,6 +89775,13 @@ fr:Porto Vintage, porto millésimé
 < fr:Portos oxydatifs
 fr:Porto Tawny, tawny
 
+< en:Poultries
+< fr:Poulardes
+fr:Poularde du Périgord
+origins:en: en:france
+protected_name_file_number:en: PGI-FR-01373
+protected_name_type:en: pgi
+
 < fr:Poulets fermiers
 fr:Poulets fermiers jaunes
 
@@ -91357,17 +91447,19 @@ ciqual_food_code:en: 25919
 ciqual_food_name:en: Soup, fish and/or crustacean, dehydrated and reconstituted
 
 < fr:Spécialités laitières
-fr:Spécialités laitières aux fruits
-
-< fr:Spécialités laitières
-fr:Spécialités laitières nature non sucrées
-
-< fr:Spécialités laitières
 fr:Spécialités laitières nature sucrées, Spécialité laitière nature sucrée
 agribalyse_food_code:en: 19599
 ciqual_food_code:en: 19599
 ciqual_food_name:en: Yogurt, fermented milk or dairy specialty, plain, w sugar
 ciqual_food_name:fr: Yaourt, lait fermenté ou spécialité laitière, nature, sucré
+
+< en:Fermented dairy desserts with fruits
+< fr:Spécialités laitières
+fr:Spécialités laitières aux fruits
+
+< en:Plain fermented dairy desserts
+< fr:Spécialités laitières
+fr:Spécialités laitières nature non sucrées
 
 < fr:Specks
 it:Speck dell' Alto Adige, Specks dell' Alto Adige
@@ -91732,6 +91824,7 @@ wikidata:en: Q42300930
 < fr:Wraps
 en:Chicken wraps
 fr:Wraps au poulet
+nl:Kippenwraps, Wraps met kip
 
 < fr:Wraps
 en:Ham wraps

@@ -58,7 +58,7 @@ local $log->context->{type} = $type;
 local $log->context->{action} = $action;
 
 if (not defined $Owner_id) {
-	display_error(lang("no_owner_defined"), 200);
+	display_error_and_exit(lang("no_owner_defined"), 200);
 }
 
 if ($action eq "process") {
