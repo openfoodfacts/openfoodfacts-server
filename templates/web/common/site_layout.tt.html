@@ -242,7 +242,7 @@
 
 	
 
-				[% IF page_type == "product" %]
+				[% IF page_type == "product" || page_type == "product_edit" %]
 					<!-- product page content contains its own h1 title -->
 					[% content %]
 				[% ELSIF schema_org_itemtype.defined %]
