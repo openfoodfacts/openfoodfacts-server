@@ -1,7 +1,7 @@
 
 <!-- start templates/[% template.name %] -->
 
-<div class="block white">
+<div>
     <div class="row">
 [% IF error %]
 <p>[% error %]</p>
@@ -20,7 +20,7 @@
 
 [% IF count > 0 %]
     [% IF (current_link_query_download.defined) && !(jqm.defined) %]
-    <div class="block white">
+
         <div class="row">
             &rarr;[% lang('search_download_results') %]<br>
             [% IF count <= export_limit %]
@@ -30,15 +30,15 @@
                 </ul>
             [% END %]
         </div>
-    </div>
+
     [% END %]
     
-	<div class="block short block_ristreto">
+	<div class="block short block_ristreto" style="margin-top:1rem">
         <div class="row">
             <div class="small-12 columns" id="filterProducts">
                 
                     <div style="float:left;margin-right:1em;padding-top:0.3rem;">
-                        <span style="font-weight:bold;" class="svg-white">[% display_icon('subdirectory_arrow_right') %] [% html_count %]</span>
+                        <span style="font-weight:bold;color:white;">[% display_icon('search') %] [% html_count %]</span>
                     </div>
                         
                     <div style="float:left;margin-right:1em;">

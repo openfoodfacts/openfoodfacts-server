@@ -247,7 +247,7 @@
 					[% content %]
 				[% ELSIF schema_org_itemtype.defined %]
 					<div itemscope itemtype="[% schema_org_itemtype %]">
-						<div class="block white">
+						<div>
 							<div class="row">
 								<div class="column">
 								<h1 itemprop="name">[% title %]</h1>
@@ -302,9 +302,9 @@
 </div>
 <div class="block_light block_cappucino" id="contribute_and_discover_links_block">
 	<div class="row">
-		<div class="small-12 large-6 columns v-space-normal h-space-large block_off">
+		<div class="small-12 large-6 columns v-space-normal block_off">
 			<h3 class="title-5 text-medium">[% lang('footer_join_the_community') %]</h3>
-			<p>[% f_lang('f_discover_our_code_of_conduct', { url => 'https://slack.openfoodfacts.org' } ) %]</p>
+			<p>[% f_lang('f_discover_our_code_of_conduct', { url => lang('footer_code_of_conduct_link') } ) %]</p>
 			<p>[% f_lang('f_join_us_on_slack', { url => "https://slack.openfoodfacts.org" } ) %]</p>
 			<p id="footer_social_icons">[% f_lang('f_footer_follow_us_links', { links => '
 				<a href="https://twitter.com/openfoodfacts"><img src="/images/icons/dist/twitter.svg" class="footer_social_icon" alt="Twitter"></a>
@@ -314,7 +314,7 @@
 				%]
 			</p>
 		</div>
-		<div class="small-12 large-6 columns project v-space-normal h-space-large">
+		<div class="small-12 large-6 columns project v-space-normal">
 			<h3 class="title-5 text-medium">[% lang('footer_discover_the_project') %]</h3>
 			<ul class="inline-list tags_links v-space-tiny h-space-tiny" >
 				<li><a class="button small white radius" href="[% lang('footer_who_we_are_link') %]">[% lang('footer_who_we_are') %]</a></li>
