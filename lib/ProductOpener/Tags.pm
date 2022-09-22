@@ -152,6 +152,8 @@ BEGIN
 		&get_all_taxonomy_entries
 		&get_taxonomy_tag_synonyms
 
+		&generate_regexps_matching_taxonomy_entries
+
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -4225,6 +4227,58 @@ sub add_users_translations_to_taxonomy($tagtype) {
 }
 
 
+sub generate_regexps_matching_taxonomy_entries($tagtype, $return_type, $options_ref) {
+
+	# We will return for each language an unique regexp or a list of regexps
+	my $result_ref = {};
+
+	# Lists of synonyms regular expressions per language
+	my %synonyms_regexps = ();
+
+	foreach my $tagid ( keys %{ $translations_to{$tagtype} } ) {
+
+		foreach my $l ( keys %{ $translations_to{$tagtype}{$tagid} } ) {
+
+			defined $synonyms_regexps{$l}  or $synonyms_regexps{$l}  = [];
+
+			# the synonyms below also contain the main translation as the first entry
+
+			my $l_tagid = get_string_id_for_lang($l, $translations_to{$tagtype}{$tagid}{$l});
+
+			foreach my $synonym ( @{$synonyms_for{$tagtype}{$l}{$l_tagid}} ) {
+				# Make spaces match dashes and the reverse
+				$synonym =~ s/( |-)/\(\?: \|-\)/g;
+				push @{ $synonyms_regexps{$l} },
+					[ $tagid, $synonym ];
+
+				if ( ( my $unaccented_synonym = unac_string_perl($synonym) ) ne $synonym ) {
+					push @{ $synonyms_regexps{$l} },
+						[ $tagid, $unaccented_synonym ];
+				}
+			}
+		}
+	}
+
+	# We want to match the longest strings first
+
+	if ($return_type eq 'unique_regexp') {
+		foreach my $l ( keys %synonyms_regexps ) {
+			$result_ref->{$l} = join('|',
+				map { $_->[1] }
+					sort { length $b->[1] <=> length $a->[1] } @{ $synonyms_regexps{$l} } );
+		}
+	}
+	elsif ($return_type eq 'list_of_regexps') {
+		foreach my $l ( keys %synonyms_regexps ) {
+			$result_ref->{$l} = sort { length $b->[1] <=> length $a->[1] } @{ $synonyms_regexps{$l} };
+		}
+	}
+	else {
+		die("unknown return type for generate_regexps_matching_taxonomy_entries: $return_type - must be unique_regexp or list_of_regexps");
+	}
+
+	return $result_ref;
+}
 
 
 $log->info("Tags.pm loaded") if $log->is_info();

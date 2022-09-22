@@ -453,7 +453,25 @@ Teneur en citron de 5,5%",
 			ingredients_text => "Peaches. Some unknown ingredient, another unknown ingredient.
 Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of Another Unknown Ingredient: Malta",
 		}
-	],	
+	],
+
+	# Origins with commas
+	[
+		"en-origin-field-with-commas",
+		{
+			lc => "en",
+			ingredients_text => "Milk, sugar. Origin of the milk: UK, European Union",
+		}
+	],
+
+	# Origins with commas
+	[
+		"en-origin-field-with-commas-",
+		{
+			lc => "en",
+			ingredients_text => "Milk, sugar. Origin of the milk: UK, European Union. Origin of sugar: Paraguay, Uruguay and Costa Rica.",
+		}
+	],
 );
 
 

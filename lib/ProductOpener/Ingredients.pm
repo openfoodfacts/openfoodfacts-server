@@ -571,39 +571,50 @@ my %additives_classes_regexps = ();
 sub init_additives_classes_regexps() {
 
 	# Create a regexp with all synonyms of all additives classes
-	my %additives_classes_synonyms = ();
-
-	foreach my $additives_class (keys %{$translations_to{additives_classes}}) {
-
-		# do not turn vitamin a in vitamin : a-z
-		next if $additives_class eq "en:vitamins";
-
-		foreach my $l (keys %{$translations_to{additives_classes}{$additives_class}}) {
-
-			defined $additives_classes_synonyms{$l} or $additives_classes_synonyms{$l} = {};
-
-			# the synonyms below also contain the main translation as the first entry
-
-			my $l_additives_class = get_string_id_for_lang($l, $translations_to{additives_classes}{$additives_class}{$l});
-
-			foreach my $synonym (@{$synonyms_for{additives_classes}{$l}{$l_additives_class}}) {
-				$additives_classes_synonyms{$l}{$synonym} = 1;
-				# simple singulars and plurals + unaccented forms
-				$additives_classes_synonyms{$l}{unac_string_perl($synonym)} = 1;
-				$synonym =~ s/s$//;
-				$additives_classes_synonyms{$l}{$synonym} = 1;
-				$additives_classes_synonyms{$l}{unac_string_perl($synonym)} = 1;
-				$additives_classes_synonyms{$l}{$synonym . "s"} = 1;
-				$additives_classes_synonyms{$l}{unac_string_perl($synonym . "s")} = 1;
+	%additives_classes_regexps = %{
+		generate_regexps_matching_taxonomy_entries("additives_classes", "unique_regexp",
+			{
+				add_simple_plurals => 1,
+				add_simple_singulars => 1,
+				skip_entries_matching => '/^en:vitamins$/',
 			}
-		}
-	}
+		)
+	};
 
-	foreach my $l (sort keys %additives_classes_synonyms) {
-		# Match the longest strings first
-		$additives_classes_regexps{$l} = join('|', sort { length($b) <=> length($a) } keys %{$additives_classes_synonyms{$l}});
-		# print STDERR "additives_classes_regexps{$l}: " . $additives_classes_regexps{$l} . "\n";
-	}
+
+	# my %additives_classes_synonyms = ();
+
+	# foreach my $additives_class (keys %{$translations_to{additives_classes}}) {
+
+	# 	# do not turn vitamin a in vitamin : a-z
+	# 	next if $additives_class eq "en:vitamins";
+
+	# 	foreach my $l (keys %{$translations_to{additives_classes}{$additives_class}}) {
+
+	# 		defined $additives_classes_synonyms{$l} or $additives_classes_synonyms{$l} = {};
+
+	# 		# the synonyms below also contain the main translation as the first entry
+
+	# 		my $l_additives_class = get_string_id_for_lang($l, $translations_to{additives_classes}{$additives_class}{$l});
+
+	# 		foreach my $synonym (@{$synonyms_for{additives_classes}{$l}{$l_additives_class}}) {
+	# 			$additives_classes_synonyms{$l}{$synonym} = 1;
+	# 			# simple singulars and plurals + unaccented forms
+	# 			$additives_classes_synonyms{$l}{unac_string_perl($synonym)} = 1;
+	# 			$synonym =~ s/s$//;
+	# 			$additives_classes_synonyms{$l}{$synonym} = 1;
+	# 			$additives_classes_synonyms{$l}{unac_string_perl($synonym)} = 1;
+	# 			$additives_classes_synonyms{$l}{$synonym . "s"} = 1;
+	# 			$additives_classes_synonyms{$l}{unac_string_perl($synonym . "s")} = 1;
+	# 		}
+	# 	}
+	# }
+
+	# foreach my $l (sort keys %additives_classes_synonyms) {
+	# 	# Match the longest strings first
+	# 	$additives_classes_regexps{$l} = join('|', sort { length($b) <=> length($a) } keys %{$additives_classes_synonyms{$l}});
+	# 	# print STDERR "additives_classes_regexps{$l}: " . $additives_classes_regexps{$l} . "\n";
+	# }
 
 	return;
 }
