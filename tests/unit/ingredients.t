@@ -464,7 +464,7 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 		"en-origin-field-with-commas",
 		{
 			lc => "en",
-			ingredients_text => "Milk, sugar. Origin of the milk: UK, European Union",
+			ingredients_text => "Milk, sugar. Origin of the milk: Belgium, Spain",
 		}
 	],
 

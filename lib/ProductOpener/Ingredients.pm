@@ -1148,7 +1148,8 @@ sub match_origin_of_the_ingredient_origin($product_lc, $text_ref, $matched_ingre
 	my $origins_regexp = $origins_regexps{$product_lc};
 
 	# Origin of the milk: United Kingdom.
-	if ($origins_regexp and ($$text_ref =~ /\s*${origin_of_the_regexp}([^,.;:]+)(?::| )+($origins_regexp(?:,\s?$origins_regexp)+)\s*(?:,|;|\.| - |$)/i)) {
+	if ($origins_regexp
+		and ($$text_ref =~ /\s*${origin_of_the_regexp}([^,.;:]+)(?::| )+((?:$origins_regexp)(?:,(?:\s?)(?:$origins_regexp))*)\s*(?:,|;|\.| - |$)/i)) {
 		# Note: the regexp above does not currently match multiple origins with commas (e.g. "Origins of milk: UK, UE")
 		# in order to not overmatch something like "Origin of milk: UK, some other mention."
 		# In the future, we could try to be smarter and match more if we can recognize the next words exist in the origins taxonomy.
