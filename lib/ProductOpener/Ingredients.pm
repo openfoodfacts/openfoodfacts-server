@@ -1100,8 +1100,9 @@ sub parse_specific_ingredients_from_text($product_ref, $text, $percent_regexp) {
 				text => $matched_text,
 			};
 
+			my $and_or = $and_or{$product_lc};
 			defined $percent and $specific_ingredients_ref->{percent} = $percent + 0;
-			defined $origins and $specific_ingredients_ref->{origins} = join(",", map {canonicalize_taxonomy_tag($product_lc, "origins", $_)} split(/,/, $origins ));
+			defined $origins and $specific_ingredients_ref->{origins} = join(",", map {canonicalize_taxonomy_tag($product_lc, "origins", $_)} split(/,|$and_or/, $origins ));
 			
 			push @{$product_ref->{specific_ingredients}}, $specific_ingredients_ref;
 		}
@@ -1146,20 +1147,21 @@ sub match_origin_of_the_ingredient_origin($product_lc, $text_ref, $matched_ingre
 
 	my $origin_of_the_regexp = $origin_of_the_regexp_in_lc{$product_lc} || $origin_of_the_regexp_in_lc{en};
 	my $origins_regexp = $origins_regexps{$product_lc};
+	my $and_or = $and_or{$product_lc};
 
 	# Origin of the milk: United Kingdom.
 	if ($origins_regexp
-		and ($$text_ref =~ /\s*${origin_of_the_regexp}([^,.;:]+)(?::| )+((?:$origins_regexp)(?:,(?:\s?)(?:$origins_regexp))*)\s*(?:,|;|\.| - |$)/i)) {
-		# Note: the regexp above does not currently match multiple origins with commas (e.g. "Origins of milk: UK, UE")
-		# in order to not overmatch something like "Origin of milk: UK, some other mention."
-		# In the future, we could try to be smarter and match more if we can recognize the next words exist in the origins taxonomy.
+		and ($$text_ref =~ /\s*${origin_of_the_regexp}([^,.;:]+)(?::| )+((?:$origins_regexp)(?:(?:,|$and_or)(?:\s?)(?:$origins_regexp))*)\s*(?:,|;|\.| - |$)/i)) {
 
 		$matched_ingredient_ref->{ingredient} = $1;
 		$matched_ingredient_ref->{origins} = $2;
 		$matched_ingredient_ref->{matched_text} = $&;
-
+		
 		# Remove the matched text
 		$$text_ref = $` . ' ' . $';
+
+		# replace and / or
+		#$matched_ingredient_ref->{origins} =~ s/($origins_regexp)(?:$and_or)($origins_regexp)/$1,$2/g;		
 
 		return 1;
 	}
@@ -1228,8 +1230,9 @@ sub parse_origins_from_text($product_ref, $text) {
 				};
 
 				if (defined $matched_ingredient_ref->{origins}) {
+					my $and_or = $and_or{$product_lc};
 					$specific_ingredients_ref->{origins} = join(",",
-						map {canonicalize_taxonomy_tag($product_lc, "origins", $_)} split(/,/, $matched_ingredient_ref->{origins}));
+						map {canonicalize_taxonomy_tag($product_lc, "origins", $_)} split(/,|$and_or/, $matched_ingredient_ref->{origins}));
 				}
 				
 				push @{$product_ref->{specific_ingredients}}, $specific_ingredients_ref;

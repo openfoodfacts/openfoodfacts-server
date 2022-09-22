@@ -2,67 +2,49 @@
    "ingredients" : [
       {
          "id" : "en:milk",
-         "origins" : "en:united-kingdom",
-         "percent_estimate" : 66.6666666666667,
+         "origins" : "en:belgium,en:spain",
+         "percent_estimate" : 75,
          "percent_max" : 100,
-         "percent_min" : 33.3333333333333,
+         "percent_min" : 50,
          "text" : "Milk",
          "vegan" : "no",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:sugar",
-         "percent_estimate" : 16.6666666666667,
+         "percent_estimate" : 25,
          "percent_max" : 50,
          "percent_min" : 0,
          "text" : "sugar",
          "vegan" : "yes",
          "vegetarian" : "yes"
-      },
-      {
-         "id" : "en:european-union",
-         "percent_estimate" : 16.6666666666667,
-         "percent_max" : 33.3333333333333,
-         "percent_min" : 0,
-         "text" : "European Union"
       }
    ],
    "ingredients_analysis" : {
       "en:non-vegan" : [
          "en:milk"
-      ],
-      "en:palm-oil-content-unknown" : [
-         "en:european-union"
-      ],
-      "en:vegan-status-unknown" : [
-         "en:european-union"
-      ],
-      "en:vegetarian-status-unknown" : [
-         "en:european-union"
       ]
    },
    "ingredients_analysis_tags" : [
-      "en:palm-oil-content-unknown",
+      "en:palm-oil-free",
       "en:non-vegan",
-      "en:vegetarian-status-unknown"
+      "en:vegetarian"
    ],
    "ingredients_hierarchy" : [
       "en:milk",
       "en:dairy",
       "en:sugar",
       "en:added-sugar",
-      "en:disaccharide",
-      "en:european-union"
+      "en:disaccharide"
    ],
-   "ingredients_n" : 3,
+   "ingredients_n" : 2,
    "ingredients_n_tags" : [
-      "3",
+      "2",
       "1-10"
    ],
    "ingredients_original_tags" : [
       "en:milk",
-      "en:sugar",
-      "en:european-union"
+      "en:sugar"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
@@ -70,13 +52,12 @@
       "en:dairy",
       "en:sugar",
       "en:added-sugar",
-      "en:disaccharide",
-      "en:european-union"
+      "en:disaccharide"
    ],
-   "ingredients_text" : "Milk, sugar. Origin of the milk: UK, European Union",
+   "ingredients_text" : "Milk, sugar. Origin of the milk: Belgium, Spain",
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
-   "ingredients_with_unspecified_percent_n" : 3,
+   "ingredients_with_unspecified_percent_n" : 2,
    "ingredients_with_unspecified_percent_sum" : 100,
    "known_ingredients_n" : 5,
    "lc" : "en",
@@ -88,9 +69,9 @@
       {
          "id" : "en:milk",
          "ingredient" : "milk",
-         "origins" : "en:united-kingdom",
-         "text" : "Origin of the milk: UK,"
+         "origins" : "en:belgium,en:spain",
+         "text" : "Origin of the milk: Belgium, Spain"
       }
    ],
-   "unknown_ingredients_n" : 1
+   "unknown_ingredients_n" : 0
 }
