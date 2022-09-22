@@ -14,29 +14,33 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Test qw/:all/;
 
-my $expected_dir = dirname(__FILE__) . "/expected_test_results";
-my $testdir = "ingredients";
+
+my $test_name = "ingredients";
+my $tests_dir = dirname(__FILE__);
+my $expected_dir = $tests_dir . "/expected_test_results/" . $test_name;
 
 my $usage = <<TXT
 
-The expected results of the tests are saved in $expected_dir/$testdir
+The expected results of the tests are saved in $tests_dir/expected_test_results/$test_name
 
-To verify differences and update the expected test results, actual test results
-can be saved to a directory by passing --results [path of results directory]
+To verify differences and update the expected test results,
+actual test results can be saved by passing --update-expected-results
 
 The directory will be created if it does not already exist.
 
 TXT
 ;
 
-my $resultsdir;
+my $update_expected_results;
 
-GetOptions ("results=s"   => \$resultsdir)
+GetOptions ("update-expected-results"   => \$update_expected_results)
   or die("Error in command line arguments.\n\n" . $usage);
 
-if ((defined $resultsdir) and (! -e $resultsdir)) {
-	mkdir($resultsdir, 0755) or die("Could not create $resultsdir directory: $!\n");
+  
+if ((defined $update_expected_results) and (! -e $expected_dir)) {
+	mkdir($expected_dir, 0755) or die("Could not create $expected_dir directory: $!\n");
 }
 
 my @tests = (
@@ -466,12 +470,21 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 
 	# Origins with commas
 	[
-		"en-origin-field-with-commas-",
+		"en-origin-field-with-commas-and",
 		{
 			lc => "en",
 			ingredients_text => "Milk, sugar. Origin of the milk: UK, European Union. Origin of sugar: Paraguay, Uruguay and Costa Rica.",
 		}
 	],
+
+
+	[
+		"en-vitamin",
+		{
+			lc => "en",
+			ingredients_text => "vitamin a, salt",
+		}
+	],	
 );
 
 
@@ -491,26 +504,7 @@ foreach my $test_ref (@tests) {
 
 	extract_ingredients_from_text($product_ref);
 
-	# Save the result
-
-	if (defined $resultsdir) {
-		open (my $result, ">:encoding(UTF-8)", "$resultsdir/$testid.json") or die("Could not create $resultsdir/$testid.json: $!\n");
-		print $result $json->pretty->encode($product_ref);
-		close ($result);
-	}
-
-	# Compare the result with the expected result
-
-	if (open (my $expected_result, "<:encoding(UTF-8)", "$expected_dir/$testdir/$testid.json")) {
-
-		local $/; #Enable 'slurp' mode
-		my $expected_product_ref = $json->decode(<$expected_result>);
-		is_deeply ($product_ref, $expected_product_ref) or diag explain $product_ref;
-	}
-	else {
-		diag explain $product_ref;
-		fail("could not load expected_test_results/$testdir/$testid.json");
-	}
+	compare_to_expected_results($product_ref, "$expected_dir/$testid.json", $update_expected_results);
 }
 
 

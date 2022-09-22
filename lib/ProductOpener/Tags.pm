@@ -4227,7 +4227,7 @@ sub add_users_translations_to_taxonomy($tagtype) {
 }
 
 
-sub generate_regexps_matching_taxonomy_entries($tagtype, $return_type, $options_ref) {
+sub generate_regexps_matching_taxonomy_entries($taxonomy, $return_type, $options_ref) {
 
 	# We will return for each language an unique regexp or a list of regexps
 	my $result_ref = {};
@@ -4235,24 +4235,40 @@ sub generate_regexps_matching_taxonomy_entries($tagtype, $return_type, $options_
 	# Lists of synonyms regular expressions per language
 	my %synonyms_regexps = ();
 
-	foreach my $tagid ( keys %{ $translations_to{$tagtype} } ) {
+	foreach my $tagid ( get_all_taxonomy_entries($taxonomy) ) {
 
-		foreach my $l ( keys %{ $translations_to{$tagtype}{$tagid} } ) {
+		foreach my $language ( keys %{ $translations_to{$taxonomy}{$tagid} } ) {
 
-			defined $synonyms_regexps{$l}  or $synonyms_regexps{$l}  = [];
+			defined $synonyms_regexps{$language} or $synonyms_regexps{$language}  = [];
 
 			# the synonyms below also contain the main translation as the first entry
 
-			my $l_tagid = get_string_id_for_lang($l, $translations_to{$tagtype}{$tagid}{$l});
+			foreach my $synonym ( get_taxonomy_tag_synonyms($language, $taxonomy, $tagid) ) {
 
-			foreach my $synonym ( @{$synonyms_for{$tagtype}{$l}{$l_tagid}} ) {
-				# Make spaces match dashes and the reverse
-				$synonym =~ s/( |-)/\(\?: \|-\)/g;
-				push @{ $synonyms_regexps{$l} },
+				if ($options_ref->{add_simple_singulars}) {
+					if ($synonym =~ /s$/) {
+						# match entry without final s
+						$synonym =~ s/s$/\(\?:s\?\)/;
+					}
+				}
+
+				if ($options_ref->{add_simple_plurals}) {
+					if ($synonym !~ /s$/) {
+						# match entry with additional final s
+						$synonym =~ s/$/\(\?:s\?\)/;
+					}
+				}				
+
+				if ($options_ref->{match_space_with_dash}) {
+					# Make spaces match dashes and the reverse
+					$synonym =~ s/( |-)/\(\?: \|-\)/g;
+				}
+				
+				push @{ $synonyms_regexps{$language} },
 					[ $tagid, $synonym ];
 
 				if ( ( my $unaccented_synonym = unac_string_perl($synonym) ) ne $synonym ) {
-					push @{ $synonyms_regexps{$l} },
+					push @{ $synonyms_regexps{$language} },
 						[ $tagid, $unaccented_synonym ];
 				}
 			}
@@ -4262,15 +4278,15 @@ sub generate_regexps_matching_taxonomy_entries($tagtype, $return_type, $options_
 	# We want to match the longest strings first
 
 	if ($return_type eq 'unique_regexp') {
-		foreach my $l ( keys %synonyms_regexps ) {
-			$result_ref->{$l} = join('|',
+		foreach my $language ( keys %synonyms_regexps ) {
+			$result_ref->{$language} = join('|',
 				map { $_->[1] }
-					sort { length $b->[1] <=> length $a->[1] } @{ $synonyms_regexps{$l} } );
+					sort { length $b->[1] <=> length $a->[1] } @{ $synonyms_regexps{$language} } );
 		}
 	}
 	elsif ($return_type eq 'list_of_regexps') {
-		foreach my $l ( keys %synonyms_regexps ) {
-			$result_ref->{$l} = sort { length $b->[1] <=> length $a->[1] } @{ $synonyms_regexps{$l} };
+		foreach my $language ( keys %synonyms_regexps ) {
+			@{$result_ref->{$language}} = sort { length $b->[1] <=> length $a->[1] } @{ $synonyms_regexps{$language} };
 		}
 	}
 	else {

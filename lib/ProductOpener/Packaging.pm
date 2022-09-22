@@ -106,38 +106,15 @@ sub init_packaging_taxonomies_regexps() {
 	
 	foreach my $taxonomy (values %packaging_taxonomies) {
 		
-		$packaging_taxonomies_regexps{$taxonomy} = {};	# keys: languages
-		
-		foreach my $tagid (get_all_taxonomy_entries($taxonomy)) {
-			
-			foreach my $language (keys %{$translations_to{$taxonomy}{$tagid}}) {
-				
-				defined $packaging_taxonomies_regexps{$taxonomy}{$language} or $packaging_taxonomies_regexps{$taxonomy}{$language} = [];
-
-				foreach my $synonym (get_taxonomy_tag_synonyms($language, $taxonomy, $tagid)) {
-					
-					push @{$packaging_taxonomies_regexps{$taxonomy}{$language}}, [$tagid, $synonym];
-					
-					if ((my $unaccented_synonym = unac_string_perl($synonym)) ne $synonym) {
-						
-						push @{$packaging_taxonomies_regexps{$taxonomy}{$language}}, [$tagid, $unaccented_synonym];
-					}
-				}
+		$packaging_taxonomies_regexps{$taxonomy} = 
+		generate_regexps_matching_taxonomy_entries($taxonomy, "list_of_regexps",
+			{
 			}
-		}
-		
-		# We want to match the longest strings first
-		
-		foreach my $language (keys %{$packaging_taxonomies_regexps{$taxonomy}}) {
-			@{$packaging_taxonomies_regexps{$taxonomy}{$language}}
-				= sort { length($b->[1]) <=> length($a->[1]) } @{$packaging_taxonomies_regexps{$taxonomy}{$language}};
-		}
+		);
 		
 		$log->debug("init_packaging_taxonomies_regexps - result", { taxonomy => $taxonomy, packaging_taxonomies_regexps => $packaging_taxonomies_regexps{$taxonomy}  }) if $log->is_debug();
 	}
 	
-	# used only for debugging
-	#store("packaging_taxonomies_regexps.sto", \%packaging_taxonomies_regexps);
 	return;
 }
 

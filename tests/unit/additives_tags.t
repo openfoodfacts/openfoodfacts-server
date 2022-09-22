@@ -193,7 +193,15 @@ my @tests = (
 			lc => 'en', ingredients_text => "flour treatment agents potassium iodate"
 		},
 		['en:e917']
+	],
+
+	[
+		{
+			lc => 'en', ingredients_text => "vitamin A"
+		},
+		[]
 	],		
+
 
 );
 
