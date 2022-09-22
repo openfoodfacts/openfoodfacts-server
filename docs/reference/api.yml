@@ -272,7 +272,10 @@ paths:
           in: query
           name: term
       description: |
-        These suggestions help you know the to possible valuest when editing or adding a new product.
+        For example , Dave is looking for packaging_shapes that contain the term "fe", 
+        all packaging_shapes containing "fe" will be returned. 
+        This is useful if you have a search in your application, 
+        for a specific product field.
 components:
   schemas:
     Product:
