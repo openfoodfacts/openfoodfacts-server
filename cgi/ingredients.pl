@@ -46,7 +46,7 @@ my $request_ref = ProductOpener::Display::init_request();
 my $code = normalize_code(single_param('code'));
 my $id = single_param('id');
 my $ocr_engine = single_param('ocr_engine');
-my $annotations = single_param('annotations') | 0;
+my $annotations = single_param('annotations') || 0;
 
 if (not defined $ocr_engine) {
 	$ocr_engine = "tesseract";
