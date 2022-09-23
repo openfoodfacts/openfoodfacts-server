@@ -166,7 +166,7 @@ import_prod_data:
 	@echo "🥫 Copying the dump to MongoDB container …"
 	docker cp openfoodfacts-mongodbdump.tar.gz $(shell docker-compose ps -q mongodb):/data/db
 	@echo "🥫 Restoring the MongoDB dump …"
-	${DOCKER_COMPOSE} exec -T mongodb //bin/sh -c "cd /data/db && tar -xzvf openfoodfacts-mongodbdump.tar.gz && mongorestore --batchSize=1 && rm openfoodfacts-mongodbdump.tar.gz"
+	${DOCKER_COMPOSE} exec -T mongodb //bin/sh -c "cd /data/db && tar -xzvf openfoodfacts-mongodbdump.tar.gz && rm openfoodfacts-mongodbdump.tar.gz && mongorestore --batchSize=1 &&  rm -rf /data/db/dump/off"
 	rm openfoodfacts-mongodbdump.tar.gz
 
 #--------#
