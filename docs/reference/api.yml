@@ -132,31 +132,11 @@ paths:
         You can rotate existing photos by setting the angle to 90º, 180º, or 270º clockwise.
       parameters:
         #TODO: Describe these parameters
-        - schema:
-            type: string
-            example: '3266110700910'
-          in: query
-          name: code
-          description: Barcode of the product
-          required: true
-        - schema:
-            type: string
-            example: nutrition_fr
-          in: query
-          name: id
-          required: true
-        - schema:
-            type: string
-            example: '1'
-          in: query
-          name: imgid
-          required: true
-        - schema:
-            type: string
-            example: '90'
-          in: query
-          name: angle
-          required: true
+        - $ref: '#/components/parameters/code'
+        - $ref: '#/components/parameters/id'
+        - $ref: '#/components/parameters/imgid'
+        - $ref: '#/components/parameters/angle'
+
       tags:
         - Write Requests
   /cgi/product_jqm2.pl:
@@ -201,28 +181,10 @@ paths:
         It allows you create many custom APIs for your use case. 
         If the search query parameter has 2 possible values, they are seperated by a comma(,).
       parameters:
-        - schema:
-            type: string
-            example: chocolates
-          in: query
-          name: categories_tags_en
-          description: |
-            The category of products you are searching for.
-        - schema:
-            type: string
-            example: organic
-          in: query
-          name: labels_tags_en
-          description: |
-            The labels of products you are searching for.
-        - schema:
-            type: string
-            example: 'code,product_name'
-          in: query
-          name: fields
-          description: |
-            The fields to be returned from the product object can also be limited.
-            If not specified, it returns the entire product object response.
+        - $ref: '#/components/parameters/categories_tags_en'
+        - $ref: '#/components/parameters/labels_tags_en'
+        - $ref: '#/components/parameters/fields'
+        
     parameters: []
   /cgi/suggest.pl:
     get:
@@ -293,7 +255,51 @@ components:
       in: query
       name: ocr_engine
       required: true
-        
+
+    imgid:
+      schema:
+         type: string
+         example: '1'
+      in: query
+      name: imgid
+      required: true
+    
+    angle:
+      schema:
+         type: string
+         example: '90'
+      in: query
+      name: angle
+      required: true
+    
+    categories_tags_en:
+      schema:
+        type: string
+        example: chocolates
+      in: query
+      name: categories_tags_en
+      description: |
+        The category of products you are searching for.
+    
+    labels_tags_en: 
+      schema:
+        type: string
+        example: organic
+      in: query
+      name: labels_tags_en
+      description: |
+        The labels of products you are searching for.
+
+    fields:
+      schema: 
+        type: string
+        example: 'code,product_name'
+      in: query
+      name: fields
+      description: |
+        The fields to be returned from the product object can also be limited.
+        If not specified, it returns the entire product object response.
+      
 tags:
   - name: Read Requests
   - name: Write Requests
