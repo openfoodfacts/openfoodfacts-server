@@ -87,31 +87,10 @@ paths:
       description: |
         Open Food Facts uses optical character recognition (OCR) to retrieve nutritional data and other information from the product labels.
       parameters:
-        - schema:
-            type: string
-            example: ingredients_en
-          in: query
-          name: id
-          required: true
-        - schema:
-            type: string
-            example: '4251105501381'
-          in: query
-          name: code
-          description: Barcode of the product
-          required: true
-        - schema:
-            type: string
-            example: '1'
-          in: query
-          name: process_image
-          required: true
-        - schema:
-            type: string
-            example: google_cloud_vision
-          in: query
-          name: ocr_engine
-          required: true
+        - $ref: '#/components/parameters/id'
+        - $ref: '#/components/parameters/code'
+        - $ref: '#/components/parameters/process_image'
+        - $ref: '#/components/parameters/ocr_engine'
       tags:
         - Read Requests
   /cgi/product_image_crop.pl:
@@ -280,7 +259,41 @@ components:
   schemas:
     Product:
       $ref: ./schemas/product.yaml
-  parameters: {}
+  parameters:
+
+    id:
+      schema:
+        type: string
+        example: ingredients_en
+      in: query
+      name: id
+      required: true
+
+    code:
+      schema:
+        type: string
+        example: '4251105501381'
+      in: query
+      name: code
+      description: Barcode of the product
+      required: true
+
+    process_image:
+      schema:
+        type: string
+        example: '1'
+      in: query
+      name: process_image
+      required: true
+
+    ocr_engine:
+      schema:
+        type: string
+        example: google_cloud_vision
+      in: query
+      name: ocr_engine
+      required: true
+        
 tags:
   - name: Read Requests
   - name: Write Requests
