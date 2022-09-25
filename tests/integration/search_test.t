@@ -19,88 +19,46 @@ my $tests_dir = dirname(__FILE__);
 my $expected_dir = $tests_dir . "/expected_test_results/" . $test_name;
 
 my @products = (
-	{
-		code => '200000000034',
-		lang => "en",
+	
+    {	code => '200000000034',
 		product_name => "test_1",
 		generic_name => "Tester",
-		quantity => "100 ml",
-		link => "https://github.com/openfoodfacts/openfoodfacts-server",
-		expiration_date => "test",
 		ingredients_text => "apple, milk, eggs, palm oil",
-		origin => "france",
-		serving_size => "10g",
-		packaging_text => "no",
-		action => "process",
-		type => "add",
-		".submit" => "submit"
-	},
+		origin => "france",}
+	,
 	{
 		code => '200000000037',
-		lang => "en",
 		product_name => "vegan & palm oil free",
 		generic_name => "Tester",
-		quantity => "100 ml",
-		link => "https://github.com/openfoodfacts/openfoodfacts-server",
-		expiration_date => "test",
 		ingredients_text => "fruit, rice",
-		origin => "france",
-		serving_size => "10g",
-		packaging_text => "no",
-		action => "process",
-		type => "add",
-		".submit" => "submit"
-
+		packaging_text => "no"
 	},
 	{
 		code => '200000000038',
-		lang => "en",
 		product_name => "palm oil free & non vegan",
 		generic_name => "Tester",
 		quantity => "100 ml",
-		link => "https://github.com/openfoodfacts/openfoodfacts-server",
-		expiration_date => "test",
 		ingredients_text => "apple, milk, eggs",
-		origin => "france",
-		serving_size => "10g",
-		packaging_text => "no",
-		action => "process",
-		type => "add",
-		".submit" => "submit"
+		origin => "france"
 	},
 	{
 		code => '200000000039',
 		lang => "es",
 		product_name => "Vegan Test Snack",
 		generic_name => "Tester",
-		quantity => "100 ml",
-		link => "https://github.com/openfoodfacts/openfoodfacts-server",
-		expiration_date => "test",
 		ingredients_text => "apple, water, palm oil",
 		origin => "spain",
-		serving_size => "5g",
-		packaging_text => "no",
-		action => "process",
-		categories => "snacks",
-		type => "add",
-		".submit" => "submit"
+		categories => "snacks"
 	},
 	{
 		code => '200000000045',
 		lang => "es",
 		product_name => "Vegan Test Snack",
 		generic_name => "Tester",
-		quantity => "100 ml",
-		link => "https://github.com/openfoodfacts/openfoodfacts-server",
-		expiration_date => "test",
 		ingredients_text => "apple, water",
-		origin => "France",
-		serving_size => "5g",
+		origin => "China",
 		packaging_text => "no",
-		action => "process",
-		categories => "breakfast cereals",
-		type => "add",
-		".submit" => "submit"
+		categories => "breakfast cereals"
 	}
 );
 
@@ -115,8 +73,16 @@ my $ua = new_client();
 my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
 create_user($ua, \%create_user_args);
 
-foreach my $ref (@products) {
-	edit_product($ua, $ref);
+##This works 
+my %arg_test_product = (%default_product_form, (ingredients_text => "peach, turkey"));
+create_product($ua, \%arg_test_product);
+##Used a print statement to see what the final hash looks like
+print Dumper(\%arg_test_product);
+
+
+foreach my $product_form_override (@products) {
+	my %create_product_args = (%default_product_form, $product_form_override);
+	create_product($ua, \%create_product_args);
 }
 
 my @tests = (
