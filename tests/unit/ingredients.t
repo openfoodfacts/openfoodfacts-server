@@ -477,6 +477,38 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 		}
 	],
 
+	# Origins : X from Y
+	[
+		"en-origin-ingredient-from-origin",
+		{
+			lc => "en",
+			ingredients_text => "Red peppers, yellow peppers",
+			origin_en => "Red peppers from Spain, Italy and France, Yellow peppers from South America",
+		}
+	],
+
+	# Origins : X from Y
+	[
+		"en-origin-ingredient-origin-and-origin",
+		{
+			lc => "en",
+			ingredients_text => "Red peppers, yellow peppers",
+			origin_en => "Red peppers: Spain or South America, Yellow peppers: Mexico, Canada and California",
+		}
+	],
+
+	# Origins : French - X from Y
+	[
+		"fr-origin-ingredient-origin-and-origin",
+		{
+			lc => "fr",
+			ingredients_text => "Pomme de Terre 47%, Porc 22%, Lait demi-écrémé (contient Lait) 5.5%, Crème liquide (contient Lait) 5.5%, Eau 5.5%,
+			Beurre (contient Lait) 2.7%, Moutarde à l'ancienne (contient Moutarde, Sulfites) 2.7%, Crème (contient Lait) 2.7%, Moutarde de Dijon (contient Moutarde, Sulfites) 2.7%,
+			Miel de fleurs 2.7%, Epices (contient Sésame) 0.55%, bouillon (contient Gluten, Lait, Céleri) 0.55%, Sel fin 0.14%",
+			origin_fr => "Pomme de Terre de France, Porc de France, Lait demi-écrémé de France, Crème liquide de France, Eau de France, Beurre de France, 
+				Moutarde à l'ancienne de France, Crème de France, Moutarde de Dijon de France, Miel de fleurs de France, Epices : Inde, Bouillon de France, Sel fin de France",
+		}
+	],	
 
 	[
 		"en-vitamin",

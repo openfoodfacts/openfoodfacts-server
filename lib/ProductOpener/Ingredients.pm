@@ -551,6 +551,7 @@ sub init_origins_regexps() {
 	%origins_regexps = %{
 		generate_regexps_matching_taxonomy_entries("origins", "unique_regexp",
 			{
+				match_space_with_dash => 1,
 			}
 		)
 	};
@@ -1119,8 +1120,13 @@ sub parse_specific_ingredients_from_text($product_ref, $text, $percent_regexp) {
 
 sub match_ingredient_origin($product_lc, $text_ref, $matched_ingredient_ref) {
 
-	# Strawberries: Spain
-	if ($$text_ref =~ /\s*([^,.;:]+)(?::)\s*([^,.;]+?)\s*(?:;|\.| - |$)/i) {
+	my $origins_regexp = $origins_regexps{$product_lc};
+	my $and_or = $and_or{$product_lc} || ',';
+	my $from = $from{$product_lc} || ':';
+
+	# Strawberries: Spain, Italy and Portugal
+	# Strawberries from Spain, Italy and Portugal
+	if ($$text_ref =~ /\s*([^,.;:]+)(?::|$from)\s*((?:$origins_regexp)(?:(?:,|$and_or)(?:\s?)(?:$origins_regexp))*)\s*(?:,|;|\.| - |$)/i) {
 		# Note: the regexp above does not currently match multiple origins with commas (e.g. "Origins of milk: UK, UE")
 		# in order to not overmatch something like "Origin of milk: UK, some other mention."
 		# In the future, we could try to be smarter and match more if we can recognize the next words exist in the origins taxonomy.
@@ -1147,7 +1153,7 @@ sub match_origin_of_the_ingredient_origin($product_lc, $text_ref, $matched_ingre
 
 	my $origin_of_the_regexp = $origin_of_the_regexp_in_lc{$product_lc} || $origin_of_the_regexp_in_lc{en};
 	my $origins_regexp = $origins_regexps{$product_lc};
-	my $and_or = $and_or{$product_lc};
+	my $and_or = $and_or{$product_lc} || ',';
 
 	# Origin of the milk: United Kingdom.
 	if ($origins_regexp
