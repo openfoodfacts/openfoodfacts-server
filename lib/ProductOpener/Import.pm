@@ -518,136 +518,142 @@ sub import_csv_file($args_ref) {
 		if (($args_ref->{import_owner}) and (defined $imported_product_ref->{owner})
 			and ($imported_product_ref->{owner} =~ /^org-(.+)$/)) {
 			$org_id = $1;
+			$log->debug("org_id from owner", { org_id => $org_id, owner => $imported_product_ref->{owner} }) if $log->is_debug();
 		}
 		elsif (($args_ref->{use_brand_owner_as_org_name}) and (defined $imported_product_ref->{brand_owner})) {
 			# The option -use_brand_owner_as_org_name can be used to set the org name
 			# e.g. for the USDA branded food database import
 			$imported_product_ref->{org_name} = $imported_product_ref->{brand_owner};
+			$log->debug("org_id from brand owner", { org_id => $org_id, brand_owner => $imported_product_ref->{brand_owner} }) if $log->is_debug();
 		}
 		# if the GLN corresponds to a GLN stored inside organization profiles (loaded in $glns_ref), use it
 		elsif (defined $imported_product_ref->{"sources_fields:org-gs1:gln"}) {
 			if ($glns_ref->{$imported_product_ref->{"sources_fields:org-gs1:gln"}}) {
-				$org_id = $glns_ref->{$imported_product_ref->{"sources_fields:org-gs1:gln"}};	
+				$org_id = $glns_ref->{$imported_product_ref->{"sources_fields:org-gs1:gln"}};
+				$log->debug("org_id from gln", { org_id => $org_id, gln => $imported_product_ref->{"sources_fields:org-gs1:gln"} }) if $log->is_debug();
 			}
 		}
 		# Otherwise, if the CSV includes an org_name (e.g. from GS1 partyName field)
 		# set the owner of the product to the org_name
 		elsif ((defined $imported_product_ref->{org_name}) and ($imported_product_ref->{org_name} ne "")) {
 			$org_id = get_string_id_for_lang("no_language", $imported_product_ref->{org_name});
-		}
-
-		if ($org_id ne "") {
-			# Re-assign some organizations
-			# e.g. nestle-france-div-choc-cul-bi-inf -> nestle-france
-			$org_id =~ s/^nestle-france-.*/nestle-france/;
-			$org_id =~ s/^cereal-partners-france$/nestle-france/;
-			$org_id =~ s/^nestle-spac$/nestle-france/;
-
-			$log->debug("org", { org_name => $imported_product_ref->{org_name}, org_id => $org_id, gln => $imported_product_ref->{"sources_fields:org-gs1:gln"} }) if $log->is_debug();
-
-			defined $stats{orgs_in_file}{$org_id} or $stats{orgs_in_file}{$org_id} = 0;
-			$stats{orgs_in_file}{$org_id}++;
-			
-			$org_ref = retrieve_org($org_id);
-	
-			if (defined $org_ref) {
-
-				defined $stats{orgs_existing}{$org_id} or $stats{orgs_existing}{$org_id} = 0;
-				$stats{orgs_existing}{$org_id}++;
-
-				# Make sure the source as the authorization to load data to the org
-				# e.g. if an org has loaded fresh data manually or through Equadis,
-				# don't overwrite it with potentially stale CodeOnline or USDA data
-
-				if (defined $args_ref->{source_id}) {
-					if (not $org_ref->{"import_source_" . $args_ref->{source_id}}) {
-						$log->debug("skipping import for org without authorization for the source", { org_ref => $org_ref, source_id => $args_ref->{source_id} }) if $log->is_debug();
-						$stats{orgs_without_source_authorization}{$org_id} or $stats{orgs_without_source_authorization}{$org_id} = 0;
-						$stats{orgs_without_source_authorization}{$org_id}++;
-						next;
-					};
-				}
-
-				# The do_not_import_codeonline checkbox will be replaced by the new system above that will work for all sources
-
-				# Check if it is a CodeOnline import for an org with do_not_import_codeonline
-				if ((defined $args_ref->{source_id}) and ($args_ref->{source_id} eq "codeonline")
-					and (defined $org_ref->{do_not_import_codeonline}) and ($org_ref->{do_not_import_codeonline})) {
-					$log->debug("skipping codeonline import for org with do_not_import_codeonline", { org_ref => $org_ref }) if $log->is_debug();
-					next;
-				}
-				
-				# If it is a GS1 import (Equadis, CodeOnline, Agena3000), check if the org is associated with known issues
-				
-				# Abbreviated product name
-				if ((defined $args_ref->{source_id}) and (($args_ref->{source_id} eq "codeonline") or ($args_ref->{source_id} eq "equadis") or ($args_ref->{source_id} eq "agena3000"))
-					and (defined $org_ref->{gs1_product_name_is_abbreviated}) and ($org_ref->{gs1_product_name_is_abbreviated})) {
-						
-					if ((defined $imported_product_ref->{product_name_fr}) and ($imported_product_ref->{product_name_fr} ne "")) {
-						$imported_product_ref->{abbreviated_product_name_fr} = $imported_product_ref->{product_name_fr};
-						delete $imported_product_ref->{product_name_fr};
-					}
-				}
-				
-				# Nutrition facts marked as "prepared" are in fact for unprepared / as sold product
-				if ((defined $args_ref->{source_id}) and (($args_ref->{source_id} eq "codeonline") or ($args_ref->{source_id} eq "equadis") or ($args_ref->{source_id} eq "agena3000"))
-					and (defined $org_ref->{gs1_nutrients_are_unprepared}) and ($org_ref->{gs1_nutrients_are_unprepared})) {
-					
-					foreach my $field (sort keys %$imported_product_ref) {
-						if ($field =~ /_prepared/) {
-							my $unprepared_field = $` . $';
-							if (((defined $imported_product_ref->{$field}) and ($imported_product_ref->{$field} ne ''))
-								and not ((defined $imported_product_ref->{$unprepared_field}) and ($imported_product_ref->{$unprepared_field} ne "")) ) {
-								$imported_product_ref->{$unprepared_field} = $imported_product_ref->{$field};
-								delete $imported_product_ref->{$field};
-							}
-						}
-					}
-				}	
-			}
-			else {
-				# The org does not exist yet, create it
-
-				defined $stats{orgs_created}{$org_id} or $stats{orgs_created}{$org_id} = 0;
-				$stats{orgs_created}{$org_id}++;
-				
-				$org_ref = create_org($User_id, $org_id);
-				$org_ref->{name} = $imported_product_ref->{org_name};
-
-				# Set the sources field to authorize imports from the source that created the org
-				# e.g. if the org was created by an import of Codeonline or the USDA,
-				# then that source will be able to load new imports automatically
-				# (unless the authorization is revoked by an admin or the org owner)
-
-				if (defined $args_ref->{source_id}) {
-					$org_ref->{"import_source_" . $args_ref->{source_id}} = "on";
-
-					# Check the checkbox for automated exports to the public database
-					$org_ref->{"activate_automated_daily_export_to_public_platform"} = "on";
-				}
-				
-				if (defined $imported_product_ref->{"sources_fields:org-gs1:gln"}) {
-					$org_ref->{sources_field} = {
-						"org-gs1" => {
-							gln => $imported_product_ref->{"sources_fields:org-gs1:gln"}
-						}
-					};
-					if (defined $imported_product_ref->{"sources_fields:org-gs1:partyName"}) {
-						$org_ref->{sources_field}{"org-gs1"}{"partyName"} = $imported_product_ref->{"sources_fields:org-gs1:partyName"};
-					}
-					set_org_gs1_gln($org_ref, $imported_product_ref->{"sources_fields:org-gs1:gln"});
-					$glns_ref = retrieve("$data_root/orgs/orgs_glns.sto");
-				}
-		
-				store_org($org_ref);
-			}
+			$log->debug("org_id from org_name", { org_id => $org_id, org_name => $imported_product_ref->{org_name} }) if $log->is_debug();
 		}
 		else {
 			# No org_id is set
 			# Could be a GS1 import with a GLN that we don't know about yet, and missing a partyName
 			$log->debug("skipping product with no org_id specified", { gln => $imported_product_ref->{"sources_fields:org-gs1:gln"}, imported_product_ref => $imported_product_ref }) if $log->is_debug();
 			$stats{orgs_with_gln_but_no_party_name}{$imported_product_ref->{"sources_fields:org-gs1:gln"}}++;
+			exit;
+			next;
 		}
+
+
+		# Re-assign some organizations
+		# e.g. nestle-france-div-choc-cul-bi-inf -> nestle-france
+		$org_id =~ s/^nestle-france-.*/nestle-france/;
+		$org_id =~ s/^cereal-partners-france$/nestle-france/;
+		$org_id =~ s/^nestle-spac$/nestle-france/;
+
+		$log->debug("org", { org_name => $imported_product_ref->{org_name}, org_id => $org_id, gln => $imported_product_ref->{"sources_fields:org-gs1:gln"} }) if $log->is_debug();
+
+		defined $stats{orgs_in_file}{$org_id} or $stats{orgs_in_file}{$org_id} = 0;
+		$stats{orgs_in_file}{$org_id}++;
+		
+		$org_ref = retrieve_org($org_id);
+
+		if (defined $org_ref) {
+
+			defined $stats{orgs_existing}{$org_id} or $stats{orgs_existing}{$org_id} = 0;
+			$stats{orgs_existing}{$org_id}++;
+
+			# Make sure the source as the authorization to load data to the org
+			# e.g. if an org has loaded fresh data manually or through Equadis,
+			# don't overwrite it with potentially stale CodeOnline or USDA data
+
+			if (defined $args_ref->{source_id}) {
+				if (not $org_ref->{"import_source_" . $args_ref->{source_id}}) {
+					$log->debug("skipping import for org without authorization for the source", { org_ref => $org_ref, source_id => $args_ref->{source_id} }) if $log->is_debug();
+					$stats{orgs_without_source_authorization}{$org_id} or $stats{orgs_without_source_authorization}{$org_id} = 0;
+					$stats{orgs_without_source_authorization}{$org_id}++;
+					next;
+				};
+			}
+
+			# The do_not_import_codeonline checkbox will be replaced by the new system above that will work for all sources
+
+			# Check if it is a CodeOnline import for an org with do_not_import_codeonline
+			if ((defined $args_ref->{source_id}) and ($args_ref->{source_id} eq "codeonline")
+				and (defined $org_ref->{do_not_import_codeonline}) and ($org_ref->{do_not_import_codeonline})) {
+				$log->debug("skipping codeonline import for org with do_not_import_codeonline", { org_ref => $org_ref }) if $log->is_debug();
+				next;
+			}
+			
+			# If it is a GS1 import (Equadis, CodeOnline, Agena3000), check if the org is associated with known issues
+			
+			# Abbreviated product name
+			if ((defined $args_ref->{source_id}) and (($args_ref->{source_id} eq "codeonline") or ($args_ref->{source_id} eq "equadis") or ($args_ref->{source_id} eq "agena3000"))
+				and (defined $org_ref->{gs1_product_name_is_abbreviated}) and ($org_ref->{gs1_product_name_is_abbreviated})) {
+					
+				if ((defined $imported_product_ref->{product_name_fr}) and ($imported_product_ref->{product_name_fr} ne "")) {
+					$imported_product_ref->{abbreviated_product_name_fr} = $imported_product_ref->{product_name_fr};
+					delete $imported_product_ref->{product_name_fr};
+				}
+			}
+			
+			# Nutrition facts marked as "prepared" are in fact for unprepared / as sold product
+			if ((defined $args_ref->{source_id}) and (($args_ref->{source_id} eq "codeonline") or ($args_ref->{source_id} eq "equadis") or ($args_ref->{source_id} eq "agena3000"))
+				and (defined $org_ref->{gs1_nutrients_are_unprepared}) and ($org_ref->{gs1_nutrients_are_unprepared})) {
+				
+				foreach my $field (sort keys %$imported_product_ref) {
+					if ($field =~ /_prepared/) {
+						my $unprepared_field = $` . $';
+						if (((defined $imported_product_ref->{$field}) and ($imported_product_ref->{$field} ne ''))
+							and not ((defined $imported_product_ref->{$unprepared_field}) and ($imported_product_ref->{$unprepared_field} ne "")) ) {
+							$imported_product_ref->{$unprepared_field} = $imported_product_ref->{$field};
+							delete $imported_product_ref->{$field};
+						}
+					}
+				}
+			}	
+		}
+		else {
+			# The org does not exist yet, create it
+
+			defined $stats{orgs_created}{$org_id} or $stats{orgs_created}{$org_id} = 0;
+			$stats{orgs_created}{$org_id}++;
+			
+			$org_ref = create_org($User_id, $org_id);
+			$org_ref->{name} = $imported_product_ref->{org_name};
+
+			# Set the sources field to authorize imports from the source that created the org
+			# e.g. if the org was created by an import of Codeonline or the USDA,
+			# then that source will be able to load new imports automatically
+			# (unless the authorization is revoked by an admin or the org owner)
+
+			if (defined $args_ref->{source_id}) {
+				$org_ref->{"import_source_" . $args_ref->{source_id}} = "on";
+
+				# Check the checkbox for automated exports to the public database
+				$org_ref->{"activate_automated_daily_export_to_public_platform"} = "on";
+			}
+			
+			if (defined $imported_product_ref->{"sources_fields:org-gs1:gln"}) {
+				$org_ref->{sources_field} = {
+					"org-gs1" => {
+						gln => $imported_product_ref->{"sources_fields:org-gs1:gln"}
+					}
+				};
+				if (defined $imported_product_ref->{"sources_fields:org-gs1:partyName"}) {
+					$org_ref->{sources_field}{"org-gs1"}{"partyName"} = $imported_product_ref->{"sources_fields:org-gs1:partyName"};
+				}
+				set_org_gs1_gln($org_ref, $imported_product_ref->{"sources_fields:org-gs1:gln"});
+				$glns_ref = retrieve("$data_root/orgs/orgs_glns.sto");
+			}
+	
+			store_org($org_ref);
+		}
+
 
 		$Org_id = $org_id;
 		$Owner_id = get_owner_id($User_id, $Org_id, $args_ref->{owner_id});
