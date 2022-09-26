@@ -1056,14 +1056,28 @@ sub gs1_to_off ($gs1_to_off_ref, $json_ref, $results_ref) {
 									{ servingSize => $nutrient_header_ref->{servingSize} }) if $log->is_error();
 					}
 					
+					# We may have a servingSizeDescription in multiple languages, in that case, take the first one
+
 					if (defined $nutrient_header_ref->{servingSizeDescription}) {
-						if (defined $nutrient_header_ref->{servingSizeDescription}{'#'}) {
-							$serving_size_description = $nutrient_header_ref->{servingSizeDescription}{'#'};
-							$serving_size_description_lc = $nutrient_header_ref->{servingSizeDescription}{'@'}{languageCode};
+						my @serving_size_descriptions;
+						if (ref($nutrient_header_ref->{servingSizeDescription}) eq "ARRAY") {
+							@serving_size_descriptions = @{$nutrient_header_ref->{servingSizeDescription}};
 						}
-						elsif (defined $nutrient_header_ref->{servingSizeDescription}{'$t'}) {
-							$serving_size_description = $nutrient_header_ref->{servingSizeDescription}{'$t'};
-							$serving_size_description_lc = $nutrient_header_ref->{servingSizeDescription}{languageCode};
+						else {
+							@serving_size_descriptions = ($nutrient_header_ref->{servingSizeDescription});
+						}
+
+						if (scalar @serving_size_descriptions > 0) {
+
+							my $serving_size_description_ref = $serving_size_descriptions[0];
+							if (defined $serving_size_description_ref->{'#'}) {
+								$serving_size_description = $serving_size_description_ref->{'#'};
+								$serving_size_description_lc = $serving_size_description_ref->{'@'}{languageCode};
+							}
+							elsif (defined $serving_size_description_ref->{'$t'}) {
+								$serving_size_description = $serving_size_description_ref->{'$t'};
+								$serving_size_description_lc = $serving_size_description_ref->{languageCode};
+							}
 						}
 					}
 					
