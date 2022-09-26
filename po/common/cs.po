@@ -762,8 +762,8 @@ msgstr "<<site_name>> blog"
 
 # Do not translate
 msgctxt "footer_blog_link"
-msgid "https://en.blog.openfoodfacts.org"
-msgstr "https://en.blog.openfoodfacts.org"
+msgid "https://blog.openfoodfacts.org/en/"
+msgstr "https://blog.openfoodfacts.org/en/"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -1565,13 +1565,13 @@ msgstr "Výživová hodnota"
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
 msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-msgstr ""
+msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
-msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
+msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://blog.openfoodfacts.org/en/\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr "<p>Chcete-li se dozvědět více o <<site_name>>, navštivte <a href=\"https://en.blog.openfoodfacts.org\">náš blog</a>!</p>\n"
+msgstr "<p>Chcete-li se dozvědět více o <<site_name>>, navštivte <a href=\"https://blog.openfoodfacts.org/en/\">náš blog</a>!</p>\n"
 "<p>Nejnovější zprávy:</p>\n"
 
 msgctxt "on_the_blog_title"
@@ -2450,6 +2450,7 @@ msgctxt "tagstable_search"
 msgid "Search:"
 msgstr "Vyhledat:"
 
+# This is linked to a unit test
 msgctxt "traces"
 msgid "Traces"
 msgstr "Stopy"
@@ -2720,7 +2721,7 @@ msgstr "Schváleno (slova)"
 
 msgctxt "translators_column_votes_made"
 msgid "Votes Made"
-msgstr ""
+msgstr "Udělené hodnocení"
 
 msgctxt "minerals_p"
 msgid "added minerals"
@@ -4420,6 +4421,7 @@ msgctxt "images_can_be_provided_separately"
 msgid "Product photos can also be provided separately through the Import product photos function of the platform for producers."
 msgstr "Produktové fotografie lze také poskytovat samostatně prostřednictvím funkce Import produktových fotografií platformy pro výrobce."
 
+# This is linked to a unit test
 msgctxt "attribute_group_labels_name"
 msgid "Labels"
 msgstr "Štítky"
