@@ -78,7 +78,7 @@ my $compute_nova = '';
 my $reverted_user_id = '';
 
 GetOptions(
-	"userid=s" => \$reverted_user_id,  # string
+	"userid=s" => \$reverted_user_id,    # string
 	"pretend" => \$pretend,
 ) or die("Error in command line arguments:\n\n$usage");
 
@@ -90,7 +90,6 @@ my $query_ref = {};
 
 $query_ref->{editors_tags} = $reverted_user_id;
 
-
 print "Update key: $key\n\n";
 
 my $products_collection = get_products_collection();
@@ -99,10 +98,10 @@ my $cursor = $products_collection->query($query_ref)->fields({code => 1});
 $cursor->immortal(1);
 my $count = $products_collection->count_documents($query_ref);
 
-my $n = 0;  # how many product we impact
-my $reverted = 0;  # how many product were reverted but still exists
-my $deleted = 0;  # how many product were removed (added by target user)
-my %lost_revs = ();  # how many revisions from other users we loose
+my $n = 0;    # how many product we impact
+my $reverted = 0;    # how many product were reverted but still exists
+my $deleted = 0;    # how many product were removed (added by target user)
+my %lost_revs = ();    # how many revisions from other users we loose
 
 print STDERR "$count products to revert\n";
 
@@ -157,7 +156,7 @@ while (my $product_ref = $cursor->next) {
 		}
 		elsif ($after_first_change && (defined $change_ref->{userid})) {
 			# track that we are loosing another user revision
-			if (not (defined $lost_revs{$code})) {
+			if (not(defined $lost_revs{$code})) {
 				$lost_revs{$code} = 0;
 			}
 			$lost_revs{$code} += 1;
@@ -174,7 +173,7 @@ while (my $product_ref = $cursor->next) {
 			# avoid putting them twice
 			if (not exists $deleted_revs{$rev}) {
 				my $target = "$path/$rev.sto";
-				$target =~ s/\//_/g; # substitute "/" by _ to have a filename
+				$target =~ s/\//_/g;    # substitute "/" by _ to have a filename
 				my $cmd = "mv $data_root/products/$path/$rev.sto $data_root/reverted_products/$target";
 				print STDERR "$code - $cmd\n";
 				if (not $pretend) {
@@ -232,7 +231,7 @@ while (my $product_ref = $cursor->next) {
 	# fetch product on disk
 	$product_ref = retrieve_product($code);
 
-	if ($pretend && $after_first_change && ! (scalar @$new_changes_ref)) {
+	if ($pretend && $after_first_change && !(scalar @$new_changes_ref)) {
 		# simulate product not present if we removed all revs (no new_changes_ref)
 		$product_ref = undef;
 	}
@@ -265,14 +264,14 @@ while (my $product_ref = $cursor->next) {
 
 }
 
-my $would = $pretend ? " would be": "";
+my $would = $pretend ? " would be" : "";
 print "$n products$would updated\n";
 print "$reverted products$would reverted\n";
 print "$deleted products$would deleted\n";
 if (scalar %lost_revs) {
 	print "revisions$would lost: \n";
 	while (my ($lost_code, $lost_num) = each(%lost_revs)) {
-		print "- $lost_code: $lost_num\n"
+		print "- $lost_code: $lost_num\n";
 	}
 }
 
