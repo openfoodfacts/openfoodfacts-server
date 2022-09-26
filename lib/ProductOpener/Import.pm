@@ -514,6 +514,10 @@ sub import_csv_file($args_ref) {
 
 		my @images_ids;
 
+		# Determine the org_id for the product
+
+		$log->debug("org for product - start", { org_name => $imported_product_ref->{org_name}, org_id => $org_id, gln => $imported_product_ref->{"sources_fields:org-gs1:gln"} }) if $log->is_debug();
+
 		# The option import_owner is used when exporting from the producers database to the public database
 		if (($args_ref->{import_owner}) and (defined $imported_product_ref->{owner})
 			and ($imported_product_ref->{owner} =~ /^org-(.+)$/)) {
@@ -527,11 +531,10 @@ sub import_csv_file($args_ref) {
 			$log->debug("org_id from brand owner", { org_id => $org_id, brand_owner => $imported_product_ref->{brand_owner} }) if $log->is_debug();
 		}
 		# if the GLN corresponds to a GLN stored inside organization profiles (loaded in $glns_ref), use it
-		elsif (defined $imported_product_ref->{"sources_fields:org-gs1:gln"}) {
-			if ($glns_ref->{$imported_product_ref->{"sources_fields:org-gs1:gln"}}) {
-				$org_id = $glns_ref->{$imported_product_ref->{"sources_fields:org-gs1:gln"}};
-				$log->debug("org_id from gln", { org_id => $org_id, gln => $imported_product_ref->{"sources_fields:org-gs1:gln"} }) if $log->is_debug();
-			}
+		elsif ((defined $imported_product_ref->{"sources_fields:org-gs1:gln"}) 
+			and ($glns_ref->{$imported_product_ref->{"sources_fields:org-gs1:gln"}})) {
+			$org_id = $glns_ref->{$imported_product_ref->{"sources_fields:org-gs1:gln"}};
+			$log->debug("org_id from gln", { org_id => $org_id, gln => $imported_product_ref->{"sources_fields:org-gs1:gln"} }) if $log->is_debug();
 		}
 		# Otherwise, if the CSV includes an org_name (e.g. from GS1 partyName field)
 		elsif (defined $imported_product_ref->{org_name}) {
@@ -545,10 +548,11 @@ sub import_csv_file($args_ref) {
 				# Could be a GS1 import with a GLN that we don't know about yet, and missing a partyName
 				$log->debug("skipping product with no org_id specified", { gln => $imported_product_ref->{"sources_fields:org-gs1:gln"}, imported_product_ref => $imported_product_ref }) if $log->is_debug();
 				$stats{orgs_with_gln_but_no_party_name}{$imported_product_ref->{"sources_fields:org-gs1:gln"}}++;
-				exit;
 				next;
 			}
 		}
+
+		$log->debug("org for product - result", { org_name => $imported_product_ref->{org_name}, org_id => $org_id, gln => $imported_product_ref->{"sources_fields:org-gs1:gln"} }) if $log->is_debug();
 
 		if ((defined $org_id) and ($org_id ne "")) {
 			# Re-assign some organizations
@@ -556,8 +560,6 @@ sub import_csv_file($args_ref) {
 			$org_id =~ s/^nestle-france-.*/nestle-france/;
 			$org_id =~ s/^cereal-partners-france$/nestle-france/;
 			$org_id =~ s/^nestle-spac$/nestle-france/;
-
-			$log->debug("org", { org_name => $imported_product_ref->{org_name}, org_id => $org_id, gln => $imported_product_ref->{"sources_fields:org-gs1:gln"} }) if $log->is_debug();
 
 			defined $stats{orgs_in_file}{$org_id} or $stats{orgs_in_file}{$org_id} = 0;
 			$stats{orgs_in_file}{$org_id}++;
