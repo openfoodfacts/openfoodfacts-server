@@ -232,45 +232,34 @@
 		<!-- main row - comment used to remove left column and center content on some pages -->
 		<div class="main block_light block_latte" >
 			
-			<div id="main_column"  >
-				
+			<div id="main_column">
 				
 				<!-- main column content - comment used to remove left column and center content on some pages -->
 				
 				[% INCLUDE 'web/common/includes/donate_banner.tt.html' %]
 
-
-	
-
-				[% IF page_type == "product" || page_type == "product_edit" %]
+				[% IF page_format == "banner" %]
 					<!-- product page content contains its own h1 title -->
 					[% content %]
-				[% ELSIF schema_org_itemtype.defined %]
-					<div itemscope itemtype="[% schema_org_itemtype %]">
-						<div>
+				[% ELSE %]
+					[% IF schema_org_itemtype.defined %]
+						<div itemscope itemtype="[% schema_org_itemtype %]">
 							<div class="row">
-								<div class="column">
-								<h1 itemprop="name">[% title %]</h1>
-							</div>
+								<div class="small-12 column">
+									<h1 itemprop="name">[% title %]</h1>
+									[% content %]
+								</div>
 							</div>
 						</div>
-						[% IF  page_type != "product" &&  page_type != "list_of_products"%]
-						<div class="row"><div class="small-12 column">
-						[% END %]
-						[% content %]
-						[% IF  page_type != "product" &&  page_type != "list_of_products"%]
-						</div></div>
-						[% END %]
-					</div>
-				[% ELSE %]
-					[% IF  page_type != "product" &&  page_type != "list_of_products"%]
-					<div class="row"><div class="small-12 column v-space-wide">
-					[% END %]
-					<h1>[% title %]</h1>
-					[% content %]
-					[% IF  page_type != "product" &&  page_type != "list_of_products"%]
-					</div></div>
-					[% END %]
+					[% ELSE %]
+						<div class="row">
+							<div class="small-12 column v-space-wide">
+
+								<h1>[% title %]</h1>
+								[% content %]
+							</div>
+						</div>
+					[% END %]				
 				[% END %]
 			</div>
         </div>

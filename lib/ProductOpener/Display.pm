@@ -4354,7 +4354,8 @@ JS
 	}
 
 	$request_ref->{content_ref} = \$html;
-	$request_ref->{page_type} = "list_of_products";
+	$request_ref->{page_type} = "products";
+	$request_ref->{page_type} = "banner";
 
 	display_page($request_ref);
 
@@ -4907,7 +4908,8 @@ sub customize_response_for_product($request_ref, $product_ref) {
 
 sub search_and_display_products($request_ref, $query_ref, $sort_by, $limit, $page) {
 
-	$request_ref->{page_type} = "list_of_products";
+	$request_ref->{page_type} = "products";
+	$request_ref->{page_format} = "banner";
 
 	my $template_data_ref = {
 	};
@@ -6933,7 +6935,8 @@ sub display_page($request_ref) {
 	$template_data_ref->{formatted_subdomain} = $formatted_subdomain;
 	$template_data_ref->{css_timestamp} = $file_timestamps{'css/dist/app-' . lang('text_direction') . '.css'};
 	$template_data_ref->{header} = $header;
-	$template_data_ref->{page_type} = $request_ref->{page_type};
+	$template_data_ref->{page_type} = $request_ref->{page_type} || "other";
+	$template_data_ref->{page_format} = $request_ref->{page_format} || "normal";
 
 	if ($request_ref->{schema_org_itemtype}) {
 		$template_data_ref->{schema_org_itemtype} = $request_ref->{schema_org_itemtype};
@@ -6955,13 +6958,6 @@ sub display_page($request_ref) {
 	$template_data_ref->{google_analytics} = $google_analytics;
 	$template_data_ref->{bodyabout} = $bodyabout;
 	$template_data_ref->{site_name} = $site_name;
-
-	if (defined $request_ref->{page_type}) {
-		$template_data_ref->{page_type} = $request_ref->{page_type};
-	}
-	else {
-		$template_data_ref->{page_type} = "other";
-	}
 
 	my $en = 0;
 	my $langs = '';
@@ -8162,6 +8158,7 @@ JS
 	$request_ref->{description} = $description;
 	$request_ref->{blocks_ref} = $blocks_ref;
 	$request_ref->{page_type} = "product";
+	$request_ref->{page_format} = "banner";
 
 	$log->trace("displayed product") if $log->is_trace();
 

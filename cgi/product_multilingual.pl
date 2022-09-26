@@ -1435,6 +1435,7 @@ HTML
 	process_template('web/pages/product_edit/product_edit_form_display.tt.js', $template_data_ref_display, \$js);
 	$initjs .= $js;
 	$request_ref->{page_type} = "product_edit";
+	$request_ref->{page_format} = "banner";
 
 }
 elsif (($action eq 'display') and ($type eq 'delete') and ($User{moderator})) {

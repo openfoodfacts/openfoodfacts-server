@@ -7,8 +7,11 @@
 </a>
 
 <div class="block v-space-tiny product_banner_unranked" id="prodHead">
-
-    <h1>edit</h1>
+    <div class="row">
+        <div class="small-12 columns">
+            <h1>[% title %]</h1>
+        </div>
+    </div>
 </div>
 
     [% IF !( server_options_private_products.defined && server_options_private_products ) && org_id %]
@@ -44,6 +47,12 @@
                 </div> 
             </div>
         </div>
+
+        <div id="prodInfos">
+
+            <div class="row">
+                <div class="small-12 columns">
+
 
         <section id="misc" class="card fieldset">
             <div class="card-section">
@@ -282,15 +291,15 @@
 
                 <div class="row">
                     <div class="small-12 medium-12 large-8 xlarge-8 columns">
-                        <input id="comment" name="comment" placeholder="[% lang('edit_comment') %]" value="" type="text" class="text" />
+                        <input id="comment" name="comment" placeholder="[% lang('edit_comment') %]" value="" type="text" class="text" style="margin:0" />
                     </div>
                     <div class="small-6 medium-6 large-2 xlarge-2 columns">
-                        <button type="submit" name=".submit" class="button postfix small white">
+                        <button type="submit" id="save" name=".submit" class="button postfix success small">
                             [% display_icon('check') %] [% lang('save') %]
                         </button>
                     </div>
                     <div class="small-6 medium-6 large-2 xlarge-2 columns">
-                        <button type="button" id="back-btn" class="button postfix small secondary">
+                        <button type="button" id="cancel" class="button postfix small secondary">
                             [% display_icon('cancel') %] [% lang('cancel') %]
                         </button>
                     </div>
@@ -300,16 +309,24 @@
 
                 <div class="row">
                     <div class="small-12 medium-12 large-12 xlarge-12 columns bg-primary h-space-normal v-space-normal text-center">
-                        <input type="submit" name=".submit" value="[% lang('save') %]" class="button  white">
+                        <input type="submit" name=".submit" value="[% lang('save') %]" class="button success">
                     </div>
                 </div>
 
             [% END %]
         </div>
 
+        [% display_product_history %]
+
+        </div>
+
+        </div>
+
+        </div>
+
     </form>
 
-    [% display_product_history %]
+    
 
 </body>
 <!-- end templates/[% template.name %] -->
