@@ -116,6 +116,7 @@ it:caramello al latte
 
 
 <en:E150
+en:caramel powder
 bg:карамел на прах
 fr:caramel en poudre
 de:Karamell-Pulver, Caramelpulver, Karamellpulver
@@ -3053,14 +3054,14 @@ es:leche de vaca termizada, leche termizada de vaca
 <en:Cow's milk
 fr:lait frais de nos vaches non homogeneise
 
-<en:cows milk
+<en:cow's milk
 en:skimmed cows milk
 bg:обезмаслено краве мляко
 de:entrahmte Kuhmilch
 es:leche desnatada de vaca,leche descremada de vaca
 nl:magere koeienmelk
 
-<en:Cow's milk
+<en:cow's milk
 en:pasteurized skimmed cow's milk
 bg:пастьоризирано обезмаслено краве мляко
 ca:llet fresca desnatada pasteuritzada de vaca
@@ -3145,7 +3146,7 @@ ciqual_food_code:en:19556
 ciqual_food_name:en:Yogurt, goat's milk, plain, around 5% fat
 ciqual_food_name:fr:Yaourt au lait de chèvre, nature, 5% MG environ
 
-<en:goat's milk
+<en:goat milk
 en:semi-skimmed goat milk
 bg:полуобезмаслено козе мляко
 ca:llet de cabra parcialment desnatada, llet de cabra semidestada, llet parcialment desnatada de cabra, llet semidesnatada de cabra
@@ -6268,7 +6269,7 @@ description:sv:Comté är en fransk ost gjord på opastöriserad komjölk från 
 protected_name_type:en: en:pdo
 origins:en: en:France
 
-<en:Comté cheese
+<en:Comté
 fr:comté aop
 ca:comté DOP
 es:comté DOP
@@ -6439,7 +6440,7 @@ hu:ömlesztett ementáli
 nl:gesmolten Emmental
 # fr:emmental-fondu has 92 products in 3 languages @2018-10-27
 
-<en:cheese
+<en:emmental
 en:grated emmental cheese, Emmental cheese grated from cow's milk
 ca:formatge emmental rallat, emmental ratllat
 da:revet emmentalerost
@@ -6456,8 +6457,7 @@ ciqual_food_name:en:Emmental cheese, grated, from cow's milk
 ciqual_food_name:fr:Emmental ou emmenthal râpé
 # ingredient/grated-emmental-cheese has 589 products in 7 languages @2021-08-14
 
-<fr:emmental râpé
-<fr:emmental français
+<en:grated emmental cheese
 fr:emmental français râpé
 ca:emmental francès ratllat, formatge emmental ratllat
 es:queso emmental francés rallado, queso emmenthal francés rallado
@@ -7420,7 +7420,7 @@ description:nl:De Ossau-Iraty is een Franse kaas, een halfharde kaas afkomstig u
 description:oc:L'Aussau-Irati es un fromatge de Bearn e de Bascoat.
 
 <en:cheese
-en:parmesan, parmigiano reggiano, Parmesan cheese, parmigiano reggiano cheese, Parmesan cheese from cow's milk
+en:parmigiano reggiano, parmesan, Parmesan cheese, parmigiano reggiano cheese, Parmesan cheese from cow's milk
 af:Parmesaan
 ar:بارميجيانو ريجيانو
 az:Parmesan pendiri
@@ -12236,7 +12236,7 @@ ciqual_food_code:en:28007
 ciqual_food_name:en:Pork loin, cooked
 ciqual_food_name:fr:Porc, longe, cuite
 
-<fr:longe de porc
+<en:pork loin
 fr:longe de porc traitée en salaison
 
 <en:pork meat
@@ -12249,7 +12249,7 @@ ciqual_food_code:en:28004
 ciqual_food_name:en:Pork, knuckle or shank, raw
 ciqual_food_name:fr:Porc, jarret, cru
 
-<fr:jarret de porc
+<en:Pork knuckle
 fr:jarret de porc désossé, jarrets de porc désossés
 
 <en:pork meat
@@ -12896,10 +12896,10 @@ ciqual_food_code:en:30764
 ciqual_food_name:en:Ham sausage
 ciqual_food_name:fr:Saucisse de jambon pur porc
 
-<fr:saucisse de porc
+<en:pork sausage
 fr:saucisses pur porc fumées
 
-<fr:saucisse de porc
+<en:pork sausage
 fr:saucisses de Toulouse
 
 en:Frankfurter sausages
@@ -12908,14 +12908,14 @@ ciqual_food_code:en:30134
 ciqual_food_name:en:Frankfurter sausage
 ciqual_food_name:fr:Saucisse de Francfort
 
-<fr:saucisse de porc
+<en:pork sausage
 en:Morteaux sausage
 fr:Saucisse de Morteau
 ciqual_food_code:en:30104
 ciqual_food_name:en:Morteaux sausage
 ciqual_food_name:fr:Saucisse de Morteau
 
-<fr:saucisse de porc
+<en:pork sausage
 en:Montbeliard sausage
 fr:Saucisse de Montbéliard
 ciqual_food_code:en:30105
@@ -12927,6 +12927,7 @@ fr:saucisses de toulouse grillées
 # treatment:en:gril
 
 <en:meat
+<en:pork sausage
 fr:saucisson de porc
 carbon_footprint_fr_foodges_ingredient:fr:Saucisson de porc
 carbon_footprint_fr_foodges_value:fr:5.1
@@ -18829,7 +18830,7 @@ carbon_footprint_fr_foodges_value:fr:2.7
 <en:beer
 es:cerveza Amstel
 
-<fr:bière
+<en:beer
 fr:bière blonde
 
 # description:en:ABSINTHE is historically described as a distilled, highly alcoholic beverage
@@ -18997,6 +18998,12 @@ de:Grillaroma
 es:aroma a barbacoa
 fr:base aromatisante barbecue
 # ingredient/fr:base-aromatisante-barbecue has 28 products in 2 languages @2019-03-01
+
+<en:flavouring
+en:meat flavour
+de:Fleischgeschmack, Fleischaroma
+es:aroma de carne
+fr:Arôme de viande
 
 # comment:en:Two parents due to and/or ingredient
 
@@ -20995,7 +21002,7 @@ ciqual_food_name:en:Wheat, whole, raw
 ciqual_food_name:fr:Blé tendre entier ou froment, cru
 #3105 in 23 @2021-10-22
 
-<en:wholegrain wheat
+<en:whole wheat
 en:british wholegrain wheat
 
 <en:wheat
@@ -25693,7 +25700,7 @@ fr:riz long grain naturellement parfumé
 
 <en:long grain rice
 <en:parboiled rice
-en:parboiled long grain rice, long grain parboiled rice
+en:long grain parboiled rice, parboiled long grain rice
 de:Dampfgegarter Spitzen-Langkorn-Reis
 es:arroz grano largo vaporizado
 fi:pitkäjyväinen parboil riisi, parboil-käsitelty pitkäjyväinen riisi
@@ -25760,16 +25767,16 @@ nl:witte ronde rijst, ronde rijst wit
 <fr:riz rond blanc
 fr:riz rond blanc bio
 
-<fr:riz rond
+<en:round rice
 fr:riz rond demi-complet, riz rond complet légèrement poli
 nl:halfvolkoren ronde rijst, volkoren ronde rijst lichtjes gepolijst
 
-<fr:riz rond
+<en:round rice
 fr:riz rond complet
 nl:volkoren ronde rijst
 # ingredient/fr:riz-rond-complet has 19 products @2019-05-29
 
-<fr:riz rond
+<en:round rice
 fr:riz rond de qualité supérieure
 # ingredient/fr:riz-rond-de-qualite-superieure has 11 products @2019-05-29
 
@@ -26119,7 +26126,7 @@ fi:pitkäjyväinen valkoinen camargue-riisi
 fr:riz de Camargue long blanc
 # ingredient/fr:riz-de-camargue-long-blanc has 4 products @2019-05-29
 
-<fr:riz de Camargue long blanc
+<en:Camargue long grain white rice
 fr:Riz de Camargue long blanc biologique
 
 <en:Camargue rice
@@ -29708,7 +29715,7 @@ fr:fèves de cacao bio
 nl:bio cacaobonen
 
 <en:cocoa bean
-en:cocoa nibs, cocoa bean chips
+en:cocoa bean chips, cocoa nibs
 de:kakaobohnenchips
 es:pepitas de cacao, trozos de habas de cacao, trocitos de pepitas de cacao
 fi:Kaakaopapusipsit
@@ -30586,7 +30593,7 @@ de:Quellwasser mit Kohlensäure
 fr:eau de source gazéifiée, Eau de source avec adjonction de gaz carbonique
 nl:bruisend bronwater
 
-<fr:eau de source gazéifiée
+<en:carbonated spring water
 fr:eau de source St Benoît gazéifiée
 
 # description:en:MINERAL WATER is water from a mineral spring that contains various minerals, such as salts and sulfur compounds.
@@ -31315,7 +31322,7 @@ sv:vetegluten
 fr:gluten vital de blé
 
 # nova:en:maltodextrin
-en:Maltodextrins, maltodextrin
+en:maltodextrind, maltodextrins
 bg:Малтодекстрин
 ca:Maltodextrina
 da:maltodextrin
@@ -37218,7 +37225,7 @@ en:concentrated orange extract
 de:konzentrierter Orangenextrakt
 fr:Extraits de concentré d'orange
 
-<fr:extrait d'orange
+<en:orange extract
 fr:extraits naturels d'orange
 es:extracto natural de naranja dulce
 fi:luontainen appelsiiniuute
@@ -37437,7 +37444,7 @@ it:acerola in polvere
 nl:acerolapoeder
 # ingredient/fr:poudre-d'acérola has 37 products @2018-10-03
 
-<fr:poudre d'acérola
+<en:acerola powder
 en:acerola powder on manioc starch
 de:Acerolapulver auf Maniokstärke
 fr:poudre d'acérola avec fécule de manioc, poudre d'acérola sur fécule de manioc
@@ -40177,7 +40184,7 @@ en:passion fruit juice, passionfruit juice
 
 #processing:en: en:from concentrate
 #processing:en: en:juice
-<en:passionfruit juice
+<en:passion fruit juice
 #en:reconstituted passion fruit juice, passion fruit from concentrate
 #cs:koncentrovaná šťáva z maracuji
 # we keep this as unparsable
@@ -40360,7 +40367,7 @@ sv:ananasjuice koncentrat
 en:organic concentrated pineapple juice
 fr:Jus d'ananas issu de l'agriculture biologique
 
-<fr:jus d'ananas concentré
+<en:pineapple juice
 en:pineapple juice from concentrate
 de:Ananassaft aus Konzentrat, Ananassaft aus Ananassaftkonzentrat, Ananassaft aus Fruchtsaftkonzentrat
 es:Zumo de piña a partir de concentrado, jugo de anana procedente de concentrado
@@ -40648,7 +40655,7 @@ sv:hallonjuice
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-framboise
 # 72 products in 4 languages @2018-09-27
 
-<fr:jus de framboise
+<en:raspberry juice
 fr:jus de framboise à base de concentré
 de:Himbeersaft aus Konzentrat, himbeersaft aus himbeersaftkonzentrat
 fi:vadelmamehu tiivisteestä, vadelmatäysmehu tiivisteestä
@@ -41822,6 +41829,32 @@ wikipedia:en:https://en.wikipedia.org/wiki/List_of_grape_varieties
 # ingredient/fr:cépages has 52 products @2019-01-18
 
 
+# description:en:Babić is a native Croatian red wine grape common to the Northern Dalmatia region. 
+
+<en:varietal
+en:Babić
+hr:Babić
+mk:Бабиќ
+nl:Babić
+ru:Бабич
+uk:Бабич
+wikidata:en:Q2811853
+wikipedia:en:https://en.wikipedia.org/wiki/Babi%C4%87_(grape)
+
+
+# description:en:Bogdanuša is a white grape variety, which is grown on the Croatian island of Hvar, where it originated on the Stari Grad Plain.
+
+<en:varietal
+en:Bogdanuša
+ca:Bogdanusa
+de:Bogdanusa
+es:Bogdanuša
+hr:Bogdanuša
+sh:Bogdanuša
+wikidata:en:Q847023
+wikipedia:en:https://en.wikipedia.org/wiki/Bogdanu%C5%A1a
+
+
 <en:varietal
 en:cabernet
 de:Cabernet
@@ -42055,6 +42088,35 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cinsaut
 # ingredient/fr:Cinsault has 12 products @2019-01-19
 
 
+# description:en:Debit is a white wine grape variety grown primarily along the Northern & Central Dalmatian Coast of Croatia.
+
+<en:varietal
+en:Debit
+wikidata:en:Q27826727
+wikipedia:en:https://en.wikipedia.org/wiki/Debit_(grape)
+
+
+# description:en:Dobričić is an ancient red wine grape variety from the island of Šolta off the Dalmatian coast in Croatia. 
+
+<en:varietal
+en:Dobričić
+es:Dobričić
+fr:Dobričić
+hr:Dobričić
+pl:Dobričić
+ru:Добричич
+wikidata:en:Q3033360
+wikipedia:en:https://en.wikipedia.org/wiki/Dobri%C4%8Di%C4%87
+
+
+# description:en:Drnekuša is an ancient red wine grape variety from the Dalmatian coast in Croatia.
+
+<en:varietal
+en:Drnekuša
+wikidata:en:Q5308149
+wikipedia:en:https://en.wikipedia.org/wiki/Drneku%C5%A1a
+
+
 # description:en:Gamay is a purple-colored grape variety used to make red wines, most notably grown in Beaujolais and in the Loire Valley around Tours.
 
 <en:varietal
@@ -42127,6 +42189,16 @@ wikipedia:en:https://en.wikipedia.org/wiki/Grenache
 # ingredient/fr:Grenache-Noir has 6 products @2019-01-19
 
 
+# description:en:Grk Bijeli or Grk is a white grape variety used for wine.
+
+<en:varietal
+en:Grk Bijeli
+de:Grk
+hr:Grk
+wikidata:en:Q1547141
+wikipedia:en:https://en.wikipedia.org/wiki/Grk_Bijeli
+
+
 # description:en:Grolleau or Grolleau noir is a red French wine grape variety that is grown primarily in the Loire Valley of France.
 
 <en:varietal
@@ -42195,6 +42267,49 @@ zh:馬爾貝克
 wikidata:en:Q1414045
 wikipedia:en:https://en.wikipedia.org/wiki/Malbec
 # ingredient/fr:Malbec has 3 products @2019-01-20
+
+
+# description:en:Malvasia (Italian pronunciation: [malvaˈziːa], also known as Malvazia) is a group of wine grape varieties grown historically in the Mediterranean region, Balearic Islands, Canary Islands and the island of Madeira, but now grown in many of the winemaking regions of the world.
+
+<en:varietal
+en:Malvasia
+be:Мальвазія
+ca:Malvasia
+cv:Мальвазия
+de:Malvasier
+el:Μαλβαζία
+es:Malvasía
+fi:Malvázia
+fr:Malvoisie
+hr:Malvazija
+hu:Malvázia
+it:Malvasia
+ja:マルヴァジーア
+nl:Malvasia
+no:Malvasia
+pl:Małmazja
+pt:Malvasia
+ru:Мальвазия
+sh:Malvazija
+sl:Malvazija
+sv:Malvasia
+uk:Мальвазія
+# scn:Marvasìa
+wikidata:en:Q1165349
+wikipedia:en:https://en.wikipedia.org/wiki/Malvasia
+
+
+# description:en:Maraština (Rukatac, Maraškin, Mareština, Krizol, Višana) is an indigenous white grape variety from the Dalmatian coast, recommended for all Dalmatian sub-regions, and the Croatian Coast, except Istria.
+
+<en:varietal
+en:Maraština
+de:Malvasia Bianca Lunga
+fr:Malvasia bianca lunga
+hr:Maraština
+it:Malvasia bianca lunga
+pl:Maraština
+wikidata:en:Q1887929
+wikipedia:en:https://en.wikipedia.org/wiki/Mara%C5%A1tina
 
 
 # description:en:Merlot is a dark blue-colored wine grape variety, that is used as both a blending grape and for varietal wines.
@@ -42436,6 +42551,27 @@ wikipedia:en:https://en.wikipedia.org/wiki/Pinot_noir
 # fr:pinot-noir has 20 products in 1 language @2018-10-29
 
 
+# description:en:Plavac Mali (Croatian pronunciation: [plǎːʋat͡s mǎli]), a cross between Crljenak Kaštelanski (ancestral Zinfandel) and Dobričić grapes, is the primary red wine grape grown along the Dalmatian coast of Croatia.
+
+<en:varietal
+en:Plavac Mali
+de:Plavac Mali Crni
+es:Plavac mali
+fr:Plavac mali
+hr:Plavac mali
+it:Plavac Mali
+mk:Плавец мал
+nl:Plavac mali
+nn:Plavac mali
+no:Plavac mali
+pl:Plavac mali
+ru:Плавац Мали
+sv:Plavac mali
+tr:Plavac Mali
+wikidata:en:Q1887336
+wikipedia:en:https://en.wikipedia.org/wiki/Plavac_Mali
+
+
 # description:en:Poulsard (also Ploussard) is a red French wine grape variety from the Jura wine region.
 
 <en:varietal
@@ -42449,6 +42585,23 @@ nl:Poulsard Blanc
 wikidata:en:Q1409433
 wikipedia:en:https://en.wikipedia.org/wiki/Poulsard
 # ingredient/fr:Poulsard has no products @2019-01-20
+
+
+# description:en:Pošip is an autochthonous white wine grape that is primarily grown in the Dalmatian region of Croatia on the island of Korčula, although small amounts are also being grown on the Pelješac Peninsula.
+
+<en:varietal
+en:Pošip
+de:Pošip
+hr:Pošip
+hu:Pošip
+mk:Пошип
+nl:Pošip
+ru:Пошип
+sh:Pošip
+sr:Пошип
+uk:Пошип
+wikidata:en:Q832738
+wikipedia:en:https://en.wikipedia.org/wiki/Po%C5%A1ip
 
 
 # description:en:Sciacarello (or sciaccarello) is a red Italian wine grape variety that is grown primarily in Corsica.
@@ -42490,6 +42643,14 @@ zh:賽美蓉
 wikidata:en:Q391558
 wikipedia:en:https://en.wikipedia.org/wiki/Sémillon
 # ingredient/fr:Sémillon has 5 products @2019-01-20
+
+
+# description:en:Susac Crni is a native red wine grape in the Kvarner region of Croatia.
+
+<en:varietal
+en:Susac Crni
+wikidata:en:Q7647464
+wikipedia:en:https://en.wikipedia.org/wiki/Susac_Crni
 
 
 # description:en:Sylvaner or Silvaner is a variety of white wine grape grown primarily in Alsace and Germany, where its official name is Grüner Silvaner.
@@ -42572,6 +42733,17 @@ wikipedia:en:https://en.wikipedia.org/wiki/Syrah
 # ingredient/fr:Syrah has 47 products @2019-01-18
 
 
+# description:en:Teran grape is a variety of red grape from Istria, Croatia.
+
+<en:varietal
+en:teran
+de:terrano
+hr:teran
+sv:terrano
+wikidata:en:Q1437894
+wikipedia:en:https://en.wikipedia.org/wiki/Teran_grape
+
+
 # description:en:Trousseau or Trousseau Noir, also known as Bastardo, is an old variety of red wine grape originating in eastern France.
 
 <en:varietal
@@ -42588,6 +42760,71 @@ sv:Bastardo
 wikidata:en:Q63319
 wikipedia:en:https://en.wikipedia.org/wiki/Trousseau_(grape)
 # ingredient/fr:Trousseau has no products @2019-01-20
+
+
+# description:en:Vranac (pronounced [ʋrǎːnats]), Serbian Cyrillic: Вранац; Macedonian: Вранец, romanized: Vranec) is a red grape variety that originates from Montenegro.
+
+<en:varietal
+en:Vranac
+be:Вранац
+bg:Вранец
+cs:Vranac
+cv:Вранац
+de:Vranac
+et:Vranac
+fr:Vranac
+hr:Vranac
+mk:Вранец
+pl:Vranac
+ru:Вранац
+sr:Вранац
+sv:Vranac
+uk:Вранац
+vi:Vranac
+zh:弗拉纳茨
+wikidata:en:Q678124
+wikipedia:en:https://en.wikipedia.org/wiki/Vranac
+
+
+# description:en:Vugava (also known as Bugava) is a white grape variety mostly cultivated on the Croatian island of Vis in central Dalmatia.
+
+<en:varietal
+en:Vugava
+de:Vugava
+hr:Vugava
+wikidata:en:Q17053382
+wikipedia:en:https://en.wikipedia.org/wiki/Vugava
+
+
+# description:en:Zinfandel (also known as Primitivo) is a variety of black-skinned wine grape.
+
+<en:varietal
+en:Zinfandel
+da:Zinfandel
+de:Primitivo
+eo:Primitivo
+es:Zinfandel
+et:Primitivo
+fa:زینفندل
+fi:Zinfandel
+fr:Zinfandel
+he:זינפנדל
+hr:Crljenak
+it:Primitivo
+ja:ジンファンデル
+lb:Zinfandel
+no:Zinfandel
+pl:Primitivo
+pt:Zinfandel
+ro:Tribidrag
+ru:Зинфандель
+# scn:Primitivu
+sv:Zinfandel
+ta:சின்பான்டெல்
+tr:Zinfandel
+uk:Примітиво
+wikidata:en:Q204433
+wikipedia:en:https://en.wikipedia.org/wiki/Zinfandel
 
 
 ###################################################################################################
@@ -44030,6 +44267,7 @@ nl:biologische knoflook
 # fr:ail-bio has 18 products in 2 languages @2018-10-22
 
 <en:garlic
+en:dried garlic
 bg:сушен чесън
 fr:ail séché, ail déshydraté
 da:tørret hvitløg
@@ -44046,8 +44284,8 @@ ciqual_food_code:en:11023
 ciqual_food_name:en:Garlic, powder, dried
 ciqual_food_name:fr:Ail séché, poudre
 
-<fr:ail séché
-en:Dried garlic powder
+<en:dried garlic
+en:dried garlic powder
 bg:Сушен чесън на прах
 fr:Ail séché en poudre
 ciqual_food_code:en:11023
@@ -44585,8 +44823,8 @@ it:fibra di germoglio di bambù
 nl:vezels van bamboescheuten
 # ingredient/fr:fibres-de-pousses-de-bambou has 77 products in 5 languages @2019-02-03
 
-<en:fibre
-en:acacia fibre
+<en:vegetable fiber
+en:acacia fibre, acacia fibre
 de:Akazienfasern
 es:Fibra de acacia
 fi:akaasiakuitu
@@ -44693,7 +44931,7 @@ no:rødbetsaft
 pl:sok z buraka, sok buraczany
 # fr:jus-de-betterave has 46 products in 3 languages @2018-10-22
 
-<fr:jus de betterave
+<en:beetroot juice
 en:beetroot juice concentrate
 da:rødbedejuice fra koncentrat
 de:Randensaft aus Konzentrat
@@ -45956,7 +46194,8 @@ sv:svartmorotjuice
 
 # The french pourpre is translated to black in dutch and german
 
-<fr:jus de carotte noire
+<en:black carrot juice
+en:concentrated black carrot juice
 bg:концентриран сок от черен морков
 fr:jus de carotte noire concentré, jus concentré de carotte noire, jus de carotte pourpre concentré, jus concentré de carotte pourpre
 de:Schwarzmöhrensaftkonzentrat, konzentrierter Saft aus schwarzer Karotte
@@ -46845,7 +47084,7 @@ ciqual_food_name:fr:Ciboule ou Ciboulette, fraîche
 # 3011 @2021-10-20
 
 <en:spring onion
-en:Spring Onion Powder
+en:spring Onion Powder
 ar:مسحوق بصل أخضر
 da:forårsløgspulver
 de:Frühlingszwiebelpulver
@@ -46864,7 +47103,7 @@ en:onion sproute
 de:Zwiebelsprosse, Zwiebelsprossen
 es:Germinados de cebolla
 
-<en:green onion
+<en:spring onion
 en:dried spring onion, dried green onions
 de:getrocknete Frühlingszwiebel, getrocknete Frühlingszwiebeln
 es:cebolleta deshidratada, cebolleta seca
@@ -48691,7 +48930,7 @@ fi:kuivatut perunahiutaleet
 fr:flocons de pomme de terre déshydratés
 # fr:flocons-de-pomme-de-terre-déshydratés has 100 products in 2 languages @2018-10-15
 
-<fr:flocon de pomme de terre
+<en:potato flakes
 fr:flocons de pomme de terre réhydratés
 # fr:flocons-de-pomme-de-terre-réhydratés has 71 products in 1 language @2018-10-15
 
@@ -48920,8 +49159,8 @@ sv:röd och grön paprika
 # fr:poivrons-verts-et-rouges has 32 products in 1 language @2018-10-15
 # fr:poivrons-rouges-et-verts has 143 products in 5 languages @2018-10-15
 
-<en:red pepper
-<en:yellow pepper
+<en:red bell pepper
+<en:yellow bell pepper
 en:red and yellow peppers, red and yellow bell peppers, yellow and red peppers, yellow and red bell peppers
 bg:червени и жълти чушки, жълти и червени чушки
 de:Peperoni rot und gelb
@@ -49178,7 +49417,7 @@ fr:piment doux
 # description:en:The JALAPEÑO is a medium-sized chili pepper pod type cultivar of the species Capsicum annuum.
 
 <en:chili pepper
-en:jalapeno, jalapeño, jalapeño pepper, jalapeño chili, jalapeño chilli, jalapeño chillies
+en:jalapeno pepper, jalapeño, jalapeño pepper, jalapeño chili, jalapeño chilli, jalapeño chillies, jalapeno
 ar:هالبينو
 bg:халапеньо
 ca:bitxo jalapeño
@@ -50730,7 +50969,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Phaseolus_vulgaris
 carbon_footprint_fr_foodges_ingredient:fr:Haricot blanc en conserve (type cassoulet)
 carbon_footprint_fr_foodges_value:fr:2
 
-<en:bean
+<en:beans
 en:bean sprouts
 et:idudega
 lt:šparaginės pupelės
@@ -50863,7 +51102,7 @@ ciqual_food_code:en:20269
 ciqual_food_name:en:Flat bean, raw
 ciqual_food_name:fr:Haricot plat, cru
 
-<en:green beans
+<en:green bean
 en:round green beans
 de:runde grüne Bohnen, grüne Bohnen rund
 es:judia verde redonda
@@ -51050,10 +51289,10 @@ ciqual_food_name:en:Lima bean, raw
 ciqual_food_name:fr:Haricot de Lima, cru
 #528 @2021-10-27
 
-<en:lima beans
+<en:lima bean
 en:large lima beans
 
-<en:lima beans
+<en:lima bean
 en:baby lima beans
 
 <en:legume
@@ -51135,7 +51374,7 @@ en:dried kidney beans
 de:Getrocknete Kidneybohnen, Kidneybohnen getrocknet
 fr:haricots rouges secs
 
-<fr:haricots rouges secs
+<en:dried kidney beans
 fr:haricots rouges secs trempés
 
 <en:red beans
@@ -51409,13 +51648,13 @@ ciqual_food_name:en:lupin grain, raw
 ciqual_food_name:fr:Lupin, graine crue
 # 957 in 12 @2021-10-01
 
-<en:lupin
+<en:lupin bean
 en:lupin grit
 nl:lupinegrut
 
 #processing:en: en:flour
 <en:flour
-<en:lupin
+<en:lupin bean
 en:lupin flour, lupine flour
 bg:брашно от лупина
 cs:mouka z vičího bobu
@@ -51878,12 +52117,12 @@ ciqual_food_name:en:Chick pea, dried
 ciqual_food_name:fr:Pois chiche, sec
 #204 @2021-10-15
 
-<fr:pois chiche secs
+<en:chickpea
 fr:pois chiches secs trempés
 nl:geweekte droge kikkererwten
 # 77 in 2 languages @2021-10-15
 
-<fr:pois chiche secs
+<en:chickpea
 en:rehydrated chickpeas
 fr:pois chiches réhydratés
 de:rehydrierte Kichererbsen
@@ -52299,7 +52538,7 @@ en:organic red lentils
 fi:punainen luomulinssi, punaiset luomulinssit
 fr:lentilles corail issues de l'agriculture biologique
 
-<fr:lentilles rouges
+<en:red lentils
 fr:lentilles rouges décortiquées
 # ingredient/fr:lentilles-rouges-decortiquees has 11 products @2019-06-02
 
@@ -54408,7 +54647,7 @@ description:nl:De populaire naam van het zaad uit de maanbol van de klaproos.
 # 2090 in 17 @2021-09-10
 
 
-<en:poppy seed
+<en:poppyseed
 en:blue poppy seed
 de:Blaumohnsamen
 fr:graine de pavot bleu, graines de pavot bleu
@@ -55275,7 +55514,7 @@ carbon_footprint_fr_foodges_value:fr:2.2
 nutriscore_fruits_vegetables_nuts:en:no
 wikidata:en:Q2596994
 
-<en:spices
+<en:spice
 en:natural spices
 bg:естествени подправки
 de:natürliche Gewürze
@@ -61007,7 +61246,7 @@ bg:листа от коприва
 # description:en:The olive, known by the botanical name Olea europaea, is a species of small tree in the family Oleaceae
 
 <en:plant
-en:olives, olive
+en:olive, olives
 ar:الزيتون
 bg:маслини, маслина
 bo:རྒྱ་ཨར།
@@ -61064,7 +61303,7 @@ carbon_footprint_fr_foodges_ingredient:fr:Olives "Pays du Sud" en boite
 carbon_footprint_fr_foodges_value:fr:1.7
 
 <en:olive
-en:green olives, green olive
+en:green olive, green olives
 bg:зелени маслини
 ca:oliva verda, oliva mançanenca verda
 da:Grønne oliven
@@ -61082,19 +61321,18 @@ sv:gröna oliver
 wikidata:en:Q26879770
 # ingredient/fr:olive-verte has 577 products in 6 languages @2018-12-01
 
-<en:green olives
+<en:green olive
 bg:обезкостени зелени маслини
 fr:olives vertes dénoyautées
 de:Grüne Oliven eintsteint
 nl:ontpitte groene olijven
 # ingredient/fr:olives-vertes-dénoyautées has 129 products in 4 languages @2018-12-01
 
-<en:green olives
+<en:green olive
 en:green olives with pits
 de:Grüne Oliven mit Stein
 es:aceitunas verdes con huesos
 
-<fr:olive verte
 <en:black olive
 en:green and black olives, black and green olives
 bg:зелени и черни маслини, черни и зелени маслини
@@ -61169,7 +61407,7 @@ fr:olives farcies
 <en:olive
 en:pitted olive
 de:entsteinte Oliven, entkernte Oliven
-es:aceituna deshuesada,aceitunas deshuesadas, aceituna sin hueso, acietunas sin hueso
+es:aceituna deshuesada, aceitunas deshuesadas, aceituna sin hueso, acietunas sin hueso
 
 <en:green olive
 en:arbequina olive
@@ -61764,12 +62002,13 @@ es:concentrado de cártamo con efecto colorante
 # 446 in 4 languages @2021-09-17
 
 #processing:en en:powder
-<en:saffron
-bg:шафран на прах
-fr:safran en poudre
-de:Safranpulver
-fi:sahramijauhe
-nl:saffraanpoeder
+#<en:saffron
+#en:saffron powder
+#bg:шафран на прах
+#fr:safran en poudre
+#de:Safranpulver
+#fi:sahramijauhe
+#nl:saffraanpoeder
 
 
 <en:plant
@@ -66058,7 +66297,8 @@ sv:torskfilé, filér av torsk
 fr:oeufs de cabillaud fumés
 
 <fr:oeufs de cabillaud fumés
-fr:oeufs de cabillaud salés et fumés
+fr:oeufs de cabillaud salés et fumés, œufs de cabillaud fumés et salés, oeufs de cabillaud fumés et salés
+# ingredient/fr:œufs-de-cabillaud-fumés-et-salés has 30 products in french @2018-12-29
 
 <en:cod
 en:cod liver
@@ -66145,9 +66385,6 @@ vegetarian:en:no
 vegan:en:no
 # ingredient/fr:œufs-de-cabillaud has 69 products in french @2018-12-29
 
-<fr:œufs de cabillaud
-fr:œufs de cabillaud fumés et salés, oeufs de cabillaud fumés et salés
-# ingredient/fr:œufs-de-cabillaud-fumés-et-salés has 30 products in french @2018-12-29
 
 
 ###################################################################################################
@@ -67178,7 +67415,7 @@ ciqual_food_code:en:27017
 ciqual_food_name:en:Brown bullhead, raw
 ciqual_food_name:fr:Pangasius ou Poisson-chat, cru
 
-<en:pangasius
+<en:pangas
 en:pangas fillet
 de:Pangasiusfilets
 fr:filets de pangas
@@ -70166,7 +70403,7 @@ ciqual_food_name:fr:Huître, sans précision, crue
 <en:oyster
 fr:extrait d'huître
 
-<en:flavour
+<en:flavouring
 en:oyster flavour
 de:Austernaroma, Austerngeschmack
 es:aroma de ostras
@@ -70830,18 +71067,18 @@ wikidata:en:Q13596602
 wikipedia:en:https://en.wikipedia.org/wiki/Doryteuthis_gahi
 # ingredient/fr:Loligo-Gahi has 1 product @2019-01-04
 
-<en:mollusc
+<en:squid
 en:cephalopod ink
 de:Kopffüßertinte, Kopffüßer-Tinte
 es:tinta de cefalopodo
 fr:Encre de céphalopode
 
-<en:mollusc
+<en:squid
 en:squid ink
 de:Kalmartinte, Tintenfischtinte
 es:tinta de calamar
 
-<en:colour
+<en:squid ink
 en:squid ink substitute
 de:Kalmar-Tintenersatz
 es:sucedáneo de tinta de calamar
@@ -71560,7 +71797,7 @@ ciqual_food_code:en:10024
 ciqual_food_name:en:Norway lobster, raw
 ciqual_food_name:fr:Langoustine, crue
 
-<en:flavour
+<en:flavouring
 en:lobster flavour
 de:Hummer-Aroma
 es:aroma de langosta
@@ -72565,7 +72802,7 @@ sv:blandning av icke-eu-honung
 en:Blend of EU and non-EU honeys
 de:Mischung von Honig aus EU-ländern und Nicht EU-ländern
 es:Mezcla de mieles originarias y no originarias de la UE
-fi:Sekoitus hunajia EU:sta ja EU:n ulkopuolelta
+# fi:Sekoitus hunajia EU:sta ja EU:n ulkopuolelta (breaks the processing)
 fr:mélange de miels originaires et non originaires de l'ue, melange de miels originaires et non originaires de l'union europeenne, mélange de miels originaires et non originaires de la CE, mélange de miels non originaires et originaires de l'UE, Sélection et mélange de miels non originaires et originaires de l'UE,  melange de miels originaires et non de l'ue, Mélange de miels originaires et non originaires de la communauté Européenne, de miels originaires et non originaires de la ce, miel originaire et non-originaire de la ce, melange de miels de fleurs originaires et non-originaires de l'ue, melange de miels ue et non-ue
 nl:gemengde EG- en niet EG honing
 sv:blandning av honung från länder inom och utanför eu
@@ -73393,14 +73630,14 @@ nl:Cafeïnevrije koffie
 # ingredient/fr:cafe-decafeine has 8 products @2019-06-03
 
 <en:instant coffee
-<fr:café décaféiné
+<en:decaffeinated coffee
 fr:café soluble décaféiné
 
-<fr:Café décaféiné
+<en:decaffeinated coffee
 fr:café doux sans caféine
 nl:zachte koffie zonder cafeïne
 
-<fr:Café décaféiné
+<en:decaffeinated coffee
 fr:café Arabica décaféiné torréfié
 
 <en:coffee
@@ -74625,7 +74862,7 @@ en:duck wing, duck wings
 de:Entenflügel, Enten-Flügel
 fr:manchons de canard
 
-<fr:manchons de canard
+<en:duck wing
 fr:Manchons de canard du Sud-Ouest
 
 <en:duck meat
@@ -74701,10 +74938,10 @@ fr:foie gras de canard
 it:Foie gras d'anatra
 pl:Foie gras z kaczki
 
-<fr:foie gras de canard
+<en:duck foie gras
 fr:foie gras de canard du sud-ouest
 
-<en:duck liver
+<en:duck foie gras
 fr:morceaux de foie gras de canard
 
 <fr:morceaux de foie gras de canard
@@ -75152,8 +75389,8 @@ ciqual_food_code:en:22000
 ciqual_food_name:en:Egg, raw
 ciqual_food_name:fr:Oeuf, cru
 
-
-<en:flavour
+# do not add egg as parent, as it does have to be derived from eggs
+<en:flavouring
 en:egg flavour
 de:Eiaroma, Ei-Aroma
 es:aroma de huevo
@@ -75167,7 +75404,7 @@ fr:gros oeufs
 nl:grote eieren
 # 3@2019-05-31
 
-<en:eggs
+<en:egg
 en:free range eggs, free range whole egg
 de:Freilandeier
 es:Huevos de corral,huevos de gallinas criadas en el suelo
@@ -75178,7 +75415,7 @@ ja:平飼い卵
 nl:vrije-uitloopei, vrije uitloop ei
 pl:jaja z wolnego wybiegu, jajka z wolnego wybiegu
 
-<en:eggs
+<en:egg
 en:category A eggs
 bg:яйца категория А
 de:Eier Güteklasse A, Güteklasse A Eier, Eier Klasse A
@@ -75317,20 +75554,20 @@ de:Eier aus Käfighaltung
 fr:œufs de poules élevées en cage, oeufs de poules élevées en cage, 20 oeufs de poules élevées en cage, 6 oeufs de poules élevées en cage
 # ingredient/fr:oeufs-de-poules-élevées-en-cage has 53 products in french @2018-12-18
 
-<fr:œufs de poules élevées en cage
+<en:eggs from caged hens
 <en:category A eggs
 fr:oeufs de poules élevées en cage de categorie a
 
-<fr:œufs de poules élevées en cage
+<en:eggs from caged hens
 fr:oeufs frais de poules élevées en cage
 # 4@2019-05-31
 
-<fr:oeufs de poules élevées en cage
+<en:eggs from caged hens
 fr:Oeufs frais datés du jour de ponte de poules élevées en cage
 # 2019-05-31
 
 # comment:en:furnished cages
-<fr:œufs de poules élevées en cage
+<en:eggs from caged hens
 fi:virikehäkkikanan muna, virikehäkkikanojen munia
 
 <en:chicken egg
@@ -78553,7 +78790,7 @@ fr:intérieur cône
 # This is a compound ingredient, e.g.:chapelure (farine de blé, levure, sel)
 
 <en:coating
-en:bread crumbs, breadcrumbs, breading
+en:breadcrumbs, bread crumbs, breading
 ar:بقسماط
 be:Паніровачныя сухары
 bg:Галета
@@ -78602,12 +78839,12 @@ en:wholemeal breadcrumbs
 de:Vollkorn-Brotkrümel
 es:pan rallado integral
 
-<en:bread crumbs
+<en:breadcrumbs
 fr:chapelure de blé
 de:Weizenpaniermehl
 # fr:chapelure-de-blé has 185 products in 2 languages @2018-11-12
 
-<en:bread crumbs
+<en:breadcrumbs
 en:panko
 da:panko
 de:panko
@@ -78620,7 +78857,7 @@ ru:Панко
 wikidata:en:Q1820454
 # en:panko has 20 products in english @2018-11-12
 
-<en:bread crumbs
+<en:breadcrumbs
 de:Panade
 # de:comment:Panade (Weizenmehl, Sonnenblumenöl, Salz, Hefe, Gewürz Paprika)
 
@@ -78741,16 +78978,13 @@ description:nl:Cake is een eenvoudig soort gebak. Cake heeft een eenvoudig basis
 # 6408 products @2019-05-20
 
 <en:cake
-en:Plain soft cake
+en:sponge cake
+de:Biskuitkuchen
+es:bizcocho
 #fr:Gâteau moelleux nature, Génoise
 ciqual_food_code:en:23594
 ciqual_food_name:en:Soft cake, plain, sponge cake type
 ciqual_food_name:fr:Gâteau moelleux nature type génoise
-
-<en:cakes
-en:sponge cake
-de:Biskuitkuchen
-es:bizcocho
 
 # description:en:A CRÊPE is a type of very thin pancake. Crêpes are usually of two types: sweet crêpes (crêpes sucrées) and savoury galettes (crêpes salées). Crêpes are served with a variety of fillings, from the simplest with only sugar to flambéed crêpes Suzette or elaborate savoury galettes.
 
@@ -80058,13 +80292,6 @@ description:pt:O chouriço ou chouriça é um enchido preparado com carne, gordu
 
 # ingredient/fr:chorizo has 820 products in 15 languages @2021-08-17
 # usage:fr:chorizo (maigre et gras de porc, sel, épices et extraits d'épices, dextrose de blé, ferments lactiques, conservateurs :E301, E250)
-
-<en:flavour
-en:meat flavour
-de:Fleischgeschmack, Fleischaroma
-es:aroma de carne
-fr:Arôme de viande
-pl:aromat mięsny
 
 <en:meat
 en:black pudding

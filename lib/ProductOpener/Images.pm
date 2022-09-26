@@ -237,7 +237,9 @@ sub display_select_crop_init($object_ref) {
 
 	my @images = ();
 
-	for (my $imgid = 1; $imgid <= ($object_ref->{max_imgid} + 5); $imgid++) {
+	# There may be occasions where max_imgid was not incremented correctly (e.g. a crash)
+	# so we add 5 to it to check if we have other images to show
+	for (my $imgid = 1; $imgid <= (($object_ref->{max_imgid} || 0) + 5); $imgid++) {
 		if (defined $object_ref->{images}{$imgid}) {
 			push @images, $imgid;
 		}
@@ -1724,7 +1726,7 @@ A hash reference to store the results.
 
 =cut
 
-sub extract_text_from_image($product_ref, $results_ref, $id, $field, $ocr_engine) {
+sub extract_text_from_image($product_ref, $id, $field, $ocr_engine, $results_ref) {
 
 	delete $product_ref->{$field};
 

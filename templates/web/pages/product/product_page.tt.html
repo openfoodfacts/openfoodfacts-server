@@ -11,7 +11,10 @@
 [% END %]
 
 
-[% IF (user_id.defined) && (robotoff_url.defined) && (robotoff_url.length > 0) %]
+[% IF (robotoff_url.defined) && (robotoff_url.length > 0) %]
+    <!-- Anonymous users will only be able to vote see AnnotationVote in robotoff,
+        the voter uniqueness is based on a hash of its ip address
+    -->
 	<robotoff-asker url='[% robotoff_url %]' code='[% code %]' lang='[% lc %]' style='display: none;' caption-yes='[% lang("button_caption_yes") %]' caption-no='[% lang("button_caption_no") %]' caption-skip='[% lang("button_caption_skip") %]'></robotoff-asker>
 [% END %]
 

@@ -750,8 +750,8 @@ msgstr "crwdns201542:0crwdne201542:0"
 
 # Do not translate
 msgctxt "footer_blog_link"
-msgid "https://en.blog.openfoodfacts.org"
-msgstr "crwdns201544:0crwdne201544:0"
+msgid "https://blog.openfoodfacts.org/en/"
+msgstr "crwdns204614:0crwdne204614:0"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -1554,9 +1554,9 @@ msgstr "crwdns201932:0crwdne201932:0"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
-msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
+msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://blog.openfoodfacts.org/en/\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr "crwdns201934:0crwdne201934:0"
+msgstr "crwdns204616:0crwdne204616:0"
 
 msgctxt "on_the_blog_title"
 msgid "News"
@@ -2424,6 +2424,7 @@ msgctxt "tagstable_search"
 msgid "Search:"
 msgstr "crwdns202362:0crwdne202362:0"
 
+# This is linked to a unit test
 msgctxt "traces"
 msgid "Traces"
 msgstr "crwdns202364:0crwdne202364:0"
@@ -4393,6 +4394,7 @@ msgctxt "images_can_be_provided_separately"
 msgid "Product photos can also be provided separately through the Import product photos function of the platform for producers."
 msgstr "crwdns203324:0crwdne203324:0"
 
+# This is linked to a unit test
 msgctxt "attribute_group_labels_name"
 msgid "Labels"
 msgstr "crwdns203326:0crwdne203326:0"

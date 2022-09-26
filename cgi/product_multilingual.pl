@@ -1364,7 +1364,8 @@ CSS
 		my $other_nutriment_value = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
 
 		# Some nutrients cannot be entered directly by users, so don't suggest them
-		next if (get_property("nutrients", "zz:$nid", "automatically_computed:en") eq "yes");
+		my $automatically_computed = get_property("nutrients", "zz:$nid", "automatically_computed:en");
+		next if ((defined $automatically_computed) and ($automatically_computed eq "yes"));
 
 		if ((not defined $product_ref->{nutriments}{$nid}) or ($product_ref->{nutriments}{$nid} eq '')) {
 			my $supports_iu = "false";
