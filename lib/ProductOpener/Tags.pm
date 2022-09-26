@@ -4226,6 +4226,33 @@ sub add_users_translations_to_taxonomy($tagtype) {
 	return;
 }
 
+=head2 generate_regexps_matching_taxonomy_entries($taxonomy, $return_type, $options_ref)
+
+Create regular expressions that will match entries of a taxonomy.
+
+=head3 Arguments
+
+=head4 $taxonomy
+
+The type of the tag (e.g. categories, labels, allergens)
+
+=head4 $return_type - string
+
+Either "unique_regexp" to get one single regexp for all entries of one language.
+
+Or "list_of_regexps" to get a list of regexps (1 per entry) for each language.
+For each entry, we return an array with the entry id, and the the regexp for that entry.
+e.g. ['en:coffee',"coffee|coffees"]
+
+=head4 $options_ref
+
+A reference to a hash to enable options to indicate how to match:
+
+- add_simple_plurals : in some languages, like French, we will allow an extra "s" at the end of entries
+- add_simple_singulars: same with removing the "s" at the end of entries
+- match_space_with_dash: spaces or dashes in entries will match either a space or a dash (e.g. "South America" will match "South-America")
+
+=cut
 
 sub generate_regexps_matching_taxonomy_entries($taxonomy, $return_type, $options_ref) {
 
