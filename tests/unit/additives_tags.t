@@ -166,14 +166,16 @@ my @tests = (
 
 	[
 		{
-			lc => 'en', ingredients_text => "amaranth"
+			lc => 'en',
+			ingredients_text => "amaranth"
 		},
 		[]
 	],
 
 	[
 		{
-			lc => 'en', ingredients_text => "colour: amaranth"
+			lc => 'en',
+			ingredients_text => "colour: amaranth"
 		},
 		['en:e123']
 	],
@@ -182,7 +184,8 @@ my @tests = (
 	# this will test the additives entries regexps in Ingredients.pm
 	[
 		{
-			lc => 'en', ingredients_text => "flour treatment agent potassium iodate"
+			lc => 'en',
+			ingredients_text => "flour treatment agent potassium iodate"
 		},
 		['en:e917']
 	],
@@ -190,18 +193,19 @@ my @tests = (
 	# plural of additive class followed by an ingredient, without a :
 	[
 		{
-			lc => 'en', ingredients_text => "flour treatment agents potassium iodate"
+			lc => 'en',
+			ingredients_text => "flour treatment agents potassium iodate"
 		},
 		['en:e917']
 	],
 
 	[
 		{
-			lc => 'en', ingredients_text => "vitamin A"
+			lc => 'en',
+			ingredients_text => "vitamin A"
 		},
 		[]
-	],		
-
+	],
 
 );
 
