@@ -32,7 +32,8 @@ jobs:
           EOF
       - name: Build doc with mkdocs
         uses: Tiryoh/actions-mkdocs@v0.17.0
-        requirements: mkdocs-requirements.txt
+        with:
+          requirements: mkdocs-requirements.txt
 
       # generating perl documentation
       - name: Install Perl requirements
