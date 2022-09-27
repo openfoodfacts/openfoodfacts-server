@@ -1,6 +1,7 @@
 name: Documentation
 
 on:
+  # on pull request we just want to build
   pull_request:
   push:
     branches: [ main ]
@@ -46,7 +47,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4.4.0
         # we only deploy on push to main
         if: |
-          github.event_name == "push" && github.event.ref == "refs/heads/main"
+          github.event_name == 'push' && github.event.ref == 'refs/heads/main'
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: "gh-pages"
