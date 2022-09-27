@@ -26,17 +26,18 @@ use utf8;
 my $usage = <<TXT
 revert_changes_from_user.pl
 
-This script will revert products to the most recent version before a given user changed the product.
+This script will revert products
+to the most recent version before a given user changed the product.
 Products that did not exist before will be deleted.
-All changes done after the first edit of the user will also be deleted, even if done by other users.
-
-You may limit to a series of codes
+All changes done after the first edit of the user will also be deleted,
+even if done by other users.
 
 Usage:
 
-revert_changes_from_user.pl --userid user_id --codes codes --pretend
+revert_changes_from_user.pl --userid user_id --pretend
 
-it is likely that the MongoDB cursor of products to be updated will expire, and the script will have to be re-run.
+it is likely that the MongoDB cursor of products to be updated will expire, 
+and the script will have to be re-run.
 
 --pretend	do not actually update products
 TXT
