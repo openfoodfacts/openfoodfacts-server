@@ -28,5 +28,5 @@ cd ..
 # Integration tests
 
 perl integration/import_csv_file.t --update-expected-results
-perl export.t --update-expected-results
+perl integration/export.t --update-expected-results
 
