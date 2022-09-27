@@ -127,7 +127,7 @@ fr:feuille de, feuille d'
 hr:list
 hu:levél
 nl:blad, bladeren
-pl:natka, liść, liście
+pl:natka, liść, liście, nać, liście z
 ro:frunze de
 sr:list
 
@@ -292,6 +292,7 @@ es:granulado,granulada,granulados,granuladas
 fi:rae
 fr:en granules, granules de, granules d'
 hu:granulátum, granulált
+pl:granulat, granulat z, granulowany, granulowana, granulowane
 pt:granulado, granulada, granulados, granuladas
 sv:granulat
 # da:parse:$granulat
@@ -310,6 +311,7 @@ fr:moulu, moulue, moulus, moulues
 hu:őrölt, őrölve, darált, darálva
 is:muldar
 nl:gemalen
+pl:mielony, mielone, mielona, mielonego, mielonej, mielonych
 pt:moído, moída, moídos, moídas
 ru:дробленое
 sl:mleti
@@ -394,7 +396,7 @@ es:trozo,troza,trozos,trozas
 fr:morceaux, pièces de, en morceaux, morceaux de, morceaux d'
 hu:darabok, darabolt, darab, darabka
 nl:stukjes
-pl:kawałki
+pl:kawałki, kawałki z
 pt:pedaço, pedaços
 sv:bitar, i bitar
 # de:false-positive:früchstück
@@ -702,7 +704,7 @@ it:succo, succo di, succo d'
 nb:juice
 nl:sap
 nn:juice
-pl:sok z, sok
+pl:sok z, sok, sok ze
 pt:suco, sucos, sumo, sumos, suco de, sucos de, sumo de, sumos de, em suco, em sumos
 ro:suc de, suc
 ru:сок
@@ -761,7 +763,7 @@ hu:sűrítmény, sűrített, koncentrátum
 it:concentrato
 ko:농축물
 nl:concentraten, concentraat, geconcentreerd, geconcentreerde
-pl:koncentrat, koncentraty, koncentrat z
+pl:koncentrat, koncentraty, koncentrat z, skoncentrowany, skoncentrowana, skoncentrowane, zagęszczony, zagęszczone, zagęszczona, zagęszczonych, zagęszczonego, zagęszczonej
 pt:concentrado, concentrada, concentrados, concentradas, concentrado de, concentrados de, concentratos
 ro:concentrat de
 ru:концентрированный
@@ -775,6 +777,7 @@ en:double concentrated
 de:zweifach konzentriert, zweifach konzentrierte, zweifach konzentrierter, zweifach konzentriertes, 2 fach konzentriert, 2 fach konzentrierte, 2 fach konzentrierter, 2 fach konzentriertes, doppelt konzentriert, doppelt konzentrierte, doppelt konzentrierter, doppelt konzentriertes, 2-fach konzentriert, 2-fach konzentrierte, 2-fach konzentrierter, 2-fach konzentriertes
 es:doble concentrado,doble concentrada
 it:doppio concentrato, doppio concentrato di
+pl:podwójnie skoncentrowany
 
 # <en:concentrated
 de:dreifach konzentriert
@@ -839,7 +842,7 @@ lv:žāvēti
 nb:tørkede
 nl:gedroogd, gedroogde
 nn:tørket
-pl:suszony, suszona, suszone
+pl:suszony, suszona, suszone, suszonych, suszonej, suszonego, susz z, susz
 pt:seco, seca, secos, secas
 ro:uscate
 ru:сушеный, Сушеное, сушёная, сушёный
@@ -909,6 +912,7 @@ en:syrup, molasses
 bg:сироп
 de:sirup
 fr:sirop
+pl:syrop
 pt:Xarope
 
 #<en:dried
@@ -977,7 +981,7 @@ ja:エキス
 #it:falsePositive:antiossidante estratto ricco di tocoferolo
 nb:ekstrakt, ekstrakter
 nl:extract
-pl:ekstrakt, ekstrakt z
+pl:ekstrakt, ekstrakt z, ekstrakty z, ekstrakty, wyciąg, wyciąg z, wyciągi z, wyciągi
 pt:extrato, extratos, extracto, extractos, extrato de, extratos de, extracto de, extractos de, extrato da, extratos da, extracto da, extractos da
 ro:extract de
 sv:extrakt, extrakt av
@@ -1142,6 +1146,7 @@ de:blanchiert, blanchierte, blanchierter, blanchiertes
 fr:blanchi, blanchie, blanchis, blanchies
 hu:blansírozott
 nl:geblancheerd
+pl:blanszowany, blanszowana, blanszowane, blanszowanych, blanszowanego, blanszowanej
 
 en:cooked, boiled
 bg:сготвено, сготвена, сготвен, сготвени, варено, варена, варен, варени
@@ -1157,7 +1162,7 @@ it:cotto, cotta, cotti, cotte, cotto al naturale, cotta al naturale, cotti al na
 ms:rebus
 nl:gekookt, gekookte
 nn:kogte
-pl:gotowana
+pl:gotowana, gotowany, gotowane, gotowanej, gotowanego, gotowanych
 pt:cozido, cozida, cozidos, cozidas
 ro:fiert
 sv:kokt, kokta
@@ -1183,7 +1188,7 @@ bg:карамелизиран, карамелизирана, карамелиз�
 ca:caramel-litzat
 hu:karamellizált
 nl:gekarameliseerde, gekaramelliseerde
-pl:karmelizowany, karmelizowana, karmelizowane
+pl:karmelizowany, karmelizowana, karmelizowane, karmelizowanego, karmelizowanej, karmelizowanych
 pt:caramelizado, caramelizada, caramelizados, caramelizadas
 
 en:puffed, inflated
@@ -1245,6 +1250,7 @@ hu:pirított
 it:tostato, tostati, tostate
 nb:ristet, ristede
 nl:geroosterd, geroosterde, getoaste
+pl:prażony, prażone, prażona, prażonego, prażonej, prażonych
 pt:tostado, tostada, tostados, tostadas, torrado, torrada, torrados, torradas
 sl:praženi
 
@@ -1292,6 +1298,7 @@ es:enriquecida
 #de:comment:Can also appear in combinations: de:Eiweißangereichertes
 fr:enrichi, enrichie, enrichis
 nl:verrijkt
+pl:wzbogacany, wzbogacana, wzbogacane, wzbogacanej, wzbogacanego, wzbogacanych
 pt:enriquecido, enriquecida, enriquecidos, enriquecidas, enriquecido com, enriquecida com, enriquecidos com, enriquecidas com, enriquecido em, enriquecida em, enriquecidos em, enriquecidas em
 
 #<en:unadded
@@ -1319,7 +1326,7 @@ fr:salé, salée, salés, salées, sales, salees
 hu:sózott
 it:salato, salata, salate, salati
 nl:gezouten
-pl:solony, solona, solone
+pl:solony, solona, solone, solonego, solonej, solonych
 pt:salgado, salgada, salgados, salgadas, com sal
 sv:saltat
 
@@ -1400,6 +1407,7 @@ fr:confit,confite,confits,confites,confit de,confit d'
 hu:kandírozott, konfitált
 it:candito, candita, canditi, candite
 nl:gekonfijt, gekonfijte
+pl:kandyzowany, kandyzowana, kandyzowane, kandyzowanych, kandyzowanego, kandyzowanej
 pt:confitado, confitada, confitados, confitadas
 sv:kanderad, kanderade
 
@@ -1513,7 +1521,7 @@ en:fermented
 bg:ферментирало, ферментирал, ферментирала, ферментирали
 es:fermentado
 hu:fermentált
-pl:fermentowany, fermentowana, fermentowane
+pl:fermentowany, fermentowana, fermentowane, kiszony, kiszona, kiszone, kiszonych, kiszonego, kiszonej
 pt:fermentado, fermentada, fermentados, fermentadas
 wikidata:en:Q6950796
 
@@ -1526,7 +1534,7 @@ fr:mariné, marinée, marinés, marinées
 hu:marinált
 it:marinato, marinata
 nl:gemarineerd, gemarineerde
-pl:marynowany, marynowana, marynowane
+pl:marynowany, marynowana, marynowane, marynowanych, marynowanej, marynowanych
 pt:marinado, marinada, marinados, marinadas
 sv:marinerad
 wikidata:en:Q725668
@@ -1547,6 +1555,7 @@ de:gepökelt, gepökelte, gepökelter, gepökeltes
 #de:comment:do not add pökel
 fr:traité en salaison, traitée en salaison, traités en salaison, traitées en salaison, saumuré, saumurée, saumurés, saumurées
 nl:gepekeld
+pl:w zalewie
 pt:em salmoura
 wikidata:en:Q29560
 
@@ -1560,6 +1569,7 @@ fr:aromatisé, aromatisée, aromatisées
 # What to do with aromatisé au x and aromatisé de
 hu:ízesített
 nl:gearomatiseerd, gearomatiseerde
+pl:aromatyzowany, aromatyzowana, aromatyzowane
 pt:aromatizado, aromatizada, aromatizados, aromatizadas
 
 en:unflavoured, unflavoured
@@ -1576,6 +1586,7 @@ fr:fumé,fumés,fumée,fumées
 hu:füstölt, füstölve
 it:affumicato, affumicate, affumicata
 nl:gerookt, gerookte
+pl:wędzony, wędzona, wędzone, wędzonych, wędzonego, wędzonej
 pt:fumado, fumada, fumados, fumadas, defumado, defumada, defumados, defumadas
 sv:rökt
 #en:false-positive:en:sweet smoked paprike
@@ -1712,7 +1723,7 @@ fr:hydrogénée
 hu:hidrogénezett
 it:idrogenato
 nl:Gehydrogeneerde
-pl:uwodorniony
+pl:uwodorniony, uwodorniona, uwodornione
 sv:hårdat
 
 #<en:hydrogenated
@@ -1722,5 +1733,5 @@ de::ganz gehärtetes, vollständig hydriertes
 fr:totalement hydrogénée
 fi:kokonaan kovetettu
 nb:fullherdet
-pl:całkowicie uwodorniony
+pl:całkowicie uwodorniony, całkowicie uwodorniona, całkowicie uwodornione
 sv:fullhärdad
