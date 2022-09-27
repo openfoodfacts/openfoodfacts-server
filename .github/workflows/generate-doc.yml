@@ -34,6 +34,9 @@ jobs:
         uses: Tiryoh/actions-mkdocs@v0.17.0
         with:
           requirements: mkdocs-requirements.txt
+      - name: Ensure permissions on generated doc
+        run: |
+          sudo chown $UID -R gh_pages
 
       # generating perl documentation
       - name: Install Perl requirements
@@ -58,6 +61,7 @@ jobs:
             -v $(pwd)/docs/reference:/data -v $(pwd)/gh_pages/:/output \
             ghcr.io/redocly/redoc/cli:latest \
             build -o /output/reference/api.html api.yml
+          sudo chown $UID -R gh_pages
 
       - name: Deploy API documentation to Github Pages
         uses: JamesIves/github-pages-deploy-action@v4.4.0
