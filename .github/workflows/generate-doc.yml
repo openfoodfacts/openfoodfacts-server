@@ -1,9 +1,15 @@
 name: Documentation
 
 on:
-  # on pull request we just want to build
   pull_request:
+    # on pull request we just want to build
+    paths:
+     - "docs/**"
+     - ".github/workflows/generate-doc.yml"
+     - "mkdocs.yml"
+     - "html/files/doc/perl/**"
   push:
+    # on merge to main, build and publish
     branches: [ main ]
 
 jobs:
