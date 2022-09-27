@@ -3813,11 +3813,6 @@ fr:lait écrémé caillé
 ca:llet desnatada cuallada, llet descremada cuallada, llet cuallada desnatada, llet cuallada descremada
 es:leche desnatada cuajada, leche descremada cuajada, leche cuajada desnatada, leche cuahada descremada
 
-
-en:clotting agents
-de:Gerinnungsmittel
-es:agentes cuajantes,coagulante,coagulantes
-
 ######################### MILK and CREAM related stuff #########################
 
 <en:dairy
@@ -14538,7 +14533,7 @@ nl:gehydrogeneerde palmolie
 
 <en:hydrogenated palm oil
 en:totally hydrogenated palm oil
-bg:напълно хидрогенирано палмово масло, напълно хидрогенирана палмова мазнина
+bg:напълно хидрогенирано палмово масло
 de:vollständig gehärtetes Palmöl
 es:aceite de palma totalmente hidrogenado
 fi:kokonaan kovetettu palmuöljy, kokonaan hydrogenoitu palmuöljy
@@ -14965,7 +14960,7 @@ fi:neitsytoliiviöljy
 fr:huile d'olive vierge
 hu:szűz olívaolaj
 it:olio d'oliva vergine
-nl:olijfolie van de eerste persing, extra vierge olijfolie
+nl:olijfolie van de eerste persing
 no:virgin olivenolje, jomfru olivenolje
 pl:Oliwa z oliwek z pierwszego tłoczenia
 pt:Azeite de oliva virgem
@@ -16657,7 +16652,6 @@ sv:cidervinäger
 <en:cider vinegar
 en:apple cider vinegar
 bn:আপেল সিডার ভিনেগার
-bg:ябълков оцет
 da:æblecidereddike, æbleeddike
 de:Apfelweinessig
 es:vinagre de sidra de manzana
@@ -24112,7 +24106,7 @@ bg:бяло пшенично брашно тип 500, брашно тип 500, �
 
 <en:wheat flour
 en:wheat flour type 550, flour type 550
-bg:бяло пшенично брашно тип 550, брашно тип 500
+bg:бяло пшенично брашно тип 550
 de:Weizenmehl Type 550
 hr:pšenično brašno tip 550, pšenično brašno T-550, pšenično brašno T 550
 
@@ -24986,11 +24980,17 @@ sv:vit majs
 tr:sari misir
 
 <en:corn
-en:sweet corn
-de:Süßmais, Zuckermais
+en:sweetcorn, sweet corn
+bg:сладка царевица
+de:Süßmais, Süssmais, Zuckermais
 es:maíz dulce, maiz dulce
+fi:sokerimaissi
 fr:maïs doux, mais doux
-nl:suikermaïs
+hu:csemegekukorica
+it:mais dolce
+ja:スイートコーン
+nl:suikermaïs, zoete maïs
+# ingredient/fr:maïs-doux 103 products in 5 languages @2018-09-24
 
 <en:corn
 en:corn fiber
@@ -25160,19 +25160,6 @@ pt:milho doce em grão
 <fr:maïs doux en grains
 fr:maïs doux en grains sans ogm
 # ingredient/fr:maïs-doux-en-grains-sans-ogm 65 products in 4 languages @2018-09-24
-
-<en:corn
-en:sweetcorn
-bg:сладка царевица
-de:Süssmais
-es:maíz dulce
-fi:sokerimaissi
-fr:maïs doux
-hu:csemegekukorica
-it:mais dolce
-ja:スイートコーン
-nl:zoete maïs
-# ingredient/fr:maïs-doux 103 products in 5 languages @2018-09-24
 
 <en:cornmeal
 fr:maïs moulu
@@ -31396,7 +31383,6 @@ fr:maltodextrine de blé
 
 en:raising agent, leavening agent, leavening, dough raising agent
 ar:عامل نفاشية
-bg:Набухвател
 ca:gasificants
 cs:Kypřicí látka, Kypřidlo
 cy:Lefain
@@ -31640,7 +31626,7 @@ it:naturale-fermento, lievito naturale
 <en:yeast
 en:Baker's yeast
 ar:فطريات الخميرة
-bg:мая, хлебна мая
+bg:хлебна мая
 ca:Llevat de forner
 de:Backhefe
 el:Μαγιά αρτοποιίας
@@ -50416,7 +50402,6 @@ en:Watercress
 af:Bronkors
 an:Berro
 ar:جرجير الماء
-bg:кресон
 ca:creixen
 de:Brunnenkresse
 eo:akvokreso
@@ -56066,7 +56051,7 @@ en:turmeric
 af:borrie
 am:እርድ
 ar:كركم
-bg:куркума, куркумин
+bg:куркума
 bn:হলুদ
 bs:kurkuma
 ca:cúrcuma
@@ -63331,7 +63316,6 @@ ro:concentrat de spirulină, concentrat de spirulina
 en:seaweed
 af:Seewier
 ar:عشب بحري
-bg:водорасли
 br:bezhin
 cs:mořské řasy
 cy:Gwymon
@@ -78171,14 +78155,14 @@ nl:Speciaal brood
 fr:pain spécial cuit
 # usage:fr:Pain spécial cuit 41,2 % (farine de blé ; eau ; œufs ; beurre ; sucre ; poudre de lait écrémé ; huile de colza ; poudres à lever : E450i, E500ii ; sel ; levure ; gluten de blé ; épaississant : gomme guar)
 
-<en:bread
+<en:special bread
 fr:pain de mie
 # ingredient/fr:pain-de-mie has 104 products in 4 languages @2019-03-07
 
-<en:pain de mie
+<en:special bread
 fr:Pain de mie aux céréales
 
-<en:pain de mie
+<en:special bread
 fr:pain de mie complet
 
 <en:special bread
@@ -78203,7 +78187,7 @@ fi:seesamisämpylä, hampurilaissämpylä, hampurilaissämpylää
 nl:sesambroodje
 allergens:en: en:sesame seeds
 
-<en:breadmeal
+<en:special bread
 fr:pain de mie au son de blé
 # ingredient/fr:pain-de-mie-au-son-de-blé has 32 products in french @2019-03-07
 
@@ -78748,7 +78732,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Speculaas
 
 # <en:compound
 en:coating, seasoning
-bg:Покритие, глазура
+bg:Покритие
 bs:smjesa za paniranje
 de:Beschichtung
 es:envolviendo, sobrimiento,sazonador

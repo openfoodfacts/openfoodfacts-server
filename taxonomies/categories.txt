@@ -38537,10 +38537,6 @@ fr:Fromages saumurés
 nl:Gepeklde kazen
 ru:Рассольные сыры
 
-<en:Cheeses
-en:Cheeses for grilling, Baking cheeses
-nl:Grillkazen, Bakkazen
-
 <en:Artisan products
 <en:Cheeses
 en:Artisan cheeses
@@ -39355,10 +39351,10 @@ en:Cypriot cheeses, Cheeses from Cyprus
 
 <en:Cheeses
 <en:Meat alternatives
-en:Grilling cheeses, Cheeses to grill, cheeses for grilling
+en:Grilling cheeses, Cheeses to grill, cheeses for grilling, Baking cheeses
 de:Grillkäse
 fr:Fromages à griller
-nl:Grillkazen
+nl:Grillkazen, Baking cheeses
 
 <en:Cypriot cheeses
 <en:Cheeses to grill
@@ -52818,7 +52814,7 @@ es:Muesli, Mueslis
 et:Müsli
 eu:Muesli
 fi:Mysli
-fr:mueslis, müesli, Mueslis croustillants, Granolas
+fr:mueslis, müesli, Granolas
 gl:Muesli
 he:מוזלי
 hi:safad musali
@@ -67706,7 +67702,6 @@ fr:Veloutés de légumes verts
 en:Cream of asparagus soups
 es:Cremas de espárragos
 fr:Veloutés d'asperges
-nl:Aspergesoepen
 wikidata:en:Q18145066
 
 <en:Cream of vegetable soups
@@ -79438,6 +79433,7 @@ fi:piirakat
 fr:Tartes
 it:Torte dolci e salate
 nl:Taarten
+nl_be:Taart, Taarten
 zh:馅饼
 wikidata:en:Q1142483
 food_groups:en: en:Pizza pies and quiches
@@ -79621,7 +79617,7 @@ wikidata:en:Q2722559
 en:Strawberry pies, Strawberry tart, Strawberries tart
 de:Erdbeerkuchen
 fr:Tartes aux fraises, tartes à la fraise, tarte aux fraises, tarte à la fraise
-nl:Aardbeientaart
+nl:Aardbeientaart, Taarten met aardbeien
 wikidata:en:Q149766
 agribalyse_food_code:en:23491
 ciqual_food_code:en:23491
@@ -79669,15 +79665,6 @@ ciqual_food_name:en:Tatin tart (caramelized upside-down apple tart)
 ciqual_food_name:fr:Tarte Tatin aux pommes
 
 <en:Fruit tarts
-en:Strawberry tart, Strawberries tart
-fr:Tartes aux fraises
-nl:Taarten met aardbeien
-agribalyse_food_code:en:23491
-ciqual_food_code:en:23491
-ciqual_food_name:en:Strawberries tart
-ciqual_food_name:fr:Tarte aux fraises
-
-<en:Fruit tarts
 en:Pear pies
 de:Birnenkuchen
 fr:Tartes aux poires, Tarte aux poires, Tartes à la poire, Tarte à la poire
@@ -79717,8 +79704,7 @@ es:Tartaletas
 fi:Tarteletit
 fr:Tartelettes, tartelette
 it:Tortine
-nl:Taartjes, Taarten
-nl_be:Taart, Taarten
+nl:Taartjes
 
 <en:Tartlets
 en:Crostatina
@@ -81143,15 +81129,6 @@ en:Chinese sea products
 fr:Produits de la mer chinois
 
 <en:Lobsters
-en:lobster
-fr:Homard
-nl:Kreeft, Zeekreeft
-ciqual_food_code:en:10010
-ciqual_food_name:en:Lobster, raw
-ciqual_food_name:fr:Homard, cru
-wikidata:en:Q61864890
-
-<en:Lobsters
 en:Boiled lobster, Lobster cooked in water
 fr:Homard bouilli, Homard cuit à l'eau
 ciqual_food_code:en:10009
@@ -81519,13 +81496,14 @@ nl:Kreeftensoep
 fr:Bisques de Langoustines
 
 <en:Crustaceans
-en:Lobsters
-de:Hummer
-fr:Homards
-nl:Kreeft
-agribalyse_proxy_food_code:en:10024
-agribalyse_proxy_food_name:en:Norway lobster, raw
-agribalyse_proxy_food_name:fr:Langoustine, crue
+en:lobsters, lobster
+de:hummer
+fr:homard, homards
+nl:kreeft, zeekreeft
+ciqual_food_code:en:10010
+ciqual_food_name:en:Lobster, raw
+ciqual_food_name:fr:Homard, cru
+wikidata:en:Q61864890
 
 <en:Crustaceans
 en:Spiny lobsters
@@ -81579,7 +81557,6 @@ wikidata:en:Q600396
 # Fish patties are generally called "fish burgers", but it is not put as a synonym since it could be confused with "fish hamburgers"
 <en:Fishes
 en:Fish patties
-fr:Galettes au poisson
 
 <en:Seafood
 <en:Frozen foods
@@ -95831,21 +95808,27 @@ it:Formaggi vegani
 nl:Veganistische kazen
 
 <en:Legumes and their products
-en:Puffed pulse cakes
-de:Hülsenfruchtwaffeln
-es:Tortitas de legumbres
-fr:Galettes de légumineuses soufflées
-it:Galetti di legumi
-nl:Peulvruchtenwafels
+en:pulse cakes, cakes of pulses
+de:hülsenfruchtwaffeln
+es:tortitas de legumbres
+it:galetti di legumi
+nl:peulvruchtenwafels
 
-<en:Cakes of pulses
-en:Puffed lentil cakes
+<en:pulse cakes
+en:Puffed pulse cakes
+fr:galettes de légumineuses soufflées
+
+<en:pulse cakes
+en:lentil cakes
 de:linsenwaffeln
+nl:Linzenwafels
+pt:Geletes de lentilha
+
+<en:lentil cakes
+en:Puffed lentil cakes
 es:Tortitas de lentejas infladas
 fr:Galettes de lentilles soufflées
 it:Galetti di lenticchie soffiate
-nl:Linzenwafels
-pt:Geletes de lentilha
 
 <en:Cereals and their products
 en:Rice paper
@@ -96947,7 +96930,6 @@ fr:Terrines de canard au muscat
 en:Dietary supplements
 af:Diëet aanvulling
 ar:مكمل غذائي
-bg:Хранителни добавки
 bs:Prehrambeni suplement
 ca:Suplements dietètics
 cs:Doplněk stravy
