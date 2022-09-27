@@ -41,4 +41,14 @@ use Pod::Simple::HTMLBatch;
 
 my $batchconv = Pod::Simple::HTMLBatch->new;
 
+$batchconv->add_css("simple.min.css");
+$batchconv->contents_page_start('
+<html>
+<head>
+<title>Product Opener Perl Documentation</title>
+</head>
+<body class="contentspage">
+<h1>Product Opener Perl Documentation</h1>
+<p><a href="https://github.com/openfoodfacts/openfoodfacts-server">github repository</a></p>
+');
 $batchconv->batch_convert( ["cgi", "scripts", "lib"] , "html/files/doc/perl");

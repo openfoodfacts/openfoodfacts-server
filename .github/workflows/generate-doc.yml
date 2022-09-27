@@ -1,18 +1,24 @@
 name: Documentation
 
 on:
+  pull_request:
   push:
-    branches: ["main"]
+    branches: [ main ]
 
 jobs:
   documentation:
-    name: Generate documentation
+    name: Documentation
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout sources
         uses: actions/checkout@v3
 
+      # generating project documentation
+      - name: Build doc with mkdocs
+        uses: Tiryoh/actions-mkdocs@v0.17.0
+
+      # generating perl documentation
       - name: Install Perl requirements
         run: |
           sudo apt-get update
@@ -25,10 +31,23 @@ jobs:
       - name: Run generate_perl_html_doc_from_pod.pl
         run: |
           perl -CS -I lib scripts/generate_perl_html_doc_from_pod.pl
+          # and copy to target directory
+          mv html/files/doc/perl gh_pages/
+
+      # generating openapi documentation
+      - name: Generate openapi html with ghcr.io/redocly/redoc/cli:latest
+        run : |
+          docker run --rm \
+            -v $(pwd)/docs/reference:/data -v $(pwd)/gh_pages/:/output \
+            ghcr.io/redocly/redoc/cli:latest \
+            build -o /output/reference/api.html api.yml
 
       - name: Deploy API documentation to Github Pages
         uses: JamesIves/github-pages-deploy-action@v4.4.0
+        # we only deploy on push to main
+        if: |
+          github.event_name == "push" && github.event.ref == "refs/heads/main"
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: "gh-pages"
-          folder: html/files/doc/perl
+          folder: gh_pages

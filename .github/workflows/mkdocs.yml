@@ -1,0 +1,23 @@
+# Settings for mkdocs
+
+# Where to find documentation
+docs_dir: doc
+
+# Link to Github on every page
+repo_url: https://github.com/openfoodfacts/openfoodfacts-server
+
+site_name: Product Opener (Open Food Facts Server)
+site_dir: gh_pages
+
+theme:
+  name: material
+
+markdown_extensions:
+  - footnotes
+  - mdx_truly_sane_lists
+  - pymdownx.highlight
+  - pymdownx.superfences
+
+plugins:
+  - awesome-pages
+  - search
