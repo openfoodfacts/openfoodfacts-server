@@ -4355,7 +4355,7 @@ JS
 
 	$request_ref->{content_ref} = \$html;
 	$request_ref->{page_type} = "products";
-	$request_ref->{page_type} = "banner";
+	$request_ref->{page_type} = "full_width";
 
 	display_page($request_ref);
 
@@ -4909,7 +4909,7 @@ sub customize_response_for_product($request_ref, $product_ref) {
 sub search_and_display_products($request_ref, $query_ref, $sort_by, $limit, $page) {
 
 	$request_ref->{page_type} = "products";
-	$request_ref->{page_format} = "banner";
+	$request_ref->{page_format} = "full_width";
 
 	my $template_data_ref = {
 	};
@@ -7138,21 +7138,6 @@ JS
 	if ($html =~ /<!-- disable_equalizer -->/) {
 
 		$html =~ s/data-equalizer(-watch)?//g;
-	}
-
-	# no side column?
-	# e.g. in Discover and Contribute page
-
-	if ($html =~ /<!-- no side column -->/) {
-
-		my $new_main_row_column = <<HTML
-<div class="row">
-	<div class="large-12 columns" style="padding-top:1rem">
-HTML
-;
-
-		$html =~ s/<!-- main row -(.*)<!-- main column content(.*?)-->/$new_main_row_column/s;
-
 	}
 
 	# Twitter account
