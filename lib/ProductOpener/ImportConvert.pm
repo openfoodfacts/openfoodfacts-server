@@ -945,7 +945,7 @@ sub clean_fields($product_ref) {
 			
 			# Remove fields with "0"
 			if ($product_ref->{$field} ne '-') {
-				$product_ref->{$field} =~ s/^( |0|-|_|\.|\/)+$//;
+				$product_ref->{$field} =~ s/^( |0|-|_|\.|\/|\*|;)+$//;
 			}
 			
 			# Remove HTML comments

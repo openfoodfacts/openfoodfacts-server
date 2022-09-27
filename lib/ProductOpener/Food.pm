@@ -2613,8 +2613,10 @@ sub assign_nutriments_values_from_request_parameters($product_ref, $nutriment_ta
 		}
 	}
 
+	# It is possible to add nutrients that we do not know about
+	# by using parameters like new_0, new_1 etc. 
 	my @new_nutriments = ();
-	my $new_max = remove_tags_and_quote(single_param('new_max'));
+	my $new_max = remove_tags_and_quote(single_param('new_max')) || 0;
 	for (my $i = 1; $i <= $new_max; $i++) {
 		push @new_nutriments, "new_$i";
 	}

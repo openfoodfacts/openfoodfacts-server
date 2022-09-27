@@ -34,6 +34,7 @@ fi:raaka
 fr:cru, crue, crus, crues, brut, non raffiné
 hu:nyers, nyersen
 nl:rauw, rauwe
+pl:surowy, surowa, surowe
 pt:cru, crus
 # da:parse:rå$
 # fi:parse:raaka$
@@ -48,6 +49,7 @@ hu:friss
 it:fresco, fresca, fresche, freschi
 # de:frisch is found in front and in the ingredients
 nl:verse, vers
+pl:świeży, świeża, świeże
 pt:fresco, fresca, frescos, frescas
 
 # Often in combination with flavour. It does not seem that it has much meaning.
@@ -114,6 +116,7 @@ zh:籽
 #fr:filet de
 #it:filetti di
 #nl:filet
+#pl:filet
 #sk:filety
 #sv:filé, filé av
 
@@ -153,6 +156,7 @@ fr:coupé, coupée, coupés, coupées, émincé, émincée, émincés, émincée
 hu:vágott, vágás
 it:tagliato, tagliata, tagliati, tagliate
 nl:gesneden
+pl:cięty, cięta, cięte
 pt:cortado, cortada, cortados, cortadas
 
 # <en:cut
@@ -218,6 +222,7 @@ is:hakkaðar
 nb:hakkede
 nl:gehakt, gehakte
 nn:hakkede
+pl:siekany, siekana, siekane, szatkowany, szatkowana, szatkowane
 pt:picado, picada, picados, picadas
 sv:hackade
 # nl:parse:gehakte_$
@@ -274,6 +279,7 @@ fr:râpé, râpée, râpés, râpées
 hu:reszelt, reszelve
 it:grattugiato, grattugiata, grattugiati
 nl:geraspt, geraspte
+pl:tarty, tarta, tarte
 pt:ralado, ralada, ralados, raladas
 sv:riven
 # nl:parse:geraspte_$
@@ -345,7 +351,7 @@ hu:püré, pürésített
 it:purea di
 nb:puré
 nl:puree
-pl:przecier, piure z
+pl:przecier, przeciery, przecier z, przeciery z, piure z, przetarty, przetarta, przetarte
 pt:puré, em puré, puré de, puré da
 sk:pyré
 sv:puré
@@ -372,7 +378,7 @@ fi:kokonainen, kokonaiset
 fr:entier, entière, entiers, entières
 hu:egész, egészben
 it:intero, intera, interi, intere
-pl:całe
+pl:całe, w całości
 pt:inteiro, inteira, inteiros, inteiras
 sv:hel, hela
 # unclear what the dutch variant is
@@ -387,6 +393,7 @@ pt:metade, metades
 
 fr:quartiers
 nl:kwarten
+pl:ćwiartki
 
 en:pieces
 bg:парчета, парченца, парченца от
@@ -417,6 +424,7 @@ fi:hiutaleet, hiutale
 fr:flocons de
 it:fiocchi di
 nl:vlokken
+pl:płatki, grys, wiórki
 pt:floco, flocos, em floco, em flocos, floco de, flocos de
 
 en:chips, slices
@@ -428,7 +436,7 @@ fr:chips de
 it:fettine di
 ja:チップス
 nl:chips
-pl:chipsy, płatki
+pl:chipsy
 
 #de:comment:result of grating
 de:raspel, raspeln
@@ -522,7 +530,7 @@ lt:miltai
 lv:milti
 nb:mel
 nl:bloem, meel
-pl:Mąka
+pl:mąka
 pt:farinha de
 ro:făină de
 ru:мука
@@ -557,6 +565,7 @@ bg:обезкостен, обезкостено, обезкостена, обе�
 es:deshuesado, deshuesada, deshuesados, deshuesadas, sin hueso
 fr:désossé, désossée, désossés, désossées, sans os
 hu:csontozott, kicsontozott
+pl:bez kości
 pt:desensoçado, desossado, sem osso
 
 #en:description:To remove the outer covering or shell of something
@@ -564,6 +573,7 @@ en:shelled
 es:sin cascara, pelada, pelado, peladas, pelados
 fr:décortiqué, décortiquée, décortiqués, décortiquées, décoquillé, décoquillée, décoquillés, décoquillées, émondé, émondée, émondés, émondées
 it:decorticati
+pl:łuskany, łuskana, łuskane
 pt:descascado, descascada, descascados, descascadas, sem casca, sem cascas
 
 # en:description:With the outermost layer or skin removed
@@ -576,6 +586,7 @@ fi:kuoritut
 fr:pelé, pelée, pelés, pelées, dépelliculé, dépelliculées
 hu:hámozott
 nl:gepeld, gepelde
+pl:obrany, obrana, obrane
 pt:pelado, pelada, pelados, peladas, sem pele, sem peles
 sv:skalade
 # en:wiktionary:peeled
@@ -594,6 +605,7 @@ fr:dénoyauté, dénoyautée, dénoyautés, dénoyautées
 hu:magozott, kimagozott, magtalanított
 it:denocciolate
 nl:ontpit, ontpitte
+pl:drylowany, drylowana, drylowane
 #pt:sem caroço, sem caroco
 sv:urkärnad
 # en:wiktionary:pitted
@@ -611,6 +623,7 @@ hu:héj, héja
 it:scorza di, scorze di
 nl:schil, schillen
 #nl:false:schildje, met schil
+pl:skórka z
 pt:pele, peles, pele de, peles de, raspas
 ro:piele de
 #sv:skal
@@ -640,6 +653,7 @@ hu:bél, velő
 it:polpa, polpa di
 nl:pulp, vruchtvlees
 #nl:false:met pulp
+pl:pulpa, pulpa z
 pt:polpa, polpas, polpa de, polpas de
 sk:Dužnina
 sv:Fruktkött
@@ -672,7 +686,7 @@ fr:dégraissé, dégraissée, dégraissés, dégraissées
 hu:zsírtalanított
 it:sgrassato, sgrassata
 nl:ontvet, ontvette
-pl:odtłuszczone
+pl:odtłuszczone, o obniżonej zawartości tłuszczu
 pt:desengordurado, desengordurada
 ro:degresat
 
@@ -745,6 +759,7 @@ fi:nestemäinen
 fr:liquide
 it:liquido
 nl:vloeibaar
+pl:płyn
 
 # en:description:To increase the strength and diminish the bulk of, as of a liquid or an ore; to intensify, by getting rid of useless material.
 en:concentrated, concentrate, concentrates
@@ -879,6 +894,7 @@ fr:séché au soleil, séchée au soleil, séchés au soleil, séchées au solei
 hu:napon szárított
 it:essiccati al sole
 nl:zongedroogd, zongedroogde
+pl:suszone w słońcu, suszone na słońcu
 pt:seco ao sol, seca ao sol, secos ao sol, secas ao sol
 sv:soltorkad, soltorkade
 
@@ -1009,6 +1025,7 @@ fr:pressé, pressée, pressées
 hu:préselt, sajtolt
 #fr:false:à pâte pressée, fromage pressé
 it:spremuto di
+pl:tłoczony, tłoczona, tłoczone
 pt:espremido, espremida, espremidos, espremidas
 sv:presset
 
@@ -1024,6 +1041,7 @@ sv:nypressad
 en:mechanically pressed
 bg:механично пресовано, механично пресован, механично пресовани
 es:prensado mecánicamente, prensada mecánicamente
+pl:mechanicznie tłoczony, mechanicznie tłoczona, mechanicznie tłoczone
 pt:espremido mecanicamente, espremida mecanicamente, espremidos mecanicamente, espremidas mecanicamente
 
 #<en:pressed
@@ -1040,6 +1058,7 @@ es:prensado en frio, prensada en frio,prensados en frio, prensadas en frio
 fr:pression à froid, pressée à froid, obtenue par pression à froid, pressé à froid
 hu:hidegen sajtolt
 nl:koud geperst
+pl:tłoczony na zimno, tłoczona na zimno, tłoczone na zimno,
 pt:espremido a frio, espremida a frio, espremidos a frio, espremidas a frio
 sv:kallpressad
 
@@ -1076,6 +1095,7 @@ es:congelado, conjelada, congelados, conjeladas,ultracongelado, ultracongelada,u
 fr:surgelé, surgelée, surgelés, surgelées, congelé, congelée, congelés, congelées
 hu:fagyasztott, fagyott
 nl:diepgevroren
+pl:mrożony, mrożona, mrożone
 pt:congelado, congelada, congelados, congeladas, ultracongelado, ultracongelada, ultracongelados, ultracongeladas
 ro:congelat
 
@@ -1128,6 +1148,7 @@ fr:pré-cuit, pré-cuite, pré-cuits, pré-cuites, précuit, précuite, précuit
 hu:előfőzött
 it:precotto, precotta, precotti, precotte
 nl:voorgekookt, voorgekookte
+pl:wstępnie gotowany, wstępnie gotowana, wstępnie gotowane
 
 # Just seems to be a synonym for pre-cooked / half cooked, although I saw the two combined. Seems to be only for en:rice
 #<en:pre-cooked
@@ -1214,6 +1235,7 @@ es:frito, fritos, frita, fritas
 fr:frit, frite, frits, frites
 hu:sült
 it:fritto, fritta, fritti, fritte
+pl:smażony, smażona, smażone
 pt:frito, frita, fritos, fritas
 sv:friterad, stekt
 # nl:gefrituurd
@@ -1230,6 +1252,7 @@ fr:rôti, rôtie, rôtis, rôties, torréfié, torréfiée, torréfiés, torréf
 hu:pörkölt
 it:arrostito, arrostite, arrostiti
 nl:gebraden
+pl:prażony, prażona, prażone
 pt:assado, assada, assados, assadas
 sk:pražené
 sv:rostat, rostade
@@ -1298,7 +1321,7 @@ es:enriquecida
 #de:comment:Can also appear in combinations: de:Eiweißangereichertes
 fr:enrichi, enrichie, enrichis
 nl:verrijkt
-pl:wzbogacany, wzbogacana, wzbogacane, wzbogacanej, wzbogacanego, wzbogacanych
+pl:wzbogacany, wzbogacana, wzbogacane, wzbogacanej, wzbogacanego, wzbogacanych, fortyfikowany, fortyfikowana, fortyfikowane
 pt:enriquecido, enriquecida, enriquecidos, enriquecidas, enriquecido com, enriquecida com, enriquecidos com, enriquecidas com, enriquecido em, enriquecida em, enriquecidos em, enriquecidas em
 
 #<en:unadded
@@ -1370,6 +1393,7 @@ es:endulzado, endulzada, endulzados, endulzadas
 fi:makeutettu, makeutetut
 hu:édesített
 nl:gezoet, gezoete
+pl:słodzony, słodzona, słodzone
 pt:adoçado, adoçada, adoçados, adoçadas, adocicado, adocicada, adocicados, adocicadas
 sv:sötad
 
@@ -1389,7 +1413,6 @@ fr:sucré, sucrée, sucrés, sucrées, sucree, sucrees
 #better not add fr:sucre and fr:sucres
 hu:cukrozott
 nl:gesuikerd, gesuikerde
-pl:słodzony, słodzona, słodzone
 pt:açucarado, açucarada, açucarados, açucaradas
 sv:sockrad
 
@@ -1569,7 +1592,7 @@ fr:aromatisé, aromatisée, aromatisées
 # What to do with aromatisé au x and aromatisé de
 hu:ízesített
 nl:gearomatiseerd, gearomatiseerde
-pl:aromatyzowany, aromatyzowana, aromatyzowane
+pl:aromatyzowany, aromatyzowana, aromatyzowane, przyprawiony, przyprawiona, przyprawione
 pt:aromatizado, aromatizada, aromatizados, aromatizadas
 
 en:unflavoured, unflavoured
@@ -1706,6 +1729,7 @@ fr:non hydrogénée
 hu:nem hidrogénezett
 it:non idrogenato
 nl:niet gehydrogeneerd, niet gehydrogeneerde
+pl:nieuwodorniony
 pt:nâo hidrogenada
 ro:nehidrogenate
 sv:ohärdad

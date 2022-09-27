@@ -21,7 +21,6 @@ perl ingredients.t --results expected_test_results/ingredients/
 perl nutriscore.t --update-expected-results
 perl packaging.t --results expected_test_results/packaging/
 perl recipes.t --results expected_test_results/recipes/
-perl export.t --update-expected-results
 perl import_convert_carrefour_france.t --update-expected-results
 
 cd ..
@@ -29,4 +28,5 @@ cd ..
 # Integration tests
 
 perl integration/import_csv_file.t --update-expected-results
+perl integration/export.t --update-expected-results
 
