@@ -45,7 +45,8 @@ jobs:
         run: |
           perl -CS -I lib scripts/generate_perl_html_doc_from_pod.pl && \
           # and copy to target directory
-          mv html/files/doc/perl gh_pages/
+          rm -rf gh_pages/reference/perl-pod && \
+          mv html/files/doc/perl gh_pages/reference/perl-pod
 
       # generating openapi documentation
       - name: Generate openapi html with ghcr.io/redocly/redoc/cli:latest
