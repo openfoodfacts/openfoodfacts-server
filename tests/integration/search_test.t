@@ -13,52 +13,69 @@ use JSON::PP;
 use ProductOpener::TestDefaults qw/:all/;
 use ProductOpener::Test qw/:all/;
 use Getopt::Long;
+use Storable qw(dclone);
 
 my $test_name = "search_test";
 my $tests_dir = dirname(__FILE__);
 my $expected_dir = $tests_dir . "/expected_test_results/" . $test_name;
 
 my @products = (
-	
-    {	code => '200000000034',
-		product_name => "test_1",
-		generic_name => "Tester",
-		ingredients_text => "apple, milk, eggs, palm oil",
-		origin => "france",}
-	,
+
 	{
-		code => '200000000037',
-		product_name => "vegan & palm oil free",
-		generic_name => "Tester",
-		ingredients_text => "fruit, rice",
-		packaging_text => "no"
+		%{dclone(\%default_product_form)},
+		(
+			code => '200000000034',
+			product_name => "test_1",
+			generic_name => "Tester",
+			ingredients_text => "apple, milk, eggs, palm oil",
+			origin => "france"
+		)
 	},
 	{
-		code => '200000000038',
-		product_name => "palm oil free & non vegan",
-		generic_name => "Tester",
-		quantity => "100 ml",
-		ingredients_text => "apple, milk, eggs",
-		origin => "france"
+		%{dclone(\%default_product_form)},
+		(
+			code => '200000000037',
+			product_name => "vegan & palm oil free",
+			generic_name => "Tester",
+			ingredients_text => "fruit, rice",
+			packaging_text => "no"
+		)
 	},
 	{
-		code => '200000000039',
-		lang => "es",
-		product_name => "Vegan Test Snack",
-		generic_name => "Tester",
-		ingredients_text => "apple, water, palm oil",
-		origin => "spain",
-		categories => "snacks"
+		%{dclone(\%default_product_form)},
+		(
+			code => '200000000038',
+			product_name => "palm oil free & non vegan",
+			generic_name => "Tester",
+			quantity => "100 ml",
+			ingredients_text => "apple, milk, eggs",
+			origin => "france"
+		)
 	},
 	{
-		code => '200000000045',
-		lang => "es",
-		product_name => "Vegan Test Snack",
-		generic_name => "Tester",
-		ingredients_text => "apple, water",
-		origin => "China",
-		packaging_text => "no",
-		categories => "breakfast cereals"
+		%{dclone(\%default_product_form)},
+		(
+			code => '200000000039',
+			lang => "es",
+			product_name => "Vegan Test Snack",
+			generic_name => "Tester",
+			ingredients_text => "apple, water, palm oil",
+			origin => "spain",
+			categories => "snacks"
+		)
+	},
+	{
+		%{dclone(\%default_product_form)},
+		(
+			code => '200000000045',
+			lang => "es",
+			product_name => "Vegan Test Snack",
+			generic_name => "Tester",
+			ingredients_text => "apple, water",
+			origin => "China",
+			packaging_text => "no",
+			categories => "breakfast cereals"
+		)
 	}
 );
 
@@ -73,22 +90,21 @@ my $ua = new_client();
 my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
 create_user($ua, \%create_user_args);
 
-##This works 
-my %arg_test_product = (%default_product_form, (ingredients_text => "peach, turkey"));
-create_product($ua, \%arg_test_product);
-##Used a print statement to see what the final hash looks like
-print Dumper(\%arg_test_product);
-
-
 foreach my $product_form_override (@products) {
-	my %create_product_args = (%default_product_form, $product_form_override);
-	create_product($ua, \%create_product_args);
+	# my %create_product_args = (%{dclone(\%default_product_form)}, $product_form_override);
+	# print Dumper(\%create_product_args);
+	create_product($ua, $product_form_override);
 }
 
 my @tests = (
 	["q1", construct_test_url("/cgi/search.pl?action=process&json=1", "world")],
 	["q2", construct_test_url("/cgi/search.pl?action=process&json=1&ingredients_from_palm_oil=without", "world")],
-	["q3", construct_test_url("/api/v2/search?code=200000000039,200000000038&fields=code,product_name", "world")],
+	[
+		"q3",
+		construct_test_url(
+			"/api/v2/search?code=200000000039,200000000038,200000000034&fields=code,product_name", "world"
+		)
+	],
 	[
 		"q4",
 		construct_test_url(
