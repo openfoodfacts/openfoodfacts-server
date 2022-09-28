@@ -93,7 +93,7 @@ create_user($ua, \%create_user_args);
 foreach my $product_form_override (@products) {
 	# my %create_product_args = (%{dclone(\%default_product_form)}, $product_form_override);
 	# print Dumper(\%create_product_args);
-	create_product($ua, $product_form_override);
+	edit_product($ua, $product_form_override);
 }
 
 my @tests = (
