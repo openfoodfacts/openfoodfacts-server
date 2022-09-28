@@ -63,7 +63,7 @@ Data about food is of public interest and has to be open (i.e available to every
    * [Perl modules documentation (POD)](https://openfoodfacts.github.io/api-documentation/reference/perl/)
 
  * [API Documentation](https://openfoodfacts.github.io/api-documentation/)
- * [NEW API Documentation (WIP)](https//openfoodfacts.github.io/openfoodfacts-server/reference/api.html) ([source](./docs/reference/api.yml))
+ * [NEW API Documentation (WIP)](https://openfoodfacts.github.io/openfoodfacts-server/reference/api.html) ([source](https://github.com/openfoodfacts/openfoodfacts-server/tree/main/docs/reference/api.yml))
 
 Note: documentation follows the [Diátaxis Framework](https://diataxis.fr/)
 
