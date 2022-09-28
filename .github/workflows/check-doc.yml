@@ -9,6 +9,7 @@ jobs:
     - name: Get OpenAPI files
       id: getfiles
       uses: actions/checkout@v2
+    - name: Run
       run:  |
         # Using github env (newline separated file list)
         echo 'FILE_LIST<<EOF' >> $GITHUB_ENV
