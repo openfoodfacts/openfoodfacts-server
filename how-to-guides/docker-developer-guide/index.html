@@ -1,0 +1,1182 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/how-to-guides/docker-developer-guide/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.2">
+    
+    
+      
+        <title>Docker Developer's Guide - Product Opener (Open Food Facts Server)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.9f9400aa.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#docker-developers-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Product Opener (Open Food Facts Server)" class="md-header__button md-logo" aria-label="Product Opener (Open Food Facts Server)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Product Opener (Open Food Facts Server)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Docker Developer's Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/openfoodfacts/openfoodfacts-server" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Product Opener (Open Food Facts Server)" class="md-nav__button md-logo" aria-label="Product Opener (Open Food Facts Server)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Product Opener (Open Food Facts Server)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/openfoodfacts/openfoodfacts-server" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Explanations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Explanations" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Explanations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../explanations/pro-dev-setup/" class="md-nav__link">
+        Docker Setup of pro platform for development
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          How to guides
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="How to guides" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          How to guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploy/" class="md-nav__link">
+        Prod environment deployment guide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Docker Developer's Guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Docker Developer's Guide
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#checking-logs" class="md-nav__link">
+    Checking logs
+  </a>
+  
+    <nav class="md-nav" aria-label="Checking logs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tail-docker-compose-logs" class="md-nav__link">
+    Tail Docker Compose logs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tail-other-logs" class="md-nav__link">
+    Tail other logs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#increasing-log-verbosity" class="md-nav__link">
+    Increasing log verbosity
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opening-a-shell-in-a-docker-container" class="md-nav__link">
+    Opening a shell in a Docker container
+  </a>
+  
+    <nav class="md-nav" aria-label="Opening a shell in a Docker container">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#checking-permissions" class="md-nav__link">
+    Checking permissions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-directory" class="md-nav__link">
+    Creating directory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-minion-jobs" class="md-nav__link">
+    Running minion jobs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restarting-apache" class="md-nav__link">
+    Restarting Apache
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exiting-the-container" class="md-nav__link">
+    Exiting the container
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#making-code-changes" class="md-nav__link">
+    Making code changes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-away-from-make-up" class="md-nav__link">
+    Getting away from make up
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting away from make up">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#live-reload" class="md-nav__link">
+    Live reload
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-queries-on-mongodb-database" class="md-nav__link">
+    Run queries on MongoDB database
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-environment-variables" class="md-nav__link">
+    Adding environment variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-multiple-deployments" class="md-nav__link">
+    Managing multiple deployments
+  </a>
+  
+    <nav class="md-nav" aria-label="Managing multiple deployments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-set-env-script" class="md-nav__link">
+    a set env script
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#different-env-file" class="md-nav__link">
+    different .env file
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pro-development/" class="md-nav__link">
+        Developing on the producers platform
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../use-direnv/" class="md-nav__link">
+        Use direnv
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../use-gitpod/" class="md-nav__link">
+        Using Gitpod for Remote Development
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../use-repl/" class="md-nav__link">
+        Using Repl
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../use-vscode/" class="md-nav__link">
+        Using VSCode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using-pages-from-openfoodfacts-web/" class="md-nav__link">
+        Using pages from openfoodfacts-web
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Introduction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introduction" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Introduction
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/dev-environment-quick-start-guide/" class="md-nav__link">
+        Dev environment quick start guide
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/API_TODO/" class="md-nav__link">
+        Open Api Documentation Todo List
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/perl/" class="md-nav__link">
+        Perl reference documentation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#checking-logs" class="md-nav__link">
+    Checking logs
+  </a>
+  
+    <nav class="md-nav" aria-label="Checking logs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tail-docker-compose-logs" class="md-nav__link">
+    Tail Docker Compose logs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tail-other-logs" class="md-nav__link">
+    Tail other logs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#increasing-log-verbosity" class="md-nav__link">
+    Increasing log verbosity
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opening-a-shell-in-a-docker-container" class="md-nav__link">
+    Opening a shell in a Docker container
+  </a>
+  
+    <nav class="md-nav" aria-label="Opening a shell in a Docker container">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#checking-permissions" class="md-nav__link">
+    Checking permissions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-directory" class="md-nav__link">
+    Creating directory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-minion-jobs" class="md-nav__link">
+    Running minion jobs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restarting-apache" class="md-nav__link">
+    Restarting Apache
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exiting-the-container" class="md-nav__link">
+    Exiting the container
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#making-code-changes" class="md-nav__link">
+    Making code changes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-away-from-make-up" class="md-nav__link">
+    Getting away from make up
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting away from make up">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#live-reload" class="md-nav__link">
+    Live reload
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-queries-on-mongodb-database" class="md-nav__link">
+    Run queries on MongoDB database
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-environment-variables" class="md-nav__link">
+    Adding environment variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-multiple-deployments" class="md-nav__link">
+    Managing multiple deployments
+  </a>
+  
+    <nav class="md-nav" aria-label="Managing multiple deployments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-set-env-script" class="md-nav__link">
+    a set env script
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#different-env-file" class="md-nav__link">
+    different .env file
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/openfoodfacts/openfoodfacts-server/blob/main/docs/how-to-guides/docker-developer-guide.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="docker-developers-guide">Docker Developer's Guide<a class="headerlink" href="#docker-developers-guide" title="Permanent link">#</a></h1>
+<p>This guide is for developers and newcomers to help them debug and explore Docker.</p>
+<p>This page describes how to test and debug your changes once you have set up the project, Product Opener with Docker using <a href="../../introduction/dev-environment-quick-start-guide/">dev environment quick start guide</a>.</p>
+<h2 id="checking-logs">Checking logs<a class="headerlink" href="#checking-logs" title="Permanent link">#</a></h2>
+<h3 id="tail-docker-compose-logs">Tail Docker Compose logs<a class="headerlink" href="#tail-docker-compose-logs" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code>make log
+</code></pre></div>
+<p>You will get logs from nginx, mongodb, postgres, etc.</p>
+<h3 id="tail-other-logs">Tail other logs<a class="headerlink" href="#tail-other-logs" title="Permanent link">#</a></h3>
+<p>Most logs from perl are not (yet ?) displayed on the docker logs,
+but are instead available in specific directories.</p>
+<p>To see them use:</p>
+<div class="highlight"><pre><span></span><code>make tail
+</code></pre></div>
+<p>It will <code>tail -f</code> all the files present in the <code>logs/</code> directory:</p>
+<ul>
+<li><code>apache2/error.log</code></li>
+<li><code>apache2/log4perl.log</code></li>
+<li><code>apache2/modperl_error.log</code></li>
+<li><code>apache2/other_vhosts_access.log</code></li>
+<li><code>nginx/access.log</code></li>
+<li><code>nginx/error.log</code></li>
+</ul>
+<p>You can also simply run:
+<div class="highlight"><pre><span></span><code>tail -f &lt;FILEPATH&gt;
+</code></pre></div>
+to check a specific log.</p>
+<p>One of the most important is <code>log4perl.log</code>.</p>
+<h3 id="increasing-log-verbosity">Increasing log verbosity<a class="headerlink" href="#increasing-log-verbosity" title="Permanent link">#</a></h3>
+<p>By default, the <code>log4perl</code> configuration <code>conf/log.conf</code> matches production
+settings. You can tweak that file with your own dev configuration settings and
+run <code>make restart</code> to reload the changes.</p>
+<p>A setting useful for local environments is to set <code>TRACE</code> log level:
+<div class="highlight"><pre><span></span><code>log4perl.rootLogger=TRACE, LOGFILE
+</code></pre></div></p>
+<h2 id="opening-a-shell-in-a-docker-container">Opening a shell in a Docker container<a class="headerlink" href="#opening-a-shell-in-a-docker-container" title="Permanent link">#</a></h2>
+<p>Run the following to open a bash shell within the <code>backend</code> container:</p>
+<div class="highlight"><pre><span></span><code>docker-compose exec backend bash
+</code></pre></div>
+<p>You should see <code>root@&lt;CONTAINER_ID&gt;:/#</code> (opened root shell): you are now within the Docker container and can begin typing some commands !</p>
+<h3 id="checking-permissions">Checking permissions<a class="headerlink" href="#checking-permissions" title="Permanent link">#</a></h3>
+<p>Navigate to the directory the specific directory and run</p>
+<p><div class="highlight"><pre><span></span><code>ls -lrt
+</code></pre></div>
+It will list all the directories and their permission status.</p>
+<h3 id="creating-directory">Creating directory<a class="headerlink" href="#creating-directory" title="Permanent link">#</a></h3>
+<p>Navigate to your specific directory using <code>cd</code> command and run</p>
+<div class="highlight"><pre><span></span><code>mkdir directory-name
+</code></pre></div>
+<h3 id="running-minion-jobs">Running minion jobs<a class="headerlink" href="#running-minion-jobs" title="Permanent link">#</a></h3>
+<p><a href="https://docs.mojolicious.org/Minion">Minion</a> is a high-performance job queue for Perl. <a href="https://docs.mojolicious.org/Minion">Minion</a> is used in <a href="https://github.com/openfoodfacts/openfoodfacts-server">openfoodfacts-server</a> for time-consuming import and export tasks. These tasks are processed and queued using the minion jobs queue. Therefore, they are called minion jobs.</p>
+<p>Go to <code>/opt/product-opener/scripts</code> and run</p>
+<div class="highlight"><pre><span></span><code>./minion_producers.pl minion job
+</code></pre></div>
+<p>The above command will show the status of minion jobs. Run the following command to launch the minion jobs.</p>
+<div class="highlight"><pre><span></span><code>./minion_producers.pl minion worker -m production -q pro.openfoodfacts.org
+</code></pre></div>
+<h3 id="restarting-apache">Restarting Apache<a class="headerlink" href="#restarting-apache" title="Permanent link">#</a></h3>
+<p>Sometimes restarting the whole <code>backend</code> container is overkill, and you can just
+restart <code>Apache</code> from inside the container:</p>
+<div class="highlight"><pre><span></span><code>apache2ctl -k restart
+</code></pre></div>
+<h3 id="exiting-the-container">Exiting the container<a class="headerlink" href="#exiting-the-container" title="Permanent link">#</a></h3>
+<p>Use <code>exit</code> to exit the container.</p>
+<h2 id="making-code-changes">Making code changes<a class="headerlink" href="#making-code-changes" title="Permanent link">#</a></h2>
+<p>In the dev environment, any code change to the local directory will be written 
+on the container. That said, some code changes require a restart of the <code>backend</code> 
+container, or rebuilding the NPM assets.</p>
+<h2 id="getting-away-from-make-up">Getting away from make up<a class="headerlink" href="#getting-away-from-make-up" title="Permanent link">#</a></h2>
+<p><code>make up</code> is a good command for starters,
+but it's not the right one to use if you develop on a daily bases, because it maybe slow,
+as it does a full rebuild, which, in dev mode, should only be necessary in a few cases.</p>
+<p>On a daily bases you could better run those:</p>
+<ul>
+<li><code>docker-compose up</code> to start and monitor the stack.</li>
+<li><code>docker-compose restart backend</code> to account for a code change in a <code>.pm</code> file
+  (cgi <code>pl</code> files do not need a restart)</li>
+<li><code>docker-compose stop</code> to stop them all</li>
+</ul>
+<p>If some important file changed (like Dockerfile or cpanfile, etc.), or in case of doubt,
+you can run <code>docker-compose build</code> (or maybe it's a good time to use <code>make up</code> once)</p>
+<p>You should explore the <a href="https://docs.docker.com/compose/reference/">docker-compose commands</a>
+most are useful!</p>
+<h3 id="live-reload">Live reload<a class="headerlink" href="#live-reload" title="Permanent link">#</a></h3>
+<p>To automate the live reload on code changes, you can install the Python package <code>when-changed</code>:
+<div class="highlight"><pre><span></span><code>pip3 install when-changed
+when-changed -r docker/ docker-compose.yml .env -c &quot;make restart&quot;                                         # restart backend container on compose changes
+when-changed -r lib/ -r docker/ docker-compose.yml -c &quot;docker-compose backend restart&quot; # restart Apache on code changes
+when-changed -r html/ Dockerfile Dockerfile.frontend package.json -c &quot;make up&quot; # rebuild containers on asset or Dockerfile changes
+</code></pre></div></p>
+<p>An alternative to <code>when-changed</code> is <code>inotifywait</code>.</p>
+<h2 id="run-queries-on-mongodb-database">Run queries on MongoDB database<a class="headerlink" href="#run-queries-on-mongodb-database" title="Permanent link">#</a></h2>
+<div class="highlight"><pre><span></span><code>docker-compose exec mongodb mongo
+</code></pre></div>
+<p>The above command will open a MongoDB shell, allowing you to use all the <code>mongo</code> 
+commands to interact with the database:</p>
+<div class="highlight"><pre><span></span><code>show dbs
+use off
+db.products.count()
+db.products.find({_id: &quot;5053990155354&quot;})
+db.products.deleteOne({_id: &quot;5053990155354&quot;})
+</code></pre></div>
+<p>See the <a href="https://docs.mongodb.com/manual/reference/mongo-shell/"><code>mongo</code> shell docs</a> for more commands.</p>
+<h2 id="adding-environment-variables">Adding environment variables<a class="headerlink" href="#adding-environment-variables" title="Permanent link">#</a></h2>
+<p>If you need some value to be configurable, it is best to set is as an environment variable.</p>
+<p>To add a new environment variable <code>TEST</code>:</p>
+<ul>
+<li>In <code>.env</code> file, add <code>TEST=test_val</code> [local].</li>
+<li>In <code>.github/workflows/container-deploy.yml</code>, add <code>echo "TEST=${{ secrets.TEST }}" &gt;&gt; .env</code> to the "Set environment variables" build step [remote]. Also add the corresponding GitHub secret <code>TEST=test_val</code>.</li>
+<li>In <code>docker-compose.yml</code> file, add it under the <code>backend</code> &gt; <code>environment</code> section.</li>
+<li>In <code>conf/apache.conf</code> file, add <code>PerlPassEnv TEST</code>.</li>
+<li>In <code>lib/Config2.pm</code>, add <code>$test = $ENV{TEST};</code>. Also add <code>$test</code> to the <code>EXPORT_OK</code> list at the top of the file to avoid a compilation error.</li>
+</ul>
+<p>The call stack goes like this:</p>
+<p><code>make up</code> &gt; <code>docker-compose</code> &gt; loads <code>.env</code> &gt; pass env variables to the <code>backend</code> container &gt; pass to <code>mod_perl</code> &gt; initialized in <code>Config2.pm</code>.</p>
+<h2 id="managing-multiple-deployments">Managing multiple deployments<a class="headerlink" href="#managing-multiple-deployments" title="Permanent link">#</a></h2>
+<p>To juggle between multiple local deployments (e.g: to run different flavors of Open Food Facts on the same host),
+there are different possible strategies.</p>
+<h3 id="a-set-env-script">a set env script<a class="headerlink" href="#a-set-env-script" title="Permanent link">#</a></h3>
+<p>Docker-compose takes it settings from, in order of priority:
+* the environment
+* the <code>.env</code> file</p>
+<p>So one strategy to have a different instance,
+can be to keep same <code>.env</code> file, but super-seed some env variables to tweak the configuration.
+This is a good strategy for the pro plateform.</p>
+<p>For this case we have a 
+<a href="https://github.com/openfoodfacts/openfoodfacts-server/blob/main/setenv-pro.sh"><code>setenv-pro.sh</code></a>
+script.</p>
+<p>To use it, open a terminal, where you want to be in pro environment and simply use:</p>
+<div class="highlight"><pre><span></span><code>. setenv-pro.sh
+</code></pre></div>
+<p>then you can use whatever docker-compose command.</p>
+<p><strong>Note:</strong> This terminal will remain in <code>pro</code> mode until you end its session.</p>
+<p>See also <a href="../pro-development/">Developing on the producers platform</a></p>
+<h3 id="different-env-file">different .env file<a class="headerlink" href="#different-env-file" title="Permanent link">#</a></h3>
+<p>This strategy might be the right one if your settings differs a lot.</p>
+<p>You will need:</p>
+<ul>
+<li>
+<p>Multiple <code>.env</code> files (one per deployment), such as:</p>
+</li>
+<li>
+<p><code>.env.off</code> : configuration for Open Food Facts dev env.</p>
+</li>
+<li><code>.env.off-pro</code> : configuration for Open Food Facts Producer's Platform dev env.</li>
+<li><code>.env.obf</code>: configuration for Open Beauty Facts dev env.</li>
+<li>
+<p><code>.env.opff</code>: configuration for Open Ped Food Facts dev env.</p>
+</li>
+<li>
+<p><code>COMPOSE_PROJECT_NAME</code> set to different values in each <code>.env</code> file, so that container names across deployments are unique.</p>
+</li>
+<li>
+<p><code>FRONTEND_PORT</code> and <code>MONGODB_PORT</code> 
+  set to different values in each <code>.env</code> file, 
+  so that frontend containers don't port-conflict with each other.</p>
+</li>
+</ul>
+<p>To switch between configurations, set <code>ENV_FILE</code> before running <code>make</code> commands,
+(or <code>docker-compose</code> command):</p>
+<div class="highlight"><pre><span></span><code>ENV_FILE=.env.off-pro make up # starts the OFF Producer&#39;s Platform containers.
+ENV_FILE=.env.obf     make up # starts the OBF containers.
+ENV_FILE=.env.opff    make up # starts the OPFF containers.
+</code></pre></div>
+<p>or export it to keep it for a while:</p>
+<div class="highlight"><pre><span></span><code>export ENV_FILE=.env.off # going to work on OFF for a while
+make up
+make restart
+make down
+make log
+</code></pre></div>
+<p>A good strategy is to have multiple terminals open, one for each deployment:</p>
+<ul>
+<li>
+<p><code>off</code> [Terminal 1]:
+  <div class="highlight"><pre><span></span><code>export ENV_FILE=.env.off
+make up
+</code></pre></div></p>
+</li>
+<li>
+<p><code>off-pro</code> [Terminal 2]:
+  <div class="highlight"><pre><span></span><code>export ENV_FILE=.env.off-pro
+make up
+</code></pre></div></p>
+</li>
+<li>
+<p><code>obf</code> [Terminal 3]:
+  <div class="highlight"><pre><span></span><code>export ENV_FILE=.env.obf
+make up
+</code></pre></div></p>
+</li>
+<li>
+<p><code>opff</code> [Terminal 3]:
+  <div class="highlight"><pre><span></span><code>export ENV_FILE=.env.opff
+make up
+</code></pre></div></p>
+</li>
+</ul>
+<p><strong>Note:</strong> the above case of 4 deployments is <strong><em>a bit ambitious</em></strong>, since ProductOpener's <code>backend</code> container takes about ~6GB of RAM to run, meaning that the above 4 deployments would require a total of 24GB of RAM available.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../deploy/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Prod environment deployment guide" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Prod environment deployment guide
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../pro-development/" class="md-footer__link md-footer__link--next" aria-label="Next: Developing on the producers platform" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Developing on the producers platform
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.39f04ddb.min.js"></script>
+      
+    
+  </body>
+</html>
