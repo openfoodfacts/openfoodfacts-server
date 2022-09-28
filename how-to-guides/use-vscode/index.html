@@ -8,8 +8,10 @@
       
       
       
+        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/how-to-guides/use-vscode/">
+      
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.2">
     
     
       
@@ -17,12 +19,14 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.9f9400aa.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
         
       
+      
+
     
     
     
@@ -35,10 +39,11 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
+    
     
     
   </head>
@@ -115,7 +120,7 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -139,7 +144,7 @@
         <a href="https://github.com/openfoodfacts/openfoodfacts-server" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -184,7 +189,7 @@
       <a href="https://github.com/openfoodfacts/openfoodfacts-server" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -201,22 +206,37 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1">
+        <label class="md-nav__link" for="__nav_2">
           Explanations
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Explanations" data-md-level="1">
-        <label class="md-nav__title" for="__nav_1">
+        <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           Explanations
         </label>
@@ -255,18 +275,18 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
       
       
       
-        <label class="md-nav__link" for="__nav_2">
+        <label class="md-nav__link" for="__nav_3">
           How to guides
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="How to guides" data-md-level="1">
-        <label class="md-nav__title" for="__nav_2">
+        <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           How to guides
         </label>
@@ -456,18 +476,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_3">
+        <label class="md-nav__link" for="__nav_4">
           Introduction
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Introduction" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
+        <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Introduction
         </label>
@@ -504,18 +524,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_4">
+        <label class="md-nav__link" for="__nav_5">
           Reference
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Reference" data-md-level="1">
-        <label class="md-nav__title" for="__nav_4">
+        <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
           Reference
         </label>
@@ -596,14 +616,16 @@
               </div>
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
-  <a href="https://github.com/openfoodfacts/openfoodfacts-server/edit/master/docs/how-to-guides/use-vscode.md" title="Edit this page" class="md-content__button md-icon">
+                  
+
+  <a href="https://github.com/openfoodfacts/openfoodfacts-server/blob/main/docs/how-to-guides/use-vscode.md" title="Edit this page" class="md-content__button md-icon">
+    
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
-
 
 
 <h1 id="using-vscode">Using VSCode</h1>
@@ -623,10 +645,8 @@ docker-compose run --rm --no-deps backend perlcritic <span class="s2">&quot;</sp
   the second line is useful only if you <a href="../use-direnv/">use direnv</a></li>
 <li><code>chmod +x perlcritic.sh</code></li>
 <li>patch perlcritic by editing its files, following <a href="https://github.com/sfodje/perlcritic/issues/26#issuecomment-1006411268">sfodje/perlcritic issue #26</a></li>
-<li>the edit perlcritic configuration in workspace to set those values:<ul>
+<li>the edit perlcritic configuration in workspace to set those values:</li>
 <li>Executable: <code>/home/alex/docker/off-server/perlcritic.sh</code></li>
-</ul>
-</li>
 </ul>
 <h2 id="perl-language-server">Perl Language Server</h2>
 <p>The extension <a href="https://marketplace.visualstudio.com/items?itemName=richterger.perl">Language Server and Debugger</a> is less easy to work with !</p>
@@ -644,17 +664,17 @@ docker-compose run --rm --no-deps -T -p <span class="m">127</span>.0.0.  <span c
   Note: the second line is useful only if you <a href="../use-direnv/">use direnv</a></li>
 <li><code>chmod +x shell-into-appserver.sh</code></li>
 <li>Edit workspace settings to have those settings:
-  <div class="highlight"><pre><span></span><code>    <span class="nt">&quot;perl&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-        <span class="nt">&quot;perlInc&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;/opt/product-opener/lib&quot;</span><span class="p">,</span> <span class="s2">&quot;/opt/perl/local/lib/perl5&quot;</span><span class="p">],</span>
-        <span class="nt">&quot;ignoreDirs&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;/opt/perl/local/lib/perl5&quot;</span><span class="p">,</span> <span class="s2">&quot;.  vscode&quot;</span><span class="p">],</span>
-        <span class="nt">&quot;fileFilter&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;.pm&quot;</span><span class="p">,</span> <span class="s2">&quot;.pl&quot;</span><span class="p">,</span> <span class="s2">&quot;.t&quot;</span><span class="p">],</span>
-        <span class="nt">&quot;sshAddr&quot;</span><span class="p">:</span> <span class="s2">&quot;dummy&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;sshUser&quot;</span><span class="p">:</span> <span class="s2">&quot;dummy&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;sshCmd&quot;</span><span class="p">:</span> <span class="s2">&quot;./shell-into-appserver.sh&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;sshWorkspaceRoot&quot;</span><span class="p">:</span> <span class="s2">&quot;/opt/product-opener&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;logLevel&quot;</span><span class="p">:</span> <span class="mi">2</span>
-    <span class="p">},</span>
+  <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nt">&quot;perl&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;enable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;perlInc&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/opt/product-opener/lib&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;/opt/perl/local/lib/perl5&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;ignoreDirs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/opt/perl/local/lib/perl5&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;.  vscode&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;fileFilter&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;.pm&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;.pl&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;.t&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;sshAddr&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dummy&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;sshUser&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dummy&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;sshCmd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./shell-into-appserver.sh&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;sshWorkspaceRoot&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/opt/product-opener&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;logLevel&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
 </code></pre></div></li>
 </ul>
 <h2 id="remote-container">Remote container ?</h2>
@@ -666,16 +686,23 @@ it has some drawback because not all the project is contained within the "backen
 For example all that concern nodejs is in the "frontend" container.
 So it means making a quite complete Docker image on its own with all the tooling necessary.</p>
 
-              
-            </article>
-          </div>
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
         </div>
         
       </main>
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
         <a href="../use-repl/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Using Repl" rel="prev">
@@ -730,10 +757,11 @@ So it means making a quite complete Docker image on its own with all the tooling
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../../assets/javascripts/bundle.39f04ddb.min.js"></script>
       
     
   </body>
