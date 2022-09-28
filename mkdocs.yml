@@ -19,9 +19,9 @@ markdown_extensions:
   - footnotes
   - pymdownx.highlight
   - pymdownx.superfences
-    - toc:
-        # add permalink after titles
-        permalink: "#"
+  - toc:
+      # add permalink after titles
+      permalink: "#"
 plugins:
   - awesome-pages
   - search
