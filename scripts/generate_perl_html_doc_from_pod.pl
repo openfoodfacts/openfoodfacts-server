@@ -51,4 +51,6 @@ $batchconv->contents_page_start('
 <h1>Product Opener Perl Documentation</h1>
 <p><a href="https://github.com/openfoodfacts/openfoodfacts-server">github repository</a></p>
 ');
+$batchconv->css_flurry(0);
+$batchconv->javascript_flurry(0);
 $batchconv->batch_convert( ["cgi", "scripts", "lib"] , "html/files/doc/perl");

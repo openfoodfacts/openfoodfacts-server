@@ -22,18 +22,11 @@ jobs:
         uses: actions/checkout@v3
 
       # generating project documentation
-
-      - name: create requirements for mkdocs
+      - name: Build documentation with MkDocs
         run: |
-          cat >mkdocs-requirements.txt <<EOF
-          mdx-truly-sane-lists
-          mkdocs-material
-          mkdocs-awesome-pages-plugin
-          EOF
-      - name: Build doc with mkdocs
-        uses: Tiryoh/actions-mkdocs@v0.17.0
-        with:
-          requirements: mkdocs-requirements.txt
+          # copy README.md as the index but change links starting with ./docs/ to ./
+          sed -e 's|(\./docs/|(./|g' README.md > docs/index.md
+          docker run -v $(pwd):/app  -w /app --rm minidocks/mkdocs build
       - name: Ensure permissions on generated doc
         run: |
           sudo chown $UID -R gh_pages
@@ -50,7 +43,7 @@ jobs:
 
       - name: Run generate_perl_html_doc_from_pod.pl
         run: |
-          perl -CS -I lib scripts/generate_perl_html_doc_from_pod.pl
+          perl -CS -I lib scripts/generate_perl_html_doc_from_pod.pl && \
           # and copy to target directory
           mv html/files/doc/perl gh_pages/
 
@@ -60,14 +53,15 @@ jobs:
           docker run --rm \
             -v $(pwd)/docs/reference:/data -v $(pwd)/gh_pages/:/output \
             ghcr.io/redocly/redoc/cli:latest \
-            build -o /output/reference/api.html api.yml
+            build -o /output/reference/api.html api.yml && \
           sudo chown $UID -R gh_pages
 
       - name: Deploy API documentation to Github Pages
         uses: JamesIves/github-pages-deploy-action@v4.4.0
         # we only deploy on push to main
-        if: |
-          github.event_name == 'push' && github.event.ref == 'refs/heads/main'
+        # DISABLED for testing
+        # if: |
+        #   github.event_name == 'push' && github.event.ref == 'refs/heads/main'
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: "gh-pages"
