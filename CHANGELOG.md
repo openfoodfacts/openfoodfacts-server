@@ -1,5 +1,41 @@
 # Changelog
 
+## [1.10.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v1.9.0...v1.10.0) (2022-09-28)
+
+
+### Features
+
+* Added the logo for the Label Bee Friendly in french ([#7360](https://github.com/openfoodfacts/openfoodfacts-server/issues/7360)) ([c005b3e](https://github.com/openfoodfacts/openfoodfacts-server/commit/c005b3e60f005713aff640c7ac595bf4ffeb481e)), closes [#7231](https://github.com/openfoodfacts/openfoodfacts-server/issues/7231)
+* improved parsing of origins of ingredients ([#7398](https://github.com/openfoodfacts/openfoodfacts-server/issues/7398)) ([f14ca5a](https://github.com/openfoodfacts/openfoodfacts-server/commit/f14ca5a2a80202885654e9691bd894c3af3b8c61))
+* reverting changes from a specific user ([#7367](https://github.com/openfoodfacts/openfoodfacts-server/issues/7367)) ([88c2cb9](https://github.com/openfoodfacts/openfoodfacts-server/commit/88c2cb9f5c2c7805256c83f9583c026709c28a60))
+* robotoff anonymous questions ([#7379](https://github.com/openfoodfacts/openfoodfacts-server/issues/7379)) ([193ee6e](https://github.com/openfoodfacts/openfoodfacts-server/commit/193ee6e4ceef723694972787fd4fa96637c40a15))
+
+
+### Bug Fixes
+
+* better removal of mongodb files ([#7393](https://github.com/openfoodfacts/openfoodfacts-server/issues/7393)) ([ffc94f2](https://github.com/openfoodfacts/openfoodfacts-server/commit/ffc94f2c61cf27c9f047043fa60607460e5f0027))
+* Change the URL of the blog in the footer ([#7388](https://github.com/openfoodfacts/openfoodfacts-server/issues/7388)) ([fe1f0e6](https://github.com/openfoodfacts/openfoodfacts-server/commit/fe1f0e618840c3eb147ddf1f1a9e2bbd887dbae0))
+* changes needed for Lactalis Fromages import through Agena3000 ([#7401](https://github.com/openfoodfacts/openfoodfacts-server/issues/7401)) ([2c09c66](https://github.com/openfoodfacts/openfoodfacts-server/commit/2c09c668e4e12fa33b5db9b04c3959b6089675ed))
+* fix /ecoscore redirect ([#7392](https://github.com/openfoodfacts/openfoodfacts-server/issues/7392)) ([fe266f2](https://github.com/openfoodfacts/openfoodfacts-server/commit/fe266f262614e9a2a15297febf1f8619fff7f9ad))
+* small changes in product files sent by Carrefour ([#7376](https://github.com/openfoodfacts/openfoodfacts-server/issues/7376)) ([7ffef9f](https://github.com/openfoodfacts/openfoodfacts-server/commit/7ffef9fcce395f763b82be7d4332fba8c8c8877f))
+* sso for wiki ([#7408](https://github.com/openfoodfacts/openfoodfacts-server/issues/7408)) ([8988111](https://github.com/openfoodfacts/openfoodfacts-server/commit/89881113eded77edf9d81ef847c5c0f276ec19a1))
+
+
+### Translations
+
+* New Crowdin translations to review and merge ([#7317](https://github.com/openfoodfacts/openfoodfacts-server/issues/7317)) ([6cb9c05](https://github.com/openfoodfacts/openfoodfacts-server/commit/6cb9c050d6aab0cb053d2be52c3bfa737a34f921))
+
+
+### Taxonomy
+
+* add Polish translations, fix some typos ([#7405](https://github.com/openfoodfacts/openfoodfacts-server/issues/7405)) ([ea98a5d](https://github.com/openfoodfacts/openfoodfacts-server/commit/ea98a5daf0a17224339d1fe0ef09620a4f6421b3))
+* added ingredients for Pipi and some beers in HR ([#7402](https://github.com/openfoodfacts/openfoodfacts-server/issues/7402)) ([b7e1c60](https://github.com/openfoodfacts/openfoodfacts-server/commit/b7e1c60a44e60f2aae949aee5a7e9cd5cac414af))
+* Beef patties and vegan desserts ([#7358](https://github.com/openfoodfacts/openfoodfacts-server/issues/7358)) ([23f8d5a](https://github.com/openfoodfacts/openfoodfacts-server/commit/23f8d5adbf5623d017ca6983cdd8eff6a78714d6))
+* fix Pork ham escalope ([#7382](https://github.com/openfoodfacts/openfoodfacts-server/issues/7382)) ([8f3e434](https://github.com/openfoodfacts/openfoodfacts-server/commit/8f3e4346d5574021e1af04a4fa5daf7acef9c4e0))
+* fix some unit test errors ([#7397](https://github.com/openfoodfacts/openfoodfacts-server/issues/7397)) ([250e17b](https://github.com/openfoodfacts/openfoodfacts-server/commit/250e17bf7e7b89ba82ea8363ebb90027a83df954))
+* rypsiöljy ingredient ([#7396](https://github.com/openfoodfacts/openfoodfacts-server/issues/7396)) ([b4bf8df](https://github.com/openfoodfacts/openfoodfacts-server/commit/b4bf8dfcfa514f540988bf112385751b4adcd1f7))
+* use Cooked Peppers as proxy for Frozen Peppers ([#7395](https://github.com/openfoodfacts/openfoodfacts-server/issues/7395)) ([a29d20a](https://github.com/openfoodfacts/openfoodfacts-server/commit/a29d20aefaaa9c8e87ba52bec49bb1c0cc2f3ac7))
+
 ## [1.9.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v1.8.0...v1.9.0) (2022-09-20)
 
 
