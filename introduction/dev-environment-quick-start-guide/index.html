@@ -1,0 +1,1023 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/introduction/dev-environment-quick-start-guide/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.2">
+    
+    
+      
+        <title>Dev environment quick start guide - Product Opener (Open Food Facts Server)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.9f9400aa.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#dev-environment-quick-start-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Product Opener (Open Food Facts Server)" class="md-header__button md-logo" aria-label="Product Opener (Open Food Facts Server)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Product Opener (Open Food Facts Server)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Dev environment quick start guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/openfoodfacts/openfoodfacts-server" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Product Opener (Open Food Facts Server)" class="md-nav__button md-logo" aria-label="Product Opener (Open Food Facts Server)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Product Opener (Open Food Facts Server)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/openfoodfacts/openfoodfacts-server" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Explanations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Explanations" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Explanations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../explanations/pro-dev-setup/" class="md-nav__link">
+        Docker Setup of pro platform for development
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          How to guides
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="How to guides" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          How to guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-to-guides/deploy/" class="md-nav__link">
+        Prod environment deployment guide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-to-guides/docker-developer-guide/" class="md-nav__link">
+        Docker Developer's Guide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-to-guides/pro-development/" class="md-nav__link">
+        Developing on the producers platform
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-to-guides/use-direnv/" class="md-nav__link">
+        Use direnv
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-to-guides/use-gitpod/" class="md-nav__link">
+        Using Gitpod for Remote Development
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-to-guides/use-repl/" class="md-nav__link">
+        Using Repl
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-to-guides/use-vscode/" class="md-nav__link">
+        Using VSCode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-to-guides/using-pages-from-openfoodfacts-web/" class="md-nav__link">
+        Using pages from openfoodfacts-web
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Introduction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introduction" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Introduction
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Dev environment quick start guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Dev environment quick start guide
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-prerequisites" class="md-nav__link">
+    1. Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-clone-the-repository-from-github" class="md-nav__link">
+    2. Clone the repository from GitHub
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Clone the repository from GitHub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-windows" class="md-nav__link">
+    On Windows:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-other-systems" class="md-nav__link">
+    On other systems:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-optional-review-product-openers-environment" class="md-nav__link">
+    3. [Optional] Review Product Opener's environment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-build-your-dev-environment" class="md-nav__link">
+    4. Build your dev environment
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Build your dev environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#going-further" class="md-nav__link">
+    Going further
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code" class="md-nav__link">
+    Visual Studio Code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    Troubleshooting
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#make-dev-error-make-command-not-found" class="md-nav__link">
+    make dev error: make: command not found
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-dev-error-build_lang-error-2-could-not-load-taxonomy-mntpodatataxonomiestracesresultsto" class="md-nav__link">
+    make dev error: [build_lang] Error 2 - Could not load taxonomy: /mnt/podata/taxonomies/traces.result.sto
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/API_TODO/" class="md-nav__link">
+        Open Api Documentation Todo List
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/perl/" class="md-nav__link">
+        Perl reference documentation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-prerequisites" class="md-nav__link">
+    1. Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-clone-the-repository-from-github" class="md-nav__link">
+    2. Clone the repository from GitHub
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Clone the repository from GitHub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-windows" class="md-nav__link">
+    On Windows:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-other-systems" class="md-nav__link">
+    On other systems:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-optional-review-product-openers-environment" class="md-nav__link">
+    3. [Optional] Review Product Opener's environment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-build-your-dev-environment" class="md-nav__link">
+    4. Build your dev environment
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Build your dev environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#going-further" class="md-nav__link">
+    Going further
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code" class="md-nav__link">
+    Visual Studio Code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    Troubleshooting
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#make-dev-error-make-command-not-found" class="md-nav__link">
+    make dev error: make: command not found
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-dev-error-build_lang-error-2-could-not-load-taxonomy-mntpodatataxonomiestracesresultsto" class="md-nav__link">
+    make dev error: [build_lang] Error 2 - Could not load taxonomy: /mnt/podata/taxonomies/traces.result.sto
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/openfoodfacts/openfoodfacts-server/blob/main/docs/introduction/dev-environment-quick-start-guide.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="dev-environment-quick-start-guide">Dev environment quick start guide<a class="headerlink" href="#dev-environment-quick-start-guide" title="Permanent link">#</a></h1>
+<p>This guide will allow you to rapidly build a ready-to-use development environment for <strong>Product Opener</strong> running in Docker.
+As an alternative to setting up your environment locally, follow the <a href="../../how-to-guides/use-gitpod/">Gitpod how-to guide</a>
+to instantly provision a ready-to-code development environment in the cloud.</p>
+<p>First setup time estimate is <code>~10min</code> with the following specs:
+* <code>8 GB</code> of RAM dedicated to Docker client
+* <code>6</code> cores dedicated to Docker client
+* <code>12 MB/s</code> internet speed</p>
+<h2 id="1-prerequisites">1. Prerequisites<a class="headerlink" href="#1-prerequisites" title="Permanent link">#</a></h2>
+<p><strong>Docker</strong> is the easiest way to install the Open Food Facts server, play with it, and even modify the code.</p>
+<p>Docker provides an isolated environment, very close to a Virtual Machine. This environment contains everything required to launch the Open Food Facts server. There is <strong>no need to install</strong> Perl, Perl modules, Nginx, nor Apache separately.</p>
+<p><strong>Installation steps:</strong>
+- <a href="https://docs.docker.com/install/#supported-platforms">Install Docker CE</a></p>
+<blockquote>
+<p>If you run e.g. Debian, don't forget to add your user to the <code>docker</code> group!
+- <a href="https://docs.docker.com/compose/install/">Install Docker Compose</a>
+- <a href="https://docs.docker.com/compose/completion/">Enable command-line completion</a>
+- <a href="http://gnuwin32.sourceforge.net/packages/make.htm">Install Make for Windows</a> (if running on Windows)</p>
+</blockquote>
+<h2 id="2-clone-the-repository-from-github">2. Clone the repository from GitHub<a class="headerlink" href="#2-clone-the-repository-from-github" title="Permanent link">#</a></h2>
+<blockquote>
+<p><em>You must have a GitHub account if you want to contribute to Open Food Facts development, but it’s not required if you just want to see how it works.</em></p>
+<p><em>Be aware Open Food Facts server takes more than 1.3 GB (2019/11).</em></p>
+</blockquote>
+<p>Choose your prefered way to clone, either:</p>
+<h3 id="on-windows">On Windows:<a class="headerlink" href="#on-windows" title="Permanent link">#</a></h3>
+<p>If you are running Docker on Windows, please use the following git clone command:</p>
+<p><div class="highlight"><pre><span></span><code><span class="go">git clone -c core.symlinks=true https://github.com/openfoodfacts/openfoodfacts-server.git</span>
+</code></pre></div>
+or
+<div class="highlight"><pre><span></span><code><span class="go">git clone -c core.symlinks=true git@github.com:openfoodfacts/openfoodfacts-server.git</span>
+</code></pre></div></p>
+<h3 id="on-other-systems">On other systems:<a class="headerlink" href="#on-other-systems" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="go">git clone git@github.com:openfoodfacts/openfoodfacts-server.git</span>
+</code></pre></div>
+<p>or</p>
+<div class="highlight"><pre><span></span><code><span class="go">git clone https://github.com/openfoodfacts/openfoodfacts-server.git</span>
+</code></pre></div>
+<p>Go to the cloned directory:</p>
+<div class="highlight"><pre><span></span><code><span class="go">cd openfoodfacts-server/</span>
+</code></pre></div>
+<h2 id="3-optional-review-product-openers-environment">3. [Optional] Review Product Opener's environment<a class="headerlink" href="#3-optional-review-product-openers-environment" title="Permanent link">#</a></h2>
+<blockquote>
+<p><em>Note: you can skip this step for the first setup since the default <code>.env</code> in the repo contains all the default values required to get started.</em></p>
+</blockquote>
+<p>Before running the <code>docker-compose</code> deployment, you can review and configure
+Product Opener's environment (<a href="../.env"><code>.env</code></a> file).</p>
+<p>The <code>.env</code> file contains ProductOpener default settings:
+| Field | Description |
+| ----------------------------------------------------------------- | --- |
+| <code>PRODUCT_OPENER_DOMAIN</code>                                           | Can be set to different values based on which <strong>OFF flavor</strong> is run.|
+| <code>PRODUCT_OPENER_PORT</code>                                             | can be modified to run NGINX on a different port. Useful when running <strong>multiple OFF flavors</strong> on different ports on the same host. <br> Default port: <code>80</code>.|
+| <code>PRODUCT_OPENER_FLAVOR</code>                                           | Can be modified to run different flavors of OpenFoodFacts, amongst <code>openfoodfacts</code> (default), <code>openbeautyfacts</code>, <code>openpetfoodfacts</code>, <code>openproductsfacts</code>.|
+| <code>PRODUCT_OPENER_FLAVOR_SHORT</code>                                     | can be modified to run different flavors of OpenFoodFacts, amongst <code>off</code> (default), <code>obf</code>, <code>oppf</code>, <code>opf</code>.|
+| <code>PRODUCERS_PLATFORM</code>                                              | can be set to <code>1</code> to build / run the <strong>producer platform</strong>.|
+| <code>ROBOTOFF_URL</code>                                                    | can be set to <strong>connect with a Robotoff instance</strong>.|
+| <code>GOOGLE_CLOUD_VISION_API_KEY</code>                                     | can be set to <strong>enable OCR using Google Cloud Vision</strong>.|
+| <code>CROWDIN_PROJECT_IDENTIFIER</code> and <code>CROWDIN_PROJECT_KEY</code>            | can be set to <strong>run translations</strong>.|
+| <code>GEOLITE2_PATH</code>, <code>GEOLITE2_ACCOUNT_ID</code> and <code>GEOLITE2_LICENSE_KEY</code> | can be set to <strong>enable Geolite2</strong>.|
+| <code>TAG</code>                                                             | Is set to <code>latest</code> by default, but you can specify any Docker Hub tag for the <code>frontend</code> / <code>backend</code> images. <br> Note that this is useful only if you use pre-built images from the Docker Hub (<code>docker/prod.yml</code> override); the default dev setup (<code>docker/dev.yml</code>) builds images locally|</p>
+<p>The <code>.env</code> file also contains some useful Docker Compose variables:
+* <code>COMPOSE_PROJECT_NAME</code> is the compose project name that sets the <strong>prefix to every container name</strong>. Do not update this unless you know what you're doing.
+* <code>COMPOSE_FILE</code> is the <code>;</code>-separated list of Docker compose files that are included in the deployment:
+  * For a <strong>development</strong>-like environment, set it to <code>docker-compose.yml;docker/dev.yml</code> (default)
+  * For a <strong>production</strong>-like environment, set it to <code>docker-compose.yml;docker/prod.yml;docker/mongodb.yml</code>
+  * For more features, you can add:
+    * <code>docker/admin-uis.yml</code>: add the Admin UIS container
+    * <code>docker/geolite2.yml</code>: add the Geolite2 container
+    * <code>docker/perldb.yml</code>: add the Perl debugger container
+* <code>COMPOSE_SEPARATOR</code> is the separator used for <code>COMPOSE_FILE</code>.</p>
+<p><strong>Note:</strong>
+Instead of modifying <code>.env</code> (with the risk commit it inadvertently),
+You can also set needed variables in your shell, they will override <code>.env</code> values.
+Consider creating a <code>.envrc</code> file that you source each time you need to work on the project.
+On linux and macOS, you can automatically do it if you <a href="../../how-to-guides/use-direnv/">use direnv</a>.</p>
+<h2 id="4-build-your-dev-environment">4. Build your dev environment<a class="headerlink" href="#4-build-your-dev-environment" title="Permanent link">#</a></h2>
+<p>From the repository root, run:</p>
+<div class="highlight"><pre><span></span><code><span class="go">make dev</span>
+</code></pre></div>
+<blockquote>
+<p><strong>Note:</strong></p>
+<p>If you are using Windows, you may encounter issues regarding this command. Take a look at the <strong>Troubleshooting</strong> section further in this tutorial.</p>
+<p><strong>Note:</strong></p>
+<p>If docker complains about
+<div class="highlight"><pre><span></span><code>ERROR: could not find an available, non-overlapping IPv4 address pool among the defaults to assign to the network
+</code></pre></div>
+It can be solved by adding <code>{"base": "172.80.0.0/16","size": 24}, {"base": "172.90.0.0/16","size": 24}</code> to <code>default-address-pools</code> in <code>/etc/docker/daemon.json</code> and then restarting the docker daemon.
+<em>Credits to https://theorangeone.net/posts/increase-docker-ip-space/ for this solution.</em></p>
+</blockquote>
+<p>The command will run 2 subcommands:
+* <code>make up</code>: <strong>Build and run containers</strong> from the local directory and bind local code files, so that you do not have to rebuild everytime.
+* <code>make import_sample_data</code>: <strong>Load sample data</strong> into <code>mongodb</code> container (~100 products).</p>
+<p><strong><em>Notes:</em></strong></p>
+<ul>
+<li>
+<p>The first build can take between 10 and 30 minutes depending on your machine and internet connection (broadband connection heavily recommended, as this will download Docker base images, install Debian and Perl modules in preparation of the final container image).</p>
+</li>
+<li>
+<p>You might not immediately see the test products: create an account, login, and they should appear.</p>
+</li>
+<li>
+<p>For a full description of available make targets, see <a href="../../docker/README.md#makefile-commands">docker/README.md</a></p>
+</li>
+</ul>
+<p><strong>Hosts file:</strong></p>
+<p>Since the default <code>PRODUCT_OPENER_DOMAIN</code> in the <code>.env</code> file is set to <code>openfoodfacts.localhost</code>, add the following to your hosts file (Windows: <code>C:\Windows\System32\drivers\etc\hosts</code>; Linux/MacOSX: <code>/etc/hosts</code>):</p>
+<div class="highlight"><pre><span></span><code>127.0.0.1 world.openfoodfacts.localhost fr.openfoodfacts.localhost static.openfoodfacts.localhost ssl-api.openfoodfacts.localhost fr-en.openfoodfacts.localhost
+</code></pre></div>
+<p><strong>You're done ! Check http://openfoodfacts.localhost/ !</strong></p>
+<h3 id="going-further">Going further<a class="headerlink" href="#going-further" title="Permanent link">#</a></h3>
+<p>To learn more about developing with Docker, see the <a href="../../how-to-guides/docker-developer-guide/">Docker developer's guide</a>.</p>
+<p>To have all site page on your dev instance, see <a href="../../how-to-guides/using-pages-from-openfoodfacts-web/">Using pages from openfoodfacts-web</a></p>
+<p><a href="../../how-to-guides/use-repl/">Using Repl</a> offers you a way to play with perl.</p>
+<h2 id="visual-studio-code">Visual Studio Code<a class="headerlink" href="#visual-studio-code" title="Permanent link">#</a></h2>
+<p><strong>WARNING</strong>: for now this is deprecated, some work needs to be done.</p>
+<p>This repository comes with a configuration for Visual Studio Code (VS Code) <a href="https://code.visualstudio.com/docs/remote/containers">development containers (devcontainer)</a>. This enables some Perl support in VS Code without the need to install the correct Perl version and modules on your local machine.</p>
+<p>To use the devcontainer, install <a href="#1-prerequisites">prerequisites</a>, <a href="#2-clone-the-repository-from-github">clone the repository from GitHub</a>, and <a href="#3-optional-review-product-openers-environment">(optionally) review Product Opener's environment</a>. Additionally, install <a href="https://code.visualstudio.com/">Visual Studio Code</a>. VS Code will automatically recommend some extensions, but if you don't want to install all of them, please do install <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">Remote - Containers</a> manually. You can then use the extension command <strong>Remote-Containers: Reopen Folder in Container</strong>, which will automatically build the container and start the services. No need to use <code>make</code>!</p>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h2>
+<h3 id="make-dev-error-make-command-not-found">make dev error: make: command not found<a class="headerlink" href="#make-dev-error-make-command-not-found" title="Permanent link">#</a></h3>
+<p>When running "make dev":</p>
+<div class="highlight"><pre><span></span><code><span class="go">bash: make: command not found</span>
+</code></pre></div>
+<p>Solution: 
+Click the Windows button, then type “environment properties” into the search bar and hit Enter. Click Environment Variables, then under System variables choose Path and click Edit. Click New and insert C:\Program Files (x86)\GnuWin32\bin, then save the changes. Open a new terminal and test that the command works.
+(see <a href="https://pakstech.com/blog/make-windows/">Make Windows</a> for more)</p>
+<h3 id="make-dev-error-build_lang-error-2-could-not-load-taxonomy-mntpodatataxonomiestracesresultsto">make dev error: [build_lang] Error 2 - Could not load taxonomy: /mnt/podata/taxonomies/traces.result.sto<a class="headerlink" href="#make-dev-error-build_lang-error-2-could-not-load-taxonomy-mntpodatataxonomiestracesresultsto" title="Permanent link">#</a></h3>
+<p>When running "make dev":</p>
+<div class="highlight"><pre><span></span><code><span class="go">&lt;h1&gt;Software error:&lt;/h1&gt;</span>
+<span class="go">&lt;pre&gt;Could not load taxonomy: /mnt/podata/taxonomies/traces.result.sto at /opt/product-opener/lib/ProductOpener/Tags.pm line 1976.</span>
+<span class="go">Compilation failed in require at /opt/product-opener/scripts/build_lang.pl line 31, &amp;lt;DATA&amp;gt; line 2104.</span>
+<span class="go">BEGIN failed--compilation aborted at /opt/product-opener/scripts/build_lang.pl line 31, &amp;lt;DATA&amp;gt; line 2104.</span>
+<span class="go">&lt;/pre&gt;</span>
+<span class="go">&lt;p&gt;</span>
+<span class="go">For help, please send mail to this site&#39;s webmaster, giving this error message</span>
+<span class="go">and the time and date of the error.</span>
+<span class="go">&lt;/p&gt;</span>
+<span class="go">[Tue Apr  5 19:36:40 2022] build_lang.pl: Could not load taxonomy: /mnt/podata/taxonomies/traces.result.sto at /opt/product-opener/lib/ProductOpener/Tags.pm line 1976.</span>
+<span class="go">[Tue Apr  5 19:36:40 2022] build_lang.pl: Compilation failed in require at /opt/product-opener/scripts/build_lang.pl line 31, &lt;DATA&gt; line 2104.</span>
+<span class="go">[Tue Apr  5 19:36:40 2022] build_lang.pl: BEGIN failed--compilation aborted at /opt/product-opener/scripts/build_lang.pl line 31, &lt;DATA&gt; line 2104.</span>
+<span class="go">make: *** [build_lang] Error 2</span>
+</code></pre></div>
+<p>Solution:
+Project needs Symlinks to be enabled.
+traces.result.sto is a symlink to allergens.result.sto</p>
+<p>On Windows, You have to enable the 'Developer Mode' in order to use the symlinks.
+To enable Developer Mode: Go under Settings &gt; Update &amp; Security &gt; 'For developers', and turn on the toggle for Developer Mode.
+On Windows systems, the git repository needs to be cloned with symlinks enabled.</p>
+<p>You need to remove current directory where you clone the project, and clone the project again, using right options:</p>
+<p>```console
+git clone -c core.symlinks=true git@github.com:openfoodfacts/openfoodfacts-server.git</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../../how-to-guides/using-pages-from-openfoodfacts-web/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Using pages from openfoodfacts-web" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Using pages from openfoodfacts-web
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../reference/API_TODO/" class="md-footer__link md-footer__link--next" aria-label="Next: Open Api Documentation Todo List" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Open Api Documentation Todo List
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.39f04ddb.min.js"></script>
+      
+    
+  </body>
+</html>
