@@ -66,7 +66,8 @@ if (defined $User_id) {
 	}
 	elsif ( (defined $referer)
 		and ($referer =~ /^https?:\/\/$subdomain\.$server_domain/)
-		and (not($referer =~ /(?:session|user|reset_password)\.pl/))) {
+		and (not($referer =~ /(?:session|user|reset_password)\.pl/)))
+	{
 		$url = $referer;
 	}
 
@@ -80,8 +81,6 @@ if (defined $User_id) {
 		return 302;
 	}
 }
-
-
 
 if (single_param('jqm')) {
 
@@ -115,7 +114,7 @@ else {
 	}
 
 	process_template("web/pages/session/$template.tt.html", $template_data_ref, \$html)
-  			or $html = "<p>" . $tt->error() . "</p>";
+	  or $html = "<p>" . $tt->error() . "</p>";
 
 	$request_ref->{title} = lang('session_title');
 	$request_ref->{content_ref} = \$html;
