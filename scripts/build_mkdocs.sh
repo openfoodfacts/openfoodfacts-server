@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-# This file is intended to be use by generate-doc.yml
-# inside minidocks/mkdocs container
+# Renders markdown doc in docs to html in gh_pages
 
 # we need to install one more dependency to minidocs/mkdocs
 PIP_INSTALL=$(mktemp)
