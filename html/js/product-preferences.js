@@ -1,5 +1,4 @@
 /*global lang */
-/*global page_type*/ // depends on which type of page the preferences are shown on
 /*global preferences_text*/ // depends on which type of page the preferences are shown on
 
 var attribute_groups; // All supported attribute groups and attributes + translated strings

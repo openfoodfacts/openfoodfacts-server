@@ -366,7 +366,7 @@ function display_product_summary(target, product) {
 
 		var match_status_html = `<div class="match_status match_status_${product.match_status}">`
 		+ `<div class="match_score match_score_${product.match_status}">` + Math.round(product.match_score) + '%</div>'
-		+ '<span style="padding-left:0.5rem;padding-right:1rem;">' + lang()["products_match_" + product.match_status] + '</span></div>' ;
+		+ '<span style="padding-left:0.5rem;padding-right:1rem;">' + lang()["products_match_" + product.match_status] + '</span></div>';
 
 		$("#match_score_and_status").html(match_status_html);
 
