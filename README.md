@@ -60,7 +60,7 @@ Data about food is of public interest and has to be open (i.e available to every
    * Dependencies [TBA]
    * Database configuration [TBA]
    * How to run tests [TBA]
-   * [Perl modules documentation (POD)](https://openfoodfacts.github.io/api-documentation/reference/perl/)
+   * [Perl modules documentation (POD)](https://openfoodfacts.github.io/reference/perl/)
 
  * [API Documentation](https://openfoodfacts.github.io/api-documentation/)
  * [NEW API Documentation (WIP)](https://openfoodfacts.github.io/openfoodfacts-server/reference/api.html) ([source](https://github.com/openfoodfacts/openfoodfacts-server/tree/main/docs/reference/api.yml))
