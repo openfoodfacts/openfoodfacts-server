@@ -15,9 +15,6 @@
     border-top:none;
     }
     background-color: $ristreto;
-    .userlink {
-        line-height:1rem;
-    }
     a:hover {
 //        background-color:$oceanblue;
     }
@@ -116,7 +113,7 @@
     .userlink {
         display:flex;
         align-items:center;
-
+        line-height:1rem;
     }
     .top-bar-section .has-dropdown>a:after {
         border-color:$white transparent transparent
@@ -327,9 +324,6 @@
                         line-height:1;
                         @media #{$medium-up} {
                         display:inline-block;
-                        }
-                        @media #{$large-up} {
-                        
                         }
                 }
                     span {

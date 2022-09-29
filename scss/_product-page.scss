@@ -97,7 +97,7 @@ $decalTop:48px;
         display:block;
         position:absolute;
         content:"\E5c5";
-        font-family: 'Material Symbols Outlined';
+        font-family: 'Material Symbols Outlined', sans-serif;
         font-size: 24px;
         right:1rem;
         top:0;
@@ -178,11 +178,10 @@ a.active {
         left:0;
         width: 100%; 
         border-top: 1px solid #eee; 
-        background-color: transparent; 
         z-index: 100; 
         padding: 1rem;
         pointer-events: none;
-            background: $primary-color;
+        background-color: $primary-color;
         > div {
             pointer-events: initial;
             }

@@ -244,10 +244,6 @@ strong {
     font-weight: 700 !important
 }
 
-a,
-a:visited,
-a:hover {}
-
 a:hover {
     text-decoration: underline;
 }
@@ -310,17 +306,6 @@ nav.tab-bar>div {
     right: 0;
 }
 
-#aside_column {
-    padding: 1rem;
-}
-
-.side-nav li a:not(.button) {
-    margin: 0 -1rem;
-    padding: 0.4375rem 1rem;
-}
-
-.side-nav li a:not(.button):hover,
-.side-nav li a:not(.button):focus {}
 
 @media only screen and (max-width: 64em) {
     a.button.icon {
@@ -347,10 +332,6 @@ nav.tab-bar>div {
 .dark a:hover,
 .dark a:visited {
     color: #fff;
-}
-
-#main_column {
-    padding-bottom: 2rem;
 }
 
 .example {
@@ -849,10 +830,6 @@ html[dir="rtl"] {
     max-width: 300px;
 }
 
-#preferences_switch input:checked+label {
-  
-}
-
 .ecoscore_panel {
     border-radius: 1rem;
 }
@@ -1080,6 +1057,7 @@ a.grade_e:hover {
 }
 
 #main_column {
+    padding-bottom: 2rem;
     >h1,
     >p {
         display: none;
