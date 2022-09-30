@@ -133,6 +133,7 @@ use ProductOpener::Data qw/:all/;
 use ProductOpener::MainCountries qw/:all/;
 use ProductOpener::Text qw/:all/;
 use ProductOpener::Display qw/single_param/;
+use ProductOpener::Redis qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
@@ -141,8 +142,6 @@ use Data::DeepAccess qw(deep_get);
 
 use LWP::UserAgent;
 use Storable qw(dclone);
-
-use Redis::Client;
 
 use Algorithm::CheckDigits;
 my $ean_check = CheckDigits('ean');
@@ -1181,7 +1180,7 @@ sub store_product($user_id, $product_ref, $comment) {
 	log_change($product_ref, $change_ref);
 
 	# index for search service
-	index_search_service($product_ref);
+	push_to_search_service($product_ref);
 
 	$log->debug("store_product - done", { code => $code, product_id => $product_id } ) if $log->is_debug();
 
@@ -2415,24 +2414,6 @@ sub index_product($product_ref)
 	}
 
 	$product_ref->{_keywords} = [keys %keywords];
-
-	return;
-}
-
-sub index_search_service($product_ref) {
-	if ($ProductOpener::Config2::redis_url eq "")
-	{
-		$log->warn("Redis URL not provided for search indexing", { error => $@ }) if $log->is_warn();
-		return;
-	}
-	# Now send the barcode to Redis so that it can be indexed
-	eval {
-		my $redis_client = Redis::Client->new(host => $ProductOpener::Config2::redis_url);
-		$redis_client->rpush('search_import_queue', $product_ref->{code});
-	};
-	if ($@) {
-		$log->warn("Error connecting to Redis", { error => $@ }) if $log->is_warn();
-	}
 
 	return;
 }
