@@ -7,12 +7,12 @@
       {
          "_id" : "200000000045",
          "_keywords" : [
+            "breakfast",
             "vegan",
-            "test",
-            "tester",
             "cereal",
+            "tester",
             "snack",
-            "breakfast"
+            "test"
          ],
          "added_countries_tags" : [],
          "additives_n" : 0,
@@ -22,7 +22,7 @@
          "additives_tags" : [],
          "allergens" : "",
          "allergens_from_ingredients" : "",
-         "allergens_from_user" : "(en) ",
+         "allergens_from_user" : "(es) ",
          "allergens_hierarchy" : [],
          "allergens_tags" : [],
          "amino_acids_tags" : [],
@@ -101,11 +101,15 @@
             "en:food-groups-1-known",
             "en:food-groups-2-known",
             "en:food-groups-3-unknown",
+            "en:ingredients-unknown-score-above-0",
+            "en:ingredients-100-percent-unknown",
             "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
             "en:ecoscore-packaging-unscored-shape",
             "en:ecoscore-production-system-no-label"
          ],
          "data_quality_warnings_tags" : [
+            "en:ingredients-unknown-score-above-0",
+            "en:ingredients-100-percent-unknown",
             "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
             "en:ecoscore-packaging-unscored-shape",
             "en:ecoscore-production-system-no-label"
@@ -527,37 +531,45 @@
          ],
          "ingredients" : [
             {
-               "id" : "en:apple",
+               "id" : "es:apple",
                "percent_estimate" : 75,
                "percent_max" : 100,
                "percent_min" : 50,
-               "text" : "apple",
-               "vegan" : "yes",
-               "vegetarian" : "yes"
+               "text" : "apple"
             },
             {
-               "id" : "en:water",
+               "id" : "es:water",
                "percent_estimate" : 25,
                "percent_max" : 50,
                "percent_min" : 0,
-               "text" : "water",
-               "vegan" : "yes",
-               "vegetarian" : "yes"
+               "text" : "water"
             }
          ],
-         "ingredients_analysis" : {},
+         "ingredients_analysis" : {
+            "en:palm-oil-content-unknown" : [
+               "es:apple",
+               "es:water"
+            ],
+            "en:vegan-status-unknown" : [
+               "es:apple",
+               "es:water"
+            ],
+            "en:vegetarian-status-unknown" : [
+               "es:apple",
+               "es:water"
+            ]
+         },
          "ingredients_analysis_tags" : [
-            "en:palm-oil-free",
-            "en:vegan",
-            "en:vegetarian"
+            "en:palm-oil-content-unknown",
+            "en:vegan-status-unknown",
+            "en:vegetarian-status-unknown"
          ],
          "ingredients_from_or_that_may_be_from_palm_oil_n" : 0,
          "ingredients_from_palm_oil_n" : 0,
          "ingredients_from_palm_oil_tags" : [],
          "ingredients_hierarchy" : [
-            "en:apple",
-            "en:fruit",
-            "en:water"
+            "es:apple",
+            "es:water"
          ],
          "ingredients_n" : 2,
          "ingredients_n_tags" : [
@@ -565,18 +577,16 @@
             "1-10"
          ],
          "ingredients_original_tags" : [
-            "en:apple",
-            "en:water"
+            "es:apple",
+            "es:water"
          ],
          "ingredients_percent_analysis" : 1,
          "ingredients_tags" : [
-            "en:apple",
-            "en:fruit",
-            "en:water"
+            "es:apple",
+            "es:water"
          ],
          "ingredients_text" : "apple, water",
          "ingredients_text_en" : "apple, water",
-         "ingredients_text_with_allergens" : "apple, water",
          "ingredients_text_with_allergens_en" : "apple, water",
          "ingredients_that_may_be_from_palm_oil_n" : 0,
          "ingredients_that_may_be_from_palm_oil_tags" : [],
@@ -586,8 +596,8 @@
          "ingredients_with_unspecified_percent_sum" : 100,
          "interface_version_created" : "20150316.jqm2",
          "interface_version_modified" : "20150316.jqm2",
-         "known_ingredients_n" : 3,
-         "lang" : "en",
+         "known_ingredients_n" : 0,
+         "lang" : "es",
          "languages" : {
             "en:english" : 5
          },
@@ -603,7 +613,7 @@
          ],
          "last_editor" : "tests",
          "last_modified_by" : "tests",
-         "lc" : "en",
+         "lc" : "es",
          "link" : "http://world.openfoodfacts.org/",
          "main_countries_tags" : [],
          "minerals_tags" : [],
@@ -626,22 +636,17 @@
             "en:ecoscore-computed",
             "en:main-countries-new-product"
          ],
-         "nova_group" : 1,
-         "nova_group_debug" : "",
-         "nova_groups" : "1",
-         "nova_groups_markers" : {},
+         "nova_group_debug" : "no nova group if too many ingredients are unknown: 2 out of 2",
+         "nova_group_error" : "too_many_unknown_ingredients",
          "nova_groups_tags" : [
-            "en:1-unprocessed-or-minimally-processed-foods"
+            "unknown"
          ],
          "nucleotides_tags" : [],
          "nutrient_levels" : {},
          "nutrient_levels_tags" : [],
          "nutriments" : {
-            "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 50,
-            "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 50,
-            "nova-group" : 1,
-            "nova-group_100g" : 1,
-            "nova-group_serving" : 1
+            "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+            "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
          },
          "nutrition_data_per" : "100g",
          "nutrition_data_prepared_per" : "100g",
@@ -715,10 +720,10 @@
          ],
          "traces" : "",
          "traces_from_ingredients" : "",
-         "traces_from_user" : "(en) ",
+         "traces_from_user" : "(es) ",
          "traces_hierarchy" : [],
          "traces_tags" : [],
-         "unknown_ingredients_n" : 0,
+         "unknown_ingredients_n" : 2,
          "unknown_nutrients_tags" : [],
          "url" : "http://world.openfoodfacts.localhost/product/200000000045/vegan-test-snack",
          "vitamins_tags" : []

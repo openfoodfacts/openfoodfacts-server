@@ -91,8 +91,6 @@ my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
 create_user($ua, \%create_user_args);
 
 foreach my $product_form_override (@products) {
-	# my %create_product_args = (%{dclone(\%default_product_form)}, $product_form_override);
-	# print Dumper(\%create_product_args);
 	edit_product($ua, $product_form_override);
 }
 
