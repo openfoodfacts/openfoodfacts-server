@@ -45,6 +45,7 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
+use Test::More;
 use LWP::UserAgent;
 use HTTP::CookieJar::LWP;
 use ProductOpener::TestDefaults qw/:all/;

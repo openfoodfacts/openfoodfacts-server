@@ -10,7 +10,7 @@
 # Supporting multiple ingredients is doable but would require code changes.
 
 stopwords:en:ingredients, agricultural, from, with, of, by, the, verified, certified, approved, 100%, pure, guaranty, guaranteed, product guaranteed, product certified, standard, during, period, phase, label, mark, logo
-stopwords:bg:съставки, земеделие, от, с, контролиран, сертифициран, 100%, натурален, гарантиран, продукт 
+stopwords:bg:съставки, земеделие, от, с, контролиран, сертифициран, 100%, натурален, гарантиран, продукт
 stopwords:da:fra, kontrolleret, dyrkning, dyrket, dyrkede, råvarer, landbrug, certificeret
 stopwords:de:Zutaten, von, mit, enthält, kontrolliert, zertifiziert, geprüft, 100%, rein, Produkt, Garantie, garantiert, Standard, während
 stopwords:es:por, la, las, los, el, apto, para, verificado, certificado, aprovado, controlado, registrado, 100%, garantía, garantizado, garantizada, estándar
@@ -27,7 +27,7 @@ synonyms:es:color, colorante
 
 synonyms:en:flavor, flavour, flavoring, flavouring
 synonyms:fi:aromi, maku
-synonyms:hu:ízesítő, ízesítők, ízesítőt, ízesítőket, aroma, aromák, aromákat, aromát, 
+synonyms:hu:ízesítő, ízesítők, ízesítőt, ízesítőket, aroma, aromák, aromákat, aromát,
 synonyms:ru:вкус, запах, сдабривать, приправлять, ароматизировать
 synonyms:es:sabor, saborizante
 
@@ -664,7 +664,7 @@ xx:Fair trade
 wikidata:en:Q188485
 label_categories:en: en:Social responsibility
 opposite:en: en:non-fair-trade
-description:en:Fair trade is an arrangement designed to help producers in developing countries achieve sustainable and equitable trade relationships. Members of the fair trade movement add the payment of higher prices to exporters, as well as improved social and environmental standards. 
+description:en:Fair trade is an arrangement designed to help producers in developing countries achieve sustainable and equitable trade relationships. Members of the fair trade movement add the payment of higher prices to exporters, as well as improved social and environmental standards.
 description:de:Als Fairer Handel (englisch fair trade) wird ein kontrollierter Handel bezeichnet, bei dem die Erzeuger für ihre Produkte einen Mindestpreis erhalten, der von einer Fair-Trade-Organisation bestimmt wird. Damit soll den Produzenten auch bei niedrigeren Marktpreisen ein höheres und verlässlicheres Einkommen als im herkömmlichen Handel ermöglicht werden.
 description:hu:A méltányos kereskedelem olyan irányított kereskedelem, amely hangsúlyt helyez arra, hogy a harmadik világbeli termelő megkapja az őt megillető pénzt a terményéért.
 description:es:El comercio justo es una forma alternativa de comercio promovida por varias ONG (organizaciones no gubernamentales), por la Organización de las Naciones Unidas y por los movimientos sociales y políticos (como el pacifismo y el ecologismo) que promueven una relación comercial voluntaria y justa entre productores y consumidores.
@@ -1959,7 +1959,7 @@ he:דל או ללא סוכר
 hu:Cukormentes vagy alacsony cukortartalmú
 it:Zucchero basso o assente
 nl:Zonder of weinig suiker
-pl:o małej zwartości cukru lub bez cukrowy
+pl:o małej zawartości cukru lub bez cukru
 pt:Baixo ou nenhum açúcar
 ru:Низкое содержание сахара или без сахара
 sv:Lågt eller inget socker
@@ -1994,6 +1994,7 @@ he:מופחת סוכר, פחות סוכר
 hu:Csökkentett cukortartalmú
 it:Ridotto contenuto di zucchero
 nl:Minder suiker
+pl:Obniżona zawartość cukru
 pt:Açúcar reduzido, menos açúcar
 th:น้ำตาลน้อย
 
@@ -3398,7 +3399,7 @@ zh:有机
 wikidata:en:Q380778
 label_categories:en: en:Environnement
 opposite:en: en:non-organic
-description:en:Organic food is food produced by methods complying with the standards of organic farming and features practices that cycle resources, promote ecological balance, and conserve biodiversity. 
+description:en:Organic food is food produced by methods complying with the standards of organic farming and features practices that cycle resources, promote ecological balance, and conserve biodiversity.
 description:nl:Biologische voeding is voedsel dat wordt geproduceerd met methoden die voldoen aan de normen van de biologische landbouw, welke een ecologisch evenwicht en het behoud van biodiversiteit nastreeft.
 description:de:Bio-Lebensmittel müssen aus ökologisch kontrolliertem Anbau stammen, dürfen nicht gentechnisch verändert sein und werden ohne Einsatz von chemisch-synthetischen Pflanzenschutzmitteln, Kunstdünger oder Klärschlamm angebaut.
 description:es:Se denomina alimento orgánico, alimento ecológico o alimento biológico al producto agrícola o agroindustrial que se produce bajo un conjunto de procedimientos denominados “ecológicos”: evitan el uso de productos sintéticos, como pesticidas, herbicidas y fertilizantes artificiales.
@@ -8232,7 +8233,7 @@ exceptions:en: en: except products covered by Annex III,en:in-conversion product
 
 <en:EU organic
 en:GT-BIO-140
-country:en:Guatemala 
+country:en:Guatemala
 eu_groups:en: en:EU Group A: unprocessed plant products,en:EU Group B: live animals or unprocessed animal products,en:EU Group D: processed agricultural products for use as food (*),
 auth_name:en:CERES Certification of Environmental Standards GmbH
 auth_address:en: Vorderhaslach 1, 91230, Happurg, Germany
@@ -8358,7 +8359,7 @@ exceptions:en: en: except products covered by Annex III,en:in-conversion product
 
 <en:EU organic
 en:MD-BIO-140
-country:en:Moldova, Republic of 
+country:en:Moldova, Republic of
 eu_groups:en: en:EU Group A: unprocessed plant products,en:EU Group B: live animals or unprocessed animal products,en:EU Group D: processed agricultural products for use as food (*),
 auth_name:en:CERES Certification of Environmental Standards GmbH
 auth_address:en: Vorderhaslach 1, 91230, Happurg, Germany
@@ -8367,7 +8368,7 @@ exceptions:en: en: except products covered by Annex III,en:in-conversion product
 
 <en:EU organic
 en:ME-BIO-140
-country:en:Montenegro 
+country:en:Montenegro
 eu_groups:en: en:EU Group A: unprocessed plant products,en:EU Group D: processed agricultural products for use as food (*),
 auth_name:en:CERES Certification of Environmental Standards GmbH
 auth_address:en: Vorderhaslach 1, 91230, Happurg, Germany
@@ -8466,7 +8467,7 @@ exceptions:en: en: except products covered by Annex III,en:in-conversion product
 
 <en:EU organic
 en:PG-BIO-140
-country:en:Papua New Guinea 
+country:en:Papua New Guinea
 eu_groups:en: en:EU Group A: unprocessed plant products,en:EU Group B: live animals or unprocessed animal products,en:EU Group D: processed agricultural products for use as food (*),
 auth_name:en:CERES Certification of Environmental Standards GmbH
 auth_address:en: Vorderhaslach 1, 91230, Happurg, Germany
@@ -17299,7 +17300,7 @@ wikidata:en:Q638022
 description:en:Vegetarianism is the practice of abstaining from the consumption of meat, and may also include abstention from by-products of animal slaughter.
 description:de:Vegetarismus bezeichnet eine Ernährungs- und Lebensweise, welche Nahrungsmittel meidet, die von getöteten Tieren stammen.
 description:es:El vegetarianismo, también conocido como vegetarismo, es el régimen alimentario que tiene como principio dejar de consumir cualquier tipo de carne y pescado.
-description:fr:Le végétarisme est une pratique alimentaire qui exclut la consommation de chair animale. 
+description:fr:Le végétarisme est une pratique alimentaire qui exclut la consommation de chair animale.
 descrption:it:Il vegetarianismo designa, nell'ambito della nutrizione umana, un insieme di diverse pratiche alimentari, accomunate dalla limitazione o dall'esclusione di parte o del totale degli alimenti di origine animale, che danno luogo a diete basate in prevalenza su alimenti di origine vegetale.
 description:nl:Vegetarisme is de voedingswijze waarbij men geen vlees eet (inclusief gevogelte, vis, schaaldieren en insecten). Bijproducten van geslachte dieren, zoals dierlijk stremsel in kaas en gelatine in snoep en pudding, wordt door sommigen eveneens uit de voeding weggelaten.
 wikipedia:en:Vegetarianism
@@ -17334,9 +17335,9 @@ zh:纯素
 opposite:en: en:non-vegan
 description:en:Veganism is the practice of abstaining from the use of animal products, particularly in diet, and an associated philosophy that rejects the commodity status of animals.
 description:de:Veganismus ist eine aus dem Vegetarismus hervorgegangene Einstellung sowie Lebens- und Ernährungsweise. Vegan lebende Menschen meiden entweder alle Nahrungsmittel tierischen Ursprungs oder sie lehnen generell die Verwertung tierischer Produkte und Ausbeutung der Tiere ab.
-description:es:El veganismo o vegetarianismo estricto es la abstención del uso de productos y servicios de origen animal, ya sea para alimentación, vestimenta, medicamentos, cosméticos, transporte, experimentación, ayuda en el trabajo o entretenimiento, a excepción en este último caso de los animales de compañía. 
+description:es:El veganismo o vegetarianismo estricto es la abstención del uso de productos y servicios de origen animal, ya sea para alimentación, vestimenta, medicamentos, cosméticos, transporte, experimentación, ayuda en el trabajo o entretenimiento, a excepción en este último caso de los animales de compañía.
 descrption:fr:Le véganisme, dit également végétalisme intégral, est un mode de vie qui consiste à ne consommer aucun produit d'origine animale. Au-delà de l'adoption d'une pratique alimentaire végétalienne, le véganisme exclut également la consommation de tout autre produit issu des animaux, de leur exploitation ou testé sur eux.
-descrption:nl:Veganisme is een levenswijze waarin gestreefd wordt naar het vermijden van het gebruik van dierlijke producten. Als zodanig gelden ten eerste delen van het dierenlichaam of producten die daarvan vervaardigd zijn en ten tweede door dieren voortgebrachte producten. 
+descrption:nl:Veganisme is een levenswijze waarin gestreefd wordt naar het vermijden van het gebruik van dierlijke producten. Als zodanig gelden ten eerste delen van het dierenlichaam of producten die daarvan vervaardigd zijn en ten tweede door dieren voortgebrachte producten.
 wikipedia:en:Veganism
 wikidata:en:Q7918273
 
@@ -17892,9 +17893,9 @@ en:Dutch meat
 nl:Nederlands vlees
 
 # Nieuwe Standaard Kip is een bedrijfslogo van de supermarktketen Jumbo
-# er wordt een langzaam groeiend ras gebruikt dat slachtrijp is met 49 dagen, i.p.v. 35-42 bij de plofkip. 
-# De kippen hebben ook meer leefruimte: er zijn 13,5 kippen per m² in plaats van 21. 
-# In de stallen is natuurlijk daglicht en kippen hebben afleidingsmateriaal zoals strobalen om mee te spelen. 
+# er wordt een langzaam groeiend ras gebruikt dat slachtrijp is met 49 dagen, i.p.v. 35-42 bij de plofkip.
+# De kippen hebben ook meer leefruimte: er zijn 13,5 kippen per m² in plaats van 21.
+# In de stallen is natuurlijk daglicht en kippen hebben afleidingsmateriaal zoals strobalen om mee te spelen.
 # Er wordt gestrooid met graan
 <en:Dutch meat
 <en:Chicken welfare
@@ -17913,7 +17914,7 @@ it:Carne francese
 nl:Frans vlees
 ingredients:en: en:meat
 origins:en: en:france
-# Note: putting 
+# Note: putting
 
 <fr:Viande Française
 fr:Viande d'agneau français, VAF, Viande d'agneau Origine France, Agneau 100% Français, Viande d'agneau Française, Agneau 100% France, Agneau Origine France
@@ -19076,6 +19077,9 @@ pt:Maçãs da França
 origins:en: en:france
 ingredients:en: en:apple
 
+en:I protect the bees
+fr:Je protège les abeilles
+
 en:Honey from France
 de:Honig aus Frankreich
 fi:hunajaa Ranskasta, hunajan alkuperä Ranska
@@ -19251,7 +19255,7 @@ en:National standard for Bulgarian yoghurt
 bg:БДС 12:2010, Национален стандарт за българско кисело мляко
 image:en:National-standard-for-Bulgarian-yoghurt.97.90.png
 
-en:National standard for Bulgarian kashkaval 
+en:National standard for Bulgarian kashkaval
 bg:БДС 14:2010, Национален стандарт за български кашкавал
 
 en:National standard for Bulgarian white cheese in brine

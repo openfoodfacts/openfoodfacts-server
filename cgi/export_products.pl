@@ -52,13 +52,13 @@ use boolean;
 
 my $request_ref = ProductOpener::Display::init_request();
 
-my $action = param('action') || 'display';
+my $action = single_param('action') || 'display';
 
 my $title = lang("export_product_data_photos");
 my $html = '';
 
 if (not defined $Owner_id) {
-	display_error(lang("no_owner_defined"), 200);
+	display_error_and_exit(lang("no_owner_defined"), 200);
 }
 
 # Require moderator status to launch the export / import process,
@@ -66,7 +66,7 @@ if (not defined $Owner_id) {
 # or if the organization has the permission enable_manual_export_to_public_platform checked
 
 my $allow_submit = ($User{moderator}
-		or (defined param("query_code"))
+		or (defined single_param("query_code"))
 		or ((defined $Org{enable_manual_export_to_public_platform}) and ($Org{enable_manual_export_to_public_platform} eq "on")));
 
 if ($action eq "display") {
@@ -82,7 +82,7 @@ if ($action eq "display") {
 	foreach my $param (multi_param()) {
 		if ($param =~ /^query_/) {
 			my $field = $';
-			my $value = remove_tags_and_quote(decode utf8=>param($param));
+			my $value = remove_tags_and_quote(decode utf8 => single_param($param));
 			
 			if (not defined $template_data_ref->{query_filters}) {
 				$template_data_ref->{query_filters} = [];
@@ -147,23 +147,23 @@ elsif (($action eq "process") and $allow_submit) {
 	foreach my $param (multi_param()) {
 		if ($param =~ /^query_/) {
 			my $query = $';
-			$args_ref->{query}{$query} = remove_tags_and_quote(decode utf8=>param($param));
+			$args_ref->{query}{$query} = remove_tags_and_quote(decode utf8 => single_param($param));
 		}
 	}
-	if (not ((defined param("export_photos")) and (param("export_photos")))) {
+	if (not ((defined single_param("export_photos")) and (single_param("export_photos")))) {
 		$args_ref->{do_not_upload_images} = 1;
 	}
 	
-	if (not ((defined param("replace_selected_photos")) and (param("replace_selected_photos")))) {
+	if (not ((defined single_param("replace_selected_photos")) and (single_param("replace_selected_photos")))) {
 		$args_ref->{only_select_not_existing_images} = 1;
 	}
 	
-	if ((defined param("only_export_products_with_changes")) and (param("only_export_products_with_changes"))) {
+	if ((defined single_param("only_export_products_with_changes")) and (single_param("only_export_products_with_changes"))) {
 		$args_ref->{query}{states_tags} = 'en:to-be-exported';
 	}
 	
 	if ($admin) {
-		if ((defined param("overwrite_owner")) and (param("overwrite_owner"))) {
+		if ((defined single_param("overwrite_owner")) and (single_param("overwrite_owner"))) {
 			$args_ref->{overwrite_owner} = 1;
 		}		
 	}

@@ -13,7 +13,7 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: it\n"
-"X-Crowdin-File-ID: 2538\n"
+"X-Crowdin-File-ID: 2588\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -766,8 +766,8 @@ msgstr "Il blog <<site_name>>"
 
 # Do not translate
 msgctxt "footer_blog_link"
-msgid "https://en.blog.openfoodfacts.org"
-msgstr "https://en.blog.openfoodfacts.org"
+msgid "https://blog.openfoodfacts.org/en/"
+msgstr "https://blog.openfoodfacts.org/it/"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -1577,9 +1577,9 @@ msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
-msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
+msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://blog.openfoodfacts.org/en/\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr "<p>Per ulteriori informazioni su <<site_name>>, visita <a href=\"https://en.blog.openfoodfacts.org\">nostro blog</a>!</p>\n"
+msgstr "<p>Per saperne di più su <<site_name>>, visita <a href=\"https://blog.openfoodfacts.org/it/\">il nostro blog</a>!</p>\n"
 "<p>Notizie recenti:</p>\n"
 
 msgctxt "on_the_blog_title"
@@ -2458,6 +2458,7 @@ msgctxt "tagstable_search"
 msgid "Search:"
 msgstr "Cerca:"
 
+# This is linked to a unit test
 msgctxt "traces"
 msgid "Traces"
 msgstr "Tracce"
@@ -4428,6 +4429,7 @@ msgctxt "images_can_be_provided_separately"
 msgid "Product photos can also be provided separately through the Import product photos function of the platform for producers."
 msgstr "Le immagini del prodotto possono anche essere fornite separatamente tramite la funzione delle foto del prodotto Importa della piattaforma per i produttori."
 
+# This is linked to a unit test
 msgctxt "attribute_group_labels_name"
 msgid "Labels"
 msgstr "Etichette"

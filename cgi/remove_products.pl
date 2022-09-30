@@ -46,7 +46,7 @@ use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();
 
-my $action = param('action') || 'display';
+my $action = single_param('action') || 'display';
 
 my $title = lang("remove_products_from_producers_platform");
 my $html = '';
@@ -55,11 +55,11 @@ my $template_data_ref = {};
 $template_data_ref->{action} = $action;
 
 if (not $server_options{producers_platform}) {
-	display_error(lang("function_not_available"), 200);
+	display_error_and_exit(lang("function_not_available"), 200);
 }
 
 if ((not defined $Owner_id) or ($Owner_id !~ /^(user|org)-\S+$/)) {
-	display_error(lang("no_owner_defined"), 200);
+	display_error_and_exit(lang("no_owner_defined"), 200);
 }
 
 

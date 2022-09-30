@@ -152,6 +152,8 @@ BEGIN
 		&get_all_taxonomy_entries
 		&get_taxonomy_tag_synonyms
 
+		&generate_regexps_matching_taxonomy_entries
+
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -4224,7 +4226,102 @@ sub add_users_translations_to_taxonomy($tagtype) {
 	return;
 }
 
+=head2 generate_regexps_matching_taxonomy_entries($taxonomy, $return_type, $options_ref)
 
+Create regular expressions that will match entries of a taxonomy.
+
+=head3 Arguments
+
+=head4 $taxonomy
+
+The type of the tag (e.g. categories, labels, allergens)
+
+=head4 $return_type - string
+
+Either "unique_regexp" to get one single regexp for all entries of one language.
+
+Or "list_of_regexps" to get a list of regexps (1 per entry) for each language.
+For each entry, we return an array with the entry id, and the the regexp for that entry.
+e.g. ['en:coffee',"coffee|coffees"]
+
+=head4 $options_ref
+
+A reference to a hash to enable options to indicate how to match:
+
+- add_simple_plurals : in some languages, like French, we will allow an extra "s" at the end of entries
+- add_simple_singulars: same with removing the "s" at the end of entries
+- match_space_with_dash: spaces or dashes in entries will match either a space or a dash (e.g. "South America" will match "South-America")
+
+=cut
+
+sub generate_regexps_matching_taxonomy_entries($taxonomy, $return_type, $options_ref) {
+
+	# We will return for each language an unique regexp or a list of regexps
+	my $result_ref = {};
+
+	# Lists of synonyms regular expressions per language
+	my %synonyms_regexps = ();
+
+	foreach my $tagid ( get_all_taxonomy_entries($taxonomy) ) {
+
+		foreach my $language ( keys %{ $translations_to{$taxonomy}{$tagid} } ) {
+
+			defined $synonyms_regexps{$language} or $synonyms_regexps{$language}  = [];
+
+			# the synonyms below also contain the main translation as the first entry
+
+			foreach my $synonym ( get_taxonomy_tag_synonyms($language, $taxonomy, $tagid) ) {
+
+				if ($options_ref->{add_simple_singulars}) {
+					if ($synonym =~ /s$/) {
+						# match entry without final s
+						$synonym =~ s/s$/\(\?:s\?\)/;
+					}
+				}
+
+				if ($options_ref->{add_simple_plurals}) {
+					if ($synonym !~ /s$/) {
+						# match entry with additional final s
+						$synonym =~ s/$/\(\?:s\?\)/;
+					}
+				}				
+
+				if ($options_ref->{match_space_with_dash}) {
+					# Make spaces match dashes and the reverse
+					$synonym =~ s/( |-)/\(\?: \|-\)/g;
+				}
+				
+				push @{ $synonyms_regexps{$language} },
+					[ $tagid, $synonym ];
+
+				if ( ( my $unaccented_synonym = unac_string_perl($synonym) ) ne $synonym ) {
+					push @{ $synonyms_regexps{$language} },
+						[ $tagid, $unaccented_synonym ];
+				}
+			}
+		}
+	}
+
+	# We want to match the longest strings first
+
+	if ($return_type eq 'unique_regexp') {
+		foreach my $language ( keys %synonyms_regexps ) {
+			$result_ref->{$language} = join('|',
+				map { $_->[1] }
+					sort { length $b->[1] <=> length $a->[1] } @{ $synonyms_regexps{$language} } );
+		}
+	}
+	elsif ($return_type eq 'list_of_regexps') {
+		foreach my $language ( keys %synonyms_regexps ) {
+			@{$result_ref->{$language}} = sort { length $b->[1] <=> length $a->[1] } @{ $synonyms_regexps{$language} };
+		}
+	}
+	else {
+		die("unknown return type for generate_regexps_matching_taxonomy_entries: $return_type - must be unique_regexp or list_of_regexps");
+	}
+
+	return $result_ref;
+}
 
 
 $log->info("Tags.pm loaded") if $log->is_info();

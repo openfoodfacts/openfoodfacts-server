@@ -50,7 +50,7 @@ use Text::CSV();
 
 my $request_ref = ProductOpener::Display::init_request();
 
-my $job_id = param("job_id");
+my $job_id = single_param("job_id");
 
 my %data;
 

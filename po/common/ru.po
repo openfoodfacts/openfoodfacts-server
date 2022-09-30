@@ -13,7 +13,7 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: ru\n"
-"X-Crowdin-File-ID: 2538\n"
+"X-Crowdin-File-ID: 2588\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -114,7 +114,7 @@ msgstr "Имя производителя или бренда"
 
 msgctxt "error_missing_org"
 msgid "Professional accounts must have an associated organization (company name or brand)."
-msgstr ""
+msgstr "Профессиональные аккаунты должны быть связанны с организацией (компанией или маркой)."
 
 msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
@@ -122,7 +122,7 @@ msgstr "Пожалуйста, введите название вашей орг�
 
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
-msgstr ""
+msgstr "Этот аккаунт является профессиональным и связан с производителем или маркой {org}. Вам доступна платформа для производителей."
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -764,8 +764,8 @@ msgstr "<<site_name>> в блоге"
 
 # Do not translate
 msgctxt "footer_blog_link"
-msgid "https://en.blog.openfoodfacts.org"
-msgstr "https://en.blog.openfoodfacts.org"
+msgid "https://blog.openfoodfacts.org/en/"
+msgstr ""
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -1021,7 +1021,7 @@ msgstr "Ингредиенты"
 
 msgctxt "no_ingredient"
 msgid "Ingredients are missing"
-msgstr ""
+msgstr "Состав отсутствует"
 
 msgctxt "one_ingredient"
 msgid "1 ingredient"
@@ -1575,9 +1575,9 @@ msgstr ""
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
-msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
+msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://blog.openfoodfacts.org/en/\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr "<p>Чтобы узнать больше о <<site_name>>, посетите <a href=\"https://en.blog.openfoodfacts.org\">наш блог</a>!</p>\n"
+msgstr "<p>Чтобы узнать больше об <<site_name>>, посетите <a href=\"https://blog.openfoodfacts.org/en/\">наш блог</a>!</p>\n"
 "<p>Последние новости:</p>\n"
 
 msgctxt "on_the_blog_title"
@@ -2456,6 +2456,7 @@ msgctxt "tagstable_search"
 msgid "Search:"
 msgstr "Поиск:"
 
+# This is linked to a unit test
 msgctxt "traces"
 msgid "Traces"
 msgstr "Следы"
@@ -4426,6 +4427,7 @@ msgctxt "images_can_be_provided_separately"
 msgid "Product photos can also be provided separately through the Import product photos function of the platform for producers."
 msgstr "Фотографии продуктов также могут предоставляться отдельно через функцию платформы для производителей для импорта фотографий продуктов."
 
+# This is linked to a unit test
 msgctxt "attribute_group_labels_name"
 msgid "Labels"
 msgstr "Маркировки"
@@ -4550,7 +4552,7 @@ msgstr "Плохие питательные свойства"
 
 msgctxt "attribute_group_processing_name"
 msgid "Food processing"
-msgstr ""
+msgstr "Обработка продуктов"
 
 msgctxt "attribute_nova_name"
 msgid "NOVA group"
@@ -4562,7 +4564,7 @@ msgstr "NOVA не рассчитана"
 
 msgctxt "attribute_nova_unknown_description_short"
 msgid "Food processing level unknown"
-msgstr ""
+msgstr "Степень обработки продуктов неизвестна"
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
@@ -5261,7 +5263,7 @@ msgstr "Воздействие на окружающую среду неизве
 
 msgctxt "ecoscore_unknown_call_to_help"
 msgid "We could not compute the Eco-Score of this product as it is missing some data, could you help complete it?"
-msgstr ""
+msgstr "Не получается вычислить Eco-Score этого продукта из-за неполных данных, не могли бы вы помочь с их уточнением?"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
@@ -5634,7 +5636,7 @@ msgstr ""
 
 msgctxt "ecoscore_packaging_missing_information"
 msgid "Missing packaging information for this product"
-msgstr ""
+msgstr "Для этого продукта нет информации об упаковке"
 
 msgctxt "ecoscore_origins_of_ingredients_impact_high"
 msgid "Origins of ingredients with a high impact"
@@ -5816,7 +5818,7 @@ msgstr ""
 
 msgctxt "nutriscore_missing_category"
 msgid "The category of the product must be specified in order to compute the Nutri-Score."
-msgstr ""
+msgstr "Для определения Nutri-Score необходимо указать категорию продукта."
 
 msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
@@ -5824,7 +5826,7 @@ msgstr ""
 
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
-msgstr ""
+msgstr "Для определения Nutri-Score необходимо указать категорию продукта и его пищевую ценность."
 
 msgctxt "health"
 msgid "Health"
@@ -6015,7 +6017,7 @@ msgstr ""
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_unknown_match"
 msgid "Unknown match"
-msgstr "Неизвестное солвпадение"
+msgstr "Неизвестное совпадение"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_may_not_match"
@@ -6037,15 +6039,15 @@ msgstr ""
 
 msgctxt "actions_add_ingredients"
 msgid "Could you add the ingredients list?"
-msgstr ""
+msgstr "Не могли бы вы добавить состав?"
 
 msgctxt "actions_to_compute_nutriscore"
 msgid "Could you add the information needed to compute the Nutri-Score?"
-msgstr ""
+msgstr "Не могли бы вы добавить информацию для вычисления Nutri-Score?"
 
 msgctxt "actions_to_compute_ecoscore"
 msgid "Could you add a precise product category so that we can compute the Eco-Score?"
-msgstr ""
+msgstr "Не могли бы вы уточнить категорию продукта, чтобы мы могли рассчитать Eco-Score?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
