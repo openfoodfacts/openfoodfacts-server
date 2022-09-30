@@ -16,8 +16,26 @@ use Getopt::Long;
 use Storable qw(dclone);
 
 my $test_name = "search_test";
-my $tests_dir = dirname(__FILE__);
-my $expected_dir = $tests_dir . "/expected_test_results/" . $test_name;
+my $test_dir = dirname(__FILE__);
+my $expected_dir = $test_dir . "/expected_test_results/" . $test_name;
+
+my $usage = <<TXT
+
+The expected results of the tests are saved in $test_dir/expected_test_results/$test_name
+
+To verify differences and update the expected test results,
+actual test results can be saved by passing --update-expected-results
+
+The directory will be created if it does not already exist.
+
+TXT
+  ;
+
+my $update_expected_results;
+
+GetOptions("update-expected-results" => \$update_expected_results)
+  or die("Error in command line arguments.\n\n" . $usage);
+
 
 my @products = (
 
@@ -112,8 +130,6 @@ my @tests = (
 	]
 );
 
-my $update_expected_results = 1;
-
 if ((defined $update_expected_results) and (!-e $expected_dir)) {
 	mkdir($expected_dir, 0755) or die("Could not create $expected_dir directory: $!\n");
 }
@@ -135,14 +151,15 @@ foreach my $test_ref (@tests) {
 		next;
 	};
 
-	my $length = @{$decoded_json->{'products'}};
-	my $count;
-	for ($count = 0; $count < $length; $count++) {
-		foreach my $field ("created_t", "last_modified_t", "last_edit_dates_tags", "entry_dates_tags") {
-			delete($decoded_json->{'products'}[$count]{$field});
-		}
-	}
-	is(compare_to_expected_results($decoded_json, "$expected_dir/$testid.json", $update_expected_results), 1);
+	# normalize for comparison
+	normalize_products_for_test_comparison(\@{$decoded_json->{'products'}});
+
+	is(
+		compare_to_expected_results(
+			$decoded_json, "$expected_dir/$testid.json", $update_expected_results
+		),
+		1,
+	);
 }
 
 done_testing();
