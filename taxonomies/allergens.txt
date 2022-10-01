@@ -4,7 +4,7 @@ stopwords:de:enthalten,von,und,kann,spuren,andere
 stopwords:es:traza,trazas,y,de,que,contiene,contienen,otros,producto,productos,derivado,derivados,incluido,incluidos,incluida,incluidas,la,una,fuente,contener,puede,con,elaborado,en,linea,donde,se,procesa,granos,posible,posibles,este
 stopwords:fi:ja,muita,muuta,tehtaassa,valmistettu,saattaa,sisältää,pieniä,pienehköjä,määriä,jäämiä,ainesosia
 stopwords:fr:d'autres,autre,autres,ce,produit,est,fabriqué,élaboré,transformé,emballé,dans,un,atelier,une,usine,qui,utilise,aussi,également,céréale,céréales,farine,farines,extrait,extraits,graine,graines,trace,traces,éventuelle,éventuelles,possible,possibles,potentielle,potentielles,peut,pourrait,contenir,contenant,contient,de,des,du,d',l',la,le,les,et,dérivés,à,base,ce,ces,hybrides,ou,produits,y,compris,contiennent
-stopwords:hr:može,sadržavati,sadrži,u tragovima
+stopwords:hr:može,sadržavati,sadrži,tragove,u tragovima
 stopwords:is:í,snefilmagni
 stopwords:it:derivanti,del,de,la,e,tracce,contiene,una,fonte,di,puo,contenere,altra,contenenti,a,base,semi
 stopwords:pt:traços,vestígios,vestígio,a,e,uma,em,ou,de,que,com,contém,contêm,possível,eventual,outros,produto,produtos,derivado,derivados,incluido,incluidos,incluida,incluidas,fonte,pode,elaborado,onde,se,processa,grãos,possível,possíveis,este,feito,manofaturado,fabricado,fábrica,também,usa,subproduto,subprodutos,mín,min,mínimo,refinado
@@ -32,7 +32,7 @@ fi:gluteeni, gluteenia, gluteenista, gluteenit, gluteeneja, gluteeneista, vehnä
 fr:gluten, blé, seigle, orge, épeautre, kamut, son de blé, blé complet, gluten de blé, fibre de blé, malt d'orge, malt, froment, farine de blé, farine de froment, boulgour, petit épeautre, céréales contenant du gluten, blé dur, épeautre, petit épeautre, grand épeautre, farine d'épeautre
 ga:glútan, cruithneacht, seagal, eorna, coirce, speilt, camut, céréeale, céréales
 he:גלוטן, קמח, סמולינה, דורום, חיטה, לתת כשות, מדגנים, דגנים
-hr:ječmeni slad, pšenično
+hr:glutena, ječmeni slad, pšenično
 hu:glutén, búza, búzaliszt, búzarost, búzadara, búzacsíra, búzafehérje, búzakorpa, búzamaláta, búzapehely, búzakeményítő, búzasikér, tönkölybúza, tönkölybúzaliszt, tönkölybúzapehely, durumbúza, durumbúzaliszt, rozs, rozsliszt, rozspehely, durumrozsliszt, árpa, árpaliszt, árpapehely, árpamaláta, árpadara, árpacsíra, zab, zabliszt, zabpehely, zabkorpa, durumliszt, durum liszt, Grahamliszt, Graham liszt, kenyérliszt, kenyér liszt, rétesliszt, rétes liszt, kamut, alakor, bulgur, glutént, glutént tartalmazó gabona, glutént tartalmazó gabonafélék
 is:glúten
 it:glutine, grano, segale, orzo, farro, kamut, frumento, farina di frumento, farina di frumento integrale
@@ -201,7 +201,7 @@ fi:soija, soijaa, soijasta, soijat, soijia, soijista, soijapapu, soijapapua, soi
 fr:soja, soya, soia, sojas, son de soja, lécithine de soja, tonyu, graine de soja, graines de soja, tofu
 ga:pónairí soighe, soighe
 he:סויה, פולי סויה, לציטין סויה, קמח סויה
-hr:sojin, sojina, soju
+hr:soje, sojin, sojina, soju
 hu:szója, szójabab, szójalecitin, szójalecitinek, szójatej, szójaliszt, szójafehérje, szójából, szóját
 is:soja
 it:soia, lecitina di soia
@@ -236,7 +236,7 @@ fi:maito, maidon, maitoa, maidosta, maidot, maitoja, maidoista, kevytmaito, kevy
 fr:lait, lactose, laitier, laitiere, laitiers, crème, beurre, bas-beurre, babeurre, beurre patissier, petit-lait, yaourt, fromage, méton, lait cru, Emmental, comte, bleu, edam, lactique, lactiques, ferments lactiques, cheddar, reblochon, parmesan, mimolette, crème de lait, fromage de vache, fromage de chèvre, gouda, lait écrémé, lait entier, lactoserum, lactosérum, mozzarella, protéines de lait, crème fraiche, ricotta, fromage blanc, mascarpone, caséinate, caséine, poudre de lait, Produits laitiers et dérivées, Produits laitiers et dérivés, Produits laitiers, Gorgonzola, Roquefort, Fromage fondu, Fromage frais, Feta, Raclette, laits et dérivés y compris lactose, lait de vache, lait de chèvre, lait de brebis, dérivés laitiers, protéines laitières, beurre concentré, gruyère, lait demi-écrémé, lait écrémé, lait frais
 ga:bainne, lachtós
 he:חלב, לקטוז, חלבון חלב, גבינה, יוגורט, חמאה, שמנת
-hr:laktoza, mlijeko, mliječne, sir, sirutka
+hr:laktoza, mlijeka, mlijeko, mliječne, sir, sirutka
 hu:tej, laktóz, tejsavó, savó, tejtermék, tejtermékek, tejszín, tejfehérje, tejpor, tejsavópor, savópor, tejzsír, tejet, tejcukor, tehéntej, joghurt, joghurtpor, joghurt kultúra, sajt, vaj
 is:mjólk, undanrenna, nýmjólk, léttmjólk
 it:latte, lattosio, parmigiano reggiano, grana padano
@@ -271,7 +271,7 @@ fi:pähkinät, pähkinä, pähkinää, pähkinästä, pähkinöitä, pähkinöis
 fr:fruits à coque, amandes, noisettes, noix, noix de cajou, noix de pécan, noix du Brésil, pistaches, noix de Macadamia, noix du Queensland, fruits secs, autres fruits secs, autres fruits à coque, fruits secs à coque, fruits à coque dure
 ga:cnónna,  almóinní, cnónna coill, gallchnónna, cnónna caisiú, cnónna peagáin, cnónna Brasaíleacha, cnónna pistéise, cnónna macadaíme, cnónna Thír na Banríona
 he:אגוזים, שקדים, פקאן, אגוז ברזיל, אגוז מלך, פיסטוק, קשיו, ערמונים,מקדמיה
-hr:orašasto voće, badem
+hr:orašastih plodova, orašasto voće, badem
 hu:diófélék, mandula, mogyoró, dió, kesudió, pekándió, brazil dió, pisztácia, makadámia, queenslandi dió, dióféléket
 is:hnetur
 it:frutta a guscio, mandorle, nocciole, noci, noci di acagiù, noci di pecan,  noci del Brasile, pistacchi, noci macadamia, noci del Queensland
@@ -306,6 +306,7 @@ fi:selleri, selleriä, selleristä, sellerit, sellereitä, sellerejä, sellereis
 fr:céleri, céleri-rave
 ga:soilire
 he:סלרי
+hr:celera
 hu:zeller, zellergumó, zellert
 it:sedano
 jp:セロリ
@@ -375,6 +376,7 @@ fi:seesaminsiemenet, seesaminsiemen, seesaminsiementä, seesaminsiemenestä, see
 fr:graines de sésame, graine de sésame, sésame
 ga:síolta seasamain, seasaman
 he:שומשום, זרעי שומשום, טחינה, שמן שומשום
+hr:sezama
 hu:szezámmag, szezám, szezámmagot
 it:semi di sesamo, sesamo
 jp:ゴマ
@@ -414,6 +416,7 @@ et:vääveldioksiid ja sulfitid, vääveldioksiid, sulfitid
 fi:rikkioksidi ja sulfiitit, rikkidioksidi, rikkidioksidia, rikkidioksidista, rikkidioksidit, rikkidioksideja, rikkidioksideista, sulfiitti, sulfiittia, sulfiitista, sulfiitit, sulfiitteja, sulfiiteista, natriumdisulfiitti, natriumdisulfiittia, natriumdisulfiitista, natriumdisulfiitit, natriumdisulfiitteja, natriumdisulfiiteista, kaliumdisulfiitti, kaliumdisulfiittia, kaliumdisulfiitista, kaliumdisulfiitit, kaliumdisulfiitteja, kaliumdisulfiiteista
 fr:anhydride sulfureux et sulfites, anhydride sulfureux, sulfites, sulfite, sulphites, sulphite, bisulfite, metabisulfite, metabisulphite, disulfites
 ga:dé-ocsaíd sulfair agus suilfítí, dé-ocsaíd sulfair, suilfítí
+hr:sulfita
 hu:kén-dioxid és szulfitok, kén-dioxid, szulfitok, szulfit
 it:anidride solforosa e solfiti, anidride solforosa, solfiti
 jp:二酸化硫黄および亜硫酸塩, 二酸化硫黄, 亜硫酸塩
