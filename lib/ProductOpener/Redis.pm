@@ -1,4 +1,8 @@
-use Redis::Client;
+
+package ProductOpener::Redis;
+
+use ProductOpener::PerlStandards;
+use Exporter    qw< import >;
 
 BEGIN
 {
@@ -12,13 +16,16 @@ BEGIN
 
 use vars @EXPORT_OK ;
 
+use Log::Any qw($log);
+use ProductOpener::Config2;
+use Redis::Client;
+
 sub init_redis() {
 	if ($ProductOpener::Config2::redis_url eq "")
 	{
 		$log->warn("Redis URL not provided for search indexing", { error => $@ }) if $log->is_warn();
 		return undef;
 	}
-	# Now send the barcode to Redis so that it can be indexed
 	eval {
 		my $redis_client = Redis::Client->new(host => $ProductOpener::Config2::redis_url);
 		return $redis_client;
@@ -32,9 +39,9 @@ sub init_redis() {
 
 my $redis_client = init_redis();
 
-sub push_to_search_service {
+sub push_to_search_service($product_ref) {
 	if (defined($redis_client)) {
-                $redis_client->rpush('search_import_queue', $_[0]->{code});
+                $redis_client->rpush('search_import_queue', $product_ref->{code});
 	}
 
         return;

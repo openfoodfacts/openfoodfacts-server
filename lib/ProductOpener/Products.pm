@@ -133,7 +133,7 @@ use ProductOpener::Data qw/:all/;
 use ProductOpener::MainCountries qw/:all/;
 use ProductOpener::Text qw/:all/;
 use ProductOpener::Display qw/single_param/;
-use ProductOpener::Redis qw/:all/;
+use ProductOpener::Redis qw/push_to_search_service/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
