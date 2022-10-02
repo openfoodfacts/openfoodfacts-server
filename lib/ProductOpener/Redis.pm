@@ -2,7 +2,7 @@
 package ProductOpener::Redis;
 
 use ProductOpener::PerlStandards;
-use Exporter    qw< import >;
+use Exporter qw< import >;
 
 BEGIN
 {
