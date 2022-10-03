@@ -131,7 +131,7 @@ function ScrollNav() {
     window.addEventListener('load', () => {
         if (window.location.hash) {
             if (select(window.location.hash)) {
-                scrollto(window.location.hash)
+                setTimeout(scrollto, 10, window.location.hash)
             }
         }
     });
