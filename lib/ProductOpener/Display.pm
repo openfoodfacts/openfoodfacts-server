@@ -4708,7 +4708,8 @@ sub initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_
 	# in order to allow different behaviours (e.g. showing ingredients before nutrition on the web)
 	# possible values: "web", "app"
 	my $knowledge_panels_client = single_param("knowledge_panels_client");
-	if ((not defined $knowledge_panels_client) or (($knowledge_panels_client ne "web")) and ($knowledge_panels_client ne "app")) {
+       # set a default value if client is not defined to app or web
+	if ((not defined $knowledge_panels_client) or (($knowledge_panels_client ne "web") and ($knowledge_panels_client ne "app"))) {
 		# Default to app mode
 		$knowledge_panels_client = 'app';
 		if (not defined $request_ref->{api}) {
