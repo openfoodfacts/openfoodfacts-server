@@ -838,7 +838,7 @@ en:ferment
 az:fermentlər
 ba:Ферменттар
 be:Ферменты
-bg:закваска, закваски, българска закваска, млечнокисели култури, симбиотична закваска, стартерни млечнокисели култури, стартерна култура
+bg:закваска, закваски, българска закваска, млечнокисели култури, симбиотична закваска, стартерни млечнокисели култури, стартерна култура, стартерни култури
 ca:ferment, ferments
 cs:Kvasnice
 da:gæret
@@ -21137,7 +21137,7 @@ de:Weizenhalmfaser
 
 <en:wheat
 en:wheat bran
-bg:пшенични трици
+bg:пшенични трици, пшеничени трици
 de:Weizenkleie, Weizenspeisekleie
 es:salvado de trigo
 fi:vehnälese
@@ -21463,6 +21463,7 @@ ciqual_food_name:fr:Frik (blé dur immature concassé), cru
 
 <en:wheat
 en:wheat germ, wheatgerm
+bg:пшеничен зародиш
 ca:germen de blat
 de:Weizenkeime
 es:germen de trigo
@@ -22165,7 +22166,7 @@ fr:malt munich
 
 <en:malt
 en:malted barley, barley malt
-bg:яачменныи солод, ечемично малцов
+bg:ечемичен малц, ечемично малцов
 cs:ječmenný slad
 da:bygmalt
 de:Gerstenmalz
@@ -22882,7 +22883,7 @@ sv:glutenfri havre
 en:oat flakes, oatflakes, rolled oats, oatmeal flakes,
 af:hawermout
 ar:رقانق الشوفان
-bg:овесени ядки
+bg:овесени ядки, овесен флейкс
 ca:flocs de civada
 cs:ovesné vločky
 da:havregryn, havreflager
@@ -30006,7 +30007,7 @@ carbon_footprint_fr_foodges_value:fr:4.7
 
 <en:chocolate
 en:chocolate chunk, chocolate chunks, chocolate pieces, chocolate chips,semisweet Chocolate Chips
-bg:парченца шоколад, шоколадов чипс
+bg:парченца шоколад, шоколадов чипс, шоколадови парчета
 ca:xips de xocolata
 da:Chokoladestykker, stykker af chokolade
 de:Schokoladenstücke, Schokoladenstückchen
@@ -31338,6 +31339,7 @@ allergens:en: en:gluten
 
 <en:gluten
 en:barley gluten
+bg:ечемичен глутен
 de:Gerstengluten
 nl:gerstgluten
 
@@ -33460,6 +33462,7 @@ sv:frukt- och plantkoncentrat
 
 <en:fruit
 en:fruit concentrate, fruit concentrates
+bg:плодов концентрат
 de:Früchtekonzentrate
 es:concentrados de fruta, concentrados de frutas
 fi:hedelmätiivisteet
@@ -35533,7 +35536,7 @@ sv:äppeljuicekoncentrat
 
 <en:concentrated apple juice
 en:apple juice from concentrate
-bg:ябълков сок от концентрат
+bg:ябълков сок от концентрат, сок от ябълков концентрат
 cs:Jablečná šťáva z koncentrátu
 da:æblejuice fra koncentrat
 de:Apfelsaft aus Konzentrat, Apfelsaft aus Apfelsaftkonzentrat
@@ -40405,6 +40408,7 @@ zh:菠萝汁
 
 <en:pineapple juice
 en:concentrated pineapple juice
+bg:концентриран сок от ананас
 de:Ananassaftkonzentrat
 es:jugo concentrado de anana
 fi:ananasmehutiiviste
@@ -44857,6 +44861,7 @@ ciqual_food_name:fr:Bambou, pousse, crue
 # <en:bamboo
 <en:vegetable fiber
 en:bamboo fibre
+bg:бамбукови фибри
 da:bambusfibre
 de:Bambusfasern
 es:Fibra de bambú
@@ -49862,6 +49867,7 @@ ciqual_food_name:fr:Tomate, crue
 
 <en:tomato
 en:organic tomato
+bg:био домати
 de:Biologische Tomaten
 es:tomate orgánico
 fi:luomutomaatti, luomu tomaatti
@@ -55585,7 +55591,7 @@ wikidata:en:Q2596994
 
 <en:spice
 en:natural spices
-bg:естествени подправки
+bg:естествени подправки, натурални подправки
 de:natürliche Gewürze
 es:especias naturales
 fr:Épices naturelles
@@ -57366,7 +57372,7 @@ nl:Engelse mosterd
 # <en:seed
 <en:mustard
 en:mustard seed
-bg:синалено семе оцет
+bg:синапено семе
 ca:llavors de mostassa, grans de mostassa
 cs:hořčičné semínko
 da:sennepsfrø
@@ -58146,6 +58152,7 @@ it:foglio di menta, foglie di menta intere
 
 <en:mint
 en:mint oil
+bg:ментово масло
 cs:mátový olej
 es:aceite de menta
 fr:huile de menthe
@@ -74112,7 +74119,7 @@ ciqual_food_name:fr:Concombre, pulpe, cru
 
 <en:cucumber
 en:gherkin
-bg:корнишон, кисела краставичка, кисели краставички
+bg:корнишон, кисела краставичка, кисели краставички, краставички
 da:cornichon
 de:Cornichons
 es:pepinillos
@@ -74576,7 +74583,7 @@ pl:kość z kurczaka, kości z kurczaka
 
 <en:chicken
 en:chicken heart
-bg:пилешко сърце
+bg:пилешко сърце, пилешки сърца
 fr:Coeur de poulet
 ciqual_food_code:en:40054
 ciqual_food_name:en:Heart, chicken, raw
