@@ -4712,6 +4712,7 @@ sub initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_
 	if ((not defined $knowledge_panels_client) or (($knowledge_panels_client ne "web") and ($knowledge_panels_client ne "app"))) {
 		# Default to app mode
 		$knowledge_panels_client = 'app';
+                # but if it's not an api request, we consider it should be web
 		if (not defined $request_ref->{api}) {
 			$knowledge_panels_client = "web";
 		}
