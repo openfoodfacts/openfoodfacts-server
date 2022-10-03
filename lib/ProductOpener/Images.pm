@@ -1455,7 +1455,7 @@ sub _set_magickal_options($magick, $width) {
 }
 
 
-# This function should be removed once we switch to knowledge pages to display
+# TODO: This function should be removed once we switch to knowledge pages to display
 sub display_image_thumb($product_ref, $id_lc) {
 
 	# $id_lc = shift  ->  id_lc = [front|ingredients|nutrition|packaging]_[lc]
