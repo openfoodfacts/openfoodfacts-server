@@ -19,7 +19,7 @@ stopwords:en:contains, contain, from, with, produced with, with added, minimum,i
 stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
 stopwords:fi:sisältää,muun muassa,valio, koskenlaskija, snellmanin, jossa, noin, käymisen aikana muodostuva
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout, sachet
-stopwords:hr:i, sastojci, u promjenjivim omjerima, u promjenjivim udjelima, u različitim omjerima
+stopwords:hr:i, sastojci, sastav, u promjenjivim omjerima, u promjenjivim udjelima, u različitim omjerima
 stopwords:hu:tartalmaz, változó arányban, min, zsírtartalom, összetevő, összetétel, amelyből, amiből
 stopwords:id:mengandung
 stopwords:is:úr
@@ -98,6 +98,7 @@ es:jarabe de azúcar caramelizado, sirope de azúcar caramelizado
 et:karamelliseeritud suhkrusiirup
 fi:karamellisoitu sokerisiirappi, karamellisokerisiirappi
 fr:sirop de sucre caramel, sirop de sucre caramélisé
+hr:karamelni šećerni sirup
 hu:karamellizált cukorszirup
 it:sciroppo di zucchero caramellato
 lt:karamelizuotas cukraus sirupas
@@ -4320,6 +4321,7 @@ fr:petit-lait, lactosérum, sérum de lait, lactoserum
 fy:Waai
 gl:Soro de leite, lactosoro
 he:מי גבינה
+hr:sirutka
 hu:savó, tejsavó
 id:Whey, laktoserum
 io:selakto
@@ -5788,6 +5790,7 @@ el:τυρί σε σκόνη
 es:queso en polvo
 fi:juustojauhe
 fr:fromage en poudre, poudre de fromage
+hr:sir u prahu
 hu:sajtpor, porított sajt
 it:formaggio in polvere
 nl:kaaspoeder
@@ -14457,6 +14460,7 @@ en:Palm stearin
 de:Palmstearin
 fi:palmusteariini
 fr:Stéarine de palme
+hr:palmin stearin
 hu:pálmasztearin
 it:Stearina di palma
 nl:Palmstearine
@@ -14595,6 +14599,7 @@ eu:Palmiste olio
 fa:روغن هسته پالم
 fi:palmuydinöljy, palmunydinöljy, palmuydin, palmunydin, palmunsiemenöljy
 fr:huile de palmiste, huile végétale de palmiste, palmiste
+hr:mast palmine koštice
 hu:pálmamagolaj, pálmamag
 id:Minyak inti kelapa sawit
 is:pálmakjarmaolía
@@ -14821,6 +14826,7 @@ es:Grasa de coco, grasa vegetal de coco
 et:kookosrasv
 fi:kookosrasva, kookosrasvaa
 fr:matière grasse de noix de coco, graisse de noix de coco, graisse de coco, matière grasse végétale de coprah, matière grasse de coprah
+hr:kokosova mast
 hu:kókuszzsír
 it:grasso di cocco
 lt:kokoso riebalai
@@ -15534,6 +15540,7 @@ fi:soijaöljy, soijapapuöljy
 fr:huile de soja, huiles végétales de soja
 gl:Aceite de soia
 he:שמן סויה
+hr:sojino ulje
 hu:szójaolaj, szójababolaj
 id:Minyak kedelai
 it:Olio di semi di soia, olio di soia
@@ -15583,6 +15590,7 @@ en:partially hydrogenated soybean oil
 de:Sojabohnenöl teilweise hydriert
 es:Aceite de soja parcialmente hidrogenado
 fr:Huile de soja partiellement hydrogénée
+hr:djelomično hidrogenirano ulje soje
 it:Olio di semi di soia idrogenato
 
 <en:soya oil
@@ -16934,6 +16942,7 @@ es:alcohol
 fi:alkoholi
 fr:alcool, Alcool pur
 he:אלכוהול
+hr:alkohol
 hu:alkohol
 it:Alcol, alcool
 ja:アルコール
@@ -19062,6 +19071,7 @@ ru:ароматизатор идентичный натуральному
 en:natural dill flavouring
 de:natürliches Dill-Aroma, natürliches Dillaroma
 fr:arôme naturel d'aneth
+hr:prirodna aroma kopra
 # ingredient/fr:arome-naturel-d'aneth has 34 products in 1 language @2020-05-21
 
 <en:flavouring
@@ -19450,6 +19460,7 @@ en:pepper flavouring
 de:Pfeffergewürz, Gewürzpfeffer
 fi:pippuriaromi
 fr:arôme de poivre
+hr:aroma papra
 hu:bors aroma
 
 # Two parents due to and/or ingredient
@@ -19870,6 +19881,7 @@ de:Raucharoma
 es:aroma de humo,humo de madera
 fi:savuaromi, savuaromia
 fr:arôme de fumée, arôme fumé, arôme fumée, aromes de fumee, saveur de fumée
+hr:aroma dima
 hu:füst aroma, füst ízesétés, füst íz
 it:aroma di affumicato, aroma di affumicatura, affumicatura
 nb:røykaroma
@@ -21118,6 +21130,7 @@ de:Weizenfasern
 es:fibras de trigo
 fi:vehnäkuitu
 fr:fibre de blé, fibres de blé
+hr:pšenična vlakna
 hu:búzarost
 it:fibra di frumento, fibre di frumento
 nl:tarwevezel, tarwevezels
@@ -24026,7 +24039,7 @@ fa:آرد گندم
 fi:vehnäjauho, vehnäjauhoa
 fr:farine de blé, farines de blé, farine de froment
 he:קמח חיטה
-hr:pšenično brašno
+hr:pšenično bijelo brašno, pšenično brašno
 hu:búzaliszt
 is:hveitimjöl
 it:farina di frumento, farina di grano
@@ -27770,6 +27783,7 @@ de:getrockneter Glukosesirup, dehydrierter Glukosesirup
 es:Sirope deshidratado de glucosa, jarabe de glucosa deshidratado
 fi:kuivattu glukoosisiirappi
 fr:sirop de glucose déshydraté, sirop de glucose en poudre
+hr:osušeni glukozni sirup
 hu:dehidratált glükózszirup, szárított glükózszirup, dehidratált glükóz szirup, szárított glükóz szirup
 it:sciroppo di glucosio disidratato, sciroppo di glucosio in polvere
 nl:gedroogde glucosestroop
@@ -28872,6 +28886,7 @@ et:sojavalk
 fi:soijaproteiini, soijaproteiinivalmiste
 fr:protéine de soja, protéines de soja
 hu:szójafehérje
+hr:bjelančevine soje
 it:proteine di soia
 nl:soja-eiwit, sojaeiwitten
 pl:Białko sojowe, hydrolizat białka sojowego, białko soi, białko z soi
@@ -37523,7 +37538,7 @@ es:Mora, moras
 eu:Masusta
 fi:karhunvatukka, karhunvadelma
 fr:mûre, mûres
-hr:Kupina
+hr:kupina, kupine
 it:more
 kk:Қара бүлдірген
 ko:블랙베리
@@ -37694,6 +37709,7 @@ et:mustikas
 fa:بیل‌بری
 fi:puolukat
 fr:myrtille
+hr:borovnica, borovnice
 hu:áfonya
 is:bláber
 it:mirtillo, mirtilli
@@ -40599,7 +40615,7 @@ fr:framboise
 ga:Sú craobh
 gd:Sùbh-craoibh
 hi:रसभरी
-hr:malina
+hr:malina, maline
 ht:Franbwaz
 hu:málna
 hy:Ազնվամորի
@@ -40941,6 +40957,7 @@ gn:Yvapytã
 gu:સ્ટ્રોબેરી
 he:תות, תותים
 hi:स्ट्रॉबेरी
+hr:jagoda, jagode
 hu:Eper
 hy:Ելակ
 id:Stroberi kebun
@@ -41086,6 +41103,7 @@ en:freeze-dried strawberries
 de:Erdbeeren gefriergetrocknet
 fi:pakkaskuivattu mansikka, pakastekuivattu mansikka
 fr:fraises lyophilisées
+hr:liofilizirane jagode
 it:fragole liofilizzate
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fraises-lyophilisées
 # 38 products in 3 languages @2108-10-01
@@ -47393,6 +47411,7 @@ ciqual_food_name:fr:Oignon, séché
 #fi:sipulijauhe
 #fr:oignon en poudre, oignons en poudre, poudre d'oignons, poudre d'oignon
 #he:אבקת בצל, בצל מיובש כתוש, בצל כתוש מיובש
+#hr:luk u prahu
 #hu:vöröshagymapor
 #it:cipolla en polvere
 #ja:玉ねぎパウダー
@@ -48762,6 +48781,7 @@ gl:pataca
 gu:Yvy'a
 he:תפוח אדמה
 hi:आलू
+hr:krumpir
 ht:Pòm tè
 hu:burgonya, krumpli
 ia:patata
@@ -49725,6 +49745,7 @@ et:paprikapulber
 de:Paprikagewürz
 es:paprika en polvo, pimentón en polvo, polvo de paprika, polvo de pimentón
 fr:Paprika en poudre
+hr:paprika u prahu
 nl:paprikapoeder
 pl:papryka w proszku
 
@@ -50013,6 +50034,7 @@ el:ψιλοκαμμένη ντομάτα
 es:Tomates en trozos, tomate troceado
 fi:pilkottu tomaatti, pilkotut tomaatit
 fr:tomate concassée, tomates concassées, concassé de tomates
+hr:sjeckana rajčica
 hu:szeletelt paradicsom
 it:pomodori tritati
 nb:hakkede tomater
@@ -50250,6 +50272,7 @@ de:Tomatensaft
 es:jugo de tomate
 fi:tomaattimehu, tomaattitäysmehu
 fr:jus de tomate, Jus de tomates
+hr:sok od rajčica
 hu:paradicsomlé
 it:succo di pomodoro
 nb:tomatjuice
@@ -52840,7 +52863,7 @@ fy:Mangel
 ga:almóinní
 gl:Améndoa
 he:שקד
-hr:badem
+hr:badem, bademi
 hu:mandula
 ia:amandola
 it:mandorla, mandorle
@@ -53866,6 +53889,7 @@ et:pistaatsiapähklid, pistaatsiapähkleid
 fi:pistaasipähkinät, pistaasipähkinä
 fr:pistache, pistaches
 ga:cnónna pistéise
+hr:pistacije
 hu:pisztácia
 it:pistacchio, pistacchi
 ja:ピスタチオ
@@ -54370,6 +54394,7 @@ fi:chia-siemen, chia-siemenet, chiansiemen
 fr:graine de chia, graines de chia
 he:זרעי צ'יה
 hi:चिया सीड्ज़
+hr:chia sjemenke
 is:Chiafræ
 it:semi di chia
 ja:チアシード
@@ -54945,6 +54970,7 @@ de:Pfefferextrakt
 es:extracto de pimienta
 fi:pippuriuute
 fr:extrait de poivre
+hr:ekstrakt paprike
 it:estratto di pepe
 nl:peperextract
 sv:pepparextrakt
@@ -57204,6 +57230,7 @@ de:gemahlener Ingwer, Ingwerpulver
 es:Gengibre en polvo, polvo de gengibre, jengibre en polvo
 fi:inkiväärijauhe, jauhettu inkivääri
 fr:gingembre moulu
+hr:prah mljevenog đumbira
 it:zenzero macinato
 nb:malen ingefær
 nl:gemberpoeder, gemalen gember, gemalen gemberwortel, djahé
@@ -57289,7 +57316,7 @@ ga:mustard, mustaird
 gl:Mostaza
 he:חרדל
 hi:सरसों
-hr:gorušice, senf
+hr:gorušica, gorušice, senf
 ht:Moutad
 hu:mustár
 hy:Մանանեխ
@@ -73298,6 +73325,7 @@ de:Kaumasse
 es:Base de goma
 fi:purukumin perusmassa, purukumin perusmassaa
 fr:gomme base
+hr:gumena baza
 it:gomma base
 sv:gummibas, tuggummibas
 wikidata:en:Q5618000
@@ -74064,7 +74092,7 @@ fi:kurkku, kurkut
 fr:concombre
 ga:Cúcamar
 he:מלפפון, מלפפונים
-hr:Krastavac
+hr:krastavac, krastavci
 hu:uborka
 it:cetrioli
 ja:胡瓜
@@ -76443,6 +76471,7 @@ de:Gemüseextrakte
 es:Extrato vegetal, extratos vegetales
 fi:kasvisuute, kasvisuutteet
 fr:extraits végétaux
+hr:biljni ekstrakt
 it:estratto vegetale, estratti vegetali
 nl:plantaardig extract, plantaardige extracten
 sv:grönsaksextrakt
@@ -82039,6 +82068,7 @@ gl:Margarina
 gu:માર્જરિન
 he:מרגרינה
 hi:मार्जरीन
+hr:margarin
 hy:Մարգարին
 io:Margarino
 is:Smjörlíki
