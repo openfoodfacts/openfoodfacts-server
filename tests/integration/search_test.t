@@ -36,7 +36,6 @@ my $update_expected_results;
 GetOptions("update-expected-results" => \$update_expected_results)
   or die("Error in command line arguments.\n\n" . $usage);
 
-
 my @products = (
 
 	{
@@ -154,12 +153,7 @@ foreach my $test_ref (@tests) {
 	# normalize for comparison
 	normalize_products_for_test_comparison(\@{$decoded_json->{'products'}});
 
-	is(
-		compare_to_expected_results(
-			$decoded_json, "$expected_dir/$testid.json", $update_expected_results
-		),
-		1,
-	);
+	is(compare_to_expected_results($decoded_json, "$expected_dir/$testid.json", $update_expected_results), 1,);
 }
 
 done_testing();
