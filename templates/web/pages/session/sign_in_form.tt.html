@@ -29,13 +29,11 @@
             </label>
         </div>
     </div>
-
-    <p> 
-        Not registered yet?
-        <a href="/cgi/user.pl">Create your account. </a>
-        <br>
-        <a href="/cgi/reset_password.pl">Forgotten Password?</a>
-    </p>
 </form>
+
+<p>[% lang('login_not_registered_yet') %]
+    <a href="/cgi/user.pl">[% lang('login_create_your_account') %] </a><br>
+    <a href="/cgi/reset_password.pl">[% lang('forgotten_password') %] </a>
+</p>
 
 <!-- end templates/[% template.name %] -->
