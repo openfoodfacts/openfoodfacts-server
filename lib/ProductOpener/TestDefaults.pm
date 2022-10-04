@@ -50,4 +50,20 @@ use vars @EXPORT_OK;
 	type => "add"
 );
 
+%default_product_form = (
+	code => '2000000000001',
+	lang => "en",
+	product_name => "test_default",
+	generic_name => "default_name",
+	quantity => "100 g",
+	link => "http://world.openfoodfacts.org/",
+	ingredients_text => "water, test_ingredient",
+	origin => "Germany",
+	categories => "snacks",
+	serving_size => "10 g",
+	action => "process",
+	type => "add",
+	".submit" => "submit"
+);
+
 1;
