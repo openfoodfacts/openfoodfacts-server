@@ -884,15 +884,13 @@ It can be solved by adding <code>{"base": "172.80.0.0/16","size": 24}, {"base": 
 * <code>make import_sample_data</code>: <strong>Load sample data</strong> into <code>mongodb</code> container (~100 products).</p>
 <p><strong><em>Notes:</em></strong></p>
 <ul>
-<li>
-<p>The first build can take between 10 and 30 minutes depending on your machine and internet connection (broadband connection heavily recommended, as this will download Docker base images, install Debian and Perl modules in preparation of the final container image).</p>
-</li>
-<li>
-<p>You might not immediately see the test products: create an account, login, and they should appear.</p>
-</li>
-<li>
-<p>For a full description of available make targets, see <a href="../../docker/README.md#makefile-commands">docker/README.md</a></p>
-</li>
+<li>The first build can take between 10 and 30 minutes depending on your machine and internet connection (broadband connection heavily recommended, as this will download Docker base images, install Debian and Perl modules in preparation of the final container image).</li>
+</ul>
+<ul>
+<li>You might not immediately see the test products: create an account, login, and they should appear.</li>
+</ul>
+<ul>
+<li>For a full description of available make targets, see <a href="../../docker/README.md#makefile-commands">docker/README.md</a></li>
 </ul>
 <p><strong>Hosts file:</strong></p>
 <p>Since the default <code>PRODUCT_OPENER_DOMAIN</code> in the <code>.env</code> file is set to <code>openfoodfacts.localhost</code>, add the following to your hosts file (Windows: <code>C:\Windows\System32\drivers\etc\hosts</code>; Linux/MacOSX: <code>/etc/hosts</code>):</p>

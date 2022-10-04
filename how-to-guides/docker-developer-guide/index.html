@@ -1040,23 +1040,21 @@ script.</p>
 <ul>
 <li>
 <p>Multiple <code>.env</code> files (one per deployment), such as:</p>
-</li>
-<li>
-<p><code>.env.off</code> : configuration for Open Food Facts dev env.</p>
-</li>
+<ul>
+<li><code>.env.off</code> : configuration for Open Food Facts dev env.</li>
 <li><code>.env.off-pro</code> : configuration for Open Food Facts Producer's Platform dev env.</li>
 <li><code>.env.obf</code>: configuration for Open Beauty Facts dev env.</li>
-<li>
-<p><code>.env.opff</code>: configuration for Open Ped Food Facts dev env.</p>
+<li><code>.env.opff</code>: configuration for Open Ped Food Facts dev env.</li>
+</ul>
 </li>
-<li>
-<p><code>COMPOSE_PROJECT_NAME</code> set to different values in each <code>.env</code> file, so that container names across deployments are unique.</p>
-</li>
-<li>
-<p><code>FRONTEND_PORT</code> and <code>MONGODB_PORT</code> 
+</ul>
+<ul>
+<li><code>COMPOSE_PROJECT_NAME</code> set to different values in each <code>.env</code> file, so that container names across deployments are unique.</li>
+</ul>
+<ul>
+<li><code>FRONTEND_PORT</code> and <code>MONGODB_PORT</code> 
   set to different values in each <code>.env</code> file, 
-  so that frontend containers don't port-conflict with each other.</p>
-</li>
+  so that frontend containers don't port-conflict with each other.</li>
 </ul>
 <p>To switch between configurations, set <code>ENV_FILE</code> before running <code>make</code> commands,
 (or <code>docker-compose</code> command):</p>
@@ -1073,30 +1071,28 @@ make log
 </code></pre></div>
 <p>A good strategy is to have multiple terminals open, one for each deployment:</p>
 <ul>
-<li>
-<p><code>off</code> [Terminal 1]:
+<li><code>off</code> [Terminal 1]:
   <div class="highlight"><pre><span></span><code>export ENV_FILE=.env.off
 make up
-</code></pre></div></p>
-</li>
-<li>
-<p><code>off-pro</code> [Terminal 2]:
+</code></pre></div></li>
+</ul>
+<ul>
+<li><code>off-pro</code> [Terminal 2]:
   <div class="highlight"><pre><span></span><code>export ENV_FILE=.env.off-pro
 make up
-</code></pre></div></p>
-</li>
-<li>
-<p><code>obf</code> [Terminal 3]:
+</code></pre></div></li>
+</ul>
+<ul>
+<li><code>obf</code> [Terminal 3]:
   <div class="highlight"><pre><span></span><code>export ENV_FILE=.env.obf
 make up
-</code></pre></div></p>
-</li>
-<li>
-<p><code>opff</code> [Terminal 3]:
+</code></pre></div></li>
+</ul>
+<ul>
+<li><code>opff</code> [Terminal 3]:
   <div class="highlight"><pre><span></span><code>export ENV_FILE=.env.opff
 make up
-</code></pre></div></p>
-</li>
+</code></pre></div></li>
 </ul>
 <p><strong>Note:</strong> the above case of 4 deployments is <strong><em>a bit ambitious</em></strong>, since ProductOpener's <code>backend</code> container takes about ~6GB of RAM to run, meaning that the above 4 deployments would require a total of 24GB of RAM available.</p>
 
