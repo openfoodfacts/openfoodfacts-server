@@ -45,11 +45,11 @@ my $template_data_ref = {
 	lang => \&lang,
 };
 
-my $type = param('type') || 'send_email';
-my $action = param('action') || 'display';
+my $type = single_param('type') || 'send_email';
+my $action = single_param('action') || 'display';
 
-my $id = param('userid_or_email');
-my $resetid = param('resetid');
+my $id = single_param('userid_or_email');
+my $resetid = single_param('resetid');
 
 $log->info("start", { type => $type, action => $action, userid_or_email => $id, resetid => $resetid }) if $log->is_info();
 
@@ -61,7 +61,7 @@ my $userid = undef;
 my $html = '';
 
 if (defined $User_id) {
-	display_error($Lang{error_reset_already_connected}{$lang}, undef);
+	display_error_and_exit($Lang{error_reset_already_connected}{$lang}, undef);
 }
 
 if ($action eq 'process') {
@@ -94,20 +94,20 @@ if ($action eq 'process') {
 		}
 
 	}
-	elsif (($type eq 'reset') and (defined param('resetid'))) {
+	elsif (($type eq 'reset') and (defined single_param('resetid'))) {
 
-		if (length(param('password')) < 6) {
+		if (length(single_param('password')) < 6) {
 			push @errors, $Lang{error_invalid_password}{$lang};
 		}
 
-		if (param('password') ne param('confirm_password')) {
+		if (single_param('password') ne single_param('confirm_password')) {
 			push @errors, $Lang{error_different_passwords}{$lang};
 		}
 
 	}
 	else {
 		$log->debug("invalid address", {type => $type }) if $log->is_debug();
-		display_error(lang("error_invalid_address"), 404);
+		display_error_and_exit(lang("error_invalid_address"), 404);
 	}
 
 
@@ -124,8 +124,8 @@ if ($action eq 'display') {
 	push @{$template_data_ref->{errors}}, @errors;
 	
 	if ($type eq 'reset') {
-		$template_data_ref->{token} = param('token');
-		$template_data_ref->{resetid} = param('resetid');
+		$template_data_ref->{token} = single_param('token');
+		$template_data_ref->{resetid} = single_param('resetid');
 	}
 }
 
@@ -166,7 +166,7 @@ elsif ($action eq 'process') {
 		}
 	}
 	elsif ($type eq 'reset') {
-		my $userid = get_string_id_for_lang("no_language", param('resetid'));
+		my $userid = get_string_id_for_lang("no_language", single_param('resetid'));
 		my $user_ref = retrieve("$data_root/users/$userid.sto");
 		
 		$log->debug("resetting password", {userid => $userid }) if $log->is_debug();
@@ -175,13 +175,13 @@ elsif ($action eq 'process') {
 		
 		if (defined $user_ref) {
 
-			if ((defined $user_ref->{token}) and (defined param('token')) and (param('token') eq $user_ref->{token}) and (time() < ($user_ref->{token_t} + 86400*3))) {
+			if ((defined $user_ref->{token}) and (defined single_param('token')) and (single_param('token') eq $user_ref->{token}) and (time() < ($user_ref->{token_t} + 86400*3))) {
 				
 				$log->debug("token is valid, updating password", {userid => $userid }) if $log->is_debug();
 				
 				$template_data_ref->{status} = "password_reset";
 
-				$user_ref->{encrypted_password} = create_password_hash( encode_utf8 (decode utf8=>param('password')) );
+				$user_ref->{encrypted_password} = create_password_hash( encode_utf8 (decode utf8 => single_param('password')) );
 
 				delete $user_ref->{token};
 
@@ -190,7 +190,7 @@ elsif ($action eq 'process') {
 			}
 			else {
 				$log->debug("token is invalid", {userid => $userid }) if $log->is_debug();
-				display_error($Lang{error_reset_invalid_token}{$lang}, undef);
+				display_error_and_exit($Lang{error_reset_invalid_token}{$lang}, undef);
 			}
 		}
 	}

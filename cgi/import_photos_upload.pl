@@ -47,8 +47,8 @@ use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();
 
-my $type = param('type') || 'upload';
-my $action = param('action') || 'display';
+my $type = single_param('type') || 'upload';
+my $action = single_param('action') || 'display';
 
 my $title = lang("import_photos_title");
 my $html = '';
@@ -59,7 +59,7 @@ local $log->context->{type} = $type;
 local $log->context->{action} = $action;
 
 if (not defined $Owner_id) {
-	display_error(lang("no_owner_defined"), 200);
+	display_error_and_exit(lang("no_owner_defined"), 200);
 }
 
 

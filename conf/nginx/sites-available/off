@@ -263,7 +263,10 @@ server {
 	}
 
 	location = /ecoscore {
-		return 301 https://$host/eco-score-l-impact-environnemental-des-produits-alimentaires;
+		if ( $host ~ "^fr\..*" ) {
+			return 301 https://$host/eco-score-l-impact-environnemental-des-produits-alimentaires;
+		}
+		return 301 https://$host/eco-score-the-environmental-impact-of-food-products;
 	}
 
 	# 2022-06-13 Redirect press pages to blog post about the new Flutter app

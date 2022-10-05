@@ -50,7 +50,7 @@ use Text::CSV();
 
 my $request_ref = ProductOpener::Display::init_request();
 
-my $action = param('action') || 'display';
+my $action = single_param('action') || 'display';
 
 my $title = lang("import_products_categories_from_public_database");
 my $html = '';
@@ -58,7 +58,7 @@ my $js = '';
 my $template_data_ref = {};
 
 if (not defined $Owner_id) {
-	display_error(lang("no_owner_defined"), 200);
+	display_error_and_exit(lang("no_owner_defined"), 200);
 }
 
 if ($action eq "display") {

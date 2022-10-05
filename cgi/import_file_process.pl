@@ -56,7 +56,7 @@ my $js = '';
 my $template_data_ref;
 
 if (not defined $Owner_id) {
-	display_error(lang("no_owner_defined"), 200);
+	display_error_and_exit(lang("no_owner_defined"), 200);
 }
 
 my $import_files_ref = retrieve("$data_root/import_files/${Owner_id}/import_files.sto");
@@ -64,7 +64,7 @@ if (not defined $import_files_ref) {
 	$import_files_ref = {};
 }
 
-my $file_id = get_string_id_for_lang("no_language", param('file_id'));
+my $file_id = get_string_id_for_lang("no_language", single_param('file_id'));
 
 local $log->context->{file_id} = $file_id;
 
@@ -77,7 +77,7 @@ if (defined $import_files_ref->{$file_id}) {
 }
 else {
 	$log->debug("File not found in import_files.sto", { file_id => $file_id }) if $log->is_debug();
-	display_error("File not found.", 404);
+	display_error_and_exit("File not found.", 404);
 }
 
 $log->debug("File found in import_files.sto", { file_id => $file_id,  file => $file, extension => $extension, import_file => $import_files_ref->{$file_id} }) if $log->is_debug();
@@ -92,13 +92,13 @@ if (not defined $all_columns_fields_ref) {
 my $results_ref = load_csv_or_excel_file($file);
 
 if ($results_ref->{error}) {
-	display_error($results_ref->{error}, 200);
+	display_error_and_exit($results_ref->{error}, 200);
 }
 
 my $headers_ref = $results_ref->{headers};
 my $rows_ref = $results_ref->{rows};
 
-my $columns_fields_json = param("columns_fields_json");
+my $columns_fields_json = single_param("columns_fields_json");
 my $columns_fields_ref = decode_json($columns_fields_json);
 
 foreach my $field (keys %$columns_fields_ref) {
@@ -147,7 +147,7 @@ $import_files_ref->{$file_id}{imports}{$import_id}{converted_t} = time();
 if ($results_ref->{error}) {
 	$import_files_ref->{$file_id}{imports}{$import_id}{convert_error} = $results_ref->{error};
 	store("$data_root/import_files/${Owner_id}/import_files.sto", $import_files_ref);
-	display_error($results_ref->{error}, 200);
+	display_error_and_exit($results_ref->{error}, 200);
 }
 
 my $args_ref = {

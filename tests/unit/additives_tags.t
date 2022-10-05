@@ -162,6 +162,51 @@ my @tests = (
 
 	[{lc => "es", ingredients_text => "lecitina de girasol"}, ["en:e322i"]],
 
+	# Mandatory additives classes
+
+	[
+		{
+			lc => 'en',
+			ingredients_text => "amaranth"
+		},
+		[]
+	],
+
+	[
+		{
+			lc => 'en',
+			ingredients_text => "colour: amaranth"
+		},
+		['en:e123']
+	],
+
+	# additive class followed by an ingredient, without a :
+	# this will test the additives entries regexps in Ingredients.pm
+	[
+		{
+			lc => 'en',
+			ingredients_text => "flour treatment agent potassium iodate"
+		},
+		['en:e917']
+	],
+
+	# plural of additive class followed by an ingredient, without a :
+	[
+		{
+			lc => 'en',
+			ingredients_text => "flour treatment agents potassium iodate"
+		},
+		['en:e917']
+	],
+
+	[
+		{
+			lc => 'en',
+			ingredients_text => "vitamin A"
+		},
+		[]
+	],
+
 );
 
 foreach my $test_ref (@tests) {

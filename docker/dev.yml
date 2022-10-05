@@ -77,6 +77,14 @@ services:
       - ./scss:/opt/product-opener/scss
       - ./gulpfile.js:/opt/product-opener/
       - ./snyk:/opt/product-opener/
+    networks:
+        default:
+          aliases:
+            # trick: make it possible for robotoff to reach it internally, 
+            # using localhost domain
+            - world.openfoodfacts.localhost
+            - static.openfoodfacts.localhost
+            - images.openfoodfacts.localhost
   mongodb:
     # Note: keep it as close a possible to mongodb.yml
     image: mongo:4.4

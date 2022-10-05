@@ -14,7 +14,7 @@
 [![Sponsors on Open Collective](https://opencollective.com/openfoodfacts-server/sponsors/badge.svg)](#sponsors)
 
 ## Tests
-[![Perl::Critic](https://github.com/openfoodfacts/openfoodfacts-server/actions/workflows/perlcritic.yml/badge.svg)](https://github.com/openfoodfacts/openfoodfacts-server/actions/workflows/perlcritic.yml)
+
 [![Pull Requests](https://github.com/openfoodfacts/openfoodfacts-server/actions/workflows/pull_request.yml/badge.svg)](https://github.com/openfoodfacts/openfoodfacts-server/actions/workflows/pull_request.yml)
 
 ## What is Product Opener?
@@ -41,26 +41,31 @@ Data about food is of public interest and has to be open (i.e available to every
 * <https://world.openfoodfacts.org>
 
 ## Priorities
-* Please list priority issues here
-* Please add roadmaps here
-* [P1 problems](https://github.com/openfoodfacts/openfoodfacts-server/labels/P1)
+
+* [Top issues](https://github.com/openfoodfacts/openfoodfacts-server/issues/7374)
+* [P1 problems](https://github.com/openfoodfacts/openfoodfacts-server/labels/P0,P1)
 * [P1 candidates](https://github.com/openfoodfacts/openfoodfacts-server/labels/P1%20candidate)
+* Please add roadmaps here
 
 <!-- ## Libraries used -->
 
 ## How do I get started?
 
 * Join us on Slack at <https://openfoodfacts.slack.com/> in the channels: `#api`, `#productopener`, `#dev`.
+* [API Documentation](https://openfoodfacts.github.io/api-documentation/)
+* [NEW API Documentation (WIP)](https://openfoodfacts.github.io/openfoodfacts-server/reference/api.html) ([source](https://github.com/openfoodfacts/openfoodfacts-server/tree/main/docs/reference/api.yml))
+
 * Developer documentation:
-   * [Quick start guide (Docker)](./docs/introduction/dev-environment-quick-start-guide.md)
-   * [Developer guide (Docker)](./docs/how-to-guides/docker-developer-guide.md)
-   * [Developer guide (Gitpod)](./docs/how-to-guides/use-gitpod.md)
-   * [Manual installation](https://wiki.openfoodfacts.org/Product_Opener/Installation)
-   * Configuration [TBA]
-   * Dependencies [TBA]
-   * Database configuration [TBA]
-   * How to run tests [TBA]
- * [API Documentation](https://openfoodfacts.github.io/api-documentation/)
+
+  * [Quick start guide (Docker)](./docs/introduction/dev-environment-quick-start-guide.md)
+  * [Developer guide (Docker)](./docs/how-to-guides/docker-developer-guide.md)
+  * [Developer guide (Gitpod)](./docs/how-to-guides/use-gitpod.md)
+  * Configuration [TBA]
+  * Dependencies [TBA]
+  * Database configuration [TBA]
+  * How to run tests [TBA]
+  * [Perl modules documentation (POD)](https://openfoodfacts.github.io/reference/perl/)
+
 
 Note: documentation follows the [Diátaxis Framework](https://diataxis.fr/)
 
