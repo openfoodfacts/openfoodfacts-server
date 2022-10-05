@@ -25,7 +25,7 @@ The staging environment has an extra level of authentication (username: off, pas
 
 ## Authentication
 
-All requests do not require authentication except for Editing an Existing Product.
+All requests do not require authentication except for WRITE operations (Editing an Existing Product, Uploading images…).
 <!---We may want to explain why -->
 Create an account on the [Open Food Facts app](https://world.openfoodfacts.org/). Your should include your account credentials as parameters for authenticated requests where `user_id` is your username and `password` is your password.
 
