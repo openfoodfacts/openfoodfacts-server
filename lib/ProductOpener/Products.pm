@@ -2418,6 +2418,7 @@ sub index_product($product_ref)
 	return;
 }
 
+
 sub compute_codes($product_ref) {
 
 	my $code = $product_ref->{code};
