@@ -50,7 +50,7 @@ use Log::Any qw($log);
 use Spreadsheet::CSV();
 use Text::CSV();
 
-my $action = param('action') || 'display';
+my $action = single_param('action') || 'display';
 
 my $request_ref = ProductOpener::Display::init_request();
 
@@ -60,7 +60,7 @@ my $js = '';
 my $template_data_ref = {};
 
 if (not defined $Owner_id) {
-	display_error(lang("no_owner_defined"), 200);
+	display_error_and_exit(lang("no_owner_defined"), 200);
 }
 
 my $import_files_ref = retrieve("$data_root/import_files/${Owner_id}/import_files.sto");
@@ -68,7 +68,7 @@ if (not defined $import_files_ref) {
 	$import_files_ref = {};
 }
 
-my $param_file_id = param('file_id');
+my $param_file_id = single_param('file_id');
 my $file_id = get_string_id_for_lang("no_language", $param_file_id);
 
 local $log->context->{file_id} = $file_id;
@@ -82,7 +82,7 @@ if (defined $import_files_ref->{$file_id}) {
 }
 else {
 	$log->debug("File not found in import_files.sto", { file_id => $file_id }) if $log->is_debug();
-	display_error("File not found.", 404);
+	display_error_and_exit("File not found.", 404);
 }
 
 $log->debug("File found in import_files.sto", { file_id => $file_id,  file => $file, extension => $extension, import_file => $import_files_ref->{$file_id} }) if $log->is_debug();
@@ -93,7 +93,7 @@ if ($action eq "display") {
 	my $results_ref = load_csv_or_excel_file($file);
 
 	if ($results_ref->{error}) {
-		display_error($results_ref->{error}, 200);
+		display_error_and_exit($results_ref->{error}, 200);
 	}
 
 	my $headers_ref = $results_ref->{headers};

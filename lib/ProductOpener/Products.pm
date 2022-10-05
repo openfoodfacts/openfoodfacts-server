@@ -132,6 +132,7 @@ use ProductOpener::URL qw/:all/;
 use ProductOpener::Data qw/:all/;
 use ProductOpener::MainCountries qw/:all/;
 use ProductOpener::Text qw/:all/;
+use ProductOpener::Display qw/single_param/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
@@ -652,8 +653,8 @@ sub init_product($userid, $orgid, $code, $countryid) {
 
 	# ugly fix: products added by yuka should have country france, regardless of the server ip
 	if ($creator eq 'kiliweb') {
-		if (defined param('cc')) {
-			$country = lc(param('cc'));
+		if (defined single_param('cc')) {
+			$country = lc(single_param('cc'));
 			$country =~ s/^en://;
 
 			# 01/06/2019 --> Yuka always sends fr fields even for Spanish products, try to correct it
@@ -1018,7 +1019,7 @@ sub store_product($user_id, $product_ref, $comment) {
 				return $products_collection->delete_one({"_id" => $product_ref->{_id}});
 			});
 
-			$product_ref->{_id} = $product_ref->{code};
+			$product_ref->{_id} = $product_ref->{code} . ''; # treat id as string;
 
 		}
 		else {
@@ -1090,9 +1091,9 @@ sub store_product($user_id, $product_ref, $comment) {
 	};
 
 	# Allow apps to send the user agent as a form parameter instead of a HTTP header, as some web based apps can't change the User-Agent header sent by the browser
-	my $user_agent = remove_tags_and_quote(decode utf8=>param("User-Agent"))
-		|| remove_tags_and_quote(decode utf8=>param("user-agent"))
-		|| remove_tags_and_quote(decode utf8=>param("user_agent"))
+	my $user_agent = remove_tags_and_quote(decode utf8 => single_param("User-Agent"))
+		|| remove_tags_and_quote(decode utf8 => single_param("user-agent"))
+		|| remove_tags_and_quote(decode utf8 => single_param("user_agent"))
 		|| user_agent();
 
 	if ((defined $user_agent) and ($user_agent ne "")) {
@@ -1101,7 +1102,7 @@ sub store_product($user_id, $product_ref, $comment) {
 
 	# Allow apps to send app_name, app_version and app_uuid parameters
 	foreach my $field (qw(app_name app_version app_uuid)) {
-		my $value = remove_tags_and_quote(decode utf8=>param($field));
+		my $value = remove_tags_and_quote(decode utf8 => single_param($field));
 		if ((defined $value) and ($value ne "")) {
 			$change_ref->{$field} = $value;
 		}
@@ -1132,8 +1133,10 @@ sub store_product($user_id, $product_ref, $comment) {
 	# index for full text search
 	index_product($product_ref);
 
-	# make sure that code is saved as a string, otherwise mongodb saves it as number, and leading 0s are removed
-	$product_ref->{code} = $product_ref->{code} . '';
+	# make sure that the _id and code are saved as a string, otherwise mongodb may save them as numbers
+	# for _id , it makes them possibly non unique, and for code, we would lose leading 0s
+	$product_ref->{_id} .= '';
+	$product_ref->{code} .= '';
 
 	# make sure we have numbers, perl can convert numbers to string depending on the last operation done...
 	$product_ref->{last_modified_t} += 0;
@@ -2654,12 +2657,12 @@ sub process_product_edit_rules($product_ref) {
 						if (defined $condition) {
 
 							# if field is not passed, skip rule
-							if (not defined param($field)) {
+							if (not defined single_param($field)) {
 								$log->debug("no value passed -> skip edit rule") if $log->is_debug();
 								next;
 							}
 
-							my $param_field = remove_tags_and_quote(decode utf8=>param($field));
+							my $param_field = remove_tags_and_quote(decode utf8 => single_param($field));
 
 							my $current_value = $product_ref->{$field};
 							if ($field =~ /^nutriment_(.*)/) {
@@ -2671,7 +2674,7 @@ sub process_product_edit_rules($product_ref) {
 							if ($field =~ /_(\w\w)$/) {
 								$default_field = $`;
 								if (not defined $param_field) {
-									$param_field = remove_tags_and_quote(decode utf8=>param($default_field));
+									$param_field = remove_tags_and_quote(decode utf8 => single_param($default_field));
 								}
 							}
 
@@ -2696,32 +2699,32 @@ sub process_product_edit_rules($product_ref) {
 								}
 							}
 							elsif ($condition eq '0') {
-								if ((defined param($field)) and ($param_field == 0)) {
+								if ((defined single_param($field)) and ($param_field == 0)) {
 									$condition_ok = 1;
 								}
 							}
 							elsif ($condition eq 'equal') {
-								if ((defined param($field)) and ($param_field == $value)) {
+								if ((defined single_param($field)) and ($param_field == $value)) {
 									$condition_ok = 1;
 								}
 							}
 							elsif ($condition eq 'lesser') {
-								if ((defined param($field)) and ($param_field < $value)) {
+								if ((defined single_param($field)) and ($param_field < $value)) {
 									$condition_ok = 1;
 								}
 							}
 							elsif ($condition eq 'greater') {
-								if ((defined param($field)) and ($param_field > $value)) {
+								if ((defined single_param($field)) and ($param_field > $value)) {
 									$condition_ok = 1;
 								}
 							}
 							elsif ($condition eq 'match') {
-								if ((defined param($field)) and ($param_field eq $value)) {
+								if ((defined single_param($field)) and ($param_field eq $value)) {
 									$condition_ok = 1;
 								}
 							}
 							elsif ($condition eq 'regexp_match') {
-								if ((defined param($field)) and ($param_field  =~ /$value/i)) {
+								if ((defined single_param($field)) and ($param_field  =~ /$value/i)) {
 									$condition_ok = 1;
 								}
 							}

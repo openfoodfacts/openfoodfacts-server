@@ -237,7 +237,9 @@ sub display_select_crop_init($object_ref) {
 
 	my @images = ();
 
-	for (my $imgid = 1; $imgid <= ($object_ref->{max_imgid} + 5); $imgid++) {
+	# There may be occasions where max_imgid was not incremented correctly (e.g. a crash)
+	# so we add 5 to it to check if we have other images to show
+	for (my $imgid = 1; $imgid <= (($object_ref->{max_imgid} || 0) + 5); $imgid++) {
 		if (defined $object_ref->{images}{$imgid}) {
 			push @images, $imgid;
 		}
@@ -436,7 +438,7 @@ sub process_search_image_form($filename_ref) {
 	my $imgid = "imgupload_search";
 	my $file = undef;
 	my $code = undef;
-	if ($file = param($imgid)) {
+	if ($file = single_param($imgid)) {
 		if ($file =~ /\.($supported_extensions)$/i) {
 
 			$log->debug("processing image search form", { imgid => $imgid, file => $file }) if $log->is_debug();
@@ -667,16 +669,16 @@ sub process_image_upload($product_id, $imagefield, $user_id, $time, $comment, $i
 		}
 	}
 	else {
-		$file = param('imgupload_' . $imagefield);
+		$file = single_param('imgupload_' . $imagefield);
 		if (! $file) {
 			# mobile app may not set language code
 			my $old_imagefield = $imagefield;
 			$old_imagefield =~ s/_\w\w$//;
-			$file = param('imgupload_' . $old_imagefield);
+			$file = single_param('imgupload_' . $old_imagefield);
 
 			if (! $file) {
 				# producers platform: name="files[]"
-				$file = param("files[]");
+				$file = single_param("files[]");
 			}
 		}
 	}
@@ -1049,7 +1051,7 @@ sub process_image_move($user_id, $code, $imgids, $move_to, $ownerid) {
 }
 
 
-sub process_image_crop($product_id, $user_id, $imgid, $id, $normalize, $angle, $white_magic, $coordinates_image_size, $x1, $y1, $x2, $y2) {
+sub process_image_crop($user_id, $product_id, $id, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size) {
 
 	$log->debug("process_image_crop - start", { product_id => $product_id, imgid => $imgid, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, coordinates_image_size => $coordinates_image_size }) if $log->is_debug();
 
@@ -1722,7 +1724,7 @@ A hash reference to store the results.
 
 =cut
 
-sub extract_text_from_image($product_ref, $results_ref, $id, $field, $ocr_engine) {
+sub extract_text_from_image($product_ref, $id, $field, $ocr_engine, $results_ref) {
 
 	delete $product_ref->{$field};
 

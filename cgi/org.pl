@@ -40,8 +40,8 @@ use Storable qw/dclone/;
 use Encode;
 use Log::Any qw($log);
 
-my $type = param('type') || 'edit';
-my $action = param('action') || 'display';
+my $type = single_param('type') || 'edit';
+my $action = single_param('action') || 'display';
 
 # Passing values to the template
 my $template_data_ref = {lang => \&lang,};
@@ -50,8 +50,8 @@ my $request_ref = ProductOpener::Display::init_request();
 
 my $orgid = $Org_id;
 
-if (defined param('orgid')) {
-	$orgid = get_fileid(param('orgid'), 1);
+if (defined single_param('orgid')) {
+	$orgid = get_fileid(single_param('orgid'), 1);
 }
 
 $log->debug("org profile form - start", {type => $type, action => $action, orgid => $orgid, User_id => $User_id})
@@ -70,7 +70,7 @@ if (not defined $org_ref) {
 		$template_data_ref->{org_does_not_exist} = 1;
 	}
 	else {
-		display_error($Lang{error_org_does_not_exist}{$lang}, 404);
+		display_error_and_exit($Lang{error_org_does_not_exist}{$lang}, 404);
 	}
 }
 
@@ -80,7 +80,7 @@ if (not(is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pr
 	$log->debug("user does not have permission to edit org",
 		{orgid => $orgid, org_admins => $org_ref->{admins}, User_id => $User_id})
 	  if $log->is_debug();
-	display_error($Lang{error_no_permission}{$lang}, 403);
+	display_error_and_exit($Lang{error_no_permission}{$lang}, 403);
 }
 
 my @errors = ();
@@ -88,12 +88,12 @@ my @errors = ();
 if ($action eq 'process') {
 
 	if ($type eq 'edit') {
-		if (param('delete') eq 'on') {
+		if (single_param('delete') eq 'on') {
 			if ($admin) {
 				$type = 'delete';
 			}
 			else {
-				display_error($Lang{error_no_permission}{$lang}, 403);
+				display_error_and_exit($Lang{error_no_permission}{$lang}, 403);
 			}
 		}
 		else {
@@ -128,17 +128,17 @@ if ($action eq 'process') {
 				}
 
 				foreach my $field (@admin_fields) {
-					$org_ref->{$field} = remove_tags_and_quote(decode utf8 => param($field));
+					$org_ref->{$field} = remove_tags_and_quote(decode utf8 => single_param($field));
 				}
 
 				# Set the list of org GLNs
-				set_org_gs1_gln($org_ref, remove_tags_and_quote(decode utf8 => param("list_of_gs1_gln")));
+				set_org_gs1_gln($org_ref, remove_tags_and_quote(decode utf8 => single_param("list_of_gs1_gln")));
 			}
 
 			# Other fields
 
 			foreach my $field ("name", "link") {
-				$org_ref->{$field} = remove_tags_and_quote(decode utf8 => param($field));
+				$org_ref->{$field} = remove_tags_and_quote(decode utf8 => single_param($field));
 				if ($org_ref->{$field} eq "") {
 					delete $org_ref->{$field};
 				}
@@ -156,7 +156,8 @@ if ($action eq 'process') {
 
 				foreach my $field ("name", "address", "email", "phone", "link", "info") {
 
-					$org_ref->{$contact}{$field} = remove_tags_and_quote(decode utf8 => param($contact . "_" . $field));
+					$org_ref->{$contact}{$field}
+					  = remove_tags_and_quote(decode utf8 => single_param($contact . "_" . $field));
 					if ($org_ref->{$contact}{$field} eq "") {
 						delete $org_ref->{$contact}{$field};
 					}

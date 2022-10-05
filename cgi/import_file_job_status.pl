@@ -52,8 +52,8 @@ my $request_ref = ProductOpener::Display::init_request();
 
 my $import_files_ref;
 
-my $file_id = get_string_id_for_lang("no_language", param('file_id'));
-my $import_id = param('import_id');
+my $file_id = get_string_id_for_lang("no_language", single_param('file_id'));
+my $import_id = single_param('import_id');
 my $job_id;
 
 my %data = (
@@ -67,10 +67,10 @@ $log->debug("import_file_job_status.pl - start", { data => \%data }) if $log->is
 if (not defined $Owner_id) {
 	$data{error} = "no_owner_defined";
 }
-elsif (not defined param('file_id')) {
+elsif (not defined single_param('file_id')) {
 	$data{error} = "missing_file_id";
 }
-elsif (not defined param('import_id')) {
+elsif (not defined single_param('import_id')) {
 	$data{error} = "missing_import_id";
 }
 else {

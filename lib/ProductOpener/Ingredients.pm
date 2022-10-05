@@ -526,39 +526,35 @@ my %ingredients_processing_regexps = ();
 
 sub init_ingredients_processing_regexps() {
 
-	foreach my $ingredients_processing ( keys %{ $translations_to{ingredients_processing} } ) {
-
-		foreach my $l ( keys %{ $translations_to{ingredients_processing}{$ingredients_processing} } ) {
-
-			defined $ingredients_processing_regexps{$l}  or $ingredients_processing_regexps{$l}  = [];
-
-			# the synonyms below also contain the main translation as the first entry
-
-			my $l_ingredients_processing = get_string_id_for_lang($l, $translations_to{ingredients_processing}{$ingredients_processing}{$l});
-
-			foreach my $synonym ( @{$synonyms_for{ingredients_processing}{$l}{$l_ingredients_processing}} ) {
-				# Make spaces match dashes and the reverse
-				$synonym =~ s/( |-)/\(\?: \|-\)/g;
-				push @{ $ingredients_processing_regexps{$l} },
-					[ $ingredients_processing, $synonym ];
-
-				if ( ( my $unacc = unac_string_perl($synonym) ) ne $synonym ) {
-					push @{ $ingredients_processing_regexps{$l} },
-						[ $ingredients_processing, $unacc ];
-				}
+	# Create a list of regexps with each synonyms of all ingredients processes
+	%ingredients_processing_regexps = %{
+		generate_regexps_matching_taxonomy_entries("ingredients_processing", "list_of_regexps",
+			{
+				#add_simple_plurals => 1,
+				#add_simple_singulars => 1,
+				match_space_with_dash => 1,
 			}
-		}
-	}
+		)
+	};
 
-	# We want to match the longest strings first
-	# Unfortunately, the following does not work:
-	# my $regexp = join('|', sort { length($b) <=> length($a) } keys %synonyms);
-	# -> if we have (gehackte|gehackt) and we parse "gehackte something", it will match "gehackt".
-	foreach my $lc ( keys %ingredients_processing_regexps ) {
-		@{ $ingredients_processing_regexps{$lc} }
-			= sort { length $b->[1] <=> length $a->[1] }
-			@{ $ingredients_processing_regexps{$lc} };
-	}
+	return;
+}
+
+
+# Origins processing regexps
+
+my %origins_regexps = ();
+
+sub init_origins_regexps() {
+
+	# Create a list of regexps with each synonyms of all ingredients processes
+	%origins_regexps = %{
+		generate_regexps_matching_taxonomy_entries("origins", "unique_regexp",
+			{
+				match_space_with_dash => 1,
+			}
+		)
+	};
 
 	return;
 }
@@ -571,42 +567,22 @@ my %additives_classes_regexps = ();
 sub init_additives_classes_regexps() {
 
 	# Create a regexp with all synonyms of all additives classes
-	my %additives_classes_synonyms = ();
-
-	foreach my $additives_class (keys %{$translations_to{additives_classes}}) {
-
-		# do not turn vitamin a in vitamin : a-z
-		next if $additives_class eq "en:vitamins";
-
-		foreach my $l (keys %{$translations_to{additives_classes}{$additives_class}}) {
-
-			defined $additives_classes_synonyms{$l} or $additives_classes_synonyms{$l} = {};
-
-			# the synonyms below also contain the main translation as the first entry
-
-			my $l_additives_class = get_string_id_for_lang($l, $translations_to{additives_classes}{$additives_class}{$l});
-
-			foreach my $synonym (@{$synonyms_for{additives_classes}{$l}{$l_additives_class}}) {
-				$additives_classes_synonyms{$l}{$synonym} = 1;
-				# simple singulars and plurals + unaccented forms
-				$additives_classes_synonyms{$l}{unac_string_perl($synonym)} = 1;
-				$synonym =~ s/s$//;
-				$additives_classes_synonyms{$l}{$synonym} = 1;
-				$additives_classes_synonyms{$l}{unac_string_perl($synonym)} = 1;
-				$additives_classes_synonyms{$l}{$synonym . "s"} = 1;
-				$additives_classes_synonyms{$l}{unac_string_perl($synonym . "s")} = 1;
+	%additives_classes_regexps = %{
+		generate_regexps_matching_taxonomy_entries("additives_classes", "unique_regexp",
+			{
+				add_simple_plurals => 1,
+				add_simple_singulars => 1,
+				# 2022-09-22: not sure if the following is still needed
+				# before refactoring, we had a comment about not turning
+				# "vitamin A" into "vitamin : A", but it does not happen
+				# skip_entries_matching => '/^en:vitamins$/',
 			}
-		}
-	}
-
-	foreach my $l (sort keys %additives_classes_synonyms) {
-		# Match the longest strings first
-		$additives_classes_regexps{$l} = join('|', sort { length($b) <=> length($a) } keys %{$additives_classes_synonyms{$l}});
-		# print STDERR "additives_classes_regexps{$l}: " . $additives_classes_regexps{$l} . "\n";
-	}
+		)
+	};
 
 	return;
 }
+
 
 if ((keys %labels_regexps) > 0) { exit; }
 
@@ -1125,8 +1101,9 @@ sub parse_specific_ingredients_from_text($product_ref, $text, $percent_regexp) {
 				text => $matched_text,
 			};
 
+			my $and_or = $and_or{$product_lc};
 			defined $percent and $specific_ingredients_ref->{percent} = $percent + 0;
-			defined $origins and $specific_ingredients_ref->{origins} = join(",", map {canonicalize_taxonomy_tag($product_lc, "origins", $_)} split(/,/, $origins ));
+			defined $origins and $specific_ingredients_ref->{origins} = join(",", map {canonicalize_taxonomy_tag($product_lc, "origins", $_)} split(/,|$and_or/, $origins ));
 			
 			push @{$product_ref->{specific_ingredients}}, $specific_ingredients_ref;
 		}
@@ -1143,8 +1120,13 @@ sub parse_specific_ingredients_from_text($product_ref, $text, $percent_regexp) {
 
 sub match_ingredient_origin($product_lc, $text_ref, $matched_ingredient_ref) {
 
-	# Strawberries: Spain
-	if ($$text_ref =~ /\s*([^,.;:]+)(?::)\s*([^,.;]+?)\s*(?:;|\.| - |$)/i) {
+	my $origins_regexp = $origins_regexps{$product_lc};
+	my $and_or = $and_or{$product_lc} || ',';
+	my $from = $from{$product_lc} || ':';
+
+	# Strawberries: Spain, Italy and Portugal
+	# Strawberries from Spain, Italy and Portugal
+	if ($$text_ref =~ /\s*([^,.;:]+)(?::|$from)\s*((?:$origins_regexp)(?:(?:,|$and_or)(?:\s?)(?:$origins_regexp))*)\s*(?:,|;|\.| - |$)/i) {
 		# Note: the regexp above does not currently match multiple origins with commas (e.g. "Origins of milk: UK, UE")
 		# in order to not overmatch something like "Origin of milk: UK, some other mention."
 		# In the future, we could try to be smarter and match more if we can recognize the next words exist in the origins taxonomy.
@@ -1170,19 +1152,22 @@ sub match_origin_of_the_ingredient_origin($product_lc, $text_ref, $matched_ingre
 	);
 
 	my $origin_of_the_regexp = $origin_of_the_regexp_in_lc{$product_lc} || $origin_of_the_regexp_in_lc{en};
+	my $origins_regexp = $origins_regexps{$product_lc};
+	my $and_or = $and_or{$product_lc} || ',';
 
 	# Origin of the milk: United Kingdom.
-	if ($$text_ref =~ /\s*${origin_of_the_regexp}([^,.;:]+)(?::| )+([^,.;]+?)\s*(?:;|\.| - |$)/i) {
-		# Note: the regexp above does not currently match multiple origins with commas (e.g. "Origins of milk: UK, UE")
-		# in order to not overmatch something like "Origin of milk: UK, some other mention."
-		# In the future, we could try to be smarter and match more if we can recognize the next words exist in the origins taxonomy.
+	if ($origins_regexp
+		and ($$text_ref =~ /\s*${origin_of_the_regexp}([^,.;:]+)(?::| )+((?:$origins_regexp)(?:(?:,|$and_or)(?:\s?)(?:$origins_regexp))*)\s*(?:,|;|\.| - |$)/i)) {
 
 		$matched_ingredient_ref->{ingredient} = $1;
 		$matched_ingredient_ref->{origins} = $2;
 		$matched_ingredient_ref->{matched_text} = $&;
-
+		
 		# Remove the matched text
 		$$text_ref = $` . ' ' . $';
+
+		# replace and / or
+		#$matched_ingredient_ref->{origins} =~ s/($origins_regexp)(?:$and_or)($origins_regexp)/$1,$2/g;		
 
 		return 1;
 	}
@@ -1251,8 +1236,9 @@ sub parse_origins_from_text($product_ref, $text) {
 				};
 
 				if (defined $matched_ingredient_ref->{origins}) {
+					my $and_or = $and_or{$product_lc};
 					$specific_ingredients_ref->{origins} = join(",",
-						map {canonicalize_taxonomy_tag($product_lc, "origins", $_)} split(/,/, $matched_ingredient_ref->{origins}));
+						map {canonicalize_taxonomy_tag($product_lc, "origins", $_)} split(/,|$and_or/, $matched_ingredient_ref->{origins}));
 				}
 				
 				push @{$product_ref->{specific_ingredients}}, $specific_ingredients_ref;
@@ -4690,6 +4676,7 @@ sub preparse_ingredients_text($product_lc, $text) {
 		init_ingredients_processing_regexps();
 		init_additives_classes_regexps();
 		init_allergens_regexps();
+		init_origins_regexps();
 	}
 
 	my $and = $and{$product_lc} || " and ";

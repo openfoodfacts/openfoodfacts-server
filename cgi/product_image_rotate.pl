@@ -36,13 +36,13 @@ use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();
 
-my $code = normalize_code(param('code'));
+my $code = normalize_code(single_param('code'));
 my $product_id = product_id_for_owner($Owner_id, $code);
 my $path = product_path_from_id($product_id);
-my $imgid = param('imgid');
-my $angle = param('angle');
-my $normalize = param('normalize');
-my $white_magic = param('white_magic');
+my $imgid = single_param('imgid');
+my $angle = single_param('angle');
+my $normalize = single_param('normalize');
+my $white_magic = single_param('white_magic');
 
 $log->debug('start', { code => $code, imgid => $imgid, angle => $angle, normalize => $normalize }) if $log->is_debug(); ## no critic (ProhibitPostfixControls)
 

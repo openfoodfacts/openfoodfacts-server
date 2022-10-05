@@ -5,7 +5,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-07-24 19:05\n"
 "Language-Team: Finnish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -14,8 +13,7 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: fi\n"
-"X-Crowdin-File: common.pot\n"
-"X-Crowdin-File-ID: 1808\n"
+"X-Crowdin-File-ID: 2588\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -601,7 +599,7 @@ msgstr "Jäljitettävyyskoodit"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr "Jäljitettävyyskoodi"
+msgstr ""
 
 msgctxt "emb_codes"
 msgid "Traceability code"
@@ -766,7 +764,7 @@ msgstr "<<site_name>> blogi"
 
 # Do not translate
 msgctxt "footer_blog_link"
-msgid "https://en.blog.openfoodfacts.org"
+msgid "https://blog.openfoodfacts.org/en/"
 msgstr ""
 
 msgctxt "footer_code_of_conduct"
@@ -1572,14 +1570,13 @@ msgstr "Ravintoarvosana"
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
 msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
+msgstr ""
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
-msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
+msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://blog.openfoodfacts.org/en/\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr "<p>Oppiaksesi lisää <<site_name>>ista, käy <a href=\"https://en.blog.openfoodfacts.org\">blogissamme</a>!</p>\n"
-"<p>Viimeaikaisia uutisia:</p>\n"
+msgstr ""
 
 msgctxt "on_the_blog_title"
 msgid "News"
@@ -2297,7 +2294,7 @@ msgstr "Katso tuotesivu"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr "Maa"
+msgstr ""
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2455,6 +2452,7 @@ msgctxt "tagstable_search"
 msgid "Search:"
 msgstr "Etsi:"
 
+# This is linked to a unit test
 msgctxt "traces"
 msgid "Traces"
 msgstr "Jäämät"
@@ -3934,7 +3932,7 @@ msgstr "Hedelmät, kasvikset, pähkinät ja rypsi-, maapähkinä- ja oliiviöljy
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
-msgstr "Ravintokuitu"
+msgstr ""
 
 msgctxt "nutriscore_points_for_proteins"
 msgid "Proteins"
@@ -4424,6 +4422,7 @@ msgctxt "images_can_be_provided_separately"
 msgid "Product photos can also be provided separately through the Import product photos function of the platform for producers."
 msgstr "Tuotekuvat voidaan antaa myös erikseen tuottaja-alustan toiminnolla tuotekuvien tuomiseen."
 
+# This is linked to a unit test
 msgctxt "attribute_group_labels_name"
 msgid "Labels"
 msgstr "Merkit"

@@ -13,7 +13,7 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: de\n"
-"X-Crowdin-File-ID: 1808\n"
+"X-Crowdin-File-ID: 2588\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -600,7 +600,7 @@ msgstr "Rückverfolgbarkeitscodes"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr "Identitätskennzeichen"
+msgstr "Produzentenschlüssel"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
@@ -765,8 +765,8 @@ msgstr "<<site_name>> Blog"
 
 # Do not translate
 msgctxt "footer_blog_link"
-msgid "https://en.blog.openfoodfacts.org"
-msgstr "https://en.blog.openfoodfacts.org"
+msgid "https://blog.openfoodfacts.org/en/"
+msgstr "https://blog.openfoodfacts.org/de/"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -1571,14 +1571,14 @@ msgstr "Nährwertqualität"
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
 msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-de-356.png"
+msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
-msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
+msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://blog.openfoodfacts.org/en/\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr "<p>Um mehr über <<site_name>> zu erfahren, besuchen Sie <a href=\"https://en.blog.openfoodfacts.org\">unseren Blog</a>!</p>\n"
-"<p>Aktuelle Neuigkeiten:</p>\n"
+msgstr "<p>Um mehr über <<site_name>> zu erfahren, besuchen Sie <a href=\"https://blog.openfoodfacts.org/de/\">unseren Blog</a>!</p>\n"
+"<p>Aktuelle Nachrichten:</p>\n"
 
 msgctxt "on_the_blog_title"
 msgid "News"
@@ -2298,7 +2298,7 @@ msgstr "Produktdetails anzeigen"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr "Vertriebsländer"
+msgstr "Land"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2456,6 +2456,7 @@ msgctxt "tagstable_search"
 msgid "Search:"
 msgstr "Suche:"
 
+# This is linked to a unit test
 msgctxt "traces"
 msgid "Traces"
 msgstr "Spuren"
@@ -4425,6 +4426,7 @@ msgctxt "images_can_be_provided_separately"
 msgid "Product photos can also be provided separately through the Import product photos function of the platform for producers."
 msgstr "Produktfotos können auch separat über die Funktion „Produktfotos importieren” der Plattform für Produzenten zur Verfügung gestellt werden."
 
+# This is linked to a unit test
 msgctxt "attribute_group_labels_name"
 msgid "Labels"
 msgstr "Labels"

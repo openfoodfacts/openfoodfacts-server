@@ -49,6 +49,9 @@ BEGIN
 		$crowdin_project_key
 
 		$robotoff_url
+		$events_url
+		$events_username
+		$events_password
 
 		$mongodb
 		$mongodb_host
@@ -199,7 +202,15 @@ $google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_
 $crowdin_project_identifier = $ProductOpener::Config2::crowdin_project_identifier;
 $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
 
+# Set this to your instance of https://github.com/openfoodfacts/robotoff/ to
+# enable an in-site robotoff-asker in the product page
 $robotoff_url = $ProductOpener::Config2::robotoff_url;
+
+# Set this to your instance of https://github.com/openfoodfacts/openfoodfacts-events
+# enable creating events for some actions (e.g. when a product is edited)
+$events_url = $ProductOpener::Config2::events_url;
+$events_username = $ProductOpener::Config2::events_username;
+$events_password = $ProductOpener::Config2::events_password;
 
 # server options
 

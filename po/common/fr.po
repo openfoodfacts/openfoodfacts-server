@@ -13,7 +13,7 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: fr\n"
-"X-Crowdin-File-ID: 1808\n"
+"X-Crowdin-File-ID: 2588\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -766,8 +766,8 @@ msgstr "Le blog d'<<site_name>>"
 
 # Do not translate
 msgctxt "footer_blog_link"
-msgid "https://en.blog.openfoodfacts.org"
-msgstr "https://fr.blog.openfoodfacts.org"
+msgid "https://blog.openfoodfacts.org/en/"
+msgstr "https://blog.openfoodfacts.org/fr/"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -897,7 +897,7 @@ msgstr "Produit"
 
 msgctxt "generic_name"
 msgid "Common name"
-msgstr "Dénomination générique"
+msgstr "Nom générique"
 
 msgctxt "generic_name_example"
 msgid "Chocolate bar with milk and hazelnuts"
@@ -1478,11 +1478,11 @@ msgstr "Les produits qui ne contiennent pas le nutriment %s"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr "Informations nutritionnelles"
+msgstr "Tableau nutritionnel"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr "Informations nutritionnelles"
+msgstr "Tableau nutritionnel"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
@@ -1554,7 +1554,7 @@ msgstr "Ecart type"
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr "Informations nutritionnelles"
+msgstr "Tableau nutritionnel"
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
@@ -1573,14 +1573,14 @@ msgstr "Note nutritionnelle"
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
 msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-msgstr "https://fr.openfoodfacts.org/images/misc/openfoodfacts-logo-fr-356.png"
+msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
-msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
+msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://blog.openfoodfacts.org/en/\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr "<p>Pour découvrir les nouveautés et les coulisses d'<<site_name>>, venez sur <a href=\"https://fr.blog.openfoodfacts.org\">le blog</a> !</p>\n"
-"<p>C'est nouveau :</p>\n"
+msgstr "<p>Pour en savoir plus sur <<site_name>>, visitez <a href=\"https://blog.openfoodfacts.org/fr/\">notre blog</a>!</p>\n"
+"<p>Actualités récentes :</p>\n"
 
 msgctxt "on_the_blog_title"
 msgid "News"
@@ -2301,7 +2301,7 @@ msgstr "Voir la fiche du produit"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr "Pays de vente"
+msgstr "Pays"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2459,6 +2459,7 @@ msgctxt "tagstable_search"
 msgid "Search:"
 msgstr "Recherche :"
 
+# This is linked to a unit test
 msgctxt "traces"
 msgid "Traces"
 msgstr "Traces éventuelles"
@@ -3367,7 +3368,7 @@ msgstr "Ingrédients"
 
 msgctxt "fields_group_nutrition"
 msgid "Nutrition facts"
-msgstr "Informations nutritionnelles"
+msgstr "Tableau nutritionnel"
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
@@ -3939,7 +3940,7 @@ msgstr "Fruits, légumes, noix et huiles de colza / noix / olive"
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
-msgstr "Fibres alimentaires"
+msgstr "Fibre"
 
 msgctxt "nutriscore_points_for_proteins"
 msgid "Proteins"
@@ -4429,6 +4430,7 @@ msgctxt "images_can_be_provided_separately"
 msgid "Product photos can also be provided separately through the Import product photos function of the platform for producers."
 msgstr "Les photos du produits peuvent aussi être fournies séparément, via la fonction \"Importer des photos de produits\" depuis votre plateforme producteur."
 
+# This is linked to a unit test
 msgctxt "attribute_group_labels_name"
 msgid "Labels"
 msgstr "Labels"
@@ -6018,7 +6020,7 @@ msgstr "Peu compatible"
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_unknown_match"
 msgid "Unknown match"
-msgstr "Correspondance inconnue"
+msgstr "Compabilité inconnue"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_may_not_match"

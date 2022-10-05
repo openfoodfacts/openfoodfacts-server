@@ -58,8 +58,8 @@ if ($ENV{'REQUEST_METHOD'} eq 'POST') {
 		$template_data_ref->{success} = 0;
 	}
 
-	my $hash_is_correct
-	  = check_password_hash(encode_utf8(decode utf8 => param('current_password')), $user_ref->{'encrypted_password'});
+	my $hash_is_correct = check_password_hash(encode_utf8(decode utf8 => single_param('current_password')),
+		$user_ref->{'encrypted_password'});
 
 	# We don't have the right password
 	if (not $hash_is_correct) {
@@ -70,11 +70,11 @@ if ($ENV{'REQUEST_METHOD'} eq 'POST') {
 		push @errors, lang('error_bad_login_password');
 	}
 
-	if (length(param('password')) < 6) {
+	if (length(single_param('password')) < 6) {
 		push @errors, lang('error_invalid_password');
 	}
 
-	if (param('password') ne param('confirm_password')) {
+	if ((single_param('password')) ne (single_param('confirm_password'))) {
 		push @errors, lang('error_different_passwords');
 	}
 
@@ -82,7 +82,7 @@ if ($ENV{'REQUEST_METHOD'} eq 'POST') {
 		$template_data_ref->{success} = 0;
 	}
 	else {
-		$user_ref->{encrypted_password} = create_password_hash(encode_utf8(decode utf8 => param('password')));
+		$user_ref->{encrypted_password} = create_password_hash(encode_utf8(decode utf8 => single_param('password')));
 		store("$data_root/users/$User_id.sto", $user_ref);
 		$template_data_ref->{success} = 1;
 	}

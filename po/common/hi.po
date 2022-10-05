@@ -5,7 +5,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-07-24 19:09\n"
 "Language-Team: Hindi\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -14,8 +13,7 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: hi\n"
-"X-Crowdin-File: common.pot\n"
-"X-Crowdin-File-ID: 1808\n"
+"X-Crowdin-File-ID: 2588\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -240,7 +238,7 @@ msgstr ""
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=hi"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -767,8 +765,8 @@ msgstr ""
 
 # Do not translate
 msgctxt "footer_blog_link"
-msgid "https://en.blog.openfoodfacts.org"
-msgstr "https://en.blog.openfoodfacts.org"
+msgid "https://blog.openfoodfacts.org/en/"
+msgstr ""
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -1567,11 +1565,11 @@ msgstr ""
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
 msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
+msgstr ""
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
-msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
+msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://blog.openfoodfacts.org/en/\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
 msgstr ""
 
@@ -2283,7 +2281,7 @@ msgstr ""
 
 msgctxt "select_country"
 msgid "Country"
-msgstr "जिन देशों में बिकता है"
+msgstr ""
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2441,6 +2439,7 @@ msgctxt "tagstable_search"
 msgid "Search:"
 msgstr ""
 
+# This is linked to a unit test
 msgctxt "traces"
 msgid "Traces"
 msgstr "अवशेष"
@@ -3920,7 +3919,7 @@ msgstr ""
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
-msgstr "फाइबर आहार"
+msgstr ""
 
 msgctxt "nutriscore_points_for_proteins"
 msgid "Proteins"
@@ -4410,6 +4409,7 @@ msgctxt "images_can_be_provided_separately"
 msgid "Product photos can also be provided separately through the Import product photos function of the platform for producers."
 msgstr ""
 
+# This is linked to a unit test
 msgctxt "attribute_group_labels_name"
 msgid "Labels"
 msgstr "लेबल"
@@ -4472,7 +4472,7 @@ msgstr ""
 
 msgctxt "attribute_group_nutritional_quality_name"
 msgid "Nutritional quality"
-msgstr ""
+msgstr "पोषण गुणवत्ता"
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"

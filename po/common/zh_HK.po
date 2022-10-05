@@ -5,7 +5,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-07-24 19:10\n"
 "Language-Team: Chinese Traditional, Hong Kong\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -14,8 +13,7 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: zh-HK\n"
-"X-Crowdin-File: common.pot\n"
-"X-Crowdin-File-ID: 1808\n"
+"X-Crowdin-File-ID: 2588\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -767,8 +765,8 @@ msgstr "<<site_name>>網誌"
 
 # Do not translate
 msgctxt "footer_blog_link"
-msgid "https://en.blog.openfoodfacts.org"
-msgstr "https://wiki.openfoodfacts.org"
+msgid "https://blog.openfoodfacts.org/en/"
+msgstr ""
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -1569,13 +1567,13 @@ msgstr "營養等級"
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
 msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
+msgstr ""
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
-msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
+msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://blog.openfoodfacts.org/en/\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr "<p>要了解有關<<site_name>>的更多信息，請訪問<a href=\"https://en.blog.openfoodfacts.org\">我的博客</a>！</p> <p>最近新聞：</p>\n"
+msgstr ""
 
 msgctxt "on_the_blog_title"
 msgid "News"
@@ -2291,7 +2289,7 @@ msgstr "看產品頁"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr "國家"
+msgstr ""
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2449,6 +2447,7 @@ msgctxt "tagstable_search"
 msgid "Search:"
 msgstr "搜尋："
 
+# This is linked to a unit test
 msgctxt "traces"
 msgid "Traces"
 msgstr "含少量"
@@ -3928,7 +3927,7 @@ msgstr "水果、蔬菜、堅果和菜子、核桃及橄欖油"
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
-msgstr "膳食纖維"
+msgstr ""
 
 msgctxt "nutriscore_points_for_proteins"
 msgid "Proteins"
@@ -4418,6 +4417,7 @@ msgctxt "images_can_be_provided_separately"
 msgid "Product photos can also be provided separately through the Import product photos function of the platform for producers."
 msgstr ""
 
+# This is linked to a unit test
 msgctxt "attribute_group_labels_name"
 msgid "Labels"
 msgstr "標籤"

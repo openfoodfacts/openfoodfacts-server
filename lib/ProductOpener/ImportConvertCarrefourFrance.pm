@@ -266,7 +266,7 @@ sub convert_carrefour_france_files($file_handle, $files_ref) {
         }
 
 
-        elsif ($file =~ /_valNut/) {
+        elsif ($file =~ /_valNut/i) {
             # Nutrition facts
 
             my @xml_rules = (
