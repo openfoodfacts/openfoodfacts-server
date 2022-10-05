@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -39,7 +38,7 @@ use Log::Any qw($log);
 
 $log->info('start') if $log->is_info();
 
-ProductOpener::Users::init_user();
+my $request_ref = ProductOpener::Display::init_request();
 
 my $status = 403;
 
@@ -47,7 +46,22 @@ if (defined $User_id) {
 	$status = 200;
 }
 
-print header ( -status => $status );
+print header(-status => $status);
+
+# We need to send the header Access-Control-Allow-Credentials=true so that websites
+# such has hunger.openfoodfacts.org that send a query to world.openfoodfacts.org/cgi/auth.pl
+# can read the resulting response.
+
+# The Access-Control-Allow-Origin header must be set to the value of the Origin header
 my $r = Apache2::RequestUtil->request();
+my $origin = $r->headers_in->{Origin} || '';
+
+# Only allow requests from one of our subdomains to see if a user is logged in or not
+
+if ($origin =~ /^https:\/\/[a-z0-9-.]+\.${server_domain}(:\d+)?$/) {
+	$r->err_headers_out->set("Access-Control-Allow-Credentials", "true");
+	$r->err_headers_out->set("Access-Control-Allow-Origin", $origin);
+}
+
 $r->rflush;
 $r->status($status);

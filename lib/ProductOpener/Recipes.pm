@@ -29,10 +29,10 @@ This module contains functions to compute the distribution of specific ingredien
 a specified set of products.
 
 For instance, one can compute the distribution of water, sugar and fruits 
-for products in the fruit nectars category.
+for products in the fruit nectar category.
 
 Functions in this module can be called through scripts for batch processing,
-and/or they could also be called for realtime analysis through the API or web interface
+and/or they could also be called for real time analysis through the API or web interface
 (for a small enough set of products).
 
 =head1 DESCRIPTION
@@ -48,8 +48,7 @@ Then each ingredient is matched against the specified list of parents ingredient
 
 package ProductOpener::Recipes;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 use Log::Any qw($log);
@@ -109,10 +108,7 @@ specified parent ingredients.
 
 =cut
 
-sub compute_product_recipe($$) {
-
-	my $product_ref = shift;
-	my $parent_ingredients_ref = shift;
+sub compute_product_recipe($product_ref, $parent_ingredients_ref) {
 
 	$log->debug("compute recipe for product", { code => $product_ref->{code}, parent_ingredients_ref => $parent_ingredients_ref }) if $log->is_debug();
 
@@ -194,11 +190,7 @@ sub compute_product_recipe($$) {
 
 =cut
 
-sub add_product_recipe_to_set( $$$) {
-
-    my $recipes_ref = shift;
-    my $product_ref = shift;
-    my $recipe_ref = shift;
+sub add_product_recipe_to_set($recipes_ref, $product_ref, $recipe_ref) {
 
     # Do not add undefined recipes (e.g. products without ingredients)
     if (defined $recipe_ref) {
@@ -208,6 +200,7 @@ sub add_product_recipe_to_set( $$$) {
             recipe => $recipe_ref,
         };
     }
+    return;
 }
 
 
@@ -222,10 +215,7 @@ sub add_product_recipe_to_set( $$$) {
 
 =cut
 
-sub analyze_recipes( $$) {
-
-    my $recipes_ref = shift;
-    my $original_parent_ingredients_ref = shift;
+sub analyze_recipes($recipes_ref, $original_parent_ingredients_ref) {
 
     # Add "other" and "unknown"
     my $parent_ingredients_ref = [ @$original_parent_ingredients_ref, "other", "unknown" ];

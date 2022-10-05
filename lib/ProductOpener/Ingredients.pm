@@ -26,7 +26,7 @@ ProductOpener::Ingredients - process and analyze ingredients lists
 
 C<ProductOpener::Ingredients> processes, normalize, parses and analyze
 ingredients lists to extract and recognize individual ingredients,
-additives and allernes, and to compute product properties related to
+additives and allergens, and to compute product properties related to
 ingredients (is the product vegetarian, vegan, does it contain palm oil etc.)
 
     use ProductOpener::Ingredients qw/:all/;
@@ -51,8 +51,7 @@ ingredients (is the product vegetarian, vegan, does it contain palm oil etc.)
 
 package ProductOpener::Ingredients;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 BEGIN
@@ -527,39 +526,35 @@ my %ingredients_processing_regexps = ();
 
 sub init_ingredients_processing_regexps() {
 
-	foreach my $ingredients_processing ( keys %{ $translations_to{ingredients_processing} } ) {
-
-		foreach my $l ( keys %{ $translations_to{ingredients_processing}{$ingredients_processing} } ) {
-
-			defined $ingredients_processing_regexps{$l}  or $ingredients_processing_regexps{$l}  = [];
-
-			# the synonyms below also contain the main translation as the first entry
-
-			my $l_ingredients_processing = get_string_id_for_lang($l, $translations_to{ingredients_processing}{$ingredients_processing}{$l});
-
-			foreach my $synonym ( @{$synonyms_for{ingredients_processing}{$l}{$l_ingredients_processing}} ) {
-				# Make spaces match dashes and the reverse
-				$synonym =~ s/( |-)/\(\?: \|-\)/g;
-				push @{ $ingredients_processing_regexps{$l} },
-					[ $ingredients_processing, $synonym ];
-
-				if ( ( my $unacc = unac_string_perl($synonym) ) ne $synonym ) {
-					push @{ $ingredients_processing_regexps{$l} },
-						[ $ingredients_processing, $unacc ];
-				}
+	# Create a list of regexps with each synonyms of all ingredients processes
+	%ingredients_processing_regexps = %{
+		generate_regexps_matching_taxonomy_entries("ingredients_processing", "list_of_regexps",
+			{
+				#add_simple_plurals => 1,
+				#add_simple_singulars => 1,
+				match_space_with_dash => 1,
 			}
-		}
-	}
+		)
+	};
 
-	# We want to match the longest strings first
-	# Unfortunately, the following does not work:
-	# my $regexp = join('|', sort { length($b) <=> length($a) } keys %synonyms);
-	# -> if we have (gehackte|gehackt) and we parse "gehackte something", it will match "gehackt".
-	foreach my $lc ( keys %ingredients_processing_regexps ) {
-		@{ $ingredients_processing_regexps{$lc} }
-			= sort { length $b->[1] <=> length $a->[1] }
-			@{ $ingredients_processing_regexps{$lc} };
-	}
+	return;
+}
+
+
+# Origins processing regexps
+
+my %origins_regexps = ();
+
+sub init_origins_regexps() {
+
+	# Create a list of regexps with each synonyms of all ingredients processes
+	%origins_regexps = %{
+		generate_regexps_matching_taxonomy_entries("origins", "unique_regexp",
+			{
+				match_space_with_dash => 1,
+			}
+		)
+	};
 
 	return;
 }
@@ -572,42 +567,22 @@ my %additives_classes_regexps = ();
 sub init_additives_classes_regexps() {
 
 	# Create a regexp with all synonyms of all additives classes
-	my %additives_classes_synonyms = ();
-
-	foreach my $additives_class (keys %{$translations_to{additives_classes}}) {
-
-		# do not turn vitamin a in vitamin : a-z
-		next if $additives_class eq "en:vitamins";
-
-		foreach my $l (keys %{$translations_to{additives_classes}{$additives_class}}) {
-
-			defined $additives_classes_synonyms{$l} or $additives_classes_synonyms{$l} = {};
-
-			# the synonyms below also contain the main translation as the first entry
-
-			my $l_additives_class = get_string_id_for_lang($l, $translations_to{additives_classes}{$additives_class}{$l});
-
-			foreach my $synonym (@{$synonyms_for{additives_classes}{$l}{$l_additives_class}}) {
-				$additives_classes_synonyms{$l}{$synonym} = 1;
-				# simple singulars and plurals + unaccented forms
-				$additives_classes_synonyms{$l}{unac_string_perl($synonym)} = 1;
-				$synonym =~ s/s$//;
-				$additives_classes_synonyms{$l}{$synonym} = 1;
-				$additives_classes_synonyms{$l}{unac_string_perl($synonym)} = 1;
-				$additives_classes_synonyms{$l}{$synonym . "s"} = 1;
-				$additives_classes_synonyms{$l}{unac_string_perl($synonym . "s")} = 1;
+	%additives_classes_regexps = %{
+		generate_regexps_matching_taxonomy_entries("additives_classes", "unique_regexp",
+			{
+				add_simple_plurals => 1,
+				add_simple_singulars => 1,
+				# 2022-09-22: not sure if the following is still needed
+				# before refactoring, we had a comment about not turning
+				# "vitamin A" into "vitamin : A", but it does not happen
+				# skip_entries_matching => '/^en:vitamins$/',
 			}
-		}
-	}
-
-	foreach my $l (sort keys %additives_classes_synonyms) {
-		# Match the longest strings first
-		$additives_classes_regexps{$l} = join('|', sort { length($b) <=> length($a) } keys %{$additives_classes_synonyms{$l}});
-		# print STDERR "additives_classes_regexps{$l}: " . $additives_classes_regexps{$l} . "\n";
-	}
+		)
+	};
 
 	return;
 }
+
 
 if ((keys %labels_regexps) > 0) { exit; }
 
@@ -667,9 +642,7 @@ closedir(DH);
 
 
 
-sub compute_carbon_footprint_from_ingredients($) {
-
-	my $product_ref = shift;
+sub compute_carbon_footprint_from_ingredients($product_ref) {
 
 	if (defined $product_ref->{nutriments}) {
 		delete $product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"};
@@ -723,9 +696,7 @@ sub compute_carbon_footprint_from_ingredients($) {
 }
 
 
-sub compute_carbon_footprint_from_meat_or_fish($) {
-
-	my $product_ref = shift;
+sub compute_carbon_footprint_from_meat_or_fish($product_ref) {
 
 	if (defined $product_ref->{nutriments}) {
 		delete $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish"};
@@ -822,12 +793,7 @@ sub compute_carbon_footprint_from_meat_or_fish($) {
 
 
 
-sub extract_ingredients_from_image($$$$) {
-
-	my $product_ref = shift;
-	my $id = shift;
-	my $ocr_engine = shift;
-	my $results_ref = shift;
+sub extract_ingredients_from_image($product_ref, $id, $ocr_engine, $results_ref) {
 
 	my $lc = $product_ref->{lc};
 
@@ -895,11 +861,7 @@ e.g. "origins"
 
 =cut
 
-sub has_specific_ingredient_property($$$) {
-
-	my $product_ref = shift;
-	my $searched_ingredient_id = shift;
-	my $property = shift;
+sub has_specific_ingredient_property($product_ref, $searched_ingredient_id, $property) {
 
 	my $value;
 
@@ -932,9 +894,7 @@ for which we have extra information (e.g. origins from a label).
 
 =cut
 
-sub add_properties_from_specific_ingredients($) {
-
-	my $product_ref = shift;
+sub add_properties_from_specific_ingredients($product_ref) {
 
 	# Traverse the ingredients tree, breadth first
 	
@@ -959,6 +919,7 @@ sub add_properties_from_specific_ingredients($) {
 			}
 		}
 	}
+	return;
 }
 
 
@@ -985,9 +946,7 @@ Array of specific ingredients.
 
 =cut
 
-sub add_specific_ingredients_from_labels($) {
-
-	my $product_ref = shift;
+sub add_specific_ingredients_from_labels($product_ref) {
 
 	my $product_lc = $product_ref->{lc};
 
@@ -1013,15 +972,30 @@ sub add_specific_ingredients_from_labels($) {
 			}
 		}
 	}
+	return;
 }
 
 
-=head2 parse_specific_ingredients_from_text ( product_ref, $text )
+=head2 parse_specific_ingredients_from_text ( product_ref, $text, $percent_regexp )
 
 Lists of ingredients sometime include extra mentions for specific ingredients
 at the end of the ingredients list. e.g. "Prepared with 50g of fruits for 100g of finished product".
 
 This function extracts those mentions and adds them to the specific_ingredients structure.
+
+This function is also used to parse the origins of ingredients field.
+
+=head3 Arguments
+
+=head4 product_ref
+
+=head4 text $text
+
+=head4 percent regular expression $percent_regexp
+
+Used to find % values, language specific.
+
+Pass undef in order to skip % recognition. This is useful if we know the text is only for the origins of ingredients.
 
 =head3 Return values
 
@@ -1033,11 +1007,7 @@ Array of specific ingredients.
 
 =cut
 
-sub parse_specific_ingredients_from_text($$$) {
-
-	my $product_ref = shift;
-	my $text = shift;
-	my $percent_regexp = shift;
+sub parse_specific_ingredients_from_text($product_ref, $text, $percent_regexp) {
 
 	my $product_lc = $product_ref->{lc};
 
@@ -1049,6 +1019,7 @@ sub parse_specific_ingredients_from_text($$$) {
 
 		# Initialize values
 		$ingredient = undef;
+		my $matched_ingredient_ref = {};
 		my $matched_text;
 		my $percent;
 		my $origins;
@@ -1062,7 +1033,8 @@ sub parse_specific_ingredients_from_text($$$) {
 			# examples:
 			# Total Milk Content 73%.
 
-			if ($text =~ /\s*(?:total |min |minimum )?([^,.;]+?)\s+content(?::| )+$percent_regexp\s*(?:per 100\s*(?:g)(?:[^,.;-]*?))?(?:;|\.| - |$)/i) {
+			if ((defined $percent_regexp)
+				and ($text =~ /\s*(?:total |min |minimum )?([^,.;]+?)\s+content(?::| )+$percent_regexp\s*(?:per 100\s*(?:g)(?:[^,.;-]*?))?(?:;|\.| - |$)/i)) {
 				$percent = $2;	# $percent_regexp
 				$ingredient = $1;
 				$matched_text = $&;
@@ -1071,17 +1043,13 @@ sub parse_specific_ingredients_from_text($$$) {
 			}
 
 			# Origin of the milk: United Kingdom
-			elsif ($text =~ /\s*(?:origin of (?:the )?)([^,.;]+?)(?::| )+([^,.;]+?)\s*(?:;|\.| - |$)/i) {
-				# Note: the regexp above does not currently match multiple origins with commas (e.g. "Origins of milk: UK, UE")
-				# in order to not overmatch something like "Origin of milk: UK, some other mention."
-				# In the future, we could try to be smarter and match more if we can recognize the next words exist in the origins taxonomy.
-				$origins = $2;
-				$ingredient = $1;
-				$matched_text = $&;
-				# Remove the matched text
-				$text = $` . ' ' . $';
+			elsif (match_origin_of_the_ingredient_origin($product_lc, \$text, $matched_ingredient_ref)) {
+				$origins = $matched_ingredient_ref->{origins};
+				$ingredient = $matched_ingredient_ref->{ingredient};
+				$matched_text = $matched_ingredient_ref->{matched_text};
+				# Remove extra spaces
+				$ingredient =~ s/\s+$//;
 			}
-
 		}
 		elsif ($product_lc eq "fr") {
 
@@ -1090,7 +1058,8 @@ sub parse_specific_ingredients_from_text($$$) {
 			# Teneur en lactose < 0,01 g/100 g.
 			# Préparée avec 50 g de fruits pour 100 g de produit fini.
 
-			if ($text =~ /\s*(?:(?:préparé|prepare)(?:e|s|es)? avec)(?: au moins)?(?::| )+$percent_regexp (?:de |d')?([^,.;]+?)\s*(?:pour 100\s*(?:g)(?:[^,.;-]*?))?(?:;|\.| - |$)/i) {
+			if ((defined $percent_regexp)
+				and ($text =~ /\s*(?:(?:préparé|prepare)(?:e|s|es)? avec)(?: au moins)?(?::| )+$percent_regexp (?:de |d')?([^,.;]+?)\s*(?:pour 100\s*(?:g)(?:[^,.;-]*?))?(?:;|\.| - |$)/i)) {
 				$percent = $1;	# $percent_regexp
 				$ingredient = $2;
 				$matched_text = $&;
@@ -1100,7 +1069,8 @@ sub parse_specific_ingredients_from_text($$$) {
 
 			# Teneur totale en sucres : 60 g pour 100 g de produit fini.
 			# Teneur en citron de 100%
-			elsif ($text =~ /\s*teneur(?: min| minimum| minimale| totale)?(?: en | de | d'| du )([^,.;]+?)\s*(?:pour 100\s*(?:g)(?: de produit(?: fini)?)?)?(?: de)?(?::| )+$percent_regexp\s*(?:pour 100\s*(?:g)(?:[^,.;]*?))?(?:;|\.| - |$)/i) {
+			elsif ((defined $percent_regexp)
+				and ($text =~ /\s*teneur(?: min| minimum| minimale| totale)?(?: en | de | d'| du )([^,.;]+?)\s*(?:pour 100\s*(?:g)(?: de produit(?: fini)?)?)?(?: de)?(?::| )+$percent_regexp\s*(?:pour 100\s*(?:g)(?:[^,.;]*?))?(?:;|\.| - |$)/i)) {
 				$percent = $2;	# $percent_regexp
 				$ingredient = $1;
 				$matched_text = $&;
@@ -1109,22 +1079,19 @@ sub parse_specific_ingredients_from_text($$$) {
 			}
 
 			# Origine du Cacao: Pérou
-			elsif ($text =~ /\s*(?:origine (?:de |du |de la |des |de l'))([^,.;]+?)(?::| )+([^,.;]+?)\s*(?:;|\.| - |$)/i) {
-				# Note: the regexp above does not currently match multiple origins with commas (e.g. "Origins of milk: UK, UE")
-				# in order to not overmatch something like "Origin of milk: UK, some other mention."
-				# In the future, we could try to be smarter and match more if we can recognize the next words exist in the origins taxonomy.
-				$origins = $2;
-				$ingredient = $1;
-				$matched_text = $&;
-				# Remove the matched text
-				$text = $` . ' ' . $';
+			elsif (match_origin_of_the_ingredient_origin($product_lc, \$text, $matched_ingredient_ref)) {
+				$origins = $matched_ingredient_ref->{origins};
+				$ingredient = $matched_ingredient_ref->{ingredient};
+				$matched_text = $matched_ingredient_ref->{matched_text};
+				# Remove extra spaces
+				$ingredient =~ s/\s+$//;
 			}
 
 		}
 
 		# If we found an ingredient, save it in specific_ingredients
 		if (defined $ingredient) {
-			my $ingredient_id = canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient);
+			my $ingredient_id = get_taxonomyid($product_lc, canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient));
 
 			$matched_text =~ s/^\s+//;
 
@@ -1134,10 +1101,151 @@ sub parse_specific_ingredients_from_text($$$) {
 				text => $matched_text,
 			};
 
+			my $and_or = $and_or{$product_lc};
 			defined $percent and $specific_ingredients_ref->{percent} = $percent + 0;
-			defined $origins and $specific_ingredients_ref->{origins} = join(",", map {canonicalize_taxonomy_tag($product_lc, "origins", $_)} split(/,/, $origins ));
+			defined $origins and $specific_ingredients_ref->{origins} = join(",", map {canonicalize_taxonomy_tag($product_lc, "origins", $_)} split(/,|$and_or/, $origins ));
 			
 			push @{$product_ref->{specific_ingredients}}, $specific_ingredients_ref;
+		}
+	}
+
+	return $text;
+}
+
+
+# Note: in regular expressions below, use non-capturing groups (starting with (?: )
+# for all groups, except groups that capture actual data: ingredient name, percent, origins
+
+# Regexps should match until we reach a . ; or the end of the text
+
+sub match_ingredient_origin($product_lc, $text_ref, $matched_ingredient_ref) {
+
+	my $origins_regexp = $origins_regexps{$product_lc};
+	my $and_or = $and_or{$product_lc} || ',';
+	my $from = $from{$product_lc} || ':';
+
+	# Strawberries: Spain, Italy and Portugal
+	# Strawberries from Spain, Italy and Portugal
+	if ($$text_ref =~ /\s*([^,.;:]+)(?::|$from)\s*((?:$origins_regexp)(?:(?:,|$and_or)(?:\s?)(?:$origins_regexp))*)\s*(?:,|;|\.| - |$)/i) {
+		# Note: the regexp above does not currently match multiple origins with commas (e.g. "Origins of milk: UK, UE")
+		# in order to not overmatch something like "Origin of milk: UK, some other mention."
+		# In the future, we could try to be smarter and match more if we can recognize the next words exist in the origins taxonomy.
+
+		$matched_ingredient_ref->{ingredient} = $1;
+		$matched_ingredient_ref->{origins} = $2;
+		$matched_ingredient_ref->{matched_text} = $&;
+
+		# Remove the matched text
+		$$text_ref = $` . ' ' . $';
+
+		return 1;
+	}
+	return 0;
+}
+
+
+sub match_origin_of_the_ingredient_origin($product_lc, $text_ref, $matched_ingredient_ref) {
+
+	my %origin_of_the_regexp_in_lc = (
+		en => "(?:origin of (?:the )?)",
+		fr => "(?:origine (?:de |du |de la |des |de l'))",
+	);
+
+	my $origin_of_the_regexp = $origin_of_the_regexp_in_lc{$product_lc} || $origin_of_the_regexp_in_lc{en};
+	my $origins_regexp = $origins_regexps{$product_lc};
+	my $and_or = $and_or{$product_lc} || ',';
+
+	# Origin of the milk: United Kingdom.
+	if ($origins_regexp
+		and ($$text_ref =~ /\s*${origin_of_the_regexp}([^,.;:]+)(?::| )+((?:$origins_regexp)(?:(?:,|$and_or)(?:\s?)(?:$origins_regexp))*)\s*(?:,|;|\.| - |$)/i)) {
+
+		$matched_ingredient_ref->{ingredient} = $1;
+		$matched_ingredient_ref->{origins} = $2;
+		$matched_ingredient_ref->{matched_text} = $&;
+		
+		# Remove the matched text
+		$$text_ref = $` . ' ' . $';
+
+		# replace and / or
+		#$matched_ingredient_ref->{origins} =~ s/($origins_regexp)(?:$and_or)($origins_regexp)/$1,$2/g;		
+
+		return 1;
+	}
+	return 0;
+}
+
+
+=head2 parse_origins_from_text ( product_ref, $text)
+
+This function parses the origins of ingredients field to extract the origins of specific ingredients.
+The origins are stored in the specific_ingredients structure of the product.
+
+Note: this function is similar to parse_specific_ingredients_from_text() that operates on ingredients lists.
+The difference is that parse_specific_ingredients_from_text() only extracts and recognizes text that is
+an extra mention at the end of an ingredient list (e.g. "Origin of strawberries: Spain"),
+while parse_origins_from_text() will also recognize text like "Strawberries: Spain".
+
+=head3 Arguments
+
+=head4 product_ref
+
+=head4 text $text
+
+=head3 Return values
+
+=head4 specific_ingredients structure
+
+Array of specific ingredients.
+
+=head4 
+
+=cut
+
+sub parse_origins_from_text($product_ref, $text) {
+
+	my $product_lc = $product_ref->{lc};
+
+	# Go through the ingredient lists multiple times
+	# as long as we have one match
+	my $matched_ingredient = "start";
+
+	while ($matched_ingredient) {
+
+		# Initialize values
+		$matched_ingredient = undef;
+		my $matched_ingredient_ref = {};
+		my $origins;
+
+		# Call match functions to look for different ways to specify origins etc.
+
+		foreach my $match_function_ref (\&match_origin_of_the_ingredient_origin, \&match_ingredient_origin) {
+			if ($match_function_ref->($product_lc, \$text, $matched_ingredient_ref)) {
+
+				my $matched_text = $matched_ingredient_ref->{matched_text};
+				my $ingredient = $matched_ingredient_ref->{ingredient};
+				my $ingredient_id = get_taxonomyid($product_lc, canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient));
+
+				# Remove extra spaces
+				$ingredient =~ s/\s+$//;
+				$matched_text =~ s/^\s+//;
+
+				my $specific_ingredients_ref = {
+					id => $ingredient_id,
+					ingredient => $ingredient,
+					text => $matched_text,
+				};
+
+				if (defined $matched_ingredient_ref->{origins}) {
+					my $and_or = $and_or{$product_lc};
+					$specific_ingredients_ref->{origins} = join(",",
+						map {canonicalize_taxonomy_tag($product_lc, "origins", $_)} split(/,|$and_or/, $matched_ingredient_ref->{origins}));
+				}
+				
+				push @{$product_ref->{specific_ingredients}}, $specific_ingredients_ref;
+
+				$matched_ingredient = $ingredient;
+				last;
+			}
 		}
 	}
 
@@ -1159,9 +1267,7 @@ Nested structure of ingredients and sub-ingredients
 
 =cut
 
-sub parse_ingredients_text($) {
-
-	my $product_ref = shift;
+sub parse_ingredients_text($product_ref) {
 
 	my $debug_ingredients = 0;
 
@@ -1199,8 +1305,6 @@ sub parse_ingredients_text($) {
 
 	# farine (12%), chocolat (beurre de cacao (15%), sucre [10%], protéines de lait, oeuf 1%) - émulsifiants : E463, E432 et E472 - correcteurs d'acidité : E322/E333 E474-E475, acidifiant (acide citrique, acide phosphorique) - sel : 1% ...
 
-	my $level = 0;
-
 	# assume commas between numbers are part of the name
 	# e.g. en:2-Bromo-2-Nitropropane-1,3-Diol, Bronopol
 	# replace by a lower comma ‚
@@ -1223,9 +1327,7 @@ sub parse_ingredients_text($) {
 	# Extract phrases related to specific ingredients at the end of the ingredients list
 	$text = parse_specific_ingredients_from_text($product_ref, $text, $percent_regexp);
 
-	my $analyze_ingredients_function = sub($$$$) {
-
-		my ($analyze_ingredients_self, $ingredients_ref, $level, $s) = @_;
+	my $analyze_ingredients_function = sub($analyze_ingredients_self, $ingredients_ref, $level, $s) {
 
 		# print STDERR "analyze_ingredients level $level: $s\n";
 
@@ -1609,7 +1711,6 @@ sub parse_ingredients_text($) {
 					# Build an array of origins / ingredients possibilities
 					
 					my @maybe_origins_ingredients = ();
-					my $maybe_ingredient;
 					
 					# California almonds
 					if (($product_lc eq "en") and ($ingredient =~ /^(\S+) (.+)$/)) {
@@ -1641,7 +1742,7 @@ sub parse_ingredients_text($) {
 						next if (length($maybe_origin) < 4);
 						
 						my $origin_id = canonicalize_taxonomy_tag($product_lc, "origins", $maybe_origin);
-						if (exists_taxonomy_tag("origins", $origin_id)) {
+						if ((exists_taxonomy_tag("origins", $origin_id)) and ($origin_id ne "en:unknown")) {
 							
 							$debug_ingredients and $log->debug("ingredient includes known origin", { ingredient => $ingredient, new_ingredient => $maybe_ingredient, origin_id => $origin_id }) if $log->is_debug();
 							
@@ -1649,7 +1750,7 @@ sub parse_ingredients_text($) {
 							$ingredient = $maybe_ingredient;
 							$ingredient_id = canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient);
 							last;
-						}						
+						}
 					}
 	
 					# Try to remove ingredients processing "cooked rice" -> "rice"
@@ -1920,7 +2021,7 @@ sub parse_ingredients_text($) {
 			if (not $skip_ingredient) {
 
 				my %ingredient = (
-					id => $ingredient_id,
+					id => get_taxonomyid($product_ref->{lc},$ingredient_id),
 					text => $ingredient
 				);
 
@@ -2001,9 +2102,7 @@ Flatten the nested list of ingredients.
 
 =cut
 
-sub flatten_sub_ingredients($) {
-
-	my $product_ref = shift;
+sub flatten_sub_ingredients($product_ref) {
 
 	my $rank = 1;
 
@@ -2028,6 +2127,7 @@ sub flatten_sub_ingredients($) {
 		# Delete the sub-ingredients, as they have been pushed at the end of the list
 		delete $product_ref->{ingredients}[$i]{ingredients};
 	}
+	return;
 }
 
 
@@ -2046,25 +2146,13 @@ Compute the total % of "leaf" ingredients (without sub-ingredients) with a speci
 
 =cut
 
-sub compute_ingredients_tags($) {
-
-	my $product_ref = shift;
+sub compute_ingredients_tags($product_ref) {
 	
 	# Delete ingredients related fields
 	# They will be recreated, unless the ingredients list was deleted
-
-	delete $product_ref->{ingredients_tags};
-	delete $product_ref->{ingredients_original_tags};
-
-	delete $product_ref->{ingredients_n};
-	delete $product_ref->{known_ingredients_n};
-	delete $product_ref->{unknown_ingredients_n};
-	delete $product_ref->{ingredients_n_tags};
-
-	delete $product_ref->{ingredients_with_specified_percent_n};
-	delete $product_ref->{ingredients_with_unspecified_percent_n};
-	delete $product_ref->{ingredients_with_specified_percent_sum};
-	delete $product_ref->{ingredients_with_unspecified_percent_sum};	
+	remove_fields($product_ref, ["ingredients_tags, ingredients_original_tags", "ingredients_n", "known_ingredients_n", "unknown_ingredients_n",
+		"ingredients_n_tags", "ingredients_with_specified_percent_n", "ingredients_with_unspecified_percent_n",
+		"ingredients_with_specified_percent_sum", "ingredients_with_unspecified_percent_sum"]);
 
 	return if not defined $product_ref->{ingredients};
 
@@ -2140,6 +2228,7 @@ sub compute_ingredients_tags($) {
 		# ensure $product_ref->{ingredients_n} is last used as an int so that it is not saved as a strings
 		$product_ref->{ingredients_n} += 0;
 	}
+	return;
 }
 
 
@@ -2159,21 +2248,32 @@ and to compute the resulting value for the complete product
 
 =cut
 
-sub extract_ingredients_from_text($) {
-
-	my $product_ref = shift;
+sub extract_ingredients_from_text($product_ref) {
 
 	delete $product_ref->{ingredients_percent_analysis};
 
-	# Parse the ingredients list to extract individual ingredients and sub-ingredients
-	# to create the ingredients array with nested sub-ingredients arrays
+	# The specific ingredients array will contain indications regarding the percentage,
+	# origins, labels etc. of specific ingredients. Those information may come from:
+	# - the origin of ingredients field ("origin")
+	# - labels (e.g. "British eggs")
+	# - the end of the list of the ingredients. e.g. "Origin of the rice: Thailand"
 
 	$product_ref->{specific_ingredients} = [];
 
-	parse_ingredients_text($product_ref);
+	# Ingredients origins may be listed in the origin field
+	# e.g. "Origin of the rice: Thailand."
+	my $product_lc = $product_ref->{lc};
+	if (defined $product_ref->{"origin_" . $product_lc}) {
+		parse_origins_from_text($product_ref, $product_ref->{"origin_" . $product_lc});
+	}
 
 	# Add specific ingredients from labels
-	add_specific_ingredients_from_labels($product_ref);	
+	add_specific_ingredients_from_labels($product_ref);		
+
+	# Parse the ingredients list to extract individual ingredients and sub-ingredients
+	# to create the ingredients array with nested sub-ingredients arrays	
+
+	parse_ingredients_text($product_ref);
 
 	if (defined $product_ref->{ingredients}) {
 
@@ -2229,9 +2329,7 @@ The function is recursive to also delete values for sub-ingredients.
 
 =cut
 
-sub delete_ingredients_percent_values($) {
-
-	my $ingredients_ref = shift;
+sub delete_ingredients_percent_values($ingredients_ref) {
 
 	foreach my $ingredient_ref (@{$ingredients_ref}) {
 
@@ -2287,11 +2385,7 @@ The return value is the number of times we adjusted min and max values for ingre
 
 =cut
 
-sub compute_ingredients_percent_values($$$) {
-
-	my $total_min = shift;
-	my $total_max = shift;
-	my $ingredients_ref = shift;
+sub compute_ingredients_percent_values($total_min, $total_max, $ingredients_ref) {
 
 	init_percent_values($total_min, $total_max, $ingredients_ref);
 
@@ -2332,16 +2426,76 @@ sub compute_ingredients_percent_values($$$) {
 	return $changed_total;
 }
 
-sub init_percent_values($$$) {
 
-	my $total_min = shift;
-	my $total_max = shift;
-	my $ingredients_ref = shift;
+=head2 init_percent_values($total_min, $total_max, $ingredients_ref)
+
+Initialize the percent, percent_min and percent_max value for each ingredient in list.
+
+$ingredients_ref is the list of ingredients (as hash), where parsed percent are already set.
+
+$total_min and $total_max might be set if we have a parent ingredient and are parsing a sub list.
+
+When a percent is specifically set, use this value for percent_min and percent_max.
+
+Warning: percent listed for sub-ingredients can be absolute (e.g. "Sugar, fruits 40% (pear 30%, apple 10%)")
+or they can be relative to the parent ingredient (e.g. "Sugar, fruits 40% (pear 75%, apple 25%)".
+We try to detect those cases and rescale the percent accordingly.
+
+Otherwise use 0 for percent_min and total_max for percent_max.
+
+=cut
+
+sub init_percent_values($total_min, $total_max, $ingredients_ref) {
+
+	# Determine if percent listed are absolute (default) or relative to a parent ingredient
+
+	my $percent_mode = "absolute";
+
+	# Assume that percent listed is relative to the parent ingredient
+	# if the sum of specified percents for the ingredients is greater than the percent max of the parent.
+
+	my $percent_sum = 0;
+	foreach my $ingredient_ref (@{$ingredients_ref}) {
+		if (defined $ingredient_ref->{percent}) {
+			$percent_sum += $ingredient_ref->{percent};
+		}
+	}
+
+	if ($percent_sum > $total_max) {
+		$percent_mode = "relative";
+	}
+
+	$log->debug("init_percent_values - percent mode", { percent_mode => $percent_mode, ingredients_ref => $ingredients_ref,
+		total_min => $total_min, total_max => $total_max, percent_sum => $percent_sum }) if $log->is_debug();
+
+	# Go through each ingredient to set percent_min, percent_max, and if we can an absolute percent
 
 	foreach my $ingredient_ref (@{$ingredients_ref}) {
 		if (defined $ingredient_ref->{percent}) {
-			$ingredient_ref->{percent_min} = $ingredient_ref->{percent};
-			$ingredient_ref->{percent_max} = $ingredient_ref->{percent};
+			# There is a specified percent for the ingredient.
+			
+			if (($percent_mode eq "absolute") or ($total_min == $total_max)) {
+				# We can assign an absolute percent to the ingredient because
+				# 1. the percent mode is absolute
+				# or 2. we have a specific percent for the parent ingredient
+				# so we can rescale the relative percent of the ingredient to make it absolute
+				my $percent = ($percent_mode eq "absolute") ? 
+					$ingredient_ref->{percent} : 
+					$ingredient_ref->{percent} * $total_max / 100
+				;
+				$ingredient_ref->{percent} = $percent;
+				$ingredient_ref->{percent_min} = $percent;
+				$ingredient_ref->{percent_max} = $percent;
+			}
+			else {
+				# The percent mode is relative and we do not have a specific percent for the parent ingredient
+				# We cannot compute an absolute percent for the ingredient, but we can apply the relative percent
+				# to percent_min and percent_max
+				$ingredient_ref->{percent_min} = $ingredient_ref->{percent} * $total_min / 100;
+				$ingredient_ref->{percent_max} = $ingredient_ref->{percent} * $total_max / 100;
+				# The absolute percent is unknown, delete it
+				delete $ingredient_ref->{percent};
+			}
 		}
 		else {
 			if (not defined $ingredient_ref->{percent_min}) {
@@ -2353,14 +2507,13 @@ sub init_percent_values($$$) {
 		}
 	}
 
+	$log->debug("init_percent_values - result", { ingredients_ref => $ingredients_ref }) if $log->is_debug();
+
 	return;
 }
 
-sub set_percent_max_values($$$) {
 
-	my $total_min = shift;
-	my $total_max = shift;
-	my $ingredients_ref = shift;
+sub set_percent_max_values($total_min, $total_max, $ingredients_ref) {
 
 	my $changed = 0;
 
@@ -2387,10 +2540,16 @@ sub set_percent_max_values($$$) {
 
 		# The max of an ingredient must be lower or equal to
 		# the total max minus the sum of the minimums of all
-		# ingredients that appear before.
+		# other ingredients
 
-		if ($ingredient_ref->{percent_max} > $total_max - $sum_of_mins_before) {
-			$ingredient_ref->{percent_max} = $total_max - $sum_of_mins_before;
+		my $sum_of_mins_after = 0;
+		for (my $j = $i; $j < $n; $j++) {
+			$sum_of_mins_after += $ingredients_ref->[$j]{percent_min};
+		}
+		my $max_percent_max = $total_max - $sum_of_mins_before - $sum_of_mins_after;
+
+		if (($max_percent_max >= 0) and ($ingredient_ref->{percent_max} > $max_percent_max)) {
+			$ingredient_ref->{percent_max} = $max_percent_max;
 			$changed++;
 		}
 
@@ -2445,11 +2604,7 @@ sub set_percent_max_values($$$) {
 	return $changed;
 }
 
-sub set_percent_min_values($$$) {
-
-	my $total_min = shift;
-	my $total_max = shift;
-	my $ingredients_ref = shift;
+sub set_percent_min_values($total_min, $total_max, $ingredients_ref) {
 
 	my $changed = 0;
 
@@ -2494,12 +2649,16 @@ sub set_percent_min_values($$$) {
 			$changed++;
 		}
 
-		# The min of the first ingredient in the list must be greater or equal
-		# to the total min minus sum of of the maximums of all the ingredients after.
+		# The min of the ingredient must be greater or equal
+		# to the total min minus the sum of the maximums of all the other ingredients
 
-		my $min_percent_min = $total_min - $sum_of_maxs_after;
+		my $sum_of_maxs_before = 0;
+		for (my $j = 0; $j < ($n - $i); $j++) {
+			$sum_of_maxs_before += $ingredients_ref->[$j]{percent_max};
+		}
+		my $min_percent_min = $total_min - $sum_of_maxs_before - $sum_of_maxs_after;
 
-		if (($i == $n) and ($ingredient_ref->{percent_min} < $min_percent_min - 0.1)) {
+		if (($min_percent_min > 0) and ($ingredient_ref->{percent_min} < $min_percent_min - 0.1)) {
 
 			# Bail out if the values are not possible
 			if (($min_percent_min > $total_min) or ($min_percent_min > $ingredient_ref->{percent_max})) {
@@ -2520,9 +2679,7 @@ sub set_percent_min_values($$$) {
 }
 
 
-sub set_percent_sub_ingredients($) {
-
-	my $ingredients_ref = shift;
+sub set_percent_sub_ingredients($ingredients_ref) {
 
 	my $changed = 0;
 
@@ -2588,10 +2745,7 @@ The sum of all estimates must be 100%, and the estimates try to match the min an
 
 =cut
 
-sub compute_ingredients_percent_estimates($$) {
-
-	my $total = shift;
-	my $ingredients_ref = shift;
+sub compute_ingredients_percent_estimates($total, $ingredients_ref) {
 	
 	my $current_total = 0;
 	my $i = 0;
@@ -2637,6 +2791,7 @@ sub compute_ingredients_percent_estimates($$) {
 	}
 
 	$log->debug("compute_ingredients_percent_estimates - done", { ingredients_ref => $ingredients_ref }) if $log->is_debug();
+	return;
 }
 
 
@@ -2645,20 +2800,23 @@ sub compute_ingredients_percent_estimates($$) {
 This function analyzes ingredients to see the ones that are vegan, vegetarian, from palm oil etc.
 and computes the resulting value for the complete product.
 
-The results are overriden by labels like "Vegan", "Vegetarian" or "Palm oil free"
+The results are overrode by labels like "Vegan", "Vegetarian" or "Palm oil free"
 
 Results are stored in the ingredients_analysis_tags array.
 
 =cut
 
-sub analyze_ingredients($) {
-
-	my $product_ref = shift;
+sub analyze_ingredients($product_ref) {
 
 	delete $product_ref->{ingredients_analysis};
 	delete $product_ref->{ingredients_analysis_tags};
 
 	my @properties = ("from_palm_oil", "vegan", "vegetarian");
+	my %properties_unknown_tags = (
+		"from_palm_oil" => "en:palm-oil-content-unknown",
+		"vegan" => "en:vegan-status-unknown",
+		"vegetarian" => "en:vegetarian-status-unknown",
+	);
 
 	# Structure to store the result of the ingredient analysis for each property
 	my $ingredients_analysis_properties_ref = {};
@@ -2735,6 +2893,8 @@ sub analyze_ingredients($) {
 			if ($property =~ /^from_/) {
 
 				my $from_what = $';
+				my $from_what_with_dashes = $from_what;
+				$from_what_with_dashes =~ s/_/-/g;
 
 				# For properties like from_palm, one positive ingredient triggers a positive result for the whole product
 				# We assume that all the positive ingredients have been marked as yes or maybe in the taxonomy
@@ -2744,22 +2904,38 @@ sub analyze_ingredients($) {
 
 				if (defined $values{yes}) {
 					# One yes ingredient -> yes for the whole product
-					$property_value =  "en:" . $from_what ; # en:palm-oil
+					$property_value =  "en:" . $from_what_with_dashes ; # en:palm-oil
 					$ingredients_analysis_ref->{$property_value} = $values{yes};
 				}
 				elsif (defined $values{maybe}) {
 					# One maybe ingredient -> maybe for the whole product
-					$property_value = "en:may-contain-" . $from_what ; # en:may-contain-palm-oil
+					$property_value = "en:may-contain-" . $from_what_with_dashes ; # en:may-contain-palm-oil
 					$ingredients_analysis_ref->{$property_value} = $values{maybe};
 				}
+				# If some ingredients are not recognized, there is a possibility that they could be palm oil or contain palm oil
+				# As there are relatively few ingredients with palm oil, we assume we are able to recognize them with the taxonomy
+				# and that unrecognized ingredients do not contain palm oil.
+				# --> We mark the product as palm oil free
+				# Exception: If there are lots of unrecognized ingredients though (e.g. more than 1 third), it may be that the ingredients list
+				# is bogus (e.g. OCR errors) and the likelyhood of missing a palm oil ingredient increases.
+				# --> In this case, we mark the product as palm oil content unknown
 				elsif (defined $values{unknown_ingredients}) {
 					# Some ingredients were not recognized
-					$property_value = "en:" . $from_what . "-content-unknown"; # en:palm-oil-content-unknown
-					$ingredients_analysis_ref->{$property_value} = $values{unknown_ingredients};
+					$log->debug("analyze_ingredients - unknown ingredients", { unknown_ingredients_n => (scalar @{$values{unknown_ingredients}}), ingredients_n => (scalar(@{$product_ref->{ingredients}})) }) if $log->is_debug();
+					my $unknown_rate = (scalar @{$values{unknown_ingredients}}) / (scalar @{$product_ref->{ingredients}});
+					# for palm-oil, as there are few products containing it, we consider status to be unknown only if there is more than 30% unknown ingredients (which may indicates bogus ingredient list, eg. OCR errors)
+					if (($from_what_with_dashes eq "palm-oil") and ($unknown_rate <= 0.3)) {
+						$property_value = "en:" . $from_what_with_dashes . "-free"; # en:palm-oil-free
+					}
+					else {
+						$property_value = $properties_unknown_tags{$property}; # en:palm-oil-content-unknown
+					}
+					# In all cases, keep track of the unknown ingredients
+					$ingredients_analysis_ref->{$properties_unknown_tags{$property}} = $values{unknown_ingredients};
 				}
 				else {
 					# no yes, maybe or unknown ingredients
-					$property_value = "en:" . $from_what . "-free"; # en:palm-oil-free
+					$property_value = "en:" . $from_what_with_dashes . "-free"; # en:palm-oil-free
 				}
 			}
 			else {
@@ -2774,10 +2950,10 @@ sub analyze_ingredients($) {
 					$property_value = "en:non-" . $property ; # en:non-vegetarian
 					$ingredients_analysis_ref->{$property_value} = $values{no};
 				}
-				elsif (defined $values{undef}) {
+				elsif (defined $values{"undef"}) {
 					# Some ingredients were not recognized or we do not have a property value for them
-					$property_value = "en:" . $property . "-status-unknown"; # en:vegetarian-status-unknown
-					$ingredients_analysis_ref->{$property_value} = $values{undef};
+					$property_value = $properties_unknown_tags{$property}; # en:vegetarian-status-unknown
+					$ingredients_analysis_ref->{$property_value} = $values{"undef"};
 				}
 				elsif (defined $values{maybe}) {
 					# One maybe ingredient -> maybe for the whole product
@@ -2787,6 +2963,12 @@ sub analyze_ingredients($) {
 				else {
 					# all ingredients known and with a value, no no or maybe value -> yes
 					$property_value = "en:" . $property ; # en:vegetarian
+				}
+
+				# In all cases, keep track of unknown ingredients so that we can display unknown ingredients
+				# even if some ingredients also triggered non-vegan or non-vegetarian
+				if (defined $values{"undef"}) {
+					$ingredients_analysis_ref->{$properties_unknown_tags{$property}} = $values{"undef"};
 				}
 			}
 
@@ -2825,28 +3007,33 @@ sub analyze_ingredients($) {
 		$product_ref->{ingredients_analysis} = {};
 
 		foreach my $property (@properties) {
-			my $property_value = $ingredients_analysis_properties_ref->{$property};
+			my $property_value = $ingredients_analysis_properties_ref->{$property};			
 			if (defined $property_value) {
 				# Store the property value in the ingredients_analysis_tags list
 				push @{$product_ref->{ingredients_analysis_tags}}, $property_value;
 				# Store the list of ingredients that caused a product to be non vegan/vegetarian/palm oil free
-				# (no list when a product is vegan/vegetarian/palm oil free)
 				if (defined $ingredients_analysis_ref->{$property_value}) {
 					$product_ref->{ingredients_analysis}{$property_value} = $ingredients_analysis_ref->{$property_value};
+				}
+
+				# Also store the list of ingredients that are not recognized
+				if (defined $ingredients_analysis_ref->{$properties_unknown_tags{$property}}) {
+					$product_ref->{ingredients_analysis}{$properties_unknown_tags{$property}} = $ingredients_analysis_ref->{$properties_unknown_tags{$property}};
 				}
 			}
 		}
 	}
+
+	# Uncomment the following line to add an extra field with more data for debugging purposes
+	#$product_ref->{ingredients_analysis_debug} = $ingredients_analysis_ref;
+	return;
 }
 
 
 # function to normalize strings like "Carbonate d'ammonium" in French
 # x is the prefix
 # y can contain de/d' (of in French)
-sub normalize_fr_a_de_b($$) {
-
-	my $a = shift;
-	my $b = shift;
+sub normalize_fr_a_de_b($a, $b) {
 
 	$a =~ s/\s+$//;
 	$b =~ s/^\s+//;
@@ -2861,22 +3048,12 @@ sub normalize_fr_a_de_b($$) {
 	}
 }
 
-sub normalize_fr_a_de_enumeration {
-
-	my $a = shift;
-
-	return join(", ", map { normalize_fr_a_de_b($a, $_)} @_);
-}
 
 # English: oil, olive -> olive oil
 # French: huile, olive -> huile d'olive
 # Russian: масло растительное, пальмовое -> масло растительное оливковое
 
-sub normalize_a_of_b($$$) {
-
-	my $lc = shift;
-	my $a = shift;
-	my $b = shift;
+sub normalize_a_of_b($lc, $a, $b) {
 
 	$a =~ s/\s+$//;
 	$b =~ s/^\s+//;
@@ -2906,11 +3083,7 @@ sub normalize_a_of_b($$$) {
 # Vegetal oil (palm, sunflower and olive)
 # -> palm vegetal oil, sunflower vegetal oil, olive vegetal oil
 
-sub normalize_enumeration($$$) {
-
-	my $lc = shift;
-	my $type = shift;
-	my $enumeration = shift;
+sub normalize_enumeration($lc, $type, $enumeration) {
 
 	$log->debug("normalize_enumeration", { type => $type, enumeration => $enumeration }) if $log->is_debug();
 	
@@ -2930,19 +3103,12 @@ sub normalize_enumeration($$$) {
 
 
 # iodure et hydroxide de potassium
-sub normalize_fr_a_et_b_de_c($$$) {
-
-	my $a = shift;
-	my $b = shift;
-	my $c = shift;
+sub normalize_fr_a_et_b_de_c($a, $b, $c) {
 
 	return normalize_fr_a_de_b($a, $c) . ", " . normalize_fr_a_de_b($b, $c);
 }
 
-sub normalize_additives_enumeration($$) {
-
-	my $lc = shift;
-	my $enumeration = shift;
+sub normalize_additives_enumeration($lc, $enumeration) {
 
 	$log->debug("normalize_additives_enumeration", { enumeration => $enumeration }) if $log->is_debug();
 
@@ -2954,13 +3120,9 @@ sub normalize_additives_enumeration($$) {
 }
 
 
-sub normalize_vitamin($$) {
-
-	my $lc = shift;
-	my $a = shift;
+sub normalize_vitamin($lc, $a) {
 
 	$log->debug("normalize vitamin", { vitamin => $a }) if $log->is_debug();
-
 	$a =~ s/\s+$//;
 	$a =~ s/^\s+//;
 
@@ -2980,10 +3142,8 @@ sub normalize_vitamin($$) {
 	}
 }
 
-sub normalize_vitamins_enumeration($$) {
 
-	my $lc = shift;
-	my $vitamins_list = shift;
+sub normalize_vitamins_enumeration($lc, $vitamins_list) {
 
 	my $and = $Lang{_and_}{$lc};
 
@@ -3013,11 +3173,9 @@ sub normalize_vitamins_enumeration($$) {
 }
 
 
-sub normalize_allergen($$$) {
+sub normalize_allergen($type, $lc, $allergen) {
 
-	my $type = shift; # allergens or traces
-	my $lc = shift;
-	my $allergen = shift;
+	# $type  ->  allergens or traces
 
 	$log->debug( "normalize allergen", { allergen => $allergen } )
 		if $log->is_debug();
@@ -3042,13 +3200,10 @@ sub normalize_allergen($$$) {
 	return $Lang{$type}{$lc} . " : " . $allergen;
 }
 
-sub normalize_allergens_enumeration($$$$$) {
+sub normalize_allergens_enumeration($type, $lc, $before, $allergens_list, $after) {
 
-	my $type = shift; # allergens or traces
-	my $lc = shift;
-	my $before = shift;	# may contain an opening parenthesis
-	my $allergens_list = shift;
-	my $after = shift;
+	# $type    ->  allergens or traces
+	# $before  ->  may contain an opening parenthesis
 
 	$log->debug("splitting allergens", { input => $allergens_list, before => $before, after => $after }) if $log->is_debug();
 	
@@ -3777,10 +3932,7 @@ It should also not be called when we import product data from the producers plat
 
 =cut
 
-sub split_generic_name_from_ingredients($$) {
-
-	my $product_ref = shift;
-	my $language = shift;
+sub split_generic_name_from_ingredients($product_ref, $language) {
 
 	if ((defined $phrases_before_ingredients_list{$language}) and (defined $product_ref->{"ingredients_text_$language"})) {
 
@@ -3816,10 +3968,7 @@ The function can be applied multiple times on the ingredients list.
 
 =cut
 
-sub clean_ingredients_text_for_lang($$) {
-
-	my $text = shift;
-	my $language = shift;
+sub clean_ingredients_text_for_lang($text, $language) {
 
 	$log->debug("clean_ingredients_text_for_lang - start", { language=>$language, text=>$text }) if $log->is_debug();
 	
@@ -3872,10 +4021,7 @@ If there are multiple "Ingredients:" listed, it would keep only the last one if 
 
 =cut
 
-sub cut_ingredients_text_for_lang($$) {
-
-	my $text = shift;
-	my $language = shift;
+sub cut_ingredients_text_for_lang($text, $language) {
 
 	$log->debug("cut_ingredients_text_for_lang - start", { language=>$language, text=>$text }) if $log->is_debug();
 
@@ -3953,9 +4099,7 @@ sub cut_ingredients_text_for_lang($$) {
 }
 
 
-sub clean_ingredients_text($) {
-
-	my $product_ref = shift;
+sub clean_ingredients_text($product_ref) {
 
 	if (defined $product_ref->{languages_codes}) {
 
@@ -3988,10 +4132,7 @@ sub clean_ingredients_text($) {
 }
 
 
-sub is_compound_word_with_dash($$) {
-
-	my $word_lc = shift;
-	my $compound_word = shift;
+sub is_compound_word_with_dash($word_lc, $compound_word) {
 
 	if (exists_taxonomy_tag("ingredients", canonicalize_taxonomy_tag($word_lc, "ingredients", $compound_word))) {
 		$compound_word =~ s/ - /-/;
@@ -4005,13 +4146,7 @@ sub is_compound_word_with_dash($$) {
 # additive class + additive (e.g. "colour caramel" -> "colour : caramel"
 # warning: the additive class may also be the start of the name of an additive.
 # e.g. "regulatory kwasowości: kwas cytrynowy i cytryniany sodu." -> "kwas" means acid / acidifier.
-sub separate_additive_class($$$$$) {
-
-	my $product_lc = shift;
-	my $additive_class = shift;
-	my $spaces = shift;
-	my $colon = shift;
-	my $after = shift;
+sub separate_additive_class($product_lc, $additive_class, $spaces, $colon, $after) {
 
 	my $and = $and{$product_lc} || " and ";
 
@@ -4060,22 +4195,22 @@ to deal with undefined $letter or $variant without triggering an undefined warni
 =cut
 
 
-sub replace_additive($$$) {
+sub replace_additive($number, $letter, $variant) {
 
-		my $number  = shift;    # e.g. 160
-		my $letter  = shift;    # e.g. a
-		my $variant = shift;    # e.g. ii
+	# $number  ->  e.g. 160
+	# $letter  ->  e.g. a
+	# $variant ->  e.g. ii
 
-		my $additive = "e" . $number;
-		if (defined $letter) {
-			$additive .= $letter;
-		}
-		if (defined $variant) {
-			$variant =~ s/^\(//;
-			$variant =~ s/\)$//;
-			$additive .= $variant;
-		}
-		return $additive;
+	my $additive = "e" . $number;
+	if (defined $letter) {
+		$additive .= $letter;
+	}
+	if (defined $variant) {
+		$variant =~ s/^\(//;
+		$variant =~ s/\)$//;
+		$additive .= $variant;
+	}
+	return $additive;
 }
 
 
@@ -4351,10 +4486,7 @@ ru =>
 my @symbols = ('\*\*\*', '\*\*', '\*', '°°°', '°°', '°', '\(1\)', '\(2\)', '¹', '²');
 my $symbols_regexp = join('|', @symbols);
 
-sub develop_ingredients_categories_and_types ($$) {
-	
-	my $product_lc = shift;
-	my $text = shift;	
+sub develop_ingredients_categories_and_types ($product_lc, $text) {
 	
 	if (defined $ingredients_categories_and_types{$product_lc}) {
 
@@ -4520,10 +4652,7 @@ It does the following:
 
 =cut
 
-sub preparse_ingredients_text($$) {
-
-	my $product_lc = shift;
-	my $text = shift;
+sub preparse_ingredients_text($product_lc, $text) {
 
 	not defined $text and return;
 
@@ -4547,6 +4676,7 @@ sub preparse_ingredients_text($$) {
 		init_ingredients_processing_regexps();
 		init_additives_classes_regexps();
 		init_allergens_regexps();
+		init_origins_regexps();
 	}
 
 	my $and = $and{$product_lc} || " and ";
@@ -4629,9 +4759,7 @@ sub preparse_ingredients_text($$) {
 	# vitamins...
 	# vitamines A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E (lactose, protéines de lait)
 
-	my $split_vitamins = sub ($$) {
-		my $vitamin = shift;
-		my $list = shift;
+	my $split_vitamins = sub ($vitamin, $list) {
 
 		my $return = '';
 		foreach my $vitamin_code (split (/(\W|\s|-|n|;|et|and)+/, $list)) {
@@ -4770,24 +4898,24 @@ sub preparse_ingredients_text($$) {
 	# vitamines (A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E)	
 
 	my @vitaminssuffixes = (
-"a", "rétinol",
-"b", "b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9", "b10", "b11", "b12",
-"thiamine",
-"riboflavine",
-"niacine",
-"pyridoxine",
-"cobalamine",
-"biotine",
-"acide pantothénique",
-"acide folique",
-"c", "acide ascorbique",
-"d", "d2", "d3", "cholécalciférol",
-"e", "tocophérol", "alphatocophérol", "alpha-tocophérol",
-"f",
-"h",
-"k", "k1", "k2", "k3",
-"p", "pp",
-);
+		"a", "rétinol",
+		"b", "b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9", "b10", "b11", "b12",
+		"thiamine",
+		"riboflavine",
+		"niacine",
+		"pyridoxine",
+		"cobalamine",
+		"biotine",
+		"acide pantothénique",
+		"acide folique",
+		"c", "acide ascorbique",
+		"d", "d2", "d3", "cholécalciférol",
+		"e", "tocophérol", "alphatocophérol", "alpha-tocophérol",
+		"f",
+		"h",
+		"k", "k1", "k2", "k3",
+		"p", "pp",
+	);
 	my $vitaminsprefixregexp = "vit|vit\.|vitamine|vitamines";
 
 	# Add synonyms in target language
@@ -4927,9 +5055,7 @@ sub preparse_ingredients_text($$) {
 
 
 
-sub extract_ingredients_classes_from_text($) {
-
-	my $product_ref = shift;
+sub extract_ingredients_classes_from_text($product_ref) {
 
 	not defined $product_ref->{ingredients_text} and return;
 
@@ -4980,7 +5106,6 @@ sub extract_ingredients_classes_from_text($) {
 		}
 	}
 
-	my $with_sweeteners;
 
 	my %all_seen = (); # used to not tag "huile végétale" if we have seen "huile de palme" already
 
@@ -5482,13 +5607,9 @@ sub extract_ingredients_classes_from_text($) {
 		delete $product_ref->{$field . "_next_tags" };
 	}
 
-
-
-
 	if ((defined $product_ref->{ingredients_that_may_be_from_palm_oil_n}) or (defined $product_ref->{ingredients_from_palm_oil_n})) {
 		$product_ref->{ingredients_from_or_that_may_be_from_palm_oil_n} = $product_ref->{ingredients_that_may_be_from_palm_oil_n} + $product_ref->{ingredients_from_palm_oil_n};
 	}
-
 
 	delete $product_ref->{with_sweeteners};
 	if (defined $product_ref->{'additives_tags'}) {
@@ -5506,11 +5627,7 @@ sub extract_ingredients_classes_from_text($) {
 }
 
 
-sub replace_allergen($$$$) {
-	my $language = shift;
-	my $product_ref = shift;
-	my $allergen = shift;
-	my $before = shift;
+sub replace_allergen($language, $product_ref, $allergen, $before) {
 
 	my $field = "allergens";
 
@@ -5532,11 +5649,7 @@ sub replace_allergen($$$$) {
 }
 
 
-sub replace_allergen_in_caps($$$$) {
-	my $language = shift;
-	my $product_ref = shift;
-	my $allergen = shift;
-	my $before = shift;
+sub replace_allergen_in_caps($language, $product_ref, $allergen, $before) {
 
 	my $field = "allergens";
 
@@ -5562,14 +5675,7 @@ sub replace_allergen_in_caps($$$$) {
 }
 
 
-sub replace_allergen_between_separators($$$$$$) {
-	my $language = shift;
-	my $product_ref = shift;
-	my $start_separator = shift;
-	my $allergen = shift;
-	my $end_separator = shift;
-	my $before = shift;
-
+sub replace_allergen_between_separators($language, $product_ref, $start_separator, $allergen, $end_separator, $before ) {
 	my $field = "allergens";
 
 	#print STDERR "replace_allergen_between_separators - allergen: $allergen\n";
@@ -5649,9 +5755,7 @@ is then used by detect_allergens_from_text() to populate the allergens_tags fiel
 
 =cut
 
-sub detect_allergens_from_ingredients($) {
-
-	my $product_ref = shift;
+sub detect_allergens_from_ingredients($product_ref) {
 
 	# Check the allergens:en property of each ingredient
 	
@@ -5678,6 +5782,7 @@ sub detect_allergens_from_ingredients($) {
 			$log->debug("detect_allergens_from_ingredients -- found allergen", { allergens => $allergens }) if $log->is_debug();
 		}
 	}	
+	return;
 }
 
 
@@ -5704,9 +5809,7 @@ Allergens detected using 2. or 3. are marked with <span class="allergen">
 
 =cut
 
-sub detect_allergens_from_text($) {
-
-	my $product_ref = shift;
+sub detect_allergens_from_text($product_ref) {
 
 	$log->debug("detect_allergens_from_text - start", { }) if $log->is_debug();
 
@@ -5859,9 +5962,7 @@ for Nutri-Score computation.
 
 =cut
 
-sub add_fruits($) {
-
-	my $ingredients_ref = shift;
+sub add_fruits($ingredients_ref) {
 
 	my $fruits = 0;
 
@@ -5906,9 +6007,7 @@ Results are stored in $product_ref->{nutriments}{"fruits-vegetables-nuts-estimat
 
 =cut
 
-sub estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients($) {
-
-	my $product_ref = shift;
+sub estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients($product_ref) {
 
 	if (defined $product_ref->{nutriments}) {
 		delete $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"};
@@ -5956,9 +6055,7 @@ Recursive function to compute the % of milk for Nutri-Score computation.
 
 =cut
 
-sub add_milk($) {
-
-	my $ingredients_ref = shift;
+sub add_milk($ingredients_ref) {
 
 	my $milk = 0;
 
@@ -6000,9 +6097,8 @@ Return value: estimated % of milk.
 
 =cut
 
-sub estimate_milk_percent_from_ingredients($) {
+sub estimate_milk_percent_from_ingredients($product_ref) {
 
-	my $product_ref = shift;
 	my $milk_percent = 0;
 
 	if ((defined $product_ref->{ingredients}) and ((scalar @{$product_ref->{ingredients}}) > 0)) {

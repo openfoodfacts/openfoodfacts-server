@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -43,14 +42,14 @@ use Encode;
 use JSON::PP;
 use Log::Any qw($log);
 
-my $type = param('type') || 'add';
-my $action = param('action') || 'display';
-my $code = normalize_code(param('code'));
+my $type = single_param('type') || 'add';
+my $action = single_param('action') || 'display';
+my $code = normalize_code(single_param('code'));
 # For scan parties, we may get photos in sequence, with the barcode only in the first photo
-my $previous_code = normalize_code(param('previous_code'));
-my $previous_imgid = param('previous_imgid');
-my $imagefield = param('imagefield');
-my $delete = param('delete');
+my $previous_code = normalize_code(single_param('previous_code'));
+my $previous_imgid = single_param('previous_imgid');
+my $imagefield = single_param('imagefield');
+my $delete = single_param('delete');
 
 local $log->context->{upload_session} = int(rand(100000000));
 
@@ -60,7 +59,7 @@ my $env = $ENV{QUERY_STRING};
 
 $log->debug("calling init()", { query_string => $env });
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 $log->debug("parsing code", { subdomain => $subdomain, original_subdomain => $original_subdomain, user => $User_id, code => $code, previous_code => $previous_code, previous_imgid => $previous_imgid, cc => $cc, lc => $lc, imagefield => $imagefield, ip => remote_addr() }) if $log->is_debug();
 
@@ -83,7 +82,7 @@ if (not defined $code) {
 
 	$code_specified = 0;
 
-	my $file = param("files[]");
+	my $file = single_param("files[]");
 	$filename = $file . "";
 
 	($code, $imagefield) = get_code_and_imagefield_from_file_name($lc, $filename);
@@ -287,7 +286,7 @@ if ($imagefield) {
 				# Changed 2020-03-05: overwrite already selected images
 				# and ((not defined $product_ref->{images}{$imagefield}) or ($select_image))
 				# Changed 2020-04-20: don't overwrite selected images if the source is the product edit form
-				and ((not defined param('source')) or (param('source') ne "product_edit_form") or (not defined $product_ref->{images}{$imagefield}))
+				and ((not defined single_param('source')) or (single_param('source') ne "product_edit_form") or (not defined $product_ref->{images}{$imagefield}))
 				) {
 				$log->debug("selecting image", { imgid => $imgid, imagefield => $imagefield}) if $log->is_debug();
 				process_image_crop($User_id, $product_id, $imagefield, $imgid, 0, undef, undef, -1, -1, -1, -1, "full");

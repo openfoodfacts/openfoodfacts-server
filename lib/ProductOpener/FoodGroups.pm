@@ -25,7 +25,7 @@ ProductOpener::Food - functions related to food products and nutrition
 =head1 DESCRIPTION
 
 The C<ProductOpener::FoodGroups> module contains functions to determine a product
-food group. Food groups are a 3 level hiearchy of groups that are used by researchers
+food group. Food groups are a 3 level hierarchy of groups that are used by researchers
 (in particular researches from the EREN team that created the Nutri-Score).
 
 In France, food groups are referred to as "PNNS groups" (PNNS stands for "Programme National Nutrition et Santé").
@@ -34,8 +34,7 @@ In France, food groups are referred to as "PNNS groups" (PNNS stands for "Progra
 
 package ProductOpener::FoodGroups;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 BEGIN
@@ -139,9 +138,7 @@ For a time, we will compute both the old PNNS groups and the new food groups, so
 
 =cut
 
-sub compute_pnns_groups($) {
-
-	my $product_ref = shift;
+sub compute_pnns_groups($product_ref) {
 
 	delete $product_ref->{pnns_groups_1};
 	delete $product_ref->{pnns_groups_1_tags};
@@ -209,6 +206,7 @@ sub compute_pnns_groups($) {
 		$product_ref->{pnns_groups_1} = "unknown";
 		$product_ref->{pnns_groups_1_tags} = ["unknown", "missing-association"];
 	}
+	return;
 }
 
 
@@ -228,9 +226,7 @@ All levels food groups are stored in $product_ref->{food_groups_tags}
 
 =cut
 
-sub compute_food_groups($) {
-
-	my $product_ref = shift;
+sub compute_food_groups($product_ref) {
 
     $product_ref->{nutrition_score_beverage} = is_beverage_for_nutrition_score($product_ref);
 
@@ -264,6 +260,7 @@ sub compute_food_groups($) {
 		$product_ref->{categories_tags} = [@{$product_ref->{original_categories_tags}}];
 		delete $product_ref->{original_categories_tags};
 	}	
+	return;
 }
 
 
@@ -290,9 +287,7 @@ Original categories are saved in $product_ref->{original_categories_tags}
 
 =cut
 
-sub temporarily_change_categories_for_food_groups_computation($) {
-
-	my $product_ref = shift;
+sub temporarily_change_categories_for_food_groups_computation($product_ref) {
 
 	# Only add or remove categories tags temporarily for determining the food groups / PNNS groups
 	# save the original value
@@ -458,6 +453,7 @@ sub temporarily_change_categories_for_food_groups_computation($) {
 			remove_tag($product_ref, "categories", "en:unsweetened-beverages");
 		}
 	}
+	return;
 }
 
 1;

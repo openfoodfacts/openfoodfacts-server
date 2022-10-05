@@ -17,7 +17,7 @@ jobs:
       pull-requests: write
 
     steps:
-    - uses: actions/labeler@v3.0.2
-      if: ${{ github.repository_owner == 'openfoodfacts' }}
+    - uses: actions/labeler@v4
+      if: github.event.pull_request.head.repo.full_name == github.repository
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"

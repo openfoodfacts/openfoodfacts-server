@@ -7,18 +7,44 @@ nginx:
 mongodb:
 - conf/mongodb/create_indexes.js
 - scripts/refresh_products_tags.js
+- .github/workflows/mongo-deploy.yml
 
+tagline:
+- html/files/app/tagline/tagline-off-ios.json
+- html/files/tagline-off.json
+- html/files/tagline.txt
+- html/files/tagline-obf.json
+- html/files/tagline-opf.json
+- html/files/tagline-opff.json
+  
 taxonomies:
 - taxonomies/**/*
 
+taxonomies rebuild:
+- taxonomies/additives.result.sto
+- taxonomies/additives.result.txt
+- taxonomies/allergens.result.sto
+- taxonomies/allergens.result.txt
+- taxonomies/categories.result.sto
+- taxonomies/categories.result.txt
+- taxonomies/countries.result.sto
+- taxonomies/countries.result.txt
+- taxonomies/ingredients.result.sto
+- taxonomies/ingredients.result.txt
+- taxonomies/states.result.sto
+- taxonomies/states.result.txt
+
 open pet food facts:
 - taxonomies.opff/**/*
+- po/openpetfoodfacts/**/*
 
 open beauty facts:
 - taxonomies.obf/**/*
+- po/openbeautyfacts/**/*
 
 open products facts:
 - taxonomies.opf/**/*
+- po/openproductsfacts/**/*
 
 icons:
 - icons/**/*
@@ -28,9 +54,15 @@ css:
 
 translations:
 - po/**/*
+- po/common/**/*
+- po/openfoodfacts/**/*
+- po/openbeautyfacts/**/*
+- po/openpetfoodfacts/**/*
+- po/openproductsfacts/**/*
 
 tests:
 - test/**/*
+- tests/**/*
 - t/**/*
 
 dependancies:
@@ -63,9 +95,11 @@ Display:
 ecoscore:
 - lib/ProductOpener/Ecoscore.pm
 - ecoscore/**/*
+- templates/api/knowledge-panels/environment/ecoscore/ecoscore_unknown.tt.json
 
 Export:
 - lib/ProductOpener/Export.pm
+- t/expected_test_results/export/**/*
 
 Food.pm:
 - lib/ProductOpener/Food.pm
@@ -105,9 +139,13 @@ categories:
 additives:
 - taxonomies/additives.txt
 
+origins:
+- taxonomies/origins.txt
+
 knowledge-panels:
 - lib/ProductOpener/KnowledgePanels.pm
 - templates/api/knowledge-panels/**/*
+- templates/api/knowledge-panels/environment/ecoscore/ecoscore_unknown.tt.json
 
 lang:
 - lib/ProductOpener/Lang.pm

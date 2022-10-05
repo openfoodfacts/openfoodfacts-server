@@ -32,8 +32,7 @@ C<ProductOpener::PackagerCodes> contains functions specific to packager codes fo
 
 package ProductOpener::PackagerCodes;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 BEGIN
@@ -65,9 +64,7 @@ use Log::Any qw($log);
 
 $ec_code_regexp = "ce|eec|ec|eg|we|ek|ey|eu|eü";
 
-sub normalize_packager_codes($) {
-
-	my $codes = shift;
+sub normalize_packager_codes($codes) {
 
 	$codes = uc($codes);
 
@@ -83,9 +80,8 @@ sub normalize_packager_codes($) {
 	# ES 26.00128/SS CE
 	# UK DZ7131 EC (with sometime spaces but not always, can be a mix of letters and numbers)
 
-	my $normalize_fr_ce_code = sub ($$) {
-		my $countrycode = shift;
-		my $number = shift;
+	my $normalize_fr_ce_code = sub ($countrycode, $number) {
+
 		$countrycode = uc($countrycode);
 		$number =~ s/\D//g;
 		$number =~ s/^(\d\d)(\d\d\d)(\d)/$1.$2.$3/;
@@ -96,45 +92,37 @@ sub normalize_packager_codes($) {
 		return "$countrycode $number EC";
 	};
 
-	my $normalize_uk_ce_code = sub ($$) {
-		my $countrycode = shift;
-		my $code = shift;
+	my $normalize_uk_ce_code = sub ($countrycode, $code) {
+
 		$countrycode = uc($countrycode);
 		$code = uc($code);
 		$code =~ s/\s|-|_|\.|\///g;
 		return "$countrycode $code EC";
 	};
 
-	my $normalize_es_ce_code = sub ($$$$) {
-		my $countrycode = shift;
-		my $code1 = shift;
-		my $code2 = shift;
-		my $code3 = shift;
+	my $normalize_es_ce_code = sub ($countrycode, $code1, $code2, $code3) {
+
 		$countrycode = uc($countrycode);
 		$code3 = uc($code3);
 		return "$countrycode $code1.$code2/$code3 EC";
 	};
 
-	my $normalize_ce_code = sub ($$) {
-		my $countrycode = shift;
-		my $code = shift;
+	my $normalize_ce_code = sub ($countrycode, $code) {
+
 		$countrycode = uc($countrycode);
 		$code = uc($code);
 		return "$countrycode $code EC";
 	};
 
-	my $normalize_lu_ce_code = sub ($$) {
-		my $countrycode = shift;
-		my $letters = shift;
+	my $normalize_lu_ce_code = sub ($countrycode, $letters, $number) {
+
 		$letters = uc($letters);
-		my $number = shift;
 		$countrycode = uc($countrycode);
 		return "$countrycode $letters$number EC";
 	};
 
-	my $normalize_rs_ce_code = sub ($$) {
-		my $countrycode = shift;
-		my $code = shift;
+	my $normalize_rs_ce_code = sub ($countrycode, $code) {
+
 		$code = uc($code);
 		return "$countrycode $code EC";
 	};
@@ -203,9 +191,7 @@ my %local_ec = (
 	UK => "EC",
 );
 
-sub localize_packager_code($) {
-
-	my $code = shift;
+sub localize_packager_code($code) {
 
 	my $local_code = $code;
 
@@ -225,9 +211,7 @@ sub localize_packager_code($) {
 
 # Load geocoded addresses
 
-sub get_canon_local_authority($) {
-
-	my $local_authority = shift;
+sub get_canon_local_authority($local_authority) {
 
 	$local_authority =~ s/LB of/London Borough of/;
 	$local_authority =~ s/CC/City Council/;
@@ -256,7 +240,7 @@ sub init_packager_codes() {
 		my $packager_codes_ref = retrieve("$data_root/packager-codes/packager_codes.sto");
 		%packager_codes = %{$packager_codes_ref};
 	}
-
+	return;
 }
 
 sub init_geocode_addresses() {
@@ -266,7 +250,7 @@ sub init_geocode_addresses() {
 		my $geocode_addresses_ref = retrieve("$data_root/packager-codes/geocode_addresses.sto");
 		%geocode_addresses = %{$geocode_addresses_ref};
 	}
-
+	return;
 }
 
 # Slow, so only run these when actually executing, not just checking syntax. See also startup_apache2.pl.

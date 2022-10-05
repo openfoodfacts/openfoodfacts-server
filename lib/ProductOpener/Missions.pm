@@ -20,8 +20,7 @@
 
 package ProductOpener::Missions;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 BEGIN
@@ -160,9 +159,8 @@ sub compute_missions() {
 }
 
 
-sub compute_missions_for_user($) {
+sub compute_missions_for_user($user_ref) {
 
-	my $user_ref = shift;
 	defined $user_ref->{missions} or $user_ref->{missions} = {};
 	$user_ref->{missions} = {};
 

@@ -55,11 +55,16 @@ that are computed from other fields).
 
 The --query-codes-from-file parameter allows to specify a file containing barcodes (one barcode per line).
 
+--export-computed-fields : export fields such as Nutri-Score and NOVA fields that are computed by OFF
+
+--export-canonicalized-tags-fields : export taxonomized fields in the main language of the product
+
 Usage:
 
 export_csv_file.pl --query field_name=field_value --query other_field_name=other_field_value
 [--fields code,ingredients_texts_fr,categories_tags] [--extra_fields nova_group,nutrition_grade_fr]
 [--include-images-paths] [--query-codes-from-file codes]
+
 TXT
 ;
 
@@ -70,6 +75,8 @@ my $extra_fields;
 my $separator = "\t";
 my $include_images_paths;
 my $query_codes_from_file;
+my $export_computed_fields;
+my $export_canonicalized_tags_fields;
 
 GetOptions (
 	"fields=s" => \$fields,
@@ -78,8 +85,10 @@ GetOptions (
 	"separator=s" => \$separator,
 	"include-images-paths" => \$include_images_paths,
 	"query-codes-from-file=s" => \$query_codes_from_file,
-		)
-  or die("Error in command line arguments:\n$\nusage");
+	"export-computed-fields" => \$export_computed_fields,
+	"export-canonicalized-tags-fields" => \$export_canonicalized_tags_fields,
+)
+  or die("Error in command line arguments:\n\n$usage");
 
 print STDERR "export_csv_file.pl
 - fields: $fields
@@ -131,6 +140,14 @@ print STDERR "MongoDB query:\n" . Dumper($query_ref);
 # CSV export
 
 my $args_ref = {filehandle=>*STDOUT, separator=>$separator, query=>$query_ref };
+
+if ($export_computed_fields) {
+	$args_ref->{export_computed_fields} = 1;
+}
+
+if ($export_canonicalized_tags_fields) {
+	$args_ref->{export_canonicalized_tags_fields} = 1;
+}
 
 if ((defined $fields) and ($fields ne "")) {
 	$args_ref->{fields} = [split(/,/, $fields)];

@@ -20,16 +20,18 @@ cc: [% user.initial_cc %]<br>
 <a href="mailto:[% user.email %]?subject=[% mail_subject_new_pro_account %]&cc=producteurs@openfoodfacts.org&body=[% mail_body_new_pro_account %]">E-mail de relance</a>
 <br>
 <br>
-
 [% IF user.requested_org_id %]
 <a href="mailto:[% user.email %]?subject=[% mail_subject_new_pro_account_org_request_validated %]&cc=producteurs@openfoodfacts.org&body=[% mail_body_new_pro_account_org_request_validated %]">E-mail de rattachement à l'organisation</a>
 <br>
 <br>
 [% END %]
-
+<br>
+<a href="https://connect.openfoodfacts.org/web#cids=1&menu_id=111&action=139&model=res.partner&view_type=list">Go to Connect</a>
+<br>
 Here is the tabular data for the producer if they are not in the tracking spreadsheet yet.
 <br>
-<br>Tracking spreadsheet: https://docs.google.com/spreadsheets/d/1Smx74TevmNlPyEqrcCtvN9uJIdUh-mC1cznLCQaV0V8/edit#gid=0
+<a href="https://docs.google.com/spreadsheets/d/1Smx74TevmNlPyEqrcCtvN9uJIdUh-mC1cznLCQaV0V8/edit#gid=0">Tracking spreadsheet</a>
+<br>
 <br>
 <br>
 <table>

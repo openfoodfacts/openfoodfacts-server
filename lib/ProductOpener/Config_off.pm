@@ -48,6 +48,9 @@ BEGIN
 		$crowdin_project_key
 
 		$robotoff_url
+		$events_url
+		$events_username
+		$events_password
 
 		$mongodb
 		$mongodb_host
@@ -134,7 +137,15 @@ use ProductOpener::Config2;
 		unaccent => 1,
 		lowercase => 1,
 	},
+	nl => {
+		unaccent => 1,
+		lowercase => 1,
+	},
 	pt => {
+		unaccent => 1,
+		lowercase => 1,
+	},
+	sk => {
 		unaccent => 1,
 		lowercase => 1,
 	},
@@ -148,7 +159,9 @@ use ProductOpener::Config2;
 %admins = map { $_ => 1 } qw(
 	alex-off
 	charlesnepote
+	gala-nafikova
 	hangy
+	manoncorneille
 	raphael0202
 	stephane
 	tacinte
@@ -159,6 +172,7 @@ $options{export_limit} = 10000;
 
 $options{users_who_can_upload_small_images} = {
 	map { $_ => 1 } qw(
+		manoncorneille
 		systeme-u
 		stephane
 		teolemon
@@ -334,7 +348,15 @@ $google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_
 $crowdin_project_identifier = $ProductOpener::Config2::crowdin_project_identifier;
 $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
 
+# Set this to your instance of https://github.com/openfoodfacts/robotoff/ to
+# enable an in-site robotoff-asker in the product page
 $robotoff_url = $ProductOpener::Config2::robotoff_url;
+
+# Set this to your instance of https://github.com/openfoodfacts/openfoodfacts-events
+# enable creating events for some actions (e.g. when a product is edited)
+$events_url = $ProductOpener::Config2::events_url;
+$events_username = $ProductOpener::Config2::events_username;
+$events_password = $ProductOpener::Config2::events_password;
 
 # server options
 
@@ -357,31 +379,43 @@ $page_size = 24;
 
 $google_analytics = <<HTML
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-31851927-1"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HQX9SYHB2P&aip=1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
-  gtag('config', 'UA-31851927-1');
+  gtag('set', 'allow_google_signals', false);
+  gtag('config', 'G-HQX9SYHB2P', {"anonymize_ip": true, 'allow_google_signals': false});
 </script>
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+  _paq.push(["setCookieDomain", "*.openfoodfacts.org"]);
+  _paq.push(["setDomains", ["*.openfoodfacts.org"]]);
+  _paq.push(["setDoNotTrack", true]);
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//analytics.openfoodfacts.org/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '5']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.openfoodfacts.org/matomo.php?idsite=5&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+<!-- End Matomo Code -->
 
 HTML
 ;
 
 my @icons = (
-	{ "platform" => "ios", "sizes" => "57x57", "src" => "https://static.$server_domain/images/favicon/apple-touch-icon-57x57.png" },
-	{ "platform" => "ios", "sizes" => "60x60", "src" => "https://static.$server_domain/images/favicon/apple-touch-icon-60x60.png" },
-	{ "platform" => "ios", "sizes" => "72x72", "src" => "https://static.$server_domain/images/favicon/apple-touch-icon-72x72.png" },
-	{ "platform" => "ios", "sizes" => "76x76", "src" => "https://static.$server_domain/images/favicon/apple-touch-icon-76x76.png" },
-	{ "platform" => "ios", "sizes" => "114x114", "src" => "https://static.$server_domain/images/favicon/apple-touch-icon-114x114.png" },
-	{ "platform" => "ios", "sizes" => "120x120", "src" => "https://static.$server_domain/images/favicon/apple-touch-icon-120x120.png" },
-	{ "platform" => "ios", "sizes" => "144x144", "src" => "https://static.$server_domain/images/favicon/apple-touch-icon-144x144.png" },
-	{ "platform" => "ios", "sizes" => "152x152", "src" => "https://static.$server_domain/images/favicon/apple-touch-icon-152x152.png" },
-	{ "platform" => "ios", "sizes" => "180x180", "src" => "https://static.$server_domain/images/favicon/apple-touch-icon-180x180.png" },
-	{ "type" => "image/png", "src" => "https://static.$server_domain/images/favicon/favicon-32x32.png", "sizes" => "32x32" },
+	{ "type" => "image/png", "src" => "https://static.$server_domain/images/favicon/android-chrome-512x512.png", "sizes" => "512x512" },
 	{ "type" => "image/png", "src" => "https://static.$server_domain/images/favicon/android-chrome-192x192.png", "sizes" => "192x192" },
-	{ "type" => "image/png", "src" => "https://static.$server_domain/images/favicon/favicon-96x96.png", "sizes" => "96x96" },
+	{ "type" => "image/png", "src" => "https://static.$server_domain/images/favicon/favicon-32x32.png", "sizes" => "32x32" },
 	{ "type" => "image/png", "src" => "https://static.$server_domain/images/favicon/favicon-16x16.png", "sizes" => "16x16" },
 );
 
@@ -403,13 +437,16 @@ $options{mongodb_supports_sample} = 0;  # from MongoDB 3.2 onward
 $options{display_random_sample_of_products_after_edits} = 0;  # from MongoDB 3.2 onward
 
 $options{favicons} = <<HTML
-<link rel="manifest" href="/cgi/manifest.pl">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+<link rel="manifest" href="/images/favicon/site.webmanifest">
 <link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
 <link rel="shortcut icon" href="/images/favicon/favicon.ico">
-<meta name="msapplication-TileColor" content="#da532c">
-<meta name="msapplication-TileImage" content="/images/favicon/mstile-144x144.png">
+<meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
-<meta name="_globalsign-domain-verification" content="2ku73dDL0bAPTj_s1aylm6vxvrBZFK59SfbH_RdUya" />
+<meta name="theme-color" content="#ffffff">
+
 <meta name="apple-itunes-app" content="app-id=588797948">
 <meta name="flattr:id" content="dw637l">
 HTML
@@ -639,6 +676,7 @@ $options{categories_exempted_from_nutrient_levels} = [qw(
 	stores
 	countries
 	ingredients_text
+	ingredients_tags
 	allergens
 	traces
 	serving_size
@@ -646,10 +684,6 @@ $options{categories_exempted_from_nutrient_levels} = [qw(
 	no_nutriments
 	additives_n
 	additives
-	ingredients_from_palm_oil_n
-	ingredients_from_palm_oil
-	ingredients_that_may_be_from_palm_oil_n
-	ingredients_that_may_be_from_palm_oil
 	nutriscore_score
 	nutriscore_grade
 	nova_group
@@ -658,11 +692,12 @@ $options{categories_exempted_from_nutrient_levels} = [qw(
 	food_groups
 	states
 	brand_owner
-	ecoscore_score_fr
-	ecoscore_grade_fr
+	ecoscore_score
+	ecoscore_grade
 );
 
-
+# List of fields that can be imported on the producers platform
+# and that are also exported from the producers platform to the public platform
 $options{import_export_fields_groups} = [
 	[   "identification",
 		[   "code",                      "producer_product_id",
@@ -706,6 +741,28 @@ $options{import_export_fields_groups} = [
 	],
 	[   "images",
 		[   "image_front_url", "image_ingredients_url", "image_nutrition_url", "image_packaging_url", "image_other_url", "image_other_type",
+		]
+	],
+];
+
+# Secondary fields that are computed by OFF from primary data
+# Those fields are only exported, they are not imported.
+$options{off_export_fields_groups} = [
+	[   "off",
+		[
+			"food_groups",
+			"nova_groups",
+			"nutriscore_grade",
+			"nutriscore_score",
+			"ecoscore_grade",
+			"ecoscore_score",
+			"ecoscore_data.missing_key_data",
+			"ecoscore_data.agribalyse.code",
+			"ecoscore_data.adjustments.origins_of_ingredients.value",
+			"ecoscore_data.adjustments.packaging.value",
+			"ecoscore_data.adjustments.packaging.non_recyclable_and_non_biodegradable_materials",
+			"ecoscore_data.adjustments.production_system.value",
+			"ecoscore_data.adjustments.threatened_species.value",
 		]
 	],
 ];
@@ -1373,9 +1430,20 @@ $options{nova_groups_tags} = {
 # Otherwise the org will be created and the source authorized for that org.
 
 $options{import_sources} = {
+	'agena3000' => "Agena3000",
 	'codeonline' => "CodeOnline Food",
 	'equadis' => "Equadis",
 	'database-usda' => "USDA Global Branded Food Products Database",
+};
+
+# Configuration to receive GS1 notification messages and issue GS1 confirmation messages
+
+$options{gs1} = {
+	local_gln => "3770026870013",			# Open Food Facts GS1 GLN identifier
+	agena3000 => {
+		receiver_gln => "3034012285008",	# Agena 3000
+		data_pool_gln => "3027000006006",	# GS1
+	},
 };
 
 # Barcode of a sample product returned through the API when the requested code is "example"

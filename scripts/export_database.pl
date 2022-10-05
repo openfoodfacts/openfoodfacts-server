@@ -78,6 +78,9 @@ sub xml_escape_NFC($) {
 #   VT (013), FF (014 or \f), CR (015 or \r), etc.
 #   See https://en.wikipedia.org/wiki/ASCII
 #
+#   Also replace UTF-8 Line Separator (U+2028) and Paragraph Separator (U+2029):
+#   \xE2\x80\xA8 and \xE2\x80\xA9
+#
 #   TODO? put it in ProductOpener::Data & use it to control data input and output
 #         Q: Do we have to *always* delete \n?
 #   TODO? Send an email if bad-chars?
@@ -85,10 +88,10 @@ sub sanitize_field_content {
 	my $content = (shift(@_) // "");
 	my $LOG = shift(@_);
 	my $log_msg = (shift(@_) // "");
-	if ($content =~ /[\000-\037]/) {
+	if ($content =~ /(\xE2\x80\xA8|\xE2\x80\xA9|[\000-\037])/) {
 		print $LOG "$log_msg $content\n\n---\n" if (defined $LOG);
 		# TODO? replace the bad char by a space or by nothing?
-		$content =~ s/[\000-\037]+/ /g;
+		$content =~ s/(\xE2\x80\xA8|\xE2\x80\xA9|[\000-\037])+/ /g;
 	};
 	return $content;
 }
@@ -283,7 +286,21 @@ XML
 
 		foreach my $field (@export_fields) {
 
-			my $field_value = ($product_ref->{$field} // "");
+			my $field_value;
+
+			# _tags field contain an array of values
+			if ($field =~ /_tags/) {
+				if (defined $product_ref->{$field}) {
+					$field_value = join(',', @{$product_ref->{$field}});
+				}
+				else {
+					$field_value = "";
+				}
+			}
+			# other fields
+			else {
+				$field_value = ($product_ref->{$field} // "");
+			}
 
 			# Language specific field?
 			if ((defined $language_fields{$field}) and (defined $product_ref->{$field . "_" . $l}) and ($product_ref->{$field . "_" . $l} ne '')) {

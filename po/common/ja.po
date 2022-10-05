@@ -5,7 +5,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ja\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-01-14 08:57\n"
 "Language-Team: Japanese\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -14,8 +13,7 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: ja\n"
-"X-Crowdin-File: common.pot\n"
-"X-Crowdin-File-ID: 1808\n"
+"X-Crowdin-File-ID: 2588\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -68,7 +66,7 @@ msgstr "Slackにご参加ください"
 
 msgctxt "add_user_join_the_project"
 msgid "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
-msgstr ""
+msgstr "%s は、新製品よりもはるかに多くのことをあなたがもたらすことができる共同プロジェクトです：それはあなたのエネルギー、熱意、そしてアイデアです！"
 
 msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
@@ -84,7 +82,7 @@ msgstr "これで、製品を追加および編集し、データと写真をプ
 
 msgctxt "add_user_existing_org"
 msgid "There is already an existing organization with the name %s."
-msgstr ""
+msgstr "%sという名前の既存の組織がすでに存在します。"
 
 msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
@@ -122,9 +120,9 @@ msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
 msgstr "組織名（会社名またはブランド）を入力してください。"
 
-msgctxt "this_is_a_pro_account_for_org"
-msgid "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
-msgstr "このアカウントは、プロデューサーまたはブランド %s関連付けられたプロフェッショナルアカウントです。生産者向けプラットフォームにアクセスできます。"
+msgctxt "f_this_is_a_pro_account_for_org"
+msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
+msgstr "このアカウントは、プロデューサーまたは{org} ブランドに関連付けられたプロフェッショナルアカウントです。プロデューサー向けのプラットフォームにアクセスできます。"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -283,7 +281,7 @@ msgstr "Open Food Facts プロジェクトへの資金援助もできます"
 
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
-msgstr ""
+msgstr "生産者管理マニュアル"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
@@ -603,11 +601,11 @@ msgstr "追跡可能性コード"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr ""
+msgstr "トレーサビリティコード"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
-msgstr ""
+msgstr "トレーサビリティコード"
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
@@ -681,6 +679,14 @@ msgstr "無効なユーザー。"
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "ユーザー名はアクセントのない文字、数字、ダッシュのみ含めることができます。"
+
+msgctxt "error_username_too_long"
+msgid "The user name is too long (maximum 20 characters)."
+msgstr ""
+
+msgctxt "error_name_too_long"
+msgid "The name is too long (maximum 60 characters)."
+msgstr ""
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -760,8 +766,8 @@ msgstr "<<site_name>> のブログ"
 
 # Do not translate
 msgctxt "footer_blog_link"
-msgid "https://en.blog.openfoodfacts.org"
-msgstr "https://en.blog.openfoodfacts.org"
+msgid "https://blog.openfoodfacts.org/en/"
+msgstr "https://blog.openfoodfacts.org/ja/"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -791,8 +797,8 @@ msgstr "よくある質問"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
-msgid "/faq"
-msgstr "/faq"
+msgid "https://support.openfoodfacts.org/help/en-gb"
+msgstr "https://support.openfoodfacts.org/help/ja-jp"
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -1014,6 +1020,18 @@ msgstr "情報提供者"
 msgctxt "ingredients"
 msgid "Ingredients"
 msgstr "原材料"
+
+msgctxt "no_ingredient"
+msgid "Ingredients are missing"
+msgstr ""
+
+msgctxt "one_ingredient"
+msgid "1 ingredient"
+msgstr ""
+
+msgctxt "f_ingredients_with_number"
+msgid "{number} ingredients"
+msgstr ""
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
@@ -1553,14 +1571,14 @@ msgstr "栄養グレード"
 
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
-msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
-msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
+msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
+msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
-msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
+msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://blog.openfoodfacts.org/en/\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr "<p>詳細は <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">私たちのブログ</a> をご覧ください!</p>\n"
+msgstr "<p><<site_name>> の詳細については、 <a href=\"https://blog.openfoodfacts.org/ja/\">ブログ</a>をご覧ください。</p>\n"
 "<p>最近のニュース:</p>\n"
 
 msgctxt "on_the_blog_title"
@@ -2280,7 +2298,7 @@ msgstr "製品ページを参照してください。"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr "販売の国"
+msgstr "国"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2438,6 +2456,7 @@ msgctxt "tagstable_search"
 msgid "Search:"
 msgstr "検索:"
 
+# This is linked to a unit test
 msgctxt "traces"
 msgid "Traces"
 msgstr "形跡"
@@ -2464,7 +2483,7 @@ msgstr "Twitter ユーザー名 (オプション)"
 
 msgctxt "twitter_account"
 msgid "OpenFoodFacts"
-msgstr "OpenFoodFactsJp"
+msgstr ""
 
 msgctxt "unknown"
 msgid "Unknown"
@@ -2552,9 +2571,9 @@ msgstr "全世界からの結果を表示"
 
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
-"→ <a href=\"/faq#pictures_and_data_from_other_sites\">Why it matters</a>"
-msgstr "必ず情報は(他のサイトや製造者のサイトからは取得せず) 製品の包装やラベルから取得し、写真も自分で撮影したものを使用してください。<br/>\n"
-"→ 理由は<a href=\"/faq#pictures_and_data_from_other_sites\">こちら</a>をご覧ください。"
+"→ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">Why it matters</a>"
+msgstr "情報およびデータは、製品パッケージおよびラベルから取得する必要があります(他のサイトまたは製造元のサイトからではありません)。 あなた自身が撮った写真でなければなりません。<br/>\n"
+"→ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">なぜ重要なのか</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -2615,16 +2634,16 @@ msgid "Warning: the amount of fruits, vegetables and nuts is not specified, thei
 msgstr "警告: 果物、野菜、ナッツの量が指定されていません。グレードへのプラスの貢献の可能性は考慮されませんでした。"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d%"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
 msgstr ""
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
-msgstr "警告: 果物、野菜、ナッツの量はラベルに明記されていません。製品のカテゴリー (%s) から推定されました: %d%"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
+msgstr ""
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr "警告: 果物、野菜、ナッツの量はラベルに明記されていません。原材料のリストから推定されました: %d%"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
+msgstr ""
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -3030,15 +3049,15 @@ msgstr "レシピのアイデア"
 
 msgctxt "origin"
 msgid "Origin of the product and/or its ingredients"
-msgstr ""
+msgstr "製品および/またはその成分の原産国"
 
 msgctxt "origin_note"
 msgid "Packaging mentions that indicate the manufacturing place and/or the origins of the ingredients"
-msgstr ""
+msgstr "成分の製造場所および/または原産国を示す包装に関する記述があります"
 
 msgctxt "origin_example"
 msgid "Made in France. Tomatoes from Italy. Origin of the rice: India, Thailand."
-msgstr ""
+msgstr "フランス製。イタリア産のトマト。米の原産地：インド、タイ。"
 
 msgctxt "customer_service"
 msgid "Customer service"
@@ -3338,7 +3357,7 @@ msgstr "商品の識別"
 
 msgctxt "fields_group_origins"
 msgid "Origins"
-msgstr ""
+msgstr "原産国"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
@@ -3350,7 +3369,7 @@ msgstr "栄養成分表"
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
-msgstr ""
+msgstr "オプションの栄養成分"
 
 msgctxt "fields_group_other"
 msgid "Other information"
@@ -3567,181 +3586,181 @@ msgstr "取消"
 
 msgctxt "collapsed_changes"
 msgid "Collapsed changes"
-msgstr ""
+msgstr "折りたたまれた変更"
 
 msgctxt "data_quality_p"
 msgid "data quality"
-msgstr ""
+msgstr "データ品質"
 
 msgctxt "data_quality_s"
 msgid "data quality"
-msgstr ""
+msgstr "データ品質"
 
 msgctxt "data_quality"
 msgid "data quality"
-msgstr ""
+msgstr "データ品質"
 
 msgctxt "data_quality_bugs_p"
 msgid "data quality bugs"
-msgstr ""
+msgstr "データ品質のバグ"
 
 msgctxt "data_quality_bugs_s"
 msgid "data quality bug"
-msgstr ""
+msgstr "データ品質のバグ"
 
 msgctxt "data_quality_bugs"
 msgid "data quality bugs"
-msgstr ""
+msgstr "データ品質のバグ"
 
 msgctxt "data_quality_info_p"
 msgid "data quality info"
-msgstr ""
+msgstr "データ品質情報"
 
 msgctxt "data_quality_info_s"
 msgid "data quality info"
-msgstr ""
+msgstr "データ品質情報"
 
 msgctxt "data_quality_info"
 msgid "data quality info"
-msgstr ""
+msgstr "データ品質情報"
 
 msgctxt "data_quality_warnings_p"
 msgid "data quality warnings"
-msgstr ""
+msgstr "データ品質の警告"
 
 msgctxt "data_quality_warnings_s"
 msgid "data quality warning"
-msgstr ""
+msgstr "データ品質の警告"
 
 msgctxt "data_quality_warnings"
 msgid "data quality warnings"
-msgstr ""
+msgstr "データ品質の警告"
 
 msgctxt "data_quality_errors_p"
 msgid "data quality errors"
-msgstr ""
+msgstr "データ品質のエラー"
 
 msgctxt "data_quality_errors_s"
 msgid "data quality error"
-msgstr ""
+msgstr "データ品質のエラー"
 
 msgctxt "data_quality_errors"
 msgid "data quality errors"
-msgstr ""
+msgstr "データ品質のエラー"
 
 msgctxt "data_quality_warnings_producers_p"
 msgid "data quality warnings"
-msgstr ""
+msgstr "データ品質の警告"
 
 msgctxt "data_quality_warnings_producers_s"
 msgid "data quality warning"
-msgstr ""
+msgstr "データ品質の警告"
 
 msgctxt "data_quality_warnings_producers"
 msgid "data quality warnings"
-msgstr ""
+msgstr "データ品質の警告"
 
 msgctxt "data_quality_errors_producers_p"
 msgid "data quality errors"
-msgstr ""
+msgstr "データ品質のエラー"
 
 msgctxt "data_quality_errors_producers_s"
 msgid "data quality error"
-msgstr ""
+msgstr "データ品質のエラー"
 
 msgctxt "data_quality_errors_producers"
 msgid "data quality errors"
-msgstr ""
+msgstr "データ品質のエラー"
 
 # abbreviation for Minimum
 msgctxt "min"
 msgid "Min"
-msgstr ""
+msgstr "最小"
 
 # abbreviation for Maximum
 msgctxt "max"
 msgid "Max"
-msgstr ""
+msgstr "最大"
 
 msgctxt "improvements_p"
 msgid "possible improvements"
-msgstr ""
+msgstr "可能な改善"
 
 msgctxt "improvements_s"
 msgid "possible improvement"
-msgstr ""
+msgstr "可能な改善"
 
 msgctxt "improvements"
 msgid "possible improvements"
-msgstr ""
+msgstr "可能な改善"
 
 # Do not translate
 msgctxt "import_products_link"
 msgid "/import-products"
-msgstr ""
+msgstr "/import-products"
 
 msgctxt "add_or_update_products"
 msgid "Add or update products"
-msgstr ""
+msgstr "製品の追加または更新"
 
 # Formal you
 msgctxt "your_products"
 msgid "Your products"
-msgstr ""
+msgstr "あなたの製品"
 
 # Do not translate the e-mail address
 msgctxt "account_without_org"
 msgid "Your account is not associated with a company yet. Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to activate the free access to the platform for producers."
-msgstr ""
+msgstr "あなたのアカウントはまだ会社に関連付けられていません。生産者のプラットフォームへの無料アクセスを有効にするには、 <a href=\"mailto:producers@openfoodfacts.org\">@</a> に電子メールを送信してください。"
 
 msgctxt "import_products"
 msgid "Import products"
-msgstr ""
+msgstr "商品をインポート"
 
 msgctxt "empty_column"
 msgid "Empty column"
-msgstr ""
+msgstr "空の列"
 
 msgctxt "empty_column_description"
 msgid "The file does not contain any value in this column."
-msgstr ""
+msgstr "ファイルのこの列には値が含まれていません。"
 
 msgctxt "import_file_status_title"
 msgid "Data import in progress"
-msgstr ""
+msgstr "データのインポート中"
 
 # "product data" means data for many products
 msgctxt "import_file_status_description"
 msgid "The product data has been received and is going to be imported on the platform for producers."
-msgstr ""
+msgstr "製品データが受信され、生産者向けのプラットフォームにインポートされる予定です。"
 
 msgctxt "import_file_status"
 msgid "Status"
-msgstr ""
+msgstr "状態"
 
 msgctxt "job_status_inactive"
 msgid "Scheduled"
-msgstr ""
+msgstr "予約済み"
 
 msgctxt "job_status_active"
 msgid "In progress"
-msgstr ""
+msgstr "進行中"
 
 msgctxt "job_status_finished"
 msgid "Finished"
-msgstr ""
+msgstr "完了"
 
 msgctxt "job_status_failed"
 msgid "Failed"
-msgstr ""
+msgstr "失敗"
 
 msgctxt "import_file_result"
 msgid "Import result"
-msgstr ""
+msgstr "インポート結果"
 
 msgctxt "products_added"
 msgid "Products added"
-msgstr ""
+msgstr "追加された商品"
 
 msgctxt "products_modified"
 msgid "Products modified"
@@ -3781,11 +3800,11 @@ msgstr "改善待ちの製品数"
 
 msgctxt "improvements_facet_description_1"
 msgid "This table lists possible opportunities to improve the nutritional quality, the Nutri-Score and the composition of food products."
-msgstr ""
+msgstr "この表は栄養の質、Nutri-Score(栄養スコア)、及び食品の組成を改善する可能性のある機会を示しています。"
 
 msgctxt "improvements_facet_description_2"
 msgid "In order to get relevant results, please make sure the product data is complete (nutrition facts with values for fiber and fruits and vegetables to compute the Nutri-Score, and a precise category to compare each product to similar products)."
-msgstr ""
+msgstr "関連する結果を得るには、製品データが完全であることを確認してください（Nutri-Score(栄養スコア)を計算するための繊維、果物、野菜の値を含む栄養成分、および各製品を類似の製品と比較するための正確なカテゴリ）。"
 
 # "product photos" in this sentence means photos for many products, not just one product
 msgctxt "import_photos_title"
@@ -3794,47 +3813,47 @@ msgstr "製品の写真をインポート"
 
 msgctxt "import_photos_description"
 msgid "You can use the form below to easily upload photos (front of product, ingredients list and nutrition facts table) for many products."
-msgstr ""
+msgstr "以下のフォームを使用して、多くの製品の写真（製品の前面、成分リスト、栄養成分表）を簡単にアップロードできます。"
 
 msgctxt "import_photos_format_1"
 msgid "Each filename needs to contains the barcode of the product."
-msgstr ""
+msgstr "各ファイル名には、製品のバーコードが含まれている必要があります。"
 
 msgctxt "import_photos_format_2"
 msgid "And you can also specify the type of the photo in the filename:"
-msgstr ""
+msgstr "また、ファイル名で写真の種類を指定することもできます。"
 
 # Do not translate the file name
 msgctxt "import_photos_format_barcode"
 msgid "3001234567890.jpg: front of the product in the current language."
-msgstr ""
+msgstr "3001234567890.jpg：現在の言語での製品の前面。"
 
 # Do not translate the file name
 msgctxt "import_photos_format_front"
 msgid "3001234567890.front_nl.jpg: front of the product in Dutch."
-msgstr ""
+msgstr "3001234567890.front_nl.jpg：オランダ語の製品の前面。"
 
 # Do not translate the file name
 msgctxt "import_photos_format_ingredients"
 msgid "3001234567890.ingredients_fr.jpg: ingredients list in French."
-msgstr ""
+msgstr "3001234567890.ingredients_fr.jpg：フランス語の材料リスト。"
 
 # Do not translate the file name
 msgctxt "import_photos_format_nutrition"
 msgid "3001234567890.nutrition_es.jpg: nutrition table in Spanish."
-msgstr ""
+msgstr "3001234567890.nutrition_es.jpg：スペイン語の栄養成分表。"
 
 msgctxt "add_photos"
 msgid "Add photos..."
-msgstr ""
+msgstr "写真を追加..."
 
 msgctxt "start_upload"
 msgid "Start upload"
-msgstr ""
+msgstr "アップロード開始"
 
 msgctxt "start"
 msgid "Start"
-msgstr ""
+msgstr "開始"
 
 msgctxt "close"
 msgid "Close"
@@ -3842,55 +3861,55 @@ msgstr "閉じる"
 
 msgctxt "cancel_upload"
 msgid "Cancel upload"
-msgstr ""
+msgstr "アップロードをキャンセル"
 
 msgctxt "info"
 msgid "Info"
-msgstr ""
+msgstr "情報"
 
 msgctxt "file_received"
 msgid "File received"
-msgstr ""
+msgstr "ファイルを受信しました"
 
 msgctxt "nutriscore_calculation_details"
 msgid "Details of the calculation of the Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score(栄養スコア)の計算の詳細"
 
 msgctxt "nutriscore_is_beverage"
 msgid "This product is considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "この製品は、Nutri-Score(栄養スコア)の計算用の飲料と見なされます。"
 
 msgctxt "nutriscore_is_not_beverage"
 msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "この製品は、Nutri-Score(栄養スコア)の計算用の飲料とは見なされません。"
 
 msgctxt "nutriscore_positive_points"
 msgid "Positive points"
-msgstr ""
+msgstr "加点"
 
 msgctxt "nutriscore_negative_points"
 msgid "Negative points"
-msgstr ""
+msgstr "減点"
 
 msgctxt "nutriscore_proteins_negative_points_less_than_11"
 msgid "The points for proteins are counted because the negative points are less than 11."
-msgstr ""
+msgstr "負のポイントが11未満であるため、タンパク質のポイントがカウントされます。"
 
 msgctxt "nutriscore_proteins_negative_points_greater_or_equal_to_11"
 msgid "The points for proteins are not counted because the negative points are greater or equal to 11."
-msgstr ""
+msgstr "タンパク質の点数は、負の点数が11以上であるため、カウントされません。"
 
 msgctxt "nutriscore_proteins_maximum_fruits_points"
 msgid "The points for proteins are counted because the points for the fruits, vegetables, nuts and colza/walnut/olive oils are at the maximum."
-msgstr ""
+msgstr "タンパク質のポイントは、果物、野菜、ナッツ、菜種/クルミ/オリーブオイルのポイントが最大であるため、カウントされます。"
 
 msgctxt "nutriscore_proteins_is_cheese"
 msgid "The points for proteins are counted because the product is in the cheeses category."
-msgstr ""
+msgstr "タンパク質のポイントは、製品がチーズのカテゴリーにあるのでカウントされます。"
 
 msgctxt "nutriscore_proteins_is_added_fat"
 msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
-msgstr ""
+msgstr "製品は脂肪カテゴリにあり、飽和脂肪分のポイントは飽和脂肪/脂肪比のポイントに置き換えられます。"
 
 msgctxt "nutriscore_points_for_energy"
 msgid "Energy"
@@ -3906,7 +3925,7 @@ msgstr "飽和脂肪酸"
 
 msgctxt "nutriscore_points_for_saturated_fat_ratio"
 msgid "Saturated fat / fat ratio"
-msgstr ""
+msgstr "飽和脂肪/脂肪比"
 
 msgctxt "nutriscore_points_for_sodium"
 msgid "Sodium"
@@ -3914,11 +3933,11 @@ msgstr "ナトリウム"
 
 msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
 msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
-msgstr ""
+msgstr "果物、野菜、ナッツ、菜種/クルミ/オリーブオイル"
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
-msgstr "食物繊維"
+msgstr "繊維"
 
 msgctxt "nutriscore_points_for_proteins"
 msgid "Proteins"
@@ -3930,36 +3949,36 @@ msgstr "値"
 
 msgctxt "nutriscore_rounded_value"
 msgid "rounded value"
-msgstr ""
+msgstr "四捨五入した値"
 
 msgctxt "nutriscore_score"
 msgid "Nutritional score"
-msgstr ""
+msgstr "栄養スコア"
 
 # Do not translate
 msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score"
 
 # This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
 msgid "Nutri-Score score"
-msgstr ""
+msgstr "Nutri-Score(栄養スコア)の点数"
 
 # Do not translate
 msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score"
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
 msgid "Open Food Facts is 100% free and independent."
-msgstr ""
+msgstr "Open Food Facts は 100% 無料で独立運営しています。"
 
 # leave empty link
 msgctxt "donate_help_and_donations"
 msgid "<a href=\"\">We need your help and donations</a> to continue and to grow the project."
-msgstr ""
+msgstr "プロジェクトを継続し成長させるためには、<a href=\"\">あなたの助けと寄付が必要です</a> 。"
 
 msgctxt "thank_you"
 msgid "Thank you!"
@@ -3967,25 +3986,25 @@ msgstr ""
 
 msgctxt "value_for_the_product"
 msgid "Value for the product"
-msgstr ""
+msgstr "製品の値"
 
 # Do not translate %s, it will be replaced by the category name
 msgctxt "value_for_the_category"
 msgid "Mean value for the %s category"
-msgstr ""
+msgstr "%s カテゴリの平均値"
 
 # Keep the %s
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
-msgstr ""
+msgstr "Nutri-Score(栄養スコア)は %s から %s に変更することで %s の値を %s から %s に変更することができます(%s パーセント差)。"
 
 msgctxt "export_products_to_public_database_email"
 msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
-msgstr ""
+msgstr "生産者のためのプラットフォームはまだ開発中であり、公開データベースに製品をインポートする前に手動でチェックします。 公開データベースを更新するには、 <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> までメールでご連絡ください。"
 
 msgctxt "user_groups"
 msgid "Groups"
-msgstr ""
+msgstr "グループ"
 
 msgctxt "user_group_producer"
 msgid "Producer"
@@ -3993,169 +4012,169 @@ msgstr "生産者"
 
 msgctxt "user_group_producer_description"
 msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
-msgstr ""
+msgstr "自分の製品を編集する生産者のアカウントにのみチェックする必要があります。 製品の所有権は、製品を追加または編集する際に生産者に帰属します。"
 
 msgctxt "user_group_database"
 msgid "Database"
-msgstr ""
+msgstr "データベース"
 
 msgctxt "user_group_database_description"
 msgid "For external sources of data. Product ownership of imported products will not change."
-msgstr ""
+msgstr "外部データソースの場合、インポートされた製品の製品所有権は変更されません。"
 
 msgctxt "user_group_app"
 msgid "App"
-msgstr ""
+msgstr "アプリ"
 
 msgctxt "user_group_app_description"
 msgid "For applications."
-msgstr ""
+msgstr "アプリケーション用。"
 
 msgctxt "user_group_bot"
 msgid "Bot"
-msgstr ""
+msgstr "ボット"
 
 msgctxt "user_group_bot_description"
 msgid "For robots, scripts etc."
-msgstr ""
+msgstr "ロボット用、スクリプトなど。"
 
 msgctxt "user_group_moderator"
 msgid "Moderator"
-msgstr ""
+msgstr "モデレータ"
 
 msgctxt "user_group_moderator_description"
 msgid "Moderators have access to special features to edit and review products."
-msgstr ""
+msgstr "モデレータは、製品の編集とレビューのための特別な機能にアクセスできます。"
 
 msgctxt "user_group_pro_moderator"
 msgid "Moderator for the producers platform"
-msgstr ""
+msgstr "生産者向けモデレータ"
 
 msgctxt "user_group_pro_moderator_description"
 msgid "Moderators of the producers platform can view and edit the private products of all users and organizations on the producers platform."
-msgstr ""
+msgstr "生産者プラットフォームのモデレータは、生産者プラットフォーム上のすべてのユーザーと組織のプライベート製品を表示および編集できます。"
 
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
-msgstr ""
+msgstr "私はすでに寄付しているか、興味がありません。バナーを隠してください。"
 
 msgctxt "donation_banner_independant"
 msgid "An independant and citizen-led project for food transparency?"
-msgstr ""
+msgstr "食品の透明性のための独立した市民主導のプロジェクト?"
 
 msgctxt "donation_banner_public_health"
 msgid "Food product data for research that improves public health?"
-msgstr ""
+msgstr "公衆衛生を向上させる研究のための食品データ?"
 
 msgctxt "donation_banner_choices"
 msgid "Easier and better food choices according to your own criteria?"
-msgstr ""
+msgstr "あなた自身の基準に従って、より簡単でより良い食品の選択？"
 
 msgctxt "donation_banner_cta"
 msgid "We need your support!"
-msgstr ""
+msgstr "ご協力をお願いします！"
 
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
-msgstr ""
+msgstr "寄付をお願いします"
 
 msgctxt "alcohol_warning"
 msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-msgstr ""
+msgstr "アルコールの過剰摂取は健康に有害であり、適度に摂取する必要があります。"
 
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
-msgstr ""
+msgstr "生産者プラットフォームのモデレーション"
 
 msgctxt "pro_moderator_owner_set"
 msgid "You are currently viewing products from %s."
-msgstr ""
+msgstr "現在 %s からの商品を表示しています。"
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
-msgstr ""
+msgstr "現在、自分の製品を表示しています。"
 
 msgctxt "pro_moderator_edit_owner_description"
 msgid "To see products from a specific user or organization, enter its id below. Leave field empty to unset."
-msgstr ""
+msgstr "特定のユーザーまたは組織の製品を表示するには、IDを入力してください。未設定の場合は項目を空白のままにします。"
 
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
 msgid "Change"
-msgstr ""
+msgstr "変更"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
-msgstr ""
+msgstr "user-abcまたはorg-xyz"
 
 # keep %s, it is a variable for the name of the user
 msgctxt "error_user_does_not_exist"
 msgid "User %s does not exist"
-msgstr ""
+msgstr "ユーザー %s は存在しません"
 
 msgctxt "error_malformed_owner"
 msgid "The id must be of the form user-abc or org-xyz"
-msgstr ""
+msgstr "IDはuser-abcまたはorg-xyzの形式でなければなりません"
 
 msgctxt "import_products_categories_from_public_database"
 msgid "Import product categories from the public database"
-msgstr ""
+msgstr "公開データベースから製品カテゴリをインポートします"
 
 msgctxt "import_products_categories_from_public_database_description"
 msgid "Add categories from the public database to the products on the platform for producers."
-msgstr ""
+msgstr "公開データベースから生産者向けのプラットフォーム上の製品にカテゴリを追加します。"
 
 msgctxt "import_products_categories"
 msgid "Import the categories"
-msgstr ""
+msgstr "カテゴリデータのインポート"
 
 msgctxt "nutri_score_score_from_producer"
 msgid "Nutri-Score score from producer"
-msgstr ""
+msgstr "生産者からのNutri-Score(栄養スコア)"
 
 msgctxt "nutri_score_score_calculated"
 msgid "Calculated Nutri-Score score"
-msgstr ""
+msgstr "計算されたNutri-Score(栄養スコア)の点数"
 
 msgctxt "nutri_score_grade_from_producer"
 msgid "Nutri-Score grade from producer"
-msgstr ""
+msgstr "生産者からのNutri-Score(栄養スコア)グレード"
 
 msgctxt "nutri_score_grade_calculated"
 msgid "Calculated Nutri-Score grade"
-msgstr ""
+msgstr "計算されたNutri-Score(栄養スコア)のグレード"
 
 msgctxt "scanned_code"
 msgid "Scanned code"
-msgstr ""
+msgstr "スキャンされたコード"
 
 msgctxt "code_from_filename"
 msgid "Code from file name"
-msgstr ""
+msgstr "ファイル名からのコード"
 
 msgctxt "using_previous_code"
 msgid "Using previous code"
-msgstr ""
+msgstr "前のコードを使用する"
 
 msgctxt "add_field_values"
 msgid "You can specify field values that will be added to all products for which you will send images."
-msgstr ""
+msgstr "画像を送信するすべての製品に追加されるフィールド値を指定できます。"
 
 msgctxt "add_tag_field"
 msgid "Add a field"
-msgstr ""
+msgstr "フィールドの追加"
 
 msgctxt "remove_products"
 msgid "Remove all the products"
-msgstr ""
+msgstr "すべての製品を削除"
 
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
-msgstr ""
+msgstr "生産者向けのプラットフォームからすべての製品を削除する"
 
 msgctxt "remove_products_from_producers_platform_description"
 msgid "You can remove all your products from the platform for producers, for instance to start with a clean slate if there were some issues with an import. This will not affect your products in the public database."
-msgstr ""
+msgstr "プロデューサーのプラットフォームからすべての製品を削除できます。たとえば、インポートで問題が発生した場合は、白紙の状態から始めることができます。これは、公開データベース内の製品には影響しません。"
 
 msgctxt "this_action_cannot_be_undone"
 msgid "Please note that this action cannot be undone."
@@ -4175,99 +4194,115 @@ msgstr "あなたの製品は生産者向けプラットフォームから削除
 
 msgctxt "ingredients_analysis_details"
 msgid "Details of the analysis of the ingredients"
-msgstr ""
+msgstr "成分分析の詳細"
 
 msgctxt "some_unknown_ingredients"
 msgid "Some ingredients could not be recognized."
-msgstr ""
+msgstr "一部の成分が認識できませんでした。"
 
 # variable names between { } must not be translated
 msgctxt "f_move_data_and_photos_to_main_language"
 msgid "Move all data and selected photos in {language} to the main language of the product: {main_language}"
-msgstr ""
+msgstr "{language}でのすべてのデータと選択した写真を製品のメイン言語に移動します: {main_language}"
 
 msgctxt "move_data_and_photos_to_main_language_replace"
 msgid "Replace existing values and selected photos"
-msgstr ""
+msgstr "既存の値と選択した写真を置き換え"
 
 msgctxt "move_data_and_photos_to_main_language_ignore"
 msgid "Keep existing values and selected photos"
-msgstr ""
+msgstr "既存の値と選択した写真を保持"
 
 msgctxt "done_status"
 msgid "Done"
-msgstr ""
+msgstr "完了"
 
 msgctxt "to_do_status"
 msgid "To do"
-msgstr ""
+msgstr "To do"
 
 msgctxt "teams"
 msgid "Teams"
-msgstr ""
+msgstr "チーム"
 
 msgctxt "optional"
 msgid "optional"
-msgstr ""
+msgstr "オプション"
 
 msgctxt "teams_p"
 msgid "teams"
-msgstr ""
+msgstr "チーム"
 
 msgctxt "teams_s"
 msgid "team"
-msgstr ""
+msgstr "チーム"
 
 msgctxt "teams_description"
 msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
-msgstr ""
+msgstr "1〜3チームに参加できます。追加または編集した製品は、あなたとあなたのチームにクレジットされます。チームはいつでも変更できます。"
 
 msgctxt "teams_names_warning"
 msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
-msgstr ""
+msgstr "チーム名は一般に公開されています。個人データ（名字など）や商標（自分が所有している場合を除く）、または不快なものを含む名前でチームを作成しないでください。"
 
 # keep %s, it can be a number "Team 1" or a name "Team XYZ"
 msgctxt "team_s"
 msgid "Team %s"
-msgstr ""
+msgstr "チーム %s"
+
+msgctxt "contributor_settings"
+msgid "Contributor"
+msgstr "貢献者"
+
+msgctxt "contributor_settings_description"
+msgid "Those settings allow you to personalize some aspect of the website"
+msgstr "これらの設定により、Webサイトの一部の側面をパーソナライズできます"
+
+msgctxt "display_barcode_in_search"
+msgid "Display barcode in search results"
+msgstr "検索結果にバーコードを表示する"
+
+msgctxt "edit_link_in_search"
+msgid "Add an edit link in search results"
+msgstr "検索結果に編集リンクを追加"
 
 # leave the %d, it will be replaced by a number
 msgctxt "n_products_will_be_exported"
 msgid "%d products will be exported."
-msgstr ""
+msgstr "%d 件の製品がエクスポートされます。"
 
 msgctxt "ciqual_food_name"
 msgid "CIQUAL food name"
-msgstr ""
+msgstr "CIQUAL食品名"
 
 msgctxt "ciqual_food_name_s"
 msgid "CIQUAL food name"
-msgstr ""
+msgstr "CIQUAL食品名"
 
 msgctxt "ciqual_food_name_p"
 msgid "CIQUAL food names"
-msgstr ""
+msgstr "CIQUAL食品名"
 
 msgctxt "we_need_your_help"
 msgid "We need your help!"
-msgstr ""
+msgstr "ご協力をお願いします！"
 
 msgctxt "you_can_help_improve_ingredients_analysis"
 msgid "You can help us recognize more ingredients and better analyze the list of ingredients for this product and others by:"
-msgstr ""
+msgstr "あなたは私たちがより多くの成分を認識し、この製品や他の製品の成分のリストをよりよく分析するのを助けることができます："
 
 msgctxt "help_improve_ingredients_analysis_1"
 msgid "Edit this product page to correct spelling mistakes in the ingredients list, and/or to remove ingredients in other languages and sentences that are not related to the ingredients."
-msgstr ""
+msgstr "この製品ページを編集して、材料リストのスペルミスを修正したり、材料に関連しない他の言語や文の材料を削除したりします。"
 
 msgctxt "help_improve_ingredients_analysis_2"
 msgid "Add new entries, synonyms or translations to our multilingual lists of ingredients, ingredient processing methods, and labels."
-msgstr ""
+msgstr "成分、成分処理方法、およびラベルの多言語リストに、新しいエントリ、同義語、または翻訳を追加します。"
 
 # Do not translate #ingredients
 msgctxt "help_improve_ingredients_analysis_instructions"
 msgid "Join the #ingredients channel on <a href=\"https://slack.openfoodfacts.org\">our Slack discussion space</a> and/or learn about <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingredients analysis on our wiki</a>, if you would like to help. Thank you!"
-msgstr ""
+msgstr "手助けしたい場合は <a href=\"https://slack.openfoodfacts.org\">Slackのディスカッションスペース</a> で#ingredientsチャンネルに参加したり、 <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">wiki上の成分分析</a>について学んだりしてみてください。ありがとうございます！"
 
 msgctxt "footer_producers_link"
 msgid "https://world.pro.openfoodfacts.org/"
@@ -4275,154 +4310,155 @@ msgstr "https://jp.pro.openfoodfacts.org/"
 
 msgctxt "footer_producers"
 msgid "Producers"
-msgstr ""
+msgstr "生産者"
 
 # %s will be replaced by the language name
 msgctxt "add_ingredients_in_language"
 msgid "If this product has an ingredients list in %s, please add it."
-msgstr ""
+msgstr "この製品の成分リストが %s にある場合は、追加してください。"
 
 msgctxt "missing_barcode"
 msgid "Missing barcode"
-msgstr ""
+msgstr "バーコードがありません"
 
 msgctxt "invalid_barcode"
 msgid "Invalid barcode"
-msgstr ""
+msgstr "無効なバーコード"
 
 # Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
 msgctxt "text_direction"
 msgid "ltr"
-msgstr ""
+msgstr "ltr"
 
 msgctxt "separate_values_with_commas"
 msgid "Separate multiple values with commas."
-msgstr ""
+msgstr "複数のラベルはコンマで区切ります。"
 
 msgctxt "lc_note"
 msgid "If the product's packaging is in multiple languages, indicate the most visible language on the product."
-msgstr ""
+msgstr "製品のパッケージが複数の言語である場合は、製品で最も多く目に見える言語を示します。"
 
 msgctxt "obsolete_import_note"
 msgid "Enter Yes, Y or 1 if the product is no longer available in stores."
-msgstr ""
+msgstr "製品が店舗で利用できなくなった場合は、「はい」、「Y」または「1」と入力します。"
 
 msgctxt "specify_value_and_unit_or_use_default_unit"
 msgid "Specify both the value and unit, or use the default unit: %s"
-msgstr ""
+msgstr "値と単位の両方を指定するか、デフォルトの単位を使用します： %s"
 
 msgctxt "specify_value_and_unit"
 msgid "Specify both the value and unit."
-msgstr ""
+msgstr "値と単位の両方を指定します。"
 
 msgctxt "download_sample_import_file"
 msgid "Download an XLSX template file for Excel or LibreOffice with the fields that can be imported."
-msgstr ""
+msgstr "インポート可能な項目を含むExcelまたはLibreOffice用のXLSXテンプレートファイルをダウンロードします。"
 
 msgctxt "code_import_note"
 msgid "Barcode as it appears on the product."
-msgstr ""
+msgstr "製品に表示されているバーコード。"
 
 msgctxt "producer_product_id_import_note"
 msgid "Internal code used by the producer to identify the product, different from the product's barcode."
-msgstr ""
+msgstr "生産者が製品を識別するために使用する内部コードで、製品のバーコードとは異なります。"
 
 msgctxt "producer_version_id_import_note"
 msgid "Internal code used by the producer to identify a specific version of a product when it changes."
-msgstr ""
+msgstr "製品が変更されたときに製品の特定のバージョンを識別するために生産者が使用する内部コード。"
 
 msgctxt "categories_import_note"
 msgid "Providing a category is very important to make the product easy to search for, and to compute the Nutri-Score"
-msgstr ""
+msgstr "カテゴリを提供することは、製品を検索しやすくし、Nutri-Score を計算するために非常に重要です。"
 
 msgctxt "labels_import_note"
 msgid "Some labels such as the organic label are used to filter and/or rank search results, so it is strongly recommended to specify them."
-msgstr ""
+msgstr "オーガニックラベルなどのラベルは検索結果のフィルタリングやランク付けに使用されるため、指定することを強くお勧めします。"
 
 msgctxt "origins_import_note"
 msgid "This field must contain only a comma separated list of countries of origin of the ingredients"
-msgstr ""
+msgstr "このフィールドには、原材料の原産国のコンマ区切りのリストのみを含める必要があります"
 
 msgctxt "origin_import_note"
 msgid "Text or sentences that indicate the origin of the product and/or its ingredients."
-msgstr ""
+msgstr "製品および/またはその成分の原産国を示すテキストまたは文章。"
 
 msgctxt "nutriscore_grade_producer_note"
 msgid "Nutri-Score grade from A to E displayed on the product label"
-msgstr ""
+msgstr "製品ラベルに表示されているAからEまでのNutri-Score(栄養スコア)のグレード"
 
 msgctxt "nutriscore_grade_producer_import_note"
 msgid "Open Food Facts computes the Nutri-Score grade based on the information provided (nutrition facts and category). If the grade we compute is different from the grade you provide, you will get a private notification on the producers platform so that the difference can be resolved."
-msgstr ""
+msgstr "Open Food Facts は、提供された情報(栄養成分およびカテゴリ)に基づいて栄養スコアグレードを計算します。 計算するグレードが提供されるグレードと異なる場合 生産者のプラットフォームに個人的な通知が届き、違いが解決できるようにします。"
 
 msgctxt "nutriscore_score_producer_note"
 msgid "Nutri-Score score (numeric value from which the A to E grade is derived)"
-msgstr ""
+msgstr "Nutri-Scoreの点数（AからEのグレードが導き出される数値）"
 
 msgctxt "nutriscore_score_producer_import_note"
 msgid "Open Food Facts computes the Nutri-Score score based on the information provided (nutrition facts and category). If the score we compute is different from the score you provide, you will get a private notification on the producers platform so that the difference can be resolved."
-msgstr ""
+msgstr "Open Food Factsは、提供された情報（栄養成分とカテゴリー）に基づいてNutri-Scoreの点数を計算します。計算した点数が提供した点数と異なる場合は、生産者プラットフォームで非公開の通知を受け取り、違いを解決できるようにします。"
 
 msgctxt "mandatory_field"
 msgid "Mandatory field"
-msgstr ""
+msgstr "必須項目"
 
 msgctxt "mandatory_field_note"
 msgid "All products should have this information."
-msgstr ""
+msgstr "すべての製品にこの情報が必要です。"
 
 msgctxt "recommended_field"
 msgid "Recommended field"
-msgstr ""
+msgstr "推奨項目"
 
 msgctxt "recommended_field_note"
 msgid "If this information exists and is relevant for the product, it is recommended to provide it to make the product easier to search for and the product data more useful."
-msgstr ""
+msgstr "この情報が存在し製品に関連している場合は、製品の検索を容易にし製品データをより有用にするために、この情報を提供することをお勧めします。"
 
 msgctxt "optional_field"
 msgid "Optional field"
-msgstr ""
+msgstr "任意項目"
 
 msgctxt "optional_field_note"
 msgid "If available, this information will be displayed on the product page."
-msgstr ""
+msgstr "可能な場合、この情報は製品ページに表示されます。"
 
 # product photos here means photos of multiple products
 msgctxt "images_can_be_provided_separately"
 msgid "Product photos can also be provided separately through the Import product photos function of the platform for producers."
-msgstr ""
+msgstr "製品写真は、生産者向けのプラットフォームの製品写真のインポート機能を介して個別に提供することもできます。"
 
+# This is linked to a unit test
 msgctxt "attribute_group_labels_name"
 msgid "Labels"
 msgstr "ラベル"
 
 msgctxt "attribute_labels_organic_name"
 msgid "Organic farming"
-msgstr ""
+msgstr "有機農業"
 
 msgctxt "attribute_labels_organic_yes_title"
 msgid "Organic product"
-msgstr ""
+msgstr "有機製品"
 
 msgctxt "attribute_labels_organic_no_title"
 msgid "Not an organic product"
-msgstr ""
+msgstr "有機製品ではありません"
 
 msgctxt "attribute_labels_organic_unknown_title"
 msgid "Missing information: organic product?"
-msgstr ""
+msgstr "情報が不足している: 有機製品ですか?"
 
 msgctxt "attribute_labels_organic_yes_description_short"
 msgid "Promotes ecological sustainability and biodiversity."
-msgstr ""
+msgstr "生態系の持続可能性と生物多様性を促進する。"
 
 msgctxt "attribute_labels_organic_description_short"
 msgid "Organic products promote ecological sustainability and biodiversity."
-msgstr ""
+msgstr "有機製品は、生態系の持続可能性と生物多様性を促進します。"
 
 msgctxt "attribute_labels_organic_description"
 msgid "Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives."
-msgstr ""
+msgstr "有機農業は、合成肥料、殺虫剤、食品添加物の使用を禁止または制限することにより、環境を保護し、生物多様性を保護することを目的としています。"
 
 msgctxt "attribute_labels_fair_trade_name"
 msgid "Fair trade"
@@ -4430,27 +4466,27 @@ msgstr "フェアトレード"
 
 msgctxt "attribute_labels_fair_trade_yes_title"
 msgid "Fair trade product"
-msgstr ""
+msgstr "フェアトレード製品"
 
 msgctxt "attribute_labels_fair_trade_no_title"
 msgid "Not a fair trade product"
-msgstr ""
+msgstr "フェアトレード製品ではありません"
 
 msgctxt "attribute_labels_fair_trade_unknown_title"
 msgid "Missing information: fair trade product?"
-msgstr ""
+msgstr "情報が不足: 有機製品ですか?"
 
 msgctxt "attribute_labels_fair_trade_yes_description_short"
 msgid "Helps producers in developing countries."
-msgstr ""
+msgstr "開発途上国の生産者を支援します。"
 
 msgctxt "attribute_labels_fair_trade_description_short"
 msgid "Fair trade products help producers in developing countries."
-msgstr ""
+msgstr "フェアトレード製品は、開発途上国の生産者を支援します。"
 
 msgctxt "attribute_labels_fair_trade_description"
 msgid "When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards."
-msgstr ""
+msgstr "フェアトレード製品を購入すると、発展途上国の生産者はより高くより公正な価格を支払われ、それは彼らがより高い社会的そしてしばしば環境基準を改善し維持するのを助けます。"
 
 msgctxt "attribute_group_nutritional_quality_name"
 msgid "Nutritional quality"
@@ -4458,11 +4494,11 @@ msgstr ""
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score"
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
-msgstr ""
+msgstr "良好な栄養価(Nutri-Score)"
 
 msgctxt "attribute_nutriscore_setting_note"
 msgid "The Nutri-Score is computed and can be taken into account for all products, even if is not displayed on the packaging."
@@ -4471,11 +4507,11 @@ msgstr ""
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_nutriscore_grade_title"
 msgid "Nutri-Score %s"
-msgstr ""
+msgstr "Nutri-Score(栄養スコア) %s"
 
 msgctxt "attribute_nutriscore_unknown_title"
 msgid "Nutri-Score unknown"
-msgstr ""
+msgstr "Nutri-Score(栄養スコア)不明"
 
 msgctxt "attribute_nutriscore_unknown_description_short"
 msgid "Missing data to compute the Nutri-Score"
@@ -4486,8 +4522,13 @@ msgid "Nutri-Score not-applicable"
 msgstr ""
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Exempted category"
-msgstr ""
+msgid "Not-applicable for the category"
+msgstr "カテゴリには適用されません"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_nutriscore_not_applicable_description"
+msgid "Not-applicable for the category: {category}"
+msgstr "カテゴリには適用されません: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -4499,7 +4540,7 @@ msgstr ""
 
 msgctxt "attribute_nutriscore_c_description_short"
 msgid "Average nutritional quality"
-msgstr ""
+msgstr "平均栄養価"
 
 msgctxt "attribute_nutriscore_d_description_short"
 msgid "Poor nutritional quality"
@@ -4511,7 +4552,7 @@ msgstr ""
 
 msgctxt "attribute_group_processing_name"
 msgid "Food processing"
-msgstr ""
+msgstr "食品加工"
 
 msgctxt "attribute_nova_name"
 msgid "NOVA group"
@@ -4536,35 +4577,35 @@ msgstr ""
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
-msgstr ""
+msgstr "未加工または最小加工食品"
 
 msgctxt "attribute_nova_2_description_short"
 msgid "Processed culinary ingredients"
-msgstr ""
+msgstr "加工された料理の材料"
 
 msgctxt "attribute_nova_3_description_short"
 msgid "Processed foods"
-msgstr ""
+msgstr "加工食品"
 
 msgctxt "attribute_nova_4_description_short"
 msgid "Ultra processed foods"
-msgstr ""
+msgstr "超加工食品"
 
 msgctxt "export_product_page"
 msgid "Export product to public database"
-msgstr ""
+msgstr "製品を公開データベースにエクスポートする"
 
 msgctxt "one_product_will_be_exported"
 msgid "1 product will be exported."
-msgstr ""
+msgstr "1件の製品がエクスポートされます。"
 
 msgctxt "no_products_to_export"
 msgid "No products to export."
-msgstr ""
+msgstr "エクスポートする製品はありません。"
 
 msgctxt "query_filter"
 msgid "Query filter"
-msgstr ""
+msgstr "クエリフィルター"
 
 msgctxt "nova_group_producer"
 msgid "NOVA group"
@@ -4572,11 +4613,11 @@ msgstr "NOVA グループ"
 
 msgctxt "error_unknown_org"
 msgid "Unknown organization."
-msgstr ""
+msgstr "不明な組織"
 
 msgctxt "error_unknown_user"
 msgid "Unknown user."
-msgstr ""
+msgstr "不明なユーザー"
 
 msgctxt "attribute_low_salt_setting_note"
 msgid "The salt level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low salt diet."
@@ -5195,12 +5236,33 @@ msgctxt "delete_user_process"
 msgid "User deleted."
 msgstr ""
 
+msgctxt "attribute_ecoscore_not_applicable_title"
+msgid "Eco-Score not yet applicable"
+msgstr "エコスコアはまだ適用されません"
+
+msgctxt "attribute_ecoscore_not_applicable_description_short"
+msgid "Not yet applicable for the category"
+msgstr "カテゴリには適用されません"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_ecoscore_not_applicable_description"
+msgid "Not yet applicable for the category: {category}"
+msgstr "カテゴリには適用されません: {category}"
+
+msgctxt "ecoscore_not_applicable_coming_soon"
+msgid "The Eco-Score is not yet applicable for this category, but we are working on adding support for it."
+msgstr "エコスコアはまだこのカテゴリには適用できませんが、サポートの追加に取り組んでいます。"
+
 msgctxt "attribute_ecoscore_unknown_title"
 msgid "Eco-Score not computed"
 msgstr ""
 
 msgctxt "attribute_ecoscore_unknown_description_short"
 msgid "Unknown environmental impact"
+msgstr ""
+
+msgctxt "ecoscore_unknown_call_to_help"
+msgid "We could not compute the Eco-Score of this product as it is missing some data, could you help complete it?"
 msgstr ""
 
 msgctxt "org_list_of_gs1_gln_description"
@@ -5241,15 +5303,15 @@ msgstr ""
 
 msgctxt "minion_status_active"
 msgid "In progress"
-msgstr ""
+msgstr "進行中"
 
 msgctxt "minion_status_finished"
 msgid "Finished"
-msgstr ""
+msgstr "完了"
 
 msgctxt "minion_status_failed"
 msgid "Failed"
-msgstr ""
+msgstr "失敗"
 
 # Export: use a noun and not a verb
 msgctxt "export_job_export"
@@ -5303,8 +5365,9 @@ msgctxt "data_source_database_note_about_the_producers_platform"
 msgid "Manufacturers can use the Open Food Facts <a href=\"<producers_platform_url>\">free plaform for producers</a> to access and complete this data, and to obtain reports, analysis and product improvements opportunities (e.g. better Nutri-Score)."
 msgstr ""
 
-msgctxt "data_source_database_equadis"
-msgid "The manufacturer %s uses %s to automatically transmit data and photos for its products."
+# variable names between { } must not be translated
+msgctxt "f_data_source_database_provider"
+msgid "The manufacturer {manufacturer} uses {provider} to automatically transmit data and photos for its products."
 msgstr ""
 
 msgctxt "image_other_type"
@@ -5681,6 +5744,10 @@ msgctxt "source_ademe_agribalyse"
 msgid "Source: ADEME Agribalyse Database"
 msgstr ""
 
+msgctxt "source_ademe_agribalyse_for_category"
+msgid "The carbon emission figure comes from ADEME's Agribalyse database, for the category:"
+msgstr ""
+
 msgctxt "environment_card_title"
 msgid "Environment"
 msgstr "環境"
@@ -5737,6 +5804,10 @@ msgctxt "ecoscore_lca_score"
 msgid "Life cycle analysis score"
 msgstr ""
 
+msgctxt "impact_for_this_product"
+msgid "Impact for this product"
+msgstr "この製品への影響"
+
 msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
 msgstr ""
@@ -5751,6 +5822,10 @@ msgstr ""
 
 msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
+msgstr ""
+
+msgctxt "nutriscore_missing_category_and_nutrition_data"
+msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr ""
 
 msgctxt "health"
@@ -5797,16 +5872,16 @@ msgctxt "f_energy_expenditure_for_weight_in_kg_lb"
 msgid "Energy expenditure for a person weighting {kg} kg / {lb} lb"
 msgstr ""
 
-msgctxt "nutriscore_not_applicable_short"
-msgid "Not applicable for this product"
-msgstr ""
-
 msgctxt "nutriscore_missing_category_short"
 msgid "Missing category"
 msgstr ""
 
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
+msgstr ""
+
+msgctxt "nutriscore_missing_category_and_nutrition_data_short"
+msgid "Missing category and nutrition facts"
 msgstr ""
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
@@ -5825,4 +5900,225 @@ msgstr ""
 msgctxt "source"
 msgid "Source"
 msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_app_user"
+msgid "A user of the {app_name} app"
+msgstr ""
+
+msgctxt "food_groups_p"
+msgid "food groups"
+msgstr ""
+
+msgctxt "food_groups_s"
+msgid "food group"
+msgstr ""
+
+msgctxt "non_vegan_ingredients"
+msgid "Non-vegan ingredients"
+msgstr ""
+
+msgctxt "vegan_ingredients"
+msgid "No non-vegan ingredients detected"
+msgstr ""
+
+msgctxt "maybe_vegan_ingredients"
+msgid "Ingredients that may not be vegan"
+msgstr ""
+
+msgctxt "non_vegetarian_ingredients"
+msgid "Non-vegetarian ingredients"
+msgstr ""
+
+msgctxt "vegetarian_ingredients"
+msgid "No non-vegetarian ingredients detected"
+msgstr ""
+
+msgctxt "maybe_vegetarian_ingredients"
+msgid "Ingredients that may not be vegetarian"
+msgstr ""
+
+msgctxt "palm_oil_ingredients"
+msgid "Ingredients that contain palm oil"
+msgstr ""
+
+msgctxt "may_contain_palm_oil_ingredients"
+msgid "Ingredients that may contain palm oil"
+msgstr ""
+
+msgctxt "palm_oil_free_ingredients"
+msgid "No ingredients containing palm oil detected"
+msgstr ""
+
+msgctxt "unrecognized_ingredients"
+msgid "Unrecognized ingredients"
+msgstr ""
+
+msgctxt "nova_1_unprocessed_ingredients"
+msgid "The product contains only unprocessed or minimally processed ingredients."
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_nova_markers_for_nova_group"
+msgid "Elements that indicate the product is in the {nova_group} group"
+msgstr ""
+
+msgctxt "nova_classification_description"
+msgid "Food products are classified into 4 groups according to their degree of processing:"
+msgstr ""
+
+msgctxt "nova_classification_how"
+msgid "The determination of the group is based on the category of the product and on the ingredients it contains."
+msgstr ""
+
+msgctxt "nova_classification_learn_more"
+msgid "Learn more about the NOVA classification"
+msgstr ""
+
+msgctxt "nova_group_missing_category"
+msgid "The category of the product must be specified in order to determine the NOVA group."
+msgstr ""
+
+msgctxt "nova_group_missing_ingredients"
+msgid "The ingredients of the product must be specified in order to determine the NOVA group."
+msgstr ""
+
+msgctxt "nova_group_too_many_unknown_ingredient"
+msgid "We could not recognize some of the ingredients and determine the NOVA group."
+msgstr ""
+
+msgctxt "unselect_image"
+msgid "Unselect Image"
+msgstr ""
+
+msgctxt "nutriscore_learn_more"
+msgid "Learn more about the Nutri-Score"
+msgstr "栄養スコアの詳細"
+
+msgctxt "ecoscore_learn_more"
+msgid "Learn more about the Eco-Score"
+msgstr ""
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_very_good_match"
+msgid "Very good match"
+msgstr "非常に良い一致"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_good_match"
+msgid "Good match"
+msgstr "良好な一致"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_poor_match"
+msgid "Poor match"
+msgstr "マッチが悪い"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_unknown_match"
+msgid "Unknown match"
+msgstr "一致度は不明"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_may_not_match"
+msgid "May not match"
+msgstr "一致していないかもしれません。"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_does_not_match"
+msgid "Does not match"
+msgstr "一致しない"
+
+msgctxt "reset_preferences"
+msgid "Use default preferences"
+msgstr ""
+
+msgctxt "reset_preferences_details"
+msgid "Nutri-Score, Eco-Score and food processing level (NOVA)"
+msgstr ""
+
+msgctxt "actions_add_ingredients"
+msgid "Could you add the ingredients list?"
+msgstr "材料リストを追加してもらえますか？"
+
+msgctxt "actions_to_compute_nutriscore"
+msgid "Could you add the information needed to compute the Nutri-Score?"
+msgstr "ニュートリスコアの計算に必要な情報を追加していただけますか？"
+
+msgctxt "actions_to_compute_ecoscore"
+msgid "Could you add a precise product category so that we can compute the Eco-Score?"
+msgstr "エコスコアを計算できるように製品を分類していただけますか？"
+
+msgctxt "action_add_ingredients_text"
+msgid "Add the ingredients"
+msgstr "材料を追加します"
+
+msgctxt "action_add_categories"
+msgid "Add a category"
+msgstr "カテゴリを追加"
+
+msgctxt "action_add_nutrition_facts"
+msgid "Add nutrition facts"
+msgstr "栄養成分を入力する"
+
+# Used as a header for key facts
+msgctxt "knowledge_panels_facts"
+msgid "What you need to know"
+msgstr "知っておくべきこと"
+
+msgctxt "knowledge_panels_recommendation"
+msgid "Recommendation"
+msgstr "知識_パネル_おすすめ"
+
+msgctxt "nutrient_info_salt_risk"
+msgid "A high consumption of salt (or sodium) can cause raised blood pressure, which can increase the risk of heart disease and stroke."
+msgstr "塩分（またはナトリウム）を大量に摂取すると血圧が上昇し、心臓病や脳卒中のリスクが高まる可能性があります。"
+
+msgctxt "nutrient_info_salt_high_blood_pressure"
+msgid "Many people who have high blood pressure do not know it, as there are often no symptoms."
+msgstr "高血圧の人の多くは、症状がないことが多いので、それを知りません。"
+
+msgctxt "nutrient_info_salt_high_consumption"
+msgid "Most people consume too much salt (on average 9 to 12 grams per day), around twice the recommended maximum level of intake."
+msgstr "ほとんどの人は塩分を過剰に消費し（平均して1日あたり9〜12グラム）、推奨される最大摂取量の約2倍です。"
+
+msgctxt "nutrient_recommendation_salt_title"
+msgid "Limit the consumption of salt and salted food"
+msgstr "塩と塩が含まれている食品の消費を制限する"
+
+msgctxt "nutrient_recommendation_salt_cooking_and_table"
+msgid "Reduce the quantity of salt used when cooking, and don't salt again at the table."
+msgstr "調理時に使用する塩の量を減らし、テーブルで再び塩をかけないでください。"
+
+msgctxt "nutrient_recommendation_salt_limit_salty_snacks"
+msgid "Limit the consumption of salty snacks and choose products with lower salt content."
+msgstr "塩味のあるスナックの消費を制限し、塩分が少ない製品を選択してください。"
+
+msgctxt "nutrient_info_sugars_risk"
+msgid "A high consumption of sugar can cause weight gain and tooth decay. It also augments the risk of type 2 diabetes and cardio-vascular diseases."
+msgstr "砂糖の大量消費は、体重増加や虫歯を引き起こす可能性があります。また、2型糖尿病や心血管疾患のリスクを高めます。"
+
+msgctxt "nutrient_recommendation_sugars_title"
+msgid "Limit the consumption of sugar and sugary drinks"
+msgstr "砂糖と甘い飲み物の消費を制限する"
+
+msgctxt "nutrient_recommendation_sugars_drinks"
+msgid "Sugary drinks (such as sodas, fruit beverages, and fruit juices and nectars) should be limited as much as possible (no more than 1 glass a day)."
+msgstr "甘い飲み物（ソーダ、フルーツ飲料、フルーツジュース、ネクターなど）は、できるだけ制限する必要があります（1日1杯以下）。"
+
+msgctxt "nutrient_recommendation_sugars_food"
+msgid "Choose products with lower sugar content and reduce the consumption of products with added sugars."
+msgstr "糖度の低い製品を選び、糖分を加えた製品の消費を減らします。"
+
+msgctxt "nutrient_info_fat_and_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "脂肪、特に飽和脂肪を大量に摂取するとコレステロールが上昇し、心臓病のリスクが高まります。"
+
+msgctxt "nutrient_recommendation_fat_and_saturated_fat_title"
+msgid "Reduce the consumption of fat and saturated fat"
+msgstr "脂肪と飽和脂肪の消費を減らしましょう"
+
+msgctxt "nutrient_recommendation_fat_and_saturated_fat"
+msgid "Choose products with lower fat and saturated fat content."
+msgstr "低脂肪および飽和脂肪含有量の製品を選択してください。"
 

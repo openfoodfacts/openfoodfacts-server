@@ -39,8 +39,7 @@ C<ProductOpener::Producers> contains the functions specific to the producers pla
 
 package ProductOpener::Producers;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 use Log::Any qw($log);
@@ -142,9 +141,7 @@ A reference to an array of rows, containing each an array of column values
 
 =cut
 
-sub load_csv_or_excel_file($) {
-
-	my $file = shift;    # path and file name
+sub load_csv_or_excel_file($file) {	# path and file name
 
 	my $headers_ref;
 	my $rows_ref = [];
@@ -291,12 +288,9 @@ sub load_csv_or_excel_file($) {
 
 # Convert an uploaded file to OFF CSV format
 
-sub convert_file($$$$) {
-
-	my $default_values_ref  = shift;    # default values for lc, countries
-	my $file                = shift;    # path and file name
-	my $columns_fields_file = shift;
-	my $converted_file      = shift;
+sub convert_file($default_values_ref, $file, $columns_fields_file, $converted_file) {
+	# $default_values_ref  ->  values for lc, countries
+	# $file  ->  path and file name
 
 	my $load_results_ref = load_csv_or_excel_file($file);
 
@@ -389,15 +383,16 @@ sub convert_file($$$$) {
 
 			$log->debug("convert_file - found matching column", { column => $column, field => $field, col => $col }) if $log->is_debug();
 
-			if (defined $seen_fields{$field}) {
-				$seen_fields{$field}++;
-				$field = $field . "." . $seen_fields{$field};
-			}
-			else {
-				$seen_fields{$field} = 1;
-			}
-
 			if (defined $field) {
+				# If we have already seen the field, suffix it with a number
+				if (defined $seen_fields{$field}) {
+					$seen_fields{$field}++;
+					$field = $field . "." . $seen_fields{$field};
+				}
+				else {
+					$seen_fields{$field} = 1;
+				}
+
 				push @headers, $field;
 				$headers_cols{$field} = $col;
 			}
@@ -471,9 +466,7 @@ sub convert_file($$$$) {
 
 # Normalize column names
 
-sub normalize_column_name($) {
-
-	my $name = shift;
+sub normalize_column_name($name) {
 	
 	# remove HTML tags
 	
@@ -538,7 +531,7 @@ my %fields_synonyms = (
 
 en => {
 	lc => ["lang"],
-	code => ["code", "codes", "barcodes", "barcode", "ean", "ean-13", "ean13", "gtin", "eans", "gtins", "upc", "ean/gtin1", "gencod", "gencods", "gencode", "gencodes", "ean-barcode","ean-barcode-number","ean-code"],
+	code => ["code", "codes", "barcodes", "barcode", "ean", "ean-13", "ean13", "gtin", "eans", "gtins", "upc", "ean/gtin1", "gencod", "gencods", "gencode", "gencodes", "ean-barcode","ean-barcode-number","ean-code", "ean codes", "ean barcodes"],
 	producer_product_id => ["internal code"],
 	product_name => ["name", "name of the product", "name of product", "product name", "product", "commercial name"],
 	carbohydrates_100g_value_unit => ["carbohydronate", "carbohydronates"], # yuka bug, does not exist
@@ -564,7 +557,7 @@ es => {
 },
 
 fr => {
-	code => ["code barre", "codebarre", "codes barres", "code barre EAN/GTIN", "code barre EAN", "code barre GTIN", "code-barres"],
+	code => ["code barre", "codebarre", "codes barres", "code barre EAN/GTIN", "code barre EAN", "code barre GTIN", "code-barres", "code EAN", "codes EAN", "code GTIN", "codes GTIN"],
 	producer_product_id => ["code interne", "code int"],
 	categories => ["Catégorie(s)"],
 	brands => ["Marque(s)", "libellé marque"],
@@ -572,8 +565,9 @@ fr => {
 	abbreviated_product_name => ["nom abrégé", "nom abrégé du produit", "nom du produit abrégé", "nom du produit avec abbréviations"],
 	generic_name => ["dénomination légale", "déno légale", "dénomination légale de vente"],
 	ingredients_text => ["ingrédients", "ingredient", "liste des ingrédients", "liste d'ingrédients", "liste ingrédients", "listes d'ingrédients"],
-	allergens => ["Substances ou produits provoquant des allergies ou intolérances", "Allergènes et Traces Potentielles", "allergènes et traces"],
-	traces => ["Traces éventuelles"],
+	allergens => ["Substances ou produits provoquant des allergies ou intolérances", "Allergènes et Traces Potentielles", "allergènes et traces", "allergènes (ingrédients)"],
+	traces => ["Traces éventuelles", "allergènes (traces)"],
+	origin => ["Origine(s) des ingrédients"],
 	image_front_url_fr => ["visuel", "photo", "photo produit"],
 	labels => ["signes qualité", "signe qualité", "Allégations santé", "Labels, certifications, récompenses"],
 	countries => ["pays de vente"],
@@ -583,7 +577,8 @@ fr => {
 	drained_weight_value_unit => ["poids net égoutté"],
 	recycling_instructions_to_recycle => ["à recycler", "consigne à recycler"],
 	recycling_instructions_to_discard => ["à jeter", "consigne à jeter"],
-	conservation_conditions => ["Conditions de conservation et d'utilisation"],
+	packaging => ["Etat physique du produit", "état physique"],
+	conservation_conditions => ["Conservation", "Conditions de conservation et d'utilisation"],
 	preparation => ["conseils de préparation", "instructions de préparation", "Mode d'emploi"],
 	link => ["lien", "lien du produit", "lien internet", "lien vers la page internet"],
 	manufacturing_places => ["lieu de conditionnement", "lieux de conditionnement", "lieu de fabrication", "lieux du fabrication", "lieu de fabrication du produit"],
@@ -653,10 +648,20 @@ my %in = (
 	"fr" => "en",
 );
 
+=head2 init_fields_columns_names_for_lang ( $l )
 
-sub init_fields_columns_names_for_lang($) {
+Populates global $fields_columns_names_for_lang
+for the specified language.
 
-	my $l = shift;
+=head3 Arguments
+
+=head4 $l - required
+
+Language code (string)
+
+=cut
+
+sub init_fields_columns_names_for_lang($l) {
 
 	if (defined $fields_columns_names_for_lang{$l}) {
 		return;
@@ -684,9 +689,7 @@ sub init_fields_columns_names_for_lang($) {
 }
 
 
-sub init_nutrients_columns_names_for_lang($) {
-
-	my $l = shift;
+sub init_nutrients_columns_names_for_lang($l) {
 
 	$nutriment_table = $cc_nutriment_table{default};
 
@@ -840,9 +843,8 @@ sub init_nutrients_columns_names_for_lang($) {
 }
 
 
-sub init_other_fields_columns_names_for_lang($) {
+sub init_other_fields_columns_names_for_lang($l) {
 
-	my $l = shift;
 	my $fields_groups_ref = $options{import_export_fields_groups};
 
 	foreach my $group_ref (@{$fields_groups_ref}) {
@@ -957,7 +959,7 @@ sub init_other_fields_columns_names_for_lang($) {
 	}
 
 	# Specific labels that can have a dedicated column
-	my @labels = ("en:organic", "en:fair-trade", "en:palm-oil-free", "en:contains-palm-oil", "en:gluten-free", "en:contains-gluten", "en:vegan", "en:vegetarian", "fr:ab-agriculture-biologique","fr:label-rouge");
+	my @labels = ("en:organic", "en:fair-trade", "en:palm-oil-free", "en:contains-palm-oil", "en:gluten-free", "en:contains-gluten", "en:vegan", "en:vegetarian", "fr:ab-agriculture-biologique","fr:label-rouge", "en:pdo", "en:pgi", "en:tsg");
 	foreach my $labelid (@labels) {
 		next if not defined $translations_to{labels}{$labelid}{$l};
 		my $results_ref = { field => "labels_specific", tag => $translations_to{labels}{$labelid}{$l} };
@@ -992,10 +994,7 @@ sub init_other_fields_columns_names_for_lang($) {
 }
 
 
-sub match_column_name_to_field($$) {
-
-	my $l = shift;
-	my $column_id = shift;
+sub match_column_name_to_field($l, $column_id) {
 
 	my $results_ref = {};
 
@@ -1037,11 +1036,7 @@ sub match_column_name_to_field($$) {
 
 # Go through all rows to extract examples, compute stats etc.
 
-sub compute_statistics_and_examples($$$) {
-
-	my $headers_ref = shift;
-	my $rows_ref = shift;
-	my $columns_fields_ref = shift;
+sub compute_statistics_and_examples($headers_ref, $rows_ref, $columns_fields_ref) {
 
 	foreach my $column (@{$headers_ref}) {
 		if (not defined $columns_fields_ref->{$column}) {
@@ -1118,10 +1113,7 @@ sub compute_statistics_and_examples($$$) {
 
 # Analyze the headers column names and rows content to pre-assign fields to columns
 
-sub init_columns_fields_match($$) {
-
-	my $headers_ref = shift;
-	my $rows_ref = shift;
+sub init_columns_fields_match($headers_ref, $rows_ref) {
 
 	my $columns_fields_ref = {};
 
@@ -1148,6 +1140,7 @@ sub init_columns_fields_match($$) {
 	init_fields_columns_names_for_lang($lc);
 
 	if ($lc ne "en") {
+		# we also add english names
 		init_fields_columns_names_for_lang("en");
 	}
 
@@ -1228,9 +1221,8 @@ sub init_columns_fields_match($$) {
 
 # Generate an array of options for select2
 
-sub generate_import_export_columns_groups_for_select2($) {
+sub generate_import_export_columns_groups_for_select2($lcs_ref) {	# array of language codes
 
-	my $lcs_ref = shift; # array of language codes
 	my $fields_groups_ref = $options{import_export_fields_groups};
 
 	# Sample select2 groups and fields definition format from Config.pm:
@@ -1381,9 +1373,7 @@ JSON
 
 
 
-sub export_and_import_to_public_database($) {
-	
-	my $args_ref = shift;
+sub export_and_import_to_public_database($args_ref) {
 	
 	my $started_t = time();
 	my $export_id = $started_t;
@@ -1518,10 +1508,7 @@ WantedBy=multi-user.target
 
 =cut
 
-sub import_csv_file_task() {
-
-	my $job = shift;
-	my $args_ref = shift;
+sub import_csv_file_task($job, $args_ref) {
 
 	return if not defined $job;
 
@@ -1543,10 +1530,7 @@ sub import_csv_file_task() {
 }
 
 
-sub export_csv_file_task() {
-
-	my $job = shift;
-	my $args_ref = shift;
+sub export_csv_file_task($job, $args_ref) {
 
 	return if not defined $job;
 
@@ -1581,10 +1565,7 @@ sub export_csv_file_task() {
 }
 
 
-sub import_products_categories_from_public_database_task() {
-
-	my $job = shift;
-	my $args_ref = shift;
+sub import_products_categories_from_public_database_task($job, $args_ref) {
 
 	return if not defined $job;
 
@@ -1610,10 +1591,7 @@ sub import_products_categories_from_public_database_task() {
 }
 
 
-sub update_export_status_for_csv_file_task() {
-
-	my $job = shift;
-	my $args_ref = shift;
+sub update_export_status_for_csv_file_task($job, $args_ref) {
 
 	return if not defined $job;
 

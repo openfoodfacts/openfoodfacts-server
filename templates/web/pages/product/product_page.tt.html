@@ -47,7 +47,10 @@
     <p>→ <a href="[% public_product_url %]">[% lang("product_page_on_the_public_database") %]</a></p>
 [% END %]
 
-[% IF (user_id.defined) && (robotoff_url.defined) && (robotoff_url.length > 0) %]
+[% IF (robotoff_url.defined) && (robotoff_url.length > 0) %]
+    <!-- Anonymous users will only be able to vote see AnnotationVote in robotoff,
+        the voter uniqueness is based on a hash of its ip address
+    -->
 	<robotoff-asker url='[% robotoff_url %]' code='[% code %]' lang='[% lc %]' style='display: none;' caption-yes='[% lang("button_caption_yes") %]' caption-no='[% lang("button_caption_no") %]' caption-skip='[% lang("button_caption_skip") %]'></robotoff-asker>
 [% END %]
 
@@ -433,13 +436,11 @@
 <!-- databases data sources -->
 <h2 id="data_sources">[% lang('data_sources_p') FILTER ucfirst %]</h2>
 
-[% IF data_source_database_equadis %]
-	<p>[% data_source_database_equadis %]</p>
-[% ELSIF data_source_database_codeonline %]
-	<p>[% data_source_database_codeonline %]</p>
+[% IF data_source_database_provider %]
+	<p>[% data_source_database_provider %]</p>
+[% END %]
+[% IF data_source_database_note_about_the_producers_platform %]
 	<p>[% data_source_database_note_about_the_producers_platform %]</p>
-[% ELSE %]
-<p>_</p>
 [% END %]
 
 

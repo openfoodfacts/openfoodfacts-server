@@ -32,8 +32,7 @@ ProductOpener::Packaging
 
 package ProductOpener::Packaging;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 use Log::Any qw($log);
@@ -69,12 +68,7 @@ Extract packaging data from packaging info / recycling instructions photo.
 
 =cut
 
-sub extract_packaging_from_image($$$$) {
-
-	my $product_ref = shift;
-	my $id = shift;
-	my $ocr_engine = shift;
-	my $results_ref = shift;
+sub extract_packaging_from_image($product_ref, $id, $ocr_engine, $results_ref) {
 
 	my $lc = $product_ref->{lc};
 
@@ -112,38 +106,16 @@ sub init_packaging_taxonomies_regexps() {
 	
 	foreach my $taxonomy (values %packaging_taxonomies) {
 		
-		$packaging_taxonomies_regexps{$taxonomy} = {};	# keys: languages
-		
-		foreach my $tagid (get_all_taxonomy_entries($taxonomy)) {
-			
-			foreach my $language (keys %{$translations_to{$taxonomy}{$tagid}}) {
-				
-				defined $packaging_taxonomies_regexps{$taxonomy}{$language} or $packaging_taxonomies_regexps{$taxonomy}{$language} = [];
-
-				foreach my $synonym (get_taxonomy_tag_synonyms($language, $taxonomy, $tagid)) {
-					
-					push @{$packaging_taxonomies_regexps{$taxonomy}{$language}}, [$tagid, $synonym];
-					
-					if ((my $unaccented_synonym = unac_string_perl($synonym)) ne $synonym) {
-						
-						push @{$packaging_taxonomies_regexps{$taxonomy}{$language}}, [$tagid, $unaccented_synonym];
-					}
-				}
+		$packaging_taxonomies_regexps{$taxonomy} = 
+		generate_regexps_matching_taxonomy_entries($taxonomy, "list_of_regexps",
+			{
 			}
-		}
-		
-		# We want to match the longest strings first
-		
-		foreach my $language (keys %{$packaging_taxonomies_regexps{$taxonomy}}) {
-			@{$packaging_taxonomies_regexps{$taxonomy}{$language}}
-				= sort { length($b->[1]) <=> length($a->[1]) } @{$packaging_taxonomies_regexps{$taxonomy}{$language}};
-		}
+		);
 		
 		$log->debug("init_packaging_taxonomies_regexps - result", { taxonomy => $taxonomy, packaging_taxonomies_regexps => $packaging_taxonomies_regexps{$taxonomy}  }) if $log->is_debug();
 	}
 	
-	# used only for debugging
-	#store("packaging_taxonomies_regexps.sto", \%packaging_taxonomies_regexps);
+	return;
 }
 
 
@@ -166,7 +138,7 @@ existing packaging tags will be prefixed by the product language.
 
 =head4 $text_language default text language
 
-Can be overriden if the text is prefixed with a language code (e.g. fr:boite en carton)
+Can be overrode if the text is prefixed with a language code (e.g. fr:boite en carton)
 
 =head3 Return value
 
@@ -174,10 +146,7 @@ Packaging object (hash) reference with optional properties: recycling, material,
 
 =cut
 
-sub parse_packaging_from_text_phrase($$) {
-	
-	my $text = shift;
-	my $text_language = shift;
+sub parse_packaging_from_text_phrase($text, $text_language) {
 	
 	$log->debug("parse_packaging_from_text_phrase - start", { text => $text, text_language => $text_language }) if $log->is_debug();
 
@@ -324,10 +293,7 @@ properties (material, shape, recycling). In case of a draw, the priority is give
 
 =cut
 
-sub guess_language_of_packaging_text($$) {
-	
-	my $text = shift;
-	my $potential_lcs_ref = shift;
+sub guess_language_of_packaging_text($text, $potential_lcs_ref) {
 	
 	$log->debug("guess_language_of_packaging_text - start", { text => $text, potential_lcs_ref => $potential_lcs_ref }) if $log->is_debug();
 
@@ -377,9 +343,7 @@ And combines them in an updated packagings data structure.
 
 =cut
 
-sub analyze_and_combine_packaging_data($) {
-	
-	my $product_ref = shift;
+sub analyze_and_combine_packaging_data($product_ref) {
 	
 	$log->debug("analyze_and_combine_packaging_data - start", { existing_packagings => $product_ref->{packagings} }) if $log->is_debug();
 	
@@ -522,6 +486,7 @@ sub analyze_and_combine_packaging_data($) {
 	}
 	
 	$log->debug("analyze_and_combine_packaging_data - done", { packagings => $product_ref->{packagings} }) if $log->is_debug();
+	return;
 }
 
 1;

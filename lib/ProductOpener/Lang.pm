@@ -35,8 +35,7 @@ through the lang() and lang_sprintf() functions.
 
 package ProductOpener::Lang;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 BEGIN
@@ -59,10 +58,10 @@ BEGIN
 		&lang
 		&lang_sprintf
 		&f_lang
+		&f_lang_in_lc
 		&lang_in_other_lc
 		%lang_lc
 
-		&init_languages
 
 		&separator_before_colon
 
@@ -97,9 +96,7 @@ This function returns a non-breaking space character for those languages.
 
 =cut
 
-sub separator_before_colon($) {
-
-	my $l = shift;
+sub separator_before_colon($l) {
 
 	if ($l eq 'fr') {
 		return "\N{U+00A0}";
@@ -124,9 +121,7 @@ In the .po translation files, we use the msgctxt field for the string id.
 
 =cut
 
-sub lang($) {
-
-	my $stringid = shift;
+sub lang($stringid) {
 
 	my $short_l = undef;
 	if ($lang =~ /_/) {
@@ -175,9 +170,7 @@ Arguments to be interpolated.
 
 =cut
 
-sub lang_sprintf() {
-
-	my $stringid = shift;
+sub lang_sprintf($stringid) {
 
 	my $translation = lang($stringid);
 	if (defined $translation) {
@@ -210,14 +203,50 @@ If a translation is not available, the function returns English.
 
 In the .po translation files, we use the msgctxt field for the string id.
 
+=head4 variables hash reference $variables_ref
+
+Reference to a hash that contains values for the variables that will be replaced.
+
 =cut
 
-sub f_lang($$) {
+sub f_lang($stringid, $variables_ref) {
 
-	my $stringid = shift;
-	my $variables_ref = shift;
+	return f_lang_in_lc($lc, $stringid, $variables_ref);
+}
 
-	my $translation = lang($stringid);
+
+=head2 f_lang_in_lc ( $target_lc, $stringid, $variables_ref )
+
+Returns a translation for a specific string id with specific arguments
+in the language $target_lc.
+
+The translation is stored using Python's f-string format with
+named parameters between { }.
+
+e.g. "This is a string with {a_variable} and {another_variable}."
+
+Variables between { } are interpolated with the corresponding entry
+in the $variables_ref hash reference.
+
+If a translation is not available, the function returns English.
+
+=head3 Arguments
+
+ =head4 target language $target_lc
+ 
+=head4 string id $stringid
+
+In the .po translation files, we use the msgctxt field for the string id.
+
+=head4 variables hash reference $variables_ref
+
+Reference to a hash that contains values for the variables that will be replaced.
+
+=cut
+
+sub f_lang_in_lc($target_lc, $stringid, $variables_ref) {
+
+	my $translation = $Lang{$stringid}{$target_lc};
 	if (defined $translation) {
 		# look for string keys between { } and replace them with the corresponding
 		# value in $variables_ref hash reference
@@ -246,10 +275,7 @@ In the .po translation files, we use the msgctxt field for the string id.
 
 =cut
 
-sub lang_in_other_lc($$) {
-
-	my $target_lc = shift;
-	my $stringid = shift;	
+sub lang_in_other_lc($target_lc, $stringid) {
 
 	my $short_l = undef;
 	if ($target_lc =~ /_/) {
@@ -272,119 +298,6 @@ sub lang_in_other_lc($$) {
 
 
 $log->info("initialize", { data_root => $data_root }) if $log->is_info();
-
-# generate po files from %Lang or %Site_lang
-# 18/01/2017: this function is used to generate .po files
-# from the translations that are currently in Lang.pm and SiteLang.pm
-# going forward, all translations will be in .po files
-# can be run like this: perl ProductOpener/Lang.pm
-
-sub generate_po_files($$) {
-
-	my $dir = shift;
-	my $lang_ref = shift;
-
-	if (! -e "$data_root/po_from_lang") {
-		 mkdir("$data_root/po_from_lang", 0755) or die ("cannot create $data_root/po_from_lang");
-	}
-	if (! -e "$data_root/po_from_lang/$dir") {
-		 mkdir("$data_root/po_from_lang/$dir", 0755);
-	}
-
-	my %po = ();
-
-	# the English values will be used as the msgid
-	# store them so that we can use them for .po files for other languages
-	my %en_values = ();
-
-	foreach my $key (sort keys %{$lang_ref}) {
-
-		my $en = 0;
-
-		foreach my $l ("en", keys %{$lang_ref->{$key}}, "pot") {
-
-			my $value;
-
-			if ($l eq "pot") {
-				$value = "";
-			}
-			else {
-				$value = $lang_ref->{$key}{$l};
-			}
-
-			# escape \ and "
-			$value =~ s/\\/\\\\/g;
-			$value =~ s/"/\\"/g;
-			# multiline values
-			$value =~ s/\n/\\n"\n"/g;
-			$value = '"' . $value . '"';
-
-			# store the English value
-			if (($l eq 'en') and ($en == 0)) {
-				$en_values{$key} = $value;
-				$en = 1;
-				next;
-			}
-
-			next if $en_values{$key} eq '""'; # only for "sep", will need to get it out of .po and hardcode it somewhere else
-
-			$po{$l} .= <<PO
-msgctxt "$key"
-msgid $en_values{$key}
-msgstr $value
-
-PO
-;
-		}
-
-	}
-
-	# Generate .po files for all languages found
-	foreach my $l (keys %po) {
-
-		open (my $fh, ">:encoding(UTF-8)", "$data_root/po_from_lang/$dir/$l.po");
-
-		my $langname = $Lang{"lang_$l"}{en};
-
-		$log->warn("lang_$l not defined") if $log->is_warn();
-
-		$po{$l} =~ s/\n$//;
-
-		print $fh <<PO
-msgid  ""
-msgstr ""
-"MIME-Version: 1.0\\n"
-"Content-Type: text/plain; charset=UTF-8\\n"
-"Content-Transfer-Encoding: 8bit\\n"
-"Language: $l\\n"
-"Project-Id-Version: \\n"
-"PO-Revision-Date: \\n"
-"Language-Team: \\n"
-"Last-Translator: \\n"
-
-msgctxt ":langtag"
-msgid   ":langtag"
-msgstr  "$l"
-
-msgctxt ":langname"
-msgid   ":langname"
-msgstr  "$langname"
-
-$po{$l}
-PO
-;
-
-
-		close ($fh);
-
-	}
-
-
-	return;
-}
-
-#generate_po_files("common", \%Lang);
-
 
 # Load stored %Lang from Lang.sto
 
@@ -497,10 +410,8 @@ my @debug_taxonomies = ("categories", "labels", "additives");
 # - load .po files
 # - compute missing values by assigning English values
 
-sub build_lang($) {
-
-	# Hash of languages with translations initialized from the languages taxonomy by Tags.pm
-	my $Languages_ref = shift;
+sub build_lang($Languages_ref) {
+	# $Languages_ref is a hash of languages with translations initialized from the languages taxonomy by Tags.pm
 
 	# Load the strings from the .po files
 	# UI strings, non-Roman characters can be used

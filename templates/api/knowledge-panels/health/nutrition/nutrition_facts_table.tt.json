@@ -3,9 +3,15 @@
     "topics": [
         "health"
     ],
-    "type": "inline",
-    "expanded": true,
-    "elements": [   
+    "expanded": false,
+    "expand_for": "large",
+    "evaluation": "unknown",
+    "title_element": {
+        "title": "[% lang('nutrition_data_table') %]",
+        "icon_url": "[% static_subdomain %]/images/icons/dist/scale-balance.svg",
+        "icon_color_from_evaluation": true,
+    },
+    "elements": [
         {
             "element_type": "table",
             "table_element": {
@@ -66,7 +72,7 @@
                     [% END %]
                 ]
             }
-        },        
+        },
 
     ]
 }

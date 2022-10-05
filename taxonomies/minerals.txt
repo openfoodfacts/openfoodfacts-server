@@ -25,7 +25,6 @@ synonyms:fr:monocalcique, mono-calcique, calcique, dicalcique, tricalcique, de c
 
 synonyms:fr:orthophosphate, phosphate
 
-
 en:Mineral, Minerals
 af:Mineraal
 an:Mineral
@@ -641,29 +640,6 @@ sk:draselné soli kyseliny ortofosforečnej
 sl:kalijeve soli ortofosforne kisline
 sv:kaliumsalter av ortofosforsyra
 
-<en:Potassium
-en:magnesium potassium citrate
-bg:Магнезиево-калиев цитрат
-cs:citronan draselno-hořečnatý
-de:Magnesiumkaliumcitrat
-el:κιτρικό καλιομαγνήσιο
-es:citrato de magnesio y potasio
-et:magneesiumkaaliumtsitraat
-fi:magnesiumkaliumsitraatti
-fr:citrate potassium-magnésium
-hu:magnézium-kálium-citrát
-it:citrato di potassio e magnesio
-lt:magnio kalio citratas
-lv:magnija kālija citrāts
-mt:ċitrat tal-potassju tal-manjesju
-nl:kaliummagnesiumcitraat
-pl:cytrynian magnezu-potasu
-pt:citrato de magnésio e potássio
-ro:citrat de magneziu și potasiu
-sk:citran horečnato-draselný
-sl:magnezijev kalijev citrat
-sv:magnesiumkaliumcitrat
-
 
 
 <en:mineral
@@ -990,7 +966,7 @@ wikidata:en: Q57657491
 # ingredient/calcium-salts-from-orthophosphoric-acid has 9 products in french @2019-04-04
 # mineral/calcium-salts-of-orthophosphoric-acid has 28 products in 4 langages @2019-04-04
 
-comment:en:CALCIUM GLUCONATE is for the moment listed in both the additves and ingredients taxonomy.
+# comment:en:CALCIUM GLUCONATE is for the moment listed in both the additves and ingredients taxonomy.
 <en:Calcium
 #<en:E578
 en:calcium gluconate
@@ -1863,7 +1839,7 @@ hu:magnézium-L-pidolát
 it:L-pidolato di magnesio
 lt:magnio L-pidolatas
 lv:magnija L-pidolāts
-mt:L-aspartat tal-manjesju
+mt:L-pidolat tal-manjesju
 nl:magnesium-L-pidolaat
 pl:L-pidolan magnezu
 pt:L-pidolato de magnésio
@@ -1872,6 +1848,7 @@ sk:L-pidolát horečnatý
 sl:magnezijev L-pidolat
 sv:magnesium-L-pidolat
 
+<en:Potassium
 <en:Magnesium
 en:magnesium potassium citrate
 bg:Магнезиево-калиев цитрат
@@ -2142,7 +2119,7 @@ it:carbonato ferroso
 lt:geležies (II) karbonatas
 lv:dzelzs karbonāts
 mt:karbunat ferruż
-nl:ijzer (II) carbonaat
+nl:ijzer (II) carbonaat, ijzer(II)fumaraat
 pl:węglan żelaza(II)
 pt:carbonato ferroso
 ro:carbonat feros
@@ -2173,7 +2150,7 @@ sk:citran železnatý
 sl:železov citrat
 sv:ferrocitrat
 
-comment:en:FERRIC AMMONIUM CITRATE is for the moment listed in both the additves and ingredients taxonomy.
+#comment:en:FERRIC AMMONIUM CITRATE is for the moment listed in both the additves and ingredients taxonomy.
 <en:Iron
 #<en:E381
 en:ferric ammonium citrate, ammonium ferric citrate
@@ -2244,7 +2221,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Iron(II)_gluconate
 <en:iron gluconate
 en:ferrous gluconate to stabilize color
 
-description:en:IRON(II) FUMARATE is the iron(II) salt of fumaric acid, occurring as a reddish-orange powder, used to supplement iron intake.
+#description:en:IRON(II) FUMARATE is the iron(II) salt of fumaric acid, occurring as a reddish-orange powder, used to supplement iron intake.
 
 <en:iron
 en:iron fumarate, iron(II) fumarate, ferrous fumarate
@@ -2389,7 +2366,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Iron(II)_sulfate
 # ingredient/fr:sulfate-de-fer has 158 products in 4 languages @2019-05-10
 # mineral/ferrous-sulphate has 3843 products in 7 languages @2019-05-10
 # ingredient/fr:sulfates-de-fer has 69 products in 3 languages @2019-03-06
-description:IRON(II) SULFATE denotes a range of salts with the formula FeSO4·xH2O. The hydrated form is used medically to treat iron deficiency. It is on the World Health Organization's List of Essential Medicines, the most important medications needed in a basic health system.
+description:en:IRON(II) SULFATE denotes a range of salts with the formula FeSO4·xH2O. The hydrated form is used medically to treat iron deficiency. It is on the World Health Organization's List of Essential Medicines, the most important medications needed in a basic health system.
 
 <en:Iron
 en:ferrous ammonium phosphate
@@ -2969,7 +2946,7 @@ fa:روی اکسید
 fi:Sinkkioksidi
 fr:oxyde de zinc
 hi:जिंक ऑक्साइड
-hr:Cinkov oksid
+hr:cink-oksid, cinkov oksid
 hu:Cink-oxid
 id:Seng oksida
 it:ossido di zinco
@@ -4096,7 +4073,7 @@ lt:natrio selenitas
 lv:nātrija selenīts
 mt:selenit tas-sodju
 nl:natriumseleniet
-pl:selenian sodu
+pl:selenin sodu
 pt:selenito de sódio
 ro:selenit de sodiu
 ru:селенит натрия
@@ -5139,7 +5116,6 @@ id:Natrium klorida
 it:cloruro di sodio
 ja:塩化ナトリウム
 ka:ნატრიუმქლორიდი
-kk:Ас тұзы
 ko:염화 나트륨
 ky:Натрий хлориди
 la:Natrii chloridum
@@ -5185,27 +5161,25 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sodium_chloride
 # usage:fr:sel (chlorure de sodium)
 description:en:SODIUM CHLORIDE commonly known as salt (though sea salt also contains other chemical salts), is an ionic compound with the chemical formula NaCl, representing a 1:1 ratio of sodium and chloride ions. Salt is added to food, either by the food producer or by the consumer, as a flavor enhancer, preservative, binder, fermentation-control additive, texture-control agent and color developer.
 
+#<en:E331
 <en:Sodium
 en:sodium citrate
 bg:Натриев цитрат
-cs:citronan sodný
+ca:citronan sodný
 de:Natriumcitrat
 el:κιτρικό νάτριο
 es:citrato de sodio
-et:naatriumtsitraat
-fi:natriumsitraatti
+et:Naatriumtsitraat
 fr:citrate de sodium
 hu:nátrium-citrát
 it:citrato di sodio
-lt:natrio citratas
-lv:nātrija citrāts
-mt:ċitrat tas-sodju
+nb:Natriumsitrat
 nl:natriumcitraat
 pl:cytrynian sodu
 pt:citrato de sódio
 ro:citrat de sodiu
 ru:цитрат натрия, натрия цитрат
-sk:citran sodný
+sk:Nátrium citrát
 sl:natrijev citrat
 sv:natriumcitrat
 

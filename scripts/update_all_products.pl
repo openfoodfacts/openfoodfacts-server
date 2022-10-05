@@ -133,6 +133,7 @@ my $fix_nutrition_data_per = '';
 my $fix_nutrition_data = '';
 my $compute_main_countries = '';
 my $prefix_packaging_tags_with_language = '';
+my $fix_non_string_ids = '';
 
 my $query_ref = {};    # filters for mongodb query
 
@@ -163,6 +164,7 @@ GetOptions ("key=s"   => \$key,      # string
 			"fix-missing-lc" => \$fix_missing_lc,
 			"fix-zulu-lang" => \$fix_zulu_lang,
 			"fix-rev-not-incremented" => \$fix_rev_not_incremented,
+			"fix-non-string-ids" => \$fix_non_string_ids,
 			"user-id=s" => \$User_id,
 			"comment=s" => \$comment,
 			"run-ocr" => \$run_ocr,
@@ -224,6 +226,7 @@ if (
 	and (not $run_ocr) and (not $autorotate)
 	and (not $fix_missing_lc) and (not $fix_serving_size_mg_to_ml) and (not $fix_zulu_lang) and (not $fix_rev_not_incremented) and (not $fix_yuka_salt)
 	and (not $fix_spanish_ingredientes) and (not $fix_nutrition_data_per)  and (not $fix_nutrition_data)
+	and (not $fix_non_string_ids)
 	and (not $compute_sort_key)
 	and (not $remove_team) and (not $remove_label) and (not $remove_nutrient)
 	and (not $mark_as_obsolete_since_date) and (not $compute_main_countries)
@@ -294,6 +297,11 @@ foreach my $field (sort keys %{$query_ref}) {
 	elsif ($not) {
 		$query_ref->{$field} = { '$ne' => $query_ref->{$field} };
 	}
+}
+
+# Query products that have the _id field stored as a number
+if ($fix_non_string_ids) {
+	$query_ref->{_id} = { '$type' => "long"};
 }
 
 # On the producers platform, require --query owners_tags to be set, or the --all-owners field to be set.
@@ -1201,10 +1209,11 @@ while (my $product_ref = $cursor->next) {
 				}
 
 				# Store data to mongodb
-				# Make sure product code is saved as string and not a number
+				# Make sure product _id and code are saved as string and not a number
 				# see bug #1077 - https://github.com/openfoodfacts/openfoodfacts-server/issues/1077
 				# make sure that code is saved as a string, otherwise mongodb saves it as number, and leading 0s are removed
-				$product_ref->{code} = $product_ref->{code} . '';
+				$product_ref->{_id} .= '';
+				$product_ref->{code} .= '';
 				$products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, { upsert => 1 });
 			}
 		}
@@ -1265,5 +1274,12 @@ if ($restore_values_deleted_by_user) {
 		print STDERR "$deleted_fields{$field}\t$field\n";
 	}
 }
+
+if ($fix_non_string_ids) {
+	print STDERR "\nproducts stored in MongoDB with a non string _id have been reloaded from .sto files (if the products still exist) and stored with a string _id.\n";
+	print STDERR "products with non string ids can now be deleted from MongoDB with this command:"
+	. 'db.products.remove({_id : { $type : "long" }})' . "\n";
+}
+
 
 exit(0);

@@ -12,6 +12,7 @@
 # and may not refer to a different region / country. (e.g. "Georgia" is a country and a US state)
 
 stopwords:en:agriculture
+stopwords:bg:земеделие
 stopwords:fr:agriculture
 stopwords:es:agricultura
 stopwords:hu:mezőgazdaság
@@ -25,6 +26,7 @@ synonyms:en:Western Central, West Central
 
 # Unknown origin: no value has been entered (it's possible that there is one specified on the product but that we don't have the data)
 en:Unknown
+bg:Неизвестно
 ca:Desconegut
 es:Desconocido
 fr:Inconnu, inconnue, inconnus, inconnues
@@ -32,6 +34,7 @@ hu:Ismeretlen
 tr:Bilinmiyor
 
 en:Unspecified, not specified, non specified, nonspecified, not available, n/a
+bg:Неуточнено, не е налично, не е посочено
 ca:No especificat
 es:No especificado
 fr:Non indiqué, non indiquée, non indiqués, non indiquées, non spécifié, non spécifiée, non spécifiée, non spécifiées, non précisé, non précisée, non précisés, non précisées
@@ -41,6 +44,7 @@ pt:Não especificado
 # World regions
 
 en:Africa
+bg:Африка
 ca:Àfrica
 da:Afrika
 de:Afrika
@@ -51,12 +55,14 @@ tr:Afrika
 
 <en:Africa
 en:West Africa
+bg:Западна Африка
 da:Vestafrika
 de:Westafrika
 fr:Afrique de l'Ouest
 hu:Nyugat-Afrika
 
 en:Latin America
+bg:Латинска Америка
 ca:Amèrica Llatina
 de:Lateinamerika
 es:America latina
@@ -64,17 +70,20 @@ fr:Amérique Latine
 hu:Latin-Amerika
 
 en:Central America
+bg:Централна Америка
 de:Zentralamerika
 fr:Amérique centrale
 hu:Közép-Amerika
 
 en:North-America
+bg:Северна Америка
 da:Nordamerika
 de:Nordamerika
 fr:Amérique du Nord
 hu:Észak-Amerika
 
 en:South-America
+bg:Южна Америка
 ca:Sud Amèrica
 de:Südamerika
 es:Sudamerica
@@ -82,6 +91,7 @@ fr:Amérique du Sud
 hu:Dél-Amerika
 
 en:Asia
+bg:Азия
 ca:Àsia
 da:Asien
 de:Asien
@@ -92,6 +102,7 @@ pt:Ásia
 tr:Asya
 
 en:Europe
+bg:Европа
 ca:Europa
 da:Europa
 de:Europa
@@ -101,6 +112,7 @@ hu:Európa
 pt:Europa
 
 en:European Union, EU
+bg:Европейски съюз, ЕС
 da:Den Europæiske Union, EU
 de:Europäische Union, EU
 es:Unión Europea, UE
@@ -108,6 +120,7 @@ fr:Union Européenne, UE
 hu:Európai Unió, EU
 
 en:Non European Union, Non EU
+bg:Извън Европейския съюз, Извън ЕС
 ca:No Unió Europea, No UE
 da:Ikke-EU
 de:Nicht-Europäische Union, Nicht-EU
@@ -116,6 +129,7 @@ hu:Nem Európai Unió, Nem-EU, EU-n kívüli, Európai Unión kívüli
 pt:Fora da União Europeia
 
 en:European Union and Non European Union, EU and non EU, EU non EU
+bg:Европейски съюз и Извън Европейския съюз, ЕС и извън ЕС
 ca:Unió Europea i no Unió Europea, UE i no UE
 fr:Union Européenne et Non Union Européenne, UE et non UE, UE non UE
 hu:EU és Nem-EU, Európai Unió és nem Európai Unió
@@ -127,23 +141,28 @@ hu:EU és Nem-EU, Európai Unió és nem Európai Unió
 
 <en:france
 en:Alsace
+bg:Елзас
 fr:Alsace
 
 <en:france
 en:Ardèche
+bg:Ардеш
 fr:Ardèche
 
 <en:france
 en:Aquitaine
+bg:Аквитания
 fr:Aquitaine
 
 <en:france
 en:Burgundy
+bg:Бургундия
 fr:Bourgogne
 hu:Burgundia
 
 <en:france
 en:Brittany
+bg:Бретан
 ca:Bretanya
 de:Bretagne
 es:Bretaña
@@ -152,11 +171,13 @@ hu:Bretagne
 
 <en:france
 en:Camargue
+bg:Камарг
 fr:Camargue
 pt:Camarga
 
 <en:france
 en:Corsica
+bg:Корсика
 fr:Corse
 hu:Korzika
 
@@ -174,6 +195,7 @@ fr:Pays de la Loire
 
 <en:france
 en:Auvergne
+bg:Оверн
 fr:Auvergne
 
 <en:france
@@ -182,6 +204,7 @@ fr:Franche-Comté
 
 <en:france
 en:Normandy
+bg:Нормандия
 ca:Normandia
 es:Normandía
 fr:Normandie
@@ -190,6 +213,7 @@ pt:Normandia
 
 <en:france
 en:Provence
+bg:Прованс
 fr:Provence
 hu:Provance
 
@@ -295,30 +319,36 @@ fr:Antilles
 
 <en:germany
 en:Baden-Württemberg
+bg:Баден-Вюртемберг
 de:Baden-Württemberg
 
 <en:germany
 en:Bayern
+bg:Бавария
 de:Bayern
 hu:Bajorország
 
 <en:germany
 en:Berlin
+bg:Берлин
 de:Berlin
 xx:Berlin
 
 <en:germany
 en:Brandenburg
+bg:Бранденбург
 de:Brandenburg
 xx:Brandenburg
 
 <en:germany
 en:Bremen
+bg:Бремен
 de:Bremen
 xx:Bremen
 
 <en:germany
 en:Hamburg
+bg:Хамбург
 de:Hamburg
 xx:Hamburg
 
@@ -376,6 +406,7 @@ xx:Thüringen
 
 <en:italy
 en:Sicily
+bg:Сицилия
 fr:Sicile
 hu:Szicília
 it:Sicilia
@@ -385,6 +416,7 @@ tr:Sicilya
 
 <en:spain
 en:Andalusia
+bg:Андалусия
 es:Andalucía
 fr:Andalousie
 hu:Andalúzia
@@ -410,28 +442,34 @@ fr:Navarre
 
 <en:united-kingdom
 en:Great Britain, Britain
+bg:Великобритания
 fr:Grande Bretagne
 
 <en:great-britain
 en:England
+bg:Англия
 fr:Angleterre
 
 <en:great-britain
 en:Scotland
+bg:Шотландия
 fr:Écosse
 
 <en:great-britain
 en:Wales
+bg:Уелс
 fr:Pays de Galles
 
 <en:united-kingdom
 en:Northern Ireland
+bg:Северна Ирландия
 fr:Irlande du Nord
 
 # US states
 
 <en:united-states
 en:California
+bg:Калифорния
 ca:Califòrnia
 de:Kalifornien
 es:California
@@ -441,17 +479,20 @@ tr:Kaliforniya
 
 <en:united-states
 en:Florida
+bg:Флорида
 fr:Floride
 hu:Florida
 
 <en:United States	
 en:South Carolina	
+bg:Южна Каролина
 fr:Caroline du Sud
 
 # State of Palestine
 
 <en:State of Palestine
 en:Gaza Strip
+bg:Ивица Газа
 fr:Bande de Gaza
 
 # Marine zones
@@ -465,6 +506,7 @@ xx:FAO 18
 wikidata:en:Q788
 
 en:Atlantic Ocean, Atlantic
+bg:Атлантически океан
 de:Atlantischer Ozean, Atlantik
 fr:Océan Atlantique, Atlantique
 hu:Atlanti-óceán
@@ -490,7 +532,7 @@ xx:FAO 21
 en:North-East Atlantic Ocean, North-East Atlantic, Northeast Atlantic
 de:Nordostatlantik
 fr:Océan Atlantique Nord-Est, Atlantique Nord-Est, FAO 27, FAO N°27, Atlantique Du Nord-est
-bg:Североизточните Части На Атлантическия Океан
+bg:Североизточните части на Атлантическият океан
 cs:Severovýchodní Atlantik
 da:Nordøstlige Atlanterhav
 et:Atlandi Ookeani Kirdeosa
@@ -514,6 +556,7 @@ xx:FAO 27
 
 <xx:FAO 27
 en:Barents sea
+bg:Баренцово море
 fr:Mer de Barents
 hu:Barents-tenger
 xx:FAO 27.1, FAO zone 27-1, FAO subarea 27-1
@@ -528,6 +571,7 @@ xx:FAO 27.1.b
 # Norwegian Sea, Spitzbergen, and Bear Island (Subarea 27.2)
 <xx:FAO 27
 en:Norwegian Sea
+bg:Норвежко море
 fr:Mer de Norvège
 hu:Norvég tenger
 xx:FAO 27.2, FAO zone 27-2, FAO subarea 27-2
@@ -560,9 +604,6 @@ xx:FAO 27.3
 xx:FAO 27iiid
 
 <xx:FAO 27.3
-xx:FAO 27.3.d
-
-<xx:FAO 27.3
 xx:FAO 27.3.a
 
 <xx:FAO 27.3
@@ -570,6 +611,7 @@ xx:FAO 27.3.d
 
 <xx:FAO 27
 en:North Sea
+bg:Северно море
 de:Nordsee
 fr:Mer du Nord
 hu:Északi-tenger
@@ -779,6 +821,7 @@ en:Antartic Atlantic Ocean
 xx:FAO 48
 
 en:Indian Ocean
+bg:Индийски океан
 de:Indischer Ozean
 es:Océano Indio, Océano Índico
 fr:Océan Indien
@@ -826,6 +869,7 @@ en:Antartic and Southern Indian Ocean
 xx:FAO 58
 
 en:Pacific Ocean
+bg:Тихи океан
 ca:Oceà Pacífic
 de:Pazifische Ozean
 es:Océano Pacífico

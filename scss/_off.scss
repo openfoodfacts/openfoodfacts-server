@@ -482,6 +482,10 @@ a[aria-controls="idOfLeftMenu"] {
   #main_column {height: auto !important;}
 }
 
+ul.pagination li a {
+  color: black
+}
+
 .share_button,
 .edit_button {
   float: right;
@@ -558,8 +562,54 @@ html[dir="rtl"] {
 
 
 // List of products with cards (e.g. search results, facets)
+.search_results li {
+  position: relative;
+}
 
-.list_product_a {
+.list_product_banner {
+  border-top-left-radius:8px;
+  border-top-right-radius:8px;
+  padding:2px;
+  display:block;
+  color:white;
+  font-size:0.8rem;
+  text-align:center;
+}
+
+.list_product_banner_does_not_match {
+  background-color:$grade-e-color;
+}
+
+.list_product_banner_may_not_match {
+  background-color:$grade-d-color;
+}
+
+.list_product_banner_unknown_match {
+  background-color: #888;
+}
+
+.list_product_banner_poor_match {
+  background-color: $grade-c-color;
+}
+
+.list_product_banner_good_match {
+  background-color: $grade-b-color;
+}
+
+.list_product_banner_very_good_match {
+  background-color: $grade-a-color;
+}
+
+.list_product_content {
+  border-bottom-left-radius:8px;
+  border-bottom-right-radius:8px;
+  padding:10px;
+  display:block;
+  background-color:#eee;
+  position:relative;
+}
+
+.list_product_unranked {
   border-radius:8px;
   padding:10px;
   display:block;
@@ -587,6 +637,27 @@ html[dir="rtl"] {
   background-color:#faa;
 }
 
+.search_results .list_display_barcode {
+  color: black;
+  font-size: .8em;
+  display: block; // one line for barcode, to keep thing homogeneous
+}
+
+.search_results .list_edit_link img {
+  height: 1em;
+}
+
+.search_results .list_edit_link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 0.5em;
+  border-radius: .3em;
+}
+
+.search_results .list_edit_link:hover {
+  background-color: #aaf;
+}
 
 // Horizontally and vertically center images
 .list_product_img_div {
@@ -723,6 +794,15 @@ html[dir="rtl"] {
 .attribute_card {
   border-radius:8px;
   padding:1rem;min-height:96px;
+  display:block;
+}
+
+a.attribute_card {
+  color: $body-font-color;
+}
+
+a.attribute_card:hover {
+  text-decoration:none;
 }
 
 // Knowledge panels
@@ -776,6 +856,35 @@ html[dir="rtl"] {
 .evaluation_neutral_title {
   color:$grade-unknown-color;
 }
+
+.text_good {
+  background-color:rgba($evaluation-good-color,0.1) !important;
+}
+
+.text_average {
+  background-color:rgba($evaluation-average-color,0.1) !important;
+}
+
+.text_bad {
+  background-color:rgba($evaluation-bad-color,0.1) !important;
+}
+
+.text_info {
+  background-color:$info-color !important;
+}
+
+.text_warning {
+  background-color:$warning-color !important;
+  color: white;
+}
+
+.text_error {
+  background-color:$alert-color !important;
+}
+
+
+
+
 
 .grade_unknown {
   background-color:rgba($grade-unknown-color,0.1) !important;

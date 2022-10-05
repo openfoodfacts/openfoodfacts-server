@@ -44,8 +44,7 @@ on the basis of subdomain format which can be country code, world or static and 
 
 package ProductOpener::URL;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 BEGIN
@@ -81,10 +80,8 @@ The function returns a URL by concatenating scheme, subdomain and server-domain.
 
 =cut
 
-sub format_subdomain {
-	
-	my ($sd) = @_;
-	
+sub format_subdomain($sd) {
+
 	return $sd unless $sd;
 	my $scheme;
 	if (subdomain_supports_https($sd)) {
@@ -112,9 +109,7 @@ The function returns true after evaluating the true value for the regular expres
 
 =cut
 
-sub subdomain_supports_https {
-
-	my ($sd) = @_;
+sub subdomain_supports_https($sd) {
 	
 	return $sd unless $sd;
 	return 1 if grep { $_ eq '*' } @ssl_subdomains;

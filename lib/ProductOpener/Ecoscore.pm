@@ -20,7 +20,7 @@
 
 =head1 NAME
 
-ProductOpener::Ecoscore - compute the Ecoscore environemental grade of a food product
+ProductOpener::Ecoscore - compute the Ecoscore environmental grade of a food product
 
 =head1 SYNOPSIS
 
@@ -40,8 +40,7 @@ and some adjustments to the score are made for actual specific products using da
 
 package ProductOpener::Ecoscore;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 use Log::Any qw($log);
@@ -92,7 +91,7 @@ The list is different from %ecoscore_countries that can contain more countries f
 data to compute the Eco-Score (e.g. distances).
 
 2021-10-28: we will now enable Eco-Score for all available countries,
-so this list will be overriden when we load the Eco-Score data.
+so this list will be overrode when we load the Eco-Score data.
 
 =cut
 
@@ -114,7 +113,6 @@ sub load_agribalyse_data() {
 
 	my $agribalyse_details_by_step_csv_file = $data_root . "/ecoscore/agribalyse/AGRIBALYSE3.0.1_vf.csv.2";
 	
-	my $headers_ref;
 	my $rows_ref = [];
 
 	my $encoding = "UTF-8";
@@ -130,7 +128,8 @@ sub load_agribalyse_data() {
 
 		my $row_ref;
 
-		# Skip 3 first lines
+		# Skip 4 first lines
+		$csv->getline ($io);
 		$csv->getline ($io);
 		$csv->getline ($io);
 		$csv->getline ($io);
@@ -162,6 +161,7 @@ sub load_agribalyse_data() {
 	else {
 		die("Could not open agribalyse CSV $agribalyse_details_by_step_csv_file: $!");
 	}
+	return;
 }
 
 
@@ -252,6 +252,7 @@ sub load_ecoscore_data_origins_of_ingredients_distances() {
 	else {
 		die("Could not open ecoscore origins distances CSV $csv_file: $!");
 	}
+	return;
 }
 
 
@@ -348,6 +349,7 @@ sub load_ecoscore_data_origins_of_ingredients() {
 	else {
 		die("Could not open ecoscore origins CSV $csv_file: $!");
 	}
+	return;
 }
 
 
@@ -555,6 +557,7 @@ sub load_ecoscore_data_packaging() {
 	}	
 	
 	$log->debug("ecoscore packaging_shapes data", { packaging_materials => $ecoscore_data{packaging_shapes} }) if $log->is_debug();
+	return;
 }
 
 
@@ -568,6 +571,7 @@ sub load_ecoscore_data() {
 
 	load_ecoscore_data_origins_of_ingredients();
 	load_ecoscore_data_packaging();
+	return;
 }
 
 
@@ -592,9 +596,7 @@ Returned values:
 
 =cut
 
-sub compute_ecoscore($) {
-
-	my $product_ref = shift;
+sub compute_ecoscore($product_ref) {
 	
 	delete $product_ref->{ecoscore_grade};
 	delete $product_ref->{ecoscore_score};
@@ -795,6 +797,7 @@ sub compute_ecoscore($) {
 			add_tag($product_ref,"misc","en:ecoscore-not-computed");
 		}
 	}
+	return;
 }
 
 
@@ -823,9 +826,7 @@ or proxy match for at least one of its categories.
 
 =cut
 
-sub compute_ecoscore_agribalyse($) {
-
-	my $product_ref = shift;
+sub compute_ecoscore_agribalyse($product_ref) {
 	
 	$product_ref->{ecoscore_data}{agribalyse} = {};
 		
@@ -904,6 +905,7 @@ sub compute_ecoscore_agribalyse($) {
 	else {
 		$product_ref->{ecoscore_data}{agribalyse}{warning} = "missing_agribalyse_match";
 	}
+	return;
 }
 
 
@@ -957,9 +959,7 @@ my @production_system_labels = (
 );
 
 
-sub compute_ecoscore_production_system_adjustment($) {
-
-	my $product_ref = shift;
+sub compute_ecoscore_production_system_adjustment($product_ref) {
 	
 	$product_ref->{ecoscore_data}{adjustments}{production_system} = { value => 0, labels => []};
 		
@@ -1001,7 +1001,7 @@ sub compute_ecoscore_production_system_adjustment($) {
 		defined $product_ref->{ecoscore_data}{missing} or $product_ref->{ecoscore_data}{missing} = {};
 		$product_ref->{ecoscore_data}{missing}{labels} = 1;
 	}	
-	
+	return;	
 }
 
 
@@ -1026,9 +1026,7 @@ $product_ref->{adjustments}{threatened_species} hash with:
 
 =cut
 
-sub compute_ecoscore_threatened_species_adjustment($) {
-
-	my $product_ref = shift;
+sub compute_ecoscore_threatened_species_adjustment($product_ref) {
 	
 	$product_ref->{ecoscore_data}{adjustments}{threatened_species} = {};
 	
@@ -1047,7 +1045,7 @@ sub compute_ecoscore_threatened_species_adjustment($) {
 		defined $product_ref->{ecoscore_data}{missing} or $product_ref->{ecoscore_data}{missing} = {};
 		$product_ref->{ecoscore_data}{missing}{ingredients} = 1;
 	}
-	
+	return;	
 }
 
 
@@ -1076,13 +1074,8 @@ The percentages are stored in $aggregated_origins_ref
 
 =cut
 
-sub aggregate_origins_of_ingredients($$$);
 
-sub aggregate_origins_of_ingredients($$$) {
-	
-	my $default_origins_ref = shift;
-	my $aggregated_origins_ref = shift;
-	my $ingredients_ref = shift;
+sub aggregate_origins_of_ingredients($default_origins_ref, $aggregated_origins_ref, $ingredients_ref) {
 	
 	# The ingredients array contains sub-ingredients in nested ingredients
 		
@@ -1128,6 +1121,7 @@ sub aggregate_origins_of_ingredients($$$) {
 			}
 		}
 	}
+	return;
 }
 
 =head2 compute_ecoscore_origins_of_ingredients_adjustment ( $product_ref )
@@ -1155,9 +1149,7 @@ $product_ref->{adjustments}{origins_of_ingredients} hash with:
 
 =cut
 
-sub compute_ecoscore_origins_of_ingredients_adjustment($) {
-
-	my $product_ref = shift;
+sub compute_ecoscore_origins_of_ingredients_adjustment($product_ref) {
 	
 	# First parse the "origins" field to see which countries are listed
 	# Ignore entries that are not recognized or that do not have Eco-Score values (only countries and continents)
@@ -1256,6 +1248,7 @@ sub compute_ecoscore_origins_of_ingredients_adjustment($) {
 		defined $product_ref->{ecoscore_data}{missing} or $product_ref->{ecoscore_data}{missing} = {};
 		$product_ref->{ecoscore_data}{missing}{origins} = 1;
 	}
+	return;
 }
 
 
@@ -1279,9 +1272,7 @@ $product_ref->{adjustments}{packaging} hash with:
 
 =cut
 
-sub compute_ecoscore_packaging_adjustment($) {
-
-	my $product_ref = shift;
+sub compute_ecoscore_packaging_adjustment($product_ref) {
 	
 	$log->debug("compute_ecoscore_packaging_adjustment - packagings data structure", { packagings => $product_ref->{packagings} }) if $log->is_debug();
 	
@@ -1296,6 +1287,9 @@ sub compute_ecoscore_packaging_adjustment($) {
 			value => -15,
 			non_recyclable_and_non_biodegradable_materials => 1,
 		};
+		# indicate that we are missing key data
+		# this is to indicate to 3rd party that the computed Eco-Score should not be displayed without warnings
+		$product_ref->{ecoscore_data}{missing_key_data} = 1;
 		$warning = "packaging_data_missing";
 	}
 	else {
@@ -1427,7 +1421,7 @@ sub compute_ecoscore_packaging_adjustment($) {
 		defined $product_ref->{ecoscore_data}{missing} or $product_ref->{ecoscore_data}{missing} = {};
 		$product_ref->{ecoscore_data}{missing}{packagings} = 1;		
 	}
-	
+	return;	
 }
 
 
@@ -1456,11 +1450,8 @@ The adjustment value and computations details are stored in the product referenc
 
 =cut
 
-sub localize_ecoscore ($$) {
+sub localize_ecoscore ($cc, $product_ref) {
 	
-	my $cc = shift;
-	my $product_ref = shift;
-
 	# Localize the Eco-Score fields that depends on the country of the request
 
 	if (defined $product_ref->{ecoscore_data}) {
@@ -1503,6 +1494,7 @@ sub localize_ecoscore ($$) {
 			}
 		}
 	}		
+	return;
 }
 
 
@@ -1522,9 +1514,7 @@ The expected error as float.
 
 =cut
 
-sub ecoscore_extended_data_expected_error ($) {
-	
-	my $product_ref = shift;
+sub ecoscore_extended_data_expected_error ($product_ref) {
 
 	# Parameters of the surface, as generated by 
 	# https://github.com/openfoodfacts/off-product-environmental-impact/blob/master/analysis/colab/OFF%20impact%20estimator.ipynb
@@ -1547,9 +1537,7 @@ sub ecoscore_extended_data_expected_error ($) {
 
 }
 
-sub is_ecoscore_extended_data_more_precise_than_agribalyse ($) {
-
-	my $product_ref = shift;
+sub is_ecoscore_extended_data_more_precise_than_agribalyse ($product_ref) {
 
 	# Check that the product has both Agribalyse and Impact Estimator data
 

@@ -37,8 +37,7 @@ See https://wiki.openfoodfacts.org/Product_Attributes
 
 package ProductOpener::Attributes;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 use Log::Any qw($log);
@@ -74,6 +73,9 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
+
+use Data::DeepAccess qw(deep_get);
+
 
 =head1 CONFIGURATION
 
@@ -141,9 +143,7 @@ The return value is cached for each language in the %localized_attribute_groups 
 # Global structure to cache the return structure for each language
 my %localized_attribute_groups = ();
 
-sub list_attributes($) {
-
-	my $target_lc = shift;	
+sub list_attributes($target_lc) {
 
 	$log->debug("list attributes", { target_lc => $target_lc }) if $log->is_debug();
 
@@ -208,10 +208,7 @@ A reference to the created attribute group object.
 
 =cut
 
-sub initialize_attribute_group($$) {
-
-	my $group_id = shift;		
-	my $target_lc = shift;
+sub initialize_attribute_group($group_id, $target_lc) {
 	
 	my $group_ref = {
 		id => $group_id,
@@ -263,18 +260,14 @@ A reference to the created attribute object.
 
 =head3 Initialized fields
 
-- Name - e.g. "Nutri-Score"
-- Setting name - e.g. "Good nutritional quality (Nutri-Score)"
-- Warning
-- Short description
-- Description
+- name: e.g. "Nutri-Score"
+- setting_name: e.g. "Good nutritional quality (Nutri-Score)"
+- icon_url
+- panel_id:	Linked knowledge panel (optional)
 
 =cut
 
-sub initialize_attribute($$) {
-	
-	my $attribute_id = shift;
-	my $target_lc = shift;
+sub initialize_attribute($attribute_id, $target_lc) {
 	
 	my $attribute_ref = {id => $attribute_id};
 	
@@ -282,19 +275,23 @@ sub initialize_attribute($$) {
 	
 	if ($attribute_id eq "nutriscore") {
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/nutriscore-a.svg";
+		$attribute_ref->{panel_id} = "nutriscore";
 	}
 	elsif ($attribute_id eq "ecoscore") {
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/ecoscore-a.svg";
+		$attribute_ref->{panel_id} = "ecoscore";
 	}
 	elsif ($attribute_id eq "forest_footprint") {
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/forest-footprint-a.svg";
-	}	
+	}
 	elsif ($attribute_id eq "nova") {
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/nova-group-1.svg";
+		$attribute_ref->{panel_id} = "nova";
 	}
 	elsif ($attribute_id eq "additives") {
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/0-additives.svg";
-	}	
+		$attribute_ref->{panel_id} = "additives";
+	}
 	elsif ($attribute_id =~ /^allergens_no_(.*)$/) {
 		my $allergen = $1;
 		$allergen =~ s/_/-/g;
@@ -405,17 +402,13 @@ e.g. "attribute_labels_fair_trade_yes_description_short"
 
 =cut
 
-sub override_general_value($$$$) {
-	
-	my $attribute_ref = shift;
-	my $target_lc = shift;
-	my $field = shift;
-	my $stringid = shift;
+sub override_general_value($attribute_ref, $target_lc, $field, $stringid) {
 	
 	my $string = lang_in_other_lc($target_lc, $stringid);
 	if ($string ne "") {
 		$attribute_ref->{$field} = $string;
 	}
+	return;
 }
 
 
@@ -448,10 +441,7 @@ that is used to define the Nutri-Score grade from A to E.
 
 =cut
 
-sub compute_attribute_nutriscore($$) {
-
-	my $product_ref = shift;
-	my $target_lc = shift;
+sub compute_attribute_nutriscore($product_ref, $target_lc) {
 
 	$log->debug("compute nutriscore attribute", { code => $product_ref->{code}, nutriscore_data => $product_ref->{nutriscore_data} }) if $log->is_debug();
 
@@ -460,7 +450,7 @@ sub compute_attribute_nutriscore($$) {
 	my $attribute_ref = initialize_attribute($attribute_id, $target_lc);
 	
 	# Nutri-Score A, B, C, D or E
-	if (defined $product_ref->{nutriscore_data}) {
+	if ((defined $product_ref->{nutriscore_grade}) and ($product_ref->{nutriscore_grade} =~ /^[a-e]$/)) {
 		$attribute_ref->{status} = "known";
 		
 		my $nutriscore_data_ref = $product_ref->{nutriscore_data};
@@ -540,13 +530,17 @@ sub compute_attribute_nutriscore($$) {
 	}
 	
 	# Nutri-Score not-applicable: alcoholic beverages, baby food etc.
-	elsif (has_tag($product_ref,"misc","en:nutriscore-not-applicable")) {
+	elsif (has_tag($product_ref,"nutrition_grades","not-applicable")) {
 		$attribute_ref->{status} = "known";
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/nutriscore-not-applicable.svg";
 		$attribute_ref->{match} = 0;
 		if ($target_lc ne "data") {
-			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_title");		
-			$attribute_ref->{description} = lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_description");
+			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_title");	
+			$attribute_ref->{description} = f_lang_in_lc($target_lc, "f_attribute_nutriscore_not_applicable_description", {
+					category => display_taxonomy_tag_name($target_lc, "categories",
+						deep_get($product_ref, qw/nutriscore_data nutriscore_not_applicable_for_category/))
+				}
+			);
 			$attribute_ref->{description_short} = lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_description_short");		
 		}		
 	}
@@ -603,11 +597,7 @@ that is used to define the Eco-Score grade from A to E.
 
 =cut
 
-sub compute_attribute_ecoscore($$$) {
-
-	my $product_ref = shift;
-	my $target_lc = shift;
-	my $target_cc = shift;
+sub compute_attribute_ecoscore($product_ref, $target_lc, $target_cc) {
 
 	$log->debug("compute ecoscore attribute", { code => $product_ref->{code}, ecoscore_data => $product_ref->{ecoscore_data} }) if $log->is_debug();
 
@@ -621,9 +611,9 @@ sub compute_attribute_ecoscore($$$) {
 		my $score = $product_ref->{ecoscore_score} // 0;
 		my $grade = $product_ref->{ecoscore_grade};
 		
-		if ((defined $product_ref->{ecoscore_data}{"scores"}) and (defined $product_ref->{ecoscore_data}{"scores"}{$cc})) {
-			$score = $product_ref->{ecoscore_data}{"scores"}{$cc} // 0;
-			$grade = $product_ref->{ecoscore_data}{"grades"}{$cc};
+		if ((defined $product_ref->{ecoscore_data}{"scores"}) and (defined $product_ref->{ecoscore_data}{"scores"}{$target_cc})) {
+			$score = $product_ref->{ecoscore_data}{"scores"}{$target_cc} // 0;
+			$grade = $product_ref->{ecoscore_data}{"grades"}{$target_cc};
 		}
 		
 		$log->debug("compute ecoscore attribute - known", { code => $product_ref->{code}, score => $score, grade => $grade }) if $log->is_debug();
@@ -653,6 +643,22 @@ sub compute_attribute_ecoscore($$$) {
 		}
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/ecoscore-$grade.svg";
 	}
+	# Eco-Score is not-applicable
+	elsif ((defined $product_ref->{ecoscore_grade}) and ($product_ref->{ecoscore_grade} eq "not-applicable")) {
+		$attribute_ref->{status} = "unknown";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/ecoscore-not-applicable.svg";
+		$attribute_ref->{match} = 0;		
+		if ($target_lc ne "data") {
+			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_ecoscore_not_applicable_title");	
+			$attribute_ref->{description} = f_lang_in_lc($target_lc, "f_attribute_ecoscore_not_applicable_description", {
+					category => display_taxonomy_tag_name($target_lc, "categories",
+						deep_get($product_ref, qw/ecoscore_data ecoscore_not_applicable_for_category/))
+				}
+			);
+			$attribute_ref->{description_short} = lang_in_other_lc($target_lc, "attribute_ecoscore_not_applicable_description_short");					
+		}		
+	}
+	# Eco-Score is unknown
 	else {
 		$attribute_ref->{status} = "unknown";
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/ecoscore-unknown.svg";
@@ -660,7 +666,7 @@ sub compute_attribute_ecoscore($$$) {
 		if ($target_lc ne "data") {
 			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_ecoscore_unknown_title");		
 			$attribute_ref->{description} = lang_in_other_lc($target_lc, "attribute_ecoscore_unknown_description");
-			$attribute_ref->{description_short} = lang_in_other_lc($target_lc, "attribute_ecoscore_unknown_description_short");		
+			$attribute_ref->{description_short} = lang_in_other_lc($target_lc, "attribute_ecoscore_unknown_description_short");			
 		}
 	}
 	
@@ -702,11 +708,7 @@ If the forest footprint is not computed, we mark it as non-computed and make the
 
 =cut
 
-sub compute_attribute_forest_footprint($$) {
-
-	my $product_ref = shift;
-	my $target_lc = shift;
-
+sub compute_attribute_forest_footprint($product_ref, $target_lc) {
 
 	$log->debug("compute forest footprint attribute", { code => $product_ref->{code}, forest_footprint_data => $product_ref->{forest_footprint_data} }) if $log->is_debug();
 
@@ -777,15 +779,12 @@ The return value is a reference to the resulting attribute data structure.
 
 - NOVA 1: 100%
 - NOVA 2: 100%
-- NOVA 3: 50%
+- NOVA 3: 75%
 - NOVA 4: 0%
 
 =cut
 
-sub compute_attribute_nova($$) {
-
-	my $product_ref = shift;
-	my $target_lc = shift;
+sub compute_attribute_nova($product_ref, $target_lc) {
 
 	$log->debug("compute nova attribute", { code => $product_ref->{code} }) if $log->is_debug();
 
@@ -803,16 +802,14 @@ sub compute_attribute_nova($$) {
 		
 		# Compute match based on NOVA group
 		
-		my $match = 0;
-		
-		if (($nova_group == 1) or ($nova_group == 2)) {
-			$match = 100;
-		}
-		elsif ($nova_group == 3) {
-			$match = 50;
-		}
+		my %nova_groups_scores = (
+			1 => 100,
+			2 => 100,
+			3 => 75,
+			4 => 0,
+		);
 	
-		$attribute_ref->{match} = $match;
+		$attribute_ref->{match} = $nova_groups_scores{$nova_group + 0};	# Make sure the key is a number
 		
 		if ($target_lc ne "data") {
 			$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "attribute_nova_group_title"), $nova_group);
@@ -864,10 +861,7 @@ The return value is a reference to the resulting attribute data structure.
 
 =cut
 
-sub compute_attribute_additives($$) {
-
-	my $product_ref = shift;
-	my $target_lc = shift;
+sub compute_attribute_additives($product_ref, $target_lc) {
 
 	$log->debug("compute additives attribute", { code => $product_ref->{code} }) if $log->is_debug();
 
@@ -964,12 +958,7 @@ The return value is a reference to the resulting attribute data structure.
 
 =cut
 
-sub compute_attribute_has_tag($$$$) {
-
-	my $product_ref = shift;
-	my $target_lc = shift;
-	my $tagtype = shift;
-	my $tagid = shift;	
+sub compute_attribute_has_tag($product_ref, $target_lc, $tagtype, $tagid) {
 
 	$log->debug("compute attributes for product", { code => $product_ref->{code} }) if $log->is_debug();
 
@@ -1066,12 +1055,7 @@ Traffic lights levels are defined in Food.pm:
 
 =cut
 
-sub compute_attribute_nutrient_level($$$$) {
-
-	my $product_ref = shift;
-	my $target_lc = shift;
-	my $level = shift;
-	my $nid = shift;	
+sub compute_attribute_nutrient_level($product_ref, $target_lc, $level, $nid) {
 
 	$log->debug("compute attributes nutrient quantity for product", { code => $product_ref->{code}, level => $level, nid => $nid }) if $log->is_debug();
 
@@ -1178,16 +1162,13 @@ The return value is a reference to the resulting attribute data structure.
 =head4 % Match
 
 100: no indication of the allergen or trace of the allergen
-20: may contain the allergen
+20: may contain the allergen as a trace
 0: contains allergen
 
 =cut
 
-sub compute_attribute_allergen($$$) {
-
-	my $product_ref = shift;
-	my $target_lc = shift;
-	my $attribute_id = shift;	# e.g. "allergens_no_gluten",
+sub compute_attribute_allergen($product_ref, $target_lc, $attribute_id) {
+	# $attribute_id  ->  e.g. "allergens_no_gluten",
 	
 	my $allergen = $attribute_id;
 	$allergen =~ s/^allergens_no_//;
@@ -1322,11 +1303,7 @@ For "low" levels:
 
 =cut
 
-sub compute_attribute_ingredients_analysis($$$) {
-
-	my $product_ref = shift;
-	my $target_lc = shift;
-	my $analysis = shift;
+sub compute_attribute_ingredients_analysis($product_ref, $target_lc, $analysis) {
 	
 	my $attribute_id = $analysis;
 	$attribute_id =~ s/-/_/g;
@@ -1403,6 +1380,9 @@ sub compute_attribute_ingredients_analysis($$$) {
 	# the ingredients_analysis taxonomy contains en:palm-oil and not en:contains-palm-oil
 	$analysis_tag =~ s/contains-(.*)$/$1/;
 
+	# Link to the corresponding knowledge panel (the panel id depends on the value of the property)
+	$attribute_ref->{panel_id} = "ingredients_analysis_en:" . $analysis_tag;
+
 	if ($target_lc ne "data") {
 		$attribute_ref->{title} = display_taxonomy_tag($target_lc, "ingredients_analysis", "en:$analysis_tag");	
 	}	
@@ -1434,12 +1414,7 @@ e.g. nutritional_quality, allergens, labels
 
 =cut
 
-sub add_attribute_to_group($$$$) {
-	
-	my $product_ref = shift;
-	my $target_lc = shift;
-	my $group_id = shift;
-	my $attribute_ref = shift;
+sub add_attribute_to_group($product_ref, $target_lc, $group_id, $attribute_ref) {
 	
 	$log->debug("add_attribute_to_group", { target_lc => $target_lc, group_id => $group_id, attribute_ref => $attribute_ref }) if $log->is_debug();	
 	
@@ -1495,6 +1470,7 @@ sub add_attribute_to_group($$$$) {
 		
 		push @{$group_ref->{attributes}}, $attribute_ref;
 	}
+	return;
 }
 
 
@@ -1535,12 +1511,7 @@ The array contains attribute groups, and each attribute group contains individua
 
 =cut
 
-sub compute_attributes($$$$) {
-
-	my $product_ref = shift;
-	my $target_lc = shift;
-	my $target_cc = shift;
-	my $options_ref = shift;	
+sub compute_attributes($product_ref, $target_lc, $target_cc, $options_ref) {
 
 	$log->debug("compute attributes for product", { code => $product_ref->{code}, target_lc => $target_lc }) if $log->is_debug();
 
@@ -1605,6 +1576,7 @@ sub compute_attributes($$$$) {
 	
 	$log->debug("computed attributes for product", { code => $product_ref->{code}, target_lc => $target_lc,
 		"attribute_groups_" . $target_lc => $product_ref->{"attribute_groups_" . $target_lc} }) if $log->is_debug();
+	return;
 }
 
 1;
