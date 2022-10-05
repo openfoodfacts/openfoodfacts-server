@@ -26,7 +26,7 @@ sub init_redis() {
 	$log->warn("REDIS_URL env", {redis_url => $ENV{REDIS_URL}}) if $log->is_warn();
 	if ($ProductOpener::Config2::redis_url eq "") {
 		$log->warn("Redis URL not provided for search indexing", {error => $@}) if $log->is_warn();
-		return undef;
+		return;
 	}
 	my $redis_client;
 	eval {$redis_client = Redis::Client->new(host => $ProductOpener::Config2::redis_url);};
@@ -36,7 +36,7 @@ sub init_redis() {
 	else {
 		return $redis_client;
 	}
-	return undef;
+	return;
 }
 
 my $redis_client = init_redis();
