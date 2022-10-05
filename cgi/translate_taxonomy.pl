@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -31,17 +30,18 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
+use ProductOpener::Text qw/:all/;
 
 use Encode;
 use CGI qw/:cgi :form escapeHTML/;
 use Log::Any qw($log);
 use JSON::PP;
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
-my $tagtype = remove_tags_and_quote(decode utf8=>param('tagtype'));
-my $from = remove_tags_and_quote(decode utf8=>param('from'));
-my $to = remove_tags_and_quote(decode utf8=>param('to'));
+my $tagtype = remove_tags_and_quote(decode utf8 => single_param('tagtype'));
+my $from = remove_tags_and_quote(decode utf8 => single_param('from'));
+my $to = remove_tags_and_quote(decode utf8 => single_param('to'));
 
 my $status;
 

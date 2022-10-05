@@ -26,23 +26,21 @@ use Exporter    qw< import >;
 
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	@EXPORT = qw();
+	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		%string_normalization_for_lang
 		%admins
 
 		$server_domain
 		@ssl_subdomains
+		$conf_root
 		$data_root
 		$www_root
 		$geolite2_path
 		$reference_timezone
 		$contact_email
 		$admin_email
-
-		$facebook_app_id
-		$facebook_app_secret
+		$producers_email
 
 		$google_cloud_vision_api_key
 
@@ -50,9 +48,13 @@ BEGIN
 		$crowdin_project_key
 
 		$robotoff_url
+		$events_url
+		$events_username
+		$events_password
 
 		$mongodb
 		$mongodb_host
+		$mongodb_timeout_ms
 
 		$memd_servers
 
@@ -123,6 +125,10 @@ use ProductOpener::Config2;
 		lowercase => 1,
 	},
 	# Same for Spanish, Italian and Portuguese
+	ca => {
+		unaccent => 1,
+		lowercase => 1,
+	},
 	es => {
 		unaccent => 1,
 		lowercase => 1,
@@ -131,7 +137,15 @@ use ProductOpener::Config2;
 		unaccent => 1,
 		lowercase => 1,
 	},
+	nl => {
+		unaccent => 1,
+		lowercase => 1,
+	},
 	pt => {
+		unaccent => 1,
+		lowercase => 1,
+	},
+	sk => {
 		unaccent => 1,
 		lowercase => 1,
 	},
@@ -143,8 +157,11 @@ use ProductOpener::Config2;
 );
 
 %admins = map { $_ => 1 } qw(
+	alex-off
 	charlesnepote
+	gala-nafikova
 	hangy
+	manoncorneille
 	raphael0202
 	stephane
 	tacinte
@@ -155,6 +172,7 @@ $options{export_limit} = 10000;
 
 $options{users_who_can_upload_small_images} = {
 	map { $_ => 1 } qw(
+		manoncorneille
 		systeme-u
 		stephane
 		teolemon
@@ -315,23 +333,30 @@ $server_domain = $ProductOpener::Config2::server_domain;
 @ssl_subdomains = @ProductOpener::Config2::ssl_subdomains;
 $mongodb = $ProductOpener::Config2::mongodb;
 $mongodb_host = $ProductOpener::Config2::mongodb_host;
+$mongodb_timeout_ms = $ProductOpener::Config2::mongodb_timeout_ms;
 $memd_servers = $ProductOpener::Config2::memd_servers;
 
 # server paths
 $www_root = $ProductOpener::Config2::www_root;
 $data_root = $ProductOpener::Config2::data_root;
+$conf_root = $ProductOpener::Config2::conf_root;
 
 $geolite2_path = $ProductOpener::Config2::geolite2_path;
-
-$facebook_app_id = $ProductOpener::Config2::facebook_app_id;
-$facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
 
 $google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_key;
 
 $crowdin_project_identifier = $ProductOpener::Config2::crowdin_project_identifier;
 $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
 
+# Set this to your instance of https://github.com/openfoodfacts/robotoff/ to
+# enable an in-site robotoff-asker in the product page
 $robotoff_url = $ProductOpener::Config2::robotoff_url;
+
+# Set this to your instance of https://github.com/openfoodfacts/openfoodfacts-events
+# enable creating events for some actions (e.g. when a product is edited)
+$events_url = $ProductOpener::Config2::events_url;
+$events_username = $ProductOpener::Config2::events_username;
+$events_password = $ProductOpener::Config2::events_password;
 
 # server options
 
@@ -340,8 +365,8 @@ $robotoff_url = $ProductOpener::Config2::robotoff_url;
 $reference_timezone = 'Europe/Paris';
 
 $contact_email = 'contact@openfoodfacts.org';
+$producers_email = 'producers@openfoodfacts.org';
 $admin_email = 'stephane@openfoodfacts.org';
-
 
 $thumb_size = 100;
 $crop_size = 400;
@@ -349,36 +374,48 @@ $small_size = 200;
 $display_size = 400;
 $zoom_size = 800;
 
-$page_size = 20;
+$page_size = 24;
 
 
 $google_analytics = <<HTML
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-31851927-1"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HQX9SYHB2P&aip=1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
-  gtag('config', 'UA-31851927-1');
+  gtag('set', 'allow_google_signals', false);
+  gtag('config', 'G-HQX9SYHB2P', {"anonymize_ip": true, 'allow_google_signals': false});
 </script>
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+  _paq.push(["setCookieDomain", "*.openfoodfacts.org"]);
+  _paq.push(["setDomains", ["*.openfoodfacts.org"]]);
+  _paq.push(["setDoNotTrack", true]);
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//analytics.openfoodfacts.org/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '5']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.openfoodfacts.org/matomo.php?idsite=5&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+<!-- End Matomo Code -->
 
 HTML
 ;
 
 my @icons = (
-	{ "platform" => "ios", "sizes" => "57x57", "src" => "https://static.$server_domain/images/favicon/apple-touch-icon-57x57.png" },
-	{ "platform" => "ios", "sizes" => "60x60", "src" => "https://static.$server_domain/images/favicon/apple-touch-icon-60x60.png" },
-	{ "platform" => "ios", "sizes" => "72x72", "src" => "https://static.$server_domain/images/favicon/apple-touch-icon-72x72.png" },
-	{ "platform" => "ios", "sizes" => "76x76", "src" => "https://static.$server_domain/images/favicon/apple-touch-icon-76x76.png" },
-	{ "platform" => "ios", "sizes" => "114x114", "src" => "https://static.$server_domain/images/favicon/apple-touch-icon-114x114.png" },
-	{ "platform" => "ios", "sizes" => "120x120", "src" => "https://static.$server_domain/images/favicon/apple-touch-icon-120x120.png" },
-	{ "platform" => "ios", "sizes" => "144x144", "src" => "https://static.$server_domain/images/favicon/apple-touch-icon-144x144.png" },
-	{ "platform" => "ios", "sizes" => "152x152", "src" => "https://static.$server_domain/images/favicon/apple-touch-icon-152x152.png" },
-	{ "platform" => "ios", "sizes" => "180x180", "src" => "https://static.$server_domain/images/favicon/apple-touch-icon-180x180.png" },
-	{ "type" => "image/png", "src" => "https://static.$server_domain/images/favicon/favicon-32x32.png", "sizes" => "32x32" },
+	{ "type" => "image/png", "src" => "https://static.$server_domain/images/favicon/android-chrome-512x512.png", "sizes" => "512x512" },
 	{ "type" => "image/png", "src" => "https://static.$server_domain/images/favicon/android-chrome-192x192.png", "sizes" => "192x192" },
-	{ "type" => "image/png", "src" => "https://static.$server_domain/images/favicon/favicon-96x96.png", "sizes" => "96x96" },
+	{ "type" => "image/png", "src" => "https://static.$server_domain/images/favicon/favicon-32x32.png", "sizes" => "32x32" },
 	{ "type" => "image/png", "src" => "https://static.$server_domain/images/favicon/favicon-16x16.png", "sizes" => "16x16" },
 );
 
@@ -400,13 +437,16 @@ $options{mongodb_supports_sample} = 0;  # from MongoDB 3.2 onward
 $options{display_random_sample_of_products_after_edits} = 0;  # from MongoDB 3.2 onward
 
 $options{favicons} = <<HTML
-<link rel="manifest" href="/cgi/manifest.pl">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+<link rel="manifest" href="/images/favicon/site.webmanifest">
 <link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
 <link rel="shortcut icon" href="/images/favicon/favicon.ico">
-<meta name="msapplication-TileColor" content="#da532c">
-<meta name="msapplication-TileImage" content="/images/favicon/mstile-144x144.png">
+<meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
-<meta name="_globalsign-domain-verification" content="2ku73dDL0bAPTj_s1aylm6vxvrBZFK59SfbH_RdUya" />
+<meta name="theme-color" content="#ffffff">
+
 <meta name="apple-itunes-app" content="app-id=588797948">
 <meta name="flattr:id" content="dw637l">
 HTML
@@ -418,28 +458,28 @@ XML
 ;
 
 
-# Nutriscore: milk and drinkable yogurts are not considered beverages
-# list only categories that are under en:beverages
+# Nutriscore: categories that are never considered beverages for Nutri-Score computation
 $options{categories_not_considered_as_beverages_for_nutriscore} = [qw(
 	en:plant-milks
 	en:milks
-	en:dairy-drinks
 	en:meal-replacement
 	en:dairy-drinks-substitutes
 	en:chocolate-powders
 	en:soups
-	en:coffees
-	en:tea-bags
-	en:herbal-teas
 )];
 
-# exceptions
+# categories that are considered as beverages
+# unless they have 80% milk (which we will determine through ingredients analysis)
 $options{categories_considered_as_beverages_for_nutriscore} = [qw(
 	en:tea-based-beverages
 	en:iced-teas
 	en:herbal-tea-beverages
 	en:coffee-beverages
 	en:coffee-drinks
+
+	en:coffees
+	en:herbal-teas
+	en:teas		
 )];
 
 $options{categories_exempted_from_nutriscore} = [qw(
@@ -448,10 +488,7 @@ $options{categories_exempted_from_nutriscore} = [qw(
 	en:baby-foods
 	en:baby-milks
 	en:chewing-gum
-	en:coffees
 	en:food-additives
-	en:herbal-teas
-	en:honeys
 	en:meal-replacements
 	en:salts
 	en:spices
@@ -459,8 +496,14 @@ $options{categories_exempted_from_nutriscore} = [qw(
 	en:vinegars
 	en:pet-food
 	en:non-food-products
-
 )];
+
+#	Coffees, teas and herbal teas can have a Nutri-Score if they have
+#	a nutrition facts table
+#
+#	en:coffees
+#	en:herbal-teas
+#	en:teas	
 
 # exceptions
 $options{categories_not_exempted_from_nutriscore} = [qw(
@@ -483,12 +526,21 @@ $options{categories_exempted_from_nutrient_levels} = [qw(
 )];
 
 # fields for which we will load taxonomies
+# note: taxonomies that are used as properties of other taxonomies must be loaded first
+# (e.g. additives_classes are referenced in additives)
 
-@taxonomy_fields = qw(states countries languages labels categories additives additives_classes
-vitamins minerals amino_acids nucleotides other_nutritional_substances allergens traces
-nutrient_levels misc ingredients ingredients_analysis nova_groups ingredients_processing
-data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors data_quality_warnings_producers data_quality_errors_producers
-improvements
+
+@taxonomy_fields = qw(
+	states countries languages labels categories food_groups
+	ingredients ingredients_processing
+	additives_classes additives vitamins minerals amino_acids nucleotides other_nutritional_substances allergens traces
+	origins
+	ingredients_analysis
+	nutrients nutrient_levels misc nova_groups
+	packaging packaging_shapes packaging_materials packaging_recycling
+	periods_after_opening
+	data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors data_quality_warnings_producers data_quality_errors_producers
+	improvements
 );
 
 
@@ -527,6 +579,9 @@ improvements
 	preparation
 	warning
 	data_sources
+	obsolete
+	obsolete_since_date
+	periods_after_opening
 );
 
 
@@ -558,6 +613,7 @@ improvements
 	recipe_idea
 	warning
 	conservation_conditions
+	periods_after_opening
 	recycling_instructions_to_recycle
 	recycling_instructions_to_discard
 	customer_service
@@ -567,6 +623,9 @@ improvements
 # fields for drilldown facet navigation
 
 @drilldown_fields = qw(
+	nutrition_grades
+	nova_groups
+	ecoscore
 	brands
 	categories
 	labels
@@ -583,8 +642,6 @@ improvements
 	other_nutritional_substances
 	allergens
 	traces
-	nova_groups
-	nutrition_grades
 	misc
 	languages
 	users
@@ -603,9 +660,11 @@ improvements
 	created_t
 	last_modified_t
 	product_name
+	abbreviated_product_name
 	generic_name
 	quantity
 	packaging
+	packaging_text
 	brands
 	categories
 	origins
@@ -617,6 +676,7 @@ improvements
 	stores
 	countries
 	ingredients_text
+	ingredients_tags
 	allergens
 	traces
 	serving_size
@@ -624,35 +684,185 @@ improvements
 	no_nutriments
 	additives_n
 	additives
-	ingredients_from_palm_oil_n
-	ingredients_from_palm_oil
-	ingredients_that_may_be_from_palm_oil_n
-	ingredients_that_may_be_from_palm_oil
 	nutriscore_score
 	nutriscore_grade
 	nova_group
 	pnns_groups_1
 	pnns_groups_2
+	food_groups
 	states
 	brand_owner
+	ecoscore_score
+	ecoscore_grade
 );
 
-
+# List of fields that can be imported on the producers platform
+# and that are also exported from the producers platform to the public platform
 $options{import_export_fields_groups} = [
-	["identification", ["code", "producer_product_id", "producer_version_id", "lc", "product_name", "generic_name",
-		"quantity_value_unit", "net_weight_value_unit", "drained_weight_value_unit", "volume_value_unit", "serving_size_value_unit", "packaging",
-		"brands", "brand_owner", "categories", "categories_specific", "labels", "labels_specific", "countries", "stores", "obsolete", "obsolete_since_date"]
+	[   "identification",
+		[   "code",                      "producer_product_id",
+			"producer_version_id",       "lc",
+			"product_name",              "abbreviated_product_name",
+			"generic_name",
+			"quantity_value_unit",       "net_weight_value_unit",
+			"drained_weight_value_unit", "volume_value_unit",
+			"serving_size_value_unit",   "packaging",
+			"packaging_text",
+			"brands",                    "brand_owner",
+			"categories",                "categories_specific",
+			"labels",                    "labels_specific",
+			"countries",                 "stores",
+			"obsolete",                  "obsolete_since_date",
+			"periods_after_opening"	# included for OBF imports via the producers platform
+		]
 	],
-	["origins", ["origins", "origin", "manufacturing_places", "producer", "emb_codes"]
+	[   "origins",
+		[   "origins",              "origin",
+			"manufacturing_places", "producer",
+			"emb_codes"
+		]
 	],
-	["ingredients", ["ingredients_text", "allergens", "traces"]
-	],
+	[ "ingredients", [ "ingredients_text", "allergens", "traces" ] ],
 	["nutrition"],
 	["nutrition_other"],
-	["other", [	"nutriscore_score_producer", "nutriscore_grade_producer", "conservation_conditions", "warning", "preparation", "recipe_idea", "recycling_instructions_to_recycle", "recycling_instructions_to_discard", "customer_service", "link"]
+	[   "other",
+		[   "nutriscore_score_producer",
+			"nutriscore_grade_producer",
+			"nova_group_producer",
+			"conservation_conditions",
+			"warning",
+			"preparation",
+			"recipe_idea",
+			"recycling_instructions_to_recycle",
+			"recycling_instructions_to_discard",
+			"customer_service",
+			"link"
+		]
 	],
-	["images", ["image_front_url", "image_ingredients_url", "image_nutrition_url", "image_other_url"]],
+	[   "images",
+		[   "image_front_url", "image_ingredients_url", "image_nutrition_url", "image_packaging_url", "image_other_url", "image_other_type",
+		]
+	],
 ];
+
+# Secondary fields that are computed by OFF from primary data
+# Those fields are only exported, they are not imported.
+$options{off_export_fields_groups} = [
+	[   "off",
+		[
+			"food_groups",
+			"nova_groups",
+			"nutriscore_grade",
+			"nutriscore_score",
+			"ecoscore_grade",
+			"ecoscore_score",
+			"ecoscore_data.missing_key_data",
+			"ecoscore_data.agribalyse.code",
+			"ecoscore_data.adjustments.origins_of_ingredients.value",
+			"ecoscore_data.adjustments.packaging.value",
+			"ecoscore_data.adjustments.packaging.non_recyclable_and_non_biodegradable_materials",
+			"ecoscore_data.adjustments.production_system.value",
+			"ecoscore_data.adjustments.threatened_species.value",
+		]
+	],
+];
+
+# Used to generate the list of possible product attributes, which is
+# used to display the possible choices for user preferences
+$options{attribute_groups} = [
+	[
+		"nutritional_quality",
+		["nutriscore",
+		"low_salt", "low_sugars", "low_fat", "low_saturated_fat",
+		],
+	],
+	[
+		"processing",
+		["nova","additives"]
+	],
+	[
+		"allergens",
+		[
+			"allergens_no_gluten",
+			"allergens_no_milk",
+			"allergens_no_eggs",
+			"allergens_no_nuts",
+			"allergens_no_peanuts",
+			"allergens_no_sesame_seeds",
+			"allergens_no_soybeans",
+			"allergens_no_celery",
+			"allergens_no_mustard",
+			"allergens_no_lupin",
+			"allergens_no_fish",
+			"allergens_no_crustaceans",
+			"allergens_no_molluscs",
+			"allergens_no_sulphur_dioxide_and_sulphites",
+		],
+	],
+	[
+		"ingredients_analysis",
+		[
+			"vegan", "vegetarian", "palm_oil_free",
+		]		
+	],
+	[
+		"labels",
+		["labels_organic", "labels_fair_trade"]
+	],
+	[
+		"environment",
+		[
+			"ecoscore",
+			"forest_footprint",
+		]
+	],
+];
+
+# default preferences for attributes
+$options{attribute_default_preferences} = {
+	"nutriscore" => "very_important",
+	"nova" => "important",
+	"ecoscore" => "important",
+};
+
+# Used to generate the sample import file for the producers platform
+# possible values: mandatory, recommended, optional.
+# when not specified, fields are considered optional
+$options{import_export_fields_importance} = {
+	
+	# default values for groups
+	nutrition_group => "mandatory",
+	images_group => "mandatory",
+	ingredients_group => "mandatory",
+	
+	# values for fields
+	code => "mandatory",
+	lc => "mandatory",
+	product_name => "mandatory",
+	abbreviated_product_name => "optional",
+	generic_name => "recommended",
+	quantity => "mandatory",
+	serving_size => "recommended",
+	packaging => "recommended",
+	packaging_text => "mandatory",
+	brands => "mandatory",
+	categories => "mandatory",
+	labels => "mandatory",
+	countries => "recommended",
+	obsolete => "recommended",
+	obsolete_since_date => "recommended",
+	
+	origins => "mandatory",
+	emb_codes => "recommended",
+	
+	recycling_instructions_to_recycle => "recommended",
+	recycling_instructions_to_discard => "recommended",
+	
+	image_other_url => "optional",
+	
+	alcohol_100g_value_unit => "optional",
+
+};
 
 
 # for ingredients OCR, we use tesseract-ocr
@@ -692,6 +902,9 @@ $options{import_export_fields_groups} = [
 
 # allow moving products to other instances of Product Opener on the same server
 # e.g. OFF -> OBF
+
+$options{current_server} = "off";
+
 $options{other_servers} = {
 	obf =>
 	{
@@ -752,36 +965,62 @@ $options{display_tag_additives} = [
 
 ];
 
+# Used in the data_sources field (e.g. "App - Open Food Facts")
+$options{apps_names} = {
+
+	"elcoco" => "El CoCo",
+	"ethic-advisor" => "Ethic-Advisor",
+	"horizon" => "Horizon",
+	"infood" => "InFood",
+	"isve" => "IsVe",
+	"labeleat" => "LabelEat",
+	"off" => "Open Food Facts",
+	"scanfood" => "Scanfood",
+	"speisekammer" => "Speisekammer",
+	"waistline" => "Waistline",
+	"yuka" => "Yuka"
+};
 
 # Specific users used by apps
 $options{apps_userids} = {
 
-	"ethic-advisor" => "ethic-advisor",
+	"averment" => "isve",
 	"elcoco" => "elcoco",
+	"ethic-advisor" => "ethic-advisor",
+	"inf" => "infood",
 	"kiliweb" => "yuka",
 	"labeleat" => "labeleat",
+	"prepperapp" => "speisekammer",
+	"scanfood" => "scanfood",
+	"swipe-studio" => "horizon",
 	"waistline-app" => "waistline",
-	"inf" => "infood",
 };
+
+$options{official_app_id} = "off";
+$options{official_app_comment} = "(official (off|open food facts|openfoodfacts)|(off|open food facts|openfoodfacts) (official )?(android |ios )?(official )?app)";
 
 # (app)Official Android app 3.1.5 ( Added by 58abc55ceb98da6625cee5fb5feaf81 )
 # (app)Labeleat1.0-SgP5kUuoerWvNH3KLZr75n6RFGA0
 # (app)Contributed using: OFF app for iOS - v3.0 - user id: 3C0154A0-D19B-49EA-946F-CC33A05E404A
-# (app)Official Android app 3.1.5 ( Added by 58abc55ceb98da6625cee5fb5feaf81 )
 # (app)EthicAdvisorApp-production-2.6.3-user_17cf91e3-52ee-4431-aebf-7d455dd610f0
 # (app)El Coco - user b0e8d6a858034cc750136b8f19a8953d
 
+# app_uuid_prefix must be present to recognize the uuid, if the comment starts with the uuid, put an empty string
 $options{apps_uuid_prefix} = {
 
 	"elcoco" => " user ",
 	"ethic-advisor" => "user_",
-	"kiliweb" => "User :",
 	"labeleat" => "Labeleat([^-]*)-",
-	"waistline-app" => "Waistline:",
+	"off" => "added by",	
+	"scanfood" => "",
+	"waistline" => "Waistline:",
+	"yuka" => "User :",
 };
 
-$options{official_app_id} = "off";
-$options{official_app_comment} = "(official android app|off app)";
+$options{apps_uuid_suffix} = {
+
+	"scanfood" => "scanfood",
+};
 
 
 $options{nova_groups_tags} = {
@@ -796,6 +1035,8 @@ $options{nova_groups_tags} = {
 	"categories/en:sugars" => 2,
 	"categories/en:honeys" => 2,
 	"categories/en:maple-syrups" => 2,
+	"categories/en:starches" => 2,
+
 
 	# group 3 tags will not be applied to food identified as group 2
 
@@ -992,6 +1233,14 @@ $options{nova_groups_tags} = {
 	"additives/en:e181" => 4, #Tannin
 	"additives/en:e182" => 4, #Orcein
 
+	# emulsifiers
+	"additives/en:e322" => 4, # Lecithins
+	"additives/en:e325" => 4,
+	"additives/en:e326" => 4,
+	"additives/en:e327" => 4,
+	"additives/en:e328" => 4,
+	"additives/en:e329" => 4,
+
 	# flavour enhancers
 
 	"additives/en:e620" => 4, #Glutamic acid, L(+)-
@@ -1012,8 +1261,8 @@ $options{nova_groups_tags} = {
 	"additives/en:e635" => 4, #Disodium 5'-ribonucleotides
 	"additives/en:e636" => 4, #Maltol
 	"additives/en:e637" => 4, #Ethyl maltol
-	"additives/en:e640" => 4, #	glycine
-	"additives/en:e641" => 4, #	leucine
+	"additives/en:e640" => 4, # glycine
+	"additives/en:e641" => 4, # leucine
 	"additives/en:e650" => 4, # zinc acetatel
 	"additives/en:e1104" => 4, # lipase
 
@@ -1174,6 +1423,36 @@ $options{nova_groups_tags} = {
 
 };
 
+# List of sources from which product data can be imported
+# The product data is first imported on the producers platform
+# If the organization for a product already exists, product data from the source
+# will be imported only if the source is authorized (checkbox in org profile).
+# Otherwise the org will be created and the source authorized for that org.
 
+$options{import_sources} = {
+	'agena3000' => "Agena3000",
+	'codeonline' => "CodeOnline Food",
+	'equadis' => "Equadis",
+	'database-usda' => "USDA Global Branded Food Products Database",
+};
+
+# Configuration to receive GS1 notification messages and issue GS1 confirmation messages
+
+$options{gs1} = {
+	local_gln => "3770026870013",			# Open Food Facts GS1 GLN identifier
+	agena3000 => {
+		receiver_gln => "3034012285008",	# Agena 3000
+		data_pool_gln => "3027000006006",	# GS1
+	},
+};
+
+# Barcode of a sample product returned through the API when the requested code is "example"
+$options{sample_product_code} = "093270067481501";	# A good product for you - fake good product
+
+# We can also send back a different product based on country or language, with the following syntax:
+
+#$options{sample_product_code_country_uk} = "5060042641000"; # Tyrrell's lighty salted chips
+#$options{sample_product_code_language_de} = "20884680"; # Waffeln Sondey
+#$options{sample_product_code_country_at_language_de} = "5411188119098"; # Natur miss kokosnuss Alpro
 
 1;

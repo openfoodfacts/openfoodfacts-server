@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -31,19 +31,18 @@ on the platform for producers, specific to food producers.
 
 package ProductOpener::ProducersFood;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter qw(import);
 
 
 BEGIN
 {
-	use vars qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
+	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 
 		&detect_possible_improvements
 
-	);	# symbols to export on request
+		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -64,15 +63,15 @@ Run all functions to detect food product improvement opportunities.
 
 =cut
 
-sub detect_possible_improvements($) {
-
-	my $product_ref = shift;
+sub detect_possible_improvements($product_ref) {
 
 	$product_ref->{improvements_tags} = [];
 	$product_ref->{improvements_data} = {};
 
 	detect_possible_improvements_compare_nutrition_facts($product_ref);
 	detect_possible_improvements_nutriscore($product_ref);
+
+	return;
 }
 
 =head2 detect_possible_improvements_nutriscore( PRODUCT_REF )
@@ -82,9 +81,7 @@ of nutrients like sugar, salt, saturated fat, fiber, proteins etc.
 
 =cut
 
-sub detect_possible_improvements_nutriscore($) {
-
-	my $product_ref = shift;
+sub detect_possible_improvements_nutriscore($product_ref) {
 
 	$log->debug("detect_possible_improvements_nutriscore - start") if $log->debug();
 
@@ -187,6 +184,8 @@ sub detect_possible_improvements_nutriscore($) {
 			}
 		}
 	}
+
+	return;
 }
 
 =head2 detect_possible_improvements_compare_nutrition_facts( PRODUCT_REF )
@@ -196,9 +195,7 @@ to identify possible improvement opportunities.
 
 =cut
 
-sub detect_possible_improvements_compare_nutrition_facts($) {
-
-	my $product_ref = shift;
+sub detect_possible_improvements_compare_nutrition_facts($product_ref) {
 
 	my $categories_nutriments_ref = $categories_nutriments_per_country{"world"};
 
@@ -210,7 +207,7 @@ sub detect_possible_improvements_compare_nutrition_facts($) {
 	my $i = @{$product_ref->{categories_tags}} - 1;
 
 	while (($i >= 0)
-		and	not ((defined $categories_nutriments_ref->{$product_ref->{categories_tags}[$i]})
+		and     not ((defined $categories_nutriments_ref->{$product_ref->{categories_tags}[$i]})
 			and (defined $categories_nutriments_ref->{$product_ref->{categories_tags}[$i]}{nutriments}))) {
 		$i--;
 	}
@@ -273,6 +270,8 @@ sub detect_possible_improvements_compare_nutrition_facts($) {
 			}
 		}
 	}
+
+	return;
 }
 
 

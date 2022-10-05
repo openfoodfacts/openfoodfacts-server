@@ -214,6 +214,7 @@ Q9217
 Q9228
 Q9237
 Q9240
+Q9246
 Q9252
 Q9255
 Q9260
@@ -239,8 +240,6 @@ my %properties = (
 	'language_code_2' => 'P218',
 	'language_code_3' => 'P219',
 );
-
-my %languages = ();
 
 foreach my $qc (@languages) {
 
@@ -275,11 +274,11 @@ foreach my $qc (@languages) {
 				foreach my $alias (@{$language->{aliases}{$lc}}) {
 					$languages{$qc}{aliases}{$lc} .= ', ' . $alias->{value};
 					print "$qc - alias: $lc - value:  $alias->{value}\n";
-					
+
 				}
-			}			
+			}
 		}
-		
+
 		print "properties\n";
 		
 		foreach my $p (keys %properties) {
@@ -299,37 +298,42 @@ foreach my $qc (@languages) {
 
 
 
-	open (my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/languages.txt");
+open (my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/languages.txt.temp");
 
 
 foreach my $qc (sort {$names{$a} cmp $names{$b}} keys %names) {
 
-	print $OUT "en:" . $languages{$qc}{labels}{en} . $languages{$qc}{aliases}{en};
+	# write english line first, including ISO codes
+	print $OUT "en:" . $languages{$qc}{labels}{en} . ($languages{$qc}{aliases}{en} // '');
 
 	if (defined $languages{$qc}{properties}{language_code_2}) {
 		print $OUT ", $languages{$qc}{properties}{language_code_2}";
 	}
-	
-	if (defined $languages{$qc}{properties}{language_code_3}) {
+
+	if ( defined $languages{$qc}{properties}{language_code_3} ) {
 		print $OUT ", $languages{$qc}{properties}{language_code_3}";
-	}	
-	
+	}
+
 	print $OUT "\n";
+
+	# write other translations
 	foreach my $lc (sort keys %{$languages{$qc}{labels}}) {
 		#next if length($lc) > 2;
 		next if ($lc eq 'en');
-		print $OUT "$lc:" . $languages{$qc}{labels}{$lc} . $languages{$qc}{aliases}{$lc} . "\n";
+		print $OUT "$lc:" . $languages{$qc}{labels}{$lc} . ($languages{$qc}{aliases}{$lc} // '') . "\n";
 	}
-	foreach my $p (sort keys %properties) {
-		if (defined $languages{$qc}{properties}{$p}) {
+
+	# write any extra properties
+	foreach my $p ( sort keys %properties ) {
+		if ( defined $languages{$qc}{properties}{$p} ) {
 			print $OUT "$p:en:$languages{$qc}{properties}{$p}\n";
 		}
-	}	
-	
+	}
+
 	print $OUT "wikidata:en:Q$qc\n";
 
 	print $OUT "\n";
 
 }
 
-	close $OUT;
+close $OUT;

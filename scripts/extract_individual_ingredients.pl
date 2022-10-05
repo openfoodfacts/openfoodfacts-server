@@ -105,7 +105,7 @@ while (<STDIN>) {
 		foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
 			print $code . "\t" . $complete . "\t" . $creator . "\t" . $lc . "\t" . $ingredient_ref->{id} . "\t" . $ingredient_ref->{text} . "\n";
 			$i++;
-		}	
+		}
 	}
 	
 	$n++;

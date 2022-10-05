@@ -1,0 +1,17 @@
+﻿version: "3.7"
+services:
+  backend:
+    volumes:
+      - geolite2:/usr/local/share/GeoLite2-Country
+  geoipupdate:
+    image: tkrs/maxmind-geoipupdate:4.3.0
+    volumes:
+      - geolite2:/usr/local/share/GeoLite2-Country
+    environment:
+      - GEOIP_DB_DIR=/usr/local/share/GeoLite2-Country
+      - EDITION_IDS=GeoLite2-City GeoLite2-Country
+      - SCHEDULE=55 20 * * *
+      - ACCOUNT_ID=${GEOLITE2_ACCOUNT_ID}
+      - LICENSE_KEY=${GEOLITE2_LICENSE_KEY}
+volumes:
+  geolite2:

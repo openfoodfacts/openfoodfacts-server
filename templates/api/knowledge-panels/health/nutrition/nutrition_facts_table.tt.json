@@ -1,0 +1,78 @@
+{
+    "level": "info",
+    "topics": [
+        "health"
+    ],
+    "expanded": false,
+    "expand_for": "large",
+    "evaluation": "unknown",
+    "title_element": {
+        "title": "[% lang('nutrition_data_table') %]",
+        "icon_url": "[% static_subdomain %]/images/icons/dist/scale-balance.svg",
+        "icon_color_from_evaluation": true,
+    },
+    "elements": [
+        {
+            "element_type": "table",
+            "table_element": {
+                "id": "nutrition_facts_table",
+                "title": "[% lang('nutrition_data_table') %]",
+                // Create a structure to check if we already have seen a column for a given scope
+                // so that we can mark the first one as the default column for the group
+                [% SET scopes = {} %]              
+                "columns": [
+                    {
+                        "text": "[% panel.nutrition_table.header.name %]",
+                        "type": "text",
+                        "style": "max-width:15rem",
+                    },
+                    [% FOREACH column IN panel.nutrition_table.header.columns %]
+                        {
+                            "text": "[% column.name %]",
+                            [% IF column.short_name.defined %]
+                                "text_for_small_screens": "[% column.short_name %]",
+                            [% END %]
+                            "type": "text",
+                            "column_group_id": "[% column.scope %]",
+                            [% SET scope = column.scope %]   
+                            [% IF scopes.$scope.defined %]
+                                "shown_by_default": false,
+                            [% ELSE %]
+                                [% SET scopes.$scope = 1 %]
+                                "shown_by_default": true,
+                            [% END %]
+                        },
+                    [% END %]
+                ],
+                "rows": [
+                    [% FOREACH row IN panel.nutrition_table.rows %]
+                    {
+                        "values": [
+                            {
+                                // Level is 0 for main nutrients, 1 for sub-nutrients, 2 for sub-sub-nutrients
+                                "level": [% row.level %],
+                                "text": "[% row.name %]",
+                                "style": "max-width:15rem",
+                            },
+                            [% FOREACH column IN row.columns %]
+                            {
+                                [% IF column.type == 'normal' %]
+                                    "text": "[% column.value %]",
+                                [% ELSE %]
+                                    // only display the % difference compared to category
+                                    "text": "[% column.percent %]",
+                                [% END %]
+                                [% IF column.evaluation.defined %]
+                                    "evaluation": "[% column.evaluation %]",
+                                [% END %]
+                            },
+                            [% END %]
+                        ]
+                    },
+                    [% END %]
+                ]
+            }
+        },
+
+    ]
+}

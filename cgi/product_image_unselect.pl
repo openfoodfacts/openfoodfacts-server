@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -41,13 +40,13 @@ use Encode;
 use JSON::PP;
 use Log::Any qw($log);
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
-my $type = param('type') || 'add';
-my $action = param('action') || 'display';
+my $type = single_param('type') || 'add';
+my $action = single_param('action') || 'display';
 
-my $code = normalize_code(param('code'));
-my $id = param('id');
+my $code = normalize_code(single_param('code'));
+my $id = single_param('id');
 
 my $product_id = product_id_for_owner($Owner_id, $code);
 
@@ -58,7 +57,7 @@ if (not defined $code) {
 	exit(0);
 }
 
-my $product_ref = process_image_unselect($product_id, $id);
+my $product_ref = process_image_unselect($User_id, $product_id, $id);
 
 my $data = encode_json({ status_code => 0, status => 'status ok', imagefield=>$id });
 

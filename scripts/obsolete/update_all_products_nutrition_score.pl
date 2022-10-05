@@ -69,13 +69,13 @@ my $cursor = $products_collection->query({})->fields({ code => 1 });
 			compute_nutrient_levels($product_ref);
 
 			# Store
-			
+
 			next if $path =~ /invalid/;
 
-			store("$data_root/products/$path/product.sto", $product_ref);		
+			store( "$data_root/products/$path/product.sto", $product_ref );
 			$products_collection->save($product_ref);
 		}
-		
+
 	}
 
 exit(0);

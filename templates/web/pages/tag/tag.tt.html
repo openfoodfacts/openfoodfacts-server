@@ -1,0 +1,61 @@
+<!-- start templates/[% template.name %] -->
+
+[% IF not groupby_tagtype.defined %]
+    <div class="tag_navigation">
+        <a href="[% tagtype_path %]">[% tagtype_name.ucfirst %]</a>
+        [% sep %]:
+        <a href="[% tagid_path %]">[% tag_name %]</a>
+
+        [% IF tagid2.defined %]
+            <br>
+            <a href="[% tagtype2_path %]">[% tagtype2_name.ucfirst %]</a>
+            [% sep %]:
+            <a href="[% tagid2_path %]">[% tag2_name %]</a>
+        [% END %]
+    </div>
+
+    [% IF tag_logo %]
+        <div class="tag_logo">
+            [% tag_logo %]
+        </div>
+    [% END %]
+
+    [% IF canon_url %]
+        <div class="share_button right" style="float:right;margin-top:-10px;margin-left:10px;display:none;">
+            <a href="[% canon_url %]" class="button small" title="[% title %]">
+                [% display_icon('share') %]
+                <span class="show-for-large-up"> [% lang('share') %]</span>
+            </a>
+        </div>
+    [% END %]
+
+    [% IF weblinks %]
+        <div class="weblinks">
+            [% weblinks %]
+        </div>
+    [% END %]
+
+    [% IF parents_and_children %]
+        <div class="parents_and_children">
+            [% parents_and_children %]
+        </div>
+    [% END %]
+
+    [% IF description %]
+        <div class="description">
+            [% description %]
+        </div>
+    [% END %]
+[% END %]
+
+[% IF country != 'en:world' %]
+    <p>[% lang('countries_s').ucfirst %][% sep %]: [% display_taxonomy_tag("countries", country) %]
+        - <a href="[% world_link_url %]">[% world_link %]</a>
+    </p>
+[% END %]
+
+[% IF products_title %]
+    <h2 class="products_title">[% products_title %]</h2>
+[% END %]
+
+<!-- end templates/[% template.name %] -->
