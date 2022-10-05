@@ -47,23 +47,24 @@ open (my $fh, "<", "users.txt");
 while(my $line = <$fh>){
     my $ua = LWP::UserAgent->new;
 
+    $log->debug("JSON: ", $line);
     #post request to create identity
     my $post_req = HTTP::Request->new(POST => "http://kratos.openfoodfacts.localhost:4434/admin/identities");
     $post_req->header('accept' => 'application/json');
     $post_req->header('content-type' => 'application/json');
-    $post_req->content($_);
+    $post_req->content($line);
 
     my $post_resp = $ua->request($post_req);
 
     if($post_resp->is_success){
         $log->debug("User Created");
-        
         push(@user_strings_imported, $line);
     }
     else{
         #display error message leave user in .txt
         $log->debug("HTTP POST error code: ", $post_resp->code);
         $log->debug("HTTP POST error message: ", $post_resp->message);
+        $log->debug("HTTP POST json message: ", $post_resp->content);
         #append user not imported to an array
         push(@user_strings_not_imported, $line);
     }
@@ -72,11 +73,10 @@ close $fh;
 
 
 #create file for users imported
-open(my $fh2, ">", "users_not_imported.txt");
+open(my $fh2, ">", "users_imported.txt");
 #iterate through array for each user imported
 for my $el (@user_strings_imported){
     print $fh2 $el;
-    print $fh2 "\n";
 }
 close $fh2;
 

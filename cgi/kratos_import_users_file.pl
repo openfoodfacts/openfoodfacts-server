@@ -64,25 +64,55 @@ for my $el (@dir){
     my $userid = $user_ref->{userid};
     my $email = $user_ref->{email};
     my $name = $user_ref->{name};
+    my $display_barcode = $user_ref->{display_barcode};
+    my $edit_link = $user_ref->{display_barcode};
+    my $newsletter = $user_ref->{newsletter};
+    my $pro_account = $user_ref->{pro_id};
     my $password = $user_ref->{encrypted_password};
+
+    next if($password eq "");
+
+    # SCRYPT:16384:8:1:3DVFqZOg9pBNzFbQz4WKoX0oBevSIJijWey1OAi824g=:if6QtOUcX7TcbRmLxONgm+a8o4A5+j3swcPLi74bMok=
+    # to 
+    # $scrypt$ln=16384,r=8,p=1$3DVFqZOg9pBNzFbQz4WKoX0oBevSIJijWey1OAi824g=$if6QtOUcX7TcbRmLxONgm+a8o4A5+j3swcPLi74bMok=
+    my @spl = split(':', $password);
+    my $kratos_password ="\$scrypt\$ln=$spl[1],r=$spl[2],p=$spl[3]\$$spl[4]\$$spl[5]"; 
 
     #create json to post
     my $post_json = JSON->new;
 
     my $data_to_json = {
+        'credentials' => {
+            'password' => {
+                'config' => {
+                    'password' => $kratos_password
+                }
+            }
+        },
         'traits' => {
             'UserID' => $userid,
             'email' => $email,
             'name' => $name
-        },
-        'credentials' => {
-            'password' => {
-                'config' => {
-                    'hashed_password' => $password
-                }
-            }
         }
     };
+    $log->debug("pro_account: ", $pro_account);
+
+
+    if($pro_account ne ""){
+        $data_to_json->{traits}{professional_account} = $pro_account;
+    }
+
+    if($display_barcode ne ""){
+        $data_to_json->{traits}{"Display Barcode"} = JSON::true;
+    }
+
+    if($edit_link ne ""){
+        $data_to_json->{traits}{"Add Edit Link"} = JSON::true;
+    }
+
+    if($newsletter ne ""){
+        $data_to_json->{traits}{"newsletter"} = JSON::true;
+    }
 
     my $str = encode_json($data_to_json);
 
