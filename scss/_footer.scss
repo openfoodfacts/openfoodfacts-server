@@ -45,3 +45,21 @@ footer {
     width: 100px;
   }
 }
+
+html[dir="rtl"] footer {
+  & > .off {
+    border-top: 10px solid $dark-fish;
+  }
+
+  & > .app {
+    border-top: 10px solid $plant;
+  }
+
+  & > .project {
+    border-top: 10px solid $cereal;
+  }
+
+  & > .community {
+    border-top: 10px solid $animal;
+  }
+}

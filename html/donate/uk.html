@@ -3,25 +3,24 @@
   <head>
     <meta charset="UTF-8" />
 
-    <title>Donate to Open Food Facts</title>
+    <title>Пожертвуй на Open Food Facts</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="fb:app_id" content="219331381518041" />
-    <meta property="og:type" content="food" />
-    <meta property="og:title" content="" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Допоможіть нам назбирати бюджет для Open Food Facts 2022!" />
     <meta
       property="og:url"
       content="https://world.openfoodfacts.org/donate-to-openfoodfacts"
     />
-
     <meta
       property="og:image"
-      content="https://static.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
+      content="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.png"
     />
     <meta
       property="og:description"
-      content="A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
+      content="Open Food Facts — це найбільша, безплатна та відкрита база даних харчових продуктів у світі. Ми вважаємо, що інформація про те, що ми їмо, є інформацією, яка представляє суспільний інтерес."
     />
     <link rel="manifest" href="/cgi/manifest.pl" />
     <link
@@ -51,7 +50,7 @@
 
     <link
       rel="stylesheet"
-      href="https://static.openfoodfacts.org/css/dist/app.css"
+      href="/cgi/css.pl"
     />
     <link
       rel="stylesheet"
@@ -72,6 +71,9 @@
     <style media="all">
       .show-when-logged-in {
         display: none;
+      }
+      .reason img {
+        height: 100px;
       }
     </style>
     <script src="https://static.openfoodfacts.org/js/dist/jquery.js"></script>
@@ -106,16 +108,21 @@ $('iframe').load(function(){
   <body>
     <div class="hide-for-large-up text-center">
       <img
-        src="https://static.openfoodfacts.org/images/svg/openfoodfacts-logo-en.svg"
+        src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg"
         width="178"
         height="156"
-        alt="Open Food Facts logo"
+        alt="Логотип Бази відкритих даних про харчові продукти"
       />
+    </div>
 
-<div class="panel callout" style="margin-top:0.5rem">
-<h3>Help us to fund the Open Food Facts 2020 budget!</h3>
-<p>Open Food Facts is 100% free and independent of the food industry. We need your help to continue and to grow the project.</p>
-</div>
+    <div class="hide-for-medium hide-for-large-up text-center">
+      <div class="panel callout" style="margin-top:0.5rem">
+        <h3>Help us fund the Open Food Facts 2023 budget!</h3>
+        <p>
+          Open Food Facts є повністю безкоштовним та незалежним від виробників харчової галузі. 
+          Ми потребуємо Твоєї допомоги, аби надалі розвивати наш проєкт.
+        </p>
+      </div>
     </div>
 
     <div
@@ -124,47 +131,79 @@ $('iframe').load(function(){
     >
       <div class="columns large-2 hide-for-medium hide-for-small text-center">
         <img
-          src="https://static.openfoodfacts.org/images/svg/openfoodfacts-logo-en.svg"
+          src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg"
           width="178"
           height="156"
-          alt="Open Food Facts logo"
+          alt="Логотип Бази відкритих даних про харчові продукти"
         />
       </div>
 
       <div
-        class="columns large-5 xlarge-6 xxlarge-7 hide-for-medium hide-for-small"
+        class="columns medium-6 large-5 xlarge-6 xxlarge-7 hide-for-small"
       >
-        <h2 style="margin-bottom:1rem">
-          A message from the Open Food Facts team
-        </h2>
 
-<div class="panel callout" style="margin-top:0.5rem">
-<h3>Help us to fund the Open Food Facts 2020 budget!</h3>
-<p>Open Food Facts is 100% free and independent of the food industry. We need your help to continue and to grow the project.</p>
-</div>
-
-        <img
-          src="https://static.openfoodfacts.org/images/svg/crowdsourcing-icon.svg"
-          style="width:240px;float:left;margin-right:5px;"
-          alt="Yes we scan! logo"
-        />
+        <div class="panel callout" style="margin-top:0.5rem">
+          <h3>Help us fund the Open Food Facts 2023 budget!</h3>
+          <p>
+            Open Food Facts є повністю безкоштовним та незалежним від виробників харчової галузі. 
+            Ми потребуємо Твоєї допомоги, аби надалі розвивати наш проєкт.
+          </p>
+        </div>
 
         <p>
           Open Food Facts is the "Wikipedia of food", the largest free and open
           database of food products in the world.
+          Ми заснували Open Food Facts тому що ми віримо, що інформація про те, що
+          ми їмо, представляє інтерес громадськості та повинна
+          бути публічною, безплатною і відкритою.
         </p>
-        <p>
-          We started Open Food Facts because we believe information about what
-          we eat is information of public interest. And as a result, it has to
-          be public, free and open.
-        </p>
-        <p>
-          Our data is used by citizens to make healthier food choices thanks to
-          our mobile app, by public health researchers to study the impact of
-          food on our health, by journalists for their reporting, and even by
-          the food industry to improve their products. That's the power of food
-          transparency: it benefits everyone!
-        </p>
+
+        <div class="reasons row text-center">
+          <div class="reason small-12 large-6 columns">
+            <img src="//static.openfoodfacts.org/images/svg/donate/noun_democracy_1734799_red.svg"
+                 alt="Raised hands"
+            >
+            <h4>Пріоритет</h4>
+            <p>
+              Їжа є пріоритетом для здоров’я та екології.
+              Завдяки прозорості та освіченості, Open Food Facts створює ефективний взаємозв'язок між споживачами та виробниками.
+            </p>
+          </div>
+          <div class="reason small-12 large-6 columns">
+            <img src="//static.openfoodfacts.org/images/svg/donate/noun_venn_diagram_98708_green.svg" 
+                 alt="Common good symbol as intersecting regions"
+            >
+            <h4>Спільне благо</h4>
+            <p>
+              Наша база даних використовується в більш ніж 100 мобільних додатках та в масштабних наукових дослідженнях.
+            </p>
+          </div>
+        </div>
+        <div class="reasons row text-center">
+          <div class="reason small-12 large-6 columns">
+            <img src="//static.openfoodfacts.org/images/svg/donate/noun_direction_275435_yellow.svg"
+                 alt="Direction road signs"
+            >
+            <h4>Доступна кожному</h4>
+            <p>
+              Найперший у наданні публічного доступу до Nutri-Score,
+              а зараз до Eco-Score та персональних показників,
+              ми надаємо корисну та якісну інформацію доступну кожному.
+            </p>
+          </div>
+          <div class="reason small-12 large-6 columns">
+            <img src="//static.openfoodfacts.org/images/svg/donate/noun_together_hand_4275506_blue.svg"
+                 alt="Joined hands"
+            >
+            <h4>Колективний</h4>
+            <p>
+              Open Food Facts створений спільними зусиллями зі своїми користувачами.
+              Він гарантує свою незалежність і гнучкість,
+              та гарантує відкритість даних, програми та процесів.
+            </p>
+          </div>
+        </div>
+
         <p>
           When we founded Open Food Facts, we made the clear choice to be
           totally non-profit to maximize our impact by giving away all our work.
@@ -173,27 +212,21 @@ $('iframe').load(function(){
           our mission at risk.
         </p>
         <p>
-          As a result, we started the project on a shoestring, and we still keep
-          our budget tight. From 2012 to 2017 we were all volunteers and our
-          annual budget was less than 1000 euros! The project has grown a lot
-          however, and we now need a bit more to continue our mission.
-        </p>
-        <p>
-          We need your help to continue to operate and grow Open Food
-          Facts.Please consider making a donation to protect and sustain Open
+          Нам потрібна ваша допомога щоб продовжувати працювати та розвивати Open Food
+          Facts. Будь ласка, подумайте про те, щоб зробити пожертву для захисту та підтримки Open
           Food Facts.
         </p>
         <p>Дякуємо,</p>
         <p style="font-weight: bold;">
-          Anca, Florence, Léonore, Sylvia, Charles, Christian, Ludovic, Pierre,
-          Sébastien, Stéphane, Vincent and the whole Open Food Facts team
+          Alex, Anca, Florence, Gala, Léonore, Marie, Sylvia, Charles, Christian, Ludovic, Pierre,
+          Raphaël, Sébastien, Stéphane, Manon, Vincent and all the Open Food Facts team
         </p>
       </div>
 
-      <div class="columns large-5 xlarge-4 xxlarge-3 text-center">
+      <div class="columns small-12 medium-6 large-5 xlarge-4 xxlarge-3 text-center">
         <div style="max-width:425px">
           <div class="loading">
-            <p>The donation form is being loaded.<br>You can also access it by <a href=" https://donorbox.org/your-donation-to-open-food-facts">clicking here</a>.</p>
+            <p>Форма для пожертви завантажується.<br>Доступ до неї також можна отримати <a href="https://donorbox.org/your-donation-to-open-food-facts">натиснувши тут</a>.</p>
           </div>
 
           <script
@@ -201,31 +234,25 @@ $('iframe').load(function(){
             paypalExpress="true"
           ></script>
           <iframe
+            title="Пожертвувати на сайті"
             allowpaymentrequest=""
-            frameborder="0"
             height="900px"
             name="donorbox"
-            scrolling="no"
             seamless="seamless"
             src="https://donorbox.org/embed/your-donation-to-open-food-facts"
-            style="max-width: 500px; min-width: 310px; max-height:none!important"
+            style="max-width: 500px; min-width: 310px; max-height:none!important;border:0;overflow:hidden;"
             width="100%"
           ></iframe>
 
           <div class="text-left">
-            <h3>Where your donation goes</h3>
+            <h3>На що призначено Твою пожертву</h3>
 
             <p>
-              <b>Technology:</b> Development, maintenance, servers to keep the
-              database growing and to add cool new features to the Open Food
-              Facts mobile app and web site.
+              <strong>Технологія:</strong> розробка, підтримка роботи серверів для забезпечення зростаючої кількості баз даних та впровадження нових можливостей у мобільному додатку і на веб-сайті Open Food Facts.
             </p>
 
             <p>
-              <b>People and projects:</b> To give our best support to the Open
-              Food Facts community, to work with researchers, and to make our
-              food products data have the biggest impact on our health, our
-              planet, and society.
+              <strong>Люди та проєкти:</strong> для забезпечення найвищого рівня підтримки для спільноти Open Food Facts, для співпраці із науковцями та для ширшого поширення впливу наших даних про харчові прожукти на здоров'я, нашу планету та суспільство в цілому.
             </p>
           </div>
         </div>

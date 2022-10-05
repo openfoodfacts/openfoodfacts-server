@@ -1,0 +1,142 @@
+{
+   "categories" : "honeys",
+   "categories_hierarchy" : [
+      "en:spreads",
+      "en:breakfasts",
+      "en:bee-products",
+      "en:farming-products",
+      "en:sweet-spreads",
+      "en:sweeteners",
+      "en:honeys"
+   ],
+   "categories_lc" : "fr",
+   "categories_properties" : {
+      "agribalyse_food_code:en" : "31008",
+      "ciqual_food_code:en" : "31008"
+   },
+   "categories_properties_tags" : [
+      "all-products",
+      "categories-known",
+      "agribalyse-food-code-31008",
+      "agribalyse-food-code-known",
+      "agribalyse-proxy-food-code-unknown",
+      "ciqual-food-code-31008",
+      "ciqual-food-code-known",
+      "agribalyse-known",
+      "agribalyse-31008"
+   ],
+   "categories_tags" : [
+      "en:spreads",
+      "en:breakfasts",
+      "en:bee-products",
+      "en:farming-products",
+      "en:sweet-spreads",
+      "en:sweeteners",
+      "en:honeys"
+   ],
+   "ingredients" : [
+      {
+         "id" : "fr:honey",
+         "percent_estimate" : 100,
+         "percent_max" : 100,
+         "percent_min" : 100,
+         "text" : "honey"
+      }
+   ],
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-content-unknown",
+      "en:vegan-status-unknown",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_hierarchy" : [
+      "fr:honey"
+   ],
+   "ingredients_n" : 1,
+   "ingredients_n_tags" : [
+      "1",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "fr:honey"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "fr:honey"
+   ],
+   "ingredients_text" : "honey",
+   "known_ingredients_n" : 0,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
+      "en:nutrition-all-nutriscore-values-known",
+      "en:nutriscore-computed"
+   ],
+   "nutriments" : {
+      "energy_100g" : 1370,
+      "fat_100g" : 8.4,
+      "fiber_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "nutrition-score-fr" : 14,
+      "nutrition-score-fr_100g" : 14,
+      "proteins_100g" : 0.3,
+      "saturated-fat_100g" : 0.04,
+      "sodium_100g" : 0.001,
+      "sugars_100g" : 69.5
+   },
+   "nutriscore_data" : {
+      "energy" : 1370,
+      "energy_points" : 4,
+      "energy_value" : 1370,
+      "fiber" : 0,
+      "fiber_points" : 0,
+      "fiber_value" : 0,
+      "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
+      "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 0,
+      "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 0,
+      "grade" : "d",
+      "is_beverage" : 0,
+      "is_cheese" : 0,
+      "is_fat" : 0,
+      "is_water" : 0,
+      "negative_points" : 14,
+      "positive_points" : 0,
+      "proteins" : 0.3,
+      "proteins_points" : 0,
+      "proteins_value" : 0.3,
+      "saturated_fat" : 0.04,
+      "saturated_fat_points" : 0,
+      "saturated_fat_ratio" : 0.476190476190476,
+      "saturated_fat_ratio_points" : 0,
+      "saturated_fat_ratio_value" : 0.5,
+      "saturated_fat_value" : 0,
+      "score" : 14,
+      "sodium" : 1,
+      "sodium_points" : 0,
+      "sodium_value" : 1,
+      "sugars" : 69.5,
+      "sugars_points" : 10,
+      "sugars_value" : 69.5
+   },
+   "nutriscore_grade" : "d",
+   "nutriscore_score" : 14,
+   "nutriscore_score_opposite" : -14,
+   "nutrition_grade_fr" : "d",
+   "nutrition_grades" : "d",
+   "nutrition_grades_tags" : [
+      "d"
+   ],
+   "nutrition_score_beverage" : 0,
+   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
+   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 0,
+   "pnns_groups_1" : "Sugary snacks",
+   "pnns_groups_1_tags" : [
+      "sugary-snacks",
+      "known"
+   ],
+   "pnns_groups_2" : "Sweets",
+   "pnns_groups_2_tags" : [
+      "sweets",
+      "known"
+   ],
+   "unknown_ingredients_n" : 1
+}

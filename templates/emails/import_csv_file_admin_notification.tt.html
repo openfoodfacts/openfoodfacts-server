@@ -1,0 +1,43 @@
+Subject: Result of import_csv_file.pl: org: [% args.org_id %] - source: [% args.source_name %]
+
+<!-- start templates/[% template.name %] -->
+
+<p>Args:</p>
+
+<ul>
+    [% FOREACH arg IN args.keys.sort %]
+        [% IF args.$arg %]
+            <li>[% arg %]: [% args.$arg %]</li>
+        [% END %]
+    [% END %]
+</ul>
+
+<p>Results:</p>
+
+<ul>
+    [% FOREACH stat IN stats.keys.sort %]
+        [% IF stats.$stat %]
+            <li>[% stat %]: [% stats.$stat.size %]</li>
+        [% END %]
+    [% END %]
+</ul>
+
+[% FOREACH orgs_stat IN ["orgs_in_file", "orgs_existing", "orgs_created", "orgs_without_source_authorization", "orgs_with_gln_but_no_party_name"] %]
+
+[% IF stats.$orgs_stat %]
+<p>$orgs_stat:</p>
+<ul>
+    [% FOREACH org IN stats.$orgs_stat.keys.sort %]
+        <li>
+            <a href="https://world.[% server_domain %]/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-[% org %]">
+                [% org %]
+            </a>:
+            [% stats.$orgs_stat.$org %]
+        </li>
+    [% END %]
+</ul>
+[% END %]
+
+[% END %]
+
+<!-- end templates/[% template.name %] -->

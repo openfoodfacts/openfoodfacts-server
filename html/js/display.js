@@ -73,7 +73,7 @@ let countriesData;
 function countries() {
   if (!countriesData) {
     $.ajax({
-      url: '/cgi/i18n/countries.pl',
+      url: '/cgi/countries.pl',
       dataType: 'json',
       async: false,
       success: function (json) {
@@ -91,21 +91,31 @@ $(function () {
   $("#select_country").select2({
     allowClear: true,
     ajax: {
-      url: '/cgi/i18n/countries.pl',
+      url: '/cgi/countries.pl',
       dataType: 'json',
       processResults: function (data) {
         const results = [];
+        var worldresult;
         // eslint-disable-next-line guard-for-in
         for (var k in data) {
-          results.push({ id: k, text: data[k] });
+          if (k == 'world') {
+            worldresult = { id: k, text: data[k] };
+          } else {
+            results.push({ id: k, text: data[k] });
+          }
         }
 
         const locale = document.querySelector('html').lang;
 
+        results.sort(function (a, b) {
+          return a.text.localeCompare(b.text, locale);
+        });
+        if (typeof worldresult === 'object') {
+          results.unshift(worldresult);
+        }
+
         return {
-          results: results.sort(function (a, b) {
-            return a.text.localeCompare(b.text, locale);
-          })
+          results: results
         };
       }
     }

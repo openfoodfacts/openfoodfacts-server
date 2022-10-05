@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -43,8 +43,7 @@ convert the product data they contain to a format that can be imported on Open F
 
 package ProductOpener::ImportConvert;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 use Log::Any qw($log);
@@ -54,8 +53,7 @@ use Text::Fuzzy;
 
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	@EXPORT = qw();            # symbols to export by default
+	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 
 		%fields
@@ -81,6 +79,7 @@ BEGIN
 		&assign_main_language_of_product
 
 		&assign_quantity_from_field
+		&remove_quantity_from_field
 
 		&clean_fields
 		&clean_weights
@@ -92,7 +91,7 @@ BEGIN
 
 		@xml_errors
 
-					);	# symbols to export on request
+		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -114,6 +113,7 @@ use Time::Local;
 use Data::Dumper;
 use Text::CSV;
 use HTML::Entities qw(decode_entities);
+use XML::Rules;
 
 %fields = ();
 @fields = ();
@@ -126,9 +126,7 @@ my $mode = "append";
 
 =cut
 
-sub get_or_create_product_for_code($) {
-
-	my $code = shift;
+sub get_or_create_product_for_code($code) {
 
 	if (not defined $code) {
 		die("Undefined code $code");
@@ -148,11 +146,7 @@ sub get_or_create_product_for_code($) {
 	return $products{$code};
 }
 
-sub assign_value($$$) {
-
-	my $product_ref = shift;
-	my $target = shift;
-	my $value = shift;
+sub assign_value($product_ref, $target, $value) {
 
 	my $field = $target;
 
@@ -210,26 +204,24 @@ sub assign_value($$$) {
 	else {
 		$product_ref->{$field} = $value;
 	}
+
+	return;
 }
 
 
-sub remove_value($$$) {
-
-	my $product_ref = shift;
-	my $target = shift;
-	my $value = shift;
+sub remove_value($product_ref, $target, $value) {
 
 	my $field = $target;
 
 	if (defined $product_ref->{$field}) {
 		$field =~ s/(, )?$value//ig;
 	}
+
+	return;
 }
 
 
-sub apply_global_params($) {
-
-	my $product_ref = shift;
+sub apply_global_params($product_ref) {
 
 	$mode = "append";
 
@@ -238,29 +230,17 @@ sub apply_global_params($) {
 
 		assign_value($product_ref, $field, $global_params{$field});
 	}
+
+	return;
 }
-
-sub apply_global_params_to_all_products() {
-
-	$mode = "append";
-
-	foreach my $code (sort keys %products) {
-		apply_global_params($products{$code});
-	}
-}
-
 
 # some producers send us data for products in different languages sold in different markets
 
-sub assign_main_language_of_product($$$) {
-
-	my $product_ref = shift;
-	my $lcs_ref = shift;
-	my $default_lc = shift;
+sub assign_main_language_of_product($product_ref, $lcs_ref, $default_lc) {
 
 	if ((not defined $product_ref->{lc}) or (not defined $product_ref->{"product_name_" . $product_ref->{lc}})) {
 
-		foreach my $possible_lc (@$lcs_ref) {
+		foreach my $possible_lc (@{$lcs_ref}) {
 			if ((defined $product_ref->{"product_name_" . $possible_lc}) and ($product_ref->{"product_name_" . $possible_lc} !~ /^\s*$/)) {
 				$log->info("assign_main_language_of_product: assigning value", { lc => $possible_lc}) if $log->is_info();
 				assign_value($product_ref, "lc", $possible_lc);
@@ -273,36 +253,31 @@ sub assign_main_language_of_product($$$) {
 		$log->info("assign_main_language_of_product: assigning default value", { lc => $default_lc}) if $log->is_info();
 		assign_value($product_ref, "lc", $default_lc);
 	}
+
+	return;
 }
 
-sub assign_countries_for_product($$$) {
+sub assign_countries_for_product($product_ref, $lcs_ref, $default_country) {
 
-	my $product_ref = shift;
-	my $lcs_ref = shift;
-	my $default_country = shift;
-
-	foreach my $possible_lc (keys %$lcs_ref) {
+	foreach my $possible_lc (sort keys %{$lcs_ref}) {
 		if (defined $product_ref->{"product_name_" . $possible_lc}) {
 			assign_value($product_ref,"countries", $lcs_ref->{$possible_lc});
 			$log->info("assign_countries_for_product: found lc - assigning value", { lc => $possible_lc, countries => $lcs_ref->{$possible_lc}}) if $log->is_info();
 		}
 	}
 
-	if (not defined $product_ref->{countries}) {
+	if ((not defined $product_ref->{countries}) or ($product_ref->{countries} eq "")) {
 		assign_value($product_ref,"countries", $default_country);
 		$log->info("assign_countries_for_product: assigning default value", { countries => $default_country}) if $log->is_info();
 	}
+
+	return;
 }
 
 
 # Match all tags that exist in a taxonomy. Needs the input field to be split, so there must be separators.
 
-sub match_taxonomy_tags($$$$) {
-
-	my $product_ref = shift;
-	my $source = shift;
-	my $target = shift;
-	my $options_ref = shift;
+sub match_taxonomy_tags($product_ref, $source, $target, $options_ref) {
 
 	# logo ab
 	# logo bio européen : nl-bio-01 agriculture pays bas      1
@@ -354,17 +329,14 @@ sub match_taxonomy_tags($$$$) {
 			}
 		}
 	}
+
+	return;
 }
 
 
 # Match only specific tags (e.g. "organic" + "label rouge" in product name)
 
-sub match_specific_taxonomy_tags($$$$) {
-
-	my $product_ref = shift;
-	my $source = shift;
-	my $target = shift;
-	my $tags_ref = shift;
+sub match_specific_taxonomy_tags($product_ref, $source, $target, $tags_ref) {
 
 	my $tag_lc = $product_ref->{lc};
 
@@ -372,7 +344,7 @@ sub match_specific_taxonomy_tags($$$$) {
 
 	if ((defined $product_ref->{$source}) and ($product_ref->{$source} ne "")) {
 
-		foreach my $tagid (@$tags_ref) {
+		foreach my $tagid (@{$tags_ref}) {
 
 			$log->trace("match_specific_taxonomy_tags - looping through tags", { tagid => $tagid}) if $log->is_trace();
 
@@ -407,17 +379,25 @@ sub match_specific_taxonomy_tags($$$$) {
 				$log->trace("match_specific_taxonomy_tags - source value", { source_value => $product_ref->{$source}}) if $log->is_trace();
 
 				if ($product_ref->{$source} =~ /\b(${tag_regexp})\b/i) {
-					$log->info("match_specific_taxonomy_tags: assigning value", { matching => $1, source => $source, value => $tagid, target => $target}) if $log->is_info();					
+					$log->info(
+						"match_specific_taxonomy_tags: assigning value",
+						{   matching => $1,
+							source   => $source,
+							value    => $tagid,
+							target   => $target
+						}
+					) if $log->is_info();
 					assign_value($product_ref, $target, $tagid);
 				}
 			}
 		}
 	}
+
+	return;
 }
 
-sub match_labels_in_product_name($) {
+sub match_labels_in_product_name($product_ref) {
 
-	my $product_ref = shift;
 	my $tag_lc = $product_ref->{lc};
 
 	my @tags = qw(en:organic en:fair-trade);
@@ -428,11 +408,12 @@ sub match_labels_in_product_name($) {
 	}
 
 	match_specific_taxonomy_tags($product_ref, "product_name_" . $tag_lc, "labels", \@tags);
+
+	return;
 }
 
 
-sub split_allergens($) {
-	my $allergens = shift;
+sub split_allergens($allergens) {
 
 	# simple allergen (not an enumeration) -> return _$allergens_
 	if (($allergens !~ /,/)
@@ -453,10 +434,7 @@ Assign it to the quantity and remove it from the field.
 
 =cut
 
-sub assign_quantity_from_field($$) {
-
-	my $product_ref = shift;
-	my $field = shift;
+sub assign_quantity_from_field($product_ref, $field) {
 
 	if ((defined $product_ref->{$field}) and ((not defined $product_ref->{quantity}) or ($product_ref->{quantity} eq ""))) {
 
@@ -489,12 +467,47 @@ sub assign_quantity_from_field($$) {
 		}
 
 	}
+
+	return;
 }
 
 
-sub clean_weights($) {
+=head2 remove_quantity_from_field ( $product_ref, $field )
 
-	my $product_ref = shift;
+Look for the quantity in a field like a product name.
+If found, remove it from the field.
+
+=cut
+
+sub remove_quantity_from_field($product_ref, $field) {
+
+	if (defined $product_ref->{$field}) {
+		
+		my $quantity = $product_ref->{quantity};
+		my $quantity_value = $product_ref->{quantity_value};
+		my $quantity_unit = $product_ref->{quantity_unit};
+		
+		if (defined $quantity) {
+			$quantity =~ s/\(/\\\(/g;
+			$quantity =~ s/\)/\\\)/g;
+			$quantity =~ s/\[/\\\[/g;
+			$quantity =~ s/\]/\\\]/g;
+			if ($product_ref->{$field} =~ /\s*(\b|\s+)($quantity|(\(|\[)$quantity(\)|\]))\s*$/i) {
+				$product_ref->{$field} = $`;
+			}
+		}
+		elsif ((defined $quantity_value) and (defined $quantity_unit) and ($product_ref->{$field} =~ /\s*\b\(?$quantity_value $quantity_unit\)?\s*$/i)) {
+			$product_ref->{$field} = $`;
+		}
+		elsif ((defined $quantity_value) and (defined $quantity_unit) and ($product_ref->{$field} =~ /\s*\b\(?$quantity_value$quantity_unit\)?\s*$/i)) {
+			$product_ref->{$field} = $`;
+		}		
+	}
+	return;
+}
+
+
+sub clean_weights($product_ref) {
 
 	# normalize weights
 
@@ -559,7 +572,7 @@ sub clean_weights($) {
 			and (defined $product_ref->{$field . "_unit"})
 
 			# check we have not already combined the value and unit
-			and (not (index($product_ref->{$field}, $product_ref->{$field . "_value"} . " " . $product_ref->{$field . "_unit"}) >= 0))	) {
+			and (not (index($product_ref->{$field}, $product_ref->{$field . "_value"} . " " . $product_ref->{$field . "_unit"}) >= 0)) ) {
 
 			assign_value($product_ref, $field, $product_ref->{$field} . " (" . $product_ref->{$field . "_value"} . " " . $product_ref->{$field . "_unit"} . ")" );
 		}
@@ -599,6 +612,9 @@ sub clean_weights($) {
 
 			# remove the e
 			$product_ref->{$field} =~ s/ e\b//g;
+
+			# 1 units (with units in plural)
+			$product_ref->{$field} =~ s/^1 (unit|piece|pièce)s$/1 $1/ig;
 		}
 
 	}
@@ -666,12 +682,12 @@ drained_weight => '(peso )?(neto )?(escurrido)',
 		}
 
 		# 1/2 , 3/4
-		if ($product_ref->{quantity} =~ /^'?\s*\d+((\/)\d+)\s*$/i) {
+		elsif ($product_ref->{quantity} =~ /^'?\s*\d+((\/)\d+)\s*$/i) {
 			delete $product_ref->{quantity};
 		}
 
 		# No numbers (e.g. "sachet", "bouteille")
-		if ($product_ref->{quantity} !~ /[1-9]/) {
+		elsif ($product_ref->{quantity} !~ /[1-9]/) {
 			delete $product_ref->{quantity};
 		}
 	}
@@ -685,7 +701,7 @@ drained_weight => '(peso )?(neto )?(escurrido)',
 	# empty or incomplete quantity, but net_weight etc. present
 	if ((not defined $product_ref->{quantity}) or ($product_ref->{quantity} eq "") or (not defined $normalized_quantity)
 		or (($product_ref->{lc} eq "fr") and ($product_ref->{quantity} =~ /^\d+ tranche([[:alpha:]]*)$/)) # French : "6 tranches épaisses"
-		or ($product_ref->{quantity} =~ /^\(.+\)$/)	#  (4 x 125 g)
+		or ($product_ref->{quantity} =~ /^\(.+\)$/)     #  (4 x 125 g)
 		) {
 
 		# See if we have other quantity related values: net_weight_value	net_weight_unit	drained_weight_value	drained_weight_unit	volume_value	volume_unit
@@ -694,7 +710,7 @@ drained_weight => '(peso )?(neto )?(escurrido)',
 
 		foreach my $field ("net_weight", "drained_weight", "total_weight", "volume") {
 			if ((defined $product_ref->{$field}) and ($product_ref->{$field} ne "")
-				and ($product_ref->{$field} =~ /^\d/) ) {	# make sure we have a number
+				and ($product_ref->{$field} =~ /^\d/) ) {   # make sure we have a number
 				$extra_quantity = $product_ref->{$field};
 				last;
 			}
@@ -702,7 +718,7 @@ drained_weight => '(peso )?(neto )?(escurrido)',
 
 		if (defined $extra_quantity) {
 			if ((defined $product_ref->{quantity}) and ($product_ref->{quantity} ne "")) {
-				if ($product_ref->{quantity} =~ /^\(.+\)$/)	{
+				if ($product_ref->{quantity} =~ /^\(.+\)$/) {
 					$product_ref->{quantity} = $extra_quantity . " " . $product_ref->{quantity};
 				}
 				else {
@@ -714,6 +730,8 @@ drained_weight => '(peso )?(neto )?(escurrido)',
 			}
 		}
 	}
+
+	return;
 }
 
 
@@ -732,30 +750,51 @@ e.g. if the ingredients field is of the form "something Ingredients: list of ing
 
 =cut
 
-sub clean_fields($) {
+# Unspecified entries will be turned into a single dash -,
+# and the corresponding field will be deleted during the import if a value exists
 
-	my $product_ref = shift;
+my %unspecified = (
+	'en' => [
+		'unspecified',
+		'(not|non)( |-|_)specified',
+		'not( |-|_)applicable',
+		'na',
+		'n\/a',
+		'unknown',
+		'not( |-|_)known',
+	],
+	'es' => [
+		'no aplica',
+	],
+	'fr' => [
+		'non( |-|_)(d(é|e)clar|indiqu|sp(é|e)cifi|renseign)(é|e)(e?)(s?)',
+		'ras|rien (à|a) signaler',
+		'rien,n(é|e)ant',
+		'n\/r',
+		'nr',
+		'inconnu(e?)(s?)',
+		'non( |-|_)connu(e?)(s?)',
+	],
+);
+
+sub clean_fields($product_ref) {
 
 	$log->debug("clean_fields - start", {  }) if $log->is_debug();
 
-	foreach my $field (keys %$product_ref) {
-
-		# If we have generic_name but not product_name, also assign generic_name to product_name
-		if (($field =~ /^generic_name_(\w\w)$/) and (not defined $product_ref->{"product_name_" . $1})) {
-			$product_ref->{"product_name_" . $1} = $product_ref->{"generic_name_" . $1};
-		}
-	}
-
 	# Quantity in the product name?
 	assign_quantity_from_field($product_ref, "product_name_" . $product_ref->{lc});
+	
+	remove_quantity_from_field($product_ref, "product_name_" . $product_ref->{lc});
 
 	# Populate the quantity / weight fields from their quantity_value_unit, quantity_value, quantity_unit etc. components
 	clean_weights($product_ref);
 
-	foreach my $field (keys %$product_ref) {
+	foreach my $field (keys %{$product_ref}) {
 
 		# Split the generic name from the ingredient list
-		if ($field =~ /^ingredients_text_(\w\w)/) {
+		# Warning: this should be done only once, on the producers platform, when we import product data from a producer
+		# It should not be done again when we import product data from the producers platform to the public database
+		if (($server_options{producers_platform}) and ($field =~ /^ingredients_text_(\w\w)/)) {
 			my $ingredients_lc = $1;
 			split_generic_name_from_ingredients($product_ref, $ingredients_lc);
 		}
@@ -766,15 +805,23 @@ sub clean_fields($) {
 				foreach my $brand (split(/,/, $product_ref->{brands})) {
 					$brand =~ s/^\s+//;
 					$brand =~ s/\s+$//;
+					# dashes/dots/spaces -> allow matching dashes/dot/spaces
+					# e.g. "bons.mayennais" matches "bons mayennais"
+					$brand =~ s/(\s|\.|-|_)/\(\\s|\\.|-|_\)/g;
 					$product_ref->{$field} =~ s/\s+$brand$//i;
 				}
 			}
 		}
 	}
 
-	foreach my $field (keys %$product_ref) {
+	foreach my $field (keys %{$product_ref}) {
 
 		$log->debug("clean_fields", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
+
+		if (not defined $product_ref->{$field}) {
+			print STDERR "undefined value for field $field\n";
+			next;
+		}
 
 		# HTML entities
 		# e.g. P&acirc;tes alimentaires cuites aromatis&eacute;es au curcuma
@@ -807,8 +854,29 @@ sub clean_fields($) {
 		$product_ref->{$field} =~ s/^\s*//;
 		$product_ref->{$field} =~ s/(\s|-|_|;|,)*$//;
 
-		if ($product_ref->{$field} =~ /^(\s|-|\.|_)$/) {
+		# Don't remove a single dash -, it is used to indicate an existing value should be deleted
+		if (($product_ref->{$field} =~ /^(\s|-|\.|_)$/) and ($product_ref->{$field} ne '-')) {
 			$product_ref->{$field} = "";
+		}
+		
+		# Remove "unspecified" values
+		my @unspecified_lcs = ("en");
+		if ((defined $product_ref->{lc}) and ($product_ref->{lc} ne 'en') and (defined $unspecified{$product_ref->{lc}})) {
+			push @unspecified_lcs, $product_ref->{lc};
+		}
+		
+		foreach my $l (@unspecified_lcs) {
+			
+			foreach my $regexp (@{$unspecified{$l}}) {
+				if ($product_ref->{$field} =~ /^\s*($regexp)\s*$/i) {
+					if (defined $tags_fields{$field}) {
+						$product_ref->{$field} = "";
+					}
+					else {
+						$product_ref->{$field} = '-';
+					}
+				}
+			}
 		}
 
 		# bad EMB codes (followed by a city) (e.g. Sainte-Lucie)
@@ -820,6 +888,15 @@ sub clean_fields($) {
 
 			# FR 62.907.030 EC (DANS UN OVALE)
 			$product_ref->{$field} =~ s/\(?dans un ovale\)?//ig;
+			
+			# FR 72.024.001 EC - FR 72 024 520 CE
+			$product_ref->{$field} =~ s/ (CE|EC) - ([A-Z][A-Z]) / $1, $2/g;
+		}
+		
+		# category with "organic" in it
+		if ($field eq "categories") {
+			$product_ref->{$field} =~ s/^organic //i; # English
+			$product_ref->{$field} =~ s/ bio$//i; # French
 		}
 
 		# Origin of ingredients that contains other things than tags (e.g. Leroux)
@@ -835,26 +912,62 @@ sub clean_fields($) {
 
 		# tag fields: turn separators to commas
 		# Sans conservateur / Sans huile de palme
+		# étui carton FSC + sachet individuel papier
 		# ! packaging codes can have / :  ES 12.06648/C CE
 		if (exists $tags_fields{$field}) {
-			$product_ref->{$field} =~ s/\s?(;|( \/ )|\n)+\s?/, /g;
+			$product_ref->{$field} =~ s/\s?(;|( \/ )|( \+ )|\n)+\s?/, /g;
 		}
 
-
-		# Lowercase fields in ALL CAPS
-		if ($field =~ /^(ingredients_text|product_name|generic_name|brands)/) {
-			if (($product_ref->{$field} =~ /[A-Z]{4}/)
-				and ($product_ref->{$field} !~ /[a-z]/)
-				) {
-				$product_ref->{$field} = ucfirst(lc($product_ref->{$field}));
+		if ($field =~ /^(ingredients_text|product_name|abbreviated_product_name|generic_name|brands)/) {
+			
+			# Lowercase fields in ALL CAPS
+			# Capitalize all lowercase fields
+			
+			# do not count x4 as a lowercase letter
+			# e.g. KINDER COUNTRY BARRE DE CEREALES ENROBEE DE CHOCOLAT 2x9 BARRES
+			
+			my $value = $product_ref->{$field};
+			$value =~ s/x(\d)/X$1/;
+			$value =~ s/(\d)x/$1X/;
+			
+			if ((($value =~ /[A-Z]{4}/) and ($value !~ /[a-z]/))
+				or (($value =~ /[a-z]{4}/) and ($value !~ /[A-Z]/))	) {
+					
+				# Tag field: uppercase the first letter (e.g. brands)
+				if (defined $tags_fields{$field}) {
+					$product_ref->{$field} = join(", ", map {ucfirst} split /, |,/, lc($product_ref->{$field}));
+				}
+				else {
+					$product_ref->{$field} = ucfirst(lc($product_ref->{$field}));
+				}
 				$log->debug("clean_fields - after lowercase", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
 			}
+			
+			# Remove fields with "0"
+			if ($product_ref->{$field} ne '-') {
+				$product_ref->{$field} =~ s/^( |0|-|_|\.|\/|\*|;)+$//;
+			}
+			
+			# Remove HTML comments
+			$product_ref->{$field} =~ s/<!--(.*?)-->//sg;
+			
+			# if there's some HTML code, making special cases to try to repair is probably more dangerous than just ignoring the fields
+			# e.g. <!--td {border: 1px solid #ccc;}br {mso-data-placement:same-cell;}Some text # found in CodeOnline data
+			# "Ingrédients : \n\n\n\n\t\n\t\n\t\n\t\n\t\n\t\tbody,div,table,thead,tbody,tfoot,tr,th,td,p { font-family:\"Calibri\"; font-size:x-small }\n\t\ta.comment-indicator:hover + comment { background:#ffd; position:absolute; display:block; border:1px solid black; padding:0.5em;  } \n\t\ta.comment-indicator { background:red; display:inline-block; border:1px solid black; width:0.5em; height:0.5em;  } \n\t\tcomment { display:none;  } \n\t\n\t\n\n\n\n\n\t\n\t\n\t\tpersil\n\t\n\t\n\t\tamandes\n\t\n\t\n\t\tail\n\t\n\t\n\t\tsel\n\t\n\t\n\t\tpoivre\n\t\n\t\n\t\thuile d'olive\n\t\n\t\n\t\thuile de tournesol\n\t\n\t\n\t\tcitron\n\t\n\t\n\t\tchapelure\n\t\n\n\n\n\n",
+			if ($product_ref->{$field} =~ /(mso-data|font-family|font-style|text-decoration|<!--|-->)/) {
+				$product_ref->{$field} = "";
+			}
+			
 		}
-
+		
+		# All fields
 
 		# Ingredients
 
 		if ($field =~ /^ingredients_text/) {
+			
+			# _x000D_
+			$product_ref->{$field} =~ s/_x000D_/\n/g;
 
 			# Farine de<STRONG> <i>blé</i> </STRONG> - sucre
 
@@ -887,6 +1000,13 @@ sub clean_fields($) {
 			$product_ref->{$field} =~ s/<b>|<\/b>//ig;
 
 			$log->debug("clean_fields - ingredients_text - 2", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
+			
+			# Ingredients without separators
+			# e.g. found in some CodeOnline data: "Ingrédients : Pur cacao de MadagascarŒufs fraisHuiles végétalesGélifiant végétalSucre"
+			
+			if ($product_ref->{$field} !~ /,|;| - /) {
+				$product_ref->{$field} =~ s/(\p{Lower}\p{Lower}+)(?=\p{Upper}\p{Lower}\p{Lower})/$1, /g;
+			}
 
 
 			if ($field eq "ingredients_text_fr") {
@@ -927,25 +1047,46 @@ sub clean_fields($) {
 
 		}
 
-		if ($field =~ /^nutrition_grade_/) {
+		if ($field =~ /^nutriscore_grade_/) {
 			$product_ref->{$field} = lc($product_ref->{$field});
+		}
+		
+		if ($field eq "nutriscore_grade_producer") {
+			# Nutriscore_A -> a
+			$product_ref->{$field} =~ s/(nutri-score|nutriscore)(\s|:|-|_|\.)+([a-e])/$3/i;
 		}
 
 		# remove N, N/A, NA etc.
-		$product_ref->{$field} =~ s/(^|,)\s*((n(\/|\.)?a(\.)?)|(not applicable)|none|aucun|aucune|unknown|inconnu|inconnue|non|non renseigné|non applicable|nr|n\/r|no|n)\s*(,|$)//ig;
+		# but not "no", "none" that are useful values (e.g. for specific labels "organic:no", allergens : "none")
+		$product_ref->{$field} =~ s/(^|,)\s*((n(\/|\.)?a(\.)?)|(not applicable)|unknown|inconnu|inconnue|non renseigné|non applicable|no aplica|nr|n\/r)\s*(,|$)//ig;
+		
+		# remove none except for allergens and traces
+		if ($field !~ /allergens|traces/) {
+			$product_ref->{$field} =~ s/(^|,)\s*(none|aucun|aucune|aucun\(e\))\s*(,|$)//ig;			
+		}
 
 		if (($field =~ /_fr/) or ((defined $product_ref->{lc}) and ($product_ref->{lc} eq 'fr') and ($field !~ /_\w\w$/))) {
-			$product_ref->{$field} =~ s/^\s*(aucun(e)|autre logo|non)?\s*$//ig;
+			$product_ref->{$field} =~ s/^\s*(autre logo)?\s*$//ig;
 		}
 
 		$product_ref->{$field} =~ s/ +/ /g;
 		$product_ref->{$field} =~ s/,(\s*),/,/g;
 		$product_ref->{$field} =~ s/\.(\.+)$/\./;
-		$product_ref->{$field} =~ s/(\s|-|;|,)*$//;
-		$product_ref->{$field} =~ s/^(\s|-|;|,|\.)+//;
-		$product_ref->{$field} =~ s/^(\s|-|;|,|_)+$//;
+		
+		# Don't remove a single dash -, it is used to indicate an existing value should be deleted
+		if ($product_ref->{$field} ne '-') {
+			
+			# Remove trailing dashes and commas
+			$product_ref->{$field} =~ s/(\s|-|;|,)*$//;
+			# Remove leading dashes, commas and dots
+			# be careful not to turn -5 to 5: remove dashes only if they are not followed by a number
+			$product_ref->{$field} =~ s/^(\s|-(?![0-9])|;|,|\.)+//;
+			
+			# Remove entries made entirely of punctuation characters, or x or X
+			$product_ref->{$field} =~ s/^(x|X|,|;|-|_|\/|\\|#|:|\.|\s)+$//;
+		}
 
-		# remove empty values for tag fields
+		# remove empty values for tag fields, including a single dash -
 		if (exists $tags_fields{$field}) {
 			$product_ref->{$field} =~ s/^(,|;|-|_|\/|\\|#|:|\.|\s)+$//;
 		}
@@ -958,6 +1099,8 @@ sub clean_fields($) {
 	}
 
 	match_labels_in_product_name($product_ref);
+
+	return;
 }
 
 
@@ -966,15 +1109,13 @@ sub clean_fields_for_all_products() {
 	foreach my $code (sort keys %products) {
 		clean_fields($products{$code});
 	}
+
+	return;
 }
 
 
-sub load_xml_file($$$$) {
-
-	my $file = shift;
-	my $xml_rules_ref = shift;
-	my $xml_fields_mapping_ref = shift;
-	my $code = shift; # can be undef or passed if we already know it from the file name
+sub load_xml_file($file, $xml_rules_ref, $xml_fields_mapping_ref, $code) {
+	# $code can be undef or passed if we already know it from the file name
 
 	# try to guess the code from the file name
 	if ((not defined $code) and ($file =~ /\D(\d{13})\D/)) {
@@ -993,7 +1134,7 @@ sub load_xml_file($$$$) {
 
 	my $xml_ref;
 
-	eval { $xml_ref = $parser->parse_file( $file);	};
+	eval { $xml_ref = $parser->parse_file($file); };
 
 	if ($@ ne "") {
 		$log->error("error parsing xml file with XML::Rules", { file => $file, error=>$@ }) if $log->is_error();
@@ -1162,7 +1303,7 @@ sub load_xml_file($$$$) {
 		$product_ref = get_or_create_product_for_code($code);
 	}
 
-	foreach my $field_mapping_ref (@$xml_fields_mapping_ref) {
+	foreach my $field_mapping_ref (@{$xml_fields_mapping_ref}) {
 		my $source = $field_mapping_ref->[0];
 		my $target = $field_mapping_ref->[1];
 
@@ -1192,7 +1333,7 @@ sub load_xml_file($$$$) {
 			# multiple values in different languages
 
 			elsif ($source_tag eq '*') {
-				foreach my $tag ( keys %{$current_tag}) {
+				foreach my $tag ( sort keys %{$current_tag}) {
 					my $tag_target = $target;
 
 					# special case where we have something like allergens.nuts = traces
@@ -1332,9 +1473,7 @@ sub load_xml_file($$$$) {
 }
 
 
-sub load_csv_file($) {
-
-	my $options_ref = shift;
+sub load_csv_file($options_ref) {
 
 	my $file = $options_ref->{file};
 	my $encoding = $options_ref->{encoding};
@@ -1360,7 +1499,7 @@ sub load_csv_file($) {
 
 	open (my $io, "<:encoding($encoding)", $file) or die("Could not open $file: $!");
 
-	my $i = 0;	# line number
+	my $i = 0;    # line number
 
 	if (defined $skip_lines) {
 		$log->info("Skipping $skip_lines lines before header") if $log->is_info();
@@ -1394,7 +1533,7 @@ sub load_csv_file($) {
 
 		$log->info("Reading line $i") if $log->is_info();
 
-		my $code = undef;	# code must be first
+		my $code = undef;    # code must be first
 
 		my $seen_energy_kj = 0;
 
@@ -1477,7 +1616,7 @@ sub load_csv_file($) {
 
 							print STDERR "downloading image: wget $csv_product_ref->{$source_field} -O $dir/$file\n";
 							system("wget \"" . $csv_product_ref->{$source_field} . "\" -O $dir/$file");
-							sleep 2;	# there seems to be some limit as we received 403 Forbidden responses
+							sleep 2;    # there seems to be some limit as we received 403 Forbidden responses
 						}
 					}
 
@@ -1531,13 +1670,11 @@ sub load_csv_file($) {
 		}
 
 	}
+
+	return;
 }
 
-sub recursive_list($$);
-sub recursive_list($$) {
-
-	my $list_ref = shift;
-	my $arg = shift;
+sub recursive_list($list_ref, $arg) {
 
 	if (-d $arg) {
 
@@ -1557,15 +1694,16 @@ sub recursive_list($$) {
 		closedir (DH);
 	}
 	else {
-		push @$list_ref, $arg;
+		push @{$list_ref}, $arg;
 	}
+
+	return;
 }
 
-sub get_list_of_files(@) {
+sub get_list_of_files(@files_and_dirs) {
 
 	# Read the list of files or directories passed as parameters
 
-	my @files_and_dirs = @_;
 	my @files = ();
 
 	foreach my $arg (@files_and_dirs) {
@@ -1580,12 +1718,12 @@ sub get_list_of_files(@) {
 
 
 
-sub print_csv_file() {
+sub print_csv_file($file_handle) {
 
-	my $csv_out = Text::CSV->new ( { binary => 1 , sep_char => "\t" } )  # should set binary attribute.
+	my $csv_out = Text::CSV->new ( { binary => 1 , sep_char => "\t", eol => "\n", quote_space => 0 } )  # should set binary attribute.
                  or die "Cannot use CSV: ".Text::CSV->error_diag ();
 
-	print join("\t", @fields) . "\n";
+	$csv_out->print ($file_handle, \@fields) ;
 
 	foreach my $code (sort keys %products) {
 
@@ -1601,12 +1739,12 @@ sub print_csv_file() {
 			}
 		}
 
-		$csv_out->print (*STDOUT, \@values) ;
-		print "\n";
+		$csv_out->print ($file_handle, \@values) ;
 
 		print STDERR "code: $code\n";
 	}
 
+	return;
 }
 
 
@@ -1634,6 +1772,8 @@ sub print_stats() {
 			print STDERR "$field:\t$existing_values{$field}\n";
 		}
 	}
+
+	return;
 }
 
 
@@ -1668,13 +1808,7 @@ Reference to a scalar that will be set to the serving size if the nutrition fact
 
 =cut
 
-sub extract_nutrition_facts_from_text($$$$$) {
-
-	my $text_lc = shift;
-	my $text = shift;
-	my $nutrients_ref = shift;
-	my $nutrition_data_per_ref = shift;
-	my $serving_size_ref = shift;
+sub extract_nutrition_facts_from_text($text_lc, $text, $nutrients_ref, $nutrition_data_per_ref, $serving_size_ref) {
 
 	if ((defined $text) and ($text ne "")) {
 
@@ -1682,43 +1816,35 @@ sub extract_nutrition_facts_from_text($$$$$) {
 
 		if ($text_lc eq "en") {
 			if ($text =~ /^\s*(for|per) ((1|a|one) )?serving (of )?\(? ?(\d+((\.|,)\d+)? ?(g|kg|mg|µg|l|dl|cl|ml))/i) {
-				$$nutrition_data_per_ref = "serving";
-				$$serving_size_ref = $5;
+				${$nutrition_data_per_ref} = "serving";
+				${$serving_size_ref} = $5;
 			}
 		}
 		elsif ($text_lc eq "fr") {
 			if ($text =~ /^\s*(à la |a la |pour |par |)(1 |une )?portion (de |d'environ )?\(? ?(\d+((\.|,)\d+)? ?(g|kg|mg|µg|l|dl|cl|ml))/i) {
-				$$nutrition_data_per_ref = "serving";
-				$$serving_size_ref = $4;
+				${$nutrition_data_per_ref} = "serving";
+				${$serving_size_ref} = $4;
 			}
 			# Pour un carré de 10.7g :
 			if ($text =~ /^\s*(pour )(\D+) ?(de |d'environ )?\(? ?(\d+((\.|,)\d+)? ?(g|kg|mg|µg|l|dl|cl|ml))/i) {
-				$$nutrition_data_per_ref = "serving";
-				$$serving_size_ref = $4;
+				${$nutrition_data_per_ref} = "serving";
+				${$serving_size_ref} = $4;
 			}
 		}
 
-		foreach my $nid (sort keys %Nutriments) {
-
-			next if $nid =~ /^#/;
-
-			next if not defined $Nutriments{$nid}{$text_lc};
+		foreach my $nutrient_tagid (sort(get_all_taxonomy_entries("nutrients"))) {
 
 			# Create a list of synonyms of the nutrient name in the text language
 
-			my $nid_lc = lc($Nutriments{$nid}{$text_lc});
-			my $nid_lc_unaccented = unac_string_perl($nid_lc);
-			my @synonyms = ($nid_lc);
-			if ($nid_lc ne $nid_lc_unaccented) {
-				push @synonyms, $nid_lc_unaccented;
-			}
-			if (defined $Nutriments{$nid}{$text_lc  . "_synonyms"}) {
-				foreach my $synonym (@{$Nutriments{$nid}{$text_lc . "_synonyms"}}) {
-					push @synonyms, $synonym;
-					my $synonym_unaccented = unac_string_perl($synonym);
-					if ($synonym_unaccented ne $synonym) {
-						push @synonyms, $synonym_unaccented;
-					}
+			my $nid = $nutrient_tagid;
+			$nid =~ s/^zz://g;
+
+			my @synonyms = get_taxonomy_tag_synonyms($text_lc, "nutrients", $nutrient_tagid);
+
+			foreach my $synonym (@synonyms) {
+				my $synonym_unaccented = unac_string_perl($synonym);
+				if ($synonym_unaccented ne $synonym) {
+					push @synonyms, $synonym_unaccented;
 				}
 			}
 
@@ -1729,8 +1855,10 @@ sub extract_nutrition_facts_from_text($$$$$) {
 			foreach my $synonym (@synonyms) {
 
 				# Energy (kJ) -> escape parenthesis
-				$synonym =~ s/\(/\\\(/;
-				$synonym =~ s/\)/\\\)/;
+				$synonym =~ s/\(/\\\(/g;
+				$synonym =~ s/\)/\\\)/g;
+				$synonym =~ s/\[/\\\[/g;
+				$synonym =~ s/\]/\\\]/g;
 
 				# Vitamine D µg  0.4 soit 8  % des AQR*
 
@@ -1822,6 +1950,8 @@ sub extract_nutrition_facts_from_text($$$$$) {
 			}
 		}
 	}
+
+	return;
 }
 
 

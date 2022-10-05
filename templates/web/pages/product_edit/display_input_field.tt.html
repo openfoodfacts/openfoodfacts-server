@@ -1,0 +1,28 @@
+<!-- start templates/[% template.name %] -->
+
+<label for="[% field %]">
+    [% fieldtype %]
+    [% IF language.defined %]
+        (<span class="tab_language">[% language %]</span>)
+    [% END %]
+</label>
+
+[% IF field.match('infocard') || field.match('^packaging_text') || field.match('^ingredients_text')  %]
+    <textarea name="[% field %]" id="[% field %]" lang="${display_lc}">[% value %]</textarea>
+[% ELSE %]
+    <input type="text" name="[% field %]" id="[% field %]" class="text [% class %]" value="[% value %]" lang="[% display_lc %]" data-autocomplete="[% autocomplete %]" />
+[% END %]
+
+
+[% FOREACH field_note IN field_notes %]
+    [% IF field_note.note.defined %]
+        <p class="note">&rarr; [% field_note.note %]</p>
+    [% END %]
+[% END %]
+
+[% IF field_type_examples.defined %]
+    <p class="example">[% examples %] [% field_type_examples %]</p>
+[% END %]
+
+<!-- end templates/[% template.name %] -->
+

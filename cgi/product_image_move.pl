@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -42,15 +41,18 @@ use Encode;
 use JSON::PP;
 use Log::Any qw($log);
 
-my $type = param('type') || 'add';
-my $action = param('action') || 'display';
-my $code = normalize_code(param('code'));
-my $imgids = param('imgids');
-my $move_to = param('move_to_override');
-if ($move_to ne 'trash') {
+my $type = single_param('type') || 'add';
+my $action = single_param('action') || 'display';
+my $code = normalize_code(single_param('code'));
+my $imgids = single_param('imgids');
+my $move_to = single_param('move_to_override');
+if ($move_to =~ /^(off|obf|opf|opff)$/) {
+	$move_to .= ':' . $code;
+}
+elsif ($move_to ne 'trash') {
 	$move_to = normalize_code($move_to);
 }
-my $copy_data = param('copy_data_override');
+my $copy_data = single_param('copy_data_override');
 
 $log->debug("start", { ip => remote_addr(), type => $type, action => $action, code => $code, imgids => $imgids, move_to => $move_to, copy_data => $copy_data }) if $log->is_debug();
 
@@ -58,7 +60,7 @@ my $env = $ENV{QUERY_STRING};
 
 $log->debug("calling init()", { query_string => $env });
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 $log->debug("parsing code", { user => $User_id, code => $code, cc => $cc, lc => $lc, ip => remote_addr() }) if $log->is_debug();
 
@@ -150,10 +152,13 @@ if ($move_to ne 'trash') {
 		exit(0);
 	}
 
-	my $new_product_ref = product_exists($move_to_id); # returns 0 if not
+	my $new_product_ref = retrieve_product($move_to_id);
 
-	if (not $new_product_ref) {
-		$log->info("new product code does not exist yet, creating product", { move_to => $move_to, move_to_id => $move_to_id });
+	if (defined $new_product_ref) {
+		$log->debug("new product code already exists", { move_to => $move_to, move_to_id => $move_to_id }) if $log->is_debug();
+	}
+	else {
+		$log->debug("new product code does not exist yet, creating product", { move_to => $move_to, move_to_id => $move_to_id }) if $log->is_debug();
 		$new_product_ref = init_product($User_id, $Org_id, $move_to, $country);
 		$new_product_ref->{interface_version_created} = $interface_version;
 		$new_product_ref->{lc} = $lc;
@@ -165,7 +170,8 @@ if ($move_to ne 'trash') {
 			$product_ref = retrieve_product($product_id);
 			my @fields = qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries allergens states  );
 
-			use Clone 'clone';
+			require Clone;
+			Clone->import( qw( clone ) );
 
 			foreach my $field (@fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text','lang','nutriments') {
 				if (defined $product_ref->{$field}) {
@@ -181,17 +187,23 @@ if ($move_to ne 'trash') {
 			}
 		}
 
-		store_product($new_product_ref, "Creating product (moving image from product $code");
-	}
-	else {
-		$log->info("new product code already exists", { move_to => $move_to });
+		store_product($User_id, $new_product_ref, "Creating product (moving image from product $code");
 	}
 
 	$response{url} = product_url($move_to);
+	
+	# URL on another server?
+	my $server = server_for_product_id($move_to);
+	if (defined $server) {
+		my $url = "https://" . $subdomain . "." . $options{other_servers}{$server}{domain} . $response{url};
+		$url =~ s/\/([a-z]+):([0-9])/\/$2/;
+		$response{url} = $url;
+	}
+	
 	$response{link} = '<a href="' . $response{url} . '">' . $move_to . '</a>';
 }
 
-my $error = process_image_move($code, $imgids, $move_to, $Owner_id);
+my $error = process_image_move($User_id, $code, $imgids, $move_to, $Owner_id);
 
 my $data;
 

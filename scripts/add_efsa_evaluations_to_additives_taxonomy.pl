@@ -70,7 +70,7 @@ $csv->column_names ($csv->getline ($io));
 
 my %studies = ();
 
-while (my $line_ref = $csv->getline_hr ($io)) {				 
+while ( my $line_ref = $csv->getline_hr($io) ) {
 
 
 	# is it an additive?
@@ -187,11 +187,11 @@ while (<STDIN>) {
 			}
 			
 		}
-		
-		$e = undef;
-		$e2 = undef;		
+
+		$e                                 = undef;
+		$e2                                = undef;
 		$override_existing_efsa_evaluation = 0;
-		%properties = ();
+		%properties                        = ();
 	}
 	
 	print $line;
