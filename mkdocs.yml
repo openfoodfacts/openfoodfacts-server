@@ -1,0 +1,32 @@
+# Settings for mkdocs
+
+# Where to find documentation
+docs_dir: docs
+
+# Link to Github on every page
+repo_url: https://github.com/openfoodfacts/openfoodfacts-server
+edit_uri: blob/main/docs/
+# add canonical url
+site_url: https://openfoodfacts.github.io/openfoodfacts-server/
+
+site_name: Product Opener (Open Food Facts Server)
+site_dir: gh_pages
+
+# Note see https://hub.docker.com/r/minidocks/mkdocs 
+# for available extensions
+theme:
+  name: material
+
+markdown_extensions:
+  - footnotes
+  # this one allow to have two space indentation
+  # counts as nested list
+  - mdx_truly_sane_lists
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - toc:
+      # add permalink after titles
+      permalink: "#"
+plugins:
+  - awesome-pages
+  - search
