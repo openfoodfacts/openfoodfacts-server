@@ -58,4 +58,4 @@ To allow users of your app to contribute without having to register individual a
 <!---Are we sure the next level of support is from FAQ to slack, If yes embed links -->
 - Report Bugs on the Open Food Facts Database.
 - Have an issue or feature request? You can submit it here [here on GitHub](https://github.com/openfoodfacts/openfoodfacts-server/issues/new).
-- Are you interested in contributing to this project? See your Contribution Guidelines.<!-- Embed contribution guideline link>
+- Are you interested in contributing to this project? See your Contribution Guidelines. <!-- Embed contribution guideline link.>
