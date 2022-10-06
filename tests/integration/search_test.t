@@ -12,29 +12,9 @@ use File::Basename "dirname";
 use JSON::PP;
 use ProductOpener::TestDefaults qw/:all/;
 use ProductOpener::Test qw/:all/;
-use Getopt::Long;
 use Storable qw(dclone);
 
-my $test_name = "search_test";
-my $test_dir = dirname(__FILE__);
-my $expected_dir = $test_dir . "/expected_test_results/" . $test_name;
-
-my $usage = <<TXT
-
-The expected results of the tests are saved in $test_dir/expected_test_results/$test_name
-
-To verify differences and update the expected test results,
-actual test results can be saved by passing --update-expected-results
-
-The directory will be created if it does not already exist.
-
-TXT
-  ;
-
-my $update_expected_results;
-
-GetOptions("update-expected-results" => \$update_expected_results)
-  or die("Error in command line arguments.\n\n" . $usage);
+my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
 my @products = (
 
@@ -129,10 +109,6 @@ my @tests = (
 	]
 );
 
-if ((defined $update_expected_results) and (!-e $expected_dir)) {
-	mkdir($expected_dir, 0755) or die("Could not create $expected_dir directory: $!\n");
-}
-
 foreach my $test_ref (@tests) {
 	my $testid = $test_ref->[0];
 	my $query_url = $test_ref->[1];
@@ -153,7 +129,7 @@ foreach my $test_ref (@tests) {
 	# normalize for comparison
 	normalize_products_for_test_comparison(\@{$decoded_json->{'products'}});
 
-	is(compare_to_expected_results($decoded_json, "$expected_dir/$testid.json", $update_expected_results), 1,);
+	is(compare_to_expected_results($decoded_json, "$expected_result_dir/$testid.json", $update_expected_results), 1,);
 }
 
 done_testing();
