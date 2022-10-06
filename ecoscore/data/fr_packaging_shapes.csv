@@ -28,8 +28,9 @@ Film de regroupement,"0,1"
 Opercule,"0,1"
 Bâtonnet,"0,1"
 Attache,"0,1"
+# Lines below are not in the Eco-Score file, but they are used for many products
+# so we assign the ratio for the closest component
 Vrac,0
-Conteneur,1
 Gobelet,1
 Caisse,1
 Lien,"0,1"
@@ -43,3 +44,6 @@ Housse,1
 Seau,1
 Terrine,1
 Cartouche,1
+Paquet,1
+Emballage,1
+Bidon,1

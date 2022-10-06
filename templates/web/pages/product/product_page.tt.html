@@ -47,7 +47,10 @@
     <p>→ <a href="[% public_product_url %]">[% lang("product_page_on_the_public_database") %]</a></p>
 [% END %]
 
-[% IF (user_id.defined) && (robotoff_url.defined) && (robotoff_url.length > 0) %]
+[% IF (robotoff_url.defined) && (robotoff_url.length > 0) %]
+    <!-- Anonymous users will only be able to vote see AnnotationVote in robotoff,
+        the voter uniqueness is based on a hash of its ip address
+    -->
 	<robotoff-asker url='[% robotoff_url %]' code='[% code %]' lang='[% lc %]' style='display: none;' caption-yes='[% lang("button_caption_yes") %]' caption-no='[% lang("button_caption_no") %]' caption-skip='[% lang("button_caption_skip") %]'></robotoff-asker>
 [% END %]
 
@@ -184,12 +187,14 @@
                 <a href="/nova" title="[% a_title %]">
                 [% display_icon('info') %]</a>
             </h4>
-            <a href="/nova" title="[% a_title %]"><img src="/images/attributes/nova-group-[% group %].svg" alt="[% display %]" style="margin-bottom:1rem;max-width:100%"></a><br>
+            <a href="/nova" title="[% a_title %]"><img src="[% static_subdomain %]/images/attributes/nova-group-[% group %].svg" alt="[% display %]" style="margin-bottom:1rem;max-width:100%"></a><br>
             [% display %]
         [% END %]
     </div>
     <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">[% ingredients_image %]</div>
 </div>
+
+[% health_card_panel %]
 
 <!-- nutrition table -->
 [% IF nutrition_table == 'defined' %]
@@ -199,8 +204,17 @@
             [% nutrition_image %]
         </div>
         <div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
-            [% display_nutrient_levels %]
-            [% display_field %]
+
+            <div class='row'>
+                <div class="small-12 xlarge-6 columns">
+                    [% display_nutriscore %]
+                </div>
+                <div class="small-12 xlarge-6 columns">
+                    [% display_nutrient_levels %]
+                </div>      
+            </div>
+      
+            [% display_serving_size %]
 
             [% IF no_nutrition_data == 'on' %]
                 <div class='panel callout'>
@@ -227,11 +241,9 @@
 	<h2 id="environmental_impact">[% lang('environmental_impact') %]</h2>
 [% END %]
 
-[% IF environment_card_panel %]
 
-    [% environment_card_panel %]
+[% environment_card_panel %]
 
-[% END %]
 
 [% IF ecoscore_grade %]
 	<h4>Eco-score
@@ -247,7 +259,7 @@
 	[% END %]
 	
 	<a href="[% url_for_text("ecoscore") %]" title="[% lang('ecoscore_information') %]">
-		<img src="/images/attributes/ecoscore-[% ecoscore_grade_lc %].svg" alt="Eco-score [% ecoscore_grade %]" style="margin-bottom:1rem;max-width:100%">
+		<img src="[% static_subdomain %]/images/attributes/ecoscore-[% ecoscore_grade_lc %].svg" alt="Eco-score [% ecoscore_grade %]" style="margin-bottom:1rem;max-width:100%">
 	</a>
 	<br>
   
@@ -279,7 +291,7 @@
 <h4>[% lang('forest_footprint') %]</h4>
 
 <a href="/empreinte-foret-des-produits-alimentaires" title="[% lang('forest_footprint_information') %]" style="float:left">
-	<img src="/images/icons/forest-footprint-[% forest_footprint_data.grade %].svg" alt="[% lang('forest_footprint') %]" style="height:130px" >
+	<img src="[% static_subdomain %]/images/icons/forest-footprint-[% forest_footprint_data.grade %].svg" alt="[% lang('forest_footprint') %]" style="height:130px" >
 </a>
 <div>
 	<p><strong>[% lang("attribute_forest_footprint_${forest_footprint_data.grade}_title") %]</strong><br>
@@ -424,13 +436,11 @@
 <!-- databases data sources -->
 <h2 id="data_sources">[% lang('data_sources_p') FILTER ucfirst %]</h2>
 
-[% IF data_source_database_equadis %]
-	<p>[% data_source_database_equadis %]</p>
-[% ELSIF data_source_database_codeonline %]
-	<p>[% data_source_database_codeonline %]</p>
+[% IF data_source_database_provider %]
+	<p>[% data_source_database_provider %]</p>
+[% END %]
+[% IF data_source_database_note_about_the_producers_platform %]
 	<p>[% data_source_database_note_about_the_producers_platform %]</p>
-[% ELSE %]
-<p>_</p>
 [% END %]
 
 

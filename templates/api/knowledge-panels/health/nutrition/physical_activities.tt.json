@@ -1,0 +1,44 @@
+{
+    "level": "info",
+    "topics": [
+        "health"
+    ],
+    "expanded": false,
+    "evaluation": "[% panel.evaluation %]",
+    "title_element": {
+        "title": "[% f_lang('f_energy_per_100g', { 'kj' => panel.energy }) %]",
+        "subtitle": "[% f_lang('f_equal_to_walking_minutes_or_steps',  { 'minutes' => round(panel.walking_minutes), 'steps' => round(panel.walking_steps) } ) %]",
+        "icon_url": "[% static_subdomain %]/images/icons/dist/activity-walking.svg",
+        "icon_color_from_evaluation": true,
+    },    
+    "elements": [   
+        [% FOREACH activity IN panel.activities %]
+            [% IF activity.id != "walking" %]
+            {
+                "element_type": "text",
+                "text_element": {
+                    "type": "summary",
+                    "icon_color_from_evaluation": true,
+                    "evaluation": "[% panel.evaluation %]",
+                    "icon_url": "[% static_subdomain %]/images/icons/dist/activity-[% activity.id %].svg",
+                    "icon_alt": "[% activity.name %]",
+                    "valign": "middle",
+                    "html": `
+                        <strong>[% activity.name %][% sep %]:</strong> [% round(activity.minutes) %] min 
+                        `
+                }
+            },
+            [% END %]
+        [% END %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "summary",
+                "icon_color_from_evaluation": true,       
+                "html": `
+                    <p>[% f_lang('f_energy_expenditure_for_weight_in_kg_lb', { 'kg' => panel.weight, 'lb' => round(panel.weight * 2.20462) }) %]</p>
+                    `
+            }
+        },        
+    ]
+}

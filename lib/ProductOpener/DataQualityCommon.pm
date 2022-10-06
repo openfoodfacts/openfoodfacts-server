@@ -33,8 +33,7 @@ and that are thus run for all products.
 
 package ProductOpener::DataQualityCommon;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter qw(import);
 
 
@@ -61,9 +60,7 @@ Checks related to issues that are due to bugs that exist or existed in the code.
 
 =cut
 
-sub check_bugs($) {
-
-	my $product_ref = shift;
+sub check_bugs($product_ref) {
 
 	check_bug_missing_or_unknown_main_language($product_ref);
 
@@ -82,9 +79,7 @@ that caused them not to be set in certain conditions.
 
 =cut
 
-sub check_bug_missing_or_unknown_main_language($) {
-
-	my $product_ref = shift;
+sub check_bug_missing_or_unknown_main_language($product_ref) {
 
 	if ((not (defined $product_ref->{lc}))) {
 		push @{$product_ref->{data_quality_bugs_tags}}, "en:main-language-code-missing";
@@ -100,9 +95,7 @@ sub check_bug_missing_or_unknown_main_language($) {
 	return;
 }
 
-sub check_bug_code_missing($) {
-
-	my $product_ref = shift;
+sub check_bug_code_missing($product_ref) {
 
 	# https://github.com/openfoodfacts/openfoodfacts-server/issues/185#issuecomment-364653043
 	if ((not (defined $product_ref->{code}))) {
@@ -118,9 +111,7 @@ sub check_bug_code_missing($) {
 	return;
 }
 
-sub check_bug_created_t_missing($) {
-
-	my $product_ref = shift;
+sub check_bug_created_t_missing($product_ref) {
 
 	# https://github.com/openfoodfacts/openfoodfacts-server/issues/185
 	if ((not (defined $product_ref->{created_t}))) {
@@ -139,23 +130,18 @@ Checks related to the barcodes.
 
 =cut
 
-sub check_codes($) {
-
-	my $product_ref = shift;
+sub check_codes($product_ref) {
 
 	check_code_gs1_prefixes($product_ref);
-
+	
 	return;
 }
 
-sub check_code_gs1_prefixes($) {
-
-	my $product_ref = shift;
+sub check_code_gs1_prefixes($product_ref) {
 
 	if ((not (defined $product_ref->{code}))) {
 		return;
 	}
-
 	my $code = $product_ref->{code};
 	# https://github.com/openfoodfacts/openfoodfacts-server/issues/1129
 	if ($code =~ /^99[0-9]{10,11}$/) {
@@ -190,9 +176,7 @@ Checks related to the packagings information.
 
 =cut
 
-sub check_packagings($) {
-
-	my $product_ref = shift;
+sub check_packagings($product_ref) {
 
 	if ((not defined $product_ref->{packagings}) or (scalar @{$product_ref->{packagings}} == 0)) {
 		push @{$product_ref->{data_quality_info_tags}}, "en:no-packaging-data";
@@ -226,9 +210,7 @@ Run all quality checks defined in the module.
 
 =cut
 
-sub check_quality_common($) {
-
-	my $product_ref = shift;
+sub check_quality_common($product_ref) {
 
 	check_bugs($product_ref);
 	check_codes($product_ref);

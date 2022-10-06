@@ -14,8 +14,17 @@
             "element_type": "text",
             "text_element": {
                 "type": "summary",
-                "html": "We could not compute the Eco-Score of this product as it is missing some data, could you help complete it?"
+                "html": "[% lang("ecoscore_unknown_call_to_help") %]"
             }
-        },       
+        },
+        {
+            "element_type": "action",
+            "action_element": {
+                "html": `[% lang("actions_to_compute_ecoscore") %]`,
+                "actions": [
+                    "add_categories",
+                ]
+            }
+        },
     ]
 }

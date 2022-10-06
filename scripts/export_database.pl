@@ -46,13 +46,13 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Data qw/:all/;
+use ProductOpener::Text qw/:all/;
 
 # for RDF export: replace xml_escape() with xml_escape_NFC()
 use Unicode::Normalize;
 use URI::Escape::XS;
 
 use CGI qw/:cgi :form escapeHTML/;
-use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
@@ -78,6 +78,9 @@ sub xml_escape_NFC($) {
 #   VT (013), FF (014 or \f), CR (015 or \r), etc.
 #   See https://en.wikipedia.org/wiki/ASCII
 #
+#   Also replace UTF-8 Line Separator (U+2028) and Paragraph Separator (U+2029):
+#   \xE2\x80\xA8 and \xE2\x80\xA9
+#
 #   TODO? put it in ProductOpener::Data & use it to control data input and output
 #         Q: Do we have to *always* delete \n?
 #   TODO? Send an email if bad-chars?
@@ -85,16 +88,16 @@ sub sanitize_field_content {
 	my $content = (shift(@_) // "");
 	my $LOG = shift(@_);
 	my $log_msg = (shift(@_) // "");
-	if ($content =~ /[\000-\037]/) {
+	if ($content =~ /(\xE2\x80\xA8|\xE2\x80\xA9|[\000-\037])/) {
 		print $LOG "$log_msg $content\n\n---\n" if (defined $LOG);
 		# TODO? replace the bad char by a space or by nothing?
-		$content =~ s/[\000-\037]+/ /g;
+		$content =~ s/(\xE2\x80\xA8|\xE2\x80\xA9|[\000-\037])+/ /g;
 	};
 	return $content;
 }
 
 
-my %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes=>1, cities=>1, allergen=>1, traces => 1, additives => 1, ingredients_from_palm_oil => 1, ingredients_that_may_be_from_palm_oil => 1, countries => 1, states=>1);
+my %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes=>1, cities=>1, allergen=>1, traces => 1, additives => 1, ingredients_from_palm_oil => 1, ingredients_that_may_be_from_palm_oil => 1, countries => 1, states=>1, food_groups=>1);
 
 
 my %langs = ();
@@ -146,7 +149,7 @@ foreach my $l ("en", "fr") {
 	print STDERR "Write file: $csv_filename.temp\n";
 	print STDERR "Write file: $rdf_filename.temp\n";
 
-	open (my $OUT, ">:encoding(UTF-8)", "$csv_filename.temp");
+	open (my $OUT, ">:encoding(UTF-8)", "$csv_filename.temp") or die("Cannot write $csv_filename.temp: $!\n");
 	open (my $RDF, ">:encoding(UTF-8)", "$rdf_filename.temp");
 	open (my $BAD, ">:encoding(UTF-8)", "$log_filename");
 
@@ -283,16 +286,30 @@ XML
 
 		foreach my $field (@export_fields) {
 
-			my $field_value = ($product_ref->{$field} // "");
+			my $field_value;
+
+			# _tags field contain an array of values
+			if ($field =~ /_tags/) {
+				if (defined $product_ref->{$field}) {
+					$field_value = join(',', @{$product_ref->{$field}});
+				}
+				else {
+					$field_value = "";
+				}
+			}
+			# other fields
+			else {
+				$field_value = ($product_ref->{$field} // "");
+			}
 
 			# Language specific field?
 			if ((defined $language_fields{$field}) and (defined $product_ref->{$field . "_" . $l}) and ($product_ref->{$field . "_" . $l} ne '')) {
 				$field_value = $product_ref->{$field . "_" . $l};
 			}
 			
-			# Eco-Score
+			# Eco-Score data is stored in ecoscore_data.(grades|scores).(language code)
 			if (($field =~ /^ecoscore_(score|grade)_(\w\w)/) and (defined $product_ref->{ecoscore_data})) {
-				$field_value = $product_ref->{ecoscore_data}{$1 . "_" . $2};
+				$field_value = ($product_ref->{ecoscore_data}{$1 . "s"}{$2} // "");
 			}
 
 			if ($field_value ne '') {
@@ -444,11 +461,13 @@ XML
 			}
 		}
 
-		foreach my $nid (keys %Nutriments) {
+		foreach my $nutrient_tagid (sort(get_all_taxonomy_entries("nutrients"))) {
+
+			my $nid = $nutrient_tagid;
+			$nid =~ s/^zz://g;
 
 			if ((defined $product_ref->{nutriments}{$nid . '_100g'}) and ($product_ref->{nutriments}{$nid . '_100g'} ne '')) {
 				my $property = $nid;
-				next if ($nid =~ /^#/); #   #vitamins and #minerals sometimes filled
 				$property =~ s/-([a-z])/ucfirst($1)/eg;
 				$property .= "Per100g";
 

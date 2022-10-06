@@ -82,6 +82,18 @@ but they are taken into account to compute some values of the popularity facets 
 
 The --year parameter and at least one of --update-popularity or --update-scans is required.
 
+e.g. sample usage to compute scan statistics for a full year, without adding new countries to products:
+
+./scanbot.pl --year 2021 --update-popularity --update-scans < /srv/off/logs/*.log.scan.2021
+
+The popularity_key needs to be recomputed with the new popularity data:
+
+./update_all_products.pl --compute-sort
+
+To compute scan data with Nutri-Score information, for one country:
+
+grep country:fr ../data/scanbot.2021/scanbot.2021.products.csv  | ./add_nutriscore_to_scanbot_csv.pl > ../data/scanbot.2021/scanbot.with-nutriscore.csv
+
 USAGE
 ;
 	exit();
@@ -96,6 +108,13 @@ my $j = 0;    # API calls (or scans if logs have been filtered to keep only scan
 # 139.167.246.115 - - [02/Jan/2019:17:46:57 +0100] "GET /api/v0/product/123.json?f
 
 print STDERR "Loading scan logs\n";
+
+# Save scan product data in /data
+# This scan data can then be filtered and used as input for other scripts such as add_nutriscore_to_scanbot_csv.pl
+my $output_dir = "$data_root/data/scanbot.$year";
+if (! -e $output_dir) {
+	mkdir($output_dir, oct(755)) or die("Could not create $output_dir : $!\n");
+}
 
 my %ips = ();
 
@@ -257,8 +276,8 @@ print STDERR "Process and update all products\n";
 
 # Log products scan counts
 
-open (my $PRODUCTS, ">:encoding(UTF-8)", "scanbot.$year.products.csv") or die("Cannot create scanbot.$year.products.csv: $!\n");
-open (my $LOG, ">:encoding(UTF-8)", "scanbot.log") or die("Cannot create scanbot.log: $!\n");
+open (my $PRODUCTS, ">:encoding(UTF-8)", "$output_dir/scanbot.$year.products.csv") or die("Cannot create scanbot.$year.products.csv: $!\n");
+open (my $LOG, ">:encoding(UTF-8)", "$output_dir/scanbot.log") or die("Cannot create scanbot.log: $!\n");
 
 my $cumulative_scans = 0;    # cumulative total of scans so that we can compute which top products represent 95% of the scans
 
@@ -279,11 +298,14 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 
 	$bot .= "product code $code scanned $scans_n times (from $unique_scans_n ips) - ";
 	
-	my %countries = %{$countries_for_products{$code}};	
+	my %countries = %{$countries_for_products{$code}};
+
+	my $countries_list = "";
 
 	foreach my $cc (sort { $countries{$b} <=> $countries{$a} } keys %countries) {
 		print "$cc:$countries{$cc} ";
 		$bot .= "$cc:$countries{$cc} ";
+		$countries_list .= "country:$cc ";	# for grepping a particular country
 	}
 	print "\n";
 
@@ -300,6 +322,13 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 	if ((defined $product_ref) and ($code ne '') and (defined $product_ref->{code}) and (defined $product_ref->{lc})) {
 
 		my $path = product_path($product_ref);
+
+		$found = "FOUND";
+
+		if ((defined $product_ref->{data_sources}) 
+			and ($product_ref->{data_sources} =~ /producer/i)) {
+			$source = "producers";
+		}
 		
 		# Update scans.json
 		
@@ -323,13 +352,6 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 		# Update popularity_tags + add countries
 		
 		if ($update_popularity) {
-
-			$found = "FOUND";
-
-			if ((defined $product_ref->{data_sources}) 
-				and ($product_ref->{data_sources} =~ /producer/i)) {
-				$source = "producers";
-			}
 
 			$product_ref->{unique_scans_n} = $unique_scans_n + 0;
 			$product_ref->{scans_n} = $scans_n + 0;
@@ -383,7 +405,7 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 				$existing{$countryid} = 1;
 			}
 
-			$bot .= " current countries: $current_countries -- adding ";
+			$bot .= " current countries: $current_countries ";
 
 			my $top_country;
 
@@ -469,6 +491,7 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 					}
 				}
 
+				print "adding countries for $code - $bot\n";
 				store_product('scanbot', $product_ref, $comment);
 			}
 			else {
@@ -481,8 +504,8 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 
 	$added_countries_list =~ s/,$//;
 
-	print $code . "\t" . $scans_n . "\t" . $unique_scans_n . "\t" . $found . "\t" . $source . "\t" . $added_countries_list . "\n";
-	print $PRODUCTS $code . "\t" . $scans_n . "\t" . $unique_scans_n . "\t" . $found . "\t" . $source . "\t" . $added_countries_list . "\n";
+	print $code . "\t" . $scans_n . "\t" . $unique_scans_n . "\t" . $found . "\t" . $source . "\t" . $added_countries_list . "\t" . $countries_list . "\n";
+	print $PRODUCTS $code . "\t" . $scans_n . "\t" . $unique_scans_n . "\t" . $found . "\t" . $source . "\t" . $added_countries_list . "\"" . $countries_list . "\n";
 
 	print $LOG $bot . "\n";
 

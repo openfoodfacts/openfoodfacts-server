@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -30,6 +29,7 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Orgs qw/:all/;
+use ProductOpener::Text qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
@@ -38,8 +38,8 @@ use Log::Any qw($log);
 
 my @user_groups = qw(producer database app bot moderator pro_moderator);
 
-my $type = param('type') || 'add';
-my $action = param('action') || 'display';
+my $type = single_param('type') || 'add';
+my $action = single_param('action') || 'display';
 
 # Passing values to the template
 my $template_data_ref = {};
@@ -49,27 +49,26 @@ my $template_data_ref = {};
 # function does not try to authenticate the user (which does not exist yet) with that password
 
 my $new_user_password;
-if (($type eq "add") and (defined param('prdct_mult'))) {
+if (($type eq "add") and (defined single_param('prdct_mult'))) {
 
-	$new_user_password = param('password');
+	$new_user_password = single_param('password');
 	param("password", "");
 }
 
-ProductOpener::Display::init();
-
+my $request_ref = ProductOpener::Display::init_request();
 
 # $userid will contain the user to be edited, possibly different than $User_id
 # if an administrator edits another user
 
 my $userid = $User_id;
 
-if (defined param('userid')) {
+if (defined single_param('userid')) {
 
-	$userid = param('userid');
+	$userid = single_param('userid');
 
 	# The userid looks like an e-mail
 	if ($admin and ($userid =~ /\@/)) {
-		my $emails_ref = retrieve("$data_root/users_emails.sto");
+		my $emails_ref = retrieve("$data_root/users/users_emails.sto");
 		if (defined $emails_ref->{$userid}) {
 			$userid = $emails_ref->{$userid}[0];
 		}
@@ -88,7 +87,7 @@ my $user_ref = {};
 if ($type =~ /^edit/) {
 	$user_ref = retrieve("$data_root/users/$userid.sto");
 	if (not defined $user_ref) {
-		display_error($Lang{error_invalid_user}{$lang}, 404);
+		display_error_and_exit($Lang{error_invalid_user}{$lang}, 404);
 	}
 }
 else {
@@ -96,7 +95,7 @@ else {
 }
 
 if (($type =~ /^edit/) and ($User_id ne $userid) and not $admin) {
-	display_error($Lang{error_no_permission}{$lang}, 403);
+	display_error_and_exit($Lang{error_no_permission}{$lang}, 403);
 }
 
 my $debug = 0;
@@ -105,12 +104,12 @@ my @errors = ();
 if ($action eq 'process') {
 
 	if ($type eq 'edit') {
-		if (param('delete') eq 'on') {
+		if (single_param('delete') eq 'on') {
 			if ($admin) {
 				$type = 'delete';
 			}
 			else {
-				display_error($Lang{error_no_permission}{$lang}, 403);
+				display_error_and_exit($Lang{error_no_permission}{$lang}, 403);
 			}
 		}
 	}
@@ -143,8 +142,8 @@ if ($action eq 'display') {
 	# passed in a form to open a session.
 	# e.g. when a non-logged user clicks on the "Edit product" button
 
-	if (($type eq "add") and (defined param("user_id"))) {
-		my $user_info = remove_tags_and_quote(param('user_id'));
+	if (($type eq "add") and (defined single_param("user_id"))) {
+		my $user_info = remove_tags_and_quote(single_param('user_id'));
 		$user_info =~ /^(.+?)@/;
 		if ( defined ($1) ){
 			$user_ref->{email} = $user_info;
@@ -165,7 +164,7 @@ if ($action eq 'display') {
 
 	$template_data_ref->{sections} = [];
 
-		if ($user_ref) {
+	if ($user_ref) {
 		push @{$template_data_ref->{sections}}, {
 			id => "user",
 			fields => [
@@ -204,7 +203,6 @@ if ($action eq 'display') {
 					field => "pro",
 					type => "checkbox",
 					label => lang("this_is_a_pro_account"),
-					warning => sprintf(lang("this_is_a_pro_account_for_org"),"<b>" . $user_ref->{org} . "</b>"),
 					value => "off",
 				},
 				{
@@ -235,11 +233,34 @@ if ($action eq 'display') {
 				push @{$team_section_ref->{fields}}, {
 					field => "team_". $i,
 					label => sprintf(lang("team_s"), $i),
-				 };
+				};
 			};
 
 			push @{$template_data_ref->{sections}}, {%$team_section_ref};
 		}
+
+		# Contributor section
+		my $contributor_section_ref = {
+			id => "contributor_settings",
+			name => lang("contributor_settings") . " (" . lang("optional") . ")",
+			description => "contributor_settings_description",
+			fields => [
+				{
+					field => "display_barcode",
+					type => "checkbox",
+					label => display_icon("barcode") . lang("display_barcode_in_search"),
+					value => $user_ref->{display_barcode} && "on",
+				},
+				{
+					field => "edit_link",
+					type => "checkbox",
+					label => display_icon("edit") . lang("edit_link_in_search"),
+					value => $user_ref->{edit_link} && "on",
+				},
+			]
+		};
+
+		push @{$template_data_ref->{sections}}, {%$contributor_section_ref};
 
 		# Admin section
 		if ($admin) {
@@ -267,7 +288,6 @@ if ($action eq 'display') {
 	if ( ( defined $user_ref->{org} ) and ( $user_ref->{org} ne "" ) ) {
 
 		$template_data_ref->{accepted_organization} = $user_ref->{org};
-		$template_data_ref->{pro_account_org} = sprintf(lang("this_is_a_pro_account_for_org"),"<b>" . $user_ref->{org} . "</b>");
 	}
 	elsif ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 		my $requested_org_ref = retrieve_org($user_ref->{requested_org});
@@ -324,7 +344,7 @@ if ($action eq 'display') {
 elsif ($action eq 'process') {
 
 	if (($type eq 'add') or ($type =~ /^edit/)) {
-		ProductOpener::Users::process_user_form($type, $user_ref);
+		ProductOpener::Users::process_user_form($type, $user_ref, $request_ref);
 	}
 	elsif ($type eq 'delete') {
 		ProductOpener::Users::delete_user($user_ref);
@@ -368,9 +388,6 @@ if (($type eq "edit_owner") and ($action eq "process")) {
 	return 302;
 }
 else {
-
-	my $title = lang($type . '_user_' . $action);
-
 	$log->debug("user form - template data", { template_data_ref => $template_data_ref }) if $log->is_debug();
 
 	process_template('web/pages/user_form/user_form_page.tt.html', $template_data_ref, \$html) or $html = "<p>" . $tt->error() . "</p>";
@@ -378,9 +395,8 @@ else {
 
 	$initjs .= $js;
 
-	display_page( {
-		title=>$title,
-		content_ref=>\$html,
-		full_width=>$full_width,
-	});
+	$request_ref->{title} = lang($type . '_user_' . $action);
+	$request_ref->{content_ref} = \$html;
+	$request_ref->{full_width} = $full_width;
+	display_page($request_ref);
 }

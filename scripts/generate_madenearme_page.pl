@@ -98,6 +98,9 @@ $query_ref->{"emb_codes_tags"} = { '$exists' => 1 };
 
 $request_ref->{map_options} = $map_options{$cc} || "";
 
+# Need a big timeout to fetch all products
+$mongodb_timeout_ms = 1000 * 60 * 5;
+
 my $map_html = search_and_map_products($request_ref, $query_ref, $graph_ref);
 
 

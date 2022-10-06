@@ -29,6 +29,7 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Data qw/:all/;
+use ProductOpener::PackagerCodes qw/:all/;
 
 my $emb_codes_collection = get_emb_codes_collection();
 

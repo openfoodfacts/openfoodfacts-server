@@ -20,8 +20,7 @@
 
 package ProductOpener::Store;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 BEGIN
@@ -30,8 +29,6 @@ BEGIN
 	@EXPORT_OK = qw(
 		&get_urlid
 		&get_fileid
-		&get_fileid_punycode
-		&get_ascii_fileid
 		&store
 		&retrieve
 		&store_json
@@ -57,8 +54,7 @@ use JSON::Parse qw(read_json);
 
 # Text::Unaccent unac_string causes Apache core dumps with Apache 2.4 and mod_perl 2.0.9 on jessie
 
-sub unac_string_perl($) {
-	my $s = shift;
+sub unac_string_perl($s) {
 
 	$s =~ tr/àáâãäåçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝŸ/aaaaaaceeeeiiiinooooouuuuyyaaaaaaceeeeiiiinooooouuuuyy/;
 
@@ -89,9 +85,7 @@ sub unac_string_perl($) {
 # 4. keep other UTF-8 characters (e.g. Chinese, Japanese, Korean, Arabic, Hebrew etc.) untouched
 # 5. remove leading and trailing -, turn multiple - to -
 
-sub get_string_id_for_lang {
-
-	my ($lc, $string) = @_;
+sub get_string_id_for_lang($lc, $string) {
 
 	defined $lc or die("Undef \$lc in call to get_string_id_for_lang (string: $string)\n");
 
@@ -156,9 +150,7 @@ sub get_string_id_for_lang {
 
 }
 
-sub get_fileid {
-
-	my ($file, $unaccent, $lc) = @_;
+sub get_fileid($file, $unaccent = undef, $lc = undef) {
 
 	if (not defined $file) {
 		return "";
@@ -207,10 +199,8 @@ sub get_fileid {
 
 }
 
-sub get_url_id_for_lang {
+sub get_url_id_for_lang($lc, $input) {
 
-	my $lc = shift;
-	my $input = shift;
 	my $string = $input;
 
 	$string = get_string_id_for_lang($lc, $string);
@@ -225,12 +215,9 @@ sub get_url_id_for_lang {
 }
 
 
-sub get_urlid {
+sub get_urlid($input, $unaccent = undef, $lc = undef) {
 
-	my $input = shift;
 	my $file = $input;
-	my $unaccent = shift;
-	my $lc = shift;
 
 	$file = get_fileid($file, $unaccent, $lc);
 
@@ -243,15 +230,13 @@ sub get_urlid {
 	return $file;
 }
 
-sub store {
-	my $file = shift @_;
-	my $ref = shift @_;
+sub store($file, $ref) {
 
 	return lock_store($ref, $file);
 }
 
-sub retrieve {
-	my $file = shift @_;
+sub retrieve($file) {
+
 	# If the file does not exist, return undef.
 	if (! -e $file) {
 		return;
@@ -268,15 +253,13 @@ sub retrieve {
 	return $return;
 }
 
-sub store_json {
-	my $file = shift @_;
-	my $ref = shift @_;
+sub store_json($file, $ref) {
 
 	return write_json ($file, $ref);
 }
 
-sub retrieve_json {
-	my $file = shift @_;
+sub retrieve_json($file) {
+
 	# If the file does not exist, return undef.
 	if (! -e $file) {
 		return;

@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -30,6 +29,7 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/:all/;
+use ProductOpener::Lang qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -38,21 +38,20 @@ use Encode;
 use JSON::PP;
 use Log::Any qw($log);
 
-ProductOpener::Display::init();
-use ProductOpener::Lang qw/:all/;
+my $request_ref = ProductOpener::Display::init_request();
 
 my $html = '';
 my $template_data_ref = {};
 
-$template_data_ref->{user_id} =  $User_id;
+$template_data_ref->{user_id} = $User_id;
 
 if (defined $User_id) {
 
-	$template_data_ref->{user_name} =  $User{name};
+	$template_data_ref->{user_name} = $User{name};
 	$template_data_ref->{server_options_producers} = $server_options{producers_platform};
 
-	my $next_action = param('next_action');
-	my $code = param('code');
+	my $next_action = single_param('next_action');
+	my $code = single_param('code');
 	my $r = shift;
 	my $referer = $r->headers_in->{Referer};
 	my $url;
@@ -65,24 +64,28 @@ if (defined $User_id) {
 			$url = "/cgi/product.pl?type=edit&code=$code";
 		}
 	}
-	elsif ((defined $referer) and ($referer =~ /^https?:\/\/$subdomain\.$server_domain/) and (not ($referer =~ /(?:session|user|reset_password)\.pl/))) {
+	elsif ( (defined $referer)
+		and ($referer =~ /^https?:\/\/$subdomain\.$server_domain/)
+		and (not($referer =~ /(?:session|user|reset_password)\.pl/)))
+	{
 		$url = $referer;
 	}
 
 	if (defined $url) {
 
-		$log->info("redirecting after login", { url => $url }) if $log->is_info();
+		$log->info("redirecting after login", {url => $url}) if $log->is_info();
 
-        $r->err_headers_out->add('Set-Cookie' => $cookie);
-		$r->headers_out->set(Location =>"$url");
-		$r->status(301);
-		return 301;
+		$r->err_headers_out->add('Set-Cookie' => $request_ref->{cookie});
+		$r->headers_out->set(Location => "$url");
+		$r->status(302);
+		return 302;
 	}
 }
 
-process_template('web/pages/session/session.tt.html', $template_data_ref, \$html) or $html = "<p>" . $tt->error() . "</p>";
+process_template('web/pages/session/session.tt.html', $template_data_ref, \$html)
+  or $html = "<p>" . $tt->error() . "</p>";
 
-if (param('jqm')) {
+if (single_param('jqm')) {
 
 	my %response;
 	if (defined $User_id) {
@@ -92,15 +95,14 @@ if (param('jqm')) {
 	else {
 		$response{error} = "undefined user";
 	}
-	my $data =  encode_json(\%response);
+	my $data = encode_json(\%response);
 
-	print header( -type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $data;
+	print header(-type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*') . $data;
 
 }
 else {
-	display_page( {
-		title => lang('session_title'),
-		content_ref => \$html
-	});
+	$request_ref->{title} = lang('session_title');
+	$request_ref->{content_ref} = \$html;
+	display_page($request_ref);
 }
 

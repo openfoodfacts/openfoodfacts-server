@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
@@ -45,9 +44,9 @@ use URI::Escape::XS;
 use Log::Any qw($log);
 
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
-my $action = param('action') || 'display';
+my $action = single_param('action') || 'display';
 
 my $title = lang("remove_products_from_producers_platform");
 my $html = '';
@@ -56,11 +55,11 @@ my $template_data_ref = {};
 $template_data_ref->{action} = $action;
 
 if (not $server_options{producers_platform}) {
-	display_error(lang("function_not_available"), 200);
+	display_error_and_exit(lang("function_not_available"), 200);
 }
 
 if ((not defined $Owner_id) or ($Owner_id !~ /^(user|org)-\S+$/)) {
-	display_error(lang("no_owner_defined"), 200);
+	display_error_and_exit(lang("no_owner_defined"), 200);
 }
 
 
@@ -97,13 +96,11 @@ elsif ($action eq "process") {
 
 }
 
-	process_template('web/pages/remove_products/remove_products.tt.html', $template_data_ref, \$html) or $html = "<p>" . $tt->error() . "</p>";
+process_template('web/pages/remove_products/remove_products.tt.html', $template_data_ref, \$html) or $html = "<p>" . $tt->error() . "</p>";
 
-
-display_page( {
-	title=>$title,
-	content_ref=>\$html,
-});
+$request_ref->{title} = $title;
+$request_ref->{content_ref} = \$html;
+display_page($request_ref);
 
 exit(0);
 

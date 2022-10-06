@@ -30,6 +30,7 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::PackagerCodes qw/:all/;
 
 use Term::ANSIColor;
 use Carp;

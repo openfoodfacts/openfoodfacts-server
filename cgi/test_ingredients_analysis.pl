@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -33,6 +32,7 @@ use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Text qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
@@ -42,14 +42,14 @@ use JSON::PP;
 
 use Log::Any qw($log);
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 my $template_data_ref = {};
 
-my $type = param('type') || 'add';
-my $action = param('action') || 'display';
+my $type = single_param('type') || 'add';
+my $action = single_param('action') || 'display';
 
-my $ingredients_text = remove_tags_and_quote(decode utf8=>param('ingredients_text'));
+my $ingredients_text = remove_tags_and_quote(decode utf8 => single_param('ingredients_text'));
 
 
 my $html= '';
@@ -96,9 +96,7 @@ if ($action ne 'display') {
 
 process_template('web/pages/test_ingredients/test_ingredients_analysis.tt.html', $template_data_ref, \$html) or $html = '';
 
-display_page( {
-	title=>"Ingredient Analysis Test",
-	content_ref=>\$html,
-	full_width=>$full_width,
-});
-
+$request_ref->{title} = "Ingredients analysis test";
+$request_ref->{content_ref} = \$html;
+$request_ref->{full_width} = $full_width;
+display_page($request_ref);

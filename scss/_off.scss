@@ -1,3 +1,17 @@
+// background colors for attributes and panels
+
+$grade-a-color: #219653;
+$grade-b-color: #60ac0e;
+$grade-c-color: #c88f01;
+$grade-d-color: #e07312;
+$grade-e-color: #eb5757;
+$grade-unknown-color: #4f4f4f;
+
+$evaluation-good-color: #219653;
+$evaluation-average-color: #f2994a;
+$evaluation-bad-color: #eb5757;
+$evaluation-unknown-color: #4f4f4f;
+
 hr.floatclear {
   background: none;
   border: 0;
@@ -68,6 +82,10 @@ hr.floatright {
 
 .data_table .nutriment_sub .nutriment_label {
   padding-left: 20px;
+}
+
+.data_table .nutriment_sub_sub .nutriment_label {
+  padding-left: 40px;
 }
 
 input.nutriment_value {
@@ -380,7 +398,6 @@ h4 > .icon {
 }
 
 .ingredients_analysis {
-  color: white;
   font-size: 1rem;
   padding-left: 0.2rem;
   padding-right: 1rem;
@@ -392,36 +409,36 @@ h4 > .icon {
   }
 
   &.red {
-    background-color: #ec5656;
+    background-color: $evaluation-bad-color;
   }
 
   &.orange {
-    background-color: #f9904c;
+    background-color: $evaluation-average-color; 
   }
 
   &.green {
-    background-color: #47a647;
+    background-color: $evaluation-good-color;
   }
 
   &.grey {
-    background-color: #444444;
+    background-color: $evaluation-unknown-color;
   }
 }
 
 .red {
-  color: #ec5656;
+  color: $evaluation-bad-color;
 }
 
 .orange {
-  color: #f9904c;
+  color: $evaluation-average-color; 
 }
 
 .green {
-  color: #47a647;
+  color: $evaluation-good-color;
 }
 
 .grey {
-  color: #444444;
+  color: $evaluation-unknown-color;
 }
 
 .percent_bar {
@@ -429,15 +446,15 @@ h4 > .icon {
 }
 
 .percent_bar.red {
-  background-color: #ec5656;
+  background-color: $evaluation-bad-color; 
 }
 
 .percent_bar.orange {
-  background-color: #f9904c;
+  background-color: $evaluation-average-color;
 }
 
 .percent_bar.green {
-  background-color: #47a647;
+  background-color: $evaluation-good-color;
 }
 
 
@@ -463,6 +480,10 @@ a[aria-controls="idOfLeftMenu"] {
   ul.pagination li:first-child {display: block;}
   ul.button-group li {margin-top: 3px;margin-bottom: 3px;}
   #main_column {height: auto !important;}
+}
+
+ul.pagination li a {
+  color: black
 }
 
 .share_button,
@@ -541,9 +562,55 @@ html[dir="rtl"] {
 
 
 // List of products with cards (e.g. search results, facets)
+.search_results li {
+  position: relative;
+}
 
-.list_product_a {
-  border-radius:12px;
+.list_product_banner {
+  border-top-left-radius:8px;
+  border-top-right-radius:8px;
+  padding:2px;
+  display:block;
+  color:white;
+  font-size:0.8rem;
+  text-align:center;
+}
+
+.list_product_banner_does_not_match {
+  background-color:$grade-e-color;
+}
+
+.list_product_banner_may_not_match {
+  background-color:$grade-d-color;
+}
+
+.list_product_banner_unknown_match {
+  background-color: #888;
+}
+
+.list_product_banner_poor_match {
+  background-color: $grade-c-color;
+}
+
+.list_product_banner_good_match {
+  background-color: $grade-b-color;
+}
+
+.list_product_banner_very_good_match {
+  background-color: $grade-a-color;
+}
+
+.list_product_content {
+  border-bottom-left-radius:8px;
+  border-bottom-right-radius:8px;
+  padding:10px;
+  display:block;
+  background-color:#eee;
+  position:relative;
+}
+
+.list_product_unranked {
+  border-radius:8px;
   padding:10px;
   display:block;
   background-color:#eee;
@@ -570,6 +637,27 @@ html[dir="rtl"] {
   background-color:#faa;
 }
 
+.search_results .list_display_barcode {
+  color: black;
+  font-size: .8em;
+  display: block; // one line for barcode, to keep thing homogeneous
+}
+
+.search_results .list_edit_link img {
+  height: 1em;
+}
+
+.search_results .list_edit_link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 0.5em;
+  border-radius: .3em;
+}
+
+.search_results .list_edit_link:hover {
+  background-color: #aaf;
+}
 
 // Horizontally and vertically center images
 .list_product_img_div {
@@ -676,29 +764,48 @@ html[dir="rtl"] {
 // Filters generated from https://codepen.io/sosuke/pen/Pjoqqp
 
 .filter-green {
-  filter: invert(24%) sepia(99%) saturate(1754%) hue-rotate(99deg) brightness(94%) contrast(106%);
+  filter: invert(43%) sepia(100%) saturate(320%) hue-rotate(93deg) brightness(89%) contrast(97%);
 }
 
 .filter-red {
-  filter: invert(36%) sepia(93%) saturate(6688%) hue-rotate(352deg) brightness(94%) contrast(129%);
+  // loss: 4.0, close enough
+  filter: invert(43%) sepia(45%) saturate(992%) hue-rotate(314deg) brightness(99%) contrast(89%);
 }
 
 .filter-orange {
-  filter: invert(64%) sepia(38%) saturate(2742%) hue-rotate(0deg) brightness(105%) contrast(105%);
+  filter: invert(83%) sepia(20%) saturate(6233%) hue-rotate(327deg) brightness(101%) contrast(90%);
 }
 
 .filter-darkorange {
-  filter: invert(66%) sepia(91%) saturate(3673%) hue-rotate(1deg) brightness(105%) contrast(104%);
+  filter: invert(47%) sepia(24%) saturate(4013%) hue-rotate(4deg) brightness(98%) contrast(86%);
 }
 
 .filter-grey {
-  filter: invert(52%) sepia(0%) saturate(1186%) hue-rotate(218deg) brightness(96%) contrast(84%);
+  filter: invert(30%) sepia(0%) saturate(0%) hue-rotate(29deg) brightness(97%) contrast(89%);
 }
 
 /* Accessibility: Adding focus styles on the outer-box of the fake checkbox used for the Foundation switch to classify products according to one's preferences */
 .switch input[type="checkbox"]:focus + label::after {
     outline: rgb(59, 153, 252) auto 5px;
 }
+
+// Attributes cards in summary
+
+.attribute_card {
+  border-radius:8px;
+  padding:1rem;min-height:96px;
+  display:block;
+}
+
+a.attribute_card {
+  color: $body-font-color;
+}
+
+a.attribute_card:hover {
+  text-decoration:none;
+}
+
+// Knowledge panels
 
 // We need a large padding inside panel content so that we can see
 // the hierarchy of panels that contain other panels
@@ -717,52 +824,125 @@ html[dir="rtl"] {
 // as we use them only for knowledge panel, with only 1 openable element
 // per accordion
 .accordion .accordion-navigation>a, .accordion dd>a {
-  background:#fafafa;
+  background:#ffffff;
+  border-radius:8px;
 }
 .accordion .accordion-navigation.active>a, .accordion dd.active>a  {
-  background:#fafafa;
+  background:#ffffff;
 }
 .accordion .accordion-navigation>a:hover, .accordion dd>a:hover {
   background:#f0f0f0;
+  text-decoration:none;
 }
 
-// background colors for attributes and panels
-.grade_unknown {
-  background-color:#efefef !important;
+
+
+.evaluation_good_title {
+  color:$evaluation-good-color;
 }
+
+.evaluation_average_title {
+  color:$evaluation-average-color;
+}
+
+.evaluation_bad_title {
+  color:$evaluation-bad-color;
+}
+
+.evaluation_unknown_title {
+  color:$evaluation-unknown-color;
+}
+
+.evaluation_neutral_title {
+  color:$grade-unknown-color;
+}
+
+.text_good {
+  background-color:rgba($evaluation-good-color,0.1) !important;
+}
+
+.text_average {
+  background-color:rgba($evaluation-average-color,0.1) !important;
+}
+
+.text_bad {
+  background-color:rgba($evaluation-bad-color,0.1) !important;
+}
+
+.text_info {
+  background-color:$info-color !important;
+}
+
+.text_warning {
+  background-color:$warning-color !important;
+  color: white;
+}
+
+.text_error {
+  background-color:$alert-color !important;
+}
+
+
+
+
+
+.grade_unknown {
+  background-color:rgba($grade-unknown-color,0.1) !important;
+}
+a.grade_unknown:hover {
+  background-color:rgba($grade-unknown-color,0.2) !important;
+}
+.grade_unknown_tile {
+  color:$grade-unknown-color;
+}
+
 .grade_a {
-  background-color:hsl(120, 100%, 90%) !important;
+  background-color:rgba($grade-a-color,0.1) !important;
 }
 a.grade_a:hover {
-  background-color:hsl(120, 100%, 80%) !important;
+  background-color:rgba($grade-a-color,0.2) !important;
+}
+.grade_a_title {
+  color:$grade-a-color;
 }
 
 .grade_b {
-  background-color:hsl(90, 100%, 90%) !important;
+  background-color:rgba($grade-b-color,0.1) !important;
 }
 a.grade_b:hover {
-  background-color:hsl(90, 100%, 80%) !important;
+  background-color:rgba($grade-b-color,0.2) !important;
+}
+.grade_b_title {
+  color:$grade-b-color;
 }
 
 .grade_c {
-  background-color:hsl(60, 100%, 90%) !important;
+  background-color:rgba($grade-c-color,0.1) !important;
 }
 a.grade_c:hover {
-  background-color:hsl(60, 100%, 80%) !important;
+  background-color:rgba($grade-c-color,0.2) !important;
+}
+.grade_c_title {
+  color:$grade-c-color;
 }
 
 .grade_d {
-  background-color:hsl(30, 100%, 90%) !important;
+  background-color:rgba($grade-d-color,0.1) !important;
 }
 a.grade_d:hover {
-  background-color:hsl(30, 100%, 80%) !important;
+  background-color:rgba($grade-d-color,0.2) !important;
+}
+.grade_d_title {
+  color:$grade-d-color;
 }
 
 .grade_e {
-  background-color:hsl(0, 100%, 90%) !important;
+  background-color:rgba($grade-e-color,0.1) !important;
 }
 a.grade_e:hover {
-  background-color:hsl(0, 100%, 80%) !important;
+  background-color:rgba($grade-e-color,0.2) !important;
 }
-
+.grade_e_title {
+  color:$grade-e-color;
+}
 

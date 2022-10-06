@@ -42,6 +42,8 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::ImportConvert qw/:all/;
+use ProductOpener::PackagerCodes qw/:all/;
+
 use Log::Any qw($log);
 use Log::Any::Adapter 'TAP', filter => "none";
 
@@ -1501,31 +1503,6 @@ TXT
 				}
 
 			}
-
-
-
-			foreach my $nid (sort keys %Nutriments) {
-
-				next if $nid =~ /^#/;
-				next if $nid eq 'sodium';
-				next if $nid eq 'cocoa';
-				next if $nid =~ /fruits-vegetables-nuts/;
-
-				if ((defined $product_ref->{nutriments}{$nid . "_value"}) and (not defined $found_nids{$nid})) {
-					next if $code eq "3368952723253";
-					next if $code eq "3256220063371";
-					next if $code eq "3256220064651";
-					next if $code eq "3256224251828";
-					next if $code eq "3256220358026";
-					next if $code eq "3256224252009";
-					next if $code eq "3256220275033";
-					next if $code eq "3256226154851";
-					next if $code eq "3256224406433";
-					print STDERR "product code $code - missing nid $nid\n" . $imported_product_ref->{UGC_nutritionalValues} . "\n";
-					#exit;
-				}
-			}
-
 
 			} # if nutrient are not empty in the csv
 

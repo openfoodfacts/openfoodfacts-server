@@ -2,22 +2,22 @@ version: "3.7"
 services:
   apache_exporter:
     image: solsson/prometheus-exporter-apache:latest
-    networks:
-      - webnet
     command:
       - --scrape_uri=http://backend/server-status?auto
     ports:
       - 9117:9117
+    networks:
+      - webnet
     depends_on:
       - backend
   nginx_exporter:
     image: nginx/nginx-prometheus-exporter:0.9.0
-    networks:
-      - webnet
     command:
       - '-nginx.scrape-uri=http://frontend/nginx_status'
     ports:
       - 9113:9113
+    networks:
+      - webnet
     depends_on:
       - frontend
   postgres_exporter:

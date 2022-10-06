@@ -52,7 +52,6 @@ and /data-quality facet.
 C<check_quality()> is run each time products are updated. It can also be run through
 the C<scripts/update_all_products.pl> script.
 
-
 =head1 DESCRIPTION
 
 C<ProductOpener::DataQuality> uses submodules to check quality issues that
@@ -70,8 +69,7 @@ The type of product is specified through Config.pm
 
 package ProductOpener::DataQuality;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter qw(import);
 
 BEGIN
@@ -101,9 +99,7 @@ C<check_quality()> checks the quality of data for a given product.
 
 =cut
 
-sub check_quality($) {
-
-	my $product_ref = shift;
+sub check_quality($product_ref) {
 
 	# Remove old quality_tags
 	delete $product_ref->{quality_tags};

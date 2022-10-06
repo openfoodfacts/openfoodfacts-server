@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -42,18 +41,18 @@ use Encode;
 use JSON::PP;
 use Log::Any qw($log);
 
-my $type = param('type') || 'add';
-my $action = param('action') || 'display';
-my $code = normalize_code(param('code'));
-my $imgids = param('imgids');
-my $move_to = param('move_to_override');
+my $type = single_param('type') || 'add';
+my $action = single_param('action') || 'display';
+my $code = normalize_code(single_param('code'));
+my $imgids = single_param('imgids');
+my $move_to = single_param('move_to_override');
 if ($move_to =~ /^(off|obf|opf|opff)$/) {
 	$move_to .= ':' . $code;
 }
 elsif ($move_to ne 'trash') {
 	$move_to = normalize_code($move_to);
 }
-my $copy_data = param('copy_data_override');
+my $copy_data = single_param('copy_data_override');
 
 $log->debug("start", { ip => remote_addr(), type => $type, action => $action, code => $code, imgids => $imgids, move_to => $move_to, copy_data => $copy_data }) if $log->is_debug();
 
@@ -61,7 +60,7 @@ my $env = $ENV{QUERY_STRING};
 
 $log->debug("calling init()", { query_string => $env });
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 $log->debug("parsing code", { user => $User_id, code => $code, cc => $cc, lc => $lc, ip => remote_addr() }) if $log->is_debug();
 

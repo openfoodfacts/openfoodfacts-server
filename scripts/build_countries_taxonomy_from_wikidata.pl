@@ -172,7 +172,7 @@ foreach my $qc (sort {$names{$a} cmp $names{$b}} keys %names) {
 	}
 	
 	# official/used languages line
-	print $OUT "languages:en:" . join(',', map {$languages{$_}} (sort keys %{$countries{$qc}{official_languages}})) . "\n";
+	print $OUT "language_codes:en:" . join(',', map {$languages{$_}} (sort keys %{$countries{$qc}{official_languages}})) . "\n";
 
 	print $OUT "\n";
 

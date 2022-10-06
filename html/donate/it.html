@@ -8,20 +8,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="fb:app_id" content="219331381518041" />
-    <meta property="og:type" content="food" />
-    <meta property="og:title" content="" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Aiutaci a finanziare il budget del 2022 di Open Food Facts!" />
     <meta
       property="og:url"
       content="https://it.openfoodfacts.org/dona-a-open-food-facts"
     />
-
     <meta
       property="og:image"
-      content="https://static.openfoodfacts.org/images/misc/openfoodfacts-logo-it-178x150.png"
+      content="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.png"
     />
     <meta
       property="og:description"
-      content="Ingredienti, composizione nutrizionale e informazioni sui prodotti alimentari del mondo intero su una base di dati libera e aperta"
+      content="Open Food Facts è il più grande database gratuito e aperto di prodotti alimentari al mondo. Crediamo che le informazioni su ciò che mangiamo siano di pubblico interesse."
     />
     <link rel="manifest" href="/cgi/manifest.pl" />
     <link
@@ -51,7 +50,7 @@
 
     <link
       rel="stylesheet"
-      href="https://static.openfoodfacts.org/css/dist/app-ltr.css"
+      href="/cgi/css.pl"
     />
     <link
       rel="stylesheet"
@@ -72,6 +71,9 @@
     <style media="all">
       .show-when-logged-in {
         display: none;
+      }
+      .reason img {
+        height: 100px;
       }
     </style>
     <script src="https://static.openfoodfacts.org/js/dist/jquery.js"></script>
@@ -106,16 +108,21 @@ $('iframe').load(function(){
   <body>
     <div class="hide-for-large-up text-center">
       <img
-        src="https://static.openfoodfacts.org/images/misc/openfoodfacts-logo-it-178x150.png"
+        src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg"
         width="178"
         height="156"
         alt="Logo di Open Food Facts"
       />
+    </div>
 
-<div class="panel callout" style="margin-top:0.5rem">
-<h3>Aiutaci a finanziare il budget di Open Food Facts 2021!</h3>
-<p>Open Food Facts è gratuito al 100% e indipendente dall'industria alimentare. Abbiamo bisogno del tuo aiuto per continuare e far crescere il progetto.</p>
-</div>
+    <div class="hide-for-medium hide-for-large-up text-center">
+      <div class="panel callout" style="margin-top:0.5rem">
+        <h3>Aiutaci a finanziare il budget di Open Food Facts 2023!</h3>
+        <p>
+          Open Food Facts è gratuito al 100% e indipendente dall'industria alimentare. 
+          Abbiamo bisogno del tuo aiuto per continuare e far crescere il progetto.
+        </p>
+      </div>
     </div>
 
     <div
@@ -124,7 +131,7 @@ $('iframe').load(function(){
     >
       <div class="columns large-2 hide-for-medium hide-for-small text-center">
         <img
-          src="https://static.openfoodfacts.org/images/misc/openfoodfacts-logo-it-178x150.png"
+          src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg"
           width="178"
           height="156"
           alt="Logo di Open Food Facts"
@@ -132,39 +139,71 @@ $('iframe').load(function(){
       </div>
 
       <div
-        class="columns large-5 xlarge-6 xxlarge-7 hide-for-medium hide-for-small"
+        class="columns medium-6 large-5 xlarge-6 xxlarge-7 hide-for-small"
       >
-        <h2 style="margin-bottom:1rem">
-          Un messaggio dal team di Open Food Facts
-        </h2>
 
-<div class="panel callout" style="margin-top:0.5rem">
-<h3>Aiutaci a finanziare il budget di Open Food Facts 2021!</h3>
-<p>Open Food Facts è gratuito al 100% e indipendente dall'industria alimentare. Abbiamo bisogno del tuo aiuto per continuare e far crescere il progetto.</p>
-</div>
-
-        <img
-          src="https://static.openfoodfacts.org/images/svg/crowdsourcing-icon.svg"
-          style="width:240px;float:left;margin-right:5px;"
-          alt="Yes we scan! logo"
-        />
+        <div class="panel callout" style="margin-top:0.5rem">
+          <h3>Aiutaci a finanziare il budget di Open Food Facts 2023!</h3>
+          <p>
+            Open Food Facts è gratuito al 100% e indipendente dall'industria alimentare. 
+            Abbiamo bisogno del tuo aiuto per continuare e far crescere il progetto.
+          </p>
+        </div>
 
         <p>
           Open Food Facts è la "Wikipedia del cibo", il database più grande ed aperto
           di prodotti alimentari nel mondo.
+          Abbiamo creato Open Food Facts perché crediamo che le informazioni su ciò
+          che mangiamo siano di pubblico interesse e debbano
+          essere pubbliche, gratuite e aperte.
         </p>
-        <p>
-          Abbiamo avviato Open Food Facts perché crediamo che le informazioni su cosa
-          mangiamo siano informazioni di pubblico interesse. E come risultato, deve essere
-                    pubblico, libero ed aperto.
-        </p>
-        <p>
-          I nostri dati sono usati dai cittadini per rendere le scelte alimentari più salutari grazie a
-          la nostra app mobile, dai ricercatori della salute pubblica per studiare l'impatto dekl
-          cibo sulla nostra salute, dai giornalisti per i loro reportage, ed anche dall'
-          industria alimentare per migliorare i loro prodotti. Questo è il potere della trasparenza
-          alimentare: va a beneficio di tutti!
-        </p>
+
+        <div class="reasons row text-center">
+          <div class="reason small-12 large-6 columns">
+            <img src="//static.openfoodfacts.org/images/svg/donate/noun_democracy_1734799_red.svg"
+                 alt="Mani alzate"
+            >
+            <h4>Una priorità</h4>
+            <p>
+              Il cibo è una priorità per la salute e l'ecologia.
+              Tramite trasparenza e istruzione, Open Food Facts crea un circolo vizioso tra consumatori e produttori.
+            </p>
+          </div>
+          <div class="reason small-12 large-6 columns">
+            <img src="//static.openfoodfacts.org/images/svg/donate/noun_venn_diagram_98708_green.svg" 
+                 alt="Simbolo del bene comune come regioni che si intersecano"
+            >
+            <h4>Un bene comune</h4>
+            <p>
+              Il nostro database è usato da oltre 100 applicazioni per mobile e per studi scientifici su larga scala.
+            </p>
+          </div>
+        </div>
+        <div class="reasons row text-center">
+          <div class="reason small-12 large-6 columns">
+            <img src="//static.openfoodfacts.org/images/svg/donate/noun_direction_275435_yellow.svg"
+                 alt="Indicazioni stradali"
+            >
+            <h4>Accessibile a tutti</h4>
+            <p>
+              Pioniera nel dare accesso pubblico al Nutri-Score
+              e ora all'Eco-Score e i punteggi personalizzati,
+              rendiamo informazioni utili e di qualità accessibili a tutti.
+            </p>
+          </div>
+          <div class="reason small-12 large-6 columns">
+            <img src="//static.openfoodfacts.org/images/svg/donate/noun_together_hand_4275506_blue.svg"
+                 alt="Mani unite"
+            >
+            <h4>Partecipativa</h4>
+            <p>
+              Open Food Facts è co-costruita dai suoi utenti.
+              Assicura la propria indipendenza e resilienza
+              e garantisce l'apertura dei dati, del software e dei processi.
+            </p>
+          </div>
+        </div>
+
         <p>
           Quando abbiamo fondato Open Food Facts, abbiamo fatto la chiara scelta per essere
           totalmente non-profit per massimizzare il nostro impatto regalando tutto il nostro lavoro.
@@ -173,23 +212,17 @@ $('iframe').load(function(){
           a rischio la nostra missione.
         </p>
         <p>
-          Come risultato, abbiamo iniziato il progetto con pochi soldi, e manterremo ancora il
-          nostro budget limitato. Dal 2012 al 2017 eravamo tutti volontari ed il nostro
-          budget annuale era inferiore a 1000 euro! Il progetto è cresciuto molto
-          comunque, ed ora abbiamo bisogno di qualcosa di più per continuare la nostra missione.
-        </p>
-        <p>
-          Abbiamo bisogno del tuo aiuto per continuare ad operare e far crescere Open Food Facts. Per favore considera di fare una donazione per proteggere e sostenere Open Food
-          Facts.
+          Abbiamo bisogno del tuo aiuto per continuare a operare e sviluppare Open Food Facts. Sei pregato di considerare di donare per proteggere e sostenere Open
+          Food Facts.
         </p>
         <p>Grazie,</p>
         <p style="font-weight: bold;">
-          Anca, Florence, Léonore, Sylvia, Charles, Christian, Ludovic, Pierre,
-          Sébastien, Stéphane, Vincent e l'intero team di Open Food Facts
+          Alex, Anca, Florence, Gala, Léonore, Marie, Sylvia, Charles, Christian, Ludovic, Pierre,
+          Raphaël, Sébastien, Stéphane, Manon, Vincent e tutto il team di Open Food Facts
         </p>
       </div>
 
-      <div class="columns large-5 xlarge-4 xxlarge-3 text-center">
+      <div class="columns small-12 medium-6 large-5 xlarge-4 xxlarge-3 text-center">
         <div style="max-width:425px">
           <div class="loading">
             <p>Il modulo di donazione sta venendo caricato.<br>Puoi anche accedere ad esso <a href="https://donorbox.org/your-donation-to-open-food-facts">cliccando qui</a>.</p>

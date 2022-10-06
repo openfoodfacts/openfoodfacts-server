@@ -4,9 +4,12 @@ on:
   push:
     branches:
     - main
+    - deploy-*
     paths:
     - docker/mongodb.yml
-    - .github/workflows/mongo-deploy.yml
+    - .github/workflows/*.yml
+    - Makefile
+    - scripts/*.js
 
 jobs:
   deploy-docker:
@@ -58,6 +61,7 @@ jobs:
           echo "COMPOSE_PATH_SEPARATOR=;" >> .env
           echo "COMPOSE_FILE=docker/mongodb.yml" >> .env
           echo "MONGODB_CACHE_SIZE=${{ secrets.MONGODB_CACHE_SIZE }}" >> .env
+          echo "MONGODB_HOST=${{ secrets.HOST }}" >> .env
 
     - name: Create MongoDB Docker volume
       uses: appleboy/ssh-action@master
