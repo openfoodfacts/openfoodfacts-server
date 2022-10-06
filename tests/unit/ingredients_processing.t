@@ -57,11 +57,12 @@ my @tests = (
 		]
 	],
 
-# en:dried (children are left out at the moment)
+# en:dried (children are left out at the moment) What does this mean????
 	[ { lc => "en", ingredients_text => "dried milk"},
 		[
 			{
 				'id' => 'en:milk-powder',
+				'processing' => 'en:dried',
 				'text' => 'dried milk'
 			}
 		]
