@@ -65,7 +65,7 @@ use Getopt::Long;
 
 my $target_dir;
 
-my $query_ref = {};	# filters for mongodb query
+my $query_ref = {};    # filters for mongodb query
 
 GetOptions (
 	"dir=s"   => \$target_dir,      # string
@@ -82,7 +82,7 @@ if (! -e $target_dir) {
 
 use boolean;
 
-foreach my $field (sort keys %$query_ref) {
+foreach my $field (sort keys %{$query_ref}) {
 	if ($query_ref->{$field} eq 'null') {
 		# $query_ref->{$field} = { '$exists' => false };
 		$query_ref->{$field} = undef;
@@ -202,7 +202,8 @@ while (my $product_ref = $cursor->next) {
 			$oy2 = int($y2 * $oh / $h);
 		}
 
-		use File::Copy;
+		require File::Copy;
+		File::Copy->import( qw( copy ) );
 		copy("$dir/$imgid.jpg","$target_dir/$code" . '.' . $imageid . ".jpg") or print STDERR ("could not copy $dir/$imgid.jpg : $!\n");
 		copy("$dir/$imageid_lc.$rev.full.jpg","$target_dir/$code" . '.' . $imageid . ".cropped.jpg") or print STDERR ("could not copy $dir/$imageid_lc.$rev.full.jpg : $!\n");
 		copy("$dir/$imageid_lc.$rev.json","$target_dir/$code" . '.' . $imageid . ".cropped.json") or print STDERR ("could not copy $dir/$imageid_lc.$rev.json : $!\n");

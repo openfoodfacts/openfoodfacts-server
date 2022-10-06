@@ -10,6 +10,9 @@ module.exports = {
         "ecmaVersion": 2018,
         "sourceType": "script",
     },
+    "globals": {
+        "Foundation": "readonly"
+    },
     "rules": {
         "accessor-pairs": "error",
         "array-bracket-newline": "error",

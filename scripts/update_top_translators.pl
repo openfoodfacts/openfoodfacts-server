@@ -83,12 +83,13 @@ sub download_export {
 		my $csv_response = $res->decoded_content;
 		my $filename = "$www_root/data/top_translators.csv";
 		print STDERR "download_export: saving response to $filename\n";
-		
-		open (my $OUT, ">:encoding(UTF-8)", $filename);
+
+		open( my $OUT, ">:encoding(UTF-8)", $filename );
 		print $OUT $csv_response;
-		close $OUT;	
+		close $OUT;
 
 		print STDERR "download_export: saved response to $filename\n";
+		return 0;
 	}
 	else {
 		print STDERR "download_export: not ok - url: $url - code: " . $res->code . " - message: " . $res->message . "\n";

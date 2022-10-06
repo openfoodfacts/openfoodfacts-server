@@ -1,0 +1,35 @@
+Poulet,Unité,"Poulet Importé","Poulet Standard","Poulet Standard nourri sans OGM","Poulet ""certifié""","Poulet ""certifié"" nourri sans OGM","Poulet Label Rouge","Poulet Label Rouge nourri sans OGM","Poulet du Gers","Poulet de Loué","Poulet Bleu Blanc Coeur","Poulet Bio","Poulet du voisin "
+"Eléments sur l'étiquette pour choisir la catégorie",,"Transformé en France
+Pas d'information sur l'origine","Produit en France
+Poulet français 
+Volaille française
+Viandes 100% françaises 
+Poulet du grands Est (s'assurer de couvrir les autres régions)
+Poulet fermier Alsace (s'assurer de couvrir les autres régions)
+Volaille née, élevée et préparée en France 
+IGP, AOP, (Sans label rouge)","Idem Poulet standard 
+Et nourri sans OGM (0,9%) ","Poulet critère qualité certifié","Idem Poulet critère qualité certifié 
+Et nourri sans OGM (0,9%)","Logo Label Rouge (qui prévaut sur les informations précédentes)","Idem  Label Rouge 
+Et nourri sans OGM (0,9%) (qui prévaut sur les informations précédentes)","Logo poulet du gers (qui prévaut sur le label rouge)","Logo poulet de Loué (qui prévaut sur le label rouge)","Logo Bleu Blanc Coeur (prévaut sur les précédents labels)","Logo AB ou logo Bio Européen (prévaut sur les précédents informations) ",
+"Critère obligatoire OFF : doit posséder l'un des critères",,,"labels_fr:volaille française,igp,aop,poulet français ; origins_fr:france","labels_fr:volaille française,igp,aop,poulet français ; origins_fr:france","labels_fr:produit certifié","labels_fr:produit certifié","labels_fr:label rouge","labels_fr:label rouge",origins_fr:gers,"brands_fr:loué, les fermiers de loué ; origins_fr:loué","labels_fr:bleu blanc coeur",labels_fr:bio,"labels_fr:nourri sans soja"
+"Critère obligatoire OFF : doit posséder aussi l'un des critères",,,,"labels_fr:nourri sans ogm",,"labels_fr:nourri sans ogm",,"labels_fr:nourri sans ogm",,,,,
+"Poids équivalent carcasse (P)","Kg viande poulet équivalent carcasse","X (Voir calcul onglet facteur de transformation)",X,X,X,X,X,X,X,X,X,X,X
+"Facteur d'alimentation (FA)","kg fève / kg poulet carcasse",0.95,0.765,0.765,0.84,0.84,0.81,0.569,0.683,0.569,0.519,0.9,0
+"Rendement soja (R)","Kg fève soja / m²",0.3145,0.3175,0.2672,0.3175,0.2672,0.3175,0.2672,0.2671,0.2672,0.3069,0.2672,0.3
+"Facteur de risque déforestation (FR)","% ",0.71,0.76,0.41,0.76,0.41,0.74,0.25,0.11,0.25,0.53,0.32,0
+"Empreinte Forêt catégorie (EFC)","Empreinte Forêt (m2) / P (kg)",2.144674085850556,1.8311811023622049,1.1738398203592815,2.010708661417323,1.2889221556886226,1.8878740157480318,0.532372754491018,0.28128041931860726,0.532372754491018,0.8962854349951125,1.0778443113772456,0
+"Empreinte Forêt (EF)","m² Empreinte Forêt",P*EFc,P*EFc,P*EFc,P*EFc,P*EFc,P*EFc,P*EFc,P*EFc,P*EFc,P*EFc,P*EFc,P*EFc
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+"Critère OFF sur les ingrédients ou les catégories. La priorité est donnée au 1er critère qui correspond, en partant du bas de la liste. Les critères sur les catégories ne sont appliqués que pour les produits sans liste d'ingrédients.","Facteur de transformation",,,,,,,,,,,,
+ingredients_fr=poulet,1,,,,,,,,,,,,
+"ingredients_fr=viande de poulet",0.75,,,,,,,,,,,,
+"ingredients_fr=cuisses de poulet",1,,,,,,,,,,,,
+"ingredients_fr=os de poulet",1,,,,,,,,,,,,
+"ingredients_fr=foie de poulet",1,,,,,,,,,,,,
+,,,,,,,,,,,,,
+categories_fr=poulets,1,,,,,,,,,,,,
+"categories_fr=poulets entiers",1,,,,,,,,,,,,
+"categories_fr=filets de poulet",0.75,,,,,,,,,,,,
+"categories_fr=escalopes de poulet",0.75,,,,,,,,,,,,
+"categories_fr=aiguillettes de poulet",0.75,,,,,,,,,,,,

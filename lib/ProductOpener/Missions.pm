@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -20,19 +20,17 @@
 
 package ProductOpener::Missions;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter    qw< import >;
 
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	@EXPORT = qw();            # symbols to export by default
+	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-			&gen_missions_html
-			&compute_missions
-			&compute_missions_for_user
-					);	# symbols to export on request
+		&gen_missions_html
+		&compute_missions
+		&compute_missions_for_user
+		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -119,6 +117,8 @@ sub gen_missions_html() {
 		 print $OUT $html;
 		 close $OUT;
 	}
+
+	return;
 }
 
 
@@ -154,12 +154,13 @@ sub compute_missions() {
 	}
 
 	store("$data_root/missions.sto", $missions_ref);
+
+	return;
 }
 
 
-sub compute_missions_for_user($) {
+sub compute_missions_for_user($user_ref) {
 
-	my $user_ref = shift;
 	defined $user_ref->{missions} or $user_ref->{missions} = {};
 	$user_ref->{missions} = {};
 
@@ -183,13 +184,15 @@ sub compute_missions_for_user($) {
 
 			foreach my $condition_ref (@{$mission_ref->{conditions}}) {
 
-				use Clone qw(clone);
+				require Clone;
+				Clone->import( qw( clone ) );
+
 				my $query_ref = clone($condition_ref->[1]);
 				$query_ref->{creator} = $user_ref->{userid};
 				$query_ref->{lc} = $l;
 				# $query_ref->{complete} = 1;
 
-				foreach my $field (keys %$query_ref) {
+				foreach my $field (keys %{$query_ref}) {
 					next if $field eq 'creator';
 					if ($query_ref->{$field} eq '<userid>') {
 						$query_ref->{$field} = $user_ref->{userid};

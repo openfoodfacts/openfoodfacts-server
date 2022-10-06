@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -20,10 +20,10 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use CGI::Carp qw(fatalsToBrowser);
-
 use Modern::Perl '2017';
 use utf8;
+
+use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -55,9 +55,9 @@ use Data::Dumper;
 use Getopt::Long;
 
 my @products = ();
+my $owner = undef;
 
-
-GetOptions ( 'products=s' => \@products);
+GetOptions ( 'products=s' => \@products, 'owner=s' => \$owner);
 @products = split(/,/,join(',',@products));
 
 my $d = 0;
@@ -88,11 +88,21 @@ sub find_products($$) {
 		}
 	}
 	closedir $dh or print "could not close $dir dir: $!\n";
+
+	return;
 }
 
 
 if (scalar $#products < 0) {
-	find_products("$data_root/products",'');
+	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+		if (not defined $owner) {
+			die("The owner must be specified on the producers platform");
+		}
+		find_products("$data_root/products/$owner",'');
+	}
+	else {
+		find_products("$data_root/products",'');
+	}
 }
 
 
@@ -111,7 +121,7 @@ my %codes = ();
 
 		#next if ($code ne "4072700318675");
 
-		my $product_id = product_id_for_owner(undef, $code);
+		my $product_id = product_id_for_owner($owner, $code);
 
 		my $path = product_path_from_id($product_id);
 

@@ -1,0 +1,88 @@
+{
+    "type": "card",
+    "expanded": true,
+    "topics": [
+        "health"
+    ],
+    "title_element": {
+        "title": "[% lang('health') %]",
+    },    
+    "elements": [
+        {
+            "element_type": "panel_group",
+            "panel_group_element": {
+                "title": "[% lang('nutrition') %]",
+                "panel_ids": [
+                    [% IF panels.nutriscore.defined %]
+                        "nutriscore",
+                    [% END %]
+                    [% IF panels.recommendation_health.defined %]
+                        "recommendation_health",
+                    [% END %]
+                    [% IF panels.physical_activities.defined %]
+                        "physical_activities",
+                    [% END %]                   
+                    [% IF panels.nutrient_level_fat.defined %]
+                        "nutrient_level_fat",
+                    [% END %] 
+                    [% IF panels.${'nutrient_level_saturated-fat'}.defined %]
+                        "nutrient_level_saturated-fat",
+                    [% END %] 
+                    [% IF panels.nutrient_level_sugars.defined %]
+                        "nutrient_level_sugars",
+                    [% END %] 
+                    [% IF panels.nutrient_level_salt.defined %]
+                        "nutrient_level_salt",
+                    [% END %]                                                             
+                    [% IF panels.nutrition_facts_table.defined %]
+                        "nutrition_facts_table",
+                    [% END %]
+                    [% IF panels.serving_size.defined %]
+                        "serving_size",
+                    [% END %]
+                ],
+            },
+        },
+        [% IF panels.ingredients.defined %]
+        {
+            "element_type": "panel_group",
+            "panel_group_element": {
+                "title": "[% lang('ingredients') %]",
+                "panel_ids": ["ingredients"],
+            },
+        },
+        [% END %]
+        [% IF panels.nova.defined %]
+        {
+            "element_type": "panel_group",
+            "panel_group_element": {
+                "title": "[% lang('attribute_group_processing_name').ucfirst %]",
+                "panel_ids": ["nova"],
+            },
+        }, 
+        [% END %]        
+        [% IF panels.additives.defined %]
+        {
+            "element_type": "panel_group",
+            "panel_group_element": {
+                "title": "[% lang('additives_p').ucfirst %]",
+                "panel_ids": ["additives"],
+            },
+        }, 
+        [% END %]
+        [% IF panels.ingredients_analysis.defined %]
+        {
+            "element_type": "panel_group",
+            "panel_group_element": {
+                "title": "[% lang("ingredients_analysis") %]",
+                "panel_ids": [
+                    "ingredients_analysis",
+                    [% IF panels.ingredients_analysis_details.defined %]
+                    "ingredients_analysis_details",
+                    [% END %]
+                ],
+            },
+        }, 
+        [% END %]        
+    ],
+}

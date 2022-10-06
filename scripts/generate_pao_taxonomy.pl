@@ -26,19 +26,29 @@ open (my $IN, q{<}, "periods_after_opening_logo.svg") or die ;
 my $svg = join ("",(<$IN>));
 close($IN);
 
-my $entry_format = <<TXT
-en:<i> months, <i>months, <i> M, <i>M, <i>
+my $entry_format_month = <<TXT
+en:<i> months, <i>months
 fr:<i> mois, <i>mois
+xx:<i> M, <i>M, <i>, <i> months, <i> month, <i>months, <i>month
 numeric_number_of_months_after_opening:en:<i>
 TXT
 ;
 
-my $image_path = "/home/obf/html/images/lang/en/periods_after_opening";
+my $entry_format_day = <<TXT
+en:<i> days, <i>days
+fr:<i> jours, <i>jours, <i> jour, <i>jour
+xx:<i> D, <i>D, <i> days, <i> day, <i>days, <i>day
+numeric_number_of_days_after_opening:en:<i>
+TXT
+;
+
+my $image_path = "/home/off/openfoodfacts-server/html/images/lang/en/periods_after_opening";
 
 for (my $i = 1; $i <= 4 * 12; $i++) {
 
-	my $entry = $entry_format;
+	my $entry = $entry_format_month;
 	$entry =~ s/<i>/$i/g;
+	$entry =~ s/:1 months, 1months/:1 month, 1month/;
 	print $entry . "\n";
 	
 	# generate SVG logo
@@ -51,5 +61,25 @@ for (my $i = 1; $i <= 4 * 12; $i++) {
 	open (my $OUT, q{>}, "$file") or die;
 	print $OUT $isvg;
 	close $OUT;
+}
+
+
+for (my $i = 1; $i <= 2 * 30; $i++) {
+
+	my $entry = $entry_format_day;
+	$entry =~ s/<i>/$i/g;
+	$entry =~ s/:1 jours, 1jours/:1 jour, 1jour/;
+	$entry =~ s/:1 days, 1days/:1 day, 1day/;
+	print $entry . "\n";
 	
+	# generate SVG logo
+	my $isvg = $svg;
+	$isvg =~ s/49 M/$i D/;
+	
+	my $file = "$image_path/$i-days.90x90.svg";
+	$file =~ s/^1-days/1-day/;
+	
+	open (my $OUT, q{>}, "$file") or die;
+	print $OUT $isvg;
+	close $OUT;
 }

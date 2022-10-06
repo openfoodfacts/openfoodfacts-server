@@ -60,7 +60,7 @@ my $path = product_path($code);
 
 		# Store
 
-		store("$data_root/products/$path/product.sto", $product_ref);		
+		store( "$data_root/products/$path/product.sto", $product_ref );
 		get_products_collection()->save($product_ref);
 	
 

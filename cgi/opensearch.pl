@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
@@ -42,8 +41,9 @@ use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
 
-ProductOpener::Display::init();
 use ProductOpener::Lang qw/:all/;
+
+my $request_ref = ProductOpener::Display::init_request();
 
 # https://developer.mozilla.org/en-US/Add-ons/Creating_OpenSearch_plugins_for_Firefox
 # Maximum of 16 characters

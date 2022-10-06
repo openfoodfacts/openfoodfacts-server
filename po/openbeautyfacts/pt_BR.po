@@ -3,15 +3,15 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
+"Language: pt\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-03-08 08:50\n"
 "Language-Team: Portuguese, Brazilian\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: openfoodfacts\n"
+"X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: pt-BR\n"
-"X-Crowdin-File: /master/po/openbeautyfacts/openbeautyfacts.pot\n"
+"X-Crowdin-File-ID: 2540\n"
 
 #. do not translate
 msgctxt "android_apk_app_link"
@@ -21,11 +21,11 @@ msgstr "https://world.openbeautyfacts.org/images/apps/obf.apk"
 #. change hl=en by hl=fr or hl=de and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en"
-msgstr "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=pt-pt"
+msgstr "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=pt"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
-msgstr "https://apps.apple.com/app/open-beauty-facts/id1122926380"
+msgstr "https://apps.apple.com/pt/app/open-beauty-facts/id1122926380"
 
 #. make sure the image exists with your country code. https://static.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en-178x150.png Otherwise, ask @teolemon how to create a translated logo
 msgctxt "logo"
@@ -39,15 +39,15 @@ msgstr "openbeautyfacts-logo-pt-356x300.png"
 
 msgctxt "site_name"
 msgid "Open Beauty Facts"
-msgstr "Abrir Beauty Facts"
+msgstr "Open Beauty Facts"
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
-msgstr "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgstr "https://www.microsoft.com/pt-pt/p/openfoodfacts/9nblggh0dkqr"
 
 msgctxt "tagline"
 msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
-msgstr "Open Beauty Facts reúne informações e dados sobre produtos cosméticos de todo o mundo."
+msgstr "Open Beauty Facts reune dados e informação sobre produtos cosméticos de todo o mundo."
 
 #. make sure the Twitter account exists for your country. Otherwise, ask @stephane to create it
 msgctxt "twitter_account"
@@ -64,27 +64,11 @@ msgstr "<a href=\"https://pt.openfoodfacts.org/donate-to-open-food-facts\"><img 
 
 msgctxt "donate"
 msgid "Donate to Open Beauty Facts"
-msgstr "Fazer um donativo ao Open Beauty Facts"
+msgstr "Faça uma doação para o Open Beauty Facts"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenBeautyFacts"
 msgstr "https://www.facebook.com/OpenBeautyFacts"
-
-msgctxt "footer"
-msgid "<a href=\"https://world.openbeautyfacts.org/legal\">Legal</a> -\n"
-"<a href=\"https://world.openbeautyfacts.org/terms-of-use\">Terms of Use</a> -\n"
-"<a href=\"https://world.openbeautyfacts.org/who-we-are\">Who we are</a> -\n"
-"<a href=\"https://world.openbeautyfacts.org/faq\">Frequently Asked Questions</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
-"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
-"<a href=\"https://world.openbeautyfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr "<a href=\"https://pt.openbeautyfacts.org/legal\">Legal</a> -\n"
-"<a href=\"https://pt.openbeautyfacts.org/terms-of-use\">Termos de Uso</a> -\n"
-"<a href=\"https://pt.openbeautyfacts.org/who-we-are\">Quem nós somos</a> -\n"
-"<a href=\"https://pt.openbeautyfacts.org/faq\">Perguntas Frequentes</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">Fórum de Ideias</a> -\n"
-"<a href=\"https://en.blog.openfoodfacts.org/portuguese.shtml\">Blog</a> -\n"
-"<a href=\"https://pt.openbeautyfacts.org/press-and-blogs\">Imprensa e Blogs</a>\n"
 
 msgctxt "brands_example"
 msgid "Nivea, Nivea Men"
@@ -92,7 +76,7 @@ msgstr "Nivea, Nivea Men"
 
 msgctxt "categories_example"
 msgid "Anti-dandruff shampoo, Whitening toothpaste"
-msgstr "Champô anti-caspa, creme dental branqueador"
+msgstr "Xampu anticaspa, creme dental branqueador"
 
 msgctxt "emb_codes_example"
 msgid "EMB 53062"
@@ -111,8 +95,8 @@ msgid "A collaborative, free and open database of cosmetic products from around 
 msgstr "Um banco de dados colaborativo, gratuito e aberto de produtos cosméticos de todo o mundo."
 
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openbeautyfacts.org"
-msgstr "https://en.wiki.openbeautyfacts.org"
+msgid "https://wiki.openfoodfacts.org"
+msgstr "https://pt.wiki.openfoodfacts.org"
 
 msgctxt "generic_name_example"
 msgid "Anti-dandruff shampoo"
@@ -146,8 +130,8 @@ msgstr "AQUA / ÁGUA, SULFATO DE LÍTIO DE SÓDIO, COCOAMPHODIACETATE DE DISÓDI
 
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
-msgid "open-beauty-facts-mobile-app"
-msgstr "open-beauty-facts-mobile-app"
+msgid "/open-beauty-facts-mobile-app"
+msgstr "/open-beauty-facts-mobile-app"
 
 # Do not translate
 msgctxt "footer_obf"
@@ -156,6 +140,6 @@ msgstr "Open Food Facts"
 
 # Do not translate
 msgctxt "footer_obf_link"
-msgid "https://world.openfooodfacts.org"
-msgstr "https://world-pt.openfooodfacts.org"
+msgid "https://world.openfoodfacts.org"
+msgstr ""
 

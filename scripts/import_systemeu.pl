@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -20,10 +20,10 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use CGI::Carp qw(fatalsToBrowser);
-
-use strict;
+use Modern::Perl '2017';
 use utf8;
+
+use CGI::Carp qw(fatalsToBrowser);
 
 binmode(STDOUT, ":encoding(UTF-8)");
 
@@ -42,6 +42,8 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::ImportConvert qw/:all/;
+use ProductOpener::PackagerCodes qw/:all/;
+
 use Log::Any qw($log);
 use Log::Any::Adapter 'TAP', filter => "none";
 
@@ -71,7 +73,7 @@ $editor_user_id = $editor_user_id;
 
 not defined $photo_user_id and die;
 
-my $csv_file = "/srv2/off/imports/systemeu/data/SUYQD_AKENEO_PU_10_19_ok.csv";
+my $csv_file = "/srv2/off/imports/systemeu/data/SUYQD_AKENEO_PU_09_2020.csv";
 my $categories_csv_file = "/srv2/off/imports/systemeu/systeme-u-rubriques.csv";
 my $imagedir;
 #$imagedir = "/srv2/off/imports/systemeu/images";
@@ -426,8 +428,8 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 
 			if ($code eq '') {
 				print STDERR "empty code\n";
-				use Data::Dumper;
-				print STDERR Dumper($imported_product_ref);
+				require Data::Dumper;
+				print STDERR Data::Dumper::Dumper($imported_product_ref);
 				print "EMPTY CODE\n";
 				next;
 			}
@@ -477,7 +479,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 					delete $product_ref->{countries};
 					delete $product_ref->{countries_tags};
 					delete $product_ref->{countries_hierarchy};
-					store_product($product_ref, "Creating product (import_systemeu.pl bulk upload) - " . $comment );
+					store_product($User_id, $product_ref, "Creating product (import_systemeu.pl bulk upload) - " . $comment );
 				}
 
 			}
@@ -534,7 +536,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 							if (($imgid > 0) and ($imgid > $current_max_imgid) and ($imagefield ne 'other')) {
 
 								print STDERR "assigning image $imgid to ${imagefield}_fr\n";
-								eval { process_image_crop("org-systeme-u/" . $code, $imagefield . "_fr", $imgid, 0, undef, undef, -1, -1, -1, -1, "full"); };
+								eval { process_image_crop($User_id, "org-systeme-u/" . $code, $imagefield . "_fr", $imgid, 0, undef, undef, -1, -1, -1, -1, "full"); };
 								# $modified++;
 
 							}
@@ -547,7 +549,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 									and (exists $product_ref->{images}{$imagefield . "_fr"})
 									and ($product_ref->{images}{$imagefield . "_fr"}{imgid} != $imgid)) {
 									print STDERR "re-assigning image $imgid to ${imagefield}_fr\n";
-									eval { process_image_crop("org-systeme-u/" . $code, $imagefield . "_fr", $imgid, 0, undef, undef, -1, -1, -1, -1, "full"); };
+									eval { process_image_crop($User_id, "org-systeme-u/" . $code, $imagefield . "_fr", $imgid, 0, undef, undef, -1, -1, -1, -1, "full"); };
 									# $modified++;
 								}
 
@@ -716,7 +718,7 @@ U_TOUT_PETITS => "U Tout Petits",
 DANREMONT => "Danremont",
 U_SANS_GLUTEN => "U Sans Gluten",
 U_CUISINES_ET_DECOUVERTES => "U Cuisines et Découvertes",
-)			;
+);
 
 
 			# Fromage double crème au lait pasteurisé U, 30%MG, 200g
@@ -1131,8 +1133,8 @@ ble => "bouteille",
 						$modified++;
 						$stats{products_info_changed}{$code} = 1;
 					}
-					elsif ($field eq "brands") {	# we removed it earlier
-						compute_field_tags($product_ref, $tag_lc, $field);
+					elsif ( $field eq "brands" ) {    # we removed it earlier
+						compute_field_tags( $product_ref, $tag_lc, $field );
 					}
 				}
 					else {
@@ -1452,16 +1454,22 @@ TXT
 
 					my $enid = encodeURIComponent($nid);
 
-					print STDERR "product $code - nutrient - $nid - $modifier $value $unit\n";
+					print STDERR "product $code - nutrient - $nid - modifier: $modifier - value: $value - unit: $unit\n";
 
 					$value =~ s/,/./;
 					$value += 0;
 
-
-					my $new_value = unit_to_g($value, $unit);
+					my $new_value;
+					
+					if ($nid =~ /^energy-(kj|kcal)/) {
+						$new_value = $value;
+					}
+					else {
+						$new_value = unit_to_g($value, $unit);
+					}
 
 					if ((defined $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{$nid})
-						and ($new_value ne $product_ref->{nutriments}{$nid})						) {
+						and ($new_value ne $product_ref->{nutriments}{$nid}) ) {
 						my $current_value = $product_ref->{nutriments}{$nid};
 						print "differing nutrient value for product code $code - nid $nid - existing value: $current_value - new value: $new_value - https://world.openfoodfacts.org/product/$code \n";
 					}
@@ -1495,31 +1503,6 @@ TXT
 				}
 
 			}
-
-
-
-			foreach my $nid (sort keys %Nutriments) {
-
-				next if $nid =~ /^#/;
-				next if $nid eq 'sodium';
-				next if $nid eq 'cocoa';
-				next if $nid =~ /fruits-vegetables-nuts/;
-
-				if ((defined $product_ref->{nutriments}{$nid . "_value"}) and (not defined $found_nids{$nid})) {
-					next if $code eq "3368952723253";
-					next if $code eq "3256220063371";
-					next if $code eq "3256220064651";
-					next if $code eq "3256224251828";
-					next if $code eq "3256220358026";
-					next if $code eq "3256224252009";
-					next if $code eq "3256220275033";
-					next if $code eq "3256226154851";
-					next if $code eq "3256224406433";
-					print STDERR "product code $code - missing nid $nid\n" . $imported_product_ref->{UGC_nutritionalValues} . "\n";
-					#exit;
-				}
-			}
-
 
 			} # if nutrient are not empty in the csv
 
@@ -1691,7 +1674,7 @@ TXT
 				$product_ref->{owner} = "org-systeme-u";
 				$product_ref->{owners_tags} = ["org-systeme-u"];
 
-				store_product($product_ref, "Editing product (import_systemeu.pl bulk import) - " . $comment );
+				store_product($User_id, $product_ref, "Editing product (import_systemeu.pl bulk import) - " . $comment );
 
 				push @edited, $code;
 				$edited{$code}++;

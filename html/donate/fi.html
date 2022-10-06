@@ -8,20 +8,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="fb:app_id" content="219331381518041" />
-    <meta property="og:type" content="food" />
-    <meta property="og:title" content="" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Help us fund the Open Food Facts 2022 budget!" />
     <meta
       property="og:url"
       content="https://world-fi.openfoodfacts.org/donate-to-openfoodfacts"
     />
-
     <meta
       property="og:image"
-      content="https://static.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
+      content="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.png"
     />
     <meta
       property="og:description"
-      content="Yhteistyöhön perustuva, vapaa ja avoin tietokanta aineosista, ravintoarvoista ja tiedoista elintarvikkeista joka puolelta maailmaa"
+      content="Open Food Facts is the largest free and open database of food products in the world. We believe information about what we eat is information of public interest."
     />
     <link rel="manifest" href="/cgi/manifest.pl" />
     <link
@@ -51,7 +50,7 @@
 
     <link
       rel="stylesheet"
-      href="https://static.openfoodfacts.org/css/dist/app.css"
+      href="/cgi/css.pl"
     />
     <link
       rel="stylesheet"
@@ -72,6 +71,9 @@
     <style media="all">
       .show-when-logged-in {
         display: none;
+      }
+      .reason img {
+        height: 100px;
       }
     </style>
     <script src="https://static.openfoodfacts.org/js/dist/jquery.js"></script>
@@ -106,16 +108,21 @@ $('iframe').load(function(){
   <body>
     <div class="hide-for-large-up text-center">
       <img
-        src="https://static.openfoodfacts.org/images/svg/openfoodfacts-logo-en.svg"
+        src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg"
         width="178"
         height="156"
         alt="Open Food Facts -logo"
       />
+    </div>
 
-<div class="panel callout" style="margin-top:0.5rem">
-<h3>Auta meitä rahoittamaan Open Food Facts 2020 -budjetti!</h3>
-<p>Open Food Facts on 100% ilmainen ja riippumaton elintarviketeollisuudesta. Tarvitsemme apua hankkeen jatkamiseksi ja kasvamiseksi.</p>
-</div>
+    <div class="hide-for-medium hide-for-large-up text-center">
+      <div class="panel callout" style="margin-top:0.5rem">
+        <h3>Help us fund the Open Food Facts 2023 budget!</h3>
+        <p>
+          Open Food Facts on 100% ilmainen ja riippumaton elintarviketeollisuudesta. 
+          Tarvitsemme apuasi projektin jatkamiseksi ja kasvattamiseksi.
+        </p>
+      </div>
     </div>
 
     <div
@@ -124,7 +131,7 @@ $('iframe').load(function(){
     >
       <div class="columns large-2 hide-for-medium hide-for-small text-center">
         <img
-          src="https://static.openfoodfacts.org/images/svg/openfoodfacts-logo-en.svg"
+          src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg"
           width="178"
           height="156"
           alt="Open Food Facts -logo"
@@ -132,68 +139,94 @@ $('iframe').load(function(){
       </div>
 
       <div
-        class="columns large-5 xlarge-6 xxlarge-7 hide-for-medium hide-for-small"
+        class="columns medium-6 large-5 xlarge-6 xxlarge-7 hide-for-small"
       >
-        <h2 style="margin-bottom:1rem">
-          Viesti Open Food Facts -tiimiltä
-        </h2>
 
-<div class="panel callout" style="margin-top:0.5rem">
-<h3>Auta meitä rahoittamaan Open Food Facts 2020 -budjetti!</h3>
-<p>Open Food Facts on 100% ilmainen ja riippumaton elintarviketeollisuudesta. Tarvitsemme apua hankkeen jatkamiseksi ja kasvamiseksi.</p>
-</div>
-
-        <img
-          src="https://static.openfoodfacts.org/images/svg/crowdsourcing-icon.svg"
-          style="width:240px;float:left;margin-right:5px;"
-          alt="Yes we scan! logo"
-        />
+        <div class="panel callout" style="margin-top:0.5rem">
+          <h3>Help us fund the Open Food Facts 2023 budget!</h3>
+          <p>
+            Open Food Facts on 100% ilmainen ja riippumaton elintarviketeollisuudesta. 
+            Tarvitsemme apuasi projektin jatkamiseksi ja kasvattamiseksi.
+          </p>
+        </div>
 
         <p>
           Open Food Facts on "ruoan Wikipedia", suurin vapaa ja avoin
           elintarviketietokanta maailmassa.
+          We started Open Food Facts because we believe information about what
+          we eat is of public interest and needs to
+          be public, free and open.
+        </p>
+
+        <div class="reasons row text-center">
+          <div class="reason small-12 large-6 columns">
+            <img src="//static.openfoodfacts.org/images/svg/donate/noun_democracy_1734799_red.svg"
+                 alt="Raised hands"
+            >
+            <h4>A priority</h4>
+            <p>
+              Food is a priority for health and ecology.
+              Through transparency and education, Open Food Facts creates a virtuous circle between consumers and producers.
+            </p>
+          </div>
+          <div class="reason small-12 large-6 columns">
+            <img src="//static.openfoodfacts.org/images/svg/donate/noun_venn_diagram_98708_green.svg" 
+                 alt="Common good symbol as intersecting regions"
+            >
+            <h4>A common good</h4>
+            <p>
+              Our database is used by more than 100 mobile applications and for large scale scientific studies.
+            </p>
+          </div>
+        </div>
+        <div class="reasons row text-center">
+          <div class="reason small-12 large-6 columns">
+            <img src="//static.openfoodfacts.org/images/svg/donate/noun_direction_275435_yellow.svg"
+                 alt="Direction road signs"
+            >
+            <h4>Accessible to everyone</h4>
+            <p>
+              Pionneer in giving public access to the Nutri-Score
+              and now the Eco-score and personnalized scores,
+              we make useful and quality information accessible to everyone.
+            </p>
+          </div>
+          <div class="reason small-12 large-6 columns">
+            <img src="//static.openfoodfacts.org/images/svg/donate/noun_together_hand_4275506_blue.svg"
+                 alt="Joined hands"
+            >
+            <h4>Participative</h4>
+            <p>
+              Open Food Facts is co-constructed by its users.
+              It ensures its independance and its resiliency,
+              and guarantees the openness of data, software and processes.
+            </p>
+          </div>
+        </div>
+
+        <p>
+          Kun perustimme Open Food Facts -sivuston, teimme selkeän valinnan olla
+          täysin voittoa tavoittelematon, jotta maksimoisimme vaikutuksemme luovuttamalla kaiken työn.
+          Teimme myös selkeän valinnan, että olisimme täysin riippumattomia
+          teollisuudesta ja siten emme koskaan hyväksy mitään rahoitusta, joka saattaisi vaarantaa
+          tehtävämme.
         </p>
         <p>
-          Aloitimme Open Food Factsin, koska uskomme, että tieto siitä mitä
-          syömme on yleisen edun tietoa. Ja seurauksena sen täytyy
-          olla julkista, ilmaista ja avointa.
-        </p>
-        <p>
-          Tietojamme käyttävät kansalaiset tehdäkseen terveellisempiä ruokavalintoja, kiitos
-          mobiilisovelluksemme, kansanterveyden tutkijat tutkiakseen ruoan
-          vaikutusta terveyteemme, toimittajat raportointiinsa ja jopa
-          elintarviketeollisuus parantaakseen tuotteitaan. Se on elintarvikkeiden läpinäkyvyyden
-          voima: siitä on hyötyä kaikille!
-        </p>
-        <p>
-          Kun perustimme Open Food Factsin, teimme selvän valinnan olla
-          täysin voittoa tavoittelematon, maksimoidaksemme vaikutuksemme antamalla työmme pois.
-          Teimme myös selvän valinnan olla täysin riippumattomia
-          toimialasta, ja näin ollen emme koskaan hyväksy mitään rahoitusta, joka voisi
-          vaarantaa tehtävämme.
-        </p>
-        <p>
-          Sen seurauksena aloitimme hankkeen erittäin tiukalla budjetilla, ja pidämme edelleen
-          budjettimme tiukkana. Vuosina 2012 - 2017 olimme kaikki vapaaehtoisia, ja
-          vuosibudjettimme oli alle 1000 euroa! Hanke on kuitenkin kasvanut
-          paljon, ja tarvitsemme nyt hieman enemmän tehtävämme jatkamiseen.
-        </p>
-        <p>
-          Tarvitsemme apuasi Open Food Factsin toiminnan ja kasvamisen
-          jatkamiseksi. Pyydämme, että harkitsisit lahjoituksen tekemistä Open Food Factsin
-          suojelemiseksi ja tukemiseksi.
+          We need your help to continue to operate and grow Open Food
+          Facts. Please consider making a donation to protect and sustain Open
+          Food Facts.
         </p>
         <p>Kiitos,</p>
         <p style="font-weight: bold;">
-          Anca, Florence, Léonore, Sylvia, Charles, Christian, Ludovic, Pierre,
-          Sébastien, Stéphane, Vincent ja koko Open Food Facts -tiimi
+          Alex, Anca, Florence, Gala, Léonore, Marie, Sylvia, Charles, Christian, Ludovic, Pierre,
+          Raphaël, Sébastien, Stéphane, Manon, Vincent and all the Open Food Facts team
         </p>
       </div>
 
-      <div class="columns large-5 xlarge-4 xxlarge-3 text-center">
+      <div class="columns small-12 medium-6 large-5 xlarge-4 xxlarge-3 text-center">
         <div style="max-width:425px">
           <div class="loading">
-            <p>Lahjoituslomaketta ladataan.<br>Pääset siihen myös <a href=" https://donorbox.org/your-donation-to-open-food-facts">napsauttamalla tästä</a>.</p>
+            <p>Lahjoituslomaketta ladataan.<br>Pääset siihen myös <a href="https://donorbox.org/your-donation-to-open-food-facts">napsauttamalla tästä</a>.</p>
           </div>
 
           <script
@@ -201,14 +234,13 @@ $('iframe').load(function(){
             paypalExpress="true"
           ></script>
           <iframe
+            title="Lahjoita Donorboxin kautta"
             allowpaymentrequest=""
-            frameborder="0"
             height="900px"
             name="donorbox"
-            scrolling="no"
             seamless="seamless"
             src="https://donorbox.org/embed/your-donation-to-open-food-facts"
-            style="max-width: 500px; min-width: 310px; max-height:none!important"
+            style="max-width: 500px; min-width: 310px; max-height:none!important;border:0;overflow:hidden;"
             width="100%"
           ></iframe>
 
@@ -216,13 +248,13 @@ $('iframe').load(function(){
             <h3>Minne lahjoituksesi menee</h3>
 
             <p>
-              <b>Teknologia:</b> Kehitys, ylläpito, palvelimia
+              <strong>Teknologia:</strong> Kehitys, ylläpito, palvelimia
               tietokannan kasvamiseksi ja uusien siistien ominaisuuksien lisäämiseksi Open Food
               Facts -mobiilisovellukseen ja -verkkosivustoon.
             </p>
 
             <p>
-              <b>Ihmiset ja hankkeet:</b> Antaaksemme parasta mahdollista tukea Open
+              <strong>Ihmiset ja hankkeet:</strong> Antaaksemme parasta mahdollista tukea Open
               Food Facts -yhteisölle, tehdäksemme yhteistyötä tutkijoiden kanssa, ja tehdäksemme
               suurimman vaikutuksen elintarviketiedoillamme terveyteemme,
               planeettaamme ja yhteiskuntaamme.

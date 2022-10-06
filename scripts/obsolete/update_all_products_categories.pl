@@ -76,10 +76,10 @@ my $cursor = $products_collection->query({})->fields({ code => 1 });
 		if ($server_domain =~ /openfoodfacts/) {
 			ProductOpener::Food::special_process_product($product_ref);
 		}
-	
-		store("$data_root/products/$path/product.sto", $product_ref);		
+
+		store( "$data_root/products/$path/product.sto", $product_ref );
 		$products_collection->save($product_ref);
-		
+
 		}
 	}
 

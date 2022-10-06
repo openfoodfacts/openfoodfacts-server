@@ -66,12 +66,10 @@ my $cursor = $products_collection->query({})->fields({ code => 1 });
 				
 		$lc = $product_ref->{lc};
 		$lang = $lc;
-	
-		
+
 		compute_codes($product_ref);
 
-
-		store("$data_root/products/$path/product.sto", $product_ref);		
+		store( "$data_root/products/$path/product.sto", $product_ref );
 		$products_collection->save($product_ref);
 		}
 	}
