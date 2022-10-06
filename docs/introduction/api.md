@@ -57,12 +57,12 @@ SDKs are available for specific languages to facilitate the usage of the API.
 <!--Add a link to the API reference -->
 
 - [Cordova](https://github.com/openfoodfacts/openfoodfacts-cordova-app)
-- [DART](https://github.com/openfoodfacts/openfoodfacts-dart/blob/master/DOCUMENTATION.md)
+- [DART](https://github.com/openfoodfacts/openfoodfacts-dart/blob/master/DOCUMENTATION.md), [Published on pub.dev](https://pub.dev/packages/openfoodfacts)
 - [Elixir](https://github.com/openfoodfacts/openfoodfacts-elixir)
 - [Go](https://github.com/openfoodfacts/openfoodfacts-go)
 - [NodeJS](https://github.com/openfoodfacts/openfoodfacts-nodejs)
 - [PHP](https://github.com/openfoodfacts/openfoodfacts-php)
 - [Laravel](https://github.com/openfoodfacts/openfoodfacts-laravel)
-- [Python](https://github.com/openfoodfacts/openfoodfacts-python)
+- [Python](https://github.com/openfoodfacts/openfoodfacts-python), [Published on pyipi](https://pypi.org/project/openfoodfacts/)
 - [React Native](https://github.com/openfoodfacts/openfoodfacts-react-native)
 - [Ruby](https://github.com/openfoodfacts/openfoodfacts-ruby)
