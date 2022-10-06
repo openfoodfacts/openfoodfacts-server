@@ -207,6 +207,7 @@ foreach my $test_ref (@tests) {
 	  else {
 		warn "unknown type $type";
 	  }
+	  return;
 	}
 	
 	walk $product_ref, sub { $_[0] =~ s/https?:\/\/([^\/]+)\//https:\/\/server_domain\//; };	
