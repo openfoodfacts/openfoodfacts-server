@@ -1154,6 +1154,7 @@ ar:عصية لبنية حمضية
 bg:Lactobacillus acidophilus, L. acidophilus
 xx:Lactobacillus acidophilus, L. acidophilus
 fa:لاکنوباسیلوس اسیدوفیلوس
+fi:Lactobacillus acidophilus, L. acidophilus
 kk:Ацидофилин таяқшасы
 ro:Lapte acidofil
 ru:Lactobacillus acidophilus, Ацидофильная палочка
@@ -1180,6 +1181,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lactobacillus_acidophilus
 en:Lactobacillus bulgaricus, L. bulgaricus, Lactobacillus delbrueckii subsp. bulgaricus, L. delbrueckii subsp. bulgaricus
 bg:Лактобацилус булгарикус, Lactobacillus bulgaricus, Lactobacillus delbrueckii subsp. bulgaricus, L. delbrueckii subsp. bulgaricus, Lactobacillus delbrueskii subsp. bulgaricus
 es:lactobacilus delbrueckii sp Bulgaricus, Lactobacillus delbrueckii subspecies bulgaricus
+fi:Lactobacillus bulgaricus, L. bulgaricus
 fr:L bulgaricus, bulgaricus
 xx:Lactobacillus bulgaricus, L. bulgaricus
 wikidata:en:Q47455075
@@ -9243,9 +9245,13 @@ nl:Fijn zout
 en:rock salt
 bg:каменна сол
 de:Steinsalz
+es:sal de roca
 hu:Kősó
 nl:steenzout, mineraalzout
 pl:sól kamienna
+ciqual_food_code:en:11017
+ciqual_food_name:en:Salt, white, for human consumption (sea, igneous or rock), no enrichment
+ciqual_food_name:fr:Sel blanc alimentaire, non iodé, non fluoré (marin, ignigène ou gemme)
 
 # description:en:SMOKED SALT is an aromatic salt smoked with any number of select bark free woods for up to 14 days.
 
@@ -9395,6 +9401,9 @@ zh:海盐
 # yue:海鹽
 # zh-min-nan:Hái-iâm
 wikipedia:en:https://en.wikipedia.org/wiki/Sea_salt
+ciqual_food_code:en:11082
+ciqual_food_name:en:Pure sea salt, no enrichment
+ciqual_food_name:fr:Fleur de sel, non iodée, non fluorée
 
 # Celtic Sea Salt is a brand (https://www.celticseasalt.com/) but it is
 # also commonly used on ingredient list
@@ -9484,6 +9493,9 @@ fr:sel gris, sel marin gris, sel gris marin
 it:Sale grigio
 wikipedia:en:https://en.wikipedia.org/wiki/Sel_gris
 wikidata:en:Q5493196
+ciqual_food_code:en:11083
+ciqual_food_name:en:Sea salt, grey, no enrichment
+ciqual_food_name:fr:Sel marin gris, non iodé, non fluoré
 # ingredient/fr:sel-gris-marin has 32 products in french @2020-04-03
 
 <en:sel gris
@@ -21150,21 +21162,32 @@ de:Weizenhalmfaser
 
 <en:wheat
 en:wheat bran
+af:koringsemels
 bg:пшенични трици, пшеничени трици
+da:vetekli
 de:Weizenkleie, Weizenspeisekleie
+el:πίτουρο σταριού, σταροπίτουρο
 es:salvado de trigo
 fi:vehnälese
 fr:son de blé, son de froment
+hr:pšenične mekinje
 hu:búzakorpa
 it:crusca di frumento
+kk:бидай кебек
 lt:kviečių sėlenos
 nb:hvetekli
 nl:tarwezemelen, tarwezemel
-pl:Otręby pszenne
+pl:otręby pszenne
 pt:farelo de trigo
 ro:tărâțe de grâu
 ru:отруби пшеничные
+sl:pšenični otrobi
 sv:vetekli
+wikidata:en:Q10714691
+ciqual_food_code:en:9621
+ciqual_food_name:en:Wheat bran
+ciqual_food_name:fr:Son de blé
+#4215 @2022-01-13
 
 <en:wheat
 en:einkorn wheat, einkorn
@@ -24811,193 +24834,191 @@ sv:kokosmjöl
 en:corn, maize, corn cereal
 af:Mielie
 am:በቆሎ
-an:Zea mays
 ar:ذرة
-av:ЦIоросаролъ
-ay:Tunqu
-az:Qarğıdalı
-ba:Шәкәр кукурузы
-be:Кукуруза
+av:цiоросаролъ
+ay:tunqu
+az:qarğıdalı
+ba:шәкәр кукурузы
+be:кукуруза
 bg:царевица
-bi:Corn
-bm:Kaba
+bi:corn
+bm:kaba
 bn:ভুট্টা
 bo:ཨ་ཤོམ།
-br:Maiz
-bs:Kukuruz
-ca:Dacsa,blat de moro
-ce:ХьаьжкӀа
-cs:Kukuřice setá
-cv:Чакан тулă
-cy:Indrawn
+br:maiz
+bs:kukuruz
+ca:dacsa, blat de moro
+ce:хьаьжкӏа
+cs:kukuřice, kukuřice setá
+cv:чакан тулă
+cy:indrawn
 da:majs
 de:Mais, Gemüsemais
 dv:ޒުވާރި
-el:αραβόσιτος, Καλαμπόκι
-eo:Maizo
+el:αραβόσιτος, καλαμπόκι
+eo:maizo
 es:maíz, cereal de maiz
-et:Mais
-eu:Arto
+et:mais
+eu:arto
 fa:ذرت
-ff:Masarji
+ff:masarji
 fi:maissi
-fj:Sila
-fo:Mais
+fj:sila
+fo:mais
 fr:maïs, mais
-fy:Stynske weet
-ga:Arbhar Indiach
-gd:Cruithneachd-Innseanach
-gl:Millo
-gn:Avati
+fy:stynske weet
+ga:arbhar indiach
+gd:cruithneachd-innseanach
+gl:millo
+gn:avati
 gu:મકાઈ
-ha:Masara
+ha:masara
 he:תירס
 hi:मक्का
 hr:kukuruz, kukuruzno
-ht:Mayi
+ht:mayi
 hu:kukorica, tengeri, törökbúza, málé
-hy:Եգիպտացորեն
-ia:Zea mays
-id:Jagung
-io:Maizo
-is:Maís
+hy:եգիպտացորեն
+id:jagung
+io:maizo
+is:maís
 it:mais
 ja:トウモロコシ, とうもろこし
-jv:Jagung
+jv:jagung
 ka:სიმინდი
-kg:Disângu
-kk:Жүгері
+kg:disângu
+kk:жүгері
 kn:ಮೆಕ್ಕೆ ಜೋಳ
 ko:옥수수
-ku:Garis, گارس
-ky:Жүгөрү
-la:Zea mays
-lb:Mais
-li:Meis
-ln:Lisángú
-lt:kukurūzai, Paprastasis kukurūzas
+ku:garis, گارس
+ky:жүгөрү
+la:zea mays
+lb:mais
+li:meis
+ln:lisángú
+lt:kukurūzai, paprastasis kukurūzas
 lv:kukurūza
-mg:Katsaka
-mk:Пченка
+mg:katsaka
+mk:пченка
 ml:ചോളം
 mr:मका
-ms:Jagung
+ms:jagung
 my:ပြောင်းဖူး
-nb:Mais
+nb:mais
 ne:मकै
 nl:maïs, mais
 nn:mais
-nv:Naadą́ą́ʼ
-oc:Milh
+nv:naadą́ą́ʼ
+oc:milh
 or:ମକା
-os:Нартхор
+os:нартхор
 pa:ਮੱਕੀ
-pl:kukurydziana, Kukurydza zwyczajna, Kukurydza
+pl:kukurydziana, kukurydza zwyczajna, kukurydza
 ps:جوار
 pt:milho
-qu:Sara
-ro:Porumb
-ru:Кукуруза
-rw:Ikigori
-sc:Trigumoriscu
+qu:sara
+ro:porumb
+ru:кукуруза
+rw:ikigori
+sc:trigumoriscu
 sd:مڪئي
-sh:Kukuruz
+sh:kukuruz
 si:බඩ ඉරිඟු
-sk:korua, Kukurica siata
-sl:Koruza
-sn:Chibage
-so:Galley
-sq:Misri
-sr:Кукуруз
-su:Jagong
+sk:korua, kukurica siata
+sl:koruza
+sn:chibage
+so:galley
+sq:misri
+sr:кукуруз
+su:jagong
 sv:majs
-sw:Muhindi
+sw:muhindi
 ta:மக்காச்சோளம்
 te:మొక్కజొన్న
-tg:Ҷуворимакка
+tg:ҷуворимакка
 th:ข้าวโพด
-tl:Mais
-tn:Mmidi, Mmopo
-to:Koane
-tr:Mısır
-tt:Кукуруз
+tl:mais
+tn:mmidi, mmopo
+to:koane
+tr:mısır
+tt:кукуруз
 ug:كۆممىقوناق
-uk:Кукурудза
+uk:кукурудза
 ur:مکئی
-uz:Makkajoʻxori
-vi:Ngô
-vo:Mait
-wa:Dinrêye d' awousse
+uz:makkajoʻxori
+vi:ngô
+vo:mait
+wa:dinrêye d'awousse
 yi:קוקורוזע
-za:Haeuxyangz
+za:haeuxyangz
 zh:玉米
-# als:Mais
+# als:mais
 # arz:دره
-# ast:maíz, Zea mays
+# ast:maíz
 # azb:قارغیدالی
-# bar:Gugaruz
-# bcl:Mais
-# bxr:Кукуруза
-# cdo:Iù-diĕng-báu
-# ceb:Zea mays
-# chr:ᏎᎷ
-# chy:Ová'kemâhaemenôtse
+# bar:gugaruz
+# bcl:mais
+# bxr:кукуруза
+# cdo:iù-diĕng-báu
+# chr:ꮞꮇ
+# chy:ová'kemâhaemenôtse
 # ckb:گەنمەشامی
-# din:Anyuɔl
-# diq:Lazut
-# dsb:Majs
-# eml:Furmintòun
+# din:anyuɔl
+# diq:lazut
+# dsb:majs
+# eml:furmintòun
 # ext:millu, maís
-# fiu-vro:Mais
-# frr:Meis
-# fur:Blave
+# fiu-vro:mais
+# frr:meis
+# fur:blave
 # gan:粟米
-# gor:Binte
-# hak:Pâu-siuk
-# hsb:Prawa kukurica
-# ilo:Mais
-# inh:ХьажкӀа
-# jam:Kaan
+# gor:binte
+# hak:pâu-siuk
+# hsb:prawa kukurica
+# ilo:mais
+# inh:хьажкӏа (ingoesjetisch)
+# jam:kaan
 # jbo:zumri
-# kbd:Нартыху
-# kbp:Saamɩɖɛ
-# krc:Нартюх
-# lad:Mais
-# lbe:Шагьнал лачӀа
-# lfn:Mais
-# lij:Granon
-# lmo:Zea mays
+# kbd:нартыху
+# kbp:saamɩɖɛ
+# krc:нартюх
+# lad:mais
+# lbe:шагьнал лачӏа
+# lfn:mais
+# lij:granon
 # mai:मकै
-# map-bms:Jagung
+# map-bms:jagung
 # mzn:کوگندم
-# nah:Cintli
-# nap:Granone
+# nah:cintli
+# nap:granone
 # new:कःनि
-# pam:Mais
-# pdc:Welschkann
-# pms:Melia
+# pam:mais
+# pdc:welschkann
+# pms:melia
 # pnb:مکی
-# pnt:Λαζούδ
-# roa-rup:Câlâmbuchiu
-# sah:Кукурууза
+# pnt:λαζούδ
+# roa-rup:câlâmbuchiu
+# sah:кукурууза
 # sat:ᱡᱚᱱᱚᱲᱟ
-# scn:Zea mays
-# sco:Maize
-# stq:Turske Weete
-# tum:Chingoma
-# vec:Formenton
-# vep:Kukuruz
-# war:Maís
+# sco:maize
+# stq:turske weete
+# tum:chingoma
+# vec:formenton
+# vep:kukuruz
+# war:maís
 # wuu:玉米
 # xmf:ლაიტი
-# zh-min-nan:Hoan-be̍h
+# zh-min-nan:hoan-be̍h
 # yue:粟米
 wikipedia:en:https://en.wikipedia.org/wiki/Maize
 wikidata:en:Q11575
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/corn
 carbon_footprint_fr_foodges_ingredient:fr:Maïs
 carbon_footprint_fr_foodges_value:fr:0.7
-# 6846 products in 16 languages @201809-23
+ciqual_food_code:en:9200
+ciqual_food_name:en:Corn or maize grain, raw
+ciqual_food_name:fr:Maïs entier, cru
+# 41540 in 66 @2021-12-19
 
 <en:corn
 en:organic corn
@@ -35463,45 +35484,49 @@ sv:äpple preparat
 <en:apple
 en:apple juice
 ar:عصير تفاح
-az:Alma şirəsi
-be:Яблычны сок
 bg:сок от ябълки, ябълков сок
 ca:suc de poma
-cs:Jablečný mošt
-da:Æblemost
+cs:jablečný mošt
+da:æblemost, æblesaft
 de:Apfelsaft
-el:χυμός μήλου
+el:χυμός μήλου, μηλοχυμός
 eo:poma suko
-es:jugo de manzana
-et:Õunamahl
+es:jugo de manzana, zumo de manzana
+et:õunamahl
 fa:آب سیب
 fi:omenamehu, omenatäysmehu
 fr:jus de pomme, jus de pommes
+ga:sú úill
 he:מיץ תפוחים
-hr:sok jabuke
+hr:sok od jabuke
 hu:almalé, almaszörp, almadzsúsz
-hy:Խնձորի հյութ
+hy:խնձորի հյութ
 it:succo di mela, succo di mele
 ja:リンゴジュース
+kk:aлма шырыны
 ko:사과 주스
-nb:Eplemost
+lt:obuolių sultys
+nb:eplemost
 nl:appelsap
-nn:Eplemost
-pl:Sok jabłkowy
+nn:eplemost
+pl:sok jabłkowy
 pt:suco de maçã
 ru:яблочный сок
 sa:सेवफलरसः
-sl:Jabolčni sok
-sv:Äppelmust, äppeljuice, äpplejuice, juice av äpple
-tl:Yago ng mansanas
-tr:Elma suyu
+sl:jabolčni sok
+sv:äppelmust, äppeljuice, äpplejuice, juice av äpple
+tl:yago ng mansanas
+tr:elma suyu
 tt:алма суы
 uk:яблучний сік
-vi:Nước táo
+vi:nước táo
 zh:蘋果汁
-# chy:Ma'xemené-mahpe
+# chy:ma'xemené-mahpe
 # yue:蘋果汁
 wikidata:en:Q618355
+ciqual_food_code:en:2074
+ciqual_food_name:en:Apple juice, pure juice
+ciqual_food_name:fr:Jus de pomme, pur jus
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/apple-juice
 # 1508 products in 6 languages @2018-10-04
 
@@ -37528,40 +37553,71 @@ it:acerola in polvere con fecola di manioca, acerola in polvere con amido di man
 
 <en:berries
 en:blackberry, blackberries
-bg:Къпина, къпини
-br:Mouar
-bs:Kupina
-ca:Mora
+ar:توت العليق الأسود
+bg:къпина
+bn:ব্ল্যাকবেরি
+br:mouar
+bs:kupina
+ca:mora
+cy:mwyaren
 da:brombær
-de:Brombeeren, Brombeere, Brombeer
-es:Mora, moras
-eu:Masusta
+de:brombeeren, brombeere, brombeer
+el:μούρο
+eo:kultivitaj rubusoj
+es:mora, moras, zarzamora
+eu:masusta
+fa:تمشک
 fi:karhunvatukka, karhunvadelma
 fr:mûre, mûres
+ga:sméar dhubh
+gl:amora
+he:פטל שחור
 hr:kupina, kupine
+hy:մոշ
 it:more
-kk:Қара бүлдірген
+ja:ブラックベリー
+jv:blèkbéri
+kk:қара бүлдірген, Qara büldirgen, قارا بۇلدىرگەن
 ko:블랙베리
-ku:Tûreşk
-mk:Капина
+ku:tûreşk, توورەشک
+lv:kazene
+mk:капина
 ml:ബ്ളാക്ക്ബെറി
+mt:tuta tal-għollieq
 nl:braam, bramen
+oc:amora
+os:дзедыр
+pl:jeżyna
 ps:تورتوت
 pl:jeżyna, jeżyny, jeżynowy, jeżynowa, jeżynowe, jeżyn
 pt:amora
-ru:Ежевика
+ro:mură
+ru:ежевика
 sd:ڪاريون ٻيريون
+sk:černica
+sr:kupina, купина
 sv:björnbär
 ta:நாகப்பழம்
-tr:Böğürtlen
+th:แบล็กเบอร์รี
+tr:böğürtlen
+# udm:лыз эмезь
+uk:ожина
 ur:سیاہ توت
-wa:Meumeure
+vi:mâm xôi
+wa:meumeure
 zh:黑莓
-# bar:Mur
-# roa-rup:Amurâ
-# udm:Лыз эмезь
+# ang:blæcberige
+# bar:mur
+# kab:tizwal
+# roa-rup:amurâ
+# scn:amuredda
+# tuk:böwürslen
+# udm:лыз эмезь
 # yue:黑啤梨
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:mûre
+wikidata:en:Q19842373
+ciqual_food_code:en:13029
+ciqual_food_name:en:Blackberry, raw
+ciqual_food_name:fr:Mûre (de ronce), crue
 # 404 products in 7 languages @21018-10-01
 
 en:Black mulberry
@@ -45691,73 +45747,82 @@ it:purea di cavolo
 
 <en:cabbage
 en:brussels sprouts
-af:Brusselspruit
+af:brusselspruit
 ar:كرنب بروكسل
 bg:брюкселско зеле
-br:Kaol-bihan
-ca:Col de Brussel·les
-cs:růžičková kapusta
-cy:Ysgewyll
-da:Rosenkål
+bn:ব্রাসেলস স্প্রাউট
+br:kaol-bihan
+ca:col de Brusselles
+cs:růžičková kapusta, kapusta růžičková
+cy:ysgewyll
+da:rosenkål
 de:Rosenkohl
-eo:Burĝonbrasiko
-es:Col de Bruselas, coles de bruselas
-et:Rooskapsas
-eu:Bruselaza
+el:λαχανάκι Βρυξελλών, λάχανα Βρυξελλών
+eo:burĝonbrasiko
+es:col de Bruselas, coles de bruselas
+et:rooskapsas, brüsseli kapsas
+eu:bruselaza
 fa:کلم بروکسل
-fi:Ruusukaali
+fi:ruusukaali, brysselinkaali
 fr:chou de Bruxelles, choux de bruxelles
-ga:Bachlóg Bhruiséile
-gd:Buinneag Bhruisealach
-gl:Col de Bruxelas
-gv:Caaylag
+ga:bachlóg Bhruiséile
+gd:buinneag Bhruisealach
+gl:col de Bruxelas
+gv:caaylag
 he:כרוב ניצנים
-hr:Kelj pupčar
-hu:Bimbós kel
-id:Kubis brussel
-is:Rósakál
-it:cavolini di Bruxelles
+hr:kelj pupčar
+hu:bimbós kel
+id:kubis brussel
+is:rósakál
+it:cavolini di Bruxelles, cavolo di Bruxelles
 ja:メキャベツ
 ka:ბრიუსელის კომბოსტო
 kk:Брюссель қырыққабаты
 ko:방울다다기
 la:Cauliculus Bruxellanus
-lt:Briuselio kopūstas
-ms:Kubis brussels
-nb:Rosenkål
+lb:brockelchen
+lt:briuselio kopūstas
+lv:briseles kāposti, rožkāposti
+ms:kubis brussels
+mt:kaboċċi ta' Brussell, kaboċċi taz-zokk
+nb:rosenkål
 nl:spruitjes, spruitkool
-nn:Rosenkål
-nv:Atʼééké bijish yázhí
-pl:Kapusta warzywna brukselska
+nn:rosenkål
+nv:atʼééké bijish yázhí
+pl:kapusta brukselska, Kapusta warzywna brukselska
 pt:couve-de-bruxelas
-ro:Varză de Bruxelles
-ru:Брюссельская капуста
-sh:Prokelj
-sk:Kapusta obyčajná ružičková
-sr:Прокељ
-sv:Brysselkål
+ro:varză de Bruxelles
+ru:брюссельская капуста
+sh:prokelj
+sk:kapusta obyčajná ružičková, kel ružičkový
+sl:brstični ohrovt
+sr:прокељ
+sv:brysselkål
 ta:கிளைக்கோசு
-tg:Ғужмкарам
+tg:ғужмкарам
 th:กะหล่ำดาว
-tl:Usbong ng bruselas
-tr:Brüksel lahanası
-uk:Брюссельська капуста
-uz:Bryussel karami
-vi:Cải Brussels
+tl:usbong ng bruselas
+tr:brüksel lahanası
+uk:брюссельська капуста
+uz:bryussel karami
+vi:cải brussels
 zh:抱子甘藍
-# hsb:Pupkaty kał
+# hsb:pupkaty kał, pupak
 # kk-arab:بريۋسسەل قىرىققاباتى
 # kk-cn:بريۋسسەل قىرىققاباتى
-# kk-cyrl:Брюссель қырыққабаты
-# kk-kz:Брюссель қырыққабаты
-# kk-latn:Bryusselʹ qırıqqabatı
-# kk-tr:Bryusselʹ qırıqqabatı
-# ksh:Spruut
-# lij:Cöo de Bruxelles
-# nds-nl:Keulkes
-# pcd:Ésproete
-# sr-ec:Прокељ
-# sr-el:Prokelj
+# kk-cyrl:брюссель қырыққабаты
+# kk-kz:брюссель қырыққабаты
+# kk-latn:bryusselʹ qırıqqabatı
+# kk-tr:bryusselʹ qırıqqabatı
+# ksh:spruut
+# lij:cöo de Bruxelles
+# mri:aonanī
+# nds-nl:keulkes
+# pcd:ésproete
+# sr-ec:прокељ
+# sr-el:prokelj
+# vec:càvorlo de Brusel
+# wuu:抱子甘蓝
 # zh-cn:抱子甘蓝
 # zh-hans:抱子甘蓝
 # zh-hant:抱子甘藍
@@ -45765,6 +45830,9 @@ zh:抱子甘藍
 # zh-sg:抱子甘蓝
 # zh-tw:抱子甘藍
 wikidata:en:Q150463
+ciqual_food_code:en:20058
+ciqual_food_name:en:Brussels sprout, raw
+ciqual_food_name:fr:Chou de Bruxelles, cru
 # fr:chou-de-Bruxelles has 41 products in 2 languages @2018-10-19
 
 
@@ -46445,10 +46513,14 @@ carbon_footprint_fr_foodges_ingredient:fr:Céleri
 carbon_footprint_fr_foodges_value:fr:0.8
 
 <en:celery
+en:celery stalk
 fr:céleri branche
 de:Stangensellerie
 nl:bleekselderij
-# fr:céleri-branche has 50 products in 3 languages @2018-10-21
+ciqual_food_code:en:20023
+ciqual_food_name:en:Celery stalk, raw
+ciqual_food_name:fr:Céleri branche, cru
+# 88 in 3 languages @2021-12-01
 
 <en:celery
 <en:herb
@@ -48008,75 +48080,80 @@ wikipedia:en:https://en.wikipedia.org/wiki/Diplotaxis_tenuifolia
 
 <en:salad
 en:sorrel, common sorrel
-af:Veldsuring
+af:veldsuring
 ar:حماض بستاني
-az:Adi əvəlik
-ba:Ҡуҙғалаҡ
-bg:Киселец
+az:adi əvəlik
+ba:ҡуҙғалаҡ
+bg:киселец
 ca:agrella
 cs:šťovík kyselý
-cy:Suran y cŵn
-da:Almindelig Syre
+da:syre, almindelig syre
 de:Sauerampfer
-el:Λάπαθο
-eo:Okzalo
-es:Acedera común
-et:hapuoblikas, Hapu oblikas
-eu:Mingarratz handi
+el:λάπαθο
+eo:okzalo
+es:acedera común
+et:hapuoblikas, hapu oblikas
+eu:mingarratz handi
 fa:سورل، لوئیزیانا
-fi:Niittysuolaheinä
+fi:niittysuolaheinä
 fr:oseille
-ga:Samhadh
-gl:Aceda
+ga:samhadh
+gl:aceda
 hi:खट्टा पालक
-hr:Obična kiselica
-hu:Mezei sóska
-io:Oxalo
-is:Túnsúra
+hr:obična kiselica
+hu:mezei sóska
+io:oxalo
+is:túnsúra
 it:acetosa
 ja:スイバ
 ka:მჟაუნა
 ko:수영
-ku:Tirşo
-ky:Кызыл аткулак
-la:Rumex acetosa
-lt:Valgomoji rūgštynė
+ku:tirşo
+ky:кызыл аткулак
+la:rumex acetosa
+lt:valgomoji rūgštynė
 lv:pļavas skābene
-mk:Киселец
-nb:Engsyre
-nl:veldzuring, Zurkel
-nn:Engsyre
-nv:Chaatʼíní
-os:Хуырхæг
-pl:Szczaw zwyczajny
-pt:Azeda
-ro:Măcriș
-ru:Щавель кислый
-se:Juopmu
-sh:Kiseljak
+mk:киселец
+mr:चुका
+nb:engsyre
+nl:zuring, veldzuring, zurkel
+nn:engsyre
+nv:chaatʼíní
+os:хуырхæг
+pl:szczaw zwyczajny
+pt:azeda
+ro:măcriș
+ru:щавель кислый
+se:juopmu
+sh:kiseljak
 sk:štiav lúčny
-sl:Navadna kislica
-sq:Lëpjeta
-sr:кисељак
-sv:Ängssyra
-tg:Туршак
-uk:Щавель кислий
-vi:Chút chít
+sl:navadna kislica
+sq:lëpjeta
+sr:кисељак, kiseljak
+sv:ängssyra
+tg:туршак
+uk:щавель кислий
+ur:ہوبابل
+vi:chút chít
 zh:酸模
 # azb:عادی او‌لیک
-# csb:Kwasné zelé
-# diq:Amênvaş
-# frr:Ruad jüd
-# hsb:Kisały zdźer
-# koi:Тшӧтшкӧр
-# sgs:Rūgštīnė
-# stq:Suurke
-# vec:Spanavin
-# vep:Sol'hein
+# csb:kwasné zelé
+# diq:amênvaş
+# frr:ruad jüd
+# hsb:kisały zdźer
+# koi:тшӧтшкӧр
+# sgs:rūgštīnė
+# stq:suurke
+# vec:spanavin
+# vep:sol'hein
+#wuu:酸模
 # zh-tw:酸模
 wikidata:en:Q26297
 wikipedia:en:https://en.wikipedia.org/wiki/Sorrel
-# ingredient/fr:oseille has 91 products in 5 languages @2019-04-05
+ciqual_food_code:en:20111
+ciqual_food_name:en:Sorrel, raw
+ciqual_food_name:fr:Oseille, crue
+"# 138 in 5 @2021-12-01
 
 #in additives_classes
 <en:sorrel
@@ -50132,8 +50209,10 @@ carbon_footprint_fr_foodges_value:fr:2.9
 <en:tomato
 en:tomato purée
 bg:доматено пюре
+cs:rajčatové pyré
 da:tomatpuré, tomatpure
 de:Tomatenmark, Tomatenpüree
+el:πουρές τομάτας
 es:Puré de tomate
 et:tomatipüree
 fi:tomaattipyree, tomaattipyre, tomaattitiiviste, tomaattisose
@@ -50143,12 +50222,18 @@ hu:paradicsompüré
 is:tómatpúrra
 nb:tomatpuré
 nl:tomatenpurée, tomatenconcentraat, tomatenpuree
+pl:przecier pomidorowy
+ru:томатное поре
+sk:bravčové mäso
 sv:tomatpuré, tomatpyré, tomatpure, mosade tomater
 carbon_footprint_fr_foodges_ingredient:fr:Sauce tomate
 carbon_footprint_fr_foodges_value:fr:2.9
+ciqual_food_code:en:20170
+ciqual_food_name:en:Tomato puree, canned
+ciqual_food_name:fr:Tomate, purée, appertisée
 wikidata:en:Q1114674
 wikipedia:en:https://en.wikipedia.org/wiki/Tomato_pur%C3%A9e
-# ingredient/fr:purée-de-tomate has 2637 products @2018-12-26
+# 10114 @2021-12-01
 
 <en:tomato purée
 en:organic tomato purée
@@ -50310,11 +50395,18 @@ fr:purée et pulpe de tomates
 en:green tomato
 bg:зелени домати
 de:grüne Tomaten
+es:tomates verdes
 fi:vihreä tomaatti
 fr:tomates vertes
+it:pomodori verdi
 nl:groene tomaat
+ciqual_food_code:en:20119
+ciqual_food_name:en:Tomato, green, raw
+ciqual_food_name:fr:Tomate verte, crue
+# 88 @1-dec-2021
 
 <en:green tomato
+en:green tomato puree
 fr:Purée de tomates vertes
 fi:vihreä tomaattipyree
 # In process de:Püree aus grünen Tomaten
@@ -50638,12 +50730,12 @@ de:Kürbis, Kürbisse
 dv:ބަރަބޯ
 dz:ཀ་ཀུ་རུ
 eo:kukurbo
-es:calabaza, calabaza gigante,zapallo
+es:calabaza,zapallo
 et:Kõrvits
 eu:Kuia
 fa:کدو تنبل
 fi:kurpitsa
-fr:courge, citrouille, potiron
+fr:courge, citrouille
 ga:Puimcín
 gu:કોળું
 he:דלעת
@@ -50770,11 +50862,45 @@ fr:jus de potiron concentré, jus concentré de potiron
 
 <en:vegetable
 en:butternut squash
+ar:قرع مسكي
+az:ətirli balqabaq
+bg:мускатна тиква
+bn:কুমড়া
 de:Butternusskürbis, Butternutkürbis, Moschuskürbis
+eo:moska kukurbo
 es:calabaza moscada
 fi:myskikurpitsa
-fr:courge butternut
-it:Zucca Butternut
+fr:courge butternut, courge musquée
+gn:andai
+he:דלורית
+ht:jomou
+hu:pézsmatök
+id:labu kuning
+it:zucca butternut, zucca trombetta
+ja:ニホンカボチャ
+ko:동양계 호박
+la:cucurbita moschata
+mk:мошусна тиква
+my:ရွှေဖရုံပင်
+nb:moskusgresskar
+nl:butternutpompoen, butternut-pompoen, muskaatpompoen, muskuspompoen
+pl:dynia piżmowa
+qu:lakawiti
+ru:тыква мускатная
+su:waluh konéng
+sv:butternutpumpa
+ta:கல்யாணப் பூசணி
+tr:bal kabağı
+uk:гарбуз мускатний
+vi:bí rợ
+zh:中国南瓜
+#azb:عطیرلی بالقاباق
+#dsb:japańska banja
+#mad:labu
+ciqual_food_code:en:20128
+ciqual_food_name:en:Pumpkin (cucurbita moschata), pulp, raw
+ciqual_food_name:fr:Courge musquée, pulpe, crue
+#696 @2021-12-01
 
 <en:vegetable
 en:spaghetti squash
@@ -50790,16 +50916,68 @@ ciqual_food_name:fr:Courge spaghetti, pulpe, crue
 # description:en:Red kuri squash (often spelled 'kari') (katakana:ウチキクリ) is thin skinned orange colored winter squash, that has the appearance of a small pumpkin without the ridges.
 
 <en:vegetable
-en:Red kuri squash
+en:giant squash
+an:calabazera
+ar:قرع كبير
+az:i̇ri balqabaq
+be:гарбуз вялікі
+bg:гигантска тиква
+ca:carabassa
+chy:mo'ôhtáemâhoo'o
+cs:tykev velkoplodá, dýně obrovská
+cy:pwmpen
+de:Riesen-Kürbis
+eo:gigantkukurbo
+es:calabaza gigante
+fa:کدوی تنبل
+fi:jättikurpitsa, talvisquash
+fr:potiron
+gl:caiota
+gn:kurapepẽ
+hu:óriástök
+ja:セイヨウカボチャ
+ko:서양호박
+la:Cucurbita maxima
+lt:didysis moliūgas
+mk:џиновска тиква
+nb:kjempegresskar
+nl:reuzenpompoen
+nn:kjempegresskar
+pl:dynia olbrzymia
+pt:abóbora-gigante
+qu:sapallu
+ro:dovleac, bostanul, cucurbăta
+ru:тыква гигантская
+sk:tekvica obrovská
+sv:jättepumpa
+tr:helvacı kabağı
+zh:笋瓜
+#arz:قرع كبير
+#dsb:wjelicka banja
+#hsb:hoberski banjowc
+#pcd:paturon
+wikidata:en:Q161180
+
+<en:squash
+en:red kuri squash
+co:zucca castagnina
+cs:dýně hokkaidó
 de:Hokkaidokürbis
 fi:hokkaidokurpitsa
 fr:potimarron
-ja:ホッカイドウカボチャ
-la:Cucurbita maxima
-# ast:Calabaza
+ja:ホッカイドウカボチャ, ウチキクリ
+la:Cucurbita maxima var. hubbaridianna
+nb:hokkaidogresskar
+nl:Hokkaido-pompoen
+sr:хокаидо бундева, hokaido bundeva
+uk:гарбуз Хоккайдо
+# arz:قرع كورى احمر
 wikidata:en:Q645199
 wikipedia:en:https://en.wikipedia.org/wiki/Red_kuri_squash
-# ingredient/fr:potimarron has 87 products in french @2019-03-02
+ciqual_food_code:en:20134
+ciqual_food_name:en:Sweet green hokkaido squash, pulp, raw
+ciqual_food_name:fr:Courge hokkaïdo, pulpe, crue
+# 176 in french @2021-12-03
 
 
 # description:en:The zucchini (American English) or courgette (British English) is a summer squash.
@@ -54838,7 +55016,7 @@ en:flax seed, flax seeds, flaxseed, linseed, linseed seeds
 bg:Ленено семе
 cs:Len setý
 da:Hørfrø
-de:Leinsamen, Leinsaat
+de:Leinsamen, Leinsaat, Leinsaaten
 es:semillas de lino, semillas de linaza, linaza
 et:Linaseemned, linaseeme
 fa:تخم کتان
@@ -55305,7 +55483,7 @@ bg:сусамово семе
 ca:llavors de sèsam
 cs:sezamová semena
 da:sesamfrø
-de:Sesamsamen, Sesamkörner, Sesamkorn, Sesamsaat
+de:Sesamsamen, Sesamkörner, Sesamkorn, Sesamsaat, Sesamsaaten
 el:σπόροι σησαμιού
 es:granos de sésamo, semillas de sésamo, granos de ajonjolí, semillas de ajonjolí
 et:seesamiseemned
@@ -70976,6 +71154,12 @@ la:Helix pomatia
 <en:snail
 fr:chairs d'escargots
 
+<en:mollusc
+en:Teuthida
+la:Teuthida
+xx:Teuthida
+wikidata:en:Q81900
+
 ###################################################################################################
 #
 #                                Squid
@@ -70983,7 +71167,7 @@ fr:chairs d'escargots
 ###################################################################################################
 # description:en:Squid are cephalopods in the order Teuthida with elongated bodies, large eyes, eight arms and two tentacles.
 
-<en:mollusc
+<en:Teuthida
 en:squid
 af:Pylinkvis
 ar:سبيدج
@@ -71065,9 +71249,11 @@ ciqual_food_code:en:10001
 ciqual_food_name:en:Squid, raw
 ciqual_food_name:fr:Calmar ou calamar ou encornet, cru
 
-<en:squid
-en:Teuthida
-la:Teuthida
+<en:Teuthida
+en:european flying squid
+it:totano
+la:todarodes sagittatus
+wikidata:en:Q1151502
 
 <en:squid
 fr:anneaux de calmar
