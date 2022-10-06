@@ -799,7 +799,8 @@ bg:Без пшеница
 de:Ohne Weizen
 nl:Zonder graan
 
-en:No gluten, Gluten-free, Without gluten, Gluten-free-food, free of gluten, Naturally gluten free, Gluten free, ni gluten
+#instruction:en:Do NOT change the english key.
+en:No gluten, Gluten free, Without gluten, Gluten-free-food, free of gluten, Naturally gluten-free, Gluten free, ni gluten
 bg:Без глутен
 ca:Lliure de gluten, Sense gluten, No gluten, Aliment sense gluten, Lliure de gluten, Sense gluten d'orígen
 cs:Bez lepku
@@ -825,22 +826,22 @@ zh:无麸质
 wikidata:en:Q2632776
 opposite:en: en:contains-gluten
 
-<en:gluten-free
+<en:No gluten
 en:Crossed Grain Symbol, Crossed Grain
 xx:Crossed Grain Symbol
 
-<en:Gluten-free
+<en:No gluten
 en:FACE
 xx:FACE
 
-<en:Gluten-free
+<en:No gluten
 fr:Afdiag, Association Française des Intolérants au Gluten
 
-<en:Gluten-free
+<en:No gluten
 en:DZG Gluten free
 de:DZG glutenfrei
 
-<en:Gluten-free
+<en:No gluten
 es:Sin TACC, Sin T.A.C.C.
 wikidata:en:Q101542317
 image:en:Sin-tacc.86x90.png
@@ -1496,7 +1497,7 @@ nl:Distributeur-labels
 ru:Этикетки дистрибьюторов
 zh:分销商标签
 
-<en:Labels of distributors
+<en:distributor labels
 en:Carrefour Quality, Quality Carrefour
 ca:Qualitat Carrefour
 de:Carrefour-Qualität
@@ -1506,15 +1507,16 @@ fr:Qualité Carrefour, Carrefour Qualité, Engagement Qualité Carrefour
 it:Qualità Carrefour
 nl:Carrefour kwaliteit
 
-<en:Labels of distributors
+<en:distributor labels
 fr:Label Carrefour
 
-<en:Labels of distributors
+<en:distributor labels
 fr:Sélection Intermarché
 
-<en:Labels of distributors
+<en:distributor labels
 fr:Testé par le panel test Carrefour, Panel test Carrefour, Inspiré testé et approuvé par le panel Test Carrefour, approuvé par le panel Test Carrefour, testé et approuvé par le panel Test Carrefour, panel Carrefour
 
+<en:distributor labels
 en:Charte LU Harmony, Charte Harmony, LU Harmony, Charte LU
 it:Progetto Harmony di Charte LU
 nl:Charte LU Harmony
@@ -3169,8 +3171,8 @@ sv:Utan konserveringsmedel
 th:ไม่ใช้วัตถุกันเสีย
 zh:无防腐剂
 
-<en: No colorings
-<en: No preservatives
+<en:No colorings
+<en:No preservatives
 en:Without dyes or preservatives
 bg:Без оцветители и консерванти
 ca:Sense colorants ni conservants
@@ -17149,7 +17151,7 @@ en:Sustainable
 nl:Duurzaam
 
 <en:Sustainable
-en:Sustainable fishing, Sustainable Seafood, Sustainable fishery
+en:Sustainable fishery, Sustainable fishing, Sustainable Seafood
 bg:Устойчив риболов
 ca:Piscifactoria sostenible, Pesca sostenible, Marisc sostenible
 de:Nachhaltige Fischerei
@@ -17927,25 +17929,25 @@ ingredients:en: en:meat
 origins:en: en:france
 # Note: putting
 
-<fr:Viande Française
+<en:French meat
 fr:Viande d'agneau français, VAF, Viande d'agneau Origine France, Agneau 100% Français, Viande d'agneau Française, Agneau 100% France, Agneau Origine France
 ingredients:en: en:lamb
 origins:en: en:france
 
-<fr:Viande Française
+<en:French meat
 fr:Viande de chèvre française, Viande de chèvre Origine France, Chèvre 100% Française, Viande de chèvre Française, Chèvre 100% France, Chèvre Origine France
 origins:en: en:france
 
-<fr:Viande Française
+<en:French meat
 fr:Viande de chevreau français, Viande de chevreau Origine France, Chevreau 100% Français, Viande de chevreau Française, Chevreau 100% France, Chevreau Origine France
 origins:en: en:france
 
-<fr:Viande Française
+<en:French meat
 fr:Lapin Français, Lapin de France, Lapin Origine France, Viande de lapin français, Viande de lapin française, Viande de Lapin origine France
 ingredients:en: en:rabbit
 origins:en: en:france
 
-<fr:Viande Française
+<en:French meat
 en:French duck
 de:Französische Ente
 es:Pato francés
@@ -17957,7 +17959,7 @@ pt:Pato francês
 ingredients:en: en:duck
 origins:en: en:france
 
-<fr:Viande Française
+<en:French meat
 en:French pork
 ca:Porc francès
 de:Schweinefleisch aus Frankreich
@@ -17972,34 +17974,34 @@ pt:Porco francês
 origins:en: en:france
 ingredients:en: en:pork
 
-<fr:Viande Française
+<en:French meat
 en:French beef
 fr:Viande Bovine Française, VBF, Viande bovine Origine France, Bœuf 100% Français, Viande de bœuf Française, Bœuf 100% France, Bœuf Origine France
 origins:en: en:france
 ingredients:en: en:beef
 
-<fr:Viande Française
+<en:French meat
 fr:Viande Ovine Française, Viande ovine Origine France, Ovin 100% Français, Viande d'ovin Française, Ovin 100% France, ovin Origine France
 origins:en: en:france
 ingredients:en: en:sheep
 
-<fr:Viande Française
+<en:French meat
 fr:Viande de veau français, Viande de veau Origine France, Veau 100% Français, Viande de veau Française, Veau 100% France, Veau Origine France
 origins:en: en:france
 ingredients:en: en:veal
 
-<fr:Viande Française
+<en:French meat
 en:French poultry
 fr:Volaille Française, volaille Origine France
 origins:en: en:france
 ingredients:en: en:poultry
 
-<fr:Viande Française
+<en:French meat
 fr:Poulet Français, Viande de poulet origine France, Poulet 100% Français, Viande de poulet français, Viande de poulet française, Poulet Origine France, Poulet 100% France
 origins:en: en:france
 ingredients:en: en:chicken
 
-<fr:Viande Française
+<en:French meat
 fr:Viande Chevaline Française, Viande chevaline origine France, Cheval 100% Français, Viande de cheval française, Viande de cheval français, Cheval Origine France, Cheval 100% France
 origins:en: en:france
 ingredients:en: en:horse
@@ -19174,6 +19176,7 @@ fi:E-kooditon, ei E-koodeja
 hu:E-szám mentes
 label_categories:en: en:Health
 
+#instruction:en:Do NOT change the english key.
 en:No antibiotics, Without antibiotics, antibiotic-free, antibiotics-free,no antibiotic, raised without antibiotics, no Antibiotics Administered
 bg:Без антибиотици
 ca:Sense antibiòtics, Lliure d'antibiòtics, No s'han administrat antibiòtics, Engreixat sense antibiòtics
@@ -19185,7 +19188,7 @@ hu:Antibiotikum mentes
 it:Senza antibiotici
 label_categories:en: en:Health
 
-<en:Without antibiotics
+<en:No antibiotics
 en:Without antibiotics since birth, no antibiotics ever
 bg:Без антибиотици от раждането
 de:Ohne Antibiotika seit der Geburt, keine Antibiotika jemals
@@ -19194,15 +19197,15 @@ fi:Ei antibiootteja syntymän jälkeen
 fr:Sans antibiotique dès la naissance, sans antibiotique de la naissance à l'abattage, sans antibiotique sur toute la vie de l'animal, sans traitement antibiotique sur toute la vie de l'animal
 pt:Sem antibióticos desde o nascimento, nenhum antibiótico nunca
 
-<en:Without antibiotics
+<en:No antibiotics
 en:Without antibiotics after weaning
 fr:Sans antibiotique après sevrage, sans antibiotique dès la fin du sevrage, sans antibiotique après la fin du sevrage
 
-<en:Without antibiotics
+<en:No antibiotics
 en:Without antibiotics after first age, Without antibiotics after 1st age
 fr:Sans antibiotique après le premier âge, Sans antibiotique après le 1er âge
 
-<en:Without antibiotics
+<en:No antibiotics
 en:Porks raised without antibiotics
 de:Schweineaufzucht ohne Antibiotika
 fi:porsaat kasvatettu ilman antibiootteja, siat kasvatettu ilman antibiootteja
@@ -19227,7 +19230,7 @@ en:Porks raised without antibiotics after first age
 ca:Porcs criats sense antibiòtics després del primer any de vida
 fr:Porcs élevés sans antibiotique après le premier âge, Porcs élevés sans antibiotique après le 1er âge
 
-<en:Without antibiotics
+<en:No antibiotics
 en:Chickens raised without antibiotics
 de:Hühneraufzucht ohne Antibiotika
 fi:Kanat kasvatettu ilman antibiootteja
@@ -19239,7 +19242,7 @@ it:Polli allevati senza antibiotici
 en:Chickens raised without antibiotics since birth
 fr:Poulets élevés sans antibiotique dès la naissance
 
-<en:Without antibiotics
+<en:No antibiotics
 en:Hens raised without antibiotics
 de:Hennenaufzucht ohne Antibiotika
 fr:Poules élevées sans antibiotique
@@ -19255,7 +19258,7 @@ fi:hormoniton, kasvatettu ilman hormoneja
 fr:Sans hormone, élevé sans hormone
 it:Senza ormoni, allevato senza ormoni
 
-<en:Without antibiotics
+<en:No antibiotics
 <en:Without hormones
 en:Without antibiotics or hormones, Without hormones or antibiotics
 de:ohne Antibiotika oder Hormone, Aufzucht ohne Hormone oder Antibiotika
