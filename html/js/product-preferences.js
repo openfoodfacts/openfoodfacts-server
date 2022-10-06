@@ -92,10 +92,10 @@ function generate_preferences_switch_button(preferences_text, checkbox_id) {
 	}	
 
 	var html = '<div class="flex-grid direction-row" style="margin-right:2rem;">' +
-    '<fieldset class="switch round success unmarged" tabindex="0" id="' + checkbox_id +'_switch" style="float:left;margin-right:0.5rem;padding-top:0.1rem;">' +
+    '<fieldset class="switch round success unmarged" tabindex="0" id="' + checkbox_id +'_switch" style="align-items:center;margin-right:0.5rem;padding-top:0.1rem;padding-bottom:0.1rem;">' +
     '<input class="preferences_checkboxes" id="' + checkbox_id + '" type="checkbox"' + checked + '>' +
-    '<label for="' + checkbox_id +'"></label></fieldset>' +
-    '<label for="' + checkbox_id +'" class="v-space-tiny h-space-tiny" style="float:left">' + preferences_text + '</label></div>';    
+    '<label for="' + checkbox_id +'" class="h-space-tiny" style="margin-top:0"></label></fieldset>' +
+    '<label for="' + checkbox_id +'" class="v-space-tiny h-space-tiny" style="margin-top:0">' + preferences_text + '</label></div>';    
 
 	return html;
 }
@@ -125,9 +125,9 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
 	
 	var html = '';
 	
-	var html_edit_preferences = '<a id="show_selection_form" class="button small round secondary"  role="button" tabindex="0">' +
-        '<span class="material-symbols-outlined">&#xE556;</span><span style="padding-left:0.5rem;">' +
-        " " + lang().preferences_edit_your_food_preferences + '</span></a>';
+	var html_edit_preferences = '<div><a id="show_selection_form" class="button small round secondary" role="button" tabindex="0">' +
+        '<span class="material-symbols-outlined size-20">&#xE556;</span>' +
+        "&nbsp;<span>" + lang().preferences_edit_your_food_preferences + '</span></a></div>';
 	
 	// Display a switch for scoring and ranking products according to the user preferences 
 			
