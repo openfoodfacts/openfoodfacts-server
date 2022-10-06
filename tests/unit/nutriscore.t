@@ -4,8 +4,6 @@ use Modern::Perl '2017';
 use utf8;
 
 use JSON;
-use Getopt::Long;
-use File::Basename "dirname";
 
 use Test::More;
 use Test::Number::Delta relative => 1.001;
@@ -20,31 +18,9 @@ use ProductOpener::Test qw/:all/;
 
 
 
-my $test_name = "nutriscore";
-my $tests_dir = dirname(__FILE__);
-my $expected_dir = $tests_dir . "/expected_test_results/" . $test_name;
-
-my $usage = <<TXT
-
-The expected results of the tests are saved in $tests_dir/expected_test_results/$test_name
-
-To verify differences and update the expected test results,
-actual test results can be saved by passing --update-expected-results
-
-The directory will be created if it does not already exist.
-
-TXT
-;
-
-my $update_expected_results;
-
-GetOptions ("update-expected-results"   => \$update_expected_results)
-  or die("Error in command line arguments.\n\n" . $usage);
-
-  
-if ((defined $update_expected_results) and (! -e $expected_dir)) {
-	mkdir($expected_dir, 0755) or die("Could not create $expected_dir directory: $!\n");
-}
+my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (
+	init_expected_results(__FILE__)
+);
 
 init_emb_codes();
 
@@ -141,7 +117,7 @@ foreach my $test_ref (@tests) {
 	special_process_product($product_ref);
 	compute_nutrition_score($product_ref);
 
-	compare_to_expected_results($product_ref, "$expected_dir/$testid.json", $update_expected_results);
+	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
 }
 
 is (compute_nutriscore_grade(1.56, 1, 0), "c");
