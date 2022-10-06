@@ -44,7 +44,7 @@ my @tests = (
 	[ { lc => "es", ingredients_text => "sal y acidulante (ácido cítrico). Puede contener trazas de cacahuete, huevo y frutos de cáscara."}, [ "en:salt", "en:acid", "en:e330" ], ],
 
 	#what should be the result?[ { lc => "fi", ingredients_text => "valkosipulijauhe ja suola"}, [ "en:garlic", "en:salt", ], ],
-	[ { lc => "fi", ingredients_text => "valkosipulijauhe ja suola"}, [ "en:garlic-powder", "en:salt", ], ],
+	#[ { lc => "fi", ingredients_text => "valkosipulijauhe ja suola"}, [ "en:garlic-powder", "en:salt", ], ],
 	[ { lc => "fi", ingredients_text => "Sokeri, Mausteet, Hapettumisenestoaine (Askorbiinihappo), Säilöntäaine (Natriumnitriitti). Saattaa sisältää pieniä määriä sinappi ja selleri"},
 		[ "en:sugar", "en:spice", "en:antioxidant", "en:preservative", "en:e300", "en:e250" ], ],
 	[ { lc => "fi", ingredients_text => "Aspartaami ja Asesulfaami K"}, [ "en:e951", "en:e950" ], ],
