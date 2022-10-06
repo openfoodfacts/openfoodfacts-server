@@ -70976,6 +70976,12 @@ la:Helix pomatia
 <en:snail
 fr:chairs d'escargots
 
+<en:mollusc
+en:Teuthida
+la:Teuthida
+xx:Teuthida
+wikidata:en:Q81900
+
 ###################################################################################################
 #
 #                                Squid
@@ -70983,7 +70989,7 @@ fr:chairs d'escargots
 ###################################################################################################
 # description:en:Squid are cephalopods in the order Teuthida with elongated bodies, large eyes, eight arms and two tentacles.
 
-<en:mollusc
+<en:Teuthida
 en:squid
 af:Pylinkvis
 ar:سبيدج
@@ -71065,9 +71071,11 @@ ciqual_food_code:en:10001
 ciqual_food_name:en:Squid, raw
 ciqual_food_name:fr:Calmar ou calamar ou encornet, cru
 
-<en:squid
-en:Teuthida
-la:Teuthida
+<en:Teuthida
+en:european flying squid
+it:totano
+la:todarodes sagittatus
+wikidata:en:Q1151502
 
 <en:squid
 fr:anneaux de calmar
