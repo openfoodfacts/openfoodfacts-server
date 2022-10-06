@@ -41,8 +41,7 @@ To allow users of your app to contribute without registering individual accounts
 ## Help
 
 - Try the FAQ - to answer most of your questions.
-- Didn't get a satisfactory answer? Contact the Team on the Slack Channel.
-<!---Are we sure the next level of support is from FAQ to slack? If yes, embed links -->
+- Didn't get a satisfactory answer? Contact the Team on the Slack Channel. <!---Are we sure the next level of support is from FAQ to slack? If yes, embed links -->
 - Report Bugs on the Open Food Facts Database.
 - Do you have an issue or feature request? You can submit it here [here on GitHub](https://github.com/openfoodfacts/openfoodfacts-server/issues/new).
 - Are you interested in contributing to this project? See your Contribution Guidelines.
@@ -52,17 +51,17 @@ To allow users of your app to contribute without registering individual accounts
 
 SDKs are available for specific languages to facilitate the usage of the API.
 
-> Warning: The Open Food Facts API reference is the primary documentation source. Endeavor to read it before exploring any SDK.
+> **Warning**: The Open Food Facts API reference is the primary documentation source. Endeavor to read it before exploring any SDK.
 
 <!--Add a link to the API reference -->
 
 - [Cordova](https://github.com/openfoodfacts/openfoodfacts-cordova-app)
-- [DART](https://github.com/openfoodfacts/openfoodfacts-dart/blob/master/DOCUMENTATION.md), [Published on pub.dev](https://pub.dev/packages/openfoodfacts)
+- [DART](https://github.com/openfoodfacts/openfoodfacts-dart/blob/master/DOCUMENTATION.md), Published on [pub.dev](https://pub.dev/packages/openfoodfacts)
 - [Elixir](https://github.com/openfoodfacts/openfoodfacts-elixir)
 - [Go](https://github.com/openfoodfacts/openfoodfacts-go)
 - [NodeJS](https://github.com/openfoodfacts/openfoodfacts-nodejs)
 - [PHP](https://github.com/openfoodfacts/openfoodfacts-php)
 - [Laravel](https://github.com/openfoodfacts/openfoodfacts-laravel)
-- [Python](https://github.com/openfoodfacts/openfoodfacts-python), [Published on pyipi](https://pypi.org/project/openfoodfacts/)
+- [Python](https://github.com/openfoodfacts/openfoodfacts-python), Published on [pyipi](https://pypi.org/project/openfoodfacts/)
 - [React Native](https://github.com/openfoodfacts/openfoodfacts-react-native)
 - [Ruby](https://github.com/openfoodfacts/openfoodfacts-ruby)
