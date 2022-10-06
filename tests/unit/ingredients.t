@@ -7,7 +7,6 @@ use Test::More;
 use Log::Any::Adapter 'TAP';
 
 use JSON;
-use Getopt::Long;
 use File::Basename "dirname";
 
 use ProductOpener::Config qw/:all/;
@@ -17,31 +16,9 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Test qw/:all/;
 
 
-my $test_name = "ingredients";
-my $tests_dir = dirname(__FILE__);
-my $expected_dir = $tests_dir . "/expected_test_results/" . $test_name;
-
-my $usage = <<TXT
-
-The expected results of the tests are saved in $tests_dir/expected_test_results/$test_name
-
-To verify differences and update the expected test results,
-actual test results can be saved by passing --update-expected-results
-
-The directory will be created if it does not already exist.
-
-TXT
-;
-
-my $update_expected_results;
-
-GetOptions ("update-expected-results"   => \$update_expected_results)
-  or die("Error in command line arguments.\n\n" . $usage);
-
-  
-if ((defined $update_expected_results) and (! -e $expected_dir)) {
-	mkdir($expected_dir, 0755) or die("Could not create $expected_dir directory: $!\n");
-}
+my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (
+	init_expected_results(__FILE__)
+);
 
 my @tests = (
 
@@ -520,7 +497,6 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 );
 
 
-
 my $json = JSON->new->allow_nonref->canonical;
 
 foreach my $test_ref (@tests) {
@@ -536,7 +512,7 @@ foreach my $test_ref (@tests) {
 
 	extract_ingredients_from_text($product_ref);
 
-	compare_to_expected_results($product_ref, "$expected_dir/$testid.json", $update_expected_results);
+	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
 }
 
 
