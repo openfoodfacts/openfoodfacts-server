@@ -118,6 +118,8 @@ sub retrieve_org ($org_id_or_name) {
 
 =head2 store_org ( $org_ref )
 
+Save changes to an org
+
 =head3 Arguments
 
 =head4 $org_ref
@@ -135,6 +137,14 @@ sub store_org ($org_ref) {
 	$log->debug("store_org", {org_ref => $org_ref}) if $log->is_debug();
 
 	defined $org_ref->{org_id} or die("Missing org_id");
+
+	# retrieve eventual previous values
+	my $previous_org_ref = retrieve("$data_root/orgs/" . $org_ref->{org_id} . ".sto");
+
+	if ((defined $previous_org_ref) && !$previous_org_ref->{validated} && $org_ref->{validated}) {
+		# we switched on validated
+		# TODO: create org and it's users in CRM
+	}
 
 	store("$data_root/orgs/" . $org_ref->{org_id} . ".sto", $org_ref);
 
@@ -156,13 +166,17 @@ or an admin that creates an org by assigning an user to it).
 
 Identifier for the org (without the "org-" prefix), or org name.
 
+=head4 boolean $validated
+
+Indicate if the org should be considered validated
+
 =head3 Return values
 
 This function returns a hash ref for the org.
 
 =cut
 
-sub create_org ($creator, $org_id_or_name) {
+sub create_org ($creator, $org_id_or_name, $validated = 0) {
 
 	my $org_id = get_string_id_for_lang("no_language", $org_id_or_name);
 
@@ -173,6 +187,8 @@ sub create_org ($creator, $org_id_or_name) {
 		creator => $creator,
 		org_id => $org_id,
 		name => $org_id_or_name,
+		# indicates if the org was manually validated
+		validated => $validated,
 		admins => {},
 		members => {},
 	};

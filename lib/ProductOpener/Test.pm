@@ -59,6 +59,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Data qw/execute_query get_products_collection/;
 use ProductOpener::Store "store";
 
+use Carp qw/confess/;
 use Data::DeepAccess qw(deep_exists deep_get deep_set);
 use Getopt::Long;
 use Test::More;
@@ -110,13 +111,13 @@ TXT
 	my $update_expected_results;
 
 	GetOptions("update-expected-results" => \$update_expected_results)
-		or die("Error in command line arguments.\n\n" . $usage);
+		or confess("Error in command line arguments.\n\n" . $usage);
 
 	# ensure boolean
 	$update_expected_results = !!$update_expected_results;
 
 	if (($update_expected_results) and (!-e $expected_result_dir)) {
-		mkdir($expected_result_dir, 0755) or die("Could not create $expected_result_dir directory: $!\n");
+		mkdir($expected_result_dir, 0755) or confess("Could not create $expected_result_dir directory: $!\n");
 	}
 
 	return ($test_id, $test_dir, $expected_result_dir, $update_expected_results);
@@ -137,7 +138,7 @@ sub check_not_production() {
 		}
 	);
 	unless ((0 <= $products_count) && ($products_count < 1000)) {
-		die("Refusing to run destructive test on a DB of more than 1000 items");
+		confess("Refusing to run destructive test on a DB of more than 1000 items\n");
 	}
 }
 
@@ -163,7 +164,7 @@ sub remove_all_products () {
 	# clean files
 	remove_tree("$data_root/products", {keep_root => 1, error => \my $err});
 	if (@$err) {
-		die("not able to remove some products directories: " . join(":", @$err));
+		confess("not able to remove some products directories: " . join(":", @$err));
 	}
 }
 
@@ -182,7 +183,7 @@ sub remove_all_users () {
 	# clean files
 	remove_tree("$data_root/users", {keep_root => 1, error => \my $err});
 	if (@$err) {
-		die("not able to remove some users directories: " . join(":", @$err));
+		confess("not able to remove some users directories: " . join(":", @$err));
 	}
 }
 
@@ -200,7 +201,7 @@ sub remove_all_orgs () {
 	# clean files
 	remove_tree("$data_root/orgs", {keep_root => 1, error => \my $err});
 	if (@$err) {
-		die("not able to remove some orgs directories: " . join(":", @$err));
+		confess("not able to remove some orgs directories: " . join(":", @$err));
 	}
 }
 
@@ -251,13 +252,13 @@ sub ensure_expected_results_dir ($expected_results_dir, $update_expected_results
 		if (-e $expected_results_dir) {
 			remove_tree("$expected_results_dir", {error => \my $err});
 			if (@$err) {
-				die("not able to remove some result directories: " . join(":", @$err));
+				confess("not able to remove some result directories: " . join(":", @$err));
 			}
 		}
 		make_path($expected_results_dir);
 	}
 	elsif (!-e $expected_results_dir) {
-		die("Expected results dir not found at $expected_results_dir");
+		confess("Expected results dir not found at $expected_results_dir");
 	}
 	return 1;
 }
@@ -289,7 +290,7 @@ sub compare_to_expected_results ($object_ref, $expected_results_file, $update_ex
 
 	if ($update_expected_results) {
 		open(my $result, ">:encoding(UTF-8)", $expected_results_file)
-			or die("Could not create $expected_results_file: $!\n");
+			or confess("Could not create $expected_results_file: $!");
 		print $result $json->pretty->encode($object_ref);
 		close($result);
 	}
@@ -341,7 +342,7 @@ sub compare_csv_file_to_expected_results ($csv_file, $expected_results_dir, $upd
 	my $csv = Text::CSV->new({binary => 1, sep_char => "\t"})    # should set binary attribute.
 		or die "Cannot use CSV: " . Text::CSV->error_diag();
 
-	open(my $io, '<:encoding(UTF-8)', $csv_file) or die("Could not open " . $csv_file . ": $!");
+	open(my $io, '<:encoding(UTF-8)', $csv_file) or confess("Could not open " . $csv_file . ": $!");
 
 	# first line contains headers
 	my $columns_ref = $csv->getline($io);
@@ -398,7 +399,7 @@ sub compare_array_to_expected_results ($array_ref, $expected_results_dir, $updat
 
 		if ($update_expected_results) {
 			open(my $result, ">:encoding(UTF-8)", "$expected_results_dir/$code.json")
-				or die("Could not create $expected_results_dir/$code.json: $!\n");
+				or confess("Could not create $expected_results_dir/$code.json: $!\n");
 			print $result $json->pretty->encode($product_ref);
 			close($result);
 		}
@@ -420,7 +421,7 @@ sub compare_array_to_expected_results ($array_ref, $expected_results_dir, $updat
 	# Check that we are not missing products
 
 	opendir(my $dh, $expected_results_dir)
-		or die("Could not open the $expected_results_dir directory: $!\n");
+		or confess("Could not open the $expected_results_dir directory: $!\n");
 
 	my @missed = ();
 	foreach my $file (sort(readdir($dh))) {

@@ -206,6 +206,11 @@ integration_test:
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 integration tests success"
 
+# stop all tests dockers
+test-stop:
+	@echo "🥫 Stopping test dockers"
+	${DOCKER_COMPOSE_TEST} stop
+
 # usage:  make test-unit test=test-name.t
 test-unit: guard-test 
 	@echo "🥫 Running test: 'tests/unit/${test}' …"

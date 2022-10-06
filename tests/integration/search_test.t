@@ -8,7 +8,6 @@ use ProductOpener::Test qw/:all/;
 use LWP::Simple "get";
 use Data::Dumper;
 use Encode;
-use File::Basename "dirname";
 use JSON::PP;
 use ProductOpener::TestDefaults qw/:all/;
 use ProductOpener::Test qw/:all/;

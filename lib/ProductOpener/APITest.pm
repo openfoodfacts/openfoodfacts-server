@@ -34,11 +34,15 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+		&construct_test_url
 		&create_user
+		&edit_user
+		&edit_product
+		&login
 		&new_client
 		&wait_dynamic_front
-		&edit_product
-		&construct_test_url
+
+		$TEST_WEBSITE_URL
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -50,7 +54,17 @@ use LWP::UserAgent;
 use HTTP::CookieJar::LWP;
 use ProductOpener::TestDefaults qw/:all/;
 
+use Carp qw/confess/;
+use Clone qw/clone/;
 use Data::Dump qw/dump/;
+
+=head2 $TEST_WEBSITE_URL
+
+Constant of the test website url
+
+=cut
+
+$TEST_WEBSITE_URL = "http://world.openfoodfacts.localhost";
 
 =head2 wait_dynamic_front()
 
@@ -98,20 +112,51 @@ Call API to create a user
 
 =head4 $ua - user agent
 
-=head4 $args_ref - optional args to override defaults
+=head4 $args_ref - fields
 
 =cut
 
 sub create_user ($ua, $args_ref) {
-	my %fields;
-	while (my ($key, $value) = each %{$args_ref}) {
-		$fields{$key} = $value;
-	}
-	my $response = $ua->post("http://world.openfoodfacts.localhost/cgi/user.pl", Content => \%fields,);
+	my %fields = %{clone($args_ref)};
+	my $response = $ua->post("$TEST_WEBSITE_URL/cgi/user.pl", Content => \%fields);
 	if (not $response->is_success) {
-		diag("Couldn't create user with " . dump(\%fields) . "\n");
+		diag("Couldn't create user with " . dump(%fields) . "\n");
 		diag explain $response;
-		die("Resuming");
+		confess("Resuming");
+	}
+	# FIXME: also test that there is no error as code is not relevant for form errors
+	return;
+}
+
+=head2 edit_user($ua, $args_ref)
+
+Call API to edit a user, see create_user
+
+=cut
+
+sub edit_user ($ua, $args_ref) {
+	($args_ref->{type} eq "edit") or confess("Action type must be 'edit' in edit_user");
+	# technically the same as create_user !
+	return create_user($ua, $args_ref);
+}
+
+=head2 login($ua, $user_id, $password)
+
+Login as a user
+
+=cut
+
+sub login ($ua, $user_id, $password) {
+	my %fields = (
+		user_id => $user_id,
+		password => $password,
+		".submit" => "submit",
+	);
+	my $response = $ua->post("$TEST_WEBSITE_URL/cgi/login.pl", Content => \%fields);
+	if (not($response->is_success || $response->is_redirect)) {
+		diag("Couldn't login with " . dump(\%fields) . "\n");
+		diag explain $response;
+		confess("Resuming");
 	}
 	return;
 }
@@ -136,11 +181,11 @@ sub edit_product ($ua, $product_fields) {
 		$fields{$key} = $value;
 	}
 
-	my $response = $ua->post("http://world.openfoodfacts.localhost/cgi/product_jqm2.pl", Content => \%fields,);
+	my $response = $ua->post("$TEST_WEBSITE_URL/cgi/product_jqm2.pl", Content => \%fields,);
 	if (not $response->is_success) {
 		diag("Couldn't create product with " . dump(\%fields) . "\n");
 		diag explain $response;
-		die("Resuming");
+		confess("Resuming");
 	}
 	return;
 }
