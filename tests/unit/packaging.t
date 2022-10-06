@@ -8,7 +8,6 @@ use Test::Number::Delta relative => 1.001;
 use Log::Any::Adapter 'TAP';
 
 use JSON;
-use File::Basename "dirname";
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Packaging qw/:all/;

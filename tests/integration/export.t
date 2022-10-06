@@ -21,8 +21,6 @@ use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Test qw/:all/;
 
-use File::Basename "fileparse";
-
 use Getopt::Long;
 use JSON;
 

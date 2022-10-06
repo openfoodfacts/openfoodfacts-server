@@ -4,7 +4,6 @@ use Modern::Perl '2017';
 use utf8;
 
 use JSON;
-use File::Basename "dirname";
 
 use Test::More;
 use Test::Number::Delta relative => 1.001;

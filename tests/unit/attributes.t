@@ -7,7 +7,6 @@ use Test::More;
 use Log::Any::Adapter 'TAP';
 
 use JSON::PP;
-use File::Basename "dirname";
 
 my $json = JSON::PP->new->allow_nonref->canonical;
 

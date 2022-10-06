@@ -12,7 +12,6 @@ use Log::Any::Adapter 'TAP';
 use Log::Any qw($log);
 
 use JSON;
-use File::Basename "dirname";
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::GS1 qw/:all/;

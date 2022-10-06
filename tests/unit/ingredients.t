@@ -7,7 +7,6 @@ use Test::More;
 use Log::Any::Adapter 'TAP';
 
 use JSON;
-use File::Basename "dirname";
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;

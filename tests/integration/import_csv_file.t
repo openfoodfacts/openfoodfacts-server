@@ -7,7 +7,6 @@ use Mock::Quick qw/qobj qmeth/;
 use Test::MockModule;
 use Test::More;
 
-use File::Basename "dirname";
 use File::Path qw/make_path remove_tree/;
 
 use ProductOpener::Config '$data_root';
