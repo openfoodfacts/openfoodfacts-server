@@ -405,6 +405,11 @@ sub process_template($template_filename, $template_data_ref, $result_content_ref
 	$template_data_ref->{product_action_url} = \&product_action_url;
 	$template_data_ref->{product_name_brand_quantity} = \&product_name_brand_quantity;
 
+	# Return a link to one taxonomy entry in the target language
+	$template_data_ref->{canonicalize_taxonomy_tag_link} = sub ($tagtype, $tag) {
+		return canonicalize_taxonomy_tag_link($lc, $tagtype, $tag);
+	};
+
 	# Display one taxonomy entry in the target language
 	$template_data_ref->{display_taxonomy_tag} = sub ($tagtype, $tag) {
 		return display_taxonomy_tag($lc, $tagtype, $tag);

@@ -109,12 +109,12 @@
 								[% user.name %]</span>
 							</a>
 							<ul class="dropdown">
-								<li><a href=""><span class="material-symbols-outlined">settings</span> Parameters</a></li>
+								<li><a href="/cgi/user.pl?type=edit&userid=[% user_id %]"><span class="material-symbols-outlined">settings</span> Parameters</a></li>
 								<li class="divider"></li>			
 								<li><label>[% lang('your_contributions') %]</label></li>
-								<li><a href="">[% lang('products_added') %]</a></li>
-								<li><a href="">[% lang('products_edited') %]</a></li>
-								<li><a href="">[% lang('products_photographed') %]</a></li>
+								<li><a href="[% canonicalize_taxonomy_tag_link("users", user_id) %]">[% lang('products_added') %]</a></li>
+								<li><a href="[% canonicalize_taxonomy_tag_link("editors", user_id) %]">[% lang('products_edited') %]</a></li>
+								<li><a href="[% canonicalize_taxonomy_tag_link("photographers", user_id) %]">[% lang('products_photographed') %]</a></li>
 								<li class="divider"></li>			
 								<li class="has-form">
 									<form method="post" action="/cgi/session.pl">
