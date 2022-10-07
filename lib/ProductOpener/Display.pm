@@ -692,7 +692,15 @@ sub init_request() {
 
 	my $error = ProductOpener::Users::init_user($request_ref);
 	if ($error) {
-		display_error_and_exit($error, 403);
+		# TODO: currently we always display an HTML message if we were passed a bad user_id and password combination
+		# even if the request is an API request
+
+		# for requests to /cgi/auth.pl, we will now return a JSON body, set in /cgi/auth.pl
+		# but it would be good to later have a more consistent behaviour for all API requests
+		if ($r->uri() !~ /\/cgi\/auth\.pl/) {
+			print $r->uri();
+			display_error_and_exit($error, 403);
+		}
 	}
 
 	# %admin is defined in Config.pm
