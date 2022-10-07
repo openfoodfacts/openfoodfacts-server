@@ -372,7 +372,7 @@ sub check_user_form($type, $user_ref, $errors_ref) {
 			print $log remote_addr() . "\t" . time() . "\t" . $user_ref->{name} . "\n";
 			close($log);
 			# bail out, return 200 status code
-			display_error("", 200);
+			display_error_and_exit("", 200);
 		}
 	}
 

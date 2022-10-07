@@ -1,12 +1,17 @@
 {
    "orgs_created" : {
+      "carrefour" : 1,
       "test-food-company" : 1,
       "world-test-food" : 1
    },
    "orgs_existing" : {},
    "orgs_in_file" : {
+      "carrefour" : 1,
       "test-food-company" : 1,
       "world-test-food" : 1
+   },
+   "orgs_with_gln_but_no_party_name" : {
+      "" : 1
    },
    "orgs_without_source_authorization" : {},
    "products_already_existing" : {},
