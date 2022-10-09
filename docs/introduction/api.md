@@ -40,7 +40,7 @@ To allow users of your app to contribute without registering individual accounts
 
 ## Help
 
-- Try the FAQ - to answer most of your questions.
+- Try the [FAQ](https://support.openfoodfacts.org/help/en-gb/12-api) - to answer most of your questions.
 - Didn't get a satisfactory answer? Contact the Team on the #api [Slack Channel.](https://slack.openfoodfacts.org/)
 - Report Bugs on the Open Food Facts Database.
 - Do you have an issue or feature request? You can submit it here [here on GitHub](https://github.com/openfoodfacts/openfoodfacts-server/issues/new).
