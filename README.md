@@ -52,18 +52,20 @@ Data about food is of public interest and has to be open (i.e available to every
 ## How do I get started?
 
 * Join us on Slack at <https://openfoodfacts.slack.com/> in the channels: `#api`, `#productopener`, `#dev`.
-* Developer documentation:
-   * [Quick start guide (Docker)](./docs/introduction/dev-environment-quick-start-guide.md)
-   * [Developer guide (Docker)](./docs/how-to-guides/docker-developer-guide.md)
-   * [Developer guide (Gitpod)](./docs/how-to-guides/use-gitpod.md)
-   * Configuration [TBA]
-   * Dependencies [TBA]
-   * Database configuration [TBA]
-   * How to run tests [TBA]
-   * [Perl modules documentation (POD)](https://openfoodfacts.github.io/api-documentation/reference/perl/)
+* [API Documentation](https://openfoodfacts.github.io/api-documentation/)
+* [NEW API Documentation (WIP)](https://openfoodfacts.github.io/openfoodfacts-server/reference/api.html) ([source](https://github.com/openfoodfacts/openfoodfacts-server/tree/main/docs/reference/api.yml))
 
- * [API Documentation](https://openfoodfacts.github.io/api-documentation/)
- * [NEW API Documentation (WIP)](https://openfoodfacts.github.io/openfoodfacts-server/reference/api.html) ([source](https://github.com/openfoodfacts/openfoodfacts-server/tree/main/docs/reference/api.yml))
+* Developer documentation:
+
+  * [Quick start guide (Docker)](./docs/introduction/dev-environment-quick-start-guide.md)
+  * [Developer guide (Docker)](./docs/how-to-guides/docker-developer-guide.md)
+  * [Developer guide (Gitpod)](./docs/how-to-guides/use-gitpod.md)
+  * Configuration [TBA]
+  * Dependencies [TBA]
+  * Database configuration [TBA]
+  * How to run tests [TBA]
+  * [Perl modules documentation (POD)](https://openfoodfacts.github.io/reference/perl/)
+
 
 Note: documentation follows the [Diátaxis Framework](https://diataxis.fr/)
 
