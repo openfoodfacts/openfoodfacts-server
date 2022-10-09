@@ -41,7 +41,7 @@ To allow users of your app to contribute without registering individual accounts
 ## Help
 
 - Try the FAQ - to answer most of your questions.
-- Didn't get a satisfactory answer? Contact the Team on the Slack Channel. <!---Are we sure the next level of support is from FAQ to slack? If yes, embed links -->
+- Didn't get a satisfactory answer? Contact the Team on the #api [Slack Channel.](https://slack.openfoodfacts.org/)
 - Report Bugs on the Open Food Facts Database.
 - Do you have an issue or feature request? You can submit it here [here on GitHub](https://github.com/openfoodfacts/openfoodfacts-server/issues/new).
 - Are you interested in contributing to this project? See your Contribution Guidelines.
