@@ -33,6 +33,8 @@ To allow users of your app to contribute without registering individual accounts
 
 > The account you create in the production environment will only work for requests in production. You need to create an account in the [staging environment](https://world.openfoodfacts.net) if you want to make authenticated requests in staging.
 
+## Reference documentation (OpenAPI)
+
 <!--Add a section that links to the API reference docs -->
 
 ## Tutorials
