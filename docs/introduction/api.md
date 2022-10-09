@@ -31,7 +31,7 @@ Create an account on the [Open Food Facts app](https://world.openfoodfacts.org/)
 
 To allow users of your app to contribute without registering individual accounts on the Open Food Facts website, you can create a global account. This way, we know that these contributions came from your application.
 
-> The account you create in the production environment will only work for requests in production. You need to create an account in the staging environment if you want to make authenticated requests in staging.
+> The account you create in the production environment will only work for requests in production. You need to create an account in the [staging environment](https://world.openfoodfacts.net) if you want to make authenticated requests in staging.
 
 <!--Add a section that links to the API reference docs -->
 
