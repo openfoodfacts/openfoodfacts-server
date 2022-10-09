@@ -21,7 +21,7 @@ The OpenFoodFacts API has two environments.
 
 Consider using the [staging environment]( https://world.openfoodfacts.net) if you are not in a production scenario. While testing your applications, make all API requests to the staging environment. This way, we can ensure the product database is safe.
 
-The staging environment has an extra level of authentication (username: off, password: off). When making API requests to staging, you may use <https://off:off@world.openfoodfacts.net/> as the base URL to include the authentication.
+> **Warning**: The staging environment has an extra level of authentication (username: off, password: off). When making API requests to staging, you may use <https://off:off@world.openfoodfacts.net/> as the base URL to include the authentication.
 
 ## Authentication
 
