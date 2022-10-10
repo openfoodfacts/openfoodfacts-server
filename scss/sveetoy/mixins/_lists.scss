@@ -23,7 +23,7 @@
     }
     left: $left-position;
     width: $width;
-    font-family: icomoon;
+    font-family: icomoon, sans-serif;
     @if $font-size {
         font-size: $font-size;
     }
