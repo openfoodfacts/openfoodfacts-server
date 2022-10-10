@@ -5,10 +5,10 @@ on:
 #on:
 #  issues:
 #    types: [opened, transferred]
-on:
-  push:
-    branches:
-      - top-issues
+#on:
+#  push:
+#    branches:
+#      - top-issues
 jobs:
   ShowAndLabelTopIssues:
     name: Display and label top issues.
