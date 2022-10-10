@@ -49,6 +49,7 @@ BEGIN
 		$events_url
 		$events_username
 		$events_password
+		$redis_url
 		%server_options
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -101,6 +102,9 @@ $robotoff_url = $ENV{ROBOTOFF_URL};
 $events_url = $ENV{EVENTS_URL};
 $events_username = $ENV{EVENTS_USERNAME};
 $events_password = $ENV{EVENTS_PASSWORD};
+
+# Set this to your instance of the search service to enable writes to it
+$redis_url = $ENV{REDIS_URL};
 
 %server_options = (
         private_products => $producers_platform,  # 1 to make products visible only to the owner (producer platform)
