@@ -19,7 +19,7 @@
 [% END %]
 
 <a href="#upNav" class="back-to-top scrollto button">
-    <span class="material-symbols-outlined size-20 ">
+    <span class="material-icons size-20 ">
         arrow_upward
     </span>
 </a>
@@ -32,7 +32,7 @@
                     <!-- Edit product page -->
                     <div class="edit_button">
                         <a href="/cgi/product.pl?type=edit&code=[% code %]" class="button small white-button round" title="[% lang('edit_product_page') %]">
-                            <span class="material-symbols-outlined size-20 ">
+                            <span class="material-icons size-20 ">
                             edit
                             </span>
                             <span class="show-for-large-up">[% lang('edit_product_page') %]</span>
@@ -42,7 +42,7 @@
                     <!-- Share -->
                     <div class="share_button" style="display:none;">
                         <a href="[% request_ref.canon_url %]" class="button small" title="[% title %]">
-                            <span class="material-symbols-outlined size-20 ">
+                            <span class="material-icons size-20 ">
                             share
                             </span>
 
@@ -55,7 +55,7 @@
                     <!-- Delete product page -->
                         <div class="delete_button">
                             <a href="/cgi/product.pl?type=delete&code=[% code %]" class="button small alert" title="[% lang('delete_product_page') %]">
-                                <span class="material-symbols-outlined size-20 ">
+                                <span class="material-icons size-20 ">
                                 delete
                                 </span>
                                 <span class="show-for-large-up"> [% lang('delete_product_page') %]</span>
@@ -66,7 +66,7 @@
                     [% IF server_options_producers_platform %]
                         <div class="delete_button">
                             <a href="/cgi/export_products.pl?query_code=[% code %]" class="button small" title="[% lang('export_product_page') %]">
-                                <span class="material-symbols-outlined size-20 ">
+                                <span class="material-icons size-20 ">
                                 publish
                                 </span>
                                 <span class="show-for-large-up"> [% lang('export_product_page') %]</span>
