@@ -8,14 +8,18 @@ use Test::Number::Delta relative => 1.001;
 use Log::Any::Adapter 'TAP';
 
 use JSON;
-use File::Basename "dirname";
-use Getopt::Long;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::Test qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::Packaging qw/:all/;
+
+
+my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (
+	init_expected_results(__FILE__)
+);
 
 load_agribalyse_data();
 load_ecoscore_data();
@@ -64,29 +68,6 @@ foreach my $tagtype (keys %tags) {
 	}
 }
 
-my $expected_dir = dirname(__FILE__) . "/expected_test_results";
-my $testdir = "ecoscore";
-
-my $usage = <<TXT
-
-The expected results of the tests are saved in $expected_dir/$testdir
-
-To verify differences and update the expected test results, actual test results
-can be saved to a directory by passing --results [path of results directory]
-
-The directory will be created if it does not already exist.
-
-TXT
-;
-
-my $resultsdir;
-
-GetOptions ("results=s"   => \$resultsdir)
-  or die("Error in command line arguments.\n\n" . $usage);
-  
-if ((defined $resultsdir) and (! -e $resultsdir)) {
-	mkdir($resultsdir, 0755) or die("Could not create $resultsdir directory: $!\n");
-}
 
 my @tests = (
 	
@@ -576,22 +557,22 @@ foreach my $test_ref (@tests) {
 	
 	# Save the result
 	
-	if (defined $resultsdir) {
-		open (my $result, ">:encoding(UTF-8)", "$resultsdir/$testid.json") or die("Could not create $resultsdir/$testid.json: $!\n");
+	if ($update_expected_results) {
+		open (my $result, ">:encoding(UTF-8)", "$expected_result_dir/$testid.json") or die("Could not create $expected_result_dir/$testid.json: $!\n");
 		print $result $json->pretty->encode($product_ref);
 		close ($result);
 	}
 	
 	# Compare the result with the expected result
 	
-	if (open (my $expected_result, "<:encoding(UTF-8)", "$expected_dir/$testdir/$testid.json")) {
+	if (open (my $expected_result, "<:encoding(UTF-8)", "$expected_result_dir/$testid.json")) {
 
 		local $/; #Enable 'slurp' mode
 		my $expected_product_ref = $json->decode(<$expected_result>);
 		is_deeply ($product_ref, $expected_product_ref) or diag explain $product_ref;
 	}
 	else {
-		fail("could not load expected_test_results/$testdir/$testid.json");
+		fail("could not load $expected_result_dir/$testid.json");
 		diag explain $product_ref;
 	}
 }
