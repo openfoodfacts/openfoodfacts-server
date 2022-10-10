@@ -41,6 +41,7 @@ BEGIN
         &compare_array_to_expected_results
         &compare_csv_file_to_expected_results
         &create_sto_from_json
+        &init_expected_results
         &normalize_product_for_test_comparison
         &normalize_products_for_test_comparison
         &remove_all_products
@@ -60,12 +61,70 @@ use ProductOpener::Data qw/execute_query get_products_collection/;
 use ProductOpener::Store "store";
 
 use Data::DeepAccess qw(deep_exists deep_get deep_set);
+use Getopt::Long;
 use Test::More;
 use JSON "decode_json";
+use File::Basename "fileparse";
 use File::Path qw/make_path remove_tree/;
 use Path::Tiny qw/path/;
 
 use Log::Any qw($log);
+
+
+=head2 init_expected_results($filepath)
+Handles test options around expected_results initialization
+
+For many tests, we compare results from the API, with expected results.
+It enables quick updates on changes, while still getting control.
+
+There are two modes: one to update expected results, and one to test against them.
+
+=head3 Parameters
+
+=head4 String $filepath
+The path of the file containing the tetst.
+Generally should be <pre>__FILE__</pre> within the test.
+
+
+=head3 return list
+
+A list of $test_id, $test_dir, $expected_result_dir, $update_expected_results
+
+=cut
+
+sub init_expected_results($filepath) {
+
+    my ($test_id, $test_dir) = fileparse($filepath, qr/\.[^.]+$/);
+    my $expected_result_dir = "$test_dir/expected_test_results/$test_id";
+
+    my $usage = <<TXT
+
+The expected results of the test $test_id are saved in $expected_result_dir
+
+To verify differences and update the expected test results,
+actual test results can be saved by passing --update-expected-results
+
+The directory will be created if it does not already exist.
+
+TXT
+;
+
+    my $update_expected_results;
+
+    GetOptions("update-expected-results" => \$update_expected_results)
+    or die("Error in command line arguments.\n\n" . $usage);
+
+    # ensure boolean
+    $update_expected_results = !!$update_expected_results;
+
+    if (($update_expected_results) and (! -e $expected_result_dir)) {
+        mkdir($expected_result_dir, 0755) or die(
+            "Could not create $expected_result_dir directory: $!\n"
+        );
+    }
+
+    return ($test_id, $test_dir, $expected_result_dir, $update_expected_results);
+}
 
 
 =head2 check_not_production ()
@@ -235,7 +294,7 @@ sub compare_to_expected_results($object_ref, $expected_results_file, $update_exp
 
     my $json = JSON->new->allow_nonref->canonical;
 
-	if (defined $update_expected_results) {
+	if ($update_expected_results) {
 		open (my $result, ">:encoding(UTF-8)", $expected_results_file) or die("Could not create $expected_results_file: $!\n");
 		print $result $json->pretty->encode($object_ref);
 		close ($result);
@@ -345,7 +404,7 @@ sub compare_array_to_expected_results($array_ref, $expected_results_dir, $update
 
         # Update the expected results if the --update parameter was set
 
-        if (defined $update_expected_results) {
+        if ($update_expected_results) {
             open (my $result, ">:encoding(UTF-8)", "$expected_results_dir/$code.json") 
                 or die("Could not create $expected_results_dir/$code.json: $!\n");
             print $result $json->pretty->encode($product_ref);

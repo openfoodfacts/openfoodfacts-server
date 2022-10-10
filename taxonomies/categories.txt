@@ -8344,6 +8344,7 @@ agribalyse_proxy_food_name:fr:Eau minérale Vals, embouteillée, gazeuse, moyenn
 <en:Spring waters
 <en:Mineral waters
 en:Natural mineral waters
+bg:Натурална минерална вода
 ca:Aigua mineral natural
 de:natürliches Mineralwasser, natürliche Mineralwässer
 es:Aguas minerales naturales
@@ -31816,23 +31817,26 @@ ru:Цельнозерновой хлеб
 wikidata:en:Q940999
 
 <en:Breads
-fr:Pains croustillants, Pain croustillant
-nl:Knapperige broodproducten
-
-<en:Breads
 en:Crispbreads
 de:Knäckebrote, Knäckebrot
+fr:Pains croustillants, Pain croustillant
+nl:Knäckebrot, Knäckebröd
+
+#Extruded crispbread is not bread
+<en:Cereals and potatoes
+<en:Snacks
+en:Extruded crispbreads
+de:Knusperbrote, Knusperbrot
 es:Tostadas ligeras crujientes
 fi:näkkileivät
-fr:Tartines craquantes, tartine craquante, tartines croustillantes, tartine croustillante
-nl:Knäckebrot, Knäckebröd
+fr:Tartines craquantes extrudées, Tartines craquantes, tartine craquante, tartines croustillantes, tartine croustillante
+nl:Knapperige broodproducten
 wikidata:en:Q251981
 agribalyse_proxy_food_code:en:7410
 agribalyse_proxy_food_name:en:Crispbread, extruded and grilled
 agribalyse_proxy_food_name:fr:Tartine craquante, extrudée et grillée
 
-
-<en:Crispbreads
+<en:Extruded crispbreads
 en:Extruded and grilled crispbread
 fr:Tartines craquantes grillées, Tartines craquantes extrudées et grillées
 agribalyse_food_code:en:7410
@@ -31840,7 +31844,11 @@ ciqual_food_code:en:7410
 ciqual_food_name:en:Crispbread, extruded and grilled
 ciqual_food_name:fr:Tartine craquante, extrudée et grillée
 
-<en:Crispbreads
+<en:Filled biscuits
+en:Filled extruded crispbreads
+fr:Tartines craquantes fourrées
+
+<en:Filled extruded crispbreads
 en:Extruded and grilled biscuits with chocolate filling
 fr:Tartines craquantes grillées fourrées au chocolat, Tartines craquantes extrudées et grillées fourrées au chocolat
 agribalyse_food_code:en:7412
@@ -31849,7 +31857,7 @@ ciqual_food_name:en:Biscuit, extruded and grilled, chocolate filling
 ciqual_food_name:fr:Tartine craquante, extrudée et grillée, fourrée au chocolat
 #Example: Cracottes chocolat
 
-<en:Crispbreads
+<en:Filled extruded crispbreads
 en:Extruded and grilled biscuits with fruits filling
 fr:Tartines craquantes grillées fourrées aux fruits, Tartines craquantes extrudées et grillées fourrées aux fruits
 agribalyse_food_code:en:7413
@@ -37097,6 +37105,7 @@ es:Arroces, Arroz
 fi:riisit
 fr:Riz
 he:אורז
+hr:riža
 hu:Rizsek
 it:Riso
 la:Oryza sativa
@@ -38283,6 +38292,7 @@ wikidata:en:Q1524389
 
 <en:Chips and fries
 en:Fries
+bg:Пържени картофи
 de:Pommes Frites
 es:Patatas fritas
 fi:Ranskanperunat, Ranskalaiset perunat, Ranskalaiset
@@ -40441,6 +40451,7 @@ en:Fresh cheeses
 de:Frischkäse
 es:Queso fresco
 fr:Fromages à pâte fraîche, Fromage frais
+hr:svježi sir
 it:Formaggi freschi
 nl:Verse kazen
 wikidata:en:Q3323634
@@ -43194,6 +43205,7 @@ de:Schlagsahne
 es:Nata montada
 fi:kermavaahdot
 fr:Crèmes fouettées
+hr:vrhnje za šlag
 it:Panna montata
 nl:Slagromen
 wikidata:en:Q625957
@@ -43490,6 +43502,7 @@ es:Mantequillas
 fi:voit
 fr:Beurres, beurre
 he:חמאות
+hr:Maslac
 hu:Vajak
 it:Burro
 nl:Roomboters
@@ -53728,6 +53741,7 @@ pt:Farinhas de quinoa, farinha de quinoa
 
 <en:Cereal flours
 en:Rice flours, Rice flour
+bg:Оризово брашно
 de:Reismehle
 es:Harinas de arroz
 fi:riisijauhot
@@ -53743,6 +53757,7 @@ ciqual_food_name:fr:Farine de riz
 
 <en:Cereal flours
 en:Rye flours
+bg:Брашно от ръж
 de:Roggenmehle
 es:Harinas de centeno
 fi:Ruisjauhot
@@ -54105,6 +54120,7 @@ fr:Farines de blé khorasan T150, Farines de Kamut T150
 
 <en:Wheat flours
 en:Spelt flours
+bg:Брашно от спелта
 de:Dinkelmehle, Dinkelmehl
 es:Harinas de espelta, Harinas de escaña mayor, Harinas de escanda mayor
 fi:spelttijauhot
@@ -54167,6 +54183,7 @@ nl:Speltmeel type 1050
 <en:Spelt flours
 <en:Whole wheat flours
 en:Whole spelt flours
+bg:Пълнозърнесто брашно от спелта
 es:Harinas de espelta integrales
 nl:Volkoren speltmelen
 
@@ -54209,6 +54226,7 @@ nl:Maïskiemen
 
 <en:Cereal germs
 en:Wheat germ
+bg:Пшеничен зародиш
 es:Germen de trigo
 fr:Germe de blé
 nl:Tarwekiemen
@@ -54966,6 +54984,7 @@ agribalyse_proxy_food_name:fr:Pomme de terre rissolée, surgelée, crue
 #frozen fried potatoes in the shape of sticks
 <en:Fries
 en:Frozen fries, Frozen chips, Frozen french fries
+bg:Замразени пържени картофи
 de:Tiefkühl-Pommes
 es:Patatas fritas congeladas
 fi:Ranskanperunapakasteet, Pakasteranskalaiset
@@ -72341,6 +72360,7 @@ ciqual_food_name:fr:Coeur, poulet, cuit
 
 <en:chickens
 en:Chicken heart, chicken heart
+bg:Пилешки сърца
 fr:Coeur de poulet, Coeur de poulet
 agribalyse_food_code:en:40054
 ciqual_food_code:en:40054
@@ -72349,6 +72369,7 @@ ciqual_food_name:fr:Coeur, poulet, cru
 
 <en:chickens
 en:Chicken liver, chicken liver
+bg:Пилешки черен дроб
 fr:Foie de poulet, Foie de poulet
 agribalyse_food_code:en:40111
 ciqual_food_code:en:40111
@@ -77514,6 +77535,7 @@ carbon_footprint_fr_foodges_ingredient:fr:Pâtes sèches
 <en:Cereals and their products
 en:Cereal pastas
 fr:Pâtes alimentaires de céréales
+it:Paste alimentari di cereali
 nl:Graanpastas
 
 <en:Pastas
@@ -86095,6 +86117,7 @@ wikidata:en:Q412082
 
 <en:Sugars
 en:Powdered sugars, Confectioner's sugars, Icing sugars
+bg:Пудра захар
 de:Puderzucker, Staubzucker, Dekorierzucker
 es:Azúcar glas, Azúcar en polvo, Azúcar glacé
 fi:tomusokerit
@@ -87036,7 +87059,6 @@ nl:Ingemaakte wortels
 
 <en:Vegetable pickles
 en:Pickled cucumbers
-bg:Кисели краставици
 da:Syltede agurker
 de:Eingelegte Gurken
 es:Pepinos encurtidos
@@ -87050,6 +87072,7 @@ wikidata:en:Q1211297
 
 <en:Pickled cucumbers
 en:Gherkins
+bg:Кисели краставички
 de:Essiggurken
 es:Pepinillos, Pepinillos encurtidos
 fi:suolakurkut
@@ -92164,6 +92187,7 @@ nl:Lupinemelen
 
 <en:Legume flours
 en:Soybean flours, Soya flour
+bg:Соево брашно
 da:Sojabønnemel
 es:Harinas de soja
 fr:Farines de soja
@@ -97080,7 +97104,7 @@ fr:Compléments alimentaires
 gl:Suplemento dietético
 he:תוספי תזונה
 hi:खाद्य पूरक
-hr:Dodaci prehrani
+hr:dodaci prehrani, zdravlje dodaci prehrani
 hu:Táplálék-kiegészítők
 id:Suplemen makanan
 it:Supplementi dietetici, integratore alimentare

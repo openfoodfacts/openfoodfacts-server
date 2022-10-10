@@ -108,7 +108,11 @@ sub create_user ($ua, $args_ref) {
 		$fields{$key} = $value;
 	}
 	my $response = $ua->post("http://world.openfoodfacts.localhost/cgi/user.pl", Content => \%fields,);
-	$response->is_success or die("Couldn't create user with " . dump(\%fields) . "\n");
+	if (not $response->is_success) {
+		diag("Couldn't create user with " . dump(\%fields) . "\n");
+		diag explain $response;
+		die("Resuming");
+	}
 	return;
 }
 
@@ -136,6 +140,7 @@ sub edit_product ($ua, $product_fields) {
 	if (not $response->is_success) {
 		diag("Couldn't create product with " . dump(\%fields) . "\n");
 		diag explain $response;
+		die("Resuming");
 	}
 	return;
 }
@@ -163,6 +168,13 @@ For the example cited above this returns: "http://world-fr.openfoodfacts.localho
 
 sub construct_test_url ($target, $prefix) {
 	my $link = "openfoodfacts.localhost";
+	# my $api_end = "/api/v2/search?";
+	my $api_end = "api/v2";
+
+	if (index($target, $api_end) != -1) {
+		$link .= "/cgi/display.pl?";
+	}
+
 	my $url = "http://${prefix}.${link}${target}";
 	return $url;
 }

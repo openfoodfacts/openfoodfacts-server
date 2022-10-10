@@ -122,7 +122,7 @@ msgstr "Įveskite savo organizacijos pavadinimą (įmonės pavadinimą ar prekė
 
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
-msgstr ""
+msgstr "Ši profesionali paskyra yra susieta su gamintoju arba prekės ženklu {org}. Turite prieigą prie gamintojų platformos."
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -1021,7 +1021,7 @@ msgstr "Sudėtis"
 
 msgctxt "no_ingredient"
 msgid "Ingredients are missing"
-msgstr ""
+msgstr "Trūksta ingredientų"
 
 msgctxt "one_ingredient"
 msgid "1 ingredient"
@@ -4794,7 +4794,7 @@ msgstr "Vardas"
 
 msgctxt "org_link"
 msgid "Link to the official web site"
-msgstr ""
+msgstr "Nuoroda į oficialią svetainę"
 
 msgctxt "org_customer_service"
 msgid "Customer service"
@@ -4802,11 +4802,11 @@ msgstr "Klientų aptarnavimas"
 
 msgctxt "org_customer_service_description"
 msgid "Customer service information is public and can be shown on the Open Food Facts web site and apps."
-msgstr ""
+msgstr "Klientų aptarnavimo informacija yra vieša ir gali būti rodoma Open Food Facts svetainėje ir programėlėse."
 
 msgctxt "org_customer_service_note"
 msgid "All fields are optional."
-msgstr ""
+msgstr "Visi laukai yra neprivalomi."
 
 msgctxt "org_commercial_service"
 msgid "Commercial service"
@@ -4822,11 +4822,11 @@ msgstr "Vardas"
 
 msgctxt "contact_address"
 msgid "Address"
-msgstr ""
+msgstr "Adresas"
 
 msgctxt "contact_phone"
 msgid "Phone number"
-msgstr ""
+msgstr "Telefono numeris"
 
 msgctxt "contact_email"
 msgid "e-mail address"
@@ -4834,7 +4834,7 @@ msgstr "el. pašto adresas"
 
 msgctxt "contact_link"
 msgid "Contact form link"
-msgstr ""
+msgstr "Kontaktinės formos nuoroda"
 
 msgctxt "contact_info"
 msgid "Other information"
@@ -4866,11 +4866,11 @@ msgstr ""
 
 msgctxt "official_site"
 msgid "Official site"
-msgstr ""
+msgstr "Oficialus puslapis"
 
 msgctxt "contact_form"
 msgid "Contact form"
-msgstr ""
+msgstr "Kontaktų forma"
 
 msgctxt "edit_org_profile"
 msgid "Edit your organization profile"
@@ -4993,7 +4993,7 @@ msgstr ""
 
 msgctxt "products_are_being_loaded_please_wait"
 msgid "Products are being loaded, please wait."
-msgstr ""
+msgstr "Produktai įkeliami, palaukite."
 
 msgctxt "products_match_all"
 msgid "All products"
@@ -5037,15 +5037,15 @@ msgstr ""
 
 msgctxt "deforestation_risk"
 msgid "Deforestation risk"
-msgstr ""
+msgstr "Miškų naikinimo rizika"
 
 msgctxt "total_forest_footprint"
 msgid "Total forest footprint"
-msgstr ""
+msgstr "Bendras miško pėdsakas"
 
 msgctxt "square_meters_per_kg_of_food"
 msgid "m² per kg of food"
-msgstr ""
+msgstr "m² vienam kilogramui maisto"
 
 msgctxt "percent_of_food_after_processing"
 msgid "% of food after processing"
@@ -5997,7 +5997,7 @@ msgstr ""
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
-msgstr ""
+msgstr "Labai geras atitikimas"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_good_match"
@@ -6050,20 +6050,20 @@ msgstr ""
 
 msgctxt "action_add_categories"
 msgid "Add a category"
-msgstr ""
+msgstr "Pridėti kategoriją"
 
 msgctxt "action_add_nutrition_facts"
 msgid "Add nutrition facts"
-msgstr ""
+msgstr "Pridėti maistingumą"
 
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
 msgid "What you need to know"
-msgstr ""
+msgstr "Ką turi žinoti"
 
 msgctxt "knowledge_panels_recommendation"
 msgid "Recommendation"
-msgstr ""
+msgstr "Rekomendacija"
 
 msgctxt "nutrient_info_salt_risk"
 msgid "A high consumption of salt (or sodium) can cause raised blood pressure, which can increase the risk of heart disease and stroke."
@@ -6079,27 +6079,27 @@ msgstr ""
 
 msgctxt "nutrient_recommendation_salt_title"
 msgid "Limit the consumption of salt and salted food"
-msgstr ""
+msgstr "Apriboti druskos ir sūdyto maisto vartojimą"
 
 msgctxt "nutrient_recommendation_salt_cooking_and_table"
 msgid "Reduce the quantity of salt used when cooking, and don't salt again at the table."
-msgstr ""
+msgstr "Sumažinkite gaminant maistą naudojamos druskos kiekį ir daugiau nedėkite druskos prie stalo."
 
 msgctxt "nutrient_recommendation_salt_limit_salty_snacks"
 msgid "Limit the consumption of salty snacks and choose products with lower salt content."
-msgstr ""
+msgstr "Ribokite sūrių užkandžių vartojimą ir rinkitės produktus su mažesniu druskos kiekiu."
 
 msgctxt "nutrient_info_sugars_risk"
 msgid "A high consumption of sugar can cause weight gain and tooth decay. It also augments the risk of type 2 diabetes and cardio-vascular diseases."
-msgstr ""
+msgstr "Didelis cukraus vartojimas gali sukelti svorio prieaugį ir dantų ėduonį. Tai taip pat padidina 2 tipo diabeto ir širdies ir kraujagyslių ligų riziką."
 
 msgctxt "nutrient_recommendation_sugars_title"
 msgid "Limit the consumption of sugar and sugary drinks"
-msgstr ""
+msgstr "Apriboti cukraus ir saldžių gėrimų vartojimą"
 
 msgctxt "nutrient_recommendation_sugars_drinks"
 msgid "Sugary drinks (such as sodas, fruit beverages, and fruit juices and nectars) should be limited as much as possible (no more than 1 glass a day)."
-msgstr ""
+msgstr "Saldžūs gėrimai (tokie kaip gazuoti gėrimai, vaisių gėrimai, vaisių sultys ir nektarai) turi būti ribojami kiek įmanoma daugiau(ne daugiau kaip 1 stiklinė per dieną)."
 
 msgctxt "nutrient_recommendation_sugars_food"
 msgid "Choose products with lower sugar content and reduce the consumption of products with added sugars."

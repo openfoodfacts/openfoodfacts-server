@@ -24,12 +24,7 @@ jobs:
       # generating project documentation
       - name: Build documentation with MkDocs
         run: |
-          # copy README.md as the index but change links starting with ./docs/ to ./
-          sed -e 's|(\./docs/|(./|g' README.md > docs/index.md
-          docker run -v $(pwd):/app  -w /app --rm minidocks/mkdocs build
-      - name: Ensure permissions on generated doc
-        run: |
-          sudo chown $UID -R gh_pages
+          scripts/build_mkdocs.sh
 
       # generating perl documentation
       - name: Install Perl requirements

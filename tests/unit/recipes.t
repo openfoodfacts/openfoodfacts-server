@@ -7,38 +7,17 @@ use Test::More;
 use Log::Any::Adapter 'TAP';
 
 use JSON;
-use Getopt::Long;
-use File::Basename "dirname";
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
+use ProductOpener::Test qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Recipes qw/:all/;
 
-my $expected_dir = dirname(__FILE__) . "/expected_test_results";
-my $testdir = "recipes";
-
-my $usage = <<TXT
-
-The expected results of the tests are saved in $expected_dir/$testdir
-
-To verify differences and update the expected test results, actual test results
-can be saved to a directory by passing --results [path of results directory]
-
-The directory will be created if it does not already exist.
-
-TXT
-;
-
-my $resultsdir;
-
-GetOptions ("results=s"   => \$resultsdir)
-  or die("Error in command line arguments.\n\n" . $usage);
-  
-if ((defined $resultsdir) and (! -e $resultsdir)) {
-	mkdir($resultsdir, 0755) or die("Could not create $resultsdir directory: $!\n");
-}
+my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (
+	init_expected_results(__FILE__)
+);
 
 my @recipes_tests = (
 
@@ -140,15 +119,15 @@ foreach my $recipes_test_ref (@recipes_tests) {
         
         # Save the result
         
-        if (defined $resultsdir) {
-            open (my $result, ">:encoding(UTF-8)", "$resultsdir/$recipes_testid.$testid.json") or die("Could not create $resultsdir/$recipes_testid.$testid.json: $!\n");
+        if ($update_expected_results) {
+            open (my $result, ">:encoding(UTF-8)", "$expected_result_dir/$recipes_testid.$testid.json") or die("Could not create $expected_result_dir/$recipes_testid.$testid.json: $!\n");
             print $result $json->pretty->encode($product_ref);
             close ($result);
         }
         
         # Compare the result with the expected result
         
-        if (open (my $expected_result, "<:encoding(UTF-8)", "$expected_dir/$testdir/$recipes_testid.$testid.json")) {
+        if (open (my $expected_result, "<:encoding(UTF-8)", "$expected_result_dir/$recipes_testid.$testid.json")) {
 
             local $/; #Enable 'slurp' mode
             my $expected_product_ref = $json->decode(<$expected_result>);
@@ -156,7 +135,7 @@ foreach my $recipes_test_ref (@recipes_tests) {
         }
         else {
             diag explain $product_ref;
-            fail("could not load expected_test_results/$testdir/$recipes_testid.$testid.json");
+            fail("could not load expected_test_results/$test_id/$recipes_testid.$testid.json");
         }
     }
 
@@ -164,15 +143,15 @@ foreach my $recipes_test_ref (@recipes_tests) {
 
     # Save the result
         
-    if (defined $resultsdir) {
-        open (my $result, ">:encoding(UTF-8)", "$resultsdir/$recipes_testid.json") or die("Could not create $resultsdir/$recipes_testid.json: $!\n");
+    if ($update_expected_results) {
+        open (my $result, ">:encoding(UTF-8)", "$expected_result_dir/$recipes_testid.json") or die("Could not create $expected_result_dir/$recipes_testid.json: $!\n");
         print $result $json->pretty->encode($analysis_ref);
         close ($result);
     }
     
     # Compare the result with the expected result
     
-    if (open (my $expected_result, "<:encoding(UTF-8)", "$expected_dir/$testdir/$recipes_testid.json")) {
+    if (open (my $expected_result, "<:encoding(UTF-8)", "$expected_result_dir/$recipes_testid.json")) {
 
         local $/; #Enable 'slurp' mode
         my $expected_analysis_ref = $json->decode(<$expected_result>);
@@ -180,7 +159,7 @@ foreach my $recipes_test_ref (@recipes_tests) {
     }
     else {
         diag explain $analysis_ref;
-        fail("could not load expected_test_results/$testdir/$recipes_testid.json");
+        fail("could not load expected_test_results/$test_id/$recipes_testid.json");
     }    
 }
 

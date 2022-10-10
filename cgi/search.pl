@@ -496,7 +496,7 @@ elsif ($action eq 'process') {
 
 			my %terms = ();
 
-			foreach my $term (split(/,|'|\s/, $search_terms)) {
+			foreach my $term (split(/,|'|’|\s/, $search_terms)) {
 				if (length(get_string_id_for_lang($lc, $term)) >= 2) {
 					$terms{normalize_search_terms(get_string_id_for_lang($lc, $term))} = 1;
 				}
@@ -686,7 +686,7 @@ elsif ($action eq 'process') {
 	my $download = single_param("download") || '';
 
 	open(my $OUT, ">>:encoding(UTF-8)", "$data_root/logs/search_log_debug");
-	print $OUT remote_addr() . "\t" . time() . "\t" . decode utf8 => single_param('search_terms') . " - map: $map 
+	print $OUT remote_addr() . "\t" . time() . "\t" . decode utf8 => single_param('search_terms') . " - map: $map
 	 - graph: $graph - download: $download - page: $page\n";
 	close($OUT);
 
