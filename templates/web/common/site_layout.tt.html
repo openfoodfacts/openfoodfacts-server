@@ -96,7 +96,7 @@
 					<ul class="right">
 						[% IF not user_id.defined %]
 							<li class="h-space-tiny has-form">
-								<a href="/cgi/session.pl" data-reveal-id="loginmodal" class="round button secondary">
+								<a href="/cgi/session.pl" class="round button secondary">
 									<span class="material-symbols-outlined material-symbols-button">account_circle</span>
 									&nbsp;
 									[% lang('sign_in') %]
@@ -133,7 +133,7 @@
 			</nav>
 		</div>
 
-		<div id="main-container">
+		<div id="main_container" style="position:relative" class="block_latte">
 			
 		<div class="topbarsticky">
 			<div class="contain-to-grid " id="offNav" >
