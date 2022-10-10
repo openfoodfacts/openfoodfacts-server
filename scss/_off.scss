@@ -1183,3 +1183,22 @@ display: inline-block;
 .search_form_accordion_content {
   padding: rem-calc(16) !important;
 }
+
+// Grow the content so that the footer is always at the bottom of the page
+
+#page {
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+#main_container {
+  flex-grow:1;
+  flex-direction:column;
+}
+
+#content {
+  flex-grow:1;
+}
+
+

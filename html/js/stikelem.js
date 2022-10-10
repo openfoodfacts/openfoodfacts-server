@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     var StickyNav = new hcSticky('.topbarsticky', {
-        stickTo: '.main-container'
+        stickTo: '#main_container'
     });
     var StickyNavProd = new hcSticky('.prod-nav', {
         stickTo: '#main_column',
