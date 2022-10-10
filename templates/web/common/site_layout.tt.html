@@ -40,106 +40,45 @@
 					<!-- Left Nav Section -->
 					<ul class="left">
 
-					<li class="has-dropdown">
-						<a>
-							<span class="material-icons">
-								menu
-							</span>
-						</a>
-						<ul class="dropdown">
-
-					<ul class="country_language_selection">
-
-						[% IF langs.match('<a') %]
-							<li class="has-dropdown">
-								[% selected_lang %]
-								<ul class="dropdown">
-									[% langs %]
-								</ul>
-							</li>
-						[% END %]
-					</ul>							
-
-							<li><a href="[% lang('menu_discover_link') %]">[% lang('menu_discover') %]</a></li>
-							<li><a href="[% lang('menu_contribute_link') %]">[% lang('menu_contribute') %]</a></li>
-							<li>
-								<a href="/cgi/search.pl">[% lang('advanced_search') %]</a>
-							</li>
-							<li>
-								<a href="/cgi/search.pl?graph=1">[% lang('graphs_and_maps') %]</a>
-							</li>
-						</ul>
-					</li>
-				<li>
-					<ul class="country_language_selection">
-						<li class="has-form has-dropdown" id="select_country_li">
-							<select id="select_country" style="width:100%" data-placeholder="[% lang('select_country') %]">
-								<option></option>
-							</select>
-						</li>
-						[% IF langs.match('<a') %]
-							<li class="has-dropdown">
-								[% selected_lang %]
-								<ul class="dropdown">
-									[% langs %]
-								</ul>
-							</li>
-						[% END %]
-					</ul>
-				</li>
-				</ul>
-				<!-- Right Nav Section -->
-				
-				<ul class="right">
-					[% IF not user_id.defined %]
-						<li class="h-space-tiny has-form">
-							<a href="/cgi/session.pl" data-reveal-id="loginmodal" class="round button secondary">
-								<span class="material-icons material-symbols-button">account_circle</span>
-								&nbsp;
-								[% lang('sign_in') %]
-							</a>
-						</li>
-					[% ELSE %]
 						<li class="has-dropdown">
-							<a href="#" class="userlink h-space-tiny">
+							<a>
 								<span class="material-icons">
-									account_circle
+									menu
 								</span>
 							</a>
-							<ul class="dropdown">
-								<li><a href="/cgi/user.pl?type=edit&userid=[% user_id %]"><span class="material-icons">settings</span> Parameters</a></li>
-								<li class="divider"></li>			
-								<li><label>[% lang('your_contributions') %]</label></li>
-								<li><a href="[% canonicalize_taxonomy_tag_link("users", user_id) %]">[% lang('products_added') %]</a></li>
-								<li><a href="[% canonicalize_taxonomy_tag_link("editors", user_id) %]">[% lang('products_edited') %]</a></li>
-								<li><a href="[% canonicalize_taxonomy_tag_link("photographers", user_id) %]">[% lang('products_photographed') %]</a></li>
-								<li class="divider"></li>			
-								<li class="has-form">
-									<form method="post" action="/cgi/session.pl">
-    <input type="hidden" name="length" value="logout">
-    <input type="submit" name=".submit" value="[% lang('sign_out') %]" class="button small">
-</form>
+							<ul class="dropdown">				
+
+								<li><a href="[% lang('menu_discover_link') %]">[% lang('menu_discover') %]</a></li>
+								<li><a href="[% lang('menu_contribute_link') %]">[% lang('menu_contribute') %]</a></li>
+								<li>
+									<a href="/cgi/search.pl">[% lang('advanced_search') %]</a>
+								</li>
+								<li>
+									<a href="/cgi/search.pl?graph=1">[% lang('graphs_and_maps') %]</a>
 								</li>
 							</ul>
 						</li>
-					<li>
-						<ul class="country_language_selection">
-							<li class="has-form has-dropdown" id="select_country_li">
-								<select id="select_country" style="width:100%" data-placeholder="[% lang('select_country') %]">
-									<option></option>
-								</select>
-							</li>
-							[% IF langs.match('<a') %]
-								<li class="has-dropdown">
-									[% selected_lang %]
-									<ul class="dropdown">
-										[% langs %]
-									</ul>
+						
+						<li>
+							<ul class="country_language_selection">
+								<li class="has-form has-dropdown" id="select_country_li">
+									<select id="select_country" style="width:100%" data-placeholder="[% lang('select_country') %]">
+										<option></option>
+									</select>
 								</li>
-							[% END %]
-						</ul>
-					</li>
+								[% IF langs.match('<a') %]
+									<li class="has-dropdown">
+										[% selected_lang %]
+										<ul class="dropdown">
+											[% langs %]
+										</ul>
+									</li>
+								[% END %]
+							</ul>
+						</li>
 					</ul>
+
+
 					<!-- Right Nav Section -->
 					
 					<ul class="right">
