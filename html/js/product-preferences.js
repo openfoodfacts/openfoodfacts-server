@@ -126,7 +126,7 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
 	var html = '';
 	
 	var html_edit_preferences = '<div><a id="show_selection_form" class="button small round secondary" role="button" tabindex="0">' +
-        '<span class="material-symbols-outlined size-20">&#xE556;</span>' +
+        '<span class="material-icons size-20">&#xE556;</span>' +
         "&nbsp;<span>" + lang().preferences_edit_your_food_preferences + '</span></a></div>';
 	
 	// Display a switch for scoring and ranking products according to the user preferences 

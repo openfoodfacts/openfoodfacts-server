@@ -20,10 +20,7 @@
     <link rel="stylesheet" href="[% static_subdomain %]/css/dist/jqueryui/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="[% static_subdomain %]/css/dist/select2.min.css">
     <link rel="search" href="[% formatted_subdomain %]/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="[% lang('site_name') %]">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@200;400;500;600;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,600,1,0" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	[% header %]
     <style media="all">
         [% lang("css") %]
@@ -42,7 +39,7 @@
 
 					<li class="has-dropdown">
 						<a>
-							<span class="material-symbols-outlined">
+							<span class="material-icons">
 								menu
 							</span>
 						</a>
@@ -94,7 +91,7 @@
 					[% IF not user_id.defined %]
 						<li class="h-space-tiny has-form">
 							<a href="/cgi/session.pl" data-reveal-id="loginmodal" class="round button secondary">
-								<span class="material-symbols-outlined material-symbols-button">account_circle</span>
+								<span class="material-icons material-symbols-button">account_circle</span>
 								&nbsp;
 								[% lang('sign_in') %]
 							</a>
@@ -102,14 +99,14 @@
 					[% ELSE %]
 						<li class="has-dropdown">
 							<a href="#" class="userlink h-space-tiny">
-								<span class="material-symbols-outlined">
+								<span class="material-icons">
 									account_circle
 								</span>
 								&nbsp;
 								[% user.name %]</span>
 							</a>
 							<ul class="dropdown">
-								<li><a href="/cgi/user.pl?type=edit&userid=[% user_id %]"><span class="material-symbols-outlined">settings</span> Parameters</a></li>
+								<li><a href="/cgi/user.pl?type=edit&userid=[% user_id %]"><span class="material-icons">settings</span> Parameters</a></li>
 								<li class="divider"></li>			
 								<li><label>[% lang('your_contributions') %]</label></li>
 								<li><a href="[% canonicalize_taxonomy_tag_link("users", user_id) %]">[% lang('products_added') %]</a></li>
