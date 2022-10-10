@@ -31817,23 +31817,26 @@ ru:Цельнозерновой хлеб
 wikidata:en:Q940999
 
 <en:Breads
-fr:Pains croustillants, Pain croustillant
-nl:Knapperige broodproducten
-
-<en:Breads
 en:Crispbreads
 de:Knäckebrote, Knäckebrot
+fr:Pains croustillants, Pain croustillant
+nl:Knäckebrot, Knäckebröd
+
+#Extruded crispbread is not bread
+<en:Cereals and potatoes
+<en:Snacks
+en:Extruded crispbreads
+de:Knusperbrote, Knusperbrot
 es:Tostadas ligeras crujientes
 fi:näkkileivät
-fr:Tartines craquantes, tartine craquante, tartines croustillantes, tartine croustillante
-nl:Knäckebrot, Knäckebröd
+fr:Tartines craquantes extrudées, Tartines craquantes, tartine craquante, tartines croustillantes, tartine croustillante
+nl:Knapperige broodproducten
 wikidata:en:Q251981
 agribalyse_proxy_food_code:en:7410
 agribalyse_proxy_food_name:en:Crispbread, extruded and grilled
 agribalyse_proxy_food_name:fr:Tartine craquante, extrudée et grillée
 
-
-<en:Crispbreads
+<en:Extruded crispbreads
 en:Extruded and grilled crispbread
 fr:Tartines craquantes grillées, Tartines craquantes extrudées et grillées
 agribalyse_food_code:en:7410
@@ -31841,7 +31844,11 @@ ciqual_food_code:en:7410
 ciqual_food_name:en:Crispbread, extruded and grilled
 ciqual_food_name:fr:Tartine craquante, extrudée et grillée
 
-<en:Crispbreads
+<en:Filled biscuits
+en:Filled extruded crispbreads
+fr:Tartines craquantes fourrées
+
+<en:Filled extruded crispbreads
 en:Extruded and grilled biscuits with chocolate filling
 fr:Tartines craquantes grillées fourrées au chocolat, Tartines craquantes extrudées et grillées fourrées au chocolat
 agribalyse_food_code:en:7412
@@ -31850,7 +31857,7 @@ ciqual_food_name:en:Biscuit, extruded and grilled, chocolate filling
 ciqual_food_name:fr:Tartine craquante, extrudée et grillée, fourrée au chocolat
 #Example: Cracottes chocolat
 
-<en:Crispbreads
+<en:Filled extruded crispbreads
 en:Extruded and grilled biscuits with fruits filling
 fr:Tartines craquantes grillées fourrées aux fruits, Tartines craquantes extrudées et grillées fourrées aux fruits
 agribalyse_food_code:en:7413
