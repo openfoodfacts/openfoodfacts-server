@@ -2403,7 +2403,7 @@ sub product_action_url($code, $action) {
 		$url .= "#labels";
 	}
 	elsif ($action eq "add_countries") {
-		$url .= "#contries";
+		$url .= "#countries";
 	}
 	# END will do nothing unless a custom section is added
 	else {
