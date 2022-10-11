@@ -3905,10 +3905,6 @@ msgctxt "import_file_result"
 msgid "Import result"
 msgstr "Import result"
 
-msgctxt "products_added"
-msgid "Products added"
-msgstr "Products added"
-
 msgctxt "products_modified"
 msgid "Products modified"
 msgstr "Products modified"
@@ -6263,5 +6259,74 @@ msgctxt "nutrient_recommendation_fat_and_saturated_fat"
 msgid "Choose products with lower fat and saturated fat content."
 msgstr "Choose products with lower fat and saturated fat content."
 
+msgctxt "sign_in"
+msgid "Sign in"
+msgstr "Sign in"
 
+msgctxt "sign_out"
+msgid "Sign out"
+msgstr "Sign out"
 
+msgctxt "your_contributions"
+msgid "Your contributions"
+msgstr "Your contributions"
+
+msgctxt "products_added"
+msgid "Products added"
+msgstr "Products added"
+
+msgctxt "products_edited"
+msgid "Products edited"
+msgstr "Products edited"
+
+msgctxt "products_photographed"
+msgid "Products photographed"
+msgstr "Products photographed"
+
+# result of the matching with the user preferences: should ne a noun, not a verb
+msgctxt "matching_with_your_preferences"
+msgid "Matching with your preferences"
+msgstr "Matching with your preferences"
+
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_join_us_on_slack"
+msgid "Join us on <a href=\"{url}\">Slack</a>"
+msgstr "Join us on <a href=\"{url}\">Slack</a>"
+
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_discover_our_code_of_conduct"
+msgid "Discover our <a href=\"{url}\">Code of conduct</a>"
+msgstr "Discover our <a href=\"{url}\">Code of conduct</a>"
+
+# {links} must not be translated, it will be replaced by icons and/or text links
+msgctxt "f_footer_follow_us_links"
+msgid "Follow us: {links}"
+msgstr "Follow us: {links}"
+
+# Should be as small as possible, e.g. use "app" instead of "application", don't specify "mobile"
+msgctxt "footer_install_the_app_exclamation_mark"
+msgid "Install the app!"
+msgstr "Install the app!"
+
+# HTML tags must not be translated, keep <span id=\"everyday\"> and <span id=\"foods\"> and put them around the corresponding words in the translation
+# e.g. in French: Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>
+msgctxt "footer_scan_your_everyday_foods"
+msgid "Scan your <span id=\"everyday\">everyday</span> <span id=\"foods\">foods</span>"
+msgstr "Scan your <span id=\"everyday\">everyday</span> <span id=\"foods\">foods</span>"
+
+msgctxt "nutrition"
+msgid "Nutrition"
+msgstr "Nutrition"
+
+# Note: "criteria" is plural here. So in French for instance: "Vos critères"
+msgctxt "your_criteria"
+msgid "Your criteria"
+msgstr "Your criteria"
+
+msgctxt "product"
+msgid "Product"
+msgstr "Product"
+
+msgctxt "environment"
+msgid "Environment"
+msgstr "Environment"
