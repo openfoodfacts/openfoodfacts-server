@@ -87,7 +87,7 @@ if ($origin =~ /^https:\/\/[a-z0-9-.]+\.${server_domain}(:\d+)?$/) {
 
 print header(-status => $status, -type => 'application/json', -charset => 'utf-8');
 
-# 2022-10-11 - The OFF flutter app is expecting an empty body
+# 2022-10-11 - The Open Food Facts Flutter app is expecting an empty body
 # see https://github.com/openfoodfacts/smooth-app/issues/3118
 # only send a body if we have the body=1 parameter
 # TODO: remove this condition when new versions of the app are deployed
