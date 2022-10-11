@@ -17,6 +17,7 @@ stopwords:es:por, la, las, los, el, apto, para, verificado, certificado, aprovad
 stopwords:fi:ainesosat, vahvistettu, sertifioitu, hyväksytty, 100%, puhdas, tuote, standardi, valvottu, valvottua, tuotettu
 stopwords:fr:ingrédient, ingrédients, agricole, agricoles, issu, issue, issus, issues, d', du, de, l', le, la, convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit garanti, produit certifié, sas, en, durant, pendant, phase, période, dès, label, marque, logo, produit issu, produits issus, tous, les, sont, est, issus de la production
 stopwords:hu:összetevők, mezőgazdaság, ellenőrzött, tanúsított, 100%, természetes, termék, garantált
+stopwords:pl:z, certyfikowane, certyfikowany, certyfikowana, gwarancja
 stopwords:ru:ингредиенты, из, с, проверено, сертифицировано, подтверждено, 100%, чистый, продукт, гарантия, гарантировано, стандарт
 stopwords:sv:certifierad, ingrediens, ingredienser, godkänd, råvara, enlighet, med, kriterierna, produkt, från, kontrollerat, kontrollerade, jordbruk, lantbruk, odling, odlingar
 
@@ -815,7 +816,7 @@ hu:Gluténmentes, Glutén nélkül, Gluténmentes élelmiszer, Nem tartalmaz glu
 it:Senza glutine
 nb:Uten gluten
 nl:Glutenvrij, Gluten vrij, Vrij van gluten, Zonder gluten
-pl:Bezglutenowy
+pl:Bezglutenowy, Bez glutenu, Nie zawiera glutenu
 pt:Sem gluten, Isento de gluten
 ru:Без глютена
 sk:Bez lepku
@@ -875,6 +876,7 @@ fr:Sans épaississant, Sans épaississants, Sans épaissisant, Sans épaissisant
 hu:Sűrítőanyag nélkül, Sűrítőanyagmentes, sűrítőanyagot nem tartalmaz
 it:Senza agenti addensanti
 nl:Verdikkingsmiddelvrij, Zonder verdikkingsmiddel
+pl:Bez substancji zagęszczających, Bez zagęstników
 pt:Sem espessante
 ru:Без загустителя
 
@@ -1020,7 +1022,7 @@ fi:Kuidun lähde
 fr:Source de fibres alimentaires, Source de fibres, Source naturelle de fibres
 it:Fonte di fibre
 nl:Bron van vezels
-pl:Źródlo blonnika
+pl:Źródło błonnika
 se:Fiberkälla
 
 <en:source of fibre
@@ -1035,7 +1037,7 @@ hu:Rostokban gazdag, Magas rosttartalmú
 it:Ricco di fibre
 nb:Fiberrik, rik på fiber
 nl:Vezelrijk, Rijk aan vezels
-pl:wysoka zawartość błonnika
+pl:Wysoka zawartość błonnika
 pt:Rico em fibras
 ru:Обогащено клетчаткой
 th:ใยอาหารสูง
@@ -1091,6 +1093,7 @@ hu:Magas fehérjetartalom, Fehérjékben gazdag
 it:Alto contenuto proteico, ricco di proteine, fonte di proteine
 nb:Rik på protein
 nl:Eiwitrijk, Rijk aan protéines, Rijk aan Eiwit
+pl:Wysoka zawartość białka, Bogaty w białko
 pt:Proteínas altas, fonte de proteínas
 ru:Обогащено протеинами
 th:โปรตีนสูง
@@ -1118,6 +1121,7 @@ he:מקור לסידן
 hu:Kalciumforrás
 it:Fonte di calcio
 nl:Bron van Calcium
+pl:Źródło wapnia
 pt:Fonte de calcio
 ru:источник кальция
 th:แหล่งของแคลเซียม
@@ -1144,6 +1148,7 @@ he:מקור לוויטמין A
 hu:A-vitaminforrás
 it:Fonte di vitamina A
 nl:bron van Vitamine A
+pl:Źródło witaminy A
 pt:Fonte de vitamina A
 ru:Источник витамина A
 wikidata:en:Q18225
@@ -1157,6 +1162,7 @@ fr:Source de vitamine B
 he:מקור לוויטמין B
 hu:B-vitaminforrás
 nl:Bron van Vitamine B
+pl:Źródło witaminy B
 pt:Fonte de vitamina B
 ru:Источник витамина B
 wikidata:en:Q183206
@@ -1170,6 +1176,7 @@ fr:Source de vitamine B1
 he:מקור לוויטמין B1
 hu:B1-vitaminforrás
 nl:Bron van Vitamine B1
+pl:Źródło witaminy B1
 pt:Fonte de vitamina B1
 ru:Источник витамина B1
 wikidata:en:Q83187
@@ -1183,6 +1190,7 @@ fr:Source de vitamine B6
 he:מקור לוויטמין B6
 hu:B6-vitaminforrás
 nl:Bron van Vitamine B6
+pl:Źródło witaminy B6
 pt:Fonte de vitamina B6
 ru:Источник витамина B6
 wikidata:en:Q205130
@@ -1196,6 +1204,7 @@ fr:Source de vitamine B9
 he:מקור לוויטמין B9
 it:Fonte di vitamina B9
 nl:Bron van Vitamine B9
+pl:Źródło witaminy B9
 pt:Fonte de vitamina B9
 ru:Источник витамина B9
 
@@ -1211,6 +1220,7 @@ hu:B12-vitaminforrás
 it:Fonte di vitamina B12
 nb:Kilde til vitamin B12
 nl:Bron van Vitamine B12
+pl:Źródło witaminy B12
 pt:Fonte de vitamina B12
 ru:Источник витамина B12
 sv:Källa till vitamin B12
@@ -1226,6 +1236,7 @@ he:מקור לוויטמין C
 hu:C-vitaminforrás
 it:Fonte di Vitamina C, fonte di acido ascorbico, fonte di principio antiscorbutico, fonte di ascorbato
 nl:Bron van Vitamine C
+pl:Źródło witaminy C
 pt:Fonte de vitamina C
 ru:Источник витамина C
 
@@ -1257,6 +1268,7 @@ he:מקור לוויטמין E
 hu:E-vitaminforrás
 it:Fonte di vitamina E
 nl:Bron van Vitamine E
+pl:Źródło witaminy E
 pt:Fonte de vitamina
 ru:Источник витамина E
 
@@ -1270,6 +1282,7 @@ fr:Source de fer
 hu:Vasforrás
 it:Fonte di ferro
 nl:Bron van IJzer, Rijk aan IJzer
+pl:Źródło żelaza
 pt:Fonte de ferro
 
 en:Natural source of calcium, Natural calcium source
@@ -1281,6 +1294,7 @@ fr:Source naturelle de calcium
 hu:Természetes Kalciumforrás
 it:Fonte naturale di calcio
 nl:Bron van natuurlijke Calcium
+pl:Naturalne źródło wapnia
 pt:Fonte natural de cálcio
 ru:Источник натурального кальция
 
@@ -1319,6 +1333,7 @@ he:מועשר בוויטמינים
 hu:Vitaminokkal dúsított
 it:Arricchito con vitamine
 nl:verrijkt met vitaminen
+pl:Wzbogacane witaminami
 sv:Vitaminberikat, Vitaminberikad
 
 en:Enriched wih minerals
@@ -1963,7 +1978,7 @@ he:דל או ללא סוכר
 hu:Cukormentes vagy alacsony cukortartalmú
 it:Zucchero basso o assente
 nl:Zonder of weinig suiker
-pl:o małej zawartości cukru lub bez cukru
+pl:O małej zawartości cukru lub bez cukru
 pt:Baixo ou nenhum açúcar
 ru:Низкое содержание сахара или без сахара
 sv:Lågt eller inget socker
@@ -1998,7 +2013,7 @@ he:מופחת סוכר, פחות סוכר
 hu:Csökkentett cukortartalmú
 it:Ridotto contenuto di zucchero
 nl:Minder suiker
-pl:Obniżona zawartość cukru
+pl:O obniżonej zawartości cukru, Obniżona zawartość cukru
 pt:Açúcar reduzido, menos açúcar
 th:น้ำตาลน้อย
 
@@ -2151,7 +2166,7 @@ hr:bez dodanog šećera
 hu:Hozzáadott cukor nélkül, Nincs hozzáadott cukor, hozzáadott cukrot nem tartalmaz
 it:Senza zuccheri aggiunti
 nl:Zonder toegevoegde suikers, Geen suiker toegevoegd
-pl:bez dodatku cukru, nie zawiera cukru
+pl:Bez dodatku cukru
 pt:Sem açúcares adicionados, Sem adição de açúcares
 sv:Inget tillsat socker, Utan tillsatt socker
 th:ไม่เติมน้ำตาล
@@ -2170,7 +2185,7 @@ hr:bez šećera
 hu:Cukormentes, Minimális cukortartalom
 it:Senza zucchero
 nl:Suikervrij, Zonder suiker
-pl:bez cukru
+pl:Bez cukru, Nie zawiera cukru
 pt:Sem açúcar
 ru:Без сахара
 th:ไม่มีน้ำตาล
@@ -2185,6 +2200,7 @@ he:מפחית כולסטרול
 hu:Csökkenti a koleszterinszintet
 it:Abbassa il colesterolo
 nl:Weinig cholesterol
+pl:Obniża cholesterol
 pt:Reduz o Colesterol
 label_categories:en: en:Health, en:Claim
 
@@ -2341,6 +2357,7 @@ en:Made in Poland
 bg:Произведено в Полша
 da:Fremstillet i Polen
 fi:Valmistettu Puolassa
+pl:Wyprodukowano w Polsce
 sv:Tillverkad i Polen
 country:en:Poland
 label_categories:en: en:Geographic label
@@ -2624,6 +2641,7 @@ he:ללא ג׳לטין, נטול ג׳לטין
 hu:Zselatinmentes, zselatin nélkül
 it:Senza gelatina
 nl:Zonder gelatine, Gelatinevrij
+pl:Bez żelatyny
 
 en:No additives, without additives
 bg:Без добавки
@@ -2668,6 +2686,7 @@ he:ללא אלכוהול, נטול אלכוהול
 hu:Alkoholmentes
 it:Senza alcol
 nl:Alcoholvrij, Zonder alchohol
+pl:Bez alkoholu
 pt:Sem álcool
 th:ไม่มีแอลกอฮอล์
 opposite:en: en:contains alcohol
@@ -2690,6 +2709,7 @@ hr:bez umjetnih boja
 hu:Mesterséges színezék nélkül, Mesterséges színezéket nem tartalmaz, mesterséges színezék mentes
 it:Senza coloranti artificiali
 nl:Zonder kunstmatige kleurstoffen, Vrij van kunstmatige kleurstoffen
+pl:Bez sztucznych barwników
 pt:Sem cores artificiais, sem cor artificial
 ru:без искусственных красителей
 th:ไม่เติมสีสังเคราะห์
@@ -2728,6 +2748,7 @@ he:ללא ממתיקים מלאכותיים
 hu:Mesterséges édesítők nélkül, Mesterséges édesítőszerek nélkül, mesterséges édesítőszert nem tartalmaz
 it:Senza dolcificanti artificiali
 nl:Zonder kunstmatige suikers, Zonder suikervervangers
+pl:Bez sztucznych słodzików
 pt:Sem adoçantes artificiais
 label_categories:en: en:Health, en:Claim
 
@@ -2745,6 +2766,7 @@ fr:Sans conservateur artificiel
 hu:Mesterséges tartósítószer nélkül, Mesterséges tartósítószert nem tartalmaz
 it:Senza conservanti artificiali
 nl:Zonder kunstmatige bewaarstoffen
+pl:Bez sztucznych konserwantów
 pt:Sem conservantes artificiais
 label_categories:en: en:Health, en:Additives
 
@@ -2767,6 +2789,7 @@ hu:Mesterséges színezék és ízesítők nélkül
 it:Senza coloranti o aromi artificiali
 nb:Ingen kunstige smakstilsetninger eller farger
 nl:Zonder kunstmatige kleurstoffen of smaakstoffen
+pl:Bez sztucznych barwników i konserwantów
 pt:Sem corantes nem aromas artificiais
 sv:Inga artificiella aromämnen eller färger
 th:ไม่ใช้กลิ่นและสีสังเคราะห์
@@ -2780,6 +2803,7 @@ fi:ei keinotekoisia arominvahventeita, ilman keinotekoisia arominvahventeita
 fr:Sans exhausteurs de goût artificiels
 hu:Mesterséges ízfokozó nélkül, mesterséges ízfokozót nem tartalmaz
 nl:Zonder smaakversterkers
+pl:Bez sztucznych wzmacniaczy smaku
 label_categories:en: en:Health, en:Additives
 
 en:No aspartame, aspartame free, without aspartame
@@ -2832,6 +2856,7 @@ he:ללא כולסטרול, נטול כולסטרול
 hu:Koleszterinmentes
 it:Senza colesterolo
 nl:Cholesterolvrij, Zonder cholesterol
+pl:Bez cholesterolu
 pt:Sem colesterol
 ru:без холестерина
 th:ไม่มีคอเลสเตอรอล
@@ -2882,6 +2907,7 @@ hr:bez aroma
 hu:Hozzáadott aromák nélkül, hozzáadott aromát nem tartalmaz
 it:Senza aromi
 nl:Zonder toegevoegde smaakstoffen
+pl:Bez aromatów
 pt:Sem sabores, sem sabores adicionados
 ru:без ароматизаторов
 th:ไม่เติมกลิ่น
@@ -2897,6 +2923,7 @@ he:ללא מחזקי טעם
 hu:ízfokozómentes, ízfokozó mentes, ízfokozó nélkül, ízfokozót nem tartalmaz
 it:Senza esaltatori di sapidità
 nl:Geen toegevoegde smaakstoffen
+pl:Bez wzmacniaczy smaku
 pt:Sem intensificador de sabor
 label_categories:en: en:Health, en:Additives
 
@@ -2969,6 +2996,7 @@ fr:Sans glutamate, sans GMS
 he:בלי מונוסודיום גלוטומט
 hu:MSG-mentes, Nátrium-glutamát mentes
 it:Senza glutammato, senza glutammato monosodico, senza glutammato di sodio, senza MSG
+pl:Bez glutaminianu sodu, Bez glutaminianu monosodowego
 th:ไม่ใช้ผงชูรส
 label_categories:en: en:Health, en:Additives
 #additives:en: -en:e621
@@ -2980,6 +3008,7 @@ fi:ei lisättyä natriumglutamaattia
 fr:Sans glutamate ajouté, sans GMS ajouté
 hu:Hozzáadott MSG nélkül, Hozzáadott nátrium-glutamát nélkül
 nl:Geen mononatriumglutamaat toegevoegd, Geen vetsin toegevoegd
+pl:Bez dodatku glutaminianu sodu, Bez dodatku glutaminianu monosodowego
 pt:Nenhum MSG adicionado
 label_categories:en: en:Health, en:Additives
 
@@ -3164,7 +3193,7 @@ hr:bez konzervansa
 hu:Tartósítószermentes, hozzáadott tartósítószer nélkül, tartósítószert nem tartalmaz
 it:Senza conservanti, Senza aggiunta di conservanti, Senza conservanti aggiunti
 nl:Conserveermiddelvrij
-pl:Bez konserwantów, bez dodatku konserwantów, bez sztucznych dodatków
+pl:Bez konserwantów, bez dodatku konserwantów, bez substancji konserwujących
 pt:Sem conservantes, sem conservantes adicionados
 ro:Fără conservanți
 ru:Без консервантов
@@ -3201,6 +3230,7 @@ hr:bez soje
 hu:Szójamentes, szója nélkül
 it:Senza soia
 nl:Sojavrij
+pl:Bez soi, Nie zawiera soi
 pt:Sem soja
 ru:Не содержит сои
 th:ไม่มีส่วนผสมของถั่วเหลือง
@@ -3217,6 +3247,7 @@ fr:Contient du soja
 hu:Szóját tartalmaz, Szójatartalmú
 it:Contiene soia
 nl:bevat soya
+pl:Zawiera soję
 pt:Contem soja
 label_categories:en: en:Environment, en:Soy, en:Allergens
 opposite:en: en:no-soy
@@ -16379,6 +16410,7 @@ en:Contains palm oil
 bg:Съдържа палмово масло
 fr:Contient de l'huile de palme
 nl:Bevat palmolie
+pl:Zawiera olej palmowy, Z olejem palmowym
 opposite:en: en:no-palm-oil
 
 en:PDO, P.D.O., Protected Designation of Origin
@@ -16544,6 +16576,7 @@ fi:Rainforset Alliance
 fr:Rainforest Alliance, Vérifié Rainforest Alliance, Rainforest minimum 30% cacao, Certifié Rainforest Alliance
 it:Alleanza della Foresta Pluviale
 nl:Rainforest Alliance
+pl:Rainforest Alliance
 wikidata:en:Q2034373
 auth_url:en:https://www.rainforest-alliance.org
 
@@ -17245,7 +17278,7 @@ he:חקלאות בת־קיימא
 hu:Fenntartható gazdálkodás, Fenntartható gazdálkodásból
 it:Agricoltura sostenibile
 nl:Duurzame landbouw
-pl:Zrównowaone rolnictwo
+pl:Zrównoważone rolnictwo
 pt:Agricultura sustentável
 
 <en:Sustainable farming
@@ -17272,7 +17305,7 @@ fr:Cacao certifié UTZ
 hu:UTZ Certified Cocoa, UTZ Certified Cacao, UTZ tanúsított kakaó
 it:Cacao certificato UTZ
 nl:UTZ gecertificeerde cacao
-pl:UTZ Certified Cacao
+pl:UTZ Certified KaKao
 xx:UTZ Certified Cocoa
 
 <en:UTZ Certified
@@ -17285,7 +17318,7 @@ hu:UTZ Certified Coffee, UTZ tanúsított kávé
 fr:Café certifié UTZ
 it:Caffè certificato UTZ, Caffe certificato UTZ
 nl:UTZ Certified Coffee
-pl:UTZ Certified Coffee
+pl:UTZ Certified Kawa
 xx:UTZ Certified Coffee
 
 en:Vegetarian, Suitable for vegetarians
@@ -17538,6 +17571,7 @@ he:איחוד הצמחונות האירופי
 hu:Európai Vegetáriánus Szövetség, European Vegetarian Union, EU Vegetarian Union, V-LABEL.EU, European V-LABEL, EU V-LABEL
 it:Unione Europea Vegetariani
 nl:Europese vegetarische unie
+pl:V-Label
 sv:Europeiska Vegetariska Unionen
 wikidata:en:Q443112
 
@@ -17548,6 +17582,7 @@ da:Europæiske Vegetarunion Vegetarisk, European Vegetarian Union Vegetarisk, Eu
 de:Europäische Vegetarier-Union Vegetarisch, Europäische Vegetarier-Union - Vegetarisch, EVU Vegetarian
 es:Unión Vegetariana Europea Vegetariano, Unión Vegetariana Europea Vegetariana, Unión Vegetariana Europea - Vegetariano, Unión Vegetariana Europea - Vegetariana, EVU Vegetarian
 fr:Union Végétarienne Européenne Végétarien, Union Végétarienne Européenne - Végétarien, EVU Vegetarian
+pl:V-Label Vegetarian, V-Label wegetariańskie
 sv:Europeiska Vegetariska Unionen Vegetarisk, Europeiska Vegetariska Unionen - Vegetarisk, EVU Vegetarian
 
 #https://www.v-label.eu/wp-content/uploads/2016/07/v-label_vegan_rgb.png
@@ -17563,6 +17598,7 @@ fi:Euroopan vegetaariliitto vegaaninen, EVU vegaaninen, EVU Vegan
 fr:Union Végétarienne Européenne Végétalien, Union Végétarienne Européenne Vegan, Union Végétarienne Européenne - Végétalien, Union Végétarienne Européenne - Vegan, EVU Vegan
 it:Unione Vegetariana Europea Vegano, Unione Vegetariana Europea - Vegano, EVU Vegan
 nl:Europese Vegetarische Unie Vegan, Europese Vegetarische Unie - Vegan, EVU Vegan
+pl:V-Label Vegan, V-Label wegańskie
 sv:Europeiska Vegetariska Unionen Vegan, Europeiska Vegetariska Unionen - Vegan, EVU Vegan
 
 <en:European Vegetarian Union
@@ -17570,6 +17606,7 @@ sv:Europeiska Vegetariska Unionen Vegan, Europeiska Vegetariska Unionen - Vegan,
 en:European Vegetarian Union Ovo-lacto-vegetarian
 de:Europäische Vegetarier-Union Ovo-lacto-vegetarisch
 fi:Euroopan vegetaariliitto lakto-ovo-vegetaarinen, EVU lakto-ovo-vegetaarinen
+pl:V-Label Ovo-lacto-vegetarian, V-Label lakto-owo-wegetariańskie
 
 <en:European Vegetarian Union
 <en:Lacto-vegetarian
@@ -17672,6 +17709,7 @@ hu:Édesítőszerrel, Édesítővel
 it:Con dolcificanti, Con edulcoranti
 nb:Inneholder søtningsmiddel
 nl:Met kunstmatige zoetstoffen
+pl:Zawiera słodziki, Zawiera substancje słodzące
 pt:Com adoçantes
 sv:Innehåller sötningsmedel
 th:ใช้น้ำตาลเทียม
@@ -17687,6 +17725,7 @@ he:ללא ממתיקים
 hu:Édesítőszer nélkül, Édesítő nélkül
 it:Senza dolcificanti
 nl:Zonder zoetstoffen
+pl:Bez słodzików, Nie zawiera słodzików
 pt:Sem adoçantes
 sv:Utan sötningsmedel
 

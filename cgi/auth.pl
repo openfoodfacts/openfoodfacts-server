@@ -40,13 +40,35 @@ $log->info('start') if $log->is_info();
 
 my $request_ref = ProductOpener::Display::init_request();
 
-my $status = 403;
+my $status;
+my $response_ref;
 
 if (defined $User_id) {
 	$status = 200;
+
+	# Return basic data about the user
+	$response_ref = {
+		status => 1,
+		status_verbose => 'user signed-in',
+		user_id => $User_id,
+		user => {
+			email => $User{email},
+			name => $User{name},
+		},
+	};
+
+	use JSON::PP;
+
+}
+else {
+	$status = 403;
+	$response_ref = {
+		status => 0,
+		status_verbose => 'user not signed-in',
+	};
 }
 
-print header(-status => $status);
+my $json = JSON::PP->new->allow_nonref->canonical->utf8->encode($response_ref);
 
 # We need to send the header Access-Control-Allow-Credentials=true so that websites
 # such has hunger.openfoodfacts.org that send a query to world.openfoodfacts.org/cgi/auth.pl
@@ -63,5 +85,19 @@ if ($origin =~ /^https:\/\/[a-z0-9-.]+\.${server_domain}(:\d+)?$/) {
 	$r->err_headers_out->set("Access-Control-Allow-Origin", $origin);
 }
 
+print header(-status => $status, -type => 'application/json', -charset => 'utf-8');
+
+# 2022-10-11 - The Open Food Facts Flutter app is expecting an empty body
+# see https://github.com/openfoodfacts/smooth-app/issues/3118
+# only send a body if we have the body=1 parameter
+# TODO: remove this condition when new versions of the app are deployed
+if (single_param("body")) {
+	print $json;
+}
+
 $r->rflush;
-$r->status($status);
+
+# Setting the status makes mod_perl append a default error to the body
+# $r->status($status);
+# Send 200 instead.
+$r->status(200);
