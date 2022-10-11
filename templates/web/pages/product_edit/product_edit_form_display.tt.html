@@ -290,7 +290,7 @@
             [% IF type == 'edit' %]
 
                 <div class="row">
-                    <div class="small-12 medium-12 large-8 xlarge-8 columns">
+                    <div class="small-12 medium-12 large-8 xlarge-8 columns" style="margin-bottom:0.5rem;">
                         <input id="comment" name="comment" placeholder="[% lang('edit_comment') %]" value="" type="text" class="text" style="margin:0" />
                     </div>
                     <div class="small-6 medium-6 large-2 xlarge-2 columns">
@@ -299,7 +299,7 @@
                         </button>
                     </div>
                     <div class="small-6 medium-6 large-2 xlarge-2 columns">
-                        <button type="button" id="cancel" class="button postfix small secondary">
+                        <button type="button" id="back-btn" class="button postfix small secondary">
                             [% display_icon('cancel') %] [% lang('cancel') %]
                         </button>
                     </div>
