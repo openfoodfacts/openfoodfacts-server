@@ -114,7 +114,7 @@
                 [% IF panel_group_element.image.defined %]
                         </div>
                         <div class="large-4 small-12 columns">
-                            [% INCLUDE web/panels/image.tt.html image = panel_group_element.image %]
+                            [% INCLUDE web/panels/image.tt.html code = product.code image = panel_group_element.image %]
                         </div>
                     </div>
                 [% END %]                
