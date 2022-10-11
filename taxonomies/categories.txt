@@ -5339,7 +5339,7 @@ fi:omenamehut
 fr:Jus de pomme, jus de pommes
 he:מיצי תפוחים
 hu:Alma levek
-it:Succo di mela
+it:Succo di mela, Spremuta di mela
 nl:Appelsappen, Appelsap
 nl_be:Appelsappen, Appelsap
 pl:Soki jabłkowe
@@ -9106,7 +9106,7 @@ de:Veilchensirups
 fr:Sirops de violette, sirop de violette
 nl:Viooltjessiropen, Viooltjessiroop
 
-<en:Beverages
+<en:Tea-based beverages
 #Do not put ice teas under teas
 #<en:Teas
 en:Iced teas, Ice teas
@@ -33854,6 +33854,18 @@ wikidata:en:Q2164820
 agribalyse_proxy_food_code:en:31004
 #all agribalyse milk chocolate categories have the same CO2 score
 
+
+<en:Chocolates
+en:Chocolate eggs
+de:Schokoladeneier
+es:Huevos de chocolate
+fi:suklaamunia
+fr:Oeufs en chocolat, Oeuf en chocolat
+hu:Csokoládé tojás
+it:Uovo di Cioccolato
+nl:Chocolade eieren
+
+
 <en:Chocolate molds
 <en:Milk chocolates
 en:Milk chocolate molds
@@ -35405,15 +35417,16 @@ it:Cibi per Pasqua
 nl:Paasproducten
 
 <en:Easter food
-en:Easter eggs, chocolate eggs, Easter chocolate eggs
+<en:Chocolate eggs
+en:Easter eggs, Easter chocolate eggs
 bg:Великденски яйца
-de:Schokoladeneier, Osterschokoladeneier
+de:Osterschokoladeneier
 es:Huevos de Pascua de chocolate
 fi:pääsiäissuklaamunat
-fr:Œufs de Pâques, oeuf de pâques, Oeufs de pâques en chocolat, oeuf de pâques en chocolat, Oeufs en chocolat, Oeuf en chocolat
+fr:Œufs de Pâques, oeuf de pâques, Oeufs de pâques en chocolat, oeuf de pâques en chocolat
 hu:Húsvéti csokoládé tojás
 it:Uova di pasqua
-nl:Chocolade eieren
+nl:Paaseieren, Chocolade paaseieren
 
 <en:Chocolate eggs
 <en:Bonbons
@@ -36955,7 +36968,7 @@ de:Leinsamen, Leinsaaten, Leinsaat
 es:Lino, Linaza, Semillas de lino
 fi:pellavansiemenet
 fr:Lins, Lin cultivé, Graines de lin
-it:Lino
+it:Lino, Semi di lino
 la:Linum usitatissimum
 nl:Lijnzaad, Zaad van vlas
 pt:Linhaça
@@ -50038,7 +50051,7 @@ en:Linseed oils, Flaxseed oils, Flax oil
 de:Leinsamenöle,Leinöle
 es:Aceites de lino, Aceites de linaza
 fr:Huiles de lin
-it:Olio di lino
+it:Olio di lino, Olio di semi di lino
 nl:Lijnzaadoliën
 sv:Linoljor, Linolja
 zh:亚麻籽油
@@ -59308,6 +59321,7 @@ de:Kokosmehl
 es:Harina de coco
 fr:Farines de noix de coco, farines de noix de coco, farine de coco, Farine de noix de coco séchée
 nl:Gedroogde kokosmelen
+it:Farina di cocco
 
 <en:Dried fruits
 en:Dried figs, Dried fig
@@ -63499,7 +63513,7 @@ agribalyse_food_name:en:Tomato sauce, with meat or Bolognese sauce, prepacked
 agribalyse_food_name:fr:Sauce tomate à la viande ou Sauce bolognaise, préemballée
 
 <en:Meat-based pasta sauces
-it:Amatriciana
+it:Amatriciana, Sugo all'amatriciana
 fr:Sauce tomate à la pancetta
 wikidata:en:Q997633
 
@@ -77536,6 +77550,7 @@ carbon_footprint_fr_foodges_ingredient:fr:Pâtes sèches
 # ingredient/fr:pâtes-alimentaires has 115 products 2019-05-20
 
 <en:Cereals and their products
+<en:Pastas
 en:Cereal pastas
 fr:Pâtes alimentaires de céréales
 it:Paste alimentari di cereali
