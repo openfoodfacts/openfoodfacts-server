@@ -29,10 +29,8 @@
 {
     "element_type": "panel_group",
     "panel_group_element": {
+        "title": "",
         "panel_ids": [
-            [% IF panels.recommendation_health.defined %]
-                "recommendation_health",
-            [% END %]
             [% IF panels.physical_activities.defined %]
                 "physical_activities",
             [% END %]                                                                              

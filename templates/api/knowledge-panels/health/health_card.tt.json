@@ -8,16 +8,14 @@
         "title": "[% lang('health') %]",
     },    
     "elements": [
+        [% IF panels.recommendation_health.defined %]
         {
-            "element_type": "panel_group",
-            "panel_group_element": {
-                "panel_ids": [
-                    [% IF panels.recommendation_health.defined %]
-                        "recommendation_health",
-                    [% END %]
-                ],
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "recommendation_health",
             },
         },
+        [% END %]
 
         [% IF options.knowledge_panels_client == 'web' %]
 
