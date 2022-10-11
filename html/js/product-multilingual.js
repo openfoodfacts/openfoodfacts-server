@@ -656,7 +656,7 @@ function get_recents(tagfield) {
             // Create some defaults, extending them with any options that were provided
             settings = $.extend(settings, options);
             img_path = settings.img_path;
-            code = $("input:hidden[name=\"code\"]", $(this).closest("form")).val();
+            code = $("#code").val();
             code = code.replace(/\W/g, '');
 
             return this.each(function() {
