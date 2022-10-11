@@ -178,6 +178,7 @@ a.active {
         border-top: 1px solid #eee; 
         z-index: 100; 
         padding: 1rem;
+	padding-bottom: 0.5rem;
         pointer-events: none;
         background-color: $primary-color;
         > div {
