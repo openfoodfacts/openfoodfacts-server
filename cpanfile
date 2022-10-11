@@ -64,6 +64,7 @@ requires 'JSON::Create';
 requires 'JSON::Parse';
 requires 'Data::DeepAccess';
 requires 'XML::XML2JSON';
+requires 'Redis::Client';
 
 
 # Mojolicious/Minion
