@@ -260,6 +260,7 @@ Products:
 
 Recipes:
 - lib/ProductOpener/Recipes.pm
+- templates/web/pages/recipes/recipes.tt.html
 
 Tags:
 - lib/ProductOpener/Tags.pm
@@ -331,9 +332,6 @@ Product history:
 
 - templates/web/pages/tag/tag.tt.html
 - templates/web/common/site_layout.tt.html
-
-Recipes:
-- templates/web/pages/recipes/recipes.tt.html
 
 Lists of products:
 - templates/web/common/includes/list_of_products.tt.html
