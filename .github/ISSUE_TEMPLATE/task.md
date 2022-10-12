@@ -8,4 +8,6 @@ assignees: ''
 
 ---
 
-Story: #
+### Story
+- #
+<!-- Add the number of the associated story here -->
