@@ -131,6 +131,10 @@ ingredients:
 
 ingredients analysis:
 - templates/web/pages/product/includes/ingredients_analysis.tt.html
+- templates/api/knowledge-panels/health/ingredients/ingredients_analysis_help.tt.json
+- templates/api/knowledge-panels/health/ingredients/ingredients_analysis_details.tt.json
+- templates/api/knowledge-panels/health/ingredients/ingredients_analysis_property.tt.json
+- templates/api/knowledge-panels/health/ingredients/ingredients_analysis.tt.json
 
 labels:
 - taxonomies/labels.txt
@@ -236,6 +240,8 @@ Packaging:
 - html/images/lang/de/packaging/**/*
 - t/expected_test_results/packaging/**/*
 - html/images/icons/packaging-shapes/dark-mode/**/*
+- templates/api/knowledge-panels/environment/packaging_recycling.tt.json
+- templates/api/knowledge-panels/environment/ecoscore/packaging.tt.json
   
 producers platform:
 - lib/ProductOpener/GS1.pm
