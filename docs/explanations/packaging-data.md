@@ -20,13 +20,21 @@ There are many different attributes that can be interesting for specific uses. F
 
 We can get packaging data from different sources:
 
-### Users
+### Users
 
 Users of the Open Food Facts website and app, and users of 3rd party apps, can enter packaging data.
 
 ### Manufacturers
 
+Some manufacturers send product data through GS1, which currently has limited support for packaging information (but this is likely to be improved in the years to come).
+
+Some manufacturers send us more detailed packaging data (e.g. recycling instructions) through the Producers Platform.
+
+Some manufacturers send us data used to compute the Eco-Score using the Eco-Score spreadsheet template, which has fields like "Packaging 1", "Material 1", "Packaging 2", "Material 2" etc.
+
 ### Product photos and machine learning
+
+We can extract logos related to packaging, or parse the text recognized from product photos to recognize packaging information or recycling instructions.
 
 ## How packaging data is currently added, updated and structured in Open Food Facts
 
@@ -93,16 +101,16 @@ packagings: [
 
 We have created a number of multilingual taxonomies related to packagings:
 
-- Packaging shapes taxonomy
-- Packaging materials taxonomy
-- Packaging recycling taxonomy
-- Preservation methods taxonomy (related)
+- Packaging shapes taxonomy : https://github.com/openfoodfacts/openfoodfacts-server/blob/main/taxonomies/packaging_shapes.txt
+- Packaging materials taxonomy : https://github.com/openfoodfacts/openfoodfacts-server/blob/main/taxonomies/packaging_materials.txt
+- Packaging recycling taxonomy : https://github.com/openfoodfacts/openfoodfacts-server/blob/main/taxonomies/packaging_recycling.txt
+- Preservation methods taxonomy (related) : https://github.com/openfoodfacts/openfoodfacts-server/blob/main/taxonomies/preservation.txt
 
 Those taxonomies are used to structure packaging data in Open Food Facts, and to analyze unstructured input data.
 
 ## How we could improve it
 
-### Make the "packagings" data structure READ and WRITE
+### Make the "packagings" data structure READ and WRITE
 
 The "packagings" data structure is currently a READ only field. We could create an API to make it a READ and WRITE field.
 
@@ -122,7 +130,7 @@ It is important to keep this field, as we can display it as-is, use it as input 
 
 When filled, the values for this field can be analyzed and added to / combined with the "packagings" data structure.
 
-## Challenges
+## Challenges
 
 ### Incomplete lists of packaging components
 
@@ -135,4 +143,4 @@ For a single product, we might get partial packaging data from different sources
 
 ## Ressources
 
-https://wiki.openfoodfacts.org/Packagings_data_structure
+- 2020 project to start structuring packaging data: https://wiki.openfoodfacts.org/Packagings_data_structure
