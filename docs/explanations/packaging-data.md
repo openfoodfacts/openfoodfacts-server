@@ -110,6 +110,12 @@ Those taxonomies are used to structure packaging data in Open Food Facts, and to
 
 ## How we could improve it
 
+### Extend the attributes of the packaging components in the "packagings" data structure
+
+#### Weight
+
+We need to add an attribute for the weight of the packaging component. We might need to add different fields to distinguish values that have been entered by users that weight the packaging, versus values provided by the manufacturer, or average values that we have determined from other products, or that we got from external sources.
+
 ### Make the "packagings" data structure READ and WRITE
 
 The "packagings" data structure is currently a READ only field. We could create an API to make it a READ and WRITE field.
@@ -117,6 +123,12 @@ The "packagings" data structure is currently a READ only field. We could create 
 For new products, clients (website and apps) could ask users to enter data about all packaging components of the product.
 
 For existing products, clients could display the packaging components and let users change them (e.g. adding or removing components, entering values for new attributes, editing attributes to add more precise values (e.g. which type of plastic) etc.).
+
+#### Add a way to indicate that the "packagings" data structure contains all the packaging components of the product
+
+We currently have no way to know if the packaging data we have for a product is complete, or if we may be missing some packaging components.
+
+We could have a way (e.g. a checkbox) that users could use to indicate all components are accounted for. And we could also do the reverse, and indicate that it is very likely that we are missing some packaging components (e.g. if we have a "cap" but no other component to put the cap on).
 
 ### Deprecate the "packaging" tags field
 
