@@ -1,5 +1,52 @@
 # Changelog
 
+## [2.0.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v1.10.0...v2.0.0) (2022-10-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* Open Food Facts website redesign (#7414)
+
+### Features
+
+* add Totano to ingredients taxonomy ([#7438](https://github.com/openfoodfacts/openfoodfacts-server/issues/7438)) ([f9e0986](https://github.com/openfoodfacts/openfoodfacts-server/commit/f9e09869add2d865cfca6e6a6eaa4f2627984ae5))
+* add translation for Cereal pastas in italian ([#7437](https://github.com/openfoodfacts/openfoodfacts-server/issues/7437)) ([9303171](https://github.com/openfoodfacts/openfoodfacts-server/commit/9303171e0f6b125a6f070eeeae39870050e7edd8))
+* API to login and get user username, name and email  ([#7455](https://github.com/openfoodfacts/openfoodfacts-server/issues/7455)) ([e142269](https://github.com/openfoodfacts/openfoodfacts-server/commit/e142269eea49259949eebd5d26b336aa48628587)), closes [#7361](https://github.com/openfoodfacts/openfoodfacts-server/issues/7361)
+* Connect to Redis for populating search ([#7239](https://github.com/openfoodfacts/openfoodfacts-server/issues/7239)) ([589d975](https://github.com/openfoodfacts/openfoodfacts-server/commit/589d9753b4b56d466ceb218e8161cedbd3e8569f))
+* Open Food Facts website redesign ([#7414](https://github.com/openfoodfacts/openfoodfacts-server/issues/7414)) ([7e52e7a](https://github.com/openfoodfacts/openfoodfacts-server/commit/7e52e7a8f9735175bc9769ec2a651338fa5969d9))
+* Pagination link color changed to black ([#7432](https://github.com/openfoodfacts/openfoodfacts-server/issues/7432)) ([621bc8f](https://github.com/openfoodfacts/openfoodfacts-server/commit/621bc8f018ec829484a3932f8d07acf996fbaeec))
+
+
+### Bug Fixes
+
+* add body parameter to auth.pl ([#7471](https://github.com/openfoodfacts/openfoodfacts-server/issues/7471)) ([4c31673](https://github.com/openfoodfacts/openfoodfacts-server/commit/4c3167383d9981ea78362703aa252d9e3e52bc10))
+* fixed right single quotation in search issue ([#7430](https://github.com/openfoodfacts/openfoodfacts-server/issues/7430)) ([174b8e3](https://github.com/openfoodfacts/openfoodfacts-server/commit/174b8e3c68846835ad27589f24713b1c0d15d70f))
+* Label parenting ([#7321](https://github.com/openfoodfacts/openfoodfacts-server/issues/7321)) ([ff2c778](https://github.com/openfoodfacts/openfoodfacts-server/commit/ff2c778f6af6f4791bdea09db55868bf09b45a50))
+
+
+### Translations
+
+* Lithuanian translation updated ([#7443](https://github.com/openfoodfacts/openfoodfacts-server/issues/7443)) ([bcc631f](https://github.com/openfoodfacts/openfoodfacts-server/commit/bcc631f96d41c3db70a5e66bc936d953c78017e2))
+* New Crowdin translations to review and merge ([#7403](https://github.com/openfoodfacts/openfoodfacts-server/issues/7403)) ([1ad5878](https://github.com/openfoodfacts/openfoodfacts-server/commit/1ad58787c84c52145884768814a0159a4676d988))
+* New Crowdin translations to review and merge ([#7424](https://github.com/openfoodfacts/openfoodfacts-server/issues/7424)) ([1134248](https://github.com/openfoodfacts/openfoodfacts-server/commit/11342483e032fab41572307185ab870356312caa))
+* New Crowdin translations to review and merge ([#7429](https://github.com/openfoodfacts/openfoodfacts-server/issues/7429)) ([150dd2e](https://github.com/openfoodfacts/openfoodfacts-server/commit/150dd2e79ed81624659c7605dfeb5497f22acd0a))
+
+
+### Taxonomy
+
+* add polish translations to categories ([#7423](https://github.com/openfoodfacts/openfoodfacts-server/issues/7423)) ([33e7baf](https://github.com/openfoodfacts/openfoodfacts-server/commit/33e7baff27d7dc2a913ac45a55d56bb76e7c10fb))
+* added ingredients for ice-cream in HR ([#7417](https://github.com/openfoodfacts/openfoodfacts-server/issues/7417)) ([b18f0e9](https://github.com/openfoodfacts/openfoodfacts-server/commit/b18f0e93b7be7bcf0d56e39a639824935e5dbaea))
+* added ingredients for some old products in hr ([#7431](https://github.com/openfoodfacts/openfoodfacts-server/issues/7431)) ([e8cde93](https://github.com/openfoodfacts/openfoodfacts-server/commit/e8cde932a31ab3fd4b0768db2d6e3b38c7acc723))
+* added materials name in hr ([#7460](https://github.com/openfoodfacts/openfoodfacts-server/issues/7460)) ([a72a39a](https://github.com/openfoodfacts/openfoodfacts-server/commit/a72a39a7b74f4b6110cc2501b9eb40f70e71ae12))
+* Added some Dutch synonyms and translations ([#7281](https://github.com/openfoodfacts/openfoodfacts-server/issues/7281)) ([4aae61f](https://github.com/openfoodfacts/openfoodfacts-server/commit/4aae61f3ecb0923b5773bd6385c04796c64c56f4))
+* added some ingredients in hr ([#7459](https://github.com/openfoodfacts/openfoodfacts-server/issues/7459)) ([df7731f](https://github.com/openfoodfacts/openfoodfacts-server/commit/df7731f837f1df9156ddf322ee7c91f1ce55c117))
+* added some missing countries in HR ([#7428](https://github.com/openfoodfacts/openfoodfacts-server/issues/7428)) ([7bbe707](https://github.com/openfoodfacts/openfoodfacts-server/commit/7bbe707d2d8c82e8df6b0b5065787f49b4f762e0))
+* Bulgarian additions ([#7435](https://github.com/openfoodfacts/openfoodfacts-server/issues/7435)) ([3aa6fd8](https://github.com/openfoodfacts/openfoodfacts-server/commit/3aa6fd8caf208fc2698fbce259abd4915ac81c9f))
+* Fi and de ingredients ([#7441](https://github.com/openfoodfacts/openfoodfacts-server/issues/7441)) ([f7867b5](https://github.com/openfoodfacts/openfoodfacts-server/commit/f7867b5b256e685a47407ed5501d5ebf8874f98c))
+* fix typos ([#7420](https://github.com/openfoodfacts/openfoodfacts-server/issues/7420)) ([2d7444f](https://github.com/openfoodfacts/openfoodfacts-server/commit/2d7444fafb8228a57f0487bdda700aa02f11c837))
+* improve category taxonomy ([#7456](https://github.com/openfoodfacts/openfoodfacts-server/issues/7456)) ([7b5c802](https://github.com/openfoodfacts/openfoodfacts-server/commit/7b5c8022104f394b4393c4e6947d929e595e48bc))
+* wikidata housekeeping ([#7311](https://github.com/openfoodfacts/openfoodfacts-server/issues/7311)) ([212490a](https://github.com/openfoodfacts/openfoodfacts-server/commit/212490a29ea69943a41d8fe18352321cce6ab44c))
+
 ## [1.10.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v1.9.0...v1.10.0) (2022-09-28)
 
 
