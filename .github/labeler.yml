@@ -80,6 +80,7 @@ docker:
 
 folksonomy project:
 - html/js/folksonomy.js
+- templates/web/common/includes/folksonomy_script.tt.html
 
 Attributes:
 - lib/ProductOpener/Attributes.pm
@@ -96,6 +97,7 @@ ecoscore:
 - lib/ProductOpener/Ecoscore.pm
 - ecoscore/**/*
 - templates/api/knowledge-panels/environment/ecoscore/ecoscore_unknown.tt.json
+- templates/web/pages/product/includes/ecoscore_details.tt.html
 
 Export:
 - lib/ProductOpener/Export.pm
@@ -146,6 +148,45 @@ knowledge-panels:
 - lib/ProductOpener/KnowledgePanels.pm
 - templates/api/knowledge-panels/**/*
 - templates/api/knowledge-panels/environment/ecoscore/ecoscore_unknown.tt.json
+- templates/web/panels/image.tt.html
+- templates/web/panels/panel.tt.html
+- templates/api/knowledge-panels/root.tt.json
+- templates/api/knowledge-panels/environment/label.tt.json
+- templates/api/knowledge-panels/health/health_card.tt.json
+- templates/api/knowledge-panels/environment/palm_oil.tt.json
+- templates/api/knowledge-panels/health/ingredients/nova.tt.json
+- templates/api/knowledge-panels/health/nutrition_panels.tt.json
+- templates/api/knowledge-panels/health/ingredients_panels.tt.json
+- templates/api/knowledge-panels/environment/ecoscore/total.tt.json
+- templates/api/knowledge-panels/health/ingredients/additive.tt.json
+- templates/api/knowledge-panels/environment/carbon_footprint.tt.json
+- templates/api/knowledge-panels/environment/environment_card.tt.json
+- templates/api/knowledge-panels/health/ingredients/additives.tt.json
+- templates/api/knowledge-panels/health/nutriscore/nutriscore.tt.json
+- templates/api/knowledge-panels/environment/ecoscore/ecoscore.tt.json
+- templates/api/knowledge-panels/health/nutrition/serving_size.tt.json
+- templates/api/knowledge-panels/environment/ecoscore/packaging.tt.json
+- templates/api/knowledge-panels/health/ingredients/ingredients.tt.json
+- templates/api/knowledge-panels/environment/ecoscore/agribalyse.tt.json
+- templates/api/knowledge-panels/environment/manufacturing_place.tt.json
+- templates/api/knowledge-panels/environment/packaging_recycling.tt.json
+- templates/api/knowledge-panels/health/nutrition/nutrient_level.tt.json
+- templates/api/knowledge-panels/environment/origins_of_ingredients.tt.json
+- templates/api/knowledge-panels/health/nutrition/physical_activities.tt.json
+- templates/api/knowledge-panels/recommendations/health/fr/spf_pulses.tt.json
+- templates/api/knowledge-panels/environment/ecoscore/ecoscore_unknown.tt.json
+- templates/api/knowledge-panels/recommendations/health/fr/spf_alcohol.tt.json
+- templates/api/knowledge-panels/environment/ecoscore/ecoscore_extended.tt.json
+- templates/api/knowledge-panels/environment/ecoscore/production_system.tt.json
+- templates/api/knowledge-panels/health/nutrition/nutrition_facts_table.tt.json
+- templates/api/knowledge-panels/environment/ecoscore/threatened_species.tt.json
+- templates/api/knowledge-panels/health/ingredients/ingredients_analysis.tt.json
+- templates/api/knowledge-panels/recommendations/health/world/who_alcohol.tt.json
+- templates/api/knowledge-panels/environment/ecoscore/origins_of_ingredients.tt.json
+- templates/api/knowledge-panels/environment/ecoscore/ecoscore_not_applicable.tt.json
+- templates/api/knowledge-panels/health/ingredients/ingredients_analysis_help.tt.json
+- templates/api/knowledge-panels/health/ingredients/ingredients_analysis_details.tt.json
+- templates/api/knowledge-panels/health/ingredients/ingredients_analysis_property.tt.json
 
 lang:
 - lib/ProductOpener/Lang.pm
@@ -161,7 +202,9 @@ Numbers:
 
 nutriscore:
 - lib/ProductOpener/Nutriscore.pm
-
+- templates/web/pages/product/includes/nutriscore.tt.html
+- templates/web/pages/product/includes/nutriscore_details.tt.html
+  
 Orgs:
 - lib/ProductOpener/Orgs.pm
 
@@ -204,6 +247,13 @@ producers platform:
 - lib/ProductOpener/Producers.pm
 - scripts/export_producers_platform_data_to_public_database.sh
 - lib/ProductOpener/ProducersFood.pm
+- templates/web/pages/org_form/org_form.tt.html
+- templates/web/pages/org_profile/org_profile.tt.html
+- templates/emails/import_csv_file_admin_notification.tt.html
+- templates/emails/user_new_pro_account_admin_notification.tt.html
+- templates/web/pages/import_file_upload/import_file_upload.tt.html
+- templates/web/pages/export_products/export_products.tt.html
+- templates/web/pages/remove_products/remove_products.tt.html
 
 Products:
 - lib/ProductOpener/Products.pm
@@ -213,6 +263,7 @@ Recipes:
 
 Tags:
 - lib/ProductOpener/Tags.pm
+- templates/web/pages/tags_map/map_of_tags.tt.html
 
 Text:
 - lib/ProductOpener/Text.pm
@@ -222,6 +273,78 @@ Url:
 
 Users:
 - lib/ProductOpener/Users.pm
+- templates/web/pages/session/signed_in.tt.html
+- templates/web/pages/session/signed_out.tt.html
+- templates/web/pages/session/sign_in_form.tt.html
+- templates/web/pages/user_form/user_form_page.tt.html
+- templates/web/pages/user_profile/user_profile.tt.html
 
 Web:
 - lib/ProductOpener/Web.pm
+
+Donations:
+- html/donate/tt.html
+- templates/web/common/includes/donate_banner.tt.html
+
+editing:
+- templates/web/pages/product_edit/product_edit_form.tt.html
+- templates/web/pages/product_edit/display_input_field.tt.html
+- templates/web/pages/product_edit/display_input_tabs.tt.html
+- templates/web/pages/product_edit/product_edit_form_display.tt.html
+- templates/web/pages/product_edit/product_edit_form_process.tt.html
+
+Product page:
+- templates/web/pages/product/includes/edit_history.tt.html
+- templates/web/pages/product/product_page.tt.html
+- templates/web/pages/product/includes/product_image.tt.html
+- templates/web/pages/product/includes/ingredients_analysis.tt.html
+- templates/web/pages/product/includes/nutrition_facts_table.tt.html
+
+Password:
+- templates/web/pages/reset_password/reset_password.tt.html
+- templates/web/pages/change_password/change_password.tt.html
+
+Spellcheck:
+- templates/web/pages/spellcheck/spellcheck_test.tt.html
+
+Maps:
+- templates/web/pages/products_map/map_of_products.tt.html
+
+Search:
+- templates/web/pages/search_results/search_results.tt.html
+- templates/web/common/includes/display_search_image_form.tt.html
+- templates/web/common/includes/display_product_search_or_add.tt.html
+- templates/web/pages/search_form/search_form.tt.html
+
+Top translators:
+- templates/web/pages/top_translators/top_translators.tt.html
+- templates/web/common/includes/display_login_register.tt.html
+
+Recent changes:
+- templates/web/common/includes/display_recent_changes.tt.html
+
+Nutrient levels:
+- templates/web/pages/product/includes/nutrient_levels.tt.html
+
+Product history:
+- templates/web/pages/product/includes/display_rev_info.tt.html
+
+- templates/web/pages/tag/tag.tt.html
+- templates/web/common/site_layout.tt.html
+
+Recipes:
+- templates/web/pages/recipes/recipes.tt.html
+
+Lists of products:
+- templates/web/common/includes/list_of_products.tt.html
+
+Error list:
+- templates/web/common/includes/error_list.tt.html
+
+Fields:
+- templates/web/common/includes/display_field.tt.html
+- templates/web/common/includes/display_field_br.tt.html
+
+Blocks:
+- templates/web/common/includes/display_blocks.tt.html
+- templates/web/common/includes/display_my_block.tt.html
