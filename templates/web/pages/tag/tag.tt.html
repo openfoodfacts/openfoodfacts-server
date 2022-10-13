@@ -1,5 +1,7 @@
 <!-- start templates/[% template.name %] -->
-
+<div class="tag">
+    <div class="row">
+        <div class="large-12 column">
 [% IF not groupby_tagtype.defined %]
     <div class="tag_navigation">
         <a href="[% tagtype_path %]">[% tagtype_name.ucfirst %]</a>
@@ -57,5 +59,7 @@
 [% IF products_title %]
     <h2 class="products_title">[% products_title %]</h2>
 [% END %]
-
+        </div>
+    </div>
+</div>
 <!-- end templates/[% template.name %] -->

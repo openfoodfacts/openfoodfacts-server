@@ -95,6 +95,7 @@ BEGIN
 		&data_to_display_nutrient_levels
 		&data_to_display_ingredients_analysis
 		&data_to_display_ingredients_analysis_details
+		&data_to_display_image
 
 		&count_products
 		&add_params_to_query
@@ -381,6 +382,7 @@ sub process_template($template_filename, $template_data_ref, $result_content_ref
 	$template_data_ref->{images_subdomain} = $images_subdomain;
 	$template_data_ref->{formatted_subdomain} = $formatted_subdomain;
 	(not defined $template_data_ref->{user_id}) and $template_data_ref->{user_id} = $User_id;
+	(not defined $template_data_ref->{user}) and $template_data_ref->{user} = \%User;
 	(not defined $template_data_ref->{org_id}) and $template_data_ref->{org_id} = $Org_id;
 
 	$template_data_ref->{product_type} = $options{product_type};
@@ -402,6 +404,11 @@ sub process_template($template_filename, $template_data_ref, $result_content_ref
 	$template_data_ref->{product_url} = \&product_url;
 	$template_data_ref->{product_action_url} = \&product_action_url;
 	$template_data_ref->{product_name_brand_quantity} = \&product_name_brand_quantity;
+
+	# Return a link to one taxonomy entry in the target language
+	$template_data_ref->{canonicalize_taxonomy_tag_link} = sub ($tagtype, $tag) {
+		return canonicalize_taxonomy_tag_link($lc, $tagtype, $tag);
+	};
 
 	# Display one taxonomy entry in the target language
 	$template_data_ref->{display_taxonomy_tag} = sub ($tagtype, $tag) {
@@ -431,7 +438,7 @@ sub process_template($template_filename, $template_data_ref, $result_content_ref
 	};
 
 	$template_data_ref->{encode_json} = sub($var) {
-		return JSON::PP->new->utf8->canonical->encode($var);
+		return decode_utf8(JSON::PP->new->utf8->canonical->encode($var));
 	};
 
 	return($tt->process($template_filename, $template_data_ref, $result_content_ref));
@@ -692,7 +699,15 @@ sub init_request() {
 
 	my $error = ProductOpener::Users::init_user($request_ref);
 	if ($error) {
-		display_error_and_exit($error, 403);
+		# TODO: currently we always display an HTML message if we were passed a bad user_id and password combination
+		# even if the request is an API request
+
+		# for requests to /cgi/auth.pl, we will now return a JSON body, set in /cgi/auth.pl
+		# but it would be good to later have a more consistent behaviour for all API requests
+		if ($r->uri() !~ /\/cgi\/auth\.pl/) {
+			print $r->uri();
+			display_error_and_exit($error, 403);
+		}
 	}
 
 	# %admin is defined in Config.pm
@@ -4289,7 +4304,7 @@ sub display_search_results($request_ref) {
 
 		my $search_api_url = $formatted_subdomain . "/api/v0" . $current_link;
 		$search_api_url =~ s/(\&|\?)(page|page_size|limit)=(\d+)//;
-		$search_api_url .= "&fields=code,product_display_name,url,image_front_thumb_url,attribute_groups";
+		$search_api_url .= "&fields=code,product_display_name,url,image_front_small_url,attribute_groups";
 		$search_api_url .= "&page_size=100";
 		if ($search_api_url !~ /\?/) {
 			$search_api_url =~ s/\&/\?/;
@@ -4352,7 +4367,8 @@ JS
 	}
 
 	$request_ref->{content_ref} = \$html;
-	$request_ref->{page_type} = "list_of_products";
+	$request_ref->{page_type} = "products";
+	$request_ref->{page_type} = "full_width";
 
 	display_page($request_ref);
 
@@ -4688,18 +4704,34 @@ sub add_params_to_query($request_ref, $query_ref) {
 }
 
 
-=head2 initialize_knowledge_panels_options( $knowledge_panels_options_ref )
+=head2 initialize_knowledge_panels_options( $knowledge_panels_options_ref, $request_ref )
 
 Initialize the options for knowledge panels from parameters.
 
 =cut
 
-sub initialize_knowledge_panels_options($knowledge_panels_options_ref) {
+sub initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref) {
 
 	# Activate physical activity knowledge panel only when specified
 	if (single_param("activate_knowledge_panel_physical_activities")) {
 		$knowledge_panels_options_ref->{activate_knowledge_panel_physical_activities} = 1;
 	}
+
+	# Specify if we knowledge panels are requested from the app or the website
+	# in order to allow different behaviours (e.g. showing ingredients before nutrition on the web)
+	# possible values: "web", "app"
+	my $knowledge_panels_client = single_param("knowledge_panels_client");
+       # set a default value if client is not defined to app or web
+	if ((not defined $knowledge_panels_client) or (($knowledge_panels_client ne "web") and ($knowledge_panels_client ne "app"))) {
+		# Default to app mode
+		$knowledge_panels_client = 'app';
+                # but if it's not an api request, we consider it should be web
+		if (not defined $request_ref->{api}) {
+			$knowledge_panels_client = "web";
+		}
+	}
+	$knowledge_panels_options_ref->{knowledge_panels_client} = $knowledge_panels_client;
+
 	return;
 }
 
@@ -4738,7 +4770,7 @@ sub customize_response_for_product($request_ref, $product_ref) {
 
 	# For non API queries, we need to compute attributes for personal search
 	if (((not defined $fields) or ($fields eq "")) and ($user_preferences) and (not $request_ref->{api})) {
-		$fields = "code,product_display_name,url,image_front_thumb_url,attribute_groups";
+		$fields = "code,product_display_name,url,image_front_small_url,attribute_groups";
 	}
 
 	# Localize the Eco-Score fields that depend on the country of the request
@@ -4847,7 +4879,7 @@ sub customize_response_for_product($request_ref, $product_ref) {
 		}
 		# Knowledge panels in the $lc language
 		elsif ($field eq "knowledge_panels") {
-			initialize_knowledge_panels_options($knowledge_panels_options_ref);
+			initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref);
 			create_knowledge_panels($product_ref, $lc, $cc, $knowledge_panels_options_ref);
 			$customized_product_ref->{$field} = $product_ref->{"knowledge_panels_" . $lc};
 		}
@@ -4891,7 +4923,8 @@ sub customize_response_for_product($request_ref, $product_ref) {
 
 sub search_and_display_products($request_ref, $query_ref, $sort_by, $limit, $page) {
 
-	$request_ref->{page_type} = "list_of_products";
+	$request_ref->{page_type} = "products";
+	$request_ref->{page_format} = "full_width";
 
 	my $template_data_ref = {
 	};
@@ -6917,7 +6950,8 @@ sub display_page($request_ref) {
 	$template_data_ref->{formatted_subdomain} = $formatted_subdomain;
 	$template_data_ref->{css_timestamp} = $file_timestamps{'css/dist/app-' . lang('text_direction') . '.css'};
 	$template_data_ref->{header} = $header;
-	$template_data_ref->{page_type} = $request_ref->{page_type};
+	$template_data_ref->{page_type} = $request_ref->{page_type} || "other";
+	$template_data_ref->{page_format} = $request_ref->{page_format} || "normal";
 
 	if ($request_ref->{schema_org_itemtype}) {
 		$template_data_ref->{schema_org_itemtype} = $request_ref->{schema_org_itemtype};
@@ -6939,13 +6973,6 @@ sub display_page($request_ref) {
 	$template_data_ref->{google_analytics} = $google_analytics;
 	$template_data_ref->{bodyabout} = $bodyabout;
 	$template_data_ref->{site_name} = $site_name;
-
-	if (defined $request_ref->{page_type}) {
-		$template_data_ref->{page_type} = $request_ref->{page_type};
-	}
-	else {
-		$template_data_ref->{page_type} = "other";
-	}
 
 	my $en = 0;
 	my $langs = '';
@@ -7126,21 +7153,6 @@ JS
 	if ($html =~ /<!-- disable_equalizer -->/) {
 
 		$html =~ s/data-equalizer(-watch)?//g;
-	}
-
-	# no side column?
-	# e.g. in Discover and Contribute page
-
-	if ($html =~ /<!-- no side column -->/) {
-
-		my $new_main_row_column = <<HTML
-<div class="row">
-	<div class="large-12 columns" style="padding-top:1rem">
-HTML
-;
-
-		$html =~ s/<!-- main row -(.*)<!-- main column content(.*?)-->/$new_main_row_column/s;
-
 	}
 
 	# Twitter account
@@ -7362,60 +7374,6 @@ SCRIPTS
 JS
 ;
 
-	$styles .= <<CSS
-
-.image_box {
-	text-align:center;
-	margin-bottom:2rem;
-}
-
-figure.image_box  {
-	position: relative;
-	padding: 0;
-}
-
-.image_box > img {
-	display: block;
-	width: 100%;
-	height: auto;
-}
-
-figure.image_box figcaption {
-	position: absolute;
-	right: 0px;
-	bottom: 0px;
-}
-
-html[dir="rtl"] figure.image_box figcaption {
-	right: unset;
-	left: 0px;
-}
-
-figure.image_box figcaption img {
-	width: 16px;
-	height: 16px;
-}
-
-.field_div {
-	display:inline;
-	float:left;
-	margin-right:30px;
-	margin-top:10px;
-	margin-bottom:10px;
-}
-
-.field {
-	font-weight:bold;
-}
-
-.allergen {
-	font-weight:bold;
-}
-
-
-CSS
-;
-
 	# Check that the product exist, is published, is not deleted, and has not moved to a new url
 
 	$log->info("displaying product", { request_code => $request_code, product_id => $product_id }) if $log->is_info();
@@ -7498,15 +7456,16 @@ CSS
 		$template_data_ref->{ecoscore_calculation_details} = display_ecoscore_calculation_details($cc, $product_ref->{ecoscore_data});
 	}
 
-	# Knowledge panels are in development, they can be activated with the "panels" parameter
-	# for debugging and demonstration purposes
-	# Also activate them for moderators
-	if (($User{moderator}) or (single_param('panels'))) {
-		initialize_knowledge_panels_options($knowledge_panels_options_ref);
-		create_knowledge_panels($product_ref, $lc, $cc, $knowledge_panels_options_ref);
-		$template_data_ref->{environment_card_panel} = display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "environment_card");
-		$template_data_ref->{health_card_panel} = display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "health_card");
-	}
+	# Activate knowledge panels for all users
+
+	initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref);
+	create_knowledge_panels($product_ref, $lc, $cc, $knowledge_panels_options_ref);
+	$template_data_ref->{environment_card_panel} = display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "environment_card");
+	$template_data_ref->{health_card_panel} = display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "health_card");
+
+	# The front product image is rendered with the same template as the ingredients, nutrition and packaging images
+	# that are displayed directly through the knowledge panels
+	$template_data_ref->{front_image} = data_to_display_image($product_ref, "front", $lc);
 
 	# On the producers platform, show a link to the public platform
 
@@ -7663,7 +7622,7 @@ CSS
 		$product_fields .= display_field($product_ref, $field);
 	}
 
-	$template_data_ref->{front_image} = $front_image;
+	$template_data_ref->{front_image_html} = $front_image;
 	$template_data_ref->{product_fields} = $product_fields;
 
 	# try to display ingredients in the local language if available
@@ -8169,7 +8128,7 @@ HTML
 		compute_attributes($product_ref, $lc, $cc, $attributes_options_ref);
 
 		my $product_attribute_groups_json = decode_utf8(encode_json({"attribute_groups" => $product_ref->{"attribute_groups_" . $lc}}));
-		my $preferences_text = lang("choose_which_information_you_prefer_to_see_first");
+		my $preferences_text = lang("classify_products_according_to_your_preferences");
 
 		$scripts .= <<JS
 <script type="text/javascript">
@@ -8199,6 +8158,7 @@ JS
 	$request_ref->{description} = $description;
 	$request_ref->{blocks_ref} = $blocks_ref;
 	$request_ref->{page_type} = "product";
+	$request_ref->{page_format} = "banner";
 
 	$log->trace("displayed product") if $log->is_trace();
 
@@ -11093,6 +11053,77 @@ sub display_properties($request_ref) {
 
 	display_page($request_ref);
 	return;
+}
+
+=head2 data_to_display_image ( $product_ref, $imagetype, $target_lc )
+
+Generates a data structure to display a product image.
+
+The resulting data structure can be passed to a template to generate HTML or the JSON data for a knowledge panel.
+
+=head3 Arguments
+
+=head4 Product reference $product_ref
+
+=head4 Image type $image_type: one of [front|ingredients|nutrition|packaging]
+
+=head4 Language code $target_lc
+
+=head3 Return values
+
+- Reference to a data structure with needed data to display.
+- undef if no image is available for the requested image type
+
+=cut
+
+sub data_to_display_image($product_ref, $imagetype, $target_lc) {
+
+	my $image_ref;
+
+	# first try the requested language
+	my @img_lcs = ($target_lc);
+
+	# next try the main language of the product
+	if ($product_ref->{lc} ne $target_lc) {
+		push @img_lcs, $product_ref->{lc};
+	}
+
+	foreach my $img_lc (@img_lcs) {
+
+		my $id = $imagetype . "_" . $img_lc;
+
+		if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})) {
+
+			my $path = product_path($product_ref);
+			my $rev = $product_ref->{images}{$id}{rev};
+			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lang};
+			if ($img_lc ne $target_lc) {
+				$alt .= ' - ' .  $img_lc;
+			}
+
+			$image_ref = {
+				type => $imagetype,
+				lc => $img_lc,
+				alt => $alt,
+				sizes => {},
+				id => $id,
+			};
+
+			foreach my $size ($thumb_size, $small_size, $display_size, "full") {
+				if (defined $product_ref->{images}{$id}{sizes}{$size}) {
+					$image_ref->{sizes}{$size} = {
+						url => "$images_subdomain/images/products/$path/$id.$rev.$size.jpg",
+						width => $product_ref->{images}{$id}{sizes}{$size}{w},
+						height => $product_ref->{images}{$id}{sizes}{$size}{h},
+					};
+				}
+			}
+
+			last;
+		}
+	}
+
+	return $image_ref;
 }
 
 1;

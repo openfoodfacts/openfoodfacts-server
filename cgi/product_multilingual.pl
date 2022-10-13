@@ -731,7 +731,6 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 	$header .= <<HTML
 <link rel="stylesheet" type="text/css" href="/css/dist/cropper.css" />
 <link rel="stylesheet" type="text/css" href="/css/dist/tagify.css" />
-<link rel="stylesheet" type="text/css" href="/css/dist/product-multilingual.css?v=$file_timestamps{'css/dist/product-multilingual.css'}" />
 HTML
 	  ;
 
@@ -1435,6 +1434,8 @@ HTML
 	  or $html = "<p>" . $tt->error() . "</p>";
 	process_template('web/pages/product_edit/product_edit_form_display.tt.js', $template_data_ref_display, \$js);
 	$initjs .= $js;
+	$request_ref->{page_type} = "product_edit";
+	$request_ref->{page_format} = "banner";
 
 }
 elsif (($action eq 'display') and ($type eq 'delete') and ($User{moderator})) {

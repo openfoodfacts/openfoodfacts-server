@@ -1,14 +1,14 @@
 name: Top issues action.
-#on:
-#  schedule:
-#  - cron:  '0 0 */1 * *'
+on:
+  schedule:
+  - cron:  '0 0 */1 * *'
 #on:
 #  issues:
 #    types: [opened, transferred]
-on:
-  push:
-    branches:
-      - top-issues
+#on:
+#  push:
+#    branches:
+#      - top-issues
 jobs:
   ShowAndLabelTopIssues:
     name: Display and label top issues.
