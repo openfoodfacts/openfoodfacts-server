@@ -1,3 +1,47 @@
+// Fonts
+
+// From https://google-webfonts-helper.herokuapp.com/fonts/public-sans?subsets=latin,latin-ext,vietnamese :
+/* public-sans-regular - vietnamese_latin-ext_latin */
+@font-face {
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/public-sans-v14-vietnamese_latin-ext_latin-regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('/fonts/public-sans-v14-vietnamese_latin-ext_latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/public-sans-v14-vietnamese_latin-ext_latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/public-sans-v14-vietnamese_latin-ext_latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('/fonts/public-sans-v14-vietnamese_latin-ext_latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/public-sans-v14-vietnamese_latin-ext_latin-regular.svg#PublicSans') format('svg'); /* Legacy iOS */
+}
+
+// Font for Material Icons
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+    url('/fonts/material-icons-v139.woff2') format('woff2'),
+    url('/fonts/material-icons-v139.ttf') format('truetype');
+}
+
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
 // OFF colored blocks
 // combine classes block_light or block_dark with a color like block_ristreto
 
