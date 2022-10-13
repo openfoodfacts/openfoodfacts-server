@@ -83,7 +83,6 @@ BEGIN
 		&compute_unknown_nutrients
 		&compute_nutrient_levels
 		&compute_units_of_alcohol
-		&compute_carbon_footprint_infocard
 
 		&compare_nutriments
 
@@ -1906,103 +1905,6 @@ sub compute_serving_size_data($product_ref) {
 	foreach my $product_type (sort keys %nutrition_data) {
 		if ((not defined $product_ref->{"nutrition_data" . $product_type}) or ($product_ref->{"nutrition_data" . $product_type} ne "on")) {
 			$product_ref->{"nutrition_data" . $product_type} = 'on';
-		}
-	}
-
-	return;
-}
-
-
-sub compute_carbon_footprint_infocard($product_ref) {
-
-	# compute the environment impact level
-	# -> currently only for prepared meals
-
-	# Limit to France, as the carbon values from ADEME are intended for France
-
-	if (not ((has_tag($product_ref, "countries", "en:france")) and (defined $product_ref->{ingredients_text})
-		and (length($product_ref->{ingredients_text}) > 5))) {
-		
-		my @product_fields_to_delete = ("environment_impact_level", "environment_impact_level_tags", 
-		"environment_infocard", "environment_infocard_en", "environment_infocard_fr");
-		
-		remove_fields($product_ref, \@product_fields_to_delete);
-
-		return;
-	}
-
-	if (has_tag($product_ref, "categories", "en:meals")) {
-
-		$product_ref->{environment_impact_level} = "en:low";
-
-		if ((defined  $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_product"})) {
-
-			if ($product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_product"} < 250) {
-				$product_ref->{environment_impact_level} = "en:medium";
-			}
-			else {
-				$product_ref->{environment_impact_level} = "en:high";
-			}
-		}
-
-		$product_ref->{environment_impact_level_tags} = [$product_ref->{environment_impact_level}];
-	}
-
-	# compute the carbon footprint infocard when we have a carbon footprint from meat or fish
-
-	if ((defined $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_product"})) {
-
-		foreach my $lang ("en", "fr") {
-			my $html = "<h2>" . $Lang{carbon_impact_from_meat_or_fish}{$lang} . "</h2>";
-
-			$html .= "<ul>\n";
-
-			$html .= "<li><b>" . (sprintf("%.2e", $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_product"} / 1000) + 0.0)
-				. " kg</b> " . $Lang{of_carbon_impact_from_meat_or_fish_for_whole_product}{$lang};
-
-			if (defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_serving"}) {
-				$html .= " (<b>" .( sprintf("%.2e", $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_serving"} / 1000) + 0.0)
-				. " kg</b> " . $Lang{for_one_serving}{$lang} . ")";
-			}
-
-			$html .= "</li>\n";
-
-			# COP 21 sustainable amount of CO2 per person per year: 2 tons
-			my %sustainable = (annual => 2000 * 1000);
-			$sustainable{daily} = $sustainable{annual} / 365;
-			$sustainable{weekly} = $sustainable{daily} * 7;
-
-			foreach my $period ("daily", "weekly") {
-
-				$html .= "<li><b>" . (sprintf("%.2e", $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_product"} / $sustainable{$period} * 100) + 0.0)
-					. "%</b> " . $Lang{"of_sustainable_" . $period . "_emissions_of_1_person"}{$lang};
-
-				if (defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_serving"}) {
-					$html .= " (<b>" .( sprintf("%.2e", $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_serving"} / $sustainable{$period} * 100) + 0.0)
-					. "%</b> " . $Lang{for_one_serving}{$lang} . ")";
-				}
-
-				$html .= "</li>\n";
-			}
-
-			$html .= "</ul>";
-
-			$html .= "<br><br>";
-
-			$html .= "<h3>" . $Lang{methodology}{$lang} . "</h3>"
-			. "<p>" . $Lang{carbon_footprint_note_foodges_ademe}{$lang} . "</p>"
-			. "<p>" . $Lang{carbon_footprint_note_sustainable_annual_emissions}{$lang} . "</p>"
-			. "<p>" . $Lang{carbon_footprint_note_uncertainty}{$lang} . "</p>";
-
-			$product_ref->{"environment_infocard_" . $lang} = $html;
-		}
-
-		# copy the main language
-		if (defined $product_ref->{"environment_infocard_" . $product_ref->{lc}}) {
-			$product_ref->{environment_infocard} = $product_ref->{"environment_infocard_" . $product_ref->{lc}};
-		}
-		else {
-			$product_ref->{environment_infocard} = $product_ref->{environment_infocard_en};
 		}
 	}
 

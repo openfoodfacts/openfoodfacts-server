@@ -416,8 +416,6 @@ else {
 	extract_ingredients_from_text($product_ref);
 	extract_ingredients_classes_from_text($product_ref);
 	detect_allergens_from_text($product_ref);
-	compute_carbon_footprint_from_ingredients($product_ref);
-	compute_carbon_footprint_from_meat_or_fish($product_ref);
 
 	# Food category rules for sweeetened/sugared beverages
 	# French PNNS groups from categories
