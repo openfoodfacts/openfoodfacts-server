@@ -80,9 +80,8 @@ To allow users of your app to contribute without registering individual accounts
 
 ## SDKS
 
-SDKs are available for specific languages to facilitate the usage of the API. We probably have a wrapper for your favorite programming language. If we do, you can use it and improve it. If we don't, you can help create it.
-
-They will let you consume data and let your users contribute new data.
+SDKs are available for specific languages to facilitate the usage of the API. We probably have a wrapper for your favorite programming language. If we do, you can use it and improve it. If we don't, you can help create it. They will let you consume data and let your users contribute new data.
+Open-source contributors develop our SDKs, and more contributions are welcome to improve these SDKs. You can start by checking the existing issues in their respective repositories.
 
 > **Warning**: Before exploring any SDK, endeavor to read the [Before You Start section](#before-you-start). Also remember, in case of problem, to check the [API Reference Documentation](https://openfoodfacts.github.io/openfoodfacts-server/reference/api.html) first to verify if the problem is in SDK implementation or in the API itself.
 
@@ -98,3 +97,6 @@ They will let you consume data and let your users contribute new data.
 - [Python](https://github.com/openfoodfacts/openfoodfacts-python), Published on [pyipi](https://pypi.org/project/openfoodfacts/)
 - [React Native](https://github.com/openfoodfacts/openfoodfacts-react-native)
 - [Ruby](https://github.com/openfoodfacts/openfoodfacts-ruby)
+- [Java](https://github.com/openfoodfacts/openfoodfacts-java)
+- [RUST](https://github.com/openfoodfacts/openfoodfacts-rust)
+- [R](https://github.com/openfoodfacts/r-dashboard)
