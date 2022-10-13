@@ -84,7 +84,7 @@ SDKs are available for specific languages to facilitate the usage of the API. We
 
 They will let you consume data and let your users contribute new data.
 
-> **Warning**: Before exploring any SDK, endeavor to read the **Before You Start** section and the **API Reference Documentation**.
+> **Warning**: Before exploring any SDK, endeavor to read the [Before You Start section](#before-you-start). Also remember, in case of problem, to check the [API Reference Documentation](https://openfoodfacts.github.io/openfoodfacts-server/reference/api.html) first to verify if the problem is in SDK implementation or in the API itself.
 
 <!--Add published link to the Before you start and  API reference -->
 
