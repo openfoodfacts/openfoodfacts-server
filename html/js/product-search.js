@@ -246,10 +246,12 @@ function display_products(target, product_groups, user_prefs) {
 			product_html += '<div class="list_product_content">';
             product_html += '<div class="list_product_img_div">';
 
-            const img_src =
-                product.image_front_small_url ||
-                "/images/icons/product-silhouette-transparent.svg";
-            product_html += `<img src="${img_src}" class="list_product_img">`;
+			if (product.image_front_small_url) {
+				product_html += `<img src="${product.image_front_small_url}" class="list_product_img">`;
+			}
+			else {
+				product_html += `<img src="/images/icons/dist/packaging.svg" style="filter:invert(.9)" class="list_product_img">`;
+			}
 
             product_html += "</div>";
 
