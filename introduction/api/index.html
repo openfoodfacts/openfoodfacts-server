@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/how-to-guides/use-repl/">
+        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/introduction/api/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.4">
     
     
       
-        <title>Using Repl - Product Opener (Open Food Facts Server)</title>
+        <title>Open Food Facts API Documentation - Product Opener (Open Food Facts Server)</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#using-repl" class="md-skip">
+        <a href="#open-food-facts-api-documentation" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Using Repl
+              Open Food Facts API Documentation
             
           </span>
         </div>
@@ -268,14 +268,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       
       
@@ -298,7 +296,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../deploy/" class="md-nav__link">
+      <a href="../../how-to-guides/deploy/" class="md-nav__link">
         Prod environment deployment guide
       </a>
     </li>
@@ -312,7 +310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../docker-developer-guide/" class="md-nav__link">
+      <a href="../../how-to-guides/docker-developer-guide/" class="md-nav__link">
         Docker Developer's Guide
       </a>
     </li>
@@ -326,7 +324,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pro-development/" class="md-nav__link">
+      <a href="../../how-to-guides/pro-development/" class="md-nav__link">
         Developing on the producers platform
       </a>
     </li>
@@ -340,7 +338,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../use-direnv/" class="md-nav__link">
+      <a href="../../how-to-guides/use-direnv/" class="md-nav__link">
         Use direnv
       </a>
     </li>
@@ -354,7 +352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../use-gitpod/" class="md-nav__link">
+      <a href="../../how-to-guides/use-gitpod/" class="md-nav__link">
         Using Gitpod for Remote Development
       </a>
     </li>
@@ -366,66 +364,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Using Repl
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../how-to-guides/use-repl/" class="md-nav__link">
         Using Repl
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#launch-repl" class="md-nav__link">
-    Launch Repl
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#testing-perl-code" class="md-nav__link">
-    Testing perl code
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#reading-a-sto" class="md-nav__link">
-    Reading a sto
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -437,7 +380,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../use-vscode/" class="md-nav__link">
+      <a href="../../how-to-guides/use-vscode/" class="md-nav__link">
         Using VSCode
       </a>
     </li>
@@ -451,7 +394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../using-pages-from-openfoodfacts-web/" class="md-nav__link">
+      <a href="../../how-to-guides/using-pages-from-openfoodfacts-web/" class="md-nav__link">
         Using pages from openfoodfacts-web
       </a>
     </li>
@@ -471,12 +414,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       
       
@@ -497,11 +442,135 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../introduction/api/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Open Food Facts API Documentation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Open Food Facts API Documentation
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-start" class="md-nav__link">
+    Before You Start
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-best-use-the-api" class="md-nav__link">
+    How to Best Use the API
+  </a>
+  
+    <nav class="md-nav" aria-label="How to Best Use the API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-principles" class="md-nav__link">
+    General principles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-your-users-do-not-expect-a-result-immediately-eg-inventory-apps" class="md-nav__link">
+    If your users do not expect a result immediately (e.g., Inventory apps)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-your-users-expect-a-result-immediately-eg-nutrition-apps" class="md-nav__link">
+    If your users expect a result immediately (e.g., Nutrition apps)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment" class="md-nav__link">
+    Environment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    Authentication
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference-documentation-openapi" class="md-nav__link">
+    Reference Documentation (OpenAPI)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tutorials" class="md-nav__link">
+    Tutorials
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#help" class="md-nav__link">
+    Help
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sdks" class="md-nav__link">
+    SDKS
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -513,7 +582,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../introduction/dev-environment-quick-start-guide/" class="md-nav__link">
+      <a href="../dev-environment-quick-start-guide/" class="md-nav__link">
         Dev environment quick start guide
       </a>
     </li>
@@ -527,7 +596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../introduction/knowledge-panels/" class="md-nav__link">
+      <a href="../knowledge-panels/" class="md-nav__link">
         Knowledge panels
       </a>
     </li>
@@ -630,22 +699,91 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#launch-repl" class="md-nav__link">
-    Launch Repl
+  <a href="#overview" class="md-nav__link">
+    Overview
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#testing-perl-code" class="md-nav__link">
-    Testing perl code
+  <a href="#before-you-start" class="md-nav__link">
+    Before You Start
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#reading-a-sto" class="md-nav__link">
-    Reading a sto
+  <a href="#how-to-best-use-the-api" class="md-nav__link">
+    How to Best Use the API
+  </a>
+  
+    <nav class="md-nav" aria-label="How to Best Use the API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-principles" class="md-nav__link">
+    General principles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-your-users-do-not-expect-a-result-immediately-eg-inventory-apps" class="md-nav__link">
+    If your users do not expect a result immediately (e.g., Inventory apps)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-your-users-expect-a-result-immediately-eg-nutrition-apps" class="md-nav__link">
+    If your users expect a result immediately (e.g., Nutrition apps)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment" class="md-nav__link">
+    Environment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    Authentication
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference-documentation-openapi" class="md-nav__link">
+    Reference Documentation (OpenAPI)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tutorials" class="md-nav__link">
+    Tutorials
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#help" class="md-nav__link">
+    Help
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sdks" class="md-nav__link">
+    SDKS
   </a>
   
 </li>
@@ -664,39 +802,108 @@
                 
                   
 
-  <a href="https://github.com/openfoodfacts/openfoodfacts-server/blob/main/docs/how-to-guides/use-repl.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/openfoodfacts/openfoodfacts-server/blob/main/docs/introduction/api.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="using-repl">Using Repl<a class="headerlink" href="#using-repl" title="Permanent link">#</a></h1>
-<p>On your local dev instance, the "backend" container
-comes with <a href="https://metacpan.org/pod/Devel::REPL">Devel::REPL</a> installed.</p>
-<p>Thanks to <code>PERL5LIB</code> variable which is already configured,
-you can load any module of <code>ProductOpener</code> from within it.</p>
-<p>Also it as the right</p>
-<h2 id="launch-repl">Launch Repl<a class="headerlink" href="#launch-repl" title="Permanent link">#</a></h2>
-<p>Just run</p>
-<div class="highlight"><pre><span></span><code>docker-compose run --rm docker-compose re.pl
-</code></pre></div>
-<p>If you want to access external services (like mongodb), do not forget to start them.</p>
-<h2 id="testing-perl-code">Testing perl code<a class="headerlink" href="#testing-perl-code" title="Permanent link">#</a></h2>
-<p>It can be a handy way to get your hand into perl by testing some code patterns,
-or seeing how they react.</p>
-<p>For example one can test a regular expression:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$</span> <span class="nv">my</span> <span class="nv">$text</span> <span class="o">=</span> <span class="s">&quot;Hello World&quot;</span><span class="p">;</span>
-<span class="n">Hello</span> <span class="n">World</span>
-<span class="nv">$</span> <span class="err">$</span><span class="nv">text</span> <span class="o">=~</span><span class="sr"> /Hello (\w+)/i</span>
-<span class="n">World</span>
-</code></pre></div>
-<h2 id="reading-a-sto">Reading a sto<a class="headerlink" href="#reading-a-sto" title="Permanent link">#</a></h2>
-<p>Another use case is reading a sto file to see what it contains.</p>
-<p>Eg. for a user:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$</span> <span class="nv">use</span> <span class="nn">ProductOpener::</span><span class="n">Store</span> <span class="sx">qw/:all/</span><span class="p">;</span>
-<span class="nv">$</span> <span class="nv">my</span> <span class="nv">$user_id</span> <span class="o">=</span> <span class="s">&quot;xxxx&quot;</span><span class="p">;</span>
-<span class="nv">$</span> <span class="nv">my</span> <span class="nv">$user_ref</span> <span class="o">=</span> <span class="n">retrieve</span><span class="p">(</span><span class="s">&quot;/mnt/podata/users/$user_id.sto&quot;</span><span class="p">);</span>
-</code></pre></div>
+<h1 id="open-food-facts-api-documentation">Open Food Facts API Documentation<a class="headerlink" href="#open-food-facts-api-documentation" title="Permanent link">#</a></h1>
+<p>Everything you need to know about Open Food Facts API.</p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
+<p>Open Food Facts is a food products database made by everyone, for everyone, that can help you make better food choices. Seeing it is open data, anyone can reuse it for any purpose. For example, you are building a nutrition app.
+The Open Food Facts API enables developers to add to the products database and retrieve information about existing products. You may use the API to build applications allowing users to contribute to the database and make healthier food choices.
+The current version of the API is <code>2</code>.</p>
+<!--- We can add a disclaimer image beside the next paragraph instead of making it a subheading -->
+
+<p>Data in the Open Food Facts database is provided voluntarily by users who want to support the program. As a result, there are no assurances that the data is accurate, complete, or reliable. The user assumes the entire risk of using the data.</p>
+<h2 id="before-you-start">Before You Start<a class="headerlink" href="#before-you-start" title="Permanent link">#</a></h2>
+<p>The Open Food Facts database is available under the <a href="https://opendatacommons.org/licenses/odbl/1.0/">Open Database License</a>. The individual contents of the database are available under the <a href="https://opendatacommons.org/licenses/dbcl/1.0/">Database Contents License</a>.
+Product images are available under the <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">Creative Commons Attribution ShareAlike</a> license. They may contain graphical elements subject to copyright or other rights that may, in some cases, be reproduced (quotation rights or fair use).</p>
+<p>Please read the <a href="https://world.openfoodfacts.org/terms-of-use">Terms and conditions of use and reuse</a> before reusing the data.</p>
+<p>We are interested in learning what the Open Food Facts data is used for. It is not mandatory, but we would very much appreciate it if you <a href="mailto:contact@openfoodfacts.org">tell us about your reuses</a> so that we can share them with the Open Food Facts community.</p>
+<h2 id="how-to-best-use-the-api">How to Best Use the API<a class="headerlink" href="#how-to-best-use-the-api" title="Permanent link">#</a></h2>
+<h3 id="general-principles">General principles<a class="headerlink" href="#general-principles" title="Permanent link">#</a></h3>
+<ul>
+<li>You can search for product information, including many useful computed values.</li>
+<li>If you can't get the information on a specific product, you can get your user to send photos and data that will then be processed by Open Food Facts AI and contributors to get the computed result you want to show them.</li>
+<li>You can also implement the complete flow so that they immediately get the result with some effort on their side.</li>
+</ul>
+<h3 id="if-your-users-do-not-expect-a-result-immediately-eg-inventory-apps">If your users do not expect a result immediately (e.g., Inventory apps)<a class="headerlink" href="#if-your-users-do-not-expect-a-result-immediately-eg-inventory-apps" title="Permanent link">#</a></h3>
+<ul>
+<li>Submit photos (front/nutrition/ingredients): the most painless thing for your users</li>
+<li>The Open Food Facts AI Robotoff will generate some derived data from the photos.</li>
+<li>Over time, other apps and the Open Food Facts community will fill the data gaps.</li>
+</ul>
+<h3 id="if-your-users-expect-a-result-immediately-eg-nutrition-apps">If your users expect a result immediately (e.g., Nutrition apps)<a class="headerlink" href="#if-your-users-expect-a-result-immediately-eg-nutrition-apps" title="Permanent link">#</a></h3>
+<ul>
+<li>Submit nutrition facts + category &gt; get Nutri-Score</li>
+<li>Submit ingredients &gt; get the NOVA group (about food ultra-processing), additives, allergens, normalized ingredients, vegan, vegetarian…</li>
+<li>Submit category + labels &gt; soon get the Eco-Score (about environmental impact)</li>
+</ul>
+<h2 id="environment">Environment<a class="headerlink" href="#environment" title="Permanent link">#</a></h2>
+<p>The OpenFoodFacts API has two environments.</p>
+<ul>
+<li>Production: <a href="https://world.openfoodfacts.org">https://world.openfoodfacts.org</a></li>
+<li>Staging: <a href="https://world.openfoodfacts.net">https://world.openfoodfacts.net</a></li>
+</ul>
+<p>Consider using the <a href="https://world.openfoodfacts.net">staging environment</a> if you are not in a production scenario. While testing your applications, make all API requests to the staging environment. This way, we can ensure the product database is safe.</p>
+<blockquote>
+<p><strong>Warning</strong>: The staging environment has an extra level of authentication (username: off, password: off). When making API requests to staging, you may use <a href="https://off:off@world.openfoodfacts.net/">https://off:off@world.openfoodfacts.net/</a> as the base URL to include the authentication.</p>
+</blockquote>
+<h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">#</a></h2>
+<p>All requests do not require authentication except for WRITE operations (Editing an Existing Product, Uploading images…).</p>
+<!---We may want to explain why -->
+<p>Create an account on the <a href="https://world.openfoodfacts.org/">Open Food Facts app</a>. You then have to alternative:</p>
+<ul>
+<li>The preferred one:
+  use the login API to get a session cookie and use this cookie in your subsequent request to be authenticated.
+  Note however that the session must always be used from the same IP address, and that you have a maximum of session per user.</li>
+<li>If session conditions are too restrictive for your use case, include your account credentials as parameters for authenticated requests where <code>user_id</code> is your username and <code>password</code> is your password (do this on POST / PUT / DELETE request, not on GET)</li>
+</ul>
+<p>To allow users of your app to contribute without registering individual accounts on the Open Food Facts website, you can create a global account. This way, we know that these contributions came from your application.</p>
+<blockquote>
+<p>The account you create in the production environment will only work for requests in production. You need to create an account in the <a href="https://world.openfoodfacts.net">staging environment</a> if you want to make authenticated requests in staging.</p>
+</blockquote>
+<h2 id="reference-documentation-openapi">Reference Documentation (OpenAPI)<a class="headerlink" href="#reference-documentation-openapi" title="Permanent link">#</a></h2>
+<!--Add a section that links to the API reference docs -->
+
+<h2 id="tutorials">Tutorials<a class="headerlink" href="#tutorials" title="Permanent link">#</a></h2>
+<!--Have different categories of Tutorials and include the links in this session -->
+
+<h2 id="help">Help<a class="headerlink" href="#help" title="Permanent link">#</a></h2>
+<ul>
+<li>Try the <a href="https://support.openfoodfacts.org/help/en-gb/12-api">FAQ</a> - to answer most of your questions.</li>
+<li>Didn't get a satisfactory answer? Contact the Team on the #api <a href="https://slack.openfoodfacts.org/">Slack Channel.</a></li>
+<li><a href="https://github.com/openfoodfacts/openfoodfacts-server/issues/new/choose">Report Bugs</a> on the Open Food Facts Database.</li>
+<li>Do you have an issue or feature request? You can submit it <a href="https://github.com/openfoodfacts/openfoodfacts-server/issues/new">here on GitHub</a>.</li>
+<li>Are you interested in contributing to this project? See our <a href="https://github.com/openfoodfacts/openfoodfacts-server/blob/main/CONTRIBUTING.md">Contribution Guidelines</a>.
+ <!-- Embed contribution guideline link.-->
+</li>
+</ul>
+<h2 id="sdks">SDKS<a class="headerlink" href="#sdks" title="Permanent link">#</a></h2>
+<p>SDKs are available for specific languages to facilitate the usage of the API. We probably have a wrapper for your favorite programming language. If we do, you can use it and improve it. If we don't, you can help create it. They will let you consume data and let your users contribute new data.
+Open-source contributors develop our SDKs, and more contributions are welcome to improve these SDKs. You can start by checking the existing issues in their respective repositories.</p>
+<blockquote>
+<p><strong>Warning</strong>: Before exploring any SDK, endeavor to read the <a href="#before-you-start">Before You Start section</a>. Also remember, in case of problem, to check the <a href="https://openfoodfacts.github.io/openfoodfacts-server/reference/api.html">API Reference Documentation</a> first to verify if the problem is in SDK implementation or in the API itself.</p>
+</blockquote>
+<!--Add published link to the Before you start and  API reference -->
+
+<ul>
+<li><a href="https://github.com/openfoodfacts/openfoodfacts-cordova-app">Cordova</a></li>
+<li><a href="https://github.com/openfoodfacts/openfoodfacts-dart/blob/master/DOCUMENTATION.md">DART</a>, Published on <a href="https://pub.dev/packages/openfoodfacts">pub.dev</a></li>
+<li><a href="https://github.com/openfoodfacts/openfoodfacts-elixir">Elixir</a></li>
+<li><a href="https://github.com/openfoodfacts/openfoodfacts-go">Go</a></li>
+<li><a href="https://github.com/openfoodfacts/openfoodfacts-nodejs">NodeJS</a></li>
+<li><a href="https://github.com/openfoodfacts/openfoodfacts-php">PHP</a></li>
+<li><a href="https://github.com/openfoodfacts/openfoodfacts-laravel">Laravel</a></li>
+<li><a href="https://github.com/openfoodfacts/openfoodfacts-python">Python</a>, Published on <a href="https://pypi.org/project/openfoodfacts/">pyipi</a></li>
+<li><a href="https://github.com/openfoodfacts/openfoodfacts-react-native">React Native</a></li>
+<li><a href="https://github.com/openfoodfacts/openfoodfacts-ruby">Ruby</a></li>
+<li><a href="https://github.com/openfoodfacts/openfoodfacts-java">Java</a></li>
+<li><a href="https://github.com/openfoodfacts/openfoodfacts-rust">RUST</a></li>
+<li><a href="https://github.com/openfoodfacts/r-dashboard">R</a></li>
+</ul>
 
 
 
@@ -717,7 +924,7 @@ or seeing how they react.</p>
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../use-gitpod/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Using Gitpod for Remote Development" rel="prev">
+        <a href="../../how-to-guides/using-pages-from-openfoodfacts-web/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Using pages from openfoodfacts-web" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -726,20 +933,20 @@ or seeing how they react.</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Using Gitpod for Remote Development
+              Using pages from openfoodfacts-web
             </div>
           </div>
         </a>
       
       
         
-        <a href="../use-vscode/" class="md-footer__link md-footer__link--next" aria-label="Next: Using VSCode" rel="next">
+        <a href="../dev-environment-quick-start-guide/" class="md-footer__link md-footer__link--next" aria-label="Next: Dev environment quick start guide" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Using VSCode
+              Dev environment quick start guide
             </div>
           </div>
           <div class="md-footer__button md-icon">
