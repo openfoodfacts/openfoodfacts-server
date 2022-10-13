@@ -56,7 +56,13 @@ Consider using the [staging environment]( https://world.openfoodfacts.net) if yo
 
 All requests do not require authentication except for WRITE operations (Editing an Existing Product, Uploading images…).
 <!---We may want to explain why -->
-Create an account on the [Open Food Facts app](https://world.openfoodfacts.org/). Include your account credentials as parameters for authenticated requests where `user_id` is your username and `password` is your password.
+Create an account on the [Open Food Facts app](https://world.openfoodfacts.org/). You then have to alternative:
+
+* The preferred one: 
+  use the login API to get a session cookie and use this cookie in your subsequent request to be authenticated. 
+  Note however that the session must always be used from the same IP address, and that you have a maximum of session per user.
+* If session conditions are too restrictive for your use case, include your account credentials as parameters for authenticated requests where `user_id` is your username and `password` is your password (do this on POST / PUT / DELETE request, not on GET)
+
 
 To allow users of your app to contribute without registering individual accounts on the Open Food Facts website, you can create a global account. This way, we know that these contributions came from your application.
 
