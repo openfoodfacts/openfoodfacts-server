@@ -61,6 +61,7 @@ sub init_redis() {
 		$log->warn("Error connecting to Redis", {error => $@}) if $log->is_warn();
 		$redis_client = undef;    # this ask for eventual reconnection
 	}
+	return;
 }
 
 =head2 push_to_search_service ($product_ref)
