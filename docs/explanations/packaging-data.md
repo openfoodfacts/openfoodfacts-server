@@ -70,7 +70,7 @@ The "shape" and "material" fields are taxonomized using the packaging_shapes and
 
 #### Extract attributes that relate to different packaging components
 
-The values for each input field ("packaging" tag field and "packaging_text_[language code]" packaging information text field) are analyzed[^parse_packaging_from_text_phrase] to recognize packaging components and their attributes.
+The values for each input field ("packaging" tag field and "packaging_text_[language code]" packaging information text field) are analyzed[^parse_packaging_from_text_phrase] to recognize packaging components and their attributes. One product may have multiple "packaging_text_[language code]" values in different languages. Only the value for the main product of the language is currently analyzed.
 
 [^parse_packaging_from_text_phrase]: parse_packaging_from_text_phrase() function in [/lib/ProductOpener/Packagings.pm](https://github.com/openfoodfacts/openfoodfacts-server/blob/main/lib/ProductOpener/Packaging.pm)
 
@@ -148,7 +148,9 @@ For instance, if Robotoff detects that the product is in plastic bottle by analy
 
 It is important to keep this field, as we can display it as-is, use it as input data, and it may contain interesting data that we do not analyze yet.
 
-When filled, the values for this field can be analyzed and added to / combined with the "packagings" data structure.
+When filled, the values for this field can be analyzed and added to / combined with the "packagings" data structure. Similarly to ingredient text analysis, we could keep information about which parts of the text were recognized as attributes of a packaging component, and which parts were not recognized and were therefore ignored.
+
+Changing the "packagings" value will not change the "packaging_text_[language code]" values.
 
 ## Challenges
 
