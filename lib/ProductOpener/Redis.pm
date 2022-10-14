@@ -34,6 +34,9 @@ The connection to redis
 =cut
 my $redis_client;
 
+# tracking if we already displayed a warning
+my $sent_warning_about_missing_redis_url = 0;
+
 
 =head2 init_redis($is_reconnect=0)
 
@@ -41,21 +44,15 @@ init $redis_client or re-init it if we where disconnected
 
 it is uses  ProductOpener::Config2::redis_url
 
-=head3 Arguments
-
-=head4 bool $is_reconnect
-
-This is informative.
-If true we will display a warning if we have no redis_url.
-
 =cut
 
-sub init_redis($is_reconnect=0) {
+sub init_redis() {
 	$log->debug("init_redis", {redis_url => $redis_url})
-	  if $log->is_debug();
+        if $log->is_debug();
 
-	if (((! defined $redis_url) || ($redis_url eq "")) && ! $is_reconnect) {
+	if (((! defined $redis_url) || ($redis_url eq "")) && ! $sent_warning_about_missing_redis_url) {
 		$log->warn("Redis URL not provided for search indexing") if $log->is_warn();
+		$sent_warning_about_missing_redis_url = 1;
 	}
 	eval {
 		$redis_client = Redis->new(
@@ -67,7 +64,7 @@ sub init_redis($is_reconnect=0) {
 	};
 	if ($@) {
 		$log->warn("Error connecting to Redis", {error => $@}) if $log->is_warn();
-		$redis_client = -1;  # this ask for eventual reconnection
+		$redis_client = undef;  # this ask for eventual reconnection
 	}
 }
 
@@ -92,12 +89,12 @@ sub push_to_search_service ($product_ref) {
 	}
 
 	my $error = "";
-	if ((!defined $redis_client) || ($redis_client == -1)) {
+	if (!defined $redis_client) {
 		# we where deconnected, try again
 		$log->info("Trying to reconnect to redis");
-		init_redis(defined $redis_client);
+		init_redis();
 	}
-	if (defined($redis_client) && ($redis_client != -1)) {
+	if (defined $redis_client) {
 		eval {
 			$redis_client->rpush('search_import_queue', $product_ref->{code});
 		};
@@ -110,7 +107,7 @@ sub push_to_search_service ($product_ref) {
 			{product_code=> $product_ref->{code}, error => $error}
 		) if $log->is_warn();
 		# ask for eventual reconnection for next call
-		$redis_client = -1;
+		$redis_client = undef;
 	}
 
 	return;
