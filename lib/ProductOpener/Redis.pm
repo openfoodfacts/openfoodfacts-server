@@ -5,7 +5,7 @@ ProductOpener::Redis - functions to push informations to redis
 
 =head1 DESCRIPTION
 
-C<ProductOpener::Redit> is handling pushing info to Redis
+C<ProductOpener::Redis> is handling pushing info to Redis
 to communicate updates to openfoodfacts-search instance
 
 =cut
