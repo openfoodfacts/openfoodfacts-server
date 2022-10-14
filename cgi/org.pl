@@ -55,7 +55,7 @@ if (defined single_param('orgid')) {
 }
 
 $log->debug("org profile form - start", {type => $type, action => $action, orgid => $orgid, User_id => $User_id})
-  if $log->is_debug();
+	if $log->is_debug();
 
 my $html = '';
 
@@ -79,7 +79,7 @@ if (not defined $org_ref) {
 if (not(is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pro_moderator})) {
 	$log->debug("user does not have permission to edit org",
 		{orgid => $orgid, org_admins => $org_ref->{admins}, User_id => $User_id})
-	  if $log->is_debug();
+		if $log->is_debug();
 	display_error_and_exit($Lang{error_no_permission}{$lang}, 403);
 }
 
@@ -157,7 +157,7 @@ if ($action eq 'process') {
 				foreach my $field ("name", "address", "email", "phone", "link", "info") {
 
 					$org_ref->{$contact}{$field}
-					  = remove_tags_and_quote(decode utf8 => single_param($contact . "_" . $field));
+						= remove_tags_and_quote(decode utf8 => single_param($contact . "_" . $field));
 					if ($org_ref->{$contact}{$field} eq "") {
 						delete $org_ref->{$contact}{$field};
 					}
@@ -180,7 +180,7 @@ $template_data_ref->{action} = $action;
 $template_data_ref->{errors} = \@errors;
 
 $log->debug("org form - before display / process", {type => $type, action => $action, orgid => $orgid})
-  if $log->is_debug();
+	if $log->is_debug();
 
 if ($action eq 'display') {
 
@@ -245,16 +245,16 @@ if ($action eq 'display') {
 		);
 
 		push @{$template_data_ref->{sections}},
-		  {
+			{
 			id => "admin",
 			fields => $admin_fields_ref,
-		  };
+			};
 	}
 
 	# Name and information of the organization
 
 	push @{$template_data_ref->{sections}},
-	  {
+		{
 		fields => [
 			{
 				field => "name",
@@ -263,14 +263,14 @@ if ($action eq 'display') {
 				field => "link",
 			},
 		]
-	  };
+		};
 
 	# Contact information
 
 	foreach my $contact ("customer_service", "commercial_service") {
 
 		push @{$template_data_ref->{sections}},
-		  {
+			{
 			id => $contact,
 			fields => [
 				{field => $contact . "_name"},
@@ -280,7 +280,7 @@ if ($action eq 'display') {
 				{field => $contact . "_phone"},
 				{field => $contact . "_info", type => "textarea"},
 			],
-		  };
+			};
 	}
 
 	# Add labels, types, descriptions, notes and existing values for all fields
@@ -371,7 +371,7 @@ my $title = lang($type . '_org_title');
 $log->debug("org form - template data", {template_data_ref => $template_data_ref}) if $log->is_debug();
 
 $tt->process('web/pages/org_form/org_form.tt.html', $template_data_ref, \$html)
-  or $html = "<p>template error: " . $tt->error() . "</p>";
+	or $html = "<p>template error: " . $tt->error() . "</p>";
 
 $request_ref->{title} = $title;
 $request_ref->{content_ref} = \$html;

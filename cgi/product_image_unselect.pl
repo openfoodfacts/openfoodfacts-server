@@ -50,7 +50,7 @@ my $id = single_param('id');
 
 my $product_id = product_id_for_owner($Owner_id, $code);
 
-$log->debug("start", { code => $code, id => $id }) if $log->is_debug();
+$log->debug("start", {code => $code, id => $id}) if $log->is_debug();
 
 if (not defined $code) {
 
@@ -59,12 +59,11 @@ if (not defined $code) {
 
 my $product_ref = process_image_unselect($User_id, $product_id, $id);
 
-my $data = encode_json({ status_code => 0, status => 'status ok', imagefield=>$id });
+my $data = encode_json({status_code => 0, status => 'status ok', imagefield => $id});
 
-$log->debug("JSON data output", { data => $data }) if $log->is_debug();
+$log->debug("JSON data output", {data => $data}) if $log->is_debug();
 
-print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
-
+print header(-type => 'application/json', -charset => 'utf-8') . $data;
 
 exit(0);
 

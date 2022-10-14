@@ -29,7 +29,7 @@
 # e.g.
 # grep "Official Android" api.20200716 > api.20200716.android
 # -> the user agent has changed, it used to be "Official Android App"
-# and is now "Open Food Facts Official Android App" 
+# and is now "Open Food Facts Official Android App"
 # for ios, grep org.openfoodfacts.scanner
 # old app in 2018:
 # grep "nutrition_data_per" api.20200716 | grep "okhttp" > api.20200716.android-old-app
@@ -41,19 +41,19 @@ use strict;
 my %months_ips = ();
 my %months_scans = ();
 
-my %month =( 
-'Jan'=>'01',
-'Feb'=>'02',
-'Mar'=>'03',
-'Apr'=>'04',
-'May'=>'05',
-'Jun'=>'06',
-'Jul'=>'07',
-'Aug'=>'08',
-'Sep'=>'09',
-'Oct'=>'10',
-'Nov'=>'11',
-'Dec'=>'12',
+my %month = (
+	'Jan' => '01',
+	'Feb' => '02',
+	'Mar' => '03',
+	'Apr' => '04',
+	'May' => '05',
+	'Jun' => '06',
+	'Jul' => '07',
+	'Aug' => '08',
+	'Sep' => '09',
+	'Oct' => '10',
+	'Nov' => '11',
+	'Dec' => '12',
 );
 
 while (<STDIN>) {
@@ -67,10 +67,8 @@ while (<STDIN>) {
 		my $code = $4;
 		$month = $year . "-" . $month;
 
-		
-
 		#	print "ip: " . $ip . " - month: " . $month . " - code: " . $code . "\n";
-		
+
 		defined $months_ips{$month} or $months_ips{$month} = {};
 		defined $months_scans{$month} or $months_scans{$month} = {};
 		$months_ips{$month}{$ip} = 1;
@@ -85,7 +83,6 @@ foreach my $m (sort keys %months_ips) {
 
 print "\nScans per month:\n";
 foreach my $m (sort keys %months_scans) {
-        print "$m\t" . scalar(keys %{$months_scans{$m}}) . "\n";
+	print "$m\t" . scalar(keys %{$months_scans{$m}}) . "\n";
 }
-
 
