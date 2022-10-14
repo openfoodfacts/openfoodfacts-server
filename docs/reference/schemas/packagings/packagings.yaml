@@ -1,0 +1,33 @@
+type: array
+x-stoplight:
+  id: 1cyz4qo9njog7
+title: Packagings
+description: |-
+  The packagings object is an array of individual packaging component objects.
+
+  The Packaging data document explains how packaging data is structured in Open Food Facts: https://github.com/openfoodfacts/openfoodfacts-server/blob/main/docs/explanations/packaging-data.md
+examples:
+  - - material: 'en:pp-polypropylene'
+      number: '2'
+      recycling: 'en:discard'
+      shape: 'en:lid'
+    - material: 'en:non-corrugated-cardboard'
+      number: '1'
+      recycling: 'en:recycle'
+      shape: 'en:box'
+      weight: 120
+    - material: 'en:paper-and-fibreboard-aluminium'
+      number: '2'
+      recycling: 'en:recycle'
+      shape: 'en:seal'
+    - material: 'en:clear-glass'
+      number: '2'
+      recycling: 'en:recycle'
+      shape: 'en:jar'
+      quantity: 200 ML
+      quantity_value: 200
+      quantity_unit: ml
+      weight: 80
+items:
+  $ref: ./packaging_component.yaml
+readOnly: true

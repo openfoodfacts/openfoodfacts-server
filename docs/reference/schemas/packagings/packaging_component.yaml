@@ -1,0 +1,41 @@
+title: Packaging component
+x-stoplight:
+  id: 5jrtlek3arbg2
+type: object
+description: |-
+  Each packaging component has different properties to specify how many there are, its shape, material etc.
+
+  The shape, material and recycling properties are mapped to one entry in the packaging_shapes, packaging_materials and packaging_recycling taxonomies, and the value of the property is the canonical name of the taxonomy entry (e.g. en:bottle).
+
+  They may contain values that could not yet get matched to their respective taxonomy, in which case they will contain a free text value prefixed with the language code of this text value (e.g. "fr:Bouteille sphérique" might have been entered by a French user to indicate it is a spherical bottle).
+properties:
+  number:
+    type: integer
+    description: Number of units of this packaging component contained in the product (e.g. 6 for a pack of 6 bottles)
+  shape:
+    type: string
+    description: 'Shape, canonicalized with the packaging_shapes taxonomy.'
+  material:
+    type: string
+    description: 'Material, canonicalized with the packaging_shapes taxonomy.'
+  recycling:
+    type: string
+    description: 'Recycling instruction, canonicalized with the packaging_shapes taxonomy.'
+  quantity:
+    type: string
+    description: Quantity (weight or volume) of food product contained in the packaging component. (e.g. 75cl for a wine bottle)
+  quantity_value:
+    type: number
+    description: Quantity value (parsed from quantity property)
+  quantity_unit:
+    description: Quantity unit (parsed and normalized from quantity property)
+    type: string
+  weight:
+    type: number
+    description: 'Weight of one unit of the empty packaging component (in grams). (e.g. for a 6 pack of 1.5l water bottles, it might be 30, the weight in grams of 1 empty water bottle without its cap which is a different packaging component).'
+  brands:
+    type: string
+    description: 'A comma separated list of brands / product names for the packaging component (e.g. "Tetra Pak", Tetra Brik"'
+  labels:
+    type: string
+    description: 'A comma separated list of labels, canonicalized with the packaging_labels taxonomy (e.g. "en:FSC, fr:Encre végétale")'

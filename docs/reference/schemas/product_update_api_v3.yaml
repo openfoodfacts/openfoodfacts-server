@@ -1,0 +1,10 @@
+title: product_update_api_v3
+x-stoplight:
+  id: qnmmu2yuzc1xf
+type: object
+description: Model for creating or updating products using the v3 version of the product update API.
+properties:
+  packagings:
+    $ref: ./packagings/packagings.yaml
+  packagings_add:
+    $ref: ./packagings/packagings.yaml
