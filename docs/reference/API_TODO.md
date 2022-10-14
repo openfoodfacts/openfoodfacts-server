@@ -26,3 +26,7 @@ Open api allows you to add external link to reference where more info can be fou
 ### Description
 
 Go through all parameters and response fields , to see if they have been properly described with suitable examples.
+
+### Reuses
+
+Take out reuses section from introduction, We are working on something else for that.

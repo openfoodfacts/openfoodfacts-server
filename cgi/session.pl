@@ -66,7 +66,7 @@ if (defined $User_id) {
 	}
 	elsif ( (defined $referer)
 		and ($referer =~ /^https?:\/\/$subdomain\.$server_domain/)
-		and (not($referer =~ /(?:session|user|reset_password)\.pl/)))
+		and (not($referer =~ /(?:login|session|user|reset_password)\.pl/)))
 	{
 		$url = $referer;
 	}
@@ -81,9 +81,6 @@ if (defined $User_id) {
 		return 302;
 	}
 }
-
-process_template('web/pages/session/session.tt.html', $template_data_ref, \$html)
-  or $html = "<p>" . $tt->error() . "</p>";
 
 if (single_param('jqm')) {
 
@@ -101,6 +98,24 @@ if (single_param('jqm')) {
 
 }
 else {
+	my $template;
+
+	if ((defined param('length')) and (param('length') eq 'logout')) {
+		# The user is signing out
+		$template = "signed_out";
+	}
+	elsif (defined $User_id) {
+		# The user is signed in
+		$template = "signed_in";
+	}
+	else {
+		# The user is signing in: display the login form
+		$template = "sign_in_form";
+	}
+
+	process_template("web/pages/session/$template.tt.html", $template_data_ref, \$html)
+	  or $html = "<p>" . $tt->error() . "</p>";
+
 	$request_ref->{title} = lang('session_title');
 	$request_ref->{content_ref} = \$html;
 	display_page($request_ref);

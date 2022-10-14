@@ -376,7 +376,7 @@ JS
 		sequentialUploads: true,
         dataType: 'json',
         url: '/cgi/product.pl',
-		formData : [{name: 'jqueryfileupload', value: 1}],
+		formData : [{name: 'jqueryfileupload', value: 1}, {name: 'action', value: 'process'}, {name: 'type', value:'search_or_add'}],
 		resizeMaxWidth : 2000,
 		resizeMaxHeight : 2000,
         done: function (e, data) {
@@ -1454,6 +1454,8 @@ sub _set_magickal_options($magick, $width) {
 	return;
 }
 
+
+# TODO: This function should be removed once we switch to knowledge pages to display
 sub display_image_thumb($product_ref, $id_lc) {
 
 	# $id_lc = shift  ->  id_lc = [front|ingredients|nutrition|packaging]_[lc]

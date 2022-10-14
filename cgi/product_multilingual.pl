@@ -58,6 +58,40 @@ use Log::Any qw($log);
 use File::Copy qw(move);
 use Data::Dumper;
 
+
+# Function to display a form to add a product with a specific barcode (either typed in a field, or extracted from a barcode photo)
+# or without a barcode
+
+sub display_search_or_add_form() {
+
+	# Producer platform and no org or not admin: do not offer to add products
+	if (($server_options{producers_platform})
+		and not ((defined $Owner_id) and (($Owner_id =~ /^org-/) or ($User{moderator}) or $User{pro_moderator}))) {
+		return "";
+	}
+
+	my $html = '';
+	my $template_data_ref_content = {};
+	$template_data_ref_content->{server_options_producers_platform} = $server_options{producers_platform};
+
+	$template_data_ref_content->{display_search_image_form} = display_search_image_form("block_side");
+	process_template('web/common/includes/display_product_search_or_add.tt.html', $template_data_ref_content, \$html) || ($html = "template error: " . $tt->error());
+
+	# Producers platform: display an addition import products block
+
+	if ($server_options{producers_platform}) {
+		my $html_producer = '';
+		my $template_data_ref_content_producer = {};
+
+		process_template('web/common/includes/display_product_search_or_add_producer.tt.html', $template_data_ref_content_producer, \$html_producer) || ($html_producer = "template error: " . $tt->error());
+
+		$html .= $html_producer;
+	}	
+
+	return $html;
+}
+
+
 my $request_ref = ProductOpener::Display::init_request();
 
 if ($User_id eq 'unwanted-user-french') {
@@ -87,101 +121,117 @@ local $log->context->{action} = $action;
 
 my $template_data_ref = {};
 
+$log->debug("product_multilingual - start", {code => $code, type => $type, action => $action}) if $log->is_debug();
+
 # Search or add product
 if ($type eq 'search_or_add') {
 
-	# barcode in image?
-	my $filename;
-	if ((not defined $code) or ($code eq "")) {
-		$code = process_search_image_form(\$filename);
-	}
-	elsif ($code !~ /^\d{4,24}$/) {
-		display_error_and_exit($Lang{invalid_barcode}{$lang}, 403);
-	}
+	if ($action eq "display") {
 
-	my $r = Apache2::RequestUtil->request();
-	my $method = $r->method();
-	if (    (not defined $code)
-		and ((not defined single_param("imgupload_search")) or (single_param("imgupload_search") eq ''))
-		and ($method eq 'POST'))
-	{
+		my $title = lang("add_product");
 
-		($code, $product_id) = assign_new_code();
-	}
-
-	my %data = ();
-	my $location;
-
-	if (defined $code) {
-		$data{code} = $code;
-		$product_id = product_id_for_owner($Owner_id, $code);
-		$log->debug("we have a code", {code => $code, product_id => $product_id}) if $log->is_debug();
-
-		$product_ref = product_exists($product_id);    # returns 0 if not
-
-		if ($product_ref) {
-			$log->info("product exists, redirecting to page", {code => $code}) if $log->is_info();
-			$location = product_url($product_ref);
-
-			# jquery.fileupload ?
-			if (single_param('jqueryfileupload')) {
-
-				$type = 'show';
-			}
-			else {
-				my $r = shift;
-				$r->headers_out->set(Location => $location);
-				$r->status(301);
-				return 301;
-			}
-		}
-		else {
-			$log->info("product does not exist, creating product", {code => $code, product_id => $product_id})
-			  if $log->is_info();
-			$product_ref = init_product($User_id, $Org_id, $code, $country);
-			$product_ref->{interface_version_created} = $interface_version;
-			store_product($User_id, $product_ref, 'product_created');
-
-			$type = 'add';
-			$action = 'display';
-			$location = "/cgi/product.pl?type=add&code=$code";
-
-			# If we got a barcode image, upload it
-			if (defined $filename) {
-				my $imgid;
-				my $debug;
-				process_image_upload($product_ref->{_id}, $filename, $User_id, time(),
-					'image with barcode from web site Add product button',
-					\$imgid, \$debug);
-			}
-		}
-	}
-	else {
-		if (defined single_param("imgupload_search")) {
-			$log->info("no code found in image") if $log->is_info();
-			$data{error} = lang("image_upload_error_no_barcode_found_in_image_short");
-		}
-		else {
-			$log->info("no code found in text") if $log->is_info();
-		}
-	}
-
-	$data{type} = $type;
-	$data{location} = $location;
-
-	# jquery.fileupload ?
-	if (single_param('jqueryfileupload')) {
-
-		my $data = encode_json(\%data);
-
-		$log->debug("jqueryfileupload JSON data output", {data => $data}) if $log->is_debug();
-
-		print header(-type => 'application/json', -charset => 'utf-8') . $data;
+		$html = display_search_or_add_form();
+	
+		$request_ref->{title} = lang('add_product');
+		$request_ref->{content_ref} = \$html;
+		display_page($request_ref);
 		exit();
 	}
+	else {
 
-	$template_data_ref->{param_imgupload_search} = single_param("imgupload_search");
+		# barcode in image?
+		my $filename;
+		if ((not defined $code) or ($code eq "")) {
+			$code = process_search_image_form(\$filename);
+		}
+		elsif ($code !~ /^\d{4,24}$/) {
+			display_error_and_exit($Lang{invalid_barcode}{$lang}, 403);
+		}
 
+		my $r = Apache2::RequestUtil->request();
+		my $method = $r->method();
+		if (    (not defined $code)
+			and ((not defined single_param("imgupload_search")) or (single_param("imgupload_search") eq ''))
+			and ($method eq 'POST'))
+		{
+
+			($code, $product_id) = assign_new_code();
+			$log->debug("assigned new code", {code => $code, product_id => $product_id}) if $log->is_debug();
+		}
+
+		my %data = ();
+		my $location;
+
+		if (defined $code) {
+			$data{code} = $code;
+			$product_id = product_id_for_owner($Owner_id, $code);
+			$log->debug("we have a code", {code => $code, product_id => $product_id}) if $log->is_debug();
+
+			$product_ref = product_exists($product_id);    # returns 0 if not
+
+			if ($product_ref) {
+				$log->info("product exists, redirecting to page", {code => $code}) if $log->is_info();
+				$location = product_url($product_ref);
+
+				# jquery.fileupload ?
+				if (single_param('jqueryfileupload')) {
+
+					$type = 'show';
+				}
+				else {
+					my $r = shift;
+					$r->headers_out->set(Location => $location);
+					$r->status(301);
+					return 301;
+				}
+			}
+			else {
+				$log->info("product does not exist, creating product", {code => $code, product_id => $product_id})
+				if $log->is_info();
+				$product_ref = init_product($User_id, $Org_id, $code, $country);
+				$product_ref->{interface_version_created} = $interface_version;
+				store_product($User_id, $product_ref, 'product_created');
+
+				$type = 'add';
+				$action = 'display';
+				$location = "/cgi/product.pl?type=add&code=$code";
+
+				# If we got a barcode image, upload it
+				if (defined $filename) {
+					my $imgid;
+					my $debug;
+					process_image_upload($product_ref->{_id}, $filename, $User_id, time(),
+						'image with barcode from web site Add product button',
+						\$imgid, \$debug);
+				}
+			}
+		}
+		else {
+			if (defined single_param("imgupload_search")) {
+				$log->info("no code found in image") if $log->is_info();
+				$data{error} = lang("image_upload_error_no_barcode_found_in_image_short");
+			}
+			else {
+				$log->info("no code found in text") if $log->is_info();
+			}
+		}
+	
+		$data{type} = $type;
+		$data{location} = $location;
+
+		# jquery.fileupload ?
+		if (single_param('jqueryfileupload')) {
+
+			my $data = encode_json(\%data);
+
+			$log->debug("jqueryfileupload JSON data output", {data => $data}) if $log->is_debug();
+
+			print header(-type => 'application/json', -charset => 'utf-8') . $data;
+			exit();
+		}
+
+		$template_data_ref->{param_imgupload_search} = single_param("imgupload_search");
+	}
 }
 
 else {
@@ -731,7 +781,6 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 	$header .= <<HTML
 <link rel="stylesheet" type="text/css" href="/css/dist/cropper.css" />
 <link rel="stylesheet" type="text/css" href="/css/dist/tagify.css" />
-<link rel="stylesheet" type="text/css" href="/css/dist/product-multilingual.css?v=$file_timestamps{'css/dist/product-multilingual.css'}" />
 HTML
 	  ;
 
@@ -1435,6 +1484,8 @@ HTML
 	  or $html = "<p>" . $tt->error() . "</p>";
 	process_template('web/pages/product_edit/product_edit_form_display.tt.js', $template_data_ref_display, \$js);
 	$initjs .= $js;
+	$request_ref->{page_type} = "product_edit";
+	$request_ref->{page_format} = "banner";
 
 }
 elsif (($action eq 'display') and ($type eq 'delete') and ($User{moderator})) {
@@ -1536,7 +1587,6 @@ MAIL
 
 $request_ref->{title} = lang($type . '_product');
 $request_ref->{content_ref} = \$html;
-$request_ref->{full_width} = 1;
 display_page($request_ref);
 
 exit(0);

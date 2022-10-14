@@ -43,6 +43,7 @@ BEGIN
 		$events_url
 		$events_username
 		$events_password
+		$redis_url
 		%server_options
 
 	);
@@ -81,6 +82,8 @@ $robotoff_url = '';
 $events_url = '';
 $events_username = '';
 $events_password = '';
+
+$redis_url = '';
 
 %server_options = (
 

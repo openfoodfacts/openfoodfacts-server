@@ -6,17 +6,14 @@ use utf8;
 use Test::More;
 use Log::Any::Adapter 'TAP';
 
-use Getopt::Long;
-
-
 use JSON::PP;
-use File::Basename "dirname";
 
 my $json = JSON::PP->new->allow_nonref->canonical;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
+use ProductOpener::Test qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
@@ -33,29 +30,10 @@ init_packaging_taxonomies_regexps();
 
 load_forest_footprint_data();
 
-my $expected_dir = dirname(__FILE__) . "/expected_test_results";
-my $testdir = "attributes";
+my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (
+	init_expected_results(__FILE__)
+);
 
-my $usage = <<TXT
-
-The expected results of the tests are saved in $expected_dir/$testdir
-
-To verify differences and update the expected test results, actual test results
-can be saved to a directory by passing --results [path of results directory]
-
-The directory will be created if it does not already exist.
-
-TXT
-;
-
-my $resultsdir;
-
-GetOptions ("results=s"   => \$resultsdir)
-  or die("Error in command line arguments.\n\n" . $usage);
-  
-if ((defined $resultsdir) and (! -e $resultsdir)) {
-	mkdir($resultsdir, 0755) or die("Could not create $resultsdir directory: $!\n");
-}
 
 my @tests = (
 
@@ -228,21 +206,22 @@ foreach my $test_ref (@tests) {
 	  else {
 		warn "unknown type $type";
 	  }
+	  return;
 	}
 	
 	walk $product_ref, sub { $_[0] =~ s/https?:\/\/([^\/]+)\//https:\/\/server_domain\//; };	
 	
 	# Save the result
 	
-	if (defined $resultsdir) {
-		open (my $result, ">:encoding(UTF-8)", "$resultsdir/$testid.json") or die("Could not create $resultsdir/$testid.json: $!\n");
+	if ($update_expected_results) {
+		open (my $result, ">:encoding(UTF-8)", "$expected_result_dir/$testid.json") or die("Could not create $expected_result_dir/$testid.json: $!\n");
 		print $result $json->pretty->encode($product_ref);
 		close ($result);
 	}
 	
 	# Compare the result with the expected result
 	
-	if (open (my $expected_result, "<:encoding(UTF-8)", "$expected_dir/$testdir/$testid.json")) {
+	if (open (my $expected_result, "<:encoding(UTF-8)", "$expected_result_dir/$testid.json")) {
 
 		local $/; #Enable 'slurp' mode
 		my $expected_product_ref = $json->decode(<$expected_result>);
@@ -250,7 +229,7 @@ foreach my $test_ref (@tests) {
 	}
 	else {
 		diag explain $product_ref;
-		fail("could not load expected_test_results/$testdir/$testid.json");
+		fail("could not load $expected_result_dir/$testid.json");
 	}
 }
 

@@ -22,30 +22,13 @@ use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Test qw/:all/;
 use ProductOpener::ImportConvertCarrefourFrance qw/:all/;
 
-use File::Basename "dirname";
-
-use Getopt::Long;
 use JSON;
 
 
-my $test_id = "import_convert_carrefour_france";
-my $test_dir = dirname(__FILE__);
-my $results_dir = "$test_dir/expected_test_results/$test_id";
+my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (
+	init_expected_results(__FILE__)
+);
 
-my $usage = <<TXT
-
-The expected results of the tests are saved in $results_dir
-
-Use the --update-expected-results option to create or update the test results.
-
-TXT
-;
-
-my $update_expected_results;
-
-GetOptions ("update-expected-results"   => \$update_expected_results)
-  or die("Error in command line arguments.\n\n" . $usage);
-  
 # Remove all products
 
 ProductOpener::Test::remove_all_products();
@@ -105,7 +88,7 @@ export_csv($export_args_ref);
 
 close($exported_csv);
 
-ProductOpener::Test::compare_csv_file_to_expected_results($exported_csv_file, $results_dir, $update_expected_results);
+ProductOpener::Test::compare_csv_file_to_expected_results($exported_csv_file, $expected_result_dir, $update_expected_results);
 
 
 done_testing();
