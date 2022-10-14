@@ -32,11 +32,11 @@ use Redis;
 =head2 $redis_client
 The connection to redis
 =cut
+
 my $redis_client;
 
 # tracking if we already displayed a warning
 my $sent_warning_about_missing_redis_url = 0;
-
 
 =head2 init_redis($is_reconnect=0)
 
@@ -48,7 +48,7 @@ it is uses  ProductOpener::Config2::redis_url
 
 sub init_redis() {
 	$log->debug("init_redis", {redis_url => $redis_url})
-        if $log->is_debug();
+	  if $log->is_debug();
 	eval {
 		$redis_client = Redis->new(
 			server => $redis_url,
@@ -59,10 +59,9 @@ sub init_redis() {
 	};
 	if ($@) {
 		$log->warn("Error connecting to Redis", {error => $@}) if $log->is_warn();
-		$redis_client = undef;  # this ask for eventual reconnection
+		$redis_client = undef;    # this ask for eventual reconnection
 	}
 }
-
 
 =head2 push_to_search_service ($product_ref)
 
@@ -94,23 +93,20 @@ sub push_to_search_service ($product_ref) {
 		init_redis();
 	}
 	if (defined $redis_client) {
-		eval {
-			$redis_client->rpush('search_import_queue', $product_ref->{code});
-		};
+		eval {$redis_client->rpush('search_import_queue', $product_ref->{code});};
 		$error = $@;
-	} else {
+	}
+	else {
 		$error = "Can't connect to redis";
 	}
 	if (!($error eq "")) {
-		$log->warn("Failed to push to redis",
-			{product_code=> $product_ref->{code}, error => $error}
-		) if $log->is_warn();
+		$log->warn("Failed to push to redis", {product_code => $product_ref->{code}, error => $error})
+		  if $log->is_warn();
 		# ask for eventual reconnection for next call
 		$redis_client = undef;
 	}
 
 	return;
 }
-
 
 1;
