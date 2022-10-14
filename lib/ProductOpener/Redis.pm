@@ -49,11 +49,6 @@ it is uses  ProductOpener::Config2::redis_url
 sub init_redis() {
 	$log->debug("init_redis", {redis_url => $redis_url})
         if $log->is_debug();
-
-	if (((! defined $redis_url) || ($redis_url eq "")) && ! $sent_warning_about_missing_redis_url) {
-		$log->warn("Redis URL not provided for search indexing") if $log->is_warn();
-		$sent_warning_about_missing_redis_url = 1;
-	}
 	eval {
 		$redis_client = Redis->new(
 			server => $redis_url,
@@ -85,6 +80,10 @@ sub push_to_search_service ($product_ref) {
 
 	if (!$redis_url) {
 		# off search not activated
+		if (!$sent_warning_about_missing_redis_url) {
+			$log->warn("Redis URL not provided for search indexing") if $log->is_warn();
+			$sent_warning_about_missing_redis_url = 1;
+		}
 		return;
 	}
 
