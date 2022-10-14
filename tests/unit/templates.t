@@ -41,6 +41,7 @@ sub test_template($) {
 		eval {$tt->template($path);};
 		ok(not $@) or diag("failed to fetch template: $@");
 	}
+	return;
 }
 
 test_template(".");

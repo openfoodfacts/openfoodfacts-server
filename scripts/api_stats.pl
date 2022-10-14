@@ -37,6 +37,7 @@
 # cat api.20200716.ios api.20200928.ios | ./api_stats.pl
 
 use strict;
+use warnings;
 
 my %months_ips = ();
 my %months_scans = ();
