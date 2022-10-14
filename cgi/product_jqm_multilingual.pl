@@ -159,7 +159,7 @@ else {
 				}
 				$log->debug("yuka - kiliweb : changing salt value - multiplying too low salt value by 1000",
 					{salt => $salt, existing_salt => $existing_salt})
-				  if $log->is_debug();
+					if $log->is_debug();
 				param(-name => "nutriment_salt", -value => $salt);
 			}
 		}
@@ -186,13 +186,13 @@ else {
 				}
 				$log->debug("yuka - kiliweb : adding salt value - multiplying too low salt value by 1000",
 					{salt => $salt})
-				  if $log->is_debug();
+					if $log->is_debug();
 				param(-name => "nutriment_salt", -value => $salt);
 			}
 			elsif ($salt < 0.1) {
 				$log->debug("yuka - kiliweb : adding salt value - removing potentially too low salt value",
 					{salt => $salt})
-				  if $log->is_debug();
+					if $log->is_debug();
 				param(-name => "nutriment_salt", -value => "");
 			}
 		}
@@ -218,7 +218,7 @@ else {
 
 	#my @app_fields = qw(product_name brands quantity);
 	my @app_fields
-	  = qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries  );
+		= qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries  );
 
 	# admin field to set a creator
 	if ($admin) {
@@ -332,7 +332,7 @@ else {
 			if (($protected_data) and (defined $product_ref->{$field}) and ($product_ref->{$field} ne "")) {
 				$log->debug("producer data already exists for field, skip empty value",
 					{field => $field, code => $code, existing_value => $product_ref->{$field}})
-				  if $log->is_debug();
+					if $log->is_debug();
 
 			}
 			else {
@@ -380,7 +380,7 @@ else {
 					{
 						$log->debug("producer data already exists for field, skip empty value",
 							{field_lc => $field_lc, code => $code, existing_value => $product_ref->{$field_lc}})
-						  if $log->is_debug();
+							if $log->is_debug();
 					}
 					else {
 
@@ -431,7 +431,7 @@ else {
 	# Do not allow nutrition edits through API for data provided by producers
 	if (($protected_data) and (defined $product_ref->{"nutriments"})) {
 		print STDERR
-		  "product_jqm_multilingual.pm - code: $code - nutrition data provided by producer exists, skip nutrients\n";
+			"product_jqm_multilingual.pm - code: $code - nutrition data provided by producer exists, skip nutrients\n";
 	}
 	else {
 		assign_nutriments_values_from_request_parameters($product_ref, $nutriment_table);
@@ -469,7 +469,7 @@ else {
 
 	$log->info("saving product", {code => $code}) if ($log->is_info() and not $log->is_debug());
 	$log->debug("saving product", {code => $code, product => $product_ref})
-	  if ($log->is_debug() and not $log->is_info());
+		if ($log->is_debug() and not $log->is_info());
 
 	$product_ref->{interface_version_modified} = $interface_version;
 
