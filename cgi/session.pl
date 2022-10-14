@@ -67,7 +67,7 @@ if (defined $User_id) {
 	}
 	elsif ( (defined $referer)
 		and ($referer =~ /^https?:\/\/$subdomain\.$server_domain/)
-		and (not($referer =~ /(?:session|user|reset_password)\.pl/)))
+		and (not($referer =~ /(?:login|session|user|reset_password)\.pl/)))
 	{
 		$url = $referer;
 	}
