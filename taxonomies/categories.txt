@@ -5725,13 +5725,16 @@ ciqual_food_name:fr:Jus multifruit - base orange, multivitaminé
 
 <en:Multifruit juices
 <en:Concentrated fruit juices
-en:Concentrated multifruit juices
+en:Concentrated multifruit juices, Multivitamin mixed fruits juice reconstituted from a concentrate
 de:Multifruchtsäfte aus Konzentrat
 es:Zumos multifruta procedente de concentrado
 fi:tiivistetyt monihedelmämehut
-fr:Jus multifruits à base de jus concentré, jus multifruits à base de concentrés
+fr:Jus multifruits à base de concentrés, jus multifruits à base de jus concentré, Jus multifruit à base de concentré
 it:Succhi di frutta concentrati, Succhi multifrutti congelati
 nl:Multivruchtensappen uit concentraat, Multivruchtensap uit concentraat
+ciqual_food_code:en:2069
+ciqual_food_name:en:Mixed fruits juice, reconstituted from a concentrate, multivitamin
+ciqual_food_name:fr:Jus multifruit, à base de concentré, standard
 
 <en:Multifruit juices
 <en:Squeezed juices
@@ -33361,6 +33364,10 @@ ciqual_food_name:en:Cheesecake, refrigerated
 ciqual_food_name:fr:Cheesecake ou Gâteau au fromage frais, rayon frais
 
 <en:Cheesecakes
+en:Plain cheesecakes
+fr:Cheesecakes natures
+
+<en:Cheesecakes
 en:Vanilla cheesecakes
 de:Vanillekäsekuchen
 fr:Cheesecakes à la vanille
@@ -33835,6 +33842,10 @@ fi:Kasvimaitosuklaat
 fr:Chocolats au lait végétal
 nl:Plantaardige melkchocolade, Plantaardige melkchocolades
 
+
+<en:Dark chocolates
+en:Dark chocolate bar
+fr:Chocolats noirs en tablette
 
 <en:Chocolates
 en:Milk chocolates, milk chocolate
@@ -34604,7 +34615,7 @@ nl:Chocolade dinosauriërs
 
 <en:Chocolate candies
 <en:Bars
-en:Chocolate bars
+en:Bars covered with chocolate, Chocolate bars
 ca:Barretes de xocolata
 de:Schokoriegel, Schokoladenriegel
 es:Barritas de chocolate
@@ -46818,6 +46829,25 @@ it:Composte mela e caramello
 <en:Apple compotes
 fr:Compotes pommes prune
 
+<en:Desserts
+en:Sweet mousses, sweet mousse, sugary mousses, sugary mousse
+fi:makeat vaahdot
+fr:Mousses sucrées, mousse sucrée
+it:Mousse dolci
+nl:Mousses met suiker
+
+<en:Sweet mousses
+en:Chestnut mousses
+fr:Mousses aux marrons
+
+<en:Dairy desserts
+<en:Sweet mousses
+en:Dairy Mousses
+fi:maitopohjaiset vaahdot
+fr:Mousses lactées, mousses au lait, mousses à base de lait
+it:Mousse a base di latte
+nl:Mousses op basis van melk
+
 <en:Dairy desserts
 en:Dessert creams, Custard desserts
 ca:Postres cremoses
@@ -46863,25 +46893,6 @@ ciqual_food_code:en:39505
 ciqual_food_name:en:Custard dessert, canned (average)
 ciqual_food_name:fr:Crème dessert, appertisée (aliment moyen)
 
-<en:Desserts
-en:Sweet mousses, sweet mousse, sugary mousses, sugary mousse
-fi:makeat vaahdot
-fr:Mousses sucrées, mousse sucrée
-it:Mousse dolci
-nl:Mousses met suiker
-
-<en:Sweet mousses
-en:Chestnut mousses
-fr:Mousses aux marrons
-
-<en:Dairy desserts
-<en:Sweet mousses
-en:Dairy Mousses
-fi:maitopohjaiset vaahdot
-fr:Mousses lactées, mousses au lait, mousses à base de lait
-it:Mousse a base di latte
-nl:Mousses op basis van melk
-
 <en:Dessert creams
 en:Chocolate custard dessert
 
@@ -46921,24 +46932,38 @@ ciqual_food_code:en:19673
 ciqual_food_name:en:Custard dessert, reduced fat, refrigerated
 ciqual_food_name:fr:Crème dessert, allégée en MG, rayon frais
 
-<en:Refrigerated dessert creams
-en:Refrigerated vanilla custard dessert
-fr:Crème dessert à la vanille rayon frais
-agribalyse_food_code:en:39229
-ciqual_food_code:en:39229
-ciqual_food_name:en:Custard dessert, vanilla, refrigerated
-ciqual_food_name:fr:Crème dessert à la vanille, rayon frais
-
-<en:Refrigerated dessert creams
-<en:Coffee custard dessert
-en:Refrigerated coffee custard dessert
-fr:Crème dessert au café rayon frais
-agribalyse_food_code:en:39246
-ciqual_food_code:en:39246
-ciqual_food_name:en:Custard dessert, coffee, refrigerated
-ciqual_food_name:fr:Crème dessert au café, rayon frais
-
+<en:Chocolate desserts
 <en:Dessert creams
+en:Chocolate puddings, Refrigerated chocolate custard dessert
+fr:Crèmes dessert chocolat, Crème dessert chocolat, Crèmes dessert au chocolat, Crème dessert au chocolat
+nl:Chocolade vla's
+ciqual_food_code:en:39200
+ciqual_food_name:en:Custard dessert, chocolate, refrigerated
+ciqual_food_name:fr:Crème dessert au chocolat, rayon frais
+
+<en:Chocolate puddings
+en:Canned chocolate puddings, Canned chocolate custard dessert
+fr:Crèmes dessert chocolat appertisées, Crème dessert au chocolat appertisée
+ciqual_food_code:en:39506
+ciqual_food_name:en:Custard dessert, chocolate, canned
+ciqual_food_name:fr:Crème dessert au chocolat, appertisée
+
+<en:Chocolate puddings
+en:Refrigerated chocolate puddings
+fr:Crèmes dessert chocolat réfrigérées
+ciqual_food_code:en:39200
+ciqual_food_name:en:Custard dessert, chocolate, refrigerated
+ciqual_food_name:fr:Crème dessert au chocolat, rayon frais
+
+<en:Chocolate desserts
+<en:Dessert creams
+en:Canned chocolate puddings, Canned chocolate custard dessert
+fr:Crèmes dessert chocolat appertisées, Crème dessert au chocolat appertisée
+ciqual_food_code:en:39506
+ciqual_food_name:en:Custard dessert, chocolate, canned
+ciqual_food_name:fr:Crème dessert au chocolat, appertisée
+
+
 en:Caramel custard dessert
 fr:Crèmes dessert caramel, Crème dessert caramel, Crèmes dessert au caramel, Crème dessert au caramel
 nl:Caramel vla's
@@ -46959,12 +46984,55 @@ agribalyse_food_code:en:39211
 ciqual_food_code:en:39211
 ciqual_food_name:en:Custard cream with eggs (a small jar of chocolate or vanilla cream or other flavour), refrigerated
 
+<en:Dessert creams
+en:Vanilla puddings
+
 <en:Refrigerated dessert creams
 fr:Crèmes dessert vanille, Crème dessert vanille, Crèmes dessert à la vanille, Crème dessert à la vanille
 nl:vanilla vla's
 agribalyse_food_code:en:39211
 ciqual_food_code:en:39211
 ciqual_food_name:en:Custard cream with eggs (a small jar of chocolate or vanilla cream or other flavour), refrigerated
+
+<en:Vanilla puddings
+en:Canned vanilla puddings, Cannned vanilla puddings, Canned vanilla custard dessert
+fr:Crèmes dessert vanille appertisées, Crème dessert à la vanille appertisée
+ciqual_food_code:en:39214
+ciqual_food_name:en:Custard dessert, vanilla, canned
+ciqual_food_name:fr:Crème dessert à la vanille, appertisée
+
+<en:Vanilla puddings
+en:Refrigerated vanilla puddings, Refrigerated vanilla custard dessert
+fr:Crèmes dessert vanille réfrigérées, Crème dessert à la vanille rayon frais
+ciqual_food_code:en:39229
+ciqual_food_name:en:Custard dessert, vanilla, refrigerated
+ciqual_food_name:fr:Crème dessert à la vanille, rayon frais
+
+<en:Dessert creams
+en:Caramel puddings
+fr:Crèmes dessert caramel, Crème dessert caramel, Crèmes dessert au caramel, Crème dessert au caramel
+nl:Caramel vla's
+
+<en:Caramel puddings
+en:Refrigerated caramel puddings, Refrigerated caramel custard dessert
+fr:Crèmes dessert caramel réfrigérées, Crème dessert au caramel rayon frais
+ciqual_food_code:en:39247
+ciqual_food_name:en:Custard dessert, caramel, refrigerated
+ciqual_food_name:fr:Crème dessert au caramel, rayon frais
+
+<en:Dessert creams
+en:Coffee puddings
+fr:Crèmes dessert café
+
+<en:Coffee puddings
+en:Refrigerated coffee puddings, Refrigerated coffee custard dessert
+fr:Crème dessert au café rayon frais
+ciqual_food_code:en:39246
+ciqual_food_name:en:Custard dessert, coffee, refrigerated
+ciqual_food_name:fr:Crème dessert au café, rayon frais
+
+<en:Dessert creams
+fr:Crèmes dessert pistache
 
 <en:Desserts
 <en:Dairies substitutes
@@ -69083,6 +69151,13 @@ ciqual_food_name:en:Pizza, cheese and tomato or Margherita pizza
 ciqual_food_name:fr:Pizza au fromage ou Pizza margherita
 
 <en:Pizzas
+en:Cured Ham Pizza
+fr:Pizza au speck, Pizza au jambon cru
+ciqual_food_code:en:26274
+ciqual_food_name:en:Pizza, cured ham
+ciqual_food_name:fr:Pizza au speck ou jambon cru
+
+<en:Pizzas
 <en:Pork meals
 en:Pizza with ham and cheese, Ham and cheese pizza
 de:Pizza mit Schinken und Käse
@@ -73904,6 +73979,18 @@ ciqual_food_name:en:Cooked ham, choice
 en:Cooked ham choice with rind
 fr:Jambon cuit choix avec couenne
 agribalyse_food_code:en:28912
+ciqual_food_code:en:28912
+ciqual_food_name:en:Cooked ham, choice, w rind
+
+<en:Hams
+en:Cooked ham choice
+fr:Jambon de choix cuit
+ciqual_food_code:en:28910
+ciqual_food_name:en:Cooked ham, choice
+
+<en:Hams
+en:Cooked ham choice w rind
+fr:Jambon cuit choix avec couenne
 ciqual_food_code:en:28912
 ciqual_food_name:en:Cooked ham, choice, w rind
 
@@ -79357,7 +79444,6 @@ ciqual_food_code:en:39236
 ciqual_food_name:en:French toast
 ciqual_food_name:fr:Pain perdu
 
-<en:Pastries
 <en:Desserts
 en:Floating island, Refrigerated meringue poached in milk and served in a light custard cream
 fr:Ile flottante
@@ -79366,7 +79452,17 @@ ciqual_food_code:en:39215
 ciqual_food_name:en:Floating island (meringue poached in milk and served in a light custard cream), refrigerated
 ciqual_food_name:fr:Ile flottante, rayon frais
 
-<en:Pastries
+<en:Desserts
+en:Refrigerated crèmes brûlées, Refrigerated caramelized custard cream, Refrigerated crème brûlée
+fr:Crèmes brûlées réfrigérées, Crème brûlée rayon frais
+ciqual_food_code:en:39213
+ciqual_food_name:en:Caramelized custard cream (crème brûlée), refrigerated
+ciqual_food_name:fr:Crème brûlée, rayon frais
+
+<en:Desserts
+en:Refrigerated custard cream with caramel sauce
+fr:Crème caramel rayon frais
+
 <en:Desserts
 en:Custard creams with caramel sauce
 fr:Crèmes caramel
@@ -98464,74 +98560,1356 @@ en:miscellaneous pet food, miscellaneous animal food
 de:sonstiges Tierfutter
 fr:nourriture pour animaux variés
 
-<en:Non food products
-en:Open Products Facts, OPF
-fr:Open Products Facts, OPF
+<en:Cereals and their products
+en:Pie dough
+de:Kuchenteig
+es:Masa de tarta
+fi:piirastaikina
+fr:Pâtes à tarte, Pâte à tarte, Pates à tarte fraiches
+nl:Taartdegen
+nl_be:Taartdeeg
 
-<en:Open Products Facts
-en:kitchenware
-nl:Keukenproducten, Keukenbenodigdheden
+<en:Pie dough
+fr:Pâtes brisées, Pâte brisée, Pâtes à tarte brisées, Pâte brisée cuite à la matière grasse végétale
+en:Baked shortcrust pastry
+nl:Zanddegen
+nl_be:Zanddeeg
+ciqual_food_code:en:23412
+ciqual_food_name:en:Pastry, short crust, baked
+ciqual_food_name:fr:Pâte brisée, matière grasse végétale, cuite
 
-<en:Open Products Facts
-en:books
-bg:книги
-fr:livres
-nl:Boeken
+<en:Pie dough
+en:Raw shortcrust pastry
+fr:Pâte brisée crue
+ciqual_food_code:en:23410
+ciqual_food_name:en:Short crust pastry, raw
+ciqual_food_name:fr:Pâte brisée, crue
 
-<en:Open Products Facts
-en:detergents
-nl:Detergenten
+<en:Pie dough
+en:Raw shortcrust pastry with pure butter
+fr:Pâte brisée pur beurre crue
+ciqual_food_code:en:23414
+ciqual_food_name:en:Short crust pastry, pure butter, raw
+ciqual_food_name:fr:Pâte brisée, pur beurre, crue
 
-# REAL Cigarettes
-<en:Non food products
-en:Cigarettes
-bg:Цигари
-de:Zigaretten
-fi:savukkeet
-fr:cigarettes
-it:Biscotti a sigaretta
-nl_be:Sigaretten
-pl:Papierosy
-ru:Сигареты
+<en:Pie dough
+en:Puff pastry sheets, Cooked puff pastry
+de:Blätterteig Platten
+fr:Pâtes feuilletées, Pâte feuilletée, Pâtes à tarte feuilletées, Pâte feuilletée cuite
+nl:Bladerdegen
+nl_be:Bladerdeeg
+ciqual_food_code:en:23422
+ciqual_food_name:en:Puff pastry, cooked
+ciqual_food_name:fr:Pâte feuilletée, cuite
 
+<en:Pie dough
+<en:Frozen foods
+en:Frozen raw shortcrust pastry with pure butter
+fr:Pâte brisée pur beurre surgelée crue
+ciqual_food_code:en:23415
+ciqual_food_name:en:Short crust pastry, pure butter, frozen, raw
+ciqual_food_name:fr:Pâte brisée, pur beurre, surgelée, crue
 
-<en:Non food products
-en:Open Beauty Facts, OBF, Cosmetics, Hygiene
-ca:Open Beauty Facts
-de:Open Beauty Facts, OBF
-es:Open Beauty Facts, OBF
-fi:Open Beauty Facts, OBF
-fr:Open Beauty Facts, OBF
-it:Open Beauty Facts, OBF
-nl:Open Beauty Facts, OBF
+<en:Pie dough
+en:Cooked pure butter puff pastry
+fr:Pâte feuilletée pur beurre cuite
+ciqual_food_code:en:23426
+ciqual_food_name:en:Puff pastry, pure butter, cooked
+ciqual_food_name:fr:Pâte feuilletée pur beurre, cuite
 
-<en:Specific products
-en:Products that cannot be found in metropolitan France
-fr:produits introuvables en Métropole (pour la France)
-nl:Producten die niet in Frankrijk gevonden kunnen worden
+<en:Pie dough
+en:Raw puff pastry with pure butter
+fr:Pâte feuilletée pur beurre crue
+ciqual_food_code:en:23424
+ciqual_food_name:en:Puff pastry, pure butter, raw
+ciqual_food_name:fr:Pâte feuilletée pur beurre, crue
 
-<en:Specific products
-en:Licensed products
-de:Lizensierte Produkte
-fi:Lisensoidut tuotteet
-fr:Produits sous license
-nl:Gelicenseerde producten
+<en:Pie dough
+en:Raw Puff pastry
+fr:Pâte feuilletée crue à la matière grasse végétale
+ciqual_food_code:en:23420
+ciqual_food_name:en:Puff pastry, raw
+ciqual_food_name:fr:Pâte feuilletée, matière grasse végétale, crue
 
-<en:Specific products
-en:Special series
-fr:série spéciale
-nl:Speciale serie
+<en:Pie dough
+<en:Frozen foods
+en:Frozen raw puff pastry
+fr:Pâte feuilletée surgelée crue
+ciqual_food_code:en:23421
+ciqual_food_name:en:Puff pastry, frozen, raw
+ciqual_food_name:fr:Pâte feuilletée, surgelée, crue
 
-en:Products that need attention
+<en:Pie dough
+<en:Frozen foods
+en:Frozen raw puff pastry with pure butter
+fr:Pâte feuilletée pur beurre surgelée crue
+ciqual_food_code:en:23425
+ciqual_food_name:en:Puff pastry, pure butter, frozen, raw
+ciqual_food_name:fr:Pâte feuilletée pur beurre, surgelée crue
 
-<en:Products that need attention
-en:Proposed for deletion, Products to delete, Deletion proposed, delete, delete me, please delete, For deletion
-ru:Предлагаются к удалению, Предлагаются к удалению, К удалению, Удалить, Удалите
+<en:Pie dough
+en:Phyllo dough raw, Filo dough raw
+fr:Pâte phyllo crue, Pâte filo crue
+ciqual_food_code:en:23445
+ciqual_food_name:en:Phyllo or filo dough, raw
+ciqual_food_name:fr:Pâte phyllo ou Pâte filo, crue
 
-<en:Proposed for deletion
-en:Wrong barcode duplicates, Wrong barcode duplicate, Wrong barcode, Wrong code
-ru:Дубликаты с ошибочным кодом, Дубликаты с неправильно отсканированным кодом, Неправильный код, Неправильный штрих-код
+<en:Pie dough
+fr:Pâtes sablées, Pâte sablée, Pâtes à tarte sablées
+nl:Korstdegen
+nl_be:Korstdeeg
 
-<en:Proposed for deletion
-en:Empty, Actually empty, No data
-ru:Пустое, Пустые
+<fr:Pâtes sablées
+en:Raw shortbread dough
+fr:Pâte sablée crue
+ciqual_food_code:en:23440
+ciqual_food_name:en:Shortbread dough, raw
+ciqual_food_name:fr:Pâte sablée, crue
+
+<fr:Pâtes sablées
+en:Raw shortbread dough with pure butter
+fr:Pâte sablée pur beurre crue
+ciqual_food_code:en:23444
+ciqual_food_name:en:Shortbread dough, pure butter, raw
+ciqual_food_name:fr:Pâte sablée pur beurre, crue
+
+<fr:Pâtes sablées
+<en:Frozen foods
+en:Frozen raw shortbread dough with pure butter
+fr:Pâte sablée pur beurre surgelée crue
+ciqual_food_code:en:23446
+ciqual_food_name:en:Shortbread dough, pure butter, frozen, raw
+ciqual_food_name:fr:Pâte sablée pur beurre, surgelée, crue
+
+<fr:Pâtes sablées
+en:Cooked shortbread dough with pure butter
+fr:Pâte sablée pur beurre cuite
+ciqual_food_code:en:23448
+ciqual_food_name:en:Shortbread dough, pure butter, cooked
+ciqual_food_name:fr:Pâte sablée pur beurre, cuite
+
+<fr:Pâtes sablées
+en:Cooked shortbread dough
+fr:Pâte sablée cuite
+ciqual_food_code:en:23442
+ciqual_food_name:en:Shortbread dough, cooked
+ciqual_food_name:fr:Pâte sablée, cuite
+
+en:Pizza dough, Pizzas dough
+de:Pizzateige
+es:Masa De Pizza, Masa De Pizzas
+fi:pizzataikina
+fr:Pâtes à pizza, Pâtes à pizzas, Pâte à pizzas, Pâte à pizza
+hu:Pizza tészta
+nl:Pizzadeeg
+
+en:Dishes that may contain horse meat
+de:Gerichte die Pferdefleisch beinhalten könnten
+fr:Plats susceptibles de contenir de la viande de cheval
+nl:Gerechten die paardenvlees kunnen bevatten
+
+<en:Pizza dough
+en:Cooked pizza base
+fr:Pâte à pizza cuite
+ciqual_food_code:en:96778
+ciqual_food_name:en:Pizza base, cooked
+ciqual_food_name:fr:Pâte à pizza cuite
+
+<en:Pizza dough
+en:Pizza pastry base
+fr:Préparation pour pâte à pizza
+ciqual_food_code:en:23403
+ciqual_food_name:en:Pizza pastry base
+ciqual_food_name:fr:Préparation pour pâte à pizza
+
+<en:Pizza dough
+en:Raw thin-crust pizza shell, Raw thin-crust pizza dough
+fr:Pâte à pizza fine crue
+ciqual_food_code:en:23402
+ciqual_food_name:en:Thin-crust pizza shell, raw
+ciqual_food_name:fr:Pâte à pizza fine, crue
+
+<en:Pizza dough
+en:Raw pizza base
+fr:Pâte à pizza crue
+ciqual_food_code:en:37001
+ciqual_food_name:en:Pizza base, raw
+ciqual_food_name:fr:Pâte à pizza crue
+
+<en:Plant-based foods
+en:Sprouts, Germinated seeds
+de:Keime, Sprossen
+es:Germinados, Semillas germinadas, Brotes
+fi:idut
+fr:Pousses, Graines germées
+nl:Kiemen
+nl_be:Kiemen
+wikidata:en:Q1057052
+
+<en:Sprouts
+en:Alfalfa sprouts
+fr:Pousses d'alfalfa
+en:Germinados de alfalfa
+
+<en:Sprouts
+en:lentil sprouts
+es:Germinados de lentejas
+fr:Lentilles germées
+
+<en:Sprouts
+<en:Fresh plant-based foods
+en:Fresh sprouts, Fresh germinated seeds
+de:Rohsprossen
+es:Germinados frescos, Semillas germinadas frescas, Brotes frescos
+fr:Pousses fraîches, Graines germées fraîches
+nl:Verse kiemen
+
+<en:Sprouts
+<en:Canned plant-based foods
+en:Canned sprouts, Canned germinated seeds
+de:Keime in Dosen
+es:Germinados en conserva, Semillas germinadas en conserva, Brotes en conserva
+fi:purkitettuja ituja
+fr:Pousses en conserve, Graines germées en conserve
+nl:Kiemen in blik
+
+<en:Sprouts
+en:Dried sprouts
+fr:Pousses séchées
+
+<en:Sprouts
+en:Bamboo shoots, Bamboo sprouts
+de:Bambuskeime
+es:Brotes de bambú
+fi:bambunversot
+fr:Pousses de bambou, Pousse de bambou
+nl:Bamboekiemen
+nl_be:Bamboekiemen
+wikidata:en:Q2157176
+
+<en:Bamboo shoots
+en:Canned drained bamboo shoots
+fr:Pousses de bambou appertisées égouttées
+ciqual_food_code:en:20188
+ciqual_food_name:en:Bamboo shoots, canned, drained
+ciqual_food_name:fr:Bambou, pousses, appertisées, égouttées
+
+<en:Bamboo shoots
+en:Raw bamboo shoots
+fr:Pousses de bambou crues
+ciqual_food_code:en:20198
+ciqual_food_name:en:Bamboo shoots, raw
+ciqual_food_name:fr:Bambou, pousse, crue
+
+en:Purées, Mashes, Mash
+de:Pürees, Breie
+fi:pureet, muusit
+fr:Purées
+nl:Puree, Moes
+nl_be:Puree, Moes
+wikidata:en:Q636056
+
+<fr:Purées
+<en:Cereals and potatoes
+en:Mashed potatoes
+de:Kartoffelpüree, Kartoffelpürees, Kartoffelbreie, Stampfkartoffeln, Quetschkartoffeln
+fi:perunamuusit
+fr:Purées de pommes de terre
+nl:Aardappelpureeën
+nl_be:Aardappelpuree
+ru:Пюре картофельное, Картофельное пюре
+sv:Potatismos
+pnns_group_2:en:Potatoes
+
+<fr:Purées
+<en:Prepared vegetables
+en:Mashed vegetables
+de:Gestampfte Gemüse
+fi:soseutetut vihannekset
+fr:Purées de légumes
+nl:Groentepureeën
+
+<en:Mashed vegetables
+en:Mashed carrots, Carrots puree
+de:Karottenbreie
+fr:Purées de carottes
+nl:Wortelpureeën
+ciqual_food_code:en:20261
+ciqual_food_name:en:Carrots, puree
+ciqual_food_name:fr:Carotte, purée
+
+<en:Mashed vegetables
+en:Mashed zucchini, Courgettes puree
+de:Zucchinibreie
+fr:Purées de courgettes, Purée de courgettes
+nl:Courgettepureeën
+ciqual_food_code:en:20264
+ciqual_food_name:en:Courgettes, puree
+ciqual_food_name:fr:Courgette, purée
+
+<en:Mashed vegetables
+en:Mashed broccoli, Broccoli puree
+de:Brokkolibreie, Broccolibreie
+fr:Purées de brocolis, Purée de brocolis
+nl:Brocollipureeën
+ciqual_food_code:en:20259
+ciqual_food_name:en:Broccoli, puree
+ciqual_food_name:fr:Brocoli, purée
+
+<en:Mashed vegetables
+en:Mashed spinachs, Spinach puree
+de:Spinatbreie
+fr:Purées d'épinards
+nl:Spinaziepureeën
+ciqual_food_code:en:20285
+ciqual_food_name:en:Spinach, puree
+ciqual_food_name:fr:Épinard, purée
+
+<en:Mashed vegetables
+en:Mashed cauliflower
+de:Blumenkohlbreie
+fr:Purées de choux-fleurs
+nl:Bloemkoolpureeën
+
+<en:Mashed vegetables
+en:Mashed celeriac, Celeriac puree
+de:Selleriebreie
+fr:Purées de céleri-rave, Purée de céleri-rave
+nl:Koolraappureeën
+ciqual_food_code:en:20278
+ciqual_food_name:en:Celeriac, puree
+ciqual_food_name:fr:Céleri-rave, purée
+
+<en:Pumpkins and their products
+<en:Mashed vegetables
+en:Mashed pumpkins
+de:Kürbisbreie
+fr:Purées de potirons
+nl:Pompoenpureeën
+
+<en:Mashed vegetables
+fr:Purées de haricots verts, Purées d'haricots verts
+nl:Sperziebonenpureeën
+en:French bean puree
+ciqual_food_code:en:20257
+ciqual_food_name:en:French bean, puree
+ciqual_food_name:fr:Haricots verts, purée
+
+<en:Mashed vegetables
+en:Green peas puree
+fr:Purée de petits pois
+ciqual_food_code:en:20284
+ciqual_food_name:en:Green peas, puree
+ciqual_food_name:fr:Petits pois, purée
+
+<en:Mashed vegetables
+en:Canned tomato puree
+fr:Purée de tomates appertisée, Purée de tomates en conserve
+ciqual_food_code:en:20170
+ciqual_food_name:en:Tomato puree, canned
+ciqual_food_name:fr:Tomate, purée, appertisée
+
+<en:Mashed vegetables
+en:Mashed vegetables mix
+fr:Purée de légumes mélangés
+ciqual_food_code:en:20258
+ciqual_food_name:en:Vegetables (3-4 types), mashed
+ciqual_food_name:fr:Légumes (3-4 sortes en mélange), purée
+
+<en:Meals
+en:Tabbouleh, tabouleh, tabouli, tabbouli
+de:Taboulé, Tabouleh, Tabbouleh, Bulgursalat
+fr:Taboulés, Taboulé, Salade de couscous, Salades de couscous
+nl:Tabouleh
+nl_be:Tabouleh
+wikidata:en:Q607690
+ciqual_food_code:en:25608
+ciqual_food_name:en:Tabbouleh, prepacked
+ciqual_food_name:fr:Taboulé ou Salade de couscous, préemballé
+
+<en:Meals
+en:Vegetable fritters
+fr:Beignets de légumes
+ciqual_food_code:en:25556
+ciqual_food_name:en:Vegetable fritters
+ciqual_food_name:fr:Beignet de légumes
+
+<en:Meals
+en:Filled fritter garnished with shrimps and vegetables and poultry and meat, Filo pastry garnished with shrimps and vegetables and poultry and meat
+fr:Brick garni aux crevettes et légumes et volaille et viande et poisson
+ciqual_food_code:en:25438
+ciqual_food_name:en:Fritter, filled (filo pastry) (garnish : shrimps, vegetables, poultry, meat, etc.)
+ciqual_food_name:fr:Brick garni (garniture : crevettes, légumes, volaille, viande, poisson, etc.)
+
+<en:Meals
+en:Fritter filled with eggs, Filo pastry filled with eggs
+fr:Brick à l'oeuf
+ciqual_food_code:en:25557
+ciqual_food_name:en:Fritter, filled with eggs (filo pastry)
+ciqual_food_name:fr:Brick à l'oeuf
+
+<en:Meals
+en:Fritter filled with beef, Filo pastry filled with beef
+fr:Brick au boeuf
+ciqual_food_code:en:25558
+ciqual_food_name:en:Fritter, filled with beef (filo pastry)
+ciqual_food_name:fr:Brick au boeuf
+
+<en:Meals
+en:Fritter filled with potatoes, Filo pastry filled with potatoes
+fr:Brick à la pomme de terre
+ciqual_food_code:en:25559
+ciqual_food_name:en:Fritter, filled with potatoes (filo pastry)
+ciqual_food_name:fr:Brick à la pomme de terre
+
+<en:Tabbouleh
+en:Tabbouleh with Olive oil
+de:Tabboulehs mit Olivenöl
+fr:Taboulés à l'huile d'olive, Taboulé à l'huile d'olive
+nl:Tabouleh met Olijfolie
+nl_be:Tabouleh met Olijfolie
+
+<en:Tabbouleh
+en:Chicken Tabbouleh, Tabbouleh with chicken
+de:Hünchen-Taboulé
+fr:Taboulés au poulet, Taboulé au poulet, Salade de couscous au poulet
+nl:Kiptaboulehs
+nl_be:Tabouleh met Kip
+ciqual_food_code:en:26269
+ciqual_food_name:en:Tabbouleh with chicken, prepacked
+ciqual_food_name:fr:Taboulé ou Salade de couscous au poulet, préemballé
+
+<en:Tabbouleh
+en:Tabbouleh with fresh vegetables
+de:Taboulé mit frischem Gemüse
+fr:Taboulés aux légumes, taboulé aux légumes, Taboulés aux légumes frais, Taboulé aux légumes frais
+nl:Tabouleh met Groenten
+
+<en:Tabbouleh
+en:Tabbouleh with tomatoes, tomato tabouleh
+de:Taboulé mit Tomaten
+fr:Taboulés aux tomates, Taboulé aux tomates
+nl:Taboulehs met Tomaten
+nl_be:Tabouleh met Tomaten
+
+<en:Tabbouleh
+<en:Savory semolina dishes
+en:Eastern tabbouleh, Eastern tabouleh, Oriental tabouleh, Oriental tabbouleh, Oriental tabouli, Oriental tabbouli, Eastern tabouli, Eastern tabbouli
+fr:Taboulés orientaux, Taboulé oriental, Taboulé à l'orientale, Taboulés à l'orientale
+nl:Oosterse Taboulehs
+nl_be:Oosterse Tabouleh
+
+<en:Tabbouleh
+en:Royal tabbouleh
+fr:Taboulés royaux, Taboulé royal
+nl:Royal tabbouleh
+
+#<en:Meat-based products
+# there are vegetarian terrines, commenting line above -- Stéphane 23/10/2018
+en:Terrines
+ca:Terrines
+de:Terrinen
+fi:terriinit
+fr:Terrines
+nl:Terrines, Vleespotten, Terrine, Vleespo
+nl_be:Vleespottten, Vleespot, Terrines, Terrine
+wikidata:en:Q11175039
+nova:en:3
+
+<en:Terrines
+en:Vegetables terrines, Vegetable mousses
+fr:Terrines de légumes, Mousses de légumes
+nl:Groenteschotels
+pnns_group_2:en:Salty and fatty products
+ciqual_food_code:en:8296
+ciqual_food_name:en:Vegetable terrine or mousse
+ciqual_food_name:fr:Terrine ou mousse de légumes
+
+<en:Terrines
+en:Terrines from Brittany
+fr:Terrines bretonnes, Terrine bretonne, Terrine de Bretagne
+nl:Bretonse terrines, Bretonse vleespotten, Bretonse terrine
+
+<en:Terrines
+<en:Meat-based products
+<en:Prepared meats
+en:Bison terrines
+fr:Terrines de bison
+nl:Bizonvleesterrines, Bizonvleespotten
+
+<en:Terrines
+<en:Meat-based products
+<en:Prepared meats
+en:Blood sausage terrines
+de:Blutwurst-Terrinen
+fr:Terrines de boudin, terrine de boudin
+nl:Bloedworstterinnes, Bloedworstterrine
+
+<en:Terrines
+en:Fish terrine
+fr:Terrine de poisson
+ciqual_food_code:en:8291
+ciqual_food_name:en:Fish terrine
+
+<en:Terrines
+en:Seafood terrine with or without fish
+fr:Terrine de fruits de mer avec ou sans poisson
+ciqual_food_code:en:8292
+ciqual_food_name:en:Seafood terrine, with or without fish
+
+#Unlike the term Pâté de campagne, terrine de campagne is not reglemented in France.
+<en:Terrines
+<en:Prepared meats
+en:Country terrines
+de:Terrinen nach Bauern Art, Terrinen nach Bauernart, Bauernterrinen, Landterrinen, Terrinen nach Art der Bauern
+fi:maaseututerriinit
+fr:Terrines de campagne
+nl:Landvleespotten
+
+<en:Terrines
+<en:Meat-based products
+<en:Prepared meats
+fr:Terrines de cerf
+nl:Hertevleesterrines, Hertevleespotten
+
+<en:Terrines
+<en:Meat-based products
+<en:Prepared meats
+fr:Terrines de chevreuil
+
+<en:Terrines
+<en:Meat-based products
+<en:Prepared meats
+en:Pheasant terrines
+fr:Terrines de faisan
+nl:Fazantterrines, fazantterrine, Fazantvleespotten
+
+<en:Terrines
+<en:Meat-based products
+<en:Prepared meats
+en:Liver terrines
+fi:maksaterriinit
+fr:Terrines de foie, terrine de foie
+nl:Leverterrines, Lverterrine, Levervleespotten
+
+<en:Liver terrines
+fr:Terrine de foie gras au sauternes
+wikidata:en:Q3518776
+
+<en:Terrines
+<en:Meat-based products
+en:Pork terrines
+fr:Terrines de porc
+
+<en:Terrines
+<en:Meat-based products
+<en:Prepared meats
+en:Rabbit terrines
+fi:kaniterriinit
+fr:Terrines de lapin
+nl:Konijnterrines, Konijnterrine, Konijnevleespotten
+ciqual_food_code:en:8242
+ciqual_food_name:en:Rabbit terrine
+
+<en:Terrines
+<en:Meat-based products
+<en:Prepared meats
+en:Chicken terrines
+fr:Terrines de poulet
+nl:Kipterrines, Kipterrine, Kippevleespotten
+
+<en:Terrines
+fr:Terrines de Saint-Jacques, Terrines de St-Jacques
+nl:St. Jacobsschelpterrines, St. Jacobsschelpterrine
+
+<en:Terrines
+<en:Meat-based products
+<en:Prepared meats
+en:Boar terrines
+fi:villisikaterriinit
+fr:Terrines de sanglier
+nl:Everzijnterrines, Everzwijnterrine, Everzwijnvleespotten
+
+<en:Fish terrines
+en:Salmon terrines
+fi:lohiterriinit
+fr:Terrines de saumon
+nl:Zalmterrines, Zalmterrine, Zalmvleespotten
+
+<en:Fish terrines
+en:Trout terrines
+fr:Terrines de truite
+nl:Forelterinnes, Forelterrine,
+
+<en:Terrines
+<en:Meat-based products
+<en:Prepared meats
+en:Poultry terrines
+de:Geflügelterrinen
+fi:siipikarjaterriinit
+fr:Terrines de volailles
+nl:Gevogelte terrines, Gevogelte terrine, Gevogelte vleespotten
+
+<fr:Terrines de volailles
+<en:Meat-based products
+<en:Prepared meats
+en:Duck terrines
+fi:ankkaterriinit
+fr:Terrines de canard
+nl:Eendterrines, Eendterrine, Eendevleespotten
+ciqual_food_code:en:8232
+ciqual_food_name:en:Duck terrine
+
+en:Dietary supplements
+ca:Suplements dietètics
+de:Nahrungsergänzungsmittel
+es:Suplementos dietéticos
+fi:ravintolisät
+fr:Compléments alimentaires
+hu:Táplálék-kiegészítők
+it:Supplementi dietetici
+nl:Voedingsupplementen
+ro:Suplimente pentru dietă
+ru:Биологически активные добавки, БАД
+zh:膳食补充剂
+wikidata:en:Q645858
+
+<en:Dietary supplements
+en:Spirulina
+de:Spirulina
+es:Espirulina, Spirulina
+fi:spirulina
+fr:Spiruline
+nl:Spirulina
+ro:Spirulina
+zh:螺旋藻
+wikidata:en:Q285335
+ciqual_food_code:en:11086
+ciqual_food_name:en:Spirulina, (spirulina sp.), dried
+
+<en:Dietary supplements
+en:Vitamines
+de:Vitamine
+fi:vitamiinit
+fr:Vitamines
+hu:Vitaminok
+nl:Vitamines
+ro:Vitamine
+ru:Витамины
+zh:维生素
+wikidata:en:Q34956
+
+<en:Dietary supplements
+en:Bodybuilding supplements
+ca:Suplements per culturisme
+de:Nahrungsergänzungen für Bodybuilder
+fi:Lisäravinteet kuntoiluun
+fr:Compléments pour le Bodybuilding
+nl:Bodybuilding supplementen
+ro:Suplimente pentru culturism
+wikidata:en:Q908809
+
+<en:Bodybuilding supplements
+en:Protein powders
+de:Proteinpulver, Eiweißpulver
+es:Polvos de proteína
+fi:proteiinijauheet
+fr:Protéines en poudre
+nl:Proteinepoeders
+
+<en:Bodybuilding supplements
+en:Protein shakes
+de:Proteinshakes, Eiweißshakes, Protein Shakes
+fr:Boisson protéinée
+nl:Proteineshakes
+ro:Shake-uri cu proteine, Shake-uri proteice
+
+<en:Bodybuilding supplements
+en:Protein bars
+ca:Barretes de proteïna, barres de proteïna
+cs:Proteinové tyčinky
+de:Proteinriegel, Eiweißriegel
+es:Barritas de proteínas
+fi:proteiinipatukat
+fr:Barres protéinées
+it:Barrette proteiche
+nl:Proteinerepen
+ro:Batoane proteice
+zh:蛋白质棒
+
+<en:Protein bars
+<en:Energy bars
+en:Protein Energy Bars
+de:Protein-Energie-Riegel
+fr:Barres énergétiques protéinées
+nl:Proteïne energierepen
+zh:蛋白质能量棒
+
+<en:Bodybuilding supplements
+<en:Bars
+en:Energy bars
+cs:Energetické tyčinky
+de:Energieriegel, Energie-Riegel
+fi:energiapatukat
+fr:Barres énergétiques
+nl:Energierepen
+zh:能量棒
+
+<en:Bodybuilding supplements
+en:BCAA, Branched-chain amino acids
+de:verzweigtkettige Aminosäuren
+fr:Acides aminés ramifiés
+nl:Vertakte keten aminozuren
+wikidata:en:Q420726
+
+<en:Bodybuilding supplements
+en:Glutamine
+de:Glutamin, L-Glutamin, 2-Amino-4-carbamoylbutansäure, 2-Amino-4-carbamoylbuttersäure, Glutaminsäure-5-amid
+fr:Glutamine
+pl:Glutamina
+wikidata:en:Q181619
+
+<en:Bodybuilding supplements
+en:MRPs, Meal replacement products
+de:Mahlzeitersatz
+wikidata:en:Q6803515
+
+<en:Bodybuilding supplements
+en:Prohormones
+de:Prohormone
+wikidata:en:Q419119
+
+<en:Bodybuilding supplements
+en:Creatine, Creatine supplements
+de:Kreatin, N-Amidinosarkosin, N-(Aminoiminomethyl)-N-methyl-glycin, α-Methylguanidinoessigsäure
+wikidata:en:Q1058872
+
+<en:Bodybuilding supplements
+en:Thermogenics, Thermogenic products
+de:Thermogenese fördernde Lebensmittel
+es:Termogénicos, Productos termogénicos
+fr:Produits thermogéniques
+wikidata:en:Q7783178
+
+en:Sushki
+es:Sushki
+nl:Sushki
+ru:Сушки, Баранки
+wikidata:en:Q509835
+
+<en:Fermented drinks
+en:Kvass
+de:Kwas, Kwass
+es:Kvas
+fr:Kvass
+nl:Kvas
+ru:Квас
+wikidata:en:Q173773
+
+<en:Gingerbreads
+en:Pryaniki
+es:Pryaniki
+fr:Prianiki
+nl:Pryaniki
+ru:Пряники
+wikidata:en:Q2572122
+
+<en:Pryaniki
+en:Tula gingerbread
+de:Tula-Lebkuchen
+es:Pan de jengibre de Tula
+nl:Tula-ontbijtkoeken, Tula-ontbijtkoek
+ru:Пряники тульские, Тульские пряники, Тульский пряник, Пряник тульский
+wikidata:en:Q2511331
+
+en:Cooking helpers
+ca:Ajudants de cuina
+de:Kochhelfer
+es:Ayudas culinarias, Otras ayudas culinarias
+fi:kokkausavut
+fr:Aides culinaires, Aides à la cuisine, Autres aides culinaires
+ml:Voedselhulpmiddelen
+nl:Bakproducten
+
+<en:Cooking helpers
+en:Pastry helpers
+de:Backhelfer
+fr:Aides à la pâtisserie
+nl:Banketbakkerhulpmiddelen
+
+<en:Cooking helpers
+en:Sugary cooking helpers
+fr:Aide culinaire sucrée
+nl:Zoete kookhulpmiddelen
+
+<en:Pastry helpers
+fr:Pâtes à sucre
+
+en:Food decorations
+es:Decoraciones alimentarias
+fi:ruuan koristeet
+fr:Décorations alimentaires
+nl:Levensmiddeldecoraties, Levensmiddeldecoratie
+zh:食品装饰品
+
+<en:Food decorations
+<en:Pastry helpers
+en:Sprinkles, Chocolat or sugar sprinkles
+fr:Vermicelles en chocolat ou en sucre
+nl:Chocolade of suiker hagel
+
+en:Halloween foods and drinks
+de:Halloweenspeisen und -getränke
+es:Bebidas y alimentos de Halloween
+fi:Halloween -ruuat ja juomat
+fr:Aliments et boissons d'Halloween
+nl:Halloween-levensmiddelen, Halloween-levensmiddel
+
+<en:Meals
+en:Tajine
+fr:Tajine, tagine
+nl:Tajine
+ro:Tajine
+
+<en:Tajine
+en:Mutton tagine
+fr:Tajine de mouton
+ciqual_food_code:en:25159
+ciqual_food_name:en:Mutton tagine
+ciqual_food_name:fr:Tajine de mouton
+
+<en:Meals
+en:Endives with ham, Endive with ham, Chicory with ham
+fr:Endives au jambon, Endive au jambon
+nl:Witloof met hesp, Witloof met ham
+ro:Andive cu șuncă
+ciqual_food_code:en:25073
+ciqual_food_name:en:Chicory w ham
+ciqual_food_name:fr:Endive au jambon
+
+<en:Puff pastry meals
+en:Puff pastries with ham and cheese, puff pastry with ham and cheese
+fr:Feuilletés jambon fromage
+nl:Ham-kaas-soesjes
+ciqual_food_code:en:8395
+ciqual_food_name:en:Ham, in a pastry crusty
+
+<en:Puff pastry meals
+en:Cheese soufflé
+fr:Soufflé au fromage
+ciqual_food_code:en:25020
+ciqual_food_name:en:Cheese soufflé
+ciqual_food_name:fr:Soufflé au fromage
+
+<en:Puff pastry meals
+en:Vegetable puff pastries, Vegetable puff pastry
+fr:Feuilletés aux légumes
+nl:Soesjes met groente
+
+<en:Puff pastry meals
+en:Friands
+fr:Friands
+nl:Friand
+
+<en:Puff pastry meals
+<en:Friands
+en:Sausage friands, Puff pastries with sausage, puff pastry with sausage
+fr:Friands à la saucisse
+nl:Worst friands
+
+<en:Puff pastry meals
+<en:Friands
+en:Meat in puff pastry
+fr:Feuilleté à la viande, Friand à la viande
+ciqual_food_code:en:25402
+ciqual_food_name:en:Meat in puff pastry
+ciqual_food_name:fr:Feuilleté ou Friand à la viande
+
+<en:Puff pastry meals
+<en:Friands
+en:Cheese in puff pastry, Puff pastry cheese pocket
+fr:Feuilleté au fromage, Friand au fromage
+ciqual_food_code:en:25401
+ciqual_food_name:en:Cheese in puff pastry
+ciqual_food_name:fr:Feuilleté ou Friand au fromage
+
+<en:Puff pastry meals
+<en:Friands
+en:Ham and cheese in puffed pastry
+fr:Feuilleté jambon fromage
+ciqual_food_code:en:25508
+ciqual_food_name:en:Ham and cheese in puffed pastry
+
+<en:Puff pastry meals
+<en:Friands
+en:Fish or seafood in puff pastry
+fr:Feuilleté au poisson et/ou fruits de mer
+ciqual_food_code:en:25151
+ciqual_food_name:en:Fish or seafood in puff pastry
+
+<en:Puff pastry meals
+en:Cornish Pasty
+protected_name_file_number:en: PGI-GB-0727
+protected_name_type:en: pgi
+origins:en: en:United Kingdom
+
+<en:Meals
+en:Stuffed vine leaves
+de:Gefüllte Weinblätter
+fr:Feuilles de vigne farcies
+nl:Gevulde wijnbladeren
+
+en:Brick sheets
+fr:Feuilles de brick
+nl:Brick vellen
+
+<en:Meals
+en:Khatfa, Phyllo pastry, Filo pastry
+fr:Khatfa
+ciqual_food_code:en:51550
+ciqual_food_name:en:Khatfa (phyllo or filo pastry), prepacked
+ciqual_food_name:fr:Khatfa feuille de brick, préemballée
+
+<en:Meals
+en:Banh Bao
+fr:Banh Bao (Pain brioché farci)
+nl:Banh Bao
+
+<en:Salty snacks
+en:Salty Fritters
+fi:Suolaiset fritit
+fr:Beignets salés
+nl:Hartige gefrituurde producten
+
+<en:Sweet snacks
+en:Sweet Fritters
+de:Süße Krapfen
+fi:makeat fritit
+fr:Beignets sucrés
+hu:Édes Fánkok
+nl:Zoete gefrituurde producten
+
+<en:Cereal grains
+en:Corn on the cob
+fr:Maïs en épi
+nl:Maïskolven
+
+<en:Compotes
+en:Plum compotes
+fr:Compotes de prunes
+nl:Pruimencompote
+
+<en:Frozen vegetables
+<en:Salsifis
+en:Frozen salsify
+fr:Salsifis surgelés
+nl:Diepvriesschorseneren
+
+<en:Frozen vegetables
+<en:Salsifis
+en:Frozen raw salsify
+fr:Salsifis surgelés crus
+ciqual_food_code:en:20237
+ciqual_food_name:en:Salsify, frozen, raw
+ciqual_food_name:fr:Salsifis, surgelé, cru
+
+<en:Canned green beans
+en:Canned flat green beans
+es:Judías verdes enlatadas
+fr:Haricots verts plats en conserve
+nl:Snijbonen in blik
+
+<en:Soups
+en:Watercress soups
+fr:Soupes de cresson
+nl:Waterkerssoep
+
+<en:Soups
+en:Reheatable watercress soup
+fr:Soupe au cresson à réchauffer
+ciqual_food_code:en:25958
+ciqual_food_name:en:Soup, watercress, prepacked, to be reheated
+ciqual_food_name:fr:Soupe au cresson, préemballée à réchauffer
+
+<en:Soups
+en:Dehydrated and reconstituted watercress soup
+fr:Soupe au cresson déshydratée reconstituée
+ciqual_food_code:en:25957
+ciqual_food_name:en:Soup, watercress, dehydrated and reconstituted
+ciqual_food_name:fr:Soupe au cresson, déshydratée reconstituée
+
+<en:Chocolate bars
+en:Caramel chocolate bars
+de:Schokoriegel mit Karamell, Schokoriegel mit Karamellüberzug, Schokoriegel mit Karamellfüllung
+fr:Barres chocolatées au caramel
+nl:Chocolade-caramelrepen
+
+<en:Chocolate bars
+en:Chocolate nuts cookie bars
+de:Schokoladenkekse mit Nüssen
+fr:Barres chocolatées biscuitées aux noisettes
+nl:Chocorepen met noten en biscuit
+
+<en:Chocolate bars
+en:Caramel chocolate cookie bars
+de:Kekse mit Karamellschokolade
+fr:Barres chocolatées biscuitées au caramel
+nl:Koekjesrepen met caramel en chocola
+
+<en:Cooking helpers
+en:Toppings
+de:Garnierungen
+fi:päällysteet
+fr:Nappages
+nl:Garnering
+
+<en:Cooking helpers
+en:Dehydrated Madeira wine aspic
+fr:Gelée au madère déshydratée
+ciqual_food_code:en:11175
+ciqual_food_name:en:Madeira wine aspic, dehydrated
+ciqual_food_name:fr:Gelée au madère, déshydratée
+
+<en:Cooking helpers
+en:Madeira wine aspic
+fr:Gelée au madère
+ciqual_food_code:en:11176
+ciqual_food_name:en:Madeira wine aspic
+ciqual_food_name:fr:Gelée au madère
+
+<en:Salty snacks
+en:Vegetable cakes
+fi:kasvispihvit
+fr:Cakes aux légumes
+nl:Groentencakes
+
+<en:Salted spreads
+en:Anchovy paste
+es:Pasta de anchoas
+fi:anjovistahna
+fr:Anchoïade
+nl:Ansjovispasta
+
+<fr:Pâtes à tartiner
+en:Speculoos spreads
+de:Spekulatius Brotaufstrich,Spekulatiuscreme
+fr:Pâtes à tartiner au spéculoos
+nl:Speculoospasta
+
+<en:Margarines
+en:Liquid margarines
+es:Margarinas liquidas
+fr:Margarines liquides
+nl:Vloeibare margarine
+
+<en:Mackerels fillets
+en:Mackerel fillets in oil
+de:Makrelenfilets in Öl
+fr:Filets de maquereaux à l'huile
+nl:Makreelfilet op olie
+pl:Filety z makreli w oleju
+
+<en:Cold starters
+<en:Prepared vegetables
+en:Prepared vegetables macedoines
+fr:Macédoines de légumes préparées
+nl:Bereide macedoine groenten
+
+<en:Mashed vegetables
+en:Mashed split peas
+fr:Purées de pois cassés
+nl:Gepureerde spliterwten
+
+<en:Risottos
+en:Vegetable risottos, Risotto with vegetables
+de:Gemüserisotto
+fr:Risottos aux légumes, Risotto aux légumes
+nl:Groenterisotto
+ciqual_food_code:en:25187
+ciqual_food_name:en:Risotto, w vegetables
+ciqual_food_name:fr:Risotto, aux légumes
+
+<en:Raviolis
+en:Chinese raviolis
+fr:Ravioli chinois
+hu:Kínai ravioli
+nl:Chinese ravioli
+
+<en:Tortellinis
+en:Meat tortellinis
+de:Fleischtortellini
+fr:Tortellini à la viande
+nl:Vleestortellini
+
+<en: Tortellinis
+en:Vegetables tortellinis
+fr:Tortellini aux légumes
+nl:Groentetortellini
+
+<en:Meals
+en:Acras, Accras
+fr:Acras, Accras
+nl:Acra
+ciqual_food_code:en:25433
+ciqual_food_name:en:Caribbean-style fish fritters, fish acras
+
+<en:Meals
+en:Truffades
+fr:Truffades
+nl:Truffade
+
+<en:Meals
+en:Aligots, Aligot, Mashed potatoes with fresh tome cheese
+fr:Aligots, Aligot, Purée de pomme de terre à la tomme fraîche
+nl:Aligot
+ciqual_food_code:en:4041
+ciqual_food_name:en:Mashed potatoes w fresh tome cheese
+ciqual_food_name:fr:Aligot (purée de pomme de terre à la tomme fraîche)
+
+<fr:Charcuteries diverses
+fr:Pâtés de foie
+
+<fr:Saucisses sèches
+fr:Saucisses sèches de jambon
+
+<fr:Charcuteries cuites
+en:Poultry hams
+fi:siipikarjakinkut
+fr:Jambons de volaille
+nl:Gevogelte bilvlees
+
+<en:Frozen vegetables
+en:Frozen butter beans
+fr:Haricots beurre surgelés
+nl:Diepvries limabonen
+
+<en:Frozen vegetables
+en:Frozen raw butter beans, Frozen raw yellow beans
+fr:Haricots beurre surgelés crus
+ciqual_food_code:en:20203
+ciqual_food_name:en:Butter bean or yellow bean, frozen, raw
+ciqual_food_name:fr:Haricot beurre, surgelé, cru
+
+<en:Frozen vegetables
+<en:Onions
+en:Frozen raw onions
+fr:Oignons surgelés crus
+ciqual_food_code:en:20235
+ciqual_food_name:en:Onion, frozen, raw
+ciqual_food_name:fr:Oignon, surgelé, cru
+
+<en:Sandwiches
+en:Surprise breads
+fr:Pains surprise
+nl:Pain surprise
+
+<en:Sandwiches
+en:Paninis, Panninis
+de:Panini
+fr:Paninis
+nl:Panini
+
+<en:Sandwiches
+en:Sandwich made with panini bread raw cured ham mozzarella cheese and tomato
+fr:Sandwich panini jambon cru mozzarella tomates
+ciqual_food_code:en:25434
+ciqual_food_name:en:Sandwich made with panini bread, raw cured ham, mozzarella cheese and tomato
+
+<en:Sandwiches
+en:Raw vegetable sandwiches
+fi:Raakakasvisvoileivät
+fr:Sandwichs aux crudités
+nl:Rauwe groentensandwiches
+
+<en:Tea-based beverages
+en:Kombuchas
+de:Kombucha
+fi:kombuchat
+fr:Kombuchas, combuchas
+nl:Kombucha
+
+<en:Cheeses
+en:Double cream cheeses
+de:Käse Doppelrahmstufe,Doppelrahmstufenkäse
+fr:Fromages double crème
+nl:Volle roomkazen, Volle roomkaas
+
+<en:Cheeses
+en:Abbaye cheeses
+fr:Fromages d’abbaye
+nl:Abdijkazen, Abdijkaas
+
+<en:Dairy desserts
+fr:Oeufs au lait
+
+<en:Yogurts
+en:Yogurts with cereals
+de:Joghurt mit Müsli
+fr:Yaourts aux céréales
+nl:Yoghurt met granen
+ro:Iaurturi cu cereale
+
+<en:Yogurts with cereals
+en:Fat free fermented yogurt with cereals, Fat free fermented milk dairy specialty with cereals
+fr:Yaourt au lait fermenté aux céréales à 0% de matières grasses, Spécialité laitière aux céréales à 0% de matières grasses
+ciqual_food_code:en:19558
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, with cereals, fat free
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux céréales, 0% MG
+
+<en:Yogurts with cereals
+en:Fermented milk yogurt with cereals, Dairy specialty with cereals
+fr:Yaourt au lait fermenté aux céréales, Spécialité laitière aux céréales
+ciqual_food_code:en:19579
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w cereals
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux céréales
+
+<en:Muffins
+en:Fruit Muffins
+de:Muffins mit Früchten, Früchtemuffins
+fi:hedelmämuffinit
+fr:Muffins aux fruits
+nl:Fruitmuffins
+
+<en:Fruit muffins
+en:Banana Muffins
+fr:Muffins à la banane
+
+<en:Fruit muffins
+en:Blueberry Muffins
+fr:Muffins aux myrtilles
+ciqual_food_code:en:23950
+ciqual_food_name:en:Muffin, with blueberry or chocolate
+
+<en:Confectioneries
+fr:Bonbons dragéifiés
+
+<en:White chocolates
+en:White chocolate bar with dried fruits
+fr:Chocolat blanc en tablette aux fruits secs
+ciqual_food_code:en:31026
+ciqual_food_name:en:White chocolate bar, with dried fruits (nuts, almonds, raisins, praline)
+ciqual_food_name:fr:Chocolat blanc aux fruits secs (noisettes, amandes, raisins, praliné) , tablette
+
+<en:Stuffed wafers
+en:Stuffed fruits wafers
+fr:Gaufrettes fourrées aux fruits
+hu:Töltött gyümölcs ostyák
+nl:Vruchtenwafeltjes
+
+<en:Viennoiseries
+en:Brioche breads
+fr:Pains briochés
+nl:Briochebrood
+
+<fr:Fromages blancs
+fr:Fromages blancs aromatisés
+
+<en:Cakes
+en:Almond cakes
+de:Mandelkuchen
+fr:Gâteaux aux amandes
+nl:Amandelcake
+ciqual_food_code:en:24665
+ciqual_food_name:en:Almond cake
+
+<en:Cakes
+en:Soft cake with nuts
+fr:Gâteau moelleux aux fruits à coque
+ciqual_food_code:en:23938
+ciqual_food_name:en:Soft cake with nuts
+ciqual_food_name:fr:Gâteau moelleux aux fruits à coque
+
+<en:Cakes
+en:Soft cake filled with fruits, Mini sponge roll filled with fruits
+fr:Gâteau moelleux fourré aux fruits, Mini-roulé fourré aux fruits, Mini-cake fourré aux fruits
+ciqual_food_code:en:23941
+ciqual_food_name:en:Soft cake filled with fruits, mini sponge roll type
+ciqual_food_name:fr:Gâteau moelleux fourré aux fruits type mini-roulé ou mini-cake fourré
+
+<en:Sweet mousses
+en:Fruit mousses, Refrigerated fruit mousse
+fr: Mousses aux fruits, Mousse aux fruits rayon frais
+nl:Vruchtenmousse
+ciqual_food_code:en:39228
+ciqual_food_name:en:Fruit mousse, refrigerated
+ciqual_food_name:fr:Mousse aux fruits, rayon frais
+
+<en:Desserts
+en:Vacherins
+fr:Vacherins
+nl:Vacherin
+
+<en:Pastries
+en:Strudels
+de:Strudel
+fr:Strudels
+nl:Strudel
+
+<en:Pastries
+<en:Desserts
+en:Charlottes
+fr:Charlottes
+nl:Charlotte
+
+<en:Charlottes
+en:Chocolate Charlottes
+fr:Charlottes au chocolat
+nl:Chocola Charlottes
+
+<en:Charlottes
+en:Fruit Charlottes
+fr:Charlottes aux fruits
+nl:Vruchtencharlotte
+ciqual_food_code:en:23531
+ciqual_food_name:en:Fruit charlotte
+ciqual_food_name:fr:Charlotte aux fruits
+
+<en:Pastries
+<en:Desserts
+en:Crumbles
+fr:Crumbles
+nl:Kruimelschotels, Kruimelschotel
+wikidata:en:Q2006073
+
+<en:Crumbles
+en:Apple crumbles
+fr:Crumbles aux pommes
+ciqual_food_code:en:23493
+ciqual_food_name:en:Apple crumble
+ciqual_food_name:fr:Crumble aux pommes
+
+<en:Terrines
+en:Fish terrines
+fi:kalaterriinit
+fr:Terrines de poisson
+nl:Visterrines
+pnns_group_2:en:Fish and seafood
+
+<en:Cheeses
+en:Mexican cheeses, cheeses from Mexico
+de:Mexikanischer Käse
+es:Quesos mexicanos, Quesos de México
+fi:meksikolaiset juustot
+fr:Fromages mexicains, Fromages du Mexique
+
+<en:Mexican cheeses
+en:Panela cheeses
+es:Quesos panelas
+fr:Fromages panelas
+
+<en:Salts
+en:Liquid salts
+es:Sales liquidas, sal liquida
+fr:Sels liquides
+
+en:skewers, Kebabs, kebab, kabobs, kabob, kababs, kabab
+fi:vartaat
+fr:Brochettes, brochette
+nl:Spiesjes
+
+en:edible tableware
+de:essbares Geschirr
+fr:Couverts comestibles, Vaisselles comestibles
+
+en:stuffing
+fr:farces
