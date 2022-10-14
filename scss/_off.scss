@@ -19,7 +19,7 @@
 // variable to prevent sonar-cloud to complain that there isn't a generic family for the icon font
 $material-icons: 'Material Icons';
 @font-face {
-  font-family: $material-icons;
+  font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
   src: local(''),
@@ -29,7 +29,7 @@ $material-icons: 'Material Icons';
 
 
 .material-icons {
-  font-family: 'Material Icons';
+  font-family: $material-icons;
   font-weight: normal;
   font-style: normal;
   font-size: 24px;
