@@ -128,514 +128,9 @@ synonyms:fr:premier, 1er
 
 # Labels that make claims about the processes from source to consumer
 en:supply chain
-
-# Describes the production of individual ingredients (agriculture, farming, ...)
-<en:supply chain
-en:production
-
-####### General production labels #######
-
-<en:production
-en:Assured Food Standards, assured food standard, Red Tractor
-ca:Assured Food Standards
-de:gesicherte Essens Standards
-fi:assured food standards, punainen traktori
-it:Assured Food Standards, Red Tractor
-ru:гарантированный пищевой стандарт
-wikidata:en:Q4810404
-image:en:assured-food-standards.82x90.svg
-label_categories:en: en:animal welfare
-origins:en: en:united kingdom
-label_categories:en: en:certified
+label_type:en:structure
 
 <en:supply chain
-en:Carbon compensated product, carbon neutral
-bg:Въглеродна неутралност
-ca:Producte compensat en carboni, neutre en carboni
-da:CO2 neutral, CO2 kompenseret
-de:CO2-neutral, CO2-kompensiert, kohlenstoffdioxidneutral hergestelltes Produkt, Kohlenstoffdioxid-kompensiertes Produkt, kohlenstoffdioxidneutral
-es:Producto carbono neutro
-fi:hiilihyvitetty tuote, hiilikompensoitu tuote, hiilineutraali
-fr:Produit compensé carbone, Carbone neutre, neutre en carbone, carbone compensé
-hu:szénsemleges termék, szénsemleges, Szén-kompenzált termék
-nl:Kooldioxide neutraal
-pt:Produto produzido em neutralidade de carbono, Produto neutral de carbono
-ru:углерод компенсирующий продукт, углерод нейтральный
-label_categories:en: en:environment
-comment:en:If it is well, this applies to all processes in the supply chain.
-
-<en:Carbon compensated product
-en:CO2e neutral, CO2e compensated, CO2-equivalent neutral, CO2-equivalent compensated
-da:CO2e neutral, CO2e kompenseret
-de:CO2e neutral, CO2e kompensiert, CO2-Äquivalent neutral, CO2-Äquivalent kompensiert
-
-<en:Carbon compensated product
-en:Climate Neutral Certified
-xx:Climate Neutral Certified
-
-<en:supply chain
-en:Carbon Trust
-xx:Carbon Trust
-label_categories:en: en:certified
-labels_categories: en:environment
-wikipedia:en:https://en.wikipedia.org/wiki/Carbon_Trust
-web:en: https://www.carbontrust.com/what-we-do/assurance-and-certification/product-carbon-footprint-label
-description:en:The Carbon Trust provides voluntary carbon certification services and carbon labelling schemes
-
-<en:Carbon compensated product
-<en:Carbon Trust
-en:Carbon Trust Carbon Neutral
-xx:Carbon Trust Carbon Neutral
-
-<en:Carbon footprint
-<en:Carbon Trust
-en:Carbon Trust CO2 Measured
-xx:Carbon Trust CO2 Measured
-
-<en:Carbon Trust
-en:Carbon Trust Lower Carbon
-xx:Carbon Trust Lower Carbon
-
-<en:Carbon Trust
-en:Carbon Trust Reducing CO2
-xx:Carbon Trust Reducing CO2
-
-####### Animal husbandry production labels #######
-
-<en:production:
-en:animal husbandry
-
-<en:animal husbandry
-en:Free range
-bg:Свободно отглеждане
-ca:Rang lliure
-de:Freiland
-es:de corral
-fi:vapaana laiduntava, ulkoilma
-fr:Plein air, Cultivé en plein air
-he:גידול חופשי
-hu:Szabad tartású
-it:Allevamento a terra
-nl:Vrije uitloop
-pt:Criação em liberdade
-ru:свободный выгул, открытый воздух
-label_categories:en: en:Animal welfare
-
-<en:Free range eggs
-en:Made with free range eggs, Baked with free range eggs
-ca:Fet amb ous de gallines criades lliures
-de:Aus Freilandeiern, Enhält Freilandeier, Mit Freilandeiern gebacken
-fi:valmistettu käyttäen ulkokananmunia, ulkokananmunista valmistettu, leivottu käyttäen ulkokananmunia
-fr:Fait avec des œufs de poules élevées en plein air, Fait avec des œufs de poules en liberté, Cuisiné avec des œufs de plein air, Fait avec des œufs de poules élevées en liberté
-it:Prodotto con uova da allevamento all'aperto
-pt:Feito com ovos criados em liberdade
-
-<en:animal husbandry
-nl:Beter Leven
-label_categories:en: en:Animal welfare
-country:en en:Netherlands
-wikidata:en:Q58477631
-
-<nl:Beter Leven
-nl:Beter Leven 1 ster
-label_categories:en: en:Animal welfare
-
-<nl:Beter Leven
-nl:Beter Leven 2 ster, Beter Leven 2 sterren
-label_categories:en: en:Animal welfare
-
-<nl:Beter Leven
-nl:Beter Leven 3 ster, Beter Leven 3 sterren
-label_categories:en: en:Animal welfare
-
-<en:Free range
-en:Free range eggs
-bg:Яйца от свободно отглеждане
-ca:Ous de gallines lliures
-de:Freilandeier
-es:Huevos de gallinas camperas
-fi:ulkokananmunat, ulkokanalasta
-fr:Œufs de poules élevées en plein air, Œufs de plein air, Œufs plein air, Œufs de poules élevées en plein air, Œufs de poule élevée en plein air, Œufs de poules élevées en plein air, Œuf de poule fermière élevée en liberté
-he:ביצי חופש
-hu:Szabad tartású tojás
-it:Uova da allevamento all'aperto
-nl:Vrije uitloop eieren
-pt:Ovos criados em liberdade
-label_categories:en en:Animal welfare
-ingredients:en: en:egg
-
-<en:animal husbandry
-en:British Lion Quality, Lion Quality, British Lion Eggs, Lion Eggs, The Lion Mark, Lion Mark
-ingredients:en :en:egg
-wikidata:en:Q4969906
-label_categories:en: en:food safety
-
-<en:Free range
-en:Free range pork
-de:Fleisch von Freilandschweinen
-fi:vapaana kasvanutta porsasta, vapaan porsaan liha, ulkoilevan porsaan liha, vapaan sian liha, ulkoilevan sian liha
-hu:Szabad tartású sertés
-pt:Porcos criados em liberdade
-ingredients:en: en:porc
-
-<en:Free range pork
-fr:Porc élevé sur paille ou en plein air
-
-<en:Free range pork
-fr:Porc fermier élevé en plein air
-
-<en:Free range
-en:Free range chicken
-de:Freilandhühnchen
-fi:ulkokana, vapaana elänyt kana
-hu:Szabad tartású csirke, Szabad tartású tyúk
-pt:Galinhas criadas em liberdade
-ingredients:en: en:chicken
-
-<en:Free range
-en:Free range poultry
-de:Freilandgeflügel
-fi:Vapaana kasvanut siipikarja
-he:תרנגולות חופש, תרנגול חופש, תרנגולת חופש
-hu:szabad tartású baromfi
-pt:Aves criadas em liberdade
-
-<en:Free range poultry
-fr:Volailles fermières de Loué élevées en liberté
-
-<en:animal husbandry
-de:Haltungsform
-xx:Haltungsform
-label_categories:en en:Animal welfare
-country:en: en:Germany
-ingredients:en en:porc, en:poultry, en:beef
-wikipedia:de:https://de.wikipedia.org/wiki/Tierwohllabel
-
-<de:Haltungsform
-de:Haltungsform 1 Stallhaltung, Haltungsform Stallhaltung, Haltungsform 1
-xx:Haltungsform 1
-
-<de:Haltungsform
-de:Haltungsform 2 StallhaltungPlus, Haltungsform StallhaltungPlus, Haltungsform 2
-xx:Haltungsform 2
-
-<de:Haltungsform
-de:Haltungsform 3 Außenklima, Haltungsform Außenklima, Haltungsform 3
-xx:Haltungsform 3
-
-<de:Haltungsform
-de:Haltungsform 4 Premium, Haltungsform Premium, Haltungsform 4
-xx:Haltungsform 4
-
-<en:animal husbandry
-de:Neuland
-xx:Neuland
-wikipedia:de:https://de.wikipedia.org/wiki/Neuland_(Marke)
-country:en: en:Germany
-label_categories:en en:Animal welfare
-ingredients:en en:porc, en:poultry, en:beef
-
-<en:animal husbandry
-da:Bedre Dyrevelfærd, Bedre Dyrevelfaerd
-xx:Bedre Dyrevelfærd, Bedre Dyrevelfaerd
-web:dk:https://bedre-dyrevelfaerd.dk
-country:en: en:Denmark
-ingredients:en en:porc, en:poultry, en:beef
-
-<da:Bedre Dyrevelfærd
-da:Bedre Dyrevelfærd 1 Hjerte, Bedre Dyrevelfaerd 1 Hjerte
-de:Bedre Dyrevelfærd 1 Herz, Bedre Dyrevelfaerd 1 Herz
-xx:Bedre Dyrevelfærd 1 Heart, Bedre Dyrevelfaerd 1 Heart
-
-<da:Bedre Dyrevelfærd
-da:Bedre Dyrevelfærd 2 Hjerter, Bedre Dyrevelfaerd 2 Hjerter
-de:Bedre Dyrevelfærd 2 Herzen, Bedre Dyrevelfaerd 2 Herzen
-xx:Bedre Dyrevelfærd 2 Hearts, Bedre Dyrevelfaerd 2 Hearts
-
-<da:Bedre Dyrevelfærd
-da:Bedre Dyrevelfærd 3 Hjerter, Bedre Dyrevelfaerd 3 Hjerter
-de:Bedre Dyrevelfærd 3 Herzen, Bedre Dyrevelfaerd 3 Herzen
-xx:Bedre Dyrevelfærd 3 Hearts, Bedre Dyrevelfaerd 3 Hearts
-
-de:Für mehr Tierschutz
-xx:Für mehr Tierschutz
-web:de:https://www.tierschutzlabel.info
-country:en:Germany
-ingredients:en en:porc, en:poultry, en:beef
-
-<de:Für mehr Tierschutz
-de:Für mehr Tierschutz 1 Stern, Für mehr Tierschutz ein Stern, Für mehr Tierschutz Einsteigerstufe
-xx:Für mehr Tierschutz 1 Star, Für mehr Tierschutz one Star
-
-<de:Für mehr Tierschutz
-de:Für mehr Tierschutz 2 Sterne, Für mehr Tierschutz zwei Sterne, Für mehr Tierschutz Premiumstufe
-xx:Für mehr Tierschutz 2 Stars, Für mehr Tierschutz two Stars
-
-# Combining ingredients to the product to be sold
-<en:supply chain
-en:transformation
-
-<en:transformation
-de:Nach traditioneller Art, Hausmacher Art
-fr:À l'ancienne
-wiktionary:de:Hausmacherart
-<en:transformation
-en:Authentic Trappist Product
-es:Authentic Trappist Product, Producto trapense auténtico
-fi:Authentic Trappist Product, aito trappistituote
-fr:Produit trappiste authentique
-nl:Authentiek Trappistenproduct
-ru:аутентичный траппистский продукт, настоящий траппистский продукт
-wikidata:en:Q3406760
-
-comment:en:Is this about the recipe or the transformation process?
-description:de:Traditionsgebundene, oft regionale Zubereitungsweise
-
-<en:supply chain
-en:distribution
-description:en:The processes of getting the end-product after transformation to consumption
-
-<en:distribution
-en:1% for the planet, 1 percent for the planet, one percent for the planet
-bg:1% за планетата
-ca:1% pel planeta
-de:1% für den Planeten
-es:1% para el planeta, uno por ciento para el planeta
-fi:1% planeetalle, prosentti planeetalle
-fr:1% pour la planète
-it:1% per il pianeta
-nl:1% voor de planeet
-wikipedia:en:https://en.wikipedia.org/wiki/One_Percent_for_the_Planet
-description:en:Businesses pledge to give 1% of the revenue to this association. It is visible of packages for consumers.
-
-<en:supply chain
-en:consumption
-
-*********************************************************************************************
-*
-*                      P R O D U C T   S P E C I F I C   L A B E L S
-*
-*********************************************************************************************
-
-en:product
-
-<en:product
-en:ingredients
-description:en:Claims on the one or more of the ingredients of the product
-
-<en:ingredients
-en:100% natural
-bg:100% натурално
-ca:100% natural
-de:100% natürlich
-es:100% natural
-fi:100% luonnollinen, 100% luontainen
-fr:100% naturel
-he:100% טבעי
-hr:100% prirodni, 100% prirodni sastojci
-hu:100% természetes
-it:100% naturale
-nl:100% natuurlijk
-pt:100% natural
-ru:100% натуральное, 100% натуральный, 100% натуральная, 100% натуральные, 100% натуральный продукт, натуральный продукт
-th:ธรรมชาติ 100%
-
-<en:ingredients
-en:100% vegetable
-ca:100% vegetal
-de:100% pflanzlich
-es:100% vegetal
-fi:100% kasvis
-fr:100% végétal, 100% végétale
-he:100% צמחי
-hu:100% növényi, 100%-ban növényi
-it:100% vegetale
-nl:100% plantaardig
-pt:100% vegetal
-ru:100% овощной
-th:ใช้น้ำมันพืช 100%
-
-<en:ingredients
-en:Not hardened
-ca:Sense endurir
-de:ungehärtet
-es:No endurecido
-fi:kovettamaton, ei kovetettu
-fr:Non durci
-nl:Ongehard
-pt:Não endurecido
-ru:Не закаленный
-
-
-<en:ingredients
-en:French eggs, Eggs from France
-bg:Френски яйца
-ca:Ous francesos, Ous de França
-de:Französiche Eier, Eier aus Frankreich
-es:Huevos originados en Francia
-fi:ranskalaisia munia, munien alkuperä Ranska
-fr:Oeufs de France, Oeufs français
-he:ביצים צרפתיות, ביצים מצרפת
-it:Uova francesi, Uova dalla Francia
-ingredients:en: en:egg
-origins:en: en:france
-
-<en:product
-en:May contain eggshell, may contain egg shell
-es:Puede contener cáscara de huevo
-labels_categories: en:food safety
-comment:en:in Spanish eggshell is cascara de huevo. To avoid mis-interpretation in the processing (which could translate to peel) it's added here
-
-
-==================================== I am until here ==================
-
-# Comment:en:Is this a label? It might be a spearate field of the product.
-en:Carbon footprint, carbon emissions, product that specifies the carbon footprint
-bg:Въглероден отпечатък
-ca:Petjada de carboni, emissions de carboni, producte on la petjada de carboni hi surt reflectida
-cs:Uhlíková stopa
-de:CO2-Fußabdruck, CO2-Emissionen
-es:Huella de carbono, Emisiones de CO2
-fi:hiilijalanjälki, hiilipäästöt, hiilijalanjäljen määrittelevä tuote
-fr:Empreinte carbone, émissions de carbone
-he:טביעת רגל פחמנית
-hu:Szénlábnyom, szén-dioxid-kibocsátás, karbonlábnyom, szén lábnyom, karbon lábnyom
-it:Emissioni di CO2, impronta climatica
-nl:Koolstofvoetafdruk
-pl:Ślad węglowy produktu
-pt:Pegada de carbono, Emissões de CO2
-ru:CO2-эмиссия
-wikidata:en:Q310667
-label_categories:en: en:environnment
-
-
-
-en:Blue Angel
-de:Blauer Engel
-wikidata:en:Q882616
-label_categories:en: en:Environnment
-
-en:Certified Belgian Abbey Beer
-es:Certified Belgian Abbey Beer, Cerveza belga de abadía, Cerveza belga de abadía certificada
-fi:Certified Belgian Abbey Beer, sertifioitu belgialainen luostariolut
-fr:Bière belge d'Abbaye reconnue
-it:Birra d'Abbazia Belga Certificata
-nl:Erkend belgisch abdijbier
-wikidata:en:Q2794703
-label_categories:en: en:Origins
-
-en:Belgian Family Brewers
-de:Belgische Familien Brauer
-fi:belgialaiset perhepanimot
-it:Birrai Familiari Belgi
-nl:Belgische familiebrouwerijen
-image:en:belgian-family-brewers.90x90.svg
-wikidata:en:Q2855457
-
-en:World Beer Awards
-xx:World Beer Awards
-zh:世界啤酒奖
-wikidata:en:Q2612801
-label_categories:en: en:Food awards, en:Beers
-
-<en:World Beer Awards
-en:World Beer Awards 2019
-ca:Millors Cerveses del Món 2019
-he:פרסי הבירה העולמיים 2019
-xx:World Beer Awards 2019
-zh:世界啤酒奖 2019
-
-<en:World Beer Awards
-en:World Beer Awards 2018
-ca:Millors Cerveses del Món 2018
-he:פרסי הבירה העולמיים 2018
-zh:世界啤酒奖 2018
-
-<en:World Beer Awards
-en:World Beer Awards 2017
-ca:Millors Cerveses del Món 2017
-he:פרסי הבירה העולמיים 2017
-zh:世界啤酒奖 2017
-
-<en:World Beer Awards
-en:World Beer Awards 2016
-zh:世界啤酒奖 2016
-
-<en:World Beer Awards
-en:World Beer Awards 2015
-zh:世界啤酒奖 2015
-
-<en:World Beer Awards
-en:World Beer Awards 2014
-zh:世界啤酒奖 2014
-
-<en:World Beer Awards
-en:World Beer Awards 2013
-
-<en:World Beer Awards
-en:World Beer Awards 2012
-
-<en:World Beer Awards
-en:World Beer Awards 2011
-ca:Millors Cerveses del Món 2011
-zh:世界啤酒奖 2011
-
-<en:World Beer Awards
-en:World Beer Awards 2010
-
-<en:World Beer Awards
-en:World Beer Awards 2009
-ca:Millors Cerveses del Món 2009
-zh:世界啤酒奖 2009
-
-en:Australian International Beer Awards
-wikidata:en:Q2153681
-label_categories:en: en:Food awards, en:Beers
-
-en:Brazilian Beer Awards
-wikidata:en:Q4958708
-label_categories:en: en:Food awards, en:Beers
-
-en:Champion Beer of Britain
-wikidata:en:Q5069978
-label_categories:en: en:Food awards, en:Beers
-
-en:Champion Beer of Scotland
-wikidata:en:Q3910740
-label_categories:en: en:Food awards, en:Beers
-
-en:Champion Beer of Wales
-wikidata:en:Q599321
-label_categories:en: en:Food awards, en:Beers
-
-en:Champion Winter Beer of Britain
-wikidata:en:Q5070034
-label_categories:en: en:Food awards, en:Beers
-
-en:European Beer Star
-ca:Cervesa Estrella Europea
-he:כוכב בירה אירופי
-nl:European Beer Star, Europese Bier Ster
-wikidata:en:Q2404322
-label_categories:en: en:Food awards, en:Beers
-
-en:Belgian hops
-fi:belgialaisia humaloita, humalan alkuperä Belgia
-it:Luppolo belga
-nl:Belgische hop
-image:en:belgian-hops.90x90.png
-
-en:Cooperative product
-ca:Producte de cooperativa
-es:Producto de cooperativa
-fi:Osuuskunnan tuote
-fr:Produit en coopérative, produit de coopérative
-it:Prodotto da cooperativa
-ru:кооперативный продукт
-wikidata:en:Q4539
-
-en:South African National Bottled Water Association, SANBWA, SAN BWA
-
 en:HACCP,Hazard analysis and critical control points
 ar:HACCP,تحليل المخاطر ونقاط التحكم الحرجة
 bg:HACCP
@@ -671,7 +166,628 @@ uk:HACCP, аналіз ризиків і критичних контрольни
 vi:HACCP
 zh:HACCP,危害分析重要管制點
 wikidata:en:Q279454
-label_categories:en: en:Food Safety
+label_categories:en: en:food safety
+label_type:en:leaf
+
+<en:supply chain
+en:Blue Angel
+de:Blauer Engel
+wikidata:en:Q882616
+label_categories:en: en:environnment
+label_type:en:leaf
+#comment:en:What does this cover?
+
+# Describes the production of individual ingredients (agriculture, farming, ...)
+<en:supply chain
+en:production
+label_type:en:structure
+
+####### General production labels #######
+
+<en:production
+en:Assured Food Standards, assured food standard, Red Tractor
+ca:Assured Food Standards
+de:gesicherte Essens Standards
+fi:assured food standards, punainen traktori
+it:Assured Food Standards, Red Tractor
+ru:гарантированный пищевой стандарт
+wikidata:en:Q4810404
+image:en:assured-food-standards.82x90.svg
+label_categories:en: en:animal welfare
+origins:en: en:united kingdom
+label_categories:en: en:certified
+label_type:en:leaf
+
+<en:production
+en:Cooperative product
+ca:Producte de cooperativa
+es:Producto de cooperativa
+fi:Osuuskunnan tuote
+fr:Produit en coopérative, produit de coopérative
+it:Prodotto da cooperativa
+ru:кооперативный продукт
+wikidata:en:Q4539
+label_type:en:leaf
+
+<en:production
+en:South African National Bottled Water Association, SANBWA, SAN BWA
+category:en: en:water
+origins:en en:south africa
+label_type:en:leaf
+
+<en:supply chain
+en:Carbon compensated product, carbon neutral
+bg:Въглеродна неутралност
+ca:Producte compensat en carboni, neutre en carboni
+da:CO2 neutral, CO2 kompenseret
+de:CO2-neutral, CO2-kompensiert, kohlenstoffdioxidneutral hergestelltes Produkt, Kohlenstoffdioxid-kompensiertes Produkt, kohlenstoffdioxidneutral
+es:Producto carbono neutro
+fi:hiilihyvitetty tuote, hiilikompensoitu tuote, hiilineutraali
+fr:Produit compensé carbone, Carbone neutre, neutre en carbone, carbone compensé
+hu:szénsemleges termék, szénsemleges, Szén-kompenzált termék
+nl:Kooldioxide neutraal
+pt:Produto produzido em neutralidade de carbono, Produto neutral de carbono
+ru:углерод компенсирующий продукт, углерод нейтральный
+label_categories:en: en:environment
+comment:en:If it is well, this applies to all processes in the supply chain.
+label_type:en:leaf
+
+<en:Carbon compensated product
+en:CO2e neutral, CO2e compensated, CO2-equivalent neutral, CO2-equivalent compensated
+da:CO2e neutral, CO2e kompenseret
+de:CO2e neutral, CO2e kompensiert, CO2-Äquivalent neutral, CO2-Äquivalent kompensiert
+label_type:en:leaf
+
+<en:Carbon compensated product
+en:Climate Neutral Certified
+xx:Climate Neutral Certified
+label_type:en:leaf
+
+<en:supply chain
+en:Carbon Trust
+xx:Carbon Trust
+label_categories:en: en:certified
+labels_categories: en:environment
+wikipedia:en:https://en.wikipedia.org/wiki/Carbon_Trust
+web:en: https://www.carbontrust.com/what-we-do/assurance-and-certification/product-carbon-footprint-label
+description:en:The Carbon Trust provides voluntary carbon certification services and carbon labelling schemes
+label_type:en:leaf
+
+<en:Carbon compensated product
+<en:Carbon Trust
+en:Carbon Trust Carbon Neutral
+xx:Carbon Trust Carbon Neutral
+label_type:en:structure
+
+<en:Carbon footprint
+<en:Carbon Trust
+en:Carbon Trust CO2 Measured
+xx:Carbon Trust CO2 Measured
+label_type:en:leaf
+
+<en:Carbon Trust
+en:Carbon Trust Lower Carbon
+xx:Carbon Trust Lower Carbon
+label_type:en:leaf
+
+<en:Carbon Trust
+en:Carbon Trust Reducing CO2
+xx:Carbon Trust Reducing CO2
+label_type:en:leaf
+
+####### Animal husbandry production labels #######
+
+<en:production:
+en:animal husbandry
+label_type:en:structure
+
+<en:animal husbandry
+en:Free range
+bg:Свободно отглеждане
+ca:Rang lliure
+de:Freiland
+es:de corral
+fi:vapaana laiduntava, ulkoilma
+fr:Plein air, Cultivé en plein air
+he:גידול חופשי
+hu:Szabad tartású
+it:Allevamento a terra
+nl:Vrije uitloop
+pt:Criação em liberdade
+ru:свободный выгул, открытый воздух
+label_categories:en: en:Animal welfare
+label_type:en:leaf
+
+<en:Free range eggs
+en:Made with free range eggs, Baked with free range eggs
+ca:Fet amb ous de gallines criades lliures
+de:Aus Freilandeiern, Enhält Freilandeier, Mit Freilandeiern gebacken
+fi:valmistettu käyttäen ulkokananmunia, ulkokananmunista valmistettu, leivottu käyttäen ulkokananmunia
+fr:Fait avec des œufs de poules élevées en plein air, Fait avec des œufs de poules en liberté, Cuisiné avec des œufs de plein air, Fait avec des œufs de poules élevées en liberté
+it:Prodotto con uova da allevamento all'aperto
+pt:Feito com ovos criados em liberdade
+label_type:en:leaf
+
+<en:animal husbandry
+nl:Beter Leven
+label_categories:en: en:Animal welfare
+country:en en:Netherlands
+wikidata:en:Q58477631
+label_type:en:structure
+
+<nl:Beter Leven
+nl:Beter Leven 1 ster
+label_categories:en: en:Animal welfare
+label_type:en:leaf
+
+<nl:Beter Leven
+nl:Beter Leven 2 ster, Beter Leven 2 sterren
+label_categories:en: en:Animal welfare
+label_type:en:leaf
+
+<nl:Beter Leven
+nl:Beter Leven 3 ster, Beter Leven 3 sterren
+label_categories:en: en:Animal welfare
+label_type:en:leaf
+
+<en:Free range
+en:Free range eggs
+bg:Яйца от свободно отглеждане
+ca:Ous de gallines lliures
+de:Freilandeier
+es:Huevos de gallinas camperas
+fi:ulkokananmunat, ulkokanalasta
+fr:Œufs de poules élevées en plein air, Œufs de plein air, Œufs plein air, Œufs de poules élevées en plein air, Œufs de poule élevée en plein air, Œufs de poules élevées en plein air, Œuf de poule fermière élevée en liberté
+he:ביצי חופש
+hu:Szabad tartású tojás
+it:Uova da allevamento all'aperto
+nl:Vrije uitloop eieren
+pt:Ovos criados em liberdade
+label_categories:en en:Animal welfare
+ingredients:en: en:egg
+label_type:en:leaf
+
+<en:animal husbandry
+en:British Lion Quality, Lion Quality, British Lion Eggs, Lion Eggs, The Lion Mark, Lion Mark
+ingredients:en :en:egg
+wikidata:en:Q4969906
+label_categories:en: en:food safety
+label_type:en:leaf
+
+<en:Free range
+en:Free range pork
+de:Fleisch von Freilandschweinen
+fi:vapaana kasvanutta porsasta, vapaan porsaan liha, ulkoilevan porsaan liha, vapaan sian liha, ulkoilevan sian liha
+hu:Szabad tartású sertés
+pt:Porcos criados em liberdade
+ingredients:en: en:porc
+label_type:en:leaf
+
+<en:Free range pork
+fr:Porc élevé sur paille ou en plein air
+label_type:en:leaf
+
+<en:Free range pork
+fr:Porc fermier élevé en plein air
+label_type:en:leaf
+
+<en:Free range
+en:Free range chicken
+de:Freilandhühnchen
+fi:ulkokana, vapaana elänyt kana
+hu:Szabad tartású csirke, Szabad tartású tyúk
+pt:Galinhas criadas em liberdade
+ingredients:en: en:chicken
+label_type:en:leaf
+
+<en:Free range
+en:Free range poultry
+de:Freilandgeflügel
+fi:Vapaana kasvanut siipikarja
+he:תרנגולות חופש, תרנגול חופש, תרנגולת חופש
+hu:szabad tartású baromfi
+pt:Aves criadas em liberdade
+label_type:en:leaf
+
+<en:Free range poultry
+fr:Volailles fermières de Loué élevées en liberté
+label_type:en:leaf
+
+<en:animal husbandry
+de:Haltungsform
+xx:Haltungsform
+label_categories:en en:Animal welfare
+country:en: en:Germany
+ingredients:en en:porc, en:poultry, en:beef
+wikipedia:de:https://de.wikipedia.org/wiki/Tierwohllabel
+label_type:en:structure
+
+<de:Haltungsform
+de:Haltungsform 1 Stallhaltung, Haltungsform Stallhaltung, Haltungsform 1
+xx:Haltungsform 1
+label_type:en:leaf
+
+<de:Haltungsform
+de:Haltungsform 2 StallhaltungPlus, Haltungsform StallhaltungPlus, Haltungsform 2
+xx:Haltungsform 2
+label_type:en:leaf
+
+<de:Haltungsform
+de:Haltungsform 3 Außenklima, Haltungsform Außenklima, Haltungsform 3
+xx:Haltungsform 3
+label_type:en:leaf
+
+<de:Haltungsform
+de:Haltungsform 4 Premium, Haltungsform Premium, Haltungsform 4
+xx:Haltungsform 4
+label_type:en:leaf
+
+<en:animal husbandry
+de:Neuland
+xx:Neuland
+wikipedia:de:https://de.wikipedia.org/wiki/Neuland_(Marke)
+country:en: en:Germany
+label_categories:en en:Animal welfare
+ingredients:en en:porc, en:poultry, en:beef
+label_type:en:leaf
+
+<en:animal husbandry
+da:Bedre Dyrevelfærd, Bedre Dyrevelfaerd
+xx:Bedre Dyrevelfærd, Bedre Dyrevelfaerd
+web:dk:https://bedre-dyrevelfaerd.dk
+country:en: en:Denmark
+ingredients:en en:porc, en:poultry, en:beef
+label_type:en:structure
+
+<da:Bedre Dyrevelfærd
+da:Bedre Dyrevelfærd 1 Hjerte, Bedre Dyrevelfaerd 1 Hjerte
+de:Bedre Dyrevelfærd 1 Herz, Bedre Dyrevelfaerd 1 Herz
+xx:Bedre Dyrevelfærd 1 Heart, Bedre Dyrevelfaerd 1 Heart
+label_type:en:leaf
+
+<da:Bedre Dyrevelfærd
+da:Bedre Dyrevelfærd 2 Hjerter, Bedre Dyrevelfaerd 2 Hjerter
+de:Bedre Dyrevelfærd 2 Herzen, Bedre Dyrevelfaerd 2 Herzen
+xx:Bedre Dyrevelfærd 2 Hearts, Bedre Dyrevelfaerd 2 Hearts
+
+<da:Bedre Dyrevelfærd
+da:Bedre Dyrevelfærd 3 Hjerter, Bedre Dyrevelfaerd 3 Hjerter
+de:Bedre Dyrevelfærd 3 Herzen, Bedre Dyrevelfaerd 3 Herzen
+xx:Bedre Dyrevelfærd 3 Hearts, Bedre Dyrevelfaerd 3 Hearts
+label_type:en:leaf
+
+de:Für mehr Tierschutz
+xx:Für mehr Tierschutz
+web:de:https://www.tierschutzlabel.info
+country:en:Germany
+ingredients:en en:porc, en:poultry, en:beef
+label_type:en:structure
+
+<de:Für mehr Tierschutz
+de:Für mehr Tierschutz 1 Stern, Für mehr Tierschutz ein Stern, Für mehr Tierschutz Einsteigerstufe
+xx:Für mehr Tierschutz 1 Star, Für mehr Tierschutz one Star
+label_type:en:leaf
+
+<de:Für mehr Tierschutz
+de:Für mehr Tierschutz 2 Sterne, Für mehr Tierschutz zwei Sterne, Für mehr Tierschutz Premiumstufe
+xx:Für mehr Tierschutz 2 Stars, Für mehr Tierschutz two Stars
+label_type:en:leaf
+
+# Combining ingredients to the product to be sold
+<en:supply chain
+en:transformation
+label_type:en:structure
+
+<en:transformation
+en:origins
+label_type:en:structure
+
+###################### Categorisation of the transformation companies ###############
+
+<en:origins
+en:Certified Belgian Abbey Beer
+es:Certified Belgian Abbey Beer, Cerveza belga de abadía, Cerveza belga de abadía certificada
+fi:Certified Belgian Abbey Beer, sertifioitu belgialainen luostariolut
+fr:Bière belge d'Abbaye reconnue
+it:Birra d'Abbazia Belga Certificata
+nl:Erkend belgisch abdijbier
+wikidata:en:Q2794703
+origins:en: en:Belgium
+category:en: en:beers
+label_categories:en: en:origins
+
+<en:origins
+en:Belgian Family Brewers
+de:Belgische Familien Brauer
+fi:belgialaiset perhepanimot
+it:Birrai Familiari Belgi
+nl:Belgische familiebrouwerijen
+image:en:belgian-family-brewers.90x90.svg
+wikidata:en:Q2855457
+category:en: en:beers
+label_categories:en: en:origins
+
+<en:transformation
+de:Nach traditioneller Art, Hausmacher Art
+fr:À l'ancienne
+wiktionary:de:Hausmacherart
+<en:transformation
+en:Authentic Trappist Product
+es:Authentic Trappist Product, Producto trapense auténtico
+fi:Authentic Trappist Product, aito trappistituote
+fr:Produit trappiste authentique
+nl:Authentiek Trappistenproduct
+ru:аутентичный траппистский продукт, настоящий траппистский продукт
+wikidata:en:Q3406760
+label_type:en:leaf
+
+comment:en:Is this about the recipe or the transformation process?
+<en:transformation
+description:de:Traditionsgebundene, oft regionale Zubereitungsweise
+label_type:en:leaf
+
+<en:supply chain
+en:distribution
+description:en:The processes of getting the end-product after transformation to consumption
+label_type:en:structure
+
+<en:distribution
+en:1% for the planet, 1 percent for the planet, one percent for the planet
+bg:1% за планетата
+ca:1% pel planeta
+de:1% für den Planeten
+es:1% para el planeta, uno por ciento para el planeta
+fi:1% planeetalle, prosentti planeetalle
+fr:1% pour la planète
+it:1% per il pianeta
+nl:1% voor de planeet
+wikipedia:en:https://en.wikipedia.org/wiki/One_Percent_for_the_Planet
+description:en:Businesses pledge to give 1% of the revenue to this association. It is visible of packages for consumers.
+label_type:en:leaf
+
+<en:supply chain
+en:consumption
+label_type:en:structure
+
+*********************************************************************************************
+*
+*                      P R O D U C T   S P E C I F I C   L A B E L S
+*
+*********************************************************************************************
+
+en:product
+label_type:en:structure
+
+<en:product
+en:ingredients
+description:en:Claims on the one or more of the ingredients of the product
+label_type:en:structure
+
+<en:ingredients
+en:100% natural
+bg:100% натурално
+ca:100% natural
+de:100% natürlich
+es:100% natural
+fi:100% luonnollinen, 100% luontainen
+fr:100% naturel
+he:100% טבעי
+hr:100% prirodni, 100% prirodni sastojci
+hu:100% természetes
+it:100% naturale
+nl:100% natuurlijk
+pt:100% natural
+ru:100% натуральное, 100% натуральный, 100% натуральная, 100% натуральные, 100% натуральный продукт, натуральный продукт
+th:ธรรมชาติ 100%
+label_type:en:leaf
+
+<en:ingredients
+en:100% vegetable
+ca:100% vegetal
+de:100% pflanzlich
+es:100% vegetal
+fi:100% kasvis
+fr:100% végétal, 100% végétale
+he:100% צמחי
+hu:100% növényi, 100%-ban növényi
+it:100% vegetale
+nl:100% plantaardig
+pt:100% vegetal
+ru:100% овощной
+th:ใช้น้ำมันพืช 100%
+label_type:en:leaf
+
+<en:ingredients
+en:Not hardened
+ca:Sense endurir
+de:ungehärtet
+es:No endurecido
+fi:kovettamaton, ei kovetettu
+fr:Non durci
+nl:Ongehard
+pt:Não endurecido
+ru:Не закаленный
+label_type:en:leaf
+
+
+<en:ingredients
+en:French eggs, Eggs from France
+bg:Френски яйца
+ca:Ous francesos, Ous de França
+de:Französiche Eier, Eier aus Frankreich
+es:Huevos originados en Francia
+fi:ranskalaisia munia, munien alkuperä Ranska
+fr:Oeufs de France, Oeufs français
+he:ביצים צרפתיות, ביצים מצרפת
+it:Uova francesi, Uova dalla Francia
+ingredients:en: en:egg
+origins:en: en:france
+label_type:en:leaf
+
+<en:ingredients
+en:Belgian hops
+fi:belgialaisia humaloita, humalan alkuperä Belgia
+it:Luppolo belga
+nl:Belgische hop
+image:en:belgian-hops.90x90.png
+ingredients:en: en:hop
+origins:en: en:belgium
+label_type:en:leaf
+
+<en:product
+en:product awards
+label_type:en:structure
+
+<en:product awards
+en:beer awards
+category:en: en:beers
+label_type:en:structure
+
+<en:beer awards
+en:World Beer Awards
+xx:World Beer Awards
+zh:世界啤酒奖
+wikidata:en:Q2612801
+label_type:en:structure
+
+<en:beer awards
+<en:World Beer Awards
+en:World Beer Awards 2019
+ca:Millors Cerveses del Món 2019
+he:פרסי הבירה העולמיים 2019
+xx:World Beer Awards 2019
+zh:世界啤酒奖 2019
+label_type:en:leaf
+
+<en:beer awards
+<en:World Beer Awards
+en:World Beer Awards 2018
+ca:Millors Cerveses del Món 2018
+he:פרסי הבירה העולמיים 2018
+zh:世界啤酒奖 2018
+label_type:en:leaf
+
+<en:beer awards
+<en:World Beer Awards
+en:World Beer Awards 2017
+ca:Millors Cerveses del Món 2017
+he:פרסי הבירה העולמיים 2017
+zh:世界啤酒奖 2017
+label_type:en:leaf
+
+<en:World Beer Awards
+en:World Beer Awards 2016
+zh:世界啤酒奖 2016
+label_type:en:leaf
+
+<en:World Beer Awards
+en:World Beer Awards 2015
+zh:世界啤酒奖 2015
+label_type:en:leaf
+
+<en:World Beer Awards
+en:World Beer Awards 2014
+zh:世界啤酒奖 2014
+label_type:en:leaf
+
+<en:World Beer Awards
+en:World Beer Awards 2013
+label_type:en:leaf
+
+<en:World Beer Awards
+en:World Beer Awards 2012
+label_type:en:leaf
+
+<en:World Beer Awards
+en:World Beer Awards 2011
+ca:Millors Cerveses del Món 2011
+zh:世界啤酒奖 2011
+label_type:en:leaf
+
+<en:World Beer Awards
+en:World Beer Awards 2010
+label_type:en:leaf
+
+<en:World Beer Awards
+en:World Beer Awards 2009
+ca:Millors Cerveses del Món 2009
+zh:世界啤酒奖 2009
+label_type:en:leaf
+
+<en:beer awards
+en:Australian International Beer Awards
+wikidata:en:Q2153681
+label_type:en:leaf
+
+<en:beer awards
+en:Brazilian Beer Awards
+wikidata:en:Q4958708
+label_type:en:leaf
+
+<en:beer awards
+en:Champion Beer of Britain
+wikidata:en:Q5069978
+label_type:en:leaf
+
+<en:beer awards
+en:Champion Beer of Scotland
+wikidata:en:Q3910740
+label_type:en:leaf
+
+<en:beer awards
+en:Champion Beer of Wales
+wikidata:en:Q599321
+label_type:en:leaf
+
+<en:beer awards
+en:Champion Winter Beer of Britain
+wikidata:en:Q5070034
+label_type:en:leaf
+
+<en:beer awards
+en:European Beer Star
+ca:Cervesa Estrella Europea
+he:כוכב בירה אירופי
+nl:European Beer Star, Europese Bier Ster
+wikidata:en:Q2404322
+label_type:en:leaf
+
+<en:product
+en:May contain eggshell, may contain egg shell
+es:Puede contener cáscara de huevo
+labels_categories: en:food safety
+comment:en:in Spanish eggshell is cascara de huevo. To avoid mis-interpretation in the processing (which could translate to peel) it's added here
+label_type:en:leaf
+
+
+==================================== I am until here ==================
+
+# Comment:en:Is this a label? It might be a spearate field of the product.
+#en:Carbon footprint, carbon emissions, product that specifies the carbon footprint
+#bg:Въглероден отпечатък
+#ca:Petjada de carboni, emissions de carboni, producte on la petjada de carboni hi surt reflectida
+#cs:Uhlíková stopa
+#de:CO2-Fußabdruck, CO2-Emissionen
+#es:Huella de carbono, Emisiones de CO2
+#fi:hiilijalanjälki, hiilipäästöt, hiilijalanjäljen määrittelevä tuote
+#fr:Empreinte carbone, émissions de carbone
+#he:טביעת רגל פחמנית
+#hu:Szénlábnyom, szén-dioxid-kibocsátás, karbonlábnyom, szén lábnyom, karbon lábnyom
+#it:Emissioni di CO2, impronta climatica
+#nl:Koolstofvoetafdruk
+#pl:Ślad węglowy produktu
+#pt:Pegada de carbono, Emissões de CO2
+#ru:CO2-эмиссия
+#wikidata:en:Q310667
+#label_categories:en: en:environnment
+
+
+
+
+
+
+
+
 
 en:ISO 9001
 bg:ISO 9001
