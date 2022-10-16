@@ -22,6 +22,11 @@ tagline:
   
 taxonomies:
 - taxonomies/**/*
+- scripts/build_tags_taxonomy.pl
+- scripts/test_taxonomies.pl
+- scripts/translate_taxonomy_with_eu_translations.pl
+- scripts/list_taxonomy_entries.pl
+- scripts/sort_languages_in_taxonomy.pl
 
 taxonomies rebuild:
 - taxonomies/additives.result.sto
@@ -36,6 +41,11 @@ taxonomies rebuild:
 - taxonomies/ingredients.result.txt
 - taxonomies/states.result.sto
 - taxonomies/states.result.txt
+
+wikidata:
+- scripts/build_countries_taxonomy_from_wikidata.pl
+- scripts/build_languages_taxonomy_from_wikidata.pl
+- scripts/create_wikipedia_properties_for_taxonomy.pl
 
 allergens:
 - taxonomies/allergens.result.sto
@@ -197,6 +207,7 @@ ingredients:
 - tests/unit/ingredients_percent.t
 - tests/unit/ingredients_processing.t
 - tests/unit/ingredients_tags.t
+- scripts/test_ingredient_parser.pl
 
 ingredients analysis:
 - templates/web/pages/product/includes/ingredients_analysis.tt.html
@@ -257,6 +268,10 @@ knowledge-panels:
 - templates/api/knowledge-panels/health/nutrition/nutrient_level.tt.json
 - templates/api/knowledge-panels/health/nutrition/physical_activities.tt.json
 - templates/api/knowledge-panels/health/nutrition/nutrition_facts_table.tt.json
+
+serving size:
+- templates/api/knowledge-panels/health/nutrition/serving_size.tt.json
+- tests/unit/food_normalize_serving_size.t
 
 lang:
 - lib/ProductOpener/Lang.pm
@@ -352,6 +367,7 @@ producers platform:
 - tests/unit/import.t
 - tests/unit/import_convert_carrefour_france.t
 - scripts/tag_stores_magasins_u.pl
+- lib/ProductOpener/ImportConvertCarrefourFrance.pm
 
 codeonline:
 - scripts/codeonline-import/split_gs1_codeonline_json.pl
@@ -371,6 +387,7 @@ Products:
 Recipes:
 - lib/ProductOpener/Recipes.pm
 - templates/web/pages/recipes/recipes.tt.html
+- tests/unit/recipes.t
 
 Tags:
 - lib/ProductOpener/Tags.pm
@@ -467,6 +484,10 @@ Blocks:
 How Much Sugar:
 - scripts/gen_sucres.pl
 - scripts/gen_sugar.pl
+- cgi/sucres_check.pl
+- cgi/sucres_random.pl
+- cgi/sugar_check.pl
+- cgi/sugar_random.pl
 
 Made Near Me:
 - scripts/generate_madenearme_page.pl
@@ -498,6 +519,7 @@ gamification:
 - lib/ProductOpener/MissionsConfig.pm
 - scripts/compute_missions.pl
 - scripts/compute_missions_for_user.pl
+- scripts/export_battle_food.pl
 
 config:
 - lib/ProductOpener/Config2_docker.pm
@@ -532,10 +554,7 @@ cgi/remove_products.pl
 cgi/spellcheck_test.pl
 cgi/sso.pl
 cgi/sto2json.pl
-cgi/sucres_check.pl
-cgi/sucres_random.pl
-cgi/sugar_check.pl
-cgi/sugar_random.pl
+
 cgi/test_ingredients_analysis.pl
 cgi/top_translators.pl
 cgi/translate_taxonomy.pl
@@ -553,7 +572,7 @@ lib/ProductOpener/GS1.pm
 lib/ProductOpener/GeoIP.pm
 lib/ProductOpener/I18N.pm
 lib/ProductOpener/Import.pm
-lib/ProductOpener/ImportConvertCarrefourFrance.pm
+
 lib/ProductOpener/Mail.pm
 lib/ProductOpener/MainCountries.pm
 lib/ProductOpener/Numbers.pm
@@ -571,7 +590,7 @@ lib/ProductOpener/Data.pm
 
 lib/ProductOpener/Web.pm
 lib/ProductOpener/ImportConvert.pm
-lib/ProductOpener/KnowledgePanels.pm
+
 lib/ProductOpener/Products.pm
 lib/ProductOpener/Display.pm
 lib/ProductOpener/Food.pm
@@ -585,92 +604,85 @@ lib/ProductOpener/Users.pm
 lib/ProductOpener/Text.pm
 lib/startup_apache2.pl
 
-scripts/add_descriptions_to_taxonomy_from_eu_translations.pl
+- scripts/add_descriptions_to_taxonomy_from_eu_translations.pl
 
-scripts/add_users_translations_to_taxonomy.pl
-scripts/aggregate_ingredients.pl
-scripts/api_stats.pl
+- scripts/add_users_translations_to_taxonomy.pl
+- scripts/aggregate_ingredients.pl
+- scripts/api_stats.pl
 
-scripts/build_lang.pl
-scripts/build_countries_taxonomy_from_wikidata.pl
-scripts/build_languages_taxonomy_from_wikidata.pl
-scripts/build_tags_taxonomy.pl
+- scripts/build_lang.pl
 
-scripts/check_lang_pm.pl
-scripts/check_photos.pl
+- scripts/check_lang_pm.pl
+- scripts/check_photos.pl
 
-scripts/checkbot.pl
+checkbot:
+- scripts/checkbot.pl
 
-scripts/convert_csv_file.pl
-scripts/copy_text_files.pl
-scripts/create_small_categories_nutriments_per_country_for_testing.pl
-scripts/create_wikipedia_properties_for_taxonomy.pl
-scripts/delete_old_cropped_images.pl
-scripts/delete_products_from_user.pl
-scripts/delete_spam_users.pl
-scripts/export_and_import_to_public_database.pl
-scripts/export_battle_food.pl
-scripts/export_csv_file.pl
-scripts/export_data.pl
-scripts/export_database.pl
-scripts/export_products_data_and_images.pl
-scripts/export_tags_hierarchies.pl
+moderation:
+- scripts/delete_products_from_user.pl
+- scripts/delete_spam_users.pl
+- scripts/remove_empty_products.pl
+- scripts/remove_products_without_code.pl
 
-scripts/extract_images.pl
-scripts/extract_individual_ingredients.pl
-scripts/extract_ingredients_test_set.pl
-scripts/extract_nutrition_images_and_crop_data.pl
-scripts/extract_nutrition_test_set.pl
-scripts/find_and_replace_user_id_in_products.pl
+sto:
+- scripts/sto_to_json.pl
+- scripts/sto_to_xml.pl
+
+- scripts/convert_csv_file.pl
+- scripts/copy_text_files.pl
+- scripts/create_small_categories_nutriments_per_country_for_testing.pl
+- scripts/delete_old_cropped_images.pl
+
+- scripts/export_and_import_to_public_database.pl
+- scripts/export_csv_file.pl
+- scripts/export_data.pl
+- scripts/export_database.pl
+- scripts/export_products_data_and_images.pl
+- scripts/export_tags_hierarchies.pl
+
+- scripts/extract_images.pl
+- scripts/extract_individual_ingredients.pl
+- scripts/extract_ingredients_test_set.pl
+- scripts/extract_nutrition_images_and_crop_data.pl
+- scripts/extract_nutrition_test_set.pl
+- scripts/find_and_replace_user_id_in_products.pl
 
 
-scripts/gen_pro_users_emails_list.pl
-scripts/popular_products_images.pl
-scripts/remove_all_private_products_for_owner.pl
-scripts/remove_empty_products.pl
-scripts/remove_products_without_code.pl
-scripts/gen_top_tags_per_country.pl
-scripts/list_ingredients.pl
-scripts/list_subdomains.pl
-scripts/list_taxonomy_entries.pl
+- scripts/gen_pro_users_emails_list.pl
+- scripts/popular_products_images.pl
+- scripts/remove_all_private_products_for_owner.pl
 
-scripts/sort_languages_in_taxonomy.pl
-scripts/sto_to_json.pl
-scripts/sto_to_xml.pl
-scripts/test_extract_ingredients_from_text.pl
+- scripts/gen_top_tags_per_country.pl
+- scripts/list_ingredients.pl
+- scripts/list_subdomains.pl
 
-scripts/test_ingredient_parser.pl
-scripts/test_taxonomies.pl
-scripts/test_text_fuzzy.pl
-scripts/translate_taxonomy_with_eu_translations.pl
+
+
+- scripts/test_extract_ingredients_from_text.pl
+
+- scripts/test_text_fuzzy.pl
+
 
 update all products:
 - scripts/update_all_products.pl
 - scripts/update_all_products_from_dir_in_mongodb.pl
 - scripts/update_all_products_revisions_from_dir_in_mongodb.pl
 
-scripts/update_recent_changes.pl
+- scripts/update_recent_changes.pl
+- tests/integration/import_csv_file.t
+- tests/integration/export.t
+- tests/unit/display.t
+- tests/unit/food.t
+- tests/unit/i18n.t
+- tests/unit/images.t
+- tests/unit/lang.t
+- tests/unit/load_csv_or_excel_file.t
+- tests/unit/numbers.t
+- tests/unit/products.t
 
-tests/integration/import_csv_file.t
-tests/integration/export.t
-
-tests/unit/display.t
-
-tests/unit/food.t
-
-tests/unit/food_normalize_serving_size.t
-
-tests/unit/i18n.t
-tests/unit/images.t
-
-tests/unit/lang.t
-tests/unit/load_csv_or_excel_file.t
-tests/unit/numbers.t
-tests/unit/products.t
-tests/unit/recipes.t
-tests/unit/store.t
-tests/unit/tags.t
-tests/unit/templates.t
-tests/unit/text.t
+- tests/unit/store.t
+- tests/unit/tags.t
+- tests/unit/templates.t
+- tests/unit/text.t
 
 
