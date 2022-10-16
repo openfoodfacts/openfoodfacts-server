@@ -30,7 +30,6 @@ synonyms:fr:poulet-crudités, crudités-poulet
 # conserve or en conserve ?
 synonyms:fr:conserve,appertisé,appertisée,appertisés,appertisées
 
-
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,base
 stopwords:ca:als,a les,de,el,del,de la,la,té,i,amb,base
 stopwords:nl:bevat,en
@@ -49,7 +48,6 @@ lt:Amatininkų gaminiai
 nl:Ambachtelijke producten, Ambachtelijk product, Ambachtelijk produkt
 nl_be:Ambachtelijke producten
 ro:Produse artizanale
-
 
 <en:Artisan products
 <en:Breadstick
@@ -38119,6 +38117,7 @@ de:Gemischter Reis
 es:Mezclas de arroces, Mezcla de arroces
 fi:Riisisekoitukset
 fr:Mélanges de riz, Riz mélange de variétés
+lt:Įvairūs ryžiai
 nl:Gemengde rijsten, Rijstmelanges, Gemengde rijst, Rijstmelange
 agribalyse_food_code:en:9121
 ciqual_food_code:en:9121
@@ -38142,6 +38141,7 @@ es:Centeno
 fr:Seigle
 it:Segale
 la:Secale cereale
+lt:Rugiai
 nl:Rogge, Rogges
 zh:裸麦
 wikidata:en:Q12099
@@ -38169,6 +38169,7 @@ fr:Sésame, Graines de sésame
 he:שומשום
 it:Sesamo
 la:Sesamum indicum
+lt:Sezamai, Sezamas
 nl:Sesamzaden, Sesamzaad
 zh:芝麻
 wikidata:en:Q2763698
@@ -38179,6 +38180,7 @@ ciqual_food_name:en:Sesame seed
 <en:Sesame
 en:Husked sesame seed, Sesame seed husked
 fr:graine de sésame décortiquée
+lt:Lukštenti sezamai
 agribalyse_food_code:en:15035
 ciqual_food_code:en:15035
 ciqual_food_name:en:Sesame seed, husked
@@ -38188,6 +38190,7 @@ en:Toasted sesame, grilled sesame, husked sesame
 de:Gerösteter Sesam
 es:Semillas de sésamo tostadas
 fr:Sésame toasté, Graines de sésame toastées
+lt:Skrudinti sezamai, Kepinti sezamai
 nl:Geroosterde sesamzaden, Geroosterde sesamzaad
 zh:烤芝麻
 agribalyse_food_code:en:15038
@@ -38238,6 +38241,7 @@ fi:vehnät
 fr:Blés, Blé
 it:Grano
 la:Triticum
+lt:Kviečiai
 nl:Tarwes, Tarwe
 wikidata:en:Q12106
 
@@ -38248,6 +38252,7 @@ es:Trigos blandos, Trigos comunes, Trigos harineros
 fr:Blés tendres, Froments, Blés ordinaires, Blés tendre, Blés tendres entiers
 it:Grano tenero
 la:Triticum aestivum, Triticum aestivum subsp. aestivum
+lt:Pilnagrūdžiai kviečiai, Nesmulkinti kviečiai, duonos kviečiai
 nl:Gewone tarwes, Gewone tarwe
 wikidata:en:Q161098
 agribalyse_food_code:en:9010
@@ -38270,6 +38275,7 @@ es:Trigos duros, Trigo duro
 fr:Blés durs
 it:Grano duro
 la:Triticum durum, Triticum turgidum subsp. durum
+lt:Kietieji kviečiai, Makaroniniai kviečiai
 nl:Durum tarwes, harde tarwes, Durum tarwe, Harde tarwe
 wikidata:en:Q618324
 
@@ -38337,7 +38343,7 @@ ja:スペルトコムギ
 ko:스펠트밀
 la:Triticum spelta, Triticum aestivum subsp. spelta
 lb:Spelz
-lt:speltos, spelta
+lt:Speltos, speltų miltai
 lv:speltas kvieši
 mk:крупник
 ms:spelt
@@ -38386,6 +38392,7 @@ fi:Intiaaniriisi, Villiriisi
 fr:Riz sauvage, zizanie des marais, zizanie, Riz sauvage cru
 it:Riso selvatico
 la:Zizania
+lt:Laukiniai ryžiai
 nl:Wilde rijsten, Wilde rijst
 wikidata:en:Q831681
 agribalyse_food_code:en:9108
@@ -38400,12 +38407,14 @@ de:Vorgegarter Reis
 es:Arroces precocidos, Arroces rápidos, Arroces de cocción rápida
 fr:Riz précuits natures, riz précuits, riz précuit, riz pré-cuit, riz pré-cuits, riz précuits nature, riz précuit nature
 it:Risi precotti
+lt:Greitai paruošiami ryžiai
 nl:Voorgekookte rijsten, Voorgekookte rijst
 wikidata:en:Q6038850
 
 <en:Precooked rices
 en:White rice cooked with chicken
 fr:Riz blanc cuit au poulet
+lt:Virti balti ryžiai su vištiena
 agribalyse_food_code:en:25184
 ciqual_food_code:en:25184
 ciqual_food_name:en:White rice, cooked, with chicken
@@ -38414,6 +38423,7 @@ ciqual_food_name:fr:Riz blanc, cuit, avec poulet
 <en:Precooked rices
 en:White rice cooked with vegetables and meat
 fr:Riz blanc cuit avec légumes et viande
+lt:Virti balti ryžiai su daržovėmis ir mėsa
 agribalyse_food_code:en:25185
 ciqual_food_code:en:25185
 ciqual_food_name:en:White rice, cooked, with vegetables and meat
@@ -38422,6 +38432,7 @@ ciqual_food_name:fr:Riz blanc, cuit, avec légumes et viande
 <en:Precooked rices
 en:Unsalted cooked rice
 fr:Riz blanc cuit non salé
+lt:Virti balti ryžiai be druskos
 agribalyse_food_code:en:9104
 ciqual_food_code:en:9104
 ciqual_food_name:en:Rice, cooked, unsalted
@@ -38431,6 +38442,7 @@ ciqual_food_name:fr:Riz blanc, cuit, non salé
 <en:Wild rice
 en:Unsalted cooked wild rice
 fr:Riz sauvage cuit non salé
+lt:Virti laukiniai ryžiai be druskos
 agribalyse_food_code:en:9111
 ciqual_food_code:en:9111
 ciqual_food_name:en:Wild rice, cooked, unsalted
@@ -38445,6 +38457,7 @@ fi:purkitetut viljat
 fr:Céréales en conserve
 hu:Gabonakonzervek
 it:Cereali in scatola
+lt:Konservuoti grūdai
 nl:Conservengranen, Graan in pot
 
 <en:Canned cereals
@@ -38457,6 +38470,7 @@ fi:purkitettu maissi
 fr:Maïs en conserve
 hu:Kukorica konzerv
 it:Mais in scatola
+lt:Konservuoti kukurūzai
 nl:Maïs in conserven, Maïs in blik/pot
 pl:Kukurydza w puszce
 ru:Консервированая кукуруза
@@ -38473,6 +38487,7 @@ es:Maíz dulce en conserva
 fi:purkitettu makea maissi
 fr:Maïs doux en conserve, Maïs doux appertisé, Maïs doux en conserve égoutté
 it:Mais dolce in scatola
+lt:Konservuoti saldieji kukurūzai
 nl:Suikermaïs in blik/pot
 agribalyse_food_code:en:20066
 ciqual_food_code:en:20066
@@ -38499,6 +38514,7 @@ fr:Chips et frites
 he:צ׳יפס ומטוגנים
 hu:Chips és krumpli
 it:Patatine e fritti
+lt:Traškučiai ir bulvytės
 nl:Chips en patat
 pl:Chipsy i frytki
 ru:Чипсы и картофель фри
@@ -38515,6 +38531,7 @@ fi:Lastut, Sipsit
 fr:Chips, Chips de légumes
 hu:Csipszek
 it:Patatine sottili, Patatine imbustate, Patatine croccanti
+lt:Traškučiai, Čipsai
 nl:Chips
 pl:Chips, Crisps
 pt:Batatas fritas
@@ -38525,19 +38542,23 @@ zh:薯片
 <en:Crisps
 en:Chickpea crisps
 fr:Chips de pois chiches
+lt:Avinžirnių traškučiai
 
 <en:Salty snacks
 en:Roasted peas
+lt:Skrudinti žirneliai
 
 <en:roasted peas
 en:Salty roasted peas
 fr:Pois grillés salés
+lt:Sūdyti skrudinti žirneliai
 food_groups:en: en:Appetizers
 pnns_group_2:en:Appetizers
 
 <en:Salty roasted peas
 en:Salty roasted chickpeas
 fr:Pois chiches grillés salés
+lt:Sūdyti skrudinti avinžirniai
 
 <en:Salty snacks
 en:Vegetables cakes
@@ -38590,6 +38611,7 @@ pnns_group_2:en:Appetizers
 <en:Breaded cheeses
 en:Cheese croquettes
 fr:Croquettes au fromage
+lt:Sūrio kroketai
 nl:Kaaskroketten
 
 <en:Salty snacks
@@ -38600,6 +38622,7 @@ nl:Garnalenkroketten
 en:Prawn cocktail crisps, Prawn crackers
 de:Garnelencocktail Chips
 fr:Chips cocktail de crevettes, Chips de crevette
+lt:Krevečių kokteilių traškučiai, krevečių krekeriai
 nl:Garnalenchips
 agribalyse_food_code:en:38104
 ciqual_food_code:en:38104
@@ -38610,6 +38633,7 @@ ciqual_food_name:fr:Chips de crevette
 en:Cassava crisps
 de:Maniok Chips, Cassava Chips
 fr:Chips de manioc
+lt:Kasavos traškučiai
 nl:Cassave kroepoek, Maniokchips, Kroepoek
 agribalyse_proxy_food_code:en:38104
 agribalyse_proxy_food_name:en:Prawn crackers
@@ -38628,6 +38652,7 @@ agribalyse_proxy_food_name:fr:Chips de crevette
 en:Parsnip Crisps
 de:Pastinaken Chips
 fr:Chips de panais
+lt:Pasternoko traškučiai
 nl:Pastinaakchips
 
 <en:Crisps
@@ -38635,6 +38660,7 @@ en:Sweet potato crisps
 de:Süßkartoffelchips
 fi:Bataattilastut
 fr:Chips de patate douce
+lt:Saldžiųjų bulvių traškučiai
 nl:Zoete aardappelchips
 
 <en:Crisps
@@ -38654,6 +38680,7 @@ fi:perunalastut
 fr:Chips de pommes de terre
 hu:Burgonyás csipsz
 it:Patatine
+lt:Bulvių traškučiai
 nl:Aardappelchips
 nl_be:Aardappelchips
 ro:Chipsuri de cartofi
@@ -38669,6 +38696,7 @@ wikidata:en:Q173265
 <en:Potato crisps
 en:Potato crisps à l'ancienne, Old-fashioned style potato crisps
 fr:Chips de pommes de terre à l'ancienne
+lt:Senamadiški bulvių traškučiai
 agribalyse_food_code:en:4037
 ciqual_food_code:en:4037
 ciqual_food_name:en:Potato crisps, à l'ancienne (old-fashioned style)
@@ -38686,12 +38714,14 @@ es:Chips de patatas fritas lisas
 en:Wavy potato crisps, Wavy potato chips
 es:Chips de patatas fritas onduladas
 fr:Chips de pommes de terre ondulées
+lt:Banguoti bulvių traškučiai
 
 <en:Potato crisps
 en:Light potato crisps, Potato crisps with reduced fat
 de:Leichte Kartoffelchips
 fi:Kevytperunalastut, Perunalastut vähennetyllä rasvalla
 fr:Chips de pommes de terre allégées, Chips de pommes de terre allégées en matière grasse
+lt:Bulvių traškučiai su sumažintu riebalų kiekiu, Lengvi bulvių traškučiai
 nl:Light aardappelchips
 agribalyse_food_code:en:4038
 ciqual_food_code:en:4038
@@ -38707,6 +38737,7 @@ es:Chips de patatas fritas en aceite de girasol
 fi:Perunalastut auringonkukkaöljyllä
 fr:Chips de pommes de terre à l’huile de tournesol
 it:Patatine in olio di semi di girasole
+lt:Bulvių traškučiai saulėgrąžų aliejuje
 nl:Aardappelchips gebakken in zonnebloemolie
 ru:Картофельные чипсы на подсолнечном масле
 
@@ -38718,11 +38749,13 @@ es:Chips de patatas fritas en aceite de oliva
 fi:Perunalastut oliiviöljyllä
 fr:Chips de pommes de terre à l’huile d'olive
 it:Patatine di patata in olio d'oliva
+lt:Bulvių traškučiai alyvuogių aliejuje
 nl:Aardappelchips gebakken in olijfolie
 
 <en:Potato crisps
 en:Potato crisps in coco oil
 fr:Chips de pommes de terre à l’huile de coco
+lt:Bulvių traškučiai kokosų aliejuje
 nl:Aardappelchips in kokosolie
 
 <en:Potato crisps
@@ -38732,18 +38765,21 @@ es:Chips de patatas fritas con sabores
 fi:maustetut perunalastut
 fr:Chips de pommes de terre aromatisées
 it:Patatine aromatizzate
+lt:Traškučiai su skoniu
 nl:Aardappelchips met smaak
 
 <en:Flavoured potato crisps
 en:Ketchup crisps
 de:Ketchup Chips
 fr:Chips au ketchup
+lt:Kečupo traškučiai
 nl:Ketchup chips
 
 <en:Flavoured potato crisps
 en:Salt and pepper crisps
 de:Salz und Pfeffer Chips
 fr:Chips au sel et au poivre
+lt:Druskos ir pipirų traškučiai
 nl:Zout en peperchips
 
 <en:Flavoured potato crisps
@@ -38751,6 +38787,7 @@ en:Roasted chicken and thyme crisps
 de:Brathuhn-Thymnian Chips
 fi:Kana-timjami-perunalastut
 fr:Chips au poulet, Chips au poulet rôti et thym
+lt:Keptos vištienos ir čiobrelių traškučiai
 nl:Geroosterde kip met tijm chips
 
 <en:Flavoured potato crisps
@@ -38759,12 +38796,14 @@ de:Paprikachips
 fi:Paprikaperunalastut
 fr:Chips au paprika
 it:Patatine alla paprica
+lt:Paprikos traškučiai
 nl:Paprikachips
 
 <en:Flavoured potato crisps
 en:Bolognese crisps
 de:Bolognese Chips
 fr:Chips bolognaise
+lt:Bolonijos traškučiai
 nl:Bolognese chips
 
 <en:Flavoured potato crisps
@@ -38775,6 +38814,7 @@ de:Senf Chips
 en:Cheese and onion crisps
 de:Käse-Zwiebel Chips
 fr:Chips fromage et oignon, Chips fromage et onion
+lt:Sūrio ir svogūnų traškučiai
 nl:Kaas en ui chips
 
 <en:Flavoured potato crisps
@@ -38782,6 +38822,7 @@ nl:Kaas en ui chips
 en:Cheddar and onion crisps
 de:Cheddar-Zwiebel Chips
 fr:Chips cheddar et oignon, Chips cheddar et onion
+lt:Čederio ir svogūnų traškučiai
 nl:Cheddar en ui chips
 
 <en:Flavoured potato crisps
@@ -38790,6 +38831,7 @@ de:Barbecue Chips
 fi:Grillimaustetut perunalastut, Barbeque-perunalastut
 fr:Chips barbecue
 it:Patatine barbecue
+lt:Barbekiu traškučiai
 nl:Barbecuesmaak chips
 
 <en:Potato crisps
@@ -38797,18 +38839,21 @@ en:Salt and vinegar crisps
 de:Salz und Essig Chips
 fi:Suola-etikka-perunalastut
 fr:Chips au sel et vinaigre
+lt:Druskos ir acto traškučiai
 nl:Zout en azijn chips
 
 <en:Salt and vinegar crisps
 en:Salt and malt vinegar crisps
 de:Salz und Malzessig Chips
 fr:Chips au sel et vinaigre de malt
+lt:Druskos ir salyklo acto traškučiai
 nl:Zout-azijn chips
 
 <en:Flavoured potato crisps
 en:Sour cream and sweet chilli crisps
 de:Sauerrahm und Chilli Chips
 fr:Chips à la crème fraîche et au piment doux
+lt:Grietinės ir saldžiųjų čili traškučių
 nl:Zure room en chili chips
 
 <en:Potato crisps
@@ -38817,17 +38862,20 @@ de:Klassische Chips
 fi:vanhanaikaiset perunalastut
 fr:Chips à l'ancienne
 it:Patatine all'antica
+lt:Senoviniai traškučiai
 nl:Traditionele chips
 
 <en:Potato crisps
 en:Farmer's crisps
 fr:Chips paysannes
+lt:Ūkininko traškučiai
 nl:Boerenchips
 
 <en:Potato crisps
 en:Crisps of red potatoes, red potato crisps, red potatoes crisps
 de:Rote Kartoffelchips, Chips aus roten Kartoffeln
 fr:Chips de pommes de terre rouge
+lt:Raudonųjų bulvių traškučiai
 nl:Rode aardappelchips
 
 <en:Crisps
@@ -38840,6 +38888,7 @@ de:Salzige Snacks aus Kartoffeln
 fi:Perunasta valmistetut suolaiset naposteltavat
 fr:Tuiles salées, tuile salée, Biscuit apéritif à base de pomme de terre, Tuile salée à base de pomme de terre
 he:חטיפים מלוחים מתפוח אדמה
+lt:Sūrūs užkandžiai iš bulvių
 agribalyse_food_code:en:38405
 ciqual_food_code:en:38405
 ciqual_food_name:en:Salty snacks, made from potato
@@ -38856,6 +38905,7 @@ fi:maissilastut
 fr:Chips de maïs, Chips Tortillas, Tortillas Chips, Tortilla chips, Chips Tortilla
 hu:Kukoricacsipsz
 it:Snack al mais
+lt:Kukurūzų traškučiai, tortilijos traškučiai
 nl:Tortillachips
 ro:Nachos, Chipsuri de porumb, Chipsuri din porumb
 ru:Кукурузные чипсы
@@ -38874,6 +38924,7 @@ es:Patatas fritas
 fi:Ranskanperunat, Ranskalaiset perunat, Ranskalaiset
 fr:Frites
 it:Patatine fritte, Patatine a bastoncino
+lt:Bulvytės
 nl:Friet
 zh:薯条
 wikidata:en:Q152088
@@ -38907,6 +38958,7 @@ fr:Produits laitiers, produit laitier, laitage, laitages, crèmerie, crèmeries
 he:מוצרי חלב, מַחלָבָה
 hu:Tejtermékek, Tejtermék
 it:Latticini, prodotti caseari
+lt:Pieno produktai
 nl:Zuivelproducten, Melkproducten, Zuivelproduct
 nl_be:Zuivelproducten
 pl:Nabiał, Produkty mleczne
@@ -38930,6 +38982,7 @@ fr:Produits laitiers fermentés
 he:מוצרי מזון מותססים, מוצרים חלביים
 hu:Fermentált tejtermékek, Erjesztett tejtermékek
 it:Prodotti lattiero-caseari fermentati, Alimenti caseari fermentati, Prodotti a base di latte fermentato, Prodotti caseari fermentati, latticini fermentati
+lt:Rauginti pieno produktai, Kultūriniai pieno produktai
 nl:Gefermenteerde zuivelproducten
 pt:Produtos lácteos fermentados
 ru:Кисломолочные продукты
@@ -38948,6 +39001,7 @@ fi:Hapatetut maitojuomat
 fr:Boissons lactées fermentées
 hu:Erjesztett tejitalok
 it:Bevande al latte fermentate
+lt:Rauginto pieno gėrimai
 nl:Gefermenteerde zuiveldranken
 pt:Bebidas lácteas fermentadas
 ru:Кисломолочные напитки
@@ -38977,6 +39031,7 @@ fi:piimä
 fr:Kéfir, Képhir
 hu:Kefir
 it:Kefir
+lt:Kefyrai, Kefyras
 nl:Kefir
 pl:Kefir
 ro:Kefir
@@ -38993,6 +39048,7 @@ en:Kefir 1 %
 bg:Кефир 1 %
 de:Kefir 1 %
 fr:Kéfir 1 %
+lt:Kefyrai 1 %
 ro:Kefir 1 %
 ru:Кефир 1 %, Кефир 1%, Кефир 1.0 %
 
@@ -39001,6 +39057,7 @@ en:Kefir 2.5 %
 bg:Кефир 2.5 %
 de:Kefir 2.5 %
 fr:Kéfir 2,5 %
+lt:Kefyrai 2,5 %
 ro:Kefir 2,5 %
 ru:Кефир 2.5 %, Кефир 2.5%
 
@@ -39009,6 +39066,7 @@ en:Kefir 3.2 %
 bg:Кефир 3.2 %
 de:Kefir 3.2 %
 fr:Kéfir 3,2 %
+lt:Kefyrai 3,2 %
 ro:Kefir 3,2 %
 ru:Кефир 3.2 %, Кефир 3.2%, Кефир с массовой долей жира 3.2 %
 
@@ -39017,6 +39075,7 @@ ru:Кефир 3.2 %, Кефир 3.2%, Кефир с массовой долей 
 en:Kefir for children, Kefir for babies
 de:Kefir für Babies
 fr:Kéfir pour bébés, Kéfir pour la nourriture pour bébés
+lt:Kefyrai vaikams, kefyrai kūdikiams
 ro:Kefir pentru bebeluși
 ru:Кефир для детского питания
 
@@ -39053,6 +39112,7 @@ en:Canned cheeses
 de:Dosenkäse, Käsekonserve
 fr:Fromages en conserve
 hu:Konzerv sajtok, Konzerves sajtok
+lt:Konservuoti sūriai
 nl:Kazen in blik/pot
 #wikidata:en:
 
@@ -39118,6 +39178,7 @@ ko:치즈
 ku:Penîr
 ky:Сыр
 la:Caseus
+lt:Sūriai, Sūris
 lb:Kéis
 nl:Kazen, Kaas
 nl_be:Kazen
@@ -39159,6 +39220,7 @@ bg:Пушено сирене и кашкавал
 de:Räucherkäse, Geräucherter Käse
 fr:Fromages fumés
 hu:Füstölt sajtok
+lt:Rūkyti sūriai, Rūkytas sūris
 nl:Gerookte kazen, Rookkaas
 wikidata:en:Q2632885
 
@@ -39169,6 +39231,7 @@ es:Quesos sin lactosa
 fi:Laktoosittomat juustot
 fr:Fromages sans lactose
 it:Formaggi senza lattosio
+lt:Sūriai be laktozės
 nl:Lactose-vrije kazen, Lactose-vrije kaas, Kaas zonder lactose
 
 <en:Cheeses
@@ -39180,6 +39243,7 @@ fi:siivutetut juustot
 fr:Fromages en tranches, tranches de fromage, tranches de fromages
 hu:Szeletel sajtok
 it:Formaggio a fette
+lt:Pjaustyti sūriai
 nl:Kazen in plakjes
 #previous german word Schnittkäse means it's easy to slice but not that it's already sliced
 
@@ -39189,11 +39253,13 @@ bg:Сирене и кашкавал за деца
 de:Käse für Kinder
 fr:Fromages pour enfants, fromage enfant, fromages enfants
 hu:Sajtok gyerekeknek
+lt:Sūriai vaikams
 
 <en:Cheeses
 en:Brined cheeses
 bg:Саламурени сирена
 fr:Fromages saumurés
+lt:Sūdyti sūriai
 nl:Gepeklde kazen
 ru:Рассольные сыры
 
@@ -39204,6 +39270,7 @@ de:Handgefertigter Käse
 es:Quesos artesanales, queso artesanal
 fr:Fromages artisanaux, fromage artisanal
 hu:Kézműves sajtok
+lt:Amatininkų sūriai
 nl:Ambachtelijke kazen
 
 <en:Cheeses
@@ -39215,6 +39282,7 @@ fi:sinihomejuustot
 fr:Fromages à pâte persillée, pâtes à moisissure interne, bleus
 hu:Kék satjtok
 it:Formaggio erborinato
+lt:Mėlynojo pelėsio sūriai, Mėlynieji sūriai
 nl:Blauwschimmelkazen
 wikidata:en:Q746471
 
@@ -39413,6 +39481,7 @@ fr:Fromages de vache, fromages au lait de vache
 he:גבינות פרה, גבינות מחלב פרה
 hu:Tehén sajt
 it:Formaggio vaccino
+lt:Sūriai iš karvių pieno
 nl:Koemelkkazen, Koemelkkaas
 pl:Ser krowi, Sery na bazie mleka krowiego
 pt:Queijos de vaca, Queijos com leite de vaca
@@ -39534,6 +39603,7 @@ fr:Cheddars, Cheddar
 he:גבינת צ׳דר
 hu:Cheddar sajt
 it:Formaggio cheddar
+lt:Angliški sūriai
 nl:Cheddars, Cheddar
 wikidata:en:Q217525
 agribalyse_food_code:en:12726
@@ -39751,6 +39821,7 @@ en:Camemberts from raw milk, Camembert made with raw milk, Camembert cheese from
 de:Camembert aus Rohmilch, Rohmilch-Camembert
 fi:Camembert raakamaidosta
 fr:Camemberts au lait cru, Camembert au lait cru
+lt:Nepasterizuoti sūriai
 nl:Rauwmelkse camemberts
 agribalyse_food_code:en:12006
 ciqual_food_code:en:12006
@@ -40039,6 +40110,7 @@ fi:kreikkalaiset juustot
 fr:Fromages de Grèce, Fromages grecs
 hu:Görög sajtok
 it:Formaggi greci
+lt:Graikiški sūriai, sūriai iš graikijos
 nl:Griekse kazen
 wikidata_category:en:Q6808711
 
@@ -40257,6 +40329,7 @@ wikidata:en:Q540837
 <en:Cheeses
 en:Austrian cheeses
 fr:Fromages autrichiens
+lt:Austriški sūriai, sūriai iš Austrijos
 wikidata:en:Q3088351
 
 <en:Austrian cheeses
@@ -40312,6 +40385,7 @@ wikidata:en:Q688683
 en:Belgian cheeses
 es:Quesos de Bélgica, Quesos Belgas
 fr:Fromages belges, Fromages de Belgique
+lt:Belgiški sūriai, sūriai iš Belgijos
 #wikidata:en:
 
 <en:Belgian cheeses
@@ -40356,6 +40430,8 @@ wikidata:en:Q1626037
 <en:Cheeses
 en:Croatian cheeses, Cheeses from Croatia
 fr:Fromages de Croatie
+lt:Kroatiški sūriai, sūriai iš Kroatijos
+
 
 <en:Croatian cheeses
 hr:Bjelovarski kvargl
@@ -40373,6 +40449,7 @@ wikidata:en:Q1283428
 
 <en:Cheeses
 en:Czech cheeses
+lt:Čekiški sūriai, sūriai iš Čekijos
 #wikidata:en:
 
 <en:Czech cheeses
@@ -40403,6 +40480,7 @@ ca:Formatges danesos
 de:Dänischer Käse
 es:Quesos daneses
 it:Formaggi danesi
+lt:Daniški sūriai, sūriai iš Danijos
 wikidata:en:Q3088357
 
 <en:Danish cheeses
@@ -40454,6 +40532,7 @@ fr:Fromages de France, Fromages français
 he:גבינות צרפתיות
 hu:Francia sajtok
 it:Formaggi francesi
+lt:Prancūziški sūriai, sūriai iš Prancūzijos
 nl:Franse kazen
 pl:Sery francuskie, sery z Francji
 pt:Queijos franceses, queijos da França
@@ -40464,6 +40543,7 @@ wikidata:en:Q2223649
 <en:Goat cheeses
 en:Valençay cheese
 fr:Valençay
+lt:Ožkos sūriai
 nl:Velençay kaas
 wikidata:en:Q659277
 agribalyse_food_code:en:12848
@@ -40989,6 +41069,7 @@ de:Schmelzkäse
 es:Queso procesado
 fi:sulatejuusto
 fr:Fromages à pâte fondue, snack à base de fromage fondu
+lt:Apdoroti sūriai
 nl:Smeltkazen
 ru:Плавленый сыр
 wikidata:en:Q1570052
@@ -41018,6 +41099,7 @@ fi:kermajuustot
 fr:Fromages à la crème
 he:גבינות שמנת
 hu:Krémsajtok
+lt:Grietinėlės sūriai, grietinėlės sūris
 nl:Roomkazen, Roomkaas
 ru:Крем-сыры
 wikidata:en:Q426337
@@ -41029,6 +41111,7 @@ es:Queso fresco
 fr:Fromages à pâte fraîche, Fromage frais
 hr:svježi sir
 it:Formaggi freschi
+lt:Švieži sūriai
 nl:Verse kazen
 wikidata:en:Q3323634
 
@@ -41110,6 +41193,7 @@ fi:Pehmeät ulkoa hometetut juustot
 fr:Fromages à pâte molle à croûte fleurie
 hu:Lágysajtok penészes kéreggel
 it:Formaggi a crosta fiorita
+lt:Sūriai su baltuoju pelėsiu
 nl:Witschimmelkazen
 wikidata:en:Q1256296
 
@@ -41149,6 +41233,7 @@ es:Quesos cocidos prensados
 fi:kypsennetyt prässätyt juustot
 fr:Fromages à pâte pressée cuite, Fromage à pâte pressée cuite
 it:Formaggi a pasta pressata cotta
+lt:Kietieji sūriai, Kietasis sūris
 nl:Verhitte geperste kazen
 pt:Queijos cozidos e premidos
 ru:Варёный спрессованный сыр
@@ -41216,6 +41301,7 @@ es:Gouda
 fi:Gouda
 fr:Goudas
 it:Gouda
+lt:Gouda sūriai, gouda sūris
 nl:Gouda, Goudse Kazen
 pl:Gouda
 ru:Сыр Гауда
@@ -41235,6 +41321,7 @@ es:Goudas con comino
 fi:gouda-juustot juustokuminalla
 fr:Goudas au cumin
 it:Gouda con cumino
+lt:Gouda sūriai su kmynais
 nl:Goudse Komijnenkazen
 #wikidata:en:
 
@@ -41373,12 +41460,14 @@ en:Cheeses with walnuts
 de:Walnusskäse, Käse mit Walnüssen
 es:Quesos con nuez, Quesos con nueces
 fr:Fromages aux noix, Fromage au noix
+lt:Sūriai su graikiniais riešutais
 nl:Notenkazen
 
 <en:Dairy desserts
 <en:Fermented milk products
 en:Fermented dairy desserts
 fr:Desserts lactés fermentés
+lt:Rauginti pieno desertai
 
 <en:Fermented dairy desserts
 en:Plain fermented dairy desserts
@@ -41387,6 +41476,7 @@ fr:Desserts lactés fermentés nature
 <en:Fermented dairy desserts
 en:Fermented dairy desserts with fruits
 fr:Desserts lactés fermentés aux fruits
+lt:Rauginti pieno desertai su vaisiais
 
 #Yogurt-like dessert containing additives (i.e. gellant agent) that prevents it to be called "yogurt" according to the French legislation. This category shouldn't be translated since it arises from a particularity of the French legislation
 <en:Fermented dairy desserts
@@ -41414,6 +41504,7 @@ es:Yogures bifidus, Yogures con bifidus
 fi:Bifidus-jogurtit
 fr:Yaourts au Bifidus
 it:Yogurt allo Bifidus
+lt:Bifido jogurtai
 nl:Bifidus yoghurts
 #wikidata:en:
 
@@ -41535,6 +41626,7 @@ he:גבינת כבשים
 hy:ոչխարի պանիր
 it:formaggio di pecore, Formaggio di pecora
 ko:양젖 치즈
+lt:Avių sūriai
 nl:Schapenkazen, Schapenkaas
 nn:ost av sauemjølk
 pl:ser z mleka owczego
@@ -41596,6 +41688,7 @@ fi:vuohenjuustot
 fr:Fromages de chèvre, fromage de chèvre, fromages au lait de chèvre
 he:גבינות עזים, גבינות עיזים
 it:Formaggio di capra
+lt:Ožkų sūriai
 nl:Geitenkazen
 pl:Ser kozi, Sery kozie
 ru:Сыр из козьего молока
@@ -41698,6 +41791,7 @@ fi:Juustot Yhdistyneestä kuningaskunnasta
 fr:Fromages du Royaume-Uni
 he:גבינות בריטיות, גבינות אנגליות, גבינות איריות, גבינות וולשיות, גבינות סקוטיות
 it:Formaggi dal Regno Unito
+lt:Sūriai iš Jungtinės Karalystės
 nl:Verenigdkoninkrijkskazen
 ru:Британские сыры
 origins:en: en:United Kingdom
@@ -41712,6 +41806,7 @@ fi:Englantilaiset juustot
 fr:Fromages d'Angleterre
 he:גבינות מאנגליה
 it:Formaggi inglesi
+lt:Sūriai iš Anglijos
 nl:Engelse kazen
 ru:Английские сыры
 origins:en: en:England
@@ -42073,6 +42168,7 @@ wikidata:en:Q3058285
 en:Cheeses from Northern Ireland
 de:Nord Irischer Käse
 fr:Fromages d'Irlande du Nord, Fromages nord-irlandais
+lt:Sūriai iš Šiaurės Airijos
 nl:Noordierse kazen
 origins:en: en:United Kingdom, en:Northern Ireland
 
@@ -42086,6 +42182,7 @@ en:German cheeses, Cheeses from Germany
 de:Deutscher Käse
 es:Quesos alemanes, Quesos de Alemania
 fr:Fromages allemands
+lt:Vokiški sūriai
 origins:en: en:Germany
 wikidata:en:Q3088353
 
@@ -42174,6 +42271,7 @@ fi:Alankomaalaiset juustot, Hollantilaiset juustot
 fr:Fromages des Pays-Bas, Fromages néerlandais, Fromages hollandais
 he:גבינות הולנדיות
 it:Formaggi olandesi
+lt:Nyderlandiški sūriai, sūriai iš Olandijos
 nl:Nederlandse kazen, Hollandse kazen
 nl_be:Nederlandse kaas, Hollandse kaas
 ru:Голландские сыры
@@ -42186,6 +42284,7 @@ es:Queso fundido
 fi:sulatettu juusto
 fr:Fromages fondus, Fromage fondu
 it:Formaggio fuso
+lt:Lydyti sūriai
 nl:Funduekazen
 wikidata:en:Q190531
 agribalyse_food_code:en:12355
@@ -42252,6 +42351,7 @@ nl:Fabriekskazen, Industriële kazen
 
 <en:Cheeses
 en:Irish cheeses, cheeses from Ireland
+lt:Airiški sūriai
 
 <en:Irish cheeses
 ie:Imokilly Regato
@@ -42270,6 +42370,7 @@ fr:Fromages italiens, Fromages d'Italie
 he:גבינות איטלקיות
 hu:Olasz sajtok
 it:Formaggi italiani
+lt:Itališki sūriai, sūriai iš Italijos
 nl:Italiaanse kazen
 pt:Queijos italianos, Queijos da Italia
 ru:Итальянские сыры
@@ -42467,6 +42568,7 @@ fr:Mozzarella
 he:מוצרלה
 hu:Mozzarella
 it:Mozzarella
+lt:Mocarela
 nl:Mozzarella
 pl:Mozzarella
 ru:Моцарелла
@@ -42574,6 +42676,7 @@ es:Parmigiano-Reggiano, Parmesano
 fi:Parmigiano-Reggiano, Parmesaani
 fr:Parmigiano Reggiano, parmesan
 it:Parmigiano Reggiano
+lt:Parmezanas
 nl:Parmigiano-Reggiano, Parmezaan, Parmezaanse kaas
 wikidata:en:Q155922
 protected_name_file_number:en: PDO-IT-0016
@@ -42903,6 +43006,7 @@ wikidata:en:Q25496672
 en:Polish cheeses, cheeses from Poland
 de:Polnischer Käse
 fr:Fromages polonais, Fromages de Pologne
+lt:Lenkiški sūriai
 nl:Poolse kazen
 origins:en: en:Poland
 wikidata:en:Q46978738
@@ -42950,6 +43054,7 @@ wikidata:en:Q22694615
 en:Portuguese cheeses, cheeses from Portugual
 de:Portugisischer Käse
 fr:Fromages portugais, Fromages du Portugal
+lt:Portugališki sūriai
 nl:Portugese kazen
 origins:en: en:Portugal
 wikidata:en:Q3088371
@@ -43041,6 +43146,7 @@ wikidata:en:Q2105448
 <en:Cheeses
 en:Romanian cheeses, Cheeses from Romania
 fr:Fromages roumains
+lt:Romaniški sūriai
 wikidata:en:Q3088373
 
 <en:Romanian cheeses
@@ -43068,6 +43174,7 @@ wikidata:en:Q60838883
 en:Slovakian cheeses, cheeses from Slovakia
 de:Slovakischer Käse
 fr:Fromages de Slovaquie, Fromages slovaques
+lt:Slovakiški sūriai
 nl:Slowaakse kazen
 origins:en: en:Slovakia
 wikidata:en:Q3088374
@@ -43201,6 +43308,7 @@ es:Quesos españoles
 fi:Espanjalaiset juustot, juustot Espanjasta
 fr:Fromages espagnols, Fromages d'Espagne
 it:Formaggi spagnoli
+lt:Ispaniški sūriai
 nl:Spaanse kazen
 wikidata:en:Q27038733
 
@@ -43446,6 +43554,7 @@ wikidata:en:Q6094554
 en:Swedish cheeses, cheeses from Sweden
 de:Schwedischer Käse
 fr:Fromages suédois, Fromages de Suède
+lt:Švediški sūriai
 origins:en: en:Sweden
 wikidata:en:Q3088375
 
@@ -43559,6 +43668,7 @@ fr:Fromages pasteurisés, fromages au lait pasteurisé, fromage pasteurisé
 he:גבינות מפוסטרות
 hu:Pasztőrözött sajt
 it:Formaggi pastorizzati
+lt:Pasterizuoti sūriai
 nl:Gepasteuriseerde kazen
 ru:Пастеризованные сыры
 wikidata:en:Q19341731
@@ -43572,6 +43682,7 @@ fi:juustoraaste
 fr:Fromages râpés, fromage rapé
 he:גבינה מגוררת, גבינה מפוררת, גבינה מגורדת
 it:Formaggio grattugiato
+lt:Tarkuoti sūriai, Tarkuotas sūris
 nl:Geraspte kazen
 ru:Тертый сыр
 wikidata:en:Q3088336
@@ -43751,6 +43862,7 @@ fr:Crèmes, Crème
 he:שמנות
 hu:Krémek
 it:Panne, panna
+lt:Grietinėlės, Grietinėlė
 nl:Romen
 pl:Śmietanki
 pt:Natas, nata
@@ -43771,6 +43883,7 @@ fi:Laktoosittomat kermat
 fr:Crèmes sans lactose
 hu:Laktózmentes krémek
 it:Creme senza lattosio
+lt:Grietinėlės be laktozės
 nl:Lactosevrije room, Lactosevrije romen, Room zonder lactose, Romen zonder lactose
 sv:Laktosfri grädde
 
@@ -43784,6 +43897,7 @@ fi:kermavaahdot
 fr:Crèmes fouettées
 hr:vrhnje za šlag
 it:Panna montata
+lt:Plaktos grietinėlės
 nl:Slagromen
 wikidata:en:Q625957
 
@@ -43797,6 +43911,7 @@ wikidata:en:Q6384329
 en:Squirty creams, Spray creams
 de:Sprühsahne
 fr:Crèmes sous pression
+lt:Purškiamos grietinėlės
 nl:Slagroomflessen
 
 <en:Creams
@@ -43878,6 +43993,7 @@ fi:Fermentoidut kermat
 fr:Crèmes épaisses, crèmes fraîches épaisses, Crème fraîche épaisse, crème épaisse
 hu:Erjesztett krémek
 it:Creme fermentate
+lt:Fermentuota grietinėlė
 nl:Gefermenteerde room
 
 <en:Fermented creams
@@ -43935,6 +44051,7 @@ fi:hapankermat
 fr:Crèmes aigres
 hu:Tejföl, tejfel
 it:Panna acida
+lt:Grietinės, Grietinė
 nl:Zure romen
 sl:Kisla smetana
 sv:Gräddfil
@@ -44055,6 +44172,7 @@ es:La pasta de leche
 fi:Maitolevitteet
 fr:Produits laitiers à tartiner
 he:ממרח חלבי
+lt:Pieno užtepėlės
 it:Latticini spalmabili
 nl:Zuivelsmeersels
 
@@ -44082,6 +44200,7 @@ he:חמאות
 hr:Maslac
 hu:Vajak
 it:Burro
+lt:Sviestai
 nl:Roomboters
 pl:Masła, masło
 pt:Manteigas
@@ -44102,6 +44221,7 @@ en:Light butter, Low-fat butter spread
 de:fettarme Butter, Halbfettbutter
 fi:Vähärasvainen voi, Kevyempi voi, Kevytvoi
 fr:Beurres allégés, Beurre allegé, Beurre doux allégé léger, Beurre doux allégé à teneur reduite en matière grasse
+lt:Neriebaus sviesto užtepėlė
 nl:Light roomboters
 ciqual_food_code:en:16412
 ciqual_food_name:en:Butter spread, low-fat (average)
@@ -44113,6 +44233,7 @@ de:leicht gesalzene Butter
 fi:puoliksi suolattu voi
 fr:Beurres demi-sel, beurre demi-sel
 it:Burro semi-salato
+lt:Pusiau sūdyti sviestai
 nl:Lichtgezouten roomboters
 agribalyse_proxy_food_code:en:16402
 ciqual_food_code:en:16413
@@ -44122,6 +44243,7 @@ ciqual_food_name:fr:Beurre à teneur en matière grasse inconnue (allégé ou no
 <en:Half-salted butter
 en:Lightly salted butter with 80% fat
 fr:Beurres demi-sel à 80% MG
+lt:Lengvai sūdyti sviestai 80% riebumo
 agribalyse_food_code:en:16402
 ciqual_food_code:en:16402
 ciqual_food_name:en:Butter, 80% fat, lightly salted
@@ -44129,6 +44251,7 @@ ciqual_food_name:en:Butter, 80% fat, lightly salted
 <en:Half-salted butter
 en:Lightly salted light butter with 60-62% fat
 fr:Beurres demi-sel à 60-62% MG à teneur réduite en matière grasse
+lt:Lengvai sūdyti sviestai 60-62% riebumo
 agribalyse_food_code:en:16411
 ciqual_food_code:en:16411
 ciqual_food_name:en:Butter, 60-62% fat, light, lightly salted
@@ -44137,6 +44260,7 @@ ciqual_food_name:en:Butter, 60-62% fat, light, lightly salted
 en:sour cream butters, sour cream butter
 de:Sauerrahmbutter
 fr:Beurre de culture, beurre de crème acide
+lt:Grietinės sviestai, grietinės sviestas
 ru:Масло кисло-сливочное, Масло кислосливочное, Кисло-сливочное масло, Кислосливочное масло
 
 <en:Butters
@@ -44158,6 +44282,7 @@ es:Mantequila sin sal
 fi:suolattomat voit
 fr:Beurres doux, beurre doux, beurres non salés, beurres sans sel
 it:Burro non salato
+lt:Sviestai be druskos
 nl:Ongezouten roomboters
 agribalyse_proxy_food_code:en:16400
 ciqual_food_code:en:16414
@@ -44167,6 +44292,7 @@ ciqual_food_name:fr:Beurre ou assimilé à teneur en matière grasse inconnue, d
 <en:Unsalted butters
 en:Unsalted butter with 82% fat
 fr:Beurre doux à 82% MG
+lt:Sviestai be druskos 82% riebumo
 agribalyse_food_code:en:16400
 ciqual_food_code:en:16400
 ciqual_food_name:en:Butter, 82% fat, unsalted
@@ -44205,6 +44331,7 @@ es:Mantequilla pasteurizada
 fi:Pastöroidut voit
 fr:Beurres pasteurisés
 it:Burro pastorizzato
+lt:Pasterizuoti sviestai
 nl:Gepasteuriseerde roomboters
 
 <en:Butters
@@ -44214,6 +44341,7 @@ es:Mantequilla con sal
 fi:suolatut voit
 fr:Beurres salés, beurre salé
 it:Burro salato
+lt:Sviestai su druska
 nl:Gezouten roomboters
 agribalyse_food_code:en:16403
 ciqual_food_code:en:16403
@@ -44227,6 +44355,7 @@ de:Dreiviertelfettbutter
 <en:Butters
 en:Belgian butters
 fr:Beurres belges
+lt:Belgiški sviestai
 origins:en: en:Belgium
 #wikidata:en:
 
@@ -44240,6 +44369,7 @@ wikidata:en:Q2900329
 <en:Butters
 en:French butters
 fr:Beurres français
+lt:Prancūziški sviestai
 origins:en: en:France
 #wikidata:en:
 
@@ -44285,6 +44415,7 @@ origins:en: en:France
 <en:Butters
 en:Spanish butters
 fr:Graisses espagnoles
+lt:Ispaniški sviestai
 nl:Spaanse roomboters
 
 <en:Spanish butters
