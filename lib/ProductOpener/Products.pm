@@ -1179,10 +1179,10 @@ sub store_product($user_id, $product_ref, $comment) {
 	store("$new_data_root/products/$path/changes.sto", $changes_ref);
 	log_change($product_ref, $change_ref);
 
+	$log->debug("store_product - done", { code => $code, product_id => $product_id } ) if $log->is_debug();
+
 	# index for search service
 	push_to_search_service($product_ref);
-
-	$log->debug("store_product - done", { code => $code, product_id => $product_id } ) if $log->is_debug();
 
 	return 1;
 }

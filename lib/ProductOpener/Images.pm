@@ -376,7 +376,7 @@ JS
 		sequentialUploads: true,
         dataType: 'json',
         url: '/cgi/product.pl',
-		formData : [{name: 'jqueryfileupload', value: 1}],
+		formData : [{name: 'jqueryfileupload', value: 1}, {name: 'action', value: 'process'}, {name: 'type', value:'search_or_add'}],
 		resizeMaxWidth : 2000,
 		resizeMaxHeight : 2000,
         done: function (e, data) {

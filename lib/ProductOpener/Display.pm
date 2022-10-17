@@ -6833,13 +6833,15 @@ sub display_page($request_ref) {
 	my $type;
 	my $id;
 
+	# TODO: 2022/10/12 - in the new website design, we removed the side column where we displayed blocks
+	# Those blocks need to be migrated to the new design (if we want to keep them)
+	# and the corresponding code needs to be removed
+
 	$log->debug("displaying blocks") if $log->is_debug();
 
 	display_login_register($blocks_ref);
 
 	display_my_block($blocks_ref);
-
-	display_product_search_or_add($blocks_ref);
 
 	display_on_the_blog($blocks_ref);
 
