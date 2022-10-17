@@ -58,7 +58,6 @@ BEGIN
 		&display_login_register
 		&display_blocks
 		&display_my_block
-		&display_product_search_or_add
 		&display_field
 		&display_data_quality_issues_and_improvement_opportunities
 		&display_data_quality_description
@@ -72,6 +71,10 @@ use vars @EXPORT_OK;
 
 
 =head1 FUNCTIONS
+
+# TODO: 2022/10/12 - in the new website design, we removed the side column where we displayed blocks
+# Those blocks need to be migrated to the new design (if we want to keep them)
+# and the corresponding code needs to be removed
 
 =head2 display_blocks( $request_ref )
 
@@ -161,55 +164,7 @@ sub display_login_register($blocks_ref) {
 }
 
 
-=head2 display_product_search_or_add ( $blocks_ref )
-
-The sidebar of home page consists of blocks. This function is used to to display the product block to add a new product or search an existing product. Product can be added with or without barcode.
-
-=cut
-
-sub display_product_search_or_add($blocks_ref) {
-	# Producer platform and no org or not admin: do not offer to add products
-
-	if (($server_options{producers_platform})
-		and not ((defined $Owner_id) and (($Owner_id =~ /^org-/) or ($User{moderator}) or $User{pro_moderator}))) {
-		return "";
-	}
-
-	my $title = lang("add_product");
-
-	my $html = '';
-	my $template_data_ref_content = {};
-	$template_data_ref_content->{server_options_producers_platform} = $server_options{producers_platform};
-
-	# Producers platform: display an addition import products block
-
-	if ($server_options{producers_platform}) {
-		my $html_producer = '';
-		my $template_data_ref_content_producer = {};
-
-		process_template('web/common/includes/display_product_search_or_add_producer.tt.html', $template_data_ref_content_producer, \$html_producer) || ($html_producer = "template error: " . $tt->error());
-
-		push @{$blocks_ref}, {
-			'title'=>lang("import_products"),
-			'content'=>$html_producer,
-		};
-
-	}
-
-	$template_data_ref_content->{display_search_image_form} = display_search_image_form("block_side");
-	process_template('web/common/includes/display_product_search_or_add.tt.html', $template_data_ref_content, \$html) || ($html = "template error: " . $tt->error());
-
-	push @{$blocks_ref}, {
-			'title'=>$title,
-			'content'=> $html,
-	};
-
-
-	return;
-}
-
-
-=head2 display_product_search_or_add ( $product_ref, $field )
+=head2 display_field ( $product_ref, $field )
 
 This function is used to display the one characteristic in the product's characteristics section on the product page.
 

@@ -20,7 +20,6 @@
     <link rel="stylesheet" href="[% static_subdomain %]/css/dist/jqueryui/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="[% static_subdomain %]/css/dist/select2.min.css">
     <link rel="search" href="[% formatted_subdomain %]/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="[% lang('site_name') %]">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans&family=Material+Icons">
 	[% header %]
     <style media="all">
         [% lang("css") %]
@@ -56,6 +55,8 @@
 								<li>
 									<a href="/cgi/search.pl?graph=1">[% lang('graphs_and_maps') %]</a>
 								</li>
+
+								<li><a href="/cgi/product.pl?type=search_or_add&action=display">[% lang('add_product') %]</a></li>
 							</ul>
 						</li>
 						
