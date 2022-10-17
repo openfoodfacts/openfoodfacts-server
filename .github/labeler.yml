@@ -27,6 +27,8 @@ taxonomies:
 - scripts/translate_taxonomy_with_eu_translations.pl
 - scripts/list_taxonomy_entries.pl
 - scripts/sort_languages_in_taxonomy.pl
+- scripts/add_users_translations_to_taxonomy.pl
+- scripts/add_descriptions_to_taxonomy_from_eu_translations.pl
 
 taxonomies rebuild:
 - taxonomies/additives.result.sto
@@ -66,6 +68,7 @@ open beauty facts:
 - scripts/gen_obf_ingredients_taxonomy_from_cosing.pl
 - html/files/tagline-obf.json
 - lib/ProductOpener/Config_obf.pm
+- scripts/generate_polyquaternium.pl
 
 open products facts:
 - taxonomies.opf/**/*
@@ -88,6 +91,8 @@ translations:
 - scripts/update_top_translators.pl
 - scripts/check_po_file.pl
 - scripts/print_all_translations.pl
+- scripts/add_users_translations_to_taxonomy.pl
+- scripts/add_descriptions_to_taxonomy_from_eu_translations.pl
 
 tests:
 - test/**/*
@@ -103,6 +108,7 @@ Template::Toolkit:
 
 documentation:
 - docs/**/*
+- scripts/generate_perl_html_doc_from_pod.pl
 
 docker:
 - docker/**/*
@@ -494,8 +500,6 @@ Made Near Me:
 
 PAO:
 - scripts/generate_pao_taxonomy.pl
-scripts/generate_perl_html_doc_from_pod.pl
-scripts/generate_polyquaternium.pl
 
 blog:
 - scripts/get_blog_updates.pl
@@ -604,14 +608,12 @@ lib/ProductOpener/Users.pm
 lib/ProductOpener/Text.pm
 lib/startup_apache2.pl
 
-- scripts/add_descriptions_to_taxonomy_from_eu_translations.pl
 
-- scripts/add_users_translations_to_taxonomy.pl
+
+
 - scripts/aggregate_ingredients.pl
 - scripts/api_stats.pl
-
 - scripts/build_lang.pl
-
 - scripts/check_lang_pm.pl
 - scripts/check_photos.pl
 
