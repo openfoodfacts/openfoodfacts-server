@@ -7,8 +7,14 @@ description: |-
 
   For some specific texts that correspond to a product field (e.g. a product name, the ingredients list of a product),the edit_field_* fields are used to indicate how to edit the field value.
 properties:
-  type:
+  text_type:
     type: string
+    description: |
+      the type of text, might influence the way you display it.
+    enum:
+      - summary
+      - warning
+      - notes
   html:
     type: string
     description: Text to display in HTML format.
@@ -27,3 +33,19 @@ properties:
   edit_field_value:
     type: string
     description: Current value of the product field. This may differ from the html field which can contain extra formating.
+  source_url:
+    type: string
+    description: Link to the source
+    example: https://en.wikipedia.org/wiki/Sodium acetate
+  source_text:
+    type: string
+    description: name of the source
+    example: Wikipedia
+  source_lc:
+    type: string
+    description: Source locale name
+    example: en
+  source_language:
+    type: string
+    description: Human readable source locale name
+    example: English
