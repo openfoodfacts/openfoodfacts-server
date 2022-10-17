@@ -4460,9 +4460,9 @@ x-examples:
       vitamins_tags: []
     status: 1
     status_verbose: product found
-AllOf:
+allOf:
   - $ref: ./get_product_by_barcode_base.yaml
-  - type: Object
+  - type: object
     properties:
       product:
         $ref: ../schemas/product.yaml

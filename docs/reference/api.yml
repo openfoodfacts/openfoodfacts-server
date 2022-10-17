@@ -71,12 +71,12 @@ paths:
           content:
             application/json:
               schema:
-                AllOf:
+                allOf:
                   - $ref: ./responses/get_product_by_barcode_base.yaml
-                  - type: Object
+                  - type: object
                     properties:
                       product:
-                        type: Object
+                        type: object
                         properties:
                           knowledge_panels:
                             $ref: ./schemas/knowledge_panels/panels.yaml
