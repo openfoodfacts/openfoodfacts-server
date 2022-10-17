@@ -5,6 +5,6 @@ type: object
 description: Model for creating or updating products using the v3 version of the product update API.
 properties:
   packagings:
-    $ref: ./packagings/packagings.yaml
+    $ref: ./packagings/packagings - input.yaml
   packagings_add:
-    $ref: ./packagings/packagings.yaml
+    $ref: ./packagings/packagings - input.yaml

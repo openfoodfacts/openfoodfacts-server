@@ -219,11 +219,70 @@ paths:
   /api/v3/product:
     parameters: []
     post:
-      summary: Create or update product
+      summary: Create or update product (API V3)
       operationId: post-api-v3-product-barcode
       responses:
         '200':
-          description: OK
+          description: |-
+            OK
+
+            The response will include a "product" structure. The fields returned in this structure will depend on the value of the "fields" input field:
+
+            - "updated" (default): all fields updated by the query will be returned, including fields that are directly generated from the updated fields. For instance, sending "packagings" or "packagings_add" will return the "packagings" field.
+
+            - "none": no fields are returned.
+
+            - "all": returns all fields except generated fields that need to be explicitly requested such as "knowledge_panels".
+
+            The "fields" values can also be concatenated: "all,knowledge_panels"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_ok:
+                    type: boolean
+                  status_id:
+                    type: string
+                    description: 'A short string identifier for the status, in English (e.g. "product_updated".'
+                  status_message:
+                    type: string
+                    description: A brief status message in the language requested in the "lc" field of the request (e.g. "The product has been updated.")
+                  product:
+                    $ref: ./schemas/product.yaml
+              examples:
+                Update of packagings:
+                  value:
+                    status_ok: true
+                    status_id: product_updated
+                    status_message: The product has been updated
+                    product:
+                      packagings:
+                        - material: 'en:pp-polypropylene'
+                          number: '2'
+                          recycling: 'en:discard'
+                          shape: 'en:lid'
+                        - material: 'en:non-corrugated-cardboard'
+                          number: '1'
+                          recycling: 'en:recycle'
+                          shape: 'en:box'
+                          weight: 120
+                        - material: 'en:paper-and-fibreboard-aluminium'
+                          number: '2'
+                          recycling: 'en:recycle'
+                          shape: 'en:seal'
+                        - material: 'en:clear-glass'
+                          number: '2'
+                          recycling: 'en:recycle'
+                          shape: 'en:jar'
+                          quantity: 200 ML
+                          quantity_value: 200
+                          quantity_unit: ml
+                          weight: 80
+          headers:
+            header-0:
+              schema:
+                type: string
       description: |-
         New proposed API to send structured product data in a JSON format instead of in a flattened list of key / value pairs field as-in the current product add / edit API that relies on a multipart/form-data format.
 
@@ -242,8 +301,17 @@ paths:
                   type: string
                 code:
                   type: string
+                lc:
+                  type: string
+                  description: '2 letter code of the language of the interface. Used as default language for input fields without a language specified (e.g. free text value in a tags field), and for localizing some fields in returned values (e.g. knowledge panels).'
+                cc:
+                  type: string
+                  description: 2 letter code of the country of the user. Used for localizing some fields in returned values (e.g. knowledge panels).
                 product:
                   $ref: ./schemas/product_update_api_v3.yaml
+                fields:
+                  type: string
+                  description: 'Comma separated list of fields requested in the response. Special values: "updated": returns field that were updated by the query (e.g. sending "packagings" or "packagings_add" would return "packagings"), "none": returns no fields, "all": returns all fields except generated fields that need to be explicitly requested such as "knowledge_panels". Defaults to "updated".'
             examples:
               Replacing all packaging components:
                 value:
@@ -260,7 +328,7 @@ paths:
                         number: '1'
                         recycling: 'en:recycle'
                         shape: 'en:box'
-                        weight: 120
+                        weight_measured: 120
                       - material: 'en:paper-and-fibreboard-aluminium'
                         number: '2'
                         recycling: 'en:recycle'
@@ -270,9 +338,7 @@ paths:
                         recycling: 'en:recycle'
                         shape: 'en:jar'
                         quantity: 200 ML
-                        quantity_value: 200
-                        quantity_unit: ml
-                        weight: 80
+                        weight_measured: 80
               Adding data about some packaging components:
                 value:
                   userid: string
@@ -286,7 +352,7 @@ paths:
             schema:
               type: object
               properties: {}
-        description: |-
+        description: |
           Structured data for the product is passed in the product field.
 
           For complex structures such as the packagings object, it is possible to replace pre-existing data, or completing it:
