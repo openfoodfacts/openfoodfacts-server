@@ -6,6 +6,7 @@ fr:Inconnu, inconnue, inconnus, inconnues
 hu:Ismeretlen
 nl:overig
 pt:Desconhecido
+description:en:Unidentified packaging
 description:nl:Niet herkende verpakking
 
 # For all containers: use singular as the main name, and add plural as synonym
@@ -16,14 +17,27 @@ description:nl:Niet herkende verpakking
 # en:Carton, cartons
 # Currently removed to avoid confusion with the French carton (cardboard). Can be added back later once packagings are fully taxonomized.
 
-en:container, carton
-es:recipiente
-fr:récipient
+#en:container, carton
+#es:recipiente
+#fr:récipient
 
 # undefined packaging shape: (e.g. "plastic packaging")
 en:packaging
 bg:опаковка
+ca:embalatge
+cs:zabalení
+de:Verpackung
+el:αμπαλάρισμα 
+fi:pakkausmateriaali
 fr:emballage
+hy:փաթեթավորում
+id:kemasan
+it:imballaggio
+nl:verpakking
+pl:opakowanie
+ru:упако́вка
+sv:förpackningsmaterial
+description:nl:Het materiaal waarin iets verpakt is.
 
 # e.g. flour packet, paquet de biscuits, pack d'eau, beer pack
 en:pack, packet, packs, packets, package
