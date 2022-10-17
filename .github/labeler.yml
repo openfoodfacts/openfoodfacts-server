@@ -29,6 +29,7 @@ taxonomies:
 - scripts/sort_languages_in_taxonomy.pl
 - scripts/add_users_translations_to_taxonomy.pl
 - scripts/add_descriptions_to_taxonomy_from_eu_translations.pl
+- cgi/translate_taxonomy.pl
 
 taxonomies rebuild:
 - taxonomies/additives.result.sto
@@ -94,11 +95,13 @@ translations:
 - scripts/add_users_translations_to_taxonomy.pl
 - scripts/add_descriptions_to_taxonomy_from_eu_translations.pl
 - cgi/top_translators.pl
+- cgi/translate_taxonomy.pl
 
 tests:
 - test/**/*
 - tests/**/*
 - t/**/*
+- lib/ProductOpener/Test.pm
 
 dependancies:
 - package.json
@@ -201,6 +204,7 @@ gs1:
 data import:
 - lib/ProductOpener/Import.pm
 - lib/ProductOpener/ImportConvert.pm
+- scripts/convert_csv_file.pl
 
 ingredients:
 - lib/ProductOpener/Ingredients.pm
@@ -223,6 +227,10 @@ ingredients analysis:
 - templates/api/knowledge-panels/health/ingredients/ingredients_analysis_property.tt.json
 - templates/api/knowledge-panels/health/ingredients/ingredients_analysis.tt.json
 - cgi/test_ingredients_analysis.pl
+- scripts/test_extract_ingredients_from_text.pl
+- scripts/list_ingredients.pl
+- scripts/extract_individual_ingredients.pl
+- scripts/aggregate_ingredients.pl
 
 labels:
 - taxonomies/labels.txt
@@ -376,6 +384,9 @@ producers platform:
 - tests/unit/import_convert_carrefour_france.t
 - scripts/tag_stores_magasins_u.pl
 - lib/ProductOpener/ImportConvertCarrefourFrance.pm
+- cgi/remove_products.pl
+- scripts/remove_all_private_products_for_owner.pl
+- scripts/gen_pro_users_emails_list.pl
 
 store:
 - lib/ProductOpener/Store.pm
@@ -392,6 +403,7 @@ images:
 - cgi/product_image_rotate.pl
 - cgi/product_image_unselect.pl
 - cgi/product_image_upload.pl
+- scripts/delete_old_cropped_images.pl
 
 Products:
 - lib/ProductOpener/Products.pm
@@ -404,6 +416,8 @@ Recipes:
 Tags:
 - lib/ProductOpener/Tags.pm
 - templates/web/pages/tags_map/map_of_tags.tt.html
+- scripts/gen_top_tags_per_country.pl
+- lib/ProductOpener/TagsEntries.pm
 
 Text:
 - lib/ProductOpener/Text.pm
@@ -472,6 +486,7 @@ Top translators:
 Recent changes:
 - templates/web/common/includes/display_recent_changes.tt.html
 - scripts/update_recent_changes.pl
+- cgi/recent_changes.pl
 
 Nutrient levels:
 - templates/web/pages/product/includes/nutrient_levels.tt.html
@@ -562,6 +577,7 @@ moderation:
 - scripts/remove_empty_products.pl
 - scripts/remove_products_without_code.pl
 - scripts/find_and_replace_user_id_in_products.pl
+- cgi/remove_products.pl
 
 sto:
 - scripts/sto_to_json.pl
@@ -612,62 +628,49 @@ unit tests:
 - tests/unit/templates.t
 - tests/unit/text.t
 
-- scripts/convert_csv_file.pl
-- scripts/copy_text_files.pl
-- scripts/create_small_categories_nutriments_per_country_for_testing.pl
-- scripts/delete_old_cropped_images.pl
-- scripts/extract_images.pl
-- scripts/extract_individual_ingredients.pl
-- scripts/gen_pro_users_emails_list.pl
-- scripts/remove_all_private_products_for_owner.pl
-- scripts/gen_top_tags_per_country.pl
-- scripts/list_ingredients.pl
-- scripts/test_extract_ingredients_from_text.pl
-- scripts/test_text_fuzzy.pl
-- cgi/import_file_job_status.pl
+multilingual products:
+- cgi/product_jqm_multilingual.pl
+- cgi/product_multilingual.pl
+
+file import:
 - cgi/import_file_process.pl
 - cgi/import_file_select_format.pl
 - cgi/import_file_upload.pl
+
+apache:
+- lib/startup_apache2.pl
+
+API:
+- scripts/api_stats.pl
+
+monitoring:
+- scripts/api_stats.pl
+
+
+- scripts/copy_text_files.pl
+- scripts/create_small_categories_nutriments_per_country_for_testing.pl
+- scripts/extract_images.pl
+- scripts/test_text_fuzzy.pl
+- cgi/import_file_job_status.pl
 - cgi/import_photos_upload.pl
 - cgi/import_products_categories_from_public_database.pl
-- cgi/product_jqm_multilingual.pl
-- cgi/recent_changes.pl
-- cgi/remove_products.pl
-- cgi/translate_taxonomy.pl
 - cgi/user.pl
 - cgi/display.pl
-- cgi/product_multilingual.pl
 - lib/ProductOpener/Cache.pm
-- lib/ProductOpener/Ecoscore.pm
 - lib/ProductOpener/Export.pm
-- lib/ProductOpener/GS1.pm
 - lib/ProductOpener/I18N.pm
-- lib/ProductOpener/Import.pm
 - lib/ProductOpener/MainCountries.pm
-- lib/ProductOpener/Numbers.pm
 - lib/ProductOpener/PerlStandards.pm
-- lib/ProductOpener/TagsEntries.pm
-- lib/ProductOpener/Test.pm
 - lib/ProductOpener/URL.pm
 - lib/ProductOpener/Version.pm
 - lib/ProductOpener/Data.pm
 - lib/ProductOpener/Web.pm
-- lib/ProductOpener/ImportConvert.pm
 - lib/ProductOpener/Products.pm
 - lib/ProductOpener/Display.pm
-- lib/ProductOpener/Food.pm
-- lib/ProductOpener/Images.pm
 - lib/ProductOpener/Index.pm
-- lib/ProductOpener/Ingredients.pm
 - lib/ProductOpener/Lang.pm
-- lib/ProductOpener/Tags.pm
 - lib/ProductOpener/Users.pm
 - lib/ProductOpener/Text.pm
-- lib/startup_apache2.pl
-- scripts/aggregate_ingredients.pl
-- scripts/api_stats.pl
 - scripts/build_lang.pl
 - scripts/check_lang_pm.pl
 - scripts/check_photos.pl
-
-
