@@ -387,6 +387,7 @@ producers platform:
 - cgi/remove_products.pl
 - scripts/remove_all_private_products_for_owner.pl
 - scripts/gen_pro_users_emails_list.pl
+- cgi/import_products_categories_from_public_database.pl
 
 store:
 - lib/ProductOpener/Store.pm
@@ -436,6 +437,7 @@ Users:
 - scripts/gen_users_emails_list.pl
 - scripts/gen_users_lists.pl
 - scripts/gen_users_names.pl
+- cgi/user.pl
 
 Web:
 - lib/ProductOpener/Web.pm
@@ -493,6 +495,7 @@ Nutrient levels:
 
 Product history:
 - templates/web/pages/product/includes/display_rev_info.tt.html
+- lib/ProductOpener/Version.pm
 
 - templates/web/pages/tag/tag.tt.html
 - templates/web/common/site_layout.tt.html
@@ -646,31 +649,31 @@ API:
 monitoring:
 - scripts/api_stats.pl
 
-
-- scripts/copy_text_files.pl
+averages by categories:
 - scripts/create_small_categories_nutriments_per_country_for_testing.pl
-- scripts/extract_images.pl
-- scripts/test_text_fuzzy.pl
-- cgi/import_file_job_status.pl
-- cgi/import_photos_upload.pl
-- cgi/import_products_categories_from_public_database.pl
-- cgi/user.pl
-- cgi/display.pl
-- lib/ProductOpener/Cache.pm
-- lib/ProductOpener/Export.pm
-- lib/ProductOpener/I18N.pm
-- lib/ProductOpener/MainCountries.pm
-- lib/ProductOpener/PerlStandards.pm
-- lib/ProductOpener/URL.pm
-- lib/ProductOpener/Version.pm
-- lib/ProductOpener/Data.pm
-- lib/ProductOpener/Web.pm
-- lib/ProductOpener/Products.pm
-- lib/ProductOpener/Display.pm
-- lib/ProductOpener/Index.pm
-- lib/ProductOpener/Lang.pm
-- lib/ProductOpener/Users.pm
-- lib/ProductOpener/Text.pm
-- scripts/build_lang.pl
-- scripts/check_lang_pm.pl
-- scripts/check_photos.pl
+
+static content:
+- scripts/copy_text_files.pl
+
+# TODO: find or create proper labels for those
+#- scripts/extract_images.pl
+#- scripts/test_text_fuzzy.pl
+#- cgi/import_file_job_status.pl
+#- cgi/display.pl
+#- lib/ProductOpener/Display.pm
+#- lib/ProductOpener/Cache.pm
+#- lib/ProductOpener/Export.pm
+#- lib/ProductOpener/I18N.pm
+#- lib/ProductOpener/MainCountries.pm
+#- lib/ProductOpener/PerlStandards.pm
+#- lib/ProductOpener/URL.pm
+#- lib/ProductOpener/Data.pm
+#- lib/ProductOpener/Web.pm
+#- lib/ProductOpener/Products.pm
+#- lib/ProductOpener/Index.pm
+#- lib/ProductOpener/Lang.pm
+#- lib/ProductOpener/Text.pm
+#- scripts/build_lang.pl
+#- scripts/check_lang_pm.pl
+#- scripts/check_photos.pl
+#- cgi/import_photos_upload.pl
