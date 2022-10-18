@@ -27,5 +27,5 @@ examples:
       quantity: 200 ML
       weight_measured: 85
 items:
-  $ref: ./packaging_component - input.yaml
+  $ref: ./packaging_component -write.yaml
 readOnly: true

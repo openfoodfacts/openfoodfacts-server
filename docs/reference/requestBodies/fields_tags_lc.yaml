@@ -16,5 +16,7 @@ properties:
 
       For WRITE requests: if passed, taxonomized tags fields with a lc_name property will be considered to be in this language.
 examples:
-  - fields: 'product_name,ingredients_text,ingredients'
+  - fields: 'product_name,packagings'
+    tags_lc: fr
+  - fields: updated
     tags_lc: fr

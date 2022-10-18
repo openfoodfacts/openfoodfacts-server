@@ -317,7 +317,8 @@ paths:
                       - material: 'en:pp-polypropylene'
                         number: '2'
                         recycling: 'en:discard'
-                        shape: 'en:lid'
+                        shape:
+                          id: 'en:lid'
                       - material: 'en:non-corrugated-cardboard'
                         number: '1'
                         recycling: 'en:recycle'
@@ -353,13 +354,7 @@ paths:
 
           - an object sent in the packagings field will replace any pre-existing data.
           - an object sent in the field suffixed with _add (e.g. packagings_add) will be merged with any pre-existing data.
-      parameters:
-        - schema:
-            type: string
-          in: header
-        - schema:
-            type: string
-          in: header
+      parameters: []
 components:
   schemas:
     Product:
