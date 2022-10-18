@@ -171,7 +171,7 @@ serum-proteins_100g
 nucleotides_100g
 salt_100g
 sodium_100g
-alcohol_100g
+alcohol_100g : % vol of alcohol
 vitamin-a_100g
 beta-carotene_100g
 vitamin-d_100g
@@ -185,8 +185,8 @@ vitamin-b6_100g
 vitamin-b9_100g
 folates_100g
 vitamin-b12_100g
-biotin_100g
-pantothenic-acid_100g
+biotin_100g: also known as Vitamine B8
+pantothenic-acid_100g: also known as Vitamine B5
 silica_100g
 bicarbonate_100g
 potassium_100g
@@ -205,18 +205,18 @@ molybdenum_100g
 iodine_100g
 caffeine_100g
 taurine_100g
-ph_100g
-fruits-vegetables-nuts_100g
+ph_100g: pH (no unit)
+fruits-vegetables-nuts_100g: % of fruits, vegetables and nuts (excluding potatoes, yams, manioc)
 fruits-vegetables-nuts-dried_100g
 fruits-vegetables-nuts-estimate_100g
 fruits-vegetables-nuts-estimate-from-ingredients_100g
 collagen-meat-protein-ratio_100g
 cocoa_100g
 chlorophyl_100g
-carbon-footprint_100g
+carbon-footprint_100g: carbon footprint (as indicated on the packaging of some products)
 carbon-footprint-from-meat-or-fish_100g
-nutrition-score-fr_100g
-nutrition-score-uk_100g
+nutrition-score-fr_100g : Nutri-Score - Nutrition score derived from the UK FSA score and adapted for the French market (formula defined by the team of Professor Hercberg)
+nutrition-score-uk_100g : nutrition score defined by the UK Food Standards Administration (FSA)
 glycemic-index_100g
 water-hardness_100g
 holine_100g
