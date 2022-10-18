@@ -97,7 +97,7 @@ sub sanitize_field_content {
 }
 
 
-my %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes=>1, cities=>1, allergen=>1, traces => 1, additives => 1, ingredients_from_palm_oil => 1, ingredients_that_may_be_from_palm_oil => 1, countries => 1, states=>1, food_groups=>1);
+my %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes=>1, cities=>1, allergen=>1, traces => 1, ingredients_from_palm_oil => 1, ingredients_that_may_be_from_palm_oil => 1, countries => 1, states=>1, food_groups=>1);
 
 
 my %langs = ();
@@ -204,8 +204,8 @@ XML
 			$csv .= "url\t";
 		}
 
-		# Add "created_datetime" and "last_modified_datetime" fields right after
-		# "created_t" and "last_modified_t"
+		# Add "created_datetime", "last_modified_datetime", "last_image_datetime" fields right after
+		# "created_t", "last_modified_t" and "last_image_t"
 		if ($field =~ /_t$/) {
 			$csv .= $` . "_datetime\t";
 		}
@@ -330,7 +330,7 @@ XML
 			# created_t		created_datetime
 			# 1489061370	2017-03-09T12:09:30Z
 			if ($field =~ /_t$/) {
-				if ($product_ref->{$field} > 0) {
+				if (defined $product_ref->{$field} && $product_ref->{$field} > 0) {
 					# surprisingly slow, approx 10% of script time is here.
 					#my $dt = DateTime->from_epoch( epoch => $product_ref->{$field} );
 					#$csv .= $dt->datetime() . 'Z' . "\t";

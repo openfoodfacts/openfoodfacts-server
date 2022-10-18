@@ -677,13 +677,14 @@ $options{categories_exempted_from_nutrient_levels} = [qw(
 	countries
 	ingredients_text
 	ingredients_tags
+	ingredients_analysis_tags
 	allergens
 	traces
 	serving_size
 	serving_quantity
 	no_nutriments
 	additives_n
-	additives
+	additives_tags
 	nutriscore_score
 	nutriscore_grade
 	nova_group
@@ -694,6 +695,14 @@ $options{categories_exempted_from_nutrient_levels} = [qw(
 	brand_owner
 	ecoscore_score
 	ecoscore_grade
+	nutrient_levels_tags
+	product_quantity
+	owner
+	data_quality_errors_tags
+	unique_scans_n
+	popularity_tags
+	completeness
+	last_image_t
 );
 
 # List of fields that can be imported on the producers platform
