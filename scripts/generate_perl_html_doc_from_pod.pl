@@ -53,4 +53,4 @@ $batchconv->contents_page_start('
 ');
 $batchconv->css_flurry(0);
 $batchconv->javascript_flurry(0);
-$batchconv->batch_convert( ["cgi", "scripts", "lib"] , "html/files/doc/perl");
+$batchconv->batch_convert(["cgi", "scripts", "lib"], "html/files/doc/perl");

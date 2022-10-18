@@ -62,7 +62,9 @@ if (not defined $Owner_id) {
 }
 
 if ($action eq "display") {
-	process_template('web/pages/import_product_categories/import_product_categories_from_public_database.tt.html', $template_data_ref, \$html) or $html = "<p>" . $tt->error() . "</p>";
+	process_template('web/pages/import_product_categories/import_product_categories_from_public_database.tt.html',
+		$template_data_ref, \$html)
+		or $html = "<p>" . $tt->error() . "</p>";
 }
 
 elsif ($action eq "process") {
@@ -76,15 +78,20 @@ elsif ($action eq "process") {
 		import_id => $import_id,
 	};
 
-	my $job_id = $minion->enqueue(import_products_categories_from_public_database => [ $args_ref ]
-		=> { queue => $server_options{minion_local_queue}});
+	my $job_id = $minion->enqueue(import_products_categories_from_public_database => [$args_ref] =>
+			{queue => $server_options{minion_local_queue}});
 
-	$template_data_ref->{import_id}= $import_id ;
-	$template_data_ref->{job_id}= $job_id;
-	$template_data_ref->{link}= "/cgi/minion_job_status.pl?job_id=$job_id";
+	$template_data_ref->{import_id} = $import_id;
+	$template_data_ref->{job_id} = $job_id;
+	$template_data_ref->{link} = "/cgi/minion_job_status.pl?job_id=$job_id";
 
-	process_template('web/pages/import_product_categories_process/import_product_categories_from_public_database_process.tt.html', $template_data_ref, \$html) or $html = "<p>" . $tt->error() . "</p>";
-	process_template('web/pages/import_product_categories_process/import_product_categories_from_public_database_process.tt.js', $template_data_ref, \$js);
+	process_template(
+		'web/pages/import_product_categories_process/import_product_categories_from_public_database_process.tt.html',
+		$template_data_ref, \$html)
+		or $html = "<p>" . $tt->error() . "</p>";
+	process_template(
+		'web/pages/import_product_categories_process/import_product_categories_from_public_database_process.tt.js',
+		$template_data_ref, \$js);
 	$initjs .= $js;
 
 }

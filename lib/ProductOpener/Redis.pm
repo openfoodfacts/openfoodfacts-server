@@ -18,7 +18,7 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-	  &push_to_search_service
+		&push_to_search_service
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -48,7 +48,7 @@ it is uses  ProductOpener::Config2::redis_url
 
 sub init_redis() {
 	$log->debug("init_redis", {redis_url => $redis_url})
-	  if $log->is_debug();
+		if $log->is_debug();
 	eval {
 		$redis_client = Redis->new(
 			server => $redis_url,
@@ -102,7 +102,7 @@ sub push_to_search_service ($product_ref) {
 	}
 	if (!($error eq "")) {
 		$log->warn("Failed to push to redis", {product_code => $product_ref->{code}, error => $error})
-		  if $log->is_warn();
+			if $log->is_warn();
 		# ask for eventual reconnection for next call
 		$redis_client = undef;
 	}
