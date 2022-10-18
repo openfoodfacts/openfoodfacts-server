@@ -291,10 +291,7 @@ paths:
                           quantity_value: 200
                           quantity_unit: ml
                           weight: 80
-          headers:
-            header-0:
-              schema:
-                type: string
+          headers: {}
       description: |-
         New proposed API to send structured product data in a JSON format instead of in a flattened list of key / value pairs field as-in the current product add / edit API that relies on a multipart/form-data format.
 
