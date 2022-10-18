@@ -15,9 +15,12 @@ properties:
       - panel_group
       - table
     description: |
-      The type of the included element object. 
-      The type also indicates which field contains the included element object. 
+      The type of the included element object.
+      The type also indicates which field contains the included element object.
       e.g. if the type is "text", the included element object will be in the "text_element" field.
+
+      Note that in the future, new type of element may be added,
+      so your code should ignore unrecognized types, and unknown properties.
 
       TODO: add Map type
   text_element:

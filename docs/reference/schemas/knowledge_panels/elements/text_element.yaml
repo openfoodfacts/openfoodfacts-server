@@ -7,7 +7,7 @@ description: |-
 
   For some specific texts that correspond to a product field (e.g. a product name, the ingredients list of a product),the edit_field_* fields are used to indicate how to edit the field value.
 properties:
-  text_type:
+  type:
     type: string
     description: |
       the type of text, might influence the way you display it.
