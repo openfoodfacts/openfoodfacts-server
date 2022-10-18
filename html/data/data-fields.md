@@ -96,11 +96,13 @@ The file encoding is Unicode UTF-8. The character that separates fields is <tab>
 - `serving_quantity`
 - `no_nutriments` : indicates if the nutrition facts are indicated on the food label
 - `additives_n` : number of food additives
+- `additives`
 - `additives_tags`:
   - normalized list of the additives contained in the product. It is automatically generated from `ingredients_text`.
   - example: `en:e296,en:e330,en:e552,en:e950,en:e955`
- - `nutriscore_score`
-   - nutrition grade ('a' to 'e'). see https://fr.openfoodfacts.org/nutriscore
+- `additives_en`
+- `nutriscore_score`
+  - nutrition grade ('a' to 'e'). see https://fr.openfoodfacts.org/nutriscore
 - `nutriscore_grade`
 - `nova_group`
 - `pnns_groups_1`

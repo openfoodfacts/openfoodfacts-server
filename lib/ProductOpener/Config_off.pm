@@ -684,7 +684,7 @@ $options{categories_exempted_from_nutrient_levels} = [qw(
 	serving_quantity
 	no_nutriments
 	additives_n
-	additives_tags
+	additives
 	nutriscore_score
 	nutriscore_grade
 	nova_group
