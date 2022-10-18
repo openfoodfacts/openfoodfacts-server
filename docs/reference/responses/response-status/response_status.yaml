@@ -1,0 +1,39 @@
+title: Response status
+x-stoplight:
+  id: 54bh0c5mejahn
+type: object
+description: 'A response object to describe if a READ or WRITE request was successful or not, and if there were errors or warnings, and what the impact of those errors or warnings was.'
+properties:
+  status:
+    type: string
+    enum:
+      - success
+      - success_with_warnings
+      - success_with_errors
+      - failure
+    description: 'Overall status of the request: whether it failed or succeeded, with or without warnings or errors.'
+  result:
+    type: object
+    description: |-
+      Overall result
+       of the request (e.g. a product has been created)
+    properties:
+      id:
+        type: string
+        description: Identifier of an entry in the response_results taxonomy
+      en_name:
+        type: string
+        description: Name of the response result entry in English.
+      lc_name:
+        type: string
+        description: 'Name of the response result entry in the language specified in tags_lc, if supplied.'
+  warnings:
+    type: array
+    description: 'List of warnings. Warnings are used to alert about something that may be wrong, but is not necessarily wrong (e.g. a nutrient value that is unexpectedly high).'
+    items:
+      $ref: ./warning-or-error.yaml
+  errors:
+    type: array
+    description: List of errors. Errors are used to alert about something that is definitely wrong (e.g. a nutrient value thaty is impossibly high).
+    items:
+      $ref: ./warning-or-error.yaml
