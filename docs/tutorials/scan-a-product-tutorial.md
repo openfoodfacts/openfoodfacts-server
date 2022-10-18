@@ -28,7 +28,7 @@ This request will returning every information about Nutella Ferrero on the datab
 <!--Is it only nutriscore_data -->
 
 **Query Parameters**
-To limit the response of Get A Product By Barcode response , use query parameters to specify the fields of the product to be returned. In this example you need one query parameter called field with the value product_name,nutriscore_data . The key of the parameter is fields and the value
+To limit the response of Get A Product By Barcode response , use query parameters to specify the fields of the product to be returned. In this example you need one query parameter called fields with the value product_name,nutriscore_data . The key of the parameter is fields and the value
 
 **Nutriscore Response**
 The response returns an object with the code, product object and status. The product object contains the fields specified in the query which is the product_name and the nutriscore_data. The status also states if the product was found or not.
