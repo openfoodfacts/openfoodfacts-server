@@ -1,7 +1,7 @@
 type: array
 x-stoplight:
-  id: 1cyz4qo9njog7
-title: Packagings (READ)
+  id: 69xpogby1amz6
+title: Packagings (WRITE)
 description: |-
   The packagings object is an array of individual packaging component objects.
 
@@ -15,8 +15,6 @@ examples:
       number: '1'
       recycling: 'en:recycle'
       shape: 'en:box'
-      weight: 120
-      weight_source: measured
       weight_measured: 120
     - material: 'en:paper-and-fibreboard-aluminium'
       number: '2'
@@ -27,12 +25,7 @@ examples:
       recycling: 'en:recycle'
       shape: 'en:jar'
       quantity: 200 ML
-      quantity_value: 200
-      quantity_unit: ml
-      weight: 80
-      weight_source: specified
-      weight_specified: 80
       weight_measured: 85
 items:
-  $ref: ./packaging_component.yaml
+  $ref: ./packaging_component - input.yaml
 readOnly: true

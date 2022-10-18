@@ -293,25 +293,19 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                userid:
-                  type: string
-                password:
-                  type: string
-                code:
-                  type: string
-                lc:
-                  type: string
-                  description: '2 letter code of the language of the interface. Used as default language for input fields without a language specified (e.g. free text value in a tags field), and for localizing some fields in returned values (e.g. knowledge panels).'
-                cc:
-                  type: string
-                  description: 2 letter code of the country of the user. Used for localizing some fields in returned values (e.g. knowledge panels).
-                product:
-                  $ref: ./schemas/product_update_api_v3.yaml
-                fields:
-                  type: string
-                  description: 'Comma separated list of fields requested in the response. Special values: "updated": returns field that were updated by the query (e.g. sending "packagings" or "packagings_add" would return "packagings"), "none": returns no fields, "all": returns all fields except generated fields that need to be explicitly requested such as "knowledge_panels". Defaults to "updated".'
+              allOf:
+                - $ref: ./requestBodies/lc_cc.yaml
+                - $ref: ./requestBodies/fields_tags_lc.yaml
+                - type: object
+                  properties:
+                    userid:
+                      type: string
+                    password:
+                      type: string
+                    code:
+                      type: string
+                    product:
+                      $ref: ./schemas/product_update_api_v3.yaml
             examples:
               Replacing all packaging components:
                 value:
@@ -359,6 +353,13 @@ paths:
 
           - an object sent in the packagings field will replace any pre-existing data.
           - an object sent in the field suffixed with _add (e.g. packagings_add) will be merged with any pre-existing data.
+      parameters:
+        - schema:
+            type: string
+          in: header
+        - schema:
+            type: string
+          in: header
 components:
   schemas:
     Product:

@@ -22,4 +22,6 @@ allOf:
       weight_source:
         type: string
         description: 'Indicates which field was used to populate the "weight" field. Either "specified", "measured", or "estimated"'
-title: Packaging component (resulting structure)
+      shape:
+        $ref: ./shape.yaml
+title: Packaging component (READ)
