@@ -47,6 +47,45 @@ paths:
         A product can be fetched via its unique barcode.
         It returns all the details of that product response.
       operationId: get-product-by-barcode
+  '/api/v2/product/{barcode}?fields=knowledge_panels':
+    get:
+      tags:
+        - Read Requests
+      summary: |
+        Get Knowledge panels for a specific product by barcode 
+        (special case of get product)
+      parameters:
+        - name: barcode
+          in: path
+          description: |
+            The barcode of the product to be fetched
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: '3017620422003'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: ./responses/get_product_by_barcode_base.yaml
+                  - type: object
+                    properties:
+                      product:
+                        type: object
+                        properties:
+                          knowledge_panels:
+                            $ref: ./schemas/knowledge_panels/panels.yaml
+      description: |
+        Knowledge panels gives high leve informations about a product,
+        ready to display.
+        This is used by open food facts website, 
+        and by the official mobile application
+      operationId: get-product-by-barcode-knowledge-panels
   /cgi/product_image_upload.pl:
     post:
       tags:
@@ -72,6 +111,7 @@ paths:
               $ref: ./requestBodies/add_photo_to_existing_product.yaml
             examples: {}
         description: ''
+
   /cgi/ingredients.pl:
     parameters: []
     get:
