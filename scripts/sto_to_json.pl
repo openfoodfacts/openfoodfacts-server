@@ -32,7 +32,7 @@ use JSON;
 sub retrieve {
 	my $file = shift @_;
 	# If the file does not exist, return undef.
-	if (! -e $file) {
+	if (!-e $file) {
 		return;
 	}
 	return lock_retrieve($file);

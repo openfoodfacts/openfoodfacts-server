@@ -6,7 +6,7 @@
 
 <form method="post" action="/cgi/product.pl" enctype="multipart/form-data">
 
-    <div class="row collapse">
+    <div class="row">
         <div class="small-9 columns">
           <input type="text" name="code" placeholder="[% lang('or').remove('|\W?:') %] [% lang('barcode') %]">
         </div>
@@ -16,6 +16,8 @@
     </div>
 
 	<input type="submit" value="[% lang('no_barcode') %]" class="button tiny">
+  <input type="hidden" name="action" value="process">
+  <input type="hidden" name="type" value="search_or_add">
 
 </form>
 

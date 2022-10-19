@@ -11,15 +11,15 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::Food qw/:all/;
 
 my @serving_sizes = (
-["100g","100"],
-["250 g", "250"],
-["1.5kg", "1500"],
-["2,5g", "2.5"],
-["1 plate (25g)", "25"],
-["1 grilled link (82g)", "82"],
-["2 buns = 20g", "20"],
-["43 someinvalidunit (430g)", "430"],
-["1500ml", "1500"],
+	["100g", "100"],
+	["250 g", "250"],
+	["1.5kg", "1500"],
+	["2,5g", "2.5"],
+	["1 plate (25g)", "25"],
+	["1 grilled link (82g)", "82"],
+	["2 buns = 20g", "20"],
+	["43 someinvalidunit (430g)", "430"],
+	["1500ml", "1500"],
 );
 
 foreach my $test_ref (@serving_sizes) {
@@ -36,6 +36,5 @@ foreach my $test_ref (@serving_sizes) {
 # {
 # 	return 1;
 # }
-
 
 done_testing();

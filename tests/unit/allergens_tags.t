@@ -27,7 +27,7 @@ my @tests = (
 		{
 			lc => "fr",
 			ingredients_text =>
-			  "NOIX DE SAINT-JACQUES sans corail (8.6 %), ingredients in lower case too, match the ingredient"
+				"NOIX DE SAINT-JACQUES sans corail (8.6 %), ingredients in lower case too, match the ingredient"
 		},
 		["en:molluscs",]
 	],
@@ -49,7 +49,7 @@ my @tests = (
 		{
 			lc => "es",
 			ingredients_text =>
-			  "Harina de trigo 59%, margarina [grasa de palma, agua, aceite de colza, sal, emulgente: monoglicéridos y diglicéridos de ácidos grasos, corrector de acidez: ácido cítrico, colorante: carotenos], azúcar 17,8%, dextrosa, sal, gasificantes: carbonatos de sodio, aroma. Puede contener trazas de leche."
+				"Harina de trigo 59%, margarina [grasa de palma, agua, aceite de colza, sal, emulgente: monoglicéridos y diglicéridos de ácidos grasos, corrector de acidez: ácido cítrico, colorante: carotenos], azúcar 17,8%, dextrosa, sal, gasificantes: carbonatos de sodio, aroma. Puede contener trazas de leche."
 		},
 		["en:gluten",],
 		["en:milk"]
@@ -58,7 +58,7 @@ my @tests = (
 		{
 			lc => "es",
 			ingredients_text =>
-			  "Chocolate 48% [azúcar, pasta de cacao, manteca de cacao, lactosa, materia grasa láctea anhidra, leche desnatada en polvo, emulgente: lecitinas (girasol), aroma], harina de trigo, azúcar, mantequilla concentrada 6,5%, jarabe de glucosa y fructosa, sal, gasificantes: carbonatos de amonio - carbonatos de sodio - difosfatos, acidulante: ácido cítrico. Puede contener trazas de huevo y frutos de cáscara."
+				"Chocolate 48% [azúcar, pasta de cacao, manteca de cacao, lactosa, materia grasa láctea anhidra, leche desnatada en polvo, emulgente: lecitinas (girasol), aroma], harina de trigo, azúcar, mantequilla concentrada 6,5%, jarabe de glucosa y fructosa, sal, gasificantes: carbonatos de amonio - carbonatos de sodio - difosfatos, acidulante: ácido cítrico. Puede contener trazas de huevo y frutos de cáscara."
 		},
 		["en:gluten", "en:milk"],
 		["en:eggs", "en:nuts"]
@@ -86,7 +86,7 @@ my @tests = (
 		{
 			lc => "de",
 			ingredients_text =>
-			  "Zucker, Gewürze, Antioxidations-mittel: Ascorbinsâure, Konservierungsstoff: Natriumnitrit. Kann Spuren von Senf und Sellerie enthalten."
+				"Zucker, Gewürze, Antioxidations-mittel: Ascorbinsâure, Konservierungsstoff: Natriumnitrit. Kann Spuren von Senf und Sellerie enthalten."
 		},
 		[],
 		["en:celery", "en:mustard"]
@@ -156,7 +156,7 @@ my @tests = (
 		{
 			lc => "en",
 			ingredients_text =>
-			  "salt, egg, spice. allergen advice: for allergens including cereals containing gluten, see ingredients in bold. May contain traces of nuts."
+				"salt, egg, spice. allergen advice: for allergens including cereals containing gluten, see ingredients in bold. May contain traces of nuts."
 		},
 		['en:eggs'],
 		['en:nuts']
@@ -165,7 +165,7 @@ my @tests = (
 		{
 			lc => "fr",
 			ingredients_text =>
-			  "sucre, lécithine de soja, sel. Allergènes : voir les ingrédients en gras. Traces éventuelles de gluten et de fruits à coque."
+				"sucre, lécithine de soja, sel. Allergènes : voir les ingrédients en gras. Traces éventuelles de gluten et de fruits à coque."
 		},
 		['en:soybeans'],
 		['en:gluten', 'en:nuts']
