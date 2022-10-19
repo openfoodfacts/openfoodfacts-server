@@ -41,8 +41,6 @@ ingredients (is the product vegetarian, vegan, does it contain palm oil etc.)
 
 	detect_allergens_from_text($product_ref);
 
-	compute_carbon_footprint_from_ingredients($product_ref);
-
 =head1 DESCRIPTION
 
 [..]
@@ -60,9 +58,6 @@ BEGIN {
 		&extract_ingredients_from_image
 
 		&separate_additive_class
-
-		&compute_carbon_footprint_from_ingredients
-		&compute_carbon_footprint_from_meat_or_fish
 
 		&split_generic_name_from_ingredients
 		&clean_ingredients_text_for_lang
@@ -637,165 +632,6 @@ foreach my $f (readdir(DH)) {
 	$ingredients_classes_sorted{$class} = [sort keys %{$ingredients_classes{$class}}];
 }
 closedir(DH);
-
-sub compute_carbon_footprint_from_ingredients ($product_ref) {
-
-	if (defined $product_ref->{nutriments}) {
-		delete $product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"};
-	}
-
-	remove_tag($product_ref, "misc", "en:environment-infocard");
-	remove_tag($product_ref, "misc", "en:carbon-footprint-from-known-ingredients");
-
-	delete $product_ref->{"carbon_footprint_from_known_ingredients_debug"};
-
-	# Limit to France, as the carbon values from ADEME are intended for France
-	if ((has_tag($product_ref, "countries", "en:france")) and (defined $product_ref->{ingredients})) {
-
-		my $carbon_footprint = 0;
-		my $carbon_percent = 0;
-
-		foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
-
-			$log->debug("carbon-footprint-from-known-ingredients_100g", {id => $ingredient_ref->{id}})
-				if $log->is_debug();
-
-			if ((defined $ingredient_ref->{percent}) and ($ingredient_ref->{percent} > 0)) {
-
-				$log->debug("carbon-footprint-from-known-ingredients_100g", {percent => $ingredient_ref->{percent}})
-					if $log->is_debug();
-
-				my $carbon_footprint_ingredient = get_inherited_property('ingredients', $ingredient_ref->{id},
-					"carbon_footprint_fr_foodges_value:fr");
-
-				if (defined $carbon_footprint_ingredient) {
-					$carbon_footprint += $ingredient_ref->{percent} * $carbon_footprint_ingredient;
-					$carbon_percent += $ingredient_ref->{percent};
-
-					if (not defined $product_ref->{"carbon_footprint_from_known_ingredients_debug"}) {
-						$product_ref->{"carbon_footprint_from_known_ingredients_debug"} = "";
-					}
-					$product_ref->{"carbon_footprint_from_known_ingredients_debug"}
-						.= $ingredient_ref->{id} . " "
-						. $ingredient_ref->{percent}
-						. "% x $carbon_footprint_ingredient = "
-						. $ingredient_ref->{percent} * $carbon_footprint_ingredient . " g - ";
-				}
-			}
-		}
-
-		if ($carbon_footprint > 0) {
-			$product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"} = $carbon_footprint;
-			$product_ref->{carbon_footprint_percent_of_known_ingredients} = $carbon_percent;
-
-			defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];
-			add_tag($product_ref, "misc", "en:carbon-footprint-from-known-ingredients");
-		}
-	}
-
-	return;
-}
-
-sub compute_carbon_footprint_from_meat_or_fish ($product_ref) {
-
-	if (defined $product_ref->{nutriments}) {
-		delete $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish"};
-		delete $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"};
-		delete $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_serving"};
-		delete $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_product"};
-	}
-
-	remove_tag($product_ref, "misc", "en:carbon-footprint-from-meat-or-fish");
-
-	delete $product_ref->{"carbon_footprint_from_meat_or_fish_debug"};
-
-	# Compute the carbon footprint from meat or fish ingredients, when the percentage is known
-
-	#ingredients: [
-	#{
-	#rank: 1,
-	#text: "Eau",
-	#id: "en:water"
-	#},
-	#{
-	#percent: "10.9",
-	#text: "_saumon_",
-	#rank: 2,
-	#id: "en:salmon"
-	#},
-	my @parents = qw(
-		en:beef-meat
-		en:pork-meat
-		en:veal-meat
-		en:rabbit-meat
-		en:chicken-meat
-		en:turkey-meat
-		en:smoked-salmon
-		en:salmon
-	);
-
-	# Values from FoodGES
-
-	my %carbon = (
-		"en:beef-meat" => 35.8,
-		"en:pork-meat" => 7.4,
-		"en:veal-meat" => 20.5,
-		"en:rabbit-meat" => 8.1,
-		"en:chicken-meat" => 4.9,
-		"en:turkey-meat" => 6.5,
-		"en:smoked-salmon" => 5.5,
-		"en:salmon" => 6.5,
-		"en:smoked-trout" => 5.5,
-		"en:trout" => 6.5,
-	);
-
-	# Limit to France, as the carbon values from ADEME are intended for France
-
-	if ((has_tag($product_ref, "countries", "en:france")) and (defined $product_ref->{ingredients})) {
-
-		my $carbon_footprint = 0;
-
-		foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
-
-			$log->debug("compute_carbon_footprint_from_meat_or_fish", {id => $ingredient_ref->{id}})
-				if $log->is_debug();
-
-			if ((defined $ingredient_ref->{percent}) and ($ingredient_ref->{percent} > 0)) {
-
-				$log->debug("compute_carbon_footprint_from_meat_or_fish", {percent => $ingredient_ref->{percent}})
-					if $log->is_debug();
-
-				foreach my $parent (@parents) {
-					if (is_a('ingredients', $ingredient_ref->{id}, $parent)) {
-						$carbon_footprint += $ingredient_ref->{percent} * $carbon{$parent};
-						$log->debug("found a parent with carbon footprint", {parent => $parent}) if $log->is_debug();
-
-						if (not defined $product_ref->{"carbon_footprint_from_meat_or_fish_debug"}) {
-							$product_ref->{"carbon_footprint_from_meat_or_fish_debug"} = "";
-						}
-						$product_ref->{"carbon_footprint_from_meat_or_fish_debug"}
-							.= $ingredient_ref->{id} . " => "
-							. $parent . " "
-							. $ingredient_ref->{percent}
-							. "% x $carbon{$parent} = "
-							. $ingredient_ref->{percent} * $carbon{$parent} . " g - ";
-
-						last;
-					}
-				}
-			}
-		}
-
-		if ($carbon_footprint > 0) {
-			$product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"} = $carbon_footprint;
-			$product_ref->{"carbon_footprint_from_meat_or_fish_debug"} =~ s/ - $//;
-			defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];
-			add_tag($product_ref, "misc", "en:carbon-footprint-from-meat-or-fish");
-		}
-	}
-
-	return;
-}
 
 sub extract_ingredients_from_image ($product_ref, $id, $ocr_engine, $results_ref) {
 

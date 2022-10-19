@@ -289,13 +289,11 @@ process_template('web/pages/product_edit/product_edit_form.tt.html', $template_d
 my @fields = @ProductOpener::Config::product_fields;
 
 if ($admin) {
-	push @fields, "environment_impact_level";
 
 	# Let admins edit any other fields
 	if (defined single_param("fields")) {
 		push @fields, split(/,/, single_param("fields"));
 	}
-
 }
 
 if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
@@ -585,8 +583,6 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	extract_ingredients_classes_from_text($product_ref);
 	$log->debug("detect_allergens_from_text") if $log->is_debug();
 	detect_allergens_from_text($product_ref);
-	compute_carbon_footprint_from_ingredients($product_ref);
-	compute_carbon_footprint_from_meat_or_fish($product_ref);
 
 	# Food category rules for sweetened/sugared beverages
 	# French PNNS groups from categories
