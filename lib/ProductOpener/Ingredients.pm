@@ -633,7 +633,6 @@ foreach my $f (readdir(DH)) {
 }
 closedir(DH);
 
-
 sub extract_ingredients_from_image ($product_ref, $id, $ocr_engine, $results_ref) {
 
 	my $lc = $product_ref->{lc};
