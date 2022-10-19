@@ -92,7 +92,7 @@ The file encoding is Unicode UTF-8. The character that separates fields is <tab>
 
 ## misc. data
 
-- `serving_size` : serving size in g
+- `serving_size` : text describing the serving size
 - `serving_quantity`
 - `no_nutriments` : indicates if the nutrition facts are indicated on the food label
 - `additives_n` : number of food additives
