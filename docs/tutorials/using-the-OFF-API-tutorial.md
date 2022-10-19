@@ -6,8 +6,6 @@ This basic tutorial shows you can get the Nutriscore of a product, for instance,
 
 <!-- Meet Dave. Dave is an active Open Food Facts contributor and a developer who wants to build HealthyFoodChoices, an Android app aimed at conscious consumers that buy healthy products. He has a consumer called Anna. Anna wants to know more on the nutritional facts of Nutella - Ferrero from the HealthyFoodChoices app. Dave needs his app to make an API call to provide her with this information. -->
 
-### Structure of the Call
-
 To get a product nutriscore, you need to make a call to the [Get A Product By Barcode](https://openfoodfacts.github.io/openfoodfacts-server/reference/api.html#tag/Read-Requests/operation/get-product-by-barcode) Endpoint.
 
 ### Authentication
