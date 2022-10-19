@@ -22,7 +22,7 @@ Make a `GET` request to the `Get A Product By Barcode` endpoint.
 https://world.openfoodfacts.org/api/v2/product/{barcode}
 ```
 
-The {barcode} is the barcode number of the product you are trying to get. The barcode for **Nutella Ferrero** is **3017624010701**. Then the request path to get product data for **Nutella Ferrero** will look like this:
+The `{barcode}` is the barcode number of the product you are trying to get. The barcode for **Nutella Ferrero** is **3017624010701**. Then the request path to get product data for **Nutella Ferrero** will look like this:
 
 ```bash
 https://world.openfoodfacts.org/api/v2/product/3017624010701
