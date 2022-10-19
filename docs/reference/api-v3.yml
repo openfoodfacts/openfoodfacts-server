@@ -26,7 +26,7 @@ paths:
     get:
       tags:
         - Read Requests
-      summary: Get information for a specific product by barcode
+      summary: Get information for a specific product by barcode (API V3 - Not yet implemented)
       parameters:
         - name: barcode
           in: path
@@ -38,16 +38,8 @@ paths:
           schema:
             type: string
             example: '3017620422003'
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: ./responses/get_product_by_barcode.yaml
-      description: |
-        A product can be fetched via its unique barcode.
-        It returns all the details of that product response. www
+      responses: {}
+      description: Retrieve information for a product with a specific barcode.
       operationId: get-product-by-barcode
     parameters:
       - schema:
@@ -58,7 +50,7 @@ paths:
   /api/v3/product:
     parameters: []
     post:
-      summary: Create or update product (API V3)
+      summary: Create or update product (API V3 - Not yet implemented)
       operationId: post-api-v3-product-barcode
       responses:
         '200':
