@@ -1,5 +1,5 @@
 # Using the Open Food Facts API
-
+<!--Add a brief introduction of what the tutorial does -->
 ## Scan A Product To Get Nutriscore
 
 This basic tutorial shows you can get the Nutriscore of a product, for instance, to display it in a mobile app after scanning the product barcode. Let's use [Nutella Ferrero](https://world.openfoodfacts.org/product/3017624010701/nutella-nutella-ferrero) as the product example for this tutorial.
