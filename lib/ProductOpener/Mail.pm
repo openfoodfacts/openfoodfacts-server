@@ -1,4 +1,4 @@
-﻿# This file is part of Product Opener.
+# This file is part of Product Opener.
 #
 # Product Opener
 # Copyright (C) 2011-2020 Association Open Food Facts
@@ -42,21 +42,20 @@ These emails can be used to reply to user queries, submit feedback, or to reques
 package ProductOpener::Mail;
 
 use ProductOpener::PerlStandards;
-use Exporter    qw< import >;
+use Exporter qw< import >;
 
-BEGIN
-{
-	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
+BEGIN {
+	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&send_email
 		&send_email_to_admin
 		&send_email_to_producers_admin
 
-		);    # symbols to export on request
+	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
-use vars @EXPORT_OK ;
+use vars @EXPORT_OK;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
@@ -90,24 +89,20 @@ On the other hand, if there was no error, it returns 0 indicating that the email
 
 =cut
 
-sub send_email($user_ref, $subject, $text) {
-	
+sub send_email ($user_ref, $subject, $text) {
+
 	my $email = $user_ref->{email};
 	my $name = $user_ref->{name};
-	
+
 	$text =~ s/<NAME>/$name/g;
- 
+
 	eval {
-		Email::Stuffer
-			->from( lang("site_name") . " <$contact_email>" )
-			->to( $name . " <$email>" )
-			->subject($subject)
-			->text_body($text)
-			->send;
+		Email::Stuffer->from(lang("site_name") . " <$contact_email>")->to($name . " <$email>")->subject($subject)
+			->text_body($text)->send;
 	};
 
-    return $@ ? 1 : 0;
-    
+	return $@ ? 1 : 0;
+
 }
 
 =head1 FUNCTIONS
@@ -129,17 +124,13 @@ On the other hand, if there was no error, it returns 0 indicating that the email
 
 =cut
 
-sub send_email_to_admin($subject, $text) {
+sub send_email_to_admin ($subject, $text) {
 	eval {
-		Email::Stuffer
-			->from( lang("site_name") . " <$contact_email>" )
-			->to( lang("site_name") . " <$admin_email>" )
-			->subject($subject)
-			->text_body($text)
-			->send;
+		Email::Stuffer->from(lang("site_name") . " <$contact_email>")->to(lang("site_name") . " <$admin_email>")
+			->subject($subject)->text_body($text)->send;
 	};
 
-    return $@ ? 1 : 0;
+	return $@ ? 1 : 0;
 }
 
 =head1 FUNCTIONS
@@ -161,19 +152,13 @@ On the other hand, if there was no error, it returns 1 indicating that email has
 
 =cut
 
-sub send_email_to_producers_admin($subject, $text) {
+sub send_email_to_producers_admin ($subject, $text) {
 	eval {
-		Email::Stuffer
-			->from( lang("site_name") . " <$contact_email>" )
-			->to( lang("site_name") . " <$producers_email>" )
-			->subject($subject)
-			->text_body($text)
-			->html_body($text)
-			->send;
+		Email::Stuffer->from(lang("site_name") . " <$contact_email>")->to(lang("site_name") . " <$producers_email>")
+			->subject($subject)->text_body($text)->html_body($text)->send;
 	};
 
-    return $@ ? 1 : 0;
+	return $@ ? 1 : 0;
 }
-
 
 1;

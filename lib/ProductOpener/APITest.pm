@@ -34,11 +34,11 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-	  &create_user
-	  &new_client
-	  &wait_dynamic_front
-	  &edit_product
-	  &construct_test_url
+		&create_user
+		&new_client
+		&wait_dynamic_front
+		&edit_product
+		&construct_test_url
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
