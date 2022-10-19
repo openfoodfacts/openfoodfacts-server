@@ -99,7 +99,7 @@ my $original_link = "";
 if ((defined $original_id) and (defined $product_ref->{images}{$original_id})) {
 	$photographer = $product_ref->{images}{$original_id}{uploader};
 	$original_link = " <a href=\"/cgi/product_image.pl?code=$code&id=$original_id\" rel=\"isBasedOn\">"
-	  . lang("image_original_link_text") . "</a>";
+		. lang("image_original_link_text") . "</a>";
 }
 
 if (defined $product_ref->{images}{$id}{rev}) {
@@ -125,11 +125,11 @@ if (defined $product_ref->{images}{$id}{rev}) {
 }
 
 my $photographer_link
-  = "<a href=\"" . canonicalize_tag_link("photographers", $photographer) . "\" rel=\"author\">$photographer</a>";
+	= "<a href=\"" . canonicalize_tag_link("photographers", $photographer) . "\" rel=\"author\">$photographer</a>";
 my $editor_link;
 if (defined $editor) {
 	$editor_link
-	  = "<a href=\"" . canonicalize_tag_link("photographers", $editor) . "\" rel=\"contributor\">$editor</a>";
+		= "<a href=\"" . canonicalize_tag_link("photographers", $editor) . "\" rel=\"contributor\">$editor</a>";
 }
 
 my $full_size = lang('image_full_size');
