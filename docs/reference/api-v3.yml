@@ -204,8 +204,8 @@ paths:
           - an object sent in the field suffixed with _add (e.g. packagings_add) will be merged with any pre-existing data.
       parameters: []
 components:
-  schemas:
-  parameters:
+  schemas: null
+  parameters: null
 tags:
   - name: Read Requests
   - name: Write Requests
