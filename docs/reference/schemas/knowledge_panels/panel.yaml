@@ -22,8 +22,18 @@ properties:
       $ref: ./elements/element.yaml
   level:
     type: string
+    description: |
+      a message level, as levels we use in log.
+      It might help theming the panel visualy
+    example: info
   size:
     type: string
+    enum:
+      - small
+    description: |
+      size is either empty (normal display) 
+      or small to indicate a panel that should have a smaller font size
+    example: small
   topics:
     type: array
     items:
