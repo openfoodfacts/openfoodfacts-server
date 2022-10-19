@@ -76868,6 +76868,9 @@ ciqual_food_name:en:Venison (roebuck), raw
 ciqual_food_name:fr:Chevreuil, cru
 
 <en:Venison
+en:Wild British venison
+
+<en:Venison
 en:Scottish Wild Venison
 protected_name_file_number:en: PGI-GB-2448
 protected_name_type:en: pgi
@@ -98602,6 +98605,7 @@ ciqual_food_code:en:23415
 ciqual_food_name:en:Short crust pastry, pure butter, frozen, raw
 ciqual_food_name:fr:Pâte brisée, pur beurre, surgelée, crue
 
+
 <en:Pie dough
 en:Cooked pure butter puff pastry
 fr:Pâte feuilletée pur beurre cuite
@@ -99905,3 +99909,8 @@ fr:Couverts comestibles, Vaisselles comestibles
 
 en:stuffing
 fr:farces
+
+#comment:en:do NOT delete this entry. It is used to automatically move products from OFF to OBF.
+<en:Non food products
+en:Open Beauty Facts, OBF, Cosmetics, Hygiene
+xx:Open Beauty Facts, OBF

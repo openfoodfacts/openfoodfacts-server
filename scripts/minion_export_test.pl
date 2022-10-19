@@ -32,15 +32,13 @@ $minion->add_task(export_csv_file => \&ProductOpener::Producers::export_csv_file
 
 print STDERR "Perform 1 job in current process\n";
 
-
-
 # Perform one job manually in this process
 my $worker = $minion->repair->worker->register;
 
-my $job = $worker->dequeue(0 => {queues => [$server_options{minion_local_queue}]});;
+my $job = $worker->dequeue(0 => {queues => [$server_options{minion_local_queue}]});
 if (defined $job) {
-if (my $err = $job->execute) { print STDERR "Error: $err\n"; $job->fail($err);  }
-else                         {print STDERR "Done\n";  $job->finish }
+	if (my $err = $job->execute) {print STDERR "Error: $err\n"; $job->fail($err);}
+	else {print STDERR "Done\n"; $job->finish}
 }
 else {
 	print STDERR "no job found in queue " . $server_options{minion_local_queue} . "\n";

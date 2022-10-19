@@ -17,7 +17,8 @@ use ProductOpener::Ingredients qw/:all/;
 
 my @tests = (
 
-	[ { lc => "en", ingredients_text => "sugar and water"},
+	[
+		{lc => "en", ingredients_text => "sugar and water"},
 		[
 			{
 				'id' => 'en:sugar',
@@ -30,8 +31,8 @@ my @tests = (
 		]
 	],
 
-
-	[ { lc => "en", ingredients_text => "chocolate (cocoa, sugar), milk"},
+	[
+		{lc => "en", ingredients_text => "chocolate (cocoa, sugar), milk"},
 		[
 			{
 				'id' => 'en:chocolate',
@@ -54,8 +55,12 @@ my @tests = (
 		]
 	],
 
-
-	[ { lc => "en", ingredients_text => "dough (wheat, water, raising agents: E501, salt), chocolate (cocoa (cocoa butter, cocoa paste), sugar), milk"},
+	[
+		{
+			lc => "en",
+			ingredients_text =>
+				"dough (wheat, water, raising agents: E501, salt), chocolate (cocoa (cocoa butter, cocoa paste), sugar), milk"
+		},
 		[
 			{
 				'id' => 'en:dough',
@@ -116,8 +121,8 @@ my @tests = (
 		]
 	],
 
-
-	[ { lc => "es", ingredients_text => "sal y acidulante (ácido cítrico)"},
+	[
+		{lc => "es", ingredients_text => "sal y acidulante (ácido cítrico)"},
 		[
 			{
 				'id' => 'en:salt',
@@ -136,8 +141,8 @@ my @tests = (
 		]
 	],
 
-
-	[ { lc => "fr", ingredients_text => "Teneur en légumes : 74 % : tomate ( Espagne) eau"},
+	[
+		{lc => "fr", ingredients_text => "Teneur en légumes : 74 % : tomate ( Espagne) eau"},
 		[
 			{
 				'id' => "fr:teneur-en-legumes",
@@ -156,8 +161,8 @@ my @tests = (
 		]
 	],
 
-
-	[ { lc => "fr", ingredients_text => "Teneur en légumes : 74 % : tomate (60 %, Espagne) eau, Sel (France, Italie)"},
+	[
+		{lc => "fr", ingredients_text => "Teneur en légumes : 74 % : tomate (60 %, Espagne) eau, Sel (France, Italie)"},
 		[
 			{
 				'id' => "fr:teneur-en-legumes",
@@ -182,8 +187,12 @@ my @tests = (
 		]
 	],
 
-
-	[ { lc => "fr", ingredients_text => "Céréales 63,7% (BLE complet 50,5%*, semoule de maïs*), sucre*, sirop de BLE*, cacao maigre en poudre 3,9%*, cacao en poudre 1,7%*, sel, arôme naturel. *Ingrédients issus de l'agriculture biologique."},
+	[
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Céréales 63,7% (BLE complet 50,5%*, semoule de maïs*), sucre*, sirop de BLE*, cacao maigre en poudre 3,9%*, cacao en poudre 1,7%*, sel, arôme naturel. *Ingrédients issus de l'agriculture biologique."
+		},
 		[
 			{
 				'id' => 'en:cereal',
@@ -236,8 +245,12 @@ my @tests = (
 		]
 	],
 
-
-	[ { lc => "es", ingredients_text => "Hortalizas frescas (91 %) (tomate, pimiento. pepino y ajo), aceite de oliva virgen extra (3 %), vinagre de vino y sal."},
+	[
+		{
+			lc => "es",
+			ingredients_text =>
+				"Hortalizas frescas (91 %) (tomate, pimiento. pepino y ajo), aceite de oliva virgen extra (3 %), vinagre de vino y sal."
+		},
 		[
 			{
 				'id' => 'en:vegetable',
@@ -279,8 +292,8 @@ my @tests = (
 		]
 	],
 
-
-	[ { lc => "fr", ingredients_text => "Tomates bio coupées en tranches cuites"},
+	[
+		{lc => "fr", ingredients_text => "Tomates bio coupées en tranches cuites"},
 		[
 			{
 				'id' => 'en:tomato',
@@ -291,8 +304,8 @@ my @tests = (
 		]
 	],
 
-
-	[ { lc => "fr", ingredients_text => "minéraux (carbonate de calcium, carbonate de magnésium, fer élémentaire)"},
+	[
+		{lc => "fr", ingredients_text => "minéraux (carbonate de calcium, carbonate de magnésium, fer élémentaire)"},
 		[
 			{
 				'id' => 'en:minerals',
@@ -315,8 +328,8 @@ my @tests = (
 		]
 	],
 
-
-	[ { lc => "fr", ingredients_text => "minéraux (carbonate de magnésium, fer élémentaire)"},
+	[
+		{lc => "fr", ingredients_text => "minéraux (carbonate de magnésium, fer élémentaire)"},
 		[
 			{
 				'id' => 'en:minerals',
@@ -335,8 +348,8 @@ my @tests = (
 		]
 	],
 
-
-	[ { lc => "fr", ingredients_text => "MINERAUX (CARBONATE DE MAGNESIUM, FER ELEMENTAIRE)"},
+	[
+		{lc => "fr", ingredients_text => "MINERAUX (CARBONATE DE MAGNESIUM, FER ELEMENTAIRE)"},
 		[
 			{
 				'id' => 'en:minerals',
@@ -355,7 +368,6 @@ my @tests = (
 		]
 	],
 
-
 );
 
 foreach my $test_ref (@tests) {
@@ -367,7 +379,7 @@ foreach my $test_ref (@tests) {
 
 	parse_ingredients_text($product_ref);
 
-	is_deeply ($product_ref->{ingredients}, $expected_ingredients_ref)
+	is_deeply($product_ref->{ingredients}, $expected_ingredients_ref)
 		# using print + join instead of diag so that we don't have
 		# hashtags. It makes copy/pasting the resulting structure
 		# inside the test file much easier when tests results need

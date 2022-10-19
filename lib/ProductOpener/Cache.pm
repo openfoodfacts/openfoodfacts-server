@@ -1,4 +1,4 @@
-﻿# This file is part of Product Opener.
+# This file is part of Product Opener.
 #
 # Product Opener
 # Copyright (C) 2011-2020 Association Open Food Facts
@@ -22,18 +22,17 @@ package ProductOpener::Cache;
 
 use utf8;
 use Modern::Perl '2017';
-use Exporter    qw< import >;
+use Exporter qw< import >;
 
-BEGIN
-{
-	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
+BEGIN {
+	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		$memd
-		);    # symbols to export on request
+	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
-use vars @EXPORT_OK ;
+use vars @EXPORT_OK;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
@@ -41,12 +40,12 @@ use ProductOpener::Config qw/:all/;
 use Cache::Memcached::Fast;
 use Log::Any qw($log);
 
-
 # Initialize exported variables
 
 $memd = Cache::Memcached::Fast->new(
-	{   'servers' => $memd_servers,
-		'utf8'    => 1,
+	{
+		'servers' => $memd_servers,
+		'utf8' => 1,
 	}
 );
 

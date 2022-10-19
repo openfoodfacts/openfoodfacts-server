@@ -52,7 +52,7 @@ my $product_id = product_id_for_owner($Owner_id, $code);
 my $imgid = single_param('imgid');
 my $angle = single_param('angle');
 my $id = single_param('id');
-my ($x1,$y1,$x2,$y2) = (single_param('x1'),single_param('y1'),single_param('x2'),single_param('y2'));
+my ($x1, $y1, $x2, $y2) = (single_param('x1'), single_param('y1'), single_param('x2'), single_param('y2'));
 my $normalize = single_param('normalize');
 my $white_magic = single_param('white_magic');
 
@@ -61,7 +61,19 @@ my $white_magic = single_param('white_magic');
 # that has a max width and height of 400 pixels
 my $coordinates_image_size = single_param('coordinates_image_size') || $crop_size;
 
-$log->debug("start", { code => $code, imgid => $imgid, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, param_coordinates_image_size => single_param('coordinates_image_size'), coordinates_image_size => $coordinates_image_size }) if $log->is_debug();
+$log->debug(
+	"start",
+	{
+		code => $code,
+		imgid => $imgid,
+		x1 => $x1,
+		y1 => $y1,
+		x2 => $x2,
+		y2 => $y2,
+		param_coordinates_image_size => single_param('coordinates_image_size'),
+		coordinates_image_size => $coordinates_image_size
+	}
+) if $log->is_debug();
 
 if (not defined $code) {
 
@@ -72,14 +84,19 @@ if (not defined $code) {
 
 my $product_ref = retrieve_product($product_id);
 
-
 # Do not allow edits / removal through API for data provided by producers (only additions for non existing fields)
 # when the corresponding organization has the protect_data checkbox checked
 my $protected_data = product_data_is_protected($product_ref);
 
-if ((defined $product_ref) and ($protected_data) and (defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
-	and (referer() !~ /\/cgi\/product.pl/)) {
-	$log->debug("do not select image: data_sources contains producers and referer is not the web product edit form", { code => $code, id => $id, referer => referer() }) if $log->is_debug();;
+if (    (defined $product_ref)
+	and ($protected_data)
+	and (defined $product_ref->{images})
+	and (defined $product_ref->{images}{$id})
+	and (referer() !~ /\/cgi\/product.pl/))
+{
+	$log->debug("do not select image: data_sources contains producers and referer is not the web product edit form",
+		{code => $code, id => $id, referer => referer()})
+		if $log->is_debug();
 }
 elsif ((defined $User_id) and (($User_id eq 'kiliweb')) or (remote_addr() eq "207.154.237.7")) {
 	# Skip images selected by Yuka -> they have already been selected through the upload if they were the first
@@ -88,24 +105,30 @@ elsif ((defined $User_id) and (($User_id eq 'kiliweb')) or (remote_addr() eq "20
 
 	# 2019/08/28: accept images if there is already an image selected for the language
 	if ((defined $product_ref) and (defined $product_ref->{images}) and (defined $product_ref->{images}{$imgid})) {
-		$product_ref = process_image_crop($User_id, $product_id, $id, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size);
+		$product_ref
+			= process_image_crop($User_id, $product_id, $id, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2,
+			$y2, $coordinates_image_size);
 	}
 }
 else {
-	$product_ref = process_image_crop($User_id, $product_id, $id, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size);
+	$product_ref
+		= process_image_crop($User_id, $product_id, $id, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2,
+		$coordinates_image_size);
 }
 
-my $data =  encode_json({ status => 'status ok',
+my $data = encode_json(
+	{
+		status => 'status ok',
 		image => {
-				display_url=> "$id." . $product_ref->{images}{$id}{rev} . ".$display_size.jpg",
+			display_url => "$id." . $product_ref->{images}{$id}{rev} . ".$display_size.jpg",
 		},
-		imagefield=>$id,
-});
+		imagefield => $id,
+	}
+);
 
-$log->debug("JSON data output", { data => $data }) if $log->is_debug();
+$log->debug("JSON data output", {data => $data}) if $log->is_debug();
 
-print header( -type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $data;
-
+print header(-type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*') . $data;
 
 exit(0);
 

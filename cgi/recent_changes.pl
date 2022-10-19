@@ -56,9 +56,7 @@ if (($page < 1) or ($page > 1000)) {
 	$page = 1;
 }
 
-my $request_ref = {
-	current_link_query => ''
-};
+my $request_ref = {current_link_query => ''};
 
 foreach my $parameter ('json') {
 
