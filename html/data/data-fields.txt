@@ -72,8 +72,8 @@ traces_en
 
 # misc. data:
 
-serving_size : serving size in g
-serving_quantity
+serving_size : text describing the serving size
+serving_quantity :  : normalized serving size in grams or ml
 no_nutriments : indicates if the nutrition facts are indicated on the food label
 additives_n : number of food additives
 additives
