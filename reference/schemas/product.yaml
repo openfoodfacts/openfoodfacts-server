@@ -1216,6 +1216,8 @@ properties:
     type: string
   interface_version_modified:
     type: string
+  knowledge_panels:
+    $ref: ./knowledge_panels/panels.yaml
   known_ingredients_n:
     type: integer
   labels:
