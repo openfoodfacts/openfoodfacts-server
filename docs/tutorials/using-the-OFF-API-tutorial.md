@@ -103,4 +103,7 @@ The `product` object in the response now contains the extra fields to show how t
     "status_verbose": "product found"
 }
 ```
+
+For more details, see the reference documentation for [Get A Product By Barcode](https://openfoodfacts.github.io/openfoodfacts-server/reference/api.html#tag/Read-Requests/operation/get-product-by-barcode)
+
 <!-- Probably have a conclusion that links to the next possible topic eg filter countries using lc and cc-->
