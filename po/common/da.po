@@ -3138,6 +3138,10 @@ msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
 msgstr "Vigtig notat: Dette produkt sælges ikke længere. Dataene opbevares kun som reference. Dette produkt vises ikke i almindelige søgninger og vægter ikke i statistikker."
 
+# This will be on a button and needs to be as short as possible
+# So instead of something like "Install the mobile application"
+# try to make it very short "Get the app" or "Install the app"
+# Use infinitive instead of imperative
 msgctxt "get_the_app"
 msgid "Get the app"
 msgstr "Hent appen"
@@ -3756,10 +3760,6 @@ msgstr "Mislykket"
 msgctxt "import_file_result"
 msgid "Import result"
 msgstr "Importer resultat"
-
-msgctxt "products_added"
-msgid "Products added"
-msgstr "Produkter tilføjet"
 
 msgctxt "products_modified"
 msgid "Products modified"
@@ -6121,4 +6121,76 @@ msgstr "Reducér forbruget af (mættede) fedttyper"
 msgctxt "nutrient_recommendation_fat_and_saturated_fat"
 msgid "Choose products with lower fat and saturated fat content."
 msgstr "Vælg produkter med lavere fedtindhold, herunder mættet fedt."
+
+msgctxt "sign_in"
+msgid "Sign in"
+msgstr "Log ind"
+
+msgctxt "sign_out"
+msgid "Sign out"
+msgstr "Log ud"
+
+msgctxt "your_contributions"
+msgid "Your contributions"
+msgstr "Dine bidrag"
+
+msgctxt "products_added"
+msgid "Products added"
+msgstr "Produkter tilføjet"
+
+msgctxt "products_edited"
+msgid "Products edited"
+msgstr ""
+
+msgctxt "products_photographed"
+msgid "Products photographed"
+msgstr ""
+
+# result of the matching with the user preferences: should ne a noun, not a verb
+msgctxt "matching_with_your_preferences"
+msgid "Matching with your preferences"
+msgstr "Matcher dine præferencer"
+
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_join_us_on_slack"
+msgid "Join us on <a href=\"{url}\">Slack</a>"
+msgstr "Slut dig til os på <a href=\"{url}\">Slack</a>"
+
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_discover_our_code_of_conduct"
+msgid "Discover our <a href=\"{url}\">Code of conduct</a>"
+msgstr "Tjek vores <a href=\"{url}\">Adfærdskodeks</a>"
+
+# {links} must not be translated, it will be replaced by icons and/or text links
+msgctxt "f_footer_follow_us_links"
+msgid "Follow us: {links}"
+msgstr "Følg os: {links}"
+
+# Should be as small as possible, e.g. use "app" instead of "application", don't specify "mobile"
+msgctxt "footer_install_the_app_exclamation_mark"
+msgid "Install the app!"
+msgstr "Installér appen!"
+
+# HTML tags must not be translated, keep <span id=\"everyday\"> and <span id=\"foods\"> and put them around the corresponding words in the translation
+# e.g. in French: Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>
+msgctxt "footer_scan_your_everyday_foods"
+msgid "Scan your <span id=\"everyday\">everyday</span> <span id=\"foods\">foods</span>"
+msgstr ""
+
+msgctxt "nutrition"
+msgid "Nutrition"
+msgstr "Ernæring"
+
+# Note: "criteria" is plural here. So in French for instance: "Vos critères"
+msgctxt "your_criteria"
+msgid "Your criteria"
+msgstr "Dine kriterier"
+
+msgctxt "product"
+msgid "Product"
+msgstr "Produkt"
+
+msgctxt "environment"
+msgid "Environment"
+msgstr "Miljø"
 
