@@ -29,12 +29,12 @@ use Modern::Perl '2017';
 
 use Carp ();
 
-eval { Carp::confess('init') };  ## no critic (RequireCheckingReturnValueOfEval)
+eval {Carp::confess('init')};    ## no critic (RequireCheckingReturnValueOfEval)
 
 # used for debugging hanging httpd processes
 # http://perl.apache.org/docs/1.0/guide/debug.html#Detecting_hanging_processes
 local $SIG{'USR2'} = sub {
-   Carp::confess('caught SIGUSR2!');
+	Carp::confess('caught SIGUSR2!');
 };
 
 use CGI ();
@@ -56,9 +56,9 @@ use ProductOpener::Config qw/:all/;
 
 use Log::Any qw($log);
 use Log::Log4perl;
-Log::Log4perl->init("$conf_root/log.conf"); # Init log4perl from a config file.
+Log::Log4perl->init("$conf_root/log.conf");    # Init log4perl from a config file.
 use Log::Any::Adapter;
-Log::Any::Adapter->set('Log4perl'); # Send all logs to Log::Log4perl
+Log::Any::Adapter->set('Log4perl');    # Send all logs to Log::Log4perl
 
 use ProductOpener::Lang qw/:all/;
 
@@ -90,26 +90,29 @@ use Apache2::RequestRec ();
 use APR::Table ();
 
 sub get_remote_proxy_address {
-  my $r = shift;
+	my $r = shift;
 
-  # we'll only look at the X-Forwarded-For header if the requests
-  # comes from our proxy at localhost
-if (!(  (   ( $r->useragent_ip eq '127.0.0.1' )
-			or 1    # all IPs
+	# we'll only look at the X-Forwarded-For header if the requests
+	# comes from our proxy at localhost
+	if (
+		!(
+			(
+				($r->useragent_ip eq '127.0.0.1')
+				or 1    # all IPs
+			)
+			and $r->headers_in->get('X-Forwarded-For')
 		)
-		and $r->headers_in->get('X-Forwarded-For')
-	)
-	)
-{
+		)
+	{
+		return Apache2::Const::OK;
+	}
+
+	# Select last value in the chain -- original client's ip
+	if (my ($ip) = $r->headers_in->get('X-Forwarded-For') =~ /([^,\s]+)$/sxm) {
+		$r->useragent_ip($ip);
+	}
+
 	return Apache2::Const::OK;
-}
-
-  # Select last value in the chain -- original client's ip
-  if (my ($ip) = $r->headers_in->get('X-Forwarded-For') =~ /([^,\s]+)$/sxm) {
-    $r->useragent_ip($ip);
-  }
-
-  return Apache2::Const::OK;
 }
 
 # set up error logging
@@ -134,8 +137,8 @@ if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 # if it does not exist, as well as sub-directories for the Template module
 # We need to set more permissive permissions so that it can be writable by the Apache user.
 
-chmod_recursive( S_IRWXU | S_IRWXG | S_IRWXO, "$data_root/tmp" );
+chmod_recursive(S_IRWXU | S_IRWXG | S_IRWXO, "$data_root/tmp");
 
-$log->info('product opener started', { version => $version });
+$log->info('product opener started', {version => $version});
 
 1;

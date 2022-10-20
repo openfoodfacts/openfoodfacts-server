@@ -24,10 +24,7 @@ use ProductOpener::Test qw/:all/;
 use Getopt::Long;
 use JSON;
 
-
-my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (
-	init_expected_results(__FILE__)
-);
+my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
 # Remove all products
 
@@ -70,8 +67,7 @@ export_csv($export_args_ref);
 
 close($exported_csv);
 
-ProductOpener::Test::compare_csv_file_to_expected_results($exported_csv_file,
-	$expected_result_dir,
+ProductOpener::Test::compare_csv_file_to_expected_results($exported_csv_file, $expected_result_dir,
 	$update_expected_results);
 
 # Export more fields
@@ -87,8 +83,7 @@ export_csv($export_args_ref);
 
 close($exported_csv);
 
-ProductOpener::Test::compare_csv_file_to_expected_results($exported_csv_file,
-	"${expected_result_dir}_more_fields",
+ProductOpener::Test::compare_csv_file_to_expected_results($exported_csv_file, "${expected_result_dir}_more_fields",
 	$update_expected_results);
 
 done_testing();
