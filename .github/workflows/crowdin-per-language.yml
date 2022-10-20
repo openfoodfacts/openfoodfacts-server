@@ -22,7 +22,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
     - name: Matrix
-      uses: crowdin/github-action@1.4.14
+      uses: crowdin/github-action@1.4.15
       with:
          upload_translations: false # default is false
          download_translations: true

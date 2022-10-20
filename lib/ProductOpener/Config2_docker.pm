@@ -22,11 +22,10 @@ package ProductOpener::Config2;
 
 use utf8;
 use Modern::Perl '2017';
-use Exporter    qw< import >;
+use Exporter qw< import >;
 
-BEGIN
-{
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
+BEGIN {
+	use vars qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 	require Exporter;
 	@ISA = qw(Exporter);
 	@EXPORT = qw();
@@ -54,9 +53,8 @@ BEGIN
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
-use vars @EXPORT_OK ; # no 'my' keyword for these
+use vars @EXPORT_OK;    # no 'my' keyword for these
 use utf8;
-
 
 # server constants
 my $po_domain = $ENV{PRODUCT_OPENER_DOMAIN};
@@ -79,9 +77,9 @@ $geolite2_path = $ENV{GEOLITE2_PATH};
 my $mongodb_url = $ENV{MONGODB_HOST} || "mongodb";
 $mongodb_host = "mongodb://$mongodb_url:27017";
 $mongodb = $producers_platform ? "off-pro" : "off";
-$mongodb_timeout_ms = 50000; # config option max_time_ms/maxTimeMS
+$mongodb_timeout_ms = 50000;    # config option max_time_ms/maxTimeMS
 
-$memd_servers = [ "memcached:11211" ];
+$memd_servers = ["memcached:11211"];
 
 $google_cloud_vision_api_key = $ENV{GOOGLE_CLOUD_VISION_API_KEY};
 $crowdin_project_identifier = $ENV{CROWDIN_PROJECT_IDENTIFIER};
@@ -107,17 +105,17 @@ $events_password = $ENV{EVENTS_PASSWORD};
 $redis_url = $ENV{REDIS_URL};
 
 %server_options = (
-        private_products => $producers_platform,  # 1 to make products visible only to the owner (producer platform)
-		producers_platform => $producers_platform,
-		minion_backend => { Pg => $postgres_url},
-		minion_local_queue => $producers_platform ? "pro.$server_domain" : $server_domain,
-		minion_export_queue => $server_domain,
-		cookie_domain => $po_domain,
-		export_servers => { public => "off", experiment => "off-exp"},
-		ip_whitelist_session_cookie => ["", ""],
-		export_data_root => "/mnt/podata/export",
-		minion_daemon_server_and_port => "http://0.0.0.0:3001",
-		# this one does not seems to be used
-		minion_admin_server_and_port => "http://0.0.0.0:3003",
+	private_products => $producers_platform,    # 1 to make products visible only to the owner (producer platform)
+	producers_platform => $producers_platform,
+	minion_backend => {Pg => $postgres_url},
+	minion_local_queue => $producers_platform ? "pro.$server_domain" : $server_domain,
+	minion_export_queue => $server_domain,
+	cookie_domain => $po_domain,
+	export_servers => {public => "off", experiment => "off-exp"},
+	ip_whitelist_session_cookie => ["", ""],
+	export_data_root => "/mnt/podata/export",
+	minion_daemon_server_and_port => "http://0.0.0.0:3001",
+	# this one does not seems to be used
+	minion_admin_server_and_port => "http://0.0.0.0:3003",
 );
 1;

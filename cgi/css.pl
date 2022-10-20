@@ -41,10 +41,10 @@ my $request_ref = ProductOpener::Display::init_request();
 # This is useful for static HTML files (e.g. donation page translated by CrowdIn)
 
 my $redirect
-  = $static_subdomain
-  . "/css/dist/app-"
-  . lang('text_direction')
-  . ".css?v="
-  . $file_timestamps{'css/dist/app-' . lang('text_direction') . '.css'};
+	= $static_subdomain
+	. "/css/dist/app-"
+	. lang('text_direction')
+	. ".css?v="
+	. $file_timestamps{'css/dist/app-' . lang('text_direction') . '.css'};
 
 redirect_to_url($request_ref, 302, $redirect);
