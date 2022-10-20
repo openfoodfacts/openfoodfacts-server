@@ -34217,7 +34217,7 @@ ciqual_food_name:fr:Chocolat au lait aux fruits secs (noisettes, amandes, raisin
 
 <en:Chocolates with hazelnuts
 <en:Milk chocolates
-en:Milk chocolate with hazelnuts
+en:Milk chocolates with hazelnuts, Milk chocolate with hazelnuts
 de:Milchschokolade mit Haselnüssen
 es:Chocolate con leche y avellanas
 fi:hasselpähkinämaitosuklaat
@@ -34233,7 +34233,7 @@ ciqual_food_name:fr:Chocolat au lait aux fruits secs (noisettes, amandes, raisin
 
 <en:Chocolates with almonds
 <en:Milk chocolates
-en:Milk chocolate with almonds
+en:Milk chocolates with almonds, Milk chocolate with almonds
 de:Milchschokolade mit Mandeln
 es:Chocalte con leche almendrado
 fi:Maitosuklaa manteleilla
@@ -40505,7 +40505,8 @@ fr:Brousses
 wikidata:en:Q2926318
 
 #note:en: Note that en:Cottage Cheese not the same as en:Brousse. It has a different taste and structure.
-<en:Fresh cheeses
+#Cottage cheese is not directly in cheeses to avoid having cottage fruit cottage cheese in cheeses.
+<en:Fermented milk products
 en:Cottage cheeses
 af:Maaskaas
 ar:جبن قريش
@@ -40544,6 +40545,7 @@ zh:茅屋起司
 #yue:茅屋芝士
 wikidata:en:Q13221624
 
+<en:Fresh cheeses
 <en:Cottage cheeses
 <en:Plain fermented dairy desserts
 en:Plain cottage cheeses
@@ -40553,6 +40555,11 @@ fr:Cottage cheeses nature
 <en:Fermented dairy desserts with fruits
 en:Fruit cottage cheeses
 fr:Cottage cheeses aux fruits
+
+<en:Fresh cheeses
+<en:Cottage cheeses
+en:Herb cottage cheeses
+fr:Cottage cheeses aux herbes aromatiques
 
 <en:French cheeses
 <en:Brousse
@@ -96085,6 +96092,10 @@ wikidata:en:Q1343997
 <en:Meat analogues
 en:Meat analogues from soy or wheat proteins
 fr:Substituts de viande à partir de protéines de soja ou blé
+
+<en:Meat analogues
+en:Meat analogues from pea proteins
+fr:Substituts de viande à partir de protéines de pois
 
 <en:Meat analogues
 en:Ham substitutes, Ham substituts
