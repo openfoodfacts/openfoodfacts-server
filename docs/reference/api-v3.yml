@@ -146,43 +146,7 @@ paths:
                       type: string
                     product:
                       $ref: ./schemas/product_update_api_v3.yaml
-            examples:
-              Replacing all packaging components:
-                value:
-                  userid: string
-                  password: string
-                  code: '1234567890123'
-                  product:
-                    packagings:
-                      - material: 'en:pp-polypropylene'
-                        number: '2'
-                        recycling: 'en:discard'
-                        shape:
-                          id: 'en:lid'
-                      - material: 'en:non-corrugated-cardboard'
-                        number: '1'
-                        recycling: 'en:recycle'
-                        shape: 'en:box'
-                        weight_measured: 120
-                      - material: 'en:paper-and-fibreboard-aluminium'
-                        number: '2'
-                        recycling: 'en:recycle'
-                        shape: 'en:seal'
-                      - material: 'en:clear-glass'
-                        number: '2'
-                        recycling: 'en:recycle'
-                        shape: 'en:jar'
-                        quantity: 200 ML
-                        weight_measured: 80
-              Adding data about some packaging components:
-                value:
-                  userid: string
-                  password: string
-                  code: '1234567890123'
-                  product:
-                    packagings_add:
-                      - material: 'en:plastic'
-                        recycling: 'en:recycle'
+            examples: {}
           application/xml:
             schema:
               type: object

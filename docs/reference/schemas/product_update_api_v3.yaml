@@ -3,49 +3,9 @@ x-stoplight:
   id: qnmmu2yuzc1xf
 type: object
 description: Model for creating or updating products using the v3 version of the product update API.
+examples: []
 properties:
   packagings:
-    $ref: ./packagings/packagings - write.yaml
+    $ref: ./packagings/packagings-write.yaml
   packagings_add:
-    $ref: ./packagings/packagings - write.yaml
-examples:
-  - packagings:
-      - material: 'en:pp-polypropylene'
-        number: '2'
-        recycling: 'en:discard'
-        shape: 'en:lid'
-      - material: 'en:non-corrugated-cardboard'
-        number: '1'
-        recycling: 'en:recycle'
-        shape: 'en:box'
-        weight_measured: 120
-      - material: 'en:paper-and-fibreboard-aluminium'
-        number: '2'
-        recycling: 'en:recycle'
-        shape: 'en:seal'
-      - material: 'en:clear-glass'
-        number: '2'
-        recycling: 'en:recycle'
-        shape: 'en:jar'
-        quantity: 200 ML
-        weight_measured: 85
-    packagings_add:
-      - material: 'en:pp-polypropylene'
-        number: '2'
-        recycling: 'en:discard'
-        shape: 'en:lid'
-      - material: 'en:non-corrugated-cardboard'
-        number: '1'
-        recycling: 'en:recycle'
-        shape: 'en:box'
-        weight_measured: 120
-      - material: 'en:paper-and-fibreboard-aluminium'
-        number: '2'
-        recycling: 'en:recycle'
-        shape: 'en:seal'
-      - material: 'en:clear-glass'
-        number: '2'
-        recycling: 'en:recycle'
-        shape: 'en:jar'
-        quantity: 200 ML
-        weight_measured: 85
+    $ref: ./packagings/packagings-write.yaml

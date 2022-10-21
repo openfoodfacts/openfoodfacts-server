@@ -11,31 +11,32 @@ description: |-
 
   The resulting structure will contain the id of the canonical entry in the taxonomy if it good be matched, or the free text value prefixed with the language code otherwise.
 examples:
-  - number: 1
-    shape: 'en:Pizza box'
-    material: 'en:cardboard'
-    recycling: to be recycled
-    quantity: 50 grams
-    weight _measured: 30
+  - number_of_units: 6
+    shape:
+      id: 'en:bottle'
+    material:
+      id: 'en:plastic'
+    recycling:
+      id: 'en:recycle'
+    quantity_per_unit: 25 cl
+    weight_measured: 10
 properties:
-  number:
+  number_of_units:
     type: integer
     description: Number of units of this packaging component contained in the product (e.g. 6 for a pack of 6 bottles)
   shape:
-    $ref: ./shape - write.yaml
+    $ref: ./shape-write.yaml
   material:
-    type: string
-    description: 'Material, canonicalized with the packaging_shapes taxonomy.'
+    $ref: ./material-write.yaml
   recycling:
-    type: string
-    description: 'Recycling instruction, canonicalized with the packaging_shapes taxonomy.'
-  quantity:
+    $ref: ./recycling-write.yaml
+  quantity_per_unit:
     type: string
     description: Quantity (weight or volume) of food product contained in the packaging component. (e.g. 75cl for a wine bottle)
   weight_specified:
     type: number
     description: 'Weight (as specified by the manufacturer) of one unit of the empty packaging component (in grams). (e.g. for a 6 pack of 1.5l water bottles, it might be 30, the weight in grams of 1 empty water bottle without its cap which is a different packaging component).'
-  weight _measured:
+  weight_measured:
     type: number
     description: 'Weight (as measured by one or more users) of one unit of the empty packaging component (in grams). (e.g. for a 6 pack of 1.5l water bottles, it might be 30, the weight in grams of 1 empty water bottle without its cap which is a different packaging component).'
   brands:
