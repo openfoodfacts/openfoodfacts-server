@@ -38,7 +38,11 @@ BEGIN {
 		&create_user
 		&edit_user
 		&edit_product
+		&html_displays_error
 		&login
+		&mails_from_log
+		&tail_log_start
+		&tail_log_read
 		&new_client
 		&wait_dynamic_front
 
@@ -53,10 +57,12 @@ use Test::More;
 use LWP::UserAgent;
 use HTTP::CookieJar::LWP;
 use ProductOpener::TestDefaults qw/:all/;
+use ProductOpener::Mail qw/ $LOG_EMAIL_START $LOG_EMAIL_END /;
 
 use Carp qw/confess/;
 use Clone qw/clone/;
 use Data::Dump qw/dump/;
+use File::Tail;
 
 =head2 $TEST_WEBSITE_URL
 
@@ -118,14 +124,15 @@ Call API to create a user
 
 sub create_user ($ua, $args_ref) {
 	my %fields = %{clone($args_ref)};
+	my $tail = tail_log_start();
 	my $response = $ua->post("$TEST_WEBSITE_URL/cgi/user.pl", Content => \%fields);
 	if (not $response->is_success) {
 		diag("Couldn't create user with " . dump(%fields) . "\n");
 		diag explain $response;
-		confess("Resuming");
+		diag("\n\nLog4Perl Logs: \n" . tail_log_read($tail) . "\n\n");
+		confess("\nResuming");
 	}
-	# FIXME: also test that there is no error as code is not relevant for form errors
-	return;
+	return $response;
 }
 
 =head2 edit_user($ua, $args_ref)
@@ -158,7 +165,7 @@ sub login ($ua, $user_id, $password) {
 		diag explain $response;
 		confess("Resuming");
 	}
-	return;
+	return $response;
 }
 
 =head2 edit_product($ua, $product_fields_ref)
@@ -187,7 +194,19 @@ sub edit_product ($ua, $product_fields) {
 		diag explain $response;
 		confess("Resuming");
 	}
-	return;
+	return $response;
+}
+
+=head2 html_displays_error($page)
+
+Return if a form displays errors
+
+Most from will return a 200 while displaying an error message.
+This function assumes error_list.tt.html was used.
+=cut
+
+sub html_displays_error ($page) {
+	return index($page, '<li class="error">') > -1;
 }
 
 =head2 construct_test_url()
@@ -222,6 +241,69 @@ sub construct_test_url ($target, $prefix) {
 
 	my $url = "http://${prefix}.${link}${target}";
 	return $url;
+}
+
+=head2 tail_log_start($log_path)
+
+Start monitoring a log file
+
+=head3 Arguments
+
+=head4 String $log_path
+
+Defaults to /var/log/apache2/log4perl.log
+
+=head3 Returns
+
+An object to pass to tail_log_read to read
+
+=cut
+
+sub tail_log_start ($log_path = "/var/log/apache2/log4perl.log") {
+	# we use nowait mode to avoid loosing time in test
+	# but beware, this means we will have to manually call checkpending()
+	# before reading
+	my $tail = File::Tail->new(name => $log_path, nowait => 1);
+	return $tail;
+}
+
+=head2 tail_log_read($tail)
+
+Return all content written to a log file since last check
+
+=head3 Arguments
+
+=head4 $tail
+
+Object returned by tail_log_start
+
+=head3 Returns
+
+Content as a string
+
+=cut
+
+sub tail_log_read ($tail) {
+	# we want to do a nowait read,
+	# but we bypass all the predict stuff from File::Tail
+	# by directly using checkpending
+	$tail->checkpending();
+	my @contents = ();
+	while (my $line = $tail->read()) {
+		push @contents, $line;
+	}
+	return join "", @contents;
+}
+
+=head2 mails_from_log($text)
+Retrieve mails in a log extract
+=cut
+
+sub mails_from_log ($text) {
+	# use delimiter to get it (using non greedy match)
+	# /g to match all and /s to treat \n as normal chars
+	my @mails = ($text =~ /$LOG_EMAIL_START(.*?)$LOG_EMAIL_END/gs);
+	return @mails;
 }
 
 1;
