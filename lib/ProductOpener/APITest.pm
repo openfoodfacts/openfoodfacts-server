@@ -38,12 +38,15 @@ BEGIN {
 		&create_user
 		&edit_user
 		&edit_product
+		&get_page
 		&html_displays_error
 		&login
 		&mails_from_log
+		&mail_to_text
+		&new_client
+		&post_form
 		&tail_log_start
 		&tail_log_read
-		&new_client
 		&wait_dynamic_front
 
 		$TEST_WEBSITE_URL
@@ -162,6 +165,54 @@ sub login ($ua, $user_id, $password) {
 	my $response = $ua->post("$TEST_WEBSITE_URL/cgi/login.pl", Content => \%fields);
 	if (not($response->is_success || $response->is_redirect)) {
 		diag("Couldn't login with " . dump(\%fields) . "\n");
+		diag explain $response;
+		confess("Resuming");
+	}
+	return $response;
+}
+
+=head2 get_page ($ua, $url)
+
+Get a page of the app
+
+=head3 Arguments
+
+=head4 $ua - user agent
+
+=head4 $url - absolute url
+
+=cut
+
+sub get_page ($ua, $url) {
+	my $response = $ua->get("$TEST_WEBSITE_URL$url");
+	if (not $response->is_success) {
+		diag("Couldn't get page $url\n");
+		diag explain $response;
+		confess("Resuming");
+	}
+	return $response;
+}
+
+=head2 post_form ($ua, $url, $fields_ref)
+
+Post a form
+
+=head3 Arguments
+
+=head4 $ua - user agent
+
+=head4 $url - absolute url
+
+=head4 $fields_ref
+
+Reference of a hash of fields to pass as the form result
+
+=cut
+
+sub post_form ($ua, $url, $fields_ref) {
+	my $response = $ua->post("$TEST_WEBSITE_URL$url", Content => $fields_ref);
+	if (not $response->is_success) {
+		diag("Couldn't submit form $url with " . dump($fields_ref) . "\n");
 		diag explain $response;
 		confess("Resuming");
 	}
@@ -304,6 +355,27 @@ sub mails_from_log ($text) {
 	# /g to match all and /s to treat \n as normal chars
 	my @mails = ($text =~ /$LOG_EMAIL_START(.*?)$LOG_EMAIL_END/gs);
 	return @mails;
+}
+
+=head2 mail_to_text($text)
+Make mail more easy to search by removing some specific formatting
+
+Especially we replace "3D=" for "=" and join line and their continuation
+=head3 Arguments
+
+=head4 $mail text of mail
+
+=head3 Returns
+Reformated text
+=cut
+
+sub mail_to_text ($mail) {
+	my $text = $mail;
+	# = at line ending indicates a continuation line
+	$text =~ s/=\n//mg;
+	# =3D means =
+	$text =~ s/=3D/=/g;
+	return $text;
 }
 
 1;

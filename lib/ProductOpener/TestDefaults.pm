@@ -28,8 +28,10 @@ use Clone qw/clone/;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-		%default_product_form
 		%admin_user_form
+		%default_org_edit_form
+		%default_org_edit_admin_form
+		%default_product_form
 		%default_user_form
 		%pro_moderator_user_form
 
@@ -104,5 +106,27 @@ NB: must be created by an admin
 	type => "add",
 	".submit" => "submit"
 );
+
+%default_org_edit_form = (
+	orgid => "acme-inc",
+	action => "process",
+	type => "edit",
+	name => "Acme Inc.",
+	link => "",
+	customer_service_name => "",
+	customer_service_address => "",
+	customer_service_mail => "",
+	customer_service_link => "",
+	customer_service_phone => "",
+	customer_service_info => "",
+	commercial_service_name => "",
+	commercial_service_address => "",
+	commercial_service_mail => "",
+	commercial_service_link => "",
+	commercial_service_phone => "",
+	commercial_service_info => "",
+);
+
+%default_org_edit_admin_form = (list_of_gs1_gln => "",);
 
 1;

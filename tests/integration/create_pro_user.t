@@ -2,6 +2,9 @@
 
 use ProductOpener::PerlStandards;
 
+use ProductOpener::Config qw/$data_root/;
+use ProductOpener::Store qw/retrieve/;
+
 use Test::More;
 use ProductOpener::APITest qw/:all/;
 use ProductOpener::Test qw/:all/;
@@ -9,13 +12,17 @@ use ProductOpener::TestDefaults qw/:all/;
 
 use Clone qw/clone/;
 use List::Util qw/first/;
+use Storable qw(dclone);
 
 =head1 Test creation of a producer user
 
 =cut
 
+my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
+
 # clean
 remove_all_users();
+remove_all_orgs();
 wait_dynamic_front();
 
 my $admin_ua = new_client();
@@ -47,18 +54,56 @@ ok(!html_displays_error($resp));
 my $logs = tail_log_read($tail);
 
 # As it's the first, user is already part of the org
-# FIXME: my $user = retrieve("$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";")
+my $user_ref = retrieve("$data_root/users/tests.sto");
+# user is already part of org
+is($user_ref->{pro}, 1);
+
+is($user_ref->{org}, "acme-inc");
+is($user_ref->{org_id}, "acme-inc");
+# remove password for comparison and timestamps
+my $user_cmp_ref = dclone($user_ref);
+normalize_user_for_test_comparison($user_cmp_ref);
+compare_to_expected_results($user_cmp_ref, "$expected_result_dir/user-after-subscription.json",
+	$update_expected_results);
+
+# Org was created
+my $org_ref = retrieve("$data_root/orgs/acme-inc.sto");
+my $org_cmp_ref = dclone($org_ref);
+normalize_org_for_test_comparison($org_cmp_ref);
+compare_to_expected_results($org_cmp_ref, "$expected_result_dir/org-after-subscription.json", $update_expected_results);
 
 # Get mails from log
 my @mails = mails_from_log($logs);
 # we got three
 is(scalar @mails, 3);
-# we are interested in the one directed to pro admins
+
+# User got a mail
+my $user_mail = first {$_ =~ /^To:.*test\@test.com/im} @mails;
+# got it
+ok(defined $user_mail);
+$user_mail = mail_to_text($user_mail);
+# with a welcome and it's userid
+ok(index($user_mail, "Thanks a lot for joining") >= 0);
+ok(index($user_mail, "User name: tests") >= 0);
+
+# Let see the one directed to pro admins
 my $moderators_mail = first {$_ =~ /^To:.*producers\@openfoodfacts.org/im} @mails;
 # go it
 ok(defined $moderators_mail);
-# got a link to … FIXME to continue
+$moderators_mail = mail_to_text($moderators_mail);
+# got a link to org page to validate it
+ok(index($moderators_mail, 'openfoodfacts.org/cgi/org.pl?type=edit&orgid=acme-inc') >= 0);
+ok(index($moderators_mail, 'Access org acme-inc') >= 0);
 
-# the pro moderator validates the user org
+# the pro moderator got to the org page
+$resp = get_page($moderator_ua, "/cgi/org.pl?type=edit&orgid=org-acme-inc");
+# the pro moderator validates the user org by going on org page and adding a tick
+my %fields = (%{dclone(\%default_org_edit_form)}, %{dclone(\%default_org_edit_admin_form)}, valid_org => 1);
+$resp = post_form($moderator_ua, "/cgi/org.pl", \%fields);
+# the org is now validated
+$org_ref = retrieve("$data_root/orgs/acme-inc.sto");
+my $org_cmp_ref = dclone($org_ref);
+normalize_org_for_test_comparison($org_cmp_ref);
+compare_to_expected_results($org_cmp_ref, "$expected_result_dir/org-after-validation.json", $update_expected_results);
 
 done_testing();
