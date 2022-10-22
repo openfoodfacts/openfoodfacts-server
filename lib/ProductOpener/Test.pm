@@ -609,7 +609,7 @@ We remove time dependent fields, password (which encryption use salt) and sort s
 =cut
 
 sub normalize_user_for_test_comparison ($user_ref) {
-	my %specification = (fields_ignore_content => [qw(registered_t user_sessions encrypted_password)],);
+	my %specification = (fields_ignore_content => [qw(registered_t user_sessions encrypted_password ip)],);
 
 	normalize_object_for_test_comparison($user_ref, \%specification);
 	return;

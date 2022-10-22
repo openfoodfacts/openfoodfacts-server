@@ -7,7 +7,7 @@ use ProductOpener::APITest qw/:all/;
 use ProductOpener::Test qw/:all/;
 
 remove_all_products();
-wait_dynamic_front();
+wait_application_ready();
 
 my $user_ua = new_client();
 my $anon_ua = new_client();

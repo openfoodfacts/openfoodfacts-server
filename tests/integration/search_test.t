@@ -79,7 +79,7 @@ remove_all_users();
 
 remove_all_products();
 
-wait_dynamic_front();
+wait_application_ready();
 
 my $ua = new_client();
 

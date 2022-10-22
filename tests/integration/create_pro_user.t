@@ -23,7 +23,7 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 # clean
 remove_all_users();
 remove_all_orgs();
-wait_dynamic_front();
+wait_application_ready();
 
 my $admin_ua = new_client();
 my $resp = create_user($admin_ua, \%admin_user_form);
@@ -102,7 +102,7 @@ my %fields = (%{dclone(\%default_org_edit_form)}, %{dclone(\%default_org_edit_ad
 $resp = post_form($moderator_ua, "/cgi/org.pl", \%fields);
 # the org is now validated
 $org_ref = retrieve("$data_root/orgs/acme-inc.sto");
-my $org_cmp_ref = dclone($org_ref);
+$org_cmp_ref = dclone($org_ref);
 normalize_org_for_test_comparison($org_cmp_ref);
 compare_to_expected_results($org_cmp_ref, "$expected_result_dir/org-after-validation.json", $update_expected_results);
 

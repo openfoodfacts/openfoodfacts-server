@@ -47,7 +47,9 @@ BEGIN {
 		&post_form
 		&tail_log_start
 		&tail_log_read
+		&wait_application_ready
 		&wait_dynamic_front
+		&wait_server
 
 		$TEST_WEBSITE_URL
 	);    # symbols to export on request
@@ -93,9 +95,49 @@ sub wait_dynamic_front() {
 		if (($count % 3) == 0) {
 			print("Waiting for dynamicfront to be ready since $count seconds...\n");
 		}
+		confess("Waited too much for backend") if $count > 100;
 	}
 	return;
 }
+
+
+=head2 wait_server()
+
+Wait for server to be ready.
+It's important because the application might fail because of that
+
+=cut
+
+sub wait_server() {
+
+	# simply try to access front page
+	my $count = 0;
+	my $ua = new_client();
+	while (1) {
+		my $response = $ua->get($TEST_WEBSITE_URL);
+		last if $response->is_success;
+		sleep 1;
+		$count++;
+		if (($count % 3) == 0) {
+			print("Waiting for backend to be ready since more than $count seconds...\n");
+		}
+		confess("Waited too much for backend") if $count > 60;
+	}
+	return;
+}
+
+=head2 wait_application_ready()
+
+Wait for server and dynamic front to be ready.
+Run this at the begining of every integration test
+
+=cut
+
+sub wait_application_ready() {
+	wait_server();
+	wait_dynamic_front();
+}
+
 
 =head2 new_client()
 
