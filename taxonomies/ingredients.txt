@@ -946,7 +946,7 @@ es:fermentos lácticos, fermentos lácteos, cultivos lácticos, ferments del yog
 et:juuretis
 fi:maitohappokäyte, maitohappokannat, maitohappoviljelmä, elävä jogurttiviljelmä, elävä jogurttibakteeriviljelmä, elävät jogurttibakteeriviljelmät, maitohappobakteeriviljelmä, maitohappobakteeriviljelmät, maitohappobakteerit, maitohappobakteerikanta, maitohappobakteerikannat, juustoviljelmä, juustoviljelmät, hapankulttuuri, jogurttihapate, maitohappobakteeri, käynnistin kulttuuri
 fr:ferment lactique, ferments lactique, ferments lactiques, ferment lactiques, culture de bactéries lactiques, cultures lactiques, ferment lactique du yaourt, ferments lactiques du yaourt, ferments vivants du yaourt
-hr:jogurtna kultura, mljekarska kultura, mljekarske kulture, starter kultura
+hr:jogurtna kultura, mljekarska kultura, mljekarske kulture, sirna kultura, starter kultura
 hu:tejsavbaktériumok, tejsavbaktérium, starterkultúra, starter kultúra, tejsavbaktérium-tenyészet, tejsavbaktérium kultúra, joghurtkultúra, joghurtkultúrák, sajtkultúra, sajtkultúrák
 it:fermenti lattici, coltura di batteri acidolattici, fermenti lattici vivi, fermenti latici vivi, fermenti lattici dello yogurt
 nb:melkesyrekultur, starterkultur, yoghurtkultur, yoghurtbakterier, syrekultur
@@ -2793,6 +2793,7 @@ de:Vollmilch
 es:leche entera
 fi:täysmaito
 fr:lait entier
+hr:mlijeko trajno, mlijeko trajno s 2.8% mliječne masti
 hu:teljes tej
 is:nýmjólk
 it:latte intero
@@ -9621,6 +9622,7 @@ es:Sal yodada
 fa:نمک یددار
 fi:jodioitu suola, jodia sisältävä suola, jodisuola
 fr:Sel iodé, sel de cuisine iodé
+hr:jodirona kuhinjska sol
 hu:jódozott só
 id:Garam beryodium
 it:Sale iodato
@@ -13299,6 +13301,7 @@ et:nisutärklis
 fi:vehnätärkkelys, vehnätärkkelystä
 fr:amidon de froment, amidon de blé
 he:עמילן חיטה
+hr:pšenični škrob
 hu:búzakeményítő
 it:amido di frumento
 nb:hvetestivelse
@@ -13933,6 +13936,7 @@ es:grasa butírica, mantequilla concentrada,mantequilla anhidra
 et:võirasv, veevaba piimarasv
 fi:voiöljy, voirasva, tiivistetty voi, vedetön maitorasva
 fr:matière grasse butyrique, graisse butyrique, beurre purifié, beurre fondu, beurre pâtissier, matière grasse laitière anhydre, beurre laitier concentré, beurre concentré, beurre anhydre, huile butyrique
+hr:pročišćeni maslac
 hu:vajzsír, vajolaj, derített vaj
 id:lemak susu
 it:burro anidro, burro di pasticceria, burro concentrato
@@ -15708,7 +15712,7 @@ es:manteca de karité, grasa de karite, karite, shea
 fi:karitevoi, sheavoi, shea, karite, sheaydin, shearasva
 fr:beurre de karité, matière grasse de karité, karité, graisses végétales de karité, huile de karité, huile végétale de karité, huiles végétales de karité
 he:חמאת שיאה
-hr:shea maslac, shea, šea
+hr:shea maslac, shea, šea, karite maslac
 hu:sheavaj, shea, sheazsír
 it:Burro di karité, karité
 ja:シアバター
@@ -19705,7 +19709,7 @@ es:aroma de vainilla
 fi:vanilja-aromi
 fr:arôme vanille, arôme de vanille
 he:חומר טעם וניל, חומרי טעם וניל
-hr:aroma vanilije
+hr:aroma vanilije, aroma vanilin
 hu:vanília aroma, vaníliaaroma
 it:aroma di vaniglia
 nl:vanillearoma, vanille aroma
@@ -21226,6 +21230,7 @@ de:Einkornvollkornmehl, Einkorn-Vollkornmehl
 en:wheat groats
 fi:vehnärouhe
 fr:gruau de blé
+hr:pšenična krupica
 ru:крупа пшеничная
 sv:vetekross
 # ingredient/fr:gruau-de-ble has 3 products in 1 language @2020-12-19
@@ -21632,7 +21637,7 @@ el:σιμιγδάλι σίτου
 es:sémola de trigo, semolina de trigo
 fi:mannasuurimo, vehnäsuurimo
 fr:semoule de blé
-hr:pšenična krupica
+hr:pšenični griz
 hu:búzadara
 it:semolino di frumento
 nl:tarwegries, tarwegriesmeel
@@ -23001,6 +23006,7 @@ es:copos de avena integrales, copos de avena integral, copos de avena integral l
 et:täisterakaerahelbed, täistera kaerahelbed
 fi:täysjyväkaurahiutale
 fr:Flocon d'avoine complet, flocons d'avoine complète, flocon d'avoine complète, flocons d'avoine complet, flocons d'avoine complets
+hr:zobene pahuljice iz cijelog zrna
 hu:teljes kiőrlésű zabpehely
 it:fiocchi di avena integrale, fiocchi d'avena integrale, Fiocchi d'avena integrali
 lt:pilno grūdo avižiniai dribsniai
@@ -23713,6 +23719,7 @@ de:Dinkelmehl, Dinkelweizenmehl
 es:harina de espelta, harina de trigo espelta, harina gruesa de espelta
 fi:spelttijauho
 fr:farine d'épeautre, farine de blé d'épeautre
+hr:pirovo brašno
 hu:tönkölyliszt
 it:farina di spelta, farina di farro
 la:Triticum spelta
@@ -24392,6 +24399,7 @@ de:Gerstenmalzmehl
 es:harina de malta de cebada
 fi:ohramallasjauho
 fr:farine de malt d'orge, farine d'orge malté
+hr:brašno od ječmenog slado
 hu:árpamalátaliszt
 it:farina di orzo maltato, farina d'orzo maltato, farina di malto d'orzo
 nl:gerstemoutmeel
@@ -24418,6 +24426,7 @@ es:harina de centeno
 fi:ruisjauho
 fr:farine de seigle
 he:קמח שיפון
+hr:raženo brašno
 hu:rozsliszt
 it:farina di segala, farina di segale
 nb:rugmel
@@ -24599,6 +24608,7 @@ es:harina de soja, semola de soja
 fi:soijajauho
 fr:farine de soja
 he:קמח סויה
+hr:sojino brašno
 hu:szójaiszt
 it:farina di soia
 nl:sojabloem, soja bloem, sojameel, sojapoeder, sojabonenmeel
@@ -25146,6 +25156,7 @@ el:σιμιγδάλι αραβοσίτου
 es:semola de maíz, granos de maíz
 fi:maissisuurimo
 fr:semoule de maïs, semoule de mais
+hr:kukuruzni griz
 hu:kukoricadara
 it:spezzato di mais, semolino di granoturco
 nl:Maïsgrits, maisgrut, maïsgrut
@@ -25198,6 +25209,7 @@ es:copos de maíz, corn flakes,cornflakes
 et:maisihelbed
 fi:maissihiutale, maissihiutaleet
 fr:pétales de maïs, pétale de maïs, cornflakes, corn flakes, flocons de maïs
+hr:kukuruzne pahuljice
 hu:kukoricapehely
 it:fiocchi di mais, cornflakes
 ja:コーンフレーク
@@ -26890,6 +26902,7 @@ de:Puderzucker, Azucar en polvo
 es:Azúcar glasé
 fi:tomusokeri
 fr:sucre glace, sucre en poudre
+hr:šećerni posip
 hu:porcukor
 it:zucchero a velo
 nl:poedersuiker, glazuursuiker, bloemsuiker
@@ -26918,6 +26931,7 @@ de:vanillezucker
 es:azúcar vainillada
 fi:vaniljasokeri
 fr:sucre vanillé
+hr:vanilin šećer
 hu:vaníliás cukor
 it:zucchero vanigliato
 kk:ванильді қант
@@ -27011,7 +27025,7 @@ fi:ruokosokeri
 fr:sucre de canne, pur sucre de canne, sucre pure canne, sucre 100 pure canne
 ga:siúcra cána
 he:סוכר קנים
-hr:šećer od šećerne trske
+hr:šećer od šećerne trske, šećer šećerne trske
 hu:nádcukor
 it:zucchero di canna
 ja:きび糖
@@ -30225,6 +30239,7 @@ fi:maitosuklaa
 fr:chocolat au lait, Chocolat au lait extra fin, Chocolat au lait en tablette
 gl:Chocolate con leite
 he:שוקולד חלב
+hr:mliječna čokolada
 hu:tejcsokoládé
 it:cioccolato al latte
 ja:ミルクチョコレート
@@ -30440,7 +30455,7 @@ gv:Ushtey
 ha:Ruwa
 he:מים
 hi:जल
-hr:Voda
+hr:voda
 ht:Dlo
 hu:Víz, ivóvíz
 hy:Ջուր
@@ -35101,7 +35116,7 @@ gu:સફરજન
 gv:Ooyl
 he:תפוח
 hi:सेब
-hr:Jabuka
+hr:jabuka, jabuke
 ht:Pòm
 hu:alma
 hy:խնձոր
@@ -36503,6 +36518,7 @@ el:χυμός λεμονιού
 es:zumo de limón, jugo de limón
 fi:sitruunamehu, sitruunatäysmehu
 fr:jus de citron
+hr:sok od limuna
 hu:Citromlé
 it:succo di limone
 ja:レモンジュース
@@ -38572,7 +38588,7 @@ fi:kookos, kookospähkinä
 fr:noix de coco, coco
 gl:Coco
 he:קוקוס
-hr:kokos
+hr:kokos, kokosova, kokosov orah
 hu:kókuszdió, kókusz
 it:cocco, noce di cocco
 ja:ココナッツ
@@ -49535,6 +49551,7 @@ de:roter Chili, rote Chili-Schoten
 es:chile rojo, chiles rojos, red-chili,chili rojo
 fi:punainen chili
 fr:piment rouge, piments rouges
+hr:crvene papričice
 it:peperoncini rossi
 nb:rød chili pepper, rød chili
 nl:rode peper, rode chilipeper
@@ -56901,6 +56918,7 @@ de:Zimtpulver
 es:Canela en polvo
 fi:kanelijauhe
 fr:cannelle en poudre, cannelle moulue
+hr:cimet u prahu
 it:cannella in polvere
 nl:kaneelpoeder
 pt:canela em pó
@@ -62362,7 +62380,7 @@ fa:گل‌آفتاب‌گردانیان
 fi:auringonkukka
 fr:tournesol
 he:חמנית
-hr:suncokret, suncokretovo
+hr:suncokret, suncokretov, suncokretovo
 hu:napraforgó
 hy:արևածաղիկ
 is:Sólblóm
@@ -65881,6 +65899,7 @@ de:fischbrühe
 es:caldo de pescado
 fi:kalaliemi
 fr:bouillon de poisson
+hr:riblji bujon
 sv:fiskbuljong
 # ingredient/en:fish-stock has 54 products in 2 languages @2020-06-13
 
@@ -68750,6 +68769,7 @@ es:lomos de atun
 en:precooked tuna
 de:gegarter Thunfisch, Thunfisch gegart
 fr:thon précuit,thon précuit haché
+hr:kuhano meso tune
 # ingredient/fr:thon-précuit has 30 products in french @2019-01-02
 
 <en:tuna
@@ -72589,7 +72609,7 @@ gu:મધુ
 gv:mill
 he:דבש
 hi:मधु
-hr:Med
+hr:med
 ht:Siwo
 hu:méz
 hy:Մեղր
@@ -74130,6 +74150,7 @@ de:Röstkaffee in Bohnen
 es:granos de café tostados, granos de café tostado
 fi:paahdetut kahvipavut
 fr:café torréfié en grains
+hr:pržena kava u zrnu
 it:caffè torrefatto in chicchi
 nl:gebrande koffiebonen
 # ingredient/fr:cafe-torrefie-en-grains has 8 products @2019-0-27
