@@ -1,0 +1,350 @@
+openapi: 3.1.0
+info:
+  title: Open Food Facts Open API
+  description: |
+    As a developer, the Open Food Facts API allows you to get information 
+    and contribute to the products database. You can create great apps to 
+    help people make better food choices and also provide data to enhance the database.
+  termsOfService: 'https://openweathermap.org/terms'
+  contact:
+    name: Open Food Facts
+    url: 'https://slack-ssl-openfoodfacts.herokuapp.com/'
+    email: contact@openfoodfacts.org
+  license:
+    name: 'License (MIT, Apache 2.0, etc)'
+    url: 'https://opendatacommons.org/licenses/odbl/summary/index.html'
+  version: '2'
+servers:
+  - url: 'https://world.openfoodfacts.org'
+    description: prod
+  - description: dev
+    url: 'https://off:off@world.openfoodfacts.net'
+paths:
+  '/api/v2/product/{barcode}':
+    get:
+      tags:
+        - Read Requests
+      summary: Get for a specific product by barcode
+      parameters:
+        - name: barcode
+          in: path
+          description: |
+            The barcode of the product to be fetched
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: '3017620422003'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./responses/get_product_by_barcode.yaml
+      description: |
+        A product can be fetched via its unique barcode.
+        It returns all the details of that product response.
+      operationId: get-product-by-barcode
+  '/api/v2/product/{barcode}?fields=knowledge_panels':
+    get:
+      tags:
+        - Read Requests
+      summary: |
+        Get Knowledge panels for a specific product by barcode 
+        (special case of get product)
+      parameters:
+        - name: barcode
+          in: path
+          description: |
+            The barcode of the product to be fetched
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: '3017620422003'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: ./responses/get_product_by_barcode_base.yaml
+                  - type: object
+                    properties:
+                      product:
+                        type: object
+                        properties:
+                          knowledge_panels:
+                            $ref: ./schemas/knowledge_panels/panels.yaml
+      description: |
+        Knowledge panels gives high leve informations about a product,
+        ready to display.
+        This is used by open food facts website, 
+        and by the official mobile application
+      operationId: get-product-by-barcode-knowledge-panels
+  /cgi/product_image_upload.pl:
+    post:
+      tags:
+        - Write Requests
+      summary: Add a Photo to an Existing Product
+      operationId: get-cgi-product_image_upload.pl
+      description: |
+        Photos are source and proof of data. 
+        The first photo uploaded for a product is 
+        auto-selected as the product’s “front” photo.'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./responses/add_photo_to_existing_product.yaml
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              #TODO: Include all possible request body like comment, brand , label etc.
+              $ref: ./requestBodies/add_photo_to_existing_product.yaml
+            examples: {}
+        description: ''
+
+  /cgi/ingredients.pl:
+    parameters: []
+    get:
+      summary: Performing OCR on a Product
+      operationId: get-cgi-ingredients.pl
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./responses/ocr_on_product.yaml
+      description: |
+        Open Food Facts uses optical character recognition (OCR) to retrieve nutritional data and other information from the product labels.
+      parameters:
+        - $ref: '#/components/parameters/id'
+        - $ref: '#/components/parameters/code'
+        - $ref: '#/components/parameters/process_image'
+        - $ref: '#/components/parameters/ocr_engine'
+      tags:
+        - Read Requests
+  /cgi/product_image_crop.pl:
+    post:
+      summary: Crop A Photo
+      operationId: post-cgi-product_image_crop.pl
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+      description: |
+        Cropping is only relevant for editing existing products. 
+        You cannot crop an image the first time you upload it to the system.
+      parameters: []
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: ./requestBodies/crop_a_photo.yaml
+      tags:
+        - Write Requests
+    get:
+      summary: Rotate A Photo
+      operationId: get-cgi-product_image_crop.pl
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./responses/rotate_a_photo.yaml
+      description: |
+        Although we recommend rotating photos manually and uploading a new version of the image, 
+        the OFF API allows you to make api calls to automate this process.
+        You can rotate existing photos by setting the angle to 90º, 180º, or 270º clockwise.
+      parameters:
+        #TODO: Describe these parameters
+        - $ref: '#/components/parameters/code'
+        - $ref: '#/components/parameters/id'
+        - $ref: '#/components/parameters/imgid'
+        - $ref: '#/components/parameters/angle'
+
+      tags:
+        - Write Requests
+  /cgi/product_jqm2.pl:
+    post:
+      summary: Add or Edit A Product
+      operationId: post-cgi-product_jqm2.pl
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                #TODO: Explain the different response fields
+                $ref: ./responses/add_or_edit_a_product.yaml
+      parameters: []
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              #TODO: Include all possible request body like comment, brand , label etc. 
+              $ref: ./requestBodies/add_or_edit_a_product.yaml
+      tags:
+        - Write Requests
+      description: |
+        If a barcode exists then you will be editing a product, 
+        However if it doesn''t you qill be creating a new product with that unique barcode.
+  /api/v2/search:
+    get:
+      summary: Search for Products
+      tags:
+        - Read Requests
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./responses/search_for_products.yaml
+      operationId: get-search
+      description: |
+        Search request allows you to get the nutritional data of products that match your search criteria. 
+        It allows you create many custom APIs for your use case. 
+        If the search query parameter has 2 possible values, they are seperated by a comma(,).
+      parameters:
+        - $ref: '#/components/parameters/categories_tags_en'
+        - $ref: '#/components/parameters/labels_tags_en'
+        - $ref: '#/components/parameters/fields'
+        
+    parameters: []
+  /cgi/suggest.pl:
+    get:
+      summary: Get Suggestions to Aid Adding/Editing Products
+      tags:
+        - Read Requests
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                #TODO: Document example response properly
+                type: array
+              examples: {}
+      operationId: get-cgi-suggest.pl
+      parameters:
+        - $ref: '#/components/parameters/tagtype'
+        - $ref: '#/components/parameters/term'
+      description: |
+        For example , Dave is looking for packaging_shapes that contain the term "fe", 
+        all packaging_shapes containing "fe" will be returned. 
+        This is useful if you have a search in your application, 
+        for a specific product field.
+components:
+  schemas:
+    Product:
+      $ref: ./schemas/product.yaml
+  parameters:
+
+    id:
+      schema:
+        type: string
+        example: ingredients_en
+      in: query
+      name: id
+      required: true
+
+    code:
+      schema:
+        type: string
+        example: '4251105501381'
+      in: query
+      name: code
+      description: Barcode of the product
+      required: true
+
+    process_image:
+      schema:
+        type: string
+        example: '1'
+      in: query
+      name: process_image
+      required: true
+
+    ocr_engine:
+      schema:
+        type: string
+        example: google_cloud_vision
+      in: query
+      name: ocr_engine
+      required: true
+
+    imgid:
+      schema:
+         type: string
+         example: '1'
+      in: query
+      name: imgid
+      required: true
+    
+    angle:
+      schema:
+         type: string
+         example: '90'
+      in: query
+      name: angle
+      required: true
+    
+    categories_tags_en:
+      schema:
+        type: string
+        example: chocolates
+      in: query
+      name: categories_tags_en
+      description: |
+        The category of products you are searching for.
+    
+    labels_tags_en: 
+      schema:
+        type: string
+        example: organic
+      in: query
+      name: labels_tags_en
+      description: |
+        The labels of products you are searching for.
+
+    fields:
+      schema: 
+        type: string
+        example: 'code,product_name'
+      in: query
+      name: fields
+      description: |
+        The fields to be returned from the product object can also be limited.
+        If not specified, it returns the entire product object response.
+    
+    tagtype:
+      schema:
+        type: string
+        example: additives
+      in: query
+      name: tagtype
+
+    term:
+      schema:
+        type: string
+        example: f
+      in: query
+      name: term
+tags:
+  - name: Read Requests
+  - name: Write Requests

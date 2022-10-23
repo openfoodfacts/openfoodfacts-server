@@ -106,11 +106,11 @@ foreach my $group_ref (@$select2_options_ref) {
 			my $nid = $field_id;
 			$nid =~ s/_(100g|serving|prepared).*//;
 			$log->debug("field nutrition", {group_id => $group_id, field_id => $field_id, nid => $nid})
-			  if $log->is_debug();
+				if $log->is_debug();
 			my $unit = default_unit_for_nid($nid);
 			$log->debug("field nutrition default unit",
 				{group_id => $group_id, field_id => $field_id, nid => $nid, unit => $unit})
-			  if $log->is_debug();
+				if $log->is_debug();
 			$comment .= sprintf(lang("specify_value_and_unit_or_use_default_unit"), $unit) . "\n\n";
 			$log->debug("field after sprintf", {group_id => $group_id, field_id => $field_id}) if $log->is_debug();
 		}
@@ -192,7 +192,7 @@ foreach my $group_ref (@$select2_options_ref) {
 		$col++;
 
 		$log->debug("field - comment", {group_id => $group_id, field_id => $field_id, comment => $comment})
-		  if $log->is_debug();
+			if $log->is_debug();
 	}
 }
 

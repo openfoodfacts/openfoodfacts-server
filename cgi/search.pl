@@ -55,7 +55,7 @@ my $html;
 
 if (user_agent() =~ /apps-spreadsheets/) {
 
-	display_error(
+	display_error_and_exit(
 		"Automated queries using Google Spreadsheet overload the Open Food Facts server. We cannot support them. You can contact us at contact\@openfoodfacts.org to tell us about your use case, so that we can see if there is another way to support it.",
 		200
 	);
@@ -84,7 +84,7 @@ if ((defined single_param('json')) or (defined single_param('jsonp')) or (define
 }
 
 my @search_fields
-  = qw(brands categories packaging labels origins manufacturing_places emb_codes purchase_places stores countries ingredients additives allergens traces nutrition_grades nova_groups languages creator editors states);
+	= qw(brands categories packaging labels origins manufacturing_places emb_codes purchase_places stores countries ingredients additives allergens traces nutrition_grades nova_groups languages creator editors states);
 
 $admin and push @search_fields, "lang";
 
@@ -119,7 +119,7 @@ my $tags_n = 2;
 my $nutriments_n = 2;
 
 my $search_terms
-  = remove_tags_and_quote(decode utf8 => single_param('search_terms2'));    #advanced search takes precedence
+	= remove_tags_and_quote(decode utf8 => single_param('search_terms2'));    #advanced search takes precedence
 if ((not defined $search_terms) or ($search_terms eq '')) {
 	$search_terms = remove_tags_and_quote(decode utf8 => single_param('search_terms'));
 }
@@ -284,12 +284,12 @@ if ($action eq 'display') {
 	for (my $i = 0; ($i < $tags_n) or defined single_param("tagtype_$i"); $i++) {
 
 		push @{$template_data_ref->{criteria}},
-		  {
+			{
 			id => $i,
 			selected_tags_field_value => $search_tags[$i][0],
 			selected_contain_value => $search_tags[$i][1],
 			input_value => $search_tags[$i][2],
-		  };
+			};
 	}
 
 	foreach my $tagtype (@search_ingredient_classes) {
@@ -297,12 +297,12 @@ if ($action eq 'display') {
 		not defined $search_ingredient_classes{$tagtype} and $search_ingredient_classes{$tagtype} = 'indifferent';
 
 		push @{$template_data_ref->{ingredients}},
-		  {
+			{
 			tagtype => $tagtype,
 			search_ingredient_classes_checked_without => $search_ingredient_classes_checked{$tagtype}{without},
 			search_ingredient_classes_checked_with => $search_ingredient_classes_checked{$tagtype}{with},
 			search_ingredient_classes_checked_indifferent => $search_ingredient_classes_checked{$tagtype}{indifferent},
-		  };
+			};
 	}
 
 	# Compute possible fields values
@@ -329,10 +329,10 @@ if ($action eq 'display') {
 
 	foreach my $field (@sorted_axis_values) {
 		push @fields_options,
-		  {
+			{
 			value => $field,
 			label => $axis_labels{$field},
-		  };
+			};
 	}
 
 	$template_data_ref->{fields_options} = \@fields_options;
@@ -363,12 +363,12 @@ if ($action eq 'display') {
 	for (my $i = 0; ($i < $nutriments_n) or (defined single_param("nutriment_$i")); $i++) {
 
 		push @{$template_data_ref->{nutriments}},
-		  {
+			{
 			id => $i,
 			selected_field_value => $search_nutriments[$i][0],
 			selected_compare_value => $search_nutriments[$i][1],
 			input_value => $search_nutriments[$i][2],
-		  };
+			};
 	}
 
 	# Different types to display results
@@ -404,10 +404,10 @@ if ($action eq 'display') {
 	$template_data_ref->{axes} = [];
 	foreach my $axis ('x', 'y') {
 		push @{$template_data_ref->{axes}},
-		  {
+			{
 			id => $axis,
 			selected_field_value => $graph_ref->{"axis_" . $axis},
-		  };
+			};
 	}
 
 	foreach my $series (@search_series, "nutrition_grades") {
@@ -419,10 +419,10 @@ if ($action eq 'display') {
 		}
 
 		push @{$template_data_ref->{search_series}},
-		  {
+			{
 			series => $series,
 			checked => $checked,
-		  };
+			};
 
 	}
 
@@ -431,12 +431,12 @@ if ($action eq 'display') {
     max-height: 400px
 }
 CSS
-	  ;
+		;
 
 	$scripts .= <<HTML
 <script type="text/javascript" src="/js/dist/search.js"></script>
 HTML
-	  ;
+		;
 
 	$initjs .= <<JS
 var select2_options = {
@@ -452,7 +452,7 @@ var select2_options = {
 });
 
 JS
-	  ;
+		;
 
 	process_template('web/pages/search_form/search_form.tt.html', $template_data_ref, \$html) or $html = '';
 	$html .= "<p>" . $tt->error() . "</p>";
@@ -487,16 +487,16 @@ elsif ($action eq 'process') {
 			($search_terms !~ /,/)
 			and (  ($search_terms =~ /^(\w\w)(\s|-|\.)?(\d(\s|-|\.)?){5}(\s|-|\.|\d)*C(\s|-|\.)?E/i)
 				or ($search_terms =~ /^(emb|e)(\s|-|\.)?(\d(\s|-|\.)?){5}/i))
-		  )
+			)
 		{
 			$query_ref->{"emb_codes_tags"}
-			  = get_string_id_for_lang("no_language", normalize_packager_codes($search_terms));
+				= get_string_id_for_lang("no_language", normalize_packager_codes($search_terms));
 		}
 		else {
 
 			my %terms = ();
 
-			foreach my $term (split(/,|'|\s/, $search_terms)) {
+			foreach my $term (split(/,|'|’|\s/, $search_terms)) {
 				if (length(get_string_id_for_lang($lc, $term)) >= 2) {
 					$terms{normalize_search_terms(get_string_id_for_lang($lc, $term))} = 1;
 				}
@@ -563,7 +563,7 @@ elsif ($action eq 'process') {
 				}
 
 				$current_link .= "\&tagtype_$i=$tagtype\&tag_contains_$i=$contains\&tag_$i="
-				  . URI::Escape::XS::encodeURIComponent($tag);
+					. URI::Escape::XS::encodeURIComponent($tag);
 
 				# TODO: 2 or 3 criteria on the same field
 				# db.foo.find( { $and: [ { a: 1 }, { a: { $gt: 5 } } ] } ) ?
@@ -619,7 +619,7 @@ elsif ($action eq 'process') {
 				}
 			}
 			$current_link .= "\&nutriment_$i=$nutriment\&nutriment_compare_$i=$compare\&nutriment_value_$i="
-			  . URI::Escape::XS::encodeURIComponent($value);
+				. URI::Escape::XS::encodeURIComponent($value);
 
 			# TODO support range queries: < and > on the same nutriment
 			# my $doc32 = $collection->find({'x' => { '$gte' => 2, '$lt' => 4 }});
@@ -650,13 +650,13 @@ elsif ($action eq 'process') {
 	foreach my $axis ('x', 'y') {
 		if ((defined single_param("axis_$axis")) and (single_param("axis_$axis") ne '')) {
 			$current_link
-			  .= "\&axis_$axis=" . URI::Escape::XS::encodeURIComponent(decode utf8 => single_param("axis_$axis"));
+				.= "\&axis_$axis=" . URI::Escape::XS::encodeURIComponent(decode utf8 => single_param("axis_$axis"));
 		}
 	}
 
 	if ((defined single_param('graph_title')) and (single_param('graph_title') ne '')) {
 		$current_link
-		  .= "\&graph_title=" . URI::Escape::XS::encodeURIComponent(decode utf8 => single_param("graph_title"));
+			.= "\&graph_title=" . URI::Escape::XS::encodeURIComponent(decode utf8 => single_param("graph_title"));
 	}
 
 	if ((defined single_param('map_title')) and (single_param('map_title') ne '')) {
@@ -686,7 +686,7 @@ elsif ($action eq 'process') {
 	my $download = single_param("download") || '';
 
 	open(my $OUT, ">>:encoding(UTF-8)", "$data_root/logs/search_log_debug");
-	print $OUT remote_addr() . "\t" . time() . "\t" . decode utf8 => single_param('search_terms') . " - map: $map 
+	print $OUT remote_addr() . "\t" . time() . "\t" . decode utf8 => single_param('search_terms') . " - map: $map
 	 - graph: $graph - download: $download - page: $page\n";
 	close($OUT);
 
@@ -714,14 +714,14 @@ elsif ($action eq 'process') {
 	<span class="show-for-large-up"> $share</span>
 </a></div>
 HTML
-		  ;
+			;
 
 		display_page($request_ref);
 	}
 	elsif (
 		single_param("generate_graph_scatter_plot")    # old parameter, kept for existing links
 		or single_param("graph")
-	  )
+		)
 	{
 
 		$graph_ref->{type} = "scatter_plot";
@@ -734,7 +734,7 @@ HTML
 				and ($graph_ref->{"axis_$axis"} !~ /_n$/))
 			{
 				(defined $query_ref->{"nutriments." . $graph_ref->{"axis_$axis"} . "_100g"})
-				  or $query_ref->{"nutriments." . $graph_ref->{"axis_$axis"} . "_100g"} = {};
+					or $query_ref->{"nutriments." . $graph_ref->{"axis_$axis"} . "_100g"} = {};
 				$query_ref->{"nutriments." . $graph_ref->{"axis_$axis"} . "_100g"}{'$exists'} = 1;
 			}
 		}
@@ -754,7 +754,7 @@ HTML
 	<span class="show-for-large-up"> $share</span>
 </a></div>
 HTML
-		  ;
+			;
 
 		display_page($request_ref);
 	}
@@ -773,7 +773,7 @@ HTML
 		$log->debug("displaying results", {current_link => $request_ref->{current_link}}) if $log->is_debug();
 
 		${$request_ref->{content_ref}}
-		  .= $html . search_and_display_products($request_ref, $query_ref, $sort_by, $limit, $page);
+			.= $html . search_and_display_products($request_ref, $query_ref, $sort_by, $limit, $page);
 
 		$request_ref->{title} = lang("search_results") . " - " . display_taxonomy_tag($lc, "countries", $country);
 
@@ -786,7 +786,7 @@ HTML
 	<span class="show-for-large-up"> $share</span>
 </a></div>
 HTML
-			  ;
+				;
 			display_page($request_ref);
 		}
 		else {
@@ -802,9 +802,9 @@ HTML
 		if (single_param('search_terms')) {
 			open(my $OUT, ">>:encoding(UTF-8)", "$data_root/logs/search_log");
 			print $OUT remote_addr() . "\t"
-			  . time() . "\t"
-			  . decode utf8 => single_param('search_terms')
-			  . "\tpage: $page\n";
+				. time() . "\t"
+				. decode utf8 => single_param('search_terms')
+				. "\tpage: $page\n";
 			close($OUT);
 		}
 	}

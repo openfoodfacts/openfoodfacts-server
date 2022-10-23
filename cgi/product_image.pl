@@ -52,7 +52,7 @@ my $id = single_param('id');
 $log->debug("start", {code => $code, id => $id}) if $log->is_debug();
 
 if (not defined $code) {
-	display_error(sprintf(lang("no_product_for_barcode"), $code), 404);
+	display_error_and_exit(sprintf(lang("no_product_for_barcode"), $code), 404);
 }
 
 my $product_id = product_id_for_owner($Owner_id, $code);
@@ -60,11 +60,11 @@ my $product_id = product_id_for_owner($Owner_id, $code);
 my $product_ref = retrieve_product($product_id);
 
 if (not(defined $product_ref)) {
-	display_error(sprintf(lang("no_product_for_barcode"), $code), 404);
+	display_error_and_exit(sprintf(lang("no_product_for_barcode"), $code), 404);
 }
 
 if ((not(defined $product_ref->{images})) or (not(defined $product_ref->{images}{$id}))) {
-	display_error(sprintf(lang("no_product_for_barcode"), $code), 404);
+	display_error_and_exit(sprintf(lang("no_product_for_barcode"), $code), 404);
 }
 
 my $imagetext;
@@ -99,7 +99,7 @@ my $original_link = "";
 if ((defined $original_id) and (defined $product_ref->{images}{$original_id})) {
 	$photographer = $product_ref->{images}{$original_id}{uploader};
 	$original_link = " <a href=\"/cgi/product_image.pl?code=$code&id=$original_id\" rel=\"isBasedOn\">"
-	  . lang("image_original_link_text") . "</a>";
+		. lang("image_original_link_text") . "</a>";
 }
 
 if (defined $product_ref->{images}{$id}{rev}) {
@@ -125,11 +125,11 @@ if (defined $product_ref->{images}{$id}{rev}) {
 }
 
 my $photographer_link
-  = "<a href=\"" . canonicalize_tag_link("photographers", $photographer) . "\" rel=\"author\">$photographer</a>";
+	= "<a href=\"" . canonicalize_tag_link("photographers", $photographer) . "\" rel=\"author\">$photographer</a>";
 my $editor_link;
 if (defined $editor) {
 	$editor_link
-	  = "<a href=\"" . canonicalize_tag_link("photographers", $editor) . "\" rel=\"contributor\">$editor</a>";
+		= "<a href=\"" . canonicalize_tag_link("photographers", $editor) . "\" rel=\"contributor\">$editor</a>";
 }
 
 my $full_size = lang('image_full_size');
@@ -170,7 +170,7 @@ $template_data_ref->{original_link} = $original_link;
 $template_data_ref->{attribution} = $attribution;
 
 my $html;
-process_template('product_image.tt.html', $template_data_ref, \$html) or $html = '';
+process_template('web/pages/product/includes/product_image.tt.html', $template_data_ref, \$html) or $html = '';
 $html .= "<p>" . $tt->error() . "</p>";
 
 $request_ref->{title} = $alt;

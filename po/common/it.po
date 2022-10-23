@@ -766,8 +766,8 @@ msgstr "Il blog <<site_name>>"
 
 # Do not translate
 msgctxt "footer_blog_link"
-msgid "https://en.blog.openfoodfacts.org"
-msgstr "https://en.blog.openfoodfacts.org"
+msgid "https://blog.openfoodfacts.org/en/"
+msgstr "https://blog.openfoodfacts.org/it/"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -1564,7 +1564,7 @@ msgstr "La tabella elenca i nutrienti che vengono specificati nella maggior part
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
-msgstr "Gradi di nutrizione"
+msgstr "Punteggio nutrizionale"
 
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
@@ -1577,9 +1577,9 @@ msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
-msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
+msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://blog.openfoodfacts.org/en/\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr "<p>Per ulteriori informazioni su <<site_name>>, visita <a href=\"https://en.blog.openfoodfacts.org\">nostro blog</a>!</p>\n"
+msgstr "<p>Per saperne di più su <<site_name>>, visita <a href=\"https://blog.openfoodfacts.org/it/\">il nostro blog</a>!</p>\n"
 "<p>Notizie recenti:</p>\n"
 
 msgctxt "on_the_blog_title"
@@ -2236,7 +2236,7 @@ msgstr "commercio equo"
 
 msgctxt "search_series_nutrition_grades"
 msgid "Use nutrition grades colors"
-msgstr "Utilizzare i colori dei gradi di nutrizione"
+msgstr "Usa i colori dei punteggi nutrizionali"
 
 msgctxt "search_series_organic"
 msgid "Organic"
@@ -2458,6 +2458,7 @@ msgctxt "tagstable_search"
 msgid "Search:"
 msgstr "Cerca:"
 
+# This is linked to a unit test
 msgctxt "traces"
 msgid "Traces"
 msgstr "Tracce"
@@ -3140,6 +3141,10 @@ msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
 msgstr "Nota importante: Questo prodotto non è più venduto. I dati vengono conservati solo come riferimento. Questo prodotto non viene visualizzato nelle ricerche normali e non viene preso in considerazione per le statistiche."
 
+# This will be on a button and needs to be as short as possible
+# So instead of something like "Install the mobile application"
+# try to make it very short "Get the app" or "Install the app"
+# Use infinitive instead of imperative
 msgctxt "get_the_app"
 msgid "Get the app"
 msgstr "Scarica l'app"
@@ -3758,10 +3763,6 @@ msgstr "Fallito"
 msgctxt "import_file_result"
 msgid "Import result"
 msgstr "Risultato dell'importazione"
-
-msgctxt "products_added"
-msgid "Products added"
-msgstr "Prodotti aggiunti"
 
 msgctxt "products_modified"
 msgid "Products modified"
@@ -4428,6 +4429,7 @@ msgctxt "images_can_be_provided_separately"
 msgid "Product photos can also be provided separately through the Import product photos function of the platform for producers."
 msgstr "Le immagini del prodotto possono anche essere fornite separatamente tramite la funzione delle foto del prodotto Importa della piattaforma per i produttori."
 
+# This is linked to a unit test
 msgctxt "attribute_group_labels_name"
 msgid "Labels"
 msgstr "Etichette"
@@ -4593,7 +4595,7 @@ msgstr "Alimenti ultra-trasformati"
 
 msgctxt "export_product_page"
 msgid "Export product to public database"
-msgstr "Esporta prodotto al database pubblico"
+msgstr "Esporta prodotto nel database pubblico"
 
 msgctxt "one_product_will_be_exported"
 msgid "1 product will be exported."
@@ -6121,4 +6123,76 @@ msgstr "Ridurre il consumo di grassi e grassi saturi"
 msgctxt "nutrient_recommendation_fat_and_saturated_fat"
 msgid "Choose products with lower fat and saturated fat content."
 msgstr "Scegli prodotti a basso contenuto di grassi e grassi saturi."
+
+msgctxt "sign_in"
+msgid "Sign in"
+msgstr "Accedi"
+
+msgctxt "sign_out"
+msgid "Sign out"
+msgstr "Esci"
+
+msgctxt "your_contributions"
+msgid "Your contributions"
+msgstr "I tuoi contributi"
+
+msgctxt "products_added"
+msgid "Products added"
+msgstr "Prodotti aggiunti"
+
+msgctxt "products_edited"
+msgid "Products edited"
+msgstr "Prodotti modificati"
+
+msgctxt "products_photographed"
+msgid "Products photographed"
+msgstr "Prodotti fotografati"
+
+# result of the matching with the user preferences: should ne a noun, not a verb
+msgctxt "matching_with_your_preferences"
+msgid "Matching with your preferences"
+msgstr "In linea con le tue preferenze"
+
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_join_us_on_slack"
+msgid "Join us on <a href=\"{url}\">Slack</a>"
+msgstr "Unisciti a noi su <a href=\"{url}\">Slack</a>"
+
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_discover_our_code_of_conduct"
+msgid "Discover our <a href=\"{url}\">Code of conduct</a>"
+msgstr "Scopri il nostro <a href=\"{url}\">Codice di condotta</a>"
+
+# {links} must not be translated, it will be replaced by icons and/or text links
+msgctxt "f_footer_follow_us_links"
+msgid "Follow us: {links}"
+msgstr "Seguici: {links}"
+
+# Should be as small as possible, e.g. use "app" instead of "application", don't specify "mobile"
+msgctxt "footer_install_the_app_exclamation_mark"
+msgid "Install the app!"
+msgstr "Installa l'app!"
+
+# HTML tags must not be translated, keep <span id=\"everyday\"> and <span id=\"foods\"> and put them around the corresponding words in the translation
+# e.g. in French: Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>
+msgctxt "footer_scan_your_everyday_foods"
+msgid "Scan your <span id=\"everyday\">everyday</span> <span id=\"foods\">foods</span>"
+msgstr "Scansiona i tuoi <span id=\"foods\">cibi</span> <span id=\"everyday\">ogni giorno</span>"
+
+msgctxt "nutrition"
+msgid "Nutrition"
+msgstr "Nutrizione"
+
+# Note: "criteria" is plural here. So in French for instance: "Vos critères"
+msgctxt "your_criteria"
+msgid "Your criteria"
+msgstr "I tuoi criteri"
+
+msgctxt "product"
+msgid "Product"
+msgstr "Prodotto"
+
+msgctxt "environment"
+msgid "Environment"
+msgstr "Ambiente"
 

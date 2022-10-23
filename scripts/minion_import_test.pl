@@ -35,9 +35,8 @@ print STDERR "Perform 1 job in current process\n";
 # Perform one job manually in this process
 my $worker = $minion->repair->worker->register;
 
-my $job = $worker->dequeue(0 => {queues => [$server_options{minion_local_queue}]});;
-if (my $err = $job->execute) { print STDERR "Error: $err\n"; $job->fail($err);  }
-else                         {print STDERR "Done\n";  $job->finish }
+my $job = $worker->dequeue(0 => {queues => [$server_options{minion_local_queue}]});
+if (my $err = $job->execute) {print STDERR "Error: $err\n"; $job->fail($err);}
+else {print STDERR "Done\n"; $job->finish}
 $worker->unregister;
-
 

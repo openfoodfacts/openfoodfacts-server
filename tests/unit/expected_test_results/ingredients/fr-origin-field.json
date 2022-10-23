@@ -65,7 +65,7 @@
          "vegetarian" : "yes"
       },
       {
-         "id" : "en:parmesan",
+         "id" : "en:parmigiano-reggiano",
          "origins" : "en:italy",
          "percent_estimate" : 0.35511363636364,
          "percent_max" : 12.5,
@@ -108,7 +108,7 @@
       "en:non-vegan" : [
          "en:comte",
          "en:uht-cream",
-         "en:parmesan",
+         "en:parmigiano-reggiano",
          "en:ricotta"
       ],
       "en:palm-oil-content-unknown" : [
@@ -142,7 +142,7 @@
       "en:rose-wine",
       "en:uht-cream",
       "en:cream",
-      "en:parmesan",
+      "en:parmigiano-reggiano",
       "en:ricotta",
       "en:salt",
       "en:pepper",
@@ -161,7 +161,7 @@
       "en:red-wine",
       "en:rose-wine",
       "en:uht-cream",
-      "en:parmesan",
+      "en:parmigiano-reggiano",
       "en:ricotta",
       "en:salt",
       "en:pepper"
@@ -180,7 +180,7 @@
       "en:rose-wine",
       "en:uht-cream",
       "en:cream",
-      "en:parmesan",
+      "en:parmigiano-reggiano",
       "en:ricotta",
       "en:salt",
       "en:pepper",
@@ -218,10 +218,16 @@
          "text" : "Origine du jambon supérieur : France."
       },
       {
-         "id" : "en:parmesan",
+         "id" : "en:parmigiano-reggiano",
          "ingredient" : "parmesan",
          "origins" : "en:italy",
          "text" : "Origine du parmesan : Italie."
+      },
+      {
+         "id" : "en:rice",
+         "ingredient" : "riz",
+         "origins" : "en:india,en:thailand",
+         "text" : "Origine du riz : Inde, Thaïlande."
       },
       {
          "id" : "en:white-wine",
@@ -234,6 +240,12 @@
          "ingredient" : "Origine Crème UHT",
          "origins" : "en:france",
          "text" : "Origine Crème UHT : France."
+      },
+      {
+         "id" : "en:tomato",
+         "ingredient" : "Tomates",
+         "origins" : "en:italy",
+         "text" : "Tomates d'Italie."
       },
       {
          "id" : "en:pepper",

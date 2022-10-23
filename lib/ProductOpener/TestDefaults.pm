@@ -27,8 +27,8 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-	  %default_product_form
-	  %default_user_form
+		%default_product_form
+		%default_user_form
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -48,6 +48,22 @@ use vars @EXPORT_OK;
 	team_3 => "",
 	action => "process",
 	type => "add"
+);
+
+%default_product_form = (
+	code => '2000000000001',
+	lang => "en",
+	product_name => "test_default",
+	generic_name => "default_name",
+	quantity => "100 g",
+	link => "http://world.openfoodfacts.org/",
+	ingredients_text => "water, test_ingredient",
+	origin => "Germany",
+	categories => "snacks",
+	serving_size => "10 g",
+	action => "process",
+	type => "add",
+	".submit" => "submit"
 );
 
 1;

@@ -46,7 +46,7 @@ my $r = shift;
 my $redirect = single_param('redirect');
 $template_data_ref->{redirect} = $redirect;
 if (defined $User_id) {
-	my $loc = $redirect || $formatted_subdomain;
+	my $loc = $redirect || $formatted_subdomain . "/cgi/session.pl";
 	$r->headers_out->set(Location => $loc);
 	$r->err_headers_out->add('Set-Cookie' => $request_ref->{cookie});
 	$r->status(302);
@@ -64,7 +64,7 @@ if ($ENV{'REQUEST_METHOD'} eq 'POST') {
 	}
 
 	my $hash_is_correct
-	  = check_password_hash(encode_utf8(decode utf8 => single_param('password')), $user_ref->{'encrypted_password'});
+		= check_password_hash(encode_utf8(decode utf8 => single_param('password')), $user_ref->{'encrypted_password'});
 
 	# We don't have the right password
 	if (not $hash_is_correct) {
@@ -85,8 +85,9 @@ if ($ENV{'REQUEST_METHOD'} eq 'POST') {
 
 $template_data_ref->{errors} = \@errors;
 
+# Display the sign in form
 my $html;
-process_template('web/pages/login_form/login.tt.html', $template_data_ref, \$html) or $html = '';
+process_template('web/pages/session/sign_in_form.tt.html', $template_data_ref, \$html) or $html = '';
 if ($tt->error()) {
 	$html .= '<p>' . $tt->error() . '</p>';
 }

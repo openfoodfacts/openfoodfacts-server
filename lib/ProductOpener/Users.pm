@@ -43,11 +43,10 @@ and to manage user sessions.
 package ProductOpener::Users;
 
 use ProductOpener::PerlStandards;
-use Exporter    qw< import >;
+use Exporter qw< import >;
 
-BEGIN
-{
-	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
+BEGIN {
+	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		%User
 		$User_id
@@ -69,11 +68,11 @@ BEGIN
 
 		&generate_token
 
-		);    # symbols to export on request
+	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
-use vars @EXPORT_OK ;
+use vars @EXPORT_OK;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
@@ -84,7 +83,6 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::Orgs qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Text qw/:all/;
-
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
@@ -99,10 +97,11 @@ my @user_groups = qw(producer database app bot moderator pro_moderator);
 
 # Initialize some constants
 
-my $cookie_name   = 'session';
+my $cookie_name = 'session';
 my $cookie_domain = "." . $server_domain;    # e.g. fr.openfoodfacts.org sets the domain to .openfoodfacts.org
 if (defined $server_options{cookie_domain}) {
-	$cookie_domain = "." . $server_options{cookie_domain};    # e.g. fr.import.openfoodfacts.org sets domain to .openfoodfacts.org
+	$cookie_domain
+		= "." . $server_options{cookie_domain};    # e.g. fr.import.openfoodfacts.org sets domain to .openfoodfacts.org
 }
 
 =head1 FUNCTIONS
@@ -117,10 +116,10 @@ Creates a new session ID
 
 =cut
 
-sub generate_token($name_length) {
+sub generate_token ($name_length) {
 
-	my @chars=('a'..'z', 'A'..'Z', 0..9);
-	return join '',map {$chars[irand @chars]} 1..$name_length;
+	my @chars = ('a' .. 'z', 'A' .. 'Z', 0 .. 9);
+	return join '', map {$chars[irand @chars]} 1 .. $name_length;
 }
 
 =head2 create_password_hash($password)
@@ -140,7 +139,7 @@ Returns the salted hashed sequence.
 
 =cut
 
-sub create_password_hash($password) {
+sub create_password_hash ($password) {
 
 	return scrypt_hash($password);
 }
@@ -163,7 +162,7 @@ Boolean: This function returns a 1/0 (True or False)
 
 =cut
 
-sub check_password_hash($password, $hash) {
+sub check_password_hash ($password, $hash) {
 
 	if ($hash =~ /^\$1\$(?:.*)/) {
 		if ($hash eq unix_md5_crypt($password, $hash)) {
@@ -191,28 +190,28 @@ Takes in the $user_ref of the user to be deleted
 
 =cut
 
-sub delete_user($user_ref) {
-	
+sub delete_user ($user_ref) {
+
 	my $userid = get_string_id_for_lang("no_language", $user_ref->{userid});
 	my $new_userid = "openfoodfacts-contributors";
-	
-	$log->info("delete_user", { userid => $userid, new_userid => $new_userid }) if $log->is_info();
-	
+
+	$log->info("delete_user", {userid => $userid, new_userid => $new_userid}) if $log->is_info();
+
 	# Remove the user file
 	unlink("$data_root/users/$userid.sto");
-	
+
 	# Remove the e-mail
 	my $emails_ref = retrieve("$data_root/users/users_emails.sto");
 	my $email = $user_ref->{email};
 
-	if ((defined $email) and ($email =~/\@/)) {
-		
+	if ((defined $email) and ($email =~ /\@/)) {
+
 		if (defined $emails_ref->{$email}) {
 			delete $emails_ref->{$email};
 			store("$data_root/users/users_emails.sto", $emails_ref);
 		}
 	}
-	
+
 	#  re-assign product edits to openfoodfacts-contributors-[random number]
 	find_and_replace_user_id_in_products($userid, $new_userid);
 	return;
@@ -232,7 +231,7 @@ Boolean: This function returns a 1/0 (True or False)
 
 =cut
 
-sub is_admin_user($user_id) {
+sub is_admin_user ($user_id) {
 
 	# %admin is defined in Config.pm
 	# admins can change permissions for all users
@@ -246,7 +245,7 @@ It also handles Spam-usernames, fields for the organization accounts.
 
 =cut
 
-sub check_user_form($type, $user_ref, $errors_ref) {
+sub check_user_form ($type, $user_ref, $errors_ref) {
 
 	# Removing the tabs, spaces and white space characters
 	# Assigning 'userid' to 0 -- if userid is not defined
@@ -256,14 +255,16 @@ sub check_user_form($type, $user_ref, $errors_ref) {
 	$user_ref->{name} = remove_tags_and_quote(decode utf8 => single_param('name'));
 	my $email = remove_tags_and_quote(decode utf8 => single_param('email'));
 
-	$log->debug("check_user_form", { type => $type, user_ref => $user_ref, email => $email }) if $log->is_debug();
+	$log->debug("check_user_form", {type => $type, user_ref => $user_ref, email => $email}) if $log->is_debug();
 
 	if ($user_ref->{email} ne $email) {
 
 		# check that the email is not already used
 		my $emails_ref = retrieve("$data_root/users/users_emails.sto");
 		if ((defined $emails_ref->{$email}) and ($emails_ref->{$email}[0] ne $user_ref->{userid})) {
-			$log->debug("check_user_form - email already in use", { type => $type, email => $email, existing_userid => $emails_ref->{$email} }) if $log->is_debug();
+			$log->debug("check_user_form - email already in use",
+				{type => $type, email => $email, existing_userid => $emails_ref->{$email}})
+				if $log->is_debug();
 			push @{$errors_ref}, $Lang{error_email_already_in_use}{$lang};
 		}
 
@@ -291,15 +292,14 @@ sub check_user_form($type, $user_ref, $errors_ref) {
 				}
 			}
 			else {
-				delete $user_ref->{requested_org_id}
+				delete $user_ref->{requested_org_id};
 			}
 		}
 		else {
 			delete $user_ref->{pro};
-			delete $user_ref->{requested_org_id}
+			delete $user_ref->{requested_org_id};
 		}
 	}
-
 
 	if ($type eq 'add') {
 		$user_ref->{newsletter} = remove_tags_and_quote(single_param('newsletter'));
@@ -324,8 +324,7 @@ sub check_user_form($type, $user_ref, $errors_ref) {
 
 			my $org_ref = retrieve_or_create_org($User_id, $user_ref->{org});
 
-			add_user_to_org( $org_ref, $user_ref->{userid},
-				[ "admins", "members" ] );
+			add_user_to_org($org_ref, $user_ref->{userid}, ["admins", "members"]);
 		}
 		else {
 			delete $user_ref->{org};
@@ -335,8 +334,7 @@ sub check_user_form($type, $user_ref, $errors_ref) {
 		if ((defined $previous_org) and ($previous_org ne "") and ($previous_org ne $user_ref->{org})) {
 			my $org_ref = retrieve_org($previous_org);
 			if (defined $org_ref) {
-				remove_user_from_org( $org_ref, $user_ref->{userid},
-					[ "admins", "members" ] );
+				remove_user_from_org($org_ref, $user_ref->{userid}, ["admins", "members"]);
 			}
 		}
 
@@ -359,8 +357,8 @@ sub check_user_form($type, $user_ref, $errors_ref) {
 	}
 
 	# contributor settings
-	$user_ref->{display_barcode} = !! remove_tags_and_quote(single_param("display_barcode"));
-	$user_ref->{edit_link} = !! remove_tags_and_quote(single_param("edit_link"));
+	$user_ref->{display_barcode} = !!remove_tags_and_quote(single_param("display_barcode"));
+	$user_ref->{edit_link} = !!remove_tags_and_quote(single_param("edit_link"));
 
 	# Check for spam
 	# e.g. name with "Lydia want to meet you! Click here:" + an url
@@ -372,7 +370,7 @@ sub check_user_form($type, $user_ref, $errors_ref) {
 			print $log remote_addr() . "\t" . time() . "\t" . $user_ref->{name} . "\n";
 			close($log);
 			# bail out, return 200 status code
-			display_error("", 200);
+			display_error_and_exit("", 200);
 		}
 	}
 
@@ -383,12 +381,10 @@ sub check_user_form($type, $user_ref, $errors_ref) {
 	}
 	elsif (length($user_ref->{name}) > 60) {
 		push @{$errors_ref}, $Lang{error_name_too_long}{$lang};
-	}	
+	}
 
 	my $address;
-	eval {
-		$address = Email::Valid->address( -address => $user_ref->{email}, -mxcheck => 1 );
-	};
+	eval {$address = Email::Valid->address(-address => $user_ref->{email}, -mxcheck => 1);};
 	$address = 0 if $@;
 	if (not $address) {
 		push @{$errors_ref}, $Lang{error_invalid_email}{$lang};
@@ -413,7 +409,7 @@ sub check_user_form($type, $user_ref, $errors_ref) {
 		}
 		elsif (length($user_ref->{userid}) > 20) {
 			push @{$errors_ref}, $Lang{error_username_too_long}{$lang};
-		}		
+		}
 
 		if (length(decode utf8 => single_param('password')) < 6) {
 			push @{$errors_ref}, $Lang{error_invalid_password}{$lang};
@@ -424,34 +420,32 @@ sub check_user_form($type, $user_ref, $errors_ref) {
 		push @{$errors_ref}, $Lang{error_different_passwords}{$lang};
 	}
 	elsif (single_param('password') ne '') {
-		$user_ref->{encrypted_password} = create_password_hash( encode_utf8(decode utf8 => single_param('password')) );
+		$user_ref->{encrypted_password} = create_password_hash(encode_utf8(decode utf8 => single_param('password')));
 	}
 
 	return;
 }
 
-
-sub process_user_form($type, $user_ref, $request_ref) {
+sub process_user_form ($type, $user_ref, $request_ref) {
 
 	my $userid = $user_ref->{userid};
-    my $error = 0;
+	my $error = 0;
 
-	$log->debug("process_user_form", { type => $type, user_ref => $user_ref }) if $log->is_debug();
-	
+	$log->debug("process_user_form", {type => $type, user_ref => $user_ref}) if $log->is_debug();
+
 	my $template_data_ref = {
 		userid => $user_ref->{userid},
 		user => $user_ref,
 		$user_ref->{requested_org_id},
 	};
 
-	
-    # Professional account with a requested org (existing or new)
-    if (defined $user_ref->{requested_org_id}) {
+	# Professional account with a requested org (existing or new)
+	if (defined $user_ref->{requested_org_id}) {
 
 		my $requested_org_ref = retrieve_org($user_ref->{requested_org_id});
-		
+
 		$template_data_ref->{requested_org} = $user_ref->{requested_org_id};
-				
+
 		my $mail = '';
 		process_template("emails/user_new_pro_account.tt.txt", $template_data_ref, \$mail);
 		if ($mail =~ /^\s*Subject:\s*(.*)\n/im) {
@@ -462,11 +456,12 @@ sub process_user_form($type, $user_ref, $request_ref) {
 			$template_data_ref->{mail_body_new_pro_account} = URI::Escape::XS::encodeURIComponent($body);
 		}
 		else {
-			send_email_to_producers_admin("Error - broken template: emails/user_new_pro_account.tt.txt", "Missing Subject line:\n\n" . $mail);
+			send_email_to_producers_admin("Error - broken template: emails/user_new_pro_account.tt.txt",
+				"Missing Subject line:\n\n" . $mail);
 		}
 
 		if (defined $requested_org_ref) {
-			
+
 			# The requested org already exists
 			$mail = '';
 			process_template("emails/user_new_pro_account_org_request_validated.tt.txt", $template_data_ref, \$mail);
@@ -474,15 +469,19 @@ sub process_user_form($type, $user_ref, $request_ref) {
 				my $subject = $1;
 				my $body = $';
 				$body =~ s/^\n+//;
-				$template_data_ref->{mail_subject_new_pro_account_org_request_validated} = URI::Escape::XS::encodeURIComponent($subject);
-				$template_data_ref->{mail_body_new_pro_account_org_request_validated} = URI::Escape::XS::encodeURIComponent($body);
+				$template_data_ref->{mail_subject_new_pro_account_org_request_validated}
+					= URI::Escape::XS::encodeURIComponent($subject);
+				$template_data_ref->{mail_body_new_pro_account_org_request_validated}
+					= URI::Escape::XS::encodeURIComponent($body);
 			}
 			else {
-				send_email_to_producers_admin("Error - broken template: emails/user_new_pro_account_org_request_validated.tt.txt", "Missing Subject line:\n\n" . $mail);
+				send_email_to_producers_admin(
+					"Error - broken template: emails/user_new_pro_account_org_request_validated.tt.txt",
+					"Missing Subject line:\n\n" . $mail);
 			}
 		}
 		else {
-			
+
 			# The requested org does not exist, create it
 			my $org_ref = create_org($userid, $user_ref->{requested_org});
 			add_user_to_org($org_ref, $userid, ["admins", "members"]);
@@ -491,9 +490,9 @@ sub process_user_form($type, $user_ref, $request_ref) {
 			$user_ref->{org_id} = get_string_id_for_lang("no_language", $user_ref->{org});
 
 			delete $user_ref->{requested_org};
-			delete $user_ref->{requested_org_id}
+			delete $user_ref->{requested_org_id};
 		}
-		
+
 		# Send an e-mail notification to admins, with links to the organization
 		$mail = '';
 		process_template("emails/user_new_pro_account_admin_notification.tt.html", $template_data_ref, \$mail);
@@ -501,11 +500,13 @@ sub process_user_form($type, $user_ref, $request_ref) {
 			my $subject = $1;
 			my $body = $';
 			$body =~ s/^\n+//;
-			
+
 			send_email_to_producers_admin($subject, $body);
 		}
 		else {
-			send_email_to_producers_admin("Error - broken template: emails/user_new_pro_account_admin_notification.tt.html", "Missing Subject line:\n\n" . $mail);
+			send_email_to_producers_admin(
+				"Error - broken template: emails/user_new_pro_account_admin_notification.tt.html",
+				"Missing Subject line:\n\n" . $mail);
 		}
 	}
 
@@ -515,7 +516,7 @@ sub process_user_form($type, $user_ref, $request_ref) {
 	my $emails_ref = retrieve("$data_root/users/users_emails.sto");
 	my $email = $user_ref->{email};
 
-	if ((defined $email) and ($email =~/\@/)) {
+	if ((defined $email) and ($email =~ /\@/)) {
 		$emails_ref->{$email} = [$userid];
 	}
 	if (defined $user_ref->{old_email}) {
@@ -523,7 +524,6 @@ sub process_user_form($type, $user_ref, $request_ref) {
 		delete $user_ref->{old_email};
 	}
 	store("$data_root/users/users_emails.sto", $emails_ref);
-
 
 	if ($type eq 'add') {
 
@@ -533,11 +533,10 @@ sub process_user_form($type, $user_ref, $request_ref) {
 		param("user_id", $userid);
 		init_user($request_ref);
 
-
 		my $email = lang("add_user_email_body");
 		$email =~ s/<USERID>/$userid/g;
 		# $email =~ s/<PASSWORD>/$user_ref->{password}/g;
-		$error = send_email($user_ref,lang("add_user_email_subject"), $email);
+		$error = send_email($user_ref, lang("add_user_email_subject"), $email);
 
 		my $admin_mail_body = <<EMAIL
 
@@ -554,19 +553,19 @@ lc: $user_ref->{initial_lc}
 cc: $user_ref->{initial_cc}
 
 EMAIL
-;
+			;
 		$error += send_email_to_admin("Inscription de $userid", $admin_mail_body);
 	}
-    return $error;
+	return $error;
 }
 
+sub check_edit_owner ($user_ref, $errors_ref) {
 
-sub check_edit_owner($user_ref, $errors_ref) {
+	$user_ref->{pro_moderator_owner}
+		= get_string_id_for_lang("no_language", remove_tags_and_quote(single_param('pro_moderator_owner')));
 
-	$user_ref->{pro_moderator_owner} = get_string_id_for_lang("no_language", remove_tags_and_quote(single_param('pro_moderator_owner')));
-	
 	# If the owner id looks like a GLN, see if we have a corresponding org
-	
+
 	if ($user_ref->{pro_moderator_owner} =~ /^\d+$/) {
 		my $glns_ref = retrieve("$data_root/orgs/orgs_glns.sto");
 		not defined $glns_ref and $glns_ref = {};
@@ -575,7 +574,7 @@ sub check_edit_owner($user_ref, $errors_ref) {
 		}
 	}
 
-	$log->debug("check_edit_owner", { pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
+	$log->debug("check_edit_owner", {pro_moderator_owner => $User{pro_moderator_owner}}) if $log->is_debug();
 
 	if ((not defined $user_ref->{pro_moderator_owner}) or ($user_ref->{pro_moderator_owner} eq "")) {
 		delete $user_ref->{pro_moderator_owner};
@@ -586,35 +585,43 @@ sub check_edit_owner($user_ref, $errors_ref) {
 		my $userid = $';
 		# Add check that organization exists when we add org profiles
 
-		if (! -e "$data_root/users/$userid.sto") {
+		if (!-e "$data_root/users/$userid.sto") {
 			push @{$errors_ref}, sprintf($Lang{error_user_does_not_exist}{$lang}, $userid);
 		}
 		else {
 			$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
-			$log->debug("set pro_moderator_owner (user)", { userid => $userid, pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
+			$log->debug("set pro_moderator_owner (user)",
+				{userid => $userid, pro_moderator_owner => $User{pro_moderator_owner}})
+				if $log->is_debug();
 		}
 	}
 	elsif ($user_ref->{pro_moderator_owner} eq 'all') {
 		# Admin mode to see all products from all owners
 		$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
-		$log->debug("set pro_moderator_owner (all) see products from all owners", { pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
+		$log->debug(
+			"set pro_moderator_owner (all) see products from all owners",
+			{pro_moderator_owner => $User{pro_moderator_owner}}
+		) if $log->is_debug();
 	}
 	elsif ($user_ref->{pro_moderator_owner} =~ /^org-/) {
 		my $orgid = $';
 		$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
-		$log->debug("set pro_moderator_owner (org)", { orgid => $orgid, pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
+		$log->debug("set pro_moderator_owner (org)",
+			{orgid => $orgid, pro_moderator_owner => $User{pro_moderator_owner}})
+			if $log->is_debug();
 	}
 	else {
 		# if there is no user- or org- prefix, assume it is an org
 		my $orgid = $user_ref->{pro_moderator_owner};
 		$User{pro_moderator_owner} = "org-" . $orgid;
 		$user_ref->{pro_moderator_owner} = "org-" . $orgid;
-		$log->debug("set pro_moderator_owner (org)", { orgid => $orgid, pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
+		$log->debug("set pro_moderator_owner (org)",
+			{orgid => $orgid, pro_moderator_owner => $User{pro_moderator_owner}})
+			if $log->is_debug();
 	}
 
 	return;
 }
-
 
 =head2 migrate_password_hash($user_ref)
 
@@ -627,16 +634,15 @@ If the user is logging in with a correct password, we can update the password ha
 
 =cut
 
-sub migrate_password_hash($user_ref) {
+sub migrate_password_hash ($user_ref) {
 
 	# Migration: take the occasion of having password to upgrade to scrypt, if it is still in crypt format
 	if ($user_ref->{'encrypted_password'} =~ /^\$1\$(?:.*)/) {
-		$user_ref->{'encrypted_password'} = create_password_hash(encode_utf8(decode utf8 => single_param('password')) );
+		$user_ref->{'encrypted_password'} = create_password_hash(encode_utf8(decode utf8 => single_param('password')));
 		$log->info("crypt password upgraded to scrypt_hash") if $log->is_info();
 	}
 	return;
 }
-
 
 =head2 remove_old_sessions($user_ref)
 
@@ -648,29 +654,27 @@ Remove the oldest session if we have too many sessions opened for an user.
 
 =cut
 
-sub remove_old_sessions($user_ref) {
+sub remove_old_sessions ($user_ref) {
 
 	# Maximum number sessions to store for a given user in sto file
-	my $max_session = 10 ;
+	my $max_session = 10;
 
 	# Check if we need to delete the oldest session
 	# delete $user_ref->{'user_session'};
 	if ((scalar keys %{$user_ref->{'user_sessions'}}) >= $max_session) {
-		my %user_session_stored = %{$user_ref->{'user_sessions'}} ;
+		my %user_session_stored = %{$user_ref->{'user_sessions'}};
 
 		# Find the older session and remove it
-		my @session_by_time = sort { $user_session_stored{$a}{'time'} <=>
-						$user_session_stored{$b}{'time'} } (keys %user_session_stored);
+		my @session_by_time
+			= sort {$user_session_stored{$a}{'time'} <=> $user_session_stored{$b}{'time'}} (keys %user_session_stored);
 
-		while (($#session_by_time + 1)> $max_session)
-		{
+		while (($#session_by_time + 1) > $max_session) {
 			my $oldest_session = shift @session_by_time;
 			delete $user_ref->{'user_sessions'}{$oldest_session};
 		}
 	}
 	return;
 }
-
 
 =head2 generate_session_cookie($user_id, $user_session)
 
@@ -688,7 +692,7 @@ Session cookie.
 
 =cut
 
-sub generate_session_cookie($user_id, $user_session) {
+sub generate_session_cookie ($user_id, $user_session) {
 
 	my $length = 0;
 
@@ -699,15 +703,15 @@ sub generate_session_cookie($user_id, $user_session) {
 		$length = 31536000 * 10;
 	}
 
-	my $session_ref = { 'user_id'=>$user_id, 'user_session'=>$user_session };
+	my $session_ref = {'user_id' => $user_id, 'user_session' => $user_session};
 
 	# generate session cookie
 	my $cookie_ref = {
-		'-name'=>$cookie_name,
-		'-value'=>$session_ref,
-		'-path'=>'/',
-		'-domain'=>$cookie_domain,
-		'-samesite'=>'Lax',
+		'-name' => $cookie_name,
+		'-value' => $session_ref,
+		'-path' => '/',
+		'-domain' => $cookie_domain,
+		'-samesite' => 'Lax',
 	};
 
 	if ($length > 0) {
@@ -722,7 +726,6 @@ sub generate_session_cookie($user_id, $user_session) {
 
 	return cookie(%$cookie_ref);
 }
-
 
 =head2 open_user_session($user_ref, $request_ref)
 
@@ -740,7 +743,7 @@ The cookie is returned in $request_ref
 
 =cut
 
-sub open_user_session($user_ref, $request_ref) {
+sub open_user_session ($user_ref, $request_ref) {
 
 	my $user_id = $user_ref->{'userid'};
 
@@ -754,11 +757,11 @@ sub open_user_session($user_ref, $request_ref) {
 
 	# Store the ip and time corresponding to the given session
 	$user_ref->{'user_sessions'}{$user_session} = {
-	    ip => remote_addr(),
-	    time => time()
+		ip => remote_addr(),
+		time => time()
 	};
 
-    # Store user data
+	# Store user data
 	my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
 	store($user_file, $user_ref);
 
@@ -769,10 +772,9 @@ sub open_user_session($user_ref, $request_ref) {
 	return;
 }
 
+sub init_user ($request_ref) {
 
-sub init_user($request_ref) {
-
-	my $user_id = undef ;
+	my $user_id = undef;
 	my $user_ref = undef;
 	my $org_ref = undef;
 
@@ -784,19 +786,26 @@ sub init_user($request_ref) {
 	# Remove persistent cookie if user is logging out
 	if ((defined single_param('length')) and (single_param('length') eq 'logout')) {
 		$log->debug("user logout") if $log->is_debug();
-		my $session = {} ;
-		$request_ref->{cookie} = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>"$cookie_domain") ;
+		my $session = {};
+		$request_ref->{cookie} = cookie(
+			-name => $cookie_name,
+			-expires => '-1d',
+			-value => $session,
+			-path => '/',
+			-domain => "$cookie_domain"
+		);
 	}
 
 	# Retrieve user_id and password from form parameters
-	elsif ( (defined single_param('user_id')) and (single_param('user_id') ne '') and
-                       ( ( (defined single_param('password')) and (single_param('password') ne ''))
-                         ) ) {
+	elsif ( (defined single_param('user_id'))
+		and (single_param('user_id') ne '')
+		and (((defined single_param('password')) and (single_param('password') ne ''))))
+	{
 
-		$user_id = remove_tags_and_quote(single_param('user_id')) ;
+		$user_id = remove_tags_and_quote(single_param('user_id'));
 
 		if ($user_id =~ /\@/) {
-			$log->info("got email while initializing user", { email => $user_id }) if $log->is_info();
+			$log->info("got email while initializing user", {email => $user_id}) if $log->is_info();
 			my $emails_ref = retrieve("$data_root/users/users_emails.sto");
 			if (not defined $emails_ref->{$user_id}) {
 				# not found, try with lower case email
@@ -806,143 +815,164 @@ sub init_user($request_ref) {
 				$user_id = undef;
 				$log->info("Unknown user e-mail", {email => $user_id}) if $log->is_info();
 				# Trigger an error
-				return ($Lang{error_bad_login_password}{$lang}) ;
+				return ($Lang{error_bad_login_password}{$lang});
 			}
 			else {
 				my @userids = @{$emails_ref->{$user_id}};
 				$user_id = $userids[0];
 			}
 
-			$log->info("corresponding user_id", { userid => $user_id }) if $log->is_info();
+			$log->info("corresponding user_id", {userid => $user_id}) if $log->is_info();
 		}
 
 		$log->context->{user_id} = $user_id;
 		$log->debug("user_id is defined") if $log->is_debug();
-		my $session = undef ;
+		my $session = undef;
 
 		# If the user exists
 		if (defined $user_id) {
 
-           my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
+			my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
 
 			if (-e $user_file) {
-				$user_ref = retrieve($user_file) ;
-				$user_id = $user_ref->{'userid'} ;
+				$user_ref = retrieve($user_file);
+				$user_id = $user_ref->{'userid'};
 				$log->context->{user_id} = $user_id;
 
-				my $hash_is_correct = check_password_hash(encode_utf8(decode utf8 => single_param('password')), $user_ref->{'encrypted_password'} );
+				my $hash_is_correct = check_password_hash(encode_utf8(decode utf8 => single_param('password')),
+					$user_ref->{'encrypted_password'});
 				# We don't have the right password
 				if (not $hash_is_correct) {
-					$user_id = undef ;
-					$log->info("bad password - input does not match stored hash", { encrypted_password => $user_ref->{'encrypted_password'} }) if $log->is_info();
+					$user_id = undef;
+					$log->info(
+						"bad password - input does not match stored hash",
+						{encrypted_password => $user_ref->{'encrypted_password'}}
+					) if $log->is_info();
 					# Trigger an error
-					return ($Lang{error_bad_login_password}{$lang}) ;
+					return ($Lang{error_bad_login_password}{$lang});
 				}
 				# We have the right login/password
 				elsif (not defined single_param('no_log'))    # no need to store sessions for internal requests
 				{
 					$log->info("correct password for user provided") if $log->is_info();
-					
+
 					migrate_password_hash($user_ref);
 
 					open_user_session($user_ref, $request_ref);
 				}
-		    }
-		    else
-		    {
-				$user_id = undef ;
+			}
+			else {
+				$user_id = undef;
 				$log->info("bad user") if $log->is_info();
 				# Trigger an error
-				return ($Lang{error_bad_login_password}{$lang}) ;
-		    }
+				return ($Lang{error_bad_login_password}{$lang});
+			}
 		}
 	}
 
 	# Retrieve user_id and session from cookie
-	elsif ((defined cookie($cookie_name)) or ((defined single_param('user_session')) and (defined single_param('user_id')))) {
+	elsif ((defined cookie($cookie_name))
+		or ((defined single_param('user_session')) and (defined single_param('user_id'))))
+	{
 		my $user_session;
 		if (defined single_param('user_session')) {
 			$user_session = single_param('user_session');
 			$user_id = single_param('user_id');
-			$log->debug("user_session parameter found", { user_id => $user_id, user_session => $user_session }) if $log->is_debug();
+			$log->debug("user_session parameter found", {user_id => $user_id, user_session => $user_session})
+				if $log->is_debug();
 		}
 		else {
 			my %session = cookie($cookie_name);
-			$user_session = $session{'user_session'} ;
+			$user_session = $session{'user_session'};
 			$user_id = $session{'user_id'};
-			$log->debug("session cookie found", { user_id => $user_id, user_session => $user_session }) if $log->is_debug();
+			$log->debug("session cookie found", {user_id => $user_id, user_session => $user_session})
+				if $log->is_debug();
 		}
 
-
-	    if (defined $user_id)
-	    {
+		if (defined $user_id) {
 			my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
-			if ($user_id =~/f\/(.*)$/) {
+			if ($user_id =~ /f\/(.*)$/) {
 				$user_file = "$data_root/facebook_users/" . get_string_id_for_lang("no_language", $1) . ".sto";
 			}
 
-		if (-e $user_file)
-		{
-		    $user_ref = retrieve($user_file);
-			$log->debug("initializing user", {
-				user_id => $user_id,
-				user_session => $user_session,
-				stock_session => $user_ref->{'user_sessions'},
-				stock_ip => $user_ref->{'user_last_ip'},
-				current_ip => remote_addr()
-			}) if $log->is_debug();
+			if (-e $user_file) {
+				$user_ref = retrieve($user_file);
+				$log->debug(
+					"initializing user",
+					{
+						user_id => $user_id,
+						user_session => $user_session,
+						stock_session => $user_ref->{'user_sessions'},
+						stock_ip => $user_ref->{'user_last_ip'},
+						current_ip => remote_addr()
+					}
+				) if $log->is_debug();
 
-			# Try to keep sessions opened for users with dynamic IPs
-			my $short_ip = sub ($)
-			{
-				my $ip = shift;
-				# Remove the last two bytes
-				$ip =~ s/(\.\d+){2}$//;
-				return $ip;
-			};
+				# Try to keep sessions opened for users with dynamic IPs
+				my $short_ip = sub ($) {
+					my $ip = shift;
+					# Remove the last two bytes
+					$ip =~ s/(\.\d+){2}$//;
+					return $ip;
+				};
 
-			if ((not defined $user_ref->{'user_sessions'})
-				or (not defined $user_session)
-				or (not defined $user_ref->{'user_sessions'}{$user_session})
-				or (not is_ip_known_or_whitelisted($user_ref, $user_session, remote_addr(), $short_ip)))
-		    {
-				$log->debug("no matching session for user") if $log->is_debug();
-				$user_id = undef;
-				$user_ref = undef;
+				if (   (not defined $user_ref->{'user_sessions'})
+					or (not defined $user_session)
+					or (not defined $user_ref->{'user_sessions'}{$user_session})
+					or (not is_ip_known_or_whitelisted($user_ref, $user_session, remote_addr(), $short_ip)))
+				{
+					$log->debug("no matching session for user") if $log->is_debug();
+					$user_id = undef;
+					$user_ref = undef;
+					# Remove the cookie
+					my $session = {};
+					$request_ref->{cookie} = cookie(
+						-name => $cookie_name,
+						-expires => '-1d',
+						-value => $session,
+						-path => '/',
+						-domain => "$cookie_domain"
+					);
+				}
+				else {
+					$log->debug("user identified", {user_id => $user_id, stocked_user_id => $user_ref->{'userid'}})
+						if $log->is_debug();
+					$user_id = $user_ref->{'userid'};
+				}
+			}
+			else {
 				# Remove the cookie
-				my $session = {} ;
-				$request_ref->{cookie} = cookie(-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>"$cookie_domain") ;
-		    }
-		    else
-		    {
-				$log->debug("user identified", { user_id => $user_id, stocked_user_id => $user_ref->{'userid'} }) if $log->is_debug();
-				$user_id = $user_ref->{'userid'} ;
-		    }
-		}
-		else
-		{
-		    # Remove the cookie
-		    my $session = {} ;
-		    $request_ref->{cookie} = cookie(-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>"$cookie_domain") ;
+				my $session = {};
+				$request_ref->{cookie} = cookie(
+					-name => $cookie_name,
+					-expires => '-1d',
+					-value => $session,
+					-path => '/',
+					-domain => "$cookie_domain"
+				);
 
-		    $user_id = undef ;
+				$user_id = undef;
+			}
 		}
-	    }
-	    else
-	    {
+		else {
 			# Remove the cookie
-			my $session = {} ;
-			$request_ref->{cookie} = cookie(-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>"$cookie_domain") ;
+			my $session = {};
+			$request_ref->{cookie} = cookie(
+				-name => $cookie_name,
+				-expires => '-1d',
+				-value => $session,
+				-path => '/',
+				-domain => "$cookie_domain"
+			);
 
-			$user_id = undef ;
-	    }
+			$user_id = undef;
+		}
 	}
-	else
-	{
+	else {
 		$log->info("no user found") if $log->is_info();
 	}
 
-	$log->debug("cookie", { user_id => $user_id, cookie => $request_ref->{cookie} }) if $log->is_debug();
+	$log->debug("cookie", {user_id => $user_id, cookie => $request_ref->{cookie}}) if $log->is_debug();
 
 	$User_id = $user_id;
 	if (defined $user_ref) {
@@ -972,10 +1002,10 @@ sub init_user($request_ref) {
 		# Producers platform moderators can set the owner to any user or organization
 		if (($User{pro_moderator}) and (defined $User{pro_moderator_owner})) {
 			$Owner_id = $User{pro_moderator_owner};
-			
+
 			if ($Owner_id =~ /^org-/) {
 				$Org_id = $';
-				%Org = ( org => $Org_id, org_id => $Org_id );
+				%Org = (org => $Org_id, org_id => $Org_id);
 			}
 			elsif ($Owner_id =~ /^user-/) {
 				$Org_id = undef;
@@ -1012,13 +1042,14 @@ This sub introduces a server option to whitelist IPs for all cookies.
 
 =cut
 
-sub is_ip_known_or_whitelisted($user_ref, $user_session, $ip, $shorten_ip) {
+sub is_ip_known_or_whitelisted ($user_ref, $user_session, $ip, $shorten_ip) {
 
 	my $short_ip = $shorten_ip->($ip);
 
-	if ((defined $user_ref->{'user_sessions'}{$user_session}{'ip'})
-	    and ($shorten_ip->($user_ref->{'user_sessions'}{$user_session}{'ip'}) eq $short_ip)) {
-			return 1;
+	if (    (defined $user_ref->{'user_sessions'}{$user_session}{'ip'})
+		and ($shorten_ip->($user_ref->{'user_sessions'}{$user_session}{'ip'}) eq $short_ip))
+	{
+		return 1;
 	}
 
 	if (defined $server_options{ip_whitelist_session_cookie}) {
@@ -1032,55 +1063,60 @@ sub is_ip_known_or_whitelisted($user_ref, $user_session, $ip, $shorten_ip) {
 	return 0;
 }
 
-sub check_session($user_id, $user_session) {
+sub check_session ($user_id, $user_session) {
 
-	$log->debug("checking session", { user_id => $user_id, users_session => $user_session }) if $log->is_debug();
+	$log->debug("checking session", {user_id => $user_id, users_session => $user_session}) if $log->is_debug();
 
 	my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
 
 	my $results_ref = {};
 
 	if (-e $user_file) {
-		my $user_ref = retrieve($user_file) ;
+		my $user_ref = retrieve($user_file);
 
 		if (defined $user_ref) {
-			$log->debug("comparing session with stored user", {
-				user_id => $user_id,
-				user_session => $user_session,
-				stock_session => $user_ref->{'user_sessions'},
-				stock_ip => $user_ref->{'user_last_ip'},
-				current_ip => remote_addr()
-			}) if $log->is_debug();
+			$log->debug(
+				"comparing session with stored user",
+				{
+					user_id => $user_id,
+					user_session => $user_session,
+					stock_session => $user_ref->{'user_sessions'},
+					stock_ip => $user_ref->{'user_last_ip'},
+					current_ip => remote_addr()
+				}
+			) if $log->is_debug();
 
-				if ((not defined $user_ref->{'user_sessions'})
-					or (not defined $user_session)
-					or (not defined $user_ref->{'user_sessions'}{$user_session})
-					# or (not defined $user_ref->{'user_sessions'}{$user_session}{'ip'})
-					# or (($short_ip->($user_ref->{'user_sessions'}{$user_session}{'ip'}) ne ($short_ip->(remote_addr())))
+			if (
+				   (not defined $user_ref->{'user_sessions'})
+				or (not defined $user_session)
+				or (not defined $user_ref->{'user_sessions'}{$user_session})
+				# or (not defined $user_ref->{'user_sessions'}{$user_session}{'ip'})
+				# or (($short_ip->($user_ref->{'user_sessions'}{$user_session}{'ip'}) ne ($short_ip->(remote_addr())))
 
-					) {
-			$log->debug("no matching session for user") if $log->is_debug();
-			$user_id = undef;
+				)
+			{
+				$log->debug("no matching session for user") if $log->is_debug();
+				$user_id = undef;
 
+			}
+			else {
+				# Get actual user_id (i.e. BIZ or biz -> Biz)
+				$log->debug("user identified", {user_id => $user_id, stocked_user_id => $user_ref->{'userid'}})
+					if $log->is_debug();
+
+				$user_id = $user_ref->{'userid'};
+				$results_ref->{name} = $user_ref->{name};
+				$results_ref->{email} = $user_ref->{email};
+			}
 		}
 		else {
-			# Get actual user_id (i.e. BIZ or biz -> Biz)
-			$log->debug("user identified", { user_id => $user_id, stocked_user_id => $user_ref->{'userid'} }) if $log->is_debug();
-
-			$user_id = $user_ref->{'userid'} ;
-			$results_ref->{name} = $user_ref->{name};
-			$results_ref->{email} = $user_ref->{email};
-		}
-		}
-		else {
-			$log->info("could not load user", { user_id => $user_id }) if $log->is_info();
+			$log->info("could not load user", {user_id => $user_id}) if $log->is_info();
 		}
 
 	}
-	else
-	{
-		$log->info("user does not exist", { user_id => $user_id }) if $log->is_info();
-		$user_id = undef ;
+	else {
+		$log->info("user does not exist", {user_id => $user_id}) if $log->is_info();
+		$user_id = undef;
 	}
 
 	$results_ref->{user_id} = $user_id;
