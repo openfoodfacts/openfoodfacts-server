@@ -2,62 +2,38 @@ title: element
 x-stoplight:
   id: e2ybdrtmx0tme
 type: object
-description: Each element object contains one specific element object such as a text element or an image element.
-definitions:
-  Panel_element:
-    title: panel_element
-    x-stoplight:
-      id: ymx41elz4yrnj
-    type: object
-    description: Panels can include other panels as sub-panels using the panel_element.
-    properties:
-      panel_id:
-        type: string
-        description: The id of the panel to include. The id is the key of the panel in the panels object returned in the knowledge_panels field.
-  Text_element:
-    title: text_element
-    x-stoplight:
-      id: vdwxlt73qnqfa
-    type: object
-    description: |-
-      A text in simple HTML format to display.
-
-      For some specific texts that correspond to a product field (e.g. a product name, the ingredients list of a product),the edit_field_* fields are used to indicate how to edit the field value.
-    properties:
-      type:
-        type: string
-      html:
-        type: string
-        description: Text to display in HTML format.
-      language:
-        type: string
-        description: 'Language of the text. The name of the language is returned in the language requested when making the API call. e.g. if the text is in Polish, and the requested language is French, the language field will contain "Polonais" (French for "Polish"). Only set for specific fields such as the list of ingredients of a product.'
-      lc:
-        type: string
-        description: 2 letter language code for the text. Only set for specific fields such as the list of ingredients of a product.
-      edit_field_id:
-        type: string
-        description: id of the field used to edit this text in the product edit API.
-      edit_field_type:
-        type: string
-        description: Type of the product field.
-      edit_field_value:
-        type: string
-        description: Current value of the product field. This may differ from the html field which can contain extra formating.
+description: |
+  Each element object contains one specific element object such as a text element or an image element.
 properties:
   type:
-    type: string
+    element_type: string
     enum:
       - text
       - image
-    description: 'The type of the included element object. The type also indicates which field contains the included element object. e.g. if the type is "text", the included element object will be in the "text_element" field.'
+      - action
+      - panel
+      - panel_group
+      - table
+    description: |
+      The type of the included element object.
+      The type also indicates which field contains the included element object.
+      e.g. if the type is "text", the included element object will be in the "text_element" field.
+
+      Note that in the future, new type of element may be added,
+      so your code should ignore unrecognized types, and unknown properties.
+
+      TODO: add Map type
   text_element:
     $ref: ./text_element.yaml
+  image_element:
+    $ref: ./image_element.yaml
   action_element:
     type: string
   panel_element:
     $ref: ./panel_element.yaml
-  '':
-    type: string
+  panel_group_element:
+    $ref: ./panel_group_element.yaml
+  table_element:
+    $ref: ./table_element.yaml
 required:
   - type

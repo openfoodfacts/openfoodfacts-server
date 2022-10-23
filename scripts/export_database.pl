@@ -216,8 +216,8 @@ XML
 			$csv .= "url\t";
 		}
 
-		# Add "created_datetime" and "last_modified_datetime" fields right after
-		# "created_t" and "last_modified_t"
+		# Add "created_datetime", "last_modified_datetime", "last_image_datetime" fields right after
+		# "created_t", "last_modified_t" and "last_image_t"
 		if ($field =~ /_t$/) {
 			$csv .= $` . "_datetime\t";
 		}
@@ -345,7 +345,7 @@ XML
 			# created_t		created_datetime
 			# 1489061370	2017-03-09T12:09:30Z
 			if ($field =~ /_t$/) {
-				if ($product_ref->{$field} > 0) {
+				if (defined $product_ref->{$field} && $product_ref->{$field} > 0) {
 					# surprisingly slow, approx 10% of script time is here.
 					#my $dt = DateTime->from_epoch( epoch => $product_ref->{$field} );
 					#$csv .= $dt->datetime() . 'Z' . "\t";

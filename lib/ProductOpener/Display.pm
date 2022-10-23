@@ -5165,15 +5165,6 @@ sub customize_response_for_product ($request_ref, $product_ref) {
 	localize_ecoscore($cc, $product_ref);
 
 	foreach my $field (split(/,/, $fields)) {
-
-		# On demand carbon footprint tags -- deactivated: the environmental footprint infocard is now replaced by the Eco-Score details
-		if (0 and (not $carbon_footprint_computed) and ($field =~ /^environment_infocard/)
-			or ($field =~ /^environment_impact_level/))
-		{
-			compute_carbon_footprint_infocard($product_ref);
-			$carbon_footprint_computed = 1;
-		}
-
 		if ($field eq "product_display_name") {
 			$customized_product_ref->{$field} = remove_tags_and_quote(product_name_brand_quantity($product_ref));
 		}
@@ -5183,8 +5174,8 @@ sub customize_response_for_product ($request_ref, $product_ref) {
 			$customized_product_ref->{$field} = display_nutrition_table($product_ref, undef);
 		}
 
-		# The environment infocard now displays the Eco-Score details
-		elsif (($field =~ /^environment_infocard/) or ($field eq "ecoscore_details_simple_html")) {
+		# Eco-Score details in simple HTML
+		elsif ($field eq "ecoscore_details_simple_html") {
 			if ((1 or $show_ecoscore) and (defined $product_ref->{ecoscore_data})) {
 				$customized_product_ref->{$field}
 					= display_ecoscore_calculation_details_simple_html($cc, $product_ref->{ecoscore_data});
@@ -8647,14 +8638,6 @@ HTML
 	}
 
 	$template_data_ref->{admin} = $admin;
-
-	# the carbon footprint infocard has been replaced by the Eco-Score details
-	if (0 and $admin) {
-		compute_carbon_footprint_infocard($product_ref);
-		$template_data_ref->{display_field_environment_infocard} = display_field($product_ref, 'environment_infocard');
-		$template_data_ref->{carbon_footprint_from_meat_or_fish_debug}
-			= $product_ref->{"carbon_footprint_from_meat_or_fish_debug"};
-	}
 
 	# Platform for producers: data quality issues and improvements opportunities
 

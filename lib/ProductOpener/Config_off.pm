@@ -678,6 +678,7 @@ $options{categories_exempted_from_nutrient_levels} = [
 	countries
 	ingredients_text
 	ingredients_tags
+	ingredients_analysis_tags
 	allergens
 	traces
 	serving_size
@@ -695,6 +696,14 @@ $options{categories_exempted_from_nutrient_levels} = [
 	brand_owner
 	ecoscore_score
 	ecoscore_grade
+	nutrient_levels_tags
+	product_quantity
+	owner
+	data_quality_errors_tags
+	unique_scans_n
+	popularity_tags
+	completeness
+	last_image_t
 );
 
 # List of fields that can be imported on the producers platform
