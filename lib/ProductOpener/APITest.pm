@@ -100,7 +100,6 @@ sub wait_dynamic_front() {
 	return;
 }
 
-
 =head2 wait_server()
 
 Wait for server to be ready.
@@ -136,8 +135,8 @@ Run this at the beginning of every integration test
 sub wait_application_ready() {
 	wait_server();
 	wait_dynamic_front();
+	return;
 }
-
 
 =head2 new_client()
 
