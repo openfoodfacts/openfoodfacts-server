@@ -56,50 +56,13 @@ paths:
         in: path
         required: true
   /api/v3/product:
+    parameters: []
     post:
       summary: Create or update product (API V3 - Not yet implemented)
       operationId: post-api-v3-product-barcode
-      description: |-
-        New proposed API to send structured product data in a JSON format instead of in a flattened list of key / value pairs field as-in the current product add / edit API that relies on a multipart/form-data format.
-
-        This new API will be used in particular to send structured packaging data: https://github.com/openfoodfacts/openfoodfacts-server/blob/main/docs/explanations/packaging-data.md
-
-        The new API can then be gradually extended to support other product fields.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              allOf:
-                - $ref: ./requestBodies/lc_cc.yaml
-                - $ref: ./requestBodies/fields_tags_lc.yaml
-                - type: object
-                  properties:
-                    userid:
-                      type: string
-                    password:
-                      type: string
-                    code:
-                      type: string
-                    product:
-                      $ref: ./schemas/product_update_api_v3.yaml
-            examples: {}
-          application/xml:
-            schema:
-              type: object
-              properties: {}
-        description: |
-          Structured data for the product is passed in the product field.
-
-          For complex structures such as the packagings object, it is possible to replace pre-existing data, or completing it:
-
-          - an object sent in the packagings field will replace any pre-existing data.
-          - an object sent in the field suffixed with _add (e.g. packagings_add) will be merged with any pre-existing data.
-      parameters: []
       responses:
         '200':
           description: |-
-            OK
-
             The response will include a "product" structure. The fields returned in this structure will depend on the value of the "fields" input field:
 
             - "updated" (default): all fields updated by the query will be returned, including fields that are directly generated from the updated fields. For instance, sending "packagings" or "packagings_add" will return the "packagings" field.
@@ -166,6 +129,42 @@ paths:
                           quantity_unit: ml
                           weight: 80
           headers: {}
+      description: |-
+        New proposed API to send structured product data in a JSON format instead of in a flattened list of key / value pairs field as-in the current product add / edit API that relies on a multipart/form-data format.
+
+        This new API will be used in particular to send structured packaging data: https://github.com/openfoodfacts/openfoodfacts-server/blob/main/docs/explanations/packaging-data.md
+
+        The new API can then be gradually extended to support other product fields.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: ./requestBodies/lc_cc.yaml
+                - $ref: ./requestBodies/fields_tags_lc.yaml
+                - type: object
+                  properties:
+                    userid:
+                      type: string
+                    password:
+                      type: string
+                    code:
+                      type: string
+                    product:
+                      $ref: ./schemas/product_update_api_v3.yaml
+            examples: {}
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+        description: |
+          Structured data for the product is passed in the product field.
+
+          For complex structures such as the packagings object, it is possible to replace pre-existing data, or completing it:
+
+          - an object sent in the packagings field will replace any pre-existing data.
+          - an object sent in the field suffixed with _add (e.g. packagings_add) will be merged with any pre-existing data.
+      parameters: []
 components:
   schemas: null
   parameters: null
