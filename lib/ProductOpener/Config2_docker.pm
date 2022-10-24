@@ -37,6 +37,7 @@ BEGIN {
 		$conf_root
 		$www_root
 		$geolite2_path
+		$log_emails
 		$mongodb
 		$mongodb_host
 		$mongodb_timeout_ms
@@ -90,6 +91,9 @@ my $postgres_user = $ENV{POSTGRES_USER};
 my $postgres_password = $ENV{POSTGRES_PASSWORD};
 my $postgres_db = $ENV{POSTGRES_DB} || "minion";
 my $postgres_url = "postgresql://${postgres_user}:${postgres_password}\@${postgres_host}/${postgres_db}";
+
+# do we want to log emails instead of sending them (dev environments)
+$log_emails = $ENV{OFF_LOG_EMAILS} // 0;
 
 # Set this to your instance of https://github.com/openfoodfacts/robotoff/ to
 # enable an in-site robotoff-asker in the product page
