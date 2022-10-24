@@ -21,7 +21,6 @@ Docker provides an isolated environment, very close to a Virtual Machine. This e
 - [Install Docker Compose](https://docs.docker.com/compose/install/)
 - [Enable command-line completion](https://docs.docker.com/compose/completion/)
 - [Install Make for Windows](http://gnuwin32.sourceforge.net/packages/make.htm) (if running on Windows)
-- [Install Wget for Windows](https://gnuwin32.sourceforge.net/packages/wget.htm) (to download the full production dump if running on Windows )
 
 ## 2. Clone the repository from GitHub
 
@@ -215,4 +214,15 @@ When running make import_prod_data or some other commands.
 Solution:
 
 Use the Git Bash shell to run the make commands in windows so that programs like nproc and rm are found.
+
+### System cannot find wget
+
+When running make import_prod_data.
+
+```console
+process_begin: CreateProcess(NULL, wget --no-verbose https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz, ...) failed.
+make (e=2): The system cannot find the file specified.
+```
+
+You need to install [wget for windows](https://eternallybored.org/misc/wget/). The referenced version is able to use the Windows Certificate Store, whereas the standard [gnuwin32 version](https://gnuwin32.sourceforge.net/packages/wget.htm) will give errors about not being able to verify the server certificate.
 
