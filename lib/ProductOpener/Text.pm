@@ -276,6 +276,23 @@ sub remove_tags_and_quote ($s) {
 	return $s;
 }
 
+sub check_valid_link ($s) {
+	#if no link provided
+	if (not defined $s or $s eq "") {
+		$s = "";
+		return "";
+	}
+
+	#check if valid (prefixed link)
+	if ($s =~ m{^(http(s)?:\/\/)[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?'#'%[\]@!\$&'\(\)\*\+,;=.]+$}) {
+		return $s;
+	}
+
+	#else, return prefix + link
+	return "https://${s}"
+}
+
+
 sub xml_escape ($s) {
 
 	# Remove tags

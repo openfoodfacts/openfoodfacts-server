@@ -136,6 +136,9 @@ if ($action eq 'process') {
 			}
 
 			# Other fields
+			foreach my $field ("link"){
+				$org_ref->{$field} = check_valid_link($field);
+			}
 
 			foreach my $field ("name", "link") {
 				$org_ref->{$field} = remove_tags_and_quote(decode utf8 => single_param($field));
@@ -143,6 +146,8 @@ if ($action eq 'process') {
 					delete $org_ref->{$field};
 				}
 			}
+
+			
 
 			if (not defined $org_ref->{name}) {
 				push @errors, $Lang{error_missing_org_name}{$lang};
