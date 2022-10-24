@@ -112,6 +112,14 @@ dependancies:
 Template::Toolkit:
 - templates/**/*
 
+scss:
+- scss/_footer.scss
+
+footer:
+- html/images/illustrations/footer-orange.svg
+- html/images/illustrations/footer-planet.svg
+- scss/_footer.scss
+
 documentation:
 - docs/**/*
 - scripts/generate_perl_html_doc_from_pod.pl
@@ -428,19 +436,6 @@ Text:
 Url:
 - lib/ProductOpener/URL.pm
 
-Users:
-- lib/ProductOpener/Users.pm
-- templates/web/pages/session/signed_in.tt.html
-- templates/web/pages/session/signed_out.tt.html
-- templates/web/pages/session/sign_in_form.tt.html
-- templates/web/pages/user_form/user_form_page.tt.html
-- templates/web/pages/user_profile/user_profile.tt.html
-- scripts/gen_users_emails.pl
-- scripts/gen_users_emails_list.pl
-- scripts/gen_users_lists.pl
-- scripts/gen_users_names.pl
-- cgi/user.pl
-
 Web:
 - lib/ProductOpener/Web.pm
 
@@ -485,7 +480,6 @@ Search:
 
 Top translators:
 - templates/web/pages/top_translators/top_translators.tt.html
-- templates/web/common/includes/display_login_register.tt.html
 
 Recent changes:
 - templates/web/common/includes/display_recent_changes.tt.html
@@ -566,6 +560,20 @@ config:
 ingredients processing:
 - tests/unit/ingredients_processing.t
 
+Users:
+- lib/ProductOpener/Users.pm
+- templates/web/common/includes/display_login_register.tt.html
+- templates/web/pages/session/signed_in.tt.html
+- templates/web/pages/session/signed_out.tt.html
+- templates/web/pages/session/sign_in_form.tt.html
+- templates/web/pages/user_form/user_form_page.tt.html
+- templates/web/pages/user_profile/user_profile.tt.html
+- scripts/gen_users_emails.pl
+- scripts/gen_users_emails_list.pl
+- scripts/gen_users_lists.pl
+- scripts/gen_users_names.pl
+- cgi/user.pl
+
 Nova:
 - tests/unit/nova.t
 - templates/api/knowledge-panels/health/ingredients/nova.tt.json
@@ -583,6 +591,7 @@ moderation:
 - scripts/remove_products_without_code.pl
 - scripts/find_and_replace_user_id_in_products.pl
 - cgi/remove_products.pl
+- templates/web/pages/remove_products/remove_products.tt.html
 
 sto:
 - scripts/sto_to_json.pl
