@@ -41,7 +41,7 @@ my %moderator_edit_form = (
 $resp = edit_user($admin_ua, \%moderator_edit_form);
 ok(!html_displays_error($resp));
 
-# A user come along an create it's profile and request to be part of an org
+# A user comes along, creates its profile and requests to be part of an org
 my $user_ua = new_client();
 my %user_form = (
 	%{clone(\%default_user_form)},
@@ -53,7 +53,7 @@ $resp = create_user($user_ua, \%user_form);
 ok(!html_displays_error($resp));
 my $logs = tail_log_read($tail);
 
-# As it's the first, user is already part of the org
+# As it is the first user of the org, user is already part of the org
 my $user_ref = retrieve("$data_root/users/tests.sto");
 # user is already part of org
 is($user_ref->{pro}, 1);
@@ -82,7 +82,7 @@ my $user_mail = first {$_ =~ /^To:.*test\@test.com/im} @mails;
 # got it
 ok(defined $user_mail);
 $user_mail = mail_to_text($user_mail);
-# with a welcome and it's userid
+# with a welcome and its userid
 ok(index($user_mail, "Thanks a lot for joining") >= 0);
 ok(index($user_mail, "User name: tests") >= 0);
 

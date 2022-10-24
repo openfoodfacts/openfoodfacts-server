@@ -143,7 +143,7 @@ sub store_org ($org_ref) {
 
 	if ((defined $previous_org_ref) && !$previous_org_ref->{validated} && $org_ref->{validated}) {
 		# we switched on validated
-		# TODO: create org and it's users in CRM
+		# TODO: create org and its users in Odoo CRM
 	}
 
 	store("$data_root/orgs/" . $org_ref->{org_id} . ".sto", $org_ref);

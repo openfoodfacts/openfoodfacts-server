@@ -129,7 +129,7 @@ sub wait_server() {
 =head2 wait_application_ready()
 
 Wait for server and dynamic front to be ready.
-Run this at the begining of every integration test
+Run this at the beginning of every integration test
 
 =cut
 
@@ -294,7 +294,7 @@ sub edit_product ($ua, $product_fields) {
 
 Return if a form displays errors
 
-Most from will return a 200 while displaying an error message.
+Most forms will return a 200 while displaying an error message.
 This function assumes error_list.tt.html was used.
 =cut
 
