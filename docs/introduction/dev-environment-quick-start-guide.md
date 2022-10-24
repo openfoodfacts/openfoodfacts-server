@@ -21,6 +21,7 @@ Docker provides an isolated environment, very close to a Virtual Machine. This e
 - [Install Docker Compose](https://docs.docker.com/compose/install/)
 - [Enable command-line completion](https://docs.docker.com/compose/completion/)
 - [Install Make for Windows](http://gnuwin32.sourceforge.net/packages/make.htm) (if running on Windows)
+- [Install Wget for Windows](https://gnuwin32.sourceforge.net/packages/wget.htm) (to download the full production dump if running on Windows )
 
 ## 2. Clone the repository from GitHub
 
@@ -205,3 +206,13 @@ You need to remove current directory where you clone the project, and clone the 
 
 ```console
 git clone -c core.symlinks=true git@github.com:openfoodfacts/openfoodfacts-server.git
+```
+
+### 'rm' is not recognized as an internal or external command
+
+When running make import_prod_data or some other commands.
+
+Solution:
+
+Use the Git Bash shell to run the make commands in windows so that programs like nproc and rm are found.
+
