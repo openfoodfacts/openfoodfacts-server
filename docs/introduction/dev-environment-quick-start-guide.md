@@ -20,7 +20,21 @@ Docker provides an isolated environment, very close to a Virtual Machine. This e
 > If you run e.g. Debian, don't forget to add your user to the `docker` group!
 - [Install Docker Compose](https://docs.docker.com/compose/install/)
 - [Enable command-line completion](https://docs.docker.com/compose/completion/)
-- [Install Make for Windows](http://gnuwin32.sourceforge.net/packages/make.htm) (if running on Windows)
+
+### Windows Prerequisites
+
+When running with Windows, install [Docker Desktop](https://www.docker.com/products/docker-desktop/) which will cover all of the above.
+
+The Make tasks use a number of Linux commands, such as rm and nproc, so it is recommeded to run Make commands from the Git Bash shell. In addition, the following need to be installed and inclided in the PATH:
+
+- [Make for Windows](http://gnuwin32.sourceforge.net/packages/make.htm)
+- [wget for windows](https://eternallybored.org/misc/wget/) (In order to download the full product database).
+
+The process of cloning the repository will create a number of symbolic links which require specific permissions under Windows. In order to do this you can use any one of these alternatives:
+
+ - Use an Administrative command prompt for all Git commands
+ - Completely disable UAC
+ - Specifically grant the [Create symbolic links](https://learn.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/create-symbolic-links) permission to your user
 
 ## 2. Clone the repository from GitHub
 
