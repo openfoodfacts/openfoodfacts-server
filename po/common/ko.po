@@ -3135,6 +3135,10 @@ msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
 msgstr "주의: 이 제품은 더 이상 판매되지 않습니다. 이 데이터는 참고용으로만 보관중입니다. 이 제품은 일반 검색으로는 찾을 수 없으며 통계를 낼때도 해당 제품을 제외하고 계산합니다."
 
+# This will be on a button and needs to be as short as possible
+# So instead of something like "Install the mobile application"
+# try to make it very short "Get the app" or "Install the app"
+# Use infinitive instead of imperative
 msgctxt "get_the_app"
 msgid "Get the app"
 msgstr "앱 다운받기"
@@ -3753,10 +3757,6 @@ msgstr "실패함"
 msgctxt "import_file_result"
 msgid "Import result"
 msgstr "결과 가져오기"
-
-msgctxt "products_added"
-msgid "Products added"
-msgstr "추가된 제품"
 
 msgctxt "products_modified"
 msgid "Products modified"
@@ -6117,4 +6117,76 @@ msgstr ""
 msgctxt "nutrient_recommendation_fat_and_saturated_fat"
 msgid "Choose products with lower fat and saturated fat content."
 msgstr ""
+
+msgctxt "sign_in"
+msgid "Sign in"
+msgstr "가입하기"
+
+msgctxt "sign_out"
+msgid "Sign out"
+msgstr "로그아웃"
+
+msgctxt "your_contributions"
+msgid "Your contributions"
+msgstr "기부금"
+
+msgctxt "products_added"
+msgid "Products added"
+msgstr "추가된 제품"
+
+msgctxt "products_edited"
+msgid "Products edited"
+msgstr ""
+
+msgctxt "products_photographed"
+msgid "Products photographed"
+msgstr ""
+
+# result of the matching with the user preferences: should ne a noun, not a verb
+msgctxt "matching_with_your_preferences"
+msgid "Matching with your preferences"
+msgstr ""
+
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_join_us_on_slack"
+msgid "Join us on <a href=\"{url}\">Slack</a>"
+msgstr ""
+
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_discover_our_code_of_conduct"
+msgid "Discover our <a href=\"{url}\">Code of conduct</a>"
+msgstr ""
+
+# {links} must not be translated, it will be replaced by icons and/or text links
+msgctxt "f_footer_follow_us_links"
+msgid "Follow us: {links}"
+msgstr ""
+
+# Should be as small as possible, e.g. use "app" instead of "application", don't specify "mobile"
+msgctxt "footer_install_the_app_exclamation_mark"
+msgid "Install the app!"
+msgstr ""
+
+# HTML tags must not be translated, keep <span id=\"everyday\"> and <span id=\"foods\"> and put them around the corresponding words in the translation
+# e.g. in French: Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>
+msgctxt "footer_scan_your_everyday_foods"
+msgid "Scan your <span id=\"everyday\">everyday</span> <span id=\"foods\">foods</span>"
+msgstr ""
+
+msgctxt "nutrition"
+msgid "Nutrition"
+msgstr "영양"
+
+# Note: "criteria" is plural here. So in French for instance: "Vos critères"
+msgctxt "your_criteria"
+msgid "Your criteria"
+msgstr ""
+
+msgctxt "product"
+msgid "Product"
+msgstr "생성물"
+
+msgctxt "environment"
+msgid "Environment"
+msgstr "환경"
 

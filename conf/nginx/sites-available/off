@@ -163,9 +163,9 @@ server {
 	        add_header Access-Control-Allow-Methods 'GET, POST, OPTIONS';
 		add_header Access-Control-Allow-Headers 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match';
 		add_header Access-Control-Expose-Headers 'Content-Length,Content-Range';
-		# optimize gzip compressed content (like OCR .json stored next to .jpg files)
-		gzip_static always;
-		gunzip on;
+    # optimize gzip compressed content (like OCR .json stored next to .jpg files)
+    gzip_static always;
+    gunzip on;
 	}
 
         if ($http_referer ~* (jobothoniel.com) ) { return 403; } # blocked since 2021-07-13
@@ -187,7 +187,9 @@ server {
 
 	# Static files are served directly by NGINX
 
-	location ~ ^/(.well-known|images|css|js|rss|files|resources|foundation|bower_components)/ {
+	location ~ ^/(.well-known|images|fonts|css|js|rss|files|resources|foundation|bower_components)/ {
+		add_header Access-Control-Allow-Origin *;
+		add_header Access-Control-Allow-Methods 'GET, POST, OPTIONS';
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		gzip_static always;
@@ -263,10 +265,10 @@ server {
 	}
 
 	location = /ecoscore {
-		if ( $host ~ "^fr\..*" ) {
-			return 301 https://$host/eco-score-l-impact-environnemental-des-produits-alimentaires;
-		}
-		return 301 https://$host/eco-score-the-environmental-impact-of-food-products;
+                if ( $host ~ "^fr\..*" ) {
+                        return 301 https://$host/eco-score-l-impact-environnemental-des-produits-alimentaires;
+                }
+                return 301 https://$host/eco-score-the-environmental-impact-of-food-products;
 	}
 
 	# 2022-06-13 Redirect press pages to blog post about the new Flutter app
