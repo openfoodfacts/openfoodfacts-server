@@ -24,6 +24,10 @@
 # without any argument. Usage:
 # ./export_database.pl
 
+# * Empty products or products without barcodes are not exported.
+# * some special chars, such as tabs, cariage returns, etc., are replaced by spaces
+#   to avoid breaking the CSV.
+
 # TODO: factorize code with search_and_export_products() function
 # from ./lib/ProductOpener/Display.pm
 
@@ -146,6 +150,7 @@ foreach my $l ("en", "fr") {
 	# 5mins is not enough, 50k docs were exported
 	my $cursor = get_products_collection(3 * 60 * 60 * 1000)->query(
 		{
+			# Filter: do not export products without barcodes or empty products
 			'code' => {"\$ne" => ""},
 			'empty' => {"\$ne" => 1}
 		}
