@@ -30,6 +30,7 @@ use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
+use ProductOpener::API qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -98,7 +99,12 @@ if (
 }
 
 if ((defined $request_ref->{api}) and (defined $request_ref->{api_method})) {
-	if (single_param("api_method") eq "search") {
+
+	# V3 API use a generic request and response format
+	if ($request_ref->{api_version} =~ /3((\.)\d+)?/) {
+		process_api_request($request_ref);
+	}
+	elsif (single_param("api_method") eq "search") {
 		# /api/v0/search
 		# FIXME: for an unknown reason, using display_search_results() here results in some attributes being randomly not set
 		# because of missing fields like nova_group or nutriscore_data, but not for all products.
