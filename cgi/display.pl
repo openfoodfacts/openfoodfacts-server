@@ -98,13 +98,13 @@ if (
 	display_error_and_exit(lang("no_owner_defined"), 200);
 }
 
-if ((defined $request_ref->{api}) and (defined $request_ref->{api_method})) {
+if ((defined $request_ref->{api}) and (defined $request_ref->{api_action})) {
 
 	# V3 API use a generic request and response format
 	if ($request_ref->{api_version} =~ /3((\.)\d+)?/) {
 		process_api_request($request_ref);
 	}
-	elsif (single_param("api_method") eq "search") {
+	elsif ($request_ref->{api_action} eq "search") {
 		# /api/v0/search
 		# FIXME: for an unknown reason, using display_search_results() here results in some attributes being randomly not set
 		# because of missing fields like nova_group or nutriscore_data, but not for all products.
@@ -112,15 +112,15 @@ if ((defined $request_ref->{api}) and (defined $request_ref->{api_method})) {
 		# display_search_results($request_ref);
 		display_tag($request_ref);
 	}
-	elsif (single_param("api_method") =~ /^preferences(_(\w\w))?$/) {
+	elsif ($request_ref->{api_action} =~ /^preferences(_(\w\w))?$/) {
 		# /api/v0/preferences or /api/v0/preferences_[language code]
 		display_preferences_api($request_ref, $2);
 	}
-	elsif (single_param("api_method") =~ /^attribute_groups(_(\w\w))?$/) {
+	elsif ($request_ref->{api_action} =~ /^attribute_groups(_(\w\w))?$/) {
 		# /api/v0/attribute_groups or /api/v0/attribute_groups_[language code]
 		display_attribute_groups_api($request_ref, $2);
 	}
-	elsif (single_param("api_method") eq "taxonomy") {
+	elsif ($request_ref->{api_action} eq "taxonomy") {
 		display_taxonomy_api($request_ref);
 	}
 	else {

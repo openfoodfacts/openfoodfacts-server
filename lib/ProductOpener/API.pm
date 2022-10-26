@@ -48,7 +48,9 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Products qw/:all/;
+use ProductOpener::Export qw/:all/;
 
+use CGI qw(header);
 
 sub init_api_response($request_ref) {
 
@@ -66,6 +68,8 @@ sub add_localized_messages_to_api_response($request_ref) {
 
 
 sub read_product_api($request_ref) {
+
+    $log->debug("read_product_api - start", {request => $request_ref}) if $log->is_debug();
 
 	# Is a sample product requested?
 	if ((defined $request_ref->{code}) and ($request_ref->{code} eq "example")) {
@@ -121,7 +125,7 @@ sub read_product_api($request_ref) {
 	else {
         $request_ref->{api_response}{result} = {id => "product_found"};
 
-		add_images_urls_to_product($product_ref);
+		add_images_urls_to_product($product_ref, $lc);
 
 		# If the request specified a value for the fields parameter, return only the fields listed
 		if (defined single_param('fields')) {
@@ -165,6 +169,8 @@ sub read_product_api($request_ref) {
 
 	}
 
+    $log->debug("read_product_api - stop", {request => $request_ref}) if $log->is_debug();
+
 	return;
 }
 
@@ -176,7 +182,10 @@ sub read_product_api($request_ref) {
 
 sub write_product_api($request_ref) {
 
-    
+    $log->debug("write_product_api - start", {request => $request_ref}) if $log->is_debug();
+
+
+    $log->debug("write_product_api - stop", {request => $request_ref}) if $log->is_debug();
 
 	return;
 }
@@ -224,14 +233,27 @@ sub process_api_request($request_ref) {
 
     # Analyze the request body
 
-    if ($request_ref->{api_method} eq "read_product") {
-        read_product_api($request_ref);
+    if ($request_ref->{api_action} eq "product") {
+
+        if ($request_ref->{api_method} eq "POST") {
+            write_product_api($request_ref);
+        }
+        else {
+            read_product_api($request_ref);
+        }
     }
-    elsif ($request_ref->{api_method} eq "write_product") {
-        write_product_api($request_ref);
+    else {
+        $log->warn("process_api_request - unknown action", {request => $request_ref}) if $log->is_warn();
+        push @{$request_ref->{api_response}{errors}}, {
+            message => { id => "unknown_api_action"},
+            field => { id => "api_action", value => $request_ref->{api_action}},
+            impact => { id => "failure"},
+        };
     }
 
     add_localized_messages_to_api_response($request_ref);
+
+    send_api_reponse($request_ref);
 
     $log->debug("process_api_request - stop", {request => $request_ref}) if $log->is_debug();
 }

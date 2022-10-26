@@ -875,7 +875,7 @@ It will analyze path and parameters.
 Some information is set in request_ref, notably
 - polished query_string
 - page number (page)
-- api version and api_method
+- api version (e.g v3), api action (e.g product) and api method (e.g. GET or POST)
 - requested page (text)
 - some boolean for routing : search / taxonomy / mission / product / tag / points
 - parameters for products, mission, tags, etc.
@@ -982,18 +982,29 @@ sub analyze_request ($request_ref) {
 	# /api/v0/search
 	elsif ($components[0] eq 'api') {
 
-		# Set version, method and code
+		# Set version, method, action and code
 		$request_ref->{api} = $components[1];
 		if ($request_ref->{api} =~ /v(.*)/) {
-			param("api_version", $1);
 			$request_ref->{api_version} = $1;
 		}
-		param("api_method", $components[2]);
-		$request_ref->{api_method} = $components[2];
+
+		$request_ref->{api_action} = $components[2];
+
+		# If the api_action is different than "search", check if it is the local path for "product"
+		# so that urls like https://fr.openfoodfacts.org/api/v3/produit/4324232423 work (produit instead of product)
+		# this is so that we can quickly add /api/v3/ to get the API
+
+		if (($request_ref->{api_action} ne 'search') and ($request_ref->{api_action} eq $tag_type_singular{products}{$lc})) {
+			$request_ref->{api_action} = 'product';
+		}
+
 		if (defined $components[3]) {
 			param("code", $components[3]);
 			$request_ref->{code} = $components[3];
 		}
+
+		my $r = Apache2::RequestUtil->request();
+		$request_ref->{api_method} = $r->method();
 
 		# If return format is not xml or jqm or jsonp, default to json
 		if (    (not defined single_param("xml"))
@@ -1007,8 +1018,9 @@ sub analyze_request ($request_ref) {
 			"got API request",
 			{
 				api => $request_ref->{api},
-				api_version => single_param("api_version"),
-				api_method => single_param("api_method"),
+				api_version => $request_ref->{api_version},
+				api_action => $request_ref->{api_action},
+				api_method => $request_ref->{api_method},
 				code => $request_ref->{code},
 				jqm => single_param("jqm"),
 				json => single_param("json"),
@@ -1017,7 +1029,7 @@ sub analyze_request ($request_ref) {
 		) if $log->is_debug();
 	}
 
-	# /search search endpoint, parameters will be parser by CGI.pm param()
+	# /search search endpoint, parameters will be parsed by CGI.pm param()
 	elsif ($components[0] eq "search") {
 		$request_ref->{search} = 1;
 	}
@@ -4854,7 +4866,7 @@ my %ignore_params = (
 	xml => 1,
 	keywords => 1,    # added by CGI.pm
 	api_version => 1,
-	api_method => 1,
+	api_action => 1,
 	search_simple => 1,
 	search_terms => 1,
 	userid => 1,
@@ -5822,7 +5834,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			my $url = product_url($product_ref);
 			$product_ref->{url} = $formatted_subdomain . $url;
 
-			add_images_urls_to_product($product_ref);
+			add_images_urls_to_product($product_ref, $lc);
 
 			my $jqm = single_param("jqm");    # Assigning to a scalar to make sure we get a scalar
 
@@ -10765,7 +10777,7 @@ HTML
 		$response{status} = 1;
 		$response{status_verbose} = 'product found';
 
-		add_images_urls_to_product($product_ref);
+		add_images_urls_to_product($product_ref, $lc);
 
 		$response{product} = $product_ref;
 
@@ -10947,86 +10959,6 @@ sub display_product_history ($code, $product_ref) {
 
 }
 
-sub add_images_urls_to_product ($product_ref) {
-
-	my $path = product_path($product_ref);
-
-	foreach my $imagetype ('front', 'ingredients', 'nutrition', 'packaging') {
-
-		my $size = $display_size;
-
-		my $display_lc = $lc;
-
-		# first try the requested language
-		my @display_ids = ($imagetype . "_" . $display_lc);
-
-		# next try the main language of the product
-		if (defined($product_ref->{lc}) && $product_ref->{lc} ne $display_lc) {
-			push @display_ids, $imagetype . "_" . $product_ref->{lc};
-		}
-
-		# last try the field without a language (for old products without updated images)
-		push @display_ids, $imagetype;
-
-		foreach my $id (@display_ids) {
-
-			if (    (defined $product_ref->{images})
-				and (defined $product_ref->{images}{$id})
-				and (defined $product_ref->{images}{$id}{sizes})
-				and (defined $product_ref->{images}{$id}{sizes}{$size}))
-			{
-
-				$product_ref->{"image_" . $imagetype . "_url"}
-					= "$images_subdomain/images/products/$path/$id."
-					. $product_ref->{images}{$id}{rev} . '.'
-					. $display_size . '.jpg';
-				$product_ref->{"image_" . $imagetype . "_small_url"}
-					= "$images_subdomain/images/products/$path/$id."
-					. $product_ref->{images}{$id}{rev} . '.'
-					. $small_size . '.jpg';
-				$product_ref->{"image_" . $imagetype . "_thumb_url"}
-					= "$images_subdomain/images/products/$path/$id."
-					. $product_ref->{images}{$id}{rev} . '.'
-					. $thumb_size . '.jpg';
-
-				if ($imagetype eq 'front') {
-					$product_ref->{image_url} = $product_ref->{"image_" . $imagetype . "_url"};
-					$product_ref->{image_small_url} = $product_ref->{"image_" . $imagetype . "_small_url"};
-					$product_ref->{image_thumb_url} = $product_ref->{"image_" . $imagetype . "_thumb_url"};
-				}
-
-				last;
-			}
-		}
-
-		if (defined $product_ref->{languages_codes}) {
-			foreach my $key (keys %{$product_ref->{languages_codes}}) {
-				my $id = $imagetype . '_' . $key;
-				if (    (defined $product_ref->{images})
-					and (defined $product_ref->{images}{$id})
-					and (defined $product_ref->{images}{$id}{sizes})
-					and (defined $product_ref->{images}{$id}{sizes}{$size}))
-				{
-
-					$product_ref->{selected_images}{$imagetype}{display}{$key}
-						= "$images_subdomain/images/products/$path/$id."
-						. $product_ref->{images}{$id}{rev} . '.'
-						. $display_size . '.jpg';
-					$product_ref->{selected_images}{$imagetype}{small}{$key}
-						= "$images_subdomain/images/products/$path/$id."
-						. $product_ref->{images}{$id}{rev} . '.'
-						. $small_size . '.jpg';
-					$product_ref->{selected_images}{$imagetype}{thumb}{$key}
-						= "$images_subdomain/images/products/$path/$id."
-						. $product_ref->{images}{$id}{rev} . '.'
-						. $thumb_size . '.jpg';
-				}
-			}
-		}
-	}
-
-	return;
-}
 
 sub display_structured_response ($request_ref) {
 	# directly serve structured data from $request_ref->{structured_response}
