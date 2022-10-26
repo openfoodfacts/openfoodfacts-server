@@ -36,6 +36,9 @@ use Log::Any qw($log);
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+        &get_initialized_response
+        &add_warning
+        &add_error
         &process_api_request
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -51,14 +54,79 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Export qw/:all/;
 
 use CGI qw(header);
+use Apache2::RequestIO();
+use Apache2::RequestRec();
+use JSON::PP;
 
-sub init_api_response($request_ref) {
-
-    $request_ref->{api_response} = {
+sub get_initialized_response() {
+    return {
         warnings => [],
         errors => [],
     };
 }
+
+sub init_api_response($request_ref) {
+
+    $request_ref->{api_response} = get_initialized_response();
+}
+
+
+sub add_warning($response_ref, $warning_ref) {
+    push @{$response_ref->{api_response}{warnings}}, $warning_ref;
+}
+
+
+sub add_error($response_ref, $error_ref) {
+    push @{$response_ref->{api_response}{errors}}, $error_ref;
+}
+
+
+sub read_request_body($request_ref) {
+
+    my $r = Apache2::RequestUtil->request();
+
+    my $content = '';
+
+    {
+        use bytes;
+        
+        my $offset = 0;
+        my $cnt = 0;
+        do {
+            $cnt = $r->read($content,8192,$offset);
+            $offset += $cnt;
+        } while($cnt == 8192);
+    }
+    $request_ref->{body} = $content;
+}
+
+
+sub read_and_decode_json_request_body($request_ref) {   
+
+    read_request_body($request_ref);
+
+    if (length($request_ref->{body}) == 0) {
+        add_error($request_ref->{api_response}, {
+            message => { id => "empty_request_body"},
+            field => { id => "body", value => ""},
+            impact => { id => "failure"},
+        });        
+    }
+    else {
+        eval {
+            $request_ref->{request_body_json} = decode_json($request_ref->{body});
+        };
+        if ($@) {
+			$log->error("JSON decoding error", {error => $@}) if $log->is_error();
+            add_error($request_ref->{api_response}, {
+                message => { id => "invalid_json_in_request_body"},
+                field => { id => "body", value => $request_ref->{body}},
+                impact => { id => "failure"},
+            });
+		}
+    }
+}
+
 
 
 sub add_localized_messages_to_api_response($request_ref) {
@@ -105,11 +173,11 @@ sub read_product_api($request_ref) {
 	if ($code !~ /^\d{4,24}$/) {
 
 		$log->info("invalid code", {code => $code, original_code => $request_ref->{code}}) if $log->is_info();
-        push @{$request_ref->{api_response}{errors}}, {
+        add_error($request_ref->{api_response}, {
             message => { id => "invalid_code"},
             field => { id => $code, value => $code},
             impact => { id => "failure"},
-        };
+        });
 	}
 	elsif ((not defined $product_ref) or (not defined $product_ref->{code})) {
 		if (single_param("api_version") >= 1) {
@@ -184,6 +252,43 @@ sub write_product_api($request_ref) {
 
     $log->debug("write_product_api - start", {request => $request_ref}) if $log->is_debug();
 
+    read_and_decode_json_request_body($request_ref);
+    my $request_body_ref = $request_ref->{request_body_json};
+
+    $log->debug("write_product_api - body", {request_body => $request_body_ref}) if $log->is_debug();
+
+    my $response_ref = $request_ref->{api_response};
+
+    # TODO: load the product
+    my $product_ref = {};
+
+    if (not defined $request_body_ref) {
+        $log->error("write_product_api - missing input body", {}) if $log->is_error();
+    }
+    elsif (not defined $request_body_ref->{product}) {
+        $log->error("write_product_api - missing input product", {request_body => $request_body_ref}) if $log->is_error();
+    }
+    else {
+        my $input_product_ref = $request_body_ref->{product};
+
+        foreach my $field (sort keys %{$input_product_ref}) {
+
+            my $value = $input_product_ref->{$field};
+
+            if ($field =~ /^packagings(_add)?/) {
+                my $add = $1;
+                if (not defined $add) {
+                    $product_ref->{packagings} = {};
+                }
+
+                foreach my $input_packaging_ref (@{$value}) {
+                    my $packaging_ref = get_checked_and_taxonomized_packaging_component_data($request_ref->{tags_lc}, $input_packaging_ref, $response_ref);
+                    add_or_combine_packaging_component_data($product_ref, $packaging_ref, $response_ref);
+                }
+                
+            }
+        }
+    }
 
     $log->debug("write_product_api - stop", {request => $request_ref}) if $log->is_debug();
 

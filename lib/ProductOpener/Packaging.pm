@@ -44,7 +44,7 @@ BEGIN {
 		&extract_packaging_from_image
 		&init_packaging_taxonomies_regexps
 		&analyze_and_combine_packaging_data
-		&parse_packaging_from_text_phrase
+		&parse_packaging_component_data_from_text_phrase
 		&guess_language_of_packaging_text
 
 	);    # symbols to export on request
@@ -57,6 +57,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Store qw/:all/;
+use ProductOpener::API qw/:all/;
 
 =head1 FUNCTIONS
 
@@ -115,7 +116,7 @@ sub init_packaging_taxonomies_regexps() {
 	return;
 }
 
-=head2 parse_packaging_from_text_phrase($text, $text_language)
+=head2 parse_packaging_component_data_from_text_phrase($text, $text_language)
 
 This function parses a single phrase (e.g. "5 25cl transparent PET bottles")
 and returns a packaging object with properties like units, quantity, material, shape etc.
@@ -142,9 +143,9 @@ Packaging object (hash) reference with optional properties: recycling, material,
 
 =cut
 
-sub parse_packaging_from_text_phrase ($text, $text_language) {
+sub parse_packaging_component_data_from_text_phrase ($text, $text_language) {
 
-	$log->debug("parse_packaging_from_text_phrase - start", {text => $text, text_language => $text_language})
+	$log->debug("parse_packaging_component_data_from_text_phrase - start", {text => $text, text_language => $text_language})
 		if $log->is_debug();
 
 	if ($text =~ /^([a-z]{2}):/) {
@@ -179,7 +180,7 @@ sub parse_packaging_from_text_phrase ($text, $text_language) {
 						$matched = 1;
 
 						$log->debug(
-							"parse_packaging_from_text_phrase - regexp match",
+							"parse_packaging_component_data_from_text_phrase - regexp match",
 							{
 								before => $before,
 								text => $text,
@@ -265,7 +266,7 @@ sub parse_packaging_from_text_phrase ($text, $text_language) {
 						{
 							$text =~ s/\b($regexp)\b/ MATCHED /i;
 							$textid = get_string_id_for_lang($text_language, $text);
-							$log->debug("parse_packaging_from_text_phrase - removed match",
+							$log->debug("parse_packaging_component_data_from_text_phrase - removed match",
 								{text => $text, textid => $textid, tagid => $tagid, regexp => $regexp})
 								if $log->is_debug();
 						}
@@ -275,7 +276,7 @@ sub parse_packaging_from_text_phrase ($text, $text_language) {
 		}
 	}
 
-	$log->debug("parse_packaging_from_text_phrase - result",
+	$log->debug("parse_packaging_component_data_from_text_phrase - result",
 		{text => $text, text_language => $text_language, packaging_ref => $packaging_ref})
 		if $log->is_debug();
 
@@ -314,12 +315,12 @@ sub guess_language_of_packaging_text ($text, $potential_lcs_ref) {
 	my $max_properties = 0;
 
 	foreach my $l (@$potential_lcs_ref) {
-		my $packaging_ref = parse_packaging_from_text_phrase($text, $l);
+		my $packaging_ref = parse_packaging_component_data_from_text_phrase($text, $l);
 		my $properties = scalar keys %$packaging_ref;
 
 		# if no property was recognized and we still have no candidate,
 		# try to see if the entry exists in the packaging taxonomy
-		# (which includes preservation which will not be parsed by parse_packaging_from_text_phrase)
+		# (which includes preservation which will not be parsed by parse_packaging_component_data_from_text_phrase)
 
 		if (($max_properties == 0) and ($properties == 0)) {
 			my $tagid = canonicalize_taxonomy_tag($l, "packaging", $text);
@@ -341,6 +342,149 @@ sub guess_language_of_packaging_text ($text, $potential_lcs_ref) {
 	return $max_lc;
 }
 
+
+=head2 apply_rules_to_augment_packaging_component_data($product_ref, $packaging_ref)
+
+Use rules to add more properties or more precise properties to a packaging component.
+Some rules may depend on the product. (e.g. if the product category is "en:coffees", and the shape
+of the packaging component is "en:capsule", we assume the shape is "en:coffee-capsule")
+
+=head3 Parameters
+
+=head4 $product_ref product
+
+=head4 $packaging_ref packaging component
+
+=cut
+
+sub apply_rules_to_augment_packaging_component_data($product_ref, $packaging_ref) {
+
+	# If the shape is "capsule" and the product is in category "en:coffees", mark the shape as a "coffee capsule"
+	if (    (defined $packaging_ref->{"shape"})
+		and ($packaging_ref->{"shape"} eq "en:capsule")
+		and (has_tag($product_ref, "categories", "en:coffees")))
+	{
+		$packaging_ref->{"shape"} = "en:coffee-capsule";
+	}
+
+	# If we have a shape without a material, check if there is a default material for the shape
+	# e.g. "en:Bubble wrap" has the property packaging_materials:en: en:plastic
+	if ((defined $packaging_ref->{"shape"}) and (not defined $packaging_ref->{"material"})) {
+		my $material
+			= get_inherited_property("packaging_shapes", $packaging_ref->{"shape"}, "packaging_materials:en");
+		if (defined $material) {
+			$packaging_ref->{"material"} = $material;
+		}
+	}
+
+	# If we have a material without a shape, check if there is a default shape for the material
+	# e.g. "en:tetra-pak" has the shape "en:brick"
+	if ((defined $packaging_ref->{"material"}) and (not defined $packaging_ref->{"shape"})) {
+		my $shape
+			= get_inherited_property("packaging_materials", $packaging_ref->{"material"}, "packaging_shapes:en");
+		if (defined $shape) {
+			$packaging_ref->{"shape"} = $shape;
+		}
+	}
+}
+
+
+=head2 add_or_combine_packaging_component_data($product_ref, $packaging_ref, $response_ref)
+
+This function adds the data for a packaging component to the packagings data structure,
+or if the packaging component data is compatible with an existing component
+of the packagings structure, the data is combined.
+
+=head3 Parameters
+
+=head4 $product_ref product
+
+=head4 $packaging_ref packaging component
+
+=head4 $response_ref API response object reference
+
+The API response object is used to return warnings and errors to the caller.
+If a warning or error is found (e.g. an unrecognized input), it is returned in
+the "warnings" or "errors" array of the response object.
+
+=cut
+
+sub add_or_combine_packaging_component_data($product_ref, $packaging_ref, $response_ref) {
+
+	# Non empty packaging?
+	if ((scalar keys %$packaging_ref) > 0) {
+
+		# If we have an existing packaging that can correspond, augment it
+		# otherwise, add one
+
+		my $matching_packaging_ref;
+
+		foreach my $existing_packaging_ref (@{$product_ref->{packagings}}) {
+
+			my $match = 1;
+
+			foreach my $property (sort keys %$packaging_ref) {
+
+				my $tagtype = $packaging_taxonomies{$property};
+
+				# $tagtype can be shape / material / recycling, or undef if the property is something else (e.g. a number of packagings)
+				if (not defined $tagtype) {
+					$match = 0;
+					last;
+				}
+
+				# If there is an existing value for the property,
+				# check if it is either a child or a parent of the value extracted from the packaging text
+				elsif ( (defined $existing_packaging_ref->{$property})
+					and ($existing_packaging_ref->{$property} ne "en:unknown")
+					and ($existing_packaging_ref->{$property} ne $packaging_ref->{$property})
+					and (not is_a($tagtype, $existing_packaging_ref->{$property}, $packaging_ref->{$property}))
+					and (not is_a($tagtype, $packaging_ref->{$property}, $existing_packaging_ref->{$property})))
+				{
+
+					$match = 0;
+					last;
+				}
+			}
+
+			if ($match) {
+				$matching_packaging_ref = $existing_packaging_ref;
+				last;
+			}
+		}
+
+		if (not defined $matching_packaging_ref) {
+			# Add a new packaging
+			$log->debug("analyze_and_combine_packaging_data - add new packaging", {packaging_ref => $packaging_ref})
+				if $log->is_debug();
+			push @{$product_ref->{packagings}}, $packaging_ref;
+		}
+		else {
+			# Merge data with matching packaging
+			$log->debug(
+				"analyze_and_combine_packaging_data - merge with existing packaging",
+				{packaging_ref => $packaging_ref, matching_packaging_ref => $matching_packaging_ref}
+			) if $log->is_debug();
+			foreach my $property (sort keys %$packaging_ref) {
+
+				my $tagtype = $packaging_taxonomies{$property};
+
+				# If we already have a value for the property,
+				# apply the new value only if it is a child of the existing value
+				# e.g. if we already have "plastic", we can override it with "PET"
+				if (   (not defined $matching_packaging_ref->{$property})
+					or ($matching_packaging_ref->{$property} eq "en:unknown")
+					or (is_a($tagtype, $packaging_ref->{$property}, $matching_packaging_ref->{$property})))
+				{
+
+					$matching_packaging_ref->{$property} = $packaging_ref->{$property};
+				}
+			}
+		}
+	}
+}
+
+
 =head2 analyze_and_combine_packaging_data($product_ref)
 
 This function analyzes all the packaging information available for the product:
@@ -359,6 +503,9 @@ sub analyze_and_combine_packaging_data ($product_ref) {
 
 	$log->debug("analyze_and_combine_packaging_data - start", {existing_packagings => $product_ref->{packagings}})
 		if $log->is_debug();
+
+	# Response structure to keep track of warnings and errors
+	my $response_ref = get_initialized_response();
 
 	# Create the packagings data structure if it does not exist yet
 	# otherwise, we will use and augment the existing data
@@ -402,115 +549,19 @@ sub analyze_and_combine_packaging_data ($product_ref) {
 		$phrase =~ s/\s+$//;
 		next if $phrase eq "";
 
-		my $packaging_ref = parse_packaging_from_text_phrase($phrase, $product_ref->{lc});
+		my $packaging_ref = parse_packaging_component_data_from_text_phrase($phrase, $product_ref->{lc});
 
-		# If the shape is "capsule" and the product is in category "en:coffees", mark the shape as a "coffee capsule"
-		if (    (defined $packaging_ref->{"shape"})
-			and ($packaging_ref->{"shape"} eq "en:capsule")
-			and (has_tag($product_ref, "categories", "en:coffees")))
-		{
-			$packaging_ref->{"shape"} = "en:coffee-capsule";
-		}
-
-		# If we have a shape without a material, check if there is a default material for the shape
-		# e.g. "en:Bubble wrap" has the property packaging_materials:en: en:plastic
-		if ((defined $packaging_ref->{"shape"}) and (not defined $packaging_ref->{"material"})) {
-			my $material
-				= get_inherited_property("packaging_shapes", $packaging_ref->{"shape"}, "packaging_materials:en");
-			if (defined $material) {
-				$packaging_ref->{"material"} = $material;
-			}
-		}
-
-		# If we have a material without a shape, check if there is a default shape for the material
-		# e.g. "en:tetra-pak" has the shape "en:brick"
-		if ((defined $packaging_ref->{"material"}) and (not defined $packaging_ref->{"shape"})) {
-			my $shape
-				= get_inherited_property("packaging_materials", $packaging_ref->{"material"}, "packaging_shapes:en");
-			if (defined $shape) {
-				$packaging_ref->{"shape"} = $shape;
-			}
-		}
+		apply_rules_to_augment_packaging_component_data($product_ref, $packaging_ref);
 
 		# For phrases corresponding to the packaging text field, mark the shape as en:unknown if it was not identified
 		if (($i <= $number_of_packaging_text_entries) and (not defined $packaging_ref->{shape})) {
 			$packaging_ref->{shape} = "en:unknown";
 		}
 
-		# Non empty packaging?
-		if ((scalar keys %$packaging_ref) > 0) {
-
-			# If we have an existing packaging that can correspond, augment it
-			# otherwise, add one
-
-			my $matching_packaging_ref;
-
-			foreach my $existing_packaging_ref (@{$product_ref->{packagings}}) {
-
-				my $match = 1;
-
-				foreach my $property (sort keys %$packaging_ref) {
-
-					my $tagtype = $packaging_taxonomies{$property};
-
-					# $tagtype can be shape / material / recycling, or undef if the property is something else (e.g. a number of packagings)
-					if (not defined $tagtype) {
-						$match = 0;
-						last;
-					}
-
-					# If there is an existing value for the property,
-					# check if it is either a child or a parent of the value extracted from the packaging text
-					elsif ( (defined $existing_packaging_ref->{$property})
-						and ($existing_packaging_ref->{$property} ne "en:unknown")
-						and ($existing_packaging_ref->{$property} ne $packaging_ref->{$property})
-						and (not is_a($tagtype, $existing_packaging_ref->{$property}, $packaging_ref->{$property}))
-						and (not is_a($tagtype, $packaging_ref->{$property}, $existing_packaging_ref->{$property})))
-					{
-
-						$match = 0;
-						last;
-					}
-				}
-
-				if ($match) {
-					$matching_packaging_ref = $existing_packaging_ref;
-					last;
-				}
-			}
-
-			if (not defined $matching_packaging_ref) {
-				# Add a new packaging
-				$log->debug("analyze_and_combine_packaging_data - add new packaging", {packaging_ref => $packaging_ref})
-					if $log->is_debug();
-				push @{$product_ref->{packagings}}, $packaging_ref;
-			}
-			else {
-				# Merge data with matching packaging
-				$log->debug(
-					"analyze_and_combine_packaging_data - merge with existing packaging",
-					{packaging_ref => $packaging_ref, matching_packaging_ref => $matching_packaging_ref}
-				) if $log->is_debug();
-				foreach my $property (sort keys %$packaging_ref) {
-
-					my $tagtype = $packaging_taxonomies{$property};
-
-					# If we already have a value for the property,
-					# apply the new value only if it is a child of the existing value
-					# e.g. if we already have "plastic", we can override it with "PET"
-					if (   (not defined $matching_packaging_ref->{$property})
-						or ($matching_packaging_ref->{$property} eq "en:unknown")
-						or (is_a($tagtype, $packaging_ref->{$property}, $matching_packaging_ref->{$property})))
-					{
-
-						$matching_packaging_ref->{$property} = $packaging_ref->{$property};
-					}
-				}
-			}
-		}
+		add_or_combine_packaging_component_data($product_ref, $packaging_ref, $response_ref);
 	}
 
-	$log->debug("analyze_and_combine_packaging_data - done", {packagings => $product_ref->{packagings}})
+	$log->debug("analyze_and_combine_packaging_data - done", {packagings => $product_ref->{packagings}, response => $response_ref})
 		if $log->is_debug();
 	return;
 }
