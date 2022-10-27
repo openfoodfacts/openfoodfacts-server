@@ -1,0 +1,20 @@
+{
+   "api_response" : {
+      "errors" : [
+         {
+            "field" : {
+               "id" : "body",
+               "value" : ""
+            },
+            "impact" : {
+               "id" : "failure"
+            },
+            "message" : {
+               "id" : "empty_request_body"
+            }
+         }
+      ]
+   },
+   "errors" : [],
+   "warnings" : []
+}

@@ -1,0 +1,19 @@
+{
+   "api_response" : {
+      "errors" : [
+         {
+            "field" : {
+               "id" : "product"
+            },
+            "impact" : {
+               "id" : "failure"
+            },
+            "message" : {
+               "id" : "missing_product"
+            }
+         }
+      ]
+   },
+   "errors" : [],
+   "warnings" : []
+}

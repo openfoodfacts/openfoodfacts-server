@@ -29,4 +29,6 @@ cd ..
 
 perl integration/import_csv_file.t --update-expected-results
 perl integration/export.t --update-expected-results
+perl integration/api_v3_product_read.t --update-expected-results
+perl integration/api_v3_product_write.t --update-expected-results
 

@@ -53,7 +53,6 @@ if ($env_query_string =~ /^\/?api\/v3(\.\d+)?\/product/) {
 	read_request_body($body_request_ref);
 }
 
-
 # The nginx reverse proxy turns /somepath?someparam=somevalue to /cgi/display.pl?/somepath?someparam=somevalue
 # so that all non /cgi/ queries are sent to display.pl and that we can get the path in the query string
 # CGI.pm thus adds somepath? at the start of the name of the first parameter.
@@ -76,9 +75,8 @@ my $request_ref = ProductOpener::Display::init_request();
 
 # Add the POSTed body if we have one
 if (defined $body_request_ref->{body}) {
-	$request_ref->{body} = $body_request_ref->{body}
+	$request_ref->{body} = $body_request_ref->{body};
 }
-
 
 $log->debug("before analyze_request", {query_string => $request_ref->{query_string}});
 

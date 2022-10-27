@@ -315,8 +315,6 @@ sub get_world_subdomain() {
 $static_subdomain = format_subdomain('static');
 $images_subdomain = format_subdomain('images');
 
-my $user_preferences;    # enables using user preferences to show a product summary and to rank and filter results
-
 =head1 FUNCTIONS
 
 
@@ -791,14 +789,15 @@ CSS
 			;
 	}
 
-	# Enable or disable user preferences
+	# Enable or disable user food preferences: used to compute attributes and to display
+	# personalized product scores and search results
 	if (    ((defined $options{product_type}) and ($options{product_type} eq "food"))
 		and (not $server_options{producers_platform}))
 	{
-		$user_preferences = 1;
+		$request_ref->{user_preferences} = 1;
 	}
 	else {
-		$user_preferences = 0;
+		$request_ref->{user_preferences} = 0;
 	}
 
 	if (    ((defined $options{product_type}) and ($options{product_type} eq "food"))
@@ -859,7 +858,6 @@ sub _component_is_singular_tag_in_specific_lc ($component, $tag) {
 	}
 }
 
-
 sub _get_date ($t) {
 
 	if (defined $t) {
@@ -885,7 +883,6 @@ sub _get_date ($t) {
 
 }
 
-
 sub display_date ($t) {
 
 	my $dt = _get_date($t);
@@ -898,7 +895,6 @@ sub display_date ($t) {
 	}
 
 }
-
 
 sub display_date_without_time ($t) {
 
@@ -913,7 +909,6 @@ sub display_date_without_time ($t) {
 
 }
 
-
 sub display_date_ymd ($t) {
 
 	my $dt = _get_date($t);
@@ -924,7 +919,6 @@ sub display_date_ymd ($t) {
 		return;
 	}
 }
-
 
 sub display_date_tag ($t) {
 
@@ -939,7 +933,6 @@ sub display_date_tag ($t) {
 	}
 }
 
-
 sub display_date_iso ($t) {
 
 	my $dt = _get_date($t);
@@ -951,7 +944,6 @@ sub display_date_iso ($t) {
 		return;
 	}
 }
-
 
 =head2 display_error ( $error_message, $status )
 
@@ -4658,191 +4650,6 @@ sub initialize_knowledge_panels_options ($knowledge_panels_options_ref, $request
 	return;
 }
 
-=head2 customize_response_for_product ( $request_ref, $product_ref )
-
-Using the fields parameter, API product or search queries can request
-a specific set of fields to be returned.
-
-This function filters the field to return only the requested fields,
-and computes requested fields that are not stored in the database but
-created on demand.
-
-=head3 Parameters
-
-=head4 $request_ref (input)
-
-Reference to the request object.
-
-=head4 $product_ref (input)
-
-Reference to the product object (retrieved from disk or from a MongoDB query)
-
-=head3 Return value
-
-Reference to the customized product object.
-
-=cut
-
-sub customize_response_for_product ($request_ref, $product_ref) {
-
-	my $customized_product_ref = {};
-
-	my $carbon_footprint_computed = 0;
-
-	my $fields = single_param('fields');
-
-	# For non API queries, we need to compute attributes for personal search
-	if (((not defined $fields) or ($fields eq "")) and ($user_preferences) and (not $request_ref->{api})) {
-		$fields = "code,product_display_name,url,image_front_small_url,attribute_groups";
-	}
-
-	# Localize the Eco-Score fields that depend on the country of the request
-	localize_ecoscore($cc, $product_ref);
-
-	foreach my $field (split(/,/, $fields)) {
-		if ($field eq "product_display_name") {
-			$customized_product_ref->{$field} = remove_tags_and_quote(product_name_brand_quantity($product_ref));
-		}
-
-		# Allow apps to request a HTML nutrition table by passing &fields=nutrition_table_html
-		elsif ($field eq "nutrition_table_html") {
-			$customized_product_ref->{$field} = display_nutrition_table($product_ref, undef);
-		}
-
-		# Eco-Score details in simple HTML
-		elsif ($field eq "ecoscore_details_simple_html") {
-			if ((1 or $show_ecoscore) and (defined $product_ref->{ecoscore_data})) {
-				$customized_product_ref->{$field}
-					= display_ecoscore_calculation_details_simple_html($cc, $product_ref->{ecoscore_data});
-			}
-		}
-
-		# fields in %language_fields can have different values by language
-		# by priority, return the first existing value in the language requested,
-		# possibly multiple languages if sent ?lc=fr,nl for instance,
-		# and otherwise fallback on the main language of the product
-		elsif (defined $language_fields{$field}) {
-			foreach my $preferred_lc (@lcs, $product_ref->{lc}) {
-				if (    (defined $product_ref->{$field . "_" . $preferred_lc})
-					and ($product_ref->{$field . "_" . $preferred_lc} ne ''))
-				{
-					$customized_product_ref->{$field} = $product_ref->{$field . "_" . $preferred_lc};
-					last;
-				}
-			}
-		}
-
-		# [language_field]_languages : return a value with all existing values for a specific language field
-		elsif ($field =~ /^(.*)_languages$/) {
-
-			my $language_field = $1;
-			$customized_product_ref->{$field} = {};
-			if (defined $product_ref->{languages_codes}) {
-				foreach my $language_code (sort keys %{$product_ref->{languages_codes}}) {
-					if (defined $product_ref->{$language_field . "_" . $language_code}) {
-						$customized_product_ref->{$field}{$language_code}
-							= $product_ref->{$language_field . "_" . $language_code};
-					}
-				}
-			}
-		}
-
-		# Taxonomy fields requested in a specific language
-		elsif ($field =~ /^(.*)_tags_([a-z]{2})$/) {
-			my $tagtype = $1;
-			my $target_lc = $2;
-			if (defined $product_ref->{$tagtype . "_tags"}) {
-				$customized_product_ref->{$field} = [];
-				foreach my $tagid (@{$product_ref->{$tagtype . "_tags"}}) {
-					push @{$customized_product_ref->{$field}}, display_taxonomy_tag($target_lc, $tagtype, $tagid);
-				}
-			}
-		}
-
-		# Apps can request the full nutriments hash
-		# or specific nutrients:
-		# - saturated-fat_prepared_100g : return field at top level
-		# - nutrients|nutriments.sugars_serving : return field in nutrients / nutriments hash
-		elsif ($field =~ /^((nutrients|nutriments)\.)?((.*)_(100g|serving))$/) {
-			my $return_hash = $2;
-			my $nutrient = $3;
-			if ((defined $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{$nutrient})) {
-				if (defined $return_hash) {
-					if (not defined $customized_product_ref->{$return_hash}) {
-						$customized_product_ref->{$return_hash} = {};
-					}
-					$customized_product_ref->{$return_hash}{$nutrient} = $product_ref->{nutriments}{$nutrient};
-				}
-				else {
-					$customized_product_ref->{$nutrient} = $product_ref->{nutriments}{$nutrient};
-				}
-			}
-		}
-		# Eco-Score
-		elsif ($field =~ /^ecoscore/) {
-
-			if (defined $product_ref->{$field}) {
-				$customized_product_ref->{$field} = $product_ref->{$field};
-			}
-		}
-		# Product attributes requested in a specific language (or data only)
-		elsif ($field =~ /^attribute_groups_([a-z]{2}|data)$/) {
-			my $target_lc = $1;
-			compute_attributes($product_ref, $target_lc, $cc, $attributes_options_ref);
-			$customized_product_ref->{$field} = $product_ref->{$field};
-		}
-		# Product attributes in the $lc language
-		elsif ($field eq "attribute_groups") {
-			compute_attributes($product_ref, $lc, $cc, $attributes_options_ref);
-			$customized_product_ref->{$field} = $product_ref->{"attribute_groups_" . $lc};
-		}
-		# Knowledge panels in the $lc language
-		elsif ($field eq "knowledge_panels") {
-			initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref);
-			create_knowledge_panels($product_ref, $lc, $cc, $knowledge_panels_options_ref);
-			$customized_product_ref->{$field} = $product_ref->{"knowledge_panels_" . $lc};
-		}
-
-		# Images to update in a specific language
-		elsif ($field =~ /^images_to_update_([a-z]{2})$/) {
-			my $target_lc = $1;
-			$customized_product_ref->{$field} = {};
-
-			foreach my $imagetype ("front", "ingredients", "nutrition", "packaging") {
-
-				my $imagetype_lc = $imagetype . "_" . $target_lc;
-
-				# Ask for images in a specific language if we already have an old image for that language
-				if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$imagetype_lc})) {
-
-					my $imgid = $product_ref->{images}{$imagetype . "_" . $target_lc}{imgid};
-					my $age = time() - $product_ref->{images}{$imgid}{uploaded_t};
-
-					if ($age > 365 * 86400) {    # 1 year
-						$customized_product_ref->{$field}{$imagetype_lc} = $age;
-					}
-				}
-				# or if the language is the main language of the product
-				# or if we have a text value for ingredients / packagings
-				elsif (
-					($product_ref->{lc} eq $target_lc)
-					or (    (defined $product_ref->{$imagetype . "_text_" . $target_lc})
-						and ($product_ref->{$imagetype . "_text_" . $target_lc} ne ""))
-					)
-				{
-					$customized_product_ref->{$field}{$imagetype_lc} = 0;
-				}
-			}
-		}
-
-		elsif ((not defined $customized_product_ref->{$field}) and (defined $product_ref->{$field})) {
-			$customized_product_ref->{$field} = $product_ref->{$field};
-		}
-	}
-
-	return $customized_product_ref;
-}
-
 sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $page) {
 
 	$request_ref->{page_type} = "products";
@@ -4864,7 +4671,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		$limit = $request_ref->{page_size};
 	}
 	# If user preferences are turned on, return 100 products per page
-	elsif ((not defined $request_ref->{api}) and ($user_preferences)) {
+	elsif ((not defined $request_ref->{api}) and ($request_ref->{user_preferences})) {
 		$limit = 100;
 	}
 	else {
@@ -5029,7 +4836,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		$fields_ref = {};
 	}
 	# - if we use user preferences, we need a lot of fields to compute product attributes: load them all
-	elsif ($user_preferences) {
+	elsif ($request_ref->{user_preferences}) {
 		# when product attributes become more stable, we could try to restrict the fields
 		$fields_ref = {};
 	}
@@ -5378,7 +5185,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 		# For API queries, if the request specified a value for the fields parameter, return only the fields listed
 		# For non API queries with user preferences, we need to add attributes
-		if (   ((not defined $request_ref->{api}) and ($user_preferences))
+		if (   ((not defined $request_ref->{api}) and ($request_ref->{user_preferences}))
 			or ((defined $request_ref->{api}) and (defined single_param('fields'))))
 		{
 
@@ -5430,7 +5237,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		$html =~ s/(href|src)=("\/)/$1="$formatted_subdomain\//g;
 	}
 
-	if ($user_preferences) {
+	if ($request_ref->{user_preferences}) {
 
 		my $preferences_text
 			= sprintf(lang("classify_the_d_products_below_according_to_your_preferences"), $page_count);
@@ -8304,7 +8111,7 @@ HTML
 	# Compute attributes and embed them as JSON
 	# enable feature for moderators
 
-	if ($user_preferences) {
+	if ($request_ref->{user_preferences}) {
 
 		# A result summary will be computed according to user preferences on the client side
 
@@ -10481,7 +10288,6 @@ sub display_product_history ($code, $product_ref) {
 	return $html;
 
 }
-
 
 sub display_structured_response ($request_ref) {
 	# directly serve structured data from $request_ref->{structured_response}

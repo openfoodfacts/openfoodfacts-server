@@ -1,0 +1,18 @@
+{
+   "code" : "12345678",
+   "errors" : [
+      {
+         "field" : {
+            "id" : "12345678",
+            "value" : "12345678"
+         },
+         "impact" : {
+            "id" : "failure"
+         },
+         "message" : {
+            "id" : "product_not_found"
+         }
+      }
+   ],
+   "warnings" : []
+}

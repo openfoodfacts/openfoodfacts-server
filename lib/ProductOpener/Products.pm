@@ -3123,7 +3123,6 @@ sub remove_fields ($product_ref, $fields_ref) {
 	return;
 }
 
-
 =head2 add_images_urls_to_product ($product_ref, $target_lc)
 
 Add fields like image_[front|ingredients|nutrition|packaging]_[url|small_url|thumb_url] to a product object.

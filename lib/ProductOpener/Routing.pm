@@ -190,7 +190,9 @@ sub analyze_request ($request_ref) {
 		# so that urls like https://fr.openfoodfacts.org/api/v3/produit/4324232423 work (produit instead of product)
 		# this is so that we can quickly add /api/v3/ to get the API
 
-		if (($request_ref->{api_action} ne 'search') and ($request_ref->{api_action} eq $tag_type_singular{products}{$lc})) {
+		if (    ($request_ref->{api_action} ne 'search')
+			and ($request_ref->{api_action} eq $tag_type_singular{products}{$lc}))
+		{
 			$request_ref->{api_action} = 'product';
 		}
 
@@ -538,6 +540,5 @@ sub analyze_request ($request_ref) {
 
 	return 1;
 }
-
 
 1;

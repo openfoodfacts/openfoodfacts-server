@@ -183,7 +183,6 @@ sub construct_test_url ($target, $prefix) {
 	return $url;
 }
 
-
 =head2 execute_api_tests($file, $tests_ref)
 
 Initialize tests and execute them.
@@ -215,9 +214,7 @@ my $tests_ref = (
 
 =cut
 
-
-
-sub execute_api_tests($file, $tests_ref) {
+sub execute_api_tests ($file, $tests_ref) {
 
 	my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results($file));
 
@@ -225,7 +222,8 @@ sub execute_api_tests($file, $tests_ref) {
 
 	foreach my $test_ref (@$tests_ref) {
 		my $test_case = $test_ref->{test_case};
-		my $url = construct_test_url($test_ref->{path} . ($test_ref->{query_string} || ''), $test_ref->{subdomain} || 'world');
+		my $url = construct_test_url($test_ref->{path} . ($test_ref->{query_string} || ''),
+			$test_ref->{subdomain} || 'world');
 
 		my $method = $test_ref->{method} || 'GET';
 
@@ -237,21 +235,20 @@ sub execute_api_tests($file, $tests_ref) {
 		}
 		elsif ($method eq 'POST') {
 			if (defined $test_ref->{body}) {
-				$response = $ua->post( $url, Content => $test_ref->{body});
+				$response = $ua->post($url, Content => $test_ref->{body});
 			}
 			elsif (defined $test_ref->{form}) {
-				$response = $ua->post( $url, Content => $test_ref->{form});
+				$response = $ua->post($url, Content => $test_ref->{form});
 			}
 			else {
-				$response = $ua->post( $url);
+				$response = $ua->post($url);
 			}
 		}
 
 		# Check if the request was successful
 		if (not $response->is_success) {
-			diag("The request to $url failed: $response->status_line");
+			diag("The request to $url failed: " . $response->status_line);
 			fail($test_case);
-			print 
 		}
 		else {
 
@@ -273,10 +270,15 @@ sub execute_api_tests($file, $tests_ref) {
 			# normalize for comparison
 			# normalize_products_for_test_comparison(\@{$decoded_json->{'products'}});
 
-			is(compare_to_expected_results($decoded_json, "$expected_result_dir/$test_case.json", $update_expected_results), 1,);
+			is(
+				compare_to_expected_results(
+					$decoded_json, "$expected_result_dir/$test_case.json",
+					$update_expected_results
+				),
+				1,
+			);
 		}
 	}
 }
-
 
 1;

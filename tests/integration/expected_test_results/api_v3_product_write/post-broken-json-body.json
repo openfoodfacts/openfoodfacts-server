@@ -1,0 +1,20 @@
+{
+   "api_response" : {
+      "errors" : [
+         {
+            "field" : {
+               "id" : "body",
+               "value" : "not json"
+            },
+            "impact" : {
+               "id" : "failure"
+            },
+            "message" : {
+               "id" : "invalid_json_in_request_body"
+            }
+         }
+      ]
+   },
+   "errors" : [],
+   "warnings" : []
+}
