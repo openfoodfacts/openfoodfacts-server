@@ -25,7 +25,7 @@ Docker provides an isolated environment, very close to a Virtual Machine. This e
 
 When running with Windows, install [Docker Desktop](https://www.docker.com/products/docker-desktop/) which will cover all of the above.
 
-The Make tasks use a number of Linux commands, such as rm and nproc, so it is recommeded to run Make commands from the Git Bash shell. In addition, the following need to be installed and inclided in the PATH:
+The Make tasks use a number of Linux commands, such as rm and nproc, so it is recommeded to run Make commands from the Git Bash shell. In addition, the following need to be installed and included in the PATH:
 
 - [Make for Windows](http://gnuwin32.sourceforge.net/packages/make.htm)
 - [wget for windows](https://eternallybored.org/misc/wget/) (In order to download the full product database).
