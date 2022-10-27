@@ -39,18 +39,22 @@ BEGIN {
 		&wait_dynamic_front
 		&edit_product
 		&construct_test_url
+		&execute_api_tests
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
 use vars @EXPORT_OK;
 
+use ProductOpener::TestDefaults qw/:all/;
+use ProductOpener::Test qw/:all/;
+
 use Test::More;
 use LWP::UserAgent;
 use HTTP::CookieJar::LWP;
-use ProductOpener::TestDefaults qw/:all/;
-
 use Data::Dump qw/dump/;
+use Encode;
+use JSON::PP;
 
 =head2 wait_dynamic_front()
 
@@ -178,5 +182,101 @@ sub construct_test_url ($target, $prefix) {
 	my $url = "http://${prefix}.${link}${target}";
 	return $url;
 }
+
+
+=head2 execute_api_tests($file, $tests_ref)
+
+Initialize tests and execute them.
+
+=head3 Arguments
+
+=head4 $file test file name
+
+The *.t test files call execute_api_tests() with _FILE_ as the first parameter,
+and the directories for the tests are derived from it.
+
+=head4 $tests_ref reference to list of tests
+
+The tests are in a structure like this:
+
+my $tests_ref = (
+    [
+		{
+			test_case => 'no-body',
+			method => 'POST',		# defaults to GET
+			subdomain => 'world',	# defaults to "world"
+			path => '/api/v3/product/12345678',
+			query_string => '?some_param=some_value&some_other_param=some_other_value'	# optional
+			form => { field_name => field_value, .. },	# optional, will not be sent if there is a body
+			body => '{"some_json_field": "some_value"}',	# optional
+		}
+    ],
+);
+
+=cut
+
+
+
+sub execute_api_tests($file, $tests_ref) {
+
+	my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results($file));
+
+	my $ua = LWP::UserAgent->new();
+
+	foreach my $test_ref (@$tests_ref) {
+		my $test_case = $test_ref->{test_case};
+		my $url = construct_test_url($test_ref->{path} . ($test_ref->{query_string} || ''), $test_ref->{subdomain} || 'world');
+
+		my $method = $test_ref->{method} || 'GET';
+
+		my $response;
+
+		# Send the request
+		if ($method eq 'GET') {
+			$response = $ua->get($url);
+		}
+		elsif ($method eq 'POST') {
+			if (defined $test_ref->{body}) {
+				$response = $ua->post( $url, Content => $test_ref->{body});
+			}
+			elsif (defined $test_ref->{form}) {
+				$response = $ua->post( $url, Content => $test_ref->{form});
+			}
+			else {
+				$response = $ua->post( $url);
+			}
+		}
+
+		# Check if the request was successful
+		if (not $response->is_success) {
+			diag("The request to $url failed: $response->status_line");
+			fail($test_case);
+			print 
+		}
+		else {
+
+			# Check that we got a JSON response
+			my $json = $response->decoded_content;
+
+			my $decoded_json;
+			eval {
+				$decoded_json = decode_json($json);
+				1;
+			} or do {
+				my $json_decode_error = $@;
+				diag("The $method request to $url returned a response that is not valid JSON: $json_decode_error");
+				diag("Response content: " . $json);
+				fail($test_case);
+				next;
+			};
+
+			# normalize for comparison
+			# normalize_products_for_test_comparison(\@{$decoded_json->{'products'}});
+
+			is(compare_to_expected_results($decoded_json, "$expected_result_dir/$test_case.json", $update_expected_results), 1,);
+		}
+	}
+}
+
 
 1;

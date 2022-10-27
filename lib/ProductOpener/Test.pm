@@ -70,6 +70,7 @@ use Path::Tiny qw/path/;
 use Log::Any qw($log);
 
 =head2 init_expected_results($filepath)
+
 Handles test options around expected_results initialization
 
 For many tests, we compare results from the API, with expected results.
