@@ -27,6 +27,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
+use ProductOpener::Routing qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
@@ -38,6 +39,20 @@ use Log::Any qw($log);
 
 use Apache2::RequestRec ();
 use Apache2::Const qw(:common);
+
+# The API V3 write product request uses POST with a JSON body
+# if we have such a request, we need to read the body before CGI.pm tries to read it to get multipart/form-data parameters
+
+my $env_query_string = $ENV{QUERY_STRING};
+
+$log->debug("display.pl - start", {env_query_string => $env_query_string});
+
+my $body_request_ref = {};
+
+if ($env_query_string =~ /^\/?api\/v3(\.\d+)?\/product/) {
+	read_request_body($body_request_ref);
+}
+
 
 # The nginx reverse proxy turns /somepath?someparam=somevalue to /cgi/display.pl?/somepath?someparam=somevalue
 # so that all non /cgi/ queries are sent to display.pl and that we can get the path in the query string
@@ -58,6 +73,12 @@ if (defined $params[0]) {
 }
 
 my $request_ref = ProductOpener::Display::init_request();
+
+# Add the POSTed body if we have one
+if (defined $body_request_ref->{body}) {
+	$request_ref->{body} = $body_request_ref->{body}
+}
+
 
 $log->debug("before analyze_request", {query_string => $request_ref->{query_string}});
 

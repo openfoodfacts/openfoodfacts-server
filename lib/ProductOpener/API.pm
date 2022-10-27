@@ -40,6 +40,7 @@ BEGIN {
         &add_warning
         &add_error
         &process_api_request
+        &read_request_body
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -83,6 +84,8 @@ sub add_error($response_ref, $error_ref) {
 
 sub read_request_body($request_ref) {
 
+    $log->debug("read_request_body - start", {request => $request_ref}) if $log->is_debug();
+
     my $r = Apache2::RequestUtil->request();
 
     my $content = '';
@@ -98,14 +101,15 @@ sub read_request_body($request_ref) {
         } while($cnt == 8192);
     }
     $request_ref->{body} = $content;
+
+    $log->debug("read_request_body - end", {request => $request_ref}) if $log->is_debug();
 }
 
 
-sub read_and_decode_json_request_body($request_ref) {   
-
-    read_request_body($request_ref);
+sub decode_json_request_body($request_ref) {   
 
     if (length($request_ref->{body}) == 0) {
+        $log->error("empty request body", {}) if $log->is_error();
         add_error($request_ref->{api_response}, {
             message => { id => "empty_request_body"},
             field => { id => "body", value => ""},
@@ -252,7 +256,7 @@ sub write_product_api($request_ref) {
 
     $log->debug("write_product_api - start", {request => $request_ref}) if $log->is_debug();
 
-    read_and_decode_json_request_body($request_ref);
+    decode_json_request_body($request_ref);
     my $request_body_ref = $request_ref->{request_body_json};
 
     $log->debug("write_product_api - body", {request_body => $request_body_ref}) if $log->is_debug();
