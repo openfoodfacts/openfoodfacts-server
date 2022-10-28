@@ -19,7 +19,7 @@ stopwords:en:contains, contain, from, with, produced with, with added, minimum,i
 stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
 stopwords:fi:sisältää,muun muassa,valio, koskenlaskija, snellmanin, jossa, noin, käymisen aikana muodostuva
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout, sachet
-stopwords:hr:i, sastojci, sastav, u promjenjivim omjerima, u promjenjivim udjelima, u različitim omjerima
+stopwords:hr:i, iz, sastojci, sastav, u promjenjivim omjerima, u promjenjivim udjelima, u različitim omjerima
 stopwords:hu:tartalmaz, változó arányban, min, zsírtartalom, összetevő, összetétel, amelyből, amiből
 stopwords:id:mengandung
 stopwords:is:úr
@@ -13944,7 +13944,7 @@ es:grasa butírica, mantequilla concentrada,mantequilla anhidra
 et:võirasv, veevaba piimarasv
 fi:voiöljy, voirasva, tiivistetty voi, vedetön maitorasva
 fr:matière grasse butyrique, graisse butyrique, beurre purifié, beurre fondu, beurre pâtissier, matière grasse laitière anhydre, beurre laitier concentré, beurre concentré, beurre anhydre, huile butyrique
-hr:pročišćeni maslac
+hr:pročišćeni maslac, bezvodna mliječna mast
 hu:vajzsír, vajolaj, derített vaj
 id:lemak susu
 it:burro anidro, burro di pasticceria, burro concentrato
@@ -14354,7 +14354,7 @@ ga:Ola phailme
 gl:Aceite de palma
 he:שמן דקלים
 hi:ताड़ का तेल
-hr:Palmino ulje
+hr:palmino ulje
 hu:pálmaolaj
 id:Minyak sawit
 is:pálmaolía
@@ -15720,7 +15720,7 @@ es:manteca de karité, grasa de karite, karite, shea
 fi:karitevoi, sheavoi, shea, karite, sheaydin, shearasva
 fr:beurre de karité, matière grasse de karité, karité, graisses végétales de karité, huile de karité, huile végétale de karité, huiles végétales de karité
 he:חמאת שיאה
-hr:shea maslac, shea, šea, karite maslac
+hr:shea maslac, shea, šea, karite maslac, shea mast
 hu:sheavaj, shea, sheazsír
 it:Burro di karité, karité
 ja:シアバター
@@ -21387,7 +21387,7 @@ et:durumnisujahu
 fi:durumvehnäsuurimo
 fr:semoule de blé dur, semoule de blé dure
 ga:seimilín cruithneachta dúraim
-hr:krupica durum pšenice, krupica iz durum pšenice
+hr:krupica durum pšenice, krupica iz durum pšenice, durum pšenična krupica
 hu:durumbúzadara, durum búzadara
 it:semola di grano duro
 lt:kietųjų kviečių manų kruopos
@@ -27378,6 +27378,7 @@ en:maltose syrup
 de:Maltosesirup
 fi:maltoosisiirappi
 fr:Sirop de maltose
+hr:maltozni sirup
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:maltoosisiirappi
 # 1 entry @ 2019-10-31
 
@@ -28215,6 +28216,7 @@ es:Jarabe de maíz, sirope de maíz
 fi:maissisiirappi
 fr:sirop de maïs
 he:סירופ תירס
+hr:kukuruzni sirup
 hu:kukoricaszirup
 it:sciroppo di mais
 ja:コーンシロップ
@@ -28970,7 +28972,7 @@ et:sojavalk
 fi:soijaproteiini, soijaproteiinivalmiste
 fr:protéine de soja, protéines de soja
 hu:szójafehérje
-hr:bjelančevine soje
+hr:bjelančevine soje, hidrolizat sojinih bjelančevina
 it:proteine di soia
 nl:soja-eiwit, sojaeiwitten
 pl:Białko sojowe, hydrolizat białka sojowego, białko soi, białko z soi
@@ -31884,7 +31886,7 @@ es:extracto de levadura
 et:pärmiekstrakt
 fi:hiivauute
 fr:extrait de levure, extrait de levures, extraits de levure
-hr:Ekstrakt kvasca, kvaščev ekstrakt
+hr:ekstrakt kvasca, kvaščev ekstrakt, ekstrakti kvasca
 hu:élesztőkivonat
 is:gerseyði
 it:estratto di lievito
@@ -43189,7 +43191,7 @@ es:verduras, hortaliza,hortalizas, vegetal,vegetales
 fi:vihannes, kasvis, kasvikset
 fr:légume, légumes
 he:ירק
-hr:Povrće
+hr:povrće
 hu:zöldség, zöldségek
 it:vegetale, ortaggi
 ja:野菜
@@ -49184,7 +49186,7 @@ de:Kartoffelflocken
 es:copos de patata
 fi:perunahiutale, perunahiutaleita
 fr:flocon de pomme de terre, flocons de pommes de terre, flocons de pomme de terre
-hr:krumpirove pahuljice
+hr:krumpirove pahuljice, pahuljice krumpira
 it:fiocco di patata, fiocchi di patate
 nl:aardappelvlokken
 pl:płatki ziemniaczane
@@ -49466,7 +49468,7 @@ gn:Ky'ỹi
 gu:મરચું
 he:פלפלת צ'ילי
 hi:मिर्च
-hr:Čili
+hr:Čili, Čili paprike
 ht:Piman
 hu:Csilipaprika
 hy:Կարմիր պղպեղ
@@ -58867,7 +58869,7 @@ et:tüümian
 fa:تایم
 fi:timjami
 fr:thym
-hr:timijan
+hr:timijan, majčina dušica
 hu:kaukkfű
 id:thyme
 it:timo
@@ -59037,7 +59039,7 @@ ga:peirsil
 gl:perexil
 he:פטרוזיליה
 hi:अजमोद
-hr:peršin
+hr:peršin, peršina
 ht:pèsi
 hu:petrezselyem
 hy:մաղադանոս
@@ -62460,7 +62462,7 @@ fa:گل‌آفتاب‌گردانیان
 fi:auringonkukka
 fr:tournesol
 he:חמנית
-hr:suncokret, suncokretov, suncokretovo
+hr:suncokret, suncokretov, suncokretova, suncokretovo
 hu:napraforgó
 hy:արևածաղիկ
 is:Sólblóm
