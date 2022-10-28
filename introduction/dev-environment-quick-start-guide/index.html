@@ -510,6 +510,19 @@
     1. Prerequisites
   </a>
   
+    <nav class="md-nav" aria-label="1. Prerequisites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows-prerequisites" class="md-nav__link">
+    Windows Prerequisites
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -591,6 +604,20 @@
           <li class="md-nav__item">
   <a href="#make-dev-error-build_lang-error-2-could-not-load-taxonomy-mntpodatataxonomiestracesresultsto" class="md-nav__link">
     make dev error: [build_lang] Error 2 - Could not load taxonomy: /mnt/podata/taxonomies/traces.result.sto
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rm-is-not-recognized-as-an-internal-or-external-command" class="md-nav__link">
+    'rm' is not recognized as an internal or external command
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system-cannot-find-wget" class="md-nav__link">
+    System cannot find wget
   </a>
   
 </li>
@@ -770,6 +797,19 @@
     1. Prerequisites
   </a>
   
+    <nav class="md-nav" aria-label="1. Prerequisites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows-prerequisites" class="md-nav__link">
+    Windows Prerequisites
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -855,6 +895,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#rm-is-not-recognized-as-an-internal-or-external-command" class="md-nav__link">
+    'rm' is not recognized as an internal or external command
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system-cannot-find-wget" class="md-nav__link">
+    System cannot find wget
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -896,9 +950,21 @@ to instantly provision a ready-to-code development environment in the cloud.</p>
 <blockquote>
 <p>If you run e.g. Debian, don't forget to add your user to the <code>docker</code> group!
 - <a href="https://docs.docker.com/compose/install/">Install Docker Compose</a>
-- <a href="https://docs.docker.com/compose/completion/">Enable command-line completion</a>
-- <a href="http://gnuwin32.sourceforge.net/packages/make.htm">Install Make for Windows</a> (if running on Windows)</p>
+- <a href="https://docs.docker.com/compose/completion/">Enable command-line completion</a></p>
 </blockquote>
+<h3 id="windows-prerequisites">Windows Prerequisites<a class="headerlink" href="#windows-prerequisites" title="Permanent link">#</a></h3>
+<p>When running with Windows, install <a href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a> which will cover all of the above.</p>
+<p>The Make tasks use a number of Linux commands, such as rm and nproc, so it is recommeded to run Make commands from the Git Bash shell. In addition, the following need to be installed and included in the PATH:</p>
+<ul>
+<li><a href="http://gnuwin32.sourceforge.net/packages/make.htm">Make for Windows</a></li>
+<li><a href="https://eternallybored.org/misc/wget/">wget for windows</a> (In order to download the full product database).</li>
+</ul>
+<p>The process of cloning the repository will create a number of symbolic links which require specific permissions under Windows. In order to do this you can use any one of these alternatives:</p>
+<ul>
+<li>Use an Administrative command prompt for all Git commands</li>
+<li>Completely disable UAC</li>
+<li>Specifically grant the <a href="https://learn.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/create-symbolic-links">Create symbolic links</a> permission to your user</li>
+</ul>
 <h2 id="2-clone-the-repository-from-github">2. Clone the repository from GitHub<a class="headerlink" href="#2-clone-the-repository-from-github" title="Permanent link">#</a></h2>
 <blockquote>
 <p><em>You must have a GitHub account if you want to contribute to Open Food Facts development, but it’s not required if you just want to see how it works.</em></p>
@@ -1027,8 +1093,18 @@ traces.result.sto is a symlink to allergens.result.sto</p>
 To enable Developer Mode: Go under Settings &gt; Update &amp; Security &gt; 'For developers', and turn on the toggle for Developer Mode.
 On Windows systems, the git repository needs to be cloned with symlinks enabled.</p>
 <p>You need to remove current directory where you clone the project, and clone the project again, using right options:</p>
-<p>```console
-git clone -c core.symlinks=true git@github.com:openfoodfacts/openfoodfacts-server.git</p>
+<div class="highlight"><pre><span></span><code><span class="go">git clone -c core.symlinks=true git@github.com:openfoodfacts/openfoodfacts-server.git</span>
+</code></pre></div>
+<h3 id="rm-is-not-recognized-as-an-internal-or-external-command">'rm' is not recognized as an internal or external command<a class="headerlink" href="#rm-is-not-recognized-as-an-internal-or-external-command" title="Permanent link">#</a></h3>
+<p>When running make import_prod_data or some other commands.</p>
+<p>Solution:</p>
+<p>Use the Git Bash shell to run the make commands in windows so that programs like nproc and rm are found.</p>
+<h3 id="system-cannot-find-wget">System cannot find wget<a class="headerlink" href="#system-cannot-find-wget" title="Permanent link">#</a></h3>
+<p>When running make import_prod_data.</p>
+<div class="highlight"><pre><span></span><code><span class="go">process_begin: CreateProcess(NULL, wget --no-verbose https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz, ...) failed.</span>
+<span class="go">make (e=2): The system cannot find the file specified.</span>
+</code></pre></div>
+<p>You need to install <a href="https://eternallybored.org/misc/wget/">wget for windows</a>. The referenced version is able to use the Windows Certificate Store, whereas the standard <a href="https://gnuwin32.sourceforge.net/packages/wget.htm">gnuwin32 version</a> will give errors about not being able to verify the server certificate.</p>
 
 
 
