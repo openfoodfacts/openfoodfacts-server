@@ -115,6 +115,7 @@ my $autorotate = '';
 my $remove_team = '';
 my $remove_label = '';
 my $remove_nutrient = '';
+my $remove_old_carbon_footprint = '';
 my $fix_spanish_ingredientes = '';
 my $team = '';
 my $assign_categories_properties = '';
@@ -172,6 +173,7 @@ GetOptions(
 	"remove-team=s" => \$remove_team,
 	"remove-label=s" => \$remove_label,
 	"remove-nutrient=s" => \$remove_nutrient,
+	"remove-old-carbon-footprint" => \$remove_old_carbon_footprint,
 	"fix-spanish-ingredientes" => \$fix_spanish_ingredientes,
 	"team=s" => \$team,
 	"restore-values-deleted-by-user=s" => \$restore_values_deleted_by_user,
@@ -243,11 +245,12 @@ if (    (not $process_ingredients)
 	and (not $remove_team)
 	and (not $remove_label)
 	and (not $remove_nutrient)
+	and (not $remove_old_carbon_footprint)
 	and (not $mark_as_obsolete_since_date)
 	and (not $compute_main_countries)
 	and (not $assign_categories_properties)
 	and (not $restore_values_deleted_by_user)
-	and not($delete_debug_tags)
+	and (not $delete_debug_tags)
 	and (not $compute_codes)
 	and (not $compute_carbon)
 	and (not $compute_ecoscore)
@@ -548,6 +551,28 @@ while (my $product_ref = $cursor->next) {
 				delete $product_ref->{nutriments}{$remove_nutrient . "_serving"};
 				$product_values_changed = 1;
 			}
+		}
+
+		if ($remove_old_carbon_footprint) {
+			my @product_fields_to_delete = (
+				"environment_impact_level", "environment_impact_level_tags",
+				"environment_infocard", "environment_infocard_en",
+				"environment_infocard_fr", "carbon_footprint_from_known_ingredients_debug",
+				"carbon_footprint_from_meat_or_fish_debug"
+			);
+			remove_fields($product_ref, \@product_fields_to_delete);
+
+			if (defined $product_ref->{nutriments}) {
+				delete $product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"};
+				delete $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish"};
+				delete $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"};
+				delete $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_serving"};
+				delete $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_product"};
+			}
+
+			remove_tag($product_ref, "misc", "en:environment-infocard");
+			remove_tag($product_ref, "misc", "en:carbon-footprint-from-known-ingredients");
+			remove_tag($product_ref, "misc", "en:carbon-footprint-from-meat-or-fish");
 		}
 
 		# Some Spanish products had their ingredients list wrongly cut after "Ingredientes"
