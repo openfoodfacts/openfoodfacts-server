@@ -115,6 +115,9 @@ BEGIN {
 		&remove_fields
 
 		&add_images_urls_to_product
+
+		&analyze_and_enrich_product_data
+
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -135,6 +138,14 @@ use ProductOpener::MainCountries qw/:all/;
 use ProductOpener::Text qw/:all/;
 use ProductOpener::Display qw/single_param/;
 use ProductOpener::Redis qw/push_to_search_service/;
+
+# needed by analyze_and_enrich_product_data()
+# may be moved to another module at some point
+use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Nutriscore qw/:all/;
+use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::ForestFootprint qw/:all/;
+use ProductOpener::Packaging qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
@@ -2536,7 +2547,7 @@ sub index_product ($product_ref) {
 		}
 	}
 
-	$product_ref->{_keywords} = [keys %keywords];
+	$product_ref->{_keywords} = [sort keys %keywords];
 
 	return;
 }
@@ -3221,6 +3232,92 @@ sub add_images_urls_to_product ($product_ref, $target_lc) {
 	}
 
 	return;
+}
+
+=head2 analyze_and_enrich_product_data ($product_ref)
+
+This function processes product raw data to analyze it and enrich it.
+For instance to analyze ingredients and compute scores such as Nutri-Score and Eco-Score.
+
+=head3 Parameters
+
+=head4 $product_ref
+
+Reference to a complete product a subfield.
+
+=cut
+
+sub analyze_and_enrich_product_data ($product_ref) {
+
+	$log->debug("analyze_and_enrich_product_data - start") if $log->is_debug();
+
+	if (    (defined $product_ref->{nutriments}{"carbon-footprint"})
+		and ($product_ref->{nutriments}{"carbon-footprint"} ne ''))
+	{
+		push @{$product_ref->{"labels_hierarchy"}}, "en:carbon-footprint";
+		push @{$product_ref->{"labels_tags"}}, "en:carbon-footprint";
+	}
+
+	if ((defined $product_ref->{nutriments}{"glycemic-index"}) and ($product_ref->{nutriments}{"glycemic-index"} ne ''))
+	{
+		push @{$product_ref->{"labels_hierarchy"}}, "en:glycemic-index";
+		push @{$product_ref->{"labels_tags"}}, "en:glycemic-index";
+	}
+
+	# For fields that can have different values in different languages, copy the main language value to the non suffixed field
+
+	foreach my $field (keys %language_fields) {
+		if ($field !~ /_image/) {
+			if (defined $product_ref->{$field . "_$product_ref->{lc}"}) {
+				$product_ref->{$field} = $product_ref->{$field . "_$product_ref->{lc}"};
+			}
+		}
+	}
+
+	compute_languages($product_ref);    # need languages for allergens detection and cleaning ingredients
+
+	# Ingredients classes
+	clean_ingredients_text($product_ref);
+	extract_ingredients_from_text($product_ref);
+	extract_ingredients_classes_from_text($product_ref);
+	detect_allergens_from_text($product_ref);
+
+	# Food category rules for sweetened/sugared beverages
+	# French PNNS groups from categories
+
+	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+		ProductOpener::Food::special_process_product($product_ref);
+	}
+
+	# Compute nutrition data per 100g and per serving
+
+	$log->debug("compute nutrition data") if $log->is_debug();
+
+	fix_salt_equivalent($product_ref);
+
+	compute_serving_size_data($product_ref);
+
+	compute_nutrition_score($product_ref);
+
+	compute_nova_group($product_ref);
+
+	compute_nutrient_levels($product_ref);
+
+	compute_unknown_nutrients($product_ref);
+
+	# Until we provide an interface to directly change the packaging data structure
+	# erase it before reconstructing it
+	# (otherwise there is no way to remove incorrect entries)
+	$product_ref->{packagings} = [];
+
+	analyze_and_combine_packaging_data($product_ref);
+
+	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+		compute_ecoscore($product_ref);
+		compute_forest_footprint($product_ref);
+	}
+
+	ProductOpener::DataQuality::check_quality($product_ref);
 }
 
 1;

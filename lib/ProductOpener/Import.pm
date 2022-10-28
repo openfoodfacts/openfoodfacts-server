@@ -1957,47 +1957,7 @@ sub import_csv_file ($args_ref) {
 			$log->debug("updating product", {code => $code, modified => $modified}) if $log->is_debug();
 			$stats{products_data_updated}{$code} = 1;
 
-			# Process the fields
-
-			# Food category rules for sweeetened/sugared beverages
-			# French PNNS groups from categories
-
-			if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
-				ProductOpener::Food::special_process_product($product_ref);
-			}
-
-			if (    (defined $product_ref->{nutriments}{"carbon-footprint"})
-				and ($product_ref->{nutriments}{"carbon-footprint"} ne '')
-				and not has_tag($product_ref, "labels", "en:carbon-footprint"))
-			{
-				push @{$product_ref->{"labels_hierarchy"}}, "en:carbon-footprint";
-				push @{$product_ref->{"labels_tags"}}, "en:carbon-footprint";
-			}
-
-			if (    (defined $product_ref->{nutriments}{"glycemic-index"})
-				and ($product_ref->{nutriments}{"glycemic-index"} ne '')
-				and not has_tag($product_ref, "labels", "en:glycemic-index"))
-			{
-				push @{$product_ref->{"labels_hierarchy"}}, "en:glycemic-index";
-				push @{$product_ref->{"labels_tags"}}, "en:glycemic-index";
-			}
-
-			# For fields that can have different values in different languages, copy the main language value to the non suffixed field
-
-			foreach my $field (keys %language_fields) {
-				if ($field !~ /_image/) {
-					if (defined $product_ref->{$field . "_" . $product_ref->{lc}}) {
-						$product_ref->{$field} = $product_ref->{$field . "_" . $product_ref->{lc}};
-					}
-				}
-			}
-
-			compute_languages($product_ref);    # need languages for allergens detection and cleaning ingredients
-
-			# Ingredients classes
-			extract_ingredients_from_text($product_ref);
-			extract_ingredients_classes_from_text($product_ref);
-			detect_allergens_from_text($product_ref);
+			analyze_and_enrich_product_data($product_ref);
 
 			if (not $args_ref->{no_source}) {
 
@@ -2028,46 +1988,6 @@ sub import_csv_file ($args_ref) {
 			}
 
 			if (not $args_ref->{test}) {
-
-				$log->debug("fix_salt_equivalent", {code => $code, product_id => $product_id}) if $log->is_debug();
-				fix_salt_equivalent($product_ref);
-
-				$log->debug("compute_serving_size_data", {code => $code, product_id => $product_id})
-					if $log->is_debug();
-				compute_serving_size_data($product_ref);
-
-				$log->debug("compute_nutrition_score", {code => $code, product_id => $product_id}) if $log->is_debug();
-				compute_nutrition_score($product_ref);
-
-				$log->debug("compute_nova_group", {code => $code, product_id => $product_id}) if $log->is_debug();
-				compute_nova_group($product_ref);
-
-				$log->debug("compute_nutrient_levels", {code => $code, product_id => $product_id}) if $log->is_debug();
-				compute_nutrient_levels($product_ref);
-
-				$log->debug("compute_unknown_nutrients", {code => $code, product_id => $product_id})
-					if $log->is_debug();
-				compute_unknown_nutrients($product_ref);
-
-				$log->debug("analyze_and_combine_packaging_data", {code => $code, product_id => $product_id})
-					if $log->is_debug();
-
-				# Until we provide an interface to directly change the packaging data structure
-				# erase it before reconstructing it
-				# (otherwise there is no way to remove incorrect entries)
-				$product_ref->{packagings} = [];
-
-				analyze_and_combine_packaging_data($product_ref);
-
-				if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
-
-					$log->debug("compute_ecoscore", {code => $code, product_id => $product_id}) if $log->is_debug();
-
-					compute_ecoscore($product_ref);
-					compute_forest_footprint($product_ref);
-				}
-
-				ProductOpener::DataQuality::check_quality($product_ref);
 
 				# set the autoexport field if the org is auto exported to the public platform
 				if (    (defined $server_options{private_products})

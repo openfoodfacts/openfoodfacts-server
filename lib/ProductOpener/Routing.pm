@@ -541,4 +541,25 @@ sub analyze_request ($request_ref) {
 	return 1;
 }
 
+# component was specified as en:product, fr:produit etc.
+sub _component_is_singular_tag_in_specific_lc ($component, $tag) {
+
+	my $component_lc;
+	if ($component =~ /^(\w\w):/) {
+		$component_lc = $1;
+		$component = $';
+	}
+	else {
+		return 0;
+	}
+
+	my $match = $tag_type_singular{$tag}{$component_lc};
+	if ((defined $match) and ($match eq $component)) {
+		return 1;
+	}
+	else {
+		return 0;
+	}
+}
+
 1;

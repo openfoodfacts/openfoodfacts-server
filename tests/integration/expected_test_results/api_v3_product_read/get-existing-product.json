@@ -4,10 +4,10 @@
    "product" : {
       "_id" : "200000000034",
       "_keywords" : [
-         "some",
-         "organic",
          "cookie",
+         "organic",
          "product",
+         "some",
          "tester"
       ],
       "added_countries_tags" : [],
@@ -69,10 +69,11 @@
          "20xxxxxxxxxx",
          "2xxxxxxxxxxx"
       ],
+      "compared_to_category" : "en:snacks",
       "complete" : 0,
       "completeness" : 0.5,
       "correctors_tags" : [],
-      "created_t" : 1666882379,
+      "created_t" : "--ignore--",
       "creator" : "tests",
       "data_quality_bugs_tags" : [],
       "data_quality_errors_tags" : [],
@@ -498,11 +499,7 @@
       "editors_tags" : [
          "tests"
       ],
-      "entry_dates_tags" : [
-         "2022-10-27",
-         "2022-10",
-         "2022"
-      ],
+      "entry_dates_tags" : "--ignore--",
       "food_groups" : "en:biscuits-and-cakes",
       "food_groups_tags" : [
          "en:sugary-snacks",
@@ -667,14 +664,10 @@
          "en:english",
          "en:1"
       ],
-      "last_edit_dates_tags" : [
-         "2022-10-27",
-         "2022-10",
-         "2022"
-      ],
+      "last_edit_dates_tags" : "--ignore--",
       "last_editor" : "tests",
       "last_modified_by" : "tests",
-      "last_modified_t" : 1666882380,
+      "last_modified_t" : "--ignore--",
       "lc" : "en",
       "link" : "http://world.openfoodfacts.org/",
       "main_countries_tags" : [],

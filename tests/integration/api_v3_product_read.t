@@ -32,8 +32,8 @@ my @products = (
 			product_name => "Some product",
 			generic_name => "Tester",
 			ingredients_text => "apple, milk, eggs, palm oil",
-            categories => "cookies",
-            labels => "organic",
+			categories => "cookies",
+			labels => "organic",
 			origin => "france",
 		)
 	},
@@ -43,24 +43,23 @@ foreach my $product_form_override (@products) {
 	edit_product($ua, $product_form_override);
 }
 
-
 my $tests_ref = [
-    {
-        test_case => 'get-unexisting-product',
-        method => 'GET',
-        path => '/api/v3/product/12345678',
-    },    
-    {
-        test_case => 'get-existing-product',
-        method => 'GET',
-        path => '/api/v3/product/200000000034',
-    },
-     {
-        test_case => 'get-specific-fields',
-        method => 'GET',
-        path => '/api/v3/product/200000000034',
-        query_string => '?fields=product_name,categories_tags,categories_tags_en',
-    },   
+	{
+		test_case => 'get-unexisting-product',
+		method => 'GET',
+		path => '/api/v3/product/12345678',
+	},
+	{
+		test_case => 'get-existing-product',
+		method => 'GET',
+		path => '/api/v3/product/200000000034',
+	},
+	{
+		test_case => 'get-specific-fields',
+		method => 'GET',
+		path => '/api/v3/product/200000000034',
+		query_string => '?fields=product_name,categories_tags,categories_tags_en',
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
