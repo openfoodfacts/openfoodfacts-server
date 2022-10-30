@@ -61,8 +61,22 @@ open pet food facts:
 - taxonomies.opff/**/*
 - po/openpetfoodfacts/**/*
 - scripts/gen_opff_leaderboard.pl
+- scripts/gen_opff_leaderboard.sh
 - html/files/tagline-opff.json
 - lib/ProductOpener/Config_opff.pm
+- html/images/misc/opff_cat.svg
+- html/images/misc/opff_dog.svg
+- html/images/misc/opff_bird.svg
+- html/images/misc/opff_fish.svg
+- html/images/misc/opff_rabbit.svg
+- html/images/misc/opff-leaderboard.svg
+- conf/nginx/sites-available/opff
+- conf/apache-2.4/sites-available/opff.conf
+- scripts/gen_feeds_opff.sh
+- scripts/gen_feeds_daily_opff.sh
+- lib/ProductOpener/Config_opff.pm
+- conf/nginx/snippets/ssl-params-opff.conf
+- taxonomies.opff/categories.txt
 
 open beauty facts:
 - taxonomies.obf/**/*
@@ -107,6 +121,13 @@ open products facts:
 - taxonomies.opf/**/*
 - po/openproductsfacts/**/*
 - lib/ProductOpener/Config_opf.pm
+- conf/nginx/sites-available/opf
+- conf/apache-2.4/sites-available/opf.conf
+- scripts/gen_feeds_opf.sh
+- html/files/tagline-opf.json
+- scripts/gen_feeds_daily_opf.sh
+- lib/ProductOpener/Config_opf.pm
+- taxonomies.opf/unspsc.txt
 
 icons:
 - icons/**/*
