@@ -123,6 +123,7 @@ footer:
 documentation:
 - docs/**/*
 - scripts/generate_perl_html_doc_from_pod.pl
+- po/README.md
 
 docker:
 - docker/**/*
