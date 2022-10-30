@@ -72,6 +72,36 @@ open beauty facts:
 - html/files/tagline-obf.json
 - lib/ProductOpener/Config_obf.pm
 - scripts/generate_polyquaternium.pl
+- conf/nginx/sites-available/obf
+- conf/apache-2.4/sites-available/obf.conf
+- scripts/gen_feeds_obf.sh
+- html/files/tagline-obf.json
+- scripts/gen_feeds_daily_obf.sh
+- lib/ProductOpener/Config_obf.pm
+- taxonomies.obf/ingredients-old-obf.txt
+- taxonomies.obf/ingredients-cosing-obf.txt
+- taxonomies.obf/ingredients-cosing-obf.result.sto
+- scripts/gen_obf_ingredients_taxonomy_from_cosing.pl
+- scripts/gen_obf_inci_functions_taxonomy_from_cosing.pl
+- html/images/svg/crowdsourcing-obf-round-smartphones.svg
+- taxonomies.obf/brands.txt
+- taxonomies.obf/labels.txt
+- taxonomies.obf/safety.txt
+- taxonomies.obf/allergens.txt
+- taxonomies.obf/body_parts.txt
+- taxonomies.obf/categories.txt
+- taxonomies.obf/abbreviations.txt
+- taxonomies.obf/labels.result.sto
+- taxonomies.obf/labels.result.txt
+- taxonomies.obf/inci_functions.txt
+- taxonomies.obf/allergens.result.sto
+- taxonomies.obf/allergens.result.txt
+- taxonomies.obf/categories.result.sto
+- taxonomies.obf/categories.result.txt
+- tests/unit/expected_test_results/import_gs1/equadis_unilever_obf_signal.json
+- taxonomies.obf/special_ingredients.txt
+- taxonomies.obf/inci_functions.result.sto
+- tests/unit/expected_test_results/import_gs1/equadis_unilever_obf_signal.off.json
 
 open products facts:
 - taxonomies.opf/**/*
