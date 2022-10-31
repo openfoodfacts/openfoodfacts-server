@@ -1083,7 +1083,9 @@ $(document).foundation({
             });
 
             var id = tab[0].id; // e.g. tabs_front_image_en_tab
+            // pragma warning disable S5852
             var lc = id.replace(/.*(..)_tab/, "$1");
+           // pragma warning disable S5852
             $(".tabs_" + lc).addClass('active');
 
             $(document).foundation('tab', 'reflow');
