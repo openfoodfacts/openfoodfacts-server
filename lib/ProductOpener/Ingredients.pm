@@ -2500,6 +2500,7 @@ sub init_percent_values ($total_min, $total_max, $ingredients_ref) {
 
 	# Go through each ingredient to set percent_min, percent_max, and if we can an absolute percent
 
+	my $index;
 	foreach my $ingredient_ref (@{$ingredients_ref}) {
 		if (defined $ingredient_ref->{percent}) {
 			# There is a specified percent for the ingredient.
@@ -2532,9 +2533,16 @@ sub init_percent_values ($total_min, $total_max, $ingredients_ref) {
 				$ingredient_ref->{percent_min} = 0;
 			}
 			if ((not defined $ingredient_ref->{percent_max}) or ($ingredient_ref->{percent_max} > $total_max)) {
-				$ingredient_ref->{percent_max} = $total_max;
+				my $value = get_inherited_property("ingredients", $ingredient_ref->{id}, "percent_max:en");
+				if (defined $value and $index > 0) {
+					# Maximum percantage for ingredients like flavourings
+					$ingredient_ref->{percent_max} = $value;
+				} else {
+					$ingredient_ref->{percent_max} = $total_max;
+				}
 			}
 		}
+		$index++;
 	}
 
 	$log->debug("init_percent_values - result", {ingredients_ref => $ingredients_ref}) if $log->is_debug();

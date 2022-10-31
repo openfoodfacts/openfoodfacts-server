@@ -798,6 +798,63 @@ my @tests = (
 		]
 	],
 
+	# Where flavourings or other ingredients with a maximum percentage are not the first ingredient then
+	# use their maximum percentage
+	[
+		{lc => "en", ingredients_text => "milk, flavouring"},
+		[
+			{
+				'id' => 'en:milk',
+				'percent_estimate' => 97.5,
+				'percent_max' => 100,
+				'percent_min' => 95,
+				'text' => 'milk'
+			},
+			{
+				'id' => 'en:flavouring',
+				'percent_estimate' => 2.5,
+				'percent_max' => 5,
+				'percent_min' => 0,
+				'text' => 'flavouring'
+			}
+		]
+	],
+
+	# Can get percent_max from parent ingredient
+	[
+		{lc => "en", ingredients_text => "milk, natural flavouring"},
+		[
+			{
+				'id' => 'en:milk',
+				'percent_estimate' => 97.5,
+				'percent_max' => 100,
+				'percent_min' => 95,
+				'text' => 'milk'
+			},
+			{
+				'id' => 'en:natural-flavouring',
+				'percent_estimate' => 2.5,
+				'percent_max' => 5,
+				'percent_min' => 0,
+				'text' => 'natural flavouring'
+			}
+		]
+	],
+
+	# Where flavourings are the first ingredient then ignore maximum percentages
+	[
+		{lc => "en", ingredients_text => "flavouring"},
+		[
+			{
+				'id' => 'en:flavouring',
+				'percent_estimate' => 100,
+				'percent_max' => 100,
+				'percent_min' => 100,
+				'text' => 'flavouring'
+			}
+		]
+	],
+
 );
 
 foreach my $test_ref (@tests) {
