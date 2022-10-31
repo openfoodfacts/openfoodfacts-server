@@ -603,7 +603,9 @@ sub import_csv_file ($args_ref) {
 				# e.g. if an org has loaded fresh data manually or through Equadis,
 				# don't overwrite it with potentially stale CodeOnline or USDA data
 
-				if (defined $args_ref->{source_id}) {
+				# For files uploaded through the producers platform, the source_id is org-[id of org]
+
+				if ((defined $args_ref->{source_id}) and ($args_ref->{source_id} ne "org-${org_id}")) {
 					if (not $org_ref->{"import_source_" . $args_ref->{source_id}}) {
 						$log->debug(
 							"skipping import for org without authorization for the source",

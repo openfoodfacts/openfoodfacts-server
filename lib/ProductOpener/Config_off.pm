@@ -46,6 +46,7 @@ BEGIN {
 		$crowdin_project_identifier
 		$crowdin_project_key
 
+		$log_emails
 		$robotoff_url
 		$events_url
 		$events_username
@@ -325,6 +326,9 @@ $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
 # Set this to your instance of https://github.com/openfoodfacts/robotoff/ to
 # enable an in-site robotoff-asker in the product page
 $robotoff_url = $ProductOpener::Config2::robotoff_url;
+
+# do we want to send emails
+$log_emails = $ProductOpener::Config2::log_emails;
 
 # Set this to your instance of https://github.com/openfoodfacts/openfoodfacts-events
 # enable creating events for some actions (e.g. when a product is edited)

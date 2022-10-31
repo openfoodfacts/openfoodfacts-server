@@ -802,7 +802,7 @@ de:Ohne Weizen
 nl:Zonder graan
 
 #instruction:en:Do NOT change the english key.
-en:No gluten, Gluten free, Without gluten, Gluten-free-food, free of gluten, Naturally gluten-free, Gluten free, ni gluten
+en:No gluten, Gluten free, Without gluten, Gluten-free-food, free of gluten, Naturally gluten-free, ni gluten, free from gluten
 bg:Без глутен
 ca:Lliure de gluten, Sense gluten, No gluten, Aliment sense gluten, Lliure de gluten, Sense gluten d'orígen
 cs:Bez lepku
@@ -2183,7 +2183,7 @@ en:No sugar, sugar-free
 bg:Без захар
 ca:Sense sucre, lliure de sucre
 de:Ohne Zucker
-es:Sin azúcar, Libre de azúcar, Cero azúcar
+es:Sin azúcar, Libre de azúcar, Cero azúcar, sin azúcares
 fi:sokeriton, ei sokeria
 fr:Sans sucre, Zero sucre
 he:ללא סוכר, נטול סוכר
@@ -2333,6 +2333,12 @@ it:Confezionato in Francia
 nl:Verpakt in Frankrijk
 packaging_places:en: en:france
 label_categories:en: en:Geographic label
+
+en:produced in Croatia
+hr:proizvedeno u hrvatskoj
+
+en:Croatian product
+hr:hrvatski proizvod
 
 en:Made in Italy, product of Italy
 bg:Произведено в Италия
@@ -2661,6 +2667,7 @@ es:Sin aditivos
 fi:lisäaineeton, ei lisäaineita, ilman lisäaineita
 fr:Sans additifs, Sans additif, aucun additif
 he:ללא תוספים
+hr:bez aditiva
 hu:Adalékanyagmentes, Hozzáadott adalékanyag nélkül, hozzáadott adalékanyagot nem tartalmaz, nincs hozzáadott adalékanyag, hozzáadott adalékok nélkül, hozzáadott adalékanyagok nélkül, adalékok nélkül, adalék nélkül, adalékanyag mentes, adalékmentes
 it:Nessun additivo
 nl:Zonder toevoegingen
@@ -2707,7 +2714,7 @@ de:Enthält Alkohol
 hu:Alkoholt tartalmaz
 opposite:en: en:no-alcohol
 
-en:No artificial colors, free of artificial color, no artificial colours
+en:No artificial colors, free of artificial color, no artificial colours, free from artificial colours
 bg:Без изкуствени оцветители
 ca:Sense colorants artificials
 de:Ohne künstliche Farbstoffe
@@ -2795,6 +2802,7 @@ es:Sin colorantes o saborizantes artificiales
 fi:ei keinotekoisia väriaineita tai aromeja, ei keinotekoisia väriaineita tai aromeja, ei keinotekoisia väri- tai makuaineita
 fr:Sans colorants ni arômes artificiels
 he:ללא צבעי מאכל או חומרים משמרים מלאכותיים
+hr:bez umjetnih bojila i aroma
 hu:Mesterséges színezék és ízesítők nélkül
 it:Senza coloranti o aromi artificiali
 nb:Ingen kunstige smakstilsetninger eller farger
@@ -2805,7 +2813,7 @@ sv:Inga artificiella aromämnen eller färger
 th:ไม่ใช้กลิ่นและสีสังเคราะห์
 label_categories:en: en:Health, en:Additives
 
-en:No artificial flavour enhancer
+en:No artificial flavour enhancer, free from artificial flavour enhancers
 ca:Sense potenciador del sabor artificial
 de:Ohne künstliche Geschmaksverstärker
 es:Sin potenciador artificial del sabor
@@ -2881,6 +2889,7 @@ es:Sin colorantes, Sin colorantes añadidos
 fi:väriaineeton, ei väriaineita, ei lisättyjä väriaineita
 fr:Sans colorants, sans colorant ajouté, sans ajout de colorant
 he:ללא צבעי מאכל, ללא תוספת צבעי מאכל
+hr:bez bojila
 hu:Hozzáadott színezőanyag nélkül, Színezőanyag nélkül, színezőanyag mentes, színezőanyagmentes, Nincs hozzáadott színezőanyag
 it:Senza coloranti
 nl:Zonder kleurstoffen
@@ -2951,7 +2960,7 @@ ru:без трансжиров
 th:ไม่มีไขมันทรานส์
 label_categories:en: en:Health
 
-en:No hydrogenated fats
+en:No hydrogenated fats, hydrogenated fats free, free hydrogenated fats
 bg:Без хидрогенирани мазнини
 ca:Sense greixos hidrogenats
 de:Keine gehärtete Fette, Ohne gehärtete Fette
@@ -3440,7 +3449,7 @@ es:Ecológico, ecológica, Producto ecológico, Biológico, Producto biológico,
 fi:Luomu, luomutuotanto, luomutuotantoa, luomuraaka-aine, luonnonmukainen tuotanto, luonnonmukaisesti
 fr:Bio, agriculture biologique, biologique, organic, organique, issu de l'agriculture biologique, issus de l'agriculture biologique, issue de l'agriculture biologique, issues de l'agriculture biologique, ingrédient issu de l'agriculture biologique, ingrédients issus de l'agriculture biologique, Les-ingredients-sont-issus-d-une-agriculture-biologique, ingrédients agricoles issus de l'agriculture biologique, produits issus de l'agriculture biologique, produit issu de l'agriculture biologique, ingrédient agricole issu de l'agriculture biologique, tous les ingrédients agricoles sont issus de l'agriculture biologique, les ingrédients agricoles sont issus de l'agriculture biologique, tous les ingrédients sont issus de l'agriculture biologique, ingrédients bio, ingrédients biologiques, ingrédient bio, ingrédient biologique, issue de l'agriculture biologique controlee
 he:אורגני
-hr:iz ekološkog uzgoja
+hr:ekološki uzgoj, iz ekološkog uzgoja
 hu:Bio, Öko, Organikus, biogazdálkodásból, ellenőrzött ökológiai gazdálkodásból
 it:Biologico, biologici, da agricoltura biologica
 ko:유기농
@@ -16400,7 +16409,7 @@ en:No palm oil, Palm oil free, Without palm oil
 bg:Без палмово масло
 ca:Lliure d'oli de palma, Sense oli de palma
 cs:Bez palmového oleje
-de:Ohne Palmöl
+de:Ohne Palmöl, palmölfrei
 es:Sin aceite de palma
 fi:palmuöljytön, ei palmuöljyä, ilman palmuöljyä
 fr:Sans huile de palme
@@ -18778,6 +18787,12 @@ en:2020 Gold medal of the German Agricultural Society
 de:DLG Goldener Preis 2020
 fi:Saksan maatalousyhdistyksen kultamitali 2020
 fr:Médaille d'or 2020 de la Société Allemande d'Agriculture
+
+<en:Gold medal of the German Agricultural Society
+en:2021 Gold medal of the German Agricultural Society
+de:DLG Goldener Preis 2021
+fi:Saksan maatalousyhdistyksen kultamitali 2021
+fr:Médaille d'or 2021 de la Société Allemande d'Agriculture
 
 <en:German Agricultural Society
 de:DLG Jährlich Prämiert
