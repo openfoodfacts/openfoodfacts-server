@@ -53590,7 +53590,7 @@ fr:Céréales pour petit-déjeuner, céréale pour petit-déjeuner, Céréales p
 he:דגני בוקר, מדגני בוקר
 hu:Reggeli gabonafélék
 it:Cereali da colazione
-lt:Sausi pusryčiai, Pusryčių dribsniai
+lt:Pusryčių dribsniai
 nl:Ontbijtgranen
 pl:Płatki śniadaniowe
 pt:Cereias para pequeno-almoçco
@@ -53621,7 +53621,7 @@ lt:Ekstruduoti javainiai
 <en:Breakfast cereals
 en:Cereals with nuts
 fr:Céréales aux fruits à coques
-lt:Javainiai su riešutais
+lt:Sausi pusryčiai su riešutais
 nl:Ontbijtgranen met noten
 
 <en:Breakfast cereals
@@ -53636,6 +53636,7 @@ lt:Javainiai su vaisiais
 <en:Extruded cereals
 en:Cereal flakes with fruits
 fr:Pétales de céréales aux fruits
+lt:Javų dribsniai su vaisiais
 
 <en:Extruded cereals
 en:Cereal flakes with nuts, Wheat flakes with almonds fortified with vitamins and chemical elements, Wheat flakes with hazelnuts fortified with vitamins and chemical elements, Wheat flakes with walnuts fortified with vitamins and chemical elements
@@ -53676,6 +53677,7 @@ es:Cereales con miel
 fi:aamiaismurot hunajan kera
 fr:Céréales au miel
 it:Cereali al miele
+lt:Javainiai su medumi
 nl:Ontbijtgranen met honing
 
 <en:Extruded cereals
@@ -53685,15 +53687,18 @@ es:Cereales rellenos
 fi:täytetyt aamiaismurot
 fr:Céréales fourrées
 it:Cereali ripieni
+lt:Sausi pusryčiai su įdaru
 nl:Gevulde ontbijtgranen
 
 <en:Chocolate cereals
 en:Diet chocolate breakfast cereals
 fr:Céréales au chocolat pour petit-déjeuner équilibré
+lt:Dietiniai šokoladiniai sausi pusryčiai
 
 <en:Breakfast cereals
 en:Breakfast cereals fortified with vitamins and chemical elements
 fr:Céréales pour petit déjeuner enrichies en vitamines et minéraux
+lt:Sausi pusryčiai praturtinti vitaminais ir mineralais
 nl:Ontbijtgranen verrijkt met vitaminen en mineralen
 ciqual_food_code:en:32031
 ciqual_food_name:en:Breakfast cereals, sweet, fortified with vitamins and chemical elements (average)
@@ -53701,6 +53706,7 @@ ciqual_food_name:fr:Céréales pour petit déjeuner, enrichies en vitamines et m
 
 <en:Breakfast cereals
 en:Breakfast cereals not fortified with vitamins and chemical elements
+lt:Sausi pusryčiai nepraturtintais vitaminais ir mineralais
 fr:Céréales pour petit déjeuner non enrichies en vitamines et minéraux
 nl:Ontbijtgranen onverrijkt met vitaminen en mineralen
 ciqual_food_code:en:32032
@@ -53713,10 +53719,12 @@ ciqual_food_name:fr:Céréales pour petit déjeuner, non enrichies en vitamines 
 en:Chocolate wheat shells, chocolate wheat flakes, Breakfast chocolate cereals with wheat grain flakes
 fr:Pétales de blé chocolatés
 it:Petali di Frumento al cacao
+lt:Sausi pusryčiai šokoladinės kriauklelės
 
 <en:Breakfast chocolate cereals with wheat grain flakes
 en:Breakfast chocolate cereals with wheat grain flakes not fortified with vitamins and chemical elements
 fr:Pétales de blé chocolatés non enrichis en vitamines et minéraux
+lt:Šokoladiniai dribsniai su kviečių grūdų dribsniais nepraturtintais vitaminais ir mineralais
 agribalyse_food_code:en:32011
 ciqual_food_code:en:32011
 ciqual_food_name:en:Breakfast cereals, chocolate wheat grain flakes (not fortified with vitamins and chemical elements)
@@ -53967,23 +53975,27 @@ en:Porridge
 de:Haferbrei, Porridge, Haferschleim
 fi:Puuro
 fr:Porridge
+lt:Dribsniai košėms
 nl:Pappen
 
 <en:Porridge
 <en:Cereals with fruits
 en:Porridge with fruits
 fr:Porridge aux fruits
+lt:Dribsniai košėms su vaisiais
 nl:Pappen met fruit
 
 <en:Porridge
 <en:Chocolate cereals
 en:Porridge with chocolate
 fr:Porridge au chocolat
+lt:Dribsniai košėms su šokoladu
 nl:Pappen met chocolade
 
 <en:Porridge
 en:Plain porridge
 fr:Porridge nature
+lt:Paprasti dribsniai košėms
 nl:Pappen (gewoon)
 
 # description:en:MUESLI is a breakfast dish based on raw rolled oats and other ingredients like grains, fresh or dried fruits, seeds and nuts, that may be mixed with milk, soy milk, almond milk, other plant milks, yogurt, or fruit juice.
@@ -54012,7 +54024,7 @@ it:Muesli
 ja:ミューズリー
 ko:뮈슬리
 lo:ມິວສະລີ
-lt:Miuslis
+lt:Muslis, Granola
 ms:Muesli
 nb:Müsli
 nl:mueslis, Muesli
@@ -54057,6 +54069,7 @@ es:Mueslis con frutas
 fi:hedelmämyslit
 fr:Mueslis aux fruits
 it:Muesli alla frutta, muesli con frutta
+lt:Muslis su vaisiais
 nl:Mueslis met fruit, Muesli met fruit
 ro:Müsli cu fructe
 ru:Мюсли с фруктами
@@ -54068,6 +54081,7 @@ agribalyse_proxy_food_name:fr:Muesli croustillant aux fruits ou fruits secs, enr
 <en:Crunchy mueslis
 en:Crunchy mueslis with fruits, Crunchy muesli with fruits
 fr:Mueslis croustillants aux fruits, Muesli croustillant aux fruits
+lt:Traškus muslis su vaisiais
 agribalyse_proxy_food_code:en:32111
 agribalyse_proxy_food_name:en:Muesli, crunchy, with fruits or dried fruits, fortified with vitamins and chemical elements
 agribalyse_proxy_food_name:fr:Muesli croustillant aux fruits ou fruits secs, enrichi en vitamines et minéraux
@@ -54075,6 +54089,7 @@ agribalyse_proxy_food_name:fr:Muesli croustillant aux fruits ou fruits secs, enr
 <en:Crunchy mueslis with fruits
 en:Crunchy muesli with fruits fortified with vitamins and chemical elements, Crunchy muesli with dried fruits fortified with vitamins and chemical elements
 fr:Muesli croustillant aux fruits enrichi en vitamines et minéraux, Muesli croustillant aux fruits secs enrichi en vitamines et minéraux
+lt:Traškus muslis su vaisiais papildytas vitaminais ir mineralais
 agribalyse_food_code:en:32111
 ciqual_food_code:en:32111
 ciqual_food_name:en:Muesli, crunchy, with fruits or dried fruits, fortified with vitamins and chemical elements
@@ -54083,6 +54098,7 @@ ciqual_food_name:fr:Muesli croustillant aux fruits ou fruits secs, enrichi en vi
 <en:Crunchy mueslis with fruits
 en:Crunchy muesli with fruits not fortified with vitamins and chemical elements, Crunchy Muesli with fruits dried fruits grains not fortified with vitamins and chemical elements
 fr:Muesli croustillant aux fruits non enrichi en vitamines et minéraux, Muesli croustillant aux fruits secs et aux graines non enrichi en vitamines et minéraux
+lt:Traškus muslis su vaisiais nepapildytas vitaminais ir mineralais
 agribalyse_food_code:en:32108
 ciqual_food_code:en:32108
 ciqual_food_name:en:Muesli, crunchy, with fruits and/or dried fruits, grains (not fortified with vitamins and chemical elements)
@@ -54092,11 +54108,13 @@ ciqual_food_name:fr:Muesli croustillant aux fruits et/ou fruits secs, graines (n
 en:Mueslis with nuts, Walnut muesli
 fr:Mueslis aux fruits à coque, Mueslis aux noix
 it:Muesli con nocciole
+lt:Muslis su riešutais
 nl:Mueslis met noten
 
 <en:Mueslis
 en:Bircher-style mueslis, Muesli flakes, Bircher-style muesli flakes
 fr:Mueslis floconneux, Muesli floconneux, Muesli en flocons, Flocons de muesli
+lt:Musli dribsniai
 agribalyse_food_code:en:32128
 ciqual_food_code:en:32128
 ciqual_food_name:en:Muesli, flakes (Bircher-style)
@@ -54136,6 +54154,7 @@ ciqual_food_name:fr:Muesli floconneux aux fruits ou fruits secs, sans sucres ajo
 <en:Bircher-style mueslis
 en:Muesli flakes fortified with vitamins and chemical elements
 fr:Muesli enrichi en vitamines et minéraux
+lt:Musli dribsniai papildyti vitaminais ir mineralais
 ciqual_food_code:en:32139
 ciqual_food_name:en:Muesli, flakes, fortified with vitamins and chemical elements (average food)
 ciqual_food_name:fr:Muesli enrichi en vitamines et minéraux (aliment moyen)
@@ -54143,6 +54162,7 @@ ciqual_food_name:fr:Muesli enrichi en vitamines et minéraux (aliment moyen)
 <en:Bircher-style mueslis
 en:Muesli flakes not fortified with vitamins and chemical elements
 fr:Muesli non enrichi en vitamines et minéraux
+lt:Musli dribsniai nepapildyti vitaminais ir mineralais
 ciqual_food_code:en:32141
 ciqual_food_name:en:Muesli, flakes, not fortified with vitamins and chemical elements (average food)
 ciqual_food_name:fr:Muesli non enrichi en vitamines et minéraux (aliment moyen)
@@ -54150,6 +54170,7 @@ ciqual_food_name:fr:Muesli non enrichi en vitamines et minéraux (aliment moyen)
 <en:Mueslis
 en:Crunchy mueslis
 fr:Mueslis croustillants
+lt:Traškus muslis
 
 <en:Mueslis
 en:Mueslis with chocolate
@@ -54158,6 +54179,7 @@ es:Mueslis con chocolate
 fi:myslit suklaalla
 fr:Mueslis au chocolat
 it:Muesli con cioccolato
+lt:Muslis su šokoladu
 nl:Muesli met chocola
 pl:Musli czekoladowe, musli z czekoladą
 ro:Müsli cu ciocolată
@@ -54174,10 +54196,12 @@ fr:Mueslis floconneux au chocolat
 <en:Crunchy mueslis
 en:Crunchy mueslis with chocolate
 fr:Mueslis croustillant au chocolat
+lt:Traškus muslis su šokoladu
 
 <en:Crunchy mueslis with chocolate
 en:Crunchy chocolate muesli fortified with vitamins and chemical elements
 fr:Muesli croustillant au chocolat enrichi en vitamines et minéraux
+lt:Traškus muslis su šokoladu papildytas vitaminais ir mineralais
 agribalyse_food_code:en:32112
 ciqual_food_code:en:32112
 ciqual_food_name:en:Muesli, crunchy, with chocolate, with or without fruits, fortified with vitamins and chemical elements
@@ -54186,6 +54210,7 @@ ciqual_food_name:fr:Muesli croustillant au chocolat, avec ou sans fruits, enrich
 <en:Crunchy mueslis with chocolate
 en:Crunchy muesli with chocolate not fortified with vitamins and chemical elements
 fr:Muesli croustillant au chocolat non enrichi en vitamines et minéraux
+lt:Traškus muslis su šokoladu nepapildytas vitaminais ir mineralais
 agribalyse_food_code:en:32109
 ciqual_food_code:en:32109
 ciqual_food_name:en:Muesli, crunchy, with chocolate (not fortified with vitamins and chemical elements)
@@ -54201,6 +54226,7 @@ fi:viljahiutaleet
 fr:Flocons de céréales
 hu:Gabonapelyhek
 it:Fiocchi di cereali
+lt:Javų dribsniai
 nl:Ontbijtvlokken
 
 <en:Cereal flakes
@@ -54209,6 +54235,7 @@ en:Amaranth flakes
 de:Amaranthflocken
 es:Copos de amaranto
 fr:Flocons d'amarante
+lt:Amarantų dribsniai
 nl:Amarantvlokken
 
 <en:Cereal flakes
@@ -54216,6 +54243,7 @@ nl:Amarantvlokken
 en:Barley flakes
 es:Copos de cebada
 fr:Flocons d’orge
+lt:Miežių dribsniai
 nl:Gerstevlokken
 
 <en:Cereal flakes
@@ -54223,6 +54251,7 @@ en:Buckwheat flakes
 de:Buchweizenflocken
 es:Copos de trigo sarraceno
 fr:Flocons de sarrasin
+lt:Grikių dribsniai
 nl:Boekweitvlokken
 ro:Fulgi de hrișcă
 
@@ -54238,6 +54267,7 @@ es:Copos de maíz tostado
 fi:maissihiutaleet
 fr:Corn-flakes, pétales de maïs, Corn flakes
 it:Cornflakes
+lt:Kukurūzų dribsniai
 nl:Cornflakes
 pl:Płatki kukurydziane
 ru:Кукурузные хлопья
@@ -54245,10 +54275,12 @@ ru:Кукурузные хлопья
 <en:Corn flakes
 en:Plain corn flakes
 fr:Corn flakes natures, Pétales de maïs natures, Corn flakes non sucrés, Pétales de maïs non sucrées
+lt:Paprasti kukurūzų dribsniai
 
 <en:Plain corn flakes
 en:Plain corn flakes fortified with vitamins and chemical elements
 fr:Pétales de maïs natures enrichis en vitamines et minéraux
+lt:Paprasti kukurūzų dribsniai papildyti vitaminais ir mineralais
 agribalyse_food_code:en:32005
 ciqual_food_code:en:32005
 ciqual_food_name:en:Breakfast cereals, corn flakes, plain, fortified with vitamins and chemical elements
@@ -54256,6 +54288,7 @@ ciqual_food_name:en:Breakfast cereals, corn flakes, plain, fortified with vitami
 <en:Plain corn flakes
 en:Plain corn flakes not fortified with vitamins and chemical elements
 fr:Corn flakes natures non enrichis en vitamines et minéraux, Pétales de maïs natures non enrichis en vitamines et minéraux
+lt:Paprasti kukurūzų dribsniai nepapildyti vitaminais ir mineralais
 agribalyse_food_code:en:32014
 ciqual_food_code:en:32014
 ciqual_food_name:en:Breakfast cereals, corn flakes, plain (not fortified with vitamins and chemical elements)
@@ -54263,10 +54296,12 @@ ciqual_food_name:en:Breakfast cereals, corn flakes, plain (not fortified with vi
 <en:Corn flakes
 en:Sugar iced corn flakes
 fr:Corn flakes glacés au sucre, Corn flakes sucrés, Pétales de maïs sucrées
+lt:Cukruoti kukurūzų dribsniai
 
 <en:Sugar iced corn flakes
 en:Sugar iced corn flakes not fortified with vitamins and chemical elements
 fr:Corn flakes glacés au sucre non enrichis en vitamines et minéraux, Pétales de maïs glacés au sucre non enrichis en vitamines et minéraux
+lt:Cukruoti kukurūzų dribsniai nepapildyti vitaminais ir mineralais
 agribalyse_food_code:en:32107
 ciqual_food_code:en:32107
 ciqual_food_name:en:Breakfast cereals, corn flakes, sugar iced (not fortified with vitamins and chemical elements)
@@ -54274,6 +54309,7 @@ ciqual_food_name:en:Breakfast cereals, corn flakes, sugar iced (not fortified wi
 <en:Sugar iced corn flakes
 en:Sugar iced corn flakes fortified with vitamins and chemical elements
 fr:Corn flakes glacés au sucre enrichis en vitamines et minéraux, Pétales de maïs glacés au sucre enrichis en vitamines et minéraux
+lt:Cukruoti kukurūzų dribsniai papildyti vitaminais ir mineralais
 agribalyse_food_code:en:32121
 ciqual_food_code:en:32121
 ciqual_food_name:en:Breakfast cereals, corn flakes, sugar iced, fortified with vitamins and chemical elements
@@ -54288,6 +54324,7 @@ es:Copos de avena
 fi:kaurahiutaleet
 fr:Flocons d’avoine, Flocons d'avoine
 it:Fiocchi d'avena
+lt:Avižiniai dribsniai
 nl:Havermoutvlokken, Havermouten
 nl_be:Havervlokken
 pt:Flocos de aveia
@@ -54301,6 +54338,7 @@ wikidata:en:Q57656974
 <en:Oat flakes
 en:Pre-cooked oat flakes
 fr:Flocons d'avoine précuits
+lt:Iš anksto virti avižiniai dribsniai
 nl:Voorgekookte havervlokken
 agribalyse_food_code:en:32140
 ciqual_food_code:en:32140
@@ -54310,6 +54348,7 @@ ciqual_food_name:fr:Flocon d'avoine précuit
 <en:Oat flakes
 en:Boiled oat flakes, Oat flakes cooked in water
 fr:Flocons d'avoine bouillis, Flocons d'avoine cuits à l'eau
+lt:Virti avižiniai dribsniai, Vandenyje virti avižiniai dribsniai
 nl:Gekookte havervlokken
 agribalyse_food_code:en:9313
 ciqual_food_code:en:9313
@@ -54322,6 +54361,7 @@ en:Millet flakes
 de:Hirseflocken
 es:Copos de mijo
 fr:Flocons de millet
+lt:Sorų dribsniai
 nl:Gierstvlokken
 
 <en:Cereal flakes
@@ -54340,6 +54380,7 @@ fi:hiutalesekoitus
 fr:Pétales multicéréales
 hu:Vegyes gabonapelyhek
 it:Fiocchi multicereali, Fiocchi di cereali misti
+lt:Įvairių javų dribsniai
 nl:Gemengde granenvlokken
 ru:Мультизерновые хлопья
 
@@ -54349,6 +54390,7 @@ en:Quinoa flakes
 de:Quinoaflocken
 es:Copos de quinoa
 fr:Flocons de quinoa
+lt:Quinoa dribsniai
 nl:Quinoavlokken
 
 <en:Cereal flakes
@@ -54358,6 +54400,7 @@ de:Reisflocken
 es:Copos de arroz
 fi:Riisihiutaleet
 fr:Flocons de riz
+lt:Ryžių dribsniai
 nl:Rijstvlokken
 
 <en:Cereal flakes
@@ -54368,6 +54411,7 @@ es:Copos de centeno
 fi:Ruishiutaleet
 fr:Flocons de seigle
 it:Fiocchi di segale
+lt:Rugių dribsniai
 nl:Roggevlokken
 
 <en:Cereal flakes
@@ -54376,6 +54420,7 @@ en:Teff flakes
 de:Teff-Flocken, Zwerghirseflocken
 es:Copos de teff
 fr:Flocons de teff
+lt:Teff dribsniai
 nl:Teffvlokken
 
 <en:Cereal flakes
@@ -54385,6 +54430,7 @@ de:Dinkelflocken
 es:Copos de espelta
 fi:Spelttihiutaleet
 fr:Flocons d'épeautre
+lt:Speltos dribsniai
 nl:Speltvlokken
 
 <en:Cereal flakes
@@ -54400,6 +54446,7 @@ de:Weizenflocken
 es:Copos de trigo
 fi:Vehnähiutaleet
 fr:Flocons de blé
+lt:Kviečių dribsniai
 nl:Graanvlokken
 
 <en:Wheat flakes
@@ -54420,6 +54467,7 @@ fr:Pétales de blé
 en:Wild rice flakes
 es:Copos de arroz salvaje
 fr:Flocons de riz sauvage, flocons de zizanie
+lt:Laukinių ryžių dribsniai
 nl:Wilde rijstvlokken
 
 <en:Puffed grains
@@ -54430,6 +54478,7 @@ es:Cereales inflados
 fi:paisutettuja muroja
 fr:Céréales soufflées
 it:Cereali soffiati
+lt:Pūsti javai
 nl:Gepofte ontbijtgranen
 wikidata:en:Q12961445
 
@@ -54440,6 +54489,7 @@ es:Granos inflados
 fi:puffatut jyvät
 fr:Grains soufflées
 it:Chicchi soffiati
+lt:Pūsti grūdai
 nl:Gepofte granen
 wikidata:en:Q12961445
 
@@ -54447,6 +54497,7 @@ wikidata:en:Q12961445
 en:Mixed puffed cereals
 es:Mezclas de cereales inflados
 fr:Mélanges de céréales soufflés
+lt:Įvairūs pūsti javai
 nl:Gepofte granenmelanges
 
 <en:Snacks
@@ -54460,6 +54511,7 @@ fr:Popcorn, Pop-corn, maïs éclaté, tactac
 he:פופקורן
 hu:Pattogatott kukorica
 it:Popcorn
+lt:Spraginti kukurūzai
 nl:Popcorn
 ru:Попкорн
 wikidata:en:Q165112
@@ -54471,6 +54523,7 @@ agribalyse_proxy_food_name:fr:Pop-corn ou Maïs éclaté, à l'huile, salé
 <en:Popcorn
 en:Plain popcorn, Unsalted pop-corn, Unsalted air-popped maize
 fr:Popcorn nature, Pop-corn non salé, Maïs éclaté à l'air non salé
+lt:Spraginti kukurūzai be druskos
 agribalyse_food_code:en:9231
 ciqual_food_code:en:9231
 ciqual_food_name:en:Pop-corn or air-popped maize, unsalted
@@ -54486,6 +54539,7 @@ fi:suolattu popcorn
 fr:Popcorn salé, Pop-corn salé, Maïs éclaté à l'huile salé
 hu:sós popkorn
 it:Popcorn salati
+lt:Spraginti kukurūzai su druska
 nl:Gezouten popcorn
 pl:Solony popcorn
 food_groups:en: en:Salty and fatty products
@@ -54503,6 +54557,7 @@ de:Süßes Popcorn
 es:Palomitas azucaradas
 fr:Popcorn sucré
 it:Popcorn dolci
+lt:Spraginti kukurūzai be cukrum
 nl:Zoete popcorn
 
 <en:Sugary snacks
@@ -54510,6 +54565,7 @@ nl:Zoete popcorn
 en:Popcorn with caramel, Popped maize with caramel, Salted caramel popcorn
 bg:Пуканки с карамел
 fr:Popcorn au caramel, Maïs éclaté au caramel
+lt:Spraginti kukurūzai su karamele
 agribalyse_food_code:en:9232
 ciqual_food_code:en:9232
 ciqual_food_name:en:Pop-corn or popped maize, with caramel
@@ -54519,12 +54575,14 @@ ciqual_food_name:fr:Pop-corn ou Maïs éclaté, au caramel
 en:Puffed barley
 es:Cebada inflada, Cebada hinchada
 fr:Orge soufflé
+lt:Pūsti miežiai
 nl:Gepofte gerst
 
 <en:Puffed cereals
 en:Puffed buckwheat
 es:Trigo sarraceno inflado, Trigo sarraceno hinchado
 fr:Sarrasin soufflé
+lt:Pūsti grikiai
 nl:Gepofte boekweit
 
 <en:Puffed cereals
@@ -54532,12 +54590,14 @@ en:Puffed millet
 es:Mijo inflado, Mijo hinchado
 fr:Millet soufflé
 it:Miglio soffiato
+lt:Pūstos soros
 nl:Gepofte gierst
 
 <en:Puffed cereals
 en:Puffed oat
 es:Avena inflada, Avena hinchada
 fr:Avoine soufflé
+lt:Pūstos avižos
 nl:Gepofte haver
 
 <en:Puffed cereals
@@ -54545,12 +54605,14 @@ en:Puffed quinoa
 es:Quinoa inflada, Quinoa hinchada
 fr:Quinoa soufflé
 it:Quinoa soffiata
+lt:Pūstos quinoa
 nl:Gepofte quinoa
 
 <en:Puffed cereals
 en:Puffed amaranth
 fr:Amaranthe soufflée
 it:Amaranto soffiato
+lt:Pūsti amarantai
 
 # Rice Krispies
 <en:Puffed cereals
@@ -54560,6 +54622,7 @@ es:Arroz inflado
 fi:puffattu riisi
 fr:Riz soufflé
 it:Riso soffiato
+lt:Pūsti ryžiai
 nl:Gepofte rijst
 
 # Coco pops
@@ -54567,10 +54630,12 @@ nl:Gepofte rijst
 <en:Puffed rice
 en:Chocolate puffed rice
 fr:Riz soufflé chocolaté, Riz soufflé au chocolat
+lt:Pūsti šokoladiniai ryžiai
 
 <en:Chocolate puffed rice
 en:Chocolate puffed rice not fortified with vitamins and chemical elements, Chocolate popped rice not fortified with vitamins and chemical elements
 fr:Riz soufflé chocolaté non enrichi en vitamines et minéraux
+lt:Pūsti šokoladiniai ryžiai nepapildyti vitaminais ir mineralais
 ciqual_food_code:en:32012
 ciqual_food_name:en:Breakfast cereals, chocolate puffed/popped rice (not fortified with vitamins and chemical elements)
 ciqual_food_name:fr:Riz soufflé chocolaté (non enrichi en vitamines et minéraux)
@@ -54579,6 +54644,7 @@ ciqual_food_name:fr:Riz soufflé chocolaté (non enrichi en vitamines et minéra
 <en:Breakfast cereals fortified with vitamins and chemical elements
 en:Chocolate puffed rice fortified with vitamins and chemical elements, Chocolate popped rice fortified with vitamins and chemical elements
 fr:Riz soufflé chocolaté enrichi en vitamines et minéraux
+lt:Pūsti šokoladiniai ryžiai papildyti vitaminais ir mineralais
 ciqual_food_code:en:32131
 ciqual_food_name:en:Breakfast cereals, chocolate puffed/popped rice, fortified with vitamins and chemical elements
 ciqual_food_name:fr:Riz soufflé chocolaté, enrichi en vitamines et minéraux
@@ -54586,6 +54652,7 @@ ciqual_food_name:fr:Riz soufflé chocolaté, enrichi en vitamines et minéraux
 <en:Puffed rice
 en:Puffed rice fortified with vitamins and chemical elements, Popped rice fortified with vitamins and chemical elements
 fr:Riz soufflé nature enrichi en vitamines et minéraux
+lt:Pūsti ryžiai papildyti vitaminais ir mineralais
 ciqual_food_code:en:32006
 ciqual_food_name:en:Breakfast cereals, puffed/popped rice, fortified with vitamins and chemical elements
 ciqual_food_name:fr:Riz soufflé nature, enrichi en vitamines et minéraux
@@ -54594,6 +54661,7 @@ ciqual_food_name:fr:Riz soufflé nature, enrichi en vitamines et minéraux
 en:Puffed rye
 es:Centeno inflado, Centeno hinchado
 fr:Seigle soufflé
+lt:Pūsti rugiai
 nl:Gepofte rogge
 
 <en:Puffed cereals
@@ -54601,6 +54669,7 @@ en:Puffed wheat
 es:Trigo inflado, Trigo hinchado
 fr:Blé soufflé
 it:Grano soffiato
+lt:Pūsti kviečiai
 nl:Gepofte tarwe
 
 <en:Puffed wheat
@@ -54618,6 +54687,7 @@ de:Puffdinkel
 es:Espelta inflada, Espelta hinchada
 fr:Épeautre soufflé
 it:Farro soffiato
+lt:Pūstos speltos
 nl:Gepofte spelt
 
 # Puffed wheat grains
@@ -54625,6 +54695,7 @@ nl:Gepofte spelt
 <en:Puffed cereals
 en:Puffed wheat grains
 fr:Grains de blé soufflés
+lt:Pūsti kviečių grūdai
 agribalyse_proxy_food_code:en:32000
 agribalyse_proxy_food_name:en:Breakfast cereals, popped or puffed wheat grain, with honey or caramel, fortified with vitamins and chemical elements
 
@@ -54632,11 +54703,13 @@ agribalyse_proxy_food_name:en:Breakfast cereals, popped or puffed wheat grain, w
 <en:Puffed wheat grains
 en:Chocolate puffed wheat grains
 fr:Grains de blé soufflés chocolatés, Grains de blé soufflés au chocolat
+lt:Pūsti šokoladiniai kviečių grūdai
 
 <en:Chocolate puffed wheat grains
 <en:Breakfast cereals fortified with vitamins and chemical elements
 en:Chocolate puffed wheat grains fortified with vitamins and chemical elements, Chocolate popped wheat grains fortified with vitamins and chemical elements
 fr:Grains de blé soufflés chocolatés enrichis en vitamines et minéraux
+lt:Pūsti kviečių grūdai papildyti vitaminais ir mineralais
 agribalyse_food_code:en:32115
 ciqual_food_code:en:32115
 ciqual_food_name:en:Breakfast cereals, chocolate puffed/popped wheat grain, fortified with vitamins and chemical elements
@@ -54679,6 +54752,7 @@ fr:Farines de céréales
 he:קמחי דגנים
 hu:Gabona lisztek
 it:Farine di cereali
+lt:Javų miltai
 nl:Melen van graan
 pt:Farinhas de cereais
 ru:крупяная мука
@@ -54694,6 +54768,7 @@ fr:Farines d’orge, Farine d'orge
 hu:Árpa lisztek
 it:Farine di orzo, farine d'orzo, Farine d'orzo, Farina d'orzo
 ka:ქერის ფქვილი
+lt:Miežių miltai
 nb:byggmel
 nl:Gerstemeel
 ro:făină de orz
@@ -54710,6 +54785,7 @@ en:Barley malt flours
 es:Harinas de cebada malteadas, Harinas de malta de cebada
 fr:Farines de malt d’orge
 hu:Árpamaláta lisztek
+lt:Miežių salyklo miltai
 nl:Gerstemoutmelen
 
 <en:Cereal flours
@@ -54720,6 +54796,7 @@ fi:tattarijauhoja
 fr:Farines de sarrasin, Farines de blé noir
 hu:Hajdina liszt
 it:Farine di grano saraceno
+lt:Grikių miltai
 nl:Boekweitmelen
 agribalyse_food_code:en:9540
 ciqual_food_code:en:9540
@@ -54729,6 +54806,7 @@ ciqual_food_name:fr:Farine de sarrasin
 <en:Buckwheat flours
 fr:Farine de blé noir de Bretagne, Farine de blé noir de Bretagne
 br:Gwinizh du Breizh
+lt:Grikių miltai iš Bretanės
 protected_name_file_number:en: PGI-FR-0555
 protected_name_type:en: pgi
 origins:en: en:France
@@ -54737,16 +54815,19 @@ origins:en: en:France
 <en:Buckwheat flours
 en:T80 buckwheat flour
 fr:Farines de sarrasin T80, Farines de blé noir T80
+lt:Grikių miltai T80
 nl:Boekweitmelen T80
 
 <en:Buckwheat flours
 en:T110 buckwheat flour
 fr:Farines de sarrasin T110, Farines de blé noir T110
+lt:Grikių miltai T110
 nl:Boekweitmelen T110
 
 <en:Buckwheat flours
 en:T150 buckwheat flour
 fr:Farines de sarrasin T150, Farines de blé noir T150
+lt:Grikių miltai T150
 nl:Boekweitmelen T150
 
 <en:Cereal flours
@@ -54756,6 +54837,7 @@ es:Harinas de maíz
 fi:Maissijauhot
 fr:Farines de maïs, farine de maïs
 it:Farine di mais
+lt:Kukurūzų miltai
 nl:Maïsmeel, Maïsmelen
 pt:Farinhas de milho, farinha de milho
 wikidata:en:Q837118
@@ -54776,6 +54858,7 @@ en:Flax seed flours, Flax flours, Linseed flours, Common flax flours
 es:Harinas de lino, Harinas de linaza
 fr:Farines de lin
 it:Farine di lino
+lt:Linų sėmenų miltai
 nl:Lijnzaadmelen
 pt:Farinhas de linhaça, farinha de linhaça
 
@@ -54783,6 +54866,7 @@ pt:Farinhas de linhaça, farinha de linhaça
 en:Gluten flours
 es:Harinas de gluten
 fr:Farines de gluten
+lt:Glitimo miltai
 nl:Glutenmelen
 pl:Mąka glutenowa
 
@@ -54797,18 +54881,21 @@ wikidata:en:Q1412378
 en:Malt flours
 es:Harinas malteadas, Harinas de malta
 fr:Farines de malt
+lt:Salyklo miltai
 nl:Moutmelen
 
 <en:Cereal flours
 en:Meslin flours
 es:Harinas de morcajo, Harinas de tranquillón, Harinas de mezclas de trigo y centeno
 fr:Farines de méteil, Farines de blé et seigle, Mélanges de farines
+lt:Meslino miltai
 
 <en:Cereal flours
 en:Millet flours
 es:Harinas de mijo
 fr:Farines de millet
 it:Farine di miglio
+lt:Sorų miltai
 nl:Gierstmelen
 pt:Farinhas de milheto, farinha de milheto
 agribalyse_food_code:en:9555
