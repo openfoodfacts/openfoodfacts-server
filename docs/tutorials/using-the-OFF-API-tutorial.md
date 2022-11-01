@@ -108,7 +108,10 @@ For more details, see the reference documentation for [Get A Product By Barcode]
 
 <!-- Probably have a conclusion that links to the next possible topic eg filter countries using lc and cc-->
 
-What if the  `nutriscore_data` and `nutriments` field does not get returned in the response? It means that the product does not have a Nutri-Score computation due to some missing nutrition data.
+### What if the  `nutriscore_data` and `nutriments` field does not get returned in the response?
+
+When these fields are missing in a nutriscore computation response, it means that the product does not have a Nutri-Score computation due to some missing nutrition data.
+
 Lets look at the [100% Real Orange Juice](https://world.openfoodfacts.org/api/v2/product/0180411000803/100-real-orange-juice?product_name,nutriscore_data,nutriments,nutrition_grades). If the product nutrition data is missing some fields, you can volunteer and contribute to it by getting the missing tags and writing to the OFF API to add them.
 
 <!-- I dont know if using 100% Real Orange Juice is a good approach for now , should we state that it was not computed at the time of writing this article just incase it gets computed in future or there is a product we can use to test this that wont change in future ? -->
