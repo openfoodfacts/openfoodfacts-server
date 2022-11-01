@@ -39,7 +39,7 @@ The request path will now look like this:
 https://world.openfoodfacts.org/api/v2/product/3017624010701?fields=product_name,nutriscore_data
 ```
 
-### Nutri-score Response
+### Nutri-Score Response
 
 The response returned contains an object of the `code`, `product`, `status_verbose`, and `status`. The `product` object contains the fields specified in the query: the `product_name` and the `nutrition_grades`. The status also states if the product was found or not.
 
@@ -55,11 +55,11 @@ The response returned contains an object of the `code`, `product`, `status_verbo
 }
 ```
 
-### Nutri-score Computation
+### Nutri-Score Computation
 
 If you would like to be able to show how the score is computed, add some extra fields like `nutriscore_data` and `nutriments`.
 
-The request path to get the nutriscore computation for Nutella-Ferroro will be :
+The request path to get the Nutri-Score computation for Nutella-Ferroro will be :
 
 ```bash
 https://world.openfoodfacts.org/api/v2/product/3017624010701?fields=product_name,nutriscore_data,nutriments,nutrition_grades
@@ -107,3 +107,38 @@ The `product` object in the response now contains the extra fields to show how t
 For more details, see the reference documentation for [Get A Product By Barcode](https://openfoodfacts.github.io/openfoodfacts-server/reference/api.html#tag/Read-Requests/operation/get-product-by-barcode)
 
 <!-- Probably have a conclusion that links to the next possible topic eg filter countries using lc and cc-->
+
+What if the  `nutriscore_data` and `nutriments` field does not get returned in the response? It means that the product does not have a Nutri-Score computation due to some missing nutrition data.
+Lets look at the [100% Real Orange Juice](https://world.openfoodfacts.org/api/v2/product/0180411000803/100-real-orange-juice?product_name,nutriscore_data,nutriments,nutrition_grades). If the product nutrition data is missing some fields, you can volunteer and contribute to it by getting the missing tags and writing to the OFF API to add them.
+
+<!-- I dont know if using 100% Real Orange Juice is a good approach for now , should we state that it was not computed at the time of writing this article just incase it gets computed in future or there is a product we can use to test this that wont change in future ? -->
+
+To know the missing tags, you need the `misc-tags` field from the response.
+
+`https://world.openfoodfacts.org/api/v2/product/0180411000803/100-real-orange-juice?fields=misc_tags`
+
+The response shows the missing fields and category needed to compute the Nutri-Score.
+
+```json
+{
+    "code": "0180411000803",
+    "product": {
+        "misc_tags": [
+            "en:nutriscore-not-computed",
+            "en:nutriscore-missing-category",
+            "en:nutrition-not-enough-data-to-compute-nutrition-score",
+            "en:nutriscore-missing-nutrition-data",
+            "en:nutriscore-missing-nutrition-data-sodium",
+            "en:ecoscore-extended-data-not-computed",
+            "en:ecoscore-not-computed",
+            "en:main-countries-new-product"
+        ]
+    },
+    "status": 1,
+    "status_verbose": "product found"
+}
+```
+
+The sample response above for 100% Real Orange Juice `misc_tags` shows that the Nutri-Score is missing category and sodium(salt). Now you can write to the OFF API to provide these data (if you have them) so that the Nutri-Score can be computed.
+
+## Write Nutri-Score Data to a Product
