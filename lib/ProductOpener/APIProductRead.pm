@@ -133,7 +133,7 @@ sub read_product_api ($request_ref) {
 
 			$log->debug("display_product_api - fields parameter is set", {fields => single_param('fields')})
 				if $log->is_debug();
-			
+
 			$request_ref->{api_response}{product} = customize_response_for_product($request_ref, $product_ref);
 		}
 		else {

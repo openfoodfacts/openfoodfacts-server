@@ -110,7 +110,7 @@ my $tests_ref = [
 				]
 			}
 		}'
-	},		
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

@@ -51,8 +51,6 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::API qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 
-
-
 =head2 update_product_fields ($request_ref, $product_ref)
 
 Update product fields based on input product data.
@@ -61,47 +59,47 @@ Update product fields based on input product data.
 
 sub update_product_fields ($request_ref, $product_ref) {
 
-    my $response_ref = $request_ref->{api_response};
-    my $request_body_ref = $request_ref->{request_body_json};
+	my $response_ref = $request_ref->{api_response};
+	my $request_body_ref = $request_ref->{request_body_json};
 
-    $request_ref->{updated_product_fields} = {};
+	$request_ref->{updated_product_fields} = {};
 
-    my $input_product_ref = $request_body_ref->{product};
+	my $input_product_ref = $request_body_ref->{product};
 
-    foreach my $field (sort keys %{$input_product_ref}) {
+	foreach my $field (sort keys %{$input_product_ref}) {
 
-        my $value = $input_product_ref->{$field};
+		my $value = $input_product_ref->{$field};
 
-        if ($field =~ /^(packagings)(_add)?/) {
-            $request_ref->{updated_product_fields}{$1} = 1;
-            my $add = $2;
-            if (not defined $add) {
-                $product_ref->{packagings} = [];
-            }
+		if ($field =~ /^(packagings)(_add)?/) {
+			$request_ref->{updated_product_fields}{$1} = 1;
+			my $add = $2;
+			if (not defined $add) {
+				$product_ref->{packagings} = [];
+			}
 
-            if (ref($value) ne 'ARRAY') {
-                add_error(
-                    $response_ref,
-                    {
-                        message => {id => "invalid_type_must_be_array"},
-                        field => {id => $field},
-                        impact => {id => "field_ignored"},
-                    }
-                );
-            }
-            else {
-                foreach my $input_packaging_ref (@{$value}) {
-                    # Taxonomize the input packaging component data
-                    my $packaging_ref = get_checked_and_taxonomized_packaging_component_data($request_body_ref->{tags_lc},
-                        $input_packaging_ref, $response_ref);
-                    # Add or combine with the existing packagings components array
-                    add_or_combine_packaging_component_data($product_ref, $packaging_ref, $response_ref);
-                }
-            }
-        }
-    }
+			if (ref($value) ne 'ARRAY') {
+				add_error(
+					$response_ref,
+					{
+						message => {id => "invalid_type_must_be_array"},
+						field => {id => $field},
+						impact => {id => "field_ignored"},
+					}
+				);
+			}
+			else {
+				foreach my $input_packaging_ref (@{$value}) {
+					# Taxonomize the input packaging component data
+					my $packaging_ref
+						= get_checked_and_taxonomized_packaging_component_data($request_body_ref->{tags_lc},
+						$input_packaging_ref, $response_ref);
+					# Add or combine with the existing packagings components array
+					add_or_combine_packaging_component_data($product_ref, $packaging_ref, $response_ref);
+				}
+			}
+		}
+	}
 }
-
 
 =head2 write_product_api()
 
@@ -113,7 +111,7 @@ sub write_product_api ($request_ref) {
 
 	$log->debug("write_product_api - start", {request => $request_ref}) if $log->is_debug();
 
-    my $response_ref = $request_ref->{api_response};
+	my $response_ref = $request_ref->{api_response};
 
 	decode_json_request_body($request_ref);
 	my $request_body_ref = $request_ref->{request_body_json};
@@ -137,71 +135,71 @@ sub write_product_api ($request_ref) {
 	}
 	else {
 
-        # Use default request language if we did not get tags_lc
-        if (not defined $request_body_ref->{tags_lc}) {
-            $request_body_ref->{tags_lc} = $lc;
-            add_warning(
-                $response_ref,
-                {
-                    message => {id => "missing_tags_lc"},
-                    field => {id => "tags_lc", default_value => $request_body_ref->{tags_lc}},
-                    impact => {id => "warning"},
-                }
-            );
-        }
+		# Use default request language if we did not get tags_lc
+		if (not defined $request_body_ref->{tags_lc}) {
+			$request_body_ref->{tags_lc} = $lc;
+			add_warning(
+				$response_ref,
+				{
+					message => {id => "missing_tags_lc"},
+					field => {id => "tags_lc", default_value => $request_body_ref->{tags_lc}},
+					impact => {id => "warning"},
+				}
+			);
+		}
 
-        # Load the product
-        my $code = $request_ref->{code};
-        my $product_id = product_id_for_owner($Owner_id, $code);
-        my $product_ref = retrieve_product($product_id);
+		# Load the product
+		my $code = $request_ref->{code};
+		my $product_id = product_id_for_owner($Owner_id, $code);
+		my $product_ref = retrieve_product($product_id);
 
-        if (not defined $product_ref) {
-            $product_ref = init_product($User_id, $Org_id, $code, $country);
-            $product_ref->{interface_version_created} = "20221102/api/v3";
-        }
+		if (not defined $product_ref) {
+			$product_ref = init_product($User_id, $Org_id, $code, $country);
+			$product_ref->{interface_version_created} = "20221102/api/v3";
+		}
 
-        # Process edit rules
+		# Process edit rules
 
-        $log->debug("phase 0 - checking edit rules", {code => $code}) if $log->is_debug();
+		$log->debug("phase 0 - checking edit rules", {code => $code}) if $log->is_debug();
 
-        my $proceed_with_edit = process_product_edit_rules($product_ref);
+		my $proceed_with_edit = process_product_edit_rules($product_ref);
 
-        $log->debug("phase 0", {code => $code, proceed_with_edit => $proceed_with_edit}) if $log->is_debug();
+		$log->debug("phase 0", {code => $code, proceed_with_edit => $proceed_with_edit}) if $log->is_debug();
 
-        if (not $proceed_with_edit) {
+		if (not $proceed_with_edit) {
 
-            add_error(
-                $response_ref,
-                {
-                    message => {id => "edit_against_edit_rules"},
-                    field => {id => "product"},
-                    impact => {id => "failure"},
-                }
-            );
-        }
-        else {
+			add_error(
+				$response_ref,
+				{
+					message => {id => "edit_against_edit_rules"},
+					field => {id => "product"},
+					impact => {id => "failure"},
+				}
+			);
+		}
+		else {
 
-            # Update the product
-            update_product_fields($request_ref, $product_ref);
+			# Update the product
+			update_product_fields($request_ref, $product_ref);
 
-            # Process the product data
-            analyze_and_enrich_product_data($product_ref);
+			# Process the product data
+			analyze_and_enrich_product_data($product_ref);
 
-            # Save the product
-            my $comment = $request_body_ref->{comment} || "API v3";
-            if (store_product($User_id, $product_ref, $comment)) {
-                # Notify robotoff
-                send_notification_for_product_change($product_ref, "updated");
-            }
-            else {
-                # Product raw data not changed, according to ProductOpener::Products::compute_product_history_and_completeness(),
-                # which may be incomplete
-            }
+			# Save the product
+			my $comment = $request_body_ref->{comment} || "API v3";
+			if (store_product($User_id, $product_ref, $comment)) {
+				# Notify robotoff
+				send_notification_for_product_change($product_ref, "updated");
+			}
+			else {
+				# Product raw data not changed, according to ProductOpener::Products::compute_product_history_and_completeness(),
+				# which may be incomplete
+			}
 
-            # Return the product
-            $response_ref->{product} = customize_response_for_product($request_ref, $product_ref);
-        }
-    }
+			# Return the product
+			$response_ref->{product} = customize_response_for_product($request_ref, $product_ref);
+		}
+	}
 
 	$log->debug("write_product_api - stop", {request => $request_ref}) if $log->is_debug();
 

@@ -475,7 +475,6 @@ sub redirect_to_url ($request_ref, $status_code, $redirect_url) {
 	exit();
 }
 
-
 =head2 single_param ($param_name)
 
 CGI.pm param() function returns a list when called in a list context
@@ -499,7 +498,6 @@ sub single_param ($param_name) {
 	return scalar param($param_name);
 }
 
-
 =head2 request_param ($request_ref, $param_name)
 
 Return a request parameter. The parameter can be passed in the query string,
@@ -518,7 +516,6 @@ A scalar value for the parameter, or undef if the parameter is not defined.
 sub request_param ($request_ref, $param_name) {
 	return (scalar param($param_name)) || deep_get($request_ref, "request_body_json", $param_name);
 }
-
 
 =head2 init_request ()
 

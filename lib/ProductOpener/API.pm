@@ -95,7 +95,6 @@ sub add_error ($response_ref, $error_ref) {
 	push @{$response_ref->{errors}}, $error_ref;
 }
 
-
 =head2 read_request_body ($request_ref)
 
 API V3 POST requests do not use CGI Multipart Form data, and instead pass a JSON structure in the body.
@@ -133,7 +132,6 @@ sub read_request_body ($request_ref) {
 
 	$log->debug("read_request_body - end", {request => $request_ref}) if $log->is_debug();
 }
-
 
 =head2 decode_json_request_body ($request_ref)
 
@@ -178,7 +176,6 @@ sub decode_json_request_body ($request_ref) {
 	}
 }
 
-
 =head2 add_localized_messages_to_api_response ($request_ref)
 
 Functions that process API calls may add message ids in $request_ref->{api_response}
@@ -199,7 +196,6 @@ sub add_localized_messages_to_api_response ($request_ref) {
 	# TODO
 
 }
-
 
 =head2 customize_response_for_product ( $request_ref, $product_ref )
 
@@ -259,7 +255,6 @@ sub send_api_reponse ($request_ref) {
 	$r->status(200);
 }
 
-
 =head2 customize_response_for_product ( $request_ref, $product_ref )
 
 Using the fields parameter, API product or search queries can request
@@ -318,7 +313,6 @@ sub process_api_request ($request_ref) {
 
 	$log->debug("process_api_request - stop", {request => $request_ref}) if $log->is_debug();
 }
-
 
 =head2 customize_response_for_product ( $request_ref, $product_ref )
 
