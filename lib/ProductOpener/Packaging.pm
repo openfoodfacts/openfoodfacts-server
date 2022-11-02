@@ -223,8 +223,8 @@ sub parse_packaging_component_data_from_text_phrase ($text, $text_language) {
 							# Number of units: e.g. 4 plastic bottles (but we should not match the 2 in "2 PEHD plastic bottles")
 							# match numbers starting with 1 to 9 to avoid matching 02 PEHD
 							if ($before =~ /^([1-9]\d*) /) {
-								if (not defined $packaging_ref->{number}) {
-									$packaging_ref->{number} = $1;
+								if (not defined $packaging_ref->{number_of_units}) {
+									$packaging_ref->{number_of_units} = $1;
 								}
 							}
 						}
@@ -507,18 +507,29 @@ sub add_or_combine_packaging_component_data($product_ref, $packaging_ref, $respo
 
 			foreach my $property (sort keys %$packaging_ref) {
 
+				# If the existing packaging does not have a property, it can match
+				if (not defined $existing_packaging_ref->{$property}) {
+					next;
+				}
+
 				my $tagtype = $packaging_taxonomies{$property};
 
 				# $tagtype can be shape / material / recycling, or undef if the property is something else (e.g. a number of packagings)
 				if (not defined $tagtype) {
-					$match = 0;
-					last;
+					# If there is an existing value for the property,
+					# check if it is the same
+					if ($property eq "number_of_units") {
+						# Type is a number
+						if ($existing_packaging_ref->{$property} != $packaging_ref->{$property}) {
+							$match = 0;
+							last;
+						}
+					}
 				}
 
 				# If there is an existing value for the property,
 				# check if it is either a child or a parent of the value extracted from the packaging text
-				elsif ( (defined $existing_packaging_ref->{$property})
-					and ($existing_packaging_ref->{$property} ne "en:unknown")
+				elsif ( ($existing_packaging_ref->{$property} ne "en:unknown")
 					and ($existing_packaging_ref->{$property} ne $packaging_ref->{$property})
 					and (not is_a($tagtype, $existing_packaging_ref->{$property}, $packaging_ref->{$property}))
 					and (not is_a($tagtype, $packaging_ref->{$property}, $existing_packaging_ref->{$property})))
