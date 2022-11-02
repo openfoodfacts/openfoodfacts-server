@@ -43,6 +43,8 @@ BEGIN {
 
 		&extract_packaging_from_image
 		&init_packaging_taxonomies_regexps
+		&get_checked_and_taxonomized_packaging_component_data
+		&add_or_combine_packaging_component_data
 		&analyze_and_combine_packaging_data
 		&parse_packaging_component_data_from_text_phrase
 		&guess_language_of_packaging_text
@@ -145,8 +147,7 @@ Packaging object (hash) reference with optional properties: recycling, material,
 
 sub parse_packaging_component_data_from_text_phrase ($text, $text_language) {
 
-	$log->debug("parse_packaging_component_data_from_text_phrase - start",
-		{text => $text, text_language => $text_language})
+	$log->debug("parse_packaging_component_data_from_text_phrase - start", {text => $text, text_language => $text_language})
 		if $log->is_debug();
 
 	if ($text =~ /^([a-z]{2}):/) {
@@ -267,10 +268,9 @@ sub parse_packaging_component_data_from_text_phrase ($text, $text_language) {
 						{
 							$text =~ s/\b($regexp)\b/ MATCHED /i;
 							$textid = get_string_id_for_lang($text_language, $text);
-							$log->debug(
-								"parse_packaging_component_data_from_text_phrase - removed match",
-								{text => $text, textid => $textid, tagid => $tagid, regexp => $regexp}
-							) if $log->is_debug();
+							$log->debug("parse_packaging_component_data_from_text_phrase - removed match",
+								{text => $text, textid => $textid, tagid => $tagid, regexp => $regexp})
+								if $log->is_debug();
 						}
 					}
 				}
@@ -344,6 +344,82 @@ sub guess_language_of_packaging_text ($text, $potential_lcs_ref) {
 	return $max_lc;
 }
 
+
+=head2 get_checked_and_taxonomized_packaging_component_data($tags_lc, $input_packaging_ref, $response_ref)
+
+Check and taxonomize packaging component data (e.g. from the product WRITE API)
+
+=head3 Parameters
+
+=head4 $input_packaging_ref packaging component
+
+=head4 $response_ref API response object reference
+
+The API response object is used to return warnings and errors to the caller.
+If a warning or error is found (e.g. an unrecognized input), it is returned in
+the "warnings" or "errors" array of the response object.
+
+=head3 Return value
+
+A taxonomized packaging structure corresponding to the input packaging structure.
+
+=cut
+
+sub get_checked_and_taxonomized_packaging_component_data($tags_lc, $input_packaging_ref, $response_ref) {
+
+	my $packaging_ref = {};
+
+	# Number of units
+	if (not defined $input_packaging_ref->{number_of_units}) {
+		add_warning($response_ref, {
+            message => { id => "packaging_component_missing_number_of_units"},
+            field => { id => "number_of_units"},
+            impact => { id => "field_ignored"},
+		});
+	}
+	elsif ($input_packaging_ref->{number_of_units} =~ /^\d+$/) {
+		$packaging_ref->{number_of_units} = $input_packaging_ref->{number_of_units};
+	}
+	else {
+		add_warning($response_ref, {
+            message => { id => "packaging_component_invalid_number_of_units"},
+            field => { id => "number_of_units", value => $input_packaging_ref->{number_of_units}},
+            impact => { id => "field_ignored"},
+		});
+	}
+
+	# Shape, material and recycling
+	foreach my $property ("recycling", "material", "shape") {
+
+		my $tagtype = $packaging_taxonomies{$property};
+		if (defined $input_packaging_ref->{$property}) {
+			my $tagid = canonicalize_taxonomy_tag($tags_lc, $tagtype, $input_packaging_ref->{$property});
+			$log->debug(
+				"canonicalize input value",
+				{tags_lc => $tags_lc, tagtype => $tagtype, input_value => $input_packaging_ref->{$property}, tagid => $tagid}
+			) if $log->is_debug();
+			if (not exists_taxonomy_tag($tagtype, $tagid)) {
+				add_warning($response_ref, {
+					message => { id => "packaging_component_unrecognized_property_value"},
+					field => { id => $property, value => $tagid},
+					impact => { id => "none"},
+				});
+			}
+			$packaging_ref->{$property} = $tagid;
+		}
+		else {
+			add_warning($response_ref, {
+				message => { id => "packaging_component_missing_" . $property},
+				field => { id => $property, value => $input_packaging_ref->{$property}},
+				impact => { id => "field_ignored"},
+			});
+		}
+	}
+
+	return $packaging_ref;
+}
+
+
 =head2 apply_rules_to_augment_packaging_component_data($product_ref, $packaging_ref)
 
 Use rules to add more properties or more precise properties to a packaging component.
@@ -358,7 +434,7 @@ of the packaging component is "en:capsule", we assume the shape is "en:coffee-ca
 
 =cut
 
-sub apply_rules_to_augment_packaging_component_data ($product_ref, $packaging_ref) {
+sub apply_rules_to_augment_packaging_component_data($product_ref, $packaging_ref) {
 
 	# If the shape is "capsule" and the product is in category "en:coffees", mark the shape as a "coffee capsule"
 	if (    (defined $packaging_ref->{"shape"})
@@ -371,7 +447,8 @@ sub apply_rules_to_augment_packaging_component_data ($product_ref, $packaging_re
 	# If we have a shape without a material, check if there is a default material for the shape
 	# e.g. "en:Bubble wrap" has the property packaging_materials:en: en:plastic
 	if ((defined $packaging_ref->{"shape"}) and (not defined $packaging_ref->{"material"})) {
-		my $material = get_inherited_property("packaging_shapes", $packaging_ref->{"shape"}, "packaging_materials:en");
+		my $material
+			= get_inherited_property("packaging_shapes", $packaging_ref->{"shape"}, "packaging_materials:en");
 		if (defined $material) {
 			$packaging_ref->{"material"} = $material;
 		}
@@ -380,12 +457,14 @@ sub apply_rules_to_augment_packaging_component_data ($product_ref, $packaging_re
 	# If we have a material without a shape, check if there is a default shape for the material
 	# e.g. "en:tetra-pak" has the shape "en:brick"
 	if ((defined $packaging_ref->{"material"}) and (not defined $packaging_ref->{"shape"})) {
-		my $shape = get_inherited_property("packaging_materials", $packaging_ref->{"material"}, "packaging_shapes:en");
+		my $shape
+			= get_inherited_property("packaging_materials", $packaging_ref->{"material"}, "packaging_shapes:en");
 		if (defined $shape) {
 			$packaging_ref->{"shape"} = $shape;
 		}
 	}
 }
+
 
 =head2 add_or_combine_packaging_component_data($product_ref, $packaging_ref, $response_ref)
 
@@ -407,7 +486,12 @@ the "warnings" or "errors" array of the response object.
 
 =cut
 
-sub add_or_combine_packaging_component_data ($product_ref, $packaging_ref, $response_ref) {
+sub add_or_combine_packaging_component_data($product_ref, $packaging_ref, $response_ref) {
+
+	$log->debug(
+				"add_or_combine_packaging_component_data - start",
+				{packaging_ref => $packaging_ref}
+			) if $log->is_debug();
 
 	# Non empty packaging?
 	if ((scalar keys %$packaging_ref) > 0) {
@@ -452,15 +536,15 @@ sub add_or_combine_packaging_component_data ($product_ref, $packaging_ref, $resp
 		}
 
 		if (not defined $matching_packaging_ref) {
-			# Add a new packaging
-			$log->debug("analyze_and_combine_packaging_data - add new packaging", {packaging_ref => $packaging_ref})
+			# Add a new packaging component
+			$log->debug("add_or_combine_packaging_component_data - add new packaging component", {packaging_ref => $packaging_ref})
 				if $log->is_debug();
 			push @{$product_ref->{packagings}}, $packaging_ref;
 		}
 		else {
 			# Merge data with matching packaging
 			$log->debug(
-				"analyze_and_combine_packaging_data - merge with existing packaging",
+				"add_or_combine_packaging_component_data - merge with existing packaging component",
 				{packaging_ref => $packaging_ref, matching_packaging_ref => $matching_packaging_ref}
 			) if $log->is_debug();
 			foreach my $property (sort keys %$packaging_ref) {
@@ -481,6 +565,7 @@ sub add_or_combine_packaging_component_data ($product_ref, $packaging_ref, $resp
 		}
 	}
 }
+
 
 =head2 analyze_and_combine_packaging_data($product_ref)
 
@@ -558,8 +643,7 @@ sub analyze_and_combine_packaging_data ($product_ref) {
 		add_or_combine_packaging_component_data($product_ref, $packaging_ref, $response_ref);
 	}
 
-	$log->debug("analyze_and_combine_packaging_data - done",
-		{packagings => $product_ref->{packagings}, response => $response_ref})
+	$log->debug("analyze_and_combine_packaging_data - done", {packagings => $product_ref->{packagings}, response => $response_ref})
 		if $log->is_debug();
 	return;
 }

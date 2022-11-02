@@ -45,6 +45,7 @@ BEGIN {
 		&init_request
 		&redirect_to_url
 		&single_param
+		&request_param
 
 		&display_date
 		&display_date_tag
@@ -474,6 +475,7 @@ sub redirect_to_url ($request_ref, $status_code, $redirect_url) {
 	exit();
 }
 
+
 =head2 single_param ($param_name)
 
 CGI.pm param() function returns a list when called in a list context
@@ -496,6 +498,27 @@ A scalar value for the parameter, or undef if the parameter is not defined.
 sub single_param ($param_name) {
 	return scalar param($param_name);
 }
+
+
+=head2 request_param ($request_ref, $param_name)
+
+Return a request parameter. The parameter can be passed in the query string,
+as a POST multipart form data parameter, or in a POST JSON body
+
+=head3 Arguments
+
+=head4 Parameter name $param_name
+
+=head3 Return value
+
+A scalar value for the parameter, or undef if the parameter is not defined.
+
+=cut
+
+sub request_param ($request_ref, $param_name) {
+	return (scalar param($param_name)) || deep_get($request_ref, "request_body_json", $param_name);
+}
+
 
 =head2 init_request ()
 

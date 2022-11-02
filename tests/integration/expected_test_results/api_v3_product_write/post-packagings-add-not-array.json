@@ -3,14 +3,13 @@
       "errors" : [
          {
             "field" : {
-               "id" : "body",
-               "value" : "not json"
+               "id" : "packagings_add"
             },
             "impact" : {
-               "id" : "failure"
+               "id" : "field_ignored"
             },
             "message" : {
-               "id" : "invalid_json_in_request_body"
+               "id" : "invalid_type_must_be_array"
             }
          }
       ],
@@ -30,5 +29,6 @@
       ]
    },
    "errors" : [],
+   "product" : {},
    "warnings" : []
 }

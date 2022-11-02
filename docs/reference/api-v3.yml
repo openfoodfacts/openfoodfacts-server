@@ -152,7 +152,37 @@ paths:
                       type: string
                     product:
                       $ref: ./schemas/product_update_api_v3.yaml
-            examples: {}
+            examples:
+              example-1:
+                value:
+                  lc: fr
+                  cc: fr
+                  fields: 'product_name,packagings'
+                  tags_lc: fr
+                  userid: string
+                  password: string
+                  code: string
+                  product:
+                    packagings:
+                      - number_of_units: 6
+                        shape:
+                          id: 'en:bottle'
+                        material:
+                          id: 'en:plastic'
+                        recycling:
+                          id: 'en:recycle'
+                        quantity_per_unit: 25 cl
+                        weight_measured: 10
+                    packagings_add:
+                      - number_of_units: 6
+                        shape:
+                          id: 'en:bottle'
+                        material:
+                          id: 'en:plastic'
+                        recycling:
+                          id: 'en:recycle'
+                        quantity_per_unit: 25 cl
+                        weight_measured: 10
           application/xml:
             schema:
               type: object

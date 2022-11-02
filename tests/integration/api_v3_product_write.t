@@ -51,6 +51,18 @@ my $tests_ref = [
 		path => '/api/v3/product/12345678',
 		body => '{"product":{}}'
 	},
+	{
+		test_case => 'post-packagings-add-not-array',
+		method => 'POST',
+		path => '/api/v3/product/12345678',
+		body => '{"product": {"packagings_add": {"shape": "bottle"}}}'
+	},
+	{
+		test_case => 'post-packagings-add-one-component',
+		method => 'POST',
+		path => '/api/v3/product/12345678',
+		body => '{"product": {"packagings_add": [{"shape": "bottle"}]}}'
+	},	
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

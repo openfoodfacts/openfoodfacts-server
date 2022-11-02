@@ -41,6 +41,7 @@ BEGIN {
 		&add_error
 		&process_api_request
 		&read_request_body
+		&decode_json_request_body
 		&customize_response_for_product
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -58,6 +59,7 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::Text qw/:all/;
 use ProductOpener::Attributes qw/:all/;
 use ProductOpener::Ecoscore qw/localize_ecoscore/;
+use ProductOpener::APIProductWrite qw/:all/;
 
 use CGI qw(header);
 use Apache2::RequestIO();
@@ -84,6 +86,22 @@ sub add_error ($response_ref, $error_ref) {
 	push @{$response_ref->{api_response}{errors}}, $error_ref;
 }
 
+
+=head2 read_request_body ($request_ref)
+
+API V3 POST requests do not use CGI Multipart Form data, and instead pass a JSON structure in the body.
+This function reads the request body and saves it in $request_ref->{body}
+
+It must be called before any call to CGI.pm param() which will read the body.
+
+=head3 Parameters
+
+=head4 $request_ref (input)
+
+Reference to the request object.
+
+=cut
+
 sub read_request_body ($request_ref) {
 
 	$log->debug("read_request_body - start", {request => $request_ref}) if $log->is_debug();
@@ -106,6 +124,21 @@ sub read_request_body ($request_ref) {
 
 	$log->debug("read_request_body - end", {request => $request_ref}) if $log->is_debug();
 }
+
+
+=head2 decode_json_request_body ($request_ref)
+
+Decodes the JSON body of a request and store it in $request_ref->{request_body_json}
+
+Errors are returned in $request_ref->{api_response}
+
+=head3 Parameters
+
+=head4 $request_ref (input)
+
+Reference to the request object.
+
+=cut
 
 sub decode_json_request_body ($request_ref) {
 
@@ -136,9 +169,40 @@ sub decode_json_request_body ($request_ref) {
 	}
 }
 
+
+=head2 add_localized_messages_to_api_response ($request_ref)
+
+Functions that process API calls may add message ids in $request_ref->{api_response}
+to indicate the result and warnings and errors.
+
+This functions adds English and/or localized messages for those messages.
+
+=head3 Parameters
+
+=head4 $request_ref (input)
+
+Reference to the request object.
+
+=cut
+
 sub add_localized_messages_to_api_response ($request_ref) {
 
+	# TODO
+
 }
+
+
+=head2 read_product_api ( $request_ref )
+
+Process API V3 READ product requests.
+
+=head3 Parameters
+
+=head4 $request_ref (input)
+
+Reference to the request object.
+
+=cut
 
 sub read_product_api ($request_ref) {
 
@@ -205,11 +269,12 @@ sub read_product_api ($request_ref) {
 		add_images_urls_to_product($product_ref, $lc);
 
 		# If the request specified a value for the fields parameter, return only the fields listed
-		if (defined single_param('fields')) {
+		my $fields = single_param('fields');
+		if (defined $fields) {
 
 			$log->debug("display_product_api - fields parameter is set", {fields => single_param('fields')})
 				if $log->is_debug();
-
+			
 			$request_ref->{api_response}{product} = customize_response_for_product($request_ref, $product_ref);
 		}
 		else {
@@ -252,83 +317,31 @@ sub read_product_api ($request_ref) {
 	return;
 }
 
-=head2 write_product_api()
 
+=head2 customize_response_for_product ( $request_ref, $product_ref )
+
+Using the fields parameter, API product or search queries can request
+a specific set of fields to be returned.
+
+This function filters the field to return only the requested fields,
+and computes requested fields that are not stored in the database but
+created on demand.
+
+=head3 Parameters
+
+=head4 $request_ref (input)
+
+Reference to the request object.
+
+=head4 $product_ref (input)
+
+Reference to the product object (retrieved from disk or from a MongoDB query)
+
+=head3 Return value
+
+Reference to the customized product object.
 
 =cut
-
-sub write_product_api ($request_ref) {
-
-	$log->debug("write_product_api - start", {request => $request_ref}) if $log->is_debug();
-
-	decode_json_request_body($request_ref);
-	my $request_body_ref = $request_ref->{request_body_json};
-
-	$log->debug("write_product_api - body", {request_body => $request_body_ref}) if $log->is_debug();
-
-	my $response_ref = $request_ref->{api_response};
-
-	# TODO: load the product
-	my $product_ref = {};
-
-	if (not defined $request_body_ref) {
-		$log->error("write_product_api - missing or invalid input body", {}) if $log->is_error();
-	}
-	elsif (not defined $request_body_ref->{product}) {
-		$log->error("write_product_api - missing input product", {request_body => $request_body_ref})
-			if $log->is_error();
-		add_error(
-			$request_ref->{api_response},
-			{
-				message => {id => "missing_product"},
-				field => {id => "product"},
-				impact => {id => "failure"},
-			}
-		);
-	}
-	else {
-		my $input_product_ref = $request_body_ref->{product};
-
-		$request_ref->{updated_product_fields} = {};
-
-		foreach my $field (sort keys %{$input_product_ref}) {
-
-			my $value = $input_product_ref->{$field};
-
-			if ($field =~ /^packagings(_add)?/) {
-				$request_ref->{updated_product_fields}{$1} = 1;
-				my $add = $1;
-				if (not defined $add) {
-					$product_ref->{packagings} = {};
-				}
-
-				foreach my $input_packaging_ref (@{$value}) {
-					my $packaging_ref = get_checked_and_taxonomized_packaging_component_data($request_ref->{tags_lc},
-						$input_packaging_ref, $response_ref);
-					add_or_combine_packaging_component_data($product_ref, $packaging_ref, $response_ref);
-				}
-			}
-		}
-
-        # Save the product
-
-        analyze_and_enrich_product_data($product_ref);
-
-        my $comment = $request_body_ref->{comment} || "API v3";
-        if (store_product($User_id, $product_ref, $comment)) {
-            # Notify robotoff
-            send_notification_for_product_change($product_ref, "updated");
-        }
-        else {
-            # Product raw data not changed, according to ProductOpener::Products::compute_product_history_and_completeness(),
-            # which may be incomplete
-        }
-	}
-
-	$log->debug("write_product_api - stop", {request => $request_ref}) if $log->is_debug();
-
-	return;
-}
 
 sub send_api_reponse ($request_ref) {
 
@@ -362,6 +375,32 @@ sub send_api_reponse ($request_ref) {
 	# Send 200 instead.
 	$r->status(200);
 }
+
+
+=head2 customize_response_for_product ( $request_ref, $product_ref )
+
+Using the fields parameter, API product or search queries can request
+a specific set of fields to be returned.
+
+This function filters the field to return only the requested fields,
+and computes requested fields that are not stored in the database but
+created on demand.
+
+=head3 Parameters
+
+=head4 $request_ref (input)
+
+Reference to the request object.
+
+=head4 $product_ref (input)
+
+Reference to the product object (retrieved from disk or from a MongoDB query)
+
+=head3 Return value
+
+Reference to the customized product object.
+
+=cut
 
 sub process_api_request ($request_ref) {
 
@@ -397,6 +436,7 @@ sub process_api_request ($request_ref) {
 	$log->debug("process_api_request - stop", {request => $request_ref}) if $log->is_debug();
 }
 
+
 =head2 customize_response_for_product ( $request_ref, $product_ref )
 
 Using the fields parameter, API product or search queries can request
@@ -428,12 +468,27 @@ sub customize_response_for_product ($request_ref, $product_ref) {
 
 	my $carbon_footprint_computed = 0;
 
-	my $fields = single_param('fields');
+	my $fields = request_param($request_ref, 'fields');
 
 	# For non API queries, we need to compute attributes for personal search
 	if (((not defined $fields) or ($fields eq "")) and ($request_ref->{user_preferences}) and (not $request_ref->{api}))
 	{
 		$fields = "code,product_display_name,url,image_front_small_url,attribute_groups";
+	}
+
+	if ($fields eq "none") {
+		return {};
+	}
+	elsif ($fields eq "all") {
+		return $product_ref;
+	}
+
+	# Callers of the API V3 WRITE product can send fields = updated to get only updated fields
+	if ($fields eq "updated") {
+		if (defined $request_ref->{updated_product_fields}) {
+			$fields = join(',', sort keys %{$request_ref->{updated_product_fields}});
+			$log->debug("returning only updated fields", {fields => $fields}) if $log->is_debug();
+		}
 	}
 
 	# Localize the Eco-Score fields that depend on the country of the request
