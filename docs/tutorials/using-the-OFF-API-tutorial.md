@@ -108,7 +108,9 @@ For more details, see the reference documentation for [Get A Product By Barcode]
 
 <!-- Probably have a conclusion that links to the next possible topic eg filter countries using lc and cc-->
 
-### What if the  `nutriscore_data` and `nutriments` field does not get returned in the response?
+## Completing products to get the Nutri-Score
+
+### Products without a Nutri-Score
 
 When these fields are missing in a nutriscore computation response, it means that the product does not have a Nutri-Score computation due to some missing nutrition data.
 
