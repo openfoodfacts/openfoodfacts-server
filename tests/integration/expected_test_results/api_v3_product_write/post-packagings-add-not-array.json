@@ -1,34 +1,30 @@
 {
-   "api_response" : {
-      "errors" : [
-         {
-            "field" : {
-               "id" : "packagings_add"
-            },
-            "impact" : {
-               "id" : "field_ignored"
-            },
-            "message" : {
-               "id" : "invalid_type_must_be_array"
-            }
+   "errors" : [
+      {
+         "field" : {
+            "id" : "packagings_add"
+         },
+         "impact" : {
+            "id" : "field_ignored"
+         },
+         "message" : {
+            "id" : "invalid_type_must_be_array"
          }
-      ],
-      "warnings" : [
-         {
-            "field" : {
-               "default_value" : "en",
-               "id" : "tags_lc"
-            },
-            "impact" : {
-               "id" : "warning"
-            },
-            "message" : {
-               "id" : "missing_tags_lc"
-            }
-         }
-      ]
-   },
-   "errors" : [],
+      }
+   ],
    "product" : {},
-   "warnings" : []
+   "warnings" : [
+      {
+         "field" : {
+            "default_value" : "en",
+            "id" : "tags_lc"
+         },
+         "impact" : {
+            "id" : "warning"
+         },
+         "message" : {
+            "id" : "missing_tags_lc"
+         }
+      }
+   ]
 }

@@ -79,11 +79,11 @@ sub init_api_response ($request_ref) {
 }
 
 sub add_warning ($response_ref, $warning_ref) {
-	push @{$response_ref->{api_response}{warnings}}, $warning_ref;
+	push @{$response_ref->{warnings}}, $warning_ref;
 }
 
 sub add_error ($response_ref, $error_ref) {
-	push @{$response_ref->{api_response}{errors}}, $error_ref;
+	push @{$response_ref->{errors}}, $error_ref;
 }
 
 

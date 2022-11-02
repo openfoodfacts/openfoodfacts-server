@@ -1,21 +1,18 @@
 {
-   "api_response" : {
-      "warnings" : [
-         {
-            "field" : {
-               "default_value" : "en",
-               "id" : "tags_lc"
-            },
-            "impact" : {
-               "id" : "warning"
-            },
-            "message" : {
-               "id" : "missing_tags_lc"
-            }
-         }
-      ]
-   },
    "errors" : [],
    "product" : {},
-   "warnings" : []
+   "warnings" : [
+      {
+         "field" : {
+            "default_value" : "en",
+            "id" : "tags_lc"
+         },
+         "impact" : {
+            "id" : "warning"
+         },
+         "message" : {
+            "id" : "missing_tags_lc"
+         }
+      }
+   ]
 }

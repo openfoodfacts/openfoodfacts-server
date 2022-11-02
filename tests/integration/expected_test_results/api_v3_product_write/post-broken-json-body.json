@@ -1,34 +1,30 @@
 {
-   "api_response" : {
-      "errors" : [
-         {
-            "field" : {
-               "id" : "body",
-               "value" : "not json"
-            },
-            "impact" : {
-               "id" : "failure"
-            },
-            "message" : {
-               "id" : "invalid_json_in_request_body"
-            }
+   "errors" : [
+      {
+         "field" : {
+            "id" : "body",
+            "value" : "not json"
+         },
+         "impact" : {
+            "id" : "failure"
+         },
+         "message" : {
+            "id" : "invalid_json_in_request_body"
          }
-      ],
-      "warnings" : [
-         {
-            "field" : {
-               "default_value" : "en",
-               "id" : "tags_lc"
-            },
-            "impact" : {
-               "id" : "warning"
-            },
-            "message" : {
-               "id" : "missing_tags_lc"
-            }
+      }
+   ],
+   "warnings" : [
+      {
+         "field" : {
+            "default_value" : "en",
+            "id" : "tags_lc"
+         },
+         "impact" : {
+            "id" : "warning"
+         },
+         "message" : {
+            "id" : "missing_tags_lc"
          }
-      ]
-   },
-   "errors" : [],
-   "warnings" : []
+      }
+   ]
 }
