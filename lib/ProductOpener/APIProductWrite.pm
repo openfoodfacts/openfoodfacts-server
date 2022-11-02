@@ -92,7 +92,7 @@ sub update_product_fields ($request_ref, $product_ref) {
             else {
                 foreach my $input_packaging_ref (@{$value}) {
                     # Taxonomize the input packaging component data
-                    my $packaging_ref = get_checked_and_taxonomized_packaging_component_data($request_ref->{tags_lc},
+                    my $packaging_ref = get_checked_and_taxonomized_packaging_component_data($request_body_ref->{tags_lc},
                         $input_packaging_ref, $response_ref);
                     # Add or combine with the existing packagings components array
                     add_or_combine_packaging_component_data($product_ref, $packaging_ref, $response_ref);
@@ -115,19 +115,6 @@ sub write_product_api ($request_ref) {
 
     my $response_ref = $request_ref->{api_response};
 
-    # Use default request language if we did not get tags_lc
-    if (not defined $request_ref->{tags_lc}) {
-        $request_ref->{tags_lc} = $lc;
-        add_warning(
-			$response_ref,
-			{
-				message => {id => "missing_tags_lc"},
-				field => {id => "tags_lc", default_value => $request_ref->{tags_lc}},
-				impact => {id => "warning"},
-			}
-		);
-    }
-
 	decode_json_request_body($request_ref);
 	my $request_body_ref = $request_ref->{request_body_json};
 
@@ -149,6 +136,20 @@ sub write_product_api ($request_ref) {
 		);
 	}
 	else {
+
+        # Use default request language if we did not get tags_lc
+        if (not defined $request_body_ref->{tags_lc}) {
+            $request_body_ref->{tags_lc} = $lc;
+            add_warning(
+                $response_ref,
+                {
+                    message => {id => "missing_tags_lc"},
+                    field => {id => "tags_lc", default_value => $request_body_ref->{tags_lc}},
+                    impact => {id => "warning"},
+                }
+            );
+        }
+
         # Load the product
         my $code = $request_ref->{code};
         my $product_id = product_id_for_owner($Owner_id, $code);

@@ -235,7 +235,7 @@ sub execute_api_tests ($file, $tests_ref) {
 		}
 		elsif ($method eq 'POST') {
 			if (defined $test_ref->{body}) {
-				$response = $ua->post($url, Content => $test_ref->{body});
+				$response = $ua->post($url, Content => encode_utf8($test_ref->{body}), "Content-Type" => "application/json; charset=utf-8");
 			}
 			elsif (defined $test_ref->{form}) {
 				$response = $ua->post($url, Content => $test_ref->{form});

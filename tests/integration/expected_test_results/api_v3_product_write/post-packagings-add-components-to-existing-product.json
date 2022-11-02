@@ -1,0 +1,45 @@
+{
+   "errors" : [],
+   "product" : {
+      "packagings" : [
+         {
+            "material" : "en:plastic",
+            "number_of_units" : 2,
+            "recycling" : "en:strange value",
+            "shape" : "en:bottle"
+         },
+         {
+            "material" : "en:cardboard",
+            "number_of_units" : 1,
+            "recycling" : "en:recycle",
+            "shape" : "en:box"
+         }
+      ]
+   },
+   "warnings" : [
+      {
+         "field" : {
+            "default_value" : "en",
+            "id" : "tags_lc"
+         },
+         "impact" : {
+            "id" : "warning"
+         },
+         "message" : {
+            "id" : "missing_tags_lc"
+         }
+      },
+      {
+         "field" : {
+            "id" : "recycling",
+            "value" : "en:strange value"
+         },
+         "impact" : {
+            "id" : "none"
+         },
+         "message" : {
+            "id" : "packaging_component_unrecognized_property_value"
+         }
+      }
+   ]
+}

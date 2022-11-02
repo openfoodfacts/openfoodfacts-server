@@ -1,0 +1,32 @@
+{
+   "errors" : [],
+   "product" : {
+      "packagings" : [
+         {
+            "material" : "en:plastic",
+            "number_of_units" : 3,
+            "shape" : "en:bottle"
+         },
+         {
+            "material" : "en:glass",
+            "number_of_units" : 4,
+            "recycling" : "en:recycle",
+            "shape" : "en:pot"
+         }
+      ]
+   },
+   "warnings" : [
+      {
+         "field" : {
+            "id" : "recycling",
+            "value" : null
+         },
+         "impact" : {
+            "id" : "field_ignored"
+         },
+         "message" : {
+            "id" : "packaging_component_missing_recycling"
+         }
+      }
+   ]
+}
