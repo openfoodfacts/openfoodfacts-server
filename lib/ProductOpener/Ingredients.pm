@@ -2500,7 +2500,7 @@ sub init_percent_values ($total_min, $total_max, $ingredients_ref) {
 
 	# Go through each ingredient to set percent_min, percent_max, and if we can an absolute percent
 
-	my $index;
+	my $index = 0;
 	foreach my $ingredient_ref (@{$ingredients_ref}) {
 		if (defined $ingredient_ref->{percent}) {
 			# There is a specified percent for the ingredient.
