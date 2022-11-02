@@ -13,18 +13,5 @@
          }
       }
    ],
-   "warnings" : [
-      {
-         "field" : {
-            "default_value" : "en",
-            "id" : "tags_lc"
-         },
-         "impact" : {
-            "id" : "warning"
-         },
-         "message" : {
-            "id" : "missing_tags_lc"
-         }
-      }
-   ]
+   "warnings" : []
 }

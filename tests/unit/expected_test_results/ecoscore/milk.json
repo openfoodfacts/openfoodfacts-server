@@ -221,7 +221,7 @@
                   "material" : "en:pet-polyethylene-terephthalate",
                   "material_shape" : "en:pet-polyethylene-terephthalate.en:bottle",
                   "non_recyclable_and_non_biodegradable" : "no",
-                  "number" : "1",
+                  "number_of_units" : "1",
                   "shape" : "en:bottle"
                },
                {
@@ -230,7 +230,7 @@
                   "material" : "en:hdpe-high-density-polyethylene",
                   "material_shape" : "en:hdpe-high-density-polyethylene.en:bottle-cap",
                   "non_recyclable_and_non_biodegradable" : "no",
-                  "number" : "1",
+                  "number_of_units" : "1",
                   "shape" : "en:bottle-cap"
                }
             ],
@@ -468,12 +468,12 @@
    "packagings" : [
       {
          "material" : "en:pet-polyethylene-terephthalate",
-         "number" : "1",
+         "number_of_units" : "1",
          "shape" : "en:bottle"
       },
       {
          "material" : "en:hdpe-high-density-polyethylene",
-         "number" : "1",
+         "number_of_units" : "1",
          "shape" : "en:bottle-cap"
       }
    ],
