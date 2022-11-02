@@ -309,6 +309,20 @@ sub write_product_api ($request_ref) {
 				}
 			}
 		}
+
+        # Save the product
+
+        analyze_and_enrich_product_data($product_ref);
+
+        my $comment = $request_body_ref->{comment} || "API v3";
+        if (store_product($User_id, $product_ref, $comment)) {
+            # Notify robotoff
+            send_notification_for_product_change($product_ref, "updated");
+        }
+        else {
+            # Product raw data not changed, according to ProductOpener::Products::compute_product_history_and_completeness(),
+            # which may be incomplete
+        }
 	}
 
 	$log->debug("write_product_api - stop", {request => $request_ref}) if $log->is_debug();
