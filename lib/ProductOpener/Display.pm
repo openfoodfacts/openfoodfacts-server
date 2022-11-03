@@ -559,6 +559,7 @@ sub init_request() {
 	$admin = 0;
 
 	my $r = Apache2::RequestUtil->request();
+	$request_ref->{method} = $r->method();	
 
 	$cc = 'world';
 	$lc = 'en';

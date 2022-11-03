@@ -51,7 +51,6 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Index qw/:all/;
 
 use Encode;
-use URI::Escape::XS;
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Log::Any qw($log);
@@ -201,8 +200,7 @@ sub analyze_request ($request_ref) {
 			$request_ref->{code} = $components[3];
 		}
 
-		my $r = Apache2::RequestUtil->request();
-		$request_ref->{api_method} = $r->method();
+		$request_ref->{api_method} = $request_ref->{method};
 
 		# If return format is not xml or jqm or jsonp, default to json
 		if (    (not defined single_param("xml"))
