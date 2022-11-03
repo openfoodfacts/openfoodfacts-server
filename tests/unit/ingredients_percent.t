@@ -855,6 +855,52 @@ my @tests = (
 		]
 	],
 
+	# Parent ingredient has a percent less than the maximum
+	[
+		{lc => "en", ingredients_text => "milk (min 97%), chocolate flavour (sugar, cocoa, flavouring)"},
+		[
+			{
+				'id' => 'en:milk',
+				'percent' => 97,
+				'percent_estimate' => 97,
+				'percent_max' => 97,
+				'percent_min' => 97,
+				'text' => 'milk'
+			},
+			{
+				'id' => 'en:chocolate-flavouring',
+				'ingredients' => [
+					{
+						'id' => 'en:sugar',
+						'percent_estimate' => 2,
+						'percent_max' => 3,
+						'percent_min' => 1,
+						'text' => 'sugar'
+					},
+					{
+						'id' => 'en:cocoa',
+						'percent_estimate' => 0.5,
+						'percent_max' => 1.5,
+						'percent_min' => 0,
+						'text' => 'cocoa'
+					},
+					{
+						'id' => 'en:flavouring',
+						'percent_estimate' => 0.5,
+						'percent_max' => 1,
+						'percent_min' => 0,
+						'text' => 'flavouring'
+					}
+				],
+				'percent_estimate' => 3,
+				'percent_max' => 3,
+				'percent_min' => 3,
+				'text' => 'chocolate flavour'
+			}
+		]
+
+	],
+
 );
 
 foreach my $test_ref (@tests) {

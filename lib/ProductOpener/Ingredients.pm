@@ -2534,7 +2534,7 @@ sub init_percent_values ($total_min, $total_max, $ingredients_ref) {
 			}
 			if ((not defined $ingredient_ref->{percent_max}) or ($ingredient_ref->{percent_max} > $total_max)) {
 				my $value = get_inherited_property("ingredients", $ingredient_ref->{id}, "percent_max:en");
-				if (defined $value and $index > 0) {
+				if (defined $value and $index > 0 and $value < $total_max) {
 					# Maximum percantage for ingredients like flavourings
 					$ingredient_ref->{percent_max} = $value;
 				} else {
