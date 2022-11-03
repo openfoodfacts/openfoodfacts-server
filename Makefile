@@ -11,7 +11,7 @@ UID ?= $(shell id -u)
 export USER_UID:=${UID}
 
 export CPU_COUNT=$(shell nproc || echo 1)
-
+export MSYS_NO_PATHCONV=1
 
 DOCKER_COMPOSE=docker-compose --env-file=${ENV_FILE}
 # we run tests in a specific project name to be separated from dev instances
@@ -223,6 +223,10 @@ test-int: guard-test # usage: make test-one test=test-file.t
 # stop all docker tests containers
 stop_tests:
 	${DOCKER_COMPOSE_TEST} stop
+
+update_tests_results:
+	@echo "🥫 Updated expected test results with actuals for easy Git diff"
+	${DOCKER_COMPOSE_TEST} run --rm -w /opt/product-opener/tests backend bash update_tests_results.sh
 
 # check perl compiles, (pattern rule) / but only for newer files
 %.pm %.pl: _FORCE
