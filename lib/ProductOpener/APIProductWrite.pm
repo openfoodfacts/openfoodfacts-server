@@ -99,7 +99,7 @@ sub update_product_fields ($request_ref, $product_ref) {
 			}
 		}
 	}
-    return;
+	return;
 }
 
 =head2 write_product_api()
