@@ -154,7 +154,7 @@ The WRITE operations in the OFF API require authentication, therefore you need a
 
 To write data to a product, make a `POST` request to the [`Add or Edit A Product`](https://openfoodfacts.github.io/openfoodfacts-server/reference/api.html#tag/Write-Requests/operation/post-cgi-product_jqm2.pl) endpoint.
 
-```bash
+```text
 https://world.openfoodfacts.org/cgi/product_jqm2.pl
 ```
 
