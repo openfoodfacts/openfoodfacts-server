@@ -288,6 +288,7 @@ sub execute_api_tests ($file, $tests_ref) {
 			);
 		}
 	}
+	return;
 }
 
 1;

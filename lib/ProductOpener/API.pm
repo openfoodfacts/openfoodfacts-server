@@ -85,14 +85,17 @@ sub get_initialized_response() {
 sub init_api_response ($request_ref) {
 
 	$request_ref->{api_response} = get_initialized_response();
+	return;
 }
 
 sub add_warning ($response_ref, $warning_ref) {
 	push @{$response_ref->{warnings}}, $warning_ref;
+	return;
 }
 
 sub add_error ($response_ref, $error_ref) {
 	push @{$response_ref->{errors}}, $error_ref;
+	return;
 }
 
 =head2 read_request_body ($request_ref)
@@ -131,6 +134,7 @@ sub read_request_body ($request_ref) {
 	$request_ref->{body} = $content;
 
 	$log->debug("read_request_body - end", {request => $request_ref}) if $log->is_debug();
+	return;
 }
 
 =head2 decode_json_request_body ($request_ref)
@@ -174,6 +178,7 @@ sub decode_json_request_body ($request_ref) {
 			);
 		}
 	}
+	return;
 }
 
 =head2 add_localized_messages_to_api_response ($request_ref)
@@ -194,7 +199,7 @@ Reference to the request object.
 sub add_localized_messages_to_api_response ($request_ref) {
 
 	# TODO
-
+	return;
 }
 
 =head2 customize_response_for_product ( $request_ref, $product_ref )
@@ -253,6 +258,7 @@ sub send_api_reponse ($request_ref) {
 	# $r->status($status);
 	# Send 200 instead.
 	$r->status(200);
+	return;
 }
 
 =head2 customize_response_for_product ( $request_ref, $product_ref )
@@ -312,6 +318,7 @@ sub process_api_request ($request_ref) {
 	send_api_reponse($request_ref);
 
 	$log->debug("process_api_request - stop", {request => $request_ref}) if $log->is_debug();
+	return;
 }
 
 =head2 customize_response_for_product ( $request_ref, $product_ref )

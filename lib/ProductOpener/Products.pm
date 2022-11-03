@@ -3313,6 +3313,8 @@ sub analyze_and_enrich_product_data ($product_ref) {
 	}
 
 	ProductOpener::DataQuality::check_quality($product_ref);
+
+	return;
 }
 
 1;

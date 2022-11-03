@@ -478,6 +478,7 @@ sub apply_rules_to_augment_packaging_component_data ($product_ref, $packaging_re
 			$packaging_ref->{"shape"} = $shape;
 		}
 	}
+	return;
 }
 
 =head2 add_or_combine_packaging_component_data($product_ref, $packaging_ref, $response_ref)
@@ -588,6 +589,7 @@ sub add_or_combine_packaging_component_data ($product_ref, $packaging_ref, $resp
 			}
 		}
 	}
+	return;
 }
 
 =head2 analyze_and_combine_packaging_data($product_ref)
