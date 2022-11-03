@@ -19,7 +19,7 @@ stopwords:en:contains, contain, from, with, produced with, with added, minimum,i
 stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
 stopwords:fi:sisältää,muun muassa,valio, koskenlaskija, snellmanin, jossa, noin, käymisen aikana muodostuva
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout, sachet
-stopwords:hr:i, sastojci, sastav, u promjenjivim omjerima, u promjenjivim udjelima, u različitim omjerima
+stopwords:hr:i, iz, sastojci, sastav, u promjenjivim omjerima, u promjenjivim udjelima, u različitim omjerima
 stopwords:hu:tartalmaz, változó arányban, min, zsírtartalom, összetevő, összetétel, amelyből, amiből
 stopwords:id:mengandung
 stopwords:is:úr
@@ -2261,7 +2261,7 @@ gn:Kamby
 gu:દૂધ
 gv:Bainney
 he:חלב
-hr:mlijeko, mlijeko tekuća, mlijeka
+hr:mlijeko, mlijeka
 ht:Lèt
 hu:Tej, Tejet
 hy:Կաթ
@@ -2794,7 +2794,7 @@ de:Vollmilch
 es:leche entera
 fi:täysmaito
 fr:lait entier
-hr:mlijeko trajno, mlijeko trajno s 2.8% mliječne masti
+hr:mlijeko trajno, mlijeko trajno s 2.8% mliječne masti, mlijeko s 2.8% mliječne masti
 hu:teljes tej
 is:nýmjólk
 it:latte intero
@@ -4026,6 +4026,7 @@ de:Joghurt, Jogurt
 es:Yogur
 fi:jogurtti, jukurtti, jugurtti
 fr:yaourt
+hr:jogurt
 hu:joghurt
 it:yogurt
 ja:ヨーグルト
@@ -4812,7 +4813,7 @@ nl:volle room
 #this is cream that can be used for whipping
 <en:cream
 en:whipping cream
-es:nata montada, crema batida
+es:nata montada, crema batida, nata líquida
 fi:kuohukerma
 fr:crème à fouetter
 sv:vispgrädde
@@ -13944,7 +13945,7 @@ es:grasa butírica, mantequilla concentrada,mantequilla anhidra
 et:võirasv, veevaba piimarasv
 fi:voiöljy, voirasva, tiivistetty voi, vedetön maitorasva
 fr:matière grasse butyrique, graisse butyrique, beurre purifié, beurre fondu, beurre pâtissier, matière grasse laitière anhydre, beurre laitier concentré, beurre concentré, beurre anhydre, huile butyrique
-hr:pročišćeni maslac
+hr:pročišćeni maslac, bezvodna mliječna mast
 hu:vajzsír, vajolaj, derített vaj
 id:lemak susu
 it:burro anidro, burro di pasticceria, burro concentrato
@@ -14354,7 +14355,7 @@ ga:Ola phailme
 gl:Aceite de palma
 he:שמן דקלים
 hi:ताड़ का तेल
-hr:Palmino ulje
+hr:palmino ulje
 hu:pálmaolaj
 id:Minyak sawit
 is:pálmaolía
@@ -15720,7 +15721,7 @@ es:manteca de karité, grasa de karite, karite, shea
 fi:karitevoi, sheavoi, shea, karite, sheaydin, shearasva
 fr:beurre de karité, matière grasse de karité, karité, graisses végétales de karité, huile de karité, huile végétale de karité, huiles végétales de karité
 he:חמאת שיאה
-hr:shea maslac, shea, šea, karite maslac
+hr:shea maslac, shea, šea, karite maslac, shea mast
 hu:sheavaj, shea, sheazsír
 it:Burro di karité, karité
 ja:シアバター
@@ -20647,6 +20648,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Liquid_smoke
 # comment:en:bran does not specify from which cereal it comes
 
 en:bran
+ca:segó
 de:Kleie
 es:salvado
 fi:lese, leseet
@@ -21194,6 +21196,7 @@ de:Weizenhalmfaser
 en:wheat bran
 af:koringsemels
 bg:пшенични трици, пшеничени трици
+ca:segó de blat
 da:vetekli
 de:Weizenkleie, Weizenspeisekleie
 el:πίτουρο σταριού, σταροπίτουρο
@@ -21385,7 +21388,7 @@ et:durumnisujahu
 fi:durumvehnäsuurimo
 fr:semoule de blé dur, semoule de blé dure
 ga:seimilín cruithneachta dúraim
-hr:krupica durum pšenice, krupica iz durum pšenice
+hr:krupica durum pšenice, krupica iz durum pšenice, durum pšenična krupica
 hu:durumbúzadara, durum búzadara
 it:semola di grano duro
 lt:kietųjų kviečių manų kruopos
@@ -21534,7 +21537,7 @@ bg:пшеничен зародиш
 ca:germen de blat
 de:Weizenkeime
 es:germen de trigo
-fi:vehnänalkio
+fi:vehnänalkio, vehnänalkiot
 fr:germe de blé, germes de blé
 hu:búzacsíra
 it:germe di frumento, germi di frumento
@@ -23730,7 +23733,7 @@ es:espelta inflada
 <en:cereal flour
 en:spelt flour
 bg:брашно от спелта
-ca:farina d'espelta
+ca:farina d'espelta, farina de blat d'espelta
 de:Dinkelmehl, Dinkelweizenmehl
 es:harina de espelta, harina de trigo espelta, harina gruesa de espelta
 fi:spelttijauho
@@ -23765,7 +23768,7 @@ fr:Farine de blé d'épeautre T110
 <en:spelt flour
 en:wholemeal spelt flour, whole grain spelt flour, wholegrain spelt flour
 bg:пълнозърнесто брашно от спелта
-ca:farina de blat d'espelta integral
+ca:farina de blat d'espelta integral, farina integral de blat d'espelta
 de:Dinkelvollkornmehl, dinkel vollkornmehl
 es:harina de espelta integral,harina integral de espelta,harina integral de trigo de espelta
 fi:täysjyväspelttijauho, täysjyväspelttivehnäjauho
@@ -24590,6 +24593,7 @@ de:Bohnenmehl
 es:Harina de habas
 fi:härkäpapujauho
 fr:farine de fève, farine de fèves
+hr:grahovo brašno
 hu:lóbabliszt, széles bab liszt
 it:farina di fave
 nl:bonenmeel, veldbonenmeel
@@ -26643,7 +26647,7 @@ gl:Azucre
 gn:Eiratã
 he:סוכר
 hi:शर्करा
-hr:Šećeri, šećer
+hr:šećeri, šećer
 ht:Sik
 hu:cukor
 id:gula
@@ -27376,6 +27380,7 @@ en:maltose syrup
 de:Maltosesirup
 fi:maltoosisiirappi
 fr:Sirop de maltose
+hr:maltozni sirup
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:maltoosisiirappi
 # 1 entry @ 2019-10-31
 
@@ -28213,6 +28218,7 @@ es:Jarabe de maíz, sirope de maíz
 fi:maissisiirappi
 fr:sirop de maïs
 he:סירופ תירס
+hr:kukuruzni sirup
 hu:kukoricaszirup
 it:sciroppo di mais
 ja:コーンシロップ
@@ -28934,7 +28940,7 @@ ro:proteină de cartofi
 <en:plant protein
 en:hydrolysed vegetable protein, HVP, vegetable hydrolysed proteins
 da:hydrolyseret vegetabllsk protein. hydrolysert vegetabilsk protein
-de:hydrolysiertes Pflanzenprotein, aufgeschlossenes Pflanzeneiweiß
+de:hydrolysiertes Pflanzenprotein, aufgeschlossenes Pflanzeneiweiß, aufgeschlossenes Pflanzenprotein
 es:Proteina vegetal hidrolizada, hidrolizado de proteína vegetal
 fi:hydrolysoitu kasviproteiini, kasviproteiinihydrosylaatti
 fr:protéine végétale hydrolysée, protéines végétales hydrolysées
@@ -28968,7 +28974,7 @@ et:sojavalk
 fi:soijaproteiini, soijaproteiinivalmiste
 fr:protéine de soja, protéines de soja
 hu:szójafehérje
-hr:bjelančevine soje
+hr:bjelančevine soje, hidrolizat sojinih bjelančevina
 it:proteine di soia
 nl:soja-eiwit, sojaeiwitten
 pl:Białko sojowe, hydrolizat białka sojowego, białko soi, białko z soi
@@ -31882,7 +31888,7 @@ es:extracto de levadura
 et:pärmiekstrakt
 fi:hiivauute
 fr:extrait de levure, extrait de levures, extraits de levure
-hr:Ekstrakt kvasca, kvaščev ekstrakt
+hr:ekstrakt kvasca, kvaščev ekstrakt, ekstrakti kvasca
 hu:élesztőkivonat
 is:gerseyði
 it:estratto di lievito
@@ -35749,6 +35755,7 @@ da:citrusfibre
 de:citrusfaser, zitrusfaser, Zitrusfasern, Zitrusfruchtfasern
 fi:sitruskuitu
 fr:fibre d'agrume, fibre végétale d'agrumes, fibres d'agrumes, fibres d'agrume
+hr:citrusna vlakna
 it:Fibra di limone
 nl:citrusvezel, citrusvezels
 pl:błonnik cytrusowy
@@ -38604,7 +38611,7 @@ it:succo d'aronia
 
 <en:chokeberry juice
 en:concentrated chokeberry juice
-de:Aroniasaft-Konzentrat, Aroniasaft Konzentrat
+de:Aroniasaft-Konzentrat, Aroniasaft Konzentrat, Aroniasaft aus Aroniasaftkonzentrat
 fi:marja-aroniamehutiiviste
 fr:Jus concentré d'aronia
 
@@ -39782,6 +39789,7 @@ en:melon
 ba:Баҡса культуралары
 be:Гарбузіна
 bg:пъпеш, пъпеши
+ca:meló
 cs:meloun
 cy:melon
 de:Melone
@@ -40937,6 +40945,11 @@ it:lamponi liofilizzati
 sv:frystorkade hallon
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:framboises-lyophilisées
 # 46 products in 4 languages @2018-09-27
+
+<en:freeze-dried raspberries
+en:freeze-dried raspberry pieces
+fr:morceaux de framboises lyophilisées
+fi:pakastekuivattu vadelma paloina
 
 <en:raspberry
 en:raspberry powder
@@ -43186,7 +43199,7 @@ es:verduras, hortaliza,hortalizas, vegetal,vegetales
 fi:vihannes, kasvis, kasvikset
 fr:légume, légumes
 he:ירק
-hr:Povrće
+hr:povrće
 hu:zöldség, zöldségek
 it:vegetale, ortaggi
 ja:野菜
@@ -44096,7 +44109,7 @@ fr:concentrés de blettes
 en:corn salad, common cornsalad, lamb's lettuce, fetticus, nut lettuce, field salad, rapunzel, doucette, raiponce, Nusslisalat
 ar:خس النعجة
 be:валер’янэла малая
-ca:herba dels canonges
+ca:canonges, herba dels canonges
 cs:polníček, kozlíček polní
 cy:gwylaeth yr oen
 da:vårsalat
@@ -46752,6 +46765,11 @@ ciqual_food_code:en:53200
 ciqual_food_name:en:Taro, tuber, raw
 ciqual_food_name:fr:Taro, tubercule, cru
 
+en:Konjac
+de:Konjak
+fr:Konjac
+wikidata:en:Q674443
+description:en:Konjac is a common name of the East and Southeast Asian plant Amorphophallus konjac (syn. A. rivieri), which has an edible corm (bulbo-tuber).
 
 <en:carrot
 <en:pumpkin
@@ -49181,7 +49199,7 @@ de:Kartoffelflocken
 es:copos de patata
 fi:perunahiutale, perunahiutaleita
 fr:flocon de pomme de terre, flocons de pommes de terre, flocons de pomme de terre
-hr:krumpirove pahuljice
+hr:krumpirove pahuljice, pahuljice krumpira
 it:fiocco di patata, fiocchi di patate
 nl:aardappelvlokken
 pl:płatki ziemniaczane
@@ -49463,7 +49481,7 @@ gn:Ky'ỹi
 gu:મરચું
 he:פלפלת צ'ילי
 hi:मिर्च
-hr:Čili
+hr:Čili, Čili paprike
 ht:Piman
 hu:Csilipaprika
 hy:Կարմիր պղպեղ
@@ -50429,6 +50447,7 @@ ciqual_food_name:fr:Tomate, double concentré, appertisé
 <en:tomato purée
 fr:purée de tomates reconstituée, purée de tomates à base de concentré, purée de tomate à base de concentré
 de:Tomatenpüree aus Konzentrat, Tomatenmark aus Konzentrat
+hr:pire rajčice iz koncentrata
 # ingredient/fr:puree-de-tomates-reconstituee has 127 products in french @2018-12-26
 # ingredient/fr:purée-de-tomates-à-base-de-concentré has 94 products in 2 languages @2018-12-26
 
@@ -53840,6 +53859,7 @@ de:Haselnüsspaste, Haselnusspaste, Haselnussmasse, Haselnussmark
 es:pasta de avellana, pasta de avellanas
 fi:hasselpähkinätahna, hasselpähkinämassa
 fr:pâte de noisette, purée de noisettes
+hr:pasta lješnjaka
 hu:mogyoromassza
 it:pasta di nocciole
 nb:hasselnøttpasta, hasselnøtmasse
@@ -55004,6 +55024,7 @@ en:poppyseed, poppy seed, poppy seeds
 af:Papawersaad
 ar:بذور خشخاش
 bg:маково семе
+ca:rosella, Llavors de rosella
 da:birkes
 de:Mohnsamen, Mohnsaat
 el:σπόροι παπαρούνας
@@ -55123,6 +55144,7 @@ hr:pasta od suncokretovih sjemenki
 
 # The context should make clear what it is used for (seeds or oil from seeds)
 en:flax
+ca:lli
 de:Flachs
 es:lino
 fi:pellava
@@ -55603,7 +55625,7 @@ fr:sésame blanc
 # <en:seed
 en:sesame seeds
 bg:сусамово семе
-ca:llavors de sèsam
+ca:llavors de sèsam, grans de sèsam
 cs:sezamová semena
 da:sesamfrø
 de:Sesamsamen, Sesamkörner, Sesamkorn, Sesamsaat, Sesamsaaten
@@ -58862,7 +58884,7 @@ et:tüümian
 fa:تایم
 fi:timjami
 fr:thym
-hr:timijan
+hr:timijan, majčina dušica
 hu:kaukkfű
 id:thyme
 it:timo
@@ -59032,7 +59054,7 @@ ga:peirsil
 gl:perexil
 he:פטרוזיליה
 hi:अजमोद
-hr:peršin
+hr:peršin, peršina
 ht:pèsi
 hu:petrezselyem
 hy:մաղադանոս
@@ -60987,7 +61009,7 @@ cs:locika, locika setá
 cy:Letysen
 de:Lattich, Gartensalat
 eo:Laktuko, Kultiva laktuko
-es:Lechuga, Lechugas
+es:Lechuga, Lechugas, Lechuga roja, Lechuga de hoja roja
 et:Salat, Aedsalat
 eu:Uraza
 fa:لاکتوکا, کاهو
@@ -62455,7 +62477,7 @@ fa:گل‌آفتاب‌گردانیان
 fi:auringonkukka
 fr:tournesol
 he:חמנית
-hr:suncokret, suncokretov, suncokretovo
+hr:suncokret, suncokretov, suncokretova, suncokretovo
 hu:napraforgó
 hy:արևածաղիկ
 is:Sólblóm
@@ -74997,6 +75019,7 @@ de:Poulethaut
 es:piel de pollo
 fi:kanannahka
 fr:peau de poulet
+hr:pileće kožice
 it:pelle di pollo
 nl:kippenvel
 pl:skóra z kurczaka, skóry z kurczaka, skóry z kurcząt
@@ -75017,6 +75040,7 @@ de:Pouletfleisch, Hühnerfleisch, Hühnchenfleisch
 es:Carne de pollo
 fi:kananliha
 fr:viande de poulet, viande de poule
+hr:pileće meso
 hu:csirkehús
 it:carne di pollo
 ja:鶏肉
@@ -75553,6 +75577,7 @@ es:carne de pavo
 fa:گوشت بوقلمون
 fi:kalkkunanliha
 fr:viande de dinde
+hr:pureće meso
 id:Daging kalkun
 it:carne di tacchino
 ja:七面鳥肉

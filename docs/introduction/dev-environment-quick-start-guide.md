@@ -20,7 +20,21 @@ Docker provides an isolated environment, very close to a Virtual Machine. This e
 > If you run e.g. Debian, don't forget to add your user to the `docker` group!
 - [Install Docker Compose](https://docs.docker.com/compose/install/)
 - [Enable command-line completion](https://docs.docker.com/compose/completion/)
-- [Install Make for Windows](http://gnuwin32.sourceforge.net/packages/make.htm) (if running on Windows)
+
+### Windows Prerequisites
+
+When running with Windows, install [Docker Desktop](https://www.docker.com/products/docker-desktop/) which will cover all of the above.
+
+The Make tasks use a number of Linux commands, such as rm and nproc, so it is recommeded to run Make commands from the Git Bash shell. In addition, the following need to be installed and included in the PATH:
+
+- [Make for Windows](http://gnuwin32.sourceforge.net/packages/make.htm)
+- [wget for windows](https://eternallybored.org/misc/wget/) (In order to download the full product database).
+
+The process of cloning the repository will create a number of symbolic links which require specific permissions under Windows. In order to do this you can use any one of these alternatives:
+
+ - Use an Administrative command prompt for all Git commands
+ - Completely disable UAC
+ - Specifically grant the [Create symbolic links](https://learn.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/create-symbolic-links) permission to your user
 
 ## 2. Clone the repository from GitHub
 
@@ -205,3 +219,24 @@ You need to remove current directory where you clone the project, and clone the 
 
 ```console
 git clone -c core.symlinks=true git@github.com:openfoodfacts/openfoodfacts-server.git
+```
+
+### 'rm' is not recognized as an internal or external command
+
+When running make import_prod_data or some other commands.
+
+Solution:
+
+Use the Git Bash shell to run the make commands in windows so that programs like nproc and rm are found.
+
+### System cannot find wget
+
+When running make import_prod_data.
+
+```console
+process_begin: CreateProcess(NULL, wget --no-verbose https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz, ...) failed.
+make (e=2): The system cannot find the file specified.
+```
+
+You need to install [wget for windows](https://eternallybored.org/misc/wget/). The referenced version is able to use the Windows Certificate Store, whereas the standard [gnuwin32 version](https://gnuwin32.sourceforge.net/packages/wget.htm) will give errors about not being able to verify the server certificate.
+

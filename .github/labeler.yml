@@ -21,7 +21,9 @@ tagline:
 - html/files/tagline-obf.json
 - html/files/tagline-opf.json
 - html/files/tagline-opff.json
-  
+- html/files/tagline-off-ios-v2.json
+- html/files/tagline-off-android-v2.json
+
 taxonomies:
 - taxonomies/**/*
 - scripts/build_tags_taxonomy.pl
@@ -61,8 +63,22 @@ open pet food facts:
 - taxonomies.opff/**/*
 - po/openpetfoodfacts/**/*
 - scripts/gen_opff_leaderboard.pl
+- scripts/gen_opff_leaderboard.sh
 - html/files/tagline-opff.json
 - lib/ProductOpener/Config_opff.pm
+- html/images/misc/opff_cat.svg
+- html/images/misc/opff_dog.svg
+- html/images/misc/opff_bird.svg
+- html/images/misc/opff_fish.svg
+- html/images/misc/opff_rabbit.svg
+- html/images/misc/opff-leaderboard.svg
+- conf/nginx/sites-available/opff
+- conf/apache-2.4/sites-available/opff.conf
+- scripts/gen_feeds_opff.sh
+- scripts/gen_feeds_daily_opff.sh
+- lib/ProductOpener/Config_opff.pm
+- conf/nginx/snippets/ssl-params-opff.conf
+- taxonomies.opff/categories.txt
 
 open beauty facts:
 - taxonomies.obf/**/*
@@ -72,11 +88,48 @@ open beauty facts:
 - html/files/tagline-obf.json
 - lib/ProductOpener/Config_obf.pm
 - scripts/generate_polyquaternium.pl
+- conf/nginx/sites-available/obf
+- conf/apache-2.4/sites-available/obf.conf
+- scripts/gen_feeds_obf.sh
+- html/files/tagline-obf.json
+- scripts/gen_feeds_daily_obf.sh
+- lib/ProductOpener/Config_obf.pm
+- taxonomies.obf/ingredients-old-obf.txt
+- taxonomies.obf/ingredients-cosing-obf.txt
+- taxonomies.obf/ingredients-cosing-obf.result.sto
+- scripts/gen_obf_ingredients_taxonomy_from_cosing.pl
+- scripts/gen_obf_inci_functions_taxonomy_from_cosing.pl
+- html/images/svg/crowdsourcing-obf-round-smartphones.svg
+- taxonomies.obf/brands.txt
+- taxonomies.obf/labels.txt
+- taxonomies.obf/safety.txt
+- taxonomies.obf/allergens.txt
+- taxonomies.obf/body_parts.txt
+- taxonomies.obf/categories.txt
+- taxonomies.obf/abbreviations.txt
+- taxonomies.obf/labels.result.sto
+- taxonomies.obf/labels.result.txt
+- taxonomies.obf/inci_functions.txt
+- taxonomies.obf/allergens.result.sto
+- taxonomies.obf/allergens.result.txt
+- taxonomies.obf/categories.result.sto
+- taxonomies.obf/categories.result.txt
+- tests/unit/expected_test_results/import_gs1/equadis_unilever_obf_signal.json
+- taxonomies.obf/special_ingredients.txt
+- taxonomies.obf/inci_functions.result.sto
+- tests/unit/expected_test_results/import_gs1/equadis_unilever_obf_signal.off.json
 
 open products facts:
 - taxonomies.opf/**/*
 - po/openproductsfacts/**/*
 - lib/ProductOpener/Config_opf.pm
+- conf/nginx/sites-available/opf
+- conf/apache-2.4/sites-available/opf.conf
+- scripts/gen_feeds_opf.sh
+- html/files/tagline-opf.json
+- scripts/gen_feeds_daily_opf.sh
+- lib/ProductOpener/Config_opf.pm
+- taxonomies.opf/unspsc.txt
 
 icons:
 - icons/**/*
@@ -123,6 +176,7 @@ footer:
 documentation:
 - docs/**/*
 - scripts/generate_perl_html_doc_from_pod.pl
+- po/README.md
 
 docker:
 - docker/**/*
@@ -442,6 +496,7 @@ Web:
 Donations:
 - html/donate/tt.html
 - templates/web/common/includes/donate_banner.tt.html
+- html/donate/fr.helloasso.html
 
 editing:
 - templates/web/pages/product_edit/product_edit_form.tt.html

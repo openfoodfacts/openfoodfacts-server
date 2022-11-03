@@ -218,7 +218,7 @@ de:gehackt, gehackte, gehackter, gehacktes
 es:picada, picado, picadas, picados, trocitos, trocitas, troceado, troceada, troceados, troceadas
 fi:pilkottu, pilkotut
 fr:hâché, hâchée, hâchés, hâchées, haché, hachée, hachés, hachées
-hr:usitnjeni
+hr:usitnjeni, usitnjena
 hu:apróra vágott, aprított, aprítva, apróra vágva
 is:hakkaðar
 nb:hakkede
@@ -330,6 +330,7 @@ sv:mald, malda, malen
 
 # <en:ground
 de:fein gemahlen, fein gemahlene, fein gemahlener, fein gemahlenes
+hr:fino mljeveno
 hu:finomra őrölt
 
 # <en:ground
@@ -568,9 +569,14 @@ en:boned
 bg:обезкостен, обезкостено, обезкостена, обезкостени, без кокал
 es:deshuesado, deshuesada, deshuesados, deshuesadas, sin hueso
 fr:désossé, désossée, désossés, désossées, sans os
+hr:iskošteno
 hu:csontozott, kicsontozott
 pl:bez kości
 pt:desensoçado, desossado, sem osso
+
+<en:boned
+en:machine boned
+hr:strojno otkošteno
 
 #en:description:To remove the outer covering or shell of something
 en:shelled
@@ -761,6 +767,7 @@ de:flüssiger
 es:líquido
 fi:nestemäinen
 fr:liquide
+hr:tekući, tekuća
 it:liquido
 nl:vloeibaar
 pl:płyn
@@ -854,7 +861,7 @@ et:kuivatatud
 fi:kuivattu, kuivatut
 fr:séché, séchée, séchés, séchées, sèches
 he:מיובשים, מיובש
-hr:sušeni
+hr:sušeni, sušena, sušeno
 hu:szárított
 it:secco, secca, secchi, secche, essiccati
 ja:ドライ
@@ -1345,6 +1352,7 @@ en:unbromated, un-bromated
 
 en:covered,coated
 es:cobertura
+ca:cobertura
 pt:coberto, coberta, cobertos, cobertas, cobertura, coberturas, coberto com, coberta com, cobertos com, cobertas com, cobertura em, coberturas em
 
 #en:comment:salt has been added to the ingredient
