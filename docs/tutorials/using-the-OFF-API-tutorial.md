@@ -144,7 +144,7 @@ The response shows the missing fields and category needed to compute the Nutri-S
 }
 ```
 
-The sample response above for 100% Real Orange Juice `misc_tags` shows that the Nutri-Score is missing category and sodium(salt). Now you can write to the OFF API to provide these nutriment data (if you have them) so that the Nutri-Score can be computed.
+The sample response above for 100% Real Orange Juice `misc_tags` shows that the Nutri-Score is missing category (`en:nutriscore-missing-category`) and sodium(salt) (`en:nutriscore-missing-nutrition-data-sodium`). Now you can write to the OFF API to provide these nutriment data (if you have them) so that the Nutri-Score can be computed.
 
 ### Write data to make Nutri-Score computation possible
 
