@@ -171,6 +171,13 @@ To write `sodium` and `category` to 100% Real Orange Juice so that the Nutri-Sco
 | nutriment_sodium_unit | g      |   Unit of sodium relative to the amount |
 | categories | Orange Juice     |   Category of the Product |
 
+Using curl:
+```bash
+curl -XPOST -u off:off -x POST https://world.openfoodfacts.org/cgi/product_jqm2.pl \
+  -F user_id=your_user_id -F password=your_password \
+  -F code=0180411000803 -F nutriment_sodium=0.015 -F nutriment_sodium_unit=g -F categories="Orange Juice"
+```
+
 If the request is succesful, it returns a response that indicated that the fields have been saved.
 
 ```json
