@@ -6,12 +6,12 @@ description: 'A response object to describe if a READ or WRITE request was succe
 examples:
   - status_id: success_with_errors
     result:
-      id: 'en:product-updated'
-      en_name: Product updated
+      id: product_updated
+      name: Product updated
       lc_name: Produit mis à jour
     errors:
       - message:
-          id: 'en:sugars-higher-than-carbohydrates'
+          id: sugars_higher_than_carbohydrates
           name: Sugars higher than carbohydrates
           lc_name: Sucres plus élevés que les glucides
           description: Sugars (40g) are higher than carbohydrates (35g).
@@ -20,7 +20,7 @@ examples:
           id: nutriment.sugars
           value: '40'
         impact:
-          id: 'en:nutrients-not-updated'
+          id: nutrients_not_updated
           name: Nutrients not updated
           lc_name: Nutriments non mis à jour
           description: The nutrients were not updated.
@@ -42,8 +42,8 @@ properties:
     properties:
       id:
         type: string
-        description: Identifier of an entry in the response_results taxonomy
-      en_name:
+        description: Identifier of a response result entry
+      name:
         type: string
         description: Name of the response result entry in English.
       lc_name:
