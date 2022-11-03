@@ -179,7 +179,7 @@ If the request is succesful, it returns a response that indicated that the field
     "status": 1
 }
 ```
-
+### Read newly computed Nutri-Score
 Now, let's check if the Nutri-Score for 100% Real Orange Juice has been computed now that we have provided the missing data. Make a GET request to `https://world.openfoodfacts.org/api/v2/product/0180411000803?fields=product_name,nutriscore_data,nutriments,nutrition_grades` for Nutri-Score of 100% Real Orange Juice. The response now contains the Nutri-Score computation:
 
 ```json
