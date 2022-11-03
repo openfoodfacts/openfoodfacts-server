@@ -2537,7 +2537,8 @@ sub init_percent_values ($total_min, $total_max, $ingredients_ref) {
 				if (defined $value and $index > 0 and $value < $total_max) {
 					# Maximum percantage for ingredients like flavourings
 					$ingredient_ref->{percent_max} = $value;
-				} else {
+				}
+				else {
 					$ingredient_ref->{percent_max} = $total_max;
 				}
 			}
