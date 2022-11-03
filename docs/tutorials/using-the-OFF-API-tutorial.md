@@ -144,6 +144,73 @@ The response shows the missing fields and category needed to compute the Nutri-S
 }
 ```
 
-The sample response above for 100% Real Orange Juice `misc_tags` shows that the Nutri-Score is missing category and sodium(salt). Now you can write to the OFF API to provide these data (if you have them) so that the Nutri-Score can be computed.
+The sample response above for 100% Real Orange Juice `misc_tags` shows that the Nutri-Score is missing category and sodium(salt). Now you can write to the OFF API to provide these nutriment data (if you have them) so that the Nutri-Score can be computed.
 
 ### Write data to make Nutri-Score computation possible
+
+The WRITE operations in the OFF API require authentication, therefore you need a valid `user_id` and `password`  to write the missing nutriment data to 100% Real Orange Juice. 
+
+> Sign up on the [Open Food Facts App](https://world.openfoodfacts.org/), to get your `user_id` and `password` if you dont have.
+
+To write data to a product, make a `POST` request to the [`Add or Edit A Product`](https://openfoodfacts.github.io/openfoodfacts-server/reference/api.html#tag/Write-Requests/operation/post-cgi-product_jqm2.pl) endpoint.
+
+```bash
+https://world.openfoodfacts.org/cgi/product_jqm2.pl
+```
+
+For authentication, add your valid `user_id` and `password` as body parameters to your request. The `code` (barcode of the product to be added/edited), `user_id` and `password` are required fields when adding or editing a product. Then, include other product data to be added in the request body.
+
+To write `sodium` and `category` to 100% Real Orange Juice so that the Nutri-Score can be computed, the request body should contain these fields :
+
+| Key        | Value           | Description  |
+| ------------- |:-------------:| -----:|
+| user_id     | *** | A valid user_id |
+| password      | ***     |   A valid password |
+| code | 0180411000803      |    The barcode of the product to be added/edited |
+| nutriment_sodium | 0.015      |    Amount of sodium |
+| nutriment_sodium_unit | g      |   Unit of sodium relative to the amount |
+| categories | Orange Juice     |   Category of the Product |
+
+If the request is succesful, it returns a response that indicated that the fields have been saved.
+
+```json
+{
+    "status_verbose": "fields saved",
+    "status": 1
+}
+```
+
+Now, let's check if the Nutri-Score for 100% Real Orange Juice has been computed now that we have provided the missing data. Make a GET request to `https://world.openfoodfacts.org/api/v2/product/0180411000803?fields=product_name,nutriscore_data,nutriments,nutrition_grades` for Nutri-Score of 100% Real Orange Juice. The response now contains the Nutri-Score computation:
+
+```json
+{
+    "code": "0180411000803",
+    "product": {
+        "nutriments": {
+            "carbohydrates": 11.864406779661,
+            .
+            .
+            .
+            "sugars_unit": "g",
+            "sugars_value": 11.864406779661
+        },
+        "nutriscore_data": {
+            "energy": 195,
+            "energy_points": 7,
+            "energy_value": 195,
+            .
+            .
+            .
+            "sugars_value": 11.86
+        },
+        "nutrition_grades": "c",
+        "product_name": "100% Real Orange Juice"
+    },
+    "status": 1,
+    "status_verbose": "product found"
+}
+```
+
+Visit the [Wiki](https://wiki.openfoodfacts.org/API/Write#Editing_an_existing_product) to know how to add/edit other types of product data.
+
+<!-- The wiki is a really good source of info that shows how to add different types of product data , however it has some outdated info so I am proposing to edit oit so this linking can be effective. -->
