@@ -74,6 +74,7 @@ use CGI qw(header);
 use Apache2::RequestIO();
 use Apache2::RequestRec();
 use JSON::PP;
+use Data::DeepAccess qw(deep_get);
 
 sub get_initialized_response() {
 	return {
@@ -85,7 +86,7 @@ sub get_initialized_response() {
 sub init_api_response ($request_ref) {
 
 	$request_ref->{api_response} = get_initialized_response();
-	return;
+	return $request_ref->{api_response};
 }
 
 sub add_warning ($response_ref, $warning_ref) {
@@ -160,7 +161,7 @@ sub decode_json_request_body ($request_ref) {
 			{
 				message => {id => "empty_request_body"},
 				field => {id => "body", value => ""},
-				impact => {id => "failure"},
+				impact => {id => "request_failed"},
 			}
 		);
 	}
@@ -173,7 +174,7 @@ sub decode_json_request_body ($request_ref) {
 				{
 					message => {id => "invalid_json_in_request_body"},
 					field => {id => "body", value => $request_ref->{body}},
-					impact => {id => "failure"},
+					impact => {id => "request_failed"},
 				}
 			);
 		}
@@ -181,7 +182,43 @@ sub decode_json_request_body ($request_ref) {
 	return;
 }
 
-=head2 add_localized_messages_to_api_response ($request_ref)
+=head2 determine_request_result ($response_ref)
+
+Based on the response's errors and warnings, determine the overall status of the request.
+
+=head3 Parameters
+
+=head4 $response_ref (input)
+
+Reference to the response object.
+
+=cut
+
+sub determine_response_result ($response_ref) {
+
+	my $status_id = "success";
+
+	if (scalar @{$response_ref->{warnings}} > 0) {
+		$status_id = "success_with_warnings";
+	}
+
+	if (scalar @{$response_ref->{errors}} > 0) {
+		$status_id = "success_with_errors";
+
+		foreach my $error_ref (@{$response_ref->{errors}}) {
+			if (deep_get($error_ref, "impact", "id") eq "request_failed") {
+				$status_id = "failure";
+				last;
+			}
+		}
+	}
+
+	$response_ref->{status} = $status_id;
+
+	return;
+}
+
+=head2 add_localized_messages_to_api_response ($target_lc, $response_ref)
 
 Functions that process API calls may add message ids in $request_ref->{api_response}
 to indicate the result and warnings and errors.
@@ -190,15 +227,43 @@ This functions adds English and/or localized messages for those messages.
 
 =head3 Parameters
 
-=head4 $request_ref (input)
+=head4 $target_lc 
 
-Reference to the request object.
+API messages (result, warning and errors messages and impacts) are generated:
+- in English in the "name" field: those messages are intended for use by developers, monitoring systems etc.
+- in the language of the user: those messages may be displayed directly to users
+(e.g. to explain that some field values are incorrect and were ignored)
+
+=head4 $response_ref (input and output)
+
+Reference to the response object.
 
 =cut
 
-sub add_localized_messages_to_api_response ($request_ref) {
+sub add_localized_messages_to_api_response ($target_lc, $response_ref) {
 
-	# TODO
+	my @messages_to_localize = (["result", $response_ref->{result}]);
+
+	foreach my $object_ref (@{$response_ref->{warnings}}, @{$response_ref->{errors}}) {
+		push @messages_to_localize, ["message", $object_ref->{message}];
+		push @messages_to_localize, ["impact", $object_ref->{impact}];
+	}
+
+	$log->debug("response messages to localize", {messages_to_localize => \@messages_to_localize}) if $log->is_debug();
+
+	foreach my $message_to_localize_ref (@messages_to_localize) {
+		my ($type, $message_ref) = @$message_to_localize_ref;
+
+		next if not defined $message_ref;
+
+		my $id = $message_ref->{id};
+
+		# Construct the id for the message used in the .po files
+		my $string_id = "api_" . $type . "_" . $id;
+
+		$message_ref->{name} = lang_in_other_lc("en", $string_id);
+		$message_ref->{lc_name} = lang_in_other_lc($target_lc, $string_id);
+	}
 	return;
 }
 
@@ -290,7 +355,7 @@ sub process_api_request ($request_ref) {
 
 	$log->debug("process_api_request - start", {request => $request_ref}) if $log->is_debug();
 
-	init_api_response($request_ref);
+	my $response_ref = init_api_response($request_ref);
 
 	# Analyze the request body
 
@@ -305,15 +370,19 @@ sub process_api_request ($request_ref) {
 	}
 	else {
 		$log->warn("process_api_request - unknown action", {request => $request_ref}) if $log->is_warn();
-		push @{$request_ref->{api_response}{errors}},
+		add_error(
+			$response_ref,
 			{
-			message => {id => "unknown_api_action"},
-			field => {id => "api_action", value => $request_ref->{api_action}},
-			impact => {id => "failure"},
-			};
+				message => {id => "unknown_api_action"},
+				field => {id => "api_action", value => $request_ref->{api_action}},
+				impact => {id => "failure"},
+			}
+		);
 	}
 
-	add_localized_messages_to_api_response($request_ref);
+	determine_response_result($response_ref);
+
+	add_localized_messages_to_api_response($request_ref->{lc}, $response_ref);
 
 	send_api_reponse($request_ref);
 

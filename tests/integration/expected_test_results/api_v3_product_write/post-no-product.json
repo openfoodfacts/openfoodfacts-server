@@ -5,12 +5,17 @@
             "id" : "product"
          },
          "impact" : {
-            "id" : "failure"
+            "id" : "request_failed",
+            "lc_name" : "",
+            "name" : "Request failed"
          },
          "message" : {
-            "id" : "missing_product"
+            "id" : "missing_field",
+            "lc_name" : "",
+            "name" : "Missing field"
          }
       }
    ],
+   "status" : "failure",
    "warnings" : []
 }

@@ -1,6 +1,7 @@
 {
    "errors" : [],
    "product" : {},
+   "status" : "success_with_warnings",
    "warnings" : [
       {
          "field" : {
@@ -8,10 +9,14 @@
             "id" : "tags_lc"
          },
          "impact" : {
-            "id" : "warning"
+            "id" : "warning",
+            "lc_name" : "",
+            "name" : "Warning"
          },
          "message" : {
-            "id" : "missing_tags_lc"
+            "id" : "missing_field",
+            "lc_name" : "",
+            "name" : "Missing field"
          }
       },
       {
@@ -19,10 +24,14 @@
             "id" : "number_of_units"
          },
          "impact" : {
-            "id" : "field_ignored"
+            "id" : "field_ignored",
+            "lc_name" : "",
+            "name" : "Field ignored"
          },
          "message" : {
-            "id" : "packaging_component_missing_number_of_units"
+            "id" : "missing_field",
+            "lc_name" : "",
+            "name" : "Missing field"
          }
       },
       {
@@ -31,10 +40,14 @@
             "value" : null
          },
          "impact" : {
-            "id" : "field_ignored"
+            "id" : "field_ignored",
+            "lc_name" : "",
+            "name" : "Field ignored"
          },
          "message" : {
-            "id" : "packaging_component_missing_recycling"
+            "id" : "missing_field",
+            "lc_name" : "",
+            "name" : "Missing field"
          }
       },
       {
@@ -43,10 +56,14 @@
             "value" : null
          },
          "impact" : {
-            "id" : "field_ignored"
+            "id" : "field_ignored",
+            "lc_name" : "",
+            "name" : "Field ignored"
          },
          "message" : {
-            "id" : "packaging_component_missing_material"
+            "id" : "missing_field",
+            "lc_name" : "",
+            "name" : "Missing field"
          }
       }
    ]

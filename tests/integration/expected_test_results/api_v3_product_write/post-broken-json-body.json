@@ -6,12 +6,17 @@
             "value" : "not json"
          },
          "impact" : {
-            "id" : "failure"
+            "id" : "request_failed",
+            "lc_name" : "",
+            "name" : "Request failed"
          },
          "message" : {
-            "id" : "invalid_json_in_request_body"
+            "id" : "invalid_json_in_request_body",
+            "lc_name" : "",
+            "name" : "Invalid JSON in request body"
          }
       }
    ],
+   "status" : "failure",
    "warnings" : []
 }

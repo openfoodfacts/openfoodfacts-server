@@ -128,9 +128,9 @@ sub write_product_api ($request_ref) {
 		add_error(
 			$response_ref,
 			{
-				message => {id => "missing_product"},
+				message => {id => "missing_field"},
 				field => {id => "product"},
-				impact => {id => "failure"},
+				impact => {id => "request_failed"},
 			}
 		);
 	}
@@ -142,7 +142,7 @@ sub write_product_api ($request_ref) {
 			add_warning(
 				$response_ref,
 				{
-					message => {id => "missing_tags_lc"},
+					message => {id => "missing_field"},
 					field => {id => "tags_lc", default_value => $request_body_ref->{tags_lc}},
 					impact => {id => "warning"},
 				}
@@ -174,7 +174,7 @@ sub write_product_api ($request_ref) {
 				{
 					message => {id => "edit_against_edit_rules"},
 					field => {id => "product"},
-					impact => {id => "failure"},
+					impact => {id => "request_failed"},
 				}
 			);
 		}

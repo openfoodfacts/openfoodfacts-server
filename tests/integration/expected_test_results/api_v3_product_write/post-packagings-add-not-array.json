@@ -5,14 +5,19 @@
             "id" : "packagings_add"
          },
          "impact" : {
-            "id" : "field_ignored"
+            "id" : "field_ignored",
+            "lc_name" : "",
+            "name" : "Field ignored"
          },
          "message" : {
-            "id" : "invalid_type_must_be_array"
+            "id" : "invalid_type_must_be_array",
+            "lc_name" : "",
+            "name" : "Invalid type: must be an array"
          }
       }
    ],
    "product" : {},
+   "status" : "success_with_errors",
    "warnings" : [
       {
          "field" : {
@@ -20,10 +25,14 @@
             "id" : "tags_lc"
          },
          "impact" : {
-            "id" : "warning"
+            "id" : "warning",
+            "lc_name" : "",
+            "name" : "Warning"
          },
          "message" : {
-            "id" : "missing_tags_lc"
+            "id" : "missing_field",
+            "lc_name" : "",
+            "name" : "Missing field"
          }
       }
    ]

@@ -7,12 +7,22 @@
             "value" : "12345678"
          },
          "impact" : {
-            "id" : "failure"
+            "id" : "request_failed",
+            "lc_name" : "",
+            "name" : "Request failed"
          },
          "message" : {
-            "id" : "product_not_found"
+            "id" : "product_not_found",
+            "lc_name" : "",
+            "name" : ""
          }
       }
    ],
+   "result" : {
+      "id" : "product_not_found",
+      "lc_name" : "",
+      "name" : "Product not found"
+   },
+   "status" : "failure",
    "warnings" : []
 }

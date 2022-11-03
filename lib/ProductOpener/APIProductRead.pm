@@ -106,21 +106,25 @@ sub read_product_api ($request_ref) {
 			{
 				message => {id => "invalid_code"},
 				field => {id => $code, value => $code},
-				impact => {id => "failure"},
+				impact => {id => "request_failed"},
 			}
 		);
+		$request_ref->{api_response}{result} = {id => "product_not_found"};
 	}
 	elsif ((not defined $product_ref) or (not defined $product_ref->{code})) {
 		if (single_param("api_version") >= 1) {
 			$request_ref->{status} = 404;
 		}
 
-		push @{$request_ref->{api_response}{errors}},
+		add_error(
+			$request_ref->{api_response},
 			{
-			message => {id => "product_not_found"},
-			field => {id => $code, value => $code},
-			impact => {id => "failure"},
-			};
+				message => {id => "product_not_found"},
+				field => {id => $code, value => $code},
+				impact => {id => "request_failed"},
+			}
+		);
+		$request_ref->{api_response}{result} = {id => "product_not_found"};
 	}
 	else {
 		$request_ref->{api_response}{result} = {id => "product_found"};

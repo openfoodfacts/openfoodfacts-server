@@ -1,6 +1,7 @@
 {
    "errors" : [],
    "product" : {},
+   "status" : "success_with_warnings",
    "warnings" : [
       {
          "field" : {
@@ -8,10 +9,14 @@
             "id" : "tags_lc"
          },
          "impact" : {
-            "id" : "warning"
+            "id" : "warning",
+            "lc_name" : "",
+            "name" : "Warning"
          },
          "message" : {
-            "id" : "missing_tags_lc"
+            "id" : "missing_field",
+            "lc_name" : "",
+            "name" : "Missing field"
          }
       }
    ]

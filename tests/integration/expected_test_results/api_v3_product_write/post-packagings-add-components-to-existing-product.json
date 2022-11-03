@@ -16,6 +16,7 @@
          }
       ]
    },
+   "status" : "success_with_warnings",
    "warnings" : [
       {
          "field" : {
@@ -23,10 +24,14 @@
             "id" : "tags_lc"
          },
          "impact" : {
-            "id" : "warning"
+            "id" : "warning",
+            "lc_name" : "",
+            "name" : "Warning"
          },
          "message" : {
-            "id" : "missing_tags_lc"
+            "id" : "missing_field",
+            "lc_name" : "",
+            "name" : "Missing field"
          }
       },
       {
@@ -35,10 +40,14 @@
             "value" : "en:strange value"
          },
          "impact" : {
-            "id" : "none"
+            "id" : "none",
+            "lc_name" : "",
+            "name" : "None"
          },
          "message" : {
-            "id" : "packaging_component_unrecognized_property_value"
+            "id" : "unrecognized_value",
+            "lc_name" : "",
+            "name" : "Unrecognized value"
          }
       }
    ]

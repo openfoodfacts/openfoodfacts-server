@@ -375,20 +375,20 @@ sub get_checked_and_taxonomized_packaging_component_data ($tags_lc, $input_packa
 		add_warning(
 			$response_ref,
 			{
-				message => {id => "packaging_component_missing_number_of_units"},
+				message => {id => "missing_field"},
 				field => {id => "number_of_units"},
 				impact => {id => "field_ignored"},
 			}
 		);
 	}
 	elsif ($input_packaging_ref->{number_of_units} =~ /^\d+$/) {
-		$packaging_ref->{number_of_units} = $input_packaging_ref->{number_of_units};
+		$packaging_ref->{number_of_units} = $input_packaging_ref->{number_of_units} + 0;
 	}
 	else {
 		add_warning(
 			$response_ref,
 			{
-				message => {id => "packaging_component_invalid_number_of_units"},
+				message => {id => "invalid_type_must_be_integer"},
 				field => {id => "number_of_units", value => $input_packaging_ref->{number_of_units}},
 				impact => {id => "field_ignored"},
 			}
@@ -414,7 +414,7 @@ sub get_checked_and_taxonomized_packaging_component_data ($tags_lc, $input_packa
 				add_warning(
 					$response_ref,
 					{
-						message => {id => "packaging_component_unrecognized_property_value"},
+						message => {id => "unrecognized_value"},
 						field => {id => $property, value => $tagid},
 						impact => {id => "none"},
 					}
@@ -426,7 +426,7 @@ sub get_checked_and_taxonomized_packaging_component_data ($tags_lc, $input_packa
 			add_warning(
 				$response_ref,
 				{
-					message => {id => "packaging_component_missing_" . $property},
+					message => {id => "missing_field"},
 					field => {id => $property, value => $input_packaging_ref->{$property}},
 					impact => {id => "field_ignored"},
 				}
