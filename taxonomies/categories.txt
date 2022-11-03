@@ -47341,7 +47341,7 @@ ciqual_food_name:en:Flan with eggs, refrigerated
 ciqual_food_name:fr:Flan aux œufs, rayon frais
 
 <en:Dairy desserts
-en:Semolina desserts
+en:Semolina puddings, Semolina desserts
 de:Grießpuddings, Grießpudding
 es:Sémolas de leche
 fr:Semoules au lait
@@ -47350,9 +47350,17 @@ agribalyse_proxy_food_code:en:39218
 agribalyse_proxy_food_name:en:Semolina pudding, refrigerated
 agribalyse_proxy_food_name:fr:Semoule au lait, rayon frais
 
+<en:Puddings
+en:Chia puddings
+fr:Desserts aux graines de chia
+
 <en:Non-dairy desserts
 en:Vegan rice puddings
 fr:Riz au lait végétaliens
+
+<en:Non-dairy desserts
+en:Vegan semolina puddings
+fr:Semoules au lait végétaliennes
 
 # Shoudn't be under chocolate mousses
 <en:Chocolate desserts
@@ -63085,6 +63093,10 @@ ciqual_food_name:en:Indian-style sauce, tandoori or garam masala type, prepacked
 ciqual_food_name:fr:Sauce indienne type tandoori ou tikka masala, préemballée
 #wikidata:en:
 
+<en:Indian sauces
+en:Korma sauces
+fr:Sauces korma
+
 <en:Sauces
 en:Worcestershire sauces
 de:Worcestershiresaucen,Worcestersaucen
@@ -78497,6 +78509,11 @@ fi:Linssipasta
 fr:Pâtes de lentille
 it:Pasta di lenticchie
 nl:Linzenpasta
+
+<en:Pastas
+en:Split pea pasta
+fr:Pâtes de pois cassés
+it:Pasta di piselli
 
 <en:Pastas
 fr:Pâtes de petit épeautre, pâtes à base de petit épeautre, Pâtes Petit épeautre
@@ -96248,27 +96265,21 @@ nl:Veganistische kazen
 pl:Zastępniki sera
 
 <en:Legumes and their products
-en:pulse cakes, cakes of pulses
+en:Puffed pulse cakes, pulse cakes, cakes of pulses
 de:hülsenfruchtwaffeln
 es:tortitas de legumbres
+fr:galettes de légumineuses soufflées
 it:galetti di legumi
 nl:peulvruchtenwafels
 
-<en:pulse cakes
-en:Puffed pulse cakes
-fr:galettes de légumineuses soufflées
-
-<en:pulse cakes
-en:lentil cakes
-de:linsenwaffeln
-nl:Linzenwafels
-pt:Geletes de lentilha
-
-<en:lentil cakes
+<en:Puffed pulse cakes
 en:Puffed lentil cakes
+de:Linsenwaffeln
+nl:Linzenwafels
 es:Tortitas de lentejas infladas
 fr:Galettes de lentilles soufflées
 it:Galetti di lenticchie soffiate
+pt:Geletes de lentilha
 
 <en:Cereals and their products
 en:Rice paper

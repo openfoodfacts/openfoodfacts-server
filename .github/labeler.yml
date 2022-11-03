@@ -176,6 +176,7 @@ footer:
 documentation:
 - docs/**/*
 - scripts/generate_perl_html_doc_from_pod.pl
+- po/README.md
 
 docker:
 - docker/**/*
@@ -495,6 +496,7 @@ Web:
 Donations:
 - html/donate/tt.html
 - templates/web/common/includes/donate_banner.tt.html
+- html/donate/fr.helloasso.html
 
 editing:
 - templates/web/pages/product_edit/product_edit_form.tt.html

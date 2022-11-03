@@ -330,6 +330,7 @@ sv:mald, malda, malen
 
 # <en:ground
 de:fein gemahlen, fein gemahlene, fein gemahlener, fein gemahlenes
+hr:fino mljeveno
 hu:finomra őrölt
 
 # <en:ground
@@ -568,9 +569,14 @@ en:boned
 bg:обезкостен, обезкостено, обезкостена, обезкостени, без кокал
 es:deshuesado, deshuesada, deshuesados, deshuesadas, sin hueso
 fr:désossé, désossée, désossés, désossées, sans os
+hr:iskošteno
 hu:csontozott, kicsontozott
 pl:bez kości
 pt:desensoçado, desossado, sem osso
+
+<en:boned
+en:machine boned
+hr:strojno otkošteno
 
 #en:description:To remove the outer covering or shell of something
 en:shelled
@@ -763,6 +769,7 @@ de:flüssiger
 es:líquido
 fi:nestemäinen
 fr:liquide
+hr:tekući, tekuća
 it:liquido
 nl:vloeibaar
 pl:płyn
