@@ -220,10 +220,10 @@
                   "ecoscore_material_score" : 81,
                   "ecoscore_shape_ratio" : 1,
                   "material" : "en:glass",
-                  "number_of_units" : "1",
+                  "number_of_units" : 1,
                   "quantity" : "6g",
                   "quantity_unit" : "g",
-                  "quantity_value" : "6",
+                  "quantity_value" : 6,
                   "shape" : "en:bottle"
                },
                {
@@ -233,7 +233,7 @@
                   "non_recyclable_and_non_biodegradable" : "maybe",
                   "quantity" : "3g",
                   "quantity_unit" : "g",
-                  "quantity_value" : "3",
+                  "quantity_value" : 3,
                   "shape" : "en:spout"
                },
                {
@@ -242,7 +242,7 @@
                   "material" : "en:metal",
                   "quantity" : "1g",
                   "quantity_unit" : "g",
-                  "quantity_value" : "1",
+                  "quantity_value" : 1,
                   "shape" : "en:capsule"
                }
             ],
@@ -491,24 +491,24 @@
    "packagings" : [
       {
          "material" : "en:glass",
-         "number_of_units" : "1",
+         "number_of_units" : 1,
          "quantity" : "6g",
          "quantity_unit" : "g",
-         "quantity_value" : "6",
+         "quantity_value" : 6,
          "shape" : "en:bottle"
       },
       {
          "material" : "en:plastic",
          "quantity" : "3g",
          "quantity_unit" : "g",
-         "quantity_value" : "3",
+         "quantity_value" : 3,
          "shape" : "en:spout"
       },
       {
          "material" : "en:metal",
          "quantity" : "1g",
          "quantity_unit" : "g",
-         "quantity_value" : "1",
+         "quantity_value" : 1,
          "shape" : "en:capsule"
       }
    ],
