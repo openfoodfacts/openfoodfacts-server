@@ -400,10 +400,10 @@ sub get_checked_and_taxonomized_packaging_component_data ($tags_lc, $input_packa
 
 		# Quantity contained: 25cl plastic bottle, plastic bottle (25cl)
 		if ($packaging_ref->{quantity_per_unit} =~ /\b((\d+((\.|,)\d+)?)\s?(l|dl|cl|ml|g|kg))\b/i) {
-			
+
 			$packaging_ref->{quantity_per_unit_unit} = lc($5);
 			$packaging_ref->{quantity_per_unit_value} = convert_string_to_number(lc($2));
-		}		
+		}
 	}
 
 	# Weights
@@ -422,7 +422,7 @@ sub get_checked_and_taxonomized_packaging_component_data ($tags_lc, $input_packa
 					}
 				);
 			}
-		}	
+		}
 	}
 
 	# Shape, material and recycling
@@ -665,13 +665,14 @@ sub analyze_and_combine_packaging_data ($product_ref) {
 		if (exists $packaging_ref->{quantity}) {
 			if (not exists $packaging_ref->{quantity_per_unit}) {
 				$packaging_ref->{quantity_per_unit} = $packaging_ref->{quantity};
-				$packaging_ref->{quantity_per_unit_value} = convert_string_to_number($packaging_ref->{quantity_per_unit_value});
+				$packaging_ref->{quantity_per_unit_value}
+					= convert_string_to_number($packaging_ref->{quantity_per_unit_value});
 				$packaging_ref->{quantity_per_unit_unit} = $packaging_ref->{quantity_unit};
 			}
 			delete $packaging_ref->{quantity};
 			delete $packaging_ref->{quantity_value};
 			delete $packaging_ref->{quantity_unit};
-		}		
+		}
 	}
 
 	# Parse the packaging_text and the packaging tags field
@@ -712,7 +713,8 @@ sub analyze_and_combine_packaging_data ($product_ref) {
 
 		my $parsed_packaging_ref = parse_packaging_component_data_from_text_phrase($phrase, $product_ref->{lc});
 
-		my $packaging_ref = get_checked_and_taxonomized_packaging_component_data ("en", $parsed_packaging_ref, $response_ref);
+		my $packaging_ref
+			= get_checked_and_taxonomized_packaging_component_data("en", $parsed_packaging_ref, $response_ref);
 
 		apply_rules_to_augment_packaging_component_data($product_ref, $packaging_ref);
 
