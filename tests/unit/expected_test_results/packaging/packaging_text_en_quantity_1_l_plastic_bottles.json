@@ -4,9 +4,9 @@
    "packagings" : [
       {
          "material" : "en:plastic",
-         "quantity" : "1 l",
-         "quantity_unit" : "l",
-         "quantity_value" : 1,
+         "quantity_per_unit" : "1 l",
+         "quantity_per_unit_unit" : "l",
+         "quantity_per_unit_value" : 1,
          "shape" : "en:bottle"
       }
    ]

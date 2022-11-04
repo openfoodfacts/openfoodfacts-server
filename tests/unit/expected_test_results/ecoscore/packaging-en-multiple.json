@@ -237,9 +237,9 @@
                   "ecoscore_shape_ratio" : 1,
                   "material" : "en:steel",
                   "number_of_units" : 6,
-                  "quantity" : "33cl",
-                  "quantity_unit" : "cl",
-                  "quantity_value" : 33,
+                  "quantity_per_unit" : "33cl",
+                  "quantity_per_unit_unit" : "cl",
+                  "quantity_per_unit_value" : 33,
                   "shape" : "en:drink-can"
                }
             ],
@@ -446,9 +446,9 @@
       {
          "material" : "en:steel",
          "number_of_units" : 6,
-         "quantity" : "33cl",
-         "quantity_unit" : "cl",
-         "quantity_value" : 33,
+         "quantity_per_unit" : "33cl",
+         "quantity_per_unit_unit" : "cl",
+         "quantity_per_unit_value" : 33,
          "shape" : "en:drink-can"
       }
    ]

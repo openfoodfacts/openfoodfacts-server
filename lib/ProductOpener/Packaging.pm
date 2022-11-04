@@ -214,14 +214,10 @@ sub parse_packaging_component_data_from_text_phrase ($text, $text_language) {
 
 							# Quantity contained: 25cl plastic bottle, plastic bottle (25cl)
 							if ($text =~ /\b((\d+((\.|,)\d+)?)\s?(l|dl|cl|ml|g|kg))\b/i) {
-								$packaging_ref->{quantity} = lc($1);
-								$packaging_ref->{quantity_value} = lc($2);
-								$packaging_ref->{quantity_unit} = lc($5);
+								$packaging_ref->{quantity_per_unit} = lc($1);
 
 								# Remove the quantity from $before so that we don't mistake it for a number of units
 								$before =~ s/$1//g;
-
-								$packaging_ref->{quantity_value} = convert_string_to_number($packaging_ref->{quantity_value});
 							}
 
 							# Number of units: e.g. 4 plastic bottles (but we should not match the 2 in "2 PEHD plastic bottles")
@@ -396,6 +392,37 @@ sub get_checked_and_taxonomized_packaging_component_data ($tags_lc, $input_packa
 				impact => {id => "field_ignored"},
 			}
 		);
+	}
+
+	# Quantity per unit
+	if (defined $input_packaging_ref->{quantity_per_unit}) {
+		$packaging_ref->{quantity_per_unit} = $input_packaging_ref->{quantity_per_unit};
+
+		# Quantity contained: 25cl plastic bottle, plastic bottle (25cl)
+		if ($packaging_ref->{quantity_per_unit} =~ /\b((\d+((\.|,)\d+)?)\s?(l|dl|cl|ml|g|kg))\b/i) {
+			
+			$packaging_ref->{quantity_per_unit_unit} = lc($5);
+			$packaging_ref->{quantity_per_unit_value} = convert_string_to_number(lc($2));
+		}		
+	}
+
+	# Weights
+	foreach my $weight ("weight_measured", "weight_specified") {
+		if (defined $input_packaging_ref->{$weight}) {
+			if ($input_packaging_ref->{$weight} =~ /^\d+(\.\d+)?$/) {
+				$packaging_ref->{$weight} = $input_packaging_ref->{$weight} + 0;
+			}
+			else {
+				add_warning(
+					$response_ref,
+					{
+						message => {id => "invalid_type_must_be_number"},
+						field => {id => $weight, value => $input_packaging_ref->{$weight}},
+						impact => {id => "field_ignored"},
+					}
+				);
+			}
+		}	
 	}
 
 	# Shape, material and recycling
@@ -623,7 +650,9 @@ sub analyze_and_combine_packaging_data ($product_ref) {
 		$product_ref->{packagings} = [];
 	}
 
-	# 20221104: The number field was renamed to number_of_units
+	# 20221104:
+	# - the number field was renamed to number_of_units
+	# - the quantity field was renamed to quantity_per_unit
 	# rename old fields
 	# this code can be removed once all products have been updated
 	foreach my $packaging_ref (@{$product_ref->{packagings}}) {
@@ -631,8 +660,18 @@ sub analyze_and_combine_packaging_data ($product_ref) {
 			if (not exists $packaging_ref->{number_of_units}) {
 				$packaging_ref->{number_of_units} = $packaging_ref->{number} + 0;
 			}
+			delete $packaging_ref->{number};
 		}
-		delete $packaging_ref->{number};
+		if (exists $packaging_ref->{quantity}) {
+			if (not exists $packaging_ref->{quantity_per_unit}) {
+				$packaging_ref->{quantity_per_unit} = $packaging_ref->{quantity};
+				$packaging_ref->{quantity_per_unit_value} = convert_string_to_number($packaging_ref->{quantity_per_unit_value});
+				$packaging_ref->{quantity_per_unit_unit} = $packaging_ref->{quantity_unit};
+			}
+			delete $packaging_ref->{quantity};
+			delete $packaging_ref->{quantity_value};
+			delete $packaging_ref->{quantity_unit};
+		}		
 	}
 
 	# Parse the packaging_text and the packaging tags field
@@ -671,7 +710,9 @@ sub analyze_and_combine_packaging_data ($product_ref) {
 		$phrase =~ s/\s+$//;
 		next if $phrase eq "";
 
-		my $packaging_ref = parse_packaging_component_data_from_text_phrase($phrase, $product_ref->{lc});
+		my $parsed_packaging_ref = parse_packaging_component_data_from_text_phrase($phrase, $product_ref->{lc});
+
+		my $packaging_ref = get_checked_and_taxonomized_packaging_component_data ("en", $parsed_packaging_ref, $response_ref);
 
 		apply_rules_to_augment_packaging_component_data($product_ref, $packaging_ref);
 

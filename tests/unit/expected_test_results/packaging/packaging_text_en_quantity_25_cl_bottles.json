@@ -3,9 +3,9 @@
    "packaging_text" : "25 cl bottle",
    "packagings" : [
       {
-         "quantity" : "25 cl",
-         "quantity_unit" : "cl",
-         "quantity_value" : 25,
+         "quantity_per_unit" : "25 cl",
+         "quantity_per_unit_unit" : "cl",
+         "quantity_per_unit_value" : 25,
          "shape" : "en:bottle"
       }
    ]

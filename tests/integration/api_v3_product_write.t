@@ -111,6 +111,32 @@ my $tests_ref = [
 			}
 		}'
 	},
+	{
+		test_case => 'post-packagings-quantity-and-weight',
+		method => 'POST',
+		path => '/api/v3/product/123456781',
+		body => '{
+			"fields": "updated",
+			"tags_lc": "en",
+			"product": {
+				"packagings_add": [
+					{
+						"number_of_units": 6,
+						"shape": "bottle",
+						"material": "PET",
+						"quantity_per_unit": "25cl",
+						"weight_measured": 10
+					},
+					{
+						"number_of_units": 1,
+						"shape": "box",
+						"material": "wood",
+						"weight_specified": 25.5
+					}				
+				]
+			}
+		}'
+	},	
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
