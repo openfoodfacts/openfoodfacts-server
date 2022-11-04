@@ -51,7 +51,6 @@ BEGIN {
 		&wait_dynamic_front
 		&wait_server
 
-		$TEST_WEBSITE_URL
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -69,13 +68,10 @@ use Clone qw/clone/;
 use Data::Dump qw/dump/;
 use File::Tail;
 
-=head2 $TEST_WEBSITE_URL
-
-Constant of the test website url
-
-=cut
-
-$TEST_WEBSITE_URL = "http://world.openfoodfacts.localhost";
+# Constants of the test website main domain and url
+# Should be used internally only (see: construct_test_url to build urls in tests)
+my $TEST_MAIN_DOMAIN = "openfoodfacts.localhost";
+my $TEST_WEBSITE_URL = "http://world." . $TEST_MAIN_DOMAIN;
 
 =head2 wait_dynamic_front()
 
@@ -112,13 +108,15 @@ sub wait_server() {
 	# simply try to access front page
 	my $count = 0;
 	my $ua = new_client();
+	my $target_url = construct_test_url("");
 	while (1) {
-		my $response = $ua->get($TEST_WEBSITE_URL);
+		my $response = $ua->get($target_url);
 		last if $response->is_success;
 		sleep 1;
 		$count++;
 		if (($count % 3) == 0) {
 			print("Waiting for backend to be ready since more than $count seconds...\n");
+			print("Bad response from website:" . dump({url => $target_url, status => $response->code}) . "\n");
 		}
 		confess("Waited too much for backend") if $count > 60;
 	}
@@ -322,15 +320,12 @@ For the example cited above this returns: "http://world-fr.openfoodfacts.localho
 
 =cut
 
-sub construct_test_url ($target, $prefix) {
-	my $link = "openfoodfacts.localhost";
-	# my $api_end = "/api/v2/search?";
-	my $api_end = "api/v2";
-
-	if (index($target, $api_end) != -1) {
+sub construct_test_url ($target, $prefix = "world") {
+	my $link = $TEST_MAIN_DOMAIN;
+	# no cgi inside url ? add display.pl
+	if (index($target, "cgi") == -1) {
 		$link .= "/cgi/display.pl?";
 	}
-
 	my $url = "http://${prefix}.${link}${target}";
 	return $url;
 }
