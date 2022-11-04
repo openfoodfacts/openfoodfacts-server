@@ -60,6 +60,7 @@ use ProductOpener::Images qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::API qw/:all/;
+use ProductOpener::Numbers qw/:all/;
 
 =head1 FUNCTIONS
 
