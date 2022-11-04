@@ -219,13 +219,15 @@ sub parse_packaging_component_data_from_text_phrase ($text, $text_language) {
 
 								# Remove the quantity from $before so that we don't mistake it for a number of units
 								$before =~ s/$1//g;
+
+								$packaging_ref->{quantity_value} = convert_string_to_number($packaging_ref->{quantity_value});
 							}
 
 							# Number of units: e.g. 4 plastic bottles (but we should not match the 2 in "2 PEHD plastic bottles")
 							# match numbers starting with 1 to 9 to avoid matching 02 PEHD
 							if ($before =~ /^([1-9]\d*) /) {
 								if (not defined $packaging_ref->{number_of_units}) {
-									$packaging_ref->{number_of_units} = $1;
+									$packaging_ref->{number_of_units} = $1 + 0;
 								}
 							}
 						}
@@ -618,6 +620,18 @@ sub analyze_and_combine_packaging_data ($product_ref) {
 	# otherwise, we will use and augment the existing data
 	if (not defined $product_ref->{packagings}) {
 		$product_ref->{packagings} = [];
+	}
+
+	# 20221104: The number field was renamed to number_of_units
+	# rename old fields
+	# this code can be removed once all products have been updated
+	foreach my $packaging_ref (@{$product_ref->{packagings}}) {
+		if (exists $packaging_ref->{number}) {
+			if (not exists $packaging_ref->{number_of_units}) {
+				$packaging_ref->{number_of_units} = $packaging_ref->{number} + 0;
+			}
+		}
+		delete $packaging_ref->{number};
 	}
 
 	# Parse the packaging_text and the packaging tags field
