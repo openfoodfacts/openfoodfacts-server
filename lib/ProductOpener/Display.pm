@@ -856,6 +856,13 @@ CSS
 		}
 	) if $log->is_debug();
 
+	# Set cc, lc and lcs in the request object
+	# Ideally, we should rely on those fields in the request object
+	# and remove the $lc, $cc and @lcs global variables
+	$request_ref->{lc} = $lc;
+	$request_ref->{cc} = $cc;
+	$request_ref->{lcs} = \@lcs;
+
 	return $request_ref;
 }
 

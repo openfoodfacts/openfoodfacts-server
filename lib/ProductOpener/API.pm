@@ -249,7 +249,7 @@ sub add_localized_messages_to_api_response ($target_lc, $response_ref) {
 		push @messages_to_localize, ["impact", $object_ref->{impact}];
 	}
 
-	$log->debug("response messages to localize", {messages_to_localize => \@messages_to_localize}) if $log->is_debug();
+	$log->debug("response messages to localize", {target_lc => $target_lc, messages_to_localize => \@messages_to_localize}) if $log->is_debug();
 
 	foreach my $message_to_localize_ref (@messages_to_localize) {
 		my ($type, $message_ref) = @$message_to_localize_ref;
