@@ -2559,7 +2559,9 @@ on the Ingredients taxonomy. The percent_max will not be applied in the followin
 
 sub set_percent_max_from_taxonomy ($ingredients_ref) {
 	# Exit if the first ingredient is constrained
-	if (!@{$ingredients_ref} || defined get_inherited_property("ingredients", $ingredients_ref->[0]{id}, "percent_max:en")) {
+	if (!@{$ingredients_ref}
+		|| defined get_inherited_property("ingredients", $ingredients_ref->[0]{id}, "percent_max:en"))
+	{
 		return;
 	}
 
