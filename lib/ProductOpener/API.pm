@@ -128,9 +128,9 @@ sub read_request_body ($request_ref) {
 		my $offset = 0;
 		my $cnt = 0;
 		do {
-			$cnt = $r->read($content, 8192, $offset);
+			$cnt = $r->read($content, 262144, $offset);
 			$offset += $cnt;
-		} while ($cnt == 8192);
+		} while ($cnt == 262144);
 	}
 	$request_ref->{body} = $content;
 
