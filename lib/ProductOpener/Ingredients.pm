@@ -2558,11 +2558,8 @@ on the Ingredients taxonomy. The percent_max will not be applied in the followin
 =cut
 
 sub set_percent_max_from_taxonomy ($ingredients_ref) {
-	$log->debug("set_percent_max_from_taxonomy - starting", {ingredients_ref => $ingredients_ref});
-
 	# Exit if the first ingredient is constrained
-	if (defined get_inherited_property("ingredients", $ingredients_ref->[0]{id}, "percent_max:en")) {
-		$log->debug("set_percent_max_from_taxonomy - skipping", {ingredients_ref => $ingredients_ref});
+	if (!@{$ingredients_ref} || defined get_inherited_property("ingredients", $ingredients_ref->[0]{id}, "percent_max:en")) {
 		return;
 	}
 
@@ -2604,7 +2601,6 @@ sub set_percent_max_from_taxonomy ($ingredients_ref) {
 			$remaining_percent = $remaining_percent - $defined_percent;
 		}
 	}
-	$log->debug("set_percent_max_from_taxonomy - finished", {ingredients_ref => $ingredients_ref});
 }
 
 sub set_percent_max_values ($total_min, $total_max, $ingredients_ref) {
