@@ -2603,6 +2603,8 @@ sub set_percent_max_from_taxonomy ($ingredients_ref) {
 			$remaining_percent = $remaining_percent - $defined_percent;
 		}
 	}
+
+	return;
 }
 
 sub set_percent_max_values ($total_min, $total_max, $ingredients_ref) {
