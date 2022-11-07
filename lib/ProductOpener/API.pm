@@ -205,6 +205,7 @@ sub determine_response_result ($response_ref) {
 	if (scalar @{$response_ref->{errors}} > 0) {
 		$status_id = "success_with_errors";
 
+		# one error of type "request_failed" means a failure of whole request
 		foreach my $error_ref (@{$response_ref->{errors}}) {
 			if (deep_get($error_ref, "impact", "id") eq "request_failed") {
 				$status_id = "failure";
