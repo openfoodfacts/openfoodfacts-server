@@ -110,7 +110,7 @@ Loads the AgriBalyse database.
 
 sub load_agribalyse_data() {
 
-	my $agribalyse_details_by_step_csv_file = $data_root . "/ecoscore/agribalyse/AGRIBALYSE_details_by_step.csv";
+	my $agribalyse_details_by_step_csv_file = $data_root . "/ecoscore/agribalyse/AGRIBALYSE_vf.csv.2";
 
 	my $rows_ref = [];
 
@@ -127,7 +127,11 @@ sub load_agribalyse_data() {
 
 		my $row_ref;
 
-		# Lines are now skipped during the xlsm to csv conversion
+		# Skip 4 first lines
+		$csv->getline($io);
+		$csv->getline($io);
+		$csv->getline($io);
+		$csv->getline($io);
 
 		while ($row_ref = $csv->getline($io)) {
 			$agribalyse{$row_ref->[0]} = {
