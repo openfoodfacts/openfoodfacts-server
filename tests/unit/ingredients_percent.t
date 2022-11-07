@@ -913,6 +913,34 @@ my @tests = (
 		]
 	],
 
+	# Where two ingredients have a maximum then apply it
+	[
+		{lc => "en", ingredients_text => "milk, lemon flavouring, orange flavouring"},
+		[
+			{
+				'id' => 'en:milk',
+				'percent_estimate' => 95,
+				'percent_max' => 100,
+				'percent_min' => 90,
+				'text' => 'milk'
+			},
+			{
+				'id' => 'en:lemon-flavouring',
+				'percent_estimate' => 2.5,
+				'percent_max' => 5,
+				'percent_min' => 0,
+				'text' => 'lemon flavouring'
+			},
+			{
+				'id' => 'en:orange-flavouring',
+				'percent_estimate' => 2.5,
+				'percent_max' => 5,
+				'percent_min' => 0,
+				'text' => 'orange flavouring'
+			}
+		]
+	],
+
 );
 
 foreach my $test_ref (@tests) {
