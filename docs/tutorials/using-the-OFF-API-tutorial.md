@@ -148,7 +148,7 @@ The sample response above for 100% Real Orange Juice `misc_tags` shows that the 
 
 ### Write data to make Nutri-Score computation possible
 
-The WRITE operations in the OFF API require authentication, therefore you need a valid `user_id` and `password`  to write the missing nutriment data to 100% Real Orange Juice. 
+The WRITE operations in the OFF API require authentication, therefore you need a valid `user_id` and `password`  to write the missing nutriment data to 100% Real Orange Juice.
 
 > Sign up on the [Open Food Facts App](https://world.openfoodfacts.org/), to get your `user_id` and `password` if you dont have.
 
@@ -172,6 +172,7 @@ To write `sodium` and `category` to 100% Real Orange Juice so that the Nutri-Sco
 | categories | Orange Juice     |   Category of the Product |
 
 Using curl:
+
 ```bash
 curl -XPOST -u off:off -x POST https://world.openfoodfacts.org/cgi/product_jqm2.pl \
   -F user_id=your_user_id -F password=your_password \
@@ -186,7 +187,9 @@ If the request is succesful, it returns a response that indicated that the field
     "status": 1
 }
 ```
+
 ### Read newly computed Nutri-Score
+
 Now, let's check if the Nutri-Score for 100% Real Orange Juice has been computed now that we have provided the missing data. Make a GET request to `https://world.openfoodfacts.org/api/v2/product/0180411000803?fields=product_name,nutriscore_data,nutriments,nutrition_grades` for Nutri-Score of 100% Real Orange Juice. The response now contains the Nutri-Score computation:
 
 ```json
@@ -218,6 +221,8 @@ Now, let's check if the Nutri-Score for 100% Real Orange Juice has been computed
 }
 ```
 
-Visit the [Wiki](https://wiki.openfoodfacts.org/API/Write#Editing_an_existing_product) to know how to add/edit other types of product data.
+For more details, see the reference documentation for [Add or Edit A Product](https://openfoodfacts.github.io/openfoodfacts-server/reference/api/#tag/Write-Requests/operation/post-cgi-product_jqm2.pl)
 
-<!-- The wiki is a really good source of info that shows how to add different types of product data , however it has some outdated info so I am proposing to edit oit so this linking can be effective. -->
+You can also check the reference cheatsheet to know how to add/edit other types of product data.
+
+<!-- Include the link of the cheatsheet once it is published. -->
