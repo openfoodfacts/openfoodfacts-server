@@ -2468,6 +2468,10 @@ Otherwise use 0 for percent_min and total_max for percent_max.
 =cut
 
 sub init_percent_values ($total_min, $total_max, $ingredients_ref) {
+	# Set maximum percentages if defined in the taxonomy (only do this for top-level ingredients)
+	if ($total_max == 100) {
+		set_percent_max_from_taxonomy($ingredients_ref);
+	}
 
 	# Determine if percent listed are absolute (default) or relative to a parent ingredient
 
@@ -2500,7 +2504,6 @@ sub init_percent_values ($total_min, $total_max, $ingredients_ref) {
 
 	# Go through each ingredient to set percent_min, percent_max, and if we can an absolute percent
 
-	my $index = 0;
 	foreach my $ingredient_ref (@{$ingredients_ref}) {
 		if (defined $ingredient_ref->{percent}) {
 			# There is a specified percent for the ingredient.
@@ -2533,22 +2536,75 @@ sub init_percent_values ($total_min, $total_max, $ingredients_ref) {
 				$ingredient_ref->{percent_min} = 0;
 			}
 			if ((not defined $ingredient_ref->{percent_max}) or ($ingredient_ref->{percent_max} > $total_max)) {
-				my $value = get_inherited_property("ingredients", $ingredient_ref->{id}, "percent_max:en");
-				if (defined $value and $index > 0 and $value < $total_max) {
-					# Maximum percantage for ingredients like flavourings
-					$ingredient_ref->{percent_max} = $value;
-				}
-				else {
-					$ingredient_ref->{percent_max} = $total_max;
-				}
+				$ingredient_ref->{percent_max} = $total_max;
 			}
 		}
-		$index++;
 	}
 
 	$log->debug("init_percent_values - result", {ingredients_ref => $ingredients_ref}) if $log->is_debug();
 
 	return;
+}
+
+=head2 set_percent_max_from_taxonomy ( ingredients_ref )
+
+Set the percentage maximum for ingredients like flavouring where this is defined
+on the Ingredients taxonomy. The percent_max will not be applied in the following cases:
+
+ - if applying the percent_max would mean that it is not possible for the ingredient
+   total to add up to 100%
+ - If a later ingredient has a higher percentage than the percent_max of the restricted ingredient
+
+=cut
+
+sub set_percent_max_from_taxonomy ($ingredients_ref) {
+	$log->debug("set_percent_max_from_taxonomy - starting", {ingredients_ref => $ingredients_ref});
+
+	# Exit if the first ingredient is constrained
+	if (defined get_inherited_property("ingredients", $ingredients_ref->[0]{id}, "percent_max:en")) {
+		$log->debug("set_percent_max_from_taxonomy - skipping", {ingredients_ref => $ingredients_ref});
+		return;
+	}
+
+	# Loop backwards through ingredients, checking that we don't set a percent_max that
+	# would be lower than the sum of the ingredients that come afterwards
+	my $current_max = 0;
+	for (my $index = scalar @{$ingredients_ref} - 1; $index > 0; $index--) {
+		my $ingredient = $ingredients_ref->[$index];
+		my $current_percent = $ingredient->{percent};
+		if (defined $current_percent) {
+			if ($current_percent > $current_max) {
+				$current_max = $current_percent;
+			}
+		}
+		else {
+			# See if taxonomy defines a maximum percent
+			my $percent_max = get_inherited_property("ingredients", $ingredient->{id}, "percent_max:en");
+			if (defined $percent_max and $percent_max > $current_max) {
+				# Maximum percantage for ingredients like flavourings
+				$ingredient->{percent_max} = $percent_max;
+				$current_max = $percent_max;
+			}
+		}
+	}
+
+	# Loop forwards through the ingredients to make sure that the maximum
+	# does not limit preceding ingredients where percent is specified
+	my $remaining_percent = 100;
+	for my $ingredient (@{$ingredients_ref}) {
+		my $defined_percent = $ingredient->{percent};
+		if (!defined $defined_percent) {
+			my $percent_max = $ingredient->{percent_max};
+			if (defined $percent_max && $percent_max < $remaining_percent) {
+				delete $ingredient->{percent_max};
+			}
+			last;
+		}
+		else {
+			$remaining_percent = $remaining_percent - $defined_percent;
+		}
+	}
+	$log->debug("set_percent_max_from_taxonomy - finished", {ingredients_ref => $ingredients_ref});
 }
 
 sub set_percent_max_values ($total_min, $total_max, $ingredients_ref) {

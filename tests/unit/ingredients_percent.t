@@ -843,62 +843,74 @@ my @tests = (
 
 	# Where flavourings are the first ingredient then ignore maximum percentages
 	[
-		{lc => "en", ingredients_text => "flavouring"},
+		{lc => "en", ingredients_text => "flavouring, lemon flavouring"},
 		[
 			{
 				'id' => 'en:flavouring',
-				'percent_estimate' => 100,
+				'percent_estimate' => 75,
 				'percent_max' => 100,
-				'percent_min' => 100,
+				'percent_min' => 50,
+				'text' => 'flavouring'
+			},
+			{
+				'id' => 'en:lemon-flavouring',
+				'percent_estimate' => 25,
+				'percent_max' => 50,
+				'percent_min' => 0,
+				'text' => 'lemon flavouring'
+			}
+		]
+	],
+
+	# Where maximum would prevent ingredients from adding up to 100% then ignore it
+	[
+		{lc => "en", ingredients_text => "milk 80%, flavouring"},
+		[
+			{
+				'id' => 'en:milk',
+				'percent' => 80,
+				'percent_estimate' => 80,
+				'percent_max' => 80,
+				'percent_min' => 80,
+				'text' => 'milk'
+			},
+			{
+				'id' => 'en:flavouring',
+				'percent_estimate' => 20,
+				'percent_max' => 20,
+				'percent_min' => 20,
 				'text' => 'flavouring'
 			}
 		]
 	],
 
-	# Parent ingredient has a percent less than the maximum
+	# Where maximum is lower than later ingredients then ignore it
 	[
-		{lc => "en", ingredients_text => "milk (min 97%), chocolate flavour (sugar, cocoa, flavouring)"},
+		{lc => "en", ingredients_text => "milk, flavouring, sugar 10%"},
 		[
 			{
 				'id' => 'en:milk',
-				'percent' => 97,
-				'percent_estimate' => 97,
-				'percent_max' => 97,
-				'percent_min' => 97,
+				'percent_estimate' => 62.5,
+				'percent_max' => 80,
+				'percent_min' => 45,
 				'text' => 'milk'
 			},
 			{
-				'id' => 'en:chocolate-flavouring',
-				'ingredients' => [
-					{
-						'id' => 'en:sugar',
-						'percent_estimate' => 2,
-						'percent_max' => 3,
-						'percent_min' => 1,
-						'text' => 'sugar'
-					},
-					{
-						'id' => 'en:cocoa',
-						'percent_estimate' => 0.5,
-						'percent_max' => 1.5,
-						'percent_min' => 0,
-						'text' => 'cocoa'
-					},
-					{
-						'id' => 'en:flavouring',
-						'percent_estimate' => 0.5,
-						'percent_max' => 1,
-						'percent_min' => 0,
-						'text' => 'flavouring'
-					}
-				],
-				'percent_estimate' => 3,
-				'percent_max' => 3,
-				'percent_min' => 3,
-				'text' => 'chocolate flavour'
+				'id' => 'en:flavouring',
+				'percent_estimate' => 23.75,
+				'percent_max' => 45,
+				'percent_min' => 10,
+				'text' => 'flavouring'
+			},
+			{
+				'id' => 'en:sugar',
+				'percent' => 10,
+				'percent_estimate' => 13.75,
+				'percent_max' => 10,
+				'percent_min' => 10,
+				'text' => 'sugar'
 			}
 		]
-
 	],
 
 );
