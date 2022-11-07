@@ -232,7 +232,7 @@ This functions adds English and/or localized messages for those messages.
 
 API messages (result, warning and errors messages and impacts) are generated:
 - in English in the "name" field: those messages are intended for use by developers, monitoring systems etc.
-- in the language of the user: those messages may be displayed directly to users
+- in the language of the user in the "lc_name" field: those messages may be displayed directly to users
 (e.g. to explain that some field values are incorrect and were ignored)
 
 =head4 $response_ref (input and output)
