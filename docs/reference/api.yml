@@ -5,13 +5,13 @@ info:
     As a developer, the Open Food Facts API allows you to get information 
     and contribute to the products database. You can create great apps to 
     help people make better food choices and also provide data to enhance the database.
-  termsOfService: 'https://openweathermap.org/terms'
+  termsOfService: 'https://world.openfoodfacts.org/terms-of-use'
   contact:
     name: Open Food Facts
-    url: 'https://slack-ssl-openfoodfacts.herokuapp.com/'
+    url: 'https://slack.openfoodfacts.org/'
     email: contact@openfoodfacts.org
   license:
-    name: 'License (MIT, Apache 2.0, etc)'
+    name: 'data: ODbL'
     url: 'https://opendatacommons.org/licenses/odbl/summary/index.html'
   version: '2'
 servers:
