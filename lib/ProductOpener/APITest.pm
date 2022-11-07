@@ -201,7 +201,7 @@ The tests are in a structure like this:
 my $tests_ref = (
     [
 		{
-			test_case => 'no-body',
+			test_case => 'no-body',  # a description of the test, should be unique to easily retrieve which test failed
 			method => 'POST',		# defaults to GET
 			subdomain => 'world',	# defaults to "world"
 			path => '/api/v3/product/12345678',
