@@ -570,7 +570,7 @@ sub add_or_combine_packaging_component_data ($product_ref, $packaging_ref, $resp
 					}
 				}
 
-				# If there is an existing value for the property,
+				# If there is an existing value for the taxonomized property,
 				# check if it is either a child or a parent of the value extracted from the packaging text
 				elsif ( ($existing_packaging_ref->{$property} ne "en:unknown")
 					and ($existing_packaging_ref->{$property} ne $packaging_ref->{$property})
