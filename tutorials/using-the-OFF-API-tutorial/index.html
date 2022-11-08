@@ -660,14 +660,48 @@
         
           <li class="md-nav__item">
   <a href="#nutri-score-response" class="md-nav__link">
-    Nutri-score Response
+    Nutri-Score Response
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#nutri-score-computation" class="md-nav__link">
-    Nutri-score Computation
+    Nutri-Score Computation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#completing-products-to-get-the-nutri-score" class="md-nav__link">
+    Completing products to get the Nutri-Score
+  </a>
+  
+    <nav class="md-nav" aria-label="Completing products to get the Nutri-Score">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#products-without-a-nutri-score" class="md-nav__link">
+    Products without a Nutri-Score
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#write-data-to-make-nutri-score-computation-possible" class="md-nav__link">
+    Write data to make Nutri-Score computation possible
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#read-newly-computed-nutri-score" class="md-nav__link">
+    Read newly computed Nutri-Score
   </a>
   
 </li>
@@ -749,14 +783,48 @@
         
           <li class="md-nav__item">
   <a href="#nutri-score-response" class="md-nav__link">
-    Nutri-score Response
+    Nutri-Score Response
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#nutri-score-computation" class="md-nav__link">
-    Nutri-score Computation
+    Nutri-Score Computation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#completing-products-to-get-the-nutri-score" class="md-nav__link">
+    Completing products to get the Nutri-Score
+  </a>
+  
+    <nav class="md-nav" aria-label="Completing products to get the Nutri-Score">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#products-without-a-nutri-score" class="md-nav__link">
+    Products without a Nutri-Score
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#write-data-to-make-nutri-score-computation-possible" class="md-nav__link">
+    Write data to make Nutri-Score computation possible
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#read-newly-computed-nutri-score" class="md-nav__link">
+    Read newly computed Nutri-Score
   </a>
   
 </li>
@@ -789,7 +857,7 @@
 <h1 id="using-the-open-food-facts-api">Using the Open Food Facts API<a class="headerlink" href="#using-the-open-food-facts-api" title="Permanent link">#</a></h1>
 <!--Add a brief introduction of what the tutorial does -->
 <h2 id="scan-a-product-to-get-nutri-score">Scan A Product To Get Nutri-score<a class="headerlink" href="#scan-a-product-to-get-nutri-score" title="Permanent link">#</a></h2>
-<p>This basic tutorial shows you can get the Nutri-score of a product, for instance, to display it in a mobile app after scanning the product barcode. Let's use <a href="https://world.openfoodfacts.org/product/3017624010701/nutella-nutella-ferrero">Nutella Ferrero</a> as the product example for this tutorial.</p>
+<p>This basic tutorial shows you can get the Nutri-score of a product, for instance, to display it in a mobile app after scanning the product barcode. Let's use <a href="https://world.openfoodfacts.net/product/3017624010701/nutella-nutella-ferrero">Nutella Ferrero</a> as the product example for this tutorial.</p>
 <!-- Meet Dave. Dave is an active Open Food Facts contributor and a developer who wants to build HealthyFoodChoices, an Android app aimed at conscious consumers that buy healthy products. He has a consumer called Anna. Anna wants to know more on the nutritional facts of Nutella - Ferrero from the HealthyFoodChoices app. Dave needs his app to make an API call to provide her with this information. -->
 
 <p>To get a product nutriscore, you need to make a call to the <a href="https://openfoodfacts.github.io/openfoodfacts-server/reference/api.html#tag/Read-Requests/operation/get-product-by-barcode">Get A Product By Barcode</a> Endpoint.</p>
@@ -797,10 +865,10 @@
 <p>No Authentication is required to make a query to Get A Product Nutri-score.</p>
 <h3 id="describing-the-request">Describing the Request<a class="headerlink" href="#describing-the-request" title="Permanent link">#</a></h3>
 <p>Make a <code>GET</code> request to the <code>Get A Product By Barcode</code> endpoint.</p>
-<div class="highlight"><pre><span></span><code>https://world.openfoodfacts.org/api/v2/product/<span class="o">{</span>barcode<span class="o">}</span>
+<div class="highlight"><pre><span></span><code>https://world.openfoodfacts.net/api/v2/product/{barcode}
 </code></pre></div>
 <p>The <code>{barcode}</code> is the barcode number of the product you are trying to get. The barcode for <strong>Nutella Ferrero</strong> is <strong>3017624010701</strong>. Then the request path to get product data for <strong>Nutella Ferrero</strong> will look like this:</p>
-<div class="highlight"><pre><span></span><code>https://world.openfoodfacts.org/api/v2/product/3017624010701
+<div class="highlight"><pre><span></span><code>https://world.openfoodfacts.net/api/v2/product/3017624010701
 </code></pre></div>
 <p>The response returns every data about Nutella Ferrero on the database. To get the nutriscore, we need to limit the response by specifying the nutriscore field, which is the <code>nutrition_grades</code> and <code>product_name</code>.</p>
 <!--Is it only nutriscore_data -->
@@ -808,9 +876,9 @@
 <h3 id="query-parameters">Query Parameters<a class="headerlink" href="#query-parameters" title="Permanent link">#</a></h3>
 <p>To limit the response of the Get A Product By Barcode response, use query parameters to specify the product fields to be returned. In this example, you need one query parameter called <code>field</code> with the value <code>product_name,nutrition_grades</code>.</p>
 <p>The request path will now look like this:</p>
-<div class="highlight"><pre><span></span><code>https://world.openfoodfacts.org/api/v2/product/3017624010701?fields<span class="o">=</span>product_name,nutriscore_data
+<div class="highlight"><pre><span></span><code>https://world.openfoodfacts.net/api/v2/product/3017624010701?fields=product_name,nutriscore_data
 </code></pre></div>
-<h3 id="nutri-score-response">Nutri-score Response<a class="headerlink" href="#nutri-score-response" title="Permanent link">#</a></h3>
+<h3 id="nutri-score-response">Nutri-Score Response<a class="headerlink" href="#nutri-score-response" title="Permanent link">#</a></h3>
 <p>The response returned contains an object of the <code>code</code>, <code>product</code>, <code>status_verbose</code>, and <code>status</code>. The <code>product</code> object contains the fields specified in the query: the <code>product_name</code> and the <code>nutrition_grades</code>. The status also states if the product was found or not.</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3017624010701&quot;</span><span class="p">,</span><span class="w"></span>
@@ -822,10 +890,10 @@
 <span class="w">    </span><span class="nt">&quot;status_verbose&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;product found&quot;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
-<h3 id="nutri-score-computation">Nutri-score Computation<a class="headerlink" href="#nutri-score-computation" title="Permanent link">#</a></h3>
+<h3 id="nutri-score-computation">Nutri-Score Computation<a class="headerlink" href="#nutri-score-computation" title="Permanent link">#</a></h3>
 <p>If you would like to be able to show how the score is computed, add some extra fields like <code>nutriscore_data</code> and <code>nutriments</code>.</p>
-<p>The request path to get the nutriscore computation for Nutella-Ferroro will be :</p>
-<div class="highlight"><pre><span></span><code>https://world.openfoodfacts.org/api/v2/product/3017624010701?fields<span class="o">=</span>product_name,nutriscore_data,nutriments,nutrition_grades
+<p>The request path to get the Nutri-Score computation for Nutella-Ferroro will be :</p>
+<div class="highlight"><pre><span></span><code>https://world.openfoodfacts.net/api/v2/product/3017624010701?fields=product_name,nutriscore_data,nutriments,nutrition_grades
 </code></pre></div>
 <p>The <code>product</code> object in the response now contains the extra fields to show how the nutriscore was computed.</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
@@ -865,6 +933,129 @@
 </code></pre></div>
 <p>For more details, see the reference documentation for <a href="https://openfoodfacts.github.io/openfoodfacts-server/reference/api.html#tag/Read-Requests/operation/get-product-by-barcode">Get A Product By Barcode</a></p>
 <!-- Probably have a conclusion that links to the next possible topic eg filter countries using lc and cc-->
+
+<h2 id="completing-products-to-get-the-nutri-score">Completing products to get the Nutri-Score<a class="headerlink" href="#completing-products-to-get-the-nutri-score" title="Permanent link">#</a></h2>
+<h3 id="products-without-a-nutri-score">Products without a Nutri-Score<a class="headerlink" href="#products-without-a-nutri-score" title="Permanent link">#</a></h3>
+<p>When these fields are missing in a nutriscore computation response, it means that the product does not have a Nutri-Score computation due to some missing nutrition data.</p>
+<p>Lets look at the <a href="https://world.openfoodfacts.net/api/v2/product/0180411000803/100-real-orange-juice?product_name,nutriscore_data,nutriments,nutrition_grades">100% Real Orange Juice</a>. If the product nutrition data is missing some fields, you can volunteer and contribute to it by getting the missing tags and writing to the OFF API to add them.</p>
+<!-- I dont know if using 100% Real Orange Juice is a good approach for now , should we state that it was not computed at the time of writing this article just incase it gets computed in future or there is a product we can use to test this that wont change in future ? -->
+
+<p>To know the missing tags, you need the <code>misc-tags</code> field from the response.</p>
+<p><code>https://world.openfoodfacts.net/api/v2/product/0180411000803/100-real-orange-juice?fields=misc_tags</code></p>
+<p>The response shows the missing fields and category needed to compute the Nutri-Score.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0180411000803&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;product&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;misc_tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;en:nutriscore-not-computed&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;en:nutriscore-missing-category&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;en:nutrition-not-enough-data-to-compute-nutrition-score&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;en:nutriscore-missing-nutrition-data&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;en:nutriscore-missing-nutrition-data-sodium&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;en:ecoscore-extended-data-not-computed&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;en:ecoscore-not-computed&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;en:main-countries-new-product&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">]</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;status_verbose&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;product found&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>The sample response above for 100% Real Orange Juice <code>misc_tags</code> shows that the Nutri-Score is missing category (<code>en:nutriscore-missing-category</code>) and sodium(salt) (<code>en:nutriscore-missing-nutrition-data-sodium</code>). Now you can write to the OFF API to provide these nutriment data (if you have them) so that the Nutri-Score can be computed.</p>
+<h3 id="write-data-to-make-nutri-score-computation-possible">Write data to make Nutri-Score computation possible<a class="headerlink" href="#write-data-to-make-nutri-score-computation-possible" title="Permanent link">#</a></h3>
+<p>The WRITE operations in the OFF API require authentication, therefore you need a valid <code>user_id</code> and <code>password</code>  to write the missing nutriment data to 100% Real Orange Juice.</p>
+<blockquote>
+<p>Sign up on the <a href="https://world.openfoodfacts.net/">Open Food Facts App</a>, to get your <code>user_id</code> and <code>password</code> if you dont have.</p>
+</blockquote>
+<p>To write data to a product, make a <code>POST</code> request to the <a href="https://openfoodfacts.github.io/openfoodfacts-server/reference/api.html#tag/Write-Requests/operation/post-cgi-product_jqm2.pl"><code>Add or Edit A Product</code></a> endpoint.</p>
+<div class="highlight"><pre><span></span><code>https://world.openfoodfacts.net/cgi/product_jqm2.pl
+</code></pre></div>
+<p>For authentication, add your valid <code>user_id</code> and <code>password</code> as body parameters to your request. The <code>code</code> (barcode of the product to be added/edited), <code>user_id</code> and <code>password</code> are required fields when adding or editing a product. Then, include other product data to be added in the request body.</p>
+<p>To write <code>sodium</code> and <code>category</code> to 100% Real Orange Juice so that the Nutri-Score can be computed, the request body should contain these fields :</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th align="center">Value</th>
+<th align="right">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user_id</td>
+<td align="center">***</td>
+<td align="right">A valid user_id</td>
+</tr>
+<tr>
+<td>password</td>
+<td align="center">***</td>
+<td align="right">A valid password</td>
+</tr>
+<tr>
+<td>code</td>
+<td align="center">0180411000803</td>
+<td align="right">The barcode of the product to be added/edited</td>
+</tr>
+<tr>
+<td>nutriment_sodium</td>
+<td align="center">0.015</td>
+<td align="right">Amount of sodium</td>
+</tr>
+<tr>
+<td>nutriment_sodium_unit</td>
+<td align="center">g</td>
+<td align="right">Unit of sodium relative to the amount</td>
+</tr>
+<tr>
+<td>categories</td>
+<td align="center">Orange Juice</td>
+<td align="right">Category of the Product</td>
+</tr>
+</tbody>
+</table>
+<p>Using curl:</p>
+<div class="highlight"><pre><span></span><code>curl -XPOST -u off:off -x POST https://world.openfoodfacts.net/cgi/product_jqm2.pl <span class="se">\</span>
+  -F <span class="nv">user_id</span><span class="o">=</span>your_user_id -F <span class="nv">password</span><span class="o">=</span>your_password <span class="se">\</span>
+  -F <span class="nv">code</span><span class="o">=</span><span class="m">0180411000803</span> -F <span class="nv">nutriment_sodium</span><span class="o">=</span><span class="m">0</span>.015 -F <span class="nv">nutriment_sodium_unit</span><span class="o">=</span>g -F <span class="nv">categories</span><span class="o">=</span><span class="s2">&quot;Orange Juice&quot;</span>
+</code></pre></div>
+<p>If the request is succesful, it returns a response that indicated that the fields have been saved.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;status_verbose&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fields saved&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h3 id="read-newly-computed-nutri-score">Read newly computed Nutri-Score<a class="headerlink" href="#read-newly-computed-nutri-score" title="Permanent link">#</a></h3>
+<p>Now, let's check if the Nutri-Score for 100% Real Orange Juice has been computed now that we have provided the missing data. Make a GET request to <code>https://world.openfoodfacts.net/api/v2/product/0180411000803?fields=product_name,nutriscore_data,nutriments,nutrition_grades</code> for Nutri-Score of 100% Real Orange Juice. The response now contains the Nutri-Score computation:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0180411000803&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;product&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;nutriments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;carbohydrates&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">11.864406779661</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="err">.</span><span class="w"></span>
+<span class="w">            </span><span class="err">.</span><span class="w"></span>
+<span class="w">            </span><span class="err">.</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;sugars_unit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;g&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;sugars_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">11.864406779661</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;nutriscore_data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;energy&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">195</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;energy_points&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;energy_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">195</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="err">.</span><span class="w"></span>
+<span class="w">            </span><span class="err">.</span><span class="w"></span>
+<span class="w">            </span><span class="err">.</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;sugars_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">11.86</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;nutrition_grades&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;product_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;100% Real Orange Juice&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;status_verbose&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;product found&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>For more details, see the reference documentation for <a href="https://openfoodfacts.github.io/openfoodfacts-server/reference/api/#tag/Write-Requests/operation/post-cgi-product_jqm2.pl">Add or Edit A Product</a></p>
+<p>You can also check the reference cheatsheet to know how to add/edit other types of product data.</p>
+<!-- Include the link of the cheatsheet once it is published. -->
 
 
 
