@@ -1271,7 +1271,6 @@ sub store_product ($user_id, $product_ref, $comment) {
 	return 1;
 }
 
-
 =head2 compute_data_sources ( $product_ref, $changes_ref )
 
 Analyze the sources field of the product, as well as the changes to add to the data_sources field.
@@ -3239,20 +3238,27 @@ sub add_images_urls_to_product ($product_ref, $target_lc) {
 	return;
 }
 
-=head2 analyze_and_enrich_product_data ($product_ref)
+=head2 analyze_and_enrich_product_data ($product_ref, $response_ref)
 
 This function processes product raw data to analyze it and enrich it.
 For instance to analyze ingredients and compute scores such as Nutri-Score and Eco-Score.
 
 =head3 Parameters
 
-=head4 $product_ref
+=head4 $product_ref (input)
 
-Reference to a complete product a subfield.
+Reference to a product.
+
+=head4 $response_ref (output)
+
+Reference to a response object to which we can add errors and warnings.
 
 =cut
 
-sub analyze_and_enrich_product_data ($product_ref) {
+sub analyze_and_enrich_product_data ($product_ref, $response_ref) {
+
+	# Response structure to keep track of warnings and errors
+	my $response_ref = get_initialized_response();
 
 	$log->debug("analyze_and_enrich_product_data - start") if $log->is_debug();
 
@@ -3310,7 +3316,7 @@ sub analyze_and_enrich_product_data ($product_ref) {
 
 	compute_unknown_nutrients($product_ref);
 
-	analyze_and_combine_packaging_data($product_ref);
+	analyze_and_combine_packaging_data($product_ref, $response_ref);
 
 	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 		compute_ecoscore($product_ref);

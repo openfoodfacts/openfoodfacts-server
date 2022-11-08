@@ -622,7 +622,43 @@ sub add_or_combine_packaging_component_data ($product_ref, $packaging_ref, $resp
 	return;
 }
 
-=head2 analyze_and_combine_packaging_data($product_ref)
+
+=head2 migrate_old_number_and_quantity_fields_202211($product_ref)
+
+20221104:
+- the number field was renamed to number_of_units
+- the quantity field was renamed to quantity_per_unit
+
+rename old fields
+this code can be removed once all products have been updated
+
+=cut
+
+sub migrate_old_number_and_quantity_fields_202211($product_ref) {
+
+	foreach my $packaging_ref (@{$product_ref->{packagings}}) {
+		if (exists $packaging_ref->{number}) {
+			if (not exists $packaging_ref->{number_of_units}) {
+				$packaging_ref->{number_of_units} = $packaging_ref->{number} + 0;
+			}
+			delete $packaging_ref->{number};
+		}
+		if (exists $packaging_ref->{quantity}) {
+			if (not exists $packaging_ref->{quantity_per_unit}) {
+				$packaging_ref->{quantity_per_unit} = $packaging_ref->{quantity};
+				$packaging_ref->{quantity_per_unit_value}
+					= convert_string_to_number($packaging_ref->{quantity_per_unit_value});
+				$packaging_ref->{quantity_per_unit_unit} = $packaging_ref->{quantity_unit};
+			}
+			delete $packaging_ref->{quantity};
+			delete $packaging_ref->{quantity_value};
+			delete $packaging_ref->{quantity_unit};
+		}
+	}
+}
+
+
+=head2 analyze_and_combine_packaging_data($product_ref, $response_ref)
 
 This function analyzes all the packaging information available for the product:
 
@@ -636,19 +672,19 @@ And combines them in an updated packagings data structure.
 
 =cut
 
-sub analyze_and_combine_packaging_data ($product_ref) {
+sub analyze_and_combine_packaging_data ($product_ref, $response_ref) {
 
 	$log->debug("analyze_and_combine_packaging_data - start", {existing_packagings => $product_ref->{packagings}})
 		if $log->is_debug();
-
-	# Response structure to keep track of warnings and errors
-	my $response_ref = get_initialized_response();
 
 	# Create the packagings data structure if it does not exist yet
 	# otherwise, we will use and augment the existing data
 	if (not defined $product_ref->{packagings}) {
 		$product_ref->{packagings} = [];
 	}
+
+	# TODO: remove once all products have been migrated
+	migrate_old_number_and_quantity_fields_202211($product_ref);
 
 	# 20221104:
 	# - the number field was renamed to number_of_units

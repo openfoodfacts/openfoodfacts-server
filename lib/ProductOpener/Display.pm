@@ -438,7 +438,6 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	return ($tt->process($template_filename, $template_data_ref, $result_content_ref));
 }
 
-
 =head2 redirect_to_url($request_ref, $status_code, $redirect_url)
 
 This function instructs mod_perl to print redirect HTTP header (Location) and to terminate the request immediately.
@@ -10125,7 +10124,8 @@ HTML
 
 		# If the request specified a value for the fields parameter, return only the fields listed
 
-		my $customized_product_ref = customize_response_for_product($request_ref, $product_ref, single_param('fields') || 'all');
+		my $customized_product_ref
+			= customize_response_for_product($request_ref, $product_ref, single_param('fields') || 'all');
 
 		# 2019-05-10: the OFF Android app expects the _serving fields to always be present, even with a "" value
 		# the "" values have been removed

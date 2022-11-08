@@ -70,7 +70,7 @@ sub update_product_fields ($request_ref, $product_ref) {
 
 		my $value = $input_product_ref->{$field};
 
-        # Packaging components
+		# Packaging components
 		if ($field =~ /^(packagings)(_add)?/) {
 			$request_ref->{updated_product_fields}{$1} = 1;
 			my $is_addition = (defined $2) ? 1 : 0;
@@ -86,10 +86,10 @@ sub update_product_fields ($request_ref, $product_ref) {
 				);
 			}
 			else {
-                if (not $is_addition) {
-                    # We will replace the packagings structure if it already exists
-				    $product_ref->{packagings} = [];
-			    }
+				if (not $is_addition) {
+					# We will replace the packagings structure if it already exists
+					$product_ref->{packagings} = [];
+				}
 
 				foreach my $input_packaging_ref (@{$value}) {
 					# Taxonomize the input packaging component data
@@ -156,7 +156,7 @@ sub write_product_api ($request_ref) {
 		}
 
 		# Load the product
-        my $code = normalize_requested_code($request_ref->{code}, $response_ref);
+		my $code = normalize_requested_code($request_ref->{code}, $response_ref);
 		my $product_id = product_id_for_owner($Owner_id, $code);
 		my $product_ref = retrieve_product($product_id);
 
@@ -197,7 +197,8 @@ sub write_product_api ($request_ref) {
 			store_product($User_id, $product_ref, $comment);
 
 			# Select / compute only the fields requested by the caller, default to updated fields
-			$response_ref->{product} = customize_response_for_product($request_ref, $product_ref, request_param($request_ref, 'fields') || "updated");
+			$response_ref->{product} = customize_response_for_product($request_ref, $product_ref,
+				request_param($request_ref, 'fields') || "updated");
 		}
 	}
 

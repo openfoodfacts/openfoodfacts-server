@@ -119,7 +119,6 @@ sub read_product_api ($request_ref) {
 		}
 	}
 
-	
 	if ((not defined $product_ref) or (not defined $product_ref->{code})) {
 
 		# Return an error if we could not find a product
@@ -144,7 +143,8 @@ sub read_product_api ($request_ref) {
 		add_images_urls_to_product($product_ref, $lc);
 
 		# Select / compute only the fields requested by the caller, default to all
-		$response_ref->{product} = customize_response_for_product($request_ref, $product_ref, request_param($request_ref, 'fields') || "all");
+		$response_ref->{product} = customize_response_for_product($request_ref, $product_ref,
+			request_param($request_ref, 'fields') || "all");
 
 		# Disable nested ingredients in ingredients field (bug #2883)
 		# 2021-02-25: we now store only nested ingredients, flatten them if the API is <= 1
@@ -170,8 +170,7 @@ sub read_product_api ($request_ref) {
 				$changes_ref = [];
 			}
 			$response_ref->{blame} = {};
-			compute_product_history_and_completeness($data_root, $product_ref, $changes_ref,
-				$response_ref->{blame});
+			compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $response_ref->{blame});
 		}
 
 	}

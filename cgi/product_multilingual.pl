@@ -105,6 +105,11 @@ if ($User_id eq 'unwanted-user-french') {
 	);
 }
 
+# Response structure to keep track of warnings and errors
+# Note: currently some warnings and errors are added,
+# but we do not yet do anything with them
+my $response_ref = get_initialized_response();
+
 my $type = single_param('type') || 'search_or_add';
 my $action = single_param('action') || 'display';
 
@@ -584,7 +589,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		}
 	}
 
-	analyze_and_enrich_product_data($product_ref);
+	analyze_and_enrich_product_data($product_ref, $response_ref);
 
 	if ($#errors >= 0) {
 		$action = 'display';
@@ -1462,9 +1467,6 @@ elsif ($action eq 'process') {
 	}
 	elsif ($type eq 'delete') {
 
-		# Notify robotoff
-		send_notification_for_product_change($product_ref, "deleted");
-
 		my $email = <<MAIL
 $User_id $Lang{has_deleted_product}{$lc}:
 
@@ -1476,9 +1478,6 @@ MAIL
 
 	}
 	else {
-
-		# Notify robotoff
-		send_notification_for_product_change($product_ref, "updated");
 
 		# Create an event
 		send_event({user_id => $User_id, event_type => "product_edited", barcode => $code, points => 5});

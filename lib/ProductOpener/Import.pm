@@ -494,6 +494,11 @@ sub import_csv_file ($args_ref) {
 	# go through file
 	while (my $imported_product_ref = $csv->getline_hr($io)) {
 
+		# Response structure to keep track of warnings and errors
+		# Note: currently some warnings and errors are added,
+		# but we do not yet do anything with them
+		my $response_ref = get_initialized_response();
+
 		$i++;
 
 		# By default, use the orgid passed in the arguments
@@ -1957,7 +1962,7 @@ sub import_csv_file ($args_ref) {
 			$log->debug("updating product", {code => $code, modified => $modified}) if $log->is_debug();
 			$stats{products_data_updated}{$code} = 1;
 
-			analyze_and_enrich_product_data($product_ref);
+			analyze_and_enrich_product_data($product_ref, $response_ref);
 
 			if (not $args_ref->{no_source}) {
 

@@ -55,6 +55,11 @@ use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();
 
+# Response structure to keep track of warnings and errors
+# Note: currently some warnings and errors are added,
+# but we do not yet do anything with them
+my $response_ref = get_initialized_response();
+
 my $comment = '(app)';
 
 my $interface_version = '20150316.jqm2';
@@ -403,7 +408,7 @@ else {
 		assign_nutriments_values_from_request_parameters($product_ref, $nutriment_table);
 	}
 
-	analyze_and_enrich_product_data($product_ref);
+	analyze_and_enrich_product_data($product_ref, $response_ref);
 
 	$log->info("saving product", {code => $code}) if ($log->is_info() and not $log->is_debug());
 	$log->debug("saving product", {code => $code, product => $product_ref})

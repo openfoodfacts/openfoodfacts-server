@@ -251,7 +251,8 @@ sub execute_api_tests ($file, $tests_ref) {
 
 		# Check if we got the expected response status code
 		if (defined $test_ref->{expected_status_code}) {
-			is($response->code, $test_ref->{expected_status_code}) or diag(explain($test_ref), "Response status line: " . $response->status_line);
+			is($response->code, $test_ref->{expected_status_code})
+				or diag(explain($test_ref), "Response status line: " . $response->status_line);
 		}
 
 		# Check that we got a JSON response
@@ -279,8 +280,7 @@ sub execute_api_tests ($file, $tests_ref) {
 
 		is(
 			compare_to_expected_results(
-				$decoded_json, "$expected_result_dir/$test_case.json",
-				$update_expected_results
+				$decoded_json, "$expected_result_dir/$test_case.json", $update_expected_results
 			),
 			1,
 		);

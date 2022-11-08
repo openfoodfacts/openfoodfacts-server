@@ -43,6 +43,7 @@ foreach my $product_form_override (@products) {
 	edit_product($ua, $product_form_override);
 }
 
+# Note: expected results are stored in json files, see execute_api_tests
 my $tests_ref = [
 	{
 		test_case => 'get-unexisting-product',

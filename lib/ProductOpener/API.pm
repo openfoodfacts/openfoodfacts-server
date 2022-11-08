@@ -271,24 +271,15 @@ sub add_localized_messages_to_api_response ($target_lc, $response_ref) {
 	return;
 }
 
-=head2 customize_response_for_product ( $request_ref, $product_ref )
+=head2 send_api_reponse ($request_ref)
 
-Using the fields parameter, API product or search queries can request
-a specific set of fields to be returned.
-
-This function filters the field to return only the requested fields,
-and computes requested fields that are not stored in the database but
-created on demand.
+Send the API response with the right headers and status code.
 
 =head3 Parameters
 
 =head4 $request_ref (input)
 
 Reference to the request object.
-
-=head4 $product_ref (input)
-
-Reference to the product object (retrieved from disk or from a MongoDB query)
 
 =head3 Return value
 
@@ -382,7 +373,6 @@ sub process_api_request ($request_ref) {
 	return;
 }
 
-
 =head2 normalize_requested_code($requested_code, $response_ref)
 
 Normalize the product barcode requested by a READ or WRITE API request.
@@ -404,7 +394,7 @@ Normalized code.
 
 =cut
 
-sub normalize_requested_code($requested_code, $response_ref) {
+sub normalize_requested_code ($requested_code, $response_ref) {
 
 	my $code = normalize_code($requested_code);
 	$response_ref->{code} = $code;
@@ -423,7 +413,6 @@ sub normalize_requested_code($requested_code, $response_ref) {
 
 	return $code;
 }
-
 
 =head2 customize_response_for_product ( $request_ref, $product_ref, $fields )
 
@@ -562,13 +551,6 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields) {
 				}
 			}
 		}
-		# Eco-Score
-		elsif ($field =~ /^ecoscore/) {
-
-			if (defined $product_ref->{$field}) {
-				$customized_product_ref->{$field} = $product_ref->{$field};
-			}
-		}
 		# Product attributes requested in a specific language (or data only)
 		elsif ($field =~ /^attribute_groups_([a-z]{2}|data)$/) {
 			my $target_lc = $1;
@@ -622,6 +604,8 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields) {
 		elsif ((not defined $customized_product_ref->{$field}) and (defined $product_ref->{$field})) {
 			$customized_product_ref->{$field} = $product_ref->{$field};
 		}
+
+		# TODO: it would be great to return errors when the caller requests fields that are invalid (e.g. typos)
 	}
 
 	return $customized_product_ref;

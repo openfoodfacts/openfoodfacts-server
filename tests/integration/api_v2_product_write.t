@@ -22,25 +22,26 @@ my $ua = new_client();
 my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
 create_user($ua, \%create_user_args);
 
+# Note: expected results are stored in json files, see execute_api_tests
 my $tests_ref = [
 	{
 		test_case => 'post-product',
 		method => 'POST',
 		path => '/cgi/product_jqm_multilingual.pl',
-        form => {
-            cc => "be",
-            lc => "fr",
-            code => "1234567890001",
-            product_name => "Product name",
-            categories => "Cookies",
-            quantity => "250 g",
-            serving_size => '20 g',
-            ingredients_text_fr => "Farine de blé, eau, sel, sucre",
-            labels => "Bio, Max Havelaar",
-            nutriment_salt => '50.2',
-            nutriment_salt_unit => 'mg',
-            nutriment_sugars => '12.5',
-        }
+		form => {
+			cc => "be",
+			lc => "fr",
+			code => "1234567890001",
+			product_name => "Product name",
+			categories => "Cookies",
+			quantity => "250 g",
+			serving_size => '20 g',
+			ingredients_text_fr => "Farine de blé, eau, sel, sucre",
+			labels => "Bio, Max Havelaar",
+			nutriment_salt => '50.2',
+			nutriment_salt_unit => 'mg',
+			nutriment_sugars => '12.5',
+		}
 	},
 	{
 		test_case => 'get-product',
