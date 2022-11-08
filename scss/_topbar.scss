@@ -6,10 +6,10 @@
 
 .upper-nav {
   background-color: $ristreto;
+  // smallfix: Display of the dropdown menu border (desktop).
   .dropdown {
-    background-color: #fff;
-    border: 1px solid #aaa;
-    border-radius: 4px;
+    background-color: $white;
+    border: 1px solid $chocolate;
     border-top: none;
   }
   nav {
