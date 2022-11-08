@@ -85,9 +85,9 @@ analyze_request($request_ref);
 
 # If we have an error, display the error page and return
 
-if (defined $request_ref->{error_status}) {
+if (defined $request_ref->{error_message}) {
 	$log->debug("analyze_request error", {request_ref => $request_ref});
-	display_error($request_ref->{error_message}, $request_ref->{error_status});
+	display_error($request_ref->{error_message}, $request_ref->{status_code});
 	$log->debug("analyze_request error - return Apache2::Const::OK");
 	return Apache2::Const::OK;
 }

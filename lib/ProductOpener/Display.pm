@@ -438,6 +438,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	return ($tt->process($template_filename, $template_data_ref, $result_content_ref));
 }
 
+
 =head2 redirect_to_url($request_ref, $status_code, $redirect_url)
 
 This function instructs mod_perl to print redirect HTTP header (Location) and to terminate the request immediately.
@@ -953,7 +954,7 @@ sub display_date_iso ($t) {
 	}
 }
 
-=head2 display_error ( $error_message, $status )
+=head2 display_error ( $error_message, $status_code )
 
 Display an error message using the site template.
 
@@ -961,21 +962,21 @@ The request is not terminated by this function, it will continue to run.
 
 =cut
 
-sub display_error ($error_message, $status) {
+sub display_error ($error_message, $status_code) {
 
 	my $html = "<p>$error_message</p>";
 	display_page(
 		{
 			title => lang('error'),
 			content_ref => \$html,
-			status => $status,
+			status => $status_code,
 			page_type => "error",
 		}
 	);
 	return;
 }
 
-=head2 display_error_and_exit ( $error_message, $status )
+=head2 display_error_and_exit ( $error_message, $status_code )
 
 Display an error message using the site template, and terminate the request immediately.
 
@@ -983,9 +984,9 @@ Any code after the call to display_error_and_exit() will not be executed.
 
 =cut
 
-sub display_error_and_exit ($error_message, $status) {
+sub display_error_and_exit ($error_message, $status_code) {
 
-	display_error($error_message, $status);
+	display_error($error_message, $status_code);
 	exit();
 }
 
@@ -5193,21 +5194,25 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 		# For API queries, if the request specified a value for the fields parameter, return only the fields listed
 		# For non API queries with user preferences, we need to add attributes
-		if (   ((not defined $request_ref->{api}) and ($request_ref->{user_preferences}))
-			or ((defined $request_ref->{api}) and (defined single_param('fields'))))
-		{
-
-			my $customized_products = [];
-
-			for my $product_ref (@{$request_ref->{structured_response}{products}}) {
-
-				my $customized_product_ref = customize_response_for_product($request_ref, $product_ref);
-
-				push @{$customized_products}, $customized_product_ref;
-			}
-
-			$request_ref->{structured_response}{products} = $customized_products;
+		# For non API queries, we need to compute attributes for personal search
+		my $fields;
+		if ((not defined $request_ref->{api}) and ($request_ref->{user_preferences})) {
+			$fields = "code,product_display_name,url,image_front_small_url,attribute_groups";
 		}
+		else {
+			$fields = single_param('fields') || 'all';
+		}
+
+		my $customized_products = [];
+
+		for my $product_ref (@{$request_ref->{structured_response}{products}}) {
+
+			my $customized_product_ref = customize_response_for_product($request_ref, $product_ref, $fields);
+
+			push @{$customized_products}, $customized_product_ref;
+		}
+
+		$request_ref->{structured_response}{products} = $customized_products;
 
 		# Disable nested ingredients in ingredients field (bug #2883)
 
@@ -7078,10 +7083,10 @@ JS
 	# Replace urls for texts in links like <a href="/ecoscore"> with a localized name
 	$html =~ s/(href=")(\/[^"]+)/$1 . url_for_text($2)/eg;
 
-	my $status = $request_ref->{status} || $request_ref->{error_status} || 200;
+	my $status_code = $request_ref->{status_code} || 200;
 
 	my $http_headers_ref = {
-		'-status' => $status,
+		'-status' => $status_code,
 		'-expires' => '-1d',
 		'-charset' => 'UTF-8',
 	};
@@ -7096,7 +7101,6 @@ JS
 	my $r = Apache2::RequestUtil->request();
 	$r->rflush;
 	# Setting the status makes mod_perl append a default error to the body
-	# $r->status($status);
 	# Send 200 instead.
 	$r->status(200);
 
@@ -10056,7 +10060,7 @@ sub display_product_api ($request_ref) {
 	}
 	elsif ((not defined $product_ref) or (not defined $product_ref->{code})) {
 		if (single_param("api_version") >= 1) {
-			$request_ref->{status} = 404;
+			$request_ref->{status_code} = 404;
 		}
 		$response{status} = 0;
 		$response{status_verbose} = 'product not found';
@@ -10120,36 +10124,31 @@ HTML
 		$response{product} = $product_ref;
 
 		# If the request specified a value for the fields parameter, return only the fields listed
-		if (defined single_param('fields')) {
 
-			$log->debug("display_product_api - fields parameter is set", {fields => single_param('fields')})
-				if $log->is_debug();
+		my $customized_product_ref = customize_response_for_product($request_ref, $product_ref, single_param('fields') || 'all');
 
-			my $customized_product_ref = customize_response_for_product($request_ref, $product_ref);
-
-			# 2019-05-10: the OFF Android app expects the _serving fields to always be present, even with a "" value
-			# the "" values have been removed
-			# -> temporarily add back the _serving "" values
-			if ((user_agent =~ /Official Android App/) or (user_agent =~ /okhttp/)) {
-				if (defined $customized_product_ref->{nutriments}) {
-					foreach my $nid (keys %{$customized_product_ref->{nutriments}}) {
-						next if ($nid =~ /_/);
-						if (    (defined $customized_product_ref->{nutriments}{$nid . "_100g"})
-							and (not defined $customized_product_ref->{nutriments}{$nid . "_serving"}))
-						{
-							$customized_product_ref->{nutriments}{$nid . "_serving"} = "";
-						}
-						if (    (defined $customized_product_ref->{nutriments}{$nid . "_serving"})
-							and (not defined $customized_product_ref->{nutriments}{$nid . "_100g"}))
-						{
-							$customized_product_ref->{nutriments}{$nid . "_100g"} = "";
-						}
+		# 2019-05-10: the OFF Android app expects the _serving fields to always be present, even with a "" value
+		# the "" values have been removed
+		# -> temporarily add back the _serving "" values
+		if ((user_agent =~ /Official Android App/) or (user_agent =~ /okhttp/)) {
+			if (defined $customized_product_ref->{nutriments}) {
+				foreach my $nid (keys %{$customized_product_ref->{nutriments}}) {
+					next if ($nid =~ /_/);
+					if (    (defined $customized_product_ref->{nutriments}{$nid . "_100g"})
+						and (not defined $customized_product_ref->{nutriments}{$nid . "_serving"}))
+					{
+						$customized_product_ref->{nutriments}{$nid . "_serving"} = "";
+					}
+					if (    (defined $customized_product_ref->{nutriments}{$nid . "_serving"})
+						and (not defined $customized_product_ref->{nutriments}{$nid . "_100g"}))
+					{
+						$customized_product_ref->{nutriments}{$nid . "_100g"} = "";
 					}
 				}
 			}
-
-			$response{product} = $customized_product_ref;
 		}
+
+		$response{product} = $customized_product_ref;
 
 		# Disable nested ingredients in ingredients field (bug #2883)
 
@@ -10340,9 +10339,9 @@ sub display_structured_response ($request_ref) {
 			= "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
 			. $xs->XMLout($request_ref->{structured_response});  # noattr -> force nested elements instead of attributes
 
-		my $status = $request_ref->{status};
-		if (defined $status) {
-			print header (-status => $status);
+		my $status_code = $request_ref->{status_code};
+		if (defined $status_code) {
+			print header (-status => $status_code);
 		}
 
 		print header(-type => 'text/xml', -charset => 'utf-8', -access_control_allow_origin => '*') . $xml;
@@ -10366,9 +10365,9 @@ sub display_structured_response ($request_ref) {
 			$jsonp = single_param('callback');
 		}
 
-		my $status = $request_ref->{status};
-		if (defined $status) {
-			print header (-status => $status);
+		my $status_code = $request_ref->{status_code};
+		if (defined $status_code) {
+			print header (-status => $status_code);
 		}
 
 		if (defined $jsonp) {

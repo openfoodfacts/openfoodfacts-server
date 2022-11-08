@@ -414,9 +414,6 @@ else {
 	my $time = time();
 	$comment = $comment . remove_tags_and_quote(decode utf8 => single_param('comment'));
 	if (store_product($User_id, $product_ref, $comment)) {
-		# Notify robotoff
-		send_notification_for_product_change($product_ref, "updated");
-
 		$response{status} = 1;
 		$response{status_verbose} = 'fields saved';
 	}

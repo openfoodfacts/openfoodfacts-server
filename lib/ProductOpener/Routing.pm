@@ -273,7 +273,7 @@ sub analyze_request ($request_ref) {
 				= $formatted_subdomain . '/' . $tag_type_singular{products}{$lc} . '/' . $components[1];
 		}
 		else {
-			$request_ref->{error_status} = 404;
+			$request_ref->{status_code} = 404;
 			$request_ref->{error_message} = lang("error_invalid_address");
 		}
 	}
@@ -296,7 +296,7 @@ sub analyze_request ($request_ref) {
 			}
 		}
 		else {
-			$request_ref->{error_status} = 404;
+			$request_ref->{status_code} = 404;
 			$request_ref->{error_message} = lang("error_invalid_address");
 		}
 	}
@@ -514,7 +514,7 @@ sub analyze_request ($request_ref) {
 		elsif (not defined $request_ref->{groupby_tagtype}) {
 			$log->warn("invalid address, confused by number of components left", {left_components => $#components})
 				if $log->is_warn();
-			$request_ref->{error_status} = 404;
+			$request_ref->{status_code} = 404;
 			$request_ref->{error_message} = lang("error_invalid_address");
 		}
 

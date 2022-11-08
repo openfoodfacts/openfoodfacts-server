@@ -47,19 +47,19 @@ my $tests_ref = [
 	{
 		test_case => 'get-unexisting-product',
 		method => 'GET',
-		path => '/api/v3/product/12345678',
+		path => '/api/v2/product/12345678',
 		expected_status_code => 404,
 	},
 	{
 		test_case => 'get-existing-product',
 		method => 'GET',
-		path => '/api/v3/product/200000000034',
+		path => '/api/v2/product/200000000034',
 		expected_status_code => 200,
 	},
 	{
 		test_case => 'get-specific-fields',
 		method => 'GET',
-		path => '/api/v3/product/200000000034',
+		path => '/api/v2/product/200000000034',
 		query_string => '?fields=product_name,categories_tags,categories_tags_en',
 		expected_status_code => 200,
 	},

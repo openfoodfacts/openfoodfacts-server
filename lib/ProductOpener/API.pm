@@ -49,6 +49,7 @@ BEGIN {
 		&process_api_request
 		&read_request_body
 		&decode_json_request_body
+		&normalize_requested_code
 		&customize_response_for_product
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -329,28 +330,16 @@ sub send_api_reponse ($request_ref) {
 	return;
 }
 
-=head2 customize_response_for_product ( $request_ref, $product_ref )
 
-Using the fields parameter, API product or search queries can request
-a specific set of fields to be returned.
+=head2 process_api_request ($request_ref)
 
-This function filters the field to return only the requested fields,
-and computes requested fields that are not stored in the database but
-created on demand.
+Process API v3 requests.
 
 =head3 Parameters
 
 =head4 $request_ref (input)
 
 Reference to the request object.
-
-=head4 $product_ref (input)
-
-Reference to the product object (retrieved from disk or from a MongoDB query)
-
-=head3 Return value
-
-Reference to the customized product object.
 
 =cut
 
@@ -393,7 +382,50 @@ sub process_api_request ($request_ref) {
 	return;
 }
 
-=head2 customize_response_for_product ( $request_ref, $product_ref )
+
+=head2 normalize_requested_code($requested_code, $response_ref)
+
+Normalize the product barcode requested by a READ or WRITE API request.
+Return a warning if the normalized code is different from the requested code.
+
+=head3 Parameters
+
+=head4 $request_code (input)
+
+Reference to the request object.
+
+=head4 $response_ref (output)
+
+Reference to the response object.
+
+=head3 Return value
+
+Normalized code.
+
+=cut
+
+sub normalize_requested_code($requested_code, $response_ref) {
+
+	my $code = normalize_code($requested_code);
+	$response_ref->{code} = $code;
+
+	# Add a warning if the normalized code is different from the requested code
+	if ($code ne $requested_code) {
+		add_warning(
+			$response_ref,
+			{
+				message => {id => "different_normalized_product_code"},
+				field => {id => $code, value => $code},
+				impact => {id => "none"},
+			}
+		);
+	}
+
+	return $code;
+}
+
+
+=head2 customize_response_for_product ( $request_ref, $product_ref, $fields )
 
 Using the fields parameter, API product or search queries can request
 a specific set of fields to be returned.
@@ -412,27 +444,28 @@ Reference to the request object.
 
 Reference to the product object (retrieved from disk or from a MongoDB query)
 
+=head4 $fields (input)
+
+Comma separated list of fields, default to none.
+
+Special values:
+- none: no fields are returned
+- all: all fields are returned, and special fields (e.g. attributes, knowledge panels) are not computed
+- updated: fields that were updated by a WRITE request
+
 =head3 Return value
 
 Reference to the customized product object.
 
 =cut
 
-sub customize_response_for_product ($request_ref, $product_ref) {
+sub customize_response_for_product ($request_ref, $product_ref, $fields) {
 
 	my $customized_product_ref = {};
 
 	my $carbon_footprint_computed = 0;
 
-	my $fields = request_param($request_ref, 'fields');
-
-	# For non API queries, we need to compute attributes for personal search
-	if (((not defined $fields) or ($fields eq "")) and ($request_ref->{user_preferences}) and (not $request_ref->{api}))
-	{
-		$fields = "code,product_display_name,url,image_front_small_url,attribute_groups";
-	}
-
-	if ($fields eq "none") {
+	if ((not defined $fields) or ($fields eq "none")) {
 		return {};
 	}
 	elsif ($fields eq "all") {

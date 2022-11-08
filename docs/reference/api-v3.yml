@@ -26,7 +26,7 @@ paths:
     get:
       tags:
         - Read Requests
-      summary: Get information for a specific product by barcode (API V3 - Not yet implemented)
+      summary: READ Product - Get information for a specific product by barcode (API V3)
       parameters:
         - name: barcode
           in: path
@@ -55,10 +55,9 @@ paths:
         name: barcode
         in: path
         required: true
-  /api/v3/product:
-    parameters: []
+        description: Barcode of the product
     post:
-      summary: Create or update product (API V3 - Not yet implemented)
+      summary: WRITE Product - Create or update product (API V3 - Implementation in progress)
       operationId: post-api-v3-product-barcode
       responses:
         '200':
@@ -130,7 +129,9 @@ paths:
                           weight: 80
           headers: {}
       description: |-
-        New proposed API to send structured product data in a JSON format instead of in a flattened list of key / value pairs field as-in the current product add / edit API that relies on a multipart/form-data format.
+        New API to send structured product data in a JSON format instead of in a flattened list of key / value pairs field as-in the current product add / edit API that relies on a multipart/form-data format.
+
+        Important: this new Product WRITE API is under development. The initial deployment will support only packaging fields.
 
         This new API will be used in particular to send structured packaging data: https://github.com/openfoodfacts/openfoodfacts-server/blob/main/docs/explanations/packaging-data.md
 
@@ -147,8 +148,6 @@ paths:
                     userid:
                       type: string
                     password:
-                      type: string
-                    code:
                       type: string
                     product:
                       $ref: ./schemas/product_update_api_v3.yaml

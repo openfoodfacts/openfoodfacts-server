@@ -70,12 +70,10 @@ sub update_product_fields ($request_ref, $product_ref) {
 
 		my $value = $input_product_ref->{$field};
 
+        # Packaging components
 		if ($field =~ /^(packagings)(_add)?/) {
 			$request_ref->{updated_product_fields}{$1} = 1;
-			my $add = $2;
-			if (not defined $add) {
-				$product_ref->{packagings} = [];
-			}
+			my $is_addition = (defined $2) ? 1 : 0;
 
 			if (ref($value) ne 'ARRAY') {
 				add_error(
@@ -88,6 +86,11 @@ sub update_product_fields ($request_ref, $product_ref) {
 				);
 			}
 			else {
+                if (not $is_addition) {
+                    # We will replace the packagings structure if it already exists
+				    $product_ref->{packagings} = [];
+			    }
+
 				foreach my $input_packaging_ref (@{$value}) {
 					# Taxonomize the input packaging component data
 					my $packaging_ref
@@ -105,6 +108,9 @@ sub update_product_fields ($request_ref, $product_ref) {
 =head2 write_product_api()
 
 Process API v3 WRITE product requests.
+
+TODO: v0 / v1 / v2 WRITE product requests are still handled by cgi/product_jqm_multilingual.pl which contains similar code.
+Internally, we should be able to upgrade those requests to v3, and then customize the response to make it return the v2 expected response.
 
 =cut
 
@@ -150,7 +156,7 @@ sub write_product_api ($request_ref) {
 		}
 
 		# Load the product
-		my $code = $request_ref->{code};
+        my $code = normalize_requested_code($request_ref->{code}, $response_ref);
 		my $product_id = product_id_for_owner($Owner_id, $code);
 		my $product_ref = retrieve_product($product_id);
 
@@ -188,17 +194,10 @@ sub write_product_api ($request_ref) {
 
 			# Save the product
 			my $comment = $request_body_ref->{comment} || "API v3";
-			if (store_product($User_id, $product_ref, $comment)) {
-				# Notify robotoff
-				send_notification_for_product_change($product_ref, "updated");
-			}
-			else {
-				# Product raw data not changed, according to ProductOpener::Products::compute_product_history_and_completeness(),
-				# which may be incomplete
-			}
+			store_product($User_id, $product_ref, $comment);
 
-			# Return the product
-			$response_ref->{product} = customize_response_for_product($request_ref, $product_ref);
+			# Select / compute only the fields requested by the caller, default to updated fields
+			$response_ref->{product} = customize_response_for_product($request_ref, $product_ref, request_param($request_ref, 'fields') || "updated");
 		}
 	}
 

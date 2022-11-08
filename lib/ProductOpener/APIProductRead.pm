@@ -55,6 +55,9 @@ use ProductOpener::API qw/:all/;
 
 Process API V3 READ product requests.
 
+TODO: v0 / v1 / v2 READ product requests are still handled by Display::display_product_api () which contains similar code.
+Internally, we should be able to upgrade those requests to v3, and then customize the response to make it return the v2 expected response.
+
 =head3 Parameters
 
 =head4 $request_ref (input)
@@ -67,6 +70,8 @@ sub read_product_api ($request_ref) {
 
 	$log->debug("read_product_api - start", {request => $request_ref}) if $log->is_debug();
 
+	my $response_ref = $request_ref->{api_response};
+
 	# Is a sample product requested?
 	if ((defined $request_ref->{code}) and ($request_ref->{code} eq "example")) {
 
@@ -78,72 +83,68 @@ sub read_product_api ($request_ref) {
 			|| "";
 	}
 
-	my $code = normalize_code($request_ref->{code});
-	my $product_id = product_id_for_owner($Owner_id, $code);
-
-	# Check that the product exist, is published, is not deleted, and has not moved to a new url
-
-	$log->debug("read_product_api", {code => $code, params => {CGI::Vars()}}) if $log->is_debug();
-
-	$request_ref->{api_response}{code} = $code;
+	my $code = normalize_requested_code($request_ref->{code}, $response_ref);
 
 	my $product_ref;
+	my $product_id;
 
-	my $rev = single_param("rev");
-	local $log->context->{rev} = $rev;
-	if (defined $rev) {
-		$product_ref = retrieve_product_rev($product_id, $rev);
-	}
-	else {
-		$product_ref = retrieve_product($product_id);
-	}
-
+	# Check if the code is valid
 	if ($code !~ /^\d{4,24}$/) {
 
 		$log->info("invalid code", {code => $code, original_code => $request_ref->{code}}) if $log->is_info();
 		add_error(
-			$request_ref->{api_response},
+			$response_ref,
 			{
 				message => {id => "invalid_code"},
 				field => {id => $code, value => $code},
 				impact => {id => "request_failed"},
 			}
 		);
-		$request_ref->{api_response}{result} = {id => "product_not_found"};
+		$response_ref->{result} = {id => "product_not_found"};
 	}
-	elsif ((not defined $product_ref) or (not defined $product_ref->{code})) {
-		if (single_param("api_version") >= 1) {
-			$request_ref->{status} = 404;
+	else {
+		# Check that the product exist, is published, is not deleted, and has not moved to a new url
+
+		$log->debug("read_product_api", {code => $code, params => {CGI::Vars()}}) if $log->is_debug();
+
+		$product_id = product_id_for_owner($Owner_id, $code);
+
+		my $rev = single_param("rev");
+		local $log->context->{rev} = $rev;
+		if (defined $rev) {
+			$product_ref = retrieve_product_rev($product_id, $rev);
+		}
+		else {
+			$product_ref = retrieve_product($product_id);
+		}
+	}
+
+	
+	if ((not defined $product_ref) or (not defined $product_ref->{code})) {
+
+		# Return an error if we could not find a product
+
+		if ($request_ref->{api_version} >= 1) {
+			$request_ref->{status_code} = 404;
 		}
 
 		add_error(
-			$request_ref->{api_response},
+			$response_ref,
 			{
 				message => {id => "product_not_found"},
 				field => {id => $code, value => $code},
 				impact => {id => "request_failed"},
 			}
 		);
-		$request_ref->{api_response}{result} = {id => "product_not_found"};
+		$response_ref->{result} = {id => "product_not_found"};
 	}
 	else {
-		$request_ref->{api_response}{result} = {id => "product_found"};
+		$response_ref->{result} = {id => "product_found"};
 
 		add_images_urls_to_product($product_ref, $lc);
 
-		# If the request specified a value for the fields parameter, return only the fields listed
-		my $fields = single_param('fields');
-		if (defined $fields) {
-
-			$log->debug("display_product_api - fields parameter is set", {fields => single_param('fields')})
-				if $log->is_debug();
-
-			$request_ref->{api_response}{product} = customize_response_for_product($request_ref, $product_ref);
-		}
-		else {
-			# Otherwise, return the full product
-			$request_ref->{api_response}{product} = $product_ref;
-		}
+		# Select / compute only the fields requested by the caller, default to all
+		$response_ref->{product} = customize_response_for_product($request_ref, $product_ref, request_param($request_ref, 'fields') || "all");
 
 		# Disable nested ingredients in ingredients field (bug #2883)
 		# 2021-02-25: we now store only nested ingredients, flatten them if the API is <= 1
@@ -168,9 +169,9 @@ sub read_product_api ($request_ref) {
 			if (not defined $changes_ref) {
 				$changes_ref = [];
 			}
-			$request_ref->{api_response}{blame} = {};
+			$response_ref->{blame} = {};
 			compute_product_history_and_completeness($data_root, $product_ref, $changes_ref,
-				$request_ref->{api_response}{blame});
+				$response_ref->{blame});
 		}
 
 	}

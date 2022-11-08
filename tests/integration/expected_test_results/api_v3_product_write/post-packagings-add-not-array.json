@@ -1,4 +1,5 @@
 {
+   "code" : "1234567890006",
    "errors" : [
       {
          "field" : {
@@ -16,7 +17,9 @@
          }
       }
    ],
-   "product" : {},
+   "product" : {
+      "packagings" : []
+   },
    "status" : "success_with_errors",
    "warnings" : [
       {

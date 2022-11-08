@@ -1264,8 +1264,13 @@ sub store_product ($user_id, $product_ref, $comment) {
 	# index for search service
 	push_to_search_service($product_ref);
 
+	# Notify Robotoff
+	my $update_type = $product_ref->{deleted} ? "deleted" : "updated";
+	send_notification_for_product_change($product_ref, $update_type);
+
 	return 1;
 }
+
 
 =head2 compute_data_sources ( $product_ref, $changes_ref )
 
