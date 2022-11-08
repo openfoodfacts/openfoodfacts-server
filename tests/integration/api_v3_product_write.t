@@ -22,6 +22,7 @@ my $ua = new_client();
 my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
 create_user($ua, \%create_user_args);
 
+# Note: expected results are stored in json files, see execute_api_tests
 my $tests_ref = [
 	{
 		test_case => 'post-no-body',

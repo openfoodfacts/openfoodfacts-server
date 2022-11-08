@@ -3200,6 +3200,7 @@ sub add_images_urls_to_product ($product_ref, $target_lc) {
 					. $thumb_size . '.jpg';
 
 				if ($imagetype eq 'front') {
+					# front image is product image
 					$product_ref->{image_url} = $product_ref->{"image_" . $imagetype . "_url"};
 					$product_ref->{image_small_url} = $product_ref->{"image_" . $imagetype . "_small_url"};
 					$product_ref->{image_thumb_url} = $product_ref->{"image_" . $imagetype . "_thumb_url"};
@@ -3210,6 +3211,7 @@ sub add_images_urls_to_product ($product_ref, $target_lc) {
 		}
 
 		if (defined $product_ref->{languages_codes}) {
+			# compute selected image for each product language
 			foreach my $key (keys %{$product_ref->{languages_codes}}) {
 				my $id = $imagetype . '_' . $key;
 				if (    (defined $product_ref->{images})
