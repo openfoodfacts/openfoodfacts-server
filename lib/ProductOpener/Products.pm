@@ -3259,9 +3259,6 @@ Reference to a response object to which we can add errors and warnings.
 
 sub analyze_and_enrich_product_data ($product_ref, $response_ref) {
 
-	# Response structure to keep track of warnings and errors
-	my $response_ref = get_initialized_response();
-
 	$log->debug("analyze_and_enrich_product_data - start") if $log->is_debug();
 
 	if (    (defined $product_ref->{nutriments}{"carbon-footprint"})
