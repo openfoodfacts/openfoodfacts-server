@@ -654,6 +654,7 @@ sub migrate_old_number_and_quantity_fields_202211 ($product_ref) {
 			delete $packaging_ref->{quantity_unit};
 		}
 	}
+	return;
 }
 
 =head2 analyze_and_combine_packaging_data($product_ref, $response_ref)
