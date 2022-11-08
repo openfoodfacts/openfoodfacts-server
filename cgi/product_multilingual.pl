@@ -45,6 +45,7 @@ use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Web qw(get_languages_options_list);
 use ProductOpener::Text qw/:all/;
 use ProductOpener::Events qw/:all/;
+use ProductOpener::API qw/:all/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();

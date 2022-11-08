@@ -20,6 +20,18 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+=head1 NAME
+
+product_jqm_multilingual.pl - implementation of the product WRITE API v0, v1 and v2
+
+=head1 DESCRIPTION
+
+This CGI script is v0 to v2 of the Product WRITE API.
+
+API v3 is handled by a different /api/v3/product route, implemented in APIProductWrite.pm
+
+=cut
+
 use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
@@ -42,6 +54,7 @@ use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Text qw/:all/;
+use ProductOpener::API qw/:all/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
