@@ -413,7 +413,6 @@ sub normalize_requested_code ($requested_code, $response_ref) {
 	return $code;
 }
 
-
 =head2 get_images_to_update($product_ref, $target_lc)
 
 Return a list of images that are too old, or that are missing.
@@ -437,7 +436,7 @@ The keys are the image ids (e.g. front_fr), and the value is the age in seconds 
 
 =cut
 
-sub get_images_to_update($product_ref, $target_lc) {
+sub get_images_to_update ($product_ref, $target_lc) {
 
 	my $images_to_update_ref = {};
 
@@ -468,7 +467,6 @@ sub get_images_to_update($product_ref, $target_lc) {
 	}
 	return $images_to_update_ref;
 }
-
 
 =head2 customize_response_for_product ( $request_ref, $product_ref, $fields )
 

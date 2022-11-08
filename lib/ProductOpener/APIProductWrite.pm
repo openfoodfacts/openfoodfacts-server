@@ -185,11 +185,11 @@ sub write_product_api ($request_ref) {
 			);
 		}
 		else {
-            # Response structure to keep track of warnings and errors for the whole product
-            # (not for the update fields)
-            # Note: currently some warnings and errors are added,
-            # but we do not yet do anything with them
-            my $product_response_ref = get_initialized_response();
+			# Response structure to keep track of warnings and errors for the whole product
+			# (not for the update fields)
+			# Note: currently some warnings and errors are added,
+			# but we do not yet do anything with them
+			my $product_response_ref = get_initialized_response();
 
 			# Update the product
 			update_product_fields($request_ref, $product_ref);
