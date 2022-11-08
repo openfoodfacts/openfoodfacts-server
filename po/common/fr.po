@@ -588,8 +588,8 @@ msgid "editor"
 msgstr "éditeur"
 
 msgctxt "email"
-msgid "e-mail address"
-msgstr "Adresse e-mail"
+msgid "E-mail address"
+msgstr ""
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
@@ -1401,7 +1401,7 @@ msgstr "S'inscrire à la lettre d'information (2 e-mails par mois maximum)"
 
 msgctxt "subscribe_to_our_newsletter"
 msgid "Subscribe to our newsletter"
-msgstr "S'inscrire à notre lettre d'information"
+msgstr "S'abonner à notre newsletter"
 
 msgctxt "next"
 msgid "Next"
@@ -6147,42 +6147,42 @@ msgstr "Produits ajoutés"
 
 msgctxt "products_edited"
 msgid "Products edited"
-msgstr ""
+msgstr "Produits modifiés"
 
 msgctxt "products_photographed"
 msgid "Products photographed"
-msgstr ""
+msgstr "Produits photographiés"
 
 # result of the matching with the user preferences: should ne a noun, not a verb
 msgctxt "matching_with_your_preferences"
 msgid "Matching with your preferences"
-msgstr ""
+msgstr "Correspondance avec vos préférences"
 
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_join_us_on_slack"
 msgid "Join us on <a href=\"{url}\">Slack</a>"
-msgstr ""
+msgstr "Rejoignez-nous sur <a href=\"{url}\">Slack</a>"
 
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_discover_our_code_of_conduct"
 msgid "Discover our <a href=\"{url}\">Code of conduct</a>"
-msgstr ""
+msgstr "Découvrez notre <a href=\"{url}\">Code de conduite</a>"
 
 # {links} must not be translated, it will be replaced by icons and/or text links
 msgctxt "f_footer_follow_us_links"
 msgid "Follow us: {links}"
-msgstr ""
+msgstr "Suivez-nous : {links}"
 
 # Should be as small as possible, e.g. use "app" instead of "application", don't specify "mobile"
 msgctxt "footer_install_the_app_exclamation_mark"
 msgid "Install the app!"
-msgstr ""
+msgstr "Installer l'app!"
 
 # HTML tags must not be translated, keep <span id=\"everyday\"> and <span id=\"foods\"> and put them around the corresponding words in the translation
 # e.g. in French: Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>
 msgctxt "footer_scan_your_everyday_foods"
 msgid "Scan your <span id=\"everyday\">everyday</span> <span id=\"foods\">foods</span>"
-msgstr "Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>"
+msgstr "Scannez les <span id=\\\"foods\\\">aliments</span> de votre <span id=\\\"everyday\\\">quotidien</span>"
 
 msgctxt "nutrition"
 msgid "Nutrition"
@@ -6191,7 +6191,7 @@ msgstr "Nutrition"
 # Note: "criteria" is plural here. So in French for instance: "Vos critères"
 msgctxt "your_criteria"
 msgid "Your criteria"
-msgstr ""
+msgstr "Vos critères"
 
 msgctxt "product"
 msgid "Product"
