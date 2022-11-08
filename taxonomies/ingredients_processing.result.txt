@@ -29,6 +29,7 @@ de:extrahiert, extrahierte, extrahierter, extrahiertes
 sv:extraherad, extraherade
 
 de:fein gemahlen, fein gemahlene, fein gemahlener, fein gemahlenes
+hr:fino mljeveno
 hu:finomra őrölt
 
 de:fein zerkleinert, fein zerkleinerte, fein zerkleinerter, fein zerkleinertes
@@ -113,9 +114,14 @@ en:boned
 bg:обезкостен, обезкостено, обезкостена, обезкостени, без кокал
 es:deshuesado, deshuesada, deshuesados, deshuesadas, sin hueso
 fr:désossé, désossée, désossés, désossées, sans os
+hr:iskošteno
 hu:csontozott, kicsontozott
 pl:bez kości
 pt:desensoçado, desossado, sem osso
+
+< en:Boned
+en:machine boned
+hr:strojno otkošteno
 
 en:brined
 de:gepökelt, gepökelte, gepökelter, gepökeltes
@@ -171,7 +177,7 @@ de:gehackt, gehackte, gehackter, gehacktes
 es:picada, picado, picadas, picados, trocitos, trocitas, troceado, troceada, troceados, troceadas
 fi:pilkottu, pilkotut
 fr:hâché, hâchée, hâchés, hâchées, haché, hachée, hachés, hachées
-hr:usitnjeni
+hr:usitnjeni, usitnjena
 hu:apróra vágott, aprított, aprítva, apróra vágva
 is:hakkaðar
 nb:hakkede
@@ -243,6 +249,7 @@ ro:fiert
 sv:kokt, kokta
 
 en:covered, coated
+ca:cobertura
 es:cobertura
 pt:coberto, coberta, cobertos, cobertas, cobertura, coberturas, coberto com, coberta com, cobertos com, cobertas com, cobertura em, coberturas em
 
@@ -354,7 +361,7 @@ et:kuivatatud
 fi:kuivattu, kuivatut
 fr:séché, séchée, séchés, séchées, sèches
 he:מיובשים, מיובש
-hr:sušeni
+hr:sušeni, sušena, sušeno
 hu:szárított
 it:secco, secca, secchi, secche, essiccati
 ja:ドライ
@@ -368,7 +375,7 @@ pt:seco, seca, secos, secas
 ro:uscate
 ru:сушеный, Сушеное, сушёная, сушёный
 sk:sušené
-sv:torkad
+sv:torkad, torkade
 th:ตาก, ออบแห้ง
 uk:сушена
 
@@ -395,6 +402,7 @@ de:extrakt, extrakte, extrakt aus, extrakte aus
 es:extracto, extracto de, extractos
 fi:uute, uutetta, uutteet, pähkinäuute
 fr:extrait de, extrait d'
+hr:ekstrakt
 hu:kivonat, kivonatból
 it:estratto di, estratti di, estratto d'
 ja:エキス
@@ -478,6 +486,7 @@ en:freeze dried
 de:gefriergetrocknet, gefriergetrocknete, gefriergetrockneter, gefriergetrocknetes
 fi:pakkaskuivattu, pakkaskuivatut, pakastekuivattu
 fr:lyophilisé, lyophilisée, lyophilisés, lyophilisées
+hr:liofilizirane
 hu:fagyasztva szárított
 nb:frysetørkede
 nl:gevriesdroogde
@@ -719,6 +728,7 @@ de:flüssiger
 es:líquido
 fi:nestemäinen
 fr:liquide
+hr:tekući, tekuća
 it:liquido
 nl:vloeibaar
 pl:płyn
@@ -949,7 +959,7 @@ fi:jauhe
 fr:en poudre, poudre de, poudre d'
 he:אבקה
 hi:चूर्ण, पाउडर
-hr:Prah
+hr:prah, u prahu
 ht:Poud
 hu:porított, por
 id:Bubuk
@@ -1053,6 +1063,7 @@ de:püree, puree, püree aus, puree aus, pürierte
 es:puré, pure, puré de, pure de, cremogenado, cremogenada
 fi:sose, pyree, pyre
 fr:en purée, purée de, purée d'
+hr:kaša, kaša od
 hu:püré, pürésített
 it:purea di
 nb:puré
@@ -1261,6 +1272,7 @@ en:syrup, molasses
 bg:сироп
 de:sirup
 fr:sirop
+hr:sirup
 pl:syrop
 pt:Xarope
 
@@ -1357,6 +1369,8 @@ it:intero, intera, interi, intere
 pl:całe, w całości
 pt:inteiro, inteira, inteiros, inteiras
 sv:hel, hela
+
+en:with the germ removed
 
 en:wood smoked
 es:humo de leña
