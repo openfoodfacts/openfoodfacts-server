@@ -64,6 +64,13 @@ my $tests_ref = [
 		query_string => '?fields=product_name,categories_tags,categories_tags_en',
 		expected_status_code => 200,
 	},
+	{
+		test_case => 'get-images-to-update',
+		method => 'GET',
+		path => '/api/v3/product/200000000034',
+		query_string => '?fields=images_to_update_en',
+		expected_status_code => 200,
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
