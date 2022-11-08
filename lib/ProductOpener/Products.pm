@@ -3212,6 +3212,7 @@ sub add_images_urls_to_product ($product_ref, $target_lc) {
 		}
 
 		if (defined $product_ref->{languages_codes}) {
+			# compute selected image for each product language
 			foreach my $key (keys %{$product_ref->{languages_codes}}) {
 				my $id = $imagetype . '_' . $key;
 				if (    (defined $product_ref->{images})
