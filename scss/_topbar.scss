@@ -28,7 +28,7 @@
         }
       }
       & li.divider {
-        @media #{$small-only} { border-color: $white; }
+        @media #{$small-only} { border-color: rgba(255, 255, 255, .33); }
       }
       & li label { 
         margin-top: 0; 
@@ -37,9 +37,24 @@
           color: $white;
         }
       }
-
+      // fix: issue#7501: Added back arrow in the menu in responsive mode.
+      & li.back h5 a:hover { text-decoration: none; }
+      & li.back h5 > a::before {
+        display: block;
+        font-family: "Material Icons";
+        content: "\e5c4";
+      }
+    }
     ul {
-      li { background: $ristreto; }
+      li { 
+        background: $ristreto; 
+        // smallfix: Content alignment @ top-bar.
+        a {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+      }
       &.left {
         li {
           &:first-child {
@@ -55,7 +70,7 @@
       &.right {
         li {
           a {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 8px;
           }
