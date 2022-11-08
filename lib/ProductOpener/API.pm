@@ -321,7 +321,6 @@ sub send_api_reponse ($request_ref) {
 	return;
 }
 
-
 =head2 process_api_request ($request_ref)
 
 Process API v3 requests.
@@ -472,7 +471,7 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields) {
 	# Localize the Eco-Score fields that depend on the country of the request
 	localize_ecoscore($cc, $product_ref);
 
-        # lets compute each requested field
+	# lets compute each requested field
 	foreach my $field (split(/,/, $fields)) {
 		if ($field eq "product_display_name") {
 			$customized_product_ref->{$field} = remove_tags_and_quote(product_name_brand_quantity($product_ref));

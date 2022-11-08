@@ -622,7 +622,6 @@ sub add_or_combine_packaging_component_data ($product_ref, $packaging_ref, $resp
 	return;
 }
 
-
 =head2 migrate_old_number_and_quantity_fields_202211($product_ref)
 
 20221104:
@@ -634,7 +633,7 @@ this code can be removed once all products have been updated
 
 =cut
 
-sub migrate_old_number_and_quantity_fields_202211($product_ref) {
+sub migrate_old_number_and_quantity_fields_202211 ($product_ref) {
 
 	foreach my $packaging_ref (@{$product_ref->{packagings}}) {
 		if (exists $packaging_ref->{number}) {
@@ -656,7 +655,6 @@ sub migrate_old_number_and_quantity_fields_202211($product_ref) {
 		}
 	}
 }
-
 
 =head2 analyze_and_combine_packaging_data($product_ref, $response_ref)
 
