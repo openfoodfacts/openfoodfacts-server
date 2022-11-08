@@ -620,6 +620,7 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields) {
 			}
 		}
 
+		# straight fields
 		elsif ((not defined $customized_product_ref->{$field}) and (defined $product_ref->{$field})) {
 			$customized_product_ref->{$field} = $product_ref->{$field};
 		}
