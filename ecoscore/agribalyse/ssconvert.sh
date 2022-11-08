@@ -1,2 +1,7 @@
 #!/bin/sh
-ssconvert AGRIBALYSE3.0.1_vf.xlsm AGRIBALYSE3.0.1_vf.csv -S
+ssconvert AGRIBALYSE_vf.xlsm AGRIBALYSE_vf.csv -S
+tail -n +9 AGRIBALYSE_vf.csv.2 | sort --numeric-sort --field-separator "," | perl -MText::CSV -le '
+    binmode(STDOUT, ":utf8"); $csv = Text::CSV->new({binary=>1}); 
+    while ($row_ref = $csv->getline(STDIN)){
+        $csv->print(*STDOUT, [@$row_ref[0..5]]);
+    }' > AGRIBALYSE_summary.csv
