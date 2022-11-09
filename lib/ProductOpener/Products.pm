@@ -146,6 +146,7 @@ use ProductOpener::Nutriscore qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Packaging qw/:all/;
+use ProductOpener::DataQuality qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
