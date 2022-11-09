@@ -8,23 +8,31 @@ properties:
         properties:
           h:
             type: integer
+            example: 100
           w:
             type: integer
+            example: 56
       '400':
         type: object
         properties:
           h:
             type: integer
+            example: 400
           w:
             type: integer
+            example: 255
       full:
         type: object
         properties:
           h:
             type: integer
+            example: 2000
           w:
             type: integer
+            example: 1125
   uploaded_t:
     type: string
+    example: '1457680652'
   uploader:
     type: string
+    example: openfoodfacts-contributors

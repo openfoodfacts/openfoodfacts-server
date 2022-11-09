@@ -2,16 +2,22 @@ type: object
 properties:
   angle:
     type: integer
+    example: 0
   coordinates_image_size:
     type: string
+    example: full
   geometry:
     type: string
+    example: 0x0--1--1
   imgid:
     type: string
+    example: '121'
   normalize:
     type: 'null'
+    example: null
   rev:
     type: string
+    example: '420'
   sizes:
     type: object
     properties:
@@ -20,36 +26,49 @@ properties:
         properties:
           h:
             type: integer
+            example: 31
           w:
             type: integer
+            example: 100
       '200':
         type: object
         properties:
           h:
             type: integer
+            example: 61
           w:
             type: integer
+            example: 200
       '400':
         type: object
         properties:
           h:
             type: integer
+            example: 122
           w:
             type: integer
+            example: 400
       full:
         type: object
         properties:
           h:
             type: integer
+            example: 638
           w:
             type: integer
+            example: 2084
   white_magic:
     type: 'null'
+    example: null
   x1:
     type: string
+    example: '-1'
   x2:
     type: string
+    example: '-1'
   y1:
     type: string
+    example: '-1'
   y2:
     type: string
+    example: '-1'

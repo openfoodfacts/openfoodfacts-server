@@ -268,6 +268,7 @@ paths:
                 properties:
                   code:
                     type: string
+                    example: 3017620422003
                   product:
                     type: object
                     properties:
@@ -281,53 +282,10 @@ paths:
                             $ref: ./schemas/images/selected_image.yaml                           
                   status:
                     type: integer
+                    example: 1
                   status_verbose:
                     type: string
-                x-examples:
-                  example-1:
-                    code: '3017620422003'
-                    product:
-                      images:
-                        '1':
-                          sizes:
-                            '100':
-                              h: 100
-                              w: 56
-                            '400':
-                              h: 400
-                              w: 225
-                            full:
-                              h: 2000
-                              w: 1125
-                          uploaded_t: '1457680652'
-                          uploader: openfoodfacts-contributors
-                        packaging_fr:
-                          angle: 0
-                          coordinates_image_size: full
-                          geometry: 0x0--1--1
-                          imgid: '121'
-                          normalize: null
-                          rev: '420'
-                          sizes:
-                            '100':
-                              h: 31
-                              w: 100
-                            '200':
-                              h: 61
-                              w: 200
-                            '400':
-                              h: 122
-                              w: 400
-                            full:
-                              h: 638
-                              w: 2084
-                          white_magic: null
-                          x1: '-1'
-                          x2: '-1'
-                          y1: '-1'
-                          y2: '-1'
-                    status: 1
-                    status_verbose: product found
+                    example: product found
       operationId: get-api-v2-product-barcode-?fields=images
       description: Images ensure the reliability of Open Food Facts data. It provides a primary source and proof of all the structured data. You may therefore want to display it along the structured information.
 components:
@@ -386,8 +344,7 @@ components:
       name: categories_tags_en
       description: |
         The category of products you are searching for.
-    
-    labels_tags_en: 
+    labels_tags_en:
       schema:
         type: string
         example: organic
