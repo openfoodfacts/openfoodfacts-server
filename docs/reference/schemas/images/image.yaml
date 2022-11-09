@@ -1,0 +1,30 @@
+type: object
+properties:
+  sizes:
+    type: object
+    properties:
+      '100':
+        type: object
+        properties:
+          h:
+            type: integer
+          w:
+            type: integer
+      '400':
+        type: object
+        properties:
+          h:
+            type: integer
+          w:
+            type: integer
+      full:
+        type: object
+        properties:
+          h:
+            type: integer
+          w:
+            type: integer
+  uploaded_t:
+    type: string
+  uploader:
+    type: string

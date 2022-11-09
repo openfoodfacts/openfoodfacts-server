@@ -176,7 +176,6 @@ paths:
         - $ref: '#/components/parameters/id'
         - $ref: '#/components/parameters/imgid'
         - $ref: '#/components/parameters/angle'
-
       tags:
         - Write Requests
   /cgi/product_jqm2.pl:
@@ -224,7 +223,6 @@ paths:
         - $ref: '#/components/parameters/categories_tags_en'
         - $ref: '#/components/parameters/labels_tags_en'
         - $ref: '#/components/parameters/fields'
-        
     parameters: []
   /cgi/suggest.pl:
     get:
@@ -249,12 +247,94 @@ paths:
         all packaging_shapes containing "fe" will be returned. 
         This is useful if you have a search in your application, 
         for a specific product field.
+  '/api/v2/product/{barcode}?fields=images':
+    parameters:
+      - schema:
+          type: string
+        name: barcode
+        in: path
+        required: true
+    get:
+      summary: Get Images for a specific product by barcode (special case of get product)
+      tags:
+        - Read Requests
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                  product:
+                    type: object
+                    properties:
+                      images:
+                        type: object
+                        # review the regex expression for pattern properties
+                        patternProperties:
+                          '/^\d+$/':
+                            $ref: ./schemas/images/image.yaml
+                          packaging_fr:
+                            $ref: ./schemas/images/selected_image.yaml                           
+                  status:
+                    type: integer
+                  status_verbose:
+                    type: string
+                x-examples:
+                  example-1:
+                    code: '3017620422003'
+                    product:
+                      images:
+                        '1':
+                          sizes:
+                            '100':
+                              h: 100
+                              w: 56
+                            '400':
+                              h: 400
+                              w: 225
+                            full:
+                              h: 2000
+                              w: 1125
+                          uploaded_t: '1457680652'
+                          uploader: openfoodfacts-contributors
+                        packaging_fr:
+                          angle: 0
+                          coordinates_image_size: full
+                          geometry: 0x0--1--1
+                          imgid: '121'
+                          normalize: null
+                          rev: '420'
+                          sizes:
+                            '100':
+                              h: 31
+                              w: 100
+                            '200':
+                              h: 61
+                              w: 200
+                            '400':
+                              h: 122
+                              w: 400
+                            full:
+                              h: 638
+                              w: 2084
+                          white_magic: null
+                          x1: '-1'
+                          x2: '-1'
+                          y1: '-1'
+                          y2: '-1'
+                    status: 1
+                    status_verbose: product found
+      operationId: get-api-v2-product-barcode-?fields=images
+      description: Images ensure the reliability of Open Food Facts data. It provides a primary source and proof of all the structured data. You may therefore want to display it along the structured information.
 components:
   schemas:
     Product:
       $ref: ./schemas/product.yaml
   parameters:
-
     id:
       schema:
         type: string
@@ -262,7 +342,6 @@ components:
       in: query
       name: id
       required: true
-
     code:
       schema:
         type: string
@@ -271,7 +350,6 @@ components:
       name: code
       description: Barcode of the product
       required: true
-
     process_image:
       schema:
         type: string
@@ -279,7 +357,6 @@ components:
       in: query
       name: process_image
       required: true
-
     ocr_engine:
       schema:
         type: string
@@ -287,7 +364,6 @@ components:
       in: query
       name: ocr_engine
       required: true
-
     imgid:
       schema:
          type: string
@@ -295,7 +371,6 @@ components:
       in: query
       name: imgid
       required: true
-    
     angle:
       schema:
          type: string
@@ -303,7 +378,6 @@ components:
       in: query
       name: angle
       required: true
-    
     categories_tags_en:
       schema:
         type: string
@@ -321,9 +395,8 @@ components:
       name: labels_tags_en
       description: |
         The labels of products you are searching for.
-
     fields:
-      schema: 
+      schema:
         type: string
         example: 'code,product_name'
       in: query
@@ -331,14 +404,12 @@ components:
       description: |
         The fields to be returned from the product object can also be limited.
         If not specified, it returns the entire product object response.
-    
     tagtype:
       schema:
         type: string
         example: additives
       in: query
       name: tagtype
-
     term:
       schema:
         type: string
