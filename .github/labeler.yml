@@ -159,7 +159,7 @@ tests:
 - t/**/*
 - lib/ProductOpener/Test.pm
 
-dependancies:
+dependencies:
 - package.json
 - package-lock.json
 
