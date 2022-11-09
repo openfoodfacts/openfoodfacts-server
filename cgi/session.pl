@@ -114,7 +114,7 @@ else {
 	}
 
 	process_template("web/pages/session/$template.tt.html", $template_data_ref, \$html)
-	  or $html = "<p>" . $tt->error() . "</p>";
+		or $html = "<p>" . $tt->error() . "</p>";
 
 	$request_ref->{title} = lang('session_title');
 	$request_ref->{content_ref} = \$html;

@@ -817,8 +817,6 @@ ro:Produse apicole, Produse de apicultură, Produse apicultură, Produse de apic
 ru:Продукция пчеловодства, Продукты пчеловодства
 wikidata_category:en:Q7189914
 
-# description:en:ROYAL JELLY is a honey bee secretion that is used in the nutrition of larvae, as well as adult queens. Royal jelly is collected and sold as a dietary supplement for humans, but the European Food Safety Authority has concluded that the current evidence does not support the claim that consuming royal jelly will give health benefits in humans.
-
 <en:Bee products
 en:Royal jelly
 ar:هلام ملكي
@@ -883,6 +881,8 @@ zh:蜂王漿
 # zh-tw:蜂王漿
 wikipedia:en:https://en.wikipedia.org/wiki/Royal_jelly
 wikidata:en:Q202501
+description:en:Royal jelly is a honey bee secretion that is used in the nutrition of larvae, as well as adult queens. Royal jelly is collected and sold as a dietary supplement for humans, but the European Food Safety Authority has concluded that the current evidence does not support the claim that consuming royal jelly will give health benefits in humans.
+
 
 <en:Bee products
 en:Pollens
@@ -1141,8 +1141,6 @@ en:Wine-based alcoholic beverages
 fr:Boissons alcoolisées à base de vin
 
 
-# description:en:A punch, Sangria traditionally consists of red wine and chopped fruit, often with other ingredients or spirits.
-
 <en:Wine-based alcoholic beverages
 en:Sangria
 xx:Sangria
@@ -1152,6 +1150,7 @@ ciqual_food_code:en:1017
 ciqual_food_name:en:Sangria
 ciqual_food_name:fr:Sangria
 wikidata:en:Q273296
+description:en:A punch, Sangria traditionally consists of red wine and chopped fruit, often with other ingredients or spirits.
 
 <en:Alcoholic beverages
 en:Pastis
@@ -4923,8 +4922,6 @@ ciqual_food_name:fr:Boisson énergisante, non sucrée, avec édulcorants
 
 
 
-# description:en:LEMONADE can be any one of a variety of sweetened beverages found throughout the world, but which are traditionally all characterized by a lemon flavor.
-
 <en:Sodas
 en:lemonade, Lemonades
 ar:شراب الليمون
@@ -5001,6 +4998,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lemonade
 agribalyse_proxy_food_code:en:18010
 agribalyse_proxy_food_name:en:Lemonade, with sugar
 agribalyse_proxy_food_name:fr:Limonade, sucrée
+description:en:Lemonade can be any one of a variety of sweetened beverages found throughout the world, but which are traditionally all characterized by a lemon flavor.
 
 <en:Lemonades
 en:Lemonade with sugar
@@ -7109,11 +7107,11 @@ la:Smilax regelii, Smilax aspera
 nl:Sarsaparilla
 wikidata:en:Q161119
 
-# description:en:LIQUORICE is the root of Glycyrrhiza glabra from which a sweet flavour can be extracted.
 
 <en:Plant-based foods
 en:Liquorice roots, licorice roots
 fr:Bâtons de réglisse, bâton de réglisse
+description:en:Liquorice is the root of Glycyrrhiza glabra from which a sweet flavour can be extracted.
 
 <en:Plant-based foods
 <en:Cooking helpers
@@ -7695,6 +7693,7 @@ es:Cafés
 fi:kahvit
 fr:Cafés, Café
 he:סוגי קפה
+hr:kave, kava
 hu:Kávék
 it:Caffè, Caffe
 nl:Koffies, Koffie
@@ -30011,8 +30010,7 @@ th:ขนมปังกรอบและเค๊ก
 zh:饼干和蛋糕
 food_groups:en: en:Biscuits and cakes
 pnns_group_2:en:Biscuits and cakes
-
-# description:en:A BISCUIT is a flour-based baked food product, which is typically hard, flat and unleavened.
+description:en:A biscuit is a flour-based baked food product, which is typically hard, flat and unleavened.
 
 # for English, we make cookies a synonym of biscuits
 # for other languages, cookies a separate entry corresponding to "Drop cookies" in English
@@ -30670,8 +30668,6 @@ ciqual_food_code:en:24049
 ciqual_food_name:en:Biscuit shortbread, with butter
 ciqual_food_name:fr:Biscuit sec au beurre, sablé, galette ou palet
 
-# description:en:The PETIT BEURRE, or Véritable Petit Beurre, also known under the initials VPB, is a kind of shortbread from Nantes, that is best known in France. It is the Petit Beurre of the LU society, which has become a success worldwide.
-
 # mainIngredient:en:wheat
 <en:Biscuits
 en:Petit-Beurre, Butter biscuit
@@ -30695,6 +30691,7 @@ agribalyse_food_code:en:24015
 ciqual_food_code:en:24015
 ciqual_food_name:en:Butter biscuit (cookie)
 ciqual_food_name:fr:Biscuit sec petit beurre
+description:en:The petit beurre, or Véritable Petit Beurre, also known under the initials VPB, is a kind of shortbread from Nantes, that is best known in France. It is the Petit Beurre of the LU society, which has become a success worldwide.
 
 <en:Petit-Beurre
 en:Butter biscuit with chocolate
@@ -30841,8 +30838,6 @@ ciqual_food_code:en:24009
 ciqual_food_name:en:Speculoos biscuit
 ciqual_food_name:fr:Spéculoos
 
-# description:en:SPECULAAS is a type of spiced shortcrust biscuit, traditionally baked for consumption on or just before St Nicholas' day in the Netherlands (5 December), Belgium (6 December), and around Christmas in Germany and Austria. Today most speculaas versions are made from white (wheat) flour, brown sugar, butter and spices.
-# comment:en:This is different from speculoos, which is a sugar-based variant with only cinnamon.
 
 # mainIngredient:en:wheat
 # <en:compound
@@ -30873,8 +30868,8 @@ zh:斯派庫魯斯
 # pcd:Spéculaas
 wikidata:en:Q6591
 wikipedia:en:https://en.wikipedia.org/wiki/Speculaas
-
-#decription:en:Small round biscuits (1-2 cm) with a large range spices. Can only be obtained in the months up to 5 december (Saint Nicolas)
+description:en:Speculaas is a type of small (1-2 cm) spiced shortcrust biscuit, traditionally baked for consumption on or just before St Nicholas' day in the Netherlands (5 December), Belgium (6 December), and around Christmas in Germany and Austria. Today most speculaas versions are made from white (wheat) flour, brown sugar, butter and spices.
+comment:en:This is different from speculoos, which is a sugar-based variant with only cinnamon.
 
 <en:Speculaas
 nl:Kruidnoten, Speculaasnoten
@@ -30930,10 +30925,6 @@ nl:Bamischijven
 <en:Breaded products
 en:Kroketten
 nl:Kroketten
-
-<en:Breaded products
-en:Dutch Bami disks
-nl:Bamischijven
 
 <en:Cereals and potatoes
 en:Breads
@@ -31722,8 +31713,6 @@ ciqual_food_name:en:Bread, French bread (baguette or ball), with yeast
 ciqual_food_name:fr:Pain, baguette ou boule, au levain
 
 
-# description:en:BREAD CRUMBS are sliced residue of dry bread, used for breading or crumbing foods, topping casseroles, stuffing poultry, thickening stews, adding inexpensive bulk to soups, meatloaves and similar foods, and making a crisp and crunchy covering for fried foods, especially breaded cutlets like tonkatsu and schnitzel.
-
 <en:Breads
 en:Bread crumbs, breadcrumbs
 ar:بقسماط
@@ -31766,6 +31755,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Bread_crumbs
 ciqual_food_code:en:7500
 ciqual_food_name:en:Breadcrumbs
 ciqual_food_name:fr:Chapelure
+description:en:Bread crumbs are sliced residue of dry bread, used for breading or crumbing foods, topping casseroles, stuffing poultry, thickening stews, adding inexpensive bulk to soups, meatloaves and similar foods, and making a crisp and crunchy covering for fried foods, especially breaded cutlets like tonkatsu and schnitzel.
 
 <en:Bread crumbs
 en:Wheat crumbs
@@ -32250,7 +32240,6 @@ ciqual_food_code:en:7260
 ciqual_food_name:en:Bread, home-made, with flour for home-made bread preparation
 ciqual_food_name:fr:Pain blanc maison (avec farine pour machine à pain)
 
-# description:en:A CROUTON is a piece of sautéed or rebaked bread, often cubed and seasoned, that is used to add texture and flavor to salads as an accompaniment to soups and stews, or eaten as a snack food.
 
 # <en:compound
 # mainIngredient:en:wheat
@@ -32288,6 +32277,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Crouton
 agribalyse_food_code:en:7430
 ciqual_food_code:en:7430
 ciqual_food_name:en:Croutons
+description:en:A crouton is a piece of sautéed or rebaked bread, often cubed and seasoned, that is used to add texture and flavor to salads as an accompaniment to soups and stews, or eaten as a snack food.
 
 <en:Croutons
 en:Croutons for spreads
@@ -32428,13 +32418,14 @@ nl:Speciale broden, Speciaal brood
 pt:Pães especiais
 zh:特殊面包
 
-#comment:en:Do not confuse these with the small snacks
 <en:Special breads
 en:Bread Pretzels
 de:Brot Brezeln
 fr:Pains Bretzels, Pain bretzel, Pains bretzel
 nl:Brood Pretzels
 wikidata:en:Q160525
+comment:en:Do not confuse these with the small snacks
+
 
 <en:Special breads
 en:English muffins
@@ -32693,8 +32684,6 @@ ciqual_food_name:en:Malted cocoa or chocolate powder for beverage, with sugar
 ciqual_food_name:fr:Poudre maltée, cacaotée ou au chocolat pour boisson, sucrée, enrichie en vitamines et minéraux
 
 
-# description:en:CAKE is a form of sweet food that is usually baked. The most commonly used cake ingredients include flour, sugar, eggs, butter or oil or margarine, a liquid, and leavening agents, such as baking soda or baking powder. Common additional ingredients and flavourings include dried, candied, or fresh fruit, nuts, cocoa, and extracts such as vanilla, with numerous substitutions for the primary ingredients. Cakes can also be filled with fruit preserves, nuts or dessert sauces (like pastry cream), iced with buttercream or other icings, and decorated with marzipan, piped borders, or candied fruit.
-
 <en:Biscuits and cakes
 # <en:compound
 en:Cakes
@@ -32803,6 +32792,7 @@ ciqual_food_name:en:Cake (average)
 ciqual_food_name:fr:Gâteau (aliment moyen)
 # category/cakes has 6408 products @2019-05-20
 # ingredient/fr:gâteau has 59 products in french @2019-02-06
+description:en:Cake is a form of sweet food that is usually baked. The most commonly used cake ingredients include flour, sugar, eggs, butter or oil or margarine, a liquid, and leavening agents, such as baking soda or baking powder. Common additional ingredients and flavourings include dried, candied, or fresh fruit, nuts, cocoa, and extracts such as vanilla, with numerous substitutions for the primary ingredients. Cakes can also be filled with fruit preserves, nuts or dessert sauces (like pastry cream), iced with buttercream or other icings, and decorated with marzipan, piped borders, or candied fruit.
 
 # Note: en:dessert-mixes is a category that changes the computation of the Nutri-Score, the canonical name should not be changed without corresponding code changes
 <en:Cooking helpers
@@ -34221,7 +34211,7 @@ ciqual_food_name:fr:Chocolat au lait aux fruits secs (noisettes, amandes, raisin
 
 <en:Chocolates with hazelnuts
 <en:Milk chocolates
-en:Milk chocolate with hazelnuts
+en:Milk chocolates with hazelnuts, Milk chocolate with hazelnuts
 de:Milchschokolade mit Haselnüssen
 es:Chocolate con leche y avellanas
 fi:hasselpähkinämaitosuklaat
@@ -34237,7 +34227,7 @@ ciqual_food_name:fr:Chocolat au lait aux fruits secs (noisettes, amandes, raisin
 
 <en:Chocolates with almonds
 <en:Milk chocolates
-en:Milk chocolate with almonds
+en:Milk chocolates with almonds, Milk chocolate with almonds
 de:Milchschokolade mit Mandeln
 es:Chocalte con leche almendrado
 fi:Maitosuklaa manteleilla
@@ -35235,8 +35225,6 @@ fr:Confiseries du Nord-Pas-de-Calais
 nl:Suikergoed uit Nord-Pas-de-Calais in Frankrijk
 
 
-# description:en:NOUGAT is a family of confections made with sugar or honey, roasted nuts (almonds, walnuts, pistachios, hazelnuts, and macadamia nuts are common), whipped egg whites, and sometimes chopped candied fruit.
-
 <en:Confectioneries
 # mainIngredient:en:sugar
 en:nougats, nougat
@@ -35307,6 +35295,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Nougat
 agribalyse_food_code:en:31033
 ciqual_food_code:en:31033
 ciqual_food_name:en:Nougat
+description:en:Nougat is a family of confections made with sugar or honey, roasted nuts (almonds, walnuts, pistachios, hazelnuts, and macadamia nuts are common), whipped egg whites, and sometimes chopped candied fruit.
 
 
 <fr:Nougats
@@ -35371,7 +35360,7 @@ zh:黑牛扎糖
 <en:Candies
 en:Marshmallows, Marshmallow, Marshmallow candies, Marshmallow candy
 da:Marshmallows
-de:Marshmallows, Mäusespeck, Speck
+de:Marshmallows, Mäusespeck
 es:Malvavisco
 fi:vaahtokarkit, Vaahtokarkkeja
 fr:Guimauves, pâtes de guimauves, Chamallows, Guimauve, Marshmallows, Marshmallow
@@ -35647,7 +35636,6 @@ de:Mantecados und Polvorón mit Olivenöl
 es:Mantecados y polvorones de aceite de oliva
 fr:Mantecados et polvorones á l'huile d'olive
 
-# description:en:MARZIPAN is a confection consisting primarily of sugar or honey and almond meal (ground almonds), sometimes augmented with almond oil or extract.
 
 # mainIngredient:en:sugar
 <en:Confectioneries
@@ -35713,6 +35701,7 @@ zh:杏仁膏
 wikidata:en:Q106252
 wikipedia:en:https://en.wikipedia.org/wiki/Marzipan
 # ingredient/fr:massepain has 27 products in 4 languages @2019-02-12
+description:en:Marzipan is a confection consisting primarily of sugar or honey and almond meal (ground almonds), sometimes augmented with almond oil or extract.
 
 
 <en:Marzipan
@@ -36345,7 +36334,7 @@ ciqual_food_name:fr:Crêpe ou Galette fourrée béchamel jambon fromage champign
 
 <en:Meals
 en:Crepes filled with fish, Buckwheat crepes filled with fish
-fr:Crêpes au poisson, Galettes au poisson, Crêpes fourrées au poisson, Galettes fourrées au poisson
+fr:Crêpes au poisson, Crêpes fourrées au poisson, Galettes fourrées au poisson
 agribalyse_food_code:en:25625
 ciqual_food_code:en:25625
 ciqual_food_name:en:Crepe or buckwheat crepe, filled with fish and/or seafood
@@ -40509,7 +40498,8 @@ fr:Brousses
 wikidata:en:Q2926318
 
 #note:en: Note that en:Cottage Cheese not the same as en:Brousse. It has a different taste and structure.
-<en:Fresh cheeses
+#Cottage cheese is not directly in cheeses to avoid having cottage fruit cottage cheese in cheeses.
+<en:Fermented milk products
 en:Cottage cheeses
 af:Maaskaas
 ar:جبن قريش
@@ -40548,6 +40538,7 @@ zh:茅屋起司
 #yue:茅屋芝士
 wikidata:en:Q13221624
 
+<en:Fresh cheeses
 <en:Cottage cheeses
 <en:Plain fermented dairy desserts
 en:Plain cottage cheeses
@@ -40557,6 +40548,11 @@ fr:Cottage cheeses nature
 <en:Fermented dairy desserts with fruits
 en:Fruit cottage cheeses
 fr:Cottage cheeses aux fruits
+
+<en:Fresh cheeses
+<en:Cottage cheeses
+en:Herb cottage cheeses
+fr:Cottage cheeses aux herbes aromatiques
 
 <en:French cheeses
 <en:Brousse
@@ -40670,8 +40666,6 @@ ciqual_food_code:en:12741
 ciqual_food_name:en:Firm cheese, around 27% fat, Maasdam-type cheese
 ciqual_food_name:fr:Fromage à pâte ferme environ 27% MG type Maasdam
 
-# description:en:Gouda is a sweet, creamy, yellow cow's milk cheese originating from the Netherlands.
-# comment: Gouda is NOT a protected name. It can be made anywhere.
 <en:Uncooked pressed cheeses
 <en:Cow cheeses
 en:Gouda
@@ -40690,7 +40684,8 @@ agribalyse_food_code:en:12736
 ciqual_food_code:en:12736
 ciqual_food_name:en:Gouda cheese, from cow's milk
 origins:en: en:The Netherlands
-#wikidata:en:
+description:en:Gouda is a sweet, creamy, yellow cow's milk cheese originating from the Netherlands.
+comment:en:Gouda is NOT a protected name. It can be made anywhere.
 
 <en:Gouda
 en:Goudas with cumin
@@ -40703,7 +40698,6 @@ it:Gouda con cumino
 nl:Goudse Komijnenkazen
 #wikidata:en:
 
-# comment:en: ripings process < 4 weeks
 <en:Gouda
 en:Young Goudas, Young Gouda
 de:Junge Goudas, Junger Gouda
@@ -40711,37 +40705,39 @@ fi:nuori gouda
 fr:Goudas jeunes, Gouda jeune
 it:Gouda giovane
 nl:Jonge Goudas
+comment:en:ripings process < 4 weeks
 
-# comment:en: ripings process 8 <-> 10 weeks
+
 <en:Gouda
 en:Young matured Goudas
 nl:Jong belegen Goudas
+comment:en:ripings process 8 <-> 10 weeks
 
-# comment:en: ripings process 16 <-> 18 weeks
 <en:Gouda
 en:Matured Gouda
 fr:Goudas mi-vieux
 de:Mittelalter Gouda
 fi:Kypsytetyt Goudat
 nl:Belegen Gouda
+comment:en:ripings process 16 <-> 18 weeks
 
-# comment:en: ripings process 7 <-> 9 months
 <en:Gouda
 en:Extra matured Gouda
 nl:Extra belegen Gouda
+comment:en:ripings process 7 <-> 9 months
 
-# comment:en: ripings process 10 <-> 12 months
 <en:Gouda
 en:Old Goudas
 de:Alter Gouda
 fr:Goudas vieux
 nl:Oude Goudas
+comment:en:ripings process 10 <-> 12 months
 
-# comment:en: ripings process > 12 months
 <en:Gouda
 fr:Goudas extra-vieux, Goudas de Noël
 de:Extra alte Goudas
 nl:Goudas extra oud, Overjarige Gouda
+comment:en:ripings process > 12 months
 
 <en:Young Goudas
 en:Young Goudas with herbs
@@ -40874,6 +40870,16 @@ fr:Spécialités laitières nature non sucrées
 fr:Spécialités laitières aux fruits
 
 <en:Fermented dairy desserts
+en:Kefir yogurts
+de:Sahnekefir
+fr:Yaourts au kéfir
+
+<en:Kefir yogurts
+<en:Fermented dairy desserts with fruits
+en:Fruit kefir yogurts
+fr:Yaourts au kéfir aux fruits
+
+<en:Fermented dairy desserts
 en:Bifidus yogurts
 de:Bifidus-Joghurt
 es:Yogures bifidus, Yogures con bifidus
@@ -40982,8 +40988,6 @@ en:Fresh cream cheese with sheeps's milk
 fr:Fromages blancs au lait de chèvre
 en:Fresh cream cheese with goat's milk
 
-# description:en:SHEEP MILK CHEESE is a cheese prepared from sheep milk.
-
 # <en:ingredient:en:cheese
 # <en:sheeps milk
 <en:Cheeses
@@ -41017,6 +41021,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sheep_milk_cheese
 agribalyse_food_code:en:12824
 ciqual_food_code:en:12824
 ciqual_food_name:en:Soft ripened cheese with bloomy rind, from ewe's milk, Camembert-type cheese
+description:en:Sheep milk cheese is a cheese prepared from sheep milk.
+
 
 <en:sheep's-milk cheeses
 en:Old sheep cheese
@@ -43802,7 +43808,6 @@ fr:Skyrs nature, Skyr nature
 en:Fruit skyrs, Fruit skyr
 fr:Skyrs aux fruits, Skyr aux fruits
 
-# description:en:QUARK is a type of fresh dairy product made by warming soured milk until the desired amount of curdling is met, and then straining it.
 
 <en:Fermented milk products
 # <en:ingredient:en:cheese
@@ -43857,6 +43862,7 @@ ciqual_food_name:en:Quark, plain or fruit (average)
 ciqual_food_name:fr:Fromage blanc nature ou aux fruits (aliment moyen)
 # ingredient/nl:kwark has 2 products @2019-05-24
 # category/quark has 221 products @2019-05-24
+description:en:Quark is a type of fresh dairy product made by warming soured milk until the desired amount of curdling is met, and then straining it.
 
 <en:Plain fermented dairy desserts
 <en:Quarks
@@ -43867,10 +43873,6 @@ fr:Quarks nature, Quark nature
 <en:Quarks
 en:Fruit quarks, Fruit quark
 fr:Quarks aux fruits, Quark aux fruits
-
-<en:Quarks
-en:Curd snacks
-lt:Varškės sūreliai
 
 <en:Quarks
 en:Herb quarks
@@ -44014,7 +44016,7 @@ gn:Kamby
 gu:દૂધ
 he:חלב
 hi:दूध
-hr:Mlijeko
+hr:mlijeko
 ht:Lèt
 hu:tej
 hy:Կաթ
@@ -45712,7 +45714,7 @@ bg:Ароматизирани кисели млека
 de:aromatisierte Joghurts
 es:Yogures de sabores
 fi:Maustetut jogurtit
-fr:Yaourts aromatisés, Yaourt aromatisé sucré au lait fermenté, Spécialité laitière sucrée aromatisée
+fr:Yaourts aromatisés, Yaourt aromatisé sucré au lait fermenté
 he:יוגורטים בטעמים
 it:Yogurt aromatizzati
 nl:Gearomatiseerde yoghurts
@@ -45733,7 +45735,7 @@ da:Frugtyoghurt
 de:Fruchtjoghurt, Fruchtjogurt, Fruchtjoghurts, Fruchtjogurts
 es:Yogures de frutas
 fi:Hedelmäjogurtit
-fr:Yaourts aux fruits, Yaourt aromatisé , Yaourt aux fruits, Lait fermenté aromatisé, Lait fermenté aux fruits, Spécialité laitière aromatisée, Spécialité laitière aux fruits
+fr:Yaourts aux fruits, Yaourt aromatisé , Yaourt aux fruits, Lait fermenté aromatisé, Lait fermenté aux fruits
 he:יוגורט פירות
 hu:Gyümölcsjoghurtok, Joghurt gyümölccsel
 it:Yogurt alla frutta
@@ -46650,7 +46652,7 @@ fr:Compotes de pomme, Compotes de pommes, Compote de pommes
 he:לפתן תפוחים, קומפוט תפוחים
 hu:Almakompótok
 it:Composte di mela
-#comment:en:In dutch there is a difference between compote and moes. The former has pieces in it, while the later is more finely ground.
+comment:en:In dutch there is a difference between compote and moes. The former has pieces in it, while the later is more finely ground.
 nl:Appelcompotes, Applemoezen, Appelmoes
 sv:Äppelmos
 wikidata:en:Q618345
@@ -47339,7 +47341,7 @@ ciqual_food_name:en:Flan with eggs, refrigerated
 ciqual_food_name:fr:Flan aux œufs, rayon frais
 
 <en:Dairy desserts
-en:Semolina desserts
+en:Semolina puddings, Semolina desserts
 de:Grießpuddings, Grießpudding
 es:Sémolas de leche
 fr:Semoules au lait
@@ -47348,9 +47350,17 @@ agribalyse_proxy_food_code:en:39218
 agribalyse_proxy_food_name:en:Semolina pudding, refrigerated
 agribalyse_proxy_food_name:fr:Semoule au lait, rayon frais
 
+<en:Puddings
+en:Chia puddings
+fr:Desserts aux graines de chia
+
 <en:Non-dairy desserts
 en:Vegan rice puddings
 fr:Riz au lait végétaliens
+
+<en:Non-dairy desserts
+en:Vegan semolina puddings
+fr:Semoules au lait végétaliennes
 
 # Shoudn't be under chocolate mousses
 <en:Chocolate desserts
@@ -49446,8 +49456,6 @@ it:Uova da galline allevate in gabbie
 nl:Legbatterij eieren
 wikidata:en:Q35855119
 
-# description:en:QUAIL EGGS are the eggs layed by a quail. They can be prepared the same as chicken eggs.
-
 <en:Bird eggs
 # <en:ingredient:en:egg
 en:Quail eggs, Quail egg
@@ -49470,6 +49478,7 @@ ciqual_food_code:en:22050
 ciqual_food_name:en:Quail egg, raw
 ciqual_food_name:fr:Oeuf de caille, cru
 # ingredient/fr:oeufs-de-cailles has 25 products @2019-05-23
+description:en:Quail eggs are the eggs layed by a quail. They can be prepared the same as chicken eggs.
 
 <en:Bird eggs
 en:Duck eggs
@@ -50266,6 +50275,7 @@ de:Kokosöle, Kokosnussöle, Kokosöl, Kokosnussöl, Kokosfette, Kokosfett
 es:Aceites de coco
 fi:kookosöljyt
 fr:Huiles de coco, Huiles de noix de coco
+hr:kokosovo ulje
 it:Olio di cocco
 nl:Kokosoliën
 pl:Oleje kokosowe, olej kokosowy
@@ -50545,6 +50555,7 @@ de:Native Olivenöle Extra, Natives Olivenöl Extra
 es:Aceites de oliva virgen extra, Aceite de oliva virgen extra
 fi:Ekstra-neitsytoliiviöljyt
 fr:Huiles d'olive vierges extra, Huile d'olive vierge extra
+hr:ekstra djevičansko maslinovo ulje
 hu:Extra szűz olívaolajok, Extra szűz olívaolaj
 it:Olio extra vergine di oliva
 nl:Extra vierge olijfoliën
@@ -53009,7 +53020,6 @@ en:Plain porridge
 fr:Porridge nature
 nl:Pappen (gewoon)
 
-# description:en:MUESLI is a breakfast dish based on raw rolled oats and other ingredients like grains, fresh or dried fruits, seeds and nuts, that may be mixed with milk, soy milk, almond milk, other plant milks, yogurt, or fruit juice.
 
 <en:Breakfast cereals
 en:Mueslis, Muesli, Granola
@@ -53071,6 +53081,7 @@ agribalyse_proxy_food_code:en:32128
 agribalyse_proxy_food_name:en:Muesli, flakes (Bircher-style)
 agribalyse_proxy_food_name:fr:Muesli floconneux ou de type traditionnel
 # ingredient/fr:muesli has 46 products in 4 languages @2019-02-07
+description:en:Muesli is a breakfast dish based on raw rolled oats and other ingredients like grains, fresh or dried fruits, seeds and nuts, that may be mixed with milk, soy milk, almond milk, other plant milks, yogurt, or fruit juice.
 
 <en:Mueslis
 <en:Cereals with fruits
@@ -53775,6 +53786,7 @@ nl:Boekweitmelen T150
 
 <en:Cereal flours
 en:Cornmeal, Corn flours, Maize flours
+bg:Царевично брашно
 de:Maismehl
 es:Harinas de maíz
 fi:Maissijauhot
@@ -53857,6 +53869,7 @@ pt:Farinhas de aveia, farinha de aveia
 
 <en:Cereal flours
 en:Quinoa flours
+bg:Брашно от киноа
 de:Quinoamehle, Quinoa-Mehle
 es:Harinas de quinoa
 fr:Farines de quinoa
@@ -54784,7 +54797,7 @@ vi:Phụ gia thực phẩm
 zh:食品添加剂
 #vec:Aditivo ałimentar
 wikidata:en:Q189567
-#description:en:substances added to food to preserve flavor or enhance its taste, appearance, or other qualities
+description:en:substances added to food to preserve flavor or enhance its taste, appearance, or other qualities
 
 <en:Food additives
 en:Soy lecithin
@@ -55334,7 +55347,6 @@ fr:Dessert glacé feuilleté vanille fruits rouges
 <en:Frozen dessert puff pastry
 fr:Dessert glacé feuilleté chocolat brownie
 
-# description:en:ICE CREAM is a sweetened frozen food typically eaten as a snack or dessert. It may be made from dairy milk or cream, or soy, cashew, coconut or almondmilk, and is flavored with a sweetener, either sugar or an alternative, and any spice, such as cocoa or vanilla. Colourings are usually added, in addition to stabilizers.
 
 <en:Ice creams and sorbets
 en:ice creams, ice cream
@@ -55496,6 +55508,8 @@ agribalyse_proxy_food_name:fr:Glace ou crème glacée, cône (taille standard)
 # usage:en:Ice cream:organic cream, organic milk, organic cane sugar, organic egg yolks, organic vanilla extract, organic locust bean gum, organic guar gum
 # usage:fr:glace (sucre, kirsch de Bâle-Campagne)
 nova:en:3
+description:en:Ice cream is a sweetened frozen food typically eaten as a snack or dessert. It may be made from dairy milk or cream, or soy, cashew, coconut or almondmilk, and is flavored with a sweetener, either sugar or an alternative, and any spice, such as cocoa or vanilla. Colourings are usually added, in addition to stabilizers.
+
 
 <en:Ice creams
 en:Ice cream bars, Ice creams on a stick
@@ -59228,7 +59242,6 @@ food_groups:en: en:Dried fruits
 pnns_group_2:en:Dried fruits
 who_id:en:16
 
-# description:en:DATE, the fruit of the date palm (Phoenix dactylifera). Dry or soft dates are eaten out-of-hand, or may be pitted and stuffed with fillings such as almonds, walnuts, pecans, candied orange and lemon peel, tahini, marzipan or cream cheese.
 
 <en:fruit
 # <en:category:en:Dried fruits
@@ -59281,6 +59294,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Date_palm#Fruits
 agribalyse_proxy_food_code:en:13011
 agribalyse_proxy_food_name:en:Date, pulp and peel, dried
 agribalyse_proxy_food_name:fr:Datte, pulpe et peau, sèche
+description:en:Date, the fruit of the date palm (Phoenix dactylifera). Dry or soft dates are eaten out-of-hand, or may be pitted and stuffed with fillings such as almonds, walnuts, pecans, candied orange and lemon peel, tahini, marzipan or cream cheese.
 
 <en:Fruit pastes
 <en:Dates
@@ -60855,7 +60869,6 @@ la:Satureja montana
 nl:Bergbonenkruid
 wikidata:en:Q160186
 
-# description:en:Tarragon (Artemisia dracunculus), is a species of perennial herb in the sunflower family. Tarragon is one of the four fines herbes of French cooking, and is particularly suitable for chicken, fish, and egg dishes.
 
 <en:Aromatic herbs
 en:tarragon
@@ -60943,6 +60956,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Tarragon
 agribalyse_proxy_food_code:en:11092
 agribalyse_proxy_food_name:en:Tarragon, fresh
 agribalyse_proxy_food_name:fr:Estragon, frais
+description:en:Tarragon (Artemisia dracunculus), is a species of perennial herb in the sunflower family. Tarragon is one of the four fines herbes of French cooking, and is particularly suitable for chicken, fish, and egg dishes.
 
 <en:Tarragon
 <en:Fresh aromatic plants
@@ -63078,6 +63092,10 @@ ciqual_food_code:en:11202
 ciqual_food_name:en:Indian-style sauce, tandoori or garam masala type, prepacked
 ciqual_food_name:fr:Sauce indienne type tandoori ou tikka masala, préemballée
 #wikidata:en:
+
+<en:Indian sauces
+en:Korma sauces
+fr:Sauces korma
 
 <en:Sauces
 en:Worcestershire sauces
@@ -68032,7 +68050,6 @@ nl:Courgettecrèmesoepen
 <en:Cream of vegetable soups
 fr:Veloutés de légumes du soleil
 
-# description:en:BROTH is a savory liquid made of water in which bones, meat, fish, or vegetables have been simmered.
 
 en:broths, broths, stock, bouillon, Stocks
 af:bouillon
@@ -68110,6 +68127,7 @@ zh:清汤
 wikidata:en:Q275068
 wikipedia:en:https://en.wikipedia.org/wiki/Broth
 # category/broths has 527 products @2019-05-19
+description:en:Broth is a savory liquid made of water in which bones, meat, fish, or vegetables have been simmered.
 
 <en:Broths
 <en:Dried products to be rehydrated
@@ -70067,7 +70085,7 @@ it:Jerky di manzo, Manzo essiccato
 nl:Beef jerkies, Beef jerky
 
 <en:Meats
-en:Meat patties, Steaks
+en:Steaks
 de:Steaks
 es:Filetes
 fi:pihvit
@@ -70077,11 +70095,15 @@ it:Bistecche
 nl:Steaks
 zh:肉排
 
-<en:Meat patties
-en:Beef patties
-fr:Steaks de bœuf, steak de boeuf
+<en:Meats
+en:Meat patties
+fr:Galettes à la viande
 
 <en:Meat patties
+en:Beef patties
+fr:Galettes au bœuf
+
+<en:Steaks
 en:Ground steaks
 de:Hackfleischsteaks, Hacksteaks
 es:Filetes picado
@@ -70090,7 +70112,7 @@ fr:Steaks hachés, Steak haché
 it:Carne macinata e hamburger
 nl:Tartaarsteaks
 
-<en:Meat patties
+<en:Steaks
 en:Beef based burger with 15% fat
 fr:Haché à base de bœuf cru à 15% de matières grasses, Préparation de viande hachée de boeuf crue à 15% de matières grasses
 agribalyse_food_code:en:6260
@@ -75199,8 +75221,8 @@ wikidata:en:Q3411532
 en:Swiss sausages
 fr:Saucisses suisses
 
-<en:Swiss sausage
-en:Swiss sausage to cook
+<en:Swiss sausages
+en:Swiss sausages to cook
 fr:Saucisse suisse à cuire
 agribalyse_food_code:en:30118
 ciqual_food_code:en:30118
@@ -75557,8 +75579,6 @@ zh:冷肉
 <fr:Saucissons
 fr:Saucissons artisanaux, Saucisson artisanal
 
-# description:en:CHORIZO or chouriço is a type of pork sausage. In Europe, chorizo is a fermented, cured, smoked sausage, which may be sliced and eaten without cooking, or added as an ingredient to add flavor to other dishes. Elsewhere, some sausages sold as chorizo may not be fermented and cured, and require cooking before eating. Spanish chorizo and Portuguese chouriço get their distinctive smokiness and deep red color from dried, smoked, red peppers.
-
 <fr:saucissons
 en:chorizo, chorizos
 af:Chorizo
@@ -75613,6 +75633,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Chorizo
 agribalyse_food_code:en:30315
 ciqual_food_code:en:30315
 ciqual_food_name:en:Spicy pork sausage with red pepper, no precision
+description:en:Chorizo or chouriço is a type of pork sausage. In Europe, chorizo is a fermented, cured, smoked sausage, which may be sliced and eaten without cooking, or added as an ingredient to add flavor to other dishes. Elsewhere, some sausages sold as chorizo may not be fermented and cured, and require cooking before eating. Spanish chorizo and Portuguese chouriço get their distinctive smokiness and deep red color from dried, smoked, red peppers.
 
 <en:chorizo
 en:Spicy pork sausage in large slices
@@ -76876,6 +76897,9 @@ ciqual_food_name:en:Venison (roebuck), raw
 ciqual_food_name:fr:Chevreuil, cru
 
 <en:Venison
+en:Wild British venison
+
+<en:Venison
 en:Scottish Wild Venison
 protected_name_file_number:en: PGI-GB-2448
 protected_name_type:en: pgi
@@ -77602,7 +77626,6 @@ es:Harinas de setas, Setas en polvo, Setas deshidratadas en polvo
 fr:Poudres de champignons
 nl:Paddestoelenpoeders
 
-# description:en:PASTA is type of noodle typically made from an unleavened dough of durum wheat flour mixed with water or eggs, and formed into sheets or various shapes, then cooked by boiling or baking. Rice flour, or legumes such as beans or lentils, are sometimes used in place of wheat flour to yield a different taste and texture, or as a gluten-free alternative. Pasta is a staple food of Italian cuisine.
 
 # <en:dough
 <en:Plant-based foods
@@ -77713,6 +77736,8 @@ wikidata:en:Q178
 wikipedia:en:https://en.wikipedia.org/wiki/Pasta
 carbon_footprint_fr_foodges_ingredient:fr:Pâtes sèches
 # ingredient/fr:pâtes-alimentaires has 115 products 2019-05-20
+description:en:Pasta is type of noodle typically made from an unleavened dough of durum wheat flour mixed with water or eggs, and formed into sheets or various shapes, then cooked by boiling or baking. Rice flour, or legumes such as beans or lentils, are sometimes used in place of wheat flour to yield a different taste and texture, or as a gluten-free alternative. Pasta is a staple food of Italian cuisine.
+
 
 <en:Cereals and their products
 <en:Pastas
@@ -78486,6 +78511,11 @@ it:Pasta di lenticchie
 nl:Linzenpasta
 
 <en:Pastas
+en:Split pea pasta
+fr:Pâtes de pois cassés
+it:Pasta di piselli
+
+<en:Pastas
 fr:Pâtes de petit épeautre, pâtes à base de petit épeautre, Pâtes Petit épeautre
 it:Pasta di piccolo farro
 
@@ -78557,7 +78587,6 @@ ciqual_food_code:en:9810
 ciqual_food_name:en:Dried pasta, raw
 ciqual_food_name:fr:Pâtes sèches standard, crues
 
-# description:en:RAVIOLI are a type of dumpling comprising a filling enveloped in thin pasta dough.
 
 # <en:compound
 <en:Stuffed Pastas
@@ -78608,6 +78637,7 @@ ciqual_food_name:en:Pasta (e.g. ravioli), filled, cooked
 ciqual_food_name:fr:Pâtes fraîches farcies (ex : raviolis), cuites (aliment moyen)
 # ingredient/ravioli has 92 products in 6 languages @2019-02-17
 # ravioli (water, durum wheat, 24% cream cheese, egg [open-air] 7%, mascarpone cheese, bread crumbs, coconut cream, 1% lemon juice, broth of vegetables, sugar, whey powder, juice of limes 0.3%, iodized cooking salt, lemon zest 0.2%, lemon extract 0.1%, syrup of limes, spices)
+description:en:Ravioli are a type of dumpling comprising a filling enveloped in thin pasta dough.
 
 <en:Stuffed pasta
 en:Pasta stuffed with fish
@@ -81485,19 +81515,19 @@ ciqual_food_code:en:10009
 ciqual_food_name:en:Lobster, boiled/cooked in water
 ciqual_food_name:fr:Homard, bouilli/cuit à l'eau
 
+<en:Lobsters
+en:Spiny lobsters
+fr:Langouste
+ciqual_food_code:en:10015
+ciqual_food_name:en:Spiny lobster, raw
+ciqual_food_name:fr:Langouste, crue
+
 <en:Spiny lobsters
 en:Boiled spiny lobster, Spiny lobster cooked in water
 fr:Langouste bouillie, Langouste cuite à l'eau
 ciqual_food_code:en:10022
 ciqual_food_name:en:Spiny lobster, boiled/cooked in water
 ciqual_food_name:fr:Langouste, bouillie/cuite à l'eau
-
-<en:Spiny lobsters
-en:spiny lobster
-fr:Langouste
-ciqual_food_code:en:10015
-ciqual_food_name:en:Spiny lobster, raw
-ciqual_food_name:fr:Langouste, crue
 
 <en:Chinese sea products
 <en:Lobsters
@@ -81856,14 +81886,14 @@ ciqual_food_name:fr:Homard, cru
 wikidata:en:Q61864890
 
 <en:Crustaceans
-en:Spiny lobsters
+en:Small spiny lobsters
 fr:Langoustes
 nl:Rivierkreeftjes
 agribalyse_proxy_food_code:en:10024
 agribalyse_proxy_food_name:en:Norway lobster, raw
 agribalyse_proxy_food_name:fr:Langoustine, crue
 
-<en:Spiny lobsters
+<en:Small spiny lobsters
 fr:Queues de langoustes
 
 <en:Crustaceans
@@ -81907,6 +81937,7 @@ wikidata:en:Q600396
 # Fish patties are generally called "fish burgers", but it is not put as a synonym since it could be confused with "fish hamburgers"
 <en:Fishes
 en:Fish patties
+fr:Galettes au poisson
 
 <en:Seafood
 <en:Frozen foods
@@ -84717,6 +84748,21 @@ pt:Produtos para barrar à base de plantas, Produtos para barrar vegetais, paté
 en:Vegetarian spreads with meat-like pieces
 fr:Tartinades avec des morceaux végétariens
 
+<en:Plant-based spreads
+<en:Salted spreads
+en:Cheese spreads substitutes
+fr:Substituts de fromages à tartiner
+
+<en:Plant-based spreads
+<en:Salted spreads
+en:Egg spreads substitutes
+fr:Substituts de tartinades d'œufs, Substituts de tartinades d'oeufs
+
+<en:Plant-based spreads
+<en:Salted spreads
+en:Vegan vegetable spreads
+fr:Tartinades véganes aux légumes
+
 <en:Spreadable fats
 <en:Plant-based spreads
 de:Streichfette, Streichfett
@@ -86336,7 +86382,7 @@ wikidata:en:Q151070
 en:Caster sugars, Superfine sugars
 fr:Sucres en poudre, Sucre en poudre
 nl:Griessuiker
-#comment:en:has sugar grain size (0.35 mm) between powders and granulated
+comment:en:has sugar grain size (0.35 mm) between powders and granulated
 
 <en:Sugars
 en:Granulated sugars, White sugars, Refined sugars, White sugar, Refined sugar
@@ -87931,7 +87977,6 @@ ciqual_food_name:fr:Betterave rouge, cuite
 <en:Beet
 fr:Betteraves sous vide
 
-# description:en:BROCCOLI is an edible green plant in the cabbage family whose large flowering head is eaten as a vegetable
 
 <en:Vegetables
 # <en:ingredient:en:vegetable
@@ -88026,6 +88071,8 @@ agribalyse_food_code:en:20057
 ciqual_food_code:en:20057
 ciqual_food_name:en:Broccoli, raw
 ciqual_food_name:fr:Brocoli, cru
+description:en:Broccoli is an edible green plant in the cabbage family whose large flowering head is eaten as a vegetable
+
 
 <en:Broccoli
 <en:Fresh vegetables
@@ -88394,7 +88441,6 @@ ciqual_food_code:en:20025
 ciqual_food_name:en:Celeriac, cooked
 ciqual_food_name:fr:Céleri-rave, cuit
 
-# description:en:CHARD (Beta vulgaris subsp. vulgaris, Cicla-Group and Flavescens-Group) is a green leafy vegetable. Chard, like other green leafy vegetables, has highly nutritious leaves, making it a popular component of healthy diets.Fresh young chard can be used raw in salads. Mature chard leaves and stalks are typically cooked (like in pizzoccheri) or sautéed; the bitterness fades with cooking, leaving a refined flavor which is more delicate than that of cooked spinach.
 
 # <en:Vegetable rods
 <en:vegetable
@@ -88464,6 +88510,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Chard
 agribalyse_proxy_food_code:en:20004
 agribalyse_proxy_food_name:en:Swiss chard, raw
 agribalyse_proxy_food_name:fr:Bette ou blette, crue
+description:en:Chard (Beta vulgaris subsp. vulgaris, Cicla-Group and Flavescens-Group) is a green leafy vegetable. Chard, like other green leafy vegetables, has highly nutritious leaves, making it a popular component of healthy diets.Fresh young chard can be used raw in salads. Mature chard leaves and stalks are typically cooked (like in pizzoccheri) or sautéed; the bitterness fades with cooking, leaving a refined flavor which is more delicate than that of cooked spinach.
 
 <en:Chards
 <en:Fresh vegetables
@@ -88512,7 +88559,6 @@ es:Pepinos frescos
 fr:Concombre frais
 season_in_country_fr:en: 5,6,7,8,9,10
 
-# description:en:Cichorium endivia is a species of flowering plant belonging to the genus Cichorium, which is widely cultivated as one of the species of similar bitter-leafed vegetables known as endive and escarole.
 
 # <en:Vegetables
 <en:vegetable
@@ -88562,6 +88608,8 @@ agribalyse_food_code:en:20090
 ciqual_food_code:en:20090
 ciqual_food_name:en:Escaroles
 ciqual_food_name:fr:Scarole, crue
+description:en:Cichorium endivia is a species of flowering plant belonging to the genus Cichorium, which is widely cultivated as one of the species of similar bitter-leafed vegetables known as endive and escarole.
+
 
 <en:Leaf vegetables
 en:Belgian endives, Witloof
@@ -88610,7 +88658,6 @@ ciqual_food_code:en:20163
 ciqual_food_name:en:Green endive, raw
 ciqual_food_name:fr:Chicorée verte, crue
 
-# description:en:FENNEL (Foeniculum vulgare) is a flowering plant species in the carrot family. The bulb, foliage, and fruits of the fennel plant are used in many of the culinary traditions of the world. The bulb is a crisp vegetable that can be sautéed, stewed, braised, grilled, or eaten raw. Young tender leaves are used for garnishes, as a salad, to add flavor to salads, to flavor sauces to be served with puddings, and also in soups and fish sauce.
 
 <en:Plant-based foods
 # <en:ingredient:en:vegetable
@@ -88709,6 +88756,7 @@ agribalyse_food_code:en:20028
 ciqual_food_code:en:20028
 ciqual_food_name:en:Fennel, raw
 ciqual_food_name:fr:Fenouil, cru
+description:en:Fennel (Foeniculum vulgare) is a flowering plant species in the carrot family. The bulb, foliage, and fruits of the fennel plant are used in many of the culinary traditions of the world. The bulb is a crisp vegetable that can be sautéed, stewed, braised, grilled, or eaten raw. Young tender leaves are used for garnishes, as a salad, to add flavor to salads, to flavor sauces to be served with puddings, and also in soups and fish sauce.
 
 <en:fennel
 fr:Fenouil frais
@@ -88844,7 +88892,6 @@ es:Ajos tiernos, Brotes de ajo
 fr:Aillets
 hu:Zöld foghagyma
 
-# description:en:The LEEK is a vegetable, a cultivar of Allium ampeloprasum, the broadleaf wild leek. Leeks have a mild, onion-like taste. In its raw state, the vegetable is crunchy and firm. The edible portions of the leek are the white base of the leaves (above the roots and stem base), the light green parts, and to a lesser extent the dark green parts of the leaves. Leeks are typically chopped into slices 5–10 mm thick. The slices have a tendency to fall apart, due to the layered structure of the leek. The different ways of preparing the vegetable are: boiling, frying or raw.
 
 <en:Vegetable rods
 # <en:ingredient:en:vegetable
@@ -88939,6 +88986,8 @@ agribalyse_food_code:en:20039
 ciqual_food_code:en:20039
 ciqual_food_name:en:Leek, raw
 ciqual_food_name:fr:Poireau, cru
+description:en:The leek is a vegetable, a cultivar of Allium ampeloprasum, the broadleaf wild leek. Leeks have a mild, onion-like taste. In its raw state, the vegetable is crunchy and firm. The edible portions of the leek are the white base of the leaves (above the roots and stem base), the light green parts, and to a lesser extent the dark green parts of the leaves. Leeks are typically chopped into slices 5–10 mm thick. The slices have a tendency to fall apart, due to the layered structure of the leek. The different ways of preparing the vegetable are: boiling, frying or raw.
+
 
 <en:Leeks
 <en:Cooked vegetables
@@ -88962,9 +89011,6 @@ protected_name_file_number:en: PGI-FR-0198
 protected_name_type:en: pgi
 origins:en: en:France
 #wikidata:en:
-
-# description:en:LETTUCE (Lactuca sativa) is an annual plant of the daisy family, Asteraceae. It is most often grown as a leaf vegetable, but sometimes for its stem and seeds. Lettuce is most often used for salads, although it is also seen in other kinds of food, such as soups, sandwiches and wraps; it can also be grilled.
-# comment:en:There is a mixup between the popular translations of Lactuca and Lactuca Sativa. Not sure which one should be used. For the moment they are combined.
 
 <en:Leeks
 en:Leeks fondue, Slow-simmered leeks
@@ -89088,6 +89134,9 @@ agribalyse_food_code:en:20031
 ciqual_food_code:en:20031
 ciqual_food_name:en:Lettuce, raw
 ciqual_food_name:fr:Laitue, crue
+description:en:Lettuce (Lactuca sativa) is an annual plant of the daisy family, Asteraceae. It is most often grown as a leaf vegetable, but sometimes for its stem and seeds. Lettuce is most often used for salads, although it is also seen in other kinds of food, such as soups, sandwiches and wraps; it can also be grilled.
+comment:en:There is a mixup between the popular translations of Lactuca and Lactuca Sativa. Not sure which one should be used. For the moment they are combined.
+
 
 <en:Lettuces
 fr:Sucrines
@@ -89135,8 +89184,6 @@ agribalyse_proxy_food_name:fr:Laitue iceberg, crue
 ciqual_food_code:en:20123
 ciqual_food_name:fr:Batavia, crue
 
-# description:en:The ONION (Allium cepa L.), also known as the bulb onion or common onion, is a vegetable that is the most widely cultivated species of the genus Allium. They are usually served cooked, as a vegetable or part of a prepared savoury dish, but can also be eaten raw or used to make pickles or chutneys.
-
 <en:Culinary plants
 <en:Onions and their products
 #<en:ingredient:en:vegetable
@@ -89181,6 +89228,7 @@ agribalyse_food_code:en:20034
 ciqual_food_code:en:20034
 ciqual_food_name:en:Onion, raw
 ciqual_food_name:fr:Oignon, cru
+description:en:The onion (Allium cepa L.), also known as the bulb onion or common onion, is a vegetable that is the most widely cultivated species of the genus Allium. They are usually served cooked, as a vegetable or part of a prepared savoury dish, but can also be eaten raw or used to make pickles or chutneys.
 
 <en:onions
 it:Cipolla bianca di Margherita
@@ -89792,8 +89840,6 @@ fr:Courges spaghetti
 nl:Spaghettipompoenen
 wikidata:en:Q2142043
 
-# description:en:The RADISH (Raphanus raphanistrum subsp. sativus or Raphanus sativus) is an edible root vegetable of the Brassicaceae family. The root of the radish is usually eaten raw, although tougher specimens can be steamed. The raw flesh has a crisp texture and a pungent, peppery flavor.
-
 # <en:vegetable
 <en:Vegetables
 en:Radishes, radish
@@ -89918,6 +89964,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Radish
 # ingredient/fr:Radis has 393 products in 4 languages @2019-05-16
 # category/radish has 2 products @2019-05-22
 # usage:en:fruit and vegetable concentrates (safflower, radish, black carrot, lemon, hibiscus)
+description:en:The radish (Raphanus raphanistrum subsp. sativus or Raphanus sativus) is an edible root vegetable of the Brassicaceae family. The root of the radish is usually eaten raw, although tougher specimens can be steamed. The raw flesh has a crisp texture and a pungent, peppery flavor.
 
 <en:Radishes
 <en:Fresh vegetables
@@ -90013,7 +90060,6 @@ ciqual_food_code:en:4000
 ciqual_food_name:en:Tapioca, raw
 ciqual_food_name:fr:Tapioca ou Perles du Japon, cru
 
-# description:en:RHUBARB is a cultivated plant in the genus Rheum in the family Polygonaceae. Rhubarb is stewed with sugar or used in pies and desserts, but it can also be put into savoury dishes or pickled. Rhubarb can be dehydrated and infused with fruit juice.
 
 # <en:vegetable
 <en:Vegetable rods
@@ -90048,6 +90094,7 @@ season_in_country_fr:en: 4,5,6
 agribalyse_proxy_food_code:en:13047
 agribalyse_proxy_food_name:en:Rhubarb, stalk, raw
 agribalyse_proxy_food_name:fr:Rhubarbe, tige, crue
+description:en:Rhubarb is a cultivated plant in the genus Rheum in the family Polygonaceae. Rhubarb is stewed with sugar or used in pies and desserts, but it can also be put into savoury dishes or pickled. Rhubarb can be dehydrated and infused with fruit juice.
 
 <en:Rhubarbs
 <en:Fresh fruits
@@ -90105,8 +90152,6 @@ ciqual_food_code:en:20280
 ciqual_food_name:en:Romanesco cauliflower or romanesco broccoli, raw
 ciqual_food_name:fr:Chou romanesco ou brocoli à pomme, cru
 
-# description:en:SCALLIONS are vegetables of various Allium onion species. Spring onions may be cooked or used raw as a part of salads, salsas or Asian recipes. Diced scallions are used in soup, noodle and seafood dishes, sandwiches, curries and as part of a stir fry. In many Eastern sauces, the bottom half-centimetre (quarter-inch) of the root is commonly removed before use.
-# comment:en:do not mix green onion with welsh onion
 
 <en:Vegetables
 # <en:onion
@@ -90143,6 +90188,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Scallion
 # ingredient/fr:oignon-vert has 45 products in 6 languages @2018-12-06
 # ingredient/fr:oignons-de-printemps has 47 products @2018-12-06
 # category/scallions has 7 products @2019-05-22
+description:en:Scallions (green onions) are vegetables of various Allium onion species. Spring onions may be cooked or used raw as a part of salads, salsas or Asian recipes. Diced scallions are used in soup, noodle and seafood dishes, sandwiches, curries and as part of a stir fry. In many Eastern sauces, the bottom half-centimetre (quarter-inch) of the root is commonly removed before use.
+comment:en:do not mix green onion with welsh onion
 
 <en:Leaf vegetables
 en:New Zealand spinach
@@ -90238,8 +90285,6 @@ ciqual_food_code:en:4102
 ciqual_food_name:en:Sweet potato, cooked
 ciqual_food_name:fr:Patate douce, cuite
 
-# description:en:The TURNIP (Brassica rapa subsp. rapa) is a root vegetable commonly grown in temperate climates worldwide for its white, fleshy taproot.
-# comment:en:Translations are not easy as one has to distinguish between turnip, swede and rutabaga. Sometimes they are all called turnip. Thus some translations might be wrong (taken from wikidata).
 
 <en:Vegetables
 en:turnip, turnips
@@ -90327,6 +90372,8 @@ zh:芜菁
 # yue:大頭菜
 wikidata:en:Q3916957
 wikipedia:en:https://en.wikipedia.org/wiki/Turnip
+description:en:The turnip (Brassica rapa subsp. rapa) is a root vegetable commonly grown in temperate climates worldwide for its white, fleshy taproot.
+comment:en:Translations are not easy as one has to distinguish between turnip, swede and rutabaga. Sometimes they are all called turnip. Thus some translations might be wrong (taken from wikidata).
 
 <en:Turnip
 en:Rutabaga, Swede
@@ -92440,7 +92487,6 @@ es:Mantecas de soja
 fr:Beurres de soja
 nl:Sojaboonpastas
 
-# description:en:TOFU is a food prepared by coagulating soy milk and then pressing the resulting curds into solid white blocks of varying softness. Tofu has very little flavor or smell of its own. Consequently, tofu can be used in both savory or sweet dishes, acting as a bland background for presenting the flavors of the other ingredients used. In order to flavor the tofu it is often marinated in soy sauce, chillis, sesame oil, etc.
 
 <en:Legumes and their products
 <en:Meat alternatives
@@ -92540,6 +92586,8 @@ ciqual_food_code:en:20904
 ciqual_food_name:en:Tofu, plain
 ciqual_food_name:fr:Tofu, nature
 nova:en:3
+description:en:Tofu is a food prepared by coagulating soy milk and then pressing the resulting curds into solid white blocks of varying softness. Tofu has very little flavor or smell of its own. Consequently, tofu can be used in both savory or sweet dishes, acting as a bland background for presenting the flavors of the other ingredients used. In order to flavor the tofu it is often marinated in soy sauce, chillis, sesame oil, etc.
+
 
 <en:Tofu
 en:Plain tofu
@@ -94909,7 +94957,6 @@ nl:Producten op basis van verse planten
 ro:Alimente proaspete pe bază de plante
 zh:新鲜蔬菜食品
 
-# description:en:HEART OF PALM is a vegetable harvested from the inner core and growing bud of certain palm trees. Heart of palm may be eaten on its own, and often it is eaten in a salad. Hearts of palm are rich in fiber, potassium, iron, zinc, phosphorus, copper, vitamins B2, B6, and C.
 
 <en:Fresh plant-based foods
 # <en:ingredient:en:vegetable
@@ -94940,6 +94987,7 @@ agribalyse_proxy_food_code:en:20018
 agribalyse_proxy_food_name:en:Palm heart, canned, drained
 agribalyse_proxy_food_name:fr:Coeur de palmier, appertisé, égoutté
 # fr:coeurs-de-palmier has 16 products in 3 languages @2018-10-19
+description:en:Heath of palm is a vegetable harvested from the inner core and growing bud of certain palm trees. Heart of palm may be eaten on its own, and often it is eaten in a salad. Hearts of palm are rich in fiber, potassium, iron, zinc, phosphorus, copper, vitamins B2, B6, and C.
 
 <en:Canned plant-based foods
 en:Canned hearts of palm
@@ -95031,6 +95079,12 @@ ru:Батончики
 zh:棒状零食
 food_groups:en: en:Biscuits and cakes
 pnns_group_2:en:Biscuits and cakes
+
+#Sweet snack made of quark and sugar. It can be filled with jam or coated in chocolate
+<en:Bars
+en:Curd snacks
+lt:Varškės sūreliai
+wikidata:en:Q2622681
 
 <en:Bars
 en:Cereal bars, Granola bars, Chewy Granola Bars, muesli bars
@@ -95438,8 +95492,6 @@ ciqual_food_code:en:7225
 ciqual_food_name:en:Brioche or Vienna bread
 ciqual_food_name:fr:Pain brioché ou viennois
 
-# description:en:BRIOCHE is a bread of French origin that is similar to a highly enriched pastry, and whose high egg and butter content (400 grams for each kilogram of flour) give it a rich and tender crumb.
-
 <en:Viennoiseries
 en:Brioches, Brioche
 ar:بريوش
@@ -95485,6 +95537,7 @@ ciqual_food_name:en:Brioche
 ciqual_food_name:fr:Brioche, sans précision
 # ingredient/fr:brioche has 35 products @2019-01-28
 # category/brioches has 1483 products @2019-05-20
+description:en:Brioche is a bread of French origin that is similar to a highly enriched pastry, and whose high egg and butter content (400 grams for each kilogram of flour) give it a rich and tender crumb.
 
 <en:Brioches
 fr:Brioches tressées
@@ -95645,8 +95698,6 @@ fr:Pancakes
 it:Pancake
 nl:Pancakes
 
-# description:en:A CRÊPE is a type of very thin pancake. Crêpes are usually of two types: sweet crêpes (crêpes sucrées) and savoury galettes (crêpes salées). Crêpes are served with a variety of fillings, from the simplest with only sugar to flambéed crêpes Suzette or elaborate savoury galettes.
-# comment:en:A separate category for the dutch category pannenkoek, might be needed. A french crepe is seen as a special pannenkoek, een flensje
 
 # <en:compound
 <en:Crêpes and galettes
@@ -95729,6 +95780,8 @@ wikidata:en:Q12200
 wikipedia:en:https://en.wikipedia.org/wiki/Crêpe
 # ingredient/fr:crepe has 142 products in 4 languages @2019-02-05
 # category/crepes has 582 products @2019-05-18
+description:en:A crêpe is a type of very thin pancake. Crêpes are usually of two types: sweet crêpes (crêpes sucrées) and savoury galettes (crêpes salées). Crêpes are served with a variety of fillings, from the simplest with only sugar to flambéed crêpes Suzette or elaborate savoury galettes.
+comment:en:A separate category for the dutch category pannenkoek, might be needed. A french crêpe is seen as a special pannenkoek, een flensje
 
 <en:Crêpes
 en:Plain crepes
@@ -96065,7 +96118,11 @@ en:Meat analogues from soy or wheat proteins
 fr:Substituts de viande à partir de protéines de soja ou blé
 
 <en:Meat analogues
-en:Ham substituts
+en:Meat analogues from pea proteins
+fr:Substituts de viande à partir de protéines de pois
+
+<en:Meat analogues
+en:Ham substitutes, Ham substituts
 fr:Substituts du jambon
 
 <en:Meat analogues
@@ -96208,27 +96265,21 @@ nl:Veganistische kazen
 pl:Zastępniki sera
 
 <en:Legumes and their products
-en:pulse cakes, cakes of pulses
+en:Puffed pulse cakes, pulse cakes, cakes of pulses
 de:hülsenfruchtwaffeln
 es:tortitas de legumbres
+fr:galettes de légumineuses soufflées
 it:galetti di legumi
 nl:peulvruchtenwafels
 
-<en:pulse cakes
-en:Puffed pulse cakes
-fr:galettes de légumineuses soufflées
-
-<en:pulse cakes
-en:lentil cakes
-de:linsenwaffeln
-nl:Linzenwafels
-pt:Geletes de lentilha
-
-<en:lentil cakes
+<en:Puffed pulse cakes
 en:Puffed lentil cakes
+de:Linsenwaffeln
+nl:Linzenwafels
 es:Tortitas de lentejas infladas
 fr:Galettes de lentilles soufflées
 it:Galetti di lenticchie soffiate
+pt:Geletes de lentilha
 
 <en:Cereals and their products
 en:Rice paper
@@ -96252,7 +96303,7 @@ agribalyse_proxy_food_name:fr:Galettes multicéréales soufflées
 
 <en:Puffed cereal cakes
 en:Puffed multigrain cakes, Puffed cereals textured bread
-de:Gepuffte Vollkornkuchen
+de:Gepuffte Mehrkornwaffeln, Gepuffte Vollkornkuchen
 es:Tortitas multicereales, Tortitas de varios cereales
 fr:Galettes multicéréales soufflées, Galettes muticéréales
 it:Torte di multicereali soffiati
@@ -96274,14 +96325,14 @@ nl:Maiswafels
 
 <en:Puffed cereal cakes
 en:Puffed corn cakes with black chocolate
-de:Gepuffte Maiskuchen mit Bitterschokolade
+de:Gepuffte Maiswaffeln mit Bitterschokolade, Gepuffte Maiskuchen mit Bitterschokolade
 es:Tortitas de maíz con chocolate negro
 fr:Galettes de maïs au chocolat noir
 nl:Maiswafels met pure chocolade
 
 <en:Puffed cereal cakes
 en:Puffed corn cakes with milk chocolate
-de:Gepuffte Maiskuchen mit Milchschoklade
+de:Gepuffte Maiswaffeln mit Milchschokolade, Gepuffte Maiskuchen mit Milchschoklade
 es:Tortitas de maíz con chocolate con leche
 fr:Galettes de maïs au chocolat au lait
 hu:Puffasztott kukoricafekete csokoládéval
@@ -96303,7 +96354,7 @@ agribalyse_proxy_food_name:fr:Galette de riz soufflé complet
 
 <en:Puffed rice cakes
 en:Puffed wholegrain rice cakes, Puffed rice textured bread wholemeal
-de:Gepuffte Vollkornreiskuchen
+de:Gepuffte Vollkornreiswaffeln, Gepuffte Vollkornreiskuchen
 es:Tortitas de arroz integral
 fi:Täysjyväriisikakut
 fr:Galettes de riz complet soufflé, galettes de riz complet, Galettes de riz soufflé complet
@@ -96331,14 +96382,19 @@ nl:Melkchocolade rijstwafels
 
 <en:Puffed rice cakes
 en:Puffed rice cakes with white chocolate
-de:Gepuffte Reiskuchen mit weißer Schokolade
+de:Gepuffte Reiswaffeln mit weißer Schokolade, Gepuffte Reiskuchen mit weißer Schokolade
 es:Tortitas de arroz con chocolate blanco
 fr:Galettes de riz au chocolat blanc
 nl:Witte chocolade rijstwafels
 
+<en:Puffed rice cakes
+en:Puffed rice cakes with yogurt
+fr:Galettes de riz au yaourt
+es:Tortitas de arroz con yogur
+
 <en:Puffed cereal cakes
 en:Puffed oat cakes
-de:Gepuffte Haferkuchen
+de:Gepuffte Haferwaffeln, Gepuffte Haferkuchen
 es:Tortitas de avena
 fr:Galettes d'avoine soufflé, galettes d'avoine
 it:Gallette di avena soffiata, Gallette di avena
@@ -96369,7 +96425,7 @@ nl:Tarwewafels
 
 <en:Puffed wheat cakes
 en:Puffed spelt cakes
-de:Gepuffte Dinkelkuchen
+de:Gepuffte Dinkelwaffeln, Gepuffte Dinkelkuchen
 es:Tortitas de espelta
 fr:Galettes d'épeautre soufflé, galettes d'épeautre
 nl:Speltwafels
@@ -96566,6 +96622,20 @@ ciqual_food_name:en:Pastry, short crust, baked
 ciqual_food_name:fr:Pâte brisée, matière grasse végétale, cuite
 
 <en:Pie dough
+en:Raw shortcrust pastry
+fr:Pâte brisée crue
+ciqual_food_code:en:23410
+ciqual_food_name:en:Short crust pastry, raw
+ciqual_food_name:fr:Pâte brisée, crue
+
+<en:Pie dough
+en:Raw shortcrust pastry with pure butter
+fr:Pâte brisée pur beurre crue
+ciqual_food_code:en:23414
+ciqual_food_name:en:Short crust pastry, pure butter, raw
+ciqual_food_name:fr:Pâte brisée, pur beurre, crue
+
+<en:Pie dough
 en:Shortcrust pastry with pure butter
 fr:Pâte brisée pur beurre
 agribalyse_food_code:en:23414
@@ -96583,11 +96653,12 @@ ciqual_food_name:en:Short crust pastry, pure butter, frozen, raw
 ciqual_food_name:fr:Pâte brisée, pur beurre, surgelée, crue
 
 <en:Pie dough
-en:Puff pastry sheets
+en:Puff pastry sheets, Cooked puff pastry
 de:Blätterteig Platten
-fr:Pâtes feuilletées, Pâte feuilletée, Pâtes à tarte feuilletées
+fr:Pâtes feuilletées, Pâte feuilletée, Pâtes à tarte feuilletées, Pâte feuilletée cuite
 it:Fogli di pasta sfoglia, Pasta sfoglia tirata
 nl:Bladerdeegbladen
+nl_be:Bladerdeeg
 agribalyse_food_code:en:23422
 ciqual_food_code:en:23422
 ciqual_food_name:en:Puff pastry, cooked
@@ -98412,9 +98483,11 @@ ru:Непищевые продукты, Не еда
 
 <en:Non food products
 en:Open Pet Food Facts, OPFF
-es:Open Pet Food Facts, OPFF
-fr:Open Pet Food Facts, OPFF
-it:Open Pet Food Facts, OPFF
+xx:Open Pet Food Facts, OPFF
+
+<en:Non food products
+en:Open Beauty Facts, OBF, Cosmetics, Hygiene
+xx:Open Beauty Facts, OBF
 
 <en:Open Pet Food Facts
 en:Pet food, pet products, animal food
@@ -98560,47 +98633,42 @@ en:miscellaneous pet food, miscellaneous animal food
 de:sonstiges Tierfutter
 fr:nourriture pour animaux variés
 
-<en:Cereals and their products
-en:Pie dough
-de:Kuchenteig
-es:Masa de tarta
-fi:piirastaikina
-fr:Pâtes à tarte, Pâte à tarte, Pates à tarte fraiches
-nl:Taartdegen
-nl_be:Taartdeeg
+<en:Non food products
+en:Open Products Facts, OPF
+xx:Open Products Facts, OPF
 
-<en:Pie dough
-fr:Pâtes brisées, Pâte brisée, Pâtes à tarte brisées, Pâte brisée cuite à la matière grasse végétale
-en:Baked shortcrust pastry
-nl:Zanddegen
-nl_be:Zanddeeg
-ciqual_food_code:en:23412
-ciqual_food_name:en:Pastry, short crust, baked
-ciqual_food_name:fr:Pâte brisée, matière grasse végétale, cuite
+<en:Open Products Facts
+en:kitchenware
+nl:Keukenproducten, Keukenbenodigdheden
+wikidata:Q1521410
 
-<en:Pie dough
-en:Raw shortcrust pastry
-fr:Pâte brisée crue
-ciqual_food_code:en:23410
-ciqual_food_name:en:Short crust pastry, raw
-ciqual_food_name:fr:Pâte brisée, crue
+<en:Open Products Facts
+en:books
+bg:книги
+fr:livres
+hr:knjiga, knjige
+nl:Boeken
+wikidata:Q571
 
-<en:Pie dough
-en:Raw shortcrust pastry with pure butter
-fr:Pâte brisée pur beurre crue
-ciqual_food_code:en:23414
-ciqual_food_name:en:Short crust pastry, pure butter, raw
-ciqual_food_name:fr:Pâte brisée, pur beurre, crue
+<en:Open Products Facts
+en:detergents
+hr:deterdženti, deterdžent
+nl:Detergenten
+wikidata:Q334637
 
-<en:Pie dough
-en:Puff pastry sheets, Cooked puff pastry
-de:Blätterteig Platten
-fr:Pâtes feuilletées, Pâte feuilletée, Pâtes à tarte feuilletées, Pâte feuilletée cuite
-nl:Bladerdegen
-nl_be:Bladerdeeg
-ciqual_food_code:en:23422
-ciqual_food_name:en:Puff pastry, cooked
-ciqual_food_name:fr:Pâte feuilletée, cuite
+# REAL Cigarettes
+<en:Non food products
+en:Cigarettes
+bg:Цигари
+de:Zigaretten
+fi:savukkeet
+fr:cigarettes
+hr:cigarete, cigareta
+it:Biscotti a sigaretta
+nl_be:Sigaretten
+pl:Papierosy
+ru:Сигареты
+wikidata:en:Q1578
 
 <en:Pie dough
 <en:Frozen foods

@@ -586,8 +586,8 @@ msgid "editor"
 msgstr "redaguotojas"
 
 msgctxt "email"
-msgid "e-mail address"
-msgstr "el. pašto adresas"
+msgid "E-mail address"
+msgstr ""
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
@@ -1396,6 +1396,10 @@ msgstr "Produktams be brūkšninio kodo vidinis kodas nustatomas automatiškai."
 msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
 msgstr "Prenumeruokite naujienlaiškį (daugiausia 2 el. Laiškai per mėnesį)"
+
+msgctxt "subscribe_to_our_newsletter"
+msgid "Subscribe to our newsletter"
+msgstr ""
 
 msgctxt "next"
 msgid "Next"
@@ -2718,7 +2722,7 @@ msgstr "Tiksliniai žodžiai"
 
 msgctxt "translators_column_approved_words"
 msgid "Approved (Words)"
-msgstr "Patvirtinta (žodžiai)"
+msgstr "Patvirtinta (žodžių)"
 
 msgctxt "translators_column_votes_made"
 msgid "Votes Made"
@@ -3134,9 +3138,13 @@ msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
 msgstr "Svarbi pastaba: šis produktas nebeparduodamas. Duomenys saugomi tik kaip nuoroda. Šis produktas nerodomas įprastose paieškose ir į statistiką nėra atsižvelgiama."
 
+# This will be on a button and needs to be as short as possible
+# So instead of something like "Install the mobile application"
+# try to make it very short "Get the app" or "Install the app"
+# Use infinitive instead of imperative
 msgctxt "get_the_app"
 msgid "Get the app"
-msgstr "Įsiinstaliuokite programėlę"
+msgstr "Gauti programėlę"
 
 msgctxt "get_the_app_android"
 msgid "Get the Android app"
@@ -3752,10 +3760,6 @@ msgstr "Nepavyko"
 msgctxt "import_file_result"
 msgid "Import result"
 msgstr "Importo rezultatas"
-
-msgctxt "products_added"
-msgid "Products added"
-msgstr "Produktai pridėti"
 
 msgctxt "products_modified"
 msgid "Products modified"
@@ -4965,7 +4969,7 @@ msgstr "Forma"
 
 msgctxt "packaging_quantity"
 msgid "Quantity contained"
-msgstr ""
+msgstr "Sudėtyje esantis kiekis"
 
 msgctxt "packaging_material"
 msgid "Material"
@@ -5057,11 +5061,11 @@ msgstr ""
 
 msgctxt "kg_of_soy_per_square_meter"
 msgid "kg of soy per m²"
-msgstr ""
+msgstr "sojų kg/m²"
 
 msgctxt "percent_in_product"
 msgid "% in product"
-msgstr ""
+msgstr "% produkte"
 
 msgctxt "forest_footprint_calculation_details"
 msgid "Details of the calculation of the forest footprint"
@@ -5069,11 +5073,11 @@ msgstr ""
 
 msgctxt "you_are_on_the_public_database"
 msgid "You are on the public database."
-msgstr ""
+msgstr "Jūs esate viešoje duomenų bazėje."
 
 msgctxt "manage_your_products_on_the_producers_platform"
 msgid "Manage your products on the platform for producers"
-msgstr ""
+msgstr "Valdykite savo produktus gamintojams skirtoje platformoje"
 
 msgctxt "number_of_products_with_changes_since_last_export"
 msgid "Number of products with changes since last export"
@@ -5801,7 +5805,7 @@ msgstr "Gyvenimo ciklo analizės balas"
 
 msgctxt "impact_for_this_product"
 msgid "Impact for this product"
-msgstr ""
+msgstr "Poveikis šiam produktui"
 
 msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
@@ -6116,4 +6120,76 @@ msgstr "Sumažinkite riebalų ir sočiųjų riebalų vartojimą"
 msgctxt "nutrient_recommendation_fat_and_saturated_fat"
 msgid "Choose products with lower fat and saturated fat content."
 msgstr "Rinkitės produktus su mažesniu riebalų ir sočiųjų riebalų kiekiu."
+
+msgctxt "sign_in"
+msgid "Sign in"
+msgstr "Prisijungti"
+
+msgctxt "sign_out"
+msgid "Sign out"
+msgstr "Atsijungti"
+
+msgctxt "your_contributions"
+msgid "Your contributions"
+msgstr "Jūsų indėlis"
+
+msgctxt "products_added"
+msgid "Products added"
+msgstr "Produktai pridėti"
+
+msgctxt "products_edited"
+msgid "Products edited"
+msgstr ""
+
+msgctxt "products_photographed"
+msgid "Products photographed"
+msgstr ""
+
+# result of the matching with the user preferences: should ne a noun, not a verb
+msgctxt "matching_with_your_preferences"
+msgid "Matching with your preferences"
+msgstr ""
+
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_join_us_on_slack"
+msgid "Join us on <a href=\"{url}\">Slack</a>"
+msgstr ""
+
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_discover_our_code_of_conduct"
+msgid "Discover our <a href=\"{url}\">Code of conduct</a>"
+msgstr ""
+
+# {links} must not be translated, it will be replaced by icons and/or text links
+msgctxt "f_footer_follow_us_links"
+msgid "Follow us: {links}"
+msgstr ""
+
+# Should be as small as possible, e.g. use "app" instead of "application", don't specify "mobile"
+msgctxt "footer_install_the_app_exclamation_mark"
+msgid "Install the app!"
+msgstr ""
+
+# HTML tags must not be translated, keep <span id=\"everyday\"> and <span id=\"foods\"> and put them around the corresponding words in the translation
+# e.g. in French: Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>
+msgctxt "footer_scan_your_everyday_foods"
+msgid "Scan your <span id=\"everyday\">everyday</span> <span id=\"foods\">foods</span>"
+msgstr ""
+
+msgctxt "nutrition"
+msgid "Nutrition"
+msgstr "Maistingumas"
+
+# Note: "criteria" is plural here. So in French for instance: "Vos critères"
+msgctxt "your_criteria"
+msgid "Your criteria"
+msgstr ""
+
+msgctxt "product"
+msgid "Product"
+msgstr "Produktas"
+
+msgctxt "environment"
+msgid "Environment"
+msgstr ""
 
