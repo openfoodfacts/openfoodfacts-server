@@ -21,7 +21,9 @@ tagline:
 - html/files/tagline-obf.json
 - html/files/tagline-opf.json
 - html/files/tagline-opff.json
-  
+- html/files/tagline-off-ios-v2.json
+- html/files/tagline-off-android-v2.json
+
 taxonomies:
 - taxonomies/**/*
 - scripts/build_tags_taxonomy.pl
@@ -56,13 +58,28 @@ allergens:
 - taxonomies/allergens.result.sto
 - taxonomies/allergens.result.txt
 - tests/unit/allergens.t
+- taxonomies/allergens.txt
 
 open pet food facts:
 - taxonomies.opff/**/*
 - po/openpetfoodfacts/**/*
 - scripts/gen_opff_leaderboard.pl
+- scripts/gen_opff_leaderboard.sh
 - html/files/tagline-opff.json
 - lib/ProductOpener/Config_opff.pm
+- html/images/misc/opff_cat.svg
+- html/images/misc/opff_dog.svg
+- html/images/misc/opff_bird.svg
+- html/images/misc/opff_fish.svg
+- html/images/misc/opff_rabbit.svg
+- html/images/misc/opff-leaderboard.svg
+- conf/nginx/sites-available/opff
+- conf/apache-2.4/sites-available/opff.conf
+- scripts/gen_feeds_opff.sh
+- scripts/gen_feeds_daily_opff.sh
+- lib/ProductOpener/Config_opff.pm
+- conf/nginx/snippets/ssl-params-opff.conf
+- taxonomies.opff/categories.txt
 
 open beauty facts:
 - taxonomies.obf/**/*
@@ -72,11 +89,48 @@ open beauty facts:
 - html/files/tagline-obf.json
 - lib/ProductOpener/Config_obf.pm
 - scripts/generate_polyquaternium.pl
+- conf/nginx/sites-available/obf
+- conf/apache-2.4/sites-available/obf.conf
+- scripts/gen_feeds_obf.sh
+- html/files/tagline-obf.json
+- scripts/gen_feeds_daily_obf.sh
+- lib/ProductOpener/Config_obf.pm
+- taxonomies.obf/ingredients-old-obf.txt
+- taxonomies.obf/ingredients-cosing-obf.txt
+- taxonomies.obf/ingredients-cosing-obf.result.sto
+- scripts/gen_obf_ingredients_taxonomy_from_cosing.pl
+- scripts/gen_obf_inci_functions_taxonomy_from_cosing.pl
+- html/images/svg/crowdsourcing-obf-round-smartphones.svg
+- taxonomies.obf/brands.txt
+- taxonomies.obf/labels.txt
+- taxonomies.obf/safety.txt
+- taxonomies.obf/allergens.txt
+- taxonomies.obf/body_parts.txt
+- taxonomies.obf/categories.txt
+- taxonomies.obf/abbreviations.txt
+- taxonomies.obf/labels.result.sto
+- taxonomies.obf/labels.result.txt
+- taxonomies.obf/inci_functions.txt
+- taxonomies.obf/allergens.result.sto
+- taxonomies.obf/allergens.result.txt
+- taxonomies.obf/categories.result.sto
+- taxonomies.obf/categories.result.txt
+- tests/unit/expected_test_results/import_gs1/equadis_unilever_obf_signal.json
+- taxonomies.obf/special_ingredients.txt
+- taxonomies.obf/inci_functions.result.sto
+- tests/unit/expected_test_results/import_gs1/equadis_unilever_obf_signal.off.json
 
 open products facts:
 - taxonomies.opf/**/*
 - po/openproductsfacts/**/*
 - lib/ProductOpener/Config_opf.pm
+- conf/nginx/sites-available/opf
+- conf/apache-2.4/sites-available/opf.conf
+- scripts/gen_feeds_opf.sh
+- html/files/tagline-opf.json
+- scripts/gen_feeds_daily_opf.sh
+- lib/ProductOpener/Config_opf.pm
+- taxonomies.opf/unspsc.txt
 
 icons:
 - icons/**/*
@@ -112,9 +166,18 @@ dependancies:
 Template::Toolkit:
 - templates/**/*
 
+scss:
+- scss/_footer.scss
+
+footer:
+- html/images/illustrations/footer-orange.svg
+- html/images/illustrations/footer-planet.svg
+- scss/_footer.scss
+
 documentation:
 - docs/**/*
 - scripts/generate_perl_html_doc_from_pod.pl
+- po/README.md
 
 docker:
 - docker/**/*
@@ -233,6 +296,7 @@ ingredients analysis:
 - scripts/list_ingredients.pl
 - scripts/extract_individual_ingredients.pl
 - scripts/aggregate_ingredients.pl
+- lib/ProductOpener/Ingredients.pm
 
 labels:
 - taxonomies/labels.txt
@@ -428,25 +492,13 @@ Text:
 Url:
 - lib/ProductOpener/URL.pm
 
-Users:
-- lib/ProductOpener/Users.pm
-- templates/web/pages/session/signed_in.tt.html
-- templates/web/pages/session/signed_out.tt.html
-- templates/web/pages/session/sign_in_form.tt.html
-- templates/web/pages/user_form/user_form_page.tt.html
-- templates/web/pages/user_profile/user_profile.tt.html
-- scripts/gen_users_emails.pl
-- scripts/gen_users_emails_list.pl
-- scripts/gen_users_lists.pl
-- scripts/gen_users_names.pl
-- cgi/user.pl
-
 Web:
 - lib/ProductOpener/Web.pm
 
 Donations:
 - html/donate/tt.html
 - templates/web/common/includes/donate_banner.tt.html
+- html/donate/fr.helloasso.html
 
 editing:
 - templates/web/pages/product_edit/product_edit_form.tt.html
@@ -485,7 +537,6 @@ Search:
 
 Top translators:
 - templates/web/pages/top_translators/top_translators.tt.html
-- templates/web/common/includes/display_login_register.tt.html
 
 Recent changes:
 - templates/web/common/includes/display_recent_changes.tt.html
@@ -566,6 +617,20 @@ config:
 ingredients processing:
 - tests/unit/ingredients_processing.t
 
+Users:
+- lib/ProductOpener/Users.pm
+- templates/web/common/includes/display_login_register.tt.html
+- templates/web/pages/session/signed_in.tt.html
+- templates/web/pages/session/signed_out.tt.html
+- templates/web/pages/session/sign_in_form.tt.html
+- templates/web/pages/user_form/user_form_page.tt.html
+- templates/web/pages/user_profile/user_profile.tt.html
+- scripts/gen_users_emails.pl
+- scripts/gen_users_emails_list.pl
+- scripts/gen_users_lists.pl
+- scripts/gen_users_names.pl
+- cgi/user.pl
+
 Nova:
 - tests/unit/nova.t
 - templates/api/knowledge-panels/health/ingredients/nova.tt.json
@@ -583,6 +648,7 @@ moderation:
 - scripts/remove_products_without_code.pl
 - scripts/find_and_replace_user_id_in_products.pl
 - cgi/remove_products.pl
+- templates/web/pages/remove_products/remove_products.tt.html
 
 sto:
 - scripts/sto_to_json.pl

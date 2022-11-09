@@ -5,13 +5,13 @@ info:
     As a developer, the Open Food Facts API allows you to get information 
     and contribute to the products database. You can create great apps to 
     help people make better food choices and also provide data to enhance the database.
-  termsOfService: 'https://openweathermap.org/terms'
+  termsOfService: 'https://world.openfoodfacts.org/terms-of-use'
   contact:
     name: Open Food Facts
-    url: 'https://slack-ssl-openfoodfacts.herokuapp.com/'
+    url: 'https://slack.openfoodfacts.org/'
     email: contact@openfoodfacts.org
   license:
-    name: 'License (MIT, Apache 2.0, etc)'
+    name: 'data: ODbL'
     url: 'https://opendatacommons.org/licenses/odbl/summary/index.html'
   version: '2'
 servers:
@@ -107,11 +107,9 @@ paths:
         content:
           multipart/form-data:
             schema:
-              #TODO: Include all possible request body like comment, brand , label etc.
               $ref: ./requestBodies/add_photo_to_existing_product.yaml
             examples: {}
         description: ''
-
   /cgi/ingredients.pl:
     parameters: []
     get:
@@ -171,12 +169,10 @@ paths:
         the OFF API allows you to make api calls to automate this process.
         You can rotate existing photos by setting the angle to 90º, 180º, or 270º clockwise.
       parameters:
-        #TODO: Describe these parameters
         - $ref: '#/components/parameters/code'
         - $ref: '#/components/parameters/id'
         - $ref: '#/components/parameters/imgid'
         - $ref: '#/components/parameters/angle'
-
       tags:
         - Write Requests
   /cgi/product_jqm2.pl:
@@ -189,14 +185,12 @@ paths:
           content:
             application/json:
               schema:
-                #TODO: Explain the different response fields
                 $ref: ./responses/add_or_edit_a_product.yaml
       parameters: []
       requestBody:
         content:
           multipart/form-data:
             schema:
-              #TODO: Include all possible request body like comment, brand , label etc. 
               $ref: ./requestBodies/add_or_edit_a_product.yaml
       tags:
         - Write Requests
@@ -224,7 +218,6 @@ paths:
         - $ref: '#/components/parameters/categories_tags_en'
         - $ref: '#/components/parameters/labels_tags_en'
         - $ref: '#/components/parameters/fields'
-        
     parameters: []
   /cgi/suggest.pl:
     get:
@@ -237,7 +230,6 @@ paths:
           content:
             application/json:
               schema:
-                #TODO: Document example response properly
                 type: array
               examples: {}
       operationId: get-cgi-suggest.pl
@@ -254,7 +246,6 @@ components:
     Product:
       $ref: ./schemas/product.yaml
   parameters:
-
     id:
       schema:
         type: string
@@ -262,7 +253,6 @@ components:
       in: query
       name: id
       required: true
-
     code:
       schema:
         type: string
@@ -271,7 +261,6 @@ components:
       name: code
       description: Barcode of the product
       required: true
-
     process_image:
       schema:
         type: string
@@ -279,7 +268,6 @@ components:
       in: query
       name: process_image
       required: true
-
     ocr_engine:
       schema:
         type: string
@@ -287,23 +275,20 @@ components:
       in: query
       name: ocr_engine
       required: true
-
     imgid:
       schema:
-         type: string
-         example: '1'
+        type: string
+        example: '1'
       in: query
       name: imgid
       required: true
-    
     angle:
       schema:
-         type: string
-         example: '90'
+        type: string
+        example: '90'
       in: query
       name: angle
       required: true
-    
     categories_tags_en:
       schema:
         type: string
@@ -312,8 +297,7 @@ components:
       name: categories_tags_en
       description: |
         The category of products you are searching for.
-    
-    labels_tags_en: 
+    labels_tags_en:
       schema:
         type: string
         example: organic
@@ -321,9 +305,8 @@ components:
       name: labels_tags_en
       description: |
         The labels of products you are searching for.
-
     fields:
-      schema: 
+      schema:
         type: string
         example: 'code,product_name'
       in: query
@@ -331,14 +314,12 @@ components:
       description: |
         The fields to be returned from the product object can also be limited.
         If not specified, it returns the entire product object response.
-    
     tagtype:
       schema:
         type: string
         example: additives
       in: query
       name: tagtype
-
     term:
       schema:
         type: string
