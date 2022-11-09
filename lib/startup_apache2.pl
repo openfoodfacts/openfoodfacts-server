@@ -24,8 +24,8 @@
 # (instead of when each httpd child starts)
 # see http://apache.perl.org/docs/1.0/guide/performance.html#Code_Profiling_Techniques
 #
-use utf8;
-use Modern::Perl '2017';
+
+use ProductOpener::PerlStandards;
 
 use Carp ();
 
@@ -61,8 +61,6 @@ use Log::Any::Adapter;
 Log::Any::Adapter->set('Log4perl');    # Send all logs to Log::Log4perl
 
 use ProductOpener::Lang qw/:all/;
-
-use ProductOpener::PerlStandards qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Products qw/:all/;
@@ -86,11 +84,11 @@ use ProductOpener::Web qw(:all);
 use ProductOpener::Recipes qw(:all);
 use ProductOpener::MainCountries qw/:all/;
 use ProductOpener::PackagerCodes qw/:all/;
-use ProductOpener::API qw/:all/;
-use ProductOpener::APITest qw/:all/;
-use ProductOpener::APIProductRead qw/:all/;
-use ProductOpener::APIProductWrite qw/:all/;
-use ProductOpener::Routing qw/:all/;
+#use ProductOpener::API qw/:all/;
+#use ProductOpener::APITest qw/:all/;
+#use ProductOpener::APIProductRead qw/:all/;
+#use ProductOpener::APIProductWrite qw/:all/;
+#use ProductOpener::Routing qw/:all/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Export qw/:all/;
 use ProductOpener::Import qw/:all/;
@@ -104,6 +102,7 @@ use ProductOpener::Redis qw/:all/;
 use ProductOpener::FoodGroups qw/:all/;
 use ProductOpener::Events qw/:all/;
 use ProductOpener::Data qw/:all/;
+use ProductOpener::LoadData qw/:all/;
 
 use Apache2::Const -compile => qw(OK);
 use Apache2::Connection ();
@@ -141,18 +140,7 @@ open *STDERR, '>', "/$data_root/logs/modperl_error_log" or Carp::croak('Could no
 print {*STDERR} $log or Carp::croak('Unable to write to *STDERR');
 
 # load large data files into mod_perl memory
-init_emb_codes();
-init_packager_codes();
-init_geocode_addresses();
-init_packaging_taxonomies_regexps();
-
-load_scans_data();
-
-if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
-	load_agribalyse_data();
-	load_ecoscore_data();
-	load_forest_footprint_data();
-}
+load_data();
 
 # This startup script is run as root, it will create the $data_root/tmp directory
 # if it does not exist, as well as sub-directories for the Template module
