@@ -572,8 +572,8 @@ msgid "editor"
 msgstr "crwdns201454:0crwdne201454:0"
 
 msgctxt "email"
-msgid "e-mail address"
-msgstr "crwdns201456:0crwdne201456:0"
+msgid "E-mail address"
+msgstr "crwdns205345:0crwdne205345:0"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
@@ -1376,6 +1376,10 @@ msgstr "crwdns201844:0crwdne201844:0"
 msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
 msgstr "crwdns201846:0crwdne201846:0"
+
+msgctxt "subscribe_to_our_newsletter"
+msgid "Subscribe to our newsletter"
+msgstr "crwdns205276:0crwdne205276:0"
 
 msgctxt "next"
 msgid "Next"
@@ -3106,6 +3110,10 @@ msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
 msgstr "crwdns202700:0crwdne202700:0"
 
+# This will be on a button and needs to be as short as possible
+# So instead of something like "Install the mobile application"
+# try to make it very short "Get the app" or "Install the app"
+# Use infinitive instead of imperative
 msgctxt "get_the_app"
 msgid "Get the app"
 msgstr "crwdns202702:0crwdne202702:0"
@@ -3724,10 +3732,6 @@ msgstr "crwdns202998:0crwdne202998:0"
 msgctxt "import_file_result"
 msgid "Import result"
 msgstr "crwdns203000:0crwdne203000:0"
-
-msgctxt "products_added"
-msgid "Products added"
-msgstr "crwdns203002:0crwdne203002:0"
 
 msgctxt "products_modified"
 msgid "Products modified"
@@ -6088,4 +6092,76 @@ msgstr "crwdns204140:0crwdne204140:0"
 msgctxt "nutrient_recommendation_fat_and_saturated_fat"
 msgid "Choose products with lower fat and saturated fat content."
 msgstr "crwdns204142:0crwdne204142:0"
+
+msgctxt "sign_in"
+msgid "Sign in"
+msgstr "crwdns204882:0crwdne204882:0"
+
+msgctxt "sign_out"
+msgid "Sign out"
+msgstr "crwdns204884:0crwdne204884:0"
+
+msgctxt "your_contributions"
+msgid "Your contributions"
+msgstr "crwdns204886:0crwdne204886:0"
+
+msgctxt "products_added"
+msgid "Products added"
+msgstr "crwdns203002:0crwdne203002:0"
+
+msgctxt "products_edited"
+msgid "Products edited"
+msgstr "crwdns204888:0crwdne204888:0"
+
+msgctxt "products_photographed"
+msgid "Products photographed"
+msgstr "crwdns204890:0crwdne204890:0"
+
+# result of the matching with the user preferences: should ne a noun, not a verb
+msgctxt "matching_with_your_preferences"
+msgid "Matching with your preferences"
+msgstr "crwdns204892:0crwdne204892:0"
+
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_join_us_on_slack"
+msgid "Join us on <a href=\"{url}\">Slack</a>"
+msgstr "crwdns204894:0{url}crwdne204894:0"
+
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_discover_our_code_of_conduct"
+msgid "Discover our <a href=\"{url}\">Code of conduct</a>"
+msgstr "crwdns204896:0{url}crwdne204896:0"
+
+# {links} must not be translated, it will be replaced by icons and/or text links
+msgctxt "f_footer_follow_us_links"
+msgid "Follow us: {links}"
+msgstr "crwdns204898:0{links}crwdne204898:0"
+
+# Should be as small as possible, e.g. use "app" instead of "application", don't specify "mobile"
+msgctxt "footer_install_the_app_exclamation_mark"
+msgid "Install the app!"
+msgstr "crwdns204900:0crwdne204900:0"
+
+# HTML tags must not be translated, keep <span id=\"everyday\"> and <span id=\"foods\"> and put them around the corresponding words in the translation
+# e.g. in French: Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>
+msgctxt "footer_scan_your_everyday_foods"
+msgid "Scan your <span id=\"everyday\">everyday</span> <span id=\"foods\">foods</span>"
+msgstr "crwdns204902:0crwdne204902:0"
+
+msgctxt "nutrition"
+msgid "Nutrition"
+msgstr "crwdns204904:0crwdne204904:0"
+
+# Note: "criteria" is plural here. So in French for instance: "Vos critères"
+msgctxt "your_criteria"
+msgid "Your criteria"
+msgstr "crwdns204906:0crwdne204906:0"
+
+msgctxt "product"
+msgid "Product"
+msgstr "crwdns204908:0crwdne204908:0"
+
+msgctxt "environment"
+msgid "Environment"
+msgstr "crwdns204910:0crwdne204910:0"
 

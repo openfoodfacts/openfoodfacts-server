@@ -4,7 +4,7 @@ en:Unknown
 bg:Неизвестно
 fr:Inconnu, inconnue, inconnus, inconnues
 hu:Ismeretlen
-nl:overig
+nl:Onbekend
 pt:Desconhecido
 description:en:Unidentified packaging
 description:nl:Niet herkende verpakking
@@ -20,6 +20,7 @@ description:nl:Niet herkende verpakking
 #en:container, carton
 #es:recipiente
 #fr:récipient
+#nl:container, karton
 
 # undefined packaging shape: (e.g. "plastic packaging")
 en:packaging
@@ -79,7 +80,7 @@ mk:пакет
 mn:пакет
 mo:pākete
 my:အထုပ်
-nl:pak, pakket
+nl:Pakket, pak, pakken
 no:pakke
 pl:paczka
 pt:pacote
@@ -135,7 +136,7 @@ fr:Boîte, boîtes, boitier, boitiers
 hr:kutija
 hu:Doboz, dobozok
 it:Scatola, scatole, astuccio, scatoletta
-nl:Doos, doosje, Dozen, Doosjes, Pakje, Pakken, Pakjes
+nl:Doos, doosje, Dozen, Doosjes, Pakje, Pakjes
 pt:Caixa, caixas
 #suggest:packaging_materials:nl: en:paper, en:cardboard
 description:nl:Een veelal kartonnen balkvormige verpakking
@@ -171,6 +172,7 @@ pt:Engradado, engradados
 
 en:Jug, jugs
 fr:Bidon, bidons
+nl:Kruik, kruiken
 pt:garrafão
 
 en:Bottle, bottles
@@ -198,6 +200,7 @@ description:en:Verpakking voor vloeibare levensmiddelen gemaakt van gelamineerd 
 
 en:small brick, small bricks
 fr:briquette, briquettes
+nl:briquette, briquettes
 
 # Can (drink or food) made with metal
 en:Can, cans
@@ -258,6 +261,7 @@ comment:en:Klopt deze vertaling wel? Is het niet meer een pot en moet kuip ergen
 en:individual pot, individual cup, individual pots, individual cups
 fr:pot individuel, pots individuels
 hu:külön edény, külön fazék
+nl:Individuele pot, individuele potten
 pt:Pote individual, potes individuais, boião individual, boiões individuais
 
 en:Tumbler
@@ -284,8 +288,8 @@ description:nl:Een klein werktuig waarin iets door samendrukken bijeengehouden o
 
 en:Tie, knot
 fr:Lien, noeud
-nl:Knoop
-weight:en:light
+nl:Knoop, strik
+xweight:en:light
 description:nl:Een vastgetrokken lus in garen, draad, koord of touw
 
 en:Bag, bags
@@ -304,13 +308,12 @@ description:nl:Slappe, vormeloze verpakking
 <en:Bag
 en:Carrying bag, carrying bags
 fr:Sac de transport, sacs de transport
-nl:Draagtas
-
+nl:Draagtas, draagzak, draagzakken, draagtassen
 
 en:Crate, crates
 fr:Cagette, cagettes, cageot, cageots
 hu:Láda, lécláda, ketrec
-nl:Krat
+nl:Krat, kratten
 pt:Caixote, caixotes
 description:nl:Houten of plastic doos met openingen in de zijkanten in een standaardformaat, vaak gebruikt voor opslag en het vervoer van flessen, fruit of andere waren
 
@@ -320,6 +323,7 @@ bg:Индивидуална торбичка, индивидуални торб�
 de:Einzeltüten, einzelne Tüten
 fr:Sachet individuel, Sachets individuels
 hu:Külön zacskó, egyenkénti zacskó, külön tasak, egyenként zacskózott
+nl:Individuele zak, individuele zakken
 pt:Saco individual, sacos individuais, saquinho individual, saquinhos individuais, saqueta individual, saquetas individuais
 
 en:Pouch flask, doypack, pouch
@@ -337,6 +341,7 @@ pt:Manga, mangas
 
 en:Mold
 fr:Moule
+nl:Mossel
 wikidata:en:Q1432049
 
 en:Lid, cover, lids, covers
@@ -344,14 +349,14 @@ de:Deckel
 el:Καπάκι
 fr:Couvercle, couvercles
 hu:Fedél, tető, fedő
-nl:Deksel
+nl:Deksel, deksels
 pt:Tampa, tampas
 
 en:Bottle cap, bottle top, cap, top, bottle caps, bottle tops, caps, tops
 bg:Капачка за бутилка, капачка, капачки
 fr:Bouchon de bouteille, bouchon,  bouchons de bouteilles, bouchons
 hu:Kupak, borosdugó, dugó
-nl:Dop, Doppe
+nl:Dop, Doppen
 pt:Cápsula de garrafa, cápsulas de garrafa, tampa de garrafa, tampas de garrafa, rolha, rolhas, rolha de garrafa, rolhas de garrafa, rolha de cortiça, rolhas de cortiça, rolha de plástico, rolhas de plástico, carica, caricas, cápsula de rosca, cápsulas de rosca
 wikidata:en:Q1440281
 
@@ -361,7 +366,7 @@ en:Wine cork, wine bottle cork, wine corks, wine bottle corks
 bg:Коркова тапа за вино, Корк за вино
 fr:bouchon de bouteille de vin, bouchons de bouteille
 hr:pluteni čep
-nl:Wijn kurk
+nl:Wijnkurk, wijnkurken, Wijn kurk
 wikidata:en:Q86511715
 
 <en:Bottle cap
@@ -393,6 +398,7 @@ bg:Прибори за хранене
 de:Essensutensilien, Utensilien, Essensutensil, Utensil
 fr:Couverts, couvert
 hu:evőeszközök, evőeszköz
+nl:Bestek
 pt:Talheres, talher 
 
 # keep the plural
@@ -403,6 +409,7 @@ da:Spisepinde
 de:Essstäbchen
 fr:Baguettes
 hu:evőpálcikák, evőpálkcika
+nl:Stokjes
 pt:Pauzinhos chineses, palitinhos, hashi
 #suggest:packaging_materials:en: en:plastic, en:wood
 wikidata:en:Q81980
@@ -415,6 +422,7 @@ de:Messer
 fr:Couteau, couteaux
 hr:nož
 hu:kés, kések
+nl:Mes, messen
 pt:Faca, facas
 wikidata:en:Q32489
 
@@ -426,6 +434,7 @@ de:Gabel, Gabeln
 fr:Fourchette, fourchettes
 hr:vilica
 hu:villa, villák
+nl:Vork, vorken
 pt:Garfo, garfos
 wikidata:en:Q81881
 
@@ -437,6 +446,7 @@ de:Löffel
 fr:Cuillère, cuiller, cuillères, cuillers
 hr:žlica
 hu:kanál, kanalak
+nl:lepel, lepels
 pt:Colher, colheres
 wikidata:en:Q81895
 
@@ -444,18 +454,21 @@ wikidata:en:Q81895
 en:teaspoon
 bg:чаена лъжичка, чаена лъжица
 fr:cuillère à café
+nl:theelepel
 wikidata:en:Q216425
 
 <en:Spoon
 en:tablespoon
 bg:супена лъжица
 fr:cuillère à soupe
+nl:soeplepel
 wikidata:en:Q2002583
 
 en:sheet, sheets
 bg:лист, листа
 fr:feuille, feuilles
 hu:fólia, fóliák, lap, lapok
+nl:blad, bladeren
 pt:Folha, folhas
 weight:en:light
 
@@ -491,7 +504,7 @@ cy:ffilm
 de:Netz
 fr:Filet, filets
 hu:Háló, hálók
-nl:Net, netje
+nl:Net, netje, netten, netjes
 pt:Rede, redes, saco de rede, sacos de rede, sacos de redes, saco de redes
 #suggest:packaging_materials:en: en:metal, en:other
 # related_categories:en: en:Fresh garlic
@@ -533,12 +546,14 @@ description:nl:Dun en buigzaam vel van een metaal of kunststof
 en:Overpack, overpacks
 fr:Suremballage, sur-emballage, suremballages, sur-emballages
 hu:gyűjtőcsomag, gyűjtőcsomagolás, overpack
+nl:oververpakking, oververpakkingen
 pt:Sobreembalagem, sobre-embalagem, sobreembalagens, sobre-embalagens, sobrembalagens, sobrembalagens
 
 en:Grouping package, grouping packages
 de:Gruppierungspaket
 fr:Emballage de regroupement, emballages de regroupement
 hu:Csoportosító csomag, egyesítő csomag
+nl:Groepsverpakking, groepsverpakkingen
 pt:Embalagem de grupagem, embalagem de agrupagem, embalagens de grupagem, embalagens de agrupagem, embalagem agrupadora, embalagens agrupadoras
 
 en:Seal, operculum, seals, peel-off lid
@@ -555,6 +570,7 @@ da:uden emballage
 de:ohne Verpackung
 fr:vrac, sans emballage
 hu:ömlesztett, csomagolás nélkül, csomagolás nélküli, csomagolatlan
+nl:zonder verpakking
 pt:Granel, a granel, sem embalagem, sem embalagens
 
 en:Bowl, bows
@@ -563,7 +579,7 @@ de:Schüssel
 el:Μπολ
 fr:Bol, bols
 hu:Tál, tálak
-nl:Schaal, Schaaltje, Schaaltjes, Vlootje, Vlootjes, Bak, Bakje, Bakjes
+nl:Schaal, Schaaltje, Schaaltjes, Vlootje, Vlootjes, Bak, Bakje, Bakjes, kom, kommen
 pt:Tigela, taça, tigelas, taças
 wikidata:en:Q153988
 
@@ -579,6 +595,7 @@ wikidata:en:Q57216
 en:Stick, sticks
 fr:Batonnet, bâtonnets
 hu:rúd, rudak
+nl:Stok, stokken
 pt:Paus, pauzinhos, varetas de madeira
 
 en:Cosmetic stick
@@ -591,17 +608,19 @@ bg:етикет, етикети
 de:Etikett, Etiketten
 fr:étiquette, étiquettes
 hu:címke, címkék
-nl:Label
+nl:Label, labels
 pt:Etiqueta, etiquetas, rótulo, rótulos
 weight:en:light
 #suggest:packaging_materials:en: en:paper, en:cardboard, en:other
 
 en:Applicator
 fr:Applicateur
+nl:Applicator
 #suggest:packaging_materials:en: en:plastic, en:cardboard
 
 en:Bag-in-box
 fr:Bag-in-box, Cubitainer
+nl:Zak-in-doos
 wikidata:en:Q799810
 
 en:strip, band
@@ -646,6 +665,7 @@ wikidata:en:Q1061121
 en:hanger
 bg:закачалка
 fr:Cintre
+nl:Kleerhanger
 # related_categories:en: en:Clothes
 
 en:Wedge, corner piece
@@ -683,6 +703,7 @@ fr:dose invididuelle, doses individuelles, dosette, dosettes
 
 en:Protection cover
 fr:Housse, housses, housse de protection, housses de protection
+nl:Beschermingshoes, beschermingshoezen
 
 en:pump bottle, spray, spray bottle, applicator bottle
 fr:Flacon à pompe, flacons à pompe, flacon à pistolet, flacons à pistolet, Spray, sprays
@@ -690,6 +711,7 @@ fr:Flacon à pompe, flacons à pompe, flacon à pistolet, flacons à pistolet, S
 
 en:squeeze bottle
 fr:flacon souple, flacon pressable, flacon à presser, squeezer
+nl:Knijpfles, knijpflessen
 
 en:Aerosol can, aerosol cans
 fr:Aérosol, aérosols
@@ -702,10 +724,12 @@ fr:Flacon à bille, Roll
 en:Basket, baskets
 bg:Кошница, кошници
 fr:Panier, paniers
+nl:Mand, manden
 
 en:Syringe, syringes
 bg:Спринцовка, спринцовки
 fr:Seringue, seringues
+nl:Spuit, spuiten
 
 en:Wings, Hygiene wings
 fr:Ailettes
@@ -714,6 +738,7 @@ fr:Ailettes
 en:Bucket, buckets
 bg:Кофа, кофи
 fr:Seau, seaux
+nl:Emmer, emmers
 #suggest:packaging_materials:en: en:plastic, en:metal
 
 # CITEO only translates it by pot
@@ -745,7 +770,7 @@ description:nl:Inktpatroon voor een printer
 en:Straw, straws
 bg:Сламка, сламки
 fr:Paille, pailles
-nl:Rietje
+nl:Rietje, rietjes
 description:nl:Dun drinkbuisje
 
 en:Filling
@@ -760,9 +785,6 @@ fr:Brochure
 nl:Folder
 sv:Broschyr
 description:nl:Een blad met informatie of reclame
-
-#as in "verpakking bij plastic afval", meaning the entire packaging
-nl:Verpakking
 
 en:spout, pouring spout, pour spout
 fr:verseur, bec verseur
