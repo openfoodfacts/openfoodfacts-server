@@ -228,6 +228,10 @@ update_tests_results:
 	@echo "🥫 Updated expected test results with actuals for easy Git diff"
 	${DOCKER_COMPOSE_TEST} run --rm -w /opt/product-opener/tests backend bash update_tests_results.sh
 
+bash:
+	@echo "🥫 Open a bash shell in the test container"
+	${DOCKER_COMPOSE_TEST} run --rm -w /opt/product-opener backend bash
+
 # check perl compiles, (pattern rule) / but only for newer files
 %.pm %.pl: _FORCE
 	if [ -f $@ ]; then perl -c -CS -Ilib $@; else true; fi

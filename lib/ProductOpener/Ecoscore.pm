@@ -109,14 +109,18 @@ Loads the AgriBalyse database.
 =cut
 
 sub load_agribalyse_data() {
-
 	my $agribalyse_details_by_step_csv_file = $data_root . "/ecoscore/agribalyse/AGRIBALYSE_vf.csv.2";
 
 	my $rows_ref = [];
 
 	my $encoding = "UTF-8";
 
-	$log->debug("opening agribalyse CSV file", {file => $agribalyse_details_by_step_csv_file}) if $log->is_debug();
+	open(my $version_file, "<:encoding($encoding)", $data_root . '/ecoscore/agribalyse/AGRIBALYSE_version.txt')
+	 	or die($!);
+	chomp(my $agribalyse_version = <$version_file>);
+	close($version_file);
+
+	$log->debug("opening agribalyse CSV file", {file => $agribalyse_details_by_step_csv_file, version => $agribalyse_version}) if $log->is_debug();
 
 	my $csv_options_ref = {binary => 1, sep_char => ","};    # should set binary attribute.
 
@@ -154,6 +158,7 @@ sub load_agribalyse_data() {
 				co2_distribution => $row_ref->[19] + 0,    # Supermarché et distribution
 				co2_consumption => $row_ref->[20] + 0,    # Consommation
 				co2_total => $row_ref->[21] + 0,    # Total
+				version => $agribalyse_version
 			};
 		}
 	}
