@@ -343,7 +343,7 @@ if ($action eq 'display') {
 			}
 
 			if (   ((defined $user_ref->{pro}) and ($user_ref->{pro}))
-				or ((defined $server_options{producers_platform}) and ($type eq "add")))
+				or (($server_options{producers_platform}) and ($type eq "add")))
 			{
 				if (($section_ref->{id} eq "professional") and $field_ref->{type} eq "checkbox") {
 					$field_ref->{value} = "on";

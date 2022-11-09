@@ -586,8 +586,8 @@ msgid "editor"
 msgstr "düzenleyici"
 
 msgctxt "email"
-msgid "e-mail address"
-msgstr "e-posta adresi"
+msgid "E-mail address"
+msgstr "E-posta adresi"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
@@ -1019,15 +1019,15 @@ msgstr "İçindekiler"
 
 msgctxt "no_ingredient"
 msgid "Ingredients are missing"
-msgstr ""
+msgstr "Bileşenler eksik"
 
 msgctxt "one_ingredient"
 msgid "1 ingredient"
-msgstr ""
+msgstr "1 bileşen"
 
 msgctxt "f_ingredients_with_number"
 msgid "{number} ingredients"
-msgstr ""
+msgstr "{number} bileşen"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
@@ -1392,6 +1392,10 @@ msgstr "Barkodu olmayan ürünler için dahili bir kod otomatik olarak ayarlanı
 msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
 msgstr "Bültene abone olun (aylık maksimum 2 e-posta)"
+
+msgctxt "subscribe_to_our_newsletter"
+msgid "Subscribe to our newsletter"
+msgstr "Haber bültenimize abone olun"
 
 msgctxt "next"
 msgid "Next"
@@ -4481,7 +4485,7 @@ msgstr ""
 
 msgctxt "attribute_labels_fair_trade_description"
 msgid "When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards."
-msgstr ""
+msgstr "Adil ticaret ürünleri satın aldığınızda, gelişmekte olan ülkelerdeki üreticilere daha yüksek ve daha adil bir fiyat ödenir, bu da onların daha yüksek sosyal ve genellikle çevresel standartları geliştirmelerine ve sürdürmelerine yardımcı olur."
 
 msgctxt "attribute_group_nutritional_quality_name"
 msgid "Nutritional quality"
@@ -4497,7 +4501,7 @@ msgstr "İyi beslenme kalitesi (Nutri-Score)"
 
 msgctxt "attribute_nutriscore_setting_note"
 msgid "The Nutri-Score is computed and can be taken into account for all products, even if is not displayed on the packaging."
-msgstr ""
+msgstr "Nutri-Score hesaplanır ve ambalaj üzerinde gösterilmese bile tüm ürünler için dikkate alınabilir."
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_nutriscore_grade_title"
@@ -4510,7 +4514,7 @@ msgstr "Nutri-Score bilinmiyor"
 
 msgctxt "attribute_nutriscore_unknown_description_short"
 msgid "Missing data to compute the Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score'u hesaplamak için eksik veriler"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
 msgid "Nutri-Score not-applicable"
@@ -4518,12 +4522,12 @@ msgstr "Nutri-score geçerli değildir"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
 msgid "Not-applicable for the category"
-msgstr ""
+msgstr "Kategori için geçerli değil"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
 msgid "Not-applicable for the category: {category}"
-msgstr ""
+msgstr "Kategori için geçerli değil: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -4738,19 +4742,19 @@ msgstr ""
 
 msgctxt "attribute_ecoscore_b_description_short"
 msgid "Low environmental impact"
-msgstr ""
+msgstr "Düşük çevresel etki"
 
 msgctxt "attribute_ecoscore_c_description_short"
 msgid "Moderate environmental impact"
-msgstr ""
+msgstr "Orta düzeyde çevresel etki"
 
 msgctxt "attribute_ecoscore_d_description_short"
 msgid "High environmental impact"
-msgstr ""
+msgstr "Yüksek çevresel etki"
 
 msgctxt "attribute_ecoscore_e_description_short"
 msgid "Very high environmental impact"
-msgstr ""
+msgstr "Çok yüksek çevresel etki"
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "contains_s"
@@ -4862,7 +4866,7 @@ msgstr ""
 
 msgctxt "delete_org"
 msgid "Delete the organization"
-msgstr ""
+msgstr "Kuruluşu sil"
 
 msgctxt "official_site"
 msgid "Official site"
@@ -5196,7 +5200,7 @@ msgstr "Sayfa başına %d ürün"
 
 msgctxt "not_applicable"
 msgid "Not applicable"
-msgstr ""
+msgstr "Uygulanamaz"
 
 msgctxt "abbreviated_product_name"
 msgid "Abbreviated product name"
@@ -5233,7 +5237,7 @@ msgstr "Kullanıcı silindi."
 
 msgctxt "attribute_ecoscore_not_applicable_title"
 msgid "Eco-Score not yet applicable"
-msgstr ""
+msgstr "Eko-Skor henüz geçerli değil"
 
 msgctxt "attribute_ecoscore_not_applicable_description_short"
 msgid "Not yet applicable for the category"
@@ -5290,11 +5294,11 @@ msgstr ""
 
 msgctxt "org_admin"
 msgid "Administrator fields"
-msgstr ""
+msgstr "Yönetici alanları"
 
 msgctxt "minion_status_inactive"
 msgid "Queued"
-msgstr ""
+msgstr "Kuyrukta"
 
 msgctxt "minion_status_active"
 msgid "In progress"
@@ -5367,7 +5371,7 @@ msgstr ""
 
 msgctxt "image_other_type"
 msgid "Type of the product photo"
-msgstr ""
+msgstr "Ürün fotoğrafının türü"
 
 # do not translate "front, ingredients, nutrition, packaging"
 msgctxt "image_other_type_description"
@@ -5409,7 +5413,7 @@ msgstr ""
 # do not translate Agribalyse
 msgctxt "ecoscore_agribalyse_category"
 msgid "Agribalyse category"
-msgstr ""
+msgstr "Agribalyse kategorisi"
 
 msgctxt "ecoscore_category_proxy_match"
 msgid "Approximate match with the product category"
@@ -5442,7 +5446,7 @@ msgstr ""
 
 msgctxt "ecoscore_agriculture"
 msgid "Agriculture"
-msgstr ""
+msgstr "Tarım"
 
 msgctxt "ecoscore_processing"
 msgid "Processing"
@@ -5458,11 +5462,11 @@ msgstr ""
 
 msgctxt "ecoscore_distribution"
 msgid "Distribution"
-msgstr ""
+msgstr "Dağıtım"
 
 msgctxt "ecoscore_consumption"
 msgid "Consumption"
-msgstr ""
+msgstr "Tüketim"
 
 msgctxt "ecoscore_lca_score_out_of_100"
 msgid "LCA score out of 100"
@@ -5494,7 +5498,7 @@ msgstr ""
 
 msgctxt "ecoscore_origins_of_ingredients"
 msgid "Origins of ingredients"
-msgstr ""
+msgstr "Bileşenlerin kökenleri"
 
 msgctxt "ecoscore_ingredients_not_indicated"
 msgid "The origins of the ingredients of this product are not indicated."
@@ -5530,15 +5534,15 @@ msgstr ""
 
 msgctxt "ecoscore_packaging_ratio"
 msgid "ratio"
-msgstr ""
+msgstr "oran"
 
 msgctxt "ecoscore_packaging_score"
 msgid "score"
-msgstr ""
+msgstr "puan"
 
 msgctxt "ecoscore_score_of_all_components"
 msgid "Score of all components"
-msgstr ""
+msgstr "Tüm bileşenlerin puanı"
 
 msgctxt "ecoscore_no_packaging_information"
 msgid "The information about the packaging of this product is not filled in."
@@ -5554,7 +5558,7 @@ msgstr ""
 
 msgctxt "ecoscore_final_score"
 msgid "Final score"
-msgstr ""
+msgstr "Son skor"
 
 msgctxt "ecoscore_lower_the_score_lower_the_impact"
 msgid "(the lower the score, the lower the impact)"
@@ -5656,7 +5660,7 @@ msgstr ""
 # medium as in "medium impact"
 msgctxt "medium"
 msgid "medium"
-msgstr ""
+msgstr "orta"
 
 msgctxt "nutrition_grade_fr_tea_bags_note"
 msgid "Note: the Nutri-Score of teas and herbal teas corresponds to the product prepared with water only, without sugar or milk."
@@ -5765,7 +5769,7 @@ msgstr ""
 
 msgctxt "bonus"
 msgid "Bonus"
-msgstr ""
+msgstr "Bonus"
 
 msgctxt "malus"
 msgid "Malus"
@@ -5825,7 +5829,7 @@ msgstr ""
 
 msgctxt "health"
 msgid "Health"
-msgstr ""
+msgstr "Sağlık"
 
 # will be followed by : and a value. e.g. "Compared to: bananas"
 msgctxt "compared_to"
@@ -5835,12 +5839,12 @@ msgstr ""
 # name of an activity / a sport
 msgctxt "activity_walking"
 msgid "Walking"
-msgstr ""
+msgstr "Yürüme"
 
 # name of an activity / a sport
 msgctxt "activity_swimming"
 msgid "Swimming"
-msgstr ""
+msgstr "Yüzme"
 
 # name of an activity / a sport
 msgctxt "activity_bicycling"
@@ -5850,7 +5854,7 @@ msgstr "Bisiklet sürme"
 # name of an activity / a sport
 msgctxt "activity_running"
 msgid "Running"
-msgstr ""
+msgstr "Koşma"
 
 # Don't translate {kj}, it will be replaced by a number
 msgctxt "f_energy_per_100g"
@@ -5903,11 +5907,11 @@ msgstr ""
 
 msgctxt "food_groups_p"
 msgid "food groups"
-msgstr ""
+msgstr "besin grupları"
 
 msgctxt "food_groups_s"
 msgid "food group"
-msgstr ""
+msgstr "besin grubu"
 
 msgctxt "non_vegan_ingredients"
 msgid "Non-vegan ingredients"

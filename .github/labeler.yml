@@ -58,6 +58,7 @@ allergens:
 - taxonomies/allergens.result.sto
 - taxonomies/allergens.result.txt
 - tests/unit/allergens.t
+- taxonomies/allergens.txt
 
 open pet food facts:
 - taxonomies.opff/**/*
@@ -158,7 +159,7 @@ tests:
 - t/**/*
 - lib/ProductOpener/Test.pm
 
-dependancies:
+dependencies:
 - package.json
 - package-lock.json
 
@@ -295,6 +296,7 @@ ingredients analysis:
 - scripts/list_ingredients.pl
 - scripts/extract_individual_ingredients.pl
 - scripts/aggregate_ingredients.pl
+- lib/ProductOpener/Ingredients.pm
 
 labels:
 - taxonomies/labels.txt
