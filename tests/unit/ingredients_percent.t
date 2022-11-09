@@ -798,6 +798,149 @@ my @tests = (
 		]
 	],
 
+	# Where flavourings or other ingredients with a maximum percentage are not the first ingredient then
+	# use their maximum percentage
+	[
+		{lc => "en", ingredients_text => "milk, flavouring"},
+		[
+			{
+				'id' => 'en:milk',
+				'percent_estimate' => 97.5,
+				'percent_max' => 100,
+				'percent_min' => 95,
+				'text' => 'milk'
+			},
+			{
+				'id' => 'en:flavouring',
+				'percent_estimate' => 2.5,
+				'percent_max' => 5,
+				'percent_min' => 0,
+				'text' => 'flavouring'
+			}
+		]
+	],
+
+	# Can get percent_max from parent ingredient
+	[
+		{lc => "en", ingredients_text => "milk, natural flavouring"},
+		[
+			{
+				'id' => 'en:milk',
+				'percent_estimate' => 97.5,
+				'percent_max' => 100,
+				'percent_min' => 95,
+				'text' => 'milk'
+			},
+			{
+				'id' => 'en:natural-flavouring',
+				'percent_estimate' => 2.5,
+				'percent_max' => 5,
+				'percent_min' => 0,
+				'text' => 'natural flavouring'
+			}
+		]
+	],
+
+	# Where flavourings are the first ingredient then ignore maximum percentages
+	[
+		{lc => "en", ingredients_text => "flavouring, lemon flavouring"},
+		[
+			{
+				'id' => 'en:flavouring',
+				'percent_estimate' => 75,
+				'percent_max' => 100,
+				'percent_min' => 50,
+				'text' => 'flavouring'
+			},
+			{
+				'id' => 'en:lemon-flavouring',
+				'percent_estimate' => 25,
+				'percent_max' => 50,
+				'percent_min' => 0,
+				'text' => 'lemon flavouring'
+			}
+		]
+	],
+
+	# Where maximum would prevent ingredients from adding up to 100% then ignore it
+	[
+		{lc => "en", ingredients_text => "milk 80%, flavouring"},
+		[
+			{
+				'id' => 'en:milk',
+				'percent' => 80,
+				'percent_estimate' => 80,
+				'percent_max' => 80,
+				'percent_min' => 80,
+				'text' => 'milk'
+			},
+			{
+				'id' => 'en:flavouring',
+				'percent_estimate' => 20,
+				'percent_max' => 20,
+				'percent_min' => 20,
+				'text' => 'flavouring'
+			}
+		]
+	],
+
+	# Where maximum is lower than later ingredients then ignore it
+	[
+		{lc => "en", ingredients_text => "milk, flavouring, sugar 10%"},
+		[
+			{
+				'id' => 'en:milk',
+				'percent_estimate' => 62.5,
+				'percent_max' => 80,
+				'percent_min' => 45,
+				'text' => 'milk'
+			},
+			{
+				'id' => 'en:flavouring',
+				'percent_estimate' => 23.75,
+				'percent_max' => 45,
+				'percent_min' => 10,
+				'text' => 'flavouring'
+			},
+			{
+				'id' => 'en:sugar',
+				'percent' => 10,
+				'percent_estimate' => 13.75,
+				'percent_max' => 10,
+				'percent_min' => 10,
+				'text' => 'sugar'
+			}
+		]
+	],
+
+	# Where two ingredients have a maximum then apply it
+	[
+		{lc => "en", ingredients_text => "milk, lemon flavouring, orange flavouring"},
+		[
+			{
+				'id' => 'en:milk',
+				'percent_estimate' => 95,
+				'percent_max' => 100,
+				'percent_min' => 90,
+				'text' => 'milk'
+			},
+			{
+				'id' => 'en:lemon-flavouring',
+				'percent_estimate' => 2.5,
+				'percent_max' => 5,
+				'percent_min' => 0,
+				'text' => 'lemon flavouring'
+			},
+			{
+				'id' => 'en:orange-flavouring',
+				'percent_estimate' => 2.5,
+				'percent_max' => 5,
+				'percent_min' => 0,
+				'text' => 'orange flavouring'
+			}
+		]
+	],
+
 );
 
 foreach my $test_ref (@tests) {
