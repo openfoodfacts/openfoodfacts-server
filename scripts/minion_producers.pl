@@ -35,7 +35,6 @@ use ProductOpener::MainCountries qw/:all/;
 use ProductOpener::PackagerCodes qw/:all/;
 use ProductOpener::LoadData qw/:all/;
 
-
 use Log::Any qw($log);
 use Log::Log4perl;
 Log::Log4perl->init("$conf_root/minion_log.conf");    # Init log4perl from a config file.

@@ -71,21 +71,21 @@ sub load_data() {
 
 	$log->debug("loading data - start") if $log->is_debug();
 
-    init_emb_codes();
-    init_packager_codes();
-    init_geocode_addresses();
-    init_packaging_taxonomies_regexps();
-    load_scans_data();
+	init_emb_codes();
+	init_packager_codes();
+	init_geocode_addresses();
+	init_packaging_taxonomies_regexps();
+	load_scans_data();
 
-    if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
-        load_agribalyse_data();
-        load_ecoscore_data();
-        load_forest_footprint_data();
-    }   
+	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+		load_agribalyse_data();
+		load_ecoscore_data();
+		load_forest_footprint_data();
+	}
 
-    $log->debug("loading data - done") if $log->is_debug();
+	$log->debug("loading data - done") if $log->is_debug();
 
-    return;
+	return;
 }
 
 1;
