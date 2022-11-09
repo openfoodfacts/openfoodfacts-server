@@ -278,7 +278,7 @@ paths:
                         patternProperties:
                           '/^\d+$/':
                             $ref: ./schemas/images/image.yaml
-                          packaging_fr:
+                          '(front|ingredients|nutrition|packaging|other)_\w\w(-\w\w)?:
                             $ref: ./schemas/images/selected_image.yaml                           
                   status:
                     type: integer
