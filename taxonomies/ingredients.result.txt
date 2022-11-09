@@ -15,7 +15,7 @@ stopwords:fi:sisältää,muun muassa,valio, koskenlaskija, snellmanin, jossa, no
 stopwords:fr:la,les,des,du,de,d,un,une,ajouté,ajoutés,ajoutée,ajoutées,pour
 stopwords:fr:de,d,des,du,le,la,les,a,aux
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout, sachet
-stopwords:hr:i, iz, sastojci, sastav, u promjenjivim omjerima, u promjenjivim udjelima, u različitim omjerima
+stopwords:hr:i, iz, sadrže, sastojci, sastav, u promjenjivim omjerima, u promjenjivim udjelima, u različitim omjerima
 stopwords:hu:tartalmaz, változó arányban, min, zsírtartalom, összetevő, összetétel, amelyből, amiből
 stopwords:id:mengandung
 stopwords:is:úr
@@ -3245,6 +3245,7 @@ de:Frischhefe
 es:levadura fresca
 fi:tuorehiiva
 fr:levure fraîche
+hr:pekarski kvasac
 nl:verse gist
 
 en:baking powder
@@ -3481,7 +3482,7 @@ de:Gerstenvollkornmehl, Gersten-Vollkornmehl
 es:harina de cebada integral, harina integral de cebada
 fi:täysjyväohrajauho
 fr:farine complète d'orge, farine d'orge complète
-hr:integralno ječmeno brašno, ječmeno brašno iz cijelog zrna
+hr:integralno ječmeno brašno, ječmeno brašno iz cijelog zrna, brašno cijelog zrna ječma, brašno iz cijelog zrna ječma
 hu:teljes kiőrlésű árpaliszt
 it:Farina integrale d'orzo
 nl:volkoren gerstemeel
@@ -6132,6 +6133,7 @@ el:αλέυρι φαγόπυρου
 es:harina de sarraceno, harina de alforfon
 fi:tattarijauho
 fr:farine de sarrasin, farine de blé noir
+hr:heljdino brašno
 hu:hajdinaliszt
 it:farina di grano saraceno
 ja:蕎麦粉
@@ -11819,6 +11821,7 @@ es:copos de chocolate, pepitas de chocolate, gotas de chocolate, chips de chocol
 fi:suklaapalat, suklaarouhe
 fr:morceaux de chocolat, pépites de chocolat, copeaux de chocolat
 he:שברי שוקולד, נטיפי שוקולד, שוקולד צ׳יפס, שוקולד צ'יפס, חתיכות שוקולד
+hr:komadići čokolade
 it:pezzi di cioccolato, gocce di cioccolato
 nl:Chocostukjes
 pl:Kawałki czekolady
@@ -13747,7 +13750,7 @@ gl:Café
 gu:કૉફી
 he:קפה
 hi:कॉफ़ी
-hr:Kava
+hr:kava, kave
 ht:Kafe
 hu:kávé
 hy:սուրճ
@@ -13886,6 +13889,10 @@ fr:café en poudre
 hr:kava u prahu
 nl:koffiepoeder
 sv:kaffepulver
+
+< en:Coffee
+en:coffee preparation
+hr:pripravak kave
 
 < en:Coffee
 en:cold brew coffee
@@ -29971,7 +29978,7 @@ es:E412, Goma guar, Goma de guar, Goma de Cyamopsis, Goma de jaguar, Harina de g
 et:E412, Guarkummi
 fi:E412, Guarkumi, Cyamopsiskumi, Guarkumia, Cyamopsiskumia, guarjauho, guarkumi
 fr:E412, Gomme de guar, gomme guar, gommes de guar, gomme de jaguar, Gomme cyamopsis, Farine de guar, CAS 9000-30-0, Farine Galligum de Guar, GALLIGUM G, Gyamopsis Tetragonolobus, farine de graines de guar, guar, farine de graine de guar, farine de guar, gomme guar, gomme de guar, guar
-hr:E412, guar guma, guar guma
+hr:E412, guar guma, guar guma, guma guar
 hu:E412, Guargumi, Gum cyamopsis, guarenyv, guargyanta, guarmézga, guarliszt, guar liszt, guargumi, guarmézga
 it:E412, Gomma di guar, Farina di semi di guar, Gomma cyamopsis, Guarano, Farina di guar, gomma di guar
 ja:グァーガム
@@ -41252,6 +41259,7 @@ de:Eigelbpulver
 es:yema de huevo en polvo, polvo de yema de huevo
 fi:munankeltuaisjauhe, keltuaisjauhe
 fr:jaune d'œuf en poudre, jaunes d'œufs en poudre, poudre de jaunes d'œufs, jaune d'œufs en poudre, poudre de jaune d'œuf, jaune d'oeuf en poudre, jaunes d'oeufs en poudre, poudre de jaunes d'oeufs, jaune d'oeufs en poudre, poudre de jaune d'oeuf
+hr:žumanjak u prahu
 it:tuorli in polvere
 nl:eigeelpoeder
 pl:żółtko jaja w proszku, żółtko jaj w proszku
@@ -42616,6 +42624,7 @@ sv:karamellfyllning
 en:cocoa filling
 bg:какаов пълнеж
 de:Kakaofüllung
+hr:kakaovo punjenje
 
 < en:Filling
 en:milk filling
@@ -42987,6 +42996,15 @@ nl:karper
 ciqual_food_code:en: 27003
 ciqual_food_name:en: Carp, raw, farmed
 ciqual_food_name:fr: Carpe, crue, élevage
+
+< en:Fish
+en:common bream
+da:Brasen
+de:Brachse
+fi:lahna
+fr:brème commune
+la:Abramis brama
+wikisata:en: Q144534
 
 < en:Fish
 en:Common dab
@@ -43717,6 +43735,7 @@ ro:aromă, aroma, arome
 sk:aróma
 sv:arom, aromer, smakämnen, aromämne, aromämnen
 zh:调味剂
+percent_max:en: 5
 vegan:en: maybe
 vegetarian:en: maybe
 
@@ -43833,6 +43852,10 @@ es:aroma de arándano
 fi:mustikka-aromi
 fr:arôme de myrtille
 sv:blåbärsarom
+
+< en:Flavouring
+en:brandy flavouring
+es:aroma de brandy
 
 < en:Flavouring
 en:butter flavouring
@@ -44195,8 +44218,7 @@ hu:málna aroma
 nl:frambozenaroma
 
 < en:Flavouring
-en:salt and vinegar flavour, brandy flavouring
-es:aroma de brandy
+en:salt and vinegar flavour
 
 < en:Flavouring
 en:seafood flavouring
@@ -55657,6 +55679,7 @@ de:Mais-Maltodextrin
 es:maltodextrina de maiz
 fi:maissimaltodekstriini
 fr:maltodextrine de maïs, malto-dextrine de maïs
+hr:kukuruzni maltodekstrin
 it:maltodestrine di mais, Maltodestrina di Mais
 nl:maïsmaltodextrine
 pt:maltodextrina de milho
@@ -55669,6 +55692,7 @@ de:Kartoffel-Maltodextrin
 es:maltodextrina de patata
 fi:perunamaltodekstriini
 fr:maltodextrine de pomme de terre, malto-dextrine de pomme de terre
+hr:krumpirov maltodekstrin
 
 < en:Maltodextrind
 en:tapioca maltodextrin
@@ -61039,7 +61063,7 @@ es:grano de mostaza, semillas de mostaza
 et:sinepiseemned
 fi:sinapinsiemen, sinapinsiemenet
 fr:graine de moutarde, graines de moutarde, cosse de moutarde
-hr:sjemenke gorušice
+hr:sjemenke gorušice, sjeme gorušice
 hu:káposztafélék, Mustármag
 it:Semi di senape
 ja:カラシナ, シロガラシ
@@ -62341,6 +62365,7 @@ ga:Cnó talún, piseanna
 gu:મગફળી
 ha:Gyaɗa
 he:בוטן, בוטנים, חמאת בוטנים
+hr:kikiriki
 hu:földimogyoró
 ia:cacahuete
 it:arachide, arachidi
@@ -67396,6 +67421,7 @@ de:hydrolysiertes Pflanzenprotein, aufgeschlossenes Pflanzeneiweiß, aufgeschlos
 es:Proteina vegetal hidrolizada, hidrolizado de proteína vegetal
 fi:hydrolysoitu kasviproteiini, kasviproteiinihydrosylaatti
 fr:protéine végétale hydrolysée, protéines végétales hydrolysées
+hr:hirolizirane biljne bjelančevine
 hu:hidrolizált növényi fehérjék, hidolizált növényi fehérje
 it:Proteine vegetali idrolisse
 nb:hydrolysert vegetabilsk protein
@@ -70076,6 +70102,7 @@ ca:Oli de canola
 de:Ölrübsenöl
 es:aceite de canola
 fr:huile de canola
+hr:kanola ulje
 hu:kanolaolaj, canolaolaj, canola olaj, canola-olaj, kanola olaj, kanola-olaj
 it:Olio di canola
 ja:キャノーラ油
@@ -72135,7 +72162,7 @@ eu:tipula
 fi:sipuli, sipulit
 fr:oignon, oignons
 he:בצל
-hr:luk
+hr:luk, crni luk
 hu:hagyma, hagymák, vöröshagyma
 io:Onyono
 is:laukur
@@ -78213,6 +78240,7 @@ de:Dinkelvollkornmehl, dinkel vollkornmehl
 es:harina de espelta integral, harina integral de espelta, harina integral de trigo de espelta
 fi:täysjyväspelttijauho, täysjyväspelttivehnäjauho
 fr:farine complète d'épeautre, farine d'épeautre complète, farine d'épeautre complet
+hr:brašno iz cijelog zrna pira
 hu:teljes kiőrlésű tönkölyliszt
 it:farina integrale di spelta
 nl:volkoren speltmeel
@@ -80732,6 +80760,7 @@ de:Invertzuckersirup
 es:Jarabe de azúcar invertido
 fi:inverttisokerisiirappi, inverttisokerisiirappia
 fr:sirop de sucre inverti, sucre liquide inverti, sucre inverti en sirop
+hr:invertni šećerni sirup
 hu:invertcukor szirup, invertcukor-szirup, invertcukorszirup
 it:sciroppo di zucchero invertito
 lv:invertcukura sīrups
@@ -82556,7 +82585,7 @@ de:Cashewkerne, Kaschunüsse, Cashewnüsse, Cashew
 el:καρύδια κάσιους
 es:anacardos, nueces de anacardos, castañas de cajú
 et:kašupähklid, India pähkel, kašupähkleid
-fi:cashewpähkinä, cashewpähkinät
+fi:cashewpähkinä, cashewpähkinät, cashew
 fr:noix de cajou
 ga:cnónna caisiú
 hr:indijski oraščići
@@ -86117,6 +86146,7 @@ fr:tomate, tomates
 gl:tomate
 gu:tomate
 he:עגבנייה
+hr:rajčica
 ht:Tomat
 hu:paradicsom
 ia:Tomato
@@ -90261,7 +90291,7 @@ es:harina de trigo integral, harina integral de trigo
 et:täistera nisujahu, täisteranisujahu
 fi:täysjyvävehnäjauho
 fr:farine de blé complète, farine de blé complet, farine complète de blé, farine intégrale de blé, farine complète de froment
-hr:integralno pšenično brašno, pšenično brašno iz cijelog zrna
+hr:integralno pšenično brašno, pšenično brašno iz cijelog zrna, brašno cijelog zrna pšenice
 hu:teljes kiőrlésű búzaliszt
 it:farina integrale di frumento, farina di frumento integrale
 lt:visų grūdo dalių kvietiniai miltai
@@ -91509,7 +91539,7 @@ de:Roggenvollkornmehl
 es:flor de harina integral de centeno, harina integral de centeno
 fi:täysjyväruisjauho, täysjyväruisjauhoa
 fr:farine de seigle complète, farine complète de seigle, farine de seigle complet
-hr:integralno raženo brašno, brašno od integralni raži, raženo brašno iz cijelog zrna
+hr:integralno raženo brašno, brašno od integralni raži, raženo brašno iz cijelog zrna, brašno iz cijelog zrna raži
 hu:teljes kiőrlésű rozsliszt
 it:farina di segale integrale
 nb:fullkornsrugmel
