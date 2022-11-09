@@ -1,0 +1,55 @@
+type: object
+properties:
+  angle:
+    type: integer
+  coordinates_image_size:
+    type: string
+  geometry:
+    type: string
+  imgid:
+    type: string
+  normalize:
+    type: 'null'
+  rev:
+    type: string
+  sizes:
+    type: object
+    properties:
+      '100':
+        type: object
+        properties:
+          h:
+            type: integer
+          w:
+            type: integer
+      '200':
+        type: object
+        properties:
+          h:
+            type: integer
+          w:
+            type: integer
+      '400':
+        type: object
+        properties:
+          h:
+            type: integer
+          w:
+            type: integer
+      full:
+        type: object
+        properties:
+          h:
+            type: integer
+          w:
+            type: integer
+  white_magic:
+    type: 'null'
+  x1:
+    type: string
+  x2:
+    type: string
+  y1:
+    type: string
+  y2:
+    type: string
