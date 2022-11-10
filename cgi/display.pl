@@ -40,7 +40,7 @@ use Log::Any qw($log);
 use Apache2::RequestRec ();
 use Apache2::Const qw(:common);
 
-# The API V3 write product request uses POST with a JSON body
+# The API V3 write product request uses POST / PUT / PATCH with a JSON body
 # if we have such a request, we need to read the body before CGI.pm tries to read it to get multipart/form-data parameters
 
 my $env_query_string = $ENV{QUERY_STRING};
@@ -73,7 +73,7 @@ if (defined $params[0]) {
 
 my $request_ref = ProductOpener::Display::init_request();
 
-# Add the POSTed body if we have one
+# Add the HTTP request body if we have one
 if (defined $body_request_ref->{body}) {
 	$request_ref->{body} = $body_request_ref->{body};
 }
