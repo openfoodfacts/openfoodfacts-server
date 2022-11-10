@@ -142,6 +142,7 @@ use Encode;
 use JSON::PP;
 use MIME::Base64;
 use LWP::UserAgent;
+use File::Copy;
 
 =head1 SUPPORTED IMAGE TYPES
 
@@ -1113,7 +1114,6 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 
 				-e "$data_root/deleted.images" or mkdir("$data_root/deleted.images", 0755);
 
-				require File::Copy;
 				File::Copy->import(qw( move ));
 
 				$log->info(

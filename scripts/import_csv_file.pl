@@ -41,6 +41,7 @@ use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::PackagerCodes qw/:all/;
+use ProductOpener::LoadData qw/:all/;
 
 use URI::Escape::XS;
 use Storable qw/dclone/;
@@ -185,16 +186,7 @@ if (not $no_source) {
 
 $missing_arg and exit();
 
-init_emb_codes();
-init_packager_codes();
-init_geocode_addresses();
-init_packaging_taxonomies_regexps();
-
-if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
-	load_agribalyse_data();
-	load_ecoscore_data();
-	load_forest_footprint_data();
-}
+load_data();
 
 my $args_ref = {
 	user_id => $user_id,
