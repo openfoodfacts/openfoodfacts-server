@@ -56,7 +56,7 @@ paths:
         in: path
         required: true
         description: Barcode of the product
-    post:
+    patch:
       summary: WRITE Product - Create or update product (API V3 - Implementation in progress)
       operationId: post-api-v3-product-barcode
       responses:
