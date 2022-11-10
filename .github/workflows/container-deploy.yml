@@ -32,6 +32,7 @@ jobs:
         echo "PRODUCT_OPENER_DOMAIN=openfoodfacts.net" >> $GITHUB_ENV
         echo "PRODUCT_OPENER_FLAVOR=openfoodfacts" >> $GITHUB_ENV
         echo "PRODUCT_OPENER_FLAVOR_SHORT=off" >> $GITHUB_ENV
+        echo "POSTGRES_USER=postgres" >> $GITHUB_ENV
         echo "CROWDIN_PROJECT_IDENTIFIER=openfoodfacts" >> $GITHUB_ENV
         echo "GEOLITE2_PATH=/usr/local/share/GeoLite2-Country/GeoLite2-Country.mmdb" >> $GITHUB_ENV
         echo "INFLUXDB_HOST=10.1.0.200" >> $GITHUB_ENV
