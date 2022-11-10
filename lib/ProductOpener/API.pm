@@ -220,7 +220,6 @@ sub determine_response_result ($response_ref) {
 	return;
 }
 
-
 =head2 add_localized_messages_to_api_response ($target_lc, $response_ref)
 
 Functions that process API calls may add message ids in $request_ref->{api_response}
@@ -272,7 +271,6 @@ sub add_localized_messages_to_api_response ($target_lc, $response_ref) {
 	return;
 }
 
-
 =head2 send_api_reponse ($request_ref)
 
 Send the API response with the right headers and status code.
@@ -323,7 +321,6 @@ sub send_api_reponse ($request_ref) {
 	return;
 }
 
-
 =head2 process_api_request ($request_ref)
 
 Process API v3 requests.
@@ -362,7 +359,7 @@ sub process_api_request ($request_ref) {
 					impact => {id => "failure"},
 				}
 			);
-		}		
+		}
 	}
 	else {
 		$log->warn("process_api_request - unknown action", {request => $request_ref}) if $log->is_warn();
@@ -385,7 +382,6 @@ sub process_api_request ($request_ref) {
 	$log->debug("process_api_request - stop", {request => $request_ref}) if $log->is_debug();
 	return;
 }
-
 
 =head2 normalize_requested_code($requested_code, $response_ref)
 
@@ -427,7 +423,6 @@ sub normalize_requested_code ($requested_code, $response_ref) {
 
 	return $code;
 }
-
 
 =head2 get_images_to_update($product_ref, $target_lc)
 
@@ -483,7 +478,6 @@ sub get_images_to_update ($product_ref, $target_lc) {
 	}
 	return $images_to_update_ref;
 }
-
 
 =head2 customize_response_for_product ( $request_ref, $product_ref, $fields )
 

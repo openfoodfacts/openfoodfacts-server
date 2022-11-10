@@ -77,7 +77,7 @@ my $tests_ref = [
 		method => 'DELETE',
 		path => '/api/v3/product/1234567890007',
 		body => '{"product": {"fields": "updated", "packagings": [{"shape": "bottle"}]}}'
-	},		
+	},
 	{
 		test_case => 'patch-packagings-add-components-to-existing-product',
 		method => 'PATCH',
