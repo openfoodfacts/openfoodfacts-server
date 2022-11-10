@@ -400,19 +400,20 @@ my @tests = (
 	#                           D U T C H ( N L )
 	#
 ##################################################################
-	[
- {
- lc => "nl",
- ingredients_text => "uipoeder"
- },
- [
- {
- 'id' => 'en:onion',
- 'processing' => 'en:powder',
- 'text' => 'ui'
- }
- ]
- ],
+
+[
+{
+lc => "nl",
+ingredients_text => "uipoeder"
+},
+[
+{
+'id' => 'en:onion',
+'processing' => 'en:powder',
+'text' => 'ui'
+}
+]
+],
 	[
 		{
 			lc => "nl",
