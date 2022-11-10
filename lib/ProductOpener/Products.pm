@@ -155,6 +155,8 @@ use Data::DeepAccess qw(deep_get);
 
 use LWP::UserAgent;
 use Storable qw(dclone);
+use File::Copy::Recursive;
+use ProductOpener::GeoIP;
 
 use Algorithm::CheckDigits;
 my $ean_check = CheckDigits('ean');
@@ -656,8 +658,6 @@ sub init_product ($userid, $orgid, $code, $countryid) {
 	my $country;
 
 	if (((not defined $countryid) or ($countryid eq "en:world")) and (remote_addr() ne "127.0.0.1")) {
-
-		require ProductOpener::GeoIP;
 		$country = ProductOpener::GeoIP::get_country_for_ip(remote_addr());
 	}
 	elsif (defined $countryid) {
@@ -1061,7 +1061,6 @@ sub store_product ($user_id, $product_ref, $comment) {
 			#
 			# use File::Copy;
 
-			require File::Copy::Recursive;
 			File::Copy::Recursive->import(qw( dirmove ));
 
 			$log->debug("moving product data",
@@ -2944,7 +2943,6 @@ sub process_product_edit_rules ($product_ref) {
 										$emoji = ":pear:";
 									}
 
-									require LWP::UserAgent;
 									my $ua = LWP::UserAgent->new;
 									my $server_endpoint
 										= "https://hooks.slack.com/services/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";

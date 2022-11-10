@@ -110,6 +110,7 @@ use Text::CSV;
 use DateTime::Format::ISO8601;
 use URI;
 use Digest::MD5 qw(md5_hex);
+use LWP::UserAgent;
 
 # private function to import images from dir
 # args:
@@ -231,8 +232,6 @@ sub import_images_from_dir ($image_dir, $stats) {
 
 # download image at given url parameter
 sub download_image ($image_url) {
-
-	require LWP::UserAgent;
 
 	my $ua = LWP::UserAgent->new(timeout => 10);
 
