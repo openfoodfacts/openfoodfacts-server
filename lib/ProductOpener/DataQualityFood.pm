@@ -540,7 +540,9 @@ my %energy_from_nutrients = (
 
 sub check_nutrition_data_energy_computation ($product_ref) {
 
-	if (not defined $product_ref->{nutriments}) {
+	my $nutriments_ref = $product_ref->{nutriments};
+
+	if (not defined $nutriments_ref) {
 		return;
 	}
 
@@ -553,13 +555,13 @@ sub check_nutrition_data_energy_computation ($product_ref) {
 
 	foreach my $unit ("kj", "kcal") {
 
-		my $specified_energy = $product_ref->{nutriments}{"energy-${unit}_value"};
+		my $specified_energy = $nutriments_ref->{"energy-${unit}_value"};
 		# We need at a minimum carbohydrates, fat and proteins to be defined to compute
 		# energy.
 		if (    (defined $specified_energy)
-			and (defined $product_ref->{nutriments}{"carbohydrates_value"})
-			and (defined $product_ref->{nutriments}{"fat_value"})
-			and (defined $product_ref->{nutriments}{"proteins_value"}))
+			and (defined $nutriments_ref->{"carbohydrates_value"})
+			and (defined $nutriments_ref->{"fat_value"})
+			and (defined $nutriments_ref->{"proteins_value"}))
 		{
 
 			# Compute the energy from other nutrients
@@ -587,10 +589,10 @@ sub check_nutrition_data_energy_computation ($product_ref) {
 					"en:energy-value-in-$unit-does-not-match-value-computed-from-other-nutrients";
 			}
 
-			$product_ref->{nutriments}{"energy-${unit}_value_computed"} = $computed_energy;
+			$nutriments_ref->{"energy-${unit}_value_computed"} = $computed_energy;
 		}
 		else {
-			delete $product_ref->{nutriments}{"energy-${unit}_value_computed"};
+			delete $nutriments_ref->{"energy-${unit}_value_computed"};
 		}
 	}
 
