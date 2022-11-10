@@ -530,7 +530,7 @@ my %energy_from_nutrients = (
 		carbohydrates_minus_polyols => { kj => 17, kcal => 4},
 		polyols_minus_erythritol => {kj => 10, kcal => 2.4},
 		proteins => { kj => 17, kcal => 4},
-		fats => {kj => 37, kcal => 9},
+		fat => {kj => 37, kcal => 9},
 		salatrim => { kj => 25, kcal => 6},	# no corresponding nutrients in nutrient tables?
 		alcohol => { kj => 29, kcal => 7},
 		organic_acids => { kj => 13, kcal => 3},	 # no corresponding nutrients in nutrient tables?
@@ -541,6 +541,8 @@ my %energy_from_nutrients = (
 
 sub check_nutrition_data_energy_computation ($product_ref) {
 
+	return if not defined $product_ref->{nutriments};
+
 	# Different countries allow different ways to determine energy
 	# One way is to compute energy from other nutrients
 	# We can thus try to use energy as a key to verify other nutrients
@@ -550,8 +552,14 @@ sub check_nutrition_data_energy_computation ($product_ref) {
 
 	foreach my $unit ("kj", "kcal") {
 
-		my $specified_energy = $product_ref->{nutriments}{"energy-kcal_value"};
-		if (defined $specified_energy) {
+		my $specified_energy = $product_ref->{nutriments}{"energy-${unit}_value"};
+		# We need at a minimum carbohydrates, fat and proteins to be defined to compute
+		# energy.
+		if ((defined $specified_energy)
+and (defined $product_ref->{nutriments}{"carbohydrates_value"})
+and (defined $product_ref->{nutriments}{"fat_value"})
+and (defined $product_ref->{nutriments}{"proteins_value"})
+) {
 
 			# Compute the energy from other nutrients
 			my $computed_energy = 0;
@@ -562,24 +570,26 @@ sub check_nutrition_data_energy_computation ($product_ref) {
 				if ($nid=~ /_minus_/) {
 					my $nid_minus = $';
 					$nid = $`;
-					$grams -= ($product_ref->{nutriments}{$nid_minus . "_value"} || 0);
+					$grams -= $product_ref->{nutriments}{$nid_minus . "_value"} || 0;
 				}
-				$grams += ($product_ref->{nutriments}{$nid . "_value"} || 0);
+				$grams += $product_ref->{nutriments}{$nid . "_value"} || 0;
 				$computed_energy += $grams * $energy_per_gram;
 			}
 		
 			# Compare to specified energy value
-			if (($computed_energy < $specified_energy * 0.9 - 1)
-				or ($computed_energy > $specified_energy * 1.1 + 1)) {
+			if (($computed_energy < ($specified_energy * 0.9 - 5))
+				or ($computed_energy > ($specified_energy * 1.1 + 5))) {
 				push @{$product_ref->{data_quality_errors_tags}}, "en:energy-value-in-$unit-does-not-match-value-computed-from-other-nutrients";
 			}
 
-			$product_ref->{"energy-${unit}_value_computed"} = $computed_energy;
+			$product_ref->{nutriments}{"energy-${unit}_value_computed"} = $computed_energy;
 		}
 		else {
-			delete $product_ref->{"energy-${unit}_value_computed"};
+			delete $product_ref->{nutriments}{"energy-${unit}_value_computed"};
 		}
 	}
+
+	return;
 }
 
 
