@@ -150,7 +150,7 @@ jobs:
           echo "LOG_LEVEL_MONGODB=ERROR" >> .env
 
           # Override domain name in nginx.conf
-          sed -i.bak "s/productopener.localhost/${{ secrets.PRODUCT_OPENER_DOMAIN }}/g" ./conf/nginx.conf
+          sed -i.bak "s/productopener.localhost/${{ env.PRODUCT_OPENER_DOMAIN }}/g" ./conf/nginx.conf
 
     - name: Create Docker volumes
       uses: appleboy/ssh-action@master
