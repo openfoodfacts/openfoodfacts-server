@@ -403,8 +403,7 @@ my @tests = (
 	[
 		{
 			lc => "nl",
-				ingredients_text =>
-				"uipoeder"
+				ingredients_text => "uipoeder"
 		},
 		[
 			{
