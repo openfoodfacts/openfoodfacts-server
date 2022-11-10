@@ -9,10 +9,6 @@ on:
       - v*.*.*
 
 # Note on secrets used for connection
-# They are configured as environment secrets
-# HOST is the internal ip of VM containing docker
-# PROXY_HOST is the host of VMs
-# USERNAME is the user used for operations
 # SSH_PRIVATE_KEY is the private key (shared between VM and host)
 
 jobs:
@@ -39,6 +35,10 @@ jobs:
         echo "CROWDIN_PROJECT_IDENTIFIER=openfoodfacts" >> $GITHUB_ENV
         echo "GEOLITE2_PATH=/usr/local/share/GeoLite2-Country/GeoLite2-Country.mmdb" >> $GITHUB_ENV
         echo "INFLUXDB_HOST=10.1.0.200" >> $GITHUB_ENV
+        # deploy target
+        echo "HOST=10.1.0.200" >> $GITHUB_ENV
+        echo "PROXY_HOST=ovh1.openfoodfacts.org" >> $GITHUB_ENV
+        echo "USER=off" >> $GITHUB_ENV
     - name: Set various variable for prod (org) deployment
       if: matrix.env == 'off-org'
       run: |
@@ -78,11 +78,11 @@ jobs:
     - name: Checkout git repository
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
+        host: ${{ env.HOST }}
+        username: ${{ env.USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        proxy_host: ${{ secrets.PROXY_HOST }}
-        proxy_username: ${{ secrets.USERNAME }}
+        proxy_host: ${{ env.PROXY_HOST }}
+        proxy_username: ${{ env.USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
@@ -101,11 +101,11 @@ jobs:
     - name: Set environment variables
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
+        host: ${{ env.HOST }}
+        username: ${{ env.USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        proxy_host: ${{ secrets.PROXY_HOST }}
-        proxy_username: ${{ secrets.USERNAME }}
+        proxy_host: ${{ env.PROXY_HOST }}
+        proxy_username: ${{ env.USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
@@ -155,11 +155,11 @@ jobs:
     - name: Create Docker volumes
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
+        host: ${{ env.HOST }}
+        username: ${{ env.USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        proxy_host: ${{ secrets.PROXY_HOST }}
-        proxy_username: ${{ secrets.USERNAME }}
+        proxy_host: ${{ env.PROXY_HOST }}
+        proxy_username: ${{ env.USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
@@ -169,11 +169,11 @@ jobs:
     - name: init backend
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
+        host: ${{ env.HOST }}
+        username: ${{ env.USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        proxy_host: ${{ secrets.PROXY_HOST }}
-        proxy_username: ${{ secrets.USERNAME }}
+        proxy_host: ${{ env.PROXY_HOST }}
+        proxy_username: ${{ env.USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
@@ -183,11 +183,11 @@ jobs:
     - name: Start services
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
+        host: ${{ env.HOST }}
+        username: ${{ env.USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        proxy_host: ${{ secrets.PROXY_HOST }}
-        proxy_username: ${{ secrets.USERNAME }}
+        proxy_host: ${{ env.PROXY_HOST }}
+        proxy_username: ${{ env.USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
@@ -200,11 +200,11 @@ jobs:
       uses: appleboy/ssh-action@master
       if: ${{ always() }}
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
+        host: ${{ env.HOST }}
+        username: ${{ env.USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        proxy_host: ${{ secrets.PROXY_HOST }}
-        proxy_username: ${{ secrets.USERNAME }}
+        proxy_host: ${{ env.PROXY_HOST }}
+        proxy_username: ${{ env.USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
@@ -215,11 +215,11 @@ jobs:
       uses: appleboy/ssh-action@master
       if: ${{ always() }}
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
+        host: ${{ env.HOST }}
+        username: ${{ env.USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        proxy_host: ${{ secrets.PROXY_HOST }}
-        proxy_username: ${{ secrets.USERNAME }}
+        proxy_host: ${{ env.PROXY_HOST }}
+        proxy_username: ${{ env.USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
