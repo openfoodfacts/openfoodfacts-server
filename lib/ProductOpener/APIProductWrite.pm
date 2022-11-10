@@ -136,7 +136,7 @@ sub write_product_api ($request_ref) {
 			{
 				message => {id => "missing_field"},
 				field => {id => "product"},
-				impact => {id => "request_failed"},
+				impact => {id => "failure"},
 			}
 		);
 	}
@@ -180,7 +180,7 @@ sub write_product_api ($request_ref) {
 				{
 					message => {id => "edit_against_edit_rules"},
 					field => {id => "product"},
-					impact => {id => "request_failed"},
+					impact => {id => "failure"},
 				}
 			);
 		}

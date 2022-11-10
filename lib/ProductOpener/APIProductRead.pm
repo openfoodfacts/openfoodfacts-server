@@ -97,7 +97,7 @@ sub read_product_api ($request_ref) {
 			{
 				message => {id => "invalid_code"},
 				field => {id => $code, value => $code},
-				impact => {id => "request_failed"},
+				impact => {id => "failure"},
 			}
 		);
 		$response_ref->{result} = {id => "product_not_found"};
@@ -132,7 +132,7 @@ sub read_product_api ($request_ref) {
 			{
 				message => {id => "product_not_found"},
 				field => {id => $code, value => $code},
-				impact => {id => "request_failed"},
+				impact => {id => "failure"},
 			}
 		);
 		$response_ref->{result} = {id => "product_not_found"};

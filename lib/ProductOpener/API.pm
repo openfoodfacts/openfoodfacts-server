@@ -102,7 +102,7 @@ sub add_error ($response_ref, $error_ref) {
 
 =head2 read_request_body ($request_ref)
 
-API V3 POST requests do not use CGI Multipart Form data, and instead pass a JSON structure in the body.
+API V3 POST / PUT / PATCH requests do not use CGI Multipart Form data, and instead pass a JSON structure in the body.
 This function reads the request body and saves it in $request_ref->{body}
 
 It must be called before any call to CGI.pm param() which will read the body.
@@ -162,7 +162,7 @@ sub decode_json_request_body ($request_ref) {
 			{
 				message => {id => "empty_request_body"},
 				field => {id => "body", value => ""},
-				impact => {id => "request_failed"},
+				impact => {id => "failure"},
 			}
 		);
 	}
@@ -175,7 +175,7 @@ sub decode_json_request_body ($request_ref) {
 				{
 					message => {id => "invalid_json_in_request_body"},
 					field => {id => "body", value => $request_ref->{body}},
-					impact => {id => "request_failed"},
+					impact => {id => "failure"},
 				}
 			);
 		}
@@ -206,9 +206,9 @@ sub determine_response_result ($response_ref) {
 	if (scalar @{$response_ref->{errors}} > 0) {
 		$status_id = "success_with_errors";
 
-		# one error of type "request_failed" means a failure of whole request
+		# one error of type "failure" means a failure of whole request
 		foreach my $error_ref (@{$response_ref->{errors}}) {
-			if (deep_get($error_ref, "impact", "id") eq "request_failed") {
+			if (deep_get($error_ref, "impact", "id") eq "failure") {
 				$status_id = "failure";
 				last;
 			}
@@ -219,6 +219,7 @@ sub determine_response_result ($response_ref) {
 
 	return;
 }
+
 
 =head2 add_localized_messages_to_api_response ($target_lc, $response_ref)
 
@@ -271,6 +272,7 @@ sub add_localized_messages_to_api_response ($target_lc, $response_ref) {
 	return;
 }
 
+
 =head2 send_api_reponse ($request_ref)
 
 Send the API response with the right headers and status code.
@@ -321,6 +323,7 @@ sub send_api_reponse ($request_ref) {
 	return;
 }
 
+
 =head2 process_api_request ($request_ref)
 
 Process API v3 requests.
@@ -343,19 +346,30 @@ sub process_api_request ($request_ref) {
 
 	if ($request_ref->{api_action} eq "product") {
 
-		if ($request_ref->{api_method} eq "POST") {
+		if ($request_ref->{api_method} eq "PATCH") {
 			write_product_api($request_ref);
 		}
-		else {
+		elsif ($request_ref->{api_method} =~ /^(GET|HEAD|OPTIONS)$/) {
 			read_product_api($request_ref);
 		}
+		else {
+			$log->warn("process_api_request - invalid method", {request => $request_ref}) if $log->is_warn();
+			add_error(
+				$response_ref,
+				{
+					message => {id => "invalid_api_method"},
+					field => {id => "api_method", value => $request_ref->{api_method}},
+					impact => {id => "failure"},
+				}
+			);
+		}		
 	}
 	else {
 		$log->warn("process_api_request - unknown action", {request => $request_ref}) if $log->is_warn();
 		add_error(
 			$response_ref,
 			{
-				message => {id => "unknown_api_action"},
+				message => {id => "invalid_api_action"},
 				field => {id => "api_action", value => $request_ref->{api_action}},
 				impact => {id => "failure"},
 			}
@@ -371,6 +385,7 @@ sub process_api_request ($request_ref) {
 	$log->debug("process_api_request - stop", {request => $request_ref}) if $log->is_debug();
 	return;
 }
+
 
 =head2 normalize_requested_code($requested_code, $response_ref)
 
@@ -412,6 +427,7 @@ sub normalize_requested_code ($requested_code, $response_ref) {
 
 	return $code;
 }
+
 
 =head2 get_images_to_update($product_ref, $target_lc)
 
@@ -467,6 +483,7 @@ sub get_images_to_update ($product_ref, $target_lc) {
 	}
 	return $images_to_update_ref;
 }
+
 
 =head2 customize_response_for_product ( $request_ref, $product_ref, $fields )
 

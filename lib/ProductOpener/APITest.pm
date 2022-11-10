@@ -248,6 +248,28 @@ sub execute_api_tests ($file, $tests_ref) {
 				$response = $ua->post($url);
 			}
 		}
+		elsif ($method eq 'PUT') {
+			$response = $ua->put(
+				$url,
+				Content => encode_utf8($test_ref->{body}),
+				"Content-Type" => "application/json; charset=utf-8"
+			);
+		}
+		elsif ($method eq 'DELETE') {
+			$response = $ua->delete(
+				$url,
+				Content => encode_utf8($test_ref->{body}),
+				"Content-Type" => "application/json; charset=utf-8"
+			);
+		}				
+		elsif ($method eq 'PATCH') {
+			my $request = HTTP::Request::Common::PATCH(
+				$url,
+				Content => encode_utf8($test_ref->{body}),
+				"Content-Type" => "application/json; charset=utf-8"
+			);
+			$response = $ua->request($request);
+		}		
 
 		# Check if we got the expected response status code
 		if (defined $test_ref->{expected_status_code}) {

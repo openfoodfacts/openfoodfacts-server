@@ -25,43 +25,62 @@ create_user($ua, \%create_user_args);
 # Note: expected results are stored in json files, see execute_api_tests
 my $tests_ref = [
 	{
-		test_case => 'post-no-body',
-		method => 'POST',
+		test_case => 'patch-no-body',
+		method => 'PATCH',
 		path => '/api/v3/product/1234567890002',
 	},
 	{
-		test_case => 'post-broken-json-body',
-		method => 'POST',
+		test_case => 'patch-broken-json-body',
+		method => 'PATCH',
 		path => '/api/v3/product/1234567890003',
 		body => 'not json'
 	},
 	{
-		test_case => 'post-no-product',
-		method => 'POST',
+		test_case => 'patch-no-product',
+		method => 'PATCH',
 		path => '/api/v3/product/1234567890004',
 		body => '{}'
 	},
 	{
-		test_case => 'post-empty-product',
-		method => 'POST',
+		test_case => 'patch-empty-product',
+		method => 'PATCH',
 		path => '/api/v3/product/1234567890005',
 		body => '{"product":{}}'
 	},
 	{
-		test_case => 'post-packagings-add-not-array',
-		method => 'POST',
+		test_case => 'patch-packagings-add-not-array',
+		method => 'PATCH',
 		path => '/api/v3/product/1234567890006',
 		body => '{"product": {"packagings_add": {"shape": "bottle"}}}'
 	},
 	{
-		test_case => 'post-packagings-add-one-component',
-		method => 'POST',
+		test_case => 'patch-packagings-add-one-component',
+		method => 'PATCH',
 		path => '/api/v3/product/1234567890007',
 		body => '{"product": {"fields": "updated", "packagings_add": [{"shape": "bottle"}]}}'
 	},
+	# Only the PATCH method is valid, test other methods
 	{
-		test_case => 'post-packagings-add-components-to-existing-product',
+		test_case => 'post-packagings',
 		method => 'POST',
+		path => '/api/v3/product/1234567890007',
+		body => '{"product": {"fields": "updated", "packagings": [{"shape": "bottle"}]}}'
+	},
+	{
+		test_case => 'put-packagings',
+		method => 'PUT',
+		path => '/api/v3/product/1234567890007',
+		body => '{"product": {"fields": "updated", "packagings": [{"shape": "bottle"}]}}'
+	},
+	{
+		test_case => 'delete-packagings',
+		method => 'DELETE',
+		path => '/api/v3/product/1234567890007',
+		body => '{"product": {"fields": "updated", "packagings": [{"shape": "bottle"}]}}'
+	},		
+	{
+		test_case => 'patch-packagings-add-components-to-existing-product',
+		method => 'PATCH',
 		path => '/api/v3/product/1234567890007',
 		body => '{
 			"fields": "updated",
@@ -84,8 +103,8 @@ my $tests_ref = [
 		}'
 	},
 	{
-		test_case => 'post-packagings-fr-fields',
-		method => 'POST',
+		test_case => 'patch-packagings-fr-fields',
+		method => 'PATCH',
 		path => '/api/v3/product/1234567890007',
 		body => '{
 			"fields": "updated",
@@ -108,8 +127,8 @@ my $tests_ref = [
 		}'
 	},
 	{
-		test_case => 'post-packagings-quantity-and-weight',
-		method => 'POST',
+		test_case => 'patch-packagings-quantity-and-weight',
+		method => 'PATCH',
 		path => '/api/v3/product/1234567890008',
 		body => '{
 			"fields": "updated",
@@ -134,8 +153,8 @@ my $tests_ref = [
 		}'
 	},
 	{
-		test_case => 'post-replace-packagings',
-		method => 'POST',
+		test_case => 'patch-replace-packagings',
+		method => 'PATCH',
 		path => '/api/v3/product/1234567890008',
 		body => '{
 			"fields": "updated",
@@ -159,8 +178,8 @@ my $tests_ref = [
 		}'
 	},
 	{
-		test_case => 'post-request-fields-undef',
-		method => 'POST',
+		test_case => 'patch-request-fields-undef',
+		method => 'PATCH',
 		path => '/api/v3/product/1234567890009',
 		body => '{
 			"tags_lc": "en",
@@ -170,14 +189,14 @@ my $tests_ref = [
 						"number_of_units": 1,
 						"shape": "bag",
 						"material": "plastic",
-					},			
+					}
 				]
 			}
 		}'
 	},
 	{
-		test_case => 'post-request-fields-none',
-		method => 'POST',
+		test_case => 'patch-request-fields-none',
+		method => 'PATCH',
 		path => '/api/v3/product/1234567890009',
 		body => '{
 			"fields": "none",
@@ -188,14 +207,14 @@ my $tests_ref = [
 						"number_of_units": 1,
 						"shape": "bag",
 						"material": "plastic",
-					},			
+					}
 				]
 			}
 		}'
 	},
 	{
-		test_case => 'post-request-fields-updated',
-		method => 'POST',
+		test_case => 'patch-request-fields-updated',
+		method => 'PATCH',
 		path => '/api/v3/product/1234567890009',
 		body => '{
 			"fields": "updated",
@@ -206,14 +225,14 @@ my $tests_ref = [
 						"number_of_units": 1,
 						"shape": "bag",
 						"material": "plastic",
-					},			
+					}
 				]
 			}
 		}'
 	},
 	{
-		test_case => 'post-request-fields-all',
-		method => 'POST',
+		test_case => 'patch-request-fields-all',
+		method => 'PATCH',
 		path => '/api/v3/product/1234567890009',
 		body => '{
 			"fields": "updated",
@@ -224,14 +243,14 @@ my $tests_ref = [
 						"number_of_units": 1,
 						"shape": "bag",
 						"material": "plastic",
-					},			
+					}
 				]
 			}
 		}'
 	},
 	{
-		test_case => 'post-request-fields-packagings',
-		method => 'POST',
+		test_case => 'patch-request-fields-packagings',
+		method => 'PATCH',
 		path => '/api/v3/product/1234567890009',
 		body => '{
 			"fields": "packagings",
@@ -242,14 +261,14 @@ my $tests_ref = [
 						"number_of_units": 1,
 						"shape": "bag",
 						"material": "plastic",
-					},			
+					}
 				]
 			}
 		}'
 	},
 	{
-		test_case => 'post-request-fields-ecoscore-data',
-		method => 'POST',
+		test_case => 'patch-request-fields-ecoscore-data',
+		method => 'PATCH',
 		path => '/api/v3/product/1234567890009',
 		body => '{
 			"fields": "ecoscore_data",
@@ -260,7 +279,7 @@ my $tests_ref = [
 						"number_of_units": 1,
 						"shape": "bag",
 						"material": "plastic",
-					},			
+					}
 				]
 			}
 		}'
