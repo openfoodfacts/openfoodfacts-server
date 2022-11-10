@@ -568,6 +568,7 @@ sub check_nutrition_data_energy_computation ($product_ref) {
 
 				my $energy_per_gram = $energy_from_nutrients{europe}{$nid}{$unit};
 				my $grams = 0;
+				# handles nutriment1__minus__numtriment2 case
 				if ($nid =~ /_minus_/) {
 					my $nid_minus = $';
 					$nid = $`;
