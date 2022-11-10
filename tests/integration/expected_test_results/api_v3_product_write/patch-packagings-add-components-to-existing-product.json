@@ -1,0 +1,55 @@
+{
+   "code" : "1234567890007",
+   "errors" : [],
+   "product" : {
+      "packagings" : [
+         {
+            "material" : "en:plastic",
+            "number_of_units" : 2,
+            "recycling" : "en:strange value",
+            "shape" : "en:bottle"
+         },
+         {
+            "material" : "en:cardboard",
+            "number_of_units" : 1,
+            "recycling" : "en:recycle",
+            "shape" : "en:box"
+         }
+      ]
+   },
+   "status" : "success_with_warnings",
+   "warnings" : [
+      {
+         "field" : {
+            "default_value" : "en",
+            "id" : "tags_lc"
+         },
+         "impact" : {
+            "id" : "warning",
+            "lc_name" : "Warning",
+            "name" : "Warning"
+         },
+         "message" : {
+            "id" : "missing_field",
+            "lc_name" : "Missing field",
+            "name" : "Missing field"
+         }
+      },
+      {
+         "field" : {
+            "id" : "recycling",
+            "value" : "en:strange value"
+         },
+         "impact" : {
+            "id" : "none",
+            "lc_name" : "None",
+            "name" : "None"
+         },
+         "message" : {
+            "id" : "unrecognized_value",
+            "lc_name" : "Unrecognized value",
+            "name" : "Unrecognized value"
+         }
+      }
+   ]
+}
