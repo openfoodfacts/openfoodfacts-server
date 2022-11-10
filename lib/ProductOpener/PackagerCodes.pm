@@ -256,10 +256,4 @@ sub init_geocode_addresses() {
 	return;
 }
 
-# Slow, so only run these when actually executing, not just checking syntax. See also startup_apache2.pl.
-INIT {
-	init_packager_codes();
-	init_geocode_addresses();
-}
-
 1;
