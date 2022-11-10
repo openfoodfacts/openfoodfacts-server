@@ -401,18 +401,18 @@ my @tests = (
 	#
 ##################################################################
 	[
-		{
-			lc => "nl",
-				ingredients_text => "uipoeder"
-		},
-		[
-			{
-				'id' => 'en:onion',
-				'processing' => 'en:powder',
-				'text' => 'ui'
-			}
-		]
-	],
+ {
+ lc => "nl",
+ ingredients_text => "uipoeder"
+ },
+ [
+ {
+ 'id' => 'en:onion',
+ 'processing' => 'en:powder',
+ 'text' => 'ui'
+ }
+ ]
+ ],
 	[
 		{
 			lc => "nl",
