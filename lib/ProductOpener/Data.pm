@@ -1,4 +1,4 @@
-﻿# This file is part of Product Opener.
+# This file is part of Product Opener.
 #
 # Product Opener
 # Copyright (C) 2011-2020 Association Open Food Facts
@@ -44,11 +44,10 @@ GitHub, where some additional context is available.
 package ProductOpener::Data;
 
 use ProductOpener::PerlStandards;
-use Exporter    qw< import >;
+use Exporter qw< import >;
 
-BEGIN
-{
-	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
+BEGIN {
+	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&execute_query
 		&get_database
@@ -58,11 +57,11 @@ BEGIN
 		&get_emb_codes_collection
 		&get_recent_changes_collection
 
-		);    # symbols to export on request
+	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
-use vars @EXPORT_OK ;
+use vars @EXPORT_OK;
 
 use experimental 'smartmatch';
 
@@ -104,14 +103,14 @@ eval {
 
 =cut
 
-sub execute_query($sub) {
+sub execute_query ($sub) {
 
 	return Action::Retry->new(
-		attempt_code => sub { $action->run($sub) },
-		on_failure_code => sub { my ($error, $h) = @_; die $error; }, # by default Action::Retry would return undef
-		# If we didn't get results from MongoDB, the server is probably overloaded
-		# Do not retry the query, as it will make things worse
-		strategy => { Fibonacci => { max_retries_number => 0, } },
+		attempt_code => sub {$action->run($sub)},
+		on_failure_code => sub {my ($error, $h) = @_; die $error;},    # by default Action::Retry would return undef
+			# If we didn't get results from MongoDB, the server is probably overloaded
+			# Do not retry the query, as it will make things worse
+		strategy => {Fibonacci => {max_retries_number => 0,}},
 	)->run();
 }
 
@@ -131,7 +130,7 @@ Returns a mongoDB collection object.
 
 =cut
 
-sub get_products_collection($timeout=undef) {
+sub get_products_collection ($timeout = undef) {
 	return get_collection($mongodb, 'products', $timeout);
 }
 
@@ -150,19 +149,19 @@ Returns a mongoDB collection.
 
 =cut
 
-sub get_products_tags_collection($timeout=undef) {
+sub get_products_tags_collection ($timeout = undef) {
 	return get_collection($mongodb, 'products_tags', $timeout);
 }
 
-sub get_emb_codes_collection($timeout=undef) {
+sub get_emb_codes_collection ($timeout = undef) {
 	return get_collection($mongodb, 'emb_codes', $timeout);
 }
 
-sub get_recent_changes_collection($timeout=undef) {
+sub get_recent_changes_collection ($timeout = undef) {
 	return get_collection($mongodb, 'recent_changes', $timeout);
 }
 
-sub get_collection($database, $collection, $timeout=undef) {
+sub get_collection ($database, $collection, $timeout = undef) {
 	return get_mongodb_client($timeout)->get_database($database)->get_collection($collection);
 }
 
@@ -186,7 +185,7 @@ Returns $client of type MongoDB::MongoClient object.
 
 =cut
 
-sub get_mongodb_client($timeout=undef) {
+sub get_mongodb_client ($timeout = undef) {
 	# Note that for web pages, $client will be cached in mod_perl,
 	# so passing in different options for different queries won't do anything after the first call.
 
@@ -205,9 +204,10 @@ sub get_mongodb_client($timeout=undef) {
 	);
 
 	if (!defined($client)) {
-		$log->info("Creating new DB connection", { socket_timeout_ms => $client_options{socket_timeout_ms} });
+		$log->info("Creating new DB connection", {socket_timeout_ms => $client_options{socket_timeout_ms}});
 		$client = MongoDB::MongoClient->new(%client_options);
-	} else {
+	}
+	else {
 		$log->info("DB connection already exists");
 	}
 

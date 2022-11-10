@@ -53,7 +53,7 @@ Data about food is of public interest and has to be open (i.e available to every
 
 * Join us on Slack at <https://openfoodfacts.slack.com/> in the channels: `#api`, `#productopener`, `#dev`.
 * [API Documentation](https://openfoodfacts.github.io/api-documentation/)
-* [NEW API Documentation (WIP)](https://openfoodfacts.github.io/openfoodfacts-server/reference/api.html) ([source](https://github.com/openfoodfacts/openfoodfacts-server/tree/main/docs/reference/api.yml))
+* [NEW API Documentation (WIP)](https://openfoodfacts.github.io/openfoodfacts-server/reference/api/) ([source](https://github.com/openfoodfacts/openfoodfacts-server/tree/main/docs/reference/api.yml))
 
 * Developer documentation:
 
@@ -89,7 +89,8 @@ You can help translate the Open Food Facts web version and the app at :
 
 ## Helping with HTML and CSS
 
-We have [[templatized](https://github.com/openfoodfacts/openfoodfacts-server/tree/master/templates)] Product Opener, we use Gulp and NPM, but you'll need to run the Product Opener docker to be able to see the result (see the How do I get set up? section).
+We have [templatized](https://github.com/openfoodfacts/openfoodfacts-server/tree/master/templates) Product Opener, we use Gulp and NPM, but you'll need to run the Product Opener docker to be able to see the result (see the How do I get set up? section).
+In particular, you can [help with issues on the new design](https://github.com/openfoodfacts/openfoodfacts-server/issues?q=is%3Aissue+is%3Aopen+label%3A%22new+design%22).
 
 ### Who do I talk to?
 

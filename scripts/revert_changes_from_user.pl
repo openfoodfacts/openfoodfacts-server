@@ -41,7 +41,7 @@ and the script will have to be re-run.
 
 --pretend	do not actually update products
 TXT
-  ;
+	;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -180,7 +180,7 @@ while (my $product_ref = $cursor->next) {
 				if (not $pretend) {
 					# move revision to reverted folder to keep track
 					move("$data_root/products/$path/$rev.sto", "$data_root/reverted_products/$target")
-					  or die "Could not execute $cmd : $!\n";
+						or die "Could not execute $cmd : $!\n";
 				}
 				# mark revision as removed
 				$deleted_revs{$rev} = 1;
@@ -208,7 +208,7 @@ while (my $product_ref = $cursor->next) {
 		print STDERR "$code - $cmd\n";
 		if (not $pretend) {
 			move("$data_root/products/$path/changes.sto", "$data_root/reverted_products/$target")
-			  or die "Could not execute $cmd : $!\n";
+				or die "Could not execute $cmd : $!\n";
 		}
 		# we had edits prior target user edits, rewind product to those changes
 		if ($previous_rev > 0) {
@@ -217,7 +217,7 @@ while (my $product_ref = $cursor->next) {
 			print STDERR "$code - $cmd\n";
 			if (not $pretend) {
 				symlink("$previous_rev.sto", "$data_root/products/$path/product.sto")
-				  or die "Could not execute $cmd : $!\n";
+					or die "Could not execute $cmd : $!\n";
 			}
 			# restore changes.sto
 			print STDERR "updating $data_root/products/$path/changes.sto\n";

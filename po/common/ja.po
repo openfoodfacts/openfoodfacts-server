@@ -588,8 +588,8 @@ msgid "editor"
 msgstr "編集者"
 
 msgctxt "email"
-msgid "e-mail address"
-msgstr "メールアドレス"
+msgid "E-mail address"
+msgstr "Eメールアドレス"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
@@ -1397,6 +1397,10 @@ msgstr "バーコードのない製品については、自動的に内部コー
 msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
 msgstr "ニュースレターを購読します (月あたり最大 2 メール)"
+
+msgctxt "subscribe_to_our_newsletter"
+msgid "Subscribe to our newsletter"
+msgstr ""
 
 msgctxt "next"
 msgid "Next"
@@ -3139,6 +3143,10 @@ msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
 msgstr "重要な注意: この製品は販売されていません。データは参照用にのみ保存されます。この製品は通常の検索には表示されず、統計には考慮されません。"
 
+# This will be on a button and needs to be as short as possible
+# So instead of something like "Install the mobile application"
+# try to make it very short "Get the app" or "Install the app"
+# Use infinitive instead of imperative
 msgctxt "get_the_app"
 msgid "Get the app"
 msgstr "アプリを入手する"
@@ -3757,10 +3765,6 @@ msgstr "失敗"
 msgctxt "import_file_result"
 msgid "Import result"
 msgstr "インポート結果"
-
-msgctxt "products_added"
-msgid "Products added"
-msgstr "追加された商品"
 
 msgctxt "products_modified"
 msgid "Products modified"
@@ -6121,4 +6125,76 @@ msgstr "脂肪と飽和脂肪の消費を減らしましょう"
 msgctxt "nutrient_recommendation_fat_and_saturated_fat"
 msgid "Choose products with lower fat and saturated fat content."
 msgstr "低脂肪および飽和脂肪含有量の製品を選択してください。"
+
+msgctxt "sign_in"
+msgid "Sign in"
+msgstr "サインイン"
+
+msgctxt "sign_out"
+msgid "Sign out"
+msgstr "サインアウト"
+
+msgctxt "your_contributions"
+msgid "Your contributions"
+msgstr "あなたの貢献"
+
+msgctxt "products_added"
+msgid "Products added"
+msgstr "追加された商品"
+
+msgctxt "products_edited"
+msgid "Products edited"
+msgstr "自分が編集した製品"
+
+msgctxt "products_photographed"
+msgid "Products photographed"
+msgstr "私が撮影した製品"
+
+# result of the matching with the user preferences: should ne a noun, not a verb
+msgctxt "matching_with_your_preferences"
+msgid "Matching with your preferences"
+msgstr "好みに合わせて"
+
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_join_us_on_slack"
+msgid "Join us on <a href=\"{url}\">Slack</a>"
+msgstr "<a href=\"{url}\">Slack</a>に参加してください"
+
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_discover_our_code_of_conduct"
+msgid "Discover our <a href=\"{url}\">Code of conduct</a>"
+msgstr "<a href=\"{url}\">行動規範を確認する</a>"
+
+# {links} must not be translated, it will be replaced by icons and/or text links
+msgctxt "f_footer_follow_us_links"
+msgid "Follow us: {links}"
+msgstr "私たちをフォロー: {links}"
+
+# Should be as small as possible, e.g. use "app" instead of "application", don't specify "mobile"
+msgctxt "footer_install_the_app_exclamation_mark"
+msgid "Install the app!"
+msgstr "インストール"
+
+# HTML tags must not be translated, keep <span id=\"everyday\"> and <span id=\"foods\"> and put them around the corresponding words in the translation
+# e.g. in French: Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>
+msgctxt "footer_scan_your_everyday_foods"
+msgid "Scan your <span id=\"everyday\">everyday</span> <span id=\"foods\">foods</span>"
+msgstr "<span id=\"everyday\">毎日のスキャン</span> <span id=\"foods\">食べ物</span>"
+
+msgctxt "nutrition"
+msgid "Nutrition"
+msgstr "栄養"
+
+# Note: "criteria" is plural here. So in French for instance: "Vos critères"
+msgctxt "your_criteria"
+msgid "Your criteria"
+msgstr "あなたの条件"
+
+msgctxt "product"
+msgid "Product"
+msgstr "製品"
+
+msgctxt "environment"
+msgid "Environment"
+msgstr "環境"
 
