@@ -582,6 +582,7 @@ sub check_nutrition_data_energy_computation ($product_ref) {
 			if (   ($computed_energy < ($specified_energy * 0.9 - 5))
 				or ($computed_energy > ($specified_energy * 1.1 + 5)))
 			{
+				# we have a quality problem
 				push @{$product_ref->{data_quality_errors_tags}},
 					"en:energy-value-in-$unit-does-not-match-value-computed-from-other-nutrients";
 			}
