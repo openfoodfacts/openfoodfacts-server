@@ -512,7 +512,6 @@ sub check_carbon_footprint ($product_ref) {
 	return;
 }
 
-
 =head2 check_nutrition_data_energy_computation ( PRODUCT_REF )
 
 Checks related to the nutrition facts values.
@@ -527,26 +526,28 @@ In particular, checks for obviously invalid values (e.g. more than 105 g of any 
 
 my %energy_from_nutrients = (
 	europe => {
-		carbohydrates_minus_polyols => { kj => 17, kcal => 4},
+		carbohydrates_minus_polyols => {kj => 17, kcal => 4},
 		polyols_minus_erythritol => {kj => 10, kcal => 2.4},
-		proteins => { kj => 17, kcal => 4},
+		proteins => {kj => 17, kcal => 4},
 		fat => {kj => 37, kcal => 9},
-		salatrim => { kj => 25, kcal => 6},	# no corresponding nutrients in nutrient tables?
-		alcohol => { kj => 29, kcal => 7},
-		organic_acids => { kj => 13, kcal => 3},	 # no corresponding nutrients in nutrient tables?
-		fiber => { kj => 8, kcal => 2},
-		erythritol => { kj => 0, kcal => 0},	# no corresponding nutrients in nutrient tables?
+		salatrim => {kj => 25, kcal => 6},    # no corresponding nutrients in nutrient tables?
+		alcohol => {kj => 29, kcal => 7},
+		organic_acids => {kj => 13, kcal => 3},    # no corresponding nutrients in nutrient tables?
+		fiber => {kj => 8, kcal => 2},
+		erythritol => {kj => 0, kcal => 0},    # no corresponding nutrients in nutrient tables?
 	},
 );
 
 sub check_nutrition_data_energy_computation ($product_ref) {
 
-	return if not defined $product_ref->{nutriments};
+	if (not defined $product_ref->{nutriments}) {
+		return;
+	}
 
 	# Different countries allow different ways to determine energy
 	# One way is to compute energy from other nutrients
 	# We can thus try to use energy as a key to verify other nutrients
-	
+
 	# See https://esha.com/blog/calorie-calculation-country/
 	# and https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=CELEX:32011R1169&from=FR Appendix XIV
 
@@ -555,19 +556,19 @@ sub check_nutrition_data_energy_computation ($product_ref) {
 		my $specified_energy = $product_ref->{nutriments}{"energy-${unit}_value"};
 		# We need at a minimum carbohydrates, fat and proteins to be defined to compute
 		# energy.
-		if ((defined $specified_energy)
-and (defined $product_ref->{nutriments}{"carbohydrates_value"})
-and (defined $product_ref->{nutriments}{"fat_value"})
-and (defined $product_ref->{nutriments}{"proteins_value"})
-) {
+		if (    (defined $specified_energy)
+			and (defined $product_ref->{nutriments}{"carbohydrates_value"})
+			and (defined $product_ref->{nutriments}{"fat_value"})
+			and (defined $product_ref->{nutriments}{"proteins_value"}))
+		{
 
 			# Compute the energy from other nutrients
 			my $computed_energy = 0;
 			foreach my $nid (keys %{$energy_from_nutrients{europe}}) {
-			
+
 				my $energy_per_gram = $energy_from_nutrients{europe}{$nid}{$unit};
 				my $grams = 0;
-				if ($nid=~ /_minus_/) {
+				if ($nid =~ /_minus_/) {
 					my $nid_minus = $';
 					$nid = $`;
 					$grams -= $product_ref->{nutriments}{$nid_minus . "_value"} || 0;
@@ -575,11 +576,13 @@ and (defined $product_ref->{nutriments}{"proteins_value"})
 				$grams += $product_ref->{nutriments}{$nid . "_value"} || 0;
 				$computed_energy += $grams * $energy_per_gram;
 			}
-		
+
 			# Compare to specified energy value
-			if (($computed_energy < ($specified_energy * 0.9 - 5))
-				or ($computed_energy > ($specified_energy * 1.1 + 5))) {
-				push @{$product_ref->{data_quality_errors_tags}}, "en:energy-value-in-$unit-does-not-match-value-computed-from-other-nutrients";
+			if (   ($computed_energy < ($specified_energy * 0.9 - 5))
+				or ($computed_energy > ($specified_energy * 1.1 + 5)))
+			{
+				push @{$product_ref->{data_quality_errors_tags}},
+					"en:energy-value-in-$unit-does-not-match-value-computed-from-other-nutrients";
 			}
 
 			$product_ref->{nutriments}{"energy-${unit}_value_computed"} = $computed_energy;
@@ -591,7 +594,6 @@ and (defined $product_ref->{nutriments}{"proteins_value"})
 
 	return;
 }
-
 
 =head2 check_nutrition_data( PRODUCT_REF )
 
@@ -674,7 +676,7 @@ sub check_nutrition_data ($product_ref) {
 					< 3.7 * $product_ref->{nutriments}{"energy-kcal_value"} - 1
 				)
 				or ($product_ref->{nutriments}{"energy-kj_value"}
-					> 4.7 * $product_ref->{nutriments}{"energy-kcal_value"} + 1) 
+					> 4.7 * $product_ref->{nutriments}{"energy-kcal_value"} + 1)
 				)
 			{
 				push @{$product_ref->{data_quality_errors_tags}}, "en:energy-value-in-kcal-does-not-match-value-in-kj";
