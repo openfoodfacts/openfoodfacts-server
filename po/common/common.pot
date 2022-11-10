@@ -6335,6 +6335,10 @@ msgctxt "environment"
 msgid "Environment"
 msgstr "Environment"
 
+msgctxt "api_result_failure"
+msgid "Failure"
+msgstr "Failure"
+
 msgctxt "api_result_product_found"
 msgid "Product found"
 msgstr "Product found"
@@ -6346,6 +6350,14 @@ msgstr "Product not found"
 msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "Product updated"
+
+msgctxt "api_message_invalid_api_action"
+msgid "Invalid API action"
+msgstr "Invalid API action"
+
+msgctxt "api_message_invalid_api_method"
+msgid "Invalid API method"
+msgstr "Invalid API method"
 
 msgctxt "api_message_empty_request_body"
 msgid "Empty request body"
@@ -6379,9 +6391,9 @@ msgctxt "api_impact_warning"
 msgid "Warning"
 msgstr "Warning"
 
-msgctxt "api_impact_request_failed"
-msgid "Request failed"
-msgstr "Request failed"
+msgctxt "api_impact_failure"
+msgid "Failure"
+msgstr "Failure"
 
 msgctxt "api_impact_field_ignored"
 msgid "Field ignored"
