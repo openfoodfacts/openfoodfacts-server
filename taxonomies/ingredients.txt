@@ -13328,6 +13328,7 @@ allergens:en: en:gluten
 <en:wheat starch
 en:modified wheat starch
 bg:модифицирано пшенично нишесте
+ca:midó de blat modificat
 de:modifizierte Weizenstärke
 es:almidón de trigo modificado
 fi:muunnettu vehnätärkkelys, muunneltu vehnätärkkelys
@@ -14339,7 +14340,7 @@ en:palm oil, palmoil, sustainable palm fruit oil, palm vegetable oil
 ar:زيت النخيل
 be:Пальмавы алей
 bg:Палмово масло
-ca:Oli de palma
+ca:Oli de palma, oli vegetal de palma
 cs:Palmový olej
 cz:palmu olejovou
 da:Palmeolie
@@ -14626,11 +14627,11 @@ nl:gedeeltelijk geharde palmolie
 <en:palm kernel oil and fat
 en:palm kernel oil, palm kernel
 bs:Ulje palminog jezgra
-ca:Oli de palmist
+ca:palmist, Oli de palmist, oli vegetal de palmist
 cs:Palmojádrový olej
 da:palmekerne olie, palmekerne
 de:Palmkernöl, Palmkern
-es:palmiste,aceite de nuez de palma, aceite vegetal de palmiste, aceite de palmiste
+es:palmiste, aceite de nuez de palma, aceite vegetal de palmiste, aceite de palmiste
 et:palmituuma
 eu:Palmiste olio
 fa:روغن هسته پالم
@@ -14743,7 +14744,7 @@ en:coconut oil, copra oil, copra
 ar:زيت جوز الهند
 bg:Кокосово масло, кокосово
 bn:নারিকেল তেল
-ca:Oli de coco, oli de copra, copra
+ca:Oli de coco, oli vegetal de coco, oli de copra, copra
 cs:Kokosový olej
 da:kokosolie
 de:Kokosnussöl, Kokosöl
@@ -15110,9 +15111,9 @@ nl:olie van biologische Spaanse olijven
 
 <en:olive oil
 en:olive pomace oil
-ca:oli de pinyolada d oliva
+ca:oli de pinyolada d'oliva
 de:Oliventresteröl
-es:aceite orujo de oliva
+es:aceite orujo de oliva, aceite de orujo de oliva
 it:Olio di sansa di oliva
 wikipedia:en:https://en.wikipedia.org/wiki/Olive_pomace_oil
 
@@ -15121,6 +15122,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Olive_pomace_oil
 <en:vegetable oil and fat
 en:rapeseed oil, rapeseed fat, rapeseed oil and fat
 bg:рапично масло
+ca:oli de nabina, oli vegetal de nabina
 cs:řepkový olej, olej řepkový
 da:rapsolie
 de:Rapsöl, Rapsol
@@ -15566,12 +15568,12 @@ en:soya oil, Soybean oil, soy oil, soyabean oil
 ar:زيت فول الصويا
 be:Соевы алей
 bg:соево олио, соево масло
-ca:oli de soia
+ca:oli de soia, oli de soja, oli vegetal de soja
 cs:sójový olej
 da:Sojaolie
 de:Sojaöl, Sojabohnenöl, Sojafett
 eo:Sojoleo
-es:aceite de soja
+es:aceite de soja, aceite vegetal de soja
 eu:soja-olio
 fa:روغن سویا
 fi:soijaöljy, soijapapuöljy
@@ -15938,12 +15940,12 @@ ar:زيت زهرة الشمس
 az:Günəbaxan yağı
 be:Сланечнікавы алей
 bg:Слънчогледово олио, слънчогледово масло, масло слънчогледово, растително слънчогледово масло
-ca:oli de gira-sol, oli vegetal de gira-sol,oli de girasol, oli vegetal de girasol
+ca:oli de gira-sol, oli vegetal de gira-sol, oli de girasol, oli vegetal de girasol
 cs:Slunečnicový olej
 da:solsikkeolie
 de:Sonnenblumenöl
 el:ηλιέλαιο
-es:aceite de girasol,aceite vegetal de girasol,aceite de semillas de girasol,aceite de maravilla
+es:aceite de girasol, aceite vegetal de girasol, aceite de semillas de girasol, aceite de maravilla
 et:Päevalilleõli
 eu:ekilore-olio
 fa:روغن آفتاب‌گردان
@@ -16059,7 +16061,7 @@ it:girasole alto oleico
 
 <en:sunflower oil
 en:high oleic sunflower oil
-ca:oli refinat de gira-sol alt oleic,oli de gira-sol alt oleic,oli vegetal de gira-sol alt oleic
+ca:oli refinat de gira-sol alt oleic, oli de gira-sol alt oleic, oli vegetal de gira-sol alt oleic
 de:High Oleic-Sonnenblumenöl, High-Oleic-Sonnenblumenöl, Sonnenblumenöl mit hohem Fettsäureanteil, Sonnenblumenöl hoch erhitzbar
 es:aceite de girasol alto oleico,aceite refinado de girasol alto oleico
 fr:huile de tournesol à haute teneur en acide oléique, huile de tournesol à teneur élevée en acide oléique, huile de tournesol oléique,huile de tournesol haut oléique
@@ -48903,7 +48905,7 @@ nutriscore_fruits_vegetables_nuts:en:no
 en:tapioca, tapioca starch, manioc starch
 ar:تابيوكا
 bg:тапиока, нишесте от тапиока
-ca:tapioca
+ca:tapioca, midó de tapioca, midó de mandioca
 cs:tapioka, tapiokový škrob
 da:tapioca, tapiokastivelse, tapiocastivelse
 de:Tapioka, Tapiocastärke, Tapiokastärke, Maniokstärke
