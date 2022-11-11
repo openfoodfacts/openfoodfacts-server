@@ -22,41 +22,13 @@ properties:
     type: object
     properties:
       '100':
-        type: object
-        properties:
-          h:
-            type: integer
-            example: 31
-          w:
-            type: integer
-            example: 100
+        $ref: ./properties/image_size.yaml
       '200':
-        type: object
-        properties:
-          h:
-            type: integer
-            example: 61
-          w:
-            type: integer
-            example: 200
+        $ref: ./properties/image_size.yaml
       '400':
-        type: object
-        properties:
-          h:
-            type: integer
-            example: 122
-          w:
-            type: integer
-            example: 400
+        $ref: ./properties/image_size.yaml
       full:
-        type: object
-        properties:
-          h:
-            type: integer
-            example: 638
-          w:
-            type: integer
-            example: 2084
+        $ref: ./properties/image_size.yaml
   white_magic:
     type: 'null'
     example: null

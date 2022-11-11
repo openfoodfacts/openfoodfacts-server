@@ -4,32 +4,11 @@ properties:
     type: object
     properties:
       '100':
-        type: object
-        properties:
-          h:
-            type: integer
-            example: 100
-          w:
-            type: integer
-            example: 56
+        $ref: ./properties/image_size.yaml
       '400':
-        type: object
-        properties:
-          h:
-            type: integer
-            example: 400
-          w:
-            type: integer
-            example: 255
+        $ref: ./properties/image_size.yaml
       full:
-        type: object
-        properties:
-          h:
-            type: integer
-            example: 2000
-          w:
-            type: integer
-            example: 1125
+        $ref: ./properties/image_size.yaml
   uploaded_t:
     type: string
     example: '1457680652'
