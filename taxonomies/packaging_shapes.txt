@@ -126,6 +126,10 @@ pt:Jarro, jarros, jarra, jarras
 ro:Borcan
 #suggest:packaging_materials:nl: en:glass
 description:nl:Cilindervormig voorwerp van glas of aardewerk
+# image:fr:bocal-verre.svg
+
+fr:emballage de sandwich triangle
+# image:fr:blister-coque-3.svg (emballage de sandwich triangle)
 
 fr:salière
 # image:fr:pot-5.svg 
@@ -199,6 +203,23 @@ pt:Garrafa, garrafas
 wikidata:en:Q80228
 #suggest:packaging_materials:nl: en:glass
 description:nl:Een langgerekt, cilindrisch en meestal van glas vervaardigd vat met een nauwe hals die met een dop of kurk af te sluiten is
+
+# fr:bouteille de vin non gazeux
+# image:fr:bouteille-2.svg
+
+fr:bouteille de jus
+#image:fr:bouteille-6.svg
+
+#fr:bouteille de bière
+#image:fr:bouteille-1.svg
+
+#fr:grande bouteille de soda
+#image:fr:bouteille-7.svg
+
+#fr:bouteille compactable
+#image:fr:bouteille-3.svg
+
+fr:flasque
 
 en:Brick, brick carton, brick shaped carton, bricks, brick cartons, brick shaped cartons
 de:Ziegel, Ziegelkarton, ziegelsteinförmiger Karton, Ziegelkartons, ziegelsteinförmige Kartons
@@ -360,6 +381,9 @@ en:Mold
 fr:Moule
 nl:Mossel
 wikidata:en:Q1432049
+# image:fr:moule-metal.svg
+# image:fr:moule-carton.svg
+# image:fr:moule-autre.svg
 
 en:Lid, cover, lids, covers
 de:Deckel
@@ -376,6 +400,7 @@ hu:Kupak, borosdugó, dugó
 nl:Dop, Doppen
 pt:Cápsula de garrafa, cápsulas de garrafa, tampa de garrafa, tampas de garrafa, rolha, rolhas, rolha de garrafa, rolhas de garrafa, rolha de cortiça, rolhas de cortiça, rolha de plástico, rolhas de plástico, carica, caricas, cápsula de rosca, cápsulas de rosca
 wikidata:en:Q1440281
+# image:fr:bouchon-1.svg
 
 # Note: cork is listed under materials, it cannot be a synonym of wine cork in the shapes taxonomy.
 <en:Bottle cap
@@ -385,6 +410,8 @@ fr:bouchon de bouteille de vin, bouchons de bouteille
 hr:pluteni čep
 nl:Wijnkurk, wijnkurken, Wijn kurk
 wikidata:en:Q86511715
+# image:fr:bouchon-3.svg (champagne cork)
+# image:fr:bouchon-2.svg (wine cork)
 
 <en:Bottle cap
 en:Capsule, capsules
@@ -616,11 +643,14 @@ fr:Batonnet, bâtonnets
 hu:rúd, rudak
 nl:Stok, stokken
 pt:Paus, pauzinhos, varetas de madeira
+# image:fr:batonnet.svg
 
 en:Cosmetic stick
 fr:Stick cosmétique
 # related_categories:en: en:lipstick, en:deodorant
 # different - do not merge
+# image:fr:stick-1.svg
+# image:fr:stick-2.svg
 
 en:label, labels
 bg:етикет, етикети
@@ -692,11 +722,14 @@ nl:Kleerhanger
 en:Wedge, corner piece
 fr:Cale, Coin, Cornière
 #suggest:packaging_materials:en: en:plastic, en:cardboard, en:metal, en:other
+#image:fr:cale-coin-corniere-1.svg (cardboard)
+#image:fr:cale-coin-corniere-2.svg (other)
 
 # close to bottle, but also ampoule is translated to vial by citeo
 en:Vial, flask
 fr:Flacon
 nl:Flacon, Flacons
+#image:fr:bouteille-4.svg (looks like a whiskey flask)
 
 en:Clamping ring
 fr:Collier
@@ -715,6 +748,8 @@ fr:enveloppe
 it:busta
 nl:wikkel, vensterenvelop, sleeve
 #suggest:packaging_materials:en: en:cardboard, en:paper
+# image:fr:enveloppe-papier.svg
+# image:fr:enveloppe-carton.svg
 
 en:String, strings, ribbon, ribbons, adhesive tape, adhesive tapes, gift ribbon, gift ribbons
 fr:ficelle, ficelles, ruban, rubans
@@ -726,6 +761,7 @@ fr:dose invididuelle, doses individuelles, dosette, dosettes
 en:Protection cover
 fr:Housse, housses, housse de protection, housses de protection
 nl:Beschermingshoes, beschermingshoezen
+# image:fr:housse.svg
 
 en:pump bottle, spray, spray bottle, applicator bottle
 fr:Flacon à pompe, flacons à pompe, flacon à pistolet, flacons à pistolet, Spray, sprays
