@@ -166,6 +166,10 @@ wikidata:en:Q959287
 description:nl:Kartonnen of geschuimd kunststoffen doos met holtes om eieren in te verpakken zonder dat deze elkaar raken
 #image:fr:boite-boitier-4.svg
 
+<en:Box
+fr:Boîte à hamburger
+#image:fr:boite-boitier-2.svg
+
 # boxes for pizza's
 <en:Box
 en:Pizza box
@@ -219,6 +223,13 @@ fr:bouteille de jus
 #fr:bouteille compactable
 #image:fr:bouteille-3.svg
 
+#fr:bouteille de Javel
+#image:fr:bouteille-8.svg
+
+fr:bonbonne
+#image:fr:bonbonne-plastique.svg https://world.openfoodfacts.org/product/3068320125367/bouteille-d-eau-evian-6l
+#image:fr:bonbonne-verre.svg
+
 fr:flasque
 
 en:Brick, brick carton, brick shaped carton, bricks, brick cartons, brick shaped cartons
@@ -227,6 +238,15 @@ fr:Brique, briques
 hu:tégla, tégladoboz, tégla doboz, tégla karton, tégla alakú karton
 nl:Drankkarton, Melkpak, Drankenkartons, Drankencarton, Drankenkarton, Drinkpahk, Drinkpakken
 description:en:Verpakking voor vloeibare levensmiddelen gemaakt van gelamineerd papier
+
+fr:brique à ouvrir par découpe
+#image:fr:brique-1.svg
+
+fr:brique biseautée avec bouchon revissable
+#image:fr:brique-2.svg
+
+fr:brique plate avec bouchon revissable
+#image:fr:brique-3.svg
 
 en:small brick, small bricks
 fr:briquette, briquettes
@@ -376,6 +396,9 @@ hu:haskötő
 nl:Banderol, huls
 pt:Manga, mangas
 #suggest:packaging_materials:en: en:metal, en:paper, en:cardboard, en:other
+#image:fr:cavalier-etui-fourreau-3.svg (looks like yogurt cardboard sleeve)
+
+#image:fr:cavalier-etui-fourreau-4.svg (looks like breakfast cereal box)
 
 en:Mold
 fr:Moule
@@ -608,6 +631,7 @@ fr:Opercule, opercules
 hu:zárófedő
 nl:Seal
 pt:Tampo, tampos
+# image:fr:opercule.svg
 # weight:en:light
 
 en:bulk, without packaging
@@ -638,6 +662,9 @@ nl:Bord, Borden, Bordje
 pt:Prato, pratos
 wikidata:en:Q57216
 
+# fr:Pipette, Physiodose
+#image:fr:flacon-et-son-bouchon-6.svg (looks like physiological serum)
+
 en:Stick, sticks
 fr:Batonnet, bâtonnets
 hu:rúd, rudak
@@ -666,15 +693,27 @@ en:Applicator
 fr:Applicateur
 nl:Applicator
 #suggest:packaging_materials:en: en:plastic, en:cardboard
+# image:fr:applicateur-plastique.svg (applicateur dévissable de flacon de sauce)
+# image:fr:applicateur-plastique-2.svg (tampon hygiénique)
 
 en:Bag-in-box
 fr:Bag-in-box, Cubitainer
 nl:Zak-in-doos
 wikidata:en:Q799810
 
+fr:Cubitainer cartonné
+# image:fr:bag-in-box-complet.svg
+
+fr:Cubitainer plastique
+# image:fr:bag-in-box-poche-plastique.svg
+
 en:strip, band
 fr:Bandelette
 #suggest:packaging_materials:en: en:plastic, en:metal, en:cardboard, en:other
+# image:fr:bandelette-papier.svg
+# image:fr:bandelette-metal.svg
+# image:fr:bandelette-plastique.svg
+# image:fr:bandelette-autres.svg
 
 en:Ampoule, ampul, ampule
 bg:Крушка
@@ -695,6 +734,8 @@ wikidata:en:Q1334675
 
 en:Roll, mandrel
 fr:Rouleau, Bobine, Mandrin
+# image:fr:bobine-rouleau-1.svg (rouleau de sopalin)
+# image:fr:bobine-rouleau-2.svg (rouleau de papier toilette)
 
 en:Canister
 fr:Bombonne
@@ -740,6 +781,7 @@ es:envoltorio
 fr:enveloppage
 pt:invólucro
 #suggest:packaging_materials:en: en:metal, en:paper, en:other
+# image:fr:enveloppage.svg
 
 en:envelope
 bg:плик
@@ -819,6 +861,8 @@ wikidata:en:Q47107
 en:Terrine pot, terrine pots
 es:Tarrina, tarrinas
 fr:Terrine, terrines
+# image:fr:terrine.svg
+# image:fr:terrine-avec-couvercle.svg
 
 en:Barrel, barrels, drum, drums, keg, kegs
 fr:Tonneau, tonneaux, tonnelet, tonnelets
@@ -841,7 +885,10 @@ nl:Cartridge, cartridges
 description:nl:Inktpatroon voor een printer
 wikidata:en:Q97584727
 
-#fr:Bac
+# fr:Bac
+# image:fr:bac-plastique-2.svg (bac générique)
+# image:fr:bac-plastique.svg (bac à glace)
+
 #fr:Bidon
 
 en:Straw, straws
