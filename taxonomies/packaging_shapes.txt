@@ -57,11 +57,11 @@ eo:pako
 es:paquete, paquetes
 et:pakett, pakk
 eu:pakete
-fa:پاکت‎
+fa:پاکت
 fi:paketti
 fr:paquet, pack, paquets, packs, packet, packets
 gd:pacaid
-he:חֲבִילָה‎
+he:חֲבִילָה
 hi:पैकेट
 hu:csomag
 hy:կապոց
@@ -127,6 +127,10 @@ ro:Borcan
 #suggest:packaging_materials:nl: en:glass
 description:nl:Cilindervormig voorwerp van glas of aardewerk
 
+fr:salière
+# image:fr:pot-5.svg 
+# (image looks like a salière)
+
 en:Box, boxes
 bg:Кутия, кутии
 de:Kasten, Schachtel, Schachteln
@@ -141,6 +145,9 @@ pt:Caixa, caixas
 #suggest:packaging_materials:nl: en:paper, en:cardboard
 description:nl:Een veelal kartonnen balkvormige verpakking
 
+fr:box de pâtes
+# image:fr:boite-boitier-7.svg
+
 #Boxes for eggs
 <en:Box
 nl:Eierdoos
@@ -153,6 +160,7 @@ de:Eierkarton
 wikidata:en:Q959287
 #suggest:packaging_materials:nl: en:cardboard
 description:nl:Kartonnen of geschuimd kunststoffen doos met holtes om eieren in te verpakken zonder dat deze elkaar raken
+#image:fr:boite-boitier-4.svg
 
 # boxes for pizza's
 <en:Box
@@ -164,6 +172,7 @@ nl:Pizzadoos, pizzadozen
 wikidata:en:Q2097650
 #suggest:packaging_materials:nl: en:cardboard
 description:nl:platte, vierkante, kartonnen doos waarin men een pizza kan stoppen
+#image:fr:boite-boitier-6.svg
 
 en:Case, cases
 fr:Caisse, caisses, caissette, caissettes
@@ -218,6 +227,7 @@ packaging_materials:en: en:metal
 wikidata:en:Q2846150
 description:nl:Een cilindervormig afgesloten blikken vaatje
 
+
 # Can for drink, not canned food
 <en:can
 en:Drink can, beverage can, drink cans, beverage cans
@@ -231,6 +241,7 @@ nl:Blikje, Blikjes
 pt:Lata de bebida, latas de bebidas, lata de alumínio, latas de alumínio, lata de refrigerante, latas de refrigerante, lata de refrigerantes, latas de refrigerantes
 wikidata:en:Q3261783
 description:nl:Een cilindervormig afgesloten blikken vaatje voor dranken
+# image:fr:canette.svg
 
 # Can for food, not canned drinks
 # Note: "canned", "conserve" : already used in the preservation taxonomy
@@ -245,6 +256,7 @@ nl:Conservenblik
 it:Lattina di cibo
 pt:Lata de alimentos, latas de alimentos, lata de alimento, latas de alimento, lata de conserva, lata de conservas, latas de conserva, latas de conservas, lata de comida, latas de comida, lata de comidas, latas de comidas, lata para alimentos, latas para alimentos, lata para alimento, latas para alimento
 description:nl:Een cilindervormig afgesloten blikken vaatje voor groenten, e.d.
+#image:fr:boite-boitier-5.svg (boite de conserve)
 
 en:pot, cup, pots, cups
 bg:кофичка
@@ -269,6 +281,8 @@ fr:Gobelet
 nl:Beker, Bekers, Koffiebeker, Cup
 wikidata:en:Q833823
 description:nl:Een cilindervormig voorwerp waaruit gedronken kan worden
+# image:fr:gobelet-2.svg (looks like plastic)
+# image:fr:gobelet-1.svg (looks like cardboard)
 
 en:Tube, tubes
 de:Tube, Tuben
@@ -331,8 +345,11 @@ fr:Gourde, gourde individuelle, gourdes individuelles, doypack, pouch
 hu:Flakon, Kulacs, flaska
 it:Borraccia
 pt:Frasco, frascos
+# image:fr:gourde-plastique-2.svg
+# comment:fr:gourde-plastique 1 TODO: rename
+# comment:fr:gourde-plastique-3
 
-en:Sleeve, sleeves,  sheath, outer open-end box
+en:Sleeve, sleeves, sheath, outer open-end box
 fr:Étui, étuis, Fourreau, Cavalier
 hu:haskötő
 nl:Banderol, huls
@@ -376,6 +393,8 @@ fr:Capsule, capsules
 hu:Kapszula, kapszulák
 nl:Capsule, Kroonkurk, Kroonkurken
 pt:Cápsula, cápsulas
+# image:fr:capsule-metal.svg (looks like a soda capsule)
+# image:fr:capsule-autre.svg (looks like a plastic capsule for wine)
 
 en:Coffee capsule, coffee capsules
 fr:Capsule de café, Capsules de café, capsules café, capsule café
@@ -511,7 +530,7 @@ pt:Rede, redes, saco de rede, sacos de rede, sacos de redes, saco de redes
 
 en:Film, wrap, films, wraps, film wrap, film wraps, foil
 af:Foelie
-ar:فِلْم‎
+ar:فِلْم
 be:плёнка
 bg:Фолио, слой
 ca:Film
@@ -521,7 +540,7 @@ el:Μεμβράνη
 fr:Film, pellicule, films, pellicules, film de regroupement
 gd:film
 gl:filme
-he:קְרוּם‎
+he:קְרוּם
 hi:फ़िल्म
 hu:Film
 hy:թաղանթ
@@ -535,7 +554,7 @@ pt:Película, películas, filme, filmes, filme extensível, filme estirável
 ru:фильм
 sh:фи̏лм, fȉlm
 th:ฟิล์ม
-ur:فلم‎
+ur:فلم
 sv:Film
 zh:菲林
 weight:en:light
@@ -661,12 +680,14 @@ fr:Muselet, Muselet et plaque
 #goes_with:en:glass bottle
 wikidata:en:Q1061121
 # related_categories:en: en:Champagnes
+# image:fr:muselet-et-plaque.svg
 
 en:hanger
 bg:закачалка
 fr:Cintre
 nl:Kleerhanger
 # related_categories:en: en:Clothes
+#image:fr:cintre.svg
 
 en:Wedge, corner piece
 fr:Cale, Coin, Cornière
@@ -679,6 +700,7 @@ nl:Flacon, Flacons
 
 en:Clamping ring
 fr:Collier
+#image:fr:collier-plastique.svg
 
 en:wrapper, wrapping
 es:envoltorio
@@ -707,18 +729,28 @@ nl:Beschermingshoes, beschermingshoezen
 
 en:pump bottle, spray, spray bottle, applicator bottle
 fr:Flacon à pompe, flacons à pompe, flacon à pistolet, flacons à pistolet, Spray, sprays
+es:espray
+de:Sprühflasche
+wikidata:en:Q3737688
 #suggest:packaging_materials:en: en:plastic, en:metal, en:glass
+#image:fr:flacon-pompe-pistolet-spray-1
+#image:fr:flacon-pompe-pistolet-spray-2
 
 en:squeeze bottle
 fr:flacon souple, flacon pressable, flacon à presser, squeezer
 nl:Knijpfles, knijpflessen
 
-en:Aerosol can, aerosol cans
+en:Aerosol can, aerosol cans, aerosol spray
 fr:Aérosol, aérosols
+de:Sprühdose
+wikidata:en:Q659495
 packaging_materials:en: en:plastic, en:metal
+#image:fr:aerosol.svg
 
 en:Ball flask, Roll-on bottle
 fr:Flacon à bille, Roll
+wikidata:en:Q115170160
+#image:fr:flacon-bille-roll.svg
 #suggest:packaging_materials:en: en:plastic, en:glass
 
 en:Basket, baskets
@@ -730,16 +762,22 @@ en:Syringe, syringes
 bg:Спринцовка, спринцовки
 fr:Seringue, seringues
 nl:Spuit, spuiten
+wikidata:en:Q273318
+# image:fr:seringue.svg
 
 en:Wings, Hygiene wings
 fr:Ailettes
 #suggest:packaging_materials:en: en:plastic, en:paper
+# image:fr:ailettes.svg
 
 en:Bucket, buckets
 bg:Кофа, кофи
 fr:Seau, seaux
 nl:Emmer, emmers
+wikidata:en:Q47107
 #suggest:packaging_materials:en: en:plastic, en:metal
+# image:fr:seau-plastique.svg
+# image:fr:seau-metal.svg
 
 # CITEO only translates it by pot
 en:Terrine pot, terrine pots
@@ -748,12 +786,14 @@ fr:Terrine, terrines
 
 en:Barrel, barrels, drum, drums, keg, kegs
 fr:Tonneau, tonneaux, tonnelet, tonnelets
+wikidata:en:Q10289
 #suggest:packaging_materials:en: en:cardboard, en:plastic, en:metal, en:other
 
 en:Bubble wrap
 fr:Film à bulles
 nl:Bubbeltjesfilm
 packaging_materials:en: en:plastic
+wikidata:en:Q19806
 
 xx:cellophane
 nl:cellofaan
@@ -763,6 +803,7 @@ en:Cartridge, cartridges
 fr:Cartouche, cartouches
 nl:Cartridge, cartridges
 description:nl:Inktpatroon voor een printer
+wikidata:en:Q97584727
 
 #fr:Bac
 #fr:Bidon
