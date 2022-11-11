@@ -163,11 +163,13 @@ ja:卵パック
 de:Eierkarton
 wikidata:en:Q959287
 #suggest:packaging_materials:nl: en:cardboard
+#suggest:category: en:eggs
 description:nl:Kartonnen of geschuimd kunststoffen doos met holtes om eieren in te verpakken zonder dat deze elkaar raken
 #image:fr:boite-boitier-4.svg
 
 <en:Box
 fr:Boîte à hamburger
+#suggest:category: en:burgers
 #image:fr:boite-boitier-2.svg
 
 # boxes for pizza's
@@ -181,6 +183,7 @@ wikidata:en:Q2097650
 #suggest:packaging_materials:nl: en:cardboard
 description:nl:platte, vierkante, kartonnen doos waarin men een pizza kan stoppen
 #image:fr:boite-boitier-6.svg
+#suggest:category: en:pizzas
 
 en:Case, cases
 fr:Caisse, caisses, caissette, caissettes
@@ -210,21 +213,27 @@ description:nl:Een langgerekt, cilindrisch en meestal van glas vervaardigd vat m
 
 # fr:bouteille de vin non gazeux
 # image:fr:bouteille-2.svg
+#suggest:category: en:non-sparkling wines
 
 fr:bouteille de jus
 #image:fr:bouteille-6.svg
+#suggest:category: en:juices
 
 #fr:bouteille de bière
 #image:fr:bouteille-1.svg
+#suggest:category: en:beers
 
 #fr:grande bouteille de soda
 #image:fr:bouteille-7.svg
+#suggest:category: en:sodas
 
 #fr:bouteille compactable
 #image:fr:bouteille-3.svg
+#suggest:category: en:waters
 
 #fr:bouteille de Javel
 #image:fr:bouteille-8.svg
+#suggest:category: en:detergeants
 
 fr:bonbonne
 #image:fr:bonbonne-plastique.svg https://world.openfoodfacts.org/product/3068320125367/bouteille-d-eau-evian-6l
@@ -241,6 +250,7 @@ description:en:Verpakking voor vloeibare levensmiddelen gemaakt van gelamineerd 
 
 fr:brique à ouvrir par découpe
 #image:fr:brique-1.svg
+#suggest:category: en:milks
 
 fr:brique biseautée avec bouchon revissable
 #image:fr:brique-2.svg
@@ -364,6 +374,7 @@ description:nl:Slappe, vormeloze verpakking
 en:Carrying bag, carrying bags
 fr:Sac de transport, sacs de transport
 nl:Draagtas, draagzak, draagzakken, draagtassen
+# image:fr:sac-sachet-poche-6.svg
 
 en:Crate, crates
 fr:Cagette, cagettes, cageot, cageots
@@ -371,6 +382,9 @@ hu:Láda, lécláda, ketrec
 nl:Krat, kratten
 pt:Caixote, caixotes
 description:nl:Houten of plastic doos met openingen in de zijkanten in een standaardformaat, vaak gebruikt voor opslag en het vervoer van flessen, fruit of andere waren
+# image:fr:cageot-cagette-autres-1.svg (bois)
+# image:fr:cageot-cagette-autres-2.svg (plastique/generique)
+# image:fr:cageot-cagette-carton.svg (carton)
 
 <en:Bag
 en:Individual bag, individual bags
@@ -652,6 +666,8 @@ hu:Tál, tálak
 nl:Schaal, Schaaltje, Schaaltjes, Vlootje, Vlootjes, Bak, Bakje, Bakjes, kom, kommen
 pt:Tigela, taça, tigelas, taças
 wikidata:en:Q153988
+# image:fr:bol-coupe-coupelle-1.svg (bol)
+# image:fr:bol-coupe-coupelle-2.svg (coupelle, which is currently amalgamated with pot)
 
 en:Plate, plates
 bg:Чиния, чинии
@@ -688,6 +704,7 @@ nl:Label, labels
 pt:Etiqueta, etiquetas, rótulo, rótulos
 weight:en:light
 #suggest:packaging_materials:en: en:paper, en:cardboard, en:other
+# image:fr:etiquette.svg (label with a string)
 
 en:Applicator
 fr:Applicateur
@@ -728,9 +745,13 @@ bg:Блистер
 fr:Blister
 nl:Blister
 wikidata:en:Q1334675
+# image:fr:blister-coque-1.svg
+# image:fr:blister-coque-2.svg
+# image:fr:blister-coque-3.svg (sandwich)
 
-#en:shell with cardboard backing
-#fr:coque avec chevalet carton
+# en:shell with cardboard backing
+# fr:coque avec chevalet carton
+# image:fr:blister-coque-avec-chevalet-1
 
 en:Roll, mandrel
 fr:Rouleau, Bobine, Mandrin
@@ -758,7 +779,7 @@ bg:закачалка
 fr:Cintre
 nl:Kleerhanger
 # related_categories:en: en:Clothes
-#image:fr:cintre.svg
+# image:fr:cintre.svg
 
 en:Wedge, corner piece
 fr:Cale, Coin, Cornière
@@ -882,8 +903,9 @@ description:nl:Transparant materiaal gemaakt van cellulose, in dunne vellen gewo
 en:Cartridge, cartridges
 fr:Cartouche, cartouches
 nl:Cartridge, cartridges
-description:nl:Inktpatroon voor een printer
+# description:nl:Inktpatroon voor een printer >> actually no, food gas cartdrige
 wikidata:en:Q97584727
+# image:fr:cartouche.svg (looks like a gas/liquid cartdrige)
 
 # fr:Bac
 # image:fr:bac-plastique-2.svg (bac générique)
