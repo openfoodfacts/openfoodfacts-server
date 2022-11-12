@@ -235,9 +235,11 @@ fr:bouteille de jus
 #image:fr:bouteille-8.svg
 #suggest:category: en:detergeants
 
-fr:bonbonne
-#image:fr:bonbonne-plastique.svg https://world.openfoodfacts.org/product/3068320125367/bouteille-d-eau-evian-6l
-#image:fr:bonbonne-verre.svg
+#fr:bouteille de liquide vaisselle
+#image:fr:bouteille-9.svg
+#suggest:category: en:detergeants
+
+
 
 fr:flasque
 
@@ -342,6 +344,15 @@ hu:Tubus, tubusok, Cső, csövek, cső alakú
 nl:Tube, Tubes
 pt:Bisnaga, bisnagas, tubo de bisnaga, tubos de bisnagas
 describtion:nl:Een verpakking in kokervorm gemaakt van metaal of plastic gevuld met een halfvloeibare stof
+# image:fr:tube-1.svg 
+
+# <en:Tube
+# fr:Tube avec bouchon dévissable
+# image:fr:tube-1.svg 
+
+# <en:Tube
+# fr:Tube avec bouchon refermable
+# image:fr:tube-2.svg 
 
 en:Fastener, clip
 bg:Клипса
@@ -369,6 +380,21 @@ it:Sacco, sacchetto, sacchettino
 nl:Zak, Sachet, Tas, verzendzak, Zakken, Zakje, Zakjes
 pt:Saco, sacos, saquinho, saquinhos, saqueta, saquetas
 description:nl:Slappe, vormeloze verpakking
+
+sac-sachet-poche-1.svg (sachet avec poignée)
+sac-sachet-poche-2.svg (sachet)
+sac-sachet-poche-3.svg (berlingot triangulaire)
+sac-sachet-poche-5.svg (berlingot à javel)
+sac-sachet-poche-6.svg (sac plastique fin avec poignées)
+sac-sachet-poche-7.svg (sac carton avec poignées)
+sac-sachet-poche-9.svg (sachet long avec soudure thermique)
+sac-sachet-poche-3.svg (sachet fin)
+
+# fr:Sachet à frites cartonné
+# image:fr:sac-sachet-poche-10.svg
+
+# fr:Sachet à frites papier
+# image:fr:sac-sachet-poche-11.svg
 
 <en:Bag
 en:Carrying bag, carrying bags
@@ -400,9 +426,9 @@ fr:Gourde, gourde individuelle, gourdes individuelles, doypack, pouch
 hu:Flakon, Kulacs, flaska
 it:Borraccia
 pt:Frasco, frascos
-# image:fr:gourde-plastique-2.svg
-# comment:fr:gourde-plastique 1 TODO: rename
-# comment:fr:gourde-plastique-3
+# image:fr:gourde-plastique-2.svg # Doypack avec fermoir
+# comment:fr:gourde-plastique 1.svg TODO: rename - Doypack avec bouchon lateral
+# comment:fr:gourde-plastique-3.svg
 
 en:Sleeve, sleeves, sheath, outer open-end box
 fr:Étui, étuis, Fourreau, Cavalier
@@ -420,6 +446,8 @@ nl:Mossel
 wikidata:en:Q1432049
 # image:fr:moule-metal.svg
 # image:fr:moule-carton.svg
+
+# fr:moule à muffin ou à sauce, moule dépliable
 # image:fr:moule-autre.svg
 
 en:Lid, cover, lids, covers
@@ -591,6 +619,9 @@ nl:Net, netje, netten, netjes
 pt:Rede, redes, saco de rede, sacos de rede, sacos de redes, saco de redes
 #suggest:packaging_materials:en: en:metal, en:other
 # related_categories:en: en:Fresh garlic
+# image:fr:filet-autre-1.svg
+# image:fr:filet-autre-2.svg (probably the best one)
+# image:fr:filet-metal.svg (flat)
 
 en:Film, wrap, films, wraps, film wrap, film wraps, foil
 af:Foelie
@@ -624,7 +655,8 @@ zh:菲林
 weight:en:light
 description:en:A thin layer of plastic or metal
 description:nl:Dun en buigzaam vel van een metaal of kunststof
-#comment:en:Some languages might distinghuish between plastic film and metal foil. Film in english can also mean a thin sheet of oil on water for instance.
+#comment:en:Some languages might distinghuish between plastic film and metal foil. Film in English can also mean a thin sheet of oil on water for instance.
+# image:fr:film-film-a-bulle.svg (looks like film holding water bottles together)
 
 en:Overpack, overpacks
 fr:Suremballage, sur-emballage, suremballages, sur-emballages
@@ -692,8 +724,8 @@ en:Cosmetic stick
 fr:Stick cosmétique
 # related_categories:en: en:lipstick, en:deodorant
 # different - do not merge
-# image:fr:stick-1.svg
-# image:fr:stick-2.svg
+# image:fr:stick-1.svg (stick deodorant)
+# image:fr:stick-2.svg (stick pour les lèvres)
 
 en:label, labels
 bg:етикет, етикети
@@ -717,11 +749,12 @@ en:Bag-in-box
 fr:Bag-in-box, Cubitainer
 nl:Zak-in-doos
 wikidata:en:Q799810
+# made of: Boîte carton à recycler, poche plastique à jeter
 
-fr:Cubitainer cartonné
+# fr:Boîte carton de cubitainer
 # image:fr:bag-in-box-complet.svg
 
-fr:Cubitainer plastique
+# fr:poche plastique de Cubitainer
 # image:fr:bag-in-box-poche-plastique.svg
 
 en:strip, band
@@ -739,6 +772,8 @@ hr:ampula
 nl:Ampulle
 wikidata:en:Q477379
 #suggest:packaging_materials:en: en:glass
+# image:fr:ampoule.svg
+# comment:fr:this is a vial containing liquid
 
 en:Blister, Blister pack
 bg:Блистер
@@ -755,17 +790,26 @@ wikidata:en:Q1334675
 
 en:Roll, mandrel
 fr:Rouleau, Bobine, Mandrin
-# image:fr:bobine-rouleau-1.svg (rouleau de sopalin)
-# image:fr:bobine-rouleau-2.svg (rouleau de papier toilette)
+
+# <en:Roll
+# fr:rouleau de sopalin
+# image:fr:bobine-rouleau-1.svg 
+
+# <en:Roll
+# fr:rouleau de papier toilette
+# image:fr:bobine-rouleau-2.svg 
 
 en:Canister
 fr:Bombonne
 nl:Spuitbus, spuitbussen
 # related_categories:en: en:Waters
+#image:fr:bonbonne-plastique.svg https://world.openfoodfacts.org/product/3068320125367/bouteille-d-eau-evian-6l
+#image:fr:bonbonne-verre.svg
 
 en:neck seal
 fr:Collerette
 wikidata:en:Q61686575
+# image:fr:coiffe-collerette.svg
 
 en:Wire cage and cap
 fr:Muselet, Muselet et plaque
@@ -793,6 +837,12 @@ fr:Flacon
 nl:Flacon, Flacons
 #image:fr:bouteille-4.svg (looks like a whiskey flask)
 
+# fr:Flacon et son bouchon vissable
+#image:fr:flacon-et-son-bouchon-5.svg
+
+# fr:Bouteille de sirop
+#image:fr:flacon-et-son-bouchon-3.svg
+
 en:Clamping ring
 fr:Collier
 #image:fr:collier-plastique.svg
@@ -816,15 +866,20 @@ nl:wikkel, vensterenvelop, sleeve
 
 en:String, strings, ribbon, ribbons, adhesive tape, adhesive tapes, gift ribbon, gift ribbons
 fr:ficelle, ficelles, ruban, rubans
+# image:fr:ficelle-ruban-bande-3.svg (ficelle)
+# image:fr:ficelle-ruban-bande-1.svg (ruban)
+# image:fr:ficelle-ruban-bande-2.svg (ruban)
 
 en:individual dose, Individual capsule
 fr:dose invididuelle, doses individuelles, dosette, dosettes
 #suggest:packaging_materials:en: en:paper, en:cardboard, en:other
+# dose-individuelle-papier.svg (looks like a sugar individual dose)
+# dose-individuelle-autre.svg (looks like a small doypack)
 
 en:Protection cover
 fr:Housse, housses, housse de protection, housses de protection
 nl:Beschermingshoes, beschermingshoezen
-# image:fr:housse.svg
+# image:fr:housse.svg (looks like a suit protection cover)
 
 en:pump bottle, spray, spray bottle, applicator bottle
 fr:Flacon à pompe, flacons à pompe, flacon à pistolet, flacons à pistolet, Spray, sprays
@@ -832,8 +887,9 @@ es:espray
 de:Sprühflasche
 wikidata:en:Q3737688
 #suggest:packaging_materials:en: en:plastic, en:metal, en:glass
-#image:fr:flacon-pompe-pistolet-spray-1
-#image:fr:flacon-pompe-pistolet-spray-2
+#image:fr:flacon-pompe-pistolet-spray-1.svg
+#image:fr:flacon-pompe-pistolet-spray-2.svg
+#image:fr:flacon-et-son-bouchon-1.svg (pompe pressable)
 
 en:squeeze bottle
 fr:flacon souple, flacon pressable, flacon à presser, squeezer
@@ -889,6 +945,8 @@ en:Barrel, barrels, drum, drums, keg, kegs
 fr:Tonneau, tonneaux, tonnelet, tonnelets
 wikidata:en:Q10289
 #suggest:packaging_materials:en: en:cardboard, en:plastic, en:metal, en:other
+# image:fr:tonneau-tonnelet-plastique.svg
+# image:fr:tonneau-tonnelet-carton.svg
 
 en:Bubble wrap
 fr:Film à bulles
