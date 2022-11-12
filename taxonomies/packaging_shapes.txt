@@ -733,6 +733,7 @@ hu:tányér, tányérok
 nl:Bord, Borden, Bordje
 pt:Prato, pratos
 wikidata:en:Q57216
+# suggest:packaging_materials:en: en:plastic, en:cardboard
 
 # fr:Pipette, Physiodose
 # image:fr:flacon-et-son-bouchon-6.svg (looks like physiological serum)
@@ -811,6 +812,7 @@ wikidata:en:Q1334675
 # image:fr:blister-coque-1.svg
 # image:fr:blister-coque-2.svg
 # image:fr:blister-coque-3.svg (sandwich)
+# suggest:packaging_materials:en: en:plastic
 
 # en:shell with cardboard backing
 # fr:coque avec chevalet carton
@@ -822,10 +824,12 @@ fr:Rouleau, Bobine, Mandrin
 # <en:Roll
 # fr:rouleau de sopalin
 # image:fr:bobine-rouleau-1.svg 
+# suggest:packaging_materials:en: en:cardboard, en:paper
 
 # <en:Roll
 # fr:rouleau de papier toilette
 # image:fr:bobine-rouleau-2.svg 
+# suggest:packaging_materials:en: en:cardboard, en:paper
 
 en:Canister
 fr:Bombonne
@@ -833,11 +837,13 @@ nl:Spuitbus, spuitbussen
 # related_categories:en: en:Waters
 # image:fr:bonbonne-plastique.svg https://world.openfoodfacts.org/product/3068320125367/bouteille-d-eau-evian-6l
 # image:fr:bonbonne-verre.svg
+# suggest:packaging_materials:en: en:plastic, en:metal, en:glass
 
 en:neck seal
 fr:Collerette
 wikidata:en:Q61686575
 # image:fr:coiffe-collerette.svg
+# suggest:packaging_materials:en: en:metal, en:plastic
 
 en:Wire cage and cap
 fr:Muselet, Muselet et plaque
@@ -845,6 +851,7 @@ fr:Muselet, Muselet et plaque
 wikidata:en:Q1061121
 # related_categories:en: en:Champagnes
 # image:fr:muselet-et-plaque.svg
+# suggest:packaging_materials:en: en:metal
 
 en:hanger
 bg:закачалка
@@ -852,6 +859,7 @@ fr:Cintre
 nl:Kleerhanger
 # related_categories:en: en:Clothes
 # image:fr:cintre.svg
+# suggest:packaging_materials:en: en:metal, en:cardboard, en:others
 
 en:Wedge, corner piece
 fr:Cale, Coin, Cornière
@@ -867,6 +875,7 @@ nl:Flacon, Flacons
 
 # fr:Flacon et son bouchon vissable
 # image:fr:flacon-et-son-bouchon-5.svg
+# related_shapes: en:cap, en:vial
 
 # fr:Bouteille de sirop
 # image:fr:flacon-et-son-bouchon-3.svg
@@ -875,6 +884,7 @@ nl:Flacon, Flacons
 en:Clamping ring
 fr:Collier
 # image:fr:collier-plastique.svg
+# suggest:packaging_materials:en: en:plastic
 
 en:wrapper, wrapping
 es:envoltorio
@@ -898,6 +908,7 @@ fr:ficelle, ficelles, ruban, rubans
 # image:fr:ficelle-ruban-bande-3.svg (ficelle)
 # image:fr:ficelle-ruban-bande-1.svg (ruban)
 # image:fr:ficelle-ruban-bande-2.svg (ruban)
+# suggest:packaging_materials:en: en:cardboard, en:paper, en:metal, en:others
 
 en:individual dose, Individual capsule
 fr:dose invididuelle, doses individuelles, dosette, dosettes
@@ -929,7 +940,7 @@ en:Aerosol can, aerosol cans, aerosol spray
 fr:Aérosol, aérosols
 de:Sprühdose
 wikidata:en:Q659495
-packaging_materials:en: en:plastic, en:metal
+# suggest:packaging_materials:en: en:plastic, en:metal
 # image:fr:aerosol.svg
 
 en:Ball flask, Roll-on bottle
@@ -984,7 +995,7 @@ wikidata:en:Q10289
 en:Bubble wrap
 fr:Film à bulles
 nl:Bubbeltjesfilm
-packaging_materials:en: en:plastic
+# suggest:packaging_materials:en: en:plastic
 wikidata:en:Q19806
 
 xx:cellophane
@@ -1001,7 +1012,7 @@ wikidata:en:Q97584727
 # fr:Bac
 # image:fr:bac-plastique-2.svg (bac générique)
 # image:fr:bac-plastique.svg (bac à glace)
-packaging_materials:en: en:cardboard, en:metal, en:others
+# suggest:packaging_materials:en: en:cardboard, en:metal, en:others
 
 #fr:Bidon
 
