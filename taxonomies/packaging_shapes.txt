@@ -142,7 +142,8 @@ pt:Caixa, caixas
 # suggest:packaging_materials:nl: en:paper, en:cardboard
 description:nl:Een veelal kartonnen balkvormige verpakking
 
-fr:box de pâtes
+# <en:box
+# fr:box de pâtes
 # image:fr:boite-boitier-7.svg
 # suggest:category: en:instant pasta
 
@@ -161,8 +162,8 @@ wikidata:en:Q959287
 description:nl:Kartonnen of geschuimd kunststoffen doos met holtes om eieren in te verpakken zonder dat deze elkaar raken
 # image:fr:boite-boitier-4.svg
 
-<en:Box
-fr:Boîte à hamburger
+# <en:Box
+# fr:Boîte à hamburger
 # suggest:category: en:burgers
 # image:fr:boite-boitier-2.svg
 
@@ -209,27 +210,31 @@ description:nl:Een langgerekt, cilindrisch en meestal van glas vervaardigd vat m
 # image:fr:bouteille-2.svg
 # suggest:category: en:non-sparkling wines
 
-fr:bouteille de jus
+# fr:bouteille de jus
 # image:fr:bouteille-6.svg
 # suggest:category: en:juices
 
-#fr:bouteille de bière
+# fr:bouteille de bière
 # image:fr:bouteille-1.svg
 # suggest:category: en:beers
 
-#fr:grande bouteille de soda
+# <en:bottle
+# fr:grande bouteille de soda
 # image:fr:bouteille-7.svg
 # suggest:category: en:sodas
 
-#fr:bouteille compactable
+# <en:bottle
+# fr:bouteille compactable
 # image:fr:bouteille-3.svg
 # suggest:category: en:waters
 
-#fr:bouteille de Javel
+# <en:bottle
+# fr:bouteille de detergeant
 # image:fr:bouteille-8.svg
 # suggest:category: en:detergeants
 
-#fr:bouteille de liquide vaisselle
+# <en:bottle
+# fr:bouteille pour liquide vaisselle
 # image:fr:bouteille-9.svg
 # suggest:category: en:detergeants
 
@@ -244,14 +249,17 @@ hu:tégla, tégladoboz, tégla doboz, tégla karton, tégla alakú karton
 nl:Drankkarton, Melkpak, Drankenkartons, Drankencarton, Drankenkarton, Drinkpahk, Drinkpakken
 description:en:Verpakking voor vloeibare levensmiddelen gemaakt van gelamineerd papier
 
-fr:brique à ouvrir par découpe
+# <en:Brick
+# fr:brique à ouvrir par découpe
 # image:fr:brique-1.svg
 # suggest:category: en:milks
 
-fr:brique biseautée avec bouchon revissable
+# <en:Brick
+# fr:brique biseautée avec bouchon revissable
 # image:fr:brique-2.svg
 
-fr:brique plate avec bouchon revissable
+# <en:Brick
+# fr:brique plate avec bouchon revissable
 # image:fr:brique-3.svg
 
 en:small brick, small bricks
@@ -346,7 +354,7 @@ pt:Bisnaga, bisnagas, tubo de bisnaga, tubos de bisnagas
 describtion:nl:Een verpakking in kokervorm gemaakt van metaal of plastic gevuld met een halfvloeibare stof
 # image:fr:tube-1.svg 
 # suggest:packaging_materials: en:cardboard, en:metal, en:glass, en:plastic, en:others
-#associated_packagings: en:cap
+# associated_packagings: en:cap
 
 # <en:Tube
 # fr:Tube avec bouchon dévissable
@@ -672,7 +680,7 @@ zh:菲林
 weight:en:light
 description:en:A thin layer of plastic or metal
 description:nl:Dun en buigzaam vel van een metaal of kunststof
-#comment:en:Some languages might distinghuish between plastic film and metal foil. Film in English can also mean a thin sheet of oil on water for instance.
+# comment:en:Some languages might distinguish between plastic film and metal foil. Film in English can also mean a thin sheet of oil on water for instance.
 # suggest:packaging_materials:en: en:metal, en:plastic
 # image:fr:film-film-a-bulle.svg (looks like film holding water bottles together)
 
@@ -773,7 +781,7 @@ en:Bag-in-box
 fr:Bag-in-box, Cubitainer
 nl:Zak-in-doos
 wikidata:en:Q799810
-# made of: Boîte carton à recycler, poche plastique à jeter
+# made of: fr:Boîte carton à recycler, fr:poche plastique à jeter
 
 # fr:Boîte carton de cubitainer
 # image:fr:bag-in-box-complet.svg
