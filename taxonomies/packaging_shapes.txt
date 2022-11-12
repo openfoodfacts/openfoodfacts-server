@@ -128,15 +128,6 @@ ro:Borcan
 description:nl:Cilindervormig voorwerp van glas of aardewerk
 # image:fr:bocal-verre.svg (looks like the Nutella jar)
 
-fr:emballage de sandwich triangle
-# image:fr:blister-coque-3.svg (emballage de sandwich triangle)
-# suggest:category: en:sandwich made with loaf bread
-
-fr:salière
-# image:fr:pot-5.svg 
-# (image looks like a salière)
-# suggest:category: en:salts, en:peppers
-
 en:Box, boxes
 bg:Кутия, кутии
 de:Kasten, Schachtel, Schachteln
@@ -331,6 +322,12 @@ fr:pot individuel, pots individuels
 hu:külön edény, külön fazék
 nl:Individuele pot, individuele potten
 pt:Pote individual, potes individuais, boião individual, boiões individuais
+
+# <en:pot
+# fr:salière
+# image:fr:pot-5.svg 
+# (image looks like a salière)
+# suggest:category: en:salts, en:peppers
 
 en:Tumbler
 fr:Gobelet
@@ -813,6 +810,10 @@ wikidata:en:Q1334675
 # image:fr:blister-coque-2.svg
 # image:fr:blister-coque-3.svg (sandwich)
 # suggest:packaging_materials:en: en:plastic
+
+# fr:emballage de sandwich triangle
+# image:fr:blister-coque-3.svg (emballage de sandwich triangle)
+# suggest:category: en:sandwich made with loaf bread
 
 # en:shell with cardboard backing
 # fr:coque avec chevalet carton
