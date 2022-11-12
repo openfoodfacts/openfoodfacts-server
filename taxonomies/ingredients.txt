@@ -19,7 +19,7 @@ stopwords:en:contains, contain, from, with, produced with, with added, minimum,i
 stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
 stopwords:fi:sisältää,muun muassa,valio, koskenlaskija, snellmanin, jossa, noin, käymisen aikana muodostuva
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout, sachet
-stopwords:hr:i, iz, od, sadrže, sastojci, sastav, u promjenjivim omjerima, u promjenjivim udjelima, u različitim omjerima
+stopwords:hr:i, iz, min, od, sadrže, sastojci, sastav, u promjenjivim omjerima, u promjenjivim udjelima, u različitim omjerima
 stopwords:hu:tartalmaz, változó arányban, min, zsírtartalom, összetevő, összetétel, amelyből, amiből
 stopwords:id:mengandung
 stopwords:is:úr
@@ -26675,7 +26675,7 @@ gl:Azucre
 gn:Eiratã
 he:סוכר
 hi:शर्करा
-hr:šećeri, šećer, šecer
+hr:šećeri, šećer, šecer, šečer
 ht:Sik
 hu:cukor
 id:gula
@@ -33546,6 +33546,7 @@ de:Fruchtsaft auf Konzentrat Basis, Fruchtsaft aus Fruchtsaftkonzentrat, Fruchts
 es:zumo de frutas a partir de concentrado, jugo de frutas procedente de concentrado
 fi:hedelmämehu tiivisteestä, hedelmämehut tiivisteestä, tiivisteestä valmistetut täysmehut
 fr:jus de fruits à base de concentré, jus de fruits à base de jus concentrés
+hr:vočnį sok iz koncentrata
 it:succhi di frutta a base di concentrato, succhi di frutta a base di concentrati
 nl:vruchtsap van concentraat, vruchtensap uit concentraat
 pl:sok owocowy z koncentratu, soki owocowe z koncentratu
@@ -36927,6 +36928,7 @@ fi:mandariini
 fr:mandarine
 ga:mandairín
 gl:mandarina
+hr:mandarina
 ht:mandarin
 hu:mandarin
 io:mandarino
@@ -37386,6 +37388,7 @@ de:Orangenfruchtfleisch
 es:pulpa de naranja
 fi:appelsiinihedelmäliha, appelsiinin hedelmäliha
 fr:pulpe d'orange
+hr:pulpa naranče
 hu:narancs gyümölcshős, narancs püré
 it:polpe d'arancia
 nl:sinaasappelpulp
@@ -37422,6 +37425,7 @@ sv:apelsinskal
 de:Orangeschalenextrakt
 fi:appelsiininkuoriuute
 fr:extrait de zeste d'orange
+hr:ekstrakt kore naranče
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-zeste-d'orange
 # 54 products in 2 languages @2018-09-28
 
