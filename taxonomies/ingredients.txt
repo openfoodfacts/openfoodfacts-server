@@ -19,7 +19,7 @@ stopwords:en:contains, contain, from, with, produced with, with added, minimum,i
 stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
 stopwords:fi:sisältää,muun muassa,valio, koskenlaskija, snellmanin, jossa, noin, käymisen aikana muodostuva
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout, sachet
-stopwords:hr:i, iz, sadrže, sastojci, sastav, u promjenjivim omjerima, u promjenjivim udjelima, u različitim omjerima
+stopwords:hr:i, iz, od, sadrže, sastojci, sastav, u promjenjivim omjerima, u promjenjivim udjelima, u različitim omjerima
 stopwords:hu:tartalmaz, változó arányban, min, zsírtartalom, összetevő, összetétel, amelyből, amiből
 stopwords:id:mengandung
 stopwords:is:úr
@@ -2671,7 +2671,7 @@ de:teilentrahmte milch
 es:leche parcialmente desnatada, leche semidesnatada, Leche semidescremada, leche parcialmente descremada
 fi:kevytmaito
 fr:lait demi-écrémé, lait partiellement écrémé, Lait à 15.5 g/l de matière grasse
-hr:djelomično obrano mlijeko, djelomično obrano mlijeko s 1,5% mliječne masti bez laktoze (<0,1 g/100 g)
+hr:djelomično obrano mlijeko, djelomično obrano mlijeko s 1,5% mliječne masti bez laktoze (<0,1 g/100 g), djelomično obrano mlijeko s 1.5% mliječne masti
 hu:zsírszegény tej, félzsíros tej
 is:léttmjólk
 it:latte parzialmente scremato
@@ -2794,7 +2794,7 @@ de:Vollmilch
 es:leche entera
 fi:täysmaito
 fr:lait entier
-hr:mlijeko trajno, mlijeko trajno s 2.8% mliječne masti, mlijeko s 2.8% mliječne masti
+hr:mlijeko trajno, mlijeko trajno s 2.8% mliječne masti, mlijeko s 2.8% mliječne masti, mlijeko 3,2 % m.m.
 hu:teljes tej
 is:nýmjólk
 it:latte intero
@@ -3790,6 +3790,7 @@ ca:llet desnatada reconstituida, llet desnatada rehidratada, llet descremada reh
 de:rekonstituierte Magermilch
 es:leche desnatada reconstituida, leche desnatada rehidratada, leche descremada rehidratada, leche descremada reconstituida
 fr:lait écrémé réhydraté
+hr:rekonstituirano obrano mlijeko
 hu:visszaállított sovány tej, feloldott sovány tej
 it:latte scremato reidratato
 nl:gerehydrateerde magere melk
@@ -5104,7 +5105,7 @@ gd:blàthach
 gu:છાશ
 he:חובצה
 hi:छाछ
-hr:fermentirano mlijeko
+hr:mlačenica, fermentirano mlijeko
 hu:író
 id:susu mentega
 io:butro-lakto
@@ -9629,7 +9630,7 @@ es:Sal yodada
 fa:نمک یددار
 fi:jodioitu suola, jodia sisältävä suola, jodisuola
 fr:Sel iodé, sel de cuisine iodé
-hr:jodirona kuhinjska sol
+hr:jodirana sol, jodirona kuhinjska sol
 hu:jódozott só
 id:Garam beryodium
 it:Sale iodato
@@ -15129,7 +15130,7 @@ et:rapsiõli, rapsiseemneõli, rüpsiõli
 fi:rapsiöljy, rapsirasva, rapsiöljy ja -rasva
 fr:Huile de navette
 he:שמן לפתית
-hr:repičino ulje, repicino ulje
+hr:repičino ulje, repicino ulje, repičina mast
 hu:repceolaj, repcemagolaj, repcemagolajak, repcemagzsír, repce étolaj
 is:repjuolía
 ja:菜種油
@@ -18842,6 +18843,7 @@ de:Rum
 es:Ron
 fi:rommi
 fr:rhum
+hr:rum
 hu:rum
 it:rum
 ja:ラム酒
@@ -24657,6 +24659,7 @@ ciqual_food_name:fr:Farine de soja
 
 <en:soya flour
 fr:farine de soja degraissée
+hr:obezmašćeno sojino brašno
 ro:făină de soia degrasată, faina de soia degrasata
 
 <en:flour
@@ -36667,7 +36670,7 @@ et:sidrunimahla kontsentraat
 fi:sitruunamehutiiviste, sitruunatäysmehutiiviste, sitruunatiiviste
 fr:jus concentré de citron, jus de citron concentré, jus de citrons concentré, concentré de jus de citron, jus concentré pulpé de citron
 hu:Citromlé koncentrátum, citromlé sűrítmény, sűrített citromlé
-hr:koncentrirani limunov sok
+hr:koncentrirani limunov sok, koncentrat soka od limuna
 it:succo di limone concentrato,
 lt:citrinų sulčių koncentratas
 nb:sitronjuicekonsentrat
@@ -45134,6 +45137,7 @@ de:Rüben, Randen
 es:remolacha,betarraga
 fr:betterave, betteraves
 he:סלק
+hr:cikla
 hu:cékla
 it:barbabietola
 ja:ビーツ
@@ -50446,6 +50450,7 @@ de:Tomatenkonzentrat zweifach konzentriert, Tomatenmark doppelt konzentriert
 es:tomate doble concentrado, concentrado doble de tomate
 fi:tuplatiivistetty tomaattipyree
 fr:double concentré de tomate, purée de tomates double concentré, purée de tomate double concentrée
+hr:dvostruki koncentrat rajčice
 it:doppio concentrato di pomodoro
 nl:Dubbel geconcentreerde tomatenpuree
 # ingredient/fr:double-concentré-de-tomate has 520 products in 8 languages @2018-12-26
@@ -53341,6 +53346,7 @@ de:Erdmandeln
 es:almendras molidas
 fi:Jauhettua mantelia, jauhettuja manteleita, mantelirouhe
 fr:amandes hachées, amandes moulues
+hr:sjeckani bademi
 it:mandorle macinate
 nl:gemalen amandelen
 sv:mandelkross
@@ -53873,7 +53879,7 @@ de:Haselnüsspaste, Haselnusspaste, Haselnussmasse, Haselnussmark
 es:pasta de avellana, pasta de avellanas
 fi:hasselpähkinätahna, hasselpähkinämassa
 fr:pâte de noisette, purée de noisettes
-hr:pasta lješnjaka
+hr:pasta lješnjaka, pasta od lješnjaka
 hu:mogyoromassza
 it:pasta di nocciole
 nb:hasselnøttpasta, hasselnøtmasse
@@ -54083,6 +54089,7 @@ en:shelled peanuts
 de:geschälte Erdnüsse
 fi:kuoreton maapähkinä, kuorettomat maapähkinät
 fr:cacahuètes décortiquées
+hr:kikiriki bez opne
 nl:Pinda's in de dop
 # ingredient/nl:pinda-s-in-de-dop has 1 product @2019-05-24
 
@@ -68822,7 +68829,7 @@ fr:thon
 ga:tuinnín
 gl:Túnido
 he:טונה
-hr:Tunj
+hr:tuna, tunj
 ht:Ton
 hu:tonhal
 io:Atuno
@@ -77399,7 +77406,7 @@ fi:täyte
 fr:garniture, fourrage, nappage, farce, fourrage blanc, remplissage
 gl:Recheo
 he:מלית
-hr:punjenje
+hr:punjenje, punilo
 hu:töltelék
 id:Isian
 io:Farso
@@ -79303,6 +79310,7 @@ fr:chocolat de couverture
 <en:coating
 en:milk chocolate coating
 fr:enrobage chocolat au lait
+hr:miliječno čokoladni preljev
 sv:mjölkchokladsöverdrag
 # ingredient/en:milk-chocolate-coating has 99 products in 3 languages @2020-12-19
 
