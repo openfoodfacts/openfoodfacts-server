@@ -7594,7 +7594,7 @@ sub display_page ($request_ref) {
 	my $search_terms = '';
 	if (defined single_param('search_terms')) {
 		$search_terms = remove_tags_and_quote(decode utf8 => single_param('search_terms'));
-	}
+	}	
 
 	my $image_banner = "";
 	my $link = lang("donate_link");
@@ -7612,24 +7612,24 @@ sub display_page ($request_ref) {
 
 	if (
 		not($server_options{producers_platform})
-		and (  (not(defined cookie('hide_image_banner_2021')))
-			or (not(cookie('hide_image_banner_2021') eq '1')))
+		and (  (not(defined cookie('hide_image_banner_2022')))
+			or (not(cookie('hide_image_banner_2022') eq '1')))
 		)
 	{
 		$template_data_ref->{banner} = $banner;
 
 		$initjs .= <<'JS';
-if ($.cookie('hide_image_banner_2021') == '1') {
-	$('#hide_image_banner').prop('checked', true);
-	$('#donate_banner').remove();
+if ($.cookie('hide_image_banner_2022') == '1') {
+	$('.hide_image_banner').prop('checked', true);
+	$('#donate_banner_top').remove();
 }
 else {
-	$('#hide_image_banner').prop('checked', false);
-	$('#donate_banner').show();
-	$('#hide_image_banner').change(function () {
-		if ($('#hide_image_banner').prop('checked')) {
-			$.cookie('hide_image_banner_2021', '1', { expires: 90, path: '/' });
-			$('#donate_banner').remove();
+	$('.hide_image_banner').prop('checked', false);
+	$('#donate_banner_top').show();
+	$('.hide_image_banner').change(function () {
+		if (($('#hide_image_banner1').prop('checked')) || ($('#hide_image_banner2').prop('checked'))) {
+			$.cookie('hide_image_banner_2022', '1', { expires: 90, path: '/' });
+			$('#donate_banner_top').remove();
 		}
 	});
 }
