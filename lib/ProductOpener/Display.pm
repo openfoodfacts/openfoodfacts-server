@@ -7594,7 +7594,7 @@ sub display_page ($request_ref) {
 	my $search_terms = '';
 	if (defined single_param('search_terms')) {
 		$search_terms = remove_tags_and_quote(decode utf8 => single_param('search_terms'));
-	}	
+	}
 
 	my $image_banner = "";
 	my $link = lang("donate_link");
