@@ -436,7 +436,7 @@ sub normalize_mail_for_comparison ($mail) {
 	}
 	# split on \n to get readable json results
 	my @lines = split /\n/, $text;
-	@lines = map {$_ =~ s/^Date: .+/Date: ***/g; $_;} @lines;
+	@lines = map {my $text = $_; $text =~ s/^Date: .+/Date: ***/g; $text;} @lines;
 	return \@lines;
 }
 
