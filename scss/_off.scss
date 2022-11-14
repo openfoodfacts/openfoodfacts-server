@@ -1157,12 +1157,12 @@ span.ico-bold {
   @include button( 10, $white);
 }
 
-#donate_image_banner_outside {
+.donate_image_banner_outside {
   margin-bottom:1rem;
   background: no-repeat url(/images/illustrations/donate-heart.svg)
 }
 
-#donate_image_banner_inside {
+.donate_image_banner_inside {
   @media only screen and (max-width: 100rem) {margin-left:140px;}
 }
 
