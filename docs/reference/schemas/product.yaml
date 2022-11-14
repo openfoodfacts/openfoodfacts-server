@@ -1,0 +1,2086 @@
+type: object
+properties:
+  _id:
+    type: string
+  _keywords:
+    type: array
+    items:
+      type: string
+  abbreviated_product_name:
+    type: string
+  abbreviated_product_name_fr:
+    type: string
+  abbreviated_product_name_fr_imported:
+    type: string
+  added_countries_tags:
+    type: array
+    items:
+      type: object
+  # additives_debug_tags:
+  #   type: array
+  #   items:
+  #     type: object
+  additives_n:
+    type: integer
+    description: |
+      Number of food additives.
+  # additives_old_n:
+  #   type: integer
+  # additives_old_tags:
+  #   type: array
+  #   items:
+  #     type: object
+  additives_original_tags:
+    type: array
+    items:
+      type: string
+  additives_prev_original_tags:
+    type: array
+    items:
+      type: string
+  additives_tags:
+    type: array
+    items:
+      type: string
+  allergens:
+    type: string
+  allergens_from_ingredients:
+    type: string
+  allergens_from_user:
+    type: string
+  allergens_hierarchy:
+    type: array
+    items:
+      type: string
+  allergens_imported:
+    type: string
+  allergens_lc:
+    type: string
+  allergens_tags:
+    type: array
+    items:
+      type: string
+  amino_acids_prev_tags:
+    type: array
+    items:
+      type: object
+  amino_acids_tags:
+    type: array
+    items:
+      type: object
+  brands:
+    type: string
+  brands_imported:
+    type: string
+  brands_tags:
+    type: array
+    items:
+      type: string
+  carbon_footprint_percent_of_known_ingredients:
+    type: integer
+  categories:
+    type: string
+  categories_hierarchy:
+    type: array
+    items:
+      type: string
+  categories_lc:
+    type: string
+  # categories_old:
+  #   type: string
+  categories_properties:
+    type: object
+    properties:
+      'agribalyse_food_code:en':
+        type: string
+      'agribalyse_proxy_food_code:en':
+        type: string
+      'ciqual_food_code:en':
+        type: string
+  categories_properties_tags:
+    type: array
+    items:
+      type: string
+  categories_tags:
+    type: array
+    items:
+      type: string
+  category_properties:
+    type: object
+    properties:
+      'ciqual_food_name:en':
+        type: string
+  checked:
+    type: string
+  checkers_tags:
+    type: array
+    items:
+      type: string
+  ciqual_food_name_tags:
+    type: array
+    items:
+      type: string
+  cities_tags:
+    type: array
+    items:
+      type: object
+  code:
+    type: string
+  codes_tags:
+    type: array
+    items:
+      type: string
+  compared_to_category:
+    type: string
+  complete:
+    type: integer
+  completeness:
+    type: number
+  conservation_conditions:
+    type: string
+  conservation_conditions_fr:
+    type: string
+  conservation_conditions_fr_imported:
+    type: string
+  correctors_tags:
+    type: array
+    items:
+      type: string
+  countries:
+    type: string
+    description: |
+      List of countries where the product is sold.
+  countries_beforescanbot:
+    type: string
+  countries_hierarchy:
+    type: array
+    items:
+      type: string
+  countries_imported:
+    type: string
+  countries_lc:
+    type: string
+  countries_tags:
+    type: array
+    items:
+      type: string
+  created_t:
+    type: integer
+    description: |
+      Date when the product was added (UNIX timestamp format).    
+  creator:
+    type: string
+    description: |
+      The contributor who added the product first.
+  customer_service:
+    type: string
+    description: |
+      Contact info of customer service.
+  customer_service_fr:
+    type: string
+  customer_service_fr_imported:
+    type: string
+  data_quality_bugs_tags:
+    type: array
+    items:
+      type: object
+  data_quality_errors_tags:
+    type: array
+    items:
+      type: object
+  data_quality_info_tags:
+    type: array
+    items:
+      type: string
+  data_quality_tags:
+    type: array
+    items:
+      type: string
+  data_quality_warnings_tags:
+    type: array
+    items:
+      type: string
+  data_sources:
+    type: string
+    description: |
+      Source of data imported from producers.
+  data_sources_imported:
+    type: string
+  data_sources_tags:
+    type: array
+    items:
+      type: string
+  # debug_param_sorted_langs:
+  #   type: array
+  #   items:
+  #     type: string
+  # debug_tags:
+  #   type: array
+  #   items:
+  #     type: string
+  ecoscore_data:
+    type: object
+    properties:
+      adjustments:
+        type: object
+        properties:
+          origins_of_ingredients:
+            type: object
+            properties:
+              aggregated_origins:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    origin:
+                      type: string
+                    percent:
+                      type: integer
+              epi_score:
+                type: integer
+              epi_value:
+                type: integer
+              origins_from_origins_field:
+                type: array
+                items:
+                  type: string
+              transportation_scores:
+                type: object
+                properties:
+                  ad:
+                    type: integer
+                  al:
+                    type: integer
+                  at:
+                    type: integer
+                  ax:
+                    type: integer
+                  ba:
+                    type: integer
+                  be:
+                    type: integer
+                  bg:
+                    type: integer
+                  ch:
+                    type: integer
+                  cy:
+                    type: integer
+                  cz:
+                    type: integer
+                  de:
+                    type: integer
+                  dk:
+                    type: integer
+                  dz:
+                    type: integer
+                  ee:
+                    type: integer
+                  eg:
+                    type: integer
+                  es:
+                    type: integer
+                  fi:
+                    type: integer
+                  fo:
+                    type: integer
+                  fr:
+                    type: integer
+                  gg:
+                    type: integer
+                  gi:
+                    type: integer
+                  gr:
+                    type: integer
+                  hr:
+                    type: integer
+                  hu:
+                    type: integer
+                  ie:
+                    type: integer
+                  il:
+                    type: integer
+                  im:
+                    type: integer
+                  is:
+                    type: integer
+                  it:
+                    type: integer
+                  je:
+                    type: integer
+                  lb:
+                    type: integer
+                  li:
+                    type: integer
+                  lt:
+                    type: integer
+                  lu:
+                    type: integer
+                  lv:
+                    type: integer
+                  ly:
+                    type: integer
+                  ma:
+                    type: integer
+                  mc:
+                    type: integer
+                  md:
+                    type: integer
+                  me:
+                    type: integer
+                  mk:
+                    type: integer
+                  mt:
+                    type: integer
+                  nl:
+                    type: integer
+                  'no':
+                    type: integer
+                  pl:
+                    type: integer
+                  ps:
+                    type: integer
+                  pt:
+                    type: integer
+                  ro:
+                    type: integer
+                  rs:
+                    type: integer
+                  se:
+                    type: integer
+                  si:
+                    type: integer
+                  sj:
+                    type: integer
+                  sk:
+                    type: integer
+                  sm:
+                    type: integer
+                  sy:
+                    type: integer
+                  tn:
+                    type: integer
+                  tr:
+                    type: integer
+                  ua:
+                    type: integer
+                  uk:
+                    type: integer
+                  us:
+                    type: integer
+                  va:
+                    type: integer
+                  world:
+                    type: integer
+                  xk:
+                    type: integer
+              transportation_values:
+                type: object
+                properties:
+                  ad:
+                    type: integer
+                  al:
+                    type: integer
+                  at:
+                    type: integer
+                  ax:
+                    type: integer
+                  ba:
+                    type: integer
+                  be:
+                    type: integer
+                  bg:
+                    type: integer
+                  ch:
+                    type: integer
+                  cy:
+                    type: integer
+                  cz:
+                    type: integer
+                  de:
+                    type: integer
+                  dk:
+                    type: integer
+                  dz:
+                    type: integer
+                  ee:
+                    type: integer
+                  eg:
+                    type: integer
+                  es:
+                    type: integer
+                  fi:
+                    type: integer
+                  fo:
+                    type: integer
+                  fr:
+                    type: integer
+                  gg:
+                    type: integer
+                  gi:
+                    type: integer
+                  gr:
+                    type: integer
+                  hr:
+                    type: integer
+                  hu:
+                    type: integer
+                  ie:
+                    type: integer
+                  il:
+                    type: integer
+                  im:
+                    type: integer
+                  is:
+                    type: integer
+                  it:
+                    type: integer
+                  je:
+                    type: integer
+                  lb:
+                    type: integer
+                  li:
+                    type: integer
+                  lt:
+                    type: integer
+                  lu:
+                    type: integer
+                  lv:
+                    type: integer
+                  ly:
+                    type: integer
+                  ma:
+                    type: integer
+                  mc:
+                    type: integer
+                  md:
+                    type: integer
+                  me:
+                    type: integer
+                  mk:
+                    type: integer
+                  mt:
+                    type: integer
+                  nl:
+                    type: integer
+                  'no':
+                    type: integer
+                  pl:
+                    type: integer
+                  ps:
+                    type: integer
+                  pt:
+                    type: integer
+                  ro:
+                    type: integer
+                  rs:
+                    type: integer
+                  se:
+                    type: integer
+                  si:
+                    type: integer
+                  sj:
+                    type: integer
+                  sk:
+                    type: integer
+                  sm:
+                    type: integer
+                  sy:
+                    type: integer
+                  tn:
+                    type: integer
+                  tr:
+                    type: integer
+                  ua:
+                    type: integer
+                  uk:
+                    type: integer
+                  us:
+                    type: integer
+                  va:
+                    type: integer
+                  world:
+                    type: integer
+                  xk:
+                    type: integer
+              values:
+                type: object
+                properties:
+                  ad:
+                    type: integer
+                  al:
+                    type: integer
+                  at:
+                    type: integer
+                  ax:
+                    type: integer
+                  ba:
+                    type: integer
+                  be:
+                    type: integer
+                  bg:
+                    type: integer
+                  ch:
+                    type: integer
+                  cy:
+                    type: integer
+                  cz:
+                    type: integer
+                  de:
+                    type: integer
+                  dk:
+                    type: integer
+                  dz:
+                    type: integer
+                  ee:
+                    type: integer
+                  eg:
+                    type: integer
+                  es:
+                    type: integer
+                  fi:
+                    type: integer
+                  fo:
+                    type: integer
+                  fr:
+                    type: integer
+                  gg:
+                    type: integer
+                  gi:
+                    type: integer
+                  gr:
+                    type: integer
+                  hr:
+                    type: integer
+                  hu:
+                    type: integer
+                  ie:
+                    type: integer
+                  il:
+                    type: integer
+                  im:
+                    type: integer
+                  is:
+                    type: integer
+                  it:
+                    type: integer
+                  je:
+                    type: integer
+                  lb:
+                    type: integer
+                  li:
+                    type: integer
+                  lt:
+                    type: integer
+                  lu:
+                    type: integer
+                  lv:
+                    type: integer
+                  ly:
+                    type: integer
+                  ma:
+                    type: integer
+                  mc:
+                    type: integer
+                  md:
+                    type: integer
+                  me:
+                    type: integer
+                  mk:
+                    type: integer
+                  mt:
+                    type: integer
+                  nl:
+                    type: integer
+                  'no':
+                    type: integer
+                  pl:
+                    type: integer
+                  ps:
+                    type: integer
+                  pt:
+                    type: integer
+                  ro:
+                    type: integer
+                  rs:
+                    type: integer
+                  se:
+                    type: integer
+                  si:
+                    type: integer
+                  sj:
+                    type: integer
+                  sk:
+                    type: integer
+                  sm:
+                    type: integer
+                  sy:
+                    type: integer
+                  tn:
+                    type: integer
+                  tr:
+                    type: integer
+                  ua:
+                    type: integer
+                  uk:
+                    type: integer
+                  us:
+                    type: integer
+                  va:
+                    type: integer
+                  world:
+                    type: integer
+                  xk:
+                    type: integer
+              warning:
+                type: string
+          packaging:
+            type: object
+            properties:
+              non_recyclable_and_non_biodegradable_materials:
+                type: integer
+              packagings:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    ecoscore_material_score:
+                      type: integer
+                    ecoscore_shape_ratio:
+                      type: integer
+                    material:
+                      type: string
+                    shape:
+                      type: string
+              score:
+                type: integer
+              value:
+                type: integer
+              warning:
+                type: string
+          production_system:
+            type: object
+            properties:
+              labels:
+                type: array
+                example: vegan, fat free, Kosher
+                items:
+                  type: object
+              value:
+                type: integer
+              warning:
+                type: string
+          threatened_species:
+            type: object
+            properties:
+              ingredient:
+                type: string
+              value:
+                type: integer
+      agribalyse:
+        type: object
+        properties:
+          agribalyse_food_code:
+            type: string
+          co2_agriculture:
+            type: number
+          co2_consumption:
+            type: integer
+          co2_distribution:
+            type: number
+          co2_packaging:
+            type: number
+          co2_processing:
+            type: number
+          co2_total:
+            type: number
+          co2_transportation:
+            type: number
+          code:
+            type: string
+          dqr:
+            type: string
+          ef_agriculture:
+            type: number
+          ef_consumption:
+            type: integer
+          ef_distribution:
+            type: number
+          ef_packaging:
+            type: number
+          ef_processing:
+            type: number
+          ef_total:
+            type: number
+          ef_transportation:
+            type: number
+          is_beverage:
+            type: integer
+          #TODO: Define fields returned in various languages e.g name_fr (try regexp)
+          name_en:
+            type: string
+            description: |
+              This can be returned in many other languages
+              like name_fr (for french).
+          score:
+            type: integer
+      grade:
+        type: string
+      grades:
+        type: object
+        properties:
+          ad:
+            type: string
+          al:
+            type: string
+          at:
+            type: string
+          ax:
+            type: string
+          ba:
+            type: string
+          be:
+            type: string
+          bg:
+            type: string
+          ch:
+            type: string
+          cy:
+            type: string
+          cz:
+            type: string
+          de:
+            type: string
+          dk:
+            type: string
+          dz:
+            type: string
+          ee:
+            type: string
+          eg:
+            type: string
+          es:
+            type: string
+          fi:
+            type: string
+          fo:
+            type: string
+          fr:
+            type: string
+          gg:
+            type: string
+          gi:
+            type: string
+          gr:
+            type: string
+          hr:
+            type: string
+          hu:
+            type: string
+          ie:
+            type: string
+          il:
+            type: string
+          im:
+            type: string
+          is:
+            type: string
+          it:
+            type: string
+          je:
+            type: string
+          lb:
+            type: string
+          li:
+            type: string
+          lt:
+            type: string
+          lu:
+            type: string
+          lv:
+            type: string
+          ly:
+            type: string
+          ma:
+            type: string
+          mc:
+            type: string
+          md:
+            type: string
+          me:
+            type: string
+          mk:
+            type: string
+          mt:
+            type: string
+          nl:
+            type: string
+          'no':
+            type: string
+          pl:
+            type: string
+          ps:
+            type: string
+          pt:
+            type: string
+          ro:
+            type: string
+          rs:
+            type: string
+          se:
+            type: string
+          si:
+            type: string
+          sj:
+            type: string
+          sk:
+            type: string
+          sm:
+            type: string
+          sy:
+            type: string
+          tn:
+            type: string
+          tr:
+            type: string
+          ua:
+            type: string
+          uk:
+            type: string
+          us:
+            type: string
+          va:
+            type: string
+          world:
+            type: string
+          xk:
+            type: string
+      missing:
+        type: object
+        properties:
+          labels:
+            type: integer
+          origins:
+            type: integer
+          packagings:
+            type: integer
+      missing_data_warning:
+        type: integer
+      score:
+        type: integer
+      scores:
+        type: object
+        properties:
+          ad:
+            type: integer
+          al:
+            type: integer
+          at:
+            type: integer
+          ax:
+            type: integer
+          ba:
+            type: integer
+          be:
+            type: integer
+          bg:
+            type: integer
+          ch:
+            type: integer
+          cy:
+            type: integer
+          cz:
+            type: integer
+          de:
+            type: integer
+          dk:
+            type: integer
+          dz:
+            type: integer
+          ee:
+            type: integer
+          eg:
+            type: integer
+          es:
+            type: integer
+          fi:
+            type: integer
+          fo:
+            type: integer
+          fr:
+            type: integer
+          gg:
+            type: integer
+          gi:
+            type: integer
+          gr:
+            type: integer
+          hr:
+            type: integer
+          hu:
+            type: integer
+          ie:
+            type: integer
+          il:
+            type: integer
+          im:
+            type: integer
+          is:
+            type: integer
+          it:
+            type: integer
+          je:
+            type: integer
+          lb:
+            type: integer
+          li:
+            type: integer
+          lt:
+            type: integer
+          lu:
+            type: integer
+          lv:
+            type: integer
+          ly:
+            type: integer
+          ma:
+            type: integer
+          mc:
+            type: integer
+          md:
+            type: integer
+          me:
+            type: integer
+          mk:
+            type: integer
+          mt:
+            type: integer
+          nl:
+            type: integer
+          'no':
+            type: integer
+          pl:
+            type: integer
+          ps:
+            type: integer
+          pt:
+            type: integer
+          ro:
+            type: integer
+          rs:
+            type: integer
+          se:
+            type: integer
+          si:
+            type: integer
+          sj:
+            type: integer
+          sk:
+            type: integer
+          sm:
+            type: integer
+          sy:
+            type: integer
+          tn:
+            type: integer
+          tr:
+            type: integer
+          ua:
+            type: integer
+          uk:
+            type: integer
+          us:
+            type: integer
+          va:
+            type: integer
+          world:
+            type: integer
+          xk:
+            type: integer
+      status:
+        type: string
+  ecoscore_extended_data_version:
+    type: string
+  ecoscore_grade:
+    type: string
+  ecoscore_score:
+    type: integer
+  ecoscore_tags:
+    type: array
+    items:
+      type: string
+  editors_tags:
+    type: array
+    items:
+      type: string
+  emb_codes:
+    type: string
+    description: |
+      Packager code.
+    example: EMB 2013330
+  emb_codes_orig:
+    type: string
+  emb_codes_tags:
+    type: array
+    items:
+      type: object
+  entry_dates_tags:
+    type: array
+    items:
+      type: string
+  environment_impact_level:
+    type: string
+  environment_impact_level_tags:
+    type: array
+    items:
+      type: object
+  expiration_date:
+    type: string
+  food_groups:
+    type: string
+  food_groups_tags:
+    type: array
+    items:
+      type: string
+  fruits-vegetables-nuts_100g_estimate:
+    type: integer
+  generic_name:
+    type: string
+    description: |
+      Legal name of the product as regulated 
+      by the European authorities.
+  generic_name_en:
+    type: string
+    description: |
+      This can be returned in many other languages
+      like generic_name_fr (for french).
+  grades:
+    type: object
+  id:
+    type: string
+  image_front_small_url:
+    type: string
+  image_front_thumb_url:
+    type: string
+  image_front_url:
+    type: string
+  image_nutrition_small_url:
+    type: string
+  image_nutrition_thumb_url:
+    type: string
+  image_nutrition_url:
+    type: string
+  image_small_url:
+    type: string
+  image_thumb_url:
+    type: string
+  image_url:
+    type: string
+  images:
+    type: object
+    properties:
+      '1':
+        $ref: ./image.yaml
+  informers_tags:
+    type: array
+    items:
+      type: string
+  ingredients:
+    $ref: ./ingredient.yaml
+  ingredients_analysis:
+    type: object
+    properties:
+      'en:palm-oil':
+        type: array
+        items:
+          type: string
+      'en:vegan-status-unknown':
+        type: array
+        items:
+          type: string
+      'en:vegetarian-status-unknown':
+        type: array
+        items:
+          type: string
+  ingredients_analysis_tags:
+    type: array
+    items:
+      type: string
+  # ingredients_debug:
+  #   type: array
+  #   items:
+  #     type: string
+  ingredients_from_or_that_may_be_from_palm_oil_n:
+    type: integer
+  ingredients_from_palm_oil_n:
+    type: integer
+  ingredients_from_palm_oil_tags:
+    type: array
+    items:
+      type: object
+  ingredients_hierarchy:
+    type: array
+    items:
+      type: string
+  # ingredients_ids_debug:
+  #   type: array
+  #   items:
+  #     type: string
+  ingredients_n:
+    type: integer
+  ingredients_n_tags:
+    type: array
+    items:
+      type: string
+  ingredients_original_tags:
+    type: array
+    items:
+      type: string
+  ingredients_percent_analysis:
+    type: integer
+  ingredients_tags:
+    type: array
+    items:
+      type: string
+  ingredients_text:
+    type: string
+    description: |
+      Raw list of ingredients. This will get automatically
+      parsed and get used to compute the Eco-Score. You can 
+      either request it (if it exists) or send it in a specific language.
+    example: ingredients_text_en
+  ingredients_text_ar:
+    type: string
+  ingredients_text_de:
+    type: string
+  # ingredients_text_debug:
+  #   type: string
+  ingredients_text_en:
+    type: string
+  ingredients_text_en_ocr_1642445989:
+    type: string
+  ingredients_text_en_ocr_1642445989_result:
+    type: string
+  ingredients_text_en_ocr_1643128902:
+    type: string
+  ingredients_text_en_ocr_1643128902_result:
+    type: string
+  ingredients_text_es:
+    type: string
+  ingredients_text_fr:
+    type: string
+  ingredients_text_fr_imported:
+    type: string
+  ingredients_text_fr_ocr_1642445989:
+    type: string
+  ingredients_text_fr_ocr_1642445989_result:
+    type: string
+  ingredients_text_fr_ocr_1643128902:
+    type: string
+  ingredients_text_fr_ocr_1643128902_result:
+    type: string
+  ingredients_text_id:
+    type: string
+  ingredients_text_it:
+    type: string
+  ingredients_text_nl:
+    type: string
+  ingredients_text_with_allergens:
+    type: string
+  ingredients_text_with_allergens_ar:
+    type: string
+  ingredients_text_with_allergens_de:
+    type: string
+  ingredients_text_with_allergens_en:
+    type: string
+  ingredients_text_with_allergens_es:
+    type: string
+  ingredients_text_with_allergens_fr:
+    type: string
+  ingredients_text_with_allergens_it:
+    type: string
+  ingredients_that_may_be_from_palm_oil_n:
+    type: integer
+  ingredients_that_may_be_from_palm_oil_tags:
+    type: array
+    items:
+      type: object
+  ingredients_with_specified_percent_n:
+    type: integer
+  ingredients_with_specified_percent_sum:
+    type: integer
+  ingredients_with_unspecified_percent_n:
+    type: integer
+  ingredients_with_unspecified_percent_sum:
+    type: integer
+  interface_version_created:
+    type: string
+  interface_version_modified:
+    type: string
+  knowledge_panels:
+    $ref: ./knowledge_panels/panels.yaml
+  known_ingredients_n:
+    type: integer
+  labels:
+    type: string
+  labels_hierarchy:
+    type: array
+    items:
+      type: string
+  labels_lc:
+    type: string
+  # labels_old:
+  #   type: string
+  labels_tags:
+    type: array
+    items:
+      type: string
+  lang:
+    type: string
+  lang_imported:
+    type: string
+  languages:
+    type: object
+    properties:
+      'en:arabic':
+        type: integer
+      'en:english':
+        type: integer
+      'en:french':
+        type: integer
+      'en:german':
+        type: integer
+      'en:italian':
+        type: integer
+      'en:spanish':
+        type: integer
+  languages_codes:
+    type: object
+    properties:
+      ar:
+        type: integer
+      de:
+        type: integer
+      en:
+        type: integer
+      es:
+        type: integer
+      fr:
+        type: integer
+      it:
+        type: integer
+  languages_hierarchy:
+    type: array
+    items:
+      type: string
+  languages_tags:
+    type: array
+    items:
+      type: string
+  last_check_dates_tags:
+    type: array
+    items:
+      type: string
+  last_checked_t:
+    type: integer
+  last_checker:
+    type: string
+  last_edit_dates_tags:
+    type: array
+    items:
+      type: string
+  last_editor:
+    type: string
+  last_image_dates_tags:
+    type: array
+    items:
+      type: string
+  last_image_t:
+    type: integer
+  last_modified_by:
+    type: string
+  last_modified_t:
+    type: integer
+    description: |
+      Date when the product page was last modified.
+  lc:
+    type: string
+  lc_imported:
+    type: string
+  link:
+    type: string
+  main_countries_tags:
+    type: array
+    items:
+      type: object
+  manufacturing_places:
+    type: string
+    description: |
+      Places where the product was manufactured or transformed.
+  manufacturing_places_tags:
+    type: array
+    items:
+      type: object
+  max_imgid:
+    type: string
+  minerals_prev_tags:
+    type: array
+    items:
+      type: object
+  minerals_tags:
+    type: array
+    items:
+      type: object
+  misc_tags:
+    type: array
+    items:
+      type: string
+  no_nutrition_data:
+    type: string
+  no_nutrition_data_imported:
+    type: string
+  nova_group:
+    type: integer
+  # nova_group_debug:
+  #   type: string
+  nova_groups:
+    type: string
+  nova_groups_markers:
+    type: object
+    properties:
+      '3':
+        type: array
+        items:
+          type: string
+      '4':
+        type: array
+        items:
+          type: string
+  nova_groups_tags:
+    type: array
+    items:
+      type: string
+  nucleotides_prev_tags:
+    type: array
+    items:
+      type: object
+  nucleotides_tags:
+    type: array
+    items:
+      type: object
+  nutrient_levels:
+    type: object
+    properties:
+      fat:
+        type: string
+      salt:
+        type: string
+      saturated-fat:
+        type: string
+      sugars:
+        type: string
+  nutrient_levels_tags:
+    type: array
+    items:
+      type: string
+  nutriments:
+    type: object
+    properties:
+      alcohol:
+        type: integer
+      alcohol_100g:
+        type: integer
+      alcohol_serving:
+        type: integer
+      alcohol_unit:
+        type: string
+      alcohol_value:
+        type: integer
+      carbohydrates:
+        type: number
+      carbohydrates_100g:
+        type: number
+      carbohydrates_serving:
+        type: number
+      carbohydrates_unit:
+        type: string
+      carbohydrates_value:
+        type: number
+      carbon-footprint-from-known-ingredients_product:
+        type: integer
+      carbon-footprint-from-known-ingredients_serving:
+        type: number
+      energy:
+        type: integer
+      energy-kcal:
+        type: integer
+      energy-kcal_100g:
+        type: integer
+      energy-kcal_serving:
+        type: number
+      energy-kcal_unit:
+        type: string
+        description: |
+          The unit used in the field energy-kcal_unit 
+          (example in JSON: “energy_unit”: “kcal”). 
+          The only possible value is “kcal.”'
+      energy-kcal_value:
+        type: integer
+        description: |
+          The standardized value of a serving of 100g 
+          (or 100ml for liquids) for energy expressed in kcal.
+        example: 190
+      energy-kj:
+        type: integer
+      energy-kj_100g:
+        type: integer
+      energy-kj_serving:
+        type: integer
+      energy-kj_unit:
+        type: string
+      energy-kj_value:
+        type: integer
+      energy_100g:
+        type: integer
+      energy_serving:
+        type: integer
+      energy_unit:
+        type: string
+        description: |
+          The unit used in the energy_value field 
+          (example in JSON: “energy_unit”: “kJ”). 
+          Possible values are “kJ” or “kcal”.'
+      energy_value:
+        type: integer
+        description: |
+          The standardized value of a serving of 100g 
+          (or 100ml for liquids) for energy expressed in 
+          the unit specified in the field energy_unit.
+        example: 190
+      fat:
+        type: number
+      fat_100g:
+        type: number
+      fat_serving:
+        type: number
+      fat_unit:
+        type: string
+      fat_value:
+        type: number
+      fruits-vegetables-nuts-estimate-from-ingredients_100g:
+        type: integer
+      fruits-vegetables-nuts-estimate-from-ingredients_serving:
+        type: integer
+      nova-group:
+        type: integer
+      nova-group_100g:
+        type: integer
+      nova-group_serving:
+        type: integer
+      nutrition-score-fr:
+        type: integer
+      nutrition-score-fr_100g:
+        type: integer
+        description: |
+          Experimental nutrition score derived from 
+          the UK FSA score and adapted for the French market 
+          (formula defined by the team of Professor Hercberg).
+      proteins:
+        type: number
+      proteins_100g:
+        type: number
+      proteins_serving:
+        type: number
+      proteins_unit:
+        type: string
+      proteins_value:
+        type: number
+      salt:
+        type: number
+      salt_100g:
+        type: number
+      salt_serving:
+        type: number
+      salt_unit:
+        type: string
+      salt_value:
+        type: number
+      saturated-fat:
+        type: number
+      saturated-fat_100g:
+        type: number
+      saturated-fat_serving:
+        type: number
+      saturated-fat_unit:
+        type: string
+      saturated-fat_value:
+        type: number
+      sodium:
+        type: number
+      sodium_100g:
+        type: number
+      sodium_serving:
+        type: number
+      sodium_unit:
+        type: string
+      sodium_value:
+        type: number
+      sugars:
+        type: number
+      sugars_100g:
+        type: number
+      sugars_serving:
+        type: number
+      sugars_unit:
+        type: string
+      sugars_value:
+        type: number
+  nutriscore_data:
+    type: object
+    properties:
+      energy:
+        type: integer
+      energy_points:
+        type: integer
+      energy_value:
+        type: integer
+      fiber:
+        type: integer
+      fiber_points:
+        type: integer
+      fiber_value:
+        type: integer
+      fruits_vegetables_nuts_colza_walnut_olive_oils:
+        type: integer
+      fruits_vegetables_nuts_colza_walnut_olive_oils_points:
+        type: integer
+      fruits_vegetables_nuts_colza_walnut_olive_oils_value:
+        type: integer
+      grade:
+        type: string
+      is_beverage:
+        type: integer
+      is_cheese:
+        type: integer
+      is_fat:
+        type: integer
+      is_water:
+        type: integer
+      negative_points:
+        type: integer
+      positive_points:
+        type: integer
+      proteins:
+        type: number
+      proteins_points:
+        type: integer
+      proteins_value:
+        type: number
+      saturated_fat:
+        type: number
+      saturated_fat_points:
+        type: integer
+      saturated_fat_ratio:
+        type: number
+      saturated_fat_ratio_points:
+        type: integer
+      saturated_fat_ratio_value:
+        type: number
+      saturated_fat_value:
+        type: number
+      score:
+        type: integer
+      sodium:
+        type: number
+      sodium_points:
+        type: integer
+      sodium_value:
+        type: number
+      sugars:
+        type: number
+      sugars_points:
+        type: integer
+      sugars_value:
+        type: number
+  nutriscore_grade:
+    type: string
+  nutriscore_score:
+    type: integer
+  nutriscore_score_opposite:
+    type: integer
+  nutrition_data:
+    type: string
+  nutrition_data_per:
+    type: string
+  nutrition_data_per_imported:
+    type: string
+  nutrition_data_prepared:
+    type: string
+  nutrition_data_prepared_per:
+    type: string
+  nutrition_grade_fr:
+    type: string
+    description: |
+      Nutrition grade (‘a’ to ‘e’),
+      https://world.openfoodfacts.org/nutriscore.
+  nutrition_grades:
+    type: string
+  nutrition_grades_tags:
+    type: array
+    items:
+      type: string
+  nutrition_score_beverage:
+    type: integer
+  # nutrition_score_debug:
+  #   type: string
+  nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients:
+    type: integer
+  nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value:
+    type: integer
+  nutrition_score_warning_no_fiber:
+    type: integer
+  obsolete:
+    type: string
+  obsolete_imported:
+    type: string
+  obsolete_since_date:
+    type: string
+  origin:
+    type: string
+  origin_en:
+    type: string
+    description: |
+      This can be returned in many other languages
+      like origin_fr (for french).
+  origins:
+    type: string
+    description: |
+      Origins of ingredients
+  origins_hierarchy:
+    type: array
+    items:
+      type: object
+  origins_lc:
+    type: string
+  # origins_old:
+  #   type: string
+  origins_tags:
+    type: array
+    items:
+      type: object
+  other_nutritional_substances_tags:
+    type: array
+    items:
+      type: object
+  owner:
+    type: string
+  owner_fields:
+    type: object
+    properties:
+      abbreviated_product_name_fr:
+        type: integer
+      allergens:
+        type: integer
+      brands:
+        type: integer
+      carbohydrates:
+        type: integer
+      conservation_conditions_fr:
+        type: integer
+      countries:
+        type: integer
+      customer_service_fr:
+        type: integer
+      data_sources:
+        type: integer
+      energy:
+        type: integer
+      energy-kcal:
+        type: integer
+      energy-kj:
+        type: integer
+      fat:
+        type: integer
+      generic_name_fr:
+        type: integer
+      ingredients_text_fr:
+        type: integer
+      lang:
+        type: integer
+      lc:
+        type: integer
+      no_nutrition_data:
+        type: integer
+      nutrition_data_per:
+        type: integer
+      obsolete:
+        type: integer
+      owner:
+        type: integer
+      packaging:
+        type: integer
+        description: |
+          shape, material.
+        example: Cardboard
+      producer_version_id:
+        type: integer
+      product_name_fr:
+        type: integer
+      proteins:
+        type: integer
+      quantity:
+        type: integer
+      salt:
+        type: integer
+      saturated-fat:
+        type: integer
+      serving_size:
+        type: integer
+      sugars:
+        type: integer
+  owner_imported:
+    type: string
+  owners_tags:
+    type: string
+  packaging:
+    type: string
+  packaging_hierarchy:
+    type: array
+    items:
+      type: string
+  packaging_imported:
+    type: string
+  packaging_lc:
+    type: string
+  # packaging_old:
+  #   type: string
+  # packaging_old_before_taxonomization:
+  #   type: string
+  packaging_tags:
+    type: array
+    items:
+      type: string
+  packaging_text:
+    type: string
+    description: |
+      Recycling instructions as raw text, e.g. Plastic 
+      bottle to recycle, Plastic cap to recycle.
+      This will get automatically parsed and 
+      will be used to compute the Eco-Score. 
+      You can either request it (if it exists) or 
+      send it in a specific language.
+    example: packaging_text_en
+  packaging_text_en:
+    type: string
+    description: |
+        This can be returned in many other languages
+        like packaging_text_fr (for french).
+  packagings:
+    type: array
+    items:
+      type: object
+      properties:
+        material:
+          type: string
+  photographers_tags:
+    type: array
+    items:
+      type: string
+  pnns_groups_1:
+    type: string
+  pnns_groups_1_tags:
+    type: array
+    items:
+      type: string
+  pnns_groups_2:
+    type: string
+  pnns_groups_2_tags:
+    type: array
+    items:
+      type: string
+  popularity_key:
+    type: integer
+  popularity_tags:
+    type: array
+    items:
+      type: string
+  producer_version_id:
+    type: string
+  producer_version_id_imported:
+    type: string
+  product_name:
+    type: string
+    description: |
+      The name of the product
+  product_name_en:
+    type: string
+    description: |
+      The name of the product can also
+      be in many other languages like
+      product_name_fr (for french).
+  product_quantity:
+    type: string
+  purchase_places:
+    type: string
+    description: |
+      Country, state, or city where the product can be purchased.
+    example: Paris
+  purchase_places_tags:
+    type: array
+    items:
+      type: string
+  quantity:
+    type: string
+    description: |
+      Quantity and Unit.
+  quantity_imported:
+    type: string
+  removed_countries_tags:
+    type: array
+    items:
+      type: object
+  rev:
+    type: integer
+  scans_n:
+    type: integer
+  scores:
+    type: object
+  selected_images:
+    type: object
+    properties:
+      front:
+        type: object
+        properties:
+          display:
+            type: object
+            properties:
+              en:
+                type: string
+              es:
+                type: string
+              fr:
+                type: string
+              it:
+                type: string
+          small:
+            type: object
+            properties:
+              en:
+                type: string
+              es:
+                type: string
+              fr:
+                type: string
+              it:
+                type: string
+          thumb:
+            type: object
+            properties:
+              en:
+                type: string
+              es:
+                type: string
+              fr:
+                type: string
+              it:
+                type: string
+      ingredients:
+        type: object
+        properties:
+          display:
+            type: object
+            properties:
+              es:
+                type: string
+              fr:
+                type: string
+          small:
+            type: object
+            properties:
+              es:
+                type: string
+              fr:
+                type: string
+          thumb:
+            type: object
+            properties:
+              es:
+                type: string
+              fr:
+                type: string
+      nutrition:
+        type: object
+        properties:
+          display:
+            type: object
+            properties:
+              en:
+                type: string
+              es:
+                type: string
+              fr:
+                type: string
+          small:
+            type: object
+            properties:
+              en:
+                type: string
+              es:
+                type: string
+              fr:
+                type: string
+          thumb:
+            type: object
+            properties:
+              en:
+                type: string
+              es:
+                type: string
+              fr:
+                type: string
+      packaging:
+        type: object
+        properties:
+          display:
+            type: object
+            properties:
+              fr:
+                type: string
+          small:
+            type: object
+            properties:
+              fr:
+                type: string
+          thumb:
+            type: object
+            properties:
+              fr:
+                type: string
+  serving_quantity:
+    type: string
+  serving_size:
+    type: string
+    description: |
+      Serving size in g (or ml).
+  serving_size_imported:
+    type: string
+  sortkey:
+    type: integer
+  sources:
+    type: array
+    items:
+      type: object
+      properties:
+        fields:
+          type: array
+          items:
+            type: string
+        id:
+          type: string
+        images:
+          type: array
+          items:
+            type: object
+        import_t:
+          type: integer
+        manufacturer:
+          type:
+            - integer
+            - string
+        name:
+          type: string
+        source_licence:
+          type: string
+        source_licence_url:
+          type: string
+        url:
+          type:
+            - 'null'
+            - string
+  sources_fields:
+    type: object
+    properties:
+      org-gs1:
+        type: object
+        properties:
+          gln:
+            type: string
+          gpcCategoryCode:
+            type: string
+          gpcCategoryName:
+            type: string
+          isAllergenRelevantDataProvided:
+            type: string
+          lastChangeDateTime:
+            type: string
+          partyName:
+            type: string
+          productionVariantDescription:
+            type: string
+          publicationDateTime:
+            type: string
+  states:
+    type: string
+  states_hierarchy:
+    type: array
+    items:
+      type: string
+  states_tags:
+    type: array
+    items:
+      type: string
+  stores:
+    type: string
+    description: |
+      Distributor name.
+    example: Walmart
+  stores_tags:
+    type: array
+    items:
+      type: string
+  teams:
+    type: string
+  teams_tags:
+    type: array
+    items:
+      type: string
+  traces:
+    type: string
+    description: |
+      List of substances that might cause allergies 
+      that are present in trace amounts in the product 
+      (this does not include the ingredients, as they 
+      are not only present in trace amounts). 
+      It is taxonomized with the allergens taxonomy.
+  traces_from_ingredients:
+    type: string
+  traces_from_user:
+    type: string
+  traces_hierarchy:
+    type: array
+    items:
+      type: object
+  traces_lc:
+    type: string
+  traces_tags:
+    type: array
+    items:
+      type: object
+  unique_scans_n:
+    type: integer
+  unknown_ingredients_n:
+    type: integer
+  unknown_nutrients_tags:
+    type: array
+    items:
+      type: object
+  update_key:
+    type: string
+  vitamins_prev_tags:
+    type: array
+    items:
+      type: object
+  vitamins_tags:
+    type: array
+    items:
+      type: object
+

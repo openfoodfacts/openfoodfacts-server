@@ -9,6 +9,7 @@ x-backend-conf: &backend-conf
     args:
       USER_UID: ${USER_UID:-1000}
       USER_GID: ${USER_GID:-1000}
+      CPANMOPTS: "--with-develop"
   volumes:
     # mount local folder for reload on dev changes.
     # Note that this means /opt/product-opener/html/images/product wont be connected to product_images volume
@@ -41,6 +42,7 @@ services:
   # in dev we want to use watch assets and recompile on the fly
   # also we want to build at start time in case some files changed, as we want to avoid recreating volumes
   dynamicfront:
+    image: openfoodfacts-server/dynamicfront:dev
     build:
       context: .
       target: builder
@@ -71,10 +73,24 @@ services:
         USER_GID: ${USER_GID:-1000}
     volumes:
       - ./html:/opt/product-opener/html/
+      - ./icons:/opt/product-opener/icons
+      - ./scss:/opt/product-opener/scss
+      - ./gulpfile.js:/opt/product-opener/
+      - ./snyk:/opt/product-opener/
+    networks:
+        default:
+          aliases:
+            # trick: make it possible for robotoff to reach it internally, 
+            # using localhost domain
+            - world.openfoodfacts.localhost
+            - static.openfoodfacts.localhost
+            - images.openfoodfacts.localhost
   mongodb:
     # Note: keep it as close a possible to mongodb.yml
     image: mongo:4.4
     command: mongod --wiredTigerCacheSizeGB ${MONGODB_CACHE_SIZE}
+    volumes:
+      - dbdata:/data/db
     ports:
       - "127.0.0.1:${MONGO_EXPOSE_PORT:-27017}:27017"
 volumes:
@@ -83,14 +99,16 @@ volumes:
   products:
   # those one are volumes shared between off and pro, so we assign hard-coded names
   # see docs/explanations/pro-dev-setup.md
+  # PO_COMMON_PREFIX is there to separate env, eg. for tests
   users:
-    name: po_users
+    name: ${PO_COMMON_PREFIX:-}po_users
   orgs:
-    name: po_orgs
+    name: ${PO_COMMON_PREFIX:-}po_orgs
   podata:  # we also need to share it because users_emails and orgs... are not separated yet
-    name: po_podata
+    name: ${PO_COMMON_PREFIX:-}po_podata
+  dbdata:
 
 networks:
   # this is a specific network to enable pro platform to join the postgres db
   minion_db:
-    name: minion_db
+    name: ${PO_COMMON_PREFIX:-}minion_db

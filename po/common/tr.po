@@ -5,7 +5,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-02-22 17:23\n"
 "Language-Team: Turkish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -14,8 +13,7 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: tr\n"
-"X-Crowdin-File: common.pot\n"
-"X-Crowdin-File-ID: 1808\n"
+"X-Crowdin-File-ID: 2588\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -64,7 +62,7 @@ msgstr "Artık ürünleri Web'de veya ücretsiz <a href=\"%s\">mobil uygulamamı
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
-msgstr "Slack'te bize katılın"
+msgstr "Slack'de bize katılın"
 
 msgctxt "add_user_join_the_project"
 msgid "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
@@ -122,9 +120,9 @@ msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
 msgstr "Lütfen kuruluşunuzun adını (şirket adı veya markası) girin."
 
-msgctxt "this_is_a_pro_account_for_org"
-msgid "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
-msgstr "Bu hesap, üretici veya marka %s ile ilişkili profesyonel bir hesaptır. Yapımcılar için Platform'a erişiminiz var."
+msgctxt "f_this_is_a_pro_account_for_org"
+msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
+msgstr "Bu hesap üretici veya marka {org}. ile ilişkili profesyonel bir hesaptır. Üreticiler için olan Platforma erişiminiz vardır."
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -281,7 +279,7 @@ msgstr "Ayrıca Open Food Facts projesinin finanse edilmesine yardım edebilirsi
 
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
-msgstr ""
+msgstr "Üreticiler Yönetici kılavuzu"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
@@ -588,8 +586,8 @@ msgid "editor"
 msgstr "düzenleyici"
 
 msgctxt "email"
-msgid "e-mail address"
-msgstr "e-posta adresi"
+msgid "E-mail address"
+msgstr "E-posta adresi"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
@@ -601,7 +599,7 @@ msgstr "İzlenebilirlik kodları"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr "Paketleyici kodu"
+msgstr "İzlenebilirlik kodu"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
@@ -679,6 +677,14 @@ msgstr "Geçersiz kullanıcı."
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "Kullanıcı adı yalnızca renksiz rakamlar, rakamlar ve çizgiler içermelidir."
+
+msgctxt "error_username_too_long"
+msgid "The user name is too long (maximum 20 characters)."
+msgstr "Kullanıcı adı çok uzun (maksimum 20 karakter)."
+
+msgctxt "error_name_too_long"
+msgid "The name is too long (maximum 60 characters)."
+msgstr "Ad çok uzun (maksimum 60 karakter)."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -758,8 +764,8 @@ msgstr "<<site_name>> blog"
 
 # Do not translate
 msgctxt "footer_blog_link"
-msgid "https://en.blog.openfoodfacts.org"
-msgstr "https://en.blog.openfoodfacts.org"
+msgid "https://blog.openfoodfacts.org/en/"
+msgstr "https://blog.openfoodfacts.org/tr/"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -789,8 +795,8 @@ msgstr "Sıkça sorulan sorular"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
-msgid "/faq"
-msgstr "/sss"
+msgid "https://support.openfoodfacts.org/help/en-gb"
+msgstr "https://support.openfoodfacts.org/help/tr"
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -1010,6 +1016,18 @@ msgstr "muhbir"
 msgctxt "ingredients"
 msgid "Ingredients"
 msgstr "İçindekiler"
+
+msgctxt "no_ingredient"
+msgid "Ingredients are missing"
+msgstr "Bileşenler eksik"
+
+msgctxt "one_ingredient"
+msgid "1 ingredient"
+msgstr "1 bileşen"
+
+msgctxt "f_ingredients_with_number"
+msgid "{number} ingredients"
+msgstr "{number} bileşen"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
@@ -1375,6 +1393,10 @@ msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
 msgstr "Bültene abone olun (aylık maksimum 2 e-posta)"
 
+msgctxt "subscribe_to_our_newsletter"
+msgid "Subscribe to our newsletter"
+msgstr "Haber bültenimize abone olun"
+
 msgctxt "next"
 msgid "Next"
 msgstr "Sonraki"
@@ -1547,15 +1569,15 @@ msgstr "Beslenme derecesi"
 
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
-msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
-msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
+msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
+msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
-msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
+msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://blog.openfoodfacts.org/en/\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr "<p> <<site_name>> hakkında daha fazla bilgi edinmek için <a href=\"https://en.blog.openfoodfacts.org\"> blogumuzu </a> ziyaret edin! </ p>\n"
-"<p> Son haberler: </ p>\n"
+msgstr "<p><<site_name>> hakkında daha fazla bilgi edinmek için <a href=\"https://blog.openfoodfacts.org/tr/\">blogumuzu ziyaret edin</a>!</p>\n"
+"<p>Son haberler:</p>\n"
 
 msgctxt "on_the_blog_title"
 msgid "News"
@@ -2275,7 +2297,7 @@ msgstr "Ürün sayfasına bakın"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr "Satılan ülkeler"
+msgstr "Ülke"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2433,6 +2455,7 @@ msgctxt "tagstable_search"
 msgid "Search:"
 msgstr "Arama:"
 
+# This is linked to a unit test
 msgctxt "traces"
 msgid "Traces"
 msgstr "İz"
@@ -2547,9 +2570,9 @@ msgstr "Tüm dünyadan sonuçları gör"
 
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
-"→ <a href=\"/faq#pictures_and_data_from_other_sites\">Why it matters</a>"
-msgstr "Bilgi ve veriler ürünün paketi ve etiketinden sağlanmalıdır (başka sayfalardan veya üreticinin sayfasından değil), ve resimleri kendiniz çekmelisiniz.<br/> \n"
-"→ <a href=\"/faq#pictures_and_data_from_other_sites\">Neden önemli</a>"
+"→ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">Why it matters</a>"
+msgstr "Bilgi ve veriler ürün paketinden ve etiketinden gelmelidir (diğer sitelerden veya üreticinin sitesinden değil) ve fotoğrafları kendiniz çekmiş olmanız gerekir.<br/>\n"
+"→ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">Neden önemlidir</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -2575,7 +2598,7 @@ msgstr "%s olarak bağlısınız."
 
 msgctxt "product_js_unselect_image"
 msgid "Unselect image"
-msgstr "Resim seçimini kaldır"
+msgstr "Jgjck"
 
 msgctxt "product_js_unselecting_image"
 msgid "Unselecting image."
@@ -2610,16 +2633,16 @@ msgid "Warning: the amount of fruits, vegetables and nuts is not specified, thei
 msgstr "Uyarı: Meyve, sebze ve fındık fıstık belirtilmedi. Olası olumlu katkıları hesaba katılmamıştır."
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d%"
-msgstr "Dikkat: Meyve, sebze ve fındık miktarı etiket üzerinde belirtilmemiş, içerikler listesinden tahmin edilmiştir: %d%"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
+msgstr "Dikkat: meyvelerin, sebzelerin ve fındık miktarları etikette belirlenmemiş, temel olarak içerik listesinden esas alınmıştır:%d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
-msgstr "Uyarı: Meyve, sebze ve fındık miktarı etiket üzerinde belirtilmemiş, (%s) kategorisinden %d% ürününe göre hesaplanmıştır"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
+msgstr ""
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr "Uyarı: Meyve, sebze ve fındık miktarı etiket üzerinde belirtilmemiş, içerikler listesinden hesaplanmıştır: %d%"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
+msgstr ""
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -2675,7 +2698,7 @@ msgstr "Son değişiklikler"
 
 msgctxt "translators_title"
 msgid "Our Translators"
-msgstr "Tercümanlarımız"
+msgstr "Çevirmenlerimiz"
 
 msgctxt "translators_lead"
 msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages! <a href=\"https://translate.openfoodfacts.org/\">You can join us in this global effort: it doesn't require any technical knowledge.</a>"
@@ -3029,11 +3052,11 @@ msgstr "Ürünün ve/veya bileşenlerinin menşei"
 
 msgctxt "origin_note"
 msgid "Packaging mentions that indicate the manufacturing place and/or the origins of the ingredients"
-msgstr ""
+msgstr "Paketleme ifadeleri üretim yerini ve/veya içeriğin kökenlerini gösterir"
 
 msgctxt "origin_example"
 msgid "Made in France. Tomatoes from Italy. Origin of the rice: India, Thailand."
-msgstr ""
+msgstr "Fransa'da üretilmiştir. Domatesler İtalya'dandır. Pirincin kökeni: Hindistan, Tayland'tır."
 
 msgctxt "customer_service"
 msgid "Customer service"
@@ -3115,6 +3138,10 @@ msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
 msgstr "Önemli not: Bu ürün artık satılmamaktadır. Veriler sadece referans amaçlı tutulmaktadır. Bu ürün normal aramalarda görünmemekte ve istatistiklerde hesaba katılmamaktadır."
 
+# This will be on a button and needs to be as short as possible
+# So instead of something like "Install the mobile application"
+# try to make it very short "Get the app" or "Install the app"
+# Use infinitive instead of imperative
 msgctxt "get_the_app"
 msgid "Get the app"
 msgstr "Uygulamayı edinin"
@@ -3734,10 +3761,6 @@ msgctxt "import_file_result"
 msgid "Import result"
 msgstr "İçe aktarma sonucu"
 
-msgctxt "products_added"
-msgid "Products added"
-msgstr "Ürünler eklendi"
-
 msgctxt "products_modified"
 msgid "Products modified"
 msgstr "Ürünler değiştirildi"
@@ -3913,7 +3936,7 @@ msgstr "Meyve, sebze, kuruyemiş ve kolza/ceviz/ zeytin yağı"
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
-msgstr "Diyet lifi"
+msgstr "Lif"
 
 msgctxt "nutriscore_points_for_proteins"
 msgid "Proteins"
@@ -4036,11 +4059,11 @@ msgstr "Ben zaten bağış yaptım ya da ilgilenmiyorum. Afişi gizle."
 
 msgctxt "donation_banner_independant"
 msgid "An independant and citizen-led project for food transparency?"
-msgstr ""
+msgstr "Gıda şeffafiyeti için bağımsız ve vatandaş öncülüğündeki bir proje mi?"
 
 msgctxt "donation_banner_public_health"
 msgid "Food product data for research that improves public health?"
-msgstr ""
+msgstr "Halk sağlığını iyileştiren araştırmalar için gıda ürün verileri mi?"
 
 msgctxt "donation_banner_choices"
 msgid "Easier and better food choices according to your own criteria?"
@@ -4179,7 +4202,7 @@ msgstr "Bazı içerikler tanınamadı."
 # variable names between { } must not be translated
 msgctxt "f_move_data_and_photos_to_main_language"
 msgid "Move all data and selected photos in {language} to the main language of the product: {main_language}"
-msgstr ""
+msgstr "Tüm verileri ve seçilen fotoğrafları {language} ürünün ana diline taşıyın: {main_language}"
 
 msgctxt "move_data_and_photos_to_main_language_replace"
 msgid "Replace existing values and selected photos"
@@ -4225,6 +4248,22 @@ msgstr "Takım adları herkese açıktır. Kişisel bilgi (örneğin soyadı), t
 msgctxt "team_s"
 msgid "Team %s"
 msgstr "Takım %s"
+
+msgctxt "contributor_settings"
+msgid "Contributor"
+msgstr "Katkı sağlayan"
+
+msgctxt "contributor_settings_description"
+msgid "Those settings allow you to personalize some aspect of the website"
+msgstr "Bu ayarlar size websitesinin bazı özelliklerini kişiselleştirmenizi sağlar"
+
+msgctxt "display_barcode_in_search"
+msgid "Display barcode in search results"
+msgstr "Arama sonuçlarındaki barkodu gösterin"
+
+msgctxt "edit_link_in_search"
+msgid "Add an edit link in search results"
+msgstr "Arama sonuçlarına bir düzenleme bağlantısı ekleyin"
 
 # leave the %d, it will be replaced by a number
 msgctxt "n_products_will_be_exported"
@@ -4304,15 +4343,15 @@ msgstr "Ürün artık mağazada bulunmuyorsa Evet, E veya 1 girin."
 
 msgctxt "specify_value_and_unit_or_use_default_unit"
 msgid "Specify both the value and unit, or use the default unit: %s"
-msgstr ""
+msgstr "hem değeri hem de birimi açıkça belirtin, veya hazır birimi kullanın: %s"
 
 msgctxt "specify_value_and_unit"
 msgid "Specify both the value and unit."
-msgstr ""
+msgstr "Hem değeri hem de birimi açıkça belirtin."
 
 msgctxt "download_sample_import_file"
 msgid "Download an XLSX template file for Excel or LibreOffice with the fields that can be imported."
-msgstr ""
+msgstr "Excel veya Libre Office için iç içe aktarılabilen alanlarla birlikte XLSX şablon dosyasını indirin."
 
 msgctxt "code_import_note"
 msgid "Barcode as it appears on the product."
@@ -4320,27 +4359,27 @@ msgstr "Ürünün üzerindeki barkod."
 
 msgctxt "producer_product_id_import_note"
 msgid "Internal code used by the producer to identify the product, different from the product's barcode."
-msgstr ""
+msgstr "Dahili kodlar üretici tarafından ürünün belirlenmesi için, ürün kodunun dışında kullanılır."
 
 msgctxt "producer_version_id_import_note"
 msgid "Internal code used by the producer to identify a specific version of a product when it changes."
-msgstr ""
+msgstr "Dahili kodlar değiştirildiğinde üretici tarafından bir ürünün belirli bir sürümünü tanımlamak için kullanılır."
 
 msgctxt "categories_import_note"
 msgid "Providing a category is very important to make the product easy to search for, and to compute the Nutri-Score"
-msgstr ""
+msgstr "Ürünün araştırılmasını kolaylaştırmak için ve besin skorunu(Nutri-Score) hesaplamak için bir kategorinin şart koşulması çok önemlidir"
 
 msgctxt "labels_import_note"
 msgid "Some labels such as the organic label are used to filter and/or rank search results, so it is strongly recommended to specify them."
-msgstr ""
+msgstr "Araştırma sonuçlarını sıralamak ve / veya filtrelemek için organik etiketler gibi bazı etiketler kullanılır bu yüzden kuvvetli anlamda onları nitelendirmek için önerilirler."
 
 msgctxt "origins_import_note"
 msgid "This field must contain only a comma separated list of countries of origin of the ingredients"
-msgstr ""
+msgstr "Bu alan içeriklerin menşe ülkelerinin listesinden sadece bir virgül ile ayrılmış şekilde içerilmelidir"
 
 msgctxt "origin_import_note"
 msgid "Text or sentences that indicate the origin of the product and/or its ingredients."
-msgstr ""
+msgstr "Metin veya cümleler ürün ve/veya içeriklerin kökenini gösterir."
 
 msgctxt "nutriscore_grade_producer_note"
 msgid "Nutri-Score grade from A to E displayed on the product label"
@@ -4372,7 +4411,7 @@ msgstr "Tavsiye edilen alan"
 
 msgctxt "recommended_field_note"
 msgid "If this information exists and is relevant for the product, it is recommended to provide it to make the product easier to search for and the product data more useful."
-msgstr ""
+msgstr "Bu bilgi varsa ve ürünle ilgiliyse, ürünün araştırılmasını daha kolay hale getirmesini ve ürün verisinin daha kullanışlı olmasını sağlaması için önerilir."
 
 msgctxt "optional_field"
 msgid "Optional field"
@@ -4380,13 +4419,14 @@ msgstr "Mecburi olmayan alan"
 
 msgctxt "optional_field_note"
 msgid "If available, this information will be displayed on the product page."
-msgstr ""
+msgstr "Varsa, bu bilgi ürün sayfasında gösterilecektir."
 
 # product photos here means photos of multiple products
 msgctxt "images_can_be_provided_separately"
 msgid "Product photos can also be provided separately through the Import product photos function of the platform for producers."
 msgstr ""
 
+# This is linked to a unit test
 msgctxt "attribute_group_labels_name"
 msgid "Labels"
 msgstr "Etiketler"
@@ -4405,7 +4445,7 @@ msgstr "Organik ürün değil"
 
 msgctxt "attribute_labels_organic_unknown_title"
 msgid "Missing information: organic product?"
-msgstr ""
+msgstr "Eksik bilgi: organik ürün?"
 
 msgctxt "attribute_labels_organic_yes_description_short"
 msgid "Promotes ecological sustainability and biodiversity."
@@ -4413,7 +4453,7 @@ msgstr ""
 
 msgctxt "attribute_labels_organic_description_short"
 msgid "Organic products promote ecological sustainability and biodiversity."
-msgstr ""
+msgstr "Organik ürünler ekolojik sürdürülebilirlik ve bio çeşitliliği teşvik eder."
 
 msgctxt "attribute_labels_organic_description"
 msgid "Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives."
@@ -4425,19 +4465,19 @@ msgstr "Ticaret Fuarı"
 
 msgctxt "attribute_labels_fair_trade_yes_title"
 msgid "Fair trade product"
-msgstr ""
+msgstr "Ticaret dostu ürün"
 
 msgctxt "attribute_labels_fair_trade_no_title"
 msgid "Not a fair trade product"
-msgstr ""
+msgstr "Ticaret dostu olmayan ürün"
 
 msgctxt "attribute_labels_fair_trade_unknown_title"
 msgid "Missing information: fair trade product?"
-msgstr ""
+msgstr "Eksik bilgi: ticaret dostu ürün mü?"
 
 msgctxt "attribute_labels_fair_trade_yes_description_short"
 msgid "Helps producers in developing countries."
-msgstr ""
+msgstr "Gelişmekte olan ülkelerdeki üretimcilere yardım eder."
 
 msgctxt "attribute_labels_fair_trade_description_short"
 msgid "Fair trade products help producers in developing countries."
@@ -4445,7 +4485,7 @@ msgstr ""
 
 msgctxt "attribute_labels_fair_trade_description"
 msgid "When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards."
-msgstr ""
+msgstr "Adil ticaret ürünleri satın aldığınızda, gelişmekte olan ülkelerdeki üreticilere daha yüksek ve daha adil bir fiyat ödenir, bu da onların daha yüksek sosyal ve genellikle çevresel standartları geliştirmelerine ve sürdürmelerine yardımcı olur."
 
 msgctxt "attribute_group_nutritional_quality_name"
 msgid "Nutritional quality"
@@ -4461,7 +4501,7 @@ msgstr "İyi beslenme kalitesi (Nutri-Score)"
 
 msgctxt "attribute_nutriscore_setting_note"
 msgid "The Nutri-Score is computed and can be taken into account for all products, even if is not displayed on the packaging."
-msgstr ""
+msgstr "Nutri-Score hesaplanır ve ambalaj üzerinde gösterilmese bile tüm ürünler için dikkate alınabilir."
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_nutriscore_grade_title"
@@ -4474,15 +4514,20 @@ msgstr "Nutri-Score bilinmiyor"
 
 msgctxt "attribute_nutriscore_unknown_description_short"
 msgid "Missing data to compute the Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score'u hesaplamak için eksik veriler"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
 msgid "Nutri-Score not-applicable"
-msgstr ""
+msgstr "Nutri-score geçerli değildir"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Exempted category"
-msgstr ""
+msgid "Not-applicable for the category"
+msgstr "Kategori için geçerli değil"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_nutriscore_not_applicable_description"
+msgid "Not-applicable for the category: {category}"
+msgstr "Kategori için geçerli değil: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -4506,7 +4551,7 @@ msgstr "Çok kötü beslenme kalitesi"
 
 msgctxt "attribute_group_processing_name"
 msgid "Food processing"
-msgstr ""
+msgstr "Gıda işleme"
 
 msgctxt "attribute_nova_name"
 msgid "NOVA group"
@@ -4518,16 +4563,16 @@ msgstr "NOVA hesaplanmadı"
 
 msgctxt "attribute_nova_unknown_description_short"
 msgid "Food processing level unknown"
-msgstr ""
+msgstr "Gıda işleme seviyesi bilinmemektedir"
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
-msgstr ""
+msgstr "Gıda işlemesi hiç ya da az (NOVA grup)"
 
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
 msgid "NOVA %s"
-msgstr ""
+msgstr "NOVA &s"
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
@@ -4547,19 +4592,19 @@ msgstr "Üst düzey işlemden geçmiş yiyecekler"
 
 msgctxt "export_product_page"
 msgid "Export product to public database"
-msgstr ""
+msgstr "Ürünleri herkese açık veritabanına aktarın"
 
 msgctxt "one_product_will_be_exported"
 msgid "1 product will be exported."
-msgstr ""
+msgstr "1 ürün ihraç edilecektir."
 
 msgctxt "no_products_to_export"
 msgid "No products to export."
-msgstr ""
+msgstr "Ihraç edilecek ürün yok."
 
 msgctxt "query_filter"
 msgid "Query filter"
-msgstr ""
+msgstr "Sorgulama filtresi"
 
 msgctxt "nova_group_producer"
 msgid "NOVA group"
@@ -4587,7 +4632,7 @@ msgstr ""
 
 msgctxt "attribute_low_saturated_fat_setting_note"
 msgid "The saturated fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low saturated fat diet."
-msgstr ""
+msgstr "İşlenmiş yağ seviyesi Nutri-Score tarafından dikkate alınır. Bu ayarları sadece siz özellikle düşük işlenmiş yağ diyetindeyseniz kullanın."
 
 msgctxt "attribute_group_allergens_name"
 msgid "Allergens"
@@ -4697,19 +4742,19 @@ msgstr ""
 
 msgctxt "attribute_ecoscore_b_description_short"
 msgid "Low environmental impact"
-msgstr ""
+msgstr "Düşük çevresel etki"
 
 msgctxt "attribute_ecoscore_c_description_short"
 msgid "Moderate environmental impact"
-msgstr ""
+msgstr "Orta düzeyde çevresel etki"
 
 msgctxt "attribute_ecoscore_d_description_short"
 msgid "High environmental impact"
-msgstr ""
+msgstr "Yüksek çevresel etki"
 
 msgctxt "attribute_ecoscore_e_description_short"
 msgid "Very high environmental impact"
-msgstr ""
+msgstr "Çok yüksek çevresel etki"
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "contains_s"
@@ -4821,11 +4866,11 @@ msgstr ""
 
 msgctxt "delete_org"
 msgid "Delete the organization"
-msgstr ""
+msgstr "Kuruluşu sil"
 
 msgctxt "official_site"
 msgid "Official site"
-msgstr ""
+msgstr "Resmi site"
 
 msgctxt "contact_form"
 msgid "Contact form"
@@ -4874,7 +4919,7 @@ msgstr ""
 
 msgctxt "preferences_edit_your_food_preferences"
 msgid "Edit your food preferences"
-msgstr ""
+msgstr "Yemek tercihlerinizi düzenleyin"
 
 msgctxt "preferences_your_preferences"
 msgid "Your food preferences"
@@ -5155,7 +5200,7 @@ msgstr "Sayfa başına %d ürün"
 
 msgctxt "not_applicable"
 msgid "Not applicable"
-msgstr ""
+msgstr "Uygulanamaz"
 
 msgctxt "abbreviated_product_name"
 msgid "Abbreviated product name"
@@ -5190,6 +5235,23 @@ msgctxt "delete_user_process"
 msgid "User deleted."
 msgstr "Kullanıcı silindi."
 
+msgctxt "attribute_ecoscore_not_applicable_title"
+msgid "Eco-Score not yet applicable"
+msgstr "Eko-Skor henüz geçerli değil"
+
+msgctxt "attribute_ecoscore_not_applicable_description_short"
+msgid "Not yet applicable for the category"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_ecoscore_not_applicable_description"
+msgid "Not yet applicable for the category: {category}"
+msgstr ""
+
+msgctxt "ecoscore_not_applicable_coming_soon"
+msgid "The Eco-Score is not yet applicable for this category, but we are working on adding support for it."
+msgstr ""
+
 msgctxt "attribute_ecoscore_unknown_title"
 msgid "Eco-Score not computed"
 msgstr "Eco-Score hesaplanmadı"
@@ -5197,6 +5259,10 @@ msgstr "Eco-Score hesaplanmadı"
 msgctxt "attribute_ecoscore_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr "Bilinmeyen çevre etkisi"
+
+msgctxt "ecoscore_unknown_call_to_help"
+msgid "We could not compute the Eco-Score of this product as it is missing some data, could you help complete it?"
+msgstr ""
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
@@ -5228,11 +5294,11 @@ msgstr ""
 
 msgctxt "org_admin"
 msgid "Administrator fields"
-msgstr ""
+msgstr "Yönetici alanları"
 
 msgctxt "minion_status_inactive"
 msgid "Queued"
-msgstr ""
+msgstr "Kuyrukta"
 
 msgctxt "minion_status_active"
 msgid "In progress"
@@ -5298,13 +5364,14 @@ msgctxt "data_source_database_note_about_the_producers_platform"
 msgid "Manufacturers can use the Open Food Facts <a href=\"<producers_platform_url>\">free plaform for producers</a> to access and complete this data, and to obtain reports, analysis and product improvements opportunities (e.g. better Nutri-Score)."
 msgstr ""
 
-msgctxt "data_source_database_equadis"
-msgid "The manufacturer %s uses %s to automatically transmit data and photos for its products."
+# variable names between { } must not be translated
+msgctxt "f_data_source_database_provider"
+msgid "The manufacturer {manufacturer} uses {provider} to automatically transmit data and photos for its products."
 msgstr ""
 
 msgctxt "image_other_type"
 msgid "Type of the product photo"
-msgstr ""
+msgstr "Ürün fotoğrafının türü"
 
 # do not translate "front, ingredients, nutrition, packaging"
 msgctxt "image_other_type_description"
@@ -5346,7 +5413,7 @@ msgstr ""
 # do not translate Agribalyse
 msgctxt "ecoscore_agribalyse_category"
 msgid "Agribalyse category"
-msgstr ""
+msgstr "Agribalyse kategorisi"
 
 msgctxt "ecoscore_category_proxy_match"
 msgid "Approximate match with the product category"
@@ -5379,7 +5446,7 @@ msgstr ""
 
 msgctxt "ecoscore_agriculture"
 msgid "Agriculture"
-msgstr ""
+msgstr "Tarım"
 
 msgctxt "ecoscore_processing"
 msgid "Processing"
@@ -5395,11 +5462,11 @@ msgstr ""
 
 msgctxt "ecoscore_distribution"
 msgid "Distribution"
-msgstr ""
+msgstr "Dağıtım"
 
 msgctxt "ecoscore_consumption"
 msgid "Consumption"
-msgstr ""
+msgstr "Tüketim"
 
 msgctxt "ecoscore_lca_score_out_of_100"
 msgid "LCA score out of 100"
@@ -5431,7 +5498,7 @@ msgstr ""
 
 msgctxt "ecoscore_origins_of_ingredients"
 msgid "Origins of ingredients"
-msgstr ""
+msgstr "Bileşenlerin kökenleri"
 
 msgctxt "ecoscore_ingredients_not_indicated"
 msgid "The origins of the ingredients of this product are not indicated."
@@ -5467,15 +5534,15 @@ msgstr ""
 
 msgctxt "ecoscore_packaging_ratio"
 msgid "ratio"
-msgstr ""
+msgstr "oran"
 
 msgctxt "ecoscore_packaging_score"
 msgid "score"
-msgstr ""
+msgstr "puan"
 
 msgctxt "ecoscore_score_of_all_components"
 msgid "Score of all components"
-msgstr ""
+msgstr "Tüm bileşenlerin puanı"
 
 msgctxt "ecoscore_no_packaging_information"
 msgid "The information about the packaging of this product is not filled in."
@@ -5491,7 +5558,7 @@ msgstr ""
 
 msgctxt "ecoscore_final_score"
 msgid "Final score"
-msgstr ""
+msgstr "Son skor"
 
 msgctxt "ecoscore_lower_the_score_lower_the_impact"
 msgid "(the lower the score, the lower the impact)"
@@ -5593,7 +5660,7 @@ msgstr ""
 # medium as in "medium impact"
 msgctxt "medium"
 msgid "medium"
-msgstr ""
+msgstr "orta"
 
 msgctxt "nutrition_grade_fr_tea_bags_note"
 msgid "Note: the Nutri-Score of teas and herbal teas corresponds to the product prepared with water only, without sugar or milk."
@@ -5676,6 +5743,10 @@ msgctxt "source_ademe_agribalyse"
 msgid "Source: ADEME Agribalyse Database"
 msgstr ""
 
+msgctxt "source_ademe_agribalyse_for_category"
+msgid "The carbon emission figure comes from ADEME's Agribalyse database, for the category:"
+msgstr "karbon emisyonu sayısı ADEME'nin Agribalyse veritabanından aşağıdaki kategori için türetilmiştir:"
+
 msgctxt "environment_card_title"
 msgid "Environment"
 msgstr "Çevre"
@@ -5698,7 +5769,7 @@ msgstr ""
 
 msgctxt "bonus"
 msgid "Bonus"
-msgstr ""
+msgstr "Bonus"
 
 msgctxt "malus"
 msgid "Malus"
@@ -5732,6 +5803,10 @@ msgctxt "ecoscore_lca_score"
 msgid "Life cycle analysis score"
 msgstr ""
 
+msgctxt "impact_for_this_product"
+msgid "Impact for this product"
+msgstr ""
+
 msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
 msgstr ""
@@ -5748,9 +5823,13 @@ msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr ""
 
+msgctxt "nutriscore_missing_category_and_nutrition_data"
+msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
+msgstr ""
+
 msgctxt "health"
 msgid "Health"
-msgstr ""
+msgstr "Sağlık"
 
 # will be followed by : and a value. e.g. "Compared to: bananas"
 msgctxt "compared_to"
@@ -5760,22 +5839,22 @@ msgstr ""
 # name of an activity / a sport
 msgctxt "activity_walking"
 msgid "Walking"
-msgstr ""
+msgstr "Yürüme"
 
 # name of an activity / a sport
 msgctxt "activity_swimming"
 msgid "Swimming"
-msgstr ""
+msgstr "Yüzme"
 
 # name of an activity / a sport
 msgctxt "activity_bicycling"
 msgid "Bicycling"
-msgstr ""
+msgstr "Bisiklet sürme"
 
 # name of an activity / a sport
 msgctxt "activity_running"
 msgid "Running"
-msgstr ""
+msgstr "Koşma"
 
 # Don't translate {kj}, it will be replaced by a number
 msgctxt "f_energy_per_100g"
@@ -5792,16 +5871,16 @@ msgctxt "f_energy_expenditure_for_weight_in_kg_lb"
 msgid "Energy expenditure for a person weighting {kg} kg / {lb} lb"
 msgstr ""
 
-msgctxt "nutriscore_not_applicable_short"
-msgid "Not applicable for this product"
-msgstr ""
-
 msgctxt "nutriscore_missing_category_short"
 msgid "Missing category"
-msgstr ""
+msgstr "Eksik kategori"
 
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
+msgstr ""
+
+msgctxt "nutriscore_missing_category_and_nutrition_data_short"
+msgid "Missing category and nutrition facts"
 msgstr ""
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
@@ -5819,7 +5898,7 @@ msgstr ""
 # "source" as in "source of the information"
 msgctxt "source"
 msgid "Source"
-msgstr ""
+msgstr "Bilgi Kaynağı"
 
 # variable names between { } must not be translated
 msgctxt "f_app_user"
@@ -5828,11 +5907,11 @@ msgstr ""
 
 msgctxt "food_groups_p"
 msgid "food groups"
-msgstr ""
+msgstr "besin grupları"
 
 msgctxt "food_groups_s"
 msgid "food group"
-msgstr ""
+msgstr "besin grubu"
 
 msgctxt "non_vegan_ingredients"
 msgid "Non-vegan ingredients"
@@ -5873,4 +5952,244 @@ msgstr ""
 msgctxt "unrecognized_ingredients"
 msgid "Unrecognized ingredients"
 msgstr ""
+
+msgctxt "nova_1_unprocessed_ingredients"
+msgid "The product contains only unprocessed or minimally processed ingredients."
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_nova_markers_for_nova_group"
+msgid "Elements that indicate the product is in the {nova_group} group"
+msgstr ""
+
+msgctxt "nova_classification_description"
+msgid "Food products are classified into 4 groups according to their degree of processing:"
+msgstr ""
+
+msgctxt "nova_classification_how"
+msgid "The determination of the group is based on the category of the product and on the ingredients it contains."
+msgstr ""
+
+msgctxt "nova_classification_learn_more"
+msgid "Learn more about the NOVA classification"
+msgstr ""
+
+msgctxt "nova_group_missing_category"
+msgid "The category of the product must be specified in order to determine the NOVA group."
+msgstr ""
+
+msgctxt "nova_group_missing_ingredients"
+msgid "The ingredients of the product must be specified in order to determine the NOVA group."
+msgstr ""
+
+msgctxt "nova_group_too_many_unknown_ingredient"
+msgid "We could not recognize some of the ingredients and determine the NOVA group."
+msgstr ""
+
+msgctxt "unselect_image"
+msgid "Unselect Image"
+msgstr ""
+
+msgctxt "nutriscore_learn_more"
+msgid "Learn more about the Nutri-Score"
+msgstr "Nutri-Score hakkında daha fazla bilgi edinin"
+
+msgctxt "ecoscore_learn_more"
+msgid "Learn more about the Eco-Score"
+msgstr "Eco-Score hakkında daha fazla şey öğrenin"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_very_good_match"
+msgid "Very good match"
+msgstr ""
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_good_match"
+msgid "Good match"
+msgstr ""
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_poor_match"
+msgid "Poor match"
+msgstr ""
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_unknown_match"
+msgid "Unknown match"
+msgstr "Bilinmeyen eşleşme"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_may_not_match"
+msgid "May not match"
+msgstr ""
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_does_not_match"
+msgid "Does not match"
+msgstr "Eşleşmiyor"
+
+msgctxt "reset_preferences"
+msgid "Use default preferences"
+msgstr ""
+
+msgctxt "reset_preferences_details"
+msgid "Nutri-Score, Eco-Score and food processing level (NOVA)"
+msgstr ""
+
+msgctxt "actions_add_ingredients"
+msgid "Could you add the ingredients list?"
+msgstr ""
+
+msgctxt "actions_to_compute_nutriscore"
+msgid "Could you add the information needed to compute the Nutri-Score?"
+msgstr ""
+
+msgctxt "actions_to_compute_ecoscore"
+msgid "Could you add a precise product category so that we can compute the Eco-Score?"
+msgstr "Eko-Skoru hesaplayabilmemiz için kesin bir ürün kategorisi ekleyebilir misiniz?"
+
+msgctxt "action_add_ingredients_text"
+msgid "Add the ingredients"
+msgstr ""
+
+msgctxt "action_add_categories"
+msgid "Add a category"
+msgstr ""
+
+msgctxt "action_add_nutrition_facts"
+msgid "Add nutrition facts"
+msgstr ""
+
+# Used as a header for key facts
+msgctxt "knowledge_panels_facts"
+msgid "What you need to know"
+msgstr ""
+
+msgctxt "knowledge_panels_recommendation"
+msgid "Recommendation"
+msgstr ""
+
+msgctxt "nutrient_info_salt_risk"
+msgid "A high consumption of salt (or sodium) can cause raised blood pressure, which can increase the risk of heart disease and stroke."
+msgstr ""
+
+msgctxt "nutrient_info_salt_high_blood_pressure"
+msgid "Many people who have high blood pressure do not know it, as there are often no symptoms."
+msgstr ""
+
+msgctxt "nutrient_info_salt_high_consumption"
+msgid "Most people consume too much salt (on average 9 to 12 grams per day), around twice the recommended maximum level of intake."
+msgstr ""
+
+msgctxt "nutrient_recommendation_salt_title"
+msgid "Limit the consumption of salt and salted food"
+msgstr ""
+
+msgctxt "nutrient_recommendation_salt_cooking_and_table"
+msgid "Reduce the quantity of salt used when cooking, and don't salt again at the table."
+msgstr ""
+
+msgctxt "nutrient_recommendation_salt_limit_salty_snacks"
+msgid "Limit the consumption of salty snacks and choose products with lower salt content."
+msgstr ""
+
+msgctxt "nutrient_info_sugars_risk"
+msgid "A high consumption of sugar can cause weight gain and tooth decay. It also augments the risk of type 2 diabetes and cardio-vascular diseases."
+msgstr ""
+
+msgctxt "nutrient_recommendation_sugars_title"
+msgid "Limit the consumption of sugar and sugary drinks"
+msgstr ""
+
+msgctxt "nutrient_recommendation_sugars_drinks"
+msgid "Sugary drinks (such as sodas, fruit beverages, and fruit juices and nectars) should be limited as much as possible (no more than 1 glass a day)."
+msgstr ""
+
+msgctxt "nutrient_recommendation_sugars_food"
+msgid "Choose products with lower sugar content and reduce the consumption of products with added sugars."
+msgstr ""
+
+msgctxt "nutrient_info_fat_and_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr ""
+
+msgctxt "nutrient_recommendation_fat_and_saturated_fat_title"
+msgid "Reduce the consumption of fat and saturated fat"
+msgstr ""
+
+msgctxt "nutrient_recommendation_fat_and_saturated_fat"
+msgid "Choose products with lower fat and saturated fat content."
+msgstr ""
+
+msgctxt "sign_in"
+msgid "Sign in"
+msgstr "Giriş Yap"
+
+msgctxt "sign_out"
+msgid "Sign out"
+msgstr "Çıkış yap"
+
+msgctxt "your_contributions"
+msgid "Your contributions"
+msgstr "Katkılarınız"
+
+msgctxt "products_added"
+msgid "Products added"
+msgstr "Ürünler eklendi"
+
+msgctxt "products_edited"
+msgid "Products edited"
+msgstr "Düzenlenen ürünler"
+
+msgctxt "products_photographed"
+msgid "Products photographed"
+msgstr "Fotoğraflanan ürünler"
+
+# result of the matching with the user preferences: should ne a noun, not a verb
+msgctxt "matching_with_your_preferences"
+msgid "Matching with your preferences"
+msgstr "Tercihlerinizle eşleştirme"
+
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_join_us_on_slack"
+msgid "Join us on <a href=\"{url}\">Slack</a>"
+msgstr "<a href=\"{url}\">Slack</a>bize katılın"
+
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_discover_our_code_of_conduct"
+msgid "Discover our <a href=\"{url}\">Code of conduct</a>"
+msgstr "<a href=\"{url}\">Davranış Kurallarımızı</a> keşfedin"
+
+# {links} must not be translated, it will be replaced by icons and/or text links
+msgctxt "f_footer_follow_us_links"
+msgid "Follow us: {links}"
+msgstr "Bizi takip edin: {links}"
+
+# Should be as small as possible, e.g. use "app" instead of "application", don't specify "mobile"
+msgctxt "footer_install_the_app_exclamation_mark"
+msgid "Install the app!"
+msgstr "Uygulamayı yükle!"
+
+# HTML tags must not be translated, keep <span id=\"everyday\"> and <span id=\"foods\"> and put them around the corresponding words in the translation
+# e.g. in French: Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>
+msgctxt "footer_scan_your_everyday_foods"
+msgid "Scan your <span id=\"everyday\">everyday</span> <span id=\"foods\">foods</span>"
+msgstr "<span id=\"everyday\">Her gün</span> <span id=\"foods\">yiyeceklerinizi</span> tarayın"
+
+msgctxt "nutrition"
+msgid "Nutrition"
+msgstr "Beslenme"
+
+# Note: "criteria" is plural here. So in French for instance: "Vos critères"
+msgctxt "your_criteria"
+msgid "Your criteria"
+msgstr "Kriterleriniz"
+
+msgctxt "product"
+msgid "Product"
+msgstr "Ürün"
+
+msgctxt "environment"
+msgid "Environment"
+msgstr "Çevre"
 

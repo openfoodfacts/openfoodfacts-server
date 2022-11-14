@@ -6,7 +6,8 @@
 # https://github.com/actions/labeler
 
 name: Labeler
-on: [pull_request]
+on:
+- pull_request_target
 
 jobs:
   label:
@@ -17,7 +18,7 @@ jobs:
       pull-requests: write
 
     steps:
-    - uses: actions/labeler@v3.0.2
-      if: github.event.pull_request.head.repo.full_name == github.repository
+    - uses: actions/labeler@v4
+      #if: github.event.pull_request.head.repo.full_name == github.repository
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"

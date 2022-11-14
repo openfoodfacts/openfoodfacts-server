@@ -7,9 +7,11 @@
 # - Always set the unit:en property. If there is not unit (e.g. for the pH), use unit:en with no value.
 # - The "automatically_computed:en: yes" property is used for nutrients (or scores) that are not entered by users, but computed by Product Opener
 # (e.g. the NOVA group, Nutrition score, % of fruits/vegetables estimated by ingredients analysis etc.)
+# See also: https://wiki.openfoodfacts.org/Nutrients_handling_in_Open_Food_Facts
 
 stopwords:en: including, of, which
 stopwords:fr: dont
+stopwords:hr: od kojih
 stopwords:nl: waarvan
 
 zz:energy-kj
@@ -28,6 +30,7 @@ fi:Energia (kJ)
 fr:Énergie (kJ), valeurs énergétique (kJ), valeur énergétique (kJ)
 ga:Fuinneamh (kJ)
 he:אנרגיה - קלוריות (kJ)
+hr:Energija (kJ)
 hu:Energia (kJ)
 it:Energia (kJ)
 ja:エネルギー (kJ)
@@ -69,6 +72,7 @@ fi:Energia (kcal)
 fr:Énergie (kcal), valeurs énergétique (kcal), valeur énergétique (kcal), kcal, kilocalories
 ga:Fuinneamh (kcal)
 he:אנרגיה - קלוריות (kcal)
+hr:Energija (kcal)
 hu:Energia (kcal)
 it:Energia (kcal)
 ja:エネルギー (kcal)
@@ -130,7 +134,7 @@ gv:bree
 ha:Makamashi
 he:אנרגיה - קלוריות
 hi:ऊर्जा
-hr:energija
+hr:Energija
 ht:enèji
 hu:Energia
 hy:Էներգիա
@@ -222,6 +226,7 @@ fi:Energia rasvasta
 fr:Énergie provenant des graisses
 hu:Energia zsírból
 ja:脂質からのエネルギー
+nl:Energie van vetten
 pt:Energia des gorduras
 ro:Valoarea energetică din grăsimi
 ru:Энергетическая ценность жиров
@@ -342,6 +347,7 @@ fi:Tyydyttyneet rasvat, Tyydyttynyt rasvahappo
 fr:Acides gras saturés, Saturés, AGS, matières grasses saturées, MGS
 ga:sáSitheáin saill
 he:שומן רווי
+hr:Zasićene masne
 hu:Telített zsírsavak
 id:Lemak jenuh
 is:Mettuð fita
@@ -447,6 +453,7 @@ en:Caproic acid, Hexanoic acid
 xx:Caproic acid, Hexanoic acid
 ar:حمض الهكسانويك
 az:Kapron turşusu
+bg:Капронова киселина
 ca:Àcid caproic, àcid hexanoic
 cs:Kyselina kapronová
 de:Capronsäure
@@ -490,6 +497,7 @@ zz:caprylic-acid
 en:Caprylic acid
 xx:Caprylic acid
 ar:حمض الأوكتانويك
+bg:Каприлова киселина
 ca:àcid caprílic
 cs:Kyselina kaprylová
 de:Caprylsäure
@@ -498,7 +506,7 @@ eo:Oktanoata acido
 es:Ácido caprílico
 fa:کاپریلیک اسید
 fi:Kapryylihappo
-fr:Acide caproïque, Acide hexanoïque
+fr:Acide caprylique, acide octanoïque
 gl:Ácido caprílico
 he:חומצה קפרילית
 hi:ऑक्टेनोइक अम्ल
@@ -529,6 +537,7 @@ zz:capric-acid
 en:Capric acid
 xx:Capric acid
 ar:حمض الديكانويك
+bg:Капринова киселина 
 ca:àcid càpric
 cs:Kyselina kaprinová
 da:kaprinsyre
@@ -800,7 +809,7 @@ fi:Arakidihappo, Eikosaanihappo (20:0), Ikosaanihappo (20:0), eikosaanihappo, ik
 fr:Acide arachidique, acide eicosanoïque
 ga:aigéad araicise
 gl:Ácido araquídico
-hu:Arachidonsav
+hu:Arachidsav
 it:acido arachico
 ja:アラキジン酸
 ko:아라키드산
@@ -910,6 +919,7 @@ zz:cerotic-acid
 en:Cerotic acid, hexacosanoic acid
 xx:Cerotic acid, hexacosanoic acid
 ar:حمض السيروتيك
+bg:Церотична киселина 
 ca:Àcid ceròtic
 da:cerotinsyre
 de:Cerotinsäure, Xerotinsaeure
@@ -945,6 +955,7 @@ zz:montanic-acid
 en:Montanic acid
 xx:Montanic acid
 ar:حمض المونتانيك
+bg:Монтанова киселина 
 ca:Àcid octacosanoic
 da:montansyre
 de:Montansäure
@@ -979,6 +990,7 @@ zz:melissic-acid
 en:Melissic acid
 xx:Melissic acid
 ar:حمض الميليسيك
+bg:Мелисинова киселина 
 ca:Àcid triacontanoic
 da:melissinsyre
 de:Melissinsäure
@@ -1008,6 +1020,11 @@ unit:en: g
 wikidata:en: Q420731
 wikipedia:en: https://en.wikipedia.org/wiki/Melissic_acid
 
+zz:unsaturated-fat
+en:Unsaturated fat
+xx:Unsaturated fat
+nl:Onverzadigde vetten
+
 zz:monounsaturated-fat
 en:Monounsaturated fat, mono-unsaturated fat, monounsaturated, mono-unsaturated
 xx:Monounsaturated fat
@@ -1028,6 +1045,7 @@ fi:Kertatyydyttymättömät rasvat, Kertatyydyttymättömät rasvahapot, Yksitt�
 fr:Acides gras monoinsaturés, Acides gras mono-insaturés, monoinsaturés, mono-insaturés
 ga:Monai-neamhsháitheáin saill
 he:שומן חד בלתי רווי
+hr:Jednostruko nezasićene masne kiseline
 hu:Egyszeresen telítetlen zsírsavak, Egyszeresen telítetlen zsírsav
 id:Lemak tak jenuh
 it:Acidi grassi monoinsaturi
@@ -1077,6 +1095,8 @@ fi:Monityydyttymättömät rasvat, Monityydyttymättömät rasvahapot
 fr:Acides gras polyinsaturés, Acides gras poly-insaturés, polyinsaturés, poly-insaturés
 ga:Pola-neamhsháitheáin saill
 he:שומן רב בלתי רווי
+hr:višestruko nezasićene masne kiseline
+hr:Višestruko nezasićene masne kiseline
 hu:Többszörösen telítetlen zsírsavak, Többszörösen telítetlen zsírsav
 it:Acidi grassi polinsaturi
 lt:Polinesočiosios riebalų rūgštys
@@ -1109,6 +1129,7 @@ wikidata:en: Q3604509
 zz:omega-3-fat
 en:Omega 3 fat, Omega 3 fatty acids
 xx:Omega 3 fat, Omega 3 fatty acids
+bg:Омега 3 мастни киселини
 cs:Omega 3 mastné kyseliny
 de:Omega-3-Fettsäuren
 el:Ωμέγα-3 λιπαρά
@@ -1128,12 +1149,13 @@ zh:Omega 3 脂肪酸
 zh_CN:Omega 3 脂肪酸
 zh_HK:Omega 3 脂肪酸
 zh_TW:Omega 3 脂肪酸
-unit:en: g
+unit:en: mg
 
 zz:alpha-linolenic-acid
 en:Alpha-linolenic acid, ALA
 xx:Alpha-linolenic acid, ALA
 ar:حمض ألفا-اللينولينيك
+bg:Алфа-линоленова киселина 
 ca:àcid alfa-linolènic
 cs:kyselina alfa-linolenová
 cy:asid α-linolenig
@@ -1185,6 +1207,7 @@ zz:eicosapentaenoic-acid
 en:Eicosapentaenoic acid, EPA
 xx:Eicosapentaenoic acid, EPA
 ar:حمض الإيكوسابنتاينويك
+bg:Ейкозапентаенова киселина 
 ca:Àcid eicosapentaenoic
 cs:kyselina eikosapentaenová
 da:eicosapentaensyre
@@ -1274,6 +1297,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Docosahexaenoic_acid
 zz:omega-6-fat
 en:Omega 6 fat, Omega 6 fatty acids
 xx:Omega 6 fat, Omega 6 fatty acids
+bg:Омега 6 мастни киселини
 de:Omega-6-Fettsäuren
 el:Ωμέγα-6 λιπαρά
 es:Ácidos grasos Omega 6
@@ -1292,13 +1316,14 @@ zh:Omega 6 脂肪酸
 zh_CN:Omega 6 脂肪酸
 zh_HK:Omega 6 脂肪酸
 zh_TW:Omega 6 脂肪酸
-unit:en: g
+unit:en: mg
 
 zz:linoleic-acid
 en:Linoleic acid, LA
 xx:Linoleic acid, LA
 ar:حمض اللينولييك
 be:Лінолевая кіслата
+bg:Линолова киселина 
 ca:àcid linoleic
 cs:Kyselina linolová
 da:linolsyre
@@ -1397,6 +1422,7 @@ zz:gamma-linolenic-acid
 en:Gamma-linolenic acid, GLA, gamolenic acid
 xx:Gamma-linolenic acid, GLA, gamolenic acid
 ar:حمض غاما-اللينولينيك
+bg:Гама-линоленова киселина 
 ca:Àcid γ-linolènic
 da:gamoleninsyre
 de:Gamma-Linolensäure, Gamoleninsäure
@@ -1434,6 +1460,7 @@ zz:dihomo-gamma-linolenic-acid
 en:Dihomo-gamma-linolenic acid, DGLA
 xx:Dihomo-gamma-linolenic acid, DGLA
 ar:حمض ديهومو-غاما-اللينولينيك
+bg:Дихомо-гама-линоленова киселина 
 ca:Àcid dihomo-γ-linolènic
 da:dihomo-gamma-linolensyre
 de:Dihomo-Gamma-Linolsäure
@@ -1462,6 +1489,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Dihomo-γ-linolenic_acid
 zz:omega-9-fat
 en:Omega 9 fat, Omega 9 fatty acids
 xx:Omega 9 fat, Omega 9 fatty acids
+bg:Омега 9 мастни киселини 
 de:Omega-9-Fettsäuren
 el:Ωμέγα-9 λιπαρά
 es:Ácidos grasos Omega 9
@@ -1480,7 +1508,7 @@ zh:Omega-9 脂肪酸
 zh_CN:Omega-9 脂肪酸
 zh_HK:Omega-9 脂肪酸
 zh_TW:Omega-9 脂肪酸
-unit:en: g
+unit:en: mg
 
 zz:oleic-acid
 en:Oleic acid
@@ -1503,7 +1531,7 @@ fr:Acide oléique
 ga:aigéad oiléach
 gl:Ácido oleico
 he:חומצה אולאית
-hr:oleinska kiselina
+hr:Oleinska kiselina
 hu:Olajsav
 hy:Օլեինաթթու
 id:Asam oleat
@@ -1580,6 +1608,7 @@ zz:gondoic-acid
 en:Gondoic acid
 xx:Gondoic acid
 ar:حمض الغوندويك
+bg:Гондоева киселина 
 ca:Àcid gondòic
 de:Gondosäure
 el:Γονδοϊκό οξύ
@@ -1639,6 +1668,7 @@ zz:erucic-acid
 en:Erucic acid
 xx:Erucic acid
 ar:حمض الإروسيك
+bg:Ерукова киселина
 ca:àcid erúcic
 cs:Kyselina eruková
 da:erucasyre
@@ -1879,6 +1909,7 @@ fi:Hiilihydraatit, hiilihydraatti
 fr:Glucides
 ga:Carbaihiodráit
 he:פחמימות
+hr:Ugljikohidrati
 hu:Szénhidrát
 it:Carboidrati
 ja:炭水化物
@@ -2029,9 +2060,10 @@ evaluation:en: bad
 zz:added-sugars
 en:Added sugars, Added sugar
 xx:Added sugars, Added sugar
+bg:Добавена захар 
 fr:Sucres ajoutés, sucre ajouté
-nl:Toegevoegde suikers
-unit_en: g
+nl:Toegevoegde suikers, Toegevoegd suiker
+unit:en: g
 evaluation:en: bad
 
 zz:sucrose
@@ -2420,6 +2452,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Maltose
 zz:maltodextrins
 en:Maltodextrins, maltodextrin
 xx:Maltodextrins, maltodextrin
+bg:Малтодекстрини, малтодекстрин
 de:Maltodextrine
 el:Μαλτοδεξτρίνες, μαλτοδεξτρίνη
 es:Maltodextrinas, maltodextrina
@@ -2450,7 +2483,7 @@ ar:نشا
 az:Nişasta
 ba:Крахмал
 be:Крухмал
-bg:Скорбяла
+bg:Нишесте, Скорбяла
 bn:স্টার্চ
 bs:Škrob
 ca:Midó
@@ -2468,7 +2501,7 @@ fy:Stiselmoal
 ga:Stáirse
 he:עמילן
 hi:मंड
-hr:Škrob
+hr:škrob
 hu:Keményítő
 hy:Օսլա
 id:Amilum
@@ -2540,6 +2573,7 @@ fi:Polyolit
 fr:Polyols
 ga:Polóil
 he:סוכר אלכוהולי (פוליאול)
+hr:polioli
 hu:Poliolok
 it:Polialcoli/polioli (alcoli degli zuccheri), alcoli degli zuccheri
 ja:糖アルコール (ポリオール)
@@ -2575,6 +2609,7 @@ fi:Ravintokuidut, Ravintokuitu, Kuitu, Kuidut
 fr:Fibres alimentaires, fibres, fibre, fibre alimentaire, fibres alimentaires totales
 ga:Snáithín
 he:סיבים תזונתיים
+hr:prehrambena vlakna
 hu:Rost
 it:Fibra alimentare
 ja:食物繊維
@@ -2601,6 +2636,7 @@ evaluation:en: good
 zz:soluble-fiber
 en:Soluble fiber
 xx:Soluble fiber
+bg:Разтворими влакнини
 ca:fibra soluble
 cs:Rozpustná vláknina
 de:lösliche Ballaststoffe
@@ -2626,6 +2662,7 @@ unit:en: g
 zz:insoluble-fiber
 en:Insoluble fiber
 xx:Insoluble fiber
+bg:Неразтворими влакнини
 ca:fibra insoluble
 cs:nerozpustné vlákniny
 de:unlösliche Ballaststoffe
@@ -2633,7 +2670,7 @@ es:fibra insoluble
 fi:Liukenematon kuitu
 fr:Fibres insolubles
 fy:Net-fermintearbere fiedingsfezels
-gl:Fibra alimentaria solúbel
+gl:Fibra alimentaria insolúbel
 it:Fibra insolubile
 mk:водонерастворливи прехранбени влакна
 nl:Niet-fermenteerbare voedingsvezels
@@ -2658,7 +2695,7 @@ as:প্ৰ'টিন
 az:Zülallar
 ba:Аҡһымдар
 be:бялкі
-bg:Белтъци, протеин
+bg:Белтъци, белтъчини
 bn:প্রোটিন
 br:Protein
 bs:Bjelančevine
@@ -2685,7 +2722,7 @@ gu:પ્રોટિન
 gv:Proteen
 he:חלבונים
 hi:प्रोटीन
-hr:bjelančevina
+hr:Bjelančevina
 ht:Proteyin
 hu:Fehérje, Fehérjék
 hy:սպիտակուց
@@ -2829,6 +2866,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Casein
 zz:serum-proteins
 en:Serum proteins
 xx:Serum proteins
+bg:Серумни белтъци
 de:Serumprotein
 el:Πρωτεΐνες ορού
 fi:Plasmaproteiinit
@@ -2850,6 +2888,7 @@ unit:en: g
 zz:nucleotides
 en:Nucleotides
 xx:Nucleotides
+bg:Нуклеотиди
 de:Nukleotide
 el:Νουκλεοτίδια
 fa:نوکلئوتید
@@ -2882,7 +2921,7 @@ ay:Jayu
 az:Duz, Xörək duzu
 ba:Аш тоҙо
 be:Павараная соль
-bg:Сол
+bg:Сол, трапезна сол
 bn:লবণ
 bo:ཚྭ།
 br:Holen
@@ -2977,9 +3016,10 @@ evaluation:en: bad
 zz:added-salt
 en:Added salt
 xx:Added salt
+bg:Добавена сол
 fr:Sel ajouté
-nl:Toegevoegd xout
-unit_en: g
+nl:Toegevoegd zout
+unit:en: g
 evaluation:en: bad
 
 zz:sodium
@@ -3554,7 +3594,7 @@ ga:Vitimín C
 gl:Vitamina C, Ácido ascórbico
 he:ויטמין C (חומצה אסקורבית), ויטמין C
 hi:विटामिन सी
-hr:vitamin C, askorbinska kiselina
+hr:Vitamin C, askorbinska kiselina
 hu:C-vitamin, Aszkorbinsav
 hy:Վիտամին C
 id:Vitamin C
@@ -3640,6 +3680,7 @@ sk:Vitamín B1
 sl:Vitamin B1 (Tiamin)
 zh:维生素B1(硫胺)
 dv_2016_value:en: 1.2
+dv_value:en: 1.2
 unit:en: mg
 
 zz:vitamin-b2
@@ -3674,7 +3715,7 @@ unit:en: mg
 zz:vitamin-pp
 en:Vitamin B3, Vitamin PP (Niacin), Vitamin B3, Vitamin PP, Niacin
 xx:Vitamin B3, Vitamin PP (Niacin), Vitamin B3, Vitamin PP, Niacin
-bg:Ниацин
+bg:Ниацин, Витамин B3
 de:Vitamin B3, Vitamin PP (Niacin)
 el:Νιασίνη
 es:Vitamina B3, Vitamina PP (Niacina)
@@ -3683,13 +3724,13 @@ fi:B3-vitamiini (Niasiini), B3-vitamiini, Niasiini
 fr:Vitamine B3, Vitamine PP (Niacine), Vitamine B3, Vitamine PP, Niacine, Vitamine B3, PP (Niacine)
 ga:Niaicin
 he:ויטמין B3 /ויטמין PP (ניאצין או חומצה ניקוטינית)
+hr:niacin
 it:Vitamina B3, Vitamina PP (Niacina)
 ja:ビタミン B3
 lt:Niacinas
 lv:Niacīns
 mt:Niaċina
-nl:Niacine
-nl_be:Niacine
+nl:Vitamine B3, Niacine
 pl:Niacyna
 pt:Vitamina B3, Vitamina PP (Niacina)
 ro:Niacină
@@ -3778,6 +3819,7 @@ fi:B9-vitamiini (Foolihappo), B9-vitamiini, Foolihappo
 fr:Vitamine B9 (Acide folique), Vitamine B9, Acide folique, Acide folique\, équivalents alimentaires d'acide folique
 ga:Vitimín B9 (Aigéad fólach)
 he:ויטמין B9 (חומצה פולית)
+hr:folna kiselina
 hu:B9-vitamin (Folsav)
 it:Vitamina B9 (Acido folico)
 ja:ビタミン B9 (葉酸)
@@ -3820,8 +3862,7 @@ it:Vitamina B12 (Cobalamina)
 ja:ビタミン B12
 lt:Vitaminas B12
 lv:B12 vitamīns
-nl:Vitamine B12
-nl_be:Vitamine B12
+nl:Vitamine B12 (Cobalamine)
 pl:Witamina B12
 pt:Vitamina B12 (Cobalamina)
 ro:Vitamina B12
@@ -3870,8 +3911,7 @@ lv:Biotīns
 mk:Биотин
 ml:ബയോട്ടിൻ
 nb:Biotin
-nl:Biotine, Vitamine B7, Vitamine H
-nl_be:Biotine
+nl:Biotine, Vitamine B7, Vitamine H, Vitamine B8
 nn:biotin
 oc:Biotina, Vitamina B7, Vitamina H
 pl:Biotyna, witamina B7, witamina H
@@ -3938,7 +3978,7 @@ mn:Пантотений хүчил
 ms:Asid pantotenik
 mt:Aċidu Pantoteniku
 nb:pantotensyre
-nl:Pantotheenzuur, pantoteenzuur, B5
+nl:Vitamine B5 (Pantotheenzuur), Pantotheenzuur, pantoteenzuur, B5
 nl_be:Pantotheenzuur
 oc:Acid pantotenic, Vitamina B5
 pl:Kwas pantotenowy, kwas pantotenomy, Witamina B5, B5
@@ -4064,6 +4104,30 @@ unit:en: mg
 wikidata:en: Q56810858
 wikipedia:en: https://en.wikipedia.org/wiki/Bicarbonate
 
+# SO4--
+zz:Sulphate
+en:Sulphate
+xx:Sulphate
+nl:Sulfaat, Sulfaten
+
+# NO3-
+zz:Nitrate
+en:Nitrate
+xx:Nitrate
+nl:Nitraat, Nitraten
+
+# HCO3-
+zz:Hydrogencarbonate
+en:Hydrogencarbonate
+xx:Hydrogencarbonate
+nl:Waterstofcarbonaat, Waterstofcarbonaten
+
+# NO2-
+zz:Nitrite
+en:Nitrite
+xx:Nitrite
+nl:Nitriet, Nitrieten
+
 zz:potassium
 en:Potassium
 xx:Potassium
@@ -4103,7 +4167,7 @@ gu:પોટેશિયમ
 gv:Potashum
 he:אשלגן
 hi:पोटैशियम
-hr:kalij
+hr:Kalij
 ht:Potasyòm
 hu:Kálium
 hy:կալիում
@@ -4281,7 +4345,7 @@ gu:કેલ્શિયમ
 gv:Kelkium
 he:סידן
 hi:कैल्शियम
-hr:kalcij
+hr:Kalcij
 ht:Kalsyòm
 hu:Kalcium
 hy:կալցիում
@@ -4523,7 +4587,7 @@ gu:લોખંડ
 gv:Yiarn
 he:ברזל
 hi:लोहा
-hr:vas
+hr:Vas
 ht:Fè
 hu:Vas
 hy:երկաթ
@@ -4558,7 +4622,7 @@ ml:ഇരുമ്പ്
 mn:Төмөр
 mr:लोखंड
 ms:Besi
-mt:Kalċju, ħadid
+mt:ħadid
 my:သံ
 nb:jern
 ne:फलाम
@@ -4654,7 +4718,7 @@ gu:મેગ્નેશિયમ
 gv:Magnaishum
 he:מגנזיום
 hi:मैग्नेशियम तत्त्व
-hr:magnezij
+hr:Magnezij
 ht:Manyezyòm
 hu:Magnézium
 hy:մագնեզիումia:magnesium
@@ -5277,7 +5341,7 @@ gu:ક્રોમિયમ
 gv:Cromium
 he:כרום
 hi:क्रोमियम
-hr:krom
+hr:Krom
 ht:Kwòm
 hu:Króm
 hy:քրոմ
@@ -5604,7 +5668,7 @@ ga:Caiféin
 gl:Cafeína
 he:קפאין
 hi:कैफ़ीन
-hr:kofein
+hr:Kofein
 hu:koffein
 hy:կոֆեին
 ia:Caffeina
@@ -5796,6 +5860,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/PH
 zz:fruits-vegetables-nuts
 en:Fruits\, vegetables\, nuts and rapeseed\, walnut and olive oils, Fruits and vegetables, Fruits\, vegetables and nuts, Fruits\, vegetables\, nuts, Fruits\, vegetables\, pulses\, nuts\, and rapeseed\, walnut and olive oils
 xx:Fruits\, vegetables\, nuts and rapeseed\, walnut and olive oils, Fruits and vegetables, Fruits\, vegetables and nuts, Fruits\, vegetables\, nuts, Fruits\, vegetables\, pulses\, nuts\, and rapeseed\, walnut and olive oils
+bg:Плодове\, зеленчуци\, ядки и рапица
 de:Obst\, Gemüse und Nüsse
 el:Φρούτα\, λαχανικά\, καρποί
 es:Frutas\, verduras y nueces, Frutas\, verduras\, nueces, FRUTAS/VERDURAS/NUEZ, FRUTAS\, VERDURAS y NUEZ
@@ -5809,6 +5874,7 @@ unit:en: %
 zz:fruits-vegetables-nuts-dried
 en:Fruits\, vegetables and nuts - dried
 xx:Fruits\, vegetables and nuts - dried
+bg:Плодове\, зеленчуци и ядки - сушени
 fi:Kuivatut hedelmät\, kasvikset ja pähkinät
 fr:Fruits\, légumes et noix - séchés
 ro:Fructe\, legume\, nuci uscate
@@ -5817,6 +5883,7 @@ unit:en: %
 zz:fruits-vegetables-nuts-estimate
 en:Fruits\, vegetables\, nuts and rapeseed\, walnut and olive oils (manual estimate from ingredients list)
 xx:Fruits\, vegetables\, nuts and rapeseed\, walnut and olive oils (manual estimate from ingredients list)
+bg:Плодове\, зеленчуци\, ядки и рапица\, орехи и зехтин (ръчна оценка от списъка на съставките) 
 de:Obst\, Gemüse und Nüsse (Schätzung aus Zutatenliste)
 es:Frutas\, verduras y nueces (estimación de la lista de ingredientes)
 fi:Hedelmät\, kasvikset\, pähkinät ja rapsi-\, saksanpähkinä- ja oliiviöljyt (arvio ainesosaluettelosta)
@@ -5829,6 +5896,7 @@ unit:en: %
 zz:fruits-vegetables-nuts-estimate-from-ingredients
 en:Fruits\, vegetables\, nuts and rapeseed\, walnut and olive oils (estimate from ingredients list analysis)
 xx:Fruits\, vegetables\, nuts and rapeseed\, walnut and olive oils (estimate from ingredients list analysis)
+bg:Плодове\, зеленчуци\, ядки и рапица\, орехи и зехтин (оценка от анализ на списъка на съставките)
 de:Obst\, Gemüse und Nüsse (Schätzung aus der Analyse der Zutatenliste)
 fr:Fruits\, légumes\, noix et huiles de colza\, noix et olive (estimation par analyse de la liste des ingrédients)
 it:Frutta\, verdura\, noci e olio di colza\, noci e oliva (stima dall'analisi dell'elenco degli ingredienti)    
@@ -5850,6 +5918,7 @@ unit:en: %
 zz:cocoa
 en:Cocoa (minimum)
 xx:Cocoa (minimum)
+bg:Какао (минимум)
 de:Kakao (Minimum)
 es:Cacao (mínimo)
 fi:Kaakao (minimi)
@@ -5862,6 +5931,7 @@ unit:en: %
 zz:chlorophyl
 en:Chlorophyl
 xx:Chlorophyl
+bg:Хлорофил
 de:Chlorophyll
 fi:Lehtivihreä, Klorofylli
 nl:Chlorofyl
@@ -5921,6 +5991,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Carbon_footprint
 zz:carbon-footprint-from-meat-or-fish
 en:Carbon footprint from meat or fish
 xx:Carbon footprint from meat or fish
+bg:Въглероден отпечатък от месо или риба 
 fi:Hiilijalanjälki lihasta tai kalasta
 fr:Empreinte carbone de la viande ou du poisson
 nl:koolstofvoetafdruk voor vlees of vis
@@ -5930,6 +6001,7 @@ automatically_computed:en: yes
 zz:nutrition-score-fr
 en:Nutrition score - France
 xx:Nutrition score - France
+bg:Хранителна оценка – Франция
 el:Βαθμολογία θρεπτικής αξίας-FR
 fi:Ravintopisteet - Ranska
 fr:Score nutritionnel - France
@@ -5940,6 +6012,7 @@ automatically_computed:en: yes
 zz:nutrition-score-uk
 en:Nutrition score - UK
 xx:Nutrition score - UK
+bg:Хранителна оценка – Обединено кралство
 el:Bαθμολογία θρεπτικής αξίας-UK
 fi:Ravintopisteet - UK
 nl:Voedingsscore - UK
@@ -6153,6 +6226,7 @@ zz:inositol
 en:Inositol
 xx:Inositol
 ar:إينوزيتول
+bg:Инозитол
 ca:inositol
 cs:inositol
 da:inositol
@@ -6246,6 +6320,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Carnitine
 zz:nova-group
 en:NOVA group
 xx:NOVA group
+bg:Група NOVA
 fr:Groupe NOVA
 unit:en:
 automatically_computed:en: yes
