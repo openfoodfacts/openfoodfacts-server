@@ -5,11 +5,11 @@
       "From: \"Open Food Facts\" <contact@openfoodfacts.org>",
       "To: \"Open Food Facts\" <producers@openfoodfacts.org>",
       "Subject: New pro account for new org acme-inc - tests",
-      "Content-Type: multipart/alternative; boundary=\"16684412880.D57CCb368.56\"",
+      "Content-Type: multipart/alternative; boundary=\"\\\"--boundary--\\\"\"",
       "Content-Transfer-Encoding: 7bit",
       "",
       "",
-      "--16684412880.D57CCb368.56",
+      "--\\\"--boundary--\\\"",
       "Date: ***",
       "MIME-Version: 1.0",
       "Content-Type: text/plain; charset=\"utf-8\"",
@@ -75,7 +75,7 @@
       "<!-- end templates/emails/user_new_pro_account_admin_notification.tt.html -->",
       "",
       "",
-      "--16684412880.D57CCb368.56",
+      "--\\\"--boundary--\\\"",
       "Date: ***",
       "MIME-Version: 1.0",
       "Content-Type: text/html; charset=\"utf-8\"",
@@ -141,7 +141,7 @@
       "<!-- end templates/emails/user_new_pro_account_admin_notification.tt.html -->",
       "",
       "",
-      "--16684412880.D57CCb368.56--"
+      "--\\\"--boundary--\\\"--"
    ],
    [
       "Date: ***",

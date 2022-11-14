@@ -428,7 +428,12 @@ ref to an array of lines of the email
 =cut
 
 sub normalize_mail_for_comparison($mail) {
+	# remove boundaries
 	my $text = mail_to_text($mail);
+	my @boundaries = $text =~ m/boundary="([^"]+)"/g;
+	foreach my $boundary  (@boundaries) {
+		$text =~ s/$boundary/\\"--boundary--\\"/g;
+	}
 	# split on \n to get readable json results
 	my @lines = split /\n/, $text;
 	@lines = map { $_ =~ s/^Date: .+/Date: ***/g; $_; } @lines;
