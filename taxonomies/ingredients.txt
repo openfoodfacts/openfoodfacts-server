@@ -5020,7 +5020,7 @@ it:panna fresca pastorizzata
 
 <en:dairy
 en:soured milk, cultured milk, fermented milk
-bg:Кисело мляко
+# bg:Кисело мляко is already yoghurt
 ca:llet àcida
 cv:Турăх
 da:Tykmælk
@@ -31770,6 +31770,7 @@ pt:levedura em pó
 ru:Дрожжевой порошок
 sv:torrjäst, jästpulver
 
+#<en:raising agent???
 en:baking powder
 bg:бакпулвер, набухвател
 da:Bagepulver
@@ -31950,7 +31951,7 @@ it:Estratto di lievito autolizzato
 en:sourdough
 an:Emprenyatuera
 ar:خبز عجينة متخمرة
-bg:Квас, закваска
+bg:Квас
 ca:Massa mare
 cs:Kvásek
 da:Surdej
@@ -37676,7 +37677,7 @@ el:μούρο
 eo:kultivitaj rubusoj
 es:mora, moras, zarzamora
 eu:masusta
-fa:تمشک
+# fa:تمشک is raspberry
 fi:karhunvatukka, karhunvadelma
 fr:mûre, mûres
 ga:sméar dhubh
@@ -48228,7 +48229,7 @@ ba:ҡуҙғалаҡ
 bg:киселец
 ca:agrella
 cs:šťovík kyselý
-da:syre, almindelig syre
+da:almindelig syre
 de:Sauerampfer
 el:λάπαθο
 eo:okzalo
@@ -50294,11 +50295,11 @@ nl:tomatenblokjes in tomatensap van biologische oorsprong
 en:crushed tomato
 da:flåede tomater
 de:stückige Tomaten, Tomaten stückig
-el:πουρές τομάτας
+# el:πουρές τομάτας is already puree
 fi:tomaattimurska, tomaattimurskaa
 it:Pomodoro schiacciato
 nb:knust tomat
-pl:Przecier pomidorowy
+# pl:Przecier pomidorowy is puree according to google
 sv:krossade tomater
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:tomaattimurska
 # 1 entry @ 2019-10-31
@@ -51063,7 +51064,6 @@ ciqual_food_code:en:20145
 ciqual_food_name:en:Squash, spaghetti, pulp, raw
 ciqual_food_name:fr:Courge spaghetti, pulpe, crue
 
-# description:en:Red kuri squash (often spelled 'kari') (katakana:ウチキクリ) is thin skinned orange colored winter squash, that has the appearance of a small pumpkin without the ridges.
 
 <en:vegetable
 en:giant squash
@@ -51075,7 +51075,7 @@ bg:гигантска тиква
 ca:carabassa
 chy:mo'ôhtáemâhoo'o
 cs:tykev velkoplodá, dýně obrovská
-cy:pwmpen
+# cy:pwmpen is already under pumpkin
 de:Riesen-Kürbis
 eo:gigantkukurbo
 es:calabaza gigante
@@ -51108,7 +51108,7 @@ zh:笋瓜
 #pcd:paturon
 wikidata:en:Q161180
 
-<en:squash
+<en:pumpkin
 en:red kuri squash
 co:zucca castagnina
 cs:dýně hokkaidó
@@ -51128,6 +51128,7 @@ ciqual_food_code:en:20134
 ciqual_food_name:en:Sweet green hokkaido squash, pulp, raw
 ciqual_food_name:fr:Courge hokkaïdo, pulpe, crue
 # 176 in french @2021-12-03
+description:en:Red kuri squash (often spelled 'kari') (katakana:ウチキクリ) is thin skinned orange colored winter squash, that has the appearance of a small pumpkin without the ridges.
 
 
 # description:en:The zucchini (American English) or courgette (British English) is a summer squash.
@@ -55312,7 +55313,7 @@ de:Pfefferextrakt
 es:extracto de pimienta
 fi:pippuriuute
 fr:extrait de poivre
-hr:ekstrakt paprike
+# hr:ekstrakt paprike is already in paprika extract
 it:estratto di pepe
 nl:peperextract
 sv:pepparextrakt
@@ -55930,7 +55931,7 @@ fr:pâte miso rouge
 ###################################################################################################
 <en:condiment
 en:spice, spices
-bg:подправка, подправки
+# bg:подправка, подправки is already a condiment
 ca:Espècies
 cs:Koření
 da:krydderi, krydderier
@@ -56068,7 +56069,7 @@ sv:kryddor och kryddextrakt
 
 <en:spice
 en:mixed spices
-bg:смес от подправки
+# bg:смес от подправки is already in condiments
 da:krydderimix
 de:gemischte Gewürze, gewürzmischung
 es:Mezcla de especias,preparado aromatico de especias
