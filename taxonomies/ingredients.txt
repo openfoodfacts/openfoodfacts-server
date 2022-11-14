@@ -270,7 +270,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Carotene
 # <en:paprika
 en:paprika extract, e160c
 bg:екстракт от червен пипер, екстракт от паприка
-ca:extracte de pebre vermell
+ca:extracte de pebre vermell, extracte de pebre vermell picant
 da:paprikaekstrakt
 de:Paprikaextrakt
 el:εκχύλισμα πάπρικας
@@ -302,6 +302,7 @@ fr:extrait naturel de paprika
 
 <en:paprika extract
 en:paprika oleoresin, capsanthin
+ca:Oleorresina de pebre vermell, Oleoresin de pebre vermell
 es:Oleoresina de pimentón
 fi:kapsantiini
 fr:oléorésine de paprika, capsanthine
@@ -3066,8 +3067,9 @@ fr:lait frais de nos vaches non homogeneise
 <en:cow's milk
 en:skimmed cows milk
 bg:обезмаслено краве мляко
+ca:llet desnatada de vaca, llet descremada de vaca
 de:entrahmte Kuhmilch
-es:leche desnatada de vaca,leche descremada de vaca
+es:leche desnatada de vaca, leche descremada de vaca
 nl:magere koeienmelk
 
 <en:cow's milk
@@ -6245,6 +6247,11 @@ fr:fromage cheddar très affiné
 <en:cheddar
 en:vintage cheddar, vintage cheddar cheese
 de:Vintage Cheddar
+
+<en:cheddar
+en:cheddar powder
+ca:formatge cheddar pols, cheddar en pols
+es:queso cheddar polvo, cheddar en polvo
 
 <en:cheddar
 en:white cheddar, white cheddar cheese
@@ -13214,7 +13221,7 @@ nl:kleefmaïszetmeel, waxy maiszetmeel, waxy maïszetmeel
 <en:modified starch
 en:modified corn starch, modified corn starches, modified maize starch, corn starch modified
 bg:модифицирано царевично нишесте
-ca:Midó de moresc modificat, midó de panís modificat, midó de blat de moro modificat, midons de moresc modificat, midons de panís modificat, midons de blat de moro modificat
+ca:Midó de moresc modificat, midó de panís modificat, midó modificat de blat de moro, midó de blat de moro modificat, midons de moresc modificat, midons de panís modificat, midons de blat de moro modificat
 cs:Modifikovaný kukuřičný škrob
 da:modificeret majsstivelse
 de:modifizierte Maisstärke
@@ -13328,6 +13335,7 @@ allergens:en: en:gluten
 <en:wheat starch
 en:modified wheat starch
 bg:модифицирано пшенично нишесте
+ca:midó de blat modificat
 de:modifizierte Weizenstärke
 es:almidón de trigo modificado
 fi:muunnettu vehnätärkkelys, muunneltu vehnätärkkelys
@@ -14339,7 +14347,7 @@ en:palm oil, palmoil, sustainable palm fruit oil, palm vegetable oil
 ar:زيت النخيل
 be:Пальмавы алей
 bg:Палмово масло
-ca:Oli de palma
+ca:Oli de palma, oli vegetal de palma
 cs:Palmový olej
 cz:palmu olejovou
 da:Palmeolie
@@ -14626,11 +14634,11 @@ nl:gedeeltelijk geharde palmolie
 <en:palm kernel oil and fat
 en:palm kernel oil, palm kernel
 bs:Ulje palminog jezgra
-ca:Oli de palmist
+ca:palmist, Oli de palmist, oli vegetal de palmist
 cs:Palmojádrový olej
 da:palmekerne olie, palmekerne
 de:Palmkernöl, Palmkern
-es:palmiste,aceite de nuez de palma, aceite vegetal de palmiste, aceite de palmiste
+es:palmiste, aceite de nuez de palma, aceite vegetal de palmiste, aceite de palmiste
 et:palmituuma
 eu:Palmiste olio
 fa:روغن هسته پالم
@@ -14672,7 +14680,7 @@ nl:Palm pitvet
 <en:palm kernel oil
 en:hydrogenated palm kernel oil, hydrogenated palm kernel
 de:Palmkernöl hydriert
-es:aceite de palmiste hidrogenado, aceite de palmiche hidrogenado
+es:aceite de palmiste hidrogenado, aceite de palmiche hidrogenado, aceite de palmiste totalmente hidrogenado
 fi:kovettu palmuydinöljy, kovetettu palmuydin
 fr:huile de palmiste hydrogénée
 nl:Gehydrogeneerde palmpitolie
@@ -14743,7 +14751,7 @@ en:coconut oil, copra oil, copra
 ar:زيت جوز الهند
 bg:Кокосово масло, кокосово
 bn:নারিকেল তেল
-ca:Oli de coco, oli de copra, copra
+ca:Oli de coco, oli vegetal de coco, oli de copra, copra
 cs:Kokosový olej
 da:kokosolie
 de:Kokosnussöl, Kokosöl
@@ -15110,9 +15118,9 @@ nl:olie van biologische Spaanse olijven
 
 <en:olive oil
 en:olive pomace oil
-ca:oli de pinyolada d oliva
+ca:oli de pinyolada d'oliva
 de:Oliventresteröl
-es:aceite orujo de oliva
+es:aceite orujo de oliva, aceite de orujo de oliva
 it:Olio di sansa di oliva
 wikipedia:en:https://en.wikipedia.org/wiki/Olive_pomace_oil
 
@@ -15121,6 +15129,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Olive_pomace_oil
 <en:vegetable oil and fat
 en:rapeseed oil, rapeseed fat, rapeseed oil and fat
 bg:рапично масло
+ca:oli de nabina, oli vegetal de nabina
 cs:řepkový olej, olej řepkový
 da:rapsolie
 de:Rapsöl, Rapsol
@@ -15566,12 +15575,12 @@ en:soya oil, Soybean oil, soy oil, soyabean oil
 ar:زيت فول الصويا
 be:Соевы алей
 bg:соево олио, соево масло
-ca:oli de soia
+ca:oli de soia, oli de soja, oli vegetal de soja
 cs:sójový olej
 da:Sojaolie
 de:Sojaöl, Sojabohnenöl, Sojafett
 eo:Sojoleo
-es:aceite de soja
+es:aceite de soja, aceite vegetal de soja
 eu:soja-olio
 fa:روغن سویا
 fi:soijaöljy, soijapapuöljy
@@ -15938,12 +15947,12 @@ ar:زيت زهرة الشمس
 az:Günəbaxan yağı
 be:Сланечнікавы алей
 bg:Слънчогледово олио, слънчогледово масло, масло слънчогледово, растително слънчогледово масло
-ca:oli de gira-sol, oli vegetal de gira-sol,oli de girasol, oli vegetal de girasol
+ca:oli de gira-sol, oli vegetal de gira-sol, oli de girasol, oli vegetal de girasol
 cs:Slunečnicový olej
 da:solsikkeolie
 de:Sonnenblumenöl
 el:ηλιέλαιο
-es:aceite de girasol,aceite vegetal de girasol,aceite de semillas de girasol,aceite de maravilla
+es:aceite de girasol, aceite vegetal de girasol, aceite de semillas de girasol, aceite de maravilla
 et:Päevalilleõli
 eu:ekilore-olio
 fa:روغن آفتاب‌گردان
@@ -16059,7 +16068,7 @@ it:girasole alto oleico
 
 <en:sunflower oil
 en:high oleic sunflower oil
-ca:oli refinat de gira-sol alt oleic,oli de gira-sol alt oleic,oli vegetal de gira-sol alt oleic
+ca:oli refinat de gira-sol alt oleic, oli de gira-sol alt oleic, oli vegetal de gira-sol alt oleic
 de:High Oleic-Sonnenblumenöl, High-Oleic-Sonnenblumenöl, Sonnenblumenöl mit hohem Fettsäureanteil, Sonnenblumenöl hoch erhitzbar
 es:aceite de girasol alto oleico,aceite refinado de girasol alto oleico
 fr:huile de tournesol à haute teneur en acide oléique, huile de tournesol à teneur élevée en acide oléique, huile de tournesol oléique,huile de tournesol haut oléique
@@ -18953,6 +18962,8 @@ ciqual_food_name:fr:Saké ou Alcool de riz
 <en:alcohol
 en:rice wine
 bg:оризово вино
+ca:vi d'arròs
+es:vino de arroz
 fr:Alcool de riz
 ciqual_food_code:en:1026
 ciqual_food_name:en:Sake or rice wine
@@ -19998,6 +20009,7 @@ sv:baconarom
 <en:natural flavouring
 en:natural garlic flavouring, natural garlic aroma
 bg:натурален аромат на чесън
+ca:Aroma natural d'all
 de:natürliches Knoblaucharoma
 es:Aroma natural de ajo
 fi:luontainen valkosipuliaromi
@@ -20373,6 +20385,7 @@ sv:smörarom
 
 <en:flavouring
 en:garlic flavouring
+ca:aroma d'all
 de:Knoblauch-Aroma, Knoblaucharoma
 es:aroma de ajo
 fi:valkosipuliaromi
@@ -24814,6 +24827,7 @@ fr:farine de riz prégélatinisée
 
 <en:rice flour
 en:White rice flour
+ca:farina de arròs blanc, farina d'arròs blanc
 es:harina de arroz blanco
 fr:farine de riz blanc
 it:Farina di riso bianco
@@ -25599,7 +25613,7 @@ en:glutinous rice
 ar:الأرز الدبق
 as:বৰা
 bn:চটচটে চাল
-ca:arròs glutinós
+ca:arròs glutinós, arròs enganxós
 cs:lepkavá rýže
 da:klæberis
 de:Klebreis, klebrigen Reis
@@ -25701,6 +25715,7 @@ fr:Riz brun complet étuvé pré-cuit
 en:white rice
 ar:أرز أبيض
 bg:бял ориз
+ca:arròs blanc
 de:weißer Reis
 el:λευκό ρύζι
 eo:blanka rizo
@@ -26044,7 +26059,7 @@ ar:بسمتي
 bg:ориз басмати, басмати
 bn:বাসমতী
 br:basmati
-ca:arròs Basmati
+ca:arròs Basmati, basmati
 cs:basmati
 de:Basmatireis, Basmati Reis
 eo:Basmatio
@@ -26458,8 +26473,9 @@ sv:kokt ris
 
 <en:cooked rice
 en:cooked white rice
+ca:arròs blanc cuit, arròs blanc precuit
 de:gegarter weißer Reis, weißer Reis gegart
-es:arroz blanco cocido
+es:arroz blanco cocido, arroz blanco precocido, arroz blanco precocinado
 fi:kypsennetty valkoinen riisi
 fr:riz blanc cuit
 hu:főtt fehér rizs
@@ -29445,7 +29461,7 @@ wikidata:en: Q63120038
 en:calcium caseinate
 bg:калциев казеинат
 de:Calciumcaseinat
-es:caseinato de calcio
+es:caseinato de calcio, sales de calcio de la leche
 fr:Caséinate de calcium
 it:Caseinato di calcio
 wikidata:en:Q522243
@@ -32934,8 +32950,9 @@ ru:сода, сода пищевая, гидрокарбонат натрия, �
 
 en:triphosphates, triphosphate, E451, e 451, e-451
 bg:трифосфати
+ca:trifosfat, trifosfats
 de:Triphosphate
-es:trifosfatos
+es:trifosfato, trifosfatos
 fi:trifosfaatit
 fr:triphosphate, triphosphates
 it:trifosfat
@@ -33028,9 +33045,10 @@ sv:di- och trifosfater
 en:Polyphosphate, Polyphosphate E452, E452, e 452, e-452
 ar:E452, e 452, e-452
 bg:Полифосфати, e 452, e-452
+ca:polifosfats, polifosfat, E452, e 452, e-452
 cs:E452, e 452, e-452
 de:Polyphosphate, E452, e 452, e-452
-es:polifosfatos, E452, e 452, e-452
+es:polifosfatos, polifosfato, E452, e 452, e-452
 fi:polyfosfaatit
 fr:polyphosphate, polyphosphates, E452, e 452, e-452
 hu:E452, e 452, e-452
@@ -44194,7 +44212,7 @@ bn:রসুন
 bo:སྒོག་ལོག
 br:Kignen
 bs:Bijeli luk
-ca:all
+ca:all, allets, dent d'all, dents d'alls
 co:Aglia
 cs:česnek, česnek kuchyňský
 cv:Ыхра
@@ -44204,7 +44222,7 @@ de:Knoblauch
 dv:ލޮނުމެދު
 el:Σκόρδο
 eo:ajlo
-es:ajo
+es:ajo, diente de ajo, dientes de ajo
 et:küüslauk
 eu:baratxuri
 fa:سیر
@@ -47741,8 +47759,9 @@ fr:oignon grillé en poudre
 #is fried and grilled onion the same thing?
 <en:onion
 en:fried onion
+ca:ceba fregida, cebes fregides
 de:frittierte Zwiebeln
-es:cebollas fritas
+es:cebolla frita, cebollas fritas
 fr:oignon frit, oignons frits
 hu:Sült hagyma
 it:Cipolla fritta
@@ -48904,7 +48923,7 @@ nutriscore_fruits_vegetables_nuts:en:no
 en:tapioca, tapioca starch, manioc starch
 ar:تابيوكا
 bg:тапиока, нишесте от тапиока
-ca:tapioca
+ca:tapioca, midó de tapioca, midó de mandioca
 cs:tapioka, tapiokový škrob
 da:tapioca, tapiokastivelse, tapiocastivelse
 de:Tapioka, Tapiocastärke, Tapiokastärke, Maniokstärke
@@ -49380,11 +49399,11 @@ ciqual_food_name:fr:Poivron jaune, cru
 <en:bell pepper
 en:green bell pepper
 bg:зелена чушка, зелени чушки
-ca:pebrot verd
+ca:pebrot verd, pebrots verds, pebrot verd dolç, pebrots verds dolços
 cs:zelená paprika
 da:Grøn peber
 de:grüne Peperoni
-es:pimiento verde
+es:pimiento verde, pimientos verdes, pimiento verde dulce, pimientos verdes dulces
 fi:vihreä paprika
 fr:poivron vert, poivrons verts
 it:peperoni verdi
@@ -49407,12 +49426,12 @@ es:pimiento italiano
 en:red bell pepper, red pepper
 ar:فلفل أحمر
 bg:червена чушка, червени чушки, червена капия
-ca:pebrot vermell,pebrot roig
+ca:pebrot vermell, pebrot roig, pebrot vermell dolç, pebrots vermells dolços
 cs:červená paprika
 da:rød peberfrugt, rød peber
 de:rote Paprika, roter Paprika
 el:κόκκινη πιπεριά
-es:pimiento rojo, pimiento morrón rojo
+es:pimiento rojo, pimiento morrón rojo, pimiento rojo dulce, pimientos rojos dulces
 et:punane paprika
 fi:punainen paprika
 fr:poivron rouge, poivrons rouge
@@ -49917,11 +49936,11 @@ ar:بابريكا
 az:paprika
 br:paprika
 bs:paprika
-ca:piment vermell
+ca:pebre vermell, piment vermell, pebre vermell picant
 cy:Paprica
 el:πάπρικα
 eo:papriko
-es:pimentón,paprika
+es:pimentón, paprika
 eu:piperrauts
 fa:پاپریکا
 fr:paprika
@@ -49989,6 +50008,7 @@ fr:Pâte de paprika
 <en:paprika
 en:sweet paprika
 bg:сладък червен пипер
+ca:pebre vermell dolç, pebre vermella dolça
 de:Paprika edelsüß
 es:pimienta roja dulce
 pl:papryka w proszku słodka, słodka papryka w proszku
@@ -56303,7 +56323,7 @@ da:cayennepeber
 de:cayennepfeffer
 el:πιπέρι καγιέν, καγιέν
 eo:kajena pipro
-es:pimienta de cayena, pimienta roja,cayena,ají cayena,pimienta roja picante
+es:pimienta de cayena, pimienta roja, cayena, ají cayena, pimienta roja picante
 et:kajenni paprika
 eu:kaiena
 fi:cayennepippuri, cayenne
@@ -59841,6 +59861,7 @@ ciqual_food_name:fr:Marjolaine, séchée
 ###################################################################################################
 <en:herb
 en:herbes de Provence
+ca:herbes de Provença, herbes provençals
 da:herbes de Provence
 de:Provence-Kräuter, Kräuter der Provence
 es:Hierbas de Provenza, hierbas provenzales
@@ -62991,6 +63012,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Green_tea
 <en:green tea
 en:matcha, matcha green tea
 bg:матча
+ca:té matcha, té matcha verd
+es:té matcha, té matcha verde
 fr:matcha, thé vert matcha
 ja:抹茶
 pl:matcha
@@ -71916,6 +71939,10 @@ fr:extrait de crabe
 sv:krabbextrakt
 # ingredient/fr:extrait-de-crabe has 25 products in french @2019-01-07
 
+<en:flavouring
+en:crab flavour
+ca:aroma de cranc
+es:aroma de cangrejo
 
 # description:en:Cancer pagurus, commonly known as the edible crab or brown crab, is a species of crab found in the North Sea, North Atlantic Ocean
 
@@ -72383,6 +72410,11 @@ ciqual_food_name:en:Shrimp or prawn, cooked
 ciqual_food_name:fr:Crevette, cuite
 
 <en:shrimp
+en:raw peeled shrimp
+ca:gamba pelada crua
+es:gamba pelada cruda
+
+<en:shrimp
 en:red prawn
 de:Blassrote Tiefseegarnele, Gamba Roja
 es:gamba roja
@@ -72611,7 +72643,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Parapenaeopsis_sculptilis
 
 <en:shrimp
 en:Parapenaeopsis stylifera
+ca:Parapenaeopsis stylifera
 de:Parapenaeopsis stylifera
+es:Parapenaeopsis stylifera
 fr:Parapenaeopsis stylifera
 la:Parapenaeopsis stylifera
 wikidata:en:Q6491649
@@ -75334,6 +75368,8 @@ pl:białko z kurczaka
 <en:chicken
 en:chicken wing
 bg:пилешко крилце
+ca:ala de pollastre, ales de pollastre
+es:ala de pollo, alas de pollo
 fr:aile de poulet
 pl:skrzydełko z kurczaka, skrzydełko kurczaka, skrzydełka z kurczaka, skrzydełka kurczaka
 
@@ -75922,6 +75958,7 @@ ciqual_food_name:fr:Oeuf, cru
 # do not add egg as parent, as it does have to be derived from eggs
 <en:flavouring
 en:egg flavour
+ca:aroma d'ou
 de:Eiaroma, Ei-Aroma
 es:aroma de huevo
 
@@ -76167,6 +76204,7 @@ nl:scharrel ei poeder
 <en:egg
 en:egg powder, powdered egg
 bg:яйчен прах, яйце на прах
+ca:ou en pols, pols d'ou
 da:æggepulver
 de:Eipulver
 el:αλεύρι σίτου αυγό σκόνη
@@ -76192,9 +76230,10 @@ ciqual_food_name:fr:Oeuf, en poudre
 <en:egg
 en:whole egg, whole eggs
 bg:цяло яйце, цели яйца
+ca:ou sencer, ous sencers
 da:hele æg
 de:Vollei
-es:huevos enteros
+es:huevo entero, huevos enteros
 fi:kokonainen muna, kokonaiset munat
 fr:œuf entier, œufs entiers, oeuf entier, oeufs entiers
 hu:egész tojás
@@ -76212,6 +76251,7 @@ it:uovo intero pastorizzato
 
 <en:whole egg
 en:whole powdered egg
+ca:Ou sencer en pols
 de:Volleipulver
 es:Huevo entero en polvo
 fi:Kokonainen kuivattu muna
@@ -76222,6 +76262,7 @@ nl:heeleipoeder
 
 <en:whole powdered egg
 en:whole powdered chicken egg
+ca:ou de gallina sencer en pols, ou de gallina en pols sencer, ou en pols de gallina sencer, ou en pols sencer de gallina
 de:Hühnervolleipulver
 es:huevo de gallina entero en polvo, huevo de gallina en polvo entero, huevo en polvo de gallina entero, huevo en polvo entero de gallina
 fr:poudre d’œuf de poules
@@ -76230,6 +76271,7 @@ nl:kipheeleipoeder
 
 <en:whole egg
 en:liquid whole egg
+ca:Ou sencer líquid
 de:Vollei flüssig, flüssiges vollei
 es:Huevo entero líquido
 fi:Nestemäinen kokonainen muna
@@ -76246,6 +76288,7 @@ fr:oeuf entier liquide pasteurisé salé
 
 <en:whole egg
 en:whole fresh eggs
+ca:ous sencers frescos, ou sencer fresc
 de:frisches Vollei
 es:huevos enteros frescos
 fi:kokonainen tuore muna, kokonaiset tuoreet munat
@@ -76268,6 +76311,7 @@ it:uovo intero da allevamento al suolo
 
 <en:whole egg
 en:whole liquid pasteurised egg
+ca:ou sencer liquid pasteuritzat
 de:pasteurisiertes flüssiges Vollei
 es:Huevo entero líquido pasteurizado
 fi:Kokonainen pastörisoitu muna
@@ -76281,16 +76325,19 @@ fr:oeufs entiers reconstitués
 
 <en:whole egg
 en:concentrated whole egg
+ca:ou sencer concentrat
 de:konzentriertes Vollei, Volleikonzentrat
+es:huevo entero concentrado, concentrado de huevo entero
 fr:oeuf entier concentré
 
 <en:egg
 en:fresh egg, fresh eggs
 bg:прясно яйце, пресни яйца
+ca:ou fresc, ous frescos, ous frescs
 cs:čerstvá vejce
 da:frisk æg
 de:frische Eier, Frischei, Frischeier
-es:huevos frescos
+es:huevo fresco, huevos frescos
 fi:tuore muna, tuoreet munat
 fr:œuf frais, œufs frais, oeuf frais, oeufs frais
 hr:svježa jaja
@@ -76310,6 +76357,7 @@ nl:extra verse eieren
 
 <en:fresh egg
 en:pasteurized fresh egg
+ca:ou fresc pasteuritzat, ous frescs pasteuritzats
 de:pasteurisiertes Frischei
 es:huevos frescos pasteurizados, huevo fresco pasteurizado
 fi:pastöroitu tuore muna
@@ -76323,6 +76371,7 @@ fr:œufs frais de poules élevées en plein air, oeufs frais de poules élevées
 
 <en:egg
 en:liquid egg
+ca:ou liquid
 de:Flüssigei, flüssiges Ei
 es:huevo liquido
 fr:Œuf liquide
@@ -76335,7 +76384,7 @@ en:egg white, egg albumen, egg albumin
 ar:بياض البيض
 bg:яйчен белтък
 bn:সাদা ডিম
-ca:clara d'ou
+ca:clara d'ou, clares d'ou, albumina d'ou
 cs:bílek
 da:æggehvide
 de:Eiklar
@@ -76402,7 +76451,7 @@ pl:białko jaja kurzego
 <en:egg white
 en:powdered egg white, dehydrated egg white, egg white powder
 bg:яйчен белтък на прах
-ca:clara d'ou en pols
+ca:clara d'ou en pols, clara d'ou deshidratada, pols de clara d'ou
 da:æggehvidepulver
 de:Eiweißpulver, Eiweisspulver, Eiklarpulver, Trockeneiweiß, Eiklar getrocknet
 el:ασπράδι αυγού σε σκόν
@@ -76439,6 +76488,7 @@ nl:kippenei-eiwitpoeder
 
 <en:powdered egg white
 en:rehydrated egg white
+ca:clara d'ou rehidratada
 bg:рехидратиран яйчен белтък
 de:rehydratisiertes Eiklar
 es:Clara de huevo rehidratada
@@ -76476,6 +76526,7 @@ fr:blanc d'œuf frais, blancs d'œufs frais, blanc d'œufs frais, blanc d'oeuf f
 <en:egg white
 en:liquid egg white
 bg:течен яйчен белтък
+ca:clara d'ou liquida
 de:Flüssiges Hühnereiklar
 es:clara de huevo liquida
 fi:Nestemäinen munavalkuainen
@@ -76491,6 +76542,7 @@ sv:pastöriserad äggvita i flytande form
 
 <en:egg white
 en:egg protein
+ca:proteïna d'ou, proteïnes d'ou, proteïnes de l'ou
 de:Ei-Eiweiß
 es:proteína de huevo
 fi:munaproteiini
@@ -76516,6 +76568,7 @@ el:Μαρέγκα
 eo:meringo
 et:besee
 eu:Merenge
+es:Merengue
 fa:مرنگ
 fi:marenki
 ga:Meireang
@@ -76726,6 +76779,7 @@ pt:gema de ovo pasteurizado
 <en:egg yolk
 en:liquid egg yolk, liquid yolk
 bg:течен яйчен жълтък
+ca:rovell d'ou liquid
 de:flüssiges Eigelb
 es:yema de huevo liquida
 fi:Nestemäinen kanan keltuainen
@@ -76808,6 +76862,7 @@ es:derivado del huevo,derivado de huevo
 <en:egg
 en:duck egg
 bg:патешко яйце
+ca:ou d'ànec
 de:Enteneier
 es:huevo de pato
 fi:ankanmuna
