@@ -74,26 +74,12 @@ compare_to_expected_results($org_cmp_ref, "$expected_result_dir/org-after-subscr
 
 # Get mails from log
 my @mails = mails_from_log($logs);
+# get text
+@mails = map {; normalize_mail_for_comparison($_)} @mails;
 # we got three
 is(scalar @mails, 3);
-
-# User got a mail
-my $user_mail = first {$_ =~ /^To:.*test\@test.com/im} @mails;
-# got it
-ok(defined $user_mail);
-$user_mail = mail_to_text($user_mail);
-# with a welcome and its userid
-ok(index($user_mail, "Thanks a lot for joining") >= 0);
-ok(index($user_mail, "User name: tests") >= 0);
-
-# Let see the one directed to pro admins
-my $moderators_mail = first {$_ =~ /^To:.*producers\@openfoodfacts.org/im} @mails;
-# go it
-ok(defined $moderators_mail);
-$moderators_mail = mail_to_text($moderators_mail);
-# got a link to org page to validate it
-ok(index($moderators_mail, 'openfoodfacts.org/cgi/org.pl?type=edit&orgid=acme-inc') >= 0);
-ok(index($moderators_mail, 'Access org acme-inc') >= 0);
+# compare
+compare_to_expected_results(\@mails, "$expected_result_dir/mails.json", $update_expected_results);
 
 # the pro moderator got to the org page
 $resp = get_page($moderator_ua, "/cgi/org.pl?type=edit&orgid=org-acme-inc");

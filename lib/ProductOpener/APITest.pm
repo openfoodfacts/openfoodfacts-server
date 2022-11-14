@@ -44,6 +44,7 @@ BEGIN {
 		&mails_from_log
 		&mail_to_text
 		&new_client
+		&normalize_mail_for_comparison
 		&post_form
 		&tail_log_start
 		&tail_log_read
@@ -323,7 +324,7 @@ For the example cited above this returns: "http://world-fr.openfoodfacts.localho
 sub construct_test_url ($target, $prefix = "world") {
 	my $link = $TEST_MAIN_DOMAIN;
 	# no cgi inside url ? add display.pl
-	if (index($target, "cgi") == -1) {
+	if ($target =~ /^\/cgi\//) {
 		$link .= "/cgi/display.pl?";
 	}
 	my $url = "http://${prefix}.${link}${target}";
@@ -412,6 +413,26 @@ sub mail_to_text ($mail) {
 	# =3D means =
 	$text =~ s/=3D/=/g;
 	return $text;
+}
+
+=head2 normalize_mail_for_comparison($mail)
+
+Replace parts of mail that varies from tests to tests,
+and also in a format that's nice in json.
+=head3 Arguments
+
+=head4 $mail text of mail
+
+=head3 Returns
+ref to an array of lines of the email
+=cut
+
+sub normalize_mail_for_comparison($mail) {
+	my $text = mail_to_text($mail);
+	# split on \n to get readable json results
+	my @lines = split /\n/, $text;
+	@lines = map { $_ =~ s/^Date: .+/Date: ***/g; $_; } @lines;
+	return \@lines;
 }
 
 1;
