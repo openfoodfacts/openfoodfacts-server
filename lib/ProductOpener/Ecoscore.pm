@@ -632,6 +632,10 @@ Returned values:
 =cut
 
 sub compute_ecoscore ($product_ref) {
+	my $old_ecoscore_data = $product_ref->{ecoscore_data};
+	my $old_ecoscore_version = $old_ecoscore_data->{version};
+	my $old_ecoscore_grade = $old_ecoscore_data->{grade};
+	my $old_ecoscore_score = $old_ecoscore_data->{score};
 
 	delete $product_ref->{ecoscore_grade};
 	delete $product_ref->{ecoscore_score};
@@ -845,6 +849,18 @@ sub compute_ecoscore ($product_ref) {
 			$product_ref->{ecoscore_grade} = "unknown";
 
 			add_tag($product_ref, "misc", "en:ecoscore-not-computed");
+		}
+	}
+
+	# Track if ecoscore has changed through different Agribalyse versions
+	if (defined $old_ecoscore_score && $old_ecoscore_score != $product_ref->{ecoscore_score}) {
+		if (!defined $old_ecoscore_version) {
+			$old_ecoscore_version = "3.0";
+		}
+		$product_ref->{ecoscore_data}{"score_with_argribalyse_version_" . $old_ecoscore_version} = $old_ecoscore_score;
+		add_tag($product_ref, "misc", "en:ecoscore-changed");
+		if (defined $old_ecoscore_grade && $old_ecoscore_grade ne $product_ref->{ecoscore_grade}) {
+			add_tag($product_ref, "misc", "en:ecoscore-grade-changed");
 		}
 	}
 	return;

@@ -527,6 +527,52 @@ my @tests = (
 		}
 	],
 
+	# Keep track of old ecoscore score and add tags if it has changed
+	[
+		'track-ecoscore-changes',
+		{
+			lc => "fr",
+			categories_tags => ["en:foies-gras"],
+			packaging_text => "1 pot en verre, 1 couvercle en acier",
+			ingredients_text => "Foie gras de canard",
+			ecoscore_data => {
+				grade => "d",
+				score => 20
+			}
+		},
+	],
+
+	# Score changed but same grade
+	[
+		'track-ecoscore-same-grade',
+		{
+			lc => "fr",
+			categories_tags => ["en:foies-gras"],
+			packaging_text => "1 pot en verre, 1 couvercle en acier",
+			ingredients_text => "Foie gras de canard",
+			ecoscore_data => {
+				grade => "e",
+				score => 20,
+				version => "2.9"
+			}
+		},
+	],
+
+	# Don't cretae data or tags if no change
+	[
+		'track-ecoscore-no-change',
+		{
+			lc => "fr",
+			categories_tags => ["en:foies-gras"],
+			packaging_text => "1 pot en verre, 1 couvercle en acier",
+			ingredients_text => "Foie gras de canard",
+			ecoscore_data => {
+				grade => "e",
+				score => 18
+			}
+		},
+	],
+
 );
 
 my $json = JSON->new->allow_nonref->canonical;
