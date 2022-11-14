@@ -116,11 +116,13 @@ sub load_agribalyse_data() {
 	my $encoding = "UTF-8";
 
 	open(my $version_file, "<:encoding($encoding)", $data_root . '/ecoscore/agribalyse/AGRIBALYSE_version.txt')
-	 	or die($!);
+		or die($!);
 	chomp(my $agribalyse_version = <$version_file>);
 	close($version_file);
 
-	$log->debug("opening agribalyse CSV file", {file => $agribalyse_details_by_step_csv_file, version => $agribalyse_version}) if $log->is_debug();
+	$log->debug("opening agribalyse CSV file",
+		{file => $agribalyse_details_by_step_csv_file, version => $agribalyse_version})
+		if $log->is_debug();
 
 	my $csv_options_ref = {binary => 1, sep_char => ","};    # should set binary attribute.
 
@@ -854,10 +856,11 @@ sub compute_ecoscore ($product_ref) {
 
 	# Track if ecoscore has changed through different Agribalyse versions
 	if (defined $old_ecoscore_score && $old_ecoscore_score != $product_ref->{ecoscore_score}) {
-		if (!defined $old_ecoscore_version) {
-			$old_ecoscore_version = "3.0";
-		}
-		$product_ref->{ecoscore_data}{"score_with_argribalyse_version_" . $old_ecoscore_version} = $old_ecoscore_score;
+		$product_ref->{ecoscore_data}{previous_data} = {
+			grade => $old_ecoscore_grade,
+			score => $old_ecoscore_score,
+			version => $old_ecoscore_version // "3.0"
+		};
 		add_tag($product_ref, "misc", "en:ecoscore-changed");
 		if (defined $old_ecoscore_grade && $old_ecoscore_grade ne $product_ref->{ecoscore_grade}) {
 			add_tag($product_ref, "misc", "en:ecoscore-grade-changed");

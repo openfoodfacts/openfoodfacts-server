@@ -865,6 +865,12 @@ properties:
             type: integer
       missing_data_warning:
         type: integer
+      previous_data:
+        type: object
+        properties:
+          grade: string
+          score: integer
+          version: string
       score:
         type: integer
       scores:

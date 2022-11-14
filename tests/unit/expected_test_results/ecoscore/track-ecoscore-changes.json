@@ -336,8 +336,12 @@
          "origins" : 1
       },
       "missing_data_warning" : 1,
+      "previous_data": {
+         "grade": "d",
+         "score": 20,
+         "version": "3.0"
+      },
       "score" : 18,
-      "score_with_argribalyse_version_3.0": 20,
       "scores" : {
          "ad" : 18,
          "al" : 18,
