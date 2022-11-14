@@ -558,7 +558,7 @@ my @tests = (
 		},
 	],
 
-	# Don't cretae data or tags if no change
+	# Don't create data or tags if no change
 	[
 		'track-ecoscore-no-change',
 		{
@@ -570,6 +570,28 @@ my @tests = (
 				grade => "e",
 				score => 18
 			}
+		},
+	],
+
+	# Tags are retained on subsequent updates
+	[
+		'track-ecoscore-tags-retained',
+		{
+			lc => "fr",
+			categories_tags => ["en:foies-gras"],
+			packaging_text => "1 pot en verre, 1 couvercle en acier",
+			ingredients_text => "Foie gras de canard",
+			ecoscore_data => {
+				grade => "e",
+				score => 18,
+				version => "3.1",
+				previous_data => {
+					grade => "d",
+					score => 20,
+					version => "3.0"
+				}
+			},
+			misc_tags => ["en:ecoscore-changed", "en:ecoscore-grade-changed"]
 		},
 	],
 

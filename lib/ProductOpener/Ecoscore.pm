@@ -638,6 +638,7 @@ sub compute_ecoscore ($product_ref) {
 	my $old_ecoscore_version = $old_ecoscore_data->{version};
 	my $old_ecoscore_grade = $old_ecoscore_data->{grade};
 	my $old_ecoscore_score = $old_ecoscore_data->{score};
+	my $old_previous_data = $old_ecoscore_data->{previous_data};
 
 	delete $product_ref->{ecoscore_grade};
 	delete $product_ref->{ecoscore_score};
@@ -865,6 +866,9 @@ sub compute_ecoscore ($product_ref) {
 		if (defined $old_ecoscore_grade && $old_ecoscore_grade ne $product_ref->{ecoscore_grade}) {
 			add_tag($product_ref, "misc", "en:ecoscore-grade-changed");
 		}
+	}
+	elsif (defined $old_previous_data) {
+		$product_ref->{ecoscore_data}{previous_data} = $old_previous_data;
 	}
 	return;
 }
