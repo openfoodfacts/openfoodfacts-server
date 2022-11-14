@@ -4390,6 +4390,7 @@ my %ignore_params = (
 	keywords => 1,    # added by CGI.pm
 	api_version => 1,
 	api_action => 1,
+	api_method => 1,
 	search_simple => 1,
 	search_terms => 1,
 	userid => 1,
@@ -5217,7 +5218,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 		# 2021-02-25: we now store only nested ingredients, flatten them if the API is <= 1
 
-		if ((defined single_param("api_version")) and (single_param("api_version") <= 1)) {
+		if ($request_ref->{api_version} <= 1) {
 
 			for my $product_ref (@{$request_ref->{structured_response}{products}}) {
 				if (defined $product_ref->{ingredients}) {
@@ -10058,7 +10059,7 @@ sub display_product_api ($request_ref) {
 		$response{status_verbose} = 'no code or invalid code';
 	}
 	elsif ((not defined $product_ref) or (not defined $product_ref->{code})) {
-		if (single_param("api_version") >= 1) {
+		if ($request_ref->{api_version} >= 1) {
 			$request_ref->{status_code} = 404;
 		}
 		$response{status} = 0;
@@ -10071,7 +10072,7 @@ $Lang{app_please_take_pictures}{$lang}
 <p>$Lang{app_take_a_picture_note}{$lang}</p>
 HTML
 				;
-			if (single_param("api_version") >= 0.1) {
+			if ($request_ref->{api_version} >= 0.1) {
 
 				my @app_fields = qw(product_name brands quantity);
 
@@ -10154,7 +10155,7 @@ HTML
 
 		# 2021-02-25: we now store only nested ingredients, flatten them if the API is <= 1
 
-		if ((defined single_param("api_version")) and (scalar single_param("api_version") <= 1)) {
+		if ($request_ref->{api_version} <= 1) {
 
 			if (defined $product_ref->{ingredients}) {
 
@@ -10309,6 +10310,9 @@ sub display_structured_response ($request_ref) {
 			rss => scalar $request_ref->{rss}
 		}
 	) if $log->is_debug();
+
+	$log->debug("display_structured_response", {request => $request_ref}) if $log->is_debug();
+
 	if (single_param("xml")) {
 
 		# my $xs = XML::Simple->new(NoAttr => 1, NumericEscape => 2);
@@ -10339,12 +10343,9 @@ sub display_structured_response ($request_ref) {
 			= "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
 			. $xs->XMLout($request_ref->{structured_response});  # noattr -> force nested elements instead of attributes
 
-		my $status_code = $request_ref->{status_code};
-		if (defined $status_code) {
-			print header (-status => $status_code);
-		}
+		my $status_code = $request_ref->{status_code} || "200";
 
-		print header(-type => 'text/xml', -charset => 'utf-8', -access_control_allow_origin => '*') . $xml;
+		print header(-status => $status_code, -type => 'text/xml', -charset => 'utf-8', -access_control_allow_origin => '*') . $xml;
 
 	}
 	elsif ($request_ref->{rss}) {
@@ -10365,19 +10366,16 @@ sub display_structured_response ($request_ref) {
 			$jsonp = single_param('callback');
 		}
 
-		my $status_code = $request_ref->{status_code};
-		if (defined $status_code) {
-			print header (-status => $status_code);
-		}
+		my $status_code = $request_ref->{status_code} || 200;
 
 		if (defined $jsonp) {
 			$jsonp =~ s/[^a-zA-Z0-9_]//g;
-			print header(-type => 'text/javascript', -charset => 'utf-8', -access_control_allow_origin => '*')
+			print header(-status => $status_code, -type => 'text/javascript', -charset => 'utf-8', -access_control_allow_origin => '*')
 				. $jsonp . "("
 				. $data . ");";
 		}
 		else {
-			print header(-type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*') . $data;
+			print header(-status => $status_code, -type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*') . $data;
 		}
 	}
 

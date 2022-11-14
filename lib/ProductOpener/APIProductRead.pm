@@ -149,7 +149,7 @@ sub read_product_api ($request_ref) {
 		# Disable nested ingredients in ingredients field (bug #2883)
 		# 2021-02-25: we now store only nested ingredients, flatten them if the API is <= 1
 
-		if ((defined single_param("api_version")) and (scalar single_param("api_version") <= 1)) {
+		if ($request_ref->{api_version} <= 1) {
 
 			if (defined $product_ref->{ingredients}) {
 

@@ -289,7 +289,7 @@ Reference to the customized product object.
 
 sub send_api_reponse ($request_ref) {
 
-	my $status = $request_ref->{status_code} || "200";
+	my $status_code = $request_ref->{status_code} || "200";
 
 	my $json = JSON::PP->new->allow_nonref->canonical->utf8->encode($request_ref->{api_response});
 
@@ -308,7 +308,7 @@ sub send_api_reponse ($request_ref) {
 		$r->err_headers_out->set("Access-Control-Allow-Origin", $origin);
 	}
 
-	print header(-status => $status, -type => 'application/json', -charset => 'utf-8');
+	print header(-status => $status_code, -type => 'application/json', -charset => 'utf-8');
 
 	print $json;
 

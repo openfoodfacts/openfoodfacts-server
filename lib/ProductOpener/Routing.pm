@@ -182,6 +182,9 @@ sub analyze_request ($request_ref) {
 		if ($request_ref->{api} =~ /v(.*)/) {
 			$request_ref->{api_version} = $1;
 		}
+		else {
+			$request_ref->{api_version} = 0;
+		}
 
 		$request_ref->{api_action} = $components[2];
 
