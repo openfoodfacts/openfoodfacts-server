@@ -10345,7 +10345,12 @@ sub display_structured_response ($request_ref) {
 
 		my $status_code = $request_ref->{status_code} || "200";
 
-		print header(-status => $status_code, -type => 'text/xml', -charset => 'utf-8', -access_control_allow_origin => '*') . $xml;
+		print header(
+			-status => $status_code,
+			-type => 'text/xml',
+			-charset => 'utf-8',
+			-access_control_allow_origin => '*'
+		) . $xml;
 
 	}
 	elsif ($request_ref->{rss}) {
@@ -10370,12 +10375,22 @@ sub display_structured_response ($request_ref) {
 
 		if (defined $jsonp) {
 			$jsonp =~ s/[^a-zA-Z0-9_]//g;
-			print header(-status => $status_code, -type => 'text/javascript', -charset => 'utf-8', -access_control_allow_origin => '*')
+			print header(
+				-status => $status_code,
+				-type => 'text/javascript',
+				-charset => 'utf-8',
+				-access_control_allow_origin => '*'
+				)
 				. $jsonp . "("
 				. $data . ");";
 		}
 		else {
-			print header(-status => $status_code, -type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*') . $data;
+			print header(
+				-status => $status_code,
+				-type => 'application/json',
+				-charset => 'utf-8',
+				-access_control_allow_origin => '*'
+			) . $data;
 		}
 	}
 
