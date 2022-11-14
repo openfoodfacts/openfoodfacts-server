@@ -343,4 +343,36 @@ ok(has_tag($product_ref, 'data_quality', 'en:sum-of-ingredients-with-unspecified
 ok(has_tag($product_ref, 'data_quality', 'en:sum-of-ingredients-with-specified-percent-greater-than-100'))
 	or diag explain $product_ref;
 
+# energy matches nutrients
+$product_ref = {
+	nutriments => {
+		"energy-kj_value" => 5,
+		"carbohydrates_value" => 10,
+		"fat_value" => 20,
+		"proteins_value" => 30,
+		"fiber_value" => 2,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+is($product_ref->{nutriments}{"energy-kj_value_computed"}, 1436);
+ok(has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
+	'energy not matching nutrient')
+	or diag explain $product_ref;
+
+# energy does not match nutrients
+$product_ref = {
+	nutriments => {
+		"energy-kj_value" => 1435,
+		"carbohydrates_value" => 10,
+		"fat_value" => 20,
+		"proteins_value" => 30,
+		"fiber_value" => 2,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
+	'energy not matching nutrient'
+) or diag explain $product_ref;
+
 done_testing();
