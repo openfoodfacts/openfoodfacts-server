@@ -1,0 +1,84 @@
+@import "../mixins/flexbox";
+
+/*
+ *
+ * Flexbox
+ *
+ */
+$include-sveetoy-flex: $include-sveetoy-classes !default;
+
+// Default available percentage sizes
+$flex-grid-sizes: 25 33.3333 50 75 100 !default;
+$flex-grid-gutter: 0.5rem !default;
+
+@if $include-sveetoy-flex {
+    ///
+    /// Common flexbox grid
+    ///
+    .flex-grid {
+        display: flex;
+        flex-wrap: wrap;
+        // Disable horizontal margins to avoid bad cell widths
+        margin-left: 0;
+        margin-right: 0;
+
+        & > .cell {
+            // Default is to have the same width and height for all items
+            // using the largest value from all items (default flex display
+            // behavior)
+            flex: 1 0 auto;
+            max-width: auto;
+            margin: 0;
+            list-style-type: none;
+
+            // Last element paragraph dont have bottom margin
+            & > p:last-child {
+                margin: 0;
+            }
+        }
+
+        ///
+        /// Responsive cell sizes
+        ///
+        @each $name, $query in $sveetoy-breakpoints{
+            @media #{$query} {
+                @include sveetoy-flex-grid-classes($flex-grid-sizes, $viewport: $name);
+            }
+        }
+
+        ///
+        /// Responsive margin on every contained cells
+        ///
+        &.marged{
+            &> .cell{
+                margin: $flex-grid-gutter;
+            }
+
+            @each $name, $query in $sveetoy-breakpoints{
+                @media #{$query} {
+                    @include sveetoy-flex-grid-classes($flex-grid-sizes, $viewport: $name, $gutter: $flex-grid-gutter);
+                }
+            }
+        }
+
+        ///
+        /// Responsive directions
+        ///
+        @include sveetoy-flex-direction;
+        @each $name, $query in $sveetoy-breakpoints{
+            @media #{$query} {
+                @include sveetoy-flex-direction($viewport: $name);
+            }
+        }
+    }
+}
+
+///
+/// Vertical content alignments
+///
+@include sveetoy-flex-vertical-alignment;
+@each $name, $query in $sveetoy-breakpoints{
+    @media #{$query} {
+        @include sveetoy-flex-vertical-alignment($viewport: $name);
+    }
+}

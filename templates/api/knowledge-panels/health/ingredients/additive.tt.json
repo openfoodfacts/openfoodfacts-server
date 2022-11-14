@@ -5,7 +5,7 @@
     ],
     "size": "small",
     "title_element": {
-        "title": `[% display_taxonomy_tag("additives", panel.additive) %]`,
+        "title": `[% display_taxonomy_tag_name("additives", panel.additive) %]`,
     },        
     "elements": [
         [% IF panel.wikipedia_abstract %]

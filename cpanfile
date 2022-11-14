@@ -39,6 +39,8 @@ requires 'Path::Tiny', '>= 0.118'; # libpath-tiny-perl
 
 # Probably not available as Debian/Ubuntu packages
 requires 'MongoDB', '>= 2.2.2, < 2.3'; # libmongodb-perl has 1.8.1/2.0.3 vs 2.2.2. deps: libauthen-sasl-saslprep-perl, libbson-perl, libauthen-scram-perl, libclass-xsaccessor-perl, libdigest-hmac-perl, libsafe-isa-perl, libconfig-autoconf-perl, libpath-tiny-perl
+# we fix this because MongoDB depends on it, and 0.023 does not install correctly
+requires 'Type::Tiny::XS', '==0.022';
 requires 'Encode::Punycode'; # deps: libnet-idn-encode-perl, libtest-nowarnings-perl
 requires 'GraphViz2'; # deps: libfile-which-perl, libdata-section-simple-perl, libwant-perl, libipc-run3-perl, liblog-handler-perl, libtest-deep-perl
 requires 'Algorithm::CheckDigits'; # libalgorithm-checkdigits-perl has 0.50 vs 1.3.3. deps: libprobe-perl-perl
@@ -64,6 +66,7 @@ requires 'JSON::Create';
 requires 'JSON::Parse';
 requires 'Data::DeepAccess';
 requires 'XML::XML2JSON';
+requires 'Redis';
 
 
 # Mojolicious/Minion
@@ -90,6 +93,7 @@ on 'test' => sub {
   requires 'Log::Any::Adapter::TAP'; # liblog-any-adapter-tap-perl
   requires 'IO::Capture::Stdout::Extended';
   requires 'IO::Capture::Stderr::Extended';
+  requires 'HTTP::CookieJar::LWP';
 };
 
 on 'develop' => sub {
@@ -100,4 +104,6 @@ on 'develop' => sub {
   requires 'Term::ReadLine::Gnu', '>= 1.42, < 2.0'; # readline support for the Perl debugger. libterm-readline-gnu-perl is available.
   requires 'Perl::LanguageServer';
   requires 'Hash::SafeKeys';  # Perl::LanguageServer dependency
+  requires 'Perl::Tidy';
+  requires 'Perl::Critic';
 }

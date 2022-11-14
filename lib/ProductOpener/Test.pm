@@ -1,4 +1,4 @@
-﻿# This file is part of Product Opener.
+# This file is part of Product Opener.
 #
 # Product Opener
 # Copyright (C) 2011-2020 Association Open Food Facts
@@ -28,27 +28,30 @@ ProductOpener::Test - utility functions used by unit and integration tests
 
 package ProductOpener::Test;
 
-use utf8;
-use Modern::Perl '2017';
-use Exporter    qw< import >;
+use ProductOpener::PerlStandards;
+use Exporter qw< import >;
 
-BEGIN
-{
-	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
+BEGIN {
+	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-        &capture_ouputs
-        &compare_arr
-        &compare_array_to_expected_results
-        &compare_csv_file_to_expected_results
-        &create_sto_from_json
-        &normalize_product_for_test_comparison
-        &normalize_products_for_test_comparison
-        &remove_all_products
-		);    # symbols to export on request
+		&capture_ouputs
+		&compare_arr
+		&compare_to_expected_results
+		&compare_array_to_expected_results
+		&compare_csv_file_to_expected_results
+		&create_sto_from_json
+		&init_expected_results
+		&normalize_product_for_test_comparison
+		&normalize_products_for_test_comparison
+		&remove_all_products
+		&remove_all_users
+		&remove_all_orgs
+		&check_not_production
+	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
-use vars @EXPORT_OK ;
+use vars @EXPORT_OK;
 
 use IO::Capture::Stdout::Extended;
 use IO::Capture::Stderr::Extended;
@@ -57,13 +60,86 @@ use ProductOpener::Data qw/execute_query get_products_collection/;
 use ProductOpener::Store "store";
 
 use Data::DeepAccess qw(deep_exists deep_get deep_set);
+use Getopt::Long;
 use Test::More;
 use JSON "decode_json";
+use File::Basename "fileparse";
 use File::Path qw/make_path remove_tree/;
 use Path::Tiny qw/path/;
 
 use Log::Any qw($log);
 
+=head2 init_expected_results($filepath)
+Handles test options around expected_results initialization
+
+For many tests, we compare results from the API, with expected results.
+It enables quick updates on changes, while still getting control.
+
+There are two modes: one to update expected results, and one to test against them.
+
+=head3 Parameters
+
+=head4 String $filepath
+The path of the file containing the tetst.
+Generally should be <pre>__FILE__</pre> within the test.
+
+
+=head3 return list
+
+A list of $test_id, $test_dir, $expected_result_dir, $update_expected_results
+
+=cut
+
+sub init_expected_results ($filepath) {
+
+	my ($test_id, $test_dir) = fileparse($filepath, qr/\.[^.]+$/);
+	my $expected_result_dir = "$test_dir/expected_test_results/$test_id";
+
+	my $usage = <<TXT
+
+The expected results of the test $test_id are saved in $expected_result_dir
+
+To verify differences and update the expected test results,
+actual test results can be saved by passing --update-expected-results
+
+The directory will be created if it does not already exist.
+
+TXT
+		;
+
+	my $update_expected_results;
+
+	GetOptions("update-expected-results" => \$update_expected_results)
+		or die("Error in command line arguments.\n\n" . $usage);
+
+	# ensure boolean
+	$update_expected_results = !!$update_expected_results;
+
+	if (($update_expected_results) and (!-e $expected_result_dir)) {
+		mkdir($expected_result_dir, 0755) or die("Could not create $expected_result_dir directory: $!\n");
+	}
+
+	return ($test_id, $test_dir, $expected_result_dir, $update_expected_results);
+}
+
+=head2 check_not_production ()
+
+Fail unless we have less than 1000 products in database.
+
+This is a simple heuristic to ensure we are not in a production database
+
+=cut
+
+sub check_not_production() {
+	my $products_count = execute_query(
+		sub {
+			return get_products_collection()->count_documents({});
+		}
+	);
+	unless ((0 <= $products_count) && ($products_count < 1000)) {
+		die("Refusing to run destructive test on a DB of more than 1000 items");
+	}
+}
 
 =head2 remove_all_products ()
 
@@ -75,24 +151,58 @@ This function should only be called by tests, and never on production environmen
 =cut
 
 sub remove_all_products () {
-    # check we are not on a prod database, by checking there are not more than 1000 products
-    my $products_count = execute_query(sub {
-		return get_products_collection()->count_documents({});
-	});
-    unless ((0 <= $products_count) && ($products_count < 1000)) {
-        die("Refusing to run destructive test on a DB of more than 1000 items");
-    }
-    # clean database
-    execute_query(sub {
-		return get_products_collection()->delete_many({});
-	});
-    # clean files
-    remove_tree("$data_root/products", {keep_root => 1, error => \my $err});
-    if (@$err) {
-        die("not able to remove some products directories: ". join(":", @$err));
-    }
+
+	# Important: check we are not on a prod database
+	check_not_production();
+	# clean database
+	execute_query(
+		sub {
+			return get_products_collection()->delete_many({});
+		}
+	);
+	# clean files
+	remove_tree("$data_root/products", {keep_root => 1, error => \my $err});
+	if (@$err) {
+		die("not able to remove some products directories: " . join(":", @$err));
+	}
 }
 
+=head2 remove_all_users ()
+
+For integration tests, we need to start from an empty user base
+
+This function should only be called by tests, and never on production environments.
+
+=cut
+
+sub remove_all_users () {
+	# Important: check we are not on a prod database
+	check_not_production();
+	# clean files
+	# clean files
+	remove_tree("$data_root/users", {keep_root => 1, error => \my $err});
+	if (@$err) {
+		die("not able to remove some users directories: " . join(":", @$err));
+	}
+}
+
+=head2 remove_all_orgs ()
+
+For integration tests, we need to start from an empty organizations base
+
+This function should only be called by tests, and never on production environments.
+
+=cut
+
+sub remove_all_orgs () {
+	# Important: check we are not on a prod database
+	check_not_production();
+	# clean files
+	remove_tree("$data_root/orgs", {keep_root => 1, error => \my $err});
+	if (@$err) {
+		die("not able to remove some orgs directories: " . join(":", @$err));
+	}
+}
 
 =head2 capture_ouputs ($meth)
 
@@ -120,38 +230,85 @@ Returns an array with std output, std error, result of the method as array.
 
 =cut
 
-sub capture_ouputs ($) {
-    my $meth = shift;
-    my $out = IO::Capture::Stdout::Extended->new();
-    my $err = IO::Capture::Stderr::Extended->new();
-    $out->start();
-    $err->start();
-    # call in array context
-    my @result = $meth -> ();
-    $out ->stop();
-    $err ->stop();
-    return ($out, $err, @result);
+sub capture_ouputs ($meth) {
+
+	my $out = IO::Capture::Stdout::Extended->new();
+	my $err = IO::Capture::Stderr::Extended->new();
+	$out->start();
+	$err->start();
+	# call in array context
+	my @result = $meth->();
+	$out->stop();
+	$err->stop();
+	return ($out, $err, @result);
 }
 
-
 # Ensure expected_results_dir exists or reset it if needed
-sub ensure_expected_results_dir ($$) {
-    my $expected_results_dir = shift;
-    my $update_expected_results = shift;
+sub ensure_expected_results_dir ($expected_results_dir, $update_expected_results) {
 
-    if ($update_expected_results) {
-        # Reset the expected results dir
-        if (-e $expected_results_dir) {
-            remove_tree("$expected_results_dir", {error => \my $err});
-            if (@$err) {
-                die("not able to remove some result directories: ". join(":", @$err));
-            }
-        }
-        make_path($expected_results_dir);
-    } elsif (! -e $expected_results_dir) {
-        die("Expected results dir not found at $expected_results_dir")
-    }
-    return 1;
+	if ($update_expected_results) {
+		# Reset the expected results dir
+		if (-e $expected_results_dir) {
+			remove_tree("$expected_results_dir", {error => \my $err});
+			if (@$err) {
+				die("not able to remove some result directories: " . join(":", @$err));
+			}
+		}
+		make_path($expected_results_dir);
+	}
+	elsif (!-e $expected_results_dir) {
+		die("Expected results dir not found at $expected_results_dir");
+	}
+	return 1;
+}
+
+=head2 compare_to_expected_results($object_ref, $expected_results_file, $update_expected_results) {
+
+Compare an object (e.g. product data or an API result) to expected results.
+
+The expected result is stored as a JSON file.
+
+This is so that we can easily see diffs with git diffs.
+
+=head3 Arguments
+
+=head4 $object_ref - reference to an object (e.g. $product_ref)
+
+=head4 $expected_results_file - path to the file with stored results
+
+=head4 $update_expected_results - flag to indicate to save test results as expected results
+
+Tests will always pass when this flag is passed,
+and the new expected results can be diffed / committed in GitHub.
+
+=cut
+
+sub compare_to_expected_results ($object_ref, $expected_results_file, $update_expected_results) {
+
+	my $json = JSON->new->allow_nonref->canonical;
+
+	if ($update_expected_results) {
+		open(my $result, ">:encoding(UTF-8)", $expected_results_file)
+			or die("Could not create $expected_results_file: $!\n");
+		print $result $json->pretty->encode($object_ref);
+		close($result);
+	}
+	else {
+		# Compare the result with the expected result
+
+		if (open(my $expected_result, "<:encoding(UTF-8)", $expected_results_file)) {
+
+			local $/;    #Enable 'slurp' mode
+			my $expected_object_ref = $json->decode(<$expected_result>);
+			is_deeply($object_ref, $expected_object_ref) or diag explain $object_ref;
+		}
+		else {
+			fail("could not load $expected_results_file");
+			diag explain $object_ref;
+		}
+	}
+
+	return 1;
 }
 
 =head2 compare_csv_file_to_expected_results($csv_file, $expected_results_dir, $update_expected_results)
@@ -173,38 +330,33 @@ This is so that we can easily see diffs with git diffs:
 
 =head4 $update_expected_results - flag to indicate to save test results as expected results
 
-Tests will pass when this flag is passed, and the new expected results can be diffed / commited in GitHub.
+Tests will pass when this flag is passed, and the new expected results can be diffed / committed in GitHub.
 
 =cut
 
-sub compare_csv_file_to_expected_results($$$) {
+sub compare_csv_file_to_expected_results ($csv_file, $expected_results_dir, $update_expected_results) {
 
-    my $csv_file = shift;
-    my $expected_results_dir = shift;
-    my $update_expected_results = shift;
+	# Read the CSV file
 
-    # Read the CSV file
+	my $csv = Text::CSV->new({binary => 1, sep_char => "\t"})    # should set binary attribute.
+		or die "Cannot use CSV: " . Text::CSV->error_diag();
 
-    my $csv = Text::CSV->new ( { binary => 1 , sep_char => "\t" } )  # should set binary attribute.
-                or die "Cannot use CSV: ".Text::CSV->error_diag ();
+	open(my $io, '<:encoding(UTF-8)', $csv_file) or die("Could not open " . $csv_file . ": $!");
 
-    open (my $io, '<:encoding(UTF-8)', $csv_file) or die("Could not open " . $csv_file . ": $!");
+	# first line contains headers
+	my $columns_ref = $csv->getline($io);
+	$csv->column_names(@{$columns_ref});
 
-    # first line contains headers
-    my $columns_ref = $csv->getline ($io);
-    $csv->column_names (@{$columns_ref});
+	# csv --> array
+	my @data = ();
 
-    # csv --> array
-    my @data = ();
-
-    while (my $product_ref = $csv->getline_hr ($io)) {
-        push @data, $product_ref;
-    }
-    close($io);
-    compare_array_to_expected_results(\@data, $expected_results_dir, $update_expected_results);
-    return 1;
+	while (my $product_ref = $csv->getline_hr($io)) {
+		push @data, $product_ref;
+	}
+	close($io);
+	compare_array_to_expected_results(\@data, $expected_results_dir, $update_expected_results);
+	return 1;
 }
-
 
 =head2 compare_array_to_expected_results($array_ref, $expected_results_dir, $update_expected_results)
 
@@ -226,73 +378,69 @@ This is so that we can easily see diffs with git diffs:
 =head4 $update_expected_results - flag to indicate to save test results as expected results
 
 Tests will always pass when this flag is passed,
-and the new expected results can be diffed / commited in GitHub.
+and the new expected results can be diffed / committed in GitHub.
 
 =cut
 
-sub compare_array_to_expected_results($$$) {
+sub compare_array_to_expected_results ($array_ref, $expected_results_dir, $update_expected_results) {
 
-    my $array_ref = shift;
-    my $expected_results_dir = shift;
-    my $update_expected_results = shift;
+	ensure_expected_results_dir($expected_results_dir, $update_expected_results);
 
-    ensure_expected_results_dir($expected_results_dir, $update_expected_results);
+	my $json = JSON->new->allow_nonref->canonical;
+	my %codes = ();
 
-    my $json = JSON->new->allow_nonref->canonical;
-    my %codes = ();
+	foreach my $product_ref (@$array_ref) {
 
-    foreach my $product_ref (@$array_ref) {
+		my $code = $product_ref->{code};
+		$codes{$code} = 1;
 
-        my $code = $product_ref->{code};
-        $codes{$code} = 1;
+		# Update the expected results if the --update parameter was set
 
-        # Update the expected results if the --update parameter was set
+		if ($update_expected_results) {
+			open(my $result, ">:encoding(UTF-8)", "$expected_results_dir/$code.json")
+				or die("Could not create $expected_results_dir/$code.json: $!\n");
+			print $result $json->pretty->encode($product_ref);
+			close($result);
+		}
 
-        if (defined $update_expected_results) {
-            open (my $result, ">:encoding(UTF-8)", "$expected_results_dir/$code.json") 
-                or die("Could not create $expected_results_dir/$code.json: $!\n");
-            print $result $json->pretty->encode($product_ref);
-            close ($result);
-        }
+		# Otherwise compare the result with the expected result
 
-        # Otherwise compare the result with the expected result
+		elsif (open(my $expected_result, "<:encoding(UTF-8)", "$expected_results_dir/$code.json")) {
 
-        elsif (open (my $expected_result, "<:encoding(UTF-8)", "$expected_results_dir/$code.json")) {
+			local $/;    #Enable 'slurp' mode
+			my $expected_product_ref = $json->decode(<$expected_result>);
+			is_deeply($product_ref, $expected_product_ref) or diag explain $product_ref;
+		}
+		else {
+			diag explain $product_ref;
+			fail("could not load $expected_results_dir/$code.json");
+		}
+	}
 
-            local $/; #Enable 'slurp' mode
-            my $expected_product_ref = $json->decode(<$expected_result>);
-            is_deeply ($product_ref, $expected_product_ref) or diag explain $product_ref;
-        }
-        else {
-            diag explain $product_ref;
-            fail("could not load $expected_results_dir/$code.json");
-        }
-    }
+	# Check that we are not missing products
 
-    # Check that we are not missing products
+	opendir(my $dh, $expected_results_dir)
+		or die("Could not open the $expected_results_dir directory: $!\n");
 
-    opendir (my $dh, $expected_results_dir)
-        or die("Could not open the $expected_results_dir directory: $!\n");
+	my @missed = ();
+	foreach my $file (sort(readdir($dh))) {
 
-    my @missed = ();
-    foreach my $file (sort(readdir($dh))) {
+		if ($file =~ /(\d+)\.json$/) {
+			my $code = $1;
+			if (!exists $codes{$code}) {
+				push @missed, $code;
+			}
+		}
+	}
+	if (@missed) {
+		fail("Products " . join(", ", @missed) . " not found in array");
+	}
+	else {
+		pass("All products found in array");
+	}
 
-        if ($file =~ /(\d+)\.json$/) {
-            my $code = $1;
-            if (! exists $codes{$code}) {
-                push @missed, $code;
-            };
-        }
-    }
-    if (@missed) {
-        fail("Products " . join(", ", @missed) . " not found in array");
-    } else {
-        pass("All products found in array");
-    }
-
-    return 1;
+	return 1;
 }
-
 
 =head2 create_sto_from_json(json_path, sto_path)
 
@@ -312,47 +460,46 @@ Path of source json file
 Path of target sto file
 
 =cut
-sub create_sto_from_json ($$) {
-    my $json_path = shift;
-    my $sto_path = shift;
-    my $data = decode_json(path($json_path)->slurp_raw());
-    store($sto_path, $data);
+
+sub create_sto_from_json ($json_path, $sto_path) {
+
+	my $data = decode_json(path($json_path)->slurp_raw());
+	store($sto_path, $data);
+	return;
 }
-
-
-sub _sub_items($$);  # declare for recursivity
 
 # this method is an helper method for normalize_product_for_test_comparison
 # $item_ref is a product hash ref, or subpart there of
 # $subfields_ref is an array of arrays of keys.
 # Each array of key leads to a sub array of $item_ref, but the last which is target element.
 # _sub_items will reach every targeted elements, running through all sub-arrays
-sub _sub_items($$) {
-    my $item_ref = shift;
-    my $subfields_ref = shift;
-    if (scalar @$subfields_ref == 0) {
-        return $item_ref;
-    } else {
-        # get first level
-        my @result = ();
-        my @key = split(/\./, shift(@$subfields_ref));
-        if (deep_exists($item_ref, @key)) {
-            # only support array for now
-            my @sub_items = deep_get($item_ref, @key);
-            for my $sub_item (@sub_items) {
-                # recurse
-                push @result, @{_sub_items($sub_item, $subfields_ref)};
-            }
-        }
-        return @result;
-    }
+
+sub _sub_items ($item_ref, $subfields_ref) {
+
+	if (scalar @$subfields_ref == 0) {
+		return $item_ref;
+	}
+	else {
+		# get first level
+		my @result = ();
+		my @key = split(/\./, shift(@$subfields_ref));
+		if (deep_exists($item_ref, @key)) {
+			# only support array for now
+			my @sub_items = deep_get($item_ref, @key);
+			for my $sub_item (@sub_items) {
+				# recurse
+				push @result, @{_sub_items($sub_item, $subfields_ref)};
+			}
+		}
+		return @result;
+	}
 }
 
 =head2 normalize_product_for_test_comparison(product_ref)
 
-Normalize a product to be able to compare them accross tests runs.
+Normalize a product to be able to compare them across tests runs.
 
-We remove time dependant fields and sort some lists.
+We remove time dependent fields and sort some lists.
 
 =head3 Arguments
 
@@ -360,41 +507,40 @@ We remove time dependant fields and sort some lists.
 
 =cut
 
-sub normalize_product_for_test_comparison($) {
-    my $product = shift;
-    # fields we don't want to check for they vary from test to test
-    # stars means there is a table of elements and we want to run through all (hash not supported yet)
-    # compared_to_category: depends on which products have been aggregated in index/categories_nutriments_per_country.world.sto
-    my @fields_ignore_content = qw(
-        last_modified_t created_t owner_fields
-        entry_dates_tags last_edit_dates_tags
-        sources.*.import_t
-    );
-    # fields that are array and need to sort to have predictable results
-    my @fields_sort = qw(_keywords);
+sub normalize_product_for_test_comparison ($product) {
+	# fields we don't want to check for they vary from test to test
+	# stars means there is a table of elements and we want to run through all (hash not supported yet)
+	# compared_to_category: depends on which products have been aggregated in index/categories_nutriments_per_country.world.sto
+	my @fields_ignore_content = qw(
+		last_modified_t created_t owner_fields
+		entry_dates_tags last_edit_dates_tags
+		sources.*.import_t
+	);
+	# fields that are array and need to sort to have predictable results
+	my @fields_sort = qw(_keywords);
 
-    my $code = $product->{code};
-    my @key;
-    for my $field_ic (@fields_ignore_content) {
-        # stars permits to loop subitems
-        my @subfield = split(/\.\*\./, $field_ic);
-        my $final_field = pop @subfield;
-        for my $item  (_sub_items($product, \@subfield)) {
-            @key = split(/\./, $final_field);
-            if (deep_exists($item, @key)) {
-                deep_set($item, @key, "--ignore--");
-            }
-        }
-    }
-    for my $field_s (@fields_sort) {
-        @key = split(/\./, $field_s);
-        if (deep_exists($product, @key)) {
-            my @sorted = sort @{deep_get($product, @key)};
-            deep_set($product, @key, \@sorted);
-        }
-    }
+	my $code = $product->{code};
+	my @key;
+	for my $field_ic (@fields_ignore_content) {
+		# stars permits to loop subitems
+		my @subfield = split(/\.\*\./, $field_ic);
+		my $final_field = pop @subfield;
+		for my $item (_sub_items($product, \@subfield)) {
+			@key = split(/\./, $final_field);
+			if (deep_exists($item, @key)) {
+				deep_set($item, @key, "--ignore--");
+			}
+		}
+	}
+	for my $field_s (@fields_sort) {
+		@key = split(/\./, $field_s);
+		if (deep_exists($product, @key)) {
+			my @sorted = sort @{deep_get($product, @key)};
+			deep_set($product, @key, \@sorted);
+		}
+	}
+	return;
 }
-
 
 =head2 normalize_products_for_test_comparison(array_ref)
 
@@ -407,12 +553,13 @@ Like normalize_product_for_test_comparison for a list of products
 Array of products
 
 =cut
-sub normalize_products_for_test_comparison($) {
-    my $array_ref = shift;
 
-    for my $product_ref (@$array_ref) {
-        normalize_product_for_test_comparison($product_ref);
-    }
+sub normalize_products_for_test_comparison ($array_ref) {
+
+	for my $product_ref (@$array_ref) {
+		normalize_product_for_test_comparison($product_ref);
+	}
+	return;
 }
 
 1;
