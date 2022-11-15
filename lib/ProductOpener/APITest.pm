@@ -171,10 +171,9 @@ For the example cited above this returns: "http://world-fr.openfoodfacts.localho
 
 sub construct_test_url ($target, $prefix) {
 	my $link = "openfoodfacts.localhost";
-	# my $api_end = "/api/v2/search?";
-	my $api_end = "api/v2";
 
-	if (index($target, $api_end) != -1) {
+
+	if ($target !~ /^\/cgi\//) {
 		$link .= "/cgi/display.pl?";
 	}
 
@@ -301,7 +300,7 @@ sub execute_api_tests ($file, $tests_ref) {
 
 		is(
 			compare_to_expected_results(
-				$decoded_json, "$expected_result_dir/$test_case.json", $update_expected_results
+				$decoded_json, "$expected_result_dir/$test_case.json", $update_expected_results, $test_ref
 			),
 			1,
 		);
