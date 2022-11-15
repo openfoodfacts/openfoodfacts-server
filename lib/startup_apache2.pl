@@ -52,13 +52,6 @@ use Cache::Memcached::Fast ();
 use URI::Escape::XS ();
 use File::chmod::Recursive;
 
-# The line 'use Minion;', either in this startup script, or in a module
-# loaded by it (e.g. Producers.pm) causes Apache+modperl to exit.
-# A reason / workaround has not been found yet, so commenting out the preloading
-# of Minion and Producers.
-# Corresponding issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/7695
-#use Minion ();
-
 use ProductOpener::Config qw/:all/;
 
 use Log::Any qw($log);
@@ -101,7 +94,7 @@ use ProductOpener::Export qw/:all/;
 use ProductOpener::Import qw/:all/;
 use ProductOpener::ImportConvert qw/:all/;
 use ProductOpener::Numbers qw/:all/;
-#use ProductOpener::Producers qw/:all/;
+use ProductOpener::Producers qw/:all/;
 use ProductOpener::ProducersFood qw/:all/;
 use ProductOpener::GeoIP qw/:all/;
 use ProductOpener::GS1 qw/:all/;

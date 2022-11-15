@@ -7653,12 +7653,11 @@ nl:Oplosdranken, Warme oplosdranken, Warme oplosdrank
 ru:Быстрорастворимые горячие напитки
 
 <en:Plant-based foods and beverages
-en:Dairy substitutes, Dairies substitutes
+en:Dairies substitutes
 bg:Заместители на млечни продукти
 fr:Substituts de produits laitiers
-nl:Zuivelvervangers
 
-<en:Dairy substitutes
+<en:Dairies substitutes
 en:Milk substitutes, milk replacements, milk substitute, milk replacement
 ca:Substitutius de la llet
 cs:Náhražky mléka
@@ -34950,10 +34949,6 @@ en:Liquorice candies, Licorice candies
 fr:Bonbons au réglisse, Bonbons à la réglisse
 nl:Drop
 
-<en:Liquorice candies
-en:Salty liquorice candies
-nl:Zoute drop
-
 <en:French candies
 fr:Bêtises de Cambrai
 wikidata:en:Q915783
@@ -38612,37 +38607,6 @@ who_id:en:8
 # Most cheeses have the same Agribalyse scores, except specific cheeses for which we added the specific values
 
 <en:Cheeses
-en:semi-cured cheese
-es:queso semicurado
-
-<en:Cheeses
-en:Abbaye cheeses
-fr:Fromages d’abbaye
-nl:Abdijkazen, Abdijkaas
-wikidata:en:Q2069008
-
-<en:Cheeses
-en:Mexican cheeses, cheeses from Mexico
-de:Mexikanischer Käse
-es:Quesos mexicanos, Quesos de México
-fi:meksikolaiset juustot
-fr:Fromages mexicains, Fromages du Mexique
-it:Formaggio messicano
-wikidata:en:Q5089436
-
-<en:Mexican cheeses
-en:Panela cheeses
-es:Quesos panelas
-fr:Fromages panelas
-
-<en:Cheeses
-en:Double cream cheeses
-de:Käse Doppelrahmstufe,Doppelrahmstufenkäse
-es:Quesos doble crema, Quesos cremosos doble crema, queso doble crema
-fr:Fromages double crème
-nl:Volle roomkazen, Volle roomkaas
-
-<en:Cheeses
 en:Smoked cheeses
 bg:Пушено сирене и кашкавал
 de:Räucherkäse, Geräucherter Käse
@@ -38671,10 +38635,6 @@ hu:Szeletel sajtok
 it:Formaggio a fette
 nl:Kazen in plakjes
 #previous german word Schnittkäse means it's easy to slice but not that it's already sliced
-
-<en:Cheeses
-en:Paneer
-xx:Paneer
 
 <en:Cheeses
 en:Cheeses for kids
@@ -39418,20 +39378,6 @@ wikidata:en:Q677647
 fr:Têtes de Moine, Tête de Moine
 de:Tête de Moine
 wikidata:en:Q687579
-
-<en:French cheeses
-<en:Cooked pressed cheeses
-en:Comté, Comté cheeses, Comté cheese from cow's milk
-xx:Comté
-de:Comté, Comté-Käse, Comté-Käse aus Kuhmilch
-wikidata:en:Q249310
-oqali_family:en: fr:Fromages - Comte
-agribalyse_food_code:en:12110
-ciqual_food_code:en:12110
-ciqual_food_name:en:Comté cheese, from cow's milk
-protected_name_file_number:en: PDO-FR-0116
-protected_name_type:en: pdo
-origins:en: en:France
 
 <en:Emmentaler
 <en:Grated cheese
@@ -40749,7 +40695,7 @@ es:Goudas con comino
 fi:gouda-juustot juustokuminalla
 fr:Goudas au cumin
 it:Gouda con cumino
-nl:Goudse Komijnenkazen, Komijnenkaas, Komijnenkazen
+nl:Goudse Komijnenkazen
 #wikidata:en:
 
 <en:Gouda
@@ -43754,10 +43700,6 @@ en:Three-quarter-fat butter
 de:Dreiviertelfettbutter
 
 <en:Butters
-nl:Grasboters, grasboter
-description:nl:Roomboters bereid met melk van koeien die van zowel lente- als zomergras smullen.
-
-<en:Butters
 en:Belgian butters
 fr:Beurres belges
 origins:en: en:Belgium
@@ -43800,6 +43742,20 @@ wikidata:en:Q2900324
 <en:Butters
 en:Herb butters
 nl:Kruidenboters, Knoflookboters
+
+<en:French cheeses
+<en:Cooked pressed cheeses
+en:Comté, Comté cheeses, Comté cheese from cow's milk
+xx:Comté
+de:Comté, Comté-Käse, Comté-Käse aus Kuhmilch
+wikidata:en:Q249310
+oqali_family:en: fr:Fromages - Comte
+agribalyse_food_code:en:12110
+ciqual_food_code:en:12110
+ciqual_food_name:en:Comté cheese, from cow's milk
+protected_name_file_number:en: PDO-FR-0116
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Butters
 en:Spanish butters
@@ -47081,7 +47037,7 @@ ciqual_food_name:fr:Crème dessert au café, rayon frais
 fr:Crèmes dessert pistache
 
 <en:Desserts
-<en:Dairy substitutes
+<en:Dairies substitutes
 en:Non-dairy desserts, vegetal desserts, vegan desserts
 de:Milchfreie Nachtische, vegetarische Nachtische, vegane Nachtische
 es:Postres vegetales
@@ -47501,7 +47457,7 @@ ciqual_food_name:en:Soy dessert, w fruits, refrigerated
 ciqual_food_name:fr:Dessert au soja, aux fruits, rayon frais
 
 <en:fermented foods
-<en:Dairy substitutes
+<en:Dairies substitutes
 en:Non-dairy fermented foods
 de:fermentierte Lebensmittel ohne Milch
 es:Comida no láctea fermentada
@@ -50197,7 +50153,7 @@ de:Maiskeimöle
 es:Aceites de maíz, Aceites de germen de maíz
 fr:Huiles de maïs, Huiles de germe de maïs, Huile de maïs
 it:Olio di mais, Olio di semi di mais
-nl:Maïs-oliën, Maiskiemolie
+nl:Maïs-oliën
 zh:玉米油
 wikidata:en:Q856775
 agribalyse_food_code:en:17190
@@ -56006,7 +55962,7 @@ en:Artificially sweetened sorbets
 fr:Sorbets édulcorés
 
 <en:Ice creams and sorbets
-<en:Dairy substitutes
+<en:Dairies substitutes
 en:Plant-based ice creams, Non-dairy ice creams
 de:Pflanzliche Eiscremes, Milchfreie Eiscremes
 es:Helados con leche vegetal, Helados con bebida vegetal, Helados vegetales
@@ -57161,10 +57117,6 @@ agribalyse_food_code:en:13620
 ciqual_food_code:en:13620
 ciqual_food_name:en:Apple, var. Golden, pulp and skin, raw
 ciqual_food_name:fr:Pomme Golden, pulpe et peau, crue
-
-<en:Apples
-en:Elstar apples
-nl:Elstar
 
 <en:Apples
 <en:Acidic apples
@@ -58476,10 +58428,6 @@ protected_name_file_number:en: PGI-IT-1534
 protected_name_type:en: pgi
 origins:en: en:Italy
 wikidata:en:Q3899627
-
-<en:Pears
-en:Conference pears
-nl:Conference peren
 
 <en:Pears
 <en:Fresh fruits
@@ -63411,9 +63359,6 @@ agribalyse_proxy_food_name:fr:Mayonnaise (70% MG min.)
 <en:Mayonnaises
 en:Fried potato sauces
 nl:Fritessauzen, Fritessaus
-
-<en:Mayonnaises
-nl:Truffelmayonaises
 
 <en:Mayonnaises
 en:Sunflower oil mayonnaises
@@ -89590,15 +89535,9 @@ agribalyse_proxy_food_name:en:Potato, peeled, raw
 agribalyse_proxy_food_name:fr:Pomme de terre, sans peau, crue
 
 <en:Potatoes
-en:Precooked potatoes
-fr:Pommes de terres précuites
-nl:Voorgekookte aardappelen
-
-<en:Potatoes
 <en:Cooked vegetables
 en:Cooked potatoes
 fr:Pommes de terre cuites
-nl:Gekookte aardappelen
 ciqual_food_code:en:4048
 ciqual_food_name:en:Potato, cooked (average food)
 ciqual_food_name:fr:Pomme de terre, cuite (aliment moyen)
@@ -96315,7 +96254,7 @@ fr:Saucisses végétariennes de Vienne, saucisses végétales de Vienne
 nl:Vegetarische weense worstjes
 
 <en:Plant-based foods
-<en:Dairy substitutes
+<en:Dairies substitutes
 en:Cheese substitutes, Non-dairy cheeses, Plant cheeses, Vegan cheeses
 de:Milchfreie Käse, Pflanzliche Käse, Käseersatz, Vegane Käse
 es:Quesos vegetales
@@ -98271,6 +98210,23 @@ fr:Kombuchas, combuchas
 nl:Kombucha
 wikidata:en:Q657032
 
+<en:Cheeses
+en:Double cream cheeses
+de:Käse Doppelrahmstufe,Doppelrahmstufenkäse
+es:Quesos doble crema, Quesos cremosos doble crema, queso doble crema
+fr:Fromages double crème
+nl:Volle roomkazen, Volle roomkaas
+
+<en:Cheeses
+en:semi-cured cheese
+es:queso semicurado
+
+<en:Cheeses
+en:Abbaye cheeses
+fr:Fromages d’abbaye
+nl:Abdijkazen, Abdijkaas
+wikidata:en:Q2069008
+
 <en:Dairy desserts
 fr:Oeufs au lait
 
@@ -98438,7 +98394,20 @@ fr:Terrines de truite
 nl:Forelterinnes, Forelterrine
 #wikidata:en:
 
+<en:Cheeses
+en:Mexican cheeses, cheeses from Mexico
+de:Mexikanischer Käse
+es:Quesos mexicanos, Quesos de México
+fi:meksikolaiset juustot
+fr:Fromages mexicains, Fromages du Mexique
+it:Formaggio messicano
+wikidata:en:Q5089436
 
+<en:Mexican cheeses
+en:Panela cheeses
+es:Quesos panelas
+fr:Fromages panelas
+#wikidata:en:
 
 en:skewers, Kebabs, kebab, kabobs, kabob, kababs, kabab
 es:Pinchos, Brochetas
@@ -99827,6 +99796,17 @@ fi:kombuchat
 fr:Kombuchas, combuchas
 nl:Kombucha
 
+<en:Cheeses
+en:Double cream cheeses
+de:Käse Doppelrahmstufe,Doppelrahmstufenkäse
+fr:Fromages double crème
+nl:Volle roomkazen, Volle roomkaas
+
+<en:Cheeses
+en:Abbaye cheeses
+fr:Fromages d’abbaye
+nl:Abdijkazen, Abdijkaas
+
 <en:Dairy desserts
 fr:Oeufs au lait
 
@@ -99973,6 +99953,17 @@ fr:Terrines de poisson
 nl:Visterrines
 pnns_group_2:en:Fish and seafood
 
+<en:Cheeses
+en:Mexican cheeses, cheeses from Mexico
+de:Mexikanischer Käse
+es:Quesos mexicanos, Quesos de México
+fi:meksikolaiset juustot
+fr:Fromages mexicains, Fromages du Mexique
+
+<en:Mexican cheeses
+en:Panela cheeses
+es:Quesos panelas
+fr:Fromages panelas
 
 <en:Salts
 en:Liquid salts
