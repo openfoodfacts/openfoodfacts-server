@@ -318,6 +318,7 @@ else {
 	$log->warn("Language translation file does not exist, \%Lang will be empty. Run scripts/build_lang.pm to fix this.",
 		{path => $path})
 		if $log->is_warn();
+	die("Language translation file $path not found.");
 }
 
 # Tags types to path components in URLS: in ascii, lowercase, unaccented,

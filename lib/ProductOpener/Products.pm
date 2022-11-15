@@ -660,7 +660,7 @@ sub init_product ($userid, $orgid, $code, $countryid) {
 	if (((not defined $countryid) or ($countryid eq "en:world")) and (remote_addr() ne "127.0.0.1")) {
 		$country = ProductOpener::GeoIP::get_country_for_ip(remote_addr());
 	}
-	elsif (defined $countryid) {
+	elsif ((defined $countryid) and ($countryid ne "en:world")) {
 		$country = $countryid;
 		$country =~ s/^en://;
 	}
@@ -705,7 +705,7 @@ sub init_product ($userid, $orgid, $code, $countryid) {
 		$product_ref->{lang} = $lc;
 	}
 
-	if (defined $country) {
+	if ((defined $country) and ($country !~ /^world$/i)) {
 		if ($country !~ /a1|a2|o1/i) {
 			$product_ref->{countries} = "en:" . $country;
 			my $field = 'countries';
