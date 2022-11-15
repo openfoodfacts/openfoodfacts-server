@@ -1157,11 +1157,6 @@ span.ico-bold {
   @include button( 10, $white);
 }
 
-// rework: of donation banner.
-
-[data-hidden="true"] { display: none !important; }
-[data-hidden="false"] { display: flex !important; }
-
 #donate-banner {
   position: relative;
   display: flex;
@@ -1220,17 +1215,6 @@ span.ico-bold {
     }
   }
 }
-
-/*
-#donate_image_banner_outside {
-  margin-bottom:1rem;
-  background: no-repeat url(/images/illustrations/donate-heart.svg)
-}
-
-#donate_image_banner_inside {
-  @media only screen and (max-width: 100rem) {margin-left:140px;}
-}
-*/
 
 .footer_social_icon {
   height:24px;
