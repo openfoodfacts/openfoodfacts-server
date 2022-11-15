@@ -546,6 +546,7 @@ en:Unsweetened natural almond milks
 es:Leche de almendras natural sin edulcorar
 fi:Makeuttamattomat luontaiset mantelijuomat
 fr:Laits d'amande natures non sucrés
+agribalyse_food_code:en: 18107
 
 < en:Almond milks
 en:Vanilla almond milks
@@ -4612,7 +4613,7 @@ la:Fragaria
 nl:Aardbeien
 ro:Căpșune
 sv:Jordgubbe
-agribalyse_food_code:en: 13014_3
+agribalyse_food_code:en: 13014_1
 ciqual_food_code:en: 13014
 ciqual_food_name:en: Strawberry, raw
 ciqual_food_name:fr: Fraise, crue
@@ -9776,7 +9777,9 @@ ciqual_food_name:fr: Boisson gazeuse, sans jus de fruit, sucrée, avec édulcora
 < en:Diet beverages
 en:Carbonated soft drinks without fruit juice with reduced sugar
 fr:Boissons gazeuses sans jus de fruit à teneur réduite en sucres
-agribalyse_food_code:en: 18032
+agribalyse_proxy_food_code:en: 18033
+agribalyse_proxy_food_name:en: Fruit soft drink, carbonated -less than 10% of fruit juice-, with sugar and artificial sweetener-s-
+agribalyse_proxy_food_name:fr: Boisson gazeuse aux fruits -à moins de 10% de jus-, sucrée, avec édulcorants
 ciqual_food_code:en: 18032
 ciqual_food_name:en: Soft drink, carbonated, without fruit juice, reduced sugar
 ciqual_food_name:fr: Boisson gazeuse, sans jus de fruit, à teneur réduite en sucres
@@ -10736,7 +10739,7 @@ it:Quinoa
 la:Chenopodium quinoa
 nl:Quinoa, Gierstmelde
 zh:藜麦
-agribalyse_food_code:en: 9340
+agribalyse_food_code:en: 9340_1
 ciqual_food_code:en: 9340
 ciqual_food_name:en: Quinoa, raw
 ciqual_food_name:fr: Quinoa, cru
@@ -12110,7 +12113,7 @@ ciqual_food_name:fr: Cheeseburger, provenant de fast food
 < en:Cheeseburgers
 en:Double cheeseburgers
 fr:Double cheeseburgers
-agribalyse_proxy_food_code:en: 25415
+agribalyse_proxy_food_code:en: 25415_1
 agribalyse_proxy_food_name:fr: Double cheeseburger, provenant de fast food
 agribalyse_proxy_name:en: Cheeseburger, double, from fast foods restaurant
 
@@ -20922,7 +20925,7 @@ wikidata:en: Q1264142
 < en:Double cheeseburgers
 en:Double cheeseburgers from fast food restaurants
 fr:Double cheeseburgers de fast food
-agribalyse_food_code:en: 25415
+agribalyse_food_code:en: 25415_1
 ciqual_food_code:en: 25415
 ciqual_food_name:en: Cheeseburger, double, from fast foods restaurant
 ciqual_food_name:fr: Double cheeseburger, provenant de fast food
@@ -21693,7 +21696,8 @@ ciqual_food_name:fr: Boisson lactée, lait fermenté ou yaourt à boire, aromati
 < en:Drinkable yogurts
 en:Plain dairy drinks with sugar, Plain fermented milks with sugar, Plain yogurts with sugar
 fr:Boissons lactées nature sucrées au lait fermenté, Yaourts à boire nature sucrés, Laits fermentés nature sucrés
-agribalyse_food_code:en: 19537
+agribalyse_proxy_food_code:en: 19538
+agribalyse_proxy_food_name:en: Dairy drink or fermented milk or yogurt, plain, with sugar, with L Casei
 ciqual_food_code:en: 19537
 ciqual_food_name:en: Dairy drink or fermented milk or yogurt, plain, with sugar
 ciqual_food_name:fr: Boisson lactée, lait fermenté ou yaourt à boire, nature, sucré
@@ -21863,7 +21867,6 @@ ru:Сухой корм для кошек, Сухие корма для коше�
 < en:Dry white wines
 en:11% dry white wine
 fr:Vin blanc sec à 11°, Vin blanc sec à 11% d'alcool
-agribalyse_food_code:en: 5211
 ciqual_food_code:en: 5211
 ciqual_food_name:en: Wine, white, dry, 11°
 ciqual_food_name:fr: Vin blanc sec 11°
@@ -27035,7 +27038,7 @@ wikidata:en: Q42300798
 < en:French fruits
 en:Clementine pulp
 fr:Pulpe de clémentine
-agribalyse_food_code:en: 13082
+agribalyse_food_code:en: 13024_2
 ciqual_food_code:en: 13082
 ciqual_food_name:en: Clementine, pulp, raw
 ciqual_food_name:fr: Clémentine, pulpe, crue
@@ -31251,7 +31254,7 @@ season_in_country_fr:en: 9‚10
 en:Immature tamarind pulp
 fr:Pulpe de tamarin vert
 nl:Onrijpe tamarinde pulp
-agribalyse_food_code:en: 13079
+agribalyse_food_code:en: 13080
 ciqual_food_code:en: 13079
 ciqual_food_name:en: Tamarind, immature fruit, pulp, raw
 ciqual_food_name:fr: Tamarin, fruit immature, pulpe, cru
@@ -33551,17 +33554,10 @@ agribalyse_proxy_food_name:fr: Haricot vert, surgelé, cru
 
 < en:Green beans
 en:Green beans imported by plane
-agribalyse_food_code:en: 20061_1
-ciqual_food_code:en: 20061_1
-ciqual_food_name:en: French bean by plane, raw
-ciqual_food_name:fr: Haricot vert importé par avion, cru
+agribalyse_food_code:en: 20061_2
 
 < en:Green beans
 en:Green beans not imported by plane
-agribalyse_food_code:en: 20061_2
-ciqual_food_code:en: 20061_2
-ciqual_food_name:en: French bean, raw
-ciqual_food_name:fr: Haricot vert, cru
 
 < en:Green cabbage
 en:Boiled green cabbage, Green cabbage cooked in water
@@ -34054,7 +34050,8 @@ nl:Gevriesdroogde gemalen groene peper
 < en:Ground peppers
 en:Grouned grey peppers, Grey pepper powder
 fr:Poivre gris moulu, Poivre gris en poudre
-agribalyse_food_code:en: 11020
+agribalyse_proxy_food_code:en: 11019
+agribalyse_proxy_food_name:fr: en:White pepper, powder
 ciqual_food_code:en: 11020
 ciqual_food_name:en: Grey pepper, powder
 ciqual_food_name:fr: Poivre gris, poudre
@@ -36268,6 +36265,8 @@ agribalyse_proxy_food_code:en: 19013
 en:Baby milks in powder, Infant formulas in powder
 fr:Laits infantiles en poudre
 agribalyse_proxy_food_code:en: 3000
+agribalyse_proxy_food_name:en: Baby milk, first age, powder, non rehydrated
+agribalyse_proxy_food_name:fr: poudre soluble -préparation pour nourrissons-
 
 < en:Insects
 en:Ants
@@ -39055,7 +39054,7 @@ wikidata:en: Q166812
 < en:Lean fishes
 en:European plaice
 fr:Carrelet crue, Plie, Plie commun
-agribalyse_food_code:en: 26204
+agribalyse_food_code:en: 26055
 ciqual_food_code:en: 26204
 ciqual_food_name:en: European plaice, raw
 ciqual_food_name:fr: Plie commune, crue
@@ -40623,7 +40622,7 @@ nl:Clementines
 < en:Mandarin oranges
 en:Mandarin pulp
 fr:Pulpe de mandarine
-agribalyse_food_code:en: 13090
+agribalyse_food_code:en: 13024_1
 ciqual_food_code:en: 13090
 ciqual_food_name:en: Mandarin, pulp, raw
 ciqual_food_name:fr: Mandarine, pulpe, crue
@@ -40667,12 +40666,16 @@ fr:Mangues fraîches
 < en:Mangoes
 en:Mango imported by boat
 fr:Mangue importée par bateau
-agribalyse_food_code:en: 13025_2
+agribalyse_proxy_food_code:en: 13025_1
+agribalyse_proxy_food_name:en: Mango, pulp, raw
+agribalyse_proxy_food_name:fr: Mangue importée par bateau, pulpe, crue
 
 < en:Mangoes
 en:Mango imported by plane
 fr:Mangue importée par avion
-agribalyse_food_code:en: 13025_1
+agribalyse_proxy_food_code:en: 13025_2
+agribalyse_proxy_food_name:en: Mango, pulp, raw -Brazil by plane-
+agribalyse_proxy_food_name:fr: Mangue importée par avion, pulpe, crue
 
 < en:Mantecados and polvorones
 en:Mantecados and polvorones with vegetal fat
@@ -40842,7 +40845,6 @@ ciqual_food_name:fr: Matière grasse végétale -type margarine- à 50-63% MG, a
 < en:Margarines with plant sterols esters
 en:30-40% fat unsalted vegetable fat with plant sterols esters, 30-40% unsalted margarine with plant sterols esters
 fr:Matière grasse végétale légère à 30-40% doux aux esters de stérol végétal, Margarine légère à 30-40% doux aux esters de stérol végétal
-agribalyse_food_code:en: 16735
 ciqual_food_code:en: 16735
 ciqual_food_name:en: Vegetable fat -margarine type-, spreadable, 30-40% fat, light, unsalted, with plant sterols esters
 ciqual_food_name:fr: Matière grasse végétale -type margarine-, à tartiner, à 30-40% MG, légère, doux, aux esters de stérol végétal
@@ -45871,7 +45873,9 @@ pl:Mleka migdałowe, Napoje migdałowe
 pt:Bebidas de amêndoa
 ru:Миндальное молоко
 sv:Mandeldrycker, mandeldryck
-agribalyse_food_code:en: 18107
+agribalyse_proxy_food_code:en: 18107
+agribalyse_proxy_food_name:en: Almond drink not sweet, not fortified, prepacked
+agribalyse_proxy_food_name:fr: Boisson à l'amande
 ciqual_food_code:en: 18107
 ciqual_food_name:en: Almond drink
 ciqual_food_name:fr: Boisson à l'amande
@@ -49275,7 +49279,7 @@ en:Rum baba, baba au rhum
 fr:Babas au rhum, Baba au rhum
 it:Babà al rum
 nl:Baba au rhum
-agribalyse_food_code:en: 23020
+agribalyse_food_code:en: 19688
 ciqual_food_code:en: 23020
 ciqual_food_name:en: Rum baba, prepacked
 ciqual_food_name:fr: Baba au rhum, préemballé
@@ -50431,7 +50435,6 @@ ciqual_food_name:fr: Pâte à pizza cuite
 < en:Pizza dough
 en:Pizza pastry base, Pizza pastry base
 fr:Préparation pour pâte à pizza, Préparation pour pâte à pizza
-agribalyse_food_code:en: 23403
 ciqual_food_code:en: 23403
 ciqual_food_name:en: Pizza pastry base
 ciqual_food_name:fr: Préparation pour pâte à pizza
@@ -52419,7 +52422,9 @@ ciqual_food_name:fr: Porc, côte, crue
 < en:Pork
 en:Pork rind
 fr:Couenne de porc
-agribalyse_food_code:en: 28478
+agribalyse_proxy_food_code:en: 16530
+agribalyse_proxy_food_name:en: Pork fat, raw
+agribalyse_proxy_food_name:fr: Lard gras, cru
 ciqual_food_code:en: 28478
 ciqual_food_name:en: Pork, rind, raw
 ciqual_food_name:fr: Porc, couenne, crue
@@ -56496,7 +56501,7 @@ nl:Rode quinoa
 < en:Quinoa
 en:Unsalted boiled quinoa, Unsalted quinoa cooked in water
 fr:Quinoa bouilli non salé, Quinoa cuit à l'eau non salé
-agribalyse_food_code:en: 9341
+agribalyse_food_code:en: 9341_1
 ciqual_food_code:en: 9341
 ciqual_food_name:en: Quinoa, boiled/cooked in water, unsalted
 ciqual_food_name:fr: Quinoa, bouilli/cuit à l'eau, non salé
@@ -57076,7 +57081,6 @@ wikidata:en: Q3563163
 < en:Red wines
 en:10% red wine
 fr:Vin rouge à 10°, Vin rouge à 10 degrés
-agribalyse_food_code:en: 5203
 ciqual_food_code:en: 5203
 ciqual_food_name:en: Wine, red, 10°
 ciqual_food_name:fr: Vin rouge 10°
@@ -57084,7 +57088,6 @@ ciqual_food_name:fr: Vin rouge 10°
 < en:Red wines
 en:11% red wine
 fr:Vin rouge à 11°, Vin rouge à 11 degrés
-agribalyse_food_code:en: 5204
 ciqual_food_code:en: 5204
 ciqual_food_name:en: Wine, red, 11°
 ciqual_food_name:fr: Vin rouge 11°
@@ -57092,7 +57095,6 @@ ciqual_food_name:fr: Vin rouge 11°
 < en:Red wines
 en:12% red wine
 fr:Vin rouge à 12°, Vin rouge à 12 degrés
-agribalyse_food_code:en: 5205
 ciqual_food_code:en: 5205
 ciqual_food_name:en: Wine, red, 12°
 ciqual_food_name:fr: Vin rouge 12°
@@ -57100,7 +57102,6 @@ ciqual_food_name:fr: Vin rouge 12°
 < en:Red wines
 en:13% red wine
 fr:Vin rouge à 13°, Vin rouge à 13 degrés
-agribalyse_food_code:en: 5208
 ciqual_food_code:en: 5208
 ciqual_food_name:en: Wine, red, 13°
 ciqual_food_name:fr: Vin rouge 13°
@@ -58570,7 +58571,6 @@ wikidata:en: Q3332007
 < en:Rosé wines
 en:11% rosé wine
 fr:Vin rosé 11°, Vin rosé 11 degrés
-agribalyse_food_code:en: 5206
 ciqual_food_code:en: 5206
 ciqual_food_name:en: Wine, rose, 11°
 ciqual_food_name:fr: Vin rosé 11°
@@ -61158,7 +61158,7 @@ ciqual_food_name:fr: Choucroute garnie
 < en:Sauerkrauts
 en:Sauerkraut without garnish
 fr:Choucroutes sans garniture
-agribalyse_food_code:en: 25004
+agribalyse_food_code:en: 25220
 ciqual_food_code:en: 25004
 ciqual_food_name:en: Sauerkraut, without garnish, drained
 ciqual_food_name:fr: Choucroute, sans garniture, égouttée
@@ -68293,7 +68293,9 @@ wikidata:en: Q10216
 < en:Swiss sausages
 en:Swiss sausages to cook
 fr:Saucisse suisse à cuire
-agribalyse_food_code:en: 30118
+agribalyse_proxy_food_code:en: 30730
+agribalyse_proxy_food_name:en: Saveloy or cervelat
+agribalyse_proxy_food_name:fr: Cervelas
 ciqual_food_code:en: 30118
 ciqual_food_name:en: Swiss sausage, intended to be cook
 
@@ -69523,7 +69525,7 @@ nl:Tomaten
 pl:Pomidory
 pt:Tomates
 ru:Помидоры
-agribalyse_food_code:en: 20047_3
+agribalyse_food_code:en: 20047_1
 ciqual_food_code:en: 20047
 ciqual_food_name:en: Tomato, raw
 ciqual_food_name:fr: Tomate, crue
@@ -69927,6 +69929,9 @@ wikidata:en: Q13182
 < en:Tropical fruits
 en:Mango pulp
 fr:Pulpe de mangue
+agribalyse_proxy_food_code:en: 13025_1
+agribalyse_proxy_food_name:en: Mango, pulp, raw
+agribalyse_proxy_food_name:fr: Mangue importée par bateau, pulpe, crue
 ciqual_food_code:en: 13025
 ciqual_food_name:en: Mango, pulp, raw
 ciqual_food_name:fr: Mangue, pulpe, crue
@@ -69939,6 +69944,8 @@ fi:mangot
 fr:Mangues
 nl:Mangos
 agribalyse_proxy_food_code:en: 13025_1
+agribalyse_proxy_food_name:en: Mango, pulp, raw
+agribalyse_proxy_food_name:fr: Mangue importée par bateau, pulpe, crue
 wikidata:en: Q169
 
 < en:Tropical fruits
@@ -70761,7 +70768,7 @@ ciqual_food_name:fr: Lait demi-écrémé, UHT
 < en:UHT Milks
 en:Semi-skimmed UHT milk fortified with vitamins
 fr:Laits demi-écrémés UHT enrichis en vitamines
-agribalyse_food_code:en: 19049
+agribalyse_food_code:en: 19037
 ciqual_food_code:en: 19049
 ciqual_food_name:en: Milk, semi-skimmed, vitamin fortified, UHT
 ciqual_food_name:fr: Lait demi-écrémé, UHT, enrichi en vitamines
@@ -73108,6 +73115,7 @@ it:Fagiolini
 ja:サヤインゲン
 nl:Sperziebonen, Groene bonen
 ru:Стручковая фасоль
+agribalyse_food_code:en: 20061_1
 ciqual_food_code:en: 20061
 ciqual_food_name:en: French bean, raw
 ciqual_food_name:fr: Haricot vert, cru
@@ -74034,7 +74042,7 @@ fr:Tortillas de blé, pains plats au blé, galettes de blé pour tortillas, wrap
 it:Tortilla, Wrap, Piadine
 nl:Graantortillas, Platte graanbroden, Platte graanbrood
 sv:Halvtjockkakor, Hällakaka
-agribalyse_food_code:en: 7815
+agribalyse_food_code:en: 7815_1
 ciqual_food_code:en: 7815
 ciqual_food_name:en: Wheat tortilla wrap, to be filled
 ciqual_food_name:fr: Tortilla souple -à garnir-, à base de blé
@@ -75096,7 +75104,6 @@ wikidata:en: Q3563208
 < en:White wines
 en:11% white wine
 fr:Vin blanc à 11°, Vin blanc à 11% d'alcool
-agribalyse_food_code:en: 5200
 ciqual_food_code:en: 5200
 ciqual_food_name:en: Wine, white, 11°
 ciqual_food_name:fr: Vin blanc 11°
@@ -75104,9 +75111,7 @@ ciqual_food_name:fr: Vin blanc 11°
 < en:White wines
 en:Dry white wines
 fr:Vins blancs secs
-agribalyse_proxy_food_code:en: 5211
-agribalyse_proxy_food_name:en: Wine, white, dry, 11°
-agribalyse_proxy_food_name:fr: Vin blanc sec 11°
+agribalyse_food_code:en: 5215
 
 < en:White wines
 < en:Wines from France
@@ -75532,9 +75537,7 @@ pl:Wina czerwone, Czerwone wino, Czerwone wina
 pt:Vinhos tintos, vinho tinto
 ru:Красные вина
 zh:红葡萄酒, 红酒
-agribalyse_proxy_food_code:en: 5204
-agribalyse_proxy_food_name:en: Wine, red, 11°
-agribalyse_proxy_food_name:fr: Vin rouge 11°
+agribalyse_food_code:en: 5214
 wikidata:en: Q1827
 
 < en:Wines
@@ -75550,9 +75553,7 @@ fi:rosé-viinit
 fr:Vins rosés, vin rosé
 it:Vini rosé
 nl:Rosé wijnen, Rosé wijn, Rosé
-agribalyse_proxy_food_code:en: 5206
-agribalyse_proxy_food_name:en: Wine, rose, 11°
-agribalyse_proxy_food_name:fr: Vin rosé 11°
+agribalyse_food_code:en: 5216
 
 < en:Wines
 en:Serbian wines
@@ -75622,9 +75623,9 @@ sv:Vitt vin
 uk:Біле вино
 vi:Rượu vang trắng
 zh:白葡萄酒
-agribalyse_proxy_food_code:en: 5200
-agribalyse_proxy_food_name:en: Wine, white, 11°
-agribalyse_proxy_food_name:fr: Vin blanc 11°
+agribalyse_proxy_food_code:en: 5215
+agribalyse_proxy_food_name:en: Vin blanc sec
+agribalyse_proxy_food_name:fr: Wine, white, dry
 wikidata:en: Q10210
 
 < en:Wines
@@ -75733,9 +75734,9 @@ pl:Wina francuskie, Wina z Francji
 pt:Vinhos da França, Vinhos franceses
 ru:Французские вина
 zh:法国葡萄酒
-agribalyse_proxy_food_code:en: 5200
-agribalyse_proxy_food_name:en: Wine, white, 11°
-agribalyse_proxy_food_name:fr: Vin blanc 11°
+agribalyse_proxy_food_code:en: 5215
+agribalyse_proxy_food_name:en: Wine, white, dry
+agribalyse_proxy_food_name:fr: Vin blanc sec
 wikidata:en: Q630531
 
 < en:Wines
@@ -89964,7 +89965,7 @@ en:Baguette made with type T55-T110 flour, Bread ball made with type T55-T110 fl
 fr:Pain bio en baguette, baguette de pain bio, Baguette de pains bio à la farine T55 jusqu'à T110, Boules de pain bio à la farine T55 jusqu'à T110
 agribalyse_food_code:en: 7025
 ciqual_food_code:en: 7025
-ciqual_food_name:en: Brear -baguette or ball-, made with type T55-T110 flour
+ciqual_food_name:en: Bread -baguette or ball-, made with type T55-T110 flour
 ciqual_food_name:fr: Pain, baguette ou boule, bio -à la farine T55 jusqu'à T110-
 
 < en:Baguettes

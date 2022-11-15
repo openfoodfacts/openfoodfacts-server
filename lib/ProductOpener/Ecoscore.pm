@@ -635,9 +635,10 @@ Returned values:
 
 sub compute_ecoscore ($product_ref) {
 	my $old_ecoscore_data = $product_ref->{ecoscore_data};
-	my $old_ecoscore_version = $old_ecoscore_data->{version};
+	my $old_agribalyse_version = $old_ecoscore_data->{agribalyse}{version};
 	my $old_ecoscore_grade = $old_ecoscore_data->{grade};
 	my $old_ecoscore_score = $old_ecoscore_data->{score};
+	my $old_agribalyse_code = $old_ecoscore_data->{agribalyse}{code};
 	my $old_previous_data = $old_ecoscore_data->{previous_data};
 
 	delete $product_ref->{ecoscore_grade};
@@ -856,19 +857,22 @@ sub compute_ecoscore ($product_ref) {
 	}
 
 	# Track if ecoscore has changed through different Agribalyse versions
-	if (defined $old_ecoscore_score && $old_ecoscore_score != $product_ref->{ecoscore_score}) {
+	# Don't overwrite previous_data from before. This should be manually cleared
+	# before each version upgrade
+	if (defined $old_previous_data) {
+		$product_ref->{ecoscore_data}{previous_data} = $old_previous_data;
+	}
+	elsif (defined $old_ecoscore_score && $old_ecoscore_score != $product_ref->{ecoscore_score}) {
 		$product_ref->{ecoscore_data}{previous_data} = {
 			grade => $old_ecoscore_grade,
 			score => $old_ecoscore_score,
-			version => $old_ecoscore_version // "3.0"
+			agribalyse_version => $old_agribalyse_version // "3.0",
+			agribalyse_code => $old_agribalyse_code
 		};
 		add_tag($product_ref, "misc", "en:ecoscore-changed");
 		if (defined $old_ecoscore_grade && $old_ecoscore_grade ne $product_ref->{ecoscore_grade}) {
 			add_tag($product_ref, "misc", "en:ecoscore-grade-changed");
 		}
-	}
-	elsif (defined $old_previous_data) {
-		$product_ref->{ecoscore_data}{previous_data} = $old_previous_data;
 	}
 	return;
 }

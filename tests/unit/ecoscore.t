@@ -537,7 +537,10 @@ my @tests = (
 			ingredients_text => "Foie gras de canard",
 			ecoscore_data => {
 				grade => "d",
-				score => 20
+				score => 20,
+				agribalyse => {
+					code => "old"
+				}
 			}
 		},
 	],
@@ -553,7 +556,9 @@ my @tests = (
 			ecoscore_data => {
 				grade => "e",
 				score => 20,
-				version => "2.9"
+				agribalyse => {
+					version => "2.9"
+				}
 			}
 		},
 	],
@@ -573,7 +578,7 @@ my @tests = (
 		},
 	],
 
-	# Tags are retained on subsequent updates
+	# Tags and previous data are retained on subsequent updates even if score is different
 	[
 		'track-ecoscore-tags-retained',
 		{
@@ -583,7 +588,7 @@ my @tests = (
 			ingredients_text => "Foie gras de canard",
 			ecoscore_data => {
 				grade => "e",
-				score => 18,
+				score => 19,
 				version => "3.1",
 				previous_data => {
 					grade => "d",
@@ -592,6 +597,15 @@ my @tests = (
 				}
 			},
 			misc_tags => ["en:ecoscore-changed", "en:ecoscore-grade-changed"]
+		},
+	],
+
+	# Qunioa - has a new category code
+	[
+		'agribalyse-updated-category',
+		{
+			lc => "fr",
+			categories_tags => ["en:quinoa"],
 		},
 	],
 
