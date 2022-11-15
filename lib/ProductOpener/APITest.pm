@@ -52,7 +52,6 @@ use ProductOpener::Test qw/:all/;
 use Test::More;
 use LWP::UserAgent;
 use HTTP::CookieJar::LWP;
-use Data::Dump qw/dump/;
 use Encode;
 use JSON::PP;
 
@@ -113,7 +112,7 @@ sub create_user ($ua, $args_ref) {
 	}
 	my $response = $ua->post("http://world.openfoodfacts.localhost/cgi/user.pl", Content => \%fields,);
 	if (not $response->is_success) {
-		diag("Couldn't create user with " . dump(\%fields) . "\n");
+		diag("Couldn't create user" . explain(\%fields) . "\n");
 		diag explain $response;
 		die("Resuming");
 	}
@@ -142,7 +141,7 @@ sub edit_product ($ua, $product_fields) {
 
 	my $response = $ua->post("http://world.openfoodfacts.localhost/cgi/product_jqm2.pl", Content => \%fields,);
 	if (not $response->is_success) {
-		diag("Couldn't create product with " . dump(\%fields) . "\n");
+		diag("Couldn't create product with " . explain(\%fields) . "\n");
 		diag explain $response;
 		die("Resuming");
 	}
