@@ -41,8 +41,10 @@ BEGIN {
 		&compare_csv_file_to_expected_results
 		&create_sto_from_json
 		&init_expected_results
+		&normalize_org_for_test_comparison
 		&normalize_product_for_test_comparison
 		&normalize_products_for_test_comparison
+		&normalize_user_for_test_comparison
 		&remove_all_products
 		&remove_all_users
 		&remove_all_orgs
@@ -59,6 +61,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Data qw/execute_query get_products_collection/;
 use ProductOpener::Store "store";
 
+use Carp qw/confess/;
 use Data::DeepAccess qw(deep_exists deep_get deep_set);
 use Getopt::Long;
 use Test::More;
@@ -110,13 +113,13 @@ TXT
 	my $update_expected_results;
 
 	GetOptions("update-expected-results" => \$update_expected_results)
-		or die("Error in command line arguments.\n\n" . $usage);
+		or confess("Error in command line arguments.\n\n" . $usage);
 
 	# ensure boolean
 	$update_expected_results = !!$update_expected_results;
 
 	if (($update_expected_results) and (!-e $expected_result_dir)) {
-		mkdir($expected_result_dir, 0755) or die("Could not create $expected_result_dir directory: $!\n");
+		mkdir($expected_result_dir, 0755) or confess("Could not create $expected_result_dir directory: $!\n");
 	}
 
 	return ($test_id, $test_dir, $expected_result_dir, $update_expected_results);
@@ -137,7 +140,7 @@ sub check_not_production() {
 		}
 	);
 	unless ((0 <= $products_count) && ($products_count < 1000)) {
-		die("Refusing to run destructive test on a DB of more than 1000 items");
+		confess("Refusing to run destructive test on a DB of more than 1000 items\n");
 	}
 }
 
@@ -163,7 +166,7 @@ sub remove_all_products () {
 	# clean files
 	remove_tree("$data_root/products", {keep_root => 1, error => \my $err});
 	if (@$err) {
-		die("not able to remove some products directories: " . join(":", @$err));
+		confess("not able to remove some products directories: " . join(":", @$err));
 	}
 }
 
@@ -182,7 +185,7 @@ sub remove_all_users () {
 	# clean files
 	remove_tree("$data_root/users", {keep_root => 1, error => \my $err});
 	if (@$err) {
-		die("not able to remove some users directories: " . join(":", @$err));
+		confess("not able to remove some users directories: " . join(":", @$err));
 	}
 }
 
@@ -200,7 +203,7 @@ sub remove_all_orgs () {
 	# clean files
 	remove_tree("$data_root/orgs", {keep_root => 1, error => \my $err});
 	if (@$err) {
-		die("not able to remove some orgs directories: " . join(":", @$err));
+		confess("not able to remove some orgs directories: " . join(":", @$err));
 	}
 }
 
@@ -251,13 +254,13 @@ sub ensure_expected_results_dir ($expected_results_dir, $update_expected_results
 		if (-e $expected_results_dir) {
 			remove_tree("$expected_results_dir", {error => \my $err});
 			if (@$err) {
-				die("not able to remove some result directories: " . join(":", @$err));
+				confess("not able to remove some result directories: " . join(":", @$err));
 			}
 		}
 		make_path($expected_results_dir);
 	}
 	elsif (!-e $expected_results_dir) {
-		die("Expected results dir not found at $expected_results_dir");
+		confess("Expected results dir not found at $expected_results_dir");
 	}
 	return 1;
 }
@@ -289,7 +292,7 @@ sub compare_to_expected_results ($object_ref, $expected_results_file, $update_ex
 
 	if ($update_expected_results) {
 		open(my $result, ">:encoding(UTF-8)", $expected_results_file)
-			or die("Could not create $expected_results_file: $!\n");
+			or confess("Could not create $expected_results_file: $!");
 		print $result $json->pretty->encode($object_ref);
 		close($result);
 	}
@@ -341,7 +344,7 @@ sub compare_csv_file_to_expected_results ($csv_file, $expected_results_dir, $upd
 	my $csv = Text::CSV->new({binary => 1, sep_char => "\t"})    # should set binary attribute.
 		or die "Cannot use CSV: " . Text::CSV->error_diag();
 
-	open(my $io, '<:encoding(UTF-8)', $csv_file) or die("Could not open " . $csv_file . ": $!");
+	open(my $io, '<:encoding(UTF-8)', $csv_file) or confess("Could not open " . $csv_file . ": $!");
 
 	# first line contains headers
 	my $columns_ref = $csv->getline($io);
@@ -398,7 +401,7 @@ sub compare_array_to_expected_results ($array_ref, $expected_results_dir, $updat
 
 		if ($update_expected_results) {
 			open(my $result, ">:encoding(UTF-8)", "$expected_results_dir/$code.json")
-				or die("Could not create $expected_results_dir/$code.json: $!\n");
+				or confess("Could not create $expected_results_dir/$code.json: $!\n");
 			print $result $json->pretty->encode($product_ref);
 			close($result);
 		}
@@ -420,7 +423,7 @@ sub compare_array_to_expected_results ($array_ref, $expected_results_dir, $updat
 	# Check that we are not missing products
 
 	opendir(my $dh, $expected_results_dir)
-		or die("Could not open the $expected_results_dir directory: $!\n");
+		or confess("Could not open the $expected_results_dir directory: $!\n");
 
 	my @missed = ();
 	foreach my $file (sort(readdir($dh))) {
@@ -495,7 +498,58 @@ sub _sub_items ($item_ref, $subfields_ref) {
 	}
 }
 
-=head2 normalize_product_for_test_comparison(product_ref)
+=head2 normalize_object_for_test_comparison($object_ref, $specification_ref)
+
+Normalize an object to be able to compare them across tests runs.
+
+We remove some fields and sort some lists.
+
+=head3 Arguments
+
+=head4 $object_ref - Hash ref containing information
+
+=head4 $specification_ref - Hash ref of specification of transforms
+
+fields_ignore_content - array of fields which content should be ignored
+because they vary from test to test.
+Stars means there is a table of elements and we want to run through all (hash not supported yet)
+
+fields_sort - array of fields which content needs to be sorted to have predictable results
+
+=cut
+
+sub normalize_object_for_test_comparison ($object_ref, $specification_ref) {
+	if (defined($specification_ref->{fields_ignore_content})) {
+		my @fields_ignore_content = @{$specification_ref->{fields_ignore_content}};
+
+		my @key;
+		for my $field_ic (@fields_ignore_content) {
+			# stars permits to loop subitems
+			my @subfield = split(/\.\*\./, $field_ic);
+			my $final_field = pop @subfield;
+			for my $item (_sub_items($object_ref, \@subfield)) {
+				@key = split(/\./, $final_field);
+				if (deep_exists($item, @key)) {
+					deep_set($item, @key, "--ignore--");
+				}
+			}
+		}
+	}
+	if (defined($specification_ref->{fields_sort})) {
+		my @fields_sort = @{$specification_ref->{fields_sort}};
+		my @key;
+		for my $field_s (@fields_sort) {
+			@key = split(/\./, $field_s);
+			if (deep_exists($object_ref, @key)) {
+				my @sorted = sort @{deep_get($object_ref, @key)};
+				deep_set($object_ref, @key, \@sorted);
+			}
+		}
+	}
+	return;
+}
+
+=head2 normalize_product_for_test_comparison($product_ref)
 
 Normalize a product to be able to compare them across tests runs.
 
@@ -507,39 +561,19 @@ We remove time dependent fields and sort some lists.
 
 =cut
 
-sub normalize_product_for_test_comparison ($product) {
-	# fields we don't want to check for they vary from test to test
-	# stars means there is a table of elements and we want to run through all (hash not supported yet)
-	# compared_to_category: depends on which products have been aggregated in index/categories_nutriments_per_country.world.sto
-	my @fields_ignore_content = qw(
-		last_modified_t created_t owner_fields
-		entry_dates_tags last_edit_dates_tags
-		sources.*.import_t
+sub normalize_product_for_test_comparison ($product_ref) {
+	my %specification = (
+		fields_ignore_content => [
+			qw(
+				last_modified_t created_t owner_fields
+				entry_dates_tags last_edit_dates_tags
+				sources.*.import_t
+			)
+		],
+		fields_sort => ["_keywords"],
 	);
-	# fields that are array and need to sort to have predictable results
-	my @fields_sort = qw(_keywords);
 
-	my $code = $product->{code};
-	my @key;
-	for my $field_ic (@fields_ignore_content) {
-		# stars permits to loop subitems
-		my @subfield = split(/\.\*\./, $field_ic);
-		my $final_field = pop @subfield;
-		for my $item (_sub_items($product, \@subfield)) {
-			@key = split(/\./, $final_field);
-			if (deep_exists($item, @key)) {
-				deep_set($item, @key, "--ignore--");
-			}
-		}
-	}
-	for my $field_s (@fields_sort) {
-		@key = split(/\./, $field_s);
-		if (deep_exists($product, @key)) {
-			my @sorted = sort @{deep_get($product, @key)};
-			deep_set($product, @key, \@sorted);
-		}
-	}
-	return;
+	return normalize_object_for_test_comparison($product_ref, \%specification);
 }
 
 =head2 normalize_products_for_test_comparison(array_ref)
@@ -559,6 +593,44 @@ sub normalize_products_for_test_comparison ($array_ref) {
 	for my $product_ref (@$array_ref) {
 		normalize_product_for_test_comparison($product_ref);
 	}
+	return;
+}
+
+=head2 normalize_user_for_test_comparison($user_ref)
+
+Normalize a user to be able to compare them across tests runs.
+
+We remove time dependent fields, password (which encryption use salt) and sort some lists.
+
+=head3 Arguments
+
+=head4 user_ref - Hash ref containing user information
+
+=cut
+
+sub normalize_user_for_test_comparison ($user_ref) {
+	my %specification = (fields_ignore_content => [qw(registered_t user_sessions encrypted_password ip)],);
+
+	normalize_object_for_test_comparison($user_ref, \%specification);
+	return;
+}
+
+=head2 normalize_org_for_test_comparison($org_ref)
+
+Normalize a org to be able to compare them across tests runs.
+
+We remove time dependent fields, password (which encryption use salt) and sort some lists.
+
+=head3 Arguments
+
+=head4 org_ref - Hash ref containing org information
+
+=cut
+
+sub normalize_org_for_test_comparison ($org_ref) {
+	my %specification = (fields_ignore_content => ["created_t"],);
+
+	normalize_object_for_test_comparison($org_ref, \%specification);
 	return;
 }
 

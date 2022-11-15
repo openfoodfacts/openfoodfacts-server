@@ -4132,6 +4132,14 @@ msgctxt "export_products_to_public_database_email"
 msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
 msgstr "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
 
+msgctxt "crm_user_id"
+msgid "Id of corresponding contact in CRM"
+msgstr "Id of corresponding contact in CRM"
+
+msgctxt "crm_org_id"
+msgid "Id of corresponding organization in CRM"
+msgstr "Id of corresponding organization in CRM"
+
 msgctxt "user_groups"
 msgid "Groups"
 msgstr "Groups"
@@ -5416,6 +5424,14 @@ msgstr "List of GS1 GLN identifiers to be associated with the organization"
 msgctxt "org_list_of_gs1_gln_note"
 msgid "A comma separated list of GS1 GLN identifiers to force the association with this organization."
 msgstr "A comma separated list of GS1 GLN identifiers to force the association with this organization."
+
+msgctxt "org_valid_org"
+msgid "Validate organization as a real producer."
+msgstr "Validate organization as a real producer."
+
+msgctxt "org_valid_org_note"
+msgid "The organization is verified as a real producer by a human, also creates entry in CRM."
+msgstr "The organization is verified as a real producer by a human, also creates entry in CRM."
 
 msgctxt "org_enable_manual_export_to_public_platform"
 msgid "Enable organization members to manually export product data and photos to the public database."
