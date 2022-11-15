@@ -10,7 +10,7 @@ To get a product nutriscore, you need to make a call to the [Get A Product By Ba
 
 ### Authentication
 
-No Authentication is required to make a query to Get A Product Nutri-score.
+Usually, no authentication is required to query Get A Product Nutri-score. However, on the staging environment(which is used throughout this tutorial), there is a basic auth to avoid content indexation. For more details, visit the [Open Food Facts API Environment](https://openfoodfacts.github.io/openfoodfacts-server/introduction/api/#environment).
 
 ### Describing the Request
 
@@ -226,3 +226,62 @@ For more details, see the reference documentation for [Add or Edit A Product](ht
 You can also check the reference cheatsheet to know how to add/edit other types of product data.
 
 <!-- Include the link of the cheatsheet once it is published. -->
+
+## Search for a Product by Nutri-score
+
+You can filter product based on different requirements using  the Open Food Facts API. To search for orange juice with a nutrition_grade of C , query the [Search for Products Endpoint](https://openfoodfacts.github.io/openfoodfacts-server/reference/api/#tag/Read-Requests/operation/get-search).
+
+### Describing the Request
+
+Make a `GET` request to the `Search for Products` endpoint.
+
+```text
+https://world.openfoodfacts.org/api/v2/search
+```
+
+The search criteria used to filter the products are added as query parameter. In this tutorial, `categories_tags_en` is `Orange Juice` while `nutrition_grades` is `c'. The response will return all the products in the database with category as Orange Juice and nutrition grade C.
+
+```text
+https://world.openfoodfacts.org/api/v2/search?categories_tags_en=Orange Juice&nutrition_grades=b
+```
+
+To limit the response, add fields as a query parameter to specify the product fields to be returned. In this tutorial,limit the response to `code` and `product_name`.
+
+```text
+https://world.openfoodfacts.org/api/v2/search?fields=code,product_name&categories_tags_en=Orange Juice&nutrition_grades=b
+```
+
+The response returns all products that belong to Orange Juice category, with the nitrition_grade "c" and limiting the product response to only `code` and `product_name`. It aalso returns the count(total number) of products taht matches the search criteria.
+
+```json
+{
+    "count": 2873,
+    "page": 1,
+    "page_count": 24,
+    "page_size": 24,
+    "products": [
+        {
+            "code": "3502110009449",
+            "product_name": "Tropicana 100% oranges pressées sans pulpe 1 L"
+        },
+        {
+            "code": "3502110006790",
+            "product_name": "Tropicana 100% oranges pressées sans pulpe format familial 1,5 L"
+        },
+        .
+        .
+        .
+        .
+        {
+            "code": "3245412373039",
+            "product_name": "100% pur jus jus d'orange sans pulpe"
+        },
+        {
+            "code": "3168930156741",
+            "product_name": "Tropicana Oranges pressées avec pulpe"
+        }
+    ],
+    "skip": 0
+}
+```
+
