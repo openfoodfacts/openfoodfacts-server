@@ -330,7 +330,3 @@ guard-%: # guard clause for targets that require an environment variable (usuall
    		exit 1; \
 	fi;
 
-install_perl_dev_modules: # Perl modules that ease development but are not needed for GitHub actions
-	@echo "🥫 Installing Perl dev modules"
-	${DOCKER_COMPOSE} run -u root backend cpanm --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps . --cpanfile cpanfile_dev
-

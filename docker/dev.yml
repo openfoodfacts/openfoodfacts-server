@@ -71,6 +71,7 @@ services:
       args:
         USER_UID: ${USER_UID:-1000}
         USER_GID: ${USER_GID:-1000}
+        PERL_CPAN_DEV: ${PERL_CPAN_DEV:-}
     volumes:
       - ./html:/opt/product-opener/html/
       - ./icons:/opt/product-opener/icons
