@@ -1171,7 +1171,7 @@ sub check_categories ($product_ref) {
 
 	# Check alcohol content
 	if (has_tag($product_ref, "categories", "en:alcoholic-beverages")) {
-		if (!(defined $product_ref->{nutriments}->{alcohol_value}) || $product_ref->{nutriments}->{alcohol_value} == 0) {
+		if (!(defined $product_ref->{nutriments}{alcohol_value}) || $product_ref->{nutriments}{alcohol_value} == 0) {
 			push @{$product_ref->{data_quality_warnings_tags}}, 'en:alcoholic-beverages-category-without-alcohol-value';
 		}
 		if (has_tag($product_ref, "categories", "en:non-alcoholic-beverages")) {
@@ -1180,8 +1180,8 @@ sub check_categories ($product_ref) {
 		}
 	}
 
-	if (    defined $product_ref->{nutriments}->{alcohol_value}
-		and $product_ref->{nutriments}->{alcohol_value} > 0
+	if (    defined $product_ref->{nutriments}{alcohol_value}
+		and $product_ref->{nutriments}{alcohol_value} > 0
 		and not has_tag($product_ref, "categories", "en:alcoholic-beverages"))
 	{
 
