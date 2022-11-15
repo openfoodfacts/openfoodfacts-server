@@ -200,7 +200,7 @@ integration_test:
 	@echo "🥫 Running unit tests …"
 # we launch the server and run tests within same container
 # we also need dynamicfront for some assets to exists
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront frontend
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront
 # note: we need the -T option for ci (non tty environment)
 	${DOCKER_COMPOSE_TEST} exec -T backend prove -l -r tests/integration
 	${DOCKER_COMPOSE_TEST} stop
@@ -220,7 +220,7 @@ test-unit: guard-test
 # usage:  make test-int test=test-name.t
 test-int: guard-test # usage: make test-one test=test-file.t
 	@echo "🥫 Running test: 'tests/integration/${test}' …"
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront frontend
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront
 	${DOCKER_COMPOSE_TEST} exec backend perl tests/integration/${test}
 # better shutdown, for if we do a modification of the code, we need a restart
 	${DOCKER_COMPOSE_TEST} stop backend
