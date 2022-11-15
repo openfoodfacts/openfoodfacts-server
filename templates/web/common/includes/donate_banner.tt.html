@@ -3,54 +3,69 @@
 
 [% IF banner %]
 
-<div id="donate_banner" class="block black short" style="background-color:#6D85D9">
-	
-		<div id="donate_image_banner_outside">
-			<div class="row hide-for-small">
+<section id="donate-banner">
+  <span id="donate-banner__image"></span>
+	<div id="donate-banner__content">
+		<a href="[% link %]?utm_source=off&utm_medium=web&utm_campaign=donate-2022&utm_term=en-text-button"
+       class="button round white-button">
+			<span class="material-icons">volunteer_activism</span>
+			[% lang('donation_cta') %]
+    </a>
+    <div class="banner-content">
+      <p>[% f_lang('donation_body_employees', { number_of_employees => '7' }) %] [% f_lang('donation_why_year', { year => '2022' }) %]</p>
+      <p>[% lang('thank_you') %] <span>❤️</span></p>
+    </div>
+    <div class="banner__close">
+      <span id="hide-donate-banner" onclick="DonationButton();" class="material-icons banner__close--icon">close</span>
+    </div>
+	</div>
+</section>
 
-				<div id="donate_image_banner_inside">
+<script>
+  let d = new Date();
+  let expires = 'expires=' + d.toUTCString();
+  let bannerID = document.getElementById('donate-banner');
+  let bcval = "1";
 
-					<a href="[% link %]?utm_source=off&utm_medium=web&utm_campaign=donate-2022&utm_term=en-text-button" class="button round white-button" style="float:left;margin-right:2rem;">
-						<span class="material-icons material-symbols-button">volunteer_activism</span>
-						[% lang('donation_cta') %]
-					</a>
+  function setBannerCookie(bcname, bcval, bcexdays) {
+    d.setTime(d.getTime() + (bcexdays*60*60*24*1000));
+    let expires = 'expires=' + d.toUTCString();
+    document.cookie = bcname + '=' + bcval + ';' + expires + ';path=/';
+    console.log(expires);
+  }
 
-					<p class="">[% f_lang('donation_body_employees', { number_of_employees => '7' }) %]<br>
-					[% f_lang('donation_why_year', { year => '2022' }) %] <strong>[% lang('thank_you') %] <span style="color:red">❤️</span></strong>
-					</p>
-					<input id="hide_image_banner" type="checkbox" style="margin-top:1.5rem;margin-bottom:0;">
-					<label for="hide_image_banner">
-						<span id="hide_image_banner_hide"class="text-white">[% lang('donation_banner_hide') %]</span>
-					</label>
 
-				</div>
-			</div>
+  function deleteBannerCookie(bcname) {
+    d.setTime(d.getTime() + (60*60*24*1000));
+    let expires = 'expires=' + d.toUTCString();
+    document.cookie = bcname + '=;' + expires + ';path=/';
+  }
+  
+  function getBannerCookie(bcname) {
+    let name = bcname + '=';
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') { c = c.substring(1); }
+      if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
+    }
+    return '';
+  }
 
-			<div class="row hide-for-medium-up">
+  function DonationButton() {
+    deleteBannerCookie('off-donation-banner');
+    setBannerCookie('off-donation-banner', 1, 14);
+    bannerID.style.display = 'none';
+  }
 
-				<div id="donate_image_banner_inside" style="min-height:90px;padding-top:10px;">
+  if (getBannerCookie('off-donation-banner') != '') {
+    bannerID.style.display = 'none'; 
+  } else { 
+    bannerID.style.display = 'flex'; 
+  }
+</script>
 
-					<a href="[% link %]?utm_source=off&utm_medium=web&utm_campaign=donate-2022&utm_term=en-text-button" class="button round white-button" style="float:left;margin-right:2rem;">
-						<span class="material-icons material-symbols-button">volunteer_activism</span>
-						[% lang('donation_cta') %]
-					</a>
-				</div>
-
-				<div class="small-12 columns">
-					<p class="">[% f_lang('donation_body_employees', { number_of_employees => '7' }) %]<br>
-					[% f_lang('donation_why_year', { year => '2022' }) %] <strong>[% lang('thank_you') %] <span style="color:red">❤️</span></strong>
-					</p>
-					<input id="hide_image_banner" type="checkbox" style="margin-top:1.5rem;margin-bottom:0;">
-					<label for="hide_image_banner">
-						<span id="hide_image_banner_hide"class="text-white">[% lang('donation_banner_hide') %]</span>
-					</label>
-
-				</div>
-			</div>			
-			
-		</div>
-	
-</div>
 [% END %]
 
 <!-- end templates/[% component.name %] -->

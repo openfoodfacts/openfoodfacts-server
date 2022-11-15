@@ -1157,6 +1157,71 @@ span.ico-bold {
   @include button( 10, $white);
 }
 
+// rework: of donation banner.
+
+[data-hidden="true"] { display: none !important; }
+[data-hidden="false"] { display: flex !important; }
+
+#donate-banner {
+  position: relative;
+  display: flex;
+  padding: 2rem 0;
+  background-color: #6D85D9;
+  @media #{$small-only} {
+    flex-direction: column;
+    &__content {
+      flex-direction: column; 
+      .banner-content {
+        order: 1;
+        flex-direction: column;
+        p { 
+          text-align: center; 
+          margin: 1rem;
+        }
+      }
+      .button { order: 2; }
+    }
+  }
+  p { color: $white; }
+  &__image {
+    display: block;
+    content: "";
+    background: no-repeat url(/images/illustrations/donate-heart.svg);
+    min-width: 150px;
+    height: 81px;
+  }
+  &__content {
+    display: inline-flex;
+    align-items: center;
+    gap: 2rem;
+    .banner-content {
+      display: flex;
+      flex-direction: column;
+    }
+    .banner__close {
+      width: 32px;
+      height: 32px;
+      .banner__close--icon {
+        position: absolute;
+        top: 0; right: 0;
+        margin: 1rem;
+        color: $white;
+        opacity: .5;
+        cursor: pointer;
+      }
+    }
+    & label > span { visibility: hidden; }
+    > .button {
+      display: inline-flex !important;
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 0;
+    }
+  }
+}
+
+/*
 #donate_image_banner_outside {
   margin-bottom:1rem;
   background: no-repeat url(/images/illustrations/donate-heart.svg)
@@ -1165,6 +1230,7 @@ span.ico-bold {
 #donate_image_banner_inside {
   @media only screen and (max-width: 100rem) {margin-left:140px;}
 }
+*/
 
 .footer_social_icon {
   height:24px;
