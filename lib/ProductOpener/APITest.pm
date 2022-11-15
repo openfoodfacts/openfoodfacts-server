@@ -324,7 +324,7 @@ For the example cited above this returns: "http://world-fr.openfoodfacts.localho
 sub construct_test_url ($target, $prefix = "world") {
 	my $link = $TEST_MAIN_DOMAIN;
 	# no cgi inside url ? add display.pl
-	if ($target =~ /^\/cgi\//) {
+	if (!($target =~ /^\/cgi\//)) {
 		$link .= "/cgi/display.pl?";
 	}
 	my $url = "http://${prefix}.${link}${target}";
@@ -434,8 +434,11 @@ sub normalize_mail_for_comparison ($mail) {
 	foreach my $boundary (@boundaries) {
 		$text =~ s/$boundary/\\"--boundary--\\"/g;
 	}
+	# replace generic dates
+	$text =~ s/\d\d\d\d-\d\d-\d\d/--date--/g;
 	# split on \n to get readable json results
 	my @lines = split /\n/, $text;
+	# replace date headers
 	@lines = map {my $text = $_; $text =~ s/^Date: .+/Date: ***/g; $text;} @lines;
 	return \@lines;
 }
