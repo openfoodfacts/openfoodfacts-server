@@ -1,7 +1,0 @@
-# Modules needed to ease development but not need to run CI tasks or automated tests
-# on GitHub, or for production
-
-requires 'Devel::REPL';
-requires 'Term::ReadLine::Gnu', '>= 1.42, < 2.0'; # readline support for the Perl debugger. libterm-readline-gnu-perl is available.
-requires 'Perl::LanguageServer';
-requires 'Hash::SafeKeys';  # Perl::LanguageServer dependency

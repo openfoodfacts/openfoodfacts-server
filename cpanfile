@@ -102,4 +102,14 @@ on 'develop' => sub {
   requires 'Apache::DB', '>= 0.18, < 1.00'; # old non-working version also available as the Debian package libapache-db-perl 0.14
   requires 'Perl::Tidy';
   requires 'Perl::Critic';
-}
+};
+
+feature "off_server_dev_tools", "Optional development tools" => sub {
+  # Modules needed to ease development but not need to run CI tasks or automated tests
+  # on GitHub, or for production
+  # For docker, use CPANMOPTS=--with-develop  --with-feature=off_server_dev_tools
+  requires 'Devel::REPL';
+  requires 'Term::ReadLine::Gnu', '>= 1.42, < 2.0'; # readline support for the Perl debugger. libterm-readline-gnu-perl is available.
+  requires 'Perl::LanguageServer';
+  requires 'Hash::SafeKeys';  # Perl::LanguageServer dependency
+};

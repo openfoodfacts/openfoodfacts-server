@@ -4,7 +4,6 @@ ARG USER_UID=1000
 ARG USER_GID=1000
 # options for cpan installs
 ARG CPANMOPTS=
-ARG PERL_CPAN_DEV=
 
 ######################
 # Base modperl image stage
@@ -157,18 +156,13 @@ RUN usermod --uid $USER_UID www-data && \
 ######################
 FROM modperl AS builder
 ARG CPANMOPTS
-ARG PERL_CPAN_DEV
 WORKDIR /tmp
 
 # Install Product Opener from the workdir.
 COPY ./cpanfile* /tmp/
 # Add ProductOpener runtime dependencies from cpan
 RUN --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
-    cpanm $CPANMOPTS --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps . && \
-    if [[ -n "$PERL_CPAN_DEV" ]];then \
-        cpanm $CPANMOPTS --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps . --cpanfile $PERL_CPAN_DEV;\
-    fi
-
+    cpanm $CPANMOPTS --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps .
 
 ######################
 # backend production image stage
