@@ -4460,18 +4460,9 @@ x-examples:
       vitamins_tags: []
     status: 1
     status_verbose: product found
-examples: []
-properties:
-  code:
-    type: string
-    description: |
-      Barcode of the product
-      (can be EAN-13 or internal codes for some food stores).
-      For products without a barcode, Open Food Facts assigns a 
-      number starting with the 200 reserved prefix.
-  product:
-    $ref: ../schemas/product.yaml
-  status:
-    type: integer
-  status_verbose:
-    type: string
+allOf:
+  - $ref: ./get_product_by_barcode_base.yaml
+  - type: object
+    properties:
+      product:
+        $ref: ../schemas/product.yaml
