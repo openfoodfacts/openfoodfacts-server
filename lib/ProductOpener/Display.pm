@@ -7610,32 +7610,6 @@ sub display_page ($request_ref) {
 	$template_data_ref->{link} = $link;
 	$template_data_ref->{lc} = $lc;
 
-	if (
-		not($server_options{producers_platform})
-		and (  (not(defined cookie('hide_image_banner_2021')))
-			or (not(cookie('hide_image_banner_2021') eq '1')))
-		)
-	{
-		$template_data_ref->{banner} = $banner;
-
-		$initjs .= <<'JS';
-if ($.cookie('hide_image_banner_2021') == '1') {
-	$('#hide_image_banner').prop('checked', true);
-	$('#donate_banner').remove();
-}
-else {
-	$('#hide_image_banner').prop('checked', false);
-	$('#donate_banner').show();
-	$('#hide_image_banner').change(function () {
-		if ($('#hide_image_banner').prop('checked')) {
-			$.cookie('hide_image_banner_2021', '1', { expires: 90, path: '/' });
-			$('#donate_banner').remove();
-		}
-	});
-}
-JS
-	}
-
 	my $tagline = lang("tagline");
 
 	if ($server_options{producers_platform}) {

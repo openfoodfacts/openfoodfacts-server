@@ -1160,21 +1160,30 @@ span.ico-bold {
 #donate-banner {
   position: relative;
   display: flex;
-  padding: 2rem 0;
+  padding: 1rem 0;
   background-color: #6D85D9;
   @media #{$small-only} {
     flex-direction: column;
     &__content {
       flex-direction: column; 
+      gap: 0 !important;
+      margin-top: -2rem;
       .banner-content {
         order: 1;
         flex-direction: column;
         p { 
           text-align: center; 
-          margin: 1rem;
+          margin: 0 1rem;
+        }
+        .banner-thanks {
+          margin-top: 1rem;
+          margin-bottom: 1rem;
         }
       }
-      .button { order: 2; }
+      .button { 
+        order: 2; 
+        padding: 1rem 2rem;
+      }
     }
   }
   p { color: $white; }
@@ -1189,14 +1198,20 @@ span.ico-bold {
     display: inline-flex;
     align-items: center;
     gap: 2rem;
+    max-width: 100rem;
+    margin: 0 auto;
     .banner-content {
       display: flex;
       flex-direction: column;
+      .banner-thanks {
+        font-weight: 900;
+        span { color: red; font-size: 1rem; }
+      }
     }
-    .banner__close {
+    .banner-close {
       width: 32px;
       height: 32px;
-      .banner__close--icon {
+      .banner-close__icon {
         position: absolute;
         top: 0; right: 0;
         margin: 1rem;
@@ -1205,7 +1220,6 @@ span.ico-bold {
         cursor: pointer;
       }
     }
-    & label > span { visibility: hidden; }
     > .button {
       display: inline-flex !important;
       flex-direction: row;

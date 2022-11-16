@@ -13,32 +13,23 @@
     </a>
     <div class="banner-content">
       <p>[% f_lang('donation_body_employees', { number_of_employees => '7' }) %] [% f_lang('donation_why_year', { year => '2022' }) %]</p>
-      <p>[% lang('thank_you') %] <span>❤️</span></p>
+      <p class="banner-thanks">[% lang('thank_you') %] <span class="material-icons">favorite</span></p>
     </div>
-    <div class="banner__close">
-      <span id="hide-donate-banner" onclick="DonationButton();" class="material-icons banner__close--icon">close</span>
+    <div class="banner-close">
+      <span id="hide-donate-banner" onclick="DonationButton();" class="material-icons banner-close__icon">close</span>
     </div>
 	</div>
 </section>
 
 <script>
   let d = new Date();
-  let expires = 'expires=' + d.toUTCString();
   let bannerID = document.getElementById('donate-banner');
-  let bcval = "1";
 
   function setBannerCookie(bcname, bcval, bcexdays) {
     d.setTime(d.getTime() + (bcexdays*60*60*24*1000));
     let expires = 'expires=' + d.toUTCString();
     document.cookie = bcname + '=' + bcval + ';' + expires + ';path=/';
     console.log(expires);
-  }
-
-
-  function deleteBannerCookie(bcname) {
-    d.setTime(d.getTime() + (60*60*24*1000));
-    let expires = 'expires=' + d.toUTCString();
-    document.cookie = bcname + '=;' + expires + ';path=/';
   }
   
   function getBannerCookie(bcname) {
@@ -54,7 +45,6 @@
   }
 
   function DonationButton() {
-    deleteBannerCookie('off-donation-banner');
     setBannerCookie('off-donation-banner', 1, 14);
     bannerID.style.display = 'none';
   }
