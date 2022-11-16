@@ -452,7 +452,8 @@ sub execute_api_tests ($file, $tests_ref) {
 
 		is(
 			compare_to_expected_results(
-				$decoded_json, "$expected_result_dir/$test_case.json", $update_expected_results, $test_ref
+				$decoded_json, "$expected_result_dir/$test_case.json",
+				$update_expected_results, $test_ref
 			),
 			1,
 		);

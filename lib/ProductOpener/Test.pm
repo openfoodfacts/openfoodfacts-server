@@ -291,7 +291,7 @@ If the test fail, the test reference will be output in the diag
 
 =cut
 
-sub compare_to_expected_results ($object_ref, $expected_results_file, $update_expected_results, $test_ref=undef) {
+sub compare_to_expected_results ($object_ref, $expected_results_file, $update_expected_results, $test_ref = undef) {
 
 	my $json = JSON->new->allow_nonref->canonical;
 
@@ -312,7 +312,7 @@ sub compare_to_expected_results ($object_ref, $expected_results_file, $update_ex
 		}
 		else {
 			fail("could not load $expected_results_file");
-			diag (explain $test_ref, explain $object_ref);
+			diag(explain $test_ref, explain $object_ref);
 		}
 	}
 
