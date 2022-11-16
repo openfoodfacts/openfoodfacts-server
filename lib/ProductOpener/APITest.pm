@@ -69,7 +69,6 @@ use Encode;
 use JSON::PP;
 use Carp qw/confess/;
 use Clone qw/clone/;
-use Data::Dump qw/dump/;
 use File::Tail;
 
 # Constants of the test website main domain and url
@@ -120,7 +119,7 @@ sub wait_server() {
 		$count++;
 		if (($count % 3) == 0) {
 			print("Waiting for backend to be ready since more than $count seconds...\n");
-			print("Bad response from website:" . dump({url => $target_url, status => $response->code}) . "\n");
+			print("Bad response from website:" . explain({url => $target_url, status => $response->code}) . "\n");
 		}
 		confess("Waited too much for backend") if $count > 60;
 	}
@@ -173,7 +172,7 @@ sub create_user ($ua, $args_ref) {
 	my $tail = tail_log_start();
 	my $response = $ua->post("$TEST_WEBSITE_URL/cgi/user.pl", Content => \%fields);
 	if (not $response->is_success) {
-		diag("Couldn't create user with " . dump(%fields) . "\n");
+		diag("Couldn't create user with " . explain(\%fields) . "\n");
 		diag explain $response;
 		diag("\n\nLog4Perl Logs: \n" . tail_log_read($tail) . "\n\n");
 		confess("\nResuming");
@@ -207,7 +206,7 @@ sub login ($ua, $user_id, $password) {
 	);
 	my $response = $ua->post("$TEST_WEBSITE_URL/cgi/login.pl", Content => \%fields);
 	if (not($response->is_success || $response->is_redirect)) {
-		diag("Couldn't login with " . dump(\%fields) . "\n");
+		diag("Couldn't login with " . explain(\%fields) . "\n");
 		diag explain $response;
 		confess("Resuming");
 	}
@@ -255,7 +254,7 @@ Reference of a hash of fields to pass as the form result
 sub post_form ($ua, $url, $fields_ref) {
 	my $response = $ua->post("$TEST_WEBSITE_URL$url", Content => $fields_ref);
 	if (not $response->is_success) {
-		diag("Couldn't submit form $url with " . dump($fields_ref) . "\n");
+		diag("Couldn't submit form $url with " . explain($fields_ref) . "\n");
 		diag explain $response;
 		confess("Resuming");
 	}
