@@ -73,6 +73,7 @@ use Path::Tiny qw/path/;
 use Log::Any qw($log);
 
 =head2 init_expected_results($filepath)
+
 Handles test options around expected_results initialization
 
 For many tests, we compare results from the API, with expected results.
@@ -284,9 +285,13 @@ This is so that we can easily see diffs with git diffs.
 Tests will always pass when this flag is passed,
 and the new expected results can be diffed / committed in GitHub.
 
+=head4 $test_ref - an optional reference to an object describing the test case
+
+If the test fail, the test reference will be output in the diag
+
 =cut
 
-sub compare_to_expected_results ($object_ref, $expected_results_file, $update_expected_results) {
+sub compare_to_expected_results ($object_ref, $expected_results_file, $update_expected_results, $test_ref = undef) {
 
 	my $json = JSON->new->allow_nonref->canonical;
 
@@ -303,11 +308,11 @@ sub compare_to_expected_results ($object_ref, $expected_results_file, $update_ex
 
 			local $/;    #Enable 'slurp' mode
 			my $expected_object_ref = $json->decode(<$expected_result>);
-			is_deeply($object_ref, $expected_object_ref) or diag explain $object_ref;
+			is_deeply($object_ref, $expected_object_ref) or diag(explain $test_ref, explain $object_ref);
 		}
 		else {
 			fail("could not load $expected_results_file");
-			diag explain $object_ref;
+			diag(explain $test_ref, explain $object_ref);
 		}
 	}
 
