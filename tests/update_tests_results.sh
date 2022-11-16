@@ -33,4 +33,5 @@ perl integration/api_v2_product_read.t --update-expected-results
 perl integration/api_v2_product_write.t --update-expected-results
 perl integration/api_v3_product_read.t --update-expected-results
 perl integration/api_v3_product_write.t --update-expected-results
+perl integration/search_test.t --update-expected-results
 
