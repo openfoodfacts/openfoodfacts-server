@@ -24,11 +24,14 @@
 <script>
   let d = new Date();
   let bannerID = document.getElementById('donate-banner');
+  let getDomain = window.location.origin.split('.');
 
   function setBannerCookie(bcname, bcval, bcexdays) {
     d.setTime(d.getTime() + (bcexdays*60*60*24*1000));
     let expires = 'expires=' + d.toUTCString();
-    document.cookie = bcname + '=' + bcval + ';' + expires + ';path=/';
+    // Apply cookie for every type of link contains '.openfoodfacts.'
+    let domain = 'domain=.openfoodfacts.' + getDomain[2];
+    document.cookie = bcname + '=' + bcval + ';' + expires + ';' + domain + ';SameSite=None;Secure;path=/';
   }
   
   function getBannerCookie(bcname) {
@@ -44,7 +47,7 @@
   }
 
   function DonationButton() {
-    setBannerCookie('off-donation-banner', 1, 14);
+    setBannerCookie('off-donation-banner', 1, 180);
     bannerID.style.display = 'none';
   }
 
