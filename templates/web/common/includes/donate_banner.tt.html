@@ -29,7 +29,6 @@
     d.setTime(d.getTime() + (bcexdays*60*60*24*1000));
     let expires = 'expires=' + d.toUTCString();
     document.cookie = bcname + '=' + bcval + ';' + expires + ';path=/';
-    console.log(expires);
   }
   
   function getBannerCookie(bcname) {
