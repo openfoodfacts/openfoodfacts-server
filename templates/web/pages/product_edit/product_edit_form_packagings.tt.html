@@ -1,0 +1,61 @@
+<!-- start templates/[% template.name %] -->
+
+<initjs>
+var packaging_shapes_select2_options = [% generate_select2_options_for_taxonomy_to_json("packaging_shapes") %];
+var packaging_materials_select2_options = [% generate_select2_options_for_taxonomy_to_json("packaging_materials") %];
+var packaging_recycling_select2_options = [% generate_select2_options_for_taxonomy_to_json("packaging_recycling") %];
+
+var component = 0;
+</initjs>
+
+[% lang('packaging_parts') %]
+
+<table id="packagings">
+    <tr>
+        <th>[% lang("number") %]</th>
+        <th>[% lang("packaging_shape") %]</th>
+        <th>[% lang("packaging_material") %]</th>
+        <th>[% lang("packaging_recycling") %]</th>
+        <th>[% lang("packaging_quantity_per_unit") %]</th>
+        <th>[% lang("packaging_weight_per_unit") %]</th>
+    </tr>
+
+    
+
+    [% FOREACH packaging IN product.packagings %]
+    <tr>
+        <td><input type="text" value="[% packaging.number_of_units %]"></td>
+        [% FOREACH property IN ["shape", "material", "recycling"] %]
+
+            [% IF property == "shape" %]
+                [% SET taxonomy = "packaging_shapes" %]
+            [% ELSIF property == "material" %]
+                [% SET taxonomy = "packaging_materials" %]
+            [% ELSIF property == "recycling" %]
+                [% SET taxonomy = "packaging_recycling" %]
+            [% END %]
+
+            [% SET select2_id = "packagings_component_" _ loop.index() _ "_$property" %]
+
+        <td>[% packaging.$property %]
+            <select id="[% select2_id %]" class="form-control [% taxonomy %]_select2">
+                <option></option>
+            </select>
+
+<initjs>
+\$("#[% select2_id %]").select2({
+    placeholder: "Select or type an entry",
+    data: [% taxonomy %]_select2_options,
+    tags: true
+});
+</initjs>
+                
+
+        </td>
+        [% END %]
+    </tr>
+    [% END %]
+    
+</table>
+
+<!-- end templates/[% template.name %] -->

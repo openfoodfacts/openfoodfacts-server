@@ -399,6 +399,11 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{product_action_url} = \&product_action_url;
 	$template_data_ref->{product_name_brand_quantity} = \&product_name_brand_quantity;
 
+	# select2 options for all entries in a taxonomy
+	$template_data_ref->{generate_select2_options_for_taxonomy_to_json} = sub ($tagtype) {
+		return generate_select2_options_for_taxonomy_to_json($lc, $tagtype);
+	};
+
 	# Return a link to one taxonomy entry in the target language
 	$template_data_ref->{canonicalize_taxonomy_tag_link} = sub ($tagtype, $tag) {
 		return canonicalize_taxonomy_tag_link($lc, $tagtype, $tag);
@@ -11261,6 +11266,55 @@ sub data_to_display_image ($product_ref, $imagetype, $target_lc) {
 	}
 
 	return $image_ref;
+}
+
+
+=head2 generate_select2_options_for_taxonomy ($target_lc, $tagtype)
+
+Generates an array of taxonomy entries in a specific language, to be used as options
+in a select2 input.
+
+See https://select2.org/data-sources/arrays
+
+=head3 Arguments
+
+=head4 Language code $target_lc
+
+=head4 Taxonomy $tagtype
+
+=head3 Return values
+
+- Reference to an array of options
+
+=cut
+
+sub generate_select2_options_for_taxonomy ($target_lc, $tagtype) {
+
+	my @entries = ();
+
+	# all tags can be retrieved from the $translations_to hash
+	foreach my $canon_tagid (keys %{$translations_to{$tagtype}}) {
+		# just_synonyms are not real entries
+		next if defined $just_synonyms{$tagtype}{$canon_tagid};
+
+		push @entries, display_taxonomy_tag ($target_lc, $tagtype, $canon_tagid);
+	}
+
+	my @options = ();
+
+	foreach my $entry (sort @entries) {
+		push @options, {
+			id => $entry,
+			text => $entry,
+		};
+	}
+
+	return \@options;
+}
+
+sub generate_select2_options_for_taxonomy_to_json ($target_lc, $tagtype) {
+
+	return decode_utf8(JSON::PP->new->utf8->canonical->encode(generate_select2_options_for_taxonomy ($target_lc, $tagtype)));
 }
 
 1;
