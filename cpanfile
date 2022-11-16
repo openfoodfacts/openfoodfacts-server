@@ -84,7 +84,6 @@ requires 'Action::CircuitBreaker';
 requires 'Action::Retry'; # deps: libmath-fibonacci-perl
 
 on 'test' => sub {
-  requires 'Data::Dump';
   requires 'Test::More', '>= 1.302186, < 2.0';
   requires 'Test::MockModule';
   requires 'Mock::Quick';
