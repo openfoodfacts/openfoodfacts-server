@@ -406,6 +406,7 @@ af:stukkies
 de:stücke, stücken, stückchen, gestückelt, stück
 es:trozo,troza,trozos,trozas
 fr:morceaux, pièces de, en morceaux, morceaux de, morceaux d'
+hr:komadići
 hu:darabok, darabolt, darab, darabka
 nl:stukjes
 pl:kawałki, kawałki z
@@ -431,6 +432,7 @@ it:fiocchi di
 nl:vlokken
 pl:płatki, grys, wiórki
 pt:floco, flocos, em floco, em flocos, floco de, flocos de
+sv:flingor
 
 en:chips, slices
 cs:lupínků
@@ -724,6 +726,7 @@ es:jugo, jugo de
 fi:mehu
 fr:jus de, jus d'
 #en:comment:au jus (tomates pelees concassees au jus) is an exception, jus de cuisson, jus cuisiné, jus de poisson, jus de moules
+hr:sok, sok od
 hu:leve, lé
 it:succo, succo di, succo d'
 nb:juice
@@ -736,7 +739,12 @@ ru:сок
 sk:stavy
 sv:juice, saft
 
-# fr:jus concentré de, jus concentré d'
+#<en:juice
+#<en:concentrated
+#en:concentrated juice of
+#fr:jus concentré de, jus concentré d'
+#hr:koncentrirani sok od
+
 # fr:pur jus
 
 <en:juice
@@ -841,7 +849,7 @@ de:aus Konzentrat, aus Konzentraten
 es:a base de concentrado, a base de concentrada, a partir de concentrado, a partir de concentrada
 fi:tiivisteestä, tiivisteestä valmistettu
 fr:à base de concentré, à partir de concentré
-hr:na koncentrat
+hr:na koncentrat, od koncentriranog soka škrob
 hu:sűrítményből, koncentrátumból, sűrítményekből, koncentrátumokból
 it:da concentrato
 lt:iš koncentrąto
@@ -865,7 +873,7 @@ et:kuivatatud
 fi:kuivattu, kuivatut
 fr:séché, séchée, séchés, séchées, sèches
 he:מיובשים, מיובש
-hr:sušeni, sušena, sušeno
+hr:sušeni, sušena, sušeno, sušene, suho, suhi
 hu:szárított
 it:secco, secca, secchi, secche, essiccati
 ja:ドライ
@@ -1102,6 +1110,9 @@ es:sólidos de
 fr:Solides du
 it:Solidi di
 
+en:macerate
+hr:macerat
+
 #######################################################################
 #
 #                T E M P E R A T U R E   P R O C E S S E S
@@ -1228,6 +1239,7 @@ de:dampfgegart, dampfgegarte, dampfgegarter
 en:caramelized, caramelised
 bg:карамелизиран, карамелизирана, карамелизирано, карамелизирани
 ca:caramel-litzat
+hr:karamelizirani
 hu:karamellizált
 nl:gekarameliseerde, gekaramelliseerde
 pl:karmelizowany, karmelizowana, karmelizowane, karmelizowanego, karmelizowanej, karmelizowanych
@@ -1600,6 +1612,7 @@ en:brined
 de:gepökelt, gepökelte, gepökelter, gepökeltes
 #de:comment:do not add pökel
 fr:traité en salaison, traitée en salaison, traités en salaison, traitées en salaison, saumuré, saumurée, saumurés, saumurées
+hr:za salamurenje
 nl:gepekeld
 pl:w zalewie
 pt:em salmoura

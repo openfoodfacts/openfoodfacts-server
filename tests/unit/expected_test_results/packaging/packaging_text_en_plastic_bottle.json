@@ -4,10 +4,10 @@
    "packagings" : [
       {
          "material" : "en:plastic",
-         "number" : "6",
-         "quantity" : "25cl",
-         "quantity_unit" : "cl",
-         "quantity_value" : "25",
+         "number_of_units" : 6,
+         "quantity_per_unit" : "25cl",
+         "quantity_per_unit_unit" : "cl",
+         "quantity_per_unit_value" : 25,
          "recycling" : "en:recycle",
          "shape" : "en:bottle"
       }
