@@ -251,7 +251,7 @@ To limit the response, add `fields` to the query parameters to specify the field
 https://world.openfoodfacts.org/api/v2/search?categories_tags_en=Orange Juice&nutrition_grades_tags=c&fields=code,nutrition_grades,categories_tags_en
 ```
 
-The response returns all products that belong to the Orange Juice category, with the nutrition_grade "c" and limiting the product object response to only the specified fields.  It also returns the count(total number) of products that match the search criteria.
+The response returns all products that belong to the Orange Juice category, with the nutrition_grade "c" and limits each product object response to only the specified fields.  It also returns the count(total number) of products that match the search criteria.
 
 ```json
 {
