@@ -304,6 +304,11 @@ create_external_volumes:
 # local data
 	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/podata podata
 
+create_external_networks:
+    source .env
+    docker network create --driver=bridge --subnet="172.30.0.0/16" ${COMPOSE_PROJECT_NAME}_webnet \
+	|| echo "network already exists"
+
 #---------#
 # Cleanup #
 #---------#
