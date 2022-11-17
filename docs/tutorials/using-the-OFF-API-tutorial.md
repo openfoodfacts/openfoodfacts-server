@@ -12,7 +12,7 @@ To get a product nutriscore, you need to make a call to the [Get A Product By Ba
 
 Usually, no authentication is required to query Get A Product Nutri-score. However, on the staging environment(which is used throughout this tutorial), there is a basic auth to avoid content indexation. For more details, visit the [Open Food Facts API Environment](https://openfoodfacts.github.io/openfoodfacts-server/introduction/api/#environment).
 
-### Describing the Request
+### Describing the Get Request
 
 Make a `GET` request to the `Get A Product By Barcode` endpoint.
 
@@ -229,9 +229,9 @@ You can also check the reference cheatsheet to know how to add/edit other types 
 
 ## Search for a Product by Nutri-score
 
-You can filter product based on different requirements using  the Open Food Facts API. To search for orange juice with a nutrition_grade of C , query the [Search for Products Endpoint](https://openfoodfacts.github.io/openfoodfacts-server/reference/api/#tag/Read-Requests/operation/get-search).
+You may also wish to filter products based on different criteria using  the Open Food Facts API. To search for Orange Juice with a nutrition_grade of `c` , query the [Search for Products Endpoint](https://openfoodfacts.github.io/openfoodfacts-server/reference/api/#tag/Read-Requests/operation/get-search).
 
-### Describing the Request
+### Describing the Search Request
 
 Make a `GET` request to the `Search for Products` endpoint.
 
@@ -239,49 +239,83 @@ Make a `GET` request to the `Search for Products` endpoint.
 https://world.openfoodfacts.org/api/v2/search
 ```
 
-The search criteria used to filter the products are added as query parameter. In this tutorial, `categories_tags_en` is `Orange Juice` while `nutrition_grades` is `c'. The response will return all the products in the database with category as Orange Juice and nutrition grade C.
+The search criteria used to filter the products are added as query parameter. For Orange Juice with a nutrition_grade of `c`, add query parameters `categories_tags_en` to filter `Orange Juice` while `nutrition_grades` to filter `c`.  The response will return all the products in the database with the category Orange Juice and nutrition grade C.
 
 ```text
-https://world.openfoodfacts.org/api/v2/search?categories_tags_en=Orange Juice&nutrition_grades=b
+https://world.openfoodfacts.org/api/v2/search?categories_tags_en=Orange Juice&nutrition_grades_tags=c
 ```
 
-To limit the response, add fields as a query parameter to specify the product fields to be returned. In this tutorial,limit the response to `code` and `product_name`.
+To limit the response, add fields as a query parameter to specify the product fields to be returned. In this tutorial,limit the response to `code`, `product_name`, `nutrition_grades` and `categories_tags_en`.
 
 ```text
-https://world.openfoodfacts.org/api/v2/search?fields=code,product_name&categories_tags_en=Orange Juice&nutrition_grades=b
+https://world.openfoodfacts.org/api/v2/search?categories_tags_en=Orange Juice&nutrition_grades_tags=c&fields=code,nutrition_grades,categories_tags_en
 ```
 
-The response returns all products that belong to Orange Juice category, with the nitrition_grade "c" and limiting the product response to only `code` and `product_name`. It aalso returns the count(total number) of products taht matches the search criteria.
+The response returns all products that belong to Orange Juice category, with the nitrition_grade "c" and limiting the product object response to only the specified fields. It also returns the count(total number) of products that matches the search criteria.
 
 ```json
 {
-    "count": 2873,
+    "count": 1504,
     "page": 1,
     "page_count": 24,
     "page_size": 24,
     "products": [
         {
+            "categories_tags_en": [
+                "Plant-based foods and beverages",
+                "Beverages",
+                "Plant-based beverages",
+                "Fruit-based beverages",
+                "Juices and nectars",
+                "Fruit juices",
+                "Non-Alcoholic beverages",
+                "Orange juices",
+                "Squeezed juices",
+                "Squeezed orange juices",
+                "fr:Jus d'orange sans pulpe"
+            ],
             "code": "3502110009449",
-            "product_name": "Tropicana 100% oranges pressées sans pulpe 1 L"
-        },
-        {
-            "code": "3502110006790",
-            "product_name": "Tropicana 100% oranges pressées sans pulpe format familial 1,5 L"
+            "nutrition_grades": "c"
         },
         .
         .
         .
         .
+
         {
-            "code": "3245412373039",
-            "product_name": "100% pur jus jus d'orange sans pulpe"
+            "categories_tags_en": [
+                "Plant-based foods and beverages",
+                "Beverages",
+                "Plant-based beverages",
+                "Fruit-based beverages",
+                "Juices and nectars",
+                "Fruit juices",
+                "Orange juices",
+                "Squeezed juices",
+                "Squeezed orange juices"
+            ],
+            "code": "3045320104127",
+            "nutrition_grades": "c"
         },
+
         {
-            "code": "3168930156741",
-            "product_name": "Tropicana Oranges pressées avec pulpe"
+            "categories_tags_en": [
+                "Plant-based foods and beverages",
+                "Beverages",
+                "Plant-based beverages",
+                "Fruit-based beverages",
+                "Juices and nectars",
+                "Fruit juices",
+                "Non-Alcoholic beverages",
+                "Orange juices",
+                "Squeezed juices",
+                "Tangerine juices",
+                "Pure-mandarin-juice"
+            ],
+            "code": "3123340005775",
+            "nutrition_grades": "c"
         }
     ],
     "skip": 0
 }
 ```
-
