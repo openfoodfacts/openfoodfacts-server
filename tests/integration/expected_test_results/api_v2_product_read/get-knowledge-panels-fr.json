@@ -1,6 +1,5 @@
 {
    "code" : "200000000034",
-   "errors" : [],
    "product" : {
       "knowledge_panels" : {
          "carbon_footprint" : {
@@ -1039,11 +1038,6 @@
          }
       }
    },
-   "result" : {
-      "id" : "product_found",
-      "lc_name" : "Product found",
-      "name" : "Product found"
-   },
-   "status" : "success",
-   "warnings" : []
+   "status" : 1,
+   "status_verbose" : "product found"
 }
