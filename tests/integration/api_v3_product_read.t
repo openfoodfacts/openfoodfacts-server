@@ -84,7 +84,7 @@ my $tests_ref = [
 		path => '/api/v3/product/200000000034',
 		query_string => '?fields=attribute_groups&lc=fr',
 		expected_status_code => 200,
-	},		
+	},
 	{
 		test_case => 'get-knowledge-panels',
 		method => 'GET',
@@ -98,7 +98,7 @@ my $tests_ref = [
 		path => '/api/v3/product/200000000034',
 		query_string => '?fields=knowledge_panels&lc=fr',
 		expected_status_code => 200,
-	},		
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
