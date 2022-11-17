@@ -337,8 +337,9 @@
       },
       "missing_data_warning" : 1,
       "previous_data" : {
-         "agribalyse_code" : "old",
-         "agribalyse_version" : "3.0",
+         "agribalyse" : {
+            "code" : "old"
+         },
          "grade" : "d",
          "score" : 20
       },
