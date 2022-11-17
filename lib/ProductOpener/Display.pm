@@ -43,9 +43,9 @@ BEGIN {
 	@EXPORT_OK = qw(
 		&startup
 		&init_request
-		&analyze_request
 		&redirect_to_url
 		&single_param
+		&request_param
 
 		&display_date
 		&display_date_tag
@@ -166,6 +166,7 @@ use ProductOpener::Web qw(:all);
 use ProductOpener::Recipes qw(:all);
 use ProductOpener::PackagerCodes qw(:all);
 use ProductOpener::Export qw(:all);
+use ProductOpener::API qw(:all);
 
 use Cache::Memcached::Fast;
 use Encode;
@@ -315,8 +316,6 @@ sub get_world_subdomain() {
 
 $static_subdomain = format_subdomain('static');
 $images_subdomain = format_subdomain('images');
-
-my $user_preferences;    # enables using user preferences to show a product summary and to rank and filter results
 
 =head1 FUNCTIONS
 
@@ -499,6 +498,25 @@ sub single_param ($param_name) {
 	return scalar param($param_name);
 }
 
+=head2 request_param ($request_ref, $param_name)
+
+Return a request parameter. The parameter can be passed in the query string,
+as a POST multipart form data parameter, or in a POST JSON body
+
+=head3 Arguments
+
+=head4 Parameter name $param_name
+
+=head3 Return value
+
+A scalar value for the parameter, or undef if the parameter is not defined.
+
+=cut
+
+sub request_param ($request_ref, $param_name) {
+	return (scalar param($param_name)) || deep_get($request_ref, "request_body_json", $param_name);
+}
+
 =head2 init_request ()
 
 C<init_request()> is called at the start of each new request (web page or API).
@@ -541,6 +559,7 @@ sub init_request() {
 	$admin = 0;
 
 	my $r = Apache2::RequestUtil->request();
+	$request_ref->{method} = $r->method();
 
 	$cc = 'world';
 	$lc = 'en';
@@ -792,14 +811,15 @@ CSS
 			;
 	}
 
-	# Enable or disable user preferences
+	# Enable or disable user food preferences: used to compute attributes and to display
+	# personalized product scores and search results
 	if (    ((defined $options{product_type}) and ($options{product_type} eq "food"))
 		and (not $server_options{producers_platform}))
 	{
-		$user_preferences = 1;
+		$request_ref->{user_preferences} = 1;
 	}
 	else {
-		$user_preferences = 0;
+		$request_ref->{user_preferences} = 0;
 	}
 
 	if (    ((defined $options{product_type}) and ($options{product_type} eq "food"))
@@ -836,499 +856,14 @@ CSS
 		}
 	) if $log->is_debug();
 
+	# Set cc, lc and lcs in the request object
+	# Ideally, we should rely on those fields in the request object
+	# and remove the $lc, $cc and @lcs global variables
+	$request_ref->{lc} = $lc;
+	$request_ref->{cc} = $cc;
+	$request_ref->{lcs} = \@lcs;
+
 	return $request_ref;
-}
-
-# component was specified as en:product, fr:produit etc.
-sub _component_is_singular_tag_in_specific_lc ($component, $tag) {
-
-	my $component_lc;
-	if ($component =~ /^(\w\w):/) {
-		$component_lc = $1;
-		$component = $';
-	}
-	else {
-		return 0;
-	}
-
-	my $match = $tag_type_singular{$tag}{$component_lc};
-	if ((defined $match) and ($match eq $component)) {
-		return 1;
-	}
-	else {
-		return 0;
-	}
-}
-
-=head2 analyze_request ( $request_ref )
-
-Analyze request parameters and decide which method to call.
-
-=head3 Parameters
-
-=head4 $request_ref reference to a hash that will contain analyzed parameters
-
-=head3 Details
-
-It will analyze path and parameters.
-
-Some information is set in request_ref, notably
-- polished query_string
-- page number (page)
-- api version and api_method
-- requested page (text)
-- some boolean for routing : search / taxonomy / mission / product / tag / points
-- parameters for products, mission, tags, etc.
-
-It handles redirect for renamed texts or products, .well-known/change-password
-
-Sometimes we modify request parameters (param) to correspond to request_ref:
-- parameters for response format : json, jsonp, xml, ...
-- code parameter
-
-=cut
-
-sub analyze_request ($request_ref) {
-
-	$request_ref->{query_string} = $request_ref->{original_query_string};
-
-	$log->debug("analyzing query_string, step 0 - unmodified", {query_string => $request_ref->{query_string}})
-		if $log->is_debug();
-
-	# Remove ref and utm_* parameters
-	# Examples:
-	# https://world.openfoodfacts.org/?utm_content=bufferbd4aa&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer
-	# https://world.openfoodfacts.org/?ref=producthunt
-
-	if ($request_ref->{query_string} =~ /(\&|\?)(utm_|ref=)/) {
-		$request_ref->{query_string} = $`;
-	}
-
-	# cc and lc query overrides have already been consumed by init_request(), remove them
-	# so that they do not interfere with the query string analysis after
-	$request_ref->{query_string} =~ s/(\&|\?)(cc|lc)=([^&]*)//g;
-
-	$log->debug("analyzing query_string, step 1 - utm, cc, and lc removed",
-		{query_string => $request_ref->{query_string}})
-		if $log->is_debug();
-
-	# Process API parameters: fields, formats, revision
-
-	# API calls may request JSON, JSONP or XML by appending .json, .jsonp or .xml at the end of the query string
-	# .jqm returns results in HTML specifically formatted for the OFF mobile app (which uses jquerymobile)
-	# for calls to /cgi/ actions (e.g. search.pl), the format can also be indicated with a parameter &json=1 &jsonp=1 &xml=1 &jqm=1
-	# (or ?json=1 if it's the first parameter)
-
-	# check suffixes .json etc. and set the corresponding CGI parameter so that we can retrieve it with param() later
-
-	foreach my $parameter ('json', 'jsonp', 'jqm', 'xml') {
-
-		if ($request_ref->{query_string} =~ /\.$parameter(\b|$)/) {
-
-			param($parameter, 1);
-			$request_ref->{query_string} =~ s/\.$parameter(\b|$)//;
-
-			$log->debug("parameter was set from extension in URL path",
-				{parameter => $parameter, value => $request_ref->{$parameter}})
-				if $log->is_debug();
-		}
-	}
-
-	$log->debug("analyzing query_string, step 2 - fields, rev, json, jsonp, jqm, and xml removed",
-		{query_string => $request_ref->{query_string}})
-		if $log->is_debug();
-
-	# Decode the escaped characters in the query string
-	$request_ref->{query_string} = decode("utf8", URI::Escape::XS::decodeURIComponent($request_ref->{query_string}));
-
-	$log->debug("analyzing query_string, step 3 - components UTF8 decoded",
-		{query_string => $request_ref->{query_string}})
-		if $log->is_debug();
-
-	$request_ref->{page} = 1;
-
-	# some sites like FB can add query parameters, remove all of them
-	# make sure that all query parameters of interest have already been consumed above
-
-	$request_ref->{query_string} =~ s/(\&|\?).*//;
-
-	$log->debug("analyzing query_string, step 4 - removed all query parameters",
-		{query_string => $request_ref->{query_string}})
-		if $log->is_debug();
-
-	# if the query request json or xml, either through the json=1 parameter or a .json extension
-	# set the $request_ref->{api} field
-	if ((defined single_param('json')) or (defined single_param('jsonp')) or (defined single_param('xml'))) {
-		$request_ref->{api} = 'v0';
-	}
-
-	# Split query string by "/" to know where it points
-	my @components = split(/\//, $request_ref->{query_string});
-
-	# Root, ex: https://world.openfoodfacts.org/
-	if ($#components < 0) {
-		$request_ref->{text} = 'index';
-		$request_ref->{current_link} = '';
-	}
-	# Root + page number, ex: https://world.openfoodfacts.org/2
-	elsif (($#components == 0) and ($components[-1] =~ /^\d+$/)) {
-		$request_ref->{page} = pop @components;
-		$request_ref->{current_link} = '';
-		$request_ref->{text} = 'index';
-	}
-
-	# Api access
-	# /api/v0/product/[code]
-	# /api/v0/search
-	elsif ($components[0] eq 'api') {
-
-		# Set version, method and code
-		$request_ref->{api} = $components[1];
-		if ($request_ref->{api} =~ /v(.*)/) {
-			param("api_version", $1);
-			$request_ref->{api_version} = $1;
-		}
-		param("api_method", $components[2]);
-		$request_ref->{api_method} = $components[2];
-		if (defined $components[3]) {
-			param("code", $components[3]);
-			$request_ref->{code} = $components[3];
-		}
-
-		# If return format is not xml or jqm or jsonp, default to json
-		if (    (not defined single_param("xml"))
-			and (not defined single_param("jqm"))
-			and (not defined single_param("jsonp")))
-		{
-			param("json", 1);
-		}
-
-		$log->debug(
-			"got API request",
-			{
-				api => $request_ref->{api},
-				api_version => single_param("api_version"),
-				api_method => single_param("api_method"),
-				code => $request_ref->{code},
-				jqm => single_param("jqm"),
-				json => single_param("json"),
-				xml => single_param("xml")
-			}
-		) if $log->is_debug();
-	}
-
-	# /search search endpoint, parameters will be parser by CGI.pm param()
-	elsif ($components[0] eq "search") {
-		$request_ref->{search} = 1;
-	}
-
-	# /taxonomy API endpoint
-	# e.g. /api/v2/taxonomy?type=categories&tags=en:fruits,en:vegetables&fields=name,description,parents,children,vegan:en,inherited:vegetarian:en&lc=en,fr&include_children=1
-	elsif ($components[0] eq "taxonomy") {
-		$request_ref->{taxonomy} = 1;
-	}
-
-	# Folksonomy engine properties endpoint
-	elsif (($components[0] eq "properties") or ($components[0] eq "property")) {
-		$request_ref->{properties} = 1;
-	}
-
-	# /products endpoint (e.g. /products/8024884500403+3263855093192 )
-	# assign the codes to the code parameter
-	elsif ($components[0] eq "products") {
-		$request_ref->{search} = 1;
-		param("code", $components[1]);
-	}
-
-	# Renamed text?
-	elsif ((defined $options{redirect_texts}) and (defined $options{redirect_texts}{$lang . "/" . $components[0]})) {
-		$request_ref->{redirect} = $formatted_subdomain . "/" . $options{redirect_texts}{$lang . "/" . $components[0]};
-		$log->info("renamed text, redirecting", {textid => $components[0], redirect => $request_ref->{redirect}})
-			if $log->is_info();
-		redirect_to_url($request_ref, 302, $request_ref->{redirect});
-	}
-
-	# First check if the request is for a text
-	elsif ( (defined $texts{$components[0]})
-		and ((defined $texts{$components[0]}{$lang}) or (defined $texts{$components[0]}{en}))
-		and (not defined $components[1]))
-	{
-		$request_ref->{text} = $components[0];
-		$request_ref->{canon_rel_url} = "/" . $components[0];
-	}
-
-	# Product specified as en:product?
-	elsif (_component_is_singular_tag_in_specific_lc($components[0], 'products')) {
-		# check the product code looks like a number
-		if ($components[1] =~ /^\d/) {
-			$request_ref->{redirect}
-				= $formatted_subdomain . '/' . $tag_type_singular{products}{$lc} . '/' . $components[1];
-		}
-		else {
-			$request_ref->{error_status} = 404;
-			$request_ref->{error_message} = lang("error_invalid_address");
-		}
-	}
-
-	# Product?
-	# try language from $lc, and English, so that /product/ always work
-	elsif (($components[0] eq $tag_type_singular{products}{$lc})
-		or ($components[0] eq $tag_type_singular{products}{en}))
-	{
-
-		# Check if the product code is a number, else show 404
-		if ($components[1] =~ /^\d/) {
-			$request_ref->{product} = 1;
-			$request_ref->{code} = $components[1];
-			if (defined $components[2]) {
-				$request_ref->{titleid} = $components[2];
-			}
-			else {
-				$request_ref->{titleid} = '';
-			}
-		}
-		else {
-			$request_ref->{error_status} = 404;
-			$request_ref->{error_message} = lang("error_invalid_address");
-		}
-	}
-
-	# Graph of the products?
-	# $data_root/lang/$lang/texts/products_stats_$cc.html
-	#elsif (($components[0] eq $tag_type_plural{products}{$lc}) and (not defined $components[1])) {
-	#	$request_ref->{text} = "products_stats_$cc";
-	#	$request_ref->{canon_rel_url} = "/" . $components[0];
-	#}
-	# -> done through a text transclusion in /lang/fr/produits.html etc.
-
-	# Mission?
-	elsif ($components[0] eq $tag_type_singular{missions}{$lc}) {
-		$request_ref->{mission} = 1;
-		$request_ref->{missionid} = $components[1];
-	}
-
-	# https://github.com/openfoodfacts/openfoodfacts-server/issues/4140
-	elsif ((scalar(@components) == 2) and ($components[0] eq '.well-known') and ($components[1] eq 'change-password')) {
-		$request_ref->{redirect} = $formatted_subdomain . '/cgi/change_password.pl';
-		$log->info('well-known password change page - redirecting', {redirect => $request_ref->{redirect}})
-			if $log->is_info();
-		redirect_to_url($request_ref, 307, $request_ref->{redirect});
-	}
-
-	elsif ($#components == -1) {
-		# Main site
-	}
-
-	# Known tag type?
-	else {
-
-		$request_ref->{canon_rel_url} = '';
-		my $canon_rel_url_suffix = '';
-
-		#check if last field is number
-		if (($#components >= 1) and ($components[-1] =~ /^\d+$/)) {
-			#if first field or third field is tags (plural) then last field is page number
-			if (   defined $tag_type_from_plural{$lc}{$components[0]}
-				or defined $tag_type_from_plural{"en"}{$components[0]}
-				or defined $tag_type_from_plural{$lc}{$components[2]}
-				or defined $tag_type_from_plural{"en"}{$components[2]})
-			{
-				$request_ref->{page} = pop @components;
-				$log->debug("get page number", {$request_ref->{page}}) if $log->is_debug();
-			}
-		}
-		# list of tags? (plural of tagtype must be the last field)
-
-		$log->debug("checking last component",
-			{last_component => $components[-1], is_plural => $tag_type_from_plural{$lc}{$components[-1]}})
-			if $log->is_debug();
-
-		# list of (categories) tags with stats for a nutriment
-		if (    ($#components == 1)
-			and (defined $tag_type_from_plural{$lc}{$components[0]})
-			and ($tag_type_from_plural{$lc}{$components[0]} eq "categories")
-			and (defined $nutriments_labels{$lc}{$components[1]}))
-		{
-
-			$request_ref->{groupby_tagtype} = $tag_type_from_plural{$lc}{$components[0]};
-			$request_ref->{stats_nid} = $nutriments_labels{$lc}{$components[1]};
-			$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$lc};
-			$canon_rel_url_suffix .= "/" . $components[1];
-			pop @components;
-			pop @components;
-			$log->debug("request looks like a list of tags - categories with nutrients",
-				{groupby => $request_ref->{groupby_tagtype}, stats_nid => $request_ref->{stats_nid}})
-				if $log->is_debug();
-		}
-
-		if (defined $tag_type_from_plural{$lc}{$components[-1]}) {
-
-			$request_ref->{groupby_tagtype} = $tag_type_from_plural{$lc}{pop @components};
-			$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$lc};
-			$log->debug("request looks like a list of tags", {groupby => $request_ref->{groupby_tagtype}, lc => $lc})
-				if $log->is_debug();
-		}
-		# also try English tagtype
-		elsif (defined $tag_type_from_plural{"en"}{$components[-1]}) {
-
-			$request_ref->{groupby_tagtype} = $tag_type_from_plural{"en"}{pop @components};
-			# use $lc for canon url
-			$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$lc};
-			$log->debug("request looks like a list of tags", {groupby => $request_ref->{groupby_tagtype}, lc => "en"})
-				if $log->is_debug();
-		}
-
-		if (
-			($#components >= 0)
-			and (  (defined $tag_type_from_singular{$lc}{$components[0]})
-				or (defined $tag_type_from_singular{"en"}{$components[0]}))
-			)
-		{
-
-			$log->debug("request looks like a singular tag", {lc => $lc, tagid => $components[0]}) if $log->is_debug();
-
-			if (defined $tag_type_from_singular{$lc}{$components[0]}) {
-				$request_ref->{tagtype} = $tag_type_from_singular{$lc}{shift @components};
-			}
-			else {
-				$request_ref->{tagtype} = $tag_type_from_singular{"en"}{shift @components};
-			}
-
-			my $tagtype = $request_ref->{tagtype};
-
-			if (($#components >= 0)) {
-				$request_ref->{tag} = shift @components;
-
-				# if there is a leading dash - before the tag, it indicates we want products without it
-				if ($request_ref->{tag} =~ /^-/) {
-					$request_ref->{tag_prefix} = "-";
-					$request_ref->{tag} = $';
-				}
-				else {
-					$request_ref->{tag_prefix} = "";
-				}
-
-				if (defined $taxonomy_fields{$tagtype}) {
-					my $parsed_tag = canonicalize_taxonomy_tag_linkeddata($tagtype, $request_ref->{tag});
-					if (not $parsed_tag) {
-						$parsed_tag = canonicalize_taxonomy_tag_weblink($tagtype, $request_ref->{tag});
-					}
-
-					if ($parsed_tag) {
-						$request_ref->{tagid} = $parsed_tag;
-					}
-					else {
-						if ($request_ref->{tag} !~ /^(\w\w):/) {
-							$request_ref->{tag} = $lc . ":" . $request_ref->{tag};
-						}
-
-						$request_ref->{tagid} = get_taxonomyid($lc, $request_ref->{tag});
-					}
-				}
-				else {
-					# Use "no_language" normalization
-					$request_ref->{tagid} = get_string_id_for_lang("no_language", $request_ref->{tag});
-				}
-			}
-
-			$request_ref->{canon_rel_url}
-				.= "/" . $tag_type_singular{$tagtype}{$lc} . "/" . $request_ref->{tag_prefix} . $request_ref->{tagid};
-
-			# 2nd tag?
-
-			if (
-				($#components >= 0)
-				and (  (defined $tag_type_from_singular{$lc}{$components[0]})
-					or (defined $tag_type_from_singular{"en"}{$components[0]}))
-				)
-			{
-
-				if (defined $tag_type_from_singular{$lc}{$components[0]}) {
-					$request_ref->{tagtype2} = $tag_type_from_singular{$lc}{shift @components};
-				}
-				else {
-					$request_ref->{tagtype2} = $tag_type_from_singular{"en"}{shift @components};
-				}
-				my $tagtype = $request_ref->{tagtype2};
-
-				if (($#components >= 0)) {
-					$request_ref->{tag2} = shift @components;
-
-					# if there is a leading dash - before the tag, it indicates we want products without it
-					if ($request_ref->{tag2} =~ /^-/) {
-						$request_ref->{tag2_prefix} = "-";
-						$request_ref->{tag2} = $';
-					}
-					else {
-						$request_ref->{tag2_prefix} = "";
-					}
-
-					if (defined $taxonomy_fields{$tagtype}) {
-						my $parsed_tag2 = canonicalize_taxonomy_tag_linkeddata($tagtype, $request_ref->{tag2});
-						if (not $parsed_tag2) {
-							$parsed_tag2 = canonicalize_taxonomy_tag_weblink($tagtype, $request_ref->{tag2});
-						}
-
-						if ($parsed_tag2) {
-							$request_ref->{tagid2} = $parsed_tag2;
-						}
-						else {
-							if ($request_ref->{tag2} !~ /^(\w\w):/) {
-								$request_ref->{tag2} = $lc . ":" . $request_ref->{tag2};
-							}
-
-							$request_ref->{tagid2} = get_taxonomyid($lc, $request_ref->{tag2});
-						}
-					}
-					else {
-						# Use "no_language" normalization
-						$request_ref->{tagid2} = get_string_id_for_lang("no_language", $request_ref->{tag2});
-					}
-				}
-
-				$request_ref->{canon_rel_url}
-					.= "/"
-					. $tag_type_singular{$tagtype}{$lc} . "/"
-					. $request_ref->{tag2_prefix}
-					. $request_ref->{tagid2};
-			}
-
-			if ((defined $components[0]) and ($components[0] eq 'points')) {
-				$request_ref->{points} = 1;
-				$request_ref->{canon_rel_url} .= "/points";
-			}
-
-		}
-		elsif ((defined $components[0]) and ($components[0] eq 'points')) {
-			$request_ref->{points} = 1;
-			$request_ref->{canon_rel_url} .= "/points";
-		}
-		elsif (not defined $request_ref->{groupby_tagtype}) {
-			$log->warn("invalid address, confused by number of components left", {left_components => $#components})
-				if $log->is_warn();
-			$request_ref->{error_status} = 404;
-			$request_ref->{error_message} = lang("error_invalid_address");
-		}
-
-		if (($#components >= 0) and ($components[-1] =~ /^\d+$/)) {
-			$request_ref->{page} = pop @components;
-		}
-
-		$request_ref->{canon_rel_url} .= $canon_rel_url_suffix;
-	}
-
-	# Index page on producers platform
-	if (    (defined $request_ref->{text})
-		and ($request_ref->{text} eq "index")
-		and (defined $server_options{private_products})
-		and ($server_options{private_products}))
-	{
-		$request_ref->{text} = 'index-pro';
-	}
-
-	$log->debug("request analyzed", {lc => $lc, lang => $lang, request_ref => $request_ref}) if $log->is_debug();
-
-	return 1;
 }
 
 sub _get_date ($t) {
@@ -1418,7 +953,7 @@ sub display_date_iso ($t) {
 	}
 }
 
-=head2 display_error ( $error_message, $status )
+=head2 display_error ( $error_message, $status_code )
 
 Display an error message using the site template.
 
@@ -1426,21 +961,21 @@ The request is not terminated by this function, it will continue to run.
 
 =cut
 
-sub display_error ($error_message, $status) {
+sub display_error ($error_message, $status_code) {
 
 	my $html = "<p>$error_message</p>";
 	display_page(
 		{
 			title => lang('error'),
 			content_ref => \$html,
-			status => $status,
+			status => $status_code,
 			page_type => "error",
 		}
 	);
 	return;
 }
 
-=head2 display_error_and_exit ( $error_message, $status )
+=head2 display_error_and_exit ( $error_message, $status_code )
 
 Display an error message using the site template, and terminate the request immediately.
 
@@ -1448,9 +983,9 @@ Any code after the call to display_error_and_exit() will not be executed.
 
 =cut
 
-sub display_error_and_exit ($error_message, $status) {
+sub display_error_and_exit ($error_message, $status_code) {
 
-	display_error($error_message, $status);
+	display_error($error_message, $status_code);
 	exit();
 }
 
@@ -4854,6 +4389,7 @@ my %ignore_params = (
 	xml => 1,
 	keywords => 1,    # added by CGI.pm
 	api_version => 1,
+	api_action => 1,
 	api_method => 1,
 	search_simple => 1,
 	search_terms => 1,
@@ -5123,191 +4659,6 @@ sub initialize_knowledge_panels_options ($knowledge_panels_options_ref, $request
 	return;
 }
 
-=head2 customize_response_for_product ( $request_ref, $product_ref )
-
-Using the fields parameter, API product or search queries can request
-a specific set of fields to be returned.
-
-This function filters the field to return only the requested fields,
-and computes requested fields that are not stored in the database but
-created on demand.
-
-=head3 Parameters
-
-=head4 $request_ref (input)
-
-Reference to the request object.
-
-=head4 $product_ref (input)
-
-Reference to the product object (retrieved from disk or from a MongoDB query)
-
-=head3 Return value
-
-Reference to the customized product object.
-
-=cut
-
-sub customize_response_for_product ($request_ref, $product_ref) {
-
-	my $customized_product_ref = {};
-
-	my $carbon_footprint_computed = 0;
-
-	my $fields = single_param('fields');
-
-	# For non API queries, we need to compute attributes for personal search
-	if (((not defined $fields) or ($fields eq "")) and ($user_preferences) and (not $request_ref->{api})) {
-		$fields = "code,product_display_name,url,image_front_small_url,attribute_groups";
-	}
-
-	# Localize the Eco-Score fields that depend on the country of the request
-	localize_ecoscore($cc, $product_ref);
-
-	foreach my $field (split(/,/, $fields)) {
-		if ($field eq "product_display_name") {
-			$customized_product_ref->{$field} = remove_tags_and_quote(product_name_brand_quantity($product_ref));
-		}
-
-		# Allow apps to request a HTML nutrition table by passing &fields=nutrition_table_html
-		elsif ($field eq "nutrition_table_html") {
-			$customized_product_ref->{$field} = display_nutrition_table($product_ref, undef);
-		}
-
-		# Eco-Score details in simple HTML
-		elsif ($field eq "ecoscore_details_simple_html") {
-			if ((1 or $show_ecoscore) and (defined $product_ref->{ecoscore_data})) {
-				$customized_product_ref->{$field}
-					= display_ecoscore_calculation_details_simple_html($cc, $product_ref->{ecoscore_data});
-			}
-		}
-
-		# fields in %language_fields can have different values by language
-		# by priority, return the first existing value in the language requested,
-		# possibly multiple languages if sent ?lc=fr,nl for instance,
-		# and otherwise fallback on the main language of the product
-		elsif (defined $language_fields{$field}) {
-			foreach my $preferred_lc (@lcs, $product_ref->{lc}) {
-				if (    (defined $product_ref->{$field . "_" . $preferred_lc})
-					and ($product_ref->{$field . "_" . $preferred_lc} ne ''))
-				{
-					$customized_product_ref->{$field} = $product_ref->{$field . "_" . $preferred_lc};
-					last;
-				}
-			}
-		}
-
-		# [language_field]_languages : return a value with all existing values for a specific language field
-		elsif ($field =~ /^(.*)_languages$/) {
-
-			my $language_field = $1;
-			$customized_product_ref->{$field} = {};
-			if (defined $product_ref->{languages_codes}) {
-				foreach my $language_code (sort keys %{$product_ref->{languages_codes}}) {
-					if (defined $product_ref->{$language_field . "_" . $language_code}) {
-						$customized_product_ref->{$field}{$language_code}
-							= $product_ref->{$language_field . "_" . $language_code};
-					}
-				}
-			}
-		}
-
-		# Taxonomy fields requested in a specific language
-		elsif ($field =~ /^(.*)_tags_([a-z]{2})$/) {
-			my $tagtype = $1;
-			my $target_lc = $2;
-			if (defined $product_ref->{$tagtype . "_tags"}) {
-				$customized_product_ref->{$field} = [];
-				foreach my $tagid (@{$product_ref->{$tagtype . "_tags"}}) {
-					push @{$customized_product_ref->{$field}}, display_taxonomy_tag($target_lc, $tagtype, $tagid);
-				}
-			}
-		}
-
-		# Apps can request the full nutriments hash
-		# or specific nutrients:
-		# - saturated-fat_prepared_100g : return field at top level
-		# - nutrients|nutriments.sugars_serving : return field in nutrients / nutriments hash
-		elsif ($field =~ /^((nutrients|nutriments)\.)?((.*)_(100g|serving))$/) {
-			my $return_hash = $2;
-			my $nutrient = $3;
-			if ((defined $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{$nutrient})) {
-				if (defined $return_hash) {
-					if (not defined $customized_product_ref->{$return_hash}) {
-						$customized_product_ref->{$return_hash} = {};
-					}
-					$customized_product_ref->{$return_hash}{$nutrient} = $product_ref->{nutriments}{$nutrient};
-				}
-				else {
-					$customized_product_ref->{$nutrient} = $product_ref->{nutriments}{$nutrient};
-				}
-			}
-		}
-		# Eco-Score
-		elsif ($field =~ /^ecoscore/) {
-
-			if (defined $product_ref->{$field}) {
-				$customized_product_ref->{$field} = $product_ref->{$field};
-			}
-		}
-		# Product attributes requested in a specific language (or data only)
-		elsif ($field =~ /^attribute_groups_([a-z]{2}|data)$/) {
-			my $target_lc = $1;
-			compute_attributes($product_ref, $target_lc, $cc, $attributes_options_ref);
-			$customized_product_ref->{$field} = $product_ref->{$field};
-		}
-		# Product attributes in the $lc language
-		elsif ($field eq "attribute_groups") {
-			compute_attributes($product_ref, $lc, $cc, $attributes_options_ref);
-			$customized_product_ref->{$field} = $product_ref->{"attribute_groups_" . $lc};
-		}
-		# Knowledge panels in the $lc language
-		elsif ($field eq "knowledge_panels") {
-			initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref);
-			create_knowledge_panels($product_ref, $lc, $cc, $knowledge_panels_options_ref);
-			$customized_product_ref->{$field} = $product_ref->{"knowledge_panels_" . $lc};
-		}
-
-		# Images to update in a specific language
-		elsif ($field =~ /^images_to_update_([a-z]{2})$/) {
-			my $target_lc = $1;
-			$customized_product_ref->{$field} = {};
-
-			foreach my $imagetype ("front", "ingredients", "nutrition", "packaging") {
-
-				my $imagetype_lc = $imagetype . "_" . $target_lc;
-
-				# Ask for images in a specific language if we already have an old image for that language
-				if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$imagetype_lc})) {
-
-					my $imgid = $product_ref->{images}{$imagetype . "_" . $target_lc}{imgid};
-					my $age = time() - $product_ref->{images}{$imgid}{uploaded_t};
-
-					if ($age > 365 * 86400) {    # 1 year
-						$customized_product_ref->{$field}{$imagetype_lc} = $age;
-					}
-				}
-				# or if the language is the main language of the product
-				# or if we have a text value for ingredients / packagings
-				elsif (
-					($product_ref->{lc} eq $target_lc)
-					or (    (defined $product_ref->{$imagetype . "_text_" . $target_lc})
-						and ($product_ref->{$imagetype . "_text_" . $target_lc} ne ""))
-					)
-				{
-					$customized_product_ref->{$field}{$imagetype_lc} = 0;
-				}
-			}
-		}
-
-		elsif ((not defined $customized_product_ref->{$field}) and (defined $product_ref->{$field})) {
-			$customized_product_ref->{$field} = $product_ref->{$field};
-		}
-	}
-
-	return $customized_product_ref;
-}
-
 sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $page) {
 
 	$request_ref->{page_type} = "products";
@@ -5329,7 +4680,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		$limit = $request_ref->{page_size};
 	}
 	# If user preferences are turned on, return 100 products per page
-	elsif ((not defined $request_ref->{api}) and ($user_preferences)) {
+	elsif ((not defined $request_ref->{api}) and ($request_ref->{user_preferences})) {
 		$limit = 100;
 	}
 	else {
@@ -5494,7 +4845,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		$fields_ref = {};
 	}
 	# - if we use user preferences, we need a lot of fields to compute product attributes: load them all
-	elsif ($user_preferences) {
+	elsif ($request_ref->{user_preferences}) {
 		# when product attributes become more stable, we could try to restrict the fields
 		$fields_ref = {};
 	}
@@ -5822,7 +5173,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			my $url = product_url($product_ref);
 			$product_ref->{url} = $formatted_subdomain . $url;
 
-			add_images_urls_to_product($product_ref);
+			add_images_urls_to_product($product_ref, $lc);
 
 			my $jqm = single_param("jqm");    # Assigning to a scalar to make sure we get a scalar
 
@@ -5843,27 +5194,31 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 		# For API queries, if the request specified a value for the fields parameter, return only the fields listed
 		# For non API queries with user preferences, we need to add attributes
-		if (   ((not defined $request_ref->{api}) and ($user_preferences))
-			or ((defined $request_ref->{api}) and (defined single_param('fields'))))
-		{
-
-			my $customized_products = [];
-
-			for my $product_ref (@{$request_ref->{structured_response}{products}}) {
-
-				my $customized_product_ref = customize_response_for_product($request_ref, $product_ref);
-
-				push @{$customized_products}, $customized_product_ref;
-			}
-
-			$request_ref->{structured_response}{products} = $customized_products;
+		# For non API queries, we need to compute attributes for personal search
+		my $fields;
+		if ((not defined $request_ref->{api}) and ($request_ref->{user_preferences})) {
+			$fields = "code,product_display_name,url,image_front_small_url,attribute_groups";
 		}
+		else {
+			$fields = single_param('fields') || 'all';
+		}
+
+		my $customized_products = [];
+
+		for my $product_ref (@{$request_ref->{structured_response}{products}}) {
+
+			my $customized_product_ref = customize_response_for_product($request_ref, $product_ref, $fields);
+
+			push @{$customized_products}, $customized_product_ref;
+		}
+
+		$request_ref->{structured_response}{products} = $customized_products;
 
 		# Disable nested ingredients in ingredients field (bug #2883)
 
 		# 2021-02-25: we now store only nested ingredients, flatten them if the API is <= 1
 
-		if ((defined single_param("api_version")) and (single_param("api_version") <= 1)) {
+		if ($request_ref->{api_version} <= 1) {
 
 			for my $product_ref (@{$request_ref->{structured_response}{products}}) {
 				if (defined $product_ref->{ingredients}) {
@@ -5895,7 +5250,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		$html =~ s/(href|src)=("\/)/$1="$formatted_subdomain\//g;
 	}
 
-	if ($user_preferences) {
+	if ($request_ref->{user_preferences}) {
 
 		my $preferences_text
 			= sprintf(lang("classify_the_d_products_below_according_to_your_preferences"), $page_count);
@@ -7728,10 +7083,10 @@ JS
 	# Replace urls for texts in links like <a href="/ecoscore"> with a localized name
 	$html =~ s/(href=")(\/[^"]+)/$1 . url_for_text($2)/eg;
 
-	my $status = $request_ref->{status} || $request_ref->{error_status} || 200;
+	my $status_code = $request_ref->{status_code} || 200;
 
 	my $http_headers_ref = {
-		'-status' => $status,
+		'-status' => $status_code,
 		'-expires' => '-1d',
 		'-charset' => 'UTF-8',
 	};
@@ -7746,7 +7101,6 @@ JS
 	my $r = Apache2::RequestUtil->request();
 	$r->rflush;
 	# Setting the status makes mod_perl append a default error to the body
-	# $r->status($status);
 	# Send 200 instead.
 	$r->status(200);
 
@@ -8769,7 +8123,7 @@ HTML
 	# Compute attributes and embed them as JSON
 	# enable feature for moderators
 
-	if ($user_preferences) {
+	if ($request_ref->{user_preferences}) {
 
 		# A result summary will be computed according to user preferences on the client side
 
@@ -10705,8 +10059,8 @@ sub display_product_api ($request_ref) {
 		$response{status_verbose} = 'no code or invalid code';
 	}
 	elsif ((not defined $product_ref) or (not defined $product_ref->{code})) {
-		if (single_param("api_version") >= 1) {
-			$request_ref->{status} = 404;
+		if ($request_ref->{api_version} >= 1) {
+			$request_ref->{status_code} = 404;
 		}
 		$response{status} = 0;
 		$response{status_verbose} = 'product not found';
@@ -10718,7 +10072,7 @@ $Lang{app_please_take_pictures}{$lang}
 <p>$Lang{app_take_a_picture_note}{$lang}</p>
 HTML
 				;
-			if (single_param("api_version") >= 0.1) {
+			if ($request_ref->{api_version} >= 0.1) {
 
 				my @app_fields = qw(product_name brands quantity);
 
@@ -10765,47 +10119,43 @@ HTML
 		$response{status} = 1;
 		$response{status_verbose} = 'product found';
 
-		add_images_urls_to_product($product_ref);
+		add_images_urls_to_product($product_ref, $lc);
 
 		$response{product} = $product_ref;
 
 		# If the request specified a value for the fields parameter, return only the fields listed
-		if (defined single_param('fields')) {
 
-			$log->debug("display_product_api - fields parameter is set", {fields => single_param('fields')})
-				if $log->is_debug();
+		my $customized_product_ref
+			= customize_response_for_product($request_ref, $product_ref, single_param('fields') || 'all');
 
-			my $customized_product_ref = customize_response_for_product($request_ref, $product_ref);
-
-			# 2019-05-10: the OFF Android app expects the _serving fields to always be present, even with a "" value
-			# the "" values have been removed
-			# -> temporarily add back the _serving "" values
-			if ((user_agent =~ /Official Android App/) or (user_agent =~ /okhttp/)) {
-				if (defined $customized_product_ref->{nutriments}) {
-					foreach my $nid (keys %{$customized_product_ref->{nutriments}}) {
-						next if ($nid =~ /_/);
-						if (    (defined $customized_product_ref->{nutriments}{$nid . "_100g"})
-							and (not defined $customized_product_ref->{nutriments}{$nid . "_serving"}))
-						{
-							$customized_product_ref->{nutriments}{$nid . "_serving"} = "";
-						}
-						if (    (defined $customized_product_ref->{nutriments}{$nid . "_serving"})
-							and (not defined $customized_product_ref->{nutriments}{$nid . "_100g"}))
-						{
-							$customized_product_ref->{nutriments}{$nid . "_100g"} = "";
-						}
+		# 2019-05-10: the OFF Android app expects the _serving fields to always be present, even with a "" value
+		# the "" values have been removed
+		# -> temporarily add back the _serving "" values
+		if ((user_agent =~ /Official Android App/) or (user_agent =~ /okhttp/)) {
+			if (defined $customized_product_ref->{nutriments}) {
+				foreach my $nid (keys %{$customized_product_ref->{nutriments}}) {
+					next if ($nid =~ /_/);
+					if (    (defined $customized_product_ref->{nutriments}{$nid . "_100g"})
+						and (not defined $customized_product_ref->{nutriments}{$nid . "_serving"}))
+					{
+						$customized_product_ref->{nutriments}{$nid . "_serving"} = "";
+					}
+					if (    (defined $customized_product_ref->{nutriments}{$nid . "_serving"})
+						and (not defined $customized_product_ref->{nutriments}{$nid . "_100g"}))
+					{
+						$customized_product_ref->{nutriments}{$nid . "_100g"} = "";
 					}
 				}
 			}
-
-			$response{product} = $customized_product_ref;
 		}
+
+		$response{product} = $customized_product_ref;
 
 		# Disable nested ingredients in ingredients field (bug #2883)
 
 		# 2021-02-25: we now store only nested ingredients, flatten them if the API is <= 1
 
-		if ((defined single_param("api_version")) and (scalar single_param("api_version") <= 1)) {
+		if ($request_ref->{api_version} <= 1) {
 
 			if (defined $product_ref->{ingredients}) {
 
@@ -10947,87 +10297,6 @@ sub display_product_history ($code, $product_ref) {
 
 }
 
-sub add_images_urls_to_product ($product_ref) {
-
-	my $path = product_path($product_ref);
-
-	foreach my $imagetype ('front', 'ingredients', 'nutrition', 'packaging') {
-
-		my $size = $display_size;
-
-		my $display_lc = $lc;
-
-		# first try the requested language
-		my @display_ids = ($imagetype . "_" . $display_lc);
-
-		# next try the main language of the product
-		if (defined($product_ref->{lc}) && $product_ref->{lc} ne $display_lc) {
-			push @display_ids, $imagetype . "_" . $product_ref->{lc};
-		}
-
-		# last try the field without a language (for old products without updated images)
-		push @display_ids, $imagetype;
-
-		foreach my $id (@display_ids) {
-
-			if (    (defined $product_ref->{images})
-				and (defined $product_ref->{images}{$id})
-				and (defined $product_ref->{images}{$id}{sizes})
-				and (defined $product_ref->{images}{$id}{sizes}{$size}))
-			{
-
-				$product_ref->{"image_" . $imagetype . "_url"}
-					= "$images_subdomain/images/products/$path/$id."
-					. $product_ref->{images}{$id}{rev} . '.'
-					. $display_size . '.jpg';
-				$product_ref->{"image_" . $imagetype . "_small_url"}
-					= "$images_subdomain/images/products/$path/$id."
-					. $product_ref->{images}{$id}{rev} . '.'
-					. $small_size . '.jpg';
-				$product_ref->{"image_" . $imagetype . "_thumb_url"}
-					= "$images_subdomain/images/products/$path/$id."
-					. $product_ref->{images}{$id}{rev} . '.'
-					. $thumb_size . '.jpg';
-
-				if ($imagetype eq 'front') {
-					$product_ref->{image_url} = $product_ref->{"image_" . $imagetype . "_url"};
-					$product_ref->{image_small_url} = $product_ref->{"image_" . $imagetype . "_small_url"};
-					$product_ref->{image_thumb_url} = $product_ref->{"image_" . $imagetype . "_thumb_url"};
-				}
-
-				last;
-			}
-		}
-
-		if (defined $product_ref->{languages_codes}) {
-			foreach my $key (keys %{$product_ref->{languages_codes}}) {
-				my $id = $imagetype . '_' . $key;
-				if (    (defined $product_ref->{images})
-					and (defined $product_ref->{images}{$id})
-					and (defined $product_ref->{images}{$id}{sizes})
-					and (defined $product_ref->{images}{$id}{sizes}{$size}))
-				{
-
-					$product_ref->{selected_images}{$imagetype}{display}{$key}
-						= "$images_subdomain/images/products/$path/$id."
-						. $product_ref->{images}{$id}{rev} . '.'
-						. $display_size . '.jpg';
-					$product_ref->{selected_images}{$imagetype}{small}{$key}
-						= "$images_subdomain/images/products/$path/$id."
-						. $product_ref->{images}{$id}{rev} . '.'
-						. $small_size . '.jpg';
-					$product_ref->{selected_images}{$imagetype}{thumb}{$key}
-						= "$images_subdomain/images/products/$path/$id."
-						. $product_ref->{images}{$id}{rev} . '.'
-						. $thumb_size . '.jpg';
-				}
-			}
-		}
-	}
-
-	return;
-}
-
 sub display_structured_response ($request_ref) {
 	# directly serve structured data from $request_ref->{structured_response}
 
@@ -11041,6 +10310,9 @@ sub display_structured_response ($request_ref) {
 			rss => scalar $request_ref->{rss}
 		}
 	) if $log->is_debug();
+
+	$log->debug("display_structured_response", {request => $request_ref}) if $log->is_debug();
+
 	if (single_param("xml")) {
 
 		# my $xs = XML::Simple->new(NoAttr => 1, NumericEscape => 2);
@@ -11071,12 +10343,14 @@ sub display_structured_response ($request_ref) {
 			= "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
 			. $xs->XMLout($request_ref->{structured_response});  # noattr -> force nested elements instead of attributes
 
-		my $status = $request_ref->{status};
-		if (defined $status) {
-			print header (-status => $status);
-		}
+		my $status_code = $request_ref->{status_code} || "200";
 
-		print header(-type => 'text/xml', -charset => 'utf-8', -access_control_allow_origin => '*') . $xml;
+		print header(
+			-status => $status_code,
+			-type => 'text/xml',
+			-charset => 'utf-8',
+			-access_control_allow_origin => '*'
+		) . $xml;
 
 	}
 	elsif ($request_ref->{rss}) {
@@ -11097,19 +10371,26 @@ sub display_structured_response ($request_ref) {
 			$jsonp = single_param('callback');
 		}
 
-		my $status = $request_ref->{status};
-		if (defined $status) {
-			print header (-status => $status);
-		}
+		my $status_code = $request_ref->{status_code} || 200;
 
 		if (defined $jsonp) {
 			$jsonp =~ s/[^a-zA-Z0-9_]//g;
-			print header(-type => 'text/javascript', -charset => 'utf-8', -access_control_allow_origin => '*')
+			print header(
+				-status => $status_code,
+				-type => 'text/javascript',
+				-charset => 'utf-8',
+				-access_control_allow_origin => '*'
+				)
 				. $jsonp . "("
 				. $data . ");";
 		}
 		else {
-			print header(-type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*') . $data;
+			print header(
+				-status => $status_code,
+				-type => 'application/json',
+				-charset => 'utf-8',
+				-access_control_allow_origin => '*'
+			) . $data;
 		}
 	}
 

@@ -50,23 +50,25 @@ BEGIN {
 		&tail_log_read
 		&wait_application_ready
 		&wait_dynamic_front
+		&execute_api_tests
 		&wait_server
-
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
 use vars @EXPORT_OK;
 
+use ProductOpener::TestDefaults qw/:all/;
+use ProductOpener::Test qw/:all/;
+use ProductOpener::Mail qw/ $LOG_EMAIL_START $LOG_EMAIL_END /;
+
 use Test::More;
 use LWP::UserAgent;
 use HTTP::CookieJar::LWP;
-use ProductOpener::TestDefaults qw/:all/;
-use ProductOpener::Mail qw/ $LOG_EMAIL_START $LOG_EMAIL_END /;
-
+use Encode;
+use JSON::PP;
 use Carp qw/confess/;
 use Clone qw/clone/;
-use Data::Dump qw/dump/;
 use File::Tail;
 
 # Constants of the test website main domain and url
@@ -117,7 +119,7 @@ sub wait_server() {
 		$count++;
 		if (($count % 3) == 0) {
 			print("Waiting for backend to be ready since more than $count seconds...\n");
-			print("Bad response from website:" . dump({url => $target_url, status => $response->code}) . "\n");
+			print("Bad response from website:" . explain({url => $target_url, status => $response->code}) . "\n");
 		}
 		confess("Waited too much for backend") if $count > 60;
 	}
@@ -170,7 +172,7 @@ sub create_user ($ua, $args_ref) {
 	my $tail = tail_log_start();
 	my $response = $ua->post("$TEST_WEBSITE_URL/cgi/user.pl", Content => \%fields);
 	if (not $response->is_success) {
-		diag("Couldn't create user with " . dump(%fields) . "\n");
+		diag("Couldn't create user with " . explain(\%fields) . "\n");
 		diag explain $response;
 		diag("\n\nLog4Perl Logs: \n" . tail_log_read($tail) . "\n\n");
 		confess("\nResuming");
@@ -204,7 +206,7 @@ sub login ($ua, $user_id, $password) {
 	);
 	my $response = $ua->post("$TEST_WEBSITE_URL/cgi/login.pl", Content => \%fields);
 	if (not($response->is_success || $response->is_redirect)) {
-		diag("Couldn't login with " . dump(\%fields) . "\n");
+		diag("Couldn't login with " . explain(\%fields) . "\n");
 		diag explain $response;
 		confess("Resuming");
 	}
@@ -252,7 +254,7 @@ Reference of a hash of fields to pass as the form result
 sub post_form ($ua, $url, $fields_ref) {
 	my $response = $ua->post("$TEST_WEBSITE_URL$url", Content => $fields_ref);
 	if (not $response->is_success) {
-		diag("Couldn't submit form $url with " . dump($fields_ref) . "\n");
+		diag("Couldn't submit form $url with " . explain($fields_ref) . "\n");
 		diag explain $response;
 		confess("Resuming");
 	}
@@ -281,7 +283,7 @@ sub edit_product ($ua, $product_fields) {
 
 	my $response = $ua->post("$TEST_WEBSITE_URL/cgi/product_jqm2.pl", Content => \%fields,);
 	if (not $response->is_success) {
-		diag("Couldn't create product with " . dump(\%fields) . "\n");
+		diag("Couldn't create product with " . explain(\%fields) . "\n");
 		diag explain $response;
 		confess("Resuming");
 	}
@@ -324,11 +326,140 @@ For the example cited above this returns: "http://world-fr.openfoodfacts.localho
 sub construct_test_url ($target, $prefix = "world") {
 	my $link = $TEST_MAIN_DOMAIN;
 	# no cgi inside url ? add display.pl
-	if (!($target =~ /^\/cgi\//)) {
+	if ($target !~ /^\/cgi\//) {
 		$link .= "/cgi/display.pl?";
 	}
 	my $url = "http://${prefix}.${link}${target}";
 	return $url;
+}
+
+=head2 execute_api_tests($file, $tests_ref)
+
+Initialize tests and execute them.
+
+=head3 Arguments
+
+=head4 $file test file name
+
+The *.t test files call execute_api_tests() with _FILE_ as the first parameter,
+and the directories for the tests are derived from it.
+
+=head4 $tests_ref reference to list of tests
+
+The tests are in a structure like this:
+
+my $tests_ref = (
+    [
+		{
+			test_case => 'no-body',  # a description of the test, should be unique to easily retrieve which test failed
+			method => 'POST',		# defaults to GET
+			subdomain => 'world',	# defaults to "world"
+			path => '/api/v3/product/12345678',
+			query_string => '?some_param=some_value&some_other_param=some_other_value'	# optional
+			form => { field_name => field_value, .. },	# optional, will not be sent if there is a body
+			body => '{"some_json_field": "some_value"}',	# optional
+		}
+    ],
+);
+
+=cut
+
+sub execute_api_tests ($file, $tests_ref) {
+
+	my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results($file));
+
+	my $ua = LWP::UserAgent->new();
+
+	foreach my $test_ref (@$tests_ref) {
+		my $test_case = $test_ref->{test_case};
+		my $url = construct_test_url($test_ref->{path} . ($test_ref->{query_string} || ''),
+			$test_ref->{subdomain} || 'world');
+
+		my $method = $test_ref->{method} || 'GET';
+
+		my $response;
+
+		# Send the request
+		if ($method eq 'GET') {
+			$response = $ua->get($url);
+		}
+		elsif ($method eq 'POST') {
+			if (defined $test_ref->{body}) {
+				$response = $ua->post(
+					$url,
+					Content => encode_utf8($test_ref->{body}),
+					"Content-Type" => "application/json; charset=utf-8"
+				);
+			}
+			elsif (defined $test_ref->{form}) {
+				$response = $ua->post($url, Content => $test_ref->{form});
+			}
+			else {
+				$response = $ua->post($url);
+			}
+		}
+		elsif ($method eq 'PUT') {
+			$response = $ua->put(
+				$url,
+				Content => encode_utf8($test_ref->{body}),
+				"Content-Type" => "application/json; charset=utf-8"
+			);
+		}
+		elsif ($method eq 'DELETE') {
+			$response = $ua->delete(
+				$url,
+				Content => encode_utf8($test_ref->{body}),
+				"Content-Type" => "application/json; charset=utf-8"
+			);
+		}
+		elsif ($method eq 'PATCH') {
+			my $request = HTTP::Request::Common::PATCH(
+				$url,
+				Content => encode_utf8($test_ref->{body}),
+				"Content-Type" => "application/json; charset=utf-8"
+			);
+			$response = $ua->request($request);
+		}
+
+		# Check if we got the expected response status code
+		if (defined $test_ref->{expected_status_code}) {
+			is($response->code, $test_ref->{expected_status_code})
+				or diag(explain($test_ref), "Response status line: " . $response->status_line);
+		}
+
+		# Check that we got a JSON response
+		my $json = $response->decoded_content;
+
+		my $decoded_json;
+		eval {
+			$decoded_json = decode_json($json);
+			1;
+		} or do {
+			my $json_decode_error = $@;
+			diag("The $method request to $url returned a response that is not valid JSON: $json_decode_error");
+			diag("Response content: " . $json);
+			fail($test_case);
+			next;
+		};
+
+		# normalize for comparison
+		if (defined $decoded_json->{'products'}) {
+			normalize_products_for_test_comparison($decoded_json->{'products'});
+		}
+		if (defined $decoded_json->{'product'}) {
+			normalize_product_for_test_comparison($decoded_json->{'product'});
+		}
+
+		is(
+			compare_to_expected_results(
+				$decoded_json, "$expected_result_dir/$test_case.json",
+				$update_expected_results, $test_ref
+			),
+			1,
+		);
+
+	}
+	return;
 }
 
 =head2 tail_log_start($log_path)
