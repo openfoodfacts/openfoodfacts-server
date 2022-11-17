@@ -88,7 +88,7 @@ down:
 
 hdown:
 	@echo "🥫 Bringing down containers and associated volumes …"
-	${DOCKER_COMPOSE} down --remove-orphans -v
+	${DOCKER_COMPOSE} down -v
 
 reset: hdown up
 
