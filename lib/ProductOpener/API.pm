@@ -66,6 +66,7 @@ use ProductOpener::Export qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Text qw/:all/;
 use ProductOpener::Attributes qw/:all/;
+use ProductOpener::KnowledgePanels qw/:all/;
 use ProductOpener::Ecoscore qw/localize_ecoscore/;
 
 use ProductOpener::APIProductRead qw/:all/;
