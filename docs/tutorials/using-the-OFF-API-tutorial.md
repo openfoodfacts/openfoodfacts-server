@@ -229,7 +229,7 @@ You can also check the reference cheatsheet to know how to add/edit other types 
 
 ## Search for a Product by Nutri-score
 
-You may also wish to filter products based on different criteria using  the Open Food Facts API. To search for Orange Juice with a nutrition_grade of `c` , query the [Search for Products Endpoint](https://openfoodfacts.github.io/openfoodfacts-server/reference/api/#tag/Read-Requests/operation/get-search).
+Using the Open Food Facts API, you can filter products based on different criteria.  To search for products in the Orange Juice category with a nutrition_grade of `c`, query the [Search for Products endpoint](https://openfoodfacts.github.io/openfoodfacts-server/reference/api/#tag/Read-Requests/operation/get-search).
 
 ### Describing the Search Request
 
@@ -239,19 +239,19 @@ Make a `GET` request to the `Search for Products` endpoint.
 https://world.openfoodfacts.org/api/v2/search
 ```
 
-The search criteria used to filter the products are added as query parameter. For Orange Juice with a nutrition_grade of `c`, add query parameters `categories_tags_en` to filter `Orange Juice` while `nutrition_grades` to filter `c`.  The response will return all the products in the database with the category Orange Juice and nutrition grade C.
+Add the search criteria used to filter the products as query parameters.  For Orange Juice with a nutrition_grade of `c`, add query parameters `categories_tags_en` to filter `Orange Juice` while `nutrition_grades_tags` to filter `c`.  The response will return all the products in the database with the category `Orange Juice` and nutrition_grade `c`.
 
 ```text
 https://world.openfoodfacts.org/api/v2/search?categories_tags_en=Orange Juice&nutrition_grades_tags=c
 ```
 
-To limit the response, add fields as a query parameter to specify the product fields to be returned. In this tutorial,limit the response to `code`, `product_name`, `nutrition_grades` and `categories_tags_en`.
+To limit the response, add `fields` to the query parameters to specify the fields to be returned in each product object response.  For this tutorial, limit the response to `code`, `product_name`, `nutrition_grades`, and `categories_tags_en`.
 
 ```text
 https://world.openfoodfacts.org/api/v2/search?categories_tags_en=Orange Juice&nutrition_grades_tags=c&fields=code,nutrition_grades,categories_tags_en
 ```
 
-The response returns all products that belong to Orange Juice category, with the nitrition_grade "c" and limiting the product object response to only the specified fields. It also returns the count(total number) of products that matches the search criteria.
+The response returns all products that belong to the Orange Juice category, with the nutrition_grade "c" and limiting the product object response to only the specified fields.  It also returns the count(total number) of products that match the search criteria.
 
 ```json
 {
