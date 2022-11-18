@@ -350,6 +350,8 @@ knowledge-panels:
 - templates/api/knowledge-panels/health/nutrition/nutrient_level.tt.json
 - templates/api/knowledge-panels/health/nutrition/physical_activities.tt.json
 - templates/api/knowledge-panels/health/nutrition/nutrition_facts_table.tt.json
+- tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels.json
+- tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels-fr.json
 
 serving size:
 - templates/api/knowledge-panels/health/nutrition/serving_size.tt.json
@@ -685,6 +687,9 @@ subdomains:
 integration tests:
 - tests/integration/import_csv_file.t
 - tests/integration/export.t
+- tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels.json
+- tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels-fr.json
+
 
 unit tests:
 - tests/unit/display.t
@@ -713,6 +718,8 @@ apache:
 
 API:
 - scripts/api_stats.pl
+- tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels.json
+- tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels-fr.json
 
 monitoring:
 - scripts/api_stats.pl
