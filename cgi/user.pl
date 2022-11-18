@@ -115,8 +115,15 @@ if ($action eq 'process') {
 		}
 	}
 
-	if ($type eq 'edit_owner') {
-		ProductOpener::Users::check_edit_owner($user_ref, \@errors);
+	# change organization
+	if ($type eq 'edit_owner' && $admin) {
+		# only admin and pro moderators can change organization freely
+		if ($admin or $User{pro_moderator}) {
+			ProductOpener::Users::check_edit_owner($user_ref, \@errors);
+		}
+		else {
+			display_error_and_exit($Lang{error_no_permission}{$lang}, 403);
+		}
 	}
 	elsif ($type ne 'delete') {
 		ProductOpener::Users::check_user_form($type, $user_ref, \@errors);
@@ -282,6 +289,11 @@ if ($action eq 'display') {
 				{
 				field => "org",
 				label => lang("organization"),
+				};
+			push @{$administrator_section_ref->{fields}},
+				{
+				field => "crm_user_id",
+				label => lang("crm_user_id"),
 				};
 			foreach my $group (@user_groups) {
 				push @{$administrator_section_ref->{fields}},

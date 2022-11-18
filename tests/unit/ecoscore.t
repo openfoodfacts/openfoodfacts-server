@@ -15,6 +15,7 @@ use ProductOpener::Test qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::Packaging qw/:all/;
+use ProductOpener::API qw/:all/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
@@ -631,7 +632,12 @@ foreach my $test_ref (@tests) {
 	# Parse the ingredients (and extract the origins), and compute the ingredients percent
 	extract_ingredients_from_text($product_ref);
 
-	analyze_and_combine_packaging_data($product_ref);
+	# Response structure to keep track of warnings and errors
+	# Note: currently some warnings and errors are added,
+	# but we do not yet do anything with them
+	my $response_ref = get_initialized_response();
+	analyze_and_combine_packaging_data($product_ref, $response_ref);
+
 	compute_ecoscore($product_ref);
 
 	# Save the result

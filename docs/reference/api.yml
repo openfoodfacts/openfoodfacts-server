@@ -24,7 +24,7 @@ paths:
     get:
       tags:
         - Read Requests
-      summary: Get for a specific product by barcode
+      summary: Get information for a specific product by barcode
       parameters:
         - name: barcode
           in: path
@@ -192,6 +192,20 @@ paths:
           multipart/form-data:
             schema:
               $ref: ./requestBodies/add_or_edit_a_product.yaml
+            examples:
+              example-1:
+                value:
+                  code: '0074570036004'
+                  user_id: myusername
+                  password: mypassword
+          application/json:
+            schema:
+              type: object
+              properties: {}
+          application/xml:
+            schema:
+              type: object
+              properties: {}
       tags:
         - Write Requests
       description: |
@@ -241,6 +255,47 @@ paths:
         all packaging_shapes containing "fe" will be returned. 
         This is useful if you have a search in your application, 
         for a specific product field.
+  '/api/v2/product/{barcode}?fields=images':
+    parameters:
+      - schema:
+          type: string
+        name: barcode
+        in: path
+        required: true
+    get:
+      summary: Get Images for a specific product by barcode (special case of get product)
+      tags:
+        - Read Requests
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    example: '3017620422003'
+                  product:
+                    type: object
+                    properties:
+                      images:
+                        type: object
+                        # review the regex expression for pattern properties
+                        patternProperties:
+                          '/^\d+$/':
+                            $ref: ./schemas/images/image.yaml
+                          '(front|ingredients|nutrition|packaging|other)_\w\w(-\w\w)?':
+                            $ref: ./schemas/images/selected_image.yaml                           
+                  status:
+                    type: integer
+                    example: 1
+                  status_verbose:
+                    type: string
+                    example: product found
+      operationId: get-api-v2-product-barcode-?fields=images
+      description: Images ensure the reliability of Open Food Facts data. It provides a primary source and proof of all the structured data. You may therefore want to display it along the structured information.
 components:
   schemas:
     Product:

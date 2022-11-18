@@ -14,6 +14,8 @@ email: [% user.email %]<br>
 lc: [% user.initial_lc %]<br>
 cc: [% user.initial_cc %]<br>
 
+<a href="https://world.openfoodfacts.org/cgi/org.pl?type=edit&orgid=[% user.org or user.requested_org %]">Access org [% user.org or user.requested_org %] to validate if it is a real organization</a>
+<br>
 <a href="https://world.pro.openfoodfacts.org/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-[% user.org_id or user.requested_org_id %]">Access the pro platform as organization [% user.requested_org_id %]</a>
 <br>
 <br>

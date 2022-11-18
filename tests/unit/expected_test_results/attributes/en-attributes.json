@@ -372,6 +372,37 @@
       "en:united-kingdom",
       "en:france"
    ],
+   "data_quality_bugs_tags" : [
+      "en:main-language-missing",
+      "en:code-missing",
+      "en:created-missing"
+   ],
+   "data_quality_errors_tags" : [],
+   "data_quality_info_tags" : [
+      "en:packaging-data-incomplete",
+      "en:ingredients-percent-analysis-ok",
+      "en:ecoscore-extended-data-not-computed",
+      "en:food-groups-1-unknown",
+      "en:food-groups-2-unknown",
+      "en:food-groups-3-unknown"
+   ],
+   "data_quality_tags" : [
+      "en:main-language-missing",
+      "en:code-missing",
+      "en:created-missing",
+      "en:packaging-data-incomplete",
+      "en:ingredients-percent-analysis-ok",
+      "en:ecoscore-extended-data-not-computed",
+      "en:food-groups-1-unknown",
+      "en:food-groups-2-unknown",
+      "en:food-groups-3-unknown",
+      "en:ecoscore-packaging-unspecified-material",
+      "en:ecoscore-production-system-no-label"
+   ],
+   "data_quality_warnings_tags" : [
+      "en:ecoscore-packaging-unspecified-material",
+      "en:ecoscore-production-system-no-label"
+   ],
    "ecoscore_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
@@ -1158,6 +1189,7 @@
    "nutriscore_score" : 8,
    "nutriscore_score_opposite" : -8,
    "nutrition_data_per" : "100g",
+   "nutrition_data_prepared_per" : "100g",
    "nutrition_grade_fr" : "c",
    "nutrition_grades" : "c",
    "nutrition_grades_tags" : [

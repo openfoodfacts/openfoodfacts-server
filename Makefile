@@ -5,6 +5,7 @@ ENV_FILE ?= .env
 MOUNT_POINT ?= /mnt
 DOCKER_LOCAL_DATA ?= /srv/off/docker_data
 HOSTS=127.0.0.1 world.productopener.localhost fr.productopener.localhost static.productopener.localhost ssl-api.productopener.localhost fr-en.productopener.localhost
+COMPOSE_PROJECT_NAME ?= $(shell grep COMPOSE_PROJECT_NAME ${ENV_FILE}|cut -d '=' -f 2|sed -e 's/ //g')
 export DOCKER_BUILDKIT=1
 export COMPOSE_DOCKER_CLI_BUILD=1
 UID ?= $(shell id -u)
@@ -206,6 +207,11 @@ integration_test:
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 integration tests success"
 
+# stop all tests dockers
+test-stop:
+	@echo "🥫 Stopping test dockers"
+	${DOCKER_COMPOSE_TEST} stop
+
 # usage:  make test-unit test=test-name.t
 test-unit: guard-test 
 	@echo "🥫 Running test: 'tests/unit/${test}' …"
@@ -303,6 +309,11 @@ create_external_volumes:
 # local data
 	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/podata podata
 
+create_external_networks:
+	@echo "🥫 Creating external networks (production only) …"
+	docker network create --driver=bridge --subnet="172.30.0.0/16" ${COMPOSE_PROJECT_NAME}_webnet \
+	|| echo "network already exists"
+
 #---------#
 # Cleanup #
 #---------#
@@ -333,3 +344,4 @@ guard-%: # guard clause for targets that require an environment variable (usuall
    		echo "Environment variable '$*' is not set"; \
    		exit 1; \
 	fi;
+
