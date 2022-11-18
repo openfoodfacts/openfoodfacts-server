@@ -64,6 +64,34 @@ my $tests_ref = [
 		query_string => '?fields=product_name,categories_tags,categories_tags_en',
 		expected_status_code => 200,
 	},
+	{
+		test_case => 'get-attribute-groups',
+		method => 'GET',
+		path => '/api/v2/product/200000000034',
+		query_string => '?fields=attribute_groups',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'get-attribute-groups-fr',
+		method => 'GET',
+		path => '/api/v2/product/200000000034',
+		query_string => '?fields=attribute_groups&lc=fr',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'get-knowledge-panels',
+		method => 'GET',
+		path => '/api/v2/product/200000000034',
+		query_string => '?fields=knowledge_panels',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'get-knowledge-panels-fr',
+		method => 'GET',
+		path => '/api/v2/product/200000000034',
+		query_string => '?fields=knowledge_panels&lc=fr',
+		expected_status_code => 200,
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
