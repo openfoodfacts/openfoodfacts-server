@@ -652,6 +652,8 @@ sub compute_ecoscore ($product_ref) {
 	}
 	remove_tag($product_ref, "misc", "en:ecoscore-no-missing-data");
 	remove_tag($product_ref, "misc", "en:ecoscore-not-applicable");
+	remove_tag($product_ref, "misc", "en:ecoscore-changed");
+	remove_tag($product_ref, "misc", "en:ecoscore-grade-changed");
 
 	# Check if we have extended ecoscore_data from the impact estimator
 	# Remove any misc "en:ecoscore-extended-data-version-[..]" tags
@@ -859,18 +861,23 @@ sub compute_ecoscore ($product_ref) {
 	# before each version upgrade
 	if (defined $old_previous_data) {
 		$product_ref->{ecoscore_data}{previous_data} = $old_previous_data;
+		$old_ecoscore_grade = $old_previous_data->{grade};
+		$old_ecoscore_score = $old_previous_data->{score};
 	}
-	elsif (defined $old_ecoscore_score && $old_ecoscore_score != $product_ref->{ecoscore_score}) {
-		$product_ref->{ecoscore_data}{previous_data} = {
-			grade => $old_ecoscore_grade,
-			score => $old_ecoscore_score,
-			agribalyse => $old_agribalyse
-		};
+	if (defined $old_ecoscore_score && $old_ecoscore_score != $product_ref->{ecoscore_score}) {
+		if (!defined $old_previous_data) {
+			$product_ref->{ecoscore_data}{previous_data} = {
+				grade => $old_ecoscore_grade,
+				score => $old_ecoscore_score,
+				agribalyse => $old_agribalyse
+			};
+		}
 		add_tag($product_ref, "misc", "en:ecoscore-changed");
 		if (defined $old_ecoscore_grade && $old_ecoscore_grade ne $product_ref->{ecoscore_grade}) {
 			add_tag($product_ref, "misc", "en:ecoscore-grade-changed");
 		}
 	}
+
 	return;
 }
 
