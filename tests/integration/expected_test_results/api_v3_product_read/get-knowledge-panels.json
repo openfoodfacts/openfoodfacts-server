@@ -35,8 +35,8 @@
                                  "text" : "Agriculture"
                               },
                               {
-                                 "percent" : 86.4490565865388,
-                                 "text" : "86.4 %"
+                                 "percent" : 82.8671225055525,
+                                 "text" : "82.9 %"
                               }
                            ]
                         },
@@ -48,8 +48,8 @@
                                  "text" : "Processing"
                               },
                               {
-                                 "percent" : 7.40512661892125,
-                                 "text" : "7.4 %"
+                                 "percent" : 7.93602570199329,
+                                 "text" : "7.9 %"
                               }
                            ]
                         },
@@ -61,8 +61,8 @@
                                  "text" : "Packaging"
                               },
                               {
-                                 "percent" : 2.44549029302522,
-                                 "text" : "2.4 %"
+                                 "percent" : 3.820792696782,
+                                 "text" : "3.8 %"
                               }
                            ]
                         },
@@ -74,8 +74,8 @@
                                  "text" : "Transportation"
                               },
                               {
-                                 "percent" : 3.04594655954887,
-                                 "text" : "3.0 %"
+                                 "percent" : 4.69858334882637,
+                                 "text" : "4.7 %"
                               }
                            ]
                         },
@@ -87,7 +87,7 @@
                                  "text" : "Distribution"
                               },
                               {
-                                 "percent" : 0.655173174089646,
+                                 "percent" : 0.677475746845858,
                                  "text" : "0.7 %"
                               }
                            ]
@@ -111,14 +111,14 @@
                   }
                }
             ],
-            "evaluation" : "average",
+            "evaluation" : "good",
             "expanded" : false,
             "level" : "info",
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/car.svg",
-               "subtitle" : "444 g CO² per 100g of product",
-               "title" : "Equal to driving 2.3 km in a petrol car"
+               "subtitle" : "288 g CO² per 100g of product",
+               "title" : "Equal to driving 1.5 km in a petrol car"
             },
             "topics" : [
                "environment"
@@ -191,7 +191,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                    <p>Category: \n                    <a href=\"https://agribalyse.ademe.fr/app/aliments/24000\">Biscuit (cookie)</a>\n                    </p>\n                    <ul>\n                        <li>\n                            PEF environmental score: 0.45\n                            (the lower the score, the lower the impact)\n                        </li>\n                        <li>\n                            including impact on climate change: 4.44\n                            kg CO2 eq/kg of product\n                        </li>\n                    </ul>\n                    ",
+                     "html" : "\n                    <p>Category: \n                    <a href=\"https://agribalyse.ademe.fr/app/aliments/24000\">Biscuit (cookie)</a>\n                    </p>\n                    <ul>\n                        <li>\n                            PEF environmental score: 0.35\n                            (the lower the score, the lower the impact)\n                        </li>\n                        <li>\n                            including impact on climate change: 2.88\n                            kg CO2 eq/kg of product\n                        </li>\n                    </ul>\n                    ",
                      "type" : "summary"
                   }
                },
@@ -218,8 +218,8 @@
                                  "text" : "Agriculture"
                               },
                               {
-                                 "percent" : 80.3235532201964,
-                                 "text" : "80.3 %"
+                                 "percent" : 80.5058640542941,
+                                 "text" : "80.5 %"
                               }
                            ]
                         },
@@ -231,8 +231,8 @@
                                  "text" : "Processing"
                               },
                               {
-                                 "percent" : 11.4323646504281,
-                                 "text" : "11.4 %"
+                                 "percent" : 11.8463286685106,
+                                 "text" : "11.8 %"
                               }
                            ]
                         },
@@ -244,8 +244,8 @@
                                  "text" : "Packaging"
                               },
                               {
-                                 "percent" : 3.66880158328128,
-                                 "text" : "3.7 %"
+                                 "percent" : 3.1173493176578,
+                                 "text" : "3.1 %"
                               }
                            ]
                         },
@@ -257,8 +257,8 @@
                                  "text" : "Transportation"
                               },
                               {
-                                 "percent" : 2.37118922373698,
-                                 "text" : "2.4 %"
+                                 "percent" : 3.15743624198514,
+                                 "text" : "3.2 %"
                               }
                            ]
                         },
@@ -270,8 +270,8 @@
                                  "text" : "Distribution"
                               },
                               {
-                                 "percent" : 2.20492840669224,
-                                 "text" : "2.2 %"
+                                 "percent" : 1.37302171755234,
+                                 "text" : "1.4 %"
                               }
                            ]
                         },
@@ -296,9 +296,9 @@
             ],
             "level" : "info",
             "title_element" : {
-               "grade" : "c",
+               "grade" : "b",
                "subtitle" : "Category: Biscuit (cookie)",
-               "title" : "Average impact of products of the same category: C (Score: 58/100)",
+               "title" : "Average impact of products of the same category: B (Score: 69/100)",
                "type" : "grade"
             },
             "topics" : [
@@ -399,7 +399,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                Life cycle analysis score: 58<br>\n                Sum of bonuses and maluses:\n                    \n                        -30\n                    <br><br>\n                Final score: 28/100\n                \n                ",
+                     "html" : "\n                Life cycle analysis score: 69<br>\n                Sum of bonuses and maluses:\n                    \n                        -30\n                    <br><br>\n                Final score: 39/100\n                \n                ",
                      "type" : "summary"
                   }
                }
@@ -408,7 +408,7 @@
             "title_element" : {
                "grade" : "d",
                "subtitle" : "Product: Some product - 100 g",
-               "title" : "Impact for this product: D (Score: 28/100)",
+               "title" : "Impact for this product: D (Score: 39/100)",
                "type" : "grade"
             },
             "topics" : [
