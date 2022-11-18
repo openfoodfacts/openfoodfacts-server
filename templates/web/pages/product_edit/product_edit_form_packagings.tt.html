@@ -23,6 +23,7 @@ var component = 0;
     
 
     [% FOREACH packaging IN product.packagings %]
+    [% SET packaging_id = "packaging_" _ loop.index() %]
     <tr>
         <td><input type="text" value="[% packaging.number_of_units %]"></td>
         [% FOREACH property IN ["shape", "material", "recycling"] %]
@@ -35,19 +36,23 @@ var component = 0;
                 [% SET taxonomy = "packaging_recycling" %]
             [% END %]
 
-            [% SET select2_id = "packagings_component_" _ loop.index() _ "_$property" %]
+            [% SET select2_id = packaging_id _ "_$property" %]
 
-        <td>[% packaging.$property %]
+        <td>
             <select id="[% select2_id %]" class="form-control [% taxonomy %]_select2">
                 <option></option>
             </select>
 
 <initjs>
 \$("#[% select2_id %]").select2({
-    placeholder: "Select or type an entry",
+    placeholder: "[% lang("packaging_$property") %]",
     data: [% taxonomy %]_select2_options,
     tags: true
 });
+
+[% IF packaging.$property.defined %]
+\$("#[% select2_id %]").val("[% display_taxonomy_tag(taxonomy, packaging.$property) %]").trigger('change');
+[% END %]
 </initjs>
                 
 
