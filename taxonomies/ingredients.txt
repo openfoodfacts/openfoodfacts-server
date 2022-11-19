@@ -38462,7 +38462,6 @@ ru:Вишневый сок
 
 <en:cherry
 de:Kirschsaft aus Kirschsaftkonzentrat
-hr:sok od višnje od koncentriranog soka
 ro:suc de cireșe din suc concentrat de cireș
 
 <en:cherry
@@ -38516,7 +38515,7 @@ it:Succo di amarena
 
 <en:sour cherry
 de:Sauerkirschsaft aus Sauerkirschsaftkonzentrat
-hr:sok višnje od koncentriranog soka
+hr:sok višnje od koncentriranog soka, sok od višnje od koncentriranog soka
 
 ###################################################################################################
 #
@@ -41003,9 +41002,11 @@ sv:hallonjuice
 # 72 products in 4 languages @2018-09-27
 
 <en:raspberry juice
-fr:jus de framboise à base de concentré
+en:raspberry juice from concentrated juice
 de:Himbeersaft aus Konzentrat, himbeersaft aus himbeersaftkonzentrat
 fi:vadelmamehu tiivisteestä, vadelmatäysmehu tiivisteestä
+fr:jus de framboise à base de concentré
+hr:sok od maline od koncentrianog soka
 it:succo di lamponi a base di concentrato
 nl:frambozensap uit sapconcentraat
 sv:hallonjuice från koncentrat
@@ -48462,6 +48463,7 @@ eu:Eskortzonera
 fi:Mustajuuri
 fr:salsifis, salsifis noirs
 gl:Escorzoneira
+hr:crni korijen
 hu:Feketegyökér
 it:scorzonera
 ja:スコルツォネラヒスパニカ
@@ -48498,6 +48500,10 @@ fr:Salsifis cuits
 ciqual_food_code:en:20046
 ciqual_food_name:en:Salsify, cooked
 ciqual_food_name:fr:Salsifis, cuit
+
+<en:salsify
+en:salsify juice concentrate
+hr:koncentriani sok crnog korijena
 
 # description:en:The SHALLOT is a type of onion, specifically a botanical variety of the species Allium cepa.
 
@@ -62336,7 +62342,7 @@ fa:روزل
 fi:teehibiskus, hibiskus, hibiskuksen kukka
 fr:fleurs de carcadé, fleurs d'hibiscus, hibiscus
 gu:અંબાડી
-hr:hibiskus cvijet, cvijet hibiskusa, cvjetovi hibiskusa
+hr:hibiskus cvijet, cvijet hibiskusa, cvjetovi hibiskusa, hibiskusa
 hu:rozella
 id:Rosela
 it:flori di carcadè, Ibisco
