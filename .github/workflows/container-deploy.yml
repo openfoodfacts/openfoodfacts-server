@@ -44,6 +44,7 @@ jobs:
       if: matrix.env == 'off-org'
       run: |
         # FIXME: we do not deploy to prod currently
+        false
     - name: Wait for frontend container build workflow
       uses: tomchv/wait-my-workflow@v1.1.0
       id: wait-build
@@ -153,7 +154,7 @@ jobs:
           # Override domain name in nginx.conf
           sed -i.bak "s/productopener.localhost/${{ env.PRODUCT_OPENER_DOMAIN }}/g" ./conf/nginx.conf
 
-    - name: Create Docker volumes
+    - name: Create Docker volumes and network
       uses: appleboy/ssh-action@master
       with:
         host: ${{ env.SSH_HOST }}
@@ -164,8 +165,9 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          cd ${{ matrix.env }}
-          make create_external_volumes
+          cd ${{ matrix.env }} && \
+          make create_external_volumes && \
+          make create_external_networks
 
     - name: init backend
       uses: appleboy/ssh-action@master
@@ -178,7 +180,7 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          cd ${{ matrix.env }}
+          cd ${{ matrix.env }} && \
           make init_backend
 
     - name: Start services
@@ -192,9 +194,9 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          cd ${{ matrix.env }}
-          make hdown
-          make build_lang
+          cd ${{ matrix.env }} && \
+          make hdown && \
+          make build_lang && \
           make up
 
     - name: Check services are up
@@ -209,7 +211,7 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          cd ${{ matrix.env }}
+          cd ${{ matrix.env }} && \
           make livecheck
 
     - name: Cleanup obsolete Docker objects
@@ -224,7 +226,7 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          cd ${{ matrix.env }}
+          cd ${{ matrix.env }} && \
           make prune
 
     - uses: frankie567/grafana-annotation-action@v1.0.3
