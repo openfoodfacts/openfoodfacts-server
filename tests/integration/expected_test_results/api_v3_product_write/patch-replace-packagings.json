@@ -1,0 +1,55 @@
+{
+   "code" : "1234567890008",
+   "errors" : [],
+   "product" : {
+      "packagings" : [
+         {
+            "material" : "en:plastic",
+            "number_of_units" : 1,
+            "shape" : "en:bag",
+            "weight_measured" : 10.5
+         },
+         {
+            "material" : "en:paper",
+            "number_of_units" : 1,
+            "shape" : "en:label",
+            "weight_specified" : 0.25
+         }
+      ]
+   },
+   "status" : "success_with_warnings",
+   "warnings" : [
+      {
+         "field" : {
+            "id" : "recycling",
+            "value" : null
+         },
+         "impact" : {
+            "id" : "field_ignored",
+            "lc_name" : "Field ignored",
+            "name" : "Field ignored"
+         },
+         "message" : {
+            "id" : "missing_field",
+            "lc_name" : "Missing field",
+            "name" : "Missing field"
+         }
+      },
+      {
+         "field" : {
+            "id" : "recycling",
+            "value" : null
+         },
+         "impact" : {
+            "id" : "field_ignored",
+            "lc_name" : "Field ignored",
+            "name" : "Field ignored"
+         },
+         "message" : {
+            "id" : "missing_field",
+            "lc_name" : "Missing field",
+            "name" : "Missing field"
+         }
+      }
+   ]
+}

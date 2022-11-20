@@ -19,9 +19,21 @@ fr:Applicateur
 nl:Applicator
 
 en:backing, support, board, stand
+bg:пълнеж, подплънка
+de:Stütze, Unterlage
+fi:tuki
 fr:support, plaque
+hr:potpora
 hu:tartó, tábla, állvány
+ia:supporto
+it:supporto
+mi:kaupapa
+nl:drager
 pt:suporte, placa, suportes, placas
+ru:подкладка
+description:en: A liner or other material added behind or underneath
+description:fr: Ce qui soutient une chose, ce sur quoi elle pose
+description:nl: Voorwerp dat iets ondersteunt
 
 en:Bag, bags
 bg:Торбичка, торбички
@@ -34,6 +46,7 @@ hu:Zacskó, zacskók, tasak, tasakos
 it:Sacco, sacchetto, sacchettino
 nl:Zak, Sachet, Tas, verzendzak, Zakken, Zakje, Zakjes
 pt:Saco, sacos, saquinho, saquinhos, saqueta, saquetas
+description:nl: Slappe, vormeloze verpakking
 
 < en:Bag
 en:Carrying bag, carrying bags
@@ -83,6 +96,7 @@ hu:Palack, palackok
 it:Bottiglia
 nl:Fles, Flessen
 pt:Garrafa, garrafas
+description:nl: Een langgerekt, cilindrisch en meestal van glas vervaardigd vat met een nauwe hals die met een dop of kurk af te sluiten is
 wikidata:en: Q80228
 
 en:Bottle cap, bottle top, cap, top, bottle caps, bottle tops, caps, tops
@@ -130,6 +144,16 @@ hu:Doboz, dobozok
 it:Scatola, scatole, astuccio, scatoletta
 nl:Doos, doosje, Dozen, Doosjes, Pakje, Pakjes
 pt:Caixa, caixas
+description:nl: Een veelal kartonnen balkvormige verpakking
+
+< en:Box
+en:Pizza box
+de:Pizzakarton
+fr:carton à pizza
+it:Cartone della pizza
+nl:Pizzadoos, pizzadozen
+description:nl: platte, vierkante, kartonnen doos waarin men een pizza kan stoppen
+wikidata:en: Q2097650
 
 < en:Box
 nl:Eierdoos
@@ -139,23 +163,23 @@ fr:Boîte à œufs
 ja:卵パック
 pl:wytłaczanka
 tr:Yumurta kartonu
+description:nl: Kartonnen of geschuimd kunststoffen doos met holtes om eieren in te verpakken zonder dat deze elkaar raken
 wikidata:en: Q959287
-
-< en:Box
-nl:Pizzadoos, pizzadozen
-de:Pizzakarton
-fr:carton à pizza
-it:Cartone della pizza
-wikidata:en: Q2097650
 
 en:Brick, brick carton, brick shaped carton, bricks, brick cartons, brick shaped cartons
 de:Ziegel, Ziegelkarton, ziegelsteinförmiger Karton, Ziegelkartons, ziegelsteinförmige Kartons
 fr:Brique, briques
 hu:tégla, tégladoboz, tégla doboz, tégla karton, tégla alakú karton
-nl:Drankenkarton, Melkpak, Drankenkartons, Drankencarton
+nl:Drankkarton, Melkpak, Drankenkartons, Drankencarton, Drankenkarton, Drinkpahk, Drinkpakken
+description:en: Verpakking voor vloeibare levensmiddelen gemaakt van gelamineerd papier
 
 en:Brochure
+de:Broschüre, Faltblatt
+es:Folleto, Prospecto
+fr:Brochure
 nl:Folder
+sv:Broschyr
+description:nl: Een blad met informatie of reclame
 
 en:Bubble wrap
 fr:Film à bulles
@@ -187,6 +211,7 @@ hu:konzervdoboz, konzerv
 it:Lattina, Latta
 nl:Blik, Bus
 pt:Lata, latas
+description:nl: Een cilindervormig afgesloten blikken vaatje
 packaging_materials:en: en:metal
 wikidata:en: Q2846150
 
@@ -198,8 +223,9 @@ es:Lata de bebida
 fr:Canette, cannette, canettes, cannettes
 hu:italos konzerv, italkonzerv, konzervital
 it:Lattina per bevande
-nl:Blikje, blikjes
+nl:Blikje, Blikjes
 pt:Lata de bebida, latas de bebidas, lata de alumínio, latas de alumínio, lata de refrigerante, latas de refrigerante, lata de refrigerantes, latas de refrigerantes
+description:nl: Een cilindervormig afgesloten blikken vaatje voor dranken
 wikidata:en: Q3261783
 
 < en:Can
@@ -212,6 +238,7 @@ hu:ételes konzerv, ételkonzerv, konzervétel
 it:Lattina di cibo
 nl:Conservenblik
 pt:Lata de alimentos, latas de alimentos, lata de alimento, latas de alimento, lata de conserva, lata de conservas, latas de conserva, latas de conservas, lata de comida, latas de comida, lata de comidas, latas de comidas, lata para alimentos, latas para alimentos, lata para alimento, latas para alimento
+description:nl: Een cilindervormig afgesloten blikken vaatje voor groenten, e.d.
 
 en:Canister
 fr:Bombonne
@@ -227,6 +254,7 @@ packaging_materials:en: en:cardboard
 en:Cartridge, cartridges
 fr:Cartouche, cartouches
 nl:Cartridge, cartridges
+description:nl: Inktpatroon voor een printer
 
 en:Case, cases
 fr:Caisse, caisses, caissette, caissettes
@@ -246,11 +274,6 @@ wikidata:en: Q4236462
 en:Coffee pad
 nl:Koffiepad
 
-en:container, carton
-es:recipiente
-fr:récipient
-nl:container, karton
-
 en:Cosmetic stick
 fr:Stick cosmétique
 
@@ -259,6 +282,7 @@ fr:Cagette, cagettes, cageot, cageots
 hu:Láda, lécláda, ketrec
 nl:Krat, kratten
 pt:Caixote, caixotes
+description:nl: Houten of plastic doos met openingen in de zijkanten in een standaardformaat, vaak gebruikt voor opslag en het vervoer van flessen, fruit of andere waren
 
 en:Eating utensils, utensils, eating utensil, utensil
 bg:Прибори за хранене
@@ -326,22 +350,44 @@ en:Fastener, clip
 bg:Клипса
 fr:Attache
 hu:Rögzítő, kapocs, csipesz
-nl:Clip
+nl:clip, klemmetje
 pt:Atilho, atilhos, presilha, presilhas, fita, fitas, cordão, cordões, atadura, ataduras, fecho, fechos, fexo, feixo, fexos, feixos, fio, fios
+description:nl: Een klein werktuig waarin iets door samendrukken bijeengehouden of vastgezet kan worden
 
 en:Filling
 nl:Opvulmateriaal
 
 en:Film, wrap, films, wraps, film wrap, film wraps, foil
-bg:Фолио
+af:Foelie
+ar:فِلْم‎
+be:плёнка
+bg:Фолио, слой
+ca:Film
 da:Film
 de:Folie, Film
 el:Μεμβράνη
 fr:Film, pellicule, films, pellicules, film de regroupement
+gd:film
+gl:filme
+he:קְרוּם‎
+hi:फ़िल्म
 hu:Film
+hy:թաղանթ
+is:skán
 it:Film, Pellicola
+ja:フィルム
+lo:ຟີມ
 nl:Folie, Film, Folies
+pl:Folia, Film
 pt:Película, películas, filme, filmes, filme extensível, filme estirável
+ru:фильм
+sh:фи̏лм, fȉlm
+sv:Film
+th:ฟิล์ม
+ur:فلم‎
+zh:菲林
+description:en: A thin layer of plastic or metal
+description:nl: Dun en buigzaam vel van een metaal of kunststof
 weight:en: light
 
 en:Grouping package, grouping packages
@@ -370,6 +416,7 @@ it:Vasetto, Barattolo
 nl:Pot, Potten, Bokaal, Bokaalen
 pt:Jarro, jarros, jarra, jarras
 ro:Borcan
+description:nl: Cilindervormig voorwerp van glas of aardewerk
 
 en:Jug, jugs
 fr:Bidon, bidons
@@ -404,6 +451,7 @@ wikidata:en: Q61686575
 
 en:Net, nets
 bg:Мрежа, мрежи
+cy:ffilm
 de:Netz
 fr:Filet, filets
 hu:Háló, hálók
@@ -416,19 +464,84 @@ hu:gyűjtőcsomag, gyűjtőcsomagolás, overpack
 nl:oververpakking, oververpakkingen
 pt:Sobreembalagem, sobre-embalagem, sobreembalagens, sobre-embalagens, sobrembalagens, sobrembalagens
 
-en:pack, packet, packs, packets, package
-bg:пакет, пакети
-de:Packung
-es:paquete, paquetes
-fr:paquet, pack, paquets, packs, packet, packets
-it:pacchetto
-nl:Pakket, pak, pakken
-pt:pacote
-
 en:packaging
 bg:опаковка
+ca:embalatge
+cs:zabalení
+de:Verpackung
+el:αμπαλάρισμα
+fi:pakkausmateriaali
 fr:emballage
+hy:փաթեթավորում
+id:kemasan
+it:imballaggio
 nl:verpakking
+pl:opakowanie
+ru:упако́вка
+sq:pako, paketë
+sv:förpackningsmaterial
+description:nl: Het materiaal waarin iets verpakt is.
+
+en:packet, pack, packs, packets, package
+ar:حُزْمَة
+az:paket
+be:паке́т
+bg:пакет, пакети, паке́тче
+bn:প্যাকেট
+ca:paquet
+cs:balíček
+cy:pecyn
+da:pakke
+de:Packung, Paket, Päckchen
+el:πακέτο
+eo:pako
+es:paquete, paquetes
+et:pakett, pakk
+eu:pakete
+fa:پاکت‎
+fi:paketti
+fr:paquet, pack, paquets, packs, packet, packets
+gd:pacaid
+he:חֲבִילָה‎
+hi:पैकेट
+hu:csomag
+hy:կապոց
+is:pakki
+it:pacchetto
+ja:パケット
+ka:პაკეტი
+kk:пакет
+km:បេ
+ko:패킷
+ky:пакет
+lo:ຫໍ່
+lt:pakelis
+lv:paciņa
+mk:пакет
+mn:пакет
+mo:pākete
+my:အထုပ်
+nl:Pakket, pak, pakken
+no:pakke
+pl:paczka
+pt:pacote
+ro:pachet
+ru:паке́т
+sh:замотуљак, zamotuljak
+sk:balíček
+sl:paket
+sv:paket
+sw:pakiti
+tg:пакет
+th:ห่อ
+tm:paket
+tr:paket
+uk:паке́т
+uz:paket
+vi:gói
+zh:包
+description:en: A small pack or package; a little bundle or parcel, eg. flour packet, paquet de biscuits, pack d'eau, beer pack
+description:nl: Het omhulsel rond het product.
 
 en:Plate, plates
 bg:Чиния, чинии
@@ -447,6 +560,8 @@ fr:Pot, pots, coupelle, coupelles, verrine, verrines, ravier, raviers
 hu:Pohár, fazék, lábas, edény, csésze, kanna
 nl:Kuip, kuipje
 pt:Pote, potes, boião, boiões, copo
+comment:en: Klopt deze vertaling wel? Is het niet meer een pot en moet kuip ergens anders onder gebracht worden?
+description:nl: Wijd, houten, metalen of plastic vat
 
 < en:Pot
 en:individual pot, individual cup, individual pots, individual cups
@@ -528,6 +643,7 @@ en:Straw, straws
 bg:Сламка, сламки
 fr:Paille, pailles
 nl:Rietje, rietjes
+description:nl: Dun drinkbuisje
 
 en:String, strings, ribbon, ribbons, adhesive tape, adhesive tapes, gift ribbon, gift ribbons
 fr:ficelle, ficelles, ruban, rubans
@@ -551,6 +667,7 @@ fr:Terrine, terrines
 en:Tie, knot
 fr:Lien, noeud
 nl:Knoop, strik
+description:nl: Een vastgetrokken lus in garen, draad, koord of touw
 weight:en: light
 
 en:Tray, trays, tray with indents, shell, shells
@@ -561,6 +678,7 @@ hu:Tálca, tálcák
 it:Vaschetta
 nl:Tray
 pt:Tabuleiro, cuvete, tabuleiros, cuvetes, couvete, couvetes
+description:nl: Een open verpakking die onderverdeeld is in verschillende vakjes.
 
 en:Tube, tubes
 de:Tube, Tuben
@@ -568,10 +686,12 @@ fr:Tube, tubes
 hu:Tubus, tubusok, Cső, csövek, cső alakú
 nl:Tube, Tubes
 pt:Bisnaga, bisnagas, tubo de bisnaga, tubos de bisnagas
+describtion:nl: Een verpakking in kokervorm gemaakt van metaal of plastic gevuld met een halfvloeibare stof
 
 en:Tumbler
 fr:Gobelet
 nl:Beker, Bekers, Koffiebeker, Cup
+description:nl: Een cilindervormig voorwerp waaruit gedronken kan worden
 wikidata:en: Q833823
 
 en:Unknown
@@ -580,6 +700,8 @@ fr:Inconnu, inconnue, inconnus, inconnues
 hu:Ismeretlen
 nl:Onbekend
 pt:Desconhecido
+description:en: Unidentified packaging
+description:nl: Niet herkende verpakking
 
 en:Vial, flask
 fr:Flacon
@@ -603,4 +725,6 @@ pt:invólucro
 nl:Inlay
 
 xx:cellophane
+nl:cellofaan
+description:nl: Transparant materiaal gemaakt van cellulose, in dunne vellen gewoonlijk in gebruik voor vochtdicht afsluiten van etenswaren
 

@@ -512,6 +512,93 @@ sub check_carbon_footprint ($product_ref) {
 	return;
 }
 
+=head2 check_nutrition_data_energy_computation ( PRODUCT_REF )
+
+Checks related to the nutrition facts values.
+
+In particular, checks for obviously invalid values (e.g. more than 105 g of any nutrient for 100 g / 100 ml).
+105 g is used instead of 100 g, because for some liquids, 100 ml can weight more than 100 g.
+
+=cut
+
+# Nutrients to energy conversion
+# Currently only supporting Europe's method (similar to US and Canada 4-4-9, 4-4-9-7 and 4-4-9-7-2)
+
+my %energy_from_nutrients = (
+	europe => {
+		carbohydrates_minus_polyols => {kj => 17, kcal => 4},
+		polyols_minus_erythritol => {kj => 10, kcal => 2.4},
+		proteins => {kj => 17, kcal => 4},
+		fat => {kj => 37, kcal => 9},
+		salatrim => {kj => 25, kcal => 6},    # no corresponding nutrients in nutrient tables?
+		alcohol => {kj => 29, kcal => 7},
+		organic_acids => {kj => 13, kcal => 3},    # no corresponding nutrients in nutrient tables?
+		fiber => {kj => 8, kcal => 2},
+		erythritol => {kj => 0, kcal => 0},    # no corresponding nutrients in nutrient tables?
+	},
+);
+
+sub check_nutrition_data_energy_computation ($product_ref) {
+
+	my $nutriments_ref = $product_ref->{nutriments};
+
+	if (not defined $nutriments_ref) {
+		return;
+	}
+
+	# Different countries allow different ways to determine energy
+	# One way is to compute energy from other nutrients
+	# We can thus try to use energy as a key to verify other nutrients
+
+	# See https://esha.com/blog/calorie-calculation-country/
+	# and https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=CELEX:32011R1169&from=FR Appendix XIV
+
+	foreach my $unit ("kj", "kcal") {
+
+		my $specified_energy = $nutriments_ref->{"energy-${unit}_value"};
+		# We need at a minimum carbohydrates, fat and proteins to be defined to compute
+		# energy.
+		if (    (defined $specified_energy)
+			and (defined $nutriments_ref->{"carbohydrates_value"})
+			and (defined $nutriments_ref->{"fat_value"})
+			and (defined $nutriments_ref->{"proteins_value"}))
+		{
+
+			# Compute the energy from other nutrients
+			my $computed_energy = 0;
+			foreach my $nid (keys %{$energy_from_nutrients{europe}}) {
+
+				my $energy_per_gram = $energy_from_nutrients{europe}{$nid}{$unit};
+				my $grams = 0;
+				# handles nutriment1__minus__numtriment2 case
+				if ($nid =~ /_minus_/) {
+					my $nid_minus = $';
+					$nid = $`;
+					$grams -= $product_ref->{nutriments}{$nid_minus . "_value"} || 0;
+				}
+				$grams += $product_ref->{nutriments}{$nid . "_value"} || 0;
+				$computed_energy += $grams * $energy_per_gram;
+			}
+
+			# Compare to specified energy value
+			if (   ($computed_energy < ($specified_energy * 0.9 - 5))
+				or ($computed_energy > ($specified_energy * 1.1 + 5)))
+			{
+				# we have a quality problem
+				push @{$product_ref->{data_quality_errors_tags}},
+					"en:energy-value-in-$unit-does-not-match-value-computed-from-other-nutrients";
+			}
+
+			$nutriments_ref->{"energy-${unit}_value_computed"} = $computed_energy;
+		}
+		else {
+			delete $nutriments_ref->{"energy-${unit}_value_computed"};
+		}
+	}
+
+	return;
+}
+
 =head2 check_nutrition_data( PRODUCT_REF )
 
 Checks related to the nutrition facts values.
@@ -587,17 +674,13 @@ sub check_nutrition_data ($product_ref) {
 			}
 
 			# check energy in kcal is ~ 4.2 energy in kj
-			# only if kcal > 2 so that we don't flag (1 kcal - 5 kJ) as incorrect
 			if (
-				($product_ref->{nutriments}{"energy-kcal_value"} >= 2)
-				and (
-					(
-						$product_ref->{nutriments}{"energy-kj_value"}
-						< 3.5 * $product_ref->{nutriments}{"energy-kcal_value"}
-					)
-					or ($product_ref->{nutriments}{"energy-kj_value"}
-						> 4.7 * $product_ref->{nutriments}{"energy-kcal_value"})
+				(
+					$product_ref->{nutriments}{"energy-kj_value"}
+					< 3.7 * $product_ref->{nutriments}{"energy-kcal_value"} - 1
 				)
+				or ($product_ref->{nutriments}{"energy-kj_value"}
+					> 4.7 * $product_ref->{nutriments}{"energy-kcal_value"} + 1)
 				)
 			{
 				push @{$product_ref->{data_quality_errors_tags}}, "en:energy-value-in-kcal-does-not-match-value-in-kj";
@@ -1088,7 +1171,7 @@ sub check_categories ($product_ref) {
 
 	# Check alcohol content
 	if (has_tag($product_ref, "categories", "en:alcoholic-beverages")) {
-		if (!(defined $product_ref->{alcohol_value}) || $product_ref->{alcohol_value} == 0) {
+		if (!(defined $product_ref->{nutriments}{alcohol_value}) || $product_ref->{nutriments}{alcohol_value} == 0) {
 			push @{$product_ref->{data_quality_warnings_tags}}, 'en:alcoholic-beverages-category-without-alcohol-value';
 		}
 		if (has_tag($product_ref, "categories", "en:non-alcoholic-beverages")) {
@@ -1097,8 +1180,8 @@ sub check_categories ($product_ref) {
 		}
 	}
 
-	if (    defined $product_ref->{alcohol_value}
-		and $product_ref->{alcohol_value} > 0
+	if (    defined $product_ref->{nutriments}{alcohol_value}
+		and $product_ref->{nutriments}{alcohol_value} > 0
 		and not has_tag($product_ref, "categories", "en:alcoholic-beverages"))
 	{
 
@@ -1291,6 +1374,7 @@ sub check_quality_food ($product_ref) {
 	check_ingredients_percent_analysis($product_ref);
 	check_ingredients_with_specified_percent($product_ref);
 	check_nutrition_data($product_ref);
+	check_nutrition_data_energy_computation($product_ref);
 	compare_nutrition_facts_with_products_from_same_category($product_ref);
 	check_nutrition_grades($product_ref);
 	check_carbon_footprint($product_ref);
