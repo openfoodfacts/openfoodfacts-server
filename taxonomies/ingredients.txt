@@ -14686,7 +14686,7 @@ eu:Palmiste olio
 fa:روغن هسته پالم
 fi:palmuydinöljy, palmunydinöljy, palmuydin, palmunydin, palmunsiemenöljy
 fr:huile de palmiste, huile végétale de palmiste, palmiste
-hr:ulje palminih koštica
+hr:ulje palminih koštica, palmine koštice
 hu:pálmamagolaj, pálmamag
 id:Minyak inti kelapa sawit
 is:pálmakjarmaolía
@@ -29859,7 +29859,7 @@ es:cacao magro en polvo, cacao desgrasado en polvo, cacao en polvo desgrasado, c
 et:lahja kakaopulber, vähendatud rasvasisaldusega kakaopulber
 fi:vähärasvainen kaakaojauhe, vähärasvaista kaakaojauhetta
 fr:poudre de cacao maigre, poudre de cacao dégraissé, cacao dégraissé en poudre, cacao en poudre dégraissé, cacao maigre en poudre, cacao sec dégraissé, poudre de cacao à teneur réduite en matières grasses
-hr:kakao u prahu smanjene masnoce, nemasni kakao prah, nemasni kakao u prahu, kakao prah smanjene masti, kakaov prah smanjene masti, kakao smanjene masnoće u prahu
+hr:kakao u prahu smanjene masnoce, nemasni kakao prah, nemasni kakao u prahu, kakao prah smanjene masti, kakaov prah smanjene masti, kakao smanjene masnoće u prahu, kakaov prahu smanjene mast
 hu:zsírszegény kakaópor
 it:cacao magro in polvere, cacao scremato in polvere
 lt:liesi kakavos milteliai
@@ -79505,6 +79505,7 @@ es:envolviendo, sobrimiento,sazonador
 et:kate
 fi:päällyste
 fr:enrobage, enrobant, décor, decor, chemisage
+hr:preljev
 it:rivestimento
 lt:apvalkalas
 nb:belegg
@@ -79520,6 +79521,10 @@ tr:kaplama
 # coating (water, wheat flour, modified corn starch, gluten of wheat, corn flour, corn starch, salt, potato starch)
 vegan:en:ignore
 vegetarian:en:ignore
+
+<en:coating
+en:cocoa coating
+hr:kakao preljev
 
 <en:coating
 fr:décor au cacao maigre, decor au cacao maigre, enrobage au cacao maigre
