@@ -44,6 +44,7 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 
+		&initialize_knowledge_panels_options
 		&create_knowledge_panels
 
 	);    # symbols to export on request
@@ -69,6 +70,38 @@ use Data::DeepAccess qw(deep_get);
 
 =head1 FUNCTIONS
 
+=head2 initialize_knowledge_panels_options( $knowledge_panels_options_ref, $request_ref )
+
+Initialize the options for knowledge panels from parameters.
+
+=cut
+
+sub initialize_knowledge_panels_options ($knowledge_panels_options_ref, $request_ref) {
+
+	# Activate physical activity knowledge panel only when specified
+	if (single_param("activate_knowledge_panel_physical_activities")) {
+		$knowledge_panels_options_ref->{activate_knowledge_panel_physical_activities} = 1;
+	}
+
+	# Specify if we knowledge panels are requested from the app or the website
+	# in order to allow different behaviours (e.g. showing ingredients before nutrition on the web)
+	# possible values: "web", "app"
+	my $knowledge_panels_client = single_param("knowledge_panels_client");
+	# set a default value if client is not defined to app or web
+	if (   (not defined $knowledge_panels_client)
+		or (($knowledge_panels_client ne "web") and ($knowledge_panels_client ne "app")))
+	{
+		# Default to app mode
+		$knowledge_panels_client = 'app';
+		# but if it's not an api request, we consider it should be web
+		if (not defined $request_ref->{api}) {
+			$knowledge_panels_client = "web";
+		}
+	}
+	$knowledge_panels_options_ref->{knowledge_panels_client} = $knowledge_panels_client;
+
+	return;
+}
 
 =head2 create_knowledge_panels( $product_ref, $target_lc, $target_cc, $options_ref )
 

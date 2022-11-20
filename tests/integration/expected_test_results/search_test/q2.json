@@ -1,8 +1,8 @@
 {
    "count" : 5,
-   "page" : "1",
+   "page" : 1,
    "page_count" : 5,
-   "page_size" : "24",
+   "page_size" : 24,
    "products" : [
       {
          "_id" : "200000000034",
@@ -61,15 +61,8 @@
             "2xxxxxxxxxxx"
          ],
          "complete" : 0,
-         "completeness" : "0.5",
+         "completeness" : 0.5,
          "correctors_tags" : [],
-         "countries" : "en:world",
-         "countries_hierarchy" : [
-            "en:world"
-         ],
-         "countries_tags" : [
-            "en:world"
-         ],
          "created_t" : "--ignore--",
          "creator" : "tests",
          "data_quality_bugs_tags" : [],
@@ -347,23 +340,23 @@
          "entry_dates_tags" : "--ignore--",
          "food_groups_tags" : [],
          "forest_footprint_data" : {
-            "footprint_per_kg" : "0.0074375",
+            "footprint_per_kg" : 0.0074375,
             "grade" : "a",
             "ingredients" : [
                {
                   "conditions_tags" : [],
-                  "footprint_per_kg" : "0.0074375",
+                  "footprint_per_kg" : 0.0074375,
                   "matching_tag_id" : "en:egg",
-                  "percent" : "9.375",
-                  "percent_estimate" : "9.375",
+                  "percent" : 9.375,
+                  "percent_estimate" : 9.375,
                   "processing_factor" : 1,
                   "tag_id" : "en:egg",
                   "tag_type" : "ingredients",
                   "type" : {
-                     "deforestation_risk" : "0.68",
+                     "deforestation_risk" : 0.68,
                      "name" : "Oeufs Importés",
-                     "soy_feed_factor" : "0.035",
-                     "soy_yield" : "0.3"
+                     "soy_feed_factor" : 0.035,
+                     "soy_yield" : 0.3
                   }
                }
             ]
@@ -377,27 +370,30 @@
          "ingredients" : [
             {
                "id" : "en:apple",
-               "percent_estimate" : "62.5",
+               "percent_estimate" : 62.5,
                "percent_max" : 100,
                "percent_min" : 25,
+               "rank" : 1,
                "text" : "apple",
                "vegan" : "yes",
                "vegetarian" : "yes"
             },
             {
                "id" : "en:milk",
-               "percent_estimate" : "18.75",
+               "percent_estimate" : 18.75,
                "percent_max" : 50,
                "percent_min" : 0,
+               "rank" : 2,
                "text" : "milk",
                "vegan" : "no",
                "vegetarian" : "yes"
             },
             {
                "id" : "en:egg",
-               "percent_estimate" : "9.375",
-               "percent_max" : "33.3333333333333",
+               "percent_estimate" : 9.375,
+               "percent_max" : 33.3333333333333,
                "percent_min" : 0,
+               "rank" : 3,
                "text" : "eggs",
                "vegan" : "no",
                "vegetarian" : "yes"
@@ -405,9 +401,10 @@
             {
                "from_palm_oil" : "yes",
                "id" : "en:palm-oil",
-               "percent_estimate" : "9.375",
+               "percent_estimate" : 9.375,
                "percent_max" : 25,
                "percent_min" : 0,
+               "rank" : 4,
                "text" : "palm oil",
                "vegan" : "yes",
                "vegetarian" : "yes"
@@ -660,15 +657,8 @@
             "2xxxxxxxxxxx"
          ],
          "complete" : 0,
-         "completeness" : "0.5",
+         "completeness" : 0.5,
          "correctors_tags" : [],
-         "countries" : "en:world",
-         "countries_hierarchy" : [
-            "en:world"
-         ],
-         "countries_tags" : [
-            "en:world"
-         ],
          "created_t" : "--ignore--",
          "creator" : "tests",
          "data_quality_bugs_tags" : [],
@@ -962,6 +952,7 @@
                "percent_estimate" : 75,
                "percent_max" : 100,
                "percent_min" : 50,
+               "rank" : 1,
                "text" : "fruit",
                "vegan" : "yes",
                "vegetarian" : "yes"
@@ -971,6 +962,7 @@
                "percent_estimate" : 25,
                "percent_max" : 50,
                "percent_min" : 0,
+               "rank" : 2,
                "text" : "rice",
                "vegan" : "yes",
                "vegetarian" : "yes"
@@ -1210,15 +1202,8 @@
             "2xxxxxxxxxxx"
          ],
          "complete" : 0,
-         "completeness" : "0.5",
+         "completeness" : 0.5,
          "correctors_tags" : [],
-         "countries" : "en:world",
-         "countries_hierarchy" : [
-            "en:world"
-         ],
-         "countries_tags" : [
-            "en:world"
-         ],
          "created_t" : "--ignore--",
          "creator" : "tests",
          "data_quality_bugs_tags" : [],
@@ -1493,23 +1478,23 @@
          "entry_dates_tags" : "--ignore--",
          "food_groups_tags" : [],
          "forest_footprint_data" : {
-            "footprint_per_kg" : "0.0132222222222222",
+            "footprint_per_kg" : 0.0132222222222222,
             "grade" : "a",
             "ingredients" : [
                {
                   "conditions_tags" : [],
-                  "footprint_per_kg" : "0.0132222222222222",
+                  "footprint_per_kg" : 0.0132222222222222,
                   "matching_tag_id" : "en:egg",
-                  "percent" : "16.6666666666667",
-                  "percent_estimate" : "16.6666666666667",
+                  "percent" : 16.6666666666667,
+                  "percent_estimate" : 16.6666666666667,
                   "processing_factor" : 1,
                   "tag_id" : "en:egg",
                   "tag_type" : "ingredients",
                   "type" : {
-                     "deforestation_risk" : "0.68",
+                     "deforestation_risk" : 0.68,
                      "name" : "Oeufs Importés",
-                     "soy_feed_factor" : "0.035",
-                     "soy_yield" : "0.3"
+                     "soy_feed_factor" : 0.035,
+                     "soy_yield" : 0.3
                   }
                }
             ]
@@ -1523,27 +1508,30 @@
          "ingredients" : [
             {
                "id" : "en:apple",
-               "percent_estimate" : "66.6666666666667",
+               "percent_estimate" : 66.6666666666667,
                "percent_max" : 100,
-               "percent_min" : "33.3333333333333",
+               "percent_min" : 33.3333333333333,
+               "rank" : 1,
                "text" : "apple",
                "vegan" : "yes",
                "vegetarian" : "yes"
             },
             {
                "id" : "en:milk",
-               "percent_estimate" : "16.6666666666667",
+               "percent_estimate" : 16.6666666666667,
                "percent_max" : 50,
                "percent_min" : 0,
+               "rank" : 2,
                "text" : "milk",
                "vegan" : "no",
                "vegetarian" : "yes"
             },
             {
                "id" : "en:egg",
-               "percent_estimate" : "16.6666666666667",
-               "percent_max" : "33.3333333333333",
+               "percent_estimate" : 16.6666666666667,
+               "percent_max" : 33.3333333333333,
                "percent_min" : 0,
+               "rank" : 3,
                "text" : "eggs",
                "vegan" : "no",
                "vegetarian" : "yes"
@@ -1651,8 +1639,8 @@
          "nutrient_levels" : {},
          "nutrient_levels_tags" : [],
          "nutriments" : {
-            "fruits-vegetables-nuts-estimate-from-ingredients_100g" : "33.3333333333333",
-            "fruits-vegetables-nuts-estimate-from-ingredients_serving" : "33.3333333333333",
+            "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 33.3333333333333,
+            "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 33.3333333333333,
             "nova-group" : 1,
             "nova-group_100g" : 1,
             "nova-group_serving" : 1
@@ -1782,15 +1770,8 @@
             "2xxxxxxxxxxx"
          ],
          "complete" : 0,
-         "completeness" : "0.5",
+         "completeness" : 0.5,
          "correctors_tags" : [],
-         "countries" : "en:world",
-         "countries_hierarchy" : [
-            "en:world"
-         ],
-         "countries_tags" : [
-            "en:world"
-         ],
          "created_t" : "--ignore--",
          "creator" : "tests",
          "data_quality_bugs_tags" : [],
@@ -2077,23 +2058,26 @@
          "ingredients" : [
             {
                "id" : "es:apple",
-               "percent_estimate" : "66.6666666666667",
+               "percent_estimate" : 66.6666666666667,
                "percent_max" : 100,
-               "percent_min" : "33.3333333333333",
+               "percent_min" : 33.3333333333333,
+               "rank" : 1,
                "text" : "apple"
             },
             {
                "id" : "es:water",
-               "percent_estimate" : "16.6666666666667",
+               "percent_estimate" : 16.6666666666667,
                "percent_max" : 50,
                "percent_min" : 0,
+               "rank" : 2,
                "text" : "water"
             },
             {
                "id" : "es:palm-oil",
-               "percent_estimate" : "16.6666666666667",
-               "percent_max" : "33.3333333333333",
+               "percent_estimate" : 16.6666666666667,
+               "percent_max" : 33.3333333333333,
                "percent_min" : 0,
+               "rank" : 3,
                "text" : "palm oil"
             }
          ],
@@ -2347,15 +2331,8 @@
             "2xxxxxxxxxxx"
          ],
          "complete" : 0,
-         "completeness" : "0.5",
+         "completeness" : 0.5,
          "correctors_tags" : [],
-         "countries" : "en:world",
-         "countries_hierarchy" : [
-            "en:world"
-         ],
-         "countries_tags" : [
-            "en:world"
-         ],
          "created_t" : "--ignore--",
          "creator" : "tests",
          "data_quality_bugs_tags" : [],
@@ -2622,22 +2599,22 @@
             },
             "agribalyse" : {
                "agribalyse_proxy_food_code" : "32135",
-               "co2_agriculture" : "2.495352",
+               "co2_agriculture" : 2.495352,
                "co2_consumption" : 0,
-               "co2_distribution" : "0.029120657",
-               "co2_packaging" : "0.28587039",
-               "co2_processing" : "0.39369607",
-               "co2_total" : "3.4585877",
-               "co2_transportation" : "0.25433483",
+               "co2_distribution" : 0.029120657,
+               "co2_packaging" : 0.28587039,
+               "co2_processing" : 0.39369607,
+               "co2_total" : 3.4585877,
+               "co2_transportation" : 0.25433483,
                "code" : "32135",
                "dqr" : "4.03",
-               "ef_agriculture" : "0.31523913",
+               "ef_agriculture" : 0.31523913,
                "ef_consumption" : 0,
-               "ef_distribution" : "0.0098990521",
-               "ef_packaging" : "0.021563312",
-               "ef_processing" : "0.055783332",
-               "ef_total" : "0.42581268",
-               "ef_transportation" : "0.023314705",
+               "ef_distribution" : 0.0098990521,
+               "ef_packaging" : 0.021563312,
+               "ef_processing" : 0.055783332,
+               "ef_total" : 0.42581268,
+               "ef_transportation" : 0.023314705,
                "is_beverage" : 0,
                "name_en" : "Breakfast cereals, mix of puffed or extruded cereals, fortified with vitamins and chemical elements",
                "name_fr" : "Multi-céréales soufflées ou extrudées, enrichies en vitamines et minéraux",
@@ -2810,6 +2787,7 @@
                "percent_estimate" : 75,
                "percent_max" : 100,
                "percent_min" : 50,
+               "rank" : 1,
                "text" : "apple"
             },
             {
@@ -2817,6 +2795,7 @@
                "percent_estimate" : 25,
                "percent_max" : 50,
                "percent_min" : 0,
+               "rank" : 2,
                "text" : "water"
             }
          ],

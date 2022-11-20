@@ -12,6 +12,7 @@ use JSON;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::Test qw/:all/;
+use ProductOpener::API qw/:all/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
@@ -503,7 +504,12 @@ foreach my $test_ref (@tests) {
 
 	# Run the test
 
-	analyze_and_combine_packaging_data($product_ref);
+	# Response structure to keep track of warnings and errors
+	# Note: currently some warnings and errors are added,
+	# but we do not yet do anything with them
+	my $response_ref = get_initialized_response();
+
+	analyze_and_combine_packaging_data($product_ref, $response_ref);
 
 	# Save the result
 

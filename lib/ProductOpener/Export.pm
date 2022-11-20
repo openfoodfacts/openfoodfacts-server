@@ -522,7 +522,7 @@ sub export_csv ($args_ref) {
 					# If we export image fields, we first need to generate the paths to images
 
 					if (($field =~ /^image_(.*)_(url|json)/) and (not $added_images_urls)) {
-						ProductOpener::Display::add_images_urls_to_product($product_ref);
+						add_images_urls_to_product($product_ref, $lc);
 						$added_images_urls = 1;
 					}
 
