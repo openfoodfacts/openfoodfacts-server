@@ -1247,4 +1247,26 @@ display: inline-block;
   flex-grow:1;
 }
 
+#packagings_components_edit input {
+  margin:0;
+}
 
+#packagings_components_edit_header {
+  background-color:$macchiato;
+  color:white;
+  font-weight:600;
+  margin:0;
+  padding:1rem;
+}
+
+.packagings_components_edit_row {
+  margin:0;
+  padding:1rem;
+}
+.packagings_components_edit_row:nth-of-type(odd) {
+  background-color:$latte;
+}
+
+#packagings_components_edit_header {
+  font-weight:bold;
+}

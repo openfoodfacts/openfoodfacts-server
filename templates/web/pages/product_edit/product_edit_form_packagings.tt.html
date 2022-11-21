@@ -8,24 +8,28 @@ var packaging_recycling_select2_options = [% generate_select2_options_for_taxono
 var component = 0;
 </initjs>
 
-[% lang('packaging_parts') %]
-
-<table id="packagings">
-    <tr>
-        <th>[% lang("number") %]</th>
-        <th>[% lang("packaging_shape") %]</th>
-        <th>[% lang("packaging_material") %]</th>
-        <th>[% lang("packaging_recycling") %]</th>
-        <th>[% lang("packaging_quantity_per_unit") %]</th>
-        <th>[% lang("packaging_weight_per_unit") %]</th>
-    </tr>
-
+<p>[% lang('packaging_parts') %]</p>
     
+<div id="packagings_components_edit">
 
-    [% FOREACH packaging IN product.packagings %]
+    <!-- header row for large display -->
+    <div class="row show-for-large-up" id="packagings_components_edit_header">
+        <div class="large-1 columns">[% lang("packaging_number_of_units") %]</div>
+        <div class="large-3 columns">[% lang("packaging_shape") %]</div>
+        <div class="large-3 columns">[% lang("packaging_material") %]</div>
+        <div class="large-3 columns">[% lang("packaging_recycling") %]</div>
+        <div class="large-1 columns">[% lang("packaging_weight") %]</div>
+        <div class="large-1 columns">[% lang("packaging_quantity_per_unit") %]</div>
+    </div>
+
+[% FOREACH packaging IN product.packagings %]
     [% SET packaging_id = "packaging_" _ loop.index() %]
-    <tr>
-        <td><input type="text" value="[% packaging.number_of_units %]"></td>
+    <div class="row packagings_components_edit_row">
+        <div class="small-12 large-1 columns">
+            <label class="hide-for-large-up" for="[% packaging_id %]_number_of_units">[% lang("packaging_number_of_units") %]</label>
+            <input id="" type="text" value="[% packaging.number_of_units %]">
+        </div>
+
         [% FOREACH property IN ["shape", "material", "recycling"] %]
 
             [% IF property == "shape" %]
@@ -38,10 +42,12 @@ var component = 0;
 
             [% SET select2_id = packaging_id _ "_$property" %]
 
-        <td>
+        <div class="small-12 large-3 columns">
+            <label class="hide-for-large-up" for="[% select2_id %]">[% lang("packaging_$property") %]</label>
             <select id="[% select2_id %]" class="form-control [% taxonomy %]_select2">
                 <option></option>
             </select>
+        </div>
 
 <initjs>
 \$("#[% select2_id %]").select2({
@@ -55,12 +61,21 @@ var component = 0;
 [% END %]
 </initjs>
                 
-
-        </td>
         [% END %]
-    </tr>
-    [% END %]
-    
-</table>
 
+        <div class="small-12 large-1 columns">
+            <label class="hide-for-large-up" for="[% packaging_id %]_weight_measured">[% lang("packaging_weight") %] (g)</label>
+            <input id="[% packaging_id %]_weight_measured" type="text" value="[% packaging.weight_measured %]" %]">
+        </div>
+
+        <div class="small-12 large-1 columns">
+            <label class="hide-for-large-up" for="[% packaging_id %]_quantity_per_unit">[% lang("packaging_quantity_per_unit") %]</label>
+            <input type="text" value="[% packaging.quantity_per_unit %]" %]">
+        </div>        
+
+    </div>
+[% END %]
+
+</div>
+    
 <!-- end templates/[% template.name %] -->
