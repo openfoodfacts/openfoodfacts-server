@@ -50,7 +50,15 @@ jobs:
           docker run --rm \
             -v $(pwd)/docs/reference:/data -v $(pwd)/gh_pages/:/output \
             ghcr.io/redocly/redoc/cli:latest \
-            build -o /output/reference/api/index.html api.yml && \
+            build -o /output/reference/api-v3/index.html api.yml && \
+          sudo chown $UID -R gh_pages
+
+      - name: Generate openapi html for v3 with ghcr.io/redocly/redoc/cli:latest
+        run : |
+          docker run --rm \
+            -v $(pwd)/docs/reference:/data -v $(pwd)/gh_pages/:/output \
+            ghcr.io/redocly/redoc/cli:latest \
+            build -o /output/reference/api/index.html api-v3.yml && \
           sudo chown $UID -R gh_pages
 
       - name: Deploy API documentation to Github Pages
