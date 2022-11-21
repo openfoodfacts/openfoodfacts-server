@@ -962,10 +962,23 @@ sub import_csv_file ($args_ref) {
 			my $existing_date = $product_ref->{sources_fields}{"org-gs1"}{publicationDateTime}
 				// $product_ref->{sources_fields}{"org-gs1"}{lastChangeDateTime};
 
-			if ((defined $imported_date) and (defined $existing_date)) {
+			if ((defined $imported_date) and ($imported_date ne "")  and (defined $existing_date) and ($existing_date ne "")) {
 
-				if (DateTime::Format::ISO8601->parse_datetime($imported_date)->epoch
-					< DateTime::Format::ISO8601->parse_datetime($existing_date)->epoch)
+				# Broken date strings can cause parse_datetime to fail
+				my $imported_date_t;
+				my $existing_date_t;
+				eval {
+					$imported_date_t = DateTime::Format::ISO8601->parse_datetime($imported_date)->epoch;
+					$existing_date_t = DateTime::Format::ISO8601->parse_datetime($existing_date)->epoch;
+				};
+
+				if ($@) {
+					$log->warn("Could not parse imported or existing dates",
+                                                                {imported_date => $imported_date, existing_date => $existing_date, error => $@})
+                                                                if $log->is_warn();		
+				}
+				elsif ($imported_date_t
+					< $existing_date_t)
 				{
 					$log->debug(
 						"existing GS1 data with a greater sources_fields:org-gs1:publicationDateTime - skipping product",
