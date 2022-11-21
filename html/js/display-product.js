@@ -57,11 +57,11 @@ class RobotoffAsker extends HTMLElement {
           <span id="question">Question</span>
           <span id="value">
            [% IF tag_type == "categories" %]
-             <a id="https://hunger.openfoodfacts.org/questions?type=category&amp;value_tag=[% canonicalize_taxonomy_tag_link("category", title) %]">Value</a>
+             <a href="https://hunger.openfoodfacts.org/questions?type=category&amp;value_tag=[% canonicalize_taxonomy_tag_link("category", value) %]">Value</a>
            [% ELSIF tag_type == "labels" %]
-            <a id="https://hunger.openfoodfacts.org/questions?type=labels&amp;value_tag=[% canonicalize_taxonomy_tag_link("labels", title) %]">Value</a>
+            <a href="https://hunger.openfoodfacts.org/questions?type=labels&amp;value_tag=[% canonicalize_taxonomy_tag_link("labels", value) %]">Value</a>
            [% ELSIF tag_type == "brands" %]
-            <a id="https://hunger.openfoodfacts.org/questions?type=brands&amp;value_tag=[% canonicalize_taxonomy_tag_link("brands", title) %]">Value</a>
+            <a href="https://hunger.openfoodfacts.org/questions?type=brands&amp;value_tag=[% canonicalize_taxonomy_tag_link("brands", value) %]">Value</a>
            [% END %]
           </span>
         </div>
