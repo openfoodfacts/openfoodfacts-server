@@ -55,7 +55,15 @@ class RobotoffAsker extends HTMLElement {
         </div>
         <div class="small-10 columns">
           <span id="question">Question</span>
-          <span id="value"><a id="https://hunger.openfoodfacts.org/questions?type=label&brand=&country=&sorted=true&value_tag=en%3Apdo">Value</a></span>
+          <span id="value">
+           [% IF tag_type == "categories" %]
+             <a id="https://hunger.openfoodfacts.org/questions?type=category&amp;value_tag=[% canonicalize_taxonomy_tag_link("category", title) %]">Value</a>
+           [% ELSIF tag_type == "labels" %]
+            <a id="https://hunger.openfoodfacts.org/questions?type=labels&amp;value_tag=[% canonicalize_taxonomy_tag_link("labels", title) %]">Value</a>
+           [% ELSIF tag_type == "brands" %]
+            <a id="https://hunger.openfoodfacts.org/questions?type=brands&amp;value_tag=[% canonicalize_taxonomy_tag_link("brands", title) %]">Value</a>
+           [% END %]
+          </span>
         </div>
         <ul class="small-10 columns button-group" style="margin-top:0.5rem;">
           <li><a href="#" id="no" class="small button alert annotate" data-annotation="0">No</a></li>
