@@ -239,11 +239,11 @@
 											<h1 itemprop="name">[% title %]
                         <sup>
                         [% IF tag_type == "categories" %]
-                          <a class="button tiny round secondary label" href="https://hunger.openfoodfacts.org/questions?type=category&amp;value_tag=[% canonicalize_taxonomy_tag_link("category", title) %]">Help categorize more [% title %] on Hunger Games</a>
+                          <a class="button tiny round secondary label" href="https://hunger.openfoodfacts.org/questions?type=category&amp;value_tag=[% canonicalize_taxonomy_tag_link("category", title) %]">[% f_lang('help_categorize_on_hunger_games', { title => 'categories' } ) %]</a>
                         [% ELSIF tag_type == "labels" %]
-                          <a class="button tiny round secondary label" href="https://hunger.openfoodfacts.org/questions?type=labels&amp;value_tag=[% canonicalize_taxonomy_tag_link("labels", title) %]">Help categorize more [% title %] on Hunger Games</a>
+                          <a class="button tiny round secondary label" href="https://hunger.openfoodfacts.org/questions?type=labels&amp;value_tag=[% canonicalize_taxonomy_tag_link("labels", title) %]">[% f_lang('help_categorize_on_hunger_games', { title => 'labels' } ) %]</a>
                         [% ELSIF tag_type == "brands" %]
-                          <a class="button tiny round secondary label" href="https://hunger.openfoodfacts.org/questions?type=brands&amp;value_tag=[% canonicalize_taxonomy_tag_link("brands", title) %]">Help categorize more [% title %] on Hunger Games</a>
+                          <a class="button tiny round secondary label" href="https://hunger.openfoodfacts.org/questions?type=brands&amp;value_tag=[% canonicalize_taxonomy_tag_link("brands", title) %]">[% f_lang('help_categorize_on_hunger_games', { title => 'brands' } ) %]</a>
                         [% END %]
                         </sup>
                   </h1>
@@ -298,7 +298,6 @@
 			</div>
 
 			[% INCLUDE 'web/common/includes/donate_banner_bottom.tt.html' %]
-
 			<div class="block_light block_cappucino" id="contribute_and_discover_links_block">
 				<div class="row">
 					<div class="small-12 large-6 columns v-space-normal block_off">
