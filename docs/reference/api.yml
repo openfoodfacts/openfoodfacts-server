@@ -232,6 +232,7 @@ paths:
         - $ref: '#/components/parameters/categories_tags_en'
         - $ref: '#/components/parameters/labels_tags_en'
         - $ref: '#/components/parameters/fields'
+        - $ref: '#/components/parameters/sort_by'
     parameters: []
   /cgi/suggest.pl:
     get:
@@ -282,12 +283,11 @@ paths:
                     properties:
                       images:
                         type: object
-                        # review the regex expression for pattern properties
                         patternProperties:
-                          '/^\d+$/':
+                          /^\d+$/:
                             $ref: ./schemas/images/image.yaml
-                          '(front|ingredients|nutrition|packaging|other)_\w\w(-\w\w)?':
-                            $ref: ./schemas/images/selected_image.yaml                           
+                          (front|ingredients|nutrition|packaging|other)_\w\w(-\w\w)?:
+                            $ref: ./schemas/images/selected_image.yaml
                   status:
                     type: integer
                     example: 1
@@ -352,6 +352,27 @@ components:
       name: categories_tags_en
       description: |
         The category of products you are searching for.
+    sort_by:
+      schema:
+        type: string
+        example: product_name
+        enum:
+          - product_name
+          - last_modified_t
+          - last_modified_t_complete_first
+          - scans_n
+          - unique_scans_n
+          - created_t
+          - completeness
+          - popularity_key
+          - popularity
+          - nutriscore_score
+          - nova_score
+          - nothing
+          - ecoscore_score
+      in: query
+      name: sort_by
+      description: The allowed values  used to sort/order the search results.
     labels_tags_en:
       schema:
         type: string
