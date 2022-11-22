@@ -1253,6 +1253,7 @@ display: inline-block;
 
 #packagings_components_edit_header {
   background-color:$macchiato;
+  border-radius:20px;
   color:white;
   font-weight:600;
   margin:0;
@@ -1260,7 +1261,8 @@ display: inline-block;
 }
 
 .packagings_components_edit_row {
-  margin:0;
+  border-radius:20px;
+  margin:0 !important;
   padding:1rem;
 }
 .packagings_components_edit_row:nth-of-type(odd) {
