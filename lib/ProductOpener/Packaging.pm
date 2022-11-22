@@ -437,7 +437,8 @@ sub get_checked_and_taxonomized_packaging_component_data ($tags_lc, $input_packa
 			# both will be treated the same way and be canonicalized
 
 			if (ref($input_packaging_ref->{$property}) eq 'HASH') {
-				$input_packaging_ref->{$property} = $input_packaging_ref->{$property}{id} || $input_packaging_ref->{$property}{lc_name};
+				$input_packaging_ref->{$property}
+					= $input_packaging_ref->{$property}{id} || $input_packaging_ref->{$property}{lc_name};
 			}
 
 			my $tagid = canonicalize_taxonomy_tag($tags_lc, $tagtype, $input_packaging_ref->{$property});

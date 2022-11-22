@@ -319,7 +319,7 @@ my $tests_ref = [
 				]
 			}
 		}'
-	},		
+	},
 	{
 		test_case => 'patch-properties-with-lc-name-fr-and-spanish',
 		method => 'PATCH',
@@ -337,7 +337,7 @@ my $tests_ref = [
 				]
 			}
 		}'
-	},	
+	},
 	{
 		test_case => 'patch-properties-with-lc-name-fr-and-unrecognized-spanish',
 		method => 'PATCH',
@@ -355,7 +355,7 @@ my $tests_ref = [
 				]
 			}
 		}'
-	},		
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
