@@ -659,8 +659,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#describing-the-request" class="md-nav__link">
-    Describing the Request
+  <a href="#describing-the-get-request" class="md-nav__link">
+    Describing the Get Request
   </a>
   
 </li>
@@ -716,6 +716,33 @@
           <li class="md-nav__item">
   <a href="#read-newly-computed-nutri-score" class="md-nav__link">
     Read newly computed Nutri-Score
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#search-for-a-product-by-nutri-score" class="md-nav__link">
+    Search for a Product by Nutri-score
+  </a>
+  
+    <nav class="md-nav" aria-label="Search for a Product by Nutri-score">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#describing-the-search-request" class="md-nav__link">
+    Describing the Search Request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sorting-search-response" class="md-nav__link">
+    Sorting Search Response
   </a>
   
 </li>
@@ -782,8 +809,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#describing-the-request" class="md-nav__link">
-    Describing the Request
+  <a href="#describing-the-get-request" class="md-nav__link">
+    Describing the Get Request
   </a>
   
 </li>
@@ -848,6 +875,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#search-for-a-product-by-nutri-score" class="md-nav__link">
+    Search for a Product by Nutri-score
+  </a>
+  
+    <nav class="md-nav" aria-label="Search for a Product by Nutri-score">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#describing-the-search-request" class="md-nav__link">
+    Describing the Search Request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sorting-search-response" class="md-nav__link">
+    Sorting Search Response
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -876,8 +930,8 @@
 
 <p>To get a product nutriscore, you need to make a call to the <a href="https://openfoodfacts.github.io/openfoodfacts-server/reference/api.html#tag/Read-Requests/operation/get-product-by-barcode">Get A Product By Barcode</a> Endpoint.</p>
 <h3 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">#</a></h3>
-<p>No Authentication is required to make a query to Get A Product Nutri-score.</p>
-<h3 id="describing-the-request">Describing the Request<a class="headerlink" href="#describing-the-request" title="Permanent link">#</a></h3>
+<p>Usually, no authentication is required to query Get A Product Nutri-score. However, on the staging environment(which is used throughout this tutorial), there is a basic auth to avoid content indexation. For more details, visit the <a href="https://openfoodfacts.github.io/openfoodfacts-server/introduction/api/#environment">Open Food Facts API Environment</a>.</p>
+<h3 id="describing-the-get-request">Describing the Get Request<a class="headerlink" href="#describing-the-get-request" title="Permanent link">#</a></h3>
 <p>Make a <code>GET</code> request to the <code>Get A Product By Barcode</code> endpoint.</p>
 <div class="highlight"><pre><span></span><code>https://world.openfoodfacts.net/api/v2/product/{barcode}
 </code></pre></div>
@@ -1070,6 +1124,111 @@
 <p>For more details, see the reference documentation for <a href="https://openfoodfacts.github.io/openfoodfacts-server/reference/api/#tag/Write-Requests/operation/post-cgi-product_jqm2.pl">Add or Edit A Product</a></p>
 <p>You can also check the reference cheatsheet to know how to add/edit other types of product data.</p>
 <!-- Include the link of the cheatsheet once it is published. -->
+
+<h2 id="search-for-a-product-by-nutri-score">Search for a Product by Nutri-score<a class="headerlink" href="#search-for-a-product-by-nutri-score" title="Permanent link">#</a></h2>
+<p>Using the Open Food Facts API, you can filter products based on different criteria.  To search for products in the Orange Juice category with a nutrition_grade of <code>c</code>, query the <a href="https://openfoodfacts.github.io/openfoodfacts-server/reference/api/#tag/Read-Requests/operation/get-search">Search for Products endpoint</a>.</p>
+<h3 id="describing-the-search-request">Describing the Search Request<a class="headerlink" href="#describing-the-search-request" title="Permanent link">#</a></h3>
+<p>Make a <code>GET</code> request to the <code>Search for Products</code> endpoint.</p>
+<div class="highlight"><pre><span></span><code>https://world.openfoodfacts.org/api/v2/search
+</code></pre></div>
+<p>Add the search criteria used to filter the products as query parameters.  For Orange Juice with a nutrition_grade of <code>c</code>, add query parameters <code>categories_tags_en</code> to filter <code>Orange Juice</code> while <code>nutrition_grades_tags</code> to filter <code>c</code>.  The response will return all the products in the database with the category <code>Orange Juice</code> and nutrition_grade <code>c</code>.</p>
+<div class="highlight"><pre><span></span><code>https://world.openfoodfacts.net/api/v2/search?categories_tags_en=Orange Juice&amp;nutrition_grades_tags=c
+</code></pre></div>
+<p>To limit the response, add <code>fields</code> to the query parameters to specify the fields to be returned in each product object response.  For this tutorial, limit the response to <code>code</code>, <code>product_name</code>, <code>nutrition_grades</code>, and <code>categories_tags_en</code>.</p>
+<div class="highlight"><pre><span></span><code>https://world.openfoodfacts.net/api/v2/search?categories_tags_en=Orange Juice&amp;nutrition_grades_tags=c&amp;fields=code,nutrition_grades,categories_tags_en
+</code></pre></div>
+<p>The response returns all products that belong to the Orange Juice category, with the nutrition_grade "c" and limits each product object response to only the specified fields.  It also returns the count(total number) of products that match the search criteria.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1629</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;page&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;page_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;page_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;products&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;categories_tags_en&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;Plant-based foods and beverages&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;Beverages&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;Plant-based beverages&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;Fruit-based beverages&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;Juices and nectars&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;Fruit juices&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;Concentrated fruit juices&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;Orange juices&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;Concentrated orange juices&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3123340008288&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;nutrition_grades&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="err">.</span><span class="w"></span>
+<span class="w">        </span><span class="err">.</span><span class="w"></span>
+<span class="w">        </span><span class="err">.</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;categories_tags_en&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;Plant-based foods and beverages&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;Beverages&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;Plant-based beverages&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;Fruit-based beverages&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;Juices and nectars&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;Fruit juices&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;Non-Alcoholic beverages&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;Orange juices&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;Squeezed juices&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;Squeezed orange juices&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3608580844136&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;nutrition_grades&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;skip&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h3 id="sorting-search-response">Sorting Search Response<a class="headerlink" href="#sorting-search-response" title="Permanent link">#</a></h3>
+<p>You can proceed to also sort the search response by different fields, for example, sort by the product that was modified last or even by the product_name. Now, let's sort the products with Orange Juice and a nutrition_grade of "c" by when they were last modified. To sort the search response, add the <code>sort_by</code> with value <code>last_modified_t</code> as a query parameter to the request.</p>
+<div class="highlight"><pre><span></span><code>https://world.openfoodfacts.net/api/v2/search?nutrition_grades_tags=c&amp;fields=code,nutrition_grades,categories_tags_en&amp;categories_tags_en=Orange Juice&amp;sort_by=last_modified_t
+</code></pre></div>
+<p>The date that each product was last modified is now used to order the product response.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1629</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;page&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;page_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;page_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;products&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;categories_tags_en&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;Plant-based foods and beverages&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;Beverages&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;Plant-based beverages&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;Fruit-based beverages&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;Juices and nectars&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;Fruit juices&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;Orange juices&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3800014268048&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;nutrition_grades&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="err">&#39;</span><span class="w"></span>
+<span class="w">        </span><span class="err">&#39;</span><span class="w"></span>
+<span class="w">        </span><span class="err">&#39;</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;categories_tags_en&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;Plant-based foods and beverages&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;Beverages&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;Plant-based beverages&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;Fruit-based beverages&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;Juices and nectars&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;Fruit juices&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;Orange juices&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;Squeezed juices&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;Squeezed orange juices&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4056489641018&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;nutrition_grades&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;skip&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>To see other examples of sorting a search response, see the reference documentation for <a href="https://openfoodfacts.github.io/openfoodfacts-server/reference/api/#tag/Read-Requests/operation/get-search">Search for Products</a></p>
 
 
 
