@@ -517,9 +517,10 @@ sub customize_packagings ($request_ref, $product_ref) {
 				foreach my $property ("shape", "material", "recycling") {
 					if (defined $packaging_ref->{$property}) {
 						my $property_value_id = $packaging_ref->{$property};
-						$packaging_ref->{$property} = { "id" => $property_value_id };
+						$packaging_ref->{$property} = {"id" => $property_value_id};
 						if (defined $tags_lc) {
-							$packaging_ref->{$property}{lc_name} = display_taxonomy_tag($tags_lc, $packaging_taxonomies{$property}, $property_value_id);
+							$packaging_ref->{$property}{lc_name}
+								= display_taxonomy_tag($tags_lc, $packaging_taxonomies{$property}, $property_value_id);
 						}
 					}
 				}

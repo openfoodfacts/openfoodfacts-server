@@ -35,7 +35,8 @@ my @products = (
 			categories => "cookies",
 			labels => "organic",
 			origin => "france",
-			packaging_text_en => "1 wooden box to recycle, 6 25cl glass bottles to reuse, 3 steel lids to recycle, 1 plastic film to discard",
+			packaging_text_en =>
+				"1 wooden box to recycle, 6 25cl glass bottles to reuse, 3 steel lids to recycle, 1 plastic film to discard",
 		)
 	},
 );
@@ -99,14 +100,14 @@ my $tests_ref = [
 		path => '/api/v2/product/200000000034',
 		query_string => '?fields=packagings',
 		expected_status_code => 200,
-	},	
+	},
 	{
 		test_case => 'get-packagings-fr',
 		method => 'GET',
 		path => '/api/v2/product/200000000034',
 		query_string => '?fields=packagings&tags_lc=fr',
 		expected_status_code => 200,
-	},	
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
