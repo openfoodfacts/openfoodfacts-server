@@ -68,6 +68,7 @@ use ProductOpener::Text qw/:all/;
 use ProductOpener::Attributes qw/:all/;
 use ProductOpener::KnowledgePanels qw/:all/;
 use ProductOpener::Ecoscore qw/localize_ecoscore/;
+use ProductOpener::Packaging qw/:all/;
 
 use ProductOpener::APIProductRead qw/:all/;
 use ProductOpener::APIProductWrite qw/:all/;
@@ -480,6 +481,55 @@ sub get_images_to_update ($product_ref, $target_lc) {
 	return $images_to_update_ref;
 }
 
+=head2 customize_packagings ($request_ref, $product_ref)
+
+Packaging components are stored in a compact form: only taxonomy ids for
+shape, material and recycling.
+
+This function returns a richer structure with local names for the taxonomy entries.
+
+=head3 Parameters
+
+=head4 $request_ref (input)
+
+Reference to the request object.
+
+=head4 $product_ref (input)
+
+Reference to the product object (retrieved from disk or from a MongoDB query)
+
+=head3 Return value
+
+Reference to the customized product object.
+
+=cut
+
+sub customize_packagings ($request_ref, $product_ref) {
+
+	if (defined $product_ref->{packagings}) {
+
+		my $tags_lc = request_param($request_ref, 'tags_lc');
+
+		foreach my $packaging_ref (@{$product_ref->{packagings}}) {
+
+			if ($request_ref->{api_version} >= 3) {
+				# Shape, material and recycling are localized
+				foreach my $property ("shape", "material", "recycling") {
+					if (defined $packaging_ref->{$property}) {
+						my $property_value_id = $packaging_ref->{$property};
+						$packaging_ref->{$property} = { "id" => $property_value_id };
+						if (defined $tags_lc) {
+							$packaging_ref->{$property}{lc_name} = display_taxonomy_tag($tags_lc, $packaging_taxonomies{$property}, $property_value_id);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	return $product_ref->{packagings};
+}
+
 =head2 customize_response_for_product ( $request_ref, $product_ref, $fields )
 
 Using the fields parameter, API product or search queries can request
@@ -640,6 +690,11 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields) {
 		elsif ($field =~ /^images_to_update_([a-z]{2})$/) {
 			my $target_lc = $1;
 			$customized_product_ref->{$field} = get_images_to_update($product_ref, $target_lc);
+		}
+
+		# Packagings data
+		elsif ($field eq "packagings") {
+			$customized_product_ref->{$field} = customize_packagings($request_ref, $product_ref);
 		}
 
 		# straight fields

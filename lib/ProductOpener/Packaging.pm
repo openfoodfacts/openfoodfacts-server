@@ -49,6 +49,7 @@ BEGIN {
 		&parse_packaging_component_data_from_text_phrase
 		&guess_language_of_packaging_text
 
+		%packaging_taxonomies
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -96,7 +97,7 @@ packaging shapes, materials etc. that we want to recognize in packaging text.
 
 =cut
 
-my %packaging_taxonomies = (
+%packaging_taxonomies = (
 	"shape" => "packaging_shapes",
 	"material" => "packaging_materials",
 	"recycling" => "packaging_recycling"

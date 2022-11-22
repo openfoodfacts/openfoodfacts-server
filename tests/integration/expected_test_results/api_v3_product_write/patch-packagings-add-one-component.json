@@ -4,7 +4,10 @@
    "product" : {
       "packagings" : [
          {
-            "shape" : "en:bottle"
+            "shape" : {
+               "id" : "en:bottle",
+               "lc_name" : "Bottle"
+            }
          }
       ]
    },
