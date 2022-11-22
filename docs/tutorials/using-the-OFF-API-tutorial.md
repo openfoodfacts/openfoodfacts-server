@@ -352,4 +352,4 @@ The date that each product was last modified is now used to order the product re
 }
 ```
 
-To see other examples of sorting a search response, see the reference documentation for [Search for Products](https://openfoodfacts.github.io/openfoodfacts-server/reference/api/#tag/Read-Requests/operation/get-searchl)
+To see other examples of sorting a search response, see the reference documentation for [Search for Products](https://openfoodfacts.github.io/openfoodfacts-server/reference/api/#tag/Read-Requests/operation/get-search)
