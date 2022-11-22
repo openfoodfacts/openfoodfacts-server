@@ -864,7 +864,7 @@ sub compute_ecoscore ($product_ref) {
 		$old_ecoscore_grade = $old_previous_data->{grade};
 		$old_ecoscore_score = $old_previous_data->{score};
 	}
-	if (defined $old_ecoscore_score && $old_ecoscore_score != $product_ref->{ecoscore_score}) {
+	if ($old_ecoscore_score != $product_ref->{ecoscore_score}) {
 		if (!defined $old_previous_data) {
 			$product_ref->{ecoscore_data}{previous_data} = {
 				grade => $old_ecoscore_grade,
