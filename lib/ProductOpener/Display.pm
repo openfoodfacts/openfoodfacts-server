@@ -7036,7 +7036,6 @@ JS
 
 	$template_data_ref->{scripts} = $scripts;
 	$template_data_ref->{initjs} = $initjs;
-	
 	$template_data_ref->{request} = $request_ref;
 
 	my $html;
