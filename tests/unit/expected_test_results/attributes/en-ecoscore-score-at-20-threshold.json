@@ -793,7 +793,9 @@
       "en:ecoscore-missing-data-origins",
       "en:ecoscore-missing-data-packagings",
       "en:ecoscore-missing-data-no-packagings",
-      "en:ecoscore-computed"
+      "en:ecoscore-computed",
+      "en:ecoscore-changed",
+      "en:ecoscore-grade-changed"
    ],
    "nova_group_debug" : "no nova group when the product does not have ingredients",
    "nova_group_error" : "missing_ingredients",
