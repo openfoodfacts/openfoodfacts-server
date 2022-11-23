@@ -101,9 +101,9 @@ my $tests_ref = [
 		query_string => '?fields=packagings',
 		expected_status_code => 200,
 	},
+	# test that on v2 tags_lc parameter have no effects
+	# packaging part should be exactly the same as get-packagings
 	{
-        # test that on v2 tags_lc parameter have no effects
-        # packaging part should be exactly the same as get-packagings
 		test_case => 'get-packagings-fr',
 		method => 'GET',
 		path => '/api/v2/product/200000000034',
