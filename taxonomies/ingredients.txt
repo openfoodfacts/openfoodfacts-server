@@ -2666,7 +2666,7 @@ ciqual_food_name:fr:Lait écrémé, UHT
 <en:milk
 en:semi-skimmed milk, reduced-fat milk, partly skimmed milk, partially skimmed milk, part skim milk
 bg:полуобезмаслено мляко
-ca:llet parcialment desnatada, llet semidesnatada
+ca:llet parcialment desnatada, llet semidesnatada, llet parcialment desgreixada
 da:letmælk
 de:teilentrahmte milch
 es:leche parcialmente desnatada, leche semidesnatada, Leche semidescremada, leche parcialmente descremada
@@ -4520,7 +4520,7 @@ sv:vassleprodukt
 <en:whey
 en:whey permeate, milk permeate
 bg:суроватъчен пермеат
-ca:permeat de sèrum de la llet
+ca:permeat de sèrum de la llet, permeat làctic
 de:Molkepermeat, Milchpermeat
 es:permeado de suerodérivé de la
 fi:herapermeaatti, maitopermeaatti
@@ -4528,6 +4528,10 @@ fr:perméat de petit lait
 nl:weipermeaat, melkweipermeaat
 sv:vasslepermeat
 # ingredient/fr:perméat-de-petit-lait has 126 products in 5 languages @2019-04-21
+
+<en:whey permeate
+en:reconstituted whey permeate 
+ca:permeat làctic reconstituit
 
 <en:whey permeate
 en:whey permeate powder
@@ -13483,7 +13487,7 @@ allergens:en: en:gluten
 
 en:oil and fat, oils and fats
 bg:масла и мазнини
-ca:Oli i greix, olis i greixos
+ca:Oli i greix, olis i greixos, matèria grassa, M.G.
 cs:oleji a tuky
 da:olier og fedtstoffer
 de:Speiseöle und -fette
@@ -29622,6 +29626,7 @@ it:Cacao trattato con agenti alcalinizzanti
 
 <en:cocoa
 en:fat reduced cocoa, reduced fat cocoa, low fat cacao
+ca:cacau desgreixat
 da:fedtfattig kakao
 de:fettarmer Kakao, magerer Kakao
 es:cacao magro, cacao desgrasado
@@ -32747,6 +32752,7 @@ fr:épaississant e415
 en:gellan gum, E418, E-418, E 418, INS418, INS-418, INS 418, gellan
 ar:صمغ الجيلان
 bg:Гума джелан
+ca:goma gellan
 cs:Guma gellan
 da:Gellangummi
 de:Gellan
@@ -79491,6 +79497,7 @@ fr:décor au cacao maigre, decor au cacao maigre, enrobage au cacao maigre
 
 <en:coating
 fr:chocolat de couverture
+ca:cobertura de xocolata, cobertura de cacau
 es:cobertura de chocolate
 
 <en:coating
@@ -79502,6 +79509,7 @@ sv:mjölkchokladsöverdrag
 
 <en:coating
 fr:chocolat noir de couverture
+ca:cobertura de xocolata negra, cobertura de xocolata negre, cobertura de cacau pur
 es:cobertura de chocolate puro, cobertura de chocolate negro
 
 # comment:en:The inside part of an ice cream cone
