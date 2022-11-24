@@ -188,7 +188,7 @@ my $tests_ref = [
 					{
 						"number_of_units": 1,
 						"shape": {"lc_name": "bag"},
-						"material": {"lc_name": "plastic"},
+						"material": {"lc_name": "plastic"}
 					}
 				]
 			}
@@ -206,7 +206,7 @@ my $tests_ref = [
 					{
 						"number_of_units": 1,
 						"shape": {"lc_name": "bag"},
-						"material": {"lc_name": "plastic"},
+						"material": {"lc_name": "plastic"}
 					}
 				]
 			}
@@ -224,7 +224,7 @@ my $tests_ref = [
 					{
 						"number_of_units": 1,
 						"shape": {"lc_name": "bag"},
-						"material": {"lc_name": "plastic"},
+						"material": {"lc_name": "plastic"}
 					}
 				]
 			}
@@ -242,7 +242,7 @@ my $tests_ref = [
 					{
 						"number_of_units": 1,
 						"shape": {"lc_name": "bag"},
-						"material": {"lc_name": "plastic"},
+						"material": {"lc_name": "plastic"}
 					}
 				]
 			}
@@ -260,7 +260,7 @@ my $tests_ref = [
 					{
 						"number_of_units": 1,
 						"shape": {"lc_name": "bag"},
-						"material": {"lc_name": "plastic"},
+						"material": {"lc_name": "plastic"}
 					}
 				]
 			}
@@ -278,7 +278,7 @@ my $tests_ref = [
 					{
 						"number_of_units": 1,
 						"shape": {"lc_name": "bag"},
-						"material": {"lc_name": "plastic"},
+						"material": {"lc_name": "plastic"}
 					}
 				]
 			}
