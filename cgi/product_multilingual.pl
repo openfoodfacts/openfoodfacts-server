@@ -1390,6 +1390,14 @@ HTML
 		= display_input_tabs($product_ref, "packaging_image", $product_ref->{sorted_langs}, \%Langs,
 		\@packaging_fields);
 
+	# Add an empty packaging element to the form, that will be hidden and duplicated when the user adds new packaging items,
+	# and another empty packaging element at the end
+	if (not defined $product_ref->{packagings}) {
+		$product_ref->{packagings} = [];
+	}
+	unshift(@{$product_ref->{packagings}}, {});
+	push(@{$product_ref->{packagings}}, {});
+
 	# Product check
 
 	if ($User{moderator}) {
