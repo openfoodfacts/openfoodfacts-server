@@ -40,7 +40,7 @@ var component = 0;
                 </div>
 
                 <div class="small-12 large-8 columns">
-                    <input id="[% packaging_id %]_number_of_units" type="text" value="[% packaging.number_of_units %]">
+                    <input id="[% packaging_id %]_number_of_units" name="[% packaging_id %]_number_of_units" type="text" value="[% packaging.number_of_units %]">
                 </div>
             </div>
         </div>
@@ -59,7 +59,7 @@ var component = 0;
 
         <div class="small-12 large-3 columns">
             <label class="hide-for-large-up" for="[% select2_id %]">[% lang("packaging_$property") %]</label>
-            <select id="[% select2_id %]" class="form-control [% taxonomy %]_select2">
+            <select id="[% select2_id %]" name="[% select2_id %]" class="form-control [% taxonomy %]_select2">
                 <option></option>
             </select>
         </div>
@@ -89,12 +89,12 @@ var component = 0;
 
         <div class="small-12 large-1 columns">
             <label class="hide-for-large-up" for="[% packaging_id %]_weight_measured">[% lang("packaging_weight") %] (g)</label>
-            <input id="[% packaging_id %]_weight_measured" type="text" value="[% packaging.weight_measured %]" %]">
+            <input id="[% packaging_id %]_weight_measured" name="[% packaging_id %]_weight_measured" type="text" value="[% packaging.weight_measured %]" %]">
         </div>
 
         <div class="small-12 large-1 columns">
             <label class="hide-for-large-up" for="[% packaging_id %]_quantity_per_unit">[% lang("packaging_quantity_per_unit") %]</label>
-            <input type="text" value="[% packaging.quantity_per_unit %]" %]">
+            <input id="[% packaging_id %]_quantity_per_unit" name="[% packaging_id %]_quantity_per_unit" type="text" value="[% packaging.quantity_per_unit %]" %]">
         </div>        
 
     </div>
