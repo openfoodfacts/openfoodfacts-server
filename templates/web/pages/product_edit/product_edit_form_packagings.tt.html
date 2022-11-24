@@ -18,7 +18,7 @@ var component = 0;
         <div class="large-3 columns">[% lang("packaging_shape") %]</div>
         <div class="large-3 columns">[% lang("packaging_material") %]</div>
         <div class="large-3 columns">[% lang("packaging_recycling") %]</div>
-        <div class="large-1 columns">[% lang("packaging_weight") %]</div>
+        <div class="large-1 columns">[% lang("packaging_weight") %] (g)</div>
         <div class="large-1 columns">[% lang("packaging_quantity_per_unit") %]</div>
     </div>
 
@@ -69,11 +69,21 @@ var component = 0;
 \$("#[% select2_id %]").select2({
     placeholder: "[% lang("packaging_$property") %]",
     data: [% taxonomy %]_select2_options,
+    allowClear:true,
     tags: true
 });
 
 [% IF packaging.$property.defined %]
-\$("#[% select2_id %]").val("[% display_taxonomy_tag(taxonomy, packaging.$property) %]").trigger('change');
+// Set the value, creating a new option if necessary
+var value = "[% display_taxonomy_tag(taxonomy, packaging.$property) %]";
+if (\$("#[% select2_id %]").find("option[value='" + value + "']").length) {
+    \$("#[% select2_id %]").val(value).trigger('change');
+} else { 
+    // Create a DOM Option and pre-select by default
+    var newOption = new Option(value, value, true, true);
+    // Append it to the select
+    \$("#[% select2_id %]").append(newOption).trigger('change');
+} 
 [% END %]
 
 \$("#[% packaging_id %]_delete").click(function(event) {
@@ -81,7 +91,6 @@ var component = 0;
     event.preventDefault();
     \$("#[% packaging_id %]_row").remove();
 });
-
 </initjs>
     [% END %]
                 
@@ -133,6 +142,7 @@ function add_packaging() {
     \$("#" + new_packaging_id + "_[% property %]").select2({
         placeholder: "[% lang("packaging_$property") %]",
         data: [% taxonomy %]_select2_options,
+        allowClear:true,
         tags: true
     });
     [% END %]
@@ -149,6 +159,19 @@ function add_packaging() {
 \$("#[% packaging_id %]_shape").on('select2:select', add_packaging);
 
 \$("#[% packaging_id %]_delete").hide()
+
+
+\$(document).on("focus", ".select2", function (e) {
+    if (e.originalEvent) {
+      var s2element = \$(this).siblings("select:enabled");
+      s2element.select2("open");
+      // Set focus back to select2 element on closing.
+      s2element.on("select2:closing", function () {
+        if (s2element.val()) s2element.select2("focus");
+      });
+    }
+  });
+
 </initjs>
 
 </div>

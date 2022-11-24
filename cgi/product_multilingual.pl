@@ -115,15 +115,12 @@ sub create_packaging_components_from_request_parameters($product_ref) {
 
 	# And then we add each packaging component
 	for (my $packaging_id = 1; $packaging_id <= single_param("packaging_max"); $packaging_id++) {
+
+		my $input_packaging_ref = {};
 		my $prefix = "packaging_" . $packaging_id . "_";
-		my $input_packaging_ref = {
-			number_of_units => single_param($prefix . "number_of_units"),
-			shape => { lc_name => single_param($prefix . "shape")},
-			material => { lc_name => single_param($prefix . "material")},
-			recycling => { lc_name => single_param($prefix . "recycling")},
-			quantity_per_unit => single_param($prefix . "quantity_per_unit"),
-			weight_measured => single_param($prefix . "weight_measured"),
-		};
+		foreach my $property ("number_of_units", "shape", "material", "recycling", "quantity_per_unit", "weight_measured") {
+			$input_packaging_ref->{$property} = single_param($prefix . $property);
+		}
 
 		my $response_ref = {};	# Currently unused, may be used to display warnings in future versions of the interface
 
