@@ -189,6 +189,7 @@ en:Jug, jugs
 fr:Bidon, bidons
 nl:Kruik, kruiken
 pt:garrafão
+# associated_packagings: en:cap
 
 en:Bottle, bottles
 bg:Бутилка, бутилки
@@ -204,6 +205,7 @@ nl:Fles, Flessen
 pt:Garrafa, garrafas
 wikidata:en:Q80228
 # suggest:packaging_materials:nl: en:glass
+# associated_packagings: en:cap
 description:nl:Een langgerekt, cilindrisch en meestal van glas vervaardigd vat met een nauwe hals die met een dop of kurk af te sluiten is
 
 # fr:bouteille de vin non gazeux
@@ -278,7 +280,7 @@ hu:konzervdoboz, konzerv
 it:Lattina, Latta
 nl:Blik, Bus
 pt:Lata, latas
-packaging_materials:en: en:metal
+packaging_materials:en: en:metal, en:aluminium, en:steel
 wikidata:en:Q2846150
 description:nl:Een cilindervormig afgesloten blikken vaatje
 
@@ -297,6 +299,8 @@ pt:Lata de bebida, latas de bebidas, lata de alumínio, latas de alumínio, lata
 wikidata:en:Q3261783
 description:nl:Een cilindervormig afgesloten blikken vaatje voor dranken
 # image:xx:canette.svg
+
+
 
 # Can for food, not canned drinks
 # Note: "canned", "conserve" : already used in the preservation taxonomy
@@ -358,11 +362,13 @@ describtion:nl:Een verpakking in kokervorm gemaakt van metaal of plastic gevuld 
 
 # <en:Tube
 # fr:Tube avec bouchon dévissable
-# image:xx:tube-1.svg 
+# image:xx:tube-1.svg
+# associated_packagings: en:cap
 
 # <en:Tube
 # fr:Tube avec bouchon refermable
 # image:xx:tube-2.svg 
+# associated_packagings: en:cap
 
 en:Fastener, clip
 bg:Клипса
@@ -478,6 +484,7 @@ pt:Tampa, tampas
 # image:xx:couvercle-2.svg (couvercle)
 # image:xx:couvercle-3.svg (couvercle)
 # suggest:packaging_materials:en: en:metal, en:cardboard, en:glass, en:others
+# associated_packagings: en:jar, en:bottle
 
 en:Bottle cap, bottle top, cap, top, bottle caps, bottle tops, caps, tops
 bg:Капачка за бутилка, капачка, капачки
@@ -487,6 +494,7 @@ nl:Dop, Doppen
 pt:Cápsula de garrafa, cápsulas de garrafa, tampa de garrafa, tampas de garrafa, rolha, rolhas, rolha de garrafa, rolhas de garrafa, rolha de cortiça, rolhas de cortiça, rolha de plástico, rolhas de plástico, carica, caricas, cápsula de rosca, cápsulas de rosca
 wikidata:en:Q1440281
 # image:xx:bouchon-1.svg
+# associated_packagings: en:bottle
 
 # Note: cork is listed under materials, it cannot be a synonym of wine cork in the shapes taxonomy.
 <en:Bottle cap
