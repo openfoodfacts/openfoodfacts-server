@@ -48,6 +48,7 @@ BEGIN {
 		&analyze_and_combine_packaging_data
 		&parse_packaging_component_data_from_text_phrase
 		&guess_language_of_packaging_text
+		&apply_rules_to_augment_packaging_component_data
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -369,8 +370,10 @@ sub get_checked_and_taxonomized_packaging_component_data ($tags_lc, $input_packa
 
 	my $packaging_ref = {};
 
+	my $has_data = 0;
+
 	# Number of units
-	if (not defined $input_packaging_ref->{number_of_units}) {
+	if ((not defined $input_packaging_ref->{number_of_units}) or ($input_packaging_ref->{number_of_units} eq "")) {
 		add_warning(
 			$response_ref,
 			{
@@ -382,6 +385,7 @@ sub get_checked_and_taxonomized_packaging_component_data ($tags_lc, $input_packa
 	}
 	elsif ($input_packaging_ref->{number_of_units} =~ /^\d+$/) {
 		$packaging_ref->{number_of_units} = $input_packaging_ref->{number_of_units} + 0;
+		$has_data = 1;
 	}
 	else {
 		add_warning(
@@ -395,8 +399,9 @@ sub get_checked_and_taxonomized_packaging_component_data ($tags_lc, $input_packa
 	}
 
 	# Quantity per unit
-	if (defined $input_packaging_ref->{quantity_per_unit}) {
+	if ((defined $input_packaging_ref->{quantity_per_unit}) and ($input_packaging_ref->{quantity_per_unit} ne '')) {
 		$packaging_ref->{quantity_per_unit} = $input_packaging_ref->{quantity_per_unit};
+		$has_data = 1;
 
 		# Quantity contained: 25cl plastic bottle, plastic bottle (25cl)
 		if ($packaging_ref->{quantity_per_unit} =~ /\b((\d+((\.|,)\d+)?)\s?(l|dl|cl|ml|g|kg))\b/i) {
@@ -408,9 +413,10 @@ sub get_checked_and_taxonomized_packaging_component_data ($tags_lc, $input_packa
 
 	# Weights
 	foreach my $weight ("weight_measured", "weight_specified") {
-		if (defined $input_packaging_ref->{$weight}) {
+		if ((defined $input_packaging_ref->{$weight}) and ($input_packaging_ref->{$weight} ne '')) {
 			if ($input_packaging_ref->{$weight} =~ /^\d+(\.\d+)?$/) {
 				$packaging_ref->{$weight} = $input_packaging_ref->{$weight} + 0;
+				$has_data = 1;
 			}
 			else {
 				add_warning(
@@ -429,7 +435,7 @@ sub get_checked_and_taxonomized_packaging_component_data ($tags_lc, $input_packa
 	foreach my $property ("recycling", "material", "shape") {
 
 		my $tagtype = $packaging_taxonomies{$property};
-		if (defined $input_packaging_ref->{$property}) {
+		if ((defined $input_packaging_ref->{$property}) and ($input_packaging_ref->{$property} ne "")) {
 			my $tagid = canonicalize_taxonomy_tag($tags_lc, $tagtype, $input_packaging_ref->{$property});
 			$log->debug(
 				"canonicalize input value",
@@ -451,6 +457,7 @@ sub get_checked_and_taxonomized_packaging_component_data ($tags_lc, $input_packa
 				);
 			}
 			$packaging_ref->{$property} = $tagid;
+			$has_data = 1;
 		}
 		else {
 			add_warning(
@@ -462,6 +469,11 @@ sub get_checked_and_taxonomized_packaging_component_data ($tags_lc, $input_packa
 				}
 			);
 		}
+	}
+
+	# If we don't have data at all, return undef
+	if (not $has_data) {
+		return undef;
 	}
 
 	return $packaging_ref;
@@ -751,14 +763,16 @@ sub analyze_and_combine_packaging_data ($product_ref, $response_ref) {
 		my $packaging_ref
 			= get_checked_and_taxonomized_packaging_component_data("en", $parsed_packaging_ref, $response_ref);
 
-		apply_rules_to_augment_packaging_component_data($product_ref, $packaging_ref);
+		if (defined $packaging_ref) {
+			apply_rules_to_augment_packaging_component_data($product_ref, $packaging_ref);
 
-		# For phrases corresponding to the packaging text field, mark the shape as en:unknown if it was not identified
-		if (($i <= $number_of_packaging_text_entries) and (not defined $packaging_ref->{shape})) {
-			$packaging_ref->{shape} = "en:unknown";
+			# For phrases corresponding to the packaging text field, mark the shape as en:unknown if it was not identified
+			if (($i <= $number_of_packaging_text_entries) and (not defined $packaging_ref->{shape})) {
+				$packaging_ref->{shape} = "en:unknown";
+			}
+
+			add_or_combine_packaging_component_data($product_ref, $packaging_ref, $response_ref);
 		}
-
-		add_or_combine_packaging_component_data($product_ref, $packaging_ref, $response_ref);
 	}
 
 	$log->debug("analyze_and_combine_packaging_data - done",

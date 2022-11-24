@@ -97,6 +97,51 @@ sub display_search_or_add_form() {
 	return $html;
 }
 
+=head2 create_packaging_components_from_request_parameters($product_ref)
+
+Read form parameters related to packaging components, and create the corresponding packagings structure.
+
+=cut
+
+sub create_packaging_components_from_request_parameters($product_ref) {
+
+	# Check that the form is showing inputs for packaging components
+	if (not defined single_param("packaging_max")) {
+		return;
+	}
+
+	# The form contains packaging inputs, so we reset the packagings structure
+	$product_ref->{packagings} = [];
+
+	# And then we add each packaging component
+	for (my $packaging_id = 1; $packaging_id <= single_param("packaging_max"); $packaging_id++) {
+		my $prefix = "packaging_" . $packaging_id . "_";
+		my $input_packaging_ref = {
+			number_of_units => single_param($prefix . "number_of_units"),
+			shape => { lc_name => single_param($prefix . "shape")},
+			material => { lc_name => single_param($prefix . "material")},
+			recycling => { lc_name => single_param($prefix . "recycling")},
+			quantity_per_unit => single_param($prefix . "quantity_per_unit"),
+			weight_measured => single_param($prefix . "weight_measured"),
+		};
+
+		my $response_ref = {};	# Currently unused, may be used to display warnings in future versions of the interface
+
+		my $packaging_ref
+			= get_checked_and_taxonomized_packaging_component_data($lc, $input_packaging_ref, $response_ref);
+
+		if (defined $packaging_ref) {
+			apply_rules_to_augment_packaging_component_data($product_ref, $packaging_ref);
+
+			push @{$product_ref->{packagings}}, $packaging_ref;
+
+			$log->debug("added a packaging component", {prefix => $prefix, packaging_id => $packaging_id, input_packaging => $input_packaging_ref, packaging => $packaging_ref}) if $log->is_debug();
+		}
+	}
+
+	return;
+}
+
 my $request_ref = ProductOpener::Display::init_request();
 
 if ($User_id eq 'unwanted-user-french') {
@@ -563,6 +608,9 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	# Update the nutrients
 
 	assign_nutriments_values_from_request_parameters($product_ref, $nutriment_table);
+
+	# Process packaging components
+	create_packaging_components_from_request_parameters($product_ref);
 
 	# product check
 
@@ -1395,6 +1443,9 @@ HTML
 	if (not defined $product_ref->{packagings}) {
 		$product_ref->{packagings} = [];
 	}
+	my $number_of_packaging_components = scalar @{$product_ref->{packagings}};
+
+
 	unshift(@{$product_ref->{packagings}}, {});
 	push(@{$product_ref->{packagings}}, {});
 

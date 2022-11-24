@@ -96,8 +96,11 @@ sub update_product_fields ($request_ref, $product_ref) {
 					my $packaging_ref
 						= get_checked_and_taxonomized_packaging_component_data($request_body_ref->{tags_lc},
 						$input_packaging_ref, $response_ref);
-					# Add or combine with the existing packagings components array
-					add_or_combine_packaging_component_data($product_ref, $packaging_ref, $response_ref);
+
+					if (defined $packaging_ref) {
+						# Add or combine with the existing packagings components array
+						add_or_combine_packaging_component_data($product_ref, $packaging_ref, $response_ref);
+					}
 				}
 			}
 		}
