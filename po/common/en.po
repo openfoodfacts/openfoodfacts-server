@@ -6383,6 +6383,10 @@ msgctxt "api_message_invalid_json_in_request_body"
 msgid "Invalid JSON in request body"
 msgstr "Invalid JSON in request body"
 
+msgctxt "api_message_invalid_type_must_be_object"
+msgid "Invalid type: must be an object"
+msgstr "Invalid type: must be an object"
+
 msgctxt "api_message_invalid_type_must_be_array"
 msgid "Invalid type: must be an array"
 msgstr "Invalid type: must be an array"
@@ -6426,3 +6430,8 @@ msgstr "Weight of one empty unit"
 msgctxt "packaging_quantity_per_unit"
 msgid "Quantity of product contained per unit"
 msgstr "Quantity of product contained per unit"
+
+# variable names between { } must not be translated
+msgctxt "f_help_categorize_on_hunger_games"
+msgid "Help categorize more {title} on Hunger Games"
+msgstr "Help categorize more {title} on Hunger Games"

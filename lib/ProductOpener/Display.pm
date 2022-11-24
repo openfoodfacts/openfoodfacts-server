@@ -2983,6 +2983,8 @@ sub display_tag ($request_ref) {
 			$request_ref->{world_current_link} = add_tag_prefix_to_link($request_ref->{world_current_link}, $prefix);
 			$log->debug("Found tag prefix " . Dumper($request_ref)) if $log->is_debug();
 		}
+
+		$request_ref->{canon_tagid} = $canon_tagid;
 	}
 	else {
 		$log->warn("no tagid found") if $log->is_warn();
@@ -3050,6 +3052,8 @@ sub display_tag ($request_ref) {
 			$request_ref->{world_current_link} = add_tag_prefix_to_link($request_ref->{world_current_link}, $prefix);
 			$log->debug("Found tag prefix 2 " . Dumper($request_ref)) if $log->is_debug();
 		}
+
+		$request_ref->{canon_tagid2} = $canon_tagid2;
 	}
 
 	if (defined $request_ref->{groupby_tagtype}) {
@@ -7037,6 +7041,7 @@ JS
 
 	$template_data_ref->{scripts} = $scripts;
 	$template_data_ref->{initjs} = $initjs;
+	$template_data_ref->{request} = $request_ref;
 
 	my $html;
 	process_template('web/common/site_layout.tt.html', $template_data_ref, \$html)

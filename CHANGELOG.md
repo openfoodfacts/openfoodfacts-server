@@ -1,5 +1,27 @@
 # Changelog
 
+## [2.3.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.2.0...v2.3.0) (2022-11-23)
+
+
+### Features
+
+* Hunger Games on Facets ([#7742](https://github.com/openfoodfacts/openfoodfacts-server/issues/7742)) ([4a3b9d5](https://github.com/openfoodfacts/openfoodfacts-server/commit/4a3b9d5178a348bdf4c5d27ff4f03f6d1a229fac))
+* Improve donation conversion by adding 💕 ([#7684](https://github.com/openfoodfacts/openfoodfacts-server/issues/7684)) ([28d820c](https://github.com/openfoodfacts/openfoodfacts-server/commit/28d820ccf87cc6a943c7415bd978f6954b529d94))
+* translations in packagings READ API v3  ([#7749](https://github.com/openfoodfacts/openfoodfacts-server/issues/7749)) ([72cf120](https://github.com/openfoodfacts/openfoodfacts-server/commit/72cf1209d7a0a3e45c51b217622bdb1de01d924f))
+
+
+### Bug Fixes
+
+* downgrade jquery-ui  ([#7723](https://github.com/openfoodfacts/openfoodfacts-server/issues/7723)) ([782dcb1](https://github.com/openfoodfacts/openfoodfacts-server/commit/782dcb1599ee23cfbdda37fd4b029076b06ccf12))
+* downgrade jquery-ui [#7722](https://github.com/openfoodfacts/openfoodfacts-server/issues/7722) ([782dcb1](https://github.com/openfoodfacts/openfoodfacts-server/commit/782dcb1599ee23cfbdda37fd4b029076b06ccf12))
+* Eval parse datetime in producers import to continue if dates strings are broken ([#7741](https://github.com/openfoodfacts/openfoodfacts-server/issues/7741)) ([763ceb8](https://github.com/openfoodfacts/openfoodfacts-server/commit/763ceb86107c67ccc4e3840d5834d818acd5c141))
+
+
+### Taxonomy
+
+* hr ingredients 6 ([#7729](https://github.com/openfoodfacts/openfoodfacts-server/issues/7729)) ([73824c1](https://github.com/openfoodfacts/openfoodfacts-server/commit/73824c148b152073b5459cb1260fea78eb47076c))
+* remove duplicate Pizza dough and Tabbouleh ([#7728](https://github.com/openfoodfacts/openfoodfacts-server/issues/7728)) ([f054169](https://github.com/openfoodfacts/openfoodfacts-server/commit/f0541696934a0e475a16079235161f22ba465dd4))
+
 ## [2.2.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.1.0...v2.2.0) (2022-11-18)
 
 

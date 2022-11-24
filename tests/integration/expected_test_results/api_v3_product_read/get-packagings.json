@@ -1,0 +1,66 @@
+{
+   "code" : "200000000034",
+   "errors" : [],
+   "product" : {
+      "packagings" : [
+         {
+            "material" : {
+               "id" : "en:wood"
+            },
+            "number_of_units" : 1,
+            "recycling" : {
+               "id" : "en:recycle"
+            },
+            "shape" : {
+               "id" : "en:box"
+            }
+         },
+         {
+            "material" : {
+               "id" : "en:glass"
+            },
+            "number_of_units" : 6,
+            "quantity_per_unit" : "25cl",
+            "quantity_per_unit_unit" : "cl",
+            "quantity_per_unit_value" : 25,
+            "recycling" : {
+               "id" : "en:reuse"
+            },
+            "shape" : {
+               "id" : "en:bottle"
+            }
+         },
+         {
+            "material" : {
+               "id" : "en:steel"
+            },
+            "number_of_units" : 3,
+            "recycling" : {
+               "id" : "en:recycle"
+            },
+            "shape" : {
+               "id" : "en:lid"
+            }
+         },
+         {
+            "material" : {
+               "id" : "en:plastic"
+            },
+            "number_of_units" : 1,
+            "recycling" : {
+               "id" : "en:discard"
+            },
+            "shape" : {
+               "id" : "en:film"
+            }
+         }
+      ]
+   },
+   "result" : {
+      "id" : "product_found",
+      "lc_name" : "Product found",
+      "name" : "Product found"
+   },
+   "status" : "success",
+   "warnings" : []
+}

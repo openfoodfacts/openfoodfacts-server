@@ -50,6 +50,7 @@ BEGIN {
 		&guess_language_of_packaging_text
 		&apply_rules_to_augment_packaging_component_data
 
+		%packaging_taxonomies
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -97,7 +98,7 @@ packaging shapes, materials etc. that we want to recognize in packaging text.
 
 =cut
 
-my %packaging_taxonomies = (
+%packaging_taxonomies = (
 	"shape" => "packaging_shapes",
 	"material" => "packaging_materials",
 	"recycling" => "packaging_recycling"
@@ -432,9 +433,10 @@ sub get_checked_and_taxonomized_packaging_component_data ($tags_lc, $input_packa
 	}
 
 	# Shape, material and recycling
-	foreach my $property ("recycling", "material", "shape") {
+	foreach my $property ("shape", "material", "recycling") {
 
 		my $tagtype = $packaging_taxonomies{$property};
+
 		if ((defined $input_packaging_ref->{$property}) and ($input_packaging_ref->{$property} ne "")) {
 			my $tagid = canonicalize_taxonomy_tag($tags_lc, $tagtype, $input_packaging_ref->{$property});
 			$log->debug(
