@@ -1269,10 +1269,6 @@ display: inline-block;
   background-color:$latte;
 }
 
-#packagings_components_edit_header {
-  font-weight:bold;
-}
-
 #packagings_components_edit .select2-container .select2-selection--single {
   height: 2.6428571429rem;
 }
@@ -1292,9 +1288,6 @@ display: inline-block;
 .delete_packaging > span {
   line-height: 2.6428571429rem;
 }
-
-
-
 
 // 1st packaging component is empty and hidden, it is used to add new components
 #packaging_0_row {
