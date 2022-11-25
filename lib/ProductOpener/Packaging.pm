@@ -475,7 +475,7 @@ sub get_checked_and_taxonomized_packaging_component_data ($tags_lc, $input_packa
 
 	# If we don't have data at all, return undef
 	if (not $has_data) {
-		return undef;
+		return;
 	}
 
 	return $packaging_ref;
