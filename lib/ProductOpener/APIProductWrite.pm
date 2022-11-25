@@ -104,7 +104,8 @@ sub update_product_fields ($request_ref, $product_ref) {
 
 							if (ref($input_packaging_ref->{$property}) eq 'HASH') {
 								$input_packaging_ref->{$property}
-									= $input_packaging_ref->{$property}{id} || $input_packaging_ref->{$property}{lc_name};
+									= $input_packaging_ref->{$property}{id}
+									|| $input_packaging_ref->{$property}{lc_name};
 							}
 							else {
 								add_error(

@@ -11240,7 +11240,6 @@ sub data_to_display_image ($product_ref, $imagetype, $target_lc) {
 	return $image_ref;
 }
 
-
 =head2 generate_select2_options_for_taxonomy ($target_lc, $tagtype)
 
 Generates an array of taxonomy entries in a specific language, to be used as options
@@ -11269,16 +11268,17 @@ sub generate_select2_options_for_taxonomy ($target_lc, $tagtype) {
 		# just_synonyms are not real entries
 		next if defined $just_synonyms{$tagtype}{$canon_tagid};
 
-		push @entries, display_taxonomy_tag ($target_lc, $tagtype, $canon_tagid);
+		push @entries, display_taxonomy_tag($target_lc, $tagtype, $canon_tagid);
 	}
 
 	my @options = ();
 
 	foreach my $entry (sort @entries) {
-		push @options, {
+		push @options,
+			{
 			id => $entry,
 			text => $entry,
-		};
+			};
 	}
 
 	return \@options;
@@ -11286,7 +11286,8 @@ sub generate_select2_options_for_taxonomy ($target_lc, $tagtype) {
 
 sub generate_select2_options_for_taxonomy_to_json ($target_lc, $tagtype) {
 
-	return decode_utf8(JSON::PP->new->utf8->canonical->encode(generate_select2_options_for_taxonomy ($target_lc, $tagtype)));
+	return decode_utf8(
+		JSON::PP->new->utf8->canonical->encode(generate_select2_options_for_taxonomy($target_lc, $tagtype)));
 }
 
 1;
