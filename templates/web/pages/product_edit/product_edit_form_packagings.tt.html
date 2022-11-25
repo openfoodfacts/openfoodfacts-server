@@ -76,7 +76,7 @@ var component = 0;
 [% IF packaging.$property.defined %]
 // Set the value, creating a new option if necessary
 var value = "[% display_taxonomy_tag(taxonomy, packaging.$property) %]";
-if (\$("#[% select2_id %]").find("option[value='" + value + "']").length) {
+if (\$("#[% select2_id %]").find("option[value='" + value.replace(/'/g, "\\'") + "']").length) {
     \$("#[% select2_id %]").val(value).trigger('change');
 } else { 
     // Create a DOM Option and pre-select by default
