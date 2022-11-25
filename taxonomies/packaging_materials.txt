@@ -38,7 +38,7 @@ hr:plastika
 hu:Műanyag
 it:Plastica
 nl:Plastiek
-pl:Plastikowe
+pl:Plastikowe, plastik
 pt:Plástico
 ru:Пластик
 wikidata:en:Q11474
@@ -104,6 +104,10 @@ pt:Plástico reciclado
 # all abbreviations, symbols etc. go in the xx: entry, and do not need to be added to the translations in other languages
 # (unless the abbreviation is different: e.g. "PEBD" = "Polyéthylène basse densité" in French instead of PELD)
 
+
+en:Mixed plastics
+fr:Plastiques mixtes
+
 <en:Plastic
 en:PET - Polyethylene terephthalate, Polyethylene terephthalate
 xx:PET, PET(E), PETE, PET 1, PET 01, 1 PET, 01 PET, ♳
@@ -124,6 +128,7 @@ non_recyclable_and_non_biodegradable:en:no
 <en:Other plastics
 en:PVDC - Polyvinylidene chloride, Polyvinylidene chloride
 de:PVDC - Polyvinylidenchlorid, Polyvinylidenchlorid
+fr:PVDC - Chlorure de polyvinylidène, Chlorure de polyvinylidène
 xx:PVDC, 07 PVDC, PVDC 07, 07PVDC, PVDC07, 7 PVDC, PVDC 7, 7PVDC, PVDC7
 wikidata:en:Q146383
 
@@ -183,6 +188,7 @@ pt:PET opaco
 <en:Plastic
 en:PE - Polyethylene, Polyethylene
 de:PE - Polyethylen, Polyethylen
+fr:PE - Polyéthylène, Polyéthylène
 hr:PE - Polietilen
 xx:PE, 07 PE, PE 07, 07PE, PE07, 7 PE, PE 7, 7PE, PE7
 wikidata:en:Q143429
@@ -201,7 +207,7 @@ en:HDPE - High-density polyethylene, High-density polyethylene
 xx:HDPE, 2 HDPE, HDPE 2, 02 HDPE, HDPE 02, PEHD, 2 PEHD, PEHD 2, 02 PEHD, PEHD 02, HD-PE, 2 HD-PE, HD-PE 2, 02 HD-PE, HD-PE 02, PE-HD, 2 PE-HD, PE-HD 2, 02 PE-HD, PE-HD 02, RC 2, RC 02, RC2, RC02, ♴
 bg:HDPE - Полиетилен с висока плътност
 de:HDPE - Polyethylen hoher Dichte, Polyethylen hoher Dichte
-fr:PEHD - Polyéthylène haute densité, polyéthylène haute densité, 
+fr:PEHD - Polyéthylène haute densité, polyéthylène haute densité
 hr:HDPE - polietilen visoke gustoće            
 hu:HDPE - Nagy sűrűségű polietilén, Nagy sűrűségű polietilén
 it:Polietilene ad alta densità
@@ -214,7 +220,7 @@ non_recyclable_and_non_biodegradable:en:no
 <xx:Bio-PE
 en:Biobased HDPE, Biobased PE-HD
 de:Biobasiertes HDPE, Biobasiertes PE-HD
-fr:PEHD biosourcé
+fr:PEHD biosourcé, HDPE biosourcé
 hu:Biobázisú HDPE
 pt:Bioplástico PEHD
 xx:Bio-HDPE
@@ -252,7 +258,7 @@ non_recyclable_and_non_biodegradable:en:no
 <xx:Bio-PE
 en:Biobased LDPE
 de:Biobasiertes LDPE, Biobasiertes PE-LD
-fr:PELD biosourcé
+fr:PELD biosourcé, LDPE biosourcé
 hu:Biobázisú LDPE
 pt:Bioplástico PELD
 xx:Bio-LDPE
@@ -275,11 +281,13 @@ non_recyclable_and_non_biodegradable:en:no
 <xx:PP
 en:CPP - Cast PolyPropylen, Cast PolyPropylen
 de:CPP - Ungerecktes Polypropylen
+fr:CPP - Polypropylène coulé, Polypropylène coulé
 xx:CPP, PP-C, 05 CPP, CPP 05, 5 CPP, CPP 5, 05CPP, CPP05, 5CPP, CPP5, 05 PP-C, PP-C 05, 5 PP-C, PP-C 5, 05PP-C, PP-C05, 5PP-C, PP-C5
 
 <xx:PP
 en:OPP - Oriented PolyPropylen, Oriented PolyPropylen
 de:OPP - Orientiertes Polypropylen
+fr:OPP - PolyPropylène Orienté, PolyPropylène Orienté
 xx:OPP, PP-O, 05 OPP, OPP 05, 5 OPP, OPP 5, 05OPP, OPP05, 5OPP, OPP5, 05 PP-O, PP-O 05, 5 PP-O, PP-O 5, 05PP-O, PP-O05, 5PP-O, PP-O5
 
 <en:Plastic
@@ -306,6 +314,7 @@ hr:O - ostali polimerni materijali
 hu:Egyéb műanyag, Más műanyag, Minden más műanyag
 it:Altre plastiche
 nl:Andere plastics
+pl:07 inne
 pt:Outros plásticos, Todos os outros plásticos, outro plástico
 ru:Другие пластики, Другие пластмассы
 xx:07 OTHER, OTHER 07, 7 OTHER, OTHER 7, 07 O, O 07, 7 O, O 7, ♹
@@ -315,6 +324,7 @@ non_recyclable_and_non_biodegradable:en:yes
 <en:Other plastics
 en:PC - Polycarbonate, Polycarbonate
 de:PC - Polycarbonate, Polycarbonate
+fr:PC - Polycarbonate, Polycarbonate
 hr:PC - polikarbonati
 xx:PC, 07 PC, PC 07, 07PC, PC07, 7 PC, PC 7, 7PC, PC7
 wikidata:en:Q62246
@@ -323,6 +333,7 @@ wikidata:en:Q62246
 <en:Other plastics
 en:PA - Polyamide, Polyamide
 de:PA - Polyamide, Polyamide
+fr:PA - Polyamide, Polyamide
 hr:PA - poliamid, poliamidi
 xx:PA, 07 PA, PA 07, 07PA, PA07, 7 PA, PA 7, 7PA, PA7
 wikidata:en:Q145273
@@ -344,6 +355,7 @@ wikidata:en:Q143496
 <en:Other plastics
 en:PMMA - Poly(methyl methacrylate), Poly(methyl methacrylate)
 de:PMMA - Polymethylmethacrylat, Polymethylmethacrylat, Acrylglas, Plexiglas
+fr:PMMA - Poly(méthacrylate de méthyle), Poly(méthacrylate de méthyle)
 xx:PMMA, 07 PMMA, PMMA 07, 07PMMA, PMMA07, 7 PMMA, PMMA 7, 7PMMA, PMMA7
 wikidata:en:Q146123
 
@@ -363,6 +375,7 @@ wikidata:en:Q413769
 <xx:PE
 en:LLDPE - Linear low-density polyethylene, Linear low-density polyethylene
 de:LLDPE - Lineares Polyethylen niedriger Dichte, Lineares Polyethylen niedriger Dichte
+fr:LLDPE - Polyéthylène basse densité linéaire, Polyéthylène basse densité linéaire
 xx:LLDPE, 07 LLDPE, LLDPE 07, 07LLDPE, LLDPE07, 7 LLDPE, LLDPE 7, 7LLDPE, LLDPE7, PE-LLD, 07 PE-LLD, PE-LLD 07, 07PE-LLD, PE-LLD07, 7 PE-LLD, PE-LLD 7, 7PE-LLD, PE-LLD7
 wikidata:en:Q1863987
 
@@ -370,6 +383,7 @@ wikidata:en:Q1863987
 <xx:PET
 en:PETmet - Metalized polyethylene terephthalate, Metalized polyethylene terephthalate
 de:PETmet - Metallisiertes Polyethylenterephthalat, Metallisiertes Polyethylenterephthalat
+fr:PETmet - Polyéthylène téréphtalate métallisé
 xx:PETmet, 07 PETmet, PETmet 07, 07PETmet, PETmet07, 7 PETmet, PETmet 7, 7PETmet, PETmet7, met-PET, 07 met-PET, met-PET 07, 07met-PET, met-PET07, 7 met-PET, met-PET 7, 7met-PET, met-PET7
 
 <en:Multilayer composite
@@ -383,6 +397,7 @@ xx:PEmet, 07 PEmet, PEmet 07, 07PEmet, PEmet07, 7 PEmet, PEmet 7, 7PEmet, PEmet7
 <xx:PE
 en:MDPE - Medium-density polyethylene, Medium-density polyethylene
 de:MDPE - Polyethylen mittlerer Dichte, Polyethylen mittlerer Dichte
+fr:MDPE - Polyéthylène moyenne densité, Polyéthylène moyenne densité
 xx:MDPE, 07 MDPE, MDPE 07, 07MDPE, MDPE07, 7 MDPE, MDPE 7, 7MDPE, MDPE7, PE-MD, 07 PE-MD, PE-MD 07, 07PE-MD, PE-MD07, 7 PE-MD, PE-MD 7, 7PE-MD, PE-MD7
 
 <en:Plastic
@@ -394,6 +409,7 @@ wikidata:en:Q582510
 
 en:Lead–acid battery
 de:Bleibatterie, Blei-Säure-Batterie
+fr:Batterie au plomb
 hu:Ólom-sav akkumulátor
 nl:Lood, Loodaccu
 pt:Bateria de chumbo-ácido
@@ -517,10 +533,13 @@ it:Carta
 nl:Papier
 ru:Бумага
 ja:紙
+pl:papier
 pt:Papel
 sv:Papper
 xx:22 PAP, PAP 22, 22PAP, PAP22
 wikidata:en:Q11472
+
+en:Cellulose
 
 # thick cardboard (e.g. book covers)
 <en:cardboard
@@ -560,6 +579,7 @@ de:FSC Papier
 fr:Papier FSC
 nl:FSC-papier
 pt:Papel FSC
+# We have a en:FSC label - https://world.openfoodfacts.org/label/FSC - https://www.wikidata.org/wiki/Q748367
 
 <en:Paper
 en:Kraft paper, kraft
@@ -599,6 +619,7 @@ wikidata:en:Q11426
 en:Recyclable Metals
 bg:Рециклируеми метали
 de:Wiederverwertbare Metalle, Wiederverwertbares Metall, Recycelbares Metall, Recycelbare Metalle
+fr:Métaux recyclables
 hu:Újrahasznosítható fémek
 it:Metalli riciclabili
 nl:Recyclebaar metaal
@@ -729,6 +750,7 @@ hr:staklo
 hu:Üveg
 it:Vetro
 nl:Glas, Glazen
+pl:szkło
 pt:vidro
 wikidata:en:Q11469
 
@@ -743,6 +765,7 @@ hu:Fehér üveg
 nl:transparant glas, transparant glazen
 pt:Vidro transparente
 xx:70 GL, GL 70, 70GL, GL70, 70 GLS, GLS 70, 70GLS, GLS70
+wikidata:en:Q28869937
 
 <en:Glass
 en:Green Glass
@@ -764,6 +787,8 @@ fr:Verre brun
 hr:smeđe staklo
 nl:Bruin glas, bruine glazen
 xx:72 GL, GL 72, 72GL, GL72, 72 GLS, GLS 72, 72GLS, GLS72
+wikidata:en:Q2184152
+# wikidata is for brown glass bottles
 
 <en:Glass
 en:Dark Sort Glass
