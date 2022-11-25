@@ -103,8 +103,7 @@ sub update_product_fields ($request_ref, $product_ref) {
 							# by get_checked_and_taxonomized_packaging_component_data()
 
 							if (ref($input_packaging_ref->{$property}) eq 'HASH') {
-								$input_packaging_ref->{$property}
-									= $input_packaging_ref->{$property}{id}
+								$input_packaging_ref->{$property} = $input_packaging_ref->{$property}{id}
 									|| $input_packaging_ref->{$property}{lc_name};
 							}
 							else {

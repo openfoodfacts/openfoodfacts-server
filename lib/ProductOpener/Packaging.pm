@@ -678,7 +678,7 @@ Set some tags in the /misc/ facet so that we can track the products that have
 
 =cut
 
-sub set_packaging_misc_tags($product_ref) {
+sub set_packaging_misc_tags ($product_ref) {
 
 	remove_tag($product_ref, "misc", "en:packagings-complete");
 	remove_tag($product_ref, "misc", "en:packagings-not-complete");
