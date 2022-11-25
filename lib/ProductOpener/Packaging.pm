@@ -701,6 +701,8 @@ sub set_packaging_misc_tags ($product_ref) {
 			add_tag($product_ref, "misc", "en:packagings-not-empty");
 		}
 	}
+
+	return;
 }
 
 =head2 analyze_and_combine_packaging_data($product_ref, $response_ref)
