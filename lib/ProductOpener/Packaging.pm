@@ -671,6 +671,38 @@ sub migrate_old_number_and_quantity_fields_202211 ($product_ref) {
 	return;
 }
 
+=head2 set_packaging_misc_tags($product_ref)
+
+Set some tags in the /misc/ facet so that we can track the products that have 
+(or don't have) packaging data.
+
+=cut
+
+sub set_packaging_misc_tags($product_ref) {
+
+	remove_tag($product_ref, "misc", "en:packagings-complete");
+	remove_tag($product_ref, "misc", "en:packagings-not-complete");
+	remove_tag($product_ref, "misc", "en:packagings-empty");
+	remove_tag($product_ref, "misc", "en:packagings-not-empty");
+	remove_tag($product_ref, "misc", "en:packagings-not-empty-but-not-complete");
+
+	if ($product_ref->{packagings_complete}) {
+		add_tag($product_ref, "misc", "en:packagings-complete");
+		add_tag($product_ref, "misc", "en:packagings-not-empty");
+	}
+	else {
+		add_tag($product_ref, "misc", "en:packagings-not-complete");
+
+		if (scalar @{$product_ref->{packagings}} == 0) {
+			add_tag($product_ref, "misc", "en:packagings-empty");
+		}
+		else {
+			add_tag($product_ref, "misc", "en:packagings-not-empty-but-not-complete");
+			add_tag($product_ref, "misc", "en:packagings-not-empty");
+		}
+	}
+}
+
 =head2 analyze_and_combine_packaging_data($product_ref, $response_ref)
 
 This function analyzes all the packaging information available for the product:
@@ -698,31 +730,6 @@ sub analyze_and_combine_packaging_data ($product_ref, $response_ref) {
 
 	# TODO: remove once all products have been migrated
 	migrate_old_number_and_quantity_fields_202211($product_ref);
-
-	# 20221104:
-	# - the number field was renamed to number_of_units
-	# - the quantity field was renamed to quantity_per_unit
-	# rename old fields
-	# this code can be removed once all products have been updated
-	foreach my $packaging_ref (@{$product_ref->{packagings}}) {
-		if (exists $packaging_ref->{number}) {
-			if (not exists $packaging_ref->{number_of_units}) {
-				$packaging_ref->{number_of_units} = $packaging_ref->{number} + 0;
-			}
-			delete $packaging_ref->{number};
-		}
-		if (exists $packaging_ref->{quantity}) {
-			if (not exists $packaging_ref->{quantity_per_unit}) {
-				$packaging_ref->{quantity_per_unit} = $packaging_ref->{quantity};
-				$packaging_ref->{quantity_per_unit_value}
-					= convert_string_to_number($packaging_ref->{quantity_per_unit_value});
-				$packaging_ref->{quantity_per_unit_unit} = $packaging_ref->{quantity_unit};
-			}
-			delete $packaging_ref->{quantity};
-			delete $packaging_ref->{quantity_value};
-			delete $packaging_ref->{quantity_unit};
-		}
-	}
 
 	# Parse the packaging_text and the packaging tags field
 
@@ -776,6 +783,10 @@ sub analyze_and_combine_packaging_data ($product_ref, $response_ref) {
 			add_or_combine_packaging_component_data($product_ref, $packaging_ref, $response_ref);
 		}
 	}
+
+	# Set misc fields to indicate if the packaging data is complete
+
+	set_packaging_misc_tags($product_ref);
 
 	$log->debug("analyze_and_combine_packaging_data - done",
 		{packagings => $product_ref->{packagings}, response => $response_ref})

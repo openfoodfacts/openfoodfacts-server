@@ -146,6 +146,13 @@ sub create_packaging_components_from_request_parameters ($product_ref) {
 		}
 	}
 
+	if (single_param("packagings_complete")) {
+		$product_ref->{packagings_complete} = 1;
+	}
+	else {
+		$product_ref->{packagings_complete} = 0;
+	}
+
 	return;
 }
 

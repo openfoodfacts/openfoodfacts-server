@@ -109,6 +109,9 @@ if (\$("#[% select2_id %]").find("option[value='" + value + "']").length) {
     </div>
 [% END %]
 
+<input type="checkbox" id="packagings_complete" name="packagings_complete" [% IF product.packagings_complete %]checked[% END %] />
+<label for="packagings_complete" class="checkbox_label">[% lang('packagings_complete') %]</label><br/>
+
 <input type="hidden" name="packaging_max" value="[% packaging_max %]">
 
 <initjs>
