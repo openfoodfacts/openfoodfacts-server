@@ -55,7 +55,7 @@
 `
             },        
         },
-[% IF product.nova_group_error = 'missing_ingredients' %]
+[% IF product.nova_group_error == 'missing_ingredients' %]
 {
             "element_type": "action",
             "action_element": {
