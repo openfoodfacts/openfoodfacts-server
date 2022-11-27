@@ -56,7 +56,16 @@
             },        
         },
 [% IF product.nova_group_error = 'missing_ingredients' %]
-action
+{
+            "element_type": "action",
+            "action_element": {
+                "html": `[% lang("action_add_ingredients_image") %]`,
+                "actions": [
+                    "add_ingredients_image"
+                ]
+            }
+        },   
 [% ENDIF %]
+
     ]
 }
