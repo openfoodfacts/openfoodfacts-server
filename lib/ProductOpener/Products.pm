@@ -2504,7 +2504,7 @@ sub product_action_url ($code, $action) {
 		$url .= "#ingredients";
 	}
 	elsif ($action eq "add_nutrition_facts_image") {
-		$url .= "#nutrition;
+		$url .= "#nutrition";
 	}
 	elsif ($action eq "add_nutrition_facts") {
 		$url .= "#nutrition";
