@@ -2515,7 +2515,7 @@ sub product_action_url ($code, $action) {
 	elsif ($action eq "add_packaging_text") {
 		$url .= "#packaging";
 	}
-	# will do nothing unless a custom section is added
+	# Note: 27/11/2022 - The following HTML anchors will do nothing unless a custom HTML anchor is added in the future
 	elsif ($action eq "add_origins") {
 		$url .= "#origins";
 	}
