@@ -6,7 +6,7 @@ New versions of the AGRIBALYSE database are released from time to time and this 
 
 ## Obtain and Convert the AGRIBALYSE Spreadsheet
 
-Download the AGRIBALYSE spreadsheet from the [AGRIBALYSE](https://doc.agribalyse.fr/documentation-en/agribalyse-data/data-access) web site, and save it as AGRIBALYSE_vf.xlsm" in the ecoscore/agribalyse folder.
+Download the AGRIBALYSE food spreadsheet from the [AGRIBALYSE](https://doc.agribalyse.fr/documentation/acces-donnees) web site (use the French site rather than English as updates on the English site may be delayed), and save it as AGRIBALYSE_vf.xlsm" in the ecoscore/agribalyse folder.
 
 In a backend shell run the ssconvert.sh script. This will re-generate the CSV files, including the AGRIBALYSE_version and AGRIBALYSE_summary files. The AGRIBALYSE_summary file is sorted to make for easier comparison with the previous version.
 
