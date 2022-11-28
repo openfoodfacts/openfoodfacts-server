@@ -22,6 +22,7 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Attributes qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
+use ProductOpener::API qw/:all/;
 
 load_agribalyse_data();
 load_ecoscore_data();
@@ -163,19 +164,12 @@ foreach my $test_ref (@tests) {
 
 	# Run the test
 
-	compute_languages($product_ref);    # need languages for allergens detection and cleaning ingredients
-	extract_ingredients_from_text($product_ref);
-	extract_ingredients_classes_from_text($product_ref);
-	detect_allergens_from_text($product_ref);
-	special_process_product($product_ref);
-	fix_salt_equivalent($product_ref);
-	compute_nutrition_score($product_ref);
-	compute_nova_group($product_ref);
-	compute_nutrient_levels($product_ref);
-	compute_unknown_nutrients($product_ref);
-	analyze_and_combine_packaging_data($product_ref);
-	compute_ecoscore($product_ref);
-	compute_forest_footprint($product_ref);
+	# Response structure to keep track of warnings and errors
+	# Note: currently some warnings and errors are added,
+	# but we do not yet do anything with them
+	my $response_ref = get_initialized_response();
+
+	analyze_and_enrich_product_data($product_ref, $response_ref);
 
 	compute_attributes($product_ref, $product_ref->{lc}, "world", $options_ref);
 

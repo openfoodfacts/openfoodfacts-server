@@ -63,13 +63,6 @@
          "complete" : 0,
          "completeness" : "0.5",
          "correctors_tags" : [],
-         "countries" : "en:world",
-         "countries_hierarchy" : [
-            "en:world"
-         ],
-         "countries_tags" : [
-            "en:world"
-         ],
          "created_t" : "--ignore--",
          "creator" : "tests",
          "data_quality_bugs_tags" : [],
@@ -380,6 +373,7 @@
                "percent_estimate" : "62.5",
                "percent_max" : 100,
                "percent_min" : 25,
+               "rank" : 1,
                "text" : "apple",
                "vegan" : "yes",
                "vegetarian" : "yes"
@@ -389,6 +383,7 @@
                "percent_estimate" : "18.75",
                "percent_max" : 50,
                "percent_min" : 0,
+               "rank" : 2,
                "text" : "milk",
                "vegan" : "no",
                "vegetarian" : "yes"
@@ -398,6 +393,7 @@
                "percent_estimate" : "9.375",
                "percent_max" : "33.3333333333333",
                "percent_min" : 0,
+               "rank" : 3,
                "text" : "eggs",
                "vegan" : "no",
                "vegetarian" : "yes"
@@ -408,6 +404,7 @@
                "percent_estimate" : "9.375",
                "percent_max" : 25,
                "percent_min" : 0,
+               "rank" : 4,
                "text" : "palm oil",
                "vegan" : "yes",
                "vegetarian" : "yes"
@@ -662,13 +659,6 @@
          "complete" : 0,
          "completeness" : "0.5",
          "correctors_tags" : [],
-         "countries" : "en:world",
-         "countries_hierarchy" : [
-            "en:world"
-         ],
-         "countries_tags" : [
-            "en:world"
-         ],
          "created_t" : "--ignore--",
          "creator" : "tests",
          "data_quality_bugs_tags" : [],
@@ -962,6 +952,7 @@
                "percent_estimate" : 75,
                "percent_max" : 100,
                "percent_min" : 50,
+               "rank" : 1,
                "text" : "fruit",
                "vegan" : "yes",
                "vegetarian" : "yes"
@@ -971,6 +962,7 @@
                "percent_estimate" : 25,
                "percent_max" : 50,
                "percent_min" : 0,
+               "rank" : 2,
                "text" : "rice",
                "vegan" : "yes",
                "vegetarian" : "yes"
@@ -1212,13 +1204,6 @@
          "complete" : 0,
          "completeness" : "0.5",
          "correctors_tags" : [],
-         "countries" : "en:world",
-         "countries_hierarchy" : [
-            "en:world"
-         ],
-         "countries_tags" : [
-            "en:world"
-         ],
          "created_t" : "--ignore--",
          "creator" : "tests",
          "data_quality_bugs_tags" : [],
@@ -1526,6 +1511,7 @@
                "percent_estimate" : "66.6666666666667",
                "percent_max" : 100,
                "percent_min" : "33.3333333333333",
+               "rank" : 1,
                "text" : "apple",
                "vegan" : "yes",
                "vegetarian" : "yes"
@@ -1535,6 +1521,7 @@
                "percent_estimate" : "16.6666666666667",
                "percent_max" : 50,
                "percent_min" : 0,
+               "rank" : 2,
                "text" : "milk",
                "vegan" : "no",
                "vegetarian" : "yes"
@@ -1544,6 +1531,7 @@
                "percent_estimate" : "16.6666666666667",
                "percent_max" : "33.3333333333333",
                "percent_min" : 0,
+               "rank" : 3,
                "text" : "eggs",
                "vegan" : "no",
                "vegetarian" : "yes"
@@ -1784,13 +1772,6 @@
          "complete" : 0,
          "completeness" : "0.5",
          "correctors_tags" : [],
-         "countries" : "en:world",
-         "countries_hierarchy" : [
-            "en:world"
-         ],
-         "countries_tags" : [
-            "en:world"
-         ],
          "created_t" : "--ignore--",
          "creator" : "tests",
          "data_quality_bugs_tags" : [],
@@ -2080,6 +2061,7 @@
                "percent_estimate" : "66.6666666666667",
                "percent_max" : 100,
                "percent_min" : "33.3333333333333",
+               "rank" : 1,
                "text" : "apple"
             },
             {
@@ -2087,6 +2069,7 @@
                "percent_estimate" : "16.6666666666667",
                "percent_max" : 50,
                "percent_min" : 0,
+               "rank" : 2,
                "text" : "water"
             },
             {
@@ -2094,6 +2077,7 @@
                "percent_estimate" : "16.6666666666667",
                "percent_max" : "33.3333333333333",
                "percent_min" : 0,
+               "rank" : 3,
                "text" : "palm oil"
             }
          ],
@@ -2349,13 +2333,6 @@
          "complete" : 0,
          "completeness" : "0.5",
          "correctors_tags" : [],
-         "countries" : "en:world",
-         "countries_hierarchy" : [
-            "en:world"
-         ],
-         "countries_tags" : [
-            "en:world"
-         ],
          "created_t" : "--ignore--",
          "creator" : "tests",
          "data_quality_bugs_tags" : [],
@@ -2810,6 +2787,7 @@
                "percent_estimate" : 75,
                "percent_max" : 100,
                "percent_min" : 50,
+               "rank" : 1,
                "text" : "apple"
             },
             {
@@ -2817,6 +2795,7 @@
                "percent_estimate" : 25,
                "percent_max" : 50,
                "percent_min" : 0,
+               "rank" : 2,
                "text" : "water"
             }
          ],

@@ -15,7 +15,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
     - name: crowdin action
-      uses: crowdin/github-action@1.5.0
+      uses: crowdin/github-action@1.5.1
       with:
         upload_translations: false # default is false
         # Use this option to upload translations for a single specified language

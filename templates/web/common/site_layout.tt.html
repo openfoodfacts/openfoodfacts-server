@@ -236,7 +236,17 @@
 								<div itemscope itemtype="[% schema_org_itemtype %]">
 									<div class="row">
 										<div class="small-12 column v-space-short">
-											<h1 itemprop="name">[% title %]</h1>
+											<h1 itemprop="name">[% title %]
+                        <sup>
+                        [% IF request.tagtype == "categories" %]
+                          <a class="button tiny round secondary label" href="https://hunger.openfoodfacts.org/questions?type=category&amp;value_tag=[% request.canon_tagid %]">[% f_lang('f_help_categorize_on_hunger_games', { title => lang('categories').lcfirst } ) %]</a>
+                        [% ELSIF request.tagtype == "labels" %]
+                          <a class="button tiny round secondary label" href="https://hunger.openfoodfacts.org/questions?type=labels&amp;value_tag=[% canonicalize_taxonomy_tag_link("labels", title) %]">[% f_lang('f_help_categorize_on_hunger_games', { title => lang('labels').lcfirst } ) %]</a>
+                        [% ELSIF request.tagtype == "brands" %]
+                          <a class="button tiny round secondary label" href="https://hunger.openfoodfacts.org/questions?type=brands&amp;value_tag=[% canonicalize_taxonomy_tag_link("brands", title) %]">[% f_lang('f_help_categorize_on_hunger_games', { title => lang('brands').lcfirst } ) %]</a>
+                        [% END %]
+                        </sup>
+                  </h1>
 										</div>
 									</div>
 									[% content %]
@@ -288,7 +298,6 @@
 			</div>
 
 			[% INCLUDE 'web/common/includes/donate_banner_bottom.tt.html' %]
-
 			<div class="block_light block_cappucino" id="contribute_and_discover_links_block">
 				<div class="row">
 					<div class="small-12 large-6 columns v-space-normal block_off">

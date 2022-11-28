@@ -75,6 +75,7 @@ use ProductOpener::Packaging qw(:all);
 use ProductOpener::ForestFootprint qw(:all);
 use ProductOpener::MainCountries qw(:all);
 use ProductOpener::PackagerCodes qw/:all/;
+use ProductOpener::API qw/:all/;
 use ProductOpener::LoadData qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
@@ -399,6 +400,11 @@ if ($prefix_packaging_tags_with_language) {
 }
 
 while (my $product_ref = $cursor->next) {
+
+	# Response structure to keep track of warnings and errors
+	# Note: currently some warnings and errors are added,
+	# but we do not yet do anything with them
+	my $response_ref = get_initialized_response();
 
 	my $productid = $product_ref->{_id};
 	my $code = $product_ref->{code};
@@ -1191,11 +1197,7 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		if ($process_packagings) {
-			# Until we provide an interface to directly change the packaging data structure
-			# erase it before reconstructing it
-			# (otherwise there is no way to remove incorrect entries)
-			$product_ref->{packagings} = [];
-			analyze_and_combine_packaging_data($product_ref);
+			analyze_and_combine_packaging_data($product_ref, $response_ref);
 		}
 
 		if ($compute_ecoscore) {

@@ -76,13 +76,6 @@
          "complete" : 0,
          "completeness" : "0.5",
          "correctors_tags" : [],
-         "countries" : "en:world",
-         "countries_hierarchy" : [
-            "en:world"
-         ],
-         "countries_tags" : [
-            "en:world"
-         ],
          "created_t" : "--ignore--",
          "creator" : "tests",
          "data_quality_bugs_tags" : [],
@@ -537,6 +530,7 @@
                "percent_estimate" : 75,
                "percent_max" : 100,
                "percent_min" : 50,
+               "rank" : 1,
                "text" : "apple"
             },
             {
@@ -544,6 +538,7 @@
                "percent_estimate" : 25,
                "percent_max" : 50,
                "percent_min" : 0,
+               "rank" : 2,
                "text" : "water"
             }
          ],

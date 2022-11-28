@@ -40,7 +40,5 @@ volumes:
 
 networks:
   webnet:
-    driver: bridge
-    ipam:
-      config:
-      - subnet: 172.30.0.0/16
+    external: true
+    name: ${COMPOSE_PROJECT_NAME}_webnet
