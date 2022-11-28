@@ -228,11 +228,25 @@ paths:
         Search request allows you to get the nutritional data of products that match your search criteria. 
         It allows you create many custom APIs for your use case. 
         If the search query parameter has 2 possible values, they are seperated by a comma(,).
+        When filtering via a parameter that has different language codes like `fr`, `de` or `en`, specify the language code in the parameter name e.g `categories_tags_en`
       parameters:
         - $ref: '#/components/parameters/categories_tags_en'
         - $ref: '#/components/parameters/labels_tags_en'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/sort_by'
+        - $ref: '#/components/parameters/nutrition_grades_tags'
+        - $ref: '#/components/parameters/brands_tags'
+        - $ref: '#/components/parameters/packaging_tags_de'
+        - $ref: '#/components/parameters/emb_codes_tags'
+        - $ref: '#/components/parameters/origins_tags'
+        - $ref: '#/components/parameters/manufacturing_places_tags'
+        - $ref: '#/components/parameters/stores_tags'
+        - $ref: '#/components/parameters/purchase_places_tags'
+        - $ref: '#/components/parameters/countries_tags_en'
+        - $ref: '#/components/parameters/allergens_tags_en'
+        - $ref: '#/components/parameters/traces_tags'
+        - $ref: '#/components/parameters/states_tags_en'
+        - $ref: '#/components/parameters/additives_tags_en'
     parameters: []
   /cgi/suggest.pl:
     get:
@@ -351,7 +365,106 @@ components:
       in: query
       name: categories_tags_en
       description: |
-        The category of products you are searching for.
+        The category of product(s) you are searching for.
+    states_tags_en:
+      schema:
+        type: string
+        example: nutrition-facts-completed
+      in: query
+      name: states_tags_en
+      description: |
+        The states_tags in english of product(s) you are searching for.
+    traces_tags:
+      schema:
+        type: string
+      in: query
+      name: traces_tags
+      description: |
+        The traces_tags of product(s) you are searching for.
+    additives_tags_en:
+      schema:
+        type: string
+        example: e322
+      in: query
+      name: additives_tags_en
+      description: |
+        The additives_tags in english of product(s) you are searching for.
+    allergens_tags_en:
+      schema:
+          type: string
+          example: m
+      in: query
+      name: allergens_tags_en
+      description: |
+        The allergens_tags in english of product(s) you are searching for.
+    countries_tags_en:
+      schema:
+        type: string
+        example: united-kingdom
+      in: query
+      name: countries_tags_en
+      description: |
+        The countries_tags_en of product(s) you are searching for.
+    purchase_places_tags:
+      schema:
+        type: string
+      in: query
+      name: purchase_places_tags
+      description: |
+        The purchase_places_tags of product(s) you are searching for.
+    stores_tags:
+      schema:
+        type: string
+        example: aldi
+      in: query
+      name: stores_tags
+      description: |
+        The stores_tags of product(s) you are searching for.
+    emb_codes_tags:
+      schema:
+        type: string
+      in: query
+      name: emb_codes_tags
+      description: |
+        The emb_codes_tags of product(s) you are searching for.
+    manufacturing_places_tags:  
+      schema:
+        type: string
+      in: query
+      name: manufacturing_places_tags
+      description: |
+        The manufacturing_places_tags of product(s) you are searching for.
+    origins_tags:
+      schema:
+        type: string
+      in: query
+      name: origins_tags
+      description: |
+        The origins_tags of product(s) you are searching for.
+    packaging_tags_de:
+      schema:
+        type: string
+        example: 1-jar-aus-klarglas
+      in: query
+      name: packaging_tags_de
+      description: |
+          The packaging_tag in german of product(s) you are searching for.
+    brands_tags:
+      schema:
+        type: string
+        example: ferrero
+      in: query
+      name: brands_tags
+      description: |
+        The brands_tags of product(s) you are searching for.
+    nutrition_grades_tags:
+      schema:
+        type: string
+        example: e
+      in: query
+      name: nutrition_grades_tags
+      description: |
+        The nutrition_grades_tags of product(s) you are searching for.
     sort_by:
       schema:
         type: string
@@ -385,7 +498,7 @@ components:
       in: query
       name: labels_tags_en
       description: |
-        The labels of products you are searching for.
+        The labels_tags in english of product(s) you are searching for.
     fields:
       schema:
         type: string
