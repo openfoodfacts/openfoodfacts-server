@@ -176,9 +176,9 @@
             ],
             "level" : "info",
             "title_element" : {
-               "grade" : "d",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/ecoscore-d.svg",
-               "title" : "Eco-Score D - High environmental impact",
+               "grade" : "c",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/ecoscore-c.svg",
+               "title" : "Eco-Score C - Moderate environmental impact",
                "type" : "grade"
             },
             "topics" : [
@@ -482,16 +482,16 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                Life cycle analysis score: 69<br>\n                Sum of bonuses and maluses:\n                    \n                        -30\n                    <br><br>\n                Final score: 39/100\n                \n                ",
+                     "html" : "\n                Life cycle analysis score: 69<br>\n                Sum of bonuses and maluses:\n                    \n                        -23\n                    <br><br>\n                Final score: 46/100\n                \n                ",
                      "type" : "summary"
                   }
                }
             ],
             "level" : "info",
             "title_element" : {
-               "grade" : "d",
+               "grade" : "c",
                "subtitle" : "Product: Some product - 100 g",
-               "title" : "Impact for this product: D (Score: 39/100)",
+               "title" : "Impact for this product: C (Score: 46/100)",
                "type" : "grade"
             },
             "topics" : [
