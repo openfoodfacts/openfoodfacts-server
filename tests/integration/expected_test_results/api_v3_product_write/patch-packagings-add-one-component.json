@@ -4,7 +4,10 @@
    "product" : {
       "packagings" : [
          {
-            "shape" : "en:bottle"
+            "shape" : {
+               "id" : "en:bottle",
+               "lc_name" : "Bottle"
+            }
          }
       ]
    },
@@ -43,7 +46,7 @@
       },
       {
          "field" : {
-            "id" : "recycling",
+            "id" : "material",
             "value" : null
          },
          "impact" : {
@@ -59,7 +62,7 @@
       },
       {
          "field" : {
-            "id" : "material",
+            "id" : "recycling",
             "value" : null
          },
          "impact" : {

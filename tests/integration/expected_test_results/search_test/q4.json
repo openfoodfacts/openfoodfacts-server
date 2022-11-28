@@ -1,8 +1,8 @@
 {
    "count" : 1,
-   "page" : 1,
+   "page" : "1",
    "page_count" : 1,
-   "page_size" : 24,
+   "page_size" : "24",
    "products" : [
       {
          "_id" : "200000000045",
@@ -74,7 +74,7 @@
             "2xxxxxxxxxxx"
          ],
          "complete" : 0,
-         "completeness" : 0.5,
+         "completeness" : "0.5",
          "correctors_tags" : [],
          "created_t" : "--ignore--",
          "creator" : "tests",

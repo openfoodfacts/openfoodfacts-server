@@ -105,15 +105,7 @@
         [% END %]
 
             </div>
-        </section>        
-
-        <section id="product_image" class="card fieldset">
-            <div class="card-section">
-                <legend>[% lang("product_image") %]</legend>
-                <input type="hidden" id="sorted_langs" name="sorted_langs" value="[% product_ref_sorted_langs %]"/>
-                [% display_tab_product_picture %]
-            </div>
-        </section>        
+        </section>              
 
         <section id="product_characteristics" class="fieldset card">
             <div class="card-section">
@@ -133,6 +125,14 @@
                 [% END %]
             </div>
         </section>
+
+        <section id="product_image" class="card fieldset">
+            <div class="card-section">
+                <legend>[% lang("product_image") %]</legend>
+                <input type="hidden" id="sorted_langs" name="sorted_langs" value="[% product_ref_sorted_langs %]"/>
+                [% display_tab_product_picture %]
+            </div>
+        </section>          
 
         <section id="ingredients" class="card fieldset">
             <div class="card-section">

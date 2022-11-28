@@ -330,28 +330,112 @@
          "ecoscore_packaging" : {
             "elements" : [
                {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "\n                    The information about the packaging of this product is not filled in.\n                    ",
-                     "type" : "warning"
-                  }
-               },
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "\n                For a more precise calculation of the Eco-Score, you can modify the product page and add them.\n                <br><br>\n                If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>.\n                    ",
-                     "type" : "warning"
+                  "element_type" : "table",
+                  "table_element" : {
+                     "columns" : [
+                        {
+                           "text" : "Shape",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Material",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Recycling",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Impact",
+                           "type" : "text"
+                        }
+                     ],
+                     "id" : "ecoscore_packaging_components",
+                     "rows" : [
+                        {
+                           "values" : [
+                              {
+                                 "text" : "1 Box"
+                              },
+                              {
+                                 "text" : "Wood"
+                              },
+                              {
+                                 "evaluation" : "good",
+                                 "text" : "Recycle"
+                              },
+                              {
+                                 "evaluation" : "neutral",
+                                 "text" : "Medium"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "text" : "6 Bottle"
+                              },
+                              {
+                                 "text" : "Glass"
+                              },
+                              {
+                                 "text" : "Reuse"
+                              },
+                              {
+                                 "evaluation" : "good",
+                                 "text" : "Low"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "text" : "3 Lid"
+                              },
+                              {
+                                 "text" : "Steel"
+                              },
+                              {
+                                 "evaluation" : "good",
+                                 "text" : "Recycle"
+                              },
+                              {
+                                 "evaluation" : "good",
+                                 "text" : "Low"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "text" : "1 Film"
+                              },
+                              {
+                                 "text" : "Plastic"
+                              },
+                              {
+                                 "evaluation" : "bad",
+                                 "text" : "Discard"
+                              },
+                              {
+                                 "evaluation" : "bad",
+                                 "text" : "High"
+                              }
+                           ]
+                        }
+                     ],
+                     "title" : "Packaging parts"
                   }
                }
             ],
-            "evaluation" : "unknown",
+            "evaluation" : "average",
             "level" : "info",
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
-               "subtitle" : "Malus: -15",
-               "title" : "Missing packaging information for this product"
+               "subtitle" : "Malus: -8",
+               "title" : "Packaging with a medium impact"
             },
             "topics" : [
                "environment"
@@ -963,18 +1047,33 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                    The information about the packaging of this product is not filled in.\n                    ",
-                     "type" : "warning"
+                     "evaluation" : "good",
+                     "html" : "\n                        \n                            \n                                <strong>Box</strong>\n                                    \n                                        (Wood)\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                                <strong>Lid</strong>\n                                    \n                                        (Steel)\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                        ",
+                     "icon_alt" : "Recycle",
+                     "icon_color_from_evaluation" : true,
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/recycle-variant.svg",
+                     "type" : "summary"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "evaluation" : "bad",
+                     "html" : "\n                        \n                            \n                        \n                            \n                        \n                            \n                        \n                            \n                                <strong>Film</strong>\n                                    \n                                        (Plastic)\n                                    \n                                    <br>\n                            \n                        \n                        ",
+                     "icon_alt" : "Discard",
+                     "icon_color_from_evaluation" : true,
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/delete.svg",
+                     "type" : "summary"
                   }
                }
             ],
-            "evaluation" : "unknown",
+            "evaluation" : "average",
+            "expanded" : true,
             "level" : "info",
             "title_element" : {
-               "evaluation" : "neutral",
                "icon_color_from_evaluation" : true,
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
-               "title" : "Missing packaging information for this product"
+               "title" : "Packaging with a medium impact"
             },
             "topics" : [
                "environment"
