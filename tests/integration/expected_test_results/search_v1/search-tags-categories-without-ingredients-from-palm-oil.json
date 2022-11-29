@@ -1,8 +1,8 @@
 {
    "count" : 1,
-   "page" : 1,
+   "page" : "1",
    "page_count" : 1,
-   "page_size" : 24,
+   "page_size" : "24",
    "products" : [
       {
          "_id" : "200000000045",
@@ -75,7 +75,7 @@
          ],
          "compared_to_category" : "en:cereals-and-potatoes",
          "complete" : 0,
-         "completeness" : 0.5,
+         "completeness" : "0.5",
          "correctors_tags" : [],
          "created_t" : "--ignore--",
          "creator" : "tests",
@@ -114,8 +114,10 @@
                "origins_of_ingredients" : {
                   "aggregated_origins" : [
                      {
+                        "epi_score" : 0,
                         "origin" : "en:unknown",
-                        "percent" : 100
+                        "percent" : 100,
+                        "transportation_score" : null
                      }
                   ],
                   "epi_score" : 0,
@@ -123,6 +125,7 @@
                   "origins_from_origins_field" : [
                      "en:unknown"
                   ],
+                  "transportation_score" : 0,
                   "transportation_scores" : {
                      "ad" : 0,
                      "al" : 0,
@@ -188,6 +191,7 @@
                      "world" : 0,
                      "xk" : 0
                   },
+                  "transportation_value" : 0,
                   "transportation_values" : {
                      "ad" : 0,
                      "al" : 0,
@@ -253,6 +257,7 @@
                      "world" : 0,
                      "xk" : 0
                   },
+                  "value" : -5,
                   "values" : {
                      "ad" : -5,
                      "al" : -5,
@@ -334,22 +339,22 @@
             },
             "agribalyse" : {
                "agribalyse_proxy_food_code" : "32135",
-               "co2_agriculture" : 2.495352,
+               "co2_agriculture" : "2.495352",
                "co2_consumption" : 0,
-               "co2_distribution" : 0.029120657,
-               "co2_packaging" : 0.28587039,
-               "co2_processing" : 0.39369607,
-               "co2_total" : 3.4585877,
-               "co2_transportation" : 0.25433483,
+               "co2_distribution" : "0.029120657",
+               "co2_packaging" : "0.28587039",
+               "co2_processing" : "0.39369607",
+               "co2_total" : "3.4585877",
+               "co2_transportation" : "0.25433483",
                "code" : "32135",
                "dqr" : "4.03",
-               "ef_agriculture" : 0.31523913,
+               "ef_agriculture" : "0.31523913",
                "ef_consumption" : 0,
-               "ef_distribution" : 0.0098990521,
-               "ef_packaging" : 0.021563312,
-               "ef_processing" : 0.055783332,
-               "ef_total" : 0.42581268,
-               "ef_transportation" : 0.023314705,
+               "ef_distribution" : "0.0098990521",
+               "ef_packaging" : "0.021563312",
+               "ef_processing" : "0.055783332",
+               "ef_total" : "0.42581268",
+               "ef_transportation" : "0.023314705",
                "is_beverage" : 0,
                "name_en" : "Breakfast cereals, mix of puffed or extruded cereals, fortified with vitamins and chemical elements",
                "name_fr" : "Multi-céréales soufflées ou extrudées, enrichies en vitamines et minéraux",
