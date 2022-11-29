@@ -268,6 +268,7 @@ description:en:Verpakking voor vloeibare levensmiddelen gemaakt van gelamineerd 
 en:small brick, small bricks
 fr:briquette, briquettes
 nl:briquette, briquettes
+# suggest:packaging_materials:en: cardboard
 
 # Can (drink or food) made with metal
 en:Can, cans
@@ -281,7 +282,7 @@ hu:konzervdoboz, konzerv
 it:Lattina, Latta
 nl:Blik, Bus
 pt:Lata, latas
-packaging_materials:en: en:metal, en:aluminium, en:steel
+# suggest:packaging_materials:en: en:unknown metal, en:aluminium, en:steel
 wikidata:en:Q2846150
 description:nl:Een cilindervormig afgesloten blikken vaatje
 
@@ -387,6 +388,7 @@ nl:Knoop, strik
 weight:en:light
 description:fr:Ce qui sert à lier, à attacher des objets ou des parties ensemble.
 description:nl:Een vastgetrokken lus in garen, draad, koord of touw
+# associated_packagings: en:bag
 
 en:Bag, bags
 bg:Торбичка, торбички
@@ -404,6 +406,7 @@ description:nl:Slappe, vormeloze verpakking
 # image:xx:sac-sachet-poche-1.svg (sachet avec poignée)
 # image:xx:sac-sachet-poche-2.svg (sachet)
 # image:xx:sac-sachet-poche-3.svg (berlingot triangulaire)
+# wikidata:en:Q2897283
 # image:xx:sac-sachet-poche-5.svg (berlingot à javel)
 # image:xx:sac-sachet-poche-6.svg (sac plastique fin avec poignées)
 # image:xx:sac-sachet-poche-7.svg (sac carton avec poignées)
@@ -424,12 +427,14 @@ fr:Sac de transport, sacs de transport
 nl:Draagtas, draagzak, draagzakken, draagtassen
 # image:xx:sac-sachet-poche-6.svg
 
-en:Crate, crates
+en:Crate, crates, punnet
 fr:Cagette, cagettes, cageot, cageots
+de:Steige
 hu:Láda, lécláda, ketrec
 nl:Krat, kratten
 pt:Caixote, caixotes
 description:nl:Houten of plastic doos met openingen in de zijkanten in een standaardformaat, vaak gebruikt voor opslag en het vervoer van flessen, fruit of andere waren
+wikidata:en:Q2933051
 # suggest:packaging_materials:en: en:wood, en:cardboard, en:plastic
 # image:xx:cageot-cagette-autres-1.svg (bois)
 # image:xx:cageot-cagette-autres-2.svg (plastique/generique)
@@ -449,10 +454,20 @@ fr:Gourde, gourde individuelle, gourdes individuelles, doypack, pouch
 hu:Flakon, Kulacs, flaska
 it:Borraccia
 pt:Frasco, frascos
-# image:xx:gourde-plastique-2.svg # Doypack avec fermoir
-# comment:fr:gourde-plastique 1.svg TODO: rename - Doypack avec bouchon lateral
 # comment:fr:gourde-plastique-3.svg
 # suggest:packaging_materials:en: en:plastic
+
+en:Doypack with cap
+fr:Doypack avec bouchon
+fr:comment:Le Doypack est un sachet souple tenant debout.
+wikidata:en:Q2026232
+# image:xx:gourde-plastique-2.svg # Doypack avec fermoir
+
+en:Doypack with cap
+fr:Doypack avec bouchon
+fr:comment:Le Doypack est un sachet souple tenant debout.
+# comment:fr:gourde-plastique 1.svg # Doypack avec bouchon lateral
+
 
 en:Sleeve, sleeves, sheath, outer open-end box
 fr:Étui, étuis, Fourreau, Cavalier
@@ -499,6 +514,14 @@ wikidata:en:Q1440281
 # image:xx:bouchon-1.svg
 # associated_packagings: en:bottle
 
+fr:Capsule à vis, bouchon à vis
+wikidata:en:Q607619
+# https://fr.wikipedia.org/wiki/Capsule_%C3%A0_vis
+
+fr:bouchon mécanique, bouchon à étrier, bouchon à bascule
+wikidata:en:Q1020525
+# https://fr.wikipedia.org/wiki/Bouchon_m%C3%A9canique
+
 # Note: cork is listed under materials, it cannot be a synonym of wine cork in the shapes taxonomy.
 <en:Bottle cap
 en:Wine cork, wine bottle cork, wine corks, wine bottle corks
@@ -507,9 +530,20 @@ fr:bouchon de bouteille de vin, bouchons de bouteille
 hr:pluteni čep
 nl:Wijnkurk, wijnkurken, Wijn kurk
 wikidata:en:Q86511715
-# image:xx:bouchon-3.svg (champagne cork)
 # image:xx:bouchon-2.svg (wine cork)
 # suggest:packaging_materials:en: en:plastic, en:cork
+
+<en:Wine cork
+en:Champagne cork
+fr:bouchon de Champagne
+wikidata:en:Q106910341
+# image:xx:bouchon-3.svg (champagne cork)
+
+fr:Capsule CRD, Capsule Représentative de Droit, Capsule-congé
+wikidata:en:Q2937610
+# legal aluminum wrapper capsule in France and other countries
+# https://fr.wikipedia.org/wiki/Capsule_CRD
+# https://fr.wikipedia.org/wiki/Capsule-cong%C3%A9
 
 <en:Bottle cap
 en:Capsule, capsules
@@ -827,10 +861,12 @@ nl:Applicator
 # image:xx:applicateur-plastique-2.svg (tampon hygiénique)
 
 en:Bag-in-box
-fr:Bag-in-box, Cubitainer
+fr:Bag-in-box, caisse-outre, Cubitainer, BIB
 nl:Zak-in-doos
 wikidata:en:Q799810
 # made of: fr:Boîte carton à recycler, fr:poche plastique à jeter
+# https://fr.wikipedia.org/wiki/Caisse-outre
+# Cubitainer is slightly different according to Wikipedia
 
 # fr:Boîte carton de cubitainer
 # image:xx:bag-in-box-complet.svg
@@ -878,6 +914,8 @@ wikidata:en:Q1334675
 
 en:Roll, mandrel
 fr:Rouleau, Bobine, Mandrin
+# https://fr.wikipedia.org/wiki/Mandrin#Emballage
+# comment:fr:Quand il signifie accessoire pour enroulement, le mandrin peut être un tube pour enrouler des rouleaux de papier, de feuille plastique, de tissu, etc. Le mandrin est le plus souvent en carton, réalisé par l'enroulement successif de spirales de papier croisées et collées. Parfois il est en plastique ou métallique et réutilisable. Parmi les applications domestiques, on trouve les papiers d'essuyage enroulés sur un mandrin jetable, de même le bobineau de film étirable...
 
 # <en:Roll
 # fr:rouleau de sopalin
@@ -896,6 +934,8 @@ nl:Spuitbus, spuitbussen
 # image:xx:bonbonne-plastique.svg https://world.openfoodfacts.org/product/3068320125367/bouteille-d-eau-evian-6l
 # image:xx:bonbonne-verre.svg
 # suggest:packaging_materials:en: en:plastic, en:metal, en:glass
+# fr:comment:Un canister est un emballage d'allure cylindrique qui s’ouvre en totalité à une extrémité au moins
+# wikidata:en:Q17175548
 
 en:neck seal
 fr:Collerette
@@ -929,6 +969,7 @@ fr:Cale, Coin, Cornière
 en:Vial, flask
 fr:Flacon
 nl:Flacon, Flacons
+# related_shapes: en:cap, en:vial
 # image:xx:bouteille-4.svg (looks like a whiskey flask)
 
 # fr:Flacon et son bouchon vissable
@@ -1266,3 +1307,6 @@ description:fr:Appareil qui sert à verser.
 description:nl:schenkpijp aan een kan of ketel
 wikidata:en:Q2893427
 #wikidata:en:Q54803638
+
+fr:Bouchon verseur
+wikidata:en:Q2921384

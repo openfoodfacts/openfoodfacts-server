@@ -164,7 +164,7 @@ pt:PET transparente
 en:Transparent rPET
 da:Gennemsigtig rPET
 de:Transparentes rPET
-fr:rPET transparent, rPET transparente
+fr:rPET transparent, rPET transparente, PET clair
 hu:Átlátszó rPET
 nl:rPET transparant, Transparant rPET
 pt:rPET transparente
@@ -521,6 +521,7 @@ de:FSC Karton, FSC Pappe
 fr:Carton FSC
 nl:FSC karton
 pt:Cartão FSC
+# associated_label:en: en:FSC
 
 en:Paper
 bg:Хартия
@@ -538,6 +539,8 @@ pt:Papel
 sv:Papper
 xx:22 PAP, PAP 22, 22PAP, PAP22
 wikidata:en:Q11472
+
+fr:Papier sulfurisé
 
 en:Cellulose
 
@@ -580,6 +583,7 @@ fr:Papier FSC
 nl:FSC-papier
 pt:Papel FSC
 # We have a en:FSC label - https://world.openfoodfacts.org/label/FSC - https://www.wikidata.org/wiki/Q748367
+# associated_label:en: en:FSC
 
 <en:Paper
 en:Kraft paper, kraft
@@ -641,6 +645,7 @@ ru:Сталь
 ja:スチール
 xx:40 FE, FE 40
 wikidata:en:Q11427
+description:en:Steel is magnetic. If you approach a magnet, it should be attracted, unlike aluminium.
 
 <en:steel
 en:Tin-plated steel
@@ -663,6 +668,7 @@ ru:Алюминий
 ja:アルミ
 xx:41 ALU, ALU 41, ALU, ALU41, 41ALU
 wikidata:en:Q663
+description:fr:L'aluminium est trié grâce au courant de Foucault, qui a la propriété de repousser l’emballage en aluminium.
 
 <en:Aluminium
 en:Heavy aluminium, thick aluminium
@@ -1513,6 +1519,12 @@ xx:Pure-Pak Imagine, PurePak Imagine
 en:Italpack, Italpack Cartons
 de:Italpack, Italpack Cartons
 xx:Italpack, Italpack Cartons
+
+fr:Grès
+non_recyclable_and_non_biodegradable:en:yes
+
+fr:Porcelaine
+non_recyclable_and_non_biodegradable:en:yes
 
 en:Ceramic
 bg:Керамика
