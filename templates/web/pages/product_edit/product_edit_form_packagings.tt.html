@@ -159,8 +159,10 @@ function add_packaging() {
     \$("#" + new_packaging_id + "_shape").on('select2:select', add_packaging);
 }
 
+[%# packaging_id contains our last row %]
+// last row triggers addition of a new row
 \$("#[% packaging_id %]_shape").on('select2:select', add_packaging);
-
+// disable removal of last row
 \$("#[% packaging_id %]_delete").hide()
 
 
