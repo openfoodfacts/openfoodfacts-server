@@ -5,10 +5,11 @@
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty"
    ],
-   "packaging" : "84-C/X",
+   "packaging_text" : "84-C/X",
    "packagings" : [
       {
-         "material" : "en:paper-and-cardboard-plastic-aluminium"
+         "material" : "en:paper-and-cardboard-plastic-aluminium",
+         "shape" : "en:unknown"
       }
    ]
 }

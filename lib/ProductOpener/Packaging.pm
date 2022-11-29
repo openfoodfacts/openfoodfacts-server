@@ -713,9 +713,10 @@ This function analyzes all the packaging information available for the product:
 - the packaging_text entered by users or retrieved from the OCR of recycling instructions
 (e.g. "glass bottle to recycle, metal cap to discard")
 - labels (e.g. FSC)
-- the non-taxonomized packaging tags field
 
 And combines them in an updated packagings data structure.
+
+Note: as of 2022/11/29, the non-taxonomized packaging tags field is not used as input.
 
 =cut
 
@@ -733,7 +734,7 @@ sub analyze_and_combine_packaging_data ($product_ref, $response_ref) {
 	# TODO: remove once all products have been migrated
 	migrate_old_number_and_quantity_fields_202211($product_ref);
 
-	# Parse the packaging_text and the packaging tags field
+	# Parse the packaging_text
 
 	my @phrases = ();
 
@@ -742,7 +743,7 @@ sub analyze_and_combine_packaging_data ($product_ref, $response_ref) {
 	# Packaging text field (populated by OCR of the packaging image and/or contributors or producers)
 	if (defined $product_ref->{packaging_text}) {
 
-		my @packaging_text_entries = split(/,|\n/, $product_ref->{packaging_text});
+		my @packaging_text_entries = split(/,|;|\n/, $product_ref->{packaging_text});
 		push(@phrases, @packaging_text_entries);
 		$number_of_packaging_text_entries = scalar @packaging_text_entries;
 	}
