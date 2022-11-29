@@ -767,9 +767,11 @@ hu:PEFC, Programme for the Endorsement of Forest Certification, Páneurópai Erd
 it:PEFC, Programme for the Endorsement of Forest Certification
 nl:PEFC
 wikidata:en:Q2112204
+label_categories:en: en:Packaging
 # associated_materials:en: en:paper, en:cardboard
 
 fr:Imprim'Vert
+label_categories:en: en:Packaging
 wikidata:en:Q3149493
 
 en:FSC, Forest Stewardship Council
@@ -786,6 +788,7 @@ pl:FSC, Odpowiedzialna gospodarka leśna
 ru:FSC, Forest Stewardship Council, Лесной попечительский совет
 zh:FSC(森林管理委员会)
 wikidata:en:Q748367
+label_categories:en: en:Packaging
 # associated_materials:en: en:paper, en:cardboard
 
 <en:FSC
@@ -18419,13 +18422,17 @@ fr:Grand cru
 label_categories:en: en:Wines
 
 fr:Mis en bouteille au château
-packaging:en: en:Bottles
+label_categories:en: en:Packaging
+# associated_shapes:en: en:bottle
 
 fr:Mis en bouteille à la propriété
 packaging:en: en:Bottles
+label_categories:en: en:Packaging
+# associated_shapes:en: en:bottle
 
 fr:Mis en bouteille au domaine
-packaging:en: en:Bottles
+label_categories:en: en:Packaging
+# associated_shapes:en: en:bottle
 
 fr:fermenté en barrique
 
