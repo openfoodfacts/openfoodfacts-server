@@ -485,13 +485,23 @@ my @tests = (
 		}
 	],
 
+	# empty entry
 	[
-		'en-fr-taxonomized-packagings-other-language',
+		'en-empty-entry',
 		{
 			lc => "en",
-			packaging => "fr:Couvercle en métal",
+			packaging => "",
 		}
 	],
+
+	[
+		'en-unrecognized-elements',
+		{
+			lc => "en",
+			packaging => "Some words that do not look like what we expect at all",
+		}
+	],	
+
 
 );
 
