@@ -73,7 +73,7 @@ var packaging_recycling_select2_options = [% generate_select2_options_for_taxono
 });
 
 [% IF packaging.$property.defined %]
-// Set the value, creating a new option if necessary
+// Set the value, creating a new option if necessary (for non taxonomy values)
 var value = "[% display_taxonomy_tag(taxonomy, packaging.$property) %]";
 if (\$("#[% select2_id %]").find("option[value='" + value.replace(/'/g, "\\'") + "']").length) {
     \$("#[% select2_id %]").val(value).trigger('change');
