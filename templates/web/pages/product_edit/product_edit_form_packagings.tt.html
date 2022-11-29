@@ -115,6 +115,8 @@ var packaging_max = [% packaging_max %];
 
 function add_packaging() {
 
+    // row that triggers new row addition is no more the last row
+    // remove events and let it be removed
     \$(this).unbind("select2:select");
     \$("#packaging_" + packaging_max + "_delete").show();
 
