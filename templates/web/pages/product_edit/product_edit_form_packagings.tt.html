@@ -112,6 +112,7 @@ if (\$("#[% select2_id %]").find("option[value='" + value.replace(/'/g, "\\'") +
 <input type="hidden" name="packaging_max" value="[% packaging_max %]">
 
 <initjs>
+// defined by the FOREACH loop above
 var packaging_max = [% packaging_max %];
 
 function add_packaging() {
