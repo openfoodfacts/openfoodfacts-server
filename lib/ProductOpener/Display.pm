@@ -399,7 +399,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{product_action_url} = \&product_action_url;
 	$template_data_ref->{product_name_brand_quantity} = \&product_name_brand_quantity;
 
-	# select2 options for all entries in a taxonomy
+	# select2 options generator for all entries in a taxonomy
 	$template_data_ref->{generate_select2_options_for_taxonomy_to_json} = sub ($tagtype) {
 		return generate_select2_options_for_taxonomy_to_json($lc, $tagtype);
 	};
