@@ -129,6 +129,7 @@ function add_packaging() {
     \$("#packaging_max").val(packaging_max);
 
     var new_packaging_id = "packaging_" + packaging_max;
+    // row 0 is our template row
     var new_packaging_html = \$("#packaging_0_row")[0].outerHTML;
     new_packaging_html = new_packaging_html.replaceAll("packaging_0", new_packaging_id);
     
