@@ -115,6 +115,9 @@ if (\$("#[% select2_id %]").find("option[value='" + value.replace(/'/g, "\\'") +
 // defined by the FOREACH loop above
 var packaging_max = [% packaging_max %];
 
+/**
+ * Add a new row of packaging data
+ */
 function add_packaging() {
 
     // row that triggers new row addition is no more the last row
