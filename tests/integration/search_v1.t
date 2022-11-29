@@ -33,7 +33,8 @@ my @products = (
 			product_name => "test_1",
 			generic_name => "Tester",
 			ingredients_text => "apple, milk, eggs, palm oil",
-			origin => "france"
+			origin => "france",
+			packaging_text_en => "1 25cl glass bottle, 1 steel lid, 1 plastic wrap"
 		)
 	},
 	{
