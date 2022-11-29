@@ -85,25 +85,8 @@ my @products = (
 	}
 );
 
-my @products2 = (
-	{
-		%{dclone(\%default_product_form)},
-		(
-			code => '200000000034',
-			product_name => "Some product",
-			generic_name => "Tester",
-			ingredients_text => "apple, milk, eggs, palm oil",
-			categories => "cookies",
-			labels => "organic",
-			origin => "france",
-			packaging_text_en =>
-				"1 wooden box to recycle, 6 25cl glass bottles to reuse, 3 steel lids to recycle, 1 plastic film to discard",
-		)
-	},
-);
-
-foreach my $product_form_override (@products) {
-	edit_product($ua, $product_form_override);
+foreach my $product_ref (@products) {
+	edit_product($ua, $product_ref);
 }
 
 # Note: expected results are stored in json files, see execute_api_tests
@@ -129,10 +112,23 @@ my $tests_ref = [
 	{
 		test_case => 'search-tags-categories-without-ingredients-from-palm-oil',
 		method => 'GET',
-		path => '/cgi/search.pl?action=process&tagtype_0=categories&tag_contains_0=contains&tag_0=breakfast_cereals&ingredients_from_palm_oil=without&json=1',
+		path =>
+			'/cgi/search.pl?action=process&tagtype_0=categories&tag_contains_0=contains&tag_0=breakfast_cereals&ingredients_from_palm_oil=without&json=1',
 		expected_status_code => 200,
-	},	
-
+	},
+	{
+		test_case => 'search-fields-packagings',
+		method => 'GET',
+		path => '/cgi/search.pl?action=process&json=1&fields=code,packaging_text_en,packagings',
+		expected_status_code => 200,
+	},
+	# Get the packagings field with the new API v3 format that differs from the old format
+	{
+		test_case => 'search-fields-packagings-in-api-v3-format',
+		method => 'GET',
+		path => '/cgi/search.pl?action=process&json=1&fields=code,packaging_text_en,packagings&api_version=3',
+		expected_status_code => 200,
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
