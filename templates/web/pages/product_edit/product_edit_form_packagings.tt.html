@@ -160,6 +160,9 @@ function add_packaging() {
 \$("#[% packaging_id %]_delete").hide()
 
 
+/**
+ * select2 auto-open options
+ */
 \$(document).on("focus", ".select2", function (e) {
     if (e.originalEvent) {
       var s2element = \$(this).siblings("select:enabled");
