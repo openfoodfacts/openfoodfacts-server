@@ -1,5 +1,6 @@
 {
    "code" : "200000000034",
+   "errors" : [],
    "product" : {
       "_id" : "200000000034",
       "_keywords" : [
@@ -102,10 +103,8 @@
             "origins_of_ingredients" : {
                "aggregated_origins" : [
                   {
-                     "epi_score" : "0",
                      "origin" : "en:unknown",
-                     "percent" : 100,
-                     "transportation_score" : null
+                     "percent" : 100
                   }
                ],
                "epi_score" : 0,
@@ -113,7 +112,6 @@
                "origins_from_origins_field" : [
                   "en:unknown"
                ],
-               "transportation_score" : 0,
                "transportation_scores" : {
                   "ad" : 0,
                   "al" : 0,
@@ -179,7 +177,6 @@
                   "world" : 0,
                   "xk" : 0
                },
-               "transportation_value" : 0,
                "transportation_values" : {
                   "ad" : 0,
                   "al" : 0,
@@ -245,7 +242,6 @@
                   "world" : 0,
                   "xk" : 0
                },
-               "value" : -5,
                "values" : {
                   "ad" : -5,
                   "al" : -5,
@@ -856,6 +852,11 @@
       "unknown_nutrients_tags" : [],
       "vitamins_tags" : []
    },
-   "status" : 1,
-   "status_verbose" : "product found"
+   "result" : {
+      "id" : "product_found",
+      "lc_name" : "Product found",
+      "name" : "Product found"
+   },
+   "status" : "success",
+   "warnings" : []
 }

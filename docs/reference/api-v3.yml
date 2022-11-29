@@ -38,6 +38,26 @@ paths:
           schema:
             type: string
             example: '3017620422003'
+        - schema:
+            type: string
+          in: query
+          name: lc
+          description: '2 letter code of the language of the interface. Used for localizing some fields in returned values (e.g. knowledge panels). If not passed, the language may be inferred by the country of the user (passed through the cc field or inferred by the IP address).'
+        - schema:
+            type: string
+          in: query
+          name: cc
+          description: '2 letter code of the country of the user. Used for localizing some fields in returned values (e.g. knowledge panels). If not passed, the country may be inferred by the IP address of the request.'
+        - schema:
+            type: string
+          in: query
+          name: tags_lc
+          description: '2 letter language code to request names of tags in a specific language.  For READ requets: if passed, all taxonomized tags of the response will include a lc_name property with the translation in the requested language, if available. Otherwise, the property value will contain the name in the original language, prefixed by the 2 language code and a colon.'
+        - schema:
+            type: string
+          in: query
+          name: fields
+          description: 'Comma separated list of fields requested in the response. Special values: "none": returns no fields, "raw": returns all fields as stored internally in the database, "all": returns all fields except generated fields that need to be explicitly requested such as "knowledge_panels". Defaults to "all" for READ requests. The "all" value can also be combined with fields like "attribute_groups" and "knowledge_panels".'
       responses:
         '200':
           description: OK
@@ -47,7 +67,10 @@ paths:
                 allOf:
                   - $ref: ./responses/response-status/response_status.yaml
                   - $ref: ./schemas/product.yaml
-      description: Retrieve information for a product with a specific barcode.
+      description: |-
+        Retrieve information for a product with a specific barcode.
+
+        The fields parameter allows to specify what fields to retrieve.
       operationId: get-product-by-barcode
     parameters:
       - schema:
@@ -58,7 +81,7 @@ paths:
         description: Barcode of the product
     patch:
       summary: WRITE Product - Create or update product (API V3 - Implementation in progress)
-      operationId: post-api-v3-product-barcode
+      operationId: patch-api-v3-product-barcode
       responses:
         '200':
           description: |-
