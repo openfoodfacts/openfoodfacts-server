@@ -63,19 +63,12 @@
          "complete" : 0,
          "completeness" : "0.5",
          "correctors_tags" : [],
-         "countries" : "en:world",
-         "countries_hierarchy" : [
-            "en:world"
-         ],
-         "countries_tags" : [
-            "en:world"
-         ],
          "created_t" : "--ignore--",
          "creator" : "tests",
          "data_quality_bugs_tags" : [],
          "data_quality_errors_tags" : [],
          "data_quality_info_tags" : [
-            "en:no-packaging-data",
+            "en:packaging-data-incomplete",
             "en:ingredients-percent-analysis-ok",
             "en:ecoscore-extended-data-not-computed",
             "en:food-groups-1-unknown",
@@ -83,19 +76,17 @@
             "en:food-groups-3-unknown"
          ],
          "data_quality_tags" : [
-            "en:no-packaging-data",
+            "en:packaging-data-incomplete",
             "en:ingredients-percent-analysis-ok",
             "en:ecoscore-extended-data-not-computed",
             "en:food-groups-1-unknown",
             "en:food-groups-2-unknown",
             "en:food-groups-3-unknown",
             "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-            "en:ecoscore-packaging-packaging-data-missing",
             "en:ecoscore-production-system-no-label"
          ],
          "data_quality_warnings_tags" : [
             "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-            "en:ecoscore-packaging-packaging-data-missing",
             "en:ecoscore-production-system-no-label"
          ],
          "ecoscore_data" : {
@@ -310,9 +301,36 @@
                   "warning" : "origins_are_100_percent_unknown"
                },
                "packaging" : {
-                  "non_recyclable_and_non_biodegradable_materials" : 1,
-                  "value" : -15,
-                  "warning" : "packaging_data_missing"
+                  "non_recyclable_and_non_biodegradable_materials" : 0,
+                  "packagings" : [
+                     {
+                        "ecoscore_material_score" : 81,
+                        "ecoscore_shape_ratio" : 1,
+                        "material" : "en:glass",
+                        "number_of_units" : 1,
+                        "quantity_per_unit" : "25cl",
+                        "quantity_per_unit_unit" : "cl",
+                        "quantity_per_unit_value" : 25,
+                        "shape" : "en:bottle"
+                     },
+                     {
+                        "ecoscore_material_score" : 76,
+                        "ecoscore_shape_ratio" : "0.2",
+                        "material" : "en:steel",
+                        "number_of_units" : 1,
+                        "shape" : "en:lid"
+                     },
+                     {
+                        "ecoscore_material_score" : 0,
+                        "ecoscore_shape_ratio" : "0.1",
+                        "material" : "en:plastic",
+                        "non_recyclable_and_non_biodegradable" : "maybe",
+                        "number_of_units" : 1,
+                        "shape" : "en:film"
+                     }
+                  ],
+                  "score" : "66.2",
+                  "value" : -3
                },
                "production_system" : {
                   "labels" : [],
@@ -330,11 +348,9 @@
             "missing" : {
                "agb_category" : 1,
                "labels" : 1,
-               "origins" : 1,
-               "packagings" : 1
+               "origins" : 1
             },
             "missing_agribalyse_match_warning" : 1,
-            "missing_key_data" : 1,
             "status" : "unknown"
          },
          "ecoscore_grade" : "unknown",
@@ -380,6 +396,7 @@
                "percent_estimate" : "62.5",
                "percent_max" : 100,
                "percent_min" : 25,
+               "rank" : 1,
                "text" : "apple",
                "vegan" : "yes",
                "vegetarian" : "yes"
@@ -389,6 +406,7 @@
                "percent_estimate" : "18.75",
                "percent_max" : 50,
                "percent_min" : 0,
+               "rank" : 2,
                "text" : "milk",
                "vegan" : "no",
                "vegetarian" : "yes"
@@ -398,6 +416,7 @@
                "percent_estimate" : "9.375",
                "percent_max" : "33.3333333333333",
                "percent_min" : 0,
+               "rank" : 3,
                "text" : "eggs",
                "vegan" : "no",
                "vegetarian" : "yes"
@@ -408,6 +427,7 @@
                "percent_estimate" : "9.375",
                "percent_max" : 25,
                "percent_min" : 0,
+               "rank" : 4,
                "text" : "palm oil",
                "vegan" : "yes",
                "vegetarian" : "yes"
@@ -479,10 +499,10 @@
          "known_ingredients_n" : 9,
          "lang" : "en",
          "languages" : {
-            "en:english" : 4
+            "en:english" : 5
          },
          "languages_codes" : {
-            "en" : 4
+            "en" : 5
          },
          "languages_hierarchy" : [
             "en:english"
@@ -544,7 +564,28 @@
          "origin" : "france",
          "origin_en" : "france",
          "other_nutritional_substances_tags" : [],
-         "packagings" : [],
+         "packaging_text" : "1 25cl glass bottle, 1 steel lid, 1 plastic wrap",
+         "packaging_text_en" : "1 25cl glass bottle, 1 steel lid, 1 plastic wrap",
+         "packagings" : [
+            {
+               "material" : "en:glass",
+               "number_of_units" : 1,
+               "quantity_per_unit" : "25cl",
+               "quantity_per_unit_unit" : "cl",
+               "quantity_per_unit_value" : 25,
+               "shape" : "en:bottle"
+            },
+            {
+               "material" : "en:steel",
+               "number_of_units" : 1,
+               "shape" : "en:lid"
+            },
+            {
+               "material" : "en:plastic",
+               "number_of_units" : 1,
+               "shape" : "en:film"
+            }
+         ],
          "photographers_tags" : [],
          "pnns_groups_1" : "unknown",
          "pnns_groups_1_tags" : [
@@ -662,13 +703,6 @@
          "complete" : 0,
          "completeness" : "0.5",
          "correctors_tags" : [],
-         "countries" : "en:world",
-         "countries_hierarchy" : [
-            "en:world"
-         ],
-         "countries_tags" : [
-            "en:world"
-         ],
          "created_t" : "--ignore--",
          "creator" : "tests",
          "data_quality_bugs_tags" : [],
@@ -962,6 +996,7 @@
                "percent_estimate" : 75,
                "percent_max" : 100,
                "percent_min" : 50,
+               "rank" : 1,
                "text" : "fruit",
                "vegan" : "yes",
                "vegetarian" : "yes"
@@ -971,6 +1006,7 @@
                "percent_estimate" : 25,
                "percent_max" : 50,
                "percent_min" : 0,
+               "rank" : 2,
                "text" : "rice",
                "vegan" : "yes",
                "vegetarian" : "yes"
@@ -1212,13 +1248,6 @@
          "complete" : 0,
          "completeness" : "0.5",
          "correctors_tags" : [],
-         "countries" : "en:world",
-         "countries_hierarchy" : [
-            "en:world"
-         ],
-         "countries_tags" : [
-            "en:world"
-         ],
          "created_t" : "--ignore--",
          "creator" : "tests",
          "data_quality_bugs_tags" : [],
@@ -1526,6 +1555,7 @@
                "percent_estimate" : "66.6666666666667",
                "percent_max" : 100,
                "percent_min" : "33.3333333333333",
+               "rank" : 1,
                "text" : "apple",
                "vegan" : "yes",
                "vegetarian" : "yes"
@@ -1535,6 +1565,7 @@
                "percent_estimate" : "16.6666666666667",
                "percent_max" : 50,
                "percent_min" : 0,
+               "rank" : 2,
                "text" : "milk",
                "vegan" : "no",
                "vegetarian" : "yes"
@@ -1544,6 +1575,7 @@
                "percent_estimate" : "16.6666666666667",
                "percent_max" : "33.3333333333333",
                "percent_min" : 0,
+               "rank" : 3,
                "text" : "eggs",
                "vegan" : "no",
                "vegetarian" : "yes"
@@ -1784,13 +1816,6 @@
          "complete" : 0,
          "completeness" : "0.5",
          "correctors_tags" : [],
-         "countries" : "en:world",
-         "countries_hierarchy" : [
-            "en:world"
-         ],
-         "countries_tags" : [
-            "en:world"
-         ],
          "created_t" : "--ignore--",
          "creator" : "tests",
          "data_quality_bugs_tags" : [],
@@ -2080,6 +2105,7 @@
                "percent_estimate" : "66.6666666666667",
                "percent_max" : 100,
                "percent_min" : "33.3333333333333",
+               "rank" : 1,
                "text" : "apple"
             },
             {
@@ -2087,6 +2113,7 @@
                "percent_estimate" : "16.6666666666667",
                "percent_max" : 50,
                "percent_min" : 0,
+               "rank" : 2,
                "text" : "water"
             },
             {
@@ -2094,6 +2121,7 @@
                "percent_estimate" : "16.6666666666667",
                "percent_max" : "33.3333333333333",
                "percent_min" : 0,
+               "rank" : 3,
                "text" : "palm oil"
             }
          ],
@@ -2349,13 +2377,6 @@
          "complete" : 0,
          "completeness" : "0.5",
          "correctors_tags" : [],
-         "countries" : "en:world",
-         "countries_hierarchy" : [
-            "en:world"
-         ],
-         "countries_tags" : [
-            "en:world"
-         ],
          "created_t" : "--ignore--",
          "creator" : "tests",
          "data_quality_bugs_tags" : [],
@@ -2810,6 +2831,7 @@
                "percent_estimate" : 75,
                "percent_max" : 100,
                "percent_min" : 50,
+               "rank" : 1,
                "text" : "apple"
             },
             {
@@ -2817,6 +2839,7 @@
                "percent_estimate" : 25,
                "percent_max" : 50,
                "percent_min" : 0,
+               "rank" : 2,
                "text" : "water"
             }
          ],

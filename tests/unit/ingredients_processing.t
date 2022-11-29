@@ -6,6 +6,7 @@ use Modern::Perl '2017';
 use utf8;
 
 use Test::More;
+
 #use Log::Any::Adapter 'TAP';
 use Log::Any::Adapter 'TAP', filter => 'trace';
 
@@ -91,7 +92,10 @@ my @tests = (
 
 	# en: smoked (children are lef out at the moment)
 	[
-		{lc => "en", ingredients_text => "sweetened milk, unsweetened tomatoes, sugared ham"},
+		{
+			lc => "en",
+			ingredients_text => "sweetened milk, unsweetened tomatoes, sugared ham"
+		},
 		[
 			{
 				'id' => 'en:milk',
@@ -404,6 +408,19 @@ my @tests = (
 	[
 		{
 			lc => "nl",
+			ingredients_text => "uipoeder"
+		},
+		[
+			{
+				'id' => 'en:onion',
+				'processing' => 'en:powder',
+				'text' => 'ui'
+			}
+		]
+	],
+	[
+		{
+			lc => "nl",
 			ingredients_text =>
 				"sjalotpoeder, wei-poeder, vanillepoeder, gemalen sjalot, geraspte sjalot, gepelde goudsbloem"
 		},
@@ -447,7 +464,10 @@ my @tests = (
 
 	# de:pulver and variants
 	[
-		{lc => "de", ingredients_text => "bourbon-vanillepulver, Sauerkrautpulver, acerola-pulver"},
+		{
+			lc => "de",
+			ingredients_text => "bourbon-vanillepulver, Sauerkrautpulver, acerola-pulver"
+		},
 		[
 			{
 				'id' => 'en:bourbon-vanilla-powder',
@@ -468,7 +488,10 @@ my @tests = (
 
 	# de:gehackt and variants
 	[
-		{lc => "de", ingredients_text => "gehacktes Buttermilch, gehackter Dickmilch"},
+		{
+			lc => "de",
+			ingredients_text => "gehacktes Buttermilch, gehackter Dickmilch"
+		},
 		[
 			{
 				'id' => 'en:buttermilk',
@@ -567,7 +590,10 @@ my @tests = (
 
 	# Test for en:oiled
 	[
-		{lc => "de", ingredients_text => "Schalotte geölt, geölte haselnüsse"},
+		{
+			lc => "de",
+			ingredients_text => "Schalotte geölt, geölte haselnüsse"
+		},
 		[
 			{
 				'id' => 'en:shallot',
@@ -713,7 +739,10 @@ my @tests = (
 
 	#  de:gesüßt
 	[
-		{lc => "de", ingredients_text => "Schalotte gesüßt, gesüßte haselnüsse"},
+		{
+			lc => "de",
+			ingredients_text => "Schalotte gesüßt, gesüßte haselnüsse"
+		},
 		[
 			{
 				'id' => 'en:shallot',
@@ -761,7 +790,10 @@ my @tests = (
 
 	# de:halbiert and variants
 	[
-		{lc => "de", ingredients_text => "Schalotte halbiert, halbierte haselnüsse, halbe mandeln"},
+		{
+			lc => "de",
+			ingredients_text => "Schalotte halbiert, halbierte haselnüsse, halbe mandeln"
+		},
 		[
 			{
 				'id' => 'en:shallot',
@@ -1182,6 +1214,7 @@ my @tests = (
 			}
 		]
 	],
+
 	# Various tests
 	#[ { lc => "de", ingredients_text => "gehackte und geröstete haselnüs" },
 	#	[
@@ -1226,7 +1259,10 @@ my @tests = (
 
 	# All variants of de:rehydriert
 	[
-		{lc => "de", ingredients_text => "Schalotte rehydriert, zwiebel rehydrierte, spinat rehydriertes"},
+		{
+			lc => "de",
+			ingredients_text => "Schalotte rehydriert, zwiebel rehydrierte, spinat rehydriertes"
+		},
 		[
 			{
 				'id' => 'en:shallot',
@@ -1319,7 +1355,10 @@ my @tests = (
 	],
 
 	[
-		{lc => "de", ingredients_text => "Schalottepüree, zwiebel püree, spinat-püree, selleriemark"},
+		{
+			lc => "de",
+			ingredients_text => "Schalottepüree, zwiebel püree, spinat-püree, selleriemark"
+		},
 		[
 			{
 				'id' => 'en:shallot',
@@ -1346,7 +1385,10 @@ my @tests = (
 
 	# de:gerieben and synonyms tests
 	[
-		{lc => "de", ingredients_text => "Schalotte gerieben, geriebener zwiebel, geriebene spinat"},
+		{
+			lc => "de",
+			ingredients_text => "Schalotte gerieben, geriebener zwiebel, geriebene spinat"
+		},
 		[
 			{
 				'id' => 'en:shallot',
@@ -1530,6 +1572,7 @@ foreach my $test_ref (@tests) {
 	parse_ingredients_text($product_ref);
 
 	is_deeply($product_ref->{ingredients}, $expected_ingredients_ref)
+
 		# using print + join instead of diag so that we don't have
 		# hashtags. It makes copy/pasting the resulting structure
 		# inside the test file much easier when tests results need

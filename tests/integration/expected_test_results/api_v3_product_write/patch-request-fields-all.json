@@ -1,0 +1,22 @@
+{
+   "errors" : [
+      {
+         "field" : {
+            "id" : "body",
+            "value" : "{\n\t\t\t\"fields\": \"updated\",\n\t\t\t\"tags_lc\": \"en\",\n\t\t\t\"product\": {\n\t\t\t\t\"packagings\": [\n\t\t\t\t\t{\n\t\t\t\t\t\t\"number_of_units\": 1,\n\t\t\t\t\t\t\"shape\": {\"lc_name\": \"bag\"},\n\t\t\t\t\t\t\"material\": {\"lc_name\": \"plastic\"},\n\t\t\t\t\t}\n\t\t\t\t]\n\t\t\t}\n\t\t}"
+         },
+         "impact" : {
+            "id" : "failure",
+            "lc_name" : "Failure",
+            "name" : "Failure"
+         },
+         "message" : {
+            "id" : "invalid_json_in_request_body",
+            "lc_name" : "Invalid JSON in request body",
+            "name" : "Invalid JSON in request body"
+         }
+      }
+   ],
+   "status" : "failure",
+   "warnings" : []
+}
