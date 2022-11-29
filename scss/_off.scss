@@ -1167,6 +1167,7 @@ span.ico-bold {
   @include button(10, $white);
 }
 
+<<<<<<< HEAD
 $section-blue: #6d85d9;
 
 .donation-banner,
@@ -1179,6 +1180,38 @@ $section-blue: #6d85d9;
     flex-direction: column;
     padding: 1rem 0;
   }
+=======
+#donate-banner {
+  position: relative;
+  display: flex;
+  padding: 1rem 0;
+  background-color: #6D85D9;
+  @media #{$small-only} {
+    flex-direction: column;
+    &__content {
+      flex-direction: column; 
+      gap: 0 !important;
+      margin-top: -2rem;
+      .banner-content {
+        order: 1;
+        flex-direction: column;
+        p { 
+          text-align: center; 
+          margin: 0 1rem;
+        }
+        .banner-thanks {
+          margin-top: 1rem;
+          margin-bottom: 1rem;
+        }
+      }
+      .button { 
+        order: 2; 
+        padding: 1rem 2rem;
+      }
+    }
+  }
+  p { color: $white; }
+>>>>>>> sultanowski-donation-banner
   &__image {
     display: block;
     content: "";
@@ -1187,6 +1220,7 @@ $section-blue: #6d85d9;
     height: 81px;
   }
   &__content {
+<<<<<<< HEAD
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -1238,6 +1272,39 @@ $section-blue: #6d85d9;
         align-self: flex-end;
         order: 1;
       }
+=======
+    display: inline-flex;
+    align-items: center;
+    gap: 2rem;
+    max-width: 100rem;
+    margin: 0 auto;
+    .banner-content {
+      display: flex;
+      flex-direction: column;
+      .banner-thanks {
+        font-weight: 900;
+        span { color: red; font-size: 1rem; }
+      }
+    }
+    .banner-close {
+      width: 32px;
+      height: 32px;
+      .banner-close__icon {
+        position: absolute;
+        top: 0; right: 0;
+        margin: 1rem;
+        color: $white;
+        opacity: .5;
+        cursor: pointer;
+      }
+    }
+    > .button {
+      display: inline-flex !important;
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 0;
+>>>>>>> sultanowski-donation-banner
     }
   }
 }

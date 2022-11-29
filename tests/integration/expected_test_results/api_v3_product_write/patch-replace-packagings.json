@@ -4,15 +4,27 @@
    "product" : {
       "packagings" : [
          {
-            "material" : "en:plastic",
+            "material" : {
+               "id" : "en:plastic",
+               "lc_name" : "Plastic"
+            },
             "number_of_units" : 1,
-            "shape" : "en:bag",
+            "shape" : {
+               "id" : "en:bag",
+               "lc_name" : "Bag"
+            },
             "weight_measured" : 10.5
          },
          {
-            "material" : "en:paper",
+            "material" : {
+               "id" : "en:paper",
+               "lc_name" : "Paper"
+            },
             "number_of_units" : 1,
-            "shape" : "en:label",
+            "shape" : {
+               "id" : "en:label",
+               "lc_name" : "Label"
+            },
             "weight_specified" : 0.25
          }
       ]

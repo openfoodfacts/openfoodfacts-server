@@ -807,10 +807,10 @@ nl:maïsdextrine
 <en:potato starch
 en:modified potato starch
 bg:модифицирано картофено нишесте
-ca:mido de patata
+ca:midó modificat de patata
 da:modificeret kartoffelstivelse
 de:modifizierte Kartoffelstärke
-es:almidón modificado de patata,almidon de patata modificado
+es:almidón modificado de patata, almidon de patata modificado
 fi:muunnettu perunatärkkelys, modifioitu perunatärkkelys
 fr:amidon modifié de pomme de terre, amidon modifié de pommes de terre, amidon de pomme de terre modifié, amidon transformé de pommes de terre, amidon de pommes de terre modifié, amidon transformé de pomme de terre, fécule de pomme de terre modifiée, fécule modifiée de pommes de terre
 hu:módosított burgonyakeményítő
@@ -1503,7 +1503,7 @@ en:animal-based rennet
 da:animalsk løbe
 de:Lab auf tierischer Basis, tierisches Lab
 el:πυτία ζώων
-es:cuajo animal
+es:cuajo animal, cuajo de origen animal, cuajo natural de origen animal
 fi:eläinperäinen juoksute
 fr:présure animale
 hu:állati eredetű oltóenzim
@@ -2498,6 +2498,7 @@ nl:vloeibare melkbestanddelen
 <en:milk
 en:lactose-free milk
 bg:мляко без лактоза
+ca:llet sense lactosa
 de:laktosefreie Milch
 es:leche sin lactosa
 nl:lactosevrije melk
@@ -2673,7 +2674,7 @@ ciqual_food_name:fr:Lait écrémé, UHT
 <en:milk
 en:semi-skimmed milk, reduced-fat milk, partly skimmed milk, partially skimmed milk, part skim milk
 bg:полуобезмаслено мляко
-ca:llet parcialment desnatada, llet semidesnatada
+ca:llet parcialment desnatada, llet semidesnatada, llet parcialment desgreixada
 da:letmælk
 de:teilentrahmte milch
 es:leche parcialmente desnatada, leche semidesnatada, Leche semidescremada, leche parcialmente descremada
@@ -2767,6 +2768,11 @@ ca:llet parcialment desnatada esterilitzada, llet esterilitzada parcialment desn
 de:sterilisierte teilentrahmte Milch, teilentrahmte Milch sterilisiert
 es:leche parcialmente desnatada esterelizada, leche semidesnatada esterilizada, leche esterilizada parcialmente desnatada, leche esterilizada semidesnatada
 fr:lait demi-écrémé stérilisé
+
+<en:lactose-free milk
+<en:semi-skimmed milk
+<en:pasteurised milk
+ca:llet de vaca sense lactosa semidesnatada pasteuritzada
 
 <en:semi-skimmed milk
 fr:lait de montagne partiellement écrémé
@@ -3039,6 +3045,7 @@ nl:halfvolle koemelk
 
 <en:semi-skimmed cow's milk
 en:pasteurised semi-skimmed cow's milk
+ca:llet de vaca semidesnatada pasteuritzada
 bg:пастьоризирано полуобезмаслено краве мляко
 de:pasteurisierte teilentrahmte Kuhmilch
 es:leche de vaca pasteurizada semidesnatada, leche semidescremada pasteurizada, leche pasteurizada semidescremada, leche semi-descremada pasteurizada, leche de vaca semidescremada pasteurizada
@@ -4402,7 +4409,7 @@ vegetarian:en:yes
 <en:whey
 en:whey powder, powdered whey,milk whey powder
 bg:суроватка на прах
-ca:Xerigot en pols, sèrum en pols
+ca:Xerigot en pols, sèrum en pols, sèrum làctic en pols
 cs:sušená syrovátka
 da:Vallepulver, vallepulver af mælk
 de:Molkenpulver, Molkepulver
@@ -4531,7 +4538,7 @@ sv:vassleprodukt
 <en:whey
 en:whey permeate, milk permeate
 bg:суроватъчен пермеат
-ca:permeat de sèrum de la llet
+ca:permeat de sèrum de la llet, permeat làctic
 de:Molkepermeat, Milchpermeat
 es:permeado de suerodérivé de la
 fi:herapermeaatti, maitopermeaatti
@@ -4539,6 +4546,10 @@ fr:perméat de petit lait
 nl:weipermeaat, melkweipermeaat
 sv:vasslepermeat
 # ingredient/fr:perméat-de-petit-lait has 126 products in 5 languages @2019-04-21
+
+<en:whey permeate
+en:reconstituted whey permeate 
+ca:permeat làctic reconstituit
 
 <en:whey permeate
 en:whey permeate powder
@@ -5737,7 +5748,7 @@ carbon_footprint_fr_foodges_value:fr:3.5
 <en:soft white cheese
 fr:fromage frais au lait demi-écrémé
 ca:formatge fresc semidesnatat, formatge fresc parcialment desnatat
-es:queso fresco semidesnatado, queso fresco parcialmente desnatado
+es:queso fresco semidesnatado, queso fresco parcialmente desnatado, queso blanco semidesnatado
 
 <en:soft white cheese
 fr:fromage frais au lait demi-écrémé pasteurisé, Fromage frais nature au lait demi-écrémé pasteurisé
@@ -5755,7 +5766,7 @@ fr:fromage frais à la ciboulette
 <en:soft white cheese
 fr:fromage frais au lait pasteurisé
 ca:formatge fresc pasteuritzat
-es:queso fresco pasteurizado
+es:queso fresco pasteurizado, queso blanco pasteurizado
 
 
 # <en:compound
@@ -5784,6 +5795,11 @@ hu:ömlesztett porított sajt
 it:formaggio fuso in polvere
 nl:poeder van gesmolten kazen
 # fr:fromage-fondu-en-poudre has 98 products in 6 languages @2018-10-28
+
+<en:melted cheese
+en:melted grated cheese
+ca:formatge fos ratllat
+es:queso fundido rallado
 
 <en:cheese
 en:low fat cheese
@@ -5887,7 +5903,11 @@ nl:Zwitserse kaas
 
 <en:cheese
 en:paneer
+hi:पनीर
 xx:paneer
+wikidata:en:Q1139546
+wikipedia:en:https://en.wikipedia.org/wiki/Paneer
+description:en:fresh cheese common in the Indian subcontinent also called Indian cottage cheese
 
 <en:sauce
 en:cheese sauce
@@ -6188,13 +6208,14 @@ en:cheddar, cheddar cheese, Cheddar cheese from cow's milk
 af:Cheddarkaas
 ar:جبنة تشيدر
 bg:чедър
+ca:cheddar, formatge cheddar
 cs:čedar
 cv:Чеддер
 cy:Caws Cheddar
 da:Cheddarost
 el:Τσένταρ
 eo:Ĉedder
-es:queso Cheddar
+es:cheddar, queso Cheddar
 et:cheddar, Cheddari juust
 eu:Cheddar gazta
 fa:پنیر چدار
@@ -10005,7 +10026,7 @@ de:gebratenes Rindfleisch einschließlich Rindfleischsäften
 <en:beef
 en:beef meat, pure beef meat
 bg:говеждо месо
-ca:carn pura de vaca
+ca:carn pura de vaca, carn de boví
 de:Rindfleisch
 es:carne de vaca, carne de vacuno, carne bovina,  Carne pura de vaca
 fi:naudanliha, naudanlihaa
@@ -11778,6 +11799,7 @@ wikidata:en:Q3695900
 en:bacon
 ar:باكون
 be:Бекон
+bg:Сланина
 br:Kig-sall
 ca:cansalada, cansalada de porc
 cs:slanina
@@ -11787,7 +11809,7 @@ da:Bacon
 de:Speck, Schweinespeck
 el:Μπέικον
 eo:lardo
-es:panceta, bacon, tocineta
+es:panceta, bacon, tocineta, tocino
 eu:Hirugihar
 fa:بیکن
 fi:Pekoni
@@ -13304,7 +13326,7 @@ fr:amidon transformé de mais sans OGM
 en:potato starch
 ar:نشا البطاطا
 bg:картофено нишесте
-ca:Fècula de patata
+ca:Fècula de patata, midó de patata
 cs:Bramborový škrob
 da:kartoffelstivelse, Kartoffelmel
 de:Kartoffelstärke
@@ -13491,7 +13513,7 @@ allergens:en: en:gluten
 
 en:oil and fat, oils and fats
 bg:масла и мазнини
-ca:Oli i greix, olis i greixos
+ca:Oli i greix, olis i greixos, matèria grassa, M.G.
 cs:oleji a tuky
 da:olier og fedtstoffer
 de:Speiseöle und -fette
@@ -26484,6 +26506,7 @@ sr:pirinač ekstrudat
 
 <en:rice
 en:puffed rice, crisped rice, rice crisps
+ca:arròs inflat, arròs inflats
 da:puffat ris, puffede ris
 de:Puffreis, Reis-Crispies, Reis gepufft, Crisp-Rice
 es:arroz inflado, arroz inflados
@@ -28203,7 +28226,7 @@ sv:Glukos-Fruktos
 <en:glucose
 <en:fructose
 en:glucose-fructose syrup, fructose-glucose syrup, glucose and fructose syrup
-bg:глюкозо-фруктозен сироп, сироп от глюкоза и фруктоза
+bg:глюкозо-фруктозен сироп, сироп от глюкоза и фруктоза, фруктозо-глюкозен сироп
 ca:Xarop de glucosa-fructosa, xarop de glicosa-fructosa, xarop de glucosa i fructosa
 cs:glukózo-fruktózový sirup, glukózový-fruktózový sirup
 da:glukos-fruktossirap, glukose-fruktosesirup
@@ -29045,6 +29068,7 @@ ro:proteină de cartofi
 
 <en:plant protein
 en:hydrolysed vegetable protein, HVP, vegetable hydrolysed proteins
+ca:Proteïna vegetal hidrolitzada
 da:hydrolyseret vegetabllsk protein. hydrolysert vegetabilsk protein
 de:hydrolysiertes Pflanzenprotein, aufgeschlossenes Pflanzeneiweiß, aufgeschlossenes Pflanzenprotein
 es:Proteina vegetal hidrolizada, hidrolizado de proteína vegetal
@@ -29071,7 +29095,7 @@ sv:hydrolyserat ärtprotein
 
 <en:hydrolysed vegetable protein
 en:soy protein
-bg:соев протеин
+bg:соев протеин, соев белтък
 ca:proteïna de soja
 cs:sójová bílkovina, sójová bilkovina
 da:sojaprotein
@@ -29172,6 +29196,7 @@ nl:graneneiwit
 <en:plant protein
 en:wheat protein
 bg:пшеничен протеин
+ca:proteïna de blat
 cs:pšeničná bílkovina, pšeničná bilkovina
 de:Weizenprotein, Weizeneiweiß, Weizeneiweiss
 es:Proteina de trigo
@@ -29267,7 +29292,7 @@ vegetarian:en:no
 
 <en:animal protein
 en:pork protein
-bg:свински протеин
+bg:свински протеин, свински белтък
 de:Schweineprotein
 es:proteina de cerdo
 fi:sianlihaproteiini
@@ -29640,6 +29665,7 @@ it:Cacao trattato con agenti alcalinizzanti
 
 <en:cocoa
 en:fat reduced cocoa, reduced fat cocoa, low fat cacao
+ca:cacau desgreixat
 da:fedtfattig kakao
 de:fettarmer Kakao, magerer Kakao
 es:cacao magro, cacao desgrasado
@@ -29861,7 +29887,7 @@ ca:cacau desgreixat en pols, cacau en pols reduït en greix
 cs:Kakaový prášek se sníženým obsahem tuku
 da:fedtfattigt kakaopulver, fedtreduceret kakaopulver, skummet kakaopulver
 de:fettarmes Kakaopulver, Kakaopulver stark entölt, fettreduziertes Kakaopulver, Kakaopulver mit reduziertem Fettgehalt
-es:cacao magro en polvo, cacao desgrasado en polvo, cacao en polvo desgrasado, cacao en polvo reducido en grasa, cacao deshidratado rebajado en grasa
+es:cacao magro en polvo, cacao desgrasado en polvo, cacao en polvo desgrasado, cacao en polvo reducido en grasa, cacao deshidratado rebajado en grasa, cacao en polvo semidesgrasado, cacao semidesgrasado en polvo
 et:lahja kakaopulber, vähendatud rasvasisaldusega kakaopulber
 fi:vähärasvainen kaakaojauhe, vähärasvaista kaakaojauhetta
 fr:poudre de cacao maigre, poudre de cacao dégraissé, cacao dégraissé en poudre, cacao en poudre dégraissé, cacao maigre en poudre, cacao sec dégraissé, poudre de cacao à teneur réduite en matières grasses
@@ -30256,7 +30282,7 @@ fr:pépites de chocolat sans sucre
 <en:chocolate
 en:chocolate filling, filling cream with chocolate
 de:Schokoladenfüllung
-es:Relleno de chocolate
+es:Relleno de chocolate, Relleno de cacao, Relleno cacao
 fi:suklaatäyte
 fr:fourrage au chocolat, fourrage chocolat
 it:ripieno al cioccolato
@@ -31953,6 +31979,7 @@ ciqual_food_name:fr:Levure de boulanger, compressée
 # description:en:SACCHAROMYCES CEREVISIAE is a species of yeast. It has been instrumental to winemaking, baking, and brewing since ancient times. S. cerevisiae is used in baking; the carbon dioxide generated by the fermentation is used as a leavening agent in bread and other baked goods. Historically, this use was closely linked to the brewing industry's use of yeast, as bakers took or bought the barm or yeast-filled foam from brewing ale from the brewers (producing the barm cake); today, brewing and baking yeast strains are somewhat different.
 
 <en:yeast
+bg:суха мая
 de:Trockenhefe
 fr:levure sèche
 it:lievito secco
@@ -32765,6 +32792,7 @@ fr:épaississant e415
 en:gellan gum, E418, E-418, E 418, INS418, INS-418, INS 418, gellan
 ar:صمغ الجيلان
 bg:Гума джелан
+ca:goma gellan
 cs:Guma gellan
 da:Gellangummi
 de:Gellan
@@ -50617,6 +50645,7 @@ fr:purée de tomates triple concentrée, triple concentré de tomate
 <en:tomato
 en:tomato powder, powdered tomato
 bg:доматен прах, домати на прах
+ca:tomàquet en pols
 cs:rajčatový prášek
 da:tomatpulver
 de:Tomatenpulver
@@ -54015,6 +54044,7 @@ fi:karamellisoidut hasselpähkinät
 
 <en:hazelnut
 en:hazelnut paste
+ca:pasta d'avellana, pasta d'avellanes
 cs:oříšková pasta
 da:hasselnödmasse
 de:Haselnüsspaste, Haselnusspaste, Haselnussmasse, Haselnussmark
@@ -54866,7 +54896,7 @@ bn:চিয়া বীজ
 cs:chia semínka
 da:chiafrø
 de:Chiasamen
-es:semillas de chia
+es:semillas de chia, chia
 et:Õlisalvei seemned
 fi:chia-siemen, chia-siemenet, chiansiemen
 fr:graine de chia, graines de chia
@@ -75273,7 +75303,7 @@ sv:kycklingskinn
 <en:chicken
 en:chicken meat
 bg:пилешко месо
-ca:carn de pollastre
+ca:carn de pollastre, carn de gallina
 da:Kylling
 de:Pouletfleisch, Hühnerfleisch, Hühnchenfleisch
 es:Carne de pollo
@@ -79538,6 +79568,8 @@ fr:décor au cacao maigre, decor au cacao maigre, enrobage au cacao maigre
 
 <en:coating
 fr:chocolat de couverture
+ca:cobertura de xocolata, cobertura de cacau
+es:cobertura de chocolate
 
 <en:coating
 en:milk chocolate coating
@@ -79548,6 +79580,8 @@ sv:mjölkchokladsöverdrag
 
 <en:coating
 fr:chocolat noir de couverture
+ca:cobertura de xocolata negra, cobertura de xocolata negre, cobertura de cacau pur
+es:cobertura de chocolate puro, cobertura de chocolate negro
 
 <en:coating
 en:white chocolate coating
@@ -81639,7 +81673,7 @@ da:ketchup
 de:Ketchup
 el:κέτσαπ
 eo:keĉupo
-es:kétchup
+es:kétchup, Tomate ketchup
 et:ketšup
 eu:ketchup
 fa:کچاپ

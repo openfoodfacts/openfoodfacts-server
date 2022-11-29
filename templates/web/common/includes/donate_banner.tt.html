@@ -36,6 +36,37 @@
     document.cookie = bcname + '=' + bcval + ';' + expires + ';' + domain + ';SameSite=None;Secure;path=/';
   }
 
+<section id="donate-banner">
+  <span id="donate-banner__image"></span>
+	<div id="donate-banner__content">
+		<a href="[% link %]?utm_source=off&utm_medium=web&utm_campaign=donate-2022&utm_term=en-text-button"
+       class="button round white-button">
+			<span class="material-icons">volunteer_activism</span>
+			[% lang('donation_cta') %]
+    </a>
+    <div class="banner-content">
+      <p>[% f_lang('donation_body_employees', { number_of_employees => '7' }) %] [% f_lang('donation_why_year', { year => '2022' }) %]</p>
+      <p class="banner-thanks">[% lang('thank_you') %] <span class="material-icons">favorite</span></p>
+    </div>
+    <div class="banner-close">
+      <span id="hide-donate-banner" onclick="DonationButton();" class="material-icons banner-close__icon">close</span>
+    </div>
+	</div>
+</section>
+
+<script>
+  let d = new Date();
+  let bannerID = document.getElementById('donate-banner');
+  let getDomain = window.location.origin.split('.');
+
+  function setBannerCookie(bcname, bcval, bcexdays) {
+    d.setTime(d.getTime() + (bcexdays*60*60*24*1000));
+    let expires = 'expires=' + d.toUTCString();
+    // Apply cookie for every domain contains open...facts
+    let domain = 'domain=.' + getDomain.slice(2).join('.');
+    document.cookie = bcname + '=' + bcval + ';' + expires + ';' + domain + ';SameSite=None;Secure;path=/';
+  }
+  
   function getBannerCookie(bcname) {
     let name = bcname + '=';
     let decodedCookie = decodeURIComponent(document.cookie);
@@ -53,6 +84,7 @@
     bannerID.style.display = 'none';
   }
 
+<<<<<<< HEAD
   if (getBannerCookie('off-donation-banner') !== '') {
     bannerID.style.display = 'none';
   } else { 
@@ -84,6 +116,15 @@
   </div>
 </section>
 
+=======
+  if (getBannerCookie('off-donation-banner') != '') {
+    bannerID.style.display = 'none'; 
+  } else { 
+    bannerID.style.display = 'flex'; 
+  }
+</script>
+
+>>>>>>> sultanowski-donation-banner
 [% END %]
 
 <!-- end templates/[% component.name %] -->

@@ -49,6 +49,7 @@ BEGIN {
 		&parse_packaging_component_data_from_text_phrase
 		&guess_language_of_packaging_text
 
+		%packaging_taxonomies
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -96,7 +97,7 @@ packaging shapes, materials etc. that we want to recognize in packaging text.
 
 =cut
 
-my %packaging_taxonomies = (
+%packaging_taxonomies = (
 	"shape" => "packaging_shapes",
 	"material" => "packaging_materials",
 	"recycling" => "packaging_recycling"
@@ -426,10 +427,20 @@ sub get_checked_and_taxonomized_packaging_component_data ($tags_lc, $input_packa
 	}
 
 	# Shape, material and recycling
-	foreach my $property ("recycling", "material", "shape") {
+	foreach my $property ("shape", "material", "recycling") {
 
 		my $tagtype = $packaging_taxonomies{$property};
 		if (defined $input_packaging_ref->{$property}) {
+
+			# the API specifies that the property is a hash with either an id or a lc_name field
+			# (same structure as when the packagings structure is read)
+			# both will be treated the same way and be canonicalized
+
+			if (ref($input_packaging_ref->{$property}) eq 'HASH') {
+				$input_packaging_ref->{$property}
+					= $input_packaging_ref->{$property}{id} || $input_packaging_ref->{$property}{lc_name};
+			}
+
 			my $tagid = canonicalize_taxonomy_tag($tags_lc, $tagtype, $input_packaging_ref->{$property});
 			$log->debug(
 				"canonicalize input value",

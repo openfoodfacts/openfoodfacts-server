@@ -331,28 +331,112 @@
          "ecoscore_packaging" : {
             "elements" : [
                {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "\n                    Les informations sur l'emballage de ce produit ne sont pas renseignées.\n                    ",
-                     "type" : "warning"
-                  }
-               },
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "\n                Pour un calcul plus précis de l'Eco-Score, vous pouvez modifier la fiche produit et les ajouter.\n                <br><br>\n                Si vous êtes le fabricant de ce produit, vous pouvez nous transmettre les informations avec notre <a href=\"https://fr.pro.openfoodfacts.org\">plateforme gratuite pour les producteurs</a>.\n                    ",
-                     "type" : "warning"
+                  "element_type" : "table",
+                  "table_element" : {
+                     "columns" : [
+                        {
+                           "text" : "Forme",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Matière",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Recyclage",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Impact",
+                           "type" : "text"
+                        }
+                     ],
+                     "id" : "ecoscore_packaging_components",
+                     "rows" : [
+                        {
+                           "values" : [
+                              {
+                                 "text" : "1 Boîte"
+                              },
+                              {
+                                 "text" : "Bois"
+                              },
+                              {
+                                 "evaluation" : "good",
+                                 "text" : "Recycler"
+                              },
+                              {
+                                 "evaluation" : "neutral",
+                                 "text" : "Moyen"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "text" : "6 Bouteille"
+                              },
+                              {
+                                 "text" : "Verre"
+                              },
+                              {
+                                 "text" : "Réutiliser"
+                              },
+                              {
+                                 "evaluation" : "good",
+                                 "text" : "Faible"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "text" : "3 Couvercle"
+                              },
+                              {
+                                 "text" : "Acier"
+                              },
+                              {
+                                 "evaluation" : "good",
+                                 "text" : "Recycler"
+                              },
+                              {
+                                 "evaluation" : "good",
+                                 "text" : "Faible"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "text" : "1 Film"
+                              },
+                              {
+                                 "text" : "Plastique"
+                              },
+                              {
+                                 "evaluation" : "bad",
+                                 "text" : "Jeter"
+                              },
+                              {
+                                 "evaluation" : "bad",
+                                 "text" : "élevé"
+                              }
+                           ]
+                        }
+                     ],
+                     "title" : "Parties de l'emballage"
                   }
                }
             ],
-            "evaluation" : "unknown",
+            "evaluation" : "average",
             "level" : "info",
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
-               "subtitle" : "Malus : -15",
-               "title" : "Informations d'emballage manquantes pour ce produit"
+               "subtitle" : "Malus : -8",
+               "title" : "Emballage à impact moyen"
             },
             "topics" : [
                "environment"
@@ -399,7 +483,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                Score d'analyse du cycle de vie : 58<br>\n                Somme des bonus et malus :\n                    \n                        -30\n                    <br><br>\n                Score final : 28/100\n                \n                ",
+                     "html" : "\n                Score d'analyse du cycle de vie : 58<br>\n                Somme des bonus et malus :\n                    \n                        -23\n                    <br><br>\n                Score final : 35/100\n                \n                ",
                      "type" : "summary"
                   }
                }
@@ -408,7 +492,7 @@
             "title_element" : {
                "grade" : "d",
                "subtitle" : "Produit : Some product - 100 g",
-               "title" : "Impact pour ce produit: D (Score: 28/100)",
+               "title" : "Impact pour ce produit: D (Score: 35/100)",
                "type" : "grade"
             },
             "topics" : [
@@ -964,18 +1048,33 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                    Les informations sur l'emballage de ce produit ne sont pas renseignées.\n                    ",
-                     "type" : "warning"
+                     "evaluation" : "good",
+                     "html" : "\n                        \n                            \n                                <strong>Boîte</strong>\n                                    \n                                        (Bois)\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                                <strong>Couvercle</strong>\n                                    \n                                        (Acier)\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                        ",
+                     "icon_alt" : "Recycler",
+                     "icon_color_from_evaluation" : true,
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/recycle-variant.svg",
+                     "type" : "summary"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "evaluation" : "bad",
+                     "html" : "\n                        \n                            \n                        \n                            \n                        \n                            \n                        \n                            \n                                <strong>Film</strong>\n                                    \n                                        (Plastique)\n                                    \n                                    <br>\n                            \n                        \n                        ",
+                     "icon_alt" : "Jeter",
+                     "icon_color_from_evaluation" : true,
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/delete.svg",
+                     "type" : "summary"
                   }
                }
             ],
-            "evaluation" : "unknown",
+            "evaluation" : "average",
+            "expanded" : true,
             "level" : "info",
             "title_element" : {
-               "evaluation" : "neutral",
                "icon_color_from_evaluation" : true,
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
-               "title" : "Informations d'emballage manquantes pour ce produit"
+               "title" : "Emballage à impact moyen"
             },
             "topics" : [
                "environment"
