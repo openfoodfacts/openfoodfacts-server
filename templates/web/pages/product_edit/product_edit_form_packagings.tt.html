@@ -21,7 +21,6 @@ var packaging_recycling_select2_options = [% generate_select2_options_for_taxono
     </div>
 
 [% FOREACH packaging IN product.packagings %]
-    [% SET packaging_max = loop.index() %]
     [% SET packaging_id = "packaging_" _ loop.index() %]
     <div class="row packagings_components_edit_row" id="[% packaging_id %]_row">
         <div class="small-12 large-1 columns">
@@ -56,43 +55,43 @@ var packaging_recycling_select2_options = [% generate_select2_options_for_taxono
 
             [% SET select2_id = packaging_id _ "_$property" %]
 
-        <div class="small-12 large-3 columns">
-            <label class="hide-for-large-up" for="[% select2_id %]">[% lang("packaging_$property") %]</label>
-            <select id="[% select2_id %]" name="[% select2_id %]" class="form-control [% taxonomy %]_select2">
-                <option></option>
-            </select>
-        </div>
+            <div class="small-12 large-3 columns">
+                <label class="hide-for-large-up" for="[% select2_id %]">[% lang("packaging_$property") %]</label>
+                <select id="[% select2_id %]" name="[% select2_id %]" class="form-control [% taxonomy %]_select2">
+                    <option></option>
+                </select>
+            </div>
 
-    [%# row 0 is a template for new row, we do not populate it %]
-    [% IF packaging_max > 0 %]
-<initjs>
-\$("#[% select2_id %]").select2({
-    placeholder: "[% lang("packaging_$property") %]",
-    data: [% taxonomy %]_select2_options,
-    allowClear:true,
-    tags: true
-});
+            // row 0 is a template for new row, we do not populate it %]
+            [% IF packaging_max > 0 %]
+                <initjs>
+                    \$("#[% select2_id %]").select2({
+                        placeholder: "[% lang("packaging_$property") %]",
+                        data: [% taxonomy %]_select2_options,
+                        allowClear:true,
+                        tags: true
+                    });
 
-[% IF packaging.$property.defined %]
-// Set the value, creating a new option if necessary (for non taxonomy values)
-var value = "[% display_taxonomy_tag(taxonomy, packaging.$property) %]";
-if (\$("#[% select2_id %]").find("option[value='" + value.replace(/'/g, "\\'") + "']").length) {
-    \$("#[% select2_id %]").val(value).trigger('change');
-} else { 
-    // Create a DOM Option and pre-select by default
-    var newOption = new Option(value, value, true, true);
-    // Append it to the select
-    \$("#[% select2_id %]").append(newOption).trigger('change');
-} 
-[% END %]
+                    [% IF packaging.$property.defined %]
+                    // Set the value, creating a new option if necessary (for non taxonomy values)
+                    var value = "[% display_taxonomy_tag(taxonomy, packaging.$property) %]";
+                    if (\$("#[% select2_id %]").find("option[value='" + value.replace(/'/g, "\\'") + "']").length) {
+                        \$("#[% select2_id %]").val(value).trigger('change');
+                    } else { 
+                        // Create a DOM Option and pre-select by default
+                        var newOption = new Option(value, value, true, true);
+                        // Append it to the select
+                        \$("#[% select2_id %]").append(newOption).trigger('change');
+                    } 
+                    [% END %]
 
-\$("#[% packaging_id %]_delete").click(function(event) {
-    event.stopPropagation();
-    event.preventDefault();
-    \$("#[% packaging_id %]_row").remove();
-});
-</initjs>
-    [% END %]
+                    \$("#[% packaging_id %]_delete").click(function(event) {
+                        event.stopPropagation();
+                        event.preventDefault();
+                        \$("#[% packaging_id %]_row").remove();
+                    });
+                </initjs>
+            [% END %]
                 
         [% END %]
 
@@ -107,6 +106,8 @@ if (\$("#[% select2_id %]").find("option[value='" + value.replace(/'/g, "\\'") +
         </div>        
 
     </div>
+
+    [% SET packaging_max = loop.max() %]
 [% END %]
 
 <input type="hidden" name="packaging_max" value="[% packaging_max %]">
