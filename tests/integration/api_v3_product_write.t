@@ -65,7 +65,7 @@ my $tests_ref = [
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890007',
 		body => '{"product": {"fields": "updated", "packagings_add": [{"shape": {"lc_name": "bottle"}}]}}'
-	},	
+	},
 	# Only the PATCH method is valid, test other methods
 	{
 		test_case => 'post-packagings',
@@ -257,7 +257,7 @@ my $tests_ref = [
 				]
 			}
 		}'
-	},	
+	},
 	{
 		test_case => 'patch-request-fields-all',
 		method => 'PATCH',

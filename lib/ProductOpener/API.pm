@@ -578,17 +578,17 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields) {
 		# Return the raw product data, as stored in the .sto files and database
 		return $product_ref;
 	}
-	
+
 	if ($fields =~ /\ball\b/) {
 		# Return all fields of the product, with processing that depends on the API version used
-		# e.g. in API v3, the "packagings" structure is more verbose than the stored version		
+		# e.g. in API v3, the "packagings" structure is more verbose than the stored version
 		$fields = $` . join(",", sort keys %{$product_ref}) . $';
 	}
 
 	# Callers of the API V3 WRITE product can send fields = updated to get only updated fields
 	if ($fields =~ /\bupdated\b/) {
 		if (defined $request_ref->{updated_product_fields}) {
-			$fields = $`. join(',', sort keys %{$request_ref->{updated_product_fields}}) . $';
+			$fields = $` . join(',', sort keys %{$request_ref->{updated_product_fields}}) . $';
 			$log->debug("returning only updated fields", {fields => $fields}) if $log->is_debug();
 		}
 	}

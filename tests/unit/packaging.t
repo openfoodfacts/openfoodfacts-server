@@ -69,7 +69,7 @@ boîte en carton à recycler"
 			lc => "fr",
 			packaging_text => "barquette en plastique à jeter;film plastique à jeter; boîte en carton à recycler"
 		}
-	],		
+	],
 	[
 		'packaging_text_fr_boite_cartonee_accents',
 		{
@@ -496,8 +496,7 @@ boîte en carton à recycler"
 			lc => "en",
 			packaging_text => "Some words that do not look like what we expect at all",
 		}
-	],	
-
+	],
 
 );
 

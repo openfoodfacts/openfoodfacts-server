@@ -1683,7 +1683,7 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 		if ((defined $request_ref->{tag_prefix}) and ($request_ref->{tag_prefix} ne '')) {
 			my $prefix = $request_ref->{tag_prefix};
 			$main_link = add_tag_prefix_to_link($main_link, $prefix);
-			$log->debug("Found tag prefix for main_link", { request => $request_ref}) if $log->is_debug();
+			$log->debug("Found tag prefix for main_link", {request => $request_ref}) if $log->is_debug();
 		}
 
 		my %products = ();    # number of products by tag, used for histogram of nutrition grades colors
@@ -2978,7 +2978,7 @@ sub display_tag ($request_ref) {
 			my $prefix = $request_ref->{tag_prefix};
 			$request_ref->{current_link} = add_tag_prefix_to_link($request_ref->{current_link}, $prefix);
 			$request_ref->{world_current_link} = add_tag_prefix_to_link($request_ref->{world_current_link}, $prefix);
-			$log->debug("Found tag prefix ", { request => $request_ref}) if $log->is_debug();
+			$log->debug("Found tag prefix ", {request => $request_ref}) if $log->is_debug();
 		}
 
 		$request_ref->{canon_tagid} = $canon_tagid;
@@ -3047,7 +3047,7 @@ sub display_tag ($request_ref) {
 			my $prefix = $request_ref->{tag2_prefix};
 			$request_ref->{current_link} = add_tag_prefix_to_link($request_ref->{current_link}, $prefix);
 			$request_ref->{world_current_link} = add_tag_prefix_to_link($request_ref->{world_current_link}, $prefix);
-			$log->debug("Found tag prefix 2 ", { request => $request_ref }) if $log->is_debug();
+			$log->debug("Found tag prefix 2 ", {request => $request_ref}) if $log->is_debug();
 		}
 
 		$request_ref->{canon_tagid2} = $canon_tagid2;
@@ -4341,7 +4341,8 @@ sub add_country_and_owner_filters_to_query ($request_ref, $query_ref) {
 		}
 	}
 
-	$log->debug("result of add_country_and_owner_filters_to_query", { request => $request_ref, query =>  $query_ref}) if $log->is_debug();
+	$log->debug("result of add_country_and_owner_filters_to_query", {request => $request_ref, query => $query_ref})
+		if $log->is_debug();
 
 	return;
 }
