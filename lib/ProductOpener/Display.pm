@@ -189,7 +189,6 @@ use Digest::MD5 qw(md5_hex);
 use boolean;
 use Excel::Writer::XLSX;
 use Template;
-use Data::Dumper;
 use Devel::Size qw(size total_size);
 use Data::DeepAccess qw(deep_get);
 use Log::Log4perl;
@@ -1679,7 +1678,7 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 		if ((defined $request_ref->{tag_prefix}) and ($request_ref->{tag_prefix} ne '')) {
 			my $prefix = $request_ref->{tag_prefix};
 			$main_link = add_tag_prefix_to_link($main_link, $prefix);
-			$log->debug("Found tag prefix for main_link " . Dumper($request_ref)) if $log->is_debug();
+			$log->debug("Found tag prefix for main_link", { request => $request_ref}) if $log->is_debug();
 		}
 
 		my %products = ();    # number of products by tag, used for histogram of nutrition grades colors
@@ -2355,8 +2354,6 @@ sub display_list_of_tags_translate ($request_ref, $query_ref) {
 
 		load_users_translations_for_lc($users_translations_ref, $tagtype, $lc);
 
-		print STDERR Dumper($users_translations_ref);
-
 		my %products = ();    # number of products by tag, used for histogram of nutrition grades colors
 
 		$log->debug("going through all tags") if $log->is_debug();
@@ -2976,7 +2973,7 @@ sub display_tag ($request_ref) {
 			my $prefix = $request_ref->{tag_prefix};
 			$request_ref->{current_link} = add_tag_prefix_to_link($request_ref->{current_link}, $prefix);
 			$request_ref->{world_current_link} = add_tag_prefix_to_link($request_ref->{world_current_link}, $prefix);
-			$log->debug("Found tag prefix " . Dumper($request_ref)) if $log->is_debug();
+			$log->debug("Found tag prefix ", { request => $request_ref}) if $log->is_debug();
 		}
 
 		$request_ref->{canon_tagid} = $canon_tagid;
@@ -3045,7 +3042,7 @@ sub display_tag ($request_ref) {
 			my $prefix = $request_ref->{tag2_prefix};
 			$request_ref->{current_link} = add_tag_prefix_to_link($request_ref->{current_link}, $prefix);
 			$request_ref->{world_current_link} = add_tag_prefix_to_link($request_ref->{world_current_link}, $prefix);
-			$log->debug("Found tag prefix 2 " . Dumper($request_ref)) if $log->is_debug();
+			$log->debug("Found tag prefix 2 ", { request => $request_ref }) if $log->is_debug();
 		}
 
 		$request_ref->{canon_tagid2} = $canon_tagid2;
@@ -4339,7 +4336,7 @@ sub add_country_and_owner_filters_to_query ($request_ref, $query_ref) {
 		}
 	}
 
-	$log->debug("request_ref: " . Dumper($request_ref) . "query_ref: " . Dumper($query_ref)) if $log->is_debug();
+	$log->debug("result of add_country_and_owner_filters_to_query", { request => $request_ref, query =>  $query_ref}) if $log->is_debug();
 
 	return;
 }
@@ -6673,7 +6670,6 @@ sub display_bottom_block ($blocks_ref) {
 
 sub display_page ($request_ref) {
 
-	#$log->trace("Start of display_page " . Dumper($request_ref)) if $log->is_trace();
 	$log->trace("Start of display_page") if $log->is_trace();
 
 	my $template_data_ref = {};
@@ -10282,8 +10278,6 @@ sub display_structured_response ($request_ref) {
 			rss => scalar $request_ref->{rss}
 		}
 	) if $log->is_debug();
-
-	$log->debug("display_structured_response", {request => $request_ref}) if $log->is_debug();
 
 	if (single_param("xml")) {
 
