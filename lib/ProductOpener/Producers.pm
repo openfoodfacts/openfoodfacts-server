@@ -1543,14 +1543,18 @@ JSON
 		}
 		# Packaging
 		if ($group_id eq "packaging") {
-			foreach my $field ("packaging_text", "recycling_instructions_to_recycle", "recycling_instructions_to_discard") {
+			foreach
+				my $field ("packaging_text", "recycling_instructions_to_recycle", "recycling_instructions_to_discard")
+			{
 				my $name = lang($field);
 				push @{$select2_group_ref->{children}}, {id => "$field", text => ucfirst($name)};
 			}
 
 			for (my $i = 1; $i <= 5; $i++) {
 				my $packaging_i = lang("packaging_part_short") . " " . $i . " - ";
-				foreach my $property ("number_of_units", "shape", "material", "recycling", "weight", "quantity_per_unit") {
+				foreach
+					my $property ("number_of_units", "shape", "material", "recycling", "weight", "quantity_per_unit")
+				{
 					my $name = $packaging_i . lang("packaging_" . $property);
 					my $field = "packaging_${i}_{$property}";
 					push @{$select2_group_ref->{children}}, {id => "$field", text => ucfirst($name)};
