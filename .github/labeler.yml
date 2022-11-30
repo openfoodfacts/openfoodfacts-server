@@ -427,16 +427,7 @@ Packaging:
 - templates/api/knowledge-panels/environment/packaging_recycling.tt.json
 - templates/api/knowledge-panels/environment/ecoscore/packaging.tt.json
 - tests/unit/packaging.t
-- docs/reference/schemas/packagings/material-write.yaml
-- docs/reference/schemas/packagings/material.yaml
-- docs/reference/schemas/packagings/packaging_component-write.yaml
-- docs/reference/schemas/packagings/packaging_component.yaml
-- docs/reference/schemas/packagings/packagings-write.yaml
-- docs/reference/schemas/packagings/packagings.yaml
-- docs/reference/schemas/packagings/recycling-write.yaml
-- docs/reference/schemas/packagings/recycling.yaml
-- docs/reference/schemas/packagings/shape-write.yaml
-- docs/reference/schemas/packagings/shape.yaml
+- docs/reference/schemas/packagings/**
   
 producers platform:
 - lib/ProductOpener/GS1.pm
