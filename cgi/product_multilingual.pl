@@ -661,7 +661,7 @@ sub display_input_field ($product_ref, $field, $language) {
 		$value =~ s/\n/ /g;
 	}
 
-	foreach my $note ("_note", "_note_2") {
+	foreach my $note ("_note", "_note_2", "_note_3") {
 		if (defined $Lang{$fieldtype . $note}{$lang}) {
 
 			push(

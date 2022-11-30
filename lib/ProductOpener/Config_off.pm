@@ -723,7 +723,6 @@ $options{import_export_fields_groups} = [
 			"quantity_value_unit", "net_weight_value_unit",
 			"drained_weight_value_unit", "volume_value_unit",
 			"serving_size_value_unit", "packaging",
-			"packaging_text",
 			"brands", "brand_owner",
 			"categories", "categories_specific",
 			"labels", "labels_specific",
@@ -739,15 +738,15 @@ $options{import_export_fields_groups} = [
 	["ingredients", ["ingredients_text", "allergens", "traces"]],
 	["nutrition"],
 	["nutrition_other"],
+	["packaging"],
 	[
 		"other",
 		[
-			"nutriscore_score_producer", "nutriscore_grade_producer",
-			"nova_group_producer", "conservation_conditions",
-			"warning", "preparation",
-			"recipe_idea", "recycling_instructions_to_recycle",
-			"recycling_instructions_to_discard", "customer_service",
-			"link"
+			"conservation_conditions", "warning",
+			"preparation", "nutriscore_score_producer",
+			"nutriscore_grade_producer", "nova_group_producer",
+			"recipe_idea", "customer_service",
+			"link",
 		]
 	],
 	[
