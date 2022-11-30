@@ -102,8 +102,10 @@
             "origins_of_ingredients" : {
                "aggregated_origins" : [
                   {
+                     "epi_score" : 0,
                      "origin" : "en:unknown",
-                     "percent" : 100
+                     "percent" : 100,
+                     "transportation_score" : null
                   }
                ],
                "epi_score" : 0,
@@ -111,6 +113,7 @@
                "origins_from_origins_field" : [
                   "en:unknown"
                ],
+               "transportation_score" : 0,
                "transportation_scores" : {
                   "ad" : 0,
                   "al" : 0,
@@ -176,6 +179,7 @@
                   "world" : 0,
                   "xk" : 0
                },
+               "transportation_value" : 0,
                "transportation_values" : {
                   "ad" : 0,
                   "al" : 0,
@@ -241,6 +245,7 @@
                   "world" : 0,
                   "xk" : 0
                },
+               "value" : -5,
                "values" : {
                   "ad" : -5,
                   "al" : -5,
