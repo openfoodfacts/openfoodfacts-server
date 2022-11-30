@@ -251,8 +251,6 @@ my $tests_ref = [
 						"number_of_units": 1,
 						"shape": {"lc_name": "bag"},
 						"material": {"lc_name": "plastic"}
-<<<<<<< HEAD
-=======
 					}
 				]
 			}
@@ -271,7 +269,6 @@ my $tests_ref = [
 						"number_of_units": 1,
 						"shape": {"lc_name": "bag"},
 						"material": {"lc_name": "plastic"}
->>>>>>> fields-all
 					}
 				]
 			}
