@@ -716,7 +716,7 @@ This function analyzes all the packaging information available for the product:
 
 And combines them in an updated packagings data structure.
 
-Note: as of 2022/11/29, the non-taxonomized packaging tags field is not used as input.
+Note: as of 2022/11/29, the "packaging" tags field is not used as input.
 
 =cut
 
@@ -748,16 +748,8 @@ sub analyze_and_combine_packaging_data ($product_ref, $response_ref) {
 		$number_of_packaging_text_entries = scalar @packaging_text_entries;
 	}
 
-	# Packaging tags field
-	if (defined $product_ref->{packaging}) {
-
-		# We sort the tags by length to have a greater chance of seeing more specific fields first
-		# e.g. "plastic bottle", "plastic", "metal", "lid",
-		# otherwise if we have "plastic", "lid", "metal", "plastic bottle"
-		# it would result in "plastic" being combined with "lid", then "metal", then "plastic bottle".
-
-		push(@phrases, sort ({length($b) <=> length($a)} split(/,|\n/, $product_ref->{packaging})));
-	}
+	# Note: as of 2022/11/29, the "packaging" tags field is not used as input.
+	# Corresponding code was removed.
 
 	# Add or merge packaging data from phrases to the existing packagings data structure
 
