@@ -352,15 +352,7 @@ knowledge-panels:
 - templates/api/knowledge-panels/health/nutrition/nutrition_facts_table.tt.json
 - tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels.json
 - tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels-fr.json
-- docs/reference/schemas/knowledge_panels/panels.yaml
-- docs/reference/schemas/knowledge_panels/panel.yaml
-- docs/reference/schemas/knowledge_panels/elements/element.yaml
-- docs/reference/schemas/knowledge_panels/elements/image_element.yaml
-- docs/reference/schemas/knowledge_panels/elements/panel_element.yaml
-- docs/reference/schemas/knowledge_panels/elements/panel_group_element.yaml
-- docs/reference/schemas/knowledge_panels/elements/table_element.yaml
-- docs/reference/schemas/knowledge_panels/elements/text_element.yaml
-- docs/reference/schemas/knowledge_panels/elements/title_element.yaml
+- docs/reference/schemas/knowledge_panels/**
 
 serving size:
 - templates/api/knowledge-panels/health/nutrition/serving_size.tt.json
