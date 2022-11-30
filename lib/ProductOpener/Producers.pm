@@ -1549,7 +1549,7 @@ JSON
 			}
 
 			for (my $i = 1; $i <= 5; $i++) {
-				my $packaging_i = lang("packaging") . " " . $i . " - ";
+				my $packaging_i = lang("packaging_part_short") . " " . $i . " - ";
 				foreach my $property ("number_of_units", "shape", "material", "recycling", "weight", "quantity_per_unit") {
 					my $name = $packaging_i . lang("packaging_" . $property);
 					my $field = "packaging_${i}_{$property}";
