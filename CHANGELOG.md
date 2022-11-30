@@ -1,5 +1,33 @@
 # Changelog
 
+## [2.4.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.3.0...v2.4.0) (2022-11-30)
+
+
+### Features
+
+* add packaging parts fields to import template ([#7775](https://github.com/openfoodfacts/openfoodfacts-server/issues/7775)) ([a139e32](https://github.com/openfoodfacts/openfoodfacts-server/commit/a139e327cabab0fd2f2dbeee358a0672a5530806))
+* allow search v1 queries using /cgi/search.pl to ask for product results in v3 format (e.g. packagings) ([#7770](https://github.com/openfoodfacts/openfoodfacts-server/issues/7770)) ([0a16526](https://github.com/openfoodfacts/openfoodfacts-server/commit/0a16526f8129c138cc6c29f0b9d7d2006ed3d442))
+* Editing packaging components on web site ([#7755](https://github.com/openfoodfacts/openfoodfacts-server/issues/7755)) ([7dddfcf](https://github.com/openfoodfacts/openfoodfacts-server/commit/7dddfcf7f80f9ea6c54d3f1fac365f5513ccb077))
+
+
+### Bug Fixes
+
+* add UTM to the login page donation promo ([#7719](https://github.com/openfoodfacts/openfoodfacts-server/issues/7719)) ([f2812b8](https://github.com/openfoodfacts/openfoodfacts-server/commit/f2812b89383a05aa6d5e735d61708b512e195c6b))
+* Data quality issues related to energy ([#7774](https://github.com/openfoodfacts/openfoodfacts-server/issues/7774)) ([d747479](https://github.com/openfoodfacts/openfoodfacts-server/commit/d747479b2b11561544160fc5fa00788877e9f55f))
+* fields=all returns customized field values ([#7771](https://github.com/openfoodfacts/openfoodfacts-server/issues/7771)) ([aa7ac73](https://github.com/openfoodfacts/openfoodfacts-server/commit/aa7ac735d09f86c8efdd2738485df54115ce1585))
+* move photos/data to main language ([#7758](https://github.com/openfoodfacts/openfoodfacts-server/issues/7758)) ([d50cf13](https://github.com/openfoodfacts/openfoodfacts-server/commit/d50cf132897b8db983a1d1173bfc0cd046d71c5a))
+* put back front image first in product edit form ([#7772](https://github.com/openfoodfacts/openfoodfacts-server/issues/7772)) ([adcc54b](https://github.com/openfoodfacts/openfoodfacts-server/commit/adcc54b884053ccad70c04715f5bef6398d932ad))
+
+
+### Taxonomy
+
+* add "Prix Juste Producteur" label ([#7751](https://github.com/openfoodfacts/openfoodfacts-server/issues/7751)) ([55f2f40](https://github.com/openfoodfacts/openfoodfacts-server/commit/55f2f40fec81f062723b46ba7716fc297edc8f1d))
+* add paneer wikidata ([#7757](https://github.com/openfoodfacts/openfoodfacts-server/issues/7757)) ([d712da8](https://github.com/openfoodfacts/openfoodfacts-server/commit/d712da8ccf6e5d7335443124d39976c2801eb336))
+* Bulgarian additions ([#7740](https://github.com/openfoodfacts/openfoodfacts-server/issues/7740)) ([382da5d](https://github.com/openfoodfacts/openfoodfacts-server/commit/382da5d22dc3353fc636f0255c854cc0ef79a20e))
+* Junkets ([#7753](https://github.com/openfoodfacts/openfoodfacts-server/issues/7753)) ([5a2acdc](https://github.com/openfoodfacts/openfoodfacts-server/commit/5a2acdcb79ba43803490e7c5dd51e17d25a9653f))
+* some Spanish and Catalan translations ([#7725](https://github.com/openfoodfacts/openfoodfacts-server/issues/7725)) ([d569320](https://github.com/openfoodfacts/openfoodfacts-server/commit/d569320641ca87a8bb4342c5682fcf1dde889685))
+* week 48 ([#7724](https://github.com/openfoodfacts/openfoodfacts-server/issues/7724)) ([019ede5](https://github.com/openfoodfacts/openfoodfacts-server/commit/019ede590db1af5a5dcdc9b8e54a82b2bbe029d4))
+
 ## [2.3.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.2.0...v2.3.0) (2022-11-23)
 
 
