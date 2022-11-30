@@ -898,7 +898,7 @@ CSS
 
 			# For moderators, add a checkbox to move all data and photos to the main language
 			# this needs to be below the "add (language name) in all field labels" above, so that it does not change this label.
-			if (($User{moderator}) and ($tabsid eq "product")) {
+			if (($User{moderator}) and ($tabsid eq "front_image")) {
 
 				my $msg = f_lang(
 					"f_move_data_and_photos_to_main_language",
