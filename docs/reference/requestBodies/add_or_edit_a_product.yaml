@@ -12,8 +12,24 @@ properties:
     type: string
     description: A valid corresponding password.
     example: mypassword
+  brands:
+    type: string
+    description: The brand of the product.
+    example: Häagen-Dazs
+  labels:
+    type: string
+    description: Product specific labels.
+    example: Kosher
+  categories:
+    type: string
+    description: The category of the product.
+    example: Desserts
+  packaging:
+    type: string
+    description: Packaging type, format, material.
+    example: Frozen
+
 required:
   - code
   - user_id
   - password
-examples: []
