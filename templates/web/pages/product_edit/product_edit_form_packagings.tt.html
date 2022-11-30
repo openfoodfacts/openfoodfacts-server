@@ -62,7 +62,7 @@ var packaging_recycling_select2_options = [% generate_select2_options_for_taxono
                 </select>
             </div>
 
-            // row 0 is a template for new row, we do not populate it %]
+            <!-- row 0 is a template for new row, we do not populate it -->
             [% IF packaging_max > 0 %]
                 <initjs>
                     \$("#[% select2_id %]").select2({
