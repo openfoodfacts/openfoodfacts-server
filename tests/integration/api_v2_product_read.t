@@ -116,7 +116,7 @@ my $tests_ref = [
 		path => '/api/v3/product/200000000034',
 		query_string => '?fields=raw',
 		expected_status_code => 200,
-	},	
+	},
 	{
 		test_case => 'get-fields-all',
 		method => 'GET',
@@ -137,7 +137,7 @@ my $tests_ref = [
 		path => '/api/v3/product/200000000034',
 		query_string => '?fields=attribute_groups,all,knowledge_panels',
 		expected_status_code => 200,
-	},	
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
