@@ -1,6 +1,11 @@
 {
    "lc" : "en",
-   "packaging" : "Clear glass bottle in glass container",
+   "misc_tags" : [
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty"
+   ],
+   "packaging_text" : "Clear glass bottle in glass container",
    "packagings" : [
       {
          "material" : "en:clear-glass",

@@ -103,7 +103,7 @@
             "origins_of_ingredients" : {
                "aggregated_origins" : [
                   {
-                     "epi_score" : 0,
+                     "epi_score" : "0",
                      "origin" : "en:unknown",
                      "percent" : 100,
                      "transportation_score" : null
@@ -1856,6 +1856,9 @@
          "en:nutriscore-missing-nutrition-data-sodium",
          "en:nutriscore-missing-nutrition-data-proteins",
          "en:nutrition-no-fiber",
+         "en:packagings-not-complete",
+         "en:packagings-not-empty-but-not-complete",
+         "en:packagings-not-empty",
          "en:ecoscore-extended-data-not-computed",
          "en:ecoscore-missing-data-warning",
          "en:ecoscore-missing-data-labels",

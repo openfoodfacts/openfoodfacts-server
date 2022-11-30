@@ -92,12 +92,42 @@ sub update_product_fields ($request_ref, $product_ref) {
 				}
 
 				foreach my $input_packaging_ref (@{$value}) {
+
+					# Shape, material and recycling
+					foreach my $property ("shape", "material", "recycling") {
+						if (defined $input_packaging_ref->{$property}) {
+
+							# the API specifies that the property is a hash with either an id or a lc_name field
+							# (same structure as when the packagings structure is read)
+							# both will be treated the same way and be canonicalized
+							# by get_checked_and_taxonomized_packaging_component_data()
+
+							if (ref($input_packaging_ref->{$property}) eq 'HASH') {
+								$input_packaging_ref->{$property} = $input_packaging_ref->{$property}{id}
+									|| $input_packaging_ref->{$property}{lc_name};
+							}
+							else {
+								add_error(
+									$response_ref,
+									{
+										message => {id => "invalid_type_must_be_object"},
+										field => {id => $property},
+										impact => {id => "field_ignored"},
+									}
+								);
+							}
+						}
+					}
+
 					# Taxonomize the input packaging component data
 					my $packaging_ref
 						= get_checked_and_taxonomized_packaging_component_data($request_body_ref->{tags_lc},
 						$input_packaging_ref, $response_ref);
-					# Add or combine with the existing packagings components array
-					add_or_combine_packaging_component_data($product_ref, $packaging_ref, $response_ref);
+
+					if (defined $packaging_ref) {
+						# Add or combine with the existing packagings components array
+						add_or_combine_packaging_component_data($product_ref, $packaging_ref, $response_ref);
+					}
 				}
 			}
 		}
