@@ -39075,6 +39075,49 @@ ciqual_food_name:en:Fermented milk drink, plain, skimmed milk
 ciqual_food_name:fr:Lait fermenté à boire, nature, maigre
 
 <en:Fermented milk drinks
+en:Flavoured dairy drinks with sugar, Flavoured fermented milks with sugar, Flavoured yogurts with sugar
+fr:Boissons lactées aromatisées sucrées au lait fermenté, Yaourts à boire aromatisés sucrés, Laits fermentés aromatisés sucrés
+agribalyse_food_code:en:19508
+ciqual_food_code:en:19508
+ciqual_food_name:en:Dairy drink or fermented milk or yogurt, flavoured, with sugar
+ciqual_food_name:fr:Boisson lactée, lait fermenté ou yaourt à boire, aromatisé, sucré
+
+<en:Drinkable yogurts
+en:Fermented milk drinks with fruits, Dairy drinks with sugar and fruits, Fermented milks with sugar and fruits, Yogurts with sugar and fruits
+fr:Boissons lactées fermentées aux fruits, Boisson lactée sucrée au lait fermenté et aux fruits, Yaourt à boire sucré aux fruits, Lait fermenté sucré aux fruits
+nl:Yoghurtdranken met fruit en suiker
+agribalyse_food_code:en:19535
+ciqual_food_code:en:19535
+ciqual_food_name:en:Dairy drink or fermented milk or yogurt, with fruits, with sugar
+ciqual_food_name:fr:Boisson lactée, lait fermenté ou yaourt à boire, aux fruits, sucré
+
+<en:Fermented milk drinks
+en:Fermented milk drinks with sugar, Plain dairy drinks with sugar, Plain fermented milks with sugar, Plain yogurts with sugar
+fr:Boissons lactées fermentées sucrées nature, Boissons lactées nature sucrées au lait fermenté, Yaourts à boire nature sucrés, Laits fermentés nature sucrés
+agribalyse_proxy_food_code:en:19538
+agribalyse_proxy_food_name:en:Boisson lactée, lait fermenté ou yaourt à boire, nature, sucré, au L Casei
+agribalyse_proxy_food_name:en:Dairy drink or fermented milk or yogurt, plain, with sugar, with L Casei
+ciqual_food_code:en:19537
+ciqual_food_name:en:Dairy drink or fermented milk or yogurt, plain, with sugar
+ciqual_food_name:fr:Boisson lactée, lait fermenté ou yaourt à boire, nature, sucré
+
+<en:Fermented milk drinks
+en:Milk drinks fermented with L casei
+fr:Boissons lactées fermentées au L casei
+
+<en:Milk drinks fermented with L casei
+en:Sweetened fermented milk drinks with L casei, Plain dairy drinks with sugar and L Casei, Plain fermented milks with sugar and L Casei, Plain yogurts with sugar and L Casei
+fr:Boissons lactées fermentés au L casei nature sucrées, Boissons lactées nature sucrées au lait fermenté et L Casei, Yaourts à boire nature sucrés au L Casei, Laits fermentés nature sucrés au L Casei
+agribalyse_food_code:en:19538
+ciqual_food_code:en:19538
+ciqual_food_name:en:Dairy drink or fermented milk or yogurt, plain, with sugar, with L Casei
+ciqual_food_name:fr:Boisson lactée, lait fermenté ou yaourt à boire, nature, sucré, au L Casei
+
+<en:Fermented milk drinks
+en:Milk drinks fermented with Bifidus
+fr:Boissons lactées fermentées au Bifidus
+
+<en:Fermented milk drinks
 en:Kefir
 bg:Кефир
 de:Kefir
@@ -46528,41 +46571,6 @@ lt:Vaniliniai jogurto gėrimai
 <en:Drinkable yogurts
 fr:Yaourts à boire sans sucres
 # A verifier ajoute depuis Nutrinet
-
-<en:Drinkable yogurts
-en:Flavoured dairy drinks with sugar, Flavoured fermented milks with sugar, Flavoured yogurts with sugar
-fr:Boissons lactées aromatisées sucrées au lait fermenté, Yaourts à boire aromatisés sucrés, Laits fermentés aromatisés sucrés
-agribalyse_food_code:en:19508
-ciqual_food_code:en:19508
-ciqual_food_name:en:Dairy drink or fermented milk or yogurt, flavoured, with sugar
-ciqual_food_name:fr:Boisson lactée, lait fermenté ou yaourt à boire, aromatisé, sucré
-
-<en:Drinkable yogurts
-en:Dairy drinks with sugar and fruits, Fermented milks with sugar and fruits, Yogurts with sugar and fruits
-fr:Boisson lactée sucrée au lait fermenté et aux fruits, Yaourt à boire sucré aux fruits, Lait fermenté sucré aux fruits
-nl:Yoghurtdranken met fruit en suiker
-agribalyse_food_code:en:19535
-ciqual_food_code:en:19535
-ciqual_food_name:en:Dairy drink or fermented milk or yogurt, with fruits, with sugar
-ciqual_food_name:fr:Boisson lactée, lait fermenté ou yaourt à boire, aux fruits, sucré
-
-<en:Drinkable yogurts
-en:Plain dairy drinks with sugar, Plain fermented milks with sugar, Plain yogurts with sugar
-fr:Boissons lactées nature sucrées au lait fermenté, Yaourts à boire nature sucrés, Laits fermentés nature sucrés
-agribalyse_proxy_food_code:en:19538
-agribalyse_proxy_food_name:en:Boisson lactée, lait fermenté ou yaourt à boire, nature, sucré, au L Casei
-agribalyse_proxy_food_name:en:Dairy drink or fermented milk or yogurt, plain, with sugar, with L Casei
-ciqual_food_code:en:19537
-ciqual_food_name:en:Dairy drink or fermented milk or yogurt, plain, with sugar
-ciqual_food_name:fr:Boisson lactée, lait fermenté ou yaourt à boire, nature, sucré
-
-<en:Drinkable yogurts
-en:Plain dairy drinks with sugar and L Casei, Plain fermented milks with sugar and L Casei, Plain yogurts with sugar and L Casei
-fr:Boissons lactées nature sucrées au lait fermenté et L Casei, Yaourts à boire nature sucrés au L Casei, Laits fermentés nature sucrés au L Casei
-agribalyse_food_code:en:19538
-ciqual_food_code:en:19538
-ciqual_food_name:en:Dairy drink or fermented milk or yogurt, plain, with sugar, with L Casei
-ciqual_food_name:fr:Boisson lactée, lait fermenté ou yaourt à boire, nature, sucré, au L Casei
 
 <en:Yogurts
 en:Flavoured yogurts, Flavoured fermented milk yogurt with sugar, Flavoured dairy specialty with sugar
