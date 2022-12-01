@@ -702,6 +702,8 @@ properties:
               like name_fr (for french).
           score:
             type: integer
+          version:
+            type: string
       grade:
         type: string
       grades:
@@ -844,6 +846,13 @@ properties:
             type: integer
       missing_data_warning:
         type: integer
+      previous_data:
+        type: object
+        properties:
+          grade: string
+          score: integer
+          agribalyse: 
+            - $ref: '#/properties/ecoscore_data/properties/agribalyse'
       score:
         type: integer
       scores:

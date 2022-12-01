@@ -4870,7 +4870,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 		$request_ref->{structured_response} = {
 			page => $page,
-			page_size => $limit,
+			page_size => 0 + $limit,
 			skip => $skip,
 			products => [],
 		};
