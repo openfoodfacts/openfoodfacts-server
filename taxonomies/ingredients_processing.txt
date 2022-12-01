@@ -218,7 +218,7 @@ de:gehackt, gehackte, gehackter, gehacktes
 es:picada, picado, picadas, picados, trocitos, trocitas, troceado, troceada, troceados, troceadas
 fi:pilkottu, pilkotut
 fr:hâché, hâchée, hâchés, hâchées, haché, hachée, hachés, hachées
-hr:usitnjeni, usitnjena
+hr:usitnjeni, usitnjena, sjeckani
 hu:apróra vágott, aprított, aprítva, apróra vágva
 is:hakkaðar
 nb:hakkede
@@ -406,6 +406,7 @@ af:stukkies
 de:stücke, stücken, stückchen, gestückelt, stück
 es:trozo,troza,trozos,trozas
 fr:morceaux, pièces de, en morceaux, morceaux de, morceaux d'
+hr:komadići
 hu:darabok, darabolt, darab, darabka
 nl:stukjes
 pl:kawałki, kawałki z
@@ -431,6 +432,7 @@ it:fiocchi di
 nl:vlokken
 pl:płatki, grys, wiórki
 pt:floco, flocos, em floco, em flocos, floco de, flocos de
+sv:flingor
 
 en:chips, slices
 cs:lupínků
@@ -582,6 +584,7 @@ hr:strojno otkošteno
 en:shelled
 es:sin cascara, pelada, pelado, peladas, pelados
 fr:décortiqué, décortiquée, décortiqués, décortiquées, décoquillé, décoquillée, décoquillés, décoquillées, émondé, émondée, émondés, émondées
+hr:oljušteni
 it:decorticati
 pl:łuskany, łuskana, łuskane
 pt:descascado, descascada, descascados, descascadas, sem casca, sem cascas
@@ -723,6 +726,7 @@ es:jugo, jugo de
 fi:mehu
 fr:jus de, jus d'
 #en:comment:au jus (tomates pelees concassees au jus) is an exception, jus de cuisson, jus cuisiné, jus de poisson, jus de moules
+hr:sok, sok od
 hu:leve, lé
 it:succo, succo di, succo d'
 nb:juice
@@ -735,7 +739,12 @@ ru:сок
 sk:stavy
 sv:juice, saft
 
-# fr:jus concentré de, jus concentré d'
+#<en:juice
+#<en:concentrated
+#en:concentrated juice of
+#fr:jus concentré de, jus concentré d'
+#hr:koncentrirani sok od
+
 # fr:pur jus
 
 <en:juice
@@ -754,6 +763,8 @@ en:juice crystals
 # e.g. soaked beans
 en:soaked
 fr:trempé, trempée, trempés, trempées
+
+en:with the germ removed
 
 #######################################################################
 #
@@ -785,7 +796,7 @@ es:concentrado, concentrada, concentrados, concentradas
 fa:کنسانتره
 fi:tiivistetty, tiiviste, tiivisteitä
 fr:concentré, concentrée, concentrés, concentrées, concentré de
-hr:koncentrirani
+hr:koncentrirani, koncentrat
 hu:sűrítmény, sűrített, koncentrátum
 it:concentrato
 ko:농축물
@@ -838,6 +849,7 @@ de:aus Konzentrat, aus Konzentraten
 es:a base de concentrado, a base de concentrada, a partir de concentrado, a partir de concentrada
 fi:tiivisteestä, tiivisteestä valmistettu
 fr:à base de concentré, à partir de concentré
+hr:na koncentrat, od koncentriranog soka škrob
 hu:sűrítményből, koncentrátumból, sűrítményekből, koncentrátumokból
 it:da concentrato
 lt:iš koncentrąto
@@ -861,7 +873,7 @@ et:kuivatatud
 fi:kuivattu, kuivatut
 fr:séché, séchée, séchés, séchées, sèches
 he:מיובשים, מיובש
-hr:sušeni, sušena, sušeno
+hr:sušeni, sušena, sušeno, sušene, suho, suhi
 hu:szárított
 it:secco, secca, secchi, secche, essiccati
 ja:ドライ
@@ -875,7 +887,7 @@ pt:seco, seca, secos, secas
 ro:uscate
 ru:сушеный, Сушеное, сушёная, сушёный
 sk:sušené
-sv:torkad
+sv:torkad, torkade
 th:ตาก, ออบแห้ง
 uk:сушена
 
@@ -1098,6 +1110,9 @@ es:sólidos de
 fr:Solides du
 it:Solidi di
 
+en:macerate
+hr:macerat
+
 #######################################################################
 #
 #                T E M P E R A T U R E   P R O C E S S E S
@@ -1133,7 +1148,7 @@ de:pasteurisiert, pasteurisierte, pasteurisierter, pasteurisiertes
 es:pasteurizado, pasteurizada, pasteurizados, pasteurizadas, producto pasteurizado, producto pasteurizada, pasterizada
 fi:pastöroitu
 fr:pasteurisé, pasteurisée, pasteurisés, pasteurisées
-hr:pasterizirano
+hr:pasterizirano, pasterizirana
 hu:pasztőrözött, pasztörizált
 it:pastorizzato, pastorizzata, pastorizzate, pastorizzati
 ja:パスチャライズ
@@ -1224,6 +1239,7 @@ de:dampfgegart, dampfgegarte, dampfgegarter
 en:caramelized, caramelised
 bg:карамелизиран, карамелизирана, карамелизирано, карамелизирани
 ca:caramel-litzat
+hr:karamelizirani
 hu:karamellizált
 nl:gekarameliseerde, gekaramelliseerde
 pl:karmelizowany, karmelizowana, karmelizowane, karmelizowanego, karmelizowanej, karmelizowanych
@@ -1250,6 +1266,7 @@ bg:пържено, пържен, пържена, пържени
 de:frittiert, frittierte, frittierter
 es:frito, fritos, frita, fritas
 fr:frit, frite, frits, frites
+hr:pržene
 hu:sült
 it:fritto, fritta, fritti, fritte
 pl:smażony, smażona, smażone
@@ -1306,6 +1323,7 @@ de:gegrillt, gegrillte, gegrillter, gegrilltes
 es:a la parrila, a la brasa
 fi:grillattu
 fr:grillé, grillée, grillés, grillées
+hr:pečeni
 hu:grillezett
 it:grigliato, grigliata, grigliati, grigliate
 nl:gegrild, gegrilde
@@ -1594,6 +1612,7 @@ en:brined
 de:gepökelt, gepökelte, gepökelter, gepökeltes
 #de:comment:do not add pökel
 fr:traité en salaison, traitée en salaison, traités en salaison, traitées en salaison, saumuré, saumurée, saumurés, saumurées
+hr:za salamurenje
 nl:gepekeld
 pl:w zalewie
 pt:em salmoura
@@ -1773,6 +1792,7 @@ bg:напълно хидрогениран, напълно хидрогенир�
 de::ganz gehärtetes, vollständig hydriertes
 fr:totalement hydrogénée
 fi:kokonaan kovetettu
+hr:potpuno hidrogenirana
 nb:fullherdet
 pl:całkowicie uwodorniony, całkowicie uwodorniona, całkowicie uwodornione
 sv:fullhärdad

@@ -16,20 +16,10 @@ properties:
     type: array
     items:
       type: object
-  # additives_debug_tags:
-  #   type: array
-  #   items:
-  #     type: object
   additives_n:
     type: integer
     description: |
       Number of food additives.
-  # additives_old_n:
-  #   type: integer
-  # additives_old_tags:
-  #   type: array
-  #   items:
-  #     type: object
   additives_original_tags:
     type: array
     items:
@@ -86,8 +76,6 @@ properties:
       type: string
   categories_lc:
     type: string
-  # categories_old:
-  #   type: string
   categories_properties:
     type: object
     properties:
@@ -210,14 +198,6 @@ properties:
     type: array
     items:
       type: string
-  # debug_param_sorted_langs:
-  #   type: array
-  #   items:
-  #     type: string
-  # debug_tags:
-  #   type: array
-  #   items:
-  #     type: string
   ecoscore_data:
     type: object
     properties:
@@ -662,7 +642,7 @@ properties:
             properties:
               labels:
                 type: array
-                example: vegan, fat free, Kosher
+                example: 'vegan, fat free, Kosher'
                 items:
                   type: object
               value:
@@ -715,7 +695,6 @@ properties:
             type: number
           is_beverage:
             type: integer
-          #TODO: Define fields returned in various languages e.g name_fr (try regexp)
           name_en:
             type: string
             description: |
@@ -723,6 +702,8 @@ properties:
               like name_fr (for french).
           score:
             type: integer
+          version:
+            type: string
       grade:
         type: string
       grades:
@@ -865,6 +846,13 @@ properties:
             type: integer
       missing_data_warning:
         type: integer
+      previous_data:
+        type: object
+        properties:
+          grade: string
+          score: integer
+          agribalyse: 
+            - $ref: '#/properties/ecoscore_data/properties/agribalyse'
       score:
         type: integer
       scores:
@@ -1105,10 +1093,6 @@ properties:
     type: array
     items:
       type: string
-  # ingredients_debug:
-  #   type: array
-  #   items:
-  #     type: string
   ingredients_from_or_that_may_be_from_palm_oil_n:
     type: integer
   ingredients_from_palm_oil_n:
@@ -1121,10 +1105,6 @@ properties:
     type: array
     items:
       type: string
-  # ingredients_ids_debug:
-  #   type: array
-  #   items:
-  #     type: string
   ingredients_n:
     type: integer
   ingredients_n_tags:
@@ -1152,8 +1132,6 @@ properties:
     type: string
   ingredients_text_de:
     type: string
-  # ingredients_text_debug:
-  #   type: string
   ingredients_text_en:
     type: string
   ingredients_text_en_ocr_1642445989:
@@ -1228,8 +1206,6 @@ properties:
       type: string
   labels_lc:
     type: string
-  # labels_old:
-  #   type: string
   labels_tags:
     type: array
     items:
@@ -1340,8 +1316,6 @@ properties:
     type: string
   nova_group:
     type: integer
-  # nova_group_debug:
-  #   type: string
   nova_groups:
     type: string
   nova_groups_markers:
@@ -1630,8 +1604,6 @@ properties:
       type: string
   nutrition_score_beverage:
     type: integer
-  # nutrition_score_debug:
-  #   type: string
   nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients:
     type: integer
   nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value:
@@ -1661,8 +1633,6 @@ properties:
       type: object
   origins_lc:
     type: string
-  # origins_old:
-  #   type: string
   origins_tags:
     type: array
     items:
@@ -1751,10 +1721,6 @@ properties:
     type: string
   packaging_lc:
     type: string
-  # packaging_old:
-  #   type: string
-  # packaging_old_before_taxonomization:
-  #   type: string
   packaging_tags:
     type: array
     items:
@@ -1772,15 +1738,10 @@ properties:
   packaging_text_en:
     type: string
     description: |
-        This can be returned in many other languages
-        like packaging_text_fr (for french).
+      This can be returned in many other languages
+      like packaging_text_fr (for french).
   packagings:
-    type: array
-    items:
-      type: object
-      properties:
-        material:
-          type: string
+    $ref: ./packagings/packagings.yaml
   photographers_tags:
     type: array
     items:
@@ -2083,4 +2044,3 @@ properties:
     type: array
     items:
       type: object
-

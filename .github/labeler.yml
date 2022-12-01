@@ -58,6 +58,7 @@ allergens:
 - taxonomies/allergens.result.sto
 - taxonomies/allergens.result.txt
 - tests/unit/allergens.t
+- taxonomies/allergens.txt
 
 open pet food facts:
 - taxonomies.opff/**/*
@@ -158,7 +159,7 @@ tests:
 - t/**/*
 - lib/ProductOpener/Test.pm
 
-dependancies:
+dependencies:
 - package.json
 - package-lock.json
 
@@ -295,6 +296,7 @@ ingredients analysis:
 - scripts/list_ingredients.pl
 - scripts/extract_individual_ingredients.pl
 - scripts/aggregate_ingredients.pl
+- lib/ProductOpener/Ingredients.pm
 
 labels:
 - taxonomies/labels.txt
@@ -348,6 +350,8 @@ knowledge-panels:
 - templates/api/knowledge-panels/health/nutrition/nutrient_level.tt.json
 - templates/api/knowledge-panels/health/nutrition/physical_activities.tt.json
 - templates/api/knowledge-panels/health/nutrition/nutrition_facts_table.tt.json
+- tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels.json
+- tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels-fr.json
 
 serving size:
 - templates/api/knowledge-panels/health/nutrition/serving_size.tt.json
@@ -683,6 +687,9 @@ subdomains:
 integration tests:
 - tests/integration/import_csv_file.t
 - tests/integration/export.t
+- tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels.json
+- tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels-fr.json
+
 
 unit tests:
 - tests/unit/display.t
@@ -711,6 +718,22 @@ apache:
 
 API:
 - scripts/api_stats.pl
+- tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels.json
+- tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels-fr.json
+- docs/reference/api-v3.yml
+- lib/ProductOpener/API.pm
+- tests/integration/api_v2_product_read.t
+
+API v3:
+- docs/reference/api-v3.yml
+- tests/integration/api_v3_product_read.t
+- tests/integration/api_v3_product_write.t
+
+API read:
+- tests/integration/api_v3_product_read.t
+
+API write:
+- tests/integration/api_v3_product_write.t
 
 monitoring:
 - scripts/api_stats.pl

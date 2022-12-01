@@ -28,5 +28,10 @@ markdown_extensions:
       # add permalink after titles
       permalink: "#"
 plugins:
+  # thanks to this plugin, the .pages files will customize navigation entries
   - awesome-pages
   - search
+  - exclude:
+      glob:
+        - reference/API_TODO.md
+

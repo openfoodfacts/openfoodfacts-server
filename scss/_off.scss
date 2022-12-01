@@ -1157,12 +1157,12 @@ span.ico-bold {
   @include button( 10, $white);
 }
 
-#donate_image_banner_outside {
+.donate_image_banner_outside {
   margin-bottom:1rem;
   background: no-repeat url(/images/illustrations/donate-heart.svg)
 }
 
-#donate_image_banner_inside {
+.donate_image_banner_inside {
   @media only screen and (max-width: 100rem) {margin-left:140px;}
 }
 
@@ -1247,4 +1247,51 @@ display: inline-block;
   flex-grow:1;
 }
 
+/* Packaging widget */
+/* **************** */
+#packagings_components_edit input {
+  margin:0;
+}
 
+#packagings_components_edit_header {
+  background-color:$macchiato;
+  border-radius:20px;
+  color:white;
+  font-weight:600;
+  margin:0;
+  padding:1rem;
+}
+
+.packagings_components_edit_row {
+  border-radius:20px;
+  margin:0 !important;
+  padding:1rem;
+}
+.packagings_components_edit_row:nth-of-type(even) {
+  background-color:$latte;
+}
+
+#packagings_components_edit .select2-container .select2-selection--single {
+  height: 2.6428571429rem;
+}
+
+#packagings_components_edit .select2-container .select2-selection--single .select2-selection__rendered {
+  line-height: 2.6428571429rem;
+}
+
+.delete_packaging_column {
+  padding:0 !important;
+}
+
+.delete_packaging {
+  margin:0;
+}
+
+.delete_packaging > span {
+  line-height: 2.6428571429rem;
+}
+
+// 1st packaging component is empty and hidden, it is used to add new components
+#packaging_0_row {
+  display:none;
+}

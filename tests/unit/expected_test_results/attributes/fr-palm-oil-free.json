@@ -341,6 +341,39 @@
       "ciqual-food-code-unknown",
       "agribalyse-unknown"
    ],
+   "data_quality_bugs_tags" : [
+      "en:main-language-missing",
+      "en:code-missing",
+      "en:created-missing"
+   ],
+   "data_quality_errors_tags" : [],
+   "data_quality_info_tags" : [
+      "en:no-packaging-data",
+      "en:ingredients-percent-analysis-ok",
+      "en:ecoscore-extended-data-not-computed",
+      "en:food-groups-1-unknown",
+      "en:food-groups-2-unknown",
+      "en:food-groups-3-unknown"
+   ],
+   "data_quality_tags" : [
+      "en:main-language-missing",
+      "en:code-missing",
+      "en:created-missing",
+      "en:no-packaging-data",
+      "en:ingredients-percent-analysis-ok",
+      "en:ecoscore-extended-data-not-computed",
+      "en:food-groups-1-unknown",
+      "en:food-groups-2-unknown",
+      "en:food-groups-3-unknown",
+      "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
+      "en:ecoscore-packaging-packaging-data-missing",
+      "en:ecoscore-production-system-no-label"
+   ],
+   "data_quality_warnings_tags" : [
+      "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
+      "en:ecoscore-packaging-packaging-data-missing",
+      "en:ecoscore-production-system-no-label"
+   ],
    "ecoscore_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
@@ -689,6 +722,8 @@
       "en:nutriscore-missing-nutrition-data-sodium",
       "en:nutriscore-missing-nutrition-data-proteins",
       "en:nutrition-no-fiber",
+      "en:packagings-not-complete",
+      "en:packagings-empty",
       "en:ecoscore-extended-data-not-computed",
       "en:ecoscore-not-computed"
    ],
@@ -704,6 +739,8 @@
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
+   "nutrition_data_per" : "100g",
+   "nutrition_data_prepared_per" : "100g",
    "nutrition_grades_tags" : [
       "unknown"
    ],
