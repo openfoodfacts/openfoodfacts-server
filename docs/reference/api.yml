@@ -366,6 +366,7 @@ components:
       name: categories_tags_en
       description: |
         The category of product(s) you are searching for.
+        The [OFF App](https://world.openfoodfacts.org/categories) has a list of possible values for `categories`.
     states_tags_en:
       schema:
         type: string
@@ -374,13 +375,15 @@ components:
       name: states_tags_en
       description: |
         The states_tags in english of product(s) you are searching for.
+        The [OFF App](https://world.openfoodfacts.org/states) has a list of possible values for `states`.
     traces_tags:
       schema:
         type: string
       in: query
       name: traces_tags
       description: |
-        The traces_tags of product(s) you are searching for.
+        The traces_tags of product(s) you are searching for. 
+        The [OFF App](https://world.openfoodfacts.org/traces) shows a list of possible values for `traces`.
     additives_tags_en:
       schema:
         type: string
@@ -389,6 +392,7 @@ components:
       name: additives_tags_en
       description: |
         The additives_tags in english of product(s) you are searching for.
+        The [OFF App](https://world.openfoodfacts.org/additives) has a list of possible values for `additives`.
     allergens_tags_en:
       schema:
           type: string
@@ -397,6 +401,7 @@ components:
       name: allergens_tags_en
       description: |
         The allergens_tags in english of product(s) you are searching for.
+        The [OFF App](https://world.openfoodfacts.org/allergens) has a list of possible values for `allergens`.
     countries_tags_en:
       schema:
         type: string
@@ -405,6 +410,7 @@ components:
       name: countries_tags_en
       description: |
         The countries_tags_en of product(s) you are searching for.
+        The [OFF App](https://world.openfoodfacts.org/countries) shows a list of possible values for `countries`.
     purchase_places_tags:
       schema:
         type: string
@@ -434,6 +440,7 @@ components:
       name: manufacturing_places_tags
       description: |
         The manufacturing_places_tags of product(s) you are searching for.
+        The [OFF App](https://world.openfoodfacts.org/manufacturing-places) has a list of possible values for `manufacturing-places`.
     origins_tags:
       schema:
         type: string
@@ -449,6 +456,7 @@ components:
       name: packaging_tags_de
       description: |
           The packaging_tag in german of product(s) you are searching for.
+          The [OFF App](https://world.openfoodfacts.org/packaging) has a list of possible values for `packaging`.
     brands_tags:
       schema:
         type: string
@@ -457,6 +465,7 @@ components:
       name: brands_tags
       description: |
         The brands_tags of product(s) you are searching for.
+        The [OFF App](https://world.openfoodfacts.org/brands) has a list of possible values for `brands`.
     nutrition_grades_tags:
       schema:
         type: string
@@ -465,6 +474,7 @@ components:
       name: nutrition_grades_tags
       description: |
         The nutrition_grades_tags of product(s) you are searching for.
+        The [OFF App](https://world.openfoodfacts.org/nutrition-grades) has a list of possible values for `nutrition-grades`.
     sort_by:
       schema:
         type: string
@@ -499,6 +509,7 @@ components:
       name: labels_tags_en
       description: |
         The labels_tags in english of product(s) you are searching for.
+        The [OFF App](https://world.openfoodfacts.org/labels) has a list of possible values for `labels`.
     fields:
       schema:
         type: string
