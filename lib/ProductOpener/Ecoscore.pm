@@ -1352,7 +1352,7 @@ sub compute_ecoscore_origins_of_ingredients_adjustment ($product_ref) {
 	$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients} = {
 		origins_from_origins_field => \@origins_from_origins_field,
 		aggregated_origins => \@aggregated_origins,
-		epi_score => $epi_score,
+		epi_score => 0 + $epi_score,
 		epi_value => round($epi_value),
 	};
 
