@@ -26,9 +26,11 @@ properties:
     example: Desserts
   packaging:
     type: string
-    description: Packaging type, format, material.
+    description: |
+      Packaging type, format, material.
+      The [v3 API documentation](https://openfoodfacts.github.io/openfoodfacts-server/reference/api-v3/#operation/post-api-v3-product-barcode)
+      has a more structured data for `packaging`.
     example: Frozen
-
 required:
   - code
   - user_id
