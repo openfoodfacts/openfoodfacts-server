@@ -103,8 +103,10 @@
             "origins_of_ingredients" : {
                "aggregated_origins" : [
                   {
+                     "epi_score" : 0,
                      "origin" : "en:unknown",
-                     "percent" : 100
+                     "percent" : 100,
+                     "transportation_score" : null
                   }
                ],
                "epi_score" : 0,
@@ -112,6 +114,7 @@
                "origins_from_origins_field" : [
                   "en:unknown"
                ],
+               "transportation_score" : 0,
                "transportation_scores" : {
                   "ad" : 0,
                   "al" : 0,
@@ -177,6 +180,7 @@
                   "world" : 0,
                   "xk" : 0
                },
+               "transportation_value" : 0,
                "transportation_values" : {
                   "ad" : 0,
                   "al" : 0,
@@ -242,6 +246,7 @@
                   "world" : 0,
                   "xk" : 0
                },
+               "value" : -5,
                "values" : {
                   "ad" : -5,
                   "al" : -5,
@@ -717,6 +722,9 @@
          "en:nutriscore-missing-nutrition-data-sodium",
          "en:nutriscore-missing-nutrition-data-proteins",
          "en:nutrition-no-fiber",
+         "en:packagings-not-complete",
+         "en:packagings-not-empty-but-not-complete",
+         "en:packagings-not-empty",
          "en:ecoscore-extended-data-not-computed",
          "en:ecoscore-missing-data-warning",
          "en:ecoscore-missing-data-labels",
@@ -767,31 +775,55 @@
       "packaging_text_en" : "1 wooden box to recycle, 6 25cl glass bottles to reuse, 3 steel lids to recycle, 1 plastic film to discard",
       "packagings" : [
          {
-            "material" : "en:wood",
+            "material" : {
+               "id" : "en:wood"
+            },
             "number_of_units" : 1,
-            "recycling" : "en:recycle",
-            "shape" : "en:box"
+            "recycling" : {
+               "id" : "en:recycle"
+            },
+            "shape" : {
+               "id" : "en:box"
+            }
          },
          {
-            "material" : "en:glass",
+            "material" : {
+               "id" : "en:glass"
+            },
             "number_of_units" : 6,
             "quantity_per_unit" : "25cl",
             "quantity_per_unit_unit" : "cl",
             "quantity_per_unit_value" : 25,
-            "recycling" : "en:reuse",
-            "shape" : "en:bottle"
+            "recycling" : {
+               "id" : "en:reuse"
+            },
+            "shape" : {
+               "id" : "en:bottle"
+            }
          },
          {
-            "material" : "en:steel",
+            "material" : {
+               "id" : "en:steel"
+            },
             "number_of_units" : 3,
-            "recycling" : "en:recycle",
-            "shape" : "en:lid"
+            "recycling" : {
+               "id" : "en:recycle"
+            },
+            "shape" : {
+               "id" : "en:lid"
+            }
          },
          {
-            "material" : "en:plastic",
+            "material" : {
+               "id" : "en:plastic"
+            },
             "number_of_units" : 1,
-            "recycling" : "en:discard",
-            "shape" : "en:film"
+            "recycling" : {
+               "id" : "en:discard"
+            },
+            "shape" : {
+               "id" : "en:film"
+            }
          }
       ],
       "photographers_tags" : [],

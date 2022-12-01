@@ -55,6 +55,22 @@ my @tests = (
 		}
 	],
 	[
+		'packaging_text_fr_multiple_line_feeds',
+		{
+			lc => "fr",
+			packaging_text => "barquette en plastique à jeter
+film plastique à jeter
+boîte en carton à recycler"
+		}
+	],
+	[
+		'packaging_text_fr_multiple_semi_colon',
+		{
+			lc => "fr",
+			packaging_text => "barquette en plastique à jeter;film plastique à jeter; boîte en carton à recycler"
+		}
+	],
+	[
 		'packaging_text_fr_boite_cartonee_accents',
 		{
 			lc => "fr",
@@ -233,6 +249,7 @@ my @tests = (
 			]
 		}
 	],
+	# Note: as of 2022/11/29, packaging tags are not used as input anymore
 	[
 		'merge_en_merge_packaging_tag_and_packaging_text',
 		{
@@ -361,13 +378,12 @@ my @tests = (
 			packaging_text => "opercule en aluminium",
 		}
 	],
-
 	[
 		'packaging_fr_redundant_entries',
 		{
 			lc => "fr",
-			packaging =>
-				"Verre, Couvercle, Plastique, Pot, Petit Format, couvercle en plastique, opercule aluminium, pot en verre",
+			packaging_text =>
+				"Verre; Couvercle; Plastique; Pot; Petit Format; couvercle en plastique; opercule aluminium; pot en verre",
 		}
 	],
 
@@ -375,7 +391,7 @@ my @tests = (
 		'packaging_fr_coffee_capsules',
 		{
 			lc => "fr",
-			packaging => "Capsules en aluminium à recycler",
+			packaging_text => "Capsules en aluminium à recycler",
 			categories_tags => ["en:coffees"],
 		}
 	],
@@ -384,7 +400,7 @@ my @tests = (
 		'packaging_fr_cartonnette',
 		{
 			lc => "fr",
-			packaging => "1 cartonnette à recycler",
+			packaging_text => "1 cartonnette à recycler",
 		}
 	],
 
@@ -392,7 +408,7 @@ my @tests = (
 		'packaging_en_cardboard',
 		{
 			lc => "en",
-			packaging => "1 cardboard",
+			packaging_text => "1 cardboard",
 		}
 	],
 
@@ -400,7 +416,7 @@ my @tests = (
 		'packaging_en_cardboard_box',
 		{
 			lc => "en",
-			packaging => "1 cardboard box",
+			packaging_text => "1 cardboard box",
 		}
 	],
 
@@ -408,7 +424,7 @@ my @tests = (
 		'packaging_fr_support_carton',
 		{
 			lc => "fr",
-			packaging => "1 support carton",
+			packaging_text => "1 support carton",
 		}
 	],
 
@@ -417,16 +433,16 @@ my @tests = (
 		'packaging_en_citeo_shapes',
 		{
 			lc => "en",
-			packaging =>
-				"Plastic tumbler, Wooden crate, Cardboard case, Strings, Plastic ties, Plastic blister wrap, paper basket, individual capsules",
+			packaging_text =>
+				"Plastic tumbler; Wooden crate; Cardboard case; Strings; Plastic ties; Plastic blister wrap; paper basket; individual capsules",
 		}
 	],
 	[
 		'packaging_fr_citeo_shapes',
 		{
 			lc => "fr",
-			packaging =>
-				"Gobelet en plastique, cageots en bois, caisse en carton, ficelle, liens plastiques, blister en plastique, panier en papier, capsules individuelles",
+			packaging_text =>
+				"Gobelet en plastique; cageots en bois; caisse en carton; ficelle; liens plastiques; blister en plastique; panier en papier; capsules individuelles",
 		}
 	],
 
@@ -435,7 +451,7 @@ my @tests = (
 		'en-cardboard-box-to-recycle',
 		{
 			lc => "en",
-			packaging => "Cardboard box to recycle",
+			packaging_text => "Cardboard box to recycle",
 		}
 	],
 
@@ -444,7 +460,7 @@ my @tests = (
 		'en-clear-glass-bottle-in-glass-container',
 		{
 			lc => "en",
-			packaging => "Clear glass bottle in glass container",
+			packaging_text => "Clear glass bottle in glass container",
 		}
 	],
 
@@ -452,7 +468,7 @@ my @tests = (
 		'en-1-pet-plastic-bottle',
 		{
 			lc => "en",
-			packaging => "1 PET plastic bottle",
+			packaging_text => "1 PET plastic bottle",
 		}
 	],
 
@@ -461,35 +477,24 @@ my @tests = (
 		'en-aa-84-c-x',
 		{
 			lc => "aa",
-			packaging => "84-C/X",
+			packaging_text => "84-C/X",
 		}
 	],
 
-	# Robotoff sends fields prefixed with the language code even though packagings is not taxonomized yet
+	# empty entry
 	[
-		'fr-robotoff-packagings',
-		{
-			lc => "fr",
-			packaging => "fr:Boite carton,fr:Triman,fr:Boite à recycler,fr:Point vert,Boite carton",
-		}
-	],
-
-	# check the results if we taxonomize the packaging fields without having a complete taxonomy in place
-	# with a mix of entries that are not all in the language of the product
-	[
-		'en-fr-taxonomized-packagings',
-		{
-			lc => "fr",
-			packaging =>
-				"en:cardboard-box, en:plastic, en:glass-jar, fr:Couvercle en métal, fr:attache-plastique, fr:etui",
-		}
-	],
-
-	[
-		'en-fr-taxonomized-packagings-other-language',
+		'en-empty-entry',
 		{
 			lc => "en",
-			packaging => "fr:Couvercle en métal",
+			packaging_text => "",
+		}
+	],
+
+	[
+		'en-unrecognized-elements',
+		{
+			lc => "en",
+			packaging_text => "Some words that do not look like what we expect at all",
 		}
 	],
 

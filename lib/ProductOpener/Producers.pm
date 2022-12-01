@@ -1491,6 +1491,9 @@ JSON
 		my $group_id = $group_ref->[0];
 		my $select2_group_ref = {text => lang("fields_group_" . $group_id), children => [], group_id => $group_id};
 
+		# For some specific groups, we generate the corresponding lists of fields
+
+		# List of nutrients
 		if (($group_id eq "nutrition") or ($group_id eq "nutrition_other")) {
 
 			# Go through the nutriment table
@@ -1538,6 +1541,27 @@ JSON
 					};
 			}
 		}
+		# Packaging
+		if ($group_id eq "packaging") {
+			foreach
+				my $field ("packaging_text", "recycling_instructions_to_recycle", "recycling_instructions_to_discard")
+			{
+				my $name = lang($field);
+				push @{$select2_group_ref->{children}}, {id => "$field", text => ucfirst($name)};
+			}
+
+			for (my $i = 1; $i <= 5; $i++) {
+				my $packaging_i = lang("packaging_part_short") . " " . $i . " - ";
+				foreach
+					my $property ("number_of_units", "shape", "material", "recycling", "weight", "quantity_per_unit")
+				{
+					my $name = $packaging_i . lang("packaging_" . $property);
+					my $field = "packaging_${i}_{$property}";
+					push @{$select2_group_ref->{children}}, {id => "$field", text => ucfirst($name)};
+				}
+			}
+		}
+		# Other groups have fields listed directly in the $options{import_export_fields_groups} structure
 		else {
 
 			foreach my $field (@{$group_ref->[1]}) {

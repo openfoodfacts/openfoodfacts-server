@@ -4711,6 +4711,10 @@ msgctxt "packaging_text_note_2"
 msgid "Try to be as specific as possible. For plastic, please indicate if it is opaque or transparent, colored, PET or PEHD."
 msgstr "Essayez d'être aussi précis que possible. Pour le plastique, merci d'indiquer s'il est opaque ou transparent, coloré, PET ou PEHD."
 
+msgctxt "packaging_text_note_3"
+msgid "Data from this field will be combined with any data provided for each packaging part. It is possible to provide one or the other, or both."
+msgstr "Les données de ce champ seront combinées avec les éventuelles données fournies pour chaque élément d'emballage. Il est possible de fournir l'un ou l'autre, ou les deux."
+
 msgctxt "product_js_extract_packaging"
 msgid "Extract the recycling instructions and/or packaging information from the picture"
 msgstr "Extraire les instructions de recyclage et/ou les informations d'emballage depuis l'image"
@@ -4962,9 +4966,15 @@ msgctxt "ecoscore_s"
 msgid "Eco-Score"
 msgstr "Éco-Score"
 
+# Parts meaning individual elements
 msgctxt "packaging_parts"
 msgid "Packaging parts"
-msgstr "Parties de l'emballage"
+msgstr "Elements d'emballage"
+
+# A short name for a physical piece of packaging (e.g. in English, "packaging" instead of "packaging part"). Used with a number (e.g. "Packaging 1" to identify a packaging part)
+msgctxt "packaging_part_short"
+msgid "Packaging"
+msgstr "Emballage"
 
 # Number of packaging parts
 msgctxt "packaging_number"
@@ -6201,3 +6211,17 @@ msgctxt "environment"
 msgid "Environment"
 msgstr "Environnement"
 
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units"
+msgid "Number of units"
+msgstr "Nombre d'éléments"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight"
+msgid "Weight of one empty unit"
+msgstr "Poids d'un élément vide"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit"
+msgid "Quantity of product contained per unit"
+msgstr "Quantité de produit contenue par élément"

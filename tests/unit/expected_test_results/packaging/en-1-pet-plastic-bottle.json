@@ -1,6 +1,11 @@
 {
    "lc" : "en",
-   "packaging" : "1 PET plastic bottle",
+   "misc_tags" : [
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty"
+   ],
+   "packaging_text" : "1 PET plastic bottle",
    "packagings" : [
       {
          "material" : "en:pet-polyethylene-terephthalate",
