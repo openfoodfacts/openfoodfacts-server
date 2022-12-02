@@ -94738,13 +94738,25 @@ ciqual_food_name:fr:Tempeh
 <en:Meat analogues
 en:Textured vegetable protein
 de:Strukturiertes Pflanzenprotein, Geformtes Pflanzenprotein
-es:Soja texturizada, Proteína de soja texturizada
-fr:Protéine végétale texturée, Protéine de soja texturée
+fr:Protéine végétale texturée
 nl:Gestructureerde groenteproteines
 agribalyse_proxy_food_code:en:20591_1
 agribalyse_proxy_food_name:en:Soy protein, textured, rehydrated, from soy flour
 agribalyse_proxy_food_name:fr:Protéine de soja texturée
 wikidata:en:Q2120234
+
+<en:Textured vegetable protein
+en:Textured soy protein, Soy protein textured rehydrated from soy flour
+es:Proteína de soja texturizada, Soja texturizada
+fr:Protéine de soja texturée
+agribalyse_food_code:en:20591_1
+ciqual_food_code:en:20591
+ciqual_food_name:en:Soy protein, textured, rehydrated, from soy flour
+ciqual_food_name:fr:Protéine de soja texturée
+
+<en:Textured vegetable protein
+en:Textured pea protein
+fr:Protéine de pois texturée
 
 <en:Legumes and their products
 en:Misos, Miso
@@ -98294,6 +98306,15 @@ agribalyse_proxy_food_name:en:Soybean and wheat-based nuggets (vegan)
 agribalyse_proxy_food_name:fr:Nuggets soja et blé (convient aux véganes ou végétaliens), préemballé
 
 <en:Vegetarian nuggets
+<en:Meat analogues from soy or wheat proteins
+en:Nuggets from soy and wheat proteins, Soybean and wheat-based nuggets (vegan)
+fr:Nuggets à base de protéines de soja et blé, Nuggets soja et blé (convient aux véganes ou végétaliens) préemballé
+agribalyse_food_code:en:25227
+ciqual_food_code:en:25227
+ciqual_food_name:en:Soybean and wheat-based nuggets (vegan)
+ciqual_food_name:fr:Nuggets soja et blé (convient aux véganes ou végétaliens), préemballé
+
+<en:Vegetarian nuggets
 en:Vegan nuggets, plant based nuggets
 fr:Nuggets végans, Nuggets végétaux
 nl:Veganistische nuggets, Vegan-nuggets
@@ -98307,8 +98328,8 @@ en:Breaded fish substitutes, Vegetarian breaded fish substituts
 fr:Substituts du poisson pané
 
 <en:Meat analogues
-en:Veggie grounds
-de:Gemüsehack, Vegetarisches Hackfleisch
+en:Vegetarian grounds, Veggie grounds
+de:Vegetarisches Gehacktes, Gemüsehack, Vegetarisches Hackfleisch
 fr:Hachés végétaux
 
 #Patties are a very generic term for anything flat baked in a pan
@@ -98329,8 +98350,12 @@ ciqual_food_name:fr:Escalope végétale ou steak à base de soja
 
 <en:Vegetarian patties
 <en:Meat analogues from soy or wheat proteins
-en:Patties from soy and or wheat proteins
-fr:Galettes à base de protéines de soja et ou blé
+en:Patties from soy and or wheat proteins, Plant-based patty or steak from wheat and soybean (vegan) prepacked
+fr:Galettes à base de protéines de soja et ou blé, Galette ou pavé au blé et soja (convient aux véganes ou végétaliens) préemballé
+agribalyse_food_code:en:25593
+ciqual_food_code:en:25593
+ciqual_food_name:en:Plant-based patty or steak from wheat and soybean (vegan), prepacked
+ciqual_food_name:fr:Galette ou pavé au blé et soja (convient aux véganes ou végétaliens), préemballé
 
 <en:Vegetarian patties
 en:Vegan patties, vegan burger patties, Vegetable escalope, vegan cutlet, vegan steaks
@@ -98359,7 +98384,12 @@ en:Tofu patties
 fr:Galettes de tofu, steaks de tofu
 
 <en:Vegetarian patties
-fr:Galettes de céréales aux légumes
+en:Cereals and vegetables patties, Cereal patty (without soybean)
+fr:Galettes de céréales aux légumes, Galette de céréales aux légumes (sans soja) préemballé
+agribalyse_food_code:en:25234
+ciqual_food_code:en:25234
+ciqual_food_name:en:Cereal patty (without soybean)
+ciqual_food_name:fr:Galette de céréales aux légumes (sans soja), préemballé
 
 <en:Meat analogues
 en:Vegetarian sausages
@@ -98372,11 +98402,6 @@ nl:Vegetarische worstjes
 agribalyse_proxy_food_code:en:20337
 agribalyse_proxy_food_name:en:Plant-based sausage with tofu (vegan)
 agribalyse_proxy_food_name:fr:Saucisse végétale au tofu (convient aux véganes ou végétaliens), préemballée
-
-#Meat and fish categories are separated while Fish analogues is under meat analogue. This difference is intended, since fishes are animals and therefore considered as meat by vegetarians
-<en:Meat analogues
-en:Fish analogues, Plantbased fish
-nl:Plantaardige vissen
 
 <en:Vegetarian sausages
 en:Vegetarian hot dog sausages
@@ -98408,6 +98433,19 @@ nl:Vegetarische weense worstjes
 agribalyse_proxy_food_code:en:20337
 agribalyse_proxy_food_name:en:Plant-based sausage with tofu (vegan)
 agribalyse_proxy_food_name:fr:Saucisse végétale au tofu (convient aux véganes ou végétaliens), préemballée
+
+<en:Vegetarian sausages
+en:Vegetarian sausages from tofu, Plant-based sausage with tofu (vegan)
+fr:Saucisses végétariennes de tofu, Saucisse végétale au tofu (convient aux véganes ou végétaliens) préemballée
+agribalyse_food_code:en:20337
+ciqual_food_code:en:20337
+ciqual_food_name:en:Plant-based sausage with tofu (vegan)
+ciqual_food_name:fr:Saucisse végétale au tofu (convient aux véganes ou végétaliens), préemballée
+
+#Meat and fish categories are separated while Fish analogues is under meat analogue. This difference is intended, since fishes are animals and therefore considered as meat by vegetarians
+<en:Meat analogues
+en:Fish analogues, Plantbased fish
+nl:Plantaardige vissen
 
 <en:Plant-based foods
 <en:Dairy substitutes
@@ -102245,38 +102283,6 @@ ciqual_food_code:en:20126
 ciqual_food_name:en:Lima bean, raw
 ciqual_food_name:fr:Haricot de Lima, cru
 
-<en:meat-alternatives
-en:Plant-based sausage with tofu (vegan)
-fr:Saucisse végétale au tofu (convient aux véganes ou végétaliens) préemballée
-agribalyse_food_code:en:20337
-ciqual_food_code:en:20337
-ciqual_food_name:en:Plant-based sausage with tofu (vegan)
-ciqual_food_name:fr:Saucisse végétale au tofu (convient aux véganes ou végétaliens), préemballée
-
-<en:meat-alternatives
-en:Soy protein textured rehydrated from soy flour
-fr:Protéine de soja texturée
-agribalyse_food_code:en:20591_1
-ciqual_food_code:en:20591
-ciqual_food_name:en:Soy protein, textured, rehydrated, from soy flour
-ciqual_food_name:fr:Protéine de soja texturée
-
-<en:meat-alternatives
-en:Soy protein textured dehydrated from soy flour
-fr:Protéine de soja texturée réhydratée
-agribalyse_food_code:en:20591_2
-ciqual_food_code:en:20591
-ciqual_food_name:en:Soy protein, textured, dehydrated, from soy flour
-ciqual_food_name:fr:Protéine de soja texturée, réhydratée
-
-<en:meat-alternatives
-en:Soy patty or vegetable escalope
-fr:Escalope végétale ou steak à base de soja
-agribalyse_food_code:en:20914
-ciqual_food_code:en:20914
-ciqual_food_name:en:Soy patty or vegetable escalope
-ciqual_food_name:fr:Escalope végétale ou steak à base de soja
-
 <en:biscuits
 en:Biscuit (cookie) vitamins content guaranteed
 fr:Biscuit sec à teneur garantie en vitamines
@@ -102332,22 +102338,6 @@ agribalyse_food_code:en:25232
 ciqual_food_code:en:25232
 ciqual_food_name:en:Plant-based sausage with wheat or seitan
 ciqual_food_name:fr:Saucisse végétale au blé ou seitan, préemballé
-
-<en:meat-alternatives
-en:Cereal patty (without soybean)
-fr:Galette de céréales aux légumes (sans soja) préemballé
-agribalyse_food_code:en:25234
-ciqual_food_code:en:25234
-ciqual_food_name:en:Cereal patty (without soybean)
-ciqual_food_name:fr:Galette de céréales aux légumes (sans soja), préemballé
-
-<en:meat-alternatives
-en:Plant-based patty or steak from wheat and soybean (vegan) prepacked
-fr:Galette ou pavé au blé et soja (convient aux véganes ou végétaliens) préemballé
-agribalyse_food_code:en:25593
-ciqual_food_code:en:25593
-ciqual_food_name:en:Plant-based patty or steak from wheat and soybean (vegan), prepacked
-ciqual_food_name:fr:Galette ou pavé au blé et soja (convient aux véganes ou végétaliens), préemballé
 
 <en:meat-alternatives
 en:Soy-based patty plain (vegetable steak) prepacked
