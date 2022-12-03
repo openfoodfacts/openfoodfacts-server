@@ -108,7 +108,6 @@ paths:
           multipart/form-data:
             schema:
               $ref: ./requestBodies/add_photo_to_existing_product.yaml
-            examples: {}
         description: ''
   /cgi/ingredients.pl:
     parameters: []
@@ -192,20 +191,6 @@ paths:
           multipart/form-data:
             schema:
               $ref: ./requestBodies/add_or_edit_a_product.yaml
-            examples:
-              example-1:
-                value:
-                  code: '0074570036004'
-                  user_id: myusername
-                  password: mypassword
-          application/json:
-            schema:
-              type: object
-              properties: {}
-          application/xml:
-            schema:
-              type: object
-              properties: {}
       tags:
         - Write Requests
       description: |
@@ -246,7 +231,6 @@ paths:
             application/json:
               schema:
                 type: array
-              examples: {}
       operationId: get-cgi-suggest.pl
       parameters:
         - $ref: '#/components/parameters/tagtype'
