@@ -283,11 +283,13 @@ it:Lattina, Latta
 nl:Blik, Bus
 pt:Lata, latas
 # suggest:packaging_materials:en: en:unknown metal, en:aluminium, en:steel
+# the line below indicates a default material: en:metal
+packaging_materials:en: en:metal
 wikidata:en:Q2846150
 description:nl:Een cilindervormig afgesloten blikken vaatje
 
 
-# Can for drink, not canned food
+# (metal) Can for drink, not canned food
 <en:can
 en:Drink can, beverage can, drink cans, beverage cans
 bg:Кен, кенче
@@ -304,11 +306,11 @@ description:nl:Een cilindervormig afgesloten blikken vaatje voor dranken
 
 
 
-# Can for food, not canned drinks
+# (metal) Can for food, not canned drinks
 # Note: "canned", "conserve" : already used in the preservation taxonomy
 <en:can
 en:Food can, tin, tin can
-bg:Консерва
+bg:консерва за храна
 de:Konservendose
 es:Lata de comida
 fr:Boîte de conserve, boîtes de conserves
@@ -565,6 +567,7 @@ wikidata:en:Q4236462
 # suggest:packaging_materials:en: en:plastic, en:aluminium
 # related_categories:en: en:Nespresso-compatible coffee capsules
 
+<en:Coffee capsule
 en:Nespresso-compatible capsules
 de:Nespresso-kompatible Kapseln
 es:Cápsulas compatibles con Nespresso
@@ -575,12 +578,14 @@ it:Capsule compatibili Nespresso
 lt:Nespresso kapsulės
 nl:Nespresso-compatibele Capsules, Nespresso
 
+<en:Coffee capsule
 en:Tassimo-compatible capsules, T-Disc capsules
 de:Tassimo-kompatible Kapseln
 fr:Dosettes compatible Tassimo, Dosettes Tassimo, Capsules Tassimo, Dosettes T-Disc, Capsules T-Disc
 nl:Tassimo-compatibele Capsules, Tassimo
 # related_categories:en: en:Tassimo-compatible coffee capsules
 
+<en:Coffee capsule
 en:Dolce Gusto-compatible capsules, Dolce Gusto capsules
 de:Dolce Gusto-kompatible Kapseln
 es:Cápsulas compatibles con Dolce Gusto
@@ -592,15 +597,20 @@ nl:Dolce Gusto-compatibele Capsules, Dolce Gusto
 
 en:Tea capsules
 
+en:coffee pad, coffee pads
+fr:dosette de café, dosettes de café
+nl:Koffiepad
+
 #As are used in Senseo
-en:Coffee pad, Senseo-compatible coffee capsules
+<en:coffee pad
+en:Senseo-compatible coffee capsules
 de:Senseo-kompatible Kapseln
 es:Cápsulas de café compatibles con Senseo
 fi:Senseo-yhteensopivat kahvikapselit
 fr:Dosettes Senseo, Capsules Senseo, Cafés en dosettes compatible Senseo
 it:Capsule di caffè compatibili Senseo
 lt:Senseo kapsulės
-nl:Koffiepad, Senseo-compatibele koffiecapsules, Senseo-compatibele koffiecapsule, Senseo
+nl:Senseo-compatibele koffiecapsules, Senseo-compatibele koffiecapsule, Senseo
 # suggest:packaging_materials:en: en:paper
 # related_categories:en: en:Senseo-compatible coffee capsules
 

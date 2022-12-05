@@ -40,7 +40,7 @@ hr:plastika
 hu:Műanyag
 it:Plastica
 nl:Plastiek
-pl:Plastikowe
+pl:Plastikowe, plastik
 pt:Plástico
 ru:Пластик
 wikidata:en:Q11474
@@ -106,6 +106,10 @@ pt:Plástico reciclado
 # all abbreviations, symbols etc. go in the xx: entry, and do not need to be added to the translations in other languages
 # (unless the abbreviation is different: e.g. "PEBD" = "Polyéthylène basse densité" in French instead of PELD)
 
+
+en:Mixed plastics
+fr:Plastiques mixtes
+
 <en:Plastic
 en:PET - Polyethylene terephthalate, Polyethylene terephthalate
 xx:PET, PET(E), PETE, PET 1, PET 01, 1 PET, 01 PET, ♳
@@ -126,6 +130,7 @@ non_recyclable_and_non_biodegradable:en:no
 <en:Other plastics
 en:PVDC - Polyvinylidene chloride, Polyvinylidene chloride
 de:PVDC - Polyvinylidenchlorid, Polyvinylidenchlorid
+fr:PVDC - Chlorure de polyvinylidène, Chlorure de polyvinylidène
 xx:PVDC, 07 PVDC, PVDC 07, 07PVDC, PVDC07, 7 PVDC, PVDC 7, 7PVDC, PVDC7
 wikidata:en:Q146383
 
@@ -161,7 +166,7 @@ pt:PET transparente
 en:Transparent rPET
 da:Gennemsigtig rPET
 de:Transparentes rPET
-fr:rPET transparent, rPET transparente
+fr:rPET transparent, rPET transparente, PET clair
 hu:Átlátszó rPET
 nl:rPET transparant, Transparant rPET
 pt:rPET transparente
@@ -185,6 +190,7 @@ pt:PET opaco
 <en:Plastic
 en:PE - Polyethylene, Polyethylene
 de:PE - Polyethylen, Polyethylen
+fr:PE - Polyéthylène, Polyéthylène
 hr:PE - Polietilen
 xx:PE, 07 PE, PE 07, 07PE, PE07, 7 PE, PE 7, 7PE, PE7
 wikidata:en:Q143429
@@ -203,7 +209,7 @@ en:HDPE - High-density polyethylene, High-density polyethylene
 xx:HDPE, 2 HDPE, HDPE 2, 02 HDPE, HDPE 02, PEHD, 2 PEHD, PEHD 2, 02 PEHD, PEHD 02, HD-PE, 2 HD-PE, HD-PE 2, 02 HD-PE, HD-PE 02, PE-HD, 2 PE-HD, PE-HD 2, 02 PE-HD, PE-HD 02, RC 2, RC 02, RC2, RC02, ♴
 bg:HDPE - Полиетилен с висока плътност
 de:HDPE - Polyethylen hoher Dichte, Polyethylen hoher Dichte
-fr:PEHD - Polyéthylène haute densité, polyéthylène haute densité, 
+fr:PEHD - Polyéthylène haute densité, polyéthylène haute densité
 hr:HDPE - polietilen visoke gustoće            
 hu:HDPE - Nagy sűrűségű polietilén, Nagy sűrűségű polietilén
 it:Polietilene ad alta densità
@@ -216,7 +222,7 @@ non_recyclable_and_non_biodegradable:en:no
 <xx:Bio-PE
 en:Biobased HDPE, Biobased PE-HD
 de:Biobasiertes HDPE, Biobasiertes PE-HD
-fr:PEHD biosourcé
+fr:PEHD biosourcé, HDPE biosourcé
 hu:Biobázisú HDPE
 pt:Bioplástico PEHD
 xx:Bio-HDPE
@@ -254,7 +260,7 @@ non_recyclable_and_non_biodegradable:en:no
 <xx:Bio-PE
 en:Biobased LDPE
 de:Biobasiertes LDPE, Biobasiertes PE-LD
-fr:PELD biosourcé
+fr:PELD biosourcé, LDPE biosourcé
 hu:Biobázisú LDPE
 pt:Bioplástico PELD
 xx:Bio-LDPE
@@ -277,11 +283,13 @@ non_recyclable_and_non_biodegradable:en:no
 <xx:PP
 en:CPP - Cast PolyPropylen, Cast PolyPropylen
 de:CPP - Ungerecktes Polypropylen
+fr:CPP - Polypropylène coulé, Polypropylène coulé
 xx:CPP, PP-C, 05 CPP, CPP 05, 5 CPP, CPP 5, 05CPP, CPP05, 5CPP, CPP5, 05 PP-C, PP-C 05, 5 PP-C, PP-C 5, 05PP-C, PP-C05, 5PP-C, PP-C5
 
 <xx:PP
 en:OPP - Oriented PolyPropylen, Oriented PolyPropylen
 de:OPP - Orientiertes Polypropylen
+fr:OPP - PolyPropylène Orienté, PolyPropylène Orienté
 xx:OPP, PP-O, 05 OPP, OPP 05, 5 OPP, OPP 5, 05OPP, OPP05, 5OPP, OPP5, 05 PP-O, PP-O 05, 5 PP-O, PP-O 5, 05PP-O, PP-O05, 5PP-O, PP-O5
 
 <en:Plastic
@@ -308,6 +316,7 @@ hr:O - ostali polimerni materijali
 hu:Egyéb műanyag, Más műanyag, Minden más műanyag
 it:Altre plastiche
 nl:Andere plastics
+pl:07 inne
 pt:Outros plásticos, Todos os outros plásticos, outro plástico
 ru:Другие пластики, Другие пластмассы
 xx:07 OTHER, OTHER 07, 7 OTHER, OTHER 7, 07 O, O 07, 7 O, O 7, ♹
@@ -317,6 +326,7 @@ non_recyclable_and_non_biodegradable:en:yes
 <en:Other plastics
 en:PC - Polycarbonate, Polycarbonate
 de:PC - Polycarbonate, Polycarbonate
+fr:PC - Polycarbonate, Polycarbonate
 hr:PC - polikarbonati
 xx:PC, 07 PC, PC 07, 07PC, PC07, 7 PC, PC 7, 7PC, PC7
 wikidata:en:Q62246
@@ -325,6 +335,7 @@ wikidata:en:Q62246
 <en:Other plastics
 en:PA - Polyamide, Polyamide
 de:PA - Polyamide, Polyamide
+fr:PA - Polyamide, Polyamide
 hr:PA - poliamid, poliamidi
 xx:PA, 07 PA, PA 07, 07PA, PA07, 7 PA, PA 7, 7PA, PA7
 wikidata:en:Q145273
@@ -346,6 +357,7 @@ wikidata:en:Q143496
 <en:Other plastics
 en:PMMA - Poly(methyl methacrylate), Poly(methyl methacrylate)
 de:PMMA - Polymethylmethacrylat, Polymethylmethacrylat, Acrylglas, Plexiglas
+fr:PMMA - Poly(méthacrylate de méthyle), Poly(méthacrylate de méthyle)
 xx:PMMA, 07 PMMA, PMMA 07, 07PMMA, PMMA07, 7 PMMA, PMMA 7, 7PMMA, PMMA7
 wikidata:en:Q146123
 
@@ -365,6 +377,7 @@ wikidata:en:Q413769
 <xx:PE
 en:LLDPE - Linear low-density polyethylene, Linear low-density polyethylene
 de:LLDPE - Lineares Polyethylen niedriger Dichte, Lineares Polyethylen niedriger Dichte
+fr:LLDPE - Polyéthylène basse densité linéaire, Polyéthylène basse densité linéaire
 xx:LLDPE, 07 LLDPE, LLDPE 07, 07LLDPE, LLDPE07, 7 LLDPE, LLDPE 7, 7LLDPE, LLDPE7, PE-LLD, 07 PE-LLD, PE-LLD 07, 07PE-LLD, PE-LLD07, 7 PE-LLD, PE-LLD 7, 7PE-LLD, PE-LLD7
 wikidata:en:Q1863987
 
@@ -372,6 +385,7 @@ wikidata:en:Q1863987
 <xx:PET
 en:PETmet - Metalized polyethylene terephthalate, Metalized polyethylene terephthalate
 de:PETmet - Metallisiertes Polyethylenterephthalat, Metallisiertes Polyethylenterephthalat
+fr:PETmet - Polyéthylène téréphtalate métallisé
 xx:PETmet, 07 PETmet, PETmet 07, 07PETmet, PETmet07, 7 PETmet, PETmet 7, 7PETmet, PETmet7, met-PET, 07 met-PET, met-PET 07, 07met-PET, met-PET07, 7 met-PET, met-PET 7, 7met-PET, met-PET7
 
 <en:Multilayer composite
@@ -385,6 +399,7 @@ xx:PEmet, 07 PEmet, PEmet 07, 07PEmet, PEmet07, 7 PEmet, PEmet 7, 7PEmet, PEmet7
 <xx:PE
 en:MDPE - Medium-density polyethylene, Medium-density polyethylene
 de:MDPE - Polyethylen mittlerer Dichte, Polyethylen mittlerer Dichte
+fr:MDPE - Polyéthylène moyenne densité, Polyéthylène moyenne densité
 xx:MDPE, 07 MDPE, MDPE 07, 07MDPE, MDPE07, 7 MDPE, MDPE 7, 7MDPE, MDPE7, PE-MD, 07 PE-MD, PE-MD 07, 07PE-MD, PE-MD07, 7 PE-MD, PE-MD 7, 7PE-MD, PE-MD7
 
 <en:Plastic
@@ -396,6 +411,7 @@ wikidata:en:Q582510
 
 en:Lead–acid battery
 de:Bleibatterie, Blei-Säure-Batterie
+fr:Batterie au plomb
 hu:Ólom-sav akkumulátor
 nl:Lood, Loodaccu
 pt:Bateria de chumbo-ácido
@@ -507,6 +523,7 @@ de:FSC Karton, FSC Pappe
 fr:Carton FSC
 nl:FSC karton
 pt:Cartão FSC
+# associated_label:en: en:FSC
 
 en:Paper
 bg:Хартия
@@ -519,10 +536,15 @@ it:Carta
 nl:Papier
 ru:Бумага
 ja:紙
+pl:papier
 pt:Papel
 sv:Papper
 xx:22 PAP, PAP 22, 22PAP, PAP22
 wikidata:en:Q11472
+
+fr:Papier sulfurisé
+
+en:Cellulose
 
 # thick cardboard (e.g. book covers)
 <en:cardboard
@@ -562,6 +584,8 @@ de:FSC Papier
 fr:Papier FSC
 nl:FSC-papier
 pt:Papel FSC
+# We have a en:FSC label - https://world.openfoodfacts.org/label/FSC - https://www.wikidata.org/wiki/Q748367
+# associated_label:en: en:FSC
 
 <en:Paper
 en:Kraft paper, kraft
@@ -601,6 +625,7 @@ wikidata:en:Q11426
 en:Recyclable Metals
 bg:Рециклируеми метали
 de:Wiederverwertbare Metalle, Wiederverwertbares Metall, Recycelbares Metall, Recycelbare Metalle
+fr:Métaux recyclables
 hu:Újrahasznosítható fémek
 it:Metalli riciclabili
 nl:Recyclebaar metaal
@@ -622,6 +647,7 @@ ru:Сталь
 ja:スチール
 xx:40 FE, FE 40
 wikidata:en:Q11427
+description:en:Steel is magnetic. If you approach a magnet, it should be attracted, unlike aluminium.
 
 <en:steel
 en:Tin-plated steel
@@ -644,6 +670,7 @@ ru:Алюминий
 ja:アルミ
 xx:41 ALU, ALU 41, ALU, ALU41, 41ALU
 wikidata:en:Q663
+description:fr:L'aluminium est trié grâce au courant de Foucault, qui a la propriété de repousser l’emballage en aluminium.
 
 <en:Aluminium
 en:Heavy aluminium, thick aluminium
@@ -660,7 +687,7 @@ fr:Aluminium léger, aluminium fin
 nl:Dun aluminium
 pt:Alumínio leve, alumínio fino, alumínio maleável
 
-en:Wood
+en:Wood, wooden
 bg:Дърво
 da:Træ
 de:Holz
@@ -731,6 +758,7 @@ hr:staklo
 hu:Üveg
 it:Vetro
 nl:Glas, Glazen
+pl:szkło
 pt:vidro
 wikidata:en:Q11469
 
@@ -745,6 +773,7 @@ hu:Fehér üveg
 nl:transparant glas, transparant glazen
 pt:Vidro transparente
 xx:70 GL, GL 70, 70GL, GL70, 70 GLS, GLS 70, 70GLS, GLS70
+wikidata:en:Q28869937
 
 <en:Glass
 en:Green Glass
@@ -766,6 +795,8 @@ fr:Verre brun
 hr:smeđe staklo
 nl:Bruin glas, bruine glazen
 xx:72 GL, GL 72, 72GL, GL72, 72 GLS, GLS 72, 72GLS, GLS72
+wikidata:en:Q2184152
+# wikidata is for brown glass bottles
 
 <en:Glass
 en:Dark Sort Glass
@@ -1491,6 +1522,12 @@ en:Italpack, Italpack Cartons
 de:Italpack, Italpack Cartons
 xx:Italpack, Italpack Cartons
 
+fr:Grès
+non_recyclable_and_non_biodegradable:en:yes
+
+fr:Porcelaine
+non_recyclable_and_non_biodegradable:en:yes
+
 en:Ceramic
 bg:Керамика
 da:Keramik
@@ -1570,11 +1607,11 @@ eo:pako
 es:paquete, paquetes
 et:pakett, pakk
 eu:pakete
-fa:پاکت‎
+fa:پاکت
 fi:paketti
 fr:paquet, pack, paquets, packs, packet, packets
 gd:pacaid
-he:חֲבִילָה‎
+he:חֲבִילָה
 hi:पैकेट
 hu:csomag
 hy:կապոց
@@ -1637,8 +1674,9 @@ it:Vasetto, Barattolo
 nl:Pot, Potten, Bokaal, Bokaalen
 pt:Jarro, jarros, jarra, jarras
 ro:Borcan
-#suggest:packaging_materials:nl: en:glass
+# suggest:packaging_materials:nl: en:glass
 description:nl:Cilindervormig voorwerp van glas of aardewerk
+# image:xx:bocal-verre.svg (looks like the Nutella jar)
 
 en:Box, boxes
 bg:Кутия, кутии
@@ -1651,8 +1689,13 @@ hu:Doboz, dobozok
 it:Scatola, scatole, astuccio, scatoletta
 nl:Doos, doosje, Dozen, Doosjes, Pakje, Pakjes
 pt:Caixa, caixas
-#suggest:packaging_materials:nl: en:paper, en:cardboard
+# suggest:packaging_materials:nl: en:paper, en:cardboard
 description:nl:Een veelal kartonnen balkvormige verpakking
+
+# <en:box
+# fr:box de pâtes
+# image:xx:boite-boitier-7.svg
+# suggest:category: en:instant pasta
 
 #Boxes for eggs
 <en:Box
@@ -1664,8 +1707,15 @@ pl:wytłaczanka
 ja:卵パック
 de:Eierkarton
 wikidata:en:Q959287
-#suggest:packaging_materials:nl: en:cardboard
+# suggest:packaging_materials:nl: en:cardboard
+# suggest:category: en:eggs
 description:nl:Kartonnen of geschuimd kunststoffen doos met holtes om eieren in te verpakken zonder dat deze elkaar raken
+# image:xx:boite-boitier-4.svg
+
+# <en:Box
+# fr:Boîte à hamburger
+# suggest:category: en:burgers
+# image:xx:boite-boitier-2.svg
 
 # boxes for pizza's
 <en:Box
@@ -1675,8 +1725,10 @@ fr:carton à pizza
 it:Cartone della pizza
 nl:Pizzadoos, pizzadozen
 wikidata:en:Q2097650
-#suggest:packaging_materials:nl: en:cardboard
+# suggest:packaging_materials:nl: en:cardboard
 description:nl:platte, vierkante, kartonnen doos waarin men een pizza kan stoppen
+# image:xx:boite-boitier-6.svg
+# suggest:category: en:pizzas
 
 en:Case, cases
 fr:Caisse, caisses, caissette, caissettes
@@ -1687,6 +1739,7 @@ en:Jug, jugs
 fr:Bidon, bidons
 nl:Kruik, kruiken
 pt:garrafão
+# associated_packagings: en:cap
 
 en:Bottle, bottles
 bg:Бутилка, бутилки
@@ -1699,10 +1752,48 @@ hr:boca
 hu:Palack, palackok
 it:Bottiglia
 nl:Fles, Flessen
+pl:Butelka
 pt:Garrafa, garrafas
 wikidata:en:Q80228
-#suggest:packaging_materials:nl: en:glass
+# suggest:packaging_materials:nl: en:glass
+# associated_packagings: en:cap
 description:nl:Een langgerekt, cilindrisch en meestal van glas vervaardigd vat met een nauwe hals die met een dop of kurk af te sluiten is
+
+# fr:bouteille de vin non gazeux
+# image:xx:bouteille-2.svg
+# suggest:category: en:non-sparkling wines
+
+# fr:bouteille de jus
+# image:xx:bouteille-6.svg
+# suggest:category: en:juices
+
+# fr:bouteille de bière
+# image:xx:bouteille-1.svg
+# suggest:category: en:beers
+
+# <en:bottle
+# fr:grande bouteille de soda
+# image:xx:bouteille-7.svg
+# suggest:category: en:sodas
+
+# <en:bottle
+# fr:bouteille compactable
+# image:xx:bouteille-3.svg
+# suggest:category: en:waters
+
+# <en:bottle
+# fr:bouteille de detergeant
+# image:xx:bouteille-8.svg
+# suggest:category: en:detergeants
+
+# <en:bottle
+# fr:bouteille pour liquide vaisselle
+# image:xx:bouteille-9.svg
+# suggest:category: en:detergeants
+
+
+
+fr:flasque
 
 en:Brick, brick carton, brick shaped carton, bricks, brick cartons, brick shaped cartons
 de:Ziegel, Ziegelkarton, ziegelsteinförmiger Karton, Ziegelkartons, ziegelsteinförmige Kartons
@@ -1711,9 +1802,23 @@ hu:tégla, tégladoboz, tégla doboz, tégla karton, tégla alakú karton
 nl:Drankkarton, Melkpak, Drankenkartons, Drankencarton, Drankenkarton, Drinkpahk, Drinkpakken
 description:en:Verpakking voor vloeibare levensmiddelen gemaakt van gelamineerd papier
 
+# <en:Brick
+# fr:brique à ouvrir par découpe
+# image:xx:brique-1.svg
+# suggest:category: en:milks
+
+# <en:Brick
+# fr:brique biseautée avec bouchon revissable
+# image:xx:brique-2.svg
+
+# <en:Brick
+# fr:brique plate avec bouchon revissable
+# image:xx:brique-3.svg
+
 en:small brick, small bricks
 fr:briquette, briquettes
 nl:briquette, briquettes
+# suggest:packaging_materials:en: cardboard
 
 # Can (drink or food) made with metal
 en:Can, cans
@@ -1727,11 +1832,14 @@ hu:konzervdoboz, konzerv
 it:Lattina, Latta
 nl:Blik, Bus
 pt:Lata, latas
+# suggest:packaging_materials:en: en:unknown metal, en:aluminium, en:steel
+# the line below indicates a default material: en:metal
 packaging_materials:en: en:metal
 wikidata:en:Q2846150
 description:nl:Een cilindervormig afgesloten blikken vaatje
 
-# Can for drink, not canned food
+
+# (metal) Can for drink, not canned food
 <en:can
 en:Drink can, beverage can, drink cans, beverage cans
 bg:Кен, кенче
@@ -1744,12 +1852,15 @@ nl:Blikje, Blikjes
 pt:Lata de bebida, latas de bebidas, lata de alumínio, latas de alumínio, lata de refrigerante, latas de refrigerante, lata de refrigerantes, latas de refrigerantes
 wikidata:en:Q3261783
 description:nl:Een cilindervormig afgesloten blikken vaatje voor dranken
+# image:xx:canette.svg
 
-# Can for food, not canned drinks
+
+
+# (metal) Can for food, not canned drinks
 # Note: "canned", "conserve" : already used in the preservation taxonomy
 <en:can
 en:Food can, tin, tin can
-bg:Консерва
+bg:консерва за храна
 de:Konservendose
 es:Lata de comida
 fr:Boîte de conserve, boîtes de conserves
@@ -1758,6 +1869,7 @@ nl:Conservenblik
 it:Lattina di cibo
 pt:Lata de alimentos, latas de alimentos, lata de alimento, latas de alimento, lata de conserva, lata de conservas, latas de conserva, latas de conservas, lata de comida, latas de comida, lata de comidas, latas de comidas, lata para alimentos, latas para alimentos, lata para alimento, latas para alimento
 description:nl:Een cilindervormig afgesloten blikken vaatje voor groenten, e.d.
+# image:xx:boite-boitier-5.svg (boite de conserve)
 
 en:pot, cup, pots, cups
 bg:кофичка
@@ -1766,6 +1878,7 @@ es:Bote, botes, vaso, vasos
 fr:Pot, pots, coupelle, coupelles, verrine, verrines, ravier, raviers
 hu:Pohár, fazék, lábas, edény, csésze, kanna
 nl:Kuip, kuipje
+pl:słoik
 pt:Pote, potes, boião, boiões, copo
 description:nl:Wijd, houten, metalen of plastic vat
 comment:en:Klopt deze vertaling wel? Is het niet meer een pot en moet kuip ergens anders onder gebracht worden?
@@ -1777,11 +1890,19 @@ hu:külön edény, külön fazék
 nl:Individuele pot, individuele potten
 pt:Pote individual, potes individuais, boião individual, boiões individuais
 
+# <en:pot
+# fr:salière
+# image:xx:pot-5.svg 
+# (image looks like a salière)
+# suggest:category: en:salts, en:peppers
+
 en:Tumbler
 fr:Gobelet
 nl:Beker, Bekers, Koffiebeker, Cup
 wikidata:en:Q833823
 description:nl:Een cilindervormig voorwerp waaruit gedronken kan worden
+# image:xx:gobelet-2.svg (looks like plastic)
+# image:xx:gobelet-1.svg (looks like cardboard)
 
 en:Tube, tubes
 de:Tube, Tuben
@@ -1790,6 +1911,19 @@ hu:Tubus, tubusok, Cső, csövek, cső alakú
 nl:Tube, Tubes
 pt:Bisnaga, bisnagas, tubo de bisnaga, tubos de bisnagas
 describtion:nl:Een verpakking in kokervorm gemaakt van metaal of plastic gevuld met een halfvloeibare stof
+# image:xx:tube-1.svg 
+# suggest:packaging_materials: en:cardboard, en:metal, en:glass, en:plastic, en:others
+# associated_packagings: en:cap
+
+# <en:Tube
+# fr:Tube avec bouchon dévissable
+# image:xx:tube-1.svg
+# associated_packagings: en:cap
+
+# <en:Tube
+# fr:Tube avec bouchon refermable
+# image:xx:tube-2.svg 
+# associated_packagings: en:cap
 
 en:Fastener, clip
 bg:Клипса
@@ -1797,13 +1931,16 @@ fr:Attache
 hu:Rögzítő, kapocs, csipesz
 nl:clip, klemmetje
 pt:Atilho, atilhos, presilha, presilhas, fita, fitas, cordão, cordões, atadura, ataduras, fecho, fechos, fexo, feixo, fexos, feixos, fio, fios
+description:fr:Ce qui sert à relier deux ou plusieurs pièces d'un ouvrage ou à le fixer.
 description:nl:Een klein werktuig waarin iets door samendrukken bijeengehouden of vastgezet kan worden
 
 en:Tie, knot
 fr:Lien, noeud
 nl:Knoop, strik
 weight:en:light
+description:fr:Ce qui sert à lier, à attacher des objets ou des parties ensemble.
 description:nl:Een vastgetrokken lus in garen, draad, koord of touw
+# associated_packagings: en:bag
 
 en:Bag, bags
 bg:Торбичка, торбички
@@ -1818,17 +1955,42 @@ nl:Zak, Sachet, Tas, verzendzak, Zakken, Zakje, Zakjes
 pt:Saco, sacos, saquinho, saquinhos, saqueta, saquetas
 description:nl:Slappe, vormeloze verpakking
 
+# image:xx:sac-sachet-poche-1.svg (sachet avec poignée)
+# image:xx:sac-sachet-poche-2.svg (sachet)
+# image:xx:sac-sachet-poche-3.svg (berlingot triangulaire)
+# wikidata:en:Q2897283
+# image:xx:sac-sachet-poche-5.svg (berlingot à javel)
+# image:xx:sac-sachet-poche-6.svg (sac plastique fin avec poignées)
+# image:xx:sac-sachet-poche-7.svg (sac carton avec poignées)
+# image:xx:sac-sachet-poche-9.svg (sachet long avec soudure thermique)
+# image:xx:sac-sachet-poche-3.svg (sachet fin)
+
+# <en:Bag
+# fr:Sachet à frites cartonné
+# image:xx:sac-sachet-poche-10.svg
+
+# <en:Bag
+# fr:Sachet à frites papier
+# image:xx:sac-sachet-poche-11.svg
+
 <en:Bag
 en:Carrying bag, carrying bags
 fr:Sac de transport, sacs de transport
 nl:Draagtas, draagzak, draagzakken, draagtassen
+# image:xx:sac-sachet-poche-6.svg
 
-en:Crate, crates
+en:Crate, crates, punnet
 fr:Cagette, cagettes, cageot, cageots
+de:Steige
 hu:Láda, lécláda, ketrec
 nl:Krat, kratten
 pt:Caixote, caixotes
 description:nl:Houten of plastic doos met openingen in de zijkanten in een standaardformaat, vaak gebruikt voor opslag en het vervoer van flessen, fruit of andere waren
+wikidata:en:Q2933051
+# suggest:packaging_materials:en: en:wood, en:cardboard, en:plastic
+# image:xx:cageot-cagette-autres-1.svg (bois)
+# image:xx:cageot-cagette-autres-2.svg (plastique/generique)
+# image:xx:cageot-cagette-carton.svg (carton)
 
 <en:Bag
 en:Individual bag, individual bags
@@ -1844,18 +2006,42 @@ fr:Gourde, gourde individuelle, gourdes individuelles, doypack, pouch
 hu:Flakon, Kulacs, flaska
 it:Borraccia
 pt:Frasco, frascos
+# comment:fr:gourde-plastique-3.svg
+# suggest:packaging_materials:en: en:plastic
 
-en:Sleeve, sleeves,  sheath, outer open-end box
+en:Doypack with cap
+fr:Doypack avec bouchon
+fr:comment:Le Doypack est un sachet souple tenant debout.
+wikidata:en:Q2026232
+# image:xx:gourde-plastique-2.svg # Doypack avec fermoir
+
+en:Doypack with cap
+fr:Doypack avec bouchon
+fr:comment:Le Doypack est un sachet souple tenant debout.
+# comment:fr:gourde-plastique 1.svg # Doypack avec bouchon lateral
+
+
+en:Sleeve, sleeves, sheath, outer open-end box
 fr:Étui, étuis, Fourreau, Cavalier
 hu:haskötő
 nl:Banderol, huls
 pt:Manga, mangas
-#suggest:packaging_materials:en: en:metal, en:paper, en:cardboard, en:other
+# suggest:packaging_materials:en: en:metal, en:paper, en:cardboard, en:other
+# image:xx:cavalier-etui-fourreau-3.svg (looks like yogurt cardboard sleeve)
+
+# image:xx:cavalier-etui-fourreau-4.svg (looks like breakfast cereal box)
+# suggest:packaging_materials:en: en:cardboard, en:metal, en:paper, en:other
 
 en:Mold
 fr:Moule
 nl:Mossel
 wikidata:en:Q1432049
+# image:xx:moule-metal.svg
+# image:xx:moule-carton.svg
+
+# fr:moule à muffin ou à sauce, moule dépliable
+# image:xx:moule-autre.svg
+# related_categories:en: en:Chocolate muffins, en:Blueberry muffins
 
 en:Lid, cover, lids, covers
 de:Deckel
@@ -1864,6 +2050,11 @@ fr:Couvercle, couvercles
 hu:Fedél, tető, fedő
 nl:Deksel, deksels
 pt:Tampa, tampas
+# image:xx:couvercle-1.svg (cloche)
+# image:xx:couvercle-2.svg (couvercle)
+# image:xx:couvercle-3.svg (couvercle)
+# suggest:packaging_materials:en: en:metal, en:cardboard, en:glass, en:others
+# associated_packagings: en:jar, en:bottle
 
 en:Bottle cap, bottle top, cap, top, bottle caps, bottle tops, caps, tops
 bg:Капачка за бутилка, капачка, капачки
@@ -1872,6 +2063,16 @@ hu:Kupak, borosdugó, dugó
 nl:Dop, Doppen
 pt:Cápsula de garrafa, cápsulas de garrafa, tampa de garrafa, tampas de garrafa, rolha, rolhas, rolha de garrafa, rolhas de garrafa, rolha de cortiça, rolhas de cortiça, rolha de plástico, rolhas de plástico, carica, caricas, cápsula de rosca, cápsulas de rosca
 wikidata:en:Q1440281
+# image:xx:bouchon-1.svg
+# associated_packagings: en:bottle
+
+fr:Capsule à vis, bouchon à vis
+wikidata:en:Q607619
+# https://fr.wikipedia.org/wiki/Capsule_%C3%A0_vis
+
+fr:bouchon mécanique, bouchon à étrier, bouchon à bascule
+wikidata:en:Q1020525
+# https://fr.wikipedia.org/wiki/Bouchon_m%C3%A9canique
 
 # Note: cork is listed under materials, it cannot be a synonym of wine cork in the shapes taxonomy.
 <en:Bottle cap
@@ -1881,6 +2082,20 @@ fr:bouchon de bouteille de vin, bouchons de bouteille
 hr:pluteni čep
 nl:Wijnkurk, wijnkurken, Wijn kurk
 wikidata:en:Q86511715
+# image:xx:bouchon-2.svg (wine cork)
+# suggest:packaging_materials:en: en:plastic, en:cork
+
+<en:Wine cork
+en:Champagne cork
+fr:bouchon de Champagne
+wikidata:en:Q106910341
+# image:xx:bouchon-3.svg (champagne cork)
+
+fr:Capsule CRD, Capsule Représentative de Droit, Capsule-congé
+wikidata:en:Q2937610
+# legal aluminum wrapper capsule in France and other countries
+# https://fr.wikipedia.org/wiki/Capsule_CRD
+# https://fr.wikipedia.org/wiki/Capsule-cong%C3%A9
 
 <en:Bottle cap
 en:Capsule, capsules
@@ -1889,6 +2104,9 @@ fr:Capsule, capsules
 hu:Kapszula, kapszulák
 nl:Capsule, Kroonkurk, Kroonkurken
 pt:Cápsula, cápsulas
+# image:xx:capsule-metal.svg (looks like a soda capsule)
+# image:xx:capsule-autre.svg (looks like a plastic capsule for wine)
+# suggest:packaging_materials:en: en:plastic, en:metal
 
 en:Coffee capsule, coffee capsules
 fr:Capsule de café, Capsules de café, capsules café, capsule café
@@ -1896,14 +2114,61 @@ hu:Kávékapszula, kávé kapszula, kávékapszulák, kávé kapszulák
 nl:Koffiecapsule, Koffiecapsules, Nespressocapsule, Nespresso-capsule
 pt:Cápsula de café, cápsulas de café, cápsula de cafés, cápsulas de cafés
 wikidata:en:Q4236462
+# suggest:packaging_materials:en: en:plastic, en:aluminium
+# related_categories:en: en:Nespresso-compatible coffee capsules
+
+<en:Coffee capsule
+en:Nespresso-compatible capsules
+de:Nespresso-kompatible Kapseln
+es:Cápsulas compatibles con Nespresso
+fi:Nespresso-yhteensopivat kapselit
+fr:Dosettes compatible Nespresso, Dosettes Nespresso, Capsules Nespresso
+# he:קפסולות קפה תואמות נספרסו TODO remove coffee
+it:Capsule compatibili Nespresso
+lt:Nespresso kapsulės
+nl:Nespresso-compatibele Capsules, Nespresso
+
+<en:Coffee capsule
+en:Tassimo-compatible capsules, T-Disc capsules
+de:Tassimo-kompatible Kapseln
+fr:Dosettes compatible Tassimo, Dosettes Tassimo, Capsules Tassimo, Dosettes T-Disc, Capsules T-Disc
+nl:Tassimo-compatibele Capsules, Tassimo
+# related_categories:en: en:Tassimo-compatible coffee capsules
+
+<en:Coffee capsule
+en:Dolce Gusto-compatible capsules, Dolce Gusto capsules
+de:Dolce Gusto-kompatible Kapseln
+es:Cápsulas compatibles con Dolce Gusto
+fr:Dosettes Dolce Gusto, dosettes compatible Dolce Gusto
+it:Capsule compatibili Dolce Gusto
+lt:Dolce Gusto kapsulės
+nl:Dolce Gusto-compatibele Capsules, Dolce Gusto
+# related_categories:en: fr:Dosettes Dolce Gusto
+
+en:Tea capsules
+
+en:coffee pad, coffee pads
+fr:dosette de café, dosettes de café
+nl:Koffiepad
 
 #As are used in Senseo
-en:Coffee pad
-nl:Koffiepad
+<en:coffee pad
+en:Senseo-compatible coffee capsules
+de:Senseo-kompatible Kapseln
+es:Cápsulas de café compatibles con Senseo
+fi:Senseo-yhteensopivat kahvikapselit
+fr:Dosettes Senseo, Capsules Senseo, Cafés en dosettes compatible Senseo
+it:Capsule di caffè compatibili Senseo
+lt:Senseo kapsulės
+nl:Senseo-compatibele koffiecapsules, Senseo-compatibele koffiecapsule, Senseo
+# suggest:packaging_materials:en: en:paper
+# related_categories:en: en:Senseo-compatible coffee capsules
 
 en:Tea bag
 bg:Чаена торбичка
 nl:Theezakje
+# suggest:packaging_materials:en: en:paper
+# related_categories:en: en:Tea bags
 
 # keep the plural as the main name
 en:Eating utensils, utensils, eating utensil, utensil
@@ -1913,6 +2178,7 @@ fr:Couverts, couvert
 hu:evőeszközök, evőeszköz
 nl:Bestek
 pt:Talheres, talher 
+# suggest:packaging_materials:en: en:plastic, en:wood
 
 # keep the plural
 <en:Eating utensils
@@ -1924,7 +2190,6 @@ fr:Baguettes
 hu:evőpálcikák, evőpálkcika
 nl:Stokjes
 pt:Pauzinhos chineses, palitinhos, hashi
-#suggest:packaging_materials:en: en:plastic, en:wood
 wikidata:en:Q81980
 
 <en:Eating utensils
@@ -1995,7 +2260,7 @@ pt:cartolina, cartolinas
 packaging_materials:en: en:cardboard
 
 en:backing, support, board, stand
-bg:пълнеж, подплънка
+bg:подплънка
 de:Stütze, Unterlage
 fi:tuki
 fr:support, plaque
@@ -2019,12 +2284,16 @@ fr:Filet, filets
 hu:Háló, hálók
 nl:Net, netje, netten, netjes
 pt:Rede, redes, saco de rede, sacos de rede, sacos de redes, saco de redes
-#suggest:packaging_materials:en: en:metal, en:other
+# suggest:packaging_materials:en: en:metal, en:other
 # related_categories:en: en:Fresh garlic
+# image:xx:filet-autre-1.svg
+# image:xx:filet-autre-2.svg (probably the best one)
+# image:xx:filet-metal.svg (flat)
+# suggest:packaging_materials:en: en:metal, en:plastic
 
 en:Film, wrap, films, wraps, film wrap, film wraps, foil
 af:Foelie
-ar:فِلْم‎
+ar:فِلْم
 be:плёнка
 bg:Фолио, слой
 ca:Film
@@ -2034,7 +2303,7 @@ el:Μεμβράνη
 fr:Film, pellicule, films, pellicules, film de regroupement
 gd:film
 gl:filme
-he:קְרוּם‎
+he:קְרוּם
 hi:फ़िल्म
 hu:Film
 hy:թաղանթ
@@ -2048,13 +2317,15 @@ pt:Película, películas, filme, filmes, filme extensível, filme estirável
 ru:фильм
 sh:фи̏лм, fȉlm
 th:ฟิล์ม
-ur:فلم‎
+ur:فلم
 sv:Film
 zh:菲林
 weight:en:light
 description:en:A thin layer of plastic or metal
 description:nl:Dun en buigzaam vel van een metaal of kunststof
-#comment:en:Some languages might distinghuish between plastic film and metal foil. Film in english can also mean a thin sheet of oil on water for instance.
+# comment:en:Some languages might distinguish between plastic film and metal foil. Film in English can also mean a thin sheet of oil on water for instance.
+# suggest:packaging_materials:en: en:metal, en:plastic
+# image:xx:film-film-a-bulle.svg (looks like film holding water bottles together)
 
 en:Overpack, overpacks
 fr:Suremballage, sur-emballage, suremballages, sur-emballages
@@ -2068,6 +2339,7 @@ fr:Emballage de regroupement, emballages de regroupement
 hu:Csoportosító csomag, egyesítő csomag
 nl:Groepsverpakking, groepsverpakkingen
 pt:Embalagem de grupagem, embalagem de agrupagem, embalagens de grupagem, embalagens de agrupagem, embalagem agrupadora, embalagens agrupadoras
+# suggest:packaging_materials:en: en:plastic
 
 en:Seal, operculum, seals, peel-off lid
 de:Dichtung, Dichtungen
@@ -2075,7 +2347,9 @@ fr:Opercule, opercules
 hu:zárófedő
 nl:Seal
 pt:Tampo, tampos
+# image:xx:opercule.svg
 # weight:en:light
+# suggest:packaging_materials:en: en:metal, en:paper, en:cardboard, en:plastic, en:others, en:mix
 
 en:bulk, without packaging
 bg:насипно, наливно, без амбалаж
@@ -2095,6 +2369,9 @@ hu:Tál, tálak
 nl:Schaal, Schaaltje, Schaaltjes, Vlootje, Vlootjes, Bak, Bakje, Bakjes, kom, kommen
 pt:Tigela, taça, tigelas, taças
 wikidata:en:Q153988
+# image:xx:bol-coupe-coupelle-1.svg (bol)
+# image:xx:bol-coupe-coupelle-2.svg (coupelle, which is currently amalgamated with pot)
+# suggest:packaging_materials:en: en:cardboard, en:metal, en:glass, en:plastic
 
 en:Plate, plates
 bg:Чиния, чинии
@@ -2104,17 +2381,26 @@ hu:tányér, tányérok
 nl:Bord, Borden, Bordje
 pt:Prato, pratos
 wikidata:en:Q57216
+# suggest:packaging_materials:en: en:plastic, en:cardboard
+
+# fr:Pipette, Physiodose
+# image:xx:flacon-et-son-bouchon-6.svg (looks like physiological serum)
+# suggest:packaging_materials:en: en:plastic
 
 en:Stick, sticks
 fr:Batonnet, bâtonnets
 hu:rúd, rudak
 nl:Stok, stokken
 pt:Paus, pauzinhos, varetas de madeira
+# image:xx:batonnet.svg
+# suggest:packaging_materials:en: en:wood
 
 en:Cosmetic stick
 fr:Stick cosmétique
 # related_categories:en: en:lipstick, en:deodorant
 # different - do not merge
+# image:xx:stick-1.svg (stick deodorant)
+# image:xx:stick-2.svg (stick pour les lèvres)
 
 en:label, labels
 bg:етикет, етикети
@@ -2124,21 +2410,39 @@ hu:címke, címkék
 nl:Label, labels
 pt:Etiqueta, etiquetas, rótulo, rótulos
 weight:en:light
-#suggest:packaging_materials:en: en:paper, en:cardboard, en:other
+# suggest:packaging_materials:en: en:paper, en:cardboard, en:other
+# image:xx:etiquette.svg (label with a string)
 
 en:Applicator
 fr:Applicateur
 nl:Applicator
-#suggest:packaging_materials:en: en:plastic, en:cardboard
+# suggest:packaging_materials:en: en:plastic, en:cardboard
+# image:xx:applicateur-plastique.svg (applicateur dévissable de flacon de sauce)
+# image:xx:applicateur-plastique-2.svg (tampon hygiénique)
 
 en:Bag-in-box
-fr:Bag-in-box, Cubitainer
+fr:Bag-in-box, caisse-outre, Cubitainer, BIB
 nl:Zak-in-doos
 wikidata:en:Q799810
+# made of: fr:Boîte carton à recycler, fr:poche plastique à jeter
+# https://fr.wikipedia.org/wiki/Caisse-outre
+# Cubitainer is slightly different according to Wikipedia
+
+# fr:Boîte carton de cubitainer
+# image:xx:bag-in-box-complet.svg
+# suggest:packaging_materials:en: en:cardboard
+
+# fr:poche plastique de Cubitainer
+# image:xx:bag-in-box-poche-plastique.svg
+# suggest:packaging_materials:en: en:plastic
 
 en:strip, band
 fr:Bandelette
-#suggest:packaging_materials:en: en:plastic, en:metal, en:cardboard, en:other
+# suggest:packaging_materials:en: en:plastic, en:metal, en:cardboard, en:other
+# image:xx:bandelette-papier.svg
+# image:xx:bandelette-metal.svg
+# image:xx:bandelette-plastique.svg
+# image:xx:bandelette-autres.svg
 
 en:Ampoule, ampul, ampule
 bg:Крушка
@@ -2146,58 +2450,110 @@ fr:Ampoule
 hr:ampula
 nl:Ampulle
 wikidata:en:Q477379
-#suggest:packaging_materials:en: en:glass
+# suggest:packaging_materials:en: en:glass
+# image:xx:ampoule.svg
+# comment:fr:this is a vial containing liquid
 
 en:Blister, Blister pack
 bg:Блистер
 fr:Blister
 nl:Blister
 wikidata:en:Q1334675
+# image:xx:blister-coque-1.svg
+# image:xx:blister-coque-2.svg
+# image:xx:blister-coque-3.svg (sandwich)
+# suggest:packaging_materials:en: en:plastic
 
-#en:shell with cardboard backing
-#fr:coque avec chevalet carton
+# fr:emballage de sandwich triangle
+# image:xx:blister-coque-3.svg (emballage de sandwich triangle)
+# suggest:category: en:sandwich made with loaf bread
+
+# en:shell with cardboard backing
+# fr:coque avec chevalet carton
+# image:xx:blister-coque-avec-chevalet-1
 
 en:Roll, mandrel
 fr:Rouleau, Bobine, Mandrin
+# https://fr.wikipedia.org/wiki/Mandrin#Emballage
+# comment:fr:Quand il signifie accessoire pour enroulement, le mandrin peut être un tube pour enrouler des rouleaux de papier, de feuille plastique, de tissu, etc. Le mandrin est le plus souvent en carton, réalisé par l'enroulement successif de spirales de papier croisées et collées. Parfois il est en plastique ou métallique et réutilisable. Parmi les applications domestiques, on trouve les papiers d'essuyage enroulés sur un mandrin jetable, de même le bobineau de film étirable...
+
+# <en:Roll
+# fr:rouleau de sopalin
+# image:xx:bobine-rouleau-1.svg 
+# suggest:packaging_materials:en: en:cardboard, en:paper
+
+# <en:Roll
+# fr:rouleau de papier toilette
+# image:xx:bobine-rouleau-2.svg 
+# suggest:packaging_materials:en: en:cardboard, en:paper
 
 en:Canister
 fr:Bombonne
 nl:Spuitbus, spuitbussen
 # related_categories:en: en:Waters
+# image:xx:bonbonne-plastique.svg https://world.openfoodfacts.org/product/3068320125367/bouteille-d-eau-evian-6l
+# image:xx:bonbonne-verre.svg
+# suggest:packaging_materials:en: en:plastic, en:metal, en:glass
+# fr:comment:Un canister est un emballage d'allure cylindrique qui s’ouvre en totalité à une extrémité au moins
+# wikidata:en:Q17175548
 
 en:neck seal
 fr:Collerette
 wikidata:en:Q61686575
+# image:xx:coiffe-collerette.svg
+# suggest:packaging_materials:en: en:metal, en:plastic
 
 en:Wire cage and cap
 fr:Muselet, Muselet et plaque
 #goes_with:en:glass bottle
 wikidata:en:Q1061121
 # related_categories:en: en:Champagnes
+# image:xx:muselet-et-plaque.svg
+# suggest:packaging_materials:en: en:metal
 
 en:hanger
 bg:закачалка
 fr:Cintre
 nl:Kleerhanger
 # related_categories:en: en:Clothes
+# image:xx:cintre.svg
+# suggest:packaging_materials:en: en:metal, en:cardboard, en:others
 
 en:Wedge, corner piece
 fr:Cale, Coin, Cornière
-#suggest:packaging_materials:en: en:plastic, en:cardboard, en:metal, en:other
+# suggest:packaging_materials:en: en:plastic, en:cardboard, en:metal, en:other
+# image:xx:cale-coin-corniere-1.svg (cardboard)
+# image:xx:cale-coin-corniere-2.svg (other)
 
 # close to bottle, but also ampoule is translated to vial by citeo
 en:Vial, flask
 fr:Flacon
 nl:Flacon, Flacons
+# related_shapes: en:cap, en:vial
+# image:xx:bouteille-4.svg (looks like a whiskey flask)
+
+# fr:Flacon et son bouchon vissable
+# image:xx:flacon-et-son-bouchon-5.svg
+# related_shapes: en:cap, en:vial
+
+# fr:Bouteille de sirop
+# image:xx:flacon-et-son-bouchon-3.svg
+# suggest:packaging_materials:en: en:metal, en:plastic
 
 en:Clamping ring
 fr:Collier
+# image:xx:collier-plastique.svg
+# suggest:packaging_materials:en: en:plastic
 
 en:wrapper, wrapping
 es:envoltorio
 fr:enveloppage
 pt:invólucro
-#suggest:packaging_materials:en: en:metal, en:paper, en:other
+# suggest:packaging_materials:en: en:metal, en:paper, en:other
+# image:xx:enveloppage.svg
+
+fr:agrafe
+# suggest:packaging_materials:en: en:metal
 
 en:envelope
 bg:плик
@@ -2205,68 +2561,168 @@ es:sobre
 fr:enveloppe
 it:busta
 nl:wikkel, vensterenvelop, sleeve
-#suggest:packaging_materials:en: en:cardboard, en:paper
+# suggest:packaging_materials:en: en:cardboard, en:paper
+# image:xx:enveloppe-papier.svg
+# image:xx:enveloppe-carton.svg
 
 en:String, strings, ribbon, ribbons, adhesive tape, adhesive tapes, gift ribbon, gift ribbons
 fr:ficelle, ficelles, ruban, rubans
+# image:xx:ficelle-ruban-bande-3.svg (ficelle)
+# image:xx:ficelle-ruban-bande-1.svg (ruban)
+# image:xx:ficelle-ruban-bande-2.svg (ruban)
+# suggest:packaging_materials:en: en:cardboard, en:paper, en:metal, en:others
 
 en:individual dose, Individual capsule
 fr:dose invididuelle, doses individuelles, dosette, dosettes
-#suggest:packaging_materials:en: en:paper, en:cardboard, en:other
+# suggest:packaging_materials:en: en:paper, en:cardboard, en:other
+# dose-individuelle-papier.svg (looks like a sugar individual dose)
+# dose-individuelle-autre.svg (looks like a small doypack)
 
 en:Protection cover
 fr:Housse, housses, housse de protection, housses de protection
 nl:Beschermingshoes, beschermingshoezen
+# image:xx:housse.svg (looks like a suit protection cover)
 
 en:pump bottle, spray, spray bottle, applicator bottle
 fr:Flacon à pompe, flacons à pompe, flacon à pistolet, flacons à pistolet, Spray, sprays
-#suggest:packaging_materials:en: en:plastic, en:metal, en:glass
+es:espray
+de:Sprühflasche
+wikidata:en:Q3737688
+# suggest:packaging_materials:en: en:plastic, en:metal, en:glass
+# image:xx:flacon-pompe-pistolet-spray-1.svg
+# image:xx:flacon-pompe-pistolet-spray-2.svg
+# image:xx:flacon-et-son-bouchon-1.svg (pompe pressable)
 
 en:squeeze bottle
 fr:flacon souple, flacon pressable, flacon à presser, squeezer
 nl:Knijpfles, knijpflessen
+# suggest:packaging_materials:en: en:plastic
 
-en:Aerosol can, aerosol cans
+en:Aerosol can, aerosol cans, aerosol spray
 fr:Aérosol, aérosols
-packaging_materials:en: en:plastic, en:metal
+de:Sprühdose
+wikidata:en:Q659495
+# suggest:packaging_materials:en: en:plastic, en:metal
+# image:xx:aerosol.svg
 
 en:Ball flask, Roll-on bottle
 fr:Flacon à bille, Roll
-#suggest:packaging_materials:en: en:plastic, en:glass
+wikidata:en:Q115170160
+# image:xx:flacon-bille-roll.svg
+# suggest:packaging_materials:en: en:plastic, en:glass
 
 en:Basket, baskets
 bg:Кошница, кошници
 fr:Panier, paniers
 nl:Mand, manden
+# suggest:packaging_materials:en: en:plastic, en:wicker
 
 en:Syringe, syringes
 bg:Спринцовка, спринцовки
 fr:Seringue, seringues
 nl:Spuit, spuiten
+wikidata:en:Q273318
+# suggest:packaging_materials:en: en:plastic
+# image:xx:seringue.svg
 
 en:Wings, Hygiene wings
 fr:Ailettes
-#suggest:packaging_materials:en: en:plastic, en:paper
+# suggest:packaging_materials:en: en:plastic, en:paper
+# image:xx:ailettes.svg
 
-en:Bucket, buckets
-bg:Кофа, кофи
-fr:Seau, seaux
-nl:Emmer, emmers
+en:bucket, buckets
+af:emmer
+ar:دلو
+as:বাল্টি
+az:çanaq
+be:вядро
+bg:кофа, кофи
+br:sailh
+ca:galleda, cubell
+cs:kýbl
+cy:bwced
+da:spand
+de:Eimer
+el:κουβάς
+eo:sitelo
+es:cubo, balde
+et:pang, ämber
+fa:سطل
+fi:sanko, ämpäri
+fo:spann
+fr:seau, seaux
+fy:amer
+ga:buicéad
+he:דלי
+hi:बाल्टी
+hu:veder, vödör
+hy:դույլ
+ia:situla
+id:ember
+is:fata
+it:secchio
+ja:バケツ
+ko:버킷
+lb:Eemer
+lt:kibiras
+mt:barmil
+nl:emmer, emmers
+nn:bytte,bøtte, spann
+no:bøtte, spann
+pl:wiadro
+pt:balde
+ro:galeata
+ru:ведро
+sk:vedro
+sl:vedro
+sq:kovë
+sv:hink, spann, ämbar
+sw:ndoo
+te:బక్కెటు, బక్కెట్టు, బొక్కెన
+tr:kova
+vo:böket
+zh:水桶
+description:en:A container made of rigid material, often with a handle, used to carry liquids or small items.
+description:da:beholder, ofte med håndtag, der benyttes til at bære væsker eller små genstande
+description:de:hohes, rundes Gefäß, zumeist in Form eines Zylinders oder Kegelstumpfes, das mit einem beweglichen Henkel versehen ist und zur Aufbewahrung und/oder zum Transport, besonders von Flüssigkeiten, dient
+description:es:Recipiente en forma de cilindro, cono trunco o cubo, casi siempre provisto de un asa y utilizado para transportar líquidos, polvos u objetos pequeños.
+description:fr:Récipient cylindrique, ou plus souvent tronconique, de plastique, de bois ou de métal, en général pourvu d’une anse, servant à transporter un liquide, du sable ou autres.
+description:it:contenitore di forma cilindrica
+descrition:nl:busvormig taps toelopend vat (met hengsel), waarin men vloeistoffen of vaste stoffen kan verplaatsen
 #suggest:packaging_materials:en: en:plastic, en:metal
+description:no:beholder til å ha sand, vann, jord, etc. i; formet slik at man kan bære den, og med ett håndtak i topp
+description:pt:vasilha de forma quase cilíndrica para o transporte de água e outros usos domésticos feita em madeira, metal ou plástico
+description:ro:vas de lemn, de metal etc. de forma unui trunchi de con cu baza mare în partea superioară, cu toartă, folosit pentru transportul (și păstrarea) unor lichide, unor materiale granulare sau pulverulente etc.
+description:sv:ihålig handtagsförsedd behållare, oftast med cirkulär bottenyta och lätt utåtgående sidor, avsedd att inrymma vatten, jord, grus, sand etc.
+wikidata:en:Q47107
+# suggest:packaging_materials:en: en:plastic, en:metal
+# image:xx:seau-plastique.svg
+# image:xx:seau-metal.svg
+
+<en:bucket
+en:small bucket
+nl:emmertje
 
 # CITEO only translates it by pot
 en:Terrine pot, terrine pots
 es:Tarrina, tarrinas
 fr:Terrine, terrines
+# image:xx:terrine.svg
+# image:xx:terrine-avec-couvercle.svg
+# suggest:packaging_materials:en: en:plastic, en:sandstone, en:ceramic
 
 en:Barrel, barrels, drum, drums, keg, kegs
 fr:Tonneau, tonneaux, tonnelet, tonnelets
-#suggest:packaging_materials:en: en:cardboard, en:plastic, en:metal, en:other
+wikidata:en:Q10289
+# suggest:packaging_materials:en: en:cardboard, en:plastic, en:metal, en:other
+# image:xx:tonneau-tonnelet-plastique.svg
+# image:xx:tonneau-tonnelet-carton.svg
 
 en:Bubble wrap
 fr:Film à bulles
 nl:Bubbeltjesfilm
-packaging_materials:en: en:plastic
+# suggest:packaging_materials:en: en:plastic
+wikidata:en:Q19806
 
 xx:cellophane
 nl:cellofaan
@@ -2275,21 +2731,105 @@ description:nl:Transparant materiaal gemaakt van cellulose, in dunne vellen gewo
 en:Cartridge, cartridges
 fr:Cartouche, cartouches
 nl:Cartridge, cartridges
-description:nl:Inktpatroon voor een printer
+# description:nl:Inktpatroon voor een printer >> actually no, food gas cartdrige
+wikidata:en:Q97584727
+# image:xx:cartouche.svg (looks like a gas/liquid cartdrige)
 
-#fr:Bac
+# fr:Bac
+# image:xx:bac-plastique-2.svg (bac générique)
+# image:xx:bac-plastique.svg (bac à glace)
+# suggest:packaging_materials:en: en:cardboard, en:metal, en:others
+
 #fr:Bidon
 
-en:Straw, straws
-bg:Сламка, сламки
-fr:Paille, pailles
-nl:Rietje, rietjes
+en:drinking straw, straw, straws
+be:саломінка
+bg:cламка, сламки
+bo:སོག་མ་པི་པི
+ca:palla
+cs:slámka
+cy:gwelltyn
+da:sugerør
+de:Trinkhalm
+el:καλαμάκι
+eo:trinkŝalmo
+es:pajilla
+et:joogikõrs
+fa:نی نوشیدنی
+fi:pilli
+fo:súgvirør
+fr:paille, pailles
+ga:sop
+gd:sràbh
+he:קש
+ht:chalimo
+hu:szívószál
+hy:ձողիկ
+id:sedotan
+is:drykkjarrör
+it:cannuccia
+ja:ストロー
+ka:საწრუპავი
+km:បំពង់បឺត
+ko:빨대
+lb:Stréihallem
+lo:ຫລອດດູດນ້ຳ
+lt:šiaudelis
+lv:salmiņš
+mk:сламка
+mn:соруул
+mo:ngongo
+ms:penyedut minuman
+nl:rietje, rietjes
+nn:sugerøyr
+no:sugerør
+pl:słomka
+pt:canudo
+ro:pai
+ru:соломинка
+sh:slamka, сламка
+sk:slamka
+sl:slamica
+sq:biule
+sv:sugrör
+th:หลอด
+tl:halusan
+tr:kamış
+uk:соломинка
+vi:ống hút
+wa:paye
+y:שטרוי
+zh:吸管
+description:en:A long tube (usually made out of plastic or paper) through which a beverage is drunk via suction
+description:de:Hilfsmittel, mit welchem sich Flüssigkeiten aufsaugen lassen, um sie zu trinken
+description:es:Pequeño tubo plástico que sirve para sorber líquidos, especialmente refrescos.
+description:fr:Petit tube servant à aspirer un liquide.
 description:nl:Dun drinkbuisje
+# suggest:packaging_materials:en: en:plastic, en:paper, en:cardboard
 
 en:Filling
+af:Stopsel
+bg:пълнеж
+da:fyldning
+de:Füllung
+el:γέμιση
+eo:remburaĵo
+es:relleno, farsa
+fi:täyte
+gl:recheo
 nl:Opvulmateriaal
+pl:wypełnienie
+pt:enchimento
+ru:наполнение
+sk:výplň
+th:ไส้
+zh:填充
+description:en:Anything that is used to fill something
+description:nl:het materiaal waarmee iets opgevuld is
 
+en:Inlay
 nl:Inlay
+description:en:The piece of paper or the booklet inside the case
 
 en:Brochure
 de:Broschüre, Faltblatt
@@ -2298,11 +2838,38 @@ fr:Brochure
 nl:Folder
 sv:Broschyr
 description:nl:Een blad met informatie of reclame
+# suggest:packaging_materials:en: en:paper
 
 en:spout, pouring spout, pour spout
+az:lülək
+bg:чучур
+ca:broc
+cs:hubice
+de:Tülle
+es:pico
+fa:چرنه
+fi:nokka
+fo:tútur
 fr:verseur, bec verseur
+gl:cano
+hy:ծորակ
+it:beccuccio
+ja:噴出口
+nl:tuit, schenktuit
+pl:dzióbek
+pt:bico
+ru:носик
+sv:pip
+tr:uç
+zh:嘴子
+description:en:a tube or lip through which liquid is poured or discharged.
+description:fr:Appareil qui sert à verser.
+description:nl:schenkpijp aan een kan of ketel
 wikidata:en:Q2893427
 #wikidata:en:Q54803638
+
+fr:Bouchon verseur
+wikidata:en:Q2921384
 
 
 # packaging_recycling.txt
@@ -2313,8 +2880,23 @@ stopwords:en:in,the
 stopwords:bg:в,във
 stopwords:fr:le,la,dans
 
-#comment:en:Instructions for the Netherlands: https://kidv.nl/media/weggooiwijzer/2021_kidv_weggooiwijzer_handleiding_nl_juni_2021.pdf?1.2.2
-#comment:en:instructions for Belgium: https://www.betersorteren.be/nl/download-de-sorteergidsen-voor-pmd-papier-karton-en-glas
+# comment:en:Instructions for the Netherlands: https://kidv.nl/media/weggooiwijzer/2021_kidv_weggooiwijzer_handleiding_nl_juni_2021.pdf?1.2.2
+# comment:en:Instructions for Belgium: https://www.betersorteren.be/nl/download-de-sorteergidsen-voor-pmd-papier-karton-en-glas
+# comment:en:Instructions for Spain: 
+# https://world.openfoodfacts.org/label/ecoponto-amarelo
+# https://world.openfoodfacts.org/label/ecoponto-azul
+# comment:en:Instructions for France: 
+# comment:en:Instructions for Germany: 
+# comment:en:Instructions for Italy: 
+
+# Paper and cardboard
+es:Ecoponto Azul
+
+# Plastic and metal
+es:Ecoponto Amarelo
+
+# Glass
+es:Ecoponto Verde
 
 en:reuse, re-use, to reuse, to re-use,  to be reused, to be re-used, reusable, re-usable, Refillable, refill, to refill, multiple use
 bg:използвай повторно, използвайте повторно
@@ -2329,24 +2911,26 @@ de:recyceln, zum Recyceln, recycelbar
 fr:recycler, à recycler, recyclable
 hu:újrahasznosítható, újrahasznosítandó, újrahasznosításra
 pt:reciclável, a reciclar, para reciclar
+# associated_materials: en:glass, en:aluminium, en:steel
 
 <en:recycle
 en:recycle in glass bin, recycle in glass container, recycle with glass, in glass bin, in glass container
 fr:recycler dans le conteneur à verre, recycler dans le bac à verre, recycler avec le verre, dans le conteneur à verre, avec le verre
 nl:recyclen in de glasbak, Glasbak, in de glasbak, in glasbak
-# If the recycling instruction is to recycle in the glass bin, we can assume the material is glass
+# comment:en:If the recycling instruction is to recycle in the glass bin, we can assume the material is glass
 packaging_materials:en: en:glass
 
 <en:recycle
 en:recycle in paper bin, recycle in paper container, recycle with paper
 fr:recycler dans le conteneur à papier, recycler dans le bac à papier, recycler avec le papier, dans le conteneur à papier, dans le bac à papier, avec le papier
 nl:recyclen bij oud papier, bij oud papier, in papierbak, in de papierbak, papierbak
-# If the recycling instruction is to recycle in the paper bin, we can't assume the material is paper
+# comment:en:If the recycling instruction is to recycle in the paper bin, we can't assume the material is paper
 # it could also be cardboard
 
 # in the Netherlands for recycling of drink cartons
 <en:recycle
 en:recycle with drink cartons
+fr:recycler avec les cartons à boissons
 nl:recycle bij drankencartons, bij drankencartons
 packaging_shapes:en: en:brick
 
@@ -2354,6 +2938,7 @@ packaging_shapes:en: en:brick
 <en:recycle
 en:recycle with plastics - metal and bricks
 nl:recycle bij Plastic - Metaal en Drankencartons, PMD, wel PMD
+fr:recycler avec les plastiques - métal et briques
 
 <en:recycle
 en:recycle with plastics
@@ -2364,25 +2949,28 @@ packaging_materials:en: en:plastics
 #packaging that is to be returned to the shop, in exchange for money, might be PET-bottles, meetal cans or glass bottles
 <en:recycle
 en:return to store, deposit
-fr:consigné, consigne
+fr:consigné, consigne, rapporter au magasin, retourner au magasin
 nl:recycle-als-statiegeld
 
 #In the Netherlands PET bottles must be returned in exchange for the deposit, when it has the statiegeldfles logo
 <en:deposit
 en:return PET bottle to store, PET deposit bottle
+fr:bouteille en PET consignée, rapporter la bouteille en PET au magasin
 nl:recycle als statiegeldfles, statiegeldfles
 packaging_materials:en: en:pet-polyethylene-terephthalate
 packaging_shapes:en: en:bottle
 
-#In Croatia, there is a specific label for plastic and glass bottle with deposit
+# In Croatia, there is a specific label for plastic and glass bottle with deposit
 <en:deposit
 en:deposit refunds
 hr:povratna naknada
+fr:consigne remboursable
 
 #This is green waste
 <en:recycle
 en:recycle as green waste, compost, green waste
 nl:recycle als GFT, gft
+fr:compostable, à composter
 
 en:discard, to discard, throw away, to throw away, non-recyclable, to be thrown away, to be discarded
 de:wegwerfen, nicht recycelbar, zum Wegwerfen
@@ -2390,6 +2978,7 @@ fr:jeter, à jeter, non-recyclable
 hu:eldobható, eldobandó, eldobni, kidobható, kidobni, kidobandó, nem újrahasznosítható, szemét
 nl:restafval, bij restafval, niet PMD
 pt:descartar, a descartar, para descartar, não-reciclável, não recicláel
+
 
 
 # preservation.txt
