@@ -28,18 +28,6 @@ is(display_date_tag($t), '<time datetime="2016-08-27T12:08:49">27. August 2016, 
 #	'<p><span class="field">Link to the product page on the official site of the producer:</span> <a href="http://producer.com">http://producer.com</a></p>'
 # );
 
-my %request = (
-	'original_query_string' => 'api/v0/attribute_groups',
-	'referer' => 'http://world.openfoodfacts.localhost/product/3564703999971/huile-d-olive-marque-repere'
-);
-print STDERR "before analyze request\n";
-analyze_request(\%request);
-is($request{'api'}, "v0");
-is($request{'page'}, "1");
-is($request{'api_version'}, "0");
-
-print STDERR "after analyze request\n";
-
 # paging tests
 # issue # 1960 - negative query lost during pagination and in other links
 my $link = "/country/spain";

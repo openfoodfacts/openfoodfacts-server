@@ -1,6 +1,11 @@
 {
    "lc" : "en",
-   "packaging" : "Cardboard box to recycle",
+   "misc_tags" : [
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty"
+   ],
+   "packaging_text" : "Cardboard box to recycle",
    "packagings" : [
       {
          "material" : "en:cardboard",

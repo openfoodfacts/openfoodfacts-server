@@ -584,8 +584,8 @@ msgid "editor"
 msgstr "editor"
 
 msgctxt "email"
-msgid "e-mail address"
-msgstr "e-mailová adresa"
+msgid "E-mail address"
+msgstr "E-mailová adresa"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
@@ -794,7 +794,7 @@ msgstr "Často kladené otázky"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "https://support.openfoodfacts.org/help/en-gb"
-msgstr "https://support.openfoodfacts.org/help/cs"
+msgstr "https://support.openfoodfacts.org/help/en-gb"
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -839,7 +839,7 @@ msgstr "Média"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
 msgid "/press"
-msgstr "/tisk"
+msgstr "/press"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
@@ -1390,6 +1390,10 @@ msgstr "U produktů bez čárového kódu je automaticky nastaven interní kód.
 msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
 msgstr "Přihlaste se k odběru novinek (maximálně 2 e-maily za měsíc)"
+
+msgctxt "subscribe_to_our_newsletter"
+msgid "Subscribe to our newsletter"
+msgstr "Přihlaste se k odběru našeho zpravodaje"
 
 msgctxt "next"
 msgid "Next"
@@ -2617,7 +2621,7 @@ msgstr "Načíst obrázky s nižším rozlišením (pro pomalá připojení)"
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr "Varování: U výrobku není uvedeno množství vlákniny, proto její případný vliv na posun do lepší skupiny nemůže být započítán."
+msgstr "Upozornění: U výrobku není uvedeno množství vlákniny, proto její případný vliv na posun do lepší skupiny nemůže být započítán."
 
 msgctxt "nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning"
 msgid "Warning: the amounts of fiber and of fruits, vegetables and nuts are not specified, their possible positive contribution to the grade could not be taken into account."
@@ -2815,7 +2819,7 @@ msgstr "18 až 64"
 
 msgctxt "adults_description"
 msgid "From 18 years up to and including 64 years of age"
-msgstr "Od 18 let do a včetně 64 let"
+msgstr "Od 18 let do 64 let včetně"
 
 msgctxt "elderly"
 msgid "Elderly"
@@ -2907,7 +2911,7 @@ msgstr "Evropský úřad pro bezpečnost potravin (EFSA) zjistil, že v populaci
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_high"
 msgid "High risk of over exposure"
-msgstr "Vysoké riziko nadměrné expozice"
+msgstr "Vysoké riziko nepřiměřeného příjmu"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_moderate"
 msgid "Moderate risk of over exposure"
@@ -2915,7 +2919,7 @@ msgstr "Střední riziko nepřiměřeného příjmu"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_no"
 msgid "No or very low risk of over exposure"
-msgstr "Žádné nebo velmi nízké riziko nadměrné expozice"
+msgstr "Žádné nebo velmi nízké riziko nadměrného příjmu"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
 msgid "Risk of exceeding the acceptable daily intake (ADI)"

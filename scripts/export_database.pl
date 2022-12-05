@@ -413,7 +413,7 @@ XML
 
 		$product_ref->{main_category} = $main_cid;
 
-		ProductOpener::Display::add_images_urls_to_product($product_ref);
+		add_images_urls_to_product($product_ref, $l);
 
 		$csv .= ($product_ref->{image_url} // "") . "\t" . ($product_ref->{image_small_url} // "") . "\t";
 		$csv .= ($product_ref->{image_ingredients_url} // "") . "\t"

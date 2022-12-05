@@ -587,8 +587,8 @@ msgid "editor"
 msgstr "biên tập viên"
 
 msgctxt "email"
-msgid "e-mail address"
-msgstr "địa chỉ E-mail"
+msgid "E-mail address"
+msgstr ""
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
@@ -766,7 +766,7 @@ msgstr "Các <<site_name>> blog"
 # Do not translate
 msgctxt "footer_blog_link"
 msgid "https://blog.openfoodfacts.org/en/"
-msgstr ""
+msgstr "https://blog.openfoodfacts.org/en/"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -1398,6 +1398,10 @@ msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
 msgstr "Đăng ký nhận bản tin (tối đa 2 email mỗi tháng)"
 
+msgctxt "subscribe_to_our_newsletter"
+msgid "Subscribe to our newsletter"
+msgstr ""
+
 msgctxt "next"
 msgid "Next"
 msgstr "Kế tiếp"
@@ -1572,13 +1576,14 @@ msgstr "Lớp dinh dưỡng"
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
 msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-msgstr ""
+msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://blog.openfoodfacts.org/en/\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr ""
+msgstr "<p>Để tìm hiểu thêm về <<site_name>>, hãy truy cập <a href=\"https://blog.openfoodfacts.org/en/\">blog</a>của chúng tôi!</p>\n"
+"<p>Tin tức gần đây:</p>\n"
 
 msgctxt "on_the_blog_title"
 msgid "News"
@@ -6139,42 +6144,42 @@ msgstr "Các sản phẩm đã được thêm"
 
 msgctxt "products_edited"
 msgid "Products edited"
-msgstr ""
+msgstr "Sản phẩm đã được chỉnh sửa"
 
 msgctxt "products_photographed"
 msgid "Products photographed"
-msgstr ""
+msgstr "Sản phẩm đã được chụp ảnh"
 
 # result of the matching with the user preferences: should ne a noun, not a verb
 msgctxt "matching_with_your_preferences"
 msgid "Matching with your preferences"
-msgstr ""
+msgstr "Phù hợp với sở thích của bạn"
 
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_join_us_on_slack"
 msgid "Join us on <a href=\"{url}\">Slack</a>"
-msgstr ""
+msgstr "Tham gia với chúng tôi trên <a href=\"{url}\">Slack</a>"
 
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_discover_our_code_of_conduct"
 msgid "Discover our <a href=\"{url}\">Code of conduct</a>"
-msgstr ""
+msgstr "Khám phá <a href=\"{url}\">Quy tắc ứng xử</a>của chúng tôi"
 
 # {links} must not be translated, it will be replaced by icons and/or text links
 msgctxt "f_footer_follow_us_links"
 msgid "Follow us: {links}"
-msgstr ""
+msgstr "Theo dõi chúng tôi: {links}"
 
 # Should be as small as possible, e.g. use "app" instead of "application", don't specify "mobile"
 msgctxt "footer_install_the_app_exclamation_mark"
 msgid "Install the app!"
-msgstr ""
+msgstr "Cài đặt ứng dụng!"
 
 # HTML tags must not be translated, keep <span id=\"everyday\"> and <span id=\"foods\"> and put them around the corresponding words in the translation
 # e.g. in French: Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>
 msgctxt "footer_scan_your_everyday_foods"
 msgid "Scan your <span id=\"everyday\">everyday</span> <span id=\"foods\">foods</span>"
-msgstr ""
+msgstr "Quét <span id=\"everyday\">hàng ngày </span> <span id=\"foods\">loại thực phẩm</span> của bạn"
 
 msgctxt "nutrition"
 msgid "Nutrition"
@@ -6183,7 +6188,7 @@ msgstr "Dinh dưỡng"
 # Note: "criteria" is plural here. So in French for instance: "Vos critères"
 msgctxt "your_criteria"
 msgid "Your criteria"
-msgstr ""
+msgstr "Tiêu chí của bạn"
 
 msgctxt "product"
 msgid "Product"

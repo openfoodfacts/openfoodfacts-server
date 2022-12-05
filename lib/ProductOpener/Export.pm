@@ -104,6 +104,7 @@ use ProductOpener::Ecoscore qw/localize_ecoscore/;
 use Text::CSV;
 use Excel::Writer::XLSX;
 use Data::DeepAccess qw(deep_get deep_exists);
+use Apache2::RequestRec;
 
 =head1 FUNCTIONS
 
@@ -392,7 +393,6 @@ sub export_csv ($args_ref) {
 
 		# Send HTTP headers, unless search_and_export_products() is called from a script
 		if ($send_http_headers) {
-			require Apache2::RequestRec;
 			my $r = Apache2::RequestUtil->request();
 			$r->headers_out->set("Content-type" => "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
 			$r->headers_out->set("Content-disposition" => "attachment;filename=$filename");
@@ -522,7 +522,7 @@ sub export_csv ($args_ref) {
 					# If we export image fields, we first need to generate the paths to images
 
 					if (($field =~ /^image_(.*)_(url|json)/) and (not $added_images_urls)) {
-						ProductOpener::Display::add_images_urls_to_product($product_ref);
+						add_images_urls_to_product($product_ref, $lc);
 						$added_images_urls = 1;
 					}
 

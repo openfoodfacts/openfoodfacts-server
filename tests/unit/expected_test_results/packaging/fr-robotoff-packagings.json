@@ -1,6 +1,11 @@
 {
    "lc" : "fr",
-   "packaging" : "fr:Boite carton,fr:Triman,fr:Boite à recycler,fr:Point vert,Boite carton",
+   "misc_tags" : [
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty"
+   ],
+   "packaging_text" : "fr:Boite carton;fr:Triman;fr:Boite à recycler;fr:Point vert;Boite carton",
    "packagings" : [
       {
          "material" : "en:cardboard",

@@ -45,6 +45,7 @@ use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Web qw(get_languages_options_list);
 use ProductOpener::Text qw/:all/;
 use ProductOpener::Events qw/:all/;
+use ProductOpener::API qw/:all/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -96,6 +97,65 @@ sub display_search_or_add_form() {
 	return $html;
 }
 
+=head2 create_packaging_components_from_request_parameters($product_ref)
+
+Read form parameters related to packaging components, and create the corresponding packagings structure.
+
+=cut
+
+sub create_packaging_components_from_request_parameters ($product_ref) {
+
+	# Check that the form is showing inputs for packaging components
+	if (not defined single_param("packaging_max")) {
+		return;
+	}
+
+	# The form contains packaging inputs, so we reset the packagings structure
+	$product_ref->{packagings} = [];
+
+	# And then we add each packaging component
+	for (my $packaging_id = 1; $packaging_id <= single_param("packaging_max"); $packaging_id++) {
+
+		my $input_packaging_ref = {};
+		my $prefix = "packaging_" . $packaging_id . "_";
+		foreach
+			my $property ("number_of_units", "shape", "material", "recycling", "quantity_per_unit", "weight_measured")
+		{
+			$input_packaging_ref->{$property} = remove_tags_and_quote(decode utf8 => single_param($prefix . $property));
+		}
+
+		my $response_ref = {};   # Currently unused, may be used to display warnings in future versions of the interface
+
+		my $packaging_ref
+			= get_checked_and_taxonomized_packaging_component_data($lc, $input_packaging_ref, $response_ref);
+
+		if (defined $packaging_ref) {
+			apply_rules_to_augment_packaging_component_data($product_ref, $packaging_ref);
+
+			push @{$product_ref->{packagings}}, $packaging_ref;
+
+			$log->debug(
+				"added a packaging component",
+				{
+					prefix => $prefix,
+					packaging_id => $packaging_id,
+					input_packaging => $input_packaging_ref,
+					packaging => $packaging_ref
+				}
+			) if $log->is_debug();
+		}
+	}
+
+	if (single_param("packagings_complete")) {
+		$product_ref->{packagings_complete} = 1;
+	}
+	else {
+		$product_ref->{packagings_complete} = 0;
+	}
+
+	return;
+}
+
 my $request_ref = ProductOpener::Display::init_request();
 
 if ($User_id eq 'unwanted-user-french') {
@@ -104,6 +164,11 @@ if ($User_id eq 'unwanted-user-french') {
 		403
 	);
 }
+
+# Response structure to keep track of warnings and errors
+# Note: currently some warnings and errors are added,
+# but we do not yet do anything with them
+my $response_ref = get_initialized_response();
 
 my $type = single_param('type') || 'search_or_add';
 my $action = single_param('action') || 'display';
@@ -547,51 +612,6 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		}
 	}
 
-	if (    (defined $product_ref->{nutriments}{"carbon-footprint"})
-		and ($product_ref->{nutriments}{"carbon-footprint"} ne ''))
-	{
-		push @{$product_ref->{"labels_hierarchy"}}, "en:carbon-footprint";
-		push @{$product_ref->{"labels_tags"}}, "en:carbon-footprint";
-	}
-
-	if ((defined $product_ref->{nutriments}{"glycemic-index"}) and ($product_ref->{nutriments}{"glycemic-index"} ne ''))
-	{
-		push @{$product_ref->{"labels_hierarchy"}}, "en:glycemic-index";
-		push @{$product_ref->{"labels_tags"}}, "en:glycemic-index";
-	}
-
-	# For fields that can have different values in different languages, copy the main language value to the non suffixed field
-
-	foreach my $field (keys %language_fields) {
-		if ($field !~ /_image/) {
-			if (defined $product_ref->{$field . "_$product_ref->{lc}"}) {
-				$product_ref->{$field} = $product_ref->{$field . "_$product_ref->{lc}"};
-			}
-		}
-	}
-
-	$log->debug("compute_languages") if $log->is_debug();
-
-	compute_languages($product_ref);    # need languages for allergens detection and cleaning ingredients
-	$log->debug("clean_ingredients") if $log->is_debug();
-
-	# Ingredients classes
-	clean_ingredients_text($product_ref);
-	$log->debug("extract_ingredients_from_text") if $log->is_debug();
-	extract_ingredients_from_text($product_ref);
-	$log->debug("extract_ingredients_classes_from_text") if $log->is_debug();
-	extract_ingredients_classes_from_text($product_ref);
-	$log->debug("detect_allergens_from_text") if $log->is_debug();
-	detect_allergens_from_text($product_ref);
-
-	# Food category rules for sweetened/sugared beverages
-	# French PNNS groups from categories
-
-	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
-		$log->debug("Food::special_process_product") if $log->is_debug();
-		ProductOpener::Food::special_process_product($product_ref);
-	}
-
 	# Obsolete products
 
 	if (($User{moderator} or $Owner_id) and (defined single_param('obsolete_since_date'))) {
@@ -602,6 +622,9 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	# Update the nutrients
 
 	assign_nutriments_values_from_request_parameters($product_ref, $nutriment_table);
+
+	# Process packaging components
+	create_packaging_components_from_request_parameters($product_ref);
 
 	# product check
 
@@ -627,42 +650,9 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 			delete $product_ref->{last_checker};
 			delete $product_ref->{last_checked_t};
 		}
-
 	}
 
-	# Compute nutrition data per 100g and per serving
-
-	$log->debug("compute nutrition data") if $log->is_debug();
-
-	$log->trace("compute_serving_size_date - start") if $log->is_trace();
-
-	fix_salt_equivalent($product_ref);
-
-	compute_serving_size_data($product_ref);
-
-	compute_nutrition_score($product_ref);
-
-	compute_nova_group($product_ref);
-
-	compute_nutrient_levels($product_ref);
-
-	compute_unknown_nutrients($product_ref);
-
-	# Until we provide an interface to directly change the packaging data structure
-	# erase it before reconstructing it
-	# (otherwise there is no way to remove incorrect entries)
-	$product_ref->{packagings} = [];
-
-	analyze_and_combine_packaging_data($product_ref);
-
-	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
-		compute_ecoscore($product_ref);
-		compute_forest_footprint($product_ref);
-	}
-
-	ProductOpener::DataQuality::check_quality($product_ref);
-
-	$log->trace("end compute_serving_size_date - end") if $log->is_trace();
+	analyze_and_enrich_product_data($product_ref, $response_ref);
 
 	if ($#errors >= 0) {
 		$action = 'display';
@@ -733,7 +723,7 @@ sub display_input_field ($product_ref, $field, $language) {
 		$value =~ s/\n/ /g;
 	}
 
-	foreach my $note ("_note", "_note_2") {
+	foreach my $note ("_note", "_note_2", "_note_3") {
 		if (defined $Lang{$fieldtype . $note}{$lang}) {
 
 			push(
@@ -1462,6 +1452,16 @@ HTML
 		= display_input_tabs($product_ref, "packaging_image", $product_ref->{sorted_langs}, \%Langs,
 		\@packaging_fields);
 
+	# Add an empty packaging element to the form, that will be hidden and duplicated when the user adds new packaging items,
+	# and another empty packaging element at the end
+	if (not defined $product_ref->{packagings}) {
+		$product_ref->{packagings} = [];
+	}
+	my $number_of_packaging_components = scalar @{$product_ref->{packagings}};
+
+	unshift(@{$product_ref->{packagings}}, {});
+	push(@{$product_ref->{packagings}}, {});
+
 	# Product check
 
 	if ($User{moderator}) {
@@ -1484,6 +1484,7 @@ HTML
 	$template_data_ref_display->{type} = $type;
 	$template_data_ref_display->{code} = $code;
 	$template_data_ref_display->{display_product_history} = display_product_history($code, $product_ref);
+	$template_data_ref_display->{product} = $product_ref;
 
 	process_template('web/pages/product_edit/product_edit_form_display.tt.html', $template_data_ref_display, \$html)
 		or $html = "<p>" . $tt->error() . "</p>";
@@ -1540,9 +1541,6 @@ elsif ($action eq 'process') {
 	}
 	elsif ($type eq 'delete') {
 
-		# Notify robotoff
-		send_notification_for_product_change($product_ref, "deleted");
-
 		my $email = <<MAIL
 $User_id $Lang{has_deleted_product}{$lc}:
 
@@ -1554,9 +1552,6 @@ MAIL
 
 	}
 	else {
-
-		# Notify robotoff
-		send_notification_for_product_change($product_ref, "updated");
 
 		# Create an event
 		send_event({user_id => $User_id, event_type => "product_edited", barcode => $code, points => 5});

@@ -30,7 +30,6 @@
 <body[% bodyabout %] class="[% page_type %]_page">
 
 	<div id="page">
-
 		<div class="upper-nav contain-to-grid"  id="upNav">
 			<nav class="top-bar " data-topbar role="navigation">
 				
@@ -67,7 +66,7 @@
 										<option></option>
 									</select>
 								</li>
-								[% IF langs.match('<a') %]
+                [% IF langs.match('<a>') %]
 									<li class="has-dropdown">
 										[% selected_lang %]
 										<ul class="dropdown">
@@ -87,7 +86,6 @@
 							<li class="h-space-tiny has-form">
 								<a href="/cgi/session.pl" class="round button secondary">
 									<span class="material-icons material-symbols-button">account_circle</span>
-									&nbsp;
 									[% lang('sign_in') %]
 								</a>
 							</li>
@@ -97,8 +95,7 @@
 									<span class="material-icons">
 										account_circle
 									</span>
-									&nbsp;
-									[% user.name %]</span>
+									[% user.name %]
 								</a>
 								<ul class="dropdown">
 									<li><a href="/cgi/user.pl?type=edit&userid=[% user_id %]"><span class="material-icons">settings</span> Parameters</a></li>
@@ -222,14 +219,12 @@
 					</div>
 					</a>
 				[% END %]
-				
-				<div class="main block_light" >
-					
-					<div id="main_column">
-										
-						[% INCLUDE 'web/common/includes/donate_banner.tt.html' %]
 
-						[% IF page_format == "banner" %]
+				<div class="main block_light">
+					<div id="main_column">
+          [% PROCESS 'web/common/includes/donate_banner.tt.html' %]
+          [% banner_main %]
+            [% IF page_format == "banner" %]
 							<!-- banner pages such as product and product edit form have their own h1 title -->
 							[% content %]
 						[% ELSIF page_type == "products" %]
@@ -238,7 +233,17 @@
 								<div itemscope itemtype="[% schema_org_itemtype %]">
 									<div class="row">
 										<div class="small-12 column v-space-short">
-											<h1 itemprop="name">[% title %]</h1>
+											<h1 itemprop="name">[% title %]
+                        <sup>
+                        [% IF request.tagtype == "categories" %]
+                          <a class="button tiny round secondary label" href="https://hunger.openfoodfacts.org/questions?type=category&amp;value_tag=[% request.canon_tagid %]">[% f_lang('f_help_categorize_on_hunger_games', { title => lang('categories').lcfirst } ) %]</a>
+                        [% ELSIF request.tagtype == "labels" %]
+                          <a class="button tiny round secondary label" href="https://hunger.openfoodfacts.org/questions?type=labels&amp;value_tag=[% canonicalize_taxonomy_tag_link("labels", title) %]">[% f_lang('f_help_categorize_on_hunger_games', { title => lang('labels').lcfirst } ) %]</a>
+                        [% ELSIF request.tagtype == "brands" %]
+                          <a class="button tiny round secondary label" href="https://hunger.openfoodfacts.org/questions?type=brands&amp;value_tag=[% canonicalize_taxonomy_tag_link("brands", title) %]">[% f_lang('f_help_categorize_on_hunger_games', { title => lang('brands').lcfirst } ) %]</a>
+                        [% END %]
+                        </sup>
+                  </h1>
 										</div>
 									</div>
 									[% content %]
@@ -263,10 +268,9 @@
 				</div>
 			</div>
 		</div>
-
 		</div>
 
-		<footer >
+		<footer>
 			<div class="block_light bg-white" id="install_the_app_block">
 				<div class="row">
 					<div class="small-12 flex-grid v-space-short v-align-center direction-row h-space-tiny">
@@ -288,6 +292,10 @@
 					</div>
 				</div>
 			</div>
+
+      [% PROCESS 'web/common/includes/donate_banner.tt.html' %]
+      [% banner_footer %]
+
 			<div class="block_light block_cappucino" id="contribute_and_discover_links_block">
 				<div class="row">
 					<div class="small-12 large-6 columns v-space-normal block_off">
@@ -320,6 +328,7 @@
 					</div>
 				</div>
 			</div>
+
 			<div class="block_off block_dark block_ristreto" id="footer_block">
 
 				<div id="footer_block_image_banner_outside">
