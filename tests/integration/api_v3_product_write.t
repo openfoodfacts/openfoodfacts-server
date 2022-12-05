@@ -382,6 +382,46 @@ my $tests_ref = [
 			}
 		}'
 	},
+
+	# Test authentication
+	{
+		test_case => 'patch-auth-bad-user-password',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890013',
+		body => '{
+			"userid": "tests",
+			"password": "bad password",
+			"tags_lc": "en",
+			"product": {
+				"packagings": [
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "can"},
+						"recycling": {"lc_name": "recycle"}
+					}
+				]
+			}
+		}'
+	},
+	{
+		test_case => 'patch-auth-good-password',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890013',
+		body => '{
+			"userid": "tests",
+			"password": "testtest",
+			"tags_lc": "en",
+			"product": {
+				"packagings": [
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "can"},
+						"recycling": {"lc_name": "recycle"}
+					}
+				]
+			}
+		}'
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
