@@ -3,9 +3,10 @@
 
 
 
-en:Aerosol can, aerosol cans
+en:Aerosol can, aerosol cans, aerosol spray
+de:Sprühdose
 fr:Aérosol, aérosols
-packaging_materials:en: en:plastic,en:metal
+wikidata:en: Q659495
 
 en:Ampoule, ampul, ampule
 bg:Крушка
@@ -19,7 +20,7 @@ fr:Applicateur
 nl:Applicator
 
 en:backing, support, board, stand
-bg:пълнеж, подплънка
+bg:подплънка
 de:Stütze, Unterlage
 fi:tuki
 fr:support, plaque
@@ -63,15 +64,17 @@ nl:Individuele zak, individuele zakken
 pt:Saco individual, sacos individuais, saquinho individual, saquinhos individuais, saqueta individual, saquetas individuais
 
 en:Bag-in-box
-fr:Bag-in-box, Cubitainer
+fr:Bag-in-box, caisse-outre, Cubitainer, BIB
 nl:Zak-in-doos
 wikidata:en: Q799810
 
 en:Ball flask, Roll-on bottle
 fr:Flacon à bille, Roll
+wikidata:en: Q115170160
 
 en:Barrel, barrels, drum, drums, keg, kegs
 fr:Tonneau, tonneaux, tonnelet, tonnelets
+wikidata:en: Q10289
 
 en:Basket, baskets
 bg:Кошница, кошници
@@ -95,6 +98,7 @@ hr:boca
 hu:Palack, palackok
 it:Bottiglia
 nl:Fles, Flessen
+pl:Butelka
 pt:Garrafa, garrafas
 description:nl: Een langgerekt, cilindrisch en meestal van glas vervaardigd vat met een nauwe hals die met een dop of kurk af te sluiten is
 wikidata:en: Q80228
@@ -184,12 +188,76 @@ description:nl: Een blad met informatie of reclame
 en:Bubble wrap
 fr:Film à bulles
 nl:Bubbeltjesfilm
-packaging_materials:en: en:plastic
+wikidata:en: Q19806
 
-en:Bucket, buckets
-bg:Кофа, кофи
-fr:Seau, seaux
-nl:Emmer, emmers
+en:bucket, buckets
+af:emmer
+ar:دلو
+as:বাল্টি
+az:çanaq
+be:вядро
+bg:кофа, кофи
+br:sailh
+ca:galleda, cubell
+cs:kýbl
+cy:bwced
+da:spand
+de:Eimer
+el:κουβάς
+eo:sitelo
+es:cubo, balde
+et:pang, ämber
+fa:سطل
+fi:sanko, ämpäri
+fo:spann
+fr:seau, seaux
+fy:amer
+ga:buicéad
+he:דלי
+hi:बाल्टी
+hu:veder, vödör
+hy:դույլ
+ia:situla
+id:ember
+is:fata
+it:secchio
+ja:バケツ
+ko:버킷
+lb:Eemer
+lt:kibiras
+mt:barmil
+nl:emmer, emmers
+nn:bytte, bøtte, spann
+no:bøtte, spann
+pl:wiadro
+pt:balde
+ro:galeata
+ru:ведро
+sk:vedro
+sl:vedro
+sq:kovë
+sv:hink, spann, ämbar
+sw:ndoo
+te:బక్కెటు, బక్కెట్టు, బొక్కెన
+tr:kova
+vo:böket
+zh:水桶
+description:da: beholder, ofte med håndtag, der benyttes til at bære væsker eller små genstande
+description:de: hohes, rundes Gefäß, zumeist in Form eines Zylinders oder Kegelstumpfes, das mit einem beweglichen Henkel versehen ist und zur Aufbewahrung und/oder zum Transport, besonders von Flüssigkeiten, dient
+description:en: A container made of rigid material, often with a handle, used to carry liquids or small items.
+description:es: Recipiente en forma de cilindro, cono trunco o cubo, casi siempre provisto de un asa y utilizado para transportar líquidos, polvos u objetos pequeños.
+description:fr: Récipient cylindrique, ou plus souvent tronconique, de plastique, de bois ou de métal, en général pourvu d'une anse, servant à transporter un liquide, du sable ou autres.
+description:it: contenitore di forma cilindrica
+description:no: beholder til å ha sand, vann, jord, etc. i; formet slik at man kan bære den, og med ett håndtak i topp
+description:pt: vasilha de forma quase cilíndrica para o transporte de água e outros usos domésticos feita em madeira, metal ou plástico
+description:ro: vas de lemn, de metal etc. de forma unui trunchi de con cu baza mare în partea superioară, cu toartă, folosit pentru transportul -și păstrarea- unor lichide, unor materiale granulare sau pulverulente etc.
+description:sv: ihålig handtagsförsedd behållare, oftast med cirkulär bottenyta och lätt utåtgående sidor, avsedd att inrymma vatten, jord, grus, sand etc.
+descrition:nl: busvormig taps toelopend vat -met hengsel-, waarin men vloeistoffen of vaste stoffen kan verplaatsen
+wikidata:en: Q47107
+
+< en:Bucket
+en:small bucket
+nl:emmertje
 
 en:bulk, without packaging
 bg:насипно, наливно, без амбалаж
@@ -230,7 +298,7 @@ wikidata:en: Q3261783
 
 < en:Can
 en:Food can, tin, tin can
-bg:Консерва
+bg:консерва за храна
 de:Konservendose
 es:Lata de comida
 fr:Boîte de conserve, boîtes de conserves
@@ -254,7 +322,7 @@ packaging_materials:en: en:cardboard
 en:Cartridge, cartridges
 fr:Cartouche, cartouches
 nl:Cartridge, cartridges
-description:nl: Inktpatroon voor een printer
+wikidata:en: Q97584727
 
 en:Case, cases
 fr:Caisse, caisses, caissette, caissettes
@@ -271,18 +339,123 @@ nl:Koffiecapsule, Koffiecapsules, Nespressocapsule, Nespresso-capsule
 pt:Cápsula de café, cápsulas de café, cápsula de cafés, cápsulas de cafés
 wikidata:en: Q4236462
 
-en:Coffee pad
+< en:Coffee capsule
+en:Dolce Gusto-compatible capsules, Dolce Gusto capsules
+de:Dolce Gusto-kompatible Kapseln
+es:Cápsulas compatibles con Dolce Gusto
+fr:Dosettes Dolce Gusto, dosettes compatible Dolce Gusto
+it:Capsule compatibili Dolce Gusto
+lt:Dolce Gusto kapsulės
+nl:Dolce Gusto-compatibele Capsules, Dolce Gusto
+
+< en:Coffee capsule
+en:Nespresso-compatible capsules
+de:Nespresso-kompatible Kapseln
+es:Cápsulas compatibles con Nespresso
+fi:Nespresso-yhteensopivat kapselit
+fr:Dosettes compatible Nespresso, Dosettes Nespresso, Capsules Nespresso
+it:Capsule compatibili Nespresso
+lt:Nespresso kapsulės
+nl:Nespresso-compatibele Capsules, Nespresso
+
+< en:Coffee capsule
+en:Tassimo-compatible capsules, T-Disc capsules
+de:Tassimo-kompatible Kapseln
+fr:Dosettes compatible Tassimo, Dosettes Tassimo, Capsules Tassimo, Dosettes T-Disc, Capsules T-Disc
+nl:Tassimo-compatibele Capsules, Tassimo
+
+en:coffee pad, coffee pads
+fr:dosette de café, dosettes de café
 nl:Koffiepad
+
+< en:Coffee pad
+en:Senseo-compatible coffee capsules
+de:Senseo-kompatible Kapseln
+es:Cápsulas de café compatibles con Senseo
+fi:Senseo-yhteensopivat kahvikapselit
+fr:Dosettes Senseo, Capsules Senseo, Cafés en dosettes compatible Senseo
+it:Capsule di caffè compatibili Senseo
+lt:Senseo kapsulės
+nl:Senseo-compatibele koffiecapsules, Senseo-compatibele koffiecapsule, Senseo
 
 en:Cosmetic stick
 fr:Stick cosmétique
 
-en:Crate, crates
+en:Crate, crates, punnet
+de:Steige
 fr:Cagette, cagettes, cageot, cageots
 hu:Láda, lécláda, ketrec
 nl:Krat, kratten
 pt:Caixote, caixotes
 description:nl: Houten of plastic doos met openingen in de zijkanten in een standaardformaat, vaak gebruikt voor opslag en het vervoer van flessen, fruit of andere waren
+wikidata:en: Q2933051
+
+en:Doypack with cap, Doypack with cap
+fr:Doypack avec bouchon, Doypack avec bouchon
+wikidata:en: Q2026232
+
+en:drinking straw, straw, straws
+be:саломінка
+bg:cламка, сламки
+bo:སོག་མ་པི་པི
+ca:palla
+cs:slámka
+cy:gwelltyn
+da:sugerør
+de:Trinkhalm
+el:καλαμάκι
+eo:trinkŝalmo
+es:pajilla
+et:joogikõrs
+fa:نی نوشیدنی
+fi:pilli
+fo:súgvirør
+fr:paille, pailles
+ga:sop
+gd:sràbh
+he:קש
+ht:chalimo
+hu:szívószál
+hy:ձողիկ
+id:sedotan
+is:drykkjarrör
+it:cannuccia
+ja:ストロー
+ka:საწრუპავი
+km:បំពង់បឺត
+ko:빨대
+lb:Stréihallem
+lo:ຫລອດດູດນ້ຳ
+lt:šiaudelis
+lv:salmiņš
+mk:сламка
+mn:соруул
+mo:ngongo
+ms:penyedut minuman
+nl:rietje, rietjes
+nn:sugerøyr
+no:sugerør
+pl:słomka
+pt:canudo
+ro:pai
+ru:соломинка
+sh:slamka, сламка
+sk:slamka
+sl:slamica
+sq:biule
+sv:sugrör
+th:หลอด
+tl:halusan
+tr:kamış
+uk:соломинка
+vi:ống hút
+wa:paye
+zh:吸管
+description:de: Hilfsmittel, mit welchem sich Flüssigkeiten aufsaugen lassen, um sie zu trinken
+description:en: A long tube -usually made out of plastic or paper- through which a beverage is drunk via suction
+description:es: Pequeño tubo plástico que sirve para sorber líquidos, especialmente refrescos.
+description:fr: Petit tube servant à aspirer un liquide.
+description:nl: Dun drinkbuisje
 
 en:Eating utensils, utensils, eating utensil, utensil
 bg:Прибори за хранене
@@ -352,14 +525,32 @@ fr:Attache
 hu:Rögzítő, kapocs, csipesz
 nl:clip, klemmetje
 pt:Atilho, atilhos, presilha, presilhas, fita, fitas, cordão, cordões, atadura, ataduras, fecho, fechos, fexo, feixo, fexos, feixos, fio, fios
+description:fr: Ce qui sert à relier deux ou plusieurs pièces d'un ouvrage ou à le fixer.
 description:nl: Een klein werktuig waarin iets door samendrukken bijeengehouden of vastgezet kan worden
 
 en:Filling
+af:Stopsel
+bg:пълнеж
+da:fyldning
+de:Füllung
+el:γέμιση
+eo:remburaĵo
+es:relleno, farsa
+fi:täyte
+gl:recheo
 nl:Opvulmateriaal
+pl:wypełnienie
+pt:enchimento
+ru:наполнение
+sk:výplň
+th:ไส้
+zh:填充
+description:en: Anything that is used to fill something
+description:nl: het materiaal waarmee iets opgevuld is
 
 en:Film, wrap, films, wraps, film wrap, film wraps, foil
 af:Foelie
-ar:فِلْم‎
+ar:فِلْم
 be:плёнка
 bg:Фолио, слой
 ca:Film
@@ -369,7 +560,7 @@ el:Μεμβράνη
 fr:Film, pellicule, films, pellicules, film de regroupement
 gd:film
 gl:filme
-he:קְרוּם‎
+he:קְרוּם
 hi:फ़िल्म
 hu:Film
 hy:թաղանթ
@@ -384,7 +575,7 @@ ru:фильм
 sh:фи̏лм, fȉlm
 sv:Film
 th:ฟิล์ม
-ur:فلم‎
+ur:فلم
 zh:菲林
 description:en: A thin layer of plastic or metal
 description:nl: Dun en buigzaam vel van een metaal of kunststof
@@ -404,6 +595,10 @@ nl:Kleerhanger
 
 en:individual dose, Individual capsule
 fr:dose invididuelle, doses individuelles, dosette, dosettes
+
+en:Inlay
+nl:Inlay
+description:en: The piece of paper or the booklet inside the case
 
 en:Jar, jars
 bg:Буркан, буркани
@@ -498,11 +693,11 @@ eo:pako
 es:paquete, paquetes
 et:pakett, pakk
 eu:pakete
-fa:پاکت‎
+fa:پاکت
 fi:paketti
 fr:paquet, pack, paquets, packs, packet, packets
 gd:pacaid
-he:חֲבִילָה‎
+he:חֲבִילָה
 hi:पैकेट
 hu:csomag
 hy:կապոց
@@ -559,6 +754,7 @@ es:Bote, botes, vaso, vasos
 fr:Pot, pots, coupelle, coupelles, verrine, verrines, ravier, raviers
 hu:Pohár, fazék, lábas, edény, csésze, kanna
 nl:Kuip, kuipje
+pl:słoik
 pt:Pote, potes, boião, boiões, copo
 comment:en: Klopt deze vertaling wel? Is het niet meer een pot en moet kuip ergens anders onder gebracht worden?
 description:nl: Wijd, houten, metalen of plastic vat
@@ -581,7 +777,10 @@ fr:Housse, housses, housse de protection, housses de protection
 nl:Beschermingshoes, beschermingshoezen
 
 en:pump bottle, spray, spray bottle, applicator bottle
+de:Sprühflasche
+es:espray
 fr:Flacon à pompe, flacons à pompe, flacon à pistolet, flacons à pistolet, Spray, sprays
+wikidata:en: Q3737688
 
 en:Roll, mandrel
 fr:Rouleau, Bobine, Mandrin
@@ -626,7 +825,30 @@ nl:theelepel
 wikidata:en: Q216425
 
 en:spout, pouring spout, pour spout
+az:lülək
+bg:чучур
+ca:broc
+cs:hubice
+de:Tülle
+es:pico
+fa:چرنه
+fi:nokka
+fo:tútur
 fr:verseur, bec verseur
+gl:cano
+hy:ծորակ
+it:beccuccio
+ja:噴出口
+nl:tuit, schenktuit
+pl:dzióbek
+pt:bico
+ru:носик
+sv:pip
+tr:uç
+zh:嘴子
+description:en: a tube or lip through which liquid is poured or discharged.
+description:fr: Appareil qui sert à verser.
+description:nl: schenkpijp aan een kan of ketel
 wikidata:en: Q2893427
 
 en:squeeze bottle
@@ -639,12 +861,6 @@ hu:rúd, rudak
 nl:Stok, stokken
 pt:Paus, pauzinhos, varetas de madeira
 
-en:Straw, straws
-bg:Сламка, сламки
-fr:Paille, pailles
-nl:Rietje, rietjes
-description:nl: Dun drinkbuisje
-
 en:String, strings, ribbon, ribbons, adhesive tape, adhesive tapes, gift ribbon, gift ribbons
 fr:ficelle, ficelles, ruban, rubans
 
@@ -655,10 +871,13 @@ en:Syringe, syringes
 bg:Спринцовка, спринцовки
 fr:Seringue, seringues
 nl:Spuit, spuiten
+wikidata:en: Q273318
 
 en:Tea bag
 bg:Чаена торбичка
 nl:Theezakje
+
+en:Tea capsules
 
 en:Terrine pot, terrine pots
 es:Tarrina, tarrinas
@@ -667,6 +886,7 @@ fr:Terrine, terrines
 en:Tie, knot
 fr:Lien, noeud
 nl:Knoop, strik
+description:fr: Ce qui sert à lier, à attacher des objets ou des parties ensemble.
 description:nl: Een vastgetrokken lus in garen, draad, koord of touw
 weight:en: light
 
@@ -710,6 +930,11 @@ nl:Flacon, Flacons
 en:Wedge, corner piece
 fr:Cale, Coin, Cornière
 
+< en:Wine cork
+en:Champagne cork
+fr:bouchon de Champagne
+wikidata:en: Q106910341
+
 en:Wings, Hygiene wings
 fr:Ailettes
 
@@ -722,7 +947,21 @@ es:envoltorio
 fr:enveloppage
 pt:invólucro
 
-nl:Inlay
+fr:agrafe
+
+fr:bouchon mécanique, bouchon à étrier, bouchon à bascule
+wikidata:en: Q1020525
+
+fr:Bouchon verseur
+wikidata:en: Q2921384
+
+fr:Capsule à vis, bouchon à vis
+wikidata:en: Q607619
+
+fr:Capsule CRD, Capsule Représentative de Droit, Capsule-congé
+wikidata:en: Q2937610
+
+fr:flasque
 
 xx:cellophane
 nl:cellofaan
