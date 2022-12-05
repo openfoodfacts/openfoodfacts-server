@@ -68,6 +68,7 @@ use ProductOpener::Text qw/:all/;
 use ProductOpener::Attributes qw/:all/;
 use ProductOpener::KnowledgePanels qw/:all/;
 use ProductOpener::Ecoscore qw/localize_ecoscore/;
+use ProductOpener::Packaging qw/:all/;
 
 use ProductOpener::APIProductRead qw/:all/;
 use ProductOpener::APIProductWrite qw/:all/;
@@ -77,6 +78,7 @@ use Apache2::RequestIO();
 use Apache2::RequestRec();
 use JSON::PP;
 use Data::DeepAccess qw(deep_get);
+use Storable qw(dclone);
 
 sub get_initialized_response() {
 	return {
@@ -480,6 +482,68 @@ sub get_images_to_update ($product_ref, $target_lc) {
 	return $images_to_update_ref;
 }
 
+=head2 customize_packagings ($request_ref, $product_ref)
+
+Packaging components are stored in a compact form: only taxonomy ids for
+shape, material and recycling.
+
+This function returns a richer structure with local names for the taxonomy entries.
+
+=head3 Parameters
+
+=head4 $request_ref (input)
+
+Reference to the request object.
+
+=head4 $product_ref (input)
+
+Reference to the product object (retrieved from disk or from a MongoDB query)
+
+=head3 Return value
+
+Reference to the customized product object.
+
+=cut
+
+sub customize_packagings ($request_ref, $product_ref) {
+
+	my $customized_packagings_ref = $product_ref->{packagings};
+
+	if (defined $product_ref->{packagings}) {
+
+		my $tags_lc = request_param($request_ref, 'tags_lc');
+
+		# We need to make a copy of $product_ref->{packagings}, it cannot be updated directly
+		# as the internal format of "packagings" is used in other functions
+		# (e.g. to generate knowledge panels)
+
+		$customized_packagings_ref = [];
+
+		foreach my $packaging_ref (@{$product_ref->{packagings}}) {
+
+			my $customized_packaging_ref = dclone($packaging_ref);
+
+			if ($request_ref->{api_version} >= 3) {
+				# Shape, material and recycling are localized
+				foreach my $property ("shape", "material", "recycling") {
+					if (defined $packaging_ref->{$property}) {
+						my $property_value_id = $packaging_ref->{$property};
+						$customized_packaging_ref->{$property} = {"id" => $property_value_id};
+						if (defined $tags_lc) {
+							$customized_packaging_ref->{$property}{lc_name}
+								= display_taxonomy_tag($tags_lc, $packaging_taxonomies{$property}, $property_value_id);
+						}
+					}
+				}
+			}
+
+			push @$customized_packagings_ref, $customized_packaging_ref;
+		}
+	}
+
+	return $customized_packagings_ref;
+}
+
 =head2 customize_response_for_product ( $request_ref, $product_ref, $fields )
 
 Using the fields parameter, API product or search queries can request
@@ -523,14 +587,21 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields) {
 	if ((not defined $fields) or ($fields eq "none")) {
 		return {};
 	}
-	elsif ($fields eq "all") {
+	elsif ($fields eq "raw") {
+		# Return the raw product data, as stored in the .sto files and database
 		return $product_ref;
 	}
 
+	if ($fields =~ /\ball\b/) {
+		# Return all fields of the product, with processing that depends on the API version used
+		# e.g. in API v3, the "packagings" structure is more verbose than the stored version
+		$fields = $` . join(",", sort keys %{$product_ref}) . $';
+	}
+
 	# Callers of the API V3 WRITE product can send fields = updated to get only updated fields
-	if ($fields eq "updated") {
+	if ($fields =~ /\bupdated\b/) {
 		if (defined $request_ref->{updated_product_fields}) {
-			$fields = join(',', sort keys %{$request_ref->{updated_product_fields}});
+			$fields = $` . join(',', sort keys %{$request_ref->{updated_product_fields}}) . $';
 			$log->debug("returning only updated fields", {fields => $fields}) if $log->is_debug();
 		}
 	}
@@ -640,6 +711,11 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields) {
 		elsif ($field =~ /^images_to_update_([a-z]{2})$/) {
 			my $target_lc = $1;
 			$customized_product_ref->{$field} = get_images_to_update($product_ref, $target_lc);
+		}
+
+		# Packagings data
+		elsif ($field eq "packagings") {
+			$customized_product_ref->{$field} = customize_packagings($request_ref, $product_ref);
 		}
 
 		# straight fields

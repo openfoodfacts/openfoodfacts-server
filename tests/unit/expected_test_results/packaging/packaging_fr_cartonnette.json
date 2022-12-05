@@ -1,6 +1,11 @@
 {
    "lc" : "fr",
-   "packaging" : "1 cartonnette à recycler",
+   "misc_tags" : [
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty"
+   ],
+   "packaging_text" : "1 cartonnette à recycler",
    "packagings" : [
       {
          "material" : "en:cardboard",

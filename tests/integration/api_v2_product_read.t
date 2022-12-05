@@ -35,6 +35,8 @@ my @products = (
 			categories => "cookies",
 			labels => "organic",
 			origin => "france",
+			packaging_text_en =>
+				"1 wooden box to recycle, 6 25cl glass bottles to reuse, 3 steel lids to recycle, 1 plastic film to discard",
 		)
 	},
 );
@@ -90,6 +92,50 @@ my $tests_ref = [
 		method => 'GET',
 		path => '/api/v2/product/200000000034',
 		query_string => '?fields=knowledge_panels&lc=fr',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'get-packagings',
+		method => 'GET',
+		path => '/api/v2/product/200000000034',
+		query_string => '?fields=packagings',
+		expected_status_code => 200,
+	},
+	# test that on v2 tags_lc parameter have no effects
+	# packaging part should be exactly the same as get-packagings
+	{
+		test_case => 'get-packagings-fr',
+		method => 'GET',
+		path => '/api/v2/product/200000000034',
+		query_string => '?fields=packagings&tags_lc=fr',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'get-fields-raw',
+		method => 'GET',
+		path => '/api/v3/product/200000000034',
+		query_string => '?fields=raw',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'get-fields-all',
+		method => 'GET',
+		path => '/api/v3/product/200000000034',
+		query_string => '?fields=all',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'get-fields-all-knowledge-panels',
+		method => 'GET',
+		path => '/api/v3/product/200000000034',
+		query_string => '?fields=all,knowledge_panels',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'get-fields-attribute-groups-all-knowledge-panels',
+		method => 'GET',
+		path => '/api/v3/product/200000000034',
+		query_string => '?fields=attribute_groups,all,knowledge_panels',
 		expected_status_code => 200,
 	},
 ];

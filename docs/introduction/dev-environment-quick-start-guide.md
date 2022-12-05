@@ -165,6 +165,8 @@ To have all site page on your dev instance, see [Using pages from openfoodfacts-
 
 [Using Repl](../how-to-guides/use-repl.md) offers you a way to play with perl.
 
+Specific notes are provide on appying AGRIBALYSE updates to support the [Ecoscore](../how-to-guides/ecoscore.md) calculation.
+
 ## Visual Studio Code
 
 **WARNING**: for now this is deprecated, some work needs to be done.

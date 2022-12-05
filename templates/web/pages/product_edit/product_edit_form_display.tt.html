@@ -105,19 +105,12 @@
         [% END %]
 
             </div>
-        </section>        
-
+        </section>
+        
         <section id="product_image" class="card fieldset">
             <div class="card-section">
                 <legend>[% lang("product_image") %]</legend>
                 <input type="hidden" id="sorted_langs" name="sorted_langs" value="[% product_ref_sorted_langs %]"/>
-                [% display_tab_product_picture %]
-            </div>
-        </section>        
-
-        <section id="product_characteristics" class="fieldset card">
-            <div class="card-section">
-                <legend>[% lang('product_characteristics') %]</legend>
 
                 <label for="lang"> [% lang('lang') %] </label>
                 <select name="lang" id="lang">
@@ -125,6 +118,14 @@
                         <option value="[% language.value %]" [% IF language.value== product_lang_value %] selected="selected" [% END %]>[% language.label %]</option>
                     [% END %]
                 </select>
+
+                [% display_tab_product_picture %]
+            </div>
+        </section>         
+
+        <section id="product_characteristics" class="fieldset card">
+            <div class="card-section">
+                <legend>[% lang('product_characteristics') %]</legend>
 
                 [% display_tab_product_characteristics %]
 
@@ -259,6 +260,8 @@
             <div class="card-section">
                 <legend>[% lang('packaging') %]</legend>
                 [% display_tab_packaging %]
+
+                [% INCLUDE web/pages/product_edit/product_edit_form_packagings.tt.html product = product %]
             </div>
         </section>
 

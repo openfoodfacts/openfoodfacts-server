@@ -10,9 +10,9 @@ To get a product nutriscore, you need to make a call to the [Get A Product By Ba
 
 ### Authentication
 
-No Authentication is required to make a query to Get A Product Nutri-score.
+Usually, no authentication is required to query Get A Product Nutri-score. However, on the staging environment(which is used throughout this tutorial), there is a basic auth to avoid content indexation. For more details, visit the [Open Food Facts API Environment](https://openfoodfacts.github.io/openfoodfacts-server/introduction/api/#environment).
 
-### Describing the Request
+### Describing the Get Request
 
 Make a `GET` request to the `Get A Product By Barcode` endpoint.
 
@@ -226,3 +226,130 @@ For more details, see the reference documentation for [Add or Edit A Product](ht
 You can also check the reference cheatsheet to know how to add/edit other types of product data.
 
 <!-- Include the link of the cheatsheet once it is published. -->
+
+## Search for a Product by Nutri-score
+
+Using the Open Food Facts API, you can filter products based on different criteria.  To search for products in the Orange Juice category with a nutrition_grade of `c`, query the [Search for Products endpoint](https://openfoodfacts.github.io/openfoodfacts-server/reference/api/#tag/Read-Requests/operation/get-search).
+
+### Describing the Search Request
+
+Make a `GET` request to the `Search for Products` endpoint.
+
+```text
+https://world.openfoodfacts.org/api/v2/search
+```
+
+Add the search criteria used to filter the products as query parameters.  For Orange Juice with a nutrition_grade of `c`, add query parameters `categories_tags_en` to filter `Orange Juice` while `nutrition_grades_tags` to filter `c`.  The response will return all the products in the database with the category `Orange Juice` and nutrition_grade `c`.
+
+```text
+https://world.openfoodfacts.net/api/v2/search?categories_tags_en=Orange Juice&nutrition_grades_tags=c
+```
+
+To limit the response, add `fields` to the query parameters to specify the fields to be returned in each product object response.  For this tutorial, limit the response to `code`, `product_name`, `nutrition_grades`, and `categories_tags_en`.
+
+```text
+https://world.openfoodfacts.net/api/v2/search?categories_tags_en=Orange Juice&nutrition_grades_tags=c&fields=code,nutrition_grades,categories_tags_en
+```
+
+The response returns all products that belong to the Orange Juice category, with the nutrition_grade "c" and limits each product object response to only the specified fields.  It also returns the count(total number) of products that match the search criteria.
+
+```json
+{
+    "count": 1629,
+    "page": 1,
+    "page_count": 24,
+    "page_size": 24,
+    "products": [
+        {
+            "categories_tags_en": [
+                "Plant-based foods and beverages",
+                "Beverages",
+                "Plant-based beverages",
+                "Fruit-based beverages",
+                "Juices and nectars",
+                "Fruit juices",
+                "Concentrated fruit juices",
+                "Orange juices",
+                "Concentrated orange juices"
+            ],
+            "code": "3123340008288",
+            "nutrition_grades": "c"
+        },
+        .
+        .
+        .
+        {
+            "categories_tags_en": [
+                "Plant-based foods and beverages",
+                "Beverages",
+                "Plant-based beverages",
+                "Fruit-based beverages",
+                "Juices and nectars",
+                "Fruit juices",
+                "Non-Alcoholic beverages",
+                "Orange juices",
+                "Squeezed juices",
+                "Squeezed orange juices"
+            ],
+            "code": "3608580844136",
+            "nutrition_grades": "c"
+        }
+    ],
+    "skip": 0
+}
+```
+
+### Sorting Search Response
+
+You can proceed to also sort the search response by different fields, for example, sort by the product that was modified last or even by the product_name. Now, let's sort the products with Orange Juice and a nutrition_grade of "c" by when they were last modified. To sort the search response, add the `sort_by` with value `last_modified_t` as a query parameter to the request.
+
+```text
+https://world.openfoodfacts.net/api/v2/search?nutrition_grades_tags=c&fields=code,nutrition_grades,categories_tags_en&categories_tags_en=Orange Juice&sort_by=last_modified_t
+```
+
+The date that each product was last modified is now used to order the product response.
+
+```json
+{
+    "count": 1629,
+    "page": 1,
+    "page_count": 24,
+    "page_size": 24,
+    "products": [
+        {
+            "categories_tags_en": [
+                "Plant-based foods and beverages",
+                "Beverages",
+                "Plant-based beverages",
+                "Fruit-based beverages",
+                "Juices and nectars",
+                "Fruit juices",
+                "Orange juices"
+            ],
+            "code": "3800014268048",
+            "nutrition_grades": "c"
+        },
+        '
+        '
+        '
+        {
+            "categories_tags_en": [
+                "Plant-based foods and beverages",
+                "Beverages",
+                "Plant-based beverages",
+                "Fruit-based beverages",
+                "Juices and nectars",
+                "Fruit juices",
+                "Orange juices",
+                "Squeezed juices",
+                "Squeezed orange juices"
+            ],
+            "code": "4056489641018",
+            "nutrition_grades": "c"
+        }
+    ],
+    "skip": 0
+}
+```
+
+To see other examples of sorting a search response, see the reference documentation for [Search for Products](https://openfoodfacts.github.io/openfoodfacts-server/reference/api/#tag/Read-Requests/operation/get-search)
