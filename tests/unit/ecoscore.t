@@ -528,6 +528,88 @@ my @tests = (
 		}
 	],
 
+	# Keep track of old ecoscore score and add tags if it has changed
+	[
+		'track-ecoscore-changes',
+		{
+			lc => "fr",
+			categories_tags => ["en:foies-gras"],
+			packaging_text => "1 pot en verre, 1 couvercle en acier",
+			ingredients_text => "Foie gras de canard",
+			ecoscore_data => {
+				grade => "d",
+				score => 20,
+				agribalyse => {
+					code => "old"
+				}
+			}
+		},
+	],
+
+	# Score changed but same grade
+	[
+		'track-ecoscore-same-grade',
+		{
+			lc => "fr",
+			categories_tags => ["en:foies-gras"],
+			packaging_text => "1 pot en verre, 1 couvercle en acier",
+			ingredients_text => "Foie gras de canard",
+			ecoscore_data => {
+				grade => "e",
+				score => 20,
+				agribalyse => {
+					version => "2.9"
+				}
+			}
+		},
+	],
+
+	# Don't create data or tags if no change
+	[
+		'track-ecoscore-no-change',
+		{
+			lc => "fr",
+			categories_tags => ["en:foies-gras"],
+			packaging_text => "1 pot en verre, 1 couvercle en acier",
+			ingredients_text => "Foie gras de canard",
+			ecoscore_data => {
+				grade => "e",
+				score => 18
+			}
+		},
+	],
+
+	# Tags and previous data are retained on subsequent updates even if score is different
+	[
+		'track-ecoscore-tags-retained',
+		{
+			lc => "fr",
+			categories_tags => ["en:foies-gras"],
+			packaging_text => "1 pot en verre, 1 couvercle en acier",
+			ingredients_text => "Foie gras de canard",
+			ecoscore_data => {
+				grade => "e",
+				score => 19,
+				version => "3.1",
+				previous_data => {
+					grade => "d",
+					score => 20,
+					version => "3.0"
+				}
+			},
+			misc_tags => ["en:ecoscore-changed", "en:ecoscore-grade-changed"]
+		},
+	],
+
+	# Qunioa - has a new category code
+	[
+		'agribalyse-updated-category',
+		{
+			lc => "fr",
+			categories_tags => ["en:quinoa"],
+		},
+	],
+
 );
 
 my $json = JSON->new->allow_nonref->canonical;

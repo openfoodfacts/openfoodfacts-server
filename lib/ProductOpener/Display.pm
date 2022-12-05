@@ -398,6 +398,11 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{product_action_url} = \&product_action_url;
 	$template_data_ref->{product_name_brand_quantity} = \&product_name_brand_quantity;
 
+	# select2 options generator for all entries in a taxonomy
+	$template_data_ref->{generate_select2_options_for_taxonomy_to_json} = sub ($tagtype) {
+		return generate_select2_options_for_taxonomy_to_json($lc, $tagtype);
+	};
+
 	# Return a link to one taxonomy entry in the target language
 	$template_data_ref->{canonicalize_taxonomy_tag_link} = sub ($tagtype, $tag) {
 		return canonicalize_taxonomy_tag_link($lc, $tagtype, $tag);
@@ -1678,7 +1683,7 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 		if ((defined $request_ref->{tag_prefix}) and ($request_ref->{tag_prefix} ne '')) {
 			my $prefix = $request_ref->{tag_prefix};
 			$main_link = add_tag_prefix_to_link($main_link, $prefix);
-			$log->debug("Found tag prefix for main_link", { request => $request_ref}) if $log->is_debug();
+			$log->debug("Found tag prefix for main_link", {request => $request_ref}) if $log->is_debug();
 		}
 
 		my %products = ();    # number of products by tag, used for histogram of nutrition grades colors
@@ -2973,7 +2978,7 @@ sub display_tag ($request_ref) {
 			my $prefix = $request_ref->{tag_prefix};
 			$request_ref->{current_link} = add_tag_prefix_to_link($request_ref->{current_link}, $prefix);
 			$request_ref->{world_current_link} = add_tag_prefix_to_link($request_ref->{world_current_link}, $prefix);
-			$log->debug("Found tag prefix ", { request => $request_ref}) if $log->is_debug();
+			$log->debug("Found tag prefix ", {request => $request_ref}) if $log->is_debug();
 		}
 
 		$request_ref->{canon_tagid} = $canon_tagid;
@@ -3042,7 +3047,7 @@ sub display_tag ($request_ref) {
 			my $prefix = $request_ref->{tag2_prefix};
 			$request_ref->{current_link} = add_tag_prefix_to_link($request_ref->{current_link}, $prefix);
 			$request_ref->{world_current_link} = add_tag_prefix_to_link($request_ref->{world_current_link}, $prefix);
-			$log->debug("Found tag prefix 2 ", { request => $request_ref }) if $log->is_debug();
+			$log->debug("Found tag prefix 2 ", {request => $request_ref}) if $log->is_debug();
 		}
 
 		$request_ref->{canon_tagid2} = $canon_tagid2;
@@ -4336,7 +4341,8 @@ sub add_country_and_owner_filters_to_query ($request_ref, $query_ref) {
 		}
 	}
 
-	$log->debug("result of add_country_and_owner_filters_to_query", { request => $request_ref, query =>  $query_ref}) if $log->is_debug();
+	$log->debug("result of add_country_and_owner_filters_to_query", {request => $request_ref, query => $query_ref})
+		if $log->is_debug();
 
 	return;
 }
@@ -4864,7 +4870,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 		$request_ref->{structured_response} = {
 			page => $page,
-			page_size => $limit,
+			page_size => 0 + $limit,
 			skip => $skip,
 			products => [],
 		};
@@ -11203,6 +11209,56 @@ sub data_to_display_image ($product_ref, $imagetype, $target_lc) {
 	}
 
 	return $image_ref;
+}
+
+=head2 generate_select2_options_for_taxonomy ($target_lc, $tagtype)
+
+Generates an array of taxonomy entries in a specific language, to be used as options
+in a select2 input.
+
+See https://select2.org/data-sources/arrays
+
+=head3 Arguments
+
+=head4 Language code $target_lc
+
+=head4 Taxonomy $tagtype
+
+=head3 Return values
+
+- Reference to an array of options
+
+=cut
+
+sub generate_select2_options_for_taxonomy ($target_lc, $tagtype) {
+
+	my @entries = ();
+
+	# all tags can be retrieved from the $translations_to hash
+	foreach my $canon_tagid (keys %{$translations_to{$tagtype}}) {
+		# just_synonyms are not real entries
+		next if defined $just_synonyms{$tagtype}{$canon_tagid};
+
+		push @entries, display_taxonomy_tag($target_lc, $tagtype, $canon_tagid);
+	}
+
+	my @options = ();
+
+	foreach my $entry (sort @entries) {
+		push @options,
+			{
+			id => $entry,
+			text => $entry,
+			};
+	}
+
+	return \@options;
+}
+
+sub generate_select2_options_for_taxonomy_to_json ($target_lc, $tagtype) {
+
+	return decode_utf8(
+		JSON::PP->new->utf8->canonical->encode(generate_select2_options_for_taxonomy($target_lc, $tagtype)));
 }
 
 1;

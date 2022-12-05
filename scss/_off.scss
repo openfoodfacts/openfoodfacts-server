@@ -1167,7 +1167,6 @@ span.ico-bold {
   @include button(10, $white);
 }
 
-<<<<<<< HEAD
 $section-blue: #6d85d9;
 
 .donation-banner,
@@ -1180,38 +1179,6 @@ $section-blue: #6d85d9;
     flex-direction: column;
     padding: 1rem 0;
   }
-=======
-#donate-banner {
-  position: relative;
-  display: flex;
-  padding: 1rem 0;
-  background-color: #6D85D9;
-  @media #{$small-only} {
-    flex-direction: column;
-    &__content {
-      flex-direction: column; 
-      gap: 0 !important;
-      margin-top: -2rem;
-      .banner-content {
-        order: 1;
-        flex-direction: column;
-        p { 
-          text-align: center; 
-          margin: 0 1rem;
-        }
-        .banner-thanks {
-          margin-top: 1rem;
-          margin-bottom: 1rem;
-        }
-      }
-      .button { 
-        order: 2; 
-        padding: 1rem 2rem;
-      }
-    }
-  }
-  p { color: $white; }
->>>>>>> sultanowski-donation-banner
   &__image {
     display: block;
     content: "";
@@ -1220,7 +1187,6 @@ $section-blue: #6d85d9;
     height: 81px;
   }
   &__content {
-<<<<<<< HEAD
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -1272,39 +1238,6 @@ $section-blue: #6d85d9;
         align-self: flex-end;
         order: 1;
       }
-=======
-    display: inline-flex;
-    align-items: center;
-    gap: 2rem;
-    max-width: 100rem;
-    margin: 0 auto;
-    .banner-content {
-      display: flex;
-      flex-direction: column;
-      .banner-thanks {
-        font-weight: 900;
-        span { color: red; font-size: 1rem; }
-      }
-    }
-    .banner-close {
-      width: 32px;
-      height: 32px;
-      .banner-close__icon {
-        position: absolute;
-        top: 0; right: 0;
-        margin: 1rem;
-        color: $white;
-        opacity: .5;
-        cursor: pointer;
-      }
-    }
-    > .button {
-      display: inline-flex !important;
-      flex-direction: row;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 0;
->>>>>>> sultanowski-donation-banner
     }
   }
 }
@@ -1386,4 +1319,53 @@ $section-blue: #6d85d9;
 
 #content {
   flex-grow: 1;
+}
+
+/* Packaging widget */
+/* **************** */
+#packagings_components_edit input {
+  margin:0;
+}
+
+#packagings_components_edit_header {
+  background-color:$macchiato;
+  border-radius:20px;
+  color:white;
+  font-weight:600;
+  margin:0;
+  padding:1rem;
+}
+
+.packagings_components_edit_row {
+  border-radius:20px;
+  margin:0 !important;
+  padding:1rem;
+}
+.packagings_components_edit_row:nth-of-type(even) {
+  background-color:$latte;
+}
+
+#packagings_components_edit .select2-container .select2-selection--single {
+  height: 2.6428571429rem;
+}
+
+#packagings_components_edit .select2-container .select2-selection--single .select2-selection__rendered {
+  line-height: 2.6428571429rem;
+}
+
+.delete_packaging_column {
+  padding:0 !important;
+}
+
+.delete_packaging {
+  margin:0;
+}
+
+.delete_packaging > span {
+  line-height: 2.6428571429rem;
+}
+
+// 1st packaging component is empty and hidden, it is used to add new components
+#packaging_0_row {
+  display:none;
 }

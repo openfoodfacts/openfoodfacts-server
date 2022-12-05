@@ -720,6 +720,20 @@ API:
 - scripts/api_stats.pl
 - tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels.json
 - tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels-fr.json
+- docs/reference/api-v3.yml
+- lib/ProductOpener/API.pm
+- tests/integration/api_v2_product_read.t
+
+API v3:
+- docs/reference/api-v3.yml
+- tests/integration/api_v3_product_read.t
+- tests/integration/api_v3_product_write.t
+
+API read:
+- tests/integration/api_v3_product_read.t
+
+API write:
+- tests/integration/api_v3_product_write.t
 
 monitoring:
 - scripts/api_stats.pl

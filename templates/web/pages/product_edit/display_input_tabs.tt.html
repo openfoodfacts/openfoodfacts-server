@@ -22,7 +22,7 @@
         [% IF tab.tabid != "new" %]
             <div class="tabs content[% tab.active %][% tab.new_lc %] tabs_[% tab.tabid %]" id="tabs_[% tabsid %]_[% tab.tabid %]">
                 
-                [% IF moderator && tabsid == "product" %]
+                [% IF moderator && tabsid == "front_image" %]
                     <div class="move_data_and_images_to_main_language" id="[% tab.moveid %]_div" style="display:none;">
                         <input class="move_data_and_images_to_main_language_checkbox" type="checkbox" id="[% tab.moveid %]" name="[% tab.moveid %]" />
                         <label for="[% tab.moveid %]" class="checkbox_label">[% tab.msg %]</label><br/>

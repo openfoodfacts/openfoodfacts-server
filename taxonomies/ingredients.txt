@@ -10176,7 +10176,9 @@ ciqual_food_name:fr:Coeur, boeuf, cuit
 
 <en:beef meat
 en:beef meat extract
+ca:extracte de carn, extracte de vedella
 de:Rindfleisch-Extrakt
+es:extracto de carne, extracto de ternera
 fi:Naudanlihatiiviste
 fr:extrait de viande de bœuf, extrait de viande de boeuf, extrait de viande bovine
 hu:marhahúskivonat
@@ -16521,6 +16523,7 @@ ciqual_food_name:fr:Graisse de canard
 en:chicken fat
 ar:دهن الدجاج
 bg:пилешка мазнина
+ca:greix de pollastre, greix de gallina
 da:Kyllingefedt
 de:Hühnerfett, Pouletfett
 el:λίπος κότας
@@ -19762,8 +19765,9 @@ nl:natuurlijk koffie aroma
 
 <en:natural flavouring
 en:natural caramel flavouring
+ca:caramel natural
 de:natürliches Karamellaroma
-es:Saborizante de caramelo natural
+es:Saborizante de caramelo natural, caramelo natural
 fi:luontainen karamelliaromi
 fr:arôme naturel de caramel
 hu:természetes karamella aroma, természetes karamell aroma
@@ -25429,6 +25433,11 @@ en:popcorn
 hr:kukuruz kokičar
 wikidata:en:Q165112
 
+<en:corn
+en:extruded corn, corn extrudate
+ca:extrudit de blat de moro
+es:maíz extruido, extruido de maíz
+
 #######################################################################################################################################
 #
 #                                                 R I C E
@@ -26491,6 +26500,7 @@ pl:płatki ryżowe
 
 <en:rice
 en:extruded rice
+ca:extrudit d'arròs
 de:Reis extrudiert, extrudierter Reis
 es:arroz extruido
 fi:ekstrudoitu riisi
@@ -37744,7 +37754,9 @@ nl:acaisap
 <en:fruit
 en:acerola
 bg:ацерола
+ca:acerola, cirera acerola
 de:Acerola, Acerolakirschen, Acerola Kirsch
+es:acerola, cerecita, manzanita, semeruco
 fi:akerola
 fr:acérola
 ru:Ацерола
@@ -43386,7 +43398,7 @@ nutriscore_fruits_vegetables_nuts:en:yes
 
 <en:vegetable
 en:vegetables in variable proportion
-ca:Verdures en proporció variable
+ca:Verdures en proporció variable, hortalisses en proporció variable
 de:Gemüse in verschiedener Größe
 es:verduras en proporción variable, hortalizas en proporción variable
 fr:légumes en proportions variables, légumes en proportion variable
@@ -45280,9 +45292,10 @@ it:Galatto-oligosaccaridi di lattosio
 en:beetroot, beet
 af:Beet
 bg:цвекло
+ca:remolatxa
 da:Rødbede, rødbeder
 de:Rüben, Randen
-es:remolacha,betarraga
+es:remolacha, betarraga
 fr:betterave, betteraves
 he:סלק
 hr:cikla
@@ -45306,6 +45319,7 @@ carbon_footprint_fr_foodges_value:fr:0.2
 <en:beetroot
 en:beetroot powder
 bg:цвекло на прах
+ca:remolatxa en pols
 de:Rote-Bete-Pulver, färbendes Lebensmittel Rote-Bete-Pulver, Rote Beete-Pulver, Randenpulver
 es:Remolacha en polvo
 fi:punajuurijauhe
@@ -49401,9 +49415,10 @@ fr:flocons de pomme de terre réhydratés
 <en:potato
 <en:vegetable fiber
 en:potato fiber, potato fibre
+ca:fibra de patata, fibra vegetal de patata
 da:kartoffelfibre
 de:Kartoffelfasern, Kartoffelfaser, Kartoffelballaststoffe
-es:fibra de patata
+es:fibra de patata, fibra vegetal de patata
 fi:perunakuitu
 fr:fibres de pomme de terre, fibre de pomme de terre, fibres de pommes de terre
 nb:potetfiber
@@ -77127,6 +77142,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Extract
 # <en:part
 en:natural extract
 bg:натурален екстракт
+ca:extracte natural, extractes naturals
 de:Natürliches Extrakt
 es:extracto natural, extractos naturales
 fi:luontainen uute
@@ -77247,14 +77263,14 @@ be:валакно
 bg:влакно, влакнини, фибри
 bn:fiber
 bs:Vlakno
-ca:Fibra
+ca:Fibra, fibra alimentaria, fibres vegetals
 cs:vlákno
 cv:Чĕлкĕм
 da:Fiber
 de:Faser, Nahrungsfasern
 el:ίνα
 eo:fibro
-es:fibra, fibra alimentaria
+es:fibra, fibra alimentaria, fibras vegetales
 et:Kiud
 eu:zuntz
 fa:الیاف
@@ -77440,6 +77456,7 @@ wikidata:en:Q20026824
 
 <en:vegetable fiber
 en:pea fiber
+ca:fibra de pèsol, fibra vegetal de pèsol
 de:Erbsenfaser, Erbsenfasern
 es:fibra de guisante
 fi:hernekuitu
