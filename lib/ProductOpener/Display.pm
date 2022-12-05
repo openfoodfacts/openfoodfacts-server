@@ -6938,12 +6938,9 @@ sub display_page ($request_ref) {
 	$template_data_ref->{link} = $link;
 	$template_data_ref->{lc} = $lc;
 
-  # Removed old donation banner cookie JS.
-
 	my $tagline = lang("tagline");
 
 	if ($server_options{producers_platform}) {
-
 		$tagline = "";
 	}
 

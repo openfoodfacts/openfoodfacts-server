@@ -1215,7 +1215,7 @@ $section-blue: #6d85d9;
       @media #{$small-only} {
         text-align: center;
         order: 2;
-        margin-bottom: 1rem;
+        padding: 1rem;
       }
       &--thank-you {
         font-weight: bold;
@@ -1233,12 +1233,18 @@ $section-blue: #6d85d9;
       margin-right: 1rem;
       @media #{$small-only} { 
         position: relative;
-        top: -50px;
+        top: -25px;
         margin-right: 2rem;
         align-self: flex-end;
         order: 1;
       }
     }
+  }
+}
+
+.donation-banner-footer {
+  &__content {
+    @media #{$small-only} { margin-top: 0; }
   }
 }
 
