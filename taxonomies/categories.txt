@@ -72373,7 +72373,7 @@ en:Snails preparations
 es:Preparado de caracoles
 fi:Etanavalmisteet
 fr:Escargots préparés
-lt:Sraigių preparatai
+lt:Sraigių ruošiniai
 nl:Producten met slakken
 zh:蜗牛准备材料
 
@@ -73339,6 +73339,7 @@ ciqual_food_name:fr:Lapin, viande braisée
 <en:Rabbit meat
 en:Wild Rabbit meat
 fr:viande de lapin de garenne
+lt:Laukinio triušio mėsa
 agribalyse_food_code:en:34003
 ciqual_food_code:en:34003
 ciqual_food_name:en:Rabbit, wild, meat, raw
@@ -73348,6 +73349,7 @@ ciqual_food_name:fr:Lapin de garenne, viande, crue
 <en:Wild Rabbit meat
 en:Cooked wild rabbit meat
 fr:Viande de lapin de garenne cuite
+lt:Kepta laukinio triušio mėsa
 agribalyse_food_code:en:34004
 ciqual_food_code:en:34004
 ciqual_food_name:en:Rabbit, wild, meat, cooked
@@ -73357,6 +73359,7 @@ ciqual_food_name:fr:Lapin de garenne, viande, cuite
 <en:Rabbit meat
 en:Rabbit with mustard sauce
 fr:Lapin à la moutarde
+lt:Triušis su garstyčių padažu
 agribalyse_food_code:en:25063
 ciqual_food_code:en:25063
 ciqual_food_name:en:Rabbit with mustard sauce
@@ -73364,6 +73367,7 @@ ciqual_food_name:en:Rabbit with mustard sauce
 <en:Rabbit meat
 en:Rabbit liver
 fr:Foies de lapin
+lt:Triušio kepenys
 wikidata:en:Q67883965
 agribalyse_food_code:en:40110
 ciqual_food_code:en:40110
@@ -73374,6 +73378,7 @@ ciqual_food_name:fr:Foie, lapin, cru
 en:Horse fresh meat, Horse meat
 bg:Прясно конско месо
 fr:Viande de cheval fraîche, Viande de cheval crue
+lt:Arkliena
 nl:Verse paardevlezen
 zh:鲜马肉
 ciqual_food_code:en:6900
@@ -73383,6 +73388,7 @@ ciqual_food_name:fr:Cheval, viande, crue
 <en:Horse fresh meat
 en:Horse steak
 fr:Steak de cheval
+lt:Arklienos kepsnys
 ciqual_food_code:en:6901
 ciqual_food_name:en:Horse, steak, raw
 ciqual_food_name:fr:Cheval, steak, cru
@@ -73404,6 +73410,7 @@ ciqual_food_name:fr:Cheval, faux-filet, cru
 <en:Horse fresh meat
 en:Horse rib steak
 fr:Entrecôte de cheval
+lt:Arklienos šonkauliukų kepsnys
 ciqual_food_code:en:6905
 ciqual_food_name:en:Horse, rib steak, raw
 ciqual_food_name:fr:Cheval, entrecôte, crue
@@ -73412,6 +73419,7 @@ ciqual_food_name:fr:Cheval, entrecôte, crue
 en:Goat meat
 bg:Козе месо
 fr:Viande de chèvre
+lt:Ožkiena
 wikidata:en:Q449506
 
 <en:Fresh meats
@@ -73435,12 +73443,14 @@ ciqual_food_name:fr:Chevreau, cuit
 <en:Fresh meats
 en:Rabbit fresh meat
 fr:Viandes fraîches de lapin
+lt:Šviežia triušiena
 nl:Verse konijnenvlezen
 zh:鲜兔肉
 
 <en:Fresh meats
 en:Kangaroo fresh meat
 fr:Viandes fraîches de kangourou
+lt:Šviežia kengūros mėsa
 nl:Verse kangaroevlezen
 zh:鲜袋鼠肉
 
@@ -73452,11 +73462,13 @@ nl:Verse dromedarisvlezen
 <en:Fresh meats
 en:Llama or lama fresh meat
 fr:Viande fraîche de lama, viande de lama fraîche
+lt:Šviežia lamos mėsa
 nl:Verse lamavlezen
 
 <en:Fresh meats
 en:Deer fresh meat
 fr:Viande fraîche de cerf, viande de cerf fraîche
+lt:Šviežia erniena
 nl:Vere hertevlezen
 
 <en:Deer fresh meat
@@ -73473,6 +73485,7 @@ nl:Verse europese elkvlezen
 
 <en:Meats
 en:European moose meat
+lt:Europietiška briedžių mėsa
 nl:Verse europese elandvlezen
 
 <en:Meats
@@ -73489,6 +73502,7 @@ nl:Reevlezen
 <en:Fresh meats
 en:Wild boar fresh meat
 fr:Viande fraîche de sanglier, viande de sanglier fraîche
+lt:Šviežia šerniena
 nl:Verse everzwijnvlezen
 
 <en:Fresh meats
@@ -73504,6 +73518,7 @@ nl:Verse gemsvlezen
 <en:Fresh meats
 en:Goose fresh meat
 fr:Viande fraîche d'oie
+lt:Šviežia žąsiena
 nl:Verse ganzenvlezen
 
 <en:Fresh meats
@@ -73516,10 +73531,12 @@ nl:Verse parelhoenvlezen
 
 <en:Fresh meats
 en:Partridge fresh meat
+lt:Šviežia kurapkų mėsa
 nl:Verse fazantvlezen
 
 <en:Fresh meats
 en:Quail fresh meat
+lt:Šviežia putpelių mėsa
 nl:Verse kwartelvlezen
 
 <en:Meats
@@ -73531,6 +73548,7 @@ es:Preparados de carne
 fi:lihavalmisteet
 fr:Préparations de viande
 it:Preparazioni a base di carne
+lt:Mėsos ruošiniai
 nl:Vleesbereidingen
 
 <en:Meat preparations
@@ -73538,10 +73556,12 @@ nl:Vleesbereidingen
 en:Meat skewers
 es:Pinchos de carne, Brochetas de carne
 fr:Brochettes de viande
+lt:Mėsos iešmeliai
 
 <en:Meat skewers
 en:Mixed meat on skewer
 fr:Brochette mixte de viande
+lt:Įvairi mėsa ant iešmo
 agribalyse_food_code:en:25506
 ciqual_food_code:en:25506
 ciqual_food_name:en:Mixed meat on skewer
@@ -73550,6 +73570,7 @@ ciqual_food_name:en:Mixed meat on skewer
 <en:Meat skewers
 en:Beef skewers
 fr:Brochettes de bœuf, brochette de bœuf
+lt:Jautienos iešmeliai
 nl:Rundvleesspiesjes
 agribalyse_food_code:en:25505
 ciqual_food_code:en:25505
@@ -73561,6 +73582,7 @@ ciqual_food_name:fr:Brochette de boeuf
 en:Poultry skewers
 fi:siipikarjavartaat
 fr:Brochettes de volailles, brochette de volaille
+lt:Paukštienos iešmeliai
 nl:Gevogeltespiesjes
 agribalyse_food_code:en:25504
 ciqual_food_code:en:25504
@@ -73572,11 +73594,13 @@ ciqual_food_name:fr:Brochette de volaille
 en:chicken skewers
 es:Pinchos de pollo, Brochetas de pollo
 fr:Brochettes de poulet
+lt:Vištienos iešmeliai
 nl:Kippenspiesjes
 
 <en:chicken skewers
 en:Yakitori chicken skewers, yakitori chicken
 fr:Brochettes de poulet Yakitori, Yakitori de Poulet, Poulet Yakitori
+lt:Yakitori vištienos iešmeliai
 nl:Yakitori kipspiesjes
 agribalyse_food_code:en:25565
 ciqual_food_code:en:25565
@@ -73605,6 +73629,7 @@ es:Preparados de carne picada
 fi:jauhelihavalmisteet
 fr:Préparations de viande hachée, préparations hachées de viande
 it:Preparati di carne
+lt:Maltos mėsos ruošiniai
 nl:Gemalen vleesproducten
 
 <en:Ground meat preparations
@@ -73626,6 +73651,7 @@ es:Filetes de ternera
 fi:naudanpihvit
 fr:Steaks de bœuf, steak de bœuf
 it:Bistecche di manzo
+lt:Jautienos kepsniai
 nl:Biefstukken
 pl:Stek wołowy
 zh:牛排
@@ -73641,6 +73667,7 @@ de:Rindfleischzubereitungen
 fi:nautavalmisteet
 fr:Préparations de viande bovine, préparation de viande de bœuf
 it:Preparazioni a base di manzo
+lt:Jautienos ruošiniai
 nl:Rundvleesproducten
 
 <en:Beef preparations
