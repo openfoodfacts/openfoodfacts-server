@@ -28,17 +28,16 @@ is(guess_language_of_packaging_text("something unknown", [qw(de es it fr)]), und
 
 my $packaging_ref;
 
-$packaging_ref = get_checked_and_taxonomized_packaging_component_data(
-	"en",
-	{"number_of_units" => 1, "shape" => "en:bottle", "material" => "en:glass", "weight_measured" => "55,40"},
-	{}
-);
+$packaging_ref = get_checked_and_taxonomized_packaging_component_data("en",
+	{"number_of_units" => 1, "shape" => "en:bottle", "material" => "en:glass", "weight_measured" => "55,40"}, {});
 
-is_deeply($packaging_ref, {
-   'material' => 'en:glass',
-   'shape' => 'en:bottle',
-},) or diag explain $packaging_ref;
-
+is_deeply(
+	$packaging_ref,
+	{
+		'material' => 'en:glass',
+		'shape' => 'en:bottle',
+	},
+) or diag explain $packaging_ref;
 
 # Tests for analyze_and_combine_packaging_data()
 
