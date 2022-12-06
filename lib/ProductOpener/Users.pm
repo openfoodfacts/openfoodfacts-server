@@ -950,7 +950,8 @@ sub init_user ($request_ref) {
 				$user_id = $user_ref->{'userid'};
 				$log->context->{user_id} = $user_id;
 
-				my $hash_is_correct = check_password_hash(encode_utf8(decode utf8 => request_param($request_ref, 'password')),
+				my $hash_is_correct
+					= check_password_hash(encode_utf8(decode utf8 => request_param($request_ref, 'password')),
 					$user_ref->{'encrypted_password'});
 				# We don't have the right password
 				if (not $hash_is_correct) {
@@ -963,7 +964,8 @@ sub init_user ($request_ref) {
 					return ($Lang{error_bad_login_password}{$lang});
 				}
 				# We have the right login/password
-				elsif (not defined request_param($request_ref, 'no_log'))    # no need to store sessions for internal requests
+				elsif (
+					not defined request_param($request_ref, 'no_log')) # no need to store sessions for internal requests
 				{
 					$log->info("correct password for user provided") if $log->is_info();
 

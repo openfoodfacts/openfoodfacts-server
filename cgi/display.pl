@@ -47,7 +47,8 @@ my $request_ref = {};
 my $r = Apache2::RequestUtil->request();
 $request_ref->{method} = $r->method();
 
-$log->debug("display.pl - start", {env_query_string => $env_query_string, request_ref => $request_ref}) if $log->is_debug();
+$log->debug("display.pl - start", {env_query_string => $env_query_string, request_ref => $request_ref})
+	if $log->is_debug();
 
 # Special behaviors for API v3 requests
 
@@ -70,7 +71,7 @@ if ($env_query_string =~ /^\/?api\/v(3(\.\d+)?)\//) {
 	}
 }
 
-if  (($env_query_string !~ /^\/?api\/v(3(\.\d+)?)\//) or ($request_ref->{method} !~ /^(POST|PUT|PATCH)$/)) {
+if (($env_query_string !~ /^\/?api\/v(3(\.\d+)?)\//) or ($request_ref->{method} !~ /^(POST|PUT|PATCH)$/)) {
 	# Not an API v3 POST/PUT/PATCH request: we will use CGI.pm param() method to access query string or multipart/form-data parameters
 
 	# The nginx reverse proxy turns /somepath?someparam=somevalue to /cgi/display.pl?/somepath?someparam=somevalue

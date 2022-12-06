@@ -547,7 +547,7 @@ Reference to request object.
 
 =cut
 
-sub init_request($request_ref = {}) {
+sub init_request ($request_ref = {}) {
 
 	$log->debug("init_request - start", {request_ref => $request_ref}) if $log->is_debug();
 
@@ -759,23 +759,32 @@ sub init_request($request_ref = {}) {
 
 		# If it is an API v3 query, the error will be handled by API::process_api_request()
 		if ((defined $request_ref->{api_version}) and ($request_ref->{api_version} >= 3)) {
-			$log->debug("init_request - init_user error - API v3: continue",	{init_user_error => $request_ref->{init_user_error}}) if $log->is_debug();
+			$log->debug(
+				"init_request - init_user error - API v3: continue",
+				{init_user_error => $request_ref->{init_user_error}}
+			) if $log->is_debug();
 			add_error(
 				$request_ref->{api_response},
 				{
 					message => {id => "invalid_user_id_and_password"},
 					impact => {id => "failure"},
 				}
-			);		
+			);
 		}
 		# /cgi/auth.pl returns a JSON body
 		# for requests to /cgi/auth.pl, we will now return a JSON body, set in /cgi/auth.pl
 		elsif ($r->uri() =~ /\/cgi\/auth\.pl/) {
-			$log->debug("init_request - init_user error - /cgi/auth.pl: continue",	{init_user_error => $request_ref->{init_user_error}}) if $log->is_debug();
+			$log->debug(
+				"init_request - init_user error - /cgi/auth.pl: continue",
+				{init_user_error => $request_ref->{init_user_error}}
+			) if $log->is_debug();
 		}
 		# Otherwise we return an error page in HTML (including for v0 / v1 / v2 API queries)
 		else {
-			$log->debug("init_request - init_user error - display error page",	{init_user_error => $request_ref->{init_user_error}}) if $log->is_debug();
+			$log->debug(
+				"init_request - init_user error - display error page",
+				{init_user_error => $request_ref->{init_user_error}}
+			) if $log->is_debug();
 			display_error_and_exit($error, 403);
 		}
 	}

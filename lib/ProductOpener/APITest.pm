@@ -425,7 +425,7 @@ sub execute_api_tests ($file, $tests_ref) {
 		if (not defined $test_ref->{expected_status_code}) {
 			$test_ref->{expected_status_code} = 200;
 		}
-		
+
 		is($response->code, $test_ref->{expected_status_code})
 			or diag(explain($test_ref), "Response status line: " . $response->status_line);
 
