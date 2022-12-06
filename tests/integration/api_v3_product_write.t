@@ -391,6 +391,7 @@ my $tests_ref = [
 		body => '{
 			"userid": "tests",
 			"password": "bad password",
+			"fields": "creator,editors_tags,packagings",
 			"tags_lc": "en",
 			"product": {
 				"packagings": [
@@ -410,6 +411,7 @@ my $tests_ref = [
 		body => '{
 			"userid": "tests",
 			"password": "testtest",
+			"fields": "creator,editors_tags,packagings",
 			"tags_lc": "en",
 			"product": {
 				"packagings": [
