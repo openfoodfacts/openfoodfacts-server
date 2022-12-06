@@ -4677,6 +4677,9 @@ fi:laktoositon kerma
 fr:crème sans lactose
 sv:laktosfri grädde
 
+en:cream
+fr:crème épaisse
+
 <en:cream
 en:Refrigerated 30% fat thick cream
 fr:Crème de lait épaisse à 30% de matières grasses rayon frais
@@ -26049,7 +26052,7 @@ bg:ориз за ризото
 de:Risotto-Reis
 es:arroz de risotto
 fi:risottoriisi
-fr:riz pour risottto
+fr:riz pour risotto, riz à risotto
 hu:rizottó rizs
 it:riso per risotto
 # ingredient/fr:riz-pour-risotto has 8 products @2019-05-30
@@ -26333,6 +26336,9 @@ en:organic Thai long grain white rice
 fi:luomu pitkäjyväinen valkoinen jasmiiniriisi
 fr:riz-blanc-thailandais-a-grains-longs-issu-de-l-agriculture-biologique
 # 2019-05-30
+
+<en:Thai rice
+fr:riz thaï demi-complet, riz thai demi-complet
 
 <en:Thai rice
 en:Thaï brown rice
@@ -68268,9 +68274,10 @@ en:description:The saithe (Pollachius virens) is a species of marine fish in the
 #ciqual_food_name:en:Saithe, cooked
 #ciqual_food_name:fr:Lieu noir, cuit
 
-#<en:saithe
-#nl:koolvisfilet
-#fi:seitifilee
+<en:saithe
+fr:filet de lieu noir
+nl:koolvisfilet
+fi:seitifilee
 # has 1 product on 2021-09-03
 
 #description:en:Salmon is the common name for several species of ray-finned fish in the family Salmonidae.
