@@ -6938,36 +6938,9 @@ sub display_page ($request_ref) {
 	$template_data_ref->{link} = $link;
 	$template_data_ref->{lc} = $lc;
 
-	if (
-		not($server_options{producers_platform})
-		and (  (not(defined cookie('hide_image_banner_2022')))
-			or (not(cookie('hide_image_banner_2022') eq '1')))
-		)
-	{
-		$template_data_ref->{banner} = $banner;
-
-		$initjs .= <<'JS';
-if ($.cookie('hide_image_banner_2022') == '1') {
-	$('.hide_image_banner').prop('checked', true);
-	$('#donate_banner_top').remove();
-}
-else {
-	$('.hide_image_banner').prop('checked', false);
-	$('#donate_banner_top').show();
-	$('.hide_image_banner').change(function () {
-		if (($('#hide_image_banner1').prop('checked')) || ($('#hide_image_banner2').prop('checked'))) {
-			$.cookie('hide_image_banner_2022', '1', { expires: 90, path: '/' });
-			$('#donate_banner_top').remove();
-		}
-	});
-}
-JS
-	}
-
 	my $tagline = lang("tagline");
 
 	if ($server_options{producers_platform}) {
-
 		$tagline = "";
 	}
 
