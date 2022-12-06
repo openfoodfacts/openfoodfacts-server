@@ -72314,13 +72314,13 @@ es:Filetes picado
 fi:jauhelihapihvit
 fr:Steaks hachés, Steak haché
 it:Carne macinata e hamburger
-lt:Malti kepsniai
+lt:Maltiniai
 nl:Tartaarsteaks
 
 <en:Steaks
 en:Beef based burger with 15% fat
 fr:Haché à base de bœuf cru à 15% de matières grasses, Préparation de viande hachée de boeuf crue à 15% de matières grasses
-lt:Jautienos mėsainis su 15% riebalų
+lt:Jautienos maltiniai su 15% riebalų
 agribalyse_food_code:en:6260
 ciqual_food_code:en:6260
 ciqual_food_name:en:Burger, beef based, 15% fat, raw
@@ -72431,6 +72431,7 @@ wikidata:en:Q7386
 en:Zebra, zebra meat
 de:Zebra, Zebra-Fleisch
 fr:Zèbre, viande de zèbre
+lt:Zebro mėsa
 nl:Zebra, zebravlees
 zh:斑马
 wikidata:en:Q32789
@@ -72438,6 +72439,7 @@ wikidata:en:Q32789
 <en:Meats
 en:Ostrich, ostrich meat
 fr:Autruche, viande d'autruche
+lt:Stručio mėsa
 nl:Struisvogel
 zh:鸵鸟
 ciqual_food_code:en:36800
@@ -72448,6 +72450,7 @@ wikidata:en:Q2354102
 <en:Ostrich meat
 en:Cooked ostrich meat
 fr:Viande d'autruche cuite
+lt:Kepta stručio mėsa
 ciqual_food_code:en:36801
 ciqual_food_name:en:Ostrich, meat, cooked
 ciqual_food_name:fr:Autruche, viande cuite
@@ -72458,6 +72461,7 @@ bg:Жаби
 de:Frösche
 fi:Sammakot, Sammakon liha
 fr:Grenouille, viande de grenouille
+lt:Varlės
 nl:Kikkers
 zh:青蛙, 青蛙肉
 
@@ -72466,6 +72470,7 @@ en:Frog legs
 bg:Жабешки крачета
 de:Froschschenkel
 fr:Cuisses de Grenouilles
+lt:Varlių kojos
 nl:Kikkerbillen
 zh:青蛙腿, 蛙腿
 ciqual_food_code:en:34500
@@ -72475,6 +72480,7 @@ ciqual_food_name:fr:Grenouille, cuisse, crue
 <en:meats
 en:Belgian fresh meat and offal
 fr:Viandes et abats frais belges
+lt:Šviežia belgiška mėsa ir jų subproduktai
 
 <en:Belgian fresh meat and offal
 nl:Vlees van het rood ras van West-Vlaanderen
@@ -72493,6 +72499,7 @@ origins:en: en:Belgium
 
 <en:meats
 en:Italian fresh meat and offal
+lt:Šviežia itališka mėsa ir jų subproduktai
 
 <en:Italian fresh meat and offal
 it:Vitelloni Piemontesi della Coscia
@@ -72550,6 +72557,7 @@ en:Vegetarian balls
 fr:Boulettes végétariennes
 nl:Vegetarische balletjes
 it:Polpette vegetali
+lt:Vegetariški kukuliai
 pl:Wegetariańskie pulpety
 agribalyse_proxy_food_code:en:25589
 agribalyse_proxy_food_name:en:Plant-based ball with wheat and/or soybean, prepacked
@@ -72559,6 +72567,7 @@ agribalyse_proxy_food_name:fr:Boulette végétale au soja et/ou blé, préemball
 <en:Meat analogues from soy or wheat proteins
 en:Balls from soy and or wheat proteins
 fr:Boulettes à base de protéines de soja et ou blé
+lt:Kukuliai iš sojų ir arba kviečių baltymų
 agribalyse_food_code:en:25589
 
 <en:Vegetarian balls
@@ -72596,12 +72605,14 @@ en:Meat balls
 bg:Кюфтета от месо
 fi:Lihapullat, Lihapyörykät
 fr:Boulettes de viande
+lt:Mėsos kukuliai
 nl:Gehaktballen
 pt:Almôndegas
 
 # to be added to soups
 <en:Meat balls
 en:Small meat balls
+lt:Maži mėsos kukuliai
 nl:Soepballetjes
 
 <en:Meat balls
@@ -72609,6 +72620,7 @@ nl:Soepballetjes
 en:Chicken meat balls
 bg:Пилешки кюфтета
 fr:Boulettes au poulet
+lt:Vištienos kukuliai
 nl:Kippegehaktballen
 
 <en:Meat balls
@@ -72616,6 +72628,7 @@ nl:Kippegehaktballen
 en:Pork meat balls
 bg:Свински кюфтета
 fr:Boulettes au porc
+lt:Kiaulienos kukuliai
 nl:Varkensgehaktballen
 
 <en:Meat balls
@@ -72623,11 +72636,13 @@ nl:Varkensgehaktballen
 en:Beef meat balls
 bg:Говежди кюфтета
 fr:Boulettes au bœuf
+lt:Jautienos kukuliai
 nl:Runder soepballetjes
 
 <en:Beef meat balls
 en:Cooked beef meat balls
 fr:Boulettes au boeuf cuites
+lt:Kepti jautienos kukuliai
 agribalyse_food_code:en:25163
 ciqual_food_code:en:25163
 ciqual_food_name:en:Beef, meat balls, cooked
@@ -72636,6 +72651,7 @@ ciqual_food_name:fr:Boeuf, boulettes cuites
 <en:Beef meat balls
 en:Beef meat balls with tomato sauce
 fr:Boulettes au bœuf à la sauce tomate
+lt:Jautienos kukuliai su pomidorų padažu
 agribalyse_food_code:en:25211
 ciqual_food_code:en:25211
 ciqual_food_name:en:Meat balls, beef, with tomato sauce
@@ -72645,6 +72661,7 @@ ciqual_food_name:fr:Boulettes au bœuf, à la sauce tomate
 <en:Beef
 en:Swedish-style pork and beef meat balls
 fr:Boulettes au porc et au bœuf à la suédoise
+lt:Švediško stiliaus kiaulienos ir jautienos kukuliai
 ciqual_food_code:en:25186
 ciqual_food_name:en:Meat balls, pork and beef, (Swedish-style)
 ciqual_food_name:fr:Boulettes au porc et au bœuf (à la suédoise), crues
@@ -72653,6 +72670,7 @@ ciqual_food_name:fr:Boulettes au porc et au bœuf (à la suédoise), crues
 <en:Beef
 en:Kefta, beef and lamb meat balls
 fr:Kefta, Boulettes au bœuf et à l'agneau
+lt:Kefta, jautienos ir ėrienos kukuliai
 ciqual_food_code:en:25194
 ciqual_food_name:en:Meat balls, beef and lamb (kefta type), raw
 ciqual_food_name:fr:Boulettes au bœuf et à l'agneau (type kefta), crues
@@ -72669,6 +72687,7 @@ fr:Bœuf, Viande de bœuf, Viande bovine
 he:בשר בקר
 hu:Marhahús
 it:Manzo
+lt:Jautiena, Jautienos mėsa
 nl:Rund, Rundervlees
 pl:Wołowina, mięso wołowe
 ru:Говядина
@@ -72781,10 +72800,12 @@ wikidata:en:Q97365348
 <en:Cooked red meat
 en:Cooked beef meat
 fr:Viande de boeuf cuite
+lt:Kepta jautienos mėsa
 
 <en:Cooked meats
 en:Roasted horse meat, Baked horse meat
 fr:Viande de cheval rôtie, Viande de cheval cuite au four
+lt:Kepta arkliena, Skrudinta arkliena
 ciqual_food_code:en:6902
 ciqual_food_name:en:Horse, meat, roasted/baked
 ciqual_food_name:fr:Cheval, viande, rôtie/cuite au four
@@ -72827,6 +72848,7 @@ ciqual_food_name:fr:Cheval, tende de tranche, rôtie/cuite au four
 <en:Cooked meats
 en:Cooked white meat
 fr:Viande blanche cuite
+lt:Kepta balta mėsa
 ciqual_food_code:en:6584
 ciqual_food_name:en:white meat, cooked (average)
 ciqual_food_name:fr:Viande blanche, cuite (aliment moyen)
@@ -72834,6 +72856,7 @@ ciqual_food_name:fr:Viande blanche, cuite (aliment moyen)
 <en:Cooked meats
 en:Cooked red meat
 fr:Viande rouge cuite
+lt:Kepta raudona mėsa
 ciqual_food_code:en:6585
 ciqual_food_name:en:Red meat, cooked (average)
 ciqual_food_name:fr:Viande rouge, cuite (aliment moyen)
@@ -72841,6 +72864,7 @@ ciqual_food_name:fr:Viande rouge, cuite (aliment moyen)
 <en:Beef
 en:Beef bacon
 fr:Bacon de boeuf
+lt:Jautienos bekonas
 zh:牛肉培根
 
 <en:Beef
@@ -72849,6 +72873,7 @@ de:Rinderzungen
 fi:naudan kielet
 fr:Langues de bœuf, Langue de bœuf
 it:Lingue di bue
+lt:Jautienos liežuvis
 nl:Rundertong
 agribalyse_food_code:en:40202
 ciqual_food_code:en:40202
@@ -72859,6 +72884,7 @@ ciqual_food_name:fr:Langue, boeuf, crue
 <en:Cooked beef meat
 en:Cooked beef tongue
 fr:Langue de boeuf cuite
+lt:Keptas jautienos liežuvis
 agribalyse_food_code:en:40203
 ciqual_food_code:en:40203
 ciqual_food_name:en:Tongue, beef, cooked
@@ -72868,6 +72894,7 @@ ciqual_food_name:fr:Langue, boeuf, cuite
 <en:Beef preparations
 en:Tongue of beef with hot sauce
 fr:Langues de bœuf sauce piquante, Langue de bœuf sauce piquante
+lt:Jautienos liežuvis su aštriu padažu
 nl:Kalfstong in pikante saus
 
 <en:Beef tongues
@@ -72875,6 +72902,7 @@ nl:Kalfstong in pikante saus
 en:Beef tongues with Madeira Sauce, Beef tongue with Madeira Sauce, Beef tongue with Madeira wine sauce
 fi:Naudan kielet madeirakastikkeella
 fr:Langues de bœuf sauce madère, Langue de bœuf sauce madère
+lt:Jautienos liežuvis su Madeira padažu
 nl:Rundertong op basis van Madeirasaus
 ciqual_food_code:en:25201
 ciqual_food_name:en:Beef tongue with Madeira wine sauce
@@ -72883,6 +72911,7 @@ ciqual_food_name:fr:Langue de bœuf sauce madère
 <en:Beef meat
 en:Beef knuckle
 fr:Jarret de boeuf
+lt:Jautienos kulšelės
 agribalyse_food_code:en:6150
 ciqual_food_code:en:6150
 ciqual_food_name:en:Beef, knuckle, raw
@@ -72892,6 +72921,7 @@ ciqual_food_name:fr:Boeuf, jarret, cru
 <en:Beef knuckle
 en:Boiled beef knuckle, Beef knuckle cooked in water
 fr:Jarret de boeuf bouilli, Jarret de boeuf cuit à l'eau
+lt:Virtos jautienos kulšelės
 agribalyse_food_code:en:6151
 ciqual_food_code:en:6151
 ciqual_food_name:en:Beef, knuckle, boiled/cooked in water
@@ -72900,11 +72930,13 @@ ciqual_food_name:fr:Boeuf, jarret, bouilli/cuit à l'eau
 <en:Beef meat
 en:Beef oxtail
 fr:Queue de boeuf
+lt:Jautienos uodega
 
 <en:Cooked beef meat
 <en:Beef oxtail
 en:Boiled beef oxtail, Beef oxtail cooked in water
 fr:Queue de boeuf bouillie, Queue de boeuf cuite à l'eau
+lt:Virta jautienos uodega
 agribalyse_food_code:en:6310
 ciqual_food_code:en:6310
 ciqual_food_name:en:Beef, oxtail, boiled/cooked in water
@@ -72913,6 +72945,7 @@ ciqual_food_name:fr:Boeuf, queue, bouillie/cuite à l'eau
 <en:Beef
 en:Beef rib steak
 fr:Entrecôte de boeuf
+lt:Jautienos šonkauliukų kepsnys
 agribalyse_food_code:en:6103
 ciqual_food_code:en:6103
 ciqual_food_name:en:Beef, rib steak, raw
@@ -72930,6 +72963,7 @@ ciqual_food_name:fr:Boeuf, entrecôte, partie maigre, grillée/poêlée
 en:Beef ribs
 bg:Говежди ребра
 fr:Côtes de boeuf
+lt:Jautienos šonkauliukai
 agribalyse_food_code:en:6001
 ciqual_food_code:en:6001
 ciqual_food_name:en:Beef, rib, raw
@@ -72938,6 +72972,7 @@ ciqual_food_name:fr:Boeuf, côte, crue
 <en:Beef meat
 en:Beef short ribs
 fr:Plats de côtes de boeuf
+lt:Jautienos trumpi šonkauliukai
 agribalyse_food_code:en:6122
 ciqual_food_code:en:6122
 ciqual_food_name:en:Beef, short ribs, raw
@@ -72950,6 +72985,7 @@ fr:Ribs de bœuf sauce barbecue
 <en:beef short ribs
 en:Braised beef short ribs
 fr:Plat de côtes de boeuf braisées
+lt:Troškinti jautienos trumpi šonkauliukai
 agribalyse_food_code:en:6123
 ciqual_food_code:en:6123
 ciqual_food_name:en:Beef, short ribs, braised
@@ -72959,6 +72995,7 @@ ciqual_food_name:fr:Boeuf, plat de côtes, braisé
 en:Beef heart
 bg:Говеждо сърце
 fr:Coeur de boeuf
+lt:Jautienos širdis
 agribalyse_food_code:en:40052
 ciqual_food_code:en:40052
 ciqual_food_name:en:Heart, beef, raw
@@ -72968,6 +73005,7 @@ ciqual_food_name:fr:Coeur, boeuf, cru
 <en:Beef heart
 en:Cooked beef heart
 fr:Coeur de boeuf cuit
+lt:Kepta jautienos širdis
 agribalyse_food_code:en:40053
 ciqual_food_code:en:40053
 ciqual_food_name:en:Heart, beef, cooked
@@ -72976,6 +73014,7 @@ ciqual_food_name:fr:Coeur, boeuf, cuit
 <en:Beef meat
 en:Beef kidney
 fr:Rognon de boeuf
+lt:Jautienos inkstai
 agribalyse_food_code:en:40402
 ciqual_food_code:en:40402
 ciqual_food_name:en:Kidney, beef, raw
@@ -72985,6 +73024,7 @@ ciqual_food_name:fr:Rognon, boeuf, cru
 <en:Beef kidney
 en:Cooked beef kidney
 fr:Rognon de boeuf cuit
+lt:Kepti jautienos inkstai
 agribalyse_food_code:en:40403
 ciqual_food_code:en:40403
 ciqual_food_name:en:Kidney, beef, cooked
@@ -73037,6 +73077,7 @@ ciqual_food_name:fr:Boeuf, boule de macreuse, rôtie/cuite au four
 <en:Cooked beef meat
 en:Braised beef neck
 fr:Collier de boeuf braisé
+lt:Troškinta jautienos sprandinė
 agribalyse_food_code:en:6241
 ciqual_food_code:en:6241
 ciqual_food_name:en:Beef, neck, braised
@@ -73104,6 +73145,7 @@ ciqual_food_name:fr:Boeuf, bavette d'aloyau, grillée/poêlée
 <en:Beef
 en:Braised beef
 fr:Boeuf braisé
+lt:Troškinta jautiena
 agribalyse_food_code:en:6101
 ciqual_food_code:en:6101
 ciqual_food_name:en:Beef, braised
@@ -73181,6 +73223,7 @@ ciqual_food_name:fr:Boeuf, tende de tranche, rôtie/cuite au four
 en:Beef blood
 bg:Говежда кръв
 fr:Sang de boeuf
+lt:Jautienos kraujas
 agribalyse_food_code:en:40600
 ciqual_food_code:en:40600
 ciqual_food_name:en:Blood, beef, raw
@@ -73232,6 +73275,7 @@ ciqual_food_name:fr:Boeuf, rosbif, rôti/cuit au four
 en:Beef shoulder
 bg:Говежда плешка
 fr:Epaule de boeuf
+lt:Jautienos mentė
 agribalyse_food_code:en:6002
 ciqual_food_code:en:6002
 ciqual_food_name:en:Beef, shoulder, raw
@@ -73257,6 +73301,7 @@ ciqual_food_name:fr:Foie, génisse, cuit
 <en:Meats
 en:Crocodile meats
 fr:Viande de crocodile, filet de crocodile
+lt:Krokodilo mėsa
 
 <en:Meats
 en:Rabbit meat
@@ -73266,6 +73311,7 @@ es:Carne de conejo
 fi:kanin liha
 fr:Viande de lapin, lapin, lapins, viande de lapins, viandes de lapin, viandes de lapins
 it:Carne di coniglio
+lt:Triušiena
 nl:Konijn, Konijnenvlezen
 wikidata:en:Q3556748
 agribalyse_food_code:en:34001
@@ -73275,6 +73321,7 @@ ciqual_food_name:en:Rabbit, meat, raw
 <en:rabbit meat
 en:Cooked rabbit meat
 fr:Viande de lapin cuite
+lt:Kepta triušiena
 agribalyse_food_code:en:34002
 ciqual_food_code:en:34002
 ciqual_food_name:en:Rabbit, meat, cooked
@@ -73283,6 +73330,7 @@ ciqual_food_name:fr:Lapin, viande cuite
 <en:Cooked rabbit meat
 en:Braised rabbit meat
 fr:Viande de lapin braisée
+lt:Troškinta triušiena
 agribalyse_food_code:en:34000
 ciqual_food_code:en:34000
 ciqual_food_name:en:Rabbit, meat, braised
