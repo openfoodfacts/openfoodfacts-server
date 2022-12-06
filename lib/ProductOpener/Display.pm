@@ -518,7 +518,7 @@ A scalar value for the parameter, or undef if the parameter is not defined.
 =cut
 
 sub request_param ($request_ref, $param_name) {
-	return (scalar param($param_name)) || deep_get($request_ref, "request_body_json", $param_name);
+	return (scalar param($param_name)) || deep_get($request_ref, "body_json", $param_name);
 }
 
 =head2 init_request ()
@@ -531,24 +531,34 @@ $lc : language code
 
 It also initializes a request object that is returned.
 
+=head3 Parameters
+
+=head4 (optional) Request object reference $request_ref
+
+This function may be passed an existing request object reference
+(e.g. pre-containing some fields of the request, like a JSON body).
+
+If not passed, a new request object will be created.
+
+
 =head3 Return value
 
 Reference to request object.
 
 =cut
 
-sub init_request() {
+sub init_request($request_ref = {}) {
+
+	$log->debug("init_request - start", {request_ref => $request_ref}) if $log->is_debug();
 
 	# Clear the context
 	delete $log->context->{user_id};
 	delete $log->context->{user_session};
 	$log->context->{request} = generate_token(16);
 
-	# Create and initialize a request object
-	my $request_ref = {
-		'original_query_string' => $ENV{QUERY_STRING},
-		'referer' => referer()
-	};
+	# Initialize the request object
+	$request_ref->{referer} = referer();
+	$request_ref->{original_query_string} = $ENV{QUERY_STRING};
 
 	# Depending on web server configuration, we may get or not get a / at the start of the QUERY_STRING environment variable
 	# remove the / to normalize the query string, as we use it to build some redirect urls
@@ -745,13 +755,27 @@ sub init_request() {
 
 	my $error = ProductOpener::Users::init_user($request_ref);
 	if ($error) {
-		# TODO: currently we always display an HTML message if we were passed a bad user_id and password combination
-		# even if the request is an API request
+		# We were sent bad user_id / password credentials
 
+		# If it is an API v3 query, the error will be handled by API::process_api_request()
+		if ((defined $request_ref->{api_version}) and ($request_ref->{api_version} >= 3)) {
+			$log->debug("init_request - init_user error - API v3: continue",	{init_user_error => $request_ref->{init_user_error}}) if $log->is_debug();
+			add_error(
+				$request_ref->{api_response},
+				{
+					message => {id => "invalid_user_id_and_password"},
+					impact => {id => "failure"},
+				}
+			);		
+		}
+		# /cgi/auth.pl returns a JSON body
 		# for requests to /cgi/auth.pl, we will now return a JSON body, set in /cgi/auth.pl
-		# but it would be good to later have a more consistent behaviour for all API requests
-		if ($r->uri() !~ /\/cgi\/auth\.pl/) {
-			print $r->uri();
+		elsif ($r->uri() =~ /\/cgi\/auth\.pl/) {
+			$log->debug("init_request - init_user error - /cgi/auth.pl: continue",	{init_user_error => $request_ref->{init_user_error}}) if $log->is_debug();
+		}
+		# Otherwise we return an error page in HTML (including for v0 / v1 / v2 API queries)
+		else {
+			$log->debug("init_request - init_user error - display error page",	{init_user_error => $request_ref->{init_user_error}}) if $log->is_debug();
 			display_error_and_exit($error, 403);
 		}
 	}

@@ -119,7 +119,7 @@ sub wait_server() {
 		$count++;
 		if (($count % 3) == 0) {
 			print("Waiting for backend to be ready since more than $count seconds...\n");
-			print("Bad response from website:" . explain({url => $target_url, status => $response->code}) . "\n");
+			diag explain({url => $target_url, status => $response->code, response => $response});
 		}
 		confess("Waited too much for backend") if $count > 60;
 	}
@@ -421,11 +421,13 @@ sub execute_api_tests ($file, $tests_ref) {
 			$response = $ua->request($request);
 		}
 
-		# Check if we got the expected response status code
-		if (defined $test_ref->{expected_status_code}) {
-			is($response->code, $test_ref->{expected_status_code})
-				or diag(explain($test_ref), "Response status line: " . $response->status_line);
+		# Check if we got the expected response status code, expect 200 if not provided
+		if (not defined $test_ref->{expected_status_code}) {
+			$test_ref->{expected_status_code} = 200;
 		}
+		
+		is($response->code, $test_ref->{expected_status_code})
+			or diag(explain($test_ref), "Response status line: " . $response->status_line);
 
 		# Check that we got a JSON response
 		my $json = $response->decoded_content;
