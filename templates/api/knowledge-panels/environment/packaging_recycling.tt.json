@@ -34,7 +34,7 @@
                     `
             }
         },
-              {
+        {
             "element_type": "action",
             "action_element": {
                 "html": `[% lang("action_add_packaging_image") %]`,
@@ -42,7 +42,7 @@
                     "add_packaging_image"
                 ]
             }
-        },   
+        },
     ],
 [% ELSE %]    
     [% IF product.ecoscore_data.adjustments.packaging.value <= -15 %]
