@@ -234,6 +234,7 @@ update_tests_results:
 	@echo "🥫 Updated expected test results with actuals for easy Git diff"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront
 	${DOCKER_COMPOSE_TEST} exec -T -w /opt/product-opener/tests backend bash update_tests_results.sh
+	${DOCKER_COMPOSE_TEST} stop
 
 bash:
 	@echo "🥫 Open a bash shell in the test container"
