@@ -35,7 +35,9 @@ is_deeply(
 	$packaging_ref,
 	{
 		'material' => 'en:glass',
+		'number_of_units' => 1,
 		'shape' => 'en:bottle',
+		'weight_measured' => 55.4,
 	},
 ) or diag explain $packaging_ref;
 
