@@ -24,6 +24,7 @@ stopwords:hu:tartalmaz, változó arányban, min, zsírtartalom, összetevő, ö
 stopwords:id:mengandung
 stopwords:is:úr
 stopwords:it:contiene, nella
+stopwords:lt:iš, su, su pridėtiniu, mažiausiai, įskaitant
 stopwords:lv:no
 stopwords:nb:av, fra, bl a, blant annet, tilsatt
 stopwords:nl:bevat, met, waarvan, bevatten, van, vervaardigd met, behandeld papier, waaraan toegevoegd, aangezuurd, cacaobestanddelen, o.a
@@ -82,6 +83,7 @@ hr:karamel sirup
 hu:karamellszirup, karamell szirup, karamell-szirup, karamella szirup
 it:sciroppo di caramello
 ja:キャラメルシロップ
+lt:karamelizuotas sirupas, karamelizuoto sirupo
 nl:Karamel siroop
 pt:xarope de caramelo
 ru:Карамельный сироп
@@ -345,6 +347,7 @@ hr:emulgator soja lecitin, emulgator sojin lecitin, soja lecitin, sojin lecithin
 hu:szójalecitin, szójalecitinek
 is:sojalesitin
 it:lecitina di soia, lecitine di soia
+lt:sojos lecitinas, sojų lecitinai, sojų pupelių lecitinai
 nb:soyalecitin, soyalecitiner
 nl:sojalecithine, soja lecithine, sojalecithinen
 nn:sojalecitin
@@ -392,7 +395,7 @@ fr:lécithine de tournesol
 hr:suncokretov lecitin, E322 suncokretov lecitin, lecitin suncokreta
 hu:napraforgó lecitin
 it:lecitina girasole, lecitina di girasole, lecitine di girasole
-lt:saulėgrąžu lecitinas, saulėgrąžų lecitinai
+lt:saulėgrąžų lecitinas, saulėgrąžų lecitinai
 lv:lecitinai iš saulègrąžų, saulespuku lecitīns, saulespuķu lecitīns, saulespuķu lecitīni
 nb:solsikkelecithin, solsikkelecitin
 nl:zonnebloemlecithine, zonnebloem-lecithine
@@ -427,6 +430,7 @@ fi:soija- ja auringonkukkalesitiini
 fr:lécithine de soja et de tournesol
 hu:szója- és napraforgólecitin
 it:lecitina di soia e di girasole
+lt:sojų ir saulėgrąžų lecitinai
 # fr:lécithine-de-soja-et-de-tournesol has 50 products in 4 languages @2018-11-10
 vegan:en:yes
 vegetarian:en:yes
@@ -442,6 +446,7 @@ fi:rapsilesitiini, rapsilesitiiniä, rypsilesitiini, rypsilesitiiniä
 fr:lécithine de colza, lécithines de colza
 hu:repce lecitin, lecitini (repica)
 it:Lecitina di colza
+lt:rapsų lecitinai
 nb:rapslecitin, rapslecithin
 nl:raapzaadlecithine
 pl:lecytyna rzepakowa, lecytyny z rzepaku, lecytyna z rzepaku
@@ -500,6 +505,7 @@ from_palm_oil:en:maybe
 
 # en:additive:en:gelatin, gelatine, E428, E-428, E 428
 en:gelatin
+lt:želatina, želatinos
 wikipedia:en:https://en.wikipedia.org/wiki/Gelatin
 # ingredient/fr:gélatine has 1575 products in 12 languages @2019-02-10
 vegetarian:en:no
@@ -516,6 +522,7 @@ fr:gélatine de bœuf, gélatine de boeuf, gélatine bovine
 hr:goveda želatina
 hu:marhazselatin
 it:gelatina di manzo
+lt:jautienos želatina
 nl:rundergelatine
 pl:żelatyna wołowa
 # ingredient/fr:gélatine-de-bœuf has 216 products in 4 languages @2019-02-10
@@ -532,6 +539,7 @@ es:gelatina de pescado
 fi:kalaliivate, kalagelatiini, kalan liivate, liivate kalasta
 fr:gélatine de poisson
 it:gelatina di pesce
+lt:žuvies želatina
 nl:visgelatine
 vegan:en:no
 vegetarian:en:no
@@ -562,6 +570,7 @@ fi:sikaliivate, sikagelatiini, sian liivate, liivate siasta
 fr:gélatine de porc, gélatine porcine
 hu:sertészselatin
 it:gelatina di maiale
+lt:kiaulienos želatina
 nl:varkensgelatine
 pl:żelatyna wieprzowa
 # ingredient/fr:gélatine-de-porc has 891 products in 8 languages @2019-02-10
@@ -587,6 +596,7 @@ fi:hedelmäpektiini, hedelmäpektiinit
 fr:pectine de fruit, pectines de fruits
 hu:gyümölcspektin
 it:pectina di frutta
+lt:vaisių pektinas
 nl:vruchtenpectine, fruitpectine
 pl:pektyna owocowa, pektyna z owoców
 # fr:pectine-de-fruit has 1579 products in 6 languages @2018-11-03
