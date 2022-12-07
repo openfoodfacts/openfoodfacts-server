@@ -39081,6 +39081,49 @@ ciqual_food_name:en:Fermented milk drink, plain, skimmed milk
 ciqual_food_name:fr:Lait fermenté à boire, nature, maigre
 
 <en:Fermented milk drinks
+en:Flavoured dairy drinks with sugar, Flavoured fermented milks with sugar, Flavoured yogurts with sugar
+fr:Boissons lactées aromatisées sucrées au lait fermenté, Yaourts à boire aromatisés sucrés, Laits fermentés aromatisés sucrés
+agribalyse_food_code:en:19508
+ciqual_food_code:en:19508
+ciqual_food_name:en:Dairy drink or fermented milk or yogurt, flavoured, with sugar
+ciqual_food_name:fr:Boisson lactée, lait fermenté ou yaourt à boire, aromatisé, sucré
+
+<en:Drinkable yogurts
+en:Fermented milk drinks with fruits, Dairy drinks with sugar and fruits, Fermented milks with sugar and fruits, Yogurts with sugar and fruits
+fr:Boissons lactées fermentées aux fruits, Boisson lactée sucrée au lait fermenté et aux fruits, Yaourt à boire sucré aux fruits, Lait fermenté sucré aux fruits
+nl:Yoghurtdranken met fruit en suiker
+agribalyse_food_code:en:19535
+ciqual_food_code:en:19535
+ciqual_food_name:en:Dairy drink or fermented milk or yogurt, with fruits, with sugar
+ciqual_food_name:fr:Boisson lactée, lait fermenté ou yaourt à boire, aux fruits, sucré
+
+<en:Fermented milk drinks
+en:Fermented milk drinks with sugar, Plain dairy drinks with sugar, Plain fermented milks with sugar, Plain yogurts with sugar
+fr:Boissons lactées fermentées sucrées nature, Boissons lactées nature sucrées au lait fermenté, Yaourts à boire nature sucrés, Laits fermentés nature sucrés
+agribalyse_proxy_food_code:en:19538
+agribalyse_proxy_food_name:en:Boisson lactée, lait fermenté ou yaourt à boire, nature, sucré, au L Casei
+agribalyse_proxy_food_name:en:Dairy drink or fermented milk or yogurt, plain, with sugar, with L Casei
+ciqual_food_code:en:19537
+ciqual_food_name:en:Dairy drink or fermented milk or yogurt, plain, with sugar
+ciqual_food_name:fr:Boisson lactée, lait fermenté ou yaourt à boire, nature, sucré
+
+<en:Fermented milk drinks
+en:Milk drinks fermented with L casei
+fr:Boissons lactées fermentées au L casei
+
+<en:Milk drinks fermented with L casei
+en:Sweetened fermented milk drinks with L casei, Plain dairy drinks with sugar and L Casei, Plain fermented milks with sugar and L Casei, Plain yogurts with sugar and L Casei
+fr:Boissons lactées fermentés au L casei nature sucrées, Boissons lactées nature sucrées au lait fermenté et L Casei, Yaourts à boire nature sucrés au L Casei, Laits fermentés nature sucrés au L Casei
+agribalyse_food_code:en:19538
+ciqual_food_code:en:19538
+ciqual_food_name:en:Dairy drink or fermented milk or yogurt, plain, with sugar, with L Casei
+ciqual_food_name:fr:Boisson lactée, lait fermenté ou yaourt à boire, nature, sucré, au L Casei
+
+<en:Fermented milk drinks
+en:Milk drinks fermented with Bifidus
+fr:Boissons lactées fermentées au Bifidus
+
+<en:Fermented milk drinks
 en:Kefir
 bg:Кефир
 de:Kefir
@@ -39163,6 +39206,13 @@ fr:Ayrans
 nl:Ayran
 ru:Айран
 wikidata:en:Q192892
+
+<en:Fermented milk drinks
+en:Lassi
+de:Lassi
+fr:Lassi
+nl:Lassi
+wikidata:en:Q827654
 
 <en:Canned foods
 <en:Cheeses
@@ -41637,8 +41687,17 @@ nl:Melkspecialiteiten natuur
 
 <fr:Spécialités laitières
 <en:Fermented dairy desserts with fruits
-fr:Spécialités laitières aux fruits
+fr:Spécialités laitières aux fruits, Spécialité laitière aux fruits sucrée non allégée en matières grasses
 nl:Melkspecialiteiten met vructen
+ciqual_food_code:en:19677
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits or flavoured, w sugar, no 0% fat (average)
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé ou aux fruits, sucré, non allégé en MG (aliment moyen)
+
+<fr:Spécialités laitières
+fr:Spécialités laitières aromatisées, Spécialité laitière aromatisée sucrée non allégée en matières grasses
+ciqual_food_code:en:19677
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits or flavoured, w sugar, no 0% fat (average)
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé ou aux fruits, sucré, non allégé en MG (aliment moyen)
 
 <en:Fermented dairy desserts
 en:Kefir yogurts
@@ -46527,41 +46586,6 @@ lt:Vaniliniai jogurto gėrimai
 fr:Yaourts à boire sans sucres
 # A verifier ajoute depuis Nutrinet
 
-<en:Drinkable yogurts
-en:Flavoured dairy drinks with sugar, Flavoured fermented milks with sugar, Flavoured yogurts with sugar
-fr:Boissons lactées aromatisées sucrées au lait fermenté, Yaourts à boire aromatisés sucrés, Laits fermentés aromatisés sucrés
-agribalyse_food_code:en:19508
-ciqual_food_code:en:19508
-ciqual_food_name:en:Dairy drink or fermented milk or yogurt, flavoured, with sugar
-ciqual_food_name:fr:Boisson lactée, lait fermenté ou yaourt à boire, aromatisé, sucré
-
-<en:Drinkable yogurts
-en:Dairy drinks with sugar and fruits, Fermented milks with sugar and fruits, Yogurts with sugar and fruits
-fr:Boisson lactée sucrée au lait fermenté et aux fruits, Yaourt à boire sucré aux fruits, Lait fermenté sucré aux fruits
-nl:Yoghurtdranken met fruit en suiker
-agribalyse_food_code:en:19535
-ciqual_food_code:en:19535
-ciqual_food_name:en:Dairy drink or fermented milk or yogurt, with fruits, with sugar
-ciqual_food_name:fr:Boisson lactée, lait fermenté ou yaourt à boire, aux fruits, sucré
-
-<en:Drinkable yogurts
-en:Plain dairy drinks with sugar, Plain fermented milks with sugar, Plain yogurts with sugar
-fr:Boissons lactées nature sucrées au lait fermenté, Yaourts à boire nature sucrés, Laits fermentés nature sucrés
-agribalyse_proxy_food_code:en:19538
-agribalyse_proxy_food_name:en:Boisson lactée, lait fermenté ou yaourt à boire, nature, sucré, au L Casei
-agribalyse_proxy_food_name:en:Dairy drink or fermented milk or yogurt, plain, with sugar, with L Casei
-ciqual_food_code:en:19537
-ciqual_food_name:en:Dairy drink or fermented milk or yogurt, plain, with sugar
-ciqual_food_name:fr:Boisson lactée, lait fermenté ou yaourt à boire, nature, sucré
-
-<en:Drinkable yogurts
-en:Plain dairy drinks with sugar and L Casei, Plain fermented milks with sugar and L Casei, Plain yogurts with sugar and L Casei
-fr:Boissons lactées nature sucrées au lait fermenté et L Casei, Yaourts à boire nature sucrés au L Casei, Laits fermentés nature sucrés au L Casei
-agribalyse_food_code:en:19538
-ciqual_food_code:en:19538
-ciqual_food_name:en:Dairy drink or fermented milk or yogurt, plain, with sugar, with L Casei
-ciqual_food_name:fr:Boisson lactée, lait fermenté ou yaourt à boire, nature, sucré, au L Casei
-
 <en:Yogurts
 en:Flavoured yogurts, Flavoured fermented milk yogurt with sugar, Flavoured dairy specialty with sugar
 bg:Ароматизирани кисели млека
@@ -46582,6 +46606,7 @@ ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé
 #wikidata:en:
 
 <en:Yogurts
+<en:Fermented dairy desserts with fruits
 en:Fruit yogurts, yogurts with fruits, Yogurt with fruits, Yogurt fruit flavoured, Fermented milk with fruits, Fermented milk fruit flavoured, Dairy specialty with fruits, Dairy specialty fruit flavoured
 bg:Плодово кисело мляко
 ca:Iogurs de fruita, iogurs amb fruita
@@ -46641,20 +46666,6 @@ ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé
 <en:Fruit yogurts
 en:Yogurts with fruits and sugar no 0% fat
 fr:Yaourts aux fruits sucrés non allégés en matières grasses
-ciqual_food_code:en:19677
-ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits or flavoured, w sugar, no 0% fat (average)
-ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé ou aux fruits, sucré, non allégé en MG (aliment moyen)
-
-<en:Fruit yogurts
-en:Dairy specialty fruit flavoured with sugar no 0% fat
-fr:Spécialité laitière aromatisée sucrée non allégée en matières grasses
-ciqual_food_code:en:19677
-ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits or flavoured, w sugar, no 0% fat (average)
-ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé ou aux fruits, sucré, non allégé en MG (aliment moyen)
-
-<en:Fruit yogurts
-en:Dairy specialty with fruits and sugar no 0% fat
-fr:Spécialité laitière aux fruits sucrée non allégée en matières grasses
 ciqual_food_code:en:19677
 ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits or flavoured, w sugar, no 0% fat (average)
 ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé ou aux fruits, sucré, non allégé en MG (aliment moyen)
