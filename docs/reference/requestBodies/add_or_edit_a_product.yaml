@@ -22,13 +22,23 @@ properties:
     description: The brands of the product (comma separated list of values).
     example: Häagen-Dazs,General-mills
   labels:
-    type: string
-    description: Product specific labels.
-    example: Kosher
+    schema:
+      type: array
+      items:
+        type: string
+    style: form
+    explode: false
+    description: The labels of the product (comma separated list of values).
+    example: Kosher,Ferroro
   categories:
-    type: string
-    description: The category of the product.
-    example: Desserts
+    schema:
+      type: array
+      items:
+        type: string
+    style: form
+    explode: false
+    description: The categories of the product (comma separated list of values).
+    example: Desserts,Frozen foods
   packaging:
     type: string
     description: |
