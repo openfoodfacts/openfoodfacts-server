@@ -446,8 +446,7 @@ my $tests_ref = [
 						"number_of_units": 1,
 						"shape": {"lc_name": "can"},
 						"recycling": {"lc_name": "recycle"}
-					}
-								
+					}			
 				]
 			}
 		}'
