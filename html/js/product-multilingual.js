@@ -172,7 +172,6 @@ function select_nutriment(event, ui) {
 function add_line() {
 
     $(this).unbind("change");
-    $(this).unbind("autocompletechange");
 
     var id = parseInt($("#new_max").val(), 10) + 1;
     $("#new_max").val(id);
@@ -195,7 +194,6 @@ function add_line() {
         //change: add_line
     });
 
-    // newline.find(".nutriment_label").bind("autocompletechange", add_line);
     newline.find(".nutriment_label").change(add_line);
 
     $(document).foundation('equalizer', 'reflow');

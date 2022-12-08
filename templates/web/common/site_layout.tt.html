@@ -30,7 +30,6 @@
 <body[% bodyabout %] class="[% page_type %]_page">
 
 	<div id="page">
-
 		<div class="upper-nav contain-to-grid"  id="upNav">
 			<nav class="top-bar " data-topbar role="navigation">
 				
@@ -67,7 +66,7 @@
 										<option></option>
 									</select>
 								</li>
-								[% IF langs.match('<a') %]
+                [% IF langs.match('<a>') %]
 									<li class="has-dropdown">
 										[% selected_lang %]
 										<ul class="dropdown">
@@ -220,14 +219,12 @@
 					</div>
 					</a>
 				[% END %]
-				
-				<div class="main block_light" >
-					
-					<div id="main_column">
-										
-						[% INCLUDE 'web/common/includes/donate_banner.tt.html' %]
 
-						[% IF page_format == "banner" %]
+				<div class="main block_light">
+					<div id="main_column">
+          [% PROCESS 'web/common/includes/donate_banner.tt.html' %]
+          [% banner_main %]
+            [% IF page_format == "banner" %]
 							<!-- banner pages such as product and product edit form have their own h1 title -->
 							[% content %]
 						[% ELSIF page_type == "products" %]
@@ -271,10 +268,9 @@
 				</div>
 			</div>
 		</div>
-
 		</div>
 
-		<footer >
+		<footer>
 			<div class="block_light bg-white" id="install_the_app_block">
 				<div class="row">
 					<div class="small-12 flex-grid v-space-short v-align-center direction-row h-space-tiny">
@@ -297,7 +293,9 @@
 				</div>
 			</div>
 
-			[% INCLUDE 'web/common/includes/donate_banner_bottom.tt.html' %]
+      [% PROCESS 'web/common/includes/donate_banner.tt.html' %]
+      [% banner_footer %]
+
 			<div class="block_light block_cappucino" id="contribute_and_discover_links_block">
 				<div class="row">
 					<div class="small-12 large-6 columns v-space-normal block_off">

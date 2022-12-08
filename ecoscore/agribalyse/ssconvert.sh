@@ -5,3 +5,4 @@ tail -n +9 AGRIBALYSE_vf.csv.2 | sort --numeric-sort --field-separator "," | per
     while ($row_ref = $csv->getline(STDIN)){
         $csv->print(*STDOUT, [@$row_ref[0..5]]);
     }' > AGRIBALYSE_summary.csv
+grep -oP '(?<=v)[0-9\.]*' AGRIBALYSE_vf.csv.0 > AGRIBALYSE_version.txt

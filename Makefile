@@ -193,7 +193,7 @@ tests: build_lang_test unit_test integration_test
 unit_test:
 	@echo "🥫 Running unit tests …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run --rm backend prove -l --jobs ${CPU_COUNT} -r tests/unit
+	${DOCKER_COMPOSE_TEST} run -T --rm backend prove -l --jobs ${CPU_COUNT} -r tests/unit
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 unit tests success"
 
@@ -232,7 +232,13 @@ stop_tests:
 
 update_tests_results:
 	@echo "🥫 Updated expected test results with actuals for easy Git diff"
-	${DOCKER_COMPOSE_TEST} run --rm -w /opt/product-opener/tests backend bash update_tests_results.sh
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront
+	${DOCKER_COMPOSE_TEST} exec -T -w /opt/product-opener/tests backend bash update_tests_results.sh
+	${DOCKER_COMPOSE_TEST} stop
+
+bash:
+	@echo "🥫 Open a bash shell in the test container"
+	${DOCKER_COMPOSE_TEST} run --rm -w /opt/product-opener backend bash
 
 # check perl compiles, (pattern rule) / but only for newer files
 %.pm %.pl: _FORCE

@@ -13,6 +13,15 @@ stopwords:fr:le,la,dans
 # comment:en:Instructions for Germany: 
 # comment:en:Instructions for Italy: 
 
+# Paper and cardboard
+es:Ecoponto Azul
+
+# Plastic and metal
+es:Ecoponto Amarelo
+
+# Glass
+es:Ecoponto Verde
+
 en:reuse, re-use, to reuse, to re-use,  to be reused, to be re-used, reusable, re-usable, Refillable, refill, to refill, multiple use
 bg:използвай повторно, използвайте повторно
 de:wiederverwenden, wiederverwendbar, nachfüllbar, mehrfach verwendbar, zum Wiederverwenden
@@ -26,6 +35,7 @@ de:recyceln, zum Recyceln, recycelbar
 fr:recycler, à recycler, recyclable
 hu:újrahasznosítható, újrahasznosítandó, újrahasznosításra
 pt:reciclável, a reciclar, para reciclar
+# associated_materials: en:glass, en:aluminium, en:steel
 
 <en:recycle
 en:recycle in glass bin, recycle in glass container, recycle with glass, in glass bin, in glass container

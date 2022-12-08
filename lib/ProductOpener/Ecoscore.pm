@@ -109,14 +109,20 @@ Loads the AgriBalyse database.
 =cut
 
 sub load_agribalyse_data() {
-
 	my $agribalyse_details_by_step_csv_file = $data_root . "/ecoscore/agribalyse/AGRIBALYSE_vf.csv.2";
 
 	my $rows_ref = [];
 
 	my $encoding = "UTF-8";
 
-	$log->debug("opening agribalyse CSV file", {file => $agribalyse_details_by_step_csv_file}) if $log->is_debug();
+	open(my $version_file, "<:encoding($encoding)", $data_root . '/ecoscore/agribalyse/AGRIBALYSE_version.txt')
+		or die($!);
+	chomp(my $agribalyse_version = <$version_file>);
+	close($version_file);
+
+	$log->debug("opening agribalyse CSV file",
+		{file => $agribalyse_details_by_step_csv_file, version => $agribalyse_version})
+		if $log->is_debug();
 
 	my $csv_options_ref = {binary => 1, sep_char => ","};    # should set binary attribute.
 
@@ -127,8 +133,7 @@ sub load_agribalyse_data() {
 
 		my $row_ref;
 
-		# Skip 4 first lines
-		$csv->getline($io);
+		# Skip 3 first lines
 		$csv->getline($io);
 		$csv->getline($io);
 		$csv->getline($io);
@@ -154,6 +159,7 @@ sub load_agribalyse_data() {
 				co2_distribution => $row_ref->[19] + 0,    # Supermarché et distribution
 				co2_consumption => $row_ref->[20] + 0,    # Consommation
 				co2_total => $row_ref->[21] + 0,    # Total
+				version => $agribalyse_version
 			};
 		}
 	}
@@ -627,6 +633,11 @@ Returned values:
 =cut
 
 sub compute_ecoscore ($product_ref) {
+	my $old_ecoscore_data = $product_ref->{ecoscore_data};
+	my $old_agribalyse = $old_ecoscore_data->{agribalyse};
+	my $old_ecoscore_grade = $old_ecoscore_data->{grade};
+	my $old_ecoscore_score = $old_ecoscore_data->{score};
+	my $old_previous_data = $old_ecoscore_data->{previous_data};
 
 	delete $product_ref->{ecoscore_grade};
 	delete $product_ref->{ecoscore_score};
@@ -641,6 +652,8 @@ sub compute_ecoscore ($product_ref) {
 	}
 	remove_tag($product_ref, "misc", "en:ecoscore-no-missing-data");
 	remove_tag($product_ref, "misc", "en:ecoscore-not-applicable");
+	remove_tag($product_ref, "misc", "en:ecoscore-changed");
+	remove_tag($product_ref, "misc", "en:ecoscore-grade-changed");
 
 	# Check if we have extended ecoscore_data from the impact estimator
 	# Remove any misc "en:ecoscore-extended-data-version-[..]" tags
@@ -842,6 +855,31 @@ sub compute_ecoscore ($product_ref) {
 			add_tag($product_ref, "misc", "en:ecoscore-not-computed");
 		}
 	}
+
+	# Track if ecoscore has changed through different Agribalyse versions
+	# Don't overwrite previous_data from before. This should be manually cleared
+	# before each version upgrade
+	if (defined $old_previous_data) {
+		$product_ref->{ecoscore_data}{previous_data} = $old_previous_data;
+		$old_ecoscore_grade = $old_previous_data->{grade};
+		$old_ecoscore_score = $old_previous_data->{score};
+	}
+	if (defined $old_ecoscore_score || defined $product_ref->{ecoscore_score}) {
+		if (!defined $old_ecoscore_score || $old_ecoscore_score != $product_ref->{ecoscore_score}) {
+			if (!defined $old_previous_data && defined $old_agribalyse) {
+				$product_ref->{ecoscore_data}{previous_data} = {
+					grade => $old_ecoscore_grade,
+					score => $old_ecoscore_score,
+					agribalyse => $old_agribalyse
+				};
+			}
+			add_tag($product_ref, "misc", "en:ecoscore-changed");
+			if (!defined $old_ecoscore_grade || $old_ecoscore_grade ne $product_ref->{ecoscore_grade}) {
+				add_tag($product_ref, "misc", "en:ecoscore-grade-changed");
+			}
+		}
+	}
+
 	return;
 }
 
@@ -1314,7 +1352,7 @@ sub compute_ecoscore_origins_of_ingredients_adjustment ($product_ref) {
 	$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients} = {
 		origins_from_origins_field => \@origins_from_origins_field,
 		aggregated_origins => \@aggregated_origins,
-		epi_score => $epi_score,
+		epi_score => 0 + $epi_score,
 		epi_value => round($epi_value),
 	};
 

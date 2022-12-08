@@ -1,22 +1,38 @@
 {
-   "errors" : [
+   "code" : "1234567890009",
+   "errors" : [],
+   "product" : {
+      "packagings" : [
+         {
+            "material" : {
+               "id" : "en:plastic",
+               "lc_name" : "Plastic"
+            },
+            "number_of_units" : 1,
+            "shape" : {
+               "id" : "en:bag",
+               "lc_name" : "Bag"
+            }
+         }
+      ]
+   },
+   "status" : "success_with_warnings",
+   "warnings" : [
       {
          "field" : {
-            "id" : "body",
-            "value" : "{\n\t\t\t\"fields\": \"packagings\",\n\t\t\t\"tags_lc\": \"en\",\n\t\t\t\"product\": {\n\t\t\t\t\"packagings\": [\n\t\t\t\t\t{\n\t\t\t\t\t\t\"number_of_units\": 1,\n\t\t\t\t\t\t\"shape\": {\"lc_name\": \"bag\"},\n\t\t\t\t\t\t\"material\": {\"lc_name\": \"plastic\"},\n\t\t\t\t\t}\n\t\t\t\t]\n\t\t\t}\n\t\t}"
+            "id" : "recycling",
+            "value" : null
          },
          "impact" : {
-            "id" : "failure",
-            "lc_name" : "Failure",
-            "name" : "Failure"
+            "id" : "field_ignored",
+            "lc_name" : "Field ignored",
+            "name" : "Field ignored"
          },
          "message" : {
-            "id" : "invalid_json_in_request_body",
-            "lc_name" : "Invalid JSON in request body",
-            "name" : "Invalid JSON in request body"
+            "id" : "missing_field",
+            "lc_name" : "Missing field",
+            "name" : "Missing field"
          }
       }
-   ],
-   "status" : "failure",
-   "warnings" : []
+   ]
 }
