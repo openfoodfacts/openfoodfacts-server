@@ -349,7 +349,7 @@ sub guess_language_of_packaging_text ($text, $potential_lcs_ref) {
 
 =head2 get_checked_and_taxonomized_packaging_component_data($tags_lc, $input_packaging_ref, $response_ref)
 
-Check and taxonomize packaging component data (e.g. from the product WRITE API)
+Check and taxonomize packaging component data (e.g. from the product WRITE API, or from the web edit form)
 
 =head3 Parameters
 
@@ -415,8 +415,8 @@ sub get_checked_and_taxonomized_packaging_component_data ($tags_lc, $input_packa
 	# Weights
 	foreach my $weight ("weight_measured", "weight_specified") {
 		if ((defined $input_packaging_ref->{$weight}) and ($input_packaging_ref->{$weight} ne '')) {
-			if ($input_packaging_ref->{$weight} =~ /^\d+(\.\d+)?$/) {
-				$packaging_ref->{$weight} = $input_packaging_ref->{$weight} + 0;
+			if ($input_packaging_ref->{$weight} =~ /^\d+((\.|,)\d+)?$/) {
+				$packaging_ref->{$weight} = convert_string_to_number($input_packaging_ref->{$weight});
 				$has_data = 1;
 			}
 			else {

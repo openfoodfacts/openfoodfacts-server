@@ -382,6 +382,34 @@ my $tests_ref = [
 			}
 		}'
 	},
+	# weight should be a number, but we can accept strings like "24", "23.1" or "25,1"
+	{
+		test_case => 'patch-weight-as-number-or-string',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890013',
+		body => '{
+			"tags_lc": "en",
+			"product": {
+				"packagings": [
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "Bottle"},
+						"weight_measured": 0.43
+					},
+					{
+						"number_of_units": "2",
+						"shape": {"lc_name": "Box"},
+						"weight_measured": "0.43"
+					},
+					{
+						"number_of_units": 3,
+						"shape": {"lc_name": "Lid"},
+						"weight_measured": "0,43"
+					}										
+				]
+			}
+		}'
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

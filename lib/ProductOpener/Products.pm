@@ -2514,12 +2514,41 @@ sub product_action_url ($code, $action) {
 	if ($action eq "add_categories") {
 		$url .= "#categories";
 	}
+	elsif ($action eq "add_ingredients_image") {
+		$url .= "#ingredients";
+	}
 	elsif ($action eq "add_ingredients_text") {
 		$url .= "#ingredients";
+	}
+	elsif ($action eq "add_nutrition_facts_image") {
+		$url .= "#nutrition";
 	}
 	elsif ($action eq "add_nutrition_facts") {
 		$url .= "#nutrition";
 	}
+	elsif ($action eq "add_packaging_image") {
+		$url .= "#packaging";
+	}
+	elsif ($action eq "add_packaging_text") {
+		$url .= "#packaging";
+	}
+	# Note: 27/11/2022 - Pierre - The following HTML anchors links will do nothing unless a matching custom HTML anchor is added in the future to the product edition template
+	elsif ($action eq "add_origins") {
+		$url .= "#origins";
+	}
+	elsif ($action eq "add_stores") {
+		$url .= "#stores";
+	}
+	elsif ($action eq "add_packager_codes_image") {
+		$url .= "#packager_codes";
+	}
+	elsif ($action eq "add_labels") {
+		$url .= "#labels";
+	}
+	elsif ($action eq "add_countries") {
+		$url .= "#countries";
+	}
+	# END will do nothing unless a custom section is added
 	else {
 		$log->error("unknown product action", {code => $code, action => $action});
 	}

@@ -24,6 +24,7 @@ stopwords:hu:tartalmaz, változó arányban, min, zsírtartalom, összetevő, ö
 stopwords:id:mengandung
 stopwords:is:úr
 stopwords:it:contiene, nella
+stopwords:lt:iš, su, su pridėtiniu, mažiausiai, įskaitant
 stopwords:lv:no
 stopwords:nb:av, fra, bl a, blant annet, tilsatt
 stopwords:nl:bevat, met, waarvan, bevatten, van, vervaardigd met, behandeld papier, waaraan toegevoegd, aangezuurd, cacaobestanddelen, o.a
@@ -82,6 +83,7 @@ hr:karamel sirup
 hu:karamellszirup, karamell szirup, karamell-szirup, karamella szirup
 it:sciroppo di caramello
 ja:キャラメルシロップ
+lt:karamelizuotas sirupas, karamelizuoto sirupo
 nl:Karamel siroop
 pt:xarope de caramelo
 ru:Карамельный сироп
@@ -317,6 +319,7 @@ wikidata:en:Q425431
 
 <en:paprika extract
 en:capsicum extract
+bg:екстракт от капсацин
 da:capsicum ekstrakt
 de:Capsaicin-Extrakt
 es:extracto de capsicum
@@ -345,6 +348,7 @@ hr:emulgator soja lecitin, emulgator sojin lecitin, soja lecitin, sojin lecithin
 hu:szójalecitin, szójalecitinek
 is:sojalesitin
 it:lecitina di soia, lecitine di soia
+lt:sojos lecitinas, sojų lecitinai, sojų pupelių lecitinai
 nb:soyalecitin, soyalecitiner
 nl:sojalecithine, soja lecithine, sojalecithinen
 nn:sojalecitin
@@ -392,7 +396,7 @@ fr:lécithine de tournesol
 hr:suncokretov lecitin, E322 suncokretov lecitin, lecitin suncokreta
 hu:napraforgó lecitin
 it:lecitina girasole, lecitina di girasole, lecitine di girasole
-lt:saulėgrąžu lecitinas, saulėgrąžų lecitinai
+lt:saulėgrąžų lecitinas, saulėgrąžų lecitinai
 lv:lecitinai iš saulègrąžų, saulespuku lecitīns, saulespuķu lecitīns, saulespuķu lecitīni
 nb:solsikkelecithin, solsikkelecitin
 nl:zonnebloemlecithine, zonnebloem-lecithine
@@ -427,6 +431,7 @@ fi:soija- ja auringonkukkalesitiini
 fr:lécithine de soja et de tournesol
 hu:szója- és napraforgólecitin
 it:lecitina di soia e di girasole
+lt:sojų ir saulėgrąžų lecitinai
 # fr:lécithine-de-soja-et-de-tournesol has 50 products in 4 languages @2018-11-10
 vegan:en:yes
 vegetarian:en:yes
@@ -442,6 +447,7 @@ fi:rapsilesitiini, rapsilesitiiniä, rypsilesitiini, rypsilesitiiniä
 fr:lécithine de colza, lécithines de colza
 hu:repce lecitin, lecitini (repica)
 it:Lecitina di colza
+lt:rapsų lecitinai
 nb:rapslecitin, rapslecithin
 nl:raapzaadlecithine
 pl:lecytyna rzepakowa, lecytyny z rzepaku, lecytyna z rzepaku
@@ -500,6 +506,7 @@ from_palm_oil:en:maybe
 
 # en:additive:en:gelatin, gelatine, E428, E-428, E 428
 en:gelatin
+lt:želatina, želatinos
 wikipedia:en:https://en.wikipedia.org/wiki/Gelatin
 # ingredient/fr:gélatine has 1575 products in 12 languages @2019-02-10
 vegetarian:en:no
@@ -516,6 +523,7 @@ fr:gélatine de bœuf, gélatine de boeuf, gélatine bovine
 hr:goveda želatina
 hu:marhazselatin
 it:gelatina di manzo
+lt:jautienos želatina
 nl:rundergelatine
 pl:żelatyna wołowa
 # ingredient/fr:gélatine-de-bœuf has 216 products in 4 languages @2019-02-10
@@ -532,6 +540,7 @@ es:gelatina de pescado
 fi:kalaliivate, kalagelatiini, kalan liivate, liivate kalasta
 fr:gélatine de poisson
 it:gelatina di pesce
+lt:žuvies želatina
 nl:visgelatine
 vegan:en:no
 vegetarian:en:no
@@ -562,6 +571,7 @@ fi:sikaliivate, sikagelatiini, sian liivate, liivate siasta
 fr:gélatine de porc, gélatine porcine
 hu:sertészselatin
 it:gelatina di maiale
+lt:kiaulienos želatina
 nl:varkensgelatine
 pl:żelatyna wieprzowa
 # ingredient/fr:gélatine-de-porc has 891 products in 8 languages @2019-02-10
@@ -587,6 +597,7 @@ fi:hedelmäpektiini, hedelmäpektiinit
 fr:pectine de fruit, pectines de fruits
 hu:gyümölcspektin
 it:pectina di frutta
+lt:vaisių pektinas
 nl:vruchtenpectine, fruitpectine
 pl:pektyna owocowa, pektyna z owoców
 # fr:pectine-de-fruit has 1579 products in 6 languages @2018-11-03
@@ -1878,7 +1889,7 @@ ar:زبدة
 az:kərə yağı
 ba:aҡ май
 be:cметанковае масла
-bg:kраве масло
+bg:kраве масло, масло
 bn:মাখন
 br:amanenn
 bs:maslac
@@ -4676,6 +4687,9 @@ en:lactose-free cream
 fi:laktoositon kerma
 fr:crème sans lactose
 sv:laktosfri grädde
+
+en:cream
+fr:crème épaisse
 
 <en:cream
 en:Refrigerated 30% fat thick cream
@@ -20469,6 +20483,7 @@ sv:smörarom
 
 <en:flavouring
 en:garlic flavouring
+bg:аромат чесън, аромат на чесън
 ca:aroma d'all
 de:Knoblauch-Aroma, Knoblaucharoma
 es:aroma de ajo
@@ -24868,7 +24883,7 @@ sv:fullkornsmajsmjöl
 <en:flour
 <en:rice
 en:rice flour, riceflour
-bg:Оризово брашно
+bg:Оризово брашно, брашно от ориз
 ca:farina d'arròs
 cs:rýžová mouka
 da:rismel
@@ -25298,6 +25313,7 @@ es:extracto de malta de maiz
 
 <en:corn
 en:cornmeal, corn grits, corn semolina, corn meal
+bg:царевичен грис
 cs:kukuřičná krupice
 da:groftmalet majs
 de:Maisgrieß, Maisgriess
@@ -26049,7 +26065,7 @@ bg:ориз за ризото
 de:Risotto-Reis
 es:arroz de risotto
 fi:risottoriisi
-fr:riz pour risottto
+fr:riz pour risotto, riz à risotto
 hu:rizottó rizs
 it:riso per risotto
 # ingredient/fr:riz-pour-risotto has 8 products @2019-05-30
@@ -26333,6 +26349,9 @@ en:organic Thai long grain white rice
 fi:luomu pitkäjyväinen valkoinen jasmiiniriisi
 fr:riz-blanc-thailandais-a-grains-longs-issu-de-l-agriculture-biologique
 # 2019-05-30
+
+<en:Thai rice
+fr:riz thaï demi-complet, riz thai demi-complet
 
 <en:Thai rice
 en:Thaï brown rice
@@ -54312,7 +54331,7 @@ allergens:en: en:peanuts
 #en:category:en:Peanut butters
 <en:peanut
 en:peanut butter, peanut paste, Peanut butter or peanut paste
-bg:фъстъчено масло
+bg:фъстъчено масло, фъстъчена паста
 de:Erdnussbutter
 es:crema de cacahuete
 fr:beurre d'arachide, beurre de cacahuète, beurre de cacahouète, pâte d'arachide
@@ -56036,7 +56055,7 @@ it:condimento in polvere
 # <en:compound
 <en:condiment
 en:mixed condiments, seasoning blend, seasoning mix, flavored seasoning
-bg:смес от подправки
+bg:смес от подправки, подправъчна смес
 de:Würzmischung
 es:Condimentos varios.
 fi:maustesekoitus
@@ -68274,9 +68293,10 @@ en:description:The saithe (Pollachius virens) is a species of marine fish in the
 #ciqual_food_name:en:Saithe, cooked
 #ciqual_food_name:fr:Lieu noir, cuit
 
-#<en:saithe
-#nl:koolvisfilet
-#fi:seitifilee
+<en:saithe
+fr:filet de lieu noir
+nl:koolvisfilet
+fi:seitifilee
 # has 1 product on 2021-09-03
 
 #description:en:Salmon is the common name for several species of ray-finned fish in the family Salmonidae.
@@ -68407,6 +68427,7 @@ fr:pulpe de saumon fumé
 
 <en:salmon
 en:salmon fillet
+bg:филе от сьомга
 de:lachsfilet, lachsfilets
 fi:lohifilee
 fr:filet de saumon, filets de saumon
@@ -68528,6 +68549,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Atlantic_salmon
 
 <en:atlantic salmon
 en:smoked atlantic salmon
+bg:пушена атлантическа сьомга
 de:geräucherter Atlantik-Lachs, geräucherter Atlantiklachs
 fr:saumon Atlantique fumé
 
@@ -74813,7 +74835,7 @@ ciqual_food_name:fr:Concombre, pulpe, cru
 
 <en:cucumber
 en:gherkin
-bg:корнишон, кисела краставичка, кисели краставички, краставички
+bg:корнишон, кисела краставичка, кисели краставички, краставички, корнишони
 da:cornichon
 de:Cornichons
 es:pepinillos
