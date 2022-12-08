@@ -147,12 +147,14 @@ my $tests_ref = [
 		query_string => '?fields=code,product_name&user_id=tests&password=testtest',
 		expected_status_code => 200,
 	},
+	# When authentification fails for a v2 request, we return a HTML page
 	{
 		test_case => 'get-auth-bad-user-password',
 		method => 'GET',
 		path => '/api/v2/product/200000000034',
 		query_string => '?fields=code,product_name&user_id=tests&password=bad_password',
 		expected_status_code => 200,
+		expected_type => "html",
 	},	
 ];
 
