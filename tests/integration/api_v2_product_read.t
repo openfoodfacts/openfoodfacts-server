@@ -155,7 +155,7 @@ my $tests_ref = [
 		query_string => '?fields=code,product_name&user_id=tests&password=bad_password',
 		expected_status_code => 200,
 		expected_type => "html",
-	},	
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

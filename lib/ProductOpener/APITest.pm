@@ -429,7 +429,7 @@ sub execute_api_tests ($file, $tests_ref) {
 		is($response->code, $test_ref->{expected_status_code})
 			or diag(explain($test_ref), "Response status line: " . $response->status_line);
 
-		if (not ((defined $test_ref->{expected_type}) and ($test_ref->{expected_type} eq "html"))) {
+		if (not((defined $test_ref->{expected_type}) and ($test_ref->{expected_type} eq "html"))) {
 
 			# Check that we got a JSON response
 			my $json = $response->decoded_content;
