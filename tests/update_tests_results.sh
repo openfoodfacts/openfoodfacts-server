@@ -4,6 +4,12 @@
 # git diff can then be used to review the differences
 
 # This script should be run only inside the po_backend_1 container
+# or the test version of it
+
+if ! [ -d unit ];
+then
+    cd /opt/product-opener/test
+fi
 
 # Remove the categories stats file as it will not be present
 # for tests run through GitHub actions
@@ -29,4 +35,9 @@ cd ..
 
 perl integration/import_csv_file.t --update-expected-results
 perl integration/export.t --update-expected-results
+perl integration/api_v2_product_read.t --update-expected-results
+perl integration/api_v2_product_write.t --update-expected-results
+perl integration/api_v3_product_read.t --update-expected-results
+perl integration/api_v3_product_write.t --update-expected-results
+perl integration/search_v1.t --update-expected-results
 

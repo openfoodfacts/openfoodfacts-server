@@ -113,6 +113,11 @@ BEGIN {
 		&add_users_team
 
 		&remove_fields
+
+		&add_images_urls_to_product
+
+		&analyze_and_enrich_product_data
+
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -134,6 +139,15 @@ use ProductOpener::Text qw/:all/;
 use ProductOpener::Display qw/single_param/;
 use ProductOpener::Redis qw/push_to_search_service/;
 
+# needed by analyze_and_enrich_product_data()
+# may be moved to another module at some point
+use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Nutriscore qw/:all/;
+use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::ForestFootprint qw/:all/;
+use ProductOpener::Packaging qw/:all/;
+use ProductOpener::DataQuality qw/:all/;
+
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
 use Log::Any qw($log);
@@ -141,6 +155,8 @@ use Data::DeepAccess qw(deep_get);
 
 use LWP::UserAgent;
 use Storable qw(dclone);
+use File::Copy::Recursive;
+use ProductOpener::GeoIP;
 
 use Algorithm::CheckDigits;
 my $ean_check = CheckDigits('ean');
@@ -642,11 +658,9 @@ sub init_product ($userid, $orgid, $code, $countryid) {
 	my $country;
 
 	if (((not defined $countryid) or ($countryid eq "en:world")) and (remote_addr() ne "127.0.0.1")) {
-
-		require ProductOpener::GeoIP;
 		$country = ProductOpener::GeoIP::get_country_for_ip(remote_addr());
 	}
-	elsif (defined $countryid) {
+	elsif ((defined $countryid) and ($countryid ne "en:world")) {
 		$country = $countryid;
 		$country =~ s/^en://;
 	}
@@ -691,7 +705,7 @@ sub init_product ($userid, $orgid, $code, $countryid) {
 		$product_ref->{lang} = $lc;
 	}
 
-	if (defined $country) {
+	if ((defined $country) and ($country !~ /^world$/i)) {
 		if ($country !~ /a1|a2|o1/i) {
 			$product_ref->{countries} = "en:" . $country;
 			my $field = 'countries';
@@ -1047,7 +1061,6 @@ sub store_product ($user_id, $product_ref, $comment) {
 			#
 			# use File::Copy;
 
-			require File::Copy::Recursive;
 			File::Copy::Recursive->import(qw( dirmove ));
 
 			$log->debug("moving product data",
@@ -1250,6 +1263,10 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 	# index for search service
 	push_to_search_service($product_ref);
+
+	# Notify Robotoff
+	my $update_type = $product_ref->{deleted} ? "deleted" : "updated";
+	send_notification_for_product_change($product_ref, $update_type);
 
 	return 1;
 }
@@ -2497,12 +2514,41 @@ sub product_action_url ($code, $action) {
 	if ($action eq "add_categories") {
 		$url .= "#categories";
 	}
+	elsif ($action eq "add_ingredients_image") {
+		$url .= "#ingredients";
+	}
 	elsif ($action eq "add_ingredients_text") {
 		$url .= "#ingredients";
+	}
+	elsif ($action eq "add_nutrition_facts_image") {
+		$url .= "#nutrition";
 	}
 	elsif ($action eq "add_nutrition_facts") {
 		$url .= "#nutrition";
 	}
+	elsif ($action eq "add_packaging_image") {
+		$url .= "#packaging";
+	}
+	elsif ($action eq "add_packaging_text") {
+		$url .= "#packaging";
+	}
+	# Note: 27/11/2022 - Pierre - The following HTML anchors links will do nothing unless a matching custom HTML anchor is added in the future to the product edition template
+	elsif ($action eq "add_origins") {
+		$url .= "#origins";
+	}
+	elsif ($action eq "add_stores") {
+		$url .= "#stores";
+	}
+	elsif ($action eq "add_packager_codes_image") {
+		$url .= "#packager_codes";
+	}
+	elsif ($action eq "add_labels") {
+		$url .= "#labels";
+	}
+	elsif ($action eq "add_countries") {
+		$url .= "#countries";
+	}
+	# END will do nothing unless a custom section is added
 	else {
 		$log->error("unknown product action", {code => $code, action => $action});
 	}
@@ -2534,7 +2580,7 @@ sub index_product ($product_ref) {
 		}
 	}
 
-	$product_ref->{_keywords} = [keys %keywords];
+	$product_ref->{_keywords} = [sort keys %keywords];
 
 	return;
 }
@@ -2926,7 +2972,6 @@ sub process_product_edit_rules ($product_ref) {
 										$emoji = ":pear:";
 									}
 
-									require LWP::UserAgent;
 									my $ua = LWP::UserAgent->new;
 									my $server_endpoint
 										= "https://hooks.slack.com/services/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";
@@ -3118,6 +3163,195 @@ sub remove_fields ($product_ref, $fields_ref) {
 	foreach my $field (@$fields_ref) {
 		delete $product_ref->{$field};
 	}
+	return;
+}
+
+=head2 add_images_urls_to_product ($product_ref, $target_lc)
+
+Add fields like image_[front|ingredients|nutrition|packaging]_[url|small_url|thumb_url] to a product object.
+
+If it exists, the image for the target language will be returned, otherwise we will return the image
+in the main language of the product.
+
+=head3 Parameters
+
+=head4 $product_ref
+
+Reference to a complete product a subfield.
+
+=head4 $target_lc
+
+2 language code of the preferred language for the product images.
+
+=cut
+
+sub add_images_urls_to_product ($product_ref, $target_lc) {
+
+	my $images_subdomain = format_subdomain('images');
+
+	my $path = product_path($product_ref);
+
+	foreach my $imagetype ('front', 'ingredients', 'nutrition', 'packaging') {
+
+		my $size = $display_size;
+
+		# first try the requested language
+		my @display_ids = ($imagetype . "_" . $target_lc);
+
+		# next try the main language of the product
+		if (defined($product_ref->{lc}) && $product_ref->{lc} ne $target_lc) {
+			push @display_ids, $imagetype . "_" . $product_ref->{lc};
+		}
+
+		# last try the field without a language (for old products without updated images)
+		push @display_ids, $imagetype;
+
+		foreach my $id (@display_ids) {
+
+			if (    (defined $product_ref->{images})
+				and (defined $product_ref->{images}{$id})
+				and (defined $product_ref->{images}{$id}{sizes})
+				and (defined $product_ref->{images}{$id}{sizes}{$size}))
+			{
+
+				$product_ref->{"image_" . $imagetype . "_url"}
+					= "$images_subdomain/images/products/$path/$id."
+					. $product_ref->{images}{$id}{rev} . '.'
+					. $display_size . '.jpg';
+				$product_ref->{"image_" . $imagetype . "_small_url"}
+					= "$images_subdomain/images/products/$path/$id."
+					. $product_ref->{images}{$id}{rev} . '.'
+					. $small_size . '.jpg';
+				$product_ref->{"image_" . $imagetype . "_thumb_url"}
+					= "$images_subdomain/images/products/$path/$id."
+					. $product_ref->{images}{$id}{rev} . '.'
+					. $thumb_size . '.jpg';
+
+				if ($imagetype eq 'front') {
+					# front image is product image
+					$product_ref->{image_url} = $product_ref->{"image_" . $imagetype . "_url"};
+					$product_ref->{image_small_url} = $product_ref->{"image_" . $imagetype . "_small_url"};
+					$product_ref->{image_thumb_url} = $product_ref->{"image_" . $imagetype . "_thumb_url"};
+				}
+
+				last;
+			}
+		}
+
+		if (defined $product_ref->{languages_codes}) {
+			# compute selected image for each product language
+			foreach my $key (keys %{$product_ref->{languages_codes}}) {
+				my $id = $imagetype . '_' . $key;
+				if (    (defined $product_ref->{images})
+					and (defined $product_ref->{images}{$id})
+					and (defined $product_ref->{images}{$id}{sizes})
+					and (defined $product_ref->{images}{$id}{sizes}{$size}))
+				{
+
+					$product_ref->{selected_images}{$imagetype}{display}{$key}
+						= "$images_subdomain/images/products/$path/$id."
+						. $product_ref->{images}{$id}{rev} . '.'
+						. $display_size . '.jpg';
+					$product_ref->{selected_images}{$imagetype}{small}{$key}
+						= "$images_subdomain/images/products/$path/$id."
+						. $product_ref->{images}{$id}{rev} . '.'
+						. $small_size . '.jpg';
+					$product_ref->{selected_images}{$imagetype}{thumb}{$key}
+						= "$images_subdomain/images/products/$path/$id."
+						. $product_ref->{images}{$id}{rev} . '.'
+						. $thumb_size . '.jpg';
+				}
+			}
+		}
+	}
+
+	return;
+}
+
+=head2 analyze_and_enrich_product_data ($product_ref, $response_ref)
+
+This function processes product raw data to analyze it and enrich it.
+For instance to analyze ingredients and compute scores such as Nutri-Score and Eco-Score.
+
+=head3 Parameters
+
+=head4 $product_ref (input)
+
+Reference to a product.
+
+=head4 $response_ref (output)
+
+Reference to a response object to which we can add errors and warnings.
+
+=cut
+
+sub analyze_and_enrich_product_data ($product_ref, $response_ref) {
+
+	$log->debug("analyze_and_enrich_product_data - start") if $log->is_debug();
+
+	if (    (defined $product_ref->{nutriments}{"carbon-footprint"})
+		and ($product_ref->{nutriments}{"carbon-footprint"} ne ''))
+	{
+		push @{$product_ref->{"labels_hierarchy"}}, "en:carbon-footprint";
+		push @{$product_ref->{"labels_tags"}}, "en:carbon-footprint";
+	}
+
+	if ((defined $product_ref->{nutriments}{"glycemic-index"}) and ($product_ref->{nutriments}{"glycemic-index"} ne ''))
+	{
+		push @{$product_ref->{"labels_hierarchy"}}, "en:glycemic-index";
+		push @{$product_ref->{"labels_tags"}}, "en:glycemic-index";
+	}
+
+	# For fields that can have different values in different languages, copy the main language value to the non suffixed field
+
+	foreach my $field (keys %language_fields) {
+		if ($field !~ /_image/) {
+			if (defined $product_ref->{$field . "_$product_ref->{lc}"}) {
+				$product_ref->{$field} = $product_ref->{$field . "_$product_ref->{lc}"};
+			}
+		}
+	}
+
+	compute_languages($product_ref);    # need languages for allergens detection and cleaning ingredients
+
+	# Ingredients classes
+	clean_ingredients_text($product_ref);
+	extract_ingredients_from_text($product_ref);
+	extract_ingredients_classes_from_text($product_ref);
+	detect_allergens_from_text($product_ref);
+
+	# Food category rules for sweetened/sugared beverages
+	# French PNNS groups from categories
+
+	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+		ProductOpener::Food::special_process_product($product_ref);
+	}
+
+	# Compute nutrition data per 100g and per serving
+
+	$log->debug("compute nutrition data") if $log->is_debug();
+
+	fix_salt_equivalent($product_ref);
+
+	compute_serving_size_data($product_ref);
+
+	compute_nutrition_score($product_ref);
+
+	compute_nova_group($product_ref);
+
+	compute_nutrient_levels($product_ref);
+
+	compute_unknown_nutrients($product_ref);
+
+	analyze_and_combine_packaging_data($product_ref, $response_ref);
+
+	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+		compute_ecoscore($product_ref);
+		compute_forest_footprint($product_ref);
+	}
+
+	ProductOpener::DataQuality::check_quality($product_ref);
+
 	return;
 }
 

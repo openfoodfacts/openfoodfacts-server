@@ -133,18 +133,39 @@ $productsGutter:12;
     }
 }
 
-//// filter 
-#filterProducts {
-    >div button {
-        display: flex;
-        align-items: center;
+// filter
+// style: Fixed display of filter bar.
+.filterProducts {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  @media #{$small-only} {
+    flex-direction: column;
+    padding: .5rem;
+  }
+  > div button {
+    display: flex;
+    align-items: center;
+  }
+  .f-dropdown {
+    a { color: $primary-color; }
+  }
+  &__results { 
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: $white; 
+    .material-icons { font-size: 18px; }
+  }
+  &__buttons {
+    display: flex;
+    gap: 1rem;
+    .button > .material-icons {
+      padding-right: 8px;
     }
-    .f-dropdown {
-        a {
-            color:$primary-color;
-        }
-    }
+  }
 }
+
 #preferences_selected {
     display: flex;
 //    flex-direction: column;

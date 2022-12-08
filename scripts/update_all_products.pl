@@ -75,6 +75,8 @@ use ProductOpener::Packaging qw(:all);
 use ProductOpener::ForestFootprint qw(:all);
 use ProductOpener::MainCountries qw(:all);
 use ProductOpener::PackagerCodes qw/:all/;
+use ProductOpener::API qw/:all/;
+use ProductOpener::LoadData qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -194,9 +196,6 @@ print Dumper(\@fields_to_update);
 
 @fields_to_update = split(/,/, join(',', @fields_to_update));
 
-use Data::Dumper;
-
-# simple procedural interface
 print Dumper(\@fields_to_update);
 
 if ((defined $team) and ($team ne "")) {
@@ -265,28 +264,14 @@ if (    (not $process_ingredients)
 	die("Missing fields to update or --count option:\n$usage");
 }
 
-if ($compute_ecoscore) {
-
-	init_packaging_taxonomies_regexps();
-	load_agribalyse_data();
-	load_ecoscore_data();
-}
-
-if ($compute_forest_footprint) {
-
-	load_forest_footprint_data();
-}
-
-if ($compute_main_countries) {
-	load_scans_data();
-}
-
 # Make sure we have a user id and we will use a new .sto file for all edits that change values entered by users
 if ((not defined $User_id) and (($fix_serving_size_mg_to_ml) or ($fix_missing_lc))) {
 	die(
 		"Missing --user-id. We must have a user id and we will use a new .sto file for all edits that change values entered by users.\n"
 	);
 }
+
+load_data();
 
 # Get a list of all products not yet updated
 # Use query filters entered using --query categories_tags=en:plant-milks
@@ -415,6 +400,11 @@ if ($prefix_packaging_tags_with_language) {
 }
 
 while (my $product_ref = $cursor->next) {
+
+	# Response structure to keep track of warnings and errors
+	# Note: currently some warnings and errors are added,
+	# but we do not yet do anything with them
+	my $response_ref = get_initialized_response();
 
 	my $productid = $product_ref->{_id};
 	my $code = $product_ref->{code};
@@ -1207,11 +1197,7 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		if ($process_packagings) {
-			# Until we provide an interface to directly change the packaging data structure
-			# erase it before reconstructing it
-			# (otherwise there is no way to remove incorrect entries)
-			$product_ref->{packagings} = [];
-			analyze_and_combine_packaging_data($product_ref);
+			analyze_and_combine_packaging_data($product_ref, $response_ref);
 		}
 
 		if ($compute_ecoscore) {

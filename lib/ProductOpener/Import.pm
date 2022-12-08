@@ -97,6 +97,7 @@ use ProductOpener::Packaging qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::PackagerCodes qw/:all/;
+use ProductOpener::API qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -109,6 +110,7 @@ use Text::CSV;
 use DateTime::Format::ISO8601;
 use URI;
 use Digest::MD5 qw(md5_hex);
+use LWP::UserAgent;
 
 # private function to import images from dir
 # args:
@@ -230,8 +232,6 @@ sub import_images_from_dir ($image_dir, $stats) {
 
 # download image at given url parameter
 sub download_image ($image_url) {
-
-	require LWP::UserAgent;
 
 	my $ua = LWP::UserAgent->new(timeout => 10);
 
@@ -493,6 +493,11 @@ sub import_csv_file ($args_ref) {
 
 	# go through file
 	while (my $imported_product_ref = $csv->getline_hr($io)) {
+
+		# Response structure to keep track of warnings and errors
+		# Note: currently some warnings and errors are added,
+		# but we do not yet do anything with them
+		my $response_ref = get_initialized_response();
 
 		$i++;
 
@@ -957,11 +962,26 @@ sub import_csv_file ($args_ref) {
 			my $existing_date = $product_ref->{sources_fields}{"org-gs1"}{publicationDateTime}
 				// $product_ref->{sources_fields}{"org-gs1"}{lastChangeDateTime};
 
-			if ((defined $imported_date) and (defined $existing_date)) {
+			if (    (defined $imported_date)
+				and ($imported_date ne "")
+				and (defined $existing_date)
+				and ($existing_date ne ""))
+			{
 
-				if (DateTime::Format::ISO8601->parse_datetime($imported_date)->epoch
-					< DateTime::Format::ISO8601->parse_datetime($existing_date)->epoch)
-				{
+				# Broken date strings can cause parse_datetime to fail
+				my $imported_date_t;
+				my $existing_date_t;
+				eval {
+					$imported_date_t = DateTime::Format::ISO8601->parse_datetime($imported_date)->epoch;
+					$existing_date_t = DateTime::Format::ISO8601->parse_datetime($existing_date)->epoch;
+				};
+
+				if ($@) {
+					$log->warn("Could not parse imported or existing dates",
+						{imported_date => $imported_date, existing_date => $existing_date, error => $@})
+						if $log->is_warn();
+				}
+				elsif ($imported_date_t < $existing_date_t) {
 					$log->debug(
 						"existing GS1 data with a greater sources_fields:org-gs1:publicationDateTime - skipping product",
 						{
@@ -1957,47 +1977,7 @@ sub import_csv_file ($args_ref) {
 			$log->debug("updating product", {code => $code, modified => $modified}) if $log->is_debug();
 			$stats{products_data_updated}{$code} = 1;
 
-			# Process the fields
-
-			# Food category rules for sweeetened/sugared beverages
-			# French PNNS groups from categories
-
-			if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
-				ProductOpener::Food::special_process_product($product_ref);
-			}
-
-			if (    (defined $product_ref->{nutriments}{"carbon-footprint"})
-				and ($product_ref->{nutriments}{"carbon-footprint"} ne '')
-				and not has_tag($product_ref, "labels", "en:carbon-footprint"))
-			{
-				push @{$product_ref->{"labels_hierarchy"}}, "en:carbon-footprint";
-				push @{$product_ref->{"labels_tags"}}, "en:carbon-footprint";
-			}
-
-			if (    (defined $product_ref->{nutriments}{"glycemic-index"})
-				and ($product_ref->{nutriments}{"glycemic-index"} ne '')
-				and not has_tag($product_ref, "labels", "en:glycemic-index"))
-			{
-				push @{$product_ref->{"labels_hierarchy"}}, "en:glycemic-index";
-				push @{$product_ref->{"labels_tags"}}, "en:glycemic-index";
-			}
-
-			# For fields that can have different values in different languages, copy the main language value to the non suffixed field
-
-			foreach my $field (keys %language_fields) {
-				if ($field !~ /_image/) {
-					if (defined $product_ref->{$field . "_" . $product_ref->{lc}}) {
-						$product_ref->{$field} = $product_ref->{$field . "_" . $product_ref->{lc}};
-					}
-				}
-			}
-
-			compute_languages($product_ref);    # need languages for allergens detection and cleaning ingredients
-
-			# Ingredients classes
-			extract_ingredients_from_text($product_ref);
-			extract_ingredients_classes_from_text($product_ref);
-			detect_allergens_from_text($product_ref);
+			analyze_and_enrich_product_data($product_ref, $response_ref);
 
 			if (not $args_ref->{no_source}) {
 
@@ -2028,46 +2008,6 @@ sub import_csv_file ($args_ref) {
 			}
 
 			if (not $args_ref->{test}) {
-
-				$log->debug("fix_salt_equivalent", {code => $code, product_id => $product_id}) if $log->is_debug();
-				fix_salt_equivalent($product_ref);
-
-				$log->debug("compute_serving_size_data", {code => $code, product_id => $product_id})
-					if $log->is_debug();
-				compute_serving_size_data($product_ref);
-
-				$log->debug("compute_nutrition_score", {code => $code, product_id => $product_id}) if $log->is_debug();
-				compute_nutrition_score($product_ref);
-
-				$log->debug("compute_nova_group", {code => $code, product_id => $product_id}) if $log->is_debug();
-				compute_nova_group($product_ref);
-
-				$log->debug("compute_nutrient_levels", {code => $code, product_id => $product_id}) if $log->is_debug();
-				compute_nutrient_levels($product_ref);
-
-				$log->debug("compute_unknown_nutrients", {code => $code, product_id => $product_id})
-					if $log->is_debug();
-				compute_unknown_nutrients($product_ref);
-
-				$log->debug("analyze_and_combine_packaging_data", {code => $code, product_id => $product_id})
-					if $log->is_debug();
-
-				# Until we provide an interface to directly change the packaging data structure
-				# erase it before reconstructing it
-				# (otherwise there is no way to remove incorrect entries)
-				$product_ref->{packagings} = [];
-
-				analyze_and_combine_packaging_data($product_ref);
-
-				if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
-
-					$log->debug("compute_ecoscore", {code => $code, product_id => $product_id}) if $log->is_debug();
-
-					compute_ecoscore($product_ref);
-					compute_forest_footprint($product_ref);
-				}
-
-				ProductOpener::DataQuality::check_quality($product_ref);
 
 				# set the autoexport field if the org is auto exported to the public platform
 				if (    (defined $server_options{private_products})

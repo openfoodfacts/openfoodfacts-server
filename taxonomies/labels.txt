@@ -366,7 +366,7 @@ en:CO2e neutral, CO2e compensated, CO2-equivalent neutral, CO2-equivalent compen
 da:CO2e neutral, CO2e kompenseret
 de:CO2e neutral, CO2e kompensiert, CO2-Äquivalent neutral, CO2-Äquivalent kompensiert
 
-en:Carbon footprint, carbon emissions, product that specifies the carbon footprint
+en:Carbon footprint, carbon emissions, product that specifies the carbon footprint, climate footprint
 bg:Въглероден отпечатък
 ca:Petjada de carboni, emissions de carboni, producte on la petjada de carboni hi surt reflectida
 cs:Uhlíková stopa
@@ -377,7 +377,7 @@ fr:Empreinte carbone, émissions de carbone
 he:טביעת רגל פחמנית
 hu:Szénlábnyom, szén-dioxid-kibocsátás, karbonlábnyom, szén lábnyom, karbon lábnyom
 it:Emissioni di CO2, impronta climatica
-nl:Koolstofvoetafdruk
+nl:Koolstofvoetafdruk, Klimaatafdruk
 pl:Ślad węglowy produktu
 pt:Pegada de carbono, Emissões de CO2
 ru:CO2-эмиссия
@@ -754,6 +754,45 @@ he:מזון חופש
 fr:Tréfilage au bronze, tréfilé au bronze
 it:Trafilata al bronzo
 
+# Packaging labels
+
+en:PEFC, Programme for the Endorsement of Forest Certification, Pan European Forest Certification
+bg:PEFC, Programme for the Endorsement of Forest Certification
+ca:PEFC
+de:PEFC, Programme for the Endorsement of Forest Certification, Zertifizierungssystem für nachhaltige Waldbewirtschaftung
+es:PEFC, Programme for the Endorsement of Forest Certification, Programa para el Reconocimiento de Certificación Forestal
+fi:PEFC, Programme for the Endorsement of Forest Certification, Euroopan laajuinen metsäsertifikaatti
+fr:PEFC, Programme for the Endorsement of Forest Certification, Programme de reconnaissance des certifications forestières
+hu:PEFC, Programme for the Endorsement of Forest Certification, Páneurópai Erdő Tanúsítás
+it:PEFC, Programme for the Endorsement of Forest Certification
+nl:PEFC
+wikidata:en:Q2112204
+label_categories:en: en:Packaging
+# associated_materials:en: en:paper, en:cardboard
+
+en:Green Dot, The Green Dot
+bg:Зелена точка
+ca:Punt verd
+cs:Zelený bod
+de:Grüner Punkt, Grüne Punkt, Der Grüne Punkt
+es:Punto Verde, El Punto Verde
+fi:vihreä piste
+fr:Point Vert, Le Point Vert
+he:נקודה ירוקה, הנקודה הירוקה
+hu:Zöld Pont, Green Dot
+it:Punto Verde, Il Punto Verde
+nb:Grønt Punkt
+nl:Groene Punt
+pt:Ponto Verde
+th:กรีนดอท
+wikidata:en:Q975485
+label_categories:en: en:Packaging
+# en:comment:On packaging, the Green Dot means that for such packaging a financial contribution has been paid to a qualified national packaging recovery organization set up in accordance with the principles defined in European Packaging and Packaging Waste Directive 94/62 and the respective national law.
+
+fr:Imprim'Vert
+label_categories:en: en:Packaging
+wikidata:en:Q3149493
+
 en:FSC, Forest Stewardship Council
 bg:FSC, Forest Stewardship Council, Съвет по стопанисване на горите
 ca:FSC, Consell de Protecció Forestal
@@ -768,6 +807,8 @@ pl:FSC, Odpowiedzialna gospodarka leśna
 ru:FSC, Forest Stewardship Council, Лесной попечительский совет
 zh:FSC(森林管理委员会)
 wikidata:en:Q748367
+label_categories:en: en:Packaging
+# associated_materials:en: en:paper, en:cardboard
 
 <en:FSC
 en:FSC Mix
@@ -905,23 +946,6 @@ ru:Полифосфаты
 de:Ohne Zusatz von Polyphosphaten
 fr:Sans addition de polyphosphates, Sans addition de polyphosphate, Sans polyphosphates ajoutés
 ru:Без добавления полифосфатов
-
-en:Green Dot, The Green Dot
-bg:Зелена точка
-ca:Punt verd
-cs:Zelený bod
-de:Grüner Punkt, Grüne Punkt, Der Grüne Punkt
-es:Punto Verde, El Punto Verde
-fi:vihreä piste
-fr:Point Vert, Le Point Vert
-he:נקודה ירוקה, הנקודה הירוקה
-hu:Zöld Pont, Green Dot
-it:Punto Verde, Il Punto Verde
-nb:Grønt Punkt
-nl:Groene Punt
-pt:Ponto Verde
-th:กรีนดอท
-wikidata:en:Q975485
 
 en:Halal
 bg:Халал
@@ -3493,6 +3517,10 @@ it:Sconsigliato a bambini al di sotto dei 3 anni
 nl:Niet aanbevolen voor kinder jonger dan 3 jaar
 ru:Не рекомендовано для детей младше 3 лет
 th:ไม่แนะนำสำหรับเด็กอายุต่ำกว่า 3 ปี
+
+<en:Not advised for specific people
+en:Not suited for children under 1 years
+nl:Niet geschikt voor kinderen onder 1 jaar
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -16509,21 +16537,6 @@ nl:BGO, Beschermde Geografische Oorsprong, PDO, AOP
 sv:SUB, S.U.B., Skyddad ursprungsbeteckning
 wikidata:en:Q13439060
 
-en:PEFC, Programme for the Endorsement of Forest Certification, Pan European Forest Certification
-bg:PEFC, Programme for the Endorsement of Forest Certification
-ca:PEFC
-de:PEFC, Programme for the Endorsement of Forest Certification, Zertifizierungssystem für nachhaltige Waldbewirtschaftung
-es:PEFC, Programme for the Endorsement of Forest Certification, Programa para el Reconocimiento de Certificación Forestal
-fi:PEFC, Programme for the Endorsement of Forest Certification, Euroopan laajuinen metsäsertifikaatti
-fr:PEFC, Programme for the Endorsement of Forest Certification, Programme de reconnaissance des certifications forestières
-hu:PEFC, Programme for the Endorsement of Forest Certification, Páneurópai Erdő Tanúsítás
-it:PEFC, Programme for the Endorsement of Forest Certification
-nl:PEFC
-wikidata:en:Q2112204
-
-fr:Imprim'Vert
-wikidata:en:Q3149493
-
 en:PGI, P.G.I., Protected Geographical Indication, PGI - Protected Geographical Indication
 bg:ЗГУ, Защитено географско указание
 ca:IGP, Indicació Geogràfica Protegida
@@ -16667,6 +16680,17 @@ auth_url:en:https://www.rainforest-alliance.org
 en:Rainforest Alliance Black Tea
 de:Rainforest Alliance Schwarzer Tee
 
+<en:Rainforest Alliance
+en:Rainforest Alliance Cocoa
+nl:Rainforest Alliance Cacao
+
+<en:Rainforest Alliance
+en:Rainforest Alliance Cassave
+nl:Rainforest Alliance Cassave
+
+<en:Rainforest Alliance
+en:Rainforest Alliance Black Tea
+nl:Rainforest Alliance Black Tea
 
 en:Reinheitsgebot
 de:Reinheitsgebot
@@ -16780,7 +16804,7 @@ ca:Oli de Palma Sostenible
 de:Nachhaltiges Palmöl
 es:Aceite de Palma Sostenible
 fi:Kestävästi tuotettua palmuöljyä
-fr:Huile de palme durable,  Huile de palme certifiée durable, Huile de palme issue de forêts gérées durablement
+fr:Huile de palme durable, Huile de palme certifiée durable, Huile de palme issue de forêts gérées durablement
 hu:Fenntartható pálmaolaj
 it:Olio di palma sostenibile
 nl:Duurzame palmolie
@@ -17405,6 +17429,10 @@ nl:UTZ Certified Coffee
 pl:UTZ Certified Kawa
 xx:UTZ Certified Coffee
 
+<en:UTZ Certified
+en:UTZ Certified Tea
+nl:UTZ Certified Thee, UTZ Gecertificeerd Thee
+
 en:Vegetarian, Suitable for vegetarians
 bg:Вегетарианско, Подходящо за вегетарианци
 ca:Vegetarià, Adequat per persones vegetarianes
@@ -18024,6 +18052,7 @@ en:Chicken welfare
 nl:Kippenwelzijn
 
 <en:Animal welfare
+fr:Lait de paturage
 nl:Weidemelk
 
 en:Dutch meat
@@ -18395,13 +18424,17 @@ fr:Grand cru
 label_categories:en: en:Wines
 
 fr:Mis en bouteille au château
-packaging:en: en:Bottles
+label_categories:en: en:Packaging
+# associated_shapes:en: en:bottle
 
 fr:Mis en bouteille à la propriété
 packaging:en: en:Bottles
+label_categories:en: en:Packaging
+# associated_shapes:en: en:bottle
 
 fr:Mis en bouteille au domaine
-packaging:en: en:Bottles
+label_categories:en: en:Packaging
+# associated_shapes:en: en:bottle
 
 fr:fermenté en barrique
 
@@ -19692,3 +19725,13 @@ fr:Sans résidus de pesticides, sans résidu de pesticide, zéro résidus de pes
 # obligation of means: cultivated without pesticides (but can be a specific year, or after flowers bloom)
 en:Pesticide-free, without pesticide, no pesticide
 fr:Sans pesticides, cultivé sans pesticides
+
+# Note: we could have it under a common "fair trade" parent
+fr:Prix Juste Producteur
+country:en:Belgium
+auth_name:fr:Services Opérationnels du Collège des Producteurs
+auth_address:fr:Avenue Comte de Smet de Nayer 14, 5000 Namur, Belgium
+auth_url:fr:https://collegedesproducteurs.be/
+image:fr:prix-juste-producteur.90x90.png
+description:fr:En choisissant des produits Prix Juste Producteur, on vous garantit une juste rémunération des producteurs basée sur les coûts de production et la qualité, une origine locale de 80% des matières premières du produit et une traçabilité complète de ces matières premières.
+web:fr:https://prixjuste.be/
