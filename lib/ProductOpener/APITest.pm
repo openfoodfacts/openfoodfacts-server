@@ -429,36 +429,39 @@ sub execute_api_tests ($file, $tests_ref) {
 		is($response->code, $test_ref->{expected_status_code})
 			or diag(explain($test_ref), "Response status line: " . $response->status_line);
 
-		# Check that we got a JSON response
-		my $json = $response->decoded_content;
+		if (not ((defined $test_ref->{expected_type}) and ($test_ref->{expected_type} eq "html"))) {
 
-		my $decoded_json;
-		eval {
-			$decoded_json = decode_json($json);
-			1;
-		} or do {
-			my $json_decode_error = $@;
-			diag("The $method request to $url returned a response that is not valid JSON: $json_decode_error");
-			diag("Response content: " . $json);
-			fail($test_case);
-			next;
-		};
+			# Check that we got a JSON response
+			my $json = $response->decoded_content;
 
-		# normalize for comparison
-		if (defined $decoded_json->{'products'}) {
-			normalize_products_for_test_comparison($decoded_json->{'products'});
+			my $decoded_json;
+			eval {
+				$decoded_json = decode_json($json);
+				1;
+			} or do {
+				my $json_decode_error = $@;
+				diag("The $method request to $url returned a response that is not valid JSON: $json_decode_error");
+				diag("Response content: " . $json);
+				fail($test_case);
+				next;
+			};
+
+			# normalize for comparison
+			if (defined $decoded_json->{'products'}) {
+				normalize_products_for_test_comparison($decoded_json->{'products'});
+			}
+			if (defined $decoded_json->{'product'}) {
+				normalize_product_for_test_comparison($decoded_json->{'product'});
+			}
+
+			is(
+				compare_to_expected_results(
+					$decoded_json, "$expected_result_dir/$test_case.json",
+					$update_expected_results, $test_ref
+				),
+				1,
+			);
 		}
-		if (defined $decoded_json->{'product'}) {
-			normalize_product_for_test_comparison($decoded_json->{'product'});
-		}
-
-		is(
-			compare_to_expected_results(
-				$decoded_json, "$expected_result_dir/$test_case.json",
-				$update_expected_results, $test_ref
-			),
-			1,
-		);
 
 	}
 	return;
