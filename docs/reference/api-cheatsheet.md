@@ -1,6 +1,10 @@
 # Open Food Facts Reference CheatSheet
 
-This reference cheatsheet shows you how to send requests to the OFF API.
+This reference cheatsheet gives you a quick reminder to send requests to the OFF API.
+
+If you are new to API usage you might look at the [tutorial](../tutorials/using-the-OFF-API-tutorial.md).
+Also reports to the [API reference documentation](../reference/api.md) for complete information.
+
 
 ## Add/Edit an Existing Product
 
