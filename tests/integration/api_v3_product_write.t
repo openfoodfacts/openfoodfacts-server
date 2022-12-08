@@ -382,55 +382,17 @@ my $tests_ref = [
 			}
 		}'
 	},
-<<<<<<< HEAD
-
-	# Test authentication
-	{
-		test_case => 'patch-auth-good-password',
-		method => 'PATCH',
-		path => '/api/v3/product/1234567890013',
-		body => '{
-			"user_id": "tests",
-			"password": "testtest",
-			"fields": "creator,editors_tags,packagings",
-=======
 	# weight should be a number, but we can accept strings like "24", "23.1" or "25,1"
 	{
 		test_case => 'patch-weight-as-number-or-string',
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890013',
 		body => '{
->>>>>>> main
 			"tags_lc": "en",
 			"product": {
 				"packagings": [
 					{
-						"number_of_units": 1,
-<<<<<<< HEAD
-						"shape": {"lc_name": "can"},
-						"recycling": {"lc_name": "recycle"}
-					}
-				]
-			}
-		}'
-	},
-	{
-		test_case => 'patch-auth-bad-user-password',
-		method => 'PATCH',
-		path => '/api/v3/product/1234567890013',
-		body => '{
-			"user_id": "tests",
-			"password": "bad password",
-			"fields": "creator,editors_tags,packagings",
-			"tags_lc": "en",
-			"product": {
-				"packagings": [
-					{
-						"number_of_units": 1,
-						"shape": {"lc_name": "can"},
-						"recycling": {"lc_name": "recycle"}
-					}
-=======
+						"number_of_units": 1,			
 						"shape": {"lc_name": "Bottle"},
 						"weight_measured": 0.43
 					},
@@ -443,8 +405,49 @@ my $tests_ref = [
 						"number_of_units": 3,
 						"shape": {"lc_name": "Lid"},
 						"weight_measured": "0,43"
-					}										
->>>>>>> main
+					}								
+				]
+			}
+		}'
+	},
+	# Test authentication
+	{
+		test_case => 'patch-auth-good-password',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890014',
+		body => '{
+			"user_id": "tests",
+			"password": "testtest",
+			"fields": "creator,editors_tags,packagings",
+			"tags_lc": "en",
+			"product": {
+				"packagings": [
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "can"},
+						"recycling": {"lc_name": "recycle"}
+					}
+				]
+			}
+		}'
+	},
+	{
+		test_case => 'patch-auth-bad-user-password',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890015',
+		body => '{
+			"user_id": "tests",
+			"password": "bad password",
+			"fields": "creator,editors_tags,packagings",
+			"tags_lc": "en",
+			"product": {
+				"packagings": [
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "can"},
+						"recycling": {"lc_name": "recycle"}
+					}
+								
 				]
 			}
 		}'
