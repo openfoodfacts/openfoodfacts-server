@@ -296,6 +296,7 @@ en:Chicken welfare
 nl:Kippenwelzijn
 
 < en:Animal welfare
+fr:Lait de paturage
 nl:Weidemelk
 
 en:Apples from France
@@ -509,7 +510,7 @@ en:CO2e neutral, CO2e compensated, CO2-equivalent neutral, CO2-equivalent compen
 da:CO2e neutral, CO2e kompenseret
 de:CO2e neutral, CO2e kompensiert, CO2-Äquivalent neutral, CO2-Äquivalent kompensiert
 
-en:Carbon footprint, carbon emissions, product that specifies the carbon footprint
+en:Carbon footprint, carbon emissions, product that specifies the carbon footprint, climate footprint
 bg:Въглероден отпечатък
 ca:Petjada de carboni, emissions de carboni, producte on la petjada de carboni hi surt reflectida
 cs:Uhlíková stopa
@@ -520,7 +521,7 @@ fr:Empreinte carbone, émissions de carbone
 he:טביעת רגל פחמנית
 hu:Szénlábnyom, szén-dioxid-kibocsátás, karbonlábnyom, szén lábnyom, karbon lábnyom
 it:Emissioni di CO2, impronta climatica
-nl:Koolstofvoetafdruk
+nl:Koolstofvoetafdruk, Klimaatafdruk
 pl:Ślad węglowy produktu
 pt:Pegada de carbono, Emissões de CO2
 ru:CO2-эмиссия
@@ -14047,6 +14048,7 @@ nl:FSC, Forest Stewardship Council
 pl:FSC, Odpowiedzialna gospodarka leśna
 ru:FSC, Forest Stewardship Council, Лесной попечительский совет
 zh:FSC(森林管理委员会)
+label_categories:en: en:Packaging
 wikidata:en: Q748367
 
 < en:FSC
@@ -14236,6 +14238,7 @@ nb:Grønt Punkt
 nl:Groene Punt
 pt:Ponto Verde
 th:กรีนดอท
+label_categories:en: en:Packaging
 wikidata:en: Q975485
 
 en:Green Label - Israel
@@ -16159,6 +16162,10 @@ nl:Niet aanbevolen voor kinder jonger dan 3 jaar
 ru:Не рекомендовано для детей младше 3 лет
 th:ไม่แนะนำสำหรับเด็กอายุต่ำกว่า 3 ปี
 
+< en:Not advised for specific people
+en:Not suited for children under 1 years
+nl:Niet geschikt voor kinderen onder 1 jaar
+
 en:Not hardened
 ca:Sense endurir
 de:ungehärtet
@@ -16812,6 +16819,7 @@ fr:PEFC, Programme for the Endorsement of Forest Certification, Programme de rec
 hu:PEFC, Programme for the Endorsement of Forest Certification, Páneurópai Erdő Tanúsítás
 it:PEFC, Programme for the Endorsement of Forest Certification
 nl:PEFC
+label_categories:en: en:Packaging
 wikidata:en: Q2112204
 
 en:Pelagic net fishing
@@ -17075,8 +17083,17 @@ auth_url:en: https://www.rainforest-alliance.org
 wikidata:en: Q2034373
 
 < en:Rainforest Alliance
-en:Rainforest Alliance Black Tea
+en:Rainforest Alliance Black Tea, Rainforest Alliance Black Tea
 de:Rainforest Alliance Schwarzer Tee
+nl:Rainforest Alliance Black Tea
+
+< en:Rainforest Alliance
+en:Rainforest Alliance Cassave
+nl:Rainforest Alliance Cassave
+
+< en:Rainforest Alliance
+en:Rainforest Alliance Cocoa
+nl:Rainforest Alliance Cacao
 
 en:raised in Ireland
 de:aufgezogen in Irland, aufgewachsen in Irland
@@ -18211,6 +18228,10 @@ nl:UTZ Certified Coffee
 pl:UTZ Certified Kawa
 xx:UTZ Certified Coffee
 
+< en:UTZ Certified
+en:UTZ Certified Tea
+nl:UTZ Certified Thee, UTZ Gecertificeerd Thee
+
 < en:Vegan
 en:EVE Vegan, Expertise Vegan Europe
 xx:EVE Vegan, Expertise Vegan Europe
@@ -19047,6 +19068,7 @@ wikidata:en: Q3128557
 fr:Herta s'engage
 
 fr:Imprim'Vert
+label_categories:en: en:Packaging
 wikidata:en: Q3149493
 
 fr:Indication géographique protégée de la République populaire de Chine, IGPRPC
@@ -19249,13 +19271,14 @@ fr:Médaille de bronze du concours général agricole 2019, Concours général a
 fr:Médaille de bronze du concours général agricole 2020, Concours général agricole médaille de bronze 2020, Médaille de Bronze Paris 2020 Concours Général Agricole, Médaille de Bronze Paris 2020
 
 fr:Mis en bouteille à la propriété
+label_categories:en: en:Packaging
 packaging:en: en:bottle
 
 fr:Mis en bouteille au château
-packaging:en: en:bottle
+label_categories:en: en:Packaging
 
 fr:Mis en bouteille au domaine
-packaging:en: en:bottle
+label_categories:en: en:Packaging
 
 fr:Mondial des Pinots by VINEA
 label_categories:en: en:Wines
@@ -19312,6 +19335,15 @@ fr:prix d'excellence du concours général agricole 2015, Concours général agr
 
 < fr:Prix d'excellence du Concours général agricole
 fr:prix d'excellence du concours général agricole 2016, Concours général agricole prix d'excellence 2016
+
+fr:Prix Juste Producteur
+auth_address:fr: Avenue Comte de Smet de Nayer 14, 5000 Namur, Belgium
+auth_name:fr: Services Opérationnels du Collège des Producteurs
+auth_url:fr: https://collegedesproducteurs.be/
+country:en: Belgium
+description:fr: En choisissant des produits Prix Juste Producteur, on vous garantit une juste rémunération des producteurs basée sur les coûts de production et la qualité, une origine locale de 80% des matières premières du produit et une traçabilité complète de ces matières premières.
+image:fr: prix-juste-producteur.90x90.png
+web:fr: https://prixjuste.be/
 
 fr:Produit certifié, CQ Produit Certifié
 en:Certified product

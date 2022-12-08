@@ -97,6 +97,65 @@ sub display_search_or_add_form() {
 	return $html;
 }
 
+=head2 create_packaging_components_from_request_parameters($product_ref)
+
+Read form parameters related to packaging components, and create the corresponding packagings structure.
+
+=cut
+
+sub create_packaging_components_from_request_parameters ($product_ref) {
+
+	# Check that the form is showing inputs for packaging components
+	if (not defined single_param("packaging_max")) {
+		return;
+	}
+
+	# The form contains packaging inputs, so we reset the packagings structure
+	$product_ref->{packagings} = [];
+
+	# And then we add each packaging component
+	for (my $packaging_id = 1; $packaging_id <= single_param("packaging_max"); $packaging_id++) {
+
+		my $input_packaging_ref = {};
+		my $prefix = "packaging_" . $packaging_id . "_";
+		foreach
+			my $property ("number_of_units", "shape", "material", "recycling", "quantity_per_unit", "weight_measured")
+		{
+			$input_packaging_ref->{$property} = remove_tags_and_quote(decode utf8 => single_param($prefix . $property));
+		}
+
+		my $response_ref = {};   # Currently unused, may be used to display warnings in future versions of the interface
+
+		my $packaging_ref
+			= get_checked_and_taxonomized_packaging_component_data($lc, $input_packaging_ref, $response_ref);
+
+		if (defined $packaging_ref) {
+			apply_rules_to_augment_packaging_component_data($product_ref, $packaging_ref);
+
+			push @{$product_ref->{packagings}}, $packaging_ref;
+
+			$log->debug(
+				"added a packaging component",
+				{
+					prefix => $prefix,
+					packaging_id => $packaging_id,
+					input_packaging => $input_packaging_ref,
+					packaging => $packaging_ref
+				}
+			) if $log->is_debug();
+		}
+	}
+
+	if (single_param("packagings_complete")) {
+		$product_ref->{packagings_complete} = 1;
+	}
+	else {
+		$product_ref->{packagings_complete} = 0;
+	}
+
+	return;
+}
+
 my $request_ref = ProductOpener::Display::init_request();
 
 if ($User_id eq 'unwanted-user-french') {
@@ -564,6 +623,9 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	assign_nutriments_values_from_request_parameters($product_ref, $nutriment_table);
 
+	# Process packaging components
+	create_packaging_components_from_request_parameters($product_ref);
+
 	# product check
 
 	if ($User{moderator}) {
@@ -661,7 +723,7 @@ sub display_input_field ($product_ref, $field, $language) {
 		$value =~ s/\n/ /g;
 	}
 
-	foreach my $note ("_note", "_note_2") {
+	foreach my $note ("_note", "_note_2", "_note_3") {
 		if (defined $Lang{$fieldtype . $note}{$lang}) {
 
 			push(
@@ -1389,6 +1451,16 @@ HTML
 	$template_data_ref_display->{display_tab_packaging}
 		= display_input_tabs($product_ref, "packaging_image", $product_ref->{sorted_langs}, \%Langs,
 		\@packaging_fields);
+
+	# Add an empty packaging element to the form, that will be hidden and duplicated when the user adds new packaging items,
+	# and another empty packaging element at the end
+	if (not defined $product_ref->{packagings}) {
+		$product_ref->{packagings} = [];
+	}
+	my $number_of_packaging_components = scalar @{$product_ref->{packagings}};
+
+	unshift(@{$product_ref->{packagings}}, {});
+	push(@{$product_ref->{packagings}}, {});
 
 	# Product check
 

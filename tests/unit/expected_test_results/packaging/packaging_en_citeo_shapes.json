@@ -1,32 +1,37 @@
 {
    "lc" : "en",
-   "packaging" : "Plastic tumbler, Wooden crate, Cardboard case, Strings, Plastic ties, Plastic blister wrap, paper basket, individual capsules",
+   "misc_tags" : [
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty"
+   ],
+   "packaging_text" : "Plastic tumbler; Wooden crate; Cardboard case; Strings; Plastic ties; Plastic blister wrap; paper basket; individual capsules",
    "packagings" : [
       {
          "material" : "en:plastic",
-         "shape" : "en:blister"
-      },
-      {
-         "shape" : "en:individual-dose"
-      },
-      {
-         "material" : "en:plastic",
          "shape" : "en:tumbler"
-      },
-      {
-         "material" : "en:cardboard",
-         "shape" : "en:case"
       },
       {
          "material" : "en:wood",
          "shape" : "en:crate"
       },
       {
+         "material" : "en:cardboard",
+         "shape" : "en:case"
+      },
+      {
+         "shape" : "en:string"
+      },
+      {
+         "material" : "en:plastic",
+         "shape" : "en:blister"
+      },
+      {
          "material" : "en:paper",
          "shape" : "en:basket"
       },
       {
-         "shape" : "en:string"
+         "shape" : "en:individual-dose"
       }
    ]
 }

@@ -2,7 +2,7 @@
    "count" : 5,
    "page" : "1",
    "page_count" : 5,
-   "page_size" : "24",
+   "page_size" : 24,
    "products" : [
       {
          "code" : "200000000034",
@@ -43,13 +43,7 @@
       {
          "code" : "200000000037",
          "packaging_text_en" : "no",
-         "packagings" : [
-            {
-               "shape" : {
-                  "id" : "en:unknown"
-               }
-            }
-         ]
+         "packagings" : []
       },
       {
          "code" : "200000000038",
@@ -62,13 +56,7 @@
       {
          "code" : "200000000045",
          "packaging_text_en" : "no",
-         "packagings" : [
-            {
-               "shape" : {
-                  "id" : "en:unknown"
-               }
-            }
-         ]
+         "packagings" : []
       }
    ],
    "skip" : 0

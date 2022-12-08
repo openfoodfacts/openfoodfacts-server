@@ -59,6 +59,13 @@ my $tests_ref = [
 		path => '/api/v3/product/1234567890007',
 		body => '{"product": {"fields": "updated", "packagings_add": [{"shape": {"lc_name": "bottle"}}]}}'
 	},
+	# Get updated fields + attributes and knowledge panels
+	{
+		test_case => 'patch-packagings-add-one-component',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890007',
+		body => '{"product": {"fields": "updated", "packagings_add": [{"shape": {"lc_name": "bottle"}}]}}'
+	},
 	# Only the PATCH method is valid, test other methods
 	{
 		test_case => 'post-packagings',
@@ -177,6 +184,7 @@ my $tests_ref = [
 			}
 		}'
 	},
+	# Test different value for the fields parameter
 	{
 		test_case => 'patch-request-fields-undef',
 		method => 'PATCH',
@@ -188,7 +196,7 @@ my $tests_ref = [
 					{
 						"number_of_units": 1,
 						"shape": {"lc_name": "bag"},
-						"material": {"lc_name": "plastic"},
+						"material": {"lc_name": "plastic"}
 					}
 				]
 			}
@@ -206,7 +214,7 @@ my $tests_ref = [
 					{
 						"number_of_units": 1,
 						"shape": {"lc_name": "bag"},
-						"material": {"lc_name": "plastic"},
+						"material": {"lc_name": "plastic"}
 					}
 				]
 			}
@@ -224,7 +232,25 @@ my $tests_ref = [
 					{
 						"number_of_units": 1,
 						"shape": {"lc_name": "bag"},
-						"material": {"lc_name": "plastic"},
+						"material": {"lc_name": "plastic"}
+					}
+				]
+			}
+		}'
+	},
+	{
+		test_case => 'patch-request-fields-updated-attribute-groups-knowledge-panels',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890009',
+		body => '{
+			"fields": "updated,attribute_groups,knowledge_panels",
+			"tags_lc": "en",
+			"product": {
+				"packagings": [
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "bag"},
+						"material": {"lc_name": "plastic"}
 					}
 				]
 			}
@@ -235,14 +261,14 @@ my $tests_ref = [
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890009',
 		body => '{
-			"fields": "updated",
+			"fields": "all",
 			"tags_lc": "en",
 			"product": {
 				"packagings": [
 					{
 						"number_of_units": 1,
 						"shape": {"lc_name": "bag"},
-						"material": {"lc_name": "plastic"},
+						"material": {"lc_name": "plastic"}
 					}
 				]
 			}
@@ -260,7 +286,7 @@ my $tests_ref = [
 					{
 						"number_of_units": 1,
 						"shape": {"lc_name": "bag"},
-						"material": {"lc_name": "plastic"},
+						"material": {"lc_name": "plastic"}
 					}
 				]
 			}
@@ -278,7 +304,7 @@ my $tests_ref = [
 					{
 						"number_of_units": 1,
 						"shape": {"lc_name": "bag"},
-						"material": {"lc_name": "plastic"},
+						"material": {"lc_name": "plastic"}
 					}
 				]
 			}
@@ -352,6 +378,34 @@ my $tests_ref = [
 						"material": {"lc_name": "papier"},
 						"recycling": {"lc_name": "à recycler"}
 					}
+				]
+			}
+		}'
+	},
+	# weight should be a number, but we can accept strings like "24", "23.1" or "25,1"
+	{
+		test_case => 'patch-weight-as-number-or-string',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890013',
+		body => '{
+			"tags_lc": "en",
+			"product": {
+				"packagings": [
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "Bottle"},
+						"weight_measured": 0.43
+					},
+					{
+						"number_of_units": "2",
+						"shape": {"lc_name": "Box"},
+						"weight_measured": "0.43"
+					},
+					{
+						"number_of_units": 3,
+						"shape": {"lc_name": "Lid"},
+						"weight_measured": "0,43"
+					}										
 				]
 			}
 		}'
