@@ -13,9 +13,14 @@ properties:
     description: A valid corresponding password.
     example: mypassword
   brands:
-    type: string
-    description: The brand of the product.
-    example: Häagen-Dazs
+    schema:
+      type: array
+      items:
+        type: string
+    style: form
+    explode: false
+    description: The brands of the product (comma separated list of values).
+    example: Häagen-Dazs,General-mills
   labels:
     type: string
     description: Product specific labels.
