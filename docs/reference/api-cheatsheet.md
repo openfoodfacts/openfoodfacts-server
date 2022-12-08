@@ -1,4 +1,4 @@
-# Open Food Facts Reference CheatSheet
+# Open Food Facts API - CheatSheet
 
 This reference cheatsheet gives you a quick reminder to send requests to the OFF API.
 
