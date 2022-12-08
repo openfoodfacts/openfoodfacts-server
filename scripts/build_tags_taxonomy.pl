@@ -39,7 +39,6 @@ binmode STDERR, ":encoding(UTF-8)";
 binmode STDIN, ":encoding(UTF-8)";
 binmode STDOUT, ":encoding(UTF-8)";
 
-
 my $file = $tagtype . ".txt";
 
 # The nutrients_taxonomy.txt source file is created from values in the .po files
@@ -60,7 +59,10 @@ if ($tagtype eq "origins") {
 
 elsif (($tagtype eq "ingredients") and (defined $options{product_type}) and ($options{product_type} eq "food")) {
 
-	@files = ("additives_classes", "additives", "minerals", "vitamins", "nucleotides", "other_nutritional_substances", "ingredients");
+	@files = (
+		"additives_classes", "additives", "minerals", "vitamins",
+		"nucleotides", "other_nutritional_substances", "ingredients"
+	);
 }
 
 # Packaging
@@ -69,7 +71,6 @@ elsif (($tagtype eq "packaging")) {
 
 	@files = ("packaging_materials", "packaging_shapes", "packaging_recycling", "preservation");
 }
-	
 
 # Concatenate taxonomy files if needed
 
@@ -77,11 +78,12 @@ if ((scalar @files) > 0) {
 
 	$file = "$tagtype.all.txt";
 
-	open (my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/$file") or die("Cannot write $data_root/taxonomies/$file : $!\n");
+	open(my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/$file")
+		or die("Cannot write $data_root/taxonomies/$file : $!\n");
 
 	foreach my $taxonomy (@files) {
 
-		if (open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$taxonomy.txt")) {
+		if (open(my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$taxonomy.txt")) {
 
 			print $OUT "# $taxonomy.txt\n\n";
 
@@ -97,11 +99,10 @@ if ((scalar @files) > 0) {
 		}
 	}
 
-	close ($OUT);
+	close($OUT);
 }
 
 build_tags_taxonomy($tagtype, $file, $publish);
-
 
 exit(0);
 

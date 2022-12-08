@@ -5,7 +5,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: bg\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-07-07 22:01\n"
 "Language-Team: Bulgarian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -14,8 +13,7 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: bg\n"
-"X-Crowdin-File: common.pot\n"
-"X-Crowdin-File-ID: 1808\n"
+"X-Crowdin-File-ID: 2588\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -589,8 +587,8 @@ msgid "editor"
 msgstr "редактор"
 
 msgctxt "email"
-msgid "e-mail address"
-msgstr "имейл адрес"
+msgid "E-mail address"
+msgstr ""
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
@@ -768,8 +766,8 @@ msgstr "<<site_name>> блог"
 
 # Do not translate
 msgctxt "footer_blog_link"
-msgid "https://en.blog.openfoodfacts.org"
-msgstr "https://en.blog.openfoodfacts.org"
+msgid "https://blog.openfoodfacts.org/en/"
+msgstr "https://blog.openfoodfacts.org/bg/"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -1401,6 +1399,10 @@ msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
 msgstr "Абонирай се за бюлетина (максимум 2 имейла на месец)"
 
+msgctxt "subscribe_to_our_newsletter"
+msgid "Subscribe to our newsletter"
+msgstr ""
+
 msgctxt "next"
 msgid "Next"
 msgstr "Следваща"
@@ -1573,14 +1575,14 @@ msgstr "Хранителна оценка"
 
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
-msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
-msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
+msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
+msgstr ""
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
-msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
+msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://blog.openfoodfacts.org/en/\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr "<p>За да научиш повече за <<site_name>>, посети <a href=\"https://en.blog.openfoodfacts.org\">нашият блог</a>!</p>\n"
+msgstr "<p>За да научиш повече за <<site_name>>, посети <a href=\"https://blog.openfoodfacts.org/bg/\">нашият блог</a>!</p>\n"
 "<p>Последни новини:</p>\n"
 
 msgctxt "on_the_blog_title"
@@ -2301,7 +2303,7 @@ msgstr "Виж продуктовата страница"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr "Държава"
+msgstr "Страна"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2459,6 +2461,7 @@ msgctxt "tagstable_search"
 msgid "Search:"
 msgstr "Търсене:"
 
+# This is linked to a unit test
 msgctxt "traces"
 msgid "Traces"
 msgstr "Следи"
@@ -3141,6 +3144,10 @@ msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
 msgstr "Важна забележка: този продукт вече не се продава. Данните се съхраняват само за справка. Този продукт не се появява при редовни търсения и не се взема предвид за статистиките."
 
+# This will be on a button and needs to be as short as possible
+# So instead of something like "Install the mobile application"
+# try to make it very short "Get the app" or "Install the app"
+# Use infinitive instead of imperative
 msgctxt "get_the_app"
 msgid "Get the app"
 msgstr "Изтегли приложението"
@@ -3760,10 +3767,6 @@ msgctxt "import_file_result"
 msgid "Import result"
 msgstr "Резултат от вноса"
 
-msgctxt "products_added"
-msgid "Products added"
-msgstr "Добавени продукти"
-
 msgctxt "products_modified"
 msgid "Products modified"
 msgstr "Променени продукти"
@@ -3939,7 +3942,7 @@ msgstr "Плодове, зеленчуци, ядки и рапица/орех/з
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
-msgstr "Хранителните влакнини"
+msgstr "Влакна"
 
 msgctxt "nutriscore_points_for_proteins"
 msgid "Proteins"
@@ -4429,6 +4432,7 @@ msgctxt "images_can_be_provided_separately"
 msgid "Product photos can also be provided separately through the Import product photos function of the platform for producers."
 msgstr "Снимките на продуктите могат да се предоставят и отделно чрез функцията за внасяне на продуктови снимки на платформата за производители."
 
+# This is linked to a unit test
 msgctxt "attribute_group_labels_name"
 msgid "Labels"
 msgstr "Етикети"
@@ -4622,19 +4626,19 @@ msgstr "Неизвестен потребител."
 
 msgctxt "attribute_low_salt_setting_note"
 msgid "The salt level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low salt diet."
-msgstr "Нивото на сол се взема предвид от Nutri-Score. Използвайте тази настройка само ако сте на диета с ниско съдържание на сол."
+msgstr "Нивото на сол се взема предвид от Nutri-Score. Използвай тази настройка само ако си на диета с ниско съдържание на сол."
 
 msgctxt "attribute_low_sugars_setting_note"
 msgid "The sugars level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low sugars diet."
-msgstr "Нивото на захарите се взема предвид от Nutri-Score. Използвайте тази настройка само ако сте на диета с ниско съдържание на захар."
+msgstr "Нивото на захарите се взема предвид от Nutri-Score. Използвай тази настройка само ако си на диета с ниско съдържание на захар."
 
 msgctxt "attribute_low_fat_setting_note"
 msgid "The fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low fat diet."
-msgstr "Нивото на мазнините се взема предвид от Nutri-Score. Използвайте тази настройка само ако сте на диета с ниско съдържание на мазнини."
+msgstr "Нивото на мазнините се взема предвид от Nutri-Score. Използвай тази настройка само ако си на диета с ниско съдържание на мазнини."
 
 msgctxt "attribute_low_saturated_fat_setting_note"
 msgid "The saturated fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low saturated fat diet."
-msgstr "Нивото на наситени мазнини се взема предвид от Nutri-Score. Използвайте тази настройка само ако сте на диета с ниско съдържание на наситени мазнини."
+msgstr "Нивото на наситени мазнини се взема предвид от Nutri-Score. Използвай тази настройка само ако си на диета с ниско съдържание на наситени мазнини."
 
 msgctxt "attribute_group_allergens_name"
 msgid "Allergens"
@@ -6047,8 +6051,8 @@ msgid "Could you add the information needed to compute the Nutri-Score?"
 msgstr "Може ли да добавиш необходимата информация, за изчисляването на Nutri-Score?"
 
 msgctxt "actions_to_compute_ecoscore"
-msgid "Could you categorize the product so that we can compute the Eco-Score?"
-msgstr "Може ли да категоризираш продукта, за да можем да изчислим Eco-Score?"
+msgid "Could you add a precise product category so that we can compute the Eco-Score?"
+msgstr "Би ли добавил точна продуктова категория, за да можем да изчислим Eco-Score?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -6061,4 +6065,137 @@ msgstr "Добави категорията"
 msgctxt "action_add_nutrition_facts"
 msgid "Add nutrition facts"
 msgstr "Добави хранителните стойности"
+
+# Used as a header for key facts
+msgctxt "knowledge_panels_facts"
+msgid "What you need to know"
+msgstr "Какво трябва да знаеш"
+
+msgctxt "knowledge_panels_recommendation"
+msgid "Recommendation"
+msgstr "Препоръка"
+
+msgctxt "nutrient_info_salt_risk"
+msgid "A high consumption of salt (or sodium) can cause raised blood pressure, which can increase the risk of heart disease and stroke."
+msgstr "Високата консумация на сол (или натрий) може да причини повишено кръвно налягане, което може да увеличи риска от сърдечни заболявания и инсулт."
+
+msgctxt "nutrient_info_salt_high_blood_pressure"
+msgid "Many people who have high blood pressure do not know it, as there are often no symptoms."
+msgstr "Много хора, които имат високо кръвно налягане, не го знаят, тъй като често няма симптоми."
+
+msgctxt "nutrient_info_salt_high_consumption"
+msgid "Most people consume too much salt (on average 9 to 12 grams per day), around twice the recommended maximum level of intake."
+msgstr "Повечето хора консумират твърде много сол (средно 9 до 12 грама на ден), около два пъти повече от препоръчителната доза."
+
+msgctxt "nutrient_recommendation_salt_title"
+msgid "Limit the consumption of salt and salted food"
+msgstr "Ограничи консумацията на сол и солени храни"
+
+msgctxt "nutrient_recommendation_salt_cooking_and_table"
+msgid "Reduce the quantity of salt used when cooking, and don't salt again at the table."
+msgstr "Намали количеството сол, използвано при готвене, и не соли отново на масата."
+
+msgctxt "nutrient_recommendation_salt_limit_salty_snacks"
+msgid "Limit the consumption of salty snacks and choose products with lower salt content."
+msgstr "Ограничи консумацията на солени закуски и избери продукти с по-ниско съдържание на сол."
+
+msgctxt "nutrient_info_sugars_risk"
+msgid "A high consumption of sugar can cause weight gain and tooth decay. It also augments the risk of type 2 diabetes and cardio-vascular diseases."
+msgstr "Високата консумация на захар може да причини повишаване на теглото и кариеси. Тя също така увеличава риска от диабет тип 2 и сърдечно-съдови заболявания."
+
+msgctxt "nutrient_recommendation_sugars_title"
+msgid "Limit the consumption of sugar and sugary drinks"
+msgstr "Ограничи консумацията на захар и подсладени напитки"
+
+msgctxt "nutrient_recommendation_sugars_drinks"
+msgid "Sugary drinks (such as sodas, fruit beverages, and fruit juices and nectars) should be limited as much as possible (no more than 1 glass a day)."
+msgstr "Подсладените напитки (като газирани напитки, плодови напитки и плодови сокове и нектари) трябва да бъдат максимално ограничени (не повече от 1 чаша на ден)."
+
+msgctxt "nutrient_recommendation_sugars_food"
+msgid "Choose products with lower sugar content and reduce the consumption of products with added sugars."
+msgstr "Избирай продукти с по-ниско съдържание на захар и намали консумацията на продукти с добавена захар."
+
+msgctxt "nutrient_info_fat_and_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "Високата консумация на мазнини, особено на наситени мазнини, може да повиши холестерола, което увеличава риска от сърдечни заболявания."
+
+msgctxt "nutrient_recommendation_fat_and_saturated_fat_title"
+msgid "Reduce the consumption of fat and saturated fat"
+msgstr "Намали консумацията на мазнини и наситени мазнини"
+
+msgctxt "nutrient_recommendation_fat_and_saturated_fat"
+msgid "Choose products with lower fat and saturated fat content."
+msgstr "Избери продукти с по-ниско съдържание на мазнини и наситени мазнини."
+
+msgctxt "sign_in"
+msgid "Sign in"
+msgstr "Вход"
+
+msgctxt "sign_out"
+msgid "Sign out"
+msgstr "Изход"
+
+msgctxt "your_contributions"
+msgid "Your contributions"
+msgstr "Твоите приноси"
+
+msgctxt "products_added"
+msgid "Products added"
+msgstr "Добавени продукти"
+
+msgctxt "products_edited"
+msgid "Products edited"
+msgstr "Редактирани плодукти"
+
+msgctxt "products_photographed"
+msgid "Products photographed"
+msgstr "Снимани продукти"
+
+# result of the matching with the user preferences: should ne a noun, not a verb
+msgctxt "matching_with_your_preferences"
+msgid "Matching with your preferences"
+msgstr "В съответствие с твоите предпочитания"
+
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_join_us_on_slack"
+msgid "Join us on <a href=\"{url}\">Slack</a>"
+msgstr "Присъедини се към нас в <a href=\"{url}\">Slack</a>"
+
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_discover_our_code_of_conduct"
+msgid "Discover our <a href=\"{url}\">Code of conduct</a>"
+msgstr "Открий нашия <a href=\"{url}\">Кодекс на поведение</a>"
+
+# {links} must not be translated, it will be replaced by icons and/or text links
+msgctxt "f_footer_follow_us_links"
+msgid "Follow us: {links}"
+msgstr "Последвай ни: {links}"
+
+# Should be as small as possible, e.g. use "app" instead of "application", don't specify "mobile"
+msgctxt "footer_install_the_app_exclamation_mark"
+msgid "Install the app!"
+msgstr "Инсталирай приложението!"
+
+# HTML tags must not be translated, keep <span id=\"everyday\"> and <span id=\"foods\"> and put them around the corresponding words in the translation
+# e.g. in French: Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>
+msgctxt "footer_scan_your_everyday_foods"
+msgid "Scan your <span id=\"everyday\">everyday</span> <span id=\"foods\">foods</span>"
+msgstr "Сканирай твоите <span id=\"everyday\">ежедневни</span> <span id=\"foods\">храни</span>"
+
+msgctxt "nutrition"
+msgid "Nutrition"
+msgstr "Хранителни стойности"
+
+# Note: "criteria" is plural here. So in French for instance: "Vos critères"
+msgctxt "your_criteria"
+msgid "Your criteria"
+msgstr "Твоите критерии"
+
+msgctxt "product"
+msgid "Product"
+msgstr "Продукт"
+
+msgctxt "environment"
+msgid "Environment"
+msgstr "Околна среда"
 

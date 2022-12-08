@@ -105,9 +105,9 @@
 
     <ul id="result_accordion" class="accordion" style="margin-left:0" data-accordion>
 
-        <li class="accordion-navigation">
+        <li class="accordion-navigation search_form_accordion_navigation">
             <a href="#results_list" style="border-top:1px solid #ccc"><h3>[% lang('search_list_choice') %]</h3></a>
-            <div id="results_list" class="content [% active_list %]">
+            <div id="results_list" class="content [% active_list %] search_form_accordion_content">
                 <div class="row">
                     <div class="small-6 columns">
                         <label for="sort_by">[% lang('sort_by') %]</label>
@@ -136,11 +136,11 @@
         
         <!-- Graphs and visualization -->
 
-        <li class="accordion-navigation">
+        <li class="accordion-navigation search_form_accordion_navigation">
             <a href="#results_graph" style="border-top:1px solid #ccc">
                 <h3>[% lang('search_graph_choice') %]</h3>
             </a>
-            <div id="results_graph" class="content [% active_graph %]">
+            <div id="results_graph" class="content [% active_graph %] search_form_accordion_content">
                 <div class="alert-box info">[% lang('search_graph_note') %]</div>
     
                 <label for="graph_title">[% lang('graph_title') %]</label>
@@ -183,9 +183,9 @@
 
         <!-- Map results -->
 
-        <li class="accordion-navigation">
+        <li class="accordion-navigation search_form_accordion_navigation">
             <a href="#results_map" style="border-top:1px solid #ccc"><h3>[% lang('search_map_choice') %]</h3></a>
-            <div id="results_map" class="content [% active_map %]">
+            <div id="results_map" class="content [% active_map %] search_form_accordion_content">
 
                 <div class="alert-box info">[% lang ('search_map_note') %]</div>
 
@@ -199,9 +199,9 @@
         
         <!-- Download results -->
 
-        <li class="accordion-navigation">
+        <li class="accordion-navigation search_form_accordion_navigation">
             <a href="#results_download" style="border-top:1px solid #ccc"><h3>[% lang('search_download_choice') %]</h3></a>
-            <div id="results_download" class="content">
+            <div id="results_download" class="content search_form_accordion_content">
 
                 <p>[% lang('search_download_results') %]</p>
 

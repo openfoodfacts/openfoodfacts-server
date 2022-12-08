@@ -2,7 +2,6 @@ name: Pull Requests
 
 on:
   pull_request:
-    branches: [ main ]
 
 jobs:
 
@@ -62,8 +61,12 @@ jobs:
       uses: ishworkh/docker-image-artifact-download@v1
       with:
         image: "openfoodfacts-server/backend:dev"
+    - name: ensure branch origin/main is fetched
+      run: git fetch --no-tags --prune --progress --no-recurse-submodules --depth=5 origin  main
     - name: check perltidy
       run: make check_perltidy
+    - name: check perlcritic
+      run: make check_critic
     - name: check perl
       run: make check_perl
 
@@ -99,7 +102,7 @@ jobs:
       run: |
         make dev
         make status
-    - name: test all is runing
+    - name: test all is running
       run: make livecheck
     - name: test clean
       run: make hdown

@@ -5,7 +5,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-07-07 19:06\n"
 "Language-Team: German\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -14,8 +13,7 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: de\n"
-"X-Crowdin-File: common.pot\n"
-"X-Crowdin-File-ID: 1808\n"
+"X-Crowdin-File-ID: 2588\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -589,7 +587,7 @@ msgid "editor"
 msgstr "Editor"
 
 msgctxt "email"
-msgid "e-mail address"
+msgid "E-mail address"
 msgstr "E-Mail-Adresse"
 
 msgctxt "emb_code_products"
@@ -602,7 +600,7 @@ msgstr "Rückverfolgbarkeitscodes"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr "Identitätskennzeichen"
+msgstr "Produzentenschlüssel"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
@@ -767,8 +765,8 @@ msgstr "<<site_name>> Blog"
 
 # Do not translate
 msgctxt "footer_blog_link"
-msgid "https://en.blog.openfoodfacts.org"
-msgstr "https://en.blog.openfoodfacts.org"
+msgid "https://blog.openfoodfacts.org/en/"
+msgstr "https://blog.openfoodfacts.org/de/"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -1400,6 +1398,10 @@ msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
 msgstr "Newsletter abonnieren (maximum 2 E-Mails pro Monat)"
 
+msgctxt "subscribe_to_our_newsletter"
+msgid "Subscribe to our newsletter"
+msgstr "Abonnieren Sie den Newsletter"
+
 msgctxt "next"
 msgid "Next"
 msgstr "Weiter"
@@ -1572,15 +1574,15 @@ msgstr "Nährwertqualität"
 
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
-msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
-msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-de-356.png"
+msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
+msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
-msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
+msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://blog.openfoodfacts.org/en/\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr "<p>Um mehr über <<site_name>> zu erfahren, besuchen Sie <a href=\"https://en.blog.openfoodfacts.org\">unseren Blog</a>!</p>\n"
-"<p>Aktuelle Neuigkeiten:</p>\n"
+msgstr "<p>Um mehr über <<site_name>> zu erfahren, besuchen Sie <a href=\"https://blog.openfoodfacts.org/de/\">unseren Blog</a>!</p>\n"
+"<p>Aktuelle Nachrichten:</p>\n"
 
 msgctxt "on_the_blog_title"
 msgid "News"
@@ -2300,7 +2302,7 @@ msgstr "Produktdetails anzeigen"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr "Vertriebsländer"
+msgstr "Land"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2458,6 +2460,7 @@ msgctxt "tagstable_search"
 msgid "Search:"
 msgstr "Suche:"
 
+# This is linked to a unit test
 msgctxt "traces"
 msgid "Traces"
 msgstr "Spuren"
@@ -3139,6 +3142,10 @@ msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
 msgstr "Wichtiger Hinweis: Dieses Produkt wird nicht mehr verkauft. Die Daten werden nur als Referenz gespeichert. Dieses Produkt erscheint nicht in der regulären Suche und wird für Statistiken nicht berücksichtigt."
 
+# This will be on a button and needs to be as short as possible
+# So instead of something like "Install the mobile application"
+# try to make it very short "Get the app" or "Install the app"
+# Use infinitive instead of imperative
 msgctxt "get_the_app"
 msgid "Get the app"
 msgstr "Holen Sie sich die App"
@@ -3758,10 +3765,6 @@ msgctxt "import_file_result"
 msgid "Import result"
 msgstr "Importergebnis"
 
-msgctxt "products_added"
-msgid "Products added"
-msgstr "Hinzugefügte Produkte"
-
 msgctxt "products_modified"
 msgid "Products modified"
 msgstr "Bearbeitete Produkte"
@@ -4285,7 +4288,7 @@ msgstr "CIQUAL Lebensmittelnamen"
 
 msgctxt "we_need_your_help"
 msgid "We need your help!"
-msgstr "### Wir benötigen Ihre Hilfe!"
+msgstr "Wir benötigen Ihre Hilfe!"
 
 msgctxt "you_can_help_improve_ingredients_analysis"
 msgid "You can help us recognize more ingredients and better analyze the list of ingredients for this product and others by:"
@@ -4427,6 +4430,7 @@ msgctxt "images_can_be_provided_separately"
 msgid "Product photos can also be provided separately through the Import product photos function of the platform for producers."
 msgstr "Produktfotos können auch separat über die Funktion „Produktfotos importieren” der Plattform für Produzenten zur Verfügung gestellt werden."
 
+# This is linked to a unit test
 msgctxt "attribute_group_labels_name"
 msgid "Labels"
 msgstr "Labels"
@@ -6045,8 +6049,8 @@ msgid "Could you add the information needed to compute the Nutri-Score?"
 msgstr "Könnten Sie bitte die für die Berechnung des Nutri-Score erforderlichen Informationen hinzufügen?"
 
 msgctxt "actions_to_compute_ecoscore"
-msgid "Could you categorize the product so that we can compute the Eco-Score?"
-msgstr "Könnten Sie bitte das Produkt so kategorisieren, dass wir den Eco-Score berechnen können?"
+msgid "Could you add a precise product category so that we can compute the Eco-Score?"
+msgstr "Könnten Sie bitte eine genaue Produktkategorie angeben, damit wir den Eco-Score berechnen können?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -6059,4 +6063,137 @@ msgstr "Eine Kategorie hinzufügen"
 msgctxt "action_add_nutrition_facts"
 msgid "Add nutrition facts"
 msgstr "Nährwertangaben hinzufügen"
+
+# Used as a header for key facts
+msgctxt "knowledge_panels_facts"
+msgid "What you need to know"
+msgstr "Was Sie wissen sollten"
+
+msgctxt "knowledge_panels_recommendation"
+msgid "Recommendation"
+msgstr "Empfehlung"
+
+msgctxt "nutrient_info_salt_risk"
+msgid "A high consumption of salt (or sodium) can cause raised blood pressure, which can increase the risk of heart disease and stroke."
+msgstr "Ein hoher Salz- (oder Natrium-) Konsum kann zu einem erhöhten Blutdruck führen, was das Risiko von Herzkrankheiten und Schlaganfällen erhöhen kann."
+
+msgctxt "nutrient_info_salt_high_blood_pressure"
+msgid "Many people who have high blood pressure do not know it, as there are often no symptoms."
+msgstr "Viele Menschen, die unter Bluthochdruck leiden, wissen es nicht, da sie oft keine Symptome haben."
+
+msgctxt "nutrient_info_salt_high_consumption"
+msgid "Most people consume too much salt (on average 9 to 12 grams per day), around twice the recommended maximum level of intake."
+msgstr "Die meisten Menschen nehmen zu viel Salz zu sich (im Durchschnitt 9 bis 12 Gramm pro Tag), etwa das Doppelte der empfohlenen Höchstmenge."
+
+msgctxt "nutrient_recommendation_salt_title"
+msgid "Limit the consumption of salt and salted food"
+msgstr "Begrenzen Sie den Konsum von Salz und gesalzenen Lebensmitteln"
+
+msgctxt "nutrient_recommendation_salt_cooking_and_table"
+msgid "Reduce the quantity of salt used when cooking, and don't salt again at the table."
+msgstr "Reduzieren Sie die Salzmenge beim Kochen und salzen Sie bei Tisch nicht nach."
+
+msgctxt "nutrient_recommendation_salt_limit_salty_snacks"
+msgid "Limit the consumption of salty snacks and choose products with lower salt content."
+msgstr "Schränken Sie den Konsum von salzigen Snacks ein und wählen Sie Produkte mit geringerem Salzgehalt."
+
+msgctxt "nutrient_info_sugars_risk"
+msgid "A high consumption of sugar can cause weight gain and tooth decay. It also augments the risk of type 2 diabetes and cardio-vascular diseases."
+msgstr "Ein hoher Zuckerkonsum kann zu Gewichtszunahme und Zahnverfall führen. Außerdem erhöht er das Risiko für Typ-2-Diabetes und Herz-Kreislauf-Erkrankungen."
+
+msgctxt "nutrient_recommendation_sugars_title"
+msgid "Limit the consumption of sugar and sugary drinks"
+msgstr "Begrenzen Sie den Konsum von Zucker und zuckerhaltigen Getränken"
+
+msgctxt "nutrient_recommendation_sugars_drinks"
+msgid "Sugary drinks (such as sodas, fruit beverages, and fruit juices and nectars) should be limited as much as possible (no more than 1 glass a day)."
+msgstr "Zuckerhaltige Getränke (wie Limonaden, Fruchtgetränke, Fruchtsäfte und -nektare) sollten so weit wie möglich eingeschränkt werden (nicht mehr als 1 Glas pro Tag)."
+
+msgctxt "nutrient_recommendation_sugars_food"
+msgid "Choose products with lower sugar content and reduce the consumption of products with added sugars."
+msgstr "Wählen Sie Produkte mit geringerem Zuckergehalt und reduzieren Sie den Konsum von Produkten mit Zuckerzusatz."
+
+msgctxt "nutrient_info_fat_and_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "Ein hoher Konsum von Fett, insbesondere von gesättigten Fettsäuren, kann den Cholesterinspiegel erhöhen, was das Risiko von Herzkrankheiten steigert."
+
+msgctxt "nutrient_recommendation_fat_and_saturated_fat_title"
+msgid "Reduce the consumption of fat and saturated fat"
+msgstr "Reduzieren Sie den Konsum von Fett und gesättigten Fettsäuren"
+
+msgctxt "nutrient_recommendation_fat_and_saturated_fat"
+msgid "Choose products with lower fat and saturated fat content."
+msgstr "Wählen Sie Produkte mit einem geringeren Gehalt an Fett und gesättigten Fettsäuren."
+
+msgctxt "sign_in"
+msgid "Sign in"
+msgstr "Anmelden"
+
+msgctxt "sign_out"
+msgid "Sign out"
+msgstr "Abmelden"
+
+msgctxt "your_contributions"
+msgid "Your contributions"
+msgstr "Ihre Beiträge"
+
+msgctxt "products_added"
+msgid "Products added"
+msgstr "Hinzugefügte Produkte"
+
+msgctxt "products_edited"
+msgid "Products edited"
+msgstr "Produkte bearbeitet"
+
+msgctxt "products_photographed"
+msgid "Products photographed"
+msgstr "Fotografierte Produkte"
+
+# result of the matching with the user preferences: should ne a noun, not a verb
+msgctxt "matching_with_your_preferences"
+msgid "Matching with your preferences"
+msgstr "Passend zu Ihren Vorlieben"
+
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_join_us_on_slack"
+msgid "Join us on <a href=\"{url}\">Slack</a>"
+msgstr "Besuchen Sie uns auf <a href=\"{url}\">Slack</a>"
+
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_discover_our_code_of_conduct"
+msgid "Discover our <a href=\"{url}\">Code of conduct</a>"
+msgstr "Informieren Sie sich über unseren <a href=\"{url}\">Verhaltenskodex</a>"
+
+# {links} must not be translated, it will be replaced by icons and/or text links
+msgctxt "f_footer_follow_us_links"
+msgid "Follow us: {links}"
+msgstr "Folgen Sie uns: {links}"
+
+# Should be as small as possible, e.g. use "app" instead of "application", don't specify "mobile"
+msgctxt "footer_install_the_app_exclamation_mark"
+msgid "Install the app!"
+msgstr "Installieren Sie die App!"
+
+# HTML tags must not be translated, keep <span id=\"everyday\"> and <span id=\"foods\"> and put them around the corresponding words in the translation
+# e.g. in French: Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>
+msgctxt "footer_scan_your_everyday_foods"
+msgid "Scan your <span id=\"everyday\">everyday</span> <span id=\"foods\">foods</span>"
+msgstr "Erfassen Sie Ihre <span id=\"everyday\">täglichen</span> <span id=\"foods\">Lebensmittel</span>"
+
+msgctxt "nutrition"
+msgid "Nutrition"
+msgstr "Nährwertangaben"
+
+# Note: "criteria" is plural here. So in French for instance: "Vos critères"
+msgctxt "your_criteria"
+msgid "Your criteria"
+msgstr "Ihre Kriterien"
+
+msgctxt "product"
+msgid "Product"
+msgstr "Produkt"
+
+msgctxt "environment"
+msgid "Environment"
+msgstr "Umweltauswirkungen"
 

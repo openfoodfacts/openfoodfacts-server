@@ -1,4 +1,4 @@
-﻿# This file is part of Product Opener.
+# This file is part of Product Opener.
 #
 # Product Opener
 # Copyright (C) 2011-2020 Association Open Food Facts
@@ -43,13 +43,11 @@ GitHub, where some additional context is available.
 
 package ProductOpener::Data;
 
-use utf8;
-use Modern::Perl '2017';
-use Exporter    qw< import >;
+use ProductOpener::PerlStandards;
+use Exporter qw< import >;
 
-BEGIN
-{
-	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
+BEGIN {
+	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&execute_query
 		&get_database
@@ -59,11 +57,11 @@ BEGIN
 		&get_emb_codes_collection
 		&get_recent_changes_collection
 
-		);    # symbols to export on request
+	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
-use vars @EXPORT_OK ;
+use vars @EXPORT_OK;
 
 use experimental 'smartmatch';
 
@@ -95,7 +93,7 @@ A query subroutine that performs a query against the database.
 
 The function returns the return value of the query subroutine $sub passed as a parameter to it.
 
-=head3 Synopsys
+=head3 Synopsis
 
 eval {
 	$result = execute_query(sub {
@@ -105,26 +103,25 @@ eval {
 
 =cut
 
-sub execute_query {
-	my ($sub) = @_;
+sub execute_query ($sub) {
 
 	return Action::Retry->new(
-		attempt_code => sub { $action->run($sub) },
-		on_failure_code => sub { my ($error, $h) = @_; die $error; }, # by default Action::Retry would return undef
-		# If we didn't get results from MongoDB, the server is probably overloaded
-		# Do not retry the query, as it will make things worse
-		strategy => { Fibonacci => { max_retries_number => 0, } },
+		attempt_code => sub {$action->run($sub)},
+		on_failure_code => sub {my ($error, $h) = @_; die $error;},    # by default Action::Retry would return undef
+			# If we didn't get results from MongoDB, the server is probably overloaded
+			# Do not retry the query, as it will make things worse
+		strategy => {Fibonacci => {max_retries_number => 0,}},
 	)->run();
 }
 
 =head2 get_products_collection()
 
-C<get_products_collection()> establishes a connection to MongoDB and uses timeout as an arugument. This then selects a collection
+C<get_products_collection()> establishes a connection to MongoDB and uses timeout as an argument. This then selects a collection
 from within the database.
 
 =head3 Arguments
 
-This method takes in aruguments of integer type (user defined timeout in milliseconds).
+This method takes in arguments of integer type (user defined timeout in milliseconds).
 It is optional for this subroutine to have an argument.
 
 =head3 Return values
@@ -133,8 +130,7 @@ Returns a mongoDB collection object.
 
 =cut
 
-sub get_products_collection {
-	my ($timeout) = @_;
+sub get_products_collection ($timeout = undef) {
 	return get_collection($mongodb, 'products', $timeout);
 }
 
@@ -144,7 +140,7 @@ C<get_products_collection()> This selects the product tag collection from within
 
 =head3 Arguments
 
-This method takes in aruguments of integer type (user defined timeout in milliseconds).
+This method takes in arguments of integer type (user defined timeout in milliseconds).
 It is optional for this subroutine to have an argument.
 
 =head3 Return values
@@ -153,23 +149,19 @@ Returns a mongoDB collection.
 
 =cut
 
-sub get_products_tags_collection {
-	my ($timeout) = @_;
+sub get_products_tags_collection ($timeout = undef) {
 	return get_collection($mongodb, 'products_tags', $timeout);
 }
 
-sub get_emb_codes_collection {
-	my ($timeout) = @_;
+sub get_emb_codes_collection ($timeout = undef) {
 	return get_collection($mongodb, 'emb_codes', $timeout);
 }
 
-sub get_recent_changes_collection {
-	my ($timeout) = @_;
+sub get_recent_changes_collection ($timeout = undef) {
 	return get_collection($mongodb, 'recent_changes', $timeout);
 }
 
-sub get_collection {
-	my ($database, $collection, $timeout) = @_;
+sub get_collection ($database, $collection, $timeout = undef) {
 	return get_mongodb_client($timeout)->get_database($database)->get_collection($collection);
 }
 
@@ -185,7 +177,7 @@ it creates and configures a new MongoDB::MongoClient.
 
 =head3 Arguments
 
-This method takes in aruguments of integer type (user defined timeout in milliseconds). It is optional for this subroutine to have an argument.
+This method takes in arguments of integer type (user defined timeout in milliseconds). It is optional for this subroutine to have an argument.
 
 =head3 Return values
 
@@ -193,10 +185,9 @@ Returns $client of type MongoDB::MongoClient object.
 
 =cut
 
-sub get_mongodb_client() {
+sub get_mongodb_client ($timeout = undef) {
 	# Note that for web pages, $client will be cached in mod_perl,
 	# so passing in different options for different queries won't do anything after the first call.
-	my ($timeout) = @_;
 
 	my $max_time_ms = $timeout // $mongodb_timeout_ms;
 
@@ -213,9 +204,10 @@ sub get_mongodb_client() {
 	);
 
 	if (!defined($client)) {
-		$log->info("Creating new DB connection", { socket_timeout_ms => $client_options{socket_timeout_ms} });
+		$log->info("Creating new DB connection", {socket_timeout_ms => $client_options{socket_timeout_ms}});
 		$client = MongoDB::MongoClient->new(%client_options);
-	} else {
+	}
+	else {
 		$log->info("DB connection already exists");
 	}
 
