@@ -473,6 +473,7 @@ images:
 - cgi/product_image_unselect.pl
 - cgi/product_image_upload.pl
 - scripts/delete_old_cropped_images.pl
+- tests/integration/image_upload.t
 
 Products:
 - lib/ProductOpener/Products.pm
@@ -689,7 +690,7 @@ integration tests:
 - tests/integration/export.t
 - tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels.json
 - tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels-fr.json
-
+- tests/integration/image_upload.t
 
 unit tests:
 - tests/unit/display.t
