@@ -2,13 +2,11 @@
 
 use Modern::Perl '2017';
 
-use Getopt::Long qw/GetOptions/;
 use Log::Any::Adapter 'TAP';
 use Mock::Quick qw/qobj qmeth/;
 use Test::MockModule;
 use Test::More;
 
-use File::Basename "dirname";
 use File::Path qw/make_path remove_tree/;
 
 use ProductOpener::Config '$data_root';
@@ -17,30 +15,14 @@ use ProductOpener::Producers qw/load_csv_or_excel_file convert_file/;
 use ProductOpener::Products "retrieve_product";
 use ProductOpener::Store "store";
 use ProductOpener::Test qw/:all/;
+use ProductOpener::LoadData qw/:all/;
 
-my $test_id = "import_csv_file";
-my $test_dir = dirname(__FILE__);
+load_data();
+
+my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 my $inputs_dir = "$test_dir/inputs/$test_id/";
-my $expected_dir = "$test_dir/expected_test_results/$test_id/";
 my $outputs_dir = "$test_dir/outputs/$test_id";
 make_path($outputs_dir);
-
-my $usage = <<TXT
-
-The expected results of the tests are saved in $test_dir/expected_test_results/$test_id
-
-To verify differences and update the expected test results,
-actual test results can be saved by passing --update-expected-results
-
-The directory will be created if it does not already exist.
-
-TXT
-  ;
-
-my $update_expected_results;
-
-GetOptions("update-expected-results" => \$update_expected_results)
-  or die("Error in command line arguments.\n\n" . $usage);
 
 # fake image download using input directory instead of distant server
 sub fake_download_image ($) {
@@ -135,7 +117,7 @@ sub fake_download_image ($) {
 	normalize_products_for_test_comparison(\@products);
 
 	# verify result
-	compare_array_to_expected_results(\@products, $expected_dir, $update_expected_results);
+	compare_array_to_expected_results(\@products, $expected_result_dir, $update_expected_results);
 
 	# also verify sto
 	if (!$update_expected_results) {
@@ -144,10 +126,10 @@ sub fake_download_image ($) {
 			push(@sto_products, retrieve_product($product->{code}));
 		}
 		normalize_products_for_test_comparison(\@sto_products);
-		compare_array_to_expected_results(\@products, $expected_dir, $update_expected_results);
+		compare_array_to_expected_results(\@products, $expected_result_dir, $update_expected_results);
 	}
 
-	compare_to_expected_results($stats_ref, $expected_dir . "/stats.json", $update_expected_results);
+	compare_to_expected_results($stats_ref, $expected_result_dir . "/stats.json", $update_expected_results);
 
 	# TODO verify images
 	# clean csv and sto

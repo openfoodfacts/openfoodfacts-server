@@ -13,7 +13,7 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: fr\n"
-"X-Crowdin-File-ID: 1808\n"
+"X-Crowdin-File-ID: 2588\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -588,7 +588,7 @@ msgid "editor"
 msgstr "éditeur"
 
 msgctxt "email"
-msgid "e-mail address"
+msgid "E-mail address"
 msgstr "Adresse e-mail"
 
 msgctxt "emb_code_products"
@@ -766,8 +766,8 @@ msgstr "Le blog d'<<site_name>>"
 
 # Do not translate
 msgctxt "footer_blog_link"
-msgid "https://en.blog.openfoodfacts.org"
-msgstr "https://fr.blog.openfoodfacts.org"
+msgid "https://blog.openfoodfacts.org/en/"
+msgstr "https://blog.openfoodfacts.org/fr/"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -897,7 +897,7 @@ msgstr "Produit"
 
 msgctxt "generic_name"
 msgid "Common name"
-msgstr "Dénomination générique"
+msgstr "Nom générique"
 
 msgctxt "generic_name_example"
 msgid "Chocolate bar with milk and hazelnuts"
@@ -1399,6 +1399,10 @@ msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
 msgstr "S'inscrire à la lettre d'information (2 e-mails par mois maximum)"
 
+msgctxt "subscribe_to_our_newsletter"
+msgid "Subscribe to our newsletter"
+msgstr "S'abonner à notre newsletter"
+
 msgctxt "next"
 msgid "Next"
 msgstr "Suivant"
@@ -1478,11 +1482,11 @@ msgstr "Les produits qui ne contiennent pas le nutriment %s"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr "Informations nutritionnelles"
+msgstr "Tableau nutritionnel"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr "Informations nutritionnelles"
+msgstr "Tableau nutritionnel"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
@@ -1554,7 +1558,7 @@ msgstr "Ecart type"
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr "Informations nutritionnelles"
+msgstr "Tableau nutritionnel"
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
@@ -1572,15 +1576,15 @@ msgstr "Note nutritionnelle"
 
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
-msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
-msgstr "https://fr.openfoodfacts.org/images/misc/openfoodfacts-logo-fr-356.png"
+msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
+msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
-msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
+msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://blog.openfoodfacts.org/en/\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr "<p>Pour découvrir les nouveautés et les coulisses d'<<site_name>>, venez sur <a href=\"https://fr.blog.openfoodfacts.org\">le blog</a> !</p>\n"
-"<p>C'est nouveau :</p>\n"
+msgstr "<p>Pour en savoir plus sur <<site_name>>, visitez <a href=\"https://blog.openfoodfacts.org/fr/\">notre blog</a>!</p>\n"
+"<p>Actualités récentes :</p>\n"
 
 msgctxt "on_the_blog_title"
 msgid "News"
@@ -2301,7 +2305,7 @@ msgstr "Voir la fiche du produit"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr "Pays de vente"
+msgstr "Pays"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2459,6 +2463,7 @@ msgctxt "tagstable_search"
 msgid "Search:"
 msgstr "Recherche :"
 
+# This is linked to a unit test
 msgctxt "traces"
 msgid "Traces"
 msgstr "Traces éventuelles"
@@ -3141,6 +3146,10 @@ msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
 msgstr "Important : ce produit n'est plus en vente. Les données sont conservées seulement pour référence. Ce produit n'apparait pas dans les résultats de recherche et n'est pas pris en compte pour les statistiques."
 
+# This will be on a button and needs to be as short as possible
+# So instead of something like "Install the mobile application"
+# try to make it very short "Get the app" or "Install the app"
+# Use infinitive instead of imperative
 msgctxt "get_the_app"
 msgid "Get the app"
 msgstr "Installer l'app"
@@ -3367,7 +3376,7 @@ msgstr "Ingrédients"
 
 msgctxt "fields_group_nutrition"
 msgid "Nutrition facts"
-msgstr "Informations nutritionnelles"
+msgstr "Tableau nutritionnel"
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
@@ -3760,10 +3769,6 @@ msgctxt "import_file_result"
 msgid "Import result"
 msgstr "Résultats de l'import"
 
-msgctxt "products_added"
-msgid "Products added"
-msgstr "Produits ajoutés"
-
 msgctxt "products_modified"
 msgid "Products modified"
 msgstr "Produits modifiés"
@@ -3939,7 +3944,7 @@ msgstr "Fruits, légumes, noix et huiles de colza / noix / olive"
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
-msgstr "Fibres alimentaires"
+msgstr "Fibre"
 
 msgctxt "nutriscore_points_for_proteins"
 msgid "Proteins"
@@ -4429,6 +4434,7 @@ msgctxt "images_can_be_provided_separately"
 msgid "Product photos can also be provided separately through the Import product photos function of the platform for producers."
 msgstr "Les photos du produits peuvent aussi être fournies séparément, via la fonction \"Importer des photos de produits\" depuis votre plateforme producteur."
 
+# This is linked to a unit test
 msgctxt "attribute_group_labels_name"
 msgid "Labels"
 msgstr "Labels"
@@ -4705,6 +4711,10 @@ msgctxt "packaging_text_note_2"
 msgid "Try to be as specific as possible. For plastic, please indicate if it is opaque or transparent, colored, PET or PEHD."
 msgstr "Essayez d'être aussi précis que possible. Pour le plastique, merci d'indiquer s'il est opaque ou transparent, coloré, PET ou PEHD."
 
+msgctxt "packaging_text_note_3"
+msgid "Data from this field will be combined with any data provided for each packaging part. It is possible to provide one or the other, or both."
+msgstr "Les données de ce champ seront combinées avec les éventuelles données fournies pour chaque élément d'emballage. Il est possible de fournir l'un ou l'autre, ou les deux."
+
 msgctxt "product_js_extract_packaging"
 msgid "Extract the recycling instructions and/or packaging information from the picture"
 msgstr "Extraire les instructions de recyclage et/ou les informations d'emballage depuis l'image"
@@ -4956,9 +4966,15 @@ msgctxt "ecoscore_s"
 msgid "Eco-Score"
 msgstr "Éco-Score"
 
+# Parts meaning individual elements
 msgctxt "packaging_parts"
 msgid "Packaging parts"
-msgstr "Parties de l'emballage"
+msgstr "Elements d'emballage"
+
+# A short name for a physical piece of packaging (e.g. in English, "packaging" instead of "packaging part"). Used with a number (e.g. "Packaging 1" to identify a packaging part)
+msgctxt "packaging_part_short"
+msgid "Packaging"
+msgstr "Emballage"
 
 # Number of packaging parts
 msgctxt "packaging_number"
@@ -6018,7 +6034,7 @@ msgstr "Peu compatible"
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_unknown_match"
 msgid "Unknown match"
-msgstr "Correspondance inconnue"
+msgstr "Compabilité inconnue"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_may_not_match"
@@ -6123,3 +6139,89 @@ msgctxt "nutrient_recommendation_fat_and_saturated_fat"
 msgid "Choose products with lower fat and saturated fat content."
 msgstr "Choisissez des produits à faible teneur en graisses et en graisses saturées."
 
+msgctxt "sign_in"
+msgid "Sign in"
+msgstr "Se connecter"
+
+msgctxt "sign_out"
+msgid "Sign out"
+msgstr "Se déconnecter"
+
+msgctxt "your_contributions"
+msgid "Your contributions"
+msgstr "Vos contributions"
+
+msgctxt "products_added"
+msgid "Products added"
+msgstr "Produits ajoutés"
+
+msgctxt "products_edited"
+msgid "Products edited"
+msgstr "Produits modifiés"
+
+msgctxt "products_photographed"
+msgid "Products photographed"
+msgstr "Produits photographiés"
+
+# result of the matching with the user preferences: should ne a noun, not a verb
+msgctxt "matching_with_your_preferences"
+msgid "Matching with your preferences"
+msgstr "Correspondance avec vos préférences"
+
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_join_us_on_slack"
+msgid "Join us on <a href=\"{url}\">Slack</a>"
+msgstr "Rejoignez-nous sur <a href=\"{url}\">Slack</a>"
+
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_discover_our_code_of_conduct"
+msgid "Discover our <a href=\"{url}\">Code of conduct</a>"
+msgstr "Découvrez notre <a href=\"{url}\">Code de conduite</a>"
+
+# {links} must not be translated, it will be replaced by icons and/or text links
+msgctxt "f_footer_follow_us_links"
+msgid "Follow us: {links}"
+msgstr "Suivez-nous : {links}"
+
+# Should be as small as possible, e.g. use "app" instead of "application", don't specify "mobile"
+msgctxt "footer_install_the_app_exclamation_mark"
+msgid "Install the app!"
+msgstr "Installer l'app!"
+
+# HTML tags must not be translated, keep <span id=\"everyday\"> and <span id=\"foods\"> and put them around the corresponding words in the translation
+# e.g. in French: Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>
+msgctxt "footer_scan_your_everyday_foods"
+msgid "Scan your <span id=\"everyday\">everyday</span> <span id=\"foods\">foods</span>"
+msgstr "Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>"
+
+msgctxt "nutrition"
+msgid "Nutrition"
+msgstr "Nutrition"
+
+# Note: "criteria" is plural here. So in French for instance: "Vos critères"
+msgctxt "your_criteria"
+msgid "Your criteria"
+msgstr "Vos critères"
+
+msgctxt "product"
+msgid "Product"
+msgstr "Produit"
+
+msgctxt "environment"
+msgid "Environment"
+msgstr "Environnement"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units"
+msgid "Number of units"
+msgstr "Nombre d'éléments"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight"
+msgid "Weight of one empty unit"
+msgstr "Poids d'un élément vide"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit"
+msgid "Quantity of product contained per unit"
+msgstr "Quantité de produit contenue par élément"

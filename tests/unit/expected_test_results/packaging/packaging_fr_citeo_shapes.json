@@ -1,32 +1,37 @@
 {
    "lc" : "fr",
-   "packaging" : "Gobelet en plastique, cageots en bois, caisse en carton, ficelle, liens plastiques, blister en plastique, panier en papier, capsules individuelles",
+   "misc_tags" : [
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty"
+   ],
+   "packaging_text" : "Gobelet en plastique; cageots en bois; caisse en carton; ficelle; liens plastiques; blister en plastique; panier en papier; capsules individuelles",
    "packagings" : [
-      {
-         "shape" : "en:capsule"
-      },
-      {
-         "material" : "en:plastic",
-         "shape" : "en:blister"
-      },
       {
          "material" : "en:plastic",
          "shape" : "en:tumbler"
-      },
-      {
-         "material" : "en:cardboard",
-         "shape" : "en:case"
-      },
-      {
-         "material" : "en:paper",
-         "shape" : "en:basket"
       },
       {
          "material" : "en:wood",
          "shape" : "en:crate"
       },
       {
+         "material" : "en:cardboard",
+         "shape" : "en:case"
+      },
+      {
          "shape" : "en:string"
+      },
+      {
+         "material" : "en:plastic",
+         "shape" : "en:blister"
+      },
+      {
+         "material" : "en:paper",
+         "shape" : "en:basket"
+      },
+      {
+         "shape" : "en:capsule"
       }
    ]
 }

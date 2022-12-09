@@ -63,6 +63,9 @@
    "known_ingredients_n" : 2,
    "lc" : "fr",
    "misc_tags" : [
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty",
       "en:ecoscore-extended-data-not-computed",
       "en:ecoscore-not-applicable",
       "en:ecoscore-not-computed"
@@ -75,12 +78,12 @@
    "packagings" : [
       {
          "material" : "en:pet-polyethylene-terephthalate",
-         "number" : "1",
+         "number_of_units" : 1,
          "shape" : "en:bottle"
       },
       {
          "material" : "en:hdpe-high-density-polyethylene",
-         "number" : "1",
+         "number_of_units" : 1,
          "shape" : "en:bottle-cap"
       }
    ],

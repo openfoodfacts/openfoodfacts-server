@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
@@ -56,7 +55,7 @@ my $request_ref = ProductOpener::Display::init_request();
 
 =head3 term - term to search
 
-If string and term are passed together, they are contatenated together as separated words
+If string and term are passed together, they are concatenated together as separate words
 
 =head3 limit - max number of suggestions
 
@@ -64,16 +63,16 @@ Warning, we are currently doing a brute force search, so avoid setting it too hi
 
 =cut
 
-my $tagtype = param('tagtype');
-my $string = decode utf8=>param('string');
+my $tagtype = single_param('tagtype');
+my $string = decode utf8 => single_param('string');
 # searched term
-my $term = decode utf8=>param('term');
+my $term = decode utf8 => single_param('term');
 
 # search language code
 my $search_lc = $lc;
 # superseed by request parameter
-if (defined param('lc')) {
-	$search_lc = param('lc');
+if (defined single_param('lc')) {
+	$search_lc = single_param('lc');
 }
 
 my $original_lc = $search_lc;
@@ -87,19 +86,17 @@ if ($term =~ /^(\w\w):/) {
 # max results
 my $limit = 25;
 # superseed by request parameter
-if (defined param('limit')) {
+if (defined single_param('limit')) {
 	# we put a hard limit however
-	$limit = min(int(param('limit')), 400);
+	$limit = min(int(single_param('limit')), 400);
 }
 
-
-my @suggestions = (); # Suggestions starting with the term
-my @suggestions_c = (); # Suggestions containing the term
-my @suggestions_f = (); # fuzzy suggestions
+my @suggestions = ();    # Suggestions starting with the term
+my @suggestions_c = ();    # Suggestions containing the term
+my @suggestions_f = ();    # fuzzy suggestions
 
 my $cache_max_age = 0;
 my $suggestions_count = 0;
-
 
 # search for emb codes
 if ($tagtype eq 'emb_codes') {
@@ -124,13 +121,13 @@ else {
 	# fuzzy match whole words with eventual inter-words
 	my $fuzzystringid = join(".*", split("-", $stringid));
 	# all tags can be retrieve from the $translations_to hash
-	my @tags = sort keys %{$translations_to{$tagtype}} ;
+	my @tags = sort keys %{$translations_to{$tagtype}};
 	foreach my $canon_tagid (@tags) {
 		# just_synonyms are not real entries
 		next if defined $just_synonyms{$tagtype}{$canon_tagid};
 
-		my $tag;  # this is the content string
-		my $tagid;  # this is the tag
+		my $tag;    # this is the content string
+		my $tagid;    # this is the tag
 
 		# search if the tag exists in target language
 		if (defined $translations_to{$tagtype}{$canon_tagid}{$search_lc}) {
@@ -140,7 +137,7 @@ else {
 			$tagid = get_string_id_for_lang($search_lc, $tag);
 
 			# add language prefix if we are not searching current interface language
-			if (not ($search_lc eq $original_lc)) {
+			if (not($search_lc eq $original_lc)) {
 				$tag = $search_lc . ":" . $tag;
 			}
 		}
@@ -177,12 +174,12 @@ else {
 # suggestions containing term
 my $contains_to_add = min($limit - (scalar @suggestions), scalar @suggestions_c) - 1;
 if ($contains_to_add >= 0) {
-	push @suggestions, @suggestions_c[0..$contains_to_add];
+	push @suggestions, @suggestions_c[0 .. $contains_to_add];
 }
 # Suggestions as fuzzy match
 my $fuzzy_to_add = min($limit - (scalar @suggestions), scalar @suggestions_f) - 1;
 if ($fuzzy_to_add >= 0) {
-    push @suggestions, @suggestions_f[0..$fuzzy_to_add];
+	push @suggestions, @suggestions_f[0 .. $fuzzy_to_add];
 }
 my $data = encode_json(\@suggestions);
 
@@ -193,8 +190,6 @@ print header(
 	-access_control_allow_origin => '*'
 );
 if ($cache_max_age) {
-	print header(
-		-cache_control => 'public, max-age=' . $cache_max_age,
-	);
+	print header(-cache_control => 'public, max-age=' . $cache_max_age,);
 }
 print $data;

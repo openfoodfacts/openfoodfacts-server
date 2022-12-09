@@ -11,6 +11,7 @@
 
 stopwords:en: including, of, which
 stopwords:fr: dont
+stopwords:hr: od kojih
 stopwords:nl: waarvan
 
 zz:energy-kj
@@ -29,6 +30,7 @@ fi:Energia (kJ)
 fr:Énergie (kJ), valeurs énergétique (kJ), valeur énergétique (kJ)
 ga:Fuinneamh (kJ)
 he:אנרגיה - קלוריות (kJ)
+hr:Energija (kJ)
 hu:Energia (kJ)
 it:Energia (kJ)
 ja:エネルギー (kJ)
@@ -70,6 +72,7 @@ fi:Energia (kcal)
 fr:Énergie (kcal), valeurs énergétique (kcal), valeur énergétique (kcal), kcal, kilocalories
 ga:Fuinneamh (kcal)
 he:אנרגיה - קלוריות (kcal)
+hr:Energija (kcal)
 hu:Energia (kcal)
 it:Energia (kcal)
 ja:エネルギー (kcal)
@@ -131,7 +134,7 @@ gv:bree
 ha:Makamashi
 he:אנרגיה - קלוריות
 hi:ऊर्जा
-hr:energija
+hr:Energija
 ht:enèji
 hu:Energia
 hy:Էներգիա
@@ -223,6 +226,7 @@ fi:Energia rasvasta
 fr:Énergie provenant des graisses
 hu:Energia zsírból
 ja:脂質からのエネルギー
+nl:Energie van vetten
 pt:Energia des gorduras
 ro:Valoarea energetică din grăsimi
 ru:Энергетическая ценность жиров
@@ -343,6 +347,7 @@ fi:Tyydyttyneet rasvat, Tyydyttynyt rasvahappo
 fr:Acides gras saturés, Saturés, AGS, matières grasses saturées, MGS
 ga:sáSitheáin saill
 he:שומן רווי
+hr:Zasićene masne
 hu:Telített zsírsavak
 id:Lemak jenuh
 is:Mettuð fita
@@ -1040,6 +1045,7 @@ fi:Kertatyydyttymättömät rasvat, Kertatyydyttymättömät rasvahapot, Yksitt�
 fr:Acides gras monoinsaturés, Acides gras mono-insaturés, monoinsaturés, mono-insaturés
 ga:Monai-neamhsháitheáin saill
 he:שומן חד בלתי רווי
+hr:Jednostruko nezasićene masne kiseline
 hu:Egyszeresen telítetlen zsírsavak, Egyszeresen telítetlen zsírsav
 id:Lemak tak jenuh
 it:Acidi grassi monoinsaturi
@@ -1089,6 +1095,8 @@ fi:Monityydyttymättömät rasvat, Monityydyttymättömät rasvahapot
 fr:Acides gras polyinsaturés, Acides gras poly-insaturés, polyinsaturés, poly-insaturés
 ga:Pola-neamhsháitheáin saill
 he:שומן רב בלתי רווי
+hr:višestruko nezasićene masne kiseline
+hr:Višestruko nezasićene masne kiseline
 hu:Többszörösen telítetlen zsírsavak, Többszörösen telítetlen zsírsav
 it:Acidi grassi polinsaturi
 lt:Polinesočiosios riebalų rūgštys
@@ -1523,7 +1531,7 @@ fr:Acide oléique
 ga:aigéad oiléach
 gl:Ácido oleico
 he:חומצה אולאית
-hr:oleinska kiselina
+hr:Oleinska kiselina
 hu:Olajsav
 hy:Օլեինաթթու
 id:Asam oleat
@@ -1901,6 +1909,7 @@ fi:Hiilihydraatit, hiilihydraatti
 fr:Glucides
 ga:Carbaihiodráit
 he:פחמימות
+hr:Ugljikohidrati
 hu:Szénhidrát
 it:Carboidrati
 ja:炭水化物
@@ -2054,7 +2063,7 @@ xx:Added sugars, Added sugar
 bg:Добавена захар 
 fr:Sucres ajoutés, sucre ajouté
 nl:Toegevoegde suikers, Toegevoegd suiker
-unit_en: g
+unit:en: g
 evaluation:en: bad
 
 zz:sucrose
@@ -2492,7 +2501,7 @@ fy:Stiselmoal
 ga:Stáirse
 he:עמילן
 hi:मंड
-hr:Škrob
+hr:škrob
 hu:Keményítő
 hy:Օսլա
 id:Amilum
@@ -2564,6 +2573,7 @@ fi:Polyolit
 fr:Polyols
 ga:Polóil
 he:סוכר אלכוהולי (פוליאול)
+hr:polioli
 hu:Poliolok
 it:Polialcoli/polioli (alcoli degli zuccheri), alcoli degli zuccheri
 ja:糖アルコール (ポリオール)
@@ -2599,6 +2609,7 @@ fi:Ravintokuidut, Ravintokuitu, Kuitu, Kuidut
 fr:Fibres alimentaires, fibres, fibre, fibre alimentaire, fibres alimentaires totales
 ga:Snáithín
 he:סיבים תזונתיים
+hr:prehrambena vlakna
 hu:Rost
 it:Fibra alimentare
 ja:食物繊維
@@ -2711,7 +2722,7 @@ gu:પ્રોટિન
 gv:Proteen
 he:חלבונים
 hi:प्रोटीन
-hr:bjelančevina
+hr:Bjelančevina
 ht:Proteyin
 hu:Fehérje, Fehérjék
 hy:սպիտակուց
@@ -3008,7 +3019,7 @@ xx:Added salt
 bg:Добавена сол
 fr:Sel ajouté
 nl:Toegevoegd zout
-unit_en: g
+unit:en: g
 evaluation:en: bad
 
 zz:sodium
@@ -3583,7 +3594,7 @@ ga:Vitimín C
 gl:Vitamina C, Ácido ascórbico
 he:ויטמין C (חומצה אסקורבית), ויטמין C
 hi:विटामिन सी
-hr:vitamin C, askorbinska kiselina
+hr:Vitamin C, askorbinska kiselina
 hu:C-vitamin, Aszkorbinsav
 hy:Վիտամին C
 id:Vitamin C
@@ -3713,6 +3724,7 @@ fi:B3-vitamiini (Niasiini), B3-vitamiini, Niasiini
 fr:Vitamine B3, Vitamine PP (Niacine), Vitamine B3, Vitamine PP, Niacine, Vitamine B3, PP (Niacine)
 ga:Niaicin
 he:ויטמין B3 /ויטמין PP (ניאצין או חומצה ניקוטינית)
+hr:niacin
 it:Vitamina B3, Vitamina PP (Niacina)
 ja:ビタミン B3
 lt:Niacinas
@@ -3807,6 +3819,7 @@ fi:B9-vitamiini (Foolihappo), B9-vitamiini, Foolihappo
 fr:Vitamine B9 (Acide folique), Vitamine B9, Acide folique, Acide folique\, équivalents alimentaires d'acide folique
 ga:Vitimín B9 (Aigéad fólach)
 he:ויטמין B9 (חומצה פולית)
+hr:folna kiselina
 hu:B9-vitamin (Folsav)
 it:Vitamina B9 (Acido folico)
 ja:ビタミン B9 (葉酸)
@@ -4091,6 +4104,30 @@ unit:en: mg
 wikidata:en: Q56810858
 wikipedia:en: https://en.wikipedia.org/wiki/Bicarbonate
 
+# SO4--
+zz:Sulphate
+en:Sulphate
+xx:Sulphate
+nl:Sulfaat, Sulfaten
+
+# NO3-
+zz:Nitrate
+en:Nitrate
+xx:Nitrate
+nl:Nitraat, Nitraten
+
+# HCO3-
+zz:Hydrogencarbonate
+en:Hydrogencarbonate
+xx:Hydrogencarbonate
+nl:Waterstofcarbonaat, Waterstofcarbonaten
+
+# NO2-
+zz:Nitrite
+en:Nitrite
+xx:Nitrite
+nl:Nitriet, Nitrieten
+
 zz:potassium
 en:Potassium
 xx:Potassium
@@ -4130,7 +4167,7 @@ gu:પોટેશિયમ
 gv:Potashum
 he:אשלגן
 hi:पोटैशियम
-hr:kalij
+hr:Kalij
 ht:Potasyòm
 hu:Kálium
 hy:կալիում
@@ -4308,7 +4345,7 @@ gu:કેલ્શિયમ
 gv:Kelkium
 he:סידן
 hi:कैल्शियम
-hr:kalcij
+hr:Kalcij
 ht:Kalsyòm
 hu:Kalcium
 hy:կալցիում
@@ -4550,7 +4587,7 @@ gu:લોખંડ
 gv:Yiarn
 he:ברזל
 hi:लोहा
-hr:vas
+hr:Vas
 ht:Fè
 hu:Vas
 hy:երկաթ
@@ -4681,7 +4718,7 @@ gu:મેગ્નેશિયમ
 gv:Magnaishum
 he:מגנזיום
 hi:मैग्नेशियम तत्त्व
-hr:magnezij
+hr:Magnezij
 ht:Manyezyòm
 hu:Magnézium
 hy:մագնեզիումia:magnesium
@@ -5304,7 +5341,7 @@ gu:ક્રોમિયમ
 gv:Cromium
 he:כרום
 hi:क्रोमियम
-hr:krom
+hr:Krom
 ht:Kwòm
 hu:Króm
 hy:քրոմ
@@ -5631,7 +5668,7 @@ ga:Caiféin
 gl:Cafeína
 he:קפאין
 hi:कैफ़ीन
-hr:kofein
+hr:Kofein
 hu:koffein
 hy:կոֆեին
 ia:Caffeina

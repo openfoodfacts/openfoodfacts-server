@@ -20,7 +20,21 @@ Docker provides an isolated environment, very close to a Virtual Machine. This e
 > If you run e.g. Debian, don't forget to add your user to the `docker` group!
 - [Install Docker Compose](https://docs.docker.com/compose/install/)
 - [Enable command-line completion](https://docs.docker.com/compose/completion/)
-- [Install Make for Windows](http://gnuwin32.sourceforge.net/packages/make.htm) (if running on Windows)
+
+### Windows Prerequisites
+
+When running with Windows, install [Docker Desktop](https://www.docker.com/products/docker-desktop/) which will cover all of the above.
+
+The Make tasks use a number of Linux commands, such as rm and nproc, so it is recommeded to run Make commands from the Git Bash shell. In addition, the following need to be installed and included in the PATH:
+
+- [Make for Windows](http://gnuwin32.sourceforge.net/packages/make.htm)
+- [wget for windows](https://eternallybored.org/misc/wget/) (In order to download the full product database).
+
+The process of cloning the repository will create a number of symbolic links which require specific permissions under Windows. In order to do this you can use any one of these alternatives:
+
+ - Use an Administrative command prompt for all Git commands
+ - Completely disable UAC
+ - Specifically grant the [Create symbolic links](https://learn.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/create-symbolic-links) permission to your user
 
 ## 2. Clone the repository from GitHub
 
@@ -77,6 +91,7 @@ The `.env` file contains ProductOpener default settings:
 | `PRODUCT_OPENER_FLAVOR_SHORT`                                     | can be modified to run different flavors of OpenFoodFacts, amongst `off` (default), `obf`, `oppf`, `opf`.|
 | `PRODUCERS_PLATFORM`                                              | can be set to `1` to build / run the **producer platform**.|
 | `ROBOTOFF_URL`                                                    | can be set to **connect with a Robotoff instance**.|
+| `REDIS_URL` | can be set to **connect with a Redis instance for populating the search index**.|
 | `GOOGLE_CLOUD_VISION_API_KEY`                                     | can be set to **enable OCR using Google Cloud Vision**.|
 | `CROWDIN_PROJECT_IDENTIFIER` and `CROWDIN_PROJECT_KEY`            | can be set to **run translations**.|
 | `GEOLITE2_PATH`, `GEOLITE2_ACCOUNT_ID` and `GEOLITE2_LICENSE_KEY` | can be set to **enable Geolite2**.|
@@ -106,6 +121,10 @@ From the repository root, run:
 ```console
 make dev
 ```
+
+> **Note:**
+> 
+> If you are using Windows, you may encounter issues regarding this command. Take a look at the **Troubleshooting** section further in this tutorial.
 
 > **Note:**
 >
@@ -146,6 +165,8 @@ To have all site page on your dev instance, see [Using pages from openfoodfacts-
 
 [Using Repl](../how-to-guides/use-repl.md) offers you a way to play with perl.
 
+Specific notes are provide on appying AGRIBALYSE updates to support the [Ecoscore](../how-to-guides/ecoscore.md) calculation.
+
 ## Visual Studio Code
 
 **WARNING**: for now this is deprecated, some work needs to be done.
@@ -155,6 +176,18 @@ This repository comes with a configuration for Visual Studio Code (VS Code) [dev
 To use the devcontainer, install [prerequisites](#1-prerequisites), [clone the repository from GitHub](#2-clone-the-repository-from-github), and [(optionally) review Product Opener's environment](#3-optional-review-product-openers-environment). Additionally, install [Visual Studio Code](https://code.visualstudio.com/). VS Code will automatically recommend some extensions, but if you don't want to install all of them, please do install [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) manually. You can then use the extension command **Remote-Containers: Reopen Folder in Container**, which will automatically build the container and start the services. No need to use `make`!
 
 ## Troubleshooting
+
+### make dev error: make: command not found
+
+When running "make dev":
+
+```console
+bash: make: command not found
+```
+
+Solution: 
+Click the Windows button, then type “environment properties” into the search bar and hit Enter. Click Environment Variables, then under System variables choose Path and click Edit. Click New and insert C:\Program Files (x86)\GnuWin32\bin, then save the changes. Open a new terminal and test that the command works.
+(see [Make Windows](https://pakstech.com/blog/make-windows/) for more)
 
 ### make dev error: [build_lang] Error 2 - Could not load taxonomy: /mnt/podata/taxonomies/traces.result.sto
 
@@ -188,3 +221,24 @@ You need to remove current directory where you clone the project, and clone the 
 
 ```console
 git clone -c core.symlinks=true git@github.com:openfoodfacts/openfoodfacts-server.git
+```
+
+### 'rm' is not recognized as an internal or external command
+
+When running make import_prod_data or some other commands.
+
+Solution:
+
+Use the Git Bash shell to run the make commands in windows so that programs like nproc and rm are found.
+
+### System cannot find wget
+
+When running make import_prod_data.
+
+```console
+process_begin: CreateProcess(NULL, wget --no-verbose https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz, ...) failed.
+make (e=2): The system cannot find the file specified.
+```
+
+You need to install [wget for windows](https://eternallybored.org/misc/wget/). The referenced version is able to use the Windows Certificate Store, whereas the standard [gnuwin32 version](https://gnuwin32.sourceforge.net/packages/wget.htm) will give errors about not being able to verify the server certificate.
+

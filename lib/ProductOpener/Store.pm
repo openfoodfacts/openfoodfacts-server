@@ -20,13 +20,11 @@
 
 package ProductOpener::Store;
 
-use utf8;
-use Modern::Perl '2017';
-use Exporter    qw< import >;
+use ProductOpener::PerlStandards;
+use Exporter qw< import >;
 
-BEGIN
-{
-	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
+BEGIN {
+	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&get_urlid
 		&get_fileid
@@ -40,7 +38,7 @@ BEGIN
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
-use vars @EXPORT_OK ; # no 'my' keyword for these
+use vars @EXPORT_OK;    # no 'my' keyword for these
 
 use ProductOpener::Config qw/:all/;
 
@@ -55,10 +53,10 @@ use JSON::Parse qw(read_json);
 
 # Text::Unaccent unac_string causes Apache core dumps with Apache 2.4 and mod_perl 2.0.9 on jessie
 
-sub unac_string_perl($) {
-	my $s = shift;
+sub unac_string_perl ($s) {
 
-	$s =~ tr/àáâãäåçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝŸ/aaaaaaceeeeiiiinooooouuuuyyaaaaaaceeeeiiiinooooouuuuyy/;
+	$s
+		=~ tr/àáâãäåçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝŸ/aaaaaaceeeeiiiinooooouuuuyyaaaaaaceeeeiiiinooooouuuuyy/;
 
 	# alternative methods, slower than above, but more readable and still faster than s///.
 
@@ -87,19 +85,17 @@ sub unac_string_perl($) {
 # 4. keep other UTF-8 characters (e.g. Chinese, Japanese, Korean, Arabic, Hebrew etc.) untouched
 # 5. remove leading and trailing -, turn multiple - to -
 
-sub get_string_id_for_lang {
-
-	my ($lc, $string) = @_;
+sub get_string_id_for_lang ($lc, $string) {
 
 	defined $lc or die("Undef \$lc in call to get_string_id_for_lang (string: $string)\n");
 
 	if (not defined $string) {
 		return "";
 	}
-	
+
 	# Normalize Unicode characters
 	# Form NFC
-	$string = NFC($string); 
+	$string = NFC($string);
 
 	my $unaccent = $string_normalization_for_lang{default}{unaccent};
 	my $lowercase = $string_normalization_for_lang{default}{lowercase};
@@ -119,7 +115,7 @@ sub get_string_id_for_lang {
 		# yuka.VFpGWk5hQVQrOEVUcWRvMzVETGU0czVQbTZhd2JIcU1OTXdCSWc9PQ
 		# (app)Waistline: e2e782b4-4fe8-4fd6-a27c-def46a12744c
 		if ($string !~ /^[a-z\-]+\.[a-zA-Z0-9-_]{8}[a-zA-Z0-9-_]+$/) {
-			$string =~ tr/\N{U+1E9E}/\N{U+00DF}/; # Actual lower-case for capital ß
+			$string =~ tr/\N{U+1E9E}/\N{U+00DF}/;    # Actual lower-case for capital ß
 			$string = lc($string);
 			$string =~ tr/./-/;
 		}
@@ -154,9 +150,7 @@ sub get_string_id_for_lang {
 
 }
 
-sub get_fileid {
-
-	my ($file, $unaccent, $lc) = @_;
+sub get_fileid ($file, $unaccent = undef, $lc = undef) {
 
 	if (not defined $file) {
 		return "";
@@ -171,7 +165,7 @@ sub get_fileid {
 	# yuka.VFpGWk5hQVQrOEVUcWRvMzVETGU0czVQbTZhd2JIcU1OTXdCSWc9PQ
 	# (app)Waistline: e2e782b4-4fe8-4fd6-a27c-def46a12744c
 	if ($file !~ /^[a-z\-]+\.[a-zA-Z0-9-_]{8}[a-zA-Z0-9-_]+$/) {
-		$file =~ tr/\N{U+1E9E}/\N{U+00DF}/; # Actual lower-case for capital ß
+		$file =~ tr/\N{U+1E9E}/\N{U+00DF}/;    # Actual lower-case for capital ß
 		$file = lc($file);
 		$file =~ tr/./-/;
 	}
@@ -205,10 +199,8 @@ sub get_fileid {
 
 }
 
-sub get_url_id_for_lang {
+sub get_url_id_for_lang ($lc, $input) {
 
-	my $lc = shift;
-	my $input = shift;
 	my $string = $input;
 
 	$string = get_string_id_for_lang($lc, $string);
@@ -217,18 +209,14 @@ sub get_url_id_for_lang {
 		$string = URI::Escape::XS::encodeURIComponent($string);
 	}
 
-	$log->trace("get_urlid", { in => $input, out => $string }) if $log->is_trace();
+	$log->trace("get_urlid", {in => $input, out => $string}) if $log->is_trace();
 
 	return $string;
 }
 
+sub get_urlid ($input, $unaccent = undef, $lc = undef) {
 
-sub get_urlid {
-
-	my $input = shift;
 	my $file = $input;
-	my $unaccent = shift;
-	my $lc = shift;
 
 	$file = get_fileid($file, $unaccent, $lc);
 
@@ -236,57 +224,51 @@ sub get_urlid {
 		$file = URI::Escape::XS::encodeURIComponent($file);
 	}
 
-	$log->trace("get_urlid", { in => $input, out => $file }) if $log->is_trace();
+	$log->trace("get_urlid", {in => $input, out => $file}) if $log->is_trace();
 
 	return $file;
 }
 
-sub store {
-	my $file = shift @_;
-	my $ref = shift @_;
+sub store ($file, $ref) {
 
 	return lock_store($ref, $file);
 }
 
-sub retrieve {
-	my $file = shift @_;
+sub retrieve ($file) {
+
 	# If the file does not exist, return undef.
-	if (! -e $file) {
+	if (!-e $file) {
 		return;
 	}
 	my $return = undef;
 	eval {$return = lock_retrieve($file);};
 
-	if ($@ ne '')
-	{
+	if ($@ ne '') {
 		require Carp;
 		Carp::carp("cannot retrieve $file : $@");
- 	}
+	}
 
 	return $return;
 }
 
-sub store_json {
-	my $file = shift @_;
-	my $ref = shift @_;
+sub store_json ($file, $ref) {
 
-	return write_json ($file, $ref);
+	return write_json($file, $ref);
 }
 
-sub retrieve_json {
-	my $file = shift @_;
+sub retrieve_json ($file) {
+
 	# If the file does not exist, return undef.
-	if (! -e $file) {
+	if (!-e $file) {
 		return;
 	}
 	my $return = undef;
 	eval {$return = read_json($file);};
 
-	if ($@ ne '')
-	{
+	if ($@ ne '') {
 		require Carp;
 		Carp::carp("cannot retrieve $file : $@");
- 	}
+	}
 
 	return $return;
 }

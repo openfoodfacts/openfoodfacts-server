@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -47,13 +46,12 @@ my $request_ref = ProductOpener::Display::init_request();
 
 my $template_data_ref = {};
 
-my $type = param('type') || 'add';
-my $action = param('action') || 'display';
+my $type = single_param('type') || 'add';
+my $action = single_param('action') || 'display';
 
-my $ingredients_text = remove_tags_and_quote(decode utf8=>param('ingredients_text'));
+my $ingredients_text = remove_tags_and_quote(decode utf8 => single_param('ingredients_text'));
 
-
-my $html= '';
+my $html = '';
 $template_data_ref->{action} = $action;
 $template_data_ref->{type} = $type;
 
@@ -75,8 +73,6 @@ if ($action eq 'process') {
 	$log->debug("extract_ingredients_classes_from_text") if $log->is_debug();
 	extract_ingredients_classes_from_text($product_ref);
 
-
-
 	my $html_details = display_ingredients_analysis_details($product_ref);
 	$html_details =~ s/.*tabindex="-1">/<div>/;
 
@@ -89,13 +85,13 @@ if ($action eq 'process') {
 	$template_data_ref->{json} = $json;
 }
 
-
 my $full_width = 1;
 if ($action ne 'display') {
 	$full_width = 0;
 }
 
-process_template('web/pages/test_ingredients/test_ingredients_analysis.tt.html', $template_data_ref, \$html) or $html = '';
+process_template('web/pages/test_ingredients/test_ingredients_analysis.tt.html', $template_data_ref, \$html)
+	or $html = '';
 
 $request_ref->{title} = "Ingredients analysis test";
 $request_ref->{content_ref} = \$html;

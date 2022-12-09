@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -51,8 +50,8 @@ if (defined $User_id) {
 	$template_data_ref->{user_name} = $User{name};
 	$template_data_ref->{server_options_producers} = $server_options{producers_platform};
 
-	my $next_action = param('next_action');
-	my $code = param('code');
+	my $next_action = single_param('next_action');
+	my $code = single_param('code');
 	my $r = shift;
 	my $referer = $r->headers_in->{Referer};
 	my $url;
@@ -67,7 +66,7 @@ if (defined $User_id) {
 	}
 	elsif ( (defined $referer)
 		and ($referer =~ /^https?:\/\/$subdomain\.$server_domain/)
-		and (not($referer =~ /(?:session|user|reset_password)\.pl/)))
+		and (not($referer =~ /(?:login|session|user|reset_password)\.pl/)))
 	{
 		$url = $referer;
 	}
@@ -83,10 +82,7 @@ if (defined $User_id) {
 	}
 }
 
-process_template('web/pages/session/session.tt.html', $template_data_ref, \$html)
-  or $html = "<p>" . $tt->error() . "</p>";
-
-if (param('jqm')) {
+if (single_param('jqm')) {
 
 	my %response;
 	if (defined $User_id) {
@@ -102,6 +98,24 @@ if (param('jqm')) {
 
 }
 else {
+	my $template;
+
+	if ((defined param('length')) and (param('length') eq 'logout')) {
+		# The user is signing out
+		$template = "signed_out";
+	}
+	elsif (defined $User_id) {
+		# The user is signed in
+		$template = "signed_in";
+	}
+	else {
+		# The user is signing in: display the login form
+		$template = "sign_in_form";
+	}
+
+	process_template("web/pages/session/$template.tt.html", $template_data_ref, \$html)
+		or $html = "<p>" . $tt->error() . "</p>";
+
 	$request_ref->{title} = lang('session_title');
 	$request_ref->{content_ref} = \$html;
 	display_page($request_ref);

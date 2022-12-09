@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -43,12 +42,12 @@ $scripts .= <<SCRIPTS
 <script src="/js/datatables.min.js"></script>
 <script src="/js/dist/papaparse.js"></script>
 SCRIPTS
-;
+	;
 
 $header .= <<HEADER
 <link rel="stylesheet" href="/js/datatables.min.css" />
 HEADER
-;
+	;
 
 my $url = format_subdomain('static') . '/data/top_translators.csv';
 my $js = <<JS
@@ -92,7 +91,7 @@ my $js = <<JS
 		});
 	});
 JS
-;
+	;
 $initjs .= $js;
 
 my $html;

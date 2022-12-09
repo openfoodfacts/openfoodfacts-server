@@ -163,9 +163,9 @@ server {
 	        add_header Access-Control-Allow-Methods 'GET, POST, OPTIONS';
 		add_header Access-Control-Allow-Headers 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match';
 		add_header Access-Control-Expose-Headers 'Content-Length,Content-Range';
-		# optimize gzip compressed content (like OCR .json stored next to .jpg files)
-		gzip_static always;
-		gunzip on;
+    # optimize gzip compressed content (like OCR .json stored next to .jpg files)
+    gzip_static always;
+    gunzip on;
 	}
 
         if ($http_referer ~* (jobothoniel.com) ) { return 403; } # blocked since 2021-07-13
@@ -187,7 +187,9 @@ server {
 
 	# Static files are served directly by NGINX
 
-	location ~ ^/(.well-known|images|css|js|rss|files|resources|foundation|bower_components)/ {
+	location ~ ^/(.well-known|images|fonts|css|js|rss|files|resources|foundation|bower_components)/ {
+		add_header Access-Control-Allow-Origin *;
+		add_header Access-Control-Allow-Methods 'GET, POST, OPTIONS';
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		gzip_static always;
@@ -198,40 +200,54 @@ server {
 		try_files $uri $uri/ =404;
 	}
 
-	location = /donate-to-open-food-facts {
+        location = /donate-to-open-food-facts {
                 try_files /donate/en.html =404;
         }
 
-	location = /faire-un-don-a-open-food-facts {
+        location = /faire-un-don-a-open-food-facts {
                 try_files /donate/fr.helloasso.html =404;
         }
-
-        location = /dona-a-open-food-facts {
-                try_files /donate/it.html =404;
+        # bg: даряване-на-openfoodfacts
+        # ca: dona a openfoodfacts
+        location = /darujte-openfoodfacts
+                try_files /donate/cs.html =404;
         }
-
-        location = /spenden {
-                try_files /donate/de.html =404;
-        }
-
+        
         location = /doner-til-open-food-facts {
                 try_files /donate/da.html =404;
         }
-
-        location = /doniraj-k-open-food-facts {
-                try_files /donate/sl.html =404;
+        
+        location = /spenden {
+                try_files /donate/de.html =404;
         }
-
-        location = /open-food-factse-bagista-bulununs {
-                try_files /donate/tr.html =404;
+        # el: δωρεά σε openfoodfacts doreá se openfoodfacts
+        location = /dar-a-open-food-facts {
+                try_files /donate/es.html =404;
         }
-
+        # ee: anneta-to-openfoodfacts
+        location = /haz-su-donacion-a-open-food-facts {
+                try_files /donate/es.html =404;
+        }
+        location = /dona-a-open-food-facts {
+                try_files /donate/it.html =404;
+        }
+        location = /doneren-aan-openfoodfacts
+                try_files /donate/nl.html =404;
+        }   
+        # pl: Przekaż darowiznę na openfoodfacts
         location = /pozhertvovat-open-food-facts {
                 try_files /donate/ru.html =404;
         }
 
         location = /donate-to-open-food-facts-ru {
                 try_files /donate/ru.html =404;
+        }
+        location = /doniraj-k-open-food-facts {
+                try_files /donate/sl.html =404;
+        }
+
+        location = /open-food-factse-bagista-bulununs {
+                try_files /donate/tr.html =404;
         }
 
         location = /donate-to-open-food-facts-he {
@@ -245,25 +261,23 @@ server {
         location = /lahjoita-open-food-factsille {
                 try_files /donate/fi.html =404;
         }
-
-        location = /dar-a-open-food-facts {
-                try_files /donate/es.html =404;
+        
+        location = /donate-to-open-food-facts-ko {
+                try_files /donate/ko.html =404;
         }
+        
+        # zh-cn: 捐赠给openfoodfacts Juānzèng gěi openfoodfacts
 
-        location = /haz-su-donacion-a-open-food-facts {
-                try_files /donate/es.html =404;
-        }
-
-	location = /donate-to-open-food-facts-ko {
-		try_files /donate/ko.html =404;
-	}
 
 	location = /hunger-game {
 		return 301 https://hunger.openfoodfacts.org;
 	}
 
 	location = /ecoscore {
-		return 301 https://$host/eco-score-l-impact-environnemental-des-produits-alimentaires;
+                if ( $host ~ "^fr\..*" ) {
+                        return 301 https://$host/eco-score-l-impact-environnemental-des-produits-alimentaires;
+                }
+                return 301 https://$host/eco-score-the-environmental-impact-of-food-products;
 	}
 
 	# 2022-06-13 Redirect press pages to blog post about the new Flutter app

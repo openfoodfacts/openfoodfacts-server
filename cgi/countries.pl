@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
@@ -46,18 +45,18 @@ use JSON::PP;
 
 ProductOpener::Display::init_request();
 
-my $term = decode utf8 => param('term');
+my $term = decode utf8 => single_param('term');
 
 my %result = ();
 foreach my $country (
 	sort {
-		(        get_string_id_for_lang("no_language", $translations_to{countries}{$a}{$lang})
-			  || get_string_id_for_lang("no_language", $translations_to{countries}{$a}{'en'}))
-		  cmp(   get_string_id_for_lang("no_language", $translations_to{countries}{$b}{$lang})
-			  || get_string_id_for_lang("no_language", $translations_to{countries}{$b}{'en'}))
+		(          get_string_id_for_lang("no_language", $translations_to{countries}{$a}{$lang})
+				|| get_string_id_for_lang("no_language", $translations_to{countries}{$a}{'en'}))
+			cmp(   get_string_id_for_lang("no_language", $translations_to{countries}{$b}{$lang})
+				|| get_string_id_for_lang("no_language", $translations_to{countries}{$b}{'en'}))
 	}
 	keys %{$properties{countries}}
-  )
+	)
 {
 
 	my $cc = country_to_cc($country);

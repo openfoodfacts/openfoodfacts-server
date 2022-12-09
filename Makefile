@@ -5,13 +5,14 @@ ENV_FILE ?= .env
 MOUNT_POINT ?= /mnt
 DOCKER_LOCAL_DATA ?= /srv/off/docker_data
 HOSTS=127.0.0.1 world.productopener.localhost fr.productopener.localhost static.productopener.localhost ssl-api.productopener.localhost fr-en.productopener.localhost
+COMPOSE_PROJECT_NAME ?= $(shell grep COMPOSE_PROJECT_NAME ${ENV_FILE}|cut -d '=' -f 2|sed -e 's/ //g')
 export DOCKER_BUILDKIT=1
 export COMPOSE_DOCKER_CLI_BUILD=1
 UID ?= $(shell id -u)
 export USER_UID:=${UID}
 
 export CPU_COUNT=$(shell nproc || echo 1)
-
+export MSYS_NO_PATHCONV=1
 
 DOCKER_COMPOSE=docker-compose --env-file=${ENV_FILE}
 # we run tests in a specific project name to be separated from dev instances
@@ -166,12 +167,15 @@ import_prod_data:
 	@echo "🥫 Copying the dump to MongoDB container …"
 	docker cp openfoodfacts-mongodbdump.tar.gz $(shell docker-compose ps -q mongodb):/data/db
 	@echo "🥫 Restoring the MongoDB dump …"
-	${DOCKER_COMPOSE} exec -T mongodb //bin/sh -c "cd /data/db && tar -xzvf openfoodfacts-mongodbdump.tar.gz && mongorestore --batchSize=1 && rm openfoodfacts-mongodbdump.tar.gz"
+	${DOCKER_COMPOSE} exec -T mongodb //bin/sh -c "cd /data/db && tar -xzvf openfoodfacts-mongodbdump.tar.gz && rm openfoodfacts-mongodbdump.tar.gz && mongorestore --batchSize=1 &&  rm -rf /data/db/dump/off"
 	rm openfoodfacts-mongodbdump.tar.gz
 
 #--------#
 # Checks #
 #--------#
+
+front_npm_update:
+	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker-compose run --rm dynamicfront  npm update
 
 front_lint:
 	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker-compose run --rm dynamicfront  npm run lint
@@ -189,7 +193,7 @@ tests: build_lang_test unit_test integration_test
 unit_test:
 	@echo "🥫 Running unit tests …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run --rm backend prove -l --jobs ${CPU_COUNT} -r tests/unit
+	${DOCKER_COMPOSE_TEST} run -T --rm backend prove -l --jobs ${CPU_COUNT} -r tests/unit
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 unit tests success"
 
@@ -203,6 +207,11 @@ integration_test:
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 integration tests success"
 
+# stop all tests dockers
+test-stop:
+	@echo "🥫 Stopping test dockers"
+	${DOCKER_COMPOSE_TEST} stop
+
 # usage:  make test-unit test=test-name.t
 test-unit: guard-test 
 	@echo "🥫 Running test: 'tests/unit/${test}' …"
@@ -210,7 +219,7 @@ test-unit: guard-test
 	${DOCKER_COMPOSE_TEST} run --rm backend perl tests/unit/${test}
 
 # usage:  make test-int test=test-name.t
-test-int: guard-test # usage: make test-one test=t/test-file.t
+test-int: guard-test # usage: make test-one test=test-file.t
 	@echo "🥫 Running test: 'tests/integration/${test}' …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront
 	${DOCKER_COMPOSE_TEST} exec backend perl tests/integration/${test}
@@ -220,6 +229,16 @@ test-int: guard-test # usage: make test-one test=t/test-file.t
 # stop all docker tests containers
 stop_tests:
 	${DOCKER_COMPOSE_TEST} stop
+
+update_tests_results:
+	@echo "🥫 Updated expected test results with actuals for easy Git diff"
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront
+	${DOCKER_COMPOSE_TEST} exec -T -w /opt/product-opener/tests backend bash update_tests_results.sh
+	${DOCKER_COMPOSE_TEST} stop
+
+bash:
+	@echo "🥫 Open a bash shell in the test container"
+	${DOCKER_COMPOSE_TEST} run --rm -w /opt/product-opener backend bash
 
 # check perl compiles, (pattern rule) / but only for newer files
 %.pm %.pl: _FORCE
@@ -292,6 +311,11 @@ create_external_volumes:
 # local data
 	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/podata podata
 
+create_external_networks:
+	@echo "🥫 Creating external networks (production only) …"
+	docker network create --driver=bridge --subnet="172.30.0.0/16" ${COMPOSE_PROJECT_NAME}_webnet \
+	|| echo "network already exists"
+
 #---------#
 # Cleanup #
 #---------#
@@ -322,3 +346,4 @@ guard-%: # guard clause for targets that require an environment variable (usuall
    		echo "Environment variable '$*' is not set"; \
    		exit 1; \
 	fi;
+

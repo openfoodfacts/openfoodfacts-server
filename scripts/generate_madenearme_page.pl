@@ -36,7 +36,6 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::URL qw/:all/;
 
-
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
@@ -59,12 +58,12 @@ if ((not defined $cc) or (not defined $lc)) {
 	die("Pass country code (or world) and language code as arguments.\n");
 }
 else {
-		if (defined $country_codes{$cc}) {
-			$country = $country_codes{$cc};
-		}
-		else {
-			$country = "en:world";
-		}
+	if (defined $country_codes{$cc}) {
+		$country = $country_codes{$cc};
+	}
+	else {
+		$country = "en:world";
+	}
 
 	print STDERR "Generating map for country code $cc (country: $country) and language code $lc\n";
 }
@@ -80,21 +79,18 @@ else {
 	die("$data_root/madenearme/madenearme-$cc.html not found\n");
 }
 
-my %map_options =
-(
-uk => "map.setView(new L.LatLng(54.0617609,-3.4433238),6);",
-);
+my %map_options = (uk => "map.setView(new L.LatLng(54.0617609,-3.4433238),6);",);
 
 my $request_ref = {};
 my $query_ref = {};
 my $graph_ref = {};
 
-$log->info("building query", { lc => $lc, cc => $cc, query => $query_ref }) if $log->is_info();
+$log->info("building query", {lc => $lc, cc => $cc, query => $query_ref}) if $log->is_info();
 
 $query_ref->{lc} = $lc;
 
 # We want products with emb codes
-$query_ref->{"emb_codes_tags"} = { '$exists' => 1 };
+$query_ref->{"emb_codes_tags"} = {'$exists' => 1};
 
 $request_ref->{map_options} = $map_options{$cc} || "";
 
@@ -103,12 +99,10 @@ $mongodb_timeout_ms = 1000 * 60 * 5;
 
 my $map_html = search_and_map_products($request_ref, $query_ref, $graph_ref);
 
-
 $html =~ s/<HEADER>/$header/;
 $html =~ s/<INITJS>/$initjs/;
 $html =~ s/<CONTENT>/$map_html/;
 
 binmode(STDOUT, ":encoding(UTF-8)");
 print $html;
-
 

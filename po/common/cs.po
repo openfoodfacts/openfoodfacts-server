@@ -13,7 +13,7 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: cs\n"
-"X-Crowdin-File-ID: 1808\n"
+"X-Crowdin-File-ID: 2588\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -584,8 +584,8 @@ msgid "editor"
 msgstr "editor"
 
 msgctxt "email"
-msgid "e-mail address"
-msgstr "e-mailová adresa"
+msgid "E-mail address"
+msgstr "E-mailová adresa"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
@@ -762,8 +762,8 @@ msgstr "<<site_name>> blog"
 
 # Do not translate
 msgctxt "footer_blog_link"
-msgid "https://en.blog.openfoodfacts.org"
-msgstr "https://en.blog.openfoodfacts.org"
+msgid "https://blog.openfoodfacts.org/en/"
+msgstr "https://blog.openfoodfacts.org/cs/"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -794,7 +794,7 @@ msgstr "Často kladené otázky"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "https://support.openfoodfacts.org/help/en-gb"
-msgstr "https://support.openfoodfacts.org/help/cs"
+msgstr "https://support.openfoodfacts.org/help/en-gb"
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -839,11 +839,11 @@ msgstr "Média"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
 msgid "/press"
-msgstr "/tisk"
+msgstr "/press"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
-msgstr "Spolupracovní, svobodné a otevřené databáze potravinářských výrobků z celého světa."
+msgstr "Společná, bezplatná a otevřená databáze potravinářských produktů z celého světa."
 
 msgctxt "footer_terms"
 msgid "Terms of use"
@@ -1324,7 +1324,7 @@ msgstr "/contribute"
 
 msgctxt "menu_discover"
 msgid "Discover"
-msgstr "Zjistit víc"
+msgstr "Objevujte"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
@@ -1390,6 +1390,10 @@ msgstr "U produktů bez čárového kódu je automaticky nastaven interní kód.
 msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
 msgstr "Přihlaste se k odběru novinek (maximálně 2 e-maily za měsíc)"
+
+msgctxt "subscribe_to_our_newsletter"
+msgid "Subscribe to our newsletter"
+msgstr "Přihlaste se k odběru našeho zpravodaje"
 
 msgctxt "next"
 msgid "Next"
@@ -1564,14 +1568,14 @@ msgstr "Výživová hodnota"
 
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
-msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
-msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
+msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
+msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
-msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
+msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://blog.openfoodfacts.org/en/\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr "<p>Chcete-li se dozvědět více o <<site_name>>, navštivte <a href=\"https://en.blog.openfoodfacts.org\">náš blog</a>!</p>\n"
+msgstr "<p>Chcete-li se dozvědět více o <<site_name>>, navštivte <a href=\"https://blog.openfoodfacts.org/cs/\">náš blog</a>!</p>\n"
 "<p>Nejnovější zprávy:</p>\n"
 
 msgctxt "on_the_blog_title"
@@ -2292,7 +2296,7 @@ msgstr "Podívejte se na produktovou stránku"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr "Země prodeje"
+msgstr "Země"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2388,15 +2392,15 @@ msgstr "Jméno výrobku"
 
 msgctxt "state"
 msgid "State"
-msgstr "Stát"
+msgstr "Stav"
 
 msgctxt "states_p"
 msgid "states"
-msgstr "státy"
+msgstr "stavy"
 
 msgctxt "states_s"
 msgid "state"
-msgstr "stát"
+msgstr "stav"
 
 msgctxt "stores"
 msgid "Stores"
@@ -2450,6 +2454,7 @@ msgctxt "tagstable_search"
 msgid "Search:"
 msgstr "Vyhledat:"
 
+# This is linked to a unit test
 msgctxt "traces"
 msgid "Traces"
 msgstr "Stopy"
@@ -2616,7 +2621,7 @@ msgstr "Načíst obrázky s nižším rozlišením (pro pomalá připojení)"
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr "Varování: U výrobku není uvedeno množství vlákniny, proto její případný vliv na posun do lepší skupiny nemůže být započítán."
+msgstr "Upozornění: U výrobku není uvedeno množství vlákniny, proto její případný vliv na posun do lepší skupiny nemůže být započítán."
 
 msgctxt "nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning"
 msgid "Warning: the amounts of fiber and of fruits, vegetables and nuts are not specified, their possible positive contribution to the grade could not be taken into account."
@@ -2720,7 +2725,7 @@ msgstr "Schváleno (slova)"
 
 msgctxt "translators_column_votes_made"
 msgid "Votes Made"
-msgstr ""
+msgstr "Udělené hodnocení"
 
 msgctxt "minerals_p"
 msgid "added minerals"
@@ -2814,7 +2819,7 @@ msgstr "18 až 64"
 
 msgctxt "adults_description"
 msgid "From 18 years up to and including 64 years of age"
-msgstr "Od 18 let do a včetně 64 let"
+msgstr "Od 18 let do 64 let včetně"
 
 msgctxt "elderly"
 msgid "Elderly"
@@ -2906,7 +2911,7 @@ msgstr "Evropský úřad pro bezpečnost potravin (EFSA) zjistil, že v populaci
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_high"
 msgid "High risk of over exposure"
-msgstr "Vysoké riziko nadměrné expozice"
+msgstr "Vysoké riziko nepřiměřeného příjmu"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_moderate"
 msgid "Moderate risk of over exposure"
@@ -2914,7 +2919,7 @@ msgstr "Střední riziko nepřiměřeného příjmu"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_no"
 msgid "No or very low risk of over exposure"
-msgstr "Žádné nebo velmi nízké riziko nadměrné expozice"
+msgstr "Žádné nebo velmi nízké riziko nadměrného příjmu"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
 msgid "Risk of exceeding the acceptable daily intake (ADI)"
@@ -3132,6 +3137,10 @@ msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
 msgstr "Důležité upozornění: tento produkt se již neprodává. Údaje jsou uchovávány pouze pro referenci. Tento produkt se neobjevuje v běžném vyhledávání a není brán v úvahu pro statistiky."
 
+# This will be on a button and needs to be as short as possible
+# So instead of something like "Install the mobile application"
+# try to make it very short "Get the app" or "Install the app"
+# Use infinitive instead of imperative
 msgctxt "get_the_app"
 msgid "Get the app"
 msgstr "Stáhněte si aplikaci"
@@ -3750,10 +3759,6 @@ msgstr "Selhalo"
 msgctxt "import_file_result"
 msgid "Import result"
 msgstr "Výsledek importu"
-
-msgctxt "products_added"
-msgid "Products added"
-msgstr "Produkty přidány"
 
 msgctxt "products_modified"
 msgid "Products modified"
@@ -4420,6 +4425,7 @@ msgctxt "images_can_be_provided_separately"
 msgid "Product photos can also be provided separately through the Import product photos function of the platform for producers."
 msgstr "Produktové fotografie lze také poskytovat samostatně prostřednictvím funkce Import produktových fotografií platformy pro výrobce."
 
+# This is linked to a unit test
 msgctxt "attribute_group_labels_name"
 msgid "Labels"
 msgstr "Štítky"
@@ -5495,7 +5501,7 @@ msgstr "Původ přísad"
 
 msgctxt "ecoscore_ingredients_not_indicated"
 msgid "The origins of the ingredients of this product are not indicated."
-msgstr "Původ přísad tohoto produktu není uveden."
+msgstr "Původ přísad tohoto výrobků není uveden."
 
 msgctxt "ecoscore_please_add_the_ingredients"
 msgid "If they are indicated on the packaging, you can modify the product sheet and add them."
@@ -6113,4 +6119,76 @@ msgstr "Snižte spotřebu tuků a nasycených tuků"
 msgctxt "nutrient_recommendation_fat_and_saturated_fat"
 msgid "Choose products with lower fat and saturated fat content."
 msgstr "Vybírejte produkty s nižším obsahem tuku a nasycených tuků."
+
+msgctxt "sign_in"
+msgid "Sign in"
+msgstr "Přihlásit se"
+
+msgctxt "sign_out"
+msgid "Sign out"
+msgstr "Odhlásit"
+
+msgctxt "your_contributions"
+msgid "Your contributions"
+msgstr "Příspěvky"
+
+msgctxt "products_added"
+msgid "Products added"
+msgstr "Produkty přidány"
+
+msgctxt "products_edited"
+msgid "Products edited"
+msgstr "Produkty upraveny"
+
+msgctxt "products_photographed"
+msgid "Products photographed"
+msgstr "Produkty nafoceny"
+
+# result of the matching with the user preferences: should ne a noun, not a verb
+msgctxt "matching_with_your_preferences"
+msgid "Matching with your preferences"
+msgstr "Odpovídající vašim preferencím"
+
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_join_us_on_slack"
+msgid "Join us on <a href=\"{url}\">Slack</a>"
+msgstr "Přidejte se k nám na <a href=\"{url}\">Slack</a>"
+
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_discover_our_code_of_conduct"
+msgid "Discover our <a href=\"{url}\">Code of conduct</a>"
+msgstr "Objevte náš <a href=\"{url}\">kodex chování</a>"
+
+# {links} must not be translated, it will be replaced by icons and/or text links
+msgctxt "f_footer_follow_us_links"
+msgid "Follow us: {links}"
+msgstr "Sledujte nás: {links}"
+
+# Should be as small as possible, e.g. use "app" instead of "application", don't specify "mobile"
+msgctxt "footer_install_the_app_exclamation_mark"
+msgid "Install the app!"
+msgstr "Nainstalujte aplikaci!"
+
+# HTML tags must not be translated, keep <span id=\"everyday\"> and <span id=\"foods\"> and put them around the corresponding words in the translation
+# e.g. in French: Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>
+msgctxt "footer_scan_your_everyday_foods"
+msgid "Scan your <span id=\"everyday\">everyday</span> <span id=\"foods\">foods</span>"
+msgstr "Naskenujte své <span id=\"everyday\">každodenní</span> <span id=\"foods\">potraviny</span>"
+
+msgctxt "nutrition"
+msgid "Nutrition"
+msgstr "Nutriční hodnoty"
+
+# Note: "criteria" is plural here. So in French for instance: "Vos critères"
+msgctxt "your_criteria"
+msgid "Your criteria"
+msgstr "Vaše kritéria"
+
+msgctxt "product"
+msgid "Product"
+msgstr "Produkt"
+
+msgctxt "environment"
+msgid "Environment"
+msgstr "Životní prostředí"
 

@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -43,15 +42,15 @@ use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();
 
-my $type = param('type') || 'add';
-my $action = param('action') || 'display';
+my $type = single_param('type') || 'add';
+my $action = single_param('action') || 'display';
 
-my $code = normalize_code(param('code'));
-my $id = param('id');
+my $code = normalize_code(single_param('code'));
+my $id = single_param('id');
 
 my $product_id = product_id_for_owner($Owner_id, $code);
 
-$log->debug("start", { code => $code, id => $id }) if $log->is_debug();
+$log->debug("start", {code => $code, id => $id}) if $log->is_debug();
 
 if (not defined $code) {
 
@@ -60,12 +59,11 @@ if (not defined $code) {
 
 my $product_ref = process_image_unselect($User_id, $product_id, $id);
 
-my $data = encode_json({ status_code => 0, status => 'status ok', imagefield=>$id });
+my $data = encode_json({status_code => 0, status => 'status ok', imagefield => $id});
 
-$log->debug("JSON data output", { data => $data }) if $log->is_debug();
+$log->debug("JSON data output", {data => $data}) if $log->is_debug();
 
-print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
-
+print header(-type => 'application/json', -charset => 'utf-8') . $data;
 
 exit(0);
 
