@@ -6,7 +6,7 @@ on:
       - labeled
 
 jobs:
-  add-to-project:
+  add-to-design-project:
     name: Add issue to the openfoodfacts-design project
     runs-on: ubuntu-latest
     steps:
@@ -16,3 +16,63 @@ jobs:
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
           labeled: mockups available, needs mockup
           label-operator: OR
+  add-to-opff-project:
+    name: Add issue to the open pet food facts project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/36
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: open pet food facts
+          label-operator: OR
+  add-to-opf-project:
+    name: Add issue to the open products facts project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/11
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: open products facts
+          label-operator: OR
+  add-to-obf-project:
+    name: Add issue to the open beauty facts project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/37
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: open beauty facts
+          label-operator: OR
+  add-to-packaging-project:
+    name: Add issue to the packaging project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/4
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: packaging
+          label-operator: OR
+  add-to-documentation-project:
+    name: Add issue to the documentation project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/25
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: documentation
+          label-operator: OR
+   add-to-folksonomy-project:
+    name: Add issue to the folksonomy project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/5
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: folksonomy project
+          label-operator: OR         
