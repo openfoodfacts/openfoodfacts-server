@@ -96,8 +96,8 @@ jobs:
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
           labeled: search
           label-operator: OR
-   add-to-search-project:
-    name: Add issue to the search project
+   add-to-producer-project:
+    name: Add issue to the producer platform project
     runs-on: ubuntu-latest
     steps:
       - uses: actions/add-to-project@main
