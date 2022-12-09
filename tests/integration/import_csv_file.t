@@ -15,14 +15,14 @@ use ProductOpener::Producers qw/load_csv_or_excel_file convert_file/;
 use ProductOpener::Products "retrieve_product";
 use ProductOpener::Store "store";
 use ProductOpener::Test qw/:all/;
+use ProductOpener::LoadData qw/:all/;
 
-my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (
-	init_expected_results(__FILE__)
-);
+load_data();
+
+my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 my $inputs_dir = "$test_dir/inputs/$test_id/";
 my $outputs_dir = "$test_dir/outputs/$test_id";
 make_path($outputs_dir);
-
 
 # fake image download using input directory instead of distant server
 sub fake_download_image ($) {

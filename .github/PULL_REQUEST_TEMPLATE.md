@@ -1,5 +1,6 @@
 <!-- IMPORTANT CHECKLIST
 Make sure you've done all the following (You can delete the checklist before submitting)
+- [ ] PR title is prefixed by one of the following: feat, fix, docs, style, refactor, test, build, ci, chore, revert, l10n, taxonomy
 - [ ] Code is well documented
 - [ ] Include unit tests for new functionality
 - [ ] Code passes GitHub workflow checks in your branch

@@ -9,7 +9,7 @@ x-backend-conf: &backend-conf
     args:
       USER_UID: ${USER_UID:-1000}
       USER_GID: ${USER_GID:-1000}
-      CPANMOPTS: "--with-develop"
+      CPANMOPTS: "${CPANMOPTS:---with-develop}"
   volumes:
     # mount local folder for reload on dev changes.
     # Note that this means /opt/product-opener/html/images/product wont be connected to product_images volume
@@ -89,6 +89,8 @@ services:
     # Note: keep it as close a possible to mongodb.yml
     image: mongo:4.4
     command: mongod --wiredTigerCacheSizeGB ${MONGODB_CACHE_SIZE}
+    volumes:
+      - dbdata:/data/db
     ports:
       - "127.0.0.1:${MONGO_EXPOSE_PORT:-27017}:27017"
 volumes:
@@ -104,6 +106,7 @@ volumes:
     name: ${PO_COMMON_PREFIX:-}po_orgs
   podata:  # we also need to share it because users_emails and orgs... are not separated yet
     name: ${PO_COMMON_PREFIX:-}po_podata
+  dbdata:
 
 networks:
   # this is a specific network to enable pro platform to join the postgres db

@@ -2,9 +2,7 @@ type: object
 properties:
   status_verbose:
     type: string
+    example: fields saved
   status:
     type: integer
-x-examples:
-  example-1:
-    status_verbose: fields saved
-    status: 1
+    example: 1

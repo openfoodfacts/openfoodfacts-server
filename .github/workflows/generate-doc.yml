@@ -44,16 +44,25 @@ jobs:
           mv html/files/doc/perl gh_pages/reference/perl-pod
 
       # generating openapi documentation
+      # we do this after mkdocs to overwrite api.html file
       - name: Generate openapi html with ghcr.io/redocly/redoc/cli:latest
         run : |
           docker run --rm \
             -v $(pwd)/docs/reference:/data -v $(pwd)/gh_pages/:/output \
             ghcr.io/redocly/redoc/cli:latest \
-            build -o /output/reference/api.html api.yml && \
+            build -o /output/reference/api/index.html api.yml && \
+          sudo chown $UID -R gh_pages
+
+      - name: Generate openapi html for v3 with ghcr.io/redocly/redoc/cli:latest
+        run : |
+          docker run --rm \
+            -v $(pwd)/docs/reference:/data -v $(pwd)/gh_pages/:/output \
+            ghcr.io/redocly/redoc/cli:latest \
+            build -o /output/reference/api-v3/index.html api-v3.yml && \
           sudo chown $UID -R gh_pages
 
       - name: Deploy API documentation to Github Pages
-        uses: JamesIves/github-pages-deploy-action@v4.4.0
+        uses: JamesIves/github-pages-deploy-action@v4.4.1
         # we only deploy on push to main
         if: |
           github.event_name == 'push' && github.event.ref == 'refs/heads/main'

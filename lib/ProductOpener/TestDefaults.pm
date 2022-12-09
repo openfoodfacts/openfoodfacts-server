@@ -20,27 +20,44 @@
 
 package ProductOpener::TestDefaults;
 
-use utf8;
-use Modern::Perl '2017';
-use Exporter qw< import >;
+use ProductOpener::PerlStandards;
+use Exporter qw/import/;
+
+use Clone qw/clone/;
 
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-	  %default_product_form
-	  %default_user_form
+		%admin_user_form
+		%default_org_edit_form
+		%default_org_edit_admin_form
+		%default_product_form
+		%default_user_form
+		%pro_moderator_user_form
+
+		$test_password
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
 use vars @EXPORT_OK;
 
+=head2 $test_password
+The default test password
+=cut
+
+$test_password = "testtest";
+
+=head2 %default_user_form
+A basic user.
+=cut
+
 %default_user_form = (
 	email => 'test@test.com',
 	userid => "tests",
 	name => "Test",
-	password => "testtest",
-	confirm_password => "testtest",
+	password => $test_password,
+	confirm_password => $test_password,
 	pro_checkbox => 0,
 	requested_org => "",
 	team_1 => "",
@@ -48,6 +65,30 @@ use vars @EXPORT_OK;
 	team_3 => "",
 	action => "process",
 	type => "add"
+);
+
+=head2 %admin_user_form
+a user which is an admin
+=cut
+
+%admin_user_form = (
+	%{clone(\%default_user_form)},
+	email => 'admin@openfoodfacts.org',
+	userid => 'stephane',    # has to be part of %admins
+	name => "Admin",
+);
+
+=head2 %pro_moderator_user_form
+a user which is a producers moderator
+
+NB: must be created by an admin
+=cut
+
+%pro_moderator_user_form = (
+	%{clone(\%default_user_form)},
+	email => 'moderator@openfoodfacts.org',
+	userid => 'promoderator',
+	name => "Pro Moderator",
 );
 
 %default_product_form = (
@@ -65,5 +106,27 @@ use vars @EXPORT_OK;
 	type => "add",
 	".submit" => "submit"
 );
+
+%default_org_edit_form = (
+	orgid => "acme-inc",
+	action => "process",
+	type => "edit",
+	name => "Acme Inc.",
+	link => "",
+	customer_service_name => "",
+	customer_service_address => "",
+	customer_service_mail => "",
+	customer_service_link => "",
+	customer_service_phone => "",
+	customer_service_info => "",
+	commercial_service_name => "",
+	commercial_service_address => "",
+	commercial_service_mail => "",
+	commercial_service_link => "",
+	commercial_service_phone => "",
+	commercial_service_info => "",
+);
+
+%default_org_edit_admin_form = (list_of_gs1_gln => "",);
 
 1;

@@ -20,6 +20,18 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+=head1 NAME
+
+product_jqm_multilingual.pl - implementation of the product WRITE API v0, v1 and v2
+
+=head1 DESCRIPTION
+
+This CGI script is v0 to v2 of the Product WRITE API.
+
+API v3 is handled by a different /api/v3/product route, implemented in APIProductWrite.pm
+
+=cut
+
 use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
@@ -42,6 +54,7 @@ use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Text qw/:all/;
+use ProductOpener::API qw/:all/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -54,6 +67,11 @@ use JSON::PP;
 use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();
+
+# Response structure to keep track of warnings and errors
+# Note: currently some warnings and errors are added,
+# but we do not yet do anything with them
+my $response_ref = get_initialized_response();
 
 my $comment = '(app)';
 
@@ -159,7 +177,7 @@ else {
 				}
 				$log->debug("yuka - kiliweb : changing salt value - multiplying too low salt value by 1000",
 					{salt => $salt, existing_salt => $existing_salt})
-				  if $log->is_debug();
+					if $log->is_debug();
 				param(-name => "nutriment_salt", -value => $salt);
 			}
 		}
@@ -186,13 +204,13 @@ else {
 				}
 				$log->debug("yuka - kiliweb : adding salt value - multiplying too low salt value by 1000",
 					{salt => $salt})
-				  if $log->is_debug();
+					if $log->is_debug();
 				param(-name => "nutriment_salt", -value => $salt);
 			}
 			elsif ($salt < 0.1) {
 				$log->debug("yuka - kiliweb : adding salt value - removing potentially too low salt value",
 					{salt => $salt})
-				  if $log->is_debug();
+					if $log->is_debug();
 				param(-name => "nutriment_salt", -value => "");
 			}
 		}
@@ -218,7 +236,7 @@ else {
 
 	#my @app_fields = qw(product_name brands quantity);
 	my @app_fields
-	  = qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries  );
+		= qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries  );
 
 	# admin field to set a creator
 	if ($admin) {
@@ -332,7 +350,7 @@ else {
 			if (($protected_data) and (defined $product_ref->{$field}) and ($product_ref->{$field} ne "")) {
 				$log->debug("producer data already exists for field, skip empty value",
 					{field => $field, code => $code, existing_value => $product_ref->{$field}})
-				  if $log->is_debug();
+					if $log->is_debug();
 
 			}
 			else {
@@ -380,7 +398,7 @@ else {
 					{
 						$log->debug("producer data already exists for field, skip empty value",
 							{field_lc => $field_lc, code => $code, existing_value => $product_ref->{$field_lc}})
-						  if $log->is_debug();
+							if $log->is_debug();
 					}
 					else {
 
@@ -392,93 +410,28 @@ else {
 		}
 	}
 
-	if (    (defined $product_ref->{nutriments}{"carbon-footprint"})
-		and ($product_ref->{nutriments}{"carbon-footprint"} ne ''))
-	{
-		push @{$product_ref->{"labels_hierarchy"}}, "en:carbon-footprint";
-		push @{$product_ref->{"labels_tags"}}, "en:carbon-footprint";
-	}
-
-	# For fields that can have different values in different languages, copy the main language value to the non suffixed field
-
-	foreach my $field (keys %language_fields) {
-		if ($field !~ /_image/) {
-			if (defined $product_ref->{$field . "_$product_ref->{lc}"}) {
-				$product_ref->{$field} = $product_ref->{$field . "_$product_ref->{lc}"};
-			}
-		}
-	}
-
-	compute_languages($product_ref);    # need languages for allergens detection and cleaning ingredients
-
-	# Ingredients classes
-	clean_ingredients_text($product_ref);
-	extract_ingredients_from_text($product_ref);
-	extract_ingredients_classes_from_text($product_ref);
-	detect_allergens_from_text($product_ref);
-	compute_carbon_footprint_from_ingredients($product_ref);
-	compute_carbon_footprint_from_meat_or_fish($product_ref);
-
-	# Food category rules for sweeetened/sugared beverages
-	# French PNNS groups from categories
-
-	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
-		ProductOpener::Food::special_process_product($product_ref);
-	}
-
 	# Nutrition data
 
 	# Do not allow nutrition edits through API for data provided by producers
 	if (($protected_data) and (defined $product_ref->{"nutriments"})) {
 		print STDERR
-		  "product_jqm_multilingual.pm - code: $code - nutrition data provided by producer exists, skip nutrients\n";
+			"product_jqm_multilingual.pm - code: $code - nutrition data provided by producer exists, skip nutrients\n";
 	}
 	else {
 		assign_nutriments_values_from_request_parameters($product_ref, $nutriment_table);
 	}
 
-	# Compute nutrition data per 100g and per serving
-
-	$log->trace("compute_serving_size_date") if ($admin and $log->is_trace());
-
-	fix_salt_equivalent($product_ref);
-
-	compute_serving_size_data($product_ref);
-
-	compute_nutrition_score($product_ref);
-
-	compute_nova_group($product_ref);
-
-	compute_nutrient_levels($product_ref);
-
-	compute_unknown_nutrients($product_ref);
-
-	# Until we provide an interface to directly change the packaging data structure
-	# erase it before reconstructing it
-	# (otherwise there is no way to remove incorrect entries)
-	$product_ref->{packagings} = [];
-
-	analyze_and_combine_packaging_data($product_ref);
-
-	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
-		compute_ecoscore($product_ref);
-		compute_forest_footprint($product_ref);
-	}
-
-	ProductOpener::DataQuality::check_quality($product_ref);
+	analyze_and_enrich_product_data($product_ref, $response_ref);
 
 	$log->info("saving product", {code => $code}) if ($log->is_info() and not $log->is_debug());
 	$log->debug("saving product", {code => $code, product => $product_ref})
-	  if ($log->is_debug() and not $log->is_info());
+		if ($log->is_debug() and not $log->is_info());
 
 	$product_ref->{interface_version_modified} = $interface_version;
 
 	my $time = time();
 	$comment = $comment . remove_tags_and_quote(decode utf8 => single_param('comment'));
 	if (store_product($User_id, $product_ref, $comment)) {
-		# Notify robotoff
-		send_notification_for_product_change($product_ref, "updated");
-
 		$response{status} = 1;
 		$response{status_verbose} = 'fields saved';
 	}

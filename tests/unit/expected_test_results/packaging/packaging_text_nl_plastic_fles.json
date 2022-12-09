@@ -1,9 +1,13 @@
 {
    "lc" : "nl",
+   "misc_tags" : [
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty"
+   ],
    "packaging_text" : "plastic fles",
    "packagings" : [
       {
-         "material" : "en:plastic",
          "shape" : "en:bottle"
       }
    ]

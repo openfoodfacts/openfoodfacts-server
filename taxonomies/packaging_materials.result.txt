@@ -19,6 +19,7 @@ en:Alkaline battery
 bg:Алкална батерия
 de:Alkalibatterie, Alkaline Batterie
 fr:Pile alcaline, batterie alcaline, accumulateur alcaline
+hr:alkalni članak
 hu:Alkáli elem, 19 Alkáli
 nl:Alkalinebatterij
 pt:Bateria alcalina, pilha alcalina
@@ -44,17 +45,20 @@ bg:Картон
 da:Pap
 de:Pappe
 fr:Carton, carton standard, cartonné, cartonnée
+hr:karton
 hu:Hullámkarton, Hullámpapír kartondoboz, kartondoboz
 it:Cartone, cartone ondulato
 nl:Karton, Strokarton, Vouwkarton, Massiefkarton, Golfkarton, Turfkarton, Vormkarton, Kartonnen
 pt:Cartão, cartão ondulado, cartão canelado, cartonado, cartonada, papelão, papel grosso
 sv:Kartong
+wikidata:en: Q389782
 
 < en:Cardboard
 en:Corrugated cardboard
 bg:Вълнообразен картон
 de:Wellpappe
 fr:Carton ondulé
+hr:valovita ljepenka
 xx:20 PAP, PAP 20, 20PAP, PAP20, 20 C PAP, 20 C PCB
 
 < en:Cardboard
@@ -69,6 +73,7 @@ en:Non-corrugated cardboard
 bg:Друг картон
 de:Ungewellte Pappe, Nicht gewellte Pappe, Sonstige Pappe, Andere Pappe
 fr:Carton non ondulé
+hr:ravna ljepenka
 xx:21 PAP, PAP 21, 21PAP, PAP21
 
 < en:Cardboard
@@ -76,10 +81,12 @@ en:Paperboard
 de:Karton
 fi:Kartonki
 fr:Papier cartonné
+hr:ljepenka
 hu:Kartonpapír, Karton, Papírkarton
 it:Cartoncino
 pt:Papel cartonado
 xx:23 PBD, PBD 23, 23 PPB, PPB 23, PPB, PBD
+wikidata:en: Q14934005
 
 < en:Cardboard
 < en:Recycled material
@@ -91,11 +98,14 @@ hu:Újrahasznosított hullámpapír, újrahasznosított karton
 nl:Recycled karton
 pt:Cartão reciclado, cartão ondulado reciclado, cartonado reciclado, cartonada reciclada, papelão reciclado, cartolina reciclada, papel grosso reciclado
 
+en:Cellulose
+
 en:Ceramic
 bg:Керамика
 da:Keramik
 de:Keramik
 fr:Céramique
+hr:keramika
 hu:Kerámia, porcelán
 nl:Keramiek
 pt:Cerâmica
@@ -107,6 +117,7 @@ bg:Корк
 da:Kork
 de:Kork
 fr:Liège
+hr:pluto
 hu:Parafa
 nl:Kurk
 pt:Cortiça
@@ -119,6 +130,7 @@ bg:Памук
 da:Bomuld
 de:Baumwolle
 fr:Coton
+hr:pamuk
 hu:Pamut
 it:Cotone
 nl:Katoen
@@ -135,6 +147,7 @@ wikidata:en: Q819899
 en:fabric, fabrics
 de:Stoff, Stoffe, Gewebe
 fr:tissu, tissus
+nl:Stof, stoffen
 
 en:Glass
 bg:Стъкло
@@ -142,9 +155,11 @@ da:Glas
 de:Glas
 es:Vidrio, cristal
 fr:Verre
+hr:staklo
 hu:Üveg
 it:Vetro
 nl:Glas, Glazen
+pl:szkło
 pt:vidro
 wikidata:en: Q11469
 
@@ -153,8 +168,10 @@ en:Brown Glass
 bg:Кафяво стъкло
 de:Braunglas, Braunes Glas
 fr:Verre brun
+hr:smeđe staklo
 nl:Bruin glas, bruine glazen
 xx:72 GL, GL 72, 72GL, GL72, 72 GLS, GLS 72, 72GLS, GLS72
+wikidata:en: Q2184152
 
 < en:Glass
 en:Clear Glass
@@ -162,10 +179,12 @@ bg:Безцветно стъкло
 da:Klar Glas
 de:Klarglas, Farbloses Glas
 fr:Verre transparent
+hr:bezbojno staklo
 hu:Fehér üveg
 nl:transparant glas, transparant glazen
 pt:Vidro transparente
 xx:70 GL, GL 70, 70GL, GL70, 70 GLS, GLS 70, 70GLS, GLS70
+wikidata:en: Q28869937
 
 < en:Glass
 en:Copper Mixed/Copper Backed Glass, Copper Mixed Glass, Copper Backed Glass
@@ -176,6 +195,7 @@ xx:77 GL, GL 77, 77GL, GL77, 77 GLS, GLS 77, 77GLS, GLS77
 en:Dark Sort Glass
 de:Dunkles Sortierglas
 fr:Verre sombre
+hr:ostalih boja staklo
 hu:Sötét válogatott üveg
 nl:Donker glas, donkere glazen
 xx:73 GL, GL 73, 73GL, GL73, 73 GLS, GLS 73, 73GLS, GLS73
@@ -191,6 +211,7 @@ bg:Зелено стъкло
 da:Grønt Glas
 de:Grünglas, Grünes Glas
 fr:Verre vert
+hr:zeleno staklo
 hu:Zöld üveg
 nl:Groen glas, groene glazen
 pt:Vidro verde
@@ -305,7 +326,7 @@ xx:97 C/GL
 < en:HDPE - High-density polyethylene
 en:Biobased HDPE, Biobased PE-HD
 de:Biobasiertes HDPE, Biobasiertes PE-HD
-fr:PEHD biosourcé
+fr:PEHD biosourcé, HDPE biosourcé
 hu:Biobázisú HDPE
 pt:Bioplástico PEHD
 xx:Bio-HDPE
@@ -317,6 +338,7 @@ xx:Italpack, Italpack Cartons
 en:Jute
 bg:Юта
 de:Jute
+hr:juta
 hu:Juta
 nl:Jute
 pt:Juta
@@ -328,13 +350,14 @@ wikidata:en: Q107211
 < en:LDPE - Low-density polyethylene
 en:Biobased LDPE
 de:Biobasiertes LDPE, Biobasiertes PE-LD
-fr:PELD biosourcé
+fr:PELD biosourcé, LDPE biosourcé
 hu:Biobázisú LDPE
 pt:Bioplástico PELD
 xx:Bio-LDPE
 
 en:Lead–acid battery
 de:Bleibatterie, Blei-Säure-Batterie
+fr:Batterie au plomb
 hu:Ólom-sav akkumulátor
 nl:Lood, Loodaccu
 pt:Bateria de chumbo-ácido
@@ -356,6 +379,7 @@ bg:Метал, метали
 da:Metal, Metaller
 de:Metall, Metalle
 fr:Métal, Métaux, métallique, métalliques
+hr:metale
 hu:Fém, fémek
 it:Metallo, Metalli
 nl:Metaal, Metalen
@@ -367,6 +391,7 @@ wikidata:en: Q11426
 en:Recyclable Metals
 bg:Рециклируеми метали
 de:Wiederverwertbare Metalle, Wiederverwertbares Metall, Recycelbares Metall, Recycelbare Metalle
+fr:Métaux recyclables
 hu:Újrahasznosítható fémek
 it:Metalli riciclabili
 nl:Recyclebaar metaal
@@ -378,6 +403,7 @@ bg:Стомана, желязо
 da:Stål
 de:Stahl
 fr:Acier, fer
+hr:čelik
 hu:Acél
 it:Acciaio
 ja:スチール
@@ -385,11 +411,16 @@ nl:IJzer, Staal
 pt:Aço
 ru:Сталь
 xx:40 FE, FE 40
+description:en: Steel is magnetic. If you approach a magnet, it should be attracted, unlike aluminium.
 wikidata:en: Q11427
+
+en:Mixed plastics
+fr:Plastiques mixtes
 
 en:Multilayer composite, multilayer, composite, composite materials, polycoat
 de:Verbundstoff, Verbundwerkstoff, Mehrschichtverbund, Mehrschicht, Verbundmaterial, Polycoat
 fr:Composites multicouches, composites multi-couches, Composite Multicouches, composite multi-couches, multi-couches, multicouches
+hr:višeslojne materijale, kompozitne
 nl:Composietmateriaal
 pt:Compósito de várias camadas, compósito multi-camada
 non_recyclable_and_non_biodegradable:en: yes
@@ -411,48 +442,57 @@ packaging_shapes:en: en:brick
 < en:Multilayer composite
 en:Glass/aluminium, Glass + aluminium
 de:Glas/Aluminium, Glas + Aluminium
+hr:staklo/aluminij
 xx:96 C/X, 96 C/*, 96 CX, 96 C*
 
 < en:Multilayer composite
 en:Glass/miscellaneous metals, Glass + miscellaneous metals
 de:Glas/verschiedene Metalle, Glas + verschiedene Metalle
+hr:staklo/raznovrsni metali
 xx:98 C/X, 98 C/*, 98 CX, 98 C*
 
 < en:Multilayer composite
 en:Glass/Plastic, Glass + Plastic
 de:Glas/Kunststoff, Glas + Kunststoff
+hr:staklo/plastika
 xx:95 C/X, 95 C/*, 95 CX, 95 C*
 
 < en:Multilayer composite
 en:Glass/tinplate, Glass + tinplate
 de:Glas/Weißblech, Glas + Weißblech, Glas/Weissblech, Glas + Weissblech
+hr:staklo/bijeli lim
 xx:97 C/X, 97 C/*, 97 CX, 97 C*
 
 < en:Multilayer composite
 en:Paper and cardboard / Plastic / Aluminium, Paper and fibreboard/plastic/aluminium, Paper and fibreboard + plastic + aluminium
 bg:Хартия и картон / Пластмаси / Алуминий
 de:Papier und Pappe/Kunststoff/Aluminium, Papier und Pappe + Kunststoff + Aluminium
+hr:papir i karton/plastika/aluminij
 hu:Papír és karton / Műanyag / Alumínium
 xx:84 C/X, 84 C/*, 84 CX, 84 C*, PapAl
 
 < en:Multilayer composite
 en:Paper and fibreboard/aluminium, Paper and fibreboard + aluminium
 de:Papier und Pappe/Aluminium, Papier und Pappe + Aluminium
+hr:papir i karton/aluminij
 xx:82 C/X, 82 C/*, 82 CX, 82 C*
 
 < en:Multilayer composite
 en:Paper and fibreboard/miscellaneous metals, Paper and fibreboard + miscellaneous metals
 de:Papier und Pappe/verschiedene Metalle, Papier und Pappe + verschiedene Metalle
+hr:papir i karton/raznovrsni metali
 xx:80 C/X, 80 C/*, 80 CX, 80 C*
 
 < en:Multilayer composite
 en:Paper and fibreboard/plastic/aluminium/tinplate, Paper and fibreboard + plastic + aluminium + tinplate
 de:Papier und Pappe/Kunststoff/Aluminium/Weißblech, Papier und Pappe + Kunststoff + Aluminium + Weißblech, Papier und Pappe/Kunststoff/Aluminium/Weissblech, Papier und Pappe + Kunststoff + Aluminium + Weissblech
+hr:papir i karton/plastika/aluminij/bijeli lim
 xx:85 C/X, 85 C/*, 85 CX, 85 C*
 
 < en:Multilayer composite
 en:Paper and fibreboard/tinplate, Paper and fibreboard + tinplate
 de:Papier und Pappe/Weißblech, Papier und Pappe + Weißblech, Papier und Pappe/Weissblech, Papier und Pappe + Weissblech
+hr:papir i karton/bijeli lim
 xx:83 C/X, 83 C/*, 83 CX, 83 C*
 
 < en:Multilayer composite
@@ -460,6 +500,7 @@ en:Paper and plastic, Paper + Plastic
 bg:Хартия и картон / пластмаси
 de:Papier und Pappe/Kunststoff, Papier und Pappe + Kunststoff
 fr:Papier et plastique
+hr:papir i karton/plastika
 hu:Papír és műanyag
 nl:Papier en plastic
 pt:Papel e plástico, Papel + plástico
@@ -468,16 +509,19 @@ xx:81 C/X, 81 C/*, 81 CX, 81 C*, 81 PapPet
 < en:Multilayer composite
 en:Plastic/aluminium, Plastic + aluminium
 de:Kunststoff/Aluminium, Kunststoff + Aluminium
+hr:plastika/aluminij
 xx:90 C/X, 90 C/*, 90 CX, 90 C*
 
 < en:Multilayer composite
 en:Plastic/miscellaneous metals, Plastic + miscellaneous metals
 de:Kunststoff/verschiedene Metalle, Kunststoff + verschiedene Metalle
+hr:plastika/raznovrsni metali
 xx:92 C/X, 92 C/*, 92 CX, 92 C*
 
 < en:Multilayer composite
 en:Plastic/tinplate, Plastic + tinplate
 de:Kunststoff/Weißblech, Kunststoff + Weißblech, Kunststoff/Weissblech, Kunststoff + Weissblech
+hr:plastika/bijeli lim
 xx:91 C/X, 91 C/*, 91 CX, 91 C*
 
 < en:Multilayer composite
@@ -485,6 +529,7 @@ en:Tetra Pak, Tetrapak, Tetra Pack, Tetrapack, Standard Tetra Pak
 bg:Tetra Pak, Tetrapak, Tetra Pack, Tetrapack, Standard Tetra Pak
 de:Tetra Pak, Tetrapak, Tetra Pack, Tetrapack, Standard Tetra Pak
 fr:Tetra Pak, Tetra Pak Standard, Brique type Tetra Pak standard
+hr:tetra pak, tetrapak
 nl:Tetra Pak, Tetrapak, Tetra Pack, Tetrapack, Standard Tetra Pak
 pt:Tetra Pak, Tetrapak, Tetra Pack, Tetrapack, Standard Tetra Pak
 xx:Tetra Pak, Tetrapak, Tetra Pack, Tetrapack, Standard Tetra Pak
@@ -495,6 +540,7 @@ en:Nickel–cadmium battery
 bg:Никел-кадмиева батерия
 de:Nickel–Cadmium-Batterie
 fr:Accumulateur nickel-cadmium, batterie nickel-cadmium
+hr:nikal-kadmijeva baterija
 hu:Nikkel-kadmium akkumulátor
 nl:Nikkel-cadmium-accu
 pt:Bateria de níquel cádmio, pilha de níquel cádmio, bateria de níquel-cádmio, pilha de níquel-cádmio
@@ -504,6 +550,7 @@ wikidata:en: Q898377
 en:Nickel–metal hydride battery
 de:Nickelmetallhydrid Batterie
 fr:Accumulateur nickel-hydrure métallique, batterie nickel-hydrure métallique
+hr:nikal-metal-hibridna baterija
 hu:Nikkel-fémhidrid akkumulátor, Nikkel-metál-hidrid akkumulátor
 nl:nikkel-metaalhydride-accu, NiMH-accu
 pt:Bateria de níquel-hidreto metálico, bateria de hidreto metálico de níquel, pilha de níquel-hidreto metálico, pilha de hidreto metálico de níquel
@@ -515,6 +562,7 @@ wikidata:en: Q308567
 < en:Plastic
 en:LLDPE - Linear low-density polyethylene, Linear low-density polyethylene
 de:LLDPE - Lineares Polyethylen niedriger Dichte, Lineares Polyethylen niedriger Dichte
+fr:LLDPE - Polyéthylène basse densité linéaire, Polyéthylène basse densité linéaire
 xx:LLDPE, 07 LLDPE, LLDPE 07, 07LLDPE, LLDPE07, 7 LLDPE, LLDPE 7, 7LLDPE, LLDPE7, PE-LLD, 07 PE-LLD, PE-LLD 07, 07PE-LLD, PE-LLD07, 7 PE-LLD, PE-LLD 7, 7PE-LLD, PE-LLD7
 wikidata:en: Q1863987
 
@@ -523,6 +571,7 @@ wikidata:en: Q1863987
 < en:Plastic
 en:MDPE - Medium-density polyethylene, Medium-density polyethylene
 de:MDPE - Polyethylen mittlerer Dichte, Polyethylen mittlerer Dichte
+fr:MDPE - Polyéthylène moyenne densité, Polyéthylène moyenne densité
 xx:MDPE, 07 MDPE, MDPE 07, 07MDPE, MDPE07, 7 MDPE, MDPE 7, 7MDPE, MDPE7, PE-MD, 07 PE-MD, PE-MD 07, 07PE-MD, PE-MD07, 7 PE-MD, PE-MD 7, 7PE-MD, PE-MD7
 
 < en:Other plastics
@@ -548,6 +597,8 @@ wikidata:en: Q582510
 < en:Plastic
 en:PA - Polyamide, Polyamide
 de:PA - Polyamide, Polyamide
+fr:PA - Polyamide, Polyamide
+hr:PA - poliamid, poliamidi
 xx:PA, 07 PA, PA 07, 07PA, PA07, 7 PA, PA 7, 7PA, PA7
 wikidata:en: Q145273
 
@@ -555,6 +606,8 @@ wikidata:en: Q145273
 < en:Plastic
 en:PC - Polycarbonate, Polycarbonate
 de:PC - Polycarbonate, Polycarbonate
+fr:PC - Polycarbonate, Polycarbonate
+hr:PC - polikarbonati
 xx:PC, 07 PC, PC 07, 07PC, PC07, 7 PC, PC 7, 7PC, PC7
 wikidata:en: Q62246
 
@@ -573,6 +626,7 @@ wikidata:en: Q413769
 < en:Plastic
 en:PMMA - Poly(methyl methacrylate), Poly(methyl methacrylate)
 de:PMMA - Polymethylmethacrylat, Polymethylmethacrylat, Acrylglas, Plexiglas
+fr:PMMA - Poly(méthacrylate de méthyle), Poly(méthacrylate de méthyle)
 xx:PMMA, 07 PMMA, PMMA 07, 07PMMA, PMMA07, 7 PMMA, PMMA 7, 7PMMA, PMMA7
 wikidata:en: Q146123
 
@@ -580,6 +634,7 @@ wikidata:en: Q146123
 < en:Plastic
 en:PVDC - Polyvinylidene chloride, Polyvinylidene chloride
 de:PVDC - Polyvinylidenchlorid, Polyvinylidenchlorid
+fr:PVDC - Chlorure de polyvinylidène, Chlorure de polyvinylidène
 xx:PVDC, 07 PVDC, PVDC 07, 07PVDC, PVDC07, 7 PVDC, PVDC 7, 7PVDC, PVDC7
 wikidata:en: Q146383
 
@@ -597,10 +652,12 @@ bg:Хартия
 da:Papir
 de:Papier
 fr:Papier, papier standard
+hr:papir
 hu:Papír
 it:Carta
 ja:紙
 nl:Papier
+pl:papier
 pt:Papel
 ru:Бумага
 sv:Papper
@@ -619,6 +676,7 @@ en:Kraft paper, kraft
 bg:Крафт хартия
 de:Kraftpapier
 fr:Papier kraft, kraft
+hr:natronski papir
 nl:Kraft-papier
 pt:Papel kraft, kraft
 wikidata:en: Q1755609
@@ -862,6 +920,7 @@ en:HDPE - High-density polyethylene, High-density polyethylene
 bg:HDPE - Полиетилен с висока плътност
 de:HDPE - Polyethylen hoher Dichte, Polyethylen hoher Dichte
 fr:PEHD - Polyéthylène haute densité, polyéthylène haute densité
+hr:HDPE - polietilen visoke gustoće
 hu:HDPE - Nagy sűrűségű polietilén, Nagy sűrűségű polietilén
 it:Polietilene ad alta densità
 nl:HDPE - Hogedichtheidpolyetheen, PE-HD
@@ -876,6 +935,7 @@ en:LDPE - Low-density polyethylene, Low-density polyethylene
 bg:LDPE - Полиетилен с ниска плътност
 de:LDPE - Polyethylen niedriger Dichte, Polyethylen niedriger Dichte
 fr:PEBD - Polyéthylène basse densité, polyéthylène basse densité, PEBD
+hr:LDPE - polietilen niske gustoće
 hu:LDPE - Kis sűrűségű polietilén, Kis sűrűségű polietilén
 it:Polietilene a bassa densità
 nl:LDPE - Lagedichtheidpolyetheen, lagedichtheidpolyetheen
@@ -888,6 +948,7 @@ wikidata:en: Q2033818
 < en:PET - Polyethylene terephthalate
 en:PETmet - Metalized polyethylene terephthalate, Metalized polyethylene terephthalate
 de:PETmet - Metallisiertes Polyethylenterephthalat, Metallisiertes Polyethylenterephthalat
+fr:PETmet - Polyéthylène téréphtalate métallisé
 xx:PETmet, 07 PETmet, PETmet 07, 07PETmet, PETmet07, 7 PETmet, PETmet 7, 7PETmet, PETmet7, met-PET, 07 met-PET, met-PET 07, 07met-PET, met-PET07, 7 met-PET, met-PET 7, 7met-PET, met-PET7
 
 < en:PET - Polyethylene terephthalate
@@ -930,10 +991,11 @@ de:Kunststoff, Kunstoff, plastik
 es:Plástico
 fi:Muovi
 fr:Plastique
+hr:plastika
 hu:Műanyag
 it:Plastica
-nl:Plastic
-pl:Plastikowe
+nl:Plastiek
+pl:Plastikowe, plastik
 pt:Plástico
 ru:Пластик
 non_recyclable_and_non_biodegradable:en: maybe
@@ -944,7 +1006,7 @@ en:Biodegradable plastic, Card-stock Laminate
 bg:Биоразградима пластмаса
 de:Biologisch abbaubarer Kunststoff, Kartonlaminat
 hu:Lebomló műanyag, Laminált kartonpapír
-nl:Biologisch afbreekbaar plastic
+nl:Biologisch afbreekbaar plastiek
 pt:Plástico biodegradável
 xx:87 CSL, CSL 87
 
@@ -954,9 +1016,11 @@ bg:Други пластмаси
 da:Anden plast
 de:Andere Kunststoffe
 fr:Autres plastiques, autre plastique
+hr:O - ostali polimerni materijali
 hu:Egyéb műanyag, Más műanyag, Minden más műanyag
 it:Altre plastiche
 nl:Andere plastics
+pl:07 inne
 pt:Outros plásticos, Todos os outros plásticos, outro plástico
 ru:Другие пластики, Другие пластмассы
 xx:07 OTHER, OTHER 07, 7 OTHER, OTHER 7, 07 O, O 07, 7 O, O 7, ♹
@@ -965,6 +1029,8 @@ non_recyclable_and_non_biodegradable:en: yes
 < en:Plastic
 en:PE - Polyethylene, Polyethylene
 de:PE - Polyethylen, Polyethylen
+fr:PE - Polyéthylène, Polyéthylène
+hr:PE - Polietilen
 xx:PE, 07 PE, PE 07, 07PE, PE07, 7 PE, PE 7, 7PE, PE7
 wikidata:en: Q143429
 
@@ -973,6 +1039,7 @@ en:PET - Polyethylene terephthalate, Polyethylene terephthalate
 bg:PET - Полиетилентерефталат, Полиетилен терефталат
 de:PET - Polyethylenterephtalat, Polyethylenterephtalat
 fr:PET - Polytéréphtalate d'éthylène, Polytéréphtalate d'éthylène, polyéthylène téréphtalate
+hr:PET - polietilen tereftalat
 hu:PET - Polietilén-tereftalát, Polietilén-tereftalát
 it:PET - Polietilene tereftalato, Polietilene tereftalato, Polietilentereftalato
 nl:PET - Polyethyleentereftalaat, Polyethyleentereftalaat
@@ -988,6 +1055,7 @@ en:PP - Polypropylene, Polypropylene
 bg:PP - Полипропилен
 de:PP - Polypropylen, Polypropylen
 fr:PP - Polypropylène, Polypropylène, polypropène
+hr:PP - polipropilen
 hu:PP - Polipropilén, Polipropilén
 it:Polipropilene, polipropene
 nl:PP - Polypropeen, Polypropeen, polypropyleen
@@ -1002,6 +1070,7 @@ en:PS - Polystyrene, Polystyrene
 bg:PS - Полистирен
 de:PS - Polystyrol, Polystyrol
 fr:PS - Polystyrène, Polystyrène
+hr:PS - polistiren
 hu:PS - Polisztirol, Polisztirol
 it:PS - Polistirene, polistirolo
 nl:PS - Polystyreen, Polystyreen
@@ -1015,6 +1084,7 @@ en:PVC - Polyvinyl chloride, Polyvinyl chloride
 bg:PVC - Поливинил хлорид
 de:PVC - Polyvinylchlorid, Polyvinylchlorid
 fr:PVC - Polychlorure de vinyle, Polychlorure de vinyle, chlorure de polyvinyle
+hr:PVC - polivinil-klorid, polivinilklorid
 hu:PVC - Polivinil-klorid, Polivinil-klorid, polivinilklorid, polivinil klorid
 it:PVC - Cloruro di polivinile, polivinilcloruro
 nl:PVC - Polyvinylchloride, polychlooretheen
@@ -1200,11 +1270,13 @@ xx:91 C/rPET
 < en:PP - Polypropylene
 en:CPP - Cast PolyPropylen, Cast PolyPropylen
 de:CPP - Ungerecktes Polypropylen
+fr:CPP - Polypropylène coulé, Polypropylène coulé
 xx:CPP, PP-C, 05 CPP, CPP 05, 5 CPP, CPP 5, 05CPP, CPP05, 5CPP, CPP5, 05 PP-C, PP-C 05, 5 PP-C, PP-C 5, 05PP-C, PP-C05, 5PP-C, PP-C5
 
 < en:PP - Polypropylene
 en:OPP - Oriented PolyPropylen, Oriented PolyPropylen
 de:OPP - Orientiertes Polypropylen
+fr:OPP - PolyPropylène Orienté, PolyPropylène Orienté
 xx:OPP, PP-O, 05 OPP, OPP 05, 5 OPP, OPP 5, 05OPP, OPP05, 5OPP, OPP5, 05 PP-O, PP-O 05, 5 PP-O, PP-O 5, 05PP-O, PP-O05, 5PP-O, PP-O5
 
 < en:Pure-Pak
@@ -1256,7 +1328,7 @@ fr:Plastique recyclable
 hu:Újrahasznosítható műanyag
 it:Plastica riciclabile
 ja:プラマーク
-nl:Recycleerbaar plastic
+nl:Recycleerbaar plastiek
 pt:Plástico reciclável
 
 < en:Recyclable Metals
@@ -1265,6 +1337,7 @@ bg:Алуминий
 da:Aluminium
 de:Aluminium
 fr:Aluminium
+hr:aluminij
 hu:Alumínium
 it:Alluminio
 ja:アルミ
@@ -1272,6 +1345,7 @@ nl:Aluminium
 pt:Alumínio
 ru:Алюминий
 xx:41 ALU, ALU 41, ALU, ALU41, 41ALU
+description:fr: L'aluminium est trié grâce au courant de Foucault, qui a la propriété de repousser l'emballage en aluminium.
 wikidata:en: Q663
 
 en:Recycled material
@@ -1294,7 +1368,7 @@ de:wiederverwerteter Kunststoff
 fr:Plastique recyclé
 hu:Újrahasznosított műanyag, Újrahasznosított műanyagból
 it:Plastica riciclata
-nl:Hergebruikt plastic
+nl:Hergebruikt plastiek
 pt:Plástico reciclado
 
 < en:PET - Polyethylene terephthalate
@@ -1312,7 +1386,7 @@ xx:rPET
 en:Transparent rPET
 da:Gennemsigtig rPET
 de:Transparentes rPET
-fr:rPET transparent, rPET transparente
+fr:rPET transparent, rPET transparente, PET clair
 hu:Átlátszó rPET
 nl:rPET transparant, Transparant rPET
 pt:rPET transparente
@@ -1323,6 +1397,7 @@ wikidata:en: Q1397471
 
 en:Silver-oxide battery
 de:Silberoxidbatterie
+hr:srebrov oksid baterija
 hu:Ezüst-oxid akkumulátor, Ezüst-oxid elem
 nl:Zilveroxide batterij
 pt:Bateria de óxido de prata, bateria prata-óxido, pilha de óxido de prata, pilha prata-óxido
@@ -1410,16 +1485,18 @@ bg:Восък
 da:Voks
 de:Wachs
 fr:Cire
+hr:vosak
 hu:Viasz
 nl:Was
 pt:Papel cera, papel de cera
 wikidata:en: Q124695
 
-en:Wood
+en:Wood, wooden
 bg:Дърво
 da:Træ
 de:Holz
 fr:Bois
+hr:drvo
 hu:Fa
 it:Legno
 nl:Hout
@@ -1430,9 +1507,18 @@ wikidata:en: Q287
 
 en:Zinc–carbon battery
 de:Zink–Kohle-Batterie
+hr:cink-ugljik baterija
 hu:Cink-szén akkumulátor, Szén-cink akkumulátor, Szén-cink elem
 nl:Zink-koolstofcel
 pt:Bateria de zinco-carbono, pilha de zinco-carbono
 xx:14 CZ, CZ 14
 wikidata:en: Q28765
+
+fr:Grès
+non_recyclable_and_non_biodegradable:en: yes
+
+fr:Papier sulfurisé
+
+fr:Porcelaine
+non_recyclable_and_non_biodegradable:en: yes
 
