@@ -5,7 +5,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lt\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-04-23 02:34\n"
 "Language-Team: Lithuanian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -14,8 +13,7 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: lt\n"
-"X-Crowdin-File: common.pot\n"
-"X-Crowdin-File-ID: 1808\n"
+"X-Crowdin-File-ID: 2588\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -124,7 +122,7 @@ msgstr "Įveskite savo organizacijos pavadinimą (įmonės pavadinimą ar prekė
 
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
-msgstr ""
+msgstr "Ši profesionali paskyra yra susieta su gamintoju arba prekės ženklu {org}. Turite prieigą prie gamintojų platformos."
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -588,8 +586,8 @@ msgid "editor"
 msgstr "redaguotojas"
 
 msgctxt "email"
-msgid "e-mail address"
-msgstr "el. pašto adresas"
+msgid "E-mail address"
+msgstr ""
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
@@ -680,6 +678,14 @@ msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "Vartotojo varde gali būti tik paprastos raidės, skaitmenys ir brūkšneliai."
 
+msgctxt "error_username_too_long"
+msgid "The user name is too long (maximum 20 characters)."
+msgstr "Naudotojo vardas per ilgas (daugiausia 20 simbolių)."
+
+msgctxt "error_name_too_long"
+msgid "The name is too long (maximum 60 characters)."
+msgstr "Vardas per ilgas (daugiausia 60 simbolių)."
+
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
 msgstr "Produktas jau egzistuoja su naujuoju kodu"
@@ -758,8 +764,8 @@ msgstr "<<site_name>> tinklaraštis"
 
 # Do not translate
 msgctxt "footer_blog_link"
-msgid "https://en.blog.openfoodfacts.org"
-msgstr "https://en.blog.openfoodfacts.org"
+msgid "https://blog.openfoodfacts.org/en/"
+msgstr ""
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -1012,6 +1018,18 @@ msgstr "informatoriai"
 msgctxt "ingredients"
 msgid "Ingredients"
 msgstr "Sudėtis"
+
+msgctxt "no_ingredient"
+msgid "Ingredients are missing"
+msgstr "Trūksta ingredientų"
+
+msgctxt "one_ingredient"
+msgid "1 ingredient"
+msgstr "1 ingredientas"
+
+msgctxt "f_ingredients_with_number"
+msgid "{number} ingredients"
+msgstr "{number} ingredientų"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
@@ -1379,6 +1397,10 @@ msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
 msgstr "Prenumeruokite naujienlaiškį (daugiausia 2 el. Laiškai per mėnesį)"
 
+msgctxt "subscribe_to_our_newsletter"
+msgid "Subscribe to our newsletter"
+msgstr ""
+
 msgctxt "next"
 msgid "Next"
 msgstr "Kitas"
@@ -1551,15 +1573,14 @@ msgstr "Mitybos klasė"
 
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
-msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
+msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 msgstr ""
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
-msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
+msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://blog.openfoodfacts.org/en/\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr "<p>Norėdami sužinoti daugiau apie <<site_name>>, apsilankykite <a href=\"https://en.blog.openfoodfacts.org\">mūsų tinklaraštyje</a>!</p>\n"
-"<p>Paskutinės naujienos:</p>\n"
+msgstr ""
 
 msgctxt "on_the_blog_title"
 msgid "News"
@@ -2277,7 +2298,7 @@ msgstr "Žr. Produkto puslapį"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr "Šalis"
+msgstr ""
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2435,6 +2456,7 @@ msgctxt "tagstable_search"
 msgid "Search:"
 msgstr "Paieška:"
 
+# This is linked to a unit test
 msgctxt "traces"
 msgid "Traces"
 msgstr "Pėdsakai"
@@ -2611,16 +2633,16 @@ msgid "Warning: the amount of fruits, vegetables and nuts is not specified, thei
 msgstr "Įspėjimas: vaisių, daržovių ir riešutų kiekis nenurodytas, neatsižvelgiama į galimą teigiamą jų indėlį į įvertinimą."
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d%"
-msgstr "Įspėjimas: vaisių, daržovių ir riešutų kiekis etiketėje nenurodytas, jis buvo apskaičiuotas rankiniu būdu iš ingredientų sąrašo: %d%"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
+msgstr "Įspėjimas: vaisių, daržovių ir riešutų kiekis etiketėje nenurodytas, jis buvo apskaičiuotas rankiniu būdu iš ingredientų sąrašo: %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
-msgstr "Įspėjimas: vaisių, daržovių ir riešutų kiekis nenurodytas etiketėje, jis buvo apskaičiuotas pagal kategoriją (%s) produkto: %d%"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
+msgstr "Įspėjimas: vaisių, daržovių ir riešutų kiekis etiketėje nenurodytas, jis buvo apskaičiuotas pagal %d produkto kategoriją: %s"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr "Įspėjimas: vaisių, daržovių ir riešutų kiekis nenurodytas etiketėje, jis buvo apskaičiuotas pagal sudėtį %d%"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
+msgstr "Įspėjimas: vaisių, daržovių ir riešutų kiekis etiketėje nenurodytas, apskaičiuotas pagal ingredientų sąrašą: %d"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -2700,7 +2722,7 @@ msgstr "Tiksliniai žodžiai"
 
 msgctxt "translators_column_approved_words"
 msgid "Approved (Words)"
-msgstr "Patvirtinta (žodžiai)"
+msgstr "Patvirtinta (žodžių)"
 
 msgctxt "translators_column_votes_made"
 msgid "Votes Made"
@@ -3116,9 +3138,13 @@ msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
 msgstr "Svarbi pastaba: šis produktas nebeparduodamas. Duomenys saugomi tik kaip nuoroda. Šis produktas nerodomas įprastose paieškose ir į statistiką nėra atsižvelgiama."
 
+# This will be on a button and needs to be as short as possible
+# So instead of something like "Install the mobile application"
+# try to make it very short "Get the app" or "Install the app"
+# Use infinitive instead of imperative
 msgctxt "get_the_app"
 msgid "Get the app"
-msgstr "Įsiinstaliuokite programėlę"
+msgstr "Gauti programėlę"
 
 msgctxt "get_the_app_android"
 msgid "Get the Android app"
@@ -3735,10 +3761,6 @@ msgctxt "import_file_result"
 msgid "Import result"
 msgstr "Importo rezultatas"
 
-msgctxt "products_added"
-msgid "Products added"
-msgstr "Produktai pridėti"
-
 msgctxt "products_modified"
 msgid "Products modified"
 msgstr "Produktai modifikuoti"
@@ -4233,15 +4255,15 @@ msgstr "Pagalbininkas"
 
 msgctxt "contributor_settings_description"
 msgid "Those settings allow you to personalize some aspect of the website"
-msgstr ""
+msgstr "Šie nustatymai leidžia suasmeninti kai kuriuos svetainės aspektus"
 
 msgctxt "display_barcode_in_search"
 msgid "Display barcode in search results"
-msgstr ""
+msgstr "Rodyti barkodą paieškos rezultatuose"
 
 msgctxt "edit_link_in_search"
 msgid "Add an edit link in search results"
-msgstr ""
+msgstr "Pridėkite redagavimo nuorodą paieškos rezultatuose"
 
 # leave the %d, it will be replaced by a number
 msgctxt "n_products_will_be_exported"
@@ -4404,6 +4426,7 @@ msgctxt "images_can_be_provided_separately"
 msgid "Product photos can also be provided separately through the Import product photos function of the platform for producers."
 msgstr "Produktų nuotraukas taip pat galima pateikti atskirai per gamintojams skirtą platformos funkciją Importuoti prekių nuotraukas."
 
+# This is linked to a unit test
 msgctxt "attribute_group_labels_name"
 msgid "Labels"
 msgstr ""
@@ -4454,15 +4477,15 @@ msgstr "Trūksta informacijos: ar tai ekologiškas produktas?"
 
 msgctxt "attribute_labels_fair_trade_yes_description_short"
 msgid "Helps producers in developing countries."
-msgstr ""
+msgstr "Padeda gamintojams besivystančiose šalyse."
 
 msgctxt "attribute_labels_fair_trade_description_short"
 msgid "Fair trade products help producers in developing countries."
-msgstr ""
+msgstr "Sąžiningos prekybos produktai padeda gamintojams besivystančiose šalyse."
 
 msgctxt "attribute_labels_fair_trade_description"
 msgid "When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards."
-msgstr ""
+msgstr "Kai perkate sąžiningos prekybos produktus, besivystančių šalių gamintojams mokama didesnė ir sąžiningesnė kaina, kuri padeda jiems tobulinti ir išlaikyti aukštesnius socialinius ir dažnai aplinkosaugos standartus."
 
 msgctxt "attribute_group_nutritional_quality_name"
 msgid "Nutritional quality"
@@ -4474,56 +4497,61 @@ msgstr "Nutri-Score"
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
-msgstr ""
+msgstr "Gera maistinė kokybė (Nutri-Score)"
 
 msgctxt "attribute_nutriscore_setting_note"
 msgid "The Nutri-Score is computed and can be taken into account for all products, even if is not displayed on the packaging."
-msgstr ""
+msgstr "Nutri-Score yra apskaičiuojamas ir į jį galima atsižvelgti visiems produktams, net jei jis nėra nurodytas ant pakuotės."
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_nutriscore_grade_title"
 msgid "Nutri-Score %s"
-msgstr ""
+msgstr "Nutri-Score %s"
 
 msgctxt "attribute_nutriscore_unknown_title"
 msgid "Nutri-Score unknown"
-msgstr ""
+msgstr "Nutri-Score nežinomas"
 
 msgctxt "attribute_nutriscore_unknown_description_short"
 msgid "Missing data to compute the Nutri-Score"
-msgstr ""
+msgstr "Trūksta duomenų Nutri-Score apskaičiuoti"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
 msgid "Nutri-Score not-applicable"
-msgstr ""
+msgstr "Nutri-Score netaikomas"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Exempted category"
-msgstr ""
+msgid "Not-applicable for the category"
+msgstr "Netaikoma šiai kategorijai"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_nutriscore_not_applicable_description"
+msgid "Not-applicable for the category: {category}"
+msgstr "Netaikoma kategorijai: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
-msgstr ""
+msgstr "Labai gera maistingumo kokybė"
 
 msgctxt "attribute_nutriscore_b_description_short"
 msgid "Good nutritional quality"
-msgstr ""
+msgstr "Gera maistingumo kokybė"
 
 msgctxt "attribute_nutriscore_c_description_short"
 msgid "Average nutritional quality"
-msgstr ""
+msgstr "Vidutinė maistingumo kokybė"
 
 msgctxt "attribute_nutriscore_d_description_short"
 msgid "Poor nutritional quality"
-msgstr ""
+msgstr "Prasta maistingumo kokybė"
 
 msgctxt "attribute_nutriscore_e_description_short"
 msgid "Bad nutritional quality"
-msgstr ""
+msgstr "Bloga maistingumo kokybė"
 
 msgctxt "attribute_group_processing_name"
 msgid "Food processing"
-msgstr ""
+msgstr "Maisto perdirbimas"
 
 msgctxt "attribute_nova_name"
 msgid "NOVA group"
@@ -4531,20 +4559,20 @@ msgstr "NOVA grupė"
 
 msgctxt "attribute_nova_unknown_title"
 msgid "NOVA not computed"
-msgstr ""
+msgstr "NOVA neapskaičiuota"
 
 msgctxt "attribute_nova_unknown_description_short"
 msgid "Food processing level unknown"
-msgstr ""
+msgstr "Maisto perdirbimo lygis nežinomas"
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
-msgstr ""
+msgstr "Maisto perdirbimo nėra arba mažai (NOVA grupė)"
 
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
 msgid "NOVA %s"
-msgstr ""
+msgstr "NOVA %s"
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
@@ -4560,23 +4588,23 @@ msgstr ""
 
 msgctxt "attribute_nova_4_description_short"
 msgid "Ultra processed foods"
-msgstr ""
+msgstr "Ultra perdirbtas maistas"
 
 msgctxt "export_product_page"
 msgid "Export product to public database"
-msgstr ""
+msgstr "Eksportuokite produktą į viešą duomenų bazę"
 
 msgctxt "one_product_will_be_exported"
 msgid "1 product will be exported."
-msgstr ""
+msgstr "1 produktas bus eksportuotas."
 
 msgctxt "no_products_to_export"
 msgid "No products to export."
-msgstr ""
+msgstr "Nėra eksportuojamų produktų."
 
 msgctxt "query_filter"
 msgid "Query filter"
-msgstr ""
+msgstr "Užklausos filtras"
 
 msgctxt "nova_group_producer"
 msgid "NOVA group"
@@ -4584,27 +4612,27 @@ msgstr "NOVA grupė"
 
 msgctxt "error_unknown_org"
 msgid "Unknown organization."
-msgstr ""
+msgstr "Nežinoma organizacija."
 
 msgctxt "error_unknown_user"
 msgid "Unknown user."
-msgstr ""
+msgstr "Nežinomas vartotojas."
 
 msgctxt "attribute_low_salt_setting_note"
 msgid "The salt level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low salt diet."
-msgstr ""
+msgstr "Nutri-Score atsižvelgia į druskos kiekį. Naudokite šį nustatymą tik tuo atveju, jei laikotės mažos druskos dietos."
 
 msgctxt "attribute_low_sugars_setting_note"
 msgid "The sugars level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low sugars diet."
-msgstr ""
+msgstr "Nutri-Score atsižvelgia į cukraus kiekį. Naudokite šį nustatymą tik tuo atveju, jei laikotės dietos, kurioje mažai cukraus."
 
 msgctxt "attribute_low_fat_setting_note"
 msgid "The fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low fat diet."
-msgstr ""
+msgstr "Nutri-Score atsižvelgia į riebalų kiekį. Naudokite šį nustatymą, tik jei laikotės mažai riebalų turinčios dietos."
 
 msgctxt "attribute_low_saturated_fat_setting_note"
 msgid "The saturated fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low saturated fat diet."
-msgstr ""
+msgstr "Nutri-Score atsižvelgia į sočiųjų riebalų kiekį. Naudokite šį nustatymą, tik jei laikotės mažai sočiųjų riebalų turinčios dietos."
 
 msgctxt "attribute_group_allergens_name"
 msgid "Allergens"
@@ -4612,7 +4640,7 @@ msgstr "Alergenai"
 
 msgctxt "attribute_group_allergens_warning"
 msgid "There is always a possibility that data about allergens may be missing, incomplete, incorrect or that the product's composition has changed. If you are allergic, always check the information on the actual product packaging."
-msgstr ""
+msgstr "Visada yra tikimybė, kad duomenų apie alergenus gali trūkti, jie yra neišsamūs, neteisingi arba pasikeitė produkto sudėtis. Jei esate alergiškas, visada patikrinkite informaciją ant tikrosios produkto pakuotės."
 
 msgctxt "attribute_additives_name"
 msgid "Additives"
@@ -4620,11 +4648,11 @@ msgstr ""
 
 msgctxt "attribute_additives_setting_name"
 msgid "No or few additives"
-msgstr ""
+msgstr "Nėra arba mažai priedų"
 
 msgctxt "attribute_additives_unknown_title"
 msgid "Additives not computed"
-msgstr ""
+msgstr "Priedai neapskaičiuoti"
 
 msgctxt "preference_not_important"
 msgid "Not important"
@@ -4644,11 +4672,11 @@ msgstr "Privaloma"
 
 msgctxt "packaging_alt"
 msgid "Recycling instructions and/or packaging information"
-msgstr ""
+msgstr "Perdirbimo instrukcijos ir (arba) informacija apie pakuotę"
 
 msgctxt "image_packaging"
 msgid "Recycling instructions and/or packaging information picture"
-msgstr ""
+msgstr "Perdirbimo instrukcijos ir (arba) pakuotės informacijos paveikslėlis"
 
 msgctxt "image_packaging_url"
 msgid "Link to recycling instructions and/or packaging information photo"
@@ -4661,7 +4689,7 @@ msgstr "3001234567890.packaging_es.jpg: perdirbimo instrukcijos ispanų kalba."
 
 msgctxt "packaging_text"
 msgid "Recycling instructions and/or packaging information"
-msgstr ""
+msgstr "Perdirbimo instrukcijos ir (arba) informacija apie pakuotę"
 
 msgctxt "packaging_text_example"
 msgid "1 plastic film to discard, 1 FSC carboard box to recycle, 6 1.5L transparent PET plastic bottles to recycle, 6 colored opaque plastic caps, 12 33cl aluminium cans"
@@ -4669,27 +4697,27 @@ msgstr "1 plastikinė plėvelė, kurią reikia išmesti, 1 FSC kartoninė dėžu
 
 msgctxt "packaging_text_note"
 msgid "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions."
-msgstr ""
+msgstr "Išvardykite visas pakuotės dalis, atskirtas kableliu arba eilute, nurodydami jų kiekį (pvz., 1 arba 6) tipą (pvz., butelis, dėžutė, skardinė), medžiagą (pvz., plastiką, metalą, aliuminį) ir, jei yra, dydį (pvz., 33 cl) ir perdirbimo instrukcijas."
 
 msgctxt "packaging_text_note_2"
 msgid "Try to be as specific as possible. For plastic, please indicate if it is opaque or transparent, colored, PET or PEHD."
-msgstr ""
+msgstr "Stenkitės būti kuo konkretesni. Jei naudojate plastiką, nurodykite, ar jis nepermatomas ar skaidrus, spalvotas, PET ar PEHD."
 
 msgctxt "product_js_extract_packaging"
 msgid "Extract the recycling instructions and/or packaging information from the picture"
-msgstr ""
+msgstr "Iš paveikslėlio ištraukti perdirbimo instrukcijas ir (arba) pakuotės informaciją"
 
 msgctxt "product_js_extracted_packaging_nok"
 msgid "Recycling instructions and/or packaging information text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
-msgstr ""
+msgstr "Nepavyko išgauti perdirbimo instrukcijų ir (arba) pakuotės informacijos teksto. Išbandykite ryškesnę nuotrauką, didesnę raišką arba geresnį teksto įrėminimą."
 
 msgctxt "product_js_extracted_packaging_ok"
 msgid "Recycling instructions and/or packaging information text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
-msgstr ""
+msgstr "Perdirbimo instrukcijos ir (arba) pakuotės informacijos tekstas buvo išgautas. Teksto atpažinimas nėra tobulas, todėl patikrinkite toliau pateiktą tekstą ir, jei reikia, ištaisykite klaidas."
 
 msgctxt "product_js_extracting_packaging"
 msgid "Extracting recycling instructions and/or packaging information"
-msgstr ""
+msgstr "Išgaunamas perdirbimo instrukcijos ir (arba) pakuotės informacija"
 
 msgctxt "attribute_group_environment_name"
 msgid "Environment"
@@ -4701,68 +4729,68 @@ msgstr "Eco-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Eco-Score)"
-msgstr ""
+msgstr "Mažas poveikis aplinkai (Eco-Score)"
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_ecoscore_grade_title"
 msgid "Eco-Score %s"
-msgstr ""
+msgstr "Eco-Score %s"
 
 msgctxt "attribute_ecoscore_a_description_short"
 msgid "Very low environmental impact"
-msgstr ""
+msgstr "Labai mažas poveikis aplinkai"
 
 msgctxt "attribute_ecoscore_b_description_short"
 msgid "Low environmental impact"
-msgstr ""
+msgstr "Mažas poveikis aplinkai"
 
 msgctxt "attribute_ecoscore_c_description_short"
 msgid "Moderate environmental impact"
-msgstr ""
+msgstr "Vidutinis poveikis aplinkai"
 
 msgctxt "attribute_ecoscore_d_description_short"
 msgid "High environmental impact"
-msgstr ""
+msgstr "Didelis poveikis aplinkai"
 
 msgctxt "attribute_ecoscore_e_description_short"
 msgid "Very high environmental impact"
-msgstr ""
+msgstr "Labai didelis poveikis aplinkai"
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "contains_s"
 msgid "Contains: %s"
-msgstr ""
+msgstr "Turi: %s"
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "may_contain_s"
 msgid "May contain: %s"
-msgstr ""
+msgstr "Gali būti: %s"
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "does_not_contain_s"
 msgid "Does not contain: %s"
-msgstr ""
+msgstr "Neturi: %s"
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "without_s"
 msgid "Without %s"
-msgstr ""
+msgstr "Be %s"
 
 msgctxt "owners_p"
 msgid "owners"
-msgstr ""
+msgstr "savininkai"
 
 msgctxt "owners_s"
 msgid "owner"
-msgstr ""
+msgstr "savininkas"
 
 msgctxt "org_profile_description"
 msgid "You can provide information about your company that will be displayed in your organization profile."
-msgstr ""
+msgstr "Galite pateikti informaciją apie savo įmonę, kuri bus rodoma jūsų organizacijos profilyje."
 
 msgctxt "org_profile_description_2"
 msgid "Some of the information like the customer service contact information may also be displayed directly on pages for your products."
-msgstr ""
+msgstr "Tam tikra informacija, pvz., klientų aptarnavimo kontaktinė informacija, taip pat gali būti rodoma tiesiogiai jūsų produktų puslapiuose."
 
 msgctxt "org_name"
 msgid "Name"
@@ -4770,7 +4798,7 @@ msgstr "Vardas"
 
 msgctxt "org_link"
 msgid "Link to the official web site"
-msgstr ""
+msgstr "Nuoroda į oficialią svetainę"
 
 msgctxt "org_customer_service"
 msgid "Customer service"
@@ -4778,19 +4806,19 @@ msgstr "Klientų aptarnavimas"
 
 msgctxt "org_customer_service_description"
 msgid "Customer service information is public and can be shown on the Open Food Facts web site and apps."
-msgstr ""
+msgstr "Klientų aptarnavimo informacija yra vieša ir gali būti rodoma Open Food Facts svetainėje ir programėlėse."
 
 msgctxt "org_customer_service_note"
 msgid "All fields are optional."
-msgstr ""
+msgstr "Visi laukai yra neprivalomi."
 
 msgctxt "org_commercial_service"
 msgid "Commercial service"
-msgstr ""
+msgstr "Komercinė paslauga"
 
 msgctxt "org_commercial_service_description"
 msgid "Commercial service information is only shown in the organization profile."
-msgstr ""
+msgstr "Komercinių paslaugų informacija rodoma tik organizacijos profilyje."
 
 msgctxt "contact_name"
 msgid "Name"
@@ -4798,11 +4826,11 @@ msgstr "Vardas"
 
 msgctxt "contact_address"
 msgid "Address"
-msgstr ""
+msgstr "Adresas"
 
 msgctxt "contact_phone"
 msgid "Phone number"
-msgstr ""
+msgstr "Telefono numeris"
 
 msgctxt "contact_email"
 msgid "e-mail address"
@@ -4810,7 +4838,7 @@ msgstr "el. pašto adresas"
 
 msgctxt "contact_link"
 msgid "Contact form link"
-msgstr ""
+msgstr "Kontaktinės formos nuoroda"
 
 msgctxt "contact_info"
 msgid "Other information"
@@ -4818,43 +4846,43 @@ msgstr "Kita informacija"
 
 msgctxt "contact_info_note"
 msgid "e.g. opening times"
-msgstr ""
+msgstr "pvz., darbo laikas"
 
 msgctxt "error_org_does_not_exist"
 msgid "The organization was not found."
-msgstr ""
+msgstr "Organizacija nerasta."
 
 msgctxt "error_missing_org_name"
 msgid "The organization name is missing."
-msgstr ""
+msgstr "Trūksta organizacijos pavadinimo."
 
 msgctxt "edit_org_title"
 msgid "Organization profile"
-msgstr ""
+msgstr "Organizacijos profilis"
 
 msgctxt "edit_org_result"
 msgid "The organization profile has been updated."
-msgstr ""
+msgstr "Organizacijos profilis buvo atnaujintas."
 
 msgctxt "delete_org"
 msgid "Delete the organization"
-msgstr ""
+msgstr "Ištrinti organizaciją"
 
 msgctxt "official_site"
 msgid "Official site"
-msgstr ""
+msgstr "Oficialus puslapis"
 
 msgctxt "contact_form"
 msgid "Contact form"
-msgstr ""
+msgstr "Kontaktų forma"
 
 msgctxt "edit_org_profile"
 msgid "Edit your organization profile"
-msgstr ""
+msgstr "Redaguoti savo organizacijos profilį"
 
 msgctxt "edit_user_profile"
 msgid "Edit your user profile"
-msgstr ""
+msgstr "Redaguoti savo vartotojo profilį"
 
 msgctxt "attribute_group_ingredients_analysis_name"
 msgid "Ingredients"
@@ -4867,35 +4895,35 @@ msgstr ""
 
 msgctxt "environmental_impact"
 msgid "Environmental impact"
-msgstr ""
+msgstr "Poveikis aplinkai"
 
 # Numerical score for the Eco-score (do not translate Eco-score)
 msgctxt "ecoscore_score"
 msgid "Eco-score score"
-msgstr ""
+msgstr "Eco-score balas"
 
 # Letter grade from A to E for the Eco-score (do not translate Eco-score)
 msgctxt "ecoscore_grade"
 msgid "Eco-score grade"
-msgstr ""
+msgstr "Eco-score įvertinimas"
 
 # do not translate Eco-score
 msgctxt "ecoscore_calculation_details"
 msgid "Details of the calculation of the Eco-score"
-msgstr ""
+msgstr "Išsami informacija apie Eco-score apskaičiavimą"
 
 # do not translate Eco-score
 msgctxt "ecoscore_information"
 msgid "Information about the Eco-score"
-msgstr ""
+msgstr "Informacija apie Eco-score"
 
 msgctxt "preferences_edit_your_food_preferences"
 msgid "Edit your food preferences"
-msgstr ""
+msgstr "Redaguokite savo maisto pageidavimus"
 
 msgctxt "preferences_your_preferences"
 msgid "Your food preferences"
-msgstr ""
+msgstr "Jūsų maisto pageidavimai"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
@@ -4903,20 +4931,20 @@ msgstr "Šiuo metu pasirinkti nustatymai"
 
 msgctxt "preferences_locally_saved"
 msgid "Your food preferences are kept in your browser and never sent to Open Food Facts or anyone else."
-msgstr ""
+msgstr "Jūsų maisto pasirinkimai saugomi naršyklėje ir niekada nesiunčiami Open Food Facts ar kam nors kitam."
 
 # used in phrases like "salt in unknown quantity"
 msgctxt "unknown_quantity"
 msgid "unknown quantity"
-msgstr ""
+msgstr "nežinomas kiekis"
 
 msgctxt "missing_ingredients_list"
 msgid "Missing ingredients list"
-msgstr ""
+msgstr "Trūksta ingredientų sąrašo"
 
 msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
-msgstr ""
+msgstr "Trūksta maistingumo"
 
 msgctxt "ecoscore_p"
 msgid "Eco-Score"
@@ -4928,7 +4956,7 @@ msgstr "Eco-Score"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
-msgstr ""
+msgstr "Pakavimo dalys"
 
 # Number of packaging parts
 msgctxt "packaging_number"
@@ -4941,7 +4969,7 @@ msgstr "Forma"
 
 msgctxt "packaging_quantity"
 msgid "Quantity contained"
-msgstr ""
+msgstr "Sudėtyje esantis kiekis"
 
 msgctxt "packaging_material"
 msgid "Material"
@@ -4957,75 +4985,75 @@ msgstr "Produktai šiame puslapyje yra surūšiuoti pagal jūsų pageidavimus:"
 
 msgctxt "choose_which_information_you_prefer_to_see_first"
 msgid "Choose which information you prefer to see first."
-msgstr ""
+msgstr "Pasirinkite, kurią informaciją norite matyti pirmiausia."
 
 msgctxt "see_your_preferences"
 msgid "See your preferences"
-msgstr ""
+msgstr "Peržiūrėkite savo nuostatas"
 
 msgctxt "delete_all_preferences"
 msgid "Delete all preferences"
-msgstr ""
+msgstr "Ištrinkite visas nuostatas"
 
 msgctxt "products_are_being_loaded_please_wait"
 msgid "Products are being loaded, please wait."
-msgstr ""
+msgstr "Produktai įkeliami, palaukite."
 
 msgctxt "products_match_all"
 msgid "All products"
-msgstr ""
+msgstr "Visi produktai"
 
 msgctxt "products_match_yes"
 msgid "Products that match your preferences"
-msgstr ""
+msgstr "Jūsų pageidavimus atitinkantys produktai"
 
 msgctxt "products_match_no"
 msgid "Products that do not match your preferences"
-msgstr ""
+msgstr "Produktai, kurie neatitinka jūsų pageidavimų"
 
 msgctxt "products_match_unknown"
 msgid "Products for which we currently miss data to determine if they match your preferences"
-msgstr ""
+msgstr "Produktai, apie kuriuos šiuo metu trūksta duomenų, kad nustatytume ar jie atitinka jūsų reikalavimus"
 
 msgctxt "forest_footprint"
 msgid "Forest footprint"
-msgstr ""
+msgstr "Miško pėdsakas"
 
 msgctxt "ingredients_requiring_soy"
 msgid "Ingredients requiring soy"
-msgstr ""
+msgstr "Ingredientai, kuriems reikia sojos"
 
 msgctxt "type"
 msgid "Type"
-msgstr ""
+msgstr "Tipas"
 
 msgctxt "processing_factor"
 msgid "Processing factor"
-msgstr ""
+msgstr "Apdorojimo faktorius"
 
 msgctxt "soy_feed_factor"
 msgid "Soy feed factor"
-msgstr ""
+msgstr "Sojų pašarų faktorius"
 
 msgctxt "soy_yield"
 msgid "Soy yield"
-msgstr ""
+msgstr "Sojos derlius"
 
 msgctxt "deforestation_risk"
 msgid "Deforestation risk"
-msgstr ""
+msgstr "Miškų naikinimo rizika"
 
 msgctxt "total_forest_footprint"
 msgid "Total forest footprint"
-msgstr ""
+msgstr "Bendras miško pėdsakas"
 
 msgctxt "square_meters_per_kg_of_food"
 msgid "m² per kg of food"
-msgstr ""
+msgstr "m² vienam kilogramui maisto"
 
 msgctxt "percent_of_food_after_processing"
 msgid "% of food after processing"
-msgstr ""
+msgstr "% maisto po perdirbimo"
 
 msgctxt "kg_of_soy_per_kg_of_food"
 msgid "kg of soy per kg of food"
@@ -5033,11 +5061,11 @@ msgstr ""
 
 msgctxt "kg_of_soy_per_square_meter"
 msgid "kg of soy per m²"
-msgstr ""
+msgstr "sojų kg/m²"
 
 msgctxt "percent_in_product"
 msgid "% in product"
-msgstr ""
+msgstr "% produkte"
 
 msgctxt "forest_footprint_calculation_details"
 msgid "Details of the calculation of the forest footprint"
@@ -5045,11 +5073,11 @@ msgstr ""
 
 msgctxt "you_are_on_the_public_database"
 msgid "You are on the public database."
-msgstr ""
+msgstr "Jūs esate viešoje duomenų bazėje."
 
 msgctxt "manage_your_products_on_the_producers_platform"
 msgid "Manage your products on the platform for producers"
-msgstr ""
+msgstr "Valdykite savo produktus gamintojams skirtoje platformoje"
 
 msgctxt "number_of_products_with_changes_since_last_export"
 msgid "Number of products with changes since last export"
@@ -5082,7 +5110,7 @@ msgstr ""
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest footprint"
-msgstr ""
+msgstr "Miško pėdsakas"
 
 msgctxt "attribute_forest_footprint_setting_name"
 msgid "Low risk of deforestation (Forest footprint)"
@@ -5207,6 +5235,23 @@ msgctxt "delete_user_process"
 msgid "User deleted."
 msgstr "Vartotojas ištrintas."
 
+msgctxt "attribute_ecoscore_not_applicable_title"
+msgid "Eco-Score not yet applicable"
+msgstr "Eco-Score dar netaikomas"
+
+msgctxt "attribute_ecoscore_not_applicable_description_short"
+msgid "Not yet applicable for the category"
+msgstr "Kol kas netaikoma kategorijai"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_ecoscore_not_applicable_description"
+msgid "Not yet applicable for the category: {category}"
+msgstr "Kol kas netaikoma kategorijai: {category}"
+
+msgctxt "ecoscore_not_applicable_coming_soon"
+msgid "The Eco-Score is not yet applicable for this category, but we are working on adding support for it."
+msgstr "Eco-Score šiai kategorijai dar netaikomas, tačiau stengiamės, kad jai būtų suteiktas palaikymas."
+
 msgctxt "attribute_ecoscore_unknown_title"
 msgid "Eco-Score not computed"
 msgstr "Ekologinis balas neapskaičiuotas"
@@ -5217,7 +5262,7 @@ msgstr "Nežinomas poveikis aplinkai"
 
 msgctxt "ecoscore_unknown_call_to_help"
 msgid "We could not compute the Eco-Score of this product as it is missing some data, could you help complete it?"
-msgstr ""
+msgstr "Negalėjome apskaičiuoti šio produkto Eco-Score, nes trūksta kai kurių duomenų. Ar galėtumėte padėti jį užpildyti?"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
@@ -5322,7 +5367,7 @@ msgstr "Gamintojai gali naudoti nemokamą „Open Food Facts <a href=\"<producer
 # variable names between { } must not be translated
 msgctxt "f_data_source_database_provider"
 msgid "The manufacturer {manufacturer} uses {provider} to automatically transmit data and photos for its products."
-msgstr ""
+msgstr "Gamintojas {manufacturer} naudoja {provider}, kad automatiškai perduotų duomenis ir nuotraukas savo gaminiams."
 
 msgctxt "image_other_type"
 msgid "Type of the product photo"
@@ -5698,6 +5743,10 @@ msgctxt "source_ademe_agribalyse"
 msgid "Source: ADEME Agribalyse Database"
 msgstr "Šaltinis: ADEME Agribalyse duomenų bazė"
 
+msgctxt "source_ademe_agribalyse_for_category"
+msgid "The carbon emission figure comes from ADEME's Agribalyse database, for the category:"
+msgstr ""
+
 msgctxt "environment_card_title"
 msgid "Environment"
 msgstr ""
@@ -5756,7 +5805,7 @@ msgstr "Gyvenimo ciklo analizės balas"
 
 msgctxt "impact_for_this_product"
 msgid "Impact for this product"
-msgstr ""
+msgstr "Poveikis šiam produktui"
 
 msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
@@ -5773,6 +5822,10 @@ msgstr "Norint apskaičiuoti Nutri-Score, turi būti nurodyta produkto kategorij
 msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "Norint apskaičiuoti Nutri-Score, turi būti nurodyti produkto maistingumo faktai."
+
+msgctxt "nutriscore_missing_category_and_nutrition_data"
+msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
+msgstr ""
 
 msgctxt "health"
 msgid "Health"
@@ -5818,17 +5871,17 @@ msgctxt "f_energy_expenditure_for_weight_in_kg_lb"
 msgid "Energy expenditure for a person weighting {kg} kg / {lb} lb"
 msgstr "Energijos sąnaudos žmogui, sveriančiam {kg} kg / {lb} svarą"
 
-msgctxt "nutriscore_not_applicable_short"
-msgid "Not applicable for this product"
-msgstr "Netaikoma šiam produktui"
-
 msgctxt "nutriscore_missing_category_short"
 msgid "Missing category"
 msgstr "Trūksta kategorijos"
 
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
-msgstr ""
+msgstr "Trūksta maistingumo"
+
+msgctxt "nutriscore_missing_category_and_nutrition_data_short"
+msgid "Missing category and nutrition facts"
+msgstr "Trūksta kategorijos ir maistingumo"
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
 msgid "Reduce or stop drinking alcohol"
@@ -5919,21 +5972,224 @@ msgstr ""
 
 msgctxt "nova_classification_learn_more"
 msgid "Learn more about the NOVA classification"
-msgstr ""
+msgstr "Sužinokite daugiau apie NOVA klasifikaciją"
 
 msgctxt "nova_group_missing_category"
 msgid "The category of the product must be specified in order to determine the NOVA group."
-msgstr ""
+msgstr "Norint nustatyti NOVA grupę, būtina nurodyti produkto kategoriją."
 
 msgctxt "nova_group_missing_ingredients"
 msgid "The ingredients of the product must be specified in order to determine the NOVA group."
-msgstr ""
+msgstr "Norint nustatyti NOVA grupę, būtina nurodyti produkto sudedamąsias dalis."
 
 msgctxt "nova_group_too_many_unknown_ingredient"
 msgid "We could not recognize some of the ingredients and determine the NOVA group."
-msgstr ""
+msgstr "Negalėjome atpažinti kai kurių sudedamųjų dalių ir nustatyti NOVA grupės."
 
 msgctxt "unselect_image"
 msgid "Unselect Image"
+msgstr "Atžymėti vaizdą"
+
+msgctxt "nutriscore_learn_more"
+msgid "Learn more about the Nutri-Score"
+msgstr ""
+
+msgctxt "ecoscore_learn_more"
+msgid "Learn more about the Eco-Score"
+msgstr "Sužinokite daugiau apie Eco-Score"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_very_good_match"
+msgid "Very good match"
+msgstr "Labai geras atitikimas"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_good_match"
+msgid "Good match"
+msgstr "Geras atitikimas"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_poor_match"
+msgid "Poor match"
+msgstr "Blogas atitikimas"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_unknown_match"
+msgid "Unknown match"
+msgstr "Nežinomas pasirinkimas"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_may_not_match"
+msgid "May not match"
+msgstr "Gali nesutapti"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_does_not_match"
+msgid "Does not match"
+msgstr "Nesutampa"
+
+msgctxt "reset_preferences"
+msgid "Use default preferences"
+msgstr "Naudokite numatytąsias nuostatas"
+
+msgctxt "reset_preferences_details"
+msgid "Nutri-Score, Eco-Score and food processing level (NOVA)"
+msgstr "Nutri-Score, Eco-Score ir maisto perdirbimo lygis (NOVA)"
+
+msgctxt "actions_add_ingredients"
+msgid "Could you add the ingredients list?"
+msgstr "Ar galėtumėte pridėti ingredientų sąrašą?"
+
+msgctxt "actions_to_compute_nutriscore"
+msgid "Could you add the information needed to compute the Nutri-Score?"
+msgstr "Ar galėtumėte pridėti informacijos, reikalingos Nutri-Score apskaičiuoti?"
+
+msgctxt "actions_to_compute_ecoscore"
+msgid "Could you add a precise product category so that we can compute the Eco-Score?"
+msgstr "Ar galėtumėte pridėti tikslią produkto kategoriją, kad galėtume apskaičiuoti Eco-Score?"
+
+msgctxt "action_add_ingredients_text"
+msgid "Add the ingredients"
+msgstr "Pridėti ingredientus"
+
+msgctxt "action_add_categories"
+msgid "Add a category"
+msgstr "Pridėti kategoriją"
+
+msgctxt "action_add_nutrition_facts"
+msgid "Add nutrition facts"
+msgstr "Pridėti maistingumą"
+
+# Used as a header for key facts
+msgctxt "knowledge_panels_facts"
+msgid "What you need to know"
+msgstr "Ką turi žinoti"
+
+msgctxt "knowledge_panels_recommendation"
+msgid "Recommendation"
+msgstr "Rekomendacija"
+
+msgctxt "nutrient_info_salt_risk"
+msgid "A high consumption of salt (or sodium) can cause raised blood pressure, which can increase the risk of heart disease and stroke."
+msgstr "Didelis druskos (arba natrio) vartojimas gali sukelti kraujospūdžio padidėjimą, o tai gali padidinti širdies ligų ir insulto riziką."
+
+msgctxt "nutrient_info_salt_high_blood_pressure"
+msgid "Many people who have high blood pressure do not know it, as there are often no symptoms."
+msgstr "Daugelis žmonių, turinčių aukštą kraujospūdį, to nežino, nes dažnai nėra jokių simptomų."
+
+msgctxt "nutrient_info_salt_high_consumption"
+msgid "Most people consume too much salt (on average 9 to 12 grams per day), around twice the recommended maximum level of intake."
+msgstr "Dauguma žmonių suvartoja per daug druskos (vidutiniškai nuo 9 iki 12 gramų per dieną), maždaug dvigubai daugiau nei rekomenduojama didžiausia norma."
+
+msgctxt "nutrient_recommendation_salt_title"
+msgid "Limit the consumption of salt and salted food"
+msgstr "Apriboti druskos ir sūdyto maisto vartojimą"
+
+msgctxt "nutrient_recommendation_salt_cooking_and_table"
+msgid "Reduce the quantity of salt used when cooking, and don't salt again at the table."
+msgstr "Sumažinkite gaminant maistą naudojamos druskos kiekį ir daugiau nedėkite druskos prie stalo."
+
+msgctxt "nutrient_recommendation_salt_limit_salty_snacks"
+msgid "Limit the consumption of salty snacks and choose products with lower salt content."
+msgstr "Ribokite sūrių užkandžių vartojimą ir rinkitės produktus su mažesniu druskos kiekiu."
+
+msgctxt "nutrient_info_sugars_risk"
+msgid "A high consumption of sugar can cause weight gain and tooth decay. It also augments the risk of type 2 diabetes and cardio-vascular diseases."
+msgstr "Didelis cukraus vartojimas gali sukelti svorio prieaugį ir dantų ėduonį. Tai taip pat padidina 2 tipo diabeto ir širdies ir kraujagyslių ligų riziką."
+
+msgctxt "nutrient_recommendation_sugars_title"
+msgid "Limit the consumption of sugar and sugary drinks"
+msgstr "Apriboti cukraus ir saldžių gėrimų vartojimą"
+
+msgctxt "nutrient_recommendation_sugars_drinks"
+msgid "Sugary drinks (such as sodas, fruit beverages, and fruit juices and nectars) should be limited as much as possible (no more than 1 glass a day)."
+msgstr "Saldžūs gėrimai (tokie kaip gazuoti gėrimai, vaisių gėrimai, vaisių sultys ir nektarai) turi būti ribojami kiek įmanoma daugiau(ne daugiau kaip 1 stiklinė per dieną)."
+
+msgctxt "nutrient_recommendation_sugars_food"
+msgid "Choose products with lower sugar content and reduce the consumption of products with added sugars."
+msgstr "Rinkitės produktus su mažesniu cukraus kiekiu ir sumažinkite produktų, į kuriuos pridėta cukraus, vartojimą."
+
+msgctxt "nutrient_info_fat_and_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "Didelis riebalų, ypač sočiųjų, vartojimas gali padidinti cholesterolio kiekį, o tai padidina širdies ligų riziką."
+
+msgctxt "nutrient_recommendation_fat_and_saturated_fat_title"
+msgid "Reduce the consumption of fat and saturated fat"
+msgstr "Sumažinkite riebalų ir sočiųjų riebalų vartojimą"
+
+msgctxt "nutrient_recommendation_fat_and_saturated_fat"
+msgid "Choose products with lower fat and saturated fat content."
+msgstr "Rinkitės produktus su mažesniu riebalų ir sočiųjų riebalų kiekiu."
+
+msgctxt "sign_in"
+msgid "Sign in"
+msgstr "Prisijungti"
+
+msgctxt "sign_out"
+msgid "Sign out"
+msgstr "Atsijungti"
+
+msgctxt "your_contributions"
+msgid "Your contributions"
+msgstr "Jūsų indėlis"
+
+msgctxt "products_added"
+msgid "Products added"
+msgstr "Produktai pridėti"
+
+msgctxt "products_edited"
+msgid "Products edited"
+msgstr ""
+
+msgctxt "products_photographed"
+msgid "Products photographed"
+msgstr ""
+
+# result of the matching with the user preferences: should ne a noun, not a verb
+msgctxt "matching_with_your_preferences"
+msgid "Matching with your preferences"
+msgstr ""
+
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_join_us_on_slack"
+msgid "Join us on <a href=\"{url}\">Slack</a>"
+msgstr ""
+
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_discover_our_code_of_conduct"
+msgid "Discover our <a href=\"{url}\">Code of conduct</a>"
+msgstr ""
+
+# {links} must not be translated, it will be replaced by icons and/or text links
+msgctxt "f_footer_follow_us_links"
+msgid "Follow us: {links}"
+msgstr ""
+
+# Should be as small as possible, e.g. use "app" instead of "application", don't specify "mobile"
+msgctxt "footer_install_the_app_exclamation_mark"
+msgid "Install the app!"
+msgstr ""
+
+# HTML tags must not be translated, keep <span id=\"everyday\"> and <span id=\"foods\"> and put them around the corresponding words in the translation
+# e.g. in French: Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>
+msgctxt "footer_scan_your_everyday_foods"
+msgid "Scan your <span id=\"everyday\">everyday</span> <span id=\"foods\">foods</span>"
+msgstr ""
+
+msgctxt "nutrition"
+msgid "Nutrition"
+msgstr "Maistingumas"
+
+# Note: "criteria" is plural here. So in French for instance: "Vos critères"
+msgctxt "your_criteria"
+msgid "Your criteria"
+msgstr ""
+
+msgctxt "product"
+msgid "Product"
+msgstr "Produktas"
+
+msgctxt "environment"
+msgid "Environment"
 msgstr ""
 

@@ -34,6 +34,15 @@
                     `
             }
         },
+        {
+            "element_type": "action",
+            "action_element": {
+                "html": `[% lang("action_add_packaging_image") %]`,
+                "actions": [
+                    "add_packaging_image"
+                ]
+            }
+        },
     ],
 [% ELSE %]    
     [% IF product.ecoscore_data.adjustments.packaging.value <= -15 %]
@@ -64,11 +73,11 @@
                     [% IF recycling_type == "en:recycle" %]
                     "evaluation": "good",
                     "icon_url": "[% static_subdomain %]/images/icons/dist/recycle-variant.svg",
-                    "icon_alt": "[% display_taxonomy_tag("packaging_recycling",recycling_type) %]",
+                    "icon_alt": "[% display_taxonomy_tag_name("packaging_recycling",recycling_type) %]",
                     [% ELSIF recycling_type == "en:discard" %]
                     "evaluation": "bad",
                     "icon_url": "[% static_subdomain %]/images/icons/dist/delete.svg",
-                    "icon_alt": "[% display_taxonomy_tag("packaging_recycling",recycling_type) %]",
+                    "icon_alt": "[% display_taxonomy_tag_name("packaging_recycling",recycling_type) %]",
                     [% ELSE %]
                     "evaluation": "neutral",
                     "icon_url": "[% static_subdomain %]/images/icons/dist/help.svg",
@@ -77,9 +86,13 @@
                     "html": `
                         [% FOREACH packaging IN product.packagings %]
                             [% IF packaging.recycling == recycling_type OR (recycling_type == "en:unknown" AND NOT packaging.recycling.defined) %]
-                                <strong>[% display_taxonomy_tag('packaging_shapes',packaging.shape) %]</strong>
+                                [% IF packaging.number_of_units %][% packaging.number_of_units %] x [% END %]
+                                <strong>
+                                    [% display_taxonomy_tag_name('packaging_shapes',packaging.shape) %]
+                                    [% IF packaging.quantity_per_unit %][% packaging.quantity_per_unit %] [% END %]
+                                </strong>
                                     [% IF packaging.material %]
-                                        ([% display_taxonomy_tag('packaging_materials',packaging.material) %])
+                                        ([% display_taxonomy_tag_name('packaging_materials',packaging.material) %][% IF packaging.weight_per_unit %] [% packaging.weight_per_unit %] g[% END %])
                                     [% END %]
                                     <br>
                             [% END %]

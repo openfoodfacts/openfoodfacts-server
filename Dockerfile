@@ -2,6 +2,7 @@
 # Base user uid / gid keep 1000 on prod, align with your user on dev
 ARG USER_UID=1000
 ARG USER_GID=1000
+# options for cpan installs
 ARG CPANMOPTS=
 
 ######################
@@ -21,6 +22,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         libapache2-mod-perl2 \
         # libexpat1-dev \
         make \
+        gettext \
         wget \
         imagemagick \
         graphviz \
@@ -157,11 +159,10 @@ ARG CPANMOPTS
 WORKDIR /tmp
 
 # Install Product Opener from the workdir.
-COPY ./cpanfile /tmp/cpanfile
-
+COPY ./cpanfile* /tmp/
 # Add ProductOpener runtime dependencies from cpan
-RUN --mount=type=cache,id=cpanm-cache,target=/root/.cpanm cpanm $CPANMOPTS --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps .
-
+RUN --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
+    cpanm $CPANMOPTS --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps .
 
 ######################
 # backend production image stage

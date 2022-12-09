@@ -2,7 +2,6 @@ name: Pull Requests
 
 on:
   pull_request:
-    branches: [ main ]
 
 jobs:
 
@@ -35,15 +34,54 @@ jobs:
     - name: lint
       run: make front_lint
 
-  test:
-    name: Perl unit tests
+  # this will build the docker image and upload as an artifact for following jobs
+  build_backend:
+    name: Build backend dev image for tests
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
       with:
         fetch-depth: 50
+    - name: build
+      run: make build_backend
+    - name: push backend image as artifact
+      uses: ishworkh/docker-image-artifact-upload@v1
+      with:
+        image: "openfoodfacts-server/backend:dev"
+
+  check_perl:
+    name: Check perl
+    needs: build_backend
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 50
+    - name: Download backend image from artifacts
+      uses: ishworkh/docker-image-artifact-download@v1
+      with:
+        image: "openfoodfacts-server/backend:dev"
+    - name: ensure branch origin/main is fetched
+      run: git fetch --no-tags --prune --progress --no-recurse-submodules --depth=5 origin  main
+    - name: check perltidy
+      run: make check_perltidy
+    - name: check perlcritic
+      run: make check_critic
     - name: check perl
       run: make check_perl
+
+  tests:
+    name: Perl unit tests
+    needs: build_backend
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 50
+    - name: Download backend image from artifacts
+      uses: ishworkh/docker-image-artifact-download@v1
+      with:
+        image: "openfoodfacts-server/backend:dev"
     - name: rebuild taxonomies
       # here we first restore dates from git for taxonomies to avoid build them all
       # see https://stackoverflow.com/a/60984318/2886726
@@ -52,11 +90,19 @@ jobs:
         make build_taxonomies
     - name: test
       run: make tests
-    - name: test make dev
+
+  tests_dev:
+    name: Test make dev
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 50
+    - name: Test make dev
       run: |
         make dev
         make status
-    - name: test all is runing
+    - name: test all is running
       run: make livecheck
     - name: test clean
       run: make hdown

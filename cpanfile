@@ -39,6 +39,8 @@ requires 'Path::Tiny', '>= 0.118'; # libpath-tiny-perl
 
 # Probably not available as Debian/Ubuntu packages
 requires 'MongoDB', '>= 2.2.2, < 2.3'; # libmongodb-perl has 1.8.1/2.0.3 vs 2.2.2. deps: libauthen-sasl-saslprep-perl, libbson-perl, libauthen-scram-perl, libclass-xsaccessor-perl, libdigest-hmac-perl, libsafe-isa-perl, libconfig-autoconf-perl, libpath-tiny-perl
+# we fix this because MongoDB depends on it, and 0.023 does not install correctly
+requires 'Type::Tiny::XS', '==0.022';
 requires 'Encode::Punycode'; # deps: libnet-idn-encode-perl, libtest-nowarnings-perl
 requires 'GraphViz2'; # deps: libfile-which-perl, libdata-section-simple-perl, libwant-perl, libipc-run3-perl, liblog-handler-perl, libtest-deep-perl
 requires 'Algorithm::CheckDigits'; # libalgorithm-checkdigits-perl has 0.50 vs 1.3.3. deps: libprobe-perl-perl
@@ -64,6 +66,7 @@ requires 'JSON::Create';
 requires 'JSON::Parse';
 requires 'Data::DeepAccess';
 requires 'XML::XML2JSON';
+requires 'Redis';
 
 
 # Mojolicious/Minion
@@ -85,17 +88,30 @@ on 'test' => sub {
   requires 'Test::MockModule';
   requires 'Mock::Quick';
   requires 'Test::Number::Delta'; # libtest-number-delta-perl
+  requires 'Test::Files';
+  requires 'File::Spec';
   requires 'Log::Any::Adapter::TAP'; # liblog-any-adapter-tap-perl
   requires 'IO::Capture::Stdout::Extended';
   requires 'IO::Capture::Stderr::Extended';
+  requires 'HTTP::CookieJar::LWP';
+  requires 'File::Tail';
 };
 
 on 'develop' => sub {
   requires 'Test::Perl::Critic', '>=1.04', '<2.0'; # perl-critic refuse to install without this explicit deps
   requires 'Perl::Critic', '>= 1.140, < 2.0'; # libperl-critic-perl has 1.132 vs 1.138, and all the depended on packages are old too.
   requires 'Apache::DB', '>= 0.18, < 1.00'; # old non-working version also available as the Debian package libapache-db-perl 0.14
+  requires 'Perl::Tidy';
+  requires 'Perl::Critic';
+};
+
+feature "off_server_dev_tools", "Optional development tools" => sub {
+  # Modules needed to ease development but not need to run CI tasks or automated tests
+  # on GitHub, or for production
+  # For docker, use CPANMOPTS=--with-develop  --with-feature=off_server_dev_tools
   requires 'Devel::REPL';
   requires 'Term::ReadLine::Gnu', '>= 1.42, < 2.0'; # readline support for the Perl debugger. libterm-readline-gnu-perl is available.
   requires 'Perl::LanguageServer';
   requires 'Hash::SafeKeys';  # Perl::LanguageServer dependency
-}
+};
+

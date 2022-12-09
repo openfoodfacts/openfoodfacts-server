@@ -3,6 +3,7 @@
 
 stopwords:en:including, of, which
 stopwords:fr:dont
+stopwords:hr:od kojih
 stopwords:nl:waarvan
 
 
@@ -13,6 +14,7 @@ fr:Sel ajouté
 nl:Toegevoegd zout
 xx:Added salt
 evaluation:en: bad
+unit:en: g
 
 zz:added-sugars
 bg:Добавена захар
@@ -21,6 +23,7 @@ fr:Sucres ajoutés, sucre ajouté
 nl:Toegevoegde suikers, Toegevoegd suiker
 xx:Added sugars, Added sugar
 evaluation:en: bad
+unit:en: g
 
 zz:alcohol
 af:Alkohol
@@ -549,7 +552,7 @@ ga:Caiféin
 gl:Cafeína
 he:קפאין
 hi:कैफ़ीन
-hr:kofein
+hr:Kofein
 hu:koffein
 hy:կոֆեին
 ia:Caffeina
@@ -639,7 +642,7 @@ gu:કેલ્શિયમ
 gv:Kelkium
 he:סידן
 hi:कैल्शियम
-hr:kalcij
+hr:Kalcij
 ht:Kalsyòm
 hu:Kalcium
 hy:կալցիում
@@ -850,6 +853,7 @@ fi:Hiilihydraatit, hiilihydraatti
 fr:Glucides
 ga:Carbaihiodráit
 he:פחמימות
+hr:Ugljikohidrati
 hu:Szénhidrát
 it:Carboidrati
 ja:炭水化物
@@ -1298,7 +1302,7 @@ gu:ક્રોમિયમ
 gv:Cromium
 he:כרום
 hi:क्रोमियम
-hr:krom
+hr:Krom
 ht:Kwòm
 hu:Króm
 hy:քրոմ
@@ -1702,7 +1706,7 @@ gv:bree
 ha:Makamashi
 he:אנרגיה - קלוריות
 hi:ऊर्जा
-hr:energija
+hr:Energija
 ht:enèji
 hu:Energia
 hy:Էներգիա
@@ -1790,6 +1794,7 @@ fi:Energia rasvasta
 fr:Énergie provenant des graisses
 hu:Energia zsírból
 ja:脂質からのエネルギー
+nl:Energie van vetten
 pt:Energia des gorduras
 ro:Valoarea energetică din grăsimi
 ru:Энергетическая ценность жиров
@@ -1815,6 +1820,7 @@ fi:Energia (kcal)
 fr:Énergie (kcal), valeurs énergétique (kcal), valeur énergétique (kcal), kcal, kilocalories
 ga:Fuinneamh (kcal)
 he:אנרגיה - קלוריות (kcal)
+hr:Energija (kcal)
 hu:Energia (kcal)
 it:Energia (kcal)
 ja:エネルギー (kcal)
@@ -1852,6 +1858,7 @@ fi:Energia (kJ)
 fr:Énergie (kJ), valeurs énergétique (kJ), valeur énergétique (kJ)
 ga:Fuinneamh (kJ)
 he:אנרגיה - קלוריות (kJ)
+hr:Energija (kJ)
 hu:Energia (kJ)
 it:Energia (kJ)
 ja:エネルギー (kJ)
@@ -2378,6 +2385,11 @@ unit:en: g
 wikidata:en: Q416618
 wikipedia:en: https://en.wikipedia.org/wiki/11-Eicosenoic_acid
 
+zz:Hydrogencarbonate
+en:Hydrogencarbonate
+nl:Waterstofcarbonaat, Waterstofcarbonaten
+xx:Hydrogencarbonate
+
 zz:inositol
 ar:إينوزيتول
 bg:Инозитол
@@ -2600,7 +2612,7 @@ gu:લોખંડ
 gv:Yiarn
 he:ברזל
 hi:लोहा
-hr:vas
+hr:Vas
 ht:Fè
 hu:Vas
 hy:երկաթ
@@ -2922,7 +2934,7 @@ gu:મેગ્નેશિયમ
 gv:Magnaishum
 he:מגנזיום
 hi:मैग्नेशियम तत्त्व
-hr:magnezij
+hr:Magnezij
 ht:Manyezyòm
 hu:Magnézium
 hy:մագնեզիումia:magnesium
@@ -3377,6 +3389,7 @@ fi:Kertatyydyttymättömät rasvat, Kertatyydyttymättömät rasvahapot, Yksitt�
 fr:Acides gras monoinsaturés, Acides gras mono-insaturés, monoinsaturés, mono-insaturés
 ga:Monai-neamhsháitheáin saill
 he:שומן חד בלתי רווי
+hr:Jednostruko nezasićene masne kiseline
 hu:Egyszeresen telítetlen zsírsavak, Egyszeresen telítetlen zsírsav
 id:Lemak tak jenuh
 it:Acidi grassi monoinsaturi
@@ -3510,6 +3523,16 @@ zh:二十四碳烯酸, 神经酸
 unit:en: g
 wikipedia:en: https://en.wikipedia.org/wiki/Nervonic_acid
 
+zz:Nitrate
+en:Nitrate
+nl:Nitraat, Nitraten
+xx:Nitrate
+
+zz:Nitrite
+en:Nitrite
+nl:Nitriet, Nitrieten
+xx:Nitrite
+
 zz:nova-group
 bg:Група NOVA
 en:NOVA group
@@ -3580,7 +3603,7 @@ fr:Acide oléique
 ga:aigéad oiléach
 gl:Ácido oleico
 he:חומצה אולאית
-hr:oleinska kiselina
+hr:Oleinska kiselina
 hu:Olajsav
 hy:Օլեինաթթու
 id:Asam oleat
@@ -3633,7 +3656,7 @@ ro:Acizi grași omega-3
 ru:Омега-3 жирные кислоты
 xx:Omega 3 fat, Omega 3 fatty acids
 zh:Omega 3 脂肪酸
-unit:en: g
+unit:en: mg
 
 zz:omega-6-fat
 bg:Омега 6 мастни киселини
@@ -3652,7 +3675,7 @@ ro:Acizi grași omega-6
 ru:Омега-6 жирные кислоты
 xx:Omega 6 fat, Omega 6 fatty acids
 zh:Omega 6 脂肪酸
-unit:en: g
+unit:en: mg
 
 zz:omega-9-fat
 bg:Омега 9 мастни киселини
@@ -3671,7 +3694,7 @@ ro:Acizi grași omega-9
 ru:Омега-9 жирные кислоты
 xx:Omega 9 fat, Omega 9 fatty acids
 zh:Omega-9 脂肪酸
-unit:en: g
+unit:en: mg
 
 zz:palmitic-acid
 ar:حمض النخيل
@@ -3771,7 +3794,7 @@ mn:Пантотений хүчил
 ms:Asid pantotenik
 mt:Aċidu Pantoteniku
 nb:pantotensyre
-nl:Vitamine B5, Pantotheenzuur, pantoteenzuur, B5
+nl:Vitamine B5 (Pantotheenzuur), Pantotheenzuur, pantoteenzuur, B5
 oc:Acid pantotenic, Vitamina B5
 pl:Kwas pantotenowy, kwas pantotenomy, Witamina B5, B5
 pt:Vitamina B5 (Ácido Pantotênico), ácido pantoténico, Vitamina b5, B5
@@ -4080,6 +4103,7 @@ fi:Monityydyttymättömät rasvat, Monityydyttymättömät rasvahapot
 fr:Acides gras polyinsaturés, Acides gras poly-insaturés, polyinsaturés, poly-insaturés
 ga:Pola-neamhsháitheáin saill
 he:שומן רב בלתי רווי
+hr:Višestruko nezasićene masne kiseline
 hu:Többszörösen telítetlen zsírsavak, Többszörösen telítetlen zsírsav
 it:Acidi grassi polinsaturi
 lt:Polinesočiosios riebalų rūgštys
@@ -4143,7 +4167,7 @@ gu:પોટેશિયમ
 gv:Potashum
 he:אשלגן
 hi:पोटैशियम
-hr:kalij
+hr:Kalij
 ht:Potasyòm
 hu:Kálium
 hy:կալիում
@@ -4257,7 +4281,7 @@ gu:પ્રોટિન
 gv:Proteen
 he:חלבונים
 hi:प्रोटीन
-hr:bjelančevina
+hr:Bjelančevina
 ht:Proteyin
 hu:Fehérje, Fehérjék
 hy:սպիտակուց
@@ -4454,6 +4478,7 @@ fi:Tyydyttyneet rasvat, Tyydyttynyt rasvahappo
 fr:Acides gras saturés, Saturés, AGS, matières grasses saturées, MGS
 ga:sáSitheáin saill
 he:שומן רווי
+hr:Zasićene masne
 hu:Telített zsírsavak
 id:Lemak jenuh
 is:Mettuð fita
@@ -5157,6 +5182,11 @@ unit:en: g
 wikidata:en: Q11002
 wikipedia:en: https://en.wikipedia.org/wiki/Sugar
 
+zz:Sulphate
+en:Sulphate
+nl:Sulfaat, Sulfaten
+xx:Sulphate
+
 zz:taurine
 ar:التورين
 bg:Таурин
@@ -5253,6 +5283,11 @@ zh:反式脂肪
 unit:en: g
 wikidata:en: Q243465
 wikipedia:en: https://en.wikipedia.org/wiki/Trans_fat
+
+zz:unsaturated-fat
+en:Unsaturated fat
+nl:Onverzadigde vetten
+xx:Unsaturated fat
 
 zz:vitamin-a
 af:Vitamien A
@@ -5365,6 +5400,7 @@ sl:Vitamin B1 (Tiamin)
 xx:Vitamin B1 (Thiamin), Vitamin B1, Thiamin
 zh:维生素B1(硫胺)
 dv_2016_value:en: 1.2
+dv_value:en: 1.2
 unit:en: mg
 
 zz:vitamin-b12
@@ -5383,7 +5419,7 @@ it:Vitamina B12 (Cobalamina)
 ja:ビタミン B12
 lt:Vitaminas B12
 lv:B12 vitamīns
-nl:Vitamine B12
+nl:Vitamine B12 (Cobalamine)
 pl:Witamina B12
 pt:Vitamina B12 (Cobalamina)
 ro:Vitamina B12
@@ -5541,7 +5577,7 @@ ga:Vitimín C
 gl:Vitamina C, Ácido ascórbico
 he:ויטמין C (חומצה אסקורבית), ויטמין C
 hi:विटामिन सी
-hr:vitamin C, askorbinska kiselina
+hr:Vitamin C, askorbinska kiselina
 hu:C-vitamin, Aszkorbinsav
 hy:Վիտամին C
 id:Vitamin C

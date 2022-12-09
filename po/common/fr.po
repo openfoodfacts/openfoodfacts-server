@@ -5,7 +5,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-04-23 02:33\n"
 "Language-Team: French\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -14,8 +13,7 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: fr\n"
-"X-Crowdin-File: common.pot\n"
-"X-Crowdin-File-ID: 1808\n"
+"X-Crowdin-File-ID: 2588\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -590,7 +588,7 @@ msgid "editor"
 msgstr "éditeur"
 
 msgctxt "email"
-msgid "e-mail address"
+msgid "E-mail address"
 msgstr "Adresse e-mail"
 
 msgctxt "emb_code_products"
@@ -682,6 +680,14 @@ msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "Le nom d'utilisateur doit être composé de lettres minuscules sans accents, de tirets et/ou de chiffres."
 
+msgctxt "error_username_too_long"
+msgid "The user name is too long (maximum 20 characters)."
+msgstr "Le nom d'utilisateur est trop long (20 caractères maximum)."
+
+msgctxt "error_name_too_long"
+msgid "The name is too long (maximum 60 characters)."
+msgstr "Le nom est trop long (60 caractères maximum)."
+
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
 msgstr "Un produit existe déjà avec le nouveau code"
@@ -760,8 +766,8 @@ msgstr "Le blog d'<<site_name>>"
 
 # Do not translate
 msgctxt "footer_blog_link"
-msgid "https://en.blog.openfoodfacts.org"
-msgstr "https://fr.blog.openfoodfacts.org"
+msgid "https://blog.openfoodfacts.org/en/"
+msgstr "https://blog.openfoodfacts.org/fr/"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -891,7 +897,7 @@ msgstr "Produit"
 
 msgctxt "generic_name"
 msgid "Common name"
-msgstr "Dénomination générique"
+msgstr "Nom générique"
 
 msgctxt "generic_name_example"
 msgid "Chocolate bar with milk and hazelnuts"
@@ -1014,6 +1020,18 @@ msgstr "informateurs"
 msgctxt "ingredients"
 msgid "Ingredients"
 msgstr "Ingrédients"
+
+msgctxt "no_ingredient"
+msgid "Ingredients are missing"
+msgstr "Les ingrédients sont manquants"
+
+msgctxt "one_ingredient"
+msgid "1 ingredient"
+msgstr "1 ingrédient"
+
+msgctxt "f_ingredients_with_number"
+msgid "{number} ingredients"
+msgstr "{number} ingrédients"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
@@ -1381,6 +1399,10 @@ msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
 msgstr "S'inscrire à la lettre d'information (2 e-mails par mois maximum)"
 
+msgctxt "subscribe_to_our_newsletter"
+msgid "Subscribe to our newsletter"
+msgstr "S'abonner à notre newsletter"
+
 msgctxt "next"
 msgid "Next"
 msgstr "Suivant"
@@ -1460,11 +1482,11 @@ msgstr "Les produits qui ne contiennent pas le nutriment %s"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr "Informations nutritionnelles"
+msgstr "Tableau nutritionnel"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr "Informations nutritionnelles"
+msgstr "Tableau nutritionnel"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
@@ -1536,7 +1558,7 @@ msgstr "Ecart type"
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr "Informations nutritionnelles"
+msgstr "Tableau nutritionnel"
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
@@ -1554,15 +1576,15 @@ msgstr "Note nutritionnelle"
 
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
-msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
-msgstr "https://fr.openfoodfacts.org/images/misc/openfoodfacts-logo-fr-356.png"
+msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
+msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
-msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
+msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://blog.openfoodfacts.org/en/\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr "<p>Pour découvrir les nouveautés et les coulisses d'<<site_name>>, venez sur <a href=\"https://fr.blog.openfoodfacts.org\">le blog</a> !</p>\n"
-"<p>C'est nouveau :</p>\n"
+msgstr "<p>Pour en savoir plus sur <<site_name>>, visitez <a href=\"https://blog.openfoodfacts.org/fr/\">notre blog</a>!</p>\n"
+"<p>Actualités récentes :</p>\n"
 
 msgctxt "on_the_blog_title"
 msgid "News"
@@ -2113,7 +2135,7 @@ msgstr "Graphique sur 2 axes"
 
 msgctxt "search_graph_blog"
 msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"/graphs-in-3-clicks\">Graphs in 3 clicks</a> (blog).</p>"
-msgstr "<p>→ en savoir plus sur les graphiques d'<<site_name>>: <a href=\"/des-graphiques-en-trois-clics\">graphiques en 3 clics</a> (blog).</p>"
+msgstr "<p>→ en savoir plus sur les graphiques d'<<site_name>>: <a href=\"https://blog.openfoodfacts.org/fr/news/des-graphiques-en-3-clics\">graphiques en 3 clics</a> (blog).</p>"
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
@@ -2283,7 +2305,7 @@ msgstr "Voir la fiche du produit"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr "Pays de vente"
+msgstr "Pays"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2441,6 +2463,7 @@ msgctxt "tagstable_search"
 msgid "Search:"
 msgstr "Recherche :"
 
+# This is linked to a unit test
 msgctxt "traces"
 msgid "Traces"
 msgstr "Traces éventuelles"
@@ -2467,7 +2490,7 @@ msgstr "Nom d'utilisateur Twitter (optionel)"
 
 msgctxt "twitter_account"
 msgid "OpenFoodFacts"
-msgstr "OpenFoodFactsFr"
+msgstr "OpenFoodFactsFR"
 
 msgctxt "unknown"
 msgid "Unknown"
@@ -2618,16 +2641,16 @@ msgid "Warning: the amount of fruits, vegetables and nuts is not specified, thei
 msgstr "Avertissement : Le taux de fruits, légumes et noix n'étant pas renseigné, leur éventuelle contribution positive à la note n'a pas pu être prise en compte."
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d%"
-msgstr "Avertissement : Le taux de fruits, légumes et noix n'est pas indiqué sur l'étiquette, il a été estimé manuellement en fonction de la liste des ingrédients : %d%"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
+msgstr "Avertissement : Le taux de fruits, légumes et noix n'est pas indiqué sur l'étiquette, il a été estimé manuellement en fonction de la liste des ingrédients : %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
-msgstr "Avertissement : Le taux de fruits, légumes et noix n'est pas indiqué sur l'étiquette, il a été estimé en fonction de la catégorie (%s) du produit : %d%"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
+msgstr "Avertissement : Le taux de fruits, légumes et noix n'est pas indiqué sur l'étiquette, il a été estimé en fonction de la catégorie (%s) du produit : %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr "Avertissement : Le taux de fruits, légumes et noix n'est pas indiqué sur l'étiquette, il a été estimé en fonction de la liste des ingrédients : %d%"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
+msgstr "Avertissement : Le taux de fruits, légumes et noix n'est pas indiqué sur l'étiquette, il a été estimé en fonction de la liste des ingrédients : %d"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -3123,13 +3146,17 @@ msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
 msgstr "Important : ce produit n'est plus en vente. Les données sont conservées seulement pour référence. Ce produit n'apparait pas dans les résultats de recherche et n'est pas pris en compte pour les statistiques."
 
+# This will be on a button and needs to be as short as possible
+# So instead of something like "Install the mobile application"
+# try to make it very short "Get the app" or "Install the app"
+# Use infinitive instead of imperative
 msgctxt "get_the_app"
 msgid "Get the app"
-msgstr "Installez l'application mobile"
+msgstr "Installer l'app"
 
 msgctxt "get_the_app_android"
 msgid "Get the Android app"
-msgstr "Installez l'app Android"
+msgstr "Installer l'app Android"
 
 msgctxt "get_the_app_iphone"
 msgid "Get the iPhone app"
@@ -3349,7 +3376,7 @@ msgstr "Ingrédients"
 
 msgctxt "fields_group_nutrition"
 msgid "Nutrition facts"
-msgstr "Informations nutritionnelles"
+msgstr "Tableau nutritionnel"
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
@@ -3742,10 +3769,6 @@ msgctxt "import_file_result"
 msgid "Import result"
 msgstr "Résultats de l'import"
 
-msgctxt "products_added"
-msgid "Products added"
-msgstr "Produits ajoutés"
-
 msgctxt "products_modified"
 msgid "Products modified"
 msgstr "Produits modifiés"
@@ -3921,7 +3944,7 @@ msgstr "Fruits, légumes, noix et huiles de colza / noix / olive"
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
-msgstr "Fibres alimentaires"
+msgstr "Fibre"
 
 msgctxt "nutriscore_points_for_proteins"
 msgid "Proteins"
@@ -4411,6 +4434,7 @@ msgctxt "images_can_be_provided_separately"
 msgid "Product photos can also be provided separately through the Import product photos function of the platform for producers."
 msgstr "Les photos du produits peuvent aussi être fournies séparément, via la fonction \"Importer des photos de produits\" depuis votre plateforme producteur."
 
+# This is linked to a unit test
 msgctxt "attribute_group_labels_name"
 msgid "Labels"
 msgstr "Labels"
@@ -4505,8 +4529,13 @@ msgid "Nutri-Score not-applicable"
 msgstr "Nutri-Score non applicable"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Exempted category"
-msgstr "Catégorie exemptée"
+msgid "Not-applicable for the category"
+msgstr "Non applicable pour la catégorie"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_nutriscore_not_applicable_description"
+msgid "Not-applicable for the category: {category}"
+msgstr "Non applicable pour la catégorie : {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -4681,6 +4710,10 @@ msgstr "Lister toutes les parties de l'emballage séparées par une virgule ou u
 msgctxt "packaging_text_note_2"
 msgid "Try to be as specific as possible. For plastic, please indicate if it is opaque or transparent, colored, PET or PEHD."
 msgstr "Essayez d'être aussi précis que possible. Pour le plastique, merci d'indiquer s'il est opaque ou transparent, coloré, PET ou PEHD."
+
+msgctxt "packaging_text_note_3"
+msgid "Data from this field will be combined with any data provided for each packaging part. It is possible to provide one or the other, or both."
+msgstr "Les données de ce champ seront combinées avec les éventuelles données fournies pour chaque élément d'emballage. Il est possible de fournir l'un ou l'autre, ou les deux."
 
 msgctxt "product_js_extract_packaging"
 msgid "Extract the recycling instructions and/or packaging information from the picture"
@@ -4933,9 +4966,15 @@ msgctxt "ecoscore_s"
 msgid "Eco-Score"
 msgstr "Éco-Score"
 
+# Parts meaning individual elements
 msgctxt "packaging_parts"
 msgid "Packaging parts"
-msgstr "Parties de l'emballage"
+msgstr "Elements d'emballage"
+
+# A short name for a physical piece of packaging (e.g. in English, "packaging" instead of "packaging part"). Used with a number (e.g. "Packaging 1" to identify a packaging part)
+msgctxt "packaging_part_short"
+msgid "Packaging"
+msgstr "Emballage"
 
 # Number of packaging parts
 msgctxt "packaging_number"
@@ -5213,6 +5252,23 @@ msgstr "Supprimer toutes les valeurs nutritives"
 msgctxt "delete_user_process"
 msgid "User deleted."
 msgstr "Utilisateur supprimé."
+
+msgctxt "attribute_ecoscore_not_applicable_title"
+msgid "Eco-Score not yet applicable"
+msgstr "Eco-Score n'est pas encore applicable"
+
+msgctxt "attribute_ecoscore_not_applicable_description_short"
+msgid "Not yet applicable for the category"
+msgstr "Pas encore applicable pour la catégorie"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_ecoscore_not_applicable_description"
+msgid "Not yet applicable for the category: {category}"
+msgstr "Pas encore applicable pour la catégorie : {category}"
+
+msgctxt "ecoscore_not_applicable_coming_soon"
+msgid "The Eco-Score is not yet applicable for this category, but we are working on adding support for it."
+msgstr "L'Eco-Score n'est pas encore applicable pour cette catégorie, mais nous travaillons à ajouter un support pour cela."
 
 msgctxt "attribute_ecoscore_unknown_title"
 msgid "Eco-Score not computed"
@@ -5705,6 +5761,10 @@ msgctxt "source_ademe_agribalyse"
 msgid "Source: ADEME Agribalyse Database"
 msgstr "Source : Base de données ADEME Agribalyse"
 
+msgctxt "source_ademe_agribalyse_for_category"
+msgid "The carbon emission figure comes from ADEME's Agribalyse database, for the category:"
+msgstr "Le chiffre d'émission carbone est issu de la base de données Agribalyse de l'ADEME, pour la catégorie :"
+
 msgctxt "environment_card_title"
 msgid "Environment"
 msgstr "Environnement"
@@ -5763,7 +5823,7 @@ msgstr "Score d'analyse du cycle de vie"
 
 msgctxt "impact_for_this_product"
 msgid "Impact for this product"
-msgstr ""
+msgstr "Impact pour ce produit"
 
 msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
@@ -5780,6 +5840,10 @@ msgstr "La catégorie du produit doit être spécifiée afin de calculer le Nutr
 msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "Les données nutritionnelles du produit doivent être spécifiées afin de calculer le Nutri-Score."
+
+msgctxt "nutriscore_missing_category_and_nutrition_data"
+msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
+msgstr "La catégorie et la valeur nutritionnelle du produit doivent être précisées afin de calculer le Nutri-Score."
 
 msgctxt "health"
 msgid "Health"
@@ -5825,10 +5889,6 @@ msgctxt "f_energy_expenditure_for_weight_in_kg_lb"
 msgid "Energy expenditure for a person weighting {kg} kg / {lb} lb"
 msgstr "Dépenses énergétiques pour une personne pesant {kg} kg / {lb} lb"
 
-msgctxt "nutriscore_not_applicable_short"
-msgid "Not applicable for this product"
-msgstr "Non applicable à ce produit"
-
 msgctxt "nutriscore_missing_category_short"
 msgid "Missing category"
 msgstr "Catégorie manquante"
@@ -5836,6 +5896,10 @@ msgstr "Catégorie manquante"
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr "Données nutritionnelles manquantes"
+
+msgctxt "nutriscore_missing_category_and_nutrition_data_short"
+msgid "Missing category and nutrition facts"
+msgstr "Catégorie et informations nutritionnelles manquantes"
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
 msgid "Reduce or stop drinking alcohol"
@@ -5944,3 +6008,220 @@ msgctxt "unselect_image"
 msgid "Unselect Image"
 msgstr "Désélectionner l'image"
 
+msgctxt "nutriscore_learn_more"
+msgid "Learn more about the Nutri-Score"
+msgstr "En savoir plus sur le Nutri-Score"
+
+msgctxt "ecoscore_learn_more"
+msgid "Learn more about the Eco-Score"
+msgstr "En savoir plus sur l'Eco-Score"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_very_good_match"
+msgid "Very good match"
+msgstr "Très compatible"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_good_match"
+msgid "Good match"
+msgstr "Compatible"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_poor_match"
+msgid "Poor match"
+msgstr "Peu compatible"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_unknown_match"
+msgid "Unknown match"
+msgstr "Compabilité inconnue"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_may_not_match"
+msgid "May not match"
+msgstr "Peut ne pas correspondre"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_does_not_match"
+msgid "Does not match"
+msgstr "Ne correspond pas"
+
+msgctxt "reset_preferences"
+msgid "Use default preferences"
+msgstr "Utiliser les préférences par défaut"
+
+msgctxt "reset_preferences_details"
+msgid "Nutri-Score, Eco-Score and food processing level (NOVA)"
+msgstr "Nutri-Score, Eco-Score et niveau de transformation alimentaire (NOVA)"
+
+msgctxt "actions_add_ingredients"
+msgid "Could you add the ingredients list?"
+msgstr "Pourriez-vous ajouter la liste des ingrédients ?"
+
+msgctxt "actions_to_compute_nutriscore"
+msgid "Could you add the information needed to compute the Nutri-Score?"
+msgstr "Pourriez-vous ajouter les informations nécessaires pour calculer le Nutri-Score ?"
+
+msgctxt "actions_to_compute_ecoscore"
+msgid "Could you add a precise product category so that we can compute the Eco-Score?"
+msgstr "Pourriez-vous ajouter une catégorie de produit précise afin que nous puissions calculer l'Eco-Score ?"
+
+msgctxt "action_add_ingredients_text"
+msgid "Add the ingredients"
+msgstr "Ajouter les ingrédients"
+
+msgctxt "action_add_categories"
+msgid "Add a category"
+msgstr "Ajouter une catégorie"
+
+msgctxt "action_add_nutrition_facts"
+msgid "Add nutrition facts"
+msgstr "Ajouter les informations nutritionnelles"
+
+# Used as a header for key facts
+msgctxt "knowledge_panels_facts"
+msgid "What you need to know"
+msgstr "Ce que vous devez savoir"
+
+msgctxt "knowledge_panels_recommendation"
+msgid "Recommendation"
+msgstr "Recommandation"
+
+msgctxt "nutrient_info_salt_risk"
+msgid "A high consumption of salt (or sodium) can cause raised blood pressure, which can increase the risk of heart disease and stroke."
+msgstr "Une forte consommation de sel (ou de sodium) peut entraîner une augmentation de la pression artérielle, ce qui peut augmenter le risque de maladie cardiaque et d'accident vasculaire cérébral."
+
+msgctxt "nutrient_info_salt_high_blood_pressure"
+msgid "Many people who have high blood pressure do not know it, as there are often no symptoms."
+msgstr "De nombreuses personnes souffrant d'hypertension ne le savent pas, car il n'y a souvent aucun symptôme."
+
+msgctxt "nutrient_info_salt_high_consumption"
+msgid "Most people consume too much salt (on average 9 to 12 grams per day), around twice the recommended maximum level of intake."
+msgstr "La plupart des gens consomment trop de sel (en moyenne 9 à 12 grammes par jour), soit environ le double de l'apport maximal recommandé."
+
+msgctxt "nutrient_recommendation_salt_title"
+msgid "Limit the consumption of salt and salted food"
+msgstr "Limiter la consommation de sel et d'aliments salés"
+
+msgctxt "nutrient_recommendation_salt_cooking_and_table"
+msgid "Reduce the quantity of salt used when cooking, and don't salt again at the table."
+msgstr "Réduisez la quantité de sel utilisée lors de la cuisson et ne salez plus à table."
+
+msgctxt "nutrient_recommendation_salt_limit_salty_snacks"
+msgid "Limit the consumption of salty snacks and choose products with lower salt content."
+msgstr "Limitez la consommation de collations salées et choisissez des produits à faible teneur en sel."
+
+msgctxt "nutrient_info_sugars_risk"
+msgid "A high consumption of sugar can cause weight gain and tooth decay. It also augments the risk of type 2 diabetes and cardio-vascular diseases."
+msgstr "Une forte consommation de sucre peut entraîner une prise de poids et des caries dentaires. Il augmente également le risque de diabète de type 2 et de maladies cardio-vasculaires."
+
+msgctxt "nutrient_recommendation_sugars_title"
+msgid "Limit the consumption of sugar and sugary drinks"
+msgstr "Limiter la consommation de sucre et de boissons sucrées"
+
+msgctxt "nutrient_recommendation_sugars_drinks"
+msgid "Sugary drinks (such as sodas, fruit beverages, and fruit juices and nectars) should be limited as much as possible (no more than 1 glass a day)."
+msgstr "Les boissons sucrées (comme les sodas, les boissons aux fruits, les jus et nectars de fruits) doivent être limitées au maximum (pas plus d'un verre par jour)."
+
+msgctxt "nutrient_recommendation_sugars_food"
+msgid "Choose products with lower sugar content and reduce the consumption of products with added sugars."
+msgstr "Choisissez des produits à faible teneur en sucre et réduisez la consommation de produits avec des sucres ajoutés."
+
+msgctxt "nutrient_info_fat_and_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "Une consommation élevée de graisses, en particulier de graisses saturées, peut augmenter le cholestérol, ce qui augmente le risque de maladies cardiaques."
+
+msgctxt "nutrient_recommendation_fat_and_saturated_fat_title"
+msgid "Reduce the consumption of fat and saturated fat"
+msgstr "Réduire la consommation de graisses et de graisses saturées"
+
+msgctxt "nutrient_recommendation_fat_and_saturated_fat"
+msgid "Choose products with lower fat and saturated fat content."
+msgstr "Choisissez des produits à faible teneur en graisses et en graisses saturées."
+
+msgctxt "sign_in"
+msgid "Sign in"
+msgstr "Se connecter"
+
+msgctxt "sign_out"
+msgid "Sign out"
+msgstr "Se déconnecter"
+
+msgctxt "your_contributions"
+msgid "Your contributions"
+msgstr "Vos contributions"
+
+msgctxt "products_added"
+msgid "Products added"
+msgstr "Produits ajoutés"
+
+msgctxt "products_edited"
+msgid "Products edited"
+msgstr "Produits modifiés"
+
+msgctxt "products_photographed"
+msgid "Products photographed"
+msgstr "Produits photographiés"
+
+# result of the matching with the user preferences: should ne a noun, not a verb
+msgctxt "matching_with_your_preferences"
+msgid "Matching with your preferences"
+msgstr "Correspondance avec vos préférences"
+
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_join_us_on_slack"
+msgid "Join us on <a href=\"{url}\">Slack</a>"
+msgstr "Rejoignez-nous sur <a href=\"{url}\">Slack</a>"
+
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_discover_our_code_of_conduct"
+msgid "Discover our <a href=\"{url}\">Code of conduct</a>"
+msgstr "Découvrez notre <a href=\"{url}\">Code de conduite</a>"
+
+# {links} must not be translated, it will be replaced by icons and/or text links
+msgctxt "f_footer_follow_us_links"
+msgid "Follow us: {links}"
+msgstr "Suivez-nous : {links}"
+
+# Should be as small as possible, e.g. use "app" instead of "application", don't specify "mobile"
+msgctxt "footer_install_the_app_exclamation_mark"
+msgid "Install the app!"
+msgstr "Installer l'app!"
+
+# HTML tags must not be translated, keep <span id=\"everyday\"> and <span id=\"foods\"> and put them around the corresponding words in the translation
+# e.g. in French: Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>
+msgctxt "footer_scan_your_everyday_foods"
+msgid "Scan your <span id=\"everyday\">everyday</span> <span id=\"foods\">foods</span>"
+msgstr "Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>"
+
+msgctxt "nutrition"
+msgid "Nutrition"
+msgstr "Nutrition"
+
+# Note: "criteria" is plural here. So in French for instance: "Vos critères"
+msgctxt "your_criteria"
+msgid "Your criteria"
+msgstr "Vos critères"
+
+msgctxt "product"
+msgid "Product"
+msgstr "Produit"
+
+msgctxt "environment"
+msgid "Environment"
+msgstr "Environnement"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units"
+msgid "Number of units"
+msgstr "Nombre d'éléments"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight"
+msgid "Weight of one empty unit"
+msgstr "Poids d'un élément vide"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit"
+msgid "Quantity of product contained per unit"
+msgstr "Quantité de produit contenue par élément"

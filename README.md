@@ -1,4 +1,9 @@
-<img height='175' src="https://static.openfoodfacts.org/images/svg/openfoodfacts-logo-en.svg" align="left" hspace="1" vspace="1">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-dark.png?refresh_github_cache=1">
+  <source media="(prefers-color-scheme: light)" srcset="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.png?refresh_github_cache=1">
+  <img height="48" src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg">
+</picture>
+
 
 # Open Food Facts - Product Opener (Web Server)
 
@@ -9,20 +14,20 @@
 [![Sponsors on Open Collective](https://opencollective.com/openfoodfacts-server/sponsors/badge.svg)](#sponsors)
 
 ## Tests
-[![Perl::Critic](https://github.com/openfoodfacts/openfoodfacts-server/actions/workflows/perlcritic.yml/badge.svg)](https://github.com/openfoodfacts/openfoodfacts-server/actions/workflows/perlcritic.yml)
+
 [![Pull Requests](https://github.com/openfoodfacts/openfoodfacts-server/actions/workflows/pull_request.yml/badge.svg)](https://github.com/openfoodfacts/openfoodfacts-server/actions/workflows/pull_request.yml)
 
 ## What is Product Opener?
 
-**Product Opener** is the server software for **Open Food Facts** and **Open Beauty Facts**. It is released under the AGPL license and is being developed in Perl, HTML and JavaScript as [Free and Open-Source Software](https://en.wikipedia.org/wiki/Free_and_open-source_software). 
+**Product Opener** is the server software for **Open Food Facts** and **Open Beauty Facts**. It is released under the AGPL license and is being developed in Perl, HTML and JavaScript as [Free and Open-Source Software](https://en.wikipedia.org/wiki/Free_and_open-source_software).
 
 It works together with [Robotoff](https://github.com/openfoodfacts/robotoff), Open Food Facts' AI system (in Python, which can also be installed locally) and the [Open Food Facts apps](https://github.com/openfoodfacts/smooth-app) (which can work with your local instance after enabling dev mode)
 
 ## What is Open Food Facts?
 
-### A food products database
+### A food product database
 
-Open Food Facts is a database of food products with ingredients, allergens, nutrition facts and all the tidbits of information we can find on product labels.
+Open Food Facts is a database of food products with ingredients, allergens, nutritional facts and all the tidbits of information that is available on various product labels.
 
 ### Made by everyone
 
@@ -31,36 +36,42 @@ Open Food Facts is a non-profit association of volunteers.
 
 ### For everyone
 
-Data about food is of public interest and has to be open. The complete database is published as open data and can be reused by anyone and for any use. Check-out the cool reuses or make your own!
+Data about food is of public interest and has to be open (i.e available to everyone). The complete database is published as open data and can be reused by anyone and for any use. Check-out the cool reuses or make your own!
 
 * <https://world.openfoodfacts.org>
 
 ## Priorities
-* Please list priority issues here 
-* Please add roadmaps here
-* [P1 problems](https://github.com/openfoodfacts/openfoodfacts-server/labels/P1)
+
+* [Top issues](https://github.com/openfoodfacts/openfoodfacts-server/issues/7374)
+* [P1 problems](https://github.com/openfoodfacts/openfoodfacts-server/labels/P0,P1)
 * [P1 candidates](https://github.com/openfoodfacts/openfoodfacts-server/labels/P1%20candidate)
+* Please add roadmaps here
 
 <!-- ## Libraries used -->
 
 ## How do I get started?
 
 * Join us on Slack at <https://openfoodfacts.slack.com/> in the channels: `#api`, `#productopener`, `#dev`.
+* [API Documentation](https://openfoodfacts.github.io/api-documentation/)
+* [NEW API Documentation (WIP)](https://openfoodfacts.github.io/openfoodfacts-server/reference/api/) ([source](https://github.com/openfoodfacts/openfoodfacts-server/tree/main/docs/reference/api.yml))
+
 * Developer documentation:
-   * [Quick start guide (Docker)](./docs/introduction/dev-environment-quick-start-guide.md)
-   * [Developer guide (Docker)](./docs/how-to-guides/docker-developer-guide.md)
-   * [Manual installation](https://wiki.openfoodfacts.org/Product_Opener/Installation)
-   * Configuration [TBA]
-   * Dependencies [TBA]
-   * Database configuration [TBA]
-   * How to run tests [TBA]
- * [API Documentation](https://openfoodfacts.github.io/api-documentation/)
+
+  * [Quick start guide (Docker)](./docs/introduction/dev-environment-quick-start-guide.md)
+  * [Developer guide (Docker)](./docs/how-to-guides/docker-developer-guide.md)
+  * [Developer guide (Gitpod)](./docs/how-to-guides/use-gitpod.md)
+  * Configuration [TBA]
+  * Dependencies [TBA]
+  * Database configuration [TBA]
+  * How to run tests [TBA]
+  * [Perl modules documentation (POD)](https://openfoodfacts.github.io/reference/perl/)
+
 
 Note: documentation follows the [Diátaxis Framework](https://diataxis.fr/)
 
 ## Contribution guidelines
 
-If you're new to Open-Source, we recommend you to Checkout our [_Contributing Guidelines_](https://github.com/openfoodfacts/openfoodfacts-server/blob/master/CONTRIBUTING.md). Feel free to fork the project and send us a pull request.
+If you're new to Open-Source, we recommend you to check out our [_Contributing Guidelines_](https://github.com/openfoodfacts/openfoodfacts-server/blob/master/CONTRIBUTING.md). Feel free to fork the project and send us a pull request.
 
 * Writing tests
 * Code review
@@ -78,7 +89,8 @@ You can help translate the Open Food Facts web version and the app at :
 
 ## Helping with HTML and CSS
 
-We have [[templatized](https://github.com/openfoodfacts/openfoodfacts-server/tree/master/templates)] Product Opener, we use Gulp and NPM, but you'll need to run the Product Opener docker to be able to see the result (see the How do I get set up? section).
+We have [templatized](https://github.com/openfoodfacts/openfoodfacts-server/tree/master/templates) Product Opener, we use Gulp and NPM, but you'll need to run the Product Opener docker to be able to see the result (see the How do I get set up? section).
+In particular, you can [help with issues on the new design](https://github.com/openfoodfacts/openfoodfacts-server/issues?q=is%3Aissue+is%3Aopen+label%3A%22new+design%22).
 
 ### Who do I talk to?
 
