@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -34,23 +33,21 @@ use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 # Passing values to the template
-my $template_data_ref = {
-	lang => \&lang,
-};
+my $template_data_ref = {};
 
 $scripts .= <<SCRIPTS
 <script src="/js/datatables.min.js"></script>
 <script src="/js/dist/papaparse.js"></script>
 SCRIPTS
-;
+	;
 
 $header .= <<HEADER
 <link rel="stylesheet" href="/js/datatables.min.css" />
 HEADER
-;
+	;
 
 my $url = format_subdomain('static') . '/data/top_translators.csv';
 my $js = <<JS
@@ -94,15 +91,13 @@ my $js = <<JS
 		});
 	});
 JS
-;
+	;
 $initjs .= $js;
 
 my $html;
-
-$tt->process('top_translators.tt.html', $template_data_ref, \$html);
+process_template('web/pages/top_translators/top_translators.tt.html', $template_data_ref, \$html) or $html = '';
 $html .= "<p>" . $tt->error() . "</p>";
 
-display_new( {
-	title=>lang('translators_title'),
-	content_ref=>\$html
-});
+$request_ref->{title} = lang('translators_title');
+$request_ref->{content_ref} = \$html;
+display_page($request_ref);

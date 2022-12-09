@@ -1,0 +1,46 @@
+[% IF panels.ingredients.defined %]
+{
+    "element_type": "panel_group",
+    "panel_group_element": {
+        "title": "[% lang('ingredients') %]",
+        "type": "subcard",
+        "panel_group_id": "ingredients",
+        "panel_ids": ["ingredients"],
+        [% IF panel.ingredients_image.defined %]
+        "image": [% encode_json(panel.ingredients_image) %],
+        [% END %]
+    },
+},
+[% END %]
+[% IF panels.nova.defined %]
+{
+    "element_type": "panel_group",
+    "panel_group_element": {
+        "title": "[% lang('attribute_group_processing_name').ucfirst %]",
+        "panel_ids": ["nova"],
+    },
+}, 
+[% END %]        
+[% IF panels.additives.defined %]
+{
+    "element_type": "panel_group",
+    "panel_group_element": {
+        "title": "[% lang('additives_p').ucfirst %]",
+        "panel_ids": ["additives"],
+    },
+}, 
+[% END %]
+[% IF panels.ingredients_analysis.defined %]
+{
+    "element_type": "panel_group",
+    "panel_group_element": {
+        "title": "[% lang("ingredients_analysis") %]",
+        "panel_ids": [
+            "ingredients_analysis",
+            [% IF panels.ingredients_analysis_details.defined %]
+            "ingredients_analysis_details",
+            [% END %]
+        ],
+    },
+}, 
+[% END %]

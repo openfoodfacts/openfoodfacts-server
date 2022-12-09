@@ -1,0 +1,15 @@
+<!-- start templates/[% component.name %] -->
+
+<!-- Nutrient levels template -->
+
+<h4>[% lang('nutrient_levels_info') %]
+    <a href="[% lang('nutrient_levels_link') %]" title="[% lang('nutrient_levels_info') %]">
+        [% display_icon('info') %]
+    </a>
+</h4>
+[% FOREACH level IN nutrient_levels %]
+    <img src="[% static_subdomain %]/images/misc/[% level.nutrient_level %].svg" width="30" height="30" style="vertical-align:middle;margin-right:15px;margin-bottom:4px;"
+    alt="[% lang('${level.nutrient_level}_quantity') %]"> [% level.nutrient_quantity_in_grams %] g [% level.nutrient_bold_in_quantity %] <br>
+[% END %]
+
+<!-- end templates/[% component.name %] -->

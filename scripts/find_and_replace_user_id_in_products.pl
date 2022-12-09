@@ -32,7 +32,7 @@ Usage:
 update_all_products.pl --user-id user-id --new-user-id new-user-id
 
 TXT
-;
+	;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Lang qw/:all/;

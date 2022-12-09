@@ -1,0 +1,44 @@
+version: "3.7"
+services:
+  memcached:
+    restart: always
+    networks:
+    - webnet
+  postgres:
+    restart: always
+    networks:
+    - webnet
+  backend:
+    restart: always
+    networks: 
+    - webnet
+  incron:
+    restart: always
+    networks:
+    - webnet
+  minion:
+    restart: always
+    networks:
+    - webnet
+  frontend:
+    restart: always
+    networks:
+    - webnet
+volumes:
+  html_data:
+    external: true
+  users:
+    external: true
+  products:
+    external: true
+  orgs:
+    external: true
+  product_images:
+    external: true
+  podata:
+    external: true
+
+networks:
+  webnet:
+    external: true
+    name: ${COMPOSE_PROJECT_NAME}_webnet
