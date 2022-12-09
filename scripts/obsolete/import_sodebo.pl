@@ -212,8 +212,8 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 
 			if ($code eq '') {
 				print STDERR "empty code\n";
-				use Data::Dumper;
-				print STDERR Dumper($imported_product_ref);
+				require Data::Dumper;
+				print STDERR Data::Dumper::Dumper($imported_product_ref);
 				print "EMPTY CODE\n";
 				next;
 			}
@@ -516,8 +516,8 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 							push @modified_fields, $field;
 							$modified++;
 						}
-						elsif ($field eq "brands") {	# we removed it earlier
-							compute_field_tags($product_ref, $field);
+						elsif ( $field eq "brands" ) {    # we removed it earlier
+							compute_field_tags( $product_ref, $field );
 						}
 
 						if (($field eq 'categories') and ($product_ref->{$field} eq "")) {
@@ -645,7 +645,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 					my $new_value = $value;
 
 					if ((defined $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{$nid})
-						and ($new_value ne $product_ref->{nutriments}{$nid})						) {
+						and ($new_value ne $product_ref->{nutriments}{$nid}) ) {
 						my $current_value = $product_ref->{nutriments}{$nid};
 						print "differing nutrient value for product code $code - nid $nid - existing value: $current_value - new value: $new_value - https://world.openfoodfacts.org/product/$code \n";
 					}

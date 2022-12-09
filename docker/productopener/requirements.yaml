@@ -1,9 +1,0 @@
-dependencies:
-    - name: mongodb
-      version: ~4.10.1
-      repository: https://kubernetes-charts.storage.googleapis.com/
-      condition: mongodb.enabled
-    - name: memcached
-      version: ~2.4.0
-      repository: https://kubernetes-charts.storage.googleapis.com/
-      condition: memcached.enabled

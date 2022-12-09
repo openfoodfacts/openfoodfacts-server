@@ -1,0 +1,26 @@
+type: object
+description: ''
+properties:
+  sizes:
+    type: object
+    description: |
+      The available image sizes for the product (both reduced and full). 
+      The reduced images are the ones with numbers as the key( 100, 200 etc) 
+      while the full images have `full` as the key.
+    properties:
+      '100':
+        $ref: ./properties/image_size.yaml
+      '400':
+        $ref: ./properties/image_size.yaml
+      full:
+        $ref: ./properties/image_size.yaml
+  uploaded_t:
+    type: string
+    example: '1457680652'
+    description: |
+      The time the image was uploaded.
+  uploader:
+    type: string
+    example: openfoodfacts-contributors
+    description: |
+      The contributor that uploaded the image.

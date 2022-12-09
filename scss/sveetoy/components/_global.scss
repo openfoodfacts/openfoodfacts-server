@@ -1,0 +1,38 @@
+@import '../utils/functions';
+
+/*
+ * Global stuff
+ */
+$include-sveetoy-classes: true !default;
+
+$include-sveetoy-global: $include-sveetoy-classes !default;
+
+// Declare which foundation version we have to support
+// Foundation6 is the default supported version
+$sveetoy_foundation_support: 6 !default;
+
+
+@if $include-sveetoy-global {
+    ///
+    /// Shortcut relative position
+    ///
+    .position-relative {
+        position: relative;
+    }
+
+
+    ///
+    /// Image element
+    ///
+    img{
+        &.centered{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        &.expanded{
+            width: 100%;
+            height: auto;
+        }
+    }
+}
