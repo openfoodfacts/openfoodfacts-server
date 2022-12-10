@@ -82,12 +82,20 @@ jobs:
       uses: ishworkh/docker-image-artifact-download@v1
       with:
         image: "openfoodfacts-server/backend:dev"
-    - name: rebuild taxonomies
-      # here we first restore dates from git for taxonomies to avoid build them all
+    
+    - name: Build taxonomies
+      # here we first restore dates from git for taxonomies to avoid building them all
       # see https://stackoverflow.com/a/60984318/2886726
       run: |
         git ls-files taxonomies/ | xargs -I{} git log -1 --date=format:%Y%m%d%H%M.%S --format='touch -t %ad "{}"' "{}" | bash
         make build_taxonomies
+
+    - name: Commit updated taxonomies if any
+      uses: GuillaumeFalourd/git-commit-push@v1.3
+      with:
+        files: "taxonomies/*"
+        commit_message: "Rebuild taxonomies"
+
     - name: test
       run: make tests
 
