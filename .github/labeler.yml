@@ -352,6 +352,7 @@ knowledge-panels:
 - templates/api/knowledge-panels/health/nutrition/nutrition_facts_table.tt.json
 - tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels.json
 - tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels-fr.json
+- docs/reference/schemas/knowledge_panels/**
 
 serving size:
 - templates/api/knowledge-panels/health/nutrition/serving_size.tt.json
@@ -426,6 +427,7 @@ Packaging:
 - templates/api/knowledge-panels/environment/packaging_recycling.tt.json
 - templates/api/knowledge-panels/environment/ecoscore/packaging.tt.json
 - tests/unit/packaging.t
+- docs/reference/schemas/packagings/**
   
 producers platform:
 - lib/ProductOpener/GS1.pm
@@ -473,6 +475,8 @@ images:
 - cgi/product_image_unselect.pl
 - cgi/product_image_upload.pl
 - scripts/delete_old_cropped_images.pl
+- docs/reference/requestBodies/crop_a_photo.yaml
+- docs/reference/requestBodies/add_photo_to_existing_product.yaml
 
 Products:
 - lib/ProductOpener/Products.pm
@@ -508,6 +512,7 @@ editing:
 - templates/web/pages/product_edit/display_input_tabs.tt.html
 - templates/web/pages/product_edit/product_edit_form_display.tt.html
 - templates/web/pages/product_edit/product_edit_form_process.tt.html
+- docs/reference/requestBodies/add_or_edit_a_product.yaml
 
 Product page:
 - templates/web/pages/product/includes/edit_history.tt.html
@@ -723,6 +728,8 @@ API:
 - docs/reference/api-v3.yml
 - lib/ProductOpener/API.pm
 - tests/integration/api_v2_product_read.t
+- docs/reference/requestBodies/lc_cc.yaml
+- docs/reference/requestBodies/fields_tags_lc.yaml
 
 API v3:
 - docs/reference/api-v3.yml
@@ -734,7 +741,10 @@ API read:
 
 API write:
 - tests/integration/api_v3_product_write.t
-
+- docs/reference/requestBodies/add_or_edit_a_product.yaml
+- docs/reference/requestBodies/crop_a_photo.yaml
+- docs/reference/requestBodies/add_photo_to_existing_product.yaml
+  
 monitoring:
 - scripts/api_stats.pl
 

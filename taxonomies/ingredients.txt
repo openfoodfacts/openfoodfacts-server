@@ -85,6 +85,7 @@ it:sciroppo di caramello
 ja:キャラメルシロップ
 lt:karamelizuotas sirupas, karamelizuoto sirupo
 nl:Karamel siroop
+pl:syrop karmelowy
 pt:xarope de caramelo
 ru:Карамельный сироп
 # ingredient/caramel-syrup has 248 products @2019-03-09
@@ -127,6 +128,7 @@ fi:karamellijauhe
 hu:karamellpor
 it:caramello in polvere
 nl:karamelpoeder
+pl:proszek karmelowy
 # ingredient/fr:caramel-en-poudre has 69 products in 5 languages @2019-03-09
 
 # <en:compound
@@ -958,7 +960,7 @@ es:fermentos lácticos, fermentos lácteos, cultivos lácticos, ferments del yog
 et:juuretis
 fi:maitohappokäyte, maitohappokannat, maitohappoviljelmä, elävä jogurttiviljelmä, elävä jogurttibakteeriviljelmä, elävät jogurttibakteeriviljelmät, maitohappobakteeriviljelmä, maitohappobakteeriviljelmät, maitohappobakteerit, maitohappobakteerikanta, maitohappobakteerikannat, juustoviljelmä, juustoviljelmät, hapankulttuuri, jogurttihapate, maitohappobakteeri, käynnistin kulttuuri
 fr:ferment lactique, ferments lactique, ferments lactiques, ferment lactiques, culture de bactéries lactiques, cultures lactiques, ferment lactique du yaourt, ferments lactiques du yaourt, ferments vivants du yaourt
-hr:jogurtna kultura, mljekarska kultura, mljekarske kulture, sirna kultura, starter kultura, baktrije mliječnog vrenja
+hr:jogurtna kultura, mljekarska kultura, mljekarske kulture, sirna kultura, starter kultura, baktrije mliječnog vrenja, bakterije mliječne kiseline
 hu:tejsavbaktériumok, tejsavbaktérium, starterkultúra, starter kultúra, tejsavbaktérium-tenyészet, tejsavbaktérium kultúra, joghurtkultúra, joghurtkultúrák, sajtkultúra, sajtkultúrák
 it:fermenti lattici, coltura di batteri acidolattici, fermenti lattici vivi, fermenti latici vivi, fermenti lattici dello yogurt
 nb:melkesyrekultur, starterkultur, yoghurtkultur, yoghurtbakterier, syrekultur
@@ -1646,7 +1648,7 @@ fi:laktaasi, laktaasientsyymi
 fr:lactase
 gl:lactase
 he:לקטאז
-hr:laktaza, enzim laktaza
+hr:laktaza, laktazu, enzim laktaza
 hu:laktáz, laktáz enzim, laktázenzim
 io:laktazo
 is:laktasi
@@ -17405,6 +17407,18 @@ wikidata:en:Q736208
 # https://world.openfoodfacts.org/cgi/search.pl?search_terms=limoncello&search_simple=1&action=process
 # 226 "Limoncello" via OFF search on 2021-01-11
 
+<en:liqueur
+en:Pelinkovachr
+hr:Pelinkovacit
+it:Pelinkovacja
+ja:ペリンコバクlt
+lt:Pelinkovacasmk
+mk:Пелинковец
+ru:Пелинковац
+sr:Пелинковац
+wikipedia:en:https://en.wikipedia.org/wiki/Pelinkovac
+wikidata:en:Q2354863
+
 
 #<en:alcohol
 #en:angostura
@@ -21011,7 +21025,7 @@ gn:avati mirĩ
 gu:ઘઉં
 he:חיטה
 hi:गेहूँ
-hr:pšenica
+hr:pšenica, pšenicu
 ht:ble
 hu:búza
 hy:ցորեն
@@ -22382,6 +22396,7 @@ pt:malte de cevada
 ro:malț din orz, malt din orz, malț de orz, malt de orz
 ru:Солодовый ячмень, солод ячменный, солод пивоваренный ячменный
 sk:jechyi slad
+sl:ječmenov slad
 sv:kornmalt, korn malt, malt av korn
 zh:含大麥芽片
 allergens:en: en:gluten
@@ -36612,6 +36627,7 @@ de:Zitronenschalen, Zitronenschale
 es:cáscara de limón
 fi:sitruunankuori
 fr:écorce de citron, écorces de citron, écorces de citrons
+hr:limunova korica
 it:scorza di limone
 nl:citroenschil, schillen citroen
 nn:citronskal
@@ -37550,7 +37566,7 @@ es:cáscara de naranja, corteza de naranja,ralladura de naranja
 et:apelsinikoor
 fi:appelsiininkuori, appelsiinikuori
 fr:zeste d'orange, zestes d'orange, écorce d'orange, écorces d'orange, écorces d'oranges
-hr:narančina korica
+hr:narančina korica, kora od naranča, kora gorke naranče
 hu:narancshéj
 it:scorza d'arancia, scorze di arancia, scorze d'arancia, buccla d'arancia
 lt:apelsinų žievelė
@@ -42273,6 +42289,13 @@ wikidata:en:Q2811853
 wikipedia:en:https://en.wikipedia.org/wiki/Babi%C4%87_(grape)
 
 
+<en:varietal
+en:blatina
+hr:blatina, blatina crna, tribidrag, praznobačva, zlorod
+wikidata:en:Q12628015
+wikipedia:en:https://en.wikipedia.org/wiki/Blatina
+
+
 # description:en:Bogdanuša is a white grape variety, which is grown on the Croatian island of Hvar, where it originated on the Stari Grad Plain.
 
 <en:varietal
@@ -42523,6 +42546,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cinsaut
 
 <en:varietal
 en:Debit
+hr:debit
 wikidata:en:Q27826727
 wikipedia:en:https://en.wikipedia.org/wiki/Debit_(grape)
 
@@ -42580,6 +42604,11 @@ zh:佳美
 wikidata:en:Q12982
 wikipedia:en:https://en.wikipedia.org/wiki/Gamay
 # ingredient/fr:gamay has 6 products @2019-01-21
+
+
+<en:varietal
+en:Gewürztraminer
+hr:Traminac, traminac mirisavi
 
 
 # description:en:Grenache or Garnacha is one of the most widely planted red wine grape varieties in the world.
@@ -42733,10 +42762,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Malvasia
 # description:en:Maraština (Rukatac, Maraškin, Mareština, Krizol, Višana) is an indigenous white grape variety from the Dalmatian coast, recommended for all Dalmatian sub-regions, and the Croatian Coast, except Istria.
 
 <en:varietal
-en:Maraština
+en:Maraština, rukatac, maraškin, mareština, krizol, višana
 de:Malvasia Bianca Lunga
 fr:Malvasia bianca lunga
-hr:Maraština
+hr:maraština, rukatac, maraškin, mareština, krizol, višana
 it:Malvasia bianca lunga
 pl:Maraština
 wikidata:en:Q1887929
@@ -43003,6 +43032,11 @@ wikidata:en:Q1887336
 wikipedia:en:https://en.wikipedia.org/wiki/Plavac_Mali
 
 
+<en:varietal
+en:plavina, brajda mala, brajdica, bratkovina, jurkovica, marasovka, modrulj, plavac plavina, plavinac, plavina mala, plavina sitnah, plavina velka, plavka, plavka mala, velika plavka
+hr:plavina, brajda mala, brajdica, bratkovina, jurkovica, marasovka, modrulj, plavac plavina, plavinac, plavina mala, plavina sitnah, plavina velka, plavka, plavka mala, velika plavka
+
+
 # description:en:Poulsard (also Ploussard) is a red French wine grape variety from the Jura wine region.
 
 <en:varietal
@@ -43034,6 +43068,16 @@ uk:Пошип
 wikidata:en:Q832738
 wikipedia:en:https://en.wikipedia.org/wiki/Po%C5%A1ip
 
+<en:varietal
+en:riesling
+hr:rizling, rizling rajnski
+wikidata:en:Q456471
+wikipedia:en:https://en.wikipedia.org/wiki/Riesling
+
+
+<en:varietal
+en:Rkatsiteli
+hr:r'kaciteli
 
 # description:en:Sciacarello (or sciaccarello) is a red Italian wine grape variety that is grown primarily in Corsica.
 
@@ -43226,6 +43270,9 @@ hr:Vugava
 wikidata:en:Q17053382
 wikipedia:en:https://en.wikipedia.org/wiki/Vugava
 
+<en:varietal
+en:Welschriesling
+hr:Graševina
 
 # description:en:Zinfandel (also known as Primitivo) is a variety of black-skinned wine grape.
 
@@ -43257,6 +43304,11 @@ uk:Примітиво
 wikidata:en:Q204433
 wikipedia:en:https://en.wikipedia.org/wiki/Zinfandel
 
+<en:varietal
+en:žlahtina
+hr:žlahtina
+wikidata:en:Q394231
+wikipedia:hr:https://hr.wikipedia.org/wiki/%C5%BDlahtina
 
 ###################################################################################################
 #
@@ -47018,7 +47070,7 @@ gl:fiúncho
 gu:વરિયાળી
 he:שומר פשוט
 hi:सौंफ
-hr:komorač
+hr:komorač, koromač
 ht:anis
 hu:édeskömény
 hy:Հոռոմ-սամիթ սովորական
@@ -60420,6 +60472,7 @@ fi:kamomilla
 fr:camomille
 ga:Fíogadán
 gv:Camomile
+hr:kamilica
 it:camomilla
 ja:カモミール
 jv:Camomile
@@ -60566,7 +60619,7 @@ gl:Coandro
 gu:કોથમીર
 he:כוסברה
 hi:धनिया
-hr:Korijander
+hr:korijander, korijandar
 hu:Koriander
 hy:գինձ
 id:Ketumbar
@@ -60850,7 +60903,7 @@ fi:humala
 fr:houblon
 ga:Leannlus
 he:כשות
-hr:hmelj
+hr:hmelj, hmeljevi
 hu:komló, komlo
 id:hopio:Lupulo
 is:Humall
@@ -62560,7 +62613,7 @@ ne:कुसुम
 nl:saffloer
 or:କୁସୁମ
 pa:ਕਸੁੰਭ
-pl:Kartamus, krokosz, krokosza
+pl:Kartamus, krokosz, krokosza, krokosz barwierski, krokosz barwiarski
 ps:ځريځه
 pt:Cártamo
 ru:Сафлор
@@ -69228,7 +69281,7 @@ fr:thon listao, bonite à ventre rayé, Thon rose, Thon rosé
 ga:Boiníotó aigéanach
 gl:Atún listado
 he:אטונס שחור קווים
-hr:Prugasta tuna
+hr:prugasta tuna, katsuwonus pelamis
 hu:Csíkoshasú tonhal
 id:Cakalang
 is:Randatúnfiskur
