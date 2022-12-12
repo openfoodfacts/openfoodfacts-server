@@ -4371,7 +4371,7 @@ en:Croatian liqueur
 #wikidata:en:
 
 <en:Croatian liqueur
-hr:Hrvatski pelinkovac
+hr:pelinkovac, Hrvatski pelinkovac
 protected_name_file_number:en: PGI-HR-01959
 protected_name_type:en: gi
 origins:en: en:Croatia
@@ -8912,6 +8912,7 @@ es:Vinos
 fi:viinit
 fr:Vins, vin
 he:יינות
+hr:vina, vino
 hu:Borok
 it:Vini
 lt:Vynas,Vynai
@@ -34259,8 +34260,8 @@ wikidata:en:Q2164820
 agribalyse_proxy_food_code:en:31004
 #all agribalyse milk chocolate categories have the same CO2 score
 
-
-<en:Chocolates
+#Do not put this category under chocolates since "filled chocolate eggs" are bonbons, not chocolate
+<en:Cocoa and its products
 en:Chocolate eggs
 de:Schokoladeneier
 es:Huevos de chocolate
@@ -47801,7 +47802,7 @@ lt:Pieno putėsiai
 nl:Mousses op basis van melk
 
 <en:Dairy desserts
-en:Dessert creams, Custard desserts
+en:Creamy puddings, Dessert creams, Custard desserts
 ca:Postres cremoses
 de:Cremedesserts
 es:Postres de cremas
@@ -47815,7 +47816,7 @@ ciqual_food_name:en:Custard dessert, refrigerated or canned (average)
 ciqual_food_name:fr:Crème dessert, rayon frais ou appertisée (aliment moyen)
 
 <en:Dessert creams
-en:Refrigerated dessert creams, Refrigerated custard desserts
+en:Refrigerated creamy puddings, Refrigerated dessert creams, Refrigerated custard desserts
 de:Gekühlte Dessertcremes, gekühlte Puddingdesserts
 fr:Crèmes dessert rayon frais
 it:Creme dessert refrigerate
@@ -47824,6 +47825,9 @@ nl:Bevroren dessertroom
 ciqual_food_code:en:39230
 ciqual_food_name:en:Custard dessert, refrigerated (average)
 ciqual_food_name:fr:Crème dessert, rayon frais (aliment moyen)
+
+<en:Creamy puddings
+en:Pistachio creamy puddings, Pistachio custard dessert
 
 <en:Dessert creams
 en:Coffee custard dessert
@@ -47834,109 +47838,43 @@ agribalyse_proxy_food_code:en:39246
 agribalyse_proxy_food_name:en:Custard dessert, coffee, refrigerated
 agribalyse_proxy_food_name:fr:Crème dessert au café, rayon frais
 
-<en:Dessert creams
-en:Pistachio custard dessert
 fr:Crèmes dessert pistache
 lt:Pistacijų kremo desertai
-nl:Pistachevla's
+nl:Pistache vla's, Pistachevla's
 
-<en:Dessert creams
-en:Double flavour custard dessert
+<en:Creamy puddings
+en:Double flavour creamy puddings, Double flavour custard dessert
 fr:Crèmes dessert double saveur
-nl:Dubbelvla's
+nl:Dubble vla's, Dubbelvla's
 
-<en:Dessert creams
-en:Canned custard desserts
+<en:Creamy puddings
+en:Canned creamy puddings, Canned custard desserts
 fr:Crèmes dessert en conserve, Crèmes dessert appertisées
 ciqual_food_code:en:39505
 ciqual_food_name:en:Custard dessert, canned (average)
 ciqual_food_name:fr:Crème dessert, appertisée (aliment moyen)
 
-<en:Dessert creams
-en:Chocolate custard dessert
-lt:Šokoladinio kremo desertai
-
 <en:Chocolate desserts
-<en:Refrigerated dessert creams
-en:Refrigerated chocolate custard dessert
+<en:Creamy puddings
+en:Chocolate creamy puddings, Chocolate puddings, Chocolate custard dessert
 fr:Crèmes dessert chocolat, Crème dessert chocolat, Crèmes dessert au chocolat, Crème dessert au chocolat
-it:Crema pasticciera da dessert al cioccolato congelata
-lt:Šaltai laikomi šokoladinio kremo desertai
-nl:Chocoladevla's, Chocovla's
+lt:Šokoladinio kremo desertai
+nl:Chocolade vla's, Chocoladevla's, Chocovla's
+
+<en:Chocolate creamy puddings
+en:Canned chocolate creamy puddings, Canned chocolate custard dessert
+fr:Crème dessert au chocolat en conserve, Crèmes dessert chocolat appertisées, Crème dessert au chocolat appertisée
+ciqual_food_code:en:39506
+ciqual_food_name:en:Custard dessert, chocolate, canned
+ciqual_food_name:fr:Crème dessert au chocolat, appertisée
+
+<en:Chocolate puddings
+en:Refrigerated chocolate creamy puddings, Refrigerated chocolate custard dessert
+fr:Crèmes dessert chocolat réfrigérées
 agribalyse_food_code:en:39200
 ciqual_food_code:en:39200
 ciqual_food_name:en:Custard dessert, chocolate, refrigerated
 ciqual_food_name:fr:Crème dessert au chocolat, rayon frais
-
-<en:Chocolate desserts
-<en:Canned custard desserts
-en:Canned chocolate custard dessert
-fr:Crème dessert au chocolat en conserve, Crème dessert au chocolat appertisée
-agribalyse_food_code:en:39506
-ciqual_food_code:en:39506
-ciqual_food_name:en:Custard dessert, chocolate, canned
-ciqual_food_name:fr:Crème dessert au chocolat, appertisée
-
-<en:Canned custard desserts
-en:Canned vanilla custard dessert
-fr:Crème dessert à la vanille en conserve, Crème dessert à la vanille appertisée
-agribalyse_food_code:en:39214
-ciqual_food_code:en:39214
-ciqual_food_name:en:Custard dessert, vanilla, canned
-ciqual_food_name:fr:Crème dessert à la vanille, appertisée
-
-<en:Refrigerated dessert creams
-en:Refrigerated custard dessert with reduced fat
-fr:Crème dessert allégée en matières grasses rayon frais
-agribalyse_food_code:en:19673
-ciqual_food_code:en:19673
-ciqual_food_name:en:Custard dessert, reduced fat, refrigerated
-ciqual_food_name:fr:Crème dessert, allégée en MG, rayon frais
-
-<en:Chocolate desserts
-<en:Dessert creams
-en:Chocolate puddings, Refrigerated chocolate custard dessert
-fr:Crèmes dessert chocolat, Crème dessert chocolat, Crèmes dessert au chocolat, Crème dessert au chocolat
-nl:Chocolade vla's
-ciqual_food_code:en:39200
-ciqual_food_name:en:Custard dessert, chocolate, refrigerated
-ciqual_food_name:fr:Crème dessert au chocolat, rayon frais
-
-<en:Chocolate puddings
-en:Canned chocolate puddings, Canned chocolate custard dessert
-fr:Crèmes dessert chocolat appertisées, Crème dessert au chocolat appertisée
-ciqual_food_code:en:39506
-ciqual_food_name:en:Custard dessert, chocolate, canned
-ciqual_food_name:fr:Crème dessert au chocolat, appertisée
-
-<en:Chocolate puddings
-en:Refrigerated chocolate puddings
-fr:Crèmes dessert chocolat réfrigérées
-ciqual_food_code:en:39200
-ciqual_food_name:en:Custard dessert, chocolate, refrigerated
-ciqual_food_name:fr:Crème dessert au chocolat, rayon frais
-
-<en:Chocolate desserts
-<en:Dessert creams
-en:Canned chocolate puddings, Canned chocolate custard dessert
-fr:Crèmes dessert chocolat appertisées, Crème dessert au chocolat appertisée
-ciqual_food_code:en:39506
-ciqual_food_name:en:Custard dessert, chocolate, canned
-ciqual_food_name:fr:Crème dessert au chocolat, appertisée
-
-
-en:Caramel custard dessert
-fr:Crèmes dessert caramel, Crème dessert caramel, Crèmes dessert au caramel, Crème dessert au caramel
-nl:Caramel vla's
-
-<en:Refrigerated dessert creams
-<en:Caramel custard dessert
-en:Refrigerated caramel custard dessert
-fr:Crème dessert au caramel rayon frais
-agribalyse_food_code:en:39247
-ciqual_food_code:en:39247
-ciqual_food_name:en:Custard dessert, caramel, refrigerated
-ciqual_food_name:fr:Crème dessert au caramel, rayon frais
 
 <fr:Crèmes dessert chocolat
 fr:Crèmes dessert chocolat noir, Crème dessert chocolat noir, Crèmes dessert au chocolat noir, Crème dessert au chocolat noir
@@ -47945,55 +47883,64 @@ agribalyse_food_code:en:39211
 ciqual_food_code:en:39211
 ciqual_food_name:en:Custard cream with eggs (a small jar of chocolate or vanilla cream or other flavour), refrigerated
 
-<en:Dessert creams
-en:Vanilla puddings
-
-<en:Refrigerated dessert creams
+<en:Creamy puddings
+en:Vanilla creamy puddings
 fr:Crèmes dessert vanille, Crème dessert vanille, Crèmes dessert à la vanille, Crème dessert à la vanille
-nl:vanilla vla's
-agribalyse_food_code:en:39211
-ciqual_food_code:en:39211
-ciqual_food_name:en:Custard cream with eggs (a small jar of chocolate or vanilla cream or other flavour), refrigerated
+nl:Vanilla vla's
+ciqual_food_code:en:39229
+ciqual_food_name:en:Custard dessert, vanilla, refrigerated
+ciqual_food_name:fr:Crème dessert à la vanille, rayon frais
+Crèmes dessert vanille réfrigérées, Crème dessert à la vanille rayon frais
 
-<en:Vanilla puddings
+<en:Canned creamy puddings
+<en:Vanilla creamy puddings
 en:Canned vanilla puddings, Cannned vanilla puddings, Canned vanilla custard dessert
-fr:Crèmes dessert vanille appertisées, Crème dessert à la vanille appertisée
+fr:Crème dessert à la vanille en conserve, crèmes dessert vanille appertisées, Crème dessert à la vanille appertisée
 ciqual_food_code:en:39214
 ciqual_food_name:en:Custard dessert, vanilla, canned
 ciqual_food_name:fr:Crème dessert à la vanille, appertisée
 
-<en:Vanilla puddings
-en:Refrigerated vanilla puddings, Refrigerated vanilla custard dessert
+<en:Vanilla creamy puddings
+en:Refrigerated vanilla creamy puddings, Refrigerated vanilla custard dessert
 fr:Crèmes dessert vanille réfrigérées, Crème dessert à la vanille rayon frais
 ciqual_food_code:en:39229
 ciqual_food_name:en:Custard dessert, vanilla, refrigerated
 ciqual_food_name:fr:Crème dessert à la vanille, rayon frais
+Crèmes dessert vanille réfrigérées, Crème dessert à la vanille rayon frais
 
-<en:Dessert creams
-en:Caramel puddings
+<en:Refrigerated creamy puddings
+en:Refrigerated custard dessert with reduced fat
+fr:Crème dessert allégée en matières grasses rayon frais
+agribalyse_food_code:en:19673
+ciqual_food_code:en:19673
+ciqual_food_name:en:Custard dessert, reduced fat, refrigerated
+ciqual_food_name:fr:Crème dessert, allégée en MG, rayon frais
+
+<en:Creamy puddings
+en:Caramel creamy puddings, Caramel puddings, caramel custard dessert
 fr:Crèmes dessert caramel, Crème dessert caramel, Crèmes dessert au caramel, Crème dessert au caramel
 nl:Caramel vla's
 
-<en:Caramel puddings
-en:Refrigerated caramel puddings, Refrigerated caramel custard dessert
+<en:Refrigerated creamy puddings
+<en:Caramel creamy puddings
+en:Refrigerated caramel creamy puddings, refrigerated caramel custard dessert
 fr:Crèmes dessert caramel réfrigérées, Crème dessert au caramel rayon frais
+agribalyse_food_code:en:39247
 ciqual_food_code:en:39247
 ciqual_food_name:en:Custard dessert, caramel, refrigerated
 ciqual_food_name:fr:Crème dessert au caramel, rayon frais
 
-<en:Dessert creams
-en:Coffee puddings
+<en:Creamy puddings
+en:Coffee creamy puddings, coffee puddings, coffee custard dessert
 fr:Crèmes dessert café
+nl:Koffie vla's, Koffievla's
 
-<en:Coffee puddings
+<en:Coffee creamy puddings
 en:Refrigerated coffee puddings, Refrigerated coffee custard dessert
-fr:Crème dessert au café rayon frais
+fr:Crèmes dessert café réfrigérées,Crème dessert au café rayon frais
 ciqual_food_code:en:39246
 ciqual_food_name:en:Custard dessert, coffee, refrigerated
 ciqual_food_name:fr:Crème dessert au café, rayon frais
-
-<en:Dessert creams
-fr:Crèmes dessert pistache
 
 <en:Desserts
 <en:Dairy substitutes
@@ -87274,6 +87221,7 @@ es:Mermeladas y confituras
 fi:hillot
 fr:Confitures, Confitures de fruits
 he:ריבות
+hr:džem
 hu:Dzsemek, Lekvárok
 it:Confetture, Confettura
 nl:Jams, Confituren
@@ -89068,6 +89016,7 @@ es:Siropes, Jarabes
 fi:siirapit
 fr:Sirops, sirop
 he:סירופ
+hr:sirup
 hu:Szirupok
 it:Sciroppi, Sciroppo
 nl:Siropen
