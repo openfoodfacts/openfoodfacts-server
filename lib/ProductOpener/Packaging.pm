@@ -691,7 +691,8 @@ sub set_packaging_misc_tags ($product_ref) {
 	remove_tag($product_ref, "misc", "en:packagings-with-some-weights");
 
 	# Number of packaging components
-	my $number_of_packaging_components = (defined $product_ref->{packagings} ? scalar @{$product_ref->{packagings}} : 0);
+	my $number_of_packaging_components
+		= (defined $product_ref->{packagings} ? scalar @{$product_ref->{packagings}} : 0);
 
 	if ($product_ref->{packagings_complete}) {
 		add_tag($product_ref, "misc", "en:packagings-complete");
