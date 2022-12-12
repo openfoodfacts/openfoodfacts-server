@@ -729,7 +729,7 @@ sub set_packaging_misc_tags ($product_ref) {
 					add_tag($product_ref, "misc", "en:packagings-with-all-weights-complete");
 				}
 				else {
-					add_tag($product_ref, "misc", "en:packagings-not-complete-with-all-weights-not-complete");
+					add_tag($product_ref, "misc", "en:packagings-with-all-weights-not-complete");
 				}
 			}
 			else {
