@@ -72209,6 +72209,16 @@ food_groups:en: en:Meat other than poultry
 # Products that are poultry hopefully have the en:Poultries category which will assign the en:Poultry food group
 pnns_group_2:en:Meat
 
+#Products containing at least 99% meat according to French regulations. Products with lower meat percentage goes in "Ground meat preparations"
+<en:Meats
+<en:Beef
+en:Ground meats
+fr:Viandes hachées
+
+<en:Ground meats
+en:Ground beef meats
+fr:Viandes hachées de bœuf, viandes hachées de boeuf
+
 <en:Meats
 en:Cooked meats, Cooked meat
 fr:Viandes cuites, Viande cuite
