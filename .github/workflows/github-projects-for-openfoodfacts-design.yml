@@ -1,4 +1,4 @@
-name: Add mockup-required and mockup-available issues to the openfoodfacts-design project
+name: Ventilate issues to the right GitHub projects
 
 on:
   issues:
@@ -70,4 +70,9 @@ jobs:
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
           labeled: producers platform
           label-operator: OR    
-          
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/19 # Add issue to the infrastructure project
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: infrastructure
+          label-operator: OR   
