@@ -60,7 +60,7 @@ Update product fields based on input product data.
 sub update_product_fields ($request_ref, $product_ref) {
 
 	my $response_ref = $request_ref->{api_response};
-	my $request_body_ref = $request_ref->{request_body_json};
+	my $request_body_ref = $request_ref->{body_json};
 
 	$request_ref->{updated_product_fields} = {};
 
@@ -149,9 +149,7 @@ sub write_product_api ($request_ref) {
 	$log->debug("write_product_api - start", {request => $request_ref}) if $log->is_debug();
 
 	my $response_ref = $request_ref->{api_response};
-
-	decode_json_request_body($request_ref);
-	my $request_body_ref = $request_ref->{request_body_json};
+	my $request_body_ref = $request_ref->{body_json};
 
 	$log->debug("write_product_api - body", {request_body => $request_body_ref}) if $log->is_debug();
 

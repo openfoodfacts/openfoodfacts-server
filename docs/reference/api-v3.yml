@@ -59,12 +59,12 @@ paths:
           name: fields
           description: |-
             Comma separated list of fields requested in the response. 
-            
+
             Special values: 
             * "none": returns no fields
             * "raw": returns all fields as stored internally in the database
             * "all": returns all fields except generated fields that need to be explicitly requested such as "knowledge_panels". 
-            
+
             Defaults to "all" for READ requests. The "all" value can also be combined with fields like "attribute_groups" and "knowledge_panels".'
       responses:
         '200':
@@ -176,7 +176,7 @@ paths:
                 - $ref: ./requestBodies/fields_tags_lc.yaml
                 - type: object
                   properties:
-                    userid:
+                    user_id:
                       type: string
                     password:
                       type: string

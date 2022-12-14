@@ -895,7 +895,7 @@ sub init_user ($request_ref) {
 	%Org = ();
 
 	# Remove persistent cookie if user is logging out
-	if ((defined single_param('length')) and (single_param('length') eq 'logout')) {
+	if ((defined request_param($request_ref, 'length')) and (request_param($request_ref, 'length') eq 'logout')) {
 		$log->debug("user logout") if $log->is_debug();
 		my $session = {};
 		$request_ref->{cookie} = cookie(
@@ -908,12 +908,12 @@ sub init_user ($request_ref) {
 	}
 
 	# Retrieve user_id and password from form parameters
-	elsif ( (defined single_param('user_id'))
-		and (single_param('user_id') ne '')
-		and (((defined single_param('password')) and (single_param('password') ne ''))))
+	elsif ( (defined request_param($request_ref, 'user_id'))
+		and (request_param($request_ref, 'user_id') ne '')
+		and (((defined request_param($request_ref, 'password')) and (request_param($request_ref, 'password') ne ''))))
 	{
 
-		$user_id = remove_tags_and_quote(single_param('user_id'));
+		$user_id = remove_tags_and_quote(request_param($request_ref, 'user_id'));
 
 		if ($user_id =~ /\@/) {
 			$log->info("got email while initializing user", {email => $user_id}) if $log->is_info();
@@ -950,7 +950,8 @@ sub init_user ($request_ref) {
 				$user_id = $user_ref->{'userid'};
 				$log->context->{user_id} = $user_id;
 
-				my $hash_is_correct = check_password_hash(encode_utf8(decode utf8 => single_param('password')),
+				my $hash_is_correct
+					= check_password_hash(encode_utf8(decode utf8 => request_param($request_ref, 'password')),
 					$user_ref->{'encrypted_password'});
 				# We don't have the right password
 				if (not $hash_is_correct) {
@@ -963,7 +964,8 @@ sub init_user ($request_ref) {
 					return ($Lang{error_bad_login_password}{$lang});
 				}
 				# We have the right login/password
-				elsif (not defined single_param('no_log'))    # no need to store sessions for internal requests
+				elsif (
+					not defined request_param($request_ref, 'no_log')) # no need to store sessions for internal requests
 				{
 					$log->info("correct password for user provided") if $log->is_info();
 
@@ -1002,9 +1004,6 @@ sub init_user ($request_ref) {
 
 		if (defined $user_id) {
 			my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
-			if ($user_id =~ /f\/(.*)$/) {
-				$user_file = "$data_root/facebook_users/" . get_string_id_for_lang("no_language", $1) . ".sto";
-			}
 
 			if (-e $user_file) {
 				$user_ref = retrieve($user_file);

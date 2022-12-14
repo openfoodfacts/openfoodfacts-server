@@ -4371,7 +4371,7 @@ en:Croatian liqueur
 #wikidata:en:
 
 <en:Croatian liqueur
-hr:Hrvatski pelinkovac
+hr:pelinkovac, Hrvatski pelinkovac
 protected_name_file_number:en: PGI-HR-01959
 protected_name_type:en: gi
 origins:en: en:Croatia
@@ -8912,6 +8912,7 @@ es:Vinos
 fi:viinit
 fr:Vins, vin
 he:יינות
+hr:vina, vino
 hu:Borok
 it:Vini
 lt:Vynas,Vynai
@@ -34259,8 +34260,8 @@ wikidata:en:Q2164820
 agribalyse_proxy_food_code:en:31004
 #all agribalyse milk chocolate categories have the same CO2 score
 
-
-<en:Chocolates
+#Do not put this category under chocolates since "filled chocolate eggs" are bonbons, not chocolate
+<en:Cocoa and its products
 en:Chocolate eggs
 de:Schokoladeneier
 es:Huevos de chocolate
@@ -76855,6 +76856,7 @@ ciqual_food_name:en:Sausage meat, raw
 en:Pork sausages
 bg:Свински колбаси
 fr:Saucisses de porc, Saucisses au porc
+nl:Varkensworsten
 pl:Kiełbasy wieprzowe
 agribalyse_proxy_food_code:en:30051
 agribalyse_proxy_food_name:en:Sausage meat, pure pork, raw
@@ -87219,6 +87221,7 @@ es:Mermeladas y confituras
 fi:hillot
 fr:Confitures, Confitures de fruits
 he:ריבות
+hr:džem
 hu:Dzsemek, Lekvárok
 it:Confetture, Confettura
 nl:Jams, Confituren
@@ -89013,6 +89016,7 @@ es:Siropes, Jarabes
 fi:siirapit
 fr:Sirops, sirop
 he:סירופ
+hr:sirup
 hu:Szirupok
 it:Sciroppi, Sciroppo
 nl:Siropen
@@ -91744,7 +91748,7 @@ ciqual_food_name:fr:Poivron jaune, cru
 <en:Cooked peppers
 en:Cooked sweet red peppers
 fr:Poivrons rouges cuits
-nl:gekoohte rode paprikas
+nl:Gekookte rode paprikas
 agribalyse_food_code:en:20088
 ciqual_food_code:en:20088
 ciqual_food_name:en:Sweet pepper, red, cooked
