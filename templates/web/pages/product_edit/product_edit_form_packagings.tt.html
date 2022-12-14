@@ -127,7 +127,7 @@ function add_packaging() {
     \$("#packaging_" + packaging_max + "_delete").show();
 
     packaging_max = packaging_max + 1;
-    \$("#packaging_max").val(packaging_max);
+    \$('input[name="packaging_max"]').val(packaging_max);
 
     var new_packaging_id = "packaging_" + packaging_max;
     // row 0 is our template row
