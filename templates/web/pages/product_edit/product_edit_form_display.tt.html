@@ -129,6 +129,9 @@
 
                 [% display_tab_product_characteristics %]
 
+                [% lang("barcode") %]  
+                <input type="text"  name="code" value="[% code %]">
+
                 [% FOREACH field IN display_fields_arr %]
                     [% field %]
                 [% END %]
