@@ -46,6 +46,9 @@ Data about food is of public interest and has to be open (i.e available to every
 
 * <https://world.openfoodfacts.org>
 
+## Feature Sprint 
+- We use feature-based sprints, [tracked here](https://github.com/orgs/openfoodfacts/projects/32)
+
 <details><summary><h2> Weekly meetings </h2></summary>
 - We e-meet Mondays at 16:00 Paris Time (15:00 London Time, 20:30 IST, 07:00 AM PT)
 - ![Google Meet](https://img.shields.io/badge/Google%20Meet-00897B?logo=google-meet&logoColor=white) Video call link: https://meet.google.com/nnw-qswu-hza
