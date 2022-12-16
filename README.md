@@ -23,6 +23,10 @@
 
 It works together with [Robotoff](https://github.com/openfoodfacts/robotoff), Open Food Facts' AI system (in Python, which can also be installed locally) and the [Open Food Facts apps](https://github.com/openfoodfacts/smooth-app) (which can work with your local instance after enabling dev mode)
 
+## 1 command to get started on your machine
+```/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/openfoodfacts/openfoodfacts-server/e7e1f9a6536c62fc51f71f6a6adace032d713815/docker/automatic-dev-environment-setup.sh)"```
+Note: this is experimental, and has only been tested on an osx laptop so far. Help to expand to Windows and *nix welcome :-)
+Note2: On Mac devices, you need to manually set 4GB of RAM in Docker preferences >> Ressources >> Memory
 ## What is Open Food Facts?
 
 ### A food product database
