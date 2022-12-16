@@ -45,6 +45,7 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 
+		&list_org_ids
 		&retrieve_org
 		&store_org
 		&create_org
@@ -114,6 +115,26 @@ sub retrieve_org ($org_id_or_name) {
 	my $org_ref = retrieve("$data_root/orgs/$org_id.sto");
 
 	return $org_ref;
+}
+
+=head1 FUNCTIONS
+
+=head2 list_org_ids()
+
+=head3 Return values
+
+This function returns an array of all existing org ids
+
+=cut
+
+sub list_org_ids () {
+	# all .sto but orgs_glns
+	my @org_files = glob("$data_root/orgs/*.sto");
+	# id is the filename without .sto
+	my @org_ids = map {$_ =~ /\/([^\/]+).sto/;} @org_files;
+	# remove "orgs_glns"
+	@org_ids = grep {!/orgs_glns/} @org_ids;
+	return @org_ids;
 }
 
 =head2 store_org ( $org_ref )
@@ -189,6 +210,9 @@ sub create_org ($creator, $org_id_or_name, $validated = 0) {
 		name => $org_id_or_name,
 		# indicates if the org was manually validated
 		validated => $validated,
+		# by default an org has its data protected
+		# we will remove this only if appears later not to be fair-play
+		protect_data => "on",
 		admins => {},
 		members => {},
 	};
