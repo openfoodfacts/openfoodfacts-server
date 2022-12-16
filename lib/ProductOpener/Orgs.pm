@@ -133,7 +133,7 @@ sub list_org_ids () {
 	# id is the filename without .sto
 	my @org_ids = map {$_ =~ /\/([^\/]+).sto/;} @org_files;
 	# remove "orgs_glns"
-	@org_ids = grep (!/orgs_glns/, @org_ids);
+	@org_ids = grep {!/orgs_glns/} @org_ids;
 	return @org_ids;
 }
 
