@@ -71,7 +71,7 @@ sub update_product_fields ($request_ref, $product_ref) {
 		my $value = $input_product_ref->{$field};
 
 		# Packaging components
-		if ($field =~ /^(packagings)(_add)?/) {
+		if ($field =~ /^(packagings)(_add)?$/) {
 			$request_ref->{updated_product_fields}{$1} = 1;
 			my $is_addition = (defined $2) ? 1 : 0;
 
