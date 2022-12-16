@@ -40,4 +40,5 @@ perl integration/api_v2_product_write.t --update-expected-results
 perl integration/api_v3_product_read.t --update-expected-results
 perl integration/api_v3_product_write.t --update-expected-results
 perl integration/search_v1.t --update-expected-results
+perl integration/create_pro_user.t --update-expected-results
 
