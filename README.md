@@ -1,7 +1,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-dark.png?refresh_github_cache=1">
   <source media="(prefers-color-scheme: light)" srcset="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.png?refresh_github_cache=1">
-  <img height="48" src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg">
+  <img height="48" src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg"/>
 </picture>
 
 
@@ -44,21 +44,23 @@ Open Food Facts is a non-profit association of volunteers.
 Data about food is of public interest and has to be open (i.e available to everyone). The complete database is published as open data and can be reused by anyone and for any use. Check-out the cool reuses or make your own!
 </details>
 
-* <https://world.openfoodfacts.org>
+- <https://world.openfoodfacts.org>
+
+<details><summary><h2>Weekly meetings</h2></summary>
+
+* We e-meet Mondays at 16:00 Paris Time (15:00 London Time, 20:30 IST, 07:00 AM PT)
+* ![Google Meet](https://img.shields.io/badge/Google%20Meet-00897B?logo=google-meet&logoColor=white) Video call link: https://meet.google.com/nnw-qswu-hza
+* Join by phone: https://tel.meet/nnw-qswu-hza?pin=2111028061202
+* Add the Event to your Calendar by [adding the Open Food Facts community calendar to your calendar](https://wiki.openfoodfacts.org/Events)
+* [Weekly Agenda](https://drive.google.com/open?id=1LL8-aiSF482xaJ1o0AKmhXB5QWfVE0_jzvYakq3VXys): please add the Agenda items as early as you can. 
+* Make sure to check the Agenda items in advance of the meeting, so that we have the most informed discussions possible. 
+* The meeting will handle Agenda items first, and if time permits, collaborative bug triage.
+* We strive to timebox the core of the meeting (decision making) to 30 minutes, with an optional free discussion/live debugging afterwards.
+* We take comprehensive notes in the Weekly Agenda of agenda item discussions and of decisions taken.
+</details>
 
 ## Feature Sprint 
 - We use feature-based sprints, [tracked here](https://github.com/orgs/openfoodfacts/projects/32)
-
-<details><summary><h2> Weekly meetings </h2></summary>
-- We e-meet Mondays at 16:00 Paris Time (15:00 London Time, 20:30 IST, 07:00 AM PT)
-- ![Google Meet](https://img.shields.io/badge/Google%20Meet-00897B?logo=google-meet&logoColor=white) Video call link: https://meet.google.com/nnw-qswu-hza
-- Join by phone: https://tel.meet/nnw-qswu-hza?pin=2111028061202
-- Add the Event to your Calendar by [adding the Open Food Facts community calendar to your calendar](https://wiki.openfoodfacts.org/Events)
-- [Weekly Agenda](https://drive.google.com/open?id=1LL8-aiSF482xaJ1o0AKmhXB5QWfVE0_jzvYakq3VXys): please add the Agenda items as early as you can. Make sure to check the Agenda items in advance of the meeting, so that we have the most informed discussions possible. 
-- The meeting will handle Agenda items first, and if time permits, collaborative bug triage.
-- We strive to timebox the core of the meeting (decision making) to 30 minutes, with an optional free discussion/live debugging afterwards.
-- We take comprehensive notes in the Weekly Agenda of agenda item discussions and of decisions taken.
-</details>
 
 ## User interface
 -  [![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?logo=figma&logoColor=white) Mockups on the current design and future plans to discuss](https://www.figma.com/file/Qg9URUyrjHgYmnDHXRsTTB/New-website-design-(2022)-(Quentin)?t=00ZMlgxe590W8TRY-0)
@@ -92,6 +94,9 @@ Data about food is of public interest and has to be open (i.e available to every
 
 Note: documentation follows the [Diátaxis Framework](https://diataxis.fr/)
 </details>
+
+
+
 
 ## Contribution guidelines
 
