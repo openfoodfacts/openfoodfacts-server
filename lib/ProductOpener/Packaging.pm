@@ -685,6 +685,14 @@ sub set_packaging_misc_tags ($product_ref) {
 	remove_tag($product_ref, "misc", "en:packagings-empty");
 	remove_tag($product_ref, "misc", "en:packagings-not-empty");
 	remove_tag($product_ref, "misc", "en:packagings-not-empty-but-not-complete");
+	remove_tag($product_ref, "misc", "en:packagings-with-weights");
+	remove_tag($product_ref, "misc", "en:packagings-complete-with-weights");
+	remove_tag($product_ref, "misc", "en:packagings-not-complete-with-weights");
+	remove_tag($product_ref, "misc", "en:packagings-with-some-weights");
+
+	# Number of packaging components
+	my $number_of_packaging_components
+		= (defined $product_ref->{packagings} ? scalar @{$product_ref->{packagings}} : 0);
 
 	if ($product_ref->{packagings_complete}) {
 		add_tag($product_ref, "misc", "en:packagings-complete");
@@ -693,12 +701,34 @@ sub set_packaging_misc_tags ($product_ref) {
 	else {
 		add_tag($product_ref, "misc", "en:packagings-not-complete");
 
-		if (scalar @{$product_ref->{packagings}} == 0) {
+		if ($number_of_packaging_components == 0) {
 			add_tag($product_ref, "misc", "en:packagings-empty");
 		}
 		else {
 			add_tag($product_ref, "misc", "en:packagings-not-empty-but-not-complete");
 			add_tag($product_ref, "misc", "en:packagings-not-empty");
+		}
+	}
+
+	# Check if we have weights for all components
+	if ($number_of_packaging_components > 0) {
+		my $components_with_weights = 0;
+		foreach my $packaging_ref (@{$product_ref->{packagings}}) {
+			if ((defined $packaging_ref->{weight_specified}) or (defined $packaging_ref->{weight_measured})) {
+				$components_with_weights++;
+			}
+		}
+		if ($components_with_weights == $number_of_packaging_components) {
+			add_tag($product_ref, "misc", "en:packagings-with-weights");
+			if ($product_ref->{packagings_complete}) {
+				add_tag($product_ref, "misc", "en:packagings-complete-with-weights");
+			}
+			else {
+				add_tag($product_ref, "misc", "en:packagings-not-complete-with-weights");
+			}
+		}
+		elsif ($components_with_weights > 0) {
+			add_tag($product_ref, "misc", "en:packagings-with-some-weights");
 		}
 	}
 

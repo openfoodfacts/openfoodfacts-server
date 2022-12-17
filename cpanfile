@@ -95,6 +95,7 @@ on 'test' => sub {
   requires 'IO::Capture::Stderr::Extended';
   requires 'HTTP::CookieJar::LWP';
   requires 'File::Tail';
+  requires 'Test2::Plugin::UTF8';
 };
 
 on 'develop' => sub {
