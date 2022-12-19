@@ -129,6 +129,13 @@
                {
                   "element_type" : "text",
                   "text_element" : {
+                     "html" : "",
+                     "type" : "warning"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
                      "html" : "The <a href=\"http://world.openfoodfacts.localhost/ecoscore\">Eco-Score</a> is an experimental score that summarizes the environmental impacts of food products."
                   }
                },
