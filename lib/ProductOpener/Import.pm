@@ -1182,7 +1182,9 @@ sub import_csv_file ($args_ref) {
 								}
 							}
 						}
-						# add the value to eventual existing values
+						# If we have a tag to add
+						# (because we had a "yes" or a "no" value for a specific tag field),
+						# concatenate it to possible pre-existing tags
 						if (defined $tag_to_add) {
 							if (defined $imported_product_ref->{$field}) {
 								$imported_product_ref->{$field} .= "," . $tag_to_add;
@@ -1442,7 +1444,7 @@ sub import_csv_file ($args_ref) {
 					my $new_field_value = $imported_product_ref->{$field};
 
 					next if not defined $new_field_value;
-					# remove spaces
+					# remove leading and trailing spaces
 					$new_field_value =~ s/\s+$//;
 					$new_field_value =~ s/^\s+//;
 
@@ -1462,7 +1464,7 @@ sub import_csv_file ($args_ref) {
 						$new_field_value =~ s/litre|litres|liter|liters/l/i;
 						$new_field_value =~ s/kilogramme|kilogrammes|kgs/kg/i;
 					}
-					# normalize spaces
+					# remove leading and trailing spaces
 					$new_field_value =~ s/\s+$//g;
 					$new_field_value =~ s/^\s+//g;
 
