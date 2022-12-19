@@ -57,7 +57,7 @@ Update a field that takes only 0 or 1 as a value (e.g. packagings_complete).
 
 =cut
 
-sub update_field_with_0_or_1_value($request_ref, $product_ref, $field, $value) {
+sub update_field_with_0_or_1_value ($request_ref, $product_ref, $field, $value) {
 
 	my $response_ref = $request_ref->{api_response};
 
@@ -75,7 +75,7 @@ sub update_field_with_0_or_1_value($request_ref, $product_ref, $field, $value) {
 		);
 	}
 	else {
-		$product_ref->{$field} = $value + 0;	# add 0 to make sure the value is stored as a number
+		$product_ref->{$field} = $value + 0;    # add 0 to make sure the value is stored as a number
 	}
 }
 
@@ -85,7 +85,7 @@ Update packagings.
 
 =cut
 
-sub update_packagings($request_ref, $product_ref, $field, $is_addition, $value) {
+sub update_packagings ($request_ref, $product_ref, $field, $is_addition, $value) {
 
 	my $request_body_ref = $request_ref->{body_json};
 	my $response_ref = $request_ref->{api_response};
@@ -135,8 +135,7 @@ sub update_packagings($request_ref, $product_ref, $field, $is_addition, $value) 
 			}
 
 			# Taxonomize the input packaging component data
-			my $packaging_ref
-				= get_checked_and_taxonomized_packaging_component_data($request_body_ref->{tags_lc},
+			my $packaging_ref = get_checked_and_taxonomized_packaging_component_data($request_body_ref->{tags_lc},
 				$input_packaging_ref, $response_ref);
 
 			if (defined $packaging_ref) {
