@@ -1742,6 +1742,8 @@ properties:
       like packaging_text_fr (for french).
   packagings:
     $ref: ./packagings/packagings.yaml
+  packagings_complete:
+    $ref: ./packagings/packagings_complete.yaml  
   photographers_tags:
     type: array
     items:
