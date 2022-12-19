@@ -180,6 +180,16 @@ use Data::DeepAccess qw(deep_get deep_exists);
 
 binmode STDERR, ":encoding(UTF-8)";
 
+=head1 GLOBAL VARIABLES
+=cut
+
+=head2 %tags_fields
+
+This defines which are the fields that are list of values.
+To this initial list, taxonomized fields will be added by retrieve_tags_taxonomy
+
+=cut
+
 %tags_fields = (
 	packaging => 1,
 	brands => 1,
