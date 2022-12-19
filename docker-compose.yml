@@ -112,6 +112,8 @@ services:
 
       # Nginx, we use templates dir to be able to use environment vars
       - ./conf/nginx.conf:/etc/nginx/templates/default.conf.template
+      # cors headers definition as an include
+      - ./conf/nginx-cors.include:/etc/nginx/conf.d/nginx-cors.include
     ports:
       - ${PRODUCT_OPENER_EXPOSE}${PRODUCT_OPENER_PORT}:80
 
