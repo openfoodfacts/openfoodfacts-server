@@ -482,10 +482,14 @@ sub create_ecoscore_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
 
 		my $score = $product_ref->{ecoscore_data}{score};
 		my $grade = $product_ref->{ecoscore_data}{grade};
+		my $country_specific = 0;
 
-		if (defined $product_ref->{ecoscore_data}{"score_" . $cc}) {
-			$score = $product_ref->{ecoscore_data}{"score_" . $cc};
-			$grade = $product_ref->{ecoscore_data}{"grade_" . $cc};
+		if (defined $product_ref->{ecoscore_data}{scores}{$cc}) {
+			$score = $product_ref->{ecoscore_data}{scores}{$cc};
+			$grade = $product_ref->{ecoscore_data}{grades}{$cc};
+			if ($cc ne "world") {
+				$country_specific = 1;
+			}
 		}
 
 		$log->debug("create ecoscore panel - known", {code => $product_ref->{code}, score => $score, grade => $grade})
@@ -529,6 +533,7 @@ sub create_ecoscore_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
 			"score" => $score,
 			"grade" => $grade,
 			"title" => $title,
+			"country_specific" => $country_specific,
 		};
 
 		create_panel_from_json_template("ecoscore", "api/knowledge-panels/environment/ecoscore/ecoscore.tt.json",

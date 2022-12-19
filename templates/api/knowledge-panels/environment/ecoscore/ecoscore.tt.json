@@ -9,7 +9,16 @@
         "type": "grade",
         "grade": "[% panel.grade %]",
     },
-    "elements": [           
+    "elements": [
+        [% IF not panel.country_specific %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "warning",
+                "html": `[% lang("ecoscore_warning_transportation") %]`,
+            }
+        },
+        [% END %]
         {
             "element_type": "text",
             "text_element": {
