@@ -77,6 +77,7 @@ sub update_field_with_0_or_1_value ($request_ref, $product_ref, $field, $value) 
 	else {
 		$product_ref->{$field} = $value + 0;    # add 0 to make sure the value is stored as a number
 	}
+	return;
 }
 
 =head2 update_packagings($request_ref, $product_ref, $field, $is_addition, $value)
@@ -144,6 +145,7 @@ sub update_packagings ($request_ref, $product_ref, $field, $is_addition, $value)
 			}
 		}
 	}
+	return;
 }
 
 =head2 update_product_fields ($request_ref, $product_ref)
