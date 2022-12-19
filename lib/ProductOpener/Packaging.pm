@@ -686,9 +686,10 @@ sub set_packaging_misc_tags ($product_ref) {
 	remove_tag($product_ref, "misc", "en:packagings-not-empty");
 	remove_tag($product_ref, "misc", "en:packagings-not-empty-but-not-complete");
 	remove_tag($product_ref, "misc", "en:packagings-with-weights");
-	remove_tag($product_ref, "misc", "en:packagings-complete-with-weights");
-	remove_tag($product_ref, "misc", "en:packagings-not-complete-with-weights");
-	remove_tag($product_ref, "misc", "en:packagings-with-some-weights");
+	remove_tag($product_ref, "misc", "en:packagings-with-all-weights");
+	remove_tag($product_ref, "misc", "en:packagings-with-all-weights-complete");
+	remove_tag($product_ref, "misc", "en:packagings-with-all-weights-not-complete");
+	remove_tag($product_ref, "misc", "en:packagings-with-some-but-not-all-weights");
 
 	# Number of packaging components
 	my $number_of_packaging_components
@@ -718,17 +719,22 @@ sub set_packaging_misc_tags ($product_ref) {
 				$components_with_weights++;
 			}
 		}
-		if ($components_with_weights == $number_of_packaging_components) {
+		if ($components_with_weights > 0) {
+
 			add_tag($product_ref, "misc", "en:packagings-with-weights");
-			if ($product_ref->{packagings_complete}) {
-				add_tag($product_ref, "misc", "en:packagings-complete-with-weights");
+
+			if ($components_with_weights == $number_of_packaging_components) {
+				add_tag($product_ref, "misc", "en:packagings-with-all-weights");
+				if ($product_ref->{packagings_complete}) {
+					add_tag($product_ref, "misc", "en:packagings-with-all-weights-complete");
+				}
+				else {
+					add_tag($product_ref, "misc", "en:packagings-with-all-weights-not-complete");
+				}
 			}
 			else {
-				add_tag($product_ref, "misc", "en:packagings-not-complete-with-weights");
+				add_tag($product_ref, "misc", "en:packagings-with-some-but-not-all-weights");
 			}
-		}
-		elsif ($components_with_weights > 0) {
-			add_tag($product_ref, "misc", "en:packagings-with-some-weights");
 		}
 	}
 

@@ -452,6 +452,74 @@ my $tests_ref = [
 			}
 		}'
 	},
+	# Packaging complete
+	{
+		test_case => 'patch-packagings-complete-0',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890016',
+		body => '{
+			"fields": "packagings,packagings_complete",
+			"tags_lc": "en",
+			"product": {
+				"packagings": [
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "bottle"},
+						"recycling": {"lc_name": "recycle"}
+					}			
+				],
+				"packagings_complete": 0
+			}
+		}'
+	},
+	{
+		test_case => 'patch-packagings-complete-1',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890016',
+		body => '{
+			"fields": "packagings,packagings_complete",
+			"tags_lc": "en",
+			"product": {
+				"packagings": [
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "bottle"},
+						"recycling": {"lc_name": "recycle"}
+					},
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "lid"},
+						"recycling": {"lc_name": "recycle"}
+					}								
+				],
+				"packagings_complete": 1
+			}
+		}'
+	},
+	{
+		test_case => 'patch-packagings-complete-2',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890016',
+		body => '{
+			"fields": "packagings,packagings_complete",
+			"tags_lc": "en",
+			"product": {
+				"packagings": [
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "bottle"},
+						"recycling": {"lc_name": "recycle"}
+					},
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "lid"},
+						"recycling": {"lc_name": "recycle"}
+					}								
+				],
+				"packagings_complete": 2
+			}
+		}'
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

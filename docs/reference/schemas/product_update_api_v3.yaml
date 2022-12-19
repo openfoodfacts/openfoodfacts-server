@@ -9,3 +9,5 @@ properties:
     $ref: ./packagings/packagings-write.yaml
   packagings_add:
     $ref: ./packagings/packagings-write.yaml
+  packagings_complete:
+    $ref: ./packagings/packagings_complete.yaml
