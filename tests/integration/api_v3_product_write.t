@@ -519,7 +519,7 @@ my $tests_ref = [
 				"packagings_complete": 2
 			}
 		}'
-	},		
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
