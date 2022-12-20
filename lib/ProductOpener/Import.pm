@@ -1130,10 +1130,11 @@ sub import_csv_file ($args_ref) {
 					. $imported_product_ref->{$field . "_if_not_existing"} . "\n";
 				$imported_product_ref->{$field} = $imported_product_ref->{$field . "_if_not_existing"};
 			}
-
+			# if it is a field with a tag behaviour (taxonomized or not)
+			# (see %tags_fields in Tags.pm)
 			if (defined $tags_fields{$field}) {
 				foreach my $subfield (sort keys %{$imported_product_ref}) {
-
+					# empty values are skipped
 					next
 						if ((not defined $imported_product_ref->{$subfield})
 						or ($imported_product_ref->{$subfield} eq ""));
@@ -1142,6 +1143,7 @@ sub import_csv_file ($args_ref) {
 					# concatenate them to the labels field
 
 					if ($subfield =~ /^$field:/) {
+						# tag_name is the part after field name, like Bio
 						my $tag_name = $';
 						my $tag_to_add;
 
@@ -1149,14 +1151,16 @@ sub import_csv_file ($args_ref) {
 							{field => $field, tag_name => $tag_name, value => $imported_product_ref->{$subfield}})
 							if $log->is_debug();
 
+						# compute the tag value to add
+						# if it's yes add tag_name
 						if ($imported_product_ref->{$subfield} =~ /^\s*($yes_regexp)\s*$/i) {
 							$tag_to_add = $tag_name;
 						}
 
-						# If we have a value like 0, N, No and an opposite entry exists in the taxonomy
+						# else if we have a value like 0, N, No and an opposite property exists in the taxonomy
 						# then add the negative entry
 						elsif ($imported_product_ref->{$subfield} =~ /^\s*($no_regexp)\s*$/i) {
-
+							# fetch tag
 							my $tagid = canonicalize_taxonomy_tag($imported_product_ref->{lc}, $field, $tag_name);
 
 							$log->debug(
@@ -1172,12 +1176,15 @@ sub import_csv_file ($args_ref) {
 
 							if (exists_taxonomy_tag($field, $tagid)) {
 								my $opposite_tagid = get_property($field, $tagid, "opposite:en");
+								# we have an opposite, add it
 								if (defined $opposite_tagid) {
 									$tag_to_add = $opposite_tagid;
 								}
 							}
 						}
-
+						# If we have a tag to add
+						# (because we had a "yes" or a "no" value for a specific tag field),
+						# concatenate it to possible pre-existing tags
 						if (defined $tag_to_add) {
 							if (defined $imported_product_ref->{$field}) {
 								$imported_product_ref->{$field} .= "," . $tag_to_add;
@@ -1202,6 +1209,7 @@ sub import_csv_file ($args_ref) {
 								)
 								)
 							{
+								# it exists, add it to values
 								if (defined $imported_product_ref->{$field}) {
 									$imported_product_ref->{$field} .= "," . $value;
 								}
@@ -1221,6 +1229,7 @@ sub import_csv_file ($args_ref) {
 				}
 			}
 
+			# if field exists and is not empty
 			if ((defined $imported_product_ref->{$field}) and ($imported_product_ref->{$field} !~ /^\s*$/)) {
 
 				$log->debug("defined and non empty value for field",
@@ -1327,14 +1336,15 @@ sub import_csv_file ($args_ref) {
 						$product_ref->{$field} = "";
 						delete $product_ref->{$field . "_tags"};
 					}
-
+					# existing is the list of already existing tags
+					# that will be completed with more values
 					my %existing = ();
 					if (defined $product_ref->{$field . "_tags"}) {
 						foreach my $tagid (@{$product_ref->{$field . "_tags"}}) {
 							$existing{$tagid} = 1;
 						}
 					}
-
+					# process each provided value
 					foreach my $tag (split(/,/, $imported_product_ref->{$field})) {
 
 						my $tagid;
@@ -1346,7 +1356,7 @@ sub import_csv_file ($args_ref) {
 
 						$tag =~ s/^\s+//;
 						$tag =~ s/\s+$//;
-
+						# normalize field in different ways depending on its type
 						if ($field eq 'emb_codes') {
 							$tag = normalize_packager_codes($tag);
 						}
@@ -1358,7 +1368,7 @@ sub import_csv_file ($args_ref) {
 						else {
 							$tagid = get_string_id_for_lang("no_language", $tag);
 						}
-
+						# if the tag was not already in the existing tags, add it
 						if (not exists $existing{$tagid}) {
 							$log->debug("adding tagid to field", {field => $field, tagid => $tagid})
 								if $log->is_debug();
@@ -1367,6 +1377,7 @@ sub import_csv_file ($args_ref) {
 						}
 						else {
 							#print "- $tagid already in $field\n";
+							# replace eventual tagid by it's plain value
 							# update the case (e.g. for brands)
 							if ($field eq "brands") {
 								my $regexp = $tag;
@@ -1376,7 +1387,7 @@ sub import_csv_file ($args_ref) {
 							}
 						}
 					}
-
+					# remove leading comma
 					if ((defined $product_ref->{$field}) and ($product_ref->{$field} =~ /^, /)) {
 						$product_ref->{$field} = $';
 					}
@@ -1387,17 +1398,22 @@ sub import_csv_file ($args_ref) {
 					if (defined $args_ref->{import_lc}) {
 						$tag_lc = $args_ref->{import_lc};
 					}
-
+					# emb_codes noramlization
 					if ($field eq 'emb_codes') {
 						# French emb codes
 						$product_ref->{emb_codes_orig} = $product_ref->{emb_codes};
 						$product_ref->{emb_codes} = normalize_packager_codes($product_ref->{emb_codes});
 					}
+					# post processing according to the type of action
+					# $current_field is the value before update
 					if (not defined $current_field) {
 						$log->debug("added value to field", {field => $field, value => $product_ref->{$field}})
 							if $log->is_debug();
+						# recompute tags
 						compute_field_tags($product_ref, $tag_lc, $field);
+						# rembember it was added
 						push @modified_fields, $field;
+						# upddate stats
 						$modified++;
 						$stats{products_info_added}{$code} = 1;
 						defined $stats{"products_info_added_" . $field} or $stats{"products_info_added_" . $field} = {};
@@ -1407,8 +1423,11 @@ sub import_csv_file ($args_ref) {
 						$log->debug("changed value for field",
 							{field => $field, value => $product_ref->{$field}, old_value => $current_field})
 							if $log->is_debug();
+						# recompute tags
 						compute_field_tags($product_ref, $tag_lc, $field);
+						# rembember it was added
 						push @modified_fields, $field;
+						# upddate stats
 						$modified++;
 						$stats{products_info_changed}{$code} = 1;
 						defined $stats{"products_info_changed_" . $current_field}
@@ -1419,17 +1438,19 @@ sub import_csv_file ($args_ref) {
 						compute_field_tags($product_ref, $tag_lc, $field);
 					}
 				}
+				# Processing non tag field
 				else {
-					# non-tag field
+					# new value replaces the old value
 					my $new_field_value = $imported_product_ref->{$field};
 
 					next if not defined $new_field_value;
-
+					# remove leading and trailing spaces
 					$new_field_value =~ s/\s+$//;
 					$new_field_value =~ s/^\s+//;
 
 					next if $new_field_value eq "";
-
+					# specific normalizations for quantity and serving_size
+					# TODO: move in a generic function
 					if (($field eq 'quantity') or ($field eq 'serving_size')) {
 
 						# openfood.ch now seems to round values to the 1st decimal, e.g. 28.0 g
@@ -1443,7 +1464,7 @@ sub import_csv_file ($args_ref) {
 						$new_field_value =~ s/litre|litres|liter|liters/l/i;
 						$new_field_value =~ s/kilogramme|kilogrammes|kgs/kg/i;
 					}
-
+					# remove leading and trailing spaces
 					$new_field_value =~ s/\s+$//g;
 					$new_field_value =~ s/^\s+//g;
 

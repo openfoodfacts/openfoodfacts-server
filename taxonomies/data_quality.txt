@@ -1,5 +1,13 @@
 # Data quality taxonomy
 
+## --------------- Start with data quality errors. See: https://world.openfoodfacts.org/data-quality-errors
+
+en:Nutrition data per serving - Serving quantity is 0
+fr:Données nutritionnelles par portion - portion nulle
+description:en:Serving quantity is 0 or is not recognized while nutrition data is per portion.
+description:fr:La portion est nulle ou non reconnue alors que les valeurs nutritionnelles sont données par portion.
+show_on_producers_platform:en:yes
+
 en:Nutrition value total over 105
 es:Valor nutricional total superior a 105
 fr:Total des valeurs nutritionnelles supérieur à 105
@@ -39,6 +47,10 @@ fr:La valeur de l'énergie en kcal ne correspond pas à la valeur en kJ
 description:en:The energy value in kJ must be about 4.2 times greater than the value in kcal
 description:fr:La valeur de l'énergie en kJ doit être environ 4,2 fois plus grande que la valeur en kcal
 show_on_producers_platform:en:yes
+
+
+
+## --------------- Then data quality warnings
 
 en:Nutri-Score score from producer does not match calculated score
 es:La puntuación de Nutri-Score del productor no coincide con la puntuación calculada
