@@ -550,7 +550,12 @@ foreach my $test_ref (@tests) {
 
 		local $/;    #Enable 'slurp' mode
 		my $expected_product_ref = $json->decode(<$expected_result>);
-		is_deeply($product_ref, $expected_product_ref) or diag explain {testid => $testid, product_ref => $product_ref, expected_product_ref => $expected_product_ref};
+		is_deeply($product_ref, $expected_product_ref)
+			or diag explain {
+			testid => $testid,
+			product_ref => $product_ref,
+			expected_product_ref => $expected_product_ref
+			};
 	}
 	else {
 		fail("could not load $expected_result_dir/$testid.json");
