@@ -685,7 +685,6 @@ sub check_nutrition_data ($product_ref) {
 			# check energy in kcal is ~ 4.2 (+/- 0.5) energy in kj
 			#   +/- 2 to avoid false positives due to rounded values below 2 Kcal.
 			#   Eg. 1.49 Kcal -> 6.26 KJ in reality, can be rounded by the producer to 1 Kcal -> 6 KJ.
-			#   Eg. 1.49 Kcal -> 6.26 KJ in reality, can be rounded by the producer to 1 Kcal -> 6 KJ.
 			# TODO: add tests in /tests/unit/dataqualityfood.t
 			if (
 				(
