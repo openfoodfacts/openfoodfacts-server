@@ -32,7 +32,7 @@ The barcode of the product.
 
 ### Imagefield
 
-Imagefield indicates the type of the image you are trying to upload for a particular product. It can be either of these: `front`, `ingredients`, `nutrition`, `packaging` or `other`.
+`imagefield` indicates the type of the image you are trying to upload for a particular product. It can be either of these: `front`, `ingredients`, `nutrition`, `packaging` or `other`.
 You can also specify the language present in that image by adding a suffix of the languade code to the `imagefield` value. For example — `front_en`, `packaging_fr`.
 
 ### ImageUpload
