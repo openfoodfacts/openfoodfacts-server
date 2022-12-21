@@ -74,7 +74,7 @@ curl -XPOST -u off:off -x POST https://world.openfoodfacts.net/cgi/product_jqm2.
   -F code=0180411000803 -F imagefield=ingredients_en -F imageupload_ingredients_en=<binary>"
 ```
 
-If the request is succesful, it returns a response that indicated that the fields have been saved.
+If the request is successful, it returns a response that indicates that the fields have been saved.
 
 ```json
 {
