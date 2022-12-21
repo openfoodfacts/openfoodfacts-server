@@ -682,14 +682,17 @@ sub check_nutrition_data ($product_ref) {
 				push @{$product_ref->{data_quality_errors_tags}}, "en:energy-value-in-kcal-greater-than-in-kj";
 			}
 
-			# check energy in kcal is ~ 4.2 energy in kj
+			# check energy in kcal is ~ 4.2 (+/- 0.5) energy in kj
+			#   +/- 2 to avoid false positives due to rounded values below 2 Kcal.
+			#   Eg. 1.49 Kcal -> 6.26 KJ in reality, can be rounded by the producer to 1 Kcal -> 6 KJ.
+			# TODO: add tests in /tests/unit/dataqualityfood.t
 			if (
 				(
 					$product_ref->{nutriments}{"energy-kj_value"}
-					< 3.7 * $product_ref->{nutriments}{"energy-kcal_value"} - 1
+					< 3.7 * $product_ref->{nutriments}{"energy-kcal_value"} - 2
 				)
 				or ($product_ref->{nutriments}{"energy-kj_value"}
-					> 4.7 * $product_ref->{nutriments}{"energy-kcal_value"} + 1)
+					> 4.7 * $product_ref->{nutriments}{"energy-kcal_value"} + 2)
 				)
 			{
 				push @{$product_ref->{data_quality_errors_tags}}, "en:energy-value-in-kcal-does-not-match-value-in-kj";
