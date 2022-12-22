@@ -179,7 +179,7 @@
             "title_element" : {
                "grade" : "c",
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/ecoscore-c.svg",
-               "title" : "Éco-Score C - Impact modéré sur l'environnement",
+               "title" : "Eco-Score C - Impact modéré sur l'environnement",
                "type" : "grade"
             },
             "topics" : [
@@ -1034,7 +1034,7 @@
                      "actions" : [
                         "add_origins"
                      ],
-                     "html" : ""
+                     "html" : "Add the origins of ingredients for this product"
                   },
                   "element_type" : "action"
                }

@@ -34260,8 +34260,8 @@ wikidata:en:Q2164820
 agribalyse_proxy_food_code:en:31004
 #all agribalyse milk chocolate categories have the same CO2 score
 
-
-<en:Chocolates
+#Do not put this category under chocolates since "filled chocolate eggs" are bonbons, not chocolate
+<en:Cocoa and its products
 en:Chocolate eggs
 de:Schokoladeneier
 es:Huevos de chocolate
@@ -72209,6 +72209,17 @@ food_groups:en: en:Meat other than poultry
 # Products that are poultry hopefully have the en:Poultries category which will assign the en:Poultry food group
 pnns_group_2:en:Meat
 
+#Products containing at least 99% meat according to French regulations. Products with lower meat percentage goes in "Ground meat preparations"
+<en:Meats
+<en:Beef
+en:Ground meats
+fr:Viandes hachées
+
+#Should contain products with >99% beef only
+<en:Ground meats
+en:Ground beef meats
+fr:Viandes hachées de bœuf, viandes hachées de boeuf
+
 <en:Meats
 en:Cooked meats, Cooked meat
 fr:Viandes cuites, Viande cuite
@@ -76856,6 +76867,7 @@ ciqual_food_name:en:Sausage meat, raw
 en:Pork sausages
 bg:Свински колбаси
 fr:Saucisses de porc, Saucisses au porc
+nl:Varkensworsten
 pl:Kiełbasy wieprzowe
 agribalyse_proxy_food_code:en:30051
 agribalyse_proxy_food_name:en:Sausage meat, pure pork, raw
@@ -91747,7 +91759,7 @@ ciqual_food_name:fr:Poivron jaune, cru
 <en:Cooked peppers
 en:Cooked sweet red peppers
 fr:Poivrons rouges cuits
-nl:gekoohte rode paprikas
+nl:Gekookte rode paprikas
 agribalyse_food_code:en:20088
 ciqual_food_code:en:20088
 ciqual_food_name:en:Sweet pepper, red, cooked

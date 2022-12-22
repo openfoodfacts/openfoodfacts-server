@@ -1,6 +1,5 @@
 {
    "code" : "200000000034",
-   "errors" : [],
    "product" : {
       "_id" : "200000000034",
       "_keywords" : [
@@ -398,7 +397,7 @@
             "origins_of_ingredients" : {
                "aggregated_origins" : [
                   {
-                     "epi_score" : "0",
+                     "epi_score" : 0,
                      "origin" : "en:unknown",
                      "percent" : 100,
                      "transportation_score" : null
@@ -2007,7 +2006,7 @@
                      "actions" : [
                         "add_origins"
                      ],
-                     "html" : ""
+                     "html" : "Add the origins of ingredients for this product"
                   },
                   "element_type" : "action"
                }
@@ -2214,55 +2213,31 @@
       "packaging_text_en" : "1 wooden box to recycle, 6 25cl glass bottles to reuse, 3 steel lids to recycle, 1 plastic film to discard",
       "packagings" : [
          {
-            "material" : {
-               "id" : "en:wood"
-            },
+            "material" : "en:wood",
             "number_of_units" : 1,
-            "recycling" : {
-               "id" : "en:recycle"
-            },
-            "shape" : {
-               "id" : "en:box"
-            }
+            "recycling" : "en:recycle",
+            "shape" : "en:box"
          },
          {
-            "material" : {
-               "id" : "en:glass"
-            },
+            "material" : "en:glass",
             "number_of_units" : 6,
             "quantity_per_unit" : "25cl",
             "quantity_per_unit_unit" : "cl",
             "quantity_per_unit_value" : 25,
-            "recycling" : {
-               "id" : "en:reuse"
-            },
-            "shape" : {
-               "id" : "en:bottle"
-            }
+            "recycling" : "en:reuse",
+            "shape" : "en:bottle"
          },
          {
-            "material" : {
-               "id" : "en:steel"
-            },
+            "material" : "en:steel",
             "number_of_units" : 3,
-            "recycling" : {
-               "id" : "en:recycle"
-            },
-            "shape" : {
-               "id" : "en:lid"
-            }
+            "recycling" : "en:recycle",
+            "shape" : "en:lid"
          },
          {
-            "material" : {
-               "id" : "en:plastic"
-            },
+            "material" : "en:plastic",
             "number_of_units" : 1,
-            "recycling" : {
-               "id" : "en:discard"
-            },
-            "shape" : {
-               "id" : "en:film"
-            }
+            "recycling" : "en:discard",
+            "shape" : "en:film"
          }
       ],
       "photographers_tags" : [],
@@ -2326,11 +2301,6 @@
       "unknown_nutrients_tags" : [],
       "vitamins_tags" : []
    },
-   "result" : {
-      "id" : "product_found",
-      "lc_name" : "Product found",
-      "name" : "Product found"
-   },
-   "status" : "success",
-   "warnings" : []
+   "status" : 1,
+   "status_verbose" : "product found"
 }

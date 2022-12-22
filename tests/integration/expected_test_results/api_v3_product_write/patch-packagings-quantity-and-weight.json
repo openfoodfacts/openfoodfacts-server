@@ -2,6 +2,28 @@
    "code" : "1234567890008",
    "errors" : [],
    "product" : {
+      "misc_tags" : [
+         "en:nutriscore-not-computed",
+         "en:nutriscore-missing-category",
+         "en:nutrition-not-enough-data-to-compute-nutrition-score",
+         "en:nutriscore-missing-nutrition-data",
+         "en:nutriscore-missing-nutrition-data-energy",
+         "en:nutriscore-missing-nutrition-data-fat",
+         "en:nutriscore-missing-nutrition-data-saturated-fat",
+         "en:nutriscore-missing-nutrition-data-sugars",
+         "en:nutriscore-missing-nutrition-data-sodium",
+         "en:nutriscore-missing-nutrition-data-proteins",
+         "en:nutrition-no-fiber",
+         "en:packagings-not-complete",
+         "en:packagings-not-empty-but-not-complete",
+         "en:packagings-not-empty",
+         "en:packagings-with-weights",
+         "en:packagings-with-all-weights",
+         "en:packagings-with-all-weights-not-complete",
+         "en:ecoscore-extended-data-not-computed",
+         "en:ecoscore-not-computed",
+         "en:main-countries-new-product"
+      ],
       "packagings" : [
          {
             "material" : {

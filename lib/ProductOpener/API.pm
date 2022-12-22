@@ -43,6 +43,7 @@ use Log::Any qw($log);
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+		&init_api_response
 		&get_initialized_response
 		&add_warning
 		&add_error
@@ -90,6 +91,8 @@ sub get_initialized_response() {
 sub init_api_response ($request_ref) {
 
 	$request_ref->{api_response} = get_initialized_response();
+
+	$log->debug("init_api_response - done", {request => $request_ref}) if $log->is_debug();
 	return $request_ref->{api_response};
 }
 
@@ -170,7 +173,7 @@ sub decode_json_request_body ($request_ref) {
 		);
 	}
 	else {
-		eval {$request_ref->{request_body_json} = decode_json($request_ref->{body});};
+		eval {$request_ref->{body_json} = decode_json($request_ref->{body});};
 		if ($@) {
 			$log->error("JSON decoding error", {error => $@}) if $log->is_error();
 			add_error(
@@ -340,40 +343,48 @@ sub process_api_request ($request_ref) {
 
 	$log->debug("process_api_request - start", {request => $request_ref}) if $log->is_debug();
 
-	my $response_ref = init_api_response($request_ref);
+	my $response_ref = $request_ref->{api_response};
 
-	# Analyze the request body
+	# Check if we already have errors (e.g. authentification error, invalid JSON body)
+	if ((scalar @{$response_ref->{errors}}) > 0) {
+		$log->warn("process_api_request - we already have errors, skipping processing", {request => $request_ref})
+			if $log->is_warn();
+	}
+	else {
 
-	if ($request_ref->{api_action} eq "product") {
+		# Route the API request to the right processing function, based on API action (from path) and method
 
-		if ($request_ref->{api_method} eq "PATCH") {
-			write_product_api($request_ref);
-		}
-		elsif ($request_ref->{api_method} =~ /^(GET|HEAD|OPTIONS)$/) {
-			read_product_api($request_ref);
+		if ($request_ref->{api_action} eq "product") {
+
+			if ($request_ref->{api_method} eq "PATCH") {
+				write_product_api($request_ref);
+			}
+			elsif ($request_ref->{api_method} =~ /^(GET|HEAD|OPTIONS)$/) {
+				read_product_api($request_ref);
+			}
+			else {
+				$log->warn("process_api_request - invalid method", {request => $request_ref}) if $log->is_warn();
+				add_error(
+					$response_ref,
+					{
+						message => {id => "invalid_api_method"},
+						field => {id => "api_method", value => $request_ref->{api_method}},
+						impact => {id => "failure"},
+					}
+				);
+			}
 		}
 		else {
-			$log->warn("process_api_request - invalid method", {request => $request_ref}) if $log->is_warn();
+			$log->warn("process_api_request - unknown action", {request => $request_ref}) if $log->is_warn();
 			add_error(
 				$response_ref,
 				{
-					message => {id => "invalid_api_method"},
-					field => {id => "api_method", value => $request_ref->{api_method}},
+					message => {id => "invalid_api_action"},
+					field => {id => "api_action", value => $request_ref->{api_action}},
 					impact => {id => "failure"},
 				}
 			);
 		}
-	}
-	else {
-		$log->warn("process_api_request - unknown action", {request => $request_ref}) if $log->is_warn();
-		add_error(
-			$response_ref,
-			{
-				message => {id => "invalid_api_action"},
-				field => {id => "api_action", value => $request_ref->{api_action}},
-				impact => {id => "failure"},
-			}
-		);
 	}
 
 	determine_response_result($response_ref);
@@ -536,7 +547,6 @@ sub customize_packagings ($request_ref, $product_ref) {
 					}
 				}
 			}
-
 			push @$customized_packagings_ref, $customized_packaging_ref;
 		}
 	}
