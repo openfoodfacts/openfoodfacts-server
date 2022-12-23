@@ -60,6 +60,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::HTTP qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Products qw/:all/;
@@ -277,7 +278,7 @@ sub add_localized_messages_to_api_response ($target_lc, $response_ref) {
 	return;
 }
 
-=head2 send_api_reponse ($request_ref)
+=head2 send_api_response ($request_ref)
 
 Send the API response with the right headers and status code.
 
@@ -293,36 +294,32 @@ Reference to the customized product object.
 
 =cut
 
-sub send_api_reponse ($request_ref) {
+sub send_api_response ($request_ref) {
 
 	my $status_code = $request_ref->{status_code} || "200";
 
 	my $json = JSON::PP->new->allow_nonref->canonical->utf8->encode($request_ref->{api_response});
 
+	# add headers
 	# We need to send the header Access-Control-Allow-Credentials=true so that websites
 	# such has hunger.openfoodfacts.org that send a query to world.openfoodfacts.org/cgi/auth.pl
 	# can read the resulting response.
-
-	# The Access-Control-Allow-Origin header must be set to the value of the Origin header
-	my $r = Apache2::RequestUtil->request();
-	my $origin = $r->headers_in->{Origin} || '';
-
-	# Only allow requests from one of our subdomains
-
-	if ($origin =~ /^https:\/\/[a-z0-9-.]+\.${server_domain}(:\d+)?$/) {
-		$r->err_headers_out->set("Access-Control-Allow-Credentials", "true");
-		$r->err_headers_out->set("Access-Control-Allow-Origin", $origin);
+	my $allow_credentials = 0;
+	if ($request_ref->{query_string} =~ "/auth.pl") {
+		$allow_credentials = 1;
 	}
-
+	write_cors_headers($allow_credentials);
 	print header(-status => $status_code, -type => 'application/json', -charset => 'utf-8');
-
+	# write json response
 	print $json;
+
+	my $r = Apache2::RequestUtil->request();
 
 	$r->rflush;
 
 	# Setting the status makes mod_perl append a default error to the body
 	# $r->status($status);
-	# Send 200 instead.
+	# Send 200 instead. (note: this does not affect the real returned status)
 	$r->status(200);
 	return;
 }
@@ -345,7 +342,7 @@ sub process_api_request ($request_ref) {
 
 	my $response_ref = $request_ref->{api_response};
 
-	# Check if we already have errors (e.g. authentification error, invalid JSON body)
+	# Check if we already have errors (e.g. authentification error, invalid JSON body)
 	if ((scalar @{$response_ref->{errors}}) > 0) {
 		$log->warn("process_api_request - we already have errors, skipping processing", {request => $request_ref})
 			if $log->is_warn();
@@ -391,7 +388,7 @@ sub process_api_request ($request_ref) {
 
 	add_localized_messages_to_api_response($request_ref->{lc}, $response_ref);
 
-	send_api_reponse($request_ref);
+	send_api_response($request_ref);
 
 	$log->debug("process_api_request - stop", {request => $request_ref}) if $log->is_debug();
 	return;

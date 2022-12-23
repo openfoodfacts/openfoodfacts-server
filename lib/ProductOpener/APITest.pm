@@ -65,6 +65,7 @@ use ProductOpener::Mail qw/ $LOG_EMAIL_START $LOG_EMAIL_END /;
 use Test::More;
 use LWP::UserAgent;
 use HTTP::CookieJar::LWP;
+use HTTP::Request::Common;
 use Encode;
 use JSON::PP;
 use Carp qw/confess/;
@@ -333,7 +334,17 @@ sub construct_test_url ($target, $prefix = "world") {
 	return $url;
 }
 
-=head2 execute_api_tests($file, $tests_ref)
+=head2 origin_from_url($url)
+
+Compute "Origin" header for $url
+
+=cut
+
+sub origin_from_url ($url) {
+	return $url =~ /^(\w+:\/\/[^\/]+)\//;
+}
+
+=head2 execute_api_tests($file, $tests_ref, $ua=undef)
 
 Initialize tests and execute them.
 
@@ -351,24 +362,35 @@ The tests are in a structure like this:
 my $tests_ref = (
     [
 		{
+			# request description
 			test_case => 'no-body',  # a description of the test, should be unique to easily retrieve which test failed
 			method => 'POST',		# defaults to GET
 			subdomain => 'world',	# defaults to "world"
 			path => '/api/v3/product/12345678',
 			query_string => '?some_param=some_value&some_other_param=some_other_value'	# optional
 			form => { field_name => field_value, .. },	# optional, will not be sent if there is a body
-			body => '{"some_json_field": "some_value"}',	# optional
+			headers_in => {header1 => value1},  # optional, headers to add to request
+			body => '{"some_json_field": "some_value"}',  # optional, will be fetched in file in needed
+
+			# expected return
+			headers => {header1 => value1, }  # optional. You may add an undef value to test for the inexistance of a header
 		}
     ],
 );
 
+=head4 $ua a web client (LWP::UserAgent) to use
+
+If undef we open a new client.
+
+You might need this to test with an authenticated user.
+
 =cut
 
-sub execute_api_tests ($file, $tests_ref) {
+sub execute_api_tests ($file, $tests_ref, $ua = undef) {
 
 	my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results($file));
 
-	my $ua = LWP::UserAgent->new();
+	my $ua = $ua // LWP::UserAgent->new();
 
 	foreach my $test_ref (@$tests_ref) {
 		my $test_case = $test_ref->{test_case};
@@ -379,44 +401,60 @@ sub execute_api_tests ($file, $tests_ref) {
 
 		my $response;
 
+		my $headers_in = {"Origin" => origin_from_url($url)};
+		if (defined $test_ref->{headers_in}) {
+			# combine with computed headers
+			$headers_in = {%$headers_in, %{$test_ref->{headers_in}}};
+		}
+
 		# Send the request
-		if ($method eq 'GET') {
-			$response = $ua->get($url);
+		if ($method eq 'OPTIONS') {
+			# not yet supported by our (system) version of HTTP::Request::Common
+			# $response = $ua->request(OPTIONS($url));
+			# hacky: use internal method
+			my $request = HTTP::Request::Common::request_type_with_data("OPTIONS", $url, %$headers_in);
+			$response = $ua->request($request);
+		}
+		elsif ($method eq 'GET') {
+			$response = $ua->get($url, %$headers_in);
 		}
 		elsif ($method eq 'POST') {
 			if (defined $test_ref->{body}) {
 				$response = $ua->post(
 					$url,
 					Content => encode_utf8($test_ref->{body}),
-					"Content-Type" => "application/json; charset=utf-8"
+					"Content-Type" => "application/json; charset=utf-8",
+					%$headers_in
 				);
 			}
 			elsif (defined $test_ref->{form}) {
-				$response = $ua->post($url, Content => $test_ref->{form});
+				$response = $ua->post($url, Content => $test_ref->{form}, %$headers_in);
 			}
 			else {
-				$response = $ua->post($url);
+				$response = $ua->post($url, %$headers_in);
 			}
 		}
 		elsif ($method eq 'PUT') {
 			$response = $ua->put(
 				$url,
 				Content => encode_utf8($test_ref->{body}),
-				"Content-Type" => "application/json; charset=utf-8"
+				"Content-Type" => "application/json; charset=utf-8",
+				%$headers_in,
 			);
 		}
 		elsif ($method eq 'DELETE') {
 			$response = $ua->delete(
 				$url,
 				Content => encode_utf8($test_ref->{body}),
-				"Content-Type" => "application/json; charset=utf-8"
+				"Content-Type" => "application/json; charset=utf-8" % $headers_in,
 			);
 		}
 		elsif ($method eq 'PATCH') {
 			my $request = HTTP::Request::Common::PATCH(
 				$url,
 				Content => encode_utf8($test_ref->{body}),
-				"Content-Type" => "application/json; charset=utf-8"
+				"Content-Type" => "application/json; charset=utf-8",
+				%$headers_in,
 			);
 			$response = $ua->request($request);
 		}
@@ -426,8 +464,21 @@ sub execute_api_tests ($file, $tests_ref) {
 			$test_ref->{expected_status_code} = 200;
 		}
 
-		is($response->code, $test_ref->{expected_status_code})
+		is($response->code, $test_ref->{expected_status_code}, "$test_case - Test status")
 			or diag(explain($test_ref), "Response status line: " . $response->status_line);
+
+		if (defined $test_ref->{headers}) {
+			while (my ($hname, $hvalue) = each %{$test_ref->{headers}}) {
+				my $rvalue = $response->header($hname);
+				# one may put undef values to test the inexistance of a header
+				if (!defined $hvalue) {
+					ok(!defined $rvalue, "$test_case - header $hname should not be defined");
+				}
+				else {
+					is($rvalue, $hvalue, "$test_case - header $hname");
+				}
+			}
+		}
 
 		if (not((defined $test_ref->{expected_type}) and ($test_ref->{expected_type} eq "html"))) {
 
@@ -440,7 +491,9 @@ sub execute_api_tests ($file, $tests_ref) {
 				1;
 			} or do {
 				my $json_decode_error = $@;
-				diag("The $method request to $url returned a response that is not valid JSON: $json_decode_error");
+				diag(
+					"$test_case - The $method request to $url returned a response that is not valid JSON: $json_decode_error"
+				);
 				diag("Response content: " . $json);
 				fail($test_case);
 				next;
