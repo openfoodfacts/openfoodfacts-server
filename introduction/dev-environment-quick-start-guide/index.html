@@ -428,6 +428,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#make-makefile154-import_sample_data-error-22" class="md-nav__link">
+    make: *** [Makefile:154: import_sample_data] Error 22
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -937,6 +944,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#make-makefile154-import_sample_data-error-22" class="md-nav__link">
+    make: *** [Makefile:154: import_sample_data] Error 22
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1093,14 +1107,14 @@ It can be solved by adding <code>{"base": "172.80.0.0/16","size": 24}, {"base": 
 <p>To use the devcontainer, install <a href="#1-prerequisites">prerequisites</a>, <a href="#2-clone-the-repository-from-github">clone the repository from GitHub</a>, and <a href="#3-optional-review-product-openers-environment">(optionally) review Product Opener's environment</a>. Additionally, install <a href="https://code.visualstudio.com/">Visual Studio Code</a>. VS Code will automatically recommend some extensions, but if you don't want to install all of them, please do install <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">Remote - Containers</a> manually. You can then use the extension command <strong>Remote-Containers: Reopen Folder in Container</strong>, which will automatically build the container and start the services. No need to use <code>make</code>!</p>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h2>
 <h3 id="make-dev-error-make-command-not-found">make dev error: make: command not found<a class="headerlink" href="#make-dev-error-make-command-not-found" title="Permanent link">#</a></h3>
-<p>When running "make dev":</p>
+<p>When running <code>make dev</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="go">bash: make: command not found</span>
 </code></pre></div>
-<p>Solution: 
+<p><strong>Solution:</strong> 
 Click the Windows button, then type “environment properties” into the search bar and hit Enter. Click Environment Variables, then under System variables choose Path and click Edit. Click New and insert C:\Program Files (x86)\GnuWin32\bin, then save the changes. Open a new terminal and test that the command works.
 (see <a href="https://pakstech.com/blog/make-windows/">Make Windows</a> for more)</p>
 <h3 id="make-dev-error-build_lang-error-2-could-not-load-taxonomy-mntpodatataxonomiestracesresultsto">make dev error: [build_lang] Error 2 - Could not load taxonomy: /mnt/podata/taxonomies/traces.result.sto<a class="headerlink" href="#make-dev-error-build_lang-error-2-could-not-load-taxonomy-mntpodatataxonomiestracesresultsto" title="Permanent link">#</a></h3>
-<p>When running "make dev":</p>
+<p>When running <code>make dev</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="go">&lt;h1&gt;Software error:&lt;/h1&gt;</span>
 <span class="go">&lt;pre&gt;Could not load taxonomy: /mnt/podata/taxonomies/traces.result.sto at /opt/product-opener/lib/ProductOpener/Tags.pm line 1976.</span>
 <span class="go">Compilation failed in require at /opt/product-opener/scripts/build_lang.pl line 31, &amp;lt;DATA&amp;gt; line 2104.</span>
@@ -1115,7 +1129,7 @@ Click the Windows button, then type “environment properties” into the search
 <span class="go">[Tue Apr  5 19:36:40 2022] build_lang.pl: BEGIN failed--compilation aborted at /opt/product-opener/scripts/build_lang.pl line 31, &lt;DATA&gt; line 2104.</span>
 <span class="go">make: *** [build_lang] Error 2</span>
 </code></pre></div>
-<p>Solution:
+<p><strong>Solution:</strong>
 Project needs Symlinks to be enabled.
 traces.result.sto is a symlink to allergens.result.sto</p>
 <p>On Windows, You have to enable the 'Developer Mode' in order to use the symlinks.
@@ -1125,15 +1139,55 @@ On Windows systems, the git repository needs to be cloned with symlinks enabled.
 <div class="highlight"><pre><span></span><code><span class="go">git clone -c core.symlinks=true git@github.com:openfoodfacts/openfoodfacts-server.git</span>
 </code></pre></div>
 <h3 id="rm-is-not-recognized-as-an-internal-or-external-command">'rm' is not recognized as an internal or external command<a class="headerlink" href="#rm-is-not-recognized-as-an-internal-or-external-command" title="Permanent link">#</a></h3>
-<p>When running make import_prod_data or some other commands.</p>
-<p>Solution:</p>
+<p>When running <code>make import_prod_data</code> or some other commands.</p>
+<p><strong>Solution:</strong></p>
 <p>Use the Git Bash shell to run the make commands in windows so that programs like nproc and rm are found.</p>
 <h3 id="system-cannot-find-wget">System cannot find wget<a class="headerlink" href="#system-cannot-find-wget" title="Permanent link">#</a></h3>
-<p>When running make import_prod_data.</p>
+<p>When running <code>make import_prod_data</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="go">process_begin: CreateProcess(NULL, wget --no-verbose https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz, ...) failed.</span>
 <span class="go">make (e=2): The system cannot find the file specified.</span>
 </code></pre></div>
 <p>You need to install <a href="https://eternallybored.org/misc/wget/">wget for windows</a>. The referenced version is able to use the Windows Certificate Store, whereas the standard <a href="https://gnuwin32.sourceforge.net/packages/wget.htm">gnuwin32 version</a> will give errors about not being able to verify the server certificate.</p>
+<h3 id="make-makefile154-import_sample_data-error-22">make: *** [Makefile:154: import_sample_data] Error 22<a class="headerlink" href="#make-makefile154-import_sample_data-error-22" title="Permanent link">#</a></h3>
+<p>When running <code>make import_sample_data</code></p>
+<div class="highlight"><pre><span></span><code><span class="go">&lt;hl&gt;Software error:&lt;/h1&gt;</span>
+<span class="go">&lt;pre&gt;MongoDB: :SelectionError: No writable server available. MongoDB server status:</span>
+<span class="go">Topology type: Single; Member status:</span>
+<span class="go">mongodb:27017 (type: Unknown, error: MongoDB::NetworkError: Could not connect to &#39;mongodb:27017&#39;: Temporary failure in name resolution )</span>
+<span class="go">&lt;/pre&gt;</span>
+<span class="go">&lt;p&gt;</span>
+<span class="go">For help, please send mail to this site&#39;s webmaster, giving this error message</span>
+<span class="go">and the time and date of the error.</span>
+<span class="go">&lt;p&gt;</span>
+<span class="go">[Sat Dec 17 19:52:21 2022] update_all_products from_dir_in_mongodb.pl: MongoDB::SelectionError: No writable server available. MongoDB server status:</span>
+
+<span class="go">[Sat Dec 17 19:52:21 2022] update_all_products from_dir_in_mongodb.pl: Topology type: Single; Member status:</span>
+
+<span class="go">[Sat Dec 17 19:52:21 2022] update_all_products from_dir_in_mongodb.pl: mongodb:27017 (type: Unknown, error: MongoDB::NetworkError: Could not connect to &#39;mongodb:27017&#39;: Temporary failure in name resolution )</span>
+
+<span class="go">make: *** [Makefile:154: import_sample data] Error 22</span>
+</code></pre></div>
+<p><strong>Solution:</strong>
+The cause of this issue is that you already have the mongodb database server running on your local machine at port 27017. </p>
+<p><em>For linux users:</em></p>
+<p>First stop the MongoDB server from your OS
+<div class="highlight"><pre><span></span><code><span class="go">sudo systemctl stop mongod</span>
+</code></pre></div></p>
+<p>Then check that mongod is stopped with:
+<div class="highlight"><pre><span></span><code><span class="go">systemctl status mongod | grep Active</span>
+</code></pre></div></p>
+<blockquote>
+<p><strong>Note:</strong>
+The output of this command should be:
+  <code>Active: inactive (dead)</code></p>
+</blockquote>
+<p>Then, executed this:
+<div class="highlight"><pre><span></span><code><span class="go">docker-compose up </span>
+</code></pre></div></p>
+<blockquote>
+<p><strong>Note:</strong>
+To know more about docker-compose commands do read <a href="../../how-to-guides/docker-developer-guide/">this guide</a> </p>
+</blockquote>
 
 
 
