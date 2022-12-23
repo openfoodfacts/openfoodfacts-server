@@ -230,23 +230,25 @@ paths:
         If the search query parameter has 2 possible values, they are seperated by a comma(,).
         When filtering via a parameter that has different language codes like `fr`, `de` or `en`, specify the language code in the parameter name e.g `categories_tags_en`
       parameters:
-        - $ref: '#/components/parameters/categories_tags_en'
-        - $ref: '#/components/parameters/labels_tags_en'
+        # all tags parameters
+        - $ref: './schemas/tags_parameters.yaml#/properties/additives_tags'
+        - $ref: './schemas/tags_parameters.yaml#/properties/allergens_tags'
+        - $ref: './schemas/tags_parameters.yaml#/properties/brands_tags'
+        - $ref: './schemas/tags_parameters.yaml#/properties/categories_tags'
+        - $ref: './schemas/tags_parameters.yaml#/properties/countries_tags'
+        - $ref: './schemas/tags_parameters.yaml#/properties/emb_codes_tags'
+        - $ref: './schemas/tags_parameters.yaml#/properties/labels_tags'
+        - $ref: './schemas/tags_parameters.yaml#/properties/manufacturing_places_tags'
+        - $ref: './schemas/tags_parameters.yaml#/properties/nutrition_grades_tags'
+        - $ref: './schemas/tags_parameters.yaml#/properties/origins_tags'
+        - $ref: './schemas/tags_parameters.yaml#/properties/packaging_tags'
+        - $ref: './schemas/tags_parameters.yaml#/properties/purchase_places_tags'
+        - $ref: './schemas/tags_parameters.yaml#/properties/states_tags'
+        - $ref: './schemas/tags_parameters.yaml#/properties/stores_tags'
+        - $ref: './schemas/tags_parameters.yaml#/properties/traces_tags'
+        - $ref: './schemas/tags_parameters.yaml#/properties/tag_name_with_language_code'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/sort_by'
-        - $ref: '#/components/parameters/nutrition_grades_tags'
-        - $ref: '#/components/parameters/brands_tags'
-        - $ref: '#/components/parameters/packaging_tags_de'
-        - $ref: '#/components/parameters/emb_codes_tags'
-        - $ref: '#/components/parameters/origins_tags'
-        - $ref: '#/components/parameters/manufacturing_places_tags'
-        - $ref: '#/components/parameters/stores_tags'
-        - $ref: '#/components/parameters/purchase_places_tags'
-        - $ref: '#/components/parameters/countries_tags_en'
-        - $ref: '#/components/parameters/allergens_tags_en'
-        - $ref: '#/components/parameters/traces_tags'
-        - $ref: '#/components/parameters/states_tags_en'
-        - $ref: '#/components/parameters/additives_tags_en'
     parameters: []
   /cgi/suggest.pl:
     get:
@@ -260,7 +262,6 @@ paths:
             application/json:
               schema:
                 type: array
-              examples: {}
       operationId: get-cgi-suggest.pl
       parameters:
         - $ref: '#/components/parameters/tagtype'
@@ -358,123 +359,7 @@ components:
       in: query
       name: angle
       required: true
-    categories_tags_en:
-      schema:
-        type: string
-        example: chocolates
-      in: query
-      name: categories_tags_en
-      description: |
-        The category of product(s) you are searching for.
-        The [OFF App](https://world.openfoodfacts.org/categories) has a list of possible values for `categories`.
-    states_tags_en:
-      schema:
-        type: string
-        example: nutrition-facts-completed
-      in: query
-      name: states_tags_en
-      description: |
-        The states_tags in english of product(s) you are searching for.
-        The [OFF App](https://world.openfoodfacts.org/states) has a list of possible values for `states`.
-    traces_tags:
-      schema:
-        type: string
-      in: query
-      name: traces_tags
-      description: |
-        The traces_tags of product(s) you are searching for. 
-        The [OFF App](https://world.openfoodfacts.org/traces) shows a list of possible values for `traces`.
-    additives_tags_en:
-      schema:
-        type: string
-        example: e322
-      in: query
-      name: additives_tags_en
-      description: |
-        The additives_tags in english of product(s) you are searching for.
-        The [OFF App](https://world.openfoodfacts.org/additives) has a list of possible values for `additives`.
-    allergens_tags_en:
-      schema:
-          type: string
-          example: m
-      in: query
-      name: allergens_tags_en
-      description: |
-        The allergens_tags in english of product(s) you are searching for.
-        The [OFF App](https://world.openfoodfacts.org/allergens) has a list of possible values for `allergens`.
-    countries_tags_en:
-      schema:
-        type: string
-        example: united-kingdom
-      in: query
-      name: countries_tags_en
-      description: |
-        The countries_tags_en of product(s) you are searching for.
-        The [OFF App](https://world.openfoodfacts.org/countries) shows a list of possible values for `countries`.
-    purchase_places_tags:
-      schema:
-        type: string
-      in: query
-      name: purchase_places_tags
-      description: |
-        The purchase_places_tags of product(s) you are searching for.
-    stores_tags:
-      schema:
-        type: string
-        example: aldi
-      in: query
-      name: stores_tags
-      description: |
-        The stores_tags of product(s) you are searching for.
-    emb_codes_tags:
-      schema:
-        type: string
-      in: query
-      name: emb_codes_tags
-      description: |
-        The emb_codes_tags of product(s) you are searching for.
-    manufacturing_places_tags:  
-      schema:
-        type: string
-      in: query
-      name: manufacturing_places_tags
-      description: |
-        The manufacturing_places_tags of product(s) you are searching for.
-        The [OFF App](https://world.openfoodfacts.org/manufacturing-places) has a list of possible values for `manufacturing-places`.
-    origins_tags:
-      schema:
-        type: string
-      in: query
-      name: origins_tags
-      description: |
-        The origins_tags of product(s) you are searching for.
-    packaging_tags_de:
-      schema:
-        type: string
-        example: 1-jar-aus-klarglas
-      in: query
-      name: packaging_tags_de
-      description: |
-          The packaging_tag in german of product(s) you are searching for.
-          The [OFF App](https://world.openfoodfacts.org/packaging) has a list of possible values for `packaging`.
-    brands_tags:
-      schema:
-        type: string
-        example: ferrero
-      in: query
-      name: brands_tags
-      description: |
-        The brands_tags of product(s) you are searching for.
-        The [OFF App](https://world.openfoodfacts.org/brands) has a list of possible values for `brands`.
-    nutrition_grades_tags:
-      schema:
-        type: string
-        example: e
-      in: query
-      name: nutrition_grades_tags
-      description: |
-        The nutrition_grades_tags of product(s) you are searching for.
-        The [OFF App](https://world.openfoodfacts.org/nutrition-grades) has a list of possible values for `nutrition-grades`.
+
     sort_by:
       schema:
         type: string
@@ -501,15 +386,6 @@ components:
         * `scans_n`, `unique_scans_n` and `popularity_key` are about product popularity: number of scans on unique scans, rank of product
         * `created_t`, `last_modified_t`, are about creation and modification dates
         * `nothing`, tells not to sort at all (because if you do not provide the sort_by argument we default to sorting on popularity (for food) or last modification date)
-    labels_tags_en:
-      schema:
-        type: string
-        example: organic
-      in: query
-      name: labels_tags_en
-      description: |
-        The labels_tags in english of product(s) you are searching for.
-        The [OFF App](https://world.openfoodfacts.org/labels) has a list of possible values for `labels`.
     fields:
       schema:
         type: string

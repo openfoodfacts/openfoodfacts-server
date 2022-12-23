@@ -644,7 +644,7 @@ properties:
                 type: array
                 example: 'vegan, fat free, Kosher'
                 items:
-                  type: object
+                  type: string
               value:
                 type: integer
               warning:
@@ -1678,7 +1678,7 @@ properties:
       owner:
         type: integer
       packaging:
-        type: integer
+        type: string
         description: |
           shape, material.
         example: Cardboard
