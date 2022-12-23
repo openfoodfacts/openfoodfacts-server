@@ -133,6 +133,7 @@ properties:
       You can add a language code to a specific tag to query it in a specific language
     schema:
       type: Object
+      name: '<tag_name>_tags_<language_code>'
       patternProperties:
         '(?<tag_name>\w+)_tags_(?<language_code>\w\w)':
           type: string
