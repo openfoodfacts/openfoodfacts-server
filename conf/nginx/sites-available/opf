@@ -18,18 +18,18 @@
 
 
 server {
-        listen 80 ;
-        listen [::]:80 ;
+		listen 80 ;
+		listen [::]:80 ;
 
-        #listen 443 ssl;
-        #listen [::]:443 ssl;
+		#listen 443 ssl;
+		#listen [::]:443 ssl;
 
-        #include snippets/ssl.openproductsfacts.org;
-        #include snippets/ssl-params.conf;
+		#include snippets/ssl.openproductsfacts.org;
+		#include snippets/ssl-params.conf;
 
 
-        server_name openproductsfacts.org;
-        return 301 https://world.openproductsfacts.org$request_uri;
+		server_name openproductsfacts.org;
+		return 301 https://world.openproductsfacts.org$request_uri;
 }
 
 server {
@@ -52,10 +52,10 @@ server {
 	# Don't use them in a production server!
 	#
 	# include snippets/snakeoil.conf;
-        #listen [::]:443 ssl default_server;
-        #listen [::]:443 ssl;
-        include snippets/ssl.openproductsfacts.org;
-        include snippets/ssl-params.conf;
+		#listen [::]:443 ssl default_server;
+		#listen [::]:443 ssl;
+		include snippets/ssl.openproductsfacts.org;
+		include snippets/ssl-params.conf;
 
 
 	root /srv/opf/html;
@@ -116,7 +116,7 @@ server {
 
 
 	location ~ ^/(.well-known|images|fonts|css|js|rss|files|resources|foundation|bower_components)/ {
-        include snippets/off.cors-headers.include;
+		include snippets/off.cors-headers.include;
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ =404;
