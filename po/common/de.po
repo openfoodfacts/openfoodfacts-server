@@ -4717,7 +4717,7 @@ msgstr "Versuchen Sie, so spezifisch wie möglich zu sein. Bei Kunststoff geben 
 
 msgctxt "packaging_text_note_3"
 msgid "Data from this field will be combined with any data provided for each packaging part. It is possible to provide one or the other, or both."
-msgstr ""
+msgstr "Die Daten aus diesem Feld werden mit jenen kombiniert, die für jedes Verpackungsteil angegeben wurden. Es ist möglich, das eine oder das andere oder beides anzugeben."
 
 msgctxt "product_js_extract_packaging"
 msgid "Extract the recycling instructions and/or packaging information from the picture"
@@ -6091,21 +6091,21 @@ msgstr "Nährwertangaben hinzufügen"
 
 msgctxt "action_add_origins"
 msgid "Add the origins of ingredients for this product"
-msgstr ""
+msgstr "Herkunft der Zutaten für dieses Produkt hinzufügen"
 
 msgctxt "action_add_packaging_image"
 msgid "Take a photo of the recycling information"
-msgstr ""
+msgstr "Foto der Recycling-Informationen aufnehmen"
 
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
-msgstr ""
+msgstr "Allgemeine Angaben hinzufügen"
 
 # this is not used yet
 msgctxt "action_add_portion_size"
 msgid "Add portion size"
-msgstr ""
+msgstr "Portionsgröße hinzufügen"
 
 # this is not used yet
 msgctxt "action_add_ingredients_image"
@@ -6120,37 +6120,37 @@ msgstr "Machen Sie ein Foto von den Nährwertangaben"
 # this is not used yet
 msgctxt "action_refresh_ingredients_image"
 msgid "Refresh the photo of the ingredients"
-msgstr ""
+msgstr "Foto der Zutaten aktualisieren"
 
 # this is not used yet
 msgctxt "action_refresh_nutrition_image"
 msgid "Refresh the photo of the nutrition facts"
-msgstr ""
+msgstr "Foto der Nährwertangaben aktualisieren"
 
 # this is not used yet
 msgctxt "action_add_packaging_text"
 msgid "Extract and check the recycling information"
-msgstr ""
+msgstr "Recycling-Informationen extrahieren und überprüfen"
 
 # this is not used yet
 msgctxt "action_add_stores"
 msgid "Add the store where you found this product"
-msgstr ""
+msgstr "Geschäft hinzufügen, in dem Sie dieses Produkt gefunden haben"
 
 # this is not used yet
 msgctxt "action_labels"
 msgid "Add any label present on this product"
-msgstr ""
+msgstr "Jedes auf diesem Produkt vorhandene Etikett hinzufügen"
 
 # this is not used yet
 msgctxt "action_countries"
 msgid "Add the country where you found this product"
-msgstr ""
+msgstr "Land hinzufügen, in dem Sie das Produkt gefunden haben"
 
 # this is not used yet
 msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
-msgstr ""
+msgstr "Foto der Rückverfolgbarkeitscodes aufnehmen"
 
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
@@ -6356,17 +6356,17 @@ msgstr "Feld ignoriert"
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "Anzahl der Einheiten"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
 msgid "Weight of one empty unit"
-msgstr ""
+msgstr "Gewicht einer leeren Einheit"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit"
 msgid "Quantity of product contained per unit"
-msgstr ""
+msgstr "Menge des enthaltenen Produkts pro Einheit"
 
 # variable names between { } must not be translated
 msgctxt "f_help_categorize_on_hunger_games"
@@ -6375,5 +6375,13 @@ msgstr "Helfen Sie, mehr {title} auf Hunger Games zu kategorisieren"
 
 msgctxt "packagings_complete"
 msgid "All the packaging parts of the product are listed."
-msgstr ""
+msgstr "Alle Verpackungsbestandteile des Produkts sind aufgeführt."
+
+msgctxt "api_message_invalid_user_id_and_password"
+msgid "Invalid user id and password"
+msgstr "Ungültige Benutzerkennung und Passwort"
+
+msgctxt "api_message_invalid_value_must_be_0_or_1"
+msgid "Invalid value: must be 0 or 1"
+msgstr "Ungültiger Wert: muss 0 oder 1 sein"
 
