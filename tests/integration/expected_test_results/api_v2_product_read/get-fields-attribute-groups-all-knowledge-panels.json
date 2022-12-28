@@ -426,7 +426,7 @@
             "origins_of_ingredients" : {
                "aggregated_origins" : [
                   {
-                     "epi_score" : "0",
+                     "epi_score" : 0,
                      "origin" : "en:unknown",
                      "percent" : 100,
                      "transportation_score" : null
@@ -2042,7 +2042,7 @@
                      "actions" : [
                         "add_origins"
                      ],
-                     "html" : ""
+                     "html" : "Add the origins of ingredients for this product"
                   },
                   "element_type" : "action"
                }
