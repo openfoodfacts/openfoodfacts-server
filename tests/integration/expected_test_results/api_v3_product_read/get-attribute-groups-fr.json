@@ -277,10 +277,11 @@
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/ecoscore-c.svg",
                   "id" : "ecoscore",
                   "match" : 47,
-                  "name" : "Éco-Score",
+                  "missing" : "Select a different country for more accurate data.",
+                  "name" : "Eco-Score",
                   "panel_id" : "ecoscore",
                   "status" : "known",
-                  "title" : "Éco-Score C"
+                  "title" : "Eco-Score C"
                },
                {
                   "description" : "",
