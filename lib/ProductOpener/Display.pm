@@ -859,8 +859,7 @@ CSS
 		$request_ref->{user_preferences} = 0;
 	}
 
-	if ((defined $options{product_type}) and ($options{product_type} eq "food"))
-	{
+	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 		$show_ecoscore = 1;
 		$attributes_options_ref = {};
 		$knowledge_panels_options_ref = {};

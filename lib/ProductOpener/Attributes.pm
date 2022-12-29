@@ -632,8 +632,7 @@ sub compute_attribute_ecoscore ($product_ref, $target_lc, $target_cc) {
 			$score = $product_ref->{ecoscore_data}{"scores"}{$target_cc} // 0;
 			$grade = $product_ref->{ecoscore_data}{"grades"}{$target_cc};
 		}
-		if (($target_cc eq "world") or (!defined $product_ref->{ecoscore_data}{"scores"}{$target_cc}))
-		{
+		if (($target_cc eq "world") or (!defined $product_ref->{ecoscore_data}{"scores"}{$target_cc})) {
 			$attribute_ref->{missing} = lang_in_other_lc($target_lc, "ecoscore_warning_transportation_short");
 		}
 		$log->debug("compute ecoscore attribute - known",
