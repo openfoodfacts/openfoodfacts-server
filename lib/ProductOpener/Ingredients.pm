@@ -2291,6 +2291,9 @@ sub extract_ingredients_from_text ($product_ref) {
 		# Add properties like origins from specific ingredients extracted from labels or the end of the ingredients list
 		add_properties_from_specific_ingredients($product_ref);
 
+		# Obtain Ciqual codes ready for ingredients estimation from nutrients
+		$product_ref->{ingredients_without_ciqual_codes} = assign_ciqual_codes($product_ref->{ingredients});
+
 		# Compute minimum and maximum percent ranges for each ingredient and sub ingredient
 
 		if (compute_ingredients_percent_values(100, 100, $product_ref->{ingredients}) < 0) {
@@ -2325,6 +2328,27 @@ sub extract_ingredients_from_text ($product_ref) {
 	}
 
 	return;
+}
+
+sub assign_ciqual_codes($ingredients_ref) {
+	my $ingredients_without_ciqual_codes = 0;
+	foreach my $ingredient_ref (@{$ingredients_ref}) {
+		if (defined $ingredient_ref->{ingredients}) {
+			$ingredients_without_ciqual_codes += assign_ciqual_codes($ingredient_ref->{ingredients});
+		} else 
+		{
+			my $ciqual_food_code = get_inherited_property("ingredients", $ingredient_ref->{id}, "ciqual_food_code:en");
+			if (defined $ciqual_food_code) {
+				$ingredient_ref->{ciqual_food_code} = $ciqual_food_code;
+			} else 
+			{
+				$ingredient_ref->{ciqual_food_code} = undef;
+				$ingredients_without_ciqual_codes ++;
+			}
+		}
+	}
+
+	return $ingredients_without_ciqual_codes;
 }
 
 =head2 delete_ingredients_percent_values ( ingredients_ref )
