@@ -11,6 +11,7 @@ synonyms:en:pasteurised, pasteurized
 # comment:en:These are words that occur inside the name of one ingredient, but that can be removed for matching the ingredient with entries in the taxonomy
 
 stopwords:bg:съдържа, от, с, със, до, и, или, и/или, минимум, произведено с, с добавенo, включително
+stopwords:bs:i, u promjenljivom odnosu
 stopwords:ca:i,de
 stopwords:da:av, af, blandt andet, bl a, inklusive, heraf, indeholder, tilsat
 stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens, in veränderlichen gewichtsanteilen
@@ -274,6 +275,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Carotene
 # <en:paprika
 en:paprika extract, e160c
 bg:екстракт от червен пипер, екстракт от паприка
+bs:ekstrakt paprike
 ca:extracte de pebre vermell, extracte de pebre vermell picant
 da:paprikaekstrakt
 de:Paprikaextrakt
@@ -9192,7 +9194,7 @@ bg:сол, трапезна сол, готварска сол
 bn:লবণ
 bo:ཚྭ།
 br:Holen
-bs:So
+bs:so, kuhinjska so
 ca:sal, sal comuna, sal de cuina
 cs:Sůl, jedlá sůl
 cy:Halen
@@ -9826,6 +9828,7 @@ sv:djur
 
 en:meat
 bg:месо
+bs:meso
 ca:Carn
 cs:Maso
 da:Kød
@@ -9834,6 +9837,7 @@ es:carne
 fi:liha
 fr:viande
 he:בשר
+hr:meso
 hu:hús
 it:carne
 ja:肉
@@ -9975,7 +9979,7 @@ da:oksekød
 de:Rind
 fi:nauta, naudan, härkä, härän
 fr:bœuf, boeuf, Boeufs
-hr:goveđa
+hr:goveđa, govedina
 hu:marha
 it:manzo
 pl:Wołowina
@@ -14179,6 +14183,7 @@ ar:زيت نباتي
 az:Bitki yağı
 be:Алеі
 bg:Растително масло, растителни масла, растително олио
+bs:biljno ulje
 ca:Oli vegetal
 cs:Rostlinný olej
 da:vegetabilsk olie, vegetabilisk olie, vegetabilske olier
@@ -19345,6 +19350,7 @@ de:natürliches Zitronenaroma, natürliches Zitronen-aroma
 es:Saborizante natural de limón
 fi:luontainen sitruuna-aromi
 fr:arôme naturel de citron, arômes naturels de citron
+hr:prirodna aroma limuna
 hu:természetes citromaroma, természetes citrom aroma
 id:perisa alami lemon
 it:aroma naturale di limone
@@ -19389,6 +19395,7 @@ de:natürliches Limettenaroma
 es:Saborizante de limón natural
 fi:luontainen limettiaromi, luontainen limearomi
 fr:arôme naturel de citron vert
+hr:prirodna aroma limeta
 hu:természetes lime aroma
 it:aroma naturale di lime
 nl:natuurlijk limoen aroma, natuurlijk aroma van limoen
@@ -24780,6 +24787,7 @@ sv:solrosfrömjöl
 <en:soya bean
 en:soya flour, soy flour, soybean meal
 bg:соево брашно
+bs:sojino brašno
 ca:Farina de soja
 da:Sojamel, sojabønnemel
 de:Sojamehl, Sojabohnenmehl
@@ -26823,7 +26831,7 @@ gl:Azucre
 gn:Eiratã
 he:סוכר
 hi:शर्करा
-hr:šećeri, šećer, šecer, šečer
+hr:šećeri, šećer, šecer, šečer, sečer
 ht:Sik
 hu:cukor
 id:gula
@@ -29395,6 +29403,7 @@ vegetarian:en:no
 # <en:dairy
 en:milk proteins
 bg:млечни протеини, млечен протеин
+bs:mliječne bjelančevina
 ca:Proteina de la llet,proteines de la llet,proteïnes làcties
 cs:mléčnou bílkovinu
 da:mælkeprotein
@@ -31329,7 +31338,7 @@ ba:Соя
 be:Соя
 bg:Соя, соеви, соево, соева
 br:Soja
-bs:Soja
+bs:soja, sojino
 ca:Soia, soja
 cs:sója, sójové
 cy:Soia
@@ -38907,6 +38916,7 @@ ciqual_food_name:fr:Lait de coco ou Crème de coco
 <en:coconut
 en:coconut milk
 bg:кокосово мляко
+bs:kokoša mast
 ca:llet de coco
 cs:kokosové mléko
 da:Kokosmælk
@@ -47086,7 +47096,7 @@ gl:fiúncho
 gu:વરિયાળી
 he:שומר פשוט
 hi:सौंफ
-hr:komorač, koromač
+hr:komorač, koromač, komorača
 ht:anis
 hu:édeskömény
 hy:Հոռոմ-սամիթ սովորական
@@ -51506,6 +51516,7 @@ pl:suszona cukinia
 <en:root vegetable
 en:Rapeseed, rape, oilseed rape, rape seed
 bg:рапична, рапица
+bs:repičino
 ca:Colza, Llavor de colza, Llavors de colza
 da:raps
 de:Raps
@@ -56217,6 +56228,7 @@ fr:pâte miso rouge
 <en:condiment
 en:spice, spices
 # bg:подправка, подправки is already a condiment
+bs:začini
 ca:Espècies
 cs:Koření
 da:krydderi, krydderier
@@ -56261,6 +56273,7 @@ ru:пряности натуральные
 ###################################################################################################
 en:herb, mixed herbs
 bg:билка, билки
+bs:aromatično bilje
 ca:Herbes, herbes aromàtiques
 cs:Bylina, byliny
 da:urt, krydderurter
@@ -62803,6 +62816,7 @@ az:günəbaxan
 ba:көнбағыш
 be:Сланечнік
 bg:слънчоглед, слънчогледова
+bs:suncokretovo
 ca:Gira-sol
 cs:slunečnice
 cv:Хĕвелçаврăнăш ретĕнчисем
