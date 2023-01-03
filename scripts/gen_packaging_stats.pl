@@ -39,7 +39,7 @@ Aggregation counts are stored in a structure of the form:
                         "en:unknown" => ..
                         "all" => .. # stats for all shapes
                         "en:bottle" => {
-                            materials_inherited => .. # stats for inherited (parents) materials (e.g. plastic for PET)
+                            materials_parents => .. # stats for parents materials (e.g. PET will also count for plastic)
                             materials => {
                                 "all" => ..
                                 "en:plastic" => 12, # number of products sold in France that are yogurts and that have a plastic bottle packaging component
@@ -129,10 +129,20 @@ while (my $product_ref = $cursor->next) {
             foreach my $packaging_ref (@{$product_ref->{packagings}}) {
                 my $shape = $packaging_ref->{shape} || "en:unknown";
                 my $material = $packaging_ref->{material} || "en:unknown";
+
                 deep_val($packagings_stats_ref, ("countries", $country, "categories", $category, "shapes", $shape, "materials", $material )) += 1;
                 deep_val($packagings_stats_ref, ("countries", $country, "categories", $category, "shapes", "all", "materials", $material )) += 1;
                 deep_val($packagings_stats_ref, ("countries", $country, "categories", $category, "shapes", $shape, "materials", "all" )) += 1;
                 deep_val($packagings_stats_ref, ("countries", $country, "categories", $category, "shapes", "all", "materials", "all" )) += 1;
+
+                my @shape_parents = gen_tags_hierarchy_taxonomy ("en", "packaging_shapes", $shape);
+                my @material_parents = gen_tags_hierarchy_taxonomy ("en", "packaging_materials", $material);
+
+                # Also add stats to parent materials
+                foreach my $material_parent (@material_parents, "all") {
+                    deep_val($packagings_stats_ref, ("countries", $country, "categories", $category, "shapes", $shape, "materials_parents", $material_parent )) += 1;
+                    deep_val($packagings_stats_ref, ("countries", $country, "categories", $category, "shapes", "all", "materials_parents", $material_parent )) += 1;
+                }           
             }
         }
 
