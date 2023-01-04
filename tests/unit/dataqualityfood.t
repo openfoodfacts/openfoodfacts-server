@@ -375,4 +375,38 @@ ok(
 	'energy not matching nutrient'
 ) or diag explain $product_ref;
 
+# Polyols in general contribute energy
+$product_ref = {
+	nutriments => {
+		"energy-kj_value" => 0,
+		"carbohydrates_value" => 100,
+		"polyols_value" => 100,
+		"fat_value" => 0,
+		"proteins_value" => 0,
+		"fiber_value" => 0,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
+	'energy not matching nutrient')
+	or diag explain $product_ref;
+
+# Erythritol is a polyol which does not contribute to energy
+$product_ref = {
+	nutriments => {
+		"energy-kj_value" => 0,
+		"carbohydrates_value" => 100,
+		"polyols_value" => 100,
+		"erythritol_value" => 100,
+		"fat_value" => 0,
+		"proteins_value" => 0,
+		"fiber_value" => 0,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
+	'energy not matching nutrient'
+) or diag explain $product_ref;
+
 done_testing();
