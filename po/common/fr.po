@@ -5001,8 +5001,8 @@ msgid "Material"
 msgstr "Matière"
 
 msgctxt "packaging_recycling"
-msgid "Recycling"
-msgstr "Recyclage"
+msgid "Recycling instruction"
+msgstr "Consigne de tri"
 
 msgctxt "products_on_this_page_are_sorted_according_to_your_preferences"
 msgid "Products on this page are sorted according to your preferences:"
@@ -6360,17 +6360,17 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "Nombre d'éléments"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
 msgid "Weight of one empty unit"
-msgstr ""
+msgstr "Poids d'un élément vide"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit"
-msgid "Quantity of product contained per unit"
-msgstr ""
+msgid "Net quantity of product contained per unit"
+msgstr "Quantité nette de produit contenue par élément"
 
 # variable names between { } must not be translated
 msgctxt "f_help_categorize_on_hunger_games"
@@ -6379,7 +6379,7 @@ msgstr ""
 
 msgctxt "packagings_complete"
 msgid "All the packaging parts of the product are listed."
-msgstr ""
+msgstr "Tous les éléments de l'emballage du produit sont listés."
 
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
