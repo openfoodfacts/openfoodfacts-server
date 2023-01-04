@@ -10,6 +10,15 @@ var packaging_recycling_select2_options = [% generate_select2_options_for_taxono
     
 <div id="packagings_components_edit">
 
+    <ul>
+        <li><b>[% lang("packaging_number_of_units") %][% sep %]:</b> [% lang("packaging_number_of_units_description") %]</li>
+        <li><b>[% lang("packaging_shape") %][% sep %]:</b> [% lang("packaging_shape_description") %]</li>
+        <li><b>[% lang("packaging_material") %][% sep %]:</b> [% lang("packaging_material_description") %]</li>
+        <li><b>[% lang("packaging_recycling") %][% sep %]:</b> [% lang("packaging_recycling_description") %]</li>
+        <li><b>[% lang("packaging_weight") %][% sep %]:</b> [% lang("packaging_weight_description") %]</li>
+        <li><b>[% lang("packaging_quantity_per_unit") %][% sep %]:</b> [% lang("packaging_quantity_per_unit_description") %]</li>
+    </ul>
+
     <!-- header row for large display -->
     <div class="row show-for-large-up" id="packagings_components_edit_header">
         <div class="large-1 columns">[% lang("packaging_number_of_units") %]</div>
