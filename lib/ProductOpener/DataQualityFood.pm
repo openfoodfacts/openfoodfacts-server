@@ -534,7 +534,7 @@ my %energy_from_nutrients = (
 		alcohol => {kj => 29, kcal => 7},
 		organic_acids => {kj => 13, kcal => 3},    # no corresponding nutrients in nutrient tables?
 		fiber => {kj => 8, kcal => 2},
-		erythritol => {kj => 0, kcal => 0},    # no corresponding nutrients in nutrient tables?
+		erythritol => {kj => 0, kcal => 0},
 	},
 );
 
