@@ -5,13 +5,8 @@
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty"
    ],
-   "packaging_text" : "barquette en plastique à jeter; film plastique à jeter; boîte en carton à recycler",
+   "packaging_text" : "Film plastique à jeter. Étui carton à recycler.",
    "packagings" : [
-      {
-         "material" : "en:plastic",
-         "recycling" : "en:discard",
-         "shape" : "en:tray"
-      },
       {
          "material" : "en:plastic",
          "recycling" : "en:discard",
@@ -20,7 +15,7 @@
       {
          "material" : "en:cardboard",
          "recycling" : "en:recycle",
-         "shape" : "en:box"
+         "shape" : "en:sleeve"
       }
    ]
 }

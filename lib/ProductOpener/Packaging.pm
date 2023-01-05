@@ -779,7 +779,10 @@ sub analyze_and_combine_packaging_data ($product_ref, $response_ref) {
 	# Packaging text field (populated by OCR of the packaging image and/or contributors or producers)
 	if (defined $product_ref->{packaging_text}) {
 
-		my @packaging_text_entries = split(/,|;|\n/, $product_ref->{packaging_text});
+		# Separate phrases by matching:
+		# . , ; followed by a space character
+		# newlines
+		my @packaging_text_entries = split(/\.\s|,\s|;\s|\n/, $product_ref->{packaging_text});
 		push(@phrases, @packaging_text_entries);
 		$number_of_packaging_text_entries = scalar @packaging_text_entries;
 	}
