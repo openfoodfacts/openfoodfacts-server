@@ -284,8 +284,8 @@ msgid "Producers Admin manual"
 msgstr "Manuel d'administration des producteurs"
 
 msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> est développé par une association à but non lucratif indépendante de l'industrie. Open Food Facts est fait pour tous, par tous, et est financé par tous. Vous pouvez soutenir notre travail en <a href=\"https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts?utm_source=login-open-food-facts\">donnant à Open Food Facts</a> et aussi en utilisant le <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">moteur de recherche Lilo</a>.<br/><b>Merci beaucoup !</b></p>"
+msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
+msgstr "<a href=\"https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donner à Open Food Facts\" /></a><p><<site_name>> est développé par une association à but non lucratif indépendante de l'industrie. Open Food Facts est fait pour tous, par tous, et est financé par tous. Vous pouvez soutenir notre travail en <a href=\"https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts?utm_source=login-open-food-facts\">donnant à Open Food Facts</a> et aussi en utilisant le <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">moteur de recherche Lilo</a>.<br/><b>Merci beaucoup !</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -4721,7 +4721,7 @@ msgstr "Essayez d'être aussi précis que possible. Pour le plastique, merci d'i
 
 msgctxt "packaging_text_note_3"
 msgid "Data from this field will be combined with any data provided for each packaging part. It is possible to provide one or the other, or both."
-msgstr "Les données de ce champ seront combinées avec les éventuelles données fournies pour chaque élément d'emballage. Il est possible de fournir l'un ou l'autre, ou les deux."
+msgstr "Les données de ce champ seront combinées avec toutes les données fournies pour chaque partie de l'emballage. Il est possible de fournir l'un ou l'autre, ou les deux."
 
 msgctxt "product_js_extract_packaging"
 msgid "Extract the recycling instructions and/or packaging information from the picture"
@@ -5001,8 +5001,8 @@ msgid "Material"
 msgstr "Matière"
 
 msgctxt "packaging_recycling"
-msgid "Recycling"
-msgstr "Recyclage"
+msgid "Recycling instruction"
+msgstr "Consigne de tri"
 
 msgctxt "products_on_this_page_are_sorted_according_to_your_preferences"
 msgid "Products on this page are sorted according to your preferences:"
@@ -6360,17 +6360,17 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "Nombre d'éléments"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
 msgid "Weight of one empty unit"
-msgstr ""
+msgstr "Poids d'un élément vide"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit"
-msgid "Quantity of product contained per unit"
-msgstr ""
+msgid "Net quantity of product contained per unit"
+msgstr "Quantité nette de produit contenue par élément"
 
 # variable names between { } must not be translated
 msgctxt "f_help_categorize_on_hunger_games"
@@ -6379,5 +6379,39 @@ msgstr ""
 
 msgctxt "packagings_complete"
 msgid "All the packaging parts of the product are listed."
+msgstr "Tous les éléments de l'emballage du produit sont listés."
+
+msgctxt "api_message_invalid_user_id_and_password"
+msgid "Invalid user id and password"
 msgstr ""
 
+msgctxt "api_message_invalid_value_must_be_0_or_1"
+msgid "Invalid value: must be 0 or 1"
+msgstr "Valeur invalide : doit être 0 ou 1"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units_description"
+msgid "Enter the number of packaging units of the same shape and material contained in the product."
+msgstr "Entrez le nombre d'éléments d'emballages de la même forme et de la même matière contenus dans le produit."
+
+msgctxt "packaging_shape_description"
+msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
+msgstr "Entrez le nom de la forme listée dans les consignes de tri si elles sont disponibles, ou sélectionnez une forme."
+
+msgctxt "packaging_material_description"
+msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
+msgstr "Entrez la matière spécifique si elle peut être déterminée (un code de matière dans un triangle peut souvent être trouvé sur les éléments d'emballages), ou une matière générique (par exemple plastique ou métal) si vous n'êtes pas certain."
+
+msgctxt "packaging_recycling_description"
+msgid "Enter recycling instructions only if they appear on the product."
+msgstr "Entrez les consignes de tri seulement si elles apparaîssent sur le produit."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight_description"
+msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
+msgstr "Enlevez les restes de nourriture et lavez et séchez les éléments d'emballage avant de les peser. Si possible, utilisez une balance avec une précision de 0.1g ou 0.01g."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit_description"
+msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
+msgstr "Entrez le poids net ou le volume net et indiquez l'unité (par exemple g ou ml)."

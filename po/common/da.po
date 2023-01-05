@@ -4717,7 +4717,7 @@ msgstr "Forsøg at være så specifik som muligt. For plast angives, om det er u
 
 msgctxt "packaging_text_note_3"
 msgid "Data from this field will be combined with any data provided for each packaging part. It is possible to provide one or the other, or both."
-msgstr ""
+msgstr "Data fra dette felt kombineres med alle data, som angives for hver emballagedel. Det er muligt at angive det ene eller det andet, eller begge."
 
 msgctxt "product_js_extract_packaging"
 msgid "Extract the recycling instructions and/or packaging information from the picture"
@@ -5811,7 +5811,7 @@ msgstr "Livscyklusanalyse"
 
 msgctxt "ecoscore_bonuses_and_maluses"
 msgid "Bonuses and maluses"
-msgstr "Fordele og ulemper"
+msgstr "Pluspoint og negative point"
 
 msgctxt "ecoscore_for_this_product"
 msgid "Eco-Score for this product"
@@ -6092,21 +6092,21 @@ msgstr "Tilføj ernæringsfakta"
 
 msgctxt "action_add_origins"
 msgid "Add the origins of ingredients for this product"
-msgstr ""
+msgstr "Føj ingrediensoprindelserne til dette produkt"
 
 msgctxt "action_add_packaging_image"
 msgid "Take a photo of the recycling information"
-msgstr ""
+msgstr "Tag et foto af genbrugsvejledningen"
 
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
-msgstr ""
+msgstr "Tilføj basisoplysninger"
 
 # this is not used yet
 msgctxt "action_add_portion_size"
 msgid "Add portion size"
-msgstr ""
+msgstr "Tilføj portionsstørrelse"
 
 # this is not used yet
 msgctxt "action_add_ingredients_image"
@@ -6121,37 +6121,37 @@ msgstr "Tag et foto af ernæringsfakta"
 # this is not used yet
 msgctxt "action_refresh_ingredients_image"
 msgid "Refresh the photo of the ingredients"
-msgstr ""
+msgstr "Opdatér ingrediensfotoet"
 
 # this is not used yet
 msgctxt "action_refresh_nutrition_image"
 msgid "Refresh the photo of the nutrition facts"
-msgstr ""
+msgstr "Opdatér næringsfaktafotoet"
 
 # this is not used yet
 msgctxt "action_add_packaging_text"
 msgid "Extract and check the recycling information"
-msgstr ""
+msgstr "Udtræk og tjek genbrugsvejledning"
 
 # this is not used yet
 msgctxt "action_add_stores"
 msgid "Add the store where you found this product"
-msgstr ""
+msgstr "Tilføj butikken, hvori dette produkt blev fundet"
 
 # this is not used yet
 msgctxt "action_labels"
 msgid "Add any label present on this product"
-msgstr ""
+msgstr "Tilføj alle dette produkts eksisterende etiketter"
 
 # this is not used yet
 msgctxt "action_countries"
 msgid "Add the country where you found this product"
-msgstr ""
+msgstr "Tilføj landet, hvor dette produkt blev fundet"
 
 # this is not used yet
 msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
-msgstr ""
+msgstr "Tag et foto af sporbarhedskoder"
 
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
@@ -6340,7 +6340,7 @@ msgstr "Ikke-genkendt værdi"
 
 msgctxt "api_impact_none"
 msgid "None"
-msgstr ""
+msgstr "Intet"
 
 msgctxt "api_impact_warning"
 msgid "Warning"
@@ -6357,17 +6357,17 @@ msgstr "Felt ignoreret"
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "Antal enheder"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
 msgid "Weight of one empty unit"
-msgstr ""
+msgstr "Vægt af én tom enhed"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit"
 msgid "Quantity of product contained per unit"
-msgstr ""
+msgstr "Mængde af produktindehold pr. enhed"
 
 # variable names between { } must not be translated
 msgctxt "f_help_categorize_on_hunger_games"
@@ -6376,5 +6376,13 @@ msgstr "Hjælp med at kategorisere flere Hunger Games-{title}"
 
 msgctxt "packagings_complete"
 msgid "All the packaging parts of the product are listed."
-msgstr ""
+msgstr "Alle produktemballagedelene er anført."
+
+msgctxt "api_message_invalid_user_id_and_password"
+msgid "Invalid user id and password"
+msgstr "Ugyldig bruger-ID og adgangskode"
+
+msgctxt "api_message_invalid_value_must_be_0_or_1"
+msgid "Invalid value: must be 0 or 1"
+msgstr "Ugyldig værdi: Skal være 0 eller 1"
 

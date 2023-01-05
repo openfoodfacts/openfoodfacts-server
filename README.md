@@ -81,7 +81,7 @@ Data about food is of public interest and has to be open (i.e available to every
 * [NEW API Documentation (WIP)](https://openfoodfacts.github.io/openfoodfacts-server/reference/api/) ([source](https://github.com/openfoodfacts/openfoodfacts-server/tree/main/docs/reference/api.yml))
 
 * Developer documentation:
-
+  * [Server Documentation](https://openfoodfacts.github.io/openfoodfacts-server/)
   * [Quick start guide (Docker)](./docs/introduction/dev-environment-quick-start-guide.md)
   * [Developer guide (Docker)](./docs/how-to-guides/docker-developer-guide.md)
   * [Developer guide (Gitpod)](./docs/how-to-guides/use-gitpod.md)
