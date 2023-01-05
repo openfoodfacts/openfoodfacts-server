@@ -506,13 +506,12 @@ sub apply_rules_to_augment_packaging_component_data ($product_ref, $packaging_re
 	}
 
 	# If the shape is bottle and the material is glass, mark recycling as recycle if recycling is not already set
-	if (    (defined $packaging_ref->{"shape"})
+	if (
+			(defined $packaging_ref->{"shape"})
 		and ($packaging_ref->{"shape"} eq "en:bottle")
 		and (defined $packaging_ref->{"material"})
-		and (
-			($packaging_ref->{"material"} eq "en:glass")
-			or (is_a("packaging_materials", $packaging_ref->{"material"}, "en:glass"))
-			)
+		and (  ($packaging_ref->{"material"} eq "en:glass")
+			or (is_a("packaging_materials", $packaging_ref->{"material"}, "en:glass")))
 		)
 	{
 		if (not defined $packaging_ref->{"recycling"}) {
