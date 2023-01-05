@@ -99,9 +99,14 @@ sub generate_packaging_stats_for_query($name, $query_ref) {
         packagings => 1,
     };
 
-    # 300 000 ms timeout so that we can export the whole database
-    # 5mins is not enough, 50k docs were exported
-    my $cursor = get_products_collection(3 * 60 * 60 * 1000)->query($query_ref)
+    my $socket_timeout_ms = 3 * 60 * 60 * 60000;    # 3 hours
+    my $products_collection = get_products_collection($socket_timeout_ms);
+
+    my $products_count = $products_collection->count_documents($query_ref);
+
+    print STDERR "$name: $products_count products\n";
+
+    my $cursor = $products_collection->query($query_ref)
         ->sort({created_t => 1})->fields($fields_ref);
 
     $cursor->immortal(1);
@@ -113,6 +118,10 @@ sub generate_packaging_stats_for_query($name, $query_ref) {
     # Go through all products
     while (my $product_ref = $cursor->next) {
         $total++;
+
+	if ($total % 1000 == 0) {
+		print STDERR "$name: $total / $products_count processed\n";
+	}
 
         # Generate stats for all countries + en:world (products from all countries)
         if (not defined $product_ref->{countries_tags}) {
@@ -186,8 +195,8 @@ sub generate_packaging_stats_for_query($name, $query_ref) {
 }
 
 
-generate_packaging_stats_for_query("all", {});
 generate_packaging_stats_for_query("packagings-with-weights", {misc_tags => 'en:packagings-with-weights'});
+generate_packaging_stats_for_query("all", {});
 
 exit(0);
 
