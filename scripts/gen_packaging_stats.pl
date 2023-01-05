@@ -57,8 +57,7 @@ Aggregation counts are stored in a structure of the form:
 
 =cut
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -71,92 +70,124 @@ use File::Path qw(mkpath);
 use JSON::PP;
 use Data::DeepAccess qw(deep_exists deep_get deep_set deep_val);
 
-# Output will be in the $data_root/data/categories_stats directory
 
-(-e "$data_root/data")
-	or mkdir("$data_root/data", oct(755))
-	or die("Could not create target directory $data_root/data : $!\n");
-(-e "$data_root/data/categories_stats")
-	or mkdir("$data_root/data/categories_stats", oct(755))
-	or die("Could not create target directory $data_root/data/categories_stats : $!\n");
+=head2 generate_packaging_stats_for_query($name, $query_ref)
 
-my $query_ref = {'empty' => {"\$ne" => 1}, 'obsolete' => {"\$ne" => 1}};
+Generate packaging stats for products matching a specific query.
 
-$query_ref->{misc_tags} = 'en:packagings-with-weights';
+Stats are saved in .sto format in $data_root/data/categories_stats/
+and in JSON format in $www_root/data/categories_stats/
 
-my $fields_ref = {
-    countries_tags => 1,
-    categories_tags => 1,
-    packagings => 1,
-};
+=head3 Arguments
 
-# 300 000 ms timeout so that we can export the whole database
-# 5mins is not enough, 50k docs were exported
-my $cursor = get_products_collection(3 * 60 * 60 * 1000)->query($query_ref)
-	->sort({created_t => 1})->fields($fields_ref);
+=head4 name $name
 
-$cursor->immortal(1);
 
-my $total = 0;
 
-my $packagings_stats_ref = {};
+=head4 query reference $query_ref
 
-# Go through all products
-while (my $product_ref = $cursor->next) {
-	$total++;
+=cut
 
-    # Generate stats for all countries + en:world (products from all countries)
-    if (not defined $product_ref->{countries_tags}) {
-        $product_ref->{countries_tags} = [];
+sub generate_packaging_stats_for_query($name, $query_ref) {
+
+    $query_ref->{'empty'} = {"\$ne" => 1};
+    $query_ref->{'obsolete'} = {"\$ne" => 1};
+
+    my $fields_ref = {
+        countries_tags => 1,
+        categories_tags => 1,
+        packagings => 1,
+    };
+
+    # 300 000 ms timeout so that we can export the whole database
+    # 5mins is not enough, 50k docs were exported
+    my $cursor = get_products_collection(3 * 60 * 60 * 1000)->query($query_ref)
+        ->sort({created_t => 1})->fields($fields_ref);
+
+    $cursor->immortal(1);
+
+    my $total = 0;
+
+    my $packagings_stats_ref = {};
+
+    # Go through all products
+    while (my $product_ref = $cursor->next) {
+        $total++;
+
+        # Generate stats for all countries + en:world (products from all countries)
+        if (not defined $product_ref->{countries_tags}) {
+            $product_ref->{countries_tags} = [];
+        }
+        push @{$product_ref->{countries_tags}}, "en:world";
+
+        foreach my $country (@{$product_ref->{countries_tags}}) {
+
+            # Generate stats for all categories + all (products from all categories)
+            if (not defined $product_ref->{categories_tags}) {
+                $product_ref->{categories_tags} = [];
+            }
+            push @{$product_ref->{categories_tags}}, "all";
+
+            foreach my $category (@{$product_ref->{categories_tags}}) {
+
+                # Go through all packaging components
+                if (not defined $product_ref->{packagings}) {
+                    $product_ref->{packagings} = [];
+                }
+
+                foreach my $packaging_ref (@{$product_ref->{packagings}}) {
+                    my $shape = $packaging_ref->{shape} || "en:unknown";
+                    my $material = $packaging_ref->{material} || "en:unknown";
+
+                    deep_val($packagings_stats_ref, ("countries", $country, "categories", $category, "shapes", $shape, "materials", $material )) += 1;
+                    deep_val($packagings_stats_ref, ("countries", $country, "categories", $category, "shapes", "all", "materials", $material )) += 1;
+                    deep_val($packagings_stats_ref, ("countries", $country, "categories", $category, "shapes", $shape, "materials", "all" )) += 1;
+                    deep_val($packagings_stats_ref, ("countries", $country, "categories", $category, "shapes", "all", "materials", "all" )) += 1;
+
+                    my @shape_parents = gen_tags_hierarchy_taxonomy ("en", "packaging_shapes", $shape);
+                    my @material_parents = gen_tags_hierarchy_taxonomy ("en", "packaging_materials", $material);
+
+                    # Also add stats to parent materials
+                    foreach my $material_parent (@material_parents, "all") {
+                        deep_val($packagings_stats_ref, ("countries", $country, "categories", $category, "shapes", $shape, "materials_parents", $material_parent )) += 1;
+                        deep_val($packagings_stats_ref, ("countries", $country, "categories", $category, "shapes", "all", "materials_parents", $material_parent )) += 1;
+                    }           
+                }
+            }
+
+        }
+
     }
-    push @{$product_ref->{countries_tags}}, "en:world";
 
-    foreach my $country (@{$product_ref->{countries_tags}}) {
+    # Create directories for the output if they do not exist yet
 
-        # Generate stats for all categories + all (products from all categories)
-        if (not defined $product_ref->{categories_tags}) {
-            $product_ref->{categories_tags} = [];
-        }
-        push @{$product_ref->{categories_tags}}, "all";
+    (-e "$data_root/data")
+        or mkdir("$data_root/data", oct(755))
+        or die("Could not create target directory $data_root/data : $!\n");
+    (-e "$data_root/data/categories_stats")
+        or mkdir("$data_root/data/categories_stats", oct(755))
+        or die("Could not create target directory $data_root/data/categories_stats : $!\n");
+    (-e "$www_root/data/categories_stats")
+        or mkdir("$www_root/data/categories_stats", oct(755))
+        or die("Could not create target directory $www_root/data/categories_stats : $!\n");
 
-        foreach my $category (@{$product_ref->{categories_tags}}) {
+    # Perl structure in .sto format
 
-            # Go through all packaging components
-            if (not defined $product_ref->{packagings}) {
-                $product_ref->{packagings} = [];
-            }
+    store("$data_root/data/categories_stats/categories_packagings_stats.$name.sto", $packagings_stats_ref);
 
-            foreach my $packaging_ref (@{$product_ref->{packagings}}) {
-                my $shape = $packaging_ref->{shape} || "en:unknown";
-                my $material = $packaging_ref->{material} || "en:unknown";
+    # JSON
 
-                deep_val($packagings_stats_ref, ("countries", $country, "categories", $category, "shapes", $shape, "materials", $material )) += 1;
-                deep_val($packagings_stats_ref, ("countries", $country, "categories", $category, "shapes", "all", "materials", $material )) += 1;
-                deep_val($packagings_stats_ref, ("countries", $country, "categories", $category, "shapes", $shape, "materials", "all" )) += 1;
-                deep_val($packagings_stats_ref, ("countries", $country, "categories", $category, "shapes", "all", "materials", "all" )) += 1;
-
-                my @shape_parents = gen_tags_hierarchy_taxonomy ("en", "packaging_shapes", $shape);
-                my @material_parents = gen_tags_hierarchy_taxonomy ("en", "packaging_materials", $material);
-
-                # Also add stats to parent materials
-                foreach my $material_parent (@material_parents, "all") {
-                    deep_val($packagings_stats_ref, ("countries", $country, "categories", $category, "shapes", $shape, "materials_parents", $material_parent )) += 1;
-                    deep_val($packagings_stats_ref, ("countries", $country, "categories", $category, "shapes", "all", "materials_parents", $material_parent )) += 1;
-                }           
-            }
-        }
-
+    binmode STDOUT, ":encoding(UTF-8)";
+    if (open(my $JSON, ">", "$www_root/data/categories_stats/categories_packagings_stats.$name.json")) {
+        print $JSON encode_json($packagings_stats_ref);
+        close($JSON);
     }
 
 }
 
-store("$data_root/data/categories_stats/categories_packagings_stats.sto", $packagings_stats_ref);
 
-binmode STDOUT, ":encoding(UTF-8)";
-if (open(my $JSON, ">", "$www_root/data/categories_packagings_stats.json")) {
-    print $JSON encode_json($packagings_stats_ref);
-    close($JSON);
-}
+generate_packaging_stats_for_query("all", {});
+generate_packaging_stats_for_query("packagings-with-weights", {misc_tags => 'en:packagings-with-weights'});
 
 exit(0);
 
