@@ -69,125 +69,97 @@ use ProductOpener::Data qw/:all/;
 use File::Path qw(mkpath);
 use JSON::PP;
 use Data::DeepAccess qw(deep_exists deep_get deep_set deep_val);
+use Getopt::Long;
 
-=head2 generate_packaging_stats_for_query($name, $query_ref)
+my $quiet;
 
-Generate packaging stats for products matching a specific query.
+GetOptions("quiet" => \$quiet)
+	or die("Error in command line arguments: use --quiet to silence progress messages");
 
-Stats are saved in .sto format in $data_root/data/categories_stats/
-and in JSON format in $www_root/data/categories_stats/
+=head2 add_product_to_stats($packagings_stats_ref, $product_ref)
 
-=head3 Arguments
-
-=head4 name $name
-
-
-
-=head4 query reference $query_ref
+Add data from all packagings of a product to stats for all its countries and categories combinations.
 
 =cut
 
-sub generate_packaging_stats_for_query ($name, $query_ref) {
+sub add_product_to_stats ($packagings_stats_ref, $product_ref) {
 
-	# we will filter out empty and obsolet products
-	$query_ref->{'empty'} = {"\$ne" => 1};
-	$query_ref->{'obsolete'} = {"\$ne" => 1};
+	# Generate stats for all countries + en:world (products from all countries)
+	# add a virtual en:world country to every products
+	if (not defined $product_ref->{countries_tags}) {
+		$product_ref->{countries_tags} = [];
+	}
+	push @{$product_ref->{countries_tags}}, "en:world";
 
-	# fields to retrieve
-	my $fields_ref = {
-		countries_tags => 1,
-		categories_tags => 1,
-		packagings => 1,
-	};
+	# Generate stats for all categories + all (products from all categories)
+	if (not defined $product_ref->{categories_tags}) {
+		$product_ref->{categories_tags} = [];
+	}
+	push @{$product_ref->{categories_tags}}, "all";
 
-	my $socket_timeout_ms = 3 * 60 * 60 * 60000;    # 3 hours
-	my $products_collection = get_products_collection($socket_timeout_ms);
+	# Go through all packaging components
+	if (not defined $product_ref->{packagings}) {
+		$product_ref->{packagings} = [];
+	}
 
-	my $products_count = $products_collection->count_documents($query_ref);
+	foreach my $packaging_ref (@{$product_ref->{packagings}}) {
+		my $shape = $packaging_ref->{shape} || "en:unknown";
+		my $material = $packaging_ref->{material} || "en:unknown";
 
-	print STDERR "$name: $products_count products\n";
+		my @shape_parents = gen_tags_hierarchy_taxonomy("en", "packaging_shapes", $shape);
+		my @material_parents = gen_tags_hierarchy_taxonomy("en", "packaging_materials", $material);
 
-	my $cursor = $products_collection->query($query_ref)->sort({created_t => 1})->fields($fields_ref);
-
-	$cursor->immortal(1);
-
-	my $total = 0;
-
-	my $packagings_stats_ref = {};
-
-	# Go through all products
-	while (my $product_ref = $cursor->next) {
-		$total++;
-
-		if ($total % 1000 == 0) {
-			print STDERR "$name: $total / $products_count processed\n";
-		}
-
-		# Generate stats for all countries + en:world (products from all countries)
-		# add a virtual en:world country to every products
-		if (not defined $product_ref->{countries_tags}) {
-			$product_ref->{countries_tags} = [];
-		}
-		push @{$product_ref->{countries_tags}}, "en:world";
-
+		# Go through all countries
 		foreach my $country (@{$product_ref->{countries_tags}}) {
 
-			# Generate stats for all categories + all (products from all categories)
-			if (not defined $product_ref->{categories_tags}) {
-				$product_ref->{categories_tags} = [];
-			}
-			push @{$product_ref->{categories_tags}}, "all";
-
+			# Go through all categories
 			foreach my $category (@{$product_ref->{categories_tags}}) {
 
-				# Go through all packaging components
-				if (not defined $product_ref->{packagings}) {
-					$product_ref->{packagings} = [];
-				}
+				deep_val($packagings_stats_ref,
+					("countries", $country, "categories", $category, "shapes", $shape, "materials", $material))
+					+= 1;
+				deep_val($packagings_stats_ref,
+					("countries", $country, "categories", $category, "shapes", "all", "materials", $material))
+					+= 1;
+				deep_val($packagings_stats_ref,
+					("countries", $country, "categories", $category, "shapes", $shape, "materials", "all"))
+					+= 1;
+				deep_val($packagings_stats_ref,
+					("countries", $country, "categories", $category, "shapes", "all", "materials", "all"))
+					+= 1;
 
-				foreach my $packaging_ref (@{$product_ref->{packagings}}) {
-					my $shape = $packaging_ref->{shape} || "en:unknown";
-					my $material = $packaging_ref->{material} || "en:unknown";
-
-					deep_val($packagings_stats_ref,
-						("countries", $country, "categories", $category, "shapes", $shape, "materials", $material))
-						+= 1;
-					deep_val($packagings_stats_ref,
-						("countries", $country, "categories", $category, "shapes", "all", "materials", $material))
-						+= 1;
-					deep_val($packagings_stats_ref,
-						("countries", $country, "categories", $category, "shapes", $shape, "materials", "all"))
-						+= 1;
-					deep_val($packagings_stats_ref,
-						("countries", $country, "categories", $category, "shapes", "all", "materials", "all"))
-						+= 1;
-
-					my @shape_parents = gen_tags_hierarchy_taxonomy("en", "packaging_shapes", $shape);
-					my @material_parents = gen_tags_hierarchy_taxonomy("en", "packaging_materials", $material);
-
-					# Also add stats to parent materials
-					foreach my $material_parent (@material_parents, "all") {
-						deep_val(
-							$packagings_stats_ref,
-							(
-								"countries", $country, "categories", $category,
-								"shapes", $shape, "materials_parents", $material_parent
-							)
-						) += 1;
-						deep_val(
-							$packagings_stats_ref,
-							(
-								"countries", $country, "categories", $category,
-								"shapes", "all", "materials_parents", $material_parent
-							)
-						) += 1;
-					}
+				# Also add stats to parent materials
+				foreach my $material_parent (@material_parents, "all") {
+					deep_val(
+						$packagings_stats_ref,
+						(
+							"countries", $country, "categories", $category,
+							"shapes", $shape, "materials_parents", $material_parent
+						)
+					) += 1;
+					deep_val(
+						$packagings_stats_ref,
+						(
+							"countries", $country, "categories", $category,
+							"shapes", "all", "materials_parents", $material_parent
+						)
+					) += 1;
 				}
 			}
-
 		}
-
 	}
+
+	return;
+}
+
+=head2 store_stats($name, $packagings_stats_ref)
+
+Store the stats in .sto format for internal use in Product Opener,
+and in JSON in /html/data for external use.
+
+=cut
+
+sub store_stats ($name, $packagings_stats_ref) {
 
 	# Create directories for the output if they do not exist yet
 
@@ -212,6 +184,65 @@ sub generate_packaging_stats_for_query ($name, $query_ref) {
 		print $JSON encode_json($packagings_stats_ref);
 		close($JSON);
 	}
+
+	return;
+}
+
+=head2 generate_packaging_stats_for_query($name, $query_ref)
+
+Generate packaging stats for products matching a specific query.
+
+Stats are saved in .sto format in $data_root/data/categories_stats/
+and in JSON format in $www_root/data/categories_stats/
+
+=head3 Arguments
+
+=head4 name $name
+
+=head4 query reference $query_ref
+
+=cut
+
+sub generate_packaging_stats_for_query ($name, $query_ref) {
+
+	# we will filter out empty and obsolet products
+	$query_ref->{'empty'} = {"\$ne" => 1};
+	$query_ref->{'obsolete'} = {"\$ne" => 1};
+
+	# fields to retrieve
+	my $fields_ref = {
+		countries_tags => 1,
+		categories_tags => 1,
+		packagings => 1,
+	};
+
+	my $socket_timeout_ms = 3 * 60 * 60 * 60000;    # 3 hours
+	my $products_collection = get_products_collection($socket_timeout_ms);
+
+	my $products_count = $products_collection->count_documents($query_ref);
+
+	$quiet or print STDERR "$name: $products_count products\n";
+
+	my $cursor = $products_collection->query($query_ref)->sort({created_t => 1})->fields($fields_ref);
+
+	$cursor->immortal(1);
+
+	my $total = 0;
+
+	my $packagings_stats_ref = {};
+
+	# Go through all products
+	while (my $product_ref = $cursor->next) {
+		$total++;
+
+		if ($total % 1000 == 0) {
+			$quiet or print STDERR "$name: $total / $products_count processed\n";
+		}
+
+		add_product_to_stats($packagings_stats_ref, $product_ref);
+	}
+
+	store_stats($name, $packagings_stats_ref);
 
 	return;
 }
