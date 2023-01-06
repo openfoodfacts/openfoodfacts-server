@@ -92,6 +92,7 @@ sub generate_packaging_stats_for_query ($name, $query_ref) {
 	$query_ref->{'empty'} = {"\$ne" => 1};
 	$query_ref->{'obsolete'} = {"\$ne" => 1};
 
+	# fields to retrieve
 	my $fields_ref = {
 		countries_tags => 1,
 		categories_tags => 1,
