@@ -89,6 +89,7 @@ and in JSON format in $www_root/data/categories_stats/
 
 sub generate_packaging_stats_for_query ($name, $query_ref) {
 
+	# we will filter out empty and obsolet products
 	$query_ref->{'empty'} = {"\$ne" => 1};
 	$query_ref->{'obsolete'} = {"\$ne" => 1};
 
