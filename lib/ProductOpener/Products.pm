@@ -74,6 +74,7 @@ BEGIN {
 		&www_root_for_product_id
 		&product_path
 		&product_path_from_id
+		&product_id_from_path
 		&product_exists
 		&product_exists_on_other_server
 		&get_owner_id
@@ -156,6 +157,7 @@ use Data::DeepAccess qw(deep_get);
 use LWP::UserAgent;
 use Storable qw(dclone);
 use File::Copy::Recursive;
+use File::Basename qw/dirname/;
 use ProductOpener::GeoIP;
 
 use Algorithm::CheckDigits;
@@ -535,6 +537,29 @@ sub product_path ($product_ref) {
 	else {
 		return split_code($product_ref->{code});
 	}
+}
+
+=head2 product_id_from_path ( $product_path )
+
+Reverse of product_path_from_id.
+
+There is no guarantee the result will be correct...
+
+=cut
+
+sub product_id_from_path ($product_path) {
+	my $id = $product_path;
+	# only keep dir
+	if ($id =~ /\.sto$/) {
+		$id = dirname($id);
+	}
+	# eventually remove root path
+	if ($id =~ /$data_root\/products\//) {
+		$id = $';    # keep relative path
+	}
+	# transform to id by simply removing "/"
+	$id =~ s/\///g;
+	return $id;
 }
 
 sub product_exists ($product_id) {
