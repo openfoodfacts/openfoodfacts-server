@@ -308,4 +308,4 @@ make: *** [Makefile:126: build_lang] Error 13
 
 **Solution:**
 
-Use the powershell/cmd to run the make commands in windows.
+Use the powershell/cmd to run the make dev commands in windows.
