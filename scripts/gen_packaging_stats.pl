@@ -124,6 +124,7 @@ sub generate_packaging_stats_for_query ($name, $query_ref) {
 		}
 
 		# Generate stats for all countries + en:world (products from all countries)
+		# add a virtual en:world country to every products
 		if (not defined $product_ref->{countries_tags}) {
 			$product_ref->{countries_tags} = [];
 		}
