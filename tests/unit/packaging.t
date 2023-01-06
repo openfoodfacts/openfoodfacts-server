@@ -526,7 +526,7 @@ boîte en carton à recycler"
 		}
 	],
 
-	# comma inside a number, don't split
+	# comma inside a number: don't split
 	[
 		'fr-comma-inside-a-number',
 		{
@@ -534,6 +534,15 @@ boîte en carton à recycler"
 			packaging_text => "6 bouteilles en plastique transparent PET de 1,5 L à recycler",
 		}
 	],
+
+	# comma without spaces, not in a number: split
+	[
+		'fr-comma-without-space',
+		{
+			lc => "fr",
+			packaging_text => "1 boîte en métal,4 bouteilles (plastique).",
+		}
+	],	
 
 );
 
