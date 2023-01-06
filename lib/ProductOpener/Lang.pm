@@ -55,7 +55,6 @@ BEGIN {
 		@Langs
 
 		&lang
-		&lang_sprintf
 		&f_lang
 		&f_lang_in_lc
 		&lang_in_other_lc
@@ -135,42 +134,6 @@ sub lang ($stringid) {
 	}
 	elsif ((defined $short_l) and (defined $Lang{$stringid}{$short_l}) and ($Lang{$stringid}{$short_l} ne '')) {
 		return $Lang{$stringid}{$short_l};
-	}
-	else {
-		return '';
-	}
-}
-
-=head2 lang_sprintf( $stringid, [other arguments] )
-
-Returns a translation for a specific string id with specific arguments
-in the language defined in the $lang global variable.
-
-The translation is stored using the sprintf format (e.g. with %s) and
-lang_sprintf() calls sprintf() to process it.
-
-Warning: if multiple variables need to be interpolated,
-they will be in the same order for all languages.
-
-If a translation is not available, the function returns English.
-
-=head3 Arguments
-
-=head4 string id $stringid
-
-In the .po translation files, we use the msgctxt field for the string id.
-
-=head4 other arguments
-
-Arguments to be interpolated.
-
-=cut
-
-sub lang_sprintf ($stringid) {
-
-	my $translation = lang($stringid);
-	if (defined $translation) {
-		return sprintf($translation, @_);
 	}
 	else {
 		return '';

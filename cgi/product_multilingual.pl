@@ -73,7 +73,6 @@ sub display_search_or_add_form() {
 
 	my $html = '';
 	my $template_data_ref_content = {};
-	$template_data_ref_content->{server_options_producers_platform} = $server_options{producers_platform};
 
 	$template_data_ref_content->{display_search_image_form} = display_search_image_form("block_side");
 	process_template('web/common/includes/display_product_search_or_add.tt.html', $template_data_ref_content, \$html)
@@ -839,7 +838,6 @@ CSS
 	if ($User{moderator}) {
 	}
 
-	$template_data_ref_display->{server_options_private_products} = $server_options{private_products};
 	$template_data_ref_display->{org_id} = $Org_id;
 	$template_data_ref_display->{label_new_code} = $label_new_code;
 	$template_data_ref_display->{owner_id} = $Owner_id;

@@ -1,0 +1,32 @@
+<!-- start templates/[% component.name %] -->
+
+<div class="row">
+    <div class="small-12 columns" style="margin-bottom:1rem;">
+
+        [% FOREACH facet IN facets %]
+            <p>
+                &rarr;
+                <a href="[% facet.url %]">[% facet.number_of_products %][% sep %]: [% facet.count %]</a>
+                <br>
+            </p>
+        [% END %]        
+
+        <h2>[% lang("your_products") %]</h2>
+        
+        <p>&rarr; <a href="/cgi/import_file_upload.pl">[% lang("add_or_update_products") %]</a></p>
+
+        [% IF products_to_be_exported.defined %]
+            <p>
+                [% lang("some_product_updates_have_not_been_published_on_the_public_database") %]
+                <br>
+                [% products_to_be_exported %]
+                <br>
+                &rarr; <a href=\"/cgi/export_products.pl\">[% lang("export_product_data_photos") %]</a>
+            </p>
+        [% ELSE %]
+            <p>[% lang("no_products_to_export") %]</p>
+        [% END %]
+    </div>
+</div>
+
+<!-- end templates/[% component.name %] -->

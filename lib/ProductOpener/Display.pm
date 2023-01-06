@@ -369,6 +369,8 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 
 	# Add functions and values that are passed to all templates
 
+	$template_data_ref->{server_options_private_products} = $server_options{private_products};
+	$template_data_ref->{server_options_producers_platform} = $server_options{producers_platform};
 	$template_data_ref->{producers_platform_url} = $producers_platform_url;
 	$template_data_ref->{server_domain} = $server_domain;
 	$template_data_ref->{static_subdomain} = $static_subdomain;
@@ -1029,51 +1031,39 @@ sub display_error_and_exit ($error_message, $status_code) {
 # Specific index for producer on the platform for producers
 sub display_index_for_producer ($request_ref) {
 
-	my $html = "";
-
 	# Check if there are data quality issues or improvement opportunities
+
+	my $template_data_ref = {facets => []};
 
 	foreach my $tagtype ("data_quality_errors_producers", "data_quality_warnings_producers", "improvements") {
 
 		my $count = count_products($request_ref, {$tagtype . "_tags" => {'$exists' => true, '$ne' => []}});
 
 		if ($count > 0) {
-			$html
-				.= "<p>&rarr; <a href=\"/"
-				. $tag_type_plural{$tagtype}{$lc} . "\">"
-				. lang("number_of_products_with_" . $tagtype)
-				. separator_before_colon($lc) . ": "
-				. $count
-				. "</a></p>";
+			push @{$template_data_ref->{facets}}, {
+				url => "/" . $tag_type_plural{$tagtype}{$lc},
+				number_of_products => lang("number_of_products_with_" . $tagtype),
+				count => $count,
+			};
 		}
 	}
-
-	$html .= "<h2>" . lang("your_products") . separator_before_colon($lc) . ":" . "</h2>";
-	$html .= '<p>&rarr; <a href="/cgi/import_file_upload.pl">' . lang("add_or_update_products") . '</a></p>';
 
 	# Display a message if some product updates have not been published yet
 
 	my $count = count_products($request_ref, {states_tags => "en:to-be-exported"});
 
-	my $message = "";
-
-	if ($count == 0) {
-		$message = lang("no_products_to_export");
+	if ($count == 1) {
+		$template_data_ref->{products_to_be_exported} = lang("one_product_will_be_exported");
 	}
-	elsif ($count == 1) {
-		$message = lang("one_product_will_be_exported");
-	}
-	else {
-		$message = sprintf(lang("n_products_will_be_exported"), $count);
+	elsif ($count > 1) {
+		$template_data_ref->{products_to_be_exported} = sprintf(lang("n_products_will_be_exported"), $count);
 	}
 
-	if ($count > 0) {
-		$html
-			.= "<p>"
-			. lang("some_product_updates_have_not_been_published_on_the_public_database") . "</p>" . "<p>"
-			. $message . "</p>"
-			. "&rarr; <a href=\"/cgi/export_products.pl\">$Lang{export_product_data_photos}{$lc}</a><br>";
-	}
+	my $html;
+
+	process_template('web/common/includes/producers_platform_front_page.tt.html',
+		$template_data_ref, \$html)
+		|| return "template error: " . $tt->error();
 
 	return $html;
 }
@@ -6733,11 +6723,6 @@ sub display_page ($request_ref) {
 		return;
 	}
 
-	if ($server_options{producers_platform}) {
-
-		$template_data_ref->{server_options_producers_platform} = $server_options{producers_platform};
-	}
-
 	not $request_ref->{blocks_ref} and $request_ref->{blocks_ref} = [];
 
 	my $title = $request_ref->{title};
@@ -7976,8 +7961,6 @@ HTML
 	# Platform for producers: data quality issues and improvements opportunities
 
 	if ($server_options{producers_platform}) {
-
-		$template_data_ref->{server_options_producers_platform} = $server_options{producers_platform};
 
 		$template_data_ref->{display_data_quality_issues_and_improvement_opportunities}
 			= display_data_quality_issues_and_improvement_opportunities($product_ref);
