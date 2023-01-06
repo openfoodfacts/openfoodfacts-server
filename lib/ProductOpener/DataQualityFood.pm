@@ -534,7 +534,7 @@ my %energy_from_nutrients = (
 		alcohol => {kj => 29, kcal => 7},
 		organic_acids => {kj => 13, kcal => 3},    # no corresponding nutrients in nutrient tables?
 		fiber => {kj => 8, kcal => 2},
-		erythritol => {kj => 0, kcal => 0},    # no corresponding nutrients in nutrient tables?
+		erythritol => {kj => 0, kcal => 0},
 	},
 );
 
@@ -570,10 +570,21 @@ sub check_nutrition_data_energy_computation ($product_ref) {
 
 				my $energy_per_gram = $energy_from_nutrients{europe}{$nid}{$unit};
 				my $grams = 0;
-				# handles nutriment1__minus__numtriment2 case
+				# handles nutriment1__minus__nutriment2 case
 				if ($nid =~ /_minus_/) {
 					my $nid_minus = $';
 					$nid = $`;
+
+					# If we are computing carbohydrates minus polyols, and we do not have a value for polyols
+					# but we have a value for erythritol (which is a polyol), then we need to remove erythritol
+					if (($nid_minus eq "polyols") and (not defined $product_ref->{nutriments}{$nid_minus . "_value"})) {
+						$nid_minus = "erythritol";
+					}
+					# Similarly for polyols minus erythritol
+					if (($nid eq "polyols") and (not defined $product_ref->{nutriments}{$nid . "_value"})) {
+						$nid = "erythritol";
+					}
+
 					$grams -= $product_ref->{nutriments}{$nid_minus . "_value"} || 0;
 				}
 				$grams += $product_ref->{nutriments}{$nid . "_value"} || 0;

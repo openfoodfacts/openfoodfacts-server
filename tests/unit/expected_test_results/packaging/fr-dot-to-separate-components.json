@@ -1,0 +1,21 @@
+{
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty"
+   ],
+   "packaging_text" : "Film plastique à jeter. Étui carton à recycler.",
+   "packagings" : [
+      {
+         "material" : "en:plastic",
+         "recycling" : "en:discard",
+         "shape" : "en:film"
+      },
+      {
+         "material" : "en:cardboard",
+         "recycling" : "en:recycle",
+         "shape" : "en:sleeve"
+      }
+   ]
+}
