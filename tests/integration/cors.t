@@ -71,6 +71,39 @@ my $tests_ref = [
 		},
 		expected_type => "html",
 	},
+	{
+		test_case => 'get-api-v3',
+		method => 'GET',
+		path => '/api/v3/product/0000002',
+		expected_status_code => 404,
+		headers => {
+			"Access-Control-Allow-Origins" => "*",
+			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
+		},
+		expected_type => "html",
+	},
+	{
+		test_case => 'options-api-v2',
+		method => 'OPTIONS',
+		path => '/api/v2/product/0000002',
+		expected_status_code => 404,
+		headers => {
+			"Access-Control-Allow-Origins" => "*",
+			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
+		},
+		expected_type => "html",
+	},
+	{
+		test_case => 'get-api-v2',
+		method => 'GET',
+		path => '/api/v2/product/0000002',
+		expected_status_code => 404,
+		headers => {
+			"Access-Control-Allow-Origins" => "*",
+			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
+		},
+		expected_type => "html",
+	},
 ];
 execute_api_tests(__FILE__, $tests_ref);
 
