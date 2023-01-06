@@ -1959,10 +1959,17 @@ Product:
                   type: string
     serving_quantity:
       type: string
+      description: |
+        Normalized version of serving_size.
+
+        Note that this is NOT the number of servings by product.
+
+        <small>(in perl, see `normalize_serving_size`)</small>
     serving_size:
       type: string
       description: |
-        Serving size in g (or ml).
+        Serving size text (generally in g or ml).
+        We expect a quantity + unit but the user is free to input any string.
     serving_size_imported:
       type: string
     sortkey:
