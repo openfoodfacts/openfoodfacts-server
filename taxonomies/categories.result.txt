@@ -18890,6 +18890,7 @@ wikidata:en: Q3995785
 < en:Chocolate desserts
 < en:Creamy puddings
 en:Chocolate creamy puddings, Chocolate puddings, Chocolate custard dessert
+es:Natillas chocolate
 fr:Crèmes dessert chocolat, Crème dessert chocolat, Crèmes dessert au chocolat, Crème dessert au chocolat
 lt:Šokoladinio kremo desertai
 nl:Chocolade vla's, Chocoladevla's, Chocovla's
@@ -18903,37 +18904,18 @@ ciqual_food_name:fr: Crème dessert, appertisée -aliment moyen-
 
 < en:Creamy puddings
 en:Caramel creamy puddings, Caramel puddings, caramel custard dessert
+es:Natillas caramelo
 fr:Crèmes dessert caramel, Crème dessert caramel, Crèmes dessert au caramel, Crème dessert au caramel
 nl:Caramel vla's
 
 < en:Creamy puddings
-en:Coffee creamy puddings, coffee puddings
-nl:Koffie vla's
-
-< en:Creamy puddings
-en:Coffee custard dessert
+en:Coffee creamy puddings, coffee puddings, coffee custard dessert
 fr:Crèmes dessert café
 lt:Kavos kremo desertai
-nl:Koffievla's
+nl:Koffie vla's, Koffievla's
 agribalyse_proxy_food_code:en: 39246
 agribalyse_proxy_food_name:en: Custard dessert, coffee, refrigerated
 agribalyse_proxy_food_name:fr: Crème dessert au café, rayon frais
-
-< en:Creamy puddings
-en:Custard dessert coffee refrigerated
-fr:
-agribalyse_food_code:en: 39246
-ciqual_food_code:en: 39246
-ciqual_food_name:en: Custard dessert, coffee, refrigerated
-ciqual_food_name:fr: Crème dessert au café, rayon frais
-
-< en:Creamy puddings
-en:Custard dessert vanilla refrigerated
-fr:
-agribalyse_food_code:en: 39229
-ciqual_food_code:en: 39229
-ciqual_food_name:en: Custard dessert, vanilla, refrigerated
-ciqual_food_name:fr: Crème dessert à la vanille, rayon frais
 
 < en:Creamy puddings
 en:Double flavour creamy puddings, Double flavour custard dessert
@@ -18942,6 +18924,9 @@ nl:Dubble vla's, Dubbelvla's
 
 < en:Creamy puddings
 en:Pistachio creamy puddings, Pistachio custard dessert
+fr:Crèmes dessert pistache
+lt:Pistacijų kremo desertai
+nl:Pistache vla's, Pistachevla's
 
 < en:Creamy puddings
 en:Refrigerated creamy puddings, Refrigerated dessert creams, Refrigerated custard desserts
@@ -18956,11 +18941,16 @@ ciqual_food_name:fr: Crème dessert, rayon frais -aliment moyen-
 
 < en:Creamy puddings
 en:Vanilla creamy puddings
+es:Natillas vainilla
 fr:Crèmes dessert vanille, Crème dessert vanille, Crèmes dessert à la vanille, Crème dessert à la vanille
 nl:Vanilla vla's
+pt:Natilhas baunilha
 ciqual_food_code:en: 39229
 ciqual_food_name:en: Custard dessert, vanilla, refrigerated
 ciqual_food_name:fr: Crème dessert à la vanille, rayon frais
+
+< en:Creamy puddings
+es:Natillas con galleta
 
 < en:Crepe filled with cheese
 en:Crepe filled with cheese and bechamel sauce, buckwheat crepe filled with cheese and bechamel sauce
@@ -19937,6 +19927,27 @@ wikidata:en: Q67201117
 < en:Curry sauces
 en:Madras curry sauce
 
+< en:Custard puddings
+en:Chocolate custard puddings
+fr:Crèmes chocolat aux œufs
+
+< en:Custard puddings
+en:Custard puddings with caramel sauce, Custard creams with caramel sauce
+es:Natillas de huevo con caramelo
+fr:Crèmes caramel aux œufs, Crèmes caramel
+agribalyse_food_code:en: 39209
+ciqual_food_code:en: 39209
+ciqual_food_name:en: Custard cream with caramel sauce, refrigerated
+ciqual_food_name:fr: Crème caramel, rayon frais
+
+< en:Custard puddings
+en:Vanilla custard puddings
+fr:Crèmes vanille aux œufs
+
+< en:Custard puddings with caramel sauce
+en:Refrigerated custard puddings with caramel sauce, Refrigerated custard cream with caramel sauce
+fr:Crème caramel rayon frais
+
 < en:Cypriot bakery products
 en:Glyko Triantafyllo Agrou
 el:Γλυκό Τριαντάφυλλο Αγρού, Glyko Triantafyllo Agrou
@@ -20348,6 +20359,11 @@ es:Cuajada
 fi:Cuajada
 fr:Cuajada
 wikidata:en: Q1142807
+
+< en:Dairy desserts
+en:Custard puddings
+es:Natillas al huevo
+fr:Crèmes aux œufs, crèmes aux oeufs
 
 < en:Dairy desserts
 en:Flans
@@ -21268,14 +21284,6 @@ lt:Kavos desertai, Desertai iš kavos
 nl:Koffietoetjes, koffiedesserts
 zh:咖啡甜品, 咖啡甜点
 
-< en:Desserts
-en:Custard creams with caramel sauce
-fr:Crèmes caramel
-agribalyse_food_code:en: 39209
-ciqual_food_code:en: 39209
-ciqual_food_name:en: Custard cream with caramel sauce, refrigerated
-ciqual_food_name:fr: Crème caramel, rayon frais
-
 < en:Dairies
 < en:Desserts
 en:Dairy desserts
@@ -21399,10 +21407,6 @@ fr:Crèmes brûlées réfrigérées, Crème brûlée rayon frais
 ciqual_food_code:en: 39213
 ciqual_food_name:en: Caramelized custard cream -crème brûlée-, refrigerated
 ciqual_food_name:fr: Crème brûlée, rayon frais
-
-< en:Desserts
-en:Refrigerated custard cream with caramel sauce
-fr:Crème caramel rayon frais
 
 < en:Desserts
 en:Sponge cake with fruit mousse
@@ -44244,6 +44248,10 @@ nl:Plantaardige vissen
 pl:Zastępniki ryb
 
 < en:Meat analogues
+en:Foie gras substitutes
+fr:Substituts du foie gras
+
+< en:Meat analogues
 en:Frikandel substitutes
 de:Frikadellen-Ersatzprodukte
 fr:Substituts des fricadelles
@@ -53071,6 +53079,10 @@ la:Coriandrum sativum
 lt:Kalendros produktai, kalendra
 nl:Korianders
 wikidata:en: Q41611
+
+< en:Plant-based foods
+en:Egg substitutes
+fr:Substituts des œufs, substituts des oeufs
 
 < en:Plant-based foods
 en:Elderberry products
@@ -89994,10 +90006,6 @@ origins:en: en:france
 protected_name_file_number:en: PDO-FR-A0999-AM01
 protected_name_type:en: pdo
 wikidata:en: Q469048
-
-fr:Crèmes dessert pistache
-lt:Pistacijų kremo desertai
-nl:Pistache vla's, Pistachevla's
 
 < en:Fermented creams
 < fr:Crèmes entières
