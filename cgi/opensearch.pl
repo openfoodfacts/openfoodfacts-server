@@ -29,6 +29,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::HTTP qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
@@ -82,9 +83,9 @@ $image_tag
 XML
 	;
 
+write_cors_headers();
 print header(
 	-type => 'application/opensearchdescription+xml',
 	-charset => 'utf-8',
-	-access_control_allow_origin => '*',
 	-cache_control => 'public, max-age: 10080'
 ) . $xml;
