@@ -542,7 +542,7 @@ boîte en carton à recycler"
 			lc => "fr",
 			packaging_text => "1 boîte en métal,4 bouteilles (plastique).",
 		}
-	],	
+	],
 
 );
 
