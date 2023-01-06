@@ -210,6 +210,7 @@ sub generate_packaging_stats_for_query ($name, $query_ref) {
 		close($JSON);
 	}
 
+	return;
 }
 
 generate_packaging_stats_for_query("packagings-with-weights", {misc_tags => 'en:packagings-with-weights'});
