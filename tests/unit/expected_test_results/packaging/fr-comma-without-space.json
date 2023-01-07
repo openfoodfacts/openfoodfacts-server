@@ -1,0 +1,21 @@
+{
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty"
+   ],
+   "packaging_text" : "1 boîte en métal,4 bouteilles (plastique).",
+   "packagings" : [
+      {
+         "material" : "en:metal",
+         "number_of_units" : 1,
+         "shape" : "en:box"
+      },
+      {
+         "material" : "en:plastic",
+         "number_of_units" : 4,
+         "shape" : "en:bottle"
+      }
+   ]
+}
