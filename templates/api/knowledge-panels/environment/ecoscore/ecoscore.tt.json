@@ -10,12 +10,12 @@
         "grade": "[% panel.grade %]",
     },
     "elements": [
-        [% IF not panel.country_specific %]
+        [% IF panel.transportation_warning.defined %]
         {
             "element_type": "text",
             "text_element": {
                 "type": "warning",
-                "html": `[% lang("ecoscore_warning_transportation") %]`,
+                "html": `[% panel.transportation_warning %]`,
             }
         },
         [% END %]
