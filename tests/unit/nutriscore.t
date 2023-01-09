@@ -121,6 +121,24 @@ my @tests = (
 		}
 	],
 
+	# if no sugar but carbohydrates is 0, consider sugar 0
+	# still saturated fat missing will block
+	[
+		"sunflower-oil-no-sugar-no-sat-fat",
+		{
+			lc => "en",
+			categories => "sunflower oils",
+			nutriments => {
+				energy_100g => 3378,
+				fat_100g => 100,
+				carbohydrates_100g => 0,
+				sodium_100g => 0,
+				fiber_100g => 0,
+				proteins_100g => 0
+			}
+		}
+	],
+
 	# saturated fat 1.03 should be rounded to 1.0 which is not strictly greater than 1.0
 	[
 		"breakfast-cereals",
