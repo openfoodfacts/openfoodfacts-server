@@ -1,6 +1,7 @@
 {
    "ingredients" : [
       {
+         "ciqual_food_code" : null,
          "id" : "en:cane-sugar",
          "labels" : "en:organic",
          "percent_estimate" : 62.5,
@@ -11,6 +12,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : null,
          "id" : "en:apricot",
          "labels" : "en:organic",
          "origins" : "en:provence",
@@ -22,6 +24,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : null,
          "id" : "en:concentrated-lemon-juice",
          "labels" : "en:organic",
          "percent_estimate" : 9.375,
@@ -35,6 +38,7 @@
          "id" : "en:gelling-agent",
          "ingredients" : [
             {
+               "ciqual_food_code" : null,
                "id" : "en:fruit-pectin",
                "percent_estimate" : 9.375,
                "percent_max" : 25,
@@ -102,6 +106,13 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 4,
    "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:apricot",
+      "en:cane-sugar",
+      "en:concentrated-lemon-juice",
+      "en:fruit-pectin"
+   ],
+   "ingredients_without_ciqual_codes_n" : 4,
    "known_ingredients_n" : 12,
    "lc" : "fr",
    "nutriments" : {

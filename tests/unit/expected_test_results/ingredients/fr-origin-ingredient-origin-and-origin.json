@@ -1,6 +1,7 @@
 {
    "ingredients" : [
       {
+         "ciqual_food_code" : null,
          "id" : "en:potato",
          "origins" : "en:france",
          "percent" : 47,
@@ -10,6 +11,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : null,
          "id" : "en:pork",
          "origins" : "en:france",
          "percent" : 22,
@@ -19,6 +21,7 @@
          "vegetarian" : "no"
       },
       {
+         "ciqual_food_code" : null,
          "id" : "en:semi-skimmed-milk",
          "origins" : "en:france",
          "percent" : 5.5,
@@ -28,6 +31,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : null,
          "id" : "en:single-cream",
          "origins" : "en:france",
          "percent" : 5.5,
@@ -37,6 +41,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : null,
          "id" : "en:water",
          "origins" : "en:france",
          "percent" : 5.5,
@@ -46,6 +51,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : null,
          "id" : "en:butter",
          "origins" : "en:france",
          "percent" : 2.7,
@@ -65,6 +71,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : null,
          "id" : "en:cream",
          "origins" : "en:france",
          "percent" : 2.7,
@@ -84,6 +91,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "31008",
          "id" : "en:flower-honey",
          "origins" : "en:france",
          "percent" : 2.7,
@@ -93,6 +101,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : null,
          "id" : "en:spice",
          "origins" : "en:india",
          "percent" : 0.55,
@@ -110,6 +119,7 @@
          "text" : "bouillon"
       },
       {
+         "ciqual_food_code" : null,
          "id" : "en:finegrained-salt",
          "origins" : "en:france",
          "percent" : 0.14,
@@ -219,6 +229,18 @@
    "ingredients_with_specified_percent_sum" : 94.29,
    "ingredients_with_unspecified_percent_n" : 0,
    "ingredients_with_unspecified_percent_sum" : 0,
+   "ingredients_without_ciqual_codes" : [
+      "en:butter",
+      "en:cream",
+      "en:finegrained-salt",
+      "en:pork",
+      "en:potato",
+      "en:semi-skimmed-milk",
+      "en:single-cream",
+      "en:spice",
+      "en:water"
+   ],
+   "ingredients_without_ciqual_codes_n" : 9,
    "known_ingredients_n" : 23,
    "lc" : "fr",
    "nutriments" : {

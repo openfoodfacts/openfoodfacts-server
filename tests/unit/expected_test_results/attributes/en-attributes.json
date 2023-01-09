@@ -847,6 +847,7 @@
    },
    "ingredients" : [
       {
+         "ciqual_food_code" : null,
          "id" : "en:wheat-flour",
          "origins" : "en:united-kingdom",
          "percent_estimate" : 54.5454545454545,
@@ -857,6 +858,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : null,
          "id" : "en:sugar",
          "origins" : "en:paraguay",
          "percent_estimate" : 22.7272727272727,
@@ -867,6 +869,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "22000",
          "id" : "en:egg",
          "percent_estimate" : 11.3636363636364,
          "percent_max" : 33.3333333333333,
@@ -876,6 +879,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "13014",
          "id" : "en:strawberry",
          "percent_estimate" : 5.68181818181818,
          "percent_max" : 25,
@@ -885,6 +889,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "31077",
          "id" : "en:high-fructose-corn-syrup",
          "percent_estimate" : 2.84090909090909,
          "percent_max" : 20,
@@ -894,6 +899,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : null,
          "from_palm_oil" : "no",
          "id" : "en:rapeseed-oil",
          "percent_estimate" : 1.42045454545455,
@@ -904,6 +910,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "15027",
          "id" : "en:macadamia-nut",
          "percent_estimate" : 0.710227272727273,
          "percent_max" : 14.2857142857143,
@@ -913,6 +920,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : null,
          "id" : "en:milk-proteins",
          "percent_estimate" : 0.35511363636364,
          "percent_max" : 12.5,
@@ -922,6 +930,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : null,
          "id" : "en:salt",
          "percent_estimate" : 0.17755681818182,
          "percent_max" : 11.1111111111111,
@@ -931,6 +940,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : null,
          "id" : "en:e102",
          "percent_estimate" : 0.0887784090909065,
          "percent_max" : 10,
@@ -940,6 +950,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : null,
          "id" : "en:e120",
          "percent_estimate" : 0.0887784090909065,
          "percent_max" : 9.09090909090909,
@@ -1057,6 +1068,16 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 11,
    "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:e102",
+      "en:e120",
+      "en:milk-proteins",
+      "en:rapeseed-oil",
+      "en:salt",
+      "en:sugar",
+      "en:wheat-flour"
+   ],
+   "ingredients_without_ciqual_codes_n" : 7,
    "known_ingredients_n" : 30,
    "labels_tags" : [
       "en:organic",

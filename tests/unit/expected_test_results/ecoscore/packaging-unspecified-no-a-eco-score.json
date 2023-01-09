@@ -396,6 +396,7 @@
    ],
    "ingredients" : [
       {
+         "ciqual_food_code" : null,
          "id" : "en:wheat",
          "origins" : "en:france",
          "percent_estimate" : 100,
@@ -434,6 +435,10 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:wheat"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
    "known_ingredients_n" : 2,
    "labels_tags" : [
       "fr:ab-agriculture-biologique"

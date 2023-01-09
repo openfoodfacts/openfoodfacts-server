@@ -135,6 +135,7 @@ my $fix_nutrition_data = '';
 my $compute_main_countries = '';
 my $prefix_packaging_tags_with_language = '';
 my $fix_non_string_ids = '';
+my $assign_ciqual_codes = '';
 
 my $query_ref = {};    # filters for mongodb query
 
@@ -188,6 +189,7 @@ GetOptions(
 	"fix-nutrition-data" => \$fix_nutrition_data,
 	"compute-main-countries" => \$compute_main_countries,
 	"prefix-packaging-tags-with-language" => \$prefix_packaging_tags_with_language,
+	"assign-ciqual-codes" => \$assign_ciqual_codes,
 ) or die("Error in command line arguments:\n\n$usage");
 
 use Data::Dumper;
@@ -259,7 +261,8 @@ if (    (not $process_ingredients)
 	and (scalar @fields_to_update == 0)
 	and (not $count)
 	and (not $just_print_codes)
-	and (not $prefix_packaging_tags_with_language))
+	and (not $prefix_packaging_tags_with_language)
+	and (not $assign_ciqual_codes))
 {
 	die("Missing fields to update or --count option:\n$usage");
 }
@@ -349,7 +352,7 @@ print STDERR "Update key: $key\n\n";
 use Data::Dumper;
 print STDERR "MongoDB query:\n" . Dumper($query_ref);
 
-my $socket_timeout_ms = 2 * 60000;    # 2 mins, instead of 30s default, to not die as easily if mongodb is busy.
+my $socket_timeout_ms = 5 * 60000;    # 2 mins, instead of 30s default, to not die as easily if mongodb is busy.
 my $products_collection = get_products_collection($socket_timeout_ms);
 
 my $products_count = "";
@@ -1310,6 +1313,10 @@ while (my $product_ref = $cursor->next) {
 				$product_ref->{obsolete_since_date} = $mark_as_obsolete_since_date;
 				$product_values_changed = 1;
 			}
+		}
+
+		if ($assign_ciqual_codes) {
+			assign_ciqual_codes($product_ref);
 		}
 
 		if (not $pretend) {

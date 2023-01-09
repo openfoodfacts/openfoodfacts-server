@@ -1,6 +1,7 @@
 {
    "ingredients" : [
       {
+         "ciqual_food_code" : null,
          "id" : "en:wheat-flour",
          "labels" : "en:organic",
          "percent_estimate" : 33,
@@ -11,6 +12,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "20170",
          "id" : "en:tomato-puree",
          "labels" : "en:organic",
          "percent" : 26,
@@ -22,6 +24,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : null,
          "id" : "en:water",
          "percent_estimate" : 21.5,
          "percent_max" : 26,
@@ -31,6 +34,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "19590",
          "id" : "en:mozzarella",
          "labels" : "en:organic",
          "percent" : 17,
@@ -43,6 +47,7 @@
          "vegetarian" : "maybe"
       },
       {
+         "ciqual_food_code" : "17440",
          "from_palm_oil" : "no",
          "id" : "en:sunflower-oil",
          "labels" : "en:organic",
@@ -54,6 +59,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : null,
          "id" : "en:yeast",
          "percent_estimate" : 0.625,
          "percent_max" : 7.75,
@@ -63,6 +69,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : null,
          "id" : "en:salt",
          "percent_estimate" : 0.3125,
          "percent_max" : 6.2,
@@ -72,6 +79,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : null,
          "id" : "en:herb",
          "labels" : "en:organic",
          "percent_estimate" : 0.15625,
@@ -82,6 +90,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : null,
          "id" : "en:spice",
          "labels" : "en:organic",
          "percent_estimate" : 0.15625,
@@ -173,6 +182,15 @@
    "ingredients_with_specified_percent_sum" : 43,
    "ingredients_with_unspecified_percent_n" : 7,
    "ingredients_with_unspecified_percent_sum" : 57,
+   "ingredients_without_ciqual_codes" : [
+      "en:herb",
+      "en:salt",
+      "en:spice",
+      "en:water",
+      "en:wheat-flour",
+      "en:yeast"
+   ],
+   "ingredients_without_ciqual_codes_n" : 6,
    "known_ingredients_n" : 21,
    "lc" : "fr",
    "nutriments" : {

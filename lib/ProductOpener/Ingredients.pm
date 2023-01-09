@@ -93,6 +93,7 @@ BEGIN {
 
 		&has_specific_ingredient_property
 
+		&assign_ciqual_codes
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -2292,7 +2293,7 @@ sub extract_ingredients_from_text ($product_ref) {
 		add_properties_from_specific_ingredients($product_ref);
 
 		# Obtain Ciqual codes ready for ingredients estimation from nutrients
-		$product_ref->{ingredients_without_ciqual_codes} = assign_ciqual_codes($product_ref->{ingredients});
+		assign_ciqual_codes($product_ref);
 
 		# Compute minimum and maximum percent ranges for each ingredient and sub ingredient
 
@@ -2330,25 +2331,32 @@ sub extract_ingredients_from_text ($product_ref) {
 	return;
 }
 
-sub assign_ciqual_codes($ingredients_ref) {
-	my $ingredients_without_ciqual_codes = 0;
+sub assign_ciqual_codes($product_ref) {
+	my @ingredients_without_ciqual_codes = uniq(sort(get_missing_ciqual_codes($product_ref->{ingredients})));
+	$product_ref->{ingredients_without_ciqual_codes} = \@ingredients_without_ciqual_codes;
+	$product_ref->{ingredients_without_ciqual_codes_n} = @ingredients_without_ciqual_codes;
+	return;
+}
+
+sub get_missing_ciqual_codes ($ingredients_ref) {
+	my @ingredients_without_ciqual_codes = ();
 	foreach my $ingredient_ref (@{$ingredients_ref}) {
 		if (defined $ingredient_ref->{ingredients}) {
-			$ingredients_without_ciqual_codes += assign_ciqual_codes($ingredient_ref->{ingredients});
-		} else 
-		{
+			push(@ingredients_without_ciqual_codes, get_missing_ciqual_codes($ingredient_ref->{ingredients}));
+		}
+		else {
 			my $ciqual_food_code = get_inherited_property("ingredients", $ingredient_ref->{id}, "ciqual_food_code:en");
 			if (defined $ciqual_food_code) {
 				$ingredient_ref->{ciqual_food_code} = $ciqual_food_code;
-			} else 
-			{
+			}
+			else {
 				$ingredient_ref->{ciqual_food_code} = undef;
-				$ingredients_without_ciqual_codes ++;
+				push(@ingredients_without_ciqual_codes, $ingredient_ref->{id});
 			}
 		}
 	}
 
-	return $ingredients_without_ciqual_codes;
+	return @ingredients_without_ciqual_codes;
 }
 
 =head2 delete_ingredients_percent_values ( ingredients_ref )

@@ -4,6 +4,7 @@
          "id" : "en:emulsifier",
          "ingredients" : [
             {
+               "ciqual_food_code" : null,
                "id" : "en:sunflower-lecithin",
                "percent_estimate" : 50,
                "text" : "lécithines de tournesol",
@@ -15,6 +16,7 @@
          "text" : "émulsifiant"
       },
       {
+         "ciqual_food_code" : null,
          "id" : "en:flavouring",
          "origins" : "en:european-union",
          "percent_estimate" : 25,
@@ -23,6 +25,7 @@
          "vegetarian" : "maybe"
       },
       {
+         "ciqual_food_code" : null,
          "id" : "en:wheat-flour",
          "origins" : "en:france",
          "percent" : 33,
@@ -32,6 +35,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : null,
          "id" : "en:sugar",
          "percent_estimate" : 0,
          "text" : "sucre",
@@ -39,6 +43,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : null,
          "from_palm_oil" : "maybe",
          "id" : "en:butterfat",
          "origins" : "en:france",
@@ -124,6 +129,14 @@
    "ingredients_with_specified_percent_sum" : 39.5,
    "ingredients_with_unspecified_percent_n" : 3,
    "ingredients_with_unspecified_percent_sum" : 75,
+   "ingredients_without_ciqual_codes" : [
+      "en:butterfat",
+      "en:flavouring",
+      "en:sugar",
+      "en:sunflower-lecithin",
+      "en:wheat-flour"
+   ],
+   "ingredients_without_ciqual_codes_n" : 5,
    "known_ingredients_n" : 18,
    "lc" : "fr",
    "nutriments" : {

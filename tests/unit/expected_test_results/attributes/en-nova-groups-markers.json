@@ -795,6 +795,7 @@
    ],
    "ingredients" : [
       {
+         "ciqual_food_code" : null,
          "id" : "en:cow-s-milk",
          "percent_estimate" : 57.1428571428571,
          "percent_max" : 100,
@@ -804,6 +805,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : null,
          "id" : "en:salt",
          "percent_estimate" : 21.4285714285714,
          "percent_max" : 50,
@@ -813,6 +815,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : null,
          "id" : "en:microbial-culture",
          "percent_estimate" : 10.7142857142857,
          "percent_max" : 33.3333333333333,
@@ -822,6 +825,7 @@
          "vegetarian" : "maybe"
       },
       {
+         "ciqual_food_code" : null,
          "id" : "en:garlic-flavouring",
          "percent_estimate" : 2.5,
          "percent_max" : "5",
@@ -831,6 +835,7 @@
          "vegetarian" : "maybe"
       },
       {
+         "ciqual_food_code" : null,
          "id" : "en:e412",
          "percent_estimate" : 2.5,
          "percent_max" : "5",
@@ -840,6 +845,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : null,
          "id" : "en:sugar",
          "percent_estimate" : 2.5,
          "percent_max" : "5",
@@ -849,6 +855,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "31077",
          "id" : "en:high-fructose-corn-syrup",
          "percent_estimate" : 3.21428571428572,
          "percent_max" : "5",
@@ -937,6 +944,15 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 7,
    "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:cow-s-milk",
+      "en:e412",
+      "en:garlic-flavouring",
+      "en:microbial-culture",
+      "en:salt",
+      "en:sugar"
+   ],
+   "ingredients_without_ciqual_codes_n" : 6,
    "known_ingredients_n" : 18,
    "languages" : {},
    "languages_codes" : {},
