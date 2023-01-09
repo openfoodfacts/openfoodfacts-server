@@ -102,6 +102,11 @@ $productsGutter:12;
     padding-left: 8px;
     font-size: 14px;
     color: $black;
+    display: inline-flex;
+    // Force the height of the product name so that icons
+    // below are vertically aligned with other cards on the same line
+    height:82px;
+    overflow: hidden;
 }
 
 .list_product_icons {
@@ -110,23 +115,7 @@ $productsGutter:12;
     margin-top: 0.2rem;
 }
 
-// For small screen, cards take the full width, move the image to the left
-@media #{$small-only} {
-    .list_product_img_div {
-        width: 100px;
-        float: left;
-        margin-right: 1em;
-    }
-    .list_product_a {
-        min-height: 120px;
-    }
-    .list_product_icons {
-        height: 36px;
-    }
-}
 
-// For medium screen, force the height of the product name so that icons
-// below are vertically aligned with other cards on the same line
 @media #{$medium-up} {
     .list_product_name {
         overflow: hidden;

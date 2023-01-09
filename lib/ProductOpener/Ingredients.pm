@@ -159,7 +159,7 @@ my %may_contain_regexps = (
 		"saattaa sisältää pienehköjä määriä muita|saattaa sisältää pieniä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää pieniä määriä|voi sisältää vähäisiä määriä|saattaa sisältää hivenen|saattaa sisältää pieniä|saattaa sisältää jäämiä|sisältää pienen määrän|jossa käsitellään myös|saattaa sisältää myös|joka käsittelee myös|jossa käsitellään|saattaa sisältää",
 	fr =>
 		"peut également contenir|peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
-	hr => "može sadržavati|može sadržati",
+	hr => "može sadržavati|može sadržati|proizvod može sadržavati",
 	is => "getur innihaldið leifar|gæti innihaldið snefil|getur innihaldið",
 	it =>
 		"Pu[òo] contenere tracce di|pu[òo] contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
@@ -306,6 +306,8 @@ my %abbreviations = (
 	fi => [["mikro.", "mikrobiologinen"], ["mm.", "muun muassa"], ["sis.", "sisältää"], ["n.", "noin"],],
 
 	fr => [["vit.", "Vitamine"], ["Mat. Gr.", "Matières Grasses"],],
+
+	hr => [["temp.", "temperaturi"],],
 
 	nb => [["bl. a.", "blant annet"], ["inkl.", "inklusive"], ["papr.", "paprika"],],
 
@@ -1967,6 +1969,8 @@ sub parse_ingredients_text ($product_ref) {
 								'^täysjyväsisältö',
 							],
 
+							'hr' => ['^u tragovima$',],
+
 							'it' => ['^in proporzion[ei] variabil[ei]$',],
 
 							'nb' => ['^Pakket i beskyttende atmosfære$',],
@@ -3392,7 +3396,7 @@ my %phrases_before_ingredients_list = (
 		'composition',
 	],
 
-	hr => ['Sastojci',],
+	hr => ['HR', 'HR BiH', 'HR/BIH', 'Sastojci', 'Sastojci/Sestavine'],
 
 	hu => ['(ö|ő|o)sszetev(ö|ő|o)k', 'összetétel',],
 
@@ -3682,7 +3686,21 @@ my %phrases_after_ingredients_list = (
 	],
 
 	hr => [
-		'Čuvati na (hladnom|suhom|temperaturi)',    # store in...
+		'Bez konzervans',    # without preservatives
+		'Čuvati na (hladnom|sobnoj temperaturi|suhom|temperaturi)',    # store in...
+		'Najbolje upotrijebiti do',    # best before
+		'Nakon otvaranja',    # after opening
+		'Pakirano u (kontroliranoj|zaštitnoj) atmosferi',    # packed in a ... atmosphere
+		'Pasterizirano',    # Pasteurized
+		'Proizvođač',    # producer
+		'Prosječna hranjiva vrijednost',    # Average nutritional value
+		'Upotrijebiti do datuma',    # valid until
+		'Upozorenje',    # warning
+		'Uputa',    # instructions
+		'Vakuumirana',    # Vacuumed
+		'Vrijeme kuhanja',    # Cooking time
+		'Zbog (mutan|prisutnosti)',    # Due to ...
+		'Zemlja porijekla',    # country of origin
 	],
 
 	hu => [

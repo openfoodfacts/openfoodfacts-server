@@ -184,10 +184,10 @@ if ($fuzzy_to_add >= 0) {
 my $data = encode_json(\@suggestions);
 
 # send response
+write_cors_headers();
 print header(
 	-type => 'application/json',
 	-charset => 'utf-8',
-	-access_control_allow_origin => '*'
 );
 if ($cache_max_age) {
 	print header(-cache_control => 'public, max-age=' . $cache_max_age,);

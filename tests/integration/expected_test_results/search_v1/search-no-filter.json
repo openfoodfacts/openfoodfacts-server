@@ -94,7 +94,7 @@
                "origins_of_ingredients" : {
                   "aggregated_origins" : [
                      {
-                        "epi_score" : 0,
+                        "epi_score" : "0",
                         "origin" : "en:unknown",
                         "percent" : 100,
                         "transportation_score" : null
@@ -316,6 +316,7 @@
                         "quantity_per_unit" : "25cl",
                         "quantity_per_unit_unit" : "cl",
                         "quantity_per_unit_value" : 25,
+                        "recycling" : "en:recycle",
                         "shape" : "en:bottle"
                      },
                      {
@@ -582,6 +583,7 @@
                "quantity_per_unit" : "25cl",
                "quantity_per_unit_unit" : "cl",
                "quantity_per_unit_value" : 25,
+               "recycling" : "en:recycle",
                "shape" : "en:bottle"
             },
             {
@@ -745,7 +747,7 @@
                "origins_of_ingredients" : {
                   "aggregated_origins" : [
                      {
-                        "epi_score" : 0,
+                        "epi_score" : "0",
                         "origin" : "en:unknown",
                         "percent" : 100,
                         "transportation_score" : null
@@ -1286,7 +1288,7 @@
                "origins_of_ingredients" : {
                   "aggregated_origins" : [
                      {
-                        "epi_score" : 0,
+                        "epi_score" : "0",
                         "origin" : "en:unknown",
                         "percent" : 100,
                         "transportation_score" : null
@@ -1866,7 +1868,7 @@
                "origins_of_ingredients" : {
                   "aggregated_origins" : [
                      {
-                        "epi_score" : 0,
+                        "epi_score" : "0",
                         "origin" : "en:unknown",
                         "percent" : 100,
                         "transportation_score" : null
@@ -2435,7 +2437,7 @@
                "origins_of_ingredients" : {
                   "aggregated_origins" : [
                      {
-                        "epi_score" : 0,
+                        "epi_score" : "0",
                         "origin" : "en:unknown",
                         "percent" : 100,
                         "transportation_score" : null
