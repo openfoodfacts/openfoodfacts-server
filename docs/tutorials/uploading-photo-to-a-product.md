@@ -81,7 +81,7 @@ To add a new image for ingredients in English  to *100% Real Orange Juice*, the 
 | password      | ***     |   A valid password |
 | code | 0180411000803      |    The barcode of the product to be added/edited |
 | imagefield | ingredients_en      |    The type of image to be uploaded|
-| imageupload_ingredients_en | file     |   The  image of the product ingredients in english |
+| imgupload_ingredients_en | file     |   The binary content of the image of the product ingredients in english |
 
 Using curl:
 
