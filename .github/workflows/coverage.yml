@@ -13,5 +13,6 @@ jobs:
         if: always()
         run: make coverage_txt
       - uses: codecov/codecov-action@v3
+        if: always()
         with:
           files: coverage.txt
