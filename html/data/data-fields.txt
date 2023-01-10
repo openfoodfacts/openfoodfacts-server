@@ -74,7 +74,7 @@ traces_en
 
 serving_size : text describing the serving size
 serving_quantity :  : normalized serving size in grams or ml
-no_nutriments : indicates if the nutrition facts are indicated on the food label
+no_nutrition_data : When a product does not have nutrition data displayed on the packaging, the user can check the field "Nutrition facts are not specified on the product". By doing so, the no_nutrition_data field takes the value "on". This case is frequent (thousands of products)
 additives_n : number of food additives
 additives
 additives_tags

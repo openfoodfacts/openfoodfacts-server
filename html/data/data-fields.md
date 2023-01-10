@@ -94,7 +94,9 @@ The file encoding is Unicode UTF-8. The character that separates fields is <tab>
 
 - `serving_size` : text describing the serving size
 - `serving_quantity` : normalized serving size in grams or ml
-- `no_nutriments` : indicates if the nutrition facts are indicated on the food label
+- `no_nutrition_data`:
+  - When a product does not have nutrition data displayed on the packaging, the user can check the field "Nutrition facts are not specified on the product". By doing so, the no_nutrition_data field takes the value "on". This case is frequent (thousands of products)
+  - example: `on`
 - `additives_n` : number of food additives
 - `additives`
 - `additives_tags`:

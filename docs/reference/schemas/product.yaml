@@ -1316,6 +1316,13 @@ properties:
       type: string
   no_nutrition_data:
     type: string
+    description: |
+      When a product does not have nutrition data displayed on the 
+      packaging, the user can check the field "Nutrition facts are 
+      not specified on the product".
+      By doing so, the no_nutrition_data field takes the value "on".
+      This case is frequent (thousands of products).
+    example: "on"
   no_nutrition_data_imported:
     type: string
   nova_group:

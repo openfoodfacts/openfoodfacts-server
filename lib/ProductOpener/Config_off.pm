@@ -688,7 +688,7 @@ $options{categories_exempted_from_nutrient_levels} = [
 	traces
 	serving_size
 	serving_quantity
-	no_nutriments
+	no_nutrition_data
 	additives_n
 	additives
 	nutriscore_score
