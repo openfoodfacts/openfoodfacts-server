@@ -115,3 +115,4 @@ If the request is successful, it returns a response that indicates that the fiel
   "code": "0180411000803"
 }
 ```
+If the request is not successful you will have  a dict with an entry `"status": "status not ok"` and an explanation in `debug` field.
