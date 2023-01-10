@@ -188,6 +188,7 @@ Please see https://wiki.openfoodfacts.org/Nutrients_handling_in_Open_Food_Facts 
 - `-maltodextrins_100g`
 - `starch_100g`
 - `polyols_100g`
+- `-erythritol_100g`: erythritol is a polyol which is not providing any energy. As such, it needs not be taken into account when computing the energy of a product. Eryhtritol is now displayed on nutrition facts sheet of some products, mainly in the USA.
 - `fiber_100g`
 - `soluble-fiber_100g`
 - `insoluble-fiber_100g`

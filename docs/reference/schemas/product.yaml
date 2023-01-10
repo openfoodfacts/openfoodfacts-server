@@ -1430,6 +1430,33 @@ properties:
           (or 100ml for liquids) for energy expressed in 
           the unit specified in the field energy_unit.
         example: 190
+      erythritol:
+        type: integer
+        description: |
+          erythritol is a polyol which is not providing any energy. 
+          As such, it needs not be taken into account when computing 
+          the energy of a product. Eryhtritol is now displayed on 
+          nutrition facts sheet of some products, mainly in the USA.
+          This value is entered either by contributors, either by 
+          imports.
+        example: 4
+      erythritol_100g:
+        type: number
+        description: |
+          erythritol is a polyol which is not providing any energy. 
+          As such, it needs not be taken into account when computing 
+          the energy of a product. Eryhtritol is now displayed on 
+          nutrition facts sheet of some products, mainly in the USA.
+          This value per 100g is computed from erythritol, erythritol_unit,
+          and serving_size.
+        example: 12.5
+      erythritol_serving:
+        type: number
+      erythritol_unit:
+        type: string
+        example: "g"
+      erythritol_value:
+        type: number
       fat:
         type: number
       fat_100g:
