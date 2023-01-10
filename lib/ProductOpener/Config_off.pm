@@ -664,6 +664,7 @@ $options{categories_exempted_from_nutrient_levels} = [
 	creator
 	created_t
 	last_modified_t
+	last_modified_by
 	product_name
 	abbreviated_product_name
 	generic_name
