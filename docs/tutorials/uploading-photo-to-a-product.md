@@ -92,6 +92,7 @@ curl -XPOST -u off:off  https://world.openfoodfacts.net/cgi/product_image_upload
 ```
 
 If the request is successful, it returns a response that indicates that the fields have been saved.
+You will also get the new image id in `imgid`.
 
 ```json
 {
