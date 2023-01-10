@@ -56,6 +56,7 @@ BEGIN {
 		&get_products_tags_collection
 		&get_emb_codes_collection
 		&get_recent_changes_collection
+		&remove_documents_by_ids
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -212,6 +213,60 @@ sub get_mongodb_client ($timeout = undef) {
 	}
 
 	return $client;
+}
+
+
+=head2 remove_documents_by_ids($ids_to_remove_ref, $coll, $bulk_write_size=100)
+
+Efficiently removes a set of documents
+
+=head3 Arguments
+
+=head4 $ids_to_remove_ref - ref to list of ids to remove
+
+correspond to the _id field
+
+=head4 $coll - a document collection
+
+=head4 $bulk_write_size - how many concurrent deletion in bulk
+
+=head3 Return values
+
+Returns a hash with:
+<dl>
+  <dt>removed</dt>
+  <dd>int - number of effectively removed items</dd>
+  <dt>errors</dt>
+  <dd>ref to a list of errors</dd>
+</dl>
+=cut
+sub remove_documents_by_ids($ids_to_remove_ref, $coll, $bulk_write_size=100) {
+    my @ids_to_remove = (@$ids_to_remove_ref);  # copy the list because we will use splice
+
+    my @errors = ();
+
+    # remove found ids
+    my $removed = 0;
+    while (scalar @ids_to_remove) {
+        my @batch_ids = splice(@ids_to_remove, $bulk_write_size);
+        # try to do our best
+        eval {
+            # bulk write for efficiency but batched to avoid too much queries at a time
+            my $bulk = $coll->unordered_bulk;
+            foreach my $doc_id (@batch_ids) {
+                $bulk->find({_id => $doc_id})->remove();
+            }
+            # execute
+            my $bulk_result = $bulk->execute();
+            $removed += $bulk_result->deleted_count;
+        };
+        my $error = $@;
+        if ($error) {
+            push @errors, $error;
+        }
+    }
+
+    return {removed => $removed, errors => \@errors};
 }
 
 1;
