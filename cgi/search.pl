@@ -29,6 +29,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::HTTP qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
@@ -805,7 +806,8 @@ HTML
 
 			my $data = encode_json(\%response);
 
-			print "Content-Type: application/json; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . $data;
+			write_cors_headers();
+			print "Content-Type: application/json; charset=UTF-8\r\n\r\n" . $data;
 		}
 
 		if (single_param('search_terms')) {
