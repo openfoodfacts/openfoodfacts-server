@@ -24,7 +24,9 @@ In case you upload more than one photo of the front, the ingredients and the nut
 
 ### Label Languages
 
-Multilingual products have several photos based on languages present on the packaging. You can specify the language by adding a lang code suffix to the request.
+Multilingual products have several photos based on languages present on the packaging. You can specify the language by adding a lang code suffix to the image field.
+
+See [the paragraph about Imagefield](#imagefield)
 
 ## Authentication
 
