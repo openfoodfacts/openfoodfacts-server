@@ -5,6 +5,15 @@ This basic tutorial shows you can upload image of a product to the Open Food Fac
 
 ## Points to consider before uploading photos
 
+### Image license
+
+Products images MUST be under the [Creative Commons Attribution ShareAlike licence](https://creativecommons.org/licenses/by-sa/3.0/deed.en)(https://creativecommons.org/licenses/by-sa/3.0/deed.en).
+
+That means you should either upload: 
+* photos that are your own work
+* photos taken by your users, with their consent for this license (should be part of your service terms)
+* photos already under this license or a more liberal one
+
 ### Image Quality
 
 Uploading quality photos of a product, its ingredients and nutrition table is very important, since it allows the Open Food Facts OCR system to retrieve important data to analyze the product. The minimal allowed size for photos is 640 x 160 px.
