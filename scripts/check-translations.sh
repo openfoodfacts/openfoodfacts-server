@@ -24,9 +24,27 @@ do
     then
         ERRORS=`expr $ERRORS + 1`
         echo "contains errors!"
-    else
-        echo "ok"
     fi
+    while read -r line
+    do
+        if [[ $line =~ ^msgid ]]
+        then
+            msgid=$line
+        elif [[ $line =~ ^msgstr ]]
+        then
+            msgstr=$line
+            # Count the number of %s placeholders in the msgid and msgstr lines
+            msgid_placeholders=$(echo "$msgid" | grep -o "%s" | wc -l)
+            msgstr_placeholders=$(echo "$msgstr" | grep -o "%s" | wc -l)
+            if [ $msgid_placeholders -ne $msgstr_placeholders ]
+            then
+                ERRORS=`expr $ERRORS + 1`
+                echo "ERROR: The number of placeholders in the msgid and msgstr lines are different."
+                echo "msgid: $msgid"
+                echo "msgstr: $msgstr"
+            fi
+        fi
+    done < "$filename"
 done
 echo ""
 if [ $ERRORS -gt 0 ]; then
