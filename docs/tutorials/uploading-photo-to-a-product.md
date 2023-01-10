@@ -48,7 +48,9 @@ You can also specify the language present in that image by adding a suffix of th
 
 ### ImageUpload
 
-The `imageupload` field is dependent on the `imagefield`. It wil be imgupload_the value of the imagefield stated earlier. The value is the image file.
+This is the field that must contains the binary content of the image.
+
+The field name is dependent on  `imagefield`. It must be `imgupload_` suffixed by the value of the `imagefield` stated earlier.
 
 - imgupload_front (if imagefield=front)
 - imgupload_ingredients_fr (if imagefield=ingredients_fr)
