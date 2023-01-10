@@ -208,6 +208,11 @@ label_categories:en: en:Animal welfare
 nl:Beter Leven 3 ster, Beter Leven 3 sterren
 label_categories:en: en:Animal welfare
 
+en:RSPCA Assured
+label_categories:en: en:Animal welfare
+
+en:Bord Bia Quality Assurance
+
 en:Free range
 bg:Свободно отглеждане
 ca:Rang lliure
@@ -2259,6 +2264,11 @@ wikidata:en:Q17000991
 country:en:Australia
 origins:en: en:Australia
 label_categories:en: en:Geographic label
+# TODO: we need special support https://hunger.openfoodfacts.org/logos?logo_id=3291469&count=50
+# en:Made in Australia from at least 99% Australian ingredients
+# Made in Australia from at least 96% Australian ingredients
+# Made in Australia from at least 93% Australian ingredients
+
 
 en:Made in Bulgaria
 bg:Произведено в България
@@ -2741,6 +2751,14 @@ nl:Zonder kunstmatige toevoegingen
 pt:Sem aditivos artificiais
 label_categories:en: en:Health, en:Additives
 
+se:Ä-märket
+xx:Ä-märket
+label_categories:en: en:Health, en:Additives
+image:se:a-market.141x90.png
+country:en:Sweden
+description:en:No E (additives) numbers (except baking powder and fruit pectin), No flavoring agents except extracts, No industrial ingredients that are not traditionally included in the food. Examples: modified starch, yeast extract, bamboo fibres, No added vitamins or other added nutrients.
+web:se:https://miljomarkningar.se/a-market/
+
 #instruction:en:Do NOT change the english key.
 en:No alcohol, alcohol-free, without alcohol
 bg:Без алкохол
@@ -3162,6 +3180,7 @@ xx:Ohne Gentechnik hergestellt, ARGE Gentechnik-frei
 
 <en:No GMOs
 <fr:Soja Français
+en:French soy without GMOs
 fr:Soja Français sans OGM, Soja Français garanti sans OGM
 origins:en: en:france
 
@@ -3354,14 +3373,17 @@ opposite:en: en:no-soy
 #instruction:en:Do NOT change the english key.
 en:No garlic
 nl:Zonder knoflook, geen knoflook, knoflookvrij
+fr:Sans ail
 
 #instruction:en:Do NOT change the english key.
 en:No onion, onion free
 nl:Zonder ui, geen ui, uivrij
+fr:Sans onion
 
 #instruction:en:Do NOT change the english key.
 <en:No garlic
 en:No garlic or onion, no onion or garlic
+fr:Ni ail ni onion
 
 en:Certified by Ecocert, Ecocert
 bg:Ecocert, Сертифицирано от Ecocert
@@ -3402,14 +3424,27 @@ pt:Certificado pela Certipaq
 label_categories:en: en:Certification
 
 en:Certified by Qualisud
+ca:Certificat per Qualisud
 fi:Qualisudin sertifioima
 fr:Certifié par Qualisud, Certifiés par Qualisud, Qualisud
 it:Certificato da Qualisud
 pt:Certificado pela Qualisud
 label_categories:en: en:Certification
 
+en:Certified by Agrocert
+ca:Certificat per Agrocert
+fi:Agrocertin sertifioima
+fr:Certifié par Agrocert, Certifiés par Agrocert, Agrocert
+it:Certificato da Agrocert
+pt:Certificado pela Agrocert
+label_categories:en: en:Certification
 
+en:Certified by Veritas
+ca:Certificat per Veritas
+fi:Veritasin sertifioima
 fr:Certifié par bureau Veritas, Certifié par Veritas
+it:Certificato da Veritas
+pt:Certificado pela Veritas
 label_categories:en: en:Certification
 
 <fr:Certifié par bureau Veritas
@@ -3429,12 +3464,14 @@ it:Certificato da Ocacia
 label_categories:en: en:Certification
 
 en:Certified by Avicert
+ca:Certificat per Avicert
 fi:Avicertin sertifioima
 fr:Certifié par Avicert, Avicert
 nl:Gecertificeerd door Avicert
 label_categories:en: en:Certification
 
 en:Certified by Certisys
+ca:Certificat per Certisys
 fi:Certisysin sertifioima
 fr:Certifié par Certisys, Certisys
 it:Certificato da Certisys
@@ -3442,6 +3479,7 @@ nl:Gecertificeerd door Certisys
 label_categories:en: en:Certification
 
 en:Certified by Certiconfiance
+ca:Certificat per Certiconfiance
 fi:Certificonfiancen sertifioima
 fr:Certifié par Certiconfiance, Certiconfiance
 it:Certificato da Certiconfiance
@@ -19213,6 +19251,101 @@ nl:Nutriscore E
 xx:Nutriscore E
 label_categories:en: en:Nutrition Grades, en:Health
 
+es:EXCESO CALORÍAS
+description:en:Products must display the EXCESO CALORÍAS seal if they exceed the following threshold for Calories: > 275 kcal total per 100g of solid product > 70 kcal total or > 10 kcal added sugars per 100 mL of liquid product
+label_categories:en: en:Nutrition Grades, en:Health
+
+es:EXCESO GRASA TRANS
+description:en:Products must display the EXCESO GRASA TRANS seal if they exceed the following threshold for Trans Fat: ≥1% total kcal from trans fats
+label_categories:en: en:Nutrition Grades, en:Health
+
+es:EXCESO AZÚCARES
+description:en:Products must display the EXCESO AZÚCARES seal if they exceed the following threshold for Added Sugars: >10% total kcal from added sugars per 100g or solid or 100 mL of liquid product (beverages with < 10 kcal added sugars are exempt and do not require a warning symbol.)
+label_categories:en: en:Nutrition Grades, en:Health
+
+es:EXCESO GRASAS SATURADAS
+description:en:Products must display the EXCESO GRASAS SATURADAS seal if they exceed the following threshold for Saturated Fat: ≥10% total kcal from saturated fats
+label_categories:en: en:Nutrition Grades, en:Health
+
+es:EXCESO SODIO
+label_categories:en: en:Nutrition Grades, en:Health
+description:en:Products must display the EXCESO SODIO icon if they exceed either of the following thresholds for Sodium: ≥350 mg per 100g of solid product or 100 mL of liquid product OR ≥45 mg per 100 mL of calorie-free beverages
+
+es:1 SELLO
+label_categories:en: en:Nutrition Grades, en:Health
+description:en:Products with a primary display area of ≤ 5 cm² must include one sign with a number that indicates how many nutrients exceed the recommended threshold.
+
+es:2 SELLOS
+label_categories:en: en:Nutrition Grades, en:Health
+description:en:Products with a primary display area of ≤ 5 cm² must include one sign with a number that indicates how many nutrients exceed the recommended threshold.
+
+es:3 SELLOS
+label_categories:en: en:Nutrition Grades, en:Health
+description:en:Products with a primary display area of ≤ 5 cm² must include one sign with a number that indicates how many nutrients exceed the recommended threshold.
+
+es:4 SELLOS
+label_categories:en: en:Nutrition Grades, en:Health
+description:en:Products with a primary display area of ≤ 5 cm² must include one sign with a number that indicates how many nutrients exceed the recommended threshold.
+
+es:5 SELLOS
+label_categories:en: en:Nutrition Grades, en:Health
+description:en:Products with a primary display area of ≤ 5 cm² must include one sign with a number that indicates how many nutrients exceed the recommended threshold.
+
+es:CONTIENE CAFEÍNA — EVITAR EN NIÑOS
+description:en:Products that contain caffeine must include the warning “CONTIENE CAFEÍNA — EVITAR EN NIÑOS”
+label_categories:en: en:Health
+
+es:CONTIENE EDULCORANTES - NO RECOMENDABLE EN NIÑOS
+description:en:Products that contain sweeteners (“substances different from mono- and disaccharides that provide sweet flavor to products”) must display the warning “CONTIENE EDULCORANTES, NO RECOMENDABLE EN NIÑOS”
+label_categories:en: en:Health
+
+en:Health Star Rating, Health Star Rating System, HSR
+it:Health Star Rating, Health Star Rating System, HSR
+xx:Health Star Rating, Health Star Rating System, HSR
+wikidata:en:Q85846088
+label_categories:en: en:Nutrition Grades
+countries_where_sold:en: en:Australia
+
+<en:Health Star Rating
+en:Health Star Rating 0.5
+xx:Health Star Rating 0.5
+
+<en:Health Star Rating
+en:Health Star Rating 1
+xx:Health Star Rating 1
+
+<en:Health Star Rating
+en:Health Star Rating 1.5
+xx:Health Star Rating 1.5
+
+<en:Health Star Rating
+en:Health Star Rating 2
+xx:Health Star Rating 2
+
+<en:Health Star Rating
+en:Health Star Rating 2.5
+xx:Health Star Rating 2.5
+
+<en:Health Star Rating
+en:Health Star Rating 3
+xx:Health Star Rating 3
+
+<en:Health Star Rating
+en:Health Star Rating 3.5
+xx:Health Star Rating 3.5
+
+<en:Health Star Rating
+en:Health Star Rating 4
+xx:Health Star Rating 4
+
+<en:Health Star Rating
+en:Health Star Rating 4.5
+xx:Health Star Rating 4.5
+
+<en:Health Star Rating
+en:Health Star Rating 5
+xx:Health Star Rating 5
+
 fr:Indication géographique protégée de la République populaire de Chine, IGPRPC
 zh:中国地理标志
 wikidata:en:Q3150362
@@ -19569,53 +19702,6 @@ fr:produit pasteurisé
 hu:pasztőrözött termék
 it:Prodotto pastorizzato
 nl:gepasteuriseerd product
-
-en:Health Star Rating, Health Star Rating System, HSR
-it:Health Star Rating, Health Star Rating System, HSR
-xx:Health Star Rating, Health Star Rating System, HSR
-wikidata:en:Q85846088
-label_categories:en: en:Nutrition Grades
-countries_where_sold:en: en:Australia
-
-<en:Health Star Rating
-en:Health Star Rating 0.5
-xx:Health Star Rating 0.5
-
-<en:Health Star Rating
-en:Health Star Rating 1
-xx:Health Star Rating 1
-
-<en:Health Star Rating
-en:Health Star Rating 1.5
-xx:Health Star Rating 1.5
-
-<en:Health Star Rating
-en:Health Star Rating 2
-xx:Health Star Rating 2
-
-<en:Health Star Rating
-en:Health Star Rating 2.5
-xx:Health Star Rating 2.5
-
-<en:Health Star Rating
-en:Health Star Rating 3
-xx:Health Star Rating 3
-
-<en:Health Star Rating
-en:Health Star Rating 3.5
-xx:Health Star Rating 3.5
-
-<en:Health Star Rating
-en:Health Star Rating 4
-xx:Health Star Rating 4
-
-<en:Health Star Rating
-en:Health Star Rating 4.5
-xx:Health Star Rating 4.5
-
-<en:Health Star Rating
-en:Health Star Rating 5
-xx:Health Star Rating 5
 
 fr:Haute Valeur Environnementale, HVE
 xx:Haute Valeur Environnementale, HVE

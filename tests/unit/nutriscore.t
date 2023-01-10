@@ -103,6 +103,42 @@ my @tests = (
 		}
 	],
 
+	# if no sugar but carbohydrates is 0, consider sugar 0
+	[
+		"sunflower-oil-no-sugar",
+		{
+			lc => "en",
+			categories => "sunflower oils",
+			nutriments => {
+				energy_100g => 3378,
+				fat_100g => 100,
+				"saturated-fat_100g" => 10,
+				carbohydrates_100g => 0,
+				sodium_100g => 0,
+				fiber_100g => 0,
+				proteins_100g => 0
+			}
+		}
+	],
+
+	# if no sugar but carbohydrates is 0, consider sugar 0
+	# still saturated fat missing will block
+	[
+		"sunflower-oil-no-sugar-no-sat-fat",
+		{
+			lc => "en",
+			categories => "sunflower oils",
+			nutriments => {
+				energy_100g => 3378,
+				fat_100g => 100,
+				carbohydrates_100g => 0,
+				sodium_100g => 0,
+				fiber_100g => 0,
+				proteins_100g => 0
+			}
+		}
+	],
+
 	# saturated fat 1.03 should be rounded to 1.0 which is not strictly greater than 1.0
 	[
 		"breakfast-cereals",
@@ -191,6 +227,7 @@ my @tests = (
 			ingredients_text => "Fresh milk 80%, sugar"
 		}
 	],
+
 	[
 		"dairy-drink-with-less-than-80-percent-milk",
 		{
@@ -244,6 +281,25 @@ my @tests = (
 				sodium_100g => 0.2,
 				fiber_100g => 1.1,
 				proteins_100g => 0.9
+			},
+		}
+
+	],
+
+	# if fat is 0 and we have no saturated fat, we consider it 0
+	[
+		"fr-orange-nectar-0-fat",
+		{
+			lc => "en",
+			categories => "fruit-nectar",
+			ingredients_text => "Orange 47%, Water, Sugar, Carrots 10%",
+			nutriments => {
+				energy_100g => 250,
+				fat_100g => 0,
+				sugars_100g => 12,
+				sodium_100g => 0.2,
+				fiber_100g => 0,
+				proteins_100g => 0.5
 			},
 		}
 
