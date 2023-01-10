@@ -38,3 +38,13 @@ add_categories
 add_labels
 add_brands
 ```
+
+## Search for Products
+
+### Get data for a list of products.
+
+You can use comma to seperate multiple values of a query paremeter. This allows you to make bulk requests. The product result can also be limited to specified data using `fields`.
+
+```text
+https://world.openfoodfacts.org/api/v2/search?code=3263859883713,8437011606013,6111069000451&fields=code,product_name
+```
