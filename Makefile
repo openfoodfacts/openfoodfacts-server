@@ -135,8 +135,11 @@ tail:
 	tail -f logs/**/*
 
 cover:
- 	@echo "🥫 running …"
- 	${DOCKER_COMPOSE_TEST} run --rm backend perl -MDevel::Cover tests/unit/*.t
+	@echo "🥫 running …"
+	${DOCKER_COMPOSE_TEST} run --rm backend perl -MDevel::Cover tests/unit/*.t
+
+coverage_txt:
+	${DOCKER_COMPOSE_TEST} run --rm backend cover > coverage.txt
 
 #----------#
 # Services #
