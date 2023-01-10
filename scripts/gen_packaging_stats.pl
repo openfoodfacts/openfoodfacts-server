@@ -76,13 +76,15 @@ my $quiet;
 GetOptions("quiet" => \$quiet)
 	or die("Error in command line arguments: use --quiet to silence progress messages");
 
-=head2 add_product_to_stats($packagings_stats_ref, $product_ref)
+=head2 add_product_to_stats($name, $packagings_stats_ref, $product_ref)
 
 Add data from all packagings of a product to stats for all its countries and categories combinations.
 
+When $name is "packagings-with-weights", we store stats for weights, otherwise, we store only the number of products.
+
 =cut
 
-sub add_product_to_stats ($packagings_stats_ref, $product_ref) {
+sub add_product_to_stats ($name, $packagings_stats_ref, $product_ref) {
 
 	# Generate stats for all countries + en:world (products from all countries)
 	# add a virtual en:world country to every products
@@ -105,15 +107,17 @@ sub add_product_to_stats ($packagings_stats_ref, $product_ref) {
 	foreach my $packaging_ref (@{$product_ref->{packagings}}) {
 		my $shape = $packaging_ref->{shape} || "en:unknown";
 		my $material = $packaging_ref->{material} || "en:unknown";
+		my $weight = $packaging_ref->{weight_measured};
 
 		my @shape_parents = gen_tags_hierarchy_taxonomy("en", "packaging_shapes", $shape);
 		my @material_parents = gen_tags_hierarchy_taxonomy("en", "packaging_materials", $material);
 
-        # We will generate stats for both shapes and shapes parents
-        my @shape_or_shape_parents = (
-            ["shape", [$shape, "all"]],
-            ["shape_parents", [@shape_parents, "all"]]
-        );
+		# We will generate stats for both shapes and shapes parents
+		my @shapes_or_shapes_parents = (["shapes", [$shape, "all"]], ["shapes_parents", [@shape_parents, "all"]]);
+
+		# We will generate stats for both materials and materials parents
+		my @materials_or_materials_parents
+			= (["materials", [$material, "all"]], ["materials_parents", [@material_parents, "all"]]);
 
 		# Go through all countries
 		foreach my $country (@{$product_ref->{countries_tags}}) {
@@ -121,30 +125,104 @@ sub add_product_to_stats ($packagings_stats_ref, $product_ref) {
 			# Go through all categories (note: the product categories already contain all parent categories)
 			foreach my $category (@{$product_ref->{categories_tags}}) {
 
-                foreach my $shape_or_shape_parents_ref (@shape_or_shape_parents) {
-                    my ($shape_or_shape_parents, $shapes_ref) = @$shape_or_shape_parents_ref;
+				# Compute stats for shapes + shapes parents
+				foreach my $shapes_or_shapes_parents_ref (@shapes_or_shapes_parents) {
+					my ($shapes_or_shapes_parents, $shapes_ref) = @$shapes_or_shapes_parents_ref;
 
-                    foreach my $shape_value (@$shapes_ref) {
-                        foreach my $material_value ($material, "all") {
-                            deep_val($packagings_stats_ref,
-                                ("countries", $country, "categories", $category, $shape_or_shape_parents, $shape_value, "materials", $material_value))
-                        += 1;
-                        }
+					foreach my $shape_value (@$shapes_ref) {
 
-                        # Also add stats to parent materials
-                        foreach my $material_parent_value (@material_parents, "all") {
-                            deep_val(
-                                $packagings_stats_ref,
-                                (
-                                    "countries", $country, "categories", $category,
-                                    $shape_or_shape_parents, $shape_value, "materials_parents", $material_parent_value
-                                )
-                            ) += 1;
-                        }
-                    }                    
-                }
+						# Compute stats for materials + materials parents
+						foreach my $materials_or_materials_parents_ref (@materials_or_materials_parents) {
+							my ($materials_or_materials_parents, $materials_ref) = @$materials_or_materials_parents_ref;
+
+							foreach my $material_value (@$materials_ref) {
+
+								deep_val(
+									$packagings_stats_ref,
+									(
+										"countries", $country,
+										"categories", $category,
+										$shapes_or_shapes_parents, $shape_value,
+										$materials_or_materials_parents, $material_value,
+										"n"
+									)
+								) += 1;
+								if (($name eq "packagings-with-weights") and (defined $weight)) {
+									deep_val(
+										$packagings_stats_ref,
+										(
+											"countries", $country,
+											"categories", $category,
+											$shapes_or_shapes_parents, $shape_value,
+											$materials_or_materials_parents, $material_value,
+											"weights", "values"
+										)
+									) .= $weight . ',';
+								}
+							}
+						}
+					}
+				}
 			}
 		}
+	}
+
+	return;
+}
+
+=head2 compute_stats_for_all_weights ($packagings_stats_ref)
+
+Add data from all packagings of a product to stats for all its countries and categories combinations.
+
+=cut
+
+sub compute_stats_for_all_weights ($packagings_stats_ref) {
+
+	# Individual weights are stored in a nested hash with this structure:
+	# ("countries", $country, "categories", $category, $shapes_or_shapes_parents, $shape_value, $materials_or_materials_parents, $material_value, "weights", "values"))
+
+	foreach my $country_ref (values %{$packagings_stats_ref->{countries}}) {
+		foreach my $category_ref (values %{$country_ref->{categories}}) {
+			foreach my $shapes_or_shapes_parents_ref (values %$category_ref) {
+				foreach my $shape_ref (values %$shapes_or_shapes_parents_ref) {
+					foreach my $materials_or_materials_parents_ref (values %$shape_ref) {
+						foreach my $material_ref (values %$materials_or_materials_parents_ref) {
+							if (defined $material_ref->{weights}) {
+								compute_stats_for_weights($material_ref->{weights});
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	return;
+}
+
+=head2 compute_stats_for_weights ($weights_ref)
+
+Compute stats for weight values passed in $weights_ref->{values} in comma delimited format
+
+=cut
+
+sub compute_stats_for_weights ($weights_ref) {
+
+	# Remove trailing comma
+	$weights_ref->{values} =~ s/,$//;
+	# Turn to array
+	$weights_ref->{values} = [split(/,/, $weights_ref->{values})];
+
+	$weights_ref->{n} = 0;
+	$weights_ref->{sum} = 0;
+
+	foreach my $value (@{$weights_ref->{values}}) {
+		$weights_ref->{n}++;
+		$weights_ref->{sum} += $value;
+	}
+
+	if ($weights_ref->{n} > 0) {
+		$weights_ref->{mean} = $weights_ref->{sum} / $weights_ref->{n};
 	}
 
 	return;
@@ -183,10 +261,17 @@ sub store_stats ($name, $packagings_stats_ref) {
 		close($JSON);
 	}
 
-    # special export for French yogurts for the "What's around my yogurt?" operation in January 2023
-    # https://fr.openfoodfacts.org/categorie/desserts-lactes-fermentes/misc/en:packagings-with-weights
-    if (open(my $JSON, ">", "$www_root/data/categories_stats/categories_packagings_stats.fr.fermented-dairy-desserts.$name.json")) {
-		print $JSON encode_json($packagings_stats_ref->{countries}{"en:france"}{categories}{"en:fermented-dairy-desserts"});
+	# special export for French yogurts for the "What's around my yogurt?" operation in January 2023
+	# https://fr.openfoodfacts.org/categorie/desserts-lactes-fermentes/misc/en:packagings-with-weights
+	if (
+		open(
+			my $JSON, ">",
+			"$www_root/data/categories_stats/categories_packagings_stats.fr.fermented-dairy-desserts.$name.json"
+		)
+		)
+	{
+		print $JSON encode_json(
+			$packagings_stats_ref->{countries}{"en:france"}{categories}{"en:fermented-dairy-desserts"});
 		close($JSON);
 	}
 
@@ -244,7 +329,12 @@ sub generate_packaging_stats_for_query ($name, $query_ref) {
 			$quiet or print STDERR "$name: $total / $products_count processed\n";
 		}
 
-		add_product_to_stats($packagings_stats_ref, $product_ref);
+		add_product_to_stats($name, $packagings_stats_ref, $product_ref);
+	}
+
+	# Compute stats for weights
+	if ($name eq "packagings-with-weights") {
+		compute_stats_for_all_weights($packagings_stats_ref);
 	}
 
 	store_stats($name, $packagings_stats_ref);
