@@ -10,6 +10,7 @@ jobs:
       - name: generate coverage results
         run: make cover
       - name: generate text file with results
+        if: always()
         run: make coverage_txt
       - uses: codecov/codecov-action@v3
         with:
