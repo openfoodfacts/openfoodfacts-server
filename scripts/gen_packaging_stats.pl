@@ -109,42 +109,40 @@ sub add_product_to_stats ($packagings_stats_ref, $product_ref) {
 		my @shape_parents = gen_tags_hierarchy_taxonomy("en", "packaging_shapes", $shape);
 		my @material_parents = gen_tags_hierarchy_taxonomy("en", "packaging_materials", $material);
 
+        # We will generate stats for both shapes and shapes parents
+        my @shape_or_shape_parents = (
+            ["shape", [$shape, "all"]],
+            ["shape_parents", [@shape_parents, "all"]]
+        );
+
 		# Go through all countries
 		foreach my $country (@{$product_ref->{countries_tags}}) {
 
-			# Go through all categories
+			# Go through all categories (note: the product categories already contain all parent categories)
 			foreach my $category (@{$product_ref->{categories_tags}}) {
 
-				deep_val($packagings_stats_ref,
-					("countries", $country, "categories", $category, "shapes", $shape, "materials", $material))
-					+= 1;
-				deep_val($packagings_stats_ref,
-					("countries", $country, "categories", $category, "shapes", "all", "materials", $material))
-					+= 1;
-				deep_val($packagings_stats_ref,
-					("countries", $country, "categories", $category, "shapes", $shape, "materials", "all"))
-					+= 1;
-				deep_val($packagings_stats_ref,
-					("countries", $country, "categories", $category, "shapes", "all", "materials", "all"))
-					+= 1;
+                foreach my $shape_or_shape_parents_ref (@shape_or_shape_parents) {
+                    my ($shape_or_shape_parents, $shapes_ref) = @$shape_or_shape_parents_ref;
 
-				# Also add stats to parent materials
-				foreach my $material_parent (@material_parents, "all") {
-					deep_val(
-						$packagings_stats_ref,
-						(
-							"countries", $country, "categories", $category,
-							"shapes", $shape, "materials_parents", $material_parent
-						)
-					) += 1;
-					deep_val(
-						$packagings_stats_ref,
-						(
-							"countries", $country, "categories", $category,
-							"shapes", "all", "materials_parents", $material_parent
-						)
-					) += 1;
-				}
+                    foreach my $shape_value (@$shapes_ref) {
+                        foreach my $material_value ($material, "all") {
+                            deep_val($packagings_stats_ref,
+                                ("countries", $country, "categories", $category, $shape_or_shape_parents, $shape_value, "materials", $material_value))
+                        += 1;
+                        }
+
+                        # Also add stats to parent materials
+                        foreach my $material_parent_value (@material_parents, "all") {
+                            deep_val(
+                                $packagings_stats_ref,
+                                (
+                                    "countries", $country, "categories", $category,
+                                    $shape_or_shape_parents, $shape_value, "materials_parents", $material_parent_value
+                                )
+                            ) += 1;
+                        }
+                    }                    
+                }
 			}
 		}
 	}
@@ -182,6 +180,13 @@ sub store_stats ($name, $packagings_stats_ref) {
 	binmode STDOUT, ":encoding(UTF-8)";
 	if (open(my $JSON, ">", "$www_root/data/categories_stats/categories_packagings_stats.$name.json")) {
 		print $JSON encode_json($packagings_stats_ref);
+		close($JSON);
+	}
+
+    # special export for French yogurts for the "What's around my yogurt?" operation in January 2023
+    # https://fr.openfoodfacts.org/categorie/desserts-lactes-fermentes/misc/en:packagings-with-weights
+    if (open(my $JSON, ">", "$www_root/data/categories_stats/categories_packagings_stats.fr.fermented-dairy-desserts.$name.json")) {
+		print $JSON encode_json($packagings_stats_ref->{countries}{"en:france"}{categories}{"en:fermented-dairy-desserts"});
 		close($JSON);
 	}
 
