@@ -1,4 +1,4 @@
-# Uploading Images to the OFF API
+# Uploading Images to the Open Food Facts API
 <!--Add a brief introduction of what the tutorial does -->
 
 This basic tutorial shows you can upload image of a product to the Open Food Facts API.
