@@ -10,4 +10,4 @@ jobs:
       - uses: codecov/codecov-action@v3
         with:
           token: 8b34c879-d5ef-4e40-aa8f-e3990c57b4bc # not required for public repos
-          files: random.txt
+          files: coverage.txt
