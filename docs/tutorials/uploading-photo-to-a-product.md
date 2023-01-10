@@ -83,12 +83,12 @@ To add a new image for ingredients in English  to *100% Real Orange Juice*, the 
 | imagefield | ingredients_en      |    The type of image to be uploaded|
 | imgupload_ingredients_en | file     |   The binary content of the image of the product ingredients in english |
 
-Using curl:
+If the image is in the `images/real-orange-juice-ingredients.jpg`, we can use curl (thanks to the special '@' attributes, which enables reading from a file):
 
 ```bash
-curl -XPOST -u off:off -x POST https://world.openfoodfacts.net/cgi/product_jqm2.pl \
+curl -XPOST -u off:off  https://world.openfoodfacts.net/cgi/product_image_upload.pl \
   -F user_id=your_user_id -F password=your_password \
-  -F code=0180411000803 -F imagefield=ingredients_en -F imageupload_ingredients_en=<binary>"
+  -F code=0180411000803 -F imagefield=ingredients_en -F imgupload_ingredients_en=@images/real-orange-juice-ingredients.jpg
 ```
 
 If the request is successful, it returns a response that indicates that the fields have been saved.
