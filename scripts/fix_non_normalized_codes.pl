@@ -112,29 +112,69 @@ sub fix_non_normalized_sto($product_path, $dry_run, $out) {
 }
 
 sub remove_int_barcode_mongo($dry_run, $out) {
-	# a non str code is to be removed !
-
-	# it's better we do it with a specific queries as it's hard to keep "integer" as integers in perl
-    my $query_ref = {};
-    $query_ref->{'code'} = {'$not' => {'$type' => 'string'}};
+	# a product with a non str code is to be removed if it already exists as str version
+    # or moved to a str version
 
     # 2 mins, instead of 30s default, to not die as easily if mongodb is busy.
     my $socket_timeout_ms = 2 * 60000;
     my $products_collection = get_products_collection($socket_timeout_ms);
-    my $count = $products_collection->count_documents($query_ref);
-    if ($count) {
-        print ($out "$count items with non string code will be removed.\n") unless !$out;
-        if (!$dry_run) {
-            $products_collection->delete_many($query_ref);
+
+    # find int codes
+    my @int_ids = ();
+    # it's better we do it with a specific queries as it's hard to keep "integer" as integers in perl
+    my $cursor = $products_collection->query(
+		{'code' => {'$not' => {'$type' => 'string'}}}
+    )->fields({_id => 1, code => 1});
+    $cursor->immortal(1);
+    while (my $product_ref = $cursor->next) {
+        push(@int_ids, $product_ref->{_id});
+    }
+
+    # yet we must first verify the str version of the document exists
+	# search if some of them do not have an equivalent with str value
+    my @str_ids = map { "$_" } @int_ids;
+    my %already_indexed = ();
+    $cursor = $products_collection->query(
+        {code => {'$type' => 'string', '$in' => \@str_ids}}
+    )->fields({_id => 1, code => 1});
+    $cursor->immortal(1);
+    while (my $product_ref = $cursor->next) {
+        $already_indexed{$product_ref->{_id}} = 1;
+    }
+    # those who are already_indexed should be removed
+    my @to_remove = keys %already_indexed;
+    # the other should be moved to str
+    my @to_move = grep { undef $already_indexed{$_ } } @str_ids;
+
+    my $remove_count = scalar @to_remove;
+    my $move_count = scalar @to_move;
+
+    print $out "Removing $remove_count int codes and moving $move_count\n" unless !($remove_count || $move_count);
+
+    if (!$dry_run) {
+        if (scalar @to_remove) {
+            remove_documents_by_ids(\@to_remove, $products_collection);
+        }
+        if (scalar @to_move) {
+            my %ops_by_ids = ();
+            foreach my $id_ (@to_move) {
+                # update document to have a str code
+                my $id_=$_;
+                $ops_by_ids{"$id_"} = {
+                    '$set' => {'code' => "$id_"}
+                };
+            }
+            bulk_update_by_ids(\%ops_by_ids, $products_collection);
         }
     }
-    return $count;
+
+    return;
 }
 
 
-# fix non normalized codes in mongodb
+# remove non normalized codes in mongodb
 # this is to be run after fix_non_normalized_sto so that we simply erase bogus entries
-sub fix_non_normalized_mongo($dry_run, $out) {
+sub remove_non_normalized_mongo($dry_run, $out) {
 	# iterate all codes an verify they are normalized
     # we could try to find them with a query but that would mean changes if normalize_code changes
     # which would be a maintenance burden
@@ -187,4 +227,4 @@ my $product_path = "$data_root/products";
 fix_non_normalized_sto($product_path, $dry_run, \*STDOUT);
 # now that we don't have any non normalized codes on filesystem, we can fix Mongodb
 remove_int_barcode_mongo($dry_run, \*STDOUT);
-fix_non_normalized_mongo($dry_run, \*STDOUT);
+remove_non_normalized_mongo($dry_run, \*STDOUT);

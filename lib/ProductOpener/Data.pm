@@ -228,7 +228,7 @@ correspond to the _id field
 
 =head4 $coll - a document collection
 
-=head4 $bulk_write_size - how many concurrent deletion in bulk
+=head4 $bulk_size - how many concurrent deletion in a bulk
 
 =head3 Return values
 
@@ -247,26 +247,75 @@ sub remove_documents_by_ids($ids_to_remove_ref, $coll, $bulk_write_size=100) {
 
     # remove found ids
     my $removed = 0;
+	# prepare a bulk operation, with one operation per slice
+	my $bulk = $coll->unordered_bulk;
     while (scalar @ids_to_remove) {
         my @batch_ids = splice(@ids_to_remove, $bulk_write_size);
-        # try to do our best
-        eval {
-            # bulk write for efficiency but batched to avoid too much queries at a time
-            my $bulk = $coll->unordered_bulk;
-            foreach my $doc_id (@batch_ids) {
-                $bulk->find({_id => $doc_id})->remove();
-            }
-            # execute
-            my $bulk_result = $bulk->execute();
-            $removed += $bulk_result->deleted_count;
-        };
-        my $error = $@;
-        if ($error) {
-            push @errors, $error;
-        }
-    }
+		$bulk->find({_id => {'$in' => \@batch_ids}})->delete_many();
+	}
+	# try to do our best
+	eval {
+		# execute
+		my $bulk_result = $bulk->execute();
+		$removed += $bulk_result->deleted_count;
+	};
+	my $error = $@;
+	if ($error) {
+		push @errors, $error;
+	}
 
     return {removed => $removed, errors => \@errors};
+}
+
+
+=head2 bulk_update_by_ids($updates_ref, $coll)
+
+Efficiently updates a set of documents
+
+=head3 Arguments
+
+=head4 $updates_ref - ref to a hashmap
+
+The key correspond to a _id of a document, the value is a $set operations
+
+=head4 $coll - a document collection
+
+=head4 $bulk_size - how many concurrent deletion in a bulk
+
+=head3 Return values
+
+Returns a hash with:
+<dl>
+  <dt>updated</dt>
+  <dd>int - number of effectively updated items</dd>
+  <dt>errors</dt>
+  <dd>ref to a list of errors</dd>
+</dl>
+=cut
+sub bulk_update_by_ids($updates_ref, $coll) {
+
+    my @errors = ();
+
+    # remove found ids
+    my $updated = 0;
+	# prepare a bulk operation, with one operation per slice
+	my $bulk = $coll->unordered_bulk;
+	foreach my $id_ (keys %{$updates_ref}) {
+		my $op = $updates_ref->{$id_};
+		$bulk->find({_id => $id_})->update($op);
+	}
+	# try to do our best
+	eval {
+		# execute
+		my $bulk_result = $bulk->execute();
+		$updated += $bulk_result->modified_count;
+	};
+	my $error = $@;
+	if ($error) {
+		push @errors, $error;
+	}
+
+    return {updated => $updated, errors => \@errors};
 }
 
 1;
