@@ -6,8 +6,11 @@ jobs:
     name: unit test coverage
     runs-on: ubuntu-latest
     steps:
+      - name: generate coverage results
+        run: make cover
+      - name: generate text file with results
+        run: make coverage_txt
       - uses: actions/checkout@master
       - uses: codecov/codecov-action@v3
         with:
-          token: 8b34c879-d5ef-4e40-aa8f-e3990c57b4bc # not required for public repos
           files: coverage.txt
