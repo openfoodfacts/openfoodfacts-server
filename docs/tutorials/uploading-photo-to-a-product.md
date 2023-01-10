@@ -67,7 +67,11 @@ https://off:off@world.openfoodfacts.net/cgi/product_image_upload.pl
 
 ### Upload Photo of a Product
 
-For authentication, add your valid `user_id` and `password` as body parameters to your request. The `code` (barcode of the product to be updated), `user_id` and `password` are required fields when adding or editing a product. Then, include other product data to be added in the request body.
+For authentication, we will add a valid `user_id` and `password` as body parameters to the request.
+
+The `code` (barcode of the product to be updated), is of course required to indicate the product to upload the photo to. 
+
+Then, include other product data to be added in the request body.
 
 To write `ingredients_en` to 100% Real Orange Juice so that the image can be uploaded, the request body should contain these fields :
 
