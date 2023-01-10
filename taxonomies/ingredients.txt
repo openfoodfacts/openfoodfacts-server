@@ -14598,7 +14598,7 @@ sk:palma
 sv:Palm
 
 <en:palm oil
-en:palm olein, palmolein
+en:palm olein, palmolein, palm olein oil
 de:Palmolein
 es:oleína de palma
 fi:palmuoleiini
@@ -14612,21 +14612,21 @@ description:en:The olein (liquid) fraction of palm oil.
 # 328 in 9 @2021-09-09
 
 <en:palm oil
-en:refined palmolein oil
+<en:palm olein
+en:palm olein oil
+description:en:mixture of palm oil and palm superolein
+description:hr:mješavina palminog ulja i palminog superoleina
+
+
+<en:palm olein 
+en:refined palm olein oil
 de:Raffiniertes Palmolein
 es:Oleína de palma refinada
 fr:Oléïne de palme raffinée
 it:Oleina di palma raffinata
 nl:Verfijnde Palmoleïne
 pt:Oleína de palma refinada
-ciqual_food_code:en:16150
-ciqual_food_name:en:Palm oil, refined
 
-
-<en:palm oil
-<en:palm olein
-en:mixture of palm oil and palm superolein
-hr:mješavina palminog ulja i palminog superoleina
 
 <en:palm oil
 en:Palm stearin
