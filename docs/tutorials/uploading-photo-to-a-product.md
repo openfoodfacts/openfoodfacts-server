@@ -73,7 +73,7 @@ The `code` (barcode of the product to be updated), is of course required to indi
 
 Then, include other product data to be added in the request body.
 
-To write `ingredients_en` to 100% Real Orange Juice so that the image can be uploaded, the request body should contain these fields :
+To add a new image for ingredients in English  to *100% Real Orange Juice*, the request body should contain these fields :
 
 | Key        | Value           | Description  |
 | ------------- |:-------------:| -----:|
