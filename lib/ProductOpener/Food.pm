@@ -1540,8 +1540,7 @@ sub compute_nutrition_score ($product_ref) {
 			if (not defined $product_ref->{nutriments}{$nid . $prepared . "_100g"}) {
 				# we have two special case where we can deduce data
 				next
-					if (
-					   (($nid eq "saturated-fat") && saturated_fat_0_because_of_fat_0($product_ref, $prepared))
+					if ((($nid eq "saturated-fat") && saturated_fat_0_because_of_fat_0($product_ref, $prepared))
 					|| (($nid eq "sugars") && sugar_0_because_of_carbohydrates_0($product_ref, $prepared)));
 				$product_ref->{"nutrition_grades_tags"} = ["unknown"];
 				add_tag($product_ref, "misc", "en:nutrition-not-enough-data-to-compute-nutrition-score");
