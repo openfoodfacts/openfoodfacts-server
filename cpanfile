@@ -96,6 +96,7 @@ on 'test' => sub {
   requires 'HTTP::CookieJar::LWP';
   requires 'File::Tail';
   requires 'Test2::Plugin::UTF8';
+  requires 'Devel::Cover';
 };
 
 on 'develop' => sub {
@@ -104,6 +105,7 @@ on 'develop' => sub {
   requires 'Apache::DB', '>= 0.18, < 1.00'; # old non-working version also available as the Debian package libapache-db-perl 0.14
   requires 'Perl::Tidy';
   requires 'Perl::Critic';
+  requires 'Devel::Cover';
 };
 
 feature "off_server_dev_tools", "Optional development tools" => sub {

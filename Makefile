@@ -134,6 +134,9 @@ tail:
 	@echo "🥫 Reading logs (Apache2, Nginx) …"
 	tail -f logs/**/*
 
+cover:
+ 	@echo "🥫 running …"
+ 	${DOCKER_COMPOSE_TEST} run --rm backend perl -MDevel::Cover tests/unit/*.t
 
 #----------#
 # Services #
