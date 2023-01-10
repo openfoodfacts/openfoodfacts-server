@@ -1204,6 +1204,199 @@ my @fruits_vegetables_nuts_by_category_sorted
 	= sort {$fruits_vegetables_nuts_by_category{$b} <=> $fruits_vegetables_nuts_by_category{$a}}
 	keys %fruits_vegetables_nuts_by_category;
 
+=head2 compute_fruit_ratio($product_ref, $prepared)
+
+Compute the fruit % according to the Nutri-Score rules
+
+<b>Warning</b> Also modifies product_ref->{misc_tags}
+
+=head3 return
+
+The fruit ratio
+
+=cut
+
+sub compute_fruit_ratio ($product_ref, $prepared) {
+
+	my $fruits = undef;
+
+	if (defined $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"}) {
+		$fruits = 2 * $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"};
+		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-dried";
+
+		if (defined $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"}) {
+			$fruits += $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"};
+			push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts";
+		}
+
+		$fruits
+			= $fruits * 100 / (100 + $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"});
+	}
+	elsif (defined $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"}) {
+		$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"};
+		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts";
+	}
+	elsif (defined $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate" . $prepared . "_100g"}) {
+		$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate" . $prepared . "_100g"};
+		$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate} = 1;
+		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-estimate";
+	}
+	# Use the estimate from the ingredients list if we have one
+	elsif (
+			(not defined $fruits)
+		and
+		(defined $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients" . $prepared . "_100g"})
+		)
+	{
+		$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients" . $prepared . "_100g"};
+		$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients} = 1;
+		$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value} = $fruits;
+		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients";
+	}
+	else {
+		# estimates by category of products. not exact values. it's important to distinguish only between the thresholds: 40, 60 and 80
+		foreach my $category_id (@fruits_vegetables_nuts_by_category_sorted) {
+
+			if (has_tag($product_ref, "categories", $category_id)) {
+				$fruits = $fruits_vegetables_nuts_by_category{$category_id};
+				$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category} = $category_id;
+				$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value}
+					= $fruits_vegetables_nuts_by_category{$category_id};
+				push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-from-category";
+				my $category = $category_id;
+				$category =~ s/:/-/;
+				push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-from-category-$category";
+				last;
+			}
+		}
+
+		# If we do not have a fruits estimate, use 0 and add a warning
+		if (not defined $fruits) {
+			$fruits = 0;
+			$product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} = 1;
+			push @{$product_ref->{misc_tags}}, "en:nutrition-no-fruits-vegetables-nuts";
+		}
+	}
+
+	if (   (defined $product_ref->{nutrition_score_warning_no_fiber})
+		or (defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts}))
+	{
+		push @{$product_ref->{misc_tags}}, "en:nutrition-no-fiber-or-fruits-vegetables-nuts";
+	}
+	else {
+		push @{$product_ref->{misc_tags}}, "en:nutrition-all-nutriscore-values-known";
+	}
+
+	return $fruits;
+}
+
+=head2 saturated_fat_ratio( $product_ref, $prepared )
+
+Compute saturated_fat_ratio as needed for nutriscore
+
+=cut
+
+sub saturated_fat_ratio ($product_ref, $prepared) {
+
+	my $saturated_fat = $product_ref->{nutriments}{"saturated-fat" . $prepared . "_100g"};
+	my $fat = $product_ref->{nutriments}{"fat" . $prepared . "_100g"};
+	my $saturated_fat_ratio = 0;
+	if ((defined $saturated_fat) and ($saturated_fat > 0)) {
+		if ($fat <= 0) {
+			$fat = $saturated_fat;
+		}
+		$saturated_fat_ratio = $saturated_fat / $fat * 100;    # in %
+	}
+	return $saturated_fat_ratio;
+}
+
+=head2 saturated_fat_0_because_of_fat_0($product_ref, $prepared)
+
+Detect if we are in the special case where we can detect saturated fat is 0 because fat is 0
+
+=cut
+
+sub saturated_fat_0_because_of_fat_0 ($product_ref, $prepared) {
+	my $fat = $product_ref->{nutriments}{"fat" . $prepared . "_100g"};
+	return (   (!defined $product_ref->{nutriments}{"saturated-fat" . $prepared . "_100g"})
+			&& (defined $fat)
+			&& ($fat == 0));
+}
+
+=head2 sugar_0_because_of_carbohydrates_0($product_ref, $prepared) {
+
+Detect if we are in the special case where we can detect sugars are 0 because carbohydrates are 0
+
+=cut
+
+sub sugar_0_because_of_carbohydrates_0 ($product_ref, $prepared) {
+	my $carbohydrates = $product_ref->{nutriments}{"carbohydrates" . $prepared . "_100g"};
+	return (   (!defined $product_ref->{nutriments}{"sugars" . $prepared . "_100g"})
+			&& (defined $carbohydrates)
+			&& ($carbohydrates == 0));
+}
+
+=head2 compute_nutriscore_data( $product_ref, $prepared )
+
+Compute data for nutriscore computation.
+
+<b>Warning:</b> it also modifies $product_ref
+
+=head3 Arguments
+
+=head4 $product_ref - ref to product
+
+=head4 $prepared - string contains either "" or "prepared"
+
+=head4 $fruits - float - fruit % estimation
+
+=head3 return
+
+Ref to a mapping suitable to call compute_nutriscore_score_and_grade
+
+=cut
+
+sub compute_nutriscore_data ($product_ref, $prepared) {
+	# compute data
+	my $saturated_fat_ratio = saturated_fat_ratio($product_ref, $prepared);
+	my $fruits = compute_fruit_ratio($product_ref, $prepared);
+	my $nutriscore_data = {
+		is_beverage => $product_ref->{nutrition_score_beverage},
+		is_water => is_water_for_nutrition_score($product_ref),
+		is_cheese => is_cheese_for_nutrition_score($product_ref),
+		is_fat => is_fat_for_nutrition_score($product_ref),
+
+		energy => $product_ref->{nutriments}{"energy" . $prepared . "_100g"},
+		sugars => $product_ref->{nutriments}{"sugars" . $prepared . "_100g"},
+		saturated_fat => $product_ref->{nutriments}{"saturated-fat" . $prepared . "_100g"},
+		saturated_fat_ratio => $saturated_fat_ratio,
+		sodium => $product_ref->{nutriments}{"sodium" . $prepared . "_100g"} * 1000,    # in mg,
+
+		fruits_vegetables_nuts_colza_walnut_olive_oils => $fruits,
+		fiber => (
+			(defined $product_ref->{nutriments}{"fiber" . $prepared . "_100g"})
+			? $product_ref->{nutriments}{"fiber" . $prepared . "_100g"}
+			: 0
+		),
+		proteins => $product_ref->{nutriments}{"proteins" . $prepared . "_100g"},
+	};
+
+	# tweak data to take into account special cases
+
+	# if sugar is undefined but carbohydrates is 0, set sugars to 0
+	if (sugar_0_because_of_carbohydrates_0($product_ref, $prepared)) {
+		$nutriscore_data->{sugars} = 0;
+	}
+	# if saturated_fat is undefined but fat is 0, set saturated_fat to 0
+	# as well as saturated_fat_ratio
+	if (saturated_fat_0_because_of_fat_0($product_ref, $prepared)) {
+		$nutriscore_data->{saturated_fat} = 0;
+		$nutriscore_data->{saturated_fat_ratio} = 0;
+	}
+
+	return $nutriscore_data;
+}
+
 =head2 compute_nutrition_score( $product_ref )
 
 Determines if we have enough data to compute the Nutri-Score (category + nutrition facts),
@@ -1345,6 +1538,10 @@ sub compute_nutrition_score ($product_ref) {
 
 		foreach my $nid ("energy", "fat", "saturated-fat", "sugars", "sodium", "proteins") {
 			if (not defined $product_ref->{nutriments}{$nid . $prepared . "_100g"}) {
+				# we have two special case where we can deduce data
+				next
+					if ((($nid eq "saturated-fat") && saturated_fat_0_because_of_fat_0($product_ref, $prepared))
+					|| (($nid eq "sugars") && sugar_0_because_of_carbohydrates_0($product_ref, $prepared)));
 				$product_ref->{"nutrition_grades_tags"} = ["unknown"];
 				add_tag($product_ref, "misc", "en:nutrition-not-enough-data-to-compute-nutrition-score");
 				$product_ref->{nutrition_score_debug} .= "missing " . $nid . $prepared . " - ";
@@ -1382,109 +1579,9 @@ sub compute_nutrition_score ($product_ref) {
 		push @{$product_ref->{misc_tags}}, "en:nutrition-grade-computed-for-prepared-product";
 	}
 
-	# Compute the fruit % according to the Nutri-Score rules
-
-	my $fruits = undef;
-
-	if (defined $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"}) {
-		$fruits = 2 * $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"};
-		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-dried";
-
-		if (defined $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"}) {
-			$fruits += $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"};
-			push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts";
-		}
-
-		$fruits
-			= $fruits * 100 / (100 + $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"});
-	}
-	elsif (defined $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"}) {
-		$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"};
-		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts";
-	}
-	elsif (defined $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate" . $prepared . "_100g"}) {
-		$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate" . $prepared . "_100g"};
-		$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate} = 1;
-		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-estimate";
-	}
-	# Use the estimate from the ingredients list if we have one
-	elsif (
-			(not defined $fruits)
-		and
-		(defined $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients" . $prepared . "_100g"})
-		)
-	{
-		$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients" . $prepared . "_100g"};
-		$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients} = 1;
-		$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value} = $fruits;
-		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients";
-	}
-	else {
-		# estimates by category of products. not exact values. it's important to distinguish only between the thresholds: 40, 60 and 80
-		foreach my $category_id (@fruits_vegetables_nuts_by_category_sorted) {
-
-			if (has_tag($product_ref, "categories", $category_id)) {
-				$fruits = $fruits_vegetables_nuts_by_category{$category_id};
-				$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category} = $category_id;
-				$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value}
-					= $fruits_vegetables_nuts_by_category{$category_id};
-				push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-from-category";
-				my $category = $category_id;
-				$category =~ s/:/-/;
-				push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-from-category-$category";
-				last;
-			}
-		}
-
-		# If we do not have a fruits estimate, use 0 and add a warning
-		if (not defined $fruits) {
-			$fruits = 0;
-			$product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} = 1;
-			push @{$product_ref->{misc_tags}}, "en:nutrition-no-fruits-vegetables-nuts";
-		}
-	}
-
-	if (   (defined $product_ref->{nutrition_score_warning_no_fiber})
-		or (defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts}))
-	{
-		push @{$product_ref->{misc_tags}}, "en:nutrition-no-fiber-or-fruits-vegetables-nuts";
-	}
-	else {
-		push @{$product_ref->{misc_tags}}, "en:nutrition-all-nutriscore-values-known";
-	}
-
-	my $saturated_fat = $product_ref->{nutriments}{"saturated-fat" . $prepared . "_100g"};
-	my $fat = $product_ref->{nutriments}{"fat" . $prepared . "_100g"};
-	my $saturated_fat_ratio = 0;
-	if ((defined $saturated_fat) and ($saturated_fat > 0)) {
-		if ($fat <= 0) {
-			$fat = $saturated_fat;
-		}
-		$saturated_fat_ratio = $saturated_fat / $fat * 100;    # in %
-	}
-
 	# Populate the data structure that will be passed to Food::Nutriscore
 
-	$product_ref->{nutriscore_data} = {
-		is_beverage => $product_ref->{nutrition_score_beverage},
-		is_water => is_water_for_nutrition_score($product_ref),
-		is_cheese => is_cheese_for_nutrition_score($product_ref),
-		is_fat => is_fat_for_nutrition_score($product_ref),
-
-		energy => $product_ref->{nutriments}{"energy" . $prepared . "_100g"},
-		sugars => $product_ref->{nutriments}{"sugars" . $prepared . "_100g"},
-		saturated_fat => $product_ref->{nutriments}{"saturated-fat" . $prepared . "_100g"},
-		saturated_fat_ratio => $saturated_fat_ratio,
-		sodium => $product_ref->{nutriments}{"sodium" . $prepared . "_100g"} * 1000,    # in mg,
-
-		fruits_vegetables_nuts_colza_walnut_olive_oils => $fruits,
-		fiber => (
-			(defined $product_ref->{nutriments}{"fiber" . $prepared . "_100g"})
-			? $product_ref->{nutriments}{"fiber" . $prepared . "_100g"}
-			: 0
-		),
-		proteins => $product_ref->{nutriments}{"proteins" . $prepared . "_100g"},
-	};
+	$product_ref->{nutriscore_data} = compute_nutriscore_data($product_ref, $prepared);
 
 	my ($nutriscore_score, $nutriscore_grade)
 		= ProductOpener::Nutriscore::compute_nutriscore_score_and_grade($product_ref->{nutriscore_data});
