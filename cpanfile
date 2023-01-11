@@ -97,6 +97,7 @@ on 'test' => sub {
   requires 'File::Tail';
   requires 'Test2::Plugin::UTF8';
   requires 'Devel::Cover';
+  requires 'Devel::Cover::Report::Codecov';
 };
 
 on 'develop' => sub {
@@ -106,6 +107,7 @@ on 'develop' => sub {
   requires 'Perl::Tidy';
   requires 'Perl::Critic';
   requires 'Devel::Cover';
+  requires 'Devel::Cover::Report::Codecov';
 };
 
 feature "off_server_dev_tools", "Optional development tools" => sub {
