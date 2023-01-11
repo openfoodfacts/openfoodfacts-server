@@ -20,7 +20,11 @@ Uploading quality photos of a product, its ingredients and nutrition table is ve
 
 ### Upload Behavior
 
-In case you upload more than one photo of the front, the ingredients and the nutrition facts, beware that only the first photo of each category will be displayed. (You might want to take additional images of labels, recycling instructions, and so on). However, all photos will be saved.
+In case you upload more than one photo of the front, the ingredients, the nutrition facts, or the product packaging components, beware that only the latest "selected" photo of each category will be displayed on the product page on the website and on the mobile application. 
+
+The older ones are still saved, and can be "selected" either by an API call or via the editing interface (website and mobile application).
+
+You can also upload some photos that are neither of that 4 categories, but they will not be displayed by default.. However, all photos will be saved.
 
 ### Label Languages
 
