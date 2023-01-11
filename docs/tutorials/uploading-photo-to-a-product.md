@@ -1,7 +1,7 @@
 # Uploading Images to the Open Food Facts API
 <!--Add a brief introduction of what the tutorial does -->
 
-This basic tutorial shows you can upload image of a product to the Open Food Facts API.
+This basic tutorial shows you how to upload an image of a product to the Open Food Facts API.
 
 ## Points to consider before uploading photos
 
