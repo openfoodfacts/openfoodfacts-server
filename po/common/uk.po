@@ -612,7 +612,7 @@ msgstr "коди відстежування"
 
 msgctxt "emb_codes_products"
 msgid "Products with the traceability code %s"
-msgstr "Продукти з кодом простежування"
+msgstr "Продукти з кодом простежування %s"
 
 msgctxt "emb_codes_s"
 msgid "traceability code"
@@ -620,7 +620,7 @@ msgstr "коди відстежування"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the traceability code %s"
-msgstr "Продукти з кодом простежування"
+msgstr "Продукти з кодом простежування %s"
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
@@ -1613,7 +1613,7 @@ msgstr "джерела інгредієнтів"
 
 msgctxt "origins_products"
 msgid "Products with ingredients originating from %s"
-msgstr "Продукти з інгредієнтами, які походять з"
+msgstr "Продукти з інгредієнтами, які походять з %s"
 
 msgctxt "origins_s"
 msgid "origin of ingredients"
@@ -4000,7 +4000,7 @@ msgstr "Середнє значення для категорії %s"
 # Keep the %s
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
-msgstr "Сайт Nutri-Score може варіювати цінність від %s до %s змінюючи її від %s до %s (%s різниця у відсотку)."
+msgstr "Сайт Nutri-Score може варіювати цінність від %s до %s змінюючи її від %s з %s до %s (%s різниця у відсотку)."
 
 msgctxt "export_products_to_public_database_email"
 msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
