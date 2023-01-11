@@ -7,7 +7,7 @@ This basic tutorial shows you how to upload an image of a product to the Open Fo
 
 ### Image license
 
-Products images MUST be under the [Creative Commons Attribution ShareAlike licence](https://creativecommons.org/licenses/by-sa/3.0/deed.en)(https://creativecommons.org/licenses/by-sa/3.0/deed.en).
+Products images MUST be under the [Creative Commons Attribution ShareAlike licence](https://creativecommons.org/licenses/by-sa/3.0/deed.en).
 
 That means you should either upload: 
 * photos that are your own work
