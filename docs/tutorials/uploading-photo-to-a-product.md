@@ -34,7 +34,7 @@ See [the paragraph about Imagefield](#imagefield)
 
 ## Authentication
 
-The WRITE operations in the OFF API require authentication, therefore you need a valid `user_id` and `password`  to write the photo to 100% Real Orange Juice.
+The WRITE operations in the OFF API require authentication, therefore you need a valid `user_id` and `password` to write the photo to 100% Real Orange Juice.
 
 > Sign up on the [Open Food Facts App](https://world.openfoodfacts.net/), to get your `user_id` and `password` if you dont have.
 For more details, visit the [Open Food Facts Authentication](https://openfoodfacts.github.io/openfoodfacts-server/introduction/api/#authentication).
