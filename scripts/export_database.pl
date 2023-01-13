@@ -255,7 +255,7 @@ XML
 		$nid =~ /^#/ and next;
 
 		$nid =~ s/!//g;
-		$nid =~ s/^-//g;
+		$nid =~ s/^(-+)//g;
 		$nid =~ s/-$//g;
 
 		push @nutrients_to_export, $nid;
