@@ -27,7 +27,7 @@ fix_non_ronalized_codes - A script to fix non normalized codes
 =head1 DESCRIPTION
 
 Products code needs to be normalized to avoid confusions in products (false distinct).
-But there may be leaks in the code, or some other tools (eg import scripts) 
+But there may be leaks in the code, or some other tools (eg import scripts)
 that creates non normalized entries in the MongoDB or on the file system.
 
 This scripts tries to check and fix this.
@@ -52,31 +52,36 @@ sub find_non_normalized_sto ($product_path) {
 	my $iter = sto_iter("$data_root/products", qr/product\.sto$/i);
 	my @anomalous = ();
 	while (my $product_path = $iter->()) {
-		my $product_id = product_id_from_path($product_path);
-		my $normalized_id = normalize_code($product_id);
-		if ($product_id ne $normalized_id) {
-			# verify it's not deleted
-			my $product_ref = retrieve_product($product_id);
-			next unless $product_ref;
+		my $product_code = product_id_from_path($product_path);
+		my $normalized_code = normalize_code($product_code);
+		if ($product_code ne $normalized_code) {
+			# we intentionally use a simple retrieve, to avoid processing
+			my $product_ref = retrieve($product_path);
+			# skip deleted
+			next if $product_ref->{deleted};
 			# item to normalize
-			push(@anomalous, [$product_id, $normalized_id]);
+			push(@anomalous, [$product_path, $product_code, $normalized_code]);
 		}
 	}
 	return @anomalous;
 }
 
-sub move_product_to ($product_id, $normalized_id) {
+sub move_product_to ($product_path, $product_id, $normalized_id) {
 	my $product_ref = retrieve_product($product_id);
 	$product_ref->{old_code} = $product_ref->{code};
 	$product_ref->{code} = $normalized_id;
+	$product_ref->{_id} = $normalized_id;
+	# store updated (will move it)
 	store_product("fix-non-normalized-codes-script", $product_ref, "Normalize barcode");
 	return;
 }
 
-sub delete_product ($product_id, $normalized_id) {
-	my $product_ref = retrieve_product($product_id);
+sub delete_product ($product_path) {
+	# we must use retrieve because path might be invalid for retrieve_product
+	my $product_ref = retrieve($product_path);
 	$product_ref->{deleted} = "on";
-	store_product("fix-non-normalized-codes-script", $product_ref, "Delete as duplicate of $normalized_id");
+	# and we use store, as we used retrieve
+	store($product_path, $product_ref);
 	return;
 }
 
@@ -84,17 +89,27 @@ sub fix_non_normalized_sto ($product_path, $dry_run, $out) {
 	my @actions = ();
 	my @items = find_non_normalized_sto($product_path);
 	foreach my $item (@items) {
-		my ($product_id, $normalized_id) = @$item;
-		if (product_exists($normalized_id)) {
-			# we do not have a product with same normalized code
-			# move the product to it's normalized code
-			move_product_to($product_id, $normalized_id) unless $dry_run;
-			push(@actions, "Moved $product_id to $normalized_id");
+		my ($product_path, $product_id, $normalized_id) = @$item;
+		my $new_path = product_path_from_id($normalized_id);
+		# handle a special case where previous id is higly broken …
+		# and moving would not work
+		my $path_from_old_id = product_path_from_id($product_id);
+		my $is_duplicate = (-e "$data_root/products/$new_path");
+		my $is_invalid = $path_from_old_id eq "invalid";
+		if ($is_duplicate || $is_invalid) {
+			# this is probably older data than the normalized one, we will ditch it !
+			delete_product($product_path) unless $dry_run;
+			my $msg = "Removed $product_id";
+			if ($is_duplicate) {
+				$msg .= " as duplicate of $normalized_id";
+			}
+			push(@actions, $msg);
 		}
 		else {
-			# this is probably older data than the normalized one, we will ditch it !
-			delete_product($product_id, $normalized_id) unless $dry_run;
-			push(@actions, "Removed $product_id as duplicate of $normalized_id");
+			# we do not have a product with same normalized code
+			# move the product to it's normalized code
+			move_product_to($product_path, $product_id, $normalized_id) unless $dry_run;
+			push(@actions, "Moved $product_id to $normalized_id");
 		}
 		print($out ($actions[-1] . "\n")) unless !$out;
 	}
@@ -126,26 +141,35 @@ sub fix_int_barcodes_sto ($int_ids_ref, $dry_run) {
 	# fix int barcodes in sto
 	my $removed = 0;
 	my $refreshed = 0;
+	my $products_collection = get_products_collection();
 
 	foreach my $int_id (@$int_ids_ref) {
 		# load
 		my $str_code = "$int_id";
-		$product_ref = retrieve_product($str_code);
+		my $product_ref = retrieve_product_or_deleted_product($str_code);
 		if (defined $product_ref) {
 			$product_ref->{_id} .= '';
 			$product_ref->{code} .= '';
+			my $path = product_path_from_id($product_ref->{code});
 			if (!$dry_run) {
 				# Silently replace values in sto (no rev)
 				store("$data_root/products/$path/product.sto", $product_ref);
 				# Refresh mongodb
-				$products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
+				if ($product_ref->{deleted}) {
+					$products_collection->delete_one({"_id" => $product_ref->{_id}});
+				}
+				else {
+					$products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
+				}
+
 			}
-			$refreshed++;
+			$refreshed++ if $product_ref->{deleted};
+			$removed++ unless $product_ref->{deleted};
 		}
 		else {
 			if (!$dry_run) {
 				# remove for mongodb
-				$products_collection->remove_one({"_id" => $product_ref->{_id}});
+				$products_collection->delete_one({"_id" => $product_ref->{_id}});
 			}
 			$removed++;
 		}
@@ -186,7 +210,7 @@ sub remove_non_normalized_mongo ($dry_run, $out) {
 		my $code = $product_ref->{code};
 		my $normalized_code = normalize_code($code);
 		if ($code ne $normalized_code) {
-			push @ids_to_remove, $product_ref->{id};
+			push @ids_to_remove, $product_ref->{_id};
 		}
 	}
 
@@ -194,15 +218,15 @@ sub remove_non_normalized_mongo ($dry_run, $out) {
 	my $removed = 0;
 
 	if (scalar @ids_to_remove) {
-		print($out "$count items with non normalized code will be removed.\n") unless !$out;
+		print($out "$count items with non normalized code will be removed from mongo.\n") unless !$out;
 		if (!$dry_run) {
-			my $result = remove_documents_by_ids(\@ids_to_remove);
-			$removed = $result->removed;
+			my $result = remove_documents_by_ids(\@ids_to_remove, $products_collection);
+			$removed = $result->{removed};
 			if ($removed < $count) {
 				my $missed = $count - $removed;
 				print(STDERR "WARN: $missed deletions.\n");
 			}
-			if (scalar @{$result->errors}) {
+			if (scalar @{$result->{errors}}) {
 				my $errs = join("\n  - ", @{$result->errors});
 				print(STDERR "ERR: errors while removing items:\n  - $errs\n");
 			}

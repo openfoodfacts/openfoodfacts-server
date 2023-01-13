@@ -554,9 +554,8 @@ sub product_id_from_path ($product_path) {
 		$id = dirname($id);
 	}
 	# eventually remove root path
-	if ($id =~ /$data_root\/products\//) {
-		$id = $';    # keep relative path
-	}
+	my $root = quotemeta("$data_root/products/");
+	$id =~ s/^$root//;
 	# transform to id by simply removing "/"
 	$id =~ s/\///g;
 	return $id;
@@ -842,7 +841,7 @@ sub retrieve_product ($product_id) {
 	return $product_ref;
 }
 
-sub retrieve_product_or_deleted_product ($product_id, $deleted_ok) {
+sub retrieve_product_or_deleted_product ($product_id, $deleted_ok = 1) {
 
 	my $path = product_path_from_id($product_id);
 	my $product_data_root = data_root_for_product_id($product_id);

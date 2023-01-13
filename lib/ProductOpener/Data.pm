@@ -250,7 +250,7 @@ sub remove_documents_by_ids ($ids_to_remove_ref, $coll, $bulk_write_size = 100) 
 	# prepare a bulk operation, with one operation per slice
 	my $bulk = $coll->unordered_bulk;
 	while (scalar @ids_to_remove) {
-		my @batch_ids = splice(@ids_to_remove, $bulk_write_size);
+		my @batch_ids = splice(@ids_to_remove, 0, $bulk_write_size);
 		$bulk->find({_id => {'$in' => \@batch_ids}})->delete_many();
 	}
 	# try to do our best
