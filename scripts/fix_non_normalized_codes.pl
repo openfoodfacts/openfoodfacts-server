@@ -34,15 +34,6 @@ This scripts tries to check and fix this.
 
 =cut
 
-my $usage = <<TXT
-fix_non_normalized_codes.pl is a script that updates checks and fix for products with non normalized codes
-
-Options:
-
---dry-run	do not do any processing just print what would be done
-TXT
-;
-
 use ProductOpener::PerlStandards;
 
 use ProductOpener::Config qw/:all/;
@@ -54,8 +45,7 @@ use Getopt::Long;
 # how many operations in bulk write
 my $BULK_WRITE_SIZE = 100;
 
-
-sub find_non_normalized_sto($product_path) {
+sub find_non_normalized_sto ($product_path) {
 	# find all .sto files that have a non normalized code
 	# we take a very brute force approach on filename
 	# return a list with path, product_id and normalized_id
@@ -69,14 +59,13 @@ sub find_non_normalized_sto($product_path) {
 			my $product_ref = retrieve_product($product_id);
 			next unless $product_ref;
 			# item to normalize
-			push (@anomalous, [$product_id, $normalized_id]);
+			push(@anomalous, [$product_id, $normalized_id]);
 		}
 	}
 	return @anomalous;
 }
 
-
-sub move_product_to($product_id, $normalized_id) {
+sub move_product_to ($product_id, $normalized_id) {
 	my $product_ref = retrieve_product($product_id);
 	$product_ref->{old_code} = $product_ref->{code};
 	$product_ref->{code} = $normalized_id;
@@ -84,153 +73,157 @@ sub move_product_to($product_id, $normalized_id) {
 	return;
 }
 
-sub delete_product($product_id, $normalized_id) {
+sub delete_product ($product_id, $normalized_id) {
 	my $product_ref = retrieve_product($product_id);
 	$product_ref->{deleted} = "on";
 	store_product("fix-non-normalized-codes-script", $product_ref, "Delete as duplicate of $normalized_id");
 	return;
 }
 
-sub fix_non_normalized_sto($product_path, $dry_run, $out) {
+sub fix_non_normalized_sto ($product_path, $dry_run, $out) {
 	my @actions = ();
 	my @items = find_non_normalized_sto($product_path);
-	foreach my $item  (@items) {
+	foreach my $item (@items) {
 		my ($product_id, $normalized_id) = @$item;
 		if (product_exists($normalized_id)) {
 			# we do not have a product with same normalized code
 			# move the product to it's normalized code
 			move_product_to($product_id, $normalized_id) unless $dry_run;
-			push (@actions, "Moved $product_id to $normalized_id");
-		} else {
+			push(@actions, "Moved $product_id to $normalized_id");
+		}
+		else {
 			# this is probably older data than the normalized one, we will ditch it !
 			delete_product($product_id, $normalized_id) unless $dry_run;
-			push (@actions, "Removed $product_id as duplicate of $normalized_id");
+			push(@actions, "Removed $product_id as duplicate of $normalized_id");
 		}
-		print ($out ($actions[-1]. "\n")) unless !$out;
+		print($out ($actions[-1] . "\n")) unless !$out;
 	}
 	return \@actions;
 }
 
-
 sub search_int_codes() {
-    # search for product with int code in mongodb
+	# search for product with int code in mongodb
 
-    # 2 mins, instead of 30s default, to not die as easily if mongodb is busy.
-    my $socket_timeout_ms = 2 * 60000;
-    my $products_collection = get_products_collection($socket_timeout_ms);
+	# 2 mins, instead of 30s default, to not die as easily if mongodb is busy.
+	my $socket_timeout_ms = 2 * 60000;
+	my $products_collection = get_products_collection($socket_timeout_ms);
 
-    # find int codes
-    my @int_ids = ();
-    # it's better we do it with a specific queries as it's hard to keep "integer" as integers in perl
-    my $cursor = $products_collection->query(
-		{'code' => {'$not' => {'$type' => 'string'}}}
-    )->fields({_id => 1, code => 1});
-    $cursor->immortal(1);
-    while (my $product_ref = $cursor->next) {
-        push(@int_ids, $product_ref->{_id});
-    }
+	# find int codes
+	my @int_ids = ();
+	# it's better we do it with a specific queries as it's hard to keep "integer" as integers in perl
+	my $cursor
+		= $products_collection->query({'code' => {'$not' => {'$type' => 'string'}}})->fields({_id => 1, code => 1});
+	$cursor->immortal(1);
+	while (my $product_ref = $cursor->next) {
+		push(@int_ids, $product_ref->{_id});
+	}
 
-    return @int_ids;
+	return @int_ids;
 
 }
 
-sub fix_int_barcodes_sto($int_ids_ref, $dry_run){
-    # fix int barcodes in sto
-    my $removed = 0;
-    my $refreshed = 0;
+sub fix_int_barcodes_sto ($int_ids_ref, $dry_run) {
+	# fix int barcodes in sto
+	my $removed = 0;
+	my $refreshed = 0;
 
-    foreach my $int_id (@$int_ids_ref) {
-        # load
-        my $str_code = "$int_id";
-        $product_ref = retrieve_product($str_code);
-        if (defined $product_ref) {
-            $product_ref->{_id} .= '';
-            $product_ref->{code} .= '';
-            if (! $dry_run) {
-                # Silently replace values in sto (no rev)
-                store("$data_root/products/$path/product.sto", $product_ref);
-                # Refresh mongodb
-                $products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
-            }
-            $refreshed++;
-        }
-        else {
-            if (! $dry_run) {
-                # remove for mongodb
-                $products_collection->remove_one({"_id" => $product_ref->{_id}});
-            }
-            $removed++;
-        }
-    }
+	foreach my $int_id (@$int_ids_ref) {
+		# load
+		my $str_code = "$int_id";
+		$product_ref = retrieve_product($str_code);
+		if (defined $product_ref) {
+			$product_ref->{_id} .= '';
+			$product_ref->{code} .= '';
+			if (!$dry_run) {
+				# Silently replace values in sto (no rev)
+				store("$data_root/products/$path/product.sto", $product_ref);
+				# Refresh mongodb
+				$products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
+			}
+			$refreshed++;
+		}
+		else {
+			if (!$dry_run) {
+				# remove for mongodb
+				$products_collection->remove_one({"_id" => $product_ref->{_id}});
+			}
+			$removed++;
+		}
+	}
 
-    return {removed => $removed, refreshed => $refreshed};
+	return {removed => $removed, refreshed => $refreshed};
 }
 
-
-sub remove_int_barcode_mongo($dry_run, $out) {
+sub remove_int_barcode_mongo ($dry_run, $out) {
 	# a product with a non int code should be removed or converted to str
-    my @int_ids = search_int_codes();
-    # re-index corresponding products, with a fix on id, just to be sure !
-    my $result_ref = fix_int_barcodes_sto(\@int_ids, $dry_run);
-    my $removed = $result_ref->{removed};
-    my $refreshed = $result_ref->{refreshed};
-    if ($removed || $refreshed) {
-        print ($out "Int codes: refresh $refreshed, removed $removed\n");
-    }
+	my @int_ids = search_int_codes();
+	# re-index corresponding products, with a fix on id, just to be sure !
+	my $result_ref = fix_int_barcodes_sto(\@int_ids, $dry_run);
+	my $removed = $result_ref->{removed};
+	my $refreshed = $result_ref->{refreshed};
+	if ($removed || $refreshed) {
+		print($out "Int codes: refresh $refreshed, removed $removed\n");
+	}
 
-    return;
+	return;
 }
-
 
 # remove non normalized codes in mongodb
 # this is to be run after fix_non_normalized_sto so that we simply erase bogus entries
-sub remove_non_normalized_mongo($dry_run, $out) {
+sub remove_non_normalized_mongo ($dry_run, $out) {
 	# iterate all codes an verify they are normalized
-    # we could try to find them with a query but that would mean changes if normalize_code changes
-    # which would be a maintenance burden
+	# we could try to find them with a query but that would mean changes if normalize_code changes
+	# which would be a maintenance burden
 
-    # we will first collect then erase
-    my @ids_to_remove = ();
-    # 2 mins, instead of 30s default, to not die as easily if mongodb is busy.
-    my $socket_timeout_ms = 2 * 60000;
-    my $products_collection = get_products_collection($socket_timeout_ms);
-    my $cursor = $products_collection->query({})->fields({_id => 1, code => 1});
-    $cursor->immortal(1);
-    while (my $product_ref = $cursor->next) {
-        my $code = $product_ref->{code};
-        my $normalized_code = normalize_code($code);
+	# we will first collect then erase
+	my @ids_to_remove = ();
+	# 2 mins, instead of 30s default, to not die as easily if mongodb is busy.
+	my $socket_timeout_ms = 2 * 60000;
+	my $products_collection = get_products_collection($socket_timeout_ms);
+	my $cursor = $products_collection->query({})->fields({_id => 1, code => 1});
+	$cursor->immortal(1);
+	while (my $product_ref = $cursor->next) {
+		my $code = $product_ref->{code};
+		my $normalized_code = normalize_code($code);
 		if ($code ne $normalized_code) {
-            push @ids_to_remove, $product_ref->{id};
-        }
-    }
+			push @ids_to_remove, $product_ref->{id};
+		}
+	}
 
-    my $count = scalar @ids_to_remove;
-    my $removed = 0;
+	my $count = scalar @ids_to_remove;
+	my $removed = 0;
 
-    if (scalar @ids_to_remove) {
-        print ($out "$count items with non normalized code will be removed.\n") unless !$out;
-        if (!$dry_run) {
-            my $result = remove_documents_by_ids(\@ids_to_remove);
-            $removed = $result->removed;
-            if ($removed < $count) {
-                my $missed = $count - $removed;
-                print (STDERR "WARN: $missed deletions.\n");
-            }
-            if (scalar @{$result->errors}) {
-                my $errs = join("\n  - ", @{$result->errors});
-                print (STDERR "ERR: errors while removing items:\n  - $errs\n");
-            }
-        }
-    }
-    return $removed;
+	if (scalar @ids_to_remove) {
+		print($out "$count items with non normalized code will be removed.\n") unless !$out;
+		if (!$dry_run) {
+			my $result = remove_documents_by_ids(\@ids_to_remove);
+			$removed = $result->removed;
+			if ($removed < $count) {
+				my $missed = $count - $removed;
+				print(STDERR "WARN: $missed deletions.\n");
+			}
+			if (scalar @{$result->errors}) {
+				my $errs = join("\n  - ", @{$result->errors});
+				print(STDERR "ERR: errors while removing items:\n  - $errs\n");
+			}
+		}
+	}
+	return $removed;
 }
 
-
 ### script
+my $usage = <<TXT
+fix_non_normalized_codes.pl is a script that updates checks and fix for products with non normalized codes
+
+Options:
+
+--dry-run	do not do any processing just print what would be done
+TXT
+	;
+
 my $dry_run = 0;
-GetOptions(
-	"dry-run" => \$dry_run,
-) or die("Error in command line arguments:\n\n$usage");
+GetOptions("dry-run" => \$dry_run,)
+	or die("Error in command line arguments:\n\n$usage");
 
 # fix errors on filesystem
 my $product_path = "$data_root/products";

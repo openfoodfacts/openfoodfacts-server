@@ -319,7 +319,7 @@ sub sto_iter ($initial_path, $pattern = qr/\.sto$/i) {
 		}
 		else {
 			# or end iteration
-			return undef;
+			return;
 		}
 	};
 }

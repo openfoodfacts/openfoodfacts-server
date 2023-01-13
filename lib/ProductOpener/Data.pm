@@ -215,7 +215,6 @@ sub get_mongodb_client ($timeout = undef) {
 	return $client;
 }
 
-
 =head2 remove_documents_by_ids($ids_to_remove_ref, $coll, $bulk_write_size=100)
 
 Efficiently removes a set of documents
@@ -240,17 +239,18 @@ Returns a hash with:
   <dd>ref to a list of errors</dd>
 </dl>
 =cut
-sub remove_documents_by_ids($ids_to_remove_ref, $coll, $bulk_write_size=100) {
-    my @ids_to_remove = (@$ids_to_remove_ref);  # copy the list because we will use splice
 
-    my @errors = ();
+sub remove_documents_by_ids ($ids_to_remove_ref, $coll, $bulk_write_size = 100) {
+	my @ids_to_remove = (@$ids_to_remove_ref);    # copy the list because we will use splice
 
-    # remove found ids
-    my $removed = 0;
+	my @errors = ();
+
+	# remove found ids
+	my $removed = 0;
 	# prepare a bulk operation, with one operation per slice
 	my $bulk = $coll->unordered_bulk;
-    while (scalar @ids_to_remove) {
-        my @batch_ids = splice(@ids_to_remove, $bulk_write_size);
+	while (scalar @ids_to_remove) {
+		my @batch_ids = splice(@ids_to_remove, $bulk_write_size);
 		$bulk->find({_id => {'$in' => \@batch_ids}})->delete_many();
 	}
 	# try to do our best
@@ -264,9 +264,8 @@ sub remove_documents_by_ids($ids_to_remove_ref, $coll, $bulk_write_size=100) {
 		push @errors, $error;
 	}
 
-    return {removed => $removed, errors => \@errors};
+	return {removed => $removed, errors => \@errors};
 }
-
 
 =head2 bulk_update_by_ids($updates_ref, $coll)
 
@@ -292,12 +291,13 @@ Returns a hash with:
   <dd>ref to a list of errors</dd>
 </dl>
 =cut
-sub bulk_update_by_ids($updates_ref, $coll) {
 
-    my @errors = ();
+sub bulk_update_by_ids ($updates_ref, $coll) {
 
-    # remove found ids
-    my $updated = 0;
+	my @errors = ();
+
+	# remove found ids
+	my $updated = 0;
 	# prepare a bulk operation, with one operation per slice
 	my $bulk = $coll->unordered_bulk;
 	foreach my $id_ (keys %{$updates_ref}) {
@@ -315,7 +315,7 @@ sub bulk_update_by_ids($updates_ref, $coll) {
 		push @errors, $error;
 	}
 
-    return {updated => $updated, errors => \@errors};
+	return {updated => $updated, errors => \@errors};
 }
 
 1;
