@@ -75,9 +75,6 @@ $decalTop:48px;
         }
         .attr_text {
             padding-left:0.5rem;
-            .attribute_missing::before {
-                content: '⚠️';
-            }
         }
         .attr_title {
             margin:0;
