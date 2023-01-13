@@ -5,6 +5,12 @@ Disallow: /cgi
 Disallow: /code
 Disallow: /api
 
+# Ask crawler to request 1 request per 0.5 seconds or less
+# https://www.contentkingapp.com/academy/robotstxt/faq/crawl-delay-10/
+# Some crawlers seem to  respect this, such as Bing, Yahoo!, Yandex...
+User-agent: *
+Crawl-delay: 0.5
+
 # Disallow: SEOkicks-Robot
 User-agent: SEOkicks-Robot
 Disallow: /
