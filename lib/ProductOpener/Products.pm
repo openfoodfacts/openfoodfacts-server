@@ -89,7 +89,7 @@ BEGIN {
 		&product_url
 		&product_action_url
 		&normalize_search_terms
-		&index_product
+		&compute_keywords
 		&log_change
 
 		&get_change_userid_or_uuid
@@ -1235,7 +1235,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 	}
 
 	# index for full text search
-	index_product($product_ref);
+	compute_keywords($product_ref);
 
 	# make sure that the _id and code are saved as a string, otherwise mongodb may save them as numbers
 	# for _id , it makes them possibly non unique, and for code, we would lose leading 0s
@@ -2581,7 +2581,7 @@ sub product_action_url ($code, $action) {
 	return $url;
 }
 
-sub index_product ($product_ref) {
+sub compute_keywords ($product_ref) {
 
 	my @string_fields = qw(product_name generic_name);
 	my @tag_fields = qw(brands categories origins labels);

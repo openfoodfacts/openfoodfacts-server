@@ -111,9 +111,9 @@ sub fix_non_normalized_sto($product_path, $dry_run, $out) {
 	return \@actions;
 }
 
-sub remove_int_barcode_mongo($dry_run, $out) {
-	# a product with a non str code is to be removed if it already exists as str version
-    # or moved to a str version
+
+sub search_int_codes() {
+    # search for product with int code in mongodb
 
     # 2 mins, instead of 30s default, to not die as easily if mongodb is busy.
     my $socket_timeout_ms = 2 * 60000;
@@ -130,42 +130,52 @@ sub remove_int_barcode_mongo($dry_run, $out) {
         push(@int_ids, $product_ref->{_id});
     }
 
-    # yet we must first verify the str version of the document exists
-	# search if some of them do not have an equivalent with str value
-    my @str_ids = map { "$_" } @int_ids;
-    my %already_indexed = ();
-    $cursor = $products_collection->query(
-        {code => {'$type' => 'string', '$in' => \@str_ids}}
-    )->fields({_id => 1, code => 1});
-    $cursor->immortal(1);
-    while (my $product_ref = $cursor->next) {
-        $already_indexed{$product_ref->{_id}} = 1;
-    }
-    # those who are already_indexed should be removed
-    my @to_remove = keys %already_indexed;
-    # the other should be moved to str
-    my @to_move = grep { undef $already_indexed{$_ } } @str_ids;
+    return @int_ids;
 
-    my $remove_count = scalar @to_remove;
-    my $move_count = scalar @to_move;
+}
 
-    print $out "Removing $remove_count int codes and moving $move_count\n" unless !($remove_count || $move_count);
+sub fix_int_barcodes_sto($int_ids_ref, $dry_run){
+    # fix int barcodes in sto
+    my $removed = 0;
+    my $refreshed = 0;
 
-    if (!$dry_run) {
-        if (scalar @to_remove) {
-            remove_documents_by_ids(\@to_remove, $products_collection);
-        }
-        if (scalar @to_move) {
-            my %ops_by_ids = ();
-            foreach my $id_ (@to_move) {
-                # update document to have a str code
-                my $id_=$_;
-                $ops_by_ids{"$id_"} = {
-                    '$set' => {'code' => "$id_"}
-                };
+    foreach my $int_id (@$int_ids_ref) {
+        # load
+        my $str_code = "$int_id";
+        $product_ref = retrieve_product($str_code);
+        if (defined $product_ref) {
+            $product_ref->{_id} .= '';
+            $product_ref->{code} .= '';
+            if (! $dry_run) {
+                # Silently replace values in sto (no rev)
+                store("$data_root/products/$path/product.sto", $product_ref);
+                # Refresh mongodb
+                $products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
             }
-            bulk_update_by_ids(\%ops_by_ids, $products_collection);
+            $refreshed++;
         }
+        else {
+            if (! $dry_run) {
+                # remove for mongodb
+                $products_collection->remove_one({"_id" => $product_ref->{_id}});
+            }
+            $removed++;
+        }
+    }
+
+    return {removed => $removed, refreshed => $refreshed};
+}
+
+
+sub remove_int_barcode_mongo($dry_run, $out) {
+	# a product with a non int code should be removed or converted to str
+    my @int_ids = search_int_codes();
+    # re-index corresponding products, with a fix on id, just to be sure !
+    my $result_ref = fix_int_barcodes_sto(\@int_ids, $dry_run);
+    my $removed = $result_ref->{removed};
+    my $refreshed = $result_ref->{refreshed};
+    if ($removed || $refreshed) {
+        print ($out "Int codes: refresh $refreshed, removed $removed\n");
     }
 
     return;

@@ -75,7 +75,7 @@ my $cursor = get_products_collection()->query({})->fields({ code => 1 });;
 			}
 		}
 		
-		# index_product($product_ref);
+		# compute_keywords($product_ref);
 
 		# Store
 
