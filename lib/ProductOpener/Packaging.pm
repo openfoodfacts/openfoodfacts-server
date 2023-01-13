@@ -159,6 +159,9 @@ sub parse_packaging_component_data_from_text_phrase ($text, $text_language) {
 		$text = $';
 	}
 
+	# We might have escaped dots and commas inside numbers from analyze_and_combine_packaging_data()
+	$text =~ s/(\d)\\(\.|\,)(\d)/$1$2$3/g;
+
 	# Also try to match the canonicalized form so that we can match the extended synonyms that are only available in canonicalized form
 	my $textid = get_string_id_for_lang($text_language, $text);
 
@@ -793,7 +796,13 @@ sub analyze_and_combine_packaging_data ($product_ref, $response_ref) {
 	# Packaging text field (populated by OCR of the packaging image and/or contributors or producers)
 	if (defined $product_ref->{packaging_text}) {
 
-		my @packaging_text_entries = split(/,|;|\n/, $product_ref->{packaging_text});
+		# Separate phrases by matching:
+		# . , ; and newlines
+		# but we want to keep commas and dots that are inside numbers (3.40 or 1,5)
+		# so we escape them first
+		my $packaging_text = $product_ref->{packaging_text};
+		$packaging_text =~ s/(\d)(\.|,)(\d)/$1\\$2$3/g;
+		my @packaging_text_entries = split(/(?<!\\)\.|(?<!\\),|;|\n/, $packaging_text);
 		push(@phrases, @packaging_text_entries);
 		$number_of_packaging_text_entries = scalar @packaging_text_entries;
 	}

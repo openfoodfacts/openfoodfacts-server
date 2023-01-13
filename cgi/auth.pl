@@ -27,6 +27,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::HTTP qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
 
@@ -76,15 +77,8 @@ my $json = JSON::PP->new->allow_nonref->canonical->utf8->encode($response_ref);
 
 # The Access-Control-Allow-Origin header must be set to the value of the Origin header
 my $r = Apache2::RequestUtil->request();
-my $origin = $r->headers_in->{Origin} || '';
-
-# Only allow requests from one of our subdomains to see if a user is logged in or not
-
-if ($origin =~ /^https:\/\/[a-z0-9-.]+\.${server_domain}(:\d+)?$/) {
-	$r->err_headers_out->set("Access-Control-Allow-Credentials", "true");
-	$r->err_headers_out->set("Access-Control-Allow-Origin", $origin);
-}
-
+my $allow_credentials = 1;
+write_cors_headers($allow_credentials);
 print header(-status => $status, -type => 'application/json', -charset => 'utf-8');
 
 # 2022-10-11 - The Open Food Facts Flutter app is expecting an empty body

@@ -37477,6 +37477,7 @@ de:Mais
 es:Maíz
 fi:maissi
 fr:Maïs
+hr:Kukuruz
 it:Mais
 la:Zea mays subsp. mays
 lt:Kukurūzai
@@ -38597,6 +38598,7 @@ de:Chips
 es:Chips fritos, papas fritas
 fi:Lastut, Sipsit
 fr:Chips, Chips de légumes
+hr:čips
 hu:Csipszek
 it:Patatine sottili, Patatine imbustate, Patatine croccanti
 lt:Traškučiai, Čipsai
@@ -44396,6 +44398,10 @@ es:Natas vegetales a base de espelta para cocinar
 fr:Crèmes végétales à base d'épeautre pour cuisiner
 nl:Plantaardige speltromen
 
+<en:Plant-based foods
+en:Egg substitutes
+fr:Substituts des œufs, substituts des oeufs
+
 <en:Animal fats
 <en:Milkfat
 en:Dairy spread
@@ -47854,16 +47860,6 @@ ciqual_food_name:fr:Crème dessert, rayon frais (aliment moyen)
 
 <en:Creamy puddings
 en:Pistachio creamy puddings, Pistachio custard dessert
-
-<en:Dessert creams
-en:Coffee custard dessert
-fr:Crèmes dessert café
-lt:Kavos kremo desertai
-nl:Koffievla's
-agribalyse_proxy_food_code:en:39246
-agribalyse_proxy_food_name:en:Custard dessert, coffee, refrigerated
-agribalyse_proxy_food_name:fr:Crème dessert au café, rayon frais
-
 fr:Crèmes dessert pistache
 lt:Pistacijų kremo desertai
 nl:Pistache vla's, Pistachevla's
@@ -47963,7 +47959,11 @@ ciqual_food_name:fr:Crème dessert au caramel, rayon frais
 <en:Creamy puddings
 en:Coffee creamy puddings, coffee puddings, coffee custard dessert
 fr:Crèmes dessert café
+lt:Kavos kremo desertai
 nl:Koffie vla's, Koffievla's
+agribalyse_proxy_food_code:en:39246
+agribalyse_proxy_food_name:en:Custard dessert, coffee, refrigerated
+agribalyse_proxy_food_name:fr:Crème dessert au café, rayon frais
 
 <en:Coffee creamy puddings
 en:Refrigerated coffee puddings, Refrigerated coffee custard dessert
@@ -98606,6 +98606,10 @@ ciqual_food_name:en:Plant-based ham, prepacked
 ciqual_food_name:fr:Spécialité végétale type jambon cuit, préemballée
 
 <en:Meat analogues
+en:Foie gras substitutes
+fr:Substituts du foie gras
+
+<en:Meat analogues
 en:Bacon substitutes, bacon substituts
 fr:Substituts du bacon
 
@@ -102821,19 +102825,3 @@ agribalyse_food_code:en:36029
 ciqual_food_code:en:36029
 ciqual_food_name:en:Chicken, breast, meat and skin, raw
 ciqual_food_name:fr:Poulet, poitrine, viande et peau, cru
-
-<en:dessert-creams
-en:Custard dessert vanilla refrigerated
-fr:Crème dessert à la vanille rayon frais
-agribalyse_food_code:en:39229
-ciqual_food_code:en:39229
-ciqual_food_name:en:Custard dessert, vanilla, refrigerated
-ciqual_food_name:fr:Crème dessert à la vanille, rayon frais
-
-<en:dessert-creams
-en:Custard dessert coffee refrigerated
-fr:Crème dessert au café rayon frais
-agribalyse_food_code:en:39246
-ciqual_food_code:en:39246
-ciqual_food_name:en:Custard dessert, coffee, refrigerated
-ciqual_food_name:fr:Crème dessert au café, rayon frais
