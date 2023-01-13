@@ -543,7 +543,7 @@ sub product_path ($product_ref) {
 
 Reverse of product_path_from_id.
 
-There is no guarantee the result will be correct...
+There is no guarantee the result will be correct... but it's way faster than loading the sto !
 
 =cut
 
