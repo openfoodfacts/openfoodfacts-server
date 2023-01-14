@@ -1,19 +1,36 @@
 #!/usr/bin/make
 
-NAME = "ProductOpener"
+ifeq ($(findstring cmd.exe,$(SHELL)),cmd.exe)
+    $(error "We do not suppport using cmd.exe on Windows, please run in a 'git bash' console")
+endif
+
+
+# use bash everywhere !
+SHELL := /bin/bash
+# some vars
 ENV_FILE ?= .env
+NAME = "ProductOpener"
 MOUNT_POINT ?= /mnt
 DOCKER_LOCAL_DATA ?= /srv/off/docker_data
-HOSTS=127.0.0.1 world.productopener.localhost fr.productopener.localhost static.productopener.localhost ssl-api.productopener.localhost fr-en.productopener.localhost
-COMPOSE_PROJECT_NAME ?= $(shell grep COMPOSE_PROJECT_NAME ${ENV_FILE}|cut -d '=' -f 2|sed -e 's/ //g')
+
 export DOCKER_BUILDKIT=1
 export COMPOSE_DOCKER_CLI_BUILD=1
 UID ?= $(shell id -u)
 export USER_UID:=${UID}
-
 export CPU_COUNT=$(shell nproc || echo 1)
 export MSYS_NO_PATHCONV=1
 
+# load env variables
+# also takes into account envrc (direnv file)
+ifneq (,$(wildcard ./${ENV_FILE}))
+    -include ${ENV_FILE}
+    -include .envrc
+    export
+endif
+
+
+HOSTS=127.0.0.1 world.productopener.localhost fr.productopener.localhost static.productopener.localhost ssl-api.productopener.localhost fr-en.productopener.localhost
+# commands aliases
 DOCKER_COMPOSE=docker-compose --env-file=${ENV_FILE}
 # we run tests in a specific project name to be separated from dev instances
 # we also publish mongodb on a separate port to avoid conflicts

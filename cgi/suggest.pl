@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -184,10 +184,10 @@ if ($fuzzy_to_add >= 0) {
 my $data = encode_json(\@suggestions);
 
 # send response
+write_cors_headers();
 print header(
 	-type => 'application/json',
 	-charset => 'utf-8',
-	-access_control_allow_origin => '*'
 );
 if ($cache_max_age) {
 	print header(-cache_control => 'public, max-age=' . $cache_max_age,);

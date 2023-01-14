@@ -2422,7 +2422,7 @@ msgstr "חנויות"
 
 msgctxt "stores_products"
 msgid "Products sold at %s"
-msgstr "מוצרים שנמכרים אצל"
+msgstr "%s מוצרים שנמכרים אצל"
 
 msgctxt "stores_s"
 msgid "store"
@@ -4717,7 +4717,7 @@ msgstr "מוטב להתמקד עד כמה שניתן. לפלסטיק רצוי ל
 
 msgctxt "packaging_text_note_3"
 msgid "Data from this field will be combined with any data provided for each packaging part. It is possible to provide one or the other, or both."
-msgstr ""
+msgstr "נתונים מהשדה הזה ישולבו עם נתונים שמסופקים עבור כל חלק באריזה. אפשר לספק את זה או את זה או את שניהם."
 
 msgctxt "product_js_extract_packaging"
 msgid "Extract the recycling instructions and/or packaging information from the picture"
@@ -6091,21 +6091,21 @@ msgstr "הוספת מפרט תזונתי"
 
 msgctxt "action_add_origins"
 msgid "Add the origins of ingredients for this product"
-msgstr ""
+msgstr "הוספת מקורות רכיבי המוצר הזה"
 
 msgctxt "action_add_packaging_image"
 msgid "Take a photo of the recycling information"
-msgstr ""
+msgstr "נא לצלם תמונה של פרטי המיחזור"
 
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
-msgstr ""
+msgstr "הוספת פרטים בסיסיים"
 
 # this is not used yet
 msgctxt "action_add_portion_size"
 msgid "Add portion size"
-msgstr ""
+msgstr "הוספת גודל מנה"
 
 # this is not used yet
 msgctxt "action_add_ingredients_image"
@@ -6120,37 +6120,37 @@ msgstr "צילום העובדות התזונתיות"
 # this is not used yet
 msgctxt "action_refresh_ingredients_image"
 msgid "Refresh the photo of the ingredients"
-msgstr ""
+msgstr "רענון תמונת הרכיבים"
 
 # this is not used yet
 msgctxt "action_refresh_nutrition_image"
 msgid "Refresh the photo of the nutrition facts"
-msgstr ""
+msgstr "רענון תמונת העובדות התזונתיות"
 
 # this is not used yet
 msgctxt "action_add_packaging_text"
 msgid "Extract and check the recycling information"
-msgstr ""
+msgstr "חילוץ ובדיקת פרטי המחזור"
 
 # this is not used yet
 msgctxt "action_add_stores"
 msgid "Add the store where you found this product"
-msgstr ""
+msgstr "הוספת החנות בה מצאת את המוצר"
 
 # this is not used yet
 msgctxt "action_labels"
 msgid "Add any label present on this product"
-msgstr ""
+msgstr "הוספת תוויות כלשהן שמופיעות על המוצר"
 
 # this is not used yet
 msgctxt "action_countries"
 msgid "Add the country where you found this product"
-msgstr ""
+msgstr "הוספת המדינה בה מצאת את המוצר"
 
 # this is not used yet
 msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
-msgstr ""
+msgstr "צילום הקודים של המעקב"
 
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
@@ -6356,17 +6356,17 @@ msgstr "השדה לא תקף"
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "מספר יחידות"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
 msgid "Weight of one empty unit"
-msgstr ""
+msgstr "משקל של יחידה ריקה אחת"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit"
 msgid "Quantity of product contained per unit"
-msgstr ""
+msgstr "כמות של המוצר שכלולה ביחידה"
 
 # variable names between { } must not be translated
 msgctxt "f_help_categorize_on_hunger_games"
@@ -6375,5 +6375,13 @@ msgstr "נשמח לסיוע בסיווג של עוד {title} במשחקי הרע
 
 msgctxt "packagings_complete"
 msgid "All the packaging parts of the product are listed."
-msgstr ""
+msgstr "כל חלקי האריזה של המוצר מפורטים."
+
+msgctxt "api_message_invalid_user_id_and_password"
+msgid "Invalid user id and password"
+msgstr "מזהה משתמש וסיסמה שגויים"
+
+msgctxt "api_message_invalid_value_must_be_0_or_1"
+msgid "Invalid value: must be 0 or 1"
+msgstr "ערך שגוי: חייב להיות 0 או 1"
 
