@@ -185,6 +185,7 @@ docker:
 folksonomy project:
 - html/js/folksonomy.js
 - templates/web/common/includes/folksonomy_script.tt.html
+- docs/reference/api-tutorials/folksonomy-engine.md
 
 Attributes:
 - lib/ProductOpener/Attributes.pm
