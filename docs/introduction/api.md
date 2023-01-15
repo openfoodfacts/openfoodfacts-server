@@ -94,7 +94,9 @@ To allow users of your app to contribute without registering individual accounts
 We are building a complete OpenAPI reference.
 
 - Actual [OpenAPI documentation](../reference/api.md)
-- An [older doc is also available](https://github.com/
+- An [older doc is also available](https://github.com/openfoodfacts/api-documentation/)
+
+
 
 ## Tutorials
 
