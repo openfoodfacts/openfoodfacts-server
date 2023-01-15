@@ -740,6 +740,10 @@ sub check_nutrition_data ($product_ref) {
 						$nid_non_zero++;
 					}
 				}
+				# negative value in nutrition table
+				if ($product_ref->{nutriments}{$nid} < 0) {
+						push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-negative-$nid2";
+				}
 			}
 
 			$nid_n++;
