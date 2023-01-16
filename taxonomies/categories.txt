@@ -75057,8 +75057,31 @@ agribalyse_food_code:en:36027
 ciqual_food_code:en:36027
 ciqual_food_name:en:Chicken, nugget, breaded croquette
 
+<en:Breaded products
+<en:Meat preparations
+en:Breaded meat cutlets
+de:Schnitzel
+fr:Escalopes de viande panées
+
+<en:Breaded meat cutlets
+en:Breaded pork cutlets
+de:Schweineschnitzel
+fr:Escalopes de porc panées
+
+<en:Breaded meat cutlets
+en:Breaded veal cutlets, Breaded veal escalopes
+de:Kalbsschnitzel
+fr:Escalopes de veau panées, Escalopes panées de veau
+agribalyse_food_code:en:25173
+ciqual_food_code:en:25173
+ciqual_food_name:en:Veal, bread escalope, cooked
+ciqual_food_name:fr:Veau, escalope panée, cuite
+wikidata:en:Q67881839
+
+<en:Breaded meat cutlets
 <en:Breaded chicken
 en:Breaded chicken cutlets, Breaded turkey escalope
+de:Hähnchenschnitzel
 fi:Leivitetyt kanaleikkeet
 fr:Escalopes de poulet panées, Escalopes de poulet panée, Escalope de poulet panée
 it:Cotoletta di pollo impanata
@@ -75067,6 +75090,16 @@ agribalyse_food_code:en:36036
 ciqual_food_code:en:36036
 ciqual_food_name:en:Turkey, breaded escalope
 ciqual_food_name:fr:Poulet, escalope panée
+
+<en:Breaded meat cutlets
+<en:Breaded turkey
+en:Breaded turkey cutlets
+de:Putenschnitzel
+fr:Escalopes de dinde panées, Escalopes de dinde à la milanaise, escalopes de dinde milanaises, escalope de dinde viennoise, escalopes de dinde panées, escalope de dinde panée, Escalopes de dinde marinées à la milanaise
+agribalyse_food_code:en:36318
+ciqual_food_code:en:36318
+ciqual_food_name:en:Milanese-style turkey escalope or breaded veal escalope
+ciqual_food_name:fr:Dinde, escalope viennoise ou milanaise ou escalope panée
 
 <en:Meat preparations
 <en:Turkey and its products
@@ -75080,7 +75113,7 @@ en:Turkey patties
 fr:Galettes à la dinde
 
 <en:Poultry nuggets
-<en:Turkey preparations
+<en:Breaded turkey
 en:Turkey nuggets
 fi:Kalkkunanugetit
 fr:Nuggets de dinde
@@ -76027,14 +76060,6 @@ agribalyse_food_code:en:36308
 ciqual_food_code:en:36308
 ciqual_food_name:en:Turkey, escalope, roasted/baked
 ciqual_food_name:fr:Dinde, escalope, rôtie/cuite au four
-
-<en:Cooked poultries
-<en:Turkey cutlets
-fr:Escalopes de dinde à la milanaise, escalopes de dinde milanaises, escalope de dinde viennoise, escalopes de dinde panées, escalope de dinde panée, Escalopes de dinde marinées à la milanaise
-agribalyse_food_code:en:36318
-ciqual_food_code:en:36318
-ciqual_food_name:en:Milanese-style turkey escalope or breaded veal escalope
-ciqual_food_name:fr:Dinde, escalope viennoise ou milanaise ou escalope panée
 
 <en:Cooked poultries
 <en:Turkeys
@@ -79234,16 +79259,6 @@ agribalyse_food_code:en:6520
 ciqual_food_code:en:6520
 ciqual_food_name:en:Veal, escalope, cooked
 ciqual_food_name:fr:Veau, escalope, cuite
-
-<en:Cooked veal meat
-<en:Veal escalopes
-en:Breaded veal escalopes
-fr:Escalopes de veau panées, Escalopes panées de veau
-agribalyse_food_code:en:25173
-ciqual_food_code:en:25173
-ciqual_food_name:en:Veal, bread escalope, cooked
-ciqual_food_name:fr:Veau, escalope panée, cuite
-wikidata:en:Q67881839
 
 <en:Veal meat
 en:Veal fillets
@@ -98655,7 +98670,7 @@ fr:Substituts des fricadelles
 
 <en:Meat analogues
 <en:Breaded products
-en:Schnitzel substitutes, Schnitzel substituts
+en:Breaded cutlets substitutes, Schnitzel substitutes, Schnitzel substituts
 fr:Susbtituts des escalopes panés
 
 <en:Meat analogues
