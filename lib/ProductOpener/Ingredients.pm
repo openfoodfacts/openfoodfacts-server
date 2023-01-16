@@ -3686,21 +3686,27 @@ my %phrases_after_ingredients_list = (
 	],
 
 	hr => [
-		'Bez konzervans',    # without preservatives
+		'bez konzervans',    # without preservatives
 		'Čuvati na (hladnom|sobnoj temperaturi|suhom|temperaturi)',    # store in...
-		'Najbolje upotrijebiti do',    # best before
-		'Nakon otvaranja',    # after opening
-		'Pakirano u (kontroliranoj|zaštitnoj) atmosferi',    # packed in a ... atmosphere
-		'Pasterizirano',    # Pasteurized
-		'Proizvođač',    # producer
-		'Prosječna hranjiva vrijednost',    # Average nutritional value
-		'Upotrijebiti do datuma',    # valid until
-		'Upozorenje',    # warning
-		'Uputa',    # instructions
-		'Vakuumirana',    # Vacuumed
-		'Vrijeme kuhanja',    # Cooking time
-		'Zbog (mutan|prisutnosti)',    # Due to ...
-		'Zemlja porijekla',    # country of origin
+		'Čuvati zatvoreno na',
+		'Čuvati pri sobnoj temperaturi',
+		'izvor dijetalnih vlakana',    # source of proteins
+		'najbolje upotrijebiti do',    # best before
+		'nakon otvaranja',    # after opening
+		'pakirano u (kontroliranoj|zaštitnoj) atmosferi',    # packed in a ... atmosphere
+		'proizvod je termički obrađen-pasteriziran',  # pasteurized
+		'proizvođač',    # producer
+		# 'prosječn(a|e) (hranjiva|hranjive|nutritivne) (vrijednost|vrijednosti)',    # Average nutritional value
+		'protresti prije otvaranja',    # shake before opening
+		'upotrijebiti do datuma',    # valid until
+		'upozorenje',    # warning
+		'uputa',    # instructions
+		'uvoznik za',    # importer
+		'vakuumirana',    # Vacuumed
+		'vrijeme kuhanja',    # Cooking time
+		'zaštićena oznaka zemljopisnog podrijetla',    # ZOI/PDO
+		'zbog (mutan|prisutnosti)',    # Due to ...
+		'zemlja (porijekla|podrijetla|porekla)',    # country of origin
 	],
 
 	hu => [
