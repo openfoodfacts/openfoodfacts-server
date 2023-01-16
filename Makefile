@@ -136,7 +136,7 @@ tail:
 
 cover:
 	@echo "🥫 running …"
-	${DOCKER_COMPOSE} exec --user root backend perl -MDevel::Cover tests/unit/*.t
+	${DOCKER_COMPOSE_TEST} run --rm backend perl -MDevel::Cover tests/unit/*.t
 
 codecov:
 	@echo "🥫 running …"
