@@ -1105,7 +1105,12 @@ sub display_text ($request_ref) {
 	if (($textid eq 'index-pro') and (defined $Owner_id)) {
 		my $owner_user_or_org = $Owner_id;
 		if (defined $Org_id) {
-			$owner_user_or_org = $Org{name};
+			if ((defined $Org{name}) and ($Org{name} ne "")) {
+				$owner_user_or_org = $Org{name};
+			}
+			else {
+				$owner_user_or_org = $Org_id;
+			}
 		}
 		$html =~ s/<\/h1>/ - $owner_user_or_org<\/h1>/;
 	}
