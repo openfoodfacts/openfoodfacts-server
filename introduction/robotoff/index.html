@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/introduction/knowledge-panels/">
+        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/introduction/robotoff/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.4">
     
     
       
-        <title>Knowledge panels - Product Opener (Open Food Facts Server)</title>
+        <title>Robotoff - Product Opener (Open Food Facts Server)</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#knowledge-panels" class="md-skip">
+        <a href="#about" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Knowledge panels
+              Robotoff
             
           </span>
         </div>
@@ -262,21 +262,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../knowledge-panels/" class="md-nav__link">
         Knowledge panels
       </a>
-      
     </li>
   
 
@@ -300,11 +290,55 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../robotoff/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Robotoff
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Robotoff
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about" class="md-nav__link">
+    About
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#robotoff-documentation" class="md-nav__link">
+    Robotoff documentation
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -693,8 +727,28 @@
   
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about" class="md-nav__link">
+    About
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#robotoff-documentation" class="md-nav__link">
+    Robotoff documentation
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -708,19 +762,22 @@
                 
                   
 
-  <a href="https://github.com/openfoodfacts/openfoodfacts-server/blob/main/docs/introduction/knowledge-panels.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/openfoodfacts/openfoodfacts-server/blob/main/docs/introduction/robotoff.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="knowledge-panels">Knowledge panels<a class="headerlink" href="#knowledge-panels" title="Permanent link">#</a></h1>
-<p>The Open Food Facts API allows clients (such as the Open Food Facts website and mobile app) to request ready to display bits of information about an object (such as a product or a facet like a category).</p>
-<p>Clients do not have to know in advance what kind of information is displayed (e.g. the ingredients of a product, nutrition data, the Nutri-Score or the Eco-Score), they only have to know how to display basic types of data such as texts, grades, images, and tables.</p>
-<p>The structure of the knowledge panels data returned by the API is described in the panels JSON schema.</p>
-<p>See the reference documentation: 
-https://openfoodfacts.github.io/openfoodfacts-server/reference/api/#tag/Read-Requests/operation/get-product-by-barcode-knowledge-panels</p>
-<p>See also the <a href="../../reference/schemas/knowledge_panels/panels.yaml">source file, containing json schema</a></p>
+  <h1>Robotoff</h1>
+
+<h3 id="about">About<a class="headerlink" href="#about" title="Permanent link">#</a></h3>
+<p>The Robotoff project is intended to complete missing information of products by prompting users to confirm predictions inferred by Artificial Intelligence algorithms. These algorithms are calculated based on "insights", which are facts about a product that have been extracted or deduced from the product pictures, ingredients, categories, labels, etc...</p>
+<h3 id="robotoff-documentation">Robotoff documentation<a class="headerlink" href="#robotoff-documentation" title="Permanent link">#</a></h3>
+<p>The documentation for Robotoff is located here:</p>
+<ul>
+<li><a href="https://openfoodfacts.github.io/robotoff/" title="General Documentation">General Documentation</a></li>
+<li><a href="https://openfoodfacts.github.io/robotoff/references/api/" title="API Documentation">API Documentation (OpenApi)</a></li>
+</ul>
 
 
 
@@ -741,7 +798,7 @@ https://openfoodfacts.github.io/openfoodfacts-server/reference/api/#tag/Read-Req
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../api/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Open Food Facts API Documentation" rel="prev">
+        <a href="../dev-environment-quick-start-guide/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Dev environment quick start guide" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -750,20 +807,20 @@ https://openfoodfacts.github.io/openfoodfacts-server/reference/api/#tag/Read-Req
               <span class="md-footer__direction">
                 Previous
               </span>
-              Open Food Facts API Documentation
+              Dev environment quick start guide
             </div>
           </div>
         </a>
       
       
         
-        <a href="../dev-environment-quick-start-guide/" class="md-footer__link md-footer__link--next" aria-label="Next: Dev environment quick start guide" rel="next">
+        <a href="../../tutorials/using-the-OFF-API-tutorial/" class="md-footer__link md-footer__link--next" aria-label="Next: Using the Open Food Facts API" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Dev environment quick start guide
+              Using the Open Food Facts API
             </div>
           </div>
           <div class="md-footer__button md-icon">
