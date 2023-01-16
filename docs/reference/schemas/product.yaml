@@ -1274,6 +1274,10 @@ properties:
     type: integer
   last_modified_by:
     type: string
+    description: |
+      The username of the user who last modified the product.
+    example:
+      sebleouf
   last_modified_t:
     type: integer
     description: |
@@ -1312,6 +1316,13 @@ properties:
       type: string
   no_nutrition_data:
     type: string
+    description: |
+      When a product does not have nutrition data displayed on the 
+      packaging, the user can check the field "Nutrition facts are 
+      not specified on the product".
+      By doing so, the no_nutrition_data field takes the value "on".
+      This case is frequent (thousands of products).
+    example: "on"
   no_nutrition_data_imported:
     type: string
   nova_group:
@@ -1430,6 +1441,33 @@ properties:
           (or 100ml for liquids) for energy expressed in 
           the unit specified in the field energy_unit.
         example: 190
+      erythritol:
+        type: integer
+        description: |
+          erythritol is a polyol which is not providing any energy. 
+          As such, it needs not be taken into account when computing 
+          the energy of a product. Eryhtritol is now displayed on 
+          nutrition facts sheet of some products, mainly in the USA.
+          This value is entered either by contributors, either by 
+          imports.
+        example: 4
+      erythritol_100g:
+        type: number
+        description: |
+          erythritol is a polyol which is not providing any energy. 
+          As such, it needs not be taken into account when computing 
+          the energy of a product. Eryhtritol is now displayed on 
+          nutrition facts sheet of some products, mainly in the USA.
+          This value per 100g is computed from erythritol, erythritol_unit,
+          and serving_size.
+        example: 12.5
+      erythritol_serving:
+        type: number
+      erythritol_unit:
+        type: string
+        example: "g"
+      erythritol_value:
+        type: number
       fat:
         type: number
       fat_100g:
