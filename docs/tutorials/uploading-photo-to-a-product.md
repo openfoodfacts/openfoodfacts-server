@@ -12,7 +12,7 @@ Products images MUST be under the [Creative Commons Attribution ShareAlike licen
 That means you should either upload: 
 * photos that are your own work
 * photos taken by your users, with their consent for this license (should be part of your service terms)
-* photos already under this license or a more liberal one
+* photos already under this license or a compatible license ([cc-by](https://creativecommons.org/licenses/by/4.0/), [cc-0](https://creativecommons.org/share-your-work/public-domain/cc0/) or public domain)
 
 ### Image Quality
 
