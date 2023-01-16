@@ -18,4 +18,4 @@ jobs:
       - uses: codecov/codecov-action@v3
         if: always()
         with:
-          files: cover_db/coverage.xml
+          files: cover_db/codecov.json
