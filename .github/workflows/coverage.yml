@@ -12,7 +12,10 @@ jobs:
       - name: generate text file with results
         if: always()
         run: make coverage_txt
+      - name: use codecov
+        if: always()
+        run: make codecov
       - uses: codecov/codecov-action@v3
         if: always()
         with:
-          files: cover_db/coverage.html
+          files: cover_db/coverage.xml

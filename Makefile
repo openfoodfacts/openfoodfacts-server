@@ -138,8 +138,12 @@ cover:
 	@echo "🥫 running …"
 	${DOCKER_COMPOSE_TEST} run --rm backend perl -MDevel::Cover tests/unit/*.t
 
+codecov:
+	@echo "🥫 running …"
+	${DOCKER_COMPOSE_TEST} run --rm backend cover -report codecov
+
 coverage_txt:
-	${DOCKER_COMPOSE_TEST} run --rm backend cover > coverage.txt
+	${DOCKER_COMPOSE_TEST} run --rm backend cover
 
 #----------#
 # Services #
