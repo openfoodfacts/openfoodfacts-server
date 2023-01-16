@@ -140,9 +140,9 @@ cover:
 
 codecov:
 	@echo "🥫 running …"
-	${DOCKER_COMPOSE_TEST} run --rm backend cover -report codecov > coverage.xml
+	${DOCKER_COMPOSE_TEST} run --rm backend cover -report codecovbash
 
-coverage:
+coverage_txt:
 	${DOCKER_COMPOSE_TEST} run --rm backend cover
 
 #----------#
