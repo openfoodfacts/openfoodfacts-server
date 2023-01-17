@@ -188,7 +188,11 @@ my $data = encode_json(\@suggestions);
 write_cors_headers();
 
 if ($cache_max_age) {
-	print header(-type => 'application/json', -charset => 'utf-8', -cache_control => 'public, max-age=' . $cache_max_age,);
+	print header(
+		-type => 'application/json',
+		-charset => 'utf-8',
+		-cache_control => 'public, max-age=' . $cache_max_age,
+	);
 }
 else {
 	print header(
