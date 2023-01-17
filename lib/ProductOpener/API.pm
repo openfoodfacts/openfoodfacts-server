@@ -74,6 +74,7 @@ use ProductOpener::Packaging qw/:all/;
 
 use ProductOpener::APIProductRead qw/:all/;
 use ProductOpener::APIProductWrite qw/:all/;
+use ProductOpener::APITaxonomySuggestions qw/:all/;
 
 use CGI qw(header);
 use Apache2::RequestIO();
@@ -351,6 +352,7 @@ sub process_api_request ($request_ref) {
 
 		# Route the API request to the right processing function, based on API action (from path) and method
 
+		# Product read or write
 		if ($request_ref->{api_action} eq "product") {
 
 			if ($request_ref->{api_method} eq "PATCH") {
@@ -371,6 +373,25 @@ sub process_api_request ($request_ref) {
 				);
 			}
 		}
+		# Taxonomy suggestions
+		elsif ($request_ref->{api_action} eq "taxonomy_suggestions") {
+
+			if ($request_ref->{api_method} =~ /^(GET|HEAD|OPTIONS)$/) {
+				taxonomy_suggestions_api($request_ref);
+			}
+			else {
+				$log->warn("process_api_request - invalid method", {request => $request_ref}) if $log->is_warn();
+				add_error(
+					$response_ref,
+					{
+						message => {id => "invalid_api_method"},
+						field => {id => "api_method", value => $request_ref->{api_method}},
+						impact => {id => "failure"},
+					}
+				);
+			}
+		}
+		# Unknown action
 		else {
 			$log->warn("process_api_request - unknown action", {request => $request_ref}) if $log->is_warn();
 			add_error(
