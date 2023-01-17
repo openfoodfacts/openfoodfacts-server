@@ -22,7 +22,7 @@
 
 =head1 NAME
 
-fix_non_ronalized_codes - A script to fix non normalized codes
+fix_non_normalized_codes - A script to fix non normalized codes
 
 =head1 DESCRIPTION
 
@@ -116,6 +116,9 @@ sub fix_non_normalized_sto ($product_path, $dry_run, $out) {
 	return \@actions;
 }
 
+
+my $int_codes_query_ref = {'code' => {'$not' => {'$type' => 'string'}}};
+
 sub search_int_codes() {
 	# search for product with int code in mongodb
 
@@ -127,7 +130,7 @@ sub search_int_codes() {
 	my @int_ids = ();
 	# it's better we do it with a specific queries as it's hard to keep "integer" as integers in perl
 	my $cursor
-		= $products_collection->query({'code' => {'$not' => {'$type' => 'string'}}})->fields({_id => 1, code => 1});
+		= $products_collection->query($int_codes_query_ref)->fields({_id => 1, code => 1});
 	$cursor->immortal(1);
 	while (my $product_ref = $cursor->next) {
 		push(@int_ids, $product_ref->{_id});
@@ -188,6 +191,12 @@ sub remove_int_barcode_mongo ($dry_run, $out) {
 	if ($removed || $refreshed) {
 		print($out "Int codes: refresh $refreshed, removed $removed\n");
 	}
+
+	# remove them from mongodb
+	# 2 mins, instead of 30s default, to not die as easily if mongodb is busy.
+	my $socket_timeout_ms = 2 * 60000;
+	my $products_collection = get_products_collection($socket_timeout_ms);
+	$products_collection->delete_many($int_codes_query_ref);
 
 	return;
 }
