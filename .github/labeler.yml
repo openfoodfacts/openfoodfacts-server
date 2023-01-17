@@ -477,6 +477,7 @@ images:
 - scripts/delete_old_cropped_images.pl
 - docs/reference/requestBodies/crop_a_photo.yaml
 - docs/reference/requestBodies/add_photo_to_existing_product.yaml
+- docs/tutorials/uploading-photo-to-a-product.md
 
 Products:
 - lib/ProductOpener/Products.pm
