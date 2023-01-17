@@ -500,11 +500,13 @@ sub execute_api_tests ($file, $tests_ref, $ua = undef) {
 			};
 
 			# normalize for comparison
-			if (defined $decoded_json->{'products'}) {
-				normalize_products_for_test_comparison($decoded_json->{'products'});
-			}
-			if (defined $decoded_json->{'product'}) {
-				normalize_product_for_test_comparison($decoded_json->{'product'});
+			if (ref($decoded_json) eq 'HASH') {
+				if (defined $decoded_json->{'products'}) {
+					normalize_products_for_test_comparison($decoded_json->{'products'});
+				}
+				if (defined $decoded_json->{'product'}) {
+					normalize_product_for_test_comparison($decoded_json->{'product'});
+				}
 			}
 
 			is(
