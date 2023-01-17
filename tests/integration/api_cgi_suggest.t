@@ -72,6 +72,12 @@ my $tests_ref = [
 		path => '/cgi/suggest.pl?tagtype=categories&term=Café&lc=fr',
 		expected_status_code => 200,
 	},
+	{
+		test_case => 'categories-string-fr-cafe-accent',
+		method => 'GET',
+		path => '/cgi/suggest.pl?tagtype=categories&string=Café&lc=fr',
+		expected_status_code => 200,
+	},	
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
