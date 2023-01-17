@@ -3694,9 +3694,9 @@ my %phrases_after_ingredients_list = (
 		'najbolje upotrijebiti do',    # best before
 		'nakon otvaranja',    # after opening
 		'pakirano u (kontroliranoj|zaštitnoj) atmosferi',    # packed in a ... atmosphere
-		'proizvod je termički obrađen-pasteriziran',  # pasteurized
+		'proizvod je termički obrađen-pasteriziran',    # pasteurized
 		'proizvođač',    # producer
-		# 'prosječn(a|e) (hranjiva|hranjive|nutritivne) (vrijednost|vrijednosti)',    # Average nutritional value
+			# 'prosječn(a|e) (hranjiva|hranjive|nutritivne) (vrijednost|vrijednosti)',    # Average nutritional value
 		'protresti prije otvaranja',    # shake before opening
 		'upotrijebiti do datuma',    # valid until
 		'upozorenje',    # warning
