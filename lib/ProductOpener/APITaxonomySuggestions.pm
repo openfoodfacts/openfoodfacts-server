@@ -20,13 +20,13 @@
 
 =head1 NAME
 
-ProductOpener::APIProductRead - implementation of READ API for accessing product data
+ProductOpener::APITaxonomySuggestions - suggests taxonomy entries for dropdown, autocomplete etc.
 
 =head1 DESCRIPTION
 
 =cut
 
-package ProductOpener::APIProductRead;
+package ProductOpener::APITaxonomySuggestions;
 
 use ProductOpener::PerlStandards;
 use Exporter qw< import >;
@@ -36,7 +36,8 @@ use Log::Any qw($log);
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-		&read_product_api
+		&taxonomy_suggestions_api
+		&generate_
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -45,18 +46,13 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
-use ProductOpener::Products qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Tags qw/:all/;
 use ProductOpener::API qw/:all/;
 
-=head2 read_product_api ( $request_ref )
+=head2 taxonomy_suggestions_api ( $request_ref )
 
-Process API V3 READ product requests.
-
-TODO: v0 / v1 / v2 READ product requests are still handled by Display::display_product_api () which contains similar code.
-Internally, we should be able to upgrade those requests to v3, and then customize the response to make it return the v2 expected response.
+Process API V3 taxonomy suggestions requests.
 
 =head3 Parameters
 
@@ -66,116 +62,44 @@ Reference to the request object.
 
 =cut
 
-sub read_product_api ($request_ref) {
+sub taxonomy_suggestions_api ($request_ref) {
 
-	$log->debug("read_product_api - start", {request => $request_ref}) if $log->is_debug();
+	$log->debug("taxonomy_suggestions_api - start", {request => $request_ref}) if $log->is_debug();
 
 	my $response_ref = $request_ref->{api_response};
 
-	# Is a sample product requested?
-	if ((defined $request_ref->{code}) and ($request_ref->{code} eq "example")) {
+	# We need a taxonomy name to provide suggestions for
+	my $tagtype = request_param($request_ref, "tagtype");
 
-		$request_ref->{code}
-			= $options{"sample_product_code_country_${cc}_language_${lc}"}
-			|| $options{"sample_product_code_country_${cc}"}
-			|| $options{"sample_product_code_language_${lc}"}
-			|| $options{"sample_product_code"}
-			|| "";
-	}
-
-	my $code = normalize_requested_code($request_ref->{code}, $response_ref);
-
-	my $product_ref;
-	my $product_id;
-
-	# Check if the code is valid
-	if ($code !~ /^\d{4,24}$/) {
-
-		$log->info("invalid code", {code => $code, original_code => $request_ref->{code}}) if $log->is_info();
+	if (not defined $tagtype) {
+		$log->info("missing tagtype", {tagtype => $tagtype}) if $log->is_info();
 		add_error(
 			$response_ref,
 			{
-				message => {id => "invalid_code"},
-				field => {id => $code, value => $code},
+				message => {id => "missing_tagtype"},
+				field => {id => "tagtype", value => $tagtype},
 				impact => {id => "failure"},
 			}
 		);
-		$response_ref->{result} = {id => "product_not_found"};
+		$response_ref->{result} = {id => "unable_to_provide_suggestions"};		
 	}
-	else {
-		# Check that the product exist, is published, is not deleted, and has not moved to a new url
-
-		$log->debug("read_product_api", {code => $code, params => {CGI::Vars()}}) if $log->is_debug();
-
-		$product_id = product_id_for_owner($Owner_id, $code);
-
-		my $rev = single_param("rev");
-		local $log->context->{rev} = $rev;
-		if (defined $rev) {
-			$product_ref = retrieve_product_rev($product_id, $rev);
-		}
-		else {
-			$product_ref = retrieve_product($product_id);
-		}
-	}
-
-	if ((not defined $product_ref) or (not defined $product_ref->{code})) {
-
-		# Return an error if we could not find a product
-
-		if ($request_ref->{api_version} >= 1) {
-			$request_ref->{status_code} = 404;
-		}
-
+	elsif (not defined $taxonomy_fields{$tagtype}) {
+		$log->info("tagtype is not a taxonomy", {tagtype => $tagtype}) if $log->is_info();
 		add_error(
 			$response_ref,
 			{
-				message => {id => "product_not_found"},
-				field => {id => $code, value => $code},
+				message => {id => "invalid_tagtype"},
+				field => {id => "tagtype", value => $tagtype},
 				impact => {id => "failure"},
 			}
 		);
-		$response_ref->{result} = {id => "product_not_found"};
+		$response_ref->{result} = {id => "unable_to_provide_suggestions"};				
 	}
 	else {
-		$response_ref->{result} = {id => "product_found"};
-
-		add_images_urls_to_product($product_ref, $lc);
-
-		# Select / compute only the fields requested by the caller, default to all
-		$response_ref->{product} = customize_response_for_product($request_ref, $product_ref,
-			request_param($request_ref, 'fields') || "all");
-
-		# Disable nested ingredients in ingredients field (bug #2883)
-		# 2021-02-25: we now store only nested ingredients, flatten them if the API is <= 1
-
-		if ($request_ref->{api_version} <= 1) {
-
-			if (defined $product_ref->{ingredients}) {
-
-				flatten_sub_ingredients($product_ref);
-
-				foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
-					# Delete sub-ingredients, keep only flattened ingredients
-					exists $ingredient_ref->{ingredients} and delete $ingredient_ref->{ingredients};
-				}
-			}
-		}
-
-		# Return blame information
-		if (single_param("blame")) {
-			my $path = product_path_from_id($product_id);
-			my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
-			if (not defined $changes_ref) {
-				$changes_ref = [];
-			}
-			$response_ref->{blame} = {};
-			compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $response_ref->{blame});
-		}
-
+		$response_ref->{suggestions} = [];
 	}
 
-	$log->debug("read_product_api - stop", {request => $request_ref}) if $log->is_debug();
+	$log->debug("taxonomy_suggestions_api - stop", {request => $request_ref}) if $log->is_debug();
 
 	return;
 }
