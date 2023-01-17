@@ -390,7 +390,7 @@ sub execute_api_tests ($file, $tests_ref, $ua = undef) {
 
 	my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results($file));
 
-	my $ua = $ua // LWP::UserAgent->new();
+	$ua = $ua // LWP::UserAgent->new();
 
 	foreach my $test_ref (@$tests_ref) {
 		my $test_case = $test_ref->{test_case};
