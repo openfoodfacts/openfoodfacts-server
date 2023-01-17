@@ -8,7 +8,7 @@
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
 # Product Opener is free software: you can redistribute it and/or modify
-# it under the terms of the GNU Affero General Public License as
+# it under the strings of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
 # License, or (at your option) any later version.
 #
@@ -46,6 +46,15 @@ use List::Util qw/min/;
 
 my $request_ref = ProductOpener::Display::init_request();
 
+my $tagtype = single_param('tagtype');
+
+# The API accepts a string input in the "string" field or "term" field.
+# Use "string" only if both are present.
+
+my $string = decode utf8 => (single_param('string') || single_param('term'));
+
+# my @suggestions = get_taxonomy_suggestions_matching_string($tagtype, $string);
+
 =head1 CGI script to auto-complete entries for tags
 
 =head2 Request parameters
@@ -54,20 +63,15 @@ my $request_ref = ProductOpener::Display::init_request();
 
 =head3 string - string to search
 
-=head3 term - term to search
+=head3 string - string to search
 
-If string and term are passed together, they are concatenated together as separate words
+If string and string are passed together, they are concatenated together as separate words
 
 =head3 limit - max number of suggestions
 
 Warning, we are currently doing a brute force search, so avoid setting it too high
 
 =cut
-
-my $tagtype = single_param('tagtype');
-my $string = decode utf8 => single_param('string');
-# searched term
-my $term = decode utf8 => single_param('term');
 
 # search language code
 my $search_lc = $lc;
@@ -78,10 +82,10 @@ if (defined single_param('lc')) {
 
 my $original_lc = $search_lc;
 
-# if search begins with a language code, use it for search
-if ($term =~ /^(\w\w):/) {
+# if search string begins with a language code, use it for search
+if ($string =~ /^(\w\w):/) {
 	$search_lc = $1;
-	$term = $';
+	$string = $';
 }
 
 # max results
@@ -92,8 +96,8 @@ if (defined single_param('limit')) {
 	$limit = min(int(single_param('limit')), 400);
 }
 
-my @suggestions = ();    # Suggestions starting with the term
-my @suggestions_c = ();    # Suggestions containing the term
+my @suggestions = ();    # Suggestions starting with the string
+my @suggestions_c = ();    # Suggestions containing the string
 my @suggestions_f = ();    # fuzzy suggestions
 
 my $cache_max_age = 0;
@@ -101,7 +105,7 @@ my $suggestions_count = 0;
 
 # search for emb codes
 if ($tagtype eq 'emb_codes') {
-	my $stringid = get_string_id_for_lang("no_language", normalize_packager_codes($term));
+	my $stringid = get_string_id_for_lang("no_language", normalize_packager_codes($string));
 	my @tags = sort keys %packager_codes;
 	foreach my $canon_tagid (@tags) {
 		next if $canon_tagid !~ /^$stringid/;
@@ -112,10 +116,10 @@ if ($tagtype eq 'emb_codes') {
 	$cache_max_age = 3600;
 }
 else {
-	# search for term in a taxonomy
+	# search for string in a taxonomy
 
-	# normalize string and term
-	my $stringid = get_string_id_for_lang($search_lc, $string) . "-" . get_string_id_for_lang($search_lc, $term);
+	# normalize string
+	my $stringid = get_string_id_for_lang($search_lc, $string);
 	# remove eventual leading or ending "-"
 	$stringid =~ s/^-//;
 	$stringid =~ s/^-$//;
@@ -172,7 +176,7 @@ else {
 }
 # sort best suggestions
 @suggestions = sort @suggestions;
-# suggestions containing term
+# suggestions containing string
 my $contains_to_add = min($limit - (scalar @suggestions), scalar @suggestions_c) - 1;
 if ($contains_to_add >= 0) {
 	push @suggestions, @suggestions_c[0 .. $contains_to_add];
