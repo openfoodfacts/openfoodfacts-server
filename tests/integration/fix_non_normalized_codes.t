@@ -42,7 +42,7 @@ sub make_product ($product_ref, $products_collection) {
 	}
 	# and index in mongo
 	$products_collection->insert_one($product_ref);
-    return;
+	return;
 }
 
 sub remove_non_relevant_fields ($product_ref, $original_ref) {
@@ -52,7 +52,7 @@ sub remove_non_relevant_fields ($product_ref, $original_ref) {
 			delete($product_ref->{$field});
 		}
 	}
-    return;
+	return;
 }
 
 my %default_product = (%default_product_form, rev => "0", created_t => 1290832);

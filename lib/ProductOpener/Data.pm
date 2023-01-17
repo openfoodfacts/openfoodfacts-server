@@ -244,8 +244,8 @@ sub remove_documents_by_ids ($ids_to_remove_ref, $coll, $bulk_write_size = 100) 
 	my @ids_to_remove = (@$ids_to_remove_ref);    # copy the list because we will use splice
 	my @errors = ();
 
-	if (! @ids_to_remove) {
-		return {removed => 0, errors => \@errors};  # nothing to do
+	if (!@ids_to_remove) {
+		return {removed => 0, errors => \@errors};    # nothing to do
 	}
 
 	# remove found ids

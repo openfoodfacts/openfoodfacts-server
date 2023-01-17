@@ -116,7 +116,6 @@ sub fix_non_normalized_sto ($product_path, $dry_run, $out) {
 	return \@actions;
 }
 
-
 my $int_codes_query_ref = {'code' => {'$not' => {'$type' => 'string'}}};
 
 sub search_int_codes() {
