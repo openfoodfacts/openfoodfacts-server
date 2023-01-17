@@ -85,7 +85,7 @@ sub taxonomy_suggestions_api ($request_ref) {
 				impact => {id => "failure"},
 			}
 		);
-		$response_ref->{result} = {id => "unable_to_provide_suggestions"};		
+		$response_ref->{result} = {id => "unable_to_provide_suggestions"};
 	}
 	elsif (not defined $taxonomy_fields{$tagtype}) {
 		$log->info("tagtype is not a taxonomy", {tagtype => $tagtype}) if $log->is_info();
@@ -97,18 +97,17 @@ sub taxonomy_suggestions_api ($request_ref) {
 				impact => {id => "failure"},
 			}
 		);
-		$response_ref->{result} = {id => "unable_to_provide_suggestions"};				
+		$response_ref->{result} = {id => "unable_to_provide_suggestions"};
 	}
 	else {
-		$response_ref->{suggestions} = [];
+		$response_ref->{suggestions}
+			= [get_taxonomy_suggestions_matching_string($request_ref, $tagtype, request_param($request_ref, "string"))];
 	}
 
 	$log->debug("taxonomy_suggestions_api - stop", {request => $request_ref}) if $log->is_debug();
 
 	return;
 }
-
-
 
 =head2 get_taxonomy_suggestions_matching_string ($request_ref, $tagtype, $string)
 
@@ -133,7 +132,7 @@ Reference to the request object.
 
 =cut
 
-sub get_taxonomy_suggestions_matching_string($request_ref, $tagtype, $string) {
+sub get_taxonomy_suggestions_matching_string ($request_ref, $tagtype, $string) {
 
 	# search language code
 	my $search_lc = single_param('lc') || $request_ref->{lc};

@@ -56,7 +56,7 @@ write_cors_headers();
 print header(
 	-type => 'application/json',
 	-charset => 'utf-8',
-	-cache_control => 'public, max-age=' . 60,	# 1 minute cache
+	-cache_control => 'public, max-age=' . 60,    # 1 minute cache
 );
 
 print $data;
