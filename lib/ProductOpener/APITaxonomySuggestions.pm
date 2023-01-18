@@ -53,6 +53,7 @@ use ProductOpener::API qw/:all/;
 use ProductOpener::PackagerCodes qw/:all/;
 
 use List::Util qw/min/;
+use Data::DeepAccess qw(deep_exists deep_get);
 
 =head2 taxonomy_suggestions_api ( $request_ref )
 
@@ -116,7 +117,12 @@ my $categories_packagings_stats_for_suggestions_ref;
 
 sub load_categories_packagings_stats_for_suggestions() {
 	if (not defined $categories_packagings_stats_for_suggestions_ref) {
-		$categories_packagings_stats_for_suggestions_ref = retrieve
+		my $file = "$data_root/data/categories_stats/categories_packagings_stats.all.sto";
+		$log->debug("loading packaging stats", {file => $file}) if $log->is_debug();
+		$categories_packagings_stats_for_suggestions_ref = retrieve($file);
+		if (not defined $categories_packagings_stats_for_suggestions_ref) {
+			$log->debug("unable to load packaging stats", {file => $file}) if $log->is_debug();
+		}
 	}
 }
 
@@ -149,6 +155,7 @@ sub get_taxonomy_suggestions ($request_ref, $tagtype, $string) {
 
 	# Generate a sorted list of tags from which we will generate suggestions
 	my @tags = ();
+	my %seen_tags = ();    # Used to not add the same tag several times
 
 	# search for emb codes
 	if ($tagtype eq 'emb_codes') {
@@ -156,17 +163,77 @@ sub get_taxonomy_suggestions ($request_ref, $tagtype, $string) {
 	}
 	# search for string in a taxonomy
 	else {
+		# For packaging shapes and materials, we will generate the most popular suggestions
+		# for the country, product categories, and shape
 		if ($tagtype eq "packaging_shapes") {
+			load_categories_packagings_stats_for_suggestions();
 
+			# Country for the request (set with the cc field or the subdomain)
+			my $country = $request_ref->{country};
+
+			# We will try to provide popular suggestions for the product categories
+			my @categories = ("all");    # popular suggestions for all categories
+
+			# If categories are provided, add them (most generic categories first)
+			if (defined request_param($request_ref, "categories")) {
+				push @categories,
+					gen_tags_hierarchy_taxonomy($search_lc, "categories", request_param($request_ref, "categories"));
+			}
+
+			# Start with the most specific category
+			foreach my $category (reverse @categories) {
+				my $shapes_ref = deep_get(
+					$categories_packagings_stats_for_suggestions_ref,
+					("countries", $country, "categories", $category, "shapes")
+				);
+
+				$log->debug("adding shapes for category",
+					{country => $country, category => $category, shapes_ref_defined => (defined $shapes_ref)})
+					if $log->is_debug();
+
+				if (defined $shapes_ref) {
+					foreach my $shape (
+						sort({$shapes_ref->{$b}{n} <=> $shapes_ref->{$a}{n}
+									|| (
+									(
+										   $translations_to{$tagtype}{$a}{$search_lc}
+										|| $translations_to{$tagtype}{$a}{"xx"}
+										|| $a
+									) cmp(
+										$translations_to{$tagtype}{$b}{$search_lc}
+											|| $translations_to{$tagtype}{$b}{"xx"}
+											|| $b
+									)
+									)} keys %$shapes_ref)
+						)
+					{
+						next if (($shape eq "all") or ($shape eq "en:unknown"));
+						next if defined $seen_tags{$shape};
+						push @tags, $shape;
+						$seen_tags{$shape} = 1;
+					}
+				}
+
+			}
+
+			$log->debug("resulting packaging shapes for categories", {tags => \@tags}) if $log->is_debug();
 		}
-		
-		# generate all entries in alphabetical order
-		@tags = sort keys %{$translations_to{$tagtype}};
+
+		# add all remaining entries in alphabetical order
+		foreach my $tag (
+			sort(
+				{($translations_to{$tagtype}{$a}{$search_lc} || $translations_to{$tagtype}{$a}{"xx"} || $a)
+						cmp($translations_to{$tagtype}{$b}{$search_lc} || $translations_to{$tagtype}{$b}{"xx"} || $b)}
+				keys %{$translations_to{$tagtype}})
+			)
+		{
+			next if defined $seen_tags{$tag};
+			push @tags, $tag;
+		}
 	}
 
-	return filter_suggestions_matching_string ($search_lc, $tagtype, $string, $limit, \@tags);
+	return filter_suggestions_matching_string($search_lc, $tagtype, $string, $limit, \@tags);
 }
-
 
 =head2 filter_suggestions_matching_string ($search_lc, $tagtype, $string, $limit, $tags_ref)
 
@@ -272,8 +339,7 @@ sub filter_suggestions_matching_string ($search_lc, $tagtype, $string, $limit, $
 			}
 		}
 	}
-	# sort best suggestions
-	@suggestions = sort @suggestions;
+
 	# suggestions containing string
 	my $contains_to_add = min($limit - (scalar @suggestions), scalar @suggestions_c) - 1;
 	if ($contains_to_add >= 0) {
@@ -287,7 +353,6 @@ sub filter_suggestions_matching_string ($search_lc, $tagtype, $string, $limit, $
 
 	return @suggestions;
 }
-
 
 =head2 get_taxonomy_suggestions_matching_string ($request_ref, $tagtype, $string)
 

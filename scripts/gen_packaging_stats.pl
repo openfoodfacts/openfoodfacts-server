@@ -131,6 +131,14 @@ sub add_product_to_stats ($name, $packagings_stats_ref, $product_ref) {
 
 					foreach my $shape_value (@$shapes_ref) {
 
+						deep_val(
+							$packagings_stats_ref,
+							(
+								"countries", $country, "categories", $category,
+								$shapes_or_shapes_parents, $shape_value, "n"
+							)
+						) += 1;
+
 						# Compute stats for materials + materials parents
 						foreach my $materials_or_materials_parents_ref (@materials_or_materials_parents) {
 							my ($materials_or_materials_parents, $materials_ref) = @$materials_or_materials_parents_ref;
