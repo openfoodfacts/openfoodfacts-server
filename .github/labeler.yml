@@ -428,6 +428,7 @@ Packaging:
 - templates/api/knowledge-panels/environment/ecoscore/packaging.tt.json
 - tests/unit/packaging.t
 - docs/reference/schemas/packagings/**
+- scripts/gen_packaging_stats.pl
   
 producers platform:
 - lib/ProductOpener/GS1.pm
