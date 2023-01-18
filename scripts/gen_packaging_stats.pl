@@ -125,6 +125,8 @@ sub add_product_to_stats ($name, $packagings_stats_ref, $product_ref) {
 			# Go through all categories (note: the product categories already contain all parent categories)
 			foreach my $category (@{$product_ref->{categories_tags}}) {
 
+				deep_val($packagings_stats_ref, ("countries", $country, "categories", $category, "n")) += 1;
+
 				# Compute stats for shapes + shapes parents
 				foreach my $shapes_or_shapes_parents_ref (@shapes_or_shapes_parents) {
 					my ($shapes_or_shapes_parents, $shapes_ref) = @$shapes_or_shapes_parents_ref;
@@ -191,9 +193,11 @@ sub compute_stats_for_all_weights ($packagings_stats_ref) {
 
 	foreach my $country_ref (values %{$packagings_stats_ref->{countries}}) {
 		foreach my $category_ref (values %{$country_ref->{categories}}) {
-			foreach my $shapes_or_shapes_parents_ref (values %$category_ref) {
+			foreach my $shapes_or_shapes_parents ("shapes", "shapes_parents") {
+				my $shapes_or_shapes_parents_ref = $category_ref->{$shapes_or_shapes_parents};
 				foreach my $shape_ref (values %$shapes_or_shapes_parents_ref) {
-					foreach my $materials_or_materials_parents_ref (values %$shape_ref) {
+					foreach my $materials_or_materials_parents ("materials", "materials_parents") {
+						my $materials_or_materials_parents_ref = $shape_ref->{$materials_or_materials_parents};
 						foreach my $material_ref (values %$materials_or_materials_parents_ref) {
 							if (defined $material_ref->{weights}) {
 								compute_stats_for_weights($material_ref->{weights});
@@ -265,7 +269,7 @@ sub store_stats ($name, $packagings_stats_ref) {
 
 	binmode STDOUT, ":encoding(UTF-8)";
 	if (open(my $JSON, ">", "$www_root/data/categories_stats/categories_packagings_stats.$name.json")) {
-		print $JSON encode_json($packagings_stats_ref);
+		print $JSON JSON::PP->new->allow_nonref->canonical->utf8->encode($packagings_stats_ref);
 		close($JSON);
 	}
 
@@ -278,9 +282,57 @@ sub store_stats ($name, $packagings_stats_ref) {
 		)
 		)
 	{
-		print $JSON encode_json(
+		print $JSON JSON::PP->new->allow_nonref->canonical->utf8->encode(
 			$packagings_stats_ref->{countries}{"en:france"}{categories}{"en:fermented-dairy-desserts"});
 		close($JSON);
+	}
+
+	return;
+}
+
+=head2 remove_unpopular_categories_shapes_and_materials ($packagings_stats_ref, $min_products)
+
+Remove stats for categories, shapes, and materials that have less than the required amount of product.
+
+This is necessary to generate a smaller dataset that can be used to generate autocomplete suggestions
+for packaging shapes and materials, given a country and a list of categories of the product.
+
+=head3 Arguments
+
+=head4 $packagings_stats_ref
+
+=head4 $min_products 
+
+=cut
+
+sub remove_unpopular_categories_shapes_and_materials ($packagings_stats_ref, $min_products) {
+
+	foreach my $country_ref (values %{$packagings_stats_ref->{countries}}) {
+		foreach my $category (keys %{$country_ref->{categories}}) {
+			if ($country_ref->{categories}{$category}{n} < $min_products) {
+				delete $country_ref->{categories}{$category};
+				next;
+			}
+			my $category_ref = $country_ref->{categories}{$category};
+			foreach my $shapes_or_shapes_parents ("shapes", "shapes_parents") {
+				my $shapes_or_shapes_parents_ref = $category_ref->{$shapes_or_shapes_parents};
+				foreach my $shape (keys %$shapes_or_shapes_parents_ref) {
+					if ($shapes_or_shapes_parents_ref->{$shape}{n} < $min_products) {
+						delete $shapes_or_shapes_parents_ref->{$shape};
+						next;
+					}
+					my $shape_ref = $shapes_or_shapes_parents_ref->{shape};
+					foreach my $materials_or_materials_parents ("materials", "materials_parents") {
+						my $materials_or_materials_parents_ref = $shape_ref->{$materials_or_materials_parents};
+						foreach my $material (keys %$materials_or_materials_parents_ref) {
+							if ($$materials_or_materials_parents_ref->{$material}{n} < $min_products) {
+								delete $shapes_or_shapes_parents_ref->{$material};
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 
 	return;
@@ -303,7 +355,7 @@ and in JSON format in $www_root/data/categories_stats/
 
 sub generate_packaging_stats_for_query ($name, $query_ref) {
 
-	# we will filter out empty and obsolet products
+	# we will filter out empty and obsolete products
 	$query_ref->{'empty'} = {"\$ne" => 1};
 	$query_ref->{'obsolete'} = {"\$ne" => 1};
 
@@ -340,12 +392,20 @@ sub generate_packaging_stats_for_query ($name, $query_ref) {
 		add_product_to_stats($name, $packagings_stats_ref, $product_ref);
 	}
 
-	# Compute stats for weights
 	if ($name eq "packagings-with-weights") {
+		# Compute stats for weights
 		compute_stats_for_all_weights($packagings_stats_ref);
 	}
 
 	store_stats($name, $packagings_stats_ref);
+
+	if ($name eq "all") {
+		# Compute smaller stats where we keep only shapes and materials that are popular
+		# This data is used for autocomplete suggestions in ProductOpener::APITaxonomySuggestions
+
+		remove_unpopular_categories_shapes_and_materials($packagings_stats_ref, 5);
+		store_stats($name . ".popular", $packagings_stats_ref);
+	}
 
 	return;
 }
