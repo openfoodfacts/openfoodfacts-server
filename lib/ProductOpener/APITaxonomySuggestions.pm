@@ -124,6 +124,7 @@ sub load_categories_packagings_stats_for_suggestions() {
 			$log->debug("unable to load packaging stats", {file => $file}) if $log->is_debug();
 		}
 	}
+	return;
 }
 
 =head2 get_taxonomy_suggestions ($search_lc, $tagtype, $string)
