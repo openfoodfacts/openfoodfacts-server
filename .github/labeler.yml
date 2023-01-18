@@ -428,6 +428,7 @@ Packaging:
 - templates/api/knowledge-panels/environment/ecoscore/packaging.tt.json
 - tests/unit/packaging.t
 - docs/reference/schemas/packagings/**
+- scripts/gen_packaging_stats.pl
   
 producers platform:
 - lib/ProductOpener/GS1.pm
@@ -477,6 +478,7 @@ images:
 - scripts/delete_old_cropped_images.pl
 - docs/reference/requestBodies/crop_a_photo.yaml
 - docs/reference/requestBodies/add_photo_to_existing_product.yaml
+- docs/tutorials/uploading-photo-to-a-product.md
 
 Products:
 - lib/ProductOpener/Products.pm
