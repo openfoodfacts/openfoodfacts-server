@@ -93,7 +93,7 @@ var packaging_recycling_select2_options = [% generate_select2_options_for_taxono
                             }
                         }                        
                     });
-                    configure_select2("[% select2_id %]", "[% taxonomy %]", "[% lang("packaging_$property") %]" )
+                     configure_packaging_select2("[% select2_id %]", "[% taxonomy %]", "[% lang("packaging_$property") %]" )
 
                     [% IF packaging.$property.defined %]
                     // Set the value, creating a new option if necessary (for non taxonomy values)
@@ -142,7 +142,10 @@ var packaging_max = [% packaging_max %];
 /**
  * Configure the select2 dropdown with autocomplete for shape, material and recycling
  */
-function configure_select2(select2_id, taxonomy, placeholder) {
+function configure_packaging_select2(select2_id, taxonomy, placeholder) {
+    // tagify has values in an array, convert it to a commas separated list
+    var categoriesArray = JSON.parse(\$("#categories").val());
+    var categories = categoriesArray.map(item => item.value).join(',');
     \$("#" + select2_id).select2({
         placeholder: placeholder,
         allowClear:true,
@@ -152,12 +155,15 @@ function configure_select2(select2_id, taxonomy, placeholder) {
             data: function (params) {
               var query = {
                 string: params.term,
+                // Pass the product categories to get better suggestions
+                categories: categories
               }
               return query;
             },
             processResults: function (data) {
                 return {
-                  results: Array.from(data.suggestions, function (element) { return {"id": element, "text": element}; }) 
+                    // transform the simple array of suggestions in array of objects expected by select2
+                    results: Array.from(data.suggestions, function (element) { return {"id": element, "text": element}; }) 
                 };
             }
         }
@@ -194,7 +200,7 @@ function add_packaging() {
             [% SET taxonomy = "packaging_recycling" %]
         [% END %]
         
-        configure_select2(new_packaging_id + "_$property", "$taxonomy", "[% lang("packaging_$property") %]");
+         configure_packaging_select2(new_packaging_id + "_$property", "$taxonomy", "[% lang("packaging_$property") %]");
 
     [% END %]
 
