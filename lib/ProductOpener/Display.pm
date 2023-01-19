@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -860,9 +860,7 @@ CSS
 		$request_ref->{user_preferences} = 0;
 	}
 
-	if (    ((defined $options{product_type}) and ($options{product_type} eq "food"))
-		and ((defined $ecoscore_countries_enabled{$cc}) or ($User{moderator})))
-	{
+	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 		$show_ecoscore = 1;
 		$attributes_options_ref = {};
 		$knowledge_panels_options_ref = {};
