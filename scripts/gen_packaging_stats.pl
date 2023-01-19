@@ -275,7 +275,7 @@ sub remove_unpopular_categories_shapes_and_materials ($packagings_stats_ref, $mi
 					foreach my $materials_or_materials_parents ("materials", "materials_parents") {
 						my $materials_or_materials_parents_ref = $shape_ref->{$materials_or_materials_parents};
 						foreach my $material (keys %$materials_or_materials_parents_ref) {
-							if ($$materials_or_materials_parents_ref->{$material}{n} < $min_products) {
+							if ($materials_or_materials_parents_ref->{$material}{n} < $min_products) {
 								delete $shapes_or_shapes_parents_ref->{$material};
 							}
 						}
