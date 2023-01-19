@@ -93,6 +93,7 @@ var packaging_recycling_select2_options = [% generate_select2_options_for_taxono
                             }
                         }                        
                     });
+                    configure_select2("[% select2_id %]", "[% taxonomy %]", "[% lang("packaging_$property") %]" )
 
                     [% IF packaging.$property.defined %]
                     // Set the value, creating a new option if necessary (for non taxonomy values)
@@ -139,6 +140,31 @@ var packaging_recycling_select2_options = [% generate_select2_options_for_taxono
 var packaging_max = [% packaging_max %];
 
 /**
+ * Configure the select2 dropdown with autocomplete for shape, material and recycling
+ */
+function configure_select2(select2_id, taxonomy, placeholder) {
+    \$("#" + select2_id).select2({
+        placeholder: placeholder,
+        allowClear:true,
+        tags: true,
+        ajax: {
+            url: '/api/v3/taxonomy_suggestions?limit=400&tagtype=' + taxonomy,
+            data: function (params) {
+              var query = {
+                string: params.term,
+              }
+              return query;
+            },
+            processResults: function (data) {
+                return {
+                  results: Array.from(data.suggestions, function (element) { return {"id": element, "text": element}; }) 
+                };
+            }
+        }
+    });
+}
+
+/**
  * Add a new row of packaging data
  */
 function add_packaging() {
@@ -168,26 +194,8 @@ function add_packaging() {
             [% SET taxonomy = "packaging_recycling" %]
         [% END %]
         
-        [% SET select2_id = new_packaging_id _ "_$property" %]
-    \$("#" + new_packaging_id + "_[% property %]").select2({
-        placeholder: "[% lang("packaging_$property") %]",
-        allowClear:true,
-        tags: true,
-        ajax: {
-            url: '/api/v3/taxonomy_suggestions?limit=400&tagtype=[% taxonomy %]',
-            data: function (params) {
-              var query = {
-                string: params.term,
-              }
-              return query;
-            },
-            processResults: function (data) {
-                return {
-                  results: Array.from(data.suggestions, function (element) { return {"id": element, "text": element}; }) 
-                };
-            }
-        }
-    });
+        configure_select2(new_packaging_id + "_$property", "$taxonomy", "[% lang("packaging_$property") %]");
+
     [% END %]
 
     \$("#" + new_packaging_id + "_delete").click(function(event) {
