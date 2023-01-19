@@ -247,6 +247,8 @@ Remove stats for categories, shapes, and materials that have less than the requi
 This is necessary to generate a smaller dataset that can be used to generate autocomplete suggestions
 for packaging shapes and materials, given a country and a list of categories of the product.
 
+Also remove shapes_parents and materials_parents
+
 =head3 Arguments
 
 =head4 $packagings_stats_ref
@@ -264,21 +266,19 @@ sub remove_unpopular_categories_shapes_and_materials ($packagings_stats_ref, $mi
 				next;
 			}
 			my $category_ref = $country_ref->{categories}{$category};
-			foreach my $shapes_or_shapes_parents ("shapes", "shapes_parents") {
-				my $shapes_or_shapes_parents_ref = $category_ref->{$shapes_or_shapes_parents};
-				foreach my $shape (keys %$shapes_or_shapes_parents_ref) {
-					if ($shapes_or_shapes_parents_ref->{$shape}{n} < $min_products) {
-						delete $shapes_or_shapes_parents_ref->{$shape};
-						next;
-					}
-					my $shape_ref = $shapes_or_shapes_parents_ref->{$shape};
-					foreach my $materials_or_materials_parents ("materials", "materials_parents") {
-						my $materials_or_materials_parents_ref = $shape_ref->{$materials_or_materials_parents};
-						foreach my $material (keys %$materials_or_materials_parents_ref) {
-							if ($materials_or_materials_parents_ref->{$material}{n} < $min_products) {
-								delete $shapes_or_shapes_parents_ref->{$material};
-							}
-						}
+			delete $category_ref->{shapes_parents};
+			my $shapes_ref = $category_ref->{shapes};
+			foreach my $shape (keys %$shapes_ref) {
+				if ($shapes_ref->{$shape}{n} < $min_products) {
+					delete $shapes_ref->{$shape};
+					next;
+				}
+				my $shape_ref = $shapes_ref->{$shape};
+				delete $shape_ref->{materials_parents};
+				my $materials_ref = $shape_ref->{materials};
+				foreach my $material (keys %$materials_ref) {
+					if ($materials_ref->{$material}{n} < $min_products) {
+						delete $materials_ref->{$material};
 					}
 				}
 			}
@@ -414,4 +414,3 @@ generate_packaging_stats_for_query("packagings-with-weights", {misc_tags => 'en:
 generate_packaging_stats_for_query("all", {});
 
 exit(0);
-
