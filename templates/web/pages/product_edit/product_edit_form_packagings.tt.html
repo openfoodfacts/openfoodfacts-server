@@ -76,9 +76,22 @@ var packaging_recycling_select2_options = [% generate_select2_options_for_taxono
                 <initjs>
                     \$("#[% select2_id %]").select2({
                         placeholder: "[% lang("packaging_$property") %]",
-                        data: [% taxonomy %]_select2_options,
                         allowClear:true,
-                        tags: true
+                        tags: true,
+                        ajax: {
+                            url: '/api/v3/taxonomy_suggestions?limit=400&tagtype=[% taxonomy %]',
+                            data: function (params) {
+                              var query = {
+                                string: params.term,
+                              }
+                              return query;
+                            },
+                            processResults: function (data) {
+                                return {
+                                  results: Array.from(data.suggestions, function (element) { return {"id": element, "text": element}; }) 
+                                };
+                            }
+                        }                        
                     });
 
                     [% IF packaging.$property.defined %]
@@ -154,13 +167,26 @@ function add_packaging() {
         [% ELSIF property == "recycling" %]
             [% SET taxonomy = "packaging_recycling" %]
         [% END %]
-
+        
         [% SET select2_id = new_packaging_id _ "_$property" %]
     \$("#" + new_packaging_id + "_[% property %]").select2({
         placeholder: "[% lang("packaging_$property") %]",
-        data: [% taxonomy %]_select2_options,
         allowClear:true,
-        tags: true
+        tags: true,
+        ajax: {
+            url: '/api/v3/taxonomy_suggestions?limit=400&tagtype=[% taxonomy %]',
+            data: function (params) {
+              var query = {
+                string: params.term,
+              }
+              return query;
+            },
+            processResults: function (data) {
+                return {
+                  results: Array.from(data.suggestions, function (element) { return {"id": element, "text": element}; }) 
+                };
+            }
+        }
     });
     [% END %]
 
