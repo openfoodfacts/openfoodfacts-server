@@ -74,6 +74,7 @@ BEGIN {
 		&www_root_for_product_id
 		&product_path
 		&product_path_from_id
+		&product_id_from_path
 		&product_exists
 		&product_exists_on_other_server
 		&get_owner_id
@@ -88,7 +89,7 @@ BEGIN {
 		&product_url
 		&product_action_url
 		&normalize_search_terms
-		&index_product
+		&compute_keywords
 		&log_change
 
 		&get_change_userid_or_uuid
@@ -156,6 +157,7 @@ use Data::DeepAccess qw(deep_get);
 use LWP::UserAgent;
 use Storable qw(dclone);
 use File::Copy::Recursive;
+use File::Basename qw/dirname/;
 use ProductOpener::GeoIP;
 
 use Algorithm::CheckDigits;
@@ -537,6 +539,28 @@ sub product_path ($product_ref) {
 	}
 }
 
+=head2 product_id_from_path ( $product_path )
+
+Reverse of product_path_from_id.
+
+There is no guarantee the result will be correct... but it's way faster than loading the sto !
+
+=cut
+
+sub product_id_from_path ($product_path) {
+	my $id = $product_path;
+	# only keep dir
+	if ($id =~ /\.sto$/) {
+		$id = dirname($id);
+	}
+	# eventually remove root path
+	my $root = quotemeta("$data_root/products/");
+	$id =~ s/^$root//;
+	# transform to id by simply removing "/"
+	$id =~ s/\///g;
+	return $id;
+}
+
 sub product_exists ($product_id) {
 
 	# deprecated, just use retrieve_product()
@@ -817,7 +841,7 @@ sub retrieve_product ($product_id) {
 	return $product_ref;
 }
 
-sub retrieve_product_or_deleted_product ($product_id, $deleted_ok) {
+sub retrieve_product_or_deleted_product ($product_id, $deleted_ok = 1) {
 
 	my $path = product_path_from_id($product_id);
 	my $product_data_root = data_root_for_product_id($product_id);
@@ -1210,7 +1234,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 	}
 
 	# index for full text search
-	index_product($product_ref);
+	compute_keywords($product_ref);
 
 	# make sure that the _id and code are saved as a string, otherwise mongodb may save them as numbers
 	# for _id , it makes them possibly non unique, and for code, we would lose leading 0s
@@ -2556,7 +2580,7 @@ sub product_action_url ($code, $action) {
 	return $url;
 }
 
-sub index_product ($product_ref) {
+sub compute_keywords ($product_ref) {
 
 	my @string_fields = qw(product_name generic_name);
 	my @tag_fields = qw(brands categories origins labels);
