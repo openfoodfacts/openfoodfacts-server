@@ -390,7 +390,7 @@ sub execute_api_tests ($file, $tests_ref, $ua = undef) {
 
 	my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results($file));
 
-	my $ua = $ua // LWP::UserAgent->new();
+	$ua = $ua // LWP::UserAgent->new();
 
 	foreach my $test_ref (@$tests_ref) {
 		my $test_case = $test_ref->{test_case};
@@ -500,11 +500,13 @@ sub execute_api_tests ($file, $tests_ref, $ua = undef) {
 			};
 
 			# normalize for comparison
-			if (defined $decoded_json->{'products'}) {
-				normalize_products_for_test_comparison($decoded_json->{'products'});
-			}
-			if (defined $decoded_json->{'product'}) {
-				normalize_product_for_test_comparison($decoded_json->{'product'});
+			if (ref($decoded_json) eq 'HASH') {
+				if (defined $decoded_json->{'products'}) {
+					normalize_products_for_test_comparison($decoded_json->{'products'});
+				}
+				if (defined $decoded_json->{'product'}) {
+					normalize_product_for_test_comparison($decoded_json->{'product'});
+				}
 			}
 
 			is(

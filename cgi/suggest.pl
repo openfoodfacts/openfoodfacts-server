@@ -35,6 +35,7 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::PackagerCodes qw/:all/;
+use ProductOpener::HTTP qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -185,11 +186,18 @@ my $data = encode_json(\@suggestions);
 
 # send response
 write_cors_headers();
-print header(
-	-type => 'application/json',
-	-charset => 'utf-8',
-);
+
 if ($cache_max_age) {
-	print header(-cache_control => 'public, max-age=' . $cache_max_age,);
+	print header(
+		-type => 'application/json',
+		-charset => 'utf-8',
+		-cache_control => 'public, max-age=' . $cache_max_age,
+	);
+}
+else {
+	print header(
+		-type => 'application/json',
+		-charset => 'utf-8',
+	);
 }
 print $data;

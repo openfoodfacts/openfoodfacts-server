@@ -687,6 +687,16 @@ auth:
 
 autosuggest:
 - cgi/suggest.pl
+- tests/integration/api_cgi_suggest.t
+- tests/integration/expected_test_results/api_cgi_suggest/**/*
+- tests/integration/expected_test_results/api_cgi_suggest/categories-no-term.json
+- tests/integration/expected_test_results/api_cgi_suggest/categories-string-strawberry.json
+- tests/integration/expected_test_results/api_cgi_suggest/categories-term-fr-cafe-accent.json
+- tests/integration/expected_test_results/api_cgi_suggest/categories-term-fr-frais.json
+- tests/integration/expected_test_results/api_cgi_suggest/categories-term-fr-fraise.json
+- tests/integration/expected_test_results/api_cgi_suggest/categories-term-fraise.json
+- tests/integration/expected_test_results/api_cgi_suggest/categories-term-strawberry.json
+- tests/integration/expected_test_results/api_cgi_suggest/no-tagtype.json
 
 subdomains:
 - scripts/list_subdomains.pl
