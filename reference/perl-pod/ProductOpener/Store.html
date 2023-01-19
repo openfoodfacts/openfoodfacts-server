@@ -1,6 +1,6 @@
-<html><head><title>product_multilingual</title>
+<html><head><title>ProductOpener::Store</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" >
-<link rel="stylesheet" title="simple.min" type="text/css" href="simple.min.css" media="all" >
+<link rel="stylesheet" title="simple.min" type="text/css" href="../simple.min.css" media="all" >
 
 </head>
 <body class='pod'>
@@ -19,16 +19,18 @@
 -->
 
 <!-- start doc -->
-<p class="backlinktop"><b><a name="___top" href="index.html" accesskey="1" title="All Documents">&lt;&lt;</a></b></p>
+<p class="backlinktop"><b><a name="___top" href="../index.html" accesskey="1" title="All Documents">&lt;&lt;</a></b></p>
 <div class='indexgroupEmpty'></div>
 
 <h2><a class='u' href='#___top' title='click to go to top of document'
-name="create_packaging_components_from_request_parameters($product_ref)"
->create_packaging_components_from_request_parameters($product_ref)</a></h2>
+name="sto_iter($initial_path,_$pattern=qr/\.sto$/i)"
+>sto_iter($initial_path,
+$pattern=qr/\.sto$/i)</a></h2>
 
-<p>Read form parameters related to packaging components,
-and create the corresponding packagings structure.</p>
-<p class="backlinkbottom"><b><a name="___bottom" href="index.html" title="All Documents">&lt;&lt;</a></b></p>
+<p>iterate all the files corresponding to $pattern starting from $initial_path</p>
+
+<p>use it as an iterator: my $iter = sto_iter(&#34;.&#34;); while (my $path = $iter-&#62;()) { # do stuff }</p>
+<p class="backlinkbottom"><b><a name="___bottom" href="../index.html" title="All Documents">&lt;&lt;</a></b></p>
 
 <!-- end doc -->
 
