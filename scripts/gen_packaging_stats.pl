@@ -240,6 +240,54 @@ sub compute_stats_for_weights ($weights_ref) {
 	return;
 }
 
+=head2 remove_unpopular_categories_shapes_and_materials ($packagings_stats_ref, $min_products)
+
+Remove stats for categories, shapes, and materials that have less than the required amount of product.
+
+This is necessary to generate a smaller dataset that can be used to generate autocomplete suggestions
+for packaging shapes and materials, given a country and a list of categories of the product.
+
+=head3 Arguments
+
+=head4 $packagings_stats_ref
+
+=head4 $min_products 
+
+=cut
+
+sub remove_unpopular_categories_shapes_and_materials ($packagings_stats_ref, $min_products) {
+
+	foreach my $country_ref (values %{$packagings_stats_ref->{countries}}) {
+		foreach my $category (keys %{$country_ref->{categories}}) {
+			if ($country_ref->{categories}{$category}{n} < $min_products) {
+				delete $country_ref->{categories}{$category};
+				next;
+			}
+			my $category_ref = $country_ref->{categories}{$category};
+			foreach my $shapes_or_shapes_parents ("shapes", "shapes_parents") {
+				my $shapes_or_shapes_parents_ref = $category_ref->{$shapes_or_shapes_parents};
+				foreach my $shape (keys %$shapes_or_shapes_parents_ref) {
+					if ($shapes_or_shapes_parents_ref->{$shape}{n} < $min_products) {
+						delete $shapes_or_shapes_parents_ref->{$shape};
+						next;
+					}
+					my $shape_ref = $shapes_or_shapes_parents_ref->{$shape};
+					foreach my $materials_or_materials_parents ("materials", "materials_parents") {
+						my $materials_or_materials_parents_ref = $shape_ref->{$materials_or_materials_parents};
+						foreach my $material (keys %$materials_or_materials_parents_ref) {
+							if ($$materials_or_materials_parents_ref->{$material}{n} < $min_products) {
+								delete $shapes_or_shapes_parents_ref->{$material};
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	return;
+}
+
 =head2 store_stats($name, $packagings_stats_ref)
 
 Store the stats in .sto format for internal use in Product Opener,
@@ -285,54 +333,6 @@ sub store_stats ($name, $packagings_stats_ref) {
 		print $JSON JSON::PP->new->allow_nonref->canonical->utf8->encode(
 			$packagings_stats_ref->{countries}{"en:france"}{categories}{"en:fermented-dairy-desserts"});
 		close($JSON);
-	}
-
-	return;
-}
-
-=head2 remove_unpopular_categories_shapes_and_materials ($packagings_stats_ref, $min_products)
-
-Remove stats for categories, shapes, and materials that have less than the required amount of product.
-
-This is necessary to generate a smaller dataset that can be used to generate autocomplete suggestions
-for packaging shapes and materials, given a country and a list of categories of the product.
-
-=head3 Arguments
-
-=head4 $packagings_stats_ref
-
-=head4 $min_products 
-
-=cut
-
-sub remove_unpopular_categories_shapes_and_materials ($packagings_stats_ref, $min_products) {
-
-	foreach my $country_ref (values %{$packagings_stats_ref->{countries}}) {
-		foreach my $category (keys %{$country_ref->{categories}}) {
-			if ($country_ref->{categories}{$category}{n} < $min_products) {
-				delete $country_ref->{categories}{$category};
-				next;
-			}
-			my $category_ref = $country_ref->{categories}{$category};
-			foreach my $shapes_or_shapes_parents ("shapes", "shapes_parents") {
-				my $shapes_or_shapes_parents_ref = $category_ref->{$shapes_or_shapes_parents};
-				foreach my $shape (keys %$shapes_or_shapes_parents_ref) {
-					if ($shapes_or_shapes_parents_ref->{$shape}{n} < $min_products) {
-						delete $shapes_or_shapes_parents_ref->{$shape};
-						next;
-					}
-					my $shape_ref = $shapes_or_shapes_parents_ref->{shape};
-					foreach my $materials_or_materials_parents ("materials", "materials_parents") {
-						my $materials_or_materials_parents_ref = $shape_ref->{$materials_or_materials_parents};
-						foreach my $material (keys %$materials_or_materials_parents_ref) {
-							if ($$materials_or_materials_parents_ref->{$material}{n} < $min_products) {
-								delete $shapes_or_shapes_parents_ref->{$material};
-							}
-						}
-					}
-				}
-			}
-		}
 	}
 
 	return;
