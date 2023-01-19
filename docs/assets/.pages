@@ -1,9 +1,5 @@
 # customize the navigation menu
 # see https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin
-nav:
-  - api.md
-  - api-v3.md
-  - api-rapidoc.md
-  - api-cheatsheet.md
-  - ...
-  - perl.md
+
+# hide this folder
+hide: true
