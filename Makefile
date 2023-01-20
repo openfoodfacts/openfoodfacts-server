@@ -134,6 +134,16 @@ tail:
 	@echo "🥫 Reading logs (Apache2, Nginx) …"
 	tail -f logs/**/*
 
+cover:
+	@echo "🥫 running …"
+	${DOCKER_COMPOSE_TEST} run --rm backend perl -MDevel::Cover tests/unit/*.t
+
+codecov:
+	@echo "🥫 running …"
+	${DOCKER_COMPOSE_TEST} run --rm backend cover -report codecovbash
+
+coverage_txt:
+	${DOCKER_COMPOSE_TEST} run --rm backend cover
 
 #----------#
 # Services #
