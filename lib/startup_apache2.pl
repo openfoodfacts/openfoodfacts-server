@@ -95,6 +95,7 @@ use ProductOpener::API qw/:all/;
 use ProductOpener::APITest qw/:all/;
 use ProductOpener::APIProductRead qw/:all/;
 use ProductOpener::APIProductWrite qw/:all/;
+use ProductOpener::APITaxonomySuggestions qw/:all/;
 use ProductOpener::Routing qw/:all/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Export qw/:all/;

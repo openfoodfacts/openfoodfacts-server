@@ -34,20 +34,11 @@ use ProductOpener::HTTP qw/:all/;
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
-use Encode;
 use JSON::PP;
 
 my $request_ref = ProductOpener::Display::init_request();
 
-my $tagtype = single_param('tagtype');
-
-# The API accepts a string input in the "string" field or "term" field.
-# - term is used by the jquery Autocomplete widget: https://api.jqueryui.com/autocomplete/
-# Use "string" only if both are present.
-
-my $string = decode utf8 => (single_param('string') || single_param('term'));
-
-my @suggestions = get_taxonomy_suggestions($request_ref, $tagtype, $string);
+my @suggestions = get_taxonomy_suggestions($request_ref);
 
 my $data = encode_json(\@suggestions);
 

@@ -38,7 +38,7 @@ BEGIN {
 	@EXPORT_OK = qw(
 		&taxonomy_suggestions_api
 		&get_taxonomy_suggestions
-	);    # symbols to export on request
+	);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -54,6 +54,7 @@ use ProductOpener::PackagerCodes qw/:all/;
 
 use List::Util qw/min/;
 use Data::DeepAccess qw(deep_exists deep_get);
+use Encode;
 
 =head2 taxonomy_suggestions_api ( $request_ref )
 
@@ -105,7 +106,7 @@ sub taxonomy_suggestions_api ($request_ref) {
 	# Generate suggestions
 	else {
 		$response_ref->{suggestions}
-			= [get_taxonomy_suggestions($request_ref, $tagtype, request_param($request_ref, "string"))];
+			= [get_taxonomy_suggestions($request_ref)];
 	}
 
 	$log->debug("taxonomy_suggestions_api - stop", {request => $request_ref}) if $log->is_debug();
@@ -134,7 +135,7 @@ sub load_categories_packagings_stats_for_suggestions() {
 	return;
 }
 
-=head2 get_taxonomy_suggestions ($search_lc, $tagtype, $string)
+=head2 get_taxonomy_suggestions ($request_ref)
 
 Generate taxonomy suggestions.
 
@@ -142,23 +143,35 @@ Generate taxonomy suggestions.
 
 =head4 $request_ref
 
-=head4 $tagtype - the type of tag
+The suggestions will depend on parameters passed in $request_ref:
 
-=head4 $string - string to search
+- lc: language of parameters (categories, shape, material etc.) and of the returned suggestions
+- country: derived from the cc parameter
+- tagtype: the taxonomy id
+- string or term: the string to query ("term" is used by default by jquery autocomplete and select2)
+- categories: comma separated list of categories
 
 =cut
 
-sub get_taxonomy_suggestions ($request_ref, $tagtype, $string) {
+sub get_taxonomy_suggestions ($request_ref) {
 
 	# Search language
 	my $search_lc = $request_ref->{lc};
 
+	# Taxonomy
+	my $tagtype = request_param($request_ref, "tagtype");
+
+	# The API accepts a string input in the "string" field or "term" field.
+	# - term is used by the jquery Autocomplete widget: https://api.jqueryui.com/autocomplete/
+	# Use "string" only if both are present.
+	my $string = decode("utf8", (request_param($request_ref, 'string') || request_param($request_ref, 'term')));
+
 	# max results
 	my $limit = 25;
 	# superseed by request parameter
-	if (defined single_param('limit')) {
+	if (defined request_param($request_ref, 'limit')) {
 		# we put a hard limit however
-		$limit = min(int(single_param('limit')), 400);
+		$limit = min(int(request_param($request_ref, 'limit')), 400);
 	}
 
 	# Generate a sorted list of tags from which we will generate suggestions
