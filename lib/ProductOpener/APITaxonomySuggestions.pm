@@ -38,7 +38,7 @@ BEGIN {
 	@EXPORT_OK = qw(
 		&taxonomy_suggestions_api
 		&get_taxonomy_suggestions
-	);	# symbols to export on request
+	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -185,7 +185,7 @@ Generate a sorted list of canonicalized taxonomy entries from which we will gene
 
 =cut
 
-sub generate_sorted_list_of_taxonomy_entries($request_ref, $tagtype, $limit) {
+sub generate_sorted_list_of_taxonomy_entries ($request_ref, $tagtype, $limit) {
 
 	my $search_lc = $request_ref->{lc};
 	my @tags = ();
@@ -199,7 +199,7 @@ sub generate_sorted_list_of_taxonomy_entries($request_ref, $tagtype, $limit) {
 	else {
 		# For packaging shapes and materials, we will generate the most popular suggestions
 		# for the country, product categories, and shape
-		if (($tagtype eq "packaging_shapes")  or ($tagtype eq "packaging_materials")) {
+		if (($tagtype eq "packaging_shapes") or ($tagtype eq "packaging_materials")) {
 			load_categories_packagings_stats_for_suggestions();
 
 			# Country for the request (set with the cc field or the subdomain)
@@ -211,7 +211,8 @@ sub generate_sorted_list_of_taxonomy_entries($request_ref, $tagtype, $limit) {
 			# If categories are provided, add them (most generic categories first)
 			if (defined request_param($request_ref, "categories")) {
 				push @categories,
-					gen_tags_hierarchy_taxonomy($search_lc, "categories", decode("utf8", request_param($request_ref, "categories")));
+					gen_tags_hierarchy_taxonomy($search_lc, "categories",
+					decode("utf8", request_param($request_ref, "categories")));
 			}
 
 			# Start with the most specific category
@@ -234,16 +235,15 @@ sub generate_sorted_list_of_taxonomy_entries($request_ref, $tagtype, $limit) {
 					else {
 						$shape = "all";
 					}
-					my $materials_ref = deep_get(
-						$categories_packagings_stats_for_suggestions_ref,
-						("countries", $country, "categories", $category, "shapes", $shape, "materials")
-					);
+					my $materials_ref = deep_get($categories_packagings_stats_for_suggestions_ref,
+						("countries", $country, "categories", $category, "shapes", $shape, "materials"));
 
 					add_sorted_entries_to_tags(\@tags, \%seen_tags, $materials_ref, $tagtype, $search_lc);
 				}
 			}
 
-			$log->debug("resulting tags from categories", {categories => \@categories, tags => \@tags}) if $log->is_debug();
+			$log->debug("resulting tags from categories", {categories => \@categories, tags => \@tags})
+				if $log->is_debug();
 		}
 
 		# add all remaining entries in alphabetical order
@@ -259,9 +259,8 @@ sub generate_sorted_list_of_taxonomy_entries($request_ref, $tagtype, $limit) {
 		}
 	}
 
-	return @tags;	
+	return @tags;
 }
-
 
 =head2 add_sorted_entries_to_tags($tags_ref, $seen_tags_ref, $entries_ref, $tagtype, $search_lc)
 
@@ -269,22 +268,16 @@ Add packaging entries (shapes or materials) sorted by frequency for a specific c
 
 =cut
 
-sub add_sorted_entries_to_tags($tags_ref, $seen_tags_ref, $entries_ref, $tagtype, $search_lc) {
+sub add_sorted_entries_to_tags ($tags_ref, $seen_tags_ref, $entries_ref, $tagtype, $search_lc) {
 
 	if (defined $entries_ref) {
 		foreach my $entry (
-			sort({$entries_ref->{$b}{n} <=> $entries_ref->{$a}{n}
+			sort(
+				{$entries_ref->{$b}{n} <=> $entries_ref->{$a}{n}
 						|| (
-						(
-								$translations_to{$tagtype}{$a}{$search_lc}
-							|| $translations_to{$tagtype}{$a}{"xx"}
-							|| $a
-						) cmp(
-							$translations_to{$tagtype}{$b}{$search_lc}
-								|| $translations_to{$tagtype}{$b}{"xx"}
-								|| $b
-						)
-						)} keys %$entries_ref)
+						($translations_to{$tagtype}{$a}{$search_lc} || $translations_to{$tagtype}{$a}{"xx"} || $a)
+						cmp($translations_to{$tagtype}{$b}{$search_lc} || $translations_to{$tagtype}{$b}{"xx"} || $b))}
+				keys %$entries_ref)
 			)
 		{
 			next if (($entry eq "all") or ($entry eq "en:unknown"));
@@ -294,7 +287,6 @@ sub add_sorted_entries_to_tags($tags_ref, $seen_tags_ref, $entries_ref, $tagtype
 		}
 	}
 }
-
 
 =head2 filter_suggestions_matching_string ($search_lc, $tagtype, $string, $limit, $tags_ref)
 
