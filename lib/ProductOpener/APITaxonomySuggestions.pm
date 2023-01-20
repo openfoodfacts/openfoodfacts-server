@@ -174,7 +174,20 @@ sub get_taxonomy_suggestions ($request_ref) {
 		$limit = min(int(request_param($request_ref, 'limit')), 400);
 	}
 
-	# Generate a sorted list of tags from which we will generate suggestions
+	my @tags = generate_sorted_list_of_taxonomy_entries($request_ref, $tagtype, $limit);
+
+	return filter_suggestions_matching_string($search_lc, $tagtype, $string, $limit, \@tags);
+}
+
+=head2 generate_sorted_list_of_taxonomy_entries($request_ref, $tagtype, $limit)
+
+Generate a sorted list of canonicalized taxonomy entries from which we will generate suggestions
+
+=cut
+
+sub generate_sorted_list_of_taxonomy_entries($request_ref, $tagtype, $limit) {
+
+	my $search_lc = $request_ref->{lc};
 	my @tags = ();
 	my %seen_tags = ();    # Used to not add the same tag several times
 
@@ -186,7 +199,7 @@ sub get_taxonomy_suggestions ($request_ref) {
 	else {
 		# For packaging shapes and materials, we will generate the most popular suggestions
 		# for the country, product categories, and shape
-		if ($tagtype eq "packaging_shapes") {
+		if (($tagtype eq "packaging_shapes")  or ($tagtype eq "packaging_materials")) {
 			load_categories_packagings_stats_for_suggestions();
 
 			# Country for the request (set with the cc field or the subdomain)
@@ -198,46 +211,39 @@ sub get_taxonomy_suggestions ($request_ref) {
 			# If categories are provided, add them (most generic categories first)
 			if (defined request_param($request_ref, "categories")) {
 				push @categories,
-					gen_tags_hierarchy_taxonomy($search_lc, "categories", request_param($request_ref, "categories"));
+					gen_tags_hierarchy_taxonomy($search_lc, "categories", decode("utf8", request_param($request_ref, "categories")));
 			}
 
 			# Start with the most specific category
 			foreach my $category (reverse @categories) {
-				my $shapes_ref = deep_get(
-					$categories_packagings_stats_for_suggestions_ref,
-					("countries", $country, "categories", $category, "shapes")
-				);
 
-				$log->debug("adding shapes for category",
-					{country => $country, category => $category, shapes_ref_defined => (defined $shapes_ref)})
-					if $log->is_debug();
+				if ($tagtype eq "packaging_shapes") {
+					my $shapes_ref = deep_get(
+						$categories_packagings_stats_for_suggestions_ref,
+						("countries", $country, "categories", $category, "shapes")
+					);
 
-				if (defined $shapes_ref) {
-					foreach my $shape (
-						sort({$shapes_ref->{$b}{n} <=> $shapes_ref->{$a}{n}
-									|| (
-									(
-										   $translations_to{$tagtype}{$a}{$search_lc}
-										|| $translations_to{$tagtype}{$a}{"xx"}
-										|| $a
-									) cmp(
-										$translations_to{$tagtype}{$b}{$search_lc}
-											|| $translations_to{$tagtype}{$b}{"xx"}
-											|| $b
-									)
-									)} keys %$shapes_ref)
-						)
-					{
-						next if (($shape eq "all") or ($shape eq "en:unknown"));
-						next if defined $seen_tags{$shape};
-						push @tags, $shape;
-						$seen_tags{$shape} = 1;
-					}
+					add_sorted_entries_to_tags(\@tags, \%seen_tags, $shapes_ref, $tagtype, $search_lc);
 				}
+				elsif ($tagtype eq "packaging_materials") {
+					# Add materials specific to the shape if we have one
+					my $shape = decode("utf8", request_param($request_ref, "shape"));
+					if (defined $shape) {
+						$shape = canonicalize_taxonomy_tag($request_ref->{lc}, "packaging_shapes", $shape);
+					}
+					else {
+						$shape = "all";
+					}
+					my $materials_ref = deep_get(
+						$categories_packagings_stats_for_suggestions_ref,
+						("countries", $country, "categories", $category, "shapes", $shape, "materials")
+					);
 
+					add_sorted_entries_to_tags(\@tags, \%seen_tags, $materials_ref, $tagtype, $search_lc);
+				}
 			}
 
-			$log->debug("resulting packaging shapes for categories", {tags => \@tags}) if $log->is_debug();
+			$log->debug("resulting tags from categories", {categories => \@categories, tags => \@tags}) if $log->is_debug();
 		}
 
 		# add all remaining entries in alphabetical order
@@ -253,8 +259,42 @@ sub get_taxonomy_suggestions ($request_ref) {
 		}
 	}
 
-	return filter_suggestions_matching_string($search_lc, $tagtype, $string, $limit, \@tags);
+	return @tags;	
 }
+
+
+=head2 add_sorted_entries_to_tags($tags_ref, $seen_tags_ref, $entries_ref, $tagtype, $search_lc)
+
+Add packaging entries (shapes or materials) sorted by frequency for a specific country, category and shape (for materials)
+
+=cut
+
+sub add_sorted_entries_to_tags($tags_ref, $seen_tags_ref, $entries_ref, $tagtype, $search_lc) {
+
+	if (defined $entries_ref) {
+		foreach my $entry (
+			sort({$entries_ref->{$b}{n} <=> $entries_ref->{$a}{n}
+						|| (
+						(
+								$translations_to{$tagtype}{$a}{$search_lc}
+							|| $translations_to{$tagtype}{$a}{"xx"}
+							|| $a
+						) cmp(
+							$translations_to{$tagtype}{$b}{$search_lc}
+								|| $translations_to{$tagtype}{$b}{"xx"}
+								|| $b
+						)
+						)} keys %$entries_ref)
+			)
+		{
+			next if (($entry eq "all") or ($entry eq "en:unknown"));
+			next if defined $seen_tags_ref->{$entry};
+			push @$tags_ref, $entry;
+			$seen_tags_ref->{$entry} = 1;
+		}
+	}
+}
+
 
 =head2 filter_suggestions_matching_string ($search_lc, $tagtype, $string, $limit, $tags_ref)
 
