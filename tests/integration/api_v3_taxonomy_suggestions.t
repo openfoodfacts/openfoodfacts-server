@@ -27,7 +27,7 @@ my $tests_ref = [
 	{
 		test_case => 'incorrect-tagtype',
 		method => 'GET',
-		path => '/cgi/suggest.pl?tagtype=not_a_taxonomy',
+		path => '/api/v3/taxonomy_suggestions?tagtype=not_a_taxonomy',
 	},
 	{
 		test_case => 'categories-no-string',

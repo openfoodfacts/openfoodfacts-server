@@ -82,12 +82,11 @@ sub taxonomy_suggestions_api ($request_ref) {
 		add_error(
 			$response_ref,
 			{
-				message => {id => "missing_tagtype"},
-				field => {id => "tagtype", value => $tagtype},
+				message => {id => "missing_field"},
+				field => {id => "tagtype"},
 				impact => {id => "failure"},
 			}
 		);
-		$response_ref->{result} = {id => "unable_to_provide_suggestions"};
 	}
 	# Check that the taxonomy exists
 	# we also provide suggestions for emb-codes (packaging codes)
@@ -96,12 +95,11 @@ sub taxonomy_suggestions_api ($request_ref) {
 		add_error(
 			$response_ref,
 			{
-				message => {id => "invalid_tagtype"},
+				message => {id => "unrecognized_value"},
 				field => {id => "tagtype", value => $tagtype},
 				impact => {id => "failure"},
 			}
 		);
-		$response_ref->{result} = {id => "unable_to_provide_suggestions"};
 	}
 	# Generate suggestions
 	else {
