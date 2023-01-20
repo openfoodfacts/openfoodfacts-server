@@ -919,6 +919,8 @@ xx:81 C/PLA
 
 <xx:81 C/X
 xx:81 C/LLDPE
+description:en:Composite material with paper and LLDPE (linear low-density polyethylene)
+description:nl:Uit papier en LLDPE (lineair lagedichtheidpolyethyleen) samengesteld materiaal
 
 <xx:81 C/X
 xx:81 C/PETmet
@@ -1008,6 +1010,8 @@ xx:84 C/PLA
 
 <xx:84 C/X
 xx:84 C/LLDPE
+description:en:Composite material with paper, cardboard, aluminium and LLDPE (linear low-density polyethylene) 
+description:nl:Uit papier, karton, aluminium en LLDPE (lineair lagedichtheidpolyethyleen) samengesteld materiaal
 
 <xx:84 C/X
 xx:84 C/PETmet
@@ -1074,6 +1078,8 @@ xx:85 C/PLA
 
 <xx:85 C/X
 xx:85 C/LLDPE
+description:en:Composite material with paper, fibreboard and LLDPE (linear low-density polyethylene)
+description:nl:Uit papier, karton en LLDPE (lineair lagedichtheidpolyethyleen) samengesteld materiaal
 
 <xx:85 C/X
 xx:85 C/PETmet
@@ -1098,36 +1104,52 @@ en:Biodegradable plastic, Card-stock Laminate
 de:Biologisch abbaubarer Kunststoff, Kartonlaminat
 bg:Биоразградима пластмаса
 hu:Lebomló műanyag, Laminált kartonpapír
-nl:Biologisch afbreekbaar plastiek
+nl:Biologisch afbreekbaar plastic, Biologisch afbreekbaar plastiek
 pt:Plástico biodegradável
 xx:87 CSL, CSL 87
+description:en:Biodegradable plastic
+description:nl:Biologisch afbreekbaar plastic
 
 <en:Multilayer composite
 en:Plastic/aluminium, Plastic + aluminium
 de:Kunststoff/Aluminium, Kunststoff + Aluminium
 hr:plastika/aluminij
-xx:90 C/X, 90 C/*, 90 CX, 90 C*
+xx:90 C/X, 90 C/*, 90 CX, 90 C*, 90 C/ALU
+description:en:Composite material with plastic and aluminium
+description:nl:Uit plastic en aluminium samengesteld materiaal
 
 <xx:90 C/X
 xx:90 C/PET
+description:en:Composite material with PET (Polyethylene terephthalate) and aluminium
+description:nl:Uit PET (Polyethylene terephthalate) en aluminium samengesteld materiaal
 
 <xx:90 C/X
 xx:90 C/PVDC
+description:en:Composite material with  PVDC (polyvinylidene chloride) and aluminium
+description:nl:Uit PVDC (polyvinylidene chloride) en aluminium samengesteld materiaal
 
-<xx:90 C/X
+<xx:90 C/PET
 xx:90 C/rPET
+description:en:Composite material with rPET (recycled Polyethylene terephthalate) and aluminium
+description:nl:Uit PET (gerecycleerd Polyethylene terephthalate) en aluminium samengesteld materiaal
 
 <xx:90 C/X
 xx:90 C/HDPE, 90 C/PEHD
+description:en:Composite material from HDPE (high density polyethylene) and aluminium
+description:nl:Uit HDPE (high density polyethylene) en aluminium samengesteld materiaal
 
 <xx:90 C/X
 xx:90 C/PVC
+description:en:Composite material from  PVC (Polyvinyl chloride) and aluminium
+description:nl:Uit PVC (Polyvinyl chloride) en aluminium samengesteld materiaal
 
 <xx:90 C/X
 xx:90 C/LDPE, 90 C/PELD
 
 <xx:90 C/X
 xx:90 C/PP
+description:en:Composite material PP (polypropylene) and aluminium
+description:nl:Uit PP (polypropyleen) en aluminium samengesteld materiaal
 
 <xx:90 C/X
 xx:90 C/CPP
@@ -1158,39 +1180,54 @@ xx:90 C/PEmet
 
 <xx:90 C/X
 xx:90 C/MDPE, 90 C/PEMD
+description:en:Composite material with MDPE (Medium-density polyethylene) and aluminium
+description:nl:Uit MDPE (middendichtheids polyethyleen) en aluminium samengesteld materiaal
 
 <xx:90 C/X
 xx:90 C/EVOH
-
-<xx:90 C/X
-xx:90 C/ALU
+description:en:Composite material from EVOH (ethylene vinyl alcohol) and aluminium
+description:nl:Uit EVOH (etheen-vinylalcohol) en aluminium samengesteld materiaal
 
 <en:Multilayer composite
 en:Plastic/tinplate, Plastic + tinplate
 de:Kunststoff/Weißblech, Kunststoff + Weißblech, Kunststoff/Weissblech, Kunststoff + Weissblech
 hr:plastika/bijeli lim
-xx:91 C/X, 91 C/*, 91 CX, 91 C*
+xx:91 C/X, 91 C/*, 91 CX, 91 C*, 91 C/FE
+description:en:Composite material with plastic and tin plate
+description:nl:Uit plastic en blik samengesteld materiaal
 
 <xx:91 C/X
 xx:91 C/PET
+description:en:Composite material with PET (Polyethylene terephthalate) and tin plate
+description:nl:Uit PET (Polyethylene terephthalate) en blik samengesteld materiaal
 
 <xx:91 C/X
 xx:91 C/PVDC
+description:en:Composite material with  PVDC (polyvinylidene chloride) and tin plate
+description:nl:Uit PVDC (polyvinylidene chloride) en blik samengesteld materiaal
 
-<xx:91 C/X
+<xx:91 C/PET
 xx:91 C/rPET
+description:en:Composite material with rPET (recycled polyethylene terephthalate) and tin plate
+description:nl:Uit rPET (gerecycleerd polyethylene terephthalate) en blik samengesteld materiaal
 
 <xx:91 C/X
 xx:91 C/HDPE, 91 C/PEHD
+description:en:Composite material from HDPE (high density polyethylene) and tin plate
+description:nl:Uit HDPE (high density polyethylene) en blik samengesteld materiaal
 
 <xx:91 C/X
 xx:91 C/PVC
+description:en:Composite material from  PVC (Polyvinyl chloride) and tin plate
+description:nl:Uit PVC (Polyvinyl chloride) en blik samengesteld materiaal
 
 <xx:91 C/X
 xx:91 C/LDPE, 91 C/PELD
 
 <xx:91 C/X
 xx:91 C/PP
+description:en:Composite material PP (polypropylene) and tin plate
+description:nl:Uit PP (polypropyleen) en blik samengesteld materiaal
 
 <xx:91 C/X
 xx:91 C/CPP
@@ -1212,6 +1249,8 @@ xx:91 C/PLA
 
 <xx:91 C/X
 xx:91 C/LLDPE
+description:en:Composite material with LLDPE (linear low-density polyethylene) and tin plate
+description:nl:Uit LLDPE (lineair lagedichtheidpolyethyleen) en blik samengesteld materiaal
 
 <xx:91 C/X
 xx:91 C/PETmet
@@ -1221,41 +1260,54 @@ xx:91 C/PEmet
 
 <xx:91 C/X
 xx:91 C/MDPE, 91 C/PEMD
+description:en:Composite material with MDPE (Medium-density polyethylene) and tin plate
+description:nl:Uit MDPE (middendichtheids polyethyleen) en blik samengesteld materiaal
 
 <xx:91 C/X
 xx:91 C/EVOH
-
-<xx:91 C/X
-xx:91 C/FE
+description:en:Composite material from EVOH (ethylene vinyl alcohol) and tin plate
+description:nl:Uit EVOH (etheen-vinylalcohol) en blik samengesteld materiaal
 
 <en:Multilayer composite
 en:Plastic/miscellaneous metals, Plastic + miscellaneous metals
 de:Kunststoff/verschiedene Metalle, Kunststoff + verschiedene Metalle
 hr:plastika/raznovrsni metali
 xx:92 C/X, 92 C/*, 92 CX, 92 C*
-description:en:Composite plastic with plastic and metal
+description:en:Composite material with plastic and metal
 description:nl:Uit plastic en metaal samengesteld materiaal
 
 <xx:92 C/X
 xx:92 C/PET
+description:en:Composite material with PET (polyethylene terephthalate) and metal
+description:nl:Uit PET (polyethylene terephthalate) en metaal samengesteld materiaal
 
 <xx:92 C/X
 xx:92 C/PVDC
+description:en:Composite material with  PVDC (polyvinylidene chloride) and metal
+description:nl:Uit PVDC (polyvinylidene chloride) en metaal samengesteld materiaal
 
-<xx:92 C/X
+<xx:92 C/PET
 xx:92 C/rPET
+description:en:Composite material with rPET (recycled polyethylene terephthalate) and metal
+description:nl:Uit rPET (gerecycleerd polyethylene terephthalate) en metaal samengesteld materiaal
 
 <xx:92 C/X
 xx:92 C/HDPE, 92 C/PEHD
+description:en:Composite material from HDPE (high density polyethylene) and metal
+description:nl:Uit HDPE (high density polyethylene) en metaal samengesteld materiaal
 
 <xx:92 C/X
 xx:92 C/PVC
+description:en:Composite material from  PVC (Polyvinyl chloride) and metal
+description:nl:Uit PVC (Polyvinyl chloride) en metaal samengesteld materiaal
 
 <xx:92 C/X
 xx:92 C/LDPE, 92 C/PELD
 
 <xx:92 C/X
 xx:92 C/PP
+description:en:Composite material PP (polypropylene) and metal
+description:nl:Uit PP (polypropyleen) en metaal samengesteld materiaal
 
 <xx:92 C/X
 xx:92 C/CPP
@@ -1277,6 +1329,8 @@ xx:92 C/PLA
 
 <xx:92 C/X
 xx:92 C/LLDPE
+description:en:Composite material with LLDPE (linear low-density polyethylene) and metal
+description:nl:Uit LLDPE (lineair lagedichtheidpolyethyleen) en metaal samengesteld materiaal
 
 <xx:92 C/X
 xx:92 C/PETmet
@@ -1286,13 +1340,17 @@ xx:92 C/PEmet
 
 <xx:92 C/X
 xx:92 C/MDPE, 92 C/PEMD
+description:en:Composite material with MDPE (Medium-density polyethylene) and metal
+description:nl:Uit MDPE (middendichtheids polyethyleen) en metaal samengesteld materiaal
 
 <xx:92 C/X
 xx:92 C/EVOH
+description:en:Composite material from EVOH (ethylene vinyl alcohol) and metal
+description:nl:Uit EVOH (etheen-vinylalcohol) en metaal samengesteld materiaal
 
 <xx:92 C/X
 xx:92 C/ALU
-description:en:Composite plastic with plastic and iron
+description:en:Composite material with plastic and iron
 description:nl:Uit plastic en ijzer samengesteld materiaal
 comment:en:This should not exist as code 90 is reserved for this
 
@@ -1306,7 +1364,7 @@ en:Glass/Plastic, Glass + Plastic
 de:Glas/Kunststoff, Glas + Kunststoff
 hr:staklo/plastika
 xx:95 C/X, 95 C/*, 95 CX, 95 C*
-description:en:Composite plastic with glass and plastic
+description:en:Composite material with glass and plastic
 description:nl:Uit glas en aluminium samengesteld materiaal
 
 #<xx:95 C/X
@@ -1340,8 +1398,8 @@ description:nl:Uit glas en PVC (Polyvinyl chloride) samengesteld materiaal
 
 <xx:95 C/X
 xx:95 C/LDPE, 95 C/PELD
-description:en:Composite material with glass and HDPE (low density polyethylene)
-description:nl:Uit glas en HDPE (low density polyethylene) samengesteld materiaal
+description:en:Composite material with glass and LDPE (low density polyethylene)
+description:nl:Uit glas en LDPE (low density polyethylene) samengesteld materiaal
 
 <xx:95 C/X
 xx:95 C/PP
@@ -1388,7 +1446,7 @@ xx:95 C/LLDPE
 description:en:Composite material with glass and LLDPE (linear low-density polyethylene)
 description:nl:Uit glas en LLDPE (lineair lagedichtheidpolyethyleen) samengesteld materiaal
 
-<xx:95 C/X
+<xx:95 C/PET
 xx:95 C/PETmet
 description:en:Composite material with glass and PETmet (metallized Polyethylene terephthalate)
 description:nl:Uit glas en PETmet (gemetalliseerd Polyethylene terephthalate) samengesteld materiaal
