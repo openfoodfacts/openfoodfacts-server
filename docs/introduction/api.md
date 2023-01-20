@@ -93,14 +93,21 @@ To allow users of your app to contribute without registering individual accounts
 
 We are building a complete OpenAPI reference.
 
-- Actual [OpenAPI documentation](../reference/api.md)
+- Actual [OpenAPI documentation (v2)](../reference/api.md)
+- [OpenAPI documentation for v3](../reference/api-v3.md) (for packaging components)
+- A [cheatsheet](../reference/api-cheatsheet.md) to remind some usual patterns
+
+
 - An [older doc is also available](https://github.com/openfoodfacts/api-documentation/)
 
 
 
 ## Tutorials
 
-See [Using OFF API tutorial](../tutorials/using-the-OFF-API-tutorial.md) which is a good introduction on how to use the API.
+* [Using the Open Food Facts API](../tutorials/using-the-OFF-API-tutorial.md) is a good introduction on how to use the API.
+
+* [Uploading images to the Open Food Facts API](../tutorials/uploading-photo-to-a-product.md)
+
 
 ## Help
 
