@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -664,6 +664,7 @@ $options{categories_exempted_from_nutrient_levels} = [
 	creator
 	created_t
 	last_modified_t
+	last_modified_by
 	product_name
 	abbreviated_product_name
 	generic_name
@@ -687,7 +688,7 @@ $options{categories_exempted_from_nutrient_levels} = [
 	traces
 	serving_size
 	serving_quantity
-	no_nutriments
+	no_nutrition_data
 	additives_n
 	additives
 	nutriscore_score

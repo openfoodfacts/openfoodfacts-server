@@ -303,7 +303,7 @@ msgstr "markalar"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
-msgstr "% S markalı ürünler"
+msgstr "%s S markalı ürünler"
 
 msgctxt "brands_s"
 msgid "brand"
@@ -315,7 +315,7 @@ msgstr "marka ekle"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
-msgstr "% S markası olmayan ürünler"
+msgstr "%s S markası olmayan ürünler"
 
 msgctxt "brand_owner"
 msgid "Brand owner"
@@ -347,7 +347,7 @@ msgstr "kategoriler"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
-msgstr "% S kategorisindeki ürünler"
+msgstr "%s S kategorisindeki ürünler"
 
 msgctxt "categories_s"
 msgid "category"
@@ -359,7 +359,7 @@ msgstr "bir kategori ekle"
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
-msgstr "% S kategorisinden olmayan ürünler"
+msgstr "%s S kategorisinden olmayan ürünler"
 
 msgctxt "change_fields"
 msgid "Data"
@@ -399,7 +399,7 @@ msgstr "ambalajlama şehri"
 
 msgctxt "cities_without_products"
 msgid "Products not packaged in the city of %s"
-msgstr "% S şehrinde paketlenmeyen ürünler"
+msgstr "%s S şehrinde paketlenmeyen ürünler"
 
 msgctxt "codes_p"
 msgid "Codes"
@@ -410,8 +410,8 @@ msgid "Code"
 msgstr "Kod"
 
 msgctxt "completed_n_missions"
-msgid "completed %d missions:"
-msgstr "% d görev tamamladı:"
+msgid "completed %sd missions:"
+msgstr "%s d görev tamamladı:"
 
 msgctxt "connected_with_facebook"
 msgid "You are connected with your Facebook account."
@@ -451,7 +451,7 @@ msgstr "ülkeler"
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
-msgstr "% S içinde satılan ürünler"
+msgstr "%s S içinde satılan ürünler"
 
 msgctxt "countries_s"
 msgid "country"
@@ -459,7 +459,7 @@ msgstr "ülke"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
-msgstr "% S içinde satılmayan ürünler"
+msgstr "%s S içinde satılmayan ürünler"
 
 msgctxt "data_source"
 msgid "Data source"
@@ -904,8 +904,8 @@ msgid "See you soon!"
 msgstr "Görüşmek üzere!"
 
 msgctxt "graph_count"
-msgid "%d products match the search criteria, of which %i products have defined values for the graph's axis."
-msgstr "% d ürünler% i ürünlerinde grafik ekseni için değerler tanımlayan arama ölçütleriyle eşleşir."
+msgid "%sd products match the search criteria, of which %si products have defined values for the graph's axis."
+msgstr "%s d ürünler%s i ürünlerinde grafik ekseni için değerler tanımlayan arama ölçütleriyle eşleşir."
 
 msgctxt "graph_title"
 msgid "Graph title"
@@ -1075,7 +1075,7 @@ msgstr "malzemeler"
 
 msgctxt "ingredients_products"
 msgid "Products that contain the ingredient %s"
-msgstr "% S bileşenini içeren ürünler"
+msgstr "%s S bileşenini içeren ürünler"
 
 msgctxt "ingredients_s"
 msgid "ingredient"
@@ -1090,12 +1090,12 @@ msgid "Ingredients are listed in order of importance (quantity)."
 msgstr "İçindekiler önem sırasına göre listelenir (miktar)."
 
 msgctxt "ingredients_text_example"
-msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, cocoa 4,8%, ascorbic acid"
-msgstr "Tahıllar% 85.5 (_wheat_ unu, whole-_wheat_ unu% 11), malt özü, kakao% 4,8, askorbik asit"
+msgid "Cereals 85.5%s (_wheat_ flour, whole-_wheat_ flour 11%s), malt extract, cocoa 4,8%s, ascorbic acid"
+msgstr "Tahıllar%s 85.5 (_wheat_ unu, whole-_wheat_ unu%s 11), malt özü, kakao%s 4,8, askorbik asit"
 
 msgctxt "ingredients_text_note"
-msgid "Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_"
-msgstr "Siparişi muhafaza edin, belirtildiğinde% belirtin, virgülle ayrılmış veya -, bir maddenin bileşenleri için () kullanın, allerjenlerinizi örn. _Süt_"
+msgid "Keep the order, indicate the %s when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_"
+msgstr "Siparişi muhafaza edin, belirtildiğinde%s belirtin, virgülle ayrılmış veya -, bir maddenin bileşenleri için () kullanın, allerjenlerinizi örn. _Süt_"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_p"
 msgid "ingredients that may be from palm oil"
@@ -1107,7 +1107,7 @@ msgstr "bileşeni palmiye yağından olabilir"
 
 msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
-msgstr "% S bileşenini içermeyen ürünler"
+msgstr "%s S bileşenini içermeyen ürünler"
 
 # Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
 msgctxt "ios_app_icon_url"
@@ -1148,7 +1148,7 @@ msgstr "etiketler"
 
 msgctxt "labels_products"
 msgid "Products that have the label %s"
-msgstr "% S etiketi bulunan ürünler"
+msgstr "%s S etiketi bulunan ürünler"
 
 msgctxt "labels_s"
 msgid "label"
@@ -1280,7 +1280,7 @@ msgstr "imalat veya işleme alanları"
 
 msgctxt "manufacturing_places_products"
 msgid "Products manufactured or processed in %s"
-msgstr "% S'de imal edilen veya işlenmiş ürünler"
+msgstr "%s S'de imal edilen veya işlenmiş ürünler"
 
 msgctxt "manufacturing_places_s"
 msgid "manufacturing or processing place"
@@ -1292,11 +1292,11 @@ msgstr "mekan ekle"
 
 msgctxt "manufacturing_places_without_products"
 msgid "Products not manufactured or processed in %s"
-msgstr "% S'de imal edilmeyen veya işlenmeyen ürünler"
+msgstr "%s S'de imal edilmeyen veya işlenmeyen ürünler"
 
 msgctxt "map_count"
-msgid "%d products match the search criteria, of which %i products have a known production place."
-msgstr "% d ürünleri% i ürünlerinde bilinen bir üretim alanına sahip olan arama kriterlerine uyuyor."
+msgid "%sd products match the search criteria, of which %si products have a known production place."
+msgstr "%s d ürünleri%s i ürünlerinde bilinen bir üretim alanına sahip olan arama kriterlerine uyuyor."
 
 msgctxt "map_title"
 msgid "Map title"
@@ -1342,8 +1342,8 @@ msgid "This mission has been completed by:"
 msgstr "Bu görev şu kişiler tarafından tamamlanmıştır:"
 
 msgctxt "mission_accomplished_by_n"
-msgid "Completed by %d persons."
-msgstr "%d kişice tamamlandı."
+msgid "Completed by %sd persons."
+msgstr "%sd kişice tamamlandı."
 
 msgctxt "mission_accomplished_by_nobody"
 msgid "Be the first to complete this mission!"
@@ -1464,7 +1464,7 @@ msgstr "besinler"
 
 msgctxt "nutriments_products"
 msgid "Products that contain the nutriment %s"
-msgstr "Besin maddesi içeren ürünler% s"
+msgstr "Besin maddesi içeren ürünler%s s"
 
 msgctxt "nutriments_s"
 msgid "nutriment"
@@ -1472,7 +1472,7 @@ msgstr "besin"
 
 msgctxt "nutriments_without_products"
 msgid "Products that do not contain the nutriment %s"
-msgstr "Besin değeri% s içermeyen ürünler"
+msgstr "Besin değeri%s s içermeyen ürünler"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
@@ -1483,12 +1483,12 @@ msgid "Nutrition facts"
 msgstr "Beslenme gerçekleri"
 
 msgctxt "nutrition_data_average"
-msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
-msgstr "Beslenme bilgisinin bulunduğu% s kategorisinin% d ürünleri için ortalama beslenme durumu (% d ürünlerden)."
+msgid "Average nutrition facts for the %sd products of the %s category for which nutrition facts are known (out of %sd products)."
+msgstr "Beslenme bilgisinin bulunduğu%s s kategorisinin%s d ürünleri için ortalama beslenme durumu (%s d ürünlerden)."
 
 msgctxt "nutrition_data_compare_percent"
-msgid "% of difference"
-msgstr "farkın yüzdesi"
+msgid "%s of difference"
+msgstr "%s farkın yüzdesi"
 
 msgctxt "nutrition_data_compare_value"
 msgid "value for 100 g / 100 ml"
@@ -1643,7 +1643,7 @@ msgstr "paketleme"
 
 msgctxt "packaging_products"
 msgid "Products with a %s packaging"
-msgstr "% S ambalajlamalı ürünler"
+msgstr "%s S ambalajlamalı ürünler"
 
 msgctxt "packaging_s"
 msgid "packaging"
@@ -1655,15 +1655,15 @@ msgstr "bir tür, şekil veya malzeme ekle"
 
 msgctxt "packaging_without_products"
 msgid "Products without a %s packaging"
-msgstr "% S ambalajı olmayan ürünler"
+msgstr "%s S ambalajı olmayan ürünler"
 
 msgctxt "page_x"
-msgid "Page %d"
-msgstr "%d. sayfa"
+msgid "Page %sd"
+msgstr "%sd. sayfa"
 
 msgctxt "page_x_out_of_y"
-msgid "Page %d out of %d."
-msgstr "Sayfa% d,% d."
+msgid "Page %sd out of %sd."
+msgstr "Sayfa%s d,%s d."
 
 msgctxt "pages"
 msgid "Pages:"
@@ -1730,16 +1730,16 @@ msgid "PNNS group 2"
 msgstr "PNNS grubu 2"
 
 msgctxt "points_all_countries"
-msgid "There are %d Explorers and %d Ambassadors."
-msgstr "%d Kaşifler ve %d Büyükelçiler var."
+msgid "There are %sd Explorers and %sd Ambassadors."
+msgstr "%sd Kaşifler ve %sd Büyükelçiler var."
 
 msgctxt "points_all_users"
-msgid "There are Explorers for %d countries and Ambassadors for %d countries."
-msgstr "%d ülke için Kaşifler ve %d ülke için büyükelçiler var."
+msgid "There are Explorers for %sd countries and Ambassadors for %sd countries."
+msgstr "%sd ülke için Kaşifler ve %sd ülke için büyükelçiler var."
 
 msgctxt "points_country"
-msgid "%s has %d Explorers and %d Ambassadors."
-msgstr "%s, %d kaşifler ve %d elçilikçilere sahip."
+msgid "%s has %sd Explorers and %sd Ambassadors."
+msgstr "%s, %sd kaşifler ve %sd elçilikçilere sahip."
 
 msgctxt "points_ranking"
 msgid "Ranking"
@@ -1750,8 +1750,8 @@ msgid "Ranking of contributors and countries"
 msgstr "Katkıda bulunanların ve ülkelerin sıralaması"
 
 msgctxt "points_user"
-msgid "%s is an Explorer for %d countries and an Ambassador for %d countries."
-msgstr "%s, %d ülke için bir Explorer ve %d ülke için bir Büyükelçi."
+msgid "%s is an Explorer for %sd countries and an Ambassador for %sd countries."
+msgstr "%s, %sd ülke için bir Explorer ve %sd ülke için bir Büyükelçi."
 
 msgctxt "previous"
 msgid "Previous"
@@ -1939,7 +1939,7 @@ msgstr "alış veriş yerleri"
 
 msgctxt "purchase_places_products"
 msgid "Products sold in %s"
-msgstr "% S içinde satılan ürünler"
+msgstr "%s S içinde satılan ürünler"
 
 msgctxt "purchase_places_s"
 msgid "purchase place"
@@ -1951,7 +1951,7 @@ msgstr "mekan ekle"
 
 msgctxt "purchase_places_without_products"
 msgid "Products not sold in %s"
-msgstr "% S içinde satılmayan ürünler"
+msgstr "%s S içinde satılmayan ürünler"
 
 msgctxt "quantity"
 msgid "Quantity"
@@ -2633,15 +2633,15 @@ msgid "Warning: the amount of fruits, vegetables and nuts is not specified, thei
 msgstr "Uyarı: Meyve, sebze ve fındık fıstık belirtilmedi. Olası olumlu katkıları hesaba katılmamıştır."
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
-msgstr "Dikkat: meyvelerin, sebzelerin ve fındık miktarları etikette belirlenmemiş, temel olarak içerik listesinden esas alınmıştır:%d"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %sd"
+msgstr "Dikkat: meyvelerin, sebzelerin ve fındık miktarları etikette belirlenmemiş, temel olarak içerik listesinden esas alınmıştır:%sd"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %sd"
 msgstr ""
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %sd"
 msgstr ""
 
 msgctxt "nutrition_grade_fr_title"
@@ -2903,12 +2903,12 @@ msgid "To evaluate your exposure to the <tag> food additive, you can browse our 
 msgstr "<tag> gıda katkı maddesine maruz kalma miktarınızı belirlemek için, onu içeren ürünler listemize göz atabilirsiniz. Aşağıda <tag> içeren <nb_products> ürün listesine bakınız."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_products_link"
-msgid "%d products with %s"
-msgstr "%s içeren %d ürün"
+msgid "%sd products with %s"
+msgstr "%s içeren %sd ürün"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_no"
-msgid "The European Food Safety Authority (EFSA) has determined that no population groups has more than 5% of members at risk of consuming more than the acceptable daily intake of <tag>."
-msgstr "Avrupa Gıda Güvenliği Otoritesi (EFSA) hiç bir nüfus grubununda üyelerin %5'inden fazlasının kabul edilebilir günlük alım miktarı üzerinde <tag> tüketme riski olmadığını belirlemiştir."
+msgid "The European Food Safety Authority (EFSA) has determined that no population groups has more than 5%s of members at risk of consuming more than the acceptable daily intake of <tag>."
+msgstr "Avrupa Gıda Güvenliği Otoritesi (EFSA) hiç bir nüfus grubununda üyelerin %s5'inden fazlasının kabul edilebilir günlük alım miktarı üzerinde <tag> tüketme riski olmadığını belirlemiştir."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_high"
 msgid "High risk of over exposure"
@@ -2931,36 +2931,36 @@ msgid "Risk of exceeding the maximum dose without adverse effect (No observed ad
 msgstr "Olumsuz etki olmadan maksimum dozu aşma riski (Gözlemlenmiş olumsuz etki düzeyi yok - NOAEL)"
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
-msgid "Groups with more than 50% of members exceeding the acceptable daily intake (ADI)"
-msgstr "Üyelerinin %50'sinden fazlası kabul edilebilir günlük alım miktarını (ADI) aşan gruplar"
+msgid "Groups with more than 50%s of members exceeding the acceptable daily intake (ADI)"
+msgstr "Üyelerinin %s50'sinden fazlası kabul edilebilir günlük alım miktarını (ADI) aşan gruplar"
 
 msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_adi"
-msgid "Groups with more than 5% of members exceeding the acceptable daily intake (ADI)"
-msgstr "Üyelerinin %5'inden fazlası kabul edilebilir günlük alım miktarını (ADI) aşan gruplar"
+msgid "Groups with more than 5%s of members exceeding the acceptable daily intake (ADI)"
+msgstr "Üyelerinin %s5'inden fazlası kabul edilebilir günlük alım miktarını (ADI) aşan gruplar"
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_noael"
-msgid "Groups with more than 50% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr "Üyelerinin %50'sinden fazlası olumsuz etki olmadan maksimum dozu aşan gruplar (Gözlemlenen olumsuz etki seviyesi yok - NOAEL)"
+msgid "Groups with more than 50%s of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
+msgstr "Üyelerinin %s50'sinden fazlası olumsuz etki olmadan maksimum dozu aşan gruplar (Gözlemlenen olumsuz etki seviyesi yok - NOAEL)"
 
 msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_noael"
-msgid "Groups with more than 5% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr "Üyelerinin %5'inden fazlası olumsuz etki olmadan maksimum dozu aşan gruplar (Gözlemlenen olumsuz etki seviyesi yok - NOAEL)"
+msgid "Groups with more than 5%s of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
+msgstr "Üyelerinin %s5'inden fazlası olumsuz etki olmadan maksimum dozu aşan gruplar (Gözlemlenen olumsuz etki seviyesi yok - NOAEL)"
 
 msgctxt "exposure_title_95th"
 msgid "Some people"
 msgstr "Bazı kişiler"
 
 msgctxt "exposure_description_95th"
-msgid "over 5%"
-msgstr "%5'in üzerinde"
+msgid "over 5%s"
+msgstr "%s5'in üzerinde"
 
 msgctxt "exposure_title_mean"
 msgid "Most people"
 msgstr "Çoğu kişiler"
 
 msgctxt "exposure_description_mean"
-msgid "over 50%"
-msgstr "%50'nin üzerinde"
+msgid "over 50%s"
+msgstr "%s50'nin üzerinde"
 
 msgctxt "wikipedia"
 msgid "Wikipedia"
@@ -3215,8 +3215,8 @@ msgid "Carbon footprint calculations have high uncertainty. Values should be loo
 msgstr "Karbon ayak izi hesaplamalarının belirsizliği yüksektir. Değerler dikkatle incelenmeli ve mutlak değerlerden ziyade nispi karşılaştırmaya yönelik olmalıdır."
 
 msgctxt "error_too_many_products_to_export"
-msgid "Too many products (%d products, the limit is %d) to export, please download the <a href=\"/data\">complete database export</a> instead."
-msgstr "Dışa aktarılacak çok fazla ürün (%d ürün, sınır %d), lütfen bunun yerine <a href=\"/data\">tam veritabanı dışa aktarımını</a> indirin."
+msgid "Too many products (%sd products, the limit is %sd) to export, please download the <a href=\"/data\">complete database export</a> instead."
+msgstr "Dışa aktarılacak çok fazla ürün (%sd ürün, sınır %sd), lütfen bunun yerine <a href=\"/data\">tam veritabanı dışa aktarımını</a> indirin."
 
 msgctxt "translate_taxonomy_to"
 msgid "Help translate the %s to %s"
@@ -3518,8 +3518,8 @@ msgid "Value in kJ"
 msgstr "kJ cinsinden değer"
 
 msgctxt "value_in_percent"
-msgid "Value in %"
-msgstr "% cinsinden değer"
+msgid "Value in %s"
+msgstr "%s cinsinden değer"
 
 msgctxt "no_owner_defined"
 msgid "Please log-in to use this feature."
@@ -3971,8 +3971,8 @@ msgstr "Nutri-Score"
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
-msgid "Open Food Facts is 100% free and independent."
-msgstr "Open Food Facts %100 özgür ve bağımsızdır."
+msgid "Open Food Facts is 100%s free and independent."
+msgstr "Open Food Facts %s100 özgür ve bağımsızdır."
 
 # leave empty link
 msgctxt "donate_help_and_donations"
@@ -4095,7 +4095,7 @@ msgstr "Üreticilerin platform yönetimi"
 
 msgctxt "pro_moderator_owner_set"
 msgid "You are currently viewing products from %s."
-msgstr "Şu anda % s ürününü görüntülüyorsunuz."
+msgstr "Şu anda %s s ürününü görüntülüyorsunuz."
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
@@ -4117,7 +4117,7 @@ msgstr "user-abc veya org-xyz"
 # keep %s, it is a variable for the name of the user
 msgctxt "error_user_does_not_exist"
 msgid "User %s does not exist"
-msgstr "Kullanıcı % s mevcut değil"
+msgstr "Kullanıcı %s s mevcut değil"
 
 msgctxt "error_malformed_owner"
 msgid "The id must be of the form user-abc or org-xyz"
@@ -4273,10 +4273,10 @@ msgctxt "edit_link_in_search"
 msgid "Add an edit link in search results"
 msgstr "Arama sonuçlarına bir düzenleme bağlantısı ekleyin"
 
-# leave the %d, it will be replaced by a number
+# leave the %sd, it will be replaced by a number
 msgctxt "n_products_will_be_exported"
-msgid "%d products will be exported."
-msgstr "%d ürün ihraç edilecektir."
+msgid "%sd products will be exported."
+msgstr "%sd ürün ihraç edilecektir."
 
 msgctxt "ciqual_food_name"
 msgid "CIQUAL food name"
@@ -4580,7 +4580,7 @@ msgstr "Gıda işlemesi hiç ya da az (NOVA grup)"
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
 msgid "NOVA %s"
-msgstr "NOVA &s"
+msgstr "NOVA %s"
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
@@ -5069,7 +5069,7 @@ msgid "m² per kg of food"
 msgstr "kg gıda başına m²"
 
 msgctxt "percent_of_food_after_processing"
-msgid "% of food after processing"
+msgid "%s of food after processing"
 msgstr ""
 
 msgctxt "kg_of_soy_per_kg_of_food"
@@ -5081,7 +5081,7 @@ msgid "kg of soy per m²"
 msgstr ""
 
 msgctxt "percent_in_product"
-msgid "% in product"
+msgid "%s in product"
 msgstr ""
 
 msgctxt "forest_footprint_calculation_details"
@@ -5185,9 +5185,9 @@ msgctxt "classify_products_according_to_your_preferences"
 msgid "Classify products according to your preferences"
 msgstr ""
 
-# %d will be replaced by the number of products
+# %sd will be replaced by the number of products
 msgctxt "classify_the_d_products_below_according_to_your_preferences"
-msgid "Classify the %d products below according to your preferences"
+msgid "Classify the %sd products below according to your preferences"
 msgstr ""
 
 msgctxt "sort_by_popularity"
@@ -5210,10 +5210,10 @@ msgctxt "sort_by_last_modified_t"
 msgid "Recently modified products"
 msgstr "En son düzenlenen ürünler"
 
-# %d will be replaced by the number of products
+# %sd will be replaced by the number of products
 msgctxt "d_products_per_page"
-msgid "%d products per page"
-msgstr "Sayfa başına %d ürün"
+msgid "%sd products per page"
+msgstr "Sayfa başına %sd ürün"
 
 msgctxt "not_applicable"
 msgid "Not applicable"
@@ -5679,8 +5679,8 @@ msgid "Missing origins of ingredients information"
 msgstr ""
 
 msgctxt "percent_of_ingredients"
-msgid "% of ingredients"
-msgstr "içeriklerin yüzdesi"
+msgid "%s of ingredients"
+msgstr "%s içeriklerin yüzdesi"
 
 # medium as in "medium impact"
 msgctxt "medium"

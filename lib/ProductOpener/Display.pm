@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -141,6 +141,7 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
+use ProductOpener::HTTP qw(:all);
 use ProductOpener::Store qw(:all);
 use ProductOpener::Config qw(:all);
 use ProductOpener::Tags qw(:all);
@@ -859,9 +860,7 @@ CSS
 		$request_ref->{user_preferences} = 0;
 	}
 
-	if (    ((defined $options{product_type}) and ($options{product_type} eq "food"))
-		and ((defined $ecoscore_countries_enabled{$cc}) or ($User{moderator})))
-	{
+	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 		$show_ecoscore = 1;
 		$attributes_options_ref = {};
 		$knowledge_panels_options_ref = {};
@@ -10322,12 +10321,11 @@ sub display_structured_response ($request_ref) {
 			. $xs->XMLout($request_ref->{structured_response});  # noattr -> force nested elements instead of attributes
 
 		my $status_code = $request_ref->{status_code} || "200";
-
+		write_cors_headers();
 		print header(
 			-status => $status_code,
 			-type => 'text/xml',
 			-charset => 'utf-8',
-			-access_control_allow_origin => '*'
 		) . $xml;
 
 	}
@@ -10353,21 +10351,23 @@ sub display_structured_response ($request_ref) {
 
 		if (defined $jsonp) {
 			$jsonp =~ s/[^a-zA-Z0-9_]//g;
+			write_cors_headers();
 			print header(
 				-status => $status_code,
 				-type => 'text/javascript',
 				-charset => 'utf-8',
-				-access_control_allow_origin => '*'
 				)
 				. $jsonp . "("
 				. $data . ");";
 		}
 		else {
+			$log->warning("XXXXXXXXXXXXXXXXXXXXXX");
+			write_cors_headers();
+			$log->warning("YYYYYYYYYYYYYYYY");
 			print header(
 				-status => $status_code,
 				-type => 'application/json',
 				-charset => 'utf-8',
-				-access_control_allow_origin => '*'
 			) . $data;
 		}
 	}
@@ -10445,7 +10445,8 @@ XML
 XML
 		;
 
-	print header(-type => 'application/rss+xml', -charset => 'utf-8', -access_control_allow_origin => '*') . $xml;
+	write_cors_headers();
+	print header(-type => 'application/rss+xml', -charset => 'utf-8') . $xml;
 
 	return;
 }

@@ -80,7 +80,7 @@ de:Karamellsirup, Caramelsirup
 es:jarabe de caramelo, sirope de caramelo
 fi:Karamellisiirappi
 fr:sirop de caramel, sirop caramel
-hr:karamel sirup
+hr:karamel sirup, karamelizirani sirup
 hu:karamellszirup, karamell szirup, karamell-szirup, karamella szirup
 it:sciroppo di caramello
 ja:キャラメルシロップ
@@ -766,6 +766,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sodium_cyclamate
 
 <en:E1105
 en:lysozyme from eggs, egg lysozyme
+ca:lisozim d'ou
 cs:lysozym z vajec
 da:lysozym fra æg
 de:Lysozym aus Ei
@@ -912,6 +913,7 @@ vegetarian:en:maybe
 <en:coagulating enzyme
 en:microbial coagulating enzyme, microbial enzyme
 bg:микробиологичен ензим, сирище с микробиален произход
+ca:coagulant de llet microbià, coagulant microbià
 de:mikrobieller Labaustauschstoff
 es:coagulante de leche microbiano, Encima coagulate microbiana
 fr:enzyme coagulante microbienne, enzyme coagulante d'origine microbienne, coagulant microbien
@@ -5919,6 +5921,11 @@ de:Frischkäse (Fettstufe), Frischkäsezubereitung der Fettstufe
 en:full fat soft cheese
 de:Vollfett-Frischkäse, Vollfett-Weichkäse, Frischkäse Vollfettstufe
 
+<en:soft cheese
+description:en:Cheese that has been in maturity process for 7 days
+ca:formatge tendre
+es:queso tierno
+
 <en:cheese
 en:Swiss cheese
 ca:formatge suís
@@ -6920,6 +6927,7 @@ description:nl:Goudse kaas is een van oorsprong Nederlandse harde kaas. Het is e
 <en:cow cheese
 en:Grana Padano, Grana Padano cheese, Grana Padano cheese from cow's milk
 bg:Грана Падано
+ca:Grana Padano, formatge Grana Padano
 cv:Грана Падано
 da:Grana Padano, Grana Padano ost
 eo:Грана Падано
@@ -12286,6 +12294,7 @@ ciqual_food_name:fr:Jambon de Bayonne
 
 <en:ham
 en:cooked ham
+ca:pernil cuit
 da:kogt skinke
 de:gekochter Schinken
 es:jamón cocido
@@ -12309,6 +12318,7 @@ fr:jambon cuit standard
 
 <en:cooked ham
 en:superior cooked ham
+ca:pernil cuit de qualitat superior
 de:Delikatess Kochschinken
 es:jamón cocido de calidad superior
 fi:Superior keittokinkku
@@ -16204,6 +16214,7 @@ de:kaltgepresstes Sonnenblumenöl
 es:aceite de girasol prensado en frio
 fi:kylmäpuristettu auringonkukkaöljy
 fr:huile de tournesol pressée à froid
+hr:hladno prešano suncokretovo ulje
 hu:hidegen sajtolt napraforgóolaj
 nl:koudgeperste zonnebloemolie
 pl:olej słonecznikowy tłoczony na zimno, tłoczony na zimno olej słonecznikowy
@@ -25565,7 +25576,7 @@ gl:Arroz
 ha:Shinkafa
 he:אורז
 hi:चावल
-hr:riža
+hr:riža, riže
 ht:Diri
 hu:rizs
 hy:բրինձ
@@ -25738,6 +25749,7 @@ de:Reisprotein
 es:proteinas de arroz
 fi:riisiproteiini
 fr:protéine de riz
+hr:bjelančevine riže
 hu:rizsfehérje
 pl:białko ryżowe, białko z ryżu
 
@@ -28606,6 +28618,7 @@ de:Reissirup
 es:Sirope de arroz
 fi:riisisiirappi
 fr:sirop de riz
+hr:rižin sirup
 hu:rizsszirup
 it:sciroppo di riso
 nl:Rijststroop
@@ -29102,7 +29115,7 @@ de:Erbsenprotein, erbseneiweiß
 es:Proteína de guisante
 fi:herneproteiini
 fr:protéines de pois, protéine de pois
-hr:bjelančevine graška, protein graška
+hr:bjelančevine graška, bjelančevina graška, protein graška
 hu:borsófehérje
 it:proteine di piselli
 nl:boneneiwit, erwteiwit, erwteneiwit, erwteneiwitten
@@ -29148,6 +29161,7 @@ ro:proteină de bob
 
 <en:plant protein
 en:sunflower protein
+hr:suncokretovih bjelančevina, suncokretove bjelančevine
 pl:białko słonecznika, białko słonecznikowe, białka słonecznika
 ro:proteină de floarea-soarelui
 
@@ -32231,6 +32245,7 @@ nl:geïnactiveerde desempoeder
 <en:sourdough
 en:wheat sourdough
 bg:пшенична закваска, пшеничен квас
+ca:massa mare de blat, massa mare natural de blat
 de:Weizensauerteig
 es:masa madre de trigo, masa madre natural de trigo
 fi:vehnätaikinanjuuri, vehnähapantaikina
@@ -46202,6 +46217,10 @@ ciqual_food_name:en:Curly kale, raw
 ciqual_food_name:fr:Chou frisé, cru
 # 2029 in 13 languages @2021-10-19
 
+<en:vegetable
+en:collard greens, collard
+wikidata:en:Q14879985
+
 <en:kale
 en:baby kale
 de:Kohlsprossen
@@ -50512,6 +50531,7 @@ en:diced tomatoes in tomato juice
 <en:tomato
 en:cherry tomato, cherry tomatoes
 bg:чери домат, чери домати
+ca:tomàquet cirerol, cirerol
 da:körsbärstomater, cocktailtomater
 de:Kirschtomaten, Cocktailtomaten, Cherrytomaten
 el:τομάτες τσέρυ
@@ -50718,6 +50738,7 @@ carbon_footprint_fr_foodges_value:fr:2.9
 <en:tomato
 en:tomato purée
 bg:доматено пюре
+ca:puré de tomàquet
 cs:rajčatové pyré
 da:tomatpuré, tomatpure
 de:Tomatenmark, Tomatenpüree
@@ -51257,7 +51278,7 @@ ga:Puimcín
 gu:કોળું
 he:דלעת
 hi:कुम्हड़ा
-hr:Tikva
+hr:bundeva
 hu:Tök
 id:waluh
 io:Kukurbito
@@ -51522,7 +51543,7 @@ fr:courgette
 ga:cúirséad
 ha:kabewa
 he:קישוא
-hr:bundeva
+hr:tikvice, tikvica
 hu:cukkini
 hy:Դդմիկ
 is:zukini
@@ -52381,6 +52402,7 @@ fi:lupiinit, lupiini
 fr:lupin, lupins
 ga:lúipín
 he:תורמוס
+hr:lupin, lupina, lupinu
 hu:csillagfürt
 hy:լուպին
 id:lupino
@@ -54415,6 +54437,7 @@ ciqual_food_name:en:Peanut
 <en:peanut
 en:peanut paste
 de:Erdnusspaste
+hr:pasta od kikirikija
 
 <en:peanut
 en:roasted peanuts
@@ -55484,7 +55507,7 @@ fr:graines de tournesol
 gl:semente de xirasol
 he:גרעיני חמנייה, גרעין חמנייה, גרעיני חמניה, גרעיני חמניה, גרעיני חמניות
 hi:सूरजमुखी के बीज
-hr:sjemenke od suncokreta
+hr:sjemenke od suncokreta, sjemenke suncokreta
 hu:napraforgómag
 hy:արևածաղկի սերմեր
 id:Biji bunga matahari
@@ -56359,7 +56382,7 @@ ru:пряности натуральные
 en:herb, mixed herbs
 bg:билка, билки
 bs:aromatično bilje
-ca:Herbes, herbes aromàtiques
+ca:Herbes, herbes aromàtiques, plantes aromàtiques
 cs:Bylina, byliny
 da:urt, krydderurter
 de:Gewürz, Kräuter
@@ -73447,7 +73470,7 @@ de:Blütenhonig
 es:miel de flores
 fi:kukkahunaja
 fr:miel de fleurs, miel de nectar
-hr:med cvjetni
+hr:med cvjetni, cvjetni med
 it:miele di fiori
 nl:bloemenhoning, bloemen-honing
 pl:miód kwiatowy
@@ -73790,9 +73813,6 @@ nl:gemengde EG- en niet EG honing
 sv:blandning av honung från länder inom och utanför eu
 # ingredient/fr:mélange-de-miels-originaires-et-non-originaires-de-l’ue has 25 products in french @2018-12-17
 # ingredient/fr:melange-de-miels-originaires-et-non-originaires-de-la-ce has 11 products @2019-05-28
-
-<fr:mélange de miels originaires et non originaires de l'ue
-fr:melange-de-miels-de-fleurs-originaires-et-non-originaires-de-l-union-europeenne-issus-de-l-agriculture-biologique
 
 ##################### HONEY FROM SPECIFIC AREAS
 
@@ -75310,7 +75330,7 @@ gn:Ryguasu
 ha:Kaza
 he:תרנגול הבית
 hi:मुर्गी
-hr:kokoš, kokošji
+hr:kokoš, kokošji, piletina
 hu:Csirkék, csirke, házityúk
 hy:հավ
 ia:gallina
@@ -80294,7 +80314,7 @@ ga:tófú
 gl:Tofu
 he:טופו
 hi:टोफ़ू
-hr:Tofu
+hr:tofu
 hu:Tofu
 hy:Տոֆու
 id:tahu
