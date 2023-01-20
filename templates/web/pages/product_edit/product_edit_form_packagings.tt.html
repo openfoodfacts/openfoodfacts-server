@@ -74,26 +74,7 @@ var packaging_recycling_select2_options = [% generate_select2_options_for_taxono
             <!-- row 0 is a template for new row, we do not populate it -->
             [% IF packaging_max > 0 %]
                 <initjs>
-                    \$("#[% select2_id %]").select2({
-                        placeholder: "[% lang("packaging_$property") %]",
-                        allowClear:true,
-                        tags: true,
-                        ajax: {
-                            url: '/api/v3/taxonomy_suggestions?limit=400&tagtype=[% taxonomy %]',
-                            data: function (params) {
-                              var query = {
-                                string: params.term,
-                              }
-                              return query;
-                            },
-                            processResults: function (data) {
-                                return {
-                                  results: Array.from(data.suggestions, function (element) { return {"id": element, "text": element}; }) 
-                                };
-                            }
-                        }                        
-                    });
-                     configure_packaging_select2("[% select2_id %]", "[% taxonomy %]", "[% lang("packaging_$property") %]" )
+                    configure_packaging_select2("[% select2_id %]", "[% taxonomy %]", "[% lang("packaging_$property") %]" )
 
                     [% IF packaging.$property.defined %]
                     // Set the value, creating a new option if necessary (for non taxonomy values)
