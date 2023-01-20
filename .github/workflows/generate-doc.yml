@@ -70,7 +70,7 @@ jobs:
           cp docs/assets/api-rapidoc.html gh_pages/reference/api/index.html
           # v3 api - change yaml and link to api-v3
           cat docs/assets/api-rapidoc.html | \
-            sed -e "s/api.yml/api-v3.yml" -e 's|api-v3/">API v3|api/">API v2|' \
+            sed -e "s/api.yml/api-v3.yml/" -e 's|api-v3/">API v3|api/">API v2|' \
             > gh_pages/reference/api-v3/index.html
 
 
