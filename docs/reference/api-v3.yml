@@ -297,6 +297,11 @@ paths:
           in: query
           name: shape
           description: 'Shape of packaging component (tag identified in the packaging_shapes taxonomy, or plain text tag name in the language indicated by the "lc" field)'
+        - schema:
+            type: string
+          in: query
+          name: limit
+          description: 'Maximum number of suggestions. Default is 25, max is 400.'
 components:
   schemas: null
   parameters: null
