@@ -1,0 +1,27 @@
+{
+   "errors" : [
+      {
+         "field" : {
+            "id" : "tagtype",
+            "value" : null
+         },
+         "impact" : {
+            "id" : "failure",
+            "lc_name" : "Failure",
+            "name" : "Failure"
+         },
+         "message" : {
+            "id" : "missing_tagtype",
+            "lc_name" : "",
+            "name" : ""
+         }
+      }
+   ],
+   "result" : {
+      "id" : "unable_to_provide_suggestions",
+      "lc_name" : "",
+      "name" : ""
+   },
+   "status" : "failure",
+   "warnings" : []
+}
