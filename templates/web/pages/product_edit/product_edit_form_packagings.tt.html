@@ -151,20 +151,22 @@ function configure_packaging_select2(select2_id, taxonomy, placeholder) {
         ajax: {
             url: '/api/v3/taxonomy_suggestions?limit=400&tagtype=' + taxonomy,
             data: function (params) {
-                // tagify has values in an array, convert it to a commas separated list
-                var categoriesArray = JSON.parse(\$("#categories").val());
-                var categories = categoriesArray.map(item => item.value).join(',');
+                // tagify has values in a JSON array, parse it and convert it to a commas separated list
+                var categories_json = \$("#categories").val()
+                
                 var query = {
                     string: params.term,
-                    // Pass the product categories to get better suggestions
-                    categories: categories
                 }
-                // if the select2 is for the material, send the corresponding selected shape
+                // If the product has categories, pass them to get better suggestions
+                if (categories_json) {
+                    var categories_array = JSON.parse(categories_json);
+                    query.categories = categories_array.map(item => item.value).join(',');
+                }
+                // If the select2 is for the material, send the corresponding selected shape
                 if (taxonomy == "packaging_materials") {
                     
                     var shape_select2_id = select2_id.replace('_material', '_shape');
                     query.shape = \$("#" + shape_select2_id).val();
-                    alert(taxonomy + " " + query.shape);
                 }
                 return query;
             },
