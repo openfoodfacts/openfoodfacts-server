@@ -286,6 +286,8 @@ sub add_sorted_entries_to_tags ($tags_ref, $seen_tags_ref, $entries_ref, $tagtyp
 			$seen_tags_ref->{$entry} = 1;
 		}
 	}
+
+	return;
 }
 
 =head2 filter_suggestions_matching_string ($search_lc, $tagtype, $string, $limit, $tags_ref)
