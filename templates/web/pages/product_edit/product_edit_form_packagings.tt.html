@@ -143,9 +143,7 @@ var packaging_max = [% packaging_max %];
  * Configure the select2 dropdown with autocomplete for shape, material and recycling
  */
 function configure_packaging_select2(select2_id, taxonomy, placeholder) {
-    // tagify has values in an array, convert it to a commas separated list
-    var categoriesArray = JSON.parse(\$("#categories").val());
-    var categories = categoriesArray.map(item => item.value).join(',');
+    
     \$("#" + select2_id).select2({
         placeholder: placeholder,
         allowClear:true,
@@ -153,18 +151,30 @@ function configure_packaging_select2(select2_id, taxonomy, placeholder) {
         ajax: {
             url: '/api/v3/taxonomy_suggestions?limit=400&tagtype=' + taxonomy,
             data: function (params) {
-              var query = {
-                string: params.term,
-                // Pass the product categories to get better suggestions
-                categories: categories
-              }
-              return query;
+                // tagify has values in an array, convert it to a commas separated list
+                var categoriesArray = JSON.parse(\$("#categories").val());
+                var categories = categoriesArray.map(item => item.value).join(',');
+                var query = {
+                    string: params.term,
+                    // Pass the product categories to get better suggestions
+                    categories: categories
+                }
+                // if the select2 is for the material, send the corresponding selected shape
+                if (taxonomy == "packaging_materials") {
+                    
+                    var shape_select2_id = select2_id.replace('_material', '_shape');
+                    query.shape = \$("#" + shape_select2_id).val();
+                    alert(taxonomy + " " + query.shape);
+                }
+                return query;
             },
             processResults: function (data) {
-                return {
-                    // transform the simple array of suggestions in array of objects expected by select2
-                    results: Array.from(data.suggestions, function (element) { return {"id": element, "text": element}; }) 
-                };
+                if (data.suggestions) {
+                    return {
+                        // transform the simple array of suggestions in array of objects expected by select2
+                        results: Array.from(data.suggestions, function (element) { return {"id": element, "text": element}; }) 
+                    };
+                }
             }
         }
     });
