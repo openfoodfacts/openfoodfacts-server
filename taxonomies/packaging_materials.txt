@@ -1233,6 +1233,8 @@ en:Plastic/miscellaneous metals, Plastic + miscellaneous metals
 de:Kunststoff/verschiedene Metalle, Kunststoff + verschiedene Metalle
 hr:plastika/raznovrsni metali
 xx:92 C/X, 92 C/*, 92 CX, 92 C*
+description:en:Composite plastic with plastic and metal
+description:nl:Uit plastic en metaal samengesteld materiaal
 
 <xx:92 C/X
 xx:92 C/PET
@@ -1290,9 +1292,14 @@ xx:92 C/EVOH
 
 <xx:92 C/X
 xx:92 C/ALU
+description:en:Composite plastic with plastic and iron
+description:nl:Uit plastic en ijzer samengesteld materiaal
+comment:en:This should not exist as code 90 is reserved for this
 
 <xx:92 C/X
 xx:92 C/FE
+description:en:Composite plastic with plastic and iron
+description:nl:Uit plastic en ijzer samengesteld materiaal
 
 <en:Multilayer composite
 en:Glass/Plastic, Glass + Plastic
@@ -1458,6 +1465,10 @@ description:nl:Uit glas en ijzer samengesteld materiaal
 xx:98 C/ALU
 description:en:Composite packaging with glass and aluminium (should be 96 C/ALU)
 description:nl:Uit glas en aluminium samengesteld materiaal
+
+#
+# Packaging producers and identifications
+#
 
 en:SIG
 xx:SIG
