@@ -1517,14 +1517,25 @@ de:Pure-Pak Imagine, PurePak Imagine
 xx:Pure-Pak Imagine, PurePak Imagine
 
 en:Italpack, Italpack Cartons
-de:Italpack, Italpack Cartons
 xx:Italpack, Italpack Cartons
 
 fr:Grès
 non_recyclable_and_non_biodegradable:en:yes
 
+en:porcelain
+af:porselein
+da:porcelæn
+de:Porzellan
+eo:porcelano
+es:porcelana
 fr:Porcelaine
+nl:porselein
+no:porselen
+pl:porcelán
+pt:porcelana
+sv:porslin
 non_recyclable_and_non_biodegradable:en:yes
+description:nl:fijn, geglazuurd aardewerk
 
 en:Ceramic
 bg:Керамика
@@ -1532,13 +1543,16 @@ da:Keramik
 de:Keramik
 fr:Céramique
 hr:keramika
-hu:Kerámia, porcelán
+hu:Kerámia
 nl:Keramiek
 pt:Cerâmica
 wikidata:en:Q45621
 non_recyclable_and_non_biodegradable:en:yes
+description:nl:materiaal dat noch een metaal noch een polymeer is. Voorbeelden van keramieken zijn bijvoorbeeld aardewerk, steengoed en porselein
 
 en:fabric, fabrics
 de:Stoff, Stoffe, Gewebe
 fr:tissu, tissus
-nl:Stof, stoffen
+nl:textiel, stof, stoffen
+wikidata:en:Q28823
+description:nl:uit draden geweven materiaal en daaruit gemaakte voorwerpen
