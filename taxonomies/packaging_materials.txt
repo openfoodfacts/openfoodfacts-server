@@ -1299,102 +1299,165 @@ en:Glass/Plastic, Glass + Plastic
 de:Glas/Kunststoff, Glas + Kunststoff
 hr:staklo/plastika
 xx:95 C/X, 95 C/*, 95 CX, 95 C*
+description:en:Composite plastic with glass and plastic
+description:nl:Uit glas en aluminium samengesteld materiaal
 
-<xx:95 C/X
-xx:95 C/GL
+#<xx:95 C/X
+#xx:95 C/GL
+#comment:en:This can not exist, as 98 is for glass (GL) with a plastic. So what is GL?
 
 <xx:95 C/X
 xx:95 C/PET
+description:en:Composite material with glass and PET (Polyethylene terephthalate)
+description:nl:Uit glas en PET (Polyethylene terephthalate) samengesteld materiaal
 
 <xx:95 C/X
 xx:95 C/PVDC
+description:en:Composite material with glass and PVDC (polyvinylidene chloride)
+description:nl:Uit glas en PVDC (polyvinylidene chloride) samengesteld materiaal
 
-<xx:95 C/X
+<xx:95 C/PET
 xx:95 C/rPET
+description:en:Composite material with glass and recycled PET (Polyethylene terephthalate)
+description:nl:Uit glas en rPET (gerecycleerd Polyethylene terephthalate) samengesteld materiaal
 
 <xx:95 C/X
 xx:95 C/HDPE, 95 C/PEHD
+description:en:Composite material with glass and HDPE (high density polyethylene)
+description:nl:Uit glas en HDPE (high density polyethylene) samengesteld materiaal
 
 <xx:95 C/X
 xx:95 C/PVC
+description:en:Composite material with glass and PVC (Polyvinyl chloride)
+description:nl:Uit glas en PVC (Polyvinyl chloride) samengesteld materiaal
 
 <xx:95 C/X
 xx:95 C/LDPE, 95 C/PELD
+description:en:Composite material with glass and HDPE (low density polyethylene)
+description:nl:Uit glas en HDPE (low density polyethylene) samengesteld materiaal
 
 <xx:95 C/X
 xx:95 C/PP
+description:en:Composite material with glass and PP (polypropylene)
+description:nl:Uit glas en PP (polypropyleen) samengesteld materiaal
 
-<xx:95 C/X
+<xx:95 C/PP
 xx:95 C/CPP
+description:en:Composite material with glass and CPP (cast polypropylene)
+description:nl:Uit glas en CPP (cast polypropyleen) samengesteld materiaal
 
-<xx:95 C/X
+<xx:95 C/PP
 xx:95 C/OPP
+description:en:Composite material with glass and OPP (orientated polypropylene)
+description:nl:Uit glas en OPP (oriented polypropyleen) samengesteld materiaal
+
+<xx:95 C/PP
+xx:95 C/BOPP
+description:en:Composite material with glass and BOPP (biaxially orientated polypropylene)
+description:nl:Uit glas en BOPP (biaxially oriented polypropyleen) samengesteld materiaal
 
 <xx:95 C/X
 xx:95 C/PC
+description:en:Composite material with glass and PC (polycarbonate)
+description:nl:Uit glas en PC (polycarbonaat) samengesteld materiaal
 
 <xx:95 C/X
 xx:95 C/PA
+description:en:Composite material with glass and PA (polyamide)
+description:nl:Uit glas en PA (polyamide) samengesteld materiaal
 
 <xx:95 C/X
 xx:95 C/ABS
+description:en:Composite material with glass and ABS (acrylonitrile butadiene styrene)
+description:nl:Uit glas en ABS (acrylonitril-butadieen-styreen) samengesteld materiaal
 
 <xx:95 C/X
 xx:95 C/PLA
+description:en:Composite material with glass and PLA (Polylactic acid)
+description:nl:Uit glas en PLA (polymelkzuur) samengesteld materiaal
 
 <xx:95 C/X
 xx:95 C/LLDPE
+description:en:Composite material with glass and LLDPE (linear low-density polyethylene)
+description:nl:Uit glas en LLDPE (lineair lagedichtheidpolyethyleen) samengesteld materiaal
 
 <xx:95 C/X
 xx:95 C/PETmet
+description:en:Composite material with glass and PETmet (metallized Polyethylene terephthalate)
+description:nl:Uit glas en PETmet (gemetalliseerd Polyethylene terephthalate) samengesteld materiaal
 
 <xx:95 C/X
 xx:95 C/PEmet
+description:en:Composite material with glass and PEmet (metallized polyethylene)
+description:nl:Uit glas en PEmet (gemetalliseerd polyethyleen) samengesteld materiaal
 
 <xx:95 C/X
 xx:95 C/MDPE, 95 C/PEMD
+description:en:Composite material with glass and MDPE (Medium-density polyethylene)
+description:nl:Uit glas en MDPE (middendichtheids polyethyleen) samengesteld materiaal
 
 <xx:95 C/X
 xx:95 C/EVOH
+description:en:Composite material with glass and EVOH (ethylene vinyl alcohol)
+description:nl:Uit glas en EVOH (etheen-vinylalcohol) samengesteld materiaal
 
 <en:Multilayer composite
 en:Glass/aluminium, Glass + aluminium
 de:Glas/Aluminium, Glas + Aluminium
 hr:staklo/aluminij
 xx:96 C/X, 96 C/*, 96 CX, 96 C*
+description:en:Composite material with glass and aluminium
+description:nl:Uit glas en aluminium samengesteld materiaal
 
-<xx:96 C/X
-xx:96 C/GL
+#<xx:96 C/X
+#xx:96 C/GL
+#comment:en:This can not exist, as 98 is for glass with a metal. So what is GL?
 
 <xx:96 C/X
 xx:96 C/ALU
+description:en:Composite material with glass and aluminium
+description:nl:Uit glas en aluminium samengesteld materiaal
+comment:en:This is superfluous, as it is already defined by 96, but maybe C/ALU occurs in the wild
 
 <en:Multilayer composite
 en:Glass/tinplate, Glass + tinplate
 de:Glas/Weißblech, Glas + Weißblech, Glas/Weissblech, Glas + Weissblech
 hr:staklo/bijeli lim
 xx:97 C/X, 97 C/*, 97 CX, 97 C*
+description:en:Composite material with glass and tin plate (steel coated with tin)
+description:nl:Uit glas en blik (vertind plaatstaal) samengesteld materiaal
 
-<xx:97 C/X
-xx:97 C/GL
+#<xx:97 C/X
+#xx:97 C/GL
+#comment:en:This can not exist, as 98 is for glass with a metal (GL does not add anything). 97 is reserverd for tinplate
 
 <xx:97 C/X
 xx:97 C/FE
+description:en:Composite material with glass and tin plate (steel coated with tin)
+description:nl:Uit glas en blik (vertind plaatstaal) samengesteld materiaal
+#comment:en:This should not exist, as 97 is for glass with a tin plate (but that is in part also Fe)
 
 <en:Multilayer composite
 en:Glass/miscellaneous metals, Glass + miscellaneous metals
 de:Glas/verschiedene Metalle, Glas + verschiedene Metalle
 hr:staklo/raznovrsni metali
 xx:98 C/X, 98 C/*, 98 CX, 98 C*
+description:en:Composite material with glass and metal
+description:nl:Uit glas en metaal samengesteld materiaal
 
-<xx:98 C/X
-xx:98 C/GL
+#<xx:98 C/X
+#xx:98 C/GL
+#comment:en:This can not exist, as 98 is for glass with a metal. So what is GL?
 
 <xx:98 C/X
 xx:98 C/FE
+description:en:Composite material with glass and iron
+description:nl:Uit glas en ijzer samengesteld materiaal
 
 <xx:98 C/X
 xx:98 C/ALU
+description:en:Composite packaging with glass and aluminium (should be 96 C/ALU)
+description:nl:Uit glas en aluminium samengesteld materiaal
 
 en:SIG
 xx:SIG
