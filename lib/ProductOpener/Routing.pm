@@ -199,9 +199,12 @@ sub analyze_request ($request_ref) {
 			$request_ref->{api_action} = 'product';
 		}
 
+		# some API actions have an associated object
 		if (defined $components[3]) {
-			param("code", $components[3]);
-			$request_ref->{code} = $components[3];
+			if ($request_ref->{api_action} eq "product") {	# /api/v3/product/[code]
+				param("code", $components[3]);
+				$request_ref->{code} = $components[3];
+			}
 		}
 
 		$request_ref->{api_method} = $request_ref->{method};
