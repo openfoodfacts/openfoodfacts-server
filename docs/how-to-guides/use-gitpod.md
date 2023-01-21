@@ -3,7 +3,7 @@ If your computer performances are restricting you to make developments, you can 
 Gitpod allows you to do the devs on an ephemeral environment. It is free for a maximum of 500 credits or 
 50 hours per months (https://www.gitpod.io/pricing).
 
-Gitpodprovides powerful ready-to-code developer environments in the cloud eliminating the friction
+Gitpod provides a powerful ready-to-code developer environments in the cloud eliminating the friction
 of setting up local environments and IDEs with Perl, Docker and plugins, making it possible for even new contributors to
 OpenFoodFacts Server to get started in minutes instead of hours!
 
