@@ -1,5 +1,5 @@
 # Using Gitpod for Remote Development
-If your computer performances are restricting you to make developments, you can use [Gitpod](https://gitpod.io). 
+If your computer performance restricts you from developing, you can use [Gitpod](https://gitpod.io). 
 Gitpod allows you to do the devs on an ephemeral environment. It is free for a maximum of 500 credits or 
 50 hours per months (https://www.gitpod.io/pricing).
 
