@@ -1235,9 +1235,14 @@ Click the Windows button, then type “environment properties” into the search
 <p><strong>Solution:</strong>
 Project needs Symlinks to be enabled.
 traces.result.sto is a symlink to allergens.result.sto</p>
-<p>On Windows, You have to enable the 'Developer Mode' in order to use the symlinks.
-To enable Developer Mode: Go under Settings &gt; Update &amp; Security &gt; 'For developers', and turn on the toggle for Developer Mode.
-On Windows systems, the git repository needs to be cloned with symlinks enabled.</p>
+<p>You have to enable the 'Developer Mode' in order to use the symlinks.
+To enable Developer Mode:</p>
+<ul>
+<li>on windows 10: Settings &gt; Update &amp; Security &gt; 'For developers' …</li>
+<li>on windows 11: Settings &gt; Privacy &amp; Security &gt; 'For developers' …</li>
+</ul>
+<p>and turn on the toggle for <em>Developer Mode</em>.</p>
+<p>On Windows systems, the git repository needs to be cloned with symlinks enabled.</p>
 <p>You need to remove current directory where you clone the project, and clone the project again, using right options:</p>
 <div class="highlight"><pre><span></span><code><span class="go">git clone -c core.symlinks=true git@github.com:openfoodfacts/openfoodfacts-server.git</span>
 </code></pre></div>
