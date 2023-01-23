@@ -22,7 +22,7 @@ When you use Gitpod, you allow Gitpod to use your GitHub account.
 
 In GitHub, you can review (and revoke if you stop using Gitpod) the access granted to Gitpod: click on your avatar on top right of the screen, then, Settings. In the left panel, under Integrations, click on Applications, then, Authorized OAuth Apps.
 
-In Gitpod side, you can also update what Gitpod is allowed to do with your GitHub account: click on your avatar on top right of the screen, then, Settings. In the left panel, click on Integrations. The line for GitHub should be green. At the end of this line, click on the three dots, then, Edit Permissions. '''If you want to create a pull request via Gitpod, you need to grant public_repo access.'''
+On the Gitpod side, you can also update what Gitpod is allowed to do with your GitHub account: click on your avatar on the top right of the screen, then, Settings. In the left panel, click on Integrations. The line for GitHub should be green. At the end of this line, click on the three dots, then Edit Permissions. '''If you want to create a pull request via Gitpod, you need to grant public_repo access.'''
 
 ## Get Started
 
