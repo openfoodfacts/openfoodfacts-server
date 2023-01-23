@@ -159,6 +159,56 @@ my $tests_ref = [
 		path => '/api/v3/taxonomy_suggestions?tagtype=packaging_materials&cc=fr&categories=yogurts&shape=pot',
 		expected_status_code => 200,
 	},
+	# match with xx: synonyms
+	{
+		test_case => 'packaging-materials-1',
+		method => 'GET',
+		path => '/api/v3/taxonomy_suggestions?tagtype=packaging_materials&string=1',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'packaging-materials-01',
+		method => 'GET',
+		path => '/api/v3/taxonomy_suggestions?tagtype=packaging_materials&string=01',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'packaging-materials-1-pet',
+		method => 'GET',
+		path => '/api/v3/taxonomy_suggestions?tagtype=packaging_materials&string=1-pet',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'packaging-materials-pet-1',
+		method => 'GET',
+		path => '/api/v3/taxonomy_suggestions?tagtype=packaging_materials&string=pet-1',
+		expected_status_code => 200,
+	},		
+	# Packaging recycling
+	{
+		test_case => 'packaging-recycling-fr-recy',
+		method => 'GET',
+		path => '/api/v3/taxonomy_suggestions?tagtype=packaging_recycling&cc=fr&string=recy',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'packaging-recycling-fr-bac-ver',
+		method => 'GET',
+		path => '/api/v3/taxonomy_suggestions?tagtype=packaging_recycling&cc=fr&string=bac-ver',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'packaging-recycling-fr-bac-verre',
+		method => 'GET',
+		path => '/api/v3/taxonomy_suggestions?tagtype=packaging_recycling&cc=fr&string=bac-verre',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'packaging-recycling-fr-bac-tri',
+		method => 'GET',
+		path => '/api/v3/taxonomy_suggestions?tagtype=packaging_recycling&cc=fr&string=bac-tri',
+		expected_status_code => 200,
+	},	
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
