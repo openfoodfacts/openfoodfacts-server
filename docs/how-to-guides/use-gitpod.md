@@ -73,7 +73,7 @@ $ make log
 ```
 $ make tail  
 ```
-At the end of your devs, before to open a pull request, run the following command:  
+After development, before opening a pull request, run the following command:  
 ```
 $ make checks  
 ```  
