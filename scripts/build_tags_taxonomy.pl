@@ -26,7 +26,9 @@ use utf8;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Food qw/:all/;
-
+use Digest::SHA1;
+use File::Copy;
+ 
 my $tagtype = $ARGV[0];
 my $publish = $ARGV[1];
 
@@ -102,7 +104,34 @@ if ((scalar @files) > 0) {
 	close($OUT);
 }
 
-build_tags_taxonomy($tagtype, $file, $publish);
+my $sha1 = Digest::SHA1->new;
+if (open(my $IN, "<", "$data_root/taxonomies/$file")) {
+	binmode($IN);
+	$sha1->addfile($IN);
+	close($IN);
+
+	my $hash = $sha1->hexdigest;
+	(-e "$data_root/cache") or mkdir("$data_root/cache", 0755);
+
+	if (-e "$data_root/cache/$tagtype.result.$hash.sto") {
+		copy("$data_root/cache/$tagtype.result.$hash.txt", "$data_root/taxonomies/$tagtype.result.txt");
+		copy("$data_root/cache/$tagtype.result.$hash.sto", "$data_root/taxonomies/$tagtype.result.sto");
+		copy("$data_root/cache/$tagtype.$hash.json","$www_root/data/taxonomies/$tagtype.json");
+		print "Obtained $tagtype from cache.\n"
+	}
+	else {
+		build_tags_taxonomy($tagtype, $file, $publish);
+
+		copy("$data_root/taxonomies/$tagtype.result.txt", "$data_root/cache/$tagtype.result.$hash.txt");
+		if ($publish) {
+			copy("$data_root/taxonomies/$tagtype.result.sto", "$data_root/cache/$tagtype.result.$hash.sto");
+		}
+		copy("$www_root/data/taxonomies/$tagtype.json","$data_root/cache/$tagtype.$hash.json");
+	}
+}
+else {
+	print STDERR "Missing $data_root/taxonomies/$file\n";
+}
 
 exit(0);
 
