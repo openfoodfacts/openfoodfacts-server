@@ -183,7 +183,7 @@ my $tests_ref = [
 		method => 'GET',
 		path => '/api/v3/taxonomy_suggestions?tagtype=packaging_materials&string=pet-1',
 		expected_status_code => 200,
-	},		
+	},
 	# Packaging recycling
 	{
 		test_case => 'packaging-recycling-fr-recy',
@@ -208,7 +208,7 @@ my $tests_ref = [
 		method => 'GET',
 		path => '/api/v3/taxonomy_suggestions?tagtype=packaging_recycling&cc=fr&string=bac-tri',
 		expected_status_code => 200,
-	},	
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
