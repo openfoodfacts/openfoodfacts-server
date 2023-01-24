@@ -290,8 +290,7 @@ sub remove_unpopular_categories_shapes_and_materials ($packagings_stats_ref, $mi
 
 =head2 store_stats($name, $packagings_stats_ref)
 
-Store the stats in .sto format for internal use in Product Opener,
-and in JSON in /html/data for external use.
+Store the stats in JSON format for internal use in Product Opener and store a copy in the static web directory
 
 =cut
 
@@ -309,31 +308,16 @@ sub store_stats ($name, $packagings_stats_ref) {
 		or mkdir("$www_root/data/categories_stats", oct(755))
 		or die("Could not create target directory $www_root/data/categories_stats : $!\n");
 
-	# Perl structure in .sto format
+	store_json("$data_root/data/categories_stats/categories_packagings_stats.$name.json", $packagings_stats_ref);
 
-	store("$data_root/data/categories_stats/categories_packagings_stats.$name.sto", $packagings_stats_ref);
-
-	# JSON
-
-	binmode STDOUT, ":encoding(UTF-8)";
-	if (open(my $JSON, ">", "$www_root/data/categories_stats/categories_packagings_stats.$name.json")) {
-		print $JSON JSON::PP->new->allow_nonref->canonical->utf8->encode($packagings_stats_ref);
-		close($JSON);
-	}
+	store_json("$www_root/data/categories_stats/categories_packagings_stats.$name.json", $packagings_stats_ref);
 
 	# special export for French yogurts for the "What's around my yogurt?" operation in January 2023
 	# https://fr.openfoodfacts.org/categorie/desserts-lactes-fermentes/misc/en:packagings-with-weights
-	if (
-		open(
-			my $JSON, ">",
-			"$www_root/data/categories_stats/categories_packagings_stats.fr.fermented-dairy-desserts.$name.json"
-		)
-		)
-	{
-		print $JSON JSON::PP->new->allow_nonref->canonical->utf8->encode(
-			$packagings_stats_ref->{countries}{"en:france"}{categories}{"en:fermented-dairy-desserts"});
-		close($JSON);
-	}
+	store_json(
+		"$www_root/data/categories_stats/categories_packagings_stats.fr.fermented-dairy-desserts.$name.json",
+		$packagings_stats_ref->{countries}{"en:france"}{categories}{"en:fermented-dairy-desserts"}
+	);
 
 	return;
 }
@@ -342,7 +326,7 @@ sub store_stats ($name, $packagings_stats_ref) {
 
 Generate packaging stats for products matching a specific query.
 
-Stats are saved in .sto format in $data_root/data/categories_stats/
+Stats are saved in .json format in $data_root/data/categories_stats/
 and in JSON format in $www_root/data/categories_stats/
 
 =head3 Arguments

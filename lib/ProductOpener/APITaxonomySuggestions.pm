@@ -116,16 +116,16 @@ my $categories_packagings_stats_for_suggestions_ref;
 
 sub load_categories_packagings_stats_for_suggestions() {
 	if (not defined $categories_packagings_stats_for_suggestions_ref) {
-		my $file = "$data_root/data/categories_stats/categories_packagings_stats.all.popular.sto";
+		my $file = "$data_root/data/categories_stats/categories_packagings_stats.all.popular.json";
 		if (!-e $file) {
-			my $default_file = "$data_root/data-default/categories_stats/categories_packagings_stats.all.popular.sto";
+			my $default_file = "$data_root/data-default/categories_stats/categories_packagings_stats.all.popular.json";
 			$log->debug("local packaging stats file does not exist, will use default",
 				{file => $file, default_file => $default_file})
 				if $log->is_debug();
 			$file = $default_file;
 		}
 		$log->debug("loading packaging stats", {file => $file}) if $log->is_debug();
-		$categories_packagings_stats_for_suggestions_ref = retrieve($file);
+		$categories_packagings_stats_for_suggestions_ref = retrieve_json($file);
 		if (not defined $categories_packagings_stats_for_suggestions_ref) {
 			$log->debug("unable to load packaging stats", {file => $file}) if $log->is_debug();
 		}
@@ -295,7 +295,7 @@ Filter a list of potential taxonomy suggestions matching a string.
 By priority, the function returns:
 - taxonomy entries that match the input string at the beginning
 - taxonomy entries that contain the input string
-- taxonomy entries that contain words contained in the input string
+- taxonomy entries that contain words contained in the input string (with other words between)
 
 =head3 Parameters
 
@@ -344,7 +344,7 @@ sub filter_suggestions_matching_string ($search_lc, $tagtype, $string, $limit, $
 		# remove eventual leading or ending "-"
 		$stringid =~ s/^-//;
 		$stringid =~ s/^-$//;
-		# fuzzy match whole words with eventual inter-words
+		# fuzzy match whole words with other words between them
 		my $fuzzystringid = join(".*", split("-", $stringid));
 
 		foreach my $canon_tagid (@$tags_ref) {
