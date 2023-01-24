@@ -115,6 +115,7 @@ comment:en:We have the choice in entering the long or short form, i.e. with or w
 en:Recyclable material
 bg:Рециклируем материал
 de:wiederverwertbares Material
+es:material reciclable
 fr:Matériau recyclable
 hu:Újrahasznosítható anyag
 it:Materiale riciclabile
@@ -125,6 +126,7 @@ description:de:Material, das verarbeitet und wiederverwendet werden kann
 description:en:Material that can be processed and reused
 description:es:Material que puede ser procesado y reutilizado
 description:fr:Matériau pouvant être traité et réutilisé
+description:it:Materiale che può essere lavorato e riutilizzato
 description:nl:Materiaal dat verwerkt en opnieuw gebruikt kan worden
 description:pt:Material que pode ser processado e reutilizado
 
@@ -144,6 +146,7 @@ description:de:Kunststoff, das verarbeitet und wiederverwendet werden kann
 description:en:Plastic that can be processed and reused
 description:es:Plástico que puede ser procesado y reutilizado
 description:fr:Plastique pouvant être traité et réutilisé
+description:it:Plastica che può essere lavorata e riutilizzata
 description:nl:Plastic dat verwerkt en opnieuw gebruikt kan worden
 description:pt:Plástico que pode ser processado e reutilizado
 
@@ -157,6 +160,13 @@ it:Materiale riciclato
 nl:Hergebruikt materiaal
 pt:Material reciclado
 wikidata:en:Q37328535
+description:de:Gebrauchtes Material, das verarbeitet und wiederverwendet wurde
+description:en:Used material that has been processed and reused
+description:es:Material usado que ha sido procesado y reutilizado
+description:fr:Matériel usagé qui a été traité et réutilisé
+description:it:Materiale usato che è stato lavorato e riutilizzato
+description:nl:Gebruikt materiaal dat verwerkt is en opnieuw wordt gebruikt
+description:pt:Material usado que foi processado e reutilizado
 
 <en:Recycled material
 <en:Plastic
@@ -164,11 +174,19 @@ en:Recycled plastic
 bg:Рециклирана пластмаса
 da:Genbrugsplast
 de:wiederverwerteter Kunststoff
+es:Plástico reciclado
 fr:Plastique recyclé
 hu:Újrahasznosított műanyag, Újrahasznosított műanyagból
 it:Plastica riciclata
-nl:Hergebruikt plastiek
+nl:Hergebruikt plastic, Hergebruikt plastiek
 pt:Plástico reciclado
+description:de:Gebrauchtes Kunststoff, das verarbeitet und wiederverwendet wurde
+description:en:Used plastic that has been processed and reused
+description:es:Material usado que ha sido procesado y reutilizado
+description:fr:Plastique usagé qui a été traité et réutilisé
+description:it:Plastica usato che è stato lavorato e riutilizzato
+description:nl:Gebruikt plastic dat verwerkt is en opnieuw wordt gebruikt
+description:pt:Plástico usado que foi processado e reutilizado
 
 
 # Plastics:
@@ -185,14 +203,29 @@ fr:Plastiques mixtes
 en:PET - Polyethylene terephthalate, Polyethylene terephthalate
 xx:PET, PET(E), PETE, PET 1, PET 01, 1 PET, 01 PET, ♳
 bg:PET - Полиетилентерефталат, Полиетилен терефталат
+ca:PET - polietilè tereftalat, polietilè tereftalat
+cs:PET - polyethylentereftalát, polyethylentereftalát
+da:PET - Polyetylentereftalat, Polyetylentereftalat
 de:PET - Polyethylenterephtalat, Polyethylenterephtalat
+el:PET - τερεφθαλικό πολυαιθυλένιο, τερεφθαλικό πολυαιθυλένιο
+es:PET - Polietilentereftalato, Polietilentereftalato
+fi:PET - polyetyleenitereftalaatti, polyetyleenitereftalaatti
 fr:PET - Polytéréphtalate d'éthylène, Polytéréphtalate d'éthylène, polyéthylène téréphtalate
-hr:PET - polietilen tereftalat
+ga:PET - Teireataláit phoileitiléine, Teireataláit phoileitiléine
+he:פוליאתילן טרפתאלט - PET, פוליאתילן טרפתאלט
+hr:PET - polietilen tereftalat, Polietilentereftalat
 hu:PET - Polietilén-tereftalát, Polietilén-tereftalát
+is:PET - PólýetýlenterefþalatPólýetýlenterefþalat
 it:PET - Polietilene tereftalato, Polietilene tereftalato, Polietilentereftalato
+lt:PET - Polietileno tereftalatas, Polietileno tereftalatas
 nl:PET - Polyethyleentereftalaat, Polyethyleentereftalaat
+nn:PET - polyetylentereftalat, polyetylentereftalat
 pt:PET - Tereftalato de polietileno, Tereftalato de polietileno
 ru:PET - Полиэтилентерефталат, Полиэтилентерефталат
+sk:PET - Polyetyléntereftalát, Polyetyléntereftalát
+sl:PET - Polietilentereftalat, Polietilentereftalat
+sv:PET - Polyetentereftalat, Polyetentereftalat
+uk:PET - поліетилентерефталат, поліетилентерефталат
 wikidata:en:Q145863
 recycling_code:en:1
 non_recyclable_and_non_biodegradable:en:no
