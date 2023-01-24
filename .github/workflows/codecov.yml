@@ -4,6 +4,7 @@ on: [push]
 jobs:
   coverage:
     name: unit test coverage
+    needs: build_backend
     runs-on: ubuntu-latest
     steps:
        - uses: actions/checkout@master
