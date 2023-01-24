@@ -209,6 +209,18 @@ sub generate_popular_suggestions_according_to_context ($tagtype, $search_lc, $co
 
 Add packaging entries (shapes or materials) sorted by frequency for a specific country, category and shape (for materials)
 
+=head3 Parameters
+
+=head4 $tags_ref points to the list we want to appends tags to
+
+=head4 $seen_tags_ref point to a hashmap of entries already in $tags_ref
+
+=head4 $entries_ref point to a hashmap where keys are tags and values represent tag priority
+
+=head4 $tagtype - type of tag necessary to use right translations for alphabetical sort (see Tags.pm)
+
+=head4 $search_lc - is the target language for translations
+
 =cut
 
 sub add_sorted_entries_to_tags ($tags_ref, $seen_tags_ref, $entries_ref, $tagtype, $search_lc) {

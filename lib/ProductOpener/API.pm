@@ -390,7 +390,7 @@ sub process_api_request ($request_ref) {
 							id => "api_method",
 							value => $request_ref->{api_method},
 							api_action => $request_ref->{api_action},
-						},						
+						},
 						impact => {id => "failure"},
 					}
 				);
