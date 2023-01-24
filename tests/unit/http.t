@@ -65,8 +65,7 @@ sub fake_headers_in ($fake_arg) {
 	$HEADERS_IN = {"Origin" => "https://fr.openfoodfacts.localhost"};
 	$headers_ref = get_cors_headers(0, 1);
 	$expected_ref = {
-		%$expected_base_ref,
-		("Access-Control-Allow-Origin" => "https://fr.openfoodfacts.localhost", "Vary" => "Origin")
+		%$expected_base_ref, ("Access-Control-Allow-Origin" => "https://fr.openfoodfacts.localhost", "Vary" => "Origin")
 	};
 	is_deeply($headers_ref, $expected_ref);
 	$headers_ref = get_cors_headers(1, 1);
