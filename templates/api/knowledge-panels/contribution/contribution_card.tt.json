@@ -1,0 +1,20 @@
+{
+    "type": "card",
+    "expanded": true,
+    "topics": [
+        "contribution"
+    ],
+    "title_element": {
+        "title": "[% lang('contribution_panel_title') %]",
+    },
+    "elements": [
+        [% IF panels.data_quality_errors.defined %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "data_quality_errors",
+            },
+        },
+        [% END %]
+    ],
+}

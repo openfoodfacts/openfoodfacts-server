@@ -1,0 +1,21 @@
+{
+    "level": "info",
+    "topics": [
+        "health"
+    ],
+    "expanded": false,
+    "expand_for": "large",
+    "evaluation": "unknown",
+    "title_element": {
+        "title": "[% lang('data_quality_errors_panel_title') %]",
+        // FIXME find icon
+        "icon_url": "[% static_subdomain %]/images/icons/dist/scale-balance.svg",
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": "nothing yet !",
+        },
+
+    ]
+}

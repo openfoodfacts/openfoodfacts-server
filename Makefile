@@ -250,10 +250,11 @@ test-stop:
 	${DOCKER_COMPOSE_TEST} stop
 
 # usage:  make test-unit test=test-name.t
+# you can add args= to pass options, like args="-d" to debug
 test-unit: guard-test
 	@echo "🥫 Running test: 'tests/unit/${test}' …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run --rm backend perl tests/unit/${test}
+	${DOCKER_COMPOSE_TEST} run --rm backend perl ${args} tests/unit/${test}
 
 # usage:  make test-int test=test-name.t
 test-int: guard-test # usage: make test-one test=test-file.t

@@ -1,0 +1,39 @@
+{
+   "contribution_card" : {
+      "elements" : [
+         {
+            "element_type" : "panel",
+            "panel_element" : {
+               "panel_id" : "data_quality_errors"
+            }
+         }
+      ],
+      "expanded" : true,
+      "title_element" : {
+         "title" : "Contribution"
+      },
+      "topics" : [
+         "contribution"
+      ],
+      "type" : "card"
+   },
+   "data_quality_errors" : {
+      "elements" : [
+         {
+            "element_type" : "text",
+            "text_element" : "nothing yet !"
+         }
+      ],
+      "evaluation" : "unknown",
+      "expand_for" : "large",
+      "expanded" : false,
+      "level" : "info",
+      "title_element" : {
+         "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/scale-balance.svg",
+         "title" : "Detected Errors"
+      },
+      "topics" : [
+         "health"
+      ]
+   }
+}
