@@ -386,7 +386,11 @@ sub process_api_request ($request_ref) {
 					$response_ref,
 					{
 						message => {id => "invalid_api_method"},
-						field => {id => "api_method", value => $request_ref->{api_method}},
+						field => {
+							id => "api_method",
+							value => $request_ref->{api_method},
+							api_action => $request_ref->{api_action},
+						},						
 						impact => {id => "failure"},
 					}
 				);

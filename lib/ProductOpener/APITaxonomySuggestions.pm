@@ -131,5 +131,3 @@ sub taxonomy_suggestions_api ($request_ref) {
 
 	return;
 }
-
-1;
