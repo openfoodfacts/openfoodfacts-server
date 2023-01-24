@@ -264,6 +264,14 @@ sub generate_sorted_list_of_taxonomy_entries ($request_ref, $tagtype, $limit) {
 
 Add packaging entries (shapes or materials) sorted by frequency for a specific country, category and shape (for materials)
 
+=head3 Parameters
+
+* $tags_ref points to the list we want to appends tags to
+* $seen_tags_ref point to a hashmap of entries already in $tags_ref
+* $entries_ref point to a hashmap where keys are tags and values represent tag prioriry
+* $tagtype - type of tag necessary to use right $translation_to hashmap (see Tags.pm)
+* $search_lc - is the target language for translations
+* 
 =cut
 
 sub add_sorted_entries_to_tags ($tags_ref, $seen_tags_ref, $entries_ref, $tagtype, $search_lc) {
