@@ -294,7 +294,7 @@ description:nl:Biobased PET is plastic dat gedeeltelijk wordt geproduceerd met b
 description:pt:O PET de base biológica é um plástico parcialmente produzido usando biomassa renovável anualmente, como diferentes açúcares obtidos de atividades agrícolas.
 
 <xx:PET
-en:Transparent PET
+en:Transparent PET, Clear PET
 da:Gennemsigtig PET
 de:Transparentes PET
 fr:PET transparent
@@ -310,17 +310,22 @@ description:nl:Transparant (doorzichtig) PET (polyethylene terephthalate)
 description:pt:PET transparente (tereftalato de polietileno)
 
 <xx:rPET
-en:Transparent rPET
+en:Transparent rPET, Clear rPET
 da:Gennemsigtig rPET
 de:Transparentes rPET
 fr:rPET transparent, rPET transparente, PET clair
 hu:Átlátszó rPET
 nl:rPET transparant, Transparant rPET
 pt:rPET transparente
-description:en:transparant rPET (recycled polyethylene terephthalate)
-description:nl:transparant (doorzichtig) rPET (gerecycleerd polyethylene terephthalate)
+description:en:Transparant rPET (polyethylene terephthalate)
+description:de:Transparentes rPET (Polyethylenterephthalat)
+description:es:rPET transparente (tereftalato de polietileno)
+description:fr:rPET transparent (polyéthylène téréphtalate)
+description:it:rPET trasparente (polietilene tereftalato)
+description:nl:Transparant (doorzichtig) rPET (polyethylene terephthalate)
+description:pt:rPET transparente (tereftalato de polietileno)
 
-<xx:PET
+<xx:Transparent PET
 en:Colored PET
 da:Farvet PET
 de:Gefärbtes PET, Farbiges PET
@@ -328,13 +333,30 @@ fr:PET coloré, PET colorée
 hu:Színezett PET, színes PET
 nl:PET gekleurd, Gekleurd PET
 pt:PET colorido
+description:en:Colored PET (polyethylene terephthalate), which requires additional recycling processes
+description:Farbiges PET (Polyethylenterephthalat), das zusätzliche Recyclingprozesse erfordert
+description:es:PET coloreado (tereftalato de polietileno), que requiere procesos de reciclaje adicionales
+description:fr:PET coloré (polyéthylène téréphtalate), qui nécessite des processus de recyclage supplémentaires
+description:PET colorato (polietilene tereftalato), che richiede ulteriori processi di riciclaggio
+description:nl:Gekleurd PET (polyethyleentereftalaat), dat extra recyclingprocessen vereist
+description:pt:PET colorido (tereftalato de polietileno), que requer processos de reciclagem adicionais
+#comment:en:This is banned in India, Japan and South Korea
 
 <xx:PET
 en:Opaque PET
 de:Undurchsichtiges PET, Intransparentes PET
+es:PET opaco
 fr:PET opaque
+it:PET opaco
 nl:PET ondoorzichtig, Ondoorzichtig PET
 pt:PET opaco
+description:de:Herkömmliche PET-Flaschen, die durch Zugabe bestimmter Farbpigmente, wie Titandioxid für Weiß, opak gemacht wurden, um eine Lichtbarriere zum Schutz von Flüssigkeiten, wie Milch, zu haben. Dieses Material erfordert einen speziellen Recyclingprozess.
+description:en:Conventional PET bottles that have been made opaque by adding certain colour pigments, such as titanium dioxide for white, in order have a light barrier to protect liquids, such as milk. This material requires a specific recycling process.
+description:es:Botellas de PET convencionales que se han vuelto opacas mediante la adición de ciertos pigmentos de color, como el dióxido de titanio para el blanco, con el fin de tener una barrera de luz para proteger líquidos, como la leche. Este material requiere un proceso de reciclaje específico.
+description:fr:Les bouteilles en PET conventionnelles qui ont été rendues opaques en ajoutant certains pigments de couleur, comme le dioxyde de titane pour le blanc, afin d'avoir une barrière lumineuse pour protéger les liquides, comme le lait. Ce matériau nécessite un processus de recyclage spécifique.
+description:it:Bottiglie in PET convenzionali che sono state rese opache aggiungendo alcuni pigmenti colorati, come il biossido di titanio per il bianco, in modo da avere una barriera luminosa per proteggere i liquidi, come il latte. Questo materiale richiede uno specifico processo di riciclaggio.
+description:nl:Conventionele PET-flessen die ondoorzichtig zijn gemaakt door bepaalde kleurpigmenten toe te voegen, zoals titaniumdioxide voor wit, om een lichtbarrière te hebben om vloeistoffen, zoals melk, te beschermen. Dit materiaal vereist een specifiek recyclingproces.
+description:pt:Garrafas PET convencionais que foram tornadas opacas pela adição de certos pigmentos de cor, como dióxido de titânio para branco, para ter uma barreira à luz para proteger líquidos, como leite. Este material requer um processo específico de reciclagem.
 
 <en:Plastic
 en:PE - Polyethylene, Polyethylene
