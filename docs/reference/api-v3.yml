@@ -262,12 +262,7 @@ paths:
 
         If a string is passed, an additional sort is done to put first suggestions that start with the string, followed by suggestions with a word that start with the string, and then suggestions that contain the string anywhere.
       parameters:
-        - schema:
-            type: string
-            example: packaging_materials
-          in: query
-          name: tagtype
-          description: 'Identifier of the taxonomy (e.g. "categories", "ingredients", "packaging_shapes")'
+        - $ref: ./api.yml#/components/parameters/tagtype
         - schema:
             type: string
             example: en
@@ -302,6 +297,11 @@ paths:
           in: query
           name: limit
           description: 'Maximum number of suggestions. Default is 25, max is 400.'
+        - schema:
+            type: string
+          in: query
+          name: term
+          description: Alias for the "string" parameter provided for backward compatibility. "string" takes precedence.
 components:
   schemas: null
   parameters: null

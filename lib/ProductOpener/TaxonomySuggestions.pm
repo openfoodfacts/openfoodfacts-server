@@ -118,69 +118,88 @@ Generate a sorted list of canonicalized taxonomy entries from which we will gene
 
 sub generate_sorted_list_of_taxonomy_entries ($tagtype, $search_lc, $context_ref) {
 
-	my @tags = ();
+	my @tags;
 	my %seen_tags = ();    # Used to not add the same tag several times
 
 	# search for emb codes
 	if ($tagtype eq 'emb_codes') {
-		@tags = sort keys %packager_codes;
+		return @sorted_packager_codes;
 	}
 	# search for entries in a taxonomy
 	else {
-		# For packaging shapes and materials, we will generate the most popular suggestions
-		# for the country, product categories, and shape
-		if (($tagtype eq "packaging_shapes") or ($tagtype eq "packaging_materials")) {
-			load_categories_packagings_stats_for_suggestions();
-
-			# We will try to provide popular suggestions for the product categories
-			my @categories = ("all");    # popular suggestions for all categories
-										 # If categories are provided, add them (most generic categories first)
-			if (defined $context_ref->{categories}) {
-				push @categories, gen_tags_hierarchy_taxonomy($search_lc, "categories", $context_ref->{categories});
-			}
-
-			# Start with the most specific category
-			foreach my $category (reverse @categories) {
-
-				if ($tagtype eq "packaging_shapes") {
-					my $shapes_ref = deep_get(
-						$categories_packagings_stats_for_suggestions_ref,
-						("countries", $country, "categories", $category, "shapes")
-					);
-
-					add_sorted_entries_to_tags(\@tags, \%seen_tags, $shapes_ref, $tagtype, $search_lc);
-				}
-				elsif ($tagtype eq "packaging_materials") {
-					# Add materials specific to the shape if we have one
-					my $shape;
-					if (defined $context_ref->{shape}) {
-						$shape = canonicalize_taxonomy_tag($search_lc, "packaging_shapes", $context_ref->{shape});
-					}
-					else {
-						$shape = "all";
-					}
-					my $materials_ref = deep_get($categories_packagings_stats_for_suggestions_ref,
-						("countries", $country, "categories", $category, "shapes", $shape, "materials"));
-
-					add_sorted_entries_to_tags(\@tags, \%seen_tags, $materials_ref, $tagtype, $search_lc);
-				}
-			}
-
-			$log->debug("resulting tags from categories", {categories => \@categories, tags => \@tags})
-				if $log->is_debug();
-		}
+		# Generate popular suggestions
+		@tags = generate_popular_suggestions_according_to_context($tagtype, $search_lc, $context_ref, \%seen_tags);
 
 		# add all remaining entries in alphabetical order
 		foreach my $tag (
-			sort(
-				{($translations_to{$tagtype}{$a}{$search_lc} || $translations_to{$tagtype}{$a}{"xx"} || $a)
-						cmp($translations_to{$tagtype}{$b}{$search_lc} || $translations_to{$tagtype}{$b}{"xx"} || $b)}
+			sort({cmp_taxonomy_tags_alphabetically($tagtype, $search_lc, $a, $b)}
 				keys %{$translations_to{$tagtype}})
 			)
 		{
 			next if defined $seen_tags{$tag};
 			push @tags, $tag;
 		}
+	}
+
+	return @tags;
+}
+
+=head2 generate_popular_suggestions_according_to_context($tagtype, $search_lc, $context_ref, $seen_tags_ref)
+
+Given a specific context (e.g. the product's country, categories, or the packaging component shape),
+we can generate popular suggestions sorted by popularity in this context.
+
+Currently supports packaging_shapes and packaging_materials
+
+For other taxonomy types, an empty list is returned.
+
+=cut
+
+sub generate_popular_suggestions_according_to_context ($tagtype, $search_lc, $context_ref, $seen_tags_ref) {
+
+	my @tags = ();
+
+	# For packaging shapes and materials, we will generate the most popular suggestions
+	# for the country, product categories, and shape
+	if (($tagtype eq "packaging_shapes") or ($tagtype eq "packaging_materials")) {
+		load_categories_packagings_stats_for_suggestions();
+
+		# We will try to provide popular suggestions for the product categories
+		my @categories = ("all");    # popular suggestions for all categories
+									 # If categories are provided, add them (most generic categories first)
+		if (defined $context_ref->{categories}) {
+			push @categories, gen_tags_hierarchy_taxonomy($search_lc, "categories", $context_ref->{categories});
+		}
+
+		# Start with the most specific category
+		foreach my $category (reverse @categories) {
+
+			if ($tagtype eq "packaging_shapes") {
+				my $shapes_ref = deep_get(
+					$categories_packagings_stats_for_suggestions_ref,
+					("countries", $country, "categories", $category, "shapes")
+				);
+
+				add_sorted_entries_to_tags(\@tags, $seen_tags_ref, $shapes_ref, $tagtype, $search_lc);
+			}
+			elsif ($tagtype eq "packaging_materials") {
+				# Add materials specific to the shape if we have one
+				my $shape;
+				if (defined $context_ref->{shape}) {
+					$shape = canonicalize_taxonomy_tag($search_lc, "packaging_shapes", $context_ref->{shape});
+				}
+				else {
+					$shape = "all";
+				}
+				my $materials_ref = deep_get($categories_packagings_stats_for_suggestions_ref,
+					("countries", $country, "categories", $category, "shapes", $shape, "materials"));
+
+				add_sorted_entries_to_tags(\@tags, $seen_tags_ref, $materials_ref, $tagtype, $search_lc);
+			}
+		}
+
+		$log->debug("resulting tags from categories", {categories => \@categories, tags => \@tags})
+			if $log->is_debug();
 	}
 
 	return @tags;
@@ -196,11 +215,11 @@ sub add_sorted_entries_to_tags ($tags_ref, $seen_tags_ref, $entries_ref, $tagtyp
 
 	if (defined $entries_ref) {
 		foreach my $entry (
-			sort(
-				{$entries_ref->{$b}{n} <=> $entries_ref->{$a}{n}
-						|| (
-						($translations_to{$tagtype}{$a}{$search_lc} || $translations_to{$tagtype}{$a}{"xx"} || $a)
-						cmp($translations_to{$tagtype}{$b}{$search_lc} || $translations_to{$tagtype}{$b}{"xx"} || $b))}
+			sort({
+					($entries_ref->{$b}{n} <=> $entries_ref->{$a}{n})    # Sort first by descending order of popularity
+						or cmp_taxonomy_tags_alphabetically($tagtype, $search_lc, $a,
+						$b)    # And then by ascending alphabetical order
+				}
 				keys %$entries_ref)
 			)
 		{

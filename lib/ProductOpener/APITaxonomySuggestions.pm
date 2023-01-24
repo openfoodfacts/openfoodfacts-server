@@ -86,14 +86,12 @@ sub taxonomy_suggestions_api ($request_ref) {
 	# to rank higher suggestions that are popular for similar products
 	my $context_ref = {
 		country => $request_ref->{country},
-		categories => decode("utf8", request_param($request_ref, "categories")),	# list of product categories
-		shape => decode("utf8", request_param($request_ref, "shape")),	# packaging shape
+		categories => decode("utf8", request_param($request_ref, "categories")),    # list of product categories
+		shape => decode("utf8", request_param($request_ref, "shape")),    # packaging shape
 	};
 
 	# Options define how many suggestions should be returned, in which format etc.
-	my $options_ref = {
-		limit => request_param($request_ref, 'limit')
-	};
+	my $options_ref = {limit => request_param($request_ref, 'limit')};
 
 	# Validate input parameters
 
@@ -126,7 +124,7 @@ sub taxonomy_suggestions_api ($request_ref) {
 	else {
 
 		$response_ref->{suggestions}
-			= [get_taxonomy_suggestions ($tagtype, $search_lc, $string, $context_ref, $options_ref)];
+			= [get_taxonomy_suggestions($tagtype, $search_lc, $string, $context_ref, $options_ref)];
 	}
 
 	$log->debug("taxonomy_suggestions_api - stop", {request => $request_ref}) if $log->is_debug();
