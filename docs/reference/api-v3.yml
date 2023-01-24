@@ -247,7 +247,7 @@ paths:
                           type: string
       operationId: get-api-v3-taxonomy_suggestions-taxonomy
       description: |-
-        Open Food Facts uses multilingual taxonomies to normalize entries for categories, labels, ingredients, packaging shapes / materials / recycling instructions and many more fields.
+        Open Food Facts uses multilingual [taxonomies](https://wiki.openfoodfacts.org/Global_taxonomies) to normalize entries for categories, labels, ingredients, packaging shapes / materials / recycling instructions and many more fields.
 
         This API returns taxonomy entries suggestions that can be used in product edit forms, search forms etc. (for instance in autocomplete dropdowns using libraries like Tagify or select2 on the Web).
 
