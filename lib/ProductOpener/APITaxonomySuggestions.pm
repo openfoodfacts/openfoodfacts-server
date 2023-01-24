@@ -36,7 +36,6 @@ use Log::Any qw($log);
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-		&taxonomy_suggestions_api
 		&get_taxonomy_suggestions
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -54,69 +53,15 @@ use ProductOpener::PackagerCodes qw/:all/;
 
 use List::Util qw/min/;
 use Data::DeepAccess qw(deep_exists deep_get);
-use Encode;
 
-=head2 taxonomy_suggestions_api ( $request_ref )
-
-Process API V3 taxonomy suggestions requests.
-
-=head3 Parameters
-
-=head4 $request_ref (input)
-
-Reference to the request object.
-
-=cut
-
-sub taxonomy_suggestions_api ($request_ref) {
-
-	$log->debug("taxonomy_suggestions_api - start", {request => $request_ref}) if $log->is_debug();
-
-	my $response_ref = $request_ref->{api_response};
-
-	# We need a taxonomy name to provide suggestions for
-	my $tagtype = request_param($request_ref, "tagtype");
-
-	if (not defined $tagtype) {
-		$log->info("missing tagtype", {tagtype => $tagtype}) if $log->is_info();
-		add_error(
-			$response_ref,
-			{
-				message => {id => "missing_field"},
-				field => {id => "tagtype"},
-				impact => {id => "failure"},
-			}
-		);
-	}
-	# Check that the taxonomy exists
-	# we also provide suggestions for emb-codes (packaging codes)
-	elsif ((not defined $taxonomy_fields{$tagtype}) and ($tagtype ne "emb_codes")) {
-		$log->info("tagtype is not a taxonomy", {tagtype => $tagtype}) if $log->is_info();
-		add_error(
-			$response_ref,
-			{
-				message => {id => "unrecognized_value"},
-				field => {id => "tagtype", value => $tagtype},
-				impact => {id => "failure"},
-			}
-		);
-	}
-	# Generate suggestions
-	else {
-		$response_ref->{suggestions}
-			= [get_taxonomy_suggestions($request_ref)];
-	}
-
-	$log->debug("taxonomy_suggestions_api - stop", {request => $request_ref}) if $log->is_debug();
-
-	return;
-}
-
+# We use a global variable in order to load the packaging stats only once
 my $categories_packagings_stats_for_suggestions_ref;
 
 sub load_categories_packagings_stats_for_suggestions() {
 	if (not defined $categories_packagings_stats_for_suggestions_ref) {
 		my $file = "$data_root/data/categories_stats/categories_packagings_stats.all.popular.json";
+		# In dev environments, we provide a sample stats file in the data-default directory
+		# so that we can run tests with meaningful and unchanging data
 		if (!-e $file) {
 			my $default_file = "$data_root/data-default/categories_stats/categories_packagings_stats.all.popular.json";
 			$log->debug("local packaging stats file does not exist, will use default",
@@ -130,62 +75,48 @@ sub load_categories_packagings_stats_for_suggestions() {
 			$log->debug("unable to load packaging stats", {file => $file}) if $log->is_debug();
 		}
 	}
-	return;
+	return $categories_packagings_stats_for_suggestions_ref;
 }
 
-=head2 get_taxonomy_suggestions ($request_ref)
+=head2 get_taxonomy_suggestions ($tagtype, $search_lc, $string, $context_ref, $options_ref )
 
 Generate taxonomy suggestions.
 
 =head3 Parameters
 
-=head4 $request_ref
+=head4 $tagtype		id of the taxonomy (required)
 
-The suggestions will depend on parameters passed in $request_ref:
+=head4 $search_lc	language of parameters (categories, shape, material etc.) and of the returned suggestions (required)
 
-- lc: language of parameters (categories, shape, material etc.) and of the returned suggestions
+=head4 $string 		string to query (e.g. for autocompletion) (optional)
+
+=head4 $context_ref context object
+
+Hash of fields that can be taken into account to generate relevant suggestions
+
 - country: derived from the cc parameter
-- tagtype: the taxonomy id
-- string or term: the string to query ("term" is used by default by jquery autocomplete and select2)
-- categories: comma separated list of categories
+- categories: comma separated list of categories (tags ids or strings in the $search_lc language)
+- shape: packaging shape (tag id or string in the $search_lc language)
 
 =cut
 
-sub get_taxonomy_suggestions ($request_ref) {
+sub get_taxonomy_suggestions ($tagtype, $search_lc, $string, $context_ref, $options_ref) {
 
-	# Search language
-	my $search_lc = $request_ref->{lc};
+	$log->debug("get_taxonomy_suggestions_api", {tagtype => $tagtype, search_lc => $search_lc, context_ref => $context_ref, options_ref => $options_ref}) if $log->is_debug();
 
-	# Taxonomy
-	my $tagtype = request_param($request_ref, "tagtype");
+	my @tags = generate_sorted_list_of_taxonomy_entries($tagtype, $search_lc, $context_ref);
 
-	# The API accepts a string input in the "string" field or "term" field.
-	# - term is used by the jquery Autocomplete widget: https://api.jqueryui.com/autocomplete/
-	# Use "string" only if both are present.
-	my $string = decode("utf8", (request_param($request_ref, 'string') || request_param($request_ref, 'term')));
-
-	# max results
-	my $limit = 25;
-	# superseed by request parameter
-	if (defined request_param($request_ref, 'limit')) {
-		# we put a hard limit however
-		$limit = min(int(request_param($request_ref, 'limit')), 400);
-	}
-
-	my @tags = generate_sorted_list_of_taxonomy_entries($request_ref, $tagtype, $limit);
-
-	return filter_suggestions_matching_string($search_lc, $tagtype, $string, $limit, \@tags);
+	return filter_suggestions_matching_string(\@tags, $tagtype, $search_lc, $string, $options_ref);
 }
 
-=head2 generate_sorted_list_of_taxonomy_entries($request_ref, $tagtype, $limit)
+=head2 generate_sorted_list_of_taxonomy_entries($tagtype, $search_lc, $context_ref)
 
 Generate a sorted list of canonicalized taxonomy entries from which we will generate suggestions
 
 =cut
 
-sub generate_sorted_list_of_taxonomy_entries ($request_ref, $tagtype, $limit) {
+sub generate_sorted_list_of_taxonomy_entries ($tagtype, $search_lc, $context_ref) {
 
-	my $search_lc = $request_ref->{lc};
 	my @tags = ();
 	my %seen_tags = ();    # Used to not add the same tag several times
 
@@ -193,24 +124,18 @@ sub generate_sorted_list_of_taxonomy_entries ($request_ref, $tagtype, $limit) {
 	if ($tagtype eq 'emb_codes') {
 		@tags = sort keys %packager_codes;
 	}
-	# search for string in a taxonomy
+	# search for entries in a taxonomy
 	else {
 		# For packaging shapes and materials, we will generate the most popular suggestions
 		# for the country, product categories, and shape
 		if (($tagtype eq "packaging_shapes") or ($tagtype eq "packaging_materials")) {
 			load_categories_packagings_stats_for_suggestions();
 
-			# Country for the request (set with the cc field or the subdomain)
-			my $country = $request_ref->{country};
-
 			# We will try to provide popular suggestions for the product categories
 			my @categories = ("all");    # popular suggestions for all categories
-
 			# If categories are provided, add them (most generic categories first)
-			if (defined request_param($request_ref, "categories")) {
-				push @categories,
-					gen_tags_hierarchy_taxonomy($search_lc, "categories",
-					decode("utf8", request_param($request_ref, "categories")));
+			if (defined $context_ref->{categories}) {
+				push @categories, gen_tags_hierarchy_taxonomy($search_lc, "categories", $context_ref->{categories});
 			}
 
 			# Start with the most specific category
@@ -226,9 +151,9 @@ sub generate_sorted_list_of_taxonomy_entries ($request_ref, $tagtype, $limit) {
 				}
 				elsif ($tagtype eq "packaging_materials") {
 					# Add materials specific to the shape if we have one
-					my $shape = decode("utf8", request_param($request_ref, "shape"));
-					if (defined $shape) {
-						$shape = canonicalize_taxonomy_tag($request_ref->{lc}, "packaging_shapes", $shape);
+					my $shape;
+					if (defined $context_ref->{shape}) {
+						$shape = canonicalize_taxonomy_tag($search_lc, "packaging_shapes", $context_ref->{shape});
 					}
 					else {
 						$shape = "all";
@@ -288,7 +213,7 @@ sub add_sorted_entries_to_tags ($tags_ref, $seen_tags_ref, $entries_ref, $tagtyp
 	return;
 }
 
-=head2 filter_suggestions_matching_string ($search_lc, $tagtype, $string, $limit, $tags_ref)
+=head2 filter_suggestions_matching_string ($tags_ref, $tagtype, $search_lc, $string, $options_ref)
 
 Filter a list of potential taxonomy suggestions matching a string.
 
@@ -299,21 +224,36 @@ By priority, the function returns:
 
 =head3 Parameters
 
-=head4 $search_lc - language code of taxonomy suggestions to return
+=head4 $tags_ref	reference to an array of tags that needs to be filtered
 
-=head4 $tagtype - the type of tag
+=head4 $tagtype		the type of tag
 
-=head4 $string - string to search
+=head4 $search_lc	language code of taxonomy suggestions to return
 
-=head4 $limit - limit of number of results
+=head4 $string		string to search
 
-=head4 $tags_ref - reference to an array of tags that needs to be filtered
+=head4 $options_ref	hash of options
+
+- limit: limit of number of results
+- format (not yet defined and implemented)
 
 =cut
 
-sub filter_suggestions_matching_string ($search_lc, $tagtype, $string, $limit, $tags_ref) {
+sub filter_suggestions_matching_string ($tags_ref, $tagtype, $search_lc, $string, $options_ref) {
 
 	my $original_lc = $search_lc;
+	
+	# Limit the maximum number of results
+	my $limit = $options_ref->{limit} || 25;
+	# Set a hard limit of 400
+	$limit = min(int($limit), 400);
+
+	$log->debug("filter_suggestions_matching_string", {number_of_input_suggestions => scalar(@$tags_ref), tagtype => $tagtype, search_lc => $search_lc, string => $string, options_ref => $options_ref, limit => $limit}) if $log->is_debug();
+
+	# undefined string
+	if (not defined $string) {
+		$string = "";
+	}
 
 	# if search string begins with a language code, use it for search
 	if ($string =~ /^(\w\w):/) {
@@ -393,152 +333,6 @@ sub filter_suggestions_matching_string ($search_lc, $tagtype, $string, $limit, $
 		}
 	}
 
-	# suggestions containing string
-	my $contains_to_add = min($limit - (scalar @suggestions), scalar @suggestions_c) - 1;
-	if ($contains_to_add >= 0) {
-		push @suggestions, @suggestions_c[0 .. $contains_to_add];
-	}
-	# Suggestions as fuzzy match
-	my $fuzzy_to_add = min($limit - (scalar @suggestions), scalar @suggestions_f) - 1;
-	if ($fuzzy_to_add >= 0) {
-		push @suggestions, @suggestions_f[0 .. $fuzzy_to_add];
-	}
-
-	return @suggestions;
-}
-
-=head2 get_taxonomy_suggestions_matching_string ($request_ref, $tagtype, $string)
-
-Generate taxonomy suggestions matching a string.
-
-The generation uses a brute force approach to match the input string to taxonomies.
-
-By priority, the function returns:
-- taxonomy entries that match the input string at the beginning
-- taxonomy entries that contain the input string
-- taxonomy entries that contain words contained in the input string
-
-=head3 Parameters
-
-=head4 $request_ref (input)
-
-Reference to the request object.
-
-=head4 tagtype - the type of tag
-
-=head4 tags_ref - reference of an array of tags to match
-
-[
-	countries_tags => ["en:france", "en:belgium"],
-	categories_tags => ..
-
-]
-
-=head4 string - string to search
-
-=cut
-
-sub get_popular_taxonomy_suggestions_matching_tags_and_string ($request_ref, $tagtype, $tags_ref, $string) {
-
-	# search language code
-	my $search_lc = single_param('lc') || $request_ref->{lc};
-
-	# superseed by request parameter
-	if (defined single_param('lc')) {
-		$search_lc = single_param('lc');
-	}
-
-	my $original_lc = $search_lc;
-
-	# if search string begins with a language code, use it for search
-	if ($string =~ /^(\w\w):/) {
-		$search_lc = $1;
-		$string = $';
-	}
-
-	# max results
-	my $limit = 25;
-	# superseed by request parameter
-	if (defined single_param('limit')) {
-		# we put a hard limit however
-		$limit = min(int(single_param('limit')), 400);
-	}
-
-	my @suggestions = ();    # Suggestions starting with the string
-	my @suggestions_c = ();    # Suggestions containing the string
-	my @suggestions_f = ();    # fuzzy suggestions
-
-	my $suggestions_count = 0;
-
-	# search for emb codes
-	if ($tagtype eq 'emb_codes') {
-		my $stringid = get_string_id_for_lang("no_language", normalize_packager_codes($string));
-		my @tags = sort keys %packager_codes;
-		foreach my $canon_tagid (@tags) {
-			next if $canon_tagid !~ /^$stringid/;
-			push @suggestions, normalize_packager_codes($canon_tagid);
-			last if ++$suggestions_count >= $limit;
-		}
-	}
-	else {
-		# search for string in a taxonomy
-
-		# normalize string
-		my $stringid = get_string_id_for_lang($search_lc, $string);
-		# remove eventual leading or ending "-"
-		$stringid =~ s/^-//;
-		$stringid =~ s/^-$//;
-		# fuzzy match whole words with eventual inter-words
-		my $fuzzystringid = join(".*", split("-", $stringid));
-		# all tags can be retrieve from the $translations_to hash
-		my @tags = sort keys %{$translations_to{$tagtype}};
-		foreach my $canon_tagid (@tags) {
-			# just_synonyms are not real entries
-			next if defined $just_synonyms{$tagtype}{$canon_tagid};
-
-			my $tag;    # this is the content string
-			my $tagid;    # this is the tag
-
-			# search if the tag exists in target language
-			if (defined $translations_to{$tagtype}{$canon_tagid}{$search_lc}) {
-
-				$tag = $translations_to{$tagtype}{$canon_tagid}{$search_lc};
-				# TODO: explain why $tagid can be different from $canon_tagid
-				$tagid = get_string_id_for_lang($search_lc, $tag);
-
-				# add language prefix if we are not searching current interface language
-				if (not($search_lc eq $original_lc)) {
-					$tag = $search_lc . ":" . $tag;
-				}
-			}
-			# also search for special language code "xx" which is universal
-			elsif (defined $translations_to{$tagtype}{$canon_tagid}{xx}) {
-				$tag = $translations_to{$tagtype}{$canon_tagid}{xx};
-				$tagid = get_string_id_for_lang("xx", $tag);
-			}
-
-			if (defined $tag) {
-				# matching at start, best matches
-				if ($tagid =~ /^$stringid/) {
-					push @suggestions, $tag;
-					# only matches at start are considered
-					$suggestions_count++;
-				}
-				# matching inside
-				elsif ($tagid =~ /$stringid/) {
-					push @suggestions_c, $tag;
-				}
-				# fuzzy match
-				elsif ($tagid =~ /$fuzzystringid/) {
-					push @suggestions_f, $tag;
-				}
-				# end as soon as we got enough
-				last if $suggestions_count >= $limit;
-			}
-		}
-	}
-	# sort best suggestions
-	@suggestions = sort @suggestions;
 	# suggestions containing string
 	my $contains_to_add = min($limit - (scalar @suggestions), scalar @suggestions_c) - 1;
 	if ($contains_to_add >= 0) {

@@ -48,6 +48,7 @@ BEGIN {
 		&add_warning
 		&add_error
 		&process_api_request
+		&taxonomy_suggestions_api
 		&read_request_body
 		&decode_json_request_body
 		&normalize_requested_code
@@ -82,6 +83,7 @@ use Apache2::RequestRec();
 use JSON::PP;
 use Data::DeepAccess qw(deep_get);
 use Storable qw(dclone);
+use Encode;
 
 sub get_initialized_response() {
 	return {
@@ -755,6 +757,88 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields) {
 	}
 
 	return $customized_product_ref;
+}
+
+=head2 taxonomy_suggestions_api ( $request_ref )
+
+Process API V3 taxonomy suggestions requests.
+
+=head3 Parameters
+
+=head4 $request_ref (input)
+
+Reference to the request object.
+
+=cut
+
+sub taxonomy_suggestions_api ($request_ref) {
+
+	$log->debug("taxonomy_suggestions_api - start", {request => $request_ref}) if $log->is_debug();
+
+	my $response_ref = $request_ref->{api_response};
+
+	# Use HTTP parameters to populate the parameters needed to generate suggestions
+
+	my $search_lc = $request_ref->{lc};
+
+	# We need a taxonomy name to provide suggestions for
+	my $tagtype = request_param($request_ref, "tagtype");
+
+	# The API accepts a string input in the "string" field or "term" field.
+	# - term is used by the jquery Autocomplete widget: https://api.jqueryui.com/autocomplete/
+	# Use "string" only if both are present.
+	my $string = decode("utf8", (request_param($request_ref, 'string') || request_param($request_ref, 'term')));
+
+	# We can use the context (e.g. are the suggestions for a specific product sold in a specific country, with specific categories etc.)
+	# to rank higher suggestions that are popular for similar products
+	my $context_ref = {
+		country => $request_ref->{country},
+		categories => decode("utf8", request_param($request_ref, "categories")),	# list of product categories
+		shape => decode("utf8", request_param($request_ref, "shape")),	# packaging shape
+	};
+
+	# Options define how many suggestions should be returned, in which format etc.
+	my $options_ref = {
+		limit => request_param($request_ref, 'limit')
+	};
+
+	# Validate input parameters
+
+	# $tagtype is the only mandatory parameter
+	if (not defined $tagtype) {
+		$log->info("missing tagtype", {tagtype => $tagtype}) if $log->is_info();
+		add_error(
+			$response_ref,
+			{
+				message => {id => "missing_field"},
+				field => {id => "tagtype"},
+				impact => {id => "failure"},
+			}
+		);
+	}
+	# Check that the taxonomy exists
+	# we also provide suggestions for emb-codes (packaging codes)
+	elsif ((not defined $taxonomy_fields{$tagtype}) and ($tagtype ne "emb_codes")) {
+		$log->info("tagtype is not a taxonomy", {tagtype => $tagtype}) if $log->is_info();
+		add_error(
+			$response_ref,
+			{
+				message => {id => "unrecognized_value"},
+				field => {id => "tagtype", value => $tagtype},
+				impact => {id => "failure"},
+			}
+		);
+	}
+	# Generate suggestions
+	else {
+
+		$response_ref->{suggestions}
+			= [get_taxonomy_suggestions ($tagtype, $search_lc, $string, $context_ref, $options_ref)];
+	}
+
+	$log->debug("taxonomy_suggestions_api - stop", {request => $request_ref}) if $log->is_debug();
+
+	return;
 }
 
 1;

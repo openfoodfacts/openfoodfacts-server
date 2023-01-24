@@ -35,10 +35,31 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use JSON::PP;
+use Encode;
 
 my $request_ref = ProductOpener::Display::init_request();
 
-my @suggestions = get_taxonomy_suggestions($request_ref);
+my $search_lc = $request_ref->{lc};
+
+# We need a taxonomy name to provide suggestions for
+my $tagtype = request_param($request_ref, "tagtype");
+
+# The API accepts a string input in the "string" field or "term" field.
+# - term is used by the jquery Autocomplete widget: https://api.jqueryui.com/autocomplete/
+# Use "string" only if both are present.
+my $string = decode("utf8", (request_param($request_ref, 'string') || request_param($request_ref, 'term')));
+
+# /cgi/suggest.pl supports only limited context (use /api/v3/taxonomy_suggestions to use richer context)
+my $context_ref = {
+	country => $request_ref->{country},
+};
+
+# Options define how many suggestions should be returned, in which format etc.
+my $options_ref = {
+	limit => request_param($request_ref, 'limit')
+};
+
+my @suggestions = get_taxonomy_suggestions ($tagtype, $search_lc, $string, $context_ref, $options_ref);
 
 my $data = encode_json(\@suggestions);
 
