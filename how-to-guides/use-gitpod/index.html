@@ -520,6 +520,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#connect-github-and-gitpod" class="md-nav__link">
+    Connect GitHub and Gitpod
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#get-started" class="md-nav__link">
     Get Started
   </a>
@@ -529,6 +536,13 @@
         <li class="md-nav__item">
   <a href="#accessing-your-development-instance-of-openfoodfacts-web" class="md-nav__link">
     Accessing your development instance of OpenFoodFacts Web
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#some-commands" class="md-nav__link">
+    Some commands
   </a>
   
 </li>
@@ -816,6 +830,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#connect-github-and-gitpod" class="md-nav__link">
+    Connect GitHub and Gitpod
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#get-started" class="md-nav__link">
     Get Started
   </a>
@@ -825,6 +846,13 @@
         <li class="md-nav__item">
   <a href="#accessing-your-development-instance-of-openfoodfacts-web" class="md-nav__link">
     Accessing your development instance of OpenFoodFacts Web
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#some-commands" class="md-nav__link">
+    Some commands
   </a>
   
 </li>
@@ -850,7 +878,10 @@
 
 
 <h1 id="using-gitpod-for-remote-development">Using Gitpod for Remote Development<a class="headerlink" href="#using-gitpod-for-remote-development" title="Permanent link">#</a></h1>
-<p><a href="https://gitpod.io">Gitpod</a> provides powerful ready-to-code developer environments in the cloud eliminating the friction
+<p>If your computer performance restricts you from developing, you can use <a href="https://gitpod.io">Gitpod</a>. 
+Gitpod allows you to do the devs on an ephemeral environment. It is free for a maximum of 500 credits or 
+50 hours per months (https://www.gitpod.io/pricing).</p>
+<p>Gitpod provides a robust ready-to-code developer environment in the cloud eliminating the friction
 of setting up local environments and IDEs with Perl, Docker and plugins, making it possible for even new contributors to
 OpenFoodFacts Server to get started in minutes instead of hours!</p>
 <p>Note that while this how-to is tailored for Gitpod, using alternatives like <a href="https://github.com/features/codespaces">GitHub Codespaces</a> should be
@@ -859,6 +890,10 @@ similar.</p>
 in the <a href="../../introduction/dev-environment-quick-start-guide/">quickstart guide</a>
 and <a href="../docker-developer-guide/">docker-developer-guide</a>, however accessing your dev-deployment of
 <code>openfoodfacts-server</code> requires an extra step.</p>
+<h2 id="connect-github-and-gitpod">Connect GitHub and Gitpod<a class="headerlink" href="#connect-github-and-gitpod" title="Permanent link">#</a></h2>
+<p>When you use Gitpod, you allow Gitpod to use your GitHub account.</p>
+<p>In GitHub, you can review (and revoke if you stop using Gitpod) the access granted to Gitpod: click on your avatar on top right of the screen, then, Settings. In the left panel, under Integrations, click on Applications, then, Authorized OAuth Apps.</p>
+<p>On the Gitpod side, you can also update what Gitpod is allowed to do with your GitHub account: click on your avatar on the top right of the screen, then, Settings. In the left panel, click on Integrations. The line for GitHub should be green. At the end of this line, click on the three dots, then Edit Permissions. '''If you want to create a pull request via Gitpod, you need to grant public_repo access.'''</p>
 <h2 id="get-started">Get Started<a class="headerlink" href="#get-started" title="Permanent link">#</a></h2>
 <p><a href="https://gitpod.io/https://github.com/openfoodfacts/openfoodfacts-server/"><img alt="Open in Gitpod" src="https://gitpod.io/button/open-in-gitpod.svg" /></a></p>
 <blockquote>
@@ -880,6 +915,22 @@ works as-is, add a <code>-L 80:localhost:80</code> to the command to make it loo
 <code>ssh -L 80:localhost:80 'openfoodfac-openfoodfac-tok-openfoodfac-r9f61214h9vt.ssh.ws-c.gitpod.io'</code>.</p>
 <p>Once you execute the altered command in your terminal, you should be able to access OpenFoodFacts
 on http://openfoodfacts.localhost just as documented in the quickstart guide!</p>
+<p><strong>Remark:</strong> for some Linux distributions, the port 80 is reserved. A workaround is to switch to port 8080: in gitpod, open the .env file and replace the line PRODUCT_OPENER_PORT=80 by PRODUCT_OPENER_PORT=8080, then replace -L 80:localhost:80 by -L 8080:localhost:8080. <strong>Rollback the changes on .env before to make a pull request!</strong>*  </p>
+<p>Create an account to be able to edit products.</p>
+<h2 id="some-commands">Some commands<a class="headerlink" href="#some-commands" title="Permanent link">#</a></h2>
+<p>After you made devs and want to apply changes and see them on the website, you can run:<br />
+<div class="highlight"><pre><span></span><code>$ docker-compose restart 
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>$ make up  
+</code></pre></div></p>
+<p>If you face some difficulties, you can always look at the logs (use ctrl + c, to quit):<br />
+<div class="highlight"><pre><span></span><code>$ make log  
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>$ make tail  
+</code></pre></div>
+After development, before opening a pull request, run the following command:<br />
+<div class="highlight"><pre><span></span><code>$ make checks  
+</code></pre></div></p>
 
 
 
