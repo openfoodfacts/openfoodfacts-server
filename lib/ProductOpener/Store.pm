@@ -254,7 +254,9 @@ sub retrieve ($file) {
 
 sub store_json ($file, $ref) {
 
-	return write_json($file, $ref);
+	# we sort hash keys so that the same object results in the same file
+	# we do not indent as it can easily multiply the size by 2 or more with deep nested structures
+	return write_json($file, $ref, (sort => 1));
 }
 
 sub retrieve_json ($file) {
