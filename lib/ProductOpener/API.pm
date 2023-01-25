@@ -109,6 +109,23 @@ sub add_error ($response_ref, $error_ref) {
 	return;
 }
 
+sub add_invalid_method_error ($response_ref, $request_ref) {
+
+	$log->warn("process_api_request - invalid method", {request => $request_ref}) if $log->is_warn();
+	add_error(
+		$response_ref,
+		{
+			message => {id => "invalid_api_method"},
+			field => {
+				id => "api_method",
+				value => $request_ref->{api_method},
+				api_action => $request_ref->{api_action},
+			},
+			impact => {id => "failure"},
+		}
+	);
+}
+
 =head2 read_request_body ($request_ref)
 
 API V3 POST / PUT / PATCH requests do not use CGI Multipart Form data, and instead pass a JSON structure in the body.
@@ -363,15 +380,7 @@ sub process_api_request ($request_ref) {
 				read_product_api($request_ref);
 			}
 			else {
-				$log->warn("process_api_request - invalid method", {request => $request_ref}) if $log->is_warn();
-				add_error(
-					$response_ref,
-					{
-						message => {id => "invalid_api_method"},
-						field => {id => "api_method", value => $request_ref->{api_method}},
-						impact => {id => "failure"},
-					}
-				);
+				add_invalid_method_error($response_ref, $request_ref);
 			}
 		}
 		# Taxonomy suggestions
@@ -381,19 +390,7 @@ sub process_api_request ($request_ref) {
 				taxonomy_suggestions_api($request_ref);
 			}
 			else {
-				$log->warn("process_api_request - invalid method", {request => $request_ref}) if $log->is_warn();
-				add_error(
-					$response_ref,
-					{
-						message => {id => "invalid_api_method"},
-						field => {
-							id => "api_method",
-							value => $request_ref->{api_method},
-							api_action => $request_ref->{api_action},
-						},
-						impact => {id => "failure"},
-					}
-				);
+				add_invalid_method_error($response_ref, $request_ref);
 			}
 		}
 		# Unknown action
