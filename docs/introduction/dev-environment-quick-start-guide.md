@@ -213,8 +213,14 @@ make: *** [build_lang] Error 2
 Project needs Symlinks to be enabled.
 traces.result.sto is a symlink to allergens.result.sto
 
-On Windows, You have to enable the 'Developer Mode' in order to use the symlinks.
-To enable Developer Mode: Go under Settings > Update & Security > 'For developers', and turn on the toggle for Developer Mode.
+You have to enable the 'Developer Mode' in order to use the symlinks.
+To enable Developer Mode:
+
+* on windows 10: Settings > Update & Security > 'For developers' …
+* on windows 11: Settings > Privacy & Security > 'For developers' …
+
+and turn on the toggle for *Developer Mode*.
+
 On Windows systems, the git repository needs to be cloned with symlinks enabled.
 
 You need to remove current directory where you clone the project, and clone the project again, using right options:
@@ -289,4 +295,23 @@ docker-compose up
 ```
 > **Note:**
 > To know more about docker-compose commands do read [this guide](../how-to-guides/docker-developer-guide.md) 
-  
+
+### make dev error: [build_lang] Error 13 - can't write into /mnt/podata/data/Lang.openfoodfacts.localhost.sto
+
+When running `make dev`:
+
+```console
+<h1>Software error:</h1>
+<pre>can't write into /mnt/podata/data/Lang.openfoodfacts.localhost.sto: Permission denied at /opt/product-opener/lib/ProductOpener/Store.pm line 234.
+</pre>
+<p>
+For help, please send mail to this site's webmaster, giving this error message
+and the time and date of the error.
+
+</p>
+make: *** [Makefile:126: build_lang] Error 13
+```
+
+**Solution:**
+
+Use the powershell/cmd to run the make dev commands in windows.
