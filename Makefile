@@ -138,7 +138,7 @@ cover:
 	@echo "🥫 running …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
 	${DOCKER_COMPOSE_TEST} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
-	${DOCKER_COMPOSE_TEST} exec -T backend prove -l -r --MDevel::Cover tests/unit
+	${DOCKER_COMPOSE_TEST} run --rm -e HARNESS_PERL_SWITCHES="-MDevel::Cover" backend prove -l tests/unit
 	${DOCKER_COMPOSE_TEST} stop
 
 codecov:
