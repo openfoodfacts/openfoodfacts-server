@@ -2286,10 +2286,12 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 					}
 
 					# Packagings
-					if (($group eq 'packagings') and ($id eq 'weights_measured')
-						and (($diff eq 'add') or ($diff eq 'change'))) {
-							record_user_edit_type($users_ref, "weighters", $userid);
-						}
+					if (    ($group eq 'packagings')
+						and ($id eq 'weights_measured')
+						and (($diff eq 'add') or ($diff eq 'change')))
+					{
+						record_user_edit_type($users_ref, "weighters", $userid);
+					}
 
 					# Uploaded photos + all fields
 					if (($diff eq 'add') and ($group eq 'uploaded_images')) {
