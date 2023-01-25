@@ -2,23 +2,8 @@ name: Unit Test Coverage
 
 on: [push]
 jobs:
-  build_backend:
-    name: Build backend dev image for tests
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-      with:
-        fetch-depth: 50
-    - name: build
-      run: make build_backend
-    - name: push backend image as artifact
-      uses: ishworkh/docker-image-artifact-upload@v1
-      with:
-        image: "openfoodfacts-server/backend:dev"
-        
   coverage:
     name: unit test coverage
-    needs: build_backend
     runs-on: ubuntu-latest
     steps:
        - uses: actions/checkout@master
