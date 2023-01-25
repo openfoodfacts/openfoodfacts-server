@@ -106,3 +106,26 @@ jobs:
       run: make livecheck
     - name: test clean
       run: make hdown
+      
+  coverage:
+    name: unit test coverage
+    runs-on: ubuntu-latest
+    steps:
+       - uses: actions/checkout@master
+       - name: rebuild taxonomies
+         run:  |
+          git ls-files taxonomies/ | xargs -I{} git log -1 --date=format:%Y%m%d%H%M.%S --format='touch -t %ad "{}"' "{}" | bash
+          make build_taxonomies
+       - uses: actions/checkout@master
+       - name: generate coverage results
+         run: make cover
+       - name: generate text file with results
+         if: always()
+         run: make coverage_txt
+       - name: use codecov
+         if: always()
+         run: make codecov
+       - uses: codecov/codecov-action@v3
+         if: always()
+         with:
+           files: cover_db/codecov.json
