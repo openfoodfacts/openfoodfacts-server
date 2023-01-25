@@ -135,8 +135,9 @@ tail:
 	tail -f logs/**/*
 
 cover:
-	@echo "🥫 running …"	
-	${DOCKER_COMPOSE_TEST} exec -T backend prove -l -r --MDevel::Cover tests/unit
+	@echo "🥫 running …"
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
+	${DOCKER_COMPOSE_TEST} run -T --rm backend prove -l -r -MDevel::Cover tests/unit
 
 codecov:
 	@echo "🥫 running …"
