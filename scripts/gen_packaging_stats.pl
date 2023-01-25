@@ -125,11 +125,21 @@ sub add_product_to_stats ($name, $packagings_stats_ref, $product_ref) {
 			# Go through all categories (note: the product categories already contain all parent categories)
 			foreach my $category (@{$product_ref->{categories_tags}}) {
 
+				deep_val($packagings_stats_ref, ("countries", $country, "categories", $category, "n")) += 1;
+
 				# Compute stats for shapes + shapes parents
 				foreach my $shapes_or_shapes_parents_ref (@shapes_or_shapes_parents) {
 					my ($shapes_or_shapes_parents, $shapes_ref) = @$shapes_or_shapes_parents_ref;
 
 					foreach my $shape_value (@$shapes_ref) {
+
+						deep_val(
+							$packagings_stats_ref,
+							(
+								"countries", $country, "categories", $category,
+								$shapes_or_shapes_parents, $shape_value, "n"
+							)
+						) += 1;
 
 						# Compute stats for materials + materials parents
 						foreach my $materials_or_materials_parents_ref (@materials_or_materials_parents) {
@@ -183,9 +193,11 @@ sub compute_stats_for_all_weights ($packagings_stats_ref) {
 
 	foreach my $country_ref (values %{$packagings_stats_ref->{countries}}) {
 		foreach my $category_ref (values %{$country_ref->{categories}}) {
-			foreach my $shapes_or_shapes_parents_ref (values %$category_ref) {
+			foreach my $shapes_or_shapes_parents ("shapes", "shapes_parents") {
+				my $shapes_or_shapes_parents_ref = $category_ref->{$shapes_or_shapes_parents};
 				foreach my $shape_ref (values %$shapes_or_shapes_parents_ref) {
-					foreach my $materials_or_materials_parents_ref (values %$shape_ref) {
+					foreach my $materials_or_materials_parents ("materials", "materials_parents") {
+						my $materials_or_materials_parents_ref = $shape_ref->{$materials_or_materials_parents};
 						foreach my $material_ref (values %$materials_or_materials_parents_ref) {
 							if (defined $material_ref->{weights}) {
 								compute_stats_for_weights($material_ref->{weights});
@@ -228,10 +240,57 @@ sub compute_stats_for_weights ($weights_ref) {
 	return;
 }
 
+=head2 remove_unpopular_categories_shapes_and_materials ($packagings_stats_ref, $min_products)
+
+Remove stats for categories, shapes, and materials that have less than the required amount of product.
+
+This is necessary to generate a smaller dataset that can be used to generate autocomplete suggestions
+for packaging shapes and materials, given a country and a list of categories of the product.
+
+Also remove shapes_parents and materials_parents
+
+=head3 Arguments
+
+=head4 $packagings_stats_ref
+
+=head4 $min_products 
+
+=cut
+
+sub remove_unpopular_categories_shapes_and_materials ($packagings_stats_ref, $min_products) {
+
+	foreach my $country_ref (values %{$packagings_stats_ref->{countries}}) {
+		foreach my $category (keys %{$country_ref->{categories}}) {
+			if ($country_ref->{categories}{$category}{n} < $min_products) {
+				delete $country_ref->{categories}{$category};
+				next;
+			}
+			my $category_ref = $country_ref->{categories}{$category};
+			delete $category_ref->{shapes_parents};
+			my $shapes_ref = $category_ref->{shapes};
+			foreach my $shape (keys %$shapes_ref) {
+				if ($shapes_ref->{$shape}{n} < $min_products) {
+					delete $shapes_ref->{$shape};
+					next;
+				}
+				my $shape_ref = $shapes_ref->{$shape};
+				delete $shape_ref->{materials_parents};
+				my $materials_ref = $shape_ref->{materials};
+				foreach my $material (keys %$materials_ref) {
+					if ($materials_ref->{$material}{n} < $min_products) {
+						delete $materials_ref->{$material};
+					}
+				}
+			}
+		}
+	}
+
+	return;
+}
+
 =head2 store_stats($name, $packagings_stats_ref)
 
-Store the stats in .sto format for internal use in Product Opener,
-and in JSON in /html/data for external use.
+Store the stats in JSON format for internal use in Product Opener and store a copy in the static web directory
 
 =cut
 
@@ -249,31 +308,16 @@ sub store_stats ($name, $packagings_stats_ref) {
 		or mkdir("$www_root/data/categories_stats", oct(755))
 		or die("Could not create target directory $www_root/data/categories_stats : $!\n");
 
-	# Perl structure in .sto format
+	store_json("$data_root/data/categories_stats/categories_packagings_stats.$name.json", $packagings_stats_ref);
 
-	store("$data_root/data/categories_stats/categories_packagings_stats.$name.sto", $packagings_stats_ref);
-
-	# JSON
-
-	binmode STDOUT, ":encoding(UTF-8)";
-	if (open(my $JSON, ">", "$www_root/data/categories_stats/categories_packagings_stats.$name.json")) {
-		print $JSON encode_json($packagings_stats_ref);
-		close($JSON);
-	}
+	store_json("$www_root/data/categories_stats/categories_packagings_stats.$name.json", $packagings_stats_ref);
 
 	# special export for French yogurts for the "What's around my yogurt?" operation in January 2023
 	# https://fr.openfoodfacts.org/categorie/desserts-lactes-fermentes/misc/en:packagings-with-weights
-	if (
-		open(
-			my $JSON, ">",
-			"$www_root/data/categories_stats/categories_packagings_stats.fr.fermented-dairy-desserts.$name.json"
-		)
-		)
-	{
-		print $JSON encode_json(
-			$packagings_stats_ref->{countries}{"en:france"}{categories}{"en:fermented-dairy-desserts"});
-		close($JSON);
-	}
+	store_json(
+		"$www_root/data/categories_stats/categories_packagings_stats.fr.fermented-dairy-desserts.$name.json",
+		$packagings_stats_ref->{countries}{"en:france"}{categories}{"en:fermented-dairy-desserts"}
+	);
 
 	return;
 }
@@ -282,7 +326,7 @@ sub store_stats ($name, $packagings_stats_ref) {
 
 Generate packaging stats for products matching a specific query.
 
-Stats are saved in .sto format in $data_root/data/categories_stats/
+Stats are saved in .json format in $data_root/data/categories_stats/
 and in JSON format in $www_root/data/categories_stats/
 
 =head3 Arguments
@@ -295,7 +339,7 @@ and in JSON format in $www_root/data/categories_stats/
 
 sub generate_packaging_stats_for_query ($name, $query_ref) {
 
-	# we will filter out empty and obsolet products
+	# we will filter out empty and obsolete products
 	$query_ref->{'empty'} = {"\$ne" => 1};
 	$query_ref->{'obsolete'} = {"\$ne" => 1};
 
@@ -332,12 +376,20 @@ sub generate_packaging_stats_for_query ($name, $query_ref) {
 		add_product_to_stats($name, $packagings_stats_ref, $product_ref);
 	}
 
-	# Compute stats for weights
 	if ($name eq "packagings-with-weights") {
+		# Compute stats for weights
 		compute_stats_for_all_weights($packagings_stats_ref);
 	}
 
 	store_stats($name, $packagings_stats_ref);
+
+	if ($name eq "all") {
+		# Compute smaller stats where we keep only shapes and materials that are popular
+		# This data is used for autocomplete suggestions in ProductOpener::APITaxonomySuggestions
+
+		remove_unpopular_categories_shapes_and_materials($packagings_stats_ref, 5);
+		store_stats($name . ".popular", $packagings_stats_ref);
+	}
 
 	return;
 }
@@ -346,4 +398,3 @@ generate_packaging_stats_for_query("packagings-with-weights", {misc_tags => 'en:
 generate_packaging_stats_for_query("all", {});
 
 exit(0);
-
