@@ -2047,7 +2047,8 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 				uploaded_images => {},
 				selected_images => {},
 				fields => {},
-				nutriments => {}
+				nutriments => {},
+				packagings => {},
 			);
 
 			# Uploaded images
@@ -2110,6 +2111,23 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 				}
 			}
 
+			# Packagings components
+			if (defined $product_ref->{packagings}) {
+				# To check if packaging data (shape, materials etc.) and packaging weights have changed
+				# we compute a scalar serialization for them so that it's easy to see if they have changed
+				my $packagings_data_signature = "";
+				my $packagings_weights_signature = "";
+				foreach my $packagings_ref (@{$product_ref->{packagings}}) {
+					foreach my $property (qw(shape material recycling number_of_units quantity_per_unit)) {
+						$packagings_data_signature .= $property . ":" . ($packagings_ref->{$property} || '') . ",";
+					}
+					$packagings_data_signature .= "\n";
+					$packagings_weights_signature .= ($packagings_ref->{weight_measured} || '') . "\n";
+				}
+				$current{packagings}{data} = $packagings_data_signature;
+				$current{packagings}{weights_measured} = $packagings_data_signature;
+			}
+
 			$current{checked} = $product_ref->{checked};
 			$current{last_checked_t} = $product_ref->{last_checked_t};
 		}
@@ -2128,7 +2146,7 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 			record_user_edit_type($users_ref, "checkers", $product_ref->{last_checker});
 		}
 
-		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutriments') {
+		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutriments', 'packagings') {
 
 			defined $blame_ref->{$group} or $blame_ref->{$group} = {};
 
@@ -2164,6 +2182,9 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 			}
 			elsif ($group eq 'nutriments') {
 				@ids = @{$nutriments_lists{europe}};
+			}
+			elsif ($group eq 'packagings') {
+				@ids = ("data", "weights_measured");
 			}
 			else {
 				my $uniq = sub {
@@ -2264,6 +2285,13 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 
 					}
 
+					# Packagings
+					if (($group eq 'packagings') and ($id eq 'weights_measured')
+						and (($diff eq 'add') or ($diff eq 'change'))) {
+							record_user_edit_type($users_ref, "weighters", $userid);
+						}
+
+					# Uploaded photos + all fields
 					if (($diff eq 'add') and ($group eq 'uploaded_images')) {
 						record_user_edit_type($users_ref, "photographers", $userid);
 					}
