@@ -136,7 +136,7 @@ tail:
 
 cover:
 	@echo "🥫 running …"	
-	${DOCKER_COMPOSE_TEST} exec -T backend prove -l -r -MDevel::Cover tests/unit
+	${DOCKER_COMPOSE_TEST} exec -T backend prove -l -r --MDevel::Cover tests/unit
 
 codecov:
 	@echo "🥫 running …"
