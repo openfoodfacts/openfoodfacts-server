@@ -124,6 +124,7 @@ sub add_invalid_method_error ($response_ref, $request_ref) {
 			impact => {id => "failure"},
 		}
 	);
+	return;
 }
 
 =head2 read_request_body ($request_ref)
