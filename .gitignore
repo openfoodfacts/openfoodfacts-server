@@ -5,6 +5,10 @@ lib/ProductOpener/SiteLang.pm
 taxonomies/nutrient_levels.txt
 po/site-specific
 
+# tests outputs
+tests/unit/outputs/
+tests/integration/outputs/
+
 # Local files
 .DS_Store?
 ._*
@@ -15,11 +19,12 @@ Thumbs.db
 .vstags
 # editors
 .~*
+.*.swo
 .*.swp
 .vscode/launch.json
 .vscode/perl-lang/
 .vscode/settings.json
-
+.idea/
 
 # Logs
 logs/

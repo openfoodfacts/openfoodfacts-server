@@ -1,0 +1,52 @@
+type: object
+properties:
+  code:
+    type: string
+    description: The barcode of the product to be added or edited
+    example: '0074570036004'
+  user_id:
+    type: string
+    description: A valid username.
+    example: myusername
+  password:
+    type: string
+    description: A valid corresponding password.
+    example: mypassword
+  brands:
+    schema:
+      type: array
+      items:
+        type: string
+    style: form
+    explode: false
+    description: The brands of the product (comma separated list of values).
+    example: Häagen-Dazs,General-mills
+  labels:
+    schema:
+      type: array
+      items:
+        type: string
+    style: form
+    explode: false
+    description: The labels of the product (comma separated list of values).
+    example: Kosher,Ferroro
+  categories:
+    schema:
+      type: array
+      items:
+        type: string
+    style: form
+    explode: false
+    description: The categories of the product (comma separated list of values).
+    example: Desserts,Frozen foods
+  packaging:
+    type: string
+    description: |
+      Packaging type, format, material.
+      The [v3 API documentation](https://openfoodfacts.github.io/openfoodfacts-server/reference/api-v3/#operation/post-api-v3-product-barcode)
+      has a more structured data for `packaging`.
+    example: Frozen
+required:
+  - code
+  - user_id
+  - password

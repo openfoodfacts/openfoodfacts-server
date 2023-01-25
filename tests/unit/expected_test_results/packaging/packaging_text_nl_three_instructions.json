@@ -1,0 +1,26 @@
+{
+   "lc" : "nl",
+   "misc_tags" : [
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty"
+   ],
+   "packaging_text" : "schaal bij plastic afval, folie bij plastic afval, karton bij oud papier",
+   "packagings" : [
+      {
+         "material" : "en:plastic",
+         "recycling" : "en:recycle-with-plastics",
+         "shape" : "en:bowl"
+      },
+      {
+         "material" : "en:plastic",
+         "recycling" : "en:recycle-with-plastics",
+         "shape" : "en:film"
+      },
+      {
+         "material" : "en:cardboard",
+         "recycling" : "en:recycle-in-paper-bin",
+         "shape" : "en:unknown"
+      }
+   ]
+}

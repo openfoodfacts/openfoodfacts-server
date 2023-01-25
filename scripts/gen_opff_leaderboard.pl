@@ -8,7 +8,6 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 
-
 use Encode;
 use JSON;
 
@@ -44,37 +43,36 @@ my $bars = "";
 if (defined $categories_ref) {
 
 	$categories_ref = $categories_ref->{tags};
-	
+
 	foreach my $category_ref (@{$categories_ref}) {
-	
-	
+
 		my $category = $category_ref->{id};
 		my $id = $category;
 		$id =~ s/:/-/g;
 		my $animal = $id;
 		$animal =~ s/^en-//;
 		$animal =~ s/-food$//;
-		
+
 		next if not defined $categories_of_interest{$category};
-	
+
 		if (not defined $max) {
 			$max = $category_ref->{products};
 		}
-		
+
 		my $products = $category_ref->{products};
-		
+
 		my $x = 10 + ($width + 10) * $i;
 		my $height = $max_height * ($products / $max);
 		my $y = 100 + $max_height - $height;
 		my $y_icon = $y - 80;
 		my $icon_height = $width * 0.75;
-		
+
 		my $xtext = $x + 45;
 		my $ytext = $max_height + 130;
-		
+
 		my $color = $categories_of_interest{$category};
 		my $url = $category_ref->{url};
-		
+
 		$bars .= <<SVG
 <a xlink:href="$url">
 <svg:rect id="bar_$id" x="$x" y="$y" width="$width" height="$height" style="fill:#$color" />
@@ -84,16 +82,12 @@ $products
 </svg:text>
 </a>
 SVG
-;
-		
-			
+			;
+
 		$i++;
 	}
 
 }
-
-
-
 
 my $svg = <<SVG
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -116,8 +110,8 @@ $bars
 </svg>
 
 SVG
-;
+	;
 
-open (my $OUT, ">:encoding(UTF-8)", "$www_root/images/misc/opff-leaderboard.svg");
+open(my $OUT, ">:encoding(UTF-8)", "$www_root/images/misc/opff-leaderboard.svg");
 print $OUT $svg;
 close $OUT;
