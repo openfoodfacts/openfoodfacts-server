@@ -15,10 +15,10 @@ info:
     url: 'https://opendatacommons.org/licenses/odbl/summary/index.html'
   version: '2'
 servers:
-  - url: 'https://world.openfoodfacts.org'
-    description: prod
   - description: dev
     url: 'https://off:off@world.openfoodfacts.net'
+  - url: 'https://world.openfoodfacts.org'
+    description: prod
 paths:
   '/api/v2/product/{barcode}':
     get:

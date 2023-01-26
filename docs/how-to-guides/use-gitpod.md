@@ -1,8 +1,13 @@
 # Using Gitpod for Remote Development
+If your computer performance restricts you from developing, you can use [Gitpod](https://gitpod.io). 
+Gitpod allows you to do the devs on an ephemeral environment. It is free for a maximum of 500 credits or 
+50 hours per months (https://www.gitpod.io/pricing).
 
-[Gitpod](https://gitpod.io) provides powerful ready-to-code developer environments in the cloud eliminating the friction
+Gitpod provides a robust ready-to-code developer environment in the cloud eliminating the friction
 of setting up local environments and IDEs with Perl, Docker and plugins, making it possible for even new contributors to
 OpenFoodFacts Server to get started in minutes instead of hours!
+
+
 
 Note that while this how-to is tailored for Gitpod, using alternatives like [GitHub Codespaces][github-codespaces] should be
 similar.
@@ -11,6 +16,13 @@ For the most part, development on Gitpod is similar to developing locally as doc
 in the [quickstart guide](../introduction/dev-environment-quick-start-guide.md)
 and [docker-developer-guide](docker-developer-guide.md), however accessing your dev-deployment of
 `openfoodfacts-server` requires an extra step.
+
+## Connect GitHub and Gitpod
+When you use Gitpod, you allow Gitpod to use your GitHub account.
+
+In GitHub, you can review (and revoke if you stop using Gitpod) the access granted to Gitpod: click on your avatar on top right of the screen, then, Settings. In the left panel, under Integrations, click on Applications, then, Authorized OAuth Apps.
+
+On the Gitpod side, you can also update what Gitpod is allowed to do with your GitHub account: click on your avatar on the top right of the screen, then, Settings. In the left panel, click on Integrations. The line for GitHub should be green. At the end of this line, click on the three dots, then Edit Permissions. '''If you want to create a pull request via Gitpod, you need to grant public_repo access.'''
 
 ## Get Started
 
@@ -40,3 +52,28 @@ on http://openfoodfacts.localhost just as documented in the quickstart guide!
 
 [gitpod-ssh-guide]: https://www.gitpod.io/blog/copy-paste-ssh-workspace-access
 [github-codespaces]: https://github.com/features/codespaces
+
+**Remark:** for some Linux distributions, the port 80 is reserved. A workaround is to switch to port 8080: in gitpod, open the .env file and replace the line PRODUCT_OPENER_PORT=80 by PRODUCT_OPENER_PORT=8080, then replace -L 80:localhost:80 by -L 8080:localhost:8080. **Rollback the changes on .env before to make a pull request!***  
+
+Create an account to be able to edit products.
+
+## Some commands
+After you made devs and want to apply changes and see them on the website, you can run:  
+```
+$ docker-compose restart 
+```
+```
+$ make up  
+```
+
+If you face some difficulties, you can always look at the logs (use ctrl + c, to quit):  
+```
+$ make log  
+```
+```
+$ make tail  
+```
+After development, before opening a pull request, run the following command:  
+```
+$ make checks  
+```  

@@ -546,7 +546,7 @@ function initializeTagifyInput(el) {
     let abortController;
     input.on("input", function(event) {
         const value = event.detail.value;
-        input.settings.whitelist = []; // reset the whitelist
+        input.whitelist = null; // reset the whitelist
 
         if (el.dataset.autocomplete && el.dataset.autocomplete !== "") {
             // https://developer.mozilla.org/en-US/docs/Web/API/AbortController/abort
@@ -556,13 +556,13 @@ function initializeTagifyInput(el) {
 
             abortController = new AbortController();
 
-            fetch(el.dataset.autocomplete + "term=" + value, {
+            fetch(el.dataset.autocomplete + "&string=" + value, {
                 signal: abortController.signal
             }).
             then((RES) => RES.json()).
-            then(function(whitelist) {
-                input.settings.whitelist = whitelist;
-                input.dropdown.show.call(input, value); // render the suggestions dropdown
+            then(function(json) {
+                input.whitelist = json.suggestions;
+                input.dropdown.show(value); // render the suggestions dropdown
             });
         }
     });
