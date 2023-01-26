@@ -1,3 +1,4 @@
+Product:
 type: object
 properties:
   _id:
@@ -155,7 +156,7 @@ properties:
   created_t:
     type: integer
     description: |
-      Date when the product was added (UNIX timestamp format).    
+      Date when the product was added (UNIX timestamp format).
   creator:
     type: string
     description: |
@@ -851,7 +852,7 @@ properties:
         properties:
           grade: string
           score: integer
-          agribalyse: 
+          agribalyse:
             - $ref: '#/properties/ecoscore_data/properties/agribalyse'
       score:
         type: integer
@@ -1034,7 +1035,7 @@ properties:
   generic_name:
     type: string
     description: |
-      Legal name of the product as regulated 
+      Legal name of the product as regulated
       by the European authorities.
   generic_name_en:
     type: string
@@ -1125,7 +1126,7 @@ properties:
     type: string
     description: |
       Raw list of ingredients. This will get automatically
-      parsed and get used to compute the Eco-Score. You can 
+      parsed and get used to compute the Eco-Score. You can
       either request it (if it exists) or send it in a specific language.
     example: ingredients_text_en
   ingredients_text_ar:
@@ -1317,8 +1318,8 @@ properties:
   no_nutrition_data:
     type: string
     description: |
-      When a product does not have nutrition data displayed on the 
-      packaging, the user can check the field "Nutrition facts are 
+      When a product does not have nutrition data displayed on the
+      packaging, the user can check the field "Nutrition facts are
       not specified on the product".
       By doing so, the no_nutrition_data field takes the value "on".
       This case is frequent (thousands of products).
@@ -1405,13 +1406,13 @@ properties:
       energy-kcal_unit:
         type: string
         description: |
-          The unit used in the field energy-kcal_unit 
-          (example in JSON: “energy_unit”: “kcal”). 
+          The unit used in the field energy-kcal_unit
+          (example in JSON: “energy_unit”: “kcal”).
           The only possible value is “kcal.”'
       energy-kcal_value:
         type: integer
         description: |
-          The standardized value of a serving of 100g 
+          The standardized value of a serving of 100g
           (or 100ml for liquids) for energy expressed in kcal.
         example: 190
       energy-kj:
@@ -1431,32 +1432,32 @@ properties:
       energy_unit:
         type: string
         description: |
-          The unit used in the energy_value field 
-          (example in JSON: “energy_unit”: “kJ”). 
+          The unit used in the energy_value field
+          (example in JSON: “energy_unit”: “kJ”).
           Possible values are “kJ” or “kcal”.'
       energy_value:
         type: integer
         description: |
-          The standardized value of a serving of 100g 
-          (or 100ml for liquids) for energy expressed in 
+          The standardized value of a serving of 100g
+          (or 100ml for liquids) for energy expressed in
           the unit specified in the field energy_unit.
         example: 190
       erythritol:
         type: integer
         description: |
-          erythritol is a polyol which is not providing any energy. 
-          As such, it needs not be taken into account when computing 
-          the energy of a product. Eryhtritol is now displayed on 
+          erythritol is a polyol which is not providing any energy.
+          As such, it needs not be taken into account when computing
+          the energy of a product. Eryhtritol is now displayed on
           nutrition facts sheet of some products, mainly in the USA.
-          This value is entered either by contributors, either by 
+          This value is entered either by contributors, either by
           imports.
         example: 4
       erythritol_100g:
         type: number
         description: |
-          erythritol is a polyol which is not providing any energy. 
-          As such, it needs not be taken into account when computing 
-          the energy of a product. Eryhtritol is now displayed on 
+          erythritol is a polyol which is not providing any energy.
+          As such, it needs not be taken into account when computing
+          the energy of a product. Eryhtritol is now displayed on
           nutrition facts sheet of some products, mainly in the USA.
           This value per 100g is computed from erythritol, erythritol_unit,
           and serving_size.
@@ -1493,8 +1494,8 @@ properties:
       nutrition-score-fr_100g:
         type: integer
         description: |
-          Experimental nutrition score derived from 
-          the UK FSA score and adapted for the French market 
+          Experimental nutrition score derived from
+          the UK FSA score and adapted for the French market
           (formula defined by the team of Professor Hercberg).
       proteins:
         type: number
@@ -1766,11 +1767,11 @@ properties:
   packaging_text:
     type: string
     description: |
-      Recycling instructions as raw text, e.g. Plastic 
+      Recycling instructions as raw text, e.g. Plastic
       bottle to recycle, Plastic cap to recycle.
-      This will get automatically parsed and 
-      will be used to compute the Eco-Score. 
-      You can either request it (if it exists) or 
+      This will get automatically parsed and
+      will be used to compute the Eco-Score.
+      You can either request it (if it exists) or
       send it in a specific language.
     example: packaging_text_en
   packaging_text_en:
@@ -1781,7 +1782,7 @@ properties:
   packagings:
     $ref: ./packagings/packagings.yaml
   packagings_complete:
-    $ref: ./packagings/packagings_complete.yaml  
+    $ref: ./packagings/packagings_complete.yaml
   photographers_tags:
     type: array
     items:
@@ -2047,10 +2048,10 @@ properties:
   traces:
     type: string
     description: |
-      List of substances that might cause allergies 
-      that are present in trace amounts in the product 
-      (this does not include the ingredients, as they 
-      are not only present in trace amounts). 
+      List of substances that might cause allergies
+      that are present in trace amounts in the product
+      (this does not include the ingredients, as they
+      are not only present in trace amounts).
       It is taxonomized with the allergens taxonomy.
   traces_from_ingredients:
     type: string
