@@ -1933,6 +1933,7 @@ sub record_user_edit_type ($users_ref, $user_type, $user_id) {
 			push @{$users_ref->{$user_type}{list}}, $user_id;
 		}
 	}
+	return;
 }
 
 sub compute_product_history_and_completeness ($product_data_root, $current_product_ref, $changes_ref, $blame_ref) {
