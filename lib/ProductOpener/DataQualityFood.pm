@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -739,6 +739,10 @@ sub check_nutrition_data ($product_ref) {
 					else {
 						$nid_non_zero++;
 					}
+				}
+				# negative value in nutrition table, exclude key containing "nutrition-score" as they can be negative
+				if (($product_ref->{nutriments}{$nid} < 0) and (index($nid, "nutrition-score") == -1)) {
+					push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-negative-$nid2";
 				}
 			}
 

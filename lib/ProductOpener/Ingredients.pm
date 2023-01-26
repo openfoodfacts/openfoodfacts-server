@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -159,7 +159,7 @@ my %may_contain_regexps = (
 		"saattaa sisältää pienehköjä määriä muita|saattaa sisältää pieniä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää pieniä määriä|voi sisältää vähäisiä määriä|saattaa sisältää hivenen|saattaa sisältää pieniä|saattaa sisältää jäämiä|sisältää pienen määrän|jossa käsitellään myös|saattaa sisältää myös|joka käsittelee myös|jossa käsitellään|saattaa sisältää",
 	fr =>
 		"peut également contenir|peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
-	hr => "može sadržavati|može sadržati|proizvod može sadržavati",
+	hr => "može sadržavati|može sadržavati tragove|može sadržati|proizvod može sadržavati|sadrži",
 	is => "getur innihaldið leifar|gæti innihaldið snefil|getur innihaldið",
 	it =>
 		"Pu[òo] contenere tracce di|pu[òo] contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
@@ -3396,7 +3396,7 @@ my %phrases_before_ingredients_list = (
 		'composition',
 	],
 
-	hr => ['HR', 'HR BiH', 'HR/BIH', 'Sastojci', 'Sastojci/Sestavine'],
+	hr => ['HR BiH', 'HR/BIH', 'naziv proizvoda', 'popis sastojaka', 'Sastojci', 'Sastojci/Sestavine'],
 
 	hu => ['(ö|ő|o)sszetev(ö|ő|o)k', 'összetétel',],
 
@@ -3686,21 +3686,27 @@ my %phrases_after_ingredients_list = (
 	],
 
 	hr => [
-		'Bez konzervans',    # without preservatives
+		'bez konzervans',    # without preservatives
 		'Čuvati na (hladnom|sobnoj temperaturi|suhom|temperaturi)',    # store in...
-		'Najbolje upotrijebiti do',    # best before
-		'Nakon otvaranja',    # after opening
-		'Pakirano u (kontroliranoj|zaštitnoj) atmosferi',    # packed in a ... atmosphere
-		'Pasterizirano',    # Pasteurized
-		'Proizvođač',    # producer
-		'Prosječna hranjiva vrijednost',    # Average nutritional value
-		'Upotrijebiti do datuma',    # valid until
-		'Upozorenje',    # warning
-		'Uputa',    # instructions
-		'Vakuumirana',    # Vacuumed
-		'Vrijeme kuhanja',    # Cooking time
-		'Zbog (mutan|prisutnosti)',    # Due to ...
-		'Zemlja porijekla',    # country of origin
+		'Čuvati zatvoreno na',
+		'Čuvati pri sobnoj temperaturi',
+		'izvor dijetalnih vlakana',    # source of proteins
+		'najbolje upotrijebiti do',    # best before
+		'nakon otvaranja',    # after opening
+		'pakirano u (kontroliranoj|zaštitnoj) atmosferi',    # packed in a ... atmosphere
+		'proizvod je termički obrađen-pasteriziran',    # pasteurized
+		'proizvođač',    # producer
+		'prosječn(a|e) (hranjiva|hranjive|nutritivne) (vrijednost|vrijednosti)',    # Average nutritional value
+		'protresti prije otvaranja',    # shake before opening
+		'upotrijebiti do datuma',    # valid until
+		'upozorenje',    # warning
+		'uputa',    # instructions
+		'uvoznik za',    # importer
+		'vakuumirana',    # Vacuumed
+		'vrijeme kuhanja',    # Cooking time
+		'zaštićena oznaka zemljopisnog podrijetla',    # ZOI/PDO
+		'zbog (mutan|prisutnosti)',    # Due to ...
+		'zemlja (porijekla|podrijetla|porekla)',    # country of origin
 	],
 
 	hu => [

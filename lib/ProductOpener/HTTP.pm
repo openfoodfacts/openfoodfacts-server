@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2021 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -118,7 +118,7 @@ sub get_cors_headers ($allow_credentials = 0, $sub_domain_only = 0) {
 			}
 		}
 	}
-	$headers_ref->{"Access-Control-Allow-Origins"} = $allow_origins;
+	$headers_ref->{"Access-Control-Allow-Origin"} = $allow_origins;
 	if ($allow_origins ne "*") {
 		# see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin#cors_and_caching
 		$headers_ref->{"Vary"} = "Origin";

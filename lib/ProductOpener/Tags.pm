@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -152,6 +152,8 @@ BEGIN {
 		&get_taxonomy_tag_synonyms
 
 		&generate_regexps_matching_taxonomy_entries
+
+		&cmp_taxonomy_tags_alphabetically
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -4420,6 +4422,37 @@ sub generate_regexps_matching_taxonomy_entries ($taxonomy, $return_type, $option
 	}
 
 	return $result_ref;
+}
+
+=head2 cmp_taxonomy_tags_alphabetically($tagtype, $target_lc, $a, $b)
+
+Comparison function for canonical tags entries in a taxonomy.
+
+To be used as a sort function in a sort() call.
+
+Each tag is converted to a string, by priority:
+1 - the tag name in the target language
+2 - the tag name in the xx language
+3 - the tag id
+
+=head3 Arguments
+
+=head4 $tagtype
+
+The type of the tag (e.g. categories, labels, allergens)
+
+=head4 $target_lc
+
+=head4 $a
+
+=head4 $b
+
+=cut
+
+sub cmp_taxonomy_tags_alphabetically ($tagtype, $target_lc, $a, $b) {
+
+	return ($translations_to{$tagtype}{$a}{$target_lc} || $translations_to{$tagtype}{$a}{"xx"} || $a)
+		cmp($translations_to{$tagtype}{$b}{$target_lc} || $translations_to{$tagtype}{$b}{"xx"} || $b);
 }
 
 $log->info("Tags.pm loaded") if $log->is_info();

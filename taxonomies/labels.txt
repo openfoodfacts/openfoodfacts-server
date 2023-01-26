@@ -878,6 +878,10 @@ wikidata:en:Q2632776
 opposite:en: en:contains-gluten
 
 <en:No gluten
+en:Certified gluten-free
+# https://gfco.org/gluten-intolerance-group-announces-the-rebranding-of-the-gluten-free-certification-organization-gfco-mark-to-support-global-expansion/
+
+<en:No gluten
 en:Crossed Grain Symbol, Crossed Grain
 xx:Crossed Grain Symbol
 
@@ -3023,7 +3027,7 @@ es:Sin potenciadores del sabor
 fi:ei arominvahventeita
 fr:sans exhausteur de goût, sans exhausteurs de goût
 he:ללא מחזקי טעם
-hr:bez pojačivača okusa
+hr:bez pojačivača okusa, bez dodanih pojačivača okusa
 hu:ízfokozómentes, ízfokozó mentes, ízfokozó nélkül, ízfokozót nem tartalmaz
 it:Senza esaltatori di sapidità
 nl:Geen toegevoegde smaakstoffen
@@ -3675,6 +3679,7 @@ es:Ecológico UE, Ecológico U.E., Producto ecológico europeo
 fi:EU Luomu, EU:n luomu, Euroopan luomu, Euroopan lehti, Euroopan luomulehti
 fr:Bio européen, Label bio européen, bio ce, bio europe, Eurofeuille, Euro-Feuille, Feuille bio
 he:אורגני בתקן אירופאי
+hr:EU Oragnic
 hu:EU Organic, EU bio, EU öko
 it:Biologico UE
 nl:EU Organic
@@ -17511,6 +17516,8 @@ wikipedia:en:Vegetarianism
 en:Green Dot India, India Green Dot, Indian Green Dot, vegetarian mark India
 wikidata:en:Q7918353
 
+
+
 <en:Vegetarian
 en:Vegan, Suitable for vegans, Suitable for vegetarians and vegans, vegetal, from plants, derived from plants, vegetal origin, not from animals, not derived from animals, non-animal, from vegetal source
 an:vegano
@@ -17552,6 +17559,12 @@ opposite:en: en:vegan
 <en:Vegan
 en:EcoVeg
 xx:EcoVeg
+
+<en:Vegan
+en:VegeCert - Certified Vegan
+
+<en:Vegan
+en:Certified iVegan
 
 en:NZ Vegetarian Society, NZVS
 xx:NZ Vegetarian Society, NZVS
@@ -19251,6 +19264,36 @@ nl:Nutriscore E
 xx:Nutriscore E
 label_categories:en: en:Nutrition Grades, en:Health
 
+en:Nutri-Score A/B
+xx:Nutri-Score A/B
+
+en:Nutri-Score A/C
+xx:Nutri-Score A/C
+
+en:Nutri-Score A/D
+xx:Nutri-Score A/D
+
+en:Nutri-Score A/E
+xx:Nutri-Score A/E
+
+en:Nutri-Score B/C
+xx:Nutri-Score B/C
+
+en:Nutri-Score B/D
+xx:Nutri-Score B/D
+
+en:Nutri-Score B/E
+xx:Nutri-Score B/E
+
+en:Nutri-Score C/D
+xx:Nutri-Score C/D
+
+en:Nutri-Score C/E
+xx:Nutri-Score C/E
+
+en:Nutri-Score D/E
+xx:Nutri-Score D/E
+
 es:EXCESO CALORÍAS
 description:en:Products must display the EXCESO CALORÍAS seal if they exceed the following threshold for Calories: > 275 kcal total per 100g of solid product > 70 kcal total or > 10 kcal added sugars per 100 mL of liquid product
 label_categories:en: en:Nutrition Grades, en:Health
@@ -19358,11 +19401,14 @@ origins:en: en:france
 fr:Légumes de France, Légumes français
 origins:en: en:france
 
+fr:concombres cultivés en france
+origins:en: en:france
+
 fr:Maïs de France
 origins:en: en:france
 ingredients:en: en:corn
 
-fr:Tomates de France
+fr:Tomates de France, Tomates cultivées en France
 origins:en: en:france
 ingredients:en: en:tomato
 
@@ -19392,8 +19438,9 @@ pt:Maçãs da França
 origins:en: en:france
 ingredients:en: en:apple
 
-en:I protect the bees
-fr:Je protège les abeilles
+en:Bee Friendly, I protect the bees
+fr:Bee Friendly, Je protège les abeilles
+xx:Bee Friendly
 
 en:Honey from France
 de:Honig aus Frankreich
