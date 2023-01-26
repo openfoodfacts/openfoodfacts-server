@@ -128,6 +128,7 @@ $productsGutter:12;
   display: flex;
   align-items: center;
   gap: 1rem;
+  z-index: 1;
   @media #{$small-only} {
     flex-direction: column;
     padding: .5rem;
@@ -229,7 +230,6 @@ $greeter-discover-bgcolor: #E3F6FF;
 $greeter-contribute-bgcolor: #FFF2DF;
 
 // RTL Support
-
 [dir=rtl] .homepage-greeter-wrapper::before {
   background: linear-gradient(90deg, $greeter-contribute-bgcolor 50%, $greeter-discover-bgcolor 50%) !important;
 }
@@ -238,25 +238,27 @@ $greeter-contribute-bgcolor: #FFF2DF;
 [dir=rtl] .homepage-greeter__contribute {
   flex-direction: row-reverse !important;
 }
-
 // end of RTL Support
 
 .homepage-greeter {
   display: inline-grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  grid-template-rows: auto;
+  margin-top: -.5rem;
   @media #{$small-only} { grid-template-rows: max-content; width: 100%; }
-  @media #{$large-up} { max-width: 1280px; }
+  @media #{$large-up} { max-width: 1280px; grid-template-rows: 300px; }
+  & .show-when-logged-in { display: none; }
   &-wrapper {
     display: flex;
     justify-content: center;
+    z-index: 0;
     &::before {
       display: inline-block;
       content: '';
       position: absolute;
+      margin-top: -.5rem;
       width: 100vw;
       height: 100%;
-      max-height: 280px;
+      max-height: 300px;
       background: linear-gradient(90deg, $greeter-discover-bgcolor 50%, $greeter-contribute-bgcolor 50%);
     }
   }
@@ -279,7 +281,7 @@ $greeter-contribute-bgcolor: #FFF2DF;
       width: 100%;
       height: 100%;
       @media #{$small-only} { display: none; }
-      @media #{$medium-only} { opacity: .5; }
+      @media #{$medium-only} { opacity: .25; }
       img {
         position: absolute;
         max-width: none;
