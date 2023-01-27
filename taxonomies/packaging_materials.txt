@@ -16,6 +16,12 @@ stopwords:xx:100%, RC, Recycling Code
 # The recycling codes must have the text label. e.g. do not put only the number "40" for "40 FE"
 # "40 FE" will also match variants like "40-FE".
 
+# Note on the descriptions:
+# Try to use the wiktionary entry for a basic description
+# use chatGPT with the question "Summarise in 3 sentences the production of material X, how it is used in food packaging and and how it is recycled"
+# use Google Translate for the language you understand.
+# Tweak as needed
+
 # List of recycling codes: https://en.wikipedia.org/wiki/Recycling_codes
 # https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:31997D0129&from=EN
 
@@ -1210,17 +1216,47 @@ xx:62 TEX, TEX 62, 63 TEX, TEX 63, 64 TEX, TEX 64, 65 TEX, TEX 65, 66 TEX, TEX 6
 
 en:Glass
 bg:Стъкло
+bs:Staklo
+ca:vidre
+cs:sklo
 da:Glas
 de:Glas
+el:γυαλί
 es:Vidrio, cristal
+et:klaas
+fi:lasi
 fr:Verre
+ga:gloine
 hr:staklo
 hu:Üveg
+is:Gler
 it:Vetro
+lt:Stiklas
+lv:stikls
+mk:стакло
+mt:ħġieġ
+nb:glass
+nn:glas
 nl:Glas, Glazen
 pl:szkło
 pt:vidro
+ro:sticlă
+ru:стекло
+sk:sklo
+sl:steklo
+sq:xham
+sr:стакло, staklo
+sv:glas
+tr:Cam
+uk:скло
 wikidata:en:Q11469
+description:de:Glas wird hergestellt, indem eine Mischung aus Kieselsäure, Soda und Kalkstein auf eine hohe Temperatur erhitzt wird, wodurch eine Flüssigkeit entsteht, die in verschiedene Formen geformt werden kann. Glas wird häufig in Lebensmittelverpackungen verwendet, da es ein undurchlässiges Material ist, das Lebensmittel vor Licht, Luft und Bakterien schützen und auch hohen Temperaturen standhalten kann. Glasverpackungen können recycelt werden, wobei das recycelte Glas zur Herstellung neuer Glasprodukte verwendet wird.
+description:en:Glass is produced by heating a mixture of silica, soda ash, and limestone to a high temperature, creating a liquid that can be molded into various shapes. Glass is commonly used in food packaging because it is an impermeable material that can protect food from light, air, and bacteria, and can also withstand high temperatures. Glass packaging can be recycled, with the recycled glass used to create new glass products.
+description:es:El vidrio se produce calentando una mezcla de sílice, carbonato de sodio y piedra caliza a alta temperatura, creando un líquido que se puede moldear en varias formas. El vidrio se usa comúnmente en el empaque de alimentos porque es un material impermeable que puede proteger los alimentos de la luz, el aire y las bacterias, y también puede soportar altas temperaturas. Los envases de vidrio se pueden reciclar y el vidrio reciclado se utiliza para crear nuevos productos de vidrio.
+description:fr:Le verre est produit en chauffant un mélange de silice, de carbonate de soude et de calcaire à haute température, créant ainsi un liquide qui peut être moulé en différentes formes. Le verre est couramment utilisé dans les emballages alimentaires car il s'agit d'un matériau imperméable qui peut protéger les aliments de la lumière, de l'air et des bactéries, et peut également résister à des températures élevées. Les emballages en verre peuvent être recyclés, le verre recyclé étant utilisé pour créer de nouveaux produits en verre.
+description:it:Il vetro viene prodotto riscaldando ad alta temperatura una miscela di silice, carbonato di sodio e calcare, creando un liquido che può essere modellato in varie forme. Il vetro è comunemente utilizzato negli imballaggi alimentari perché è un materiale impermeabile in grado di proteggere gli alimenti dalla luce, dall'aria e dai batteri e può anche resistere alle alte temperature. Gli imballaggi in vetro possono essere riciclati, con il vetro riciclato utilizzato per creare nuovi prodotti in vetro.
+description:nl:Glas wordt geproduceerd door een mengsel van silica, natriumcarbonaat en kalksteen tot een hoge temperatuur te verhitten, waardoor een vloeistof ontstaat die in verschillende vormen kan worden gegoten. Glas wordt vaak gebruikt in voedselverpakkingen omdat het een ondoordringbaar materiaal is dat voedsel kan beschermen tegen licht, lucht en bacteriën, en ook bestand is tegen hoge temperaturen. Glazen verpakkingen kunnen worden gerecycled, waarbij het gerecyclede glas wordt gebruikt om nieuwe glasproducten te maken.
+description:pt:O vidro é produzido pelo aquecimento de uma mistura de sílica, carbonato de sódio e calcário a uma temperatura elevada, criando um líquido que pode ser moldado em várias formas. O vidro é comumente usado em embalagens de alimentos porque é um material impermeável que pode proteger os alimentos da luz, do ar e das bactérias, além de suportar altas temperaturas. As embalagens de vidro podem ser recicladas, com o vidro reciclado usado para criar novos produtos de vidro.
 
 <en:Glass
 en:Clear Glass
