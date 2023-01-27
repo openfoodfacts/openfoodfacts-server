@@ -301,6 +301,21 @@ $options{product_type} = "food";
 		],
 	},
 
+	# as of 2023-01-27 far too much errors in updates
+	# No fix on the app
+	{
+		name => "Halal App Chakib",
+		conditions => [["user_id", "halal-app-chakib"],],
+		actions => [
+			["ignore"],
+		],
+		notifications => [
+			qw (
+				slack_channel_edit-alert
+			)
+		],
+	},
+
 );
 
 # server constants
