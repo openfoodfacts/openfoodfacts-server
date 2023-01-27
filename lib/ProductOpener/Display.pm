@@ -833,24 +833,6 @@ CSS
 	# call format_subdomain($subdomain) only once
 	$formatted_subdomain = format_subdomain($subdomain);
 
-	# Change the color of the top nav bar for the platform for producers
-	if ($server_options{producers_platform}) {
-		$styles .= <<CSS
-.top-bar {
-    background: #a9e7ff;
-}
-
-.top-bar-section li:not(.has-form) a:not(.button) {
-    background: #a9e7ff;
-}
-
-.top-bar-section .has-form {
-    background: #a9e7ff;
-}
-CSS
-			;
-	}
-
 	# Enable or disable user food preferences: used to compute attributes and to display
 	# personalized product scores and search results
 	if (    ((defined $options{product_type}) and ($options{product_type} eq "food"))

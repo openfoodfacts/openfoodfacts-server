@@ -58,13 +58,13 @@
       }
       &.left {
         li {
-          &:first-child {
+        //  &:first-child {
             a {
               display: inline-flex;
-              padding-top: 12px;
-              padding-bottom: 9px;
+           //   padding-top: 12px;
+          //    padding-bottom: 9px;
             }
-          }
+         // }
         }
       }
       // smallfix: Content alignment in the 'Sign In' button. 

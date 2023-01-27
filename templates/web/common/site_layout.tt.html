@@ -45,9 +45,13 @@
 								</span>
 							</a>
 							<ul class="dropdown">				
+								[% IF !(server_options_producers_platform) %]
+									<li><a href="[% lang('menu_discover_link') %]">[% lang('menu_discover') %]</a></li>
+									<li><a href="[% lang('menu_contribute_link') %]">[% lang('menu_contribute') %]</a></li>
+								[% ELSE %]
+									[% INCLUDE 'web/common/includes/producers_platform_menu_links.tt.html' %]
+								[% END %]
 
-								<li><a href="[% lang('menu_discover_link') %]">[% lang('menu_discover') %]</a></li>
-								<li><a href="[% lang('menu_contribute_link') %]">[% lang('menu_contribute') %]</a></li>
 								<li>
 									<a href="/cgi/search.pl">[% lang('advanced_search') %]</a>
 								</li>
