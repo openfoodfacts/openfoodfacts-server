@@ -5195,6 +5195,7 @@ es:Aguas, aguas embotelladas, agua embotellada
 fi:vedet
 fr:Eaux, eau, eaux en bouteilles, eau en bouteille, Eau de source en bouteille, Eau de source embouteillée
 he:סוגי מים
+hr:vode
 hu:Vízek
 it:Acque, acqua, acque in bottiglia, acqua in bottiglia
 lt:Vanduo
@@ -6300,10 +6301,6 @@ lt:Pieniško šokolado saldainiai, Pieniški šokoladiniai saldainiai
 nl:Melkchocolabonbons
 
 < en:Bonbons
-en:Peanut butter cups
-wikidata:en: Q7157931
-
-< en:Bonbons
 fr:Gingembrettes
 
 < en:Bonbons
@@ -6664,7 +6661,9 @@ lt:Sūrio kroketai
 nl:Kaaskroketten
 
 < en:Breaded chicken
+< en:Breaded meat cutlets
 en:Breaded chicken cutlets, Breaded turkey escalope
+de:Hähnchenschnitzel
 fi:Leivitetyt kanaleikkeet
 fr:Escalopes de poulet panées, Escalopes de poulet panée, Escalope de poulet panée
 it:Cotoletta di pollo impanata
@@ -6736,6 +6735,21 @@ ciqual_food_code:en: 26029
 ciqual_food_name:en: Fish, breaded, frozen, raw
 ciqual_food_name:fr: Poisson pané, surgelé, cru
 
+< en:Breaded meat cutlets
+en:Breaded pork cutlets
+de:Schweineschnitzel
+fr:Escalopes de porc panées
+
+< en:Breaded meat cutlets
+en:Breaded veal cutlets, Breaded veal escalopes
+de:Kalbsschnitzel
+fr:Escalopes de veau panées, Escalopes panées de veau
+agribalyse_food_code:en: 25173
+ciqual_food_code:en: 25173
+ciqual_food_name:en: Veal, bread escalope, cooked
+ciqual_food_name:fr: Veau, escalope panée, cuite
+wikidata:en: Q67881839
+
 en:Breaded products
 bg:Панирани продукти
 ca:Productes arrebossats
@@ -6797,13 +6811,13 @@ pl:Panierowane kotlety warzywne
 
 < en:Breaded products
 < en:Meat analogues
-en:Breaded fish substitutes, Vegetarian breaded fish substituts
-fr:Substituts du poisson pané
+en:Breaded cutlets substitutes, Schnitzel substitutes, Schnitzel substituts
+fr:Susbtituts des escalopes panés
 
 < en:Breaded products
 < en:Meat analogues
-en:Schnitzel substitutes, Schnitzel substituts
-fr:Susbtituts des escalopes panés
+en:Breaded fish substitutes, Vegetarian breaded fish substituts
+fr:Substituts du poisson pané
 
 < en:Breaded products
 < en:Meat analogues
@@ -6825,6 +6839,12 @@ agribalyse_proxy_food_name:fr: Nuggets soja et blé -convient aux véganes ou v�
 
 < en:Breaded products
 < en:Meat preparations
+en:Breaded meat cutlets
+de:Schnitzel
+fr:Escalopes de viande panées
+
+< en:Breaded products
+< en:Meat preparations
 en:Poultry nuggets
 de:Geflügelnuggets
 fi:Siipikarjanugetit
@@ -6842,6 +6862,23 @@ agribalyse_food_code:en: 25089
 ciqual_food_code:en: 25089
 ciqual_food_name:en: Veal escalope cordon bleu -topped with a ham slice and Gruyere sauce-
 wikidata:en: Q429518
+
+< en:Breaded meat cutlets
+< en:Breaded turkey
+en:Breaded turkey cutlets
+de:Putenschnitzel
+fr:Escalopes de dinde panées, Escalopes de dinde à la milanaise, escalopes de dinde milanaises, escalope de dinde viennoise, escalopes de dinde panées, escalope de dinde panée, Escalopes de dinde marinées à la milanaise
+agribalyse_food_code:en: 36318
+ciqual_food_code:en: 36318
+ciqual_food_name:en: Milanese-style turkey escalope or breaded veal escalope
+ciqual_food_name:fr: Dinde, escalope viennoise ou milanaise ou escalope panée
+
+< en:Breaded turkey
+< en:Poultry nuggets
+en:Turkey nuggets
+fi:Kalkkunanugetit
+fr:Nuggets de dinde
+nl:Kalkoennuggets
 
 < en:Breads
 en:Baguettes, French bread
@@ -11041,6 +11078,7 @@ de:Mais
 es:Maíz
 fi:maissi
 fr:Maïs
+hr:Kukuruz
 it:Mais
 la:Zea mays subsp. mays
 lt:Kukurūzai
@@ -11108,6 +11146,7 @@ es:Avena sativa
 fi:kaura
 fr:Avoines
 he:שיבולת שועל
+hr:zobene
 it:Avena
 la:Avena sativa
 lt:Avižos
@@ -11636,6 +11675,7 @@ es:Panes, Pan
 fi:leivät
 fr:Pains, pain
 he:לחמים
+hr:kruhovi
 hu:Kenyerek
 it:Pani, Pane
 lt:Duona, Duonos
@@ -13150,6 +13190,7 @@ en:Smoked cheeses
 bg:Пушено сирене и кашкавал
 de:Räucherkäse, Geräucherter Käse
 fr:Fromages fumés
+hr:Dimljeni sirevi
 hu:Füstölt sajtok
 lt:Rūkyti sūriai, Rūkytas sūris
 nl:Gerookte kazen, Rookkaas
@@ -14538,6 +14579,7 @@ de:Chips
 es:Chips fritos, papas fritas
 fi:Lastut, Sipsit
 fr:Chips, Chips de légumes
+hr:čips
 hu:Csipszek
 it:Patatine sottili, Patatine imbustate, Patatine croccanti
 lt:Traškučiai, Čipsai
@@ -14766,6 +14808,9 @@ ciqual_food_name:fr: Chocolat, en tablette -aliment moyen-
 wikidata:en: Q1361086
 
 < en:Chocolate candies
+en:Almond butter cups
+
+< en:Chocolate candies
 en:Bonbons
 ca:Bombons
 da:Bolsjer, karameller
@@ -14795,6 +14840,10 @@ wikidata:en: Q1578239
 en:Marshmallows coated with chocolate
 fr:Guimauves enrobées de chocolat
 lt:Zefyrai su šokolado glajumi
+
+< en:Chocolate candies
+en:Peanut butter cups
+wikidata:en: Q7157931
 
 < en:Chocolate candies
 en:Sugar coated chocolate confectioneries
@@ -15059,6 +15108,7 @@ fr:Œufs de Pâques, oeuf de pâques, Oeufs de pâques en chocolat, oeuf de pâq
 hu:Húsvéti csokoládé tojás
 it:Uova di pasqua
 lt:Velykiniai kiaušiniai, šokoladiniai kiaušiniai, velykiniai šokoladiniai kiaušiniai
+nl:Paaseieren
 
 < en:Chocolate milks
 en:Partially skimmed chocolate milks
@@ -16136,6 +16186,7 @@ es:Chocolates
 fi:suklaat
 fr:Chocolats, chocolat, produits chocolatés, produits au chocolat
 he:שוקולדים
+hr:čokolade
 hu:Csokoládék, csokoládé termékek
 it:Cioccolato
 lt:Šokoladai, Šokoladiniai gaminiai
@@ -17020,6 +17071,7 @@ es:Condimentos, Aderezos
 fi:mausteet
 fr:Condiments, Assaisonnements, assaisonnement
 he:מתבלים, מטבלים, תיבול
+hr:začini
 hu:Fűszerek
 it:Condimenti
 lt:Pagardai
@@ -17138,6 +17190,7 @@ et:Kasten, kaste
 fi:kastikkeet
 fr:Sauces
 he:רטבים
+hr:umaci
 hu:Szószok
 it:Salse
 lt:Padažai
@@ -17876,7 +17929,6 @@ ciqual_food_name:fr: Porc, échine, rôtie/cuite au four
 < en:Chickens
 < en:Cooked poultries
 en:Chicken cutlets
-de:Hähnchenschnitzel
 fi:kanaleikkeleet
 fr:Escalopes de poulet, escalope de poulet
 it:Cotolette di pollo
@@ -19588,6 +19640,7 @@ es:Camarones, Camarón
 fi:pirpana
 fr:Crevettes
 he:שרימפס, חסילונים
+hr:kozice
 it:Gambero
 nl:Garnalen
 pl:Krewetki
@@ -19929,7 +19982,7 @@ en:Madras curry sauce
 
 < en:Custard puddings
 en:Chocolate custard puddings
-fr:Crèmes chocolat aux œufs
+fr:Crèmes chocolat aux œufs, crème renversée au chocolat
 
 < en:Custard puddings
 en:Custard puddings with caramel sauce, Custard creams with caramel sauce
@@ -19942,7 +19995,7 @@ ciqual_food_name:fr: Crème caramel, rayon frais
 
 < en:Custard puddings
 en:Vanilla custard puddings
-fr:Crèmes vanille aux œufs
+fr:Crèmes vanille aux œufs, crème renversée vanille
 
 < en:Custard puddings with caramel sauce
 en:Refrigerated custard puddings with caramel sauce, Refrigerated custard cream with caramel sauce
@@ -20363,7 +20416,7 @@ wikidata:en: Q1142807
 < en:Dairy desserts
 en:Custard puddings
 es:Natillas al huevo
-fr:Crèmes aux œufs, crèmes aux oeufs
+fr:Crèmes aux œufs, crèmes aux oeufs, crèmes renversées, crème renversée
 
 < en:Dairy desserts
 en:Flans
@@ -22213,6 +22266,7 @@ es:Ciruelas pasas, Ciruelas deshidratadas
 fi:kuivatut luumut
 fr:Pruneaux, Pruneaux secs
 he:שזיפים מיובשים
+hr:Šljive
 it:Pesche secche
 lt:Džiovintos slyvos
 nl:Gedroogde pruimen
@@ -22652,15 +22706,6 @@ agribalyse_food_code:en: 9871
 ciqual_food_code:en: 9871
 ciqual_food_name:en: Dried pasta, wholemeal, cooked, unsalted
 ciqual_food_name:fr: Pâtes sèches, au blé complet, cuites, non salées
-
-< en:Drinkable yogurts
-en:Fermented milk drinks with fruits, Dairy drinks with sugar and fruits, Fermented milks with sugar and fruits, Yogurts with sugar and fruits
-fr:Boissons lactées fermentées aux fruits, Boisson lactée sucrée au lait fermenté et aux fruits, Yaourt à boire sucré aux fruits, Lait fermenté sucré aux fruits
-nl:Yoghurtdranken met fruit en suiker
-agribalyse_food_code:en: 19535
-ciqual_food_code:en: 19535
-ciqual_food_name:en: Dairy drink or fermented milk or yogurt, with fruits, with sugar
-ciqual_food_name:fr: Boisson lactée, lait fermenté ou yaourt à boire, aux fruits, sucré
 
 < en:Drinkable yogurts
 en:Strawberry yogurt drinks
@@ -24662,6 +24707,11 @@ ru:Квас, Квас
 wikidata:en: Q173773
 
 < en:Fermented drinks
+< en:Plant-based beverages
+en:Fermented plant-milk drinks
+fr:Boissons au lait végétal fermentées
+
+< en:Fermented drinks
 < en:Teas
 en:Fermented teas
 de:Fermentierte Tees
@@ -24737,6 +24787,15 @@ de:Dugh und Ayran
 fr:Ayrans et doughs
 nl:Doogh en Ayran
 ru:Тан и айран
+
+< en:Fermented milk drinks
+en:Fermented milk drinks with fruits, Dairy drinks with sugar and fruits, Fermented milks with sugar and fruits, Yogurts with sugar and fruits
+fr:Boissons lactées fermentées aux fruits, Boisson lactée sucrée au lait fermenté et aux fruits, Yaourt à boire sucré aux fruits, Lait fermenté sucré aux fruits
+nl:Yoghurtdranken met fruit en suiker
+agribalyse_food_code:en: 19535
+ciqual_food_code:en: 19535
+ciqual_food_name:en: Dairy drink or fermented milk or yogurt, with fruits, with sugar
+ciqual_food_name:fr: Boisson lactée, lait fermenté ou yaourt à boire, aux fruits, sucré
 
 < en:Fermented milk drinks
 en:Fermented milk drinks with sugar, Plain dairy drinks with sugar, Plain fermented milks with sugar, Plain yogurts with sugar
@@ -24859,7 +24918,7 @@ gu:ચીઝ
 gv:Caashey
 he:גבינה
 hi:चीज़
-hr:Sir
+hr:sirevi
 ht:Fromaj
 hu:Sajt, Sajtok
 hy:Պանիր
@@ -29673,6 +29732,7 @@ es:Helados y sorbetes
 fi:jäätelöt ja sorbetit
 fr:Glaces et sorbets, Sorbets et glaces
 he:גלידות וסורבה
+hr:sladoledi i sorbeti
 hu:Jégkrém és parfé
 it:Gelati e sorbetti
 lt:Ledai ir šerbetai
@@ -30730,7 +30790,7 @@ es:Mermeladas y confituras
 fi:hillot
 fr:Confitures, Confitures de fruits
 he:ריבות
-hr:džem
+hr:džemovi, džem
 hu:Dzsemek, Lekvárok
 it:Confetture, Confettura
 nl:Jams, Confituren
@@ -39463,6 +39523,7 @@ es:Zumos de frutas, Zumo de frutas, Jugos de frutas
 fi:Hedelmämehut
 fr:Jus de fruits, jus de fruit
 he:מיצי פירות
+hr:voćni sokovi
 hu:Gyümölcslevek és nektárok
 it:Succhi di frutta
 lt:Vaisių sultys, sultys iš 100% vaisių
@@ -40169,6 +40230,10 @@ agribalyse_food_code:en: 20016
 ciqual_food_code:en: 20016
 ciqual_food_name:en: Cauliflower, raw
 ciqual_food_name:fr: Chou-fleur, cru
+
+< en:Leaf vegetables
+en:Collard greens, Collard
+wikidata:en: Q14879985
 
 < en:Leaf vegetables
 en:corn salad, common cornsalad, lamb's lettuce, fetticus, feldsalat, nut lettuce, field salad, rapunzel, doucette, raiponce
@@ -42870,6 +42935,7 @@ es:Comidas preparadas, Platos preparados
 fi:valmiit ateriat
 fr:Plats préparés, plat préparé, plats cuisinés, plat cuisiné
 he:מנות, ארוחות, אוכל מוכן
+hr:pripremljena jela
 hu:Ételek, Kész ételek, Elkészített ételek
 it:Pasti
 lt:Patiekalai, Paruošti patiekalai, Paruošti patiekalai
@@ -45037,6 +45103,7 @@ es:Carnes
 fi:lihat
 fr:Viandes
 he:בשרים
+hr:meso
 hu:Húsok
 it:Carni
 lt:Mėsos
@@ -52871,6 +52938,7 @@ es:Zumos y néctares
 fi:mehut ja nektarit
 fr:Jus et nectars
 he:מיצים ונקטרים
+hr:sokovi i nektari
 hu:Levek és nektárok
 it:Succo e nettare
 lt:Sultys ir nektarai
@@ -53516,6 +53584,7 @@ es:Semillas, Granos, Simientes, Pepitas
 fi:siemenet
 fr:Graines
 he:זרעים
+hr:sjemenke
 hu:Magok, Szemes termékek
 it:Semi
 lt:Sėklos, Grūdai
@@ -56990,12 +57059,6 @@ lt:Salotos su agurkais
 nl:Komkommersalades
 
 < en:Prepared salads
-en:Egg salads
-lt:Salotos su kiaušiniais
-nl:Eisalades, Eiersalades
-pl:Sałatki jajeczne
-
-< en:Prepared salads
 en:Mexican salads
 fr:Salades mexicaines
 lt:Meksikietiškos salotos
@@ -60268,6 +60331,7 @@ de:Haferflocken
 es:Copos de avena
 fi:kaurahiutaleet
 fr:Flocons d'avoine, Flocons d'avoine
+hr:zobene pahuljice
 it:Fiocchi d'avena
 lt:Avižiniai dribsniai
 nl:Havermoutvlokken, Havermouten
@@ -61688,8 +61752,8 @@ ciqual_food_name:fr: Spécialité végétale type fromage à tartiner, au soja, 
 
 < en:Plant-based spreads
 < en:Salted spreads
-en:Egg spreads substitutes
-fr:Substituts de tartinades d'œufs, Substituts de tartinades d'oeufs
+en:Egg salads substitutes, Egg spreads substitutes
+fr:Substituts de salades d'œufs, Substituts de tartinades d'œufs, Substituts de tartinades d'oeufs
 
 < en:Plant-based spreads
 < en:Salted spreads
@@ -61720,9 +61784,12 @@ en:Artichoke spreads
 fr:Crèmes d'artichaut
 
 < en:Salted spreads
-en:Egg spreads
-de:Eiaufstriche
-fr:Tartinades d'œufs, tartinades d'oeufs, tartinades aux oeufs
+en:Egg salads, Egg spreads
+de:Eisalaten, Eisalat, Eiaufstriche
+fr:Salades d'œufs, salades d'oeufs, Tartinades d'œufs, tartinades d'oeufs, tartinades aux oeufs
+lt:Salotos su kiaušiniais
+nl:Eisalades, Eiersalades
+pl:Sałatki jajeczne
 
 < en:Salted spreads
 en:Rillettes
@@ -63102,6 +63169,7 @@ wikidata:en: Q3474121
 < en:Sauces
 en:Pestos, Pesto sauces
 bg:Песто
+ca:Pestos, Salses Pesto, Salsa pesto
 de:Pestos, Pesto Saucen
 es:Pestos, Salsas Pesto, Salsa pesto
 fi:pestot
@@ -63944,6 +64012,7 @@ es:Productos del mar
 fi:merenelävät
 fr:Produits de la mer, produit de la mer, Fruits de mer
 he:פירות ים
+hr:plodovi mora
 hu:Tenger gyümölcsei, Tengeri ételek
 it:Frutti di mare
 nl:Vis en zeevruchten
@@ -64010,6 +64079,7 @@ es:Pescados, pescado
 fi:kalat
 fr:Poissons, Poisson
 he:דגים, דג
+hr:ribe
 hu:Hal, Halak
 it:Pesci, pesce
 nl:Vis
@@ -68841,6 +68911,7 @@ es:Untables
 fi:levitteet
 fr:Produits à tartiner, préparations à tartiner, tartinables, produit à tartiner
 he:ממרחים
+hr:namazi
 hu:Kenhető élelmiszerek
 it:Spalmabili, prodotti spalmabili, preparazioni spalmabili
 nl:Smeerbare producten
@@ -73068,14 +73139,6 @@ ciqual_food_code:en: 36306
 ciqual_food_name:en: Turkey, escalope, sautéed/pan-fried, with salt
 ciqual_food_name:fr: Dinde, escalope, sautée/poêlée
 
-< en:Cooked poultries
-< en:Turkey cutlets
-fr:Escalopes de dinde à la milanaise, escalopes de dinde milanaises, escalope de dinde viennoise, escalopes de dinde panées, escalope de dinde panée, Escalopes de dinde marinées à la milanaise
-agribalyse_food_code:en: 36318
-ciqual_food_code:en: 36318
-ciqual_food_name:en: Milanese-style turkey escalope or breaded veal escalope
-ciqual_food_name:fr: Dinde, escalope viennoise ou milanaise ou escalope panée
-
 < en:Turkey dishes
 en:Christmas Turkeys, Xmas Turkeys
 fr:Dindes de Noël, Dinde de Noël
@@ -73111,13 +73174,6 @@ nl:Gepandeerde kalkoen
 < en:Turkey preparations
 en:Turkey patties
 fr:Galettes à la dinde
-
-< en:Poultry nuggets
-< en:Turkey preparations
-en:Turkey nuggets
-fi:Kalkkunanugetit
-fr:Nuggets de dinde
-nl:Kalkoennuggets
 
 < en:Poultry sausages
 < en:Turkey preparations
@@ -73170,7 +73226,6 @@ ciqual_food_name:fr: Jambon de dinde ou Blanc de dinde en tranche
 < en:Turkeys
 en:Turkey cutlets
 ca:Costelles de gall d'indi, Costelles d'indiot
-de:Putenschnitzel
 fi:kalkkunaleikkeleet
 fr:Escalopes de dinde, escalopes de dindes, escalope de dinde, escalope de dindes
 it:Cotolette di tacchino
@@ -73798,16 +73853,6 @@ ciqual_food_name:fr: Veau, côte, grillée/poêlée
 
 < en:Cooked veal meat
 < en:Veal escalopes
-en:Breaded veal escalopes
-fr:Escalopes de veau panées, Escalopes panées de veau
-agribalyse_food_code:en: 25173
-ciqual_food_code:en: 25173
-ciqual_food_name:en: Veal, bread escalope, cooked
-ciqual_food_name:fr: Veau, escalope panée, cuite
-wikidata:en: Q67881839
-
-< en:Cooked veal meat
-< en:Veal escalopes
 en:Cooked veal escalopes
 fr:Escalopes de veau cuites
 agribalyse_food_code:en: 6520
@@ -74245,6 +74290,7 @@ es:Aceites vegetales, Aceites de origen vegetal
 fi:kasvisöljyt
 fr:Huiles, huiles végétales
 he:שמנים מן הצומח
+hr:biljna ulja
 hu:Nővényi olajok, Nővény alapú olajok
 it:Olio vegetale
 lt:Augaliniai aliejai
@@ -87075,12 +87121,12 @@ ciqual_food_name:en: Yogurt, fermented milk or dairy specialty, plain, fat free
 ciqual_food_name:fr: Yaourt, lait fermenté ou spécialité laitière, nature, 0% MG
 
 < en:Yogurts
-en:Flavoured yogurts, Flavoured fermented milk yogurt with sugar, Flavoured dairy specialty with sugar
+en:Flavoured yogurts, Flavoured fermented milk yogurt with sugar
 bg:Ароматизирани кисели млека
 de:aromatisierte Joghurts
 es:Yogures de sabores
 fi:Maustetut jogurtit
-fr:Yaourts aromatisés, Yaourt aromatisé sucré au lait fermenté
+fr:Yaourts aromatisés, yaourt aromatisé, Yaourt aromatisé sucré au lait fermenté
 he:יוגורטים בטעמים
 it:Yogurt aromatizzati
 lt:Jogurtai su skoniu
@@ -87296,7 +87342,7 @@ ru:Йогурт фруктово-ягодный
 
 < en:Fermented dairy desserts with fruits
 < en:Yogurts
-en:Fruit yogurts, yogurts with fruits, Yogurt with fruits, Yogurt fruit flavoured, Fermented milk with fruits, Fermented milk fruit flavoured, Dairy specialty with fruits, Dairy specialty fruit flavoured
+en:Fruit yogurts, yogurts with fruits, Yogurt with fruits, Yogurt fruit flavoured, Fermented milk with fruits, Fermented milk fruit flavoured
 bg:Плодово кисело мляко
 ca:Iogurs de fruita, iogurs amb fruita
 cs:Ovocné jogurty
@@ -87304,7 +87350,7 @@ da:Frugtyoghurt
 de:Fruchtjoghurt, Fruchtjogurt, Fruchtjoghurts, Fruchtjogurts
 es:Yogures de frutas
 fi:Hedelmäjogurtit
-fr:Yaourts aux fruits, Yaourt aromatisé, Yaourt aux fruits, Lait fermenté aromatisé, Lait fermenté aux fruits
+fr:Yaourts aux fruits, yaourt aux fruits
 he:יוגורט פירות
 hu:Gyümölcsjoghurtok, Joghurt gyümölccsel
 it:Yogurt alla frutta
