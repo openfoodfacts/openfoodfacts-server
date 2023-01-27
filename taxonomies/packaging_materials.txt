@@ -590,7 +590,7 @@ de:CPP - Ungerecktes Polypropylen, Ungerecktes Polypropylen
 fr:CPP - Polypropylène coulé, Polypropylène coulé
 nl:CPP - Gegoten polypropeen, Gegoten polypropeen
 xx:CPP, PP-C, 05 CPP, CPP 05, 5 CPP, CPP 5, 05CPP, CPP05, 5CPP, CPP5, 05 PP-C, PP-C 05, 5 PP-C, PP-C 5, 05PP-C, PP-C05, 5PP-C, PP-C5
-description:en:CPP (cast polypropylene) material
+description:en:CPP, or cast polypropylene, is a type of plastic that is created by casting molten polypropylene into a mold. It is commonly used in food packaging because it is lightweight, durable, and has good barrier properties to protect food from moisture, light, and other contaminants. CPP can be recycled, but it is not widely accepted in most curbside recycling programs and may need to be taken to a specialized facility for proper processing.
 description:nl:CPP (gegoten polypropyleen) materiaal
 
 <xx:PP
@@ -599,7 +599,9 @@ de:OPP - Orientiertes Polypropylen
 fr:OPP - PolyPropylène Orienté, PolyPropylène Orienté
 nl:OPP - Georienteerde polypropeen, Georienteerde polypropeen
 xx:OPP, PP-O, 05 OPP, OPP 05, 5 OPP, OPP 5, 05OPP, OPP05, 5OPP, OPP5, 05 PP-O, PP-O 05, 5 PP-O, PP-O 5, 05PP-O, PP-O05, 5PP-O, PP-O5
-description:en:Material with OPP (orientated polypropylene)
+description:en:OPP, or oriented polypropylene, is a type of plastic film that is created by stretching the material in one direction. This gives it strength and clarity, making it useful for food packaging, particularly for items like candy and baked goods. OPP is recyclable, but it is not commonly collected by most curbside recycling programs.
+
+
 description:nl:Uit OPP (georienteerd polypropyleen) samengesteld materiaal
 
 <en:Plastic
@@ -635,6 +637,9 @@ tr:PS - polistiren, polistiren
 uk:PS - полістирол, полістирол
 xx:PS, 6 PS, PS 6, 06 PS, PS 06, ♸
 wikidata:en:Q146243
+description:en:Polystyrene (PS) is a plastic polymer made from the monomer styrene. It was first discovered in 1839 by a German apothecary, Eduard Simon, but was not widely used until the 1930s and 1940s. PS is commonly used in food packaging, such as disposable cups, plates and food trays, but is not easily recyclable, and is often disposed of in landfills.
+
+
 
 <en:Plastic
 en:O - Other plastics, other plastic, All other plastics, other plastic
@@ -659,6 +664,9 @@ fr:PC - Polycarbonate, Polycarbonate
 hr:PC - polikarbonati
 xx:PC, 07 PC, PC 07, 07PC, PC07, 7 PC, PC 7, 7PC, PC7
 wikidata:en:Q62246
+description:en:The plastic PC, or polycarbonate, was first invented in the early 20th century and was later commercialized in the 1950s. It is widely used in food packaging because of its durability and ability to maintain the freshness of the food. However, recycling of polycarbonate is limited and it can take hundreds of years to degrade in the environment.
+
+
 
 <en:Plastic
 <en:Other plastics
@@ -668,8 +676,10 @@ fr:PA - Polyamide, Polyamide
 hr:PA - poliamid, poliamidi
 xx:PA, 07 PA, PA 07, 07PA, PA07, 7 PA, PA 7, 7PA, PA7
 wikidata:en:Q145273
+description:en:Polyamide (PA), also known as nylon, is a synthetic polymer that was first developed in the 1930s by DuPont. It is commonly used in food packaging because it is strong, durable, and heat-resistant. However, it is not easily recyclable and most PA ends up in landfills or the environment.
 
 # 09 is for Alkaline batteries, not sure if 09 ABS exists.
+
 <en:Plastic
 <en:Other plastics
 en:Acrylonitrile butadiene styrene
@@ -681,6 +691,9 @@ nl:Acrylonitril-butadieen-styreen
 pt:Acrilonitrila butadieno estireno
 xx:ABS, 07 ABS, ABS 07, 07ABS, ABS07, 7 ABS, ABS 7, 7ABS, ABS7, 9 ABS, ABS 9, 09 ABS, ABS 09
 wikidata:en:Q143496
+description:en:ABS (Acrylonitrile Butadiene Styrene) plastic is a thermoplastic polymer that was first developed in the 1930s. It is commonly used in food packaging due to its strength, durability, and heat resistance. ABS is recyclable, but it is not widely recycled due to lack of infrastructure for the collection and processing of the material.
+
+
 
 <en:Plastic
 <en:Other plastics
@@ -689,6 +702,9 @@ de:PMMA - Polymethylmethacrylat, Polymethylmethacrylat, Acrylglas, Plexiglas
 fr:PMMA - Poly(méthacrylate de méthyle), Poly(méthacrylate de méthyle)
 xx:PMMA, 07 PMMA, PMMA 07, 07PMMA, PMMA07, 7 PMMA, PMMA 7, 7PMMA, PMMA7
 wikidata:en:Q146123
+description:en:PMMA, also known as acrylic or plexiglass, is a plastic that was first developed in the 1930s by the German chemical company IG Farben. It is commonly used in food packaging, such as for meat and cheese. PMMA can be recycled, but it is not as widely recycled as some other plastics due to the lack of recycling facilities that can process it.
+
+
 
 <en:Plastic
 <en:Other plastics
@@ -700,7 +716,7 @@ nl:PLA - Polymelkzuur
 pt:PLA - Ácido poliláctico, poliácido láctico
 xx:PLA, 07 PLA, PLA 07, 07PLA, PLA07, 7 PLA, PLA 7, 7PLA, PLA7
 wikidata:en:Q413769
-
+LLDPE
 <en:Plastic
 <en:Other plastics
 <xx:PE
@@ -709,6 +725,10 @@ de:LLDPE - Lineares Polyethylen niedriger Dichte, Lineares Polyethylen niedriger
 fr:LLDPE - Polyéthylène basse densité linéaire, Polyéthylène basse densité linéaire
 xx:LLDPE, 07 LLDPE, LLDPE 07, 07LLDPE, LLDPE07, 7 LLDPE, LLDPE 7, 7LLDPE, LLDPE7, PE-LLD, 07 PE-LLD, PE-LLD 07, 07PE-LLD, PE-LLD07, 7 PE-LLD, PE-LLD 7, 7PE-LLD, PE-LLD7
 wikidata:en:Q1863987
+description:en:LLDPE, or linear low-density polyethylene, is a type of plastic that is produced through a process called copolymerization. It is commonly used in food packaging due to its flexibility and durability. Unfortunately, LLDPE can be difficult to recycle and often ends up in landfills, although some recycling solutions are being developed.
+
+
+
 
 <en:Multilayer composite
 <xx:PET
