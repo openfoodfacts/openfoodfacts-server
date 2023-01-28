@@ -482,7 +482,7 @@ $product_ref = {
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 ok(
-	has_tag($product_ref, 'data_quality', 'en:nutrition-value-negative-nutrition-score-fr'),
+	!has_tag($product_ref, 'data_quality', 'en:nutrition-value-negative-nutrition-score-fr'),
 	'nutriment should have positive value (except nutrition-score)'
 ) or diag explain $product_ref;
 
