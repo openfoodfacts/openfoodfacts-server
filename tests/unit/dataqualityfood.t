@@ -462,4 +462,28 @@ ok(
 	'energy not matching nutrient'
 ) or diag explain $product_ref;
 
+# en:nutrition-value-negative-$nid should be raised - for nutriments (except nutriments containing "nutrition-score") below 0
+$product_ref = {
+	nutriments => {
+		"proteins_100g" => -1,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag($product_ref, 'data_quality', 'en:nutrition-value-negative-proteins'),
+	'nutriment should have positive value (except nutrition-score)'
+) or diag explain $product_ref;
+
+# en:nutrition-value-negative-$nid should NOT be raised - for nutriments containing "nutrition-score" and below 0
+$product_ref = {
+	nutriments => {
+		"nutrition-score-fr_100g" => -1,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag($product_ref, 'data_quality', 'en:nutrition-value-negative-nutrition-score-fr'),
+	'nutriment should have positive value (except nutrition-score)'
+) or diag explain $product_ref;
+
 done_testing();
