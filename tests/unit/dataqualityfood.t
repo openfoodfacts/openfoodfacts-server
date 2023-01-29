@@ -468,11 +468,11 @@ $product_ref = {
 		"proteins_100g" => -1,
 	}
 };
-ProductOpener::DataQuality::check_quality($product_ref);
-ok(
-	has_tag($product_ref, 'data_quality', 'en:nutrition-value-negative-proteins'),
-	'nutriment should have positive value (except nutrition-score)'
-) or diag explain $product_ref;
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-value-negative-proteins',
+	'nutriment should have positive value (except nutrition-score)', 1
+);
 
 # en:nutrition-value-negative-$nid should NOT be raised - for nutriments containing "nutrition-score" and below 0
 $product_ref = {
@@ -480,10 +480,10 @@ $product_ref = {
 		"nutrition-score-fr_100g" => -1,
 	}
 };
-ProductOpener::DataQuality::check_quality($product_ref);
-ok(
-	!has_tag($product_ref, 'data_quality', 'en:nutrition-value-negative-nutrition-score-fr'),
-	'nutriment should have positive value (except nutrition-score)'
-) or diag explain $product_ref;
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-value-negative-nutrition-score-fr',
+	'nutriment should have positive value (except nutrition-score)', 0
+);
 
 done_testing();
