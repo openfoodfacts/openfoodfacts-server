@@ -25,6 +25,10 @@ use CGI::Carp qw(fatalsToBrowser);
 use Modern::Perl '2017';
 use utf8;
 
+BEGIN {
+	$ENV{'SKIP_TAXONOMY_LOAD'} = 'Yes';
+}
+
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;

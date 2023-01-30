@@ -225,14 +225,14 @@ lint: lint_perltidy
 
 tests: unit_test integration_test
 
-unit_test: build_taxonomies build_lang_test
+unit_test: build_lang_test build_taxonomies
 	@echo "🥫 Running unit tests …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
 	${DOCKER_COMPOSE_TEST} run -T --rm backend prove -l --jobs ${CPU_COUNT} -r tests/unit
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 unit tests success"
 
-integration_test: build_taxonomies build_lang_test
+integration_test: build_lang_test build_taxonomies
 	@echo "🥫 Running unit tests …"
 # we launch the server and run tests within same container
 # we also need dynamicfront for some assets to exists
@@ -265,7 +265,7 @@ test-int: guard-test # usage: make test-one test=test-file.t
 stop_tests:
 	${DOCKER_COMPOSE_TEST} stop
 
-update_tests_results:
+update_tests_results: build_lang_test build_taxonomies
 	@echo "🥫 Updated expected test results with actuals for easy Git diff"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront
 	${DOCKER_COMPOSE_TEST} exec -T -w /opt/product-opener/tests backend bash update_tests_results.sh

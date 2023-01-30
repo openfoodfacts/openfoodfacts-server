@@ -72,7 +72,6 @@ BEGIN {
 		&gen_ingredients_tags_hierarchy_taxonomy
 		&display_tags_hierarchy_taxonomy
 		&build_tags_taxonomy
-		&retrieve_tags_taxonomy
 		&list_taxonomy_tags_in_language
 
 		&canonicalize_taxonomy_tag
@@ -174,6 +173,8 @@ use List::MoreUtils qw(uniq);
 
 use URI::Escape::XS;
 use Log::Any qw($log);
+use Digest::SHA1;
+use File::Copy;
 
 use GraphViz2;
 use JSON::PP;
@@ -669,10 +670,81 @@ Like "categories", "ingredients"
 
 =cut
 
-sub build_tags_taxonomy ($tagtype, $file, $publish) {
+sub build_tags_taxonomy ($tagtype, $publish) {
+	binmode STDERR, ":encoding(UTF-8)";
+	binmode STDIN, ":encoding(UTF-8)";
+	binmode STDOUT, ":encoding(UTF-8)";
 
-	defined $tags_images{$lc} or $tags_images{$lc} = {};
-	defined $tags_images{$lc}{$tagtype} or $tags_images{$lc}{$tagtype} = {};
+	# The nutrients_taxonomy.txt source file is created from values in the .po files
+	if ($tagtype eq "nutrient_levels") {
+		require ProductOpener::Food;
+		ProductOpener::Food->import('create_nutrients_level_taxonomy');
+		create_nutrients_level_taxonomy();
+	}
+
+	my @files = ($tagtype);
+
+	# For the origins taxonomy, include the countries taxonomy
+	if ($tagtype eq "origins") {
+		@files = ("countries", "origins");
+	}
+
+	# For the Open Food Facts ingredients taxonomy, concatenate additives, minerals, vitamins, nucleotides and other nutritional substances taxonomies
+	elsif (($tagtype eq "ingredients") and (defined $options{product_type}) and ($options{product_type} eq "food")) {
+		@files = (
+			"additives_classes", "additives", "minerals", "vitamins",
+			"nucleotides", "other_nutritional_substances", "ingredients"
+		);
+	}
+
+	# Packaging
+	elsif (($tagtype eq "packaging")) {
+		@files = ("packaging_materials", "packaging_shapes", "packaging_recycling", "preservation");
+	}
+
+	my $sha1 = Digest::SHA1->new;
+	foreach my $source_file (@files) {
+		open(my $IN, "<", "$data_root/taxonomies/$source_file.txt")
+			or die("Cannot open $data_root/taxonomies/$source_file.txt : $!\n");
+
+		binmode($IN);
+		$sha1->addfile($IN);
+		close($IN);
+	}
+
+	my $hash = $sha1->hexdigest;
+	if (-e "$data_root/cache/$tagtype.result.$hash.sto") {
+		copy("$data_root/cache/$tagtype.result.$hash.txt", "$data_root/taxonomies/$tagtype.result.txt");
+		copy("$data_root/cache/$tagtype.result.$hash.sto", "$data_root/taxonomies/$tagtype.result.sto");
+		copy("$data_root/cache/$tagtype.$hash.json", "$www_root/data/taxonomies/$tagtype.json");
+		print "obtained taxonomy for $tagtype from cache.\n";
+		return;
+	}
+
+	# Concatenate taxonomy files if needed
+	my $file = "$tagtype.txt";
+	if ((scalar @files) > 1) {
+		$file = "$tagtype.all.txt";
+
+		open(my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/$file")
+			or die("Cannot write $data_root/taxonomies/$file : $!\n");
+
+		foreach my $taxonomy (@files) {
+			open(my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$taxonomy.txt")
+				or die("Missing $data_root/taxonomies/$taxonomy.txt\n");
+
+			print $OUT "# $taxonomy.txt\n\n";
+
+			while (<$IN>) {
+				print $OUT $_;
+			}
+
+			print $OUT "\n\n";
+			close($IN);
+		}
+
+		close($OUT);
+	}
 
 	# we ofen use the term *tag* in the code to indicate a single entry between commas
 	# that is most lines, are tags separated by commas.
@@ -1602,8 +1674,13 @@ sub build_tags_taxonomy ($tagtype, $file, $publish) {
 			properties => $properties{$tagtype},
 		};
 
+
+		copy("$data_root/taxonomies/$tagtype.result.txt", "$data_root/cache/$tagtype.result.$hash.txt");
+		copy("$www_root/data/taxonomies/$tagtype.json", "$data_root/cache/$tagtype.$hash.json");
+
 		if ($publish) {
 			store("$data_root/taxonomies/$tagtype.result.sto", $taxonomy_ref);
+			copy("$data_root/taxonomies/$tagtype.result.sto", "$data_root/cache/$tagtype.result.$hash.sto");
 		}
 	}
 
@@ -1855,6 +1932,10 @@ sub retrieve_tags_taxonomy ($tagtype) {
 		}
 	}
 
+	if (!-e "$data_root/taxonomies/$tagtype.result.sto") {
+		build_tags_taxonomy($tagtype, 1);
+	}
+
 	my $taxonomy_ref = retrieve("$data_root/taxonomies/$tagtype.result.sto")
 		or die("Could not load taxonomy: $data_root/taxonomies/$tagtype.result.sto");
 	if (defined $taxonomy_ref) {
@@ -1926,6 +2007,8 @@ sub country_to_cc ($country) {
 	return;
 }
 
+(-e "$data_root/cache") or mkdir("$data_root/cache", 0755);
+
 # load all tags images
 
 # print STDERR "Tags.pm - loading tags images\n";
@@ -1955,6 +2038,7 @@ else {
 	$log->warn("Tags images could not be loaded.") if $log->is_warn();
 }
 
+retrieve_tags_taxonomy("languages");
 # Build map of language codes and names
 
 %language_codes = ();
@@ -2010,9 +2094,8 @@ foreach my $country (keys %{$properties{countries}}) {
 	}
 }
 
-# Need to be able to suppress loading when we are building taxonomies
+# Need to be able to suppress loading when we are building taxonomies and languages
 if (!defined $ENV{'SKIP_TAXONOMY_LOAD'}) {
-	# It would be nice to move this from BEGIN to INIT, as it's slow, but other BEGIN code depends on it.
 	foreach my $taxonomyid (@ProductOpener::Config::taxonomy_fields) {
 		$log->info("loading taxonomy $taxonomyid");
 		retrieve_tags_taxonomy($taxonomyid);
