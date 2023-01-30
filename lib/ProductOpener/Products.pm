@@ -1750,7 +1750,8 @@ we can rename it to a generic user account like openfoodfacts-contributors.
 
 =cut
 
-my @users_fields = qw(editors_tags photographers_tags informers_tags correctors_tags checkers_tags);
+# Fields that contain usernames
+my @users_fields = qw(editors_tags photographers_tags informers_tags correctors_tags checkers_tags weighters_tags);
 
 sub replace_user_id_in_product ($product_id, $user_id, $new_user_id) {
 
@@ -1908,6 +1909,33 @@ sub find_and_replace_user_id_in_products ($user_id, $new_user_id) {
 	return;
 }
 
+=head2 record_user_edit_type($users_ref, $user_type, $user_id)
+
+Record that a user has made a change of a specific type to the product.
+
+=head3 Parameters
+
+=head4 $users_ref Structure that holds the records by type
+
+For each type, there is a "list" array, and a "seen" hash
+
+=head4 $user_type e.g. editors, photographers, weighters
+
+=head4 $user_id
+
+=cut
+
+sub record_user_edit_type ($users_ref, $user_type, $user_id) {
+
+	if ((defined $user_id) and ($user_id ne '')) {
+		if (not defined $users_ref->{$user_type}{seen}{$user_id}) {
+			$users_ref->{$user_type}{seen}{$user_id} = 1;
+			push @{$users_ref->{$user_type}{list}}, $user_id;
+		}
+	}
+	return;
+}
+
 sub compute_product_history_and_completeness ($product_data_root, $current_product_ref, $changes_ref, $blame_ref) {
 
 	my $code = $current_product_ref->{code};
@@ -1970,14 +1998,16 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 	my %last = %previous;
 	my %current;
 
-	my @photographers = ();
-	my @informers = ();
-	my @correctors = ();
-	my @checkers = ();
-	my %photographers = ();
-	my %informers = ();
-	my %correctors = ();
-	my %checkers = ();
+	# Create a structure that will contain lists of users that have modified the product
+	# in different ways (editors, photographers etc.)
+	my $users_ref;
+
+	foreach my $user_type (keys %users_tags_fields) {
+		$users_ref->{$user_type} = {
+			list => [],    # list of users, ordered by least recent update
+			seen => {},    # hash of users, used to add users only once to the list
+		};
+	}
 
 	my $revs = 0;
 
@@ -2018,7 +2048,8 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 				uploaded_images => {},
 				selected_images => {},
 				fields => {},
-				nutriments => {}
+				nutriments => {},
+				packagings => {},
 			);
 
 			# Uploaded images
@@ -2081,6 +2112,23 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 				}
 			}
 
+			# Packagings components
+			if (defined $product_ref->{packagings}) {
+				# To check if packaging data (shape, materials etc.) and packaging weights have changed
+				# we compute a scalar serialization for them so that it's easy to see if they have changed
+				my $packagings_data_signature = "";
+				my $packagings_weights_signature = "";
+				foreach my $packagings_ref (@{$product_ref->{packagings}}) {
+					foreach my $property (qw(shape material recycling number_of_units quantity_per_unit)) {
+						$packagings_data_signature .= $property . ":" . ($packagings_ref->{$property} || '') . ",";
+					}
+					$packagings_data_signature .= "\n";
+					$packagings_weights_signature .= ($packagings_ref->{weight_measured} || '') . "\n";
+				}
+				$current{packagings}{data} = $packagings_data_signature;
+				$current{packagings}{weights_measured} = $packagings_data_signature;
+			}
+
 			$current{checked} = $product_ref->{checked};
 			$current{last_checked_t} = $product_ref->{last_checked_t};
 		}
@@ -2096,15 +2144,10 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 		if (    (defined $current{last_checked_t})
 			and ((not defined $previous{last_checked_t}) or ($previous{last_checked_t} != $current{last_checked_t})))
 		{
-			if ((defined $product_ref->{last_checker}) and ($product_ref->{last_checker} ne '')) {
-				if (not defined $checkers{$product_ref->{last_checker}}) {
-					$checkers{$product_ref->{last_checker}} = 1;
-					push @checkers, $product_ref->{last_checker};
-				}
-			}
+			record_user_edit_type($users_ref, "checkers", $product_ref->{last_checker});
 		}
 
-		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutriments') {
+		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutriments', 'packagings') {
 
 			defined $blame_ref->{$group} or $blame_ref->{$group} = {};
 
@@ -2140,6 +2183,9 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 			}
 			elsif ($group eq 'nutriments') {
 				@ids = @{$nutriments_lists{europe}};
+			}
+			elsif ($group eq 'packagings') {
+				@ids = ("data", "weights_measured");
 			}
 			else {
 				my $uniq = sub {
@@ -2240,27 +2286,23 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 
 					}
 
-					if ((defined $userid) and ($userid ne '')) {
+					# Packagings
+					if (    ($group eq 'packagings')
+						and ($id eq 'weights_measured')
+						and (($diff eq 'add') or ($diff eq 'change')))
+					{
+						record_user_edit_type($users_ref, "weighters", $userid);
+					}
 
-						if (($diff eq 'add') and ($group eq 'uploaded_images')) {
-
-							if (not defined $photographers{$userid}) {
-								$photographers{$userid} = 1;
-								push @photographers, $userid;
-							}
-						}
-						elsif ($diff eq 'add') {
-							if (not defined $informers{$userid}) {
-								$informers{$userid} = 1;
-								push @informers, $userid;
-							}
-						}
-						elsif ($diff eq 'change') {
-							if (not defined $correctors{$userid}) {
-								$correctors{$userid} = 1;
-								push @correctors, $userid;
-							}
-						}
+					# Uploaded photos + all fields
+					if (($diff eq 'add') and ($group eq 'uploaded_images')) {
+						record_user_edit_type($users_ref, "photographers", $userid);
+					}
+					elsif ($diff eq 'add') {
+						record_user_edit_type($users_ref, "informers", $userid);
+					}
+					elsif ($diff eq 'change') {
+						record_user_edit_type($users_ref, "correctors", $userid);
 					}
 				}
 			}
@@ -2292,10 +2334,11 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 
 	$current_product_ref->{editors_tags} = [keys %changed_by];
 
-	$current_product_ref->{photographers_tags} = [@photographers];
-	$current_product_ref->{informers_tags} = [@informers];
-	$current_product_ref->{correctors_tags} = [@correctors];
-	$current_product_ref->{checkers_tags} = [@checkers];
+	$current_product_ref->{photographers_tags} = $users_ref->{photographers}{list};
+	$current_product_ref->{informers_tags} = $users_ref->{informers}{list};
+	$current_product_ref->{correctors_tags} = $users_ref->{correctors}{list};
+	$current_product_ref->{checkers_tags} = $users_ref->{checkers}{list};
+	$current_product_ref->{weighters_tags} = $users_ref->{weighters}{list};
 
 	compute_completeness_and_missing_tags($current_product_ref, \%current, \%last);
 
