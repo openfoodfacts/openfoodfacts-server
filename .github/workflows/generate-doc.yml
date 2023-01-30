@@ -61,6 +61,11 @@ jobs:
       #       build -o /output/reference/api-v3/index.html api-v3.yml && \
       #     sudo chown $UID -R gh_pages
 
+      - name: Validate OpenAPI
+        uses: char0n/swagger-editor-validate@v1.3.2
+        with:
+          definition-file: docs/reference/api.yml
+
       # generate OpenAPI documentation with rapidoc
       # we do this after mkdocs to overwrite api.html file
       - name: Generate OpenAPI doc using rapidoc
