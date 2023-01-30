@@ -25,6 +25,11 @@ my $tests_ref = [
 		path => '/cgi/suggest.pl',
 	},
 	{
+		test_case => 'incorrect-tagtype',
+		method => 'GET',
+		path => '/cgi/suggest.pl?tagtype=not_a_taxonomy',
+	},
+	{
 		test_case => 'categories-no-term',
 		method => 'GET',
 		path => '/cgi/suggest.pl?tagtype=categories',
@@ -70,6 +75,12 @@ my $tests_ref = [
 		test_case => 'categories-term-fr-cafe-accent',
 		method => 'GET',
 		path => '/cgi/suggest.pl?tagtype=categories&term=Café&lc=fr',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'categories-string-fr-cafe-accent',
+		method => 'GET',
+		path => '/cgi/suggest.pl?tagtype=categories&string=Café&lc=fr',
 		expected_status_code => 200,
 	},
 ];

@@ -118,7 +118,7 @@ sub get_cors_headers ($allow_credentials = 0, $sub_domain_only = 0) {
 			}
 		}
 	}
-	$headers_ref->{"Access-Control-Allow-Origins"} = $allow_origins;
+	$headers_ref->{"Access-Control-Allow-Origin"} = $allow_origins;
 	if ($allow_origins ne "*") {
 		# see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin#cors_and_caching
 		$headers_ref->{"Vary"} = "Origin";

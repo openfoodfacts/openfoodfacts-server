@@ -225,6 +225,83 @@ paths:
           - an object sent in the packagings field will replace any pre-existing data.
           - an object sent in the field suffixed with _add (e.g. packagings_add) will be merged with any pre-existing data.
       parameters: []
+  /api/v3/taxonomy_suggestions:
+    parameters: []
+    get:
+      summary: Get taxonomy entries suggestions
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: ./responses/response-status/response_status.yaml
+                  - type: object
+                    properties:
+                      suggestions:
+                        type: array
+                        description: Array of sorted strings suggestions in the language requested in the "lc" field.
+                        items:
+                          type: string
+      operationId: get-api-v3-taxonomy_suggestions-taxonomy
+      description: |-
+        Open Food Facts uses multilingual [taxonomies](https://wiki.openfoodfacts.org/Global_taxonomies) to normalize entries for categories, labels, ingredients, packaging shapes / materials / recycling instructions and many more fields.
+
+        This API returns taxonomy entries suggestions that can be used in product edit forms, search forms etc. (for instance in autocomplete dropdowns using libraries like Tagify or select2 on the Web).
+
+        Suggestions filtering:
+
+        The string parameter allows to get only suggestions that contain a specific string (useful for autocomplete suggestions).
+
+        Suggestions ordering:
+
+        - For packaging shapes and materials, suggestions are ordered first by the number of packaging components they appear in (restricted by country, categories and shape (for materials) if they are passed as parameters).
+        - for all other taxonomies, results are ordered alphabetically
+
+        If a string is passed, an additional sort is done to put first suggestions that start with the string, followed by suggestions with a word that start with the string, and then suggestions that contain the string anywhere.
+      parameters:
+        - $ref: ./api.yml#/components/parameters/tagtype
+        - schema:
+            type: string
+            example: en
+          in: query
+          name: lc
+          description: 2 letter code of the language used for suggestions and for matching the input string
+        - schema:
+            type: string
+            example: pe
+          in: query
+          name: string
+          description: 'Optional string used to filter suggestions (useful for autocomplete).  If passed, suggestions starting with the string will be returned first, followed by suggestions matching the string at the beginning of a word, and suggestions matching the string inside a word.'
+        - schema:
+            type: string
+          in: query
+          name: cc
+          description: '2 letter country code, used to return popular packaging shapes and materials for products sold in the country'
+        - schema:
+            type: string
+            example: yougurts
+          in: query
+          name: categories
+          description: 'Comma separated list of categories tags (e.g. "en:fats,en:unsalted-butters" or categories names in the language indicated by the "lc" field (e.g. "graisses, beurres salés" in French)'
+        - schema:
+            type: string
+            example: bottle
+          in: query
+          name: shape
+          description: 'Shape of packaging component (tag identified in the packaging_shapes taxonomy, or plain text tag name in the language indicated by the "lc" field)'
+        - schema:
+            type: string
+          in: query
+          name: limit
+          description: 'Maximum number of suggestions. Default is 25, max is 400.'
+        - schema:
+            type: string
+          in: query
+          name: term
+          description: Alias for the "string" parameter provided for backward compatibility. "string" takes precedence.
 components:
   schemas: null
   parameters: null

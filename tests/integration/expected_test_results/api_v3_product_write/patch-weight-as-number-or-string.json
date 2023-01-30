@@ -26,7 +26,7 @@
       ],
       "packagings" : [
          {
-            "number_of_units" : 1,
+            "number_of_units" : "1",
             "shape" : {
                "id" : "en:bottle",
                "lc_name" : "Bottle"
@@ -34,7 +34,7 @@
             "weight_measured" : 0.43
          },
          {
-            "number_of_units" : 2,
+            "number_of_units" : "2",
             "shape" : {
                "id" : "en:box",
                "lc_name" : "Box"
@@ -42,7 +42,7 @@
             "weight_measured" : 0.43
          },
          {
-            "number_of_units" : 3,
+            "number_of_units" : "3",
             "shape" : {
                "id" : "en:lid",
                "lc_name" : "Lid"

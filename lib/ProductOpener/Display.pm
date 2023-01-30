@@ -897,6 +897,7 @@ CSS
 	# and remove the $lc, $cc and @lcs global variables
 	$request_ref->{lc} = $lc;
 	$request_ref->{cc} = $cc;
+	$request_ref->{country} = $country;
 	$request_ref->{lcs} = \@lcs;
 
 	return $request_ref;
