@@ -63,15 +63,14 @@ if ($tagtype eq '*') {
 		nutrient_levels
 		origins
 		other_nutritional_substances
+		packaging
 		packaging_materials
 		packaging_recycling
 		packaging_shapes
 		periods_after_opening
 		preservation
 		states
-		traces
 		vitamins
-		packaging
 	)
 }
 foreach my $taxonomy (@taxonomies) {
@@ -165,7 +164,7 @@ sub build_taxonomy {
 			copy("$data_root/cache/$tagtype.result.$hash.txt", "$data_root/taxonomies/$tagtype.result.txt");
 			copy("$data_root/cache/$tagtype.result.$hash.sto", "$data_root/taxonomies/$tagtype.result.sto");
 			copy("$data_root/cache/$tagtype.$hash.json", "$www_root/data/taxonomies/$tagtype.json");
-			print "Obtained $tagtype from cache.\n";
+			print "obtained taxonomy for $tagtype from cache.\n";
 		}
 		else {
 			build_tags_taxonomy($tagtype, $file, $publish);
@@ -176,7 +175,6 @@ sub build_taxonomy {
 			}
 			copy("$www_root/data/taxonomies/$tagtype.json", "$data_root/cache/$tagtype.$hash.json");
 		}
-		retrieve_tags_taxonomy($tagtype);
 	}
 	else {
 		print STDERR "Missing $data_root/taxonomies/$file\n";
