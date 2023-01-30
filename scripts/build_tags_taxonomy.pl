@@ -176,6 +176,7 @@ sub build_taxonomy {
 			}
 			copy("$www_root/data/taxonomies/$tagtype.json", "$data_root/cache/$tagtype.$hash.json");
 		}
+		retrieve_tags_taxonomy($tagtype);
 	}
 	else {
 		print STDERR "Missing $data_root/taxonomies/$file\n";
