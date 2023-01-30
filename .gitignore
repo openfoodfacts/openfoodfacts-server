@@ -67,3 +67,9 @@ html/js/sigma*
 
 # Env files
 .env*
+
+# Taxonomies and cache
+cache
+taxonomies/*.sto
+taxonomies/*.results.txt
+taxonomies/*.all.txt
