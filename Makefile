@@ -205,16 +205,16 @@ checks: front_build front_lint check_perltidy check_perl_fast check_critic
 
 lint: lint_perltidy
 
-tests: build_lang_test unit_test integration_test
+tests: unit_test integration_test
 
-unit_test:
+unit_test: build_taxonomies build_lang_test
 	@echo "🥫 Running unit tests …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
 	${DOCKER_COMPOSE_TEST} run -T --rm backend prove -l --jobs ${CPU_COUNT} -r tests/unit
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 unit tests success"
 
-integration_test:
+integration_test: build_taxonomies build_lang_test
 	@echo "🥫 Running unit tests …"
 # we launch the server and run tests within same container
 # we also need dynamicfront for some assets to exists
@@ -307,12 +307,12 @@ check_critic:
 #-------------#
 
 build_taxonomies:
-	@echo "🥫 build taxonomies on ${CPU_COUNT} procs"
-	${DOCKER_COMPOSE} run --no-deps --rm backend make -C taxonomies -j ${CPU_COUNT}
+	@echo "🥫 build taxonomies"
+	${DOCKER_COMPOSE} run --no-deps --rm backend /opt/product-opener/scripts/build_tags_taxonomy.pl ${name}
 
 rebuild_taxonomies:
-	@echo "🥫 re-build all taxonomies on ${CPU_COUNT} procs"
-	${DOCKER_COMPOSE} run --rm backend make -C taxonomies all_taxonomies -j ${CPU_COUNT}
+	@echo "🥫 re-build all taxonomies"
+	${DOCKER_COMPOSE} run --no-deps --rm backend /opt/product-opener/scripts/build_tags_taxonomy.pl ${name}
 
 #------------#
 # Production #

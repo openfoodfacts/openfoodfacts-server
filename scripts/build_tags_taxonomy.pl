@@ -23,6 +23,11 @@
 use Modern::Perl '2017';
 use utf8;
 
+# Prevent taxonomies from being loaded in ProductOpener::Tags
+BEGIN {
+	$ENV{'SKIP_TAXONOMY_LOAD'} = 'Yes';
+}
+
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Food qw/:all/;
@@ -30,19 +35,47 @@ use Digest::SHA1;
 use File::Copy;
 use File::Basename;
 
-my $tagtype = $ARGV[0];
-my $publish = $ARGV[1];
+my $tagtype = $ARGV[0] // '*';
+my $publish = $ARGV[1] // 1;
 
-(defined $tagtype) or die '$tagtype not defined, exited';
-(defined $publish) or die '$publish not defined, exited';
-
-if ($tagtype eq 'all') {
-	$tagtype = '*';
+my @taxonomies = ($tagtype);
+if ($tagtype eq '*') {
+	@taxonomies = qw(
+		additives
+		additives_classes
+		allergens
+		amino_acids
+		categories
+		countries
+		data_quality
+		food_groups
+		improvements
+		ingredients
+		ingredients_analysis
+		ingredients_processing
+		labels
+		languages
+		minerals
+		misc
+		nova_groups
+		nucleotides
+		nutrients
+		nutrient_levels
+		origins
+		other_nutritional_substances
+		packaging_materials
+		packaging_recycling
+		packaging_shapes
+		periods_after_opening
+		preservation
+		states
+		traces
+		vitamins
+		packaging
+	)
 }
-my @files = grep { !/\..*\.txt$/ } glob("$data_root/taxonomies/$tagtype.txt");
-foreach my $taxonomy (@files) {
-	my ($tag) = fileparse($taxonomy,'\..*');
-	build_taxonomy($tag,$publish);
+foreach my $taxonomy (@taxonomies) {
+	build_taxonomy($taxonomy,$publish);
 }
 
 exit(0);

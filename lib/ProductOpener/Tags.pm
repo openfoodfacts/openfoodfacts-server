@@ -2147,99 +2147,102 @@ sub country_to_cc ($country) {
 	return;
 }
 
-# load all tags images
+# Need to be able to suppress loading when we are building taxonomies
+if (!defined $ENV{'SKIP_TAXONOMY_LOAD'}) {
+	# load all tags images
 
-# print STDERR "Tags.pm - loading tags images\n";
-if (opendir my $DH2, $lang_dir) {
-	foreach my $langid (readdir($DH2)) {
-		next if $langid eq '.';
-		next if $langid eq '..';
-		# print STDERR "Tags.pm - reading tagtypes for lang $langid\n";
-		next if ((length($langid) ne 2) and not($langid eq 'other'));
+	# print STDERR "Tags.pm - loading tags images\n";
+	if (opendir my $DH2, $lang_dir) {
+		foreach my $langid (readdir($DH2)) {
+			next if $langid eq '.';
+			next if $langid eq '..';
+			# print STDERR "Tags.pm - reading tagtypes for lang $langid\n";
+			next if ((length($langid) ne 2) and not($langid eq 'other'));
 
-		if (-e "$www_root/images/lang/$langid") {
-			opendir my $DH, "$www_root/images/lang/$langid" or die "Couldn't open the current directory: $!";
-			foreach my $tagtype (readdir($DH)) {
-				next if $tagtype =~ /\./;
-				# print STDERR "Tags: loading tagtype images $langid/$tagtype\n";
-				# print "Tags: loading tagtype images $langid/$tagtype\n";
-				load_tags_images($langid, $tagtype);
+			if (-e "$www_root/images/lang/$langid") {
+				opendir my $DH, "$www_root/images/lang/$langid" or die "Couldn't open the current directory: $!";
+				foreach my $tagtype (readdir($DH)) {
+					next if $tagtype =~ /\./;
+					# print STDERR "Tags: loading tagtype images $langid/$tagtype\n";
+					# print "Tags: loading tagtype images $langid/$tagtype\n";
+					load_tags_images($langid, $tagtype);
+				}
+				closedir($DH);
 			}
-			closedir($DH);
+
+		}
+		closedir($DH2);
+	}
+	else {
+		$log->warn("The $lang_dir directory could not be opened.") if $log->is_warn();
+		$log->warn("Tags images could not be loaded.") if $log->is_warn();
+	}
+
+	# It would be nice to move this from BEGIN to INIT, as it's slow, but other BEGIN code depends on it.
+	foreach my $taxonomyid (@ProductOpener::Config::taxonomy_fields) {
+
+		$log->info("loading taxonomy $taxonomyid");
+		retrieve_tags_taxonomy($taxonomyid);
+
+	}
+
+	# Build map of language codes and names
+
+	%language_codes = ();
+	%language_codes_reverse = ();
+
+	%Languages = ();    # Hash of language codes, will be used to initialize %Lang::Langs
+
+	foreach my $language (keys %{$properties{languages}}) {
+
+		my $lc = lc($properties{languages}{$language}{"language_code_2:en"});
+
+		$language_codes{$lc} = $language;
+		$language_codes_reverse{$language} = $lc;
+
+		# %Languages will be passed to Lang::build_lang() to populate language names and
+		# to initialize to the English value all missing values for all the languages
+		$Languages{$lc} = $translations_to{languages}{$language};
+	}
+
+	# Build map of local country names in official languages to (country, language)
+
+	$log->info("Building a map of local country names in official languages to (country, language)") if $log->is_info();
+
+	%country_names = ();
+	%country_codes = ();
+	%country_codes_reverse = ();
+	%country_languages = ();
+
+	foreach my $country (keys %{$properties{countries}}) {
+
+		my $cc = country_to_cc($country);
+		if (not(defined $cc)) {
+			next;
 		}
 
-	}
-	closedir($DH2);
-}
-else {
-	$log->warn("The $lang_dir directory could not be opened.") if $log->is_warn();
-	$log->warn("Tags images could not be loaded.") if $log->is_warn();
-}
+		$country_codes{$cc} = $country;
+		$country_codes_reverse{$country} = $cc;
 
-# It would be nice to move this from BEGIN to INIT, as it's slow, but other BEGIN code depends on it.
-foreach my $taxonomyid (@ProductOpener::Config::taxonomy_fields) {
-
-	$log->info("loading taxonomy $taxonomyid");
-	retrieve_tags_taxonomy($taxonomyid);
-
-}
-
-# Build map of language codes and names
-
-%language_codes = ();
-%language_codes_reverse = ();
-
-%Languages = ();    # Hash of language codes, will be used to initialize %Lang::Langs
-
-foreach my $language (keys %{$properties{languages}}) {
-
-	my $lc = lc($properties{languages}{$language}{"language_code_2:en"});
-
-	$language_codes{$lc} = $language;
-	$language_codes_reverse{$language} = $lc;
-
-	# %Languages will be passed to Lang::build_lang() to populate language names and
-	# to initialize to the English value all missing values for all the languages
-	$Languages{$lc} = $translations_to{languages}{$language};
-}
-
-# Build map of local country names in official languages to (country, language)
-
-$log->info("Building a map of local country names in official languages to (country, language)") if $log->is_info();
-
-%country_names = ();
-%country_codes = ();
-%country_codes_reverse = ();
-%country_languages = ();
-
-foreach my $country (keys %{$properties{countries}}) {
-
-	my $cc = country_to_cc($country);
-	if (not(defined $cc)) {
-		next;
-	}
-
-	$country_codes{$cc} = $country;
-	$country_codes_reverse{$country} = $cc;
-
-	$country_languages{$cc} = ['en'];
-	if (defined $properties{countries}{$country}{"language_codes:en"}) {
-		$country_languages{$cc} = [];
-		foreach my $language (split(",", $properties{countries}{$country}{"language_codes:en"})) {
-			$language = get_string_id_for_lang("no_language", $language);
-			$language =~ s/-/_/;
-			push @{$country_languages{$cc}}, $language;
-			my $name = $translations_to{countries}{$country}{$language};
-			my $nameid = get_string_id_for_lang("no_language", $name);
-			if (not defined $country_names{$nameid}) {
-				$country_names{$nameid} = [$cc, $country, $language];
-				# print STDERR "country_names{$nameid} = [$cc, $country, $language]\n";
+		$country_languages{$cc} = ['en'];
+		if (defined $properties{countries}{$country}{"language_codes:en"}) {
+			$country_languages{$cc} = [];
+			foreach my $language (split(",", $properties{countries}{$country}{"language_codes:en"})) {
+				$language = get_string_id_for_lang("no_language", $language);
+				$language =~ s/-/_/;
+				push @{$country_languages{$cc}}, $language;
+				my $name = $translations_to{countries}{$country}{$language};
+				my $nameid = get_string_id_for_lang("no_language", $name);
+				if (not defined $country_names{$nameid}) {
+					$country_names{$nameid} = [$cc, $country, $language];
+					# print STDERR "country_names{$nameid} = [$cc, $country, $language]\n";
+				}
 			}
 		}
 	}
-}
 
-$log->info("Tags.pm - 1") if $log->is_info();
+	$log->info("Tags.pm - 1") if $log->is_info();
+}
 
 sub gen_tags_hierarchy ($tagtype, $tags_list) {
 
