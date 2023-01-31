@@ -70,7 +70,7 @@ if ($tagtype eq '*') {
 		preservation
 		states
 		vitamins
-	)
+	);
 }
 foreach my $taxonomy (@taxonomies) {
 	print "building taxonomy for $taxonomy - publish: $publish\n";
@@ -78,5 +78,3 @@ foreach my $taxonomy (@taxonomies) {
 }
 
 exit(0);
-
-

@@ -1674,7 +1674,6 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			properties => $properties{$tagtype},
 		};
 
-
 		copy("$data_root/taxonomies/$tagtype.result.txt", "$data_root/cache/$tagtype.result.$hash.txt");
 		copy("$www_root/data/taxonomies/$tagtype.json", "$data_root/cache/$tagtype.$hash.json");
 
