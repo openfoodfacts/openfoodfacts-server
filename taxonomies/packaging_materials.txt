@@ -25,13 +25,21 @@ stopwords:xx:100%, RC, Recycling Code
 # List of recycling codes: https://en.wikipedia.org/wiki/Recycling_codes
 # https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:31997D0129&from=EN
 
+
 en:Unknown
 de:Unbekannt
 bg:Неизвестно
 fr:Inconnu, inconnue, inconnus, inconnues
 hu:Ismeretlen
-nl:Overig, Onbekend
+nl:Onbekend
 non_recyclable_and_non_biodegradable:en:maybe
+description:de:Art und Herkunft des Materials sind unbekannt und können nicht erkannt werden.
+description:en:The nature and origing of the material is unknown and can not be recognised.
+description:es:La naturaleza y el origen del material son desconocidos y no pueden ser reconocidos.
+description:fr:La nature et l'origine du matériau sont inconnues et ne peuvent pas être reconnues.
+description:it:La natura e l'origine del materiale sono sconosciute e non possono essere riconosciute.
+description:nl:
+description:pt:A natureza e a origem do material são desconhecidas e não podem ser reconhecidas.
 
 en:Plastic
 ar:بلاستيك
