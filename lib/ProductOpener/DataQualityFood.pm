@@ -659,6 +659,9 @@ sub check_nutrition_data ($product_ref) {
 					"en:nutrition-data-prepared-without-category-dried-products-to-be-rehydrated";
 			}
 		}
+		if ((defined $product_ref->{serving_size}) && (($product_ref->{serving_size} =~ /(\d+)/) eq "")) {
+			push @{$product_ref->{data_quality_warnings_tags}}, "en:serving-size-is-missing-digits";
+		}
 		if (    $nutrition_data
 			and (defined $product_ref->{nutrition_data_per})
 			and ($product_ref->{nutrition_data_per} eq 'serving'))
@@ -1180,10 +1183,6 @@ sub check_quantity ($product_ref) {
 
 		if ($product_ref->{serving_size} =~ /\d\s?mg\b/i) {
 			push @{$product_ref->{data_quality_warnings_tags}}, "en:serving-size-in-mg";
-		}
-
-		if (($product_ref->{serving_size} !=~ /(\d+)/) eq "") {
-                push @{$product_ref->{data_quality_warnings_tags}}, "en:serving-size-is-missing-digits";
 		}
 	}
 
