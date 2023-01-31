@@ -660,7 +660,7 @@ sub check_nutrition_data ($product_ref) {
 			}
 		}
 		if ((defined $product_ref->{serving_size}) && (($product_ref->{serving_size} =~ /(\d+)/) eq "")) {
-			push @{$product_ref->{data_quality_warnings_tags}}, "en:serving-size-is-missing-digits";
+			push @{$product_ref->{data_quality_errors_tags}}, "en:serving-size-is-missing-digits";
 		}
 		if (    $nutrition_data
 			and (defined $product_ref->{nutrition_data_per})
