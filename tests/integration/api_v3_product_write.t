@@ -114,7 +114,7 @@ my $tests_ref = [
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890007',
 		body => '{
-			"fields": "updated",
+			"fields": "updated,misc_tags,weighters_tags",
 			"tags_lc": "fr",
 			"product": {
 				"packagings_add": [
@@ -138,7 +138,7 @@ my $tests_ref = [
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890008',
 		body => '{
-			"fields": "updated,misc_tags",
+			"fields": "updated,misc_tags,weighters_tags",
 			"tags_lc": "en",
 			"product": {
 				"packagings_add": [

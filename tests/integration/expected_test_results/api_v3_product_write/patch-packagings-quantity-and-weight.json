@@ -30,7 +30,7 @@
                "id" : "en:pet-polyethylene-terephthalate",
                "lc_name" : "PET - Polyethylene terephthalate"
             },
-            "number_of_units" : 6,
+            "number_of_units" : "6",
             "quantity_per_unit" : "25cl",
             "quantity_per_unit_unit" : "cl",
             "quantity_per_unit_value" : 25,
@@ -38,20 +38,23 @@
                "id" : "en:bottle",
                "lc_name" : "Bottle"
             },
-            "weight_measured" : 10
+            "weight_measured" : "10"
          },
          {
             "material" : {
                "id" : "en:wood",
                "lc_name" : "Wood"
             },
-            "number_of_units" : 1,
+            "number_of_units" : "1",
             "shape" : {
                "id" : "en:box",
                "lc_name" : "Box"
             },
             "weight_specified" : 25.5
          }
+      ],
+      "weighters_tags" : [
+         "openfoodfacts-contributors"
       ]
    },
    "status" : "success_with_warnings",

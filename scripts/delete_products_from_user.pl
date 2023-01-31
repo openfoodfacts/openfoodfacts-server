@@ -98,8 +98,7 @@ my $unknown_fields = 0;
 
 foreach my $field (@fields_to_update) {
 	if (    (not defined $tags_fields{$field})
-		and (not defined $taxonomy_fields{$field})
-		and (not defined $hierarchy_fields{$field}))
+		and (not defined $taxonomy_fields{$field}))
 	{
 		print "Unknown field: $field\n";
 		$unknown_fields++;

@@ -383,7 +383,7 @@
                "id" : "en:plastic",
                "lc_name" : "Plastic"
             },
-            "number_of_units" : 1,
+            "number_of_units" : "1",
             "shape" : {
                "id" : "en:bag",
                "lc_name" : "Bag"
@@ -442,7 +442,8 @@
       "traces_from_user" : "(en) ",
       "traces_hierarchy" : [],
       "traces_tags" : [],
-      "unknown_nutrients_tags" : []
+      "unknown_nutrients_tags" : [],
+      "weighters_tags" : []
    },
    "status" : "success_with_warnings",
    "warnings" : [
