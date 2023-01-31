@@ -120,4 +120,20 @@ is(normalize_quantity("10 unites, 170g"), 170);
 is(normalize_quantity("4 bouteilles en verre de 20cl"), 800);
 is(normalize_quantity("5 bottles of 20cl"), 100 * 10);
 
+my @serving_sizes = (
+	["100g", "100"],
+	["250 g", "250"],
+	["1.5kg", "1500"],
+	["2,5g", "2.5"],
+	["1 plate (25g)", "25"],
+	["1 grilled link (82g)", "82"],
+	["2 buns = 20g", "20"],
+	["43 someinvalidunit (430g)", "430"],
+	["1500ml", "1500"],
+);
+
+foreach my $test_ref (@serving_sizes) {
+	is(normalize_serving_size($test_ref->[0]), $test_ref->[1]);
+}
+
 done_testing();
