@@ -4161,7 +4161,7 @@ HTML
 			$query_ref->{$field} = $tag2_is_negative ? {"\$ne" => $value} : $value;
 		}
 	}
-
+	# Rendering Page tags
 	my $tag_html;
 	process_template('web/pages/tag/tag.tt.html', $tag_template_data_ref, \$tag_html)
 		or $tag_html = "<p>tag.tt.html template error: " . $tt->error() . "</p>";

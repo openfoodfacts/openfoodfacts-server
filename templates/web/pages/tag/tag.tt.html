@@ -14,6 +14,7 @@
             [% sep %]:
             <a href="[% tagid2_path %]">[% tag2_name %]</a>
         [% END %]
+
     </div>
 
     [% IF tag_logo %]
@@ -30,7 +31,8 @@
             </a>
         </div>
     [% END %]
-
+    
+    
     [% IF weblinks %]
         <div class="weblinks">
             [% weblinks %]
@@ -48,6 +50,11 @@
             [% description %]
         </div>
     [% END %]
+    <!-- injecting facet-knowledge-panel -->
+    <div id="facet-knowledge-panel">
+        <h2 id="title"></h2>
+        <P id="facet-panels"></P>
+    </div>
 [% END %]
 
 [% IF country != 'en:world' %]
@@ -56,10 +63,35 @@
     </p>
 [% END %]
 
+
 [% IF products_title %]
     <h2 class="products_title">[% products_title %]</h2>
 [% END %]
         </div>
     </div>
 </div>
+    
+</div>
+
+<!-- Fetching facet knowledge panel -->
+<script>
+    fetch("https://facets-kp.openfoodfacts.net/render-to-html?facet_tag=[% tagtype_name.ucfirst %]&value_tag=[% tag_name %]")
+    .then((response) => {
+        if (response.ok) {
+            return response.text();}
+        else {
+            throw new Error("NETWORK RESPONSE ERROR");
+            
+      }
+    })
+    .then(data => {
+        let title = document.getElementById("title");
+        title.innerHTML = "Facet knowledge panel";
+        let knowledgepanel = document.getElementById("facet-panels");
+        knowledgepanel.innerHTML = data;
+      
+    })
+    .catch((error) => console.error("FETCH ERROR:", error));
+</script>
+
 <!-- end templates/[% template.name %] -->
