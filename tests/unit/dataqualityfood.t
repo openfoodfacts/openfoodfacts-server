@@ -486,4 +486,19 @@ check_quality_and_test_product_has_quality_tag(
 	'nutriment should have positive value (except nutrition-score)', 0
 );
 
+# serving size should contains digits
+$product_ref = {serving_size => "serving_size"};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag($product_ref, 'data_quality', 'en:serving-size-is-missing-digits'),
+	'serving size should contains digits'
+) or diag explain $product_ref;
+
+$product_ref = {serving_size => "120g"};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag($product_ref, 'data_quality', 'en:serving-size-is-missing-digits'),
+	'serving size should contains digits'
+) or diag explain $product_ref;
+
 done_testing();
