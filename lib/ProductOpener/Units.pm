@@ -46,7 +46,7 @@ BEGIN {
 		&mmoll_to_unit
 
 		&normalize_serving_size
-		&normalize_quantity        
+		&normalize_quantity
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -234,7 +234,6 @@ sub mmoll_to_unit ($value, $unit) {
 
 	return $value + 0;
 }
-
 
 my $international_units = qr/kg|g|mg|µg|oz|l|dl|cl|ml|(fl(\.?)(\s)?oz)/i;
 # Chinese units: a good start is https://en.wikipedia.org/wiki/Chinese_units_of_measurement#Mass
