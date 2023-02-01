@@ -10,6 +10,8 @@ description: |-
   For input, clients can either pass the id of a corresponding taxonomy entry (e.g. "en:pizza-box"), or a free text value prefixed with the language code of the text (e.g. "en:Pizza box", "fr:boite à pizza"). If the language code prefix is missing, the value of the "lc" field of the query will be used.
 
   The resulting structure will contain the id of the canonical entry in the taxonomy if it good be matched, or the free text value prefixed with the language code otherwise.
+
+  For weights, the API is expecting a number with the number of grams. If a string is passed instead of a number, we will attempt to convert it to grams. The string may contain units (e.g. "6.9 g"), and use . or , as the decimal separator. Conversion may not work for all inputs. If a string was converted to a number, the API response will include a warning and specify the converted value.
 examples:
   - number_of_units: 6
     shape:
@@ -34,11 +36,15 @@ properties:
     type: string
     description: Quantity (weight or volume) of food product contained in the packaging component. (e.g. 75cl for a wine bottle)
   weight_specified:
-    type: number
-    description: 'Weight (as specified by the manufacturer) of one unit of the empty packaging component (in grams). (e.g. for a 6 pack of 1.5l water bottles, it might be 30, the weight in grams of 1 empty water bottle without its cap which is a different packaging component).'
+    type:
+      - number
+      - string
+    description: 'Weight (as specified by the manufacturer) of one unit of the empty packaging component (in grams). (e.g. for a 6 pack of 1.5l water bottles, it might be 30, the weight in grams of 1 empty water bottle without its cap which is a different packaging component). If passed a string - possibly with an unit - it will be converted to a number.'
   weight_measured:
-    type: number
-    description: 'Weight (as measured by one or more users) of one unit of the empty packaging component (in grams). (e.g. for a 6 pack of 1.5l water bottles, it might be 30, the weight in grams of 1 empty water bottle without its cap which is a different packaging component).'
+    type:
+      - number
+      - string
+    description: 'Weight (as measured by one or more users) of one unit of the empty packaging component (in grams). (e.g. for a 6 pack of 1.5l water bottles, it might be 30, the weight in grams of 1 empty water bottle without its cap which is a different packaging component). If passed a string - possibly with an unit - it will be converted to a number.'
   brands:
     type: string
     description: 'A comma separated list of brands / product names for the packaging component (e.g. "Tetra Pak", Tetra Brik"'
