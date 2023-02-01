@@ -225,14 +225,14 @@ lint: lint_perltidy
 
 tests: unit_test integration_test
 
-unit_test: build_lang_test build_taxonomies
+unit_test: build_taxonomies_test
 	@echo "🥫 Running unit tests …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
 	${DOCKER_COMPOSE_TEST} run -T --rm backend prove -l --jobs ${CPU_COUNT} -r tests/unit
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 unit tests success"
 
-integration_test: build_lang_test build_taxonomies
+integration_test: build_taxonomies_test
 	@echo "🥫 Running unit tests …"
 # we launch the server and run tests within same container
 # we also need dynamicfront for some assets to exists
@@ -265,7 +265,7 @@ test-int: guard-test # usage: make test-one test=test-file.t
 stop_tests:
 	${DOCKER_COMPOSE_TEST} stop
 
-update_tests_results: build_lang_test build_taxonomies
+update_tests_results: build_taxonomies_test
 	@echo "🥫 Updated expected test results with actuals for easy Git diff"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront
 	${DOCKER_COMPOSE_TEST} exec -T -w /opt/product-opener/tests backend bash update_tests_results.sh
@@ -294,7 +294,7 @@ check_translations:
 	${DOCKER_COMPOSE} run --rm backend scripts/check-translations.sh
 
 # check all perl files compile (takes time, but needed to check a function rename did not break another module !)
-check_perl: build_taxonomies
+check_perl: build_taxonomies_test
 	@echo "🥫 Checking all perl files"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
 	${DOCKER_COMPOSE_TEST} run --rm --no-deps backend make -j ${CPU_COUNT} cgi/*.pl scripts/*.pl lib/*.pl lib/ProductOpener/*.pm
@@ -331,6 +331,10 @@ build_taxonomies: build_lang
 rebuild_taxonomies: build_lang
 	@echo "🥫 re-build all taxonomies"
 	${DOCKER_COMPOSE} run --no-deps --rm backend /opt/product-opener/scripts/build_tags_taxonomy.pl ${name}
+
+build_taxonomies_test: build_lang_test
+	@echo "🥫 build taxonomies"
+	${DOCKER_COMPOSE_TEST} run --no-deps --rm backend /opt/product-opener/scripts/build_tags_taxonomy.pl ${name}
 
 #------------#
 # Production #
