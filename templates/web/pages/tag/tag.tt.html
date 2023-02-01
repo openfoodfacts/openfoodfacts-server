@@ -75,7 +75,9 @@
 
 <!-- Fetching facet knowledge panel -->
 <script>
-    fetch("https://facets-kp.openfoodfacts.net/render-to-html?facet_tag=[% tagtype_name.ucfirst %]&value_tag=[% tag_name %]")
+    let fecet_kp_url = "https://facets-kp.openfoodfacts.net/render-to-html?"
+    let param = "facet_tag=[% tagtype_name %]&value_tag=[% tag_name %]&sec_facet_tag=[% tagtype2_name %]&sec_value_tag=[% tag2_name %]"
+    fetch( fecet_kp_url + param )
     .then((response) => {
         if (response.ok) {
             return response.text();}
