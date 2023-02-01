@@ -284,6 +284,7 @@ my %unknown_entries_in_gs1_maps = ();
 		"APPELLATION_ORIGINE_CONTROLEE" => "fr:aoc",
 		"AQUACULTURE_STEWARDSHIP_COUNCIL" => "en:responsible-aquaculture-asc",
 		"BLEU_BLANC_COEUR" => "fr:bleu-blanc-coeur",
+		"BIO_LABEL_GERMAN" => "de:EG-Öko-Verordnung",
 		"BIO_PARTENAIRE" => "fr:biopartenaire",
 		"CROSSED_GRAIN_SYMBOL" => "en:crossed-grain-symbol",
 		"DEMETER" => "en:demeter",
@@ -326,8 +327,10 @@ my %unknown_entries_in_gs1_maps = ();
 		"VOLAILLE_FRANCAISE" => "en:french-poultry",
 	},
 
+	# https://gs1.se/en/guides/documentation/code-lists/t3783-target-market-country-code/
 	targetMarketCountryCode => {
 		"250" => "en:france",
+		"276" => "en:germany",
 	},
 
 	timeMeasurementUnitCode => {
@@ -1721,7 +1724,7 @@ sub convert_gs1_json_message_to_off_products_csv ($json_ref, $products_ref, $mes
 
 	# assign the lang and lc fields
 	if (defined $product_ref->{languages}) {
-		my @sorted_languages = sort({$product_ref->{languages}{$b} <=> $product_ref->{languages}{$a}}
+		my @sorted_languages = sort ({$product_ref->{languages}{$b} <=> $product_ref->{languages}{$a}}
 			keys %{$product_ref->{languages}});
 		my $top_language = $sorted_languages[0];
 		$product_ref->{lc} = $top_language;
