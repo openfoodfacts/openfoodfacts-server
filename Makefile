@@ -294,7 +294,7 @@ check_translations:
 	${DOCKER_COMPOSE} run --rm backend scripts/check-translations.sh
 
 # check all perl files compile (takes time, but needed to check a function rename did not break another module !)
-check_perl:
+check_perl: build_taxonomies
 	@echo "🥫 Checking all perl files"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
 	${DOCKER_COMPOSE_TEST} run --rm --no-deps backend make -j ${CPU_COUNT} cgi/*.pl scripts/*.pl lib/*.pl lib/ProductOpener/*.pm
@@ -324,11 +324,11 @@ check_critic:
 # Compilation #
 #-------------#
 
-build_taxonomies:
+build_taxonomies: build_lang
 	@echo "🥫 build taxonomies"
 	${DOCKER_COMPOSE} run --no-deps --rm backend /opt/product-opener/scripts/build_tags_taxonomy.pl ${name}
 
-rebuild_taxonomies:
+rebuild_taxonomies: build_lang
 	@echo "🥫 re-build all taxonomies"
 	${DOCKER_COMPOSE} run --no-deps --rm backend /opt/product-opener/scripts/build_tags_taxonomy.pl ${name}
 
