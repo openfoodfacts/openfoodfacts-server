@@ -308,18 +308,7 @@ $options{product_type} = "food";
 	{
 		name => "Halal App Chakib",
 		conditions => [["user_id", "halal-app-chakib"],],
-		actions => [
-			["ignore_if_existing_categories"],
-			["ignore_if_existing_categories_tags"],
-			["ignore_if_existing_categories_en"],
-			["ignore_if_existing_categories_tags_en"],
-			["ignore_if_existing_countries"],
-			["ignore_if_existing_countries_tags"],
-			["ignore_if_existing_added_countries_tags"],
-			["ignore_if_existing_countries_en"],
-			["ignore_if_existing_countries_tags_en"],
-			["ignore_if_existing_added_countries_tags_en"],
-		],
+		actions => [["ignore"],],
 		notifications => [
 			qw (
 				slack_channel_edit-alert
