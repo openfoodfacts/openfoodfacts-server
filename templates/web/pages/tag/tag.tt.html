@@ -50,11 +50,42 @@
             [% description %]
         </div>
     [% END %]
-    <!-- injecting facet-knowledge-panel -->
-    <div id="facet-knowledge-panel">
-        <h2 id="title"></h2>
-        <P id="facet-panels"></P>
-    </div>
+    [% IF tagid.defined  %]
+        <!-- injecting facet-knowledge-panel -->
+        <div id="facet-knowledge-panel">
+            <h2 id="title"></h2>
+            <P id="facet-panels"></P>
+        </div>
+        <!-- Fetching facet knowledge panel -->
+        <script>
+            let facet_kp_url = "https://facets-kp.openfoodfacts.net/render-to-html?";
+            let params = "facet_tag=[% tagtype_name %]&value_tag=[% tagid %]&sec_facet_tag=[% tagtype2_name %]&sec_value_tag=[% tagid2 %]";
+            // checking if data is filtered on country 
+            if ("[% country_code %]" !== "world"){
+                // Adding language code to get transalted data from facet-knowledge-panel API
+                // Removing langcode from county name l.e, "en:france" to "france"
+                country_name = "[% country %]".slice(3);
+                params += "&lang_code=[% country_code %]&country=" + country_name;
+            }
+            fetch( fecet_kp_url + params )
+            .then((response) => {
+                if (response.ok) {
+                    return response.text();}
+                else {
+                    throw new Error("NETWORK RESPONSE ERROR");
+                    
+            }
+            })
+            .then(data => {
+                let title = document.getElementById("title");
+                title.innerHTML = "Facet knowledge panel";
+                let knowledgepanel = document.getElementById("facet-panels");
+                knowledgepanel.innerHTML = data;
+            
+            })
+        </script>
+    [% END %]
+
 [% END %]
 
 [% IF country != 'en:world' %]
@@ -72,27 +103,4 @@
 </div>
     
 </div>
-
-<!-- Fetching facet knowledge panel -->
-<script>
-    let fecet_kp_url = "https://facets-kp.openfoodfacts.net/render-to-html?"
-    let param = "facet_tag=[% tagtype_name %]&value_tag=[% tag_name %]&sec_facet_tag=[% tagtype2_name %]&sec_value_tag=[% tag2_name %]"
-    fetch( fecet_kp_url + param )
-    .then((response) => {
-        if (response.ok) {
-            return response.text();}
-        else {
-            throw new Error("NETWORK RESPONSE ERROR");
-            
-      }
-    })
-    .then(data => {
-        let title = document.getElementById("title");
-        title.innerHTML = "Facet knowledge panel";
-        let knowledgepanel = document.getElementById("facet-panels");
-        knowledgepanel.innerHTML = data;
-      
-    })
-</script>
-
 <!-- end templates/[% template.name %] -->
