@@ -53,8 +53,8 @@
     [% IF tagid.defined  %]
         <!-- injecting facet-knowledge-panel -->
         <div id="facet-knowledge-panel">
-            <h2 id="title"></h2>
-            <P id="facet-panels"></P>
+            <h2 id="facet_panels_title"></h2>
+            <div id="facet_panels_content"></div>
         </div>
         <!-- Fetching facet knowledge panel -->
         <script>
@@ -67,19 +67,19 @@
                 country_name = "[% country %]".slice(3);
                 params += "&lang_code=[% country_code %]&country=" + country_name;
             }
-            fetch( fecet_kp_url + params )
+            fetch( facet_kp_url + params )
             .then((response) => {
                 if (response.ok) {
                     return response.text();}
                 else {
-                    throw new Error("NETWORK RESPONSE ERROR");
+                    throw new Error("Network Response Error while fetching facet_kp");
                     
             }
             })
             .then(data => {
-                let title = document.getElementById("title");
+                let title = document.getElementById("facet_panels_title");
                 title.innerHTML = "Facet knowledge panel";
-                let knowledgepanel = document.getElementById("facet-panels");
+                let knowledgepanel = document.getElementById("facet_panels_content");
                 knowledgepanel.innerHTML = data;
             
             })
