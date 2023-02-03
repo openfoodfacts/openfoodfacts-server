@@ -176,7 +176,7 @@ my @removed = ();
 
 sub fake_delete ($name) {
 	push @removed, $name;
-    return;
+	return;
 }
 
 {
