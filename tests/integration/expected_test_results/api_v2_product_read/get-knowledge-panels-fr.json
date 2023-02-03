@@ -128,6 +128,13 @@
                {
                   "element_type" : "text",
                   "text_element" : {
+                     "html" : "Select a country in order to include the full impact of transportation.",
+                     "type" : "warning"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
                      "html" : "L'<a href=\"http://world-fr.openfoodfacts.localhost/ecoscore\">Eco-Score</a> est un score expérimental qui synthétise les impacts environnementaux des produits alimentaires."
                   }
                },
@@ -178,7 +185,7 @@
             "title_element" : {
                "grade" : "c",
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/ecoscore-c.svg",
-               "title" : "Éco-Score C - Impact modéré sur l'environnement",
+               "title" : "Eco-Score C - Impact modéré sur l'environnement",
                "type" : "grade"
             },
             "topics" : [
@@ -342,7 +349,7 @@
                            "type" : "text"
                         },
                         {
-                           "text" : "Recyclage",
+                           "text" : "Consigne de tri",
                            "type" : "text"
                         },
                         {
@@ -1033,7 +1040,7 @@
                      "actions" : [
                         "add_origins"
                      ],
-                     "html" : ""
+                     "html" : "Add the origins of ingredients for this product"
                   },
                   "element_type" : "action"
                }

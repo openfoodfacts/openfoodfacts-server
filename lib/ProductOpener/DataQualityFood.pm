@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -534,7 +534,7 @@ my %energy_from_nutrients = (
 		alcohol => {kj => 29, kcal => 7},
 		organic_acids => {kj => 13, kcal => 3},    # no corresponding nutrients in nutrient tables?
 		fiber => {kj => 8, kcal => 2},
-		erythritol => {kj => 0, kcal => 0},    # no corresponding nutrients in nutrient tables?
+		erythritol => {kj => 0, kcal => 0},
 	},
 );
 
@@ -570,10 +570,21 @@ sub check_nutrition_data_energy_computation ($product_ref) {
 
 				my $energy_per_gram = $energy_from_nutrients{europe}{$nid}{$unit};
 				my $grams = 0;
-				# handles nutriment1__minus__numtriment2 case
+				# handles nutriment1__minus__nutriment2 case
 				if ($nid =~ /_minus_/) {
 					my $nid_minus = $';
 					$nid = $`;
+
+					# If we are computing carbohydrates minus polyols, and we do not have a value for polyols
+					# but we have a value for erythritol (which is a polyol), then we need to remove erythritol
+					if (($nid_minus eq "polyols") and (not defined $product_ref->{nutriments}{$nid_minus . "_value"})) {
+						$nid_minus = "erythritol";
+					}
+					# Similarly for polyols minus erythritol
+					if (($nid eq "polyols") and (not defined $product_ref->{nutriments}{$nid . "_value"})) {
+						$nid = "erythritol";
+					}
+
 					$grams -= $product_ref->{nutriments}{$nid_minus . "_value"} || 0;
 				}
 				$grams += $product_ref->{nutriments}{$nid . "_value"} || 0;
@@ -682,14 +693,17 @@ sub check_nutrition_data ($product_ref) {
 				push @{$product_ref->{data_quality_errors_tags}}, "en:energy-value-in-kcal-greater-than-in-kj";
 			}
 
-			# check energy in kcal is ~ 4.2 energy in kj
+			# check energy in kcal is ~ 4.2 (+/- 0.5) energy in kj
+			#   +/- 2 to avoid false positives due to rounded values below 2 Kcal.
+			#   Eg. 1.49 Kcal -> 6.26 KJ in reality, can be rounded by the producer to 1 Kcal -> 6 KJ.
+			# TODO: add tests in /tests/unit/dataqualityfood.t
 			if (
 				(
 					$product_ref->{nutriments}{"energy-kj_value"}
-					< 3.7 * $product_ref->{nutriments}{"energy-kcal_value"} - 1
+					< 3.7 * $product_ref->{nutriments}{"energy-kcal_value"} - 2
 				)
 				or ($product_ref->{nutriments}{"energy-kj_value"}
-					> 4.7 * $product_ref->{nutriments}{"energy-kcal_value"} + 1)
+					> 4.7 * $product_ref->{nutriments}{"energy-kcal_value"} + 2)
 				)
 			{
 				push @{$product_ref->{data_quality_errors_tags}}, "en:energy-value-in-kcal-does-not-match-value-in-kj";
@@ -725,6 +739,10 @@ sub check_nutrition_data ($product_ref) {
 					else {
 						$nid_non_zero++;
 					}
+				}
+				# negative value in nutrition table, exclude key containing "nutrition-score" as they can be negative
+				if (($product_ref->{nutriments}{$nid} < 0) and (index($nid, "nutrition-score") == -1)) {
+					push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-negative-$nid2";
 				}
 			}
 

@@ -282,8 +282,8 @@ msgid "Producers Admin manual"
 msgstr ""
 
 msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://world-ru.openfoodfacts.org/pozhertvovat-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> создан некоммерческой ассоциацией, независимой от производителей отрасли. Это сделано для всех, всеми, и финансируется всеми. Вы можете поддержать нашу работу, сделав <a href=\"https://world-ru.openfoodfacts.org/pozhertvovat-open-food-facts\">пожертвование для Open Food Facts</a>, а также <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">используя поисковую систему Lilo</a>.<br/><b>Спасибо!</b></p>"
+msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
+msgstr ""
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -2567,7 +2567,7 @@ msgstr "Посмотреть список соответствующих про�
 
 msgctxt "view_products_from_the_entire_world"
 msgid "View matching products from the entire world"
-msgstr "Просмотреть все соответствующие продукты со всего мира"
+msgstr "Похожие продукты со всего мира"
 
 msgctxt "view_results_from_the_entire_world"
 msgid "View results from the entire world"
@@ -4006,6 +4006,14 @@ msgctxt "export_products_to_public_database_email"
 msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
 msgstr "Платформа для производителей все еще находится в стадии разработки, и мы проводим ручные проверки перед импортом продуктов в общедоступную базу данных. Пожалуйста, напишите нам по электронной почте по адресу <a href=\"mailto:producers@openfoodfacts.org\">produk@openfoodfacts.org</a> чтобы обновить публичную базу данных."
 
+msgctxt "crm_user_id"
+msgid "Id of corresponding contact in CRM"
+msgstr ""
+
+msgctxt "crm_org_id"
+msgid "Id of corresponding organization in CRM"
+msgstr ""
+
 msgctxt "user_groups"
 msgid "Groups"
 msgstr "Группы"
@@ -4708,6 +4716,10 @@ msgctxt "packaging_text_note_2"
 msgid "Try to be as specific as possible. For plastic, please indicate if it is opaque or transparent, colored, PET or PEHD."
 msgstr ""
 
+msgctxt "packaging_text_note_3"
+msgid "Data from this field will be combined with any data provided for each packaging part. It is possible to provide one or the other, or both."
+msgstr ""
+
 msgctxt "product_js_extract_packaging"
 msgid "Extract the recycling instructions and/or packaging information from the picture"
 msgstr "Извлечь инструкции по переработке и/или информацию об упаковке с изображения"
@@ -4759,7 +4771,7 @@ msgstr "Сильное воздействие на окружающую сред
 
 msgctxt "attribute_ecoscore_e_description_short"
 msgid "Very high environmental impact"
-msgstr "Очень сильное воздействие на окружающую среду"
+msgstr "Russian"
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "contains_s"
@@ -4962,6 +4974,11 @@ msgstr "Eco-Score"
 msgctxt "packaging_parts"
 msgid "Packaging parts"
 msgstr ""
+
+# A short name for a physical piece of packaging (e.g. in English, "packaging" instead of "packaging part"). Used with a number (e.g. "Packaging 1" to identify a packaging part)
+msgctxt "packaging_part_short"
+msgid "Packaging"
+msgstr "Упаковка"
 
 # Number of packaging parts
 msgctxt "packaging_number"
@@ -5280,6 +5297,14 @@ msgstr "Список идентификаторов GS1 GLN, которые бу
 msgctxt "org_list_of_gs1_gln_note"
 msgid "A comma separated list of GS1 GLN identifiers to force the association with this organization."
 msgstr "Список идентификаторов GS1 GLN, разделенных запятыми, для принудительной связи с этой организацией."
+
+msgctxt "org_valid_org"
+msgid "Validate organization as a real producer."
+msgstr ""
+
+msgctxt "org_valid_org_note"
+msgid "The organization is verified as a real producer by a human, also creates entry in CRM."
+msgstr ""
 
 msgctxt "org_enable_manual_export_to_public_platform"
 msgid "Enable organization members to manually export product data and photos to the public database."
@@ -6065,6 +6090,69 @@ msgctxt "action_add_nutrition_facts"
 msgid "Add nutrition facts"
 msgstr ""
 
+msgctxt "action_add_origins"
+msgid "Add the origins of ingredients for this product"
+msgstr ""
+
+msgctxt "action_add_packaging_image"
+msgid "Take a photo of the recycling information"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_add_basic_details"
+msgid "Add basic details"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_add_portion_size"
+msgid "Add portion size"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_add_ingredients_image"
+msgid "Take a photo of the ingredients"
+msgstr "Сделайте фото состава"
+
+# this is not used yet
+msgctxt "action_add_nutrition_image"
+msgid "Take a photo of the nutrition facts"
+msgstr "Сделайте фото энерг. ценности"
+
+# this is not used yet
+msgctxt "action_refresh_ingredients_image"
+msgid "Refresh the photo of the ingredients"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_refresh_nutrition_image"
+msgid "Refresh the photo of the nutrition facts"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_add_packaging_text"
+msgid "Extract and check the recycling information"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_add_stores"
+msgid "Add the store where you found this product"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_labels"
+msgid "Add any label present on this product"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_countries"
+msgid "Add the country where you found this product"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_packager_codes_image"
+msgid "Take a photo of traceability codes"
+msgstr ""
+
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
 msgid "What you need to know"
@@ -6197,4 +6285,104 @@ msgstr "Продукт"
 msgctxt "environment"
 msgid "Environment"
 msgstr "Окружающая среда"
+
+msgctxt "api_result_failure"
+msgid "Failure"
+msgstr ""
+
+msgctxt "api_result_product_found"
+msgid "Product found"
+msgstr ""
+
+msgctxt "api_result_product_not_found"
+msgid "Product not found"
+msgstr "Продукт не найден"
+
+msgctxt "api_result_product_updated"
+msgid "Product updated"
+msgstr ""
+
+msgctxt "api_message_invalid_api_action"
+msgid "Invalid API action"
+msgstr ""
+
+msgctxt "api_message_invalid_api_method"
+msgid "Invalid API method"
+msgstr ""
+
+msgctxt "api_message_empty_request_body"
+msgid "Empty request body"
+msgstr ""
+
+msgctxt "api_message_invalid_json_in_request_body"
+msgid "Invalid JSON in request body"
+msgstr ""
+
+msgctxt "api_message_invalid_type_must_be_object"
+msgid "Invalid type: must be an object"
+msgstr ""
+
+msgctxt "api_message_invalid_type_must_be_array"
+msgid "Invalid type: must be an array"
+msgstr ""
+
+msgctxt "api_message_invalid_type_must_be_integer"
+msgid "Invalid type: must be an integer"
+msgstr ""
+
+msgctxt "api_message_missing_field"
+msgid "Missing field"
+msgstr ""
+
+msgctxt "api_message_unrecognized_value"
+msgid "Unrecognized value"
+msgstr ""
+
+msgctxt "api_impact_none"
+msgid "None"
+msgstr ""
+
+msgctxt "api_impact_warning"
+msgid "Warning"
+msgstr "Nazwa zwyczajowa"
+
+msgctxt "api_impact_failure"
+msgid "Failure"
+msgstr ""
+
+msgctxt "api_impact_field_ignored"
+msgid "Field ignored"
+msgstr ""
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units"
+msgid "Number of units"
+msgstr ""
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight"
+msgid "Weight of one empty unit"
+msgstr ""
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit"
+msgid "Quantity of product contained per unit"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_help_categorize_on_hunger_games"
+msgid "Help categorize more {title} on Hunger Games"
+msgstr ""
+
+msgctxt "packagings_complete"
+msgid "All the packaging parts of the product are listed."
+msgstr ""
+
+msgctxt "api_message_invalid_user_id_and_password"
+msgid "Invalid user id and password"
+msgstr ""
+
+msgctxt "api_message_invalid_value_must_be_0_or_1"
+msgid "Invalid value: must be 0 or 1"
+msgstr ""
 

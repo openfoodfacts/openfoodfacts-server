@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -298,7 +298,8 @@ sub compare_to_expected_results ($object_ref, $expected_results_file, $update_ex
 	if ($update_expected_results) {
 		open(my $result, ">:encoding(UTF-8)", $expected_results_file)
 			or confess("Could not create $expected_results_file: $!");
-		print $result $json->pretty->encode($object_ref);
+		my $pretty_json = $json->pretty->encode($object_ref);
+		print $result $pretty_json;
 		close($result);
 	}
 	else {

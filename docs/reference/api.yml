@@ -15,10 +15,10 @@ info:
     url: 'https://opendatacommons.org/licenses/odbl/summary/index.html'
   version: '2'
 servers:
-  - url: 'https://world.openfoodfacts.org'
-    description: prod
   - description: dev
     url: 'https://off:off@world.openfoodfacts.net'
+  - url: 'https://world.openfoodfacts.org'
+    description: prod
 paths:
   '/api/v2/product/{barcode}':
     get:
@@ -194,8 +194,9 @@ paths:
       tags:
         - Write Requests
       description: |
-        If a barcode exists then you will be editing a product, 
-        However if it doesn''t you qill be creating a new product with that unique barcode.
+        If the barcode exists then you will be editing the existing product, 
+        However if it doesn''t you will be creating a new product with that unique barcode,
+        and adding properties to the product.
   /api/v2/search:
     get:
       summary: Search for Products
@@ -213,9 +214,25 @@ paths:
         Search request allows you to get the nutritional data of products that match your search criteria. 
         It allows you create many custom APIs for your use case. 
         If the search query parameter has 2 possible values, they are seperated by a comma(,).
+        When filtering via a parameter that has different language codes like `fr`, `de` or `en`, specify the language code in the parameter name e.g `categories_tags_en`
       parameters:
-        - $ref: '#/components/parameters/categories_tags_en'
-        - $ref: '#/components/parameters/labels_tags_en'
+        # all tags parameters
+        - $ref: './schemas/tags_parameters.yaml#/properties/additives_tags'
+        - $ref: './schemas/tags_parameters.yaml#/properties/allergens_tags'
+        - $ref: './schemas/tags_parameters.yaml#/properties/brands_tags'
+        - $ref: './schemas/tags_parameters.yaml#/properties/categories_tags'
+        - $ref: './schemas/tags_parameters.yaml#/properties/countries_tags'
+        - $ref: './schemas/tags_parameters.yaml#/properties/emb_codes_tags'
+        - $ref: './schemas/tags_parameters.yaml#/properties/labels_tags'
+        - $ref: './schemas/tags_parameters.yaml#/properties/manufacturing_places_tags'
+        - $ref: './schemas/tags_parameters.yaml#/properties/nutrition_grades_tags'
+        - $ref: './schemas/tags_parameters.yaml#/properties/origins_tags'
+        - $ref: './schemas/tags_parameters.yaml#/properties/packaging_tags'
+        - $ref: './schemas/tags_parameters.yaml#/properties/purchase_places_tags'
+        - $ref: './schemas/tags_parameters.yaml#/properties/states_tags'
+        - $ref: './schemas/tags_parameters.yaml#/properties/stores_tags'
+        - $ref: './schemas/tags_parameters.yaml#/properties/traces_tags'
+        - $ref: './schemas/tags_parameters.yaml#/properties/tag_name_with_language_code'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/sort_by'
     parameters: []
@@ -328,14 +345,7 @@ components:
       in: query
       name: angle
       required: true
-    categories_tags_en:
-      schema:
-        type: string
-        example: chocolates
-      in: query
-      name: categories_tags_en
-      description: |
-        The category of products you are searching for.
+
     sort_by:
       schema:
         type: string
@@ -362,14 +372,6 @@ components:
         * `scans_n`, `unique_scans_n` and `popularity_key` are about product popularity: number of scans on unique scans, rank of product
         * `created_t`, `last_modified_t`, are about creation and modification dates
         * `nothing`, tells not to sort at all (because if you do not provide the sort_by argument we default to sorting on popularity (for food) or last modification date)
-    labels_tags_en:
-      schema:
-        type: string
-        example: organic
-      in: query
-      name: labels_tags_en
-      description: |
-        The labels of products you are searching for.
     fields:
       schema:
         type: string

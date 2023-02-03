@@ -129,6 +129,13 @@
                {
                   "element_type" : "text",
                   "text_element" : {
+                     "html" : "Select a country in order to include the full impact of transportation.",
+                     "type" : "warning"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
                      "html" : "The <a href=\"http://world.openfoodfacts.localhost/ecoscore\">Eco-Score</a> is an experimental score that summarizes the environmental impacts of food products."
                   }
                },
@@ -343,7 +350,7 @@
                            "type" : "text"
                         },
                         {
-                           "text" : "Recycling",
+                           "text" : "Recycling instruction",
                            "type" : "text"
                         },
                         {
@@ -1034,7 +1041,7 @@
                      "actions" : [
                         "add_origins"
                      ],
-                     "html" : ""
+                     "html" : "Add the origins of ingredients for this product"
                   },
                   "element_type" : "action"
                }

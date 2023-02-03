@@ -86,7 +86,7 @@ boîte en carton à recycler"
 		'packaging_text_fr_multiple_semi_colon',
 		{
 			lc => "fr",
-			packaging_text => "barquette en plastique à jeter;film plastique à jeter; boîte en carton à recycler"
+			packaging_text => "barquette en plastique à jeter; film plastique à jeter; boîte en carton à recycler"
 		}
 	],
 	[
@@ -175,7 +175,7 @@ boîte en carton à recycler"
 		'packaging_text_nl_plastic_fles',
 		{
 			lc => "nl",
-			packaging_text => "plastic fles"
+			packaging_text => "plastiek fles"
 		}
 	],
 
@@ -517,6 +517,33 @@ boîte en carton à recycler"
 		}
 	],
 
+	# dots were not parsed correctly
+	[
+		'fr-dot-to-separate-components',
+		{
+			lc => "fr",
+			packaging_text => "Film plastique à jeter. Étui carton à recycler.",
+		}
+	],
+
+	# comma inside a number: don't split
+	[
+		'fr-comma-inside-a-number',
+		{
+			lc => "fr",
+			packaging_text => "6 bouteilles en plastique transparent PET de 1,5 L à recycler",
+		}
+	],
+
+	# comma without spaces, not in a number: split
+	[
+		'fr-comma-without-space',
+		{
+			lc => "fr",
+			packaging_text => "1 boîte en métal,4 bouteilles (plastique).",
+		}
+	],
+
 );
 
 my $json = JSON->new->allow_nonref->canonical;
@@ -550,7 +577,12 @@ foreach my $test_ref (@tests) {
 
 		local $/;    #Enable 'slurp' mode
 		my $expected_product_ref = $json->decode(<$expected_result>);
-		is_deeply($product_ref, $expected_product_ref) or diag explain $product_ref;
+		is_deeply($product_ref, $expected_product_ref)
+			or diag explain {
+			testid => $testid,
+			product_ref => $product_ref,
+			expected_product_ref => $expected_product_ref
+			};
 	}
 	else {
 		fail("could not load $expected_result_dir/$testid.json");

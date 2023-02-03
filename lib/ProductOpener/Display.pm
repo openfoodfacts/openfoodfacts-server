@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -141,6 +141,7 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
+use ProductOpener::HTTP qw(:all);
 use ProductOpener::Store qw(:all);
 use ProductOpener::Config qw(:all);
 use ProductOpener::Tags qw(:all);
@@ -167,6 +168,7 @@ use ProductOpener::Recipes qw(:all);
 use ProductOpener::PackagerCodes qw(:all);
 use ProductOpener::Export qw(:all);
 use ProductOpener::API qw(:all);
+use ProductOpener::Units qw/:all/;
 
 use Cache::Memcached::Fast;
 use Encode;
@@ -518,7 +520,7 @@ A scalar value for the parameter, or undef if the parameter is not defined.
 =cut
 
 sub request_param ($request_ref, $param_name) {
-	return (scalar param($param_name)) || deep_get($request_ref, "request_body_json", $param_name);
+	return (scalar param($param_name)) || deep_get($request_ref, "body_json", $param_name);
 }
 
 =head2 init_request ()
@@ -531,24 +533,34 @@ $lc : language code
 
 It also initializes a request object that is returned.
 
+=head3 Parameters
+
+=head4 (optional) Request object reference $request_ref
+
+This function may be passed an existing request object reference
+(e.g. pre-containing some fields of the request, like a JSON body).
+
+If not passed, a new request object will be created.
+
+
 =head3 Return value
 
 Reference to request object.
 
 =cut
 
-sub init_request() {
+sub init_request ($request_ref = {}) {
+
+	$log->debug("init_request - start", {request_ref => $request_ref}) if $log->is_debug();
 
 	# Clear the context
 	delete $log->context->{user_id};
 	delete $log->context->{user_session};
 	$log->context->{request} = generate_token(16);
 
-	# Create and initialize a request object
-	my $request_ref = {
-		'original_query_string' => $ENV{QUERY_STRING},
-		'referer' => referer()
-	};
+	# Initialize the request object
+	$request_ref->{referer} = referer();
+	$request_ref->{original_query_string} = $ENV{QUERY_STRING};
 
 	# Depending on web server configuration, we may get or not get a / at the start of the QUERY_STRING environment variable
 	# remove the / to normalize the query string, as we use it to build some redirect urls
@@ -745,13 +757,36 @@ sub init_request() {
 
 	my $error = ProductOpener::Users::init_user($request_ref);
 	if ($error) {
-		# TODO: currently we always display an HTML message if we were passed a bad user_id and password combination
-		# even if the request is an API request
+		# We were sent bad user_id / password credentials
 
+		# If it is an API v3 query, the error will be handled by API::process_api_request()
+		if ((defined $request_ref->{api_version}) and ($request_ref->{api_version} >= 3)) {
+			$log->debug(
+				"init_request - init_user error - API v3: continue",
+				{init_user_error => $request_ref->{init_user_error}}
+			) if $log->is_debug();
+			add_error(
+				$request_ref->{api_response},
+				{
+					message => {id => "invalid_user_id_and_password"},
+					impact => {id => "failure"},
+				}
+			);
+		}
+		# /cgi/auth.pl returns a JSON body
 		# for requests to /cgi/auth.pl, we will now return a JSON body, set in /cgi/auth.pl
-		# but it would be good to later have a more consistent behaviour for all API requests
-		if ($r->uri() !~ /\/cgi\/auth\.pl/) {
-			print $r->uri();
+		elsif ($r->uri() =~ /\/cgi\/auth\.pl/) {
+			$log->debug(
+				"init_request - init_user error - /cgi/auth.pl: continue",
+				{init_user_error => $request_ref->{init_user_error}}
+			) if $log->is_debug();
+		}
+		# Otherwise we return an error page in HTML (including for v0 / v1 / v2 API queries)
+		else {
+			$log->debug(
+				"init_request - init_user error - display error page",
+				{init_user_error => $request_ref->{init_user_error}}
+			) if $log->is_debug();
 			display_error_and_exit($error, 403);
 		}
 	}
@@ -826,9 +861,7 @@ CSS
 		$request_ref->{user_preferences} = 0;
 	}
 
-	if (    ((defined $options{product_type}) and ($options{product_type} eq "food"))
-		and ((defined $ecoscore_countries_enabled{$cc}) or ($User{moderator})))
-	{
+	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 		$show_ecoscore = 1;
 		$attributes_options_ref = {};
 		$knowledge_panels_options_ref = {};
@@ -865,6 +898,7 @@ CSS
 	# and remove the $lc, $cc and @lcs global variables
 	$request_ref->{lc} = $lc;
 	$request_ref->{cc} = $cc;
+	$request_ref->{country} = $country;
 	$request_ref->{lcs} = \@lcs;
 
 	return $request_ref;
@@ -10289,12 +10323,11 @@ sub display_structured_response ($request_ref) {
 			. $xs->XMLout($request_ref->{structured_response});  # noattr -> force nested elements instead of attributes
 
 		my $status_code = $request_ref->{status_code} || "200";
-
+		write_cors_headers();
 		print header(
 			-status => $status_code,
 			-type => 'text/xml',
 			-charset => 'utf-8',
-			-access_control_allow_origin => '*'
 		) . $xml;
 
 	}
@@ -10320,21 +10353,23 @@ sub display_structured_response ($request_ref) {
 
 		if (defined $jsonp) {
 			$jsonp =~ s/[^a-zA-Z0-9_]//g;
+			write_cors_headers();
 			print header(
 				-status => $status_code,
 				-type => 'text/javascript',
 				-charset => 'utf-8',
-				-access_control_allow_origin => '*'
 				)
 				. $jsonp . "("
 				. $data . ");";
 		}
 		else {
+			$log->warning("XXXXXXXXXXXXXXXXXXXXXX");
+			write_cors_headers();
+			$log->warning("YYYYYYYYYYYYYYYY");
 			print header(
 				-status => $status_code,
 				-type => 'application/json',
 				-charset => 'utf-8',
-				-access_control_allow_origin => '*'
 			) . $data;
 		}
 	}
@@ -10412,7 +10447,8 @@ XML
 XML
 		;
 
-	print header(-type => 'application/rss+xml', -charset => 'utf-8', -access_control_allow_origin => '*') . $xml;
+	write_cors_headers();
+	print header(-type => 'application/rss+xml', -charset => 'utf-8') . $xml;
 
 	return;
 }

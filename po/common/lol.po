@@ -268,8 +268,8 @@ msgid "Producers Admin manual"
 msgstr "crwdns201302:0crwdne201302:0"
 
 msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "crwdns201304:0crwdne201304:0"
+msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
+msgstr "crwdns205591:0crwdne205591:0"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -3973,6 +3973,14 @@ msgctxt "export_products_to_public_database_email"
 msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
 msgstr "crwdns203116:0crwdne203116:0"
 
+msgctxt "crm_user_id"
+msgid "Id of corresponding contact in CRM"
+msgstr "crwdns205523:0crwdne205523:0"
+
+msgctxt "crm_org_id"
+msgid "Id of corresponding organization in CRM"
+msgstr "crwdns205525:0crwdne205525:0"
+
 msgctxt "user_groups"
 msgid "Groups"
 msgstr "crwdns203118:0crwdne203118:0"
@@ -4675,6 +4683,10 @@ msgctxt "packaging_text_note_2"
 msgid "Try to be as specific as possible. For plastic, please indicate if it is opaque or transparent, colored, PET or PEHD."
 msgstr "crwdns203460:0crwdne203460:0"
 
+msgctxt "packaging_text_note_3"
+msgid "Data from this field will be combined with any data provided for each packaging part. It is possible to provide one or the other, or both."
+msgstr "crwdns206371:0crwdne206371:0"
+
 msgctxt "product_js_extract_packaging"
 msgid "Extract the recycling instructions and/or packaging information from the picture"
 msgstr "crwdns203462:0crwdne203462:0"
@@ -4929,6 +4941,11 @@ msgstr "crwdns203580:0crwdne203580:0"
 msgctxt "packaging_parts"
 msgid "Packaging parts"
 msgstr "crwdns203582:0crwdne203582:0"
+
+# A short name for a physical piece of packaging (e.g. in English, "packaging" instead of "packaging part"). Used with a number (e.g. "Packaging 1" to identify a packaging part)
+msgctxt "packaging_part_short"
+msgid "Packaging"
+msgstr "crwdns206373:0crwdne206373:0"
 
 # Number of packaging parts
 msgctxt "packaging_number"
@@ -5247,6 +5264,14 @@ msgstr "crwdns203736:0crwdne203736:0"
 msgctxt "org_list_of_gs1_gln_note"
 msgid "A comma separated list of GS1 GLN identifiers to force the association with this organization."
 msgstr "crwdns203738:0crwdne203738:0"
+
+msgctxt "org_valid_org"
+msgid "Validate organization as a real producer."
+msgstr "crwdns205527:0crwdne205527:0"
+
+msgctxt "org_valid_org_note"
+msgid "The organization is verified as a real producer by a human, also creates entry in CRM."
+msgstr "crwdns205529:0crwdne205529:0"
 
 msgctxt "org_enable_manual_export_to_public_platform"
 msgid "Enable organization members to manually export product data and photos to the public database."
@@ -6032,6 +6057,69 @@ msgctxt "action_add_nutrition_facts"
 msgid "Add nutrition facts"
 msgstr "crwdns204112:0crwdne204112:0"
 
+msgctxt "action_add_origins"
+msgid "Add the origins of ingredients for this product"
+msgstr "crwdns206375:0crwdne206375:0"
+
+msgctxt "action_add_packaging_image"
+msgid "Take a photo of the recycling information"
+msgstr "crwdns206377:0crwdne206377:0"
+
+# this is not used yet
+msgctxt "action_add_basic_details"
+msgid "Add basic details"
+msgstr "crwdns206379:0crwdne206379:0"
+
+# this is not used yet
+msgctxt "action_add_portion_size"
+msgid "Add portion size"
+msgstr "crwdns206381:0crwdne206381:0"
+
+# this is not used yet
+msgctxt "action_add_ingredients_image"
+msgid "Take a photo of the ingredients"
+msgstr "crwdns206383:0crwdne206383:0"
+
+# this is not used yet
+msgctxt "action_add_nutrition_image"
+msgid "Take a photo of the nutrition facts"
+msgstr "crwdns206385:0crwdne206385:0"
+
+# this is not used yet
+msgctxt "action_refresh_ingredients_image"
+msgid "Refresh the photo of the ingredients"
+msgstr "crwdns206387:0crwdne206387:0"
+
+# this is not used yet
+msgctxt "action_refresh_nutrition_image"
+msgid "Refresh the photo of the nutrition facts"
+msgstr "crwdns206389:0crwdne206389:0"
+
+# this is not used yet
+msgctxt "action_add_packaging_text"
+msgid "Extract and check the recycling information"
+msgstr "crwdns206391:0crwdne206391:0"
+
+# this is not used yet
+msgctxt "action_add_stores"
+msgid "Add the store where you found this product"
+msgstr "crwdns206393:0crwdne206393:0"
+
+# this is not used yet
+msgctxt "action_labels"
+msgid "Add any label present on this product"
+msgstr "crwdns206395:0crwdne206395:0"
+
+# this is not used yet
+msgctxt "action_countries"
+msgid "Add the country where you found this product"
+msgstr "crwdns206397:0crwdne206397:0"
+
+# this is not used yet
+msgctxt "action_packager_codes_image"
+msgid "Take a photo of traceability codes"
+msgstr "crwdns206399:0crwdne206399:0"
+
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
 msgid "What you need to know"
@@ -6164,4 +6252,104 @@ msgstr "crwdns204908:0crwdne204908:0"
 msgctxt "environment"
 msgid "Environment"
 msgstr "crwdns204910:0crwdne204910:0"
+
+msgctxt "api_result_failure"
+msgid "Failure"
+msgstr "crwdns205531:0crwdne205531:0"
+
+msgctxt "api_result_product_found"
+msgid "Product found"
+msgstr "crwdns205533:0crwdne205533:0"
+
+msgctxt "api_result_product_not_found"
+msgid "Product not found"
+msgstr "crwdns205535:0crwdne205535:0"
+
+msgctxt "api_result_product_updated"
+msgid "Product updated"
+msgstr "crwdns205537:0crwdne205537:0"
+
+msgctxt "api_message_invalid_api_action"
+msgid "Invalid API action"
+msgstr "crwdns205539:0crwdne205539:0"
+
+msgctxt "api_message_invalid_api_method"
+msgid "Invalid API method"
+msgstr "crwdns205541:0crwdne205541:0"
+
+msgctxt "api_message_empty_request_body"
+msgid "Empty request body"
+msgstr "crwdns205543:0crwdne205543:0"
+
+msgctxt "api_message_invalid_json_in_request_body"
+msgid "Invalid JSON in request body"
+msgstr "crwdns205545:0crwdne205545:0"
+
+msgctxt "api_message_invalid_type_must_be_object"
+msgid "Invalid type: must be an object"
+msgstr "crwdns205589:0crwdne205589:0"
+
+msgctxt "api_message_invalid_type_must_be_array"
+msgid "Invalid type: must be an array"
+msgstr "crwdns205547:0crwdne205547:0"
+
+msgctxt "api_message_invalid_type_must_be_integer"
+msgid "Invalid type: must be an integer"
+msgstr "crwdns205549:0crwdne205549:0"
+
+msgctxt "api_message_missing_field"
+msgid "Missing field"
+msgstr "crwdns205551:0crwdne205551:0"
+
+msgctxt "api_message_unrecognized_value"
+msgid "Unrecognized value"
+msgstr "crwdns205553:0crwdne205553:0"
+
+msgctxt "api_impact_none"
+msgid "None"
+msgstr "crwdns205555:0crwdne205555:0"
+
+msgctxt "api_impact_warning"
+msgid "Warning"
+msgstr "crwdns205557:0crwdne205557:0"
+
+msgctxt "api_impact_failure"
+msgid "Failure"
+msgstr "crwdns205559:0crwdne205559:0"
+
+msgctxt "api_impact_field_ignored"
+msgid "Field ignored"
+msgstr "crwdns205561:0crwdne205561:0"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units"
+msgid "Number of units"
+msgstr "crwdns206401:0crwdne206401:0"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight"
+msgid "Weight of one empty unit"
+msgstr "crwdns206403:0crwdne206403:0"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit"
+msgid "Quantity of product contained per unit"
+msgstr "crwdns206405:0crwdne206405:0"
+
+# variable names between { } must not be translated
+msgctxt "f_help_categorize_on_hunger_games"
+msgid "Help categorize more {title} on Hunger Games"
+msgstr "crwdns205587:0{title}crwdne205587:0"
+
+msgctxt "packagings_complete"
+msgid "All the packaging parts of the product are listed."
+msgstr "crwdns206407:0crwdne206407:0"
+
+msgctxt "api_message_invalid_user_id_and_password"
+msgid "Invalid user id and password"
+msgstr "crwdns206411:0crwdne206411:0"
+
+msgctxt "api_message_invalid_value_must_be_0_or_1"
+msgid "Invalid value: must be 0 or 1"
+msgstr "crwdns206413:0crwdne206413:0"
 

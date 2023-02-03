@@ -283,8 +283,8 @@ msgid "Producers Admin manual"
 msgstr "Hướng dẫn cho Quản trị viên của các Nhà sản xuất"
 
 msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> được thực hiện bởi một hiệp hội phi lợi nhuận, độc lập với ngành. Nó được tạo ra cho tất cả, bởi tất cả, và nó được tài trợ bởi tất cả. Bạn có thể hỗ trợ công việc của chúng tôi bằng cách quyên góp <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">cho Thực phẩm mở</a> và <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">bằng cách sử dụng công cụ tìm kiếm Lilo</a>.<br/><b>Cảm ơn bạn!</b></p>"
+msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
+msgstr ""
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -588,7 +588,7 @@ msgstr "biên tập viên"
 
 msgctxt "email"
 msgid "E-mail address"
-msgstr ""
+msgstr "Địa chỉ e-mail"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
@@ -1400,7 +1400,7 @@ msgstr "Đăng ký nhận bản tin (tối đa 2 email mỗi tháng)"
 
 msgctxt "subscribe_to_our_newsletter"
 msgid "Subscribe to our newsletter"
-msgstr ""
+msgstr "Đăng ký nhận Bản tin"
 
 msgctxt "next"
 msgid "Next"
@@ -3261,7 +3261,7 @@ msgstr "Không"
 
 msgctxt "button_caption_skip"
 msgid "Skip"
-msgstr ""
+msgstr "Bỏ qua"
 
 msgctxt "popularity_s"
 msgid "popularity"
@@ -3986,7 +3986,7 @@ msgstr "<a href=\"\">Chúng tôi cần sự giúp đỡ và đóng góp của b�
 
 msgctxt "thank_you"
 msgid "Thank you!"
-msgstr ""
+msgstr "Cảm ơn bạn!"
 
 msgctxt "value_for_the_product"
 msgid "Value for the product"
@@ -4005,6 +4005,14 @@ msgstr "Điểm dinh dưỡng có thể được thay đổi từ %s thành %s b
 msgctxt "export_products_to_public_database_email"
 msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
 msgstr "Nền tảng dành cho nhà sản xuất vẫn đang được phát triển và chúng tôi thực hiện các kiểm tra thủ công trước khi nhập sản phẩm vào cơ sở dữ liệu công khai. Vui lòng gửi e-mail cho chúng tôi theo địa chỉ <a href=\"mailto:producers@openfoodfacts.org\">producer@openfoodfacts.org</a> để cập nhật cơ sở dữ liệu công khai."
+
+msgctxt "crm_user_id"
+msgid "Id of corresponding contact in CRM"
+msgstr "Id của liên hệ tương ứng trong CRM"
+
+msgctxt "crm_org_id"
+msgid "Id of corresponding organization in CRM"
+msgstr "Id của tổ chức tương ứng trong CRM"
 
 msgctxt "user_groups"
 msgid "Groups"
@@ -4494,7 +4502,7 @@ msgstr "Khi bạn mua các sản phẩm công bằng thương mại, các nhà s
 
 msgctxt "attribute_group_nutritional_quality_name"
 msgid "Nutritional quality"
-msgstr ""
+msgstr "Chất lượng dinh dưỡng"
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
@@ -4707,6 +4715,10 @@ msgstr "Liệt kê tất cả các bộ phận đóng gói được phân tách 
 msgctxt "packaging_text_note_2"
 msgid "Try to be as specific as possible. For plastic, please indicate if it is opaque or transparent, colored, PET or PEHD."
 msgstr "Cố gắng càng cụ thể càng tốt. Đối với nhựa, vui lòng cho biết nó có màu đục hay trong suốt, có màu, PET hay PEHD."
+
+msgctxt "packaging_text_note_3"
+msgid "Data from this field will be combined with any data provided for each packaging part. It is possible to provide one or the other, or both."
+msgstr ""
 
 msgctxt "product_js_extract_packaging"
 msgid "Extract the recycling instructions and/or packaging information from the picture"
@@ -4962,6 +4974,11 @@ msgstr "Điểm sinh thái"
 msgctxt "packaging_parts"
 msgid "Packaging parts"
 msgstr "Các phần của bao bì"
+
+# A short name for a physical piece of packaging (e.g. in English, "packaging" instead of "packaging part"). Used with a number (e.g. "Packaging 1" to identify a packaging part)
+msgctxt "packaging_part_short"
+msgid "Packaging"
+msgstr "Bao bì"
 
 # Number of packaging parts
 msgctxt "packaging_number"
@@ -5280,6 +5297,14 @@ msgstr "Danh sách các mã định danh GS1 GLN được liên kết với tổ
 msgctxt "org_list_of_gs1_gln_note"
 msgid "A comma separated list of GS1 GLN identifiers to force the association with this organization."
 msgstr "Danh sách số nhận dạng GS1 GLN được phân tách bằng dấu phẩy để buộc liên kết với tổ chức này."
+
+msgctxt "org_valid_org"
+msgid "Validate organization as a real producer."
+msgstr "Xác nhận tổ chức là nhà sản xuất."
+
+msgctxt "org_valid_org_note"
+msgid "The organization is verified as a real producer by a human, also creates entry in CRM."
+msgstr "Tổ chức được xác minh là nhà sản xuất bởi con người, đồng thời tạo mục nhập trong CRM."
 
 msgctxt "org_enable_manual_export_to_public_platform"
 msgid "Enable organization members to manually export product data and photos to the public database."
@@ -6065,6 +6090,69 @@ msgctxt "action_add_nutrition_facts"
 msgid "Add nutrition facts"
 msgstr "Thêm thông tin dinh dưỡng"
 
+msgctxt "action_add_origins"
+msgid "Add the origins of ingredients for this product"
+msgstr ""
+
+msgctxt "action_add_packaging_image"
+msgid "Take a photo of the recycling information"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_add_basic_details"
+msgid "Add basic details"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_add_portion_size"
+msgid "Add portion size"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_add_ingredients_image"
+msgid "Take a photo of the ingredients"
+msgstr "Chụp ảnh các thành phần"
+
+# this is not used yet
+msgctxt "action_add_nutrition_image"
+msgid "Take a photo of the nutrition facts"
+msgstr "Chụp ảnh các thông tin về dinh dưỡng"
+
+# this is not used yet
+msgctxt "action_refresh_ingredients_image"
+msgid "Refresh the photo of the ingredients"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_refresh_nutrition_image"
+msgid "Refresh the photo of the nutrition facts"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_add_packaging_text"
+msgid "Extract and check the recycling information"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_add_stores"
+msgid "Add the store where you found this product"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_labels"
+msgid "Add any label present on this product"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_countries"
+msgid "Add the country where you found this product"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_packager_codes_image"
+msgid "Take a photo of traceability codes"
+msgstr ""
+
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
 msgid "What you need to know"
@@ -6197,4 +6285,104 @@ msgstr "Sản phẩm"
 msgctxt "environment"
 msgid "Environment"
 msgstr "Môi trường"
+
+msgctxt "api_result_failure"
+msgid "Failure"
+msgstr "Thất bại"
+
+msgctxt "api_result_product_found"
+msgid "Product found"
+msgstr "Tìm thấy sản phẩm"
+
+msgctxt "api_result_product_not_found"
+msgid "Product not found"
+msgstr "Không tìm thấy sản phẩm"
+
+msgctxt "api_result_product_updated"
+msgid "Product updated"
+msgstr "Đã cập nhật sản phẩm"
+
+msgctxt "api_message_invalid_api_action"
+msgid "Invalid API action"
+msgstr "Thao tác API không hợp lệ"
+
+msgctxt "api_message_invalid_api_method"
+msgid "Invalid API method"
+msgstr "Phương thức API không hợp lệ"
+
+msgctxt "api_message_empty_request_body"
+msgid "Empty request body"
+msgstr "Nội dung yêu cầu trống"
+
+msgctxt "api_message_invalid_json_in_request_body"
+msgid "Invalid JSON in request body"
+msgstr "JSON không hợp lệ trong nội dung yêu cầu"
+
+msgctxt "api_message_invalid_type_must_be_object"
+msgid "Invalid type: must be an object"
+msgstr "Loại không hợp lệ: phải là một đối tượng"
+
+msgctxt "api_message_invalid_type_must_be_array"
+msgid "Invalid type: must be an array"
+msgstr "Loại không hợp lệ: phải là một mảng"
+
+msgctxt "api_message_invalid_type_must_be_integer"
+msgid "Invalid type: must be an integer"
+msgstr "Loại không hợp lệ: phải là số nguyên"
+
+msgctxt "api_message_missing_field"
+msgid "Missing field"
+msgstr "Trường bị thiếu"
+
+msgctxt "api_message_unrecognized_value"
+msgid "Unrecognized value"
+msgstr "Giá trị không được công nhận"
+
+msgctxt "api_impact_none"
+msgid "None"
+msgstr "Không có"
+
+msgctxt "api_impact_warning"
+msgid "Warning"
+msgstr "Cảnh báo"
+
+msgctxt "api_impact_failure"
+msgid "Failure"
+msgstr "Thất bại"
+
+msgctxt "api_impact_field_ignored"
+msgid "Field ignored"
+msgstr "Trường bị bỏ qua"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units"
+msgid "Number of units"
+msgstr ""
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight"
+msgid "Weight of one empty unit"
+msgstr ""
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit"
+msgid "Quantity of product contained per unit"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_help_categorize_on_hunger_games"
+msgid "Help categorize more {title} on Hunger Games"
+msgstr "Giúp phân loại thêm {title} trên Hunger Games"
+
+msgctxt "packagings_complete"
+msgid "All the packaging parts of the product are listed."
+msgstr ""
+
+msgctxt "api_message_invalid_user_id_and_password"
+msgid "Invalid user id and password"
+msgstr ""
+
+msgctxt "api_message_invalid_value_must_be_0_or_1"
+msgid "Invalid value: must be 0 or 1"
+msgstr ""
 

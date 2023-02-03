@@ -280,8 +280,8 @@ msgid "Producers Admin manual"
 msgstr "Manual de administrare pentru producători"
 
 msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> este făcută de o asociație non-profit, independentă în industrie. Este făcut pentru toată lumea. Pentru a ne susține munca <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"> donați la Open Food Facts </a> și <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\"> pentru folosirea motorului de căutare Lilo</a>.<br/><b>Vă mulțumim</b></p>"
+msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> se face de o asociatie nonprofit, independenta de industrie. Este făcut pentru toți, de toți și este finanțat de toți. Ne puteți susține munca <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donând la Open Food Facts</a> și, de asemenea, până la <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">folosind motorul de căutare Lilo</a>.<br/><b>Mulțumesc!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -4001,6 +4001,14 @@ msgctxt "export_products_to_public_database_email"
 msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
 msgstr "Platforma pentru producători este încă în dezvoltare și facem verificări manuale înainte de a importa produse în baza de date publică. Vă rugăm să ne trimiteți un e-mail la <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> pentru a actualiza baza de date publică."
 
+msgctxt "crm_user_id"
+msgid "Id of corresponding contact in CRM"
+msgstr "Id-ul contactului corespunzător în CRM"
+
+msgctxt "crm_org_id"
+msgid "Id of corresponding organization in CRM"
+msgstr "Id-ul organizației corespunzătoare în CRM"
+
 msgctxt "user_groups"
 msgid "Groups"
 msgstr "Grupuri"
@@ -4703,6 +4711,10 @@ msgctxt "packaging_text_note_2"
 msgid "Try to be as specific as possible. For plastic, please indicate if it is opaque or transparent, colored, PET or PEHD."
 msgstr "Încearcă să fii cât mai specific posibil. Pentru plastic, vă rugăm să indicați dacă este opac sau transparent, colorat, PET sau PEHD."
 
+msgctxt "packaging_text_note_3"
+msgid "Data from this field will be combined with any data provided for each packaging part. It is possible to provide one or the other, or both."
+msgstr ""
+
 msgctxt "product_js_extract_packaging"
 msgid "Extract the recycling instructions and/or packaging information from the picture"
 msgstr "Extrageți instrucțiunile de reciclare și/sau informațiile de ambalare din imagine"
@@ -4957,6 +4969,11 @@ msgstr "Scor Ecologic"
 msgctxt "packaging_parts"
 msgid "Packaging parts"
 msgstr "Componentele ambalajului"
+
+# A short name for a physical piece of packaging (e.g. in English, "packaging" instead of "packaging part"). Used with a number (e.g. "Packaging 1" to identify a packaging part)
+msgctxt "packaging_part_short"
+msgid "Packaging"
+msgstr "Ambalare"
 
 # Number of packaging parts
 msgctxt "packaging_number"
@@ -5275,6 +5292,14 @@ msgstr "Lista identificatorilor GS1 GLN care trebuie asociați cu organizația"
 msgctxt "org_list_of_gs1_gln_note"
 msgid "A comma separated list of GS1 GLN identifiers to force the association with this organization."
 msgstr "O listă separată prin virgulă de identificatori GS1 GLN pentru a forța asocierea cu această organizație."
+
+msgctxt "org_valid_org"
+msgid "Validate organization as a real producer."
+msgstr "Validați organizația ca un adevărat producător."
+
+msgctxt "org_valid_org_note"
+msgid "The organization is verified as a real producer by a human, also creates entry in CRM."
+msgstr "Organizația este verificată ca producător real de către o persoană, creează și intrare în CRM."
 
 msgctxt "org_enable_manual_export_to_public_platform"
 msgid "Enable organization members to manually export product data and photos to the public database."
@@ -6060,6 +6085,69 @@ msgctxt "action_add_nutrition_facts"
 msgid "Add nutrition facts"
 msgstr "Adăugați informații nutriționale"
 
+msgctxt "action_add_origins"
+msgid "Add the origins of ingredients for this product"
+msgstr ""
+
+msgctxt "action_add_packaging_image"
+msgid "Take a photo of the recycling information"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_add_basic_details"
+msgid "Add basic details"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_add_portion_size"
+msgid "Add portion size"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_add_ingredients_image"
+msgid "Take a photo of the ingredients"
+msgstr "Faceți o poză ingredientelor"
+
+# this is not used yet
+msgctxt "action_add_nutrition_image"
+msgid "Take a photo of the nutrition facts"
+msgstr "Faceți o poză tabelului cu informații nutriționale"
+
+# this is not used yet
+msgctxt "action_refresh_ingredients_image"
+msgid "Refresh the photo of the ingredients"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_refresh_nutrition_image"
+msgid "Refresh the photo of the nutrition facts"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_add_packaging_text"
+msgid "Extract and check the recycling information"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_add_stores"
+msgid "Add the store where you found this product"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_labels"
+msgid "Add any label present on this product"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_countries"
+msgid "Add the country where you found this product"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_packager_codes_image"
+msgid "Take a photo of traceability codes"
+msgstr ""
+
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
 msgid "What you need to know"
@@ -6192,4 +6280,104 @@ msgstr "Produs"
 msgctxt "environment"
 msgid "Environment"
 msgstr "Mediu"
+
+msgctxt "api_result_failure"
+msgid "Failure"
+msgstr "Eșec"
+
+msgctxt "api_result_product_found"
+msgid "Product found"
+msgstr "Produs găsit"
+
+msgctxt "api_result_product_not_found"
+msgid "Product not found"
+msgstr "Produsul nu a fost găsit"
+
+msgctxt "api_result_product_updated"
+msgid "Product updated"
+msgstr "Produs actualizat"
+
+msgctxt "api_message_invalid_api_action"
+msgid "Invalid API action"
+msgstr "Acțiune API nevalidă"
+
+msgctxt "api_message_invalid_api_method"
+msgid "Invalid API method"
+msgstr "Metoda API nevalidă"
+
+msgctxt "api_message_empty_request_body"
+msgid "Empty request body"
+msgstr "Corpul cererii gol"
+
+msgctxt "api_message_invalid_json_in_request_body"
+msgid "Invalid JSON in request body"
+msgstr "JSON nevalid în corpul solicitării"
+
+msgctxt "api_message_invalid_type_must_be_object"
+msgid "Invalid type: must be an object"
+msgstr "Tip nevalid: trebuie să fie un obiect"
+
+msgctxt "api_message_invalid_type_must_be_array"
+msgid "Invalid type: must be an array"
+msgstr "Tip nevalid: trebuie să fie o matrice"
+
+msgctxt "api_message_invalid_type_must_be_integer"
+msgid "Invalid type: must be an integer"
+msgstr "Tip nevalid: trebuie să fie un număr întreg"
+
+msgctxt "api_message_missing_field"
+msgid "Missing field"
+msgstr "Câmp lipsă"
+
+msgctxt "api_message_unrecognized_value"
+msgid "Unrecognized value"
+msgstr "Valoare nerecunoscută"
+
+msgctxt "api_impact_none"
+msgid "None"
+msgstr "Nici unul"
+
+msgctxt "api_impact_warning"
+msgid "Warning"
+msgstr "Atenţie"
+
+msgctxt "api_impact_failure"
+msgid "Failure"
+msgstr "Eșec"
+
+msgctxt "api_impact_field_ignored"
+msgid "Field ignored"
+msgstr "Câmp ignorat"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units"
+msgid "Number of units"
+msgstr ""
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight"
+msgid "Weight of one empty unit"
+msgstr ""
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit"
+msgid "Quantity of product contained per unit"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_help_categorize_on_hunger_games"
+msgid "Help categorize more {title} on Hunger Games"
+msgstr "Ajută la categorizarea mai multor {title} în Jocurile Foamei"
+
+msgctxt "packagings_complete"
+msgid "All the packaging parts of the product are listed."
+msgstr ""
+
+msgctxt "api_message_invalid_user_id_and_password"
+msgid "Invalid user id and password"
+msgstr ""
+
+msgctxt "api_message_invalid_value_must_be_0_or_1"
+msgid "Invalid value: must be 0 or 1"
+msgstr ""
 
