@@ -1,5 +1,5 @@
 {
-   "code" : "1234567890013",
+   "code" : "1234567890018",
    "errors" : [],
    "product" : {
       "misc_tags" : [
@@ -26,28 +26,43 @@
       ],
       "packagings" : [
          {
-            "number_of_units" : 1,
+            "material" : {
+               "id" : "en:pet-polyethylene-terephthalate",
+               "lc_name" : "PET - Polyethylene terephthalate"
+            },
+            "number_of_units" : 6,
+            "quantity_per_unit" : "25cl",
+            "quantity_per_unit_unit" : "cl",
+            "quantity_per_unit_value" : 25,
             "shape" : {
                "id" : "en:bottle",
                "lc_name" : "Bottle"
             },
-            "weight_measured" : 0.43
+            "weight_measured" : 10
          },
          {
-            "number_of_units" : 2,
+            "material" : {
+               "id" : "en:wood",
+               "lc_name" : "Wood"
+            },
+            "number_of_units" : 1,
             "shape" : {
                "id" : "en:box",
                "lc_name" : "Box"
             },
-            "weight_measured" : 0.43
+            "weight_specified" : 25.5
          },
          {
-            "number_of_units" : 3,
-            "shape" : {
-               "id" : "en:lid",
-               "lc_name" : "Lid"
+            "material" : {
+               "id" : "en:plastic",
+               "lc_name" : "Plastic"
             },
-            "weight_measured" : 0.43
+            "number_of_units" : 1,
+            "shape" : {
+               "id" : "en:film",
+               "lc_name" : "Film"
+            },
+            "weight_specified" : 2.01
          }
       ]
    },
@@ -55,18 +70,19 @@
    "warnings" : [
       {
          "field" : {
-            "id" : "material",
-            "value" : null
+            "id" : "weight_measured",
+            "value" : "10 g",
+            "valued_converted" : 10
          },
          "impact" : {
-            "id" : "field_ignored",
-            "lc_name" : "Field ignored",
-            "name" : "Field ignored"
+            "id" : "value_converted",
+            "lc_name" : "Value converted",
+            "name" : "Value converted"
          },
          "message" : {
-            "id" : "missing_field",
-            "lc_name" : "Missing field",
-            "name" : "Missing field"
+            "id" : "invalid_type_must_be_number",
+            "lc_name" : "Invalid type: must be a number",
+            "name" : "Invalid type: must be a number"
          }
       },
       {
@@ -87,18 +103,19 @@
       },
       {
          "field" : {
-            "id" : "material",
-            "value" : null
+            "id" : "weight_specified",
+            "value" : "25.5g",
+            "valued_converted" : 25.5
          },
          "impact" : {
-            "id" : "field_ignored",
-            "lc_name" : "Field ignored",
-            "name" : "Field ignored"
+            "id" : "value_converted",
+            "lc_name" : "Value converted",
+            "name" : "Value converted"
          },
          "message" : {
-            "id" : "missing_field",
-            "lc_name" : "Missing field",
-            "name" : "Missing field"
+            "id" : "invalid_type_must_be_number",
+            "lc_name" : "Invalid type: must be a number",
+            "name" : "Invalid type: must be a number"
          }
       },
       {
@@ -119,18 +136,19 @@
       },
       {
          "field" : {
-            "id" : "material",
-            "value" : null
+            "id" : "weight_specified",
+            "value" : "2,01 grams",
+            "valued_converted" : 2.01
          },
          "impact" : {
-            "id" : "field_ignored",
-            "lc_name" : "Field ignored",
-            "name" : "Field ignored"
+            "id" : "value_converted",
+            "lc_name" : "Value converted",
+            "name" : "Value converted"
          },
          "message" : {
-            "id" : "missing_field",
-            "lc_name" : "Missing field",
-            "name" : "Missing field"
+            "id" : "invalid_type_must_be_number",
+            "lc_name" : "Invalid type: must be a number",
+            "name" : "Invalid type: must be a number"
          }
       },
       {
