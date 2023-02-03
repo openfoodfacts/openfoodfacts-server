@@ -2609,9 +2609,15 @@ sub product_action_url ($code, $action) {
 	elsif ($action eq "add_packaging_text") {
 		$url .= "#packaging";
 	}
+	elsif ($action eq "add_packaging_components") {
+		$url .= "#packaging";
+	}
 	# Note: 27/11/2022 - Pierre - The following HTML anchors links will do nothing unless a matching custom HTML anchor is added in the future to the product edition template
 	elsif ($action eq "add_origins") {
 		$url .= "#origins";
+	}
+	elsif ($action eq "add_quantity") {
+		$url .= "#product_characteristics";
 	}
 	elsif ($action eq "add_stores") {
 		$url .= "#stores";

@@ -317,6 +317,29 @@ is(get_inherited_property("test", "en:unknown", "vegan:en"), undef);
 is(get_inherited_property("test", "en:roast-beef", "carbon_footprint_fr_foodges_value:fr"), 15);
 is(get_inherited_property("test", "en:fake-duck-meat", "carbon_footprint_fr_foodges_value:fr"), undef);
 
+is(get_inherited_property("test", "en:fake-duck-meat", "carbon_footprint_fr_foodges_value:fr"), undef);
+
+is_deeply(
+	get_inherited_properties("test", "en:fake-meat", ["vegan:en"]),
+	{"vegan:en" => "yes"},
+	"Getting only one property"
+);
+is_deeply(
+	get_inherited_properties("test", "en:lemon-yogurts", ["color:en", "description:fr", "non-existing", "another:fr"]),
+	{"color:en" => "yellow", "description:fr" => "un yaourt avec du citron"},
+	"Getting multiple properties at once"
+);
+is_deeply(
+	get_inherited_properties("test", "fr:yaourts-au-citron-alleges", ["color:en", "description:fr"]),
+	{"color:en" => "yellow", "description:fr" => "for light yogurts with lemon"},
+	"Getting multiple properties with one inherited and one where we use language fallback"
+);
+is_deeply(
+	get_inherited_properties("test", "fr:yaourts-au-fruit-de-la-passion-alleges", ["color:en", "description:fr"]),
+	{"description:fr" => "un yaourt de n'import quel type"},
+	"Getting multiple properties with one undef in the path and an inherited one"
+);
+
 my $yuka_uuid = "yuka.R452afga432";
 my $tagtype = "editors";
 
