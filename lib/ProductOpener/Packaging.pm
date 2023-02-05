@@ -63,6 +63,7 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::API qw/:all/;
 use ProductOpener::Numbers qw/:all/;
+use ProductOpener::Units qw/:all/;
 
 =head1 FUNCTIONS
 
@@ -421,6 +422,23 @@ sub get_checked_and_taxonomized_packaging_component_data ($tags_lc, $input_packa
 			if ($input_packaging_ref->{$weight} =~ /^\d+((\.|,)\d+)?$/) {
 				$packaging_ref->{$weight} = convert_string_to_number($input_packaging_ref->{$weight});
 				$has_data = 1;
+			}
+			elsif (defined normalize_quantity($input_packaging_ref->{$weight})) {
+				$packaging_ref->{$weight}
+					= convert_string_to_number(normalize_quantity($input_packaging_ref->{$weight}));
+				$has_data = 1;
+				add_warning(
+					$response_ref,
+					{
+						message => {id => "invalid_type_must_be_number"},
+						field => {
+							id => $weight,
+							value => $input_packaging_ref->{$weight},
+							valued_converted => $packaging_ref->{$weight}
+						},
+						impact => {id => "value_converted"},
+					}
+				);
 			}
 			else {
 				add_warning(

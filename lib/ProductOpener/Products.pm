@@ -1751,7 +1751,7 @@ we can rename it to a generic user account like openfoodfacts-contributors.
 =cut
 
 # Fields that contain usernames
-my @users_fields = qw(editors_tags photographers_tags informers_tags correctors_tags checkers_tags weighters_tags);
+my @users_fields = qw(editors_tags photographers_tags informers_tags correctors_tags checkers_tags weighers_tags);
 
 sub replace_user_id_in_product ($product_id, $user_id, $new_user_id) {
 
@@ -1919,7 +1919,7 @@ Record that a user has made a change of a specific type to the product.
 
 For each type, there is a "list" array, and a "seen" hash
 
-=head4 $user_type e.g. editors, photographers, weighters
+=head4 $user_type e.g. editors, photographers, weighers
 
 =head4 $user_id
 
@@ -2119,11 +2119,16 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 				my $packagings_data_signature = "";
 				my $packagings_weights_signature = "";
 				foreach my $packagings_ref (@{$product_ref->{packagings}}) {
-					foreach my $property (qw(shape material recycling number_of_units quantity_per_unit)) {
-						$packagings_data_signature .= $property . ":" . ($packagings_ref->{$property} || '') . ",";
+					# We make a copy of numeric values so that Perl does not turn the value to a string when we concatenate it in the signature
+					my $number_of_units = $packagings_ref->{number_of_units};
+					my $weight_measured = $packagings_ref->{weight_measured};
+
+					$packagings_data_signature .= "number_of_units:" . $number_of_units . ',';
+					foreach my $property (qw(shape material recycling quantity_per_unit)) {
+						$packagings_data_signature .= $property . ":" . ($packagings_ref->{$property} || '') . ',';
 					}
 					$packagings_data_signature .= "\n";
-					$packagings_weights_signature .= ($packagings_ref->{weight_measured} || '') . "\n";
+					$packagings_weights_signature .= ($weight_measured || '') . "\n";
 				}
 				# If the signature is empty or contains only line feeds, we don't have data
 				if ($packagings_data_signature !~ /^\s*$/) {
@@ -2296,7 +2301,7 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 						and ($id eq 'weights_measured')
 						and (($diff eq 'add') or ($diff eq 'change')))
 					{
-						record_user_edit_type($users_ref, "weighters", $userid);
+						record_user_edit_type($users_ref, "weighers", $userid);
 					}
 
 					# Uploaded photos + all fields
@@ -2343,7 +2348,7 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 	$current_product_ref->{informers_tags} = $users_ref->{informers}{list};
 	$current_product_ref->{correctors_tags} = $users_ref->{correctors}{list};
 	$current_product_ref->{checkers_tags} = $users_ref->{checkers}{list};
-	$current_product_ref->{weighters_tags} = $users_ref->{weighters}{list};
+	$current_product_ref->{weighers_tags} = $users_ref->{weighers}{list};
 
 	compute_completeness_and_missing_tags($current_product_ref, \%current, \%last);
 

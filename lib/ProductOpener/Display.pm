@@ -168,6 +168,7 @@ use ProductOpener::Recipes qw(:all);
 use ProductOpener::PackagerCodes qw(:all);
 use ProductOpener::Export qw(:all);
 use ProductOpener::API qw(:all);
+use ProductOpener::Units qw/:all/;
 
 use Cache::Memcached::Fast;
 use Encode;

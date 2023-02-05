@@ -6468,6 +6468,10 @@ msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
 msgstr "Invalid type: must be an integer"
 
+msgctxt "api_message_invalid_type_must_be_number"
+msgid "Invalid type: must be a number"
+msgstr "Invalid type: must be a number"
+
 msgctxt "api_message_missing_field"
 msgid "Missing field"
 msgstr "Missing field"
@@ -6491,6 +6495,10 @@ msgstr "Failure"
 msgctxt "api_impact_field_ignored"
 msgid "Field ignored"
 msgstr "Field ignored"
+
+msgctxt "api_impact_value_converted"
+msgid "Value converted"
+msgstr "Value converted"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"

@@ -47,6 +47,7 @@ $material-icons: "Material Icons";
   white-space: nowrap;
   word-wrap: normal;
   direction: ltr;
+  font-feature-settings: "liga";
   -webkit-font-feature-settings: "liga";
   -webkit-font-smoothing: antialiased;
 }
@@ -548,11 +549,6 @@ a[aria-controls="idOfLeftMenu"] {
 
 ul.pagination li a {
   color: black;
-}
-
-.share_button,
-.edit_button {
-  //float: right;
 }
 
 .delete_button {
@@ -1327,3 +1323,5 @@ $section-blue: #6d85d9;
 #packaging_0_row {
   display:none;
 }
+
+.if-empty-dnone:empty { display: none !important; }
