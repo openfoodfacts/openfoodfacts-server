@@ -63,7 +63,9 @@ jobs:
 
       - name: Validate OpenAPI
         run: |
-          docker version
+          docker run --rm \
+          -v ${PWD}:/local openapitools/openapi-generator-cli validate \
+          -i /local/docs/reference/api.yml \
 
       # generate OpenAPI documentation with rapidoc
       # we do this after mkdocs to overwrite api.html file
