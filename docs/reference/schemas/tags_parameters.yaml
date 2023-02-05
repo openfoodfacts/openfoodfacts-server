@@ -129,12 +129,10 @@ properties:
       The [OFF App](https://world.openfoodfacts.org/traces) shows a list of possible values for `traces`.
   tag_name_with_language_code:
     in: query
-    name: tag_name_with_language_code
+    name: '<tag_name>_tags_<language_code>'
     description: |
       You can add a language code to a specific tag to query it in a specific language
     schema:
-      type: object
-      name: '<tag_name>_tags_<language_code>'
       patternProperties:
         '(?<tag_name>\w+)_tags_(?<language_code>\w\w)':
           type: string
