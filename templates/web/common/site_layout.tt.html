@@ -238,9 +238,9 @@
                         [% IF request.tagtype == "categories" %]
                           <a class="button tiny round secondary label" href="https://hunger.openfoodfacts.org/questions?type=category&amp;value_tag=[% request.canon_tagid %]">[% f_lang('f_help_categorize_on_hunger_games', { title => lang('categories').lcfirst } ) %]</a>
                         [% ELSIF request.tagtype == "labels" %]
-                          <a class="button tiny round secondary label" href="https://hunger.openfoodfacts.org/questions?type=labels&amp;value_tag=[% canonicalize_taxonomy_tag_link("labels", title) %]">[% f_lang('f_help_categorize_on_hunger_games', { title => lang('labels').lcfirst } ) %]</a>
+                          <a class="button tiny round secondary label" href="https://hunger.openfoodfacts.org/questions?type=label&amp;value_tag=[% request.canon_tagid %]">[% f_lang('f_help_categorize_on_hunger_games', { title => lang('labels').lcfirst } ) %]</a>
                         [% ELSIF request.tagtype == "brands" %]
-                          <a class="button tiny round secondary label" href="https://hunger.openfoodfacts.org/questions?type=brands&amp;value_tag=[% canonicalize_taxonomy_tag_link("brands", title) %]">[% f_lang('f_help_categorize_on_hunger_games', { title => lang('brands').lcfirst } ) %]</a>
+                          <a class="button tiny round secondary label" href="https://hunger.openfoodfacts.org/questions?type=brand&amp;value_tag=[% canonicalize_taxonomy_tag_link(title) %]">[% f_lang('f_help_categorize_on_hunger_games', { title => lang('brands').lcfirst } ) %]</a>
                         [% END %]
                         </sup>
                   </h1>
