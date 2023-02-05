@@ -62,9 +62,9 @@ jobs:
       #     sudo chown $UID -R gh_pages
 
       - name: Validate OpenAPI
-        uses: char0n/swagger-editor-validate@v1.3.2
-        with:
-          definition-file: docs/reference/api.yml
+        run: |
+          pip install openapi-spec-validator
+          openapi-spec-validator docs/reference/api.yml
 
       # generate OpenAPI documentation with rapidoc
       # we do this after mkdocs to overwrite api.html file
