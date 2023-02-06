@@ -319,6 +319,8 @@ is(get_inherited_property("test", "en:fake-duck-meat", "carbon_footprint_fr_food
 
 is(get_inherited_property("test", "en:fake-duck-meat", "carbon_footprint_fr_foodges_value:fr"), undef);
 
+is_deeply(get_inherited_properties("test", "fr:yaourts-au-citron-alleges", []),
+	{}, "Getting an empty list of property returns an empty hasmap");
 is_deeply(
 	get_inherited_properties("test", "en:fake-meat", ["vegan:en"]),
 	{"vegan:en" => "yes"},
@@ -338,6 +340,49 @@ is_deeply(
 	get_inherited_properties("test", "fr:yaourts-au-fruit-de-la-passion-alleges", ["color:en", "description:fr"]),
 	{"description:fr" => "un yaourt de n'import quel type"},
 	"Getting multiple properties with one undef in the path and an inherited one"
+);
+
+is_deeply(tags_by_prop("test", [], "color:en", ["description:fr"]),
+	{}, "tags_by_prop for no tagids gives empty hashmap");
+is_deeply(
+	tags_by_prop("test", ["en:passion-fruit-yogurts", "fr:yaourts-au-citron-alleges"], "color:en", []),
+	{
+		'undef' => {
+			'en:passion-fruit-yogurts' => {}
+		},
+		'yellow' => {
+			'fr:yaourts-au-citron-alleges' => {}
+		},
+	},
+	"tags_by_prop with grouping on color:en, no additional property"
+);
+is_deeply(
+	tags_by_prop(
+		"test",
+		["en:passion-fruit-yogurts", "fr:yaourts-a-la-myrtille", "fr:yaourts-au-citron-alleges", "en:lemon-yogurts"],
+		"color:en", ["description:fr"]
+	),
+	{
+		'undef' => {
+			'en:passion-fruit-yogurts' => {
+				'description:fr' => 'un yaourt de n\'import quel type'
+			}
+		},
+		'white' => {
+			'fr:yaourts-a-la-myrtille' => {
+				'description:fr' => 'un yaourt de n\'import quel type'
+			}
+		},
+		'yellow' => {
+			'en:lemon-yogurts' => {
+				'description:fr' => 'un yaourt avec du citron'
+			},
+			'fr:yaourts-au-citron-alleges' => {
+				'description:fr' => 'for light yogurts with lemon'
+			}
+		},
+	},
+	"tags_by_prop with grouping on color:en"
 );
 
 my $yuka_uuid = "yuka.R452afga432";

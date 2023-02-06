@@ -347,6 +347,36 @@ sub get_inherited_property ($tagtype, $canon_tagid, $property) {
 	return;
 }
 
+=head2 get_inherited_properties ($tagtype, $canon_tagid, $properties_names_ref, $fallback_lcs = ["xx", "en"]) {
+
+Try to get a set of properties for a tag by exploring the taxonomy (using parents).
+
+This methods take into account if a property is defined as "undef"
+(but it cuts value only for the considered branch
+and might still lead to a value if there are multiple parents branches).
+
+B<Warning:> The algorithm is a bit rough and my not work as you would expect on a DAG.
+It does not (currently) respect exploration of nodes that joins from multiple parent
+(in those case you would expect to first explore children from both branches).
+If we want to change the algorithm for this to work we should first explore parents,
+and then decide the order, but this methods is more eager to save time.
+
+=head3 Parameters
+
+=head4 $tagtype - str, name of taxonomy
+=head4 $canon_tagid - tag id for which we want properties
+=head4 $properties_names - ref to a list of property name
+=head4 $fallback_lcs - fallback language code to try
+If may search a description:fr but if fallback is ['xx', 'en']
+and we find a description:xx or description:en property we will use this value.
+
+=head3 Return
+
+A ref to a hashmap where keys are property names and values are found value.
+If a property name is not present it means it was not found.
+
+=cut
+
 sub get_inherited_properties ($tagtype, $canon_tagid, $properties_names_ref, $fallback_lcs = ["xx", "en"]) {
 
 	my @parents = ([0, $canon_tagid]);
@@ -441,20 +471,49 @@ sub get_inherited_properties ($tagtype, $canon_tagid, $properties_names_ref, $fa
 	return \%found_properties;
 }
 
-sub tags_by_prop ($tagtype, $tagids_ref, $prop_name, $props_ref, $lc) {
+=head2 tags_by_prop ($tagtype, $tagids_ref, $prop_name, $props_ref)
+Retrieve properties of a series of tags given in C<$tagids_ref>
+and return them, but grouped by C<$pro_name>
+
+=head3 Return
+A ref to a hashmap, where keys are property C<$prop_name> values,
+and values are in turn hashmaps where keys are tag ids,
+and values are a hashmap of properties and their values.
+
+Tags with undefined property are with group under "undef" value.
+
+=head4 Example
+we asks for quality tags, grouped by fix_action, while getting descriptions
+{
+	"add_nutrition_facts" => {
+		"en:kcal-does-not-match-other-nutrients" => {
+			"description:en" => "Kcal is not matching value computed from other nutriments"
+		},
+		"en:kcal-does-not-match-kj" => {
+			"description:en" => "Kcal is not matching kj value"
+		},
+	},
+	"add_categories" =>
+	{
+		"en:detected-category-baby-milk" {
+			"description:en" => "Detected category … may be missing baby milks"
+		}
+	}
+}
+=cut
+
+sub tags_by_prop ($tagtype, $tagids_ref, $prop_name, $props_ref) {
 	my @tagids = @{$tagids_ref};
-	my @props_ref = @{$props_ref};
-	push @props_ref, $prop_name;
+	my @props_to_fetch = (@{$props_ref},);
+	push @props_to_fetch, $prop_name;
 
 	my $tags_by_prop = {};
 
 	foreach my $tagid (@tagids) {
-		my $found_ref = get_inherited_properties($tagtype, $tagid, $props_ref);
+		my $found_ref = get_inherited_properties($tagtype, $tagid, \@props_to_fetch);
 		my $prop_value = $found_ref->{$prop_name} // "undef";
 		delete $found_ref->{$prop_name} if defined $found_ref->{$prop_name};
-		if (!defined $tags_by_prop->{$prop_value}) {
-			$tags_by_prop->{$prop_value} = {};
-		}
+		defined $tags_by_prop->{$prop_value} or $tags_by_prop->{$prop_value} = {};
 		$tags_by_prop->{$prop_value}{$tagid} = $found_ref;
 	}
 
