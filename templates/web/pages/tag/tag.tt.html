@@ -59,20 +59,21 @@
         <!-- Fetching facet knowledge panel -->
         <script>
             let facet_kp_url = "https://facets-kp.openfoodfacts.net/render-to-html?";
-            let params = "facet_tag=[% tagtype_name %]&value_tag=[% tagid %]&sec_facet_tag=[% tagtype2_name %]&sec_value_tag=[% tagid2 %]";
-            // checking if data is filtered on country 
+            let params = "facet_tag=[% tagtype %]&value_tag=[% canon_tagid %]";
+            if ("[% tagid2.defined %]"){
+                params += "&sec_facet_tag=[% tagtype2 %]&sec_value_tag=[% canon_tagid2 %]"
+            }
+            // Filtering data for country
             if ("[% country_code %]" !== "world"){
-                // Adding language code to get transalted data from facet-knowledge-panel API
-                // Removing langcode from county name l.e, "en:france" to "france"
-                country_name = "[% country %]".slice(3);
-                params += "&lang_code=[% country_code %]&country=" + country_name;
+                // Adding language code to get transalted data
+                params += "&lang_code=[% lc %]&country=[% cc %]";
             }
             fetch( facet_kp_url + params )
             .then((response) => {
                 if (response.ok) {
                     return response.text();}
                 else {
-                    throw new Error("Network Response Error while fetching facet_kp");
+                    throw new Error("Network Response Error while fetching facet kp");
                     
             }
             })
