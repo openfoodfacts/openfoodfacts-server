@@ -2253,7 +2253,7 @@
             "material" : {
                "id" : "en:wood"
             },
-            "number_of_units" : "1",
+            "number_of_units" : 1,
             "recycling" : {
                "id" : "en:recycle"
             },
@@ -2265,7 +2265,7 @@
             "material" : {
                "id" : "en:glass"
             },
-            "number_of_units" : "6",
+            "number_of_units" : 6,
             "quantity_per_unit" : "25cl",
             "quantity_per_unit_unit" : "cl",
             "quantity_per_unit_value" : 25,
@@ -2280,7 +2280,7 @@
             "material" : {
                "id" : "en:steel"
             },
-            "number_of_units" : "3",
+            "number_of_units" : 3,
             "recycling" : {
                "id" : "en:recycle"
             },
@@ -2292,7 +2292,7 @@
             "material" : {
                "id" : "en:plastic"
             },
-            "number_of_units" : "1",
+            "number_of_units" : 1,
             "recycling" : {
                "id" : "en:discard"
             },
@@ -2361,7 +2361,7 @@
       "unknown_ingredients_n" : 0,
       "unknown_nutrients_tags" : [],
       "vitamins_tags" : [],
-      "weighters_tags" : []
+      "weighers_tags" : []
    },
    "result" : {
       "id" : "product_found",

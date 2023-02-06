@@ -222,7 +222,7 @@ To this initial list, taxonomized fields will be added by retrieve_tags_taxonomy
 	informers => 1,
 	checkers => 1,
 	correctors => 1,
-	weighters => 1,
+	weighers => 1,
 );
 
 # Fields that are tags related to users
@@ -232,7 +232,7 @@ To this initial list, taxonomized fields will be added by retrieve_tags_taxonomy
 	informers => 1,
 	checkers => 1,
 	correctors => 1,
-	weighters => 1,
+	weighers => 1,
 );
 
 # Fields that have an associated taxonomy
