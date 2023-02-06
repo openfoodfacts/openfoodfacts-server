@@ -1684,7 +1684,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 sub build_all_taxonomies ($publish) {
 	foreach my $taxonomy (@taxonomy_fields) {
-		if ($taxonomy ne 'traces' and rindex($taxonomy, 'data_quality', 0) != 0) { # Not sure where traces come from
+		if ($taxonomy ne 'traces' and rindex($taxonomy, 'data_quality', 0) != 0) {
 			build_tags_taxonomy($taxonomy, $publish);
 		}
 	}

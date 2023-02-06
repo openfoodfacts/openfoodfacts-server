@@ -538,14 +538,15 @@ $options{categories_exempted_from_nutrient_levels} = [
 # fields for which we will load taxonomies
 # note: taxonomies that are used as properties of other taxonomies must be loaded first
 # (e.g. additives_classes are referenced in additives)
-# Below is a list of all of the taxonomies with other taxonomies that reference them:
+# Below is a list of all of the taxonomies with other taxonomies that reference them
+# If there are entries in () these are other taxonomies that are combined into this one
 #
 # additives
 # additives_classes: additives, minerals
 # allergens: ingredients
 # amino_acids
-# categories 
-# countries: 
+# categories
+# countries:
 # data_quality
 # data_quality_bugs
 # data_quality_errors
@@ -556,8 +557,8 @@ $options{categories_exempted_from_nutrient_levels} = [
 # food_groups: categories
 # improvements
 # ingredients_analysis
-# ingredients_processing: 
-# ingredients: labels
+# ingredients_processing:
+# ingredients (additives_classes, additives, minerals, vitamins, nucleotides, other_nutritional_substances): labels
 # labels: categories
 # languages:
 # minerals
@@ -566,25 +567,26 @@ $options{categories_exempted_from_nutrient_levels} = [
 # nucleotides
 # nutrient_levels
 # nutrients
-# origins: categories, ingredients, labels
+# origins (countries): categories, ingredients, labels
 # other_nutritional_substances
 # packaging_materials: packaging_recycling, packaging_shapes
 # packaging_recycling
 # packaging_shapes: packaging_materials, packaging_recycling
-# packaging: labels
+# packaging (packaging_materials, packaging_shapes, packaging_recycling, preservation): labels
 # periods_after_opening:
-# states: 
+# states:
 # traces
-# vitamins 
+# vitamins
 
 @taxonomy_fields = qw(
 	languages states countries
-	allergens origins ingredients packaging labels food_groups categories
+	allergens origins additives_classes ingredients
+	packaging_shapes packaging_materials packaging_recycling packaging
+	labels food_groups categories
 	ingredients_processing
-	additives_classes additives vitamins minerals amino_acids nucleotides other_nutritional_substances traces
+	additives vitamins minerals amino_acids nucleotides other_nutritional_substances traces
 	ingredients_analysis
 	nutrients nutrient_levels misc nova_groups
-	packaging_shapes packaging_materials packaging_recycling
 	periods_after_opening
 	data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors data_quality_warnings_producers data_quality_errors_producers
 	improvements
