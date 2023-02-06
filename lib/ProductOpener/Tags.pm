@@ -722,6 +722,12 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 		@files = ("packaging_materials", "packaging_shapes", "packaging_recycling", "preservation");
 	}
 
+
+	# Traces - just a copy of allergens
+	elsif ($tagtype eq "traces") {
+		@files = ("allergens");
+	}
+	
 	my $sha1 = Digest::SHA1->new;
 	foreach my $source_file (@files) {
 		open(my $IN, "<", "$data_root/taxonomies/$source_file.txt")
@@ -771,6 +777,11 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 		}
 
 		close($OUT);
+	}
+
+	# Traces - just a copy of allergens
+	elsif ($tagtype eq "traces") {
+		$file = "allergens.txt";
 	}
 
 	# we ofen use the term *tag* in the code to indicate a single entry between commas
@@ -1726,7 +1737,7 @@ Build all taxonomies
 
 sub build_all_taxonomies ($publish) {
 	foreach my $taxonomy (@taxonomy_fields) {
-		if ($taxonomy ne 'traces' and rindex($taxonomy, 'data_quality_', 0) != 0) {
+		if (rindex($taxonomy, 'data_quality_', 0) != 0) {
 			build_tags_taxonomy($taxonomy, $publish);
 		}
 	}
@@ -1980,6 +1991,7 @@ sub retrieve_tags_taxonomy ($tagtype) {
 	}
 
 	if (!-e "$data_root/taxonomies/$tagtype.result.sto") {
+		print "Building $tagtype on the fly\n";
 		build_tags_taxonomy($tagtype, 1);
 	}
 
