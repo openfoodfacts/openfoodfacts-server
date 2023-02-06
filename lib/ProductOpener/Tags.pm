@@ -72,6 +72,7 @@ BEGIN {
 		&gen_ingredients_tags_hierarchy_taxonomy
 		&display_tags_hierarchy_taxonomy
 		&build_tags_taxonomy
+		&build_all_taxonomies
 		&list_taxonomy_tags_in_language
 
 		&canonicalize_taxonomy_tag
@@ -671,16 +672,11 @@ Like "categories", "ingredients"
 =cut
 
 sub build_tags_taxonomy ($tagtype, $publish) {
+	print "building taxonomy for $tagtype - publish: $publish\n";
+
 	binmode STDERR, ":encoding(UTF-8)";
 	binmode STDIN, ":encoding(UTF-8)";
 	binmode STDOUT, ":encoding(UTF-8)";
-
-	# The nutrients_taxonomy.txt source file is created from values in the .po files
-	if ($tagtype eq "nutrient_levels") {
-		require ProductOpener::Food;
-		ProductOpener::Food->import('create_nutrients_level_taxonomy');
-		create_nutrients_level_taxonomy();
-	}
 
 	my @files = ($tagtype);
 
@@ -1329,7 +1325,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					# If the property name matches the name of an already loaded taxonomy,
 					# canonicalize the property values for the corresponding synonym
 					# e.g. if an additive has a class additives_classes:en: en:stabilizer (a synonym),
-					# we can map it to en:stabilizer (the canonical name in the additives_classes taxonomy)
+					# we can map it to en:stabiliser (the canonical name in the additives_classes taxonomy)
 					if (exists $translations_from{$property}) {
 						$properties{$tagtype}{$canon_tagid}{"$property:$lc"}
 							= join(",", map({canonicalize_taxonomy_tag($lc, $property, $_)} split(/\s*,\s*/, $line)));
@@ -1684,6 +1680,14 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 	}
 
 	return;
+}
+
+sub build_all_taxonomies ($publish) {
+	foreach my $taxonomy (@taxonomy_fields) {
+		if ($taxonomy ne 'traces' and rindex($taxonomy, 'data_quality', 0) != 0) { # Not sure where traces come from
+			build_tags_taxonomy($taxonomy, $publish);
+		}
+	}
 }
 
 =head2 generate_tags_taxonomy_extract ( $tagtype, $tags_ref, $options_ref, $lcs_ref)
@@ -2093,12 +2097,9 @@ foreach my $country (keys %{$properties{countries}}) {
 	}
 }
 
-# Need to be able to suppress loading when we are building taxonomies and languages
-if (!defined $ENV{'SKIP_TAXONOMY_LOAD'}) {
-	foreach my $taxonomyid (@ProductOpener::Config::taxonomy_fields) {
-		$log->info("loading taxonomy $taxonomyid");
-		retrieve_tags_taxonomy($taxonomyid);
-	}
+foreach my $taxonomyid (@ProductOpener::Config::taxonomy_fields) {
+	$log->info("loading taxonomy $taxonomyid");
+	retrieve_tags_taxonomy($taxonomyid);
 }
 
 my %and = (

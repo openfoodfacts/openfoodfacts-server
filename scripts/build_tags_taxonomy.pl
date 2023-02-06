@@ -23,11 +23,6 @@
 use Modern::Perl '2017';
 use utf8;
 
-# Prevent taxonomies from being loaded in ProductOpener::Tags
-BEGIN {
-	$ENV{'SKIP_TAXONOMY_LOAD'} = 'Yes';
-}
-
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Food qw/:all/;
@@ -37,44 +32,11 @@ use File::Basename;
 my $tagtype = $ARGV[0] // '*';
 my $publish = $ARGV[1] // 1;
 
-my @taxonomies = ($tagtype);
 if ($tagtype eq '*') {
-	@taxonomies = qw(
-		additives
-		additives_classes
-		allergens
-		amino_acids
-		categories
-		countries
-		data_quality
-		food_groups
-		improvements
-		ingredients
-		ingredients_analysis
-		ingredients_processing
-		labels
-		languages
-		minerals
-		misc
-		nova_groups
-		nucleotides
-		nutrients
-		nutrient_levels
-		origins
-		other_nutritional_substances
-		packaging
-		packaging_materials
-		packaging_recycling
-		packaging_shapes
-		periods_after_opening
-		preservation
-		states
-		vitamins
-	);
+	build_all_taxonomies($publish);
 }
-foreach my $taxonomy (@taxonomies) {
-	print "building taxonomy for $taxonomy - publish: $publish\n";
-	build_tags_taxonomy($taxonomy, $publish);
+else {
+	build_tags_taxonomy($tagtype, $publish);
 }
 
 exit(0);

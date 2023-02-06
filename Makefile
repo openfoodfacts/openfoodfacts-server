@@ -324,15 +324,15 @@ check_critic:
 # Compilation #
 #-------------#
 
-build_taxonomies: build_lang
+build_taxonomies:
 	@echo "🥫 build taxonomies"
 	${DOCKER_COMPOSE} run --no-deps --rm backend /opt/product-opener/scripts/build_tags_taxonomy.pl ${name}
 
-rebuild_taxonomies: build_lang
+rebuild_taxonomies:
 	@echo "🥫 re-build all taxonomies"
 	${DOCKER_COMPOSE} run --no-deps --rm backend /opt/product-opener/scripts/build_tags_taxonomy.pl ${name}
 
-build_taxonomies_test: build_lang_test
+build_taxonomies_test:
 	@echo "🥫 build taxonomies"
 	${DOCKER_COMPOSE_TEST} run --no-deps --rm backend /opt/product-opener/scripts/build_tags_taxonomy.pl ${name}
 
