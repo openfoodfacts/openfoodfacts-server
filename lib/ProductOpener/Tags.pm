@@ -1682,12 +1682,24 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 	return;
 }
 
+=head2 build_all_taxonomies ( $pubish)
+
+Build all taxonomies
+
+=head3 Parameters
+
+=head4 Publish STO file $publish
+
+=cut
+
 sub build_all_taxonomies ($publish) {
 	foreach my $taxonomy (@taxonomy_fields) {
 		if ($taxonomy ne 'traces' and rindex($taxonomy, 'data_quality', 0) != 0) {
 			build_tags_taxonomy($taxonomy, $publish);
 		}
 	}
+
+	return;
 }
 
 =head2 generate_tags_taxonomy_extract ( $tagtype, $tags_ref, $options_ref, $lcs_ref)
