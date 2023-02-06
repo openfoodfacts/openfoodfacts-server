@@ -654,7 +654,7 @@ sub get_lc_tagid ($synonyms_ref, $lc, $tagtype, $tag, $warning) {
 	return $lc_tagid;
 }
 
-sub get_from_cache($source, $target) {
+sub get_from_cache ($source, $target) {
 	my $cache_root = "$data_root/build-cache/taxonomies";
 	my $local_cache_source = "$cache_root/$source";
 	if (-e $local_cache_source) {
@@ -663,8 +663,9 @@ sub get_from_cache($source, $target) {
 		return 1;
 	}
 	$File::Fetch::WARN = 0;
-	my $ff = File::Fetch->new(uri => "https://raw.githubusercontent.com/openfoodfacts/openfoodfacts-build-cache/main/taxonomies/$source");
-	$ff->fetch( to => "$cache_root" );
+	my $ff = File::Fetch->new(
+		uri => "https://raw.githubusercontent.com/openfoodfacts/openfoodfacts-build-cache/main/taxonomies/$source");
+	$ff->fetch(to => "$cache_root");
 	if (-e $local_cache_source) {
 		print "Found $source on GitHub\n";
 		copy($local_cache_source, $target);
@@ -722,12 +723,11 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 		@files = ("packaging_materials", "packaging_shapes", "packaging_recycling", "preservation");
 	}
 
-
 	# Traces - just a copy of allergens
 	elsif ($tagtype eq "traces") {
 		@files = ("allergens");
 	}
-	
+
 	my $sha1 = Digest::SHA1->new;
 	foreach my $source_file (@files) {
 		open(my $IN, "<", "$data_root/taxonomies/$source_file.txt")
@@ -777,11 +777,6 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 		}
 
 		close($OUT);
-	}
-
-	# Traces - just a copy of allergens
-	elsif ($tagtype eq "traces") {
-		$file = "allergens.txt";
 	}
 
 	# we ofen use the term *tag* in the code to indicate a single entry between commas
@@ -1737,7 +1732,7 @@ Build all taxonomies
 
 sub build_all_taxonomies ($publish) {
 	foreach my $taxonomy (@taxonomy_fields) {
-		if (rindex($taxonomy, 'data_quality_', 0) != 0) {
+		if ($taxonomy ne "traces" and rindex($taxonomy, 'data_quality_', 0) != 0) {
 			build_tags_taxonomy($taxonomy, $publish);
 		}
 	}
@@ -1980,23 +1975,32 @@ sub retrieve_tags_taxonomy ($tagtype) {
 	$taxonomy_fields{$tagtype} = 1;
 	$tags_fields{$tagtype} = 1;
 
+	my $file = $tagtype;
+	if ($tagtype eq "traces") {
+		$file = "allergens";
+	}
+	elsif (rindex($tagtype, 'data_quality_', 0) == 0) 
+	{
+		$file = "data_quality";
+	}
+
 	# Check if we have a taxonomy for the previous or the next version
 	if ($tagtype !~ /_(next|prev)/) {
-		if (-e "$data_root/taxonomies/${tagtype}_prev.result.sto") {
+		if (-e "$data_root/taxonomies/${file}_prev.result.sto") {
 			retrieve_tags_taxonomy("${tagtype}_prev");
 		}
-		if (-e "$data_root/taxonomies/${tagtype}_next.result.sto") {
+		if (-e "$data_root/taxonomies/${file}_next.result.sto") {
 			retrieve_tags_taxonomy("${tagtype}_next");
 		}
 	}
 
-	if (!-e "$data_root/taxonomies/$tagtype.result.sto") {
-		print "Building $tagtype on the fly\n";
-		build_tags_taxonomy($tagtype, 1);
+	if (!-e "$data_root/taxonomies/$file.result.sto") {
+		print "Building $file on the fly\n";
+		build_tags_taxonomy($file, 1);
 	}
 
-	my $taxonomy_ref = retrieve("$data_root/taxonomies/$tagtype.result.sto")
-		or die("Could not load taxonomy: $data_root/taxonomies/$tagtype.result.sto");
+	my $taxonomy_ref = retrieve("$data_root/taxonomies/$file.result.sto")
+		or die("Could not load taxonomy: $data_root/taxonomies/$file.result.sto");
 	if (defined $taxonomy_ref) {
 
 		$loaded_taxonomies{$tagtype} = 1;
@@ -2020,7 +2024,7 @@ sub retrieve_tags_taxonomy ($tagtype) {
 	}
 
 	$special_tags{$tagtype} = [];
-	if (open(my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/special_$tagtype.txt")) {
+	if (open(my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/special_$file.txt")) {
 
 		while (<$IN>) {
 
