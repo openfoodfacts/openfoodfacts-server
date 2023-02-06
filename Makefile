@@ -168,8 +168,8 @@ build_lang_test:
 # use this in dev if you messed up with permissions or user uid/gid
 reset_owner:
 	@echo "🥫 reset owner"
-	${DOCKER_COMPOSE} run --rm --no-deps --user root backend chown www-data:www-data -R /opt/product-opener/ /mnt/podata /var/log/apache2 /var/log/httpd  || true
-	${DOCKER_COMPOSE} run --rm --no-deps --user root frontend chown www-data:www-data -R /opt/product-opener/html/images/icons/dist /opt/product-opener/html/js/dist /opt/product-opener/html/css/dist
+	${DOCKER_COMPOSE_TEST} run --rm --no-deps --user root backend chown www-data:www-data -R /opt/product-opener/ /mnt/podata /var/log/apache2 /var/log/httpd  || true
+	${DOCKER_COMPOSE_TEST} run --rm --no-deps --user root frontend chown www-data:www-data -R /opt/product-opener/html/images/icons/dist /opt/product-opener/html/js/dist /opt/product-opener/html/css/dist
 
 init_backend: build_lang
 
@@ -223,7 +223,7 @@ checks: front_build front_lint check_perltidy check_perl_fast check_critic
 
 lint: lint_perltidy
 
-tests: unit_test integration_test
+tests: build_lang_test unit_test integration_test
 
 unit_test: build_taxonomies_test
 	@echo "🥫 Running unit tests …"

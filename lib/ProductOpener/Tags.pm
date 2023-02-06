@@ -709,10 +709,12 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 	}
 
 	my $hash = $sha1->hexdigest;
-	if (-e "$data_root/cache/$tagtype.result.$hash.sto") {
-		copy("$data_root/cache/$tagtype.result.$hash.txt", "$data_root/taxonomies/$tagtype.result.txt");
-		copy("$data_root/cache/$tagtype.result.$hash.sto", "$data_root/taxonomies/$tagtype.result.sto");
-		copy("$data_root/cache/$tagtype.$hash.json", "$www_root/data/taxonomies/$tagtype.json");
+	my $tag_root = "$data_root/taxonomies/$tagtype";
+	my $cache_root = "$data_root/build-cache/taxonomies/$tagtype.$hash";
+	if (-e "$cache_root.result.sto") {
+		copy("$cache_root.result.txt", "$tag_root.result.txt");
+		copy("$cache_root.result.sto", "$tag_root.result.sto");
+		copy("$cache_root.json", "$tag_root.json");
 		print "obtained taxonomy for $tagtype from cache.\n";
 		return;
 	}
@@ -1670,12 +1672,12 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			properties => $properties{$tagtype},
 		};
 
-		copy("$data_root/taxonomies/$tagtype.result.txt", "$data_root/cache/$tagtype.result.$hash.txt");
-		copy("$www_root/data/taxonomies/$tagtype.json", "$data_root/cache/$tagtype.$hash.json");
+		copy("$tag_root.result.txt", "$cache_root.result.txt");
+		copy("$tag_root.json", "$cache_root.json");
 
 		if ($publish) {
-			store("$data_root/taxonomies/$tagtype.result.sto", $taxonomy_ref);
-			copy("$data_root/taxonomies/$tagtype.result.sto", "$data_root/cache/$tagtype.result.$hash.sto");
+			store("$tag_root.result.sto", $taxonomy_ref);
+			copy("$tag_root.result.sto", "$cache_root.result.sto");
 		}
 	}
 
@@ -2022,8 +2024,6 @@ sub country_to_cc ($country) {
 	return;
 }
 
-(-e "$data_root/cache") or mkdir("$data_root/cache", 0755);
-
 # load all tags images
 
 # print STDERR "Tags.pm - loading tags images\n";
@@ -2053,7 +2053,12 @@ else {
 	$log->warn("Tags images could not be loaded.") if $log->is_warn();
 }
 
-retrieve_tags_taxonomy("languages");
+# It would be nice to move this from BEGIN to INIT, as it's slow, but other BEGIN code depends on it.
+foreach my $taxonomyid (@ProductOpener::Config::taxonomy_fields) {
+	$log->info("loading taxonomy $taxonomyid");
+	retrieve_tags_taxonomy($taxonomyid);
+}
+
 # Build map of language codes and names
 
 %language_codes = ();
@@ -2107,11 +2112,6 @@ foreach my $country (keys %{$properties{countries}}) {
 			}
 		}
 	}
-}
-
-foreach my $taxonomyid (@ProductOpener::Config::taxonomy_fields) {
-	$log->info("loading taxonomy $taxonomyid");
-	retrieve_tags_taxonomy($taxonomyid);
 }
 
 my %and = (
