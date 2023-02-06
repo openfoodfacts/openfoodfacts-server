@@ -543,17 +543,17 @@ $options{categories_exempted_from_nutrient_levels} = [
 #
 # additives
 # additives_classes: additives, minerals
-# allergens: ingredients
+# allergens: ingredients, traces
 # amino_acids
 # categories
 # countries:
 # data_quality
-# data_quality_bugs
-# data_quality_errors
-# data_quality_errors_producers
-# data_quality_info
-# data_quality_warnings
-# data_quality_warnings_producers
+# data_quality_bugs (data_quality)
+# data_quality_errors (data_quality)
+# data_quality_errors_producers (data_quality)
+# data_quality_info (data_quality)
+# data_quality_warnings (data_quality)
+# data_quality_warnings_producers (data_quality)
 # food_groups: categories
 # improvements
 # ingredients_analysis
@@ -575,7 +575,7 @@ $options{categories_exempted_from_nutrient_levels} = [
 # packaging (packaging_materials, packaging_shapes, packaging_recycling, preservation): labels
 # periods_after_opening:
 # states:
-# traces
+# traces (allergens)
 # vitamins
 
 @taxonomy_fields = qw(

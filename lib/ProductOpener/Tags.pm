@@ -176,6 +176,7 @@ use URI::Escape::XS;
 use Log::Any qw($log);
 use Digest::SHA1;
 use File::Copy;
+use File::Fetch;
 
 use GraphViz2;
 use JSON::PP;
@@ -653,6 +654,29 @@ sub get_lc_tagid ($synonyms_ref, $lc, $tagtype, $tag, $warning) {
 	return $lc_tagid;
 }
 
+sub get_from_cache($source, $target) {
+	my $cache_root = "$data_root/build-cache/taxonomies";
+	my $local_cache_source = "$cache_root/$source";
+	if (-e $local_cache_source) {
+		copy($local_cache_source, $target);
+		print "Found $source locally\n";
+		return 1;
+	}
+	$File::Fetch::WARN = 0;
+	my $ff = File::Fetch->new(uri => "https://raw.githubusercontent.com/openfoodfacts/openfoodfacts-build-cache/main/taxonomies/$source");
+	$ff->fetch( to => "$cache_root" );
+	if (-e $local_cache_source) {
+		print "Found $source on GitHub\n";
+		copy($local_cache_source, $target);
+
+		return 1;
+	}
+
+	print "No cache hit for $source\n";
+
+	return 0;
+}
+
 =head2 build_tags_taxonomy( $tagtype, $file, $publish )
 
 Build taxonomy from the taxonomy file
@@ -709,12 +733,17 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 	}
 
 	my $hash = $sha1->hexdigest;
-	my $tag_root = "$data_root/taxonomies/$tagtype";
-	my $cache_root = "$data_root/build-cache/taxonomies/$tagtype.$hash";
-	if (-e "$cache_root.result.sto") {
-		copy("$cache_root.result.txt", "$tag_root.result.txt");
-		copy("$cache_root.result.sto", "$tag_root.result.sto");
-		copy("$cache_root.json", "$tag_root.json");
+	my $tag_data_root = "$data_root/taxonomies/$tagtype";
+	my $tag_www_root = "$www_root/data/taxonomies/$tagtype";
+	my $cache_prefix = "$tagtype.$hash";
+	my $got_from_cache = get_from_cache("$cache_prefix.result.sto", "$tag_data_root.result.sto");
+	if ($got_from_cache) {
+		$got_from_cache = get_from_cache("$cache_prefix.result.txt", "$tag_data_root.result.txt");
+	}
+	if ($got_from_cache) {
+		$got_from_cache = get_from_cache("$cache_prefix.json", "$tag_www_root.json");
+	}
+	if ($got_from_cache) {
 		print "obtained taxonomy for $tagtype from cache.\n";
 		return;
 	}
@@ -1672,12 +1701,13 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			properties => $properties{$tagtype},
 		};
 
-		copy("$tag_root.result.txt", "$cache_root.result.txt");
-		copy("$tag_root.json", "$cache_root.json");
+		my $cache_root = "$data_root/build-cache/taxonomies/$cache_prefix";
+		copy("$tag_data_root.result.txt", "$cache_root.result.txt");
+		copy("$tag_www_root.json", "$cache_root.json");
 
 		if ($publish) {
-			store("$tag_root.result.sto", $taxonomy_ref);
-			copy("$tag_root.result.sto", "$cache_root.result.sto");
+			store("$tag_data_root.result.sto", $taxonomy_ref);
+			copy("$tag_data_root.result.sto", "$cache_root.result.sto");
 		}
 	}
 
@@ -1696,7 +1726,7 @@ Build all taxonomies
 
 sub build_all_taxonomies ($publish) {
 	foreach my $taxonomy (@taxonomy_fields) {
-		if ($taxonomy ne 'traces' and rindex($taxonomy, 'data_quality', 0) != 0) {
+		if ($taxonomy ne 'traces' and rindex($taxonomy, 'data_quality_', 0) != 0) {
 			build_tags_taxonomy($taxonomy, $publish);
 		}
 	}
