@@ -216,10 +216,9 @@ sub fake_delete ($name) {
 			my $result = process_product_edit_rules(\%product);
 			is($result, $test_ref->{result}, "Result for $id - $desc");
 			is_deeply(\@removed, $test_ref->{delete_param} // [], "Delete params for $id - $desc");
-		}
+		};
 		# restore edit_rules
 		@edit_rules = @edit_rules_backup;
-
 	}
 }
 
