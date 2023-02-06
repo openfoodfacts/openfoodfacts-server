@@ -1979,8 +1979,7 @@ sub retrieve_tags_taxonomy ($tagtype) {
 	if ($tagtype eq "traces") {
 		$file = "allergens";
 	}
-	elsif (rindex($tagtype, 'data_quality_', 0) == 0) 
-	{
+	elsif (rindex($tagtype, 'data_quality_', 0) == 0) {
 		$file = "data_quality";
 	}
 
