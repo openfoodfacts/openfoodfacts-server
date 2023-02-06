@@ -2125,8 +2125,13 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 					$packagings_data_signature .= "\n";
 					$packagings_weights_signature .= ($packagings_ref->{weight_measured} || '') . "\n";
 				}
-				$current{packagings}{data} = $packagings_data_signature;
-				$current{packagings}{weights_measured} = $packagings_data_signature;
+				# If the signature is empty or contains only line feeds, we don't have data
+				if ($packagings_data_signature !~ /^\s*$/) {
+					$current{packagings}{data} = $packagings_data_signature;
+				}
+				if ($packagings_weights_signature !~ /^\s*$/) {
+					$current{packagings}{weights_measured} = $packagings_weights_signature;
+				}
 			}
 
 			$current{checked} = $product_ref->{checked};
