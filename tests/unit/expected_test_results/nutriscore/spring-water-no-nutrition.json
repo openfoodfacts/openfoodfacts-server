@@ -26,7 +26,7 @@
       "en:waters",
       "en:spring-waters"
    ],
-   "food_groups" : "en:Waters and flavored waters",
+   "food_groups" : "en:waters-and-flavored-waters",
    "food_groups_tags" : [
       "en:beverages",
       "en:waters-and-flavored-waters"
@@ -55,7 +55,7 @@
       "is_beverage" : 1,
       "is_cheese" : 0,
       "is_fat" : 0,
-      "is_water" : 1,
+      "is_water" : "1",
       "negative_points" : 0,
       "positive_points" : 0,
       "proteins" : null,
