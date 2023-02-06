@@ -15,6 +15,17 @@ use ProductOpener::Products qw/process_product_edit_rules/;
 
 my %base_product = (%default_product,);
 
+# tests are composed of following fields:
+# - id: an id for test (to quickly find it)
+# - desc: description of the test
+# - edit_rules: the edit_rules to test.
+#   Note that during test, user_id is "test"
+# - product (optional): some more fields for product, which defaults to TestDefaults default_product
+# - form (optional): some more parameters submitted to the form,
+#   which defaults to TestDefaults default_product_form
+# and some expectations:
+# - result: the expected return result of process_product_edit_rules
+# - delete_param (optional): form entries which are expected to be removed by process_product_edit_rules
 my @tests = (
 	{
 		id => "no_rule_ok",
@@ -186,14 +197,14 @@ sub fake_delete ($name) {
 	# because this is a direct import in Products we have to monkey patch here, there also
 	my $products_module = Test::MockModule->new('ProductOpener::Products');
 	$products_module->mock('single_param', \&fake_single_param);
-	# patch GCI Delete
+	# patch CGI Delete
 	my $cgi_module = Test::MockModule->new('CGI');
 	$cgi_module->mock('Delete', \&fake_delete);
 	$products_module->mock('Delete', \&fake_delete);
 
 	foreach my $test_ref (@tests) {
-		# start a block to avoid side effect (edit_rules changes)
-		{
+		# use eval to ensure edit_rules changes will be reverted
+		eval {
 			my $id = $test_ref->{id};
 			my $desc = $test_ref->{desc};
 			# overide edit rules
