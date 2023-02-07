@@ -2777,28 +2777,85 @@ sub compute_languages ($product_ref) {
 	return;
 }
 
-# @edit_rules = (
-#
-# {
-# 	name => "App XYZ",
-# 	conditions => [
-# 		["user_id", "xyz"],
-# 	],
-# 	actions => {
-# 		["ignore_if_existing_ingredients_text_fr"],
-# 		["ignore_if_0_nutriments_fruits-vegetables-nuts"],
-# 		["warn_if_match_nutriments_fruits-vegetables-nuts", 100],
-# 		["ignore_if_regexp_match_packaging", "^(artikel|produit|producto|produkt|produkte)$"],
-# 	},
-# 	notifications => qw (
-# 		stephane@openfoodfacts.org
-# 		slack_channel_edit-alert
-# 		slack_channel_edit-alert-test
-# 	),
-# },
-#
-# );
-#
+=head2 process_product_edit_rules ($product_ref)
+
+Process the edit_rules (see C<@edit_rules> in in Config file).
+
+=head3 where it applies
+
+It applies in all API/form that edit the product.
+It applies to apply an image crop.
+
+It does not block image upload.
+
+=head3 edit_rules structure
+
+=over 1
+=item * name: rule name to identify it in logs and describe it
+=item * conditions: the conditions the product must match, a list of [fieldname, value]
+=item * actions: the actions to take, a list, where each element is a list with a rule name, and eventual arguments
+=item * notifications: also notify, list of email addresses or specific notification rules
+=back
+
+=head4 conditions
+
+Each condition is either a match on C<user_id> or it's contrary C<user_id_not>,
+or C<in_TAG_NAME_tags> for a tag field to match a specific tag id.
+
+Note that conditions are checked before editing the product !
+
+=head4 actions
+
+C<ignore> alone, ignore every edits.
+
+You can also have rules of the form
+C<ignore_FIELD> and C<warn_FIELD> which will ignore (or notify) edits on the specific field.
+
+Note that ignore rules also create a notification.
+
+For nutriments use C<nutriments_NUTRIMENT_NAME> for C<FIELD>.
+
+You can guard the rule on the field with a condition:
+C<ignore_if_CONDITION_FIELD> or C<warn_if_CONDITION_FIELD>
+This time it's to check the value the user want's to add.
+
+C<CONDITION> is one of the following:
+=over 1
+=item * existing - user tries to edit this field with a non empty value
+=item * 0 - user tries to put numerical value 0 in the field
+=item * equal / lesser / greater - comparison of numeric value (requires a value as argument)
+=item * match - comparison to a string (equality, requires a value as argument)
+=item * regexp_match - match against a regexp (requires a regexp value as argument)
+=back
+
+=head4 notifications
+
+Notifications are email addresses to send emails,
+or "slack_CHANNEL_NAME" (B<warning> currently channel name is ignored, we post to I<edit-alerts>)
+
+=head4 Example of an edit rule
+
+=begin text
+{
+	name => "App XYZ",
+	conditions => [
+		["user_id", "xyz"],
+	],
+	actions => [
+		["ignore_if_existing_ingredients_text_fr"],
+		["ignore_if_0_nutriment_fruits-vegetables-nuts"],
+		["warn_if_match_nutriment_fruits-vegetables-nuts", 100],
+		["ignore_if_regexp_match_packaging", "^(artikel|produit|producto|produkt|produkte)$"],
+	],
+	notifications => qw (
+		stephane@openfoodfacts.org
+		slack_channel_edit-alert
+		slack_channel_edit-alert-test
+	),
+},
+=end text
+
+=cut
 
 sub process_product_edit_rules ($product_ref) {
 
@@ -2817,7 +2874,7 @@ sub process_product_edit_rules ($product_ref) {
 
 		# Check the conditions
 
-		my $conditions = 1;
+		my $conditions = 1;    # we first imagine conditions are met
 
 		if (defined $rule_ref->{conditions}) {
 			foreach my $condition_ref (@{$rule_ref->{conditions}}) {
@@ -2841,7 +2898,7 @@ sub process_product_edit_rules ($product_ref) {
 				}
 				elsif ($condition_ref->[0] =~ /in_(.*)_tags/) {
 					my $tagtype = $1;
-					my $condition = 0;
+					my $condition = 0;    # condition is not met, but if we have a match
 					if (defined $product_ref->{$tagtype . "_tags"}) {
 						foreach my $tagid (@{$product_ref->{$tagtype . "_tags"}}) {
 							if ($tagid eq $condition_ref->[1]) {
@@ -2870,7 +2927,7 @@ sub process_product_edit_rules ($product_ref) {
 			# 	actions => {
 			# 		["ignore_if_existing_ingredients_texts_fr"],
 			# 		["ignore_if_0_nutriments_fruits-vegetables-nuts"],
-			# 		["warn_if_match_nutriments_fruits-vegetables-nuts", 100],
+			# 		["warn_if_equal_nutriments_fruits-vegetables-nuts", 100],
 			# 		["ignore_if_regexp_match_packaging", "^(artikel|produit|producto|produkt|produkte)$"],
 			# 	},
 
@@ -2888,16 +2945,18 @@ sub process_product_edit_rules ($product_ref) {
 
 					my $action_log = "";
 
+					# the simplest rule: ignore everything
 					if ($action eq "ignore") {
 						$log->debug("ignore action => do not proceed with edits") if $log->is_debug();
 						$proceed_with_edit = 0;
 					}
+					# rules with conditions
 					elsif ($action =~ /^(ignore|warn)(_if_(existing|0|greater|lesser|equal|match|regexp_match)_)?(.*)$/)
 					{
 						my ($type, $condition, $field) = ($1, $3, $4);
 						my $default_field = $field;
 
-						my $condition_ok = 1;
+						my $condition_ok = 1;    # consider condition is met
 
 						my $action_log = "";
 
@@ -2907,26 +2966,30 @@ sub process_product_edit_rules ($product_ref) {
 
 						if (defined $condition) {
 
+							my $param_field = undef;
+							if (defined single_param($field)) {
+								# param_field is the new value defined by edit
+								$param_field = remove_tags_and_quote(decode utf8 => single_param($field));
+							}
+							if ($field =~ /_(\w\w)$/) {
+								# localized field ? remove language to get value in request
+								$default_field = $`;
+								if ((!defined $param_field) && (defined single_param($default_field))) {
+									$param_field = remove_tags_and_quote(decode utf8 => single_param($default_field));
+								}
+							}
+
 							# if field is not passed, skip rule
-							if (not defined single_param($field)) {
+							if (not defined $param_field) {
 								$log->debug("no value passed -> skip edit rule") if $log->is_debug();
 								next;
 							}
 
-							my $param_field = remove_tags_and_quote(decode utf8 => single_param($field));
-
 							my $current_value = $product_ref->{$field};
+							# specific rule for nutriments, take the nutriment_name_100g
 							if ($field =~ /^nutriment_(.*)/) {
 								my $nid = $1;
 								$current_value = $product_ref->{nutriments}{$nid . "_100g"};
-							}
-
-							# language fields?
-							if ($field =~ /_(\w\w)$/) {
-								$default_field = $`;
-								if (not defined $param_field) {
-									$param_field = remove_tags_and_quote(decode utf8 => single_param($default_field));
-								}
 							}
 
 							local $log->context->{current_value} = $current_value;
@@ -2987,7 +3050,7 @@ sub process_product_edit_rules ($product_ref) {
 								$log->debug("condition matches") if $log->is_debug();
 								$action_log
 									= "product code $code - https://world.$server_domain/product/$code - edit rule $rule_ref->{name} - type: $type - condition: $condition - field: $field current(field): "
-									. $current_value
+									. ($current_value // "")
 									. " - param(field): "
 									. $param_field . "\n";
 							}
