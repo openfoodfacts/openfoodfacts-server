@@ -874,8 +874,8 @@ may be used to edit files.</p>
   extension</li>
 <li>add a <code>perlcritic.sh</code> at the root of your project with following content:
   <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env bash</span>
-. .envrc &gt;/dev/null <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
-docker-compose run --rm --no-deps backend perlcritic <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span> <span class="m">2</span>&gt;/dev/null
+.<span class="w"> </span>.envrc<span class="w"> </span>&gt;/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+docker-compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--no-deps<span class="w"> </span>backend<span class="w"> </span>perlcritic<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null
 </code></pre></div>
   the second line is useful only if you <a href="../use-direnv/">use direnv</a></li>
 <li><code>chmod +x perlcritic.sh</code></li>
@@ -892,26 +892,26 @@ docker-compose run --rm --no-deps backend perlcritic <span class="s2">&quot;</sp
 <li>install the extension</li>
 <li>add a script <code>shell-into-appserver.sh</code> in the project:
   <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env bash</span>
-<span class="nb">declare</span> -x <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/usr/local/bin/
-<span class="nb">source</span> .envrc
-<span class="nv">COMMAND</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span> <span class="p">|</span> sed <span class="s1">&#39;s/^.*perl /perl /&#39;</span><span class="k">)</span>
-&gt;<span class="p">&amp;</span><span class="m">2</span> <span class="nb">echo</span> <span class="s2">&quot;launching </span><span class="nv">$COMMAND</span><span class="s2">&quot;</span>
-docker-compose run --rm --no-deps -T -p <span class="m">127</span>.0.0.  <span class="m">1</span>:13603:13603 backend <span class="nv">$COMMAND</span>
+<span class="nb">declare</span><span class="w"> </span>-x<span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/usr/local/bin/
+<span class="nb">source</span><span class="w"> </span>.envrc
+<span class="nv">COMMAND</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/^.*perl /perl /&#39;</span><span class="k">)</span>
+&gt;<span class="p">&amp;</span><span class="m">2</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;launching </span><span class="nv">$COMMAND</span><span class="s2">&quot;</span>
+docker-compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--no-deps<span class="w"> </span>-T<span class="w"> </span>-p<span class="w"> </span><span class="m">127</span>.0.0.<span class="w">  </span><span class="m">1</span>:13603:13603<span class="w"> </span>backend<span class="w"> </span><span class="nv">$COMMAND</span>
 </code></pre></div>
   Note: the second line is useful only if you <a href="../use-direnv/">use direnv</a></li>
 <li><code>chmod +x shell-into-appserver.sh</code></li>
 <li>Edit workspace settings to have those settings:
-  <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nt">&quot;perl&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;enable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;perlInc&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/opt/product-opener/lib&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;/opt/perl/local/lib/perl5&quot;</span><span class="p">],</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;ignoreDirs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/opt/perl/local/lib/perl5&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;.  vscode&quot;</span><span class="p">],</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;fileFilter&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;.pm&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;.pl&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;.t&quot;</span><span class="p">],</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;sshAddr&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dummy&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;sshUser&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dummy&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;sshCmd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./shell-into-appserver.sh&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;sshWorkspaceRoot&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/opt/product-opener&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;logLevel&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
+  <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nt">&quot;perl&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;enable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;perlInc&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/opt/product-opener/lib&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;/opt/perl/local/lib/perl5&quot;</span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;ignoreDirs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/opt/perl/local/lib/perl5&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;.  vscode&quot;</span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;fileFilter&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;.pm&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;.pl&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;.t&quot;</span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;sshAddr&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dummy&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;sshUser&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dummy&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;sshCmd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./shell-into-appserver.sh&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;sshWorkspaceRoot&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/opt/product-opener&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;logLevel&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">    </span><span class="p">},</span>
 </code></pre></div></li>
 </ul>
 <h2 id="remote-container">Remote container ?<a class="headerlink" href="#remote-container" title="Permanent link">#</a></h2>

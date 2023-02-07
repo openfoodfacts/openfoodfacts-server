@@ -1065,15 +1065,15 @@
 </code></pre></div>
 <h3 id="nutri-score-response">Nutri-Score Response<a class="headerlink" href="#nutri-score-response" title="Permanent link">#</a></h3>
 <p>The response returned contains an object of the <code>code</code>, <code>product</code>, <code>status_verbose</code>, and <code>status</code>. The <code>product</code> object contains the fields specified in the query: the <code>product_name</code> and the <code>nutrition_grades</code>. The status also states if the product was found or not.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3017624010701&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;product&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;nutrition_grades&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;e&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;product_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Nutella&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;status_verbose&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;product found&quot;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3017624010701&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;product&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;nutrition_grades&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;e&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;product_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Nutella&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;status_verbose&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;product found&quot;</span>
+<span class="p">}</span>
 </code></pre></div>
 <h3 id="nutri-score-computation">Nutri-Score Computation<a class="headerlink" href="#nutri-score-computation" title="Permanent link">#</a></h3>
 <p>If you would like to be able to show how the score is computed, add some extra fields like <code>nutriscore_data</code> and <code>nutriments</code>.</p>
@@ -1081,40 +1081,40 @@
 <div class="highlight"><pre><span></span><code>https://world.openfoodfacts.net/api/v2/product/3017624010701?fields=product_name,nutriscore_data,nutriments,nutrition_grades
 </code></pre></div>
 <p>The <code>product</code> object in the response now contains the extra fields to show how the nutriscore was computed.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3017624010701&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;product&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;nutriments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;carbohydrates&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">57.5</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;carbohydrates_100g&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">57.5</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;carbohydrates_unit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;g&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;carbohydrates_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">57.5</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;energy&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2255</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;energy-kcal&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">539</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;energy-kcal_100g&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">539</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;energy-kcal_unit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;kcal&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="err">...</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="err">...</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;sugars&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">56.3</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;sugars_100g&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">56.3</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;sugars_unit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;g&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;sugars_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">56.3</span><span class="w"></span>
-<span class="w">        </span><span class="p">},</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;nutriscore_data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;energy&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2255</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;energy_points&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;energy_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2255</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="err">...</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="err">...</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;sugars_points&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;sugars_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">56.3</span><span class="w"></span>
-<span class="w">        </span><span class="p">},</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;nutrition_grades&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;e&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;product_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Nutella&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;status_verbose&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;product found&quot;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3017624010701&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;product&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;nutriments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;carbohydrates&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">57.5</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;carbohydrates_100g&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">57.5</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;carbohydrates_unit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;g&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;carbohydrates_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">57.5</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;energy&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2255</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;energy-kcal&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">539</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;energy-kcal_100g&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">539</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;energy-kcal_unit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;kcal&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="err">...</span><span class="p">,</span>
+<span class="w">            </span><span class="err">...</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;sugars&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">56.3</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;sugars_100g&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">56.3</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;sugars_unit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;g&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;sugars_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">56.3</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;nutriscore_data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;energy&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2255</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;energy_points&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;energy_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2255</span><span class="p">,</span>
+<span class="w">            </span><span class="err">...</span><span class="p">,</span>
+<span class="w">            </span><span class="err">...</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;sugars_points&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;sugars_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">56.3</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;nutrition_grades&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;e&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;product_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Nutella&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;status_verbose&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;product found&quot;</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>For more details, see the reference documentation for <a href="https://openfoodfacts.github.io/openfoodfacts-server/reference/api.html#tag/Read-Requests/operation/get-product-by-barcode">Get A Product By Barcode</a></p>
 <!-- Probably have a conclusion that links to the next possible topic eg filter countries using lc and cc-->
@@ -1128,23 +1128,23 @@
 <p>To know the missing tags, you need the <code>misc-tags</code> field from the response.</p>
 <p><code>https://world.openfoodfacts.net/api/v2/product/0180411000803/100-real-orange-juice?fields=misc_tags</code></p>
 <p>The response shows the missing fields and category needed to compute the Nutri-Score.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0180411000803&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;product&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;misc_tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;en:nutriscore-not-computed&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;en:nutriscore-missing-category&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;en:nutrition-not-enough-data-to-compute-nutrition-score&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;en:nutriscore-missing-nutrition-data&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;en:nutriscore-missing-nutrition-data-sodium&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;en:ecoscore-extended-data-not-computed&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;en:ecoscore-not-computed&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;en:main-countries-new-product&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="p">]</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;status_verbose&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;product found&quot;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0180411000803&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;product&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;misc_tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="s2">&quot;en:nutriscore-not-computed&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;en:nutriscore-missing-category&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;en:nutrition-not-enough-data-to-compute-nutrition-score&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;en:nutriscore-missing-nutrition-data&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;en:nutriscore-missing-nutrition-data-sodium&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;en:ecoscore-extended-data-not-computed&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;en:ecoscore-not-computed&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;en:main-countries-new-product&quot;</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;status_verbose&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;product found&quot;</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>The sample response above for 100% Real Orange Juice <code>misc_tags</code> shows that the Nutri-Score is missing category (<code>en:nutriscore-missing-category</code>) and sodium(salt) (<code>en:nutriscore-missing-nutrition-data-sodium</code>). Now you can write to the OFF API to provide these nutriment data (if you have them) so that the Nutri-Score can be computed.</p>
 <h3 id="write-data-to-make-nutri-score-computation-possible">Write data to make Nutri-Score computation possible<a class="headerlink" href="#write-data-to-make-nutri-score-computation-possible" title="Permanent link">#</a></h3>
@@ -1199,44 +1199,44 @@
 </tbody>
 </table>
 <p>Using curl:</p>
-<div class="highlight"><pre><span></span><code>curl -XPOST -u off:off -x POST https://world.openfoodfacts.net/cgi/product_jqm2.pl <span class="se">\</span>
-  -F <span class="nv">user_id</span><span class="o">=</span>your_user_id -F <span class="nv">password</span><span class="o">=</span>your_password <span class="se">\</span>
-  -F <span class="nv">code</span><span class="o">=</span><span class="m">0180411000803</span> -F <span class="nv">nutriment_sodium</span><span class="o">=</span><span class="m">0</span>.015 -F <span class="nv">nutriment_sodium_unit</span><span class="o">=</span>g -F <span class="nv">categories</span><span class="o">=</span><span class="s2">&quot;Orange Juice&quot;</span>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-XPOST<span class="w"> </span>-u<span class="w"> </span>off:off<span class="w"> </span>-x<span class="w"> </span>POST<span class="w"> </span>https://world.openfoodfacts.net/cgi/product_jqm2.pl<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-F<span class="w"> </span><span class="nv">user_id</span><span class="o">=</span>your_user_id<span class="w"> </span>-F<span class="w"> </span><span class="nv">password</span><span class="o">=</span>your_password<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-F<span class="w"> </span><span class="nv">code</span><span class="o">=</span><span class="m">0180411000803</span><span class="w"> </span>-F<span class="w"> </span><span class="nv">nutriment_sodium</span><span class="o">=</span><span class="m">0</span>.015<span class="w"> </span>-F<span class="w"> </span><span class="nv">nutriment_sodium_unit</span><span class="o">=</span>g<span class="w"> </span>-F<span class="w"> </span><span class="nv">categories</span><span class="o">=</span><span class="s2">&quot;Orange Juice&quot;</span>
 </code></pre></div>
 <p>If the request is succesful, it returns a response that indicated that the fields have been saved.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;status_verbose&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fields saved&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;status_verbose&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fields saved&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="p">}</span>
 </code></pre></div>
 <h3 id="read-newly-computed-nutri-score">Read newly computed Nutri-Score<a class="headerlink" href="#read-newly-computed-nutri-score" title="Permanent link">#</a></h3>
 <p>Now, let's check if the Nutri-Score for 100% Real Orange Juice has been computed now that we have provided the missing data. Make a GET request to <code>https://world.openfoodfacts.net/api/v2/product/0180411000803?fields=product_name,nutriscore_data,nutriments,nutrition_grades</code> for Nutri-Score of 100% Real Orange Juice. The response now contains the Nutri-Score computation:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0180411000803&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;product&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;nutriments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;carbohydrates&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">11.864406779661</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="err">.</span><span class="w"></span>
-<span class="w">            </span><span class="err">.</span><span class="w"></span>
-<span class="w">            </span><span class="err">.</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;sugars_unit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;g&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;sugars_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">11.864406779661</span><span class="w"></span>
-<span class="w">        </span><span class="p">},</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;nutriscore_data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;energy&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">195</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;energy_points&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;energy_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">195</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="err">.</span><span class="w"></span>
-<span class="w">            </span><span class="err">.</span><span class="w"></span>
-<span class="w">            </span><span class="err">.</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;sugars_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">11.86</span><span class="w"></span>
-<span class="w">        </span><span class="p">},</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;nutrition_grades&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;product_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;100% Real Orange Juice&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;status_verbose&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;product found&quot;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0180411000803&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;product&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;nutriments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;carbohydrates&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">11.864406779661</span><span class="p">,</span>
+<span class="w">            </span><span class="err">.</span>
+<span class="w">            </span><span class="err">.</span>
+<span class="w">            </span><span class="err">.</span>
+<span class="w">            </span><span class="nt">&quot;sugars_unit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;g&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;sugars_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">11.864406779661</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;nutriscore_data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;energy&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">195</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;energy_points&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;energy_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">195</span><span class="p">,</span>
+<span class="w">            </span><span class="err">.</span>
+<span class="w">            </span><span class="err">.</span>
+<span class="w">            </span><span class="err">.</span>
+<span class="w">            </span><span class="nt">&quot;sugars_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">11.86</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;nutrition_grades&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;product_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;100% Real Orange Juice&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;status_verbose&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;product found&quot;</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>For more details, see the reference documentation for <a href="https://openfoodfacts.github.io/openfoodfacts-server/reference/api/#tag/Write-Requests/operation/post-cgi-product_jqm2.pl">Add or Edit A Product</a></p>
 <p>You can also check the reference cheatsheet to know how to add/edit other types of product data.</p>
@@ -1255,95 +1255,95 @@
 <div class="highlight"><pre><span></span><code>https://world.openfoodfacts.net/api/v2/search?categories_tags_en=Orange Juice&amp;nutrition_grades_tags=c&amp;fields=code,nutrition_grades,categories_tags_en
 </code></pre></div>
 <p>The response returns all products that belong to the Orange Juice category, with the nutrition_grade "c" and limits each product object response to only the specified fields.  It also returns the count(total number) of products that match the search criteria.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1629</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;page&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;page_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;page_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;products&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;categories_tags_en&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;Plant-based foods and beverages&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;Beverages&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;Plant-based beverages&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;Fruit-based beverages&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;Juices and nectars&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;Fruit juices&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;Concentrated fruit juices&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;Orange juices&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;Concentrated orange juices&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">],</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3123340008288&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;nutrition_grades&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="p">},</span><span class="w"></span>
-<span class="w">        </span><span class="err">.</span><span class="w"></span>
-<span class="w">        </span><span class="err">.</span><span class="w"></span>
-<span class="w">        </span><span class="err">.</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;categories_tags_en&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;Plant-based foods and beverages&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;Beverages&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;Plant-based beverages&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;Fruit-based beverages&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;Juices and nectars&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;Fruit juices&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;Non-Alcoholic beverages&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;Orange juices&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;Squeezed juices&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;Squeezed orange juices&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">],</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3608580844136&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;nutrition_grades&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">],</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;skip&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1629</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;page&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;page_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;page_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;products&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;categories_tags_en&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;Plant-based foods and beverages&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Beverages&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Plant-based beverages&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Fruit-based beverages&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Juices and nectars&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Fruit juices&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Concentrated fruit juices&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Orange juices&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Concentrated orange juices&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3123340008288&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;nutrition_grades&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="err">.</span>
+<span class="w">        </span><span class="err">.</span>
+<span class="w">        </span><span class="err">.</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;categories_tags_en&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;Plant-based foods and beverages&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Beverages&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Plant-based beverages&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Fruit-based beverages&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Juices and nectars&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Fruit juices&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Non-Alcoholic beverages&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Orange juices&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Squeezed juices&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Squeezed orange juices&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3608580844136&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;nutrition_grades&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;skip&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="p">}</span>
 </code></pre></div>
 <h3 id="sorting-search-response">Sorting Search Response<a class="headerlink" href="#sorting-search-response" title="Permanent link">#</a></h3>
 <p>You can proceed to also sort the search response by different fields, for example, sort by the product that was modified last or even by the product_name. Now, let's sort the products with Orange Juice and a nutrition_grade of "c" by when they were last modified. To sort the search response, add the <code>sort_by</code> with value <code>last_modified_t</code> as a query parameter to the request.</p>
 <div class="highlight"><pre><span></span><code>https://world.openfoodfacts.net/api/v2/search?nutrition_grades_tags=c&amp;fields=code,nutrition_grades,categories_tags_en&amp;categories_tags_en=Orange Juice&amp;sort_by=last_modified_t
 </code></pre></div>
 <p>The date that each product was last modified is now used to order the product response.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1629</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;page&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;page_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;page_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;products&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;categories_tags_en&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;Plant-based foods and beverages&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;Beverages&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;Plant-based beverages&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;Fruit-based beverages&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;Juices and nectars&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;Fruit juices&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;Orange juices&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">],</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3800014268048&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;nutrition_grades&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="p">},</span><span class="w"></span>
-<span class="w">        </span><span class="err">&#39;</span><span class="w"></span>
-<span class="w">        </span><span class="err">&#39;</span><span class="w"></span>
-<span class="w">        </span><span class="err">&#39;</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;categories_tags_en&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;Plant-based foods and beverages&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;Beverages&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;Plant-based beverages&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;Fruit-based beverages&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;Juices and nectars&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;Fruit juices&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;Orange juices&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;Squeezed juices&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;Squeezed orange juices&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">],</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4056489641018&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;nutrition_grades&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">],</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;skip&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1629</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;page&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;page_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;page_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;products&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;categories_tags_en&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;Plant-based foods and beverages&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Beverages&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Plant-based beverages&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Fruit-based beverages&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Juices and nectars&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Fruit juices&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Orange juices&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3800014268048&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;nutrition_grades&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="err">&#39;</span>
+<span class="w">        </span><span class="err">&#39;</span>
+<span class="w">        </span><span class="err">&#39;</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;categories_tags_en&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;Plant-based foods and beverages&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Beverages&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Plant-based beverages&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Fruit-based beverages&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Juices and nectars&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Fruit juices&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Orange juices&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Squeezed juices&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Squeezed orange juices&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4056489641018&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;nutrition_grades&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;skip&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>To see other examples of sorting a search response, see the reference documentation for <a href="https://openfoodfacts.github.io/openfoodfacts-server/reference/api/#tag/Read-Requests/operation/get-search">Search for Products</a></p>
 

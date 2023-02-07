@@ -1100,32 +1100,32 @@ You can also specify the language present in that image by adding a suffix of th
 </tbody>
 </table>
 <p>If the image is in the <code>images/real-orange-juice-ingredients.jpg</code>, we can use curl (thanks to the special '@' attributes, which enables reading from a file):</p>
-<div class="highlight"><pre><span></span><code>curl -XPOST -u off:off  https://world.openfoodfacts.net/cgi/product_image_upload.pl <span class="se">\</span>
-  -F <span class="nv">user_id</span><span class="o">=</span>your_user_id -F <span class="nv">password</span><span class="o">=</span>your_password <span class="se">\</span>
-  -F <span class="nv">code</span><span class="o">=</span><span class="m">0180411000803</span> -F <span class="nv">imagefield</span><span class="o">=</span>ingredients_en -F <span class="nv">imgupload_ingredients_en</span><span class="o">=</span>@images/real-orange-juice-ingredients.jpg
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-XPOST<span class="w"> </span>-u<span class="w"> </span>off:off<span class="w">  </span>https://world.openfoodfacts.net/cgi/product_image_upload.pl<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-F<span class="w"> </span><span class="nv">user_id</span><span class="o">=</span>your_user_id<span class="w"> </span>-F<span class="w"> </span><span class="nv">password</span><span class="o">=</span>your_password<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-F<span class="w"> </span><span class="nv">code</span><span class="o">=</span><span class="m">0180411000803</span><span class="w"> </span>-F<span class="w"> </span><span class="nv">imagefield</span><span class="o">=</span>ingredients_en<span class="w"> </span>-F<span class="w"> </span><span class="nv">imgupload_ingredients_en</span><span class="o">=</span>@images/real-orange-juice-ingredients.jpg
 </code></pre></div>
 <p>If the request is successful, it returns a response that indicates that the fields have been saved.
 You will also get the new image id in <code>imgid</code>.</p>
-<p><div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;files&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/product/0180411000803/100%-real-orange-juice&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;filename&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;100% Real Orange Juice&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;thumbnailUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/images/products/018/041/100/0803.jpg&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0180411000803&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">],</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;thumb_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;123.100.jpg&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;imgid&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;crop_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;123.400.jpg&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="p">},</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;imgid&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;status ok&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;imagefield&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ingredients_en&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0180411000803&quot;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<p><div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;files&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/product/0180411000803/100%-real-orange-juice&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;filename&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;100% Real Orange Juice&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;thumbnailUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/images/products/018/041/100/0803.jpg&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0180411000803&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;thumb_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;123.100.jpg&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;imgid&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;crop_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;123.400.jpg&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;imgid&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;status ok&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;imagefield&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ingredients_en&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0180411000803&quot;</span>
+<span class="p">}</span>
 </code></pre></div>
 If the request is not successful you will have  a dict with an entry <code>"status": "status not ok"</code> and an explanation in <code>debug</code> field.</p>
 
