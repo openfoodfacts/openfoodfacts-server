@@ -182,6 +182,8 @@ $options{users_who_can_upload_small_images} = {
 
 $options{product_type} = "food";
 
+# edit rules
+# see ProductOpener::Products::process_product_edit_rules for documentation
 @edit_rules = (
 
 	{
@@ -294,6 +296,19 @@ $options{product_type} = "food";
 		name => "Fleury Michon",
 		conditions => [["user_id_not", "fleury-michon"], ["in_brands_tags", "fleury-michon"],],
 		actions => [["warn"]],
+		notifications => [
+			qw (
+				slack_channel_edit-alert
+			)
+		],
+	},
+
+	# as of 2023-01-27 far too much errors in updates
+	# No fix on the app
+	{
+		name => "Halal App Chakib",
+		conditions => [["user_id", "halal-app-chakib"],],
+		actions => [["ignore"],],
 		notifications => [
 			qw (
 				slack_channel_edit-alert
