@@ -4027,7 +4027,7 @@ HTML
 			$tag_template_data_ref->{tagid} = $tagid;
 			$tag_template_data_ref->{tagid_path} = $newtagidpath;
 			$tag_template_data_ref->{tag_name} = $display_tag;
-			$tag_template_data_ref->{canon_tagid} = $canon_tagid;
+			$tag_template_data_ref->{canon_tagid} = $canon_tagid // $tagid;
 
 			if (defined $tagid2) {
 				$tag_template_data_ref->{tagtype2} = $tagtype2;
@@ -4036,7 +4036,7 @@ HTML
 				$tag_template_data_ref->{tagid2} = $tagid2;
 				$tag_template_data_ref->{tagid2_path} = $newtagid2path;
 				$tag_template_data_ref->{tag2_name} = $display_tag2;
-				$tag_template_data_ref->{canon_tagid2} = $canon_tagid2;
+				$tag_template_data_ref->{canon_tagid2} = $canon_tagid2 // $tagid2;
 			}
 			else {
 
