@@ -11,3 +11,5 @@ if ($host = don.openfoodfacts.org) { return 302 https://fr.openfoodfacts.org/fai
 if ($host = dons.openfoodfacts.org) { return 302 https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts ; }
 if ($host = donner.openfoodfacts.org) { return 302 https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts ; }
 if ($host = donate.openfoodfacts.org) { return 302 https://world.openfoodfacts.org/donate-to-open-food-facts ; }
+if ($host = hungergame.openfoodfacts.org) { return 302 https://hunger.openfoodfacts.org/ ; }
+if ($host = hungergames.openfoodfacts.org) { return 302 https://hunger.openfoodfacts.org/ ; }
