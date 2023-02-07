@@ -926,6 +926,7 @@ html[dir="rtl"] {
 
 a.attribute_card {
   color: $body-font-color;
+  text-decoration: none;
 }
 
 a.attribute_card:hover {
@@ -1339,9 +1340,6 @@ a.list_product_a {
   text-decoration:none !important;
 }
 a.tab_language {
-  text-decoration:none !important;
-}
-a.attribute_card {
   text-decoration:none !important;
 }
 a.panel_title {
