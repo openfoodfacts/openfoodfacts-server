@@ -59,7 +59,7 @@
         <!-- Fetching facet knowledge panel -->
         [% IF facet_url.defined %]
         <script>
-            let facet_kp_url = "https://facets-kp.openfoodfacts.net/render-to-html?";
+            let facet_kp_url = "[% facet_url %]";
             let params = "facet_tag=[% tagtype %]&value_tag=[% canon_tagid %]";
             if ("[% tagid2.defined %]"){
                 params += "&sec_facet_tag=[% tagtype2 %]&sec_value_tag=[% canon_tagid2 %]"
