@@ -114,7 +114,7 @@ $redis_url = $ENV{REDIS_URL};
 	minion_backend => {Pg => $postgres_url},
 	minion_local_queue => $producers_platform ? "pro.$server_domain" : $server_domain,
 	minion_export_queue => $server_domain,
-	cookie_domain => $po_domain,
+	cookie_domain => $ENV{PRODUCT_OPENER_DOMAIN},
 	export_servers => {public => "off", experiment => "off-exp"},
 	ip_whitelist_session_cookie => ["", ""],
 	export_data_root => "/mnt/podata/export",
