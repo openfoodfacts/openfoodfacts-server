@@ -12,8 +12,8 @@ properties:
       The [OFF App](https://world.openfoodfacts.org/additives) has a list of possible values for `additives`.
   allergens_tags:
     schema:
-        type: string
-        example: m
+      type: string
+      example: m
     in: query
     name: allergens_tags
     description: |
@@ -93,8 +93,8 @@ properties:
     in: query
     name: packaging_tags_de
     description: |
-        The packaging_tag in german of product(s) you are searching for.
-        The [OFF App](https://world.openfoodfacts.org/packaging) has a list of possible values for `packaging`.
+      The packaging_tag in german of product(s) you are searching for.
+      The [OFF App](https://world.openfoodfacts.org/packaging) has a list of possible values for `packaging`.
   purchase_places_tags:
     schema:
       type: string
@@ -125,15 +125,15 @@ properties:
     in: query
     name: traces_tags
     description: |
-      The traces_tags of product(s) you are searching for. 
+      The traces_tags of product(s) you are searching for.
       The [OFF App](https://world.openfoodfacts.org/traces) shows a list of possible values for `traces`.
   tag_name_with_language_code:
     in: query
+    name: '<tag_name>_tags_<language_code>'
     description: |
       You can add a language code to a specific tag to query it in a specific language
     schema:
-      type: Object
-      name: '<tag_name>_tags_<language_code>'
+      type: object
       patternProperties:
         '(?<tag_name>\w+)_tags_(?<language_code>\w\w)':
           type: string
@@ -141,18 +141,18 @@ properties:
             Will search in the tags corresponding to `tag_name`,
             in the language corresponding to `language_code.
 
-            tag_name is one of the field above which have the `_tags`` suffix: 
+            tag_name is one of the field above which have the `_tags`` suffix:
             categories, nutrition_grades, etc.
       examples:
-        packaging_tags_de: 
+        - packaging_tags_de:
           summary: packaging in german
           value:
             packaging_tags_de: "de:Flasche"
-        origins_tags_fr:
+        - origins_tags_fr:
           summary: origins in french
           value:
             origins_tags_fr: "fr:France"
-        categories_tags_en:
+        - categories_tags_en:
           summary: categories in english
           value:
             categories_tags_en: "en:Beer"
