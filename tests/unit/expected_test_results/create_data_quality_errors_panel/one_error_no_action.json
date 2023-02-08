@@ -1,0 +1,30 @@
+{
+   "data_quality_errors" : {
+      "elements" : [
+         {
+            "element_type" : "title",
+            "text_element" : {
+               "html" : "<ul> </ul>"
+            }
+         },
+         {
+            "element_type" : "text",
+            "text_element" : {
+               "html" : "<ul> <li id=\"data-error-en:nutri-score-grade-from-label-does-not-match-calculated-grade\">Potential issues on Nutri-Score computation</li> </ul>"
+            }
+         }
+      ],
+      "evaluation" : "unknown",
+      "expand_for" : "large",
+      "level" : "info",
+      "title_element" : {
+         "icon_color_from_evaluation" : true,
+         "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/healing.svg",
+         "subtitle" : "Help us improve quality of our data by contributing fixes",
+         "title" : "Detected Errors"
+      },
+      "topics" : [
+         "health"
+      ]
+   }
+}
