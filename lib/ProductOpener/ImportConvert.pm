@@ -852,7 +852,7 @@ sub clean_fields ($product_ref) {
 					$brand =~ s/^\s+//;
 					$brand =~ s/\s+$//;
 					# we may get brands with quantifiers like * + ? etc. we need to escape them
-					$brand =~ s/(\*|\+|\?|\(|\)|\[|\]|\{|\}|\$|\^|\\)/\\/g;
+					$brand =~ s/(\*|\+|\?|\(|\)|\[|\]|\{|\}|\$|\^|\\)/\\$1/g;
 
 					# dashes/dots/spaces -> allow matching dashes/dot/spaces
 					# e.g. "bons.mayennais" matches "bons mayennais"
