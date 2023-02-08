@@ -112,13 +112,13 @@ sub create_data_quality_errors_panel ($product_ref, $target_lc, $target_cc, $opt
 
 	my $panel_data_ref = {};
 
-	my @data_quality_errors_tags = @{$product_ref->{data_quality_errors_tags}};
+	my @data_quality_errors_tags = @{$product_ref->{data_quality_errors_tags} // []};
 	# Only display to login user on the web and if we have errors !
 	if (   $options_ref->{user_logged_in}
 		&& ($options_ref->{knowledge_panels_client} eq 'web')
 		&& (scalar @data_quality_errors_tags))
 	{
-		$panel_data_ref->{quality_errors} = tags_by_prop("data_quality", $product_ref->{data_quality_errors_tags} ,"fix_action", ["description"]);
+		$panel_data_ref->{quality_errors} = tags_by_prop("data_quality", $product_ref->{data_quality_errors_tags} ,"fix_action:en", ["description:en"]);
 		create_panel_from_json_template("data_quality_errors",
 			"api/knowledge-panels/contribution/data_quality_errors.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
