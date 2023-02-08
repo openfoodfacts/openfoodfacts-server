@@ -4464,5 +4464,5 @@ allOf:
   - $ref: ./get_product_by_barcode_base.yaml
   - type: object
     properties:
-      product:
+      Product:
         $ref: ../schemas/product.yaml

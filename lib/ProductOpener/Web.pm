@@ -220,9 +220,6 @@ sub display_field ($product_ref, $field) {
 		elsif (defined $taxonomy_fields{$field}) {
 			$value = display_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field . "_hierarchy"});
 		}
-		elsif (defined $hierarchy_fields{$field}) {
-			$value = display_tags_hierarchy($field, $product_ref->{$field . "_hierarchy"});
-		}
 		elsif ((defined $tags_fields{$field}) and (defined $value)) {
 			$value = display_tags_list($field, $value);
 		}

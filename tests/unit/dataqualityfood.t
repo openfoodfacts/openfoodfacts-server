@@ -462,4 +462,44 @@ ok(
 	'energy not matching nutrient'
 ) or diag explain $product_ref;
 
+# en:nutrition-value-negative-$nid should be raised - for nutriments (except nutriments containing "nutrition-score") below 0
+$product_ref = {
+	nutriments => {
+		"proteins_100g" => -1,
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-value-negative-proteins',
+	'nutriment should have positive value (except nutrition-score)', 1
+);
+
+# en:nutrition-value-negative-$nid should NOT be raised - for nutriments containing "nutrition-score" and below 0
+$product_ref = {
+	nutriments => {
+		"nutrition-score-fr_100g" => -1,
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-value-negative-nutrition-score-fr',
+	'nutriment should have positive value (except nutrition-score)', 0
+);
+
+# serving size should contains digits
+$product_ref = {serving_size => "serving_size"};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:serving-size-is-missing-digits',
+	'serving size should contains digits', 1
+);
+$product_ref = {serving_size => "120g"};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:serving-size-is-missing-digits',
+	'serving size should contains digits', 0
+);
+
 done_testing();

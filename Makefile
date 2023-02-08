@@ -12,12 +12,17 @@ ENV_FILE ?= .env
 NAME = "ProductOpener"
 MOUNT_POINT ?= /mnt
 DOCKER_LOCAL_DATA ?= /srv/off/docker_data
+OS := $(shell uname)
 
 export DOCKER_BUILDKIT=1
 export COMPOSE_DOCKER_CLI_BUILD=1
 UID ?= $(shell id -u)
 export USER_UID:=${UID}
-export CPU_COUNT=$(shell nproc || echo 1)
+ifeq ($(OS), Darwin)
+  export CPU_COUNT=$(shell sysctl -n hw.logicalcpu || echo 1)
+else
+  export CPU_COUNT=$(shell nproc || echo 1)
+endif
 export MSYS_NO_PATHCONV=1
 
 # load env variables
@@ -134,6 +139,19 @@ tail:
 	@echo "🥫 Reading logs (Apache2, Nginx) …"
 	tail -f logs/**/*
 
+cover:
+	@echo "🥫 running …"
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
+	${DOCKER_COMPOSE_TEST} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
+	${DOCKER_COMPOSE_TEST} run --rm -e HARNESS_PERL_SWITCHES="-MDevel::Cover" backend prove -l tests/unit
+	${DOCKER_COMPOSE_TEST} stop
+
+codecov:
+	@echo "🥫 running …"
+	${DOCKER_COMPOSE_TEST} run --rm backend cover -report codecovbash
+
+coverage_txt:
+	${DOCKER_COMPOSE_TEST} run --rm backend cover
 
 #----------#
 # Services #
@@ -230,7 +248,7 @@ test-stop:
 	${DOCKER_COMPOSE_TEST} stop
 
 # usage:  make test-unit test=test-name.t
-test-unit: guard-test 
+test-unit: guard-test
 	@echo "🥫 Running test: 'tests/unit/${test}' …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
 	${DOCKER_COMPOSE_TEST} run --rm backend perl tests/unit/${test}
@@ -263,7 +281,7 @@ bash:
 
 
 # TO_CHECK look at changed files (compared to main) with extensions .pl, .pm, .t
-# the ls at the end is to avoid removed files. 
+# the ls at the end is to avoid removed files.
 # We have to finally filter out "." as this will the output if we have no file
 TO_CHECK=$(shell git diff origin/main --name-only | grep  '.*\.\(pl\|pm\|t\)$$' | xargs ls -d 2>/dev/null | grep -v "^.$$" )
 
