@@ -364,13 +364,16 @@ prune_cache:
 	@echo "🥫 Pruning Docker builder cache …"
 	docker builder prune -f
 
-clean_folders:
+clean_folders: clean_logs
 	( rm html/images/products || true )
 	( rm -rf node_modules/ || true )
 	( rm -rf html/data/i18n/ || true )
 	( rm -rf html/{css,js}/dist/ || true )
 	( rm -rf tmp/ || true )
+
+clean_logs:
 	( rm -f logs/* logs/apache2/* logs/nginx/* || true )
+
 
 clean: goodbye hdown prune prune_cache clean_folders
 

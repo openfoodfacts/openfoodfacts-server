@@ -109,6 +109,7 @@ sub initialize_knowledge_panels_options ($knowledge_panels_options_ref, $request
 	return;
 }
 
+
 =head2 create_knowledge_panels( $product_ref, $target_lc, $target_cc, $options_ref )
 
 Create all knowledge panels for a product, with strings (descriptions, recommendations etc.)
@@ -189,8 +190,6 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref)
 
 		$product_ref->{"knowledge_panels_" . $target_lc}{"tags_brands_nutella_doyouknow"} = $test_panel_ref;
 	}
-
-	# Add knowledge panels
 
 	# Create recommendation panels first, as they will be included in cards such has the health card and environment card
 	create_recommendation_panels($product_ref, $target_lc, $target_cc, $options_ref);
