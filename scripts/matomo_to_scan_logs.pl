@@ -78,24 +78,24 @@ use JSON "decode_json";
 
 my $json = JSON->new->allow_nonref->canonical;
 
-
 foreach my $filename (@ARGV) {
-    print STDERR "Processing $filename\n";
+	print STDERR "Processing $filename\n";
 
-    if (open(my $file, "<:encoding(UTF-8)", $filename)) {
+	if (open(my $file, "<:encoding(UTF-8)", $filename)) {
 
-        local $/;    #Enable 'slurp' mode
-        my $json_ref = $json->decode(<$file>);
+		local $/;    #Enable 'slurp' mode
+		my $json_ref = $json->decode(<$file>);
 
-        foreach my $visit_ref (@$json_ref) {
-            foreach my $action_ref (@{$visit_ref->{actionDetails}}) {
-                if ((defined $action_ref->{eventAction})
-                        and (($action_ref->{eventAction} eq "scanAction") or ($action_ref->{eventAction} eq "Scanned"))) {
-                    print $visit_ref->{visitIp} . ' GET /api/v?/product/' . $action_ref->{eventValue} . "\n";
-                }
-            }
-        }
-    }
+		foreach my $visit_ref (@$json_ref) {
+			foreach my $action_ref (@{$visit_ref->{actionDetails}}) {
+				if (    (defined $action_ref->{eventAction})
+					and (($action_ref->{eventAction} eq "scanAction") or ($action_ref->{eventAction} eq "Scanned")))
+				{
+					print $visit_ref->{visitIp} . ' GET /api/v?/product/' . $action_ref->{eventValue} . "\n";
+				}
+			}
+		}
+	}
 }
 
 exit(0);
