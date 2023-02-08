@@ -12,10 +12,25 @@
         "icon_url": "[% static_subdomain %]/images/icons/dist/scale-balance.svg",
     },
     "elements": [
-        {
-            "element_type": "text",
-            "text_element": "nothing yet !",
-        },
-
+        [% FOREACH fix_action IN data_quality_errors_tags.keys %]
+            [% descriptions = data_quality_errors_tags.$fix_action.values %]
+            {
+                "element_type": "text",
+                "text_element": `
+                    <ul>
+                    [% FOREACH description IN descriptions %]
+                        <li>[% description %]</li>
+                    [% END %]
+                    </ul>
+                `,
+            },
+            {
+                "element_type": "action",
+                "html": `[% lang("action_" . $fix_action) %]`,
+                "actions": [
+                    "[% fix_action %]",
+                ]
+            },
+        [% END %]
     ]
 }

@@ -47,6 +47,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::KnowledgePanels qw(create_panel_from_json_template);
+use ProductOpener::Tags qw(:all);
 
 use Encode;
 use Data::DeepAccess qw(deep_get);
@@ -117,16 +118,12 @@ sub create_data_quality_errors_panel ($product_ref, $target_lc, $target_cc, $opt
 		&& ($options_ref->{knowledge_panels_client} eq 'web')
 		&& (scalar @data_quality_errors_tags))
 	{
-		$panel_data_ref->{quality_errors} = tags_by_prop($product_ref, "fix_action", ["description"]);
+		$panel_data_ref->{quality_errors} = tags_by_prop("data_quality", $product_ref->{data_quality_errors_tags} ,"fix_action", ["description"]);
 		create_panel_from_json_template("data_quality_errors",
 			"api/knowledge-panels/contribution/data_quality_errors.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 	}
 	return;
-}
-
-sub quality_errors_by_action ($product_ref, $attrs) {
-
 }
 
 1;
