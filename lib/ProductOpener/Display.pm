@@ -835,11 +835,10 @@ CSS
 	$formatted_subdomain = format_subdomain($subdomain);
 	$producers_platform_url = $formatted_subdomain . '/';
 
-	# Producers platform: add .pro
+	# If we are not on the producers platform: add .pro
 	if ($server_options{producers_platform}) {
-		$formatted_subdomain =~ s/\.open/\.pro\.open/;
+		$producers_platform_url =~ s/\.open/\.pro\.open/;
 	}
-	$producers_platform_url =~ s/\.open/\.pro\.open/;
 
 	# Enable or disable user food preferences: used to compute attributes and to display
 	# personalized product scores and search results
