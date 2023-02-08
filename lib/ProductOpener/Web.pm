@@ -103,7 +103,7 @@ sub display_my_block ($blocks_ref) {
 
 		$template_data_ref_block->{org_name} = $Org{name};
 
-		if (not ((defined $server_options{private_products}) and ($server_options{private_products}))) {
+		if (not((defined $server_options{private_products}) and ($server_options{private_products}))) {
 
 			$template_data_ref_block->{edited_products_url}
 				= canonicalize_tag_link("editors", get_string_id_for_lang("no_language", $User_id));

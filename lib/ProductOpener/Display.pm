@@ -843,8 +843,7 @@ CSS
 
 	# Enable or disable user food preferences: used to compute attributes and to display
 	# personalized product scores and search results
-	if (    ((defined $options{product_type}) and ($options{product_type} eq "food")))
-	{
+	if (((defined $options{product_type}) and ($options{product_type} eq "food"))) {
 		$request_ref->{user_preferences} = 1;
 	}
 	else {
@@ -1024,11 +1023,12 @@ sub display_index_for_producer ($request_ref) {
 		my $count = count_products($request_ref, {$tagtype . "_tags" => {'$exists' => true, '$ne' => []}});
 
 		if ($count > 0) {
-			push @{$template_data_ref->{facets}}, {
+			push @{$template_data_ref->{facets}},
+				{
 				url => "/" . $tag_type_plural{$tagtype}{$lc},
 				number_of_products => lang("number_of_products_with_" . $tagtype),
 				count => $count,
-			};
+				};
 		}
 	}
 
@@ -1045,8 +1045,7 @@ sub display_index_for_producer ($request_ref) {
 
 	my $html;
 
-	process_template('web/common/includes/producers_platform_front_page.tt.html',
-		$template_data_ref, \$html)
+	process_template('web/common/includes/producers_platform_front_page.tt.html', $template_data_ref, \$html)
 		|| return "template error: " . $tt->error();
 
 	return $html;
