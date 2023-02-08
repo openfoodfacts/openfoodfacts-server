@@ -310,7 +310,7 @@ a.disabled_rule_button {
 }
 
 a.button:hover {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 .level_3,
@@ -926,6 +926,7 @@ html[dir="rtl"] {
 
 a.attribute_card {
   color: $body-font-color;
+  text-decoration: none;
 }
 
 a.attribute_card:hover {
@@ -1325,3 +1326,28 @@ $section-blue: #6d85d9;
 }
 
 .if-empty-dnone:empty { display: none !important; }
+
+// underline links
+#main_container a {
+  text-decoration:underline;
+}
+// except buttons
+a.button {
+  text-decoration:none !important;
+}
+// except product cards etc.
+a.list_product_a {
+  text-decoration:none !important;
+}
+a.tab_language {
+  text-decoration:none !important;
+}
+a.panel_title {
+  text-decoration:none !important;
+}
+.field_value a {
+  text-decoration:none !important;
+}
+.accordion-navigation a {
+  text-decoration:none !important;
+}

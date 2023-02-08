@@ -61,6 +61,12 @@ jobs:
       #       build -o /output/reference/api-v3/index.html api-v3.yml && \
       #     sudo chown $UID -R gh_pages
 
+      - name: Validate OpenAPI
+        run: |
+          docker run --rm \
+          -v ${PWD}:/local openapitools/openapi-generator-cli validate \
+          -i /local/docs/reference/api.yml \
+
       # generate OpenAPI documentation with rapidoc
       # we do this after mkdocs to overwrite api.html file
       - name: Generate OpenAPI doc using rapidoc
