@@ -130,13 +130,14 @@ boîte en carton à recycler"
 		}
 	],
 
-	[
-		'packaging_text_nl_blik_bij_restafval',
-		{
-			lc => "nl",
-			packaging_text => "blik bij restafval"
-		}
-	],
+	#issue is that in dutch blik means both the material and shape
+#	[
+#		'packaging_text_nl_blik_bij_restafval',
+#		{
+#			lc => "nl",
+#			packaging_text => "blik bij restafval"
+#		}
+#	],
 
 	[
 		'packaging_text_nl_verpakking_bij_drankencartons',
