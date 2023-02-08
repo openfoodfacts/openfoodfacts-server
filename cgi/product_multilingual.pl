@@ -821,12 +821,7 @@ CSS
 	if (    (not((defined $server_options{private_products}) and ($server_options{private_products})))
 		and (defined $Org_id))
 	{
-
 		# Display a link to the producers platform
-
-		my $producers_platform_url = $formatted_subdomain . '/';
-		$producers_platform_url =~ s/\.open/\.pro\.open/;
-
 		$template_data_ref_display->{producers_platform_url} = $producers_platform_url;
 	}
 

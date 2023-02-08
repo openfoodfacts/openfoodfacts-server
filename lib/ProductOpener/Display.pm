@@ -833,11 +833,17 @@ CSS
 
 	# call format_subdomain($subdomain) only once
 	$formatted_subdomain = format_subdomain($subdomain);
+	$producers_platform_url = $formatted_subdomain . '/';
+
+	# Producers platform: add .pro
+	if ($server_options{producers_platform}) {
+		$formatted_subdomain =~ s/\.open/\.pro\.open/;
+	}
+	$producers_platform_url =~ s/\.open/\.pro\.open/;
 
 	# Enable or disable user food preferences: used to compute attributes and to display
 	# personalized product scores and search results
-	if (    ((defined $options{product_type}) and ($options{product_type} eq "food"))
-		and (not $server_options{producers_platform}))
+	if (    ((defined $options{product_type}) and ($options{product_type} eq "food")))
 	{
 		$request_ref->{user_preferences} = 1;
 	}
@@ -861,11 +867,6 @@ CSS
 			skip_forest_footprint => 1,
 		};
 	}
-
-	# Producers platform url
-
-	$producers_platform_url = $formatted_subdomain . '/';
-	$producers_platform_url =~ s/\.open/\.pro\.open/;
 
 	$log->debug(
 		"owner, org and user",
@@ -5188,16 +5189,16 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			$fields = single_param('fields') || 'all';
 		}
 
-		my $customized_products = [];
+		my $customized_products_ref = [];
 
 		for my $product_ref (@{$request_ref->{structured_response}{products}}) {
 
 			my $customized_product_ref = customize_response_for_product($request_ref, $product_ref, $fields);
 
-			push @{$customized_products}, $customized_product_ref;
+			push @{$customized_products_ref}, $customized_product_ref;
 		}
 
-		$request_ref->{structured_response}{products} = $customized_products;
+		$request_ref->{structured_response}{products} = $customized_products_ref;
 
 		# Disable nested ingredients in ingredients field (bug #2883)
 
