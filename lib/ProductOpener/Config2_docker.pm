@@ -47,6 +47,7 @@ BEGIN {
 		$crowdin_project_key
 		$robotoff_url
 		$events_url
+		$facet_url
 		$events_username
 		$events_password
 		$redis_url
@@ -104,6 +105,10 @@ $robotoff_url = $ENV{ROBOTOFF_URL};
 $events_url = $ENV{EVENTS_URL};
 $events_username = $ENV{EVENTS_USERNAME};
 $events_password = $ENV{EVENTS_PASSWORD};
+
+# Set this to your instance of https://github.com/openfoodfacts/facets-knowledge-panels
+# Inject facet knowledge panels
+$facet_url = $ENV{FACET_URL};
 
 # Set this to your instance of the search service to enable writes to it
 $redis_url = $ENV{REDIS_URL};

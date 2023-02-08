@@ -57,6 +57,7 @@
             <div id="facet_panels_content"></div>
         </div>
         <!-- Fetching facet knowledge panel -->
+        [% IF facet_url.defined %]
         <script>
             let facet_kp_url = "https://facets-kp.openfoodfacts.net/render-to-html?";
             let params = "facet_tag=[% tagtype %]&value_tag=[% canon_tagid %]";
@@ -85,6 +86,7 @@
             
             })
         </script>
+        [% END %]
     [% END %]
 
 [% END %]
