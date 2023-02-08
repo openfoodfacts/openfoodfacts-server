@@ -125,7 +125,7 @@ BEGIN {
 		$cc
 		$country
 		$tt
-		$facet_url
+		$facet_kp_url
 
 		$nutriment_table
 
@@ -4072,7 +4072,7 @@ HTML
 
 	$tag_template_data_ref->{country} = $country;
 	$tag_template_data_ref->{country_code} = $cc;
-	$tag_template_data_ref->{facet_url} = $facet_url;
+	$tag_template_data_ref->{facet_kp_url} = $facet_kp_url;
 
 	if ($country ne 'en:world') {
 
