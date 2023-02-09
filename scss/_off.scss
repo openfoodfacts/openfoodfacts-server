@@ -1363,3 +1363,8 @@ a.panel_title {
 .dataTable a {
   text-decoration:none !important;
 }
+
+.button:focus, .button:hover, button:focus, button:hover {
+    background-color: scale-color($button-bg-color, $lightness: -$button-function-factor / 2);
+    color: #fff;
+}

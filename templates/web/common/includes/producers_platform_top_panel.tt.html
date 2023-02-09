@@ -15,13 +15,13 @@
                     [% END %]
                 </p>
                 <p>[% lang('pro_moderator_edit_owner_description') %]</p>
-                    <form method="post" action="/cgi/user.pl">
+                <form method="post" action="/cgi/user.pl">
                     <input type="hidden" name="type" value="edit_owner">
                     <input type="hidden" name="action" value="process">
                     <input type="hidden" name="userid" value="[% user_id %]">
                     <input type="text" name="pro_moderator_owner" value="" placeholder="[% lang('pro_moderator_edit_owner_placeholder') %]">
                     <input type="submit" name=".submit" value="[% lang('pro_moderator_edit_owner') %]" class="button small">
-                    </form>
+                </form>
             </div>
         </div>
     </div>
