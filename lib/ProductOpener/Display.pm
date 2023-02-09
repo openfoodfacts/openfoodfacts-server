@@ -6651,39 +6651,6 @@ sub search_and_map_products ($request_ref, $query_ref, $graph_ref) {
 	return $html;
 }
 
-sub display_on_the_blog ($blocks_ref) {
-
-	if (open(my $IN, "<:encoding(UTF-8)", "$data_root/lang/$lang/texts/blog-foundation.html")) {
-
-		my $html = join('', (<$IN>));
-		push @{$blocks_ref},
-			{
-			'title' => lang("on_the_blog_title"),
-			'content' => lang("on_the_blog_content") . '<ul class="side-nav">' . $html . '</ul>',
-			'id' => 'on_the_blog',
-			};
-		close $IN;
-	}
-
-	return;
-}
-
-sub display_bottom_block ($blocks_ref) {
-
-	if (defined $Lang{bottom_content}{$lang}) {
-
-		my $html = lang("bottom_content");
-
-		push @{$blocks_ref},
-			{
-			'title' => lang("bottom_title"),
-			'content' => $html,
-			};
-	}
-
-	return;
-}
-
 sub display_page ($request_ref) {
 
 	$log->trace("Start of display_page") if $log->is_trace();
@@ -6710,12 +6677,9 @@ sub display_page ($request_ref) {
 		return;
 	}
 
-	not $request_ref->{blocks_ref} and $request_ref->{blocks_ref} = [];
-
 	my $title = $request_ref->{title};
 	my $description = $request_ref->{description};
 	my $content_ref = $request_ref->{content_ref};
-	my $blocks_ref = $request_ref->{blocks_ref};
 
 	my $meta_description = '';
 
@@ -6725,25 +6689,6 @@ sub display_page ($request_ref) {
 
 	my $type;
 	my $id;
-
-	# TODO: 2022/10/12 - in the new website design, we removed the side column where we displayed blocks
-	# Those blocks need to be migrated to the new design (if we want to keep them)
-	# and the corresponding code needs to be removed
-
-	$log->debug("displaying blocks") if $log->is_debug();
-
-	display_login_register($blocks_ref);
-
-	display_my_block($blocks_ref);
-
-	display_on_the_blog($blocks_ref);
-
-	#display_top_block($blocks_ref);
-
-	# Bottom block is used for donations, do not display it on the producers platform
-	if (not $server_options{producers_platform}) {
-		display_bottom_block($blocks_ref);
-	}
 
 	my $site = "<a href=\"/\">" . lang("site_name") . "</a>";
 
@@ -6899,15 +6844,6 @@ sub display_page ($request_ref) {
 	$template_data_ref->{langs} = $langs;
 	$template_data_ref->{selected_lang} = $selected_lang;
 
-	my $blocks = display_blocks($request_ref);
-	my $aside_blocks = $blocks;
-
-	# keep only the login block for off canvas
-	$aside_blocks =~ s/<!-- end off canvas blocks for small screens -->(.*)//s;
-
-	# change ids of the add product image upload form
-	$aside_blocks =~ s/block_side/block_aside/g;
-
 	# Join us on Slack <a href="http://slack.openfoodfacts.org">Slack</a>:
 	my $join_us_on_slack
 		= sprintf($Lang{footer_join_us_on}{$lc}, '<a href="https://slack.openfoodfacts.org">Slack</a>');
@@ -7005,9 +6941,7 @@ sub display_page ($request_ref) {
 
 	$template_data_ref->{search_terms} = ${search_terms};
 	$template_data_ref->{torso_class} = $torso_class;
-	$template_data_ref->{aside_blocks} = $aside_blocks;
 	$template_data_ref->{tagline} = $tagline;
-	$template_data_ref->{blocks} = $blocks;
 	$template_data_ref->{title} = $title;
 	$template_data_ref->{content} = $$content_ref;
 	$template_data_ref->{join_us_on_slack} = $join_us_on_slack;
@@ -7235,7 +7169,6 @@ sub display_product ($request_ref) {
 	my $product_id = product_id_for_owner($Owner_id, $code);
 
 	my $html = '';
-	my $blocks_ref = [];
 	my $title = undef;
 	my $description = "";
 
@@ -8110,7 +8043,6 @@ JS
 	$request_ref->{content_ref} = \$html;
 	$request_ref->{title} = $title;
 	$request_ref->{description} = $description;
-	$request_ref->{blocks_ref} = $blocks_ref;
 	$request_ref->{page_type} = "product";
 	$request_ref->{page_format} = "banner";
 

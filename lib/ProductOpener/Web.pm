@@ -53,9 +53,6 @@ use Log::Log4perl;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-		&display_login_register
-		&display_blocks
-		&display_my_block
 		&display_field
 		&display_data_quality_issues_and_improvement_opportunities
 		&display_data_quality_description
@@ -68,88 +65,6 @@ BEGIN {
 use vars @EXPORT_OK;
 
 =head1 FUNCTIONS
-
-# TODO: 2022/10/12 - in the new website design, we removed the side column where we displayed blocks
-# Those blocks need to be migrated to the new design (if we want to keep them)
-# and the corresponding code needs to be removed
-
-=head2 display_blocks( $request_ref )
-
-The sidebar of home page consists of blocks. It displays some of those blocks in the sidebar.
-
-=cut
-
-sub display_blocks ($request_ref) {
-	my $html = '';
-	my $template_data_ref_blocks->{blocks} = $request_ref->{blocks_ref};
-
-	process_template('web/common/includes/display_blocks.tt.html', $template_data_ref_blocks, \$html)
-		|| return "template error: " . $tt->error();
-	return $html;
-}
-
-=head2 display_my_block ( $blocks_ref )
-
-The sidebar of home page consists of blocks. This function is used to to display one block with information and links related to the logged in user.
-
-=cut
-
-sub display_my_block ($blocks_ref) {
-
-	if (defined $User_id) {
-
-		my $content = '';
-		my $template_data_ref_block = {};
-
-		$template_data_ref_block->{org_name} = $Org{name};
-
-		if (not((defined $server_options{private_products}) and ($server_options{private_products}))) {
-
-			$template_data_ref_block->{edited_products_url}
-				= canonicalize_tag_link("editors", get_string_id_for_lang("no_language", $User_id));
-			$template_data_ref_block->{created_products_to_be_completed_url}
-				= canonicalize_tag_link("users", get_string_id_for_lang("no_language", $User_id))
-				. canonicalize_taxonomy_tag_link($lc, "states", "en:to-be-completed");
-		}
-
-		process_template('web/common/includes/display_my_block.tt.html', $template_data_ref_block, \$content)
-			|| ($content .= 'template error: ' . $tt->error());
-
-		push @{$blocks_ref},
-			{
-			'title' => lang("hello") . ' ' . $User{name},
-			'content' => $content,
-			'id' => 'my_block',
-			};
-	}
-
-	return;
-}
-
-=head2 display_login_register( $blocks_ref )
-
-This function displays the sign in block in the sidebar.
-
-=cut
-
-sub display_login_register ($blocks_ref) {
-	if (not defined $User_id) {
-
-		my $content = '';
-		my $template_data_ref_login = {};
-
-		process_template('web/common/includes/display_login_register.tt.html', $template_data_ref_login, \$content)
-			|| ($content .= 'template error: ' . $tt->error());
-
-		push @{$blocks_ref}, {
-			'title' => lang("login_register_title"),
-			'content' => $content,
-
-		};
-	}
-
-	return;
-}
 
 =head2 display_field ( $product_ref, $field )
 
