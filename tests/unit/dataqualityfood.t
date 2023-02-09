@@ -502,4 +502,47 @@ check_quality_and_test_product_has_quality_tag(
 	'serving size should contains digits', 0
 );
 
+# percentage for ingredient is higher than 100% in extracted ingredients from the picture
+$product_ref = {
+	ingredients => {
+		0 => {
+			"percent" => 110,
+			"percent_estimate" => 100,
+		},
+		1 => {
+			"percent" => 5,
+			"percent_estimate" => 0,
+		},
+		2 => {
+			"percent_estimate" => 0,
+		}
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:ingredients-extracted-ingredient-from-picture-with-more-than-100-percent',
+	'percentage should not be above 100, error when extracting the ingredients from the picture', 1
+);
+$product_ref = {
+	ingredients => {
+		0 => {
+			"percent" => 1.1,
+			"percent_estimate" => 1.1,
+		},
+		1 => {
+			"percent" => 5,
+			"percent_estimate" => 0,
+		},
+		2 => {
+			"percent_estimate" => 0,
+		}
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:ingredients-extracted-ingredient-from-picture-with-more-than-100-percent',
+	'percentage should not be above 100, error when extracting the ingredients from the picture', 1
+);
 done_testing();
