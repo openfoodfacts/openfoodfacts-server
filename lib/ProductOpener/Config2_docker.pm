@@ -62,6 +62,7 @@ use utf8;
 $producers_platform = $ENV{PRODUCERS_PLATFORM} ? 1 : 0;
 
 # server constants
+# $po_domain and $server_domain are prefixed by pro. on the producers platform
 my $po_domain = $producers_platform ? "pro." . $ENV{PRODUCT_OPENER_DOMAIN} : $ENV{PRODUCT_OPENER_DOMAIN};
 my $po_port = $ENV{PRODUCT_OPENER_PORT};
 my $is_localhost = index($po_domain, 'localhost') != -1;
@@ -112,8 +113,8 @@ $redis_url = $ENV{REDIS_URL};
 	private_products => $producers_platform,    # 1 to make products visible only to the owner (producer platform)
 	producers_platform => $producers_platform,
 	minion_backend => {Pg => $postgres_url},
-	minion_local_queue => $producers_platform ? "pro.$server_domain" : $server_domain,
-	minion_export_queue => $server_domain,
+	minion_local_queue => $server_domain,
+	minion_export_queue => $ENV{PRODUCT_OPENER_DOMAIN},
 	cookie_domain => $ENV{PRODUCT_OPENER_DOMAIN},
 	export_servers => {public => "off", experiment => "off-exp"},
 	ip_whitelist_session_cookie => ["", ""],
