@@ -1252,23 +1252,39 @@ bg:Метал, метали
 da:Metal, Metaller
 de:Metall, Metalle
 fr:Métal, Métaux, métallique, métalliques
+es:Metal
 hr:metale
 hu:Fém, fémek
-it:Metallo,Metalli
+it:Metallo, Metalli
 nl:Metaal, Metalen
 pt:Metais
 ru:Металл
 wikidata:en:Q11426
+description:de:Alle Metalle können bei ordnungsgemäßer Rückgabe wiederverwendet werden.
+description:en:All metals can be reused, if returned properly.
+description:es:Todos los metales se pueden reutilizar, si se devuelven correctamente.
+description:fr:Tous les métaux peuvent être réutilisés s'ils sont retournés correctement.
+description:it:Tutti i metalli possono essere riutilizzati, se restituiti correttamente.
+description:nl:Alle metalen kunnen opnieuw hergebruikt worden, mist goed geretourneerd.
+descruiption:pt:Todos os metais podem ser reutilizados, se devolvidos adequadamente.
 
 <en:Metals
 en:Recyclable Metals
 bg:Рециклируеми метали
 de:Wiederverwertbare Metalle, Wiederverwertbares Metall, Recycelbares Metall, Recycelbare Metalle
+es:Metales Reciclables
 fr:Métaux recyclables
 hu:Újrahasznosítható fémek
 it:Metalli riciclabili
 nl:Recyclebaar metaal
 pt:Metais recicláveis
+description:de:Alle Metalle können bei ordnungsgemäßer Rückgabe wiederverwendet werden.
+description:en:All metals can be reused, if returned properly.
+description:es:Todos los metales se pueden reutilizar, si se devuelven correctamente.
+description:fr:Tous les métaux peuvent être réutilisés s'ils sont retournés correctement.
+description:it:Tutti i metalli possono essere riutilizzati, se restituiti correttamente.
+description:nl:Alle metalen kunnen opnieuw hergebruikt worden, mist goed geretourneerd.
+descruiption:pt:Todos os metais podem ser reutilizados, se devolvidos adequadamente.
 
 # Adding iron as a synonym of steel, as most "iron" packaging is in fact steel
 <en:Metals
@@ -1286,7 +1302,13 @@ ru:Сталь
 ja:スチール
 xx:40 FE, FE 40
 wikidata:en:Q11427
-description:en:Steel is magnetic. If you approach a magnet, it should be attracted, unlike aluminium.
+description:de:Alle Metalle können bei ordnungsgemäßer Rückgabe wiederverwendet werden.
+description:en:Alle Metalle können bei ordnungsgemäßer Rückgabe wiederverwendet werden. Stahl ist magnetisch. Wenn Sie sich einem Magneten nähern, sollte dieser im Gegensatz zu Aluminium angezogen werden. Somit kann es leicht aus jeglichen Abfällen extrahiert werden.
+description:es:Todos los metales se pueden reutilizar, si se devuelven correctamente. El acero es magnético. Si te acercas a un imán, debería ser atraído, a diferencia del aluminio. Por lo tanto, se puede extraer fácilmente de cualquier residuo.
+description:fr:Tous les métaux peuvent être réutilisés s'ils sont retournés correctement. L'acier est magnétique. Si vous vous approchez d'un aimant, il doit être attiré, contrairement à l'aluminium. Ainsi, il peut être facilement extrait de n'importe quel déchet.
+description:it:Tutti i metalli possono essere riutilizzati, se restituiti correttamente. L'acciaio è magnetico. Se ti avvicini a un magnete, dovrebbe essere attratto, a differenza dell'alluminio. Così può essere facilmente estratto da qualsiasi rifiuto.
+description:nl:Alle metalen kunnen worden hergebruikt, mits correct geretourneerd. Staal is magnetisch. Als u een magneet nadert, moet deze worden aangetrokken, in tegenstelling tot aluminium. Zo kan het gemakkelijk uit elk afval worden gehaald.
+descruiption:pt:Todos os metais podem ser reutilizados, se devolvidos adequadamente. O aço é magnético. Se você se aproximar de um ímã, ele deve ser atraído, ao contrário do alumínio. Assim, pode ser facilmente extraído de qualquer resíduo.
 
 <en:steel
 en:Tin-plated steel
@@ -1728,9 +1750,9 @@ de:Papier und Pappe/verschiedene Metalle, Papier und Pappe + verschiedene Metall
 hr:papir i karton/raznovrsni metali
 xx:80 C/X, 80 C/*, 80 CX, 80 C*
 
-<xx:80 C/X
-xx:80 C/PAP
-comment:en:This should not exist as 80 by definition contains paper/fibreboard
+#<xx:80 C/X
+#xx:80 C/PAP
+#comment:en:This should not exist as 80 by definition contains paper/fibreboard
 
 <xx:80 C/X
 xx:80 C/FE
