@@ -1,12 +1,12 @@
 #!/usr/bin/perl -w
 
+use strict;
+
 # Script used to download Matomo events from the Matomo API
 # day by day, as we otherwise get timeouts
 
 # A Matomo API token needs to be specified below
 my $token = '';
-
-use strict;
 
 my $year = "2022";
 
