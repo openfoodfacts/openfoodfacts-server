@@ -264,6 +264,7 @@ ul.products {
   padding: 10px;
   width: 120px;
   word-wrap: break-word;
+  text-decoration:none !important;
 }
 
 .products div {
@@ -1349,9 +1350,6 @@ a.panel_title {
   text-decoration:none !important;
 }
 .accordion-navigation a {
-  text-decoration:none !important;
-}
-.products a {
   text-decoration:none !important;
 }
 .pagination a {
