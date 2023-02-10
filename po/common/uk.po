@@ -612,7 +612,7 @@ msgstr "коди відстежування"
 
 msgctxt "emb_codes_products"
 msgid "Products with the traceability code %s"
-msgstr "Продукти з кодом простежування"
+msgstr "Продукти з кодом простежування %s"
 
 msgctxt "emb_codes_s"
 msgid "traceability code"
@@ -620,7 +620,7 @@ msgstr "коди відстежування"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the traceability code %s"
-msgstr "Продукти з кодом простежування"
+msgstr "Продукти з кодом простежування %s"
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
@@ -1613,7 +1613,7 @@ msgstr "джерела інгредієнтів"
 
 msgctxt "origins_products"
 msgid "Products with ingredients originating from %s"
-msgstr "Продукти з інгредієнтами, які походять з"
+msgstr "Продукти з інгредієнтами, які походять з %s"
 
 msgctxt "origins_s"
 msgid "origin of ingredients"
@@ -2810,7 +2810,7 @@ msgstr "Партнери"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
 msgid "/partners"
-msgstr "/партнери"
+msgstr "/partners"
 
 msgctxt "adults"
 msgid "Adults"
