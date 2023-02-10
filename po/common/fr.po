@@ -6371,9 +6371,7 @@ msgstr "Champ ignoré"
 
 msgctxt "api_impact_value_converted"
 msgid "Value converted"
-msgstr "Clé : Valeur convertie\n"
-"api_impact_value_converted\n"
-"File: common.pot"
+msgstr "Valeur convertie"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
@@ -6383,12 +6381,12 @@ msgstr "Nombre d'unités"
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
 msgid "Weight of one empty unit"
-msgstr "Poids d'une unité vide"
+msgstr "Poids d'un élément vide"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit"
 msgid "Quantity of product contained per unit"
-msgstr "Quantité de produit contenu dans chaque unité"
+msgstr "Quantité de produit contenu dans chaque élément"
 
 # variable names between { } must not be translated
 msgctxt "f_help_categorize_on_hunger_games"
@@ -6397,7 +6395,7 @@ msgstr "Aidez à classer plus de {title} sur Hunger Games"
 
 msgctxt "packagings_complete"
 msgid "All the packaging parts of the product are listed."
-msgstr "Toutes les pièces d'emballage du produit sont répertoriées."
+msgstr "Tous les éléments de l'emballage du produit sont listés."
 
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
@@ -6410,24 +6408,24 @@ msgstr "Valeur invalide : doit être 0 ou 1"
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
 msgid "Enter the number of packaging units of the same shape and material contained in the product."
-msgstr "Entrez le nombre d'unités d'emballage de la même forme et de la même matière contenue dans le produit."
+msgstr "Entrez le nombre d'éléments d'emballages de la même forme et de la même matière contenus dans le produit."
 
 msgctxt "packaging_shape_description"
 msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
-msgstr "Entrez le nom de la forme indiqué dans les instructions de recyclage si elles sont disponibles, ou sélectionnez une forme."
+msgstr "Entrez le nom de la forme listée dans les consignes de tri si elles sont disponibles, ou sélectionnez une forme."
 
 msgctxt "packaging_material_description"
 msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
 msgstr "Entrez le matériau spécifique s'il peut être déterminé (un code de matériau à l'intérieur d'un triangle peut souvent être trouvé sur les éléments d'emballage), ou un matériau générique (par exemple du plastique ou du métal) si vous n'êtes pas sûr."
 
 msgctxt "packaging_recycling_description"
-msgid "Enter recycling instructions only if they are listed on the product."
-msgstr "Saisissez les instructions de recyclage uniquement si elles figurent sur le produit."
+msgid "Enter recycling instructions only if they appear on the product."
+msgstr "Entrez les consignes de tri seulement si elles apparaîssent sur le produit."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
 msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
-msgstr "Retirez tout reste de nourriture et lavez et séchez la partie d'emballage avant la pesée. Si possible, utilisez une balance avec une précision de 0,1 g ou 0,01 g."
+msgstr "Enlevez les restes de nourriture et lavez et séchez les éléments d'emballage avant de les peser. Si possible, utilisez une balance avec une précision de 0.1g ou 0.01g."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
