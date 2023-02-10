@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - crowdin-trigger
-  schedule:
-  - cron: "0 2 * * *"
+  #schedule:
+  #- cron: "0 2 * * *"
   
 jobs:         
   synchronize-with-crowdin:
