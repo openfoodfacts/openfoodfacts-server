@@ -1,3 +1,6 @@
+[% A panel with information useful to contributors %]
+
+[% IF panels.quality_panels %]
 {
     "type": "card",
     "expanded": true,
@@ -8,13 +11,14 @@
         "title": "[% lang('contribution_panel_title') %]",
     },
     "elements": [
-        [% IF panels.data_quality_errors.defined %]
+        [% FOREACH panel IN panels.quality_panels %]
         {
             "element_type": "panel",
             "panel_element": {
-                "panel_id": "data_quality_errors",
+                "panel_id": "[% panel %]",
             },
         },
         [% END %]
     ],
 }
+[% END %]

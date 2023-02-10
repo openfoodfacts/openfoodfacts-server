@@ -39,7 +39,6 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&create_contribution_card_panel
-		&create_data_quality_errors_panel
 		&create_data_quality_panel
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -80,54 +79,24 @@ sub create_contribution_card_panel ($product_ref, $target_lc, $target_cc, $optio
 
 	$log->debug("create contribution card panel", {code => $product_ref->{code}}) if $log->is_debug();
 
-	# we need to create it first because it can condition contribution panel display
-	create_data_quality_errors_panel($product_ref, $target_lc, $target_cc, $options_ref);
-
-	my $panel_data_ref = {};
+	my @panels = ();
+	for my $tag_type (qw(data_quality_errors data_quality_warnings data_quality_info)) {
+		# we need to create it first because it can condition contribution panel display
+		my $created = create_data_quality_panel($tag_type, $product_ref, $target_lc, $target_cc, $options_ref);
+		push(@panels, $created) if $created;
+	}
+	my $panel_data_ref = {
+		quality_panels => \@panels,
+	};
 	create_panel_from_json_template("contribution_card", "api/knowledge-panels/contribution/contribution_card.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 	return;
 }
 
-=head2 create_data_quality_errors_panel ( $product_ref, $target_lc, $target_cc, $options_ref )
 
-Creates knowledge panels to describe quality issues and invite to contribute
-
-=head3 Arguments
-
-=head4 product reference $product_ref
-
-Loaded from the MongoDB database, Storable files, or the OFF API.
-
-=head4 language code $target_lc
-
-Returned attributes contain both data and strings intended to be displayed to users.
-This parameter sets the desired language for the user facing strings.
-
-=head4 country code $target_cc
-
-=cut
-
-sub create_data_quality_errors_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
-
-	$log->debug("create quality errors panel", {code => $product_ref->{code}}) if $log->is_debug();
-
-	my $panel_data_ref = {};
-
-	my @data_quality_errors_tags = @{$product_ref->{data_quality_errors_tags} // []};
-	# Only display to login user on the web !
-	if (   $options_ref->{user_logged_in}
-		&& ($options_ref->{knowledge_panels_client} eq 'web')
-		&& (scalar @data_quality_errors_tags))
-	{
-		$panel_data_ref->{quality_errors} = tags_by_prop("data_quality", $product_ref->{data_quality_errors_tags} ,"fix_action:en", ["description:en", "marker_type:en", "show"]);
-		create_panel_from_json_template("data_quality_errors",
-			"api/knowledge-panels/contribution/data_quality_errors.tt.json",
-			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
-	}
-	return;
-}
-
+# private sub to polish a bit the result of data_quality_tags_by_actions:
+# * remove duplicate descriptions
+# * remove actions when ever descriptions are empty
 sub _polished_action_tags($quality_tags_by_action) {
 	my $result = {};
 	# remove all properties that do not have a description or that have same description
@@ -150,12 +119,37 @@ sub _polished_action_tags($quality_tags_by_action) {
 }
 
 
+=head2 create_data_quality_panel ( $tags_type, $product_ref, $target_lc, $target_cc, $options_ref )
+
+Creates knowledge panels to describe quality issues and invite to contribute
+
+=head3 Arguments
+
+=head4 $tags_type - str
+
+The type of tag. Eg. "data_quality_errors"
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head4 country code $target_cc
+
+=cut
+
+
 sub create_data_quality_panel($tags_type, $product_ref, $target_lc, $target_cc, $options_ref) {
 
 	$log->debug("create quality errors panel", {code => $product_ref->{code}}) if $log->is_debug();
 
 	my $field_name = $tags_type . "_tags";
 	my @data_quality_tags = @{$product_ref->{$field_name} // []};
+	my $created = undef;
 	# Only display to login user on the web !
 	if (   $options_ref->{user_logged_in}
 		&& ($options_ref->{knowledge_panels_client} eq 'web')
@@ -167,12 +161,13 @@ sub create_data_quality_panel($tags_type, $product_ref, $target_lc, $target_cc, 
 		if (%$quality_tags_by_action) {
 			$panel_data_ref->{tags_type} = $tags_type;
 			$panel_data_ref->{quality_tags} = $quality_tags_by_action;
-			create_panel_from_json_template("data_quality_errors",
+			create_panel_from_json_template($tags_type,
 				"api/knowledge-panels/contribution/data_quality_tags.tt.json",
 				$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+			$created = 1;
 		}
 	}
-	return;
+	return $created && $tags_type;
 }
 
 
