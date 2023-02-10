@@ -1,37 +1,36 @@
 {
     "level": "info",
     "topics": [
-        "health"
+        "contribution"
     ],
-    "expand_for": "large",
-    "evaluation": "unknown",
+    [%# only expand errors and info %]
+    [% IF panel.tags_type == "data_quality_errors" %]
+        "expand_for": "large",
+    [% ELSIF panel.tags_type == "data_quality_info" %]
+        "expand_for": "large",
+    [% ELSE %]
+        "expanded": false,
+    [% END %]
+    [% IF panel.tags_type == "data_quality_errors" %]
+        "evaluation": "bad",
+    [% ELSIF panel.tags_type == "data_quality_warnings" %]
+        "expand_for": "average",
+    [% ELSE %]
+        "expanded": "good",
+    [% END %]
     "title_element": {
-        "title": "[% lang('data_quality_errors_panel_title') %]",
-        "subtitle": "[% lang('data_quality_errors_panel_subtitle') %]",
+        "title": "[% lang(panel.tags_type _ '_panel_title') %]",
+        "subtitle": "[% lang(panel.tags_type _ '_panel_subtitle') %]",
         "icon_url": "[% static_subdomain %]/images/icons/dist/healing.svg",
         "icon_color_from_evaluation": true,
     },
     "elements": [
-        {
-            "element_type": "title",
-            "text_element": {
-                "html": `[% FILTER collapse %]
-                    <ul>
-                    [% FOREACH action_pair IN pair.value %]
-                        [% IF action_pair.value.$description_key.defined %]
-                            <li id="data-error-[% action_pair.key %]">[% action_pair.value.$description_key %]</li>
-                        [% END %]
-                    [% END %]
-                    </ul>
-                [% END %]`
-            },
-        },
         [% 
             # we need description_key variable because we can't use ':' in key directly
             description_key = 'description:en'
             action_name = "action_$fix_action"
         %]
-        [% FOREACH pair IN panel.quality_errors.pairs %]
+        [% FOREACH pair IN panel.quality_tags.pairs %]
             [%
                 fix_action = pair.key
             %]

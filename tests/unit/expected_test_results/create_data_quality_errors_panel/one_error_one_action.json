@@ -2,12 +2,6 @@
    "data_quality_errors" : {
       "elements" : [
          {
-            "element_type" : "title",
-            "text_element" : {
-               "html" : "<ul> </ul>"
-            }
-         },
-         {
             "element_type" : "text",
             "text_element" : {
                "html" : "<ul> <li id=\"data-error-en:energy-value-in-kcal-does-not-match-value-in-kj\">The energy value in kJ must be about 4.2 times greater than the value in kcal</li> </ul>"
@@ -23,7 +17,7 @@
             "element_type" : "action"
          }
       ],
-      "evaluation" : "unknown",
+      "evaluation" : "bad",
       "expand_for" : "large",
       "level" : "info",
       "title_element" : {
@@ -33,7 +27,7 @@
          "title" : "Detected Errors"
       },
       "topics" : [
-         "health"
+         "contribution"
       ]
    }
 }

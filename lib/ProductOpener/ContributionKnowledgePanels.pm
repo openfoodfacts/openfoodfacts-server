@@ -40,6 +40,7 @@ BEGIN {
 	@EXPORT_OK = qw(
 		&create_contribution_card_panel
 		&create_data_quality_errors_panel
+		&create_data_quality_panel
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -79,6 +80,7 @@ sub create_contribution_card_panel ($product_ref, $target_lc, $target_cc, $optio
 
 	$log->debug("create contribution card panel", {code => $product_ref->{code}}) if $log->is_debug();
 
+	# we need to create it first because it can condition contribution panel display
 	create_data_quality_errors_panel($product_ref, $target_lc, $target_cc, $options_ref);
 
 	my $panel_data_ref = {};
@@ -113,17 +115,65 @@ sub create_data_quality_errors_panel ($product_ref, $target_lc, $target_cc, $opt
 	my $panel_data_ref = {};
 
 	my @data_quality_errors_tags = @{$product_ref->{data_quality_errors_tags} // []};
-	# Only display to login user on the web and if we have errors !
+	# Only display to login user on the web !
 	if (   $options_ref->{user_logged_in}
 		&& ($options_ref->{knowledge_panels_client} eq 'web')
 		&& (scalar @data_quality_errors_tags))
 	{
-		$panel_data_ref->{quality_errors} = tags_by_prop("data_quality", $product_ref->{data_quality_errors_tags} ,"fix_action:en", ["description:en"]);
+		$panel_data_ref->{quality_errors} = tags_by_prop("data_quality", $product_ref->{data_quality_errors_tags} ,"fix_action:en", ["description:en", "marker_type:en", "show"]);
 		create_panel_from_json_template("data_quality_errors",
 			"api/knowledge-panels/contribution/data_quality_errors.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 	}
 	return;
 }
+
+sub _polished_action_tags($quality_tags_by_action) {
+	my $result = {};
+	# remove all properties that do not have a description or that have same description
+	while (my ($action, $tags) = each %$quality_tags_by_action) {
+		my $action_result = {};
+		my %seen_descriptions = ();
+		while (my ($tagid, $infos) = each %$tags) {
+			my $desc = $infos->{"description:en"};
+			if ((defined $desc) && (!defined $seen_descriptions{$desc})) {
+				$action_result->{$tagid} = $infos;
+				$seen_descriptions{$desc} = 1;
+			}
+		}
+		# only keep non empty actions (it may happen if all descriptions are empty !)
+		if (scalar $action_result) {
+			$result->{$action} = $action_result;
+		}
+	}
+	return $result;
+}
+
+
+sub create_data_quality_panel($tags_type, $product_ref, $target_lc, $target_cc, $options_ref) {
+
+	$log->debug("create quality errors panel", {code => $product_ref->{code}}) if $log->is_debug();
+
+	my $field_name = $tags_type . "_tags";
+	my @data_quality_tags = @{$product_ref->{$field_name} // []};
+	# Only display to login user on the web !
+	if (   $options_ref->{user_logged_in}
+		&& ($options_ref->{knowledge_panels_client} eq 'web')
+		&& (scalar @data_quality_tags))
+	{
+		my $panel_data_ref = {};
+		my $quality_tags_by_action = tags_by_prop("data_quality", $product_ref->{$field_name} ,"fix_action:en", ["description:en", "show_to:en"]);
+		$quality_tags_by_action = _polished_action_tags($quality_tags_by_action);
+		if (%$quality_tags_by_action) {
+			$panel_data_ref->{tags_type} = $tags_type;
+			$panel_data_ref->{quality_tags} = $quality_tags_by_action;
+			create_panel_from_json_template("data_quality_errors",
+				"api/knowledge-panels/contribution/data_quality_tags.tt.json",
+				$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+		}
+	}
+	return;
+}
+
 
 1;

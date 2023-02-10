@@ -11,6 +11,7 @@ en:Nutrition errors
 description:en:Error on nutrition data (nutrients)
 show_on_producers_platform:en:yes
 fix_action:en: add_nutrition_facts
+marker_type:en: error
 
 <en:Nutrition errors
 en:Energy value in kcal does not match value computed from other nutrients
@@ -774,10 +775,11 @@ description:fr:La taille de portion devrait contenir un nombre. Par exemple : "1
 
 en:Data quality warnings
 description:en: Possible error on data detected. Might be a false alert.
+marker_type:en: warning
 
 en:Data quality ok tags
 description:en: Positive appreciations on data quality
-
+marker_type:en: info
 
 ### Eco-Score and packaging
 <en:Data quality warnings

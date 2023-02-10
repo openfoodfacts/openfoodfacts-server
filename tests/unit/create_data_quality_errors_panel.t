@@ -52,7 +52,15 @@ my @tests = (
             "en:nutri-score-grade-from-label-does-not-match-calculated-grade",
         ]},
 	},
-    # FIXME add test on show_to ?
+    {
+		id => "errors_but_no_actions",
+		desc => "A panel for a product with errors but no actions",
+        product => {data_quality_errors_tags => [
+            "en:nutri-score-grade-from-label-does-not-match-calculated-grade",
+        ]},
+	}
+    # FIXME: add test on show_to ?
+    # TODO: add test where there is an error but no description ? (we have none yet)
 );
 
 my %default_options = (user_logged_in => 1, knowledge_panels_client => 'web');
@@ -61,7 +69,7 @@ foreach my $test_ref (@tests) {
     my $test_id = $test_ref->{id};
     my %product = (%default_product, %{$test_ref->{product} // {}});
     my %options = (%default_options, %{$test_ref->{options} // {}});
-    create_data_quality_errors_panel(\%product, "en", "world", \%options);
+    create_data_quality_panel("data_quality_errors", \%product, "en", "world", \%options);
     my $panels_ref = $product{"knowledge_panels_en"};
     compare_to_expected_results($panels_ref, "$expected_result_dir/$test_id.json", $update_expected_results, $test_ref);
 }
