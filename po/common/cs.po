@@ -4934,7 +4934,7 @@ msgstr "Upravte své preference ohledně jídla"
 
 msgctxt "preferences_your_preferences"
 msgid "Your food preferences"
-msgstr "Vaše preference ohledně jídla"
+msgstr "Tvé jídelní preference"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
@@ -5191,7 +5191,7 @@ msgstr "Níže seřaďte %d produktů podle vašich preferencí"
 
 msgctxt "sort_by_popularity"
 msgid "Most scanned products"
-msgstr "Nejvíce naskenovaných produktů"
+msgstr "Nejčastěji skenované produkty"
 
 msgctxt "sort_by_nutriscore_score"
 msgid "Products with the best Nutri-Score"
@@ -5611,6 +5611,14 @@ msgstr "Vzorec Eco-Score se může změnit, protože je pravidelně vylepšován
 msgctxt "ecoscore_warning_international"
 msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgstr "Eco-Score bylo původně vyvinuto pro Francii a je rozšiřováno do dalších evropských zemí. Vzorec Eco-Score se může změnit, protože je pravidelně vylepšován, aby byl přesnější a lépe vyhovoval každé zemi."
+
+msgctxt "ecoscore_warning_transportation_world"
+msgid "Select a country in order to include the full impact of transportation."
+msgstr "Vyberte zemi tak, aby zahrnovala plný dopad přepravy."
+
+msgctxt "ecoscore_warning_transportation"
+msgid "The full impact of transportation to your country is currently unknown."
+msgstr "Plný dopad dopravy do vaší země není v současné době znám."
 
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
@@ -6324,6 +6332,10 @@ msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
 msgstr "Neplatný typ: musí být celé číslo"
 
+msgctxt "api_message_invalid_type_must_be_number"
+msgid "Invalid type: must be a number"
+msgstr "Neplatný typ: musí být číslo"
+
 msgctxt "api_message_missing_field"
 msgid "Missing field"
 msgstr "Chybějící pole"
@@ -6347,6 +6359,10 @@ msgstr "Selhání"
 msgctxt "api_impact_field_ignored"
 msgid "Field ignored"
 msgstr "Pole ignorováno"
+
+msgctxt "api_impact_value_converted"
+msgid "Value converted"
+msgstr "Hodnota převedena"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
@@ -6379,4 +6395,31 @@ msgstr "Neplatné uživatelské id a heslo"
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
 msgstr "Neplatná hodnota: musí být 0 nebo 1"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units_description"
+msgid "Enter the number of packaging units of the same shape and material contained in the product."
+msgstr "Zadejte počet obalových jednotek stejného tvaru a materiálu obsažených v produktu."
+
+msgctxt "packaging_shape_description"
+msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
+msgstr "Zadejte název tvaru uvedený v pokynech k recyklaci, pokud jsou k dispozici, nebo vyberte tvar."
+
+msgctxt "packaging_material_description"
+msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
+msgstr "Zadejte konkrétní materiál, pokud jej lze určit (kód materiálu uvnitř trojúhelníku lze často nalézt na částech balení), nebo obecný materiál (například plast nebo kov), pokud si nejste jisti."
+
+msgctxt "packaging_recycling_description"
+msgid "Enter recycling instructions only if they are listed on the product."
+msgstr "Pokyny k recyklaci zadávejte pouze v případě, že jsou uvedeny na produktu."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight_description"
+msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
+msgstr "Před vážením odstraňte veškeré zbývající potraviny a omyjte a osušte část obalu. Pokud je to možné, použijte váhu s přesností 0,1 g nebo 0,01 g."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit_description"
+msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
+msgstr "Zadejte čistou hmotnost nebo čistý objem a uveďte jednotku (například g nebo ml)."
 
