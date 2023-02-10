@@ -5617,6 +5617,14 @@ msgctxt "ecoscore_warning_international"
 msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgstr "Der Eco-Score wurde ursprünglich für Frankreich entwickelt und wird derzeit auf andere europäische Länder ausgeweitet. Die Formel zur Berechnung des Eco-Score kann sich ändern, da sie regelmäßig verfeinert wird, um sie präziser und besser für jedes Land geeignet zu machen."
 
+msgctxt "ecoscore_warning_transportation_world"
+msgid "Select a country in order to include the full impact of transportation."
+msgstr "Wählen Sie ein Land aus, um die Auswirkungen des Transports vollständig zu erfassen."
+
+msgctxt "ecoscore_warning_transportation"
+msgid "The full impact of transportation to your country is currently unknown."
+msgstr "Die vollständigen Auswirkungen des Transports in Ihr Land sind derzeit nicht bekannt."
+
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
 msgstr "Barcodes einlesen, um den Nutri-Score, den Eco-Score und mehr zu ermitteln!"
@@ -6329,6 +6337,10 @@ msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
 msgstr "Ungültiger Typ: Ganzzahl gefordert"
 
+msgctxt "api_message_invalid_type_must_be_number"
+msgid "Invalid type: must be a number"
+msgstr "Ungültiger Typ: Zahl gefordert"
+
 msgctxt "api_message_missing_field"
 msgid "Missing field"
 msgstr "Fehlendes Feld"
@@ -6352,6 +6364,10 @@ msgstr "Fehlgeschlagen"
 msgctxt "api_impact_field_ignored"
 msgid "Field ignored"
 msgstr "Feld ignoriert"
+
+msgctxt "api_impact_value_converted"
+msgid "Value converted"
+msgstr "Wert umgewandelt"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
@@ -6384,4 +6400,31 @@ msgstr "Ungültige Benutzerkennung und Passwort"
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
 msgstr "Ungültiger Wert: muss 0 oder 1 sein"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units_description"
+msgid "Enter the number of packaging units of the same shape and material contained in the product."
+msgstr "Geben Sie die Anzahl der Verpackungseinheiten gleicher Form und gleichen Materials an, die in dem Erzeugnis enthalten sind."
+
+msgctxt "packaging_shape_description"
+msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
+msgstr "Geben Sie den Namen der Form ein, die in der Recycling-Anleitung aufgeführt ist (falls vorhanden) oder wählen Sie eine Form aus."
+
+msgctxt "packaging_material_description"
+msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
+msgstr "Geben Sie das spezifische Material an, wenn es bestimmt werden kann (ein Materialcode in einem Dreieck ist oft auf Verpackungsteilen zu finden), oder ein allgemeines Material (z. B. Kunststoff oder Metall), wenn Sie sich nicht sicher sind."
+
+msgctxt "packaging_recycling_description"
+msgid "Enter recycling instructions only if they are listed on the product."
+msgstr "Geben Sie Recyclinghinweise nur an, wenn sie auf dem Produkt angegeben sind."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight_description"
+msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
+msgstr "Entfernen Sie Lebensmittelreste und waschen und trocknen Sie das Verpackungsteil vor dem Wiegen. Wenn möglich, verwenden Sie eine Waage mit einer Genauigkeit von 0,1g oder 0,01g."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit_description"
+msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
+msgstr "Geben Sie das Nettogewicht oder Nettovolumen ein und geben Sie die Einheit an (z. B. g oder ml)."
 
