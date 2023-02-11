@@ -30,6 +30,12 @@ description:en:The energy value in kJ does not match value computed from other n
 description:fr:La valeur énergétique entrée en kJ ne correspond pas à la valeur calculée à partir des autres nutriments. C'est souvent dû à une erreur dans le tableau nutritionel complété par les utilisateurs. Parfois il s'agit d'une erreur sur le packaging.
 show_on_producers_platform:en:yes
 
+en:Ingredients - extracted ingredient from picture with more than 100 percent
+fr:Ingrédients - ingrédient extrait de l'image avec plus de 100 %
+description:en:At least one ingredient has a percentage greater than 100% after extracting the ingredients from the picture
+description:fr:Au moins un ingrédient possède un pourcentage supérieur à 100% après extraction des ingredients de la photo
+show_on_producers_platform:en:yes
+
 en:Nutrition - Sugars plus starch greater than carbohydrates
 es:Nutrición: azúcares más almidón más que los carbohidratos
 fr:Nutrition - Sucres plus amidon supérieurs aux glucides
@@ -847,7 +853,7 @@ en:Missing nutrition facts - fibers present on nutrition photos
 
 
 
-## Ingredients
+### Ingredients
 
 en:All but one ingredient with specified percent
 #description:en:
