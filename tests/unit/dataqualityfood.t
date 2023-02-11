@@ -543,6 +543,6 @@ ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:ingredients-extracted-ingredient-from-picture-with-more-than-100-percent',
-	'percentage should not be above 100, error when extracting the ingredients from the picture', 1
+	'percentage should not be above 100, error when extracting the ingredients from the picture', 0
 );
 done_testing();
