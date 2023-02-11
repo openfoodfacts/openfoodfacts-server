@@ -284,7 +284,7 @@ msgstr "Manuale d'Amministrazione dei Produttori"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://world-it.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> è realizzata da un'associazione senza scopo di lucro, indipendente dall'industria. È creata per tutti, da tutti ed è finanziata da tutti. Puoi supportare il nostro lavoro <a href=\"https://world-it.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donando a Open Food Facts</a>, nonché <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">utilizzando il motore di ricerca Lilo</a>.<br/><b>Grazie!</b></p>"
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> è realizzata da un'associazione senza scopo di lucro, indipendente dall'industria. È creata per tutti, da tutti ed è finanziata da tutti. Puoi supportare il nostro lavoro <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donando a Open Food Facts</a>, nonché <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">utilizzando il motore di ricerca Lilo</a>.<br/><b>Grazie!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -5619,6 +5619,14 @@ msgctxt "ecoscore_warning_international"
 msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgstr "L'Eco-Score è stato inizialmente sviluppato per la Francia e sta venendo esteso ad altri paesi europei. La formula Eco-Store è soggetta a modifiche in quanto viene regolarmente migliorata per renderla più precisa e più adatta a ogni paese."
 
+msgctxt "ecoscore_warning_transportation_world"
+msgid "Select a country in order to include the full impact of transportation."
+msgstr "Seleziona un Paese per poter includere l'impatto completo del trasporto."
+
+msgctxt "ecoscore_warning_transportation"
+msgid "The full impact of transportation to your country is currently unknown."
+msgstr "L'impatto completo del trasporto verso il tuo Paese è correntemente sconosciuto."
+
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
 msgstr "Scansiona i codici a barre per ottenere il Nutri-Score, l'Eco-Score e molto altro!"
@@ -6331,6 +6339,10 @@ msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
 msgstr "Tipo non valido: deve essere un intero"
 
+msgctxt "api_message_invalid_type_must_be_number"
+msgid "Invalid type: must be a number"
+msgstr "Tipo non valido: dev'essere un numero"
+
 msgctxt "api_message_missing_field"
 msgid "Missing field"
 msgstr "Campo mancante"
@@ -6354,6 +6366,10 @@ msgstr "Errore"
 msgctxt "api_impact_field_ignored"
 msgid "Field ignored"
 msgstr "Campo ignorato"
+
+msgctxt "api_impact_value_converted"
+msgid "Value converted"
+msgstr "Valore convertito"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
@@ -6385,5 +6401,32 @@ msgstr "Id utente e password non validi"
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
-msgstr ""
+msgstr "Valore non valido: deve essere 0 o 1"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units_description"
+msgid "Enter the number of packaging units of the same shape and material contained in the product."
+msgstr "Inserisci il numero di unità di imballaggio della stessa forma e materiale contenute nel prodotto."
+
+msgctxt "packaging_shape_description"
+msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
+msgstr "Inserisci il nome della forma elencata nelle istruzioni di riciclaggio se disponibili, oppure selezionane una."
+
+msgctxt "packaging_material_description"
+msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
+msgstr "Inserisci il materiale specifico se determinabile (un codice del materiale in un triangolo si può spesso trovare sulle parti dell'imballaggio), o un materiale generico (ad esempio, plastica o metallo) se non ne sei sicuro."
+
+msgctxt "packaging_recycling_description"
+msgid "Enter recycling instructions only if they are listed on the product."
+msgstr "Inserisci le istruzioni di riciclaggio soltanto se sono elencate sul prodotto."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight_description"
+msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
+msgstr "Rimuovi qualsiasi residuo alimentare e lava e asciuga l'imballaggio prima di pesarlo. Se possibile, utilizza una bilancia con una precisione di 0,1g o 0,01g."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit_description"
+msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
+msgstr "Inserisci il peso o il volume netto e indica l'unità (ad esempio, g o ml)."
 

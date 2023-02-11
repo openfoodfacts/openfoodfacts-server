@@ -5617,6 +5617,14 @@ msgctxt "ecoscore_warning_international"
 msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgstr "Eco-Score er oprindeligt udviklet til fransk brug, men udvides til at omfatte andre EU-lande. Eco-Score formlen kan ændres, da den løbende optimeres mhp. øget præcision og landeegnethed."
 
+msgctxt "ecoscore_warning_transportation_world"
+msgid "Select a country in order to include the full impact of transportation."
+msgstr "Vælg et land for at medtage den fulde indvirkning af transport."
+
+msgctxt "ecoscore_warning_transportation"
+msgid "The full impact of transportation to your country is currently unknown."
+msgstr "Den fulde indvirkning af transport til dette land er pt. ukendt."
+
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
 msgstr "Skan stregkoder for at få Nutri-Score, Eco-Score og meget mere!"
@@ -6330,6 +6338,10 @@ msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
 msgstr "Ugyldig type: Skal være et heltal"
 
+msgctxt "api_message_invalid_type_must_be_number"
+msgid "Invalid type: must be a number"
+msgstr "Ugyldig type: Skal være et tal"
+
 msgctxt "api_message_missing_field"
 msgid "Missing field"
 msgstr "Manglende felt"
@@ -6353,6 +6365,10 @@ msgstr "Fejl"
 msgctxt "api_impact_field_ignored"
 msgid "Field ignored"
 msgstr "Felt ignoreret"
+
+msgctxt "api_impact_value_converted"
+msgid "Value converted"
+msgstr "Værdi konverteret"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
@@ -6385,4 +6401,31 @@ msgstr "Ugyldig bruger-ID og adgangskode"
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
 msgstr "Ugyldig værdi: Skal være 0 eller 1"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units_description"
+msgid "Enter the number of packaging units of the same shape and material contained in the product."
+msgstr "Angiv antallet af emballageenheder af samme form og materiale indeholdt i produktet."
+
+msgctxt "packaging_shape_description"
+msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
+msgstr "Angiv formnavnet oplyst i genbrugsvejledningen (hvis tilgængelig), eller vælg en form."
+
+msgctxt "packaging_material_description"
+msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
+msgstr "Angiv det specifikke materiale, hvis det kan bestemmes (en materialekode i en trekant findes ofte på emballagedele), eller et generisk materiale (f.eks. plastik eller metal), hvis der er tvivl."
+
+msgctxt "packaging_recycling_description"
+msgid "Enter recycling instructions only if they are listed on the product."
+msgstr "Angiv kun genbrugsvejledningen anført på selve produktet."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight_description"
+msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
+msgstr "Fjern evt. madrester, og afvask og aftør emballagedelen før vejning. Brug om muligt en vægt med en præcision på 0,1 g eller 0,01 g."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit_description"
+msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
+msgstr "Angiv nettovægten eller nettovolumen samt enheden (f.eks. g eller ml)."
 
