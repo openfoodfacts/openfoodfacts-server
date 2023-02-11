@@ -4,6 +4,19 @@
 
 # Data quality errors should not contain false positive, as opposed to data quality warnings
 
+<en:Data quality errors
+en:Ingredients errors
+description:en:Error on ingredients data (ingredients)
+show_on_producers_platform:en:yes
+fix_action:en: correct_extracted_ingredient_text
+
+<en:Ingredients errors
+en:Ingredients - extracted ingredient from picture with more than 100 percent
+fr:Ingrédients - ingrédient extrait de l'image avec plus de 100 %
+description:en:At least one ingredient has a percentage greater than 100% after extracting the ingredients from the picture
+description:fr:Au moins un ingrédient possède un pourcentage supérieur à 100% après extraction des ingredients de la photo
+show_on_producers_platform:en:yes
+
 en:Energy value in kcal does not match value computed from other nutrients
 fr:Valeur énergétique en kcal ne correspondant pas à la valeur calculée à partir des autres nutriments
 description:en:The energy value in kcal does not match value computed from other nutrients. It is often due to an error in the nutrition facts table entered by the users. Sometimes, it's an error coming from the producer.
@@ -28,12 +41,6 @@ en:Energy value in kJ does not match value computed from other nutrients
 fr:Valeur énergétique en kJ ne correspondant pas à la valeur calculée à partir des autres nutriments
 description:en:The energy value in kJ does not match value computed from other nutrients. It is often due to an error in the nutrition facts table entered by the users. Sometimes, it's an error coming from the producer.
 description:fr:La valeur énergétique entrée en kJ ne correspond pas à la valeur calculée à partir des autres nutriments. C'est souvent dû à une erreur dans le tableau nutritionel complété par les utilisateurs. Parfois il s'agit d'une erreur sur le packaging.
-show_on_producers_platform:en:yes
-
-en:Ingredients - extracted ingredient from picture with more than 100 percent
-fr:Ingrédients - ingrédient extrait de l'image avec plus de 100 %
-description:en:At least one ingredient has a percentage greater than 100% after extracting the ingredients from the picture
-description:fr:Au moins un ingrédient possède un pourcentage supérieur à 100% après extraction des ingredients de la photo
 show_on_producers_platform:en:yes
 
 <en:Nutrition errors
