@@ -2,8 +2,8 @@ openapi: 3.1.0
 info:
   title: Open Food Facts Open API
   description: |
-    As a developer, the Open Food Facts API allows you to get information 
-    and contribute to the products database. You can create great apps to 
+    As a developer, the Open Food Facts API allows you to get information
+    and contribute to the products database. You can create great apps to
     help people make better food choices and also provide data to enhance the database.
   termsOfService: 'https://world.openfoodfacts.org/terms-of-use'
   contact:
@@ -13,6 +13,7 @@ info:
   license:
     name: 'data: ODbL'
     url: 'https://opendatacommons.org/licenses/odbl/summary/index.html'
+    identifier: "ODbL-1.0"
   version: '2'
 servers:
   - description: dev
@@ -52,7 +53,7 @@ paths:
       tags:
         - Read Requests
       summary: |
-        Get Knowledge panels for a specific product by barcode 
+        Get Knowledge panels for a specific product by barcode
         (special case of get product)
       parameters:
         - name: barcode
@@ -83,7 +84,7 @@ paths:
       description: |
         Knowledge panels gives high leve informations about a product,
         ready to display.
-        This is used by open food facts website, 
+        This is used by open food facts website,
         and by the official mobile application
       operationId: get-product-by-barcode-knowledge-panels
   /cgi/product_image_upload.pl:
@@ -93,8 +94,8 @@ paths:
       summary: Add a Photo to an Existing Product
       operationId: get-cgi-product_image_upload.pl
       description: |
-        Photos are source and proof of data. 
-        The first photo uploaded for a product is 
+        Photos are source and proof of data.
+        The first photo uploaded for a product is
         auto-selected as the product’s “front” photo.'
       responses:
         '200':
@@ -143,7 +144,7 @@ paths:
                 type: object
                 properties: {}
       description: |
-        Cropping is only relevant for editing existing products. 
+        Cropping is only relevant for editing existing products.
         You cannot crop an image the first time you upload it to the system.
       parameters: []
       requestBody:
@@ -164,7 +165,7 @@ paths:
               schema:
                 $ref: ./responses/rotate_a_photo.yaml
       description: |
-        Although we recommend rotating photos manually and uploading a new version of the image, 
+        Although we recommend rotating photos manually and uploading a new version of the image,
         the OFF API allows you to make api calls to automate this process.
         You can rotate existing photos by setting the angle to 90º, 180º, or 270º clockwise.
       parameters:
@@ -194,7 +195,7 @@ paths:
       tags:
         - Write Requests
       description: |
-        If the barcode exists then you will be editing the existing product, 
+        If the barcode exists then you will be editing the existing product,
         However if it doesn''t you will be creating a new product with that unique barcode,
         and adding properties to the product.
   /api/v2/search:
@@ -211,8 +212,8 @@ paths:
                 $ref: ./responses/search_for_products.yaml
       operationId: get-search
       description: |
-        Search request allows you to get the nutritional data of products that match your search criteria. 
-        It allows you create many custom APIs for your use case. 
+        Search request allows you to get the nutritional data of products that match your search criteria.
+        It allows you create many custom APIs for your use case.
         If the search query parameter has 2 possible values, they are seperated by a comma(,).
         When filtering via a parameter that has different language codes like `fr`, `de` or `en`, specify the language code in the parameter name e.g `categories_tags_en`
       parameters:
@@ -253,9 +254,9 @@ paths:
         - $ref: '#/components/parameters/tagtype'
         - $ref: '#/components/parameters/term'
       description: |
-        For example , Dave is looking for packaging_shapes that contain the term "fe", 
-        all packaging_shapes containing "fe" will be returned. 
-        This is useful if you have a search in your application, 
+        For example , Dave is looking for packaging_shapes that contain the term "fe",
+        all packaging_shapes containing "fe" will be returned.
+        This is useful if you have a search in your application,
         for a specific product field.
   '/api/v2/product/{barcode}?fields=images':
     parameters:
@@ -367,7 +368,7 @@ components:
       description: |
         The allowed values  used to sort/order the search results.
 
-        * `product_name` sorts on name      
+        * `product_name` sorts on name
         * `ecoscore_score`, `nova_score`, `nutriscore_score` rank on the [Eco-Score](https://world.openfoodfacts.org/eco-score-the-environmental-impact-of-food-products), [Nova](https://world.openfoodfacts.org/nova), or [Nutri-Score](https://world.openfoodfacts.org/nutriscore)
         * `scans_n`, `unique_scans_n` and `popularity_key` are about product popularity: number of scans on unique scans, rank of product
         * `created_t`, `last_modified_t`, are about creation and modification dates

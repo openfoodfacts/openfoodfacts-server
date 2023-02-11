@@ -5585,6 +5585,14 @@ msgctxt "ecoscore_warning_international"
 msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgstr "crwdns203888:0crwdne203888:0"
 
+msgctxt "ecoscore_warning_transportation_world"
+msgid "Select a country in order to include the full impact of transportation."
+msgstr "crwdns206529:0crwdne206529:0"
+
+msgctxt "ecoscore_warning_transportation"
+msgid "The full impact of transportation to your country is currently unknown."
+msgstr "crwdns206531:0crwdne206531:0"
+
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
 msgstr "crwdns203890:0crwdne203890:0"
@@ -6297,6 +6305,10 @@ msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
 msgstr "crwdns205549:0crwdne205549:0"
 
+msgctxt "api_message_invalid_type_must_be_number"
+msgid "Invalid type: must be a number"
+msgstr "crwdns206607:0crwdne206607:0"
+
 msgctxt "api_message_missing_field"
 msgid "Missing field"
 msgstr "crwdns205551:0crwdne205551:0"
@@ -6320,6 +6332,10 @@ msgstr "crwdns205559:0crwdne205559:0"
 msgctxt "api_impact_field_ignored"
 msgid "Field ignored"
 msgstr "crwdns205561:0crwdne205561:0"
+
+msgctxt "api_impact_value_converted"
+msgid "Value converted"
+msgstr "crwdns206609:0crwdne206609:0"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
@@ -6352,4 +6368,31 @@ msgstr "crwdns206411:0crwdne206411:0"
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
 msgstr "crwdns206413:0crwdne206413:0"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units_description"
+msgid "Enter the number of packaging units of the same shape and material contained in the product."
+msgstr "crwdns206555:0crwdne206555:0"
+
+msgctxt "packaging_shape_description"
+msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
+msgstr "crwdns206557:0crwdne206557:0"
+
+msgctxt "packaging_material_description"
+msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
+msgstr "crwdns206559:0crwdne206559:0"
+
+msgctxt "packaging_recycling_description"
+msgid "Enter recycling instructions only if they are listed on the product."
+msgstr "crwdns206561:0crwdne206561:0"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight_description"
+msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
+msgstr "crwdns206563:0crwdne206563:0"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit_description"
+msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
+msgstr "crwdns206565:0crwdne206565:0"
 
