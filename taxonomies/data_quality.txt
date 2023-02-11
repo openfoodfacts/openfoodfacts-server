@@ -760,6 +760,11 @@ fr:Total des valeurs nutritionnelles supérieur à 105
 description:en:The sum of nutrient values for 100 g or 100 ml is greater than 100 g. It is very likely that there is at least one value or unit error.
 description:fr:La somme des valeurs nutritionnelles pour 100 g ou 100 ml est supérieure à 100 g. Il est très probable qu'il y a au moins une erreur de valeur ou d'unité.
 
+<en:Nutrition Error
+en:Serving size is missing digits
+fr:La taille de portion manque d'un nombre
+description:en:The serving size should be a size with digits. Eg. "10 g", "250 ml", "2 fl oz"...
+description:fr:La taille de portion devrait contenir un nombre. Par exemple : "10 g", "250 ml", "2 biscuits de 30 g", etc.
 
 
 ## --------------- Then data quality warnings
