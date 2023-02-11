@@ -1338,9 +1338,9 @@ sub check_ingredients_with_specified_percent ($product_ref) {
 				if (    (defined $ingredient_id->{percent})
 					and ($ingredient_id->{percent} > 100))
 				{
-					my $ingredient_text = $ingredient_id->{text};
 					push @{$product_ref->{data_quality_errors_tags}},
-						'en:ingredients-extracted-ingredient-from-picture-with-more-than-100-percent - ' . $ingredient_text;
+						'en:ingredients-extracted-ingredient-from-picture-with-more-than-100-percent';
+					last;
 				}
 
 			}
