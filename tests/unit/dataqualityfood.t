@@ -518,7 +518,7 @@ $product_ref = {
 		}
 	],
 	ingredients_with_specified_percent_n => 2
- };
+};
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
