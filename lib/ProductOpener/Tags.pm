@@ -177,8 +177,8 @@ use Log::Any qw($log);
 use Digest::SHA1;
 use File::Copy;
 use File::Fetch;
-use MIME::Base64 qw( encode_base64 );
-use POSIX qw/strftime/;
+use MIME::Base64 qw(encode_base64);
+use POSIX qw(strftime);
 use LWP::UserAgent ();
 
 use GraphViz2;
@@ -664,6 +664,7 @@ sub get_from_cache ($source, $target) {
 		copy($local_cache_source, $target);
 		return 1;
 	}
+
 	$File::Fetch::WARN = 0;
 	my $ff = File::Fetch->new(
 		uri => "https://raw.githubusercontent.com/openfoodfacts/openfoodfacts-build-cache/main/taxonomies/$source");
@@ -683,20 +684,28 @@ sub put_to_cache ($source, $target) {
 	# Upload to github
 	my $token = $ENV{GITHUB_TOKEN};
 	if ($token) {
-		open INFILE, '<', $local_target_path;
-		binmode INFILE;
-		my $content = '{"message":"put_to_cache ' . strftime('%Y-%m-%d %H:%M:%S',gmtime) . '","content":"';
+		open my $source_file, '<', $source;
+		binmode $source_file;
+		my $content = '{"message":"put_to_cache ' . strftime('%Y-%m-%d %H:%M:%S', gmtime) . '","content":"';
 		my $buf;
-		while ( read( INFILE, $buf, 60*57 ) ) {
+		while (read($source_file, $buf, 60 * 57)) {
 			$content .= encode_base64($buf, '');
 		}
 		$content .= '"}';
-		close INFILE;
-	
+		close $source_file;
+
 		my $ua = LWP::UserAgent->new(timeout => 300);
 		my $url = "https://api.github.com/repos/openfoodfacts/openfoodfacts-build-cache/contents/taxonomies/$target";
-		$ua->put($url, Accept => 'application/vnd.github+json', Authorization => "Bearer $token", 'X-GitHub-Api-Version' => '2022-11-28', Content=>$content);
+		$ua->put(
+			$url,
+			Accept => 'application/vnd.github+json',
+			Authorization => "Bearer $token",
+			'X-GitHub-Api-Version' => '2022-11-28',
+			Content => $content
+		);
 	}
+
+	return;
 }
 
 =head2 build_tags_taxonomy( $tagtype, $file, $publish )
@@ -718,8 +727,6 @@ Like "categories", "ingredients"
 =cut
 
 sub build_tags_taxonomy ($tagtype, $publish) {
-	print "building taxonomy for $tagtype - publish: $publish\n";
-
 	binmode STDERR, ":encoding(UTF-8)";
 	binmode STDIN, ":encoding(UTF-8)";
 	binmode STDOUT, ":encoding(UTF-8)";
@@ -771,9 +778,11 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 		$got_from_cache = get_from_cache("$cache_prefix.json", "$tag_www_root.json");
 	}
 	if ($got_from_cache) {
-		print "obtained taxonomy for $tagtype from cache.\n";
+		print "obtained taxonomy for $tagtype from " . ('', 'local', 'GitHub')[$got_from_cache] . " cache.\n";
 		return;
 	}
+
+	print "building taxonomy for $tagtype - publish: $publish\n";
 
 	# Concatenate taxonomy files if needed
 	my $file = "$tagtype.txt";
