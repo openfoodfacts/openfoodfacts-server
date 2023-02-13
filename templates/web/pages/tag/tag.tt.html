@@ -57,9 +57,9 @@
             <div id="facet_panels_content"></div>
         </div>
         <!-- Fetching facet knowledge panel -->
-        [% IF facet_kp_url.defined %]
+        [% IF facets_kp_url.defined  %]
         <script>
-            let facet_kp_url = "[% facet_kp_url %]";
+            let facet_kp = "[% facets_kp_url %]";
             let params = "?facet_tag=[% tagtype %]&value_tag=[% canon_tagid %]";
             if ("[% tagid2.defined %]"){
                 params += "&sec_facet_tag=[% tagtype2 %]&sec_value_tag=[% canon_tagid2 %]"
@@ -69,7 +69,7 @@
                 // Adding language code to get transalted data
                 params += "&lang_code=[% lc %]&country=[% cc %]";
             }
-            fetch( facet_kp_url + params )
+            fetch( facet_kp + params )
             .then((response) => {
                 if (response.ok) {
                     return response.text();}
