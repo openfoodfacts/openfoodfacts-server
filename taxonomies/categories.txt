@@ -618,7 +618,6 @@ it:Pasti per neonati a base di pesce
 nl:Babyvismaaltijden, Babyvismaaltijd
 
 <en:Main meals for babies
-<en:Meats
 en:Meat menus for babies
 de:Fleischgerichte für Babies
 fi:liharuokia vauvoille
@@ -72352,12 +72351,23 @@ pnns_group_2:en:Meat
 <en:Meats
 <en:Beef
 en:Ground meats
+de:Hackfleisch
 fr:Viandes hachées
 
 #Should contain products with >99% beef only
 <en:Ground meats
 en:Ground beef meats
+de:Rinder-Hackfleisch, Rinderhackfleisch
 fr:Viandes hachées pur bœuf, Viandes hachées de bœuf, viandes hachées de boeuf
+
+<en:Ground beef meats
+<en:Frozen meats
+fr:Frozen ground beef meats
+fr:Viandes hachées pur bœuf surgelées
+
+<en:Ground beef meats
+en:Refrigerated ground beef meats
+fr:Viandes hachées pur bœuf refrigérées
 
 <en:Meats
 en:Cooked meats, Cooked meat
@@ -73738,7 +73748,7 @@ ciqual_food_name:fr:Museau de boeuf
 
 <en:Meat preparations
 en:Ground meat preparations
-de:Hackfleisch, Hackepeter
+de:Hackfleisch-Zubereitungen, Hackfleisch-Zubereitung
 es:Preparados de carne picada
 fi:jauhelihavalmisteet
 fr:Préparations de viande hachée, préparations hachées de viande
@@ -73929,7 +73939,7 @@ ciqual_food_name:fr:Boeuf, steak ou bifteck, grillé
 
 <en:Beef preparations
 en:Ground beef preparations, ground beef meat preparations
-de:Rinderhackprodukte, Rinderhackfleisch
+de:Rinder-Hackfleisch-Zubereitungen, Rinderhackprodukte
 es:Preparados de vaca picada
 fi:Naudan jauhelihavalmisteet
 fr:Préparations de viande bovine hachée, Préparations hachées de viande bovine, préparations hachées de viande bœuf, préparation de viande de bœuf hachée
@@ -73971,7 +73981,8 @@ nl:Diepvriessteaks
 pl:Steki mrożone
 zh:冷冻肉排
 
-<en:Frozen meats
+<en:Meats and their products
+<en:Frozen foods
 en:Frozen meat preparations
 de:Gefrorene Fleischprodukte, Gefrorenes Fleisch
 es:Preparados de carne congelada
@@ -76152,6 +76163,7 @@ ciqual_food_name:en:Cured meat and sausages (average)
 ciqual_food_name:fr:Charcuterie (aliment moyen)
 
 <en:Prepared meats
+en:Frikandel
 fr:Fricadelles, fricandelles
 nl:Frikandel
 wikidata:en:Q1464898
