@@ -177,6 +177,9 @@ use Log::Any qw($log);
 use Digest::SHA1;
 use File::Copy;
 use File::Fetch;
+use MIME::Base64 qw( encode_base64 );
+use POSIX qw/strftime/;
+use LWP::UserAgent ();
 
 use GraphViz2;
 use JSON::PP;
@@ -659,7 +662,6 @@ sub get_from_cache ($source, $target) {
 	my $local_cache_source = "$cache_root/$source";
 	if (-e $local_cache_source) {
 		copy($local_cache_source, $target);
-		print "Found $source locally\n";
 		return 1;
 	}
 	$File::Fetch::WARN = 0;
@@ -667,15 +669,34 @@ sub get_from_cache ($source, $target) {
 		uri => "https://raw.githubusercontent.com/openfoodfacts/openfoodfacts-build-cache/main/taxonomies/$source");
 	$ff->fetch(to => "$cache_root");
 	if (-e $local_cache_source) {
-		print "Found $source on GitHub\n";
 		copy($local_cache_source, $target);
-
-		return 1;
+		return 2;
 	}
 
-	print "No cache hit for $source\n";
-
 	return 0;
+}
+
+sub put_to_cache ($source, $target) {
+	my $local_target_path = "$data_root/build-cache/taxonomies/$target";
+	copy($source, $local_target_path);
+
+	# Upload to github
+	my $token = $ENV{GITHUB_TOKEN};
+	if ($token) {
+		open INFILE, '<', $local_target_path;
+		binmode INFILE;
+		my $content = '{"message":"put_to_cache ' . strftime('%Y-%m-%d %H:%M:%S',gmtime) . '","content":"';
+		my $buf;
+		while ( read( INFILE, $buf, 60*57 ) ) {
+			$content .= encode_base64($buf, '');
+		}
+		$content .= '"}';
+		close INFILE;
+	
+		my $ua = LWP::UserAgent->new(timeout => 300);
+		my $url = "https://api.github.com/repos/openfoodfacts/openfoodfacts-build-cache/contents/taxonomies/$target";
+		$ua->put($url, Accept => 'application/vnd.github+json', Authorization => "Bearer $token", 'X-GitHub-Api-Version' => '2022-11-28', Content=>$content);
+	}
 }
 
 =head2 build_tags_taxonomy( $tagtype, $file, $publish )
@@ -1707,13 +1728,12 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			properties => $properties{$tagtype},
 		};
 
-		my $cache_root = "$data_root/build-cache/taxonomies/$cache_prefix";
-		copy("$tag_data_root.result.txt", "$cache_root.result.txt");
-		copy("$tag_www_root.json", "$cache_root.json");
+		put_to_cache("$tag_data_root.result.txt", "$cache_prefix.result.txt");
+		put_to_cache("$tag_www_root.json", "$cache_prefix.json");
 
 		if ($publish) {
 			store("$tag_data_root.result.sto", $taxonomy_ref);
-			copy("$tag_data_root.result.sto", "$cache_root.result.sto");
+			put_to_cache("$tag_data_root.result.sto", "$cache_prefix.result.sto");
 		}
 	}
 

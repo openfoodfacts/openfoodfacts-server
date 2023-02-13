@@ -326,15 +326,13 @@ check_critic:
 
 build_taxonomies:
 	@echo "🥫 build taxonomies"
-	${DOCKER_COMPOSE} run --no-deps --rm backend /opt/product-opener/scripts/build_tags_taxonomy.pl ${name}
+	${DOCKER_COMPOSE} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/build_tags_taxonomy.pl ${name}
 
-rebuild_taxonomies:
-	@echo "🥫 re-build all taxonomies"
-	${DOCKER_COMPOSE} run --no-deps --rm backend /opt/product-opener/scripts/build_tags_taxonomy.pl ${name}
+rebuild_taxonomies: build_taxonomies
 
 build_taxonomies_test:
 	@echo "🥫 build taxonomies"
-	${DOCKER_COMPOSE_TEST} run --no-deps --rm backend /opt/product-opener/scripts/build_tags_taxonomy.pl ${name}
+	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/build_tags_taxonomy.pl ${name}
 
 #------------#
 # Production #
