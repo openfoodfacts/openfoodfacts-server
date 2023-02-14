@@ -784,7 +784,7 @@ It is used only when there is no pre-existing data in the packagings structure.
 =cut
 
 sub initialize_packagings_structure_with_data_from_packaging_text ($product_ref, $response_ref) {
-		
+
 	my @phrases = ();
 
 	my $number_of_packaging_text_entries = 0;
