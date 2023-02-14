@@ -125,7 +125,6 @@ BEGIN {
 		$cc
 		$country
 		$tt
-		
 
 		$nutriment_table
 
