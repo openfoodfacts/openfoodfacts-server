@@ -14,9 +14,9 @@
     [% IF panel.tags_type == "data_quality_errors" %]
         "evaluation": "bad",
     [% ELSIF panel.tags_type == "data_quality_warnings" %]
-        "expand_for": "average",
+        "evaluation": "average",
     [% ELSE %]
-        "expanded": "good",
+        "evaluation": "good",
     [% END %]
     "title_element": {
         "title": "[% lang(panel.tags_type _ '_panel_title') %]",

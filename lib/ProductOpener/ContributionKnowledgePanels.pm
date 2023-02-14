@@ -85,11 +85,13 @@ sub create_contribution_card_panel ($product_ref, $target_lc, $target_cc, $optio
 		my $created = create_data_quality_panel($tag_type, $product_ref, $target_lc, $target_cc, $options_ref);
 		push(@panels, $created) if $created;
 	}
-	my $panel_data_ref = {
-		quality_panels => \@panels,
-	};
-	create_panel_from_json_template("contribution_card", "api/knowledge-panels/contribution/contribution_card.tt.json",
-		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+	if (@panels) {
+		my $panel_data_ref = {
+			quality_panels => \@panels,
+		};
+		create_panel_from_json_template("contribution_card", "api/knowledge-panels/contribution/contribution_card.tt.json",
+			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+	}
 	return;
 }
 
@@ -167,7 +169,8 @@ sub create_data_quality_panel($tags_type, $product_ref, $target_lc, $target_cc, 
 			$created = 1;
 		}
 	}
-	return $created && $tags_type;
+	return $tags_type if $created;
+	return;
 }
 
 

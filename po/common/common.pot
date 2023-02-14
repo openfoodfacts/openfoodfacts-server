@@ -6027,6 +6027,22 @@ msgctxt "data_quality_errors_panel_subtitle"
 msgid "Help us improve quality of our data by contributing fixes"
 msgstr "Help us improve quality of our data by contributing fixes"
 
+msgctxt "data_quality_warnings_panel_title"
+msgid "Potential issues"
+msgstr "Potential issues"
+
+msgctxt "data_quality_warnings_panel_subtitle"
+msgid "We have detected some potential issues or potential improvement, could you check if some apply ?"
+msgstr "We have detected some potential issues or potential improvement, could you check if some apply ?"
+
+msgctxt "data_quality_info_panel_title"
+msgid "Data Quality infos"
+msgstr "Data Quality infos"
+
+msgctxt "data_quality_info_panel_subtitle"
+msgid "Some infos about data quality on this product"
+msgstr "Some infos about data quality on this product"
+
 # will be followed by : and a value. e.g. "Compared to: bananas"
 msgctxt "compared_to"
 msgid "Compared to"
@@ -6263,6 +6279,10 @@ msgstr "Add the origins of ingredients for this product"
 
 msgctxt "action_add_packaging_image"
 msgid "Take a photo of the recycling information"
+msgstr "Take a photo of the recycling information"
+
+msgctxt "action_add_packaging_components"
+msgid "Add packaging components"
 msgstr "Take a photo of the recycling information"
 
 # this is not used yet

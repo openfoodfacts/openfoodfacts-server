@@ -7317,8 +7317,10 @@ JS
 		= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "environment_card");
 	$template_data_ref->{health_card_panel}
 		= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "health_card");
-	$template_data_ref->{contribution_card_panel}
-		= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "contribution_card");
+	if ($product_ref->{"knowledge_panels_" . $lc}{"contribution_card"}) {
+		$template_data_ref->{contribution_card_panel}
+			= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "contribution_card");
+	}
 
 	# The front product image is rendered with the same template as the ingredients, nutrition and packaging images
 	# that are displayed directly through the knowledge panels

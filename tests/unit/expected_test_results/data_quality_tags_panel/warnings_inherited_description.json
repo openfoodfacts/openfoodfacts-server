@@ -1,0 +1,33 @@
+{
+   "data_quality_warnings" : {
+      "elements" : [
+         {
+            "element_type" : "text",
+            "text_element" : {
+               "html" : "<ul> <li id=\"data-error-en:all-but-one-ingredient-with-specified-percent\">Potential issue with ingredients</li> </ul>"
+            }
+         },
+         {
+            "action_element" : {
+               "actions" : [
+                  "add_ingredients_text"
+               ],
+               "html" : ""
+            },
+            "element_type" : "action"
+         }
+      ],
+      "expand_for" : "average",
+      "expanded" : false,
+      "level" : "info",
+      "title_element" : {
+         "icon_color_from_evaluation" : true,
+         "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/healing.svg",
+         "subtitle" : "",
+         "title" : ""
+      },
+      "topics" : [
+         "contribution"
+      ]
+   }
+}

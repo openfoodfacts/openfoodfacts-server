@@ -1,0 +1,24 @@
+{
+   "data_quality_info" : {
+      "elements" : [
+         {
+            "element_type" : "text",
+            "text_element" : {
+               "html" : "<ul> <li id=\"data-error-en:nutrition-data-prepared\">We have nutritino data for prepared product</li> </ul>"
+            }
+         }
+      ],
+      "expand_for" : "large",
+      "expanded" : "good",
+      "level" : "info",
+      "title_element" : {
+         "icon_color_from_evaluation" : true,
+         "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/healing.svg",
+         "subtitle" : "",
+         "title" : ""
+      },
+      "topics" : [
+         "contribution"
+      ]
+   }
+}

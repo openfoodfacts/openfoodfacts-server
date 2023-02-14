@@ -1,0 +1,24 @@
+{
+   "data_quality_warnings" : {
+      "elements" : [
+         {
+            "element_type" : "text",
+            "text_element" : {
+               "html" : "<ul> <li id=\"data-error-en:nutri-score-score-from-producer-does-not-match-calculated-score\">This might be due among other things to incorrect nutrition values, incomplete nutrition values -missing fiber, fruits and vegetables-, incorrect fruits and vegetables estimate, incorrect input of diluted/reconstituted values.</li> </ul>"
+            }
+         }
+      ],
+      "expand_for" : "average",
+      "expanded" : false,
+      "level" : "info",
+      "title_element" : {
+         "icon_color_from_evaluation" : true,
+         "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/healing.svg",
+         "subtitle" : "",
+         "title" : ""
+      },
+      "topics" : [
+         "contribution"
+      ]
+   }
+}
