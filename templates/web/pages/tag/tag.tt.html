@@ -69,7 +69,17 @@
                 // Adding language code to get transalted data
                 params += "&lang_code=[% lc %]&country=[% cc %]";
             }
-            fetch( facet_kp + params )
+
+            // handle eventual basic auth parameters
+            let options = {};
+            let matched = facet_kp.match(/\/\/([^/]+):([^/]+)@/);
+            if (matched) {
+                let [auth_str, username, password] = matched;
+                facet_kp = facet_kp.replace(auth_str, "//");
+                options["headers"] = {'Authorization': 'Basic ' + btoa(`$username:$password`)};
+            }
+
+            fetch( facet_kp + params, options)
             .then((response) => {
                 if (response.ok) {
                     return response.text();}
