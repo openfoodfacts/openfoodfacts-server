@@ -618,7 +618,6 @@ it:Pasti per neonati a base di pesce
 nl:Babyvismaaltijden, Babyvismaaltijd
 
 <en:Main meals for babies
-<en:Meats
 en:Meat menus for babies
 de:Fleischgerichte für Babies
 fi:liharuokia vauvoille
@@ -4371,6 +4370,7 @@ en:Croatian liqueur
 #wikidata:en:
 
 <en:Croatian liqueur
+en:pelinkovac
 hr:pelinkovac, Hrvatski pelinkovac
 protected_name_file_number:en: PGI-HR-01959
 protected_name_type:en: gi
@@ -72351,12 +72351,23 @@ pnns_group_2:en:Meat
 <en:Meats
 <en:Beef
 en:Ground meats
+de:Hackfleisch
 fr:Viandes hachées
 
 #Should contain products with >99% beef only
 <en:Ground meats
 en:Ground beef meats
+de:Rinder-Hackfleisch, Rinderhackfleisch
 fr:Viandes hachées pur bœuf, Viandes hachées de bœuf, viandes hachées de boeuf
+
+<en:Ground beef meats
+<en:Frozen meats
+fr:Frozen ground beef meats
+fr:Viandes hachées pur bœuf surgelées
+
+<en:Ground beef meats
+en:Refrigerated ground beef meats
+fr:Viandes hachées pur bœuf refrigérées
 
 <en:Meats
 en:Cooked meats, Cooked meat
@@ -73737,7 +73748,7 @@ ciqual_food_name:fr:Museau de boeuf
 
 <en:Meat preparations
 en:Ground meat preparations
-de:Hackfleisch, Hackepeter
+de:Hackfleisch-Zubereitungen, Hackfleisch-Zubereitung
 es:Preparados de carne picada
 fi:jauhelihavalmisteet
 fr:Préparations de viande hachée, préparations hachées de viande
@@ -73928,7 +73939,7 @@ ciqual_food_name:fr:Boeuf, steak ou bifteck, grillé
 
 <en:Beef preparations
 en:Ground beef preparations, ground beef meat preparations
-de:Rinderhackprodukte, Rinderhackfleisch
+de:Rinder-Hackfleisch-Zubereitungen, Rinderhackprodukte
 es:Preparados de vaca picada
 fi:Naudan jauhelihavalmisteet
 fr:Préparations de viande bovine hachée, Préparations hachées de viande bovine, préparations hachées de viande bœuf, préparation de viande de bœuf hachée
@@ -73970,7 +73981,8 @@ nl:Diepvriessteaks
 pl:Steki mrożone
 zh:冷冻肉排
 
-<en:Frozen meats
+<en:Meats and their products
+<en:Frozen foods
 en:Frozen meat preparations
 de:Gefrorene Fleischprodukte, Gefrorenes Fleisch
 es:Preparados de carne congelada
@@ -75786,10 +75798,6 @@ fr:Allumettes de poulet, allumettes de poulets
 
 <fr:Allumettes de poulet
 fr:Lardons de poulet
-en:Lardoons cooked
-agribalyse_proxy_food_code:en:28504
-agribalyse_proxy_food_name:en:Lardoons, cooked
-agribalyse_proxy_food_name:fr:Lardon nature, cuit
 
 <en:Chickens
 fr:Aiguillettes de poulet, aiguillettes de poulets, Aiguillettes tranchées de poulet
@@ -76107,10 +76115,6 @@ ciqual_food_name:en:Poultry ham in cube, grated or minced
 
 <fr:Allumettes de dinde
 fr:Lardons de dinde
-en:Lardoons cooked
-agribalyse_proxy_food_code:en:28504
-agribalyse_proxy_food_name:en:Lardoons, cooked
-agribalyse_proxy_food_name:fr:Lardon nature, cuit
 
 <en:Turkeys
 fr:Bacons de dindes, bacons de dinde, bacon de dindes, bacon de dinde
@@ -76151,6 +76155,7 @@ ciqual_food_name:en:Cured meat and sausages (average)
 ciqual_food_name:fr:Charcuterie (aliment moyen)
 
 <en:Prepared meats
+en:Frikandel
 fr:Fricadelles, fricandelles
 nl:Frikandel
 wikidata:en:Q1464898
@@ -98014,7 +98019,7 @@ ciqual_food_name:en:Milk roll filled with chocolate drops, prepacked
 ciqual_food_name:fr:Pain au lait aux pépites de chocolat préemballé
 
 <en:Viennoiseries
-en:Vienna bread, Brioche bread
+en:Vienna bread, Brioche bread, Brioche breads
 fr:Pains briochés, Pains viennois, Baguettes viennoises
 it:Pane di Brioche
 nl:Viennoiserie brood, Briochebrood
@@ -98700,9 +98705,6 @@ fi:Kavisnugetit
 fr:Nuggets végétariens
 it:Nugget vegetarianeìi
 nl:Vegetarische nuggets
-agribalyse_proxy_food_code:en:25227
-agribalyse_proxy_food_name:en:Soybean and wheat-based nuggets (vegan)
-agribalyse_proxy_food_name:fr:Nuggets soja et blé (convient aux véganes ou végétaliens), préemballé
 
 <en:Vegetarian nuggets
 <en:Meat analogues from soy or wheat proteins
@@ -102341,12 +102343,6 @@ fi:Raakakasvisvoileivät
 fr:Sandwichs aux crudités
 nl:Rauwe groentensandwiches
 
-<en:Tea-based beverages
-en:Kombuchas
-de:Kombucha
-fi:kombuchat
-fr:Kombuchas, combuchas
-nl:Kombucha
 
 <en:Dairy desserts
 fr:Oeufs au lait
@@ -102399,16 +102395,7 @@ ciqual_food_code:en:31026
 ciqual_food_name:en:White chocolate bar, with dried fruits (nuts, almonds, raisins, praline)
 ciqual_food_name:fr:Chocolat blanc aux fruits secs (noisettes, amandes, raisins, praliné) , tablette
 
-<en:Stuffed wafers
-en:Stuffed fruits wafers
-fr:Gaufrettes fourrées aux fruits
-hu:Töltött gyümölcs ostyák
-nl:Vruchtenwafeltjes
 
-<en:Viennoiseries
-en:Brioche breads
-fr:Pains briochés
-nl:Briochebrood
 
 <fr:Fromages blancs
 fr:Fromages blancs aromatisés
@@ -102531,14 +102518,6 @@ ciqual_food_code:en:0005
 ciqual_food_name:en:Dried deffated black soldier fly protein
 ciqual_food_name:fr:Insecte (Mouche Soldat Noir)
 
-<en:pineapple-juices
-en:Pineapple juice reconstituted from a concentrate
-fr:Jus d'ananas à base de concentré
-nl:Ananassappen op basis van concentraat
-agribalyse_food_code:en:2000
-ciqual_food_code:en:2000
-ciqual_food_name:en:Pineapple juice, reconstituted from a concentrate
-ciqual_food_name:fr:Jus d'ananas, à base de concentré
 
 <en:orange-juices
 en:Orange juice home-made
