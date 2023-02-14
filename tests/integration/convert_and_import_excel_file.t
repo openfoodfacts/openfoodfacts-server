@@ -98,11 +98,7 @@ sub fake_download_image ($) {
 	my $stats_ref;
 
 	# run
-	($out, $err) = capture_ouputs(
-		sub {
-			$stats_ref = ProductOpener::Import::import_csv_file($args);
-		}
-	);
+	$stats_ref = ProductOpener::Import::import_csv_file($args);
 
 	# get all products in db, sorted by code for predictability
 	my $cursor = execute_query(
