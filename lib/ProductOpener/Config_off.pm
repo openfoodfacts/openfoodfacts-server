@@ -55,7 +55,6 @@ BEGIN {
 		$facets_kp_url
 		$redis_url
 
-
 		$mongodb
 		$mongodb_host
 		$mongodb_timeout_ms
