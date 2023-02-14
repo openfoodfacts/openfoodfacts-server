@@ -6,8 +6,10 @@
       <p>[% error %]</p>
     [% END %]
     [% IF (current_link.defined) && !(jqm.defined) %]
+      [% IF !(server_options_producers_platform) %]
       [% IF country != 'en:world' %]
         <p>&rarr; <a href= "[% world_subdomain %][% current_link %]"> [% lang('view_results_from_the_entire_world') %]</a></p>
+      [% END %]
       [% END %]
       <!-- display a permalink if the url is for a script that may have POST parameters -->
       [% IF current_link.match('/(search|search.pl)') %]
