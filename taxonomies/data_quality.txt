@@ -7,18 +7,6 @@ en:Data quality errors
 description:en: Error detected on data
 
 <en:Data quality errors
-en:Ingredients errors
-description:en:Error on ingredients data (ingredients)
-show_on_producers_platform:en:yes
-fix_action:en: correct_extracted_ingredient_text
-
-<en:Ingredients errors
-en:Ingredients - extracted ingredient from picture with more than 100 percent
-fr:Ingrédients - ingrédient extrait de l'image avec plus de 100 %
-description:en:At least one ingredient has a percentage greater than 100% after extracting the ingredients from the picture
-description:fr:Au moins un ingrédient possède un pourcentage supérieur à 100% après extraction des ingredients de la photo
-show_on_producers_platform:en:yes
-
 en:Nutrition errors
 description:en:Error on nutrition data (nutrients)
 show_on_producers_platform:en:yes
@@ -956,6 +944,10 @@ description:en:There are 80 percent of ingredients that are unknown, which eithe
 <en:Ingredients warnings
 en:Ingredients - 90 percent unknown
 description:en:There are 90 percent of ingredients that are unknown, which either means that the ingredient list is not stored in the right language (eg a French list stored as an English one), or that the Open Food Facts ingredient taxonomy and parser are not yet working well in your language.
+
+<en:Ingredients warnings
+en:Ingredients - extracted ingredient from picture with more than 100 percent
+description:en:At least one ingredient has a percentage greater than 100% after extracting the ingredients from the picture
 
 <en:Ingredients warnings
 en:Ingredients - Ingredient tag length greater than 100
