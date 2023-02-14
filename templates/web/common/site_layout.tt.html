@@ -246,20 +246,20 @@
                   </h1>
 										</div>
 									</div>
-									[% content %]
+								  [% content %]
 								</div>
 							[% ELSE %]
 								<div class="row">
-									<div class="small-12 column v-space-short">
-										<h1>[% title %]</h1>
+                  <div class="small-12 column"> 
+										<h1 class="if-empty-dnone">[% title %]</h1>
 									</div>
 								</div>
 								[% content %]
 							[% END %]
 						[% ELSE %]
 							<div class="row">
-								<div class="small-12 column v-space-short">
-									<h1>[% title %]</h1>
+								<div class="small-12 column">
+									<h1 class="if-empty-dnone">[% title %]</h1>
 									[% content %]
 								</div>
 							</div>

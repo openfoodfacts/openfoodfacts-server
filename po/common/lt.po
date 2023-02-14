@@ -5613,6 +5613,14 @@ msgctxt "ecoscore_warning_international"
 msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgstr "„Eco-Score“ iš pradžių buvo sukurtas Prancūzijai ir yra plečiamas ir kitose Europos šalyse. Eco-Score formulė gali keistis, nes ji nuolat tobulinama, kad būtų tikslesnė ir geriau pritaikyta kiekvienai šaliai."
 
+msgctxt "ecoscore_warning_transportation_world"
+msgid "Select a country in order to include the full impact of transportation."
+msgstr "Pasirinkite šalį, kad įtrauktumėte visą transportavimo poveikį."
+
+msgctxt "ecoscore_warning_transportation"
+msgid "The full impact of transportation to your country is currently unknown."
+msgstr "Visas transportavimo į jūsų šalį poveikis šiuo metu nežinomas."
+
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
 msgstr "Nuskaitykite brūkšninius kodus, kad gautumėte Nutri-Score, Eco-Score ir dar daugiau!"
@@ -6325,6 +6333,10 @@ msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
 msgstr "Netinkamas tipas: turi būti sveikasis skaičius"
 
+msgctxt "api_message_invalid_type_must_be_number"
+msgid "Invalid type: must be a number"
+msgstr "Netinkamas tipas: turi būti skaičius"
+
 msgctxt "api_message_missing_field"
 msgid "Missing field"
 msgstr "Trūksta lauko"
@@ -6348,6 +6360,10 @@ msgstr "Triktis"
 msgctxt "api_impact_field_ignored"
 msgid "Field ignored"
 msgstr "Laukas nepaisomas"
+
+msgctxt "api_impact_value_converted"
+msgid "Value converted"
+msgstr "Vertė konvertuota"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
@@ -6380,4 +6396,31 @@ msgstr "Neteisingas vartotojo vardas arba slaptažodis"
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
 msgstr "Netinkama vertė: turi būti 0 arba 1"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units_description"
+msgid "Enter the number of packaging units of the same shape and material contained in the product."
+msgstr "Įveskite tokios pačios formos ir medžiagos, esančios produkto sudėtyje, pakuočių vienetų skaičių."
+
+msgctxt "packaging_shape_description"
+msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
+msgstr "Įveskite formos pavadinimą, įtrauktą į perdirbimo instrukcijų, jei tokios yra, sąrašą, arba pasirinkite formą."
+
+msgctxt "packaging_material_description"
+msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
+msgstr "Įveskite konkrečią medžiagą, jei ją galima nustatyti (medžiagos kodą trikampyje dažnai galima rasti ant pakuotės dalių), arba bendrąją medžiagą (pvz., plastikas arba metalas), jei nesate tikri."
+
+msgctxt "packaging_recycling_description"
+msgid "Enter recycling instructions only if they are listed on the product."
+msgstr "Įveskite perdirbimo instrukcijas tik, jei jos yra nurodytas ant produkto."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight_description"
+msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
+msgstr "Pašalinkite likusį maistą, išplaukite ir išdžiovinkite pakuotės dalį prieš sverdami. Jei įmanoma, naudokite 0,1 g arba 0,01 g tikslumo svarstykles."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit_description"
+msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
+msgstr "Įveskite grynąjį svorį arba grynąjį tūrį ir nurodykite vienetą (pvz., g arba ml)."
 

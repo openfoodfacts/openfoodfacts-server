@@ -1,5 +1,39 @@
 # Changelog
 
+## [2.6.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.5.0...v2.6.0) (2023-02-06)
+
+
+### Features
+
+* add a weighters facet for users who add packaging weights ([#8034](https://github.com/openfoodfacts/openfoodfacts-server/issues/8034)) ([50f2fec](https://github.com/openfoodfacts/openfoodfacts-server/commit/50f2fec58d69af59e6223dcd43154ea1ba0a8b9c))
+* add data quality warning for serving size without digit ([#8057](https://github.com/openfoodfacts/openfoodfacts-server/issues/8057)) ([aa9404d](https://github.com/openfoodfacts/openfoodfacts-server/commit/aa9404dcfd1b62d7adb587577cc85cdc5b002c29))
+* integrating openfoodfacts-server with codecov for unit test coverage ([#8016](https://github.com/openfoodfacts/openfoodfacts-server/issues/8016)) ([984171a](https://github.com/openfoodfacts/openfoodfacts-server/commit/984171a548be225421eefd758b516edd893390a8))
+* Taxonomy suggestions API v3 for packaging shapes and materials ([#8008](https://github.com/openfoodfacts/openfoodfacts-server/issues/8008)) ([43c74d6](https://github.com/openfoodfacts/openfoodfacts-server/commit/43c74d6c71f4ebfe994f2532d36f4fdb8cf02b44))
+* unsaturated fat support ([#8064](https://github.com/openfoodfacts/openfoodfacts-server/issues/8064)) ([0f9e2d9](https://github.com/openfoodfacts/openfoodfacts-server/commit/0f9e2d986d4595e1e95fca362cf2783e1fe45bf4))
+
+
+### Bug Fixes
+
+* correct computation of weighters_tags ([#8047](https://github.com/openfoodfacts/openfoodfacts-server/issues/8047)) ([c44c080](https://github.com/openfoodfacts/openfoodfacts-server/commit/c44c0806d05e5f2670f8112bdbbc564eaff86f47))
+* CORS header typo Access-Control-Allow-Origin ([#8024](https://github.com/openfoodfacts/openfoodfacts-server/issues/8024)) ([f2942e9](https://github.com/openfoodfacts/openfoodfacts-server/commit/f2942e913bbb745c5c7b4f1a1eec044b6c7ef8db))
+* exclude nutrition id containing nutrition-score ([#8035](https://github.com/openfoodfacts/openfoodfacts-server/issues/8035)) ([3641834](https://github.com/openfoodfacts/openfoodfacts-server/commit/3641834f23f3b7ff71dc59bc9f1098f76ab5451c))
+* language tag for sweden ([#8069](https://github.com/openfoodfacts/openfoodfacts-server/issues/8069)) ([d71943f](https://github.com/openfoodfacts/openfoodfacts-server/commit/d71943fa5e94b0ce983d770803f85700e08037ac))
+* make user sessions work across different ip addresses  ([#8066](https://github.com/openfoodfacts/openfoodfacts-server/issues/8066)) ([1be5399](https://github.com/openfoodfacts/openfoodfacts-server/commit/1be53997c987ca55c83693ee13c38c6b48737f8a))
+* make user sessions work across different ip addresses [#8038](https://github.com/openfoodfacts/openfoodfacts-server/issues/8038) ([1be5399](https://github.com/openfoodfacts/openfoodfacts-server/commit/1be53997c987ca55c83693ee13c38c6b48737f8a))
+* Small changes for the GS1 import through Bayard ([#8037](https://github.com/openfoodfacts/openfoodfacts-server/issues/8037)) ([55bf168](https://github.com/openfoodfacts/openfoodfacts-server/commit/55bf1680cb31eb003c019015f5858b8a0bafd160))
+* typo for weighers id in fr.po ([#8073](https://github.com/openfoodfacts/openfoodfacts-server/issues/8073)) ([af0313d](https://github.com/openfoodfacts/openfoodfacts-server/commit/af0313d8fb16fba151db89be551c606bd4aadb85))
+* weighter-&gt;weigher, numbers vs strings, weights with units ([#8056](https://github.com/openfoodfacts/openfoodfacts-server/issues/8056)) ([a67350e](https://github.com/openfoodfacts/openfoodfacts-server/commit/a67350e081b96613526ec8c111c1c12df9f06dc7))
+
+
+### Taxonomy
+
+* add polish taxonomy translations, mainly around lemons ([#8065](https://github.com/openfoodfacts/openfoodfacts-server/issues/8065)) ([98db16f](https://github.com/openfoodfacts/openfoodfacts-server/commit/98db16f6c169bb80081baa5541ecfd4f75a055bf))
+* BG additions ([#8061](https://github.com/openfoodfacts/openfoodfacts-server/issues/8061)) ([dab7ac3](https://github.com/openfoodfacts/openfoodfacts-server/commit/dab7ac39fe21a1c2614bec91ba276fd755bab052))
+* Bulgarian additions ([#8029](https://github.com/openfoodfacts/openfoodfacts-server/issues/8029)) ([eb5e14b](https://github.com/openfoodfacts/openfoodfacts-server/commit/eb5e14b1cd7835edbb4d20c09cce1800ae0fae28))
+* Certified Gluten Free ([#8028](https://github.com/openfoodfacts/openfoodfacts-server/issues/8028)) ([5dce3c0](https://github.com/openfoodfacts/openfoodfacts-server/commit/5dce3c08145b347653fc3cfb0dda0372d23344de))
+* Myrtles jams ([#8021](https://github.com/openfoodfacts/openfoodfacts-server/issues/8021)) ([fe92b60](https://github.com/openfoodfacts/openfoodfacts-server/commit/fe92b60815a7324952d401c4bc7479bd95eba092))
+* Some taxonomy updates ([#8058](https://github.com/openfoodfacts/openfoodfacts-server/issues/8058)) ([e04286c](https://github.com/openfoodfacts/openfoodfacts-server/commit/e04286c9e8db28b3bb25ef187fd3f3242b8ff7f2))
+
 ## [2.5.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.4.0...v2.5.0) (2023-01-23)
 
 

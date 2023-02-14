@@ -585,7 +585,7 @@ msgstr "editor"
 
 msgctxt "email"
 msgid "E-mail address"
-msgstr ""
+msgstr "Adresa de e-mail"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
@@ -1395,7 +1395,7 @@ msgstr "Abonare la buletinul informativ (maxim 2 email-uri pe lună)"
 
 msgctxt "subscribe_to_our_newsletter"
 msgid "Subscribe to our newsletter"
-msgstr ""
+msgstr "Abonează-te la newsletter-ul nostru"
 
 msgctxt "next"
 msgid "Next"
@@ -1899,7 +1899,7 @@ msgstr "Numele produsului"
 
 msgctxt "product_name_example"
 msgid "Kinder Bueno White"
-msgstr "Kinder Bueno White"
+msgstr "N"
 
 msgctxt "products"
 msgid "products"
@@ -4713,7 +4713,7 @@ msgstr "Încearcă să fii cât mai specific posibil. Pentru plastic, vă rugăm
 
 msgctxt "packaging_text_note_3"
 msgid "Data from this field will be combined with any data provided for each packaging part. It is possible to provide one or the other, or both."
-msgstr ""
+msgstr "Datele din acest câmp vor fi combinate cu orice date furnizate pentru fiecare parte a ambalajului. Este posibil să furnizați una sau alta, sau ambele."
 
 msgctxt "product_js_extract_packaging"
 msgid "Extract the recycling instructions and/or packaging information from the picture"
@@ -5613,6 +5613,14 @@ msgctxt "ecoscore_warning_international"
 msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgstr "Eco-Score a fost dezvoltat inițial pentru Franța și este extins și în alte țări europene. Formula Eco-Score poate fi modificată, deoarece este îmbunătățită în mod regulat pentru a o face mai precisă și mai potrivită pentru fiecare țară."
 
+msgctxt "ecoscore_warning_transportation_world"
+msgid "Select a country in order to include the full impact of transportation."
+msgstr "Selectați o țară pentru a include impactul total al transportului."
+
+msgctxt "ecoscore_warning_transportation"
+msgid "The full impact of transportation to your country is currently unknown."
+msgstr "În prezent, impactul total al transportului către țara dvs. este necunoscut."
+
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
 msgstr "Scanați coduri de bare pentru a obține Nutri-Score, Eco-Score și multe altele!"
@@ -6087,21 +6095,21 @@ msgstr "Adăugați informații nutriționale"
 
 msgctxt "action_add_origins"
 msgid "Add the origins of ingredients for this product"
-msgstr ""
+msgstr "Adăugați originile ingredientelor pentru acest produs"
 
 msgctxt "action_add_packaging_image"
 msgid "Take a photo of the recycling information"
-msgstr ""
+msgstr "Faceți o fotografie a informațiilor despre reciclare"
 
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
-msgstr ""
+msgstr "Adăugați detalii de bază"
 
 # this is not used yet
 msgctxt "action_add_portion_size"
 msgid "Add portion size"
-msgstr ""
+msgstr "Adăugați dimensiunea porției"
 
 # this is not used yet
 msgctxt "action_add_ingredients_image"
@@ -6116,37 +6124,37 @@ msgstr "Faceți o poză tabelului cu informații nutriționale"
 # this is not used yet
 msgctxt "action_refresh_ingredients_image"
 msgid "Refresh the photo of the ingredients"
-msgstr ""
+msgstr "Reîmprospătați fotografia ingredientelor"
 
 # this is not used yet
 msgctxt "action_refresh_nutrition_image"
 msgid "Refresh the photo of the nutrition facts"
-msgstr ""
+msgstr "Reîmprospătați fotografia cu informațiile nutriționale"
 
 # this is not used yet
 msgctxt "action_add_packaging_text"
 msgid "Extract and check the recycling information"
-msgstr ""
+msgstr "Extrageți și verificați informațiile de reciclare"
 
 # this is not used yet
 msgctxt "action_add_stores"
 msgid "Add the store where you found this product"
-msgstr ""
+msgstr "Adaugă magazinul unde ai găsit acest produs"
 
 # this is not used yet
 msgctxt "action_labels"
 msgid "Add any label present on this product"
-msgstr ""
+msgstr "Adăugați orice etichetă prezentă pe acest produs"
 
 # this is not used yet
 msgctxt "action_countries"
 msgid "Add the country where you found this product"
-msgstr ""
+msgstr "Adăugați țara în care ați găsit acest produs"
 
 # this is not used yet
 msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
-msgstr ""
+msgstr "Faceți o fotografie a codurilor de trasabilitate"
 
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
@@ -6325,6 +6333,10 @@ msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
 msgstr "Tip nevalid: trebuie să fie un număr întreg"
 
+msgctxt "api_message_invalid_type_must_be_number"
+msgid "Invalid type: must be a number"
+msgstr ""
+
 msgctxt "api_message_missing_field"
 msgid "Missing field"
 msgstr "Câmp lipsă"
@@ -6349,20 +6361,24 @@ msgctxt "api_impact_field_ignored"
 msgid "Field ignored"
 msgstr "Câmp ignorat"
 
+msgctxt "api_impact_value_converted"
+msgid "Value converted"
+msgstr ""
+
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "Număr de unități"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
 msgid "Weight of one empty unit"
-msgstr ""
+msgstr "Greutatea unei unități goale"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit"
 msgid "Quantity of product contained per unit"
-msgstr ""
+msgstr "Cantitatea de produs conținută pe unitate"
 
 # variable names between { } must not be translated
 msgctxt "f_help_categorize_on_hunger_games"
@@ -6371,13 +6387,40 @@ msgstr "Ajută la categorizarea mai multor {title} în Jocurile Foamei"
 
 msgctxt "packagings_complete"
 msgid "All the packaging parts of the product are listed."
-msgstr ""
+msgstr "Toate părțile de pe ambalaj ale produsului sunt enumerate."
 
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
-msgstr ""
+msgstr "ID utilizator și parolă nevalide"
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
-msgstr ""
+msgstr "Valoare invalidă: trebuie să fie 0 sau 1"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units_description"
+msgid "Enter the number of packaging units of the same shape and material contained in the product."
+msgstr "Introduceți numărul de unități de ambalare de aceeași formă și material conținute în produs."
+
+msgctxt "packaging_shape_description"
+msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
+msgstr "Introduceți numele formei afișat în instrucțiunile de reciclare dacă sunt disponibile sau selectați o formă."
+
+msgctxt "packaging_material_description"
+msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
+msgstr "Introduceți materialul specific dacă poate fi determinat (un cod de material în interiorul unui triunghi poate fi găsit adesea pe piesele de ambalaj) sau un material generic (de exemplu plastic sau metal) dacă nu sunteți sigur."
+
+msgctxt "packaging_recycling_description"
+msgid "Enter recycling instructions only if they are listed on the product."
+msgstr "Introduceți instrucțiunile de reciclare numai dacă sunt enumerate pe produs."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight_description"
+msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
+msgstr "Îndepărtați orice mâncare rămasă și spălați și uscați partea de ambalaj înainte de cântărire. Dacă este posibil, utilizați o cântar cu precizie de 0,1 g sau 0,01 g."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit_description"
+msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
+msgstr "Introduceți greutatea netă sau volumul net și indicați unitatea (de exemplu, g sau ml)."
 

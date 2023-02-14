@@ -128,7 +128,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "Select a country in order to include the full impact of transportation.",
+                     "html" : "Sélectionnez un pays pour inclure l'impact total du transport.",
                      "type" : "warning"
                   }
                },
@@ -349,7 +349,7 @@
                            "type" : "text"
                         },
                         {
-                           "text" : "Consigne de tri",
+                           "text" : "Recyclage",
                            "type" : "text"
                         },
                         {
@@ -1040,7 +1040,7 @@
                      "actions" : [
                         "add_origins"
                      ],
-                     "html" : "Add the origins of ingredients for this product"
+                     "html" : "Ajouter les origines des ingrédients pour ce produit"
                   },
                   "element_type" : "action"
                }
