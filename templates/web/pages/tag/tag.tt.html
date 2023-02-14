@@ -70,16 +70,7 @@
                 params += "&lang_code=[% lc %]&country=[% cc %]";
             }
 
-            // handle eventual basic auth parameters
-            let options = {};
-            let matched = facet_kp.match(/\/\/([^/]+):([^/]+)@/);
-            if (matched) {
-                let [auth_str, username, password] = matched;
-                facet_kp = facet_kp.replace(auth_str, "//");
-                options["headers"] = {'Authorization': 'Basic ' + btoa(`$username:$password`)};
-            }
-
-            fetch( facet_kp + params, options)
+            fetch( facet_kp + params)
             .then((response) => {
                 if (response.ok) {
                     return response.text();}
