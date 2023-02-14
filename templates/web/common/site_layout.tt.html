@@ -107,7 +107,10 @@
 									[% IF org_id %]
 										<li class="divider"></li>			
 										<li><label>[% lang('organization') %]</label></li>
-										<li><a id="logged_in_org_id" href="/editor/org-[% org_id %]"> [% IF org_name == '' %][% org_id %][% ELSE %][% org_name %][% END %]</a></li>
+										[%# No need to show the link to the organization page on the producers platform as there are only products from that organization %]
+										[% IF !server_options_producers_platform %]
+											<li><a id="logged_in_org_id" href="/editor/org-[% org_id %]">[% lang('organization') %][% sep %]: [% IF org_name == '' %][% org_id %][% ELSE %][% org_name %][% END %]</a></li>
+										[% END %]
 										<li><a href="/cgi/org.pl?type=edit&orgid=[% org_id %]"> [% lang('edit_org_profile') %]</a></li>
 									[% END %]
 
@@ -138,10 +141,16 @@
 				<nav class="top-bar" data-topbar role="navigation" >
 
 					<ul class="title-area">
-						<li class="name">
-							<a href="/" style="font-size:1rem;"><img id="logo" src="[% static_subdomain %]/images/logos/off-logo-horizontal-light.svg" alt="[% lang('logo_site_name') %]" style="margin:8px;height:48px;width:auto;"></a>
+						<li class="name" style="position:relative;">
+							<a href="/">
+								<img id="logo" src="[% static_subdomain %]/images/logos/off-logo-horizontal-light.svg" alt="[% lang('logo_site_name') %]" style="margin:8px;height:48px;width:auto;">
+								<span id="professionals" style="position:absolute;bottom:0px;right:8px;line-height:1rem;font-size:1.2rem;">professionals</span>
+							</a>
 						</li>
 					</ul>
+
+					[%# Don't show the search bar on the producers platform %]
+					[% IF !(server_options_producers_platform) %]
 					<section class="top-bar-section">
 					
 						<ul class="left small-4" style="margin-right:2rem;">
@@ -164,14 +173,12 @@
 							</li>
 						</ul>
 					<ul class="search_and_links">
-					
-					[% IF !(server_options_producers_platform) %]
 						<li><a href="[% lang('menu_discover_link') %]" class="top-bar-links">[% lang('menu_discover') %]</a></li>
 						<li><a href="[% lang('menu_contribute_link') %]" class="top-bar-links">[% lang('menu_contribute') %]</a></li>
 						<li class="flex-grid getapp"><a href="[% lang('get_the_app_link') %]" class="buttonbar button" style="top:0;">[% display_icon('phone_android') %] <span class="bt-text">[% lang('get_the_app') %]</span></a></li>
-					[% END %]
 					</ul>
 					</section>
+					[% END %]
 				</nav>
 			</div>
 		</div>
