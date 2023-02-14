@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -102,6 +102,7 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Food qw/:all/;
+use ProductOpener::Units qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -850,9 +851,13 @@ sub clean_fields ($product_ref) {
 				foreach my $brand (split(/,/, $product_ref->{brands})) {
 					$brand =~ s/^\s+//;
 					$brand =~ s/\s+$//;
+					# we may get brands with quantifiers like * + ? etc. we need to escape them
+					$brand =~ s/(\*|\+|\?|\(|\)|\[|\]|\{|\}|\$|\^|\\)/\\$1/g;
+
 					# dashes/dots/spaces -> allow matching dashes/dot/spaces
 					# e.g. "bons.mayennais" matches "bons mayennais"
 					$brand =~ s/(\s|\.|-|_)/\(\\s|\\.|-|_\)/g;
+
 					$product_ref->{$field} =~ s/\s+$brand$//i;
 				}
 			}

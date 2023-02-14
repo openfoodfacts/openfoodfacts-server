@@ -1,19 +1,41 @@
 #!/usr/bin/make
 
-NAME = "ProductOpener"
+ifeq ($(findstring cmd.exe,$(SHELL)),cmd.exe)
+    $(error "We do not suppport using cmd.exe on Windows, please run in a 'git bash' console")
+endif
+
+
+# use bash everywhere !
+SHELL := /bin/bash
+# some vars
 ENV_FILE ?= .env
+NAME = "ProductOpener"
 MOUNT_POINT ?= /mnt
 DOCKER_LOCAL_DATA ?= /srv/off/docker_data
-HOSTS=127.0.0.1 world.productopener.localhost fr.productopener.localhost static.productopener.localhost ssl-api.productopener.localhost fr-en.productopener.localhost
-COMPOSE_PROJECT_NAME ?= $(shell grep COMPOSE_PROJECT_NAME ${ENV_FILE}|cut -d '=' -f 2|sed -e 's/ //g')
+OS := $(shell uname)
+
 export DOCKER_BUILDKIT=1
 export COMPOSE_DOCKER_CLI_BUILD=1
 UID ?= $(shell id -u)
 export USER_UID:=${UID}
-
-export CPU_COUNT=$(shell nproc || echo 1)
+ifeq ($(OS), Darwin)
+  export CPU_COUNT=$(shell sysctl -n hw.logicalcpu || echo 1)
+else
+  export CPU_COUNT=$(shell nproc || echo 1)
+endif
 export MSYS_NO_PATHCONV=1
 
+# load env variables
+# also takes into account envrc (direnv file)
+ifneq (,$(wildcard ./${ENV_FILE}))
+    -include ${ENV_FILE}
+    -include .envrc
+    export
+endif
+
+
+HOSTS=127.0.0.1 world.productopener.localhost fr.productopener.localhost static.productopener.localhost ssl-api.productopener.localhost fr-en.productopener.localhost
+# commands aliases
 DOCKER_COMPOSE=docker-compose --env-file=${ENV_FILE}
 # we run tests in a specific project name to be separated from dev instances
 # we also publish mongodb on a separate port to avoid conflicts
@@ -117,6 +139,19 @@ tail:
 	@echo "🥫 Reading logs (Apache2, Nginx) …"
 	tail -f logs/**/*
 
+cover:
+	@echo "🥫 running …"
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
+	${DOCKER_COMPOSE_TEST} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
+	${DOCKER_COMPOSE_TEST} run --rm -e HARNESS_PERL_SWITCHES="-MDevel::Cover" backend prove -l tests/unit
+	${DOCKER_COMPOSE_TEST} stop
+
+codecov:
+	@echo "🥫 running …"
+	${DOCKER_COMPOSE_TEST} run --rm backend cover -report codecovbash
+
+coverage_txt:
+	${DOCKER_COMPOSE_TEST} run --rm backend cover
 
 #----------#
 # Services #
@@ -213,7 +248,7 @@ test-stop:
 	${DOCKER_COMPOSE_TEST} stop
 
 # usage:  make test-unit test=test-name.t
-test-unit: guard-test 
+test-unit: guard-test
 	@echo "🥫 Running test: 'tests/unit/${test}' …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
 	${DOCKER_COMPOSE_TEST} run --rm backend perl tests/unit/${test}
@@ -246,7 +281,7 @@ bash:
 
 
 # TO_CHECK look at changed files (compared to main) with extensions .pl, .pm, .t
-# the ls at the end is to avoid removed files. 
+# the ls at the end is to avoid removed files.
 # We have to finally filter out "." as this will the output if we have no file
 TO_CHECK=$(shell git diff origin/main --name-only | grep  '.*\.\(pl\|pm\|t\)$$' | xargs ls -d 2>/dev/null | grep -v "^.$$" )
 

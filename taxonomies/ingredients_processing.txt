@@ -212,6 +212,7 @@ de:überwiegend feinst zerkleinert
 
 en:sliced
 de:gehobelt, gehobelte, in scheiben geschnitten
+ca:llàmina, llaminat, rodanxes, rodanxes de, en rodanxes
 es:lamina,laminada,laminado, laminadas,laminados,rodajas
 fr:tranché, tranchée, tranchés, tranchées, en lamelles, en tranches, en lanières, en rondelles, tranches de, lamelles de, lanières de, rondelle de, rondelles de, tranches d', lamelles d', lanières d', rondelles d'
 hu:szeletelt, szelt, szeletelve
@@ -419,12 +420,12 @@ pl:ćwiartki
 
 en:pieces
 bg:парчета, парченца, парченца от
-ca:peça, peces, trossos de, trossos d'
+ca:peça, peces, trossos de, trossos d', guarnició
 af:stukkies
 de:stücke, stücken, stückchen, gestückelt, stück
-es:trozo,troza,trozos,trozas
+es:trozo, troza, trozos, trozas, guarnición
 fr:morceaux, pièces de, en morceaux, morceaux de, morceaux d'
-hr:komadići
+hr:komadići, komadići od, hrskavi komadići, hrskavi komadići od
 hu:darabok, darabolt, darab, darabka
 it:pezzi, in pezzi, a pezzi, pezzi di, pezzi d'
 nl:stukjes
@@ -823,6 +824,7 @@ pl:płyn
 en:concentrated, concentrate, concentrates
 ar:مركز
 bg:концентрат, концентрат от
+bs:koncentrirana
 ca:concentrat
 da:koncentreret, koncentrat
 de:konzentriert, konzentrierter, konzentrierte, konzentriertes, eingedickt, konzentrat, konzentrate,  einfach konzentriert
@@ -869,6 +871,7 @@ de:200fach konzentriertes
 #es:pasta de
 #fi:tahna
 #fr:pâte de, pâte d'
+#hr:pasta od
 #it:pasta di, pasta d'
 #pl:pasta z
 #sv:pasta
@@ -886,7 +889,7 @@ de:aus Konzentrat, aus Konzentraten
 es:a base de concentrado, a base de concentrada, a partir de concentrado, a partir de concentrada
 fi:tiivisteestä, tiivisteestä valmistettu
 fr:à base de concentré, à partir de concentré
-hr:na koncentrat, od koncentriranog soka škrob
+hr:na koncentrat, od koncentriranog soka škrob, od koncentriranog soka
 hu:sűrítményből, koncentrátumból, sűrítményekből, koncentrátumokból
 it:da concentrato
 lt:iš koncentrąto
@@ -1007,6 +1010,7 @@ bg:дехидратиран, дехидратирано, дехидратира�
 ca:deshidratat, deshidratada
 es:deshidratado, deshidratada, deshidratados, deshidratadas
 fr:déshydraté, déshydratée, déshydratés, déshydratées
+hr:dehidrirani
 hu:dehidratált, liofilizált
 it:disidratato, disidratata, disidratati, disidratate
 pl:odwodniony, odwodnione
@@ -1428,6 +1432,11 @@ es:cobertura
 ca:cobertura
 pt:coberto, coberta, cobertos, cobertas, cobertura, coberturas, coberto com, coberta com, cobertos com, cobertas com, cobertura em, coberturas em
 
+#en:comment:Mix two similar ingredients, such as different cheese types
+en:mixture
+ca:barreja, barreja de
+es:mezcla, mezcla de
+
 #en:comment:salt has been added to the ingredient
 #<en:added
 en:salted
@@ -1693,6 +1702,7 @@ de:ungepökelt
 
 en:flavoured, flavored
 bg:ароматизирано, ароматизиран, ароматизирани
+ca:aromatitzada
 de:aromatisiert, aromatisierte, aromatisierter, aromatisiertes
 es:sabour,saboreado,saboreada
 fr:aromatisé, aromatisée, aromatisées
@@ -1715,6 +1725,7 @@ de:geräuchert, geräucherte
 es:ahumada, ahumado, ahumadas, ahumados
 fi:savustettu, savustetut, savustettua
 fr:fumé,fumés,fumée,fumées
+hr:dimljeni
 hu:füstölt, füstölve
 it:affumicato, affumicata, affumicati, affumicate
 nl:gerookt, gerookte
@@ -1836,6 +1847,7 @@ de:unhydriertes, ungehärtet, ungehärtetes
 es:no hidrogenado, no hidrogenada
 fi:kovettamaton, hydrogenoimaton
 fr:non hydrogénée
+hr:nehidrogenirani
 hu:nem hidrogénezett
 it:non idrogenato, non idrogenati
 nl:niet gehydrogeneerd, niet gehydrogeneerde

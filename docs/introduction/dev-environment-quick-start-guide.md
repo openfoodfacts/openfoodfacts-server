@@ -179,19 +179,19 @@ To use the devcontainer, install [prerequisites](#1-prerequisites), [clone the r
 
 ### make dev error: make: command not found
 
-When running "make dev":
+When running `make dev`:
 
 ```console
 bash: make: command not found
 ```
 
-Solution: 
+**Solution:** 
 Click the Windows button, then type “environment properties” into the search bar and hit Enter. Click Environment Variables, then under System variables choose Path and click Edit. Click New and insert C:\Program Files (x86)\GnuWin32\bin, then save the changes. Open a new terminal and test that the command works.
 (see [Make Windows](https://pakstech.com/blog/make-windows/) for more)
 
 ### make dev error: [build_lang] Error 2 - Could not load taxonomy: /mnt/podata/taxonomies/traces.result.sto
 
-When running "make dev":
+When running `make dev`:
 
 ```console
 <h1>Software error:</h1>
@@ -209,12 +209,18 @@ and the time and date of the error.
 make: *** [build_lang] Error 2
 ```
 
-Solution:
+**Solution:**
 Project needs Symlinks to be enabled.
 traces.result.sto is a symlink to allergens.result.sto
 
-On Windows, You have to enable the 'Developer Mode' in order to use the symlinks.
-To enable Developer Mode: Go under Settings > Update & Security > 'For developers', and turn on the toggle for Developer Mode.
+You have to enable the 'Developer Mode' in order to use the symlinks.
+To enable Developer Mode:
+
+* on windows 10: Settings > Update & Security > 'For developers' …
+* on windows 11: Settings > Privacy & Security > 'For developers' …
+
+and turn on the toggle for *Developer Mode*.
+
 On Windows systems, the git repository needs to be cloned with symlinks enabled.
 
 You need to remove current directory where you clone the project, and clone the project again, using right options:
@@ -225,15 +231,15 @@ git clone -c core.symlinks=true git@github.com:openfoodfacts/openfoodfacts-serve
 
 ### 'rm' is not recognized as an internal or external command
 
-When running make import_prod_data or some other commands.
+When running `make import_prod_data` or some other commands.
 
-Solution:
+**Solution:**
 
 Use the Git Bash shell to run the make commands in windows so that programs like nproc and rm are found.
 
 ### System cannot find wget
 
-When running make import_prod_data.
+When running `make import_prod_data`.
 
 ```console
 process_begin: CreateProcess(NULL, wget --no-verbose https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz, ...) failed.
@@ -242,3 +248,70 @@ make (e=2): The system cannot find the file specified.
 
 You need to install [wget for windows](https://eternallybored.org/misc/wget/). The referenced version is able to use the Windows Certificate Store, whereas the standard [gnuwin32 version](https://gnuwin32.sourceforge.net/packages/wget.htm) will give errors about not being able to verify the server certificate.
 
+### make: *** [Makefile:154: import_sample_data] Error 22 
+
+When running `make import_sample_data`
+
+```console
+<hl>Software error:</h1>
+<pre>MongoDB: :SelectionError: No writable server available. MongoDB server status:
+Topology type: Single; Member status:
+mongodb:27017 (type: Unknown, error: MongoDB::NetworkError: Could not connect to 'mongodb:27017': Temporary failure in name resolution )
+</pre>
+<p>
+For help, please send mail to this site's webmaster, giving this error message
+and the time and date of the error.
+<p>
+[Sat Dec 17 19:52:21 2022] update_all_products from_dir_in_mongodb.pl: MongoDB::SelectionError: No writable server available. MongoDB server status:
+
+[Sat Dec 17 19:52:21 2022] update_all_products from_dir_in_mongodb.pl: Topology type: Single; Member status:
+
+[Sat Dec 17 19:52:21 2022] update_all_products from_dir_in_mongodb.pl: mongodb:27017 (type: Unknown, error: MongoDB::NetworkError: Could not connect to 'mongodb:27017': Temporary failure in name resolution )
+
+make: *** [Makefile:154: import_sample data] Error 22
+```
+
+**Solution:**
+The cause of this issue is that you already have the mongodb database server running on your local machine at port 27017. 
+
+*For linux users:*
+
+First stop the MongoDB server from your OS
+```console
+sudo systemctl stop mongod
+```
+
+Then check that mongod is stopped with:
+```console
+systemctl status mongod | grep Active
+```
+> **Note:**
+> The output of this command should be:
+  `Active: inactive (dead)`
+
+Then, executed this:
+```console
+docker-compose up 
+```
+> **Note:**
+> To know more about docker-compose commands do read [this guide](../how-to-guides/docker-developer-guide.md) 
+
+### make dev error: [build_lang] Error 13 - can't write into /mnt/podata/data/Lang.openfoodfacts.localhost.sto
+
+When running `make dev`:
+
+```console
+<h1>Software error:</h1>
+<pre>can't write into /mnt/podata/data/Lang.openfoodfacts.localhost.sto: Permission denied at /opt/product-opener/lib/ProductOpener/Store.pm line 234.
+</pre>
+<p>
+For help, please send mail to this site's webmaster, giving this error message
+and the time and date of the error.
+
+</p>
+make: *** [Makefile:126: build_lang] Error 13
+```
+
+**Solution:**
+
+Use the powershell/cmd to run the make dev commands in windows.

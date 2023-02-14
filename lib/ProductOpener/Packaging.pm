@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -63,6 +63,7 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::API qw/:all/;
 use ProductOpener::Numbers qw/:all/;
+use ProductOpener::Units qw/:all/;
 
 =head1 FUNCTIONS
 
@@ -158,6 +159,9 @@ sub parse_packaging_component_data_from_text_phrase ($text, $text_language) {
 		$text_language = $1;
 		$text = $';
 	}
+
+	# We might have escaped dots and commas inside numbers from analyze_and_combine_packaging_data()
+	$text =~ s/(\d)\\(\.|\,)(\d)/$1$2$3/g;
 
 	# Also try to match the canonicalized form so that we can match the extended synonyms that are only available in canonicalized form
 	my $textid = get_string_id_for_lang($text_language, $text);
@@ -419,6 +423,23 @@ sub get_checked_and_taxonomized_packaging_component_data ($tags_lc, $input_packa
 				$packaging_ref->{$weight} = convert_string_to_number($input_packaging_ref->{$weight});
 				$has_data = 1;
 			}
+			elsif (defined normalize_quantity($input_packaging_ref->{$weight})) {
+				$packaging_ref->{$weight}
+					= convert_string_to_number(normalize_quantity($input_packaging_ref->{$weight}));
+				$has_data = 1;
+				add_warning(
+					$response_ref,
+					{
+						message => {id => "invalid_type_must_be_number"},
+						field => {
+							id => $weight,
+							value => $input_packaging_ref->{$weight},
+							valued_converted => $packaging_ref->{$weight}
+						},
+						impact => {id => "value_converted"},
+					}
+				);
+			}
 			else {
 				add_warning(
 					$response_ref,
@@ -503,6 +524,20 @@ sub apply_rules_to_augment_packaging_component_data ($product_ref, $packaging_re
 		and (has_tag($product_ref, "categories", "en:coffees")))
 	{
 		$packaging_ref->{"shape"} = "en:coffee-capsule";
+	}
+
+	# If the shape is bottle and the material is glass, mark recycling as recycle if recycling is not already set
+	if (
+			(defined $packaging_ref->{"shape"})
+		and ($packaging_ref->{"shape"} eq "en:bottle")
+		and (defined $packaging_ref->{"material"})
+		and (  ($packaging_ref->{"material"} eq "en:glass")
+			or (is_a("packaging_materials", $packaging_ref->{"material"}, "en:glass")))
+		)
+	{
+		if (not defined $packaging_ref->{"recycling"}) {
+			$packaging_ref->{"recycling"} = "en:recycle";
+		}
 	}
 
 	# If we have a shape without a material, check if there is a default material for the shape
@@ -779,7 +814,13 @@ sub analyze_and_combine_packaging_data ($product_ref, $response_ref) {
 	# Packaging text field (populated by OCR of the packaging image and/or contributors or producers)
 	if (defined $product_ref->{packaging_text}) {
 
-		my @packaging_text_entries = split(/,|;|\n/, $product_ref->{packaging_text});
+		# Separate phrases by matching:
+		# . , ; and newlines
+		# but we want to keep commas and dots that are inside numbers (3.40 or 1,5)
+		# so we escape them first
+		my $packaging_text = $product_ref->{packaging_text};
+		$packaging_text =~ s/(\d)(\.|,)(\d)/$1\\$2$3/g;
+		my @packaging_text_entries = split(/(?<!\\)\.|(?<!\\),|;|\n/, $packaging_text);
 		push(@phrases, @packaging_text_entries);
 		$number_of_packaging_text_entries = scalar @packaging_text_entries;
 	}

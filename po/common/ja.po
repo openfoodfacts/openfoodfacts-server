@@ -4718,7 +4718,7 @@ msgstr ""
 
 msgctxt "packaging_text_note_3"
 msgid "Data from this field will be combined with any data provided for each packaging part. It is possible to provide one or the other, or both."
-msgstr ""
+msgstr "このフィールドのデータは、各包装部品に提供されたデータと組み合わされます。どちらか一方、または両方を提供することが可能です。"
 
 msgctxt "product_js_extract_packaging"
 msgid "Extract the recycling instructions and/or packaging information from the picture"
@@ -5618,6 +5618,14 @@ msgctxt "ecoscore_warning_international"
 msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgstr ""
 
+msgctxt "ecoscore_warning_transportation_world"
+msgid "Select a country in order to include the full impact of transportation."
+msgstr "運送の影響をすべて含めるには、国を選択してください。"
+
+msgctxt "ecoscore_warning_transportation"
+msgid "The full impact of transportation to your country is currently unknown."
+msgstr "あなたの国への輸送の完全な影響は現在不明です."
+
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
 msgstr ""
@@ -6092,21 +6100,21 @@ msgstr "栄養成分を入力する"
 
 msgctxt "action_add_origins"
 msgid "Add the origins of ingredients for this product"
-msgstr ""
+msgstr "この商品の原材料の産地を追加"
 
 msgctxt "action_add_packaging_image"
 msgid "Take a photo of the recycling information"
-msgstr ""
+msgstr "リサイクル情報の写真を撮る"
 
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
-msgstr ""
+msgstr "基本的な詳細を追加"
 
 # this is not used yet
 msgctxt "action_add_portion_size"
 msgid "Add portion size"
-msgstr ""
+msgstr "ポーションサイズを追加"
 
 # this is not used yet
 msgctxt "action_add_ingredients_image"
@@ -6121,37 +6129,37 @@ msgstr "栄養成分表の写真を撮ってください"
 # this is not used yet
 msgctxt "action_refresh_ingredients_image"
 msgid "Refresh the photo of the ingredients"
-msgstr ""
+msgstr "原材料の写真を更新"
 
 # this is not used yet
 msgctxt "action_refresh_nutrition_image"
 msgid "Refresh the photo of the nutrition facts"
-msgstr ""
+msgstr "栄養成分表示の写真を更新する"
 
 # this is not used yet
 msgctxt "action_add_packaging_text"
 msgid "Extract and check the recycling information"
-msgstr ""
+msgstr "リサイクル情報を抽出して確認する"
 
 # this is not used yet
 msgctxt "action_add_stores"
 msgid "Add the store where you found this product"
-msgstr ""
+msgstr "この商品を見つけた店舗を追加"
 
 # this is not used yet
 msgctxt "action_labels"
 msgid "Add any label present on this product"
-msgstr ""
+msgstr "この製品に存在するラベルを追加"
 
 # this is not used yet
 msgctxt "action_countries"
 msgid "Add the country where you found this product"
-msgstr ""
+msgstr "この製品を見つけた国を追加"
 
 # this is not used yet
 msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
-msgstr ""
+msgstr "トレーサビリティ コードの写真を撮る"
 
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
@@ -6330,6 +6338,10 @@ msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
 msgstr "無効な型: 整数でなければなりません"
 
+msgctxt "api_message_invalid_type_must_be_number"
+msgid "Invalid type: must be a number"
+msgstr "無効な入力: 数値でなければなりません"
+
 msgctxt "api_message_missing_field"
 msgid "Missing field"
 msgstr "不足しているフィールド:"
@@ -6354,20 +6366,24 @@ msgctxt "api_impact_field_ignored"
 msgid "Field ignored"
 msgstr "フィールドは無視されました"
 
+msgctxt "api_impact_value_converted"
+msgid "Value converted"
+msgstr "変換された値"
+
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "ユニット数"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
 msgid "Weight of one empty unit"
-msgstr ""
+msgstr "空ユニット 1 個の重量"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit"
 msgid "Quantity of product contained per unit"
-msgstr ""
+msgstr "ユニット単位に含まれる製品数"
 
 # variable names between { } must not be translated
 msgctxt "f_help_categorize_on_hunger_games"
@@ -6376,5 +6392,40 @@ msgstr ""
 
 msgctxt "packagings_complete"
 msgid "All the packaging parts of the product are listed."
-msgstr ""
+msgstr "製品のすべてのパッケージ部品がリストされています。"
+
+msgctxt "api_message_invalid_user_id_and_password"
+msgid "Invalid user id and password"
+msgstr "ユーザー名・パスワードが間違っています"
+
+msgctxt "api_message_invalid_value_must_be_0_or_1"
+msgid "Invalid value: must be 0 or 1"
+msgstr "無効な値: 0 または 1 でなければなりません"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units_description"
+msgid "Enter the number of packaging units of the same shape and material contained in the product."
+msgstr "商品に含まれる同一形状、同材質の包装単位数をご記入ください。"
+
+msgctxt "packaging_shape_description"
+msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
+msgstr "利用可能な場合は、リサイクル手順に記載されている形状名を入力するか、形状を選択します。"
+
+msgctxt "packaging_material_description"
+msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
+msgstr "特定できる場合は特定の材料を入力し (三角形内の材料コードはパッケージ部品によく見られます)、不明な場合は一般的な材料 (プラスチックや金属など) を入力します。"
+
+msgctxt "packaging_recycling_description"
+msgid "Enter recycling instructions only if they are listed on the product."
+msgstr "製品に記載されている場合にのみ、リサイクル手順を入力してください。"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight_description"
+msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
+msgstr "残りの食品を除去し、重み付けの前に包装部品を洗浄し、乾燥させます. 可能な場合は、0.1グラムまたは0.01グラムの精度でスケールを使用してください."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit_description"
+msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
+msgstr "正味重量または正味体積を入力し、単位を示します (g または ml など)。"
 

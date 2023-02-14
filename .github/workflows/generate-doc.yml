@@ -10,7 +10,7 @@ on:
     - "html/files/doc/perl/**"
   push:
     # on merge to main, build and publish
-    branches: [ main ]
+    branches: [ "main" ]
 
 jobs:
   documentation:
@@ -43,23 +43,42 @@ jobs:
           rm -rf gh_pages/reference/perl-pod && \
           mv html/files/doc/perl gh_pages/reference/perl-pod
 
-      # generating openapi documentation
+      # generating OpenAPI documentation with redocly
       # we do this after mkdocs to overwrite api.html file
-      - name: Generate openapi html with ghcr.io/redocly/redoc/cli:latest
-        run : |
-          docker run --rm \
-            -v $(pwd)/docs/reference:/data -v $(pwd)/gh_pages/:/output \
-            ghcr.io/redocly/redoc/cli:latest \
-            build -o /output/reference/api/index.html api.yml && \
-          sudo chown $UID -R gh_pages
+      # - name: Generate openapi html with ghcr.io/redocly/redoc/cli:latest
+      #   run : |
+      #     docker run --rm \
+      #       -v $(pwd)/docs/reference:/data -v $(pwd)/gh_pages/:/output \
+      #       ghcr.io/redocly/redoc/cli:latest \
+      #       build -o /output/reference/api/index.html api.yml && \
+      #     sudo chown $UID -R gh_pages
 
-      - name: Generate openapi html for v3 with ghcr.io/redocly/redoc/cli:latest
-        run : |
+      # - name: Generate openapi html for v3 with ghcr.io/redocly/redoc/cli:latest
+      #   run : |
+      #     docker run --rm \
+      #       -v $(pwd)/docs/reference:/data -v $(pwd)/gh_pages/:/output \
+      #       ghcr.io/redocly/redoc/cli:latest \
+      #       build -o /output/reference/api-v3/index.html api-v3.yml && \
+      #     sudo chown $UID -R gh_pages
+
+      - name: Validate OpenAPI
+        run: |
           docker run --rm \
-            -v $(pwd)/docs/reference:/data -v $(pwd)/gh_pages/:/output \
-            ghcr.io/redocly/redoc/cli:latest \
-            build -o /output/reference/api-v3/index.html api-v3.yml && \
-          sudo chown $UID -R gh_pages
+          -v ${PWD}:/local openapitools/openapi-generator-cli validate \
+          -i /local/docs/reference/api.yml \
+
+      # generate OpenAPI documentation with rapidoc
+      # we do this after mkdocs to overwrite api.html file
+      - name: Generate OpenAPI doc using rapidoc
+        # this is a simple copy of the html file as all is static there
+        run : |
+          # v2 api
+          cp docs/assets/api-rapidoc.html gh_pages/reference/api/index.html
+          # v3 api - change yaml and link to api-v3
+          cat docs/assets/api-rapidoc.html | \
+            sed -e "s/api.yml/api-v3.yml/" -e 's|api-v3/">API v3|api/">API v2|' \
+            > gh_pages/reference/api-v3/index.html
+
 
       - name: Deploy API documentation to Github Pages
         uses: JamesIves/github-pages-deploy-action@v4.4.1

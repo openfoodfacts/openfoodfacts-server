@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -182,6 +182,8 @@ $options{users_who_can_upload_small_images} = {
 
 $options{product_type} = "food";
 
+# edit rules
+# see ProductOpener::Products::process_product_edit_rules for documentation
 @edit_rules = (
 
 	{
@@ -294,6 +296,19 @@ $options{product_type} = "food";
 		name => "Fleury Michon",
 		conditions => [["user_id_not", "fleury-michon"], ["in_brands_tags", "fleury-michon"],],
 		actions => [["warn"]],
+		notifications => [
+			qw (
+				slack_channel_edit-alert
+			)
+		],
+	},
+
+	# as of 2023-01-27 far too much errors in updates
+	# No fix on the app
+	{
+		name => "Halal App Chakib",
+		conditions => [["user_id", "halal-app-chakib"],],
+		actions => [["ignore"],],
 		notifications => [
 			qw (
 				slack_channel_edit-alert
@@ -664,6 +679,7 @@ $options{categories_exempted_from_nutrient_levels} = [
 	creator
 	created_t
 	last_modified_t
+	last_modified_by
 	product_name
 	abbreviated_product_name
 	generic_name
@@ -687,7 +703,7 @@ $options{categories_exempted_from_nutrient_levels} = [
 	traces
 	serving_size
 	serving_quantity
-	no_nutriments
+	no_nutrition_data
 	additives_n
 	additives
 	nutriscore_score

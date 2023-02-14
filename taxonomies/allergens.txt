@@ -1,4 +1,5 @@
 stopwords:en:and,byproducts,other,of,this,product,made,manufactured,in,a,factory,which,also,uses,trace,traces,possible,eventual,potential
+stopwords:bg:и, следи от, други, може да съдържа, може да съдържа следи от , може да има следи от
 stopwords:da:spor
 stopwords:de:enthalten,von,und,kann,spuren,andere
 stopwords:es:traza,trazas,y,de,que,contiene,contienen,otros,producto,productos,derivado,derivados,incluido,incluidos,incluida,incluidas,la,una,fuente,contener,puede,con,elaborado,en,linea,donde,se,procesa,granos,posible,posibles,este
@@ -11,6 +12,7 @@ stopwords:pt:traços,vestígios,vestígio,a,e,uma,em,ou,de,que,com,contém,cont�
 stopwords:sk:obsahuje, s obsahom, výrobky zo, výrobok zo, výrobky z, výrobok z
 
 en:none, allergens-free, without allergens, without, n, no, no allergens, 0
+bg:няма, не съдържа алергени, 0, без алергени
 fr:aucun, aucune, sans allergènes, sans, pas, pas d'allergènes, aucun allergène, 0
 hr:bez alergena
 it:nessuno, nessuna, senza allergeni, no allergeni, no, n, 0
@@ -21,7 +23,7 @@ sr:ništa, nijedan, nijedno, bez alergena, nema alergena, bez, 0
 
 en:gluten, cereals containing gluten, barley, barley malt flour, malted barley, malted barley extract, malted barley flour, kamut, rye, rye flour, spelt, speltflour, wheat, wheat flour, wheatflour, wheat semolina, oats, oat fiber
 ar:غلوتين
-bg:глутен, ечемик, ечемичен, ечемично-малцов, пшеница, пшенично, ръж,  овес, шпелта, камут, вид едра твърда пшеница
+bg:глутен, ечемик, ечемичен, ечемично-малцов, пшеница, пшенично, пшеничено, ръж, овес, спелта, камут, хоросан, вид едра твърда пшеница, лимец, булгур 
 cs:lepek, pšenice, žito, ječmen, oves, špalda, kamut
 da:gluten, hvede, durumhvede, rug, byg, havre, spelt, kamut, bygmalt, bygmaltmel, bygmaltekstrakt, havremel, hvedemel, durumhvedemel, fuldkornshvede, fuldkornshvedemel, havregryn, ruggryn, havreflager, speltflager, hvedeklid, hvedestivelse, hvedegluten, bygmalteddike, kornprodukter som indeholder gluten
 de:Gluten, Weizen, Roggen, Gerste, Hafer, Dinkel, Kamut, Gerstenmehl, Gerstenvollkornmehl, Hafer-Vollkornmehl, Haferflocken, Haferkleie, Hafervollkornflocken, Hafervollkornmehl, Vollkorn-Hafer, Vollkorn-Haferflocken, Vollkorn-Hafermehl, Vollkornhafermehl, Vollkornhafer, Vollkornhaferflocken, Vollkornhaferschrot, Vollkornweizenmehl, Weizenvollkornmehl, Weizenmehl, Weizengluten, Weizensauerteig, Hartweizen, Gluten enthaltendes Getreide, Gluten-enthaltendes-Getreide, Gerstenmalzextrakt, Gerstenmalz, Weizenstärke, Hartweizengriess, Hartweizengrieß, Roggenmehl, Weizenmalzmehl, Dinkelmehl, Gerstenmalzmehl, Weizenmalz, Roggenvollkornmehl, Weizenkleber, Roggenvollkornschrot, Dinkelvollkornmehl, Hafermehl, Weizenflocken, Weizenvollkornflocken, Weizengrieß, Weizengriess, Weizenkleie, Gerstenflocken, Weizenquellmehl, Roggenflocken, Vollkorn-Weizenflocken, Weizenvollkornschrot, Weizenspeisekleie, Weichweizenmehl, Dinkelflocken, Roggenvollkornflocken, Malzmehl, Dinkelvollkornflocken, Dinkelvollkornschrot, Roggenschrot, Gersten, Weizenrostmalzmehl, Vollkornweizen, Haferfaser
@@ -33,7 +35,7 @@ fi:gluteeni, gluteenia, gluteenista, gluteenit, gluteeneja, gluteeneista, vehnä
 fr:gluten, blé, seigle, orge, épeautre, kamut, son de blé, blé complet, gluten de blé, fibre de blé, malt d'orge, malt, froment, farine de blé, farine de froment, boulgour, petit épeautre, céréales contenant du gluten, blé dur, épeautre, petit épeautre, grand épeautre, farine d'épeautre
 ga:glútan, cruithneacht, seagal, eorna, coirce, speilt, camut, céréeale, céréales
 he:גלוטן, קמח, סמולינה, דורום, חיטה, לתת כשות, מדגנים, דגנים
-hr:gluten, glutena, ječmeni, ječmeni slad, ječam, ječma, ječmeno, ječmenog, pšenična, pšenične, pšenični, pšenično, pšenično brašno, pšeničnog glutena, pšenični gluten, pšenični gluten u aromi, pšenično pirovo, pšenicu, raži, raženo, zobena, zobene, zobeno, žitarica koje sadrže gluten, žitarice koje sadrže gluten
+hr:gluten, glutena, ječmeni, ječmeni slad, ječam, ječma, ječmeno, ječmenog, psenicu, pšenična, pšenične, pšenični, pšenično, pšenično brašno, pšeničnog glutena, pšenični gluten, pšenični gluten u aromi, pšenično pirovo, pšenicu, raži, raženo, zobena, zobene, zobeno, žitarica koje sadrže gluten, žitarice koje sadrže gluten
 hu:glutén, búza, búzaliszt, búzarost, búzadara, búzacsíra, búzafehérje, búzakorpa, búzamaláta, búzapehely, búzakeményítő, búzasikér, tönkölybúza, tönkölybúzaliszt, tönkölybúzapehely, durumbúza, durumbúzaliszt, rozs, rozsliszt, rozspehely, durumrozsliszt, árpa, árpaliszt, árpapehely, árpamaláta, árpadara, árpacsíra, zab, zabliszt, zabpehely, zabkorpa, durumliszt, durum liszt, Grahamliszt, Graham liszt, kenyérliszt, kenyér liszt, rétesliszt, rétes liszt, kamut, alakor, bulgur, glutént, glutént tartalmazó gabona, glutént tartalmazó gabonafélék
 is:glúten
 it:glutine, grano, segale, orzo, farro, kamut, frumento, farina di frumento, farina di frumento integrale
@@ -88,6 +90,7 @@ zh:甲壳亚门
 en:eggs, egg, barn egg, egg whites, egg white, egg yolks, egg yolk, whole eggs, whole egg
 ar:بيض,بيضة
 bg:яйца, яйце
+bs:jaja
 cs:vejce
 da:æg, aeg, æggeblomme, æggehvide, æggehvider, æggehvidepulver
 de:Eier, Eiern, Ei, Eigelb, Eigelbpulver, Eiklar, Eiklarpulver, Eipulver, Hühnerei, Hühnereier, Hühnerei-Trockeneiweiß, Hühnereiweiß, Hühnereieiweiß, Hühnereieigelb, Hühnervollei, Hühnervolleipulver, Hühnereieiweißpulver, Hühnereigelbpulver, Hühnerei-Eiweiß, Vollei, Volleipulver, Frischei, Hühnerei-Eiweißpulver, Hühnerei-Eiweisspulver, Hühnereiklarpulver, Hühnereigelb, Hühnertrockeneiweiß, Hühnertrockeneiweiss, Hühnertrockeneieiweiß, Hühnertrockeneieiweiss, Hühnereiklar, Eiweiß, Eiweiss, Hühnereiweißpulver, Hühnereiweisspulver
@@ -451,6 +454,7 @@ et:lupiin
 fi:lupiinit, lupiini, lupiinia, lupiinista, lupiineita, lupiineja, lupiineista, lupiinijauho, lupiinijauhoa, lupiinijauhosta, lupiinijauhot, lupiinijauhoja, lupiinijauhoista
 fr:lupin
 ga:lúipín
+hr:lupin, lupina, lupinu
 hu:csillagfürt
 it:lupini
 jp:ルピナス属
@@ -482,6 +486,7 @@ et:molluskid
 fi:nilviäiset, nilviäinen, nilviäistä, nilviäisestä, nilviäisiä, nilviäisistä, seepia, seepiaa, seepiasta, seepiat, seepioita, seepioista, simpukka, simpukkaa, simpukasta, simpukat, simpukoita, simpukkoja, simpukoista, osteri, osteria, osterista, osterit, ostereita, ostereja, ostereista, kampasimpukka, kampasimpukkaa, kampasimpukasta, kampasimpukat, kampasimpukoita, kampasimpukkoja, kampasimpukoista, kalmari, kalmaria, kalmarista, kalmarit, kalmareita, kalmareja, kalmareista
 fr:mollusques, mollusque, poulpe, seiche, encornet, calamar, calmar, huitres, huitre, moules, moule, noix de saint-jacques, noix de st-jacques, noix de coquilles saint-jacques, noix de coquilles st-jacques, escargot, escargots, saint-jacques, st-jacques, coquille saint jacques, coquille st jacques, pétoncles
 ga:moilisc, breallach, breallaigh
+hr:mekušac, mekušaca
 hu:puhatestűek, kagyló, tintahal
 it:molluschi
 jp:軟体動物,イカ,タコ,カキ,アワビ

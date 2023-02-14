@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -1028,8 +1028,9 @@ sub init_user ($request_ref) {
 
 				if (   (not defined $user_ref->{'user_sessions'})
 					or (not defined $user_session)
-					or (not defined $user_ref->{'user_sessions'}{$user_session})
-					or (not is_ip_known_or_whitelisted($user_ref, $user_session, remote_addr(), $short_ip)))
+					or (not defined $user_ref->{'user_sessions'}{$user_session}))
+					# disable the restriction of sessions by ip address (issue 6842 57E0 C2C7 F629 E4CE 5605 42)
+					#	or (not is_ip_known_or_whitelisted($user_ref, $user_session, remote_addr(), $short_ip)))
 				{
 					$log->debug("no matching session for user") if $log->is_debug();
 					$user_id = undef;

@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -189,6 +189,11 @@ sub analyze_request ($request_ref) {
 
 		$request_ref->{api_action} = $components[2];
 
+		# Also support "products" in order not to break apps that were using it
+		if ($request_ref->{api_action} eq 'products') {
+			$request_ref->{api_action} = 'product';
+		}
+
 		# If the api_action is different than "search", check if it is the local path for "product"
 		# so that urls like https://fr.openfoodfacts.org/api/v3/produit/4324232423 work (produit instead of product)
 		# this is so that we can quickly add /api/v3/ to get the API
@@ -199,9 +204,12 @@ sub analyze_request ($request_ref) {
 			$request_ref->{api_action} = 'product';
 		}
 
+		# some API actions have an associated object
 		if (defined $components[3]) {
-			param("code", $components[3]);
-			$request_ref->{code} = $components[3];
+			if ($request_ref->{api_action} eq "product") {    # /api/v3/product/[code]
+				param("code", $components[3]);
+				$request_ref->{code} = $components[3];
+			}
 		}
 
 		$request_ref->{api_method} = $request_ref->{method};

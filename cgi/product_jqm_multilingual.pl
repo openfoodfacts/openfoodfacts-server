@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -40,6 +40,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::HTTP qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
@@ -126,8 +127,8 @@ else {
 		$response{status_verbose} = 'Edit against edit rules';
 
 		my $data = encode_json(\%response);
-
-		print header(-type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*') . $data;
+		write_cors_headers();
+		print header(-type => 'application/json', -charset => 'utf-8') . $data;
 
 		exit(0);
 	}
@@ -228,7 +229,8 @@ else {
 
 			my $data = encode_json(\%response);
 
-			print header(-type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*') . $data;
+			write_cors_headers();
+			print header(-type => 'application/json', -charset => 'utf-8') . $data;
 
 			exit(0);
 		}
@@ -443,7 +445,8 @@ else {
 
 my $data = encode_json(\%response);
 
-print header(-type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*') . $data;
+write_cors_headers();
+print header(-type => 'application/json', -charset => 'utf-8') . $data;
 
 exit(0);
 

@@ -257,6 +257,35 @@
          {
             "attributes" : [
                {
+                  "description" : "",
+                  "description_short" : "Unknown environmental impact",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/ecoscore-unknown.svg",
+                  "id" : "ecoscore",
+                  "match" : 0,
+                  "name" : "Eco-Score",
+                  "panel_id" : "ecoscore",
+                  "status" : "unknown",
+                  "title" : "Eco-Score not computed"
+               },
+               {
+                  "description" : "",
+                  "description_short" : "Currently only for products with chicken or eggs",
+                  "grade" : "e",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/forest-footprint-not-computed.svg",
+                  "id" : "forest_footprint",
+                  "match" : 0,
+                  "name" : "Forest footprint",
+                  "status" : "known",
+                  "title" : "Forest footprint not computed"
+               }
+            ],
+            "id" : "environment",
+            "name" : "Environment"
+         },
+         {
+            "attributes" : [
+               {
                   "description" : "Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives.",
                   "description_short" : "Organic products promote ecological sustainability and biodiversity.",
                   "grade" : "unknown",

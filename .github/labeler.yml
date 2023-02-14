@@ -196,6 +196,7 @@ data quality:
 - lib/ProductOpener/DataQualityFood.pm
 - tests/unit/dataquality.t
 - tests/unit/dataqualityfood.t
+- taxonomies/data_quality.txt
 
 Display:
 - lib/ProductOpener/Display.pm
@@ -428,6 +429,7 @@ Packaging:
 - templates/api/knowledge-panels/environment/ecoscore/packaging.tt.json
 - tests/unit/packaging.t
 - docs/reference/schemas/packagings/**
+- scripts/gen_packaging_stats.pl
   
 producers platform:
 - lib/ProductOpener/GS1.pm
@@ -477,6 +479,7 @@ images:
 - scripts/delete_old_cropped_images.pl
 - docs/reference/requestBodies/crop_a_photo.yaml
 - docs/reference/requestBodies/add_photo_to_existing_product.yaml
+- docs/tutorials/uploading-photo-to-a-product.md
 
 Products:
 - lib/ProductOpener/Products.pm
@@ -685,6 +688,16 @@ auth:
 
 autosuggest:
 - cgi/suggest.pl
+- tests/integration/api_cgi_suggest.t
+- tests/integration/expected_test_results/api_cgi_suggest/**/*
+- tests/integration/expected_test_results/api_cgi_suggest/categories-no-term.json
+- tests/integration/expected_test_results/api_cgi_suggest/categories-string-strawberry.json
+- tests/integration/expected_test_results/api_cgi_suggest/categories-term-fr-cafe-accent.json
+- tests/integration/expected_test_results/api_cgi_suggest/categories-term-fr-frais.json
+- tests/integration/expected_test_results/api_cgi_suggest/categories-term-fr-fraise.json
+- tests/integration/expected_test_results/api_cgi_suggest/categories-term-fraise.json
+- tests/integration/expected_test_results/api_cgi_suggest/categories-term-strawberry.json
+- tests/integration/expected_test_results/api_cgi_suggest/no-tagtype.json
 
 subdomains:
 - scripts/list_subdomains.pl

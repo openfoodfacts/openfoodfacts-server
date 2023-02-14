@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -68,7 +68,6 @@ BEGIN {
 		&get_taxonomyid
 		&get_taxonomyurl
 
-		&gen_tags_hierarchy
 		&gen_tags_hierarchy_taxonomy
 		&gen_ingredients_tags_hierarchy_taxonomy
 		&display_tags_hierarchy_taxonomy
@@ -110,7 +109,7 @@ BEGIN {
 		&init_emb_codes
 
 		%tags_fields
-		%hierarchy_fields
+		%users_tags_fields
 		%taxonomy_fields
 		@drilldown_fields
 		%language_fields
@@ -153,6 +152,8 @@ BEGIN {
 
 		&generate_regexps_matching_taxonomy_entries
 
+		&cmp_taxonomy_tags_alphabetically
+
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -190,6 +191,7 @@ To this initial list, taxonomized fields will be added by retrieve_tags_taxonomy
 
 =cut
 
+# Fields that are tags
 %tags_fields = (
 	packaging => 1,
 	brands => 1,
@@ -210,16 +212,28 @@ To this initial list, taxonomized fields will be added by retrieve_tags_taxonomy
 	data_sources => 1,
 	teams => 1,
 	categories_properties => 1,
+	owners => 1,
+	ecoscore => 1,
+	# users tags:
 	editors => 1,
 	photographers => 1,
 	informers => 1,
 	checkers => 1,
 	correctors => 1,
-	owners => 1,
-	ecoscore => 1
+	weighers => 1,
 );
-%hierarchy_fields = ();
 
+# Fields that are tags related to users
+%users_tags_fields = (
+	editors => 1,
+	photographers => 1,
+	informers => 1,
+	checkers => 1,
+	correctors => 1,
+	weighers => 1,
+);
+
+# Fields that have an associated taxonomy
 %taxonomy_fields = ();    # populated by retrieve_tags_taxonomy
 
 # Fields that can have different values by language
@@ -437,241 +451,6 @@ sub load_tags_images ($lc, $tagtype) {
 			}
 		}
 		closedir DH2;
-	}
-
-	return;
-}
-
-sub load_tags_hierarchy ($lc, $tagtype) {
-
-	defined $canon_tags{$lc} or $canon_tags{$lc} = {};
-	defined $canon_tags{$lc}{$tagtype} or $canon_tags{$lc}{$tagtype} = {};
-	defined $tags_images{$lc} or $tags_images{$lc} = {};
-	defined $tags_images{$lc}{$tagtype} or $tags_images{$lc}{$tagtype} = {};
-	defined $tags_level{$lc} or $tags_level{$lc} = {};
-	defined $tags_level{$lc}{$tagtype} or $tags_level{$lc}{$tagtype} = {};
-	defined $tags_direct_parents{$lc} or $tags_direct_parents{$lc} = {};
-	defined $tags_direct_parents{$lc}{$tagtype} or $tags_direct_parents{$lc}{$tagtype} = {};
-	defined $tags_direct_children{$lc} or $tags_direct_children{$lc} = {};
-	defined $tags_direct_children{$lc}{$tagtype} or $tags_direct_children{$lc}{$tagtype} = {};
-	defined $tags_all_parents{$lc} or $tags_all_parents{$lc} = {};
-	defined $tags_all_parents{$lc}{$tagtype} or $tags_all_parents{$lc}{$tagtype} = {};
-	defined $synonyms{$tagtype}{$lc} or $synonyms{$tagtype}{$lc} = {};
-	defined $synonyms_for{$tagtype}{$lc} or $synonyms_for{$tagtype}{$lc} = {};
-
-	if (open(my $IN, "<:encoding(UTF-8)", "$lang_dir/$lc/tags/$tagtype.txt")) {
-
-		my $current_tagid;
-		my $current_tag;
-
-		# print STDERR "Tags.pm - load_tags_hierarchy - lc: $lc - tagtype: $tagtype \n";
-
-		while (<$IN>) {
-
-			my $line = $_;
-			chomp($line);
-			$line =~ s/\s+$//;
-
-			next if ($line =~ /^(\s*)$/);
-			next if ($line =~ /^\#/);
-
-			# Nectars de fruits, nectar de fruits, nectars, nectar
-			# < Jus et nectars de fruits, jus et nectar de fruits
-			# > Nectars de goyave, nectar de goyave, nectar goyave
-			# > Nectars d'abricot, nectar d'abricot, nectars d'abricots, nectar
-
-			if ($line !~ /^(>|<)/) {
-				my @tags = split(/\s*,\s*/, $line);
-				$current_tag = shift @tags;
-				$current_tagid = get_string_id_for_lang($lc, $current_tag);
-				$canon_tags{$lc}{$tagtype}{$current_tagid} = $current_tag;
-				foreach my $tag (@tags) {
-					my $tagid = get_string_id_for_lang($lc, $tag);
-					next if $tagid eq '';
-					$canon_tags{$lc}{$tagtype}{$tagid} = $current_tag;
-					(defined $synonyms_for{$lc}{$current_tagid}) or $synonyms_for{$lc}{$current_tagid} = [];
-					push @{$synonyms_for{$lc}{$current_tagid}}, $tag;
-					$synonyms{$lc}{$tagid} = $current_tagid;
-				}
-			}
-			elsif ($line =~ /^>( )?/) {
-				$line = $';
-				my @tags = split(/\s*,\s*/, $line);
-				my $child = shift(@tags);
-				# print "line : $line\nchild: $child\n";
-				my $childid = get_string_id_for_lang($lc, $child);
-				$canon_tags{$lc}{$tagtype}{$childid} = $child;
-				defined $tags_direct_children{$lc}{$tagtype}{$current_tagid}
-					or $tags_direct_children{$lc}{$tagtype}{$current_tagid} = {};
-				$tags_direct_children{$lc}{$tagtype}{$current_tagid}{$childid} = 1;
-				defined $tags_direct_parents{$lc}{$tagtype}{$childid}
-					or $tags_direct_parents{$lc}{$tagtype}{$childid} = {};
-				$tags_direct_parents{$lc}{$tagtype}{$childid}{$current_tagid} = 1;
-				foreach my $tag (@tags) {
-					my $tagid = get_string_id_for_lang($lc, $tag);
-					next if $tagid eq '';
-					$canon_tags{$lc}{$tagtype}{$tagid} = $child;
-					(defined $synonyms_for{$lc}{$childid}) or $synonyms_for{$lc}{$childid} = [];
-					push @{$synonyms_for{$lc}{$childid}}, $tag;
-					$synonyms{$lc}{$tagid} = $childid;
-				}
-			}
-			elsif ($line =~ /^<( )?/) {
-				$line = $';
-				my @tags = split(/\s*,\s*/, $line);
-				my $parent = shift(@tags);
-				# print "line : $line\nparent: $parent\n";
-				my $parentid = get_string_id_for_lang($lc, $parent);
-				$canon_tags{$lc}{$tagtype}{$parentid} = $parent;
-				defined $tags_direct_parents{$lc}{$tagtype}{$current_tagid}
-					or $tags_direct_parents{$lc}{$tagtype}{$current_tagid} = {};
-				$tags_direct_parents{$lc}{$tagtype}{$current_tagid}{$parentid} = 1;
-				defined $tags_direct_children{$lc}{$tagtype}{$parentid}
-					or $tags_direct_children{$lc}{$tagtype}{$parentid} = {};
-				$tags_direct_children{$lc}{$tagtype}{$parentid}{$current_tagid} = 1;
-				foreach my $tag (@tags) {
-					my $tagid = get_string_id_for_lang($lc, $tag);
-					next if $tagid eq '';
-					$canon_tags{$lc}{$tagtype}{$tagid} = $parent;
-					(defined $synonyms_for{$lc}{$parentid}) or $synonyms_for{$lc}{$parentid} = [];
-					push @{$synonyms_for{$lc}{$parentid}}, $tag;
-					$synonyms{$lc}{$tagid} = $parentid;
-				}
-			}
-		}
-
-		close $IN;
-
-		# Deal with simple singular and plurals, and other forms
-
-		foreach my $tagid (keys %{$canon_tags{$lc}{$tagtype}}) {
-
-			# Warning: it's possible that several forms (or multiple times the same form) exist in the @known_tags list
-			# (e.g. tomates + tomate)
-			# the first one should take precedence
-
-			my @other_forms = ($tagid);
-
-			if ($lc eq 'fr') {
-				if ($tagid =~ /(s|x)(-(a-la|au|aux))-/) {
-					push @other_forms, "$`$1-$'", "$`-$'", "$`$1-a-la-$'", "$`-a-la-$'", "$`$1-au-$'", "$`-au-$'",
-						"$`$1-aux-$'", "$`-aux-$'";
-				}
-			}
-
-			my @all_other_forms = ();
-
-			foreach my $other_form (@other_forms) {
-				push @all_other_forms, $other_form;
-				if ($other_form =~ /(s|x)$/) {
-					push @all_other_forms, $`;
-				}
-				else {
-					push @all_other_forms, $other_form . 's';
-				}
-			}
-
-			foreach my $other_form (@all_other_forms) {
-				if (not defined $canon_tags{$lc}{$tagtype}{$other_form}) {
-					$canon_tags{$lc}{$tagtype}{$other_form} = $canon_tags{$lc}{$tagtype}{$tagid};
-					#print STDERR "canon_tags: $tagid\t <-- $other_form\n";
-				}
-			}
-
-		}
-
-		# Compute all parents, breadth first
-
-		# print STDERR "Tags.pm - load_tags_hierarchy - lc: $lc - tagtype: $tagtype - compute all parents breadth first\n";
-
-		my %longest_parent = ($lc => {});
-
-		# foreach my $tagid (keys %{$tags_direct_parents{$lc}{$tagtype}}) {
-		foreach my $tag (values %{$canon_tags{$lc}{$tagtype}}) {
-
-			my $tagid = get_string_id_for_lang($lc, $tag);
-
-			print
-				"Tags.pm - load_tags_hierarchy - lc: $lc - tagtype: $tagtype - compute all parents breadth first - tagid: $tagid\n";
-
-			$tags_all_parents{$lc}{$tagtype}{$tagid} = [];
-
-			my @queue = ();
-
-			if (defined $tags_direct_parents{$lc}{$tagtype}{$tagid}) {
-				@queue = keys %{$tags_direct_parents{$lc}{$tagtype}{$tagid}};
-			}
-
-			if (not defined $tags_level{$lc}{$tagtype}{$tagid}) {
-				$tags_level{$lc}{$tagtype}{$tagid} = 1;
-				if (defined $tags_direct_parents{$lc}{$tagtype}{$tagid}) {
-					$longest_parent{$lc}{$tagid} = (keys %{$tags_direct_parents{$lc}{$tagtype}{$tagid}})[0];
-				}
-			}
-
-			my %seen = ();
-
-			while ($#queue > -1) {
-				my $parentid = shift @queue;
-				#print "- $parentid\n";
-				if (not defined $seen{$parentid}) {
-					push @{$tags_all_parents{$lc}{$tagtype}{$tagid}}, $parentid;
-					$seen{$parentid} = 1;
-
-					if (not defined $tags_level{$lc}{$tagtype}{$parentid}) {
-						$tags_level{$lc}{$tagtype}{$parentid} = 2;
-						$longest_parent{$lc}{$tagid} = $parentid;
-					}
-
-					if (defined $tags_direct_parents{$lc}{$tagtype}{$parentid}) {
-						foreach my $grandparentid (keys %{$tags_direct_parents{$lc}{$tagtype}{$parentid}}) {
-							push @queue, $grandparentid;
-							if (
-								   (not defined $tags_level{$lc}{$tagtype}{$grandparentid})
-								or ($tags_level{$lc}{$tagtype}{$grandparentid} <= $tags_level{$lc}{$tagtype}{$parentid})
-								)
-							{
-								$tags_level{$lc}{$tagtype}{$grandparentid} = $tags_level{$lc}{$tagtype}{$parentid} + 1;
-								$longest_parent{$lc}{$parentid} = $grandparentid;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		# Compute all children, breadth first
-
-		open(my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/$tagtype.$lc.txt");
-
-		foreach my $tagid (
-			sort {
-					   ($tags_level{$lc}{$tagtype}{$b} <=> $tags_level{$lc}{$tagtype}{$a})
-					|| ($longest_parent{$lc}{$a} cmp $longest_parent{$lc}{$b})
-					|| ($a cmp $b)
-			}
-			keys %{$tags_level{$lc}{$tagtype}}
-			)
-		{
-
-			#print $OUT "$tagid - $tags_level{$lc}{$tagtype}{$tagid} - $longest_parent{$lc}{$tagid} \n";
-			if (defined $tags_direct_parents{$lc}{$tagtype}{$tagid}) {
-				#print "direct_parents\n";
-				foreach my $parentid (sort keys %{$tags_direct_parents{$lc}{$tagtype}{$tagid}}) {
-					print $OUT "< $lc:" . $canon_tags{$lc}{$tagtype}{$parentid} . "\n";
-				}
-
-			}
-			print $OUT "$lc: " . $canon_tags{$lc}{$tagtype}{$tagid};
-			if (defined $synonyms_for{$lc}{$tagid}) {
-				print $OUT ", " . join(", ", @{$synonyms_for{$lc}{$tagid}});
-			}
-			print $OUT "\n\n";
-
-		}
-
-		close $OUT;
-
 	}
 
 	return;
@@ -2237,41 +2016,6 @@ foreach my $country (keys %{$properties{countries}}) {
 			}
 		}
 	}
-}
-
-$log->info("Tags.pm - 1") if $log->is_info();
-
-sub gen_tags_hierarchy ($tagtype, $tags_list) {
-
-	# $tags_list  ->  comma-separated list of tags, not in a specific order
-
-	if (not(defined $tags_all_parents{$lc}) and (defined $tags_all_parents{$lc}{$tagtype})) {
-		return (split(/\s*,\s*/, $tags_list));
-	}
-
-	my %tags = ();
-
-	foreach my $tag2 (split(/\s*,\s*/, $tags_list)) {
-		my $tag = $tag2;
-		$tag = canonicalize_tag2($tagtype, $tag);
-		my $tagid = get_string_id_for_lang($lc, $tag);
-		next if $tagid eq '';
-		$tags{$tag} = 1;
-		if (    (defined $tags_all_parents{$lc})
-			and (defined $tags_all_parents{$lc}{$tagtype})
-			and (defined $tags_all_parents{$lc}{$tagtype}{$tagid}))
-		{
-			foreach my $parentid (@{$tags_all_parents{$lc}{$tagtype}{$tagid}}) {
-				$tags{canonicalize_tag2($tagtype, $parentid)} = 1;
-			}
-		}
-	}
-
-	my @sorted_list = sort {
-		$tags_level{$lc}{$tagtype}{get_string_id_for_lang($lc, $b)}
-			<=> $tags_level{$lc}{$tagtype}{get_string_id_for_lang($lc, $a)}
-	} keys %tags;
-	return @sorted_list;
 }
 
 my %and = (
@@ -4039,18 +3783,7 @@ sub compute_field_tags ($product_ref, $tag_lc, $field) {
 			push @{$product_ref->{$field . "_tags"}}, get_taxonomyid($tag_lc, $tag);
 		}
 	}
-	elsif (defined $hierarchy_fields{$field}) {
-		$product_ref->{$field . "_hierarchy"} = [gen_tags_hierarchy($field, $product_ref->{$field})];
-		$product_ref->{$field . "_tags"} = [];
-		foreach my $tag (@{$product_ref->{$field . "_hierarchy"}}) {
-			if (get_string_id_for_lang($tag_lc, $tag) ne '') {
-				push @{$product_ref->{$field . "_tags"}}, get_string_id_for_lang($tag_lc, $tag);
-			}
-		}
-	}
-
-	# tags fields without hierarchy or taxonomy
-
+	# tags fields without an associated taxonomy
 	elsif (defined $tags_fields{$field}) {
 
 		my $value = $product_ref->{$field};
@@ -4420,6 +4153,37 @@ sub generate_regexps_matching_taxonomy_entries ($taxonomy, $return_type, $option
 	}
 
 	return $result_ref;
+}
+
+=head2 cmp_taxonomy_tags_alphabetically($tagtype, $target_lc, $a, $b)
+
+Comparison function for canonical tags entries in a taxonomy.
+
+To be used as a sort function in a sort() call.
+
+Each tag is converted to a string, by priority:
+1 - the tag name in the target language
+2 - the tag name in the xx language
+3 - the tag id
+
+=head3 Arguments
+
+=head4 $tagtype
+
+The type of the tag (e.g. categories, labels, allergens)
+
+=head4 $target_lc
+
+=head4 $a
+
+=head4 $b
+
+=cut
+
+sub cmp_taxonomy_tags_alphabetically ($tagtype, $target_lc, $a, $b) {
+
+	return ($translations_to{$tagtype}{$a}{$target_lc} || $translations_to{$tagtype}{$a}{"xx"} || $a)
+		cmp($translations_to{$tagtype}{$b}{$target_lc} || $translations_to{$tagtype}{$b}{"xx"} || $b);
 }
 
 $log->info("Tags.pm loaded") if $log->is_info();

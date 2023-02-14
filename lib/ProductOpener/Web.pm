@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2021 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -234,9 +234,6 @@ sub display_field ($product_ref, $field) {
 		}
 		elsif (defined $taxonomy_fields{$field}) {
 			$value = display_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field . "_hierarchy"});
-		}
-		elsif (defined $hierarchy_fields{$field}) {
-			$value = display_tags_hierarchy($field, $product_ref->{$field . "_hierarchy"});
 		}
 		elsif ((defined $tags_fields{$field}) and (defined $value)) {
 			$value = display_tags_list($field, $value);

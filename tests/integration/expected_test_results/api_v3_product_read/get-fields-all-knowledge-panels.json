@@ -103,7 +103,7 @@
             "origins_of_ingredients" : {
                "aggregated_origins" : [
                   {
-                     "epi_score" : 0,
+                     "epi_score" : "0",
                      "origin" : "en:unknown",
                      "percent" : 100,
                      "transportation_score" : null
@@ -807,6 +807,13 @@
                {
                   "element_type" : "text",
                   "text_element" : {
+                     "html" : "Select a country in order to include the full impact of transportation.",
+                     "type" : "warning"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
                      "html" : "The <a href=\"http://world.openfoodfacts.localhost/ecoscore\">Eco-Score</a> is an experimental score that summarizes the environmental impacts of food products."
                   }
                },
@@ -1021,7 +1028,7 @@
                            "type" : "text"
                         },
                         {
-                           "text" : "Recycling",
+                           "text" : "Recycling instruction",
                            "type" : "text"
                         },
                         {
@@ -2029,7 +2036,8 @@
       "traces_tags" : [],
       "unknown_ingredients_n" : 0,
       "unknown_nutrients_tags" : [],
-      "vitamins_tags" : []
+      "vitamins_tags" : [],
+      "weighers_tags" : []
    },
    "result" : {
       "id" : "product_found",

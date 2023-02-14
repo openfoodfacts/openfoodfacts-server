@@ -47,6 +47,7 @@ $material-icons: "Material Icons";
   white-space: nowrap;
   word-wrap: normal;
   direction: ltr;
+  font-feature-settings: "liga";
   -webkit-font-feature-settings: "liga";
   -webkit-font-smoothing: antialiased;
 }
@@ -309,7 +310,7 @@ a.disabled_rule_button {
 }
 
 a.button:hover {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 .level_3,
@@ -548,11 +549,6 @@ a[aria-controls="idOfLeftMenu"] {
 
 ul.pagination li a {
   color: black;
-}
-
-.share_button,
-.edit_button {
-  //float: right;
 }
 
 .delete_button {
@@ -813,54 +809,6 @@ html[dir="rtl"] {
   background-color: #aaf;
 }
 
-// Horizontally and vertically center images
-.list_product_img_div {
-  height: 100px;
-  text-align: center;
-  line-height: 100px;
-}
-
-.list_product_img {
-  height: auto;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.list_product_name {
-  margin-top: 0.2rem;
-  line-height: 20px;
-}
-
-.list_product_icons {
-  height: 24px;
-  margin-right: 0.2rem;
-  margin-top: 0.2rem;
-}
-
-// For small screen, cards take the full width, move the image to the left
-@media #{$small-only} {
-  .list_product_img_div {
-    width: 100px;
-    float: left;
-    margin-right: 1em;
-  }
-  .list_product_a {
-    min-height: 120px;
-  }
-  .list_product_icons {
-    height: 36px;
-  }
-}
-
-// For medium screen, force the height of the product name so that icons
-// below are vertically aligned with other cards on the same line
-@media #{$medium-up} {
-  .list_product_name {
-    height: 80px;
-    overflow: hidden;
-  }
-}
-
 .tabs a:focus {
   outline: none;
 }
@@ -978,6 +926,7 @@ html[dir="rtl"] {
 
 a.attribute_card {
   color: $body-font-color;
+  text-decoration: none;
 }
 
 a.attribute_card:hover {
@@ -1374,4 +1323,37 @@ $section-blue: #6d85d9;
 // 1st packaging component is empty and hidden, it is used to add new components
 #packaging_0_row {
   display:none;
+}
+
+.if-empty-dnone:empty { display: none !important; }
+
+// underline links
+#main_container a {
+  text-decoration:underline;
+}
+// except buttons
+a.button {
+  text-decoration:none !important;
+}
+// except product cards etc.
+a.list_product_a {
+  text-decoration:none !important;
+}
+a.tab_language {
+  text-decoration:none !important;
+}
+a.panel_title {
+  text-decoration:none !important;
+}
+.field_value a {
+  text-decoration:none !important;
+}
+.accordion-navigation a {
+  text-decoration:none !important;
+}
+.f-dropdown a {
+  text-decoration:none !important;
+}
+.dataTable a {
+  text-decoration:none !important;
 }
