@@ -48,9 +48,16 @@
 								[% IF !(server_options_producers_platform) %]
 									<li><a href="[% lang('menu_discover_link') %]">[% lang('menu_discover') %]</a></li>
 									<li><a href="[% lang('menu_contribute_link') %]">[% lang('menu_contribute') %]</a></li>
+									<li class="divider"></li>
+									<li><label>[% lang("add_products") %]</label></li>
+									<li><a href="[% lang('get_the_app_link') %]">[% lang('install_the_app_to_add_products') %]</a></li>
+									<li><a href="/cgi/product.pl?type=search_or_add&action=display">[% lang('add_product') %]</a></li>
 								[% ELSE %]
 									[% INCLUDE 'web/common/includes/producers_platform_menu_links.tt.html' %]
 								[% END %]
+
+								<li class="divider"></li>
+								<li><label>[% lang("search_and_analyze_products") %]</label></li>
 
 								<li>
 									<a href="/cgi/search.pl">[% lang('advanced_search') %]</a>
@@ -58,8 +65,6 @@
 								<li>
 									<a href="/cgi/search.pl?graph=1">[% lang('graphs_and_maps') %]</a>
 								</li>
-
-								<li><a href="/cgi/product.pl?type=search_or_add&action=display">[% lang('add_product') %]</a></li>
 							</ul>
 						</li>
 						
@@ -114,11 +119,14 @@
 										<li><a href="/cgi/org.pl?type=edit&orgid=[% org_id %]"> [% lang('edit_org_profile') %]</a></li>
 									[% END %]
 
+									[%# Do not show individual contributions on the producers platform %]
+									[% IF !(server_options_producers_platform) %]
 									<li class="divider"></li>			
 									<li><label>[% lang('your_contributions') %]</label></li>
 									<li><a href="[% canonicalize_taxonomy_tag_link("users", user_id) %]">[% lang('products_added') %]</a></li>
 									<li><a href="[% canonicalize_taxonomy_tag_link("editors", user_id) %]">[% lang('products_edited') %]</a></li>
 									<li><a href="[% canonicalize_taxonomy_tag_link("photographers", user_id) %]">[% lang('products_photographed') %]</a></li>
+									[% END %]
 									<li class="divider"></li>			
 									<li class="has-form">
 										<form method="post" action="/cgi/session.pl">
