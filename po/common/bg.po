@@ -1576,7 +1576,7 @@ msgstr "Хранителна оценка"
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
 msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-msgstr ""
+msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -4009,11 +4009,11 @@ msgstr "Платформата за производители все още е 
 
 msgctxt "crm_user_id"
 msgid "Id of corresponding contact in CRM"
-msgstr ""
+msgstr "ID на съответния контакт в CRM"
 
 msgctxt "crm_org_id"
 msgid "Id of corresponding organization in CRM"
-msgstr ""
+msgstr "Id на съответната организация в CRM"
 
 msgctxt "user_groups"
 msgid "Groups"
@@ -4719,7 +4719,7 @@ msgstr "Опитай се да бъдеш възможно най-конкрет
 
 msgctxt "packaging_text_note_3"
 msgid "Data from this field will be combined with any data provided for each packaging part. It is possible to provide one or the other, or both."
-msgstr ""
+msgstr "Данните от това поле ще бъдат комбинирани с всички данни, предоставени за всяка част от опаковката. Възможно е да се осигури едното или другото, или и двете."
 
 msgctxt "product_js_extract_packaging"
 msgid "Extract the recycling instructions and/or packaging information from the picture"
@@ -5301,11 +5301,11 @@ msgstr "Разделен със запетая списък с GS1 GLN иден�
 
 msgctxt "org_valid_org"
 msgid "Validate organization as a real producer."
-msgstr ""
+msgstr "Потвърдете организацията като истински производител."
 
 msgctxt "org_valid_org_note"
 msgid "The organization is verified as a real producer by a human, also creates entry in CRM."
-msgstr ""
+msgstr "Организацията е потвърдена като истински производител от човек, също така създава запис в CRM."
 
 msgctxt "org_enable_manual_export_to_public_platform"
 msgid "Enable organization members to manually export product data and photos to the public database."
@@ -5618,6 +5618,14 @@ msgstr "Формулата на Eco-Score подлежи на промяна, т
 msgctxt "ecoscore_warning_international"
 msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgstr "Първоначално Eco-Score е разработен за Франция и се разширява и в други европейски страни. Формулата на Eco-Score подлежи на промяна, тъй като редовно се подобрява, за да бъде по-точна и по-подходяща за всяка страна."
+
+msgctxt "ecoscore_warning_transportation_world"
+msgid "Select a country in order to include the full impact of transportation."
+msgstr "Избери страна, за да включиш пълното въздействие на транспорта."
+
+msgctxt "ecoscore_warning_transportation"
+msgid "The full impact of transportation to your country is currently unknown."
+msgstr "Понастоящем не е известно пълното въздействие на транспорта до твоята страна."
 
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
@@ -6093,21 +6101,21 @@ msgstr "Добави хранителните стойности"
 
 msgctxt "action_add_origins"
 msgid "Add the origins of ingredients for this product"
-msgstr ""
+msgstr "Добави произхода на съставките за този продукт"
 
 msgctxt "action_add_packaging_image"
 msgid "Take a photo of the recycling information"
-msgstr ""
+msgstr "Направи снимка на инструкциите за рециклиране"
 
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
-msgstr ""
+msgstr "Добави основни подробности"
 
 # this is not used yet
 msgctxt "action_add_portion_size"
 msgid "Add portion size"
-msgstr ""
+msgstr "Добави размера на порцията"
 
 # this is not used yet
 msgctxt "action_add_ingredients_image"
@@ -6122,37 +6130,37 @@ msgstr "Направи снимка на хранителните стойнос
 # this is not used yet
 msgctxt "action_refresh_ingredients_image"
 msgid "Refresh the photo of the ingredients"
-msgstr ""
+msgstr "Обнови снимката на съставките"
 
 # this is not used yet
 msgctxt "action_refresh_nutrition_image"
 msgid "Refresh the photo of the nutrition facts"
-msgstr ""
+msgstr "Обнови снимката с хранителните стойности"
 
 # this is not used yet
 msgctxt "action_add_packaging_text"
 msgid "Extract and check the recycling information"
-msgstr ""
+msgstr "Извлечи и провери информацията за рециклиране"
 
 # this is not used yet
 msgctxt "action_add_stores"
 msgid "Add the store where you found this product"
-msgstr ""
+msgstr "Добави магазина, където си намерил този продукт"
 
 # this is not used yet
 msgctxt "action_labels"
 msgid "Add any label present on this product"
-msgstr ""
+msgstr "Добавете всеки етикет, присъстващ на този продукт"
 
 # this is not used yet
 msgctxt "action_countries"
 msgid "Add the country where you found this product"
-msgstr ""
+msgstr "Добави страната, в която си намерил този продукт"
 
 # this is not used yet
 msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
-msgstr ""
+msgstr "Направи снимка на кодовете за проследяване"
 
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
@@ -6313,23 +6321,27 @@ msgstr "Невалиден API метод"
 
 msgctxt "api_message_empty_request_body"
 msgid "Empty request body"
-msgstr ""
+msgstr "Празно тяло на заявката"
 
 msgctxt "api_message_invalid_json_in_request_body"
 msgid "Invalid JSON in request body"
-msgstr ""
+msgstr "Невалиден JSON в тялото на заявката"
 
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
-msgstr ""
+msgstr "Невалиден тип: трябва да е обект"
 
 msgctxt "api_message_invalid_type_must_be_array"
 msgid "Invalid type: must be an array"
-msgstr ""
+msgstr "Невалиден тип: трябва да е масив"
 
 msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
-msgstr ""
+msgstr "Невалиден тип: трябва да е цяло число"
+
+msgctxt "api_message_invalid_type_must_be_number"
+msgid "Invalid type: must be a number"
+msgstr "Невалиден тип: трябва да е число"
 
 msgctxt "api_message_missing_field"
 msgid "Missing field"
@@ -6355,20 +6367,24 @@ msgctxt "api_impact_field_ignored"
 msgid "Field ignored"
 msgstr "Полето е игнорирано"
 
+msgctxt "api_impact_value_converted"
+msgid "Value converted"
+msgstr "Преобразувана стойност"
+
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "Брой единици"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
 msgid "Weight of one empty unit"
-msgstr ""
+msgstr "Тегло на една празна единица"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit"
 msgid "Quantity of product contained per unit"
-msgstr ""
+msgstr "Количество продукт, съдържащо се в единица"
 
 # variable names between { } must not be translated
 msgctxt "f_help_categorize_on_hunger_games"
@@ -6377,13 +6393,40 @@ msgstr "Помогни за категоризирането на още {title}
 
 msgctxt "packagings_complete"
 msgid "All the packaging parts of the product are listed."
-msgstr ""
+msgstr "Изброени са всички части на опаковката на продукта."
 
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
-msgstr ""
+msgstr "Невалидно потребителско име и парола"
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
-msgstr ""
+msgstr "Невалидна стойност: трябва да бъде 0 или 1"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units_description"
+msgid "Enter the number of packaging units of the same shape and material contained in the product."
+msgstr "Въведи броя на опаковъчните единици с еднаква форма и материал, съдържащи се в продукта."
+
+msgctxt "packaging_shape_description"
+msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
+msgstr "Въведи името на формата, посочено в инструкциите за рециклиране, ако са налични, или избери форма."
+
+msgctxt "packaging_material_description"
+msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
+msgstr "Въведи конкретния материал, ако може да бъде определен (код на материала вътре в триъгълник често може да се намери върху частите на опаковката) или общ материал (например пластмаса или метал), ако не си сигурен."
+
+msgctxt "packaging_recycling_description"
+msgid "Enter recycling instructions only if they are listed on the product."
+msgstr "Въведи инструкциите за рециклиране само ако са посочени на продукта."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight_description"
+msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
+msgstr "Отстрани останалата храна, измий и подсуши опаковката преди претеглянето. Ако е възможно, използвай везна с точност 0,1 г или 0,01 г."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit_description"
+msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
+msgstr "Въведи нетното тегло или нетния обем и посочи единицата (например г или мл)."
 
