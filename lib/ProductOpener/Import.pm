@@ -278,7 +278,7 @@ Do some pre-processing on input field values:
 
 =cut
 
-sub preprocess_field($imported_product_ref, $product_ref, $field, $yes_regexp, $no_regexp) {
+sub preprocess_field ($imported_product_ref, $product_ref, $field, $yes_regexp, $no_regexp) {
 
 	# fields suffixed with _if_not_existing are loaded only if the product does not have an existing value
 
@@ -402,12 +402,16 @@ Return an incremented $modified value if a change was made.
 
 =cut
 
-sub set_field_value($args_ref, $imported_product_ref, $product_ref, $field, $yes_regexp, $no_regexp, $stats_ref, $modified_ref, $modified_fields_ref, $differing_ref, $differing_fields_ref, $time) {
+sub set_field_value (
+	$args_ref, $imported_product_ref, $product_ref, $field,
+	$yes_regexp, $no_regexp, $stats_ref, $modified_ref,
+	$modified_fields_ref, $differing_ref, $differing_fields_ref, $time
+	)
+{
 
 	my $code = $imported_product_ref->{code};
 
-	$log->debug("defined and non empty value for field",
-		{field => $field, value => $imported_product_ref->{$field}})
+	$log->debug("defined and non empty value for field", {field => $field, value => $imported_product_ref->{$field}})
 		if $log->is_debug();
 
 	if (($field =~ /product_name/) or ($field eq "brands")) {
@@ -434,7 +438,7 @@ sub set_field_value($args_ref, $imported_product_ref, $product_ref, $field, $yes
 
 			# Save the imported value, before it is cleaned etc. so that we can avoid reimporting data that has been manually changed afterwards
 			if (
-					(not defined $product_ref->{$field . "_imported"})
+				   (not defined $product_ref->{$field . "_imported"})
 				or ($product_ref->{$field . "_imported"} ne $imported_product_ref->{$field})
 				# we had a bug that caused serving_size to be set to "serving": change it
 				or (($field eq "serving_size") and ($product_ref->{$field} eq "serving"))
@@ -684,8 +688,7 @@ sub set_field_value($args_ref, $imported_product_ref, $product_ref, $field, $yes
 			if ((defined $product_ref->{$field}) and ($product_ref->{$field} !~ /^\s*$/)) {
 
 				if ($args_ref->{skip_existing_values}) {
-					$log->debug("skip existing value for field",
-						{field => $field, value => $product_ref->{$field}})
+					$log->debug("skip existing value for field", {field => $field, value => $product_ref->{$field}})
 						if $log->is_debug();
 					next;
 				}
@@ -1622,7 +1625,11 @@ sub import_csv_file ($args_ref) {
 
 			# if field exists and is not empty
 			if ((defined $imported_product_ref->{$field}) and ($imported_product_ref->{$field} !~ /^\s*$/)) {
-				set_field_value($args_ref, $imported_product_ref, $product_ref, $field, $yes_regexp, $no_regexp, $stats_ref, \$modified, \@modified_fields, \$differing, \%differing_fields, $time);
+				set_field_value(
+					$args_ref, $imported_product_ref, $product_ref, $field,
+					$yes_regexp, $no_regexp, $stats_ref, \$modified,
+					\@modified_fields, \$differing, \%differing_fields, $time
+				);
 			}
 		}
 
@@ -1924,7 +1931,8 @@ sub import_csv_file ($args_ref) {
 						$product_ref->{serving_size} = $imported_nutrition_data_per_value;
 						$modified++;
 						$stats_ref->{products_data_updated}{$code} = 1;
-						defined $stats_ref->{"products_serving_size_updated"} or $stats_ref->{"products_serving_size_updated"} = {};
+						defined $stats_ref->{"products_serving_size_updated"}
+							or $stats_ref->{"products_serving_size_updated"} = {};
 						$stats_ref->{"products_serving_size_updated"}{$code} = 1;
 					}
 					$imported_nutrition_data_per_value = "serving";
@@ -1954,14 +1962,17 @@ sub import_csv_file ($args_ref) {
 			}
 		}
 
-		if ((defined $stats_ref->{products_info_added}{$code}) or (defined $stats_ref->{products_info_changed}{$code})) {
+		if ((defined $stats_ref->{products_info_added}{$code}) or (defined $stats_ref->{products_info_changed}{$code}))
+		{
 			$stats_ref->{products_info_updated}{$code} = 1;
 		}
 		else {
 			$stats_ref->{products_info_not_updated}{$code} = 1;
 		}
 
-		if ((defined $stats_ref->{products_nutrition_added}{$code}) or (defined $stats_ref->{products_nutrition_changed}{$code})) {
+		if (   (defined $stats_ref->{products_nutrition_added}{$code})
+			or (defined $stats_ref->{products_nutrition_changed}{$code}))
+		{
 			$stats_ref->{products_nutrition_updated}{$code} = 1;
 		}
 		else {
