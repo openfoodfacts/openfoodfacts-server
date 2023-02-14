@@ -149,11 +149,15 @@
 				<nav class="top-bar" data-topbar role="navigation" >
 
 					<ul class="title-area">
-						<li class="name" style="position:relative;">
-							<a href="/">
+						<li class="name">
+							<div style="position:relative;max-width:292px;">
+								<a href="/">
 								<img id="logo" src="[% static_subdomain %]/images/logos/off-logo-horizontal-light.svg" alt="[% lang('logo_site_name') %]" style="margin:8px;height:48px;width:auto;">
-								<span id="professionals" style="position:absolute;bottom:0px;right:8px;line-height:1rem;font-size:1.2rem;">professionals</span>
+								[% IF server_options_producers_platform %]
+								<span id="professionals" style="position:absolute;bottom:2px;right:8px;line-height:1rem;font-size:1.2rem;">professionals</span>
+								[% END %]
 							</a>
+							</div>
 						</li>
 					</ul>
 
