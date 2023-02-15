@@ -690,6 +690,9 @@ sub check_nutrition_data ($product_ref) {
 		my $nid_non_zero = 0;
 
 		my $total = 0;
+		# variables to check if there are 3 or more duplicates in nutriments
+		my @major_nutriments_values = ();
+		my %nutriments_values_occurences = ();
 
 		if (    (defined $product_ref->{nutriments}{"energy-kcal_value"})
 			and (defined $product_ref->{nutriments}{"energy-kj_value"}))
@@ -757,6 +760,35 @@ sub check_nutrition_data ($product_ref) {
 
 			if (($nid eq 'fat') or ($nid eq 'carbohydrates') or ($nid eq 'proteins') or ($nid eq 'salt')) {
 				$total += $product_ref->{nutriments}{$nid . "_100g"};
+			}
+
+			# variables to check if there are 3 or more duplicates in nutriments
+			if (
+				(
+					   ($nid eq 'fat_100g')
+					or ($nid eq 'saturated-fat_100g')
+					or ($nid eq 'carbohydrates_100g')
+					or ($nid eq 'sugars_100g')
+					or ($nid eq 'proteins_100g')
+					or ($nid eq 'salt_100g')
+				)
+				and ($product_ref->{nutriments}{$nid} > 1)
+				)
+			{
+				push(@major_nutriments_values, $product_ref->{nutriments}{$nid});
+			}
+
+		}
+
+		# create a hash key: nutriment value, value: number of occurence
+		foreach my $nutriment_value (@major_nutriments_values) {
+			$nutriments_values_occurences{$nutriment_value}++;
+		}
+		# raise warning if there are 3 or more duplicates in nutriments
+		foreach my $keys (keys %nutriments_values_occurences) {
+			if ($nutriments_values_occurences{$keys} > 2) {
+				push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-3-or-more-values-are-identical";
+				last;
 			}
 		}
 

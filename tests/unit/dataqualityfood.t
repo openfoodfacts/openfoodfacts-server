@@ -502,4 +502,42 @@ check_quality_and_test_product_has_quality_tag(
 	'serving size should contains digits', 0
 );
 
+# en:nutrition-3-or-more-values-are-identical
+$product_ref = {
+	nutriments => {
+		"carbohydrates_100g" => 0,
+		"fat_100g" => 0,
+		"proteins_100g" => 0,
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-3-or-more-values-are-identical',
+	'3 or more identical values and above 1 in the nutrition table', 0
+);
+$product_ref = {
+	nutriments => {
+		"carbohydrates_100g" => 1,
+		"fat_100g" => 2,
+		"proteins_100g" => 3,
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-3-or-more-values-are-identical',
+	'3 or more identical values and above 1 in the nutrition table', 0
+);
+$product_ref = {
+	nutriments => {
+		"carbohydrates_100g" => 3,
+		"fat_100g" => 3,
+		"proteins_100g" => 3,
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-3-or-more-values-are-identical',
+	'3 or more identical values and above 1 in the nutrition table', 1
+);
+
 done_testing();

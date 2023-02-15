@@ -2641,6 +2641,10 @@ en:Nutri-Score score from producer does not match calculated score
 description:en:This might be due among other things to incorrect nutrition values, incomplete nutrition values (missing fiber, fruits and vegetables), incorrect fruits and vegetables estimate, incorrect input of diluted/reconstituted values.
 
 <en:Nutrition warnings
+en:Nutrition 3 or more values are identical
+description:en:Someone may have entered wrong data because there are 3 identical values in nutrition table and those values are above 1
+
+<en:Nutrition warnings
 en:Nutrition all values zero
 #description:en:
 
