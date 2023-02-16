@@ -99,6 +99,7 @@ my @user_groups = qw(producer database app bot moderator pro_moderator);
 
 my $cookie_name = 'session';
 my $cookie_domain = "." . $server_domain;    # e.g. fr.openfoodfacts.org sets the domain to .openfoodfacts.org
+$cookie_domain =~ s/\.pro\./\./;    # e.g. .pro.openfoodfacts.org -> .openfoodfacts.org
 if (defined $server_options{cookie_domain}) {
 	$cookie_domain
 		= "." . $server_options{cookie_domain};    # e.g. fr.import.openfoodfacts.org sets domain to .openfoodfacts.org

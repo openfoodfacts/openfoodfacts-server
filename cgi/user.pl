@@ -385,8 +385,6 @@ elsif ($action eq 'process') {
 
 		$template_data_ref->{user_org} = $user_ref->{org};
 
-		$template_data_ref->{server_options_producers_platform} = $server_options{producers_platform};
-
 		my $pro_url = "https://" . $subdomain . ".pro." . $server_domain . "/";
 		$template_data_ref->{add_user_pro_url} = sprintf(lang("add_user_you_can_edit_pro_promo"), $pro_url);
 
