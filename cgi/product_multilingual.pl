@@ -69,7 +69,7 @@ sub display_search_or_add_form() {
 	if (($server_options{producers_platform})
 		and not((defined $Owner_id) and (($Owner_id =~ /^org-/) or ($User{moderator}) or $User{pro_moderator})))
 	{
-		return "";
+		display_error_and_exit(lang("no_owner_defined"), 200);
 	}
 
 	my $html = '';

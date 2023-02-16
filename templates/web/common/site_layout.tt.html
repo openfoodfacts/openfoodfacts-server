@@ -53,7 +53,26 @@
 									<li><a href="[% lang('get_the_app_link') %]">[% lang('install_the_app_to_add_products') %]</a></li>
 									<li><a href="/cgi/product.pl?type=search_or_add&action=display">[% lang('add_product') %]</a></li>
 								[% ELSE %]
-									[% INCLUDE 'web/common/includes/producers_platform_menu_links.tt.html' %]
+									<li><label>[% lang("import_and_export_products") %]</label></li>
+									<li><a href="/cgi/import_file_upload.pl">[% lang('import_product_data') %]</a></li>
+									<li><a href="/cgi/import_photos_upload.pl">[% lang('import_product_photos') %]</a></li>
+									<li><a href="/cgi/product.pl?type=search_or_add&action=display">[% lang('add_product') %]</a></li>
+									<li><a href="/cgi/export_products.pl">[% lang('export_product_data_photos') %]</a></li>
+									<li><a href="/cgi/remove_products.pl">[% lang('remove_products_from_producers_platform') %]</a></li>
+
+									<li class="divider"></li>
+
+									<li><label>[% lang("resources") %]</label></li>
+									<li>
+										<a href="[% IF lc == "fr" %]https://blog.openfoodfacts.org/wp-content/uploads/2023/02/2022-11-FR-Guide-dutilisation-Plateforme-Pro.pdf[% ELSE %]https://blog.openfoodfacts.org/wp-content/uploads/2023/02/2022-11-EN-Pro-Plateform-User-Guide.pdf[% END %]">
+											[% lang('pro_platform_user_guide') %]
+										</a>
+									</li>
+									<li>
+										<a href="[% IF lc == "fr" %]https://support.openfoodfacts.org/help/fr-fr/3-producers[% ELSE %]https://support.openfoodfacts.org/help/en-gb/3-producers[% END %]">
+											[% lang('faq_for_producers') %]
+										</a>
+									</li>
 								[% END %]
 
 								<li class="divider"></li>
