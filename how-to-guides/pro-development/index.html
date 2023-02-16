@@ -811,7 +811,7 @@ Of course, do this inside-out to access the pro http server.</p>
 <p>Note that if you <a href="../use-direnv/">use direnv</a>, it should be fine, if you did not redefine variables set by <code>setenv-pro.sh</code>.</p>
 <p>An explanation of the setup can be found at <a href="../../explanations/pro-dev-setup/">pro-dev-setup.md</a></p>
 <p>If you want to see state of tasks, you can run:</p>
-<p><div class="highlight"><pre><span></span><code>docker-compose exec minion /opt/product-opener/scripts/minion.pl  minion job
+<p><div class="highlight"><pre><span></span><code>docker-compose exec minion /opt/product-opener/scripts/minion_producers.pl  minion job
 </code></pre></div>
 (add --help to see all options), or refer to https://docs.mojolicious.org/Minion/Command/minion/job</p>
 <p>You may also inspect database by running:
