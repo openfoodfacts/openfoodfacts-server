@@ -946,6 +946,10 @@ en:Ingredients - 90 percent unknown
 description:en:There are 90 percent of ingredients that are unknown, which either means that the ingredient list is not stored in the right language (eg a French list stored as an English one), or that the Open Food Facts ingredient taxonomy and parser are not yet working well in your language.
 
 <en:Ingredients warnings
+en:Ingredients - extracted ingredient from picture with more than 100 percent
+description:en:At least one ingredient has a percentage greater than 100% after extracting the ingredients from the picture
+
+<en:Ingredients warnings
 en:Ingredients - Ingredient tag length greater than 100
 description:en:Having ingredients with a lot of letter might indicate a parsing error. Words with 100 characters are very rare in almost all languages.
 
