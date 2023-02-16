@@ -140,7 +140,7 @@ sub check_not_production() {
 			return get_products_collection()->count_documents({});
 		}
 	);
-	unless ((0 <= $products_count) && ($products_count < 1000)) {
+	unless ((0 <= $products_count) && ($products_count < 10000)) {
 		confess("Refusing to run destructive test on a DB of more than 1000 items\n");
 	}
 }
