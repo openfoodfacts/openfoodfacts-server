@@ -1118,6 +1118,12 @@ en:EU Ecolabel
 xx:EU Ecolabel
 
 < en:EU Organic
+de:EG-Öko-Verordnung, Deutsches Bio-Siegel, Deutsches staatliches Bio-Siegel, Bio-Siegel, eg oko verordnung
+xx:EG-Öko-Verordnung
+country:en: Germany
+image:en: eg-oko-verordnung.110x90.svg
+
+< en:EU Organic
 en:AD-BIO-154
 auth_address:en: BP 47, 32600, L'Isle-Jourdain, France
 auth_name:en: Ecocert SA
@@ -4385,15 +4391,6 @@ auth_url:en: http://www.qcheck-cert.gr
 country:en: Egypt
 eu_groups:en: en:EU Group A: unprocessed plant products,en:EU Group D: processed agricultural products for use as food -*-,
 exceptions:en: en:in-conversion products,en:
-
-< en:EU Organic
-en:EG-Öko-Verordnung
-de:EG-Öko-Verordnung, Deutsches Bio-Siegel, Deutsches staatliches Bio-Siegel, Bio-Siegel, eg oko verordnung
-hr:EG-Öko-Verordnung
-it:Regolamento Biologico CE
-nl:Biologische EU Verordening
-country:en: Germany
-image:en: eg-oko-verordnung.110x90.svg
 
 < en:EU Organic
 en:ER-BIO-149
@@ -15864,6 +15861,9 @@ opposite:en: en:contains-gluten
 wikidata:en: Q2632776
 
 < en:No gluten
+en:Certified gluten-free
+
+< en:No gluten
 en:Crossed Grain Symbol, Crossed Grain
 xx:Crossed Grain Symbol
 
@@ -18320,6 +18320,9 @@ en:UTZ Certified Tea
 nl:UTZ Certified Thee, UTZ Gecertificeerd Thee
 
 < en:Vegan
+en:Certified iVegan
+
+< en:Vegan
 en:EVE Vegan, Expertise Vegan Europe
 xx:EVE Vegan, Expertise Vegan Europe
 
@@ -18357,6 +18360,9 @@ xx:Vegan Australia, Vegan Australia Certified
 < en:Vegan
 en:Veganok, Vegan OK
 xx:Veganok, Vegan OK
+
+< en:Vegan
+en:VegeCert - Certified Vegan
 
 < en:Vegan
 es:UVE Vegano, Unión Vegetariana Española Vegano, Certificado UVE Vegano
@@ -19721,15 +19727,15 @@ ru:Добровольная сертификация РСТ
 ru:РСТ, Знак соответствия при обязательной сертификации продукции в РФ
 wikidata:en: Q4192703
 
-se:Ä-märket, a-market
-xx:Ä-märket, a-market
+sl:Vino Ljubljana
+fr:Concours International des vins de Ljubljana
+label_categories:en: en:Wines
+
+sv:Ä-märket
+xx:Ä-märket
 country:en: Sweden
 description:en: No E -additives- numbers -except baking powder and fruit pectin-, No flavoring agents except extracts, No industrial ingredients that are not traditionally included in the food. Examples: modified starch, yeast extract, bamboo fibres, No added vitamins or other added nutrients.
 image:sv: a-market.141x90.png
 label_categories:en: en:Health, en:Additives
 web:sv: https://miljomarkningar.se/a-market/
-
-sl:Vino Ljubljana
-fr:Concours International des vins de Ljubljana
-label_categories:en: en:Wines
 
