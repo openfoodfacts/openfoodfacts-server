@@ -72,8 +72,6 @@
                                 <span class="show-for-large-up"> [% lang('export_product_page') %]</span>
                             </a>
                         </div>
-                        
-                        <p>→ <a href="[% public_product_url %]">[% lang("product_page_on_the_public_database") %]</a></p>
                     [% END %]
                 </div>
             </div> 
@@ -111,6 +109,10 @@
 
 
                     <h2 class="title-1" property="food:name" itemprop="name">[% title %]</h1>
+
+                    [% IF server_options_producers_platform %]
+                        <p>→ <a href="[% public_product_url %]">[% lang("product_page_on_the_public_database") %]</a></p>
+                    [% END %]
                     
             <!-- Obsolete product -->
             [% IF product_is_obsolete %]
