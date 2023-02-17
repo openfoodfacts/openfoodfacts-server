@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -74,20 +74,20 @@ my $cursor = $products_collection->query({})->fields({ code => 1 })->sort({code 
 		
 		next if $path =~ /invalid/;
 
-		if (-e "$data_root/products/$path/product.sto") {
-			store("$data_root/products/$path/product.sto", $product_ref);		
+		if ( -e "$data_root/products/$path/product.sto" ) {
+			store( "$data_root/products/$path/product.sto", $product_ref );
 			$products_collection->save($product_ref);
-		
+
 			if (defined $product_ref->{old_additives_tags}) {
 				print $OLD "<a href=\"" . product_url($product_ref) . "\">$product_ref->{code} - $product_ref->{name}</a> : " . join (" ", sort @{$product_ref->{old_additives_tags}}) . "<br />\n";
 			}
 			if (defined $product_ref->{new_additives_tags}) {
 				print $NEW "<a href=\"" . product_url($product_ref) . "\">$product_ref->{code} - $product_ref->{name}</a> : " . join (" ", sort @{$product_ref->{new_additives_tags}}) . "<br />\n";
-			}			
+			}
 		}
 	}
-	
-close $OLD;	
+
+close $OLD;
 close $NEW;
 
 exit(0);

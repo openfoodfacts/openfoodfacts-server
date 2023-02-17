@@ -1,0 +1,653 @@
+Please populate this changelog with meaningful changes and release versions - release dates
+
+- 7e021b2 Pierre Slamich  Tue Nov 22 11:39:45 2016 +0000  README.md edited online with Bitbucket
+- 4c9259b Pierre Slamich  Tue Nov 22 11:19:54 2016 +0000  CHANGELOG.md edited online with Bitbucket
+- a5057b9 Stéphane Gigandet       Mon Nov 21 10:11:10 2016 +0000  Merged in issue/195/session-cookie-in-url (pull request #64)
+- 9d6b293 hangy   Fri Nov 18 23:44:04 2016 +0000  Merged in issue/540-html5-autocomplete (pull request #58)
+- dcd3b79 hangy   Sat Nov 19 00:37:06 2016 +0100  Merge remote-tracking branch 'remotes/origin/master' into HEAD
+- 895ccc7 hangy   Fri Nov 18 19:21:16 2016 +0000  Merged in issue/544-fix-email-validation (pull request #57)
+- b6b28ef hangy   Fri Nov 18 19:58:50 2016 +0100  Merge branch 'master' into issue/544-fix-email-validation
+- 17ed75f hangy   Fri Nov 18 18:28:50 2016 +0000  Merged in issue/171-packaging-code-to-be-completed (pull request #63)
+- c1e0893 hangy   Fri Nov 18 18:23:11 2016 +0000  Merged in issue/503-prefer-svg-over-png-label-images (pull request #60)
+- bef6b0d hangy   Fri Nov 18 18:22:58 2016 +0000  Merged in issue/421-question-is-incomplete (pull request #59)
+- 3089565 hangy   Fri Nov 18 18:22:22 2016 +0000  Merged in issue/454 (pull request #56)
+- 02a7413 hangy   Fri Nov 18 18:22:05 2016 +0000  Merged in csrf (pull request #55)
+- 694a109 Stéphane Gigandet       Fri Nov 18 14:27:38 2016 +0000  Merged in issues/518-tmp-cleanup (pull request #53)
+- 62693cc Stephane Gigandet       Fri Nov 18 15:01:32 2016 +0100  put back changes that were reverted by error
+- b3e5d74 Stephane Gigandet       Fri Nov 18 14:47:27 2016 +0100  allow identification by passing user_id and user_session in the url instead of in the cookie
+- 9f294f1 hangy   Thu Nov 17 19:14:29 2016 +0100  Added non blocking "packaging code to be completed" state.
+- d62ff98 hangy   Wed Nov 16 20:41:56 2016 +0100  Merge branch 'master' of bitbucket.org:openfoodfacts/product-opener
+- 62e6d4d hangy   Wed Nov 16 10:15:22 2016 +0100  Prove doesn't understand the "-CS" perl switch.
+- 45da5b9 pierreslamich NA        Mon Nov 14 11:15:24 2016 +0000  README.md edited online with Bitbucket
+- 2f1b93f pierreslamich NA        Mon Nov 14 11:01:29 2016 +0000  CHANGELOG.md created online with Bitbucket
+- d5bebc5 hangy   Sun Nov 13 21:15:29 2016 +0100  Added bower.json.
+- 5dfb0d7 hangy   Sun Nov 13 20:48:05 2016 +0100  prefer svg over png label images
+- 32611b8 hangy   Sun Nov 13 20:20:18 2016 +0100  Regard ingredrients as incomplete if the text contains a question mark.
+- 1e49209 hangy   Sun Nov 13 13:26:18 2016 +0100  Use the `Email::IsEmail` module to validate mail addresses according to some RFCs, instead of a manual regex.
+- 457635a hangy   Sat Nov 12 12:41:28 2016 +0100  Replace any whitespace character in the tag/fileid by '-' (not just ' '). This avoids problems with non-breaking whitespace from CLDR.
+- b510222 hangy   Sat Nov 12 10:42:01 2016 +0100  fix: added missing display_error parameter
+- e821d14 hangy   Sat Nov 12 10:13:28 2016 +0100  Merge branch 'master' into csrf
+- 9063073 hangy   Fri Nov 4 13:52:13 2016 +0100   Merge branch 'master' into issue/454
+- ccff0cb hangy   Fri Nov 4 13:50:52 2016 +0100   Normalize percentages when processing tags?
+- d94fd22 hangy   Sat Oct 29 11:19:19 2016 +0000  Merged in scrypt-passwords (pull request #46)
+- 6efeb93 Stéphane Gigandet       Fri Oct 28 16:39:48 2016 +0200  Merged issue/463-xml-error into master
+- 760fc56 Stephane Gigandet       Fri Oct 28 16:41:06 2016 +0200  delete languages field for XML search responses
+- 43fc8ba Stephane Gigandet       Fri Oct 28 16:30:39 2016 +0200  delete uploaded image in /tmp after reading it
+- 8095390 Stéphane Gigandet       Fri Oct 28 16:22:21 2016 +0200  Merged issues/513-space-before-colons into master
+- 22c9160 Stephane Gigandet       Fri Oct 28 16:23:11 2016 +0200  Reverting wrong commit
+- f097e1e Stéphane Gigandet       Fri Oct 28 16:11:04 2016 +0200  Merged issues/513-space-before-colons into master
+- cbf9bc8 Stephane Gigandet       Fri Oct 28 16:04:09 2016 +0200  Language specific space before colon
+- c6aba0d hangy   Fri Oct 14 23:12:33 2016 +0000  Merged in update-taxonomies (pull request #50)
+- aba6511 Stephane Gigandet       Thu Oct 13 18:16:57 2016 +0200  do not put a comma before colons, use {sep}{}
+- 21a4947 Stephane Gigandet       Thu Oct 13 18:16:41 2016 +0200  do not put a comma before colons, use {sep}{}
+- 4090522 Stéphane Gigandet       Thu Oct 13 13:07:45 2016 +0000  Merged in fix/products_json_count_type (pull request #51)
+- 88990f1 Stephane Gigandet       Thu Oct 13 15:07:44 2016 +0200  add 0 to the count in the structured response to make sure it is encoded as a number in JSON
+- bb7f744 Nicolas Leger   Thu Oct 13 01:07:44 2016 +0200  Ensure count as Integer in item page [Issue #189]
+- b4b0c34 Stephane Gigandet       Wed Oct 12 15:01:57 2016 +0200  update taxonomies
+- 06fb048 Stephane Gigandet       Wed Oct 12 14:56:52 2016 +0200  update taxonomies
+- cc5a439 Stéphane Gigandet       Tue Oct 11 22:17:29 2016 +0200  Merged in issue/509 (pull request #49)
+- 2c85b53 Stephane Gigandet       Tue Oct 11 22:17:47 2016 +0200  ignore nutrients that are not passed in the request
+- a5b272e Stéphane Gigandet       Tue Oct 11 16:35:12 2016 +0200  Merged in issue/509 (pull request #48)
+- ab99fc5 Stephane Gigandet       Tue Oct 11 16:22:49 2016 +0200  update code to set nutrients
+- 9a9b18f Stephane Gigandet       Tue Oct 11 15:55:18 2016 +0200  unix linefeeds
+- b7834e3 Stéphane Gigandet       Tue Oct 11 15:15:38 2016 +0200  Merged in issue/463 (pull request #47)
+- f54d57f Stephane Gigandet       Tue Oct 11 15:15:54 2016 +0200  remove languages field in xml export (issue 463)
+- 119bb47 hangy   Wed Oct 5 21:54:30 2016 +0200   Merge remote-tracking branch 'origin/letsencrypt'
+- e2f412c hangy   Wed Oct 5 21:54:23 2016 +0200   Merge remote-tracking branch 'origin/issue/241'
+- 3c44fed hangy   Sat Nov 28 07:40:04 2015 -0500  Updated hashed passwords from crypt to scrypt.
+- 1383bb1 hangy   Sat Nov 28 06:10:41 2015 -0500  Use cryptographically secure token instead of rand().
+- 99d1848 Alex    Sun Oct 2 17:31:15 2016 +0200   added osx `.DS_Store` files to gitignore
+- 16c5194 Alex    Sun Oct 2 14:42:48 2016 +0200   added pro planet label svg
+- 9356fcd Stéphane Gigandet       Fri Sep 30 22:35:36 2016 +0200  Merged in nutriscore-labels (pull request #44)
+- 43edeb9 Stephane Gigandet       Fri Sep 30 22:35:47 2016 +0200  new French NutriScore A/B/C/D/E grades
+- e1a7f7b Stephane Gigandet       Fri Sep 30 22:35:31 2016 +0200  new French NutriScore A/B/C/D/E grades
+- 3dd50f8 Stephane Gigandet       Fri Sep 30 18:00:25 2016 +0200  add missing use Crypt::PasswdMD5 qw(unix_md5_crypt);
+- a235255 hangy   Tue Sep 27 16:28:42 2016 +0200  Added .proverc
+- 759c0fa hangy   Tue Sep 27 16:21:21 2016 +0200  Merge branch 'master' of bitbucket.org:openfoodfacts/product-opener
+- 6c68ab3 Stephane Gigandet       Sun Sep 25 17:56:52 2016 +0200  create product image dirs and subdirs if they were not created correctly
+- 13ec432 hangy   Fri Sep 23 02:03:22 2016 +0200  Added more system packages to cpanfile.
+- c1caec8 Stephane Gigandet       Thu Sep 22 18:22:42 2016 +0200  Mediawiki extension used for SSO with authentication on product opener, through /cgi/sso.pl -- currently broken because of wrong parameters order
+- 91e9f02 hangy   Tue Sep 20 11:45:57 2016 +0200  Merge branch 'master' of bitbucket.org:openfoodfacts/product-opener
+- ce8835e hangy   Tue Sep 20 10:13:09 2016 +0200  Use the same Unicode character in the search dialog as in the nutrition table.
+- 77f8d22 Stéphane Gigandet       Tue Sep 20 09:04:36 2016 +0200  Merged in use-json-pp-issue-469 (pull request #43)
+- 778f682 hangy   Sat Sep 17 10:09:59 2016 +0200  change JSON to JSON::PP
+- 90c63c8 hangy   Sat Sep 17 09:55:18 2016 +0200  Update referenced MongoDB library version.
+- 920d13e Stephane Gigandet       Fri Sep 16 12:28:31 2016 +0200  change JSON to JSON::PP - see issue 469
+- 14437e8 Stéphane Gigandet       Fri Sep 16 12:16:43 2016 +0200  Merged master into use-json-pp-issue-469
+- ae7553b Stéphane Gigandet       Fri Sep 16 11:55:33 2016 +0200  Merged fix-warnings into master
+- 5a7e476 Stéphane Gigandet       Fri Sep 16 11:52:33 2016 +0200  Merged preprod into master. This is what is currently in production on the new server for OBF and OFF right now.
+- 64be423 Stéphane Gigandet       Fri Sep 16 11:51:46 2016 +0200  Merged fix-warnings into preprod
+- ce19fd6 Stephane Gigandet       Fri Sep 16 11:50:56 2016 +0200  remove uninitialized variable warnings
+- 0ce24db Stéphane Gigandet       Fri Sep 16 11:48:06 2016 +0200  Merged preprod into fix-warnings
+- a20ddaf Stéphane Gigandet       Fri Sep 16 11:44:03 2016 +0200  Merged update-mongodb-perl-module into preprod
+- e10fae1 Stephane Gigandet       Wed Sep 14 23:26:31 2016 +0200  Perl MongoDB module updated to 0.702 to 1.4.5. Not 100% compatible, some syntax and results changed
+- b8f3e17 Stéphane Gigandet       Wed Sep 14 22:14:57 2016 +0200  Merged issue/468 into fix-warnings
+- 2acb9d8 Stephane Gigandet       Wed Sep 14 22:15:33 2016 +0200  try to auto_reconnect mongodb connections
+- 57d20e4 Stéphane Gigandet       Tue Sep 13 11:15:18 2016 +0200  Merged preprod into fix-warnings
+- 7840fc7 Stéphane Gigandet       Tue Sep 13 10:45:44 2016 +0200  Merged update-leaflet-0.7.7 into preprod
+- e964e68 Stephane Gigandet       Tue Sep 13 10:44:26 2016 +0200  remove leaflet-0.7.zip
+- 14cc941 Stephane Gigandet       Tue Sep 13 10:42:02 2016 +0200  don't redirect ssl-api-test subdomain
+- 00dedfd Stephane Gigandet       Tue Sep 13 10:40:15 2016 +0200  fix redirect loop for products without a titleid
+- 3c10402 Stéphane Gigandet       Mon Sep 12 14:32:55 2016 +0200  Merged update-leaflet-0.7.7 into preprod
+- cd40118 Stéphane Gigandet       Mon Sep 12 14:32:07 2016 +0200  Merged fix-warnings into preprod
+- 2c62fa8 Stephane Gigandet       Mon Sep 12 14:31:44 2016 +0200  add a version of leaflet-0.7/Leaflet.markercluster-leaflet-0.7 in source tree
+- 50ff340 Stephane Gigandet       Mon Sep 12 14:31:01 2016 +0200  escape @ in path for leaflet on cdn
+- 6fdb71a Stephane Gigandet       Mon Sep 12 12:20:06 2016 +0200  fix uninitialized variables warnings
+- df10c1d Stéphane Gigandet       Mon Sep 12 12:17:22 2016 +0200  Merged preprod into fix-warnings
+- fd91396 Stéphane Gigandet       Mon Sep 12 10:23:57 2016 +0200  Merged always-redirect-to-titleid into preprod
+- b18cceb Stéphane Gigandet       Mon Sep 12 10:23:24 2016 +0200  Merged hide-product-revisions-from-robots into preprod
+- d2bda55 Stéphane Gigandet       Mon Sep 12 10:22:38 2016 +0200  Merged update-leaflet-0.7.7 into preprod
+- 04f85ba hangy   Sun Sep 11 12:54:49 2016 +0200  WIP support tr
+- 96ba3d3 hangy   Sun Sep 11 11:55:53 2016 +0200  Make unit test pass.
+- 89f2f15 hangy   Sat Sep 10 21:57:56 2016 +0200  WIP percentage formatting
+- c2eb36d hangy   Sat Sep 10 13:16:51 2016 +0200  Removed outdated select2 javascript library.
+- 9611cac hangy   Sat Sep 10 13:15:11 2016 +0200  Updated to leaflet 0.7.7.
+- 42e5035 hangy   Sat Sep 10 12:38:04 2016 +0200  Don't allow robots to index old product revisions.
+- a0a9cee hangy   Sat Sep 10 12:30:30 2016 +0200  Redirect all product URIs to include the titleid.
+- 34909f3 Stéphane Gigandet       Thu Sep 8 14:52:46 2016 +0200   Merged in fix-warnings (pull request #38)
+- 1820856 Stephane Gigandet       Thu Sep 8 14:48:56 2016 +0200   fix uninitialized values warnings
+- f48cd23 Stephane Gigandet       Thu Sep 8 13:49:14 2016 +0200   fixed hash initialization
+- 9e362a2 Stéphane Gigandet       Thu Sep 8 12:55:37 2016 +0200   Merged in issue/457 (pull request #37)
+- 9c2053b Stephane Gigandet       Thu Sep 8 12:55:15 2016 +0200   fix alt tag for product images
+- a5b4f0d Stéphane Gigandet       Thu Sep 8 12:43:43 2016 +0200   Merged move-scripts-from-cgi into master
+- c64b7f6 Stephane Gigandet       Thu Sep 8 12:40:16 2016 +0200   move product-multilingual.js from /cgi to /html/js
+- cebbbee Stephane Gigandet       Thu Sep 8 12:37:49 2016 +0200   remove symlink to /cgi
+- fe97b9e Stephane Gigandet       Thu Sep 8 11:58:00 2016 +0200   replace Blogs:: by ProductOpener:: , add symlink to be able to run scripts from the scripts directory
+- e19b102 Stephane Gigandet       Thu Sep 8 11:18:04 2016 +0200   update some paths
+- c5bab64 Stéphane Gigandet       Thu Sep 8 11:07:16 2016 +0200   Merged in move-admins-from-display-to-config (pull request #36)
+- da90b54 hangy   Mon Aug 29 19:35:45 2016 +0200  Merge branch 'move-scripts-from-cgi'
+- 52240e7 hangy   Mon Aug 29 01:01:49 2016 +0200  Added an experimental script to output all possible subdomains of a product opener instance.
+- 68ad15a Sebastien Aperghis-Tramoni      Mon Aug 29 00:03:56 2016 +0200  move pragmata at beginning; more modern way to use Exporter
+- 882b345 Stephane Gigandet       Sun Aug 28 17:47:08 2016 +0200  move user_ids of admins from Display.pm to Config.pm
+- ab92846 Stéphane Gigandet       Sun Aug 28 16:37:03 2016 +0200  Merged move-scripts-from-cgi into master
+- dd7a5e7 hangy   Sat Aug 27 14:09:11 2016 +0200  Update to select2 v4.0.3.
+- 3f472cb hangy   Sat Aug 27 13:02:01 2016 +0200  Merge branch 'master' into update-package-name
+- 82c6e47 hangy   Sat Aug 27 12:58:32 2016 +0200  Squashed commit of the following:
+- 994513f Alex    Fri Aug 26 22:27:28 2016 +0200  replaced belgian family brewers with svg version
+- b3da4bd Alex    Fri Aug 26 22:21:23 2016 +0200  replaced assured food standards logo with svg version
+- a5ce5ea Alex    Fri Aug 26 22:14:15 2016 +0200  added label image european-vegetarian-union
+- 3ae0d40 hangy   Fri Aug 26 18:18:37 2016 +0200  Merge branch 'move-scripts-from-cgi' into update-package-name
+- 3eb8321 Stephane Gigandet       Fri Aug 26 17:31:25 2016 +0200  merge update-pacjage-name into move-scripts-from-cgi
+- b6f77ff Stephane Gigandet       Fri Aug 26 16:58:44 2016 +0200  move scripts to /scripts instead of /cgi
+- c0b6240 Stéphane Gigandet       Fri Aug 26 16:50:35 2016 +0200  Merged in cache_init_languages (pull request #35)
+- 46eb4c3 Stéphane Gigandet       Fri Aug 26 16:49:52 2016 +0200  Merged in product-edit-code-refactoring (pull request #34)
+- 1bae2a9 hangy   Fri Aug 26 16:16:02 2016 +0200  Merge branch 'cache_init_languages' into update-package-name
+- da3069a Stephane Gigandet       Fri Aug 26 15:47:12 2016 +0200  Cache some long initialization steps so that the server and scripts start faster
+- d33a1ef Stéphane Gigandet       Fri Aug 26 12:21:56 2016 +0200  Merged product-edit-code-refactoring into cache_init_languages
+- 043553f Stephane Gigandet       Fri Aug 26 11:22:29 2016 +0200  starting to factorize some code used when product fields are changed
+- 1d8ddd8 hangy   Thu Aug 25 19:41:29 2016 +0200  Re-add default sort for the updated DataTables.
+- 056e412 hangy   Thu Aug 25 19:41:29 2016 +0200  Re-add default sort for the updated DataTables.
+- 06bac1b hangy   Wed Aug 24 20:25:09 2016 +0200  Merge branch 'master' into update-package-name
+- 29ca4a0 Stéphane Gigandet       Wed Aug 24 17:13:18 2016 +0200  Merged in remove-old-code (pull request #33)
+- c88acd5 Stephane Gigandet       Wed Aug 24 17:13:01 2016 +0200  Config2.pm is instance specific, need to be configured, Config2_sample.pm is now provided instead
+- 93dc174 Stephane Gigandet       Wed Aug 24 17:11:26 2016 +0200  remove old configfile
+- 2d94840 Stephane Gigandet       Wed Aug 24 17:11:00 2016 +0200  Config.pm is instance specific, and should be linked to Config_off.pm / Config_obf.pm
+- 724bed2 Stéphane Gigandet       Wed Aug 24 17:00:36 2016 +0200  Merged in remove-old-code (pull request #32)
+- 774d916 Stephane Gigandet       Wed Aug 24 16:42:15 2016 +0200  replace product.pl product_jqm.pl and product_jqm2.pl by links to product_multilingual.pl
+- 883c747 Stephane Gigandet       Wed Aug 24 16:41:21 2016 +0200  remove unused product*.js superseded by product-multilingual.js
+- 38302bb Stéphane Gigandet       Wed Aug 24 16:32:15 2016 +0200  Merged in priority-to-svg-for-tags (pull request #31)
+- 09b7e16 Stéphane Gigandet       Wed Aug 24 16:31:52 2016 +0200  Merged in issue/399 (pull request #30)
+- 3943698 Stephane Gigandet       Wed Aug 24 16:26:48 2016 +0200  Give priority to svg images for tags
+- 19992e8 hangy   Mon Aug 22 23:26:57 2016 +0200  Merge branch 'master' into update-package-name
+- a0e7a1a Alex    Thu Aug 18 08:19:05 2016 +0200  added ℮ sign as label image
+- 0b3b55e Alex    Wed Aug 17 19:51:19 2016 +0200  added misc packaging labels
+- f73c295 Alex    Wed Aug 17 19:22:19 2016 +0200  added general recycling labels.
+- 972cd5c Alex    Tue Aug 16 20:39:02 2016 +0200  added svg version of ab-agriculture-biologique
+- fe0a7dd Alex    Tue Aug 16 09:05:47 2016 +0200  replaced migros png w svg
+- fc3613a Alex    Tue Aug 16 09:02:05 2016 +0200  added label image for einwegpfandflasche
+- e8791cc hangy   Mon Aug 15 13:45:53 2016 +0200  Use the new SVG for nutrient_levels instead of PNG.
+- e5da7b5 Alex    Mon Aug 15 13:34:33 2016 +0200  added nutrition level images as svg
+- 257a908 Alex    Mon Aug 15 13:04:19 2016 +0200  removed redundant label images
+- 156915d Alex    Mon Aug 15 13:01:10 2016 +0200  removed redundant label images
+- 31c62f7 Alex    Mon Aug 15 13:00:26 2016 +0200  added fsc label image
+- 2ee22c9 Alex    Mon Aug 15 12:54:42 2016 +0200  added eu ecolabel image
+- 3c0cbe1 Alex    Mon Aug 15 12:48:26 2016 +0200  removed redundant label images
+- d115e27 hangy   Mon Aug 15 12:37:52 2016 +0200  Merge branch 'master' into update-package-name
+- 832ef2b hangy   Mon Aug 15 12:35:54 2016 +0200  Merge branch 'issue/107'
+- f57483d hangy   Mon Aug 15 12:27:32 2016 +0200  Redirect /fr:produit/123 to /product/123.
+- e472b38 hangy   Mon Aug 15 11:21:45 2016 +0200  Updated translations from https://wiki.openfoodfacts.org/index.php?title=Translations_-_Web_site_interface&oldid=5121
+- e9b8d77 hangy   Sun Aug 14 23:15:24 2016 +0200  Some minor HTML validation problems.
+- 22b88cf Alex    Sun Aug 14 21:54:15 2016 +0200  added terrasuisse svg logo
+- 797b70e Alex    Sun Aug 14 21:46:12 2016 +0200  added usda logo
+- b45cfac Alex    Sun Aug 14 21:32:38 2016 +0200  added svg labels of geschützte Ursprungsbezeichnung & geschützte geografische Angabe
+- eabe1a8 Alex    Sun Aug 14 18:02:08 2016 +0200  added more logos as svg
+- c149fa6 Alex    Sun Aug 14 17:39:12 2016 +0200  added brown and green dot
+- d9b3bee hangy   Sun Aug 14 13:33:02 2016 +0200  Merge branch 'master' of bitbucket.org:openfoodfacts/product-opener
+- 248e784 hangy   Sun Aug 14 13:28:12 2016 +0200  Disable paging explicitly.
+- 7007913 hangy   Sun Jul 31 14:59:11 2016 +0200  Added missing sort images.
+- 96e322c hangy   Sun Jul 24 02:07:57 2016 +0200  Updated DataTables syntax.
+- 9e1dd24 hangy   Sun Jul 24 01:40:30 2016 +0200  Updated to DataTables.
+- eff0574 hangy   Sun Aug 14 12:12:13 2016 +0200  Support more different punctuation characters.
+- 90a6bd3 hangy   Sun Aug 14 11:26:42 2016 +0200  Don't redirect to 'world' from ssl-api.$server_domain.
+- 9273d46 Alex    Sun Aug 14 11:03:07 2016 +0200  added international fairtrade logo as svg
+- c575ad6 Alex    Fri Aug 12 17:49:00 2016 +0200  added logo for https://uk.openfoodfacts.org/label/not-advised-for-pregnant-women
+- 71b74d8 Alex    Thu Aug 11 18:23:58 2016 +0200  reduced filesize
+- b2afc12 hangy   Thu Aug 11 16:47:02 2016 +0200  Need to use smartmatch to get the tag in that hash/array(?).
+- 23ac034 hangy   Thu Aug 11 15:58:04 2016 +0200  Removed Store.debug.txt to a unit test to avoid that annoying file everywhere. :)
+- 4200a4c hangy   Thu Aug 11 15:45:26 2016 +0200  Added a first unit test for fun.
+- 58be2ca Alex    Thu Aug 11 13:35:42 2016 +0200  added dlg jährlich prämiert logo
+- 695eaaf hangy   Thu Aug 11 13:07:01 2016 +0200  Removed "use lib" from startup*.pl
+- 6427a27 Alex    Thu Aug 11 12:59:24 2016 +0200  added the green dot logo for: https://world.openfoodfacts.org/label/green-dot
+- 037b999 Alex    Thu Aug 11 12:51:37 2016 +0200  renamed according to https://de.openfoodfacts.org/label/eg-oko-verordnung
+- 9268431 hangy   Thu Aug 11 11:55:59 2016 +0200  Renamed the package from Blogs to ProductOpener and moved it to it's own lib directory.
+- 5a4622d Alex    Wed Aug 10 20:17:07 2016 +0200  added logo of DE-ÖKO-Verordnung. see https://de.wikipedia.org/wiki/Bio-Siegel#Deutsches_staatliches_Bio-Siege l
+- 7484f07 Alex    Wed Aug 10 19:04:48 2016 +0200  optimised eu organic logo
+- 35c7ddf Alex    Wed Aug 10 18:53:27 2016 +0200  added additional svg logos
+- 035a5d0 hangy   Wed Aug 10 16:04:11 2016 +0200  Escape nutrient ids like URL components.
+- 7a76c68 hangy   Wed Aug 10 11:27:31 2016 +0200  Added some SVG logos.
+- dbe52b7 hangy   Wed Aug 10 11:08:44 2016 +0200  Bugfix: Display tag instead of tagid.
+- 62cd70a hangy   Mon Aug 8 14:11:05 2016 +0200   Made displayed weblinks (wikidata) configurable.
+- f792d22 hangy   Sun Aug 7 13:43:47 2016 +0200   Redirect user to their referer, if the domain is correct.
+- e086cad hangy   Sun Aug 7 12:59:41 2016 +0200   Disabled "toggleDragModeOnDblclick" cropper property.
+- c22566c hangy   Sun Aug 7 12:58:09 2016 +0200   Updated to cropper v2.3.2
+- 3a2aec1 hangy   Sun Aug 7 12:17:36 2016 +0200   Use the "en:palm-oil-free" to skip palm oil detection.
+- 38544cb hangy   Sat Aug 6 14:12:17 2016 +0200   Limit redirect world-en => world to GET requests.
+- cc7e7e4 hangy   Fri Aug 5 15:26:02 2016 +0200   Added simple unit of alcohol calculation.
+- ba014d9 hangy   Fri Aug 5 13:25:25 2016 +0200   Check CSRF token before deleting a multilingual product.
+- acf600e hangy   Wed Dec 9 18:15:35 2015 -0500   Check CSRF token before deleting a product.
+- c589869 hangy   Sun Nov 29 07:28:38 2015 -0500  Added WWW::CSRF to user related methods.
+- 63dea51 hangy   Fri Aug 5 11:35:34 2016 +0200   Use \N{U+...} for Unicode literals instead of \x{...}
+- 02cdb83 hangy   Thu Aug 4 21:12:12 2016 +0200   Reorder russian nutrition facts.
+- 1b06d5d hangy   Sun Jul 31 12:52:28 2016 +0200  Merge branch 'master' of bitbucket.org:openfoodfacts/product-opener
+- 07582b7 Stephane Gigandet       Sat Jul 30 20:08:40 2016 +0200  fix broken div tag
+- 83bcf3e Stephane Gigandet       Sat Jul 30 16:34:07 2016 +0200  Merge branch 'master' of https://bitbucket.org/openfoodfacts/product-opener
+- 14271c8 Stephane Gigandet       Sat Jul 30 16:33:38 2016 +0200  support latitude and longitude for lat and lng field names
+- 52bfdd4 Stephane Gigandet       Sat Jul 30 16:32:48 2016 +0200  use openstreetmap tiles
+- 0e8307e hangy   Thu Jul 28 20:45:41 2016 +0200  Removed files that should probably not be public.
+- 1dfa9ee hangy   Sun Jul 24 15:14:55 2016 +0200  Fix typo Potentially => Potentially.
+- 4e5f243 hangy   Sun Jul 24 00:52:10 2016 +0200  Added support for &le; and &ge; nutrition value modifiers.
+- 8320f13 hangy   Sat Jul 23 23:21:20 2016 +0200  Minor cleanup of Swiss packager codes CSV. Realized too late what a weird CSV format this is. Probably not perfect, yet, but the results depends on the packaging code normalizer and the CSV parser.
+- a1f7b72 hangy   Sat Jul 23 23:13:18 2016 +0200  Updated script for Swiss packager codes.
+- a32ff76 hangy   Thu Jul 21 12:39:42 2016 +0200  Merge branch 'master' of bitbucket.org:openfoodfacts/product-opener
+- f399f62 hangy   Thu Jul 21 12:38:52 2016 +0200  Merged develop into master
+- 915a663 hangy   Thu Jul 21 12:33:47 2016 +0200  Added simple OpenSearch 1.1 implementation.
+- 864661d hangy   Thu Jul 21 12:33:47 2016 +0200  Added simple OpenSearch 1.1 implementation.
+- c10f3ed hangy   Thu Jul 21 11:15:14 2016 +0200  Limit automatic product creation (counter based) to POST requests. Hopefully fixes #129.
+- 2c009c5 hangy   Thu Jul 21 01:09:10 2016 +0200  Allow auto suggest requests to be prefixed with an language code by the user.
+- 1ea294f hangy   Wed Jul 20 23:40:21 2016 +0200  Translated some error messages or made them translatable.
+- 6b934c1 hangy   Wed Jul 20 22:42:36 2016 +0200  Don't treat users as tags.
+- 64acffb hangy   Wed Jul 20 22:33:14 2016 +0200  Refactored $cssclass logic into it's own sub.
+- 9b59b37 hangy   Wed Jul 20 22:24:59 2016 +0200  Copied tag well_known/user_defined from the display tag link sub.
+- f70bf17 Sebastien Aperghis-Tramoni      Wed Jul 6 01:17:39 2016 +0200   i18n fix: these strings must begin with the same number of newlines
+- 165d60f Stephane Gigandet       Tue Jul 5 13:49:01 2016 +0200   Remove some warnings
+- aeea530 Stephane Gigandet       Tue Jul 5 13:48:30 2016 +0200   special startup file to load modules for Apache 2.4
+- b04ccf4 hangy   Sun Jul 3 15:19:54 2016 +0200   Added DE packager codes from https://github.com/openfoodfacts/eu-food-data/blob/master/de/export.csv
+- b603af3 hangy   Thu Jun 30 20:11:37 2016 +0200  Bugfix Not enough arguments for Blogs::Food::canonicalize_nutriment at /home/po/cgi/product.pl line 398, near "$label)"
+- 5991325 hangy   Thu Jun 30 00:21:57 2016 +0200  Display a real 404 error - for unknown addresses - for unknown products
+- 6a542ee hangy   Wed Jun 29 20:51:13 2016 +0000  Store.pm edited online with Bitbucket
+- 4847a77 Stephane Gigandet       Fri Jun 24 18:54:04 2016 +0200  new logos for French meat / produce labels
+- e832ba3 Stephane Gigandet       Fri Jun 24 18:37:07 2016 +0200  adding misc and tags images, deleting unused countries js
+- 58971ef hangy   Sun Jun 19 16:02:45 2016 +0200  Bugfix: Missing /
+- 9c3e26d hangy   Sun Jun 19 15:01:26 2016 +0200  Revert "Use FindBin to get the lib directory?"
+- e59e864 hangy   Sun Jun 19 14:14:24 2016 +0200  Also added the 'experimental' module for smartmatch.
+- b07f75d hangy   Sun Jun 19 13:59:26 2016 +0200  Use FindBin to get the lib directory?
+- 91b022e hangy   Sun Jun 19 13:58:57 2016 +0200  null => undef
+- 225450c hangy   Sun Jun 19 13:58:16 2016 +0200  Missing CPAN modules added.
+- 56d8386 hangy   Sun Jun 19 13:00:17 2016 +0200  Squashed commit of the following:
+- 7f001f9 Stephane Gigandet       Mon Jun 13 10:19:18 2016 +0200  Merge branch 'master' of https://bitbucket.org/openfoodfacts/product-opener
+- e631745 Stephane Gigandet       Mon Jun 13 10:18:53 2016 +0200  update js directory to be closer to what is in production - need some cleaning
+- add4215 Pierre Slamich  Sun Jun 12 22:21:37 2016 +0200  Merged in pierreslamich/https-for-twitter-url-for-schemaorg-1465762876520 (pull request #28)
+- f93762b Pierre Slamich  Sun Jun 12 20:21:18 2016 +0000  https for twitter url for schema.org
+- f95570e Pierre Slamich  Sun Jun 12 20:04:40 2016 +0000  Images.pm : using minified js
+- 4cff140 Stephane Gigandet       Sun Jun 12 18:50:36 2016 +0200  save crop options so that we can recrop later
+- f21cd91 Stéphane Gigandet       Sun Jun 12 18:18:42 2016 +0200  Merged in image-compression (pull request #26)
+- faf1ffa Stéphane Gigandet       Sun Jun 12 17:59:25 2016 +0200  Merged in redirect-to-country-subdomain (pull request #27)
+- ac0c4e4 Stéphane Gigandet       Sun Jun 12 17:58:26 2016 +0200  Merged in tag-link-language (pull request #25)
+- 2a69e63 Stéphane Gigandet       Sun Jun 12 17:52:34 2016 +0200  Merged in display-page-number (pull request #21)
+- bbd61a3 Stephane Gigandet       Sun Jun 12 17:44:20 2016 +0200  Merge branch 'master' of https://bitbucket.org/openfoodfacts/product-opener
+- b2c2740 Stephane Gigandet       Sun Jun 12 17:42:12 2016 +0200  autovalidate tags suggestions when losing focus
+- 9f3d564 Stephane Gigandet       Sun Jun 12 17:41:48 2016 +0200  autovalidate tags suggestions when losing focus
+- 4092537 Stephane Gigandet       Sun Jun 12 17:39:50 2016 +0200  added more texts updated from wiki
+- ffb1874 Stephane Gigandet       Sun Jun 12 17:39:14 2016 +0200  updated translations from wiki, in particular Japanese
+- 0928ab1 hangy   Sun Jun 12 15:28:19 2016 +0200  Redirect fr-fr.off.org to fr.off.org, world-en.off.org to world.off.org, etc.
+- 0cc58a7 hangy   Sun Jun 12 14:18:14 2016 +0200  Use some more compression options instead of just the JPG quality setting.
+- dda219b hangy   Sun Jun 12 14:05:23 2016 +0200  Moved $width parameter to the method as an optional value.
+- 5ae52de hangy   Sun Jun 12 13:25:05 2016 +0200  Copy & paste of some well tested ImageMagick options for optimized JPEG files.
+- 2759290 hangy   Sun Jun 12 12:10:29 2016 +0200  Remove single quotes from X-XSS-Protection header.
+- a1e4aaf hangy   Sat Jun 11 18:00:20 2016 +0200  Don't display "otherlanguage:tag name" for links.
+- 14a5dda Pierre Slamich  Sat Jun 11 17:26:37 2016 +0200  Merged pierreslamich/jqueryfileuploadipminjs-minified-version-1465655745421 into master
+- 3d77973 Pierre Slamich  Sat Jun 11 17:26:27 2016 +0200  Merged master into pierreslamich/jqueryfileuploadipminjs-minified-version-1465655745421
+- b069483 Pierre Slamich  Sat Jun 11 17:25:58 2016 +0200  Merged pierreslamich/jqueryiframetransportminjs-minified-vers-1465655600286 into master
+- 2402ebc Pierre Slamich  Sat Jun 11 17:25:45 2016 +0200  Merged master into pierreslamich/jqueryiframetransportminjs-minified-vers-1465655600286
+- da454f7 Pierre Slamich  Sat Jun 11 17:25:27 2016 +0200  Merged pierreslamich/jqueryfileuploadminjs-added-minified-ver-1465655429821 into master
+- ae87f60 Pierre Slamich  Sat Jun 11 17:25:15 2016 +0200  Merged master into pierreslamich/jqueryfileuploadminjs-added-minified-ver-1465655429821
+- 9fda5f1 Pierre Slamich  Sat Jun 11 17:24:55 2016 +0200  Merged pierreslamich/use-minified-version-of-jqueryui-already-1465560355954 into master
+- 6053ac0 Pierre Slamich  Sat Jun 11 17:19:04 2016 +0200  optimized images
+- a379d09 Pierre Slamich  Sat Jun 11 14:35:47 2016 +0000  jquery.fileupload-ip.min.js (minified version)
+- 84c0813 Pierre Slamich  Sat Jun 11 14:33:22 2016 +0000  jquery.iframe-transport.min.js (minified version)
+- 3bac9fa Pierre Slamich  Sat Jun 11 14:30:32 2016 +0000  jquery.fileupload.min.js (added minified version)
+- 5f7686c hangy   Sat Jun 11 15:50:01 2016 +0200  Re-add </h1> which gets removed by the previous Regex.
+- 2430f2c hangy   Sat Jun 11 15:39:33 2016 +0200  Display the page number for page 2+ to avoid duplicate titles.
+- bc7bcf4 Pierre Slamich  Fri Jun 10 12:06:00 2016 +0000  Use minified version of jquery-ui already on server.
+- b97e10d Sebastien Aperghis-Tramoni      Fri Jun 10 02:02:54 2016 +0200  langtag typo
+- 9ae54f8 Sebastien Aperghis-Tramoni      Fri Jun 10 01:46:08 2016 +0200  the ISO 639-2 code for Japanese is 'ja', not 'jp'
+- 2a9b0bc Sebastien Aperghis-Tramoni      Fri Jun 10 01:43:29 2016 +0200  add missing English strings
+- 6f6f12d Sebastien Aperghis-Tramoni      Thu Jun 9 21:45:04 2016 +0200   fix this Hebrew string that broke the following translations
+- 0652ec5 Stephane Gigandet       Thu Jun 2 14:25:19 2016 +0200   add languages to taxonomies to load
+- 8c7b2e6 Stéphane Gigandet       Thu Jun 2 13:00:28 2016 +0200   Merged openbeautyfacts into master
+- c2461e1 Stéphane Gigandet       Thu Jun 2 12:59:46 2016 +0200   Merged in ingredientslang (pull request #15)
+- b029671 Stéphane Gigandet       Thu Jun 2 12:42:01 2016 +0200   Merged in securetoken (pull request #17)
+- 151a1f5 Stéphane Gigandet       Thu Jun 2 12:38:35 2016 +0200   Merged in securityheaders (pull request #16)
+- c3add53 Stéphane Gigandet       Thu Jun 2 12:34:59 2016 +0200   Merged openbeautyfacts into master
+- 9c89d15 Stephane Gigandet       Thu Jun 2 12:32:28 2016 +0200   fix issues with lang / lc fields
+- 40eb551 Stephane Gigandet       Thu Jun 2 12:31:47 2016 +0200   initialize lang to lc
+- 79ab62a Stephane Gigandet       Thu Jun 2 12:31:30 2016 +0200   Do not try to assign pnns categories if the product does not have categories
+- 33905ae Stephane Gigandet       Thu Jun 2 12:30:46 2016 +0200   franprix scanparty bulk upload script
+- 43b4706 Stephane Gigandet       Thu Jun 2 12:30:19 2016 +0200   bot to update products, fix issues etc.
+- d1f3737 Stephane Gigandet       Thu Jun 2 12:27:33 2016 +0200   added 'Contributor since' on contributor page
+- 4f2e3a1 Stephane Gigandet       Thu Jun 2 12:26:52 2016 +0200   added also_edited_by and contributor_since
+- 523c356 Stephane Gigandet       Thu Jun 2 12:26:22 2016 +0200   show nutrition facts image next to nutrition facts table
+- 82afbfb hangy   Mon May 23 13:45:39 2016 +0000  Display.pm edited online with Bitbucket Escape " => \".
+- 98098d9 hangy   Sat Dec 5 08:35:40 2015 -0500   More random session identifier.
+- 851da03 hangy   Sat May 21 14:37:57 2016 +0200  Merge branch 'openbeautyfacts' into securetoken
+- 3e81723 hangy   Sat May 21 14:36:39 2016 +0200  Merge branch 'openbeautyfacts' into securityheaders
+- f810f59 hangy   Sat May 21 14:35:03 2016 +0200  Merge branch 'ingredients_lang' into ingredientslang
+- e7c198d Stephane Gigandet       Sat May 21 10:35:50 2016 +0200  Stats and exports of franprix products
+- 4e76207 Stephane Gigandet       Sat May 21 10:35:23 2016 +0200  Fix front_fr_fr bug, add more debug info with a session tracking number to follow simultaneous image uploads
+- 9deb131 Stephane Gigandet       Sat May 21 10:34:07 2016 +0200  Add product_last_edited and also_edited_by
+- 3c49a88 Stephane Gigandet       Sat May 21 10:33:29 2016 +0200  Fix display of nutrition image next to nutrition table entry form
+- a6ebcdd Stephane Gigandet       Sat May 21 10:32:29 2016 +0200  Fix initialization of last_edit_dates_tags - Compute last_editor, add last_image_dates_tags
+- 45fc567 Stephane Gigandet       Sat May 21 10:31:10 2016 +0200  Set ingredients_text_with_allergens field to the main language version
+- b303a81 Stephane Gigandet       Sat May 21 10:30:26 2016 +0200  Display last edit date and editors on product page
+- 98cfd8f Stephane Gigandet       Wed May 18 19:21:28 2016 +0200  Display tags logos even if the tag language does not match the interface language (e.g. fr:ab-agriculture-biologique tag on a product seen on world
+- 8605b56 Stephane Gigandet       Wed May 18 19:20:10 2016 +0200  Add back images urls in API results - see bug #295
+- ce857e7 Stephane Gigandet       Wed May 18 15:36:27 2016 +0200  fix nutrient languages initialization - multilingual products
+- 132f4db Stephane Gigandet       Wed May 18 15:35:48 2016 +0200  fix displaying languages in tabs
+- 3682bfb Stephane Gigandet       Wed May 18 15:35:06 2016 +0200  fix nutrition labels to default to English when not available in interface language
+- a6dd354 Stephane Gigandet       Sun May 15 14:50:17 2016 +0200  display nutrient names in English if we don't have them in the local language
+- 5380a39 Stephane Gigandet       Sun May 15 14:49:23 2016 +0200  fix allergens detection for multilingual products
+- fb703f8 Stephane Gigandet       Sun May 15 14:48:39 2016 +0200  compute_languages and detect_allergens
+- 8e64787 hangy   Sat May 14 20:26:51 2016 +0200  Add the "lang" attribute to ingredients in a language other than the current $lc.
+- bb35c63 Stephane Gigandet       Sat May 14 15:32:46 2016 +0200  fix allergens detection for multilingual
+- 237d980 Stephane Gigandet       Sat May 14 15:31:25 2016 +0200  minor improvements
+- 50fb0b1 Stephane Gigandet       Sat May 14 15:30:44 2016 +0200  display language tabs in interface language, fix suggestions, add target language code in canonicalize_nutriment
+- d4d4cf5 Stephane Gigandet       Sat May 14 15:29:37 2016 +0200  add target language code in canonicalize_nutriment
+- 5816416 Stephane Gigandet       Sat May 14 15:28:42 2016 +0200  add languages in taxonomy fields
+- b6ded6a hangy   Sat Nov 28 06:10:41 2015 -0500  Use cryptographically secure token instead of rand().
+- 10cf982 hangy   Sun Nov 29 05:52:25 2015 -0500  Added first https://securityheaders.com/
+- fe5aa5e Stephane Gigandet       Fri May 13 17:05:22 2016 +0200  change language value 'other' to 'xx'
+- 16a7f8d Stephane Gigandet       Fri May 13 14:09:58 2016 +0200  only export csv / rdf for EN and FR, not 200 languages
+- 00a4f2e Stephane Gigandet       Fri May 13 14:09:25 2016 +0200  remove words synonyms from suggestions, fix utf8 for suggestions
+- 501158a Stephane Gigandet       Thu May 12 21:30:44 2016 +0200  Add autocomplete suggestions for taxonomy field. Thanks @lucaa. Bug #213
+- 046e011 Stephane Gigandet       Thu May 12 14:35:25 2016 +0200  Compute edit history for language specific fields and images
+- 97ce6c3 Stephane Gigandet       Wed May 11 19:52:04 2016 +0200  Merge branch 'openbeautyfacts' of https://bitbucket.org/openfoodfacts/product-opener into openbeautyfacts
+- 4070270 Stephane Gigandet       Wed May 11 19:51:36 2016 +0200  change openfoodfacts.org to server_domain variable
+- 8b571d9 Stephane Gigandet       Wed May 11 19:51:12 2016 +0200  use languages taxonomy to define available product languages
+- cc692a7 Stephane Gigandet       Wed May 11 19:21:08 2016 +0200  add languages taxonomy
+- 4614d48 Stephane Gigandet       Wed May 11 19:20:12 2016 +0200  Merge branch 'openbeautyfacts' of https://bitbucket.org/openfoodfacts/product-opener into openbeautyfacts
+- 60f75fc Stephane Gigandet       Wed May 11 19:19:49 2016 +0200  fix diff typo
+- 8775421 Stephane Gigandet       Wed May 11 18:17:14 2016 +0200  fix merge conflicts from master to openbeautyfacts
+- f239462 Stephane Gigandet       Wed May 11 15:51:09 2016 +0200  convert linefeeds from CRLF (dos) to LF (unix)
+- ada884e Stephane Gigandet       Wed May 11 15:36:15 2016 +0200  convert linefeeds from CRLF (dos) to LF (unix)
+- 1e3aa6b Stephane Gigandet       Wed May 11 14:18:47 2016 +0200  customized foundation styles for OFF
+- a29ae05 Stephane Gigandet       Tue May 10 15:33:52 2016 +0200  foundation settings
+- acbb39a Stephane Gigandet       Tue May 10 15:31:47 2016 +0200  add foundation config files
+- fa702dc Stephane Gigandet       Tue May 10 14:20:22 2016 +0200  remove unused global
+- 011cb57 Stephane Gigandet       Tue May 10 14:19:25 2016 +0200  add last pictures dates strings
+- 5c9bf77 Nicolas Leger   Sun May 1 14:08:11 2016 +0200   Merged in fix/additive_levels (pull request #13)
+- 3b298e8 Stephane Gigandet       Thu Apr 7 11:42:46 2016 +0200   fix bug for saturated fat ratio
+- 681b872 Stephane Gigandet       Thu Apr 7 11:42:04 2016 +0200   add taxonomy fields + new texts from wiki
+- 9ce61de Stephane Gigandet       Thu Apr 7 11:40:39 2016 +0200   moved things from Lang.pm to SiteLang_off.pm, number of ingredients, special tags
+- 005fc55 Stephane Gigandet       Thu Apr 7 11:39:18 2016 +0200   leading dash to excluse tag, special ingredients, ingredients_n
+- 67376f1 Stephane Gigandet       Thu Apr 7 11:37:49 2016 +0200   New languages taxonomy, special taxonomies, ingredients_n, commas between numbers
+- 5c13210 Stephane Gigandet       Thu Apr 7 11:35:42 2016 +0200   add number of ingredients field
+- 87ac8ce Stephane Gigandet       Thu Apr 7 11:35:20 2016 +0200   Assume commas between numbers are part of the name, add ingredients_n field
+- 826d1c8 Stephane Gigandet       Wed Mar 23 14:31:46 2016 +0100  change all tabs (product, ingredients, nutrition etc.) when a language tab is selected
+- 2120fa4 Stephane Gigandet       Wed Mar 23 14:30:01 2016 +0100  script to build the global languages taxonomy from wikidata
+- 76c19b6 Stephane Gigandet       Tue Mar 22 15:54:54 2016 +0100  merge
+- 84da82d Stephane Gigandet       Tue Mar 22 15:46:51 2016 +0100  Merge remote branch 'origin/multilingual-products' into openbeautyfacts
+- d8c9d80 Stephane Gigandet       Tue Mar 22 15:35:32 2016 +0100  removing debug alerts
+- a512981 Stephane Gigandet       Mon Mar 21 18:49:30 2016 +0100  merge changes to move/delete images
+- e79ec16 Stephane Gigandet       Mon Mar 21 17:55:30 2016 +0100  update moving/deleting images for multilingual products
+- a8be2d5 Stephane Gigandet       Tue Mar 8 14:32:37 2016 +0100   periods after opening logo and update
+- de9ad24 Stephane Gigandet       Tue Mar 8 14:32:12 2016 +0100   generate polyquaternium ingredients for taxonomy
+- 594807f Stephane Gigandet       Tue Mar 8 14:31:24 2016 +0100   generate SVG logos
+- 92695e5 Stephane Gigandet       Tue Mar 8 14:31:02 2016 +0100   add what's in my shampoo counts
+- 5aeb81d Stephane Gigandet       Tue Mar 8 14:30:35 2016 +0100   allow SVG logos
+- 490ec20 Stephane Gigandet       Tue Mar 8 14:30:05 2016 +0100   fix completeness check for image specific fields
+- 22e6138 Stephane Gigandet       Tue Mar 8 14:29:00 2016 +0100   add Turkish
+- 8f45cd7 Stephane Gigandet       Tue Mar 8 14:28:43 2016 +0100   add some wiki texts
+- 53a55b7 Stephane Gigandet       Tue Mar 8 14:28:21 2016 +0100   allow .foundation in file names
+- bf61072 Stephane Gigandet       Tue Mar 8 14:22:24 2016 +0100   Add languages field
+- 5f1a076 Stephane Gigandet       Tue Mar 8 14:22:06 2016 +0100   Add languages field
+- e0968ed Stéphane Gigandet       Thu Mar 3 11:21:20 2016 +0100   Merged in fix/products_json_count_type (pull request #12)
+- a170e94 Stephane Gigandet       Sun Feb 28 19:01:12 2016 +0100  multilingual changes to use [field name]_[languace code] for images and data entered through the mobile app
+- 9b8fa1d Stephane Gigandet       Sun Feb 28 19:00:27 2016 +0100  fix tagsinput
+- d7ace94 Stephane Gigandet       Sun Feb 28 18:58:12 2016 +0100  merged multilingual-products into openbeautyfacts branch
+- 31b1991 Nicolas Leger   Sun Feb 28 17:06:44 2016 +0100  Fix additive levels from FR list
+- d4e27fa Nicolas Leger   Sat Feb 27 23:28:49 2016 +0100  Fix Products count as Integer in item page
+- 5ca8444 Stephane Gigandet       Sat Feb 27 20:29:23 2016 +0100  add periods_after_opening field
+- 6c217bb Stephane Gigandet       Sat Feb 27 20:29:10 2016 +0100  make taxonomy fields tag fields
+- 67d8c56 Stephane Gigandet       Sat Feb 27 19:09:02 2016 +0100  script to generate taxonomy
+- 4a2b4a8 Stephane Gigandet       Sat Feb 27 19:08:46 2016 +0100  fix tagline, add fields for ingredients analysis
+- c7c29bb Stephane Gigandet       Sat Feb 27 19:08:04 2016 +0100  Display special ingredients (with/without) e.g. parabens, support for number of ingredients in graphs, display a * next to missing taxonomy entries (not only categories)
+- ed8134c Stephane Gigandet       Sat Feb 27 19:05:46 2016 +0100  add Latin as default language for taxonomy entries, support for comma in taxonomy entries, make list of taxonomies configurable
+- 512ab6b Stephane Gigandet       Sat Feb 27 19:03:58 2016 +0100  add round dot as separator for ingredients
+- 6e76d02 Stephane Gigandet       Sat Feb 27 19:03:20 2016 +0100  add number of ingredients in graphable fields
+- 71a2e4f Stephane Gigandet       Sun Feb 21 13:19:05 2016 +0100  creating dedicated multilingual product edit form, discarding multilingual changes in product.pl
+- 229ab56 Stephane Gigandet       Sun Feb 21 13:16:56 2016 +0100  display ingredients in local language if possible, + configurable lists of display fields
+- 0ca38df Stephane Gigandet       Sun Feb 21 13:16:08 2016 +0100  discarding multilingual changes in product-foundation.js and moving them to product-multilingual.js so that we can have the two versions running at the same time
+- b930a07 Stephane Gigandet       Sun Feb 21 13:10:01 2016 +0100  support for different ingredients text and image + ocr by language
+- 0886370 Stephane Gigandet       Sun Feb 21 13:06:26 2016 +0100  made the lists of product fields for edit, display and drilldown configurable
+- a4236f9 Stephane Gigandet       Sun Feb 21 13:06:00 2016 +0100  made the lists of product fields for edit, display and drilldown configurable, as well as available tesseract-ocr dictionaries
+- df1f4aa Stephane Gigandet       Sun Feb 21 13:05:05 2016 +0100  update all products
+- 98166e6 Stephane Gigandet       Sat Feb 20 17:55:28 2016 +0100  fix issues with image selection/cropping when adding new language tabs
+- 10c8426 Stephane Gigandet       Sat Feb 20 17:53:36 2016 +0100  style language tabs
+- c28352e Stephane Gigandet       Sat Feb 20 17:52:53 2016 +0100  do not delete images data from JSON API for admins, useful for debug purposes
+- 0cb7e38 Stephane Gigandet       Sat Feb 20 17:52:16 2016 +0100  copy images and images data to main language of the product. e.g. front -> front_fr
+- ce347bd Stephane Gigandet       Sat Feb 20 17:50:53 2016 +0100  remove nl_be and pt_pt from the language list -- currently not supported and breaking things
+- a2f7c80 Stephane Gigandet       Wed Feb 10 16:36:36 2016 +0100  add support for Ingredients taxonomy
+- 215bea9 Stephane Gigandet       Wed Feb 10 16:35:49 2016 +0100  fix message when displaying products that do NOT have a specific tag
+- 4f71e22 Stephane Gigandet       Mon Feb 8 15:37:35 2016 +0100   add feature to display products that do not have a specific tag - bug #209
+- b703fa0 Stephane Gigandet       Mon Feb 8 15:32:56 2016 +0100   adding new number of ingredients tag field
+- 6e248bc Stephane Gigandet       Mon Feb 8 15:31:16 2016 +0100   Removing some Open Food Facts specific string to move them to SiteLang.pm - also some nl changes - new number of ingredients tag field
+- 111f69f Stephane Gigandet       Mon Feb 8 15:24:12 2016 +0100   Add new states for some completed fields
+- 558308f Stephane Gigandet       Thu Feb 4 18:23:11 2016 +0100   add code of conduct link, disable_equalizer function, fix csv export shift (bug #)
+- 4562aae Stephane Gigandet       Fri Jan 29 14:55:13 2016 +0100  Support for adding new language tabs dynamically - bug #201
+- de7da0b Stephane Gigandet       Fri Jan 29 14:53:23 2016 +0100  compute languages tag fields - bug #205
+- 40805c5 Stephane Gigandet       Thu Jan 28 16:18:41 2016 +0100  bug #201 - add language dynamically (currently only adds Italian ;-))
+- a56e7a3 Stephane Gigandet       Tue Jan 26 16:09:06 2016 +0100  put back the button type accidentally deleted in last commit
+- 0fb511b Stephane Gigandet       Tue Jan 26 15:51:27 2016 +0100  very first increment of multilingual products handling - not complete, some things working, some things broken
+- 28dfbfd Stéphane Gigandet       Tue Jan 26 15:36:30 2016 +0100  Merged master into multilingual-products
+- 3ae6128 Stephane Gigandet       Fri Jan 15 13:34:42 2016 +0100  new mechanism to update automatically pages on OFF web site from their source on the wiki
+- d98bf4a Stephane Gigandet       Fri Jan 15 13:33:16 2016 +0100  fix double escaping of single quotes (was breaking madenearme)
+- 8bb1ae1 Stephane Gigandet       Fri Jan 15 11:42:04 2016 +0100  Merge branch 'master' of https://bitbucket.org/openfoodfacts/product-opener
+- 31aa7fb Stephane Gigandet       Fri Jan 15 11:41:29 2016 +0100  Fix weblinks to use canonical tagid so that they are displayed for all languages
+- 0d01bb4 Stephane Gigandet       Fri Jan 15 10:59:58 2016 +0100  Add link to English wiki in footer
+- 2134a78 Stephane Gigandet       Fri Jan 15 10:55:04 2016 +0100  fix API XML output
+- 92fbd71 root    Tue Jan 12 11:14:24 2016 +0100  sample configuration files for NGINX reverse proxy and Apache 2.4 + mod_perl
+- 99a1fb7 root    Tue Jan 12 11:11:44 2016 +0100  startup file to load Perl modules for Apache 2.4
+- 9a70c3f root    Tue Jan 12 11:11:07 2016 +0100  replace buggy Text::Unaccent by a pure perl version
+- b3dadc8 Stéphane Gigandet       Fri Jan 8 15:44:43 2016 +0100   Merged in taglinks (pull request #11)
+- 984131c Pierre Slamich  Fri Jan 8 15:38:56 2016 +0100   Merged master into taglinks
+- 335c0a7 Stephane Gigandet       Fri Jan 8 15:19:10 2016 +0100   bug 186: add support for json/xml results for lists of tags
+- c9f819b Stephane Gigandet       Fri Jan 8 14:50:03 2016 +0100   bug 186: add support for json/xml results for lists of products and search results
+- 90f0c40 Stephane Gigandet       Fri Jan 8 13:34:04 2016 +0100   bug 186: generalize the serving of json/xml responses
+- 8120539 Stephane Gigandet       Fri Jan 8 12:46:13 2016 +0100   bug 186: change query string analysis to allow appending .json / .xml to the web site urls -- also remove the sub display()
+- 870e899 Stephane Gigandet       Thu Jan 7 19:54:00 2016 +0100   removed mention of the French PNNS for nutrition color grades (not endorsed yet)
+- a671071 Stephane Gigandet       Thu Jan 7 18:16:12 2016 +0100   support for utf8
+- 931b3b8 Stephane Gigandet       Thu Jan 7 18:13:39 2016 +0100   Changes to contribution counts and attribution of products to users (creator field) #bug 178
+- f79e1f0 Stephane Gigandet       Fri Jan 1 21:08:58 2016 +0100   fix conversion issue for 'floz'
+- b903344 Stephane Gigandet       Fri Jan 1 21:02:21 2016 +0100   Merge branch 'master' of https://bitbucket.org/openfoodfacts/product-opener
+- 0028747 Stephane Gigandet       Fri Jan 1 21:01:59 2016 +0100   fix conversion issue for 'floz', add beta-caroten to nutrition facts table
+- 97fe22c hangy   Fri Jan 1 06:43:57 2016 -0500   Updated automatic add/remove of en:alcoholic-beverages/en:non-alcoholic-beverages.
+- 2d9b626 hangy   Fri Jan 1 06:17:57 2016 -0500   Use canon_tagid to look up exists_taxonomy_tag.
+- 3116a74 hangy   Fri Dec 25 11:15:41 2015 -0500  Workaround for NaN sodium/salt nutrient entries.
+- f1e4462 hangy   Fri Dec 25 09:18:10 2015 -0500  Style user defined taxonomy differently
+- b89e25b hangy   Mon Dec 21 18:15:53 2015 -0500  Display Wikidata weblinks on the tag's page.
+- fda75ae hangy   Sat Dec 12 08:44:16 2015 -0500  Merge branch 'master' of https://bitbucket.org/openfoodfacts/product-opener
+- d76865d hangy   Sat Dec 12 08:42:23 2015 -0500  Bugfix display_date_tag and display_date
+- 38506b0 Stephane Gigandet       Thu Dec 10 10:42:11 2015 +0100  Changes to contribution counts and attribution of products to users (creator field) #bug 178
+- 8a0716b Stephane Gigandet       Sun Dec 6 14:57:12 2015 +0100   fix ingredient classes detection (palm oil etc.)
+- 4fecaff Stephane Gigandet       Sun Dec 6 14:10:09 2015 +0100   Do not round nutrition values for product data, only for comparisons
+- 87ab870 Stephane Gigandet       Sun Dec 6 14:09:22 2015 +0100   split vitamins - add support for -prev, -next and -debug for taxonomies - use additives taxonomy for all languages including French
+- e069624 Stephane Gigandet       Sun Dec 6 14:06:14 2015 +0100   support for additives-prev and additives-next
+- 1789e2d Stephane Gigandet       Wed Dec 2 17:09:13 2015 +0100   add favicons
+- 8e835e2 Stephane Gigandet       Wed Dec 2 17:07:38 2015 +0100   add images urls for front / ingredients / nutrition in JSON/XML export
+- f71ba09 Stephane Gigandet       Wed Dec 2 17:00:52 2015 +0100   add images urls for front / ingredients / nutrition in CSV export
+- 0c2eb49 Stephane Gigandet       Wed Dec 2 16:58:02 2015 +0100   fix 2nd level tag link - bug https://github.com/openfoodfacts/openfoodfacts-server/issues/174
+- 025d57f Stephane Gigandet       Wed Dec 2 16:56:17 2015 +0100   add more admins
+- b743968 Stephane Gigandet       Wed Dec 2 12:06:35 2015 +0100   Merge branch 'master' of https://bitbucket.org/openfoodfacts/product-opener
+- 7f2de70 Stephane Gigandet       Wed Dec 2 12:03:30 2015 +0100   moved some code to compute_field_tags-)
+- 06e6636 hangy   Sun Nov 29 08:59:01 2015 -0500  Display dates using the DateTime module.
+- 6af78b1 hangy   Sat Nov 28 13:52:12 2015 +0100  Merged in bugs/175 (pull request #10)
+- f3fdbce hangy   Sat Nov 28 13:52:06 2015 +0100  Merged in bugs/167 (pull request #9)
+- 7010d4e hangy   Sat Nov 28 13:48:19 2015 +0100  Merge branch 'master' of https://bitbucket.org/openfoodfacts/product-opener
+- c6fa6ba hangy   Fri Nov 27 16:21:52 2015 +0100  Added rel prev and previous to pagination links.
+- 7b33196 hangy   Thu Nov 26 07:41:33 2015 -0500  Added product-foundation.js to the html directory where it is referenced from.
+- 52edd34 hangy   Thu Nov 26 07:39:33 2015 -0500  Moved jQuery TagInput to the referenced path.
+- 93f249d hangy   Thu Nov 26 07:35:02 2015 -0500  Use cropper from cdnjs, since it's missing from Git.
+- d57b1d2 hangy   Mon Nov 23 18:46:45 2015 +0100  Fix country map/graph.
+- 45c12f2 hangy   Mon Nov 23 18:22:21 2015 +0100  Updated structured data for product images.
+- 73bb25f hangy   Mon Nov 23 18:46:45 2015 +0100  Fix country map/graph.
+- ceb752a hangy   Mon Nov 23 18:22:21 2015 +0100  Updated structured data for product images.
+- 09f8671 elbeho  Wed Nov 11 15:28:22 2015 +0100  3 PNG and jquery-ui were missing in the repo
+- 70ec96f elbeho  Wed Nov 11 14:32:37 2015 +0100  replace $domain by $server_domain
+- d4bcf50 Stephane Gigandet       Thu Nov 5 20:25:59 2015 +0100   Merge branch 'master' of https://bitbucket.org/openfoodfacts/product-opener
+- 8daeaed Stephane Gigandet       Thu Nov 5 20:25:48 2015 +0100   script to update upc codes
+- 2a82fc8 Stephane Gigandet       Thu Nov 5 20:22:45 2015 +0100   add support for taxonomy debug/prev/next
+- a05e7d5 Stephane Gigandet       Thu Nov 5 20:21:21 2015 +0100   fix quote escaping
+- 5aba488 Stephane Gigandet       Thu Nov 5 20:20:25 2015 +0100   add support for taxonomy debug/prev/next
+- 3c2874a Stephane Gigandet       Thu Nov 5 20:18:38 2015 +0100   fix link to first results page from other results page, add warning for nutrition grades computed with no fiber data, fix something for sodium
+- 47953cd Pierre Slamich  Thu Nov 5 10:07:36 2015 +0000   fix typo in products.html (graph of products over time)
+- f03777f elbeho  Sun Oct 25 00:52:06 2015 +0200  Bug #172: Add a dialog when the mail cannot be sent
+- c5bd3e6 elbeho  Sun Oct 25 00:22:14 2015 +0200  Bug #172: Does not crash anymore when there is no SMTP on the machine
+- 3942937 Stephane Gigandet       Fri Oct 2 00:55:19 2015 +0200   initial commit
+- b2b3e84 Stéphane Gigandet       Thu Oct 1 22:27:52 2015 +0200   Merged in anca_luca/product-opener (pull request #8)
+- 4dd9e2c Stephane Gigandet       Thu Oct 1 22:38:09 2015 +0200   update formula for French nutrition score and grades
+- 9cddfb3 Stephane Gigandet       Thu Oct 1 22:15:06 2015 +0200   fix database export
+- 53d4824 Anca Luca       Thu Oct 1 22:15:00 2015 +0200   Bug #165: Corrections on the ingredients extracted from the image are lost under specific conditions * Added types for buttons that are generated in the product edit form, to prevent browser default to use submit type and click the button when hitting Enter in another input in the edit form * Besides the OCR recognition of ingredients fixed another <button> that I found in there, to prevent other bugs in the future
+- 2c9b938 Stephane Gigandet       Wed Sep 2 18:03:32 2015 +0200   fix issue with some facets URLs, fix images, normalize UPC to EAN codes
+- 39f4c3e Stephane Gigandet       Wed Sep 2 18:01:41 2015 +0200   fix unit selection for percent and no unit (pH), normalize UPC codes to EAN
+- 5d15c53 Stephane Gigandet       Wed Sep 2 18:00:05 2015 +0200   Update translations
+- c074297 Stephane Gigandet       Wed Sep 2 17:59:40 2015 +0200   add cocoa and chlorophyl as nutrients, update translations
+- 92bc1dd Stephane Gigandet       Wed Sep 2 17:58:51 2015 +0200   normalize UPC-12 codes to EAN-13
+- 05c181e Stephane Gigandet       Wed Sep 2 17:57:58 2015 +0200   fix path of images for search results in mobile app
+- ecdc360 Stephane Gigandet       Wed Sep 2 17:57:22 2015 +0200   normalize UPC-12 codes to EAN-13
+- cc57995 Stephane Gigandet       Wed Sep 2 17:55:30 2015 +0200   normalize UPC-12 codes to EAN-13
+- 85a8a08 Stephane Gigandet       Sat Aug 8 17:41:07 2015 +0200   add new codes tags: barcode prefixes, barcode length, invalid EAN-s, conflicting UPC-12 - EAN-13
+- 2fd9a03 Stephane Gigandet       Sat Aug 8 17:39:55 2015 +0200   fix image issue
+- b7e6e34 Stephane Gigandet       Sat Aug 8 17:37:22 2015 +0200   interface to move and delete images
+- cb5530b Stephane Gigandet       Sat Aug 8 17:37:03 2015 +0200   interface to move and delete images
+- f17df3f Stephane Gigandet       Sat Jul 4 16:51:43 2015 +0200   Disable QR code recognition
+- f94eacc Stephane Gigandet       Sat Jul 4 16:51:20 2015 +0200   .xml option for API results
+- c088e70 Stephane Gigandet       Sat Jul 4 16:50:57 2015 +0200   Support for US/CA nutrition facts tables
+- 1095688 Stéphane Gigandet       Sat Jul 4 16:37:47 2015 +0200   Merged develop into master: US/CA Nutrition facts tables
+- 785ebcb Stéphane Gigandet       Mon Jun 29 18:55:28 2015 +0200  Merged in HummingBrid/readmemd-edited-online-with-bitbucket-1435434070246 (pull request #6)
+- e61df13 HummingBrid     Sat Jun 27 19:41:13 2015 +0000  README.md edited online with Bitbucket
+- 545e839 Stephane Gigandet       Sat Jun 27 19:29:27 2015 +0200  Support for country specific (e.g. US, CA, Europe) lists of mandatory and voluntary nutriments
+- 4f46963 Stéphane Gigandet       Sat Jun 27 19:54:13 2015 +0200  Merged master into develop
+- ff1abee Stephane Gigandet       Thu Jun 25 18:03:13 2015 +0200  fixes: remove ref= referers, support for tags that are numbers, small design changes
+- c30b4bd Stephane Gigandet       Thu Jun 25 18:00:54 2015 +0200  fix RDF export (#vitamins tag)
+- 4b711b6 Stephane Gigandet       Thu Jun 25 18:00:25 2015 +0200  many more translations
+- fc400d2 Stephane Gigandet       Thu Jun 25 18:00:02 2015 +0200  update list of fields
+- 4a242cf Stephane Gigandet       Thu Jun 25 17:59:34 2015 +0200  prevent empty tags
+- 6980447 Stephane Gigandet       Thu Jun 25 17:58:45 2015 +0200  return more understandable errors
+- a4c019b Stephane Gigandet       Thu Jun 25 17:58:28 2015 +0200  return more understandable errors
+- e272cc3 Stephane Gigandet       Thu Jun 25 17:57:56 2015 +0200  add 0 to the sortkey to make sure it's treated as a number by MongoDB
+- 49affda Stephane Gigandet       Thu Jun 25 17:57:22 2015 +0200  add 0 to the sortkey to make sure it's treated as a number by MongoDB
+- 3184e57 Stephane Gigandet       Thu Jun 25 17:56:06 2015 +0200  bot to add Denmark to some products
+- 8a9869f Stephane Gigandet       Thu Jun 25 17:44:37 2015 +0200  fix untranslated string
+- 5befd10 Stephane Gigandet       Thu Jun 25 17:42:09 2015 +0200  sync with wiki, more translations
+- 60abdaa Stephane Gigandet       Thu Jun 25 17:41:46 2015 +0200  more than 2 search criteria
+- a60da33 Stephane Gigandet       Thu Jun 25 17:39:25 2015 +0200  fix cropper rotation, more foundation equalizer calls -- fixes https://github.com/openfoodfacts/openfoodfacts-server/issues/114
+- 328183b Stéphane Gigandet       Thu Jun 25 17:20:32 2015 +0200  Merged master into develop
+- 5326201 Stéphane Gigandet       Thu Jun 25 17:19:35 2015 +0200  Merged foundation into master
+- 6c4eefc Stéphane Gigandet       Mon May 18 16:50:54 2015 +0200  Merged in feature/search-criterion (pull request #5)
+- 5ccb607 pijey   Tue May 12 15:52:43 2015 +0200  Allow more than 2 criteria in search form
+- a7cf04a Stephane Gigandet       Tue May 12 12:19:42 2015 +0200  allow any number of search criteria
+- 91d6df1 Stephane Gigandet       Tue May 12 09:00:17 2015 +0200  small fixes, Twitter cards, meta data, static subdomain for images etc.
+- 1f76b04 Stephane Gigandet       Tue May 12 08:59:08 2015 +0200  put back normalize colors, set drag mode to crop
+- 52cfa60 Stephane Gigandet       Tue May 12 08:58:34 2015 +0200  fixes for displaying images
+- 34a8821 Stephane Gigandet       Tue May 12 08:57:58 2015 +0200  more translations
+- f2ea57b Stephane Gigandet       Tue May 12 08:55:50 2015 +0200  changed how texts are loaded
+- a9a1bec Stephane Gigandet       Thu May 7 15:47:53 2015 +0200   changes from wiki
+- dc9c989 Stephane Gigandet       Thu May 7 15:44:01 2015 +0200   resolving conflicts in Lang.pm
+- 271d366 Stephane Gigandet       Thu May 7 15:31:20 2015 +0200   resolved conflicts in Lang.pm (use Foundation changes)
+- 5809341 Stephane Gigandet       Thu May 7 15:27:05 2015 +0200   use static subdomain for images and js, moved share buttons to footer
+- 5013a54 Stephane Gigandet       Thu May 7 15:26:07 2015 +0200   small footer changes
+- a65f332 Stephane Gigandet       Thu May 7 11:43:59 2015 +0200   small css changes on product edit form
+- 329fd3a Stephane Gigandet       Thu May 7 10:57:03 2015 +0200   Footer internationalization
+- c17b4a2 Stephane Gigandet       Sun May 3 17:28:59 2015 +0200   Add show/hide-when-logged-in classes, rework how products are listed for index pages, fix nutrient levels info link, Foundation specific text files
+- 95a81a7 Stephane Gigandet       Sun May 3 17:26:18 2015 +0200   missing en translation for n_products
+- 78fbc91 Stephane Gigandet       Sun May 3 12:39:27 2015 +0200   Merge branch 'foundation' of https://bitbucket.org/openfoodfacts/product-opener into foundation
+- f214a9a Stephane Gigandet       Sun May 3 12:37:59 2015 +0200   Fix product page checkboxes for category comparisons, move search form (issue #85 on github), fix install app icons in footer
+- 50ddee1 Stephane Gigandet       Sun May 3 12:35:38 2015 +0200   add Foundation specific version of product.js so that both the old non-foundation and the new foundation can be served from the same apache document root
+- 7dfd7a4 Stephane Gigandet       Sun May 3 12:32:57 2015 +0200   add tagline (values from old sidebar column)
+- 7d4d609 Pierre Slamich  Sun May 3 07:11:12 2015 +0000   checkbot.pl : added a comment about what checkbot does.
+- 3782a38 Pierre Slamich  Sun May 3 07:07:10 2015 +0000   moodstock_upload.pl : comment on the use of the file
+- 700d8ef Stephane Gigandet       Fri Apr 24 16:26:53 2015 +0200  fix submit buttons for search forms, add links + icons for advanced search and graphs
+- 6518c1b Stephane Gigandet       Fri Apr 24 15:04:06 2015 +0200  fix country dropdown, display 3 lines for names of products and change hover in list of products
+- 5614415 Stephane Gigandet       Fri Apr 24 12:18:53 2015 +0200  restyled search form with Foundation
+- e7a4526 Stephane Gigandet       Fri Apr 24 12:18:08 2015 +0200  moved some styles to Display.pm instead of product.pl
+- a07e4b7 Stephane Gigandet       Fri Apr 24 12:16:58 2015 +0200  fixes to avoid duplicate ids when 2 add a product buttons are on one page (e.g. side column and off canvas)
+- 5a89b0c Stephane Gigandet       Sun Apr 19 19:21:52 2015 +0200  re-equalize columns when new elements (images) are added to the page
+- fb0572f Stephane Gigandet       Sun Apr 19 19:21:23 2015 +0200  Style product edit form
+- 2733c24 Stephane Gigandet       Sun Apr 19 19:20:05 2015 +0200  Small fixes: fix columns padding, style nutrition grades + traffic lights...
+- 49915f7 Stephane Gigandet       Sun Apr 19 16:09:39 2015 +0200  style Number of products + Explore by dropdown, equalize heights of left and main columns
+- 0e113e1 Stephane Gigandet       Sun Apr 19 15:01:07 2015 +0200  fix checkboxes for showing extended stats and white magic button: for newer jquery, attr('checked') == 'checked' -> prop('checked') == true
+- 501875e Stephane Gigandet       Sun Apr 19 14:59:20 2015 +0200  remove log message
+- f8b98c2 Stephane Gigandet       Sun Apr 19 14:58:57 2015 +0200  new blog titles format for foundation
+- 6f082d1 Stephane Gigandet       Sun Apr 19 11:25:45 2015 +0200  foundation redesign
+- 6d551d7 Stephane Gigandet       Fri Apr 17 11:54:40 2015 +0200  added Access-Control-Allow-Origin: * header, for FirefoxOS login
+- a65e3f9 Stéphane Gigandet       Fri Apr 17 11:53:18 2015 +0200  Merged in master (pull request #2)
+- a32d994 Stéphane Gigandet       Wed Apr 15 21:25:28 2015 +0200  Merged in master (pull request #1)
+- 5faa801 Stephane Gigandet       Wed Apr 15 21:24:03 2015 +0200  update translations, fix remember me label bug #72
+- 4c07400 Stephane Gigandet       Wed Apr 15 18:52:53 2015 +0200  Foundation 5.5.1 + foundation-icons in SVG
+- 44cd0ac Stephane Gigandet       Wed Apr 15 18:51:59 2015 +0200  change file upload button, progress bars and alerts to use Foundation
+- f1b0179 Stephane Gigandet       Wed Apr 15 18:29:39 2015 +0200  switch design from jquery UI to Zurb Foundation framework
+- 1734af7 Stephane Gigandet       Sun Apr 12 18:48:11 2015 +0200  fix issue with brand names regexp in product_name_brand(), and include word boundaries in regexp
+- 8e97768 Stephane Gigandet       Thu Apr 9 11:21:30 2015 +0200   Display products with 'Name - Brand - Quantity'
+- 7de832a Stephane Gigandet       Sun Apr 5 09:49:59 2015 +0200   fix bug for list of products with two conditions on different tags, introduced in previous commit that fixed two conditions on same tag
+- 6b9011d Stephane Gigandet       Sat Apr 4 15:39:46 2015 +0200   fix issue #70 on github: only one condition for each field was in effect, others were ignored
+- 6f78e8a Stephane Gigandet       Thu Apr 2 14:22:23 2015 +0200   fixes 500 status code issue https://github.com/openfoodfacts/openfoodfacts-server/issues/69
+- 052c3fc Stephane Gigandet       Fri Mar 20 12:16:15 2015 +0100  write API, fix issue with nutrient fields so that only one of them can be added/changed
+- 357e86a Stephane Gigandet       Fri Mar 20 12:14:52 2015 +0100  add nutrition grade as a nutrient, to compute stats etc.
+- aa3a55e Stephane Gigandet       Fri Mar 20 12:14:04 2015 +0100  add categories stats for nutrition grades
+- 762743f Stephane Gigandet       Fri Mar 20 12:13:05 2015 +0100  display English label image if we don't have a local language image
+- 9d96f0d Stephane Gigandet       Fri Mar 20 12:12:14 2015 +0100  fix for NaN value from javascript
+- 7073552 Stephane Gigandet       Fri Mar 20 12:11:11 2015 +0100  New strings for list of stats for all categories and one nutrient
+- 0e52f14 Stephane Gigandet       Fri Mar 20 12:10:15 2015 +0100  Add histograms and graphs with nutrition grades, add list of categories with stats for one nutrient -- e.g. /categories/sodium
+- a839349 Stephane Gigandet       Sat Mar 14 19:26:53 2015 +0100  updated taxonomies
+- fa5c2fa Stephane Gigandet       Sat Mar 14 19:25:48 2015 +0100  UTF8 support in tags
+- 132d2ab Stephane Gigandet       Sat Mar 14 19:24:48 2015 +0100  nutrition grades colors in graphs
+- 9989869 Stephane Gigandet       Sat Mar 14 19:24:21 2015 +0100  support for utf8 tags
+- 88b9064 Stephane Gigandet       Sat Mar 14 19:22:37 2015 +0100  adds unknown value for nutrition grades tags
+- 5faefa5 Stephane Gigandet       Thu Mar 5 18:36:05 2015 +0100   Keep Unicode characters outside of windows-1252 in normalized tags
+- 5c2e311 Stephane Gigandet       Thu Mar 5 12:08:48 2015 +0100   add Japanese to the list of possible 'main language'
+- d9c01cd Stephane Gigandet       Tue Mar 3 19:11:16 2015 +0100   Added new nutrition_grades tag type
+- 6a6b376 Stephane Gigandet       Tue Mar 3 19:10:37 2015 +0100   Populate new last_edit_dates tagtype
+- 630d8f6 Stephane Gigandet       Tue Mar 3 19:09:45 2015 +0100   add helpful debug info for build_tags_taxonomy.pl
+- 2921c1a Stephane Gigandet       Tue Mar 3 09:30:40 2015 +0100   Merge branch 'master' of https://bitbucket.org/openfoodfacts/product-opener
+- 582126c Stephane Gigandet       Tue Mar 3 09:30:07 2015 +0100   taxonomies update
+- 04d4458 Stéphane Gigandet       Mon Mar 2 12:32:55 2015 +0000   README.md edited online with Bitbucket
+- 1780462 Stephane Gigandet       Mon Mar 2 13:06:49 2015 +0100   added AGPL license
+- 94838e1 Stephane Gigandet       Mon Mar 2 13:05:22 2015 +0100   moved from cgi to scripts
+- 771d7f7 Stephane Gigandet       Mon Mar 2 11:00:47 2015 +0100   Merge branch 'master' of https://bitbucket.org/openfoodfacts/product-opener
+- e535cba Stephane Gigandet       Mon Mar 2 11:00:08 2015 +0100   new tag field entry_dates populated from created_t
+- 42147ac sl956   Sun Mar 1 22:39:09 2015 +0100   one more UK label image added
+- aa5c80f Stephane Gigandet       Sun Mar 1 12:26:46 2015 +0100   Merge branch 'master' of https://bitbucket.org/openfoodfacts/product-opener
+- d734cd4 Stephane Gigandet       Sun Mar 1 12:24:20 2015 +0100   moved fibers before proteins
+- f84f024 sl956   Sun Mar 1 06:50:47 2015 +0100   various label images added
+- 89967a7 sl956   Sun Mar 1 04:53:39 2015 +0100   normalization of the indentation
+- 84c0a76 sl956   Sun Mar 1 04:42:03 2015 +0100   correction of the unit conversion for different writings of fl.oz
+- a4f678c sl956   Sun Mar 1 04:29:44 2015 +0100   Folates added as synonym to Acid Folic in english
+- ec94850 sl956   Sun Mar 1 04:27:06 2015 +0100   chinese translation of most nutrients added
+- 761b2a9 Stephane Gigandet       Thu Feb 26 17:16:58 2015 +0100  Re-order nutrients, display both Salt and Sodium on product form
+- ca4e8b7 Stephane Gigandet       Thu Feb 26 16:32:03 2015 +0100  compute explorer and ambassador points for Open Food hunt
+- 0eeb18d Stephane Gigandet       Thu Feb 26 16:30:39 2015 +0100  get list of users who have opted for the newsletter
+- 9846e76 Stephane Gigandet       Thu Feb 26 16:29:44 2015 +0100  script to add a creator to products
+- 7fcdc2d Stephane Gigandet       Thu Feb 26 16:28:59 2015 +0100  added Dutch translations
+- 4720ec7 Stephane Gigandet       Thu Feb 26 16:28:33 2015 +0100  fix reset password link in email
+- e448371 Stephane Gigandet       Thu Feb 26 16:27:38 2015 +0100  check images are bigger than 640 pixels -- commented out
+- 1f6759d Stephane Gigandet       Thu Feb 26 16:26:34 2015 +0100  add error messages
+- de40295 Stephane Gigandet       Thu Feb 26 16:24:42 2015 +0100  allergen detection
+- 3f2b4c2 Florentin Raud  Thu Feb 12 13:24:12 2015 +0000  Change directory to avoid server path to be included in the *sum files
+- dc8d506 Florentin Raud  Thu Feb 12 13:05:51 2015 +0000  Adding checksum to the db dump
+- d3c9749 Stephane Gigandet       Thu Feb 12 13:43:23 2015 +0100  new version of texts
+- 2e1cbfa Stephane Gigandet       Thu Feb 12 13:41:30 2015 +0100  new versions of texts
+- 89ec665 Stephane Gigandet       Thu Feb 12 13:37:37 2015 +0100  script to generate a daily dump of the MongoDB database
+- fd5d56b Stephane Gigandet       Thu Feb 5 09:11:41 2015 +0100   fixes computing changes of ingredients in edit history
+- 8eace57 Stephane        Wed Feb 4 12:27:48 2015 +0100   new nl and pt translations
+- 85e3b9d root    Tue Feb 3 11:24:35 2015 +0100   fixes some paths, don't assume  = /html
+- a3fdaee Stephane        Tue Feb 3 10:45:28 2015 +0100   Merge branch 'master' of https://bitbucket.org/openfoodfacts/product-opener
+- a34e512 Stephane        Tue Feb 3 10:44:57 2015 +0100   use  instead of hardcoded openfoodfacts.org
+- 191592e Stephane Gigandet       Tue Feb 3 10:42:23 2015 +0100   just change in mongodb, not on disk
+- e736363 Stephane Gigandet       Tue Feb 3 10:40:55 2015 +0100   Remove some padding on bar graphs so that they look more like histograms
+- 098c79f Stephane Gigandet       Tue Feb 3 10:39:27 2015 +0100   Dutch nl translations, some fixes
+- ecd0072 Stephane Gigandet       Tue Feb 3 10:38:09 2015 +0100   checks that there is only one translation for each language
+- d10e9d7 Stephane        Mon Feb 2 22:31:06 2015 +0100   removed unused perl modules, always use IP address from X-Forwarded-For header
+- 38bb7cd Stephane Gigandet       Mon Jan 26 11:38:49 2015 +0100  fix 'invalid address' error for urls with ?utm_... (from shorteners etc.)
+- 74cd34a Stephane Gigandet       Mon Jan 26 11:38:05 2015 +0100  overrides for site specific strings
+- 4e68a73 Stephane Gigandet       Mon Jan 26 11:37:42 2015 +0100  added Romanian
+- d3689e2 Stephane Gigandet       Mon Jan 26 11:37:03 2015 +0100  small change for nutritition scores formula
+- 85a46bf Stephane Gigandet       Thu Jan 22 09:48:30 2015 +0100  Taxonomy for product states (renamed status field to state)
+- bcb6a02 Stephane Gigandet       Wed Jan 21 16:11:37 2015 +0100  remove fields with dot in their name
+- bb40f34 Stephane Gigandet       Wed Jan 21 16:09:56 2015 +0100  fix link to download search results as csv
+- d9a273a Stephane Gigandet       Wed Jan 21 16:09:32 2015 +0100  change absolute symlinks to relative + fix geoip country for satellite providers
+- 05d7b6e Stephane Gigandet       Mon Jan 19 18:25:13 2015 +0100  Displays stats below graphs
+- 8832ca7 Stephane Gigandet       Mon Jan 19 18:23:57 2015 +0100  script to populate mongodb db from product files
+- 756a999 Stephane Gigandet       Mon Jan 19 18:22:54 2015 +0100  Strings related to allergens
+- 954368a Stephane Gigandet       Mon Jan 19 18:22:09 2015 +0100  Allergen detection in ingredients
+- 59e67e6 Stephane Gigandet       Tue Jan 6 13:59:56 2015 +0100   Show French nutrition grade when the language is set to French (allows to display on mobile app)
+- 29c64c1 Stephane Gigandet       Tue Jan 6 13:58:53 2015 +0100   New German translations
+- c4292ee Stephane Gigandet       Mon Dec 15 15:41:40 2014 +0100  minor changes
+- 5d65696 Stephane Gigandet       Mon Dec 15 15:41:10 2014 +0100  small fixes
+- 9a7f345 Stephane Gigandet       Mon Dec 15 15:40:30 2014 +0100  more debug
+- 846f3ed Stephane Gigandet       Mon Dec 15 15:40:02 2014 +0100  Spanish packaging codes, fix for Highcharts graphs with more than 1000 points, display origins and manufacturing place in maps
+- 414d455 Stephane Gigandet       Mon Dec 15 15:38:28 2014 +0100  more desaccentuation
+- a44a20e Stephane Gigandet       Mon Dec 15 15:37:50 2014 +0100  added pnns groups
+- 7670e0c Stephane Gigandet       Mon Dec 15 15:37:23 2014 +0100  added add_tag and remove_tag functions
+- 17d5a37 Stephane Gigandet       Mon Dec 15 15:36:44 2014 +0100  support for French PNNS grouping and scoring (new, includes beverages)
+- cf44f4e Stephane Gigandet       Mon Dec 15 15:36:15 2014 +0100  support for French PNNS grouping and scoring (new, includes beverages)
+- b84bedc Stephane Gigandet       Mon Dec 15 15:34:27 2014 +0100  add pnns_groups_1 and pnns_groups_2
+- b09987c Stephane Gigandet       Mon Dec 15 15:33:54 2014 +0100  support for new UK/ES/CE normalization
+- 4b08699 Stephane Gigandet       Mon Dec 15 15:33:03 2014 +0100  add expiration_date and packaging in fields that can be written by the JSON API
+- 99673f9 Stephane Gigandet       Mon Dec 15 15:32:21 2014 +0100  script to convert .po files in jquery.i18n.json files
+- 51b974e Stephane Gigandet       Mon Dec 15 15:31:31 2014 +0100  bot to verify some things in products e.g. no nutrient > 100g
+- 65c5994 Stephane Gigandet       Mon Dec 15 15:27:33 2014 +0100  fix searching with nutrient values with commas in query
+- 031bc7f Stephane Gigandet       Mon Dec 15 15:24:47 2014 +0100  updated categories taxonomy
+- be3022f Stephane Gigandet       Mon Dec 15 15:21:36 2014 +0100  Merge branch 'master' of https://bitbucket.org/openfoodfacts/product-opener
+- 1e71b8a Stephane Gigandet       Mon Dec 15 15:19:16 2014 +0100  updated labels taxonomy
+- 7b222a6 Stéphane Gigandet       Mon Nov 17 14:16:57 2014 +0000  README.md edited online with Bitbucket
+- eae27f9 Stephane Gigandet       Mon Nov 17 15:08:43 2014 +0100  Initial commit

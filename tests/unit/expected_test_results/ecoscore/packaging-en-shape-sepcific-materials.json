@@ -1,0 +1,167 @@
+{
+   "categories_tags" : [
+      "en:milks"
+   ],
+   "ecoscore_data" : {
+      "adjustments" : {
+         "origins_of_ingredients" : {
+            "aggregated_origins" : [
+               [
+                  "en:unknown",
+                  100
+               ]
+            ],
+            "epi_score" : 0,
+            "epi_value" : -5,
+            "origins_from_origins_field" : [
+               "en:unknown"
+            ],
+            "transportation_score" : 0,
+            "transportation_value" : 0,
+            "value" : -5
+         },
+         "packaging" : {
+            "packagings" : [
+               {
+                  "ecoscore_counted" : 1,
+                  "ecoscore_material_score" : 0,
+                  "ecoscore_shape_ratio" : 1,
+                  "material" : "en:plastic",
+                  "number" : "1",
+                  "shape" : "en:bottle"
+               },
+               {
+                  "ecoscore_counted" : 1,
+                  "ecoscore_material_score" : 50,
+                  "ecoscore_shape_ratio" : 1,
+                  "material" : "en:pet-polyethylene-terephthalate",
+                  "material_shape" : "en:pet-polyethylene-terephthalate.en:bottle",
+                  "number" : "2",
+                  "shape" : "en:bottle"
+               },
+               {
+                  "ecoscore_counted" : 1,
+                  "ecoscore_material_score" : 100,
+                  "ecoscore_shape_ratio" : 1,
+                  "material" : "en:rpet-recycled-polyethylene-terephthalate",
+                  "number" : "3",
+                  "shape" : "en:bottle"
+               },
+               {
+                  "ecoscore_counted" : 1,
+                  "ecoscore_material_score" : 100,
+                  "ecoscore_shape_ratio" : 1,
+                  "material" : "en:rpet-recycled-polyethylene-terephthalate",
+                  "number" : "4",
+                  "shape" : "en:bottle"
+               },
+               {
+                  "ecoscore_counted" : 1,
+                  "ecoscore_material_score" : 50,
+                  "ecoscore_shape_ratio" : 1,
+                  "material" : "en:colored-pet",
+                  "material_shape" : "en:colored-pet.en:bottle",
+                  "number" : "5",
+                  "shape" : "en:bottle"
+               },
+               {
+                  "ecoscore_counted" : 1,
+                  "ecoscore_material_score" : 62.5,
+                  "ecoscore_shape_ratio" : 1,
+                  "material" : "en:transparent-pet",
+                  "material_shape" : "en:transparent-pet.en:bottle",
+                  "number" : "6",
+                  "shape" : "en:bottle"
+               },
+               {
+                  "ecoscore_counted" : 1,
+                  "ecoscore_material_score" : 50,
+                  "ecoscore_shape_ratio" : 1,
+                  "material" : "en:hdpe-high-density-polyethylene",
+                  "material_shape" : "en:hdpe-high-density-polyethylene.en:bottle",
+                  "number" : "7",
+                  "shape" : "en:bottle"
+               },
+               {
+                  "ecoscore_counted" : 1,
+                  "ecoscore_material_score" : 100,
+                  "ecoscore_shape_ratio" : 0.2,
+                  "material" : "en:rpet-recycled-polyethylene-terephthalate",
+                  "number" : "8",
+                  "shape" : "en:lid"
+               },
+               {
+                  "ecoscore_counted" : 1,
+                  "ecoscore_material_score" : 75,
+                  "ecoscore_shape_ratio" : 1,
+                  "material" : "en:biobased-pet",
+                  "material_shape" : "en:biobased-pet.en:bottle",
+                  "number" : "9",
+                  "shape" : "en:bottle"
+               }
+            ],
+            "score" : -212.5,
+            "value" : -10
+         },
+         "production_system" : {},
+         "threatened_species" : {}
+      },
+      "agribalyse" : {},
+      "missing" : {
+         "agb_category" : 1
+      },
+      "status" : "unknown"
+   },
+   "ecoscore_tags" : [
+      "unknown"
+   ],
+   "lc" : "en",
+   "packaging_text" : "1 plastic bottle, 2 PET plastic bottle, 3 recycled PET plastic bottle, 4 transparent recycled PET bottle, 5 colored PET bottle, 6 transparent PET bottle, 7 colored PEHD bottle, 8 rPET lid, 9 bio-based PET bottles",
+   "packagings" : [
+      {
+         "material" : "en:plastic",
+         "number" : "1",
+         "shape" : "en:bottle"
+      },
+      {
+         "material" : "en:pet-polyethylene-terephthalate",
+         "number" : "2",
+         "shape" : "en:bottle"
+      },
+      {
+         "material" : "en:rpet-recycled-polyethylene-terephthalate",
+         "number" : "3",
+         "shape" : "en:bottle"
+      },
+      {
+         "material" : "en:rpet-recycled-polyethylene-terephthalate",
+         "number" : "4",
+         "shape" : "en:bottle"
+      },
+      {
+         "material" : "en:colored-pet",
+         "number" : "5",
+         "shape" : "en:bottle"
+      },
+      {
+         "material" : "en:transparent-pet",
+         "number" : "6",
+         "shape" : "en:bottle"
+      },
+      {
+         "material" : "en:hdpe-high-density-polyethylene",
+         "number" : "7",
+         "shape" : "en:bottle"
+      },
+      {
+         "material" : "en:rpet-recycled-polyethylene-terephthalate",
+         "number" : "8",
+         "shape" : "en:lid"
+      },
+      {
+         "material" : "en:biobased-pet",
+         "number" : "9",
+         "shape" : "en:bottle"
+      }
+   ]
+}

@@ -4,15 +4,15 @@
 # list copied from:
 # REGULATION (EU) No 609/2013 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL
 # of 12 June 2013
-# on food intended for infants and young children, food for special medical purposes, 
+# on food intended for infants and young children, food for special medical purposes,
 # and total diet replacement for weight control and repealing Council Directive 92/52/EEC,
 # Commission Directives 96/8/EC, 1999/21/EC, 2006/125/EC and 2006/141/EC,
-# Directive 2009/39/EC of the European Parliament and of the Council and 
+# Directive 2009/39/EC of the European Parliament and of the Council and
 # Commission Regulations (EC) No 41/2009 and (EC) No 953/2009
 # http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32013R0609&from=FR
 
 
-# description:en:NUCLEOTIDES are organic molecules that serve as the monomer units for forming the nucleic acid polymers deoxyribonucleic acid (DNA) and ribonucleic acid (RNA), both of which are essential biomolecules within all life-forms on Earth. 
+# description:en:NUCLEOTIDES are organic molecules that serve as the monomer units for forming the nucleic acid polymers deoxyribonucleic acid (DNA) and ribonucleic acid (RNA), both of which are essential biomolecules within all life-forms on Earth.
 # comment:en:The entry should be in plural.
 
 en:nucleotides
@@ -45,7 +45,7 @@ he:נוקלאוטיד
 hi:न्यूक्लियोटाइड
 hr:Nukleotid, Nukleotidi
 ht:Nikleyotid
-hu:nukleotid
+hu:nukleotidok
 hy:Նուկլեոտիդ
 id:Nukleotida
 is:Núkleótíð
@@ -120,6 +120,7 @@ fr:adénosine monophosphate, adénosine 5'-monophosphate
 ga:monafosfáit adanóisín
 gl:Adenosina monofosfato
 hr:adénosine monophosphate
+hu:adenozin-monofoszfát, 5'-adenilsav
 it:Adenosina monofosfato, adenosina 5'-monofosfato
 ja:アデニル酸
 kk:Аденозинмонофосфат
@@ -198,6 +199,7 @@ es:Citidina monofosfato
 fa:سیتیدین مونوفسفات
 fr:Cytidine monophosphate
 gl:Citidín monofosfato
+hu:citidin-monofoszfát
 it:Citosina monofosfato
 ja:シチジル酸
 ko:시티딘 일인산
@@ -276,7 +278,7 @@ zh:單磷酸鳥苷
 # zh-hk:單磷酸鳥苷
 # zh-sg:单磷酸鸟苷
 # zh-tw:單磷酸鳥苷
-wikipedia:en:Q422473
+wikidata:en:Q422473
 
 <en:guanosine monophosphate
 en:disodium guanosine-5'-monophosphate, sodium salts of GMP
@@ -303,20 +305,17 @@ sv:natriumsalter av GMP
 
 # description:en:INOSINE MONOPHOSPHATE (IMP) is a nucleoside monophosphate. Widely used as a flavor enhancer, it is typically obtained from chicken byproducts or other meat industry waste.
 
-# <en:E630
+# <en:E630 has also doubles in that taxonomy
 <en:nucleotides
 en:inosine monophosphate, inosine-5'-monophosphate, inosine 5'-phosphoric acid, IMP
 ar:حمض الإينوسينيك
 # azb:اینوسینیک اسید
-ca:àcid inosínic
 de:Inosinmonophosphat
 es:Ácido inosínico
 fa:اینوسینیک اسید
 fi:Inosiinimonofosfaatti
-fr:Acide inosinique
-hu:Inozinsav
+hu:inozin-monofoszfát, inozin-5'-monofoszforsav
 ja:イノシン酸
-pt:Ácido inosínico
 ru:Инозиновая кислота
 sh:Inozinska kiselina
 sr:инозинска киселина
@@ -327,7 +326,7 @@ zh:肌苷酸
 vegan:en:no
 vegetarian:en:no
 wikidata:en:Q255933
-wikidata:en:https://en.wikipedia.org/wiki/Inosinic_acid
+wikipedia:en:https://en.wikipedia.org/wiki/Inosinic_acid
 
 <en:inosine monophosphate
 en:disodium inosine-5'-monophosphate, sodium salts of IMP
@@ -367,6 +366,7 @@ fi:Uridiinimonofosfaatti
 fr:Uridine monophosphate
 gl:Uridín monofosfato
 hr:Uridin monofosfat
+hu:Uridin-monofoszfát
 it:Uridina monofosfato
 ja:ウリジル酸
 ko:우리딘 일인산
