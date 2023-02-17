@@ -518,4 +518,118 @@ detect_allergens_from_text($product_ref);
 
 is($product_ref->{ingredients_text_with_allergens_en}, "Whole Grain Oat Flakes (65.0%)");
 
+# tests from https://github.com/openfoodfacts/openfoodfacts-server/pull/1857
+
+$product_ref = {
+	lc => "it", lang => "it",
+	ingredients_text_it => "Può contenere altra frutta a guscio (mandorle, noci, pistacchi)",
+};
+
+compute_languages($product_ref);
+detect_allergens_from_text($product_ref);
+
+is_deeply($product_ref->{allergens_tags}, [
+]
+);
+
+is_deeply($product_ref->{traces_tags},  [
+'en:nuts',
+]
+);
+
+$product_ref = {
+	lc => "it", lang => "it",
+	ingredients_text_it => "Può contenere glutine e pesce.",
+};
+
+compute_languages($product_ref);
+detect_allergens_from_text($product_ref);
+
+is_deeply($product_ref->{allergens_tags}, [
+]
+);
+
+is_deeply($product_ref->{traces_tags},  [
+'en:gluten',
+'en:fish',
+]
+) or diag explain $product_ref;
+
+$product_ref = {
+	lc => "nl", lang => "nl",
+	ingredients_text_nl => "Dit product kan sporen van MELK, NOTEN en SOJA bevatten.",
+};
+
+compute_languages($product_ref);
+detect_allergens_from_text($product_ref);
+
+is_deeply($product_ref->{allergens_tags}, [
+]
+);
+
+is_deeply($product_ref->{traces_tags},  [
+'en:milk',
+'en:nuts',
+'en:soybeans',
+]
+);
+	
+$product_ref = {
+	lc => "de", lang => "de",
+	ingredients_text_de => "aus kontrolliert ökologischem Anbau. Kann Spuren von Milch, Erdnüssen, Soja, anderen Schalenfrüchten und Sesamsamen enthalten.",
+};
+
+compute_languages($product_ref);
+detect_allergens_from_text($product_ref);
+
+is_deeply($product_ref->{allergens_tags}, [
+]
+);
+
+is_deeply($product_ref->{traces_tags},  [
+'en:milk',
+'en:nuts',
+'en:peanuts',
+'en:sesame-seeds',
+'en:soybeans',
+]
+) or diag explain $product_ref;
+
+$product_ref = {
+	lc => "de", lang => "de",
+	ingredients_text_de => "Kann Spuren von Milch, Weizen enthalten",
+};
+
+compute_languages($product_ref);
+detect_allergens_from_text($product_ref);
+
+is_deeply($product_ref->{allergens_tags}, [
+]
+);
+
+is_deeply($product_ref->{traces_tags},  [
+'en:gluten',
+'en:milk',
+]
+) or diag explain $product_ref;
+
+$product_ref = {
+	lc => "de", lang => "de",
+	ingredients_text_de => "Kann Spuren von Ei, Sesam und Schalenfrüchten enthalten.",
+};
+
+compute_languages($product_ref);
+detect_allergens_from_text($product_ref);
+
+is_deeply($product_ref->{allergens_tags}, [
+]
+);
+
+is_deeply($product_ref->{traces_tags},  [
+'en:eggs',
+'en:nuts',
+'en:sesame-seeds',
+]
+) or diag explain $product_ref;
+
 done_testing();
