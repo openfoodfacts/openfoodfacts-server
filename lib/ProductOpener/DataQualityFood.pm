@@ -784,7 +784,12 @@ sub check_nutrition_data ($product_ref) {
 
 		# create a hash key: nutriment value, value: number of occurence
 		foreach my $nutriment_value (@major_nutriments_values) {
-			$nutriments_values_occurences{$nutriment_value}++;
+			if (exists($nutriments_values_occurences{$nutriment_value})) {
+				$nutriments_values_occurences{$nutriment_value}++;
+			}
+			else {
+				$nutriments_values_occurences{$nutriment_value} = 1;
+			}
 		}
 		# raise warning if there are 3 or more duplicates in nutriments
 		foreach my $keys (keys %nutriments_values_occurences) {

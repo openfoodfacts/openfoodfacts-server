@@ -55,6 +55,10 @@ on http://openfoodfacts.localhost just as documented in the quickstart guide!
 
 **Remark:** for some Linux distributions, the port 80 is reserved. A workaround is to switch to port 8080: in gitpod, open the .env file and replace the line PRODUCT_OPENER_PORT=80 by PRODUCT_OPENER_PORT=8080, then replace -L 80:localhost:80 by -L 8080:localhost:8080. **Rollback the changes on .env before to make a pull request!***  
 
+**Remark:** the address to connect with ssh can change after few days. If you get a ```Connection closed by ... port 22``` simply go back to https://gitpod.io/workspaces and copy the new address.  
+
+**Remark:** if you load the page after some changes but get a ```502 Bad Gateway``` check again your code. Something may be wrong with it. Eventually, try to comment the part you just coded to see if it works. 
+
 Create an account to be able to edit products.
 
 ## Some commands
