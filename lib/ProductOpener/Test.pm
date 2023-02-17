@@ -128,7 +128,7 @@ TXT
 
 =head2 check_not_production ()
 
-Fail unless we have less than 1000 products in database.
+Fail unless we have less than 10000 products in database.
 
 This is a simple heuristic to ensure we are not in a production database
 
@@ -141,7 +141,7 @@ sub check_not_production() {
 		}
 	);
 	unless ((0 <= $products_count) && ($products_count < 10000)) {
-		confess("Refusing to run destructive test on a DB of more than 1000 items\n");
+		confess("Refusing to run destructive test on a DB of more than 10,000 items\n");
 	}
 }
 
