@@ -776,54 +776,28 @@ sub set_packaging_misc_tags ($product_ref) {
 	return;
 }
 
-=head2 analyze_and_combine_packaging_data($product_ref, $response_ref)
+=head2 initialize_packagings_structure_with_data_from_packaging_text ($product_ref, $response_ref) 
 
-This function analyzes all the packaging information available for the product:
-
-- the existing packagings data structure
-- the packaging_text entered by users or retrieved from the OCR of recycling instructions
-(e.g. "glass bottle to recycle, metal cap to discard")
-- labels (e.g. FSC)
-
-And combines them in an updated packagings data structure.
-
-Note: as of 2022/11/29, the "packaging" tags field is not used as input.
+This function populates the packagings structure with data extracted from the packaging_text field.
+It is used only when there is no pre-existing data in the packagings structure.
 
 =cut
 
-sub analyze_and_combine_packaging_data ($product_ref, $response_ref) {
-
-	$log->debug("analyze_and_combine_packaging_data - start", {existing_packagings => $product_ref->{packagings}})
-		if $log->is_debug();
-
-	# Create the packagings data structure if it does not exist yet
-	# otherwise, we will use and augment the existing data
-	if (not defined $product_ref->{packagings}) {
-		$product_ref->{packagings} = [];
-	}
-
-	# TODO: remove once all products have been migrated
-	migrate_old_number_and_quantity_fields_202211($product_ref);
-
-	# Parse the packaging_text
+sub initialize_packagings_structure_with_data_from_packaging_text ($product_ref, $response_ref) {
 
 	my @phrases = ();
 
 	my $number_of_packaging_text_entries = 0;
 
-	# Packaging text field (populated by OCR of the packaging image and/or contributors or producers)
-	if (defined $product_ref->{packaging_text}) {
-
-		# Separate phrases by matching:
-		# . , ; and newlines
-		# but we want to keep commas and dots that are inside numbers (3.40 or 1,5)
-		# so we escape them first
-		my $packaging_text = $product_ref->{packaging_text};
-		$packaging_text =~ s/(\d)(\.|,)(\d)/$1\\$2$3/g;
-		my @packaging_text_entries = split(/(?<!\\)\.|(?<!\\),|;|\n/, $packaging_text);
-		push(@phrases, @packaging_text_entries);
-		$number_of_packaging_text_entries = scalar @packaging_text_entries;
-	}
+	# Separate phrases by matching:
+	# . , ; and newlines
+	# but we want to keep commas and dots that are inside numbers (3.40 or 1,5)
+	# so we escape them first
+	my $packaging_text = $product_ref->{packaging_text};
+	$packaging_text =~ s/(\d)(\.|,)(\d)/$1\\$2$3/g;
+	my @packaging_text_entries = split(/(?<!\\)\.|(?<!\\),|;|\n/, $packaging_text);
+	push(@phrases, @packaging_text_entries);
+	$number_of_packaging_text_entries = scalar @packaging_text_entries;
 
 	# Note: as of 2022/11/29, the "packaging" tags field is not used as input.
 	# Corresponding code was removed.
@@ -854,6 +828,50 @@ sub analyze_and_combine_packaging_data ($product_ref, $response_ref) {
 
 			add_or_combine_packaging_component_data($product_ref, $packaging_ref, $response_ref);
 		}
+	}
+
+	return;
+}
+
+=head2 analyze_and_combine_packaging_data($product_ref, $response_ref)
+
+This function analyzes all the packaging information available for the product:
+
+- the existing packagings data structure
+- the packaging_text entered by users or retrieved from the OCR of recycling instructions
+(e.g. "glass bottle to recycle, metal cap to discard")
+- labels (e.g. FSC)
+
+And combines them in an updated packagings data structure.
+
+Note: as of 2022/11/29, the "packaging" tags field is not used as input.
+
+Note: as of 2023/02/13, the "packaging_text" field is used as input only if
+there isn't an existing packagings data structure.
+This is to avoid double counting some packaging elements that may be referred to
+using different shapes (e.g. pot vs jar, or sleeve vs box etc.)
+
+=cut
+
+sub analyze_and_combine_packaging_data ($product_ref, $response_ref) {
+
+	$log->debug("analyze_and_combine_packaging_data - start", {existing_packagings => $product_ref->{packagings}})
+		if $log->is_debug();
+
+	# Create the packagings data structure if it does not exist yet
+	# otherwise, we will use and augment the existing data
+	if (not defined $product_ref->{packagings}) {
+		$product_ref->{packagings} = [];
+	}
+
+	# TODO: remove once all products have been migrated
+	migrate_old_number_and_quantity_fields_202211($product_ref);
+
+	# The packaging text field (populated by OCR of the packaging image and/or contributors or producers)
+	# is used as input only if the packagings structure is empty
+	if ((scalar @{$product_ref->{packagings}} == 0) and (defined $product_ref->{packaging_text})) {
+
+		initialize_packagings_structure_with_data_from_packaging_text($product_ref, $response_ref);
 	}
 
 	# Set misc fields to indicate if the packaging data is complete

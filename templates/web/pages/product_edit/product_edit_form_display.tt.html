@@ -69,10 +69,13 @@
             [% display_field_obsolete %]
         [% END %]
 
+        [%# On the pro platform, no warning about uploading data from the producer %]
+        [% IF !server_options_producers_platform %]
         <div data-alert class="alert-box info store-state" id="warning_3rd_party_content" style="display:none;">
             <span>[% lang("warning_3rd_party_content") %]</span>
              <a href="#" class="close">&times;</a>
         </div>
+        [% END %]
 
         <div data-alert class="alert-box secondary store-state" id="licence_accept" style="display:none;">
             <span>[% lang("licence_accept") %]</span>
