@@ -264,6 +264,7 @@ ul.products {
   padding: 10px;
   width: 120px;
   word-wrap: break-word;
+  text-decoration:none !important;
 }
 
 .products div {
@@ -1350,4 +1351,18 @@ a.panel_title {
 }
 .accordion-navigation a {
   text-decoration:none !important;
+}
+.pagination a {
+  text-decoration:none !important;
+}
+.f-dropdown a {
+  text-decoration:none !important;
+}
+.dataTable a {
+  text-decoration:none !important;
+}
+
+.button:focus, .button:hover, button:focus, button:hover {
+    background-color: scale-color($button-bg-color, $lightness: -$button-function-factor / 2);
+    color: #fff;
 }

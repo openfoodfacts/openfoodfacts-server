@@ -132,6 +132,7 @@ my %unknown_entries_in_gs1_maps = ();
 		# Shellfish could be Molluscs or Crustaceans
 		# "UN" => "Shellfish",
 		"UW" => "Wheat",
+		"X99" => "None",
 	},
 
 	measurementUnitCode => {
@@ -232,27 +233,6 @@ my %unknown_entries_in_gs1_maps = ();
 	},
 
 	packagingTypeCode => {
-		"AE" => "Aérosol",
-		"BA" => "Tonneau",
-		"BG" => "Sac",
-		"BK" => "Barquette",
-		"BO" => "Bouteille",
-		"BPG" => "Blister",
-		"BRI" => "Brique",
-		"BX" => "Boite",
-		"CNG" => "Canette",
-		"CR" => "Caisse",
-		"CT" => "Conteneur",
-		"CU" => "Pot",
-		"EN" => "Enveloppe",
-		"JR" => "Bocal",
-		"PO" => "Poche",
-		"PUG" => "Sac de transport",
-		"TU" => "Tube",
-		"WRP" => "Film",
-	},
-
-	packagingTypeCode_unused_not_taxonomized_yet => {
 		"AE" => "en:aerosol",
 		"BA" => "en:barrel",
 		"BG" => "en:bag",
@@ -329,8 +309,13 @@ my %unknown_entries_in_gs1_maps = ();
 
 	# https://gs1.se/en/guides/documentation/code-lists/t3783-target-market-country-code/
 	targetMarketCountryCode => {
+		"040" => "en:austria",
+		"056" => "en:belgium",
 		"250" => "en:france",
 		"276" => "en:germany",
+		"380" => "en:italy",
+		"724" => "en:spain",
+		"756" => "en:switzerland",
 	},
 
 	timeMeasurementUnitCode => {
@@ -1724,7 +1709,7 @@ sub convert_gs1_json_message_to_off_products_csv ($json_ref, $products_ref, $mes
 
 	# assign the lang and lc fields
 	if (defined $product_ref->{languages}) {
-		my @sorted_languages = sort ({$product_ref->{languages}{$b} <=> $product_ref->{languages}{$a}}
+		my @sorted_languages = sort({$product_ref->{languages}{$b} <=> $product_ref->{languages}{$a}}
 			keys %{$product_ref->{languages}});
 		my $top_language = $sorted_languages[0];
 		$product_ref->{lc} = $top_language;
