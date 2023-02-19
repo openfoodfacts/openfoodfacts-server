@@ -1709,7 +1709,7 @@ sub convert_gs1_json_message_to_off_products_csv ($json_ref, $products_ref, $mes
 
 	# assign the lang and lc fields
 	if (defined $product_ref->{languages}) {
-		my @sorted_languages = sort ({$product_ref->{languages}{$b} <=> $product_ref->{languages}{$a}}
+		my @sorted_languages = sort({$product_ref->{languages}{$b} <=> $product_ref->{languages}{$a}}
 			keys %{$product_ref->{languages}});
 		my $top_language = $sorted_languages[0];
 		$product_ref->{lc} = $top_language;

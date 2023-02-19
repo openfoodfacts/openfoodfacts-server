@@ -1328,8 +1328,22 @@ sub check_ingredients_with_specified_percent ($product_ref) {
 		if (    ($product_ref->{ingredients_with_specified_percent_n} > 0)
 			and ($product_ref->{ingredients_with_specified_percent_sum} > 200))
 		{
-			push @{$product_ref->{data_quality_warning_tags}},
+			push @{$product_ref->{data_quality_warnings_tags}},
 				'en:sum-of-ingredients-with-specified-percent-greater-than-200';
+		}
+
+		# Percentage for ingredient is higher than 100% in extracted ingredients from the picture
+		if ($product_ref->{ingredients_with_specified_percent_n} > 0) {
+			foreach my $ingredient_id (@{$product_ref->{ingredients}}) {
+				if (    (defined $ingredient_id->{percent})
+					and ($ingredient_id->{percent} > 100))
+				{
+					push @{$product_ref->{data_quality_warnings_tags}},
+						'en:ingredients-extracted-ingredient-from-picture-with-more-than-100-percent';
+					last;
+				}
+
+			}
 		}
 	}
 

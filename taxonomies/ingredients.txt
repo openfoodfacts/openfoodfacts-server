@@ -3732,7 +3732,7 @@ fr:poudre de lait réhydratée
 
 <en:milk powder
 en:skimmed milk powder, nonfat dry milk, skimmed cow's milk powder
-bg:обезмаслено сухо мляко, обезмаслено мляко на прах, сухо обезмаслено мляко
+bg:обезмаслено сухо мляко, обезмаслено мляко на прах, сухо обезмаслено мляко, сухо обезмаслно краве мляко
 ca:llet desnatada en pols,llet en pols desnatada
 cs:Sušené odstředěné mléko
 da:skummetmælkspulver
@@ -4430,7 +4430,7 @@ vegetarian:en:yes
 
 <en:whey
 en:whey powder, powdered whey,milk whey powder
-bg:суроватка на прах
+bg:суроватка на прах, млечна суроватка на прах
 ca:Xerigot en pols, sèrum en pols, sèrum làctic en pols
 cs:sušená syrovátka
 da:Vallepulver, vallepulver af mælk
@@ -4714,6 +4714,7 @@ ciqual_food_name:fr:Crème de lait, 30% MG, épaisse, rayon frais
 #processing:en: en:pasteurised
 #<en:cream
 #en:pasteurized cream
+#bg:пастьоризирана сметана
 #ca:nata pasteuritzada, crema de llet pasteuritzada
 #de:pasteurisierte Sahne
 #es:nata pasteurizada, crema de leche pasteurizada
@@ -9704,6 +9705,10 @@ zh:碘化钠
 wikidata:en:Q390305
 wikipedia:en:https://en.wikipedia.org/wiki/Sodium_iodide
 # ingredient/fr:iodure-de-sodium has 35 products in french @2019-03-13
+
+<en:salt
+en:potassium iodide
+de:Kaliumiodid
 
 <en:salt
 en:non-iodised salt
@@ -24499,7 +24504,7 @@ sv:fullkornsmjöl
 <en:wheat flour
 <en:wholemeal flour
 en:whole wheat flour, wholewheat flour, wholemeal wheat flour
-bg:пълнозърнесто пшенично брашно
+bg:пълнозърнесто пшенично брашно, брашно пшенично пълнозърнесто
 ca:farina integral
 da:hvedefuldkornsmel, fuldkornshvedemel
 de:Vollkornweizenmehl, Weizenvollkornmehl
@@ -24663,7 +24668,7 @@ nl:gedextrineerd gerstemeel, gedextrineerd gerstmeel
 
 <en:cereal flour
 en:rye flour
-bg:ръжено брашно, брашно от ръж
+bg:ръжено брашно, брашно от ръж, брашно ръжено
 ca:farina de blat de sègol,farina de blat de segol,farina de sègol
 da:Rugmel
 de:Roggenmehl
@@ -29107,7 +29112,7 @@ sv:proteinhydrolysat
 en:plant protein, vegetable protein, vegetal protein
 bg:растителен протеин
 cs:rostlinné proteiny
-de:pflanzliches Eiweiß
+de:pflanzliches Eiweiß, Pflanzenprotein, Pflanzenproteine
 es:proteína vegetal
 fi:kasviproteiini
 fr:protéines végétales, protéine végétale
@@ -32433,7 +32438,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Phosphoric_acid
 # Unspecified phosphate variety
 
 en:phosphate
-bg:фосфат
+bg:фосфат, фосфати
 de:Phosphat
 es:Fosfato
 fi:fosfaatti, fosfaatit
@@ -37001,7 +37006,7 @@ sv:citronkoncentrat, citronsaftkoncentrat, citronjuicekoncentrat
 
 <en:lemon juice
 en:lemon juice from concentrate
-bg:лимонов сок от концентрат
+bg:лимонов сок от концентрат, сок от лимон от концентрат
 cs:Citronová šťáva z koncetrátu
 da:Citronsaftkoncentrat
 de:Zitronensaft aus Zitronensaftkonzentrat
@@ -49844,6 +49849,7 @@ ciqual_food_name:fr:Poivron rouge, cru
 
 <en:red bell pepper
 en:piquillo pepper
+bg:червени чушки Пикильо
 ca:pebrot del piquillo, pebrots del piquillo
 de:Paprika Piquillo, Piquillo Paprika
 es:pimiento del piquillo
@@ -50849,7 +50855,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Tomato_paste
 # comment:en:This is where the tomato has been puréed *and* concentrated further.
 <en:tomato concentrate
 en:concentrated tomato purée
-bg:концентрирано пюре от домат
+bg:концентрирано пюре от домат, концентриано доматено пюре
 de:konzentriertes Tomatenmark, Tomatenpüreekonzentrat, Tomatenmarkkonzentrat, konzentriertes Tomatenpüree
 es:puré de tomate concentrado, pure de tomate concentrado, puré de tomates concentrado, pasta de tomate concentrado
 fi:tiivistetty tomaattipyree, tiivistettyä tomaattipyreetä
@@ -54304,7 +54310,7 @@ fi:karamellisoidut hasselpähkinät
 
 <en:hazelnut
 en:hazelnut paste
-bg:лешникова паста
+bg:лешникова паста, крем лешник
 ca:pasta d'avellana, pasta d'avellanes
 cs:oříšková pasta
 da:hasselnödmasse
@@ -69336,7 +69342,7 @@ la:Oreochromis niloticus
 en:tuna
 af:Tuna
 ar:تن
-bg:Тунец
+bg:Тунец, риба тон
 ca:tonyina
 da:Tunfisk
 de:Thunfisch
@@ -77755,6 +77761,10 @@ vegan:en:yes
 vegetarian:en:yes
 wikidata:en:Q20026824
 # ingredient/fr:fibres-végétales has 536 products in 7 languages @2019-03-11
+
+<en:vegetable fiber
+en:oat fiber
+de:Haferfaser, Haferpflanzenfaser
 
 <en:vegetable fiber
 en:pea fiber
