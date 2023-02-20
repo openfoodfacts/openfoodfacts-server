@@ -19,7 +19,7 @@ stopwords:el:περιέχει
 stopwords:en:contains, contain, from, with, produced with, with added, minimum,including, inter alia, edible
 stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
 stopwords:fi:sisältää,muun muassa,valio, koskenlaskija, snellmanin, jossa, noin, käymisen aikana muodostuva
-stopwords:fr:aux,au,de,le,du,la,a,et,avec,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout, sachet
+stopwords:fr:aux,au,de,le,du,la,a,et,avec,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout, sachet, marquants
 stopwords:hr:i, iz, min, od, sadrže, sastojci, sastav, u promjenjivim omjerima, u promjenjivim udjelima, u različitim omjerima
 stopwords:hu:tartalmaz, változó arányban, min, zsírtartalom, összetevő, összetétel, amelyből, amiből
 stopwords:id:mengandung
@@ -25152,7 +25152,7 @@ ff:masarji
 fi:maissi
 fj:sila
 fo:mais
-fr:maïs, mais
+fr:maïs, mais, mais à pop-corn, mais à pop corn
 fy:stynske weet
 ga:arbhar indiach
 gd:cruithneachd-innseanach
@@ -39054,7 +39054,7 @@ fr:lait de noix de coco, lait de coco
 hr:kokosovo mlijeko
 it:latte di noce di cocco
 nb:kokosmelk
-nl:kokosmelk, kokosnootmelk
+nl:kokosmelk, kokosnootmelk, kokosroom
 pl:mleko kokosowe, mleczko kokosowe, mleka kokosowego, mleczka kokosowego
 pt:Leite de cocô
 ru:Кокосовое молоко
@@ -52161,7 +52161,7 @@ da:hvide bønner
 de:weiße Bohnen
 es:Alubias blancas, judia blanca
 fi:valkoinen papu, valkoiset pavut
-fr:haricots blancs, lingots blancs, haricots lingots, cocos blancs, haricots blancs lingots, haricots coco blancs, haricots cocos blancs, haricots coco, haricots cocos, lingots
+fr:haricots blancs, lingots blancs, haricots lingots, cocos blancs, haricots blancs lingots, haricots coco blancs, haricots cocos blancs, haricots coco, haricots cocos, lingots, haricots blancs dits mogette
 it:Fagioli bianchi
 nb:hvite bønner
 nl:witte bonen
@@ -78917,6 +78917,11 @@ pt:Jodenkoek
 sv:Judebröd
 th:โยเดิงกุก
 
+#category:en: en:Pretzel
+en:bretzel
+fr:bretzel
+nl:pretzel
+
 #comment:en:not sure about the translations. Some prefer the pepper part, other the ginger-part. Need to split?
 #<en:compound
 en:gingerbread
@@ -82617,7 +82622,7 @@ et:tomatikaste
 eu:tomate saltsa
 fa:سس گوجه فرنگی
 fi:tomaattikastike
-fr:sauce tomate, préparation à base de tomates, préparation aux tomates
+fr:sauce tomate, préparation à base de tomates, préparation aux tomates, preparation a base de tomates cerise
 gl:Salsa de tomate
 gv:soolagh traase
 he:רוטב עגבניות
