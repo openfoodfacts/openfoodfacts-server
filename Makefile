@@ -158,12 +158,13 @@ coverage_txt:
 #----------#
 build_lang:
 	@echo "🥫 Rebuild language"
-# Run build_lang.pl
-	${DOCKER_COMPOSE} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
+    # Run build_lang.pl
+    # Languages may build taxonomies on-the-fly so include GITHUB_TOKEN so results can be cached
+	${DOCKER_COMPOSE} run --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 
 build_lang_test:
 # Run build_lang.pl in test env
-	${DOCKER_COMPOSE_TEST} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
+	${DOCKER_COMPOSE_TEST} run --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 
 # use this in dev if you messed up with permissions or user uid/gid
 reset_owner:

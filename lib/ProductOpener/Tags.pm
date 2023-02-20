@@ -706,6 +706,7 @@ sub get_from_cache ($tagtype, @files) {
 		$got_from_cache = get_file_from_cache("$cache_prefix.json", "$tag_www_root.json");
 	}
 	if ($got_from_cache) {
+		print "obtained taxonomy for $tagtype from " . ('', 'local', 'GitHub')[$got_from_cache] . " cache.\n";
 		$cache_prefix = '';
 	}
 
@@ -803,9 +804,8 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 		@files = ("allergens");
 	}
 
-	my $cache_prefix = get_from_cache($tagType, @files);
+	my $cache_prefix = get_from_cache($tagtype, @files);
 	if (!$cache_prefix) {
-		print "obtained taxonomy for $tagtype from " . ('', 'local', 'GitHub')[$got_from_cache] . " cache.\n";
 		return;
 	}
 
@@ -1765,7 +1765,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 		};
 
 		if ($publish) {
-			store("$tag_data_root.result.sto", $taxonomy_ref);
+			store("$data_root/taxonomies/$tagtype.result.sto", $taxonomy_ref);
 			put_to_cache($tagtype, $cache_prefix);
 		}
 	}
