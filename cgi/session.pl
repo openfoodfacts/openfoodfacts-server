@@ -49,7 +49,6 @@ $template_data_ref->{user_id} = $User_id;
 if (defined $User_id) {
 
 	$template_data_ref->{user_name} = $User{name};
-	$template_data_ref->{server_options_producers} = $server_options{producers_platform};
 
 	my $next_action = single_param('next_action');
 	my $code = single_param('code');

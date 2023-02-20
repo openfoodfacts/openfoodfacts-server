@@ -215,7 +215,7 @@ boîte en carton à recycler"
 	],
 
 	# Merge packaging text data with existing packagings structure
-
+	# 20230213: packaging text is now ignored if there is an existing packagings structure
 	[
 		'merge_en_add_packaging',
 		{
@@ -229,6 +229,7 @@ boîte en carton à recycler"
 			]
 		}
 	],
+	# 20230213: packaging text is now ignored if there is an existing packagings structure
 	[
 		'merge_en_merge_packaging_add_property',
 		{
@@ -242,6 +243,7 @@ boîte en carton à recycler"
 			]
 		}
 	],
+	# 20230213: packaging text is now ignored if there is an existing packagings structure
 	[
 		'merge_en_merge_packaging_more_specific_property',
 		{

@@ -371,6 +371,8 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 
 	# Add functions and values that are passed to all templates
 
+	$template_data_ref->{server_options_private_products} = $server_options{private_products};
+	$template_data_ref->{server_options_producers_platform} = $server_options{producers_platform};
 	$template_data_ref->{producers_platform_url} = $producers_platform_url;
 	$template_data_ref->{server_domain} = $server_domain;
 	$template_data_ref->{static_subdomain} = $static_subdomain;
@@ -831,30 +833,16 @@ CSS
 
 	# call format_subdomain($subdomain) only once
 	$formatted_subdomain = format_subdomain($subdomain);
+	$producers_platform_url = $formatted_subdomain . '/';
 
-	# Change the color of the top nav bar for the platform for producers
+	# If we are not on the producers platform: add .pro
 	if ($server_options{producers_platform}) {
-		$styles .= <<CSS
-.top-bar {
-    background: #a9e7ff;
-}
-
-.top-bar-section li:not(.has-form) a:not(.button) {
-    background: #a9e7ff;
-}
-
-.top-bar-section .has-form {
-    background: #a9e7ff;
-}
-CSS
-			;
+		$producers_platform_url =~ s/\.open/\.pro\.open/;
 	}
 
 	# Enable or disable user food preferences: used to compute attributes and to display
 	# personalized product scores and search results
-	if (    ((defined $options{product_type}) and ($options{product_type} eq "food"))
-		and (not $server_options{producers_platform}))
-	{
+	if (((defined $options{product_type}) and ($options{product_type} eq "food"))) {
 		$request_ref->{user_preferences} = 1;
 	}
 	else {
@@ -877,11 +865,6 @@ CSS
 			skip_forest_footprint => 1,
 		};
 	}
-
-	# Producers platform url
-
-	$producers_platform_url = $formatted_subdomain . '/';
-	$producers_platform_url =~ s/\.open/\.pro\.open/;
 
 	$log->debug(
 		"owner, org and user",
@@ -1030,51 +1013,39 @@ sub display_error_and_exit ($error_message, $status_code) {
 # Specific index for producer on the platform for producers
 sub display_index_for_producer ($request_ref) {
 
-	my $html = "";
-
 	# Check if there are data quality issues or improvement opportunities
+
+	my $template_data_ref = {facets => []};
 
 	foreach my $tagtype ("data_quality_errors_producers", "data_quality_warnings_producers", "improvements") {
 
 		my $count = count_products($request_ref, {$tagtype . "_tags" => {'$exists' => true, '$ne' => []}});
 
 		if ($count > 0) {
-			$html
-				.= "<p>&rarr; <a href=\"/"
-				. $tag_type_plural{$tagtype}{$lc} . "\">"
-				. lang("number_of_products_with_" . $tagtype)
-				. separator_before_colon($lc) . ": "
-				. $count
-				. "</a></p>";
+			push @{$template_data_ref->{facets}},
+				{
+				url => "/" . $tag_type_plural{$tagtype}{$lc},
+				number_of_products => lang("number_of_products_with_" . $tagtype),
+				count => $count,
+				};
 		}
 	}
-
-	$html .= "<h2>" . lang("your_products") . separator_before_colon($lc) . ":" . "</h2>";
-	$html .= '<p>&rarr; <a href="/cgi/import_file_upload.pl">' . lang("add_or_update_products") . '</a></p>';
 
 	# Display a message if some product updates have not been published yet
 
 	my $count = count_products($request_ref, {states_tags => "en:to-be-exported"});
 
-	my $message = "";
-
-	if ($count == 0) {
-		$message = lang("no_products_to_export");
+	if ($count == 1) {
+		$template_data_ref->{products_to_be_exported} = lang("one_product_will_be_exported");
 	}
-	elsif ($count == 1) {
-		$message = lang("one_product_will_be_exported");
-	}
-	else {
-		$message = sprintf(lang("n_products_will_be_exported"), $count);
+	elsif ($count > 1) {
+		$template_data_ref->{products_to_be_exported} = sprintf(lang("n_products_will_be_exported"), $count);
 	}
 
-	if ($count > 0) {
-		$html
-			.= "<p>"
-			. lang("some_product_updates_have_not_been_published_on_the_public_database") . "</p>" . "<p>"
-			. $message . "</p>"
-			. "&rarr; <a href=\"/cgi/export_products.pl\">$Lang{export_product_data_photos}{$lc}</a><br>";
-	}
+	my $html;
+
+	process_template('web/common/includes/producers_platform_front_page.tt.html', $template_data_ref, \$html)
+		|| return "template error: " . $tt->error();
 
 	return $html;
 }
@@ -1115,7 +1086,12 @@ sub display_text ($request_ref) {
 	if (($textid eq 'index-pro') and (defined $Owner_id)) {
 		my $owner_user_or_org = $Owner_id;
 		if (defined $Org_id) {
-			$owner_user_or_org = $Org{name};
+			if ((defined $Org{name}) and ($Org{name} ne "")) {
+				$owner_user_or_org = $Org{name};
+			}
+			else {
+				$owner_user_or_org = $Org_id;
+			}
 		}
 		$html =~ s/<\/h1>/ - $owner_user_or_org<\/h1>/;
 	}
@@ -5211,16 +5187,16 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			$fields = single_param('fields') || 'all';
 		}
 
-		my $customized_products = [];
+		my $customized_products_ref = [];
 
 		for my $product_ref (@{$request_ref->{structured_response}{products}}) {
 
 			my $customized_product_ref = customize_response_for_product($request_ref, $product_ref, $fields);
 
-			push @{$customized_products}, $customized_product_ref;
+			push @{$customized_products_ref}, $customized_product_ref;
 		}
 
-		$request_ref->{structured_response}{products} = $customized_products;
+		$request_ref->{structured_response}{products} = $customized_products_ref;
 
 		# Disable nested ingredients in ingredients field (bug #2883)
 
@@ -6675,39 +6651,6 @@ sub search_and_map_products ($request_ref, $query_ref, $graph_ref) {
 	return $html;
 }
 
-sub display_on_the_blog ($blocks_ref) {
-
-	if (open(my $IN, "<:encoding(UTF-8)", "$data_root/lang/$lang/texts/blog-foundation.html")) {
-
-		my $html = join('', (<$IN>));
-		push @{$blocks_ref},
-			{
-			'title' => lang("on_the_blog_title"),
-			'content' => lang("on_the_blog_content") . '<ul class="side-nav">' . $html . '</ul>',
-			'id' => 'on_the_blog',
-			};
-		close $IN;
-	}
-
-	return;
-}
-
-sub display_bottom_block ($blocks_ref) {
-
-	if (defined $Lang{bottom_content}{$lang}) {
-
-		my $html = lang("bottom_content");
-
-		push @{$blocks_ref},
-			{
-			'title' => lang("bottom_title"),
-			'content' => $html,
-			};
-	}
-
-	return;
-}
-
 sub display_page ($request_ref) {
 
 	$log->trace("Start of display_page") if $log->is_trace();
@@ -6734,17 +6677,9 @@ sub display_page ($request_ref) {
 		return;
 	}
 
-	if ($server_options{producers_platform}) {
-
-		$template_data_ref->{server_options_producers_platform} = $server_options{producers_platform};
-	}
-
-	not $request_ref->{blocks_ref} and $request_ref->{blocks_ref} = [];
-
 	my $title = $request_ref->{title};
 	my $description = $request_ref->{description};
 	my $content_ref = $request_ref->{content_ref};
-	my $blocks_ref = $request_ref->{blocks_ref};
 
 	my $meta_description = '';
 
@@ -6754,25 +6689,6 @@ sub display_page ($request_ref) {
 
 	my $type;
 	my $id;
-
-	# TODO: 2022/10/12 - in the new website design, we removed the side column where we displayed blocks
-	# Those blocks need to be migrated to the new design (if we want to keep them)
-	# and the corresponding code needs to be removed
-
-	$log->debug("displaying blocks") if $log->is_debug();
-
-	display_login_register($blocks_ref);
-
-	display_my_block($blocks_ref);
-
-	display_on_the_blog($blocks_ref);
-
-	#display_top_block($blocks_ref);
-
-	# Bottom block is used for donations, do not display it on the producers platform
-	if (not $server_options{producers_platform}) {
-		display_bottom_block($blocks_ref);
-	}
 
 	my $site = "<a href=\"/\">" . lang("site_name") . "</a>";
 
@@ -6928,15 +6844,6 @@ sub display_page ($request_ref) {
 	$template_data_ref->{langs} = $langs;
 	$template_data_ref->{selected_lang} = $selected_lang;
 
-	my $blocks = display_blocks($request_ref);
-	my $aside_blocks = $blocks;
-
-	# keep only the login block for off canvas
-	$aside_blocks =~ s/<!-- end off canvas blocks for small screens -->(.*)//s;
-
-	# change ids of the add product image upload form
-	$aside_blocks =~ s/block_side/block_aside/g;
-
 	# Join us on Slack <a href="http://slack.openfoodfacts.org">Slack</a>:
 	my $join_us_on_slack
 		= sprintf($Lang{footer_join_us_on}{$lc}, '<a href="https://slack.openfoodfacts.org">Slack</a>');
@@ -7034,9 +6941,7 @@ sub display_page ($request_ref) {
 
 	$template_data_ref->{search_terms} = ${search_terms};
 	$template_data_ref->{torso_class} = $torso_class;
-	$template_data_ref->{aside_blocks} = $aside_blocks;
 	$template_data_ref->{tagline} = $tagline;
-	$template_data_ref->{blocks} = $blocks;
 	$template_data_ref->{title} = $title;
 	$template_data_ref->{content} = $$content_ref;
 	$template_data_ref->{join_us_on_slack} = $join_us_on_slack;
@@ -7264,7 +7169,6 @@ sub display_product ($request_ref) {
 	my $product_id = product_id_for_owner($Owner_id, $code);
 
 	my $html = '';
-	my $blocks_ref = [];
 	my $title = undef;
 	my $description = "";
 
@@ -7978,8 +7882,6 @@ HTML
 
 	if ($server_options{producers_platform}) {
 
-		$template_data_ref->{server_options_producers_platform} = $server_options{producers_platform};
-
 		$template_data_ref->{display_data_quality_issues_and_improvement_opportunities}
 			= display_data_quality_issues_and_improvement_opportunities($product_ref);
 
@@ -8141,7 +8043,6 @@ JS
 	$request_ref->{content_ref} = \$html;
 	$request_ref->{title} = $title;
 	$request_ref->{description} = $description;
-	$request_ref->{blocks_ref} = $blocks_ref;
 	$request_ref->{page_type} = "product";
 	$request_ref->{page_format} = "banner";
 
