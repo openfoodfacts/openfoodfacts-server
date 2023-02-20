@@ -6,7 +6,7 @@ export PERL5LIB="../lib:${PERL5LIB}"
 ./remove_empty_products.pl
 ./compute_missions.pl
 ./export_database.pl
-./mongodb_dump.sh /srv/opf/html openproductsfacts 10.0.0.2 opf
+./mongodb_dump.sh /srv/opf/html openproductsfacts 10.0.0.3 opf
 
 cd /srv/opf/html/data
 gzip < en.openproductsfacts.org.products.rdf > en.openproductsfacts.org.products.rdf.gz
