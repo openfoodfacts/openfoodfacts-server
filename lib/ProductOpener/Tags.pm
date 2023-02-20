@@ -669,8 +669,7 @@ sub get_file_from_cache ($source, $target) {
 
 	# Else try to get it from the github project acting as cache
 	$File::Fetch::WARN = 0;
-	my $ff = File::Fetch->new(
-		uri => "https://raw.githubusercontent.com/$build_cache_repo/main/taxonomies/$source");
+	my $ff = File::Fetch->new(uri => "https://raw.githubusercontent.com/$build_cache_repo/main/taxonomies/$source");
 	$ff->fetch(to => "$cache_root");
 	if (-e $local_cache_source) {
 		copy($local_cache_source, $target);
