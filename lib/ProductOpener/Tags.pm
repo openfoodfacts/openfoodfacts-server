@@ -753,6 +753,8 @@ sub put_to_cache ($tagtype, $cache_prefix) {
 	put_file_to_cache("$tag_www_root.json", "$cache_prefix.json");
 	put_file_to_cache("$tag_data_root.result.txt", "$cache_prefix.result.txt");
 	put_file_to_cache("$tag_data_root.result.sto", "$cache_prefix.result.sto");
+
+	return;
 }
 
 =head2 build_tags_taxonomy( $tagtype, $file, $publish )
