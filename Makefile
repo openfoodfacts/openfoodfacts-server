@@ -203,7 +203,7 @@ import_prod_data:
 	wget --no-verbose https://static.openfoodfacts.org/data/gz-sha256sum -P ./html/data
 	cd ./html/data && sha256sum --check gz-sha256sum
 	@echo "🥫 Restoring the MongoDB dump …"
-	${DOCKER_COMPOSE} exec -T mongodb //bin/sh -c "cd /data/db && mongorestore --drop --gzip --archive=../data/import/openfoodfacts-mongodbdump.gz"
+	${DOCKER_COMPOSE} exec -T mongodb //bin/sh -c "cd /data/db && mongorestore --drop --gzip --archive=/import/openfoodfacts-mongodbdump.gz"
 	rm html/data/openfoodfacts-mongodbdump.tar.gz && rm html/data/gz-sha256sum
 
 #--------#
