@@ -192,18 +192,19 @@ import_more_sample_data:
 	@echo "🥫 Importing sample data (~2000 products) into MongoDB …"
 	${DOCKER_COMPOSE} run --rm backend bash /opt/product-opener/scripts/import_more_sample_data.sh
 
+# this command is used to import data on the mongodb used on staging environment
 import_prod_data:
 	@echo "🥫 Importing production data (~2M products) into MongoDB …"
 	@echo "🥫 This might take up to 10 mn, so feel free to grab a coffee!"
 	@echo "🥫 Removing old archive in case you have one"
-	( rm -f openfoodfacts-mongodbdump.tar.gz || true )
+	( rm -f ./html/data/openfoodfacts-mongodbdump.gz || true ) && ( rm -f ./html/data/gz-sha256sum || true )
 	@echo "🥫 Downloading full MongoDB dump from production …"
-	wget --no-verbose https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz
-	@echo "🥫 Copying the dump to MongoDB container …"
-	docker cp openfoodfacts-mongodbdump.tar.gz $(shell docker-compose ps -q mongodb):/data/db
+	wget --no-verbose https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.gz -P ./html/data
+	wget --no-verbose https://static.openfoodfacts.org/data/gz-sha256sum -P ./html/data
+	cd ./html/data && sha256sum --check gz-sha256sum
 	@echo "🥫 Restoring the MongoDB dump …"
-	${DOCKER_COMPOSE} exec -T mongodb //bin/sh -c "cd /data/db && tar -xzvf openfoodfacts-mongodbdump.tar.gz && rm openfoodfacts-mongodbdump.tar.gz && mongorestore --batchSize=1 &&  rm -rf /data/db/dump/off"
-	rm openfoodfacts-mongodbdump.tar.gz
+	${DOCKER_COMPOSE} exec -T mongodb //bin/sh -c "cd /data/db && mongorestore --drop --gzip --archive=../data/import/openfoodfacts-mongodbdump.gz"
+	rm html/data/openfoodfacts-mongodbdump.tar.gz && rm html/data/gz-sha256sum
 
 #--------#
 # Checks #
