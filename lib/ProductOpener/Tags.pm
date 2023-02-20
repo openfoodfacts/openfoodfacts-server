@@ -1785,7 +1785,7 @@ Build all taxonomies
 
 sub build_all_taxonomies ($publish) {
 	foreach my $taxonomy (@taxonomy_fields) {
-		# traces and data_quality_xxx are not real taxonomy per se 
+		# traces and data_quality_xxx are not real taxonomy per se
 		# (but built from allergens and data_quality)
 		if ($taxonomy ne "traces" and rindex($taxonomy, 'data_quality_', 0) != 0) {
 			build_tags_taxonomy($taxonomy, $publish);
