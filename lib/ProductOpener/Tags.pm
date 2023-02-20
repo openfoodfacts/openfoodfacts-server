@@ -657,14 +657,17 @@ sub get_lc_tagid ($synonyms_ref, $lc, $tagtype, $tag, $warning) {
 	return $lc_tagid;
 }
 
-sub get_from_cache ($source, $target) {
+sub get_file_from_cache ($source, $target) {
 	my $cache_root = "$data_root/build-cache/taxonomies";
 	my $local_cache_source = "$cache_root/$source";
+
+	# first, try to get it localy
 	if (-e $local_cache_source) {
 		copy($local_cache_source, $target);
 		return 1;
 	}
 
+	# Else try to get it from the github project acting as cache
 	$File::Fetch::WARN = 0;
 	my $ff = File::Fetch->new(
 		uri => "https://raw.githubusercontent.com/openfoodfacts/openfoodfacts-build-cache/main/taxonomies/$source");
@@ -677,7 +680,39 @@ sub get_from_cache ($source, $target) {
 	return 0;
 }
 
-sub put_to_cache ($source, $target) {
+sub get_from_cache ($tagtype, @files) {
+	# If the full set of cached files can't be found then returns the hash to be used
+	# when saving the new cached files.
+	my $tag_data_root = "$data_root/taxonomies/$tagtype";
+	my $tag_www_root = "$www_root/data/taxonomies/$tagtype";
+
+	my $sha1 = Digest::SHA1->new;
+	foreach my $source_file (@files) {
+		open(my $IN, "<", "$data_root/taxonomies/$source_file.txt")
+			or die("Cannot open $data_root/taxonomies/$source_file.txt : $!\n");
+
+		binmode($IN);
+		$sha1->addfile($IN);
+		close($IN);
+	}
+
+	my $hash = $sha1->hexdigest;
+	my $cache_prefix = "$tagtype.$hash";
+	my $got_from_cache = get_file_from_cache("$cache_prefix.result.sto", "$tag_data_root.result.sto");
+	if ($got_from_cache) {
+		$got_from_cache = get_file_from_cache("$cache_prefix.result.txt", "$tag_data_root.result.txt");
+	}
+	if ($got_from_cache) {
+		$got_from_cache = get_file_from_cache("$cache_prefix.json", "$tag_www_root.json");
+	}
+	if ($got_from_cache) {
+		$cache_prefix = '';
+	}
+
+	return $cache_prefix;
+}
+
+sub put_file_to_cache ($source, $target) {
 	my $local_target_path = "$data_root/build-cache/taxonomies/$target";
 	copy($source, $local_target_path);
 
@@ -696,16 +731,28 @@ sub put_to_cache ($source, $target) {
 
 		my $ua = LWP::UserAgent->new(timeout => 300);
 		my $url = "https://api.github.com/repos/openfoodfacts/openfoodfacts-build-cache/contents/taxonomies/$target";
-		$ua->put(
+		my $response = $ua->put(
 			$url,
 			Accept => 'application/vnd.github+json',
 			Authorization => "Bearer $token",
 			'X-GitHub-Api-Version' => '2022-11-28',
 			Content => $content
 		);
+		if (!$response->is_success()) {
+			print "Error uploading to GitHub cache for $target: ${\$response->message()}\n";
+		}
 	}
 
 	return;
+}
+
+sub put_to_cache ($tagtype, $cache_prefix) {
+	my $tag_data_root = "$data_root/taxonomies/$tagtype";
+	my $tag_www_root = "$www_root/data/taxonomies/$tagtype";
+
+	put_file_to_cache("$tag_www_root.json", "$cache_prefix.json");
+	put_file_to_cache("$tag_data_root.result.txt", "$cache_prefix.result.txt");
+	put_file_to_cache("$tag_data_root.result.sto", "$cache_prefix.result.sto");
 }
 
 =head2 build_tags_taxonomy( $tagtype, $file, $publish )
@@ -756,28 +803,8 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 		@files = ("allergens");
 	}
 
-	my $sha1 = Digest::SHA1->new;
-	foreach my $source_file (@files) {
-		open(my $IN, "<", "$data_root/taxonomies/$source_file.txt")
-			or die("Cannot open $data_root/taxonomies/$source_file.txt : $!\n");
-
-		binmode($IN);
-		$sha1->addfile($IN);
-		close($IN);
-	}
-
-	my $hash = $sha1->hexdigest;
-	my $tag_data_root = "$data_root/taxonomies/$tagtype";
-	my $tag_www_root = "$www_root/data/taxonomies/$tagtype";
-	my $cache_prefix = "$tagtype.$hash";
-	my $got_from_cache = get_from_cache("$cache_prefix.result.sto", "$tag_data_root.result.sto");
-	if ($got_from_cache) {
-		$got_from_cache = get_from_cache("$cache_prefix.result.txt", "$tag_data_root.result.txt");
-	}
-	if ($got_from_cache) {
-		$got_from_cache = get_from_cache("$cache_prefix.json", "$tag_www_root.json");
-	}
-	if ($got_from_cache) {
+	my $cache_prefix = get_from_cache($tagType, @files);
+	if (!$cache_prefix) {
 		print "obtained taxonomy for $tagtype from " . ('', 'local', 'GitHub')[$got_from_cache] . " cache.\n";
 		return;
 	}
@@ -1737,12 +1764,9 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			properties => $properties{$tagtype},
 		};
 
-		put_to_cache("$tag_data_root.result.txt", "$cache_prefix.result.txt");
-		put_to_cache("$tag_www_root.json", "$cache_prefix.json");
-
 		if ($publish) {
 			store("$tag_data_root.result.sto", $taxonomy_ref);
-			put_to_cache("$tag_data_root.result.sto", "$cache_prefix.result.sto");
+			put_to_cache($tagtype, $cache_prefix);
 		}
 	}
 
@@ -1761,6 +1785,8 @@ Build all taxonomies
 
 sub build_all_taxonomies ($publish) {
 	foreach my $taxonomy (@taxonomy_fields) {
+		# traces and data_quality_xxx are not real taxonomy per se 
+		# (but built from allergens and data_quality)
 		if ($taxonomy ne "traces" and rindex($taxonomy, 'data_quality_', 0) != 0) {
 			build_tags_taxonomy($taxonomy, $publish);
 		}
