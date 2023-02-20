@@ -670,7 +670,7 @@ sub get_file_from_cache ($source, $target) {
 	# Else try to get it from the github project acting as cache
 	$File::Fetch::WARN = 0;
 	my $ff = File::Fetch->new(
-		uri => "https://raw.githubusercontent.com/openfoodfacts/openfoodfacts-build-cache/main/taxonomies/$source");
+		uri => "https://raw.githubusercontent.com/$build_cache_repo/main/taxonomies/$source");
 	$ff->fetch(to => "$cache_root");
 	if (-e $local_cache_source) {
 		copy($local_cache_source, $target);
@@ -731,7 +731,7 @@ sub put_file_to_cache ($source, $target) {
 		close $source_file;
 
 		my $ua = LWP::UserAgent->new(timeout => 300);
-		my $url = "https://api.github.com/repos/openfoodfacts/openfoodfacts-build-cache/contents/taxonomies/$target";
+		my $url = "https://api.github.com/repos/$build_cache_repo/contents/taxonomies/$target";
 		my $response = $ua->put(
 			$url,
 			Accept => 'application/vnd.github+json',

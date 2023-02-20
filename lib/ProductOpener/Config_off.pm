@@ -85,6 +85,7 @@ BEGIN {
 
 		@edit_rules
 
+		$build_cache_repo
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -354,6 +355,8 @@ $events_password = $ProductOpener::Config2::events_password;
 # server options
 
 %server_options = %ProductOpener::Config2::server_options;
+
+$build_cache_repo = $ProductOpener::Config2::build_cache_repo;
 
 $reference_timezone = 'Europe/Paris';
 

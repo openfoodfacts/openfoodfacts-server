@@ -172,7 +172,7 @@ reset_owner:
 	${DOCKER_COMPOSE_TEST} run --rm --no-deps --user root backend chown www-data:www-data -R /opt/product-opener/ /mnt/podata /var/log/apache2 /var/log/httpd  || true
 	${DOCKER_COMPOSE_TEST} run --rm --no-deps --user root frontend chown www-data:www-data -R /opt/product-opener/html/images/icons/dist /opt/product-opener/html/js/dist /opt/product-opener/html/css/dist
 
-init_backend: build_lang
+init_backend: build_lang build_taxonomies
 
 create_mongodb_indexes:
 	@echo "🥫 Creating MongoDB indexes …"
@@ -226,14 +226,14 @@ lint: lint_perltidy
 
 tests: build_lang_test unit_test integration_test
 
-unit_test: build_taxonomies_test
+unit_test:
 	@echo "🥫 Running unit tests …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
 	${DOCKER_COMPOSE_TEST} run -T --rm backend prove -l --jobs ${CPU_COUNT} -r tests/unit
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 unit tests success"
 
-integration_test: build_taxonomies_test
+integration_test:
 	@echo "🥫 Running unit tests …"
 # we launch the server and run tests within same container
 # we also need dynamicfront for some assets to exists
@@ -266,7 +266,7 @@ test-int: guard-test # usage: make test-one test=test-file.t
 stop_tests:
 	${DOCKER_COMPOSE_TEST} stop
 
-update_tests_results: build_taxonomies_test
+update_tests_results:
 	@echo "🥫 Updated expected test results with actuals for easy Git diff"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront
 	${DOCKER_COMPOSE_TEST} exec -T -w /opt/product-opener/tests backend bash update_tests_results.sh
@@ -295,7 +295,7 @@ check_translations:
 	${DOCKER_COMPOSE} run --rm backend scripts/check-translations.sh
 
 # check all perl files compile (takes time, but needed to check a function rename did not break another module !)
-check_perl: build_taxonomies_test
+check_perl:
 	@echo "🥫 Checking all perl files"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
 	${DOCKER_COMPOSE_TEST} run --rm --no-deps backend make -j ${CPU_COUNT} cgi/*.pl scripts/*.pl lib/*.pl lib/ProductOpener/*.pm
@@ -325,16 +325,12 @@ check_critic:
 # Compilation #
 #-------------#
 
-build_taxonomies:
+build_taxonomies: build_lang # build_lang generates the nutrient_level taxonomy source file
 	@echo "🥫 build taxonomies"
     # GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
 	${DOCKER_COMPOSE} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/build_tags_taxonomy.pl ${name}
 
 rebuild_taxonomies: build_taxonomies
-
-build_taxonomies_test:
-	@echo "🥫 build taxonomies"
-	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/build_tags_taxonomy.pl ${name}
 
 #------------#
 # Production #
