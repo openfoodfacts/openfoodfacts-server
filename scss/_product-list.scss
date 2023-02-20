@@ -171,6 +171,7 @@ $productsGutter:12;
 
 //// pagination
 #pages.pagination {
+    clear:left;
     border-top: 2px solid $bluegrey;
     display: flex;
     align-items: center;

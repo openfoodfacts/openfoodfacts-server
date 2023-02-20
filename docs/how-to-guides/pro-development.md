@@ -31,7 +31,7 @@ An explanation of the setup can be found at [pro-dev-setup.md](../explanations/p
 If you want to see state of tasks, you can run:
 
 ```
-docker-compose exec minion /opt/product-opener/scripts/minion.pl  minion job
+docker-compose exec minion /opt/product-opener/scripts/minion_producers.pl  minion job
 ```
 (add --help to see all options), or refer to https://docs.mojolicious.org/Minion/Command/minion/job
 
