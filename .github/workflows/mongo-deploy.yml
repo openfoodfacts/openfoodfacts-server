@@ -99,6 +99,7 @@ jobs:
         script_stop: false
         script: |
           cd ${{ matrix.env }}
+          make down
           make up
 
     - name: Check services are up
