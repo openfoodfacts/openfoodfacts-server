@@ -4,19 +4,12 @@ Everything you need to know about Open Food Facts API.
 
 ## Overview
 
-Open Food Facts is a food products database made by everyone, for everyone, that can help you make better choices about what you eat.
+Open Food Facts is a food products database made by everyone, for everyone, that can help you make better choices about what you eat. Being open data, anyone can reuse it for any purpose.
 
-Being open data, anyone can reuse it for any purpose.
-
-The Open Food Facts API enables developers to get information like ingredients and nutritional values of products, and even add more _facts_ to the products database.
-
-You may use the API to build applications that allow users to contribute to the database and make healthier food choices.
+The Open Food Facts API enables developers to get information like ingredients and nutritional values of products, and even add more _facts_ to the products database. You may use the API to build applications that allow users to contribute to the database and make healthier food choices.
 
 **The current version of the API is `2`.**
-
-<!--- We can add a disclaimer image beside the next paragraph instead of making it a subheading -->
-
-Data in the Open Food Facts database is provided voluntarily by users who want to support the program. As a result, there are no assurances that the data is accurate, complete, or reliable. The user assumes the entire risk of using the data.
+> Data in the Open Food Facts database is provided voluntarily by users who want to support the program. As a result, there are no assurances that the data is accurate, complete, or reliable. The user assumes the entire risk of using the data.
 
 ## Before You Start
 
@@ -26,7 +19,7 @@ Data in the Open Food Facts database is provided voluntarily by users who want t
 
 Please read the [Terms and conditions of use and reuse](https://world.openfoodfacts.org/terms-of-use) before reusing the data.
 
-We are interested in learning what the Open Food Facts data is used for. It is not mandatory, but we would very much appreciate it if you [tell us about your use-case][use_case] so that we can share them with the Open Food Facts community.
+We want to learn what the Open Food Facts data is used for. It is not mandatory, but we would appreciate it if you  [tell us about your use-case][use_case] so that we can share them with the Open Food Facts community.
 
 [use_case]: mailto:contact@openfoodfacts.org
 
