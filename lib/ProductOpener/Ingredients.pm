@@ -1735,6 +1735,7 @@ sub parse_ingredients_text ($product_ref) {
 											   ($product_lc eq 'en')
 											or ($product_lc eq 'es')
 											or ($product_lc eq 'fr')
+											or ($product_lc eq 'hr')
 											or ($product_lc eq 'it')
 										)
 										and ($new_ingredient =~ /(^($regexp)\b|\b($regexp)$)/i)
