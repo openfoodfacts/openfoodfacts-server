@@ -291,7 +291,7 @@
   
     <li class="md-nav__item">
       <a href="../../introduction/robotoff/" class="md-nav__link">
-        Robotoff
+        The Robotoff Project
       </a>
     </li>
   
@@ -1043,11 +1043,9 @@
 <!--Add a brief introduction of what the tutorial does -->
 <h2 id="scan-a-product-to-get-nutri-score">Scan A Product To Get Nutri-score<a class="headerlink" href="#scan-a-product-to-get-nutri-score" title="Permanent link">#</a></h2>
 <p>This basic tutorial shows you can get the Nutri-score of a product, for instance, to display it in a mobile app after scanning the product barcode. Let's use <a href="https://world.openfoodfacts.net/product/3017624010701/nutella-nutella-ferrero">Nutella Ferrero</a> as the product example for this tutorial.</p>
-<!-- Meet Dave. Dave is an active Open Food Facts contributor and a developer who wants to build HealthyFoodChoices, an Android app aimed at conscious consumers that buy healthy products. He has a consumer called Anna. Anna wants to know more on the nutritional facts of Nutella - Ferrero from the HealthyFoodChoices app. Dave needs his app to make an API call to provide her with this information. -->
-
-<p>To get a product nutriscore, you need to make a call to the <a href="https://openfoodfacts.github.io/openfoodfacts-server/reference/api.html#tag/Read-Requests/operation/get-product-by-barcode">Get A Product By Barcode</a> Endpoint.</p>
+<p>To get a product nutriscore, send a request to the <a href="https://openfoodfacts.github.io/openfoodfacts-server/reference/api.html#tag/Read-Requests/operation/get-product-by-barcode">Get A Product By Barcode</a> endpoint.</p>
 <h3 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">#</a></h3>
-<p>Usually, no authentication is required to query Get A Product Nutri-score. However, on the staging environment(which is used throughout this tutorial), there is a basic auth to avoid content indexation. For more details, visit the <a href="https://openfoodfacts.github.io/openfoodfacts-server/introduction/api/#environment">Open Food Facts API Environment</a>.</p>
+<p>Usually, no authentication is required to query Get A Product Nutri-score. However, there is a basic auth to avoid content indexation in the staging environment(which is used throughout this tutorial). For more details, visit the <a href="https://openfoodfacts.github.io/openfoodfacts-server/introduction/api/#environment">Open Food Facts API Environment</a>.</p>
 <h3 id="describing-the-get-request">Describing the Get Request<a class="headerlink" href="#describing-the-get-request" title="Permanent link">#</a></h3>
 <p>Make a <code>GET</code> request to the <code>Get A Product By Barcode</code> endpoint.</p>
 <div class="highlight"><pre><span></span><code>https://world.openfoodfacts.net/api/v2/product/{barcode}
@@ -1116,16 +1114,16 @@
 <span class="w">    </span><span class="nt">&quot;status_verbose&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;product found&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>For more details, see the reference documentation for <a href="https://openfoodfacts.github.io/openfoodfacts-server/reference/api.html#tag/Read-Requests/operation/get-product-by-barcode">Get A Product By Barcode</a></p>
+<p>For more details, see the reference documentation for <a href="https://openfoodfacts.github.io/openfoodfacts-server/reference/api.html#tag/Read-Requests/operation/get-product-by-barcode">Get A Product By Barcode</a>.</p>
 <!-- Probably have a conclusion that links to the next possible topic eg filter countries using lc and cc-->
 
 <h2 id="completing-products-to-get-the-nutri-score">Completing products to get the Nutri-Score<a class="headerlink" href="#completing-products-to-get-the-nutri-score" title="Permanent link">#</a></h2>
 <h3 id="products-without-a-nutri-score">Products without a Nutri-Score<a class="headerlink" href="#products-without-a-nutri-score" title="Permanent link">#</a></h3>
-<p>When these fields are missing in a nutriscore computation response, it means that the product does not have a Nutri-Score computation due to some missing nutrition data.</p>
-<p>Lets look at the <a href="https://world.openfoodfacts.net/api/v2/product/0180411000803/100-real-orange-juice?product_name,nutriscore_data,nutriments,nutrition_grades">100% Real Orange Juice</a>. If the product nutrition data is missing some fields, you can volunteer and contribute to it by getting the missing tags and writing to the OFF API to add them.</p>
+<p>When these fields are missing in a nutriscore computation response, it signifies that the product does not have a Nutri-Score computation due to some missing nutrition data.
+Let's look at the <a href="https://world.openfoodfacts.net/api/v2/product/0180411000803/100-real-orange-juice?product_name,nutriscore_data,nutriments,nutrition_grades">100% Real Orange Juice</a>. If the product nutrition data is missing some fields, you can volunteer and contribute to it by getting the missing tags and writing to the OFF API to add them.</p>
 <!-- I dont know if using 100% Real Orange Juice is a good approach for now , should we state that it was not computed at the time of writing this article just incase it gets computed in future or there is a product we can use to test this that wont change in future ? -->
 
-<p>To know the missing tags, you need the <code>misc-tags</code> field from the response.</p>
+<p>To know the missing tags, check the <code>misc-tags</code> field from the product response.</p>
 <p><code>https://world.openfoodfacts.net/api/v2/product/0180411000803/100-real-orange-juice?fields=misc_tags</code></p>
 <p>The response shows the missing fields and category needed to compute the Nutri-Score.</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
@@ -1148,14 +1146,14 @@
 </code></pre></div>
 <p>The sample response above for 100% Real Orange Juice <code>misc_tags</code> shows that the Nutri-Score is missing category (<code>en:nutriscore-missing-category</code>) and sodium(salt) (<code>en:nutriscore-missing-nutrition-data-sodium</code>). Now you can write to the OFF API to provide these nutriment data (if you have them) so that the Nutri-Score can be computed.</p>
 <h3 id="write-data-to-make-nutri-score-computation-possible">Write data to make Nutri-Score computation possible<a class="headerlink" href="#write-data-to-make-nutri-score-computation-possible" title="Permanent link">#</a></h3>
-<p>The WRITE operations in the OFF API require authentication, therefore you need a valid <code>user_id</code> and <code>password</code>  to write the missing nutriment data to 100% Real Orange Juice.</p>
+<p>The WRITE operations in the OFF API require  authentication. Therefore you need a valid <code>user_id</code> and <code>password</code>  to write the missing nutriment data to 100% Real Orange Juice.</p>
 <blockquote>
-<p>Sign up on the <a href="https://world.openfoodfacts.net/">Open Food Facts App</a>, to get your <code>user_id</code> and <code>password</code> if you dont have.</p>
+<p>Sign up on the <a href="https://world.openfoodfacts.net/">Open Food Facts App</a> to get your<code>user_id</code> and <code>password</code>if you don't have one.</p>
 </blockquote>
 <p>To write data to a product, make a <code>POST</code> request to the <a href="https://openfoodfacts.github.io/openfoodfacts-server/reference/api.html#tag/Write-Requests/operation/post-cgi-product_jqm2.pl"><code>Add or Edit A Product</code></a> endpoint.</p>
 <div class="highlight"><pre><span></span><code>https://world.openfoodfacts.net/cgi/product_jqm2.pl
 </code></pre></div>
-<p>For authentication, add your valid <code>user_id</code> and <code>password</code> as body parameters to your request. The <code>code</code> (barcode of the product to be added/edited), <code>user_id</code> and <code>password</code> are required fields when adding or editing a product. Then, include other product data to be added in the request body.</p>
+<p>Add your valid <code>user_id</code> and <code>password</code> as body parameters to your request for authentication. The <code>code</code> (barcode of the product to be added/edited), <code>user_id</code>, and <code>password</code> are required when adding or editing a product. Then, include other product data to be added in the request body.</p>
 <p>To write <code>sodium</code> and <code>category</code> to 100% Real Orange Juice so that the Nutri-Score can be computed, the request body should contain these fields :</p>
 <table>
 <thead>
@@ -1345,7 +1343,7 @@
 <span class="w">    </span><span class="nt">&quot;skip&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>To see other examples of sorting a search response, see the reference documentation for <a href="https://openfoodfacts.github.io/openfoodfacts-server/reference/api/#tag/Read-Requests/operation/get-search">Search for Products</a></p>
+<p>To see other examples of sorting a search response, see the reference documentation for <a href="https://openfoodfacts.github.io/openfoodfacts-server/reference/api/#tag/Read-Requests/operation/get-search">Search for Products</a>.</p>
 
 
 

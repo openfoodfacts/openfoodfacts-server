@@ -291,7 +291,7 @@
   
     <li class="md-nav__item">
       <a href="../../introduction/robotoff/" class="md-nav__link">
-        Robotoff
+        The Robotoff Project
       </a>
     </li>
   
@@ -1019,35 +1019,33 @@
 <p>This basic tutorial shows you how to upload an image of a product to the Open Food Facts API.</p>
 <h2 id="points-to-consider-before-uploading-photos">Points to consider before uploading photos<a class="headerlink" href="#points-to-consider-before-uploading-photos" title="Permanent link">#</a></h2>
 <h3 id="image-license">Image license<a class="headerlink" href="#image-license" title="Permanent link">#</a></h3>
-<p>Products images MUST be under the <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">Creative Commons Attribution ShareAlike licence</a>.</p>
-<p>That means you should either upload: 
-* photos that are your own work
-* photos taken by your users, with their consent for this license (should be part of your service terms)
-* photos already under this license or a compatible license (<a href="https://creativecommons.org/licenses/by/4.0/">cc-by</a>, <a href="https://creativecommons.org/share-your-work/public-domain/cc0/">cc-0</a> or public domain)</p>
+<p>Product images must be under the <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">Creative Commons Attribution ShareAlike licence</a>.</p>
+<p>That means you should either upload:</p>
+<ul>
+<li>photos that are your own work</li>
+<li>photos taken by your users, with their consent for this license (should be part of your service terms)</li>
+<li>photos already under this license or a compatible license (<a href="https://creativecommons.org/licenses/by/4.0/">cc-by</a>, <a href="https://creativecommons.org/share-your-work/public-domain/cc0/">cc-0</a> or public domain)</li>
+</ul>
 <h3 id="image-quality">Image Quality<a class="headerlink" href="#image-quality" title="Permanent link">#</a></h3>
-<p>Uploading quality photos of a product, its ingredients and nutrition table is very important, since it allows the Open Food Facts OCR system to retrieve important data to analyze the product. The minimal allowed size for photos is 640 x 160 px.</p>
+<p>Uploading quality photos of a product, its ingredients, and the nutrition table is essential because it enables the Open Food Facts OCR system to retrieve important data to analyze the product. The minimal allowed size for photos is 640 x 160 px.</p>
 <h3 id="upload-behavior">Upload Behavior<a class="headerlink" href="#upload-behavior" title="Permanent link">#</a></h3>
-<p>In case you upload more than one photo of the front, the ingredients, the nutrition facts, or the product packaging components, beware that only the latest "selected" photo of each category will be displayed on the product page on the website and on the mobile application. </p>
-<p>The older ones are still saved, and can be "selected" either by an API call or via the editing interface (website and mobile application).</p>
-<p>You can also upload some photos that are neither of that 4 categories, but they will not be displayed by default.. However, all photos will be saved.</p>
+<p>In case you upload more than one photo of the front, the ingredients, the nutrition facts, or the product packaging components, beware that only the latest "selected" photo of each category will be displayed on the product page on the website and on the mobile application.
+The older ones are saved and can be "selected" by an API call or via the editing interface (website and mobile application).
+You can also upload some photos that are neither of that 4 categories, but they will not be displayed by default. However, all photos will be saved.</p>
 <h3 id="label-languages">Label Languages<a class="headerlink" href="#label-languages" title="Permanent link">#</a></h3>
-<p>Multilingual products have several photos based on languages present on the packaging. You can specify the language by adding a lang code suffix to the image field.</p>
-<p>See <a href="#imagefield">the paragraph about Imagefield</a></p>
+<p>Multilingual products have several photos based on the languages present on the packaging. You can specify the language by adding a lang code suffix to the <a href="(#imagefield)">image field</a>.</p>
 <h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">#</a></h2>
-<p>The WRITE operations in the OFF API require authentication, therefore you need a valid <code>user_id</code> and <code>password</code> to write the photo to 100% Real Orange Juice.</p>
+<p>The WRITE operations in the OFF API require authentication. Therefore you need a valid <code>user_id</code> and <code>password</code> to write the photo to 100% Real Orange Juice.</p>
 <blockquote>
-<p>Sign up on the <a href="https://world.openfoodfacts.net/">Open Food Facts App</a>, to get your <code>user_id</code> and <code>password</code> if you dont have.
-For more details, visit the <a href="https://openfoodfacts.github.io/openfoodfacts-server/introduction/api/#authentication">Open Food Facts Authentication</a>.</p>
+<p>Sign up on the <a href="https://world.openfoodfacts.net/">Open Food Facts App</a> to get your <code>user_id</code> and <code>password</code> if you dont have one. For more details, visit the <a href="https://openfoodfacts.github.io/openfoodfacts-server/introduction/api/#authentication">Open Food Facts Authentication</a>.</p>
 </blockquote>
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h2>
 <h3 id="code">Code<a class="headerlink" href="#code" title="Permanent link">#</a></h3>
 <p>The barcode of the product.</p>
 <h3 id="imagefield">Imagefield<a class="headerlink" href="#imagefield" title="Permanent link">#</a></h3>
-<p><code>imagefield</code> indicates the type of the image you are trying to upload for a particular product. It can be either of these: <code>front</code>, <code>ingredients</code>, <code>nutrition</code>, <code>packaging</code> or <code>other</code>.
-You can also specify the language present in that image by adding a suffix of the languade code to the <code>imagefield</code> value. For example — <code>front_en</code>, <code>packaging_fr</code>.</p>
+<p><code>imagefield</code> indicates the type of image you are trying to upload for a particular product. It can be either of these: <code>front</code>, <code>ingredients</code>, <code>nutrition</code>, <code>packaging</code> or <code>other</code>. You can also specify the language in that image by adding a suffix of the language code to the <code>imagefield</code> value. For example — <code>front_en</code>, <code>packaging_fr</code>.</p>
 <h3 id="imageupload">ImageUpload<a class="headerlink" href="#imageupload" title="Permanent link">#</a></h3>
-<p>This is the field that must contains the binary content of the image.</p>
-<p>The field name is dependent on  <code>imagefield</code>. It must be <code>imgupload_</code> suffixed by the value of the <code>imagefield</code> stated earlier.</p>
+<p><code>imageupload</code> must contain the binary content of the image. This field name is dependent on the  <code>imagefield</code>.  It must be <code>imgupload_</code> suffixed by the value of the <code>imagefield</code> stated earlier. Here are some examples:</p>
 <ul>
 <li>imgupload_front (if imagefield=front)</li>
 <li>imgupload_ingredients_fr (if imagefield=ingredients_fr)</li>
@@ -1059,9 +1057,7 @@ You can also specify the language present in that image by adding a suffix of th
 <div class="highlight"><pre><span></span><code>https://off:off@world.openfoodfacts.net/cgi/product_image_upload.pl
 </code></pre></div>
 <h3 id="upload-photo-of-a-product">Upload Photo of a Product<a class="headerlink" href="#upload-photo-of-a-product" title="Permanent link">#</a></h3>
-<p>For authentication, we will add a valid <code>user_id</code> and <code>password</code> as body parameters to the request.</p>
-<p>The <code>code</code> (barcode of the product to be updated), is of course required to indicate the product to upload the photo to. </p>
-<p>Then, include other product data to be added in the request body.</p>
+<p>Add a <code>user_id</code> and <code>password</code> as body parameters to the request for authentication. The <code>code</code> (barcode of the product to be updated) is required to indicate the product for the uploaded photo. Then, include other product data to be added in the request body.</p>
 <p>To add a new image for ingredients in English  to <em>100% Real Orange Juice</em>, the request body should contain these fields :</p>
 <table>
 <thead>
@@ -1095,7 +1091,7 @@ You can also specify the language present in that image by adding a suffix of th
 <tr>
 <td>imgupload_ingredients_en</td>
 <td align="center">file</td>
-<td align="right">The binary content of the image of the product ingredients in english</td>
+<td align="right">The binary content of the image of the product ingredients in English</td>
 </tr>
 </tbody>
 </table>
@@ -1106,7 +1102,7 @@ You can also specify the language present in that image by adding a suffix of th
 </code></pre></div>
 <p>If the request is successful, it returns a response that indicates that the fields have been saved.
 You will also get the new image id in <code>imgid</code>.</p>
-<p><div class="highlight"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;files&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/product/0180411000803/100%-real-orange-juice&quot;</span><span class="p">,</span>
@@ -1127,7 +1123,7 @@ You will also get the new image id in <code>imgid</code>.</p>
 <span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0180411000803&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
-If the request is not successful you will have  a dict with an entry <code>"status": "status not ok"</code> and an explanation in <code>debug</code> field.</p>
+<p>If the request is unsuccessful, the response returns <code>"status": "status not ok"</code> and an explanation in <code>debug</code> field.</p>
 
 
 
@@ -1148,7 +1144,7 @@ If the request is not successful you will have  a dict with an entry <code>"stat
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../../introduction/robotoff/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Robotoff" rel="prev">
+        <a href="../../introduction/robotoff/" class="md-footer__link md-footer__link--prev" aria-label="Previous: The Robotoff Project" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1157,7 +1153,7 @@ If the request is not successful you will have  a dict with an entry <code>"stat
               <span class="md-footer__direction">
                 Previous
               </span>
-              Robotoff
+              The Robotoff Project
             </div>
           </div>
         </a>
