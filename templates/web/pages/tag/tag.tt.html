@@ -32,7 +32,7 @@
                 [% END %]
 
 
-                [% IF weblinks %]
+                [% IF weblinks and not facets_kp_url.defined %]
                 <div class="weblinks">
                     [% weblinks %]
                 </div>
