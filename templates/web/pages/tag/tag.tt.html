@@ -72,8 +72,6 @@
                 </div>
                 <!-- Fetching facet knowledge panel -->
                 [% IF facets_kp_url.defined %]
-                <!-- loading Jquery -->
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
                 <script>
                         let facet_kp = "[% facets_kp_url %]";
                         let params = "?facet_tag=[% tagtype %]&value_tag=[% canon_tagid %]";
