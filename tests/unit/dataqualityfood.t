@@ -547,4 +547,124 @@ check_quality_and_test_product_has_quality_tag(
 	'en:ingredients-extracted-ingredient-from-picture-with-more-than-100-percent',
 	'percentage should not be above 100, error when extracting the ingredients from the picture', 0
 );
+# sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars
+$product_ref = {nutriments => {}};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
+	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 0
+);
+$product_ref = {
+	nutriments => {
+		"sugars_100g" => 1,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
+	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 0
+);
+$product_ref = {
+	nutriments => {
+		"fructose_100g" => 1,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
+	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 0
+);
+$product_ref = {
+	nutriments => {
+		"sugars_100g" => 2,
+		"fructose_100g" => 1,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
+	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 0
+);
+$product_ref = {
+	nutriments => {
+		"sugars_100g" => 0,
+		"fructose_100g" => 2,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
+	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 1
+);
+$product_ref = {
+	nutriments => {
+		"sugars_100g" => 1,
+		"fructose_100g" => 1,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
+	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 0
+);
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
+	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 0
+);
+$product_ref = {
+	nutriments => {
+		"sugars_100g" => 20,
+		"fructose_100g" => 1,
+		"glucose_100g" => 1,
+		"maltose_100g" => 1,
+		"lactose_100g" => 1,
+		"sucrose_100g" => 1,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
+	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 0
+);
+$product_ref = {
+	nutriments => {
+		"sugars_100g" => 1,
+		"fructose_100g" => 1,
+		"glucose_100g" => 1,
+		"maltose_100g" => 1,
+		"lactose_100g" => 1,
+		"sucrose_100g" => 1,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
+	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 1
+);
+$product_ref = {
+	nutriments => {
+		"sugars_100g" => 20,
+		"fructose_100g" => 4,
+		"glucose_100g" => 4,
+		"maltose_100g" => 4,
+		"lactose_100g" => 4,
+		"sucrose_100g" => 4,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
+	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 0
+);
 done_testing();
