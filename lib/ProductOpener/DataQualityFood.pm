@@ -836,6 +836,36 @@ sub check_nutrition_data ($product_ref) {
 				"en:nutrition-sugars-plus-starch-greater-than-carbohydrates";
 		}
 
+		# sum of nutriments that compose sugar can not be greater than sugar value
+		if (
+			(defined $product_ref->{nutriments}{sugars_100g})
+			and (
+				(
+					(
+						(defined $product_ref->{nutriments}{fructose_100g}) ? $product_ref->{nutriments}{fructose_100g}
+						: 0
+					) + (
+						(defined $product_ref->{nutriments}{glucose_100g}) ? $product_ref->{nutriments}{glucose_100g}
+						: 0
+					) + (
+						(defined $product_ref->{nutriments}{maltose_100g}) ? $product_ref->{nutriments}{maltose_100g}
+						: 0
+					) + (
+						(defined $product_ref->{nutriments}{lactose_100g}) ? $product_ref->{nutriments}{lactose_100g}
+						: 0
+					) + (
+						(defined $product_ref->{nutriments}{sucrose_100g}) ? $product_ref->{nutriments}{sucrose_100g}
+						: 0
+					)
+				) > ($product_ref->{nutriments}{sugars_100g}) + 0.001
+			)
+			)
+		{
+
+			push @{$product_ref->{data_quality_errors_tags}},
+				"en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars";
+		}
+
 		if (
 			(
 				(defined $product_ref->{nutriments}{"saturated-fat_100g"})

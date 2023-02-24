@@ -985,6 +985,10 @@ en:probiotic cultures
 es:cultivos probióticos
 hu:probiotikus kultúrák, probiotikus kultúra, probiotikum kultúrák, probiotikum kultúra
 
+<en:microbial culture
+en:kombucha culture, kombuncha cultures
+fr:culture de kombucha
+
 <en:lactic ferments
 en:skyr cultures
 da:skyr kultur
@@ -15214,6 +15218,9 @@ ciqual_food_name:fr:Huile d'olive vierge extra
 <en:extra virgin olive oil
 es:aceite de oliva virgen extra de Lubrín
 
+<en:extra virgin olive oil
+fr:huile d'olive chemlali extra vierge
+
 <en:olive oil
 en:organic olive oil
 bg:био зехтин, био маслиново масло
@@ -22521,6 +22528,7 @@ fa:شربت مالت جو
 fi:ohramallassiirappi
 fr:sirop d'orge malté
 it:Sciroppo di malto d'orzo
+nl:gerstemoutstroop
 pl:syrop jęczmienny, syrop ze słodu jęczmiennego
 # ingredient/en:barley-malt-syrup has 370 products in 1 language @2020-05-21
 wikidata:en:Q3485291
@@ -22728,6 +22736,7 @@ fr:galette en blé noir
 <en:wholemeal flour
 en:whole grain buckwheat flour
 de:Buchweizenvollkornmehl, Buchweizen-Vollkornmehl
+fr:farine de sarrasin complète
 hr:integralno heljdino brašno
 nl:volkoren boekweitmeel
 
@@ -24043,6 +24052,7 @@ de:Khorasan Weizenmehl
 <en:wholemeal flour
 en:whole grain khorasan flour, whole grain kamut flour
 de:Khorasan Vollkornmehl, Kamut-Khorasan Vollkornmehl
+fr:farine de kamut complète
 
 ##################################################################################
 #
@@ -30036,7 +30046,7 @@ de:fettarmes Kakaopulver, Kakaopulver stark entölt, fettreduziertes Kakaopulver
 es:cacao magro en polvo, cacao desgrasado en polvo, cacao en polvo desgrasado, cacao en polvo reducido en grasa, cacao deshidratado rebajado en grasa, cacao en polvo semidesgrasado, cacao semidesgrasado en polvo
 et:lahja kakaopulber, vähendatud rasvasisaldusega kakaopulber
 fi:vähärasvainen kaakaojauhe, vähärasvaista kaakaojauhetta
-fr:poudre de cacao maigre, poudre de cacao dégraissé, cacao dégraissé en poudre, cacao en poudre dégraissé, cacao maigre en poudre, cacao sec dégraissé, poudre de cacao à teneur réduite en matières grasses
+fr:poudre de cacao maigre, poudre de cacao dégraissé, cacao dégraissé en poudre, cacao en poudre dégraissé, cacao maigre en poudre, cacao sec dégraissé, poudre de cacao à teneur réduite en matières grasses, poudre de cacao allegee
 hr:kakao u prahu smanjene masnoce, nemasni kakao prah, nemasni kakao u prahu, kakao prah smanjene masti, kakaov prah smanjene masti, kakao smanjene masnoće u prahu, kakaov prahu smanjene mast
 hu:zsírszegény kakaópor
 it:cacao magro in polvere, cacao scremato in polvere
@@ -42251,7 +42261,7 @@ en:concentrated grape juice
 de:Traubensaftkonzentrat
 es:zumo de uva concentrado, jugo de uva concentrado
 fi:rypälemehutiiviste, viinirypälemehutiiviste
-fr:jus de raisin concentré, concentré de jus de raisin
+fr:jus de raisin concentré, concentré de jus de raisin, jus concentré de raisin
 it:ssucco concentrato d'uva
 nl:Geconcentreerd grapefruitsap
 sv:druvsaftkoncentrat, druvjuicekoncentrat
@@ -46799,6 +46809,7 @@ nl:wortelextract, kleurend wortelextract
 # fr:extrait-de-carotte has 176 products in 6 languages @0218-10-20
 
 <en:carrot
+en:carrot powder
 de:Karottenpulver
 fi:porkkanajauhe
 
@@ -46840,6 +46851,10 @@ da:gulerod
 de:orange Möhre, orange Karotte
 fi:oranssi porkkana
 fr:carottes oranges
+
+<en:carrot
+en:violet carrot
+fr:carotte violette
 
 <en:carrot
 nl:winterpeen
@@ -52203,6 +52218,10 @@ nl:Zwarte bonen
 pl:fasola czarna, fasoli czarnej
 sv:svarta bönor
 
+<en:black beans
+en:black bean flour
+fr:farine de haricots noirs
+
 <en:legume
 en:red beans, red kidney beans, kidney beans
 bg:червен боб
@@ -53108,6 +53127,9 @@ sv:extra fina söta ärtor
 <en:garden peas
 de:Junge Markerbsen
 
+<en:garden peas
+en:en:garden peas flour
+fr:farine de petits pois
 
 # description:en:The snow pea (Pisum sativum var. saccharatum) is a variety of pea eaten whole in its pod while still unripe.
 
@@ -53721,9 +53743,13 @@ pl:masa migdałowa
 en:blanches almonds, almonds blanched
 de:blanchierte Mandlen, Mandeln blanchiert
 es:almendras peladas
-fr:amandes blanchies
+fr:amandes blanchies, amandes blanches
 pl:migdały blanszowane
 # ingredient/fr:amandes-blanchies has 31 products in 5 languages @2018-10-06
+
+<en:blanches almonds
+en:raw blanched almonds
+fr:amandes blanches crues
 
 <en:blanches almonds
 fr:amandes blanchies en poudre
@@ -59152,6 +59178,10 @@ de:Pfefferminzblätter, Pfefferminzblätter ganz
 fr:feuilles de menthe poivrée, feuilles de menthe poivrée entières
 #83 @2021-10-11
 
+<en:peppermint
+en:concentrated peppermint juice
+fr:jus concentré de menthe poivrée
+
 #<en:peppermint
 #en:organic peppermint
 #de:Bio-Pfefferminz
@@ -59502,6 +59532,27 @@ nl:biologisch ijzerhard
 
 <en:verbena
 fr:feuilles de verveine
+
+<en:verbena
+en:lemon verbena
+fr:verveine citronnee, verveine citronelle, verveine odorante
+la:Aloysia citrodora
+nl:citroenverbena
+
+<en:herb
+en:hemp
+fr:chanvre
+nl:hennep
+
+<en:hemp
+en:hemp flour
+fr:farine de chanvre
+nl:hennepmeel
+
+<en:herb
+en:blackberry leaf, blackberry leaves
+fr:feuilles de mûre
+nl:braamblad, braambladeren
 
 ###################################################################################################
 #
@@ -59963,6 +60014,11 @@ de:Indisches Basilikum (Tulsi), Tulsi
 fr:tulsi
 wikipedia:en:https://en.wikipedia.org/wiki/Ocimum_tenuiflorum
 
+<en:herb
+en:raspberry leaf, raspberry Leaves
+fr:feuilles de framboisier
+nl:frambozenblad, frambozenbladeren
+
 ###################################################################################################
 #
 #                                Lovage
@@ -60128,7 +60184,7 @@ wikidata:en:Q156921
 fr:bleuets
 
 <fr:bleuets
-fr:pétales de bleuet
+fr:pétales de bleuet, fleurs de bleuet
 
 ###################################################################################################
 #
@@ -60152,7 +60208,7 @@ et:saialill
 eu:Ilen kultibatu
 fa:گل همیشه‌بهار
 fi:kehäkukka, tarhakehäkukka
-fr:souci, soucis
+fr:souci, soucis, fleurs de calendula
 ga:Ór Muire
 gl:Maravalla
 hr:Neven
@@ -60202,6 +60258,12 @@ wikidata:en:Q145930
 wikipedia:en:https://en.wikipedia.org/wiki/Calendula_officinalis
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:soucis
 # 2 products in 3 languages @2018-10-10
+
+<en:herb
+en:sweet woodruff
+fr:aspérule odorante, gaillet odorant
+la:galium odoratum
+nl:lievevrouwebedstro
 
 ###################################################################################################
 #
@@ -61696,7 +61758,7 @@ en:linden
 de:Lindenblüten
 es:Tila
 fi:lehmus
-fr:tilleul
+fr:tilleul, fleurs de tilleul
 hr:cvijet lipe
 it:Fiori di tiglio
 nl:Linde, lindebloesem
@@ -61974,7 +62036,7 @@ et:Mate
 eu:Mate
 fi:Mate
 fo:Mate
-fr:maté, yerba mate
+fr:maté, yerba mate, feuilles de mate
 gl:Mate
 gn:Ka'ay
 he:מאטה
@@ -62116,7 +62178,7 @@ et:Nõges
 eu:asun
 fa:گزنه
 fi:nokkonen, nokkoset
-fr:ortie, orties
+fr:ortie, orties, herbes d'ortie
 ga:Neantóg
 gl:Ortiga
 he:סרפד
@@ -83258,7 +83320,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Kombucha
 en:raw kombucha
 de:Roher Kombucha
 fr:Combucha cru, Kombucha cru
-
 
 ###################################################################################################
 #
