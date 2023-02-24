@@ -797,7 +797,7 @@ sub check_nutrition_data ($product_ref) {
 				"en:nutrition-sugars-plus-starch-greater-than-carbohydrates";
 		}
 
-		# sum of nutriments that compose sugar can not be great than sugar value
+		# sum of nutriments that compose sugar can not be greater than sugar value
 		if (
 			(defined $product_ref->{nutriments}{sugars_100g})
 			and (
