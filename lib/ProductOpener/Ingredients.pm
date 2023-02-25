@@ -150,7 +150,8 @@ my %may_contain_regexps = (
 	en =>
 		"it may contain traces of|possible traces|traces|may also contain|also may contain|may contain|may be present",
 	bg => "продуктът може да съдържа следи от|може да съдържа следи от|може да съдържа",
-	cs => "může obsahovat",
+	bs => "može da sadrži"
+	cs => "může obsahovat", "může obsahovat stopy",
 	da => "produktet kan indeholde|kan indeholde spor af|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
 	de => "Kann enthalten|Kann Spuren|Spuren",
 	es => "puede contener huellas de|puede contener trazas de|puede contener|trazas|traza",
@@ -159,7 +160,7 @@ my %may_contain_regexps = (
 		"saattaa sisältää pienehköjä määriä muita|saattaa sisältää pieniä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää pieniä määriä|voi sisältää vähäisiä määriä|saattaa sisältää hivenen|saattaa sisältää pieniä|saattaa sisältää jäämiä|sisältää pienen määrän|jossa käsitellään myös|saattaa sisältää myös|joka käsittelee myös|jossa käsitellään|saattaa sisältää",
 	fr =>
 		"peut également contenir|peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
-	hr => "može sadržavati|može sadržavati tragove|može sadržati|proizvod može sadržavati|sadrži",
+	hr => "Mogući sadržaj|može sadržavati|može sadržavati tragove|može sadržati|proizvod može sadržavati|sadrži",
 	is => "getur innihaldið leifar|gæti innihaldið snefil|getur innihaldið",
 	it =>
 		"Pu[òo] contenere tracce di|pu[òo] contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
@@ -1732,10 +1733,15 @@ sub parse_ingredients_text ($product_ref) {
 									(
 										#($product_lc =~ /^(en|es|it|fr)$/)
 										(
-											   ($product_lc eq 'en')
+											   ($product_lc eq 'bs')
+											or ($product_lc eq 'cs')
+											or ($product_lc eq 'en')
 											or ($product_lc eq 'es')
 											or ($product_lc eq 'fr')
 											or ($product_lc eq 'it')
+											or ($product_lc eq 'mk')
+											or ($product_lc eq 'sl')
+											or ($product_lc eq 'sr')
 										)
 										and ($new_ingredient =~ /(^($regexp)\b|\b($regexp)$)/i)
 									)
@@ -1886,6 +1892,9 @@ sub parse_ingredients_text ($product_ref) {
 
 						# Remove some sentences
 						my %ignore_regexps = (
+							'bs' => [
+								'u promjenljivom odnosu',  # in a variable ratio
+							],
 
 							'da' => [
 								'^Mælkechokoladen indeholder (?:også andre vegetabilske fedtstoffer end kakaosmør og )?mindst',
@@ -1969,7 +1978,13 @@ sub parse_ingredients_text ($product_ref) {
 								'^täysjyväsisältö',
 							],
 
-							'hr' => ['^u tragovima$',],
+							'hr' => [
+								'^u tragovima$', # in traces
+								'označene podebljano', # marked in bold
+								'savjet kod alergije',  # allergy advice
+								'uključujući žitarice koje sadrže gluten', # including grains containing gluten
+								'za alergene', # for allergens
+							],
 
 							'it' => ['^in proporzion[ei] variabil[ei]$',],
 
@@ -1987,6 +2002,11 @@ sub parse_ingredients_text ($product_ref) {
 								'^углеводы$', '^не менее$',
 								'^средние значения$', '^содержат$',
 								'^идентичный натуральному$', '^(g|ж|ул)$'
+							],
+
+							'sl' => [
+								'lahko vsebuje',
+								'lahko vsebuje sledi', # may contain traces
 							],
 
 							'sv' => [
@@ -3396,7 +3416,7 @@ my %phrases_before_ingredients_list = (
 		'composition',
 	],
 
-	hr => ['HR BiH', 'HR/BIH', 'naziv proizvoda', 'popis sastojaka', 'Sastojci', 'Sastojci/Sestavine'],
+	hr => ['HR BiH', 'HR/BIH', 'naziv', 'naziv proizvoda', 'popis sastojaka', 'sastav', 'sastojci', 'sastojci/sestavine'],
 
 	hu => ['(ö|ő|o)sszetev(ö|ő|o)k', 'összetétel',],
 
@@ -3701,6 +3721,7 @@ my %phrases_after_ingredients_list = (
 		'upotrijebiti do datuma',    # valid until
 		'upozorenje',    # warning
 		'uputa',    # instructions
+		'uvjeti čuvanja',  # storage conditions
 		'uvoznik za',    # importer
 		'vakuumirana',    # Vacuumed
 		'vrijeme kuhanja',    # Cooking time
