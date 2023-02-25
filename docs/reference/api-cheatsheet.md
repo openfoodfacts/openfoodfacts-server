@@ -43,7 +43,7 @@ add_brands
 
 [Reference documentation for search API](https://openfoodfacts.github.io/openfoodfacts-server/reference/api/#tag/Read-Requests/operation/get-search)
 
-### Get data for a list of products.
+### Get data for a list of products
 
 You can use comma to seperate multiple values of a query paremeter. This allows you to make bulk requests. The product result can also be limited to specified data using `fields`.
 
