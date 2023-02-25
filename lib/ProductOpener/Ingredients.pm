@@ -150,8 +150,8 @@ my %may_contain_regexps = (
 	en =>
 		"it may contain traces of|possible traces|traces|may also contain|also may contain|may contain|may be present",
 	bg => "продуктът може да съдържа следи от|може да съдържа следи от|може да съдържа",
-	bs => "može da sadrži"
-	cs => "může obsahovat", "může obsahovat stopy",
+	bs => "može da sadrži",
+	cs => "může obsahovat|může obsahovat stopy",
 	da => "produktet kan indeholde|kan indeholde spor af|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
 	de => "Kann enthalten|Kann Spuren|Spuren",
 	es => "puede contener huellas de|puede contener trazas de|puede contener|trazas|traza",
@@ -1893,7 +1893,7 @@ sub parse_ingredients_text ($product_ref) {
 						# Remove some sentences
 						my %ignore_regexps = (
 							'bs' => [
-								'u promjenljivom odnosu',  # in a variable ratio
+								'u promjenljivom odnosu',    # in a variable ratio
 							],
 
 							'da' => [
@@ -1979,11 +1979,11 @@ sub parse_ingredients_text ($product_ref) {
 							],
 
 							'hr' => [
-								'^u tragovima$', # in traces
-								'označene podebljano', # marked in bold
-								'savjet kod alergije',  # allergy advice
-								'uključujući žitarice koje sadrže gluten', # including grains containing gluten
-								'za alergene', # for allergens
+								'^u tragovima$',    # in traces
+								'označene podebljano',    # marked in bold
+								'savjet kod alergije',    # allergy advice
+								'uključujući žitarice koje sadrže gluten',    # including grains containing gluten
+								'za alergene',    # for allergens
 							],
 
 							'it' => ['^in proporzion[ei] variabil[ei]$',],
@@ -2006,7 +2006,7 @@ sub parse_ingredients_text ($product_ref) {
 
 							'sl' => [
 								'lahko vsebuje',
-								'lahko vsebuje sledi', # may contain traces
+								'lahko vsebuje sledi',    # may contain traces
 							],
 
 							'sv' => [
@@ -3416,7 +3416,8 @@ my %phrases_before_ingredients_list = (
 		'composition',
 	],
 
-	hr => ['HR BiH', 'HR/BIH', 'naziv', 'naziv proizvoda', 'popis sastojaka', 'sastav', 'sastojci', 'sastojci/sestavine'],
+	hr =>
+		['HR BiH', 'HR/BIH', 'naziv', 'naziv proizvoda', 'popis sastojaka', 'sastav', 'sastojci', 'sastojci/sestavine'],
 
 	hu => ['(ö|ő|o)sszetev(ö|ő|o)k', 'összetétel',],
 
@@ -3721,7 +3722,7 @@ my %phrases_after_ingredients_list = (
 		'upotrijebiti do datuma',    # valid until
 		'upozorenje',    # warning
 		'uputa',    # instructions
-		'uvjeti čuvanja',  # storage conditions
+		'uvjeti čuvanja',    # storage conditions
 		'uvoznik za',    # importer
 		'vakuumirana',    # Vacuumed
 		'vrijeme kuhanja',    # Cooking time
