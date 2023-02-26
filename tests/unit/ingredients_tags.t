@@ -90,7 +90,7 @@ my @tests = (
 			ingredients_text =>
 				"Sokeri, Mausteet, Hapettumisenestoaine (Askorbiinihappo), Säilöntäaine (Natriumnitriitti). Saattaa sisältää pieniä määriä sinappi ja selleri"
 		},
-		["en:sugar", "en:spice", "en:antioxidant", "en:preservative", "en:vitamin-c", "en:e250"],
+		["en:sugar", "en:spice", "en:antioxidant", "en:preservative", "en:e300", "en:e250"],
 	],
 	[{lc => "fi", ingredients_text => "Aspartaami ja Asesulfaami K"}, ["en:e951", "en:e950"],],
 	[
