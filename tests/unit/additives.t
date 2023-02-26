@@ -592,7 +592,7 @@ extract_ingredients_classes_from_text($product_ref);
 
 diag explain $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, [],);
+is_deeply($product_ref->{additives_original_tags}, ["en:e330"],);
 
 is_deeply($product_ref->{amino_acids_tags}, ["en:l-cysteine",],);
 
@@ -605,7 +605,7 @@ is_deeply(
 
 $product_ref = {
 	lc => "fr",
-	ingredients_text => "émulsifiant: citrate de choline, agent de traitement de la farine:l cystéine"
+	ingredients_text => "émulsifiant: chlorure de choline, agent de traitement de la farine:l cystéine"
 };
 
 extract_ingredients_classes_from_text($product_ref);
