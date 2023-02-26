@@ -90,7 +90,7 @@ my @tests = (
 			ingredients_text =>
 				"Sokeri, Mausteet, Hapettumisenestoaine (Askorbiinihappo), Säilöntäaine (Natriumnitriitti). Saattaa sisältää pieniä määriä sinappi ja selleri"
 		},
-		["en:sugar", "en:spice", "en:antioxidant", "en:preservative", "en:e300", "en:e250"],
+		["en:sugar", "en:spice", "en:antioxidant", "en:preservative", "en:vitamin-c", "en:e250"],
 	],
 	[{lc => "fi", ingredients_text => "Aspartaami ja Asesulfaami K"}, ["en:e951", "en:e950"],],
 	[
@@ -99,7 +99,7 @@ my @tests = (
 	],
 	[
 		{lc => "fi", ingredients_text => "Vitamiinit (A, B2, B12, C, D2)"},
-		["en:vitamins", "en:vitamin-a", "en:e101", "en:vitamin-b12", "en:e300", "en:ergocalciferol"],
+		["en:vitamins", "en:vitamin-a", "en:e101", "en:vitamin-b12", "en:vitamin-c", "en:ergocalciferol"],
 	],
 
 	[{lc => "it", ingredients_text => "sale e spezie"}, ["en:salt", "en:spice"],],
