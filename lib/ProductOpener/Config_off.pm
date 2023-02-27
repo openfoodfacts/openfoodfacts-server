@@ -52,6 +52,9 @@ BEGIN {
 		$events_username
 		$events_password
 
+		$facets_kp_url
+		$redis_url
+
 		$mongodb
 		$mongodb_host
 		$mongodb_timeout_ms
@@ -350,6 +353,12 @@ $log_emails = $ProductOpener::Config2::log_emails;
 $events_url = $ProductOpener::Config2::events_url;
 $events_username = $ProductOpener::Config2::events_username;
 $events_password = $ProductOpener::Config2::events_password;
+
+# Redis is used to push updates to the search server
+$redis_url = $ProductOpener::Config2::redis_url;
+
+# Facets knowledge panels url
+$facets_kp_url = $ProductOpener::Config2::facets_kp_url;
 
 # server options
 
