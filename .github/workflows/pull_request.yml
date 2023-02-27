@@ -87,7 +87,7 @@ jobs:
       # see https://stackoverflow.com/a/60984318/2886726
       run: |
         git ls-files taxonomies/ | xargs -I{} git log -1 --date=format:%Y%m%d%H%M.%S --format='touch -t %ad "{}"' "{}" | bash
-        make build_taxonomies
+        make build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
     - name: test
       run: make tests
 

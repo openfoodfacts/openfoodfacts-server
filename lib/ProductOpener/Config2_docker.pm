@@ -52,6 +52,7 @@ BEGIN {
 		$events_password
 		$redis_url
 		%server_options
+		$build_cache_repo
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -128,4 +129,7 @@ $redis_url = $ENV{REDIS_URL};
 	# this one does not seems to be used
 	minion_admin_server_and_port => "http://0.0.0.0:3003",
 );
+
+$build_cache_repo = $ENV{BUILD_CACHE_REPO};
+
 1;

@@ -158,20 +158,21 @@ coverage_txt:
 #----------#
 build_lang:
 	@echo "🥫 Rebuild language"
-# Run build_lang.pl
-	${DOCKER_COMPOSE} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
+    # Run build_lang.pl
+    # Languages may build taxonomies on-the-fly so include GITHUB_TOKEN so results can be cached
+	${DOCKER_COMPOSE} run --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 
 build_lang_test:
 # Run build_lang.pl in test env
-	${DOCKER_COMPOSE_TEST} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
+	${DOCKER_COMPOSE_TEST} run --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 
 # use this in dev if you messed up with permissions or user uid/gid
 reset_owner:
 	@echo "🥫 reset owner"
-	${DOCKER_COMPOSE} run --rm --no-deps --user root backend chown www-data:www-data -R /opt/product-opener/ /mnt/podata /var/log/apache2 /var/log/httpd  || true
-	${DOCKER_COMPOSE} run --rm --no-deps --user root frontend chown www-data:www-data -R /opt/product-opener/html/images/icons/dist /opt/product-opener/html/js/dist /opt/product-opener/html/css/dist
+	${DOCKER_COMPOSE_TEST} run --rm --no-deps --user root backend chown www-data:www-data -R /opt/product-opener/ /mnt/podata /var/log/apache2 /var/log/httpd  || true
+	${DOCKER_COMPOSE_TEST} run --rm --no-deps --user root frontend chown www-data:www-data -R /opt/product-opener/html/images/icons/dist /opt/product-opener/html/js/dist /opt/product-opener/html/css/dist
 
-init_backend: build_lang
+init_backend: build_lang build_taxonomies
 
 create_mongodb_indexes:
 	@echo "🥫 Creating MongoDB indexes …"
@@ -324,13 +325,12 @@ check_critic:
 # Compilation #
 #-------------#
 
-build_taxonomies:
-	@echo "🥫 build taxonomies on ${CPU_COUNT} procs"
-	${DOCKER_COMPOSE} run --no-deps --rm backend make -C taxonomies -j ${CPU_COUNT}
+build_taxonomies: build_lang # build_lang generates the nutrient_level taxonomy source file
+	@echo "🥫 build taxonomies"
+    # GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
+	${DOCKER_COMPOSE} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/build_tags_taxonomy.pl ${name}
 
-rebuild_taxonomies:
-	@echo "🥫 re-build all taxonomies on ${CPU_COUNT} procs"
-	${DOCKER_COMPOSE} run --rm backend make -C taxonomies all_taxonomies -j ${CPU_COUNT}
+rebuild_taxonomies: build_taxonomies
 
 #------------#
 # Production #

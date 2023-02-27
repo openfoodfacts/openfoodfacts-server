@@ -190,11 +190,12 @@ RUN \
     done && \
     chown www-data:www-data -R /mnt/podata && \
     # Create symlinks of data files that are indeed conf data in /mnt/podata (because we currently mix data and conf data)
-    for path in data-default ecoscore emb_codes forest-footprint ingredients packager-codes po taxonomies templates; do \
+    for path in data-default ecoscore emb_codes forest-footprint ingredients packager-codes po taxonomies templates build-cache; do \
         ln -sf /opt/product-opener/${path} /mnt/podata/${path}; \
     done && \
     # Create some necessary files to ensure permissions in volumes
     mkdir -p /opt/product-opener/html/data/ && \
+    mkdir -p /opt/product-opener/html/data/taxonomies/ && \
     mkdir -p /opt/product-opener/html/images/ && \
     chown www-data:www-data -R /opt/product-opener/html/ && \
     # logs dir
