@@ -1959,16 +1959,10 @@ Product:
                   type: string
     serving_quantity:
       type: string
-      description: |
-        Serving quantity entered 
-        by contributors. It must 
-        contain digits and known unit.
     serving_size:
       type: string
       description: |
-        Serving size in g (or ml). 
-        It is extracted from 
-        serving_quantity.
+        Serving size in g (or ml).
     serving_size_imported:
       type: string
     sortkey:

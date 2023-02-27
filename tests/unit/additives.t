@@ -668,7 +668,7 @@ is_deeply(
 
 $product_ref = {
 	lc => "fr",
-	ingredients_text => "huile de colza, phosphates de calcium, carbonate de calcium, citrates de potassium"
+	ingredients_text => "huile de colza, orthophosphates de calcium, carbonate de calcium, citrates de potassium"
 };
 
 extract_ingredients_classes_from_text($product_ref);
