@@ -6,6 +6,8 @@ services:
     command: mongod --wiredTigerCacheSizeGB ${MONGODB_CACHE_SIZE}
     volumes:
       - dbdata:/data/db
+      # a volume to get data to import
+      - ../html/data:/import
     ports:
       - 27017:27017
     networks:
@@ -22,4 +24,4 @@ networks:
 volumes:
   dbdata:
     external: true
-  
+
