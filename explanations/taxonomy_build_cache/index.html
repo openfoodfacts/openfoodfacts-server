@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/reference/perl/">
+        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/explanations/taxonomy_build_cache/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.4">
     
     
       
-        <title>Perl reference documentation - Product Opener (Open Food Facts Server)</title>
+        <title>Taxonomy build cache - Product Opener (Open Food Facts Server)</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#perl-reference-documentation" class="md-skip">
+        <a href="#how-it-works" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Perl reference documentation
+              Taxonomy build cache
             
           </span>
         </div>
@@ -546,12 +546,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
       
       
       
@@ -574,7 +576,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../explanations/packaging-data/" class="md-nav__link">
+      <a href="../packaging-data/" class="md-nav__link">
         Packaging data
       </a>
     </li>
@@ -588,7 +590,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../explanations/pro-dev-setup/" class="md-nav__link">
+      <a href="../pro-dev-setup/" class="md-nav__link">
         Docker Setup of pro platform for development
       </a>
     </li>
@@ -600,11 +602,21 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../explanations/taxonomy_build_cache/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Taxonomy build cache
       </a>
+      
     </li>
   
 
@@ -622,14 +634,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       
       
@@ -652,7 +662,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../api/" class="md-nav__link">
+      <a href="../../reference/api/" class="md-nav__link">
         OpenAPI documentation
       </a>
     </li>
@@ -666,7 +676,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../api-v3/" class="md-nav__link">
+      <a href="../../reference/api-v3/" class="md-nav__link">
         v3 OpenAPI documentation
       </a>
     </li>
@@ -680,7 +690,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../api-cheatsheet/" class="md-nav__link">
+      <a href="../../reference/api-cheatsheet/" class="md-nav__link">
         Open Food Facts API - CheatSheet
       </a>
     </li>
@@ -720,7 +730,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../api-tutorials/" class="md-nav__link">
+      <a href="../../reference/api-tutorials/" class="md-nav__link">
         Index
       </a>
     </li>
@@ -739,21 +749,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../reference/perl/" class="md-nav__link">
         Perl reference documentation
       </a>
-      
     </li>
   
 
@@ -797,16 +797,26 @@
                 
                   
 
-  <a href="https://github.com/openfoodfacts/openfoodfacts-server/blob/main/docs/reference/perl.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/openfoodfacts/openfoodfacts-server/blob/main/docs/explanations/taxonomy_build_cache.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="perl-reference-documentation">Perl reference documentation<a class="headerlink" href="#perl-reference-documentation" title="Permanent link">#</a></h1>
-<p>The documentation in Plain Old Format (aka POD) for perl module
-is compiled from in file documentation.</p>
-<p><a href="../perl-pod/">See the Perl reference documentation</a></p>
+<p>Taxonomies have a significant impact on OFF processing and automated test results so need to be rebuilt before running any tests. However, this process takes some time, so the built taxonomy files are cached in a GitHub repository so that they only need to be rebuilt when there is a genuine change.</p>
+<h1 id="how-it-works">How it works<a class="headerlink" href="#how-it-works" title="Permanent link">#</a></h1>
+<p>A hash is calculated for all of the source files used to build a particular taxonomy and GitHub is then checked to see if a cache already exists for that hash.</p>
+<p>If no cached build is found then the taxonomy is rebuilt and cached locally.</p>
+<p>If the GITHUB_TOKEN environemnt variable is set then the cached build is also uploaded to the https://github.com/openfoodfacts/openfoodfacts-build-cache repository. Note that no token is required to download previous cached builds from the repo.</p>
+<h1 id="obtaining-a-token">Obtaining a token<a class="headerlink" href="#obtaining-a-token" title="Permanent link">#</a></h1>
+<p>The GITHUB_TOKEN is a personal access token, created here: https://github.com/settings/tokens. Only the public_repo scope is needed.</p>
+<h1 id="considerations">Considerations<a class="headerlink" href="#considerations" title="Permanent link">#</a></h1>
+<p>In maintianing this code be aware of the following complications...</p>
+<h2 id="circular-dependencies">Circular Dependencies<a class="headerlink" href="#circular-dependencies" title="Permanent link">#</a></h2>
+<p>There is a cicular dependency between taxonomies, languages and foods. The foods library is used to create the source for the nutrient_levels taxonomy, which uses transalations from languages. However, languages depends on the languages taxonomy...</p>
+<p>This is currently resolved by building the taxonomy on the fly if it is requested but not currently built.</p>
+<h2 id="taxonomy-dependencies">Taxonomy Dependencies<a class="headerlink" href="#taxonomy-dependencies" title="Permanent link">#</a></h2>
+<p>Some taxonomies perform lookups on others, e.g. additives_classes are referenced by additives, so the referenced taxonomy needs to be built first. The build order is determined in the Config_off.pm file.</p>
 
 
 
@@ -827,7 +837,7 @@ is compiled from in file documentation.</p>
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../api-tutorials/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Index" rel="prev">
+        <a href="../pro-dev-setup/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Docker Setup of pro platform for development" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -836,11 +846,26 @@ is compiled from in file documentation.</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Index
+              Docker Setup of pro platform for development
             </div>
           </div>
         </a>
       
+      
+        
+        <a href="../../reference/api/" class="md-footer__link md-footer__link--next" aria-label="Next: OpenAPI documentation" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              OpenAPI documentation
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
       
     </nav>
   
