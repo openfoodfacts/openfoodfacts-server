@@ -72,6 +72,7 @@ BEGIN {
 		&gen_ingredients_tags_hierarchy_taxonomy
 		&display_tags_hierarchy_taxonomy
 		&build_tags_taxonomy
+		&build_all_taxonomies
 		&list_taxonomy_tags_in_language
 
 		&canonicalize_taxonomy_tag
@@ -173,6 +174,12 @@ use List::MoreUtils qw(uniq);
 
 use URI::Escape::XS;
 use Log::Any qw($log);
+use Digest::SHA1;
+use File::Copy;
+use File::Fetch;
+use MIME::Base64 qw(encode_base64);
+use POSIX qw(strftime);
+use LWP::UserAgent ();
 
 use GraphViz2;
 use JSON::PP;
@@ -650,6 +657,106 @@ sub get_lc_tagid ($synonyms_ref, $lc, $tagtype, $tag, $warning) {
 	return $lc_tagid;
 }
 
+sub get_file_from_cache ($source, $target) {
+	my $cache_root = "$data_root/build-cache/taxonomies";
+	my $local_cache_source = "$cache_root/$source";
+
+	# first, try to get it localy
+	if (-e $local_cache_source) {
+		copy($local_cache_source, $target);
+		return 1;
+	}
+
+	# Else try to get it from the github project acting as cache
+	$File::Fetch::WARN = 0;
+	my $ff = File::Fetch->new(uri => "https://raw.githubusercontent.com/$build_cache_repo/main/taxonomies/$source");
+	$ff->fetch(to => "$cache_root");
+	if (-e $local_cache_source) {
+		copy($local_cache_source, $target);
+		return 2;
+	}
+
+	return 0;
+}
+
+sub get_from_cache ($tagtype, @files) {
+	# If the full set of cached files can't be found then returns the hash to be used
+	# when saving the new cached files.
+	my $tag_data_root = "$data_root/taxonomies/$tagtype";
+	my $tag_www_root = "$www_root/data/taxonomies/$tagtype";
+
+	my $sha1 = Digest::SHA1->new;
+	foreach my $source_file (@files) {
+		open(my $IN, "<", "$data_root/taxonomies/$source_file.txt")
+			or die("Cannot open $data_root/taxonomies/$source_file.txt : $!\n");
+
+		binmode($IN);
+		$sha1->addfile($IN);
+		close($IN);
+	}
+
+	my $hash = $sha1->hexdigest;
+	my $cache_prefix = "$tagtype.$hash";
+	my $got_from_cache = get_file_from_cache("$cache_prefix.result.sto", "$tag_data_root.result.sto");
+	if ($got_from_cache) {
+		$got_from_cache = get_file_from_cache("$cache_prefix.result.txt", "$tag_data_root.result.txt");
+	}
+	if ($got_from_cache) {
+		$got_from_cache = get_file_from_cache("$cache_prefix.json", "$tag_www_root.json");
+	}
+	if ($got_from_cache) {
+		print "obtained taxonomy for $tagtype from " . ('', 'local', 'GitHub')[$got_from_cache] . " cache.\n";
+		$cache_prefix = '';
+	}
+
+	return $cache_prefix;
+}
+
+sub put_file_to_cache ($source, $target) {
+	my $local_target_path = "$data_root/build-cache/taxonomies/$target";
+	copy($source, $local_target_path);
+
+	# Upload to github
+	my $token = $ENV{GITHUB_TOKEN};
+	if ($token) {
+		open my $source_file, '<', $source;
+		binmode $source_file;
+		my $content = '{"message":"put_to_cache ' . strftime('%Y-%m-%d %H:%M:%S', gmtime) . '","content":"';
+		my $buf;
+		while (read($source_file, $buf, 60 * 57)) {
+			$content .= encode_base64($buf, '');
+		}
+		$content .= '"}';
+		close $source_file;
+
+		my $ua = LWP::UserAgent->new(timeout => 300);
+		my $url = "https://api.github.com/repos/$build_cache_repo/contents/taxonomies/$target";
+		my $response = $ua->put(
+			$url,
+			Accept => 'application/vnd.github+json',
+			Authorization => "Bearer $token",
+			'X-GitHub-Api-Version' => '2022-11-28',
+			Content => $content
+		);
+		if (!$response->is_success()) {
+			print "Error uploading to GitHub cache for $target: ${\$response->message()}\n";
+		}
+	}
+
+	return;
+}
+
+sub put_to_cache ($tagtype, $cache_prefix) {
+	my $tag_data_root = "$data_root/taxonomies/$tagtype";
+	my $tag_www_root = "$www_root/data/taxonomies/$tagtype";
+
+	put_file_to_cache("$tag_www_root.json", "$cache_prefix.json");
+	put_file_to_cache("$tag_data_root.result.txt", "$cache_prefix.result.txt");
+	put_file_to_cache("$tag_data_root.result.sto", "$cache_prefix.result.sto");
+
+	return;
+}
+
 =head2 build_tags_taxonomy( $tagtype, $file, $publish )
 
 Build taxonomy from the taxonomy file
@@ -668,10 +775,67 @@ Like "categories", "ingredients"
 
 =cut
 
-sub build_tags_taxonomy ($tagtype, $file, $publish) {
+sub build_tags_taxonomy ($tagtype, $publish) {
+	binmode STDERR, ":encoding(UTF-8)";
+	binmode STDIN, ":encoding(UTF-8)";
+	binmode STDOUT, ":encoding(UTF-8)";
 
-	defined $tags_images{$lc} or $tags_images{$lc} = {};
-	defined $tags_images{$lc}{$tagtype} or $tags_images{$lc}{$tagtype} = {};
+	my @files = ($tagtype);
+
+	# For the origins taxonomy, include the countries taxonomy
+	if ($tagtype eq "origins") {
+		@files = ("countries", "origins");
+	}
+
+	# For the Open Food Facts ingredients taxonomy, concatenate additives, minerals, vitamins, nucleotides and other nutritional substances taxonomies
+	elsif (($tagtype eq "ingredients") and (defined $options{product_type}) and ($options{product_type} eq "food")) {
+		@files = (
+			"additives_classes", "additives", "minerals", "vitamins",
+			"nucleotides", "other_nutritional_substances", "ingredients"
+		);
+	}
+
+	# Packaging
+	elsif (($tagtype eq "packaging")) {
+		@files = ("packaging_materials", "packaging_shapes", "packaging_recycling", "preservation");
+	}
+
+	# Traces - just a copy of allergens
+	elsif ($tagtype eq "traces") {
+		@files = ("allergens");
+	}
+
+	my $cache_prefix = get_from_cache($tagtype, @files);
+	if (!$cache_prefix) {
+		return;
+	}
+
+	print "building taxonomy for $tagtype - publish: $publish\n";
+
+	# Concatenate taxonomy files if needed
+	my $file = "$tagtype.txt";
+	if ((scalar @files) > 1) {
+		$file = "$tagtype.all.txt";
+
+		open(my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/$file")
+			or die("Cannot write $data_root/taxonomies/$file : $!\n");
+
+		foreach my $taxonomy (@files) {
+			open(my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$taxonomy.txt")
+				or die("Missing $data_root/taxonomies/$taxonomy.txt\n");
+
+			print $OUT "# $taxonomy.txt\n\n";
+
+			while (<$IN>) {
+				print $OUT $_;
+			}
+
+			print $OUT "\n\n";
+			close($IN);
+		}
+
+		close($OUT);
+	}
 
 	# we ofen use the term *tag* in the code to indicate a single entry between commas
 	# that is most lines, are tags separated by commas.
@@ -1256,7 +1420,7 @@ sub build_tags_taxonomy ($tagtype, $file, $publish) {
 					# If the property name matches the name of an already loaded taxonomy,
 					# canonicalize the property values for the corresponding synonym
 					# e.g. if an additive has a class additives_classes:en: en:stabilizer (a synonym),
-					# we can map it to en:stabilizer (the canonical name in the additives_classes taxonomy)
+					# we can map it to en:stabiliser (the canonical name in the additives_classes taxonomy)
 					if (exists $translations_from{$property}) {
 						$properties{$tagtype}{$canon_tagid}{"$property:$lc"}
 							= join(",", map({canonicalize_taxonomy_tag($lc, $property, $_)} split(/\s*,\s*/, $line)));
@@ -1603,8 +1767,30 @@ sub build_tags_taxonomy ($tagtype, $file, $publish) {
 
 		if ($publish) {
 			store("$data_root/taxonomies/$tagtype.result.sto", $taxonomy_ref);
+			put_to_cache($tagtype, $cache_prefix);
 		}
+	}
 
+	return;
+}
+
+=head2 build_all_taxonomies ( $pubish)
+
+Build all taxonomies
+
+=head3 Parameters
+
+=head4 Publish STO file $publish
+
+=cut
+
+sub build_all_taxonomies ($publish) {
+	foreach my $taxonomy (@taxonomy_fields) {
+		# traces and data_quality_xxx are not real taxonomy per se
+		# (but built from allergens and data_quality)
+		if ($taxonomy ne "traces" and rindex($taxonomy, 'data_quality_', 0) != 0) {
+			build_tags_taxonomy($taxonomy, $publish);
+		}
 	}
 
 	return;
@@ -1845,18 +2031,31 @@ sub retrieve_tags_taxonomy ($tagtype) {
 	$taxonomy_fields{$tagtype} = 1;
 	$tags_fields{$tagtype} = 1;
 
+	my $file = $tagtype;
+	if ($tagtype eq "traces") {
+		$file = "allergens";
+	}
+	elsif (rindex($tagtype, 'data_quality_', 0) == 0) {
+		$file = "data_quality";
+	}
+
 	# Check if we have a taxonomy for the previous or the next version
 	if ($tagtype !~ /_(next|prev)/) {
-		if (-e "$data_root/taxonomies/${tagtype}_prev.result.sto") {
+		if (-e "$data_root/taxonomies/${file}_prev.result.sto") {
 			retrieve_tags_taxonomy("${tagtype}_prev");
 		}
-		if (-e "$data_root/taxonomies/${tagtype}_next.result.sto") {
+		if (-e "$data_root/taxonomies/${file}_next.result.sto") {
 			retrieve_tags_taxonomy("${tagtype}_next");
 		}
 	}
 
-	my $taxonomy_ref = retrieve("$data_root/taxonomies/$tagtype.result.sto")
-		or die("Could not load taxonomy: $data_root/taxonomies/$tagtype.result.sto");
+	if (!-e "$data_root/taxonomies/$file.result.sto") {
+		print "Building $file on the fly\n";
+		build_tags_taxonomy($file, 1);
+	}
+
+	my $taxonomy_ref = retrieve("$data_root/taxonomies/$file.result.sto")
+		or die("Could not load taxonomy: $data_root/taxonomies/$file.result.sto");
 	if (defined $taxonomy_ref) {
 
 		$loaded_taxonomies{$tagtype} = 1;
@@ -1880,7 +2079,7 @@ sub retrieve_tags_taxonomy ($tagtype) {
 	}
 
 	$special_tags{$tagtype} = [];
-	if (open(my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/special_$tagtype.txt")) {
+	if (open(my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/special_$file.txt")) {
 
 		while (<$IN>) {
 
@@ -1957,10 +2156,8 @@ else {
 
 # It would be nice to move this from BEGIN to INIT, as it's slow, but other BEGIN code depends on it.
 foreach my $taxonomyid (@ProductOpener::Config::taxonomy_fields) {
-
 	$log->info("loading taxonomy $taxonomyid");
 	retrieve_tags_taxonomy($taxonomyid);
-
 }
 
 # Build map of language codes and names

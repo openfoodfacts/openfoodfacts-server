@@ -158,20 +158,21 @@ coverage_txt:
 #----------#
 build_lang:
 	@echo "🥫 Rebuild language"
-# Run build_lang.pl
-	${DOCKER_COMPOSE} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
+    # Run build_lang.pl
+    # Languages may build taxonomies on-the-fly so include GITHUB_TOKEN so results can be cached
+	${DOCKER_COMPOSE} run --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 
 build_lang_test:
 # Run build_lang.pl in test env
-	${DOCKER_COMPOSE_TEST} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
+	${DOCKER_COMPOSE_TEST} run --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 
 # use this in dev if you messed up with permissions or user uid/gid
 reset_owner:
 	@echo "🥫 reset owner"
-	${DOCKER_COMPOSE} run --rm --no-deps --user root backend chown www-data:www-data -R /opt/product-opener/ /mnt/podata /var/log/apache2 /var/log/httpd  || true
-	${DOCKER_COMPOSE} run --rm --no-deps --user root frontend chown www-data:www-data -R /opt/product-opener/html/images/icons/dist /opt/product-opener/html/js/dist /opt/product-opener/html/css/dist
+	${DOCKER_COMPOSE_TEST} run --rm --no-deps --user root backend chown www-data:www-data -R /opt/product-opener/ /mnt/podata /var/log/apache2 /var/log/httpd  || true
+	${DOCKER_COMPOSE_TEST} run --rm --no-deps --user root frontend chown www-data:www-data -R /opt/product-opener/html/images/icons/dist /opt/product-opener/html/js/dist /opt/product-opener/html/css/dist
 
-init_backend: build_lang
+init_backend: build_lang build_taxonomies
 
 create_mongodb_indexes:
 	@echo "🥫 Creating MongoDB indexes …"
@@ -192,18 +193,19 @@ import_more_sample_data:
 	@echo "🥫 Importing sample data (~2000 products) into MongoDB …"
 	${DOCKER_COMPOSE} run --rm backend bash /opt/product-opener/scripts/import_more_sample_data.sh
 
+# this command is used to import data on the mongodb used on staging environment
 import_prod_data:
 	@echo "🥫 Importing production data (~2M products) into MongoDB …"
 	@echo "🥫 This might take up to 10 mn, so feel free to grab a coffee!"
 	@echo "🥫 Removing old archive in case you have one"
-	( rm -f openfoodfacts-mongodbdump.tar.gz || true )
+	( rm -f ./html/data/openfoodfacts-mongodbdump.gz || true ) && ( rm -f ./html/data/gz-sha256sum || true )
 	@echo "🥫 Downloading full MongoDB dump from production …"
-	wget --no-verbose https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz
-	@echo "🥫 Copying the dump to MongoDB container …"
-	docker cp openfoodfacts-mongodbdump.tar.gz $(shell docker-compose ps -q mongodb):/data/db
+	wget --no-verbose https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.gz -P ./html/data
+	wget --no-verbose https://static.openfoodfacts.org/data/gz-sha256sum -P ./html/data
+	cd ./html/data && sha256sum --check gz-sha256sum
 	@echo "🥫 Restoring the MongoDB dump …"
-	${DOCKER_COMPOSE} exec -T mongodb //bin/sh -c "cd /data/db && tar -xzvf openfoodfacts-mongodbdump.tar.gz && rm openfoodfacts-mongodbdump.tar.gz && mongorestore --batchSize=1 &&  rm -rf /data/db/dump/off"
-	rm openfoodfacts-mongodbdump.tar.gz
+	${DOCKER_COMPOSE} exec -T mongodb //bin/sh -c "cd /data/db && mongorestore --quiet --drop --gzip --archive=/import/openfoodfacts-mongodbdump.gz"
+	rm html/data/openfoodfacts-mongodbdump.tar.gz && rm html/data/gz-sha256sum
 
 #--------#
 # Checks #
@@ -324,13 +326,12 @@ check_critic:
 # Compilation #
 #-------------#
 
-build_taxonomies:
-	@echo "🥫 build taxonomies on ${CPU_COUNT} procs"
-	${DOCKER_COMPOSE} run --no-deps --rm backend make -C taxonomies -j ${CPU_COUNT}
+build_taxonomies: build_lang # build_lang generates the nutrient_level taxonomy source file
+	@echo "🥫 build taxonomies"
+    # GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
+	${DOCKER_COMPOSE} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/build_tags_taxonomy.pl ${name}
 
-rebuild_taxonomies:
-	@echo "🥫 re-build all taxonomies on ${CPU_COUNT} procs"
-	${DOCKER_COMPOSE} run --rm backend make -C taxonomies all_taxonomies -j ${CPU_COUNT}
+rebuild_taxonomies: build_taxonomies
 
 #------------#
 # Production #
