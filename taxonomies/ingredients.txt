@@ -1181,6 +1181,7 @@ xx:Lactobacillus acidophilus, L. acidophilus
 fa:لاکنوباسیلوس اسیدوفیلوس
 fi:Lactobacillus acidophilus, L. acidophilus
 hr:lactobacillus acidophilus La-5, kultura Lactobacillus acidophilus
+it:Lactobacillus acidophilus, L. acidophilus
 kk:Ацидофилин таяқшасы
 ro:Lapte acidofil
 ru:Lactobacillus acidophilus, Ацидофильная палочка
@@ -1208,6 +1209,7 @@ en:Lactobacillus bulgaricus, L. bulgaricus, Lactobacillus delbrueckii subsp. bul
 bg:Лактобацилус булгарикус, Lactobacillus bulgaricus, Lactobacillus delbrueckii subsp. bulgaricus, L. delbrueckii subsp. bulgaricus, Lactobacillus delbrueskii subsp. bulgaricus
 es:lactobacilus delbrueckii sp Bulgaricus, Lactobacillus delbrueckii subspecies bulgaricus
 fi:Lactobacillus bulgaricus, L. bulgaricus
+it:Lactobacillus bulgaricus, L. bulgaricus
 fr:L bulgaricus, bulgaricus
 xx:Lactobacillus bulgaricus, L. bulgaricus
 wikidata:en:Q47455075
@@ -1313,6 +1315,7 @@ xx:Streptococcus thermophilus, s.thermophilus
 bg:streptococcus thermophilus, Streptococcus salivarius subsp. thermophilus
 fi:Streptococcus thermophilus, s. thermophilus
 es:Streptococcus thermophilus, thermophilus
+it:streptococcus thermophilius, s. thermophilus, thermophilus
 ja:サーモフィラス菌
 zh:嗜热链球菌
 # zh-hans:嗜熱鏈球菌
@@ -23437,6 +23440,7 @@ hu:kinoa, quinoa, rizsparéj
 hy:uագախոտ
 id:kinoa
 is:kínóa
+it:quinoa
 ja:キヌア
 kn:ಕೀನೋವಾ
 ko:퀴노아
@@ -32084,7 +32088,7 @@ de:natürliche Hefe
 es:Levadura natural
 fi:Luontainen hiiva
 fr:levure naturelle
-it:naturale-fermento, lievito naturale
+it:naturale-fermento, lievito naturale, lievito madre
 
 # description:en:Baker's yeast is the common name for the strains of yeast commonly used as a leavening agent in baking bread and bakery products
 
@@ -33454,7 +33458,7 @@ de:Ammonium und Natriumcarbonat
 fi:ammonium- ja natriumkarbonaatit
 fr:carbonates d'ammonium et de sodium
 hr:amonijev bikarbonat
-it:carbonati di amonio e di sodio
+it:carbonati di ammonio e di sodio
 nl:ammonium- en natriumcarbonaten, ammonium carbonaten en natrium
 # ingredient/fr:carbonates-d’ammonium-et-de-sodium has 110 products in 7 languages @2019-04-06
 
@@ -38219,7 +38223,7 @@ fr:myrtille
 hr:borovnica, borovnice
 hu:áfonya
 is:bláber
-it:mirtillo, mirtilli
+it:mirtillo, mirtilli, mirtilli neri
 ja:ビルベリー
 ka:მოცვი
 la:Vaccinium
@@ -39221,7 +39225,7 @@ et:kookoshelbed
 fi:kookoshiutale, kookoshiutaleet
 fr:flocons de coco, flocons de noix de coco
 hr:kokosove pahuljice
-it:fiocchi di cocco
+it:fiocchi di cocco, cocco in scaglie
 nl:Kokosschilfers
 ru:кокосовая-стружка
 pl:wiórki kokosowe, wiórki z kokosa
@@ -39439,7 +39443,7 @@ bg:сок от бъз от концентрат
 de:Holundersaft aus Konzentrat
 fi:seljanmarjamehu tiivisteestä, seljanmarjatäysmehu tiivisteestä
 fr:jus de sureau à base de concentré
-it:succo di sambuco a base di concentrato
+it:succo di sambuco a base di concentrato, succo concentrato di sambuco
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-sureau-à-base-de-concentré
 # 25 products @2018-09-29
 
@@ -42157,7 +42161,7 @@ ga:sabhdánach
 he:סולטנה
 hi:सुल्ताना
 id:sultana
-it:sultanina
+it:sultanina, uva sultanina, uvetta, uvetta sultanina
 ja:サルタナ
 kn:ಸುಲ್ತಾನ
 ko:설태너
@@ -43614,7 +43618,7 @@ fr:légume, légumes
 he:ירק
 hr:povrće, biljno
 hu:zöldség, zöldségek
-it:vegetale, ortaggi
+it:vegetale, ortaggi, verdure
 ja:野菜
 nb:grønnsak, grønnsaker
 nl:Groente, groenten
@@ -43708,6 +43712,7 @@ fr:légumes et jus de cuisson de légumes
 <en:vegetable
 en:dried vegetables
 hr:sušeno povrće
+it:verdure disidratate
 pl:suszone warzywa, warzywa suszone
 ru:сушеные овощи и зелень, сушеные овощи
 
@@ -44267,6 +44272,10 @@ sv:radicchiosallad, rosensallat, rosésallat
 wikidata:en:Q767765
 wikipedia:en:https://en.wikipedia.org/wiki/Radicchio
 # 703 in 7 @2021-10-03
+
+<en:vegetable
+<en:chicory
+it:radicchio rosso
 
 <en:vegetable
 en:chicory
@@ -45832,7 +45841,7 @@ de:Blumenkohl
 es:coliflor
 fi:kukkakaali
 fr:chou-fleur, choux-fleur, choux-fleurs
-it:cavolfiore
+it:cavolfiore, cavolfiori
 nl:bloemkool
 pl:kalafior
 pt:Couve flor
@@ -52025,7 +52034,6 @@ wikidata:en:Q159753
 
 
 # description:en:A LEGUME is a plant in the family Fabaceae (or Leguminosae), or the fruit or seed of such a plant (also called a pulse). Legumes are grown agriculturally, primarily for human consumption. Grain legumes include beans, lentils, lupins, peas, and peanuts.
-
 en:legume
 af:Peulgewas
 an:Legumbre
@@ -52055,7 +52063,7 @@ hy:Հատիկաընդեղեն բույսեր
 ia:Legumine
 id:Kacang-kacangan
 is:Baun
-it:legume
+it:legume, legumi
 ja:豆果
 ko:협과
 la:Legumen
@@ -52261,6 +52269,7 @@ fr:haricots rouges réhydratés
 en:cannellini beans, white kidney beans
 de:Cannellini Bohnen, Cannellinibohnen
 fr:haricots cannellini
+it:fagioli cannellini, cannellini
 wikidata:en:Q74663825
 
 #comment:en:Do not confuse these with mungo beans: Vigna mungo
@@ -52472,7 +52481,7 @@ hu:csillagfürt
 hy:լուպին
 id:lupino
 is:úlfabaunir
-it:lupini
+it:lupini, lupino
 ja:ルピナス属
 ka:ხანჭკოლა
 kk:люпин
@@ -56468,7 +56477,7 @@ fr:herbe, herbes, plantes aromatiques, plante aromatique, fines herbes, fine her
 he:עשב
 hr:aromatskog bilja
 hu:gyógynövény, gyógynövények
-it:erba, piante aromatiche
+it:erba, piante aromatiche, erbe aromatiche
 ja:ハーブ
 nb:urt, urte
 nl:Kruiden
@@ -57152,6 +57161,7 @@ hy:մշկընկույզ
 id:pala
 io:muskado
 is:múskat
+is:noce moscata
 ja:ニクズク属
 jv:pala
 ka:ჯავზის ხე
@@ -60543,7 +60553,7 @@ ht:siv
 hu:metélőhagyma
 id:lokio
 is:graslaukur
-it:cippolina, aglio d'india
+it:cippolina, aglio d'india, erba cipollina
 ja:チャイブ
 jv:lokio
 kk:шалғын жуа, şalğın jwa, شالعىن جۋا
@@ -63881,7 +63891,7 @@ es:vainas de vainilla, vaina de vainilla
 fi:vaniljatanko, vaniljapapu
 fr:gousse de vanille, gousses de vanille, écorce de vanille
 hr:mahune vanilije
-it:baccelli di vaniglia
+it:baccelli di vaniglia, bacche di vaniglia
 nl:vanillestokje, vanillestokjes
 pl:laski wanilii
 pt:vagem de baunilha
@@ -77657,7 +77667,7 @@ hy:մանրաթելեր
 id:Serat
 io:Fibro
 is:Trefjar
-it:fibra, fibra alimentare
+it:fibra, fibra alimentare, fibra di
 ja:繊維
 kk:Волокнит
 kn:ನಾರು
