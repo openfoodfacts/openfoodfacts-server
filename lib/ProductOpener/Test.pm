@@ -312,7 +312,7 @@ sub compare_to_expected_results ($object_ref, $expected_results_file, $update_ex
 			my $title;
 			if ($test_ref && (ref($test_ref) eq "HASH")) {
 				my $desc = ($test_ref->{desc} // "");
-				$title = $test_ref->{id} // "";
+				$title = $test_ref->{id} // $test_ref->{test_case} // "";
 				$title .= ": " if ($title && $desc);
 				$title .= $desc if $desc;
 				$title = undef unless $title;
