@@ -96,28 +96,14 @@ sub create_contribution_card_panel ($product_ref, $target_lc, $target_cc, $optio
 }
 
 
-# private sub to polish a bit the result of data_quality_tags_by_actions:
-# * remove duplicate descriptions
-# * remove actions when ever descriptions are empty
-sub _polished_action_tags($quality_tags_by_action) {
-	my $result = {};
-	# remove all properties that do not have a description or that have same description
+# private sub to add tag names to data_quality_tags_by_actions: we just iterate to add tag name
+sub _add_quality_tags_names($tagtype, $target_lc, $quality_tags_by_action) {
 	while (my ($action, $tags) = each %$quality_tags_by_action) {
-		my $action_result = {};
-		my %seen_descriptions = ();
 		while (my ($tagid, $infos) = each %$tags) {
-			my $desc = $infos->{"description:en"};
-			if ((defined $desc) && (!defined $seen_descriptions{$desc})) {
-				$action_result->{$tagid} = $infos;
-				$seen_descriptions{$desc} = 1;
-			}
-		}
-		# only keep non empty actions (it may happen if all descriptions are empty !)
-		if (scalar $action_result) {
-			$result->{$action} = $action_result;
+			$infos->{"display_name"} = display_taxonomy_tag($target_lc, $tagtype, $tagid);
 		}
 	}
-	return $result;
+	return;
 }
 
 
@@ -144,7 +130,6 @@ This parameter sets the desired language for the user facing strings.
 
 =cut
 
-
 sub create_data_quality_panel($tags_type, $product_ref, $target_lc, $target_cc, $options_ref) {
 
 	$log->debug("create quality errors panel", {code => $product_ref->{code}}) if $log->is_debug();
@@ -158,9 +143,9 @@ sub create_data_quality_panel($tags_type, $product_ref, $target_lc, $target_cc, 
 		&& (scalar @data_quality_tags))
 	{
 		my $panel_data_ref = {};
-		my $quality_tags_by_action = tags_by_prop("data_quality", $product_ref->{$field_name} ,"fix_action:en", ["description:en", "show_to:en"]);
-		$quality_tags_by_action = _polished_action_tags($quality_tags_by_action);
+		my $quality_tags_by_action = tags_by_prop("data_quality", $product_ref->{$field_name} ,"fix_action:en", ["description:en"], ["show_to:en"]);
 		if (%$quality_tags_by_action) {
+			_add_quality_tags_names($tags_type, $target_lc, $quality_tags_by_action);
 			$panel_data_ref->{tags_type} = $tags_type;
 			$panel_data_ref->{quality_tags} = $quality_tags_by_action;
 			create_panel_from_json_template($tags_type,

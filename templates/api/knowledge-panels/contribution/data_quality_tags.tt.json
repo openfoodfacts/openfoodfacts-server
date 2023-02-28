@@ -40,7 +40,10 @@
                     "html": `[% FILTER collapse %]
                         <ul>
                         [% FOREACH action_pair IN pair.value -%]
-                            <li id="data-error-[% action_pair.key %]">[% action_pair.value.$description_key %]</li>
+                            <li id="data-error-[% action_pair.key %]">[% action_pair.value.display_name %]
+                            [% IF action_pair.value.$description_key.defined %]
+                                <br><span class="description">[% action_pair.value.$description_key %]</span></li>
+                            [% END %]
                         [%- END %]
                         </ul>
                     [% END %]`

@@ -4,7 +4,7 @@
          {
             "element_type" : "text",
             "text_element" : {
-               "html" : "<ul> <li id=\"data-error-en:all-but-one-ingredient-with-specified-percent\">Potential issue with ingredients</li> </ul>"
+               "html" : "<ul> <li id=\"data-error-en:all-but-one-ingredient-with-specified-percent\">All but one ingredient with specified percent </ul>"
             }
          },
          {
@@ -17,7 +17,7 @@
             "element_type" : "action"
          }
       ],
-      "expand_for" : "average",
+      "evaluation" : "average",
       "expanded" : false,
       "level" : "info",
       "title_element" : {

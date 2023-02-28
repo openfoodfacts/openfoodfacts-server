@@ -57,6 +57,7 @@ BEGIN {
 		&is_a
 
 		&get_property
+		&get_property_with_fallbacks
 		&get_inherited_property
 		&get_inherited_properties
 		&tags_by_prop
@@ -314,6 +315,24 @@ sub get_property ($tagtype, $canon_tagid, $property) {
 	}
 }
 
+sub get_property_with_fallbacks($tagtype, $tagid, $property, $fallback_lcs=["xx", "en"]) {
+
+	my $property_value = get_property($tagtype, $tagid, $property);
+	if (! defined $property_value) {
+		# is it language dependent ?
+		if ($property =~ /:..$/) {
+			my $bare_name = $`;
+			# try fallbacks
+			foreach my $lang (@$fallback_lcs) {
+				$property_value = get_property($tagtype, $tagid, "$bare_name:$lang");
+				last if defined $property_value;
+			}
+		}
+	}
+	return $property_value;
+}
+
+
 sub get_inherited_property ($tagtype, $canon_tagid, $property) {
 
 	my @parents = ($canon_tagid);
@@ -471,14 +490,16 @@ sub get_inherited_properties ($tagtype, $canon_tagid, $properties_names_ref, $fa
 	return \%found_properties;
 }
 
-=head2 tags_by_prop ($tagtype, $tagids_ref, $prop_name, $props_ref)
+
+=head2 tags_by_prop ($tagtype, $tagids_ref, $prop_name, $props_ref, $inherited_props_ref, $fallback_lcs = ["xx", "en"])
 Retrieve properties of a series of tags given in C<$tagids_ref>
-and return them, but grouped by C<$pro_name>
+and return them, but grouped by C<$prop_name>,
+also fetching C<$props_ref> and C<$inherited_props_ref>
 
 =head3 Return
 A ref to a hashmap, where keys are property C<$prop_name> values,
 and values are in turn hashmaps where keys are tag ids,
-and values are a hashmap of properties and their values.
+and values are a hashmap with of properties and their values.
 
 Tags with undefined property are with group under "undef" value.
 
@@ -502,9 +523,9 @@ we asks for quality tags, grouped by fix_action, while getting descriptions
 }
 =cut
 
-sub tags_by_prop ($tagtype, $tagids_ref, $prop_name, $props_ref) {
+sub tags_by_prop ($tagtype, $tagids_ref, $prop_name, $props_ref, $inherited_props_ref, $fallback_lcs = ["xx", "en"]) {
 	my @tagids = @{$tagids_ref};
-	my @props_to_fetch = (@{$props_ref},);
+	my @props_to_fetch = (@{$inherited_props_ref});
 	push @props_to_fetch, $prop_name;
 
 	my $tags_by_prop = {};
@@ -514,6 +535,13 @@ sub tags_by_prop ($tagtype, $tagids_ref, $prop_name, $props_ref) {
 		my $prop_value = $found_ref->{$prop_name} // "undef";
 		delete $found_ref->{$prop_name} if defined $found_ref->{$prop_name};
 		defined $tags_by_prop->{$prop_value} or $tags_by_prop->{$prop_value} = {};
+		# properties only on first level
+		foreach my $property (@$props_ref) {
+			my $value = get_property_with_fallbacks($tagtype, $tagid, $property, $fallback_lcs);
+			if (defined $value) {
+				$found_ref->{$property} = $value;
+			}
+		}
 		$tags_by_prop->{$prop_value}{$tagid} = $found_ref;
 	}
 

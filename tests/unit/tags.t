@@ -309,6 +309,12 @@ is(get_property("test", "en:meat", "vegan:en"), "no");
 is($properties{test}{"en:meat"}{"vegan:en"}, "no");
 is(get_inherited_property("test", "en:meat", "vegan:en"), "no");
 is(get_property("test", "en:beef", "vegan:en"), undef);
+is(get_property_with_fallbacks("test", "en:meat", "vegan:en"), "no", "get_property_with_fallback: no need of fallback");
+is(get_property_with_fallbacks("test", "en:meat", "vegan:fr"), "no", "get_property_with_fallback: fallback to en");
+is(get_property_with_fallbacks("test", "en:meat", "vegan:fr", ["de",]), undef, "get_property_with_fallback: fallback to lang with no value");
+is(get_property_with_fallbacks("test", "en:meat", "vegan:fr", []), undef, "get_property_with_fallback: no fallback lang");
+is(get_property_with_fallbacks("test", "en:meat", "vegan:en", "[]"), "no", "get_property_with_fallback: no fallback lang but no need of it");
+is(get_property_with_fallbacks("test", "en:lemon-yogurts", "description:nl", ["fr", "en"]), "un yaourt avec du citron", "get_property_with_fallback: french first");
 is(get_inherited_property("test", "en:beef", "vegan:en"), "no");
 is(get_inherited_property("test", "en:fake-meat", "vegan:en"), "yes");
 is(get_inherited_property("test", "en:fake-duck-meat", "vegan:en"), "yes");
@@ -320,7 +326,7 @@ is(get_inherited_property("test", "en:fake-duck-meat", "carbon_footprint_fr_food
 is(get_inherited_property("test", "en:fake-duck-meat", "carbon_footprint_fr_foodges_value:fr"), undef);
 
 is_deeply(get_inherited_properties("test", "fr:yaourts-au-citron-alleges", []),
-	{}, "Getting an empty list of property returns an empty hasmap");
+	{}, "Getting an empty list of property returns an empty hashmap");
 is_deeply(
 	get_inherited_properties("test", "en:fake-meat", ["vegan:en"]),
 	{"vegan:en" => "yes"},
@@ -342,10 +348,10 @@ is_deeply(
 	"Getting multiple properties with one undef in the path and an inherited one"
 );
 
-is_deeply(tags_by_prop("test", [], "color:en", ["description:fr"]),
+is_deeply(tags_by_prop("test", [], "color:en", ["description:fr"], ["flavour:en"]),
 	{}, "tags_by_prop for no tagids gives empty hashmap");
 is_deeply(
-	tags_by_prop("test", ["en:passion-fruit-yogurts", "fr:yaourts-au-citron-alleges"], "color:en", []),
+	tags_by_prop("test", ["en:passion-fruit-yogurts", "fr:yaourts-au-citron-alleges"], "color:en", [], []),
 	{
 		'undef' => {
 			'en:passion-fruit-yogurts' => {}
@@ -360,25 +366,27 @@ is_deeply(
 	tags_by_prop(
 		"test",
 		["en:passion-fruit-yogurts", "fr:yaourts-a-la-myrtille", "fr:yaourts-au-citron-alleges", "en:lemon-yogurts"],
-		"color:en", ["description:fr"]
+		"color:en", ["description:fr"], ["flavour:en"],
 	),
 	{
 		'undef' => {
 			'en:passion-fruit-yogurts' => {
-				'description:fr' => 'un yaourt de n\'import quel type'
+				'flavour:en' => 'passion fruit',
 			}
 		},
 		'white' => {
 			'fr:yaourts-a-la-myrtille' => {
-				'description:fr' => 'un yaourt de n\'import quel type'
+				'flavour:en' => 'blueberry',
 			}
 		},
 		'yellow' => {
 			'en:lemon-yogurts' => {
-				'description:fr' => 'un yaourt avec du citron'
+				'description:fr' => 'un yaourt avec du citron',
+				'flavour:en' => 'lemon',
 			},
 			'fr:yaourts-au-citron-alleges' => {
-				'description:fr' => 'for light yogurts with lemon'
+				'description:fr' => 'for light yogurts with lemon',
+				'flavour:en' => 'lemon',
 			}
 		},
 	},
