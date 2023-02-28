@@ -5552,18 +5552,21 @@ ciqual_food_code:en:2014
 ciqual_food_name:en:Apple juice, reconstituted from a concentrate
 ciqual_food_name:fr:Jus de pomme, à base de concentré
 
+#<en:Refrigerated products
 <en:Apple juices
 <en:Refrigerated squeezed juices
-en:Refrigerated squeezed apple juices, Refrigerated pressed apple juices
+en:Refrigerated apple juices, Refrigerated squeezed apple juices, Refrigerated pressed apple juices
 de:Gekühlte Apfeldirektsäfte, Gekühlte gepresste Apfelsäfte
-es:Zumos de manzana exprimidos refrigerados
-nl:Gekoelde geperste appelsappen, Gekoeld geperst appelsap
+es:Zumos de manzana refrigerados
+nl:Gekoelde appelsappen, Gekoeld geperst appelsap
+#description:en:Apple juices that (before usage) must be kept in the refrigerator. Usually these are pure apple juices.
 
 <en:Carbonated drinks
 <en:Apple juices
 en:Sparkling apple juices
 fr:Jus de pomme pétillants, Jus de pomme gazeux
 nl:Koolzuurhoudende appelsappen
+#description:en:Apple juices with added carbon dioxide.
 
 <en:Apple juices
 <en:Squeezed juices
