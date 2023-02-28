@@ -2,6 +2,171 @@
    "code" : "200000000002",
    "product" : {
       "knowledge_panels" : {
+         "contribution_card" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "data_quality_errors"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "data_quality_warnings"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "data_quality_info"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "title_element" : {
+               "title" : "Contribution"
+            },
+            "topics" : [
+               "contribution"
+            ],
+            "type" : "card"
+         },
+         "data_quality_errors" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<ul> <li id=\"data-error-en:energy-value-in-kcal-does-not-match-value-in-kj\">Energy value in kcal does not match value in kJ <br><span class=\"description\">The energy value in kJ must be about 4.2 times greater than the value in kcal</span></li> <li id=\"data-error-en:nutrition-value-over-105-salt\">Nutrition value over 105 - Salt <br><span class=\"description\">Salt value is over 105g per 100g, which is impossible.</span></li> <li id=\"data-error-en:nutrition-value-total-over-105\">Nutrition value total over 105 <br><span class=\"description\">The sum of nutrient values for 100 g or 100 ml is greater than 100 g. It is very likely that there is at least one value or unit error.</span></li> </ul>"
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "add_nutrition_facts"
+                     ],
+                     "html" : ""
+                  },
+                  "element_type" : "action"
+               }
+            ],
+            "evaluation" : "bad",
+            "expand_for" : "large",
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/healing.svg",
+               "subtitle" : "Help us improve quality of our data by contributing fixes",
+               "title" : "Detected Errors"
+            },
+            "topics" : [
+               "contribution"
+            ]
+         },
+         "data_quality_info" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<ul> <li id=\"data-error-en:no-packaging-data\">No packaging data <br><span class=\"description\">No packaging data - Packaging is one of the components of the Eco-Score, and thus it's important to have packaging data.</span></li> </ul>"
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "add_packaging_components"
+                     ],
+                     "html" : ""
+                  },
+                  "element_type" : "action"
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<ul> <li id=\"data-error-en:ecoscore-extended-data-not-computed\">EcoScore - Extended data - Not computed <li id=\"data-error-en:food-groups-1-unknown\">Food groups 1 unknown <li id=\"data-error-en:food-groups-2-unknown\">Food groups 2 unknown <li id=\"data-error-en:food-groups-3-unknown\">Food groups 3 unknown <li id=\"data-error-en:ingredients-percent-analysis-ok\">Ingredients percent analysis OK </ul>"
+                  }
+               }
+            ],
+            "evaluation" : "good",
+            "expand_for" : "large",
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/healing.svg",
+               "subtitle" : "",
+               "title" : ""
+            },
+            "topics" : [
+               "contribution"
+            ]
+         },
+         "data_quality_warnings" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<ul> <li id=\"data-error-en:ingredients-50-percent-unknown\">Ingredients - 50 percent unknown <br><span class=\"description\">There are 50 percent of ingredients that are unknown, which either means that the ingredient list is not stored in the right language -eg a French list stored as an English one-, or that the Open Food Facts ingredient taxonomy and parser are not yet working well in your language.</span></li> </ul>"
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "add_ingredients_text"
+                     ],
+                     "html" : ""
+                  },
+                  "element_type" : "action"
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<ul> <li id=\"data-error-en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown\">EcoScore origins of ingredients origins are 100 percent unknown <br><span class=\"description\">Origins of ingredients are one of the Eco-Score components. They are currently extracted from the ingredient list and the Origins field.</span></li> </ul>"
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "add_origins"
+                     ],
+                     "html" : ""
+                  },
+                  "element_type" : "action"
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<ul> <li id=\"data-error-en:ecoscore-packaging-packaging-data-missing\">EcoScore - packaging - Packaging data missing <br><span class=\"description\">No packaging data - Packaging is one of the components of the Eco-Score, and thus it's important to have packaging data.</span></li> </ul>"
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "add_packaging_components"
+                     ],
+                     "html" : ""
+                  },
+                  "element_type" : "action"
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<ul> <li id=\"data-error-en:ecoscore-production-system-no-label\">EcoScore - production system - no label </ul>"
+                  }
+               }
+            ],
+            "evaluation" : "average",
+            "expanded" : false,
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/healing.svg",
+               "subtitle" : "",
+               "title" : ""
+            },
+            "topics" : [
+               "contribution"
+            ]
+         },
          "ecoscore" : {
             "elements" : [
                {
@@ -74,27 +239,6 @@
                {
                   "element_type" : "panel_group",
                   "panel_group_element" : {
-                     "panel_group_id" : "nutrition",
-                     "panel_ids" : [
-                        "nutriscore"
-                     ],
-                     "title" : "Nutrition",
-                     "type" : "subcard"
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_ids" : [
-                        "nutrition_facts_table",
-                        "serving_size"
-                     ],
-                     "title" : ""
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
                      "panel_group_id" : "ingredients",
                      "panel_ids" : [
                         "ingredients"
@@ -120,6 +264,28 @@
                         "ingredients_analysis_details"
                      ],
                      "title" : "Ingredients analysis"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_group_id" : "nutrition",
+                     "panel_ids" : [
+                        "nutriscore",
+                        "nutrient_level_salt"
+                     ],
+                     "title" : "Nutrition",
+                     "type" : "subcard"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "nutrition_facts_table",
+                        "serving_size"
+                     ],
+                     "title" : ""
                   }
                }
             ],
@@ -368,6 +534,48 @@
                "health"
             ]
          },
+         "nutrient_level_salt" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<b>What you need to know</b>\n<ul>\n<li>A high consumption of salt (or sodium) can cause raised blood pressure, which can increase the risk of heart disease and stroke.</li>\n<li>Many people who have high blood pressure do not know it, as there are often no symptoms.</li>\n<li>Most people consume too much salt (on average 9 to 12 grams per day), around twice the recommended maximum level of intake.</li>\n</ul>\n<br>\n<b>Recommendation</b>:\n<b>Limit the consumption of salt and salted food</b>\n<ul>\n<li>Reduce the quantity of salt used when cooking, and don't salt again at the table.</li>\n<li>Limit the consumption of salty snacks and choose products with lower salt content.</li>\n</ul>\n",
+                     "type" : "summary"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n",
+                     "source_language" : "en",
+                     "source_text" : "World Health Organization (WHO) - Fact sheet - Salt reduction",
+                     "source_url" : "https://www.who.int/news-room/fact-sheets/detail/salt-reduction",
+                     "type" : "summary"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n",
+                     "source_language" : "en",
+                     "source_text" : "National Health Service UK (NHS) - Salt: the facts",
+                     "source_url" : "https://www.nhs.uk/live-well/eat-well/food-types/salt-nutrition/",
+                     "type" : "summary"
+                  }
+               }
+            ],
+            "evaluation" : "",
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/misc/high.svg",
+               "title" : "Salt in high quantity (120%)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
          "nutriscore" : {
             "elements" : [
                {
@@ -439,6 +647,21 @@
                      ],
                      "id" : "nutrition_facts_table",
                      "rows" : [
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Energy"
+                              },
+                              {
+                                 "text" : "1,302 kj<br>(1302 kcal)"
+                              },
+                              {
+                                 "text" : "130 kj<br>(130 kcal)"
+                              }
+                           ]
+                        },
                         {
                            "values" : [
                               {
@@ -537,10 +760,10 @@
                                  "text" : "Salt"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "120 g"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "12 g"
                               }
                            ]
                         },

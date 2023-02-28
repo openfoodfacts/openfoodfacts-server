@@ -109,7 +109,6 @@ sub initialize_knowledge_panels_options ($knowledge_panels_options_ref, $request
 	return;
 }
 
-
 =head2 create_knowledge_panels( $product_ref, $target_lc, $target_cc, $options_ref )
 
 Create all knowledge panels for a product, with strings (descriptions, recommendations etc.)

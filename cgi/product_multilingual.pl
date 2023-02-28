@@ -1532,9 +1532,7 @@ elsif ($action eq 'process') {
 	my $url_prefix = "";
 	if (defined $product_ref->{server}) {
 		# product that was moved to OBF from OFF etc.
-		$url_prefix = "https://"
-			. $subdomain . "."
-			. $options{other_servers}{$product_ref->{server}}{domain};
+		$url_prefix = "https://" . $subdomain . "." . $options{other_servers}{$product_ref->{server}}{domain};
 	}
 	elsif ($type eq 'delete') {
 		my $email = <<MAIL
@@ -1584,8 +1582,7 @@ MAIL
 		initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref);
 		$knowledge_panels_options_ref->{knowledge_panels_client} = "web";
 		create_contribution_card_panel($product_ref, $lc, $cc, $knowledge_panels_options_ref);
-		if (defined $product_ref->{"knowledge_panels_" . $lc}{data_quality_errors})
-		{
+		if (defined $product_ref->{"knowledge_panels_" . $lc}{data_quality_errors}) {
 			$template_data_ref_process->{contribution_card_panel}
 				= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "contribution_card");
 		}

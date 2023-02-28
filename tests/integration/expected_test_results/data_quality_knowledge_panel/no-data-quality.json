@@ -2,6 +2,134 @@
    "code" : "200000000001",
    "product" : {
       "knowledge_panels" : {
+         "contribution_card" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "data_quality_warnings"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "data_quality_info"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "title_element" : {
+               "title" : "Contribution"
+            },
+            "topics" : [
+               "contribution"
+            ],
+            "type" : "card"
+         },
+         "data_quality_info" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<ul> <li id=\"data-error-en:no-packaging-data\">No packaging data <br><span class=\"description\">No packaging data - Packaging is one of the components of the Eco-Score, and thus it's important to have packaging data.</span></li> </ul>"
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "add_packaging_components"
+                     ],
+                     "html" : ""
+                  },
+                  "element_type" : "action"
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<ul> <li id=\"data-error-en:ecoscore-extended-data-not-computed\">EcoScore - Extended data - Not computed <li id=\"data-error-en:food-groups-1-unknown\">Food groups 1 unknown <li id=\"data-error-en:food-groups-2-unknown\">Food groups 2 unknown <li id=\"data-error-en:food-groups-3-unknown\">Food groups 3 unknown <li id=\"data-error-en:ingredients-percent-analysis-ok\">Ingredients percent analysis OK </ul>"
+                  }
+               }
+            ],
+            "evaluation" : "good",
+            "expand_for" : "large",
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/healing.svg",
+               "subtitle" : "",
+               "title" : ""
+            },
+            "topics" : [
+               "contribution"
+            ]
+         },
+         "data_quality_warnings" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<ul> <li id=\"data-error-en:ingredients-50-percent-unknown\">Ingredients - 50 percent unknown <br><span class=\"description\">There are 50 percent of ingredients that are unknown, which either means that the ingredient list is not stored in the right language -eg a French list stored as an English one-, or that the Open Food Facts ingredient taxonomy and parser are not yet working well in your language.</span></li> </ul>"
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "add_ingredients_text"
+                     ],
+                     "html" : ""
+                  },
+                  "element_type" : "action"
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<ul> <li id=\"data-error-en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown\">EcoScore origins of ingredients origins are 100 percent unknown <br><span class=\"description\">Origins of ingredients are one of the Eco-Score components. They are currently extracted from the ingredient list and the Origins field.</span></li> </ul>"
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "add_origins"
+                     ],
+                     "html" : ""
+                  },
+                  "element_type" : "action"
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<ul> <li id=\"data-error-en:ecoscore-packaging-packaging-data-missing\">EcoScore - packaging - Packaging data missing <br><span class=\"description\">No packaging data - Packaging is one of the components of the Eco-Score, and thus it's important to have packaging data.</span></li> </ul>"
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "add_packaging_components"
+                     ],
+                     "html" : ""
+                  },
+                  "element_type" : "action"
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<ul> <li id=\"data-error-en:ecoscore-production-system-no-label\">EcoScore - production system - no label </ul>"
+                  }
+               }
+            ],
+            "evaluation" : "average",
+            "expanded" : false,
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/healing.svg",
+               "subtitle" : "",
+               "title" : ""
+            },
+            "topics" : [
+               "contribution"
+            ]
+         },
          "ecoscore" : {
             "elements" : [
                {
@@ -74,27 +202,6 @@
                {
                   "element_type" : "panel_group",
                   "panel_group_element" : {
-                     "panel_group_id" : "nutrition",
-                     "panel_ids" : [
-                        "nutriscore"
-                     ],
-                     "title" : "Nutrition",
-                     "type" : "subcard"
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_ids" : [
-                        "nutrition_facts_table",
-                        "serving_size"
-                     ],
-                     "title" : ""
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
                      "panel_group_id" : "ingredients",
                      "panel_ids" : [
                         "ingredients"
@@ -120,6 +227,27 @@
                         "ingredients_analysis_details"
                      ],
                      "title" : "Ingredients analysis"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_group_id" : "nutrition",
+                     "panel_ids" : [
+                        "nutriscore"
+                     ],
+                     "title" : "Nutrition",
+                     "type" : "subcard"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "nutrition_facts_table",
+                        "serving_size"
+                     ],
+                     "title" : ""
                   }
                }
             ],

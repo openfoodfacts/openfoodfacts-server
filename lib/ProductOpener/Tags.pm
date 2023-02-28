@@ -315,10 +315,10 @@ sub get_property ($tagtype, $canon_tagid, $property) {
 	}
 }
 
-sub get_property_with_fallbacks($tagtype, $tagid, $property, $fallback_lcs=["xx", "en"]) {
+sub get_property_with_fallbacks ($tagtype, $tagid, $property, $fallback_lcs = ["xx", "en"]) {
 
 	my $property_value = get_property($tagtype, $tagid, $property);
-	if (! defined $property_value) {
+	if (!defined $property_value) {
 		# is it language dependent ?
 		if ($property =~ /:..$/) {
 			my $bare_name = $`;
@@ -331,7 +331,6 @@ sub get_property_with_fallbacks($tagtype, $tagid, $property, $fallback_lcs=["xx"
 	}
 	return $property_value;
 }
-
 
 sub get_inherited_property ($tagtype, $canon_tagid, $property) {
 
@@ -489,7 +488,6 @@ sub get_inherited_properties ($tagtype, $canon_tagid, $properties_names_ref, $fa
 	}
 	return \%found_properties;
 }
-
 
 =head2 tags_by_prop ($tagtype, $tagids_ref, $prop_name, $props_ref, $inherited_props_ref, $fallback_lcs = ["xx", "en"])
 Retrieve properties of a series of tags given in C<$tagids_ref>

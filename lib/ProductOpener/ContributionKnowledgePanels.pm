@@ -86,18 +86,16 @@ sub create_contribution_card_panel ($product_ref, $target_lc, $target_cc, $optio
 		push(@panels, $created) if $created;
 	}
 	if (@panels) {
-		my $panel_data_ref = {
-			quality_panels => \@panels,
-		};
-		create_panel_from_json_template("contribution_card", "api/knowledge-panels/contribution/contribution_card.tt.json",
+		my $panel_data_ref = {quality_panels => \@panels,};
+		create_panel_from_json_template("contribution_card",
+			"api/knowledge-panels/contribution/contribution_card.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 	}
 	return;
 }
 
-
 # private sub to add tag names to data_quality_tags_by_actions: we just iterate to add tag name
-sub _add_quality_tags_names($tagtype, $target_lc, $quality_tags_by_action) {
+sub _add_quality_tags_names ($tagtype, $target_lc, $quality_tags_by_action) {
 	while (my ($action, $tags) = each %$quality_tags_by_action) {
 		while (my ($tagid, $infos) = each %$tags) {
 			$infos->{"display_name"} = display_taxonomy_tag($target_lc, $tagtype, $tagid);
@@ -105,7 +103,6 @@ sub _add_quality_tags_names($tagtype, $target_lc, $quality_tags_by_action) {
 	}
 	return;
 }
-
 
 =head2 create_data_quality_panel ( $tags_type, $product_ref, $target_lc, $target_cc, $options_ref )
 
@@ -130,7 +127,7 @@ This parameter sets the desired language for the user facing strings.
 
 =cut
 
-sub create_data_quality_panel($tags_type, $product_ref, $target_lc, $target_cc, $options_ref) {
+sub create_data_quality_panel ($tags_type, $product_ref, $target_lc, $target_cc, $options_ref) {
 
 	$log->debug("create quality errors panel", {code => $product_ref->{code}}) if $log->is_debug();
 
@@ -143,13 +140,13 @@ sub create_data_quality_panel($tags_type, $product_ref, $target_lc, $target_cc, 
 		&& (scalar @data_quality_tags))
 	{
 		my $panel_data_ref = {};
-		my $quality_tags_by_action = tags_by_prop("data_quality", $product_ref->{$field_name} ,"fix_action:en", ["description:en"], ["show_to:en"]);
+		my $quality_tags_by_action = tags_by_prop("data_quality", $product_ref->{$field_name},
+			"fix_action:en", ["description:en"], ["show_to:en"]);
 		if (%$quality_tags_by_action) {
 			_add_quality_tags_names($tags_type, $target_lc, $quality_tags_by_action);
 			$panel_data_ref->{tags_type} = $tags_type;
 			$panel_data_ref->{quality_tags} = $quality_tags_by_action;
-			create_panel_from_json_template($tags_type,
-				"api/knowledge-panels/contribution/data_quality_tags.tt.json",
+			create_panel_from_json_template($tags_type, "api/knowledge-panels/contribution/data_quality_tags.tt.json",
 				$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 			$created = 1;
 		}
@@ -157,6 +154,5 @@ sub create_data_quality_panel($tags_type, $product_ref, $target_lc, $target_cc, 
 	return $tags_type if $created;
 	return;
 }
-
 
 1;

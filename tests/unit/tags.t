@@ -311,10 +311,17 @@ is(get_inherited_property("test", "en:meat", "vegan:en"), "no");
 is(get_property("test", "en:beef", "vegan:en"), undef);
 is(get_property_with_fallbacks("test", "en:meat", "vegan:en"), "no", "get_property_with_fallback: no need of fallback");
 is(get_property_with_fallbacks("test", "en:meat", "vegan:fr"), "no", "get_property_with_fallback: fallback to en");
-is(get_property_with_fallbacks("test", "en:meat", "vegan:fr", ["de",]), undef, "get_property_with_fallback: fallback to lang with no value");
-is(get_property_with_fallbacks("test", "en:meat", "vegan:fr", []), undef, "get_property_with_fallback: no fallback lang");
-is(get_property_with_fallbacks("test", "en:meat", "vegan:en", "[]"), "no", "get_property_with_fallback: no fallback lang but no need of it");
-is(get_property_with_fallbacks("test", "en:lemon-yogurts", "description:nl", ["fr", "en"]), "un yaourt avec du citron", "get_property_with_fallback: french first");
+is(get_property_with_fallbacks("test", "en:meat", "vegan:fr", ["de",]),
+	undef, "get_property_with_fallback: fallback to lang with no value");
+is(get_property_with_fallbacks("test", "en:meat", "vegan:fr", []),
+	undef, "get_property_with_fallback: no fallback lang");
+is(get_property_with_fallbacks("test", "en:meat", "vegan:en", "[]"),
+	"no", "get_property_with_fallback: no fallback lang but no need of it");
+is(
+	get_property_with_fallbacks("test", "en:lemon-yogurts", "description:nl", ["fr", "en"]),
+	"un yaourt avec du citron",
+	"get_property_with_fallback: french first"
+);
 is(get_inherited_property("test", "en:beef", "vegan:en"), "no");
 is(get_inherited_property("test", "en:fake-meat", "vegan:en"), "yes");
 is(get_inherited_property("test", "en:fake-duck-meat", "vegan:en"), "yes");
