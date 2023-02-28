@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-use strict;
+use ProductOpener::PerlStandards;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
