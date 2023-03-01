@@ -927,11 +927,11 @@ html[dir="rtl"] {
 
 a.attribute_card {
   color: $body-font-color;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 a.attribute_card:hover {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 // Knowledge panels
