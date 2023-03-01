@@ -17,20 +17,12 @@ rm /mnt/podata/data/categories_stats/categories_nutriments_per_country.world.sto
 
 # Unit tests
 
-cd unit
+# all tests use init_expected_results function
+for FILE in $(grep -l init_expected_results unit/*.t);
+do
+    perl $FILE --update-expected-results
+done
 
-perl attributes.t --update-expected-results
-perl ecoscore.t --update-expected-results
-perl forest_footprint.t --update-expected-results
-perl import_gs1.t --update-expected-results
-perl ingredients.t --update-expected-results
-perl nutriscore.t --update-expected-results
-perl packaging.t --update-expected-results
-perl recipes.t --update-expected-results
-perl import_convert_carrefour_france.t --update-expected-results
-perl contribution_knowledge_panels.t --update-expected-results
-
-cd ..
 
 # Integration tests
 
