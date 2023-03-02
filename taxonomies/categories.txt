@@ -1968,7 +1968,7 @@ ciqual_food_code:en:5008
 ciqual_food_name:en:Beer, low alcohol-content (3° alcohol)
 ciqual_food_name:fr:Bière faiblement alcoolisée (3° alcool)
 
-<en:Non-Alcoholic beverages
+<en:Non-alcoholic beverages
 en:Alcohol-free cocktails, Alcohol-free juice and syrup-based cocktails
 fr:Cocktails sans alcool, Cocktail sans alcool à base de jus de fruits et de sirop
 agribalyse_food_code:en:2008
@@ -1977,7 +1977,7 @@ ciqual_food_name:en:Cocktail, alcohol-free (juices and syrup-based cocktail)
 ciqual_food_name:fr:Cocktail sans alcool (à base de jus de fruits et de sirop)
 wikidata:en:Q969864
 
-<en:Non-Alcoholic beverages
+<en:Non-alcoholic beverages
 en:Non-alcoholic beers, non-alcoholic beer, Alcohol-free beer, Alcohol-free beers, Beers with less than 1.2° alcohol
 bg:Безалкохолна бира
 de:Alkoholfreie Biere, Alkoholfreies Bier
@@ -2012,7 +2012,7 @@ zh:姜啤
 wikidata:en:Q1448819
 
 <en:Non-alcoholic beers
-en:Non-Alcoholic wheat beers, Non-Alcoholic wheat beer
+en:Non-alcoholic wheat beers, Non-alcoholic wheat beer
 de:Alkoholfreie Weizenbiere, Alkoholfreies Weizenbier, Alkoholfreie Weißbiere, Alkoholfreies Weißbier
 fr:Bières de blé sans alcool
 hu:Alkoholmentes buza sör
@@ -4288,7 +4288,7 @@ ciqual_food_name:fr:Cocktail à base de rhum
 fr:Daïquiri
 #wikidata:en:
 
-<en:Non-Alcoholic beverages
+<en:Non-alcoholic beverages
 fr:Daïquiri sans alcool
 #wikidata:en:
 
@@ -5425,6 +5425,8 @@ ciqual_proxy_food_code:en:2035
 ciqual_proxy_food_name:en:Mixed fruits juice, pure juice
 ciqual_proxy_food_name:fr:Jus multifruit, pur jus, standard
 
+<en:Non-alcoholic beverages
+<en:Unsweetened beverages
 <en:Fruit juices
 en:Apple juices
 bg:Ябълков сок, сок от ябълка
@@ -5537,7 +5539,7 @@ ciqual_food_name:fr:Jus de citron, pur jus
 
 <en:Apple juices
 <en:Concentrated fruit juices
-en:Concentrated apple juices, Apple juices reconstituted from a concentrate
+en:Apple juices from concentrate, Reconstituted apple juices, Concentrated apple juices, Apple juices reconstituted from a concentrate
 bg:Ябълков сок от концентрат
 de:Apfelsäfte aus Konzentrat, Apfeldicksaft
 es:Zumos de manzana procedentes de concentrado
@@ -5551,27 +5553,35 @@ ciqual_food_code:en:2014
 ciqual_food_name:en:Apple juice, reconstituted from a concentrate
 ciqual_food_name:fr:Jus de pomme, à base de concentré
 
+#<en:Refrigerated products
 <en:Apple juices
 <en:Refrigerated squeezed juices
-en:Refrigerated squeezed apple juices, Refrigerated pressed apple juices
+en:Refrigerated apple juices, Refrigerated squeezed apple juices, Refrigerated pressed apple juices
 de:Gekühlte Apfeldirektsäfte, Gekühlte gepresste Apfelsäfte
-es:Zumos de manzana exprimidos refrigerados
-nl:Gekoelde geperste appelsappen, Gekoeld geperst appelsap
+es:Zumos de manzana refrigerados
+nl:Gekoelde appelsappen, Gekoeld geperst appelsap
+#description:en:Apple juices that (before usage) must be kept in the refrigerator. Usually these are pure apple juices.
 
+<en:Carbonated drinks
 <en:Apple juices
 en:Sparkling apple juices
 fr:Jus de pomme pétillants, Jus de pomme gazeux
+nl:Koolzuurhoudende appelsappen
+#description:en:Apple juices with added carbon dioxide.
 
-<en:Apple nectars
-en:Sparkling apple nectars
+<en:Apple juices
+en:Enriched apple juices
+nl:Verrijkte appelsappen
+#description:en:Apple juices with added vitamins and minerals.
 
-<en:Sparkling apple nectars
-de:Apfelschorle, Apfelsaftschorle
-wikidata:en:Q3053970
+<en:Apple juices
+en:Flavoured apple juices
+nl:Gearomatiseerde appelsappen
+#description:en:Apple juices with added vitamins and minerals.
 
 <en:Apple juices
 <en:Squeezed juices
-en:Squeezed apple juices, Pressed apple juices, Non-refrigerated squeezed apple juices, Non-refrigerated pressed apple juices, Pure apple juice
+en:Pure apple juices, Squeezed apple juices, Pressed apple juices, Non-refrigerated squeezed apple juices, Non-refrigerated pressed apple juices, Pure apple juice
 de:Apfeldirektsäfte
 es:Zumos de manzana exprimidos no refrigerados, Zumos de manzana exprimidos, Zumos de manzana exprimidos ambiente
 fi:puristetut omenamehut
@@ -6275,6 +6285,16 @@ pt:Néctares de maçã
 ru:Нектары яблочные, Яблочные нектары, Нектар яблочный, Яблочный нектар
 zh:苹果花蜜
 #wikidata:en:
+
+<en:Carbonated drinks
+<en:Apple nectars
+en:Sparkling apple nectars
+
+<en:Sparkling apple nectars
+en:Apple schorle
+de:Apfelschorle, Apfelsaftschorle
+wikidata:en:Q3053970
+description:en:Schorle is a German beverage made by diluting juice or wine with carbonated water or lemonade (lemon-lime soda).
 
 <en:Fruit nectars
 en:Apricot nectars
@@ -9092,7 +9112,7 @@ fr:Vins aromatisés
 nl:Gearomatiseerde wijnen, Gearomatiseerde wijn
 
 <en:Beverages
-en:Non-Alcoholic beverages
+en:Non-alcoholic beverages
 bg:Безалкохолни напитки
 ca:Begudes sense alcohol
 cs:Nealkoholické nápoje
@@ -9540,8 +9560,8 @@ nl:Ice coffees, Ice coffee, IJskoffie
 wikidata:en:Q968554
 
 <en:Wines
-<en:Non-Alcoholic beverages
-en:Non-Alcoholic wines, Alcohol-free wines
+<en:Non-alcoholic beverages
+en:Non-alcoholic wines, Alcohol-free wines
 de:alkoholfreie Weine
 fr:Vins sans alcool, vins déalcoolisés
 lt:Nealkoholinis vynas, Vynas be alkoholio
