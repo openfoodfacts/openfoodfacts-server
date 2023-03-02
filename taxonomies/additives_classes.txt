@@ -25,6 +25,7 @@ it: Acidificante, acidificanti
 ja: 酸味料
 lt: Rūgštis
 lv: Skābe
+mk: киселина
 mt: Aċidu
 nb: Syre, Syrer
 nl: Voedingszuur, voedingszuren
@@ -70,7 +71,7 @@ fi: Happamuudensäätöaine, Happamuudensäätöaineet, Happamuudensäätöainet
 fr: Correcteur d’acidité, régulateur de l'acidité, régulateur d'acidité, agent tampon, ajusteur du pH, alcali, base, tampon
 ga: Rialtán aigéadachta
 he:מווסת חומציות
-hr: regulator kiselosti, regulatori kiselosti
+hr: regulator kiselosti, regulatori kiselosti, tvar za rahljanje, tvar za regulaciju, tvar za regulaciju kiselost
 hu: Savanyúságot szabályozó anyag, Savanyúságot szabályozó anyagok, Savanyúságot szabályzó anyag, Savanyúságot szabályzó anyagok
 id: pengatur keasaman
 is: Sýrustillir, Sýrustillar
@@ -87,6 +88,7 @@ ro: Corector de aciditate, Regulator de aciditate, regulatori de aciditate
 ru:Регулятор кислотности, регуляторы кислотности
 sk: Regulátor kyslosti
 sl: Sredstvo za uravnavanje kislosti
+sr: regulator kiselosti
 sv: Surhetsreglerande medel, Surhetsreglerandemedel, Surhetsregulator
 wikidata:en:Q898753
 description:en:Acidity regulators are substances which alter or control the acidity or alkalinity of a foodstuff.
@@ -215,12 +217,13 @@ et: Antioksüdant
 fi: Hapettumisenestoaine, Hapettumisenestoainetta, Hapettumisenestoaineet, Hapettumisenestoaineita, Antioksidantti
 fr: Antioxydant, antioxygène, antibrunissant, antioxydant synergique, anti-oxydant
 ga: Frithocsaídeoir
-hr: antioksidans, antioksidant
+hr: antioksidans, antioksidant, antioksidat
 hu: Antioxidáns, antioxidánsok
 it: Antiossidante, antiossidanti, agente antiossidante, agenti antiossidanti
 ja: 酸化防止剤
 lt: Antioksidantas
 lv: Antioksidants
+mk: антиоксиданс
 mt: Antiossidant
 nb: Antioxidant, Antioksidant
 nl: antioxidant, antioxidanten
@@ -360,6 +363,7 @@ is: Litarefni
 it: Colorante, coloranti, alimento colorante
 lt: Dažiklis
 lv: Krāsa
+mk: боја
 mt: Kulur
 nb: Farge, Farve, Fargestoff, Fargestoffer, fødevarer der farver
 nl: Kleuren, Kleurstof, kleurstoffen, kleurend levensmiddel
@@ -369,6 +373,7 @@ ro: Colorant, coloranți
 ru: Краситель, красители, краситель пищевой, пищевые красители, пищевой краситель
 sl: Barvilo
 sk: Farbivo
+sr: boja
 sv: Färg, Färgämne, Färgämnen, färgande livsmedel
 zh:色素
 wikidata:en:Q753009
@@ -451,13 +456,14 @@ et: Emulgaator
 fi: Emulgointiaine, Emulgointiainetta, Emulgointiaineet, Emulgointiaineita
 fr: Émulsifiant, agent de dispersion, agent de surface, agent de suspension, agent d'ajustement de la densité, inhibiteur de cristallisation, nébulisant, plastifiant
 ga: Eiblitheoir
-hr: emulgator, emulgatori, emlgatori
+hr: emulgator, emulgatori, emlgatori, emuglator
 hu: Emulgeálószer, emulgeálószerek, kristályosodásgátló, sűrűségszabályozó szer, diszpergálószer, lágyító, felületaktív anyag, szuszpenziós szer
 is: Yruefni
 it: Emulsionante, emulsionanti, agente emulsionante, agenti emulsionanti
 ja: 乳化剤
 lt: Emulsiklis, emulsikliai
 lv: Emulgators
+mk: емулгатор
 mt: Emulsifikant
 nb: Emulgeringsmiddel, Emulgator, Emulgatorer
 nl: Emulgator, Emulgatoren
@@ -755,7 +761,7 @@ et:Želeeriv aine
 fi:Hyytelöimisaine, Hyytelöimisainetta, Hyytelöimisaineet, Hyytelöimisaineita
 fr:Gélifiant, Agent gélifiant
 ga:Oibreán glóthúcháin
-hr:tvar za želiranje
+hr:tvar za želiranje, sredstvo za želiranje
 hu:Zselésítőanyag, zselésítő anyag, zselésítő
 it:Gelificante, gelificanti, agente gelificante, agenti gelificanti
 lt:Stingdiklis
@@ -1038,7 +1044,7 @@ description:sl:Potisni plini so plini, razen zraka, ki potisnejo živilo iz emba
 description:sv:Drivgaser: andra gaser än luft som driver ut ett livsmedel ur en behållare.
 
 en: Raising agent, leavening
-bg: Набухвател
+bg: набухвател, набухватели
 cs: Kypřicí látka, kypřidlo
 de: Backtriebmittel
 da: Hævemiddel, Hævemidler
@@ -1157,6 +1163,7 @@ is:bindiefni
 it: Stabilizzante, stabilizzanti, agente stabilizzante, agenti stabilizzanti, legante, leganti
 lt: Stabilizatorius
 lv: Stabilizētājs
+mk: стабилизатор, стабилизатори
 mt: Stabbilizzatur
 nb: Stabilisator, Stabilisatorer
 nl: Stabilisator, Stabilisatoren
@@ -1202,19 +1209,20 @@ bg: Подсладител, подсладители
 ca: Edulcorant, esdulcorants
 cs: Sladidlo
 da: Sødestof, Sødestoffer, Kunstigt sødemiddel, sødemiddel
-de: Süßungsmittel, süssungsmittel
+de: süßungsmittel, süssungsmittel, sußungsmittel
 el: Γλυκαντικό
 es: Edulcorante, Endulzante, edulcorante intenso, edulcorante masivo
 et: Magusaine
 fi: Makeutusaine, Makeutusainetta, Makeutusaineet, Makeutusaineita
 fr: Édulcorant, édulcorant de charge, édulcorant intense
 ga: Milseoir
-hr: sladila, sladilo, zaslađivač
+hr: sladila, sladilo, zaslađivač, zaslađivanje
 hu: Édesítőszer, édesítőszerek
 it: Edulcorante, edulcoranti, dolcificante, dolcificanti
 ja: 甘味料
 lt: Saldiklis
 lv: Saldinātājs
+mk: сладила
 mt: Dolċifikant
 nb: Søtningsmiddel, Søtstoff, Søtstoffer
 nl: Zoetstof, Zoetstoffen
@@ -1268,6 +1276,7 @@ it: Addensante, addensanti, agente addensante, agenti addensanti
 ja: 増粘剤
 lt: Tirštiklis
 lv: Biezinātājs
+mk: згуснувач
 mt: Aġent li jgħaqqad
 nb: Fortykningsmiddel, Fortykningsmidler
 nl: Verdikkingsmiddel, Verdikkingsmiddelen
@@ -1277,7 +1286,8 @@ pt: Espessante, espessantes
 ro: Agent de îngroșare, agenți de îngroșare
 ru:Загуститель
 sk: Zahusťovadlo
-sl: Sladilo
+sl: Sladilo, zgoščevalec
+sr: zgušnjavači
 sv: Förtjockningsmedel, naturlig förtjockningsmedel
 wikidata:en:Q911138
 description:en:Thickeners are substances which increase the viscosity of a foodstuff.
@@ -1313,7 +1323,7 @@ es:Vitaminas
 et:Vitamiinid
 fi:Vitamiinit, Vitamiineja
 fr:Vitamines
-hr:vitamini, vitamins
+hr:vitamini, vitamins, vitamin complex
 hu:Vitaminok
 it:Vitamine
 lt:Vitaminai
