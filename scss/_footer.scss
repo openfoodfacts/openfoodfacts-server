@@ -24,14 +24,7 @@
 }
 
 @media #{$small-only} {
-  .inline-list {
-    margin-left: 0;
-  }
-  .title-5 {
-    margin-left: 1rem;
-  }
-  p {
-    margin-left: 1rem;
-    margin-right: 1rem;
+  #contribute_and_discover_links_block {
+    padding: 1rem;
   }
 }
