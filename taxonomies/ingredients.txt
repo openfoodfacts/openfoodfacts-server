@@ -14,7 +14,7 @@ stopwords:bg:съдържа, от, с, със, до, и, или, и/или, ми
 stopwords:bs:i, u promjenljivom odnosu
 stopwords:ca:i,de
 stopwords:da:av, af, blandt andet, bl a, inklusive, heraf, indeholder, tilsat
-stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens, in veränderlichen gewichtsanteilen
+stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens, in veränderlichen gewichtsanteilen, wenig
 stopwords:el:περιέχει
 stopwords:en:contains, contain, from, with, produced with, with added, minimum,including, inter alia, edible
 stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
@@ -19697,7 +19697,8 @@ fr:arôme naturel de sureau
 <en:flavouring
 en:apple flavouring
 bg:ароматизант ябълка
-de:Apfelgeschmack
+de:Apfelgeschmack, Apfelsaftaroma
+es:esencia de manzana
 fi:omena-aromi
 fr:arôme de pomme
 hr:aroma jabuke
@@ -19711,6 +19712,7 @@ fi:luontainen omena-aromi
 fr:arôme naturel de pomme, arôme naturel de jus de pomme
 hu:természetes alma aroma
 is:náttúruleg eplabragðefni
+nb:naturlig eplesmak
 nl:natuurlijk appelaroma
 
 <en:flavouring
@@ -36011,13 +36013,13 @@ sv:äpple preparat
 
 <en:fruit juice
 <en:apple
-en:apple juice, apple juice made from fresh apples, juice from select organic apples, pur jus de pommes
+en:apple juice, apple juice made from fresh apples, juice from select organic apples, pur jus de pommes, pur jus de pommes fermier
 ar:عصير تفاح
 bg:сок от ябълки, ябълков сок
 ca:suc de poma
 cs:jablečný mošt
 da:æblemost, æblesaft
-de:Apfelsaft
+de:Apfelsaft, Apfelsaft von Streuobstwiesen-Äpfeln
 el:χυμός μήλου, μηλοχυμός
 eo:poma suko
 es:jugo de manzana, zumo de manzana
@@ -36096,7 +36098,7 @@ da:Æblejuicekoncentrat
 de:Apfeldicksaft, Apfelsaftkonzentrat
 es:jarabe de manzana
 fi:omenamehutiiviste
-fr:concentré de jus de pomme, jus de pommes concentré
+fr:concentré de jus de pomme, jus de pommes concentré, jus concentré de pomme
 hr:koncentrirani sok jabuke
 it:concentrato di succo di mele
 nl:appeldiksap, appelsap ingedikt tot stroop, geconcentreerd appelsap, appelsapconcentraat
@@ -36112,7 +36114,7 @@ bg:ябълков сок от концентрат, сок от ябълков �
 cs:Jablečná šťáva z koncentrátu
 da:æblejuice fra koncentrat
 de:Apfelsaft aus Konzentrat, Apfelsaft aus Apfelsaftkonzentrat
-es:Zumo de manzana desde concentrado, zumo de manzana a partir de concentrado, jugo de manzana procedente de concentrado
+es:Zumo de manzana desde concentrado, zumo de manzana a partir de concentrado, jugo de manzana procedente de concentrado, jugo de manzana concentrado reconstituido
 fi:omenamehu tiivisteestä
 fr:jus de pomme à base de concentré, jus de pomme à base de jus concentré, Jus de pomme à base de jus de pomme concentré, jus de pomme à partir de concentré
 hr:jabuke od koncentriranog soka, Sok od jabuke od koncentriranog soka
@@ -37046,6 +37048,7 @@ de:pasteurisierter Zitronensaft
 fr:jus de citron pasteurisé
 
 <en:lemon juice
+en:pure lemon juice
 fr:pur jus de citron
 # 24@2019-06-08
 
@@ -41100,6 +41103,7 @@ es:Zumo de piña a partir de concentrado, jugo de anana procedente de concentrad
 fi:ananasmehu tiivisteestä
 fr:jus d'ananas à base de concentré, Jus d'ananas à base de jus d'ananas concentré, Jus d'ananas à base de jus concentré
 it:succo d'ananas a base di concentrato
+nb:Eplejuice fra konsentrat og puré
 nl:Ananassap van concentraat
 pl:sok ananasowy z koncentratu
 # ingredient/fr:jus-d'ananas-à-base-de-concentré has 96 products in 3 languages @2018-09-30
@@ -63230,9 +63234,10 @@ es:concentrado de cártamo con efecto colorante
 
 
 <en:plant
-bg:листа от стевия, листа стевия
-de:steviablätter
-hr:stevia list
+#bg:листа от стевия, листа стевия
+#de:steviablätter
+#hr:stevia list
+#comment:en:stevia can be found in the file additives.txt under E960
 
 # description:en:Helianthus or SUNFLOWER (/ˌhiːliˈænθəs/)[2] is a genus of plants comprising about 70 species
 # en:sunflower is only found as a specication, i.e. oil (sunflower, ...)
