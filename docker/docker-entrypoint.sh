@@ -12,9 +12,9 @@ ln -sfT /opt/product-opener/lib/ProductOpener/Config2_docker.pm /opt/product-ope
 
 # Create symlinks of data files that are indeed conf data in /mnt/podata (because we currently mix data and conf data)
 # we need to do this here, because /mnt/podata is a volume
-for path in data-default ecoscore emb_codes forest-footprint ingredients packager-codes po taxonomies templates build-cache; 
+for path in data-default ecoscore emb_codes forest-footprint ingredients packager-codes po taxonomies templates build-cache;
 do
-    [[ -e /mnt/podata/${path} ]] || ln -sf /opt/product-opener/${path} /mnt/podata/${path}
+    test -d /mnt/podata/${path} || ln -sf /opt/product-opener/${path} /mnt/podata/${path}
 done
 
 # this is not very elegant, but incron scripts won't have env variables so put them in a file
