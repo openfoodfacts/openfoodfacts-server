@@ -13,7 +13,8 @@ fi
 
 # Remove the categories stats file as it will not be present
 # for tests run through GitHub actions
-rm /mnt/podata/data/categories_stats/categories_nutriments_per_country.world.sto
+rm /mnt/podata/data/categories_stats/
+rm /mnt/podata/data/categories_stats/*.*
 
 # Unit tests
 

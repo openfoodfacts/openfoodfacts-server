@@ -55,7 +55,7 @@
             "level" : "info",
             "title_element" : {
                "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/healing.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/data-info.svg",
                "subtitle" : "Some infos about data quality on this product",
                "title" : "Data Quality infos"
             },
@@ -122,7 +122,7 @@
             "level" : "info",
             "title_element" : {
                "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/healing.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/data-warning.svg",
                "subtitle" : "We have detected some potential issues or potential improvement, could you check if some apply ?",
                "title" : "Potential issues"
             },

@@ -13,15 +13,18 @@
     [% END %]
     [% IF panel.tags_type == "data_quality_errors" %]
         "evaluation": "bad",
+        [% icon_name = "data-error" %]
     [% ELSIF panel.tags_type == "data_quality_warnings" %]
         "evaluation": "average",
+        [% icon_name = "data-warning" %]
     [% ELSE %]
         "evaluation": "good",
+        [% icon_name = "data-info" %]
     [% END %]
     "title_element": {
         "title": "[% lang(panel.tags_type _ '_panel_title') %]",
         "subtitle": "[% lang(panel.tags_type _ '_panel_subtitle') %]",
-        "icon_url": "[% static_subdomain %]/images/icons/dist/healing.svg",
+        "icon_url": "[% static_subdomain %]/images/icons/dist/[% icon_name %].svg",
         "icon_color_from_evaluation": true,
     },
     "elements": [
