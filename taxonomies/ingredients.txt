@@ -14,7 +14,7 @@ stopwords:bg:съдържа, от, с, със, до, и, или, и/или, ми
 stopwords:bs:i, u promjenljivom odnosu
 stopwords:ca:i,de
 stopwords:da:av, af, blandt andet, bl a, inklusive, heraf, indeholder, tilsat
-stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens, in veränderlichen gewichtsanteilen, wenig
+stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens, in veränderlichen gewichtsanteilen, wenig, min, max
 stopwords:el:περιέχει
 stopwords:en:contains, contain, from, with, produced with, with added, minimum,including, inter alia, edible
 stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
@@ -36179,6 +36179,10 @@ description:en:apple juice that does NOT come from concentrated apple juice
 
 <en:pure apple juice
 fr:pur jus de pommes à cidre de Bretagne
+
+<en:pure apple juice
+en:unfiltered apple juice
+de:Apfelsaft naturtrüb
 
 <en:pure apple juice
 fr:pur jus de pommes pressées
