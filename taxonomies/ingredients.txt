@@ -5052,7 +5052,7 @@ af:Crème fraîche
 ca:crema de llet
 cs:Crème fraîche
 da:Cremefraiche, creme fraiche
-de:Crème fraîche
+de:Crème fraîche, creme fraiche
 eu:Esne-gain gordina, esne-gain freskoa
 fi:ranskankerma, crème fraîche
 fr:crème fraîche épaisse, crème fraîche fermentée
@@ -6383,6 +6383,18 @@ es:queso cheddar fundido
 <en:melted cheddar
 fr:cheddar orange fondu
 
+<en:cheese
+en:Colby cheese, Colby
+ca:colby
+it:Colby
+id:Keju colby
+ja:コルビーチーズ
+jv:Kèju colby
+ko:콜비 치즈
+pt:Colby
+zh:考爾比芝士
+wikidata:en:Q1056769
+description:en:Type of semi-hard cheese.
 
 <en:cheese
 en:Comté, Comté cheese, Comté cheese from cow's milk
@@ -6422,7 +6434,18 @@ protected_name_type:en: en:pdo
 origins:en: en:France
 # fr:comté-aop has 40 products in 1 language @2018-10-27
 
-
+<en:cheese
+en:Cotija cheese, Cotija
+de:Cotija-Käse, Cotija
+es:Queso Cotija, Cotija
+fr:Queso Cotija, Cotija
+hu:Cotija
+ja:コテハ・チーズ
+jv:Cotija kèju, Cotija
+ko:코티하 치즈
+ru:Котиха
+wikidata:en:Q2718594
+description:en:type of dry, firm grating cheese from Mexico.
 
 <en:cheese
 en:Double Gloucester, Double Gloucester cheese
@@ -7072,6 +7095,38 @@ description:fr:Le gruyère français est un fromage fabriqué en Franche-Comté 
 protected_name_type:en: en:pgi
 origins:en: en:France
 
+#category/Havarti, Havarti cheeses
+<en:cheese
+en:Havarti, Havarti cheeses
+bg:Хаварти
+ca:Havarti
+da:Havarti
+de:Havarti
+es:Havarti, Queso Havarti
+et:Havarti
+eu:Havarti
+fi:Havarti
+fr:Havarti
+id:Havarti
+is:Havarti
+it:Havarti
+ja:ハバーティ
+jv:Havarti
+ko:하바르티
+nb:Havarti
+nl:Havarti
+nn:Havarti
+pl:Havarti
+ro:Havarti
+ru:Хаварти
+tr:Havarti
+zh:哈瓦蒂芝士
+protected_name_file_number:en: PGI-DK-00831
+protected_name_type:en: pgi
+origins:en: en:Denmark
+wikidata:en:Q1591487
+description:en:semisoft Danish cow's milk cheese.
+
 <en:cheese
 en:jarlsberg, jarlsberg cheese
 wikidata:en:Q1329765
@@ -7501,25 +7556,55 @@ en:low moisture part skim mozzarella
 <en:low moisture mozzarella
 en:low moisture whole milk mozzarella
 
+#category/Muenster cheese, Muenster
+<en:cheese
+en:Muenster cheese, Muenster
+es:Muenster
+jv:Kèju Muenster
+sv:Muenster
+th:มึนสเตอร์ชีส
+wikidata:en:Q6931973
+description:en:American cheese.
+
 #category/munsters
 <en:cheese
-en:munster
+en:Munster, Munster cheeses, Munster cheese from cow's milk
+xx:Munsters, Munster
 ar:مونستير
 be:Мюнстэр
 bg:Мюнстер
+ca:Munster
 cv:Мюнстер
+de:Münsterkäse
+es:Munster
+eu:Munster
+fi:Munster
+fr:Munsters, Munster, Munster-Géromé
+hr:Munster
 id:Keju Munster
 ja:マンステール
 ko:묑스테르
+la:Munster
+ms:Keju Munster
+nb:Munster
+nl:Munster
+pl:Munster
+pt:Munster
 ru:Мюнстер
+sv:Munster
 th:เมิงสแตร์ชีส
 uk:Мюнстер
-xx:munster
 zh:芒斯特芝士
 wikidata:en:Q765540
+oqali_family:en: fr:Fromages - Munster
+protected_name_file_number:en: PDO-FR-0125
+protected_name_type:en: pdo
+origins:en: en:France
+agribalyse_food_code:en:12039
 ciqual_food_code:en:12039
 ciqual_food_name:en:Munster cheese, from cow's milk
 ciqual_food_name:fr:Munster
+protected_name_file_number:en: PDO-FR-0125-AM03
 description:de:Munster oder Munster-Géromé ist ein französischer Weichkäse aus den Hochvogesen und traditionell besonders aus dem elsässischen Münstertal (Vallée de Munster).
 description:en:Munster, Munster-géromé, or Minschterkaas, is a strong-smelling soft cheese with a subtle taste, made mainly from milk first produced in the Vosges.
 description:fr:Le munster et le munster-géromé constituent une appellation d'origine désignant un fromage de lait de vache de l'Est de la France.
@@ -22521,6 +22606,7 @@ fr:malt munich
 <en:malt
 en:malted barley, barley malt
 bg:ечемичен малц, ечемично малцов
+ca:malt d'ordi, malta d'ordi
 cs:ječmenný slad
 da:bygmalt
 de:Gerstenmalz
@@ -22588,6 +22674,7 @@ fr:extrait de malte d'orge houblonné
 <en:disaccharide
 en:barley malt syrup
 bn:বার্লি মল্ট সিরাপ
+ca:xarop de malt d'ordi, xarop de malta d'ordi
 cy:surop heiddfrag
 da:bygmaltsirup
 de:Gerstenmalzsirup
@@ -22608,8 +22695,9 @@ fr:sirop de malt d'orge déshydraté
 <en:syrup
 <en:disaccharide
 en:malt syrup
+ca:xarop de malta
 de:Malzsirup
-es:jarabe de malta
+es:jarabe de malta, sirope de malta
 fr:Sirop malté
 it:Sciroppo di malto
 
@@ -28655,6 +28743,7 @@ hu:bio juharszirup
 <en:disaccharide
 en:sugar syrup
 bg:захарен сироп
+ca:xarop de sucre
 de:Zuckersirup
 es:Sirope de azucar,jarabe de azucar
 fi:sokerisiirappi, sokeriliemi
@@ -28681,6 +28770,7 @@ fr:sirop de sucres issus de fruits
 <en:disaccharide
 en:wheat syrup
 bg:пшеничен сироп
+ca:xarop de blat
 da:hvedesirup
 de:Weizensirup
 es:Jarabe de trigo, sirope de trigo
@@ -28712,6 +28802,7 @@ sv:delvis inverterad sockersirap
 
 en:maltitol syrup
 bg:малтитолов сироп
+ca:xarop de maltitol
 fi:maltitolisiirappi
 fr:sirop de maltitol
 hu:maltit-szirup, maltitol szirup
@@ -28729,6 +28820,7 @@ fr:sirop de sorbitol de blé
 <en:glucose syrup
 en:rice glucose syrup
 bg:оризов глюкозен сироп
+ca:xarop de glucosa d'arròs
 de:Reisglukosesirup
 es:sirope de glucosa de arroz
 fr:Sirop de glucose de riz
@@ -28736,6 +28828,7 @@ fr:Sirop de glucose de riz
 <en:disaccharide
 en:rice syrup
 bg:оризов сироп
+ca:xarop d'arròs
 de:Reissirup
 es:Sirope de arroz
 fi:riisisiirappi
@@ -28932,6 +29025,7 @@ nl:tapiocadextrose
 en:agave syrup, agave nectar
 ar:شراب أغاف
 bg:сироп от агаве
+ca:xarop d'atzavara, xarop d'agave
 cs:agávovy sirup
 da:agavesirup
 de:Agavensirup

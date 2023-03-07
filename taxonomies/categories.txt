@@ -5451,11 +5451,6 @@ agribalyse_proxy_food_code:en:2074
 agribalyse_proxy_food_name:en:Apple juice, pure juice
 agribalyse_proxy_food_name:fr:Jus de pomme, pur jus
 
-<en:Apple juices
-en:Apple juices with less sugar
-fr:Jus de pomme avec moins de sucre
-nl:Appelsappen met minder suiker
-
 <en:Fruit juices
 en:Clementine juices
 bg:Сок от клементина
@@ -39395,6 +39390,35 @@ nl:Abdijkazen, Abdijkaas
 wikidata:en:Q2069008
 
 <en:Cheeses
+en:American cheeses
+fr:fromages américains
+wikidata:en:Q2671520
+
+<en:American cheeses
+<en:cow cheeses
+en:Colby cheese, Colby
+ca:colby
+it:Colby
+id:Keju colby
+ja:コルビーチーズ
+jv:Kèju colby
+ko:콜비 치즈
+pt:Colby
+zh:考爾比芝士
+wikidata:en:Q1056769
+description:en:Type of semi-hard cheese.
+
+<en:American cheeses
+<en:Cow cheeses
+en:Muenster cheese, Muenster
+es:Muenster
+jv:Kèju Muenster
+sv:Muenster
+th:มึนสเตอร์ชีส
+wikidata:en:Q6931973
+description:en:American cheese.
+
+<en:Cheeses
 en:Mexican cheeses, cheeses from Mexico
 de:Mexikanischer Käse
 es:Quesos mexicanos, Quesos de México
@@ -39407,6 +39431,20 @@ wikidata:en:Q5089436
 en:Panela cheeses
 es:Quesos panelas
 fr:Fromages panelas
+
+<en:Mexican cheeses
+<en:cow cheeses
+en:Cotija cheese, Cotija
+de:Cotija-Käse, Cotija
+es:Queso Cotija, Cotija
+fr:Queso Cotija, Cotija
+hu:Cotija
+ja:コテハ・チーズ
+jv:Cotija kèju, Cotija
+ko:코티하 치즈
+ru:Котиха
+wikidata:en:Q2718594
+description:en:type of dry, firm grating cheese from Mexico.
 
 <en:Cheeses
 en:Double cream cheeses
@@ -39947,10 +39985,33 @@ ciqual_food_name:en:Mimolette cheese, old, from cow's milk
 <en:French cheeses
 <en:Cow cheeses
 <en:Soft cheeses with washed rind
-en:Munster cheeses, Munster cheese from cow's milk
-xx:Munsters
+en:Munster, Munster cheeses, Munster cheese from cow's milk
+xx:Munsters, Munster
+ar:مونستير
+be:Мюнстэр
+bg:Мюнстер
+ca:Munster
+cv:Мюнстер
 de:Münsterkäse
+es:Munster
+eu:Munster
+fi:Munster
 fr:Munsters, Munster, Munster-Géromé
+hr:Munster
+id:Keju Munster
+ja:マンステール
+ko:묑스테르
+la:Munster
+ms:Keju Munster
+nb:Munster
+nl:Munster
+pl:Munster
+pt:Munster
+ru:Мюнстер
+sv:Munster
+th:เมิงสแตร์ชีส
+uk:Мюнстер
+zh:芒斯特芝士
 wikidata:en:Q765540
 oqali_family:en: fr:Fromages - Munster
 protected_name_file_number:en: PDO-FR-0125
@@ -39959,8 +40020,14 @@ origins:en: en:France
 agribalyse_food_code:en:12039
 ciqual_food_code:en:12039
 ciqual_food_name:en:Munster cheese, from cow's milk
+ciqual_food_name:fr:Munster
 protected_name_file_number:en: PDO-FR-0125-AM03
-#wikidata:en:
+description:de:Munster oder Munster-Géromé ist ein französischer Weichkäse aus den Hochvogesen und traditionell besonders aus dem elsässischen Münstertal (Vallée de Munster).
+description:en:Munster, Munster-géromé, or Minschterkaas, is a strong-smelling soft cheese with a subtle taste, made mainly from milk first produced in the Vosges.
+description:fr:Le munster et le munster-géromé constituent une appellation d'origine désignant un fromage de lait de vache de l'Est de la France.
+description:es:El munster es un queso francés del este de Francia beneficiario de una AOC.
+description:nl:De Munster is een Franse kaas, afkomstig uit de Vogezen.
+description:pt:O munster ou munster-géromé é um queijo francês do Leste, das regiões da Alsácia.
 
 <en:Cheeses
 en:Saint-Paulin cheese
@@ -40725,20 +40792,36 @@ lt:Daniški sūriai, sūriai iš Danijos
 wikidata:en:Q3088357
 
 <en:Danish cheeses
+<en:Cow cheeses
 en:Havarti, Havarti cheeses
 bg:Хаварти
+ca:Havarti
 da:Havarti
 de:Havarti
-es:Havarti
+es:Havarti, Queso Havarti
+et:Havarti
+eu:Havarti
 fi:Havarti
 fr:Havarti
+id:Havarti
+is:Havarti
 it:Havarti
+ja:ハバーティ
+jv:Havarti
+ko:하바르티
+nb:Havarti
 nl:Havarti
+nn:Havarti
+pl:Havarti
 ro:Havarti
+ru:Хаварти
+tr:Havarti
+zh:哈瓦蒂芝士
 protected_name_file_number:en: PGI-DK-00831
 protected_name_type:en: pgi
 origins:en: en:Denmark
 wikidata:en:Q1591487
+description:en:semisoft Danish cow's milk cheese.
 
 <en:Danish cheeses
 bg:Данбо
@@ -88228,6 +88311,10 @@ fr:Gelées de cassis
 sv:Svartvinbärsgeléer, Svartvinbärsgelé
 
 <en:Fruit jellies
+en:Myrtles jellies
+fr:Gelées de myrtes
+
+<en:Fruit jellies
 en:Apples jellies
 de:Apfel Gelees
 fi:Omenahyytelöt
@@ -88334,7 +88421,7 @@ pnns_group_2:en:Salty and fatty products
 <en:Salted spreads
 en:Egg salads, Egg spreads
 lt:Salotos su kiaušiniais
-de:Eisalaten, Eisalat, Eiaufstriche
+de:Eisalaten, Eisalat, Eiaufstriche, Eiersalat
 fr:Salades d'œufs, salades d'oeufs, Tartinades d'œufs, tartinades d'oeufs, tartinades aux oeufs
 nl:Eisalades, Eiersalades
 pl:Sałatki jajeczne
@@ -98739,8 +98826,12 @@ en:Meat analogues from pea proteins
 fr:Substituts de viande à partir de protéines de pois
 
 <en:Meat analogues
+en:Prepared meat cuts substitutes
+fr:Substituts de charcuterie en tranches
+
+<en:Prepared meat cuts substitutes
 en:Ham substitutes, Ham substituts, Plant-based ham prepacked
-fr:Susbtituts du jambon blanc, Substituts du jambon, Spécialité végétale type jambon cuit préemballée
+fr:Substituts du jambon blanc, Substituts du jambon, Spécialité végétale type jambon cuit préemballée
 agribalyse_food_code:en:1030
 ciqual_food_code:en:1030
 ciqual_food_name:en:Plant-based ham, prepacked
