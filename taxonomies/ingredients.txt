@@ -35912,6 +35912,49 @@ fr:pomme Pink Lady
 it:Mela Pink Lady
 nl:Pink Lady appels, Pink Lady
 
+<en:apple
+en:bramley apple
+de:Bromley Apfel
+wikidata:en:Q2923647
+wikipedia:en:https://en.wikipedia.org/wiki/Bramley_apple
+
+<en:apple
+en:Golden Delicious apple
+de:Golden Delicious Apfel
+es:manzana golden
+fi:golden delicious -omena
+fr:pomme Golden Delicious, pommes Golden Delicious, pommes golden
+wikidata:en:Q201996
+wikipedia:en:https://en.wikipedia.org/wiki/Golden_Delicious
+# ingredient/fr:pommes-golden-delicious has 8 products in french @2019-05-25
+
+#US plant patent 3637, McKenzie, Oct 15 1974
+<en:apple
+en:Gala apple, Gala apples
+de:Gala Apfel
+es:manzana gala
+fr:pomme Gala, pommes Gala
+nl:Gala appel
+wikidata:en:Q494259
+wikipedia:en:https://en.wikipedia.org/wiki/Gala_(apple)
+
+<en:green apple
+en:Granny apple
+es:manzana Granny
+fr:pomme Granny
+it:mela Granny
+nl:Granny Smith, Granny Smith appel, Granny Smith appels
+
+#US plant patent 4121, Ten Hove, Oct 4 1977, muted from Gala variety
+<en:apple
+en:Royal Gala apple
+de:Royal Gala Apfel, Royal Gala Äpfel
+fr:pomme Royal Gala, pommes Royal Gala
+nl:Royal Gala appel, Tenroy, Tenroy appel
+
+<en:apple
+fr:pommes d'Aquitaine
+# 22@2019-06-09
 
 <en:apple
 en:cinnamon apple
@@ -36032,7 +36075,7 @@ ciqual_food_name:fr:Pomme, pulpe, crue
 
 <en:apple
 <en:purée
-en:apple purée
+en:apple puree
 bg:пюре от ябълки
 da:Æblemos
 de:Apfelmus
@@ -36107,7 +36150,7 @@ sv:äpple preparat
 
 <en:fruit juice
 <en:apple
-en:apple juice, apple juice made from fresh apples, juice from select organic apples, pur jus de pommes, pur jus de pommes fermier
+en:apple juice, apple juice made from fresh apples, juice from select organic apples, 
 ar:عصير تفاح
 bg:сок от ябълки, ябълков сок
 ca:suc de poma
@@ -36120,7 +36163,7 @@ es:jugo de manzana, zumo de manzana
 et:õunamahl
 fa:آب سیب
 fi:omenamehu, omenatäysmehu
-fr:jus de pomme, jus de pommes
+fr:jus de pomme, jus de pommes, pur jus de pommes, pur jus de pommes fermier
 ga:sú úill
 he:מיץ תפוחים
 hr:sok od jabuke, jabučni sok
@@ -36171,7 +36214,7 @@ sv:ekologisk äppeljuice
 en:pure apple juice
 cs:jablečná šťáva
 de:reiner Apfelsaft
-fr:pur jus de pomme, jus de pomme non fait de concentre, pommes pressées
+fr:pur jus de pomme, jus de pomme non fait de concentre, pommes pressées, jus de pomme non fait de concentré
 it:Succo mela puro
 description:en:apple juice that does NOT come from concentrated apple juice
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/pure-apple-juice
@@ -36189,9 +36232,6 @@ fr:jus de pomme trouble, jus de pomme non filtré
 fr:pur jus de pommes pressées
 # 6@2019-06-08
 
-<en:organic apple juice
-<en:organic apple puree
-fr:Jus et purée de pomme biologiques
 
 <en:apple juice
 en:concentrated apple juice
@@ -36248,51 +36288,19 @@ fr:pur jus de pommes à cidre bio
 en:Cripps Pink apple juice
 fr:jus de pomme Cripps Pink
 
-<en:apple
-en:bramley apple
-de:Bromley Apfel
-wikidata:en:Q2923647
-wikipedia:en:https://en.wikipedia.org/wiki/Bramley_apple
+<en:apple juice
+en:Granny smith apple juice
 
-<en:apple
-en:Golden Delicious apple
-de:Golden Delicious Apfel
-es:manzana golden
-fi:golden delicious -omena
-fr:pomme Golden Delicious, pommes Golden Delicious, pommes golden
-wikidata:en:Q201996
-wikipedia:en:https://en.wikipedia.org/wiki/Golden_Delicious
-# ingredient/fr:pommes-golden-delicious has 8 products in french @2019-05-25
+<en:apple juice
+<en:apple puree
+fr:Jus et purée de pomme
 
-#US plant patent 3637, McKenzie, Oct 15 1974
-<en:apple
-en:Gala apple, Gala apples
-de:Gala Apfel
-es:manzana gala
-fr:pomme Gala, pommes Gala
-nl:Gala appel
-wikidata:en:Q494259
-wikipedia:en:https://en.wikipedia.org/wiki/Gala_(apple)
+<en:organic apple juice
+<en:organic apple puree
+fr:Jus et purée de pomme biologiques
 
-<en:green apple
-en:Granny apple
-es:manzana Granny
-fr:pomme Granny
-it:mela Granny
-nl:Granny Smith, Granny Smith appel, Granny Smith appels
 
-#US plant patent 4121, Ten Hove, Oct 4 1977, muted from Gala variety
-<en:apple
-en:Royal Gala apple
-de:Royal Gala Apfel, Royal Gala Äpfel
-fr:pomme Royal Gala, pommes Royal Gala
-nl:Royal Gala appel, Tenroy, Tenroy appel
-
-<en:apple
-fr:pommes d'Aquitaine
-# 22@2019-06-09
-
-<en:apple
+#is compund: en:apple
 en:apple jam
 ru:повидло яблочное, яблочное повидло
 
