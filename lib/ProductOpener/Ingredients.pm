@@ -95,6 +95,7 @@ BEGIN {
 
 		&init_origins_regexps
 		&match_ingredient_origin
+		&parse_origins_from_text
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
