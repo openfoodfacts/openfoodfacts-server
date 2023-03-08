@@ -273,8 +273,14 @@
 				<div class="main block_light">
 					<div id="main_column">
 						[% IF ! server_options_producers_platform %]
-          					[% PROCESS 'web/common/includes/donate_banner.tt.html' %]
-							[% banner_main %]
+							[%# for now, display the packagings banner in all cases %]
+							[% IF 1 == 1 %]
+								[% INCLUDE 'web/common/includes/packagings_banner.tt.html' %]
+							[% ELSE %]
+								[%# we keep the old code so that we can easily put back the donation banner %]
+          						[% PROCESS 'web/common/includes/donate_banner.tt.html' %]
+								[% banner_main %]
+							[% END %]
 						[% END %]
             			
 						[% IF page_format == "banner" %]
