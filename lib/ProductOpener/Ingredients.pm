@@ -93,6 +93,9 @@ BEGIN {
 
 		&has_specific_ingredient_property
 
+		&init_origins_regexps
+		&match_ingredient_origin
+
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
