@@ -668,7 +668,8 @@ sub get_file_from_cache ($source, $target) {
 
 	# Else try to get it from the github project acting as cache
 	my $ua = LWP::UserAgent->new();
-	my $response = $ua->mirror("https://raw.githubusercontent.com/$build_cache_repo/main/taxonomies/$source", $local_cache_source);
+	my $response = $ua->mirror("https://raw.githubusercontent.com/$build_cache_repo/main/taxonomies/$source",
+		$local_cache_source);
 
 	if (($response->is_success) and (-e $local_cache_source)) {
 		copy($local_cache_source, $target);
