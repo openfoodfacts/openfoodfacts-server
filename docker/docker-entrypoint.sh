@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Link site-specific translations
 ln -sfT /opt/product-opener/po/${PRODUCT_OPENER_FLAVOR} /mnt/podata/po/site-specific
