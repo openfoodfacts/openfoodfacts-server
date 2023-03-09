@@ -19,7 +19,7 @@ stopwords:el:περιέχει
 stopwords:en:contains, contain, from, with, produced with, with added, minimum,including, inter alia, edible
 stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
 stopwords:fi:sisältää,muun muassa,valio, koskenlaskija, snellmanin, jossa, noin, käymisen aikana muodostuva
-stopwords:fr:aux,au,de,le,du,la,a,et,avec,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout, sachet, marquants
+stopwords:fr:aux,au,de,le,du,la,a,et,avec,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout, sachet, marquants, demeter
 stopwords:hr:i, iz, min, od, sadrže, sastojci, sastav, u promjenjivim omjerima, u promjenjivim udjelima, u različitim omjerima
 stopwords:hu:tartalmaz, változó arányban, min, zsírtartalom, összetevő, összetétel, amelyből, amiből
 stopwords:id:mengandung
@@ -34139,7 +34139,7 @@ eu:abrikot
 fa:زردآلو
 fi:aprikoosi
 fo:aprikosa
-fr:abricot
+fr:abricot, Abricots de Haute Ardèche
 fy:abrikoas
 ga:aibreog
 gd:apragod
@@ -34245,6 +34245,10 @@ carbon_footprint_fr_foodges_ingredient:fr:Abricot "Pays du Sud"
 carbon_footprint_fr_foodges_value:fr:1.1
 # 5160 in 25 @2021-09-12
 
+<en:apricot
+en:Bergeron Apricot
+fr:Bergeron, abricots Bergeron de Haute Ardèche
+
 #<en:apricot
 #en:organic apricot
 #fi:luomu aprikoosi
@@ -34259,14 +34263,20 @@ fr:demi-abricots, demi abricots
 <en:apricot
 en:apricot puree
 bg:пюре от кайсии, пюре от кайсия
-de:Aprikosenpüree
+de:Aprikosenpüree, Aprikosenmark
 es:Puré de albaricoques
 fi:aprikoosipyree
-fr:purée d'abricots, purée d'abricot, pulpe d'abricot
-it:purea di albicocca, polpa di albicocca
+fr:purée d'abricots, purée d'abricot, pulpe d'abricot, purée d'abricot de la vallée du rhône
+it:polpa di albicocca, purea di albicocca
 nl:abrikozenpuree
+ro:piure de caise
+uk:абрикосове пюре
 # in process de:Aprikosenpüree
 # 873 @2021-09-12
+
+<en:Bergeron apricot
+<en:apricot puree
+fr:purée d'abricots Bergeron, purée d'abricot bergeron, pulpe d'abricot Bergeron
 
 <en:apricot
 en:apricot juice
@@ -34281,6 +34291,10 @@ fr:Jus d'abricot à partir de concentré
 nl:abrikoossap uit concentraat
 pt:suco de damasco a partir de concentrado
 
+<en:apricot puree
+en:apricot puree concentrate
+tr:kayısı püre konsantresi
+
 <en:apricot juice
 <en:apricot puree
 en:apricot juice and puree
@@ -34290,10 +34304,12 @@ it:succo e polpa di albicocca
 <en:apricot juice from concentrate
 <en:apricot puree
 en:apricot juice from concentrate and puree, Apricot juice made from cremogenate and concentrate
+de:Aprikosengemisch
 es:zumo de albaricoque a partir de puré y concentrado
 fr:Jus d'abricot à partir de cremé et concentré
 nl:abrikoossap uit concentraat en puree
 pt:suco de damasco a partir de pure e concentrado
+ru:пюре от кайсия от концентрат
 
 #processing:en: en:dried
 <en:apricot
@@ -37239,6 +37255,7 @@ nl:citroenextract, geconcentreerd citroensap, citroensapconcentraat
 pl:Zagęszczony sok cytrynowy, koncentrat soku z cytryny, koncentrat soku cytrynowego
 ru:Концентрированный лимонный сок
 sv:citronkoncentrat, citronsaftkoncentrat, citronjuicekoncentrat
+tr:limon suyu konsantresi
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:concentré-de-citron
 # 170 products @2018-10-01
 
