@@ -80,7 +80,7 @@ cd openfoodfacts-server/
 > _Note: you can skip this step for the first setup since the default `.env` in the repo contains all the default values required to get started._
 
 Before running the `docker-compose` deployment, you can review and configure
-Product Opener's environment ([`.env`](../.env) file).
+Product Opener's environment (`.env` file).
 
 The `.env` file contains ProductOpener default settings:
 | Field | Description |

@@ -3,7 +3,7 @@
 This reference cheatsheet gives you a quick reminder to send requests to the OFF API.
 
 If you are new to API usage you might look at the [tutorial](tutorial-off-api.md).
-Also, refer to the [API reference documentation](../reference/api.md) for complete information.
+Also, refer to the [API reference documentation](ref-v2.md) for complete information.
 
 ## Add/Edit an Existing Product
 
@@ -41,7 +41,7 @@ add_brands
 
 ## Search for Products
 
-[Reference documentation for search API](https://openfoodfacts.github.io/openfoodfacts-server/reference/api/#tag/Read-Requests/operation/get-search)
+[Reference documentation for search API](https://openfoodfacts.github.io/openfoodfacts-server/api/ref#tag/Read-Requests/operation/get-search)
 
 ### Get data for a list of products
 

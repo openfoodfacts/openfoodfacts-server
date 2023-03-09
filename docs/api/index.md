@@ -113,7 +113,7 @@ Open-source contributors develop our SDKs, and more contributions are welcome to
 
 > **Warning**: Before exploring any SDK, please read the [Before You Start section](#before-you-start).
 >
-> Also, remember to check the [API Reference Documentation](https://openfoodfacts.github.io/openfoodfacts-server/reference/api.html) first to verify if the problem is in SDK implementation or in the API itself.
+> Also, remember to check the [API Reference Documentation](https://openfoodfacts.github.io/openfoodfacts-server/api/ref/) first to verify if the problem is in SDK implementation or in the API itself.
 
 - [Cordova](https://github.com/openfoodfacts/openfoodfacts-cordova-app)
 - [Dart](https://github.com/openfoodfacts/openfoodfacts-dart/blob/master/DOCUMENTATION.md), published on [pub.dev](https://pub.dev/packages/openfoodfacts)

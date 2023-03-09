@@ -8,11 +8,11 @@ Fist, be sure to see our [Introduction to the API](./index.md).
 
 This basic tutorial shows you can get the Nutri-score of a product, for instance, to display it in a mobile app after scanning the product barcode. Let's use [Nutella Ferrero](https://world.openfoodfacts.net/product/3017624010701/nutella-nutella-ferrero) as the product example for this tutorial.
 
-To get a product nutriscore, send a request to the [Get A Product By Barcode](https://openfoodfacts.github.io/openfoodfacts-server/reference/api.html#tag/Read-Requests/operation/get-product-by-barcode) endpoint.
+To get a product nutriscore, send a request to the [Get A Product By Barcode](https://openfoodfacts.github.io/openfoodfacts-server/api/ref/#get-/api/v2/product/-barcode-) endpoint.
 
 ### Authentication
 
-Usually, no authentication is required to query Get A Product Nutri-score. However, there is a basic auth to avoid content indexation in the staging environment(which is used throughout this tutorial). For more details, visit the [Open Food Facts API Environment](https://openfoodfacts.github.io/openfoodfacts-server/introduction/api/#environment).
+Usually, no authentication is required to query Get A Product Nutri-score. However, there is a basic auth to avoid content indexation in the staging environment(which is used throughout this tutorial). For more details, visit the [Open Food Facts API Environment](index.md#api-deployments).
 
 ### Describing the Get Request
 
@@ -106,7 +106,7 @@ The `product` object in the response now contains the extra fields to show how t
 }
 ```
 
-For more details, see the reference documentation for [Get A Product By Barcode](https://openfoodfacts.github.io/openfoodfacts-server/reference/api.html#tag/Read-Requests/operation/get-product-by-barcode).
+For more details, see the reference documentation for [Get A Product By Barcode](https://openfoodfacts.github.io/openfoodfacts-server/api/ref/#get-/api/v2/product/-barcode-).
 
 <!-- Probably have a conclusion that links to the next possible topic eg filter countries using lc and cc-->
 
@@ -153,7 +153,7 @@ The WRITE operations in the OFF API require  authentication. Therefore you need 
 
 > Sign up on the [Open Food Facts App](https://world.openfoodfacts.net/) to get your`user_id` and `password`if you don't have one.
 
-To write data to a product, make a `POST` request to the [`Add or Edit A Product`](https://openfoodfacts.github.io/openfoodfacts-server/reference/api.html#tag/Write-Requests/operation/post-cgi-product_jqm2.pl) endpoint.
+To write data to a product, make a `POST` request to the [`Add or Edit A Product`](https://openfoodfacts.github.io/openfoodfacts-server/api/ref/#post-/cgi/product_jqm2.pl) endpoint.
 
 ```text
 https://world.openfoodfacts.net/cgi/product_jqm2.pl
@@ -222,7 +222,7 @@ Now, let's check if the Nutri-Score for 100% Real Orange Juice has been computed
 }
 ```
 
-For more details, see the reference documentation for [Add or Edit A Product](https://openfoodfacts.github.io/openfoodfacts-server/reference/api/#tag/Write-Requests/operation/post-cgi-product_jqm2.pl)
+For more details, see the reference documentation for [Add or Edit A Product](https://openfoodfacts.github.io/openfoodfacts-server/api/ref/#post-/cgi/product_jqm2.pl)
 
 You can also check the reference cheatsheet to know how to add/edit other types of product data.
 
@@ -230,7 +230,7 @@ You can also check the reference cheatsheet to know how to add/edit other types 
 
 ## Search for a Product by Nutri-score
 
-Using the Open Food Facts API, you can filter products based on different criteria.  To search for products in the Orange Juice category with a nutrition_grade of `c`, query the [Search for Products endpoint](https://openfoodfacts.github.io/openfoodfacts-server/reference/api/#tag/Read-Requests/operation/get-search).
+Using the Open Food Facts API, you can filter products based on different criteria.  To search for products in the Orange Juice category with a nutrition_grade of `c`, query the [Search for Products endpoint](https://openfoodfacts.github.io/openfoodfacts-server/api/ref/#get-/api/v2/search).
 
 ### Describing the Search Request
 
@@ -353,4 +353,4 @@ The date that each product was last modified is now used to order the product re
 }
 ```
 
-To see other examples of sorting a search response, see the reference documentation for [Search for Products](https://openfoodfacts.github.io/openfoodfacts-server/reference/api/#tag/Read-Requests/operation/get-search).
+To see other examples of sorting a search response, see the reference documentation for [Search for Products](https://openfoodfacts.github.io/openfoodfacts-server/api/ref/#get-/api/v2/search).
