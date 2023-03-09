@@ -2755,8 +2755,15 @@ label_categories:en: en:Geographic label
 
 fr:Fabriqué en Gourmandie, Produit en Gourmandie
 
+en:Artisanal production, Artisinal
 fr:Fabrication artisanale
 es:Fabricación artesanal, Producción artesanal
+nl:Ambachtelijke productie
+
+<en:Artisanal production
+en:Farm production, produced on the farm
+fr:Fabrication à la ferme
+nl:Geproduceerd op de boerderij
 
 fr:La Lorraine notre signature
 origins:en: en:france, fr:Lorraine
@@ -2877,6 +2884,11 @@ fi:osa ainesosista ei Italiasta
 fr:Certains ingrédients ne proviennent pas d'Italie, Certains ingrédients de ce produit ne proviennent pas d'Italie
 it:Alcuni ingredienti non provengono dall'Italia
 
+en:refrigerated
+fr:réfrigeré
+nl:gekoeld, gekoelde producten
+#comment:en:propducts that need to be kept refrigerated before opening
+
 en:Some ingredients not from France, Some ingredients of this product do not come from France
 ca:Alguns ingredients no són de França
 de:Einige Zutaten nicht aus Frankreich
@@ -2921,6 +2933,12 @@ pl:Bez dodatków, Brak dodatków
 pt:Sem aditivos
 th:ไม่มีสารเติมแต่ง
 label_categories:en: en:Health, en:Additives
+opposite:en: en:With additives
+
+en:With additives
+fr:Avec additifs
+nl:Met toevoegingen
+opposite:en: en:No additives
 
 #instruction:en:Do NOT change the english key.
 en:No artificial additives
@@ -20081,17 +20099,42 @@ label_categories:en: en:Environment, en:Cocoa
 
 en:Ethical Tea Partnership, ETP
 wikidata:en:Q5403392
-label_categories:en: en:Faitrade
+label_categories:en: en:Fairtrade
 
-en:pasteurized product
+en:Pasteurized, Pasteurised, pasteurized product
 bg:Пастьоризиран продукт
 ca:Producte pasteuritzat
 de:Pasteurisiertes Produkt
 es:Producto pasteurizado
-fr:produit pasteurisé
+fr:Pasteurisé, produit pasteurisé
 hu:pasztőrözött termék
 it:Prodotto pastorizzato
-nl:gepasteuriseerd product
+nb:Pasteurisert
+nl:gepasteuriseerd, gepasteuriseerd product
+opposite:en: en:unpasteurized
+
+<en:Pasteurized
+en:Flash pasteurized, Flash pasteurised
+fr:Flash pasteurisé
+nl:Flash gepasteuriseerd
+
+en:Unpasteurized
+fr:Non pasteurisé
+nl:Ongepasteuriseerd
+opposite:en: en:pasteurized
+
+en:Cold pressed
+fr:Pression à froid, haute pression à froid
+nl:Koudgeperst
+
+en:Unfiltered, cloudy
+de:Trüb, Naturtrüb
+opposite:en: en:Filtered
+
+en:Filtered
+de:Klar
+fr:Non filtrée, Clair
+opposite:en: en:unfiltered
 
 fr:Haute Valeur Environnementale, HVE
 xx:Haute Valeur Environnementale, HVE
