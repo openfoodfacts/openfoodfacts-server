@@ -34256,17 +34256,44 @@ fr:demi-abricots, demi abricots
 #7 in fr @2021-09-12
 
 #processing:en: en:purée
-#<en:apricot
-#en:apricot purée
-#bg:пюре от кайсии, пюре от кайсия
-#de:Aprikosenpüree
-#es:Puré de albaricoques
-#fi:aprikoosipyree
-#fr:purée d'abricots, purée d'abricot, pulpe d'abricot
-#it:purea di albicocca
-#nl:abrikozenpuree
+<en:apricot
+en:apricot puree
+bg:пюре от кайсии, пюре от кайсия
+de:Aprikosenpüree
+es:Puré de albaricoques
+fi:aprikoosipyree
+fr:purée d'abricots, purée d'abricot, pulpe d'abricot
+it:purea di albicocca, polpa di albicocca
+nl:abrikozenpuree
 # in process de:Aprikosenpüree
 # 873 @2021-09-12
+
+<en:apricot
+en:apricot juice
+es:zumo de albaricoque
+fr:jus d'abricot
+it:succo di albicocca
+pt:suco de damasco
+
+<en:apricot juice
+en:apricot juice from concentrate
+fr:Jus d'abricot à partir de concentré
+nl:abrikoossap uit concentraat
+pt:suco de damasco a partir de concentrado
+
+<en:apricot juice
+<en:apricot puree
+en:apricot juice and puree
+fr:jus et purée d'abricot
+it:succo e polpa di albicocca
+
+<en:apricot juice from concentrate
+<en:apricot puree
+en:apricot juice from concentrate and puree, Apricot juice made from cremogenate and concentrate
+es:zumo de albaricoque a partir de puré y concentrado
+fr:Jus d'abricot à partir de cremé et concentré
+nl:abrikoossap uit concentraat en puree
+pt:suco de damasco a partir de pure e concentrado
 
 #processing:en: en:dried
 <en:apricot
@@ -34307,7 +34334,7 @@ sv:aprikoskärnor
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/apricot-kernels
 # 97 products @2018-09-29
 
-<en:apricot
+#<en:apricot compound
 en:apricot marmalade
 es:mermelada de albaricoque
 hr:marmelada marelica
