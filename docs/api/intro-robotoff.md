@@ -1,4 +1,4 @@
-# The Robotoff Project
+# Introduction to the Robotoff Project
 
 The Robotoff project is intended to complete missing product information by prompting users to confirm predictions inferred by Artificial Intelligence algorithms. These algorithms are calculated based on "insights", which are facts about a product that have been extracted or deduced from the product pictures, ingredients, categories, labels, etc.
 
