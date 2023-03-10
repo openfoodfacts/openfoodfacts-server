@@ -1,0 +1,1420 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/dev/explain-packaging-data/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.4">
+    
+    
+      
+        <title>Explanation on packaging data - Product Opener (Open Food Facts Server)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.80dcb947.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#explanation-on-packaging-data" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Product Opener (Open Food Facts Server)" class="md-header__button md-logo" aria-label="Product Opener (Open Food Facts Server)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Product Opener (Open Food Facts Server)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Explanation on packaging data
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/openfoodfacts/openfoodfacts-server" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Product Opener (Open Food Facts Server)" class="md-nav__button md-logo" aria-label="Product Opener (Open Food Facts Server)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Product Opener (Open Food Facts Server)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/openfoodfacts/openfoodfacts-server" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Api
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Api" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Api
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/" class="md-nav__link">
+        Open Food Facts API Documentation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/intro-robotoff/" class="md-nav__link">
+        The Robotoff Project
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/tutorial-dev-journey/" class="md-nav__link">
+        Tutorial - developer journey
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/tutorial-off-api/" class="md-nav__link">
+        Tutorial on using the Open Food Facts API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/tutorial-uploading-photo-to-a-product/" class="md-nav__link">
+        Tutorial on uploading images to the Open Food Facts API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/how-to-download-images/" class="md-nav__link">
+        How to download product images
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/explain-knowledge-panels/" class="md-nav__link">
+        Explanation on Knowledge panels
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/ref-cheatsheet/" class="md-nav__link">
+        Reference: API CheatSheet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/ref-v2/" class="md-nav__link">
+        Reference OpenAPI documentation for v2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/ref-v3/" class="md-nav__link">
+        Reference OpenAPI documentation for v3
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Dev
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Dev" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Dev
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Product Opener - Developer Documentation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-deploy/" class="md-nav__link">
+        How to deploy to Prod environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-develop-producer-platform/" class="md-nav__link">
+        How to develop on the producers platform
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-develop-using-docker/" class="md-nav__link">
+        How to use Docker to Develop - a guide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-quick-start-guide/" class="md-nav__link">
+        How to setup the Dev environment (quick start guide)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-update-agribalyse-ecoscore/" class="md-nav__link">
+        How to update Agribalyse (Ecoscore)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-use-direnv/" class="md-nav__link">
+        How to use direnv
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-use-gitpod/" class="md-nav__link">
+        How to using Gitpod for Remote Development
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-use-pages-from-openfoodfacts-web/" class="md-nav__link">
+        How to use pages from openfoodfacts-web
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-use-repl/" class="md-nav__link">
+        How to use Perl REPL (re.pl)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-use-vscode/" class="md-nav__link">
+        How to use VSCode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Explanation on packaging data
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Explanation on packaging data
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types-of-packaging-data" class="md-nav__link">
+    Types of packaging data
+  </a>
+  
+    <nav class="md-nav" aria-label="Types of packaging data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-about-packaging-components" class="md-nav__link">
+    Data about packaging components
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources-of-packaging-data" class="md-nav__link">
+    Sources of packaging data
+  </a>
+  
+    <nav class="md-nav" aria-label="Sources of packaging data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#users" class="md-nav__link">
+    Users
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manufacturers" class="md-nav__link">
+    Manufacturers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#product-photos-and-machine-learning" class="md-nav__link">
+    Product photos and machine learning
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-packaging-data-is-currently-added-updated-and-structured-in-open-food-facts" class="md-nav__link">
+    How packaging data is currently added, updated and structured in Open Food Facts
+  </a>
+  
+    <nav class="md-nav" aria-label="How packaging data is currently added, updated and structured in Open Food Facts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-input-fields" class="md-nav__link">
+    Current input fields
+  </a>
+  
+    <nav class="md-nav" aria-label="Current input fields">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#packaging-tag-field-read-and-write" class="md-nav__link">
+    Packaging tag field (READ and WRITE)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#packaging-information-recycling-instructions-text-field-read-and-write" class="md-nav__link">
+    Packaging information / recycling instructions text field (READ and WRITE)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#current-resulting-packagings-data-structure-read-only" class="md-nav__link">
+    Current resulting packagings data structure (READ only)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-the-the-resulting-packagings-data-structure-is-created" class="md-nav__link">
+    How the the resulting packagings data structure is created
+  </a>
+  
+    <nav class="md-nav" aria-label="How the the resulting packagings data structure is created">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extract-attributes-that-relate-to-different-packaging-components" class="md-nav__link">
+    Extract attributes that relate to different packaging components
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merge-packaging-components" class="md-nav__link">
+    Merge packaging components
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#taxonomies" class="md-nav__link">
+    Taxonomies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-we-could-improve-it" class="md-nav__link">
+    How we could improve it
+  </a>
+  
+    <nav class="md-nav" aria-label="How we could improve it">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extend-the-attributes-of-the-packaging-components-in-the-packagings-data-structure" class="md-nav__link">
+    Extend the attributes of the packaging components in the "packagings" data structure
+  </a>
+  
+    <nav class="md-nav" aria-label="Extend the attributes of the packaging components in the "packagings" data structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#weight" class="md-nav__link">
+    Weight
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-the-packagings-data-structure-read-and-write" class="md-nav__link">
+    Make the "packagings" data structure READ and WRITE
+  </a>
+  
+    <nav class="md-nav" aria-label="Make the "packagings" data structure READ and WRITE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-a-way-to-indicate-that-the-packagings-data-structure-contains-all-the-packaging-components-of-the-product" class="md-nav__link">
+    Add a way to indicate that the "packagings" data structure contains all the packaging components of the product
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deprecate-the-packaging-tags-field" class="md-nav__link">
+    Deprecate the "packaging" tags field
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keep-the-packaging_text_language-code-field" class="md-nav__link">
+    Keep the "packaging_text_[language code]" field
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#challenges" class="md-nav__link">
+    Challenges
+  </a>
+  
+    <nav class="md-nav" aria-label="Challenges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#incomplete-lists-of-packaging-components" class="md-nav__link">
+    Incomplete lists of packaging components
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slightly-mismatched-data-from-different-sources" class="md-nav__link">
+    Slightly mismatched data from different sources
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#products-with-packaging-changes" class="md-nav__link">
+    Products with packaging changes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ressources" class="md-nav__link">
+    Ressources
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explain-pro-dev-setup/" class="md-nav__link">
+        Explanation on Docker Setup of pro platform for development
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explain-taxonomy-build-cache/" class="md-nav__link">
+        Explanation on Taxonomy Build Cache
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ref-perl-pod/" class="md-nav__link">
+        Perl reference documentation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ref-perl/" class="md-nav__link">
+        Reference Perl code documentation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types-of-packaging-data" class="md-nav__link">
+    Types of packaging data
+  </a>
+  
+    <nav class="md-nav" aria-label="Types of packaging data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-about-packaging-components" class="md-nav__link">
+    Data about packaging components
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources-of-packaging-data" class="md-nav__link">
+    Sources of packaging data
+  </a>
+  
+    <nav class="md-nav" aria-label="Sources of packaging data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#users" class="md-nav__link">
+    Users
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manufacturers" class="md-nav__link">
+    Manufacturers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#product-photos-and-machine-learning" class="md-nav__link">
+    Product photos and machine learning
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-packaging-data-is-currently-added-updated-and-structured-in-open-food-facts" class="md-nav__link">
+    How packaging data is currently added, updated and structured in Open Food Facts
+  </a>
+  
+    <nav class="md-nav" aria-label="How packaging data is currently added, updated and structured in Open Food Facts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-input-fields" class="md-nav__link">
+    Current input fields
+  </a>
+  
+    <nav class="md-nav" aria-label="Current input fields">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#packaging-tag-field-read-and-write" class="md-nav__link">
+    Packaging tag field (READ and WRITE)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#packaging-information-recycling-instructions-text-field-read-and-write" class="md-nav__link">
+    Packaging information / recycling instructions text field (READ and WRITE)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#current-resulting-packagings-data-structure-read-only" class="md-nav__link">
+    Current resulting packagings data structure (READ only)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-the-the-resulting-packagings-data-structure-is-created" class="md-nav__link">
+    How the the resulting packagings data structure is created
+  </a>
+  
+    <nav class="md-nav" aria-label="How the the resulting packagings data structure is created">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extract-attributes-that-relate-to-different-packaging-components" class="md-nav__link">
+    Extract attributes that relate to different packaging components
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merge-packaging-components" class="md-nav__link">
+    Merge packaging components
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#taxonomies" class="md-nav__link">
+    Taxonomies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-we-could-improve-it" class="md-nav__link">
+    How we could improve it
+  </a>
+  
+    <nav class="md-nav" aria-label="How we could improve it">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extend-the-attributes-of-the-packaging-components-in-the-packagings-data-structure" class="md-nav__link">
+    Extend the attributes of the packaging components in the "packagings" data structure
+  </a>
+  
+    <nav class="md-nav" aria-label="Extend the attributes of the packaging components in the "packagings" data structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#weight" class="md-nav__link">
+    Weight
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-the-packagings-data-structure-read-and-write" class="md-nav__link">
+    Make the "packagings" data structure READ and WRITE
+  </a>
+  
+    <nav class="md-nav" aria-label="Make the "packagings" data structure READ and WRITE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-a-way-to-indicate-that-the-packagings-data-structure-contains-all-the-packaging-components-of-the-product" class="md-nav__link">
+    Add a way to indicate that the "packagings" data structure contains all the packaging components of the product
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deprecate-the-packaging-tags-field" class="md-nav__link">
+    Deprecate the "packaging" tags field
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keep-the-packaging_text_language-code-field" class="md-nav__link">
+    Keep the "packaging_text_[language code]" field
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#challenges" class="md-nav__link">
+    Challenges
+  </a>
+  
+    <nav class="md-nav" aria-label="Challenges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#incomplete-lists-of-packaging-components" class="md-nav__link">
+    Incomplete lists of packaging components
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slightly-mismatched-data-from-different-sources" class="md-nav__link">
+    Slightly mismatched data from different sources
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#products-with-packaging-changes" class="md-nav__link">
+    Products with packaging changes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ressources" class="md-nav__link">
+    Ressources
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/openfoodfacts/openfoodfacts-server/blob/main/docs/dev/explain-packaging-data.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="explanation-on-packaging-data">Explanation on packaging data<a class="headerlink" href="#explanation-on-packaging-data" title="Permanent link">#</a></h1>
+<p>This document explains how packaging data is currently added, updated and structured in the Open Food Facts database, and how it could be improved.</p>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
+<h2 id="types-of-packaging-data">Types of packaging data<a class="headerlink" href="#types-of-packaging-data" title="Permanent link">#</a></h2>
+<p>Food products typically have 1 or more packaging components (e.g. milk may have a bottle and a cap).</p>
+<p>For each product, we aim to have a comprehensive list of all its packaging components, with detailed information about each packaging component.</p>
+<h3 id="data-about-packaging-components">Data about packaging components<a class="headerlink" href="#data-about-packaging-components" title="Permanent link">#</a></h3>
+<p>For each packaging component, we want data for different attributes, like its shape (e.g. a bottle) and its size (e.g. plastic).</p>
+<p>There are many different attributes that can be interesting for specific uses. For instance, researchers in epidemiology are interested in knowing which packaging component is in contact with the food itself, and which one can be put in the microwave oven, so that they can study the long term effects of some plastics on health.</p>
+<h2 id="sources-of-packaging-data">Sources of packaging data<a class="headerlink" href="#sources-of-packaging-data" title="Permanent link">#</a></h2>
+<p>We can get packaging data from different sources:</p>
+<h3 id="users">Users<a class="headerlink" href="#users" title="Permanent link">#</a></h3>
+<p>Users of the Open Food Facts website and app, and users of 3rd party apps, can enter packaging data.</p>
+<h3 id="manufacturers">Manufacturers<a class="headerlink" href="#manufacturers" title="Permanent link">#</a></h3>
+<p>Some manufacturers send product data through GS1, which currently has limited support for packaging information (but this is likely to be improved in the years to come).</p>
+<p>Some manufacturers send us more detailed packaging data (e.g. recycling instructions) through the Producers Platform.</p>
+<p>Some manufacturers send us data used to compute the Eco-Score using the Eco-Score spreadsheet template, which has fields like "Packaging 1", "Material 1", "Packaging 2", "Material 2" etc.</p>
+<h3 id="product-photos-and-machine-learning">Product photos and machine learning<a class="headerlink" href="#product-photos-and-machine-learning" title="Permanent link">#</a></h3>
+<p>We can extract logos related to packaging, or parse the text recognized from product photos to recognize packaging information or recycling instructions.</p>
+<h2 id="how-packaging-data-is-currently-added-updated-and-structured-in-open-food-facts">How packaging data is currently added, updated and structured in Open Food Facts<a class="headerlink" href="#how-packaging-data-is-currently-added-updated-and-structured-in-open-food-facts" title="Permanent link">#</a></h2>
+<p>In Open Food Facts, we currently have a number of input fields related to packaging. The data in those fields is parsed and analyzed to create a structured list of packaging components with specific attributes.</p>
+<h3 id="current-input-fields">Current input fields<a class="headerlink" href="#current-input-fields" title="Permanent link">#</a></h3>
+<h4 id="packaging-tag-field-read-and-write">Packaging tag field (READ and WRITE)<a class="headerlink" href="#packaging-tag-field-read-and-write" title="Permanent link">#</a></h4>
+<p>At the start of Open Food Facts in 2012, we had a "packaging" tag field where users could enter comma separated free text entries about the packaging (e.g. "Plastic", "Bag" or "Plastic bag") in different languages.</p>
+<p>In 2020, we made this field a taxonomized field. As a result, we now store the language used to fill this field, so that we can match its value to the multilingual packaging taxonomy. So "plastique" in French will be mapped to the canonical "en:plastic" entry.</p>
+<h4 id="packaging-information-recycling-instructions-text-field-read-and-write">Packaging information / recycling instructions text field (READ and WRITE)<a class="headerlink" href="#packaging-information-recycling-instructions-text-field-read-and-write" title="Permanent link">#</a></h4>
+<p>In 2020, we also added a language specific field ("packaging_text_[language code]" e.g. "packaging_text_en" for English) to store free text data about the packaging. It can contain the text of the recycling instructions printed on the packaging (e.g. "bottle to recycle, cap to discard"), or can be filled in by users (e.g. "1 PET plastic bottle to recycle, 1 plastic cap").</p>
+<h3 id="current-resulting-packagings-data-structure-read-only">Current resulting packagings data structure (READ only)<a class="headerlink" href="#current-resulting-packagings-data-structure-read-only" title="Permanent link">#</a></h3>
+<p>The input fields are analyzed and combined to create the "packagings" data structure.</p>
+<p>The structure is an array of packaging components. Each packaging component can have values for different attributes:</p>
+<ul>
+<li>number: the number of units for the packaging component (e.g. a pack of beers may contain 6 bottles)</li>
+<li>shape: the general shape of the packaging component (e.g. "bottle", "box")</li>
+<li>material: the material of the packaging component</li>
+<li>quantity: how much product the packaging component contains (e.g. "25 cl")</li>
+<li>recycling: whether the packaging component should be recycled, discarded or reused</li>
+</ul>
+<p>The "shape" and "material" fields are taxonomized using the packaging_shapes and packaging_materials taxonomies.</p>
+<h3 id="how-the-the-resulting-packagings-data-structure-is-created">How the the resulting packagings data structure is created<a class="headerlink" href="#how-the-the-resulting-packagings-data-structure-is-created" title="Permanent link">#</a></h3>
+<h4 id="extract-attributes-that-relate-to-different-packaging-components">Extract attributes that relate to different packaging components<a class="headerlink" href="#extract-attributes-that-relate-to-different-packaging-components" title="Permanent link">#</a></h4>
+<p>The values for each input field ("packaging" tag field and "packaging_text_[language code]" packaging information text field) are analyzed<sup id="fnref:parse_packaging_from_text_phrase"><a class="footnote-ref" href="#fn:parse_packaging_from_text_phrase">1</a></sup> to recognize packaging components and their attributes. One product may have multiple "packaging_text_[language code]" values in different languages. Only the value for the main product of the language is currently analyzed.</p>
+<p>For instance, if the "packaging" field contains "Plastic bottle, box, cardboard", we will use the packaging shapes, materials and recycling taxonomies to create a list of 3 packaging components: {shape:"en:bottle", material:"en:plastic"}, {shape:"en:box"}, {material:"en:cardboard"}.</p>
+<p>And if the "packaging_text_en" field contains "PET bottle to recycle, box to reuse", we will create 2 more packaging components: {shape:"en:bottle", material:"en:pet-polyethylene-terephthalate", recycling:"en:recycle"}, {shape:"box", recycling:"reuse"}.</p>
+<h4 id="merge-packaging-components">Merge packaging components<a class="headerlink" href="#merge-packaging-components" title="Permanent link">#</a></h4>
+<p>The 3 + 2 = 5 resulting packaging components are then added one by one in the packagings structure. When their attributes are compatible, the packaging units are merged<sup id="fnref:analyze_and_combine_packaging_data"><a class="footnote-ref" href="#fn:analyze_and_combine_packaging_data">2</a></sup>. For instance {shape:"en:box"} and {material:"en:cardboard"} have non conflicting attributes, so they are merged into {shape:"en:box", material:"en:cardboard"}. Note that it is possible that this is a mistake, and that the "box" and "cardboard" tags concern in fact different components.</p>
+<p>Similarly, as "en:plastic" is a parent of "en:pet-polyethylene-terephthalate" in the packaging_materials taxonomy, we can merge {shape:"en:bottle", material:"en:plastic"} with {shape:"en:bottle", material:"en:pet-polyethylene-terephthalate", recycling:"en:recycle"} into {shape:"en:bottle", material:"en:pet-polyethylene-terephthalate", recycling:"en:recycle"}.</p>
+<p>The resulting structure is:</p>
+<div class="highlight"><pre><span></span><code>packagings: [
+    {
+        material: &quot;en:pet-polyethylene-terephthalate&quot;,
+        recycling: &quot;en:recycle&quot;,
+        shape: &quot;en:bottle&quot;
+    },
+    {
+        recycling: &quot;en:reuse&quot;,
+        shape: &quot;en:box&quot;
+    },
+    {
+        shape: &quot;en:container&quot;
+    }
+]
+</code></pre></div>
+<h3 id="taxonomies">Taxonomies<a class="headerlink" href="#taxonomies" title="Permanent link">#</a></h3>
+<p>We have created a number of multilingual taxonomies related to packagings:</p>
+<ul>
+<li>Packaging shapes taxonomy : https://github.com/openfoodfacts/openfoodfacts-server/blob/main/taxonomies/packaging_shapes.txt</li>
+<li>Packaging materials taxonomy : https://github.com/openfoodfacts/openfoodfacts-server/blob/main/taxonomies/packaging_materials.txt</li>
+<li>Packaging recycling taxonomy : https://github.com/openfoodfacts/openfoodfacts-server/blob/main/taxonomies/packaging_recycling.txt</li>
+<li>Preservation methods taxonomy (related) : https://github.com/openfoodfacts/openfoodfacts-server/blob/main/taxonomies/preservation.txt</li>
+</ul>
+<p>Those taxonomies are used to structure packaging data in Open Food Facts, and to analyze unstructured input data.</p>
+<h2 id="how-we-could-improve-it">How we could improve it<a class="headerlink" href="#how-we-could-improve-it" title="Permanent link">#</a></h2>
+<h3 id="extend-the-attributes-of-the-packaging-components-in-the-packagings-data-structure">Extend the attributes of the packaging components in the "packagings" data structure<a class="headerlink" href="#extend-the-attributes-of-the-packaging-components-in-the-packagings-data-structure" title="Permanent link">#</a></h3>
+<h4 id="weight">Weight<a class="headerlink" href="#weight" title="Permanent link">#</a></h4>
+<p>We need to add an attribute for the weight of the packaging component. We might need to add different fields to distinguish values that have been entered by users that weight the packaging, versus values provided by the manufacturer, or average values that we have determined from other products, or that we got from external sources.</p>
+<h3 id="make-the-packagings-data-structure-read-and-write">Make the "packagings" data structure READ and WRITE<a class="headerlink" href="#make-the-packagings-data-structure-read-and-write" title="Permanent link">#</a></h3>
+<p>The "packagings" data structure is currently a READ only field. We could create an API to make it a READ and WRITE field.</p>
+<p>For new products, clients (website and apps) could ask users to enter data about all packaging components of the product.</p>
+<p>For existing products, clients could display the packaging components and let users change them (e.g. adding or removing components, entering values for new attributes, editing attributes to add more precise values (e.g. which type of plastic) etc.).</p>
+<h4 id="add-a-way-to-indicate-that-the-packagings-data-structure-contains-all-the-packaging-components-of-the-product">Add a way to indicate that the "packagings" data structure contains all the packaging components of the product<a class="headerlink" href="#add-a-way-to-indicate-that-the-packagings-data-structure-contains-all-the-packaging-components-of-the-product" title="Permanent link">#</a></h4>
+<p>We currently have no way to know if the packaging data we have for a product is complete, or if we may be missing some packaging components.</p>
+<p>We could have a way (e.g. a checkbox) that users could use to indicate all components are accounted for. And we could also do the reverse, and indicate that it is very likely that we are missing some packaging components (e.g. if we have a "cap" but no other component to put the cap on).</p>
+<h3 id="deprecate-the-packaging-tags-field">Deprecate the "packaging" tags field<a class="headerlink" href="#deprecate-the-packaging-tags-field" title="Permanent link">#</a></h3>
+<p>We could discard the existing "packaging" tags field, and replace it with an API to allow clients to add partial information about packaging components.</p>
+<p>For instance, if Robotoff detects that the product is in plastic bottle by analyzing a product photo, it could send {shape:"bottle", material:"en:plastic"} and it would be added / combined with the existing "packagings" data.</p>
+<h3 id="keep-the-packaging_text_language-code-field">Keep the "packaging_text_[language code]" field<a class="headerlink" href="#keep-the-packaging_text_language-code-field" title="Permanent link">#</a></h3>
+<p>It is important to keep this field, as we can display it as-is, use it as input data, and it may contain interesting data that we do not analyze yet.</p>
+<p>When filled, the values for this field can be analyzed and added to / combined with the "packagings" data structure. Similarly to ingredient text analysis, we could keep information about which parts of the text were recognized as attributes of a packaging component, and which parts were not recognized and were therefore ignored.</p>
+<p>Changing the "packagings" value will not change the "packaging_text_[language code]" values.</p>
+<h2 id="challenges">Challenges<a class="headerlink" href="#challenges" title="Permanent link">#</a></h2>
+<h3 id="incomplete-lists-of-packaging-components">Incomplete lists of packaging components<a class="headerlink" href="#incomplete-lists-of-packaging-components" title="Permanent link">#</a></h3>
+<h3 id="slightly-mismatched-data-from-different-sources">Slightly mismatched data from different sources<a class="headerlink" href="#slightly-mismatched-data-from-different-sources" title="Permanent link">#</a></h3>
+<p>For a single product, we might get partial packaging data from different sources that we map to similar but distinct shapes, like "bottle", "jar" and "jug". It may be difficult to determine if the data concerns a single packaging component, or different components.</p>
+<h3 id="products-with-packaging-changes">Products with packaging changes<a class="headerlink" href="#products-with-packaging-changes" title="Permanent link">#</a></h3>
+<h2 id="ressources">Ressources<a class="headerlink" href="#ressources" title="Permanent link">#</a></h2>
+<ul>
+<li>2020 project to start structuring packaging data: https://wiki.openfoodfacts.org/Packagings_data_structure</li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:parse_packaging_from_text_phrase">
+<p>parse_packaging_from_text_phrase() function in <a href="https://github.com/openfoodfacts/openfoodfacts-server/blob/main/lib/ProductOpener/Packaging.pm">/lib/ProductOpener/Packagings.pm</a>&#160;<a class="footnote-backref" href="#fnref:parse_packaging_from_text_phrase" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:analyze_and_combine_packaging_data">
+<p>analyze_and_combine_packaging_data() function in <a href="https://github.com/openfoodfacts/openfoodfacts-server/blob/main/lib/ProductOpener/Packaging.pm">/lib/ProductOpener/Packagings.pm</a>&#160;<a class="footnote-backref" href="#fnref:analyze_and_combine_packaging_data" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../how-to-use-vscode/" class="md-footer__link md-footer__link--prev" aria-label="Previous: How to use VSCode" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              How to use VSCode
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../explain-pro-dev-setup/" class="md-footer__link md-footer__link--next" aria-label="Next: Explanation on Docker Setup of pro platform for development" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Explanation on Docker Setup of pro platform for development
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.078830c0.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1335 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/api/tutorial-off-api/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.4">
+    
+    
+      
+        <title>Tutorial on using the Open Food Facts API - Product Opener (Open Food Facts Server)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.80dcb947.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tutorial-on-using-the-open-food-facts-api" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Product Opener (Open Food Facts Server)" class="md-header__button md-logo" aria-label="Product Opener (Open Food Facts Server)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Product Opener (Open Food Facts Server)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tutorial on using the Open Food Facts API
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/openfoodfacts/openfoodfacts-server" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Product Opener (Open Food Facts Server)" class="md-nav__button md-logo" aria-label="Product Opener (Open Food Facts Server)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Product Opener (Open Food Facts Server)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/openfoodfacts/openfoodfacts-server" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Api
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Api" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Api
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Open Food Facts API Documentation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro-robotoff/" class="md-nav__link">
+        The Robotoff Project
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial-dev-journey/" class="md-nav__link">
+        Tutorial - developer journey
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Tutorial on using the Open Food Facts API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Tutorial on using the Open Food Facts API
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scan-a-product-to-get-nutri-score" class="md-nav__link">
+    Scan A Product To Get Nutri-score
+  </a>
+  
+    <nav class="md-nav" aria-label="Scan A Product To Get Nutri-score">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    Authentication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#describing-the-get-request" class="md-nav__link">
+    Describing the Get Request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-parameters" class="md-nav__link">
+    Query Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nutri-score-response" class="md-nav__link">
+    Nutri-Score Response
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nutri-score-computation" class="md-nav__link">
+    Nutri-Score Computation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#completing-products-to-get-the-nutri-score" class="md-nav__link">
+    Completing products to get the Nutri-Score
+  </a>
+  
+    <nav class="md-nav" aria-label="Completing products to get the Nutri-Score">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#products-without-a-nutri-score" class="md-nav__link">
+    Products without a Nutri-Score
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#write-data-to-make-nutri-score-computation-possible" class="md-nav__link">
+    Write data to make Nutri-Score computation possible
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#read-newly-computed-nutri-score" class="md-nav__link">
+    Read newly computed Nutri-Score
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#search-for-a-product-by-nutri-score" class="md-nav__link">
+    Search for a Product by Nutri-score
+  </a>
+  
+    <nav class="md-nav" aria-label="Search for a Product by Nutri-score">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#describing-the-search-request" class="md-nav__link">
+    Describing the Search Request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sorting-search-response" class="md-nav__link">
+    Sorting Search Response
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial-uploading-photo-to-a-product/" class="md-nav__link">
+        Tutorial on uploading images to the Open Food Facts API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-download-images/" class="md-nav__link">
+        How to download product images
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explain-knowledge-panels/" class="md-nav__link">
+        Explanation on Knowledge panels
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ref-cheatsheet/" class="md-nav__link">
+        Reference: API CheatSheet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ref-v2/" class="md-nav__link">
+        Reference OpenAPI documentation for v2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ref-v3/" class="md-nav__link">
+        Reference OpenAPI documentation for v3
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Dev
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Dev" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Dev
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/" class="md-nav__link">
+        Product Opener - Developer Documentation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/how-to-deploy/" class="md-nav__link">
+        How to deploy to Prod environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/how-to-develop-producer-platform/" class="md-nav__link">
+        How to develop on the producers platform
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/how-to-develop-using-docker/" class="md-nav__link">
+        How to use Docker to Develop - a guide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/how-to-quick-start-guide/" class="md-nav__link">
+        How to setup the Dev environment (quick start guide)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/how-to-update-agribalyse-ecoscore/" class="md-nav__link">
+        How to update Agribalyse (Ecoscore)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/how-to-use-direnv/" class="md-nav__link">
+        How to use direnv
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/how-to-use-gitpod/" class="md-nav__link">
+        How to using Gitpod for Remote Development
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/how-to-use-pages-from-openfoodfacts-web/" class="md-nav__link">
+        How to use pages from openfoodfacts-web
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/how-to-use-repl/" class="md-nav__link">
+        How to use Perl REPL (re.pl)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/how-to-use-vscode/" class="md-nav__link">
+        How to use VSCode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/explain-packaging-data/" class="md-nav__link">
+        Explanation on packaging data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/explain-pro-dev-setup/" class="md-nav__link">
+        Explanation on Docker Setup of pro platform for development
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/explain-taxonomy-build-cache/" class="md-nav__link">
+        Explanation on Taxonomy Build Cache
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/ref-perl-pod/" class="md-nav__link">
+        Perl reference documentation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/ref-perl/" class="md-nav__link">
+        Reference Perl code documentation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scan-a-product-to-get-nutri-score" class="md-nav__link">
+    Scan A Product To Get Nutri-score
+  </a>
+  
+    <nav class="md-nav" aria-label="Scan A Product To Get Nutri-score">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    Authentication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#describing-the-get-request" class="md-nav__link">
+    Describing the Get Request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-parameters" class="md-nav__link">
+    Query Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nutri-score-response" class="md-nav__link">
+    Nutri-Score Response
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nutri-score-computation" class="md-nav__link">
+    Nutri-Score Computation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#completing-products-to-get-the-nutri-score" class="md-nav__link">
+    Completing products to get the Nutri-Score
+  </a>
+  
+    <nav class="md-nav" aria-label="Completing products to get the Nutri-Score">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#products-without-a-nutri-score" class="md-nav__link">
+    Products without a Nutri-Score
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#write-data-to-make-nutri-score-computation-possible" class="md-nav__link">
+    Write data to make Nutri-Score computation possible
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#read-newly-computed-nutri-score" class="md-nav__link">
+    Read newly computed Nutri-Score
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#search-for-a-product-by-nutri-score" class="md-nav__link">
+    Search for a Product by Nutri-score
+  </a>
+  
+    <nav class="md-nav" aria-label="Search for a Product by Nutri-score">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#describing-the-search-request" class="md-nav__link">
+    Describing the Search Request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sorting-search-response" class="md-nav__link">
+    Sorting Search Response
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/openfoodfacts/openfoodfacts-server/blob/main/docs/api/tutorial-off-api.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="tutorial-on-using-the-open-food-facts-api">Tutorial on using the Open Food Facts API<a class="headerlink" href="#tutorial-on-using-the-open-food-facts-api" title="Permanent link">#</a></h1>
+<p>Welcome to this tutorial on basic usage of Open Food Facts API.</p>
+<p>Fist, be sure to see our <a href="../">Introduction to the API</a>.</p>
+<h2 id="scan-a-product-to-get-nutri-score">Scan A Product To Get Nutri-score<a class="headerlink" href="#scan-a-product-to-get-nutri-score" title="Permanent link">#</a></h2>
+<p>This basic tutorial shows you can get the Nutri-score of a product, for instance, to display it in a mobile app after scanning the product barcode. Let's use <a href="https://world.openfoodfacts.net/product/3017624010701/nutella-nutella-ferrero">Nutella Ferrero</a> as the product example for this tutorial.</p>
+<p>To get a product nutriscore, send a request to the <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref/#get-/api/v2/product/-barcode-">Get A Product By Barcode</a> endpoint.</p>
+<h3 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">#</a></h3>
+<p>Usually, no authentication is required to query Get A Product Nutri-score. However, there is a basic auth to avoid content indexation in the staging environment(which is used throughout this tutorial). For more details, visit the <a href="../#api-deployments">Open Food Facts API Environment</a>.</p>
+<h3 id="describing-the-get-request">Describing the Get Request<a class="headerlink" href="#describing-the-get-request" title="Permanent link">#</a></h3>
+<p>Make a <code>GET</code> request to the <code>Get A Product By Barcode</code> endpoint.</p>
+<div class="highlight"><pre><span></span><code>https://world.openfoodfacts.net/api/v2/product/{barcode}
+</code></pre></div>
+<p>The <code>{barcode}</code> is the barcode number of the product you are trying to get. The barcode for <strong>Nutella Ferrero</strong> is <strong>3017624010701</strong>. Then the request path to get product data for <strong>Nutella Ferrero</strong> will look like this:</p>
+<div class="highlight"><pre><span></span><code>https://world.openfoodfacts.net/api/v2/product/3017624010701
+</code></pre></div>
+<p>The response returns every data about Nutella Ferrero on the database. To get the nutriscore, we need to limit the response by specifying the nutriscore field, which is the <code>nutrition_grades</code> and <code>product_name</code>.</p>
+<!--Is it only nutriscore_data -->
+
+<h3 id="query-parameters">Query Parameters<a class="headerlink" href="#query-parameters" title="Permanent link">#</a></h3>
+<p>To limit the response of the Get A Product By Barcode response, use query parameters to specify the product fields to be returned. In this example, you need one query parameter called <code>field</code> with the value <code>product_name,nutrition_grades</code>.</p>
+<p>The request path will now look like this:</p>
+<div class="highlight"><pre><span></span><code>https://world.openfoodfacts.net/api/v2/product/3017624010701?fields=product_name,nutriscore_data
+</code></pre></div>
+<h3 id="nutri-score-response">Nutri-Score Response<a class="headerlink" href="#nutri-score-response" title="Permanent link">#</a></h3>
+<p>The response returned contains an object of the <code>code</code>, <code>product</code>, <code>status_verbose</code>, and <code>status</code>. The <code>product</code> object contains the fields specified in the query: the <code>product_name</code> and the <code>nutrition_grades</code>. The status also states if the product was found or not.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3017624010701&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;product&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;nutrition_grades&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;e&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;product_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Nutella&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;status_verbose&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;product found&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="nutri-score-computation">Nutri-Score Computation<a class="headerlink" href="#nutri-score-computation" title="Permanent link">#</a></h3>
+<p>If you would like to be able to show how the score is computed, add some extra fields like <code>nutriscore_data</code> and <code>nutriments</code>.</p>
+<p>The request path to get the Nutri-Score computation for Nutella-Ferroro will be :</p>
+<div class="highlight"><pre><span></span><code>https://world.openfoodfacts.net/api/v2/product/3017624010701?fields=product_name,nutriscore_data,nutriments,nutrition_grades
+</code></pre></div>
+<p>The <code>product</code> object in the response now contains the extra fields to show how the nutriscore was computed.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3017624010701&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;product&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;nutriments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;carbohydrates&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">57.5</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;carbohydrates_100g&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">57.5</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;carbohydrates_unit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;g&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;carbohydrates_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">57.5</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;energy&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2255</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;energy-kcal&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">539</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;energy-kcal_100g&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">539</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;energy-kcal_unit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;kcal&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="err">...</span><span class="p">,</span>
+<span class="w">            </span><span class="err">...</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;sugars&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">56.3</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;sugars_100g&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">56.3</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;sugars_unit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;g&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;sugars_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">56.3</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;nutriscore_data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;energy&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2255</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;energy_points&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;energy_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2255</span><span class="p">,</span>
+<span class="w">            </span><span class="err">...</span><span class="p">,</span>
+<span class="w">            </span><span class="err">...</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;sugars_points&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;sugars_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">56.3</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;nutrition_grades&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;e&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;product_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Nutella&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;status_verbose&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;product found&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>For more details, see the reference documentation for <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref/#get-/api/v2/product/-barcode-">Get A Product By Barcode</a>.</p>
+<!-- Probably have a conclusion that links to the next possible topic eg filter countries using lc and cc-->
+
+<h2 id="completing-products-to-get-the-nutri-score">Completing products to get the Nutri-Score<a class="headerlink" href="#completing-products-to-get-the-nutri-score" title="Permanent link">#</a></h2>
+<h3 id="products-without-a-nutri-score">Products without a Nutri-Score<a class="headerlink" href="#products-without-a-nutri-score" title="Permanent link">#</a></h3>
+<p>When these fields are missing in a nutriscore computation response, it signifies that the product does not have a Nutri-Score computation due to some missing nutrition data.
+Let's look at the <a href="https://world.openfoodfacts.net/api/v2/product/0180411000803/100-real-orange-juice?product_name,nutriscore_data,nutriments,nutrition_grades">100% Real Orange Juice</a>. If the product nutrition data is missing some fields, you can volunteer and contribute to it by getting the missing tags and writing to the OFF API to add them.</p>
+<!-- I dont know if using 100% Real Orange Juice is a good approach for now , should we state that it was not computed at the time of writing this article just incase it gets computed in future or there is a product we can use to test this that wont change in future ? -->
+
+<p>To know the missing tags, check the <code>misc-tags</code> field from the product response.</p>
+<p><code>https://world.openfoodfacts.net/api/v2/product/0180411000803/100-real-orange-juice?fields=misc_tags</code></p>
+<p>The response shows the missing fields and category needed to compute the Nutri-Score.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0180411000803&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;product&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;misc_tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="s2">&quot;en:nutriscore-not-computed&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;en:nutriscore-missing-category&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;en:nutrition-not-enough-data-to-compute-nutrition-score&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;en:nutriscore-missing-nutrition-data&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;en:nutriscore-missing-nutrition-data-sodium&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;en:ecoscore-extended-data-not-computed&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;en:ecoscore-not-computed&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;en:main-countries-new-product&quot;</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;status_verbose&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;product found&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The sample response above for 100% Real Orange Juice <code>misc_tags</code> shows that the Nutri-Score is missing category (<code>en:nutriscore-missing-category</code>) and sodium(salt) (<code>en:nutriscore-missing-nutrition-data-sodium</code>). Now you can write to the OFF API to provide these nutriment data (if you have them) so that the Nutri-Score can be computed.</p>
+<h3 id="write-data-to-make-nutri-score-computation-possible">Write data to make Nutri-Score computation possible<a class="headerlink" href="#write-data-to-make-nutri-score-computation-possible" title="Permanent link">#</a></h3>
+<p>The WRITE operations in the OFF API require  authentication. Therefore you need a valid <code>user_id</code> and <code>password</code>  to write the missing nutriment data to 100% Real Orange Juice.</p>
+<blockquote>
+<p>Sign up on the <a href="https://world.openfoodfacts.net/">Open Food Facts App</a> to get your<code>user_id</code> and <code>password</code>if you don't have one.</p>
+</blockquote>
+<p>To write data to a product, make a <code>POST</code> request to the <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref/#post-/cgi/product_jqm2.pl"><code>Add or Edit A Product</code></a> endpoint.</p>
+<div class="highlight"><pre><span></span><code>https://world.openfoodfacts.net/cgi/product_jqm2.pl
+</code></pre></div>
+<p>Add your valid <code>user_id</code> and <code>password</code> as body parameters to your request for authentication. The <code>code</code> (barcode of the product to be added/edited), <code>user_id</code>, and <code>password</code> are required when adding or editing a product. Then, include other product data to be added in the request body.</p>
+<p>To write <code>sodium</code> and <code>category</code> to 100% Real Orange Juice so that the Nutri-Score can be computed, the request body should contain these fields :</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th align="center">Value</th>
+<th align="right">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user_id</td>
+<td align="center">***</td>
+<td align="right">A valid user_id</td>
+</tr>
+<tr>
+<td>password</td>
+<td align="center">***</td>
+<td align="right">A valid password</td>
+</tr>
+<tr>
+<td>code</td>
+<td align="center">0180411000803</td>
+<td align="right">The barcode of the product to be added/edited</td>
+</tr>
+<tr>
+<td>nutriment_sodium</td>
+<td align="center">0.015</td>
+<td align="right">Amount of sodium</td>
+</tr>
+<tr>
+<td>nutriment_sodium_unit</td>
+<td align="center">g</td>
+<td align="right">Unit of sodium relative to the amount</td>
+</tr>
+<tr>
+<td>categories</td>
+<td align="center">Orange Juice</td>
+<td align="right">Category of the Product</td>
+</tr>
+</tbody>
+</table>
+<p>Using curl:</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-XPOST<span class="w"> </span>-u<span class="w"> </span>off:off<span class="w"> </span>-x<span class="w"> </span>POST<span class="w"> </span>https://world.openfoodfacts.net/cgi/product_jqm2.pl<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-F<span class="w"> </span><span class="nv">user_id</span><span class="o">=</span>your_user_id<span class="w"> </span>-F<span class="w"> </span><span class="nv">password</span><span class="o">=</span>your_password<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-F<span class="w"> </span><span class="nv">code</span><span class="o">=</span><span class="m">0180411000803</span><span class="w"> </span>-F<span class="w"> </span><span class="nv">nutriment_sodium</span><span class="o">=</span><span class="m">0</span>.015<span class="w"> </span>-F<span class="w"> </span><span class="nv">nutriment_sodium_unit</span><span class="o">=</span>g<span class="w"> </span>-F<span class="w"> </span><span class="nv">categories</span><span class="o">=</span><span class="s2">&quot;Orange Juice&quot;</span>
+</code></pre></div>
+<p>If the request is succesful, it returns a response that indicated that the fields have been saved.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;status_verbose&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fields saved&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="read-newly-computed-nutri-score">Read newly computed Nutri-Score<a class="headerlink" href="#read-newly-computed-nutri-score" title="Permanent link">#</a></h3>
+<p>Now, let's check if the Nutri-Score for 100% Real Orange Juice has been computed now that we have provided the missing data. Make a GET request to <code>https://world.openfoodfacts.net/api/v2/product/0180411000803?fields=product_name,nutriscore_data,nutriments,nutrition_grades</code> for Nutri-Score of 100% Real Orange Juice. The response now contains the Nutri-Score computation:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0180411000803&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;product&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;nutriments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;carbohydrates&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">11.864406779661</span><span class="p">,</span>
+<span class="w">            </span><span class="err">.</span>
+<span class="w">            </span><span class="err">.</span>
+<span class="w">            </span><span class="err">.</span>
+<span class="w">            </span><span class="nt">&quot;sugars_unit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;g&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;sugars_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">11.864406779661</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;nutriscore_data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;energy&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">195</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;energy_points&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;energy_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">195</span><span class="p">,</span>
+<span class="w">            </span><span class="err">.</span>
+<span class="w">            </span><span class="err">.</span>
+<span class="w">            </span><span class="err">.</span>
+<span class="w">            </span><span class="nt">&quot;sugars_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">11.86</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;nutrition_grades&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;product_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;100% Real Orange Juice&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;status_verbose&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;product found&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>For more details, see the reference documentation for <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref/#post-/cgi/product_jqm2.pl">Add or Edit A Product</a></p>
+<p>You can also check the reference cheatsheet to know how to add/edit other types of product data.</p>
+<!-- Include the link of the cheatsheet once it is published. -->
+
+<h2 id="search-for-a-product-by-nutri-score">Search for a Product by Nutri-score<a class="headerlink" href="#search-for-a-product-by-nutri-score" title="Permanent link">#</a></h2>
+<p>Using the Open Food Facts API, you can filter products based on different criteria.  To search for products in the Orange Juice category with a nutrition_grade of <code>c</code>, query the <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref/#get-/api/v2/search">Search for Products endpoint</a>.</p>
+<h3 id="describing-the-search-request">Describing the Search Request<a class="headerlink" href="#describing-the-search-request" title="Permanent link">#</a></h3>
+<p>Make a <code>GET</code> request to the <code>Search for Products</code> endpoint.</p>
+<div class="highlight"><pre><span></span><code>https://world.openfoodfacts.org/api/v2/search
+</code></pre></div>
+<p>Add the search criteria used to filter the products as query parameters.  For Orange Juice with a nutrition_grade of <code>c</code>, add query parameters <code>categories_tags_en</code> to filter <code>Orange Juice</code> while <code>nutrition_grades_tags</code> to filter <code>c</code>.  The response will return all the products in the database with the category <code>Orange Juice</code> and nutrition_grade <code>c</code>.</p>
+<div class="highlight"><pre><span></span><code>https://world.openfoodfacts.net/api/v2/search?categories_tags_en=Orange Juice&amp;nutrition_grades_tags=c
+</code></pre></div>
+<p>To limit the response, add <code>fields</code> to the query parameters to specify the fields to be returned in each product object response.  For this tutorial, limit the response to <code>code</code>, <code>product_name</code>, <code>nutrition_grades</code>, and <code>categories_tags_en</code>.</p>
+<div class="highlight"><pre><span></span><code>https://world.openfoodfacts.net/api/v2/search?categories_tags_en=Orange Juice&amp;nutrition_grades_tags=c&amp;fields=code,nutrition_grades,categories_tags_en
+</code></pre></div>
+<p>The response returns all products that belong to the Orange Juice category, with the nutrition_grade "c" and limits each product object response to only the specified fields.  It also returns the count(total number) of products that match the search criteria.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1629</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;page&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;page_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;page_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;products&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;categories_tags_en&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;Plant-based foods and beverages&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Beverages&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Plant-based beverages&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Fruit-based beverages&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Juices and nectars&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Fruit juices&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Concentrated fruit juices&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Orange juices&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Concentrated orange juices&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3123340008288&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;nutrition_grades&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="err">.</span>
+<span class="w">        </span><span class="err">.</span>
+<span class="w">        </span><span class="err">.</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;categories_tags_en&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;Plant-based foods and beverages&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Beverages&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Plant-based beverages&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Fruit-based beverages&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Juices and nectars&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Fruit juices&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Non-Alcoholic beverages&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Orange juices&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Squeezed juices&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Squeezed orange juices&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3608580844136&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;nutrition_grades&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;skip&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="sorting-search-response">Sorting Search Response<a class="headerlink" href="#sorting-search-response" title="Permanent link">#</a></h3>
+<p>You can proceed to also sort the search response by different fields, for example, sort by the product that was modified last or even by the product_name. Now, let's sort the products with Orange Juice and a nutrition_grade of "c" by when they were last modified. To sort the search response, add the <code>sort_by</code> with value <code>last_modified_t</code> as a query parameter to the request.</p>
+<div class="highlight"><pre><span></span><code>https://world.openfoodfacts.net/api/v2/search?nutrition_grades_tags=c&amp;fields=code,nutrition_grades,categories_tags_en&amp;categories_tags_en=Orange Juice&amp;sort_by=last_modified_t
+</code></pre></div>
+<p>The date that each product was last modified is now used to order the product response.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1629</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;page&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;page_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;page_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;products&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;categories_tags_en&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;Plant-based foods and beverages&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Beverages&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Plant-based beverages&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Fruit-based beverages&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Juices and nectars&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Fruit juices&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Orange juices&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3800014268048&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;nutrition_grades&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="err">&#39;</span>
+<span class="w">        </span><span class="err">&#39;</span>
+<span class="w">        </span><span class="err">&#39;</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;categories_tags_en&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;Plant-based foods and beverages&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Beverages&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Plant-based beverages&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Fruit-based beverages&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Juices and nectars&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Fruit juices&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Orange juices&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Squeezed juices&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Squeezed orange juices&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4056489641018&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;nutrition_grades&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;skip&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>To see other examples of sorting a search response, see the reference documentation for <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref/#get-/api/v2/search">Search for Products</a>.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../tutorial-dev-journey/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Tutorial - developer journey" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Tutorial - developer journey
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../tutorial-uploading-photo-to-a-product/" class="md-footer__link md-footer__link--next" aria-label="Next: Tutorial on uploading images to the Open Food Facts API" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Tutorial on uploading images to the Open Food Facts API
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.078830c0.min.js"></script>
+      
+    
+  </body>
+</html>
