@@ -42522,39 +42522,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Grape_juice
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/grape-juice
 # 701 products in 6 languages @2018-10-02
 
-<en:grape juice
-en:red grape juice
-es:zumo de uva roja
-fr:jus de raisin rouge
-nl:rood druivensap
-th:น้ำองุ่นแดง 
-
-<en:grape juice
-en:white grape juice
-nl:wit druivensap
-
-### some grape varieties
-
-<en:white grape juice
-en:Chasselas grape juice
-fr:jus de raisin chasselas
-
-<en:white grape juice
-en:Muscat grape juice
-fr:jus de raisin muscat, jus de raisin blanc muscat
-
-<en:red grape juice
-fr:jus de raisin rouge Syrah
-
-<en:red grape juice
-en:Concord grape juice
-
-<en:red grape juice
-en:Muscadine grape juice
-
-<en:grape juice
-en:pure grape juice
-de:direkt gepresst Traubensaft
 
 #processing:organic
 #<en:grape juice
@@ -42580,6 +42547,15 @@ th:จากนำองุ่นเข้มข้น
 fr:jus de raisin concentré rectifié
 
 <en:grape juice
+en:grape juice from concentrate
+es:jugo de uva concentrado reconstituido
+
+<en:grape juice from concentrate
+<en:white grape juice
+en:white grape juice from concentrate
+de:Weißer Traubensaft aus Konzentrat
+
+<en:grape juice
 en:white grape juice
 de:Traubensaft weiss
 es:zumo de uva blanca, jugo de uva blanca
@@ -42592,7 +42568,6 @@ nl:Witte druivensap
 
 <en:white grape juice
 en:concentrated white grape juice, white grape juice concentrate
-de:Weißer Traubensaft aus Konzentrat
 es:zumo de uva blanca concentrado, jugo de uva blanca concentrado
 fi:vaalea rypälemehutiiviste
 fr:jus de raisin blanc concentré
@@ -42602,27 +42577,59 @@ en:organic concentrated white grape juice, organic white grape juice concentrate
 fi:luomu vaalea rypälemehutiiviste
 fr:jus concentre de raisin blanc bio
 
+<en:white grape juice
+en:Chasselas grape juice
+fr:jus de raisin chasselas
+
+<en:white grape juice
+en:Muscat grape juice
+fr:jus de raisin muscat, jus de raisin blanc muscat, jus de raisin muscaté
+
+<en:white grape juice
+fr:jus de raisin blanc sauvignon
+
 <en:grape juice
+en:red grape juice
+es:zumo de uva roja, jugo de uva tinto
 fr:jus de raisin rouge
 de:roter Traubensaft
 fi:punainen rypälemehu
 it:succo d'uva rossa
+nl:blauw druivensap
 pt:sumo de uva tinta
+th:น้ำองุ่นแดง 
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-raisin-rouge
 # 35 products in 4 languages @2018-10-02
 
-<fr:jus de raisin rouge
-<en:concentrated grape juice
+<en:red grape juice
+<en:grape juice from concentrate
 en:red grape from concentrate
 de:rote Trauben aus Traubenkonzentrat
 fi:punainen rypälemehu tiivisteestä
-fr:Raisin rouge à base de concentré
+fr:Raisin rouge à base de concentré, Jus de raisin à base de jus de raisin rouge concentré
 pt:sumo de uva tinta à base de concentrado
+
+<en:red grape juice
+fr:jus de raisin rouge Syrah
+
+<en:red grape juice
+en:Concord grape juice
+
+<en:red grape juice
+en:Muscadine grape juice
+
+<en:grape juice
+en:pure grape juice
+de:Traubendirektsaft, direkt gepresst Traubensaft
+
+<en:white grape juice
+<en:red grape juice
+en:white and red grape juice
+fr:Jus de raisin blanc et rouge
 
 <en:grape juice
 <en:raspberry juice
 fi:rypäle- ja vadelmatäysmehu tiivisteestä
-
 
 # description:en:Must is freshly crushed fruit juice (usually grape juice) that contains the skins, seeds, and stems of the fruit.
 
