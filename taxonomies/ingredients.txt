@@ -16,7 +16,7 @@ stopwords:ca:i,de
 stopwords:da:av, af, blandt andet, bl a, inklusive, heraf, indeholder, tilsat
 stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens, in veränderlichen gewichtsanteilen
 stopwords:el:περιέχει
-stopwords:en:contains, contain, from, with, produced with, with added, minimum,including, inter alia, edible
+stopwords:en:contains, contain, from, with, produced with, with added, minimum,including, inter alia, edible, added to enhance freshness, added to maintain flavor and freshness
 stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
 stopwords:fi:sisältää,muun muassa,valio, koskenlaskija, snellmanin, jossa, noin, käymisen aikana muodostuva
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout, sachet, marquants, demeter
@@ -17082,6 +17082,7 @@ fr:vinaigre balsamique
 hu:balzsamecet
 it:aceto balsamico
 ja:バルサミコ酢
+ka:ყურძნის წვენი
 ko:발사믹 식초
 lt:balzaminis actas
 nb:balsamico
@@ -42509,6 +42510,7 @@ ru:виноградный сок
 sa:द्राक्षाफलरसः
 sq:Lëngu i rrushit
 sv:druvsaft, druvjuice
+th:น้ำองุ่น
 tt:виноград суы
 zh:葡萄汁
 # yue:提子汁
@@ -42519,6 +42521,17 @@ wikidata:en:Q1209756
 wikipedia:en:https://en.wikipedia.org/wiki/Grape_juice
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/grape-juice
 # 701 products in 6 languages @2018-10-02
+
+<en:grape juice
+en:red grape juice
+es:zumo de uva roja
+fr:jus de raisin rouge
+nl:rood druivensap
+th:น้ำองุ่นแดง 
+
+<en:grape juice
+en:white grape juice
+nl:wit druivensap
 
 ### some grape varieties
 
@@ -42531,7 +42544,13 @@ en:Muscat grape juice
 fr:jus de raisin muscat, jus de raisin blanc muscat
 
 <en:red grape juice
+fr:jus de raisin rouge Syrah
+
+<en:red grape juice
 en:Concord grape juice
+
+<en:red grape juice
+en:Muscadine grape juice
 
 <en:grape juice
 en:pure grape juice
@@ -42552,6 +42571,7 @@ fr:jus de raisin concentré, concentré de jus de raisin, jus concentré de rais
 it:ssucco concentrato d'uva
 nl:Geconcentreerd grapefruitsap
 sv:druvsaftkoncentrat, druvjuicekoncentrat
+th:จากนำองุ่นเข้มข้น
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/concentrated-grape-juice
 # 139 products in 2 languages @2018-10-02
 # ingredient/fr:concentré-de-jus-de-raisin has 26 products in 3 languages @2018-10-02
