@@ -1018,6 +1018,38 @@ sub match_ingredient_origin ($product_lc, $text_ref, $matched_ingredient_ref) {
 
 		return 1;
 	}
+	# Try to match without a "from" marker (e.g. "Strawberry France")
+	elsif ($$text_ref
+		=~ /\s*([^,.;:]+)\s+((?:$origins_regexp)(?:(?:,|$and_or)(?:\s?)(?:$origins_regexp))*)\s*(?:,|;|\.| - |$)/i)
+	{
+		# Note: the regexp above does not currently match multiple origins with commas (e.g. "Origins of milk: UK, UE")
+		# in order to not overmatch something like "Origin of milk: UK, some other mention."
+		# In the future, we could try to be smarter and match more if we can recognize the next words exist in the origins taxonomy.
+
+		$matched_ingredient_ref->{ingredient} = $1;
+		$matched_ingredient_ref->{origins} = $2;
+		$matched_ingredient_ref->{matched_text} = $&;
+
+		# keep the matched ingredient only if it is a known ingredient in the taxonomy, in order to avoid false positives
+		# e.g. "something made in France" should not be turned into ingredient "something made in" + origin "France"
+		if (
+			not(
+				exists_taxonomy_tag(
+					"ingredients",
+					canonicalize_taxonomy_tag($product_lc, "ingredients", $matched_ingredient_ref->{ingredient})
+				)
+			)
+			)
+		{
+			$matched_ingredient_ref = {};
+		}
+		else {
+			# Remove the matched text
+			$$text_ref = $` . ' ' . $';
+
+			return 1;
+		}
+	}
 	return 0;
 }
 
@@ -1085,6 +1117,9 @@ Array of specific ingredients.
 sub parse_origins_from_text ($product_ref, $text) {
 
 	my $product_lc = $product_ref->{lc};
+
+	# Normalize single quotes
+	$text =~ s/’/'/g;
 
 	# Go through the ingredient lists multiple times
 	# as long as we have one match
