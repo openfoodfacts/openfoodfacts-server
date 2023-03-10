@@ -69,6 +69,8 @@ jobs:
         image: "openfoodfacts-server/backend:dev"
     - name: ensure branch origin/main is fetched
       run: git fetch --no-tags --prune --progress --no-recurse-submodules --depth=5 origin  main
+    - name: build taxonomies (should use cache)
+      run: make build_taxonomies
     - name: check perltidy
       run: make check_perltidy
     - name: check perlcritic
