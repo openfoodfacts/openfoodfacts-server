@@ -21,11 +21,11 @@
     <link rel="stylesheet" href="[% static_subdomain %]/css/dist/select2.min.css">
     <link rel="search" href="[% formatted_subdomain %]/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="[% lang('site_name') %]">
 	[% header %]
-    <style media="all">
+    <!-- <style media="all">
         [% lang("css") %]
         [% styles %]
-    </style>
-    [% google_analytics %]
+    </style> -->
+    /* [% google_analytics %] */
 </head>
 <body[% bodyabout %] class="[% page_type %]_page">
 
@@ -420,19 +420,20 @@
 <script src="[% static_subdomain %]/js/dist/stikelem.js"></script>
 <script src="[% static_subdomain %]/js/dist/scrollNav.js"></script>
 
-<script>
-\$(function() {
-[% initjs %]
+
 [% IF server_options_producers_platform %]
+[% initjs %]
+<script>
+$(function() {
   new ZammadChat({
     background: 'rgb(0, 102, 255)',
     fontSize: '12px',
     show: true,
     chatId: 1
   });
-[% END %]
 });
 </script>
+[% END %]
 
 [% IF server_options_producers_platform %]
 <script src="https://support.openfoodfacts.org/assets/chat/chat.min.js"></script>
@@ -443,13 +444,13 @@
 <script src="[% static_subdomain %]/js/dist/select2.min.js"></script>
 [% scripts %]
 <script>
-\$(document).foundation({
+$(document).foundation({
 	equalizer : {
 		equalize_on_stack: true
 	},
 	accordion: {
 		callback : function (accordion) {
-			\$(document).foundation('equalizer', 'reflow');
+			$(document).foundation('equalizer', 'reflow');
 		}
 	}
 });
