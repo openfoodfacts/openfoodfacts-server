@@ -12,9 +12,6 @@ EOF
 # get group id to use it in the docker
 GID=$(id -g)
 
-# copy README.md as the index but change links starting with ./docs/ to ./
-sed -e 's|(\./docs/|(./|g' README.md > docs/index.md
-
 # we use minidocks capability to add entrypoint to install some pip package
 # we use also it's capability to change user and group id to avoid permissions problems
 docker run --rm \
@@ -23,4 +20,4 @@ docker run --rm \
   -v $(pwd):/app -w /app \
   minidocks/mkdocs build
 # cleanup
-rm docs/index.md $PIP_INSTALL
+rm $PIP_INSTALL
