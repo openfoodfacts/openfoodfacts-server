@@ -43,6 +43,7 @@ jobs:
           rm -rf gh_pages/dev/ref-perl-pod && \
           mv html/files/doc/perl gh_pages/dev/ref-perl-pod
 
+      # DISABLED: in favor of rapidoc
       # generating OpenAPI documentation with redocly
       # we do this after mkdocs to overwrite api.html file
       # - name: Generate openapi html with ghcr.io/redocly/redoc/cli:latest
@@ -61,11 +62,15 @@ jobs:
       #       build -o /output/api/ref-v3/index.html api-v3.yml && \
       #     sudo chown $UID -R gh_pages
 
-      - name: Validate OpenAPI
-        run: |
-          docker run --rm \
-          -v ${PWD}:/local openapitools/openapi-generator-cli validate \
-          -i /local/docs/api/ref/api.yml
+      # Disabled by alex on 2023-03-09 because of a false positive Error:
+      # "attribute .Product. is not of type `object` (../schemas/product.yaml#/Product)"
+      # because of legit `$ref: ../schemas/product.yaml#/Product` in `get_product_by_barcode.yaml`
+      #
+      # - name: Validate OpenAPI
+      #   run: |
+      #     docker run --rm \
+      #     -v ${PWD}:/local openapitools/openapi-generator-cli validate \
+      #     -i /local/docs/reference/api.yml \
 
       # generate OpenAPI documentation with rapidoc
       # we do this after mkdocs to overwrite api.html file
