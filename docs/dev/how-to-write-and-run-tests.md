@@ -39,9 +39,9 @@ Using Makefile targets, tests are run
 
 ## Writing tests
 
-You can read other tests to understand how we write them (inspire yourself at recently created tests).
+You can read other tests to understand how we write them (inspire yourself from recently created tests).
 
-On effective way is to crate a list of test each represented by a hashmap with inputs and expected outputs and run them in a loop. Add an `id` and/or a `desc` (description) and use it as last argument to check functions (like `ok`, `is`, …) to easily see tests running and identify failing tests.
+One effective way is to create a list of tests each represented by a hashmap with inputs and expected outputs and run them in a loop. Add an `id` and/or a `desc` (description) and use it as last argument to check functions (like `ok`, `is`, …) to easily see tests running and identify failing tests.
 
 If your outputs are consequent, you might use json files (one per tests), stored on disk. See tests using `init_expected_results` (and see below to refresh those files).
 
