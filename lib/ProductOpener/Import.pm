@@ -768,6 +768,341 @@ sub set_field_value (
 	return;
 }
 
+sub import_nutrients (
+	$args_ref, $imported_product_ref, $product_ref, $stats_ref, $modified_ref,
+	$modified_fields_ref, $differing_ref, $differing_fields_ref, $nutrients_edited_ref, $time
+	)
+{
+
+	my $code = $imported_product_ref->{code};
+
+	my $seen_salt = 0;
+
+	foreach my $nutrient_tagid (sort(get_all_taxonomy_entries("nutrients"))) {
+
+		my $nid = $nutrient_tagid;
+		$nid =~ s/^zz://g;
+
+		# don't set sodium if we have salt
+		next if (($nid eq 'sodium') and ($seen_salt));
+
+		# next if $nid =~ /^nutrition-score/;   #TODO
+
+		# for prepared product
+		my $nidp = $nid . "_prepared";
+
+		# Save current values so that we can see if they have changed
+		my %original_values = (
+			$nid . "_modifier" => $product_ref->{nutriments}{$nid . "_modifier"},
+			$nidp . "_modifier" => $product_ref->{nutriments}{$nidp . "_modifier"},
+			$nid . "_value" => $product_ref->{nutriments}{$nid . "_value"},
+			$nidp . "_value" => $product_ref->{nutriments}{$nidp . "_value"},
+			$nid . "_unit" => $product_ref->{nutriments}{$nid . "_unit"},
+			$nidp . "_unit" => $product_ref->{nutriments}{$nidp . "_unit"},
+		);
+
+		# We may have nid_value, nid_100g_value or nid_serving_value. In the last 2 cases,
+		# we need to set $nutrition_data_per to 100g or serving
+		my %values = ();
+
+		my $unit;
+
+		foreach my $type ("", "_prepared") {
+
+			foreach my $per ("", "_100g", "_serving") {
+
+				next if (defined $values{$type});
+
+				# Skip serving values if we have 100g values
+				if (    (defined $imported_product_ref->{"nutrition_data" . $type . "_per"})
+					and ($imported_product_ref->{"nutrition_data" . $type . "_per"} eq "100g")
+					and ($per eq "_serving"))
+				{
+					next;
+				}
+
+				if (    (defined $imported_product_ref->{$nid . $type . $per . "_value"})
+					and ($imported_product_ref->{$nid . $type . $per . "_value"} ne ""))
+				{
+					$values{$type} = $imported_product_ref->{$nid . $type . $per . "_value"};
+				}
+
+				if (    (defined $imported_product_ref->{$nid . $type . $per . "_unit"})
+					and ($imported_product_ref->{$nid . $type . $per . "_unit"} ne ""))
+				{
+					$unit = $imported_product_ref->{$nid . $type . $per . "_unit"};
+				}
+
+				# Energy can be: 852KJ/ 203Kcal
+				# calcium_100g_value_unit = 50 mg
+				# 10g
+				if (not defined $values{$type}) {
+					if (defined $imported_product_ref->{$nid . $type . $per . "_value_unit"}) {
+
+						# Assign energy-kj and energy-kcal values from energy field
+
+						if (    ($nid eq "energy")
+							and ($imported_product_ref->{$nid . $type . $per . "_value_unit"} =~ /\b([0-9]+)(\s*)kJ/i))
+						{
+							if (not defined $imported_product_ref->{$nid . "-kj" . $type . $per . "_value_unit"}) {
+								$imported_product_ref->{$nid . "-kj" . $type . $per . "_value_unit"} = $1 . " kJ";
+							}
+						}
+						if (
+								($nid eq "energy")
+							and ($imported_product_ref->{$nid . $type . $per . "_value_unit"} =~ /\b([0-9]+)(\s*)kcal/i)
+							)
+						{
+							if (not defined $imported_product_ref->{$nid . "-kcal" . $type . $per . "_value_unit"}) {
+								$imported_product_ref->{$nid . "-kcal" . $type . $per . "_value_unit"} = $1 . " kcal";
+							}
+						}
+
+						if ($imported_product_ref->{$nid . $type . $per . "_value_unit"}
+							=~ /^(~?<?>?=?\s?([0-9]*(\.|,))?[0-9]+)(\s*)([a-zµ%]+)$/i)
+						{
+							$values{$type} = $1;
+							$unit = $5;
+						}
+						# We might have only a number even if the field is set to value_unit
+						# in that case, use the default unit
+						elsif ($imported_product_ref->{$nid . $type . $per . "_value_unit"}
+							=~ /^(([0-9]*(\.|,))?[0-9]+)(\s*)$/i)
+						{
+							$values{$type} = $1;
+						}
+					}
+				}
+
+				# calcium_100g_value_in_mcg
+
+				if (not defined $values{$type}) {
+					foreach my $u ('kj', 'kcal', 'kg', 'g', 'mg', 'mcg', 'l', 'dl', 'cl', 'ml', 'iu', 'percent') {
+						my $value_in_u = $imported_product_ref->{$nid . $type . $per . "_value" . "_in_" . $u};
+						if ((defined $value_in_u) and ($value_in_u ne "")) {
+							$values{$type} = $value_in_u;
+							$unit = $u;
+						}
+					}
+				}
+
+				if ((defined $values{$type}) and ($per ne "")) {
+					$imported_product_ref->{"nutrition_data" . $type . "_per"} = $per;
+					$imported_product_ref->{"nutrition_data" . $type . "_per"} =~ s/^_//;
+				}
+			}
+
+			if ($nid eq 'alcohol') {
+				$unit = '% vol';
+			}
+
+			# Standardize units
+			if (defined $unit) {
+				if ($unit eq "kj") {
+					$unit = "kJ";
+				}
+				elsif ($unit eq "mcg") {
+					$unit = "µg";
+				}
+				elsif ($unit eq "iu") {
+					$unit = "IU";
+				}
+				elsif ($unit eq "percent") {
+					$unit = '%';
+				}
+			}
+
+			my $modifier = undef;
+
+			# Remove bogus values (e.g. nutrition facts for multiple nutrients): 1 digit followed by letters followed by more digits
+			if ((defined $values{$type}) and ($values{$type} =~ /\d.*[a-z].*\d/)) {
+				$log->debug("nutrient with strange value, skipping",
+					{nid => $nid, type => $type, value => $values{$type}, unit => $unit})
+					if $log->is_debug();
+				delete $values{$type};
+			}
+
+			(defined $values{$type}) and normalize_nutriment_value_and_modifier(\$values{$type}, \$modifier);
+
+			if ((defined $values{$type}) and ($values{$type} ne '')) {
+
+				if ($nid eq 'salt') {
+					$seen_salt = 1;
+				}
+
+				$log->debug("nutrient with defined and non empty value",
+					{nid => $nid, type => $type, value => $values{$type}, unit => $unit})
+					if $log->is_debug();
+				$stats_ref->{"products_with_nutrition" . $type}{$code} = 1;
+
+				# if the nid is "energy" and we have a unit, set "energy-kj" or "energy-kcal"
+				if (($nid eq "energy") and ((lc($unit) eq "kj") or (lc($unit) eq "kcal"))) {
+					$nid = "energy-" . lc($unit);
+				}
+
+				assign_nid_modifier_value_and_unit($product_ref, $nid . $type, $modifier, $values{$type}, $unit);
+
+				if (    (defined $Owner_id)
+					and ($Owner_id =~ /^org-/)
+					and ($Owner_id !~ /^org-app-/)
+					and ($Owner_id !~ /^org-database-/)
+					and ($Owner_id !~ /^org-label-/))
+				{
+					$product_ref->{owner_fields}{$nid} = $time;
+				}
+			}
+		}
+
+		# See which fields have changed
+
+		foreach my $field (sort keys %original_values) {
+			if (    (defined $product_ref->{nutriments}{$field})
+				and ($product_ref->{nutriments}{$field} ne "")
+				and (defined $original_values{$field})
+				and ($original_values{$field} ne "")
+				and ($product_ref->{nutriments}{$field} ne $original_values{$field}))
+			{
+				$log->debug("differing nutrient value",
+					{field => $field, old => $original_values{$field}, new => $product_ref->{nutriments}{$field}})
+					if $log->is_debug();
+				$stats_ref->{products_nutrition_updated}{$code} = 1;
+				$stats_ref->{products_nutrition_changed}{$code} = 1;
+				$$modified_ref++;
+				$nutrients_edited_ref->{$code}++;
+				push @$modified_fields_ref, "nutrients.$field";
+			}
+			elsif (
+					(defined $product_ref->{nutriments}{$field})
+				and ($product_ref->{nutriments}{$field} ne "")
+				and (  (not defined $original_values{$field})
+					or ($original_values{$field} eq ''))
+				)
+			{
+				$log->debug("new nutrient value", {field => $field, new => $product_ref->{nutriments}{$field}})
+					if $log->is_debug();
+				$stats_ref->{products_nutrition_updated}{$code} = 1;
+				$stats_ref->{products_nutrition_added}{$code} = 1;
+				$$modified_ref++;
+				$nutrients_edited_ref->{$code}++;
+				push @$modified_fields_ref, "nutrients.$field";
+			}
+			elsif ( (not defined $product_ref->{nutriments}{$field})
+				and (defined $original_values{$field})
+				and ($original_values{$field} ne ''))
+			{
+				$log->debug("deleted nutrient value", {field => $field, old => $original_values{$field}})
+					if $log->is_debug();
+				$stats_ref->{products_nutrition_updated}{$code} = 1;
+				$$modified_ref++;
+				$nutrients_edited_ref->{$code}++;
+				push @$modified_fields_ref, "nutrients.$field";
+			}
+		}
+	}
+}
+
+sub set_nutrition_data_per_fields ($args_ref, $imported_product_ref, $product_ref, $stats_ref, $modified_ref) {
+
+	my $code = $imported_product_ref->{code};
+
+	my $nutrition_data_per = $imported_product_ref->{nutrition_data_per};
+	my $nutrition_data_prepared_per = $imported_product_ref->{nutrition_data_prepared_per};
+
+	# Set nutrition_data_per and nutrition_data_prepared_per fields
+
+	foreach my $type ("", "_prepared") {
+
+		if (defined $stats_ref->{"products_with_nutrition" . $type}{$code}) {
+
+			my $nutrition_data_field = "nutrition_data" . $type;
+			my $nutrition_data_per_field = "nutrition_data" . $type . "_per";
+			my $imported_nutrition_data_per_value = $imported_product_ref->{$nutrition_data_per_field};
+
+			$log->debug(
+				"nutrition_data_per_field imported value",
+				{
+					code => $code,
+					nutrition_data_per_field => $nutrition_data_per_field,
+					imported_nutrition_data_per_value => $imported_nutrition_data_per_value
+				}
+			) if $log->is_debug();
+
+			# Set nutrition_data_per to 100g if it was not provided and we have nutrition data in the csv file
+			if ((not defined $imported_nutrition_data_per_value) or ($imported_nutrition_data_per_value eq "")) {
+
+				$log->debug(
+					"nutrition_data_per_field value not supplied, setting to 100g",
+					{
+						code => $code,
+						nutrition_data_per_field => $nutrition_data_per_field,
+						$imported_nutrition_data_per_value => $imported_nutrition_data_per_value
+					}
+				) if $log->is_debug();
+				$imported_nutrition_data_per_value = "100g";
+			}
+
+			# Apps and the web product edit form on OFF always send "100g" or "serving" in the nutrition_data_per fields
+			# but imports from GS1 / Equadis can have values like "100.0 g" or "240.0 grm"
+
+			# 100.00g -> 100g
+			$imported_nutrition_data_per_value =~ s/(\d)(\.|,)0?0?([^0-9])/$1$3/;
+			$imported_nutrition_data_per_value =~ s/(grammes|grams|gr)\b/g/ig;
+
+			# 100 g or 100 ml -> assign to the per 100g value
+			if ($imported_nutrition_data_per_value =~ /^100\s?(g|ml)$/i) {
+				$imported_nutrition_data_per_value = "100g";
+			}
+			elsif ($imported_nutrition_data_per_value =~ /^serving$/i) {
+				$imported_nutrition_data_per_value = "serving";
+			}
+			# otherwise, assign the per serving value, and assign serving size
+			else {
+				$log->debug(
+					"nutrition_data_per_field corresponds to serving size",
+					{
+						code => $code,
+						nutrition_data_per_field => $nutrition_data_per_field,
+						$imported_nutrition_data_per_value => $imported_nutrition_data_per_value
+					}
+				) if $log->is_debug();
+				if (   (not defined $product_ref->{serving_size})
+					or ($product_ref->{serving_size} ne $imported_nutrition_data_per_value))
+				{
+					$product_ref->{serving_size} = $imported_nutrition_data_per_value;
+					$$modified_ref++;
+					$stats_ref->{products_data_updated}{$code} = 1;
+					defined $stats_ref->{"products_serving_size_updated"}
+						or $stats_ref->{"products_serving_size_updated"} = {};
+					$stats_ref->{"products_serving_size_updated"}{$code} = 1;
+				}
+				$imported_nutrition_data_per_value = "serving";
+			}
+
+			# Set the nutrition_data[_prepared]_per field
+			if (   (not defined $product_ref->{$nutrition_data_per_field})
+				or ($product_ref->{$nutrition_data_per_field} ne $imported_nutrition_data_per_value))
+			{
+				$product_ref->{$nutrition_data_per_field} = $imported_nutrition_data_per_value;
+				$stats_ref->{"products_" . $nutrition_data_per_field . "_updated"}{$code} = 1;
+				$$modified_ref++;
+				$stats_ref->{products_data_updated}{$code} = 1;
+			}
+
+			# Set the nutrition_data[_prepared] checkbox
+			if (   (not defined $product_ref->{$nutrition_data_field})
+				or ($product_ref->{$nutrition_data_field} ne "on"))
+			{
+				$product_ref->{$nutrition_data_field} = "on";
+				defined $stats_ref->{"products_" . $nutrition_data_per_field . "_updated"}
+					or $stats_ref->{"products_" . $nutrition_data_per_field . "_updated"} = {};
+				$stats_ref->{"products_" . $nutrition_data_per_field . "_updated"}{$code} = 1;
+				$$modified_ref++;
+				$stats_ref->{products_data_updated}{$code} = 1;
+			}
+		}
+	}
+}
+
 =head2 import_csv_file ( ARGUMENTS )
 
 C<import_csv_file()> imports product data in the Open Food Facts CSV format
@@ -1633,334 +1968,15 @@ sub import_csv_file ($args_ref) {
 			}
 		}
 
-		# nutrients
+		# Nutrients
 
-		my $seen_salt = 0;
+		import_nutrients(
+			$args_ref, $imported_product_ref, $product_ref, $stats_ref,
+			\$modified, \@modified_fields, \$differing, \%differing_fields,
+			\%nutrients_edited, $time,
+		);
 
-		foreach my $nutrient_tagid (sort(get_all_taxonomy_entries("nutrients"))) {
-
-			my $nid = $nutrient_tagid;
-			$nid =~ s/^zz://g;
-
-			# don't set sodium if we have salt
-			next if (($nid eq 'sodium') and ($seen_salt));
-
-			# next if $nid =~ /^nutrition-score/;   #TODO
-
-			# for prepared product
-			my $nidp = $nid . "_prepared";
-
-			# Save current values so that we can see if they have changed
-			my %original_values = (
-				$nid . "_modifier" => $product_ref->{nutriments}{$nid . "_modifier"},
-				$nidp . "_modifier" => $product_ref->{nutriments}{$nidp . "_modifier"},
-				$nid . "_value" => $product_ref->{nutriments}{$nid . "_value"},
-				$nidp . "_value" => $product_ref->{nutriments}{$nidp . "_value"},
-				$nid . "_unit" => $product_ref->{nutriments}{$nid . "_unit"},
-				$nidp . "_unit" => $product_ref->{nutriments}{$nidp . "_unit"},
-			);
-
-			# We may have nid_value, nid_100g_value or nid_serving_value. In the last 2 cases,
-			# we need to set $nutrition_data_per to 100g or serving
-			my %values = ();
-
-			my $unit;
-
-			foreach my $type ("", "_prepared") {
-
-				foreach my $per ("", "_100g", "_serving") {
-
-					next if (defined $values{$type});
-
-					# Skip serving values if we have 100g values
-					if (    (defined $imported_product_ref->{"nutrition_data" . $type . "_per"})
-						and ($imported_product_ref->{"nutrition_data" . $type . "_per"} eq "100g")
-						and ($per eq "_serving"))
-					{
-						next;
-					}
-
-					if (    (defined $imported_product_ref->{$nid . $type . $per . "_value"})
-						and ($imported_product_ref->{$nid . $type . $per . "_value"} ne ""))
-					{
-						$values{$type} = $imported_product_ref->{$nid . $type . $per . "_value"};
-					}
-
-					if (    (defined $imported_product_ref->{$nid . $type . $per . "_unit"})
-						and ($imported_product_ref->{$nid . $type . $per . "_unit"} ne ""))
-					{
-						$unit = $imported_product_ref->{$nid . $type . $per . "_unit"};
-					}
-
-					# Energy can be: 852KJ/ 203Kcal
-					# calcium_100g_value_unit = 50 mg
-					# 10g
-					if (not defined $values{$type}) {
-						if (defined $imported_product_ref->{$nid . $type . $per . "_value_unit"}) {
-
-							# Assign energy-kj and energy-kcal values from energy field
-
-							if (
-									($nid eq "energy")
-								and
-								($imported_product_ref->{$nid . $type . $per . "_value_unit"} =~ /\b([0-9]+)(\s*)kJ/i)
-								)
-							{
-								if (not defined $imported_product_ref->{$nid . "-kj" . $type . $per . "_value_unit"}) {
-									$imported_product_ref->{$nid . "-kj" . $type . $per . "_value_unit"} = $1 . " kJ";
-								}
-							}
-							if (
-									($nid eq "energy")
-								and
-								($imported_product_ref->{$nid . $type . $per . "_value_unit"} =~ /\b([0-9]+)(\s*)kcal/i)
-								)
-							{
-								if (not defined $imported_product_ref->{$nid . "-kcal" . $type . $per . "_value_unit"})
-								{
-									$imported_product_ref->{$nid . "-kcal" . $type . $per . "_value_unit"}
-										= $1 . " kcal";
-								}
-							}
-
-							if ($imported_product_ref->{$nid . $type . $per . "_value_unit"}
-								=~ /^(~?<?>?=?\s?([0-9]*(\.|,))?[0-9]+)(\s*)([a-zµ%]+)$/i)
-							{
-								$values{$type} = $1;
-								$unit = $5;
-							}
-							# We might have only a number even if the field is set to value_unit
-							# in that case, use the default unit
-							elsif ($imported_product_ref->{$nid . $type . $per . "_value_unit"}
-								=~ /^(([0-9]*(\.|,))?[0-9]+)(\s*)$/i)
-							{
-								$values{$type} = $1;
-							}
-						}
-					}
-
-					# calcium_100g_value_in_mcg
-
-					if (not defined $values{$type}) {
-						foreach my $u ('kj', 'kcal', 'kg', 'g', 'mg', 'mcg', 'l', 'dl', 'cl', 'ml', 'iu', 'percent') {
-							my $value_in_u = $imported_product_ref->{$nid . $type . $per . "_value" . "_in_" . $u};
-							if ((defined $value_in_u) and ($value_in_u ne "")) {
-								$values{$type} = $value_in_u;
-								$unit = $u;
-							}
-						}
-					}
-
-					if ((defined $values{$type}) and ($per ne "")) {
-						$imported_product_ref->{"nutrition_data" . $type . "_per"} = $per;
-						$imported_product_ref->{"nutrition_data" . $type . "_per"} =~ s/^_//;
-					}
-				}
-
-				if ($nid eq 'alcohol') {
-					$unit = '% vol';
-				}
-
-				# Standardize units
-				if (defined $unit) {
-					if ($unit eq "kj") {
-						$unit = "kJ";
-					}
-					elsif ($unit eq "mcg") {
-						$unit = "µg";
-					}
-					elsif ($unit eq "iu") {
-						$unit = "IU";
-					}
-					elsif ($unit eq "percent") {
-						$unit = '%';
-					}
-				}
-
-				my $modifier = undef;
-
-				# Remove bogus values (e.g. nutrition facts for multiple nutrients): 1 digit followed by letters followed by more digits
-				if ((defined $values{$type}) and ($values{$type} =~ /\d.*[a-z].*\d/)) {
-					$log->debug("nutrient with strange value, skipping",
-						{nid => $nid, type => $type, value => $values{$type}, unit => $unit})
-						if $log->is_debug();
-					delete $values{$type};
-				}
-
-				(defined $values{$type}) and normalize_nutriment_value_and_modifier(\$values{$type}, \$modifier);
-
-				if ((defined $values{$type}) and ($values{$type} ne '')) {
-
-					if ($nid eq 'salt') {
-						$seen_salt = 1;
-					}
-
-					$log->debug("nutrient with defined and non empty value",
-						{nid => $nid, type => $type, value => $values{$type}, unit => $unit})
-						if $log->is_debug();
-					$stats_ref->{"products_with_nutrition" . $type}{$code} = 1;
-
-					# if the nid is "energy" and we have a unit, set "energy-kj" or "energy-kcal"
-					if (($nid eq "energy") and ((lc($unit) eq "kj") or (lc($unit) eq "kcal"))) {
-						$nid = "energy-" . lc($unit);
-					}
-
-					assign_nid_modifier_value_and_unit($product_ref, $nid . $type, $modifier, $values{$type}, $unit);
-
-					if (    (defined $Owner_id)
-						and ($Owner_id =~ /^org-/)
-						and ($Owner_id !~ /^org-app-/)
-						and ($Owner_id !~ /^org-database-/)
-						and ($Owner_id !~ /^org-label-/))
-					{
-						$product_ref->{owner_fields}{$nid} = $time;
-					}
-				}
-			}
-
-			# See which fields have changed
-
-			foreach my $field (sort keys %original_values) {
-				if (    (defined $product_ref->{nutriments}{$field})
-					and ($product_ref->{nutriments}{$field} ne "")
-					and (defined $original_values{$field})
-					and ($original_values{$field} ne "")
-					and ($product_ref->{nutriments}{$field} ne $original_values{$field}))
-				{
-					$log->debug("differing nutrient value",
-						{field => $field, old => $original_values{$field}, new => $product_ref->{nutriments}{$field}})
-						if $log->is_debug();
-					$stats_ref->{products_nutrition_updated}{$code} = 1;
-					$stats_ref->{products_nutrition_changed}{$code} = 1;
-					$modified++;
-					$nutrients_edited{$code}++;
-					push @modified_fields, "nutrients.$field";
-				}
-				elsif (
-						(defined $product_ref->{nutriments}{$field})
-					and ($product_ref->{nutriments}{$field} ne "")
-					and (  (not defined $original_values{$field})
-						or ($original_values{$field} eq ''))
-					)
-				{
-					$log->debug("new nutrient value", {field => $field, new => $product_ref->{nutriments}{$field}})
-						if $log->is_debug();
-					$stats_ref->{products_nutrition_updated}{$code} = 1;
-					$stats_ref->{products_nutrition_added}{$code} = 1;
-					$modified++;
-					$nutrients_edited{$code}++;
-					push @modified_fields, "nutrients.$field";
-				}
-				elsif ( (not defined $product_ref->{nutriments}{$field})
-					and (defined $original_values{$field})
-					and ($original_values{$field} ne ''))
-				{
-					$log->debug("deleted nutrient value", {field => $field, old => $original_values{$field}})
-						if $log->is_debug();
-					$stats_ref->{products_nutrition_updated}{$code} = 1;
-					$modified++;
-					$nutrients_edited{$code}++;
-					push @modified_fields, "nutrients.$field";
-				}
-			}
-		}
-
-		my $nutrition_data_per = $imported_product_ref->{nutrition_data_per};
-		my $nutrition_data_prepared_per = $imported_product_ref->{nutrition_data_prepared_per};
-
-		# Set nutrition_data_per and nutrition_data_prepared_per fields
-
-		foreach my $type ("", "_prepared") {
-
-			if (defined $stats_ref->{"products_with_nutrition" . $type}{$code}) {
-
-				my $nutrition_data_field = "nutrition_data" . $type;
-				my $nutrition_data_per_field = "nutrition_data" . $type . "_per";
-				my $imported_nutrition_data_per_value = $imported_product_ref->{$nutrition_data_per_field};
-
-				$log->debug(
-					"nutrition_data_per_field imported value",
-					{
-						code => $code,
-						nutrition_data_per_field => $nutrition_data_per_field,
-						imported_nutrition_data_per_value => $imported_nutrition_data_per_value
-					}
-				) if $log->is_debug();
-
-				# Set nutrition_data_per to 100g if it was not provided and we have nutrition data in the csv file
-				if ((not defined $imported_nutrition_data_per_value) or ($imported_nutrition_data_per_value eq "")) {
-
-					$log->debug(
-						"nutrition_data_per_field value not supplied, setting to 100g",
-						{
-							code => $code,
-							nutrition_data_per_field => $nutrition_data_per_field,
-							$imported_nutrition_data_per_value => $imported_nutrition_data_per_value
-						}
-					) if $log->is_debug();
-					$imported_nutrition_data_per_value = "100g";
-				}
-
-				# Apps and the web product edit form on OFF always send "100g" or "serving" in the nutrition_data_per fields
-				# but imports from GS1 / Equadis can have values like "100.0 g" or "240.0 grm"
-
-				# 100.00g -> 100g
-				$imported_nutrition_data_per_value =~ s/(\d)(\.|,)0?0?([^0-9])/$1$3/;
-				$imported_nutrition_data_per_value =~ s/(grammes|grams|gr)\b/g/ig;
-
-				# 100 g or 100 ml -> assign to the per 100g value
-				if ($imported_nutrition_data_per_value =~ /^100\s?(g|ml)$/i) {
-					$imported_nutrition_data_per_value = "100g";
-				}
-				elsif ($imported_nutrition_data_per_value =~ /^serving$/i) {
-					$imported_nutrition_data_per_value = "serving";
-				}
-				# otherwise, assign the per serving value, and assign serving size
-				else {
-					$log->debug(
-						"nutrition_data_per_field corresponds to serving size",
-						{
-							code => $code,
-							nutrition_data_per_field => $nutrition_data_per_field,
-							$imported_nutrition_data_per_value => $imported_nutrition_data_per_value
-						}
-					) if $log->is_debug();
-					if (   (not defined $product_ref->{serving_size})
-						or ($product_ref->{serving_size} ne $imported_nutrition_data_per_value))
-					{
-						$product_ref->{serving_size} = $imported_nutrition_data_per_value;
-						$modified++;
-						$stats_ref->{products_data_updated}{$code} = 1;
-						defined $stats_ref->{"products_serving_size_updated"}
-							or $stats_ref->{"products_serving_size_updated"} = {};
-						$stats_ref->{"products_serving_size_updated"}{$code} = 1;
-					}
-					$imported_nutrition_data_per_value = "serving";
-				}
-
-				# Set the nutrition_data[_prepared]_per field
-				if (   (not defined $product_ref->{$nutrition_data_per_field})
-					or ($product_ref->{$nutrition_data_per_field} ne $imported_nutrition_data_per_value))
-				{
-					$product_ref->{$nutrition_data_per_field} = $imported_nutrition_data_per_value;
-					$stats_ref->{"products_" . $nutrition_data_per_field . "_updated"}{$code} = 1;
-					$modified++;
-					$stats_ref->{products_data_updated}{$code} = 1;
-				}
-
-				# Set the nutrition_data[_prepared] checkbox
-				if (   (not defined $product_ref->{$nutrition_data_field})
-					or ($product_ref->{$nutrition_data_field} ne "on"))
-				{
-					$product_ref->{$nutrition_data_field} = "on";
-					defined $stats_ref->{"products_" . $nutrition_data_per_field . "_updated"}
-						or $stats_ref->{"products_" . $nutrition_data_per_field . "_updated"} = {};
-					$stats_ref->{"products_" . $nutrition_data_per_field . "_updated"}{$code} = 1;
-					$modified++;
-					$stats_ref->{products_data_updated}{$code} = 1;
-				}
-			}
-		}
+		set_nutrition_data_per_fields($args_ref, $imported_product_ref, $product_ref, $stats_ref, \$modified,);
 
 		if ((defined $stats_ref->{products_info_added}{$code}) or (defined $stats_ref->{products_info_changed}{$code}))
 		{
