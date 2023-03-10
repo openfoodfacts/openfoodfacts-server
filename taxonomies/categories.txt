@@ -1968,7 +1968,7 @@ ciqual_food_code:en:5008
 ciqual_food_name:en:Beer, low alcohol-content (3° alcohol)
 ciqual_food_name:fr:Bière faiblement alcoolisée (3° alcool)
 
-<en:Non-Alcoholic beverages
+<en:Non-alcoholic beverages
 en:Alcohol-free cocktails, Alcohol-free juice and syrup-based cocktails
 fr:Cocktails sans alcool, Cocktail sans alcool à base de jus de fruits et de sirop
 agribalyse_food_code:en:2008
@@ -1977,7 +1977,7 @@ ciqual_food_name:en:Cocktail, alcohol-free (juices and syrup-based cocktail)
 ciqual_food_name:fr:Cocktail sans alcool (à base de jus de fruits et de sirop)
 wikidata:en:Q969864
 
-<en:Non-Alcoholic beverages
+<en:Non-alcoholic beverages
 en:Non-alcoholic beers, non-alcoholic beer, Alcohol-free beer, Alcohol-free beers, Beers with less than 1.2° alcohol
 bg:Безалкохолна бира
 de:Alkoholfreie Biere, Alkoholfreies Bier
@@ -2012,7 +2012,7 @@ zh:姜啤
 wikidata:en:Q1448819
 
 <en:Non-alcoholic beers
-en:Non-Alcoholic wheat beers, Non-Alcoholic wheat beer
+en:Non-alcoholic wheat beers, Non-alcoholic wheat beer
 de:Alkoholfreie Weizenbiere, Alkoholfreies Weizenbier, Alkoholfreie Weißbiere, Alkoholfreies Weißbier
 fr:Bières de blé sans alcool
 hu:Alkoholmentes buza sör
@@ -4288,7 +4288,7 @@ ciqual_food_name:fr:Cocktail à base de rhum
 fr:Daïquiri
 #wikidata:en:
 
-<en:Non-Alcoholic beverages
+<en:Non-alcoholic beverages
 fr:Daïquiri sans alcool
 #wikidata:en:
 
@@ -5290,7 +5290,7 @@ bg:Напитки с алое вера
 de:Aloe Vera Saften
 fr:Boissons à l'aloe-vera
 lt:Aloe Vera gėrimai
-nl:ALoe Vera sappen
+nl:Aloe Vera sappen
 pl:Napoje z aloesem, Napoje aloesowe
 #wikidata:en:
 
@@ -5425,6 +5425,8 @@ ciqual_proxy_food_code:en:2035
 ciqual_proxy_food_name:en:Mixed fruits juice, pure juice
 ciqual_proxy_food_name:fr:Jus multifruit, pur jus, standard
 
+<en:Non-alcoholic beverages
+<en:Unsweetened beverages
 <en:Fruit juices
 en:Apple juices
 bg:Ябълков сок, сок от ябълка
@@ -5443,16 +5445,12 @@ nl_be:Appelsappen, Appelsap
 pl:Soki jabłkowe
 pt:Sumos de macã
 ru:Яблочные соки, Яблочный сок
+th:น้ำเอปเปิ้
 zh:苹果汁
 wikidata:en:Q618355
 agribalyse_proxy_food_code:en:2074
 agribalyse_proxy_food_name:en:Apple juice, pure juice
 agribalyse_proxy_food_name:fr:Jus de pomme, pur jus
-
-<en:Apple juices
-en:Apple juices with less sugar
-fr:Jus de pomme avec moins de sucre
-nl:Appelsappen met minder suiker
 
 <en:Fruit juices
 en:Clementine juices
@@ -5536,8 +5534,8 @@ ciqual_food_name:en:Lemon juice, pure juice
 ciqual_food_name:fr:Jus de citron, pur jus
 
 <en:Apple juices
-<en:Concentrated fruit juices
-en:Concentrated apple juices, Apple juices reconstituted from a concentrate
+<en:Fruit juices from concentrate
+en:Apple juices from concentrate, Reconstituted apple juices, Concentrated apple juices, Apple juices reconstituted from a concentrate
 bg:Ябълков сок от концентрат
 de:Apfelsäfte aus Konzentrat, Apfeldicksaft
 es:Zumos de manzana procedentes de concentrado
@@ -5551,28 +5549,36 @@ ciqual_food_code:en:2014
 ciqual_food_name:en:Apple juice, reconstituted from a concentrate
 ciqual_food_name:fr:Jus de pomme, à base de concentré
 
+#<en:Refrigerated products
 <en:Apple juices
 <en:Refrigerated squeezed juices
-en:Refrigerated squeezed apple juices, Refrigerated pressed apple juices
+en:Refrigerated apple juices, Refrigerated squeezed apple juices, Refrigerated pressed apple juices
 de:Gekühlte Apfeldirektsäfte, Gekühlte gepresste Apfelsäfte
-es:Zumos de manzana exprimidos refrigerados
-nl:Gekoelde geperste appelsappen, Gekoeld geperst appelsap
+es:Zumos de manzana refrigerados
+nl:Gekoelde appelsappen, Gekoeld geperst appelsap
+#description:en:Apple juices that (before usage) must be kept in the refrigerator. Usually these are pure apple juices.
 
+<en:Carbonated drinks
 <en:Apple juices
 en:Sparkling apple juices
 fr:Jus de pomme pétillants, Jus de pomme gazeux
+nl:Koolzuurhoudende appelsappen
+#description:en:Apple juices with added carbon dioxide.
 
-<en:Apple nectars
-en:Sparkling apple nectars
+<en:Apple juices
+en:Enriched apple juices
+nl:Verrijkte appelsappen
+#description:en:Apple juices with added vitamins and minerals.
 
-<en:Sparkling apple nectars
-de:Apfelschorle, Apfelsaftschorle
-wikidata:en:Q3053970
+<en:Apple juices
+en:Flavoured apple juices
+nl:Gearomatiseerde appelsappen
+#description:en:Apple juices with added vitamins and minerals.
 
 <en:Apple juices
 <en:Squeezed juices
-en:Squeezed apple juices, Pressed apple juices, Non-refrigerated squeezed apple juices, Non-refrigerated pressed apple juices, Pure apple juice
-de:Apfeldirektsäfte
+en:Pure apple juices, Squeezed apple juices, Pressed apple juices, Non-refrigerated squeezed apple juices, Non-refrigerated pressed apple juices, Pure apple juice
+de:Apfeldirektsäfte, Direktsaft aus Äpfeln
 es:Zumos de manzana exprimidos no refrigerados, Zumos de manzana exprimidos, Zumos de manzana exprimidos ambiente
 fi:puristetut omenamehut
 fr:Jus de pommes pur jus, jus de pomme pur jus, jus de pommes 100% pur jus, jus de pomme 100% pur jus, pur jus de pomme, pur jus de pommes
@@ -5595,8 +5601,8 @@ nl:Abrikozensappen, Abrikozensap
 wikidata:en:Q3337673
 
 <en:Apricot juices
-<en:Concentrated fruit juices
-en:Concentrated apricot juices
+<en:Fruit juices from concentrate
+en:Apricot juices from concentrate, Concentrated apricot juices
 de:Aprikosensäfte aus Konzentrat
 es:Zumos de albaricoque procedente de concentrado
 fr:Jus d'abricot à base de concentré, jus d'abricot à base de jus concentré
@@ -5618,8 +5624,8 @@ pl:Soki jagodowe, Soki borówkowe
 wikidata:en:Q17384072
 
 <en:Blueberry juices
-<en:Concentrated fruit juices
-en:Concentrated blueberry juices
+<en:Fruit juices from concentrate
+en:Blueberry juices from concentrate, Concentrated blueberry juices
 de:Heidelbeersäfte aus Konzentrat, Blaubeersäfte aus Konzentrat
 es:Zumos de arándanos procedente de concentrado
 fi:Mustikkamehutiivisteet
@@ -5638,7 +5644,7 @@ fr:Jus de myrtilles pur jus
 nl:Geperste blauwe bessensappen, Geperste blauwe bessensap
 
 <en:Fruit juices
-en:Concentrated fruit juices, Concentrate fruit juices, Fruit juices from concentrate
+en:Fruit juices from concentrate, Concentrated fruit juices, Concentrate fruit juices
 ca:Suc de fruita concentrat
 de:Fruchtsäfte aus Konzentrat
 es:Zumos procedentes de concentrado
@@ -5654,9 +5660,9 @@ ciqual_food_code:en:2077
 ciqual_food_name:en:Fruit juice, from concentrate (average)
 ciqual_food_name:fr:Jus de fruits, à base de concentré (aliment moyen)
 
-<en:Concentrated fruit juices
+<en:Fruit juices from concentrate
 <en:Orange juices
-en:Concentrated orange juices, Orange juices reconstituted from a concentrate
+en:Orange juices from concentrate, Concentrated orange juices, Orange juices reconstituted from a concentrate
 bg:Сок от портокал от концентрат
 de:Orangensäfte aus Konzentrat
 es:Zumos de naranja procedente de concentrado
@@ -5701,8 +5707,8 @@ ciqual_food_name:en:Grape juice, pure juice
 ciqual_food_name:fr:Jus de raisin, pur jus
 
 <en:Grape juices
-<en:Concentrated fruit juices
-en:Concentrated grape juices, Grape juices reconstituted from a concentrate
+<en:Fruit juices from concentrate
+en:Grape juices from concentrate, Concentrated grape juices, Grape juices reconstituted from a concentrate
 de:Traubensäfte aus Konzentrat, Traubensaft aus Konzentrat
 es:Zumos de uva procedente de concentrado
 fr:Jus de raisin à base de concentré, Jus de raisins à base de concentré
@@ -5728,8 +5734,8 @@ ru:Сок грейпфрутовый, грейпфрутовый сок
 wikidata:en:Q1138468
 
 <en:Grapefruit juices
-<en:Concentrated fruit juices
-en:Concentrated grapefruit juices, Grapefruit juice reconstituted from a concentrate
+<en:Fruit juices from concentrate
+en:Grapefruit juices from concentrate, Concentrated grapefruit juices, Grapefruit juice reconstituted from a concentrate
 de:Grapefruitsäfte aus Konzentrat
 es:Zumos de pomelo procedente de concentrado
 fr:Jus de pamplemousse à base de concentré, jus de pamplemousses à base de concentré, jus de pamplemousse à base de jus concentré
@@ -5793,8 +5799,8 @@ zh:芒果汁
 wikidata:en:Q15952031
 
 <en:Mango juices
-<en:Concentrated fruit juices
-en:Concentrated mango juices
+<en:Fruit juices from concentrate
+en:Mango juices from concentrate, Concentrated mango juices
 de:Mangosäfte aus Konzentrat
 es:Zumos de mango procedente de concentrado
 fr:Jus de mangue à base de concentré, Jus de mangues à base de concentré
@@ -5854,8 +5860,8 @@ ciqual_food_name:en:Mixed fruits juice, orange based, multivitamin
 ciqual_food_name:fr:Jus multifruit - base orange, multivitaminé
 
 <en:Multifruit juices
-<en:Concentrated fruit juices
-en:Concentrated multifruit juices, Multivitamin mixed fruits juice reconstituted from a concentrate
+<en:Fruit juices from concentrate
+en:Multifruit juices from concentrate, Concentrated multifruit juices, Multivitamin mixed fruits juice reconstituted from a concentrate
 de:Multifruchtsäfte aus Konzentrat
 es:Zumos multifruta procedente de concentrado
 fi:tiivistetyt monihedelmämehut
@@ -5940,8 +5946,8 @@ zh:桃子汁, 桃汁
 #wikidata:en:
 
 <en:Peach juices
-<en:Concentrated fruit juices
-en:Concentrated peach juices
+<en:Fruit juices from concentrate
+en:Peach juices from concentrate, Concentrated peach juices
 de:Pfirsichsäfte aus Konzentrat
 es:Zumos de melocotón procedente de concentrado
 fr:Jus de pêche à base de concentré, jus de pêches à base de concentré
@@ -5964,8 +5970,8 @@ zh:梨汁
 wikidata:en:Q15951991
 
 <en:Pear juices
-<en:Concentrated fruit juices
-en:Concentrated pear juices
+<en:Fruit juices from concentrate
+en:Pear juices from concentrate, Concentrated pear juices
 de:Birnensäfte aus Konzentrat
 es:Zumos de pera procedente de concentrado
 fr:Jus de poire à base de concentré, jus de poires à base de concentré
@@ -6020,9 +6026,9 @@ pl:Soki ananasowe, sok z ananasa
 zh:菠萝汁
 wikidata:en:Q3190226
 
-<en:Concentrated fruit juices
+<en:Fruit juices from concentrate
 <en:Pineapple juices
-en:Concentrated pineapple juices, Pineapple juice reconstituted from a concentrate
+en:Pineapple from concentrate, Concentrated pineapple juices, Pineapple juice reconstituted from a concentrate
 bg:Сок от ананас от концентрат
 de:Ananassäfte aus Konzentrat
 es:Zumos de piña procedente de concentrado
@@ -6088,8 +6094,8 @@ ciqual_food_name:fr:Jus de pruneau
 wikidata:en:Q65088683
 
 <en:Plum juices
-<en:Concentrated fruit juices
-en:Concentrated plum juices
+<en:Fruit juices from concentrate
+en:Plum juices from concentrate, Concentrated plum juices
 de:Pflaumensäfte aus Konzentrat
 es:Zumos de ciruela procedente de concentrado
 fr:Jus de prune à base de concentré, jus de prunes à base de concentré
@@ -6126,8 +6132,8 @@ ciqual_food_name:en:Pomegranate juice, fresh
 ciqual_food_name:fr:Jus de grenade, frais
 
 <en:Pomegranate juices
-<en:Concentrated fruit juices
-en:Concentrated pomegranate juices
+<en:Fruit juices from concentrate
+en:Pomegranate juices from concentrate, Concentrated pomegranate juices
 de:Granatapfelsäfte aus Konzentrat
 es:Zumos de granada procedente de concentrado
 fr:Jus de grenade à base de concentré, jus de grenades à base de concentré
@@ -6205,10 +6211,9 @@ ro:Suc de mandarine, Suc cu mandarine
 zh:橘子汁, 柑橘汁
 wikidata:en:Q40866122
 
-
 <en:Tangerine juices
-<en:Concentrated fruit juices
-en:Concentrated tangerine juices
+<en:Fruit juices from concentrate
+en:Tangerine juices from concentrate, Concentrated tangerine juices
 de:Mandarinensäfte aus Konzentrat
 es:Zumos de mandarina procedente de concentrado, Zumos de clementina procedente de concentrado
 fr:Jus de mandarine à base de concentré
@@ -6275,6 +6280,16 @@ pt:Néctares de maçã
 ru:Нектары яблочные, Яблочные нектары, Нектар яблочный, Яблочный нектар
 zh:苹果花蜜
 #wikidata:en:
+
+<en:Carbonated drinks
+<en:Apple nectars
+en:Sparkling apple nectars
+
+<en:Sparkling apple nectars
+en:Apple schorle
+de:Apfelschorle, Apfelsaftschorle
+wikidata:en:Q3053970
+description:en:Schorle is a German beverage made by diluting juice or wine with carbonated water or lemonade (lemon-lime soda).
 
 <en:Fruit nectars
 en:Apricot nectars
@@ -9092,7 +9107,7 @@ fr:Vins aromatisés
 nl:Gearomatiseerde wijnen, Gearomatiseerde wijn
 
 <en:Beverages
-en:Non-Alcoholic beverages
+en:Non-alcoholic beverages
 bg:Безалкохолни напитки
 ca:Begudes sense alcohol
 cs:Nealkoholické nápoje
@@ -9540,8 +9555,8 @@ nl:Ice coffees, Ice coffee, IJskoffie
 wikidata:en:Q968554
 
 <en:Wines
-<en:Non-Alcoholic beverages
-en:Non-Alcoholic wines, Alcohol-free wines
+<en:Non-alcoholic beverages
+en:Non-alcoholic wines, Alcohol-free wines
 de:alkoholfreie Weine
 fr:Vins sans alcool, vins déalcoolisés
 lt:Nealkoholinis vynas, Vynas be alkoholio
@@ -39375,6 +39390,35 @@ nl:Abdijkazen, Abdijkaas
 wikidata:en:Q2069008
 
 <en:Cheeses
+en:American cheeses
+fr:fromages américains
+wikidata:en:Q2671520
+
+<en:American cheeses
+<en:cow cheeses
+en:Colby cheese, Colby
+ca:colby
+it:Colby
+id:Keju colby
+ja:コルビーチーズ
+jv:Kèju colby
+ko:콜비 치즈
+pt:Colby
+zh:考爾比芝士
+wikidata:en:Q1056769
+description:en:Type of semi-hard cheese.
+
+<en:American cheeses
+<en:Cow cheeses
+en:Muenster cheese, Muenster
+es:Muenster
+jv:Kèju Muenster
+sv:Muenster
+th:มึนสเตอร์ชีส
+wikidata:en:Q6931973
+description:en:American cheese.
+
+<en:Cheeses
 en:Mexican cheeses, cheeses from Mexico
 de:Mexikanischer Käse
 es:Quesos mexicanos, Quesos de México
@@ -39387,6 +39431,20 @@ wikidata:en:Q5089436
 en:Panela cheeses
 es:Quesos panelas
 fr:Fromages panelas
+
+<en:Mexican cheeses
+<en:cow cheeses
+en:Cotija cheese, Cotija
+de:Cotija-Käse, Cotija
+es:Queso Cotija, Cotija
+fr:Queso Cotija, Cotija
+hu:Cotija
+ja:コテハ・チーズ
+jv:Cotija kèju, Cotija
+ko:코티하 치즈
+ru:Котиха
+wikidata:en:Q2718594
+description:en:type of dry, firm grating cheese from Mexico.
 
 <en:Cheeses
 en:Double cream cheeses
@@ -39927,10 +39985,33 @@ ciqual_food_name:en:Mimolette cheese, old, from cow's milk
 <en:French cheeses
 <en:Cow cheeses
 <en:Soft cheeses with washed rind
-en:Munster cheeses, Munster cheese from cow's milk
-xx:Munsters
+en:Munster, Munster cheeses, Munster cheese from cow's milk
+xx:Munsters, Munster
+ar:مونستير
+be:Мюнстэр
+bg:Мюнстер
+ca:Munster
+cv:Мюнстер
 de:Münsterkäse
+es:Munster
+eu:Munster
+fi:Munster
 fr:Munsters, Munster, Munster-Géromé
+hr:Munster
+id:Keju Munster
+ja:マンステール
+ko:묑스테르
+la:Munster
+ms:Keju Munster
+nb:Munster
+nl:Munster
+pl:Munster
+pt:Munster
+ru:Мюнстер
+sv:Munster
+th:เมิงสแตร์ชีส
+uk:Мюнстер
+zh:芒斯特芝士
 wikidata:en:Q765540
 oqali_family:en: fr:Fromages - Munster
 protected_name_file_number:en: PDO-FR-0125
@@ -39939,8 +40020,14 @@ origins:en: en:France
 agribalyse_food_code:en:12039
 ciqual_food_code:en:12039
 ciqual_food_name:en:Munster cheese, from cow's milk
+ciqual_food_name:fr:Munster
 protected_name_file_number:en: PDO-FR-0125-AM03
-#wikidata:en:
+description:de:Munster oder Munster-Géromé ist ein französischer Weichkäse aus den Hochvogesen und traditionell besonders aus dem elsässischen Münstertal (Vallée de Munster).
+description:en:Munster, Munster-géromé, or Minschterkaas, is a strong-smelling soft cheese with a subtle taste, made mainly from milk first produced in the Vosges.
+description:fr:Le munster et le munster-géromé constituent une appellation d'origine désignant un fromage de lait de vache de l'Est de la France.
+description:es:El munster es un queso francés del este de Francia beneficiario de una AOC.
+description:nl:De Munster is een Franse kaas, afkomstig uit de Vogezen.
+description:pt:O munster ou munster-géromé é um queijo francês do Leste, das regiões da Alsácia.
 
 <en:Cheeses
 en:Saint-Paulin cheese
@@ -40705,20 +40792,36 @@ lt:Daniški sūriai, sūriai iš Danijos
 wikidata:en:Q3088357
 
 <en:Danish cheeses
+<en:Cow cheeses
 en:Havarti, Havarti cheeses
 bg:Хаварти
+ca:Havarti
 da:Havarti
 de:Havarti
-es:Havarti
+es:Havarti, Queso Havarti
+et:Havarti
+eu:Havarti
 fi:Havarti
 fr:Havarti
+id:Havarti
+is:Havarti
 it:Havarti
+ja:ハバーティ
+jv:Havarti
+ko:하바르티
+nb:Havarti
 nl:Havarti
+nn:Havarti
+pl:Havarti
 ro:Havarti
+ru:Хаварти
+tr:Havarti
+zh:哈瓦蒂芝士
 protected_name_file_number:en: PGI-DK-00831
 protected_name_type:en: pgi
 origins:en: en:Denmark
 wikidata:en:Q1591487
+description:en:semisoft Danish cow's milk cheese.
 
 <en:Danish cheeses
 bg:Данбо
@@ -72297,6 +72400,7 @@ ciqual_food_name:en:Riesling wine and pork pie
 en:Chicken and mushroom pies
 fr:Tourtes au poulet et aux champignons
 lt:Pyragai su vištiena ir grybais
+nl:Kippenpaddestoelentaarten
 wikidata:en:Q5096289
 
 <en:salted pies
@@ -88207,6 +88311,10 @@ fr:Gelées de cassis
 sv:Svartvinbärsgeléer, Svartvinbärsgelé
 
 <en:Fruit jellies
+en:Myrtles jellies
+fr:Gelées de myrtes
+
+<en:Fruit jellies
 en:Apples jellies
 de:Apfel Gelees
 fi:Omenahyytelöt
@@ -88313,7 +88421,7 @@ pnns_group_2:en:Salty and fatty products
 <en:Salted spreads
 en:Egg salads, Egg spreads
 lt:Salotos su kiaušiniais
-de:Eisalaten, Eisalat, Eiaufstriche
+de:Eisalaten, Eisalat, Eiaufstriche, Eiersalat
 fr:Salades d'œufs, salades d'oeufs, Tartinades d'œufs, tartinades d'oeufs, tartinades aux oeufs
 nl:Eisalades, Eiersalades
 pl:Sałatki jajeczne
@@ -98718,8 +98826,12 @@ en:Meat analogues from pea proteins
 fr:Substituts de viande à partir de protéines de pois
 
 <en:Meat analogues
+en:Prepared meat cuts substitutes
+fr:Substituts de charcuterie en tranches
+
+<en:Prepared meat cuts substitutes
 en:Ham substitutes, Ham substituts, Plant-based ham prepacked
-fr:Susbtituts du jambon blanc, Substituts du jambon, Spécialité végétale type jambon cuit préemballée
+fr:Substituts du jambon blanc, Substituts du jambon, Spécialité végétale type jambon cuit préemballée
 agribalyse_food_code:en:1030
 ciqual_food_code:en:1030
 ciqual_food_name:en:Plant-based ham, prepacked
@@ -100807,6 +100919,7 @@ en:Pâté, Paté, Pate
 de:Pasteten
 es:Paté
 fr:Pâté
+hr:pašteta
 pl:Pasztet, Pasztety
 ru:Паштет
 ciqual_food_code:en:8332

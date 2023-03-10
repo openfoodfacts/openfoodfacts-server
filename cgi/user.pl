@@ -116,7 +116,7 @@ if ($action eq 'process') {
 	}
 
 	# change organization
-	if ($type eq 'edit_owner' && $admin) {
+	if ($type eq 'edit_owner') {
 		# only admin and pro moderators can change organization freely
 		if ($admin or $User{pro_moderator}) {
 			ProductOpener::Users::check_edit_owner($user_ref, \@errors);
