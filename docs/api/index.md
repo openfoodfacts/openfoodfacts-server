@@ -1,4 +1,4 @@
-# Open Food Facts API Documentation
+# Introduction to Open Food Facts API documentation
 
 Everything you need to know about Open Food Facts API.
 

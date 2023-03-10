@@ -12,6 +12,10 @@ EOF
 # get group id to use it in the docker
 GID=$(id -g)
 
+# copy docker/README.md as ref-docker-commands.md
+cp docs/dev/ref-docker-commands.md{,.original}
+sed -e 's|(\.\./docs/dev|(|g' docker/README.md > docs/dev/ref-docker-commands.md
+
 # we use minidocks capability to add entrypoint to install some pip package
 # we use also it's capability to change user and group id to avoid permissions problems
 docker run --rm \
@@ -21,3 +25,4 @@ docker run --rm \
   minidocks/mkdocs build
 # cleanup
 rm $PIP_INSTALL
+mv docs/dev/ref-docker-commands.md{.original,}
