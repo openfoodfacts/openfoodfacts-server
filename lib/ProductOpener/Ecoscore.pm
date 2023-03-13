@@ -472,24 +472,68 @@ sub load_ecoscore_data_packaging() {
 		# "Bouteille PET Biosourcé",75
 		# "Bouteille rPET transparente (100%)",100
 
-		$ecoscore_data{packaging_materials}{"en:opaque-pet.en:bottle"}
-			= $ecoscore_data{packaging_materials}{"en:colored-pet.en:bottle"};
-		$properties{"packaging_materials"}{"en:opaque-pet.en:bottle"}{"ecoscore_score:en"}
-			= $ecoscore_data{packaging_materials}{"en:colored-pet.en:bottle"}{score};
-		$ecoscore_data{packaging_materials}{"en:pet-polyethylene-terephthalate.en:bottle"}
-			= $ecoscore_data{packaging_materials}{"en:colored-pet.en:bottle"};
-		$properties{"packaging_materials"}{"en:pet-polyethylene-terephthalate.en:bottle"}{"ecoscore_score:en"}
-			= $ecoscore_data{packaging_materials}{"en:colored-pet.en:bottle"}{score};
+		# Use English names for source / target shapes and materials
+		# they will be canonicalized with the taxonomies
+		my @assignments = (
+			{
+				target_shape => "bottle",
+				target_material => "opaque pet",
+				source_shape => "bottle",
+				source_material => "colored pet"
+			},
+			{
+				target_shape => "bottle",
+				target_material => "polyethylene terephthalate",
+				source_shape => "bottle",
+				source_material => "colored pet"
+			},
+			# Assign transparent rPET bottle score to rPET
+			{
+				target_shape => "bottle",
+				target_material => "rpet",
+				source_shape => "bottle",
+				source_material => "transparent pet"
+			},
+			{
+				target_material => "plastic",
+				source_material => "other plastics"
+			},								
+		);
 
-		# Assign transparent rPET bottle score to rPET
-		$ecoscore_data{packaging_materials}{"en:rpet-recycled-polyethylene-terephthalate"}
-			= $ecoscore_data{packaging_materials}{"en:transparent-rpet.en:bottle"};
-		$properties{"packaging_materials"}{"en:rpet-recycled-polyethylene-terephthalate"}{"ecoscore_score:en"}
-			= $ecoscore_data{packaging_materials}{"en:transparent-rpet.en:bottle"}{score};
+		foreach my $assignment_ref (@assignments) {
 
-		$ecoscore_data{packaging_materials}{"en:plastic"} = $ecoscore_data{packaging_materials}{"en:other-plastics"};
-		$properties{"packaging_materials"}{"en:plastic"}{"ecoscore_score:en"}
-			= $ecoscore_data{packaging_materials}{"en:plastic"}{score};
+			# We canonicalize the names given in the assignments, as the taxonomies can change over time, including the canonical names
+			my $target_material = canonicalize_taxonomy_tag("en", "packaging_materials", $assignment_ref->{target_material});
+			my $source_material = canonicalize_taxonomy_tag("en", "packaging_materials", $assignment_ref->{source_material});
+
+			if (not exists_taxonomy_tag("packaging_materials", $target_material)) {
+				die("target_material " . $assignment_ref->{target_material} . " does not exist in the packaging_materials taxonomy");
+			}
+			if (not exists_taxonomy_tag("packaging_materials", $source_material)) {
+				die("source_material " . $assignment_ref->{source_material} . " does not exist in the packaging_materials taxonomy");
+			}
+
+			my $target = $target_material;
+			my $source = $source_material;
+
+			if (defined $assignment_ref->{target_shape}) {
+				my $target_shape = canonicalize_taxonomy_tag("en", "packaging_shapes", $assignment_ref->{target_shape});
+				my $source_shape = canonicalize_taxonomy_tag("en", "packaging_shapes", $assignment_ref->{source_shape});
+
+				if (not exists_taxonomy_tag("packaging_shapes", $target_shape)) {
+					die("target_shape "  . $assignment_ref->{target_shape} . " does not exist in the packaging_shapes taxonomy");
+				}
+				if (not exists_taxonomy_tag("packaging_shapes", $source_shape)) {
+					die("source_shape " . $assignment_ref->{source_shape} . " does not exist in the packaging_shapes taxonomy");
+				}
+
+				$target .= '.' . $target_shape;
+				$source .= '.' . $source_shape;
+			}
+
+			$ecoscore_data{packaging_materials}{$target} = $ecoscore_data{packaging_materials}{$source};
+			$properties{packaging_materials}{$target}{"ecoscore_score:en"} = $ecoscore_data{packaging_materials}{$source}{"score"};
+		}
 	}
 	else {
 		die("Could not open ecoscore materials CSV $csv_file: $!");
