@@ -245,14 +245,12 @@ sub add_sorted_entries_to_tags ($tags_ref, $seen_tags_ref, $entries_ref, $tagtyp
 	return;
 }
 
-
 # Match the normalized form of a tag synonym to the normalized input of an user
 
-sub match_stringids($stringid, $fuzzystringid, $synonymid) {
+sub match_stringids ($stringid, $fuzzystringid, $synonymid) {
 
-$log->debug("match string ids",
-		{stringid => $stringid, fuzzystringid=>$fuzzystringid, synonymid=>$synonymid})
-		if $log->is_debug();	
+	$log->debug("match string ids", {stringid => $stringid, fuzzystringid => $fuzzystringid, synonymid => $synonymid})
+		if $log->is_debug();
 
 	# matching at start, best matches
 	if ($synonymid =~ /^$stringid/) {
@@ -266,13 +264,13 @@ $log->debug("match string ids",
 	elsif ($synonymid =~ /$fuzzystringid/) {
 		return "fuzzy";
 	}
-	
+
 	return "none";
 }
 
 # best_match is used to see how well matches the best matching synonym
 
-sub best_match($stringid, $fuzzystringid, $synonyms_ids_ref) {
+sub best_match ($stringid, $fuzzystringid, $synonyms_ids_ref) {
 
 	my $best_match = "none";
 
@@ -283,13 +281,13 @@ sub best_match($stringid, $fuzzystringid, $synonyms_ids_ref) {
 			return "start";
 		}
 		elsif (($match eq "inside")
-			or (($match eq "fuzzy") and ($best_match eq "none"))) {
+			or (($match eq "fuzzy") and ($best_match eq "none")))
+		{
 			$best_match = $match;
 		}
 	}
 	return $best_match;
 }
-
 
 =head2 filter_suggestions_matching_string ($tags_ref, $tagtype, $search_lc, $string, $options_ref)
 
@@ -380,22 +378,28 @@ sub filter_suggestions_matching_string ($tags_ref, $tagtype, $search_lc, $string
 			next if defined $just_synonyms{$tagtype}{$canon_tagid};
 
 			# We will match synonyms in the search language, and in the wildcard xx: language
-			my $tag = display_taxonomy_tag ($search_lc, $tagtype, $canon_tagid);
-			my $tag_xx = display_taxonomy_tag ("xx", $tagtype, $canon_tagid);
+			my $tag = display_taxonomy_tag($search_lc, $tagtype, $canon_tagid);
+			my $tag_xx = display_taxonomy_tag("xx", $tagtype, $canon_tagid);
 
 			# Build a list of normalized synonyms in the search language and the wildcard xx: language
-			my @synonyms_ids = map { get_string_id_for_lang($search_lc, $_) }
-				(
-					@{deep_get(\%synonyms_for, $tagtype, $search_lc, get_string_id_for_lang($search_lc, $tag)) || []},
-					@{deep_get(\%synonyms_for, $tagtype, "xx", get_string_id_for_lang("xx", $tag_xx)) || []}
-				);
+			my @synonyms_ids = map {get_string_id_for_lang($search_lc, $_)} (
+				@{deep_get(\%synonyms_for, $tagtype, $search_lc, get_string_id_for_lang($search_lc, $tag)) || []},
+				@{deep_get(\%synonyms_for, $tagtype, "xx", get_string_id_for_lang("xx", $tag_xx)) || []}
+			);
 
 			# check how well the synonyms match the input string
 			my $best_match = best_match($stringid, $fuzzystringid, \@synonyms_ids);
 
-			$log->debug("synonyms_ids for canon_tagid",
-				{tagtype => $tagtype, canon_tagid=>$canon_tagid, tag=>$tag, synonym_ids=>\@synonyms_ids, best_match => $best_match})
-				if $log->is_debug();			
+			$log->debug(
+				"synonyms_ids for canon_tagid",
+				{
+					tagtype => $tagtype,
+					canon_tagid => $canon_tagid,
+					tag => $tag,
+					synonym_ids => \@synonyms_ids,
+					best_match => $best_match
+				}
+			) if $log->is_debug();
 
 			# matching at start, best matches
 			if ($best_match eq "start") {
@@ -411,7 +415,7 @@ sub filter_suggestions_matching_string ($tags_ref, $tagtype, $search_lc, $string
 			# fuzzy match
 			elsif ($best_match eq "fuzzy") {
 				push @suggestions_f, $tag;
-			}	
+			}
 		}
 	}
 
