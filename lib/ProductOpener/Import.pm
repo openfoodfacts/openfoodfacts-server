@@ -999,6 +999,8 @@ sub import_nutrients (
 			}
 		}
 	}
+
+	return;
 }
 
 sub set_nutrition_data_per_fields ($args_ref, $imported_product_ref, $product_ref, $stats_ref, $modified_ref) {
@@ -1101,6 +1103,8 @@ sub set_nutrition_data_per_fields ($args_ref, $imported_product_ref, $product_re
 			}
 		}
 	}
+
+	return;
 }
 
 =head2 import_csv_file ( ARGUMENTS )
