@@ -52,6 +52,9 @@ BEGIN {
 		$events_username
 		$events_password
 
+		$facets_kp_url
+		$redis_url
+
 		$mongodb
 		$mongodb_host
 		$mongodb_timeout_ms
@@ -85,6 +88,7 @@ BEGIN {
 
 		@edit_rules
 
+		$build_cache_repo
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -351,9 +355,17 @@ $events_url = $ProductOpener::Config2::events_url;
 $events_username = $ProductOpener::Config2::events_username;
 $events_password = $ProductOpener::Config2::events_password;
 
+# Redis is used to push updates to the search server
+$redis_url = $ProductOpener::Config2::redis_url;
+
+# Facets knowledge panels url
+$facets_kp_url = $ProductOpener::Config2::facets_kp_url;
+
 # server options
 
 %server_options = %ProductOpener::Config2::server_options;
+
+$build_cache_repo = $ProductOpener::Config2::build_cache_repo;
 
 $reference_timezone = 'Europe/Paris';
 
@@ -553,15 +565,55 @@ $options{categories_exempted_from_nutrient_levels} = [
 # fields for which we will load taxonomies
 # note: taxonomies that are used as properties of other taxonomies must be loaded first
 # (e.g. additives_classes are referenced in additives)
+# Below is a list of all of the taxonomies with other taxonomies that reference them
+# If there are entries in () these are other taxonomies that are combined into this one
+#
+# additives
+# additives_classes: additives, minerals
+# allergens: ingredients, traces
+# amino_acids
+# categories
+# countries:
+# data_quality
+# data_quality_bugs (data_quality)
+# data_quality_errors (data_quality)
+# data_quality_errors_producers (data_quality)
+# data_quality_info (data_quality)
+# data_quality_warnings (data_quality)
+# data_quality_warnings_producers (data_quality)
+# food_groups: categories
+# improvements
+# ingredients_analysis
+# ingredients_processing:
+# ingredients (additives_classes, additives, minerals, vitamins, nucleotides, other_nutritional_substances): labels
+# labels: categories
+# languages:
+# minerals
+# misc
+# nova_groups
+# nucleotides
+# nutrient_levels
+# nutrients
+# origins (countries): categories, ingredients, labels
+# other_nutritional_substances
+# packaging_materials: packaging_recycling, packaging_shapes
+# packaging_recycling
+# packaging_shapes: packaging_materials, packaging_recycling
+# packaging (packaging_materials, packaging_shapes, packaging_recycling, preservation): labels
+# periods_after_opening:
+# states:
+# traces (allergens)
+# vitamins
 
 @taxonomy_fields = qw(
-	states countries languages labels categories food_groups
-	ingredients ingredients_processing
-	additives_classes additives vitamins minerals amino_acids nucleotides other_nutritional_substances allergens traces
-	origins
+	languages states countries
+	allergens origins additives_classes ingredients
+	packaging_shapes packaging_materials packaging_recycling packaging
+	labels food_groups categories
+	ingredients_processing
+	additives vitamins minerals amino_acids nucleotides other_nutritional_substances traces
 	ingredients_analysis
 	nutrients nutrient_levels misc nova_groups
-	packaging packaging_shapes packaging_materials packaging_recycling
 	periods_after_opening
 	data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors data_quality_warnings_producers data_quality_errors_producers
 	improvements

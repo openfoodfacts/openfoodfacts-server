@@ -47,10 +47,12 @@ BEGIN {
 		$crowdin_project_key
 		$robotoff_url
 		$events_url
+		$facets_kp_url
 		$events_username
 		$events_password
 		$redis_url
 		%server_options
+		$build_cache_repo
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -106,6 +108,10 @@ $events_url = $ENV{EVENTS_URL};
 $events_username = $ENV{EVENTS_USERNAME};
 $events_password = $ENV{EVENTS_PASSWORD};
 
+# Set this to your instance of https://github.com/openfoodfacts/facets-knowledge-panels
+# Inject facet knowledge panels
+$facets_kp_url = $ENV{FACETS_KP_URL};
+
 # Set this to your instance of the search service to enable writes to it
 $redis_url = $ENV{REDIS_URL};
 
@@ -123,4 +129,7 @@ $redis_url = $ENV{REDIS_URL};
 	# this one does not seems to be used
 	minion_admin_server_and_port => "http://0.0.0.0:3003",
 );
+
+$build_cache_repo = $ENV{BUILD_CACHE_REPO};
+
 1;

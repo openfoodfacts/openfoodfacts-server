@@ -94,14 +94,12 @@
 										<option></option>
 									</select>
 								</li>
-                				[% IF langs.match('<a>') %]
-									<li class="has-dropdown">
-										[% selected_lang %]
-										<ul class="dropdown">
-											[% langs %]
-										</ul>
-									</li>
-								[% END %]
+								<li class="has-dropdown">
+									[% selected_lang %]
+									<ul class="dropdown">
+										[% langs %]
+									</ul>
+								</li>
 							</ul>
 						</li>
 					</ul>
@@ -273,8 +271,14 @@
 				<div class="main block_light">
 					<div id="main_column">
 						[% IF ! server_options_producers_platform %]
-          					[% PROCESS 'web/common/includes/donate_banner.tt.html' %]
-							[% banner_main %]
+							[%# for now, display the packagings banner in all cases %]
+							[% IF 1 == 1 %]
+								[% INCLUDE 'web/common/includes/packagings_banner.tt.html' %]
+							[% ELSE %]
+								[%# we keep the old code so that we can easily put back the donation banner %]
+          						[% PROCESS 'web/common/includes/donate_banner.tt.html' %]
+								[% banner_main %]
+							[% END %]
 						[% END %]
             			
 						[% IF page_format == "banner" %]
@@ -286,17 +290,7 @@
 								<div itemscope itemtype="[% schema_org_itemtype %]">
 									<div class="row">
 										<div class="small-12 column v-space-short">
-											<h1 itemprop="name">[% title %]
-												<sup>
-													[% IF request.tagtype == "categories" %]
-													<a class="button tiny round secondary label" href="https://hunger.openfoodfacts.org/questions?type=category&amp;value_tag=[% request.canon_tagid %]">[% f_lang('f_help_categorize_on_hunger_games', { title => lang('categories').lcfirst } ) %]</a>
-													[% ELSIF request.tagtype == "labels" %]
-													<a class="button tiny round secondary label" href="https://hunger.openfoodfacts.org/questions?type=labels&amp;value_tag=[% canonicalize_taxonomy_tag_link("labels", title) %]">[% f_lang('f_help_categorize_on_hunger_games', { title => lang('labels').lcfirst } ) %]</a>
-													[% ELSIF request.tagtype == "brands" %]
-													<a class="button tiny round secondary label" href="https://hunger.openfoodfacts.org/questions?type=brands&amp;value_tag=[% canonicalize_taxonomy_tag_link("brands", title) %]">[% f_lang('f_help_categorize_on_hunger_games', { title => lang('brands').lcfirst } ) %]</a>
-													[% END %]
-												</sup>
-											</h1>
+											<h1 itemprop="name">[% title %]</h1>
 										</div>
 									</div>
 								  [% content %]

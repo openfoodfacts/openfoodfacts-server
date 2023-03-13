@@ -15,6 +15,7 @@ x-backend-conf: &backend-conf
     - POSTGRES_PASSWORD
     - ROBOTOFF_URL
     - EVENTS_URL
+    - FACETS_KP_URL
     - EVENTS_USERNAME
     - EVENTS_PASSWORD
     - REDIS_URL
@@ -25,6 +26,7 @@ x-backend-conf: &backend-conf
     - LOG_LEVEL_ROOT
     - LOG_LEVEL_MONGODB
     - INFLUXDB_HOST
+    - BUILD_CACHE_REPO
   depends_on:
     - memcached
   volumes:

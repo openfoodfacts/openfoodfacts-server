@@ -3986,12 +3986,24 @@ HTML
 		if (not defined $request_ref->{groupby_tagtype}) {
 
 			# Pass template data to generate navigation links
+			# These are variables that ae used to inject data
+			# Used in tag.tt.html
+			#-------------------------------------------------------
+			# Results of these variables based for category/en:snacks
+			#---- tagtype would return-> categories -----
+			#---- tagtype_path would return-> /categories -----
+			#---- tagtype_name would return-> category -----
+			#---- tagid would return-> en:snacks -----
+			#---- tagid_path would return-> /category/snacks -----
+			#---- tag_name would return-> Snacks -----
+
 			$tag_template_data_ref->{tagtype} = $tagtype;
 			$tag_template_data_ref->{tagtype_path} = '/' . $tag_type_plural{$tagtype}{$lc};
 			$tag_template_data_ref->{tagtype_name} = lang($tagtype . '_s');
 			$tag_template_data_ref->{tagid} = $tagid;
 			$tag_template_data_ref->{tagid_path} = $newtagidpath;
 			$tag_template_data_ref->{tag_name} = $display_tag;
+			$tag_template_data_ref->{canon_tagid} = $canon_tagid // $tagid;
 
 			if (defined $tagid2) {
 				$tag_template_data_ref->{tagtype2} = $tagtype2;
@@ -4000,6 +4012,7 @@ HTML
 				$tag_template_data_ref->{tagid2} = $tagid2;
 				$tag_template_data_ref->{tagid2_path} = $newtagid2path;
 				$tag_template_data_ref->{tag2_name} = $display_tag2;
+				$tag_template_data_ref->{canon_tagid2} = $canon_tagid2 // $tagid2;
 			}
 			else {
 
@@ -4033,6 +4046,8 @@ HTML
 	}    # end of if (defined $tagtype)
 
 	$tag_template_data_ref->{country} = $country;
+	$tag_template_data_ref->{country_code} = $cc;
+	$tag_template_data_ref->{facets_kp_url} = $facets_kp_url;
 
 	if ($country ne 'en:world') {
 
@@ -4138,7 +4153,7 @@ HTML
 			$query_ref->{$field} = $tag2_is_negative ? {"\$ne" => $value} : $value;
 		}
 	}
-
+	# Rendering Page tags
 	my $tag_html;
 	process_template('web/pages/tag/tag.tt.html', $tag_template_data_ref, \$tag_html)
 		or $tag_html = "<p>tag.tt.html template error: " . $tt->error() . "</p>";
