@@ -100,7 +100,8 @@ pt:Plástico reciclado
 
 # Plastics:
 # use the following conventions for plastic:
-# in each language, for the main name, use "abbreviation + name", and put the name as the first synonym
+# in each language, for the main name, use "abbreviation + resin code + ' - ' + name"
+# + abbreviation + name, and name as synonyms
 # all abbreviations, symbols etc. go in the xx: entry, and do not need to be added to the translations in other languages
 # (unless the abbreviation is different: e.g. "PEBD" = "Polyéthylène basse densité" in French instead of PELD)
 
@@ -186,10 +187,10 @@ nl:PET ondoorzichtig, Ondoorzichtig PET
 pt:PET opaco
 
 <en:Plastic
-en:PE - 7 - Polyethylene, PE - Polyethylene, Polyethylene
-de:PE - 7 - Polyethylen, PE - Polyethylen, Polyethylen
-fr:PE - 7 - Polyéthylène, PE - Polyéthylène, Polyéthylène
-hr:PE - 7 - Polietilen, PE - Polietilen, Polietilen
+en:PE 7 - Polyethylene, PE - Polyethylene, Polyethylene
+de:PE 7 - Polyethylen, PE - Polyethylen, Polyethylen
+fr:PE 7 - Polyéthylène, PE - Polyéthylène, Polyéthylène
+hr:PE 7 - Polietilen, PE - Polietilen, Polietilen
 xx:PE, 07 PE, PE 07, 07PE, PE07, 7 PE, PE 7, 7PE, PE7
 wikidata:en:Q143429
 
@@ -203,16 +204,16 @@ xx:Bio-PE
 
 <en:Plastic
 <xx:PE
-en:HDPE - 2 - High-density polyethylene, HDPE - High-density polyethylene, High-density polyethylene
+en:HDPE 2 - High-density polyethylene, HDPE - High-density polyethylene, High-density polyethylene
 xx:HDPE, 2 HDPE, HDPE 2, 02 HDPE, HDPE 02, PEHD, 2 PEHD, PEHD 2, 02 PEHD, PEHD 02, HD-PE, 2 HD-PE, HD-PE 2, 02 HD-PE, HD-PE 02, PE-HD, 2 PE-HD, PE-HD 2, 02 PE-HD, PE-HD 02, RC 2, RC 02, RC2, RC02, ♴
-bg:HDPE - 2 - Полиетилен с висока плътност, HDPE - Полиетилен с висока плътност
-de:HDPE - 2 - Polyethylen hoher Dichte, HDPE - Polyethylen hoher Dichte, Polyethylen hoher Dichte
-fr:PEHD - 2 - Polyéthylène haute densité, PEHD - Polyéthylène haute densité, polyéthylène haute densité, HDPE - 2 - Polyéthylène haute densité
-hr:HDPE - 2 - polietilen visoke gustoće, HDPE - polietilen visoke gustoće         
-hu:HDPE - 2 - Nagy sűrűségű polietilén, HDPE - Nagy sűrűségű polietilén, Nagy sűrűségű polietilén
-it:HDPE - 2 - Polietilene ad alta densità, HDPE - Polietilene ad alta densità, Polietilene ad alta densità
-nl:HDPE - 2 - Hogedichtheidpolyetheen, HDPE - Hogedichtheidpolyetheen, Hogedichtheidpolyetheen
-pt:HDPE - 2 - Polietileno de alta densidade, HDPE - Polietileno de alta densidade, Polietileno de alta densidade
+bg:HDPE 2 - Полиетилен с висока плътност, HDPE - Полиетилен с висока плътност
+de:HDPE 2 - Polyethylen hoher Dichte, HDPE - Polyethylen hoher Dichte, Polyethylen hoher Dichte
+fr:PEHD 2 - Polyéthylène haute densité, PEHD - Polyéthylène haute densité, polyéthylène haute densité, HDPE - 2 - Polyéthylène haute densité
+hr:HDPE 2 - polietilen visoke gustoće, HDPE - polietilen visoke gustoće         
+hu:HDPE 2 - Nagy sűrűségű polietilén, HDPE - Nagy sűrűségű polietilén, Nagy sűrűségű polietilén
+it:HDPE 2 - Polietilene ad alta densità, HDPE - Polietilene ad alta densità, Polietilene ad alta densità
+nl:HDPE 2 - Hogedichtheidpolyetheen, HDPE - Hogedichtheidpolyetheen, Hogedichtheidpolyetheen
+pt:HDPE 2 - Polietileno de alta densidade, HDPE - Polietileno de alta densidade, Polietileno de alta densidade
 wikidata:en:Q2641430
 non_recyclable_and_non_biodegradable:en:no
 
@@ -226,31 +227,31 @@ pt:Bioplástico PEHD
 xx:Bio-HDPE
 
 <en:Plastic
-en:PVC - Polyvinyl chloride, Polyvinyl chloride
+en:PVC 3 - Polyvinyl chloride, PVC - Polyvinyl chloride, Polyvinyl chloride
 xx:PVC, 3 PVC, PVC 3, 03 PVC, PVC 03, 7 V, V 7, ♵
-bg:PVC - Поливинил хлорид
-de:PVC - Polyvinylchlorid, Polyvinylchlorid
-fr:PVC - Polychlorure de vinyle, Polychlorure de vinyle, chlorure de polyvinyle
-hr:PVC - polivinil-klorid, polivinilklorid
-hu:PVC - Polivinil-klorid, Polivinil-klorid, polivinilklorid, polivinil klorid
-it:PVC - Cloruro di polivinile, polivinilcloruro
-nl:PVC - Polyvinylchloride, polychlooretheen
-pt:PVC - Policloreto de vinil, Policloreto de vinil
+bg:PVC 3 - Поливинил хлорид, PVC - Поливинил хлорид
+de:PVC 3 - Polyvinylchlorid, PVC - Polyvinylchlorid, Polyvinylchlorid
+fr:PVC 3 - Polychlorure de vinyle, PVC - Polychlorure de vinyle, Polychlorure de vinyle, chlorure de polyvinyle
+hr:PVC 3 - polivinil-klorid, PVC - polivinil-klorid, polivinilklorid
+hu:PVC 3 - Polivinil-klorid, PVC - Polivinil-klorid, Polivinil-klorid, polivinilklorid, polivinil klorid
+it:PVC 3 - Cloruro di polivinile, PVC - Cloruro di polivinile, polivinilcloruro
+nl:PVC 3 - Polyvinylchloride, PVC - Polyvinylchloride, polychlooretheen
+pt:PVC 3 - Policloreto de vinil, PVC - Policloreto de vinil, Policloreto de vinil
 ru:ПВХ, Поливинилхлорид
 wikidata:en:Q146368
 
 <en:Plastic
 <xx:PE
-en:LDPE - Low-density polyethylene, Low-density polyethylene
+en:LDPE 4 - Low-density polyethylene, LDPE - Low-density polyethylene, Low-density polyethylene
 xx:LDPE, 4 LDPE, LDPE 4, 04 LDPE, LDPE 04, PELD, 4 PELD, PELD 4, 04 PELD, PELD 04, LD-PE, 4 LD-PE, LD-PE 4, 04 LD-PE, LD-PE 04, PE-LD, 4 PE-LD, PE-LD 4, 04 PE-LD, PE-LD 04, ♶
-bg:LDPE - Полиетилен с ниска плътност
-de:LDPE - Polyethylen niedriger Dichte, Polyethylen niedriger Dichte
-fr:PEBD - Polyéthylène basse densité, polyéthylène basse densité, PEBD
-hr:LDPE - polietilen niske gustoće
-hu:LDPE - Kis sűrűségű polietilén, Kis sűrűségű polietilén
+bg:LDPE 4 - Полиетилен с ниска плътност, LDPE - Полиетилен с ниска плътност
+de:LDPE 4 - Polyethylen niedriger Dichte, LDPE - Polyethylen niedriger Dichte, Polyethylen niedriger Dichte
+fr:PEBD 4 - Polyéthylène basse densité, PEBD - Polyéthylène basse densité, polyéthylène basse densité, PEBD, PE-BD
+hr:LDPE 4 - polietilen niske gustoće, LDPE - polietilen niske gustoće
+hu:LDPE 4 - Kis sűrűségű polietilén, LDPE - Kis sűrűségű polietilén, Kis sűrűségű polietilén
 it:Polietilene a bassa densità
-nl:LDPE - Lagedichtheidpolyetheen, lagedichtheidpolyetheen
-pt:LDPE - Polietileno de baixa densidade, Polietileno de baixa densidade
+nl:LDPE 4 - Lagedichtheidpolyetheen, LDPE - Lagedichtheidpolyetheen, lagedichtheidpolyetheen
+pt:LDPE 4 - Polietileno de baixa densidade, LDPE - Polietileno de baixa densidade, Polietileno de baixa densidade
 wikidata:en:Q2033818
 non_recyclable_and_non_biodegradable:en:no
 
@@ -264,16 +265,16 @@ pt:Bioplástico PELD
 xx:Bio-LDPE
 
 <en:Plastic
-en:PP - Polypropylene, Polypropylene
+en:PP 5 - Polypropylene, PP - Polypropylene, Polypropylene
 xx:PP, 5 PP, PP 5, PP 05, 05 PP, ♷
-bg:PP - Полипропилен
-de:PP - Polypropylen, Polypropylen
-fr:PP - Polypropylène, Polypropylène, polypropène
-hr:PP - polipropilen
-hu:PP - Polipropilén, Polipropilén
-it:Polipropilene, polipropene
-nl:PP - Polypropeen, Polypropeen, polypropyleen
-pt:PP - Polipropileno, Polipropileno
+bg:PP 5 - Полипропилен, PP - Полипропилен
+de:PP 5 - Polypropylen, PP - Polypropylen, Polypropylen
+fr:PP 5 - Polypropylène, PP - Polypropylène, Polypropylène, polypropène
+hr:PP 5 - polipropilen, PP - polipropilen, polipropilen
+hu:PP 5 - Polipropilén, PP - Polipropilén, Polipropilén
+it:PP 5 - Polipropilene, PP - Polipropilene, Polipropilene, polipropene
+nl:PP 5 - Polypropeen, PP - Polypropeen, Polypropeen, polypropyleen
+pt:PP 5 - Polipropileno, PP - Polipropileno, Polipropileno
 ru:Полипропилен
 wikidata:en:Q146174
 non_recyclable_and_non_biodegradable:en:no
@@ -291,32 +292,32 @@ fr:OPP - PolyPropylène Orienté, PolyPropylène Orienté
 xx:OPP, PP-O, 05 OPP, OPP 05, 5 OPP, OPP 5, 05OPP, OPP05, 5OPP, OPP5, 05 PP-O, PP-O 05, 5 PP-O, PP-O 5, 05PP-O, PP-O05, 5PP-O, PP-O5
 
 <en:Plastic
-en:PS - Polystyrene, Polystyrene
-bg:PS - Полистирен
-de:PS - Polystyrol, Polystyrol
-fr:PS - Polystyrène, Polystyrène
-hr:PS - polistiren
-hu:PS - Polisztirol, Polisztirol
-it:PS - Polistirene, polistirolo
-nl:PS - Polystyreen, Polystyreen
-pt:PS - Poliestireno, Poliestireno
-ru:PS - Полистирол, Полистирол
+en:PS 6 - Polystyrene, PS - Polystyrene, Polystyrene
 xx:PS, 6 PS, PS 6, 06 PS, PS 06, ♸
+bg:PS 6 - Полистирен, PS - Полистирен, Полистирен
+de:PS 6 - Polystyrol, PS - Polystyrol, Polystyrol
+fr:PS 6 - Polystyrène, PS - Polystyrène, Polystyrène
+hr:PS 6 - polistiren, PS - polistiren, Polistiren
+hu:PS 6 - Polisztirol, PS - Polisztirol, Polisztirol
+it:PS 6 - Polistirene, PS - Polistirene, Polistirolo
+nl:PS 6 - Polystyreen, PS - Polystyreen, Polystyreen
+pt:PS 6 - Poliestireno, PS - Poliestireno, Poliestireno
+ru:PS 6 - Полистирол, PS - Полистирол, Полистирол
 wikidata:en:Q146243
 
 <en:Plastic
-en:Other plastics, All other plastics, other plastic
-bg:Други пластмаси
-da:Anden plast
-de:Andere Kunststoffe
-fr:Autres plastiques, autre plastique
-hr:O - ostali polimerni materijali
-hu:Egyéb műanyag, Más műanyag, Minden más műanyag
-it:Altre plastiche
-nl:Andere plastics
-pl:07 inne
-pt:Outros plásticos, Todos os outros plásticos, outro plástico
-ru:Другие пластики, Другие пластмассы
+en:O 7 - Other plastics, O - Other plastics, Other plastics, All other plastics, other plastic
+bg:O 7 - Други пластмаси, O - Други пластмаси, Други пластмаси
+da:O 7 - Anden plast, O - Anden plast, Anden plast
+de:O 7 - Andere Kunststoffe, O - Andere Kunststoffe, Andere Kunststoffe
+fr:O 7 - Autres plastiques, O - Autres plastiques, Autres plastiques, autre plastique
+hr:O 7 - ostali polimerni materijali, O - ostali polimerni materijali, ostali polimerni materijali
+hu:O 7 - Egyéb műanyag, O - Egyéb műanyag, Egyéb műanyag, Más műanyag, Minden más műanyag
+it:O 7 - Altre plastiche, O - Altre plastiche, Altre plastiche
+nl:O 7 - Andere plastics, O - Andere plastics, Andere plastics
+pl:O 7 - Inne, O - Inne, Inne
+pt:O 7 - Outros plásticos, O - Outros plásticos, Outros plásticos, Todos os outros plásticos, outro plástico
+ru:O 7 - Другие пластики, O - Другие пластики, Другие пластики, Другие пластмассы
 xx:07 OTHER, OTHER 07, 7 OTHER, OTHER 7, 07 O, O 07, 7 O, O 7, ♹
 non_recyclable_and_non_biodegradable:en:yes
 
