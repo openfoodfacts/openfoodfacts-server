@@ -40,32 +40,37 @@ jobs:
         run: |
           perl -CS -I lib scripts/generate_perl_html_doc_from_pod.pl && \
           # and copy to target directory
-          rm -rf gh_pages/reference/perl-pod && \
-          mv html/files/doc/perl gh_pages/reference/perl-pod
+          rm -rf gh_pages/dev/ref-perl-pod && \
+          mv html/files/doc/perl gh_pages/dev/ref-perl-pod
 
+      # DISABLED: in favor of rapidoc
       # generating OpenAPI documentation with redocly
       # we do this after mkdocs to overwrite api.html file
       # - name: Generate openapi html with ghcr.io/redocly/redoc/cli:latest
       #   run : |
       #     docker run --rm \
-      #       -v $(pwd)/docs/reference:/data -v $(pwd)/gh_pages/:/output \
+      #       -v $(pwd)/docs/api/ref:/data -v $(pwd)/gh_pages/:/output \
       #       ghcr.io/redocly/redoc/cli:latest \
-      #       build -o /output/reference/api/index.html api.yml && \
+      #       build -o /output/api/ref-v2/index.html api.yml && \
       #     sudo chown $UID -R gh_pages
 
       # - name: Generate openapi html for v3 with ghcr.io/redocly/redoc/cli:latest
       #   run : |
       #     docker run --rm \
-      #       -v $(pwd)/docs/reference:/data -v $(pwd)/gh_pages/:/output \
+      #       -v $(pwd)/docs/api/ref:/data -v $(pwd)/gh_pages/:/output \
       #       ghcr.io/redocly/redoc/cli:latest \
-      #       build -o /output/reference/api-v3/index.html api-v3.yml && \
+      #       build -o /output/api/ref-v3/index.html api-v3.yml && \
       #     sudo chown $UID -R gh_pages
 
-      - name: Validate OpenAPI
-        run: |
-          docker run --rm \
-          -v ${PWD}:/local openapitools/openapi-generator-cli validate \
-          -i /local/docs/reference/api.yml \
+      # Disabled by alex on 2023-03-09 because of a false positive Error:
+      # "attribute .Product. is not of type `object` (../schemas/product.yaml#/Product)"
+      # because of legit `$ref: ../schemas/product.yaml#/Product` in `get_product_by_barcode.yaml`
+      #
+      # - name: Validate OpenAPI
+      #   run: |
+      #     docker run --rm \
+      #     -v ${PWD}:/local openapitools/openapi-generator-cli validate \
+      #     -i /local/docs/reference/api.yml \
 
       # generate OpenAPI documentation with rapidoc
       # we do this after mkdocs to overwrite api.html file
@@ -73,11 +78,11 @@ jobs:
         # this is a simple copy of the html file as all is static there
         run : |
           # v2 api
-          cp docs/assets/api-rapidoc.html gh_pages/reference/api/index.html
+          cp docs/assets/api-rapidoc.html gh_pages/api/ref-v2/index.html
           # v3 api - change yaml and link to api-v3
           cat docs/assets/api-rapidoc.html | \
-            sed -e "s/api.yml/api-v3.yml/" -e 's|api-v3/">API v3|api/">API v2|' \
-            > gh_pages/reference/api-v3/index.html
+            sed -e "s/api.yml/api-v3.yml/" -e 's|ref-v3/">API v3|ref-v2/">API v2|' \
+            > gh_pages/api/ref-v3/index.html
 
 
       - name: Deploy API documentation to Github Pages
