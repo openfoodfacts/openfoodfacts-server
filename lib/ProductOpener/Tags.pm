@@ -1018,7 +1018,13 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					# print STDERR "taxonomy - translation_from{$tagtype}{$lc:$lc_tagid} = $canon_tagid \n";
 				}
 				# check that we have same canon_tagid as before
-				elsif ($translations_from{$tagtype}{"$lc:$lc_tagid"} ne $canon_tagid) {
+				elsif (
+					$translations_from{$tagtype}{"$lc:$lc_tagid"} ne $canon_tagid
+					# exception for packaging taxonomy that is a merge between shapes and materials
+					# and may lead to such problems
+					and (not($tagtype =~ /^packaging(|_prev|_next|_debug)$/))
+					)
+				{
 					# issue an error message and continue
 					my $msg
 						= "$lc:$lc_tagid already is associated to "
