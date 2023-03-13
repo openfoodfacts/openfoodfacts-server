@@ -1018,13 +1018,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					# print STDERR "taxonomy - translation_from{$tagtype}{$lc:$lc_tagid} = $canon_tagid \n";
 				}
 				# check that we have same canon_tagid as before
-				elsif (
-					$translations_from{$tagtype}{"$lc:$lc_tagid"} ne $canon_tagid
-					# exception for packaging taxonomy that is a merge between shapes and materials
-					# and may lead to such problems
-					and (not($tagtype =~ /^packaging(|_prev|_next|_debug)$/))
-					)
-				{
+				elsif ($translations_from{$tagtype}{"$lc:$lc_tagid"} ne $canon_tagid) {
 					# issue an error message and continue
 					my $msg
 						= "$lc:$lc_tagid already is associated to "
@@ -1092,8 +1086,13 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			print STDERR "Errors in the $tagtype taxonomy definition:\n";
 			print STDERR $errors;
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
+			# Disable die for the packaging taxonomy as some legit material and shape might have same name
 			# Temporarily (hopefully) disable die for the categories taxonomy, to give time to fix issues
-			unless (($tagtype eq "ingredients") or ($tagtype eq "categories")) {
+			unless (($tagtype eq "ingredients")
+				or ($tagtype eq "packaging")
+				or ($tagtype eq "categories")
+				or ($tagtype eq "packaging"))
+			{
 				die("Errors in the $tagtype taxonomy definition");
 			}
 		}
@@ -1724,9 +1723,10 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			print STDERR "Errors in the $tagtype taxonomy definition:\n";
 			print STDERR $errors;
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
+			# Disable also for packaging taxonomy for some shapes and materials shares same names
 			# Also temporarily disable die for the categories taxonomy, to give use time to fix it.
 			# Tracking bug: https://github.com/openfoodfacts/openfoodfacts-server/issues/6382
-			unless (($tagtype eq "ingredients") or ($tagtype eq "categories")) {
+			unless (($tagtype eq "ingredients") or ($tagtype eq "packaging") or ($tagtype eq "categories")) {
 				die("Errors in the $tagtype taxonomy definition");
 			}
 		}
@@ -3032,7 +3032,7 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag) {
 		$tagid =~ s/^e(\d.*?)-(.*)$/e$1/i;
 	}
 
-	if (($tagtype eq "ingredients") or ($tagtype =~ /^additives/)) {
+	if (($tagtype eq "ingredients") or ($tagtype eq "packaging") or ($tagtype =~ /^additives/)) {
 		# convert E-number + name to E-number only if the number match the name
 		my $additive_tagid;
 		my $name;

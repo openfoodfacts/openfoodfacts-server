@@ -463,7 +463,7 @@ description:pt:O polietileno de alta densidade (PEAD) é feito de polietileno ex
 <xx:Bio-PE
 en:bioHDPE - Biobased HDPE, Biobased PE-HD
 de:bioHDPE - Biobasiertes HDPE, Biobasiertes PE-HD
-fr:bioHDPE - PEHD biosourcé, HDPE biosourcé
+fr:bioHDPE - PEHD biosourcé, PEHD biosourcé, HDPE biosourcé
 hu:bioHDPE - Biobázisú HDPE
 nl:bioHDPE - Biologische HDPE
 pt:bioHDPE - Bioplástico PEHD
@@ -2626,11 +2626,11 @@ wikidata:en:Q659200
 web:en:https://www.tetrapak.com
 description:en:Producer of packaging for wet (mainly liquid) foods
 
-#<en:Tetra Pak
-#en:Biobased Tetra Pak
-#de:Biobasiertes Tetra Pak, Biobasiertes Tetrapak
-#fr:Tetra Pak biosourcé, Brique type Tetra Pak biosourcé
-#This not a product line
+# This not a real product line but we need it for eco-score
+<en:Tetra Pak
+en:Biobased Tetra Pak
+de:Biobasiertes Tetra Pak, Biobasiertes Tetrapak
+fr:Tetra Pak biosourcé, Brique type Tetra Pak biosourcé
 
 <en:Tetra Pak
 en:Tetra Brik
