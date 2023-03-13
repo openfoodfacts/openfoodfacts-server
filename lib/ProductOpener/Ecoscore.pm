@@ -497,20 +497,26 @@ sub load_ecoscore_data_packaging() {
 			{
 				target_material => "plastic",
 				source_material => "other plastics"
-			},								
+			},
 		);
 
 		foreach my $assignment_ref (@assignments) {
 
 			# We canonicalize the names given in the assignments, as the taxonomies can change over time, including the canonical names
-			my $target_material = canonicalize_taxonomy_tag("en", "packaging_materials", $assignment_ref->{target_material});
-			my $source_material = canonicalize_taxonomy_tag("en", "packaging_materials", $assignment_ref->{source_material});
+			my $target_material
+				= canonicalize_taxonomy_tag("en", "packaging_materials", $assignment_ref->{target_material});
+			my $source_material
+				= canonicalize_taxonomy_tag("en", "packaging_materials", $assignment_ref->{source_material});
 
 			if (not exists_taxonomy_tag("packaging_materials", $target_material)) {
-				die("target_material " . $assignment_ref->{target_material} . " does not exist in the packaging_materials taxonomy");
+				die(      "target_material "
+						. $assignment_ref->{target_material}
+						. " does not exist in the packaging_materials taxonomy");
 			}
 			if (not exists_taxonomy_tag("packaging_materials", $source_material)) {
-				die("source_material " . $assignment_ref->{source_material} . " does not exist in the packaging_materials taxonomy");
+				die(      "source_material "
+						. $assignment_ref->{source_material}
+						. " does not exist in the packaging_materials taxonomy");
 			}
 
 			my $target = $target_material;
@@ -521,10 +527,14 @@ sub load_ecoscore_data_packaging() {
 				my $source_shape = canonicalize_taxonomy_tag("en", "packaging_shapes", $assignment_ref->{source_shape});
 
 				if (not exists_taxonomy_tag("packaging_shapes", $target_shape)) {
-					die("target_shape "  . $assignment_ref->{target_shape} . " does not exist in the packaging_shapes taxonomy");
+					die(      "target_shape "
+							. $assignment_ref->{target_shape}
+							. " does not exist in the packaging_shapes taxonomy");
 				}
 				if (not exists_taxonomy_tag("packaging_shapes", $source_shape)) {
-					die("source_shape " . $assignment_ref->{source_shape} . " does not exist in the packaging_shapes taxonomy");
+					die(      "source_shape "
+							. $assignment_ref->{source_shape}
+							. " does not exist in the packaging_shapes taxonomy");
 				}
 
 				$target .= '.' . $target_shape;
@@ -532,7 +542,8 @@ sub load_ecoscore_data_packaging() {
 			}
 
 			$ecoscore_data{packaging_materials}{$target} = $ecoscore_data{packaging_materials}{$source};
-			$properties{packaging_materials}{$target}{"ecoscore_score:en"} = $ecoscore_data{packaging_materials}{$source}{"score"};
+			$properties{packaging_materials}{$target}{"ecoscore_score:en"}
+				= $ecoscore_data{packaging_materials}{$source}{"score"};
 		}
 	}
 	else {
