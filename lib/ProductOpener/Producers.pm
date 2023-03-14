@@ -707,14 +707,20 @@ my %in = (
 
 =head2 init_fields_columns_names_for_lang ( $l )
 
-Populates global $fields_columns_names_for_lang
-for the specified language.
+Populates global $fields_columns_names_for_lang for the specified language.
+
+The function creates a hash of all the possible localized column names
+that we can automatically recognize, and maps them to the corresponding field in OFF.
 
 =head3 Arguments
 
 =head4 $l - required
 
 Language code (string)
+
+=head3 Return value
+
+Reference to the column names hash.
 
 =cut
 
@@ -727,6 +733,7 @@ sub init_fields_columns_names_for_lang ($l) {
 	$fields_columns_names_for_lang{$l} = {};
 
 	init_nutrients_columns_names_for_lang($l);
+	init_packaging_columns_names_for_lang($l);
 	init_other_fields_columns_names_for_lang($l);
 
 	# Other known fields
@@ -745,8 +752,72 @@ sub init_fields_columns_names_for_lang ($l) {
 
 	store("$data_root/debug/fields_columns_names_$l.sto", $fields_columns_names_for_lang{$l});
 
+	return $fields_columns_names_for_lang{$l};
+}
+
+
+# Generate column names for a language field
+
+sub add_language_field_column_names ($l, $field) {
+
+	foreach my $field_l ($l, "en") {
+
+		my @synonyms = ($field, $Lang{$field}{$field_l});
+		if ((defined $fields_synonyms{$field_l}) and (defined $fields_synonyms{$field_l}{$field})) {
+			foreach my $synonym (@{$fields_synonyms{$field_l}{$field}}) {
+				push @synonyms, $synonym;
+			}
+		}
+
+		foreach my $synonym (@synonyms) {
+			$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym)}
+				= {field => $field, lc => $l};
+			$fields_columns_names_for_lang{$l}
+				{get_string_id_for_lang("no_language", $synonym . " " . $l)}
+				= {field => $field, lc => $l};
+			$fields_columns_names_for_lang{$l}
+				{get_string_id_for_lang("no_language", $synonym . " " . $language_codes{$l})}
+				= {field => $field, lc => $l};
+			$fields_columns_names_for_lang{$l}{
+				get_string_id_for_lang("no_language",
+					$synonym . " " . display_taxonomy_tag($field_l, 'languages', $language_codes{$l}))
+			} = {field => $field, lc => $l};
+		}
+	}
+
 	return;
 }
+
+# Create column names for packaging data in a specific language
+
+sub init_packaging_columns_names_for_lang ($l) {
+
+	# Language fields
+
+	foreach my $field ("packaging_text", "recycling_instructions_to_recycle", "recycling_instructions_to_discard") {
+		add_language_field_column_names($l, $field);
+	}
+	
+	# Packaging components
+
+	for (my $i = 1; $i <= 10; $i++) {
+		my $packaging_i = lang("packaging_part_short") . " " . $i . " - ";
+		foreach
+			my $property ("number_of_units", "shape", "material", "recycling", "weight_specified", "quantity_per_unit")
+		{
+			my $name = $packaging_i . lang("packaging_" . $property);
+			my $field = "packaging_${i}_${property}";
+
+			$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $field)} = {field => $field};
+			$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $name)} = {field => $field};
+		}
+	}
+
+	return;
+}
+
+
+# Create column names for all nutrients in a specific language
 
 sub init_nutrients_columns_names_for_lang ($l) {
 
@@ -1065,30 +1136,7 @@ sub init_other_fields_columns_names_for_lang ($l) {
 					# Liste d'ingrédients / Liste d'ingrédients (fr) /
 					# Ingredients list / Ingredients list (fr) / Ingredients list (French) / Ingredients list (français)
 
-					foreach my $field_l ($l, "en") {
-
-						my @synonyms = ($field, $Lang{$field}{$field_l});
-						if ((defined $fields_synonyms{$field_l}) and (defined $fields_synonyms{$field_l}{$field})) {
-							foreach my $synonym (@{$fields_synonyms{$field_l}{$field}}) {
-								push @synonyms, $synonym;
-							}
-						}
-
-						foreach my $synonym (@synonyms) {
-							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym)}
-								= {field => $field, lc => $l};
-							$fields_columns_names_for_lang{$l}
-								{get_string_id_for_lang("no_language", $synonym . " " . $l)}
-								= {field => $field, lc => $l};
-							$fields_columns_names_for_lang{$l}
-								{get_string_id_for_lang("no_language", $synonym . " " . $language_codes{$l})}
-								= {field => $field, lc => $l};
-							$fields_columns_names_for_lang{$l}{
-								get_string_id_for_lang("no_language",
-									$synonym . " " . display_taxonomy_tag($field_l, 'languages', $language_codes{$l}))
-							} = {field => $field, lc => $l};
-						}
-					}
+					add_language_field_column_names($l, $field);
 				}
 				else {
 					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $field)}
@@ -1415,27 +1463,43 @@ sub generate_import_export_columns_groups_for_select2 ($lcs_ref) {    # array of
 			"identification",
 			[
 				"code", "producer_product_id",
-				"producer_version_id", "lang",
-				"product_name", "generic_name",
+				"producer_version_id", "lc",
+				"product_name", "abbreviated_product_name",
+				"generic_name",
 				"quantity_value_unit", "net_weight_value_unit",
 				"drained_weight_value_unit", "volume_value_unit",
-				"packaging", "brands",
+				"serving_size_value_unit", "packaging",
+				"brands", "brand_owner",
 				"categories", "categories_specific",
 				"labels", "labels_specific",
-				"countries", "stores"
+				"countries", "stores",
+				"obsolete", "obsolete_since_date",
+				"periods_after_opening"    # included for OBF imports via the producers platform
 			]
 		],
-		["origins", ["origins", "origin", "manufacturing_places", "producer", "emb_codes"]],
+		[
+			"origins",
+			["origins", "origin", "manufacturing_places", "producer", "emb_codes"]
+		],
 		["ingredients", ["ingredients_text", "allergens", "traces"]],
 		["nutrition"],
 		["nutrition_other"],
+		["packaging"],
 		[
 			"other",
 			[
-				"conservation_conditions", "warning", "preparation", "recipe_idea",
-				"recycling_instructions_to_recycle",
-				"recycling_instructions_to_discard",
-				"customer_service", "link"
+				"conservation_conditions", "warning",
+				"preparation", "nutriscore_score_producer",
+				"nutriscore_grade_producer", "nova_group_producer",
+				"recipe_idea", "customer_service",
+				"link",
+			]
+		],
+		[
+			"images",
+			[
+				"image_front_url", "image_ingredients_url", "image_nutrition_url", "image_packaging_url",
+				"image_other_url", "image_other_type",
 			]
 		],
 	];
