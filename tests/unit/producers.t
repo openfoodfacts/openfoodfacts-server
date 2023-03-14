@@ -10,10 +10,15 @@ use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Producers qw/:all/;
 use ProductOpener::Store qw/:all/;
+use ProductOpener::Test qw/:all/;
 
-init_fields_columns_names_for_lang("en");
-init_fields_columns_names_for_lang("fr");
-init_fields_columns_names_for_lang("es");
+my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
+my $inputs_dir = "$test_dir/inputs/$test_id/";
+
+# Generate the column names to OFF fields structure in several languages and compare to the stored version
+foreach my $l (qw(en fr es)) {
+	compare_to_expected_results(init_fields_columns_names_for_lang($l), $expected_result_dir . "/column_names_$l.json", $update_expected_results);
+}
 
 my @tests = (
 	["fr", "glucides", {field => "carbohydrates_100g_value_unit"}],
