@@ -25,7 +25,7 @@
     [% END %]
 
     [% IF errors_index >=0 %]
-        <p>Merci de corriger les erreurs suivantes :</p>
+        <p>[% lang("correct_the_following_errors") %]</p>
         [% FOREACH error IN errors %]
             <p class="error">[% error %]</p><br/>
         [% END %]
