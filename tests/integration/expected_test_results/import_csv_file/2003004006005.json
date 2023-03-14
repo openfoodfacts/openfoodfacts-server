@@ -1,13 +1,10 @@
 {
-   "_id" : "2003004006003",
-   "_keywords" : [
-      "fr",
-      "packaging"
-   ],
+   "_id" : "2003004006005",
+   "_keywords" : [],
    "added_countries_tags" : [],
    "allergens" : "",
    "allergens_from_ingredients" : "",
-   "allergens_from_user" : "(fr) ",
+   "allergens_from_user" : "(en) ",
    "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "categories_properties" : {},
@@ -20,7 +17,7 @@
       "agribalyse-unknown"
    ],
    "checkers_tags" : [],
-   "code" : "2003004006003",
+   "code" : "2003004006005",
    "codes_tags" : [
       "code-13",
       "2003004006xxx",
@@ -35,16 +32,16 @@
       "2xxxxxxxxxxxx"
    ],
    "complete" : 0,
-   "completeness" : 0.1,
+   "completeness" : 0,
    "correctors_tags" : [],
-   "countries" : "fr",
+   "countries" : "en",
    "countries_hierarchy" : [
-      "en:france"
+      "en:en"
    ],
-   "countries_imported" : "fr",
-   "countries_lc" : "fr",
+   "countries_imported" : "en",
+   "countries_lc" : "en",
    "countries_tags" : [
-      "en:france"
+      "en:en"
    ],
    "created_t" : "--ignore--",
    "creator" : "test-user",
@@ -293,19 +290,29 @@
             "non_recyclable_and_non_biodegradable_materials" : 0,
             "packagings" : [
                {
-                  "ecoscore_material_score" : 100,
+                  "ecoscore_material_score" : 81,
                   "ecoscore_shape_ratio" : 1,
-                  "material" : "en:rpet-recycled-polyethylene-terephthalate",
+                  "material" : "en:glass",
+                  "number_of_units" : 1,
+                  "quantity_per_unit" : "15ml",
+                  "quantity_per_unit_unit" : "ml",
+                  "quantity_per_unit_value" : 15,
+                  "shape" : "en:pot",
+                  "weight_measured" : 55.32,
+                  "weight_specified" : 55.2
+               },
+               {
+                  "ecoscore_material_score" : 21,
+                  "ecoscore_shape_ratio" : 0.2,
+                  "material" : "en:pet-polyethylene-terephthalate",
                   "non_recyclable_and_non_biodegradable" : "no",
-                  "quantity_per_unit" : "1l",
-                  "quantity_per_unit_unit" : "l",
-                  "quantity_per_unit_value" : 1,
-                  "shape" : "en:bottle",
-                  "weight_specified" : 42.3
+                  "number_of_units" : 1,
+                  "shape" : "en:lid",
+                  "weight_specified" : 3.3
                }
             ],
-            "score" : 100,
-            "value" : 0
+            "score" : 65.2,
+            "value" : -3
          },
          "production_system" : {
             "labels" : [],
@@ -335,15 +342,16 @@
    "editors_tags" : [
       "test-user"
    ],
+   "empty" : 1,
    "entry_dates_tags" : "--ignore--",
    "food_groups_tags" : [],
-   "id" : "2003004006003",
+   "id" : "2003004006005",
    "informers_tags" : [
       "test-user"
    ],
    "interface_version_created" : "import_csv_file - version 2019/09/17",
-   "lang" : "fr",
-   "lang_imported" : "fr",
+   "lang" : "en",
+   "lang_imported" : "en",
    "languages" : {
       "en:french" : 1
    },
@@ -361,8 +369,8 @@
    "last_editor" : "test-user",
    "last_modified_by" : "test-user",
    "last_modified_t" : "--ignore--",
-   "lc" : "fr",
-   "lc_imported" : "fr",
+   "lc" : "en",
+   "lc_imported" : "en",
    "main_countries_tags" : [],
    "misc_tags" : [
       "en:nutriscore-not-computed",
@@ -407,12 +415,20 @@
    "owners_tags" : "org-test-org",
    "packagings" : [
       {
-         "material" : "en:rpet-recycled-polyethylene-terephthalate",
-         "quantity_per_unit" : "1l",
-         "quantity_per_unit_unit" : "l",
-         "quantity_per_unit_value" : 1,
-         "shape" : "en:bottle",
-         "weight_specified" : 42.3
+         "material" : "en:glass",
+         "number_of_units" : 1,
+         "quantity_per_unit" : "15ml",
+         "quantity_per_unit_unit" : "ml",
+         "quantity_per_unit_value" : 15,
+         "shape" : "en:pot",
+         "weight_measured" : 55.32,
+         "weight_specified" : 55.2
+      },
+      {
+         "material" : "en:pet-polyethylene-terephthalate",
+         "number_of_units" : 1,
+         "shape" : "en:lid",
+         "weight_specified" : 3.3
       }
    ],
    "photographers_tags" : [],
@@ -427,9 +443,8 @@
       "missing-category"
    ],
    "popularity_key" : 0,
-   "product_name" : "Packagings fr g",
-   "product_name_fr" : "Packagings fr g",
-   "product_name_fr_imported" : "Packagings fr g",
+   "product_name_fr" : "Packagings en - pot + lid",
+   "product_name_fr_imported" : "Packagings en - pot + lid",
    "removed_countries_tags" : [],
    "rev" : 1,
    "sources" : [
@@ -447,8 +462,9 @@
          "url" : null
       }
    ],
-   "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-uploaded",
+   "states" : "en:empty, en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-to-be-completed, en:photos-to-be-uploaded",
    "states_hierarchy" : [
+      "en:empty",
       "en:to-be-completed",
       "en:nutrition-facts-to-be-completed",
       "en:ingredients-to-be-completed",
@@ -460,10 +476,11 @@
       "en:brands-to-be-completed",
       "en:packaging-to-be-completed",
       "en:quantity-to-be-completed",
-      "en:product-name-completed",
+      "en:product-name-to-be-completed",
       "en:photos-to-be-uploaded"
    ],
    "states_tags" : [
+      "en:empty",
       "en:to-be-completed",
       "en:nutrition-facts-to-be-completed",
       "en:ingredients-to-be-completed",
@@ -475,14 +492,16 @@
       "en:brands-to-be-completed",
       "en:packaging-to-be-completed",
       "en:quantity-to-be-completed",
-      "en:product-name-completed",
+      "en:product-name-to-be-completed",
       "en:photos-to-be-uploaded"
    ],
    "traces" : "",
    "traces_from_ingredients" : "",
-   "traces_from_user" : "(fr) ",
+   "traces_from_user" : "(en) ",
    "traces_hierarchy" : [],
    "traces_tags" : [],
    "unknown_nutrients_tags" : [],
-   "weighers_tags" : []
+   "weighers_tags" : [
+      "test-user"
+   ]
 }

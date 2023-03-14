@@ -803,7 +803,7 @@ sub compute_ecoscore ($product_ref) {
 				}
 
 				$log->debug("compute_ecoscore - final score and grade",
-					{score => $product_ref->{"scores"}{$cc}, grade => $product_ref->{"grades"}{$cc}})
+					{score => $product_ref->{ecoscore_data}{"scores"}{$cc}, grade => $product_ref->{ecoscore_data}{"grades"}{$cc}})
 					if $log->is_debug();
 			}
 
