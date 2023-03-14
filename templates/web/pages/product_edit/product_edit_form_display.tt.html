@@ -207,7 +207,11 @@
                                     <td>
                                         <!--label starts-->
                                         [% IF nutriment.name.defined %]
-                                            <label class="nutriment_label" for="nutriment_[% nutriment.enid %]">[% nutriment.prefix %][% nutriment.name %]</label>
+                                        [% IF nutriment.nid == 'fat' || nutriment.nid == 'saturated-fat' || nutriment.nid == 'salt'|| nutriment.nid =='sugars' %]
+                                            <label class="nutriment_label" for="nutriment_[% nutriment.enid %]">[% nutriment.prefix %][% nutriment.name %]*</label>
+                                        [% ELSE %]
+                                        <label class="nutriment_label" for="nutriment_[% nutriment.enid %]">[% nutriment.prefix %][% nutriment.name %]</label>
+                                        [% END %]  
                                         [% ELSIF nutriment.label_value.defined %]
                                             <input class="nutriment_label" id="nutriment_[% nutriment.enid %]_label" name="nutriment_[% nutriment.enid %]_label" value="[% nutriment.label_value %]" />
                                         [% ELSE %]
