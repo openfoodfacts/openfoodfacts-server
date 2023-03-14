@@ -1108,10 +1108,10 @@ sub set_nutrition_data_per_fields ($args_ref, $imported_product_ref, $product_re
 	return;
 }
 
-
 sub import_packaging_components (
-	$args_ref, $imported_product_ref, $product_ref, $stats_ref, $modified_ref,
-	$modified_fields_ref, $differing_ref, $differing_fields_ref, $packagings_edited_ref, $time
+	$args_ref, $imported_product_ref, $product_ref, $stats_ref,
+	$modified_ref, $modified_fields_ref, $differing_ref, $differing_fields_ref,
+	$packagings_edited_ref, $time
 	)
 {
 
@@ -1119,7 +1119,7 @@ sub import_packaging_components (
 
 	# keep a deep copy of the existing packaging components, so that we can check if the resulting components are different
 	my $original_packagings_ref = dclone($product_ref->{packagings} || []);
-	
+
 	# build a list of input packaging components
 	my @input_packagings = ();
 	my $data_is_complete = 0;
@@ -1127,21 +1127,28 @@ sub import_packaging_components (
 	# packaging data is specified in the CSV file in columns named like packagings_1_number_of_units
 	for (my $i = 1; $i <= 10; $i++) {
 		my $input_packaging_ref = {};
-		foreach my $field (qw(number_of_units shape material recycling quantity_per_unit weight_specified weight_measured)) {
+		foreach
+			my $field (qw(number_of_units shape material recycling quantity_per_unit weight_specified weight_measured))
+		{
 			$input_packaging_ref->{$field} = $imported_product_ref->{"packagings_${i}_${field}"};
 		}
 		$log->debug("input_packaging_ref", {i => $i, input_packaging_ref => $input_packaging_ref}) if $log->is_debug();
 
 		# Taxonomize the input packaging component data
-		push @input_packagings, get_checked_and_taxonomized_packaging_component_data($imported_product_ref->{lc},
-			$input_packaging_ref, {});
+		push @input_packagings,
+			get_checked_and_taxonomized_packaging_component_data($imported_product_ref->{lc}, $input_packaging_ref, {});
 
 		# Record if we have complete input data, with all key fields (for at least 1 component)
 		# not considered a key field (and thus may be lost): recycling instruction, quantity per unit
-		if ((defined $input_packaging_ref->{number_of_units})
-			and (defined $input_packaging_ref->{shape}) and (defined $input_packaging_ref->{material})
-			and ((defined $input_packaging_ref->{weight_specified}) or (defined $input_packaging_ref->{weight_measured}))) {
-				$data_is_complete = 1;
+		if (
+				(defined $input_packaging_ref->{number_of_units})
+			and (defined $input_packaging_ref->{shape})
+			and (defined $input_packaging_ref->{material})
+			and
+			((defined $input_packaging_ref->{weight_specified}) or (defined $input_packaging_ref->{weight_measured}))
+			)
+		{
+			$data_is_complete = 1;
 		}
 	}
 
@@ -1165,7 +1172,16 @@ sub import_packaging_components (
 	# Check if the packagings data has changed
 	my @diffs = data_diff($original_packagings_ref, $product_ref->{packagings});
 	if (scalar @diffs > 0) {
-		$log->debug("packagings diff", {original_packagings => $original_packagings_ref, input_packagings => \@input_packagings, new_packagings => $product_ref->{packagings}, data_is_complete => $data_is_complete, diffs => \@diffs}) if $log->is_debug();
+		$log->debug(
+			"packagings diff",
+			{
+				original_packagings => $original_packagings_ref,
+				input_packagings => \@input_packagings,
+				new_packagings => $product_ref->{packagings},
+				data_is_complete => $data_is_complete,
+				diffs => \@diffs
+			}
+		) if $log->is_debug();
 		$stats_ref->{products_packagings_updated}{$code} = 1;
 		if (scalar @$original_packagings_ref == 0) {
 			$stats_ref->{products_packagings_created}{$code} = 1;
@@ -1175,7 +1191,7 @@ sub import_packaging_components (
 		}
 		$$modified_ref++;
 		$packagings_edited_ref->{$code}++;
-		# push @$modified_fields_ref, "nutrients.$field";		
+		# push @$modified_fields_ref, "nutrients.$field";
 	}
 
 	# Update the packagings_complete_field
@@ -2066,7 +2082,6 @@ sub import_csv_file ($args_ref) {
 			\$modified, \@modified_fields, \$differing, \%differing_fields,
 			\%packagings_edited, $time,
 		);
-
 
 		# Compute extra stats
 

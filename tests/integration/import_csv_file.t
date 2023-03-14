@@ -73,7 +73,6 @@ sub fake_download_image ($) {
 
 	$stats_ref = ProductOpener::Import::import_csv_file($args);
 
-
 	print STDERR "run - done\n";
 
 	# get all products in db, sorted by code for predictability

@@ -802,9 +802,13 @@ sub compute_ecoscore ($product_ref) {
 					$product_ref->{ecoscore_data}{"scores"}{$cc} = 79;
 				}
 
-				$log->debug("compute_ecoscore - final score and grade",
-					{score => $product_ref->{ecoscore_data}{"scores"}{$cc}, grade => $product_ref->{ecoscore_data}{"grades"}{$cc}})
-					if $log->is_debug();
+				$log->debug(
+					"compute_ecoscore - final score and grade",
+					{
+						score => $product_ref->{ecoscore_data}{"scores"}{$cc},
+						grade => $product_ref->{ecoscore_data}{"grades"}{$cc}
+					}
+				) if $log->is_debug();
 			}
 
 			# The following values correspond to the Eco-Score for France.
