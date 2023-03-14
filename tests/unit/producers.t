@@ -17,7 +17,11 @@ my $inputs_dir = "$test_dir/inputs/$test_id/";
 
 # Generate the column names to OFF fields structure in several languages and compare to the stored version
 foreach my $l (qw(en fr es)) {
-	compare_to_expected_results(init_fields_columns_names_for_lang($l), $expected_result_dir . "/column_names_$l.json", $update_expected_results);
+	compare_to_expected_results(
+		init_fields_columns_names_for_lang($l),
+		$expected_result_dir . "/column_names_$l.json",
+		$update_expected_results
+	);
 }
 
 my @tests = (

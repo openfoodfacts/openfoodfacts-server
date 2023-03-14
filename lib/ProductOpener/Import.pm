@@ -1130,7 +1130,7 @@ sub import_packaging_components (
 		foreach
 			my $field (qw(number_of_units shape material recycling quantity_per_unit weight_specified weight_measured))
 		{
-			$input_packaging_ref->{$field} = $imported_product_ref->{"packagings_${i}_${field}"};
+			$input_packaging_ref->{$field} = $imported_product_ref->{"packaging_${i}_${field}"};
 		}
 		$log->debug("input_packaging_ref", {i => $i, input_packaging_ref => $input_packaging_ref}) if $log->is_debug();
 

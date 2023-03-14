@@ -755,7 +755,6 @@ sub init_fields_columns_names_for_lang ($l) {
 	return $fields_columns_names_for_lang{$l};
 }
 
-
 # Generate column names for a language field
 
 sub add_language_field_column_names ($l, $field) {
@@ -772,8 +771,7 @@ sub add_language_field_column_names ($l, $field) {
 		foreach my $synonym (@synonyms) {
 			$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym)}
 				= {field => $field, lc => $l};
-			$fields_columns_names_for_lang{$l}
-				{get_string_id_for_lang("no_language", $synonym . " " . $l)}
+			$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $l)}
 				= {field => $field, lc => $l};
 			$fields_columns_names_for_lang{$l}
 				{get_string_id_for_lang("no_language", $synonym . " " . $language_codes{$l})}
@@ -797,7 +795,7 @@ sub init_packaging_columns_names_for_lang ($l) {
 	foreach my $field ("packaging_text", "recycling_instructions_to_recycle", "recycling_instructions_to_discard") {
 		add_language_field_column_names($l, $field);
 	}
-	
+
 	# Packaging components
 
 	for (my $i = 1; $i <= 10; $i++) {
@@ -815,7 +813,6 @@ sub init_packaging_columns_names_for_lang ($l) {
 
 	return;
 }
-
 
 # Create column names for all nutrients in a specific language
 
