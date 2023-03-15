@@ -799,14 +799,15 @@ sub init_packaging_columns_names_for_lang ($l) {
 	# Packaging components
 
 	for (my $i = 1; $i <= 10; $i++) {
-		my $packaging_i = lang("packaging_part_short") . " " . $i . " - ";
+		my $packaging_i = $Lang{"packaging_part_short"}{$l} . " " . $i . " - ";
 		foreach
-			my $property ("number_of_units", "shape", "material", "recycling", "weight_specified", "quantity_per_unit")
+			my $property ("number_of_units", "shape", "material", "recycling", "weight", "quantity_per_unit")
 		{
-			my $name = $packaging_i . lang("packaging_" . $property);
+			my $name = $packaging_i . $Lang{"packaging_" . $property}{$l};
 			my $field = "packaging_${i}_${property}";
+			# If producers send a weight, we assign it to the weight_specified field
+			$field =~ s/_weight$/_weight_specified/g;
 
-			$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $field)} = {field => $field};
 			$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $name)} = {field => $field};
 		}
 	}
@@ -1617,7 +1618,7 @@ JSON
 					my $property ("number_of_units", "shape", "material", "recycling", "weight", "quantity_per_unit")
 				{
 					my $name = $packaging_i . lang("packaging_" . $property);
-					my $field = "packaging_${i}_{$property}";
+					my $field = "packaging_${i}_${property}";
 					push @{$select2_group_ref->{children}}, {id => "$field", text => ucfirst($name)};
 				}
 			}
