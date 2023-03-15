@@ -1619,6 +1619,8 @@ JSON
 				{
 					my $name = $packaging_i . lang("packaging_" . $property);
 					my $field = "packaging_${i}_${property}";
+					# If producers send a weight, we assign it to the weight_specified field
+					$field =~ s/_weight$/_weight_specified/g;
 					push @{$select2_group_ref->{children}}, {id => "$field", text => ucfirst($name)};
 				}
 			}
