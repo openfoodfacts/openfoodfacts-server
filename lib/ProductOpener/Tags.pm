@@ -176,7 +176,6 @@ use URI::Escape::XS;
 use Log::Any qw($log);
 use Digest::SHA1;
 use File::Copy;
-use File::Fetch;
 use MIME::Base64 qw(encode_base64);
 use POSIX qw(strftime);
 use LWP::UserAgent ();
@@ -668,10 +667,11 @@ sub get_file_from_cache ($source, $target) {
 	}
 
 	# Else try to get it from the github project acting as cache
-	$File::Fetch::WARN = 0;
-	my $ff = File::Fetch->new(uri => "https://raw.githubusercontent.com/$build_cache_repo/main/taxonomies/$source");
-	$ff->fetch(to => "$cache_root");
-	if (-e $local_cache_source) {
+	my $ua = LWP::UserAgent->new();
+	my $response = $ua->mirror("https://raw.githubusercontent.com/$build_cache_repo/main/taxonomies/$source",
+		$local_cache_source);
+
+	if (($response->is_success) and (-e $local_cache_source)) {
 		copy($local_cache_source, $target);
 		return 2;
 	}

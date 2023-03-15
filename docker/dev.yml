@@ -22,7 +22,7 @@ x-backend-conf: &backend-conf
 x-minion-db-network: &minion-db-network
   networks:
     # we need to be on default, but also on a dedicated network (ease sharing with pro in dev)
-    # see also docs/explanations/pro-dev-setup.md
+    # see also docs/dev/explain-pro-dev-setup.md
     minion_db:
     default:
 
@@ -98,7 +98,7 @@ volumes:
   html_data:
   products:
   # those one are volumes shared between off and pro, so we assign hard-coded names
-  # see docs/explanations/pro-dev-setup.md
+  # see docs/dev/explain-pro-dev-setup.md
   # PO_COMMON_PREFIX is there to separate env, eg. for tests
   users:
     name: ${PO_COMMON_PREFIX:-}po_users
