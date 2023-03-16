@@ -1091,11 +1091,11 @@ msgstr "İçindekiler önem sırasına göre listelenir (miktar)."
 
 msgctxt "ingredients_text_example"
 msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, cocoa 4,8%, ascorbic acid"
-msgstr "Tahıllar% 85.5 (_wheat_ unu, whole-_wheat_ unu% 11), malt özü, kakao% 4,8, askorbik asit"
+msgstr "Tahıllar %85.5 (_wheat_ unu, whole-_wheat_ unu %11), malt özü, kakao %4,8, askorbik asit"
 
 msgctxt "ingredients_text_note"
 msgid "Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_"
-msgstr "Siparişi muhafaza edin, belirtildiğinde% belirtin, virgülle ayrılmış veya -, bir maddenin bileşenleri için () kullanın, allerjenlerinizi örn. _Süt_"
+msgstr "Siparişi muhafaza edin, belirtildiğinde % belirtin, virgülle ayrılmış veya -, bir maddenin bileşenleri için () kullanın, allerjenlerinizi örn. _Süt_"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_p"
 msgid "ingredients that may be from palm oil"
@@ -1484,11 +1484,11 @@ msgstr "Beslenme gerçekleri"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
-msgstr "Beslenme bilgisinin bulunduğu% s kategorisinin% d ürünleri için ortalama beslenme durumu (% d ürünlerden)."
+msgstr "Beslenme bilgisinin bulunduğu %s kategorisinin %d ürünleri için ortalama beslenme durumu (%d ürünlerden)."
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
-msgstr "farkın yüzdesi"
+msgstr ""
 
 msgctxt "nutrition_data_compare_value"
 msgid "value for 100 g / 100 ml"
@@ -1611,7 +1611,7 @@ msgstr "içeriklerin kökeni"
 
 msgctxt "origins_products"
 msgid "Products with ingredients originating from %s"
-msgstr "İçerikleri %s kökenli ürünler"
+msgstr ""
 
 msgctxt "origins_s"
 msgid "origin of ingredients"
@@ -1643,7 +1643,7 @@ msgstr "paketleme"
 
 msgctxt "packaging_products"
 msgid "Products with a %s packaging"
-msgstr "%s ambalajlamalı ürünler"
+msgstr "%s ambalajlı ürünler"
 
 msgctxt "packaging_s"
 msgid "packaging"
@@ -1659,11 +1659,11 @@ msgstr "%s ambalajı olmayan ürünler"
 
 msgctxt "page_x"
 msgid "Page %d"
-msgstr "%d sayfa"
+msgstr "Sayfa %d"
 
 msgctxt "page_x_out_of_y"
 msgid "Page %d out of %d."
-msgstr "Sayfa %d - %d."
+msgstr "%d sayfadan %d sayfa."
 
 msgctxt "pages"
 msgid "Pages:"
@@ -4093,9 +4093,10 @@ msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "Üreticilerin platform yönetimi"
 
-msgctxt "pro_moderator_owner_set"
-msgid "You are currently viewing products from %s."
-msgstr "Şu anda %s ürününü görüntülüyorsunuz."
+# variable names between { } must not be translated
+msgctxt "f_pro_moderator_owner_set"
+msgid "You are currently viewing products from {organization}."
+msgstr "Şu anda {organization} ürünlerini inceliyorsunuz."
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
@@ -4107,8 +4108,8 @@ msgstr "Belirli bir kullanıcı veya kuruluştan ürünleri görmek için kimli�
 
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
-msgid "Change"
-msgstr "Değişiklik"
+msgid "Switch to another organization"
+msgstr "Başka bir kuruluşa geç"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
@@ -4927,7 +4928,7 @@ msgstr ""
 # do not translate Eco-score
 msgctxt "ecoscore_information"
 msgid "Information about the Eco-score"
-msgstr ""
+msgstr "Eko-skor hakkında bilgi"
 
 msgctxt "preferences_edit_your_food_preferences"
 msgid "Edit your food preferences"
@@ -4939,11 +4940,11 @@ msgstr "Yemek tercihleriniz"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
-msgstr ""
+msgstr "Şu anda seçili tercihler"
 
 msgctxt "preferences_locally_saved"
 msgid "Your food preferences are kept in your browser and never sent to Open Food Facts or anyone else."
-msgstr ""
+msgstr "Yemek tercihleriniz tarayıcınızda tutulur ve asla Open Food Facts'e veya başka birine gönderilmez."
 
 # used in phrases like "salt in unknown quantity"
 msgctxt "unknown_quantity"
@@ -4956,7 +4957,7 @@ msgstr "Eksik malzemeler listesi"
 
 msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
-msgstr ""
+msgstr "Eksik besin değerleri"
 
 msgctxt "ecoscore_p"
 msgid "Eco-Score"
@@ -4968,7 +4969,7 @@ msgstr "Eco-Score"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
-msgstr ""
+msgstr "Ambalaj parçaları"
 
 # A short name for a physical piece of packaging (e.g. in English, "packaging" instead of "packaging part"). Used with a number (e.g. "Packaging 1" to identify a packaging part)
 msgctxt "packaging_part_short"
@@ -4986,7 +4987,7 @@ msgstr "Şekil"
 
 msgctxt "packaging_quantity"
 msgid "Quantity contained"
-msgstr ""
+msgstr "İçerdiği miktar"
 
 msgctxt "packaging_material"
 msgid "Material"
@@ -4998,7 +4999,7 @@ msgstr "Geri Dönüşüm"
 
 msgctxt "products_on_this_page_are_sorted_according_to_your_preferences"
 msgid "Products on this page are sorted according to your preferences:"
-msgstr ""
+msgstr "Bu sayfadaki ürünler tercihlerinize göre sıralanmıştır:"
 
 msgctxt "choose_which_information_you_prefer_to_see_first"
 msgid "Choose which information you prefer to see first."
@@ -5014,7 +5015,7 @@ msgstr "Tüm tercihleri sil"
 
 msgctxt "products_are_being_loaded_please_wait"
 msgid "Products are being loaded, please wait."
-msgstr ""
+msgstr "Ürünler yükleniyor, lütfen bekleyiniz."
 
 msgctxt "products_match_all"
 msgid "All products"
@@ -5022,15 +5023,15 @@ msgstr "Bütün ürünler"
 
 msgctxt "products_match_yes"
 msgid "Products that match your preferences"
-msgstr ""
+msgstr "Tercihlerinize uygun ürünler"
 
 msgctxt "products_match_no"
 msgid "Products that do not match your preferences"
-msgstr ""
+msgstr "Tercihlerinize uymayan ürünler"
 
 msgctxt "products_match_unknown"
 msgid "Products for which we currently miss data to determine if they match your preferences"
-msgstr ""
+msgstr "Şu anda tercihlerinizle eşleşip eşleşmediklerini belirlemek için verilerini kaçırdığımız ürünler"
 
 msgctxt "forest_footprint"
 msgid "Forest footprint"
@@ -5078,7 +5079,7 @@ msgstr "kg gıda başına kg soya"
 
 msgctxt "kg_of_soy_per_square_meter"
 msgid "kg of soy per m²"
-msgstr ""
+msgstr "m² başına kg soya"
 
 msgctxt "percent_in_product"
 msgid "% in product"
@@ -5551,11 +5552,11 @@ msgstr "Türleri tehdit eden içerik yok"
 
 msgctxt "ecoscore_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
-msgstr ""
+msgstr "Bu ürünün içerikleri hakkında bilgi verilmemiştir."
 
 msgctxt "ecoscore_edit_for_more_precise_ecoscore"
 msgid "For a more precise calculation of the Eco-Score, you can edit the product page and add them."
-msgstr ""
+msgstr "Eco-Score'un daha doğru hesaplanması için ürün sayfasını düzenleyebilir ve ekleme yapabilirsiniz."
 
 msgctxt "ecoscore_packaging_ratio"
 msgid "ratio"
@@ -5623,7 +5624,7 @@ msgstr "Ülkenize ulaşımın tam etkisi şu anda bilinmiyor."
 
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
-msgstr ""
+msgstr "Nutri-Score, Eco-Score ve daha fazlasını almak için barkodları tarayın!"
 
 msgctxt "org_gs1_product_name_is_abbreviated"
 msgid "GS1 product names for this manufacturer are abbreviated."
@@ -5656,15 +5657,15 @@ msgstr "Sağlanan verilerin kaldırılması veya değiştirilmesi, yalnızca web
 
 msgctxt "ecoscore_packaging_impact_high"
 msgid "Packaging with a high impact"
-msgstr ""
+msgstr "Yüksek etkili paketleme"
 
 msgctxt "ecoscore_packaging_impact_medium"
 msgid "Packaging with a medium impact"
-msgstr ""
+msgstr "Orta etkili paketleme"
 
 msgctxt "ecoscore_packaging_impact_low"
 msgid "Packaging with a low impact"
-msgstr ""
+msgstr "Düşük etkili paketleme"
 
 msgctxt "ecoscore_packaging_missing_information"
 msgid "Missing packaging information for this product"
@@ -5910,7 +5911,7 @@ msgstr "Eksik kategori"
 
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
-msgstr ""
+msgstr "Eksik besin değerleri"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
@@ -6423,4 +6424,33 @@ msgstr "Kalan yiyecekleri çıkarın ve tartmadan önce ambalaj parçasını yı
 msgctxt "packaging_quantity_per_unit_description"
 msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
 msgstr "Net ağırlığı veya net hacmi girin ve birimi belirtin (örneğin g veya ml)."
+
+msgctxt "import_and_export_products"
+msgid "Import and export products"
+msgstr ""
+
+msgctxt "add_products"
+msgid "Add products"
+msgstr "Ürün ekle"
+
+# Needs to be short (displayed in a menu)
+msgctxt "install_the_app_to_add_products"
+msgid "Install the app to add products"
+msgstr "Ürün eklemek için uygulamayı yükleyin"
+
+msgctxt "search_and_analyze_products"
+msgid "Search and analyze products"
+msgstr "Ürünleri arayın ve analiz edin"
+
+msgctxt "resources"
+msgid "Resources"
+msgstr "Kaynaklar"
+
+msgctxt "pro_platform_user_guide"
+msgid "Pro platform user guide"
+msgstr "Pro platformu kullanım kılavuzu"
+
+msgctxt "faq_for_producers"
+msgid "FAQ for producers"
+msgstr "Üreticiler için SSS"
 
