@@ -2809,9 +2809,13 @@ sub get_tag_image ($target_lc, $tagtype, $canon_tagid) {
 		next if defined $seen_lc{$l};
 		$seen_lc{$l} = 1;
 		my $translation = display_taxonomy_tag($l, $tagtype, $canon_tagid);
-		my $imgid = get_string_id_for_lang($l, $translation);
-		if (defined $tags_images{$l}{$tagtype}{$imgid}) {
-			return "/images/lang/$l/$tagtype/" . $tags_images{$l}{$tagtype}{$imgid};
+		# Support both unaccented and possibly deaccented image file name
+		foreach
+			my $imgid (get_string_id_for_lang("no_language", $translation), get_string_id_for_lang($l, $translation))
+		{
+			if (defined $tags_images{$l}{$tagtype}{$imgid}) {
+				return "/images/lang/$l/$tagtype/" . $tags_images{$l}{$tagtype}{$imgid};
+			}
 		}
 	}
 
