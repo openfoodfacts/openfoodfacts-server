@@ -3332,7 +3332,7 @@ msgstr "Vous pouvez envoyer un tableau avec des colonnes suivant le format d'imp
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "upload_product_data_file"
 msgid "Upload a file with product data"
-msgstr "Télécharger un fichier avec les données des produits"
+msgstr "Envoyer un fichier avec les données des produits"
 
 msgctxt "uploading_file"
 msgid "File being uploaded."
@@ -4105,9 +4105,10 @@ msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "Plateforme de modération des producteurs"
 
-msgctxt "pro_moderator_owner_set"
-msgid "You are currently viewing products from %s."
-msgstr "Vous visualisez actuellement les produits de %s."
+# variable names between { } must not be translated
+msgctxt "f_pro_moderator_owner_set"
+msgid "You are currently viewing products from {organization}."
+msgstr "Vous visualisez actuellement des produits de {organization}."
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
@@ -4119,8 +4120,8 @@ msgstr "Pour voir les produits d'un utilisateur ou d'une organisation spécifiqu
 
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
-msgid "Change"
-msgstr "Modifier"
+msgid "Switch to another organization"
+msgstr "Basculer vers une autre organisation"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
@@ -6385,12 +6386,12 @@ msgstr "Nombre d'éléments"
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
 msgid "Weight of one empty unit"
-msgstr "Poids d'un élément vide"
+msgstr "Poids d'une unité vide"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit"
 msgid "Quantity of product contained per unit"
-msgstr "Quantité de produit contenu dans chaque élément"
+msgstr "Quantité de produit contenu dans chaque unité"
 
 # variable names between { } must not be translated
 msgctxt "f_help_categorize_on_hunger_games"
@@ -6399,7 +6400,7 @@ msgstr "Aidez à classer plus de {title} sur Hunger Games"
 
 msgctxt "packagings_complete"
 msgid "All the packaging parts of the product are listed."
-msgstr "Tous les éléments de l'emballage du produit sont listés."
+msgstr "Toutes les pièces d'emballage du produit sont répertoriées."
 
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
@@ -6416,20 +6417,20 @@ msgstr "Entrez le nombre d'éléments d'emballages de la même forme et de la m�
 
 msgctxt "packaging_shape_description"
 msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
-msgstr "Entrez le nom de la forme listée dans les consignes de tri si elles sont disponibles, ou sélectionnez une forme."
+msgstr "Entrez le nom de la forme indiqué dans les instructions de recyclage si elles sont disponibles, ou sélectionnez une forme."
 
 msgctxt "packaging_material_description"
 msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
 msgstr "Entrez le matériau spécifique s'il peut être déterminé (un code de matériau à l'intérieur d'un triangle peut souvent être trouvé sur les éléments d'emballage), ou un matériau générique (par exemple du plastique ou du métal) si vous n'êtes pas sûr."
 
 msgctxt "packaging_recycling_description"
-msgid "Enter recycling instructions only if they appear on the product."
-msgstr "Entrez les consignes de tri seulement si elles apparaîssent sur le produit."
+msgid "Enter recycling instructions only if they are listed on the product."
+msgstr "Saisissez les consignes de tri seulement si elles apparaîssent sur le produit."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
 msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
-msgstr "Enlevez les restes de nourriture et lavez et séchez les éléments d'emballage avant de les peser. Si possible, utilisez une balance avec une précision de 0.1g ou 0.01g."
+msgstr "Retirez tout reste de nourriture et lavez et séchez la partie d'emballage avant la pesée. Si possible, utilisez une balance avec une précision de 0,1 g ou 0,01 g."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
@@ -6447,11 +6448,11 @@ msgstr "Ajouter des produits"
 # Needs to be short (displayed in a menu)
 msgctxt "install_the_app_to_add_products"
 msgid "Install the app to add products"
-msgstr "Installer l'app pour ajouter des produits"
+msgstr "Installez l'application pour ajouter des produits"
 
 msgctxt "search_and_analyze_products"
 msgid "Search and analyze products"
-msgstr "Chercher et analyser les produits"
+msgstr "Rechercher et analyser des produits"
 
 msgctxt "resources"
 msgid "Resources"
@@ -6463,4 +6464,5 @@ msgstr "Guide d'utilisation de la plateforme pro"
 
 msgctxt "faq_for_producers"
 msgid "FAQ for producers"
-msgstr "Questions/réponses pour les producteurs"
+msgstr "FAQ pour les Producteurs"
+
