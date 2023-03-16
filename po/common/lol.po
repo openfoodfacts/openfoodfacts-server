@@ -4065,9 +4065,10 @@ msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "crwdns203158:0crwdne203158:0"
 
-msgctxt "pro_moderator_owner_set"
-msgid "You are currently viewing products from %s."
-msgstr "crwdns203160:0%scrwdne203160:0"
+# variable names between { } must not be translated
+msgctxt "f_pro_moderator_owner_set"
+msgid "You are currently viewing products from {organization}."
+msgstr "crwdns206719:0{organization}crwdne206719:0"
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
@@ -4079,8 +4080,8 @@ msgstr "crwdns203164:0crwdne203164:0"
 
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
-msgid "Change"
-msgstr "crwdns203166:0crwdne203166:0"
+msgid "Switch to another organization"
+msgstr "crwdns206721:0crwdne206721:0"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
@@ -6395,4 +6396,33 @@ msgstr "crwdns206563:0crwdne206563:0"
 msgctxt "packaging_quantity_per_unit_description"
 msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
 msgstr "crwdns206565:0crwdne206565:0"
+
+msgctxt "import_and_export_products"
+msgid "Import and export products"
+msgstr "crwdns206723:0crwdne206723:0"
+
+msgctxt "add_products"
+msgid "Add products"
+msgstr "crwdns206725:0crwdne206725:0"
+
+# Needs to be short (displayed in a menu)
+msgctxt "install_the_app_to_add_products"
+msgid "Install the app to add products"
+msgstr "crwdns206727:0crwdne206727:0"
+
+msgctxt "search_and_analyze_products"
+msgid "Search and analyze products"
+msgstr "crwdns206729:0crwdne206729:0"
+
+msgctxt "resources"
+msgid "Resources"
+msgstr "crwdns206731:0crwdne206731:0"
+
+msgctxt "pro_platform_user_guide"
+msgid "Pro platform user guide"
+msgstr "crwdns206733:0crwdne206733:0"
+
+msgctxt "faq_for_producers"
+msgid "FAQ for producers"
+msgstr "crwdns206735:0crwdne206735:0"
 

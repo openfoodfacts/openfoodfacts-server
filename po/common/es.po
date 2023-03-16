@@ -4096,9 +4096,10 @@ msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "Moderación de la plataforma de productores"
 
-msgctxt "pro_moderator_owner_set"
-msgid "You are currently viewing products from %s."
-msgstr "Actualmente estás viendo productos de %s."
+# variable names between { } must not be translated
+msgctxt "f_pro_moderator_owner_set"
+msgid "You are currently viewing products from {organization}."
+msgstr "Actualmente estás viendo productos de {organization}."
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
@@ -4110,8 +4111,8 @@ msgstr "Para ver productos de un usuario u organización específicos, ingrese s
 
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
-msgid "Change"
-msgstr "Cambiar"
+msgid "Switch to another organization"
+msgstr "Cambiar a otra organización"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
@@ -6426,4 +6427,33 @@ msgstr "Retire cualquier resto de comida y lave y seque la parte del empaque ant
 msgctxt "packaging_quantity_per_unit_description"
 msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
 msgstr "Ingrese el peso neto o el volumen neto e indique la unidad (por ejemplo g o ml)."
+
+msgctxt "import_and_export_products"
+msgid "Import and export products"
+msgstr "Importar y exportar productos"
+
+msgctxt "add_products"
+msgid "Add products"
+msgstr "Agrega productos"
+
+# Needs to be short (displayed in a menu)
+msgctxt "install_the_app_to_add_products"
+msgid "Install the app to add products"
+msgstr "Instalar la aplicación para agregar productos"
+
+msgctxt "search_and_analyze_products"
+msgid "Search and analyze products"
+msgstr "Buscar y analizar productos"
+
+msgctxt "resources"
+msgid "Resources"
+msgstr "Recursos"
+
+msgctxt "pro_platform_user_guide"
+msgid "Pro platform user guide"
+msgstr "Guía del usuario de la plataforma profesional"
+
+msgctxt "faq_for_producers"
+msgid "FAQ for producers"
+msgstr "Preguntas frecuentes para productores"
 

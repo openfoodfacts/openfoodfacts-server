@@ -2422,7 +2422,7 @@ msgstr "חנויות"
 
 msgctxt "stores_products"
 msgid "Products sold at %s"
-msgstr ""
+msgstr "מוצרים שנמכרים ב%s"
 
 msgctxt "stores_s"
 msgid "store"
@@ -4097,9 +4097,10 @@ msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "פיקוח על פלטפורמת היצרנים"
 
-msgctxt "pro_moderator_owner_set"
-msgid "You are currently viewing products from %s."
-msgstr "כרגע מוצגים בפניך מוצרים מאת %s."
+# variable names between { } must not be translated
+msgctxt "f_pro_moderator_owner_set"
+msgid "You are currently viewing products from {organization}."
+msgstr "המוצרים המוצגים כעת הם מבית {organization}."
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
@@ -4111,8 +4112,8 @@ msgstr "כדי לצפות במוצרים עבור משתמש או ארגון מ�
 
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
-msgid "Change"
-msgstr "החלפה"
+msgid "Switch to another organization"
+msgstr "מעבר לארגון אחר"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
@@ -6427,4 +6428,33 @@ msgstr "יש להסיר שאריות מזון ולשטוף ולייבש את ה�
 msgctxt "packaging_quantity_per_unit_description"
 msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
 msgstr "נא למלא את המשקל הנקי או את הנפח הנקי ולציין את היחידה (למשל גרם או מיליליטר)."
+
+msgctxt "import_and_export_products"
+msgid "Import and export products"
+msgstr "ייבוא וייצוא מוצרים"
+
+msgctxt "add_products"
+msgid "Add products"
+msgstr "הוספת מוצרים"
+
+# Needs to be short (displayed in a menu)
+msgctxt "install_the_app_to_add_products"
+msgid "Install the app to add products"
+msgstr "אפשר להתקין את היישומון כדי להוסיף מוצרים"
+
+msgctxt "search_and_analyze_products"
+msgid "Search and analyze products"
+msgstr "חיפוש וניתוח מוצרים"
+
+msgctxt "resources"
+msgid "Resources"
+msgstr "משאבים"
+
+msgctxt "pro_platform_user_guide"
+msgid "Pro platform user guide"
+msgstr "מדריך למשתמש בפלטפורמת פרו"
+
+msgctxt "faq_for_producers"
+msgid "FAQ for producers"
+msgstr "שאלות נפוצות של יצרנים"
 
