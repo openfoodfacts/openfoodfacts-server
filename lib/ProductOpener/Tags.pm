@@ -2139,18 +2139,18 @@ sub country_to_cc ($country) {
 # load all tags images
 
 # print STDERR "Tags.pm - loading tags images\n";
-if (opendir my $DH2, $lang_dir) {
+if (opendir my $DH2, "$www_root/images/lang") {
 	foreach my $langid (sort readdir($DH2)) {
 		next if $langid eq '.';
 		next if $langid eq '..';
-		# print STDERR "Tags.pm - reading tagtypes for lang $langid\n";
+		print STDERR "Tags.pm - reading tagtypes for lang $langid\n";
 		next if ((length($langid) ne 2) and not($langid eq 'other'));
 
 		if (-e "$www_root/images/lang/$langid") {
 			opendir my $DH, "$www_root/images/lang/$langid" or die "Couldn't open the current directory: $!";
 			foreach my $tagtype (sort readdir($DH)) {
 				next if $tagtype =~ /\./;
-				# print STDERR "Tags: loading tagtype images $langid/$tagtype\n";
+				print STDERR "Tags: loading tagtype images $langid/$tagtype\n";
 				# print "Tags: loading tagtype images $langid/$tagtype\n";
 				load_tags_images($langid, $tagtype);
 			}
