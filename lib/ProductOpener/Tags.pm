@@ -179,6 +179,7 @@ use File::Copy;
 use MIME::Base64 qw(encode_base64);
 use POSIX qw(strftime);
 use LWP::UserAgent ();
+use Encode;
 
 use GraphViz2;
 use JSON::PP;
@@ -447,12 +448,14 @@ sub load_tags_images ($lc, $tagtype) {
 	defined $tags_images{$lc}{$tagtype} or $tags_images{$lc}{$tagtype} = {};
 
 	if (opendir(DH2, "$www_root/images/lang/$lc/$tagtype")) {
-		foreach my $file (readdir(DH2)) {
+		foreach my $file (sort readdir(DH2)) {
+			# Note: readdir returns bytes, which may be utf8 on some systems
+			# see https://perldoc.perl.org/perlunicode#When-Unicode-Does-Not-Happen
+			$file = decode('utf8', $file);
 			if ($file =~ /^((.*)\.\d+x${logo_height}.(png|svg))$/) {
 				if ((not defined $tags_images{$lc}{$tagtype}{$2}) or ($3 eq 'svg')) {
 					$tags_images{$lc}{$tagtype}{$2} = $1;
-					# print STDERR "load_tags_images - tags_images - lc: $lc - tagtype: $tagtype - tag: $2 - img: $1 - ext: $3 \n";
-					# print "load_tags_images - tags_images - loading lc: $lc - tagtype: $tagtype - tag: $2 - img: $1 - ext: $3 \n";
+					#print "load_tags_images - tags_images - loading lc: $lc - tagtype: $tagtype - tag: $2 - img: $1 - ext: $3 \n";
 				}
 			}
 		}
@@ -686,6 +689,14 @@ sub get_from_cache ($tagtype, @files) {
 	my $tag_www_root = "$www_root/data/taxonomies/$tagtype";
 
 	my $sha1 = Digest::SHA1->new;
+
+	# Add a version string to the taxonomy data
+	# Change this version string if you want to force the taxonomies to be rebuilt
+	# e.g. if the taxonomy building algorithm or configuration has changed
+	# This needs to be done also when the unaccenting parameters for languages set in Config.pm are changed
+
+	$sha1->add("20230316 - made xx: unaccented");
+
 	foreach my $source_file (@files) {
 		open(my $IN, "<", "$data_root/taxonomies/$source_file.txt")
 			or die("Cannot open $data_root/taxonomies/$source_file.txt : $!\n");
@@ -2129,7 +2140,7 @@ sub country_to_cc ($country) {
 
 # print STDERR "Tags.pm - loading tags images\n";
 if (opendir my $DH2, $lang_dir) {
-	foreach my $langid (readdir($DH2)) {
+	foreach my $langid (sort readdir($DH2)) {
 		next if $langid eq '.';
 		next if $langid eq '..';
 		# print STDERR "Tags.pm - reading tagtypes for lang $langid\n";
@@ -2137,7 +2148,7 @@ if (opendir my $DH2, $lang_dir) {
 
 		if (-e "$www_root/images/lang/$langid") {
 			opendir my $DH, "$www_root/images/lang/$langid" or die "Couldn't open the current directory: $!";
-			foreach my $tagtype (readdir($DH)) {
+			foreach my $tagtype (sort readdir($DH)) {
 				next if $tagtype =~ /\./;
 				# print STDERR "Tags: loading tagtype images $langid/$tagtype\n";
 				# print "Tags: loading tagtype images $langid/$tagtype\n";
@@ -2773,7 +2784,7 @@ If an image is associated to a tag, return its relative url, otherwise return un
 =head4 $target_lc
 
 The desired language for the image. If an image is not available in the target language,
-it can be returned in the tag language, or in English.
+it can be returned in English or in the tag language.
 
 =head4 $tagtype
 
@@ -2785,40 +2796,26 @@ The type of the tag (e.g. categories, labels, allergens)
 
 sub get_tag_image ($target_lc, $tagtype, $canon_tagid) {
 
-	my $img;
-
-	my $target_title = display_taxonomy_tag($target_lc, $tagtype, $canon_tagid);
-
-	my $img_lc = $target_lc;
-
-	my $lc_imgid = get_string_id_for_lang($target_lc, $target_title);
-	my $en_imgid = get_taxonomyid("en", $canon_tagid);
-	my $tag_lc = undef;
-	if ($en_imgid =~ /^(\w\w):/) {
-		$en_imgid = $';
-		$tag_lc = $1;
+	# Build an ordered list of languages that the image can be in
+	my @languages = ($target_lc, "xx", "en");
+	if ($canon_tagid =~ /^(\w\w):/) {
+		push @languages, $1;
 	}
 
-	if (defined $tags_images{$target_lc}{$tagtype}{$lc_imgid}) {
-		$img = $tags_images{$target_lc}{$tagtype}{$lc_imgid};
-	}
-	elsif ( (defined $tag_lc)
-		and (defined $tags_images{$tag_lc})
-		and (defined $tags_images{$tag_lc}{$tagtype}{$en_imgid}))
-	{
-		$img = $tags_images{$tag_lc}{$tagtype}{$en_imgid};
-		$img_lc = $tag_lc;
-	}
-	elsif (defined $tags_images{'en'}{$tagtype}{$en_imgid}) {
-		$img = $tags_images{'en'}{$tagtype}{$en_imgid};
-		$img_lc = 'en';
+	# Record which language we tested, as the list can contain the same language multiple times
+	my %seen_lc = ();
+
+	foreach my $l (@languages) {
+		next if defined $seen_lc{$l};
+		$seen_lc{$l} = 1;
+		my $translation = display_taxonomy_tag($l, $tagtype, $canon_tagid);
+		my $imgid = get_string_id_for_lang($l, $translation);
+		if (defined $tags_images{$l}{$tagtype}{$imgid}) {
+			return "/images/lang/$l/$tagtype/" . $tags_images{$l}{$tagtype}{$imgid};
+		}
 	}
 
-	if ($img) {
-		$img = "/images/lang/${img_lc}/$tagtype/" . $img;
-	}
-
-	return $img;
+	return;
 }
 
 =head2 display_tags_hierarchy_taxonomy ( $target_lc, $tagtype, $tags_ref )
@@ -2989,6 +2986,8 @@ sub get_taxonomyurl ($tag_lc, $tagid) {
 	}
 }
 
+# Return the canonical id of a tag string in a specific language
+
 sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag) {
 
 	if (not defined $tag) {
@@ -3009,6 +3008,8 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag) {
 		return $weblink_tag;
 	}
 
+	# If we are passed a tag string that starts with a language code (e.g. fr:café)
+	# override the input language
 	if ($tag =~ /^(\w\w):/) {
 		$tag_lc = $1;
 		$tag = $';
@@ -3106,17 +3107,20 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag) {
 
 				next if ($test_lc eq $tag_lc);
 
+				# get a tagid with the unaccenting rules for the language we are trying to match
+				my $test_lc_tagid = get_string_id_for_lang($test_lc, $tag);
+
 				if (    (defined $synonyms{$tagtype})
 					and (defined $synonyms{$tagtype}{$test_lc})
-					and (defined $synonyms{$tagtype}{$test_lc}{$tagid}))
+					and (defined $synonyms{$tagtype}{$test_lc}{$test_lc_tagid}))
 				{
-					$tagid = $synonyms{$tagtype}{$test_lc}{$tagid};
+					$tagid = $synonyms{$tagtype}{$test_lc}{$test_lc_tagid};
 					$tag_lc = $test_lc;
 				}
 				else {
 
 					# try removing stopwords and plurals
-					my $tagid2 = remove_stopwords($tagtype, $test_lc, $tagid);
+					my $tagid2 = remove_stopwords($tagtype, $test_lc, $test_lc_tagid);
 					$tagid2 = remove_plurals($test_lc, $tagid2);
 					if (    (defined $synonyms{$tagtype})
 						and (defined $synonyms{$tagtype}{$test_lc})

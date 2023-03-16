@@ -1,7 +1,6 @@
 #!/usr/bin/perl -w
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use Test::More;
 #use Log::Any::Adapter 'TAP', filter => "none";
@@ -672,5 +671,23 @@ is(
 	),
 	"fr:un label français inconnu, Ecológico, en:A New English label, Missing language prefix, Comercio justo, en:one-percent-for-the-planet"
 );
+
+is(canonicalize_taxonomy_tag('fr', 'categories', 'café'), "en:coffees");
+
+# Tests to verify we match the xx:Ä Märket entry
+is(canonicalize_taxonomy_tag('sv', 'test', 'A Market'), "sv:ä-märket");	# matches the xx: entry which is unaccented
+is(canonicalize_taxonomy_tag('sv', 'test', 'Ä Märket'), "sv:ä-märket");
+is(canonicalize_taxonomy_tag('en', 'test', 'Ä Märket'), "sv:ä-märket");
+is(canonicalize_taxonomy_tag('en', 'test', 'A-MArket'), "sv:ä-märket");
+is(canonicalize_taxonomy_tag('en', 'test', 'en:Ä Märket'), "sv:ä-märket");
+is(canonicalize_taxonomy_tag('en', 'test', 'en:A MArket'), "sv:ä-märket");
+is(canonicalize_taxonomy_tag('en', 'test', 'en:a-market'), "sv:ä-märket");
+is(canonicalize_taxonomy_tag('de', 'test', 'Ä Märket'), "sv:ä-märket");	# no unaccent in German, but need to deaccent to match the xx: entry
+
+is(display_taxonomy_tag("fr", "test", "sv:ä-märket"), "Ä-märket");
+
+# Tags images
+is(get_tag_image("en", "labels", "usda-organic"), "/images/lang/en/labels/usda-organic.90x90.svg");
+is(get_tag_image("sv", "labels", "sv:ä-märket"), "/images/lang/sv/labels/ä-märket.141x90.png");
 
 done_testing();
