@@ -1,0 +1,142 @@
+{
+    "level": "info",
+    "topics": [
+        "health"
+    ],
+    "size": "small",
+    "evaluation": "[% panel.evaluation %]",
+    "title_element": {
+        "title": "[% panel.nutrient_in_quantity %] ([% panel.nutrient_quantity_in_grams %]%)",
+        "icon_url": "[% static_subdomain %]/images/misc/[% panel.nutrient_level %].svg",
+        "icon_size": "small",
+    },
+    "elements": [
+        // Explanation of the impact of the nutrient
+        // + recommendations (e.g. reduce)
+        // based on WHO recommendations, national health agencies etc.
+        [% IF panel.nid == 'salt' %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "summary",
+                    "html":
+`
+<b>[% lang("knowledge_panels_facts") %]</b>
+<ul>
+<li>[% lang('nutrient_info_salt_risk') %]</li>
+<li>[% lang('nutrient_info_salt_high_blood_pressure') %]</li>
+<li>[% lang('nutrient_info_salt_high_consumption') %]</li>
+</ul>
+<br>
+<b>[% lang("knowledge_panels_recommendation") %]</b>[% sep %]:
+<b>[% lang('nutrient_recommendation_salt_title') %]</b>
+<ul>
+<li>[% lang('nutrient_recommendation_salt_cooking_and_table') %]</li>
+<li>[% lang('nutrient_recommendation_salt_limit_salty_snacks') %]</li>
+</ul>
+`,                  
+            }
+        },
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "summary",
+                    "html":
+`
+`,                  
+                    "source_text": "World Health Organization (WHO) - Fact sheet - Salt reduction",
+                    "source_url": "https://www.who.int/news-room/fact-sheets/detail/salt-reduction",
+                    "source_language": "en",
+            }
+        },
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "summary",
+                    "html":
+`
+`,                  
+                    "source_text": "National Health Service UK (NHS) - Salt: the facts",
+                    "source_url": "https://www.nhs.uk/live-well/eat-well/food-types/salt-nutrition/",
+                    "source_language": "en",
+            }
+        },
+
+        [% END %]
+
+        [% IF panel.nid == 'sugars' %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "summary",
+                    "html":
+`
+<b>[% lang("knowledge_panels_facts") %]</b>
+<ul>
+<li>[% lang('nutrient_info_sugars_risk') %]</li>
+</ul>
+<br>
+<b>[% lang("knowledge_panels_recommendation") %]</b>[% sep %]:
+<b>[% lang('nutrient_recommendation_sugars_title') %]</b>
+<ul>
+<li>[% lang('nutrient_recommendation_sugars_drinks') %]</li>
+<li>[% lang('nutrient_recommendation_sugars_food') %]</li>
+</ul>
+`,                  
+            }
+        },
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "summary",
+                    "html":
+`
+`,                  
+                    "source_text": "National Health Service UK (NHS) - Sugar: the facts",
+                    "source_url": "https://www.nhs.uk/live-well/eat-well/food-types/how-does-sugar-in-our-diet-affect-our-health/",
+                    "source_language": "en",
+            }
+        },
+
+        [% END %]
+
+        [% IF panel.nid == 'fat'|| panel.nid == 'saturated-fat' %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "summary",
+                    "html":
+`
+<b>[% lang("knowledge_panels_facts") %]</b>
+<ul>
+<li>[% lang('nutrient_info_fat_and_saturated_fat_risk') %]</li>
+</ul>
+<br>
+<b>[% lang("knowledge_panels_recommendation") %]</b>[% sep %]:
+<b>[% lang('nutrient_recommendation_fat_and_saturated_fat_title') %]</b>
+<ul>
+<li>[% lang('nutrient_recommendation_fat_and_saturated_fat') %]</li>
+</ul>
+`,                  
+            }
+        },
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "summary",
+                    "html":
+`
+`,                  
+                    "source_text": "National Health Service UK (NHS) - Fat: the facts",
+                    "source_url": "https://www.nhs.uk/live-well/eat-well/food-types/different-fats-nutrition/",
+                    "source_language": "en",
+            }
+        },
+
+        [% END %]          
+    ]
+}
+
+
+
+

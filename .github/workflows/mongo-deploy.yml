@@ -1,0 +1,208 @@
+name: MongoDB Image Deployment CI
+
+on:
+  push:
+    branches:
+    - main
+    - deploy-*
+    paths:
+    - docker/mongodb.yml
+    - .github/workflows/*.yml
+    - Makefile
+    - scripts/*.js
+
+jobs:
+  deploy-docker:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        env: [mongo-dev]
+    environment: ${{ matrix.env }}
+    concurrency: ${{ matrix.env }}
+    steps:
+    - name: Set various variable for staging (net) deployment
+      if: matrix.env == 'mongo-dev'
+      run: |
+        # configs
+        echo "MONGODB_CACHE_SIZE=14" >> $GITHUB_ENV
+        echo "MONGODB_HOST=10.1.0.200" >> $GITHUB_ENV
+        # deploy target
+        echo "SSH_HOST=10.1.0.200" >> $GITHUB_ENV
+        echo "SSH_PROXY_HOST=ovh1.openfoodfacts.org" >> $GITHUB_ENV
+        echo "SSH_USERNAME=off" >> $GITHUB_ENV
+
+    - name: Checkout git repository
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ env.SSH_HOST }}
+        username: ${{ env.SSH_USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        proxy_host: ${{ env.SSH_PROXY_HOST }}
+        proxy_username: ${{ env.SSH_USERNAME }}
+        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script_stop: false
+        script: |
+          # Clone Git repository if not already there
+          [ ! -d '${{ matrix.env }}' ] && git clone --depth 1 https://github.com/${{ github.repository }} ${{ matrix.env }} --no-single-branch 2>&1
+
+          # Go to docker/ directory
+          cd ${{ matrix.env }}
+
+          # Fetch newest commits (in case it wasn't freshly cloned)
+          git fetch --depth 1
+
+          # Checkout current commit SHA
+          git checkout -qf ${{ github.sha }}
+
+    - name: Set environment variables
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ env.SSH_HOST }}
+        username: ${{ env.SSH_USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        proxy_host: ${{ env.SSH_PROXY_HOST }}
+        proxy_username: ${{ env.SSH_USERNAME }}
+        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script_stop: false
+        script: |
+          cd ${{ matrix.env }}
+          echo "DOCKER_CLIENT_TIMEOUT=120" > .env
+          echo "COMPOSE_HTTP_TIMEOUT=120" >> .env
+          echo "COMPOSE_PROJECT_NAME=po" >> .env
+          echo "COMPOSE_PATH_SEPARATOR=;" >> .env
+          echo "COMPOSE_FILE=docker/mongodb.yml" >> .env
+          echo "MONGODB_CACHE_SIZE=${{ env.MONGODB_CACHE_SIZE }}" >> .env
+          echo "MONGODB_HOST=${{ env.MONGODB_HOST }}" >> .env
+
+    - name: Create MongoDB Docker volume
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ env.SSH_HOST }}
+        username: ${{ env.SSH_USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        proxy_host: ${{ env.SSH_PROXY_HOST }}
+        proxy_username: ${{ env.SSH_USERNAME }}
+        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script_stop: false
+        script: |
+          docker volume create dbdata
+
+    - name: Start services
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ env.SSH_HOST }}
+        username: ${{ env.SSH_USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        proxy_host: ${{ env.SSH_PROXY_HOST }}
+        proxy_username: ${{ env.SSH_USERNAME }}
+        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script_stop: false
+        script: |
+          cd ${{ matrix.env }}
+          make down
+          make up
+
+    - name: Check services are up
+      uses: appleboy/ssh-action@master
+      if: ${{ always() }}
+      with:
+        host: ${{ env.SSH_HOST }}
+        username: ${{ env.SSH_USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        proxy_host: ${{ env.SSH_PROXY_HOST }}
+        proxy_username: ${{ env.SSH_USERNAME }}
+        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script_stop: false
+        script: |
+          cd ${{ matrix.env }}
+          make livecheck
+
+    - name: Cleanup obsolete Docker objects
+      uses: appleboy/ssh-action@master
+      if: ${{ always() }}
+      with:
+        host: ${{ env.SSH_HOST }}
+        username: ${{ env.SSH_USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        proxy_host: ${{ env.SSH_PROXY_HOST }}
+        proxy_username: ${{ env.SSH_USERNAME }}
+        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script_stop: false
+        script: |
+          cd ${{ matrix.env }}
+          make prune
+
+  # deploy-script:
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     matrix:
+  #       env: [mongo-dev, mongo-prod]
+  #   steps:
+  #   - name: Install dependencies
+  #     environment: ${{ matrix.env }}
+  #     concurrency: ${{ matrix.env }}
+  #     uses: appleboy/ssh-action@master
+  #     with:
+  #       host: ${{ env.SSH_HOST }}
+  #       username: ${{ env.SSH_USERNAME }}
+  #       key: ${{ secrets.SSH_PRIVATE_KEY }}
+  #       proxy_host: ${{ env.SSH_PROXY_HOST }}
+  #       proxy_username: ${{ env.SSH_USERNAME }}
+  #       proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+  #       script_stop: false
+  #       script: |
+  #         apt update
+  #         apt upgrade -y
+  #         apt install gnupg
+
+  #     - name: Install libcurl13 from Debian 9 Stretch
+  #       environment: ${{ matrix.env }}
+  #       concurrency: ${{ matrix.env }}
+  #       uses: appleboy/ssh-action@master
+  #       with:
+  #         host: ${{ env.SSH_HOST }}
+  #         username: ${{ env.SSH_USERNAME }}
+  #         key: ${{ secrets.SSH_PRIVATE_KEY }}
+  #         proxy_host: ${{ env.SSH_PROXY_HOST }}
+  #         proxy_username: ${{ env.SSH_USERNAME }}
+  #         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+  #         script_stop: false
+  #         script: |
+  #           echo "deb http://deb.debian.org/debian/ stretch main" | sudo tee /etc/apt/sources.list.d/debian-stretch.list
+  #           apt update
+  #           apt install libcurl3
+
+  #     - name: Install MongoDB 4.4
+  #       environment: ${{ matrix.env }}
+  #       concurrency: ${{ matrix.env }}
+  #       uses: appleboy/ssh-action@master
+  #       with:
+  #         host: ${{ env.SSH_HOST }}
+  #         username: ${{ env.SSH_USERNAME }}
+  #         key: ${{ secrets.SSH_PRIVATE_KEY }}
+  #         proxy_host: ${{ env.SSH_PROXY_HOST }}
+  #         proxy_username: ${{ env.SSH_USERNAME }}
+  #         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+  #         script_stop: false
+  #         script: |
+  #           wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
+  #           echo "deb http://repo.mongodb.org/apt/debian stretch/mongodb-org/4.4 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
+  #           apt update
+  #           apt install -y mongodb-org-mongos mongodb-org-server mongodb-org-shell mongodb-org-tools
+  #           sudo systemctl enable mongodb --now
+
+  #     - name: Check if MongoDB is running
+  #       environment: ${{ matrix.env }}
+  #       concurrency: ${{ matrix.env }}
+  #       uses: appleboy/ssh-action@master
+  #       with:
+  #         host: ${{ env.SSH_HOST }}
+  #         username: ${{ env.SSH_USERNAME }}
+  #         key: ${{ secrets.SSH_PRIVATE_KEY }}
+  #         proxy_host: ${{ env.SSH_PROXY_HOST }}
+  #         proxy_username: ${{ env.SSH_USERNAME }}
+  #         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+  #         script_stop: false
+  #         script: |
+  #           mongo --version
+  #           mongo --eval 'db.runCommand({ connectionStatus: 1 })'

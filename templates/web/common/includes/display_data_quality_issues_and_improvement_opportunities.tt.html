@@ -1,0 +1,20 @@
+<!-- start templates/[% template.name %] -->
+
+[% FOREACH tagtype IN tagtypes %]
+
+    <h2>[% tagtype.tagtype_heading %]</h2>
+
+    [% FOREACH tagid IN tagtype.tagids %]
+        <strong>[% tagid.display_taxonomy_tag %]</strong><br>
+
+        [% IF tagid.properties.defined %]
+            <p>[% tagid.properties %]</p>
+        [% END %]
+
+            [% tagid.description %]
+
+    [% END %]
+
+[% END %]
+
+<!-- end templates/[% template.name %] -->

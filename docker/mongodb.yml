@@ -1,0 +1,27 @@
+version: "3.7"
+services:
+  mongodb:
+    restart: always
+    image: mongo:4.4
+    command: mongod --wiredTigerCacheSizeGB ${MONGODB_CACHE_SIZE}
+    volumes:
+      - dbdata:/data/db
+      # a volume to get data to import
+      - ../html/data:/import
+    ports:
+      - 27017:27017
+    networks:
+      - db
+  mongodb_exporter:
+    image: bitnami/mongodb-exporter:0
+    command: --discovering-mode --mongodb.uri=mongodb://mongodb:27017/admin?ssl=true
+    ports:
+      - 9216:9216
+    networks:
+      - db
+networks:
+  db:
+volumes:
+  dbdata:
+    external: true
+

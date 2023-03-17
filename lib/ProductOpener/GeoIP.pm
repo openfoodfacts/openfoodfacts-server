@@ -1,7 +1,7 @@
-﻿# This file is part of Product Opener.
+# This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -42,22 +42,20 @@ The functions used in this module take the IP address and return the geolocation
 
 package ProductOpener::GeoIP;
 
-use utf8;
-use Modern::Perl '2017';
-use Exporter    qw< import >;
+use ProductOpener::PerlStandards;
+use Exporter qw< import >;
 
-BEGIN
-{
-	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
+BEGIN {
+	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&get_country_for_ip
 		&get_country_code_for_ip
 
-		);    # symbols to export on request
+	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
-use vars @EXPORT_OK ;
+use vars @EXPORT_OK;
 
 use experimental 'smartmatch';
 
@@ -87,9 +85,8 @@ If the function executes successfully it returns the country name. On the other 
 
 =cut
 
-sub get_country_for_ip {
+sub get_country_for_ip ($ip) {
 	return unless $gi;
-	my $ip = shift;
 
 	my $country;
 	eval {
@@ -99,7 +96,7 @@ sub get_country_for_ip {
 	};
 
 	if ($@) {
-		$log->warn("GeoIP error", { error => $@ }) if $log->is_warn();
+		$log->warn("GeoIP error", {error => $@}) if $log->is_warn();
 		$country = undef;
 	}
 
@@ -123,9 +120,8 @@ On the other hand, if it throws an exception, it simply returns undefined.
 
 =cut
 
-sub get_country_code_for_ip {
+sub get_country_code_for_ip ($ip) {
 	return unless $gi;
-	my $ip = shift;
 
 	my $country;
 	eval {
@@ -135,7 +131,7 @@ sub get_country_code_for_ip {
 	};
 
 	if ($@) {
-		$log->warn("GeoIP error", { error => $@ }) if $log->is_warn();
+		$log->warn("GeoIP error", {error => $@}) if $log->is_warn();
 		$country = undef;
 	}
 

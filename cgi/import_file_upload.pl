@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
@@ -46,10 +45,10 @@ use Encode;
 use JSON::PP;
 use Log::Any qw($log);
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
-my $type = param('type') || 'upload';
-my $action = param('action') || 'display';
+my $type = single_param('type') || 'upload';
+my $action = single_param('action') || 'display';
 
 my $title = lang("import_data_file_title");
 my $html = '';
@@ -59,40 +58,38 @@ local $log->context->{type} = $type;
 local $log->context->{action} = $action;
 
 if (not defined $Owner_id) {
-	display_error(lang("no_owner_defined"), 200);
+	display_error_and_exit(lang("no_owner_defined"), 200);
 }
 
 if ($action eq "process") {
 
 	# Process uploaded files
 
-	my $file = param('file_input_data');
-	my $filename = decode utf8=>param('file_input_data');
+	my $file = single_param('file_input_data');
+	my $filename = decode utf8 => single_param('file_input_data');
 
 	my %data = ();
 
 	if ($filename =~ /\.(xlsx|ods|csv|tsv)$/i) {
 
-
-		my $extension = lc($1) ;
+		my $extension = lc($1);
 		$filename = $`;
 		my $uploaded_t = time();
 		my $file_id = $uploaded_t . '-' . get_string_id_for_lang("no_language", $filename);
 
-		$log->debug("processing upload form", { filename => $filename, file_id => $file_id, extension => $extension }) if $log->is_debug();
+		$log->debug("processing upload form", {filename => $filename, file_id => $file_id, extension => $extension})
+			if $log->is_debug();
 
 		(-e "$data_root/import_files") or mkdir("$data_root/import_files", 0755);
 		(-e "$data_root/import_files/${Owner_id}") or mkdir("$data_root/import_files/${Owner_id}", 0755);
 
-		open (my $out, ">", "$data_root/import_files/${Owner_id}/$file_id.$extension") ;
+		open(my $out, ">", "$data_root/import_files/${Owner_id}/$file_id.$extension");
 		while (my $chunk = <$file>) {
 			print $out $chunk;
 		}
-		close ($out);
+		close($out);
 
-		%data = (
-			location => "$formatted_subdomain/cgi/import_file_select_format.pl?file_id=$file_id&action=display",
-		);
+		%data = (location => "$formatted_subdomain/cgi/import_file_select_format.pl?file_id=$file_id&action=display",);
 
 		# Keep track of uploaded files attributes and status
 
@@ -111,14 +108,14 @@ if ($action eq "process") {
 
 	}
 	else {
-		%data = ( error => 'File type is not supported' );
+		%data = (error => 'File type is not supported');
 	}
 
 	my $data = encode_json(\%data);
 
-	$log->debug("import_file_upload.pl JSON data output", { data => $data }) if $log->is_debug();
+	$log->debug("import_file_upload.pl JSON data output", {data => $data}) if $log->is_debug();
 
-	print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
+	print header(-type => 'application/json', -charset => 'utf-8') . $data;
 	exit();
 
 }
@@ -133,23 +130,21 @@ else {
 		id => "data",
 		url => "/cgi/import_file_upload.pl",
 	};
-	
+
 	$tt->process('web/pages/import_file_upload/import_file_upload.tt.html', $template_data_ref, \$html);
 	$tt->process('web/pages/import_file_upload/import_file_upload.tt.js', $template_data_ref, \$js);
-	
-	$initjs .= $js;
 
+	$initjs .= $js;
 
 	$scripts .= <<HTML
 <script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
 HTML
-;
+		;
 
-	display_page( {
-		title=>$title,
-		content_ref=>\$html,
-	});
+	$request_ref->{title} = $title;
+	$request_ref->{content_ref} = \$html;
+	display_page($request_ref);
 }
 
 exit(0);

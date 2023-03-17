@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -32,7 +32,7 @@ use JSON;
 sub retrieve {
 	my $file = shift @_;
 	# If the file does not exist, return undef.
-	if (! -e $file) {
+	if (!-e $file) {
 		return;
 	}
 	return lock_retrieve($file);
