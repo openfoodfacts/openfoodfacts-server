@@ -166,7 +166,7 @@ db.products.find({_id: "5053990155354"})
 db.products.deleteOne({_id: "5053990155354"})
 ```
 
-See the [`mongo` shell docs](https://docs.mongodb.com/manual/reference/mongo-shell/) for more commands.
+See the [`mongo` shell docs](https://www.mongodb.com/products/shell) for more commands.
 
 ## Adding environment variables
 

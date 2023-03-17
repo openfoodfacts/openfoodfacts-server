@@ -27,7 +27,7 @@ On the Gitpod side, you can also update what Gitpod is allowed to do with your G
 
 ## Get Started
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/https://github.com/openfoodfacts/openfoodfacts-server/)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/openfoodfacts/openfoodfacts-server/)
 > Gitpod will automatically clone and open the repository for you in VSCode by default. It will also automatically build
 > the project for you on opening and comes with Docker and other tools pre-installed making it one of the fastest ways
 > to spin up an environment for `openfoodfacts-server`.
