@@ -289,7 +289,8 @@ sub initialize_attribute ($attribute_id, $target_lc) {
 		my $allergen = $1;
 		$allergen =~ s/_/-/g;
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/no-$allergen.svg";
-		#$attribute_ref->{panel_id} = "$allergen";
+		# There is currently no knowledge panel related to allergens
+		# $attribute_ref->{panel_id} = "$allergen";
 	}
 	elsif ($attribute_id =~ /^(low)_(salt|sugars|fat|saturated_fat)$/) {
 		my $nid = $2;
