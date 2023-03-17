@@ -137,7 +137,7 @@ A reference to an array of rows, containing each an array of column values
 
 sub load_csv_or_excel_file ($file) {    # path and file name
 
-	my $headers_ref;
+	my $input_headers_ref;
 	my $rows_ref = [];
 	my $results_ref = {};
 
@@ -239,9 +239,9 @@ sub load_csv_or_excel_file ($file) {    # path and file name
 
 				if ((defined $new_row[0]) and ($new_row[0] ne "") and (defined $new_row[1]) and ($new_row[1] ne "")) {
 					$seen_header = 1;
-					@{$headers_ref} = @new_row;
+					@{$input_headers_ref} = @new_row;
 
-					$log->debug("seen header", {headers_ref => $headers_ref}) if $log->is_debug();
+					$log->debug("seen header", {input_headers_ref => $input_headers_ref}) if $log->is_debug();
 				}
 
 				# Otherwise skip the line until we see a header
@@ -270,50 +270,27 @@ sub load_csv_or_excel_file ($file) {    # path and file name
 		# If some columns have the same name, add a suffix
 		my %headers = ();
 		my $i = 0;
-		foreach my $header (@{$headers_ref}) {
+		foreach my $header (@{$input_headers_ref}) {
 			if (defined $headers{$header}) {
 				$headers{$header}++;
-				$headers_ref->[$i] = $header . " - " . $headers{$header};
+				$input_headers_ref->[$i] = $header . " - " . $headers{$header};
 			}
 			else {
 				$headers{$header} = 1;
 			}
 			$i++;
 		}
-		$results_ref = {headers => $headers_ref, rows => $rows_ref};
+		$results_ref = {headers => $input_headers_ref, rows => $rows_ref};
 	}
 
 	return $results_ref;
 }
 
-# Convert an uploaded file to OFF CSV format
+# Go through the headers of the input CSV file, determine the match to OFF columns
 
-sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_file) {
-	# $default_values_ref  ->  values for lc, countries
-	# $file  ->  path and file name
-
-	my $load_results_ref = load_csv_or_excel_file($file);
-
-	if ($load_results_ref->{error}) {
-		return ($load_results_ref);
-	}
-
-	my $headers_ref = $load_results_ref->{headers};
-	my $rows_ref = $load_results_ref->{rows};
-
-	my $results_ref = {};
-
-	my $columns_fields_ref = retrieve($columns_fields_file);
-
-	my $csv_out = Text::CSV->new({binary => 1, sep_char => "\t"})    # should set binary attribute.
-		or die "Cannot use CSV: " . Text::CSV->error_diag();
-
-	open(my $out, ">:encoding(UTF-8)", $converted_file) or die("Cannot write $converted_file: $!\n");
-
-	# Output CSV header
-
-	my @headers = ();
-	my %headers_cols = ();
+sub create_off_columns_to_input_columns_match ($default_values_ref, $input_headers_ref, $columns_fields_ref,
+	$output_headers_ref, $output_to_input_columns_ref)
+{
 
 	my $col = 0;
 
@@ -321,7 +298,7 @@ sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_f
 	# in which case suffix them with .2 , .3 etc.
 	my %seen_fields = ();
 
-	foreach my $column (@{$headers_ref}) {
+	foreach my $column (@{$input_headers_ref}) {
 
 		my $field;
 
@@ -394,8 +371,8 @@ sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_f
 					$seen_fields{$field} = 1;
 				}
 
-				push @headers, $field;
-				$headers_cols{$field} = $col;
+				push @$output_headers_ref, $field;
+				$output_to_input_columns_ref->{$field} = $col;
 			}
 		}
 		else {
@@ -407,35 +384,74 @@ sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_f
 
 	# Add headers from default values
 
-	my @default_headers = ();
-	my @default_values = ();
-
 	foreach my $field (sort keys %{$default_values_ref}) {
 
-		if (not defined $headers_cols{$field}) {
-			push @default_headers, $field;
-			push @default_values, $default_values_ref->{$field};
+		if (not defined $seen_fields{$field}) {
+			shift @$output_headers_ref, $field;
+			$output_to_input_columns_ref->{$field} = "default value";
 		}
 	}
 
-	$csv_out->print($out, [@default_headers, @headers]);
+	return;
+}
+
+# Convert an uploaded file to OFF CSV format
+# Note: some files sent from producers have the same product code on several lines
+# e.g. with one line for each packaging component, with 1 column for packaging shape, 1 for packaging size etc.
+# instead of having only 1 line for the product with different columns for each packaging component
+
+sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_file) {
+
+	# $default_values_ref  ->  values for lc, countries
+	# $file  ->  path and file name
+
+	my $columns_fields_ref = retrieve($columns_fields_file);
+
+	my $load_results_ref = load_csv_or_excel_file($file);
+
+	if ($load_results_ref->{error}) {
+		return ($load_results_ref);
+	}
+
+	my $input_headers_ref = $load_results_ref->{headers};
+	my $rows_ref = $load_results_ref->{rows};
+
+	my $results_ref = {};
+
+	my $csv_out = Text::CSV->new({binary => 1, sep_char => "\t"})    # should set binary attribute.
+		or die "Cannot use CSV: " . Text::CSV->error_diag();
+
+	open(my $out, ">:encoding(UTF-8)", $converted_file) or die("Cannot write $converted_file: $!\n");
+
+	# Output CSV header
+
+	my $output_headers_ref = [];
+	my $output_to_input_columns_ref = {};
+
+	create_off_columns_to_input_columns_match(
+		$default_values_ref, $input_headers_ref, $columns_fields_ref,
+		$output_headers_ref, $output_to_input_columns_ref
+	);
+
+	$csv_out->print($out, $output_headers_ref);
 	print $out "\n";
 
-	# Fields for clean_fields()
-	@fields = @headers;
+	# Read the CSV file line by line and construct a hash of products data
+	# Note that some products may have data on multiple lines
+	# so we need to read all data in memory before writing the converted CSV file
 
-	# Output CSV product data
+	my $products_ref = {};
 
 	foreach my $row_ref (@{$rows_ref}) {
 
 		$log->debug("convert_file - row", {row_ref => $row_ref}) if $log->is_debug();
 
-		# Go through all fields to populate $product_ref with OFF field names
-		# so that we can run clean_fields() or other OFF functions
-
 		my $product_ref = {};
-		foreach my $field (@headers) {
-			my $col = $headers_cols{$field};
+		foreach my $field (@$output_headers_ref) {
+			my $col = $output_to_input_columns_ref->{$field};
+
+			# If the field is of the form packaging_(%d) and we
+
 			$product_ref->{$field} = $row_ref->[$col];
 
 			# If no value specified, use default value
@@ -456,11 +472,11 @@ sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_f
 		}
 
 		my @values = ();
-		foreach my $field (@headers) {
+		foreach my $field (@$output_headers_ref) {
 			push @values, $product_ref->{$field};
 		}
 
-		$csv_out->print($out, [@default_values, @values]);
+		$csv_out->print($out, [@values]);
 		print $out "\n";
 	}
 
@@ -1237,9 +1253,9 @@ sub match_column_name_to_field ($l, $column_id) {
 
 # Go through all rows to extract examples, compute stats etc.
 
-sub compute_statistics_and_examples ($headers_ref, $rows_ref, $columns_fields_ref) {
+sub compute_statistics_and_examples ($input_headers_ref, $rows_ref, $columns_fields_ref) {
 
-	foreach my $column (@{$headers_ref}) {
+	foreach my $column (@{$input_headers_ref}) {
 		if (not defined $columns_fields_ref->{$column}) {
 			$columns_fields_ref->{$column} = {
 				examples => [],
@@ -1262,7 +1278,7 @@ sub compute_statistics_and_examples ($headers_ref, $rows_ref, $columns_fields_re
 
 		foreach my $value (@{$row_ref}) {
 
-			my $column = $headers_ref->[$col];
+			my $column = $input_headers_ref->[$col];
 
 			# empty value?
 
@@ -1317,7 +1333,7 @@ sub compute_statistics_and_examples ($headers_ref, $rows_ref, $columns_fields_re
 
 # Analyze the headers column names and rows content to pre-assign fields to columns
 
-sub init_columns_fields_match ($headers_ref, $rows_ref) {
+sub init_columns_fields_match ($input_headers_ref, $rows_ref) {
 
 	my $columns_fields_ref = {};
 
@@ -1325,7 +1341,7 @@ sub init_columns_fields_match ($headers_ref, $rows_ref) {
 
 	$log->debug("before compute_statistics_and_examples", {}) if $log->is_debug();
 
-	compute_statistics_and_examples($headers_ref, $rows_ref, $columns_fields_ref);
+	compute_statistics_and_examples($input_headers_ref, $rows_ref, $columns_fields_ref);
 
 	# Load previously assigned fields by the owner
 
@@ -1350,7 +1366,7 @@ sub init_columns_fields_match ($headers_ref, $rows_ref) {
 
 	$log->debug("after init_fields_columns_names_for_lang", {}) if $log->is_debug();
 
-	foreach my $column (@{$headers_ref}) {
+	foreach my $column (@{$input_headers_ref}) {
 
 		my $column_id = get_string_id_for_lang("no_language", normalize_column_name($column));
 

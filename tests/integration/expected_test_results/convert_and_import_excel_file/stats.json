@@ -4,11 +4,13 @@
       "test-food-company" : 1,
       "world-test-food" : 1
    },
-   "orgs_existing" : {},
+   "orgs_existing" : {
+      "world-test-food" : 1
+   },
    "orgs_in_file" : {
       "carrefour" : 1,
       "test-food-company" : 1,
-      "world-test-food" : 1
+      "world-test-food" : 2
    },
    "orgs_with_gln_but_no_party_name" : {
       "" : 1
@@ -18,13 +20,15 @@
    "products_created" : {
       "3270190128403" : 1,
       "4270190128403" : 1,
-      "5270190128403" : 1
+      "5270190128403" : 1,
+      "7270190128403" : 1
    },
    "products_data_not_updated" : {},
    "products_data_updated" : {
       "3270190128403" : 1,
       "4270190128403" : 1,
-      "5270190128403" : 1
+      "5270190128403" : 1,
+      "7270190128403" : 1
    },
    "products_images_added" : {},
    "products_imported_field_abbreviated_product_name_fr_updated" : {
@@ -36,7 +40,8 @@
    "products_imported_field_brands_updated" : {
       "3270190128403" : 1,
       "4270190128403" : 1,
-      "5270190128403" : 1
+      "5270190128403" : 1,
+      "7270190128403" : 1
    },
    "products_imported_field_categories_updated" : {
       "3270190128403" : 1,
@@ -45,12 +50,14 @@
    "products_imported_field_countries_updated" : {
       "3270190128403" : 1,
       "4270190128403" : 1,
-      "5270190128403" : 1
+      "5270190128403" : 1,
+      "7270190128403" : 1
    },
    "products_imported_field_data_sources_updated" : {
       "3270190128403" : 1,
       "4270190128403" : 1,
-      "5270190128403" : 1
+      "5270190128403" : 1,
+      "7270190128403" : 1
    },
    "products_imported_field_emb_codes_updated" : {
       "3270190128403" : 1
@@ -70,12 +77,14 @@
    "products_imported_field_lang_updated" : {
       "3270190128403" : 1,
       "4270190128403" : 1,
-      "5270190128403" : 1
+      "5270190128403" : 1,
+      "7270190128403" : 1
    },
    "products_imported_field_lc_updated" : {
       "3270190128403" : 1,
       "4270190128403" : 1,
-      "5270190128403" : 1
+      "5270190128403" : 1,
+      "7270190128403" : 1
    },
    "products_imported_field_link_updated" : {
       "3270190128403" : 1
@@ -100,15 +109,18 @@
       "3270190128403" : 1
    },
    "products_imported_field_producer_product_id_updated" : {
-      "3270190128403" : 1
+      "3270190128403" : 1,
+      "7270190128403" : 1
    },
    "products_imported_field_producer_version_id_updated" : {
-      "3270190128403" : 1
+      "3270190128403" : 1,
+      "7270190128403" : 1
    },
    "products_imported_field_product_name_fr_updated" : {
       "3270190128403" : 1,
       "4270190128403" : 1,
-      "5270190128403" : 1
+      "5270190128403" : 1,
+      "7270190128403" : 1
    },
    "products_imported_field_stores_updated" : {
       "3270190128403" : 1
@@ -119,12 +131,14 @@
    "products_in_file" : {
       "3270190128403" : 1,
       "4270190128403" : 1,
-      "5270190128403" : 1
+      "5270190128403" : 1,
+      "7270190128403" : 1
    },
    "products_info_added" : {
       "3270190128403" : 1,
       "4270190128403" : 1,
-      "5270190128403" : 1
+      "5270190128403" : 1,
+      "7270190128403" : 1
    },
    "products_info_added_brands" : {},
    "products_info_added_categories" : {},
@@ -134,7 +148,8 @@
    "products_info_added_field_brands" : {
       "3270190128403" : 1,
       "4270190128403" : 1,
-      "5270190128403" : 1
+      "5270190128403" : 1,
+      "7270190128403" : 1
    },
    "products_info_added_field_categories" : {
       "3270190128403" : 1,
@@ -143,12 +158,14 @@
    "products_info_added_field_countries" : {
       "3270190128403" : 1,
       "4270190128403" : 1,
-      "5270190128403" : 1
+      "5270190128403" : 1,
+      "7270190128403" : 1
    },
    "products_info_added_field_data_sources" : {
       "3270190128403" : 1,
       "4270190128403" : 1,
-      "5270190128403" : 1
+      "5270190128403" : 1,
+      "7270190128403" : 1
    },
    "products_info_added_field_emb_codes" : {
       "3270190128403" : 1
@@ -187,7 +204,8 @@
    "products_info_updated" : {
       "3270190128403" : 1,
       "4270190128403" : 1,
-      "5270190128403" : 1
+      "5270190128403" : 1,
+      "7270190128403" : 1
    },
    "products_nutrition_added" : {
       "3270190128403" : 1,
@@ -199,7 +217,8 @@
       "4270190128403" : 1
    },
    "products_nutrition_not_updated" : {
-      "5270190128403" : 1
+      "5270190128403" : 1,
+      "7270190128403" : 1
    },
    "products_nutrition_updated" : {
       "3270190128403" : 1,
@@ -208,33 +227,39 @@
    "products_packagings_created" : {
       "3270190128403" : 1,
       "4270190128403" : 1,
-      "5270190128403" : 1
+      "5270190128403" : 1,
+      "7270190128403" : 1
    },
    "products_packagings_updated" : {
       "3270190128403" : 1,
       "4270190128403" : 1,
-      "5270190128403" : 1
+      "5270190128403" : 1,
+      "7270190128403" : 1
    },
    "products_sources_field_owner_updated" : {
       "3270190128403" : 1,
       "4270190128403" : 1,
-      "5270190128403" : 1
+      "5270190128403" : 1,
+      "7270190128403" : 1
    },
    "products_updated" : {
       "3270190128403" : 1,
       "4270190128403" : 1,
-      "5270190128403" : 1
+      "5270190128403" : 1,
+      "7270190128403" : 1
    },
    "products_with_data" : {
       "3270190128403" : 1,
       "4270190128403" : 1,
-      "5270190128403" : 1
+      "5270190128403" : 1,
+      "7270190128403" : 1
    },
    "products_with_images" : {},
    "products_with_info" : {
       "3270190128403" : 1,
       "4270190128403" : 1,
-      "5270190128403" : 1
+      "5270190128403" : 1,
+      "7270190128403" : 1
    },
    "products_with_ingredients" : {
       "3270190128403" : 1,
@@ -250,10 +275,15 @@
    "products_without_images" : {
       "3270190128403" : 1,
       "4270190128403" : 1,
-      "5270190128403" : 1
+      "5270190128403" : 1,
+      "7270190128403" : 1
    },
    "products_without_info" : {},
+   "products_without_ingredients" : {
+      "7270190128403" : 1
+   },
    "products_without_nutrition" : {
-      "5270190128403" : 1
+      "5270190128403" : 1,
+      "7270190128403" : 1
    }
 }

@@ -69,7 +69,7 @@ sub fake_download_image ($) {
 	ok(!$csv_result->{error});
 
 	# step2: get columns match
-	my $default_values_ref = {lc => "en", countries => "en"};
+	my $default_values_ref = {lc => "en", countries => "en", brands => "Default brand"};
 
 	# this is the file we need
 	my $columns_fields_file = $outputs_dir . "test.columns_fields.sto";
@@ -77,12 +77,7 @@ sub fake_download_image ($) {
 
 	# step3 convert file
 	my $converted_file = $outputs_dir . "test.converted.csv";
-	my $conv_result;
-	($out, $err, $conv_result) = capture_ouputs(
-		sub {
-			return scalar convert_file($default_values_ref, $my_excel, $columns_fields_file, $converted_file);
-		}
-	);
+	my $conv_result = convert_file($default_values_ref, $my_excel, $columns_fields_file, $converted_file);
 	ok(!$conv_result->{error});
 
 	# step4 import file
