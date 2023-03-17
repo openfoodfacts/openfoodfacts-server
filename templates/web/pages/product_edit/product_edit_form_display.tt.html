@@ -26,6 +26,7 @@
 
     [% IF errors_index >=0 %]
         <p>[% lang("correct_the_following_errors") %]</p>
+        <p>[% lang("correct_the_following_errors") %]</p>
         [% FOREACH error IN errors %]
             <p class="error">[% error %]</p><br/>
         [% END %]
@@ -56,6 +57,9 @@
 
         <section id="misc" class="card fieldset">
             <div class="card-section">
+                <p id="barcode_paragraph"> [% lang("barcode") %][% sep %]:
+                    <span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">[% code %]</span>
+                </p>
                 <p id="barcode_paragraph"> [% lang("barcode") %][% sep %]:
                     <span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">[% code %]</span>
                 </p>
@@ -209,7 +213,7 @@
                                     <td>
                                         <!--label starts-->
                                         [% IF nutriment.name.defined %]
-                                        [% IF nutriment.nid == 'fat' || nutriment.nid == 'saturated-fat' || nutriment.nid == 'salt'|| nutriment.nid =='sugars' %]
+                                        [% IF nutriment.nid == 'energy-kj' || nutriment.nid == 'saturated-fat' || nutriment.nid == 'salt'|| nutriment.nid =='sugars' || nutriment.nid == 'fiber' %]
                                             <label class="nutriment_label" for="nutriment_[% nutriment.enid %]">[% nutriment.prefix %][% nutriment.name %]*</label>
                                         [% ELSE %]
                                             <label class="nutriment_label" for="nutriment_[% nutriment.enid %]">[% nutriment.prefix %][% nutriment.name %]</label>
@@ -259,7 +263,7 @@
             [% IF moderator %]
                 <div><a class="small button" onclick="\$('.nutriment_value').val('')">[% lang('remove_all_nutrient_values') %]</a></div>
             [% END %]
-            <p class="asterisk">&rarr; [% lang('nutrition_data_table_asterisk') %]</p>
+            <p class="asterisk">&rarr;*[% sep %]:[% lang('nutrition_data_table_asterisk') %]</p>
             <p class="note">&rarr; [% lang('nutrition_data_table_note') %]</p>
 
             </div>
