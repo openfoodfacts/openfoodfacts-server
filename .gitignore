@@ -2,11 +2,11 @@
 lib/ProductOpener/Config.pm
 lib/ProductOpener/Config2.pm
 lib/ProductOpener/SiteLang.pm
-taxonomies/nutrient_levels.txt
 po/site-specific
 
 # tests outputs
-t/outputs/
+tests/unit/outputs/
+tests/integration/outputs/
 
 # Local files
 .DS_Store?
@@ -18,6 +18,7 @@ Thumbs.db
 .vstags
 # editors
 .~*
+.*.swo
 .*.swp
 .vscode/launch.json
 .vscode/perl-lang/
@@ -65,3 +66,12 @@ html/js/sigma*
 
 # Env files
 .env*
+
+# Taxonomies and cache
+cache
+taxonomies/*.sto
+taxonomies/*.result.txt
+taxonomies/*.all.txt
+/build-cache/taxonomies/*.json
+/build-cache/taxonomies/*.sto
+/build-cache/taxonomies/*.result.txt
