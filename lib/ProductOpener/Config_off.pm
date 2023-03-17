@@ -158,6 +158,11 @@ use ProductOpener::Config2;
 		unaccent => 1,
 		lowercase => 1,
 	},
+	# xx: language less entries, also deaccent
+	xx => {
+		unaccent => 1,
+		lowercase => 1,
+	},
 );
 
 %admins = map {$_ => 1} qw(
