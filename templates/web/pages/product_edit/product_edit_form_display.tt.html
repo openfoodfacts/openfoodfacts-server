@@ -56,7 +56,9 @@
 
         <section id="misc" class="card fieldset">
             <div class="card-section">
-                <p>[% lang("barcode") %]: [% code %]</p>
+                <p id="barcode_paragraph"> [% lang("barcode") %][% sep %]:
+                    <span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">[% code %]</span>
+                </p>
 
         [% IF moderator %]
             <label for="new_code" id="label_new_code">[% label_new_code %]</label>
