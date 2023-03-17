@@ -5,9 +5,7 @@ services:
     depends_on:
       - mongodb
     ports:
-      - 8080:8080
-    networks:
-      - webnet
+      - ${ADMIN_EXPOSE}8080:8080
     environment:
       - MONGOKU_DEFAULT_HOST=mongodb://mongodb:27017
       - MONGOKU_SERVER_PORT=8080
@@ -16,16 +14,12 @@ services:
     depends_on:
       - memcached
     ports:
-      - 8081:8080
-    networks:
-      - webnet
+      - ${ADMIN_EXPOSE}8081:8080
   adminer:
     image: adminer:4-standalone
     depends_on:
       - postgres
     ports:
-      - 8082:8080
-    networks:
-      - webnet
+      - ${ADMIN_EXPOSE}8082:8080
     environment:
       ADMINER_DEFAULT_SERVER: postgres

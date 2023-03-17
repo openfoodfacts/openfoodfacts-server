@@ -1,0 +1,26 @@
+type: object
+properties:
+  #TODO : Check if all fields are required, Add thier descriptions.
+  code:
+    type: string
+    description: |
+      Barcode of the product.
+    example: '04963406'
+  imgid:
+    type: integer
+    example: 2
+  id:
+    type: string
+    example: front_en
+  x1:
+    type: integer
+    example: 0
+  y1:
+    type: integer
+    example: 0
+  x2:
+    type: integer
+    example: 145
+  y2:
+    type: integer
+    example: 145

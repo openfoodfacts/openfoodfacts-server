@@ -1,0 +1,71 @@
+{
+    "level": "info",
+    "topics": [
+        "health"
+    ],
+    "title_element": {
+        [% IF product.nova_group.defined && product.nova_group > 0 %]
+            [% SET nova_group = product.nova_group %]
+            "icon_url": "[% static_subdomain %]/images/attributes/nova-group-[% product.nova_group %].svg",
+            "title": "[% lang('attribute_nova_' _ nova_group _ '_description_short') %]",
+        [% ELSE %]
+            "icon_url": "[% static_subdomain %]/images/attributes/nova-group-unknown.svg",
+            "title": "[% lang('attribute_nova_unknown_description_short') %]",       
+        [% END %]
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `
+[% IF ! product.nova_group.defined %]
+    [% IF product.nova_group_error.defined %]
+       [% lang("nova_group_" _ product.nova_group_error) %]
+    [% END %]
+[% ELSE %]
+    [% IF nova_group == 1 %]
+    [% ELSIF nova_group >= 2 %]
+        [% IF product.nova_groups_markers.$nova_group.defined %]
+            <p>[% f_lang('f_nova_markers_for_nova_group', { 'nova_group' => panel.nova_group_name }) %][% sep %]:</p>
+            <ul>
+            [% FOREACH marker IN product.nova_groups_markers.$nova_group %]
+                <li>[% lang(marker.0 _ '_s') FILTER ucfirst %][% sep %]: [% display_taxonomy_tag_name(marker.0, marker.1) %]</li>
+            [% END %]
+            </ul>
+        [% END %]
+    [% END %]
+[% END %]
+`
+            }
+        },
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `
+<p>[% lang("nova_classification_description") %]</p>
+<ol>
+<li>[% lang('attribute_nova_1_description_short') %]</li>
+<li>[% lang('attribute_nova_2_description_short') %]</li>
+<li>[% lang('attribute_nova_3_description_short') %]</li>
+<li>[% lang('attribute_nova_4_description_short') %]</li>
+</ol>
+<br>
+<p>[% lang("nova_classification_how") %]</p>
+<p>&rarr; <a href="/nova">[% lang("nova_classification_learn_more") %]</a></p>
+`
+            },        
+        },
+[% IF product.nova_group_error == 'missing_ingredients' %]
+        {
+            "element_type": "action",
+            "action_element": {
+                "html": `[% lang("action_add_ingredients_image") %]`,
+                "actions": [
+                    "add_ingredients_image"
+                ]
+            }
+        },
+[% END %]
+
+    ]
+}

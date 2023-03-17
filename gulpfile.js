@@ -11,7 +11,10 @@ const svgmin = require("gulp-svgmin");
 const jsSrc = [
   './html/js/display*.js',
   './html/js/product-multilingual.js',
-  './html/js/search.js'
+  './html/js/search.js',
+  './html/js/hc-sticky.js',
+  './html/js/stikelem.js',
+  './html/js/scrollNav.js'
 ];
 
 const sassSrc = "./scss/**/*.scss";
@@ -28,26 +31,7 @@ function icons() {
   return src("*.svg", { cwd: "./icons" }).
     pipe(
       svgmin({
-      plugins: [
-        {
-          name: "removeViewBox",
-          active: false
-        },
-        {
-          name: "removeDimensions",
-          active: true,
-        },
-        {
-          name: "addClassesToSVGElement",
-          active: true,
-          params: { className: "icon" }
-        },
-        {
-          name: "addAttributesToSVGElement",
-          active: true,
-          params: { attributes: [{ "aria-hidden": "true", focusable: "false" }] }
-        }
-      ]
+        configFile: 'icons/svgo.config.js'
       })
     ).
     pipe(dest("./html/images/icons/dist"));
@@ -149,7 +133,6 @@ function copyCss() {
       "./node_modules/leaflet.markercluster/dist/MarkerCluster.css",
       "./node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css",
       "./node_modules/@yaireo/tagify/dist/tagify.css",
-      "./html/css/product-multilingual.css",
       "./node_modules/cropperjs/dist/cropper.css",
       "./node_modules/jvectormap-next/jquery-jvectormap.css",
       "./node_modules/select2/dist/css/select2.min.css"

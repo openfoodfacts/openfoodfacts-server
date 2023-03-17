@@ -1,0 +1,20 @@
+{
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty"
+   ],
+   "packaging_text" : "6 bouteilles en plastique transparent PET de 1,5 L à recycler",
+   "packagings" : [
+      {
+         "material" : "en:pet-polyethylene-terephthalate",
+         "number_of_units" : 6,
+         "quantity_per_unit" : "1,5 l",
+         "quantity_per_unit_unit" : "l",
+         "quantity_per_unit_value" : 1.5,
+         "recycling" : "en:recycle",
+         "shape" : "en:bottle"
+      }
+   ]
+}

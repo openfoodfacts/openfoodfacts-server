@@ -5,7 +5,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ro\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-11-07 14:51\n"
 "Language-Team: Romanian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -14,8 +13,7 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: ro\n"
-"X-Crowdin-File: common.pot\n"
-"X-Crowdin-File-ID: 1808\n"
+"X-Crowdin-File-ID: 2588\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -52,11 +50,11 @@ msgstr "Înregistrare"
 
 msgctxt "add_user_process"
 msgid "Welcome!"
-msgstr "Bine aţi venit!"
+msgstr "Bine ați venit!"
 
 msgctxt "add_user_result"
 msgid "Thank you for joining us!"
-msgstr "Mulțumesc că ni te-ai alăturat!"
+msgstr "Mulțumim că ni te-ai alăturat!"
 
 msgctxt "add_user_you_can_edit"
 msgid "You can now add and edit products on the web or with our free <a href=\"%s\">mobile app</a>."
@@ -68,7 +66,7 @@ msgstr "Alăturați-vă nouă pe Slack"
 
 msgctxt "add_user_join_the_project"
 msgid "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
-msgstr "%s este un proiect de colaborare la care poți aduce mult mai mult decât produse noi: energia, entuziasmul și ideile tale!"
+msgstr "%s Este un proiect de colaborare la care poți aduce mult mai mult decât produse noi: energia, entuziasmul și ideile tale!"
 
 msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
@@ -122,9 +120,9 @@ msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
 msgstr "Vă rugăm să introduceți numele organizației dvs. (numele companiei sau marca)."
 
-msgctxt "this_is_a_pro_account_for_org"
-msgid "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
-msgstr "Acest cont este un cont profesional asociat cu producătorul sau marca %s. Ai acces la Platforma pentru Producători."
+msgctxt "f_this_is_a_pro_account_for_org"
+msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
+msgstr "Acest cont este un cont profesional asociat cu producătorul sau marca {org}. Aveți acces la Platforma pentru Producători."
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -251,7 +249,7 @@ msgstr "Faceți o fotografie"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
-msgstr "Notă: fotografiile trimise sunt publicate sub o licență liberă Creative Commons Attribution and ShareAlike."
+msgstr "Notă: fotografiile trimise sunt publicate sub o licență liberă Creative Commons Atribution and ShareAlike."
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
@@ -277,9 +275,13 @@ msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
 msgstr "Poți, de asemenea, să ne ajuți la finanțarea proiectului Open Food Facts"
 
+msgctxt "producers_administration_manual"
+msgid "Producers Admin manual"
+msgstr "Manual de administrare pentru producători"
+
 msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> este făcuta de o asociație non-profitabilă, independentă în industrie. Este facut pentru toată lumea. Pentru a ne susține lucrul<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donează lui Open Food Facts</a> și <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\"> pentru folosirea motorului de cautare Lilo</a>.<br/><b>Vă mulțumim</b></p>"
+msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> se face de o asociatie nonprofit, independenta de industrie. Este făcut pentru toți, de toți și este finanțat de toți. Ne puteți susține munca <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donând la Open Food Facts</a> și, de asemenea, până la <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">folosind motorul de căutare Lilo</a>.<br/><b>Mulțumesc!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -459,7 +461,7 @@ msgstr "Produse care nu sunt vândute în %s"
 
 msgctxt "data_source"
 msgid "Data source"
-msgstr "Sursa de date"
+msgstr "Sursa datelor"
 
 msgctxt "data_sources_p"
 msgid "data sources"
@@ -582,8 +584,8 @@ msgid "editor"
 msgstr "editor"
 
 msgctxt "email"
-msgid "e-mail address"
-msgstr "adresa de e-mail"
+msgid "E-mail address"
+msgstr "Adresa de e-mail"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
@@ -595,7 +597,7 @@ msgstr "Codul EMB:"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr "Codul ambalatorului"
+msgstr "Cod de trasabilitate EMB"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
@@ -628,7 +630,7 @@ msgstr "În Europa, codul este într-o elipsă cu cele două iniţiale ale ţăr
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
-msgstr "Date de intrare"
+msgstr "Câte ciocolatele sunt în pachet"
 
 msgctxt "entry_dates_s"
 msgid "Entry date"
@@ -673,6 +675,14 @@ msgstr "Utilizator invalid."
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "Numele de utilizator trebuie să conțină doar litere neaccentuate, cifre și liniuțe."
+
+msgctxt "error_username_too_long"
+msgid "The user name is too long (maximum 20 characters)."
+msgstr "Numele de utilizator este prea lung (maxim 20 de caractere)."
+
+msgctxt "error_name_too_long"
+msgid "The name is too long (maximum 60 characters)."
+msgstr "Numele este prea lung (maxim 60 de caractere)."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -752,8 +762,8 @@ msgstr "Blog <<site_name>>"
 
 # Do not translate
 msgctxt "footer_blog_link"
-msgid "https://en.blog.openfoodfacts.org"
-msgstr "https://en.blog.openfoodfacts.org"
+msgid "https://blog.openfoodfacts.org/en/"
+msgstr "https://blog.openfoodfacts.org/ro/"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -783,8 +793,8 @@ msgstr "Întrebări frecvente"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
-msgid "/faq"
-msgstr "/faq"
+msgid "https://support.openfoodfacts.org/help/en-gb"
+msgstr "https://support.openfoodfacts.org/help/ro-ro"
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -1005,6 +1015,18 @@ msgstr "informator"
 msgctxt "ingredients"
 msgid "Ingredients"
 msgstr "Ingrediente"
+
+msgctxt "no_ingredient"
+msgid "Ingredients are missing"
+msgstr "Lipsesc ingrediente"
+
+msgctxt "one_ingredient"
+msgid "1 ingredient"
+msgstr "1 ingredient"
+
+msgctxt "f_ingredients_with_number"
+msgid "{number} ingredients"
+msgstr "{number} ingrediente"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
@@ -1309,7 +1331,7 @@ msgstr "Descoperiți"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr ""
+msgstr "/descoperă"
 
 msgctxt "mission_"
 msgid "Mission: "
@@ -1371,6 +1393,10 @@ msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
 msgstr "Abonare la buletinul informativ (maxim 2 email-uri pe lună)"
 
+msgctxt "subscribe_to_our_newsletter"
+msgid "Subscribe to our newsletter"
+msgstr "Abonează-te la newsletter-ul nostru"
+
 msgctxt "next"
 msgid "Next"
 msgstr "Următoarea"
@@ -1422,7 +1448,7 @@ msgstr "Valori nutriționale pentru 100g"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr "/valori nutritive"
+msgstr "/nutrient-levels"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
@@ -1531,11 +1557,7 @@ msgstr "Valori nutriționale"
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
 "by typing the first letters of their name in the last row of the table."
-msgstr "Tabelul listează implicit nutrienții care sunt specificați mai des. Lăsați câmpul liber dacă nu se regăsește pe etichetă.<br/>Puteți adăuga extra nutrienți (vitamine, minerale, colesterol etc.) tastând primele litere din numele lor în ultimul rând din tabel."
-
-msgctxt "nutrition_data_table_sub"
-msgid "-"
-msgstr "-"
+msgstr "Tabelul listează în mod implicit nutrienții care sunt adesea specificați. Lăsați câmpul necompletat dacă nu este pe etichetă.<br/>Puteți adăuga nutrienți suplimentari (vitamine, minerale, colesterol etc.) tastând primele litere ale numelui lor în ultimul rând al tabelului."
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
@@ -1547,14 +1569,14 @@ msgstr "Scor nutrițional"
 
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
-msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
-msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
+msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
+msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
-msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
+msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://blog.openfoodfacts.org/en/\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr "<p>Pentru a afla mai multe despre <<site_name>>, vizitați <a href=\"https://ro.blog.openfoodfacts.org\">blogul nostru</a>!</p>\n"
+msgstr "<p>Pentru a afla mai multe despre <<site_name>>, vizitați <a href=\"https://blog.openfoodfacts.org/ro/\">blogul nostru</a>!</p>\n"
 "<p>Știri recente:</p>\n"
 
 msgctxt "on_the_blog_title"
@@ -1877,7 +1899,7 @@ msgstr "Numele produsului"
 
 msgctxt "product_name_example"
 msgid "Kinder Bueno White"
-msgstr "Kinder Bueno White"
+msgstr "N"
 
 msgctxt "products"
 msgid "products"
@@ -2093,7 +2115,7 @@ msgstr "Generare grafic"
 
 msgctxt "search_generate_map"
 msgid "Generate the map"
-msgstr "Generează harta"
+msgstr "Generează hartă"
 
 msgctxt "search_graph"
 msgid "Graph"
@@ -2275,7 +2297,7 @@ msgstr "Vedeți pagina produsului"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr "Țările unde se vinde"
+msgstr "Țară"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2433,6 +2455,7 @@ msgctxt "tagstable_search"
 msgid "Search:"
 msgstr "Căutare:"
 
+# This is linked to a unit test
 msgctxt "traces"
 msgid "Traces"
 msgstr "Urme"
@@ -2547,9 +2570,9 @@ msgstr "Vedeți rezultatele din toată lumea"
 
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
-"→ <a href=\"/faq#pictures_and_data_from_other_sites\">Why it matters</a>"
-msgstr "Informațiile și datele trebuie să provină din ambalajul produsului și din etichetă (și nu de la alte amplasamente sau de la locul producătorului) și trebuie să fi făcut tu însuți pozele.<br/>\n"
-"→ <a href=\"/faq#pictures_and_data_from_other_sites\">De ce contează</a>"
+"→ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">Why it matters</a>"
+msgstr "Informațiile și datele trebuie să provină din ambalajul și eticheta produsului (și nu de pe alte site-uri sau site-ul producătorului), și trebuie să fi făcut singur pozele.<br/>\n"
+"→ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">De ce contează</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -2610,12 +2633,16 @@ msgid "Warning: the amount of fruits, vegetables and nuts is not specified, thei
 msgstr "Atenție: nu este specificată cantitatea de fructe, legume și nuci, posibila contribuție pozitivă a acestora la nota nu a putut fi luată în considerare."
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr "Avertisment: cantitatea de fructe, legume și nuci nu este specificată pe etichetă, a fost estimată din lista ingredientelor: %d%"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
+msgstr "Atenție: cantitatea de fructe, legume și nuci nu este specificată pe etichetă, a fost estimată manual din lista de ingrediente: %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
-msgstr "Avertisment: cantitatea de fructe, legume și nuci nu este specificată pe etichetă, a fost estimată din lista ingredientelor: %d%"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
+msgstr "Atenție: cantitatea de fructe, legume și nuci nu este specificată pe etichetă, s-a estimat din categoria (%s) a produsului: %d"
+
+msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
+msgstr "Atenție: cantitatea de fructe, legume și nuci nu este specificată pe etichetă, s-a estimat din lista de ingrediente: %d"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -2772,7 +2799,7 @@ msgstr "Grupuri NOVA"
 # Title for the link to the explanation of what a NOVA Group is
 msgctxt "nova_groups_info"
 msgid "NOVA groups for food processing"
-msgstr "Grupuri NOVA pentru prelucrarea alimentelor"
+msgstr "Grup NOVA pentru procesare mancare"
 
 msgctxt "footer_partners"
 msgid "Partners"
@@ -3077,7 +3104,7 @@ msgstr "Produse completate de %s"
 
 msgctxt "informers_without_products"
 msgid "Products not completed by %s"
-msgstr "Produsele nu sunt completate de %s"
+msgstr "Produse necomplectat de %s"
 
 msgctxt "photographers_products"
 msgid "Products photographed by %s"
@@ -3111,6 +3138,10 @@ msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
 msgstr "Notă importantă: acest produs nu se mai vinde. Datele sunt păstrate doar pentru referință. Acest produs nu apare în căutările obișnuite și nu este luat în considerare pentru statistici."
 
+# This will be on a button and needs to be as short as possible
+# So instead of something like "Install the mobile application"
+# try to make it very short "Get the app" or "Install the app"
+# Use infinitive instead of imperative
 msgctxt "get_the_app"
 msgid "Get the app"
 msgstr "Descarcă aplicația"
@@ -3730,10 +3761,6 @@ msgctxt "import_file_result"
 msgid "Import result"
 msgstr "Rezultat import"
 
-msgctxt "products_added"
-msgid "Products added"
-msgstr "Produse adăugate"
-
 msgctxt "products_modified"
 msgid "Products modified"
 msgstr "Produse modificate"
@@ -3772,11 +3799,11 @@ msgstr "Numărul de produse cu oportunități de îmbunătățire"
 
 msgctxt "improvements_facet_description_1"
 msgid "This table lists possible opportunities to improve the nutritional quality, the Nutri-Score and the composition of food products."
-msgstr "Acest tabel enumeră posibilele oportunități de îmbunătățire a calității nutriționale, a Scorului Nutrițional și a compoziției produselor alimentare."
+msgstr "Acest tabel enumeră posibilele oportunități de îmbunătățire a calității nutriționale, a Nutri-Score și a compoziției produselor alimentare."
 
 msgctxt "improvements_facet_description_2"
 msgid "In order to get relevant results, please make sure the product data is complete (nutrition facts with values for fiber and fruits and vegetables to compute the Nutri-Score, and a precise category to compare each product to similar products)."
-msgstr "Pentru a obține rezultate relevante, vă rugăm să vă asigurați că datele despre produs sunt complete (informații nutriționale cu valori pentru fibre și fructe și legume pentru a calcula Scorul Nutrițional și o categorie precisă pentru a compara fiecare produs cu produse similare)."
+msgstr "Pentru a obține rezultate relevante, vă rugăm să vă asigurați că datele despre produs sunt complete (informații nutriționale cu valori pentru fibre și fructe și legume pentru a calcula Nutri-Score și o categorie precisă pentru a compara fiecare produs cu produse similare)."
 
 # "product photos" in this sentence means photos for many products, not just one product
 msgctxt "import_photos_title"
@@ -3909,7 +3936,7 @@ msgstr "Fructe, legume, nuci și uleiuri de colza/nucă/măsline"
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
-msgstr "Fibre"
+msgstr "Fibră"
 
 msgctxt "nutriscore_points_for_proteins"
 msgid "Proteins"
@@ -3935,7 +3962,7 @@ msgstr "Nutri-Scor"
 # This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
 msgid "Nutri-Score score"
-msgstr "Scor Nutri-Scor"
+msgstr "Scor Nutri-Score"
 
 # Do not translate
 msgctxt "nutriscore_grade_producer"
@@ -3974,6 +4001,14 @@ msgctxt "export_products_to_public_database_email"
 msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
 msgstr "Platforma pentru producători este încă în dezvoltare și facem verificări manuale înainte de a importa produse în baza de date publică. Vă rugăm să ne trimiteți un e-mail la <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> pentru a actualiza baza de date publică."
 
+msgctxt "crm_user_id"
+msgid "Id of corresponding contact in CRM"
+msgstr "Id-ul contactului corespunzător în CRM"
+
+msgctxt "crm_org_id"
+msgid "Id of corresponding organization in CRM"
+msgstr "Id-ul organizației corespunzătoare în CRM"
+
 msgctxt "user_groups"
 msgid "Groups"
 msgstr "Grupuri"
@@ -3996,7 +4031,7 @@ msgstr "Pentru surse externe de date. Proprietatea produselor importate nu se va
 
 msgctxt "user_group_app"
 msgid "App"
-msgstr "Aplicație"
+msgstr "Aplicatie"
 
 msgctxt "user_group_app_description"
 msgid "For applications."
@@ -4058,9 +4093,10 @@ msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "Moderarea platformei producătorilor"
 
-msgctxt "pro_moderator_owner_set"
-msgid "You are currently viewing products from %s."
-msgstr "În prezent, vizionați produse de la %s."
+# variable names between { } must not be translated
+msgctxt "f_pro_moderator_owner_set"
+msgid "You are currently viewing products from {organization}."
+msgstr "În prezent vizionați produse de la {organization}."
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
@@ -4072,8 +4108,8 @@ msgstr "Pentru a vedea produsele de la un anumit utilizator sau organizație, in
 
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
-msgid "Change"
-msgstr "Schimbă"
+msgid "Switch to another organization"
+msgstr "Treceți la o altă organizație"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
@@ -4221,6 +4257,22 @@ msgstr "Numele echipelor sunt publice. Nu creați echipe cu nume care conțin da
 msgctxt "team_s"
 msgid "Team %s"
 msgstr "Echipa %s"
+
+msgctxt "contributor_settings"
+msgid "Contributor"
+msgstr "Colaborator"
+
+msgctxt "contributor_settings_description"
+msgid "Those settings allow you to personalize some aspect of the website"
+msgstr "Aceste setări vă permit să personalizați unele aspecte ale site-ului"
+
+msgctxt "display_barcode_in_search"
+msgid "Display barcode in search results"
+msgstr "Afișează codul de bare în rezultatele căutării"
+
+msgctxt "edit_link_in_search"
+msgid "Add an edit link in search results"
+msgstr "Adăugați un link de editare în rezultatele căutării"
 
 # leave the %d, it will be replaced by a number
 msgctxt "n_products_will_be_exported"
@@ -4383,6 +4435,7 @@ msgctxt "images_can_be_provided_separately"
 msgid "Product photos can also be provided separately through the Import product photos function of the platform for producers."
 msgstr "Fotografiile produsului pot fi, de asemenea, furnizate separat prin funcția Importului fotografiilor produsului de pe platforma pentru producători."
 
+# This is linked to a unit test
 msgctxt "attribute_group_labels_name"
 msgid "Labels"
 msgstr "Etichete"
@@ -4432,12 +4485,12 @@ msgid "Missing information: fair trade product?"
 msgstr "Informații lipsă: produs de comerț echitabil?"
 
 msgctxt "attribute_labels_fair_trade_yes_description_short"
-msgid "Helps producers in developping countries."
+msgid "Helps producers in developing countries."
 msgstr "Ajută producătorii din țările în curs de dezvoltare."
 
 msgctxt "attribute_labels_fair_trade_description_short"
-msgid "Fair trade products help producers in developping countries."
-msgstr "Produsele de comerț echitabil ajută producătorii din țările în curs de dezvoltare."
+msgid "Fair trade products help producers in developing countries."
+msgstr "Comerțul echitabil cu produse îi ajută pe producătorii din țările în curs de dezvoltare."
 
 msgctxt "attribute_labels_fair_trade_description"
 msgid "When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards."
@@ -4449,7 +4502,7 @@ msgstr "Calitatea nutrițională"
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
-msgstr "Nutri-Score"
+msgstr "Nutri-Scor"
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
@@ -4465,12 +4518,25 @@ msgid "Nutri-Score %s"
 msgstr "Nutri-Scor %s"
 
 msgctxt "attribute_nutriscore_unknown_title"
-msgid "Nutri-Score not computed"
-msgstr "Nutri-Score-ul nu este calculat"
+msgid "Nutri-Score unknown"
+msgstr "Nutri-Scor necunoscut"
 
 msgctxt "attribute_nutriscore_unknown_description_short"
-msgid "Unknown nutritional quality"
-msgstr "Calitate nutrițională necunoscută"
+msgid "Missing data to compute the Nutri-Score"
+msgstr "Lipsesc date pentru a calcula Nutri-Score"
+
+msgctxt "attribute_nutriscore_not_applicable_title"
+msgid "Nutri-Score not-applicable"
+msgstr "Nutri-Scor nu este aplicabil"
+
+msgctxt "attribute_nutriscore_not_applicable_description_short"
+msgid "Not-applicable for the category"
+msgstr "Nu se aplică categoriei"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_nutriscore_not_applicable_description"
+msgid "Not-applicable for the category: {category}"
+msgstr "Nu se aplică pentru categoria: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -4646,6 +4712,10 @@ msgctxt "packaging_text_note_2"
 msgid "Try to be as specific as possible. For plastic, please indicate if it is opaque or transparent, colored, PET or PEHD."
 msgstr "Încearcă să fii cât mai specific posibil. Pentru plastic, vă rugăm să indicați dacă este opac sau transparent, colorat, PET sau PEHD."
 
+msgctxt "packaging_text_note_3"
+msgid "Data from this field will be combined with any data provided for each packaging part. It is possible to provide one or the other, or both."
+msgstr "Datele din acest câmp vor fi combinate cu orice date furnizate pentru fiecare parte a ambalajului. Este posibil să furnizați una sau alta, sau ambele."
+
 msgctxt "product_js_extract_packaging"
 msgid "Extract the recycling instructions and/or packaging information from the picture"
 msgstr "Extrageți instrucțiunile de reciclare și/sau informațiile de ambalare din imagine"
@@ -4668,7 +4738,7 @@ msgstr "Mediu"
 
 msgctxt "attribute_ecoscore_name"
 msgid "Eco-Score"
-msgstr "Eco-Score"
+msgstr "Scor Ecologic"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Eco-Score)"
@@ -4677,7 +4747,7 @@ msgstr "Impact scăzut asupra mediului (Scor ecologic)"
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_ecoscore_grade_title"
 msgid "Eco-Score %s"
-msgstr "Scor ecologic %s"
+msgstr "Eco-Score %s"
 
 msgctxt "attribute_ecoscore_a_description_short"
 msgid "Very low environmental impact"
@@ -4697,7 +4767,7 @@ msgstr "Impact ridicat asupra mediului"
 
 msgctxt "attribute_ecoscore_e_description_short"
 msgid "Very high environmental impact"
-msgstr "Impact foarte mare asupra mediului"
+msgstr "Impact mare asupra mediului"
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "contains_s"
@@ -4843,7 +4913,7 @@ msgstr "Impact asupra mediului"
 # Numerical score for the Eco-score (do not translate Eco-score)
 msgctxt "ecoscore_score"
 msgid "Eco-score score"
-msgstr "Scorul Eco-scor"
+msgstr "Scorul Eco-score"
 
 # Letter grade from A to E for the Eco-score (do not translate Eco-score)
 msgctxt "ecoscore_grade"
@@ -4853,7 +4923,7 @@ msgstr "Nota eco-scor"
 # do not translate Eco-score
 msgctxt "ecoscore_calculation_details"
 msgid "Details of the calculation of the Eco-score"
-msgstr "Detalii despre calculul Scorului Eco"
+msgstr "Detalii despre calculul Eco-Score"
 
 # do not translate Eco-score
 msgctxt "ecoscore_information"
@@ -4900,6 +4970,11 @@ msgstr "Scor Ecologic"
 msgctxt "packaging_parts"
 msgid "Packaging parts"
 msgstr "Componentele ambalajului"
+
+# A short name for a physical piece of packaging (e.g. in English, "packaging" instead of "packaging part"). Used with a number (e.g. "Packaging 1" to identify a packaging part)
+msgctxt "packaging_part_short"
+msgid "Packaging"
+msgstr "Ambalare"
 
 # Number of packaging parts
 msgctxt "packaging_number"
@@ -5020,7 +5095,7 @@ msgstr "Sunteți în baza de date publică."
 
 msgctxt "manage_your_products_on_the_producers_platform"
 msgid "Manage your products on the platform for producers"
-msgstr "Gestionați-vă produsele pe platforma pentru producători"
+msgstr "Administrează produsele dvs pe platforma pentru producători"
 
 msgctxt "number_of_products_with_changes_since_last_export"
 msgid "Number of products with changes since last export"
@@ -5178,13 +5253,34 @@ msgctxt "delete_user_process"
 msgid "User deleted."
 msgstr "Utilizatorul a fost șters."
 
+msgctxt "attribute_ecoscore_not_applicable_title"
+msgid "Eco-Score not yet applicable"
+msgstr "Scorul Eco nu se aplică încă"
+
+msgctxt "attribute_ecoscore_not_applicable_description_short"
+msgid "Not yet applicable for the category"
+msgstr "Nu se aplică încă pentru categorie"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_ecoscore_not_applicable_description"
+msgid "Not yet applicable for the category: {category}"
+msgstr "Nu se aplică încă pentru categoria: {category}"
+
+msgctxt "ecoscore_not_applicable_coming_soon"
+msgid "The Eco-Score is not yet applicable for this category, but we are working on adding support for it."
+msgstr "Scorul Eco nu este încă aplicabil pentru această categorie, dar lucrăm la adăugarea suportului pentru aceasta."
+
 msgctxt "attribute_ecoscore_unknown_title"
 msgid "Eco-Score not computed"
-msgstr "Scorul Eco nu a fost calculat"
+msgstr "Eco-Score nu a fost calculat"
 
 msgctxt "attribute_ecoscore_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr "Impact necunoscut asupra mediului"
+
+msgctxt "ecoscore_unknown_call_to_help"
+msgid "We could not compute the Eco-Score of this product as it is missing some data, could you help complete it?"
+msgstr "Nu am putut calcula Scorul Eco al acestui produs, deoarece îi lipsesc unele date, ați putea ajuta la completarea acestora?"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
@@ -5197,6 +5293,14 @@ msgstr "Lista identificatorilor GS1 GLN care trebuie asociați cu organizația"
 msgctxt "org_list_of_gs1_gln_note"
 msgid "A comma separated list of GS1 GLN identifiers to force the association with this organization."
 msgstr "O listă separată prin virgulă de identificatori GS1 GLN pentru a forța asocierea cu această organizație."
+
+msgctxt "org_valid_org"
+msgid "Validate organization as a real producer."
+msgstr "Validați organizația ca un adevărat producător."
+
+msgctxt "org_valid_org_note"
+msgid "The organization is verified as a real producer by a human, also creates entry in CRM."
+msgstr "Organizația este verificată ca producător real de către o persoană, creează și intrare în CRM."
 
 msgctxt "org_enable_manual_export_to_public_platform"
 msgid "Enable organization members to manually export product data and photos to the public database."
@@ -5286,9 +5390,10 @@ msgctxt "data_source_database_note_about_the_producers_platform"
 msgid "Manufacturers can use the Open Food Facts <a href=\"<producers_platform_url>\">free plaform for producers</a> to access and complete this data, and to obtain reports, analysis and product improvements opportunities (e.g. better Nutri-Score)."
 msgstr "Producătorii pot folosi <a href=\"<producers_platform_url>\">pentru producătorii</a> pentru a accesa și completa aceste date și pentru a obține rapoarte, analize și oportunități de îmbunătățire a produselor (de ex. Nutri-Score mai bun)."
 
-msgctxt "data_source_database_equadis"
-msgid "The manufacturer %s uses %s to automatically transmit data and photos for its products."
-msgstr "Producătorul %s folosește %s pentru a transmite automat date și fotografii pentru produsele sale."
+# variable names between { } must not be translated
+msgctxt "f_data_source_database_provider"
+msgid "The manufacturer {manufacturer} uses {provider} to automatically transmit data and photos for its products."
+msgstr "Producătorul {manufacturer} folosește {provider} pentru a transmite automat date și fotografii pentru produsele sale."
 
 msgctxt "image_other_type"
 msgid "Type of the product photo"
@@ -5305,7 +5410,7 @@ msgstr "Amprenta forestieră se calculează luând în considerare ingredientele
 
 msgctxt "ecoscore_agribalyse_match_warning"
 msgid "The Eco-Score can only be calculated if the product has a sufficiently precise category."
-msgstr "Scorul Eco poate fi calculat doar dacă produsul are o categorie suficient de precisă."
+msgstr "Eco-Score poate fi calculat doar dacă produsul are o categorie suficient de precisă."
 
 msgctxt "ecoscore_add_more_precise_category"
 msgid "You can modify the product page to add a more precise category."
@@ -5433,21 +5538,17 @@ msgctxt "ecoscore_environmental_policy"
 msgid "Environmental policy"
 msgstr "Politica de mediu"
 
-msgctxt "ecoscore_transportation"
-msgid "Transportation"
-msgstr "Transport"
-
 msgctxt "ecoscore_threatened_species"
 msgid "Threatened species"
 msgstr "Specii pe cale de disparitie"
 
 msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
-msgid "Ingredients whose cultivation threatens species"
-msgstr "Ingrediente a căror cultivare amenință speciile"
+msgid "Ingredients that threatens species"
+msgstr "Ingrediente care amenință speciile"
 
 msgctxt "ecoscore_no_species_threatening_ingredients"
-msgid "No ingredient threatening species"
-msgstr ""
+msgid "No ingredients that threaten species"
+msgstr "Fără ingrediente care amenință speciile"
 
 msgctxt "ecoscore_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
@@ -5456,10 +5557,6 @@ msgstr "Nu au fost furnizate informații despre componentele acestui produs."
 msgctxt "ecoscore_edit_for_more_precise_ecoscore"
 msgid "For a more precise calculation of the Eco-Score, you can edit the product page and add them."
 msgstr "Pentru un calcul mai precis al Eco-Score, puteți edita pagina produsului și le puteți adăuga."
-
-msgctxt "ecoscore_packaging"
-msgid "Packaging"
-msgstr "Ambalare"
 
 msgctxt "ecoscore_packaging_ratio"
 msgid "ratio"
@@ -5505,7 +5602,7 @@ msgstr "Dacă sunteți producătorul acestui produs, ne puteți trimite informa�
 # do not translate Eco-Score and the link
 msgctxt "ecoscore_description"
 msgid "The <a href=\"/ecoscore\">Eco-Score</a> is an experimental score that summarizes the environmental impacts of food products."
-msgstr "Scorul <a href=\"/ecoscore\">Eco-Scor</a> este un scor experimental care rezumă impactul asupra mediului al produselor alimentare."
+msgstr "Scorul <a href=\"/ecoscore\">Eco-Score</a> este un scor experimental care rezumă impactul asupra mediului al produselor alimentare."
 
 # do not translate Eco-Score
 msgctxt "ecoscore_warning_fr"
@@ -5516,6 +5613,14 @@ msgstr "Formula Eco-Score este supusă modificării, deoarece este îmbunătăț
 msgctxt "ecoscore_warning_international"
 msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgstr "Eco-Score a fost dezvoltat inițial pentru Franța și este extins și în alte țări europene. Formula Eco-Score poate fi modificată, deoarece este îmbunătățită în mod regulat pentru a o face mai precisă și mai potrivită pentru fiecare țară."
+
+msgctxt "ecoscore_warning_transportation_world"
+msgid "Select a country in order to include the full impact of transportation."
+msgstr "Selectați o țară pentru a include impactul total al transportului."
+
+msgctxt "ecoscore_warning_transportation"
+msgid "The full impact of transportation to your country is currently unknown."
+msgstr "În prezent, impactul total al transportului către țara dvs. este necunoscut."
 
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
@@ -5552,35 +5657,35 @@ msgstr "Eliminarea sau modificarea datelor furnizate va fi posibilă numai de c�
 
 msgctxt "ecoscore_packaging_impact_high"
 msgid "Packaging with a high impact"
-msgstr ""
+msgstr "Ambalare cu impact mare"
 
 msgctxt "ecoscore_packaging_impact_medium"
 msgid "Packaging with a medium impact"
-msgstr ""
+msgstr "Ambalare cu impact mediu"
 
 msgctxt "ecoscore_packaging_impact_low"
 msgid "Packaging with a low impact"
-msgstr ""
+msgstr "Ambalare cu impact redus"
 
 msgctxt "ecoscore_packaging_missing_information"
 msgid "Missing packaging information for this product"
-msgstr ""
+msgstr "Lipsesc informații despre ambalaj pentru acest produs"
 
 msgctxt "ecoscore_origins_of_ingredients_impact_high"
 msgid "Origins of ingredients with a high impact"
-msgstr ""
+msgstr "Originile ingredientelor cu impact ridicat"
 
 msgctxt "ecoscore_origins_of_ingredients_impact_medium"
 msgid "Origins of ingredients with a medium impact"
-msgstr ""
+msgstr "Originile ingredientelor cu impact mediu"
 
 msgctxt "ecoscore_origins_of_ingredients_impact_low"
 msgid "Origins of ingredients with a low impact"
-msgstr ""
+msgstr "Originile ingredientelor cu impact redus"
 
 msgctxt "ecoscore_origins_of_ingredients_missing_information"
 msgid "Missing origins of ingredients information"
-msgstr ""
+msgstr "Lipsa informațiilor despre originea ingredientelor"
 
 msgctxt "percent_of_ingredients"
 msgid "% of ingredients"
@@ -5593,7 +5698,7 @@ msgstr "mediu"
 
 msgctxt "nutrition_grade_fr_tea_bags_note"
 msgid "Note: the Nutri-Score of teas and herbal teas corresponds to the product prepared with water only, without sugar or milk."
-msgstr "Notă: Nutri-Scorul ceaiurilor și ceaiurilor din plante corespunde produsului preparat doar cu apă, fără zahăr sau lapte."
+msgstr "Notă: Nutri-Score ceaiurilor și ceaiurilor din plante corespunde produsului preparat doar cu apă, fără zahăr sau lapte."
 
 msgctxt "g_per_100g"
 msgid "%s g / 100 g"
@@ -5603,13 +5708,15 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr "Important: avem nevoie de sprijinul tău!"
 
-msgctxt "donation_body"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with 3 employees."
-msgstr "Open Food Facts este un proiect colaborativ construit de zeci de mii de voluntari și gestionat de o organizație non-profit cu 3 angajați."
+# variable names between { } must not be translated, {number_of_employees} will be a number
+msgctxt "donation_body_employees"
+msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
+msgstr "Open Food Facts este un proiect colaborativ construit de zeci de mii de voluntari și gestionat de o organizație non-profit cu {number_of_employees} angajați."
 
-msgctxt "donation_why"
-msgid "We need your donations to fund the Open Food Facts 2021 budget and to continue to develop the project. <strong>Thank you! ❤️</strong>"
-msgstr "Avem nevoie de donațiile dvs. pentru a finanța bugetul Open Food Facts 2021 și pentru a continua dezvoltarea proiectului. <strong>Mulțumesc! ❤️</strong>"
+# variable names between { } must not be translated, {year} will be the upcoming year
+msgctxt "donation_why_year"
+msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
+msgstr "Avem nevoie de donațiile dumneavoastră pentru a finanța bugetul Open Food Facts {year} și pentru a continua dezvoltarea proiectului."
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -5670,6 +5777,10 @@ msgctxt "source_ademe_agribalyse"
 msgid "Source: ADEME Agribalyse Database"
 msgstr "Sursa: Baza de date ADEME Agribalyse"
 
+msgctxt "source_ademe_agribalyse_for_category"
+msgid "The carbon emission figure comes from ADEME's Agribalyse database, for the category:"
+msgstr "Cifra emisiilor de carbon provine din baza de date Agribalyse a ADEME, pentru categoria:"
+
 msgctxt "environment_card_title"
 msgid "Environment"
 msgstr "Mediu"
@@ -5692,41 +5803,654 @@ msgstr "Pădurile tropicale din Asia, Africa și America Latină sunt distruse p
 
 msgctxt "bonus"
 msgid "Bonus"
-msgstr ""
+msgstr "Bonus"
 
 msgctxt "malus"
 msgid "Malus"
-msgstr ""
+msgstr "Malus"
 
 msgctxt "life_cycle_analysis"
 msgid "Life cycle analysis"
-msgstr ""
+msgstr "Analiza ciclului de viață"
 
 msgctxt "ecoscore_bonuses_and_maluses"
 msgid "Bonuses and maluses"
-msgstr ""
+msgstr "Bonusuri și malusuri"
 
 msgctxt "ecoscore_for_this_product"
 msgid "Eco-Score for this product"
-msgstr ""
+msgstr "Scor Eco pentru acest produs"
 
 msgctxt "average_impact_of_the_category"
 msgid "Average impact of products of the same category"
-msgstr ""
+msgstr "Impactul mediu al produselor din aceeași categorie"
 
 msgctxt "ecoscore_sum_of_bonuses_and_maluses"
 msgid "Sum of bonuses and maluses"
-msgstr ""
+msgstr "Suma bonusurilor și a malusurilor"
 
 msgctxt "ecoscore_sum_of_bonuses_and_maluses_is_capped"
 msgid "The sum of bonuses and maluses is capped at +25."
-msgstr ""
+msgstr "Suma bonusurilor și a malusurilor este limitată la +25."
 
 msgctxt "ecoscore_lca_score"
 msgid "Life cycle analysis score"
-msgstr ""
+msgstr "Scorul analizei ciclului de viață"
+
+msgctxt "impact_for_this_product"
+msgid "Impact for this product"
+msgstr "Impact pentru acest produs"
 
 msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
-msgstr ""
+msgstr "Scorul produselor cu materiale de ambalare nereciclabile și nebiodegradabile este limitat la 79 (gradul B)."
+
+msgctxt "nutriscore_not_applicable"
+msgid "Nutri-Score not applicable for this product category."
+msgstr "Nutri-Score nu se aplică pentru această categorie de produse."
+
+msgctxt "nutriscore_missing_category"
+msgid "The category of the product must be specified in order to compute the Nutri-Score."
+msgstr "Categoria produsului trebuie specificată pentru a calcula Nutri-Score."
+
+msgctxt "nutriscore_missing_nutrition_data"
+msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
+msgstr "Valorile nutriționale ale produsului trebuie specificate pentru a calcula Nutri-Score."
+
+msgctxt "nutriscore_missing_category_and_nutrition_data"
+msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
+msgstr "Categoria și valorile nutriționale ale produsului trebuie specificate pentru a calcula Nutri-Score."
+
+msgctxt "health"
+msgid "Health"
+msgstr "Sănătate"
+
+# will be followed by : and a value. e.g. "Compared to: bananas"
+msgctxt "compared_to"
+msgid "Compared to"
+msgstr "Comparat cu"
+
+# name of an activity / a sport
+msgctxt "activity_walking"
+msgid "Walking"
+msgstr "Plimbare"
+
+# name of an activity / a sport
+msgctxt "activity_swimming"
+msgid "Swimming"
+msgstr "Înot"
+
+# name of an activity / a sport
+msgctxt "activity_bicycling"
+msgid "Bicycling"
+msgstr "Ciclism"
+
+# name of an activity / a sport
+msgctxt "activity_running"
+msgid "Running"
+msgstr "Alergare"
+
+# Don't translate {kj}, it will be replaced by a number
+msgctxt "f_energy_per_100g"
+msgid "{kj} kJ per 100g"
+msgstr "{kj} kJ la 100 g"
+
+# Don't translate {kj}, it will be replaced by a number
+msgctxt "f_equal_to_walking_minutes_or_steps"
+msgid "Equal to walking {minutes} minutes or {steps} steps"
+msgstr "Egal cu parcurgerea a {minutes} minute sau cu {steps} pași"
+
+# Don't translate {kg} and {lb}, it will be replaced by a number
+msgctxt "f_energy_expenditure_for_weight_in_kg_lb"
+msgid "Energy expenditure for a person weighting {kg} kg / {lb} lb"
+msgstr "Cheltuieli cu energia pentru o persoană ponderată {kg} kg / {lb} lb"
+
+msgctxt "nutriscore_missing_category_short"
+msgid "Missing category"
+msgstr "Lipsește categoria"
+
+msgctxt "nutriscore_missing_nutrition_data_short"
+msgid "Missing nutrition facts"
+msgstr "Date nutriționale lipsă"
+
+msgctxt "nutriscore_missing_category_and_nutrition_data_short"
+msgid "Missing category and nutrition facts"
+msgstr "Lipsește categoria și datele nutriționale"
+
+msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
+msgid "Reduce or stop drinking alcohol"
+msgstr "Reduceți sau opriți consumul de alcool"
+
+msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_subtitle"
+msgid "Less is better"
+msgstr "Mai puțin e mai bun"
+
+msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_text"
+msgid "This might not be the answer people want to hear, but there is no safe level for drinking alcohol. Of course there is lower-risk drinking, but WHO does not set particular limits, because the evidence shows that the ideal situation for health is to not drink at all. Alcohol is closely related to around 60 different diagnoses and for almost all there is a close dose–response relationship, so the more you drink, the higher your risk of disease. Less is better."
+msgstr "Poate că acesta nu este răspunsul pe care oamenii doresc să-l audă, dar nu există un nivel sigur de consum de alcool. Bineînţeles că există un nivel mai scăzut al consumului de alcool, dar OMS nu stabileşte anumite limite, pentru că dovezile arată că situaţia ideală pentru sănătate este aceea de a nu bea deloc. Alcoolul este strâns legat de aproximativ 60 de diagnostice diferite, iar pentru aproape toate există o relaţie strânsă de doză-răspuns, cu cât beţi mai mult, cu atât riscul dumneavoastră de boală este mai mare. Mai puțin este mai bine."
+
+# "source" as in "source of the information"
+msgctxt "source"
+msgid "Source"
+msgstr "Sursa"
+
+# variable names between { } must not be translated
+msgctxt "f_app_user"
+msgid "A user of the {app_name} app"
+msgstr "Un utilizator al aplicației {app_name}"
+
+msgctxt "food_groups_p"
+msgid "food groups"
+msgstr "grupe alimentare"
+
+msgctxt "food_groups_s"
+msgid "food group"
+msgstr "grupa alimentară"
+
+msgctxt "non_vegan_ingredients"
+msgid "Non-vegan ingredients"
+msgstr "Ingrediente non-vegane"
+
+msgctxt "vegan_ingredients"
+msgid "No non-vegan ingredients detected"
+msgstr "Nu au fost detectate ingrediente non-vegane"
+
+msgctxt "maybe_vegan_ingredients"
+msgid "Ingredients that may not be vegan"
+msgstr "Ingrediente care poate nu sunt vegane"
+
+msgctxt "non_vegetarian_ingredients"
+msgid "Non-vegetarian ingredients"
+msgstr "Ingrediente non-vegetariene"
+
+msgctxt "vegetarian_ingredients"
+msgid "No non-vegetarian ingredients detected"
+msgstr "Nu au fost detectate ingrediente non-vegetariene"
+
+msgctxt "maybe_vegetarian_ingredients"
+msgid "Ingredients that may not be vegetarian"
+msgstr "Ingrediente care nu pot fi vegetariene"
+
+msgctxt "palm_oil_ingredients"
+msgid "Ingredients that contain palm oil"
+msgstr "Ingrediente care conțin ulei de palmier"
+
+msgctxt "may_contain_palm_oil_ingredients"
+msgid "Ingredients that may contain palm oil"
+msgstr "Ingrediente care pot conține ulei de palmier"
+
+msgctxt "palm_oil_free_ingredients"
+msgid "No ingredients containing palm oil detected"
+msgstr "Nu au fost detectate ingrediente care conțin ulei de palmier"
+
+msgctxt "unrecognized_ingredients"
+msgid "Unrecognized ingredients"
+msgstr "Ingrediente nerecunoscute"
+
+msgctxt "nova_1_unprocessed_ingredients"
+msgid "The product contains only unprocessed or minimally processed ingredients."
+msgstr "Produsul conține doar ingrediente neprocesate sau minim procesate."
+
+# variable names between { } must not be translated
+msgctxt "f_nova_markers_for_nova_group"
+msgid "Elements that indicate the product is in the {nova_group} group"
+msgstr "Elementele care indică faptul că produsul se află în grupa {nova_group}"
+
+msgctxt "nova_classification_description"
+msgid "Food products are classified into 4 groups according to their degree of processing:"
+msgstr "Produsele alimentare sunt clasificate în 4 grupe în funcție de gradul lor de prelucrare:"
+
+msgctxt "nova_classification_how"
+msgid "The determination of the group is based on the category of the product and on the ingredients it contains."
+msgstr "Stabilirea grupei se face în funcție de categoria produsului și de ingredientele pe care le conține."
+
+msgctxt "nova_classification_learn_more"
+msgid "Learn more about the NOVA classification"
+msgstr "Aflați mai multe despre clasificarea NOVA"
+
+msgctxt "nova_group_missing_category"
+msgid "The category of the product must be specified in order to determine the NOVA group."
+msgstr "Categoria produsului trebuie specificată pentru a determina grupul NOVA."
+
+msgctxt "nova_group_missing_ingredients"
+msgid "The ingredients of the product must be specified in order to determine the NOVA group."
+msgstr "Ingredientele produsului trebuie specificate pentru a determina grupul NOVA."
+
+msgctxt "nova_group_too_many_unknown_ingredient"
+msgid "We could not recognize some of the ingredients and determine the NOVA group."
+msgstr "Nu am putut să recunoaștem unele dintre ingrediente și să stabilim grupul NOVA."
+
+msgctxt "unselect_image"
+msgid "Unselect Image"
+msgstr "Deselectați imaginea"
+
+msgctxt "nutriscore_learn_more"
+msgid "Learn more about the Nutri-Score"
+msgstr "Aflați mai multe despre Nutri-Score"
+
+msgctxt "ecoscore_learn_more"
+msgid "Learn more about the Eco-Score"
+msgstr "Aflați mai multe despre Eco-Score"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_very_good_match"
+msgid "Very good match"
+msgstr "Potrivire foarte bună"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_good_match"
+msgid "Good match"
+msgstr "Potrivire bună"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_poor_match"
+msgid "Poor match"
+msgstr "Potrivire slabă"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_unknown_match"
+msgid "Unknown match"
+msgstr "Potrivire necunoscută"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_may_not_match"
+msgid "May not match"
+msgstr "Nu se potrivește"
+
+# The translation needs to be short as it is displayed at the top of small product cards
+msgctxt "products_match_does_not_match"
+msgid "Does not match"
+msgstr "Nu se potrivește"
+
+msgctxt "reset_preferences"
+msgid "Use default preferences"
+msgstr "Utilizați preferințele implicite"
+
+msgctxt "reset_preferences_details"
+msgid "Nutri-Score, Eco-Score and food processing level (NOVA)"
+msgstr "Nutri-Score, Eco-Score și nivel de procesare a alimentelor (NOVA)"
+
+msgctxt "actions_add_ingredients"
+msgid "Could you add the ingredients list?"
+msgstr "Ați putea adăuga lista de ingrediente?"
+
+msgctxt "actions_to_compute_nutriscore"
+msgid "Could you add the information needed to compute the Nutri-Score?"
+msgstr "Ați putea adăuga informațiile necesare pentru a calcula Nutri-Score?"
+
+msgctxt "actions_to_compute_ecoscore"
+msgid "Could you add a precise product category so that we can compute the Eco-Score?"
+msgstr "Ați putea adăuga o categorie de produse precisă, astfel încât să putem calcula Scorul Eco?"
+
+msgctxt "action_add_ingredients_text"
+msgid "Add the ingredients"
+msgstr "Adăugați ingredientele"
+
+msgctxt "action_add_categories"
+msgid "Add a category"
+msgstr "Adăugați o categorie"
+
+msgctxt "action_add_nutrition_facts"
+msgid "Add nutrition facts"
+msgstr "Adăugați informații nutriționale"
+
+msgctxt "action_add_origins"
+msgid "Add the origins of ingredients for this product"
+msgstr "Adăugați originile ingredientelor pentru acest produs"
+
+msgctxt "action_add_packaging_image"
+msgid "Take a photo of the recycling information"
+msgstr "Faceți o fotografie a informațiilor despre reciclare"
+
+# this is not used yet
+msgctxt "action_add_basic_details"
+msgid "Add basic details"
+msgstr "Adăugați detalii de bază"
+
+# this is not used yet
+msgctxt "action_add_portion_size"
+msgid "Add portion size"
+msgstr "Adăugați dimensiunea porției"
+
+# this is not used yet
+msgctxt "action_add_ingredients_image"
+msgid "Take a photo of the ingredients"
+msgstr "Faceți o poză ingredientelor"
+
+# this is not used yet
+msgctxt "action_add_nutrition_image"
+msgid "Take a photo of the nutrition facts"
+msgstr "Faceți o poză tabelului cu informații nutriționale"
+
+# this is not used yet
+msgctxt "action_refresh_ingredients_image"
+msgid "Refresh the photo of the ingredients"
+msgstr "Reîmprospătați fotografia ingredientelor"
+
+# this is not used yet
+msgctxt "action_refresh_nutrition_image"
+msgid "Refresh the photo of the nutrition facts"
+msgstr "Reîmprospătați fotografia cu informațiile nutriționale"
+
+# this is not used yet
+msgctxt "action_add_packaging_text"
+msgid "Extract and check the recycling information"
+msgstr "Extrageți și verificați informațiile de reciclare"
+
+# this is not used yet
+msgctxt "action_add_stores"
+msgid "Add the store where you found this product"
+msgstr "Adaugă magazinul unde ai găsit acest produs"
+
+# this is not used yet
+msgctxt "action_labels"
+msgid "Add any label present on this product"
+msgstr "Adăugați orice etichetă prezentă pe acest produs"
+
+# this is not used yet
+msgctxt "action_countries"
+msgid "Add the country where you found this product"
+msgstr "Adăugați țara în care ați găsit acest produs"
+
+# this is not used yet
+msgctxt "action_packager_codes_image"
+msgid "Take a photo of traceability codes"
+msgstr "Faceți o fotografie a codurilor de trasabilitate"
+
+# Used as a header for key facts
+msgctxt "knowledge_panels_facts"
+msgid "What you need to know"
+msgstr "Ce trebuie să ştiţi"
+
+msgctxt "knowledge_panels_recommendation"
+msgid "Recommendation"
+msgstr "Recomandare"
+
+msgctxt "nutrient_info_salt_risk"
+msgid "A high consumption of salt (or sodium) can cause raised blood pressure, which can increase the risk of heart disease and stroke."
+msgstr "Un consum mare de sare (sau sodiu) poate cauza creșterea tensiunii arteriale, ceea ce poate crește riscul de boli de inimă și accident vascular cerebral."
+
+msgctxt "nutrient_info_salt_high_blood_pressure"
+msgid "Many people who have high blood pressure do not know it, as there are often no symptoms."
+msgstr "Mulți oameni care au hipertensiune arterială nu știu asta, deoarece adesea nu există simptome."
+
+msgctxt "nutrient_info_salt_high_consumption"
+msgid "Most people consume too much salt (on average 9 to 12 grams per day), around twice the recommended maximum level of intake."
+msgstr "Majoritatea oamenilor consumă prea multă sare (în medie 9 până la 12 grame pe zi), aproximativ de două ori nivelul maxim recomandat de aport."
+
+msgctxt "nutrient_recommendation_salt_title"
+msgid "Limit the consumption of salt and salted food"
+msgstr "Limitați consumul de sare și alimente sărate"
+
+msgctxt "nutrient_recommendation_salt_cooking_and_table"
+msgid "Reduce the quantity of salt used when cooking, and don't salt again at the table."
+msgstr "Reduceți cantitatea de sare folosită la gătit și nu mai sărați la masă."
+
+msgctxt "nutrient_recommendation_salt_limit_salty_snacks"
+msgid "Limit the consumption of salty snacks and choose products with lower salt content."
+msgstr "Limitați consumul de gustări sărate și alegeți produse cu conținut mai mic de sare."
+
+msgctxt "nutrient_info_sugars_risk"
+msgid "A high consumption of sugar can cause weight gain and tooth decay. It also augments the risk of type 2 diabetes and cardio-vascular diseases."
+msgstr "Un consum mare de zahăr poate provoca creșterea în greutate și carii dentare. De asemenea, crește riscul de diabet de tip 2 și boli cardiovasculare."
+
+msgctxt "nutrient_recommendation_sugars_title"
+msgid "Limit the consumption of sugar and sugary drinks"
+msgstr "Limitați consumul de zahăr și băuturi dulci"
+
+msgctxt "nutrient_recommendation_sugars_drinks"
+msgid "Sugary drinks (such as sodas, fruit beverages, and fruit juices and nectars) should be limited as much as possible (no more than 1 glass a day)."
+msgstr "Băuturile dulci (cum ar fi sucurile, băuturile din fructe și sucuri și nectaruri de fructe) trebuie limitate cât mai mult posibil (nu mai mult de 1 pahar pe zi)."
+
+msgctxt "nutrient_recommendation_sugars_food"
+msgid "Choose products with lower sugar content and reduce the consumption of products with added sugars."
+msgstr "Alegeți produse cu conținut mai mic de zahăr și reduceți consumul de produse cu adaos de zaharuri."
+
+msgctxt "nutrient_info_fat_and_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "Un consum crescut de grăsimi, în special de grăsimi saturate, poate creşte colesterolul, ceea ce creşte riscul de boli cardiace."
+
+msgctxt "nutrient_recommendation_fat_and_saturated_fat_title"
+msgid "Reduce the consumption of fat and saturated fat"
+msgstr "Reduceți consumul de grăsimi și grăsimi saturate"
+
+msgctxt "nutrient_recommendation_fat_and_saturated_fat"
+msgid "Choose products with lower fat and saturated fat content."
+msgstr "Alegeți produse cu conținut scăzut de grăsimi și grăsimi saturate."
+
+msgctxt "sign_in"
+msgid "Sign in"
+msgstr "Conectare"
+
+msgctxt "sign_out"
+msgid "Sign out"
+msgstr "Deconectare"
+
+msgctxt "your_contributions"
+msgid "Your contributions"
+msgstr "Contribuțiile dumneavoastră"
+
+msgctxt "products_added"
+msgid "Products added"
+msgstr "Produse adăugate"
+
+msgctxt "products_edited"
+msgid "Products edited"
+msgstr "Produse editate"
+
+msgctxt "products_photographed"
+msgid "Products photographed"
+msgstr "Produse fotografiate"
+
+# result of the matching with the user preferences: should ne a noun, not a verb
+msgctxt "matching_with_your_preferences"
+msgid "Matching with your preferences"
+msgstr "Potrivire cu preferințele dvs"
+
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_join_us_on_slack"
+msgid "Join us on <a href=\"{url}\">Slack</a>"
+msgstr "Alăturați-vă nouă pe <a href=\"{url}\">Slack</a>"
+
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_discover_our_code_of_conduct"
+msgid "Discover our <a href=\"{url}\">Code of conduct</a>"
+msgstr "Descoperiți <a href=\"{url}\">Codul nostru de conduită</a>"
+
+# {links} must not be translated, it will be replaced by icons and/or text links
+msgctxt "f_footer_follow_us_links"
+msgid "Follow us: {links}"
+msgstr "Urmărește-ne: {links}"
+
+# Should be as small as possible, e.g. use "app" instead of "application", don't specify "mobile"
+msgctxt "footer_install_the_app_exclamation_mark"
+msgid "Install the app!"
+msgstr "Instalează aplicația!"
+
+# HTML tags must not be translated, keep <span id=\"everyday\"> and <span id=\"foods\"> and put them around the corresponding words in the translation
+# e.g. in French: Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>
+msgctxt "footer_scan_your_everyday_foods"
+msgid "Scan your <span id=\"everyday\">everyday</span> <span id=\"foods\">foods</span>"
+msgstr "Scanați-vă <span id=\"everyday\">zilnic</span> <span id=\"foods\">alimente</span>"
+
+msgctxt "nutrition"
+msgid "Nutrition"
+msgstr "Informații nutriționale"
+
+# Note: "criteria" is plural here. So in French for instance: "Vos critères"
+msgctxt "your_criteria"
+msgid "Your criteria"
+msgstr "Criteriile dvs"
+
+msgctxt "product"
+msgid "Product"
+msgstr "Produs"
+
+msgctxt "environment"
+msgid "Environment"
+msgstr "Mediu"
+
+msgctxt "api_result_failure"
+msgid "Failure"
+msgstr "Eșec"
+
+msgctxt "api_result_product_found"
+msgid "Product found"
+msgstr "Produs găsit"
+
+msgctxt "api_result_product_not_found"
+msgid "Product not found"
+msgstr "Produsul nu a fost găsit"
+
+msgctxt "api_result_product_updated"
+msgid "Product updated"
+msgstr "Produs actualizat"
+
+msgctxt "api_message_invalid_api_action"
+msgid "Invalid API action"
+msgstr "Acțiune API nevalidă"
+
+msgctxt "api_message_invalid_api_method"
+msgid "Invalid API method"
+msgstr "Metoda API nevalidă"
+
+msgctxt "api_message_empty_request_body"
+msgid "Empty request body"
+msgstr "Corpul cererii gol"
+
+msgctxt "api_message_invalid_json_in_request_body"
+msgid "Invalid JSON in request body"
+msgstr "JSON nevalid în corpul solicitării"
+
+msgctxt "api_message_invalid_type_must_be_object"
+msgid "Invalid type: must be an object"
+msgstr "Tip nevalid: trebuie să fie un obiect"
+
+msgctxt "api_message_invalid_type_must_be_array"
+msgid "Invalid type: must be an array"
+msgstr "Tip nevalid: trebuie să fie o matrice"
+
+msgctxt "api_message_invalid_type_must_be_integer"
+msgid "Invalid type: must be an integer"
+msgstr "Tip nevalid: trebuie să fie un număr întreg"
+
+msgctxt "api_message_invalid_type_must_be_number"
+msgid "Invalid type: must be a number"
+msgstr "Tip nevalid: trebuie să fie un număr"
+
+msgctxt "api_message_missing_field"
+msgid "Missing field"
+msgstr "Câmp lipsă"
+
+msgctxt "api_message_unrecognized_value"
+msgid "Unrecognized value"
+msgstr "Valoare nerecunoscută"
+
+msgctxt "api_impact_none"
+msgid "None"
+msgstr "Nici unul"
+
+msgctxt "api_impact_warning"
+msgid "Warning"
+msgstr "Atenţie"
+
+msgctxt "api_impact_failure"
+msgid "Failure"
+msgstr "Eșec"
+
+msgctxt "api_impact_field_ignored"
+msgid "Field ignored"
+msgstr "Câmp ignorat"
+
+msgctxt "api_impact_value_converted"
+msgid "Value converted"
+msgstr "Valoarea convertită"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units"
+msgid "Number of units"
+msgstr "Număr de unități"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight"
+msgid "Weight of one empty unit"
+msgstr "Greutatea unei unități goale"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit"
+msgid "Quantity of product contained per unit"
+msgstr "Cantitatea de produs conținută pe unitate"
+
+# variable names between { } must not be translated
+msgctxt "f_help_categorize_on_hunger_games"
+msgid "Help categorize more {title} on Hunger Games"
+msgstr "Ajută la categorizarea mai multor {title} în Jocurile Foamei"
+
+msgctxt "packagings_complete"
+msgid "All the packaging parts of the product are listed."
+msgstr "Toate părțile de pe ambalaj ale produsului sunt enumerate."
+
+msgctxt "api_message_invalid_user_id_and_password"
+msgid "Invalid user id and password"
+msgstr "ID utilizator și parolă nevalide"
+
+msgctxt "api_message_invalid_value_must_be_0_or_1"
+msgid "Invalid value: must be 0 or 1"
+msgstr "Valoare invalidă: trebuie să fie 0 sau 1"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units_description"
+msgid "Enter the number of packaging units of the same shape and material contained in the product."
+msgstr "Introduceți numărul de unități de ambalare de aceeași formă și material conținute în produs."
+
+msgctxt "packaging_shape_description"
+msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
+msgstr "Introduceți numele formei afișat în instrucțiunile de reciclare dacă sunt disponibile sau selectați o formă."
+
+msgctxt "packaging_material_description"
+msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
+msgstr "Introduceți materialul specific dacă poate fi determinat (un cod de material în interiorul unui triunghi poate fi găsit adesea pe piesele de ambalaj) sau un material generic (de exemplu plastic sau metal) dacă nu sunteți sigur."
+
+msgctxt "packaging_recycling_description"
+msgid "Enter recycling instructions only if they are listed on the product."
+msgstr "Introduceți instrucțiunile de reciclare numai dacă sunt enumerate pe produs."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight_description"
+msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
+msgstr "Îndepărtați orice mâncare rămasă și spălați și uscați partea de ambalaj înainte de cântărire. Dacă este posibil, utilizați o cântar cu precizie de 0,1 g sau 0,01 g."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit_description"
+msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
+msgstr "Introduceți greutatea netă sau volumul net și indicați unitatea (de exemplu, g sau ml)."
+
+msgctxt "import_and_export_products"
+msgid "Import and export products"
+msgstr "Import si export produse"
+
+msgctxt "add_products"
+msgid "Add products"
+msgstr "Adăugați produse"
+
+# Needs to be short (displayed in a menu)
+msgctxt "install_the_app_to_add_products"
+msgid "Install the app to add products"
+msgstr "Instalați aplicația pentru a adăuga produse"
+
+msgctxt "search_and_analyze_products"
+msgid "Search and analyze products"
+msgstr "Căutați și analizați produse"
+
+msgctxt "resources"
+msgid "Resources"
+msgstr "Resurse"
+
+msgctxt "pro_platform_user_guide"
+msgid "Pro platform user guide"
+msgstr "Ghidul utilizatorului platformei Pro"
+
+msgctxt "faq_for_producers"
+msgid "FAQ for producers"
+msgstr "Întrebări frecvente pentru producători"
 

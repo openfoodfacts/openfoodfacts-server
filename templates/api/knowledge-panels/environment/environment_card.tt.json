@@ -5,7 +5,7 @@
         "environment"
     ],
     "title_element": {
-        "title": "[% lang('environment') %]",
+        "title": "[% lang('environment_card_title') %]",
     },    
     "elements": [
         {
@@ -14,7 +14,15 @@
                 "panel_id": "ecoscore",
             },
         },
-        [% IF panel.carbon_footprint %]
+        [% IF panels.ecoscore_extended.defined %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "ecoscore_extended",
+            },
+        },
+        [% END %]           
+        [% IF panels.carbon_footprint.defined %]
         {
             "element_type": "panel_group",
             "panel_group_element": {
@@ -22,15 +30,19 @@
                 "panel_ids": ["carbon_footprint"],
             },
         },
-        [% END %]
-        [% IF panel.packaging_recycling %]
+        [% END %]    
+        [% IF panels.packaging_recycling.defined %]
         {
             "element_type": "panel_group",
             "panel_group_element": {
                 "title": "[% lang('ecoscore_packaging') %]",
+                "panel_group_id": "packaging_recycling",
                 "panel_ids": [
                     "packaging_recycling"
                 ],
+                [% IF panel.packaging_image.defined %]
+                "image": [% encode_json(panel.packaging_image) %],
+                [% END %]
             },
         },
         [% END %]
@@ -39,12 +51,12 @@
             "panel_group_element": {
                 "title": "[% lang('ecoscore_transportation') %]",
                 "panel_ids": [
-                    [% IF panel.manufacturing_place %]"manufacturing_place",[% END %]
+                    [% IF panels.manufacturing_place.defined %]"manufacturing_place",[% END %]
                     "origins_of_ingredients",
                 ],
             },
         },         
-        [% IF panel.palm_oil %]
+        [% IF panels.palm_oil.defined %]
         {
             "element_type": "panel_group",
             "panel_group_element": {
