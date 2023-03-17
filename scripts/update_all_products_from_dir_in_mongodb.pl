@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -20,10 +20,10 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use CGI::Carp qw(fatalsToBrowser);
-
 use Modern::Perl '2017';
 use utf8;
+
+use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -40,7 +40,6 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Data qw/:all/;
 
-
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
@@ -49,19 +48,17 @@ use JSON::PP;
 
 use Data::Dumper;
 
-
 # Get a list of all products
 
 use Getopt::Long;
 
 my @products = ();
+my $owner = undef;
 
-
-GetOptions ( 'products=s' => \@products);
-@products = split(/,/,join(',',@products));
+GetOptions('products=s' => \@products, 'owner=s' => \$owner);
+@products = split(/,/, join(',', @products));
 
 my $d = 0;
-
 
 sub find_products($$) {
 
@@ -77,96 +74,103 @@ sub find_products($$) {
 		if ($file eq 'product.sto') {
 			push @products, $code;
 			$d++;
-			(($d % 1000) == 1 ) and print "$d products - $code\n";
+			(($d % 1000) == 1) and print "$d products - $code\n";
 			#print "code: $code\n";
 		}
 		else {
 			$file =~ /\./ and next;
 			if (-d "$dir/$file") {
-				find_products("$dir/$file","$code$file");
+				find_products("$dir/$file", "$code$file");
 			}
 		}
 	}
 	closedir $dh or print "could not close $dir dir: $!\n";
-}
 
+	return;
+}
 
 if (scalar $#products < 0) {
-	find_products("$data_root/products",'');
+	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+		if (not defined $owner) {
+			die("The owner must be specified on the producers platform");
+		}
+		find_products("$data_root/products/$owner", '');
+	}
+	else {
+		find_products("$data_root/products", '');
+	}
 }
-
-
-
-
 
 my $count = $#products;
 my $i = 0;
 
 my %codes = ();
 
-	print STDERR "$count products to update\n";
+print STDERR "$count products to update\n";
 
-	my $products_collection = get_products_collection();
-	foreach my $code (@products) {
+my $products_collection = get_products_collection();
+foreach my $code (@products) {
 
-		#next if ($code ne "4072700318675");
+	#next if ($code ne "4072700318675");
 
-		my $path = product_path($code);
+	my $product_id = product_id_for_owner($owner, $code);
 
+	my $path = product_path_from_id($product_id);
 
-		#my $product_ref = retrieve_product($code);
-		my $product_ref = retrieve("$data_root/products/$path/product.sto") or print "not defined $data_root/products/$path/product.sto\n";
+	#my $product_ref = retrieve_product($code);
+	my $product_ref = retrieve("$data_root/products/$path/product.sto")
+		or print "not defined $data_root/products/$path/product.sto\n";
 
-		if ((defined $product_ref)) {
+	if ((defined $product_ref)) {
 
-			foreach my $k (keys %{$product_ref}) {
-				$k =~ /\./ and print "$k\t";
-			}
-
-			if (exists $product_ref->{"countries.20131226"}) {
-				delete $product_ref->{"countries.20131226"};
-			}
-			if (exists $product_ref->{"countries.20131227"}) {
-				delete $product_ref->{"countries.20131227"};
-			}
-			if (exists $product_ref->{"countries.beforescanbot"}) {
-				delete $product_ref->{"countries.beforescanbot"};
-			}
-			if (exists $product_ref->{"traces.tags"}) {
-				delete $product_ref->{"traces.tags"};
-			}
-			if (exists $product_ref->{"categories.tags"}) {
-				delete $product_ref->{"categories.tags"};
-			}
-			if (exists $product_ref->{"packaging.tags"}) {
-				delete $product_ref->{"packaging.tags"};
-			}
-			if (exists $product_ref->{"labels.tags"}) {
-				delete $product_ref->{"labels.tags"};
-			}
-			if (exists $product_ref->{"origins.tags"}) {
-				delete $product_ref->{"origins.tags"};
-			}
-			if (exists $product_ref->{"brands.tags"}) {
-				delete $product_ref->{"brands.tags"};
-			}
-
-			foreach my $k (keys %{$product_ref}) {
-				$k =~ /\./ and print "$k\t";
-			}
-
+		foreach my $k (keys %{$product_ref}) {
+			$k =~ /\./ and print "$k\t";
 		}
 
-		if ((defined $product_ref) and ($code ne '')) {
-			next if ((defined $product_ref->{empty}) and ($product_ref->{empty} == 1));
-			next if ((defined $product_ref->{deleted}) and ($product_ref->{deleted} eq 'on'));
-			print STDERR "updating product $code -- " . $product_ref->{code} . " \n";
-			my $return = $products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, { upsert => 1 });
-			print STDERR "return $return\n";
-			$i++;
-			$codes{$code} = 1;
+		if (exists $product_ref->{"countries.20131226"}) {
+			delete $product_ref->{"countries.20131226"};
 		}
+		if (exists $product_ref->{"countries.20131227"}) {
+			delete $product_ref->{"countries.20131227"};
+		}
+		if (exists $product_ref->{"countries.beforescanbot"}) {
+			delete $product_ref->{"countries.beforescanbot"};
+		}
+		if (exists $product_ref->{"traces.tags"}) {
+			delete $product_ref->{"traces.tags"};
+		}
+		if (exists $product_ref->{"categories.tags"}) {
+			delete $product_ref->{"categories.tags"};
+		}
+		if (exists $product_ref->{"packaging.tags"}) {
+			delete $product_ref->{"packaging.tags"};
+		}
+		if (exists $product_ref->{"labels.tags"}) {
+			delete $product_ref->{"labels.tags"};
+		}
+		if (exists $product_ref->{"origins.tags"}) {
+			delete $product_ref->{"origins.tags"};
+		}
+		if (exists $product_ref->{"brands.tags"}) {
+			delete $product_ref->{"brands.tags"};
+		}
+
+		foreach my $k (keys %{$product_ref}) {
+			$k =~ /\./ and print "$k\t";
+		}
+
 	}
+
+	if ((defined $product_ref) and ($code ne '')) {
+		next if ((defined $product_ref->{empty}) and ($product_ref->{empty} == 1));
+		next if ((defined $product_ref->{deleted}) and ($product_ref->{deleted} eq 'on'));
+		print STDERR "updating product $code -- " . $product_ref->{code} . " \n";
+		my $return = $products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
+		print STDERR "return $return\n";
+		$i++;
+		$codes{$code} = 1;
+	}
+}
 
 print STDERR "$count products to update - $i products not empty or deleted\n";
 print STDERR "scalar keys codes : " . (scalar keys %codes) . "\n";

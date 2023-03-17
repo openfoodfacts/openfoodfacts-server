@@ -1,0 +1,115 @@
+name: Pull Requests
+
+on:
+  pull_request:
+
+jobs:
+
+  # those are just until we de-activate their mandatory
+  gulp:
+    name: Gulp
+    runs-on: ubuntu-latest
+    steps:
+    - name: just finish
+      run: exit 0
+  dev:
+    name: Dev
+    runs-on: ubuntu-latest
+    steps:
+    - name: just finish
+      run: exit 0
+
+  lint:
+    name: NPM lint
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 1
+    - uses: actions/setup-node@v3
+      with:
+        node-version: '12.x'
+    - name: gulp build
+      run: make front_build
+    - name: lint
+      run: make front_lint
+
+  # this will build the docker image and upload as an artifact for following jobs
+  build_backend:
+    name: Build backend dev image for tests
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 50
+    - name: build
+      run: make build_backend
+    - name: push backend image as artifact
+      uses: ishworkh/docker-image-artifact-upload@v1
+      with:
+        image: "openfoodfacts-server/backend:dev"
+    - name: rebuild taxonomies
+      # here we first restore dates from git for taxonomies to avoid build them all
+      # see https://stackoverflow.com/a/60984318/2886726
+      run: |
+        git ls-files taxonomies/ | xargs -I{} git log -1 --date=format:%Y%m%d%H%M.%S --format='touch -t %ad "{}"' "{}" | bash
+        make build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+
+  check_perl:
+    name: Check perl
+    needs: build_backend
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 50
+    - name: Download backend image from artifacts
+      uses: ishworkh/docker-image-artifact-download@v1
+      with:
+        image: "openfoodfacts-server/backend:dev"
+    - name: ensure branch origin/main is fetched
+      run: git fetch --no-tags --prune --progress --no-recurse-submodules --depth=5 origin  main
+    - name: build taxonomies (should use cache)
+      run: make build_taxonomies
+    - name: check perltidy
+      run: make check_perltidy
+    - name: check perlcritic
+      run: make check_critic
+    - name: check perl
+      run: make check_perl
+
+  tests:
+    name: Perl unit tests
+    needs: build_backend
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 50
+    - name: Download backend image from artifacts
+      uses: ishworkh/docker-image-artifact-download@v1
+      with:
+        image: "openfoodfacts-server/backend:dev"
+    - name: test
+      run: make tests
+
+  tests_dev:
+    name: Test make dev
+    needs: build_backend  # only to avoid building taxonomies
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 50
+    - name: Download backend image from artifacts
+      uses: ishworkh/docker-image-artifact-download@v1
+      with:
+        image: "openfoodfacts-server/backend:dev"
+    - name: Test make dev
+      run: |
+        make dev
+        make status
+    - name: test all is running
+      run: make livecheck
+    - name: test clean
+      run: make hdown

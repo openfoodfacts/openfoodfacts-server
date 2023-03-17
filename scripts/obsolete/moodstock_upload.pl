@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -94,8 +94,8 @@ if (defined $agemax) {
 #	$query_ref->{ last_modified_t }{'$gt' => (time() - $agemax * 86400)};
 	next if ($product_ref->{last_modified_t} < time() - $agemax * 86400);
 
-}		
-		
+}
+
 		$i++;
 		$pretend and next;
 
@@ -126,10 +126,11 @@ if (defined $agemax) {
 			print "uploading - $productid\n-> id: $encodedid";
 			
 			my $path = product_path($product_ref->{code});
-		
-			use HTTP::Request::Common;
-			use LWP::UserAgent;
-			use LWP::Authen::Digest;
+
+			require HTTP::Request::Common;
+			require LWP::UserAgent;
+			require LWP::Authen::Digest;
+			HTTP::Request::Common->import();
 
 			# Settings
 			my $key = "6boshzcjfsqyxmnl9znd";
@@ -152,8 +153,8 @@ if (defined $agemax) {
 			);
 			$rq->method("PUT");
 			my $response = $browser->request($rq);
-			print "add -> " . $response->content . "\n";		
-			
+			print "add -> " . $response->content . "\n";
+
 			#my $offline = $resource."/offline";
 			#$response = $browser->request(HTTP::Request->new("POST",$offline));
 

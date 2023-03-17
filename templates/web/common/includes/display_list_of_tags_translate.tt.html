@@ -1,0 +1,53 @@
+<!-- start templates/[% template.name %] -->
+
+[% IF !results.defined || ref_results != "ARRAY" || !results_zero.defined %]
+
+    <p> [% lang("no_products") %]</p>
+
+[% ELSE %]
+
+    <h3>[% translate_taxonomy %]</h3>
+    <p>[% lang("translate_taxonomy_description") %]</p>
+    <p id="counts">[% counts %]</p>
+
+    <div style="max-width:600px;">
+        <table id="tagstable"  aria-label="tagstable">
+
+            <thead>
+                <tr>
+                    <th id="row1">[% tagtype_s %]</th>
+                    <th id="row2">[% lang("save").ucfirst %]</th>
+                    <th id="row3">[% lang("products").ucfirst %]</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                [% FOREACH tag IN tagcounts %]
+                    <tr>
+                        <td>
+                            <a href="[% tag.link %]"[% tag.nofollow %] rel="noopener" target="_blank">[% tag.display %]</a> [% tag.synonyms %]<br/>
+                            <input type="hidden" id="from_[% tag.j %]" name="from_[% tag.j %]" value="[% tag.tagid %]" />
+                            <div id="to_[% tag.j %]_div">
+                                <input id="to_[% tag.j %]" name="to_[% tag.j %]" value="" />
+                            </div>
+                            [% tag.new_translation %]
+                            <span style="font-size: 80%;">&rarr; <a href="[% tag.google_translate_link %]" rel="noopener" target="_blank">Google Translate</a></span>
+                        </td>
+                        <td>
+                            <div id="save_[% tag.j %]_div"><button id="save_[% tag.j %]" class="tiny button save" type="button">[% lang("save") %]</button></div>
+                        </td>
+                        <td style="text-align:right">[% tag.products %]</td>
+                    </tr>
+                [% END %]
+            </tbody>
+        </table>
+    </div>
+
+
+    <input type="hidden" id="tagtype" name="tagtype" value="[% tagtype %]" />
+
+
+[% END %]
+
+
+<!-- end templates/[% template.name %] -->

@@ -1,0 +1,170 @@
+<!-- start templates/[% component.name %] -->
+
+<h2>[% lang('ecoscore_calculation_details') %]</h2>
+
+	<h3>[% lang('ecoscore_product_category_reference_score') %]</h3>
+
+	<h4>♺ [% lang('ecoscore_panel_lca') %]</h4>
+	
+	[% IF agribalyse.code %]
+	
+	<p>
+		[% lang('agribalyse_category') %] : <a href="https://agribalyse.ademe.fr/app/aliments/[% agribalyse.code %]" title="
+		[% IF agribalyse.agribalyse_proxy_food_code %]
+			[% lang('ecoscore_category_proxy_match') %]
+		[% ELSE %]
+			[% lang('ecoscore_category_exact_match') %]
+		[% END %]
+		">
+		[% IF lc == "fr" %]
+			[% agribalyse.name_fr %]
+		[% ELSE %]
+			[% agribalyse.name_en %]
+		[% END %]
+		</a>
+	</p>
+	
+	<ul>
+    <!--PEF environmental score:--><!--(the lower the score, the lower the impact)-->
+		<li>[% lang('ecoscore_pef_environmental_score') %][% sep %]: [% agribalyse.ef_total FILTER format("%.2f"); %] [% lang('ecoscore_lower_the_score_lower_the_impact') %]</li>
+    <!--- including impact on climate change:--><!--kg CO2 eq/kg of product-->
+		<li>- [% lang('ecoscore_incl_climate_change_impact') %][% sep %]: [% agribalyse.co2_total FILTER format("%.2f"); %] [% lang('ecoscore_kg_co2_eq_kg_product') %]</li>
+	</ul>
+	<!--Details of the impacts by stages of the life cycle-->
+	<h5>[% lang('ecoscore_impact_detail_by_stages') %]</h5>
+	
+	🚜 <!--Agriculture :--> [% lang('ecoscore_agriculture') %][% sep %]: [% (100 * agribalyse.ef_agriculture / agribalyse.ef_total) FILTER format("%.1f"); %]%<br>
+	
+	🏭 <!--Processing :--> [% lang('ecoscore_processing') %][% sep %]: [% (100 * agribalyse.ef_processing / agribalyse.ef_total) FILTER format("%.1f"); %]%<br>
+	
+	🥫 <!--Emballage :--> [% lang('ecoscore_packaging') %][% sep %]: [% (100 * agribalyse.ef_packaging / agribalyse.ef_total) FILTER format("%.1f"); %]%<br>
+	
+	🚚 <!--Transport :-->[% lang('ecoscore_transportation') %][% sep %]: [% (100 * agribalyse.ef_transportation / agribalyse.ef_total) FILTER format("%.1f"); %]%<br>
+	
+	🛒 <!--Distribution :-->[% lang('ecoscore_distribution') %][% sep %]: [% (100 * agribalyse.ef_distribution / agribalyse.ef_total) FILTER format("%.1f"); %]%<br>
+	
+	🍳 <!--Consommation :-->[% lang('ecoscore_consumption') %][% sep %]: [% (100 * agribalyse.ef_consumption / agribalyse.ef_total) FILTER format("%.1f"); %]%<br>
+	
+	<p>
+		<strong>[% lang('ecoscore_lca_score_out_of_100') %][% sep %]: [% round(agribalyse.score) %]</strong>
+	</p>
+	
+	[% ELSE %]
+	<div class="panel warning">
+		<strong>[% lang('ecoscore_no_agribalyse_category_match') %]</strong><br><br>
+		[% lang('ecoscore_edit_category_to_more_granular') %]<br><br>
+		[% lang('ecoscore_platform_prompt_ecoscore_modal') %]
+	</div>
+	[% END %]
+	
+
+	<h3>[% lang('ecoscore_additional_bonuses_and_maluses') %]</h3>
+	
+
+	<h4>🚜 [% lang('ecoscore_production_system') %]</h4>
+	
+	[% IF adjustments.production_system.value > 0 %]
+		<ul>
+		[% FOREACH label IN adjustments.production_system.labels %]
+			<li>[% display_taxonomy_tag("labels",label) %]</li>
+		[% END %]
+		</ul>
+	
+		<p><strong>[% lang('ecoscore_production_system') %][% sep %]: +[% adjustments.production_system.value %]</strong></p>
+	[% ELSE %]
+		<p>[% lang('ecoscore_no_labels_taken_into_account') %]</p>
+		
+		[% IF adjustments.production_system.warning %]
+			<div class="panel warning">
+		<!--If this product has a label characterizing the production system (organic, fair trade, Label Rouge, Bleu Blanc Coeur etc.), you can modify the product sheet to add it.-->
+				[% lang('ecoscore_please_add_the_labels') %]<br><br>
+				[% lang('ecoscore_platform_prompt_ecoscore_modal') %]
+			</div>
+		[% END %]		
+		
+	[% END %]
+
+	<h4>🌎 [% lang('ecoscore_origins_of_ingredients') %]</h4>
+	
+	[% IF adjustments.origins_of_ingredients.aggregated_origins %]
+		<ul>
+			[% FOREACH origin IN adjustments.origins_of_ingredients.aggregated_origins %]
+				<li>[% display_taxonomy_tag("origins",origin.origin) %][% sep %]: [% round(origin.percent) %]%</li>
+			[% END %]
+		</ul>
+	[% END %]
+	
+	[% IF adjustments.origins_of_ingredients.warning %]
+		<div class="panel warning">
+      <!--The origins of the ingredients of this product are not indicated.-->
+			<strong>[% lang('ecoscore_ingredients_not_indicated') %]</strong><br><br>
+      <!--If they are indicated on the packaging, you can modify the product sheet and add them.-->
+			[% lang('ecoscore_please_add_the_ingredients') %]<br><br>
+			[% lang('ecoscore_platform_prompt_ecoscore_modal') %]
+		</div>
+	[% END %]
+
+	<p>
+		<strong>[% lang('ecoscore_environmental_policy') %][% sep %]: [% IF adjustments.origins_of_ingredients.epi_value > 0 %]+[% END %][% round(adjustments.origins_of_ingredients.epi_value) %]</strong><br>
+		<strong>[% lang('ecoscore_transportation') %][% sep %]: [% IF adjustments.origins_of_ingredients.transportation_value > 0 %]+[% END %][% round(adjustments.origins_of_ingredients.transportation_value) %]</strong><br>
+	</p>
+
+
+	<h4>🌴 [% lang('ecoscore_threatened_species') %]</h4>
+	
+	[% IF adjustments.threatened_species.value %]
+		<p>[% lang('ecoscore_ingredients_whose_cultivation_threatens_species') %]</p>
+		<ul>
+			<li>[% display_taxonomy_tag("ingredients",adjustments.threatened_species.ingredient) %]</li>
+		</ul>
+<!--Threatened species :-->
+		<p><strong>[% lang('ecoscore_threatened_species') %][% sep %]: [% adjustments.threatened_species.value %]</strong></p>
+	[% ELSE %]
+       <!--No ingredient which cultivation threatens species has been detected.-->
+		<p>[% lang('ecoscore_no_species_threatening_ingredients') %]</p>
+	[% END %]
+
+	
+	<h4>🥫 [% lang('ecoscore_packaging') %]</h4>
+	
+	[% IF adjustments.packaging.packagings && adjustments.packaging.packagings.size %]
+		<ul>
+			[% FOREACH packaging IN adjustments.packaging.packagings %]
+				<li>
+					[% display_taxonomy_tag("packaging_shapes",packaging.shape) %]
+					([% lang('ecoscore_packaging_ratio') %][% sep %]: [% packaging.ecoscore_shape_ratio %])
+					-
+					[% display_taxonomy_tag("packaging_materials",packaging.material) %]
+					([% lang('ecoscore_packaging_score') %][% sep %]: [% packaging.ecoscore_material_score %])
+				</li>
+			[% END %]
+		</ul>
+		<p>[% lang('ecoscore_score_of_all_components') %][% sep %]: [% adjustments.packaging.score %]</p>
+		
+	[% END %]
+	<!--Packaging :-->
+	<p><strong>[% lang('ecoscore_packaging') %][% sep %]: [% IF adjustments.packaging.value > 0 %]+[% END %][% adjustments.packaging.value %]</strong></p>
+	
+	[% IF adjustments.packaging.warning %]
+		<div class="panel warning">
+			<strong>
+				[% IF adjustments.packaging.warning == "packaging_data_missing" %]
+					[% lang('ecoscore_no_packaging_information') %]
+				[% ELSE %]
+					<!--The information on the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging).-->
+					[% lang('ecoscore_unprecise_packaging_information') %]
+				[% END %]
+			</strong>
+			<br><br>
+			[% lang('ecoscore_edit_for_more_precise_ecoscore') %]<br><br>
+			[% lang('ecoscore_platform_prompt_ecoscore_modal') %]
+		</div>
+	[% END %]		
+
+
+	<h3>[% lang('ecoscore_final_score') %]</h3>
+
+	<p><strong>[% lang('ecoscore_score') %][% sep %]: [% round(score) %]</strong>
+	- <strong>[% lang('ecoscore_grade') %][% sep %]: [% grade FILTER ucfirst %]</strong></p>
+
+<!-- end templates/[% component.name %] -->

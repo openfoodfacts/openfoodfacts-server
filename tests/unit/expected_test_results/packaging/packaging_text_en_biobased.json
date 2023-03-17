@@ -1,0 +1,21 @@
+{
+   "lc" : "en",
+   "misc_tags" : [
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty"
+   ],
+   "packaging_text" : "1 bio-based PET bottle, 1 bio-sourced PET lid",
+   "packagings" : [
+      {
+         "material" : "en:biobased-pet",
+         "number_of_units" : 1,
+         "shape" : "en:bottle"
+      },
+      {
+         "material" : "en:biobased-pet",
+         "number_of_units" : 1,
+         "shape" : "en:lid"
+      }
+   ]
+}
