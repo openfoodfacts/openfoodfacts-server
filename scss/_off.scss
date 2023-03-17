@@ -1425,6 +1425,12 @@ a.panel_title {
 .accordion-navigation a {
   text-decoration:none !important;
 }
+.panel_title a {
+  text-decoration:none !important;
+}
+.panel_text a {
+  text-decoration:underline !important;
+}
 .pagination a {
   text-decoration:none !important;
 }
