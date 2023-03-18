@@ -14,7 +14,7 @@ stopwords:bg:съдържа, от, с, със, до, и, или, и/или, ми
 stopwords:bs:i, u promjenljivom odnosu
 stopwords:ca:i,de
 stopwords:da:av, af, blandt andet, bl a, inklusive, heraf, indeholder, tilsat
-stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens, in veränderlichen gewichtsanteilen
+stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens, in veränderlichen gewichtsanteilen, wenig, min, max
 stopwords:el:περιέχει
 stopwords:en:contains, contain, from, with, produced with, with added, minimum,including, inter alia, edible
 stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
@@ -1189,6 +1189,7 @@ xx:Lactobacillus acidophilus, L. acidophilus
 fa:لاکنوباسیلوس اسیدوفیلوس
 fi:Lactobacillus acidophilus, L. acidophilus
 hr:lactobacillus acidophilus La-5, kultura Lactobacillus acidophilus, mikrobiološke kulture Lactobacillus acidophilus La-5
+it:Lactobacillus acidophilus, L. acidophilus
 kk:Ацидофилин таяқшасы
 ro:Lapte acidofil
 ru:Lactobacillus acidophilus, Ацидофильная палочка
@@ -1216,6 +1217,7 @@ en:Lactobacillus bulgaricus, L. bulgaricus, Lactobacillus delbrueckii subsp. bul
 bg:Лактобацилус булгарикус, Lactobacillus bulgaricus, Lactobacillus delbrueckii subsp. bulgaricus, L. delbrueckii subsp. bulgaricus, Lactobacillus delbrueskii subsp. bulgaricus
 es:lactobacilus delbrueckii sp Bulgaricus, Lactobacillus delbrueckii subspecies bulgaricus
 fi:Lactobacillus bulgaricus, L. bulgaricus
+it:Lactobacillus bulgaricus, L. bulgaricus
 fr:L bulgaricus, bulgaricus
 hr:lactobacillus bulgaricus
 xx:Lactobacillus bulgaricus, L. bulgaricus
@@ -1323,6 +1325,7 @@ bg:streptococcus thermophilus, Streptococcus salivarius subsp. thermophilus
 fi:Streptococcus thermophilus, s. thermophilus
 hr:streptococcus thermophilus
 es:Streptococcus thermophilus, thermophilus
+it:streptococcus thermophilius, s. thermophilus, thermophilus
 ja:サーモフィラス菌
 zh:嗜热链球菌
 # zh-hans:嗜熱鏈球菌
@@ -7887,6 +7890,7 @@ ciqual_food_name:fr:Provolone
 <en:cow cheese
 <en:cheese
 en:Raclette
+xx:raclette
 ar:راكليتي
 be:Раклет
 ca:formatge de raclet
@@ -7899,7 +7903,6 @@ ru:Раклет
 sh:Raklet
 sr:Raklet
 uk:Раклет
-xx:raclette
 zh:拉可雷特芝士
 # yue:烘焗瑞士芝士
 # zh-cn:拉可雷特芝士
@@ -19782,7 +19785,8 @@ fr:arôme naturel de sureau
 <en:flavouring
 en:apple flavouring
 bg:ароматизант ябълка
-de:Apfelgeschmack
+de:Apfelgeschmack, Apfelsaftaroma
+es:esencia de manzana
 fi:omena-aromi
 fr:arôme de pomme
 hr:aroma jabuke
@@ -19793,9 +19797,10 @@ en:natural apple flavouring
 de:natürliches Apfelaroma, natürliches Apfel-Aroma
 es:Saborizante de manzana natural
 fi:luontainen omena-aromi
-fr:arôme naturel de pomme
+fr:arôme naturel de pomme, arôme naturel de jus de pomme
 hu:természetes alma aroma
 is:náttúruleg eplabragðefni
+nb:naturlig eplesmak
 nl:natuurlijk appelaroma
 
 <en:flavouring
@@ -23591,6 +23596,7 @@ hu:kinoa, quinoa, rizsparéj
 hy:uագախոտ
 id:kinoa
 is:kínóa
+it:quinoa
 ja:キヌア
 kn:ಕೀನೋವಾ
 ko:퀴노아
@@ -30951,7 +30957,7 @@ fa:آب
 ff:Ndiyam
 fi:vesi, vettä
 fo:Vatn
-fr:eau
+fr:eau, eau osmosée
 fy:Wetter
 ga:Uisce
 gd:Uisge
@@ -32264,7 +32270,7 @@ de:natürliche Hefe
 es:Levadura natural
 fi:Luontainen hiiva
 fr:levure naturelle
-it:naturale-fermento, lievito naturale
+it:naturale-fermento, lievito naturale, lievito madre
 
 # description:en:Baker's yeast is the common name for the strains of yeast commonly used as a leavening agent in baking bread and bakery products
 
@@ -33634,7 +33640,7 @@ de:Ammonium und Natriumcarbonat
 fi:ammonium- ja natriumkarbonaatit
 fr:carbonates d'ammonium et de sodium
 hr:amonijev bikarbonat
-it:carbonati di amonio e di sodio
+it:carbonati di ammonio e di sodio
 nl:ammonium- en natriumcarbonaten, ammonium carbonaten en natrium
 # ingredient/fr:carbonates-d’ammonium-et-de-sodium has 110 products in 7 languages @2019-04-06
 
@@ -35350,7 +35356,7 @@ bg:пюре от круши
 de:Birnenpüree
 es:puré de pera
 fi:päärynäpyree
-fr:purée de poires, purée de poire
+fr:purée de poires, purée de poire, purée de poires Williams
 hr:kaša kruške
 it:purea di pere
 nl:perenpuree
@@ -35522,6 +35528,10 @@ en:prunes from Agen
 fr:pruneaux d'agen
 wikidata:en:Q21093818
 # 141 in fr @2021-09-15
+
+<en:prunes from Agen
+en:prunes from Ente
+fr:prunes d'Ente
 
 #processing:en: en:puree
 #<en:prune
@@ -35906,6 +35916,49 @@ fr:pomme Pink Lady
 it:Mela Pink Lady
 nl:Pink Lady appels, Pink Lady
 
+<en:apple
+en:bramley apple
+de:Bromley Apfel
+wikidata:en:Q2923647
+wikipedia:en:https://en.wikipedia.org/wiki/Bramley_apple
+
+<en:apple
+en:Golden Delicious apple
+de:Golden Delicious Apfel
+es:manzana golden
+fi:golden delicious -omena
+fr:pomme Golden Delicious, pommes Golden Delicious, pommes golden
+wikidata:en:Q201996
+wikipedia:en:https://en.wikipedia.org/wiki/Golden_Delicious
+# ingredient/fr:pommes-golden-delicious has 8 products in french @2019-05-25
+
+#US plant patent 3637, McKenzie, Oct 15 1974
+<en:apple
+en:Gala apple, Gala apples
+de:Gala Apfel
+es:manzana gala
+fr:pomme Gala, pommes Gala
+nl:Gala appel
+wikidata:en:Q494259
+wikipedia:en:https://en.wikipedia.org/wiki/Gala_(apple)
+
+<en:green apple
+en:Granny apple
+es:manzana Granny
+fr:pomme Granny
+it:mela Granny
+nl:Granny Smith, Granny Smith appel, Granny Smith appels
+
+#US plant patent 4121, Ten Hove, Oct 4 1977, muted from Gala variety
+<en:apple
+en:Royal Gala apple
+de:Royal Gala Apfel, Royal Gala Äpfel
+fr:pomme Royal Gala, pommes Royal Gala
+nl:Royal Gala appel, Tenroy, Tenroy appel
+
+<en:apple
+fr:pommes d'Aquitaine
+# 22@2019-06-09
 
 <en:apple
 en:cinnamon apple
@@ -36026,7 +36079,7 @@ ciqual_food_name:fr:Pomme, pulpe, crue
 
 <en:apple
 <en:purée
-en:apple purée
+en:apple puree
 bg:пюре от ябълки
 da:Æblemos
 de:Apfelmus
@@ -36080,10 +36133,6 @@ it:fiocchi di mela
 # 46 products in 4 languages @2018-10-04
 
 <en:apple
-<fr:moût
-fr:moût de pomme concentré
-
-<en:apple
 <en:vegetable fiber
 en:apple fiber
 de:Apfelfaser
@@ -36105,20 +36154,20 @@ sv:äpple preparat
 
 <en:fruit juice
 <en:apple
-en:apple juice
+en:apple juice, apple juice made from fresh apples, juice from select organic apples, 
 ar:عصير تفاح
 bg:сок от ябълки, ябълков сок
 ca:suc de poma
 cs:jablečný mošt
 da:æblemost, æblesaft
-de:Apfelsaft
+de:Apfelsaft, Apfelsaft von Streuobstwiesen-Äpfeln
 el:χυμός μήλου, μηλοχυμός
 eo:poma suko
 es:jugo de manzana, zumo de manzana
 et:õunamahl
 fa:آب سیب
 fi:omenamehu, omenatäysmehu
-fr:jus de pomme, jus de pommes
+fr:jus de pomme, jus de pommes, pur jus de pommes, pur jus de pommes fermier
 ga:sú úill
 he:מיץ תפוחים
 hr:sok od jabuke, jabučni sok
@@ -36139,6 +36188,7 @@ ru:яблочный сок
 sa:सेवफलरसः
 sl:jabolčni sok
 sv:äppelmust, äppeljuice, äpplejuice, juice av äpple
+th:น้ำเอปเปิ้
 tl:yago ng mansanas
 tr:elma suyu
 tt:алма суы
@@ -36164,14 +36214,13 @@ fr:jus de pomme issu de l'agriculture biologique, jus de pomme bio, jus de pomme
 ru:Органический яблочный сок
 sv:ekologisk äppeljuice
 
-# coment:en:Not sure if "pure" has any meaning. It might be just marketing.
-
 <en:apple juice
 en:pure apple juice
 cs:jablečná šťáva
-de:reiner Apfelsaft
-fr:pur jus de pomme
+de:reiner Apfelsaft, Apfeldirektsaft
+fr:pur jus de pomme, jus de pomme non fait de concentre, pommes pressées, jus de pomme non fait de concentré, pur jus de pommes pressées
 it:Succo mela puro
+description:en:apple juice that does NOT come from concentrated apple juice
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/pure-apple-juice
 # 51 products in 2 languages @2018-10-04
 
@@ -36179,8 +36228,9 @@ it:Succo mela puro
 fr:pur jus de pommes à cidre de Bretagne
 
 <en:pure apple juice
-fr:pur jus de pommes pressées
-# 6@2019-06-08
+en:unfiltered apple juice, cloudy apple
+de:Naturtrüber Apfelsaft, Apfelsaft naturtrüb
+fr:jus de pomme trouble, jus de pomme non filtré
 
 <en:apple juice
 en:concentrated apple juice
@@ -36190,7 +36240,7 @@ da:Æblejuicekoncentrat
 de:Apfeldicksaft, Apfelsaftkonzentrat
 es:jarabe de manzana
 fi:omenamehutiiviste
-fr:concentré de jus de pomme, jus de pommes concentré
+fr:concentré de jus de pomme, jus de pommes concentré, jus concentré de pomme
 hr:koncentrirani sok jabuke
 it:concentrato di succo di mele
 nl:appeldiksap, appelsap ingedikt tot stroop, geconcentreerd appelsap, appelsapconcentraat
@@ -36205,15 +36255,18 @@ en:apple juice from concentrate
 bg:ябълков сок от концентрат, сок от ябълков концентрат, сок от ябълка от концентрат
 cs:Jablečná šťáva z koncentrátu
 da:æblejuice fra koncentrat
-de:Apfelsaft aus Konzentrat, Apfelsaft aus Apfelsaftkonzentrat
-es:Zumo de manzana desde concentrado, zumo de manzana a partir de concentrado, jugo de manzana procedente de concentrado
+de:Apfelsaft aus Konzentrat, Apfelsaft aus Apfelsaftkonzentrat, Apfelsaft aus Apfelkonzentrat
+es:Zumo de manzana desde concentrado, zumo de manzana a partir de concentrado, jugo de manzana procedente de concentrado, jugo de manzana concentrado reconstituido
 fi:omenamehu tiivisteestä
 fr:jus de pomme à base de concentré, jus de pomme à base de jus concentré, Jus de pomme à base de jus de pomme concentré, jus de pomme à partir de concentré
 hr:jabuke od koncentriranog soka, Sok od jabuke od koncentriranog soka
 hu:sűrített almalé, almalé sűrítmény, almalé koncentrátum, almalé koncentrátumból
 it:succo di mele a base di concentrato
+nb:eplejuice fra konsentrat
 nl:appelsap uit concentraat
-pl:sok jabłkowy z koncentratu
+pl:sok jabłkowy z koncentratu, Sok jabłkowy z zagęszczonego soku jabłkowego
+pt:Sumo de maçã obtido a partir de um produto concentrado, Suco de maçã reconstituído, suco de maçã verde reconstituído
+ro:suc de mere obţinut din suc concentrat
 sv:äppeljuice från koncentrat
 # ingredient/fr:jus-de-pomme-à-base-de-concentré has 240 products @2018-10-04
 
@@ -36231,51 +36284,23 @@ fr:pur jus de pommes à cidre
 en:organic cider apple juice
 fr:pur jus de pommes à cidre bio
 
-<en:apple
-en:bramley apple
-de:Bromley Apfel
-wikidata:en:Q2923647
-wikipedia:en:https://en.wikipedia.org/wiki/Bramley_apple
+<en:apple juice
+en:Cripps Pink apple juice
+fr:jus de pomme Cripps Pink
 
-<en:apple
-en:Golden Delicious apple
-de:Golden Delicious Apfel
-es:manzana golden
-fi:golden delicious -omena
-fr:pomme Golden Delicious, pommes Golden Delicious, pommes golden
-wikidata:en:Q201996
-wikipedia:en:https://en.wikipedia.org/wiki/Golden_Delicious
-# ingredient/fr:pommes-golden-delicious has 8 products in french @2019-05-25
+<en:apple juice
+en:Granny smith apple juice
 
-#US plant patent 3637, McKenzie, Oct 15 1974
-<en:apple
-en:Gala apple, Gala apples
-de:Gala Apfel
-es:manzana gala
-fr:pomme Gala, pommes Gala
-nl:Gala appel
-wikidata:en:Q494259
-wikipedia:en:https://en.wikipedia.org/wiki/Gala_(apple)
+<en:apple juice
+<en:apple puree
+fr:Jus et purée de pomme
 
-<en:green apple
-en:Granny apple
-es:manzana Granny
-fr:pomme Granny
-it:mela Granny
-nl:Granny Smith, Granny Smith appel, Granny Smith appels
+<en:organic apple juice
+<en:organic apple puree
+fr:Jus et purée de pomme biologiques
 
-#US plant patent 4121, Ten Hove, Oct 4 1977, muted from Gala variety
-<en:apple
-en:Royal Gala apple
-de:Royal Gala Apfel, Royal Gala Äpfel
-fr:pomme Royal Gala, pommes Royal Gala
-nl:Royal Gala appel, Tenroy, Tenroy appel
 
-<en:apple
-fr:pommes d'Aquitaine
-# 22@2019-06-09
-
-<en:apple
+#is compund: en:apple
 en:apple jam
 ru:повидло яблочное, яблочное повидло
 
@@ -37140,6 +37165,7 @@ de:pasteurisierter Zitronensaft
 fr:jus de citron pasteurisé
 
 <en:lemon juice
+en:pure lemon juice
 fr:pur jus de citron
 # 24@2019-06-08
 
@@ -37977,10 +38003,11 @@ fi:luontainen appelsiiniuute
 fr:Jus d'orange dont pulpe
 # 5@2019-06-07
 
-<en:orange
+# <en:orange
 en:orange marmalade
 de:Orangenmarmelade, Orangen-Marmelade
 es:mermelada de naranja
+fr:marmelade d'orange
 nl:sinaasapplemarmelade
 ciqual_food_code:en:31039
 ciqual_food_name:en:Marmalade, orange
@@ -38422,7 +38449,7 @@ fr:myrtille
 hr:borovnica, borovnice
 hu:áfonya
 is:bláber
-it:mirtillo, mirtilli
+it:mirtillo, mirtilli, mirtilli neri
 ja:ビルベリー
 ka:მოცვი
 la:Vaccinium
@@ -39434,7 +39461,7 @@ et:kookoshelbed
 fi:kookoshiutale, kookoshiutaleet
 fr:flocons de coco, flocons de noix de coco
 hr:kokosove pahuljice
-it:fiocchi di cocco
+it:fiocchi di cocco, cocco in scaglie
 nl:Kokosschilfers
 ru:кокосовая-стружка
 pl:wiórki kokosowe, wiórki z kokosa
@@ -39653,7 +39680,7 @@ bg:сок от бъз от концентрат
 de:Holundersaft aus Konzentrat
 fi:seljanmarjamehu tiivisteestä, seljanmarjatäysmehu tiivisteestä
 fr:jus de sureau à base de concentré
-it:succo di sambuco a base di concentrato
+it:succo di sambuco a base di concentrato, succo concentrato di sambuco
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-sureau-à-base-de-concentré
 # 25 products @2018-09-29
 
@@ -41193,6 +41220,7 @@ es:Zumo de piña a partir de concentrado, jugo de anana procedente de concentrad
 fi:ananasmehu tiivisteestä
 fr:jus d'ananas à base de concentré, Jus d'ananas à base de jus d'ananas concentré, Jus d'ananas à base de jus concentré
 it:succo d'ananas a base di concentrato
+nb:Eplejuice fra konsentrat og puré
 nl:Ananassap van concentraat
 pl:sok ananasowy z koncentratu
 # ingredient/fr:jus-d'ananas-à-base-de-concentré has 96 products in 3 languages @2018-09-30
@@ -42382,7 +42410,7 @@ ga:sabhdánach
 he:סולטנה
 hi:सुल्ताना
 id:sultana
-it:sultanina
+it:sultanina, uva sultanina, uvetta, uvetta sultanina
 ja:サルタナ
 kn:ಸುಲ್ತಾನ
 ko:설태너
@@ -42544,7 +42572,7 @@ fi:rypäle- ja vadelmatäysmehu tiivisteestä
 
 # description:en:Must is freshly crushed fruit juice (usually grape juice) that contains the skins, seeds, and stems of the fruit.
 
-<en:grape
+<en:fruit
 en:must
 az:Must
 ca:Most
@@ -42587,7 +42615,10 @@ zh:葡萄漿
 wikipedia:en:https://en.wikipedia.org/wiki/Must
 wikidata:en:Q278818
 
-<en:grape
+<en:must
+en:concentrated apple must
+fr:moût de pomme concentré
+
 <en:must
 en:grape must
 cs:Vinný mošt
@@ -42605,7 +42636,7 @@ ta:நொதியேறாப் பழச்சாறு
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:moût-de-raisin
 # 273 products in 4 languages @2018-10-02
 
-<en:must
+<en:grape must
 en:concentrated grape must
 de:Traubenmostkonzentrat, konzentrierter Traubenmost
 es:Mosto de uvas desde concentrado, mosto concentrado de uva
@@ -42620,13 +42651,8 @@ nl:geconcentreerde druivenmost
 <en:concentrated grape must
 fr:moût de raisin concentré rectifié
 
-<en:concentrated grape must
-<fr:moût de raisin cuit
-fr:moût de raisin concentré et cuit
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:moût-de-raisin-concentré-et-cuit
-# 36 products in 1 language @2018-10-02
-
-<en:must
+<en:grape must
+en:cooked grape must
 fr:moût de raisin cuit
 de:gekochter Traubenmost
 it:mosto cotto
@@ -42634,6 +42660,11 @@ nl:gekookte druivenmost
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:moût-de-raisin-cuit
 # 117 products in 4 languages @2018-10-02
 
+<en:concentrated grape must
+<en:cooked grape must
+fr:moût de raisin concentré et cuit
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:moût-de-raisin-concentré-et-cuit
+# 36 products in 1 language @2018-10-02
 
 # Technically this is a grape, but not one you will find in the shop
 
@@ -43848,7 +43879,7 @@ fr:légume, légumes
 he:ירק
 hr:povrće, biljno
 hu:zöldség, zöldségek
-it:vegetale, ortaggi
+it:vegetale, ortaggi, verdure
 ja:野菜
 nb:grønnsak, grønnsaker
 nl:Groente, groenten
@@ -43943,6 +43974,7 @@ fr:légumes et jus de cuisson de légumes
 <en:vegetable
 en:dried vegetables
 hr:sušeno povrće
+it:verdure disidratate
 pl:suszone warzywa, warzywa suszone
 ru:сушеные овощи и зелень, сушеные овощи
 
@@ -44502,6 +44534,10 @@ sv:radicchiosallad, rosensallat, rosésallat
 wikidata:en:Q767765
 wikipedia:en:https://en.wikipedia.org/wiki/Radicchio
 # 703 in 7 @2021-10-03
+
+<en:vegetable
+<en:chicory
+it:radicchio rosso
 
 <en:vegetable
 en:chicory
@@ -46068,7 +46104,7 @@ de:Blumenkohl
 es:coliflor
 fi:kukkakaali
 fr:chou-fleur, choux-fleur, choux-fleurs
-it:cavolfiore
+it:cavolfiore, cavolfiori
 nl:bloemkool
 pl:kalafior
 pt:Couve flor
@@ -52277,7 +52313,6 @@ wikidata:en:Q159753
 
 
 # description:en:A LEGUME is a plant in the family Fabaceae (or Leguminosae), or the fruit or seed of such a plant (also called a pulse). Legumes are grown agriculturally, primarily for human consumption. Grain legumes include beans, lentils, lupins, peas, and peanuts.
-
 en:legume
 af:Peulgewas
 an:Legumbre
@@ -52307,7 +52342,7 @@ hy:Հատիկաընդեղեն բույսեր
 ia:Legumine
 id:Kacang-kacangan
 is:Baun
-it:legume
+it:legume, legumi
 ja:豆果
 ko:협과
 la:Legumen
@@ -52513,6 +52548,7 @@ fr:haricots rouges réhydratés
 en:cannellini beans, white kidney beans
 de:Cannellini Bohnen, Cannellinibohnen
 fr:haricots cannellini
+it:fagioli cannellini, cannellini
 wikidata:en:Q74663825
 
 #comment:en:Do not confuse these with mungo beans: Vigna mungo
@@ -52724,7 +52760,7 @@ hu:csillagfürt
 hy:լուպին
 id:lupino
 is:úlfabaunir
-it:lupini
+it:lupini, lupino
 ja:ルピナス属
 ka:ხანჭკოლა
 kk:люпин
@@ -56726,7 +56762,7 @@ fr:herbe, herbes, plantes aromatiques, plante aromatique, fines herbes, fine her
 he:עשב
 hr:aromatskog bilja
 hu:gyógynövény, gyógynövények
-it:erba, piante aromatiche
+it:erba, piante aromatiche, erbe aromatiche
 ja:ハーブ
 nb:urt, urte
 nl:Kruiden
@@ -57412,6 +57448,7 @@ hy:մշկընկույզ
 id:pala
 io:muskado
 is:múskat
+is:noce moscata
 ja:ニクズク属
 jv:pala
 ka:ჯავზის ხე
@@ -58696,7 +58733,7 @@ et:Tähtaniis
 eu:Txinatar anis
 fa:بادیان ختایی
 fi:tähtianis, rusotähtianis
-fr:anis étoilé, badiane, badiane chinoise
+fr:anis étoilé, badiane, badiane chinoise, Étoile de badiane
 gl:Anís estrelado
 gu:બાદિયાન
 hi:चक्रफूल
@@ -60806,7 +60843,7 @@ ht:siv
 hu:metélőhagyma
 id:lokio
 is:graslaukur
-it:cippolina, aglio d'india
+it:cippolina, aglio d'india, erba cipollina
 ja:チャイブ
 jv:lokio
 kk:шалғын жуа, şalğın jwa, شالعىن جۋا
@@ -63320,9 +63357,10 @@ es:concentrado de cártamo con efecto colorante
 
 
 <en:plant
-bg:листа от стевия, листа стевия
-de:steviablätter
-hr:stevia list
+#bg:листа от стевия, листа стевия
+#de:steviablätter
+#hr:stevia list
+#comment:en:stevia can be found in the file additives.txt under E960
 
 # description:en:Helianthus or SUNFLOWER (/ˌhiːliˈænθəs/)[2] is a genus of plants comprising about 70 species
 # en:sunflower is only found as a specication, i.e. oil (sunflower, ...)
@@ -64156,7 +64194,7 @@ es:vainas de vainilla, vaina de vainilla
 fi:vaniljatanko, vaniljapapu
 fr:gousse de vanille, gousses de vanille, écorce de vanille
 hr:mahune vanilije
-it:baccelli di vaniglia
+it:baccelli di vaniglia, bacche di vaniglia
 nl:vanillestokje, vanillestokjes
 pl:laski wanilii
 pt:vagem de baunilha
@@ -65139,15 +65177,13 @@ la:Porphyra yezoensis
 
 # <en:mold
 en:koji, kōji, koji culture, koji spores, koji starter
+xx:A. Oryzae, koji
 ar:رشاشية أوريزه
 de:Koji, Koji-Ferment, Koji-Pilzkultur
 es:koji, fermento koji
 fr:koji, ferment Koji
-it:koji
 ja:ニホンコウジカビ
 ko:누룩곰팡이
-pl:koji
-pt:koji
 zh:米麴菌
 # zh-cn:米曲菌
 # zh-hans:米曲菌
@@ -69049,9 +69085,8 @@ sv:laxfilé
 wikidata:en:Q67994034
 # ingredient/fr:filet-de-saumon has 46 products in 5 languages @2020-12-19
 
-#<en:salmon
-#fr:pavé de saumon d'élevage
-# no products
+<en:salmon
+fr:pavés de saumon
 
 #<en:salmon
 #fr:saumon fumé d'élevage
@@ -77023,7 +77058,7 @@ fr:oeufs frais de poules élevées en plein air issus de l'agriculture biologiqu
 
 <en:free range chicken eggs
 <en:category A egg
-fr:Œufs de catégorie A de poules élevées en plein air, Oeufs de catégorie A de poules élevées en plein air, 9 Œufs de catégorie A de poules élevées en plein air
+fr:Œufs de catégorie A de poules élevées en plein air, Oeufs de catégorie A de poules élevées en plein air, 9 Œufs de catégorie A de poules élevées en plein air, Œufs frais de poules élevées en plein air de catégorie A
 # ingredient/fr:oeufs-de-categorie-a-de-poules-elevees-en-plein-air has 5 products @2019-05-31
 
 <en:free range chicken eggs
@@ -77942,7 +77977,7 @@ hy:մանրաթելեր
 id:Serat
 io:Fibro
 is:Trefjar
-it:fibra, fibra alimentare
+it:fibra, fibra alimentare, fibra di
 ja:繊維
 kk:Волокнит
 kn:ನಾರು
@@ -83731,7 +83766,7 @@ sv:fruktextrakt
 # 54 products in 4 languages @2018-10-04
 
 <en:fruit extract
-en:apple extract
+en:apple extract, apple essence
 bg:екстракт от ябълка, ябълков екстракт
 de:Apfelextrakt
 es:extracto de manzana
