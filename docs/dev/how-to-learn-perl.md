@@ -1,4 +1,4 @@
-# How to learn Perl programming language?
+# How can I learn the Perl programming language?
 
 Here are some introductory resources to learn Perl:
 
