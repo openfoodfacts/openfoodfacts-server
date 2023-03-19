@@ -7,7 +7,8 @@ Here are some introductory resources to learn Perl:
 - [Perl - Introduction](https://www.tutorialspoint.com/perl/perl_quick_guide.htm) - Introduction to perl from tutorialspoint
 - [Impatient Perl](https://blob.perl.org/books/impatient-perl/iperl.pdf) - PDF document for people wintrested in learning perl.
 
-### Official Documentation 
+### Official Documentation
+
 - [Perl.org](https://www.perl.org/) - Official Perl website with documentation, tutorials, and community resources.
 - [Learn Perl](https://learn.perl.org/) - Perl programming language tutorials for beginners.
 - [Perl Maven](https://perlmaven.com/) - Perl programming tutorials, tips, and code examples.
