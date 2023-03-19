@@ -40201,8 +40201,10 @@ ciqual_food_name:fr:Kiwi, pulpe et graines, cru
 
 #processing:en: en:juice
 #processing:en: en:from concentrate
-#<en:kiwi juice
-#fr:jus de kiwi à base de concentré
+<en:kiwi juice
+en:kiwi juice from concentrate
+de:Kiwisaft aus Kiwisaftkonzentrat
+fr:jus de kiwi à base de concentré
 
 # No products
 
@@ -42526,6 +42528,12 @@ sv:druvsaftkoncentrat, druvjuicekoncentrat
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/concentrated-grape-juice
 # 139 products in 2 languages @2018-10-02
 # ingredient/fr:concentré-de-jus-de-raisin has 26 products in 3 languages @2018-10-02
+
+# This is a compound product made of concentrate grape juice and water
+<en:grape juice
+en:grape juice from concentrate
+de:Traubensaft aus Traubensaftkonzentrat
+fr:jus de raisin à base de concentré, jus de raisins à base de concentré
 
 <en:concentrated grape juice
 fr:jus de raisin concentré rectifié
@@ -47229,7 +47237,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Carrot_juice
 en:concentrated carrot juice
 da:gulerodsjuice fra koncentrat
 de:Karottensaftkonzentrat, konzentrierter Karottensaft
-es:Zumo de zanahoria a partir de concentrado, jugo de zanahoria concentrado
+es:jugo de zanahoria concentrado
 fi:porkkanamehutiiviste
 fr:jus concentré de carotte, jus concentré de carottes, jus de carotte concentré
 it:Succo di carota concentrato
@@ -47237,6 +47245,13 @@ nl:Geconcentreerd wortelsap
 ru:Концентрированный морковный сок
 sv:morotjuicekoncentrat
 # fr:jus-concentré-de-carotte has 122 products in 1 language @2018-10-20
+
+#This is not the same as concentrate carrot juice, this one has been reconstructed with water
+<en:carrot juice
+en:carrot juice from concentrate
+de:Karottensaft aus Karottensaftkonzentrat
+es:zumo de zanahoria a partir de concentrado
+fr:jus de carotte à base de concentré, jus de carottes à base de concentré
 
 <en:carrot juice
 en:carrot juice powder
