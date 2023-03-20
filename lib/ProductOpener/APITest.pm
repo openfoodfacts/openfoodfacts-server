@@ -153,6 +153,8 @@ Return a user agent
 sub new_client () {
 	my $jar = HTTP::CookieJar::LWP->new;
 	my $ua = LWP::UserAgent->new(cookie_jar => $jar);
+	# set a neutral user-agent, for it may appear in some results
+	$ua->agent("Product-opener-tests/1.0");
 	return $ua;
 }
 
@@ -594,7 +596,7 @@ Especially we replace "3D=" for "=" and join line and their continuation
 =head4 $mail text of mail
 
 =head3 Returns
-Reformated text
+Reformatted text
 =cut
 
 sub mail_to_text ($mail) {

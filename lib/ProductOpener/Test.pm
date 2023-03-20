@@ -84,7 +84,7 @@ There are two modes: one to update expected results, and one to test against the
 =head3 Parameters
 
 =head4 String $filepath
-The path of the file containing the tetst.
+The path of the file containing the test.
 Generally should be <pre>__FILE__</pre> within the test.
 
 
@@ -266,7 +266,7 @@ sub ensure_expected_results_dir ($expected_results_dir, $update_expected_results
 	return 1;
 }
 
-=head2 compare_to_expected_results($object_ref, $expected_results_file, $update_expected_results) {
+=head2 compare_to_expected_results($object_ref, $expected_results_file, $update_expected_results, $test_ref = undef) {
 
 Compare an object (e.g. product data or an API result) to expected results.
 
@@ -287,7 +287,7 @@ and the new expected results can be diffed / committed in GitHub.
 
 =head4 $test_ref - an optional reference to an object describing the test case
 
-If the test fail, the test reference will be output in the diag
+If the test fail, the test reference will be output in the C<diag>
 
 =cut
 
