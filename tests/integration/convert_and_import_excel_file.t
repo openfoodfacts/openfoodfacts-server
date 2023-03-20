@@ -80,8 +80,10 @@ sub fake_download_image ($) {
 	my $conv_results_ref = convert_file($default_values_ref, $my_excel, $columns_fields_file, $converted_file);
 
 	# Compare the converted CSV file to the expected CSV file
-	compare_csv_file_to_expected_results($converted_file, $expected_result_dir . "/converted_csv", $update_expected_results);
-	compare_to_expected_results($conv_results_ref, $expected_result_dir . "/converted_csv/conversion_results.json", $update_expected_results);
+	compare_csv_file_to_expected_results($converted_file, $expected_result_dir . "/converted_csv",
+		$update_expected_results);
+	compare_to_expected_results($conv_results_ref, $expected_result_dir . "/converted_csv/conversion_results.json",
+		$update_expected_results);
 
 	# step4 import file
 	my $datestring = localtime();

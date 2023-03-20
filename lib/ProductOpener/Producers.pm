@@ -430,7 +430,8 @@ sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_f
 
 	# If we don't have a column mapped to the barcode, then we cannot use the file
 	if (not defined $output_to_input_columns_ref->{"code"}) {
-		$log->error("no column mapped to code", { output_to_input_columns_ref => $output_to_input_columns_ref }) if $log->is_error();
+		$log->error("no column mapped to code", {output_to_input_columns_ref => $output_to_input_columns_ref})
+			if $log->is_error();
 		$results_ref->{error} = "no_column_mapped_to_code";
 		$results_ref->{status} = "error";
 	}
@@ -450,10 +451,12 @@ sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_f
 
 		if (not defined $code) {
 			# The line is missing a barcode, we do not know which product it relates to
-			$log->error("ignoring row without a value for the code column", { code_column => $output_to_input_columns_ref->{"code"}, row_ref => $row_ref  }) if $log->is_error();
+			$log->error("ignoring row without a value for the code column",
+				{code_column => $output_to_input_columns_ref->{"code"}, row_ref => $row_ref})
+				if $log->is_error();
 			next;
 		}
-		
+
 		if (not defined $products_ref->{$code}) {
 			$products_ref->{$code} = {};
 		}
@@ -485,7 +488,7 @@ sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_f
 	$csv_out->print($out, $output_headers_ref);
 	print $out "\n";
 
-	foreach my $code (sort keys %$products_ref)	{
+	foreach my $code (sort keys %$products_ref) {
 
 		my $product_ref = $products_ref->{$code};
 

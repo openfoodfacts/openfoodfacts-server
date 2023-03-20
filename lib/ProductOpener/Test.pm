@@ -375,7 +375,8 @@ sub compare_csv_file_to_expected_results ($csv_file, $expected_results_dir, $upd
 	if ($update_expected_results) {
 		my $csv_filename = $csv_file;
 		$csv_filename =~ s/.*\///;
-		copy($csv_file, $expected_results_dir . '/' . $csv_filename) or die "Copy of $csv_file to $expected_results_dir failed: $!";
+		copy($csv_file, $expected_results_dir . '/' . $csv_filename)
+			or die "Copy of $csv_file to $expected_results_dir failed: $!";
 	}
 
 	return 1;
