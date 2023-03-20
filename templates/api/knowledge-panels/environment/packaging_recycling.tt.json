@@ -92,7 +92,7 @@
                                     [% IF packaging.quantity_per_unit %][% packaging.quantity_per_unit %] [% END %]
                                 </strong>
                                     [% IF packaging.material %]
-                                        ([% display_taxonomy_tag_name('packaging_materials',packaging.material) %][% IF packaging.weight_per_unit %] [% packaging.weight_per_unit %] g[% END %])
+                                        ([% display_taxonomy_tag_name('packaging_materials',packaging.material) %][% IF packaging.weight_measured %][% sep %]: [% packaging.weight_measured %] g[% END %])
                                     [% END %]
                                     <br>
                             [% END %]

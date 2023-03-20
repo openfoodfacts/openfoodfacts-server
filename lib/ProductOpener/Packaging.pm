@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -63,6 +63,7 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::API qw/:all/;
 use ProductOpener::Numbers qw/:all/;
+use ProductOpener::Units qw/:all/;
 
 =head1 FUNCTIONS
 
@@ -158,6 +159,9 @@ sub parse_packaging_component_data_from_text_phrase ($text, $text_language) {
 		$text_language = $1;
 		$text = $';
 	}
+
+	# We might have escaped dots and commas inside numbers from analyze_and_combine_packaging_data()
+	$text =~ s/(\d)\\(\.|\,)(\d)/$1$2$3/g;
 
 	# Also try to match the canonicalized form so that we can match the extended synonyms that are only available in canonicalized form
 	my $textid = get_string_id_for_lang($text_language, $text);
@@ -419,6 +423,23 @@ sub get_checked_and_taxonomized_packaging_component_data ($tags_lc, $input_packa
 				$packaging_ref->{$weight} = convert_string_to_number($input_packaging_ref->{$weight});
 				$has_data = 1;
 			}
+			elsif (defined normalize_quantity($input_packaging_ref->{$weight})) {
+				$packaging_ref->{$weight}
+					= convert_string_to_number(normalize_quantity($input_packaging_ref->{$weight}));
+				$has_data = 1;
+				add_warning(
+					$response_ref,
+					{
+						message => {id => "invalid_type_must_be_number"},
+						field => {
+							id => $weight,
+							value => $input_packaging_ref->{$weight},
+							valued_converted => $packaging_ref->{$weight}
+						},
+						impact => {id => "value_converted"},
+					}
+				);
+			}
 			else {
 				add_warning(
 					$response_ref,
@@ -503,6 +524,20 @@ sub apply_rules_to_augment_packaging_component_data ($product_ref, $packaging_re
 		and (has_tag($product_ref, "categories", "en:coffees")))
 	{
 		$packaging_ref->{"shape"} = "en:coffee-capsule";
+	}
+
+	# If the shape is bottle and the material is glass, mark recycling as recycle if recycling is not already set
+	if (
+			(defined $packaging_ref->{"shape"})
+		and ($packaging_ref->{"shape"} eq "en:bottle")
+		and (defined $packaging_ref->{"material"})
+		and (  ($packaging_ref->{"material"} eq "en:glass")
+			or (is_a("packaging_materials", $packaging_ref->{"material"}, "en:glass")))
+		)
+	{
+		if (not defined $packaging_ref->{"recycling"}) {
+			$packaging_ref->{"recycling"} = "en:recycle";
+		}
 	}
 
 	# If we have a shape without a material, check if there is a default material for the shape
@@ -685,6 +720,15 @@ sub set_packaging_misc_tags ($product_ref) {
 	remove_tag($product_ref, "misc", "en:packagings-empty");
 	remove_tag($product_ref, "misc", "en:packagings-not-empty");
 	remove_tag($product_ref, "misc", "en:packagings-not-empty-but-not-complete");
+	remove_tag($product_ref, "misc", "en:packagings-with-weights");
+	remove_tag($product_ref, "misc", "en:packagings-with-all-weights");
+	remove_tag($product_ref, "misc", "en:packagings-with-all-weights-complete");
+	remove_tag($product_ref, "misc", "en:packagings-with-all-weights-not-complete");
+	remove_tag($product_ref, "misc", "en:packagings-with-some-but-not-all-weights");
+
+	# Number of packaging components
+	my $number_of_packaging_components
+		= (defined $product_ref->{packagings} ? scalar @{$product_ref->{packagings}} : 0);
 
 	if ($product_ref->{packagings_complete}) {
 		add_tag($product_ref, "misc", "en:packagings-complete");
@@ -693,7 +737,7 @@ sub set_packaging_misc_tags ($product_ref) {
 	else {
 		add_tag($product_ref, "misc", "en:packagings-not-complete");
 
-		if (scalar @{$product_ref->{packagings}} == 0) {
+		if ($number_of_packaging_components == 0) {
 			add_tag($product_ref, "misc", "en:packagings-empty");
 		}
 		else {
@@ -702,51 +746,58 @@ sub set_packaging_misc_tags ($product_ref) {
 		}
 	}
 
+	# Check if we have weights for all components
+	if ($number_of_packaging_components > 0) {
+		my $components_with_weights = 0;
+		foreach my $packaging_ref (@{$product_ref->{packagings}}) {
+			if ((defined $packaging_ref->{weight_specified}) or (defined $packaging_ref->{weight_measured})) {
+				$components_with_weights++;
+			}
+		}
+		if ($components_with_weights > 0) {
+
+			add_tag($product_ref, "misc", "en:packagings-with-weights");
+
+			if ($components_with_weights == $number_of_packaging_components) {
+				add_tag($product_ref, "misc", "en:packagings-with-all-weights");
+				if ($product_ref->{packagings_complete}) {
+					add_tag($product_ref, "misc", "en:packagings-with-all-weights-complete");
+				}
+				else {
+					add_tag($product_ref, "misc", "en:packagings-with-all-weights-not-complete");
+				}
+			}
+			else {
+				add_tag($product_ref, "misc", "en:packagings-with-some-but-not-all-weights");
+			}
+		}
+	}
+
 	return;
 }
 
-=head2 analyze_and_combine_packaging_data($product_ref, $response_ref)
+=head2 initialize_packagings_structure_with_data_from_packaging_text ($product_ref, $response_ref) 
 
-This function analyzes all the packaging information available for the product:
-
-- the existing packagings data structure
-- the packaging_text entered by users or retrieved from the OCR of recycling instructions
-(e.g. "glass bottle to recycle, metal cap to discard")
-- labels (e.g. FSC)
-
-And combines them in an updated packagings data structure.
-
-Note: as of 2022/11/29, the "packaging" tags field is not used as input.
+This function populates the packagings structure with data extracted from the packaging_text field.
+It is used only when there is no pre-existing data in the packagings structure.
 
 =cut
 
-sub analyze_and_combine_packaging_data ($product_ref, $response_ref) {
-
-	$log->debug("analyze_and_combine_packaging_data - start", {existing_packagings => $product_ref->{packagings}})
-		if $log->is_debug();
-
-	# Create the packagings data structure if it does not exist yet
-	# otherwise, we will use and augment the existing data
-	if (not defined $product_ref->{packagings}) {
-		$product_ref->{packagings} = [];
-	}
-
-	# TODO: remove once all products have been migrated
-	migrate_old_number_and_quantity_fields_202211($product_ref);
-
-	# Parse the packaging_text
+sub initialize_packagings_structure_with_data_from_packaging_text ($product_ref, $response_ref) {
 
 	my @phrases = ();
 
 	my $number_of_packaging_text_entries = 0;
 
-	# Packaging text field (populated by OCR of the packaging image and/or contributors or producers)
-	if (defined $product_ref->{packaging_text}) {
-
-		my @packaging_text_entries = split(/,|;|\n/, $product_ref->{packaging_text});
-		push(@phrases, @packaging_text_entries);
-		$number_of_packaging_text_entries = scalar @packaging_text_entries;
-	}
+	# Separate phrases by matching:
+	# . , ; and newlines
+	# but we want to keep commas and dots that are inside numbers (3.40 or 1,5)
+	# so we escape them first
+	my $packaging_text = $product_ref->{packaging_text};
+	$packaging_text =~ s/(\d)(\.|,)(\d)/$1\\$2$3/g;
+	my @packaging_text_entries = split(/(?<!\\)\.|(?<!\\),|;|\n/, $packaging_text);
+	push(@phrases, @packaging_text_entries);
+	$number_of_packaging_text_entries = scalar @packaging_text_entries;
 
 	# Note: as of 2022/11/29, the "packaging" tags field is not used as input.
 	# Corresponding code was removed.
@@ -777,6 +828,50 @@ sub analyze_and_combine_packaging_data ($product_ref, $response_ref) {
 
 			add_or_combine_packaging_component_data($product_ref, $packaging_ref, $response_ref);
 		}
+	}
+
+	return;
+}
+
+=head2 analyze_and_combine_packaging_data($product_ref, $response_ref)
+
+This function analyzes all the packaging information available for the product:
+
+- the existing packagings data structure
+- the packaging_text entered by users or retrieved from the OCR of recycling instructions
+(e.g. "glass bottle to recycle, metal cap to discard")
+- labels (e.g. FSC)
+
+And combines them in an updated packagings data structure.
+
+Note: as of 2022/11/29, the "packaging" tags field is not used as input.
+
+Note: as of 2023/02/13, the "packaging_text" field is used as input only if
+there isn't an existing packagings data structure.
+This is to avoid double counting some packaging elements that may be referred to
+using different shapes (e.g. pot vs jar, or sleeve vs box etc.)
+
+=cut
+
+sub analyze_and_combine_packaging_data ($product_ref, $response_ref) {
+
+	$log->debug("analyze_and_combine_packaging_data - start", {existing_packagings => $product_ref->{packagings}})
+		if $log->is_debug();
+
+	# Create the packagings data structure if it does not exist yet
+	# otherwise, we will use and augment the existing data
+	if (not defined $product_ref->{packagings}) {
+		$product_ref->{packagings} = [];
+	}
+
+	# TODO: remove once all products have been migrated
+	migrate_old_number_and_quantity_fields_202211($product_ref);
+
+	# The packaging text field (populated by OCR of the packaging image and/or contributors or producers)
+	# is used as input only if the packagings structure is empty
+	if ((scalar @{$product_ref->{packagings}} == 0) and (defined $product_ref->{packaging_text})) {
+
+		initialize_packagings_structure_with_data_from_packaging_text($product_ref, $response_ref);
 	}
 
 	# Set misc fields to indicate if the packaging data is complete

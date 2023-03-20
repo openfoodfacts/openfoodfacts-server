@@ -283,8 +283,8 @@ msgid "Producers Admin manual"
 msgstr "מדריך הניהול ליצרנים"
 
 msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"http://il.openfoodfacts.org/donate-to-open-food-facts-he\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"תרומה ל־Open Food Facts\" /></a><p><<site_name>> נוסד על ידי ארגון ללא מטרות רווח, ללא תלות בתעשייה. הוא נוצר לטובת כולם, על ידי כולם ובמימון כולם. ניתן לתמוך בעבודה שלנו על ידי <a href=\"http://il.openfoodfacts.org/donate-to-open-food-facts-he\">תרומה ל־Open Food Facts</a> וגם על ידי <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">שימוש במנוע החיפוש Lilo</a>.<br/><b>תודה רבה!</b></p>"
+msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> מופעל על ידי אגודה ללא מטרות רווח, ללא תלות בתעשייה. למען כולם, על ידי כולם וממומן על ידי כולם. אפשר לתמוך בעבודה שלנו על ידי <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">תרומה ל־Open Food Facts</a> and גם על ידי <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">חיפוש במנוע החיפוש Lilo</a>.<br/><b>תודה רבה!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -588,7 +588,7 @@ msgstr "עורך"
 
 msgctxt "email"
 msgid "E-mail address"
-msgstr ""
+msgstr "כתובת דוא״ל"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
@@ -1575,7 +1575,7 @@ msgstr "ערך תזונתי"
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
 msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-msgstr ""
+msgstr "https://il.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -2422,7 +2422,7 @@ msgstr "חנויות"
 
 msgctxt "stores_products"
 msgid "Products sold at %s"
-msgstr "מוצרים שנמכרים אצל"
+msgstr "מוצרים שנמכרים ב%s"
 
 msgctxt "stores_s"
 msgid "store"
@@ -4005,6 +4005,14 @@ msgctxt "export_products_to_public_database_email"
 msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
 msgstr "הפלטפורמה ליצרנים נמצאת כרגע בתהליכי פיתוח ואנו עורכים בדיקות ידניות בטרם ייבוא מוצרים למסדי הנתונים הציבוריים. נא לשלוח אלינו דוא״ל לכתובת <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> כדי לעדכן את מסד הנתונים הציבורי."
 
+msgctxt "crm_user_id"
+msgid "Id of corresponding contact in CRM"
+msgstr "מזהה איש הקשר המתאים ב־CRM (ניהול קשרי לקוחות)"
+
+msgctxt "crm_org_id"
+msgid "Id of corresponding organization in CRM"
+msgstr "מזהה הארגון המתאים ב־CRM (ניהול קשרי לקוחות)"
+
 msgctxt "user_groups"
 msgid "Groups"
 msgstr "קבוצות"
@@ -4089,9 +4097,10 @@ msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "פיקוח על פלטפורמת היצרנים"
 
-msgctxt "pro_moderator_owner_set"
-msgid "You are currently viewing products from %s."
-msgstr "כרגע מוצגים בפניך מוצרים מאת %s."
+# variable names between { } must not be translated
+msgctxt "f_pro_moderator_owner_set"
+msgid "You are currently viewing products from {organization}."
+msgstr "המוצרים המוצגים כעת הם מבית {organization}."
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
@@ -4103,8 +4112,8 @@ msgstr "כדי לצפות במוצרים עבור משתמש או ארגון מ�
 
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
-msgid "Change"
-msgstr "החלפה"
+msgid "Switch to another organization"
+msgstr "מעבר לארגון אחר"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
@@ -4707,6 +4716,10 @@ msgctxt "packaging_text_note_2"
 msgid "Try to be as specific as possible. For plastic, please indicate if it is opaque or transparent, colored, PET or PEHD."
 msgstr "מוטב להתמקד עד כמה שניתן. לפלסטיק רצוי לציין אם הוא אטום או שקוף, צבוע, פוליאתילן טרפתלט (PET) או פוליאתילן בצפיפות גבוהה (PEHD)."
 
+msgctxt "packaging_text_note_3"
+msgid "Data from this field will be combined with any data provided for each packaging part. It is possible to provide one or the other, or both."
+msgstr "נתונים מהשדה הזה ישולבו עם נתונים שמסופקים עבור כל חלק באריזה. אפשר לספק את זה או את זה או את שניהם."
+
 msgctxt "product_js_extract_packaging"
 msgid "Extract the recycling instructions and/or packaging information from the picture"
 msgstr "חילוץ הנחיות מיחזור ו/או פרטי אריזה מהתמונה"
@@ -4961,6 +4974,11 @@ msgstr "Eco-Score"
 msgctxt "packaging_parts"
 msgid "Packaging parts"
 msgstr "חלקי אריזה"
+
+# A short name for a physical piece of packaging (e.g. in English, "packaging" instead of "packaging part"). Used with a number (e.g. "Packaging 1" to identify a packaging part)
+msgctxt "packaging_part_short"
+msgid "Packaging"
+msgstr "אריזה"
 
 # Number of packaging parts
 msgctxt "packaging_number"
@@ -5280,6 +5298,14 @@ msgctxt "org_list_of_gs1_gln_note"
 msgid "A comma separated list of GS1 GLN identifiers to force the association with this organization."
 msgstr "רשימה מופרדת בפסיקים של מזהי GLN של GS1 כדי לאלץ שיוך עם הארגון הזה."
 
+msgctxt "org_valid_org"
+msgid "Validate organization as a real producer."
+msgstr "אימות ארגון כיצרן אמיתי."
+
+msgctxt "org_valid_org_note"
+msgid "The organization is verified as a real producer by a human, also creates entry in CRM."
+msgstr "הארגון מאומת כיצרן אמיתי על ידי בן אדם, נוצרה גם רשומה ב־CRM (ניהול קשרי לקוחות)."
+
 msgctxt "org_enable_manual_export_to_public_platform"
 msgid "Enable organization members to manually export product data and photos to the public database."
 msgstr "לאפשר לחברי הארגון לייצא נתוני מוצרים ותמונות ידנית למסד הנתונים הציבורי."
@@ -5591,6 +5617,14 @@ msgstr "נוסחת Eco-Score עשויה להשתנות כיוון שהיא מש�
 msgctxt "ecoscore_warning_international"
 msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgstr "Eco-Score פותח במקור בצרפת והוא מתפשט למדינות אירופיות נוספות. נוסחת Eco-Score עשויה להשתנות כיוון שהיא משתפרת באופן תמידי כדי שתהיה מדויקת, ככל הניתן, לכל מדינה ומדינה."
+
+msgctxt "ecoscore_warning_transportation_world"
+msgid "Select a country in order to include the full impact of transportation."
+msgstr "נא לבחור מדינה כדי לכלול את השפעותיה המלאות של התעבורה."
+
+msgctxt "ecoscore_warning_transportation"
+msgid "The full impact of transportation to your country is currently unknown."
+msgstr "ההשפעה המלאה של התעבורה למדינה שלך אינה ידועה כרגע."
 
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
@@ -6064,6 +6098,69 @@ msgctxt "action_add_nutrition_facts"
 msgid "Add nutrition facts"
 msgstr "הוספת מפרט תזונתי"
 
+msgctxt "action_add_origins"
+msgid "Add the origins of ingredients for this product"
+msgstr "הוספת מקורות רכיבי המוצר הזה"
+
+msgctxt "action_add_packaging_image"
+msgid "Take a photo of the recycling information"
+msgstr "נא לצלם תמונה של פרטי המיחזור"
+
+# this is not used yet
+msgctxt "action_add_basic_details"
+msgid "Add basic details"
+msgstr "הוספת פרטים בסיסיים"
+
+# this is not used yet
+msgctxt "action_add_portion_size"
+msgid "Add portion size"
+msgstr "הוספת גודל מנה"
+
+# this is not used yet
+msgctxt "action_add_ingredients_image"
+msgid "Take a photo of the ingredients"
+msgstr "צילום תמונה של הרכיבים"
+
+# this is not used yet
+msgctxt "action_add_nutrition_image"
+msgid "Take a photo of the nutrition facts"
+msgstr "צילום העובדות התזונתיות"
+
+# this is not used yet
+msgctxt "action_refresh_ingredients_image"
+msgid "Refresh the photo of the ingredients"
+msgstr "רענון תמונת הרכיבים"
+
+# this is not used yet
+msgctxt "action_refresh_nutrition_image"
+msgid "Refresh the photo of the nutrition facts"
+msgstr "רענון תמונת העובדות התזונתיות"
+
+# this is not used yet
+msgctxt "action_add_packaging_text"
+msgid "Extract and check the recycling information"
+msgstr "חילוץ ובדיקת פרטי המחזור"
+
+# this is not used yet
+msgctxt "action_add_stores"
+msgid "Add the store where you found this product"
+msgstr "הוספת החנות בה מצאת את המוצר"
+
+# this is not used yet
+msgctxt "action_labels"
+msgid "Add any label present on this product"
+msgstr "הוספת תוויות כלשהן שמופיעות על המוצר"
+
+# this is not used yet
+msgctxt "action_countries"
+msgid "Add the country where you found this product"
+msgstr "הוספת המדינה בה מצאת את המוצר"
+
+# this is not used yet
+msgctxt "action_packager_codes_image"
+msgid "Take a photo of traceability codes"
+msgstr "צילום הקודים של המעקב"
+
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
 msgid "What you need to know"
@@ -6196,4 +6293,168 @@ msgstr "מוצר"
 msgctxt "environment"
 msgid "Environment"
 msgstr "סביבה"
+
+msgctxt "api_result_failure"
+msgid "Failure"
+msgstr "כשל"
+
+msgctxt "api_result_product_found"
+msgid "Product found"
+msgstr "המוצר נמצא"
+
+msgctxt "api_result_product_not_found"
+msgid "Product not found"
+msgstr "המוצר לא נמצא"
+
+msgctxt "api_result_product_updated"
+msgid "Product updated"
+msgstr "המוצר עודכן"
+
+msgctxt "api_message_invalid_api_action"
+msgid "Invalid API action"
+msgstr "פעולת API שגויה"
+
+msgctxt "api_message_invalid_api_method"
+msgid "Invalid API method"
+msgstr "שיטת API שגויה"
+
+msgctxt "api_message_empty_request_body"
+msgid "Empty request body"
+msgstr "גוף הבקשה ריק"
+
+msgctxt "api_message_invalid_json_in_request_body"
+msgid "Invalid JSON in request body"
+msgstr "JSON שגוי בגוף הבקשה"
+
+msgctxt "api_message_invalid_type_must_be_object"
+msgid "Invalid type: must be an object"
+msgstr "סוג שגוי: חייב להיות עצם"
+
+msgctxt "api_message_invalid_type_must_be_array"
+msgid "Invalid type: must be an array"
+msgstr "סוג שגוי: חייב להיות מערך"
+
+msgctxt "api_message_invalid_type_must_be_integer"
+msgid "Invalid type: must be an integer"
+msgstr "סוג שגוי: חייב להיות מספר שלם וחיובי"
+
+msgctxt "api_message_invalid_type_must_be_number"
+msgid "Invalid type: must be a number"
+msgstr "סוג שגוי: חייב להיות מספר"
+
+msgctxt "api_message_missing_field"
+msgid "Missing field"
+msgstr "שדה שגוי"
+
+msgctxt "api_message_unrecognized_value"
+msgid "Unrecognized value"
+msgstr "ערך לא מוכר"
+
+msgctxt "api_impact_none"
+msgid "None"
+msgstr "אין"
+
+msgctxt "api_impact_warning"
+msgid "Warning"
+msgstr "אזהרה"
+
+msgctxt "api_impact_failure"
+msgid "Failure"
+msgstr "כשל"
+
+msgctxt "api_impact_field_ignored"
+msgid "Field ignored"
+msgstr "השדה לא תקף"
+
+msgctxt "api_impact_value_converted"
+msgid "Value converted"
+msgstr "הערך הומר"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units"
+msgid "Number of units"
+msgstr "מספר יחידות"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight"
+msgid "Weight of one empty unit"
+msgstr "משקל של יחידה ריקה אחת"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit"
+msgid "Quantity of product contained per unit"
+msgstr "כמות של המוצר שכלולה ביחידה"
+
+# variable names between { } must not be translated
+msgctxt "f_help_categorize_on_hunger_games"
+msgid "Help categorize more {title} on Hunger Games"
+msgstr "נשמח לסיוע בסיווג של עוד {title} במשחקי הרעב"
+
+msgctxt "packagings_complete"
+msgid "All the packaging parts of the product are listed."
+msgstr "כל חלקי האריזה של המוצר מפורטים."
+
+msgctxt "api_message_invalid_user_id_and_password"
+msgid "Invalid user id and password"
+msgstr "מזהה משתמש וסיסמה שגויים"
+
+msgctxt "api_message_invalid_value_must_be_0_or_1"
+msgid "Invalid value: must be 0 or 1"
+msgstr "ערך שגוי: חייב להיות 0 או 1"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units_description"
+msgid "Enter the number of packaging units of the same shape and material contained in the product."
+msgstr "נא למלא את מספר יחידות האריזה מאותה הצורה והחומר שנמצא בתוך המוצר."
+
+msgctxt "packaging_shape_description"
+msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
+msgstr "נא למלא את שם הצורה שמופיעה על הנחיות המיחזור אם יש כאלה, או לבחור צורה."
+
+msgctxt "packaging_material_description"
+msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
+msgstr "נא לציין מה החומר המסוים שבו נעשה שימוש אם אפשר לאתר אותו (אפשר למצוא את קוד החומר בתוך משולש שנמצא על חלקי האריזה), או חומר כללי (למשל: פלסטיק או מתכת) במקרה של ספק."
+
+msgctxt "packaging_recycling_description"
+msgid "Enter recycling instructions only if they are listed on the product."
+msgstr "נא למלא פרטי מיחזור רק אם הם מופיעים על המוצר."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight_description"
+msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
+msgstr "יש להסיר שאריות מזון ולשטוף ולייבש את החלק של האריזה בטרם השקילה. אם אפשר, כדאי להשתמש במשקל עם רמת דיוק של 0.1 גרם או 0.01 גרם."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit_description"
+msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
+msgstr "נא למלא את המשקל הנקי או את הנפח הנקי ולציין את היחידה (למשל גרם או מיליליטר)."
+
+msgctxt "import_and_export_products"
+msgid "Import and export products"
+msgstr "ייבוא וייצוא מוצרים"
+
+msgctxt "add_products"
+msgid "Add products"
+msgstr "הוספת מוצרים"
+
+# Needs to be short (displayed in a menu)
+msgctxt "install_the_app_to_add_products"
+msgid "Install the app to add products"
+msgstr "אפשר להתקין את היישומון כדי להוסיף מוצרים"
+
+msgctxt "search_and_analyze_products"
+msgid "Search and analyze products"
+msgstr "חיפוש וניתוח מוצרים"
+
+msgctxt "resources"
+msgid "Resources"
+msgstr "משאבים"
+
+msgctxt "pro_platform_user_guide"
+msgid "Pro platform user guide"
+msgstr "מדריך למשתמש בפלטפורמת פרו"
+
+msgctxt "faq_for_producers"
+msgid "FAQ for producers"
+msgstr "שאלות נפוצות של יצרנים"
 

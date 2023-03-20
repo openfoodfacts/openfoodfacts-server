@@ -114,7 +114,7 @@ my $tests_ref = [
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890007',
 		body => '{
-			"fields": "updated",
+			"fields": "updated,misc_tags,weighers_tags",
 			"tags_lc": "fr",
 			"product": {
 				"packagings_add": [
@@ -138,7 +138,7 @@ my $tests_ref = [
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890008',
 		body => '{
-			"fields": "updated",
+			"fields": "updated,misc_tags,weighers_tags",
 			"tags_lc": "en",
 			"product": {
 				"packagings_add": [
@@ -389,10 +389,11 @@ my $tests_ref = [
 		path => '/api/v3/product/1234567890013',
 		body => '{
 			"tags_lc": "en",
+			"fields": "updated,misc_tags",
 			"product": {
 				"packagings": [
 					{
-						"number_of_units": 1,
+						"number_of_units": 1,			
 						"shape": {"lc_name": "Bottle"},
 						"weight_measured": 0.43
 					},
@@ -405,7 +406,182 @@ my $tests_ref = [
 						"number_of_units": 3,
 						"shape": {"lc_name": "Lid"},
 						"weight_measured": "0,43"
-					}										
+					}								
+				]
+			}
+		}'
+	},
+	# Test authentication
+	{
+		test_case => 'patch-auth-good-password',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890014',
+		body => '{
+			"user_id": "tests",
+			"password": "testtest",
+			"fields": "creator,editors_tags,packagings",
+			"tags_lc": "en",
+			"product": {
+				"packagings": [
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "can"},
+						"recycling": {"lc_name": "recycle"}
+					}
+				]
+			}
+		}'
+	},
+	{
+		test_case => 'patch-auth-bad-user-password',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890015',
+		body => '{
+			"user_id": "tests",
+			"password": "bad password",
+			"fields": "creator,editors_tags,packagings",
+			"tags_lc": "en",
+			"product": {
+				"packagings": [
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "can"},
+						"recycling": {"lc_name": "recycle"}
+					}			
+				]
+			}
+		}'
+	},
+	# Packaging complete
+	{
+		test_case => 'patch-packagings-complete-0',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890016',
+		body => '{
+			"fields": "packagings,packagings_complete",
+			"tags_lc": "en",
+			"product": {
+				"packagings": [
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "bottle"},
+						"recycling": {"lc_name": "recycle"}
+					}			
+				],
+				"packagings_complete": 0
+			}
+		}'
+	},
+	{
+		test_case => 'patch-packagings-complete-1',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890016',
+		body => '{
+			"fields": "packagings,packagings_complete",
+			"tags_lc": "en",
+			"product": {
+				"packagings": [
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "bottle"},
+						"recycling": {"lc_name": "recycle"}
+					},
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "lid"},
+						"recycling": {"lc_name": "recycle"}
+					}								
+				],
+				"packagings_complete": 1
+			}
+		}'
+	},
+	{
+		test_case => 'patch-packagings-complete-2',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890016',
+		body => '{
+			"fields": "packagings,packagings_complete",
+			"tags_lc": "en",
+			"product": {
+				"packagings": [
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "bottle"},
+						"recycling": {"lc_name": "recycle"}
+					},
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "lid"},
+						"recycling": {"lc_name": "recycle"}
+					}								
+				],
+				"packagings_complete": 2
+			}
+		}'
+	},
+	# Weights sent as strings (with dot or comma)
+	{
+		test_case => 'patch-packagings-weights-as-strings',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890017',
+		body => '{
+			"fields": "updated,misc_tags,weighers_tags",
+			"tags_lc": "en",
+			"product": {
+				"packagings_add": [
+					{
+						"number_of_units": 6,
+						"shape": {"lc_name": "bottle"},
+						"material": {"lc_name": "PET"},
+						"quantity_per_unit": "25cl",
+						"weight_measured": "10"
+					},
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "box"},
+						"material": {"lc_name": "wood"},
+						"weight_specified": "25.5"
+					},
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "film"},
+						"material": {"lc_name": "plastic"},
+						"weight_specified": "2,01"
+					}					
+				]
+			}
+		}'
+	},
+	# Weights sent as strings with units
+	{
+		test_case => 'patch-packagings-weights-as-strings-with-units',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890018',
+		body => '{
+			"fields": "updated,misc_tags,weighers_tags",
+			"tags_lc": "en",
+			"product": {
+				"packagings_add": [
+					{
+						"number_of_units": 6,
+						"shape": {"lc_name": "bottle"},
+						"material": {"lc_name": "PET"},
+						"quantity_per_unit": "25cl",
+						"weight_measured": "10 g"
+					},
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "box"},
+						"material": {"lc_name": "wood"},
+						"weight_specified": "25.5g"
+					},
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "film"},
+						"material": {"lc_name": "plastic"},
+						"weight_specified": "2,01 grams"
+					}		
 				]
 			}
 		}'

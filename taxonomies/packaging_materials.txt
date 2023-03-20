@@ -24,7 +24,7 @@ de:Unbekannt
 bg:Неизвестно
 fr:Inconnu, inconnue, inconnus, inconnues
 hu:Ismeretlen
-nl:Onbekend
+nl:Overig
 non_recyclable_and_non_biodegradable:en:maybe
 
 en:Plastic
@@ -37,7 +37,7 @@ fr:Plastique
 hr:plastika
 hu:Műanyag
 it:Plastica
-nl:Plastiek
+nl:Plastic, Plastiek
 pl:Plastikowe, plastik
 pt:Plástico
 ru:Пластик
@@ -522,6 +522,10 @@ fr:Carton FSC
 nl:FSC karton
 pt:Cartão FSC
 # associated_label:en: en:FSC
+
+<en:Cardboard
+en:Grass carton
+de:Graskarton
 
 en:Paper
 bg:Хартия
@@ -1542,3 +1546,17 @@ en:fabric, fabrics
 de:Stoff, Stoffe, Gewebe
 fr:tissu, tissus
 nl:Stof, stoffen
+
+en:adhesive tape
+de:Klebeband
+fr:ruban adhésif
+wikidata:en:Q320441
+
+<en:adhesive tape
+en:adhesive plastic tape
+de:Kunststoffklebeband
+
+<en:adhesive tape
+en:washi tape
+de:Washi-Tape
+ja:和紙テープ

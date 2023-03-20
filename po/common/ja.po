@@ -284,8 +284,8 @@ msgid "Producers Admin manual"
 msgstr "生産者管理マニュアル"
 
 msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Open Food Facts に寄付\" /></a><p><<site_name>> は、業界から独立した非営利団体によって行われています。すべての人によって、すべての人のために行われ、すべての人によって資金援助されます。あなたは <a href=\"https://world-ja.openfoodfacts.org/donate-to-open-food-facts\">Open Food Facts に寄付</a> または <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">リロ検索エンジンを使用</a> して私たちの活動をサポートすることができます。<br/><b>宜しくお願いします!</b></p>"
+msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> は、業界から独立した非営利団体によって作成されています。すべてのために、すべてによって作られ、すべてによって資金提供されています。 <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">Open Food Facts</a> に寄付することで、また <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">Lilo 検索エンジンを使用して</a>、私たちの活動を支援することができます。<br/><b>ありがとうございます！</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -4006,6 +4006,14 @@ msgctxt "export_products_to_public_database_email"
 msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
 msgstr "生産者のためのプラットフォームはまだ開発中であり、公開データベースに製品をインポートする前に手動でチェックします。 公開データベースを更新するには、 <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> までメールでご連絡ください。"
 
+msgctxt "crm_user_id"
+msgid "Id of corresponding contact in CRM"
+msgstr "CRM の対応する連絡先の ID"
+
+msgctxt "crm_org_id"
+msgid "Id of corresponding organization in CRM"
+msgstr "CRMで対応する組織のID"
+
 msgctxt "user_groups"
 msgid "Groups"
 msgstr "グループ"
@@ -4090,9 +4098,10 @@ msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "生産者プラットフォームのモデレーション"
 
-msgctxt "pro_moderator_owner_set"
-msgid "You are currently viewing products from %s."
-msgstr "現在 %s からの商品を表示しています。"
+# variable names between { } must not be translated
+msgctxt "f_pro_moderator_owner_set"
+msgid "You are currently viewing products from {organization}."
+msgstr ""
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
@@ -4104,8 +4113,8 @@ msgstr "特定のユーザーまたは組織の製品を表示するには、ID�
 
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
-msgid "Change"
-msgstr "変更"
+msgid "Switch to another organization"
+msgstr ""
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
@@ -4708,6 +4717,10 @@ msgctxt "packaging_text_note_2"
 msgid "Try to be as specific as possible. For plastic, please indicate if it is opaque or transparent, colored, PET or PEHD."
 msgstr ""
 
+msgctxt "packaging_text_note_3"
+msgid "Data from this field will be combined with any data provided for each packaging part. It is possible to provide one or the other, or both."
+msgstr "このフィールドのデータは、各包装部品に提供されたデータと組み合わされます。どちらか一方、または両方を提供することが可能です。"
+
 msgctxt "product_js_extract_packaging"
 msgid "Extract the recycling instructions and/or packaging information from the picture"
 msgstr ""
@@ -4962,6 +4975,11 @@ msgstr ""
 msgctxt "packaging_parts"
 msgid "Packaging parts"
 msgstr ""
+
+# A short name for a physical piece of packaging (e.g. in English, "packaging" instead of "packaging part"). Used with a number (e.g. "Packaging 1" to identify a packaging part)
+msgctxt "packaging_part_short"
+msgid "Packaging"
+msgstr "パッケージング"
 
 # Number of packaging parts
 msgctxt "packaging_number"
@@ -5281,6 +5299,14 @@ msgctxt "org_list_of_gs1_gln_note"
 msgid "A comma separated list of GS1 GLN identifiers to force the association with this organization."
 msgstr ""
 
+msgctxt "org_valid_org"
+msgid "Validate organization as a real producer."
+msgstr "実際のプロデューサーとして組織を検証します。"
+
+msgctxt "org_valid_org_note"
+msgid "The organization is verified as a real producer by a human, also creates entry in CRM."
+msgstr "組織は人間によって実際のプロデューサーとして検証され、CRM にもエントリが作成されます。"
+
 msgctxt "org_enable_manual_export_to_public_platform"
 msgid "Enable organization members to manually export product data and photos to the public database."
 msgstr ""
@@ -5592,6 +5618,14 @@ msgstr ""
 msgctxt "ecoscore_warning_international"
 msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgstr ""
+
+msgctxt "ecoscore_warning_transportation_world"
+msgid "Select a country in order to include the full impact of transportation."
+msgstr "運送の影響をすべて含めるには、国を選択してください。"
+
+msgctxt "ecoscore_warning_transportation"
+msgid "The full impact of transportation to your country is currently unknown."
+msgstr "あなたの国への輸送の完全な影響は現在不明です."
 
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
@@ -6065,6 +6099,69 @@ msgctxt "action_add_nutrition_facts"
 msgid "Add nutrition facts"
 msgstr "栄養成分を入力する"
 
+msgctxt "action_add_origins"
+msgid "Add the origins of ingredients for this product"
+msgstr "この商品の原材料の産地を追加"
+
+msgctxt "action_add_packaging_image"
+msgid "Take a photo of the recycling information"
+msgstr "リサイクル情報の写真を撮る"
+
+# this is not used yet
+msgctxt "action_add_basic_details"
+msgid "Add basic details"
+msgstr "基本的な詳細を追加"
+
+# this is not used yet
+msgctxt "action_add_portion_size"
+msgid "Add portion size"
+msgstr "ポーションサイズを追加"
+
+# this is not used yet
+msgctxt "action_add_ingredients_image"
+msgid "Take a photo of the ingredients"
+msgstr "原材料の写真を撮ってください"
+
+# this is not used yet
+msgctxt "action_add_nutrition_image"
+msgid "Take a photo of the nutrition facts"
+msgstr "栄養成分表の写真を撮ってください"
+
+# this is not used yet
+msgctxt "action_refresh_ingredients_image"
+msgid "Refresh the photo of the ingredients"
+msgstr "原材料の写真を更新"
+
+# this is not used yet
+msgctxt "action_refresh_nutrition_image"
+msgid "Refresh the photo of the nutrition facts"
+msgstr "栄養成分表示の写真を更新する"
+
+# this is not used yet
+msgctxt "action_add_packaging_text"
+msgid "Extract and check the recycling information"
+msgstr "リサイクル情報を抽出して確認する"
+
+# this is not used yet
+msgctxt "action_add_stores"
+msgid "Add the store where you found this product"
+msgstr "この商品を見つけた店舗を追加"
+
+# this is not used yet
+msgctxt "action_labels"
+msgid "Add any label present on this product"
+msgstr "この製品に存在するラベルを追加"
+
+# this is not used yet
+msgctxt "action_countries"
+msgid "Add the country where you found this product"
+msgstr "この製品を見つけた国を追加"
+
+# this is not used yet
+msgctxt "action_packager_codes_image"
+msgid "Take a photo of traceability codes"
+msgstr "トレーサビリティ コードの写真を撮る"
+
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
 msgid "What you need to know"
@@ -6197,4 +6294,168 @@ msgstr "製品"
 msgctxt "environment"
 msgid "Environment"
 msgstr "環境"
+
+msgctxt "api_result_failure"
+msgid "Failure"
+msgstr "失敗"
+
+msgctxt "api_result_product_found"
+msgid "Product found"
+msgstr "製品が見つかりました"
+
+msgctxt "api_result_product_not_found"
+msgid "Product not found"
+msgstr ""
+
+msgctxt "api_result_product_updated"
+msgid "Product updated"
+msgstr "製品が更新されました！"
+
+msgctxt "api_message_invalid_api_action"
+msgid "Invalid API action"
+msgstr "無効な操作"
+
+msgctxt "api_message_invalid_api_method"
+msgid "Invalid API method"
+msgstr "無効なメソッドです。"
+
+msgctxt "api_message_empty_request_body"
+msgid "Empty request body"
+msgstr "空のリクエスト本文"
+
+msgctxt "api_message_invalid_json_in_request_body"
+msgid "Invalid JSON in request body"
+msgstr "リクエスト本文の JSON が無効です"
+
+msgctxt "api_message_invalid_type_must_be_object"
+msgid "Invalid type: must be an object"
+msgstr "無効なタイプ: オブジェクトでなければなりません."
+
+msgctxt "api_message_invalid_type_must_be_array"
+msgid "Invalid type: must be an array"
+msgstr "無効なタイプ: 配列でなければなりません"
+
+msgctxt "api_message_invalid_type_must_be_integer"
+msgid "Invalid type: must be an integer"
+msgstr "無効な型: 整数でなければなりません"
+
+msgctxt "api_message_invalid_type_must_be_number"
+msgid "Invalid type: must be a number"
+msgstr "無効な入力: 数値でなければなりません"
+
+msgctxt "api_message_missing_field"
+msgid "Missing field"
+msgstr "不足しているフィールド:"
+
+msgctxt "api_message_unrecognized_value"
+msgid "Unrecognized value"
+msgstr "認識できない値"
+
+msgctxt "api_impact_none"
+msgid "None"
+msgstr ""
+
+msgctxt "api_impact_warning"
+msgid "Warning"
+msgstr "警告"
+
+msgctxt "api_impact_failure"
+msgid "Failure"
+msgstr "失敗"
+
+msgctxt "api_impact_field_ignored"
+msgid "Field ignored"
+msgstr "フィールドは無視されました"
+
+msgctxt "api_impact_value_converted"
+msgid "Value converted"
+msgstr "変換された値"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units"
+msgid "Number of units"
+msgstr "ユニット数"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight"
+msgid "Weight of one empty unit"
+msgstr "空ユニット 1 個の重量"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit"
+msgid "Quantity of product contained per unit"
+msgstr "ユニット単位に含まれる製品数"
+
+# variable names between { } must not be translated
+msgctxt "f_help_categorize_on_hunger_games"
+msgid "Help categorize more {title} on Hunger Games"
+msgstr ""
+
+msgctxt "packagings_complete"
+msgid "All the packaging parts of the product are listed."
+msgstr "製品のすべてのパッケージ部品がリストされています。"
+
+msgctxt "api_message_invalid_user_id_and_password"
+msgid "Invalid user id and password"
+msgstr "ユーザー名・パスワードが間違っています"
+
+msgctxt "api_message_invalid_value_must_be_0_or_1"
+msgid "Invalid value: must be 0 or 1"
+msgstr "無効な値: 0 または 1 でなければなりません"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units_description"
+msgid "Enter the number of packaging units of the same shape and material contained in the product."
+msgstr "商品に含まれる同一形状、同材質の包装単位数をご記入ください。"
+
+msgctxt "packaging_shape_description"
+msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
+msgstr "利用可能な場合は、リサイクル手順に記載されている形状名を入力するか、形状を選択します。"
+
+msgctxt "packaging_material_description"
+msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
+msgstr "特定できる場合は特定の材料を入力し (三角形内の材料コードはパッケージ部品によく見られます)、不明な場合は一般的な材料 (プラスチックや金属など) を入力します。"
+
+msgctxt "packaging_recycling_description"
+msgid "Enter recycling instructions only if they are listed on the product."
+msgstr "製品に記載されている場合にのみ、リサイクル手順を入力してください。"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight_description"
+msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
+msgstr "残りの食品を除去し、重み付けの前に包装部品を洗浄し、乾燥させます. 可能な場合は、0.1グラムまたは0.01グラムの精度でスケールを使用してください."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit_description"
+msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
+msgstr "正味重量または正味体積を入力し、単位を示します (g または ml など)。"
+
+msgctxt "import_and_export_products"
+msgid "Import and export products"
+msgstr ""
+
+msgctxt "add_products"
+msgid "Add products"
+msgstr ""
+
+# Needs to be short (displayed in a menu)
+msgctxt "install_the_app_to_add_products"
+msgid "Install the app to add products"
+msgstr ""
+
+msgctxt "search_and_analyze_products"
+msgid "Search and analyze products"
+msgstr ""
+
+msgctxt "resources"
+msgid "Resources"
+msgstr ""
+
+msgctxt "pro_platform_user_guide"
+msgid "Pro platform user guide"
+msgstr ""
+
+msgctxt "faq_for_producers"
+msgid "FAQ for producers"
+msgstr ""
 

@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2021 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -35,6 +35,7 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
+use ProductOpener::Units qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::URL qw/:all/;
@@ -68,12 +69,11 @@ sub display_search_or_add_form() {
 	if (($server_options{producers_platform})
 		and not((defined $Owner_id) and (($Owner_id =~ /^org-/) or ($User{moderator}) or $User{pro_moderator})))
 	{
-		return "";
+		display_error_and_exit(lang("no_owner_defined"), 200);
 	}
 
 	my $html = '';
 	my $template_data_ref_content = {};
-	$template_data_ref_content->{server_options_producers_platform} = $server_options{producers_platform};
 
 	$template_data_ref_content->{display_search_image_form} = display_search_image_form("block_side");
 	process_template('web/common/includes/display_product_search_or_add.tt.html', $template_data_ref_content, \$html)
@@ -684,7 +684,7 @@ sub display_input_field ($product_ref, $field, $language) {
 	if (defined $tags_fields{$fieldtype}) {
 		$class = "tagify-me";
 		if ((defined $taxonomy_fields{$fieldtype}) or ($fieldtype eq 'emb_codes')) {
-			$autocomplete = "$formatted_subdomain/cgi/suggest.pl?tagtype=$fieldtype&";
+			$autocomplete = "$formatted_subdomain/api/v3/taxonomy_suggestions?tagtype=$fieldtype";
 		}
 	}
 
@@ -821,12 +821,7 @@ CSS
 	if (    (not((defined $server_options{private_products}) and ($server_options{private_products})))
 		and (defined $Org_id))
 	{
-
 		# Display a link to the producers platform
-
-		my $producers_platform_url = $formatted_subdomain . '/';
-		$producers_platform_url =~ s/\.open/\.pro\.open/;
-
 		$template_data_ref_display->{producers_platform_url} = $producers_platform_url;
 	}
 
@@ -839,7 +834,6 @@ CSS
 	if ($User{moderator}) {
 	}
 
-	$template_data_ref_display->{server_options_private_products} = $server_options{private_products};
 	$template_data_ref_display->{org_id} = $Org_id;
 	$template_data_ref_display->{label_new_code} = $label_new_code;
 	$template_data_ref_display->{owner_id} = $Owner_id;

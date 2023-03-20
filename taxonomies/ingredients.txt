@@ -11,14 +11,15 @@ synonyms:en:pasteurised, pasteurized
 # comment:en:These are words that occur inside the name of one ingredient, but that can be removed for matching the ingredient with entries in the taxonomy
 
 stopwords:bg:съдържа, от, с, със, до, и, или, и/или, минимум, произведено с, с добавенo, включително
+stopwords:bs:i, u promjenljivom odnosu
 stopwords:ca:i,de
 stopwords:da:av, af, blandt andet, bl a, inklusive, heraf, indeholder, tilsat
-stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens, in veränderlichen gewichtsanteilen
+stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens, in veränderlichen gewichtsanteilen, wenig, min, max
 stopwords:el:περιέχει
-stopwords:en:contains, contain, from, with, produced with, with added, minimum,including, inter alia, edible
+stopwords:en:contains, contain, from, with, produced with, with added, minimum,including, inter alia, edible, added to enhance freshness, added to maintain flavor and freshness
 stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
 stopwords:fi:sisältää,muun muassa,valio, koskenlaskija, snellmanin, jossa, noin, käymisen aikana muodostuva
-stopwords:fr:aux,au,de,le,du,la,a,et,avec,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout, sachet
+stopwords:fr:aux,au,de,le,du,la,a,et,avec,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout, sachet, marquants, demeter
 stopwords:hr:i, iz, min, od, sadrže, sastojci, sastav, u promjenjivim omjerima, u promjenjivim udjelima, u različitim omjerima
 stopwords:hu:tartalmaz, változó arányban, min, zsírtartalom, összetevő, összetétel, amelyből, amiből
 stopwords:id:mengandung
@@ -79,7 +80,7 @@ de:Karamellsirup, Caramelsirup
 es:jarabe de caramelo, sirope de caramelo
 fi:Karamellisiirappi
 fr:sirop de caramel, sirop caramel
-hr:karamel sirup
+hr:karamel sirup, karamelizirani sirup
 hu:karamellszirup, karamell szirup, karamell-szirup, karamella szirup
 it:sciroppo di caramello
 ja:キャラメルシロップ
@@ -273,7 +274,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Carotene
 
 # <en:paprika
 en:paprika extract, e160c
-bg:екстракт от червен пипер, екстракт от паприка
+bg:екстракт от червен пипер, екстракт от паприка, паприка екстракт
+bs:ekstrakt paprike
 ca:extracte de pebre vermell, extracte de pebre vermell picant
 da:paprikaekstrakt
 de:Paprikaextrakt
@@ -335,7 +337,8 @@ wikidata:en:Q53792073
 # nova:en:lecithin
 <en:E322i
 en:soya lecithin, soy lecithin, soybean lecithin
-bg:соев лецитин
+bg:соев лецитин, соеви лецитини
+bs:emulgator sojin lecitin
 ca:Lecitina de soja, lecitines de soja
 cs:sójový lecitin
 da:sojalecitin, sojalecitiner, sojalecithin, sojalecithiner
@@ -522,7 +525,7 @@ de:Rindergelatine
 es:Gelatina de ternera
 fi:nautaliivate, nautagelatiini, naudan liivate, liivate naudasta
 fr:gélatine de bœuf, gélatine de boeuf, gélatine bovine
-hr:goveda želatina
+hr:goveda želatina, goveđa želatina
 hu:marhazselatin
 it:gelatina di manzo
 lt:jautienos želatina
@@ -631,6 +634,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Modified_citrus_pectin
 
 <en:citrus pectin
 en:lemon pectin
+bg:лимонов пектин
 de:Zitronenpektin, Pektin aus Zitronen
 es:pectina de limon
 
@@ -764,6 +768,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sodium_cyclamate
 
 <en:E1105
 en:lysozyme from eggs, egg lysozyme
+ca:lisozim d'ou
 cs:lysozym z vajec
 da:lysozym fra æg
 de:Lysozym aus Ei
@@ -771,7 +776,7 @@ el:λυσοζύμη από το ΑΥΓΟ
 es:lisozima de huevo
 fi:lysotsyymi kananmunasta
 fr:lysozyme d'œuf, lysozyme d'oeuf
-hr:jajčani lizozim, lizozim iz jaja, lisozim iz jaja
+hr:jajčani lizozim, lizozim iz jaja, lisozim iz jaja, lizozim (iz jaja)
 it:lisozima da uovo, lisozima d'uovo
 nl:lysozym uit ei, lysozym van ei
 pl:lizozym z jaj
@@ -826,6 +831,7 @@ de:modifizierte Kartoffelstärke
 es:almidón modificado de patata, almidon de patata modificado
 fi:muunnettu perunatärkkelys, modifioitu perunatärkkelys
 fr:amidon modifié de pomme de terre, amidon modifié de pommes de terre, amidon de pomme de terre modifié, amidon transformé de pommes de terre, amidon de pommes de terre modifié, amidon transformé de pomme de terre, fécule de pomme de terre modifiée, fécule modifiée de pommes de terre
+hr:modificirani krumpirov škrob
 hu:módosított burgonyakeményítő
 it:amido di patate modificiate, amido modificato di patata
 nb:modifisert potetstivelse
@@ -834,6 +840,7 @@ pl:skrobia modyfikowana ziemniaczana, skrobia ziemniaczana modyfikowana, modyfik
 pt:amido modificado de batata, amido de batata modificado
 ro:amidon modificat din cartofi
 ru:модифицированный крахмал
+sl:modificiran krompirjev škrob
 sv:modifierad potatisstärkelse
 # fr:fécule-de-pomme-de-terre-modifiée has 40 products in 3 languages @2018-10-15
 # fr:e1404 has 19 products in 4 languages @2018-10-15
@@ -854,7 +861,7 @@ en:ferment
 az:fermentlər
 ba:Ферменттар
 be:Ферменты
-bg:закваска, закваски, българска закваска, млечнокисели култури, симбиотична закваска, стартерни млечнокисели култури, стартерна култура, стартерни култури
+bg:закваска, закваски, българска закваска, млечнокисели култури, симбиотична закваска, стартерни млечнокисели култури, стартерна култура, стартерни култури, млечно кисели култури, млечно-киселинна култура
 ca:ferment, ferments
 cs:Kvasnice
 da:gæret
@@ -909,7 +916,8 @@ vegetarian:en:maybe
 
 <en:coagulating enzyme
 en:microbial coagulating enzyme, microbial enzyme
-bg:микробиологичен ензим, сирищен ензим, сирище с микробиален произход
+bg:микробиологичен ензим, сирище с микробиален произход
+ca:coagulant de llet microbià, coagulant microbià
 de:mikrobieller Labaustauschstoff
 es:coagulante de leche microbiano, Encima coagulate microbiana
 fr:enzyme coagulante microbienne, enzyme coagulante d'origine microbienne, coagulant microbien
@@ -960,7 +968,7 @@ es:fermentos lácticos, fermentos lácteos, cultivos lácticos, ferments del yog
 et:juuretis
 fi:maitohappokäyte, maitohappokannat, maitohappoviljelmä, elävä jogurttiviljelmä, elävä jogurttibakteeriviljelmä, elävät jogurttibakteeriviljelmät, maitohappobakteeriviljelmä, maitohappobakteeriviljelmät, maitohappobakteerit, maitohappobakteerikanta, maitohappobakteerikannat, juustoviljelmä, juustoviljelmät, hapankulttuuri, jogurttihapate, maitohappobakteeri, käynnistin kulttuuri
 fr:ferment lactique, ferments lactique, ferments lactiques, ferment lactiques, culture de bactéries lactiques, cultures lactiques, ferment lactique du yaourt, ferments lactiques du yaourt, ferments vivants du yaourt
-hr:jogurtna kultura, mljekarska kultura, mljekarske kulture, sirna kultura, starter kultura, baktrije mliječnog vrenja
+hr:jogurtna kultura, jogurtne kulture, mljekarska kultura, mljekarske kulture, mlijekarske kulture, sirna kultura, starter kultura, baktrije mliječnog vrenja, bakterije mliječne kiseline, kultura plemenitih plijesni, sirište mljekarske kulture
 hu:tejsavbaktériumok, tejsavbaktérium, starterkultúra, starter kultúra, tejsavbaktérium-tenyészet, tejsavbaktérium kultúra, joghurtkultúra, joghurtkultúrák, sajtkultúra, sajtkultúrák
 it:fermenti lattici, coltura di batteri acidolattici, fermenti lattici vivi, fermenti latici vivi, fermenti lattici dello yogurt
 nb:melkesyrekultur, starterkultur, yoghurtkultur, yoghurtbakterier, syrekultur
@@ -980,6 +988,10 @@ en:probiotic cultures
 es:cultivos probióticos
 hu:probiotikus kultúrák, probiotikus kultúra, probiotikum kultúrák, probiotikum kultúra
 
+<en:microbial culture
+en:kombucha culture, kombuncha cultures
+fr:culture de kombucha
+
 <en:lactic ferments
 en:skyr cultures
 da:skyr kultur
@@ -994,6 +1006,7 @@ nl:skyr-culturen
 en:sourdough starter, sourdough culture
 da:surdejskultur
 de:Sauerteig-Starter, Sauerteigstarter, Sauerteigstarterkulturen, Sauerteigkulturen
+es:levadura natural de masa madre, levadura de masa madre
 fr:Starters pour levain
 # ingredient/en:sourdough-culture has 43 products in 2 languages @2020-06-08
 
@@ -1040,6 +1053,7 @@ et:Bifidobakter
 fa:بیفیدوباکتر
 fi:bifidus, bifidus-viljelmä
 fr:bifidus, culture de bifidus, bifidobactérium
+hr:bifidobacterium, bifidobacterium BB-12
 hu:bifidus, bifidusz, bifidusz kultúra, bifiduszbaktérium
 it:Bifidobacterium
 ja:ビフィズス菌
@@ -1072,6 +1086,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Bifidobacterium
 en:Bifidobacterium bifidum
 xx:Bifidobacterium bifidum
 fi:bifidobacterium bifidum, bifidobacterium sp
+hr:bifidobacterium bifidum BB-12
 zh:比菲德氏菌
 # zh-tw:比菲德氏菌
 wikidata:en:Q2902072
@@ -1082,6 +1097,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Bifidobacterium_bifidum
 <en:bifidus
 en:Bifidobacterium lactis, Bifidobacterium animalis, B. lactis, B. animalis
 xx:Bifidobacterium lactis, b. lactis
+hr:bifidobacterium animalis BB-12
 es:Bifidobacterium lactis, Bifidobacterium animalis sp lactis
 wikidata:en:Q62854400
 wikipedia:en:https://en.wikipedia.org/wiki/Bifidobacterium_animalis
@@ -1107,6 +1123,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Bifidobacterium_longum
 en:bifidus actiregularis, b. actiregularis
 xx:bifidus actiregularis, b. actiregularis
 de:Bifidus ActiRegularis, Bifidus Kultur ActiRegularis
+hr:Bifidus Actiregularis® kultura, Bifidus Actiregularis® kultura (CNCM 1-2494 min 4x)
 ru:бифидобактерии-actiregularis, бифидобактерии actiregularis
 # ingredient/bifidus-actiregularis has 142 products in 5 languages @2019-07-08
 
@@ -1119,6 +1136,7 @@ fr:ferments lactiques dont bifidobacterium
 en:kefir ferments, kefir cultures, live kefir cultures, active kefir cultures, kefir grains microflora
 es:fermentos de kéfir, cultivos microbianos de kéfir, levaduras de kéfir, fermentos propios del kéfir
 fr:ferments du kéfir, culture de kéfir, cultures de kéfir
+hu:kefirkultúra
 pl:kultury kefirowe, żywe kultury bakterii kefirowych
 
 <en:lactic ferments
@@ -1170,7 +1188,8 @@ bg:Lactobacillus acidophilus, L. acidophilus
 xx:Lactobacillus acidophilus, L. acidophilus
 fa:لاکنوباسیلوس اسیدوفیلوس
 fi:Lactobacillus acidophilus, L. acidophilus
-hr:lactobacillus acidophilus La-5, kultura Lactobacillus acidophilus
+hr:lactobacillus acidophilus La-5, kultura Lactobacillus acidophilus, mikrobiološke kulture Lactobacillus acidophilus La-5
+it:Lactobacillus acidophilus, L. acidophilus
 kk:Ацидофилин таяқшасы
 ro:Lapte acidofil
 ru:Lactobacillus acidophilus, Ацидофильная палочка
@@ -1198,7 +1217,9 @@ en:Lactobacillus bulgaricus, L. bulgaricus, Lactobacillus delbrueckii subsp. bul
 bg:Лактобацилус булгарикус, Lactobacillus bulgaricus, Lactobacillus delbrueckii subsp. bulgaricus, L. delbrueckii subsp. bulgaricus, Lactobacillus delbrueskii subsp. bulgaricus
 es:lactobacilus delbrueckii sp Bulgaricus, Lactobacillus delbrueckii subspecies bulgaricus
 fi:Lactobacillus bulgaricus, L. bulgaricus
+it:Lactobacillus bulgaricus, L. bulgaricus
 fr:L bulgaricus, bulgaricus
+hr:lactobacillus bulgaricus
 xx:Lactobacillus bulgaricus, L. bulgaricus
 wikidata:en:Q47455075
 wikipedia:en:https://en.wikipedia.org/wiki/Lactobacillus_delbrueckii_subsp._bulgaricus
@@ -1272,7 +1293,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lactobacillus_rhamnosus
 <en:Lactobacillus rhamnosus
 en:Lactobacillus rhamnosus GG
 xx:Lactobacillus rhamnosus GG, LGG
-hr:kultura Lactobacillus rhamnosus
+hr:kultura Lactobacillus rhamnosus, kultura Lactobacillus rhamnosus (LGG)
 # ingredient/fi:Lactobacillus-rhamnosus-GG has 1 product in 2 languages @2020-06-08
 
 # description:en:BACILLUS COAGULANS is a lactic acid-forming bacterial species. B. coagulans is often marketed as Lactobacillus sporogenes or a 'sporeforming lactic acid bacterium' probiotic, but this is an outdated name due to taxonomic changes in 1939.
@@ -1302,7 +1323,9 @@ en:Streptococcus thermophilus, s.thermophilus
 xx:Streptococcus thermophilus, s.thermophilus
 bg:streptococcus thermophilus, Streptococcus salivarius subsp. thermophilus
 fi:Streptococcus thermophilus, s. thermophilus
+hr:streptococcus thermophilus
 es:Streptococcus thermophilus, thermophilus
+it:streptococcus thermophilius, s. thermophilus, thermophilus
 ja:サーモフィラス菌
 zh:嗜热链球菌
 # zh-hans:嗜熱鏈球菌
@@ -1455,6 +1478,7 @@ vegetarian:en:maybe
 en:rennet
 an:Cuallo
 ar:منفحة
+bg:сирищен ензим, сирищни ензими
 bs:Sirište
 ca:quall
 co:Pirrulu
@@ -1648,7 +1672,7 @@ fi:laktaasi, laktaasientsyymi
 fr:lactase
 gl:lactase
 he:לקטאז
-hr:laktaza, enzim laktaza
+hr:laktaza, laktazu, enzim laktaza
 hu:laktáz, laktáz enzim, laktázenzim
 io:laktazo
 is:laktasi
@@ -1962,7 +1986,7 @@ sk:maslo
 sl:maslo
 so:subag
 sq:gjalpa
-sr:mаслац
+sr:mаслац, maslac
 su:mentéga
 sv:smör
 sw:siagi
@@ -2282,7 +2306,7 @@ gv:Bainney
 he:חלב
 hr:mlijeko, mlijeka
 ht:Lèt
-hu:Tej, Tejet
+hu:Tej, Tejet, tejből
 hy:Կաթ
 ia:Lacte
 id:Susu
@@ -2332,7 +2356,7 @@ sd:کير
 sh:Mlijeko
 si:සත්ත්‍ව කිරි
 sk:Mlieko
-sl:Mleko
+sl:mleko
 sn:Mukaka
 so:Caano
 sq:Qumështi
@@ -2621,9 +2645,11 @@ id:Susu skim
 is:Undanrenna
 it:Latte scremato, latte senza grassi, latte magro
 lt:Nugriebtas pienas
+mk:обрано млеко
 ms:Susu skim
 nb:Skummet melk
 nl:Magere melk, Taptemelk, ondermelk, afgeroomde melk, vetvrije melk
+no:skummet melk
 pa:ਸਪਰੇਟਾ
 pl:odtłuszczone mleko, mleko odtłuszczone
 pt:Leite desnatado, leite magro
@@ -2814,6 +2840,7 @@ de:Frische fettarme Milch
 <en:milk
 en:whole milk, full cream milk
 bg:пълномаслено мляко
+bs:punomasno mleko
 ca:llet sencera
 cs:Plnotučné mléko
 da:sødmaelk
@@ -3500,6 +3527,7 @@ es:leche condensada azucarada, leche azucarada condensada
 et:magustatud kondenspiim
 fi:makeutettu kondensoitu maito, makeutettu maitotiiviste, sokeroitu maitotiiviste, sokeroitua maitotiivistettä
 fr:lait concentré sucré, lait condensé sucré
+hr:ugušćeno zaslađeno mlijeko
 hu:édesített sűrített tej, cukrozott sűrített tej
 it:latte concentrato zuccherato
 lt:saldintas kondensuotas pienas
@@ -3724,7 +3752,7 @@ fr:poudre de lait réhydratée
 
 <en:milk powder
 en:skimmed milk powder, nonfat dry milk, skimmed cow's milk powder
-bg:обезмаслено сухо мляко, обезмаслено мляко на прах
+bg:обезмаслено сухо мляко, обезмаслено мляко на прах, сухо обезмаслено мляко, сухо обезмаслно краве мляко
 ca:llet desnatada en pols,llet en pols desnatada
 cs:Sušené odstředěné mléko
 da:skummetmælkspulver
@@ -3734,7 +3762,7 @@ et:lõssipulber, lössipulber, kooritud piimapulber
 fi:rasvaton maitojauhe, rasvatonta maitojauhetta, rasvatonmaitojauhe
 fr:lait en poudre écrémé, lait écrémé en poudre, poudre de lait écrémé
 he:אבקת חלב רזה
-hr:obrano mlijeko u prahu
+hr:obrano mlijeko u prahu, obrane mlijeko u prahu
 hu:sovány tejpor
 is:undanrennuduft
 it:latte scremato in polvere, latte in polvere scremato
@@ -3832,6 +3860,7 @@ pl:odtworzone odtłuszczone mleko, odtworzone mleko odtłuszczone
 pt:leite magro reconstituído
 
 <en:skimmed milk powder
+bg:възстановено обезмаслено мляко на прах, възстановео обезмаслено сухо мляко
 es:leche desnatada en polvo reconstituida, leche desnatada en polvo rehidratada
 ca:llet desnatada en pols reconstituida, llet desnatada en pols rehidratada
 
@@ -4396,7 +4425,7 @@ ru:Молочная сыворотка
 sh:Surutka
 sk:Srvátka
 sl:Sirotka
-sr:Сурутка
+sr:Сурутка, surutka
 sv:Vassle, vassla
 te:పాల విరుగుడు
 th:หางนม
@@ -4421,7 +4450,7 @@ vegetarian:en:yes
 
 <en:whey
 en:whey powder, powdered whey,milk whey powder
-bg:суроватка на прах
+bg:суроватка на прах, млечна суроватка на прах
 ca:Xerigot en pols, sèrum en pols, sèrum làctic en pols
 cs:sušená syrovátka
 da:Vallepulver, vallepulver af mælk
@@ -4476,6 +4505,7 @@ de:Sauermolke
 <en:whey
 en:sweet whey
 ca:sèrum de la llet ensucrat
+cs:sladká SYROVÁTKA
 de:Süßmolke, Süssmolke
 es:suero de leche azucarado, lactosuero azucarado
 fi:makea hera, makeutettu hera
@@ -4485,6 +4515,7 @@ pl:słodka serwatka
 
 <en:sweet whey
 en:sweet whey powder
+bg:сладка суроватка на прах
 de:Süßmolkepulver, Süssmolkepulver, Sussmolkenpulver, Süssmolkenpulver, Süßmolkenpulver, Sußmolkenpulver
 es:suero de leche azucarado en polvo, lactosuero azucarado en polvo
 et:magus vadakupulber
@@ -4561,7 +4592,7 @@ sv:vasslepermeat
 # ingredient/fr:perméat-de-petit-lait has 126 products in 5 languages @2019-04-21
 
 <en:whey permeate
-en:reconstituted whey permeate 
+en:reconstituted whey permeate
 ca:permeat làctic reconstituit
 
 <en:whey permeate
@@ -4642,10 +4673,11 @@ qu:Nata
 ru:Сливки
 sh:Krem
 sk:Smotana
-sl:Smetana
+sl:smetana
 sn:Ruomba
 so:Labeen
 sq:Pana
+sr:pavlaka
 sv:Grädde
 sw:Samli
 ta:பாலாடை
@@ -4704,6 +4736,7 @@ ciqual_food_name:fr:Crème de lait, 30% MG, épaisse, rayon frais
 #processing:en: en:pasteurised
 #<en:cream
 #en:pasteurized cream
+#bg:пастьоризирана сметана
 #ca:nata pasteuritzada, crema de llet pasteuritzada
 #de:pasteurisierte Sahne
 #es:nata pasteurizada, crema de leche pasteurizada
@@ -4989,7 +5022,7 @@ nl:Smetana
 pl:Śmietana
 ro:Smântână
 ru:Сметана
-sl:Kisla smetana
+sl:kisla smetana
 sr:Павлака
 sv:Smetana
 uk:Сметана
@@ -5022,7 +5055,7 @@ af:Crème fraîche
 ca:crema de llet
 cs:Crème fraîche
 da:Cremefraiche, creme fraiche
-de:Crème fraîche
+de:Crème fraîche, creme fraiche
 eu:Esne-gain gordina, esne-gain freskoa
 fi:ranskankerma, crème fraîche
 fr:crème fraîche épaisse, crème fraîche fermentée
@@ -5356,6 +5389,7 @@ se:vuostá
 sh:Sir
 si:Sir
 sk:Syr
+sl:sir
 so:jiss
 sq:djathi
 sr:сир
@@ -5794,6 +5828,7 @@ de:Schmelzkäse
 es:Queso derretido
 fi:sulatejuusto
 fr:fromage fondu
+hr:topljenih sireva
 hu:ömlesztett sajt
 it:formaggio fuso
 nl:smeltkaas
@@ -5807,6 +5842,7 @@ de:Schmelzkäsepulver
 es:queso fundido en polvo
 fi:sulatejuustojauhe
 fr:fromage fondu en poudre
+hr:toplijenih SIREVA u prahu, mješavina toplijenih SIREVA u prahu
 hu:ömlesztett porított sajt
 it:formaggio fuso in polvere
 nl:poeder van gesmolten kazen
@@ -5855,7 +5891,7 @@ el:τυρί σε σκόνη
 es:queso en polvo
 fi:juustojauhe
 fr:fromage en poudre, poudre de fromage
-hr:sir u prahu
+hr:sir u prahu, sireva u prahu
 hu:sajtpor, porított sajt
 it:formaggio in polvere
 nl:kaaspoeder
@@ -5866,9 +5902,15 @@ sk:sirotka v prahu
 sv:ostpulver
 # fr:fromage en poudre has 200 products in 14 languages @2018-10-28
 
+<en:melted cheese
+<en:cheese powder
+en:mixture of melted cheeses and powdered cheeses
+hr:mješavina topljenih sireva i sireva u prahu
+
 <en:cheese
 en:semi-hard cheeses
 hr:polutvrdi sirevi
+sl:poltrdi sir
 
 <en:cheese
 en:hard cheese
@@ -5892,6 +5934,7 @@ de:Hartkäse Fettstufe
 <en:cheese
 en:soft cheese
 de:Weichkäse
+hr:meki sirevi
 nl:zachte kaas
 
 <en:soft cheese
@@ -5906,6 +5949,11 @@ de:Frischkäse (Fettstufe), Frischkäsezubereitung der Fettstufe
 <en:soft cheese
 en:full fat soft cheese
 de:Vollfett-Frischkäse, Vollfett-Weichkäse, Frischkäse Vollfettstufe
+
+<en:soft cheese
+description:en:Cheese that has been in maturity process for 7 days
+ca:formatge tendre
+es:queso tierno
 
 <en:cheese
 en:Swiss cheese
@@ -6239,6 +6287,7 @@ fi:cheddar-juusto, cheddarjuusto
 fr:fromage cheddar
 ga:céadar
 he:צ'דר
+hr:cheddar, cheddar sir
 hu:Cheddar, Cheddar sajt
 hy:Չեդեր
 id:Keju Cheddar
@@ -6337,6 +6386,18 @@ es:queso cheddar fundido
 <en:melted cheddar
 fr:cheddar orange fondu
 
+<en:cheese
+en:Colby cheese, Colby
+ca:colby
+it:Colby
+id:Keju colby
+ja:コルビーチーズ
+jv:Kèju colby
+ko:콜비 치즈
+pt:Colby
+zh:考爾比芝士
+wikidata:en:Q1056769
+description:en:Type of semi-hard cheese.
 
 <en:cheese
 en:Comté, Comté cheese, Comté cheese from cow's milk
@@ -6376,7 +6437,18 @@ protected_name_type:en: en:pdo
 origins:en: en:France
 # fr:comté-aop has 40 products in 1 language @2018-10-27
 
-
+<en:cheese
+en:Cotija cheese, Cotija
+de:Cotija-Käse, Cotija
+es:Queso Cotija, Cotija
+fr:Queso Cotija, Cotija
+hu:Cotija
+ja:コテハ・チーズ
+jv:Cotija kèju, Cotija
+ko:코티하 치즈
+ru:Котиха
+wikidata:en:Q2718594
+description:en:type of dry, firm grating cheese from Mexico.
 
 <en:cheese
 en:Double Gloucester, Double Gloucester cheese
@@ -6581,6 +6653,8 @@ ko:프로마주 프레
 ms:Fromage blanc
 nl:verse kaas
 pt:queijo branco
+sl:sveži sir 
+sr:sveži sir
 # en-ca:Fromage blanc
 # en-gb:Fromage blanc
 wikidata:en:Q3323634
@@ -6611,6 +6685,7 @@ es:Queso quark
 fi:Rahka, maitorahka
 fr:quark
 he:גבינה לבנה
+hr:quark sir
 hu:túró
 hy:Կաթնաշոռ
 id:Quark
@@ -6624,7 +6699,7 @@ lv:biezpiens
 nb:kvarg
 nl:kwark, plattekaas
 nn:kvarg
-pl:Twaróg, twarogu, twarogowy, twarogowe, twarogowa
+pl:Twaróg, twarogu, twarogowy, twarogowe, twarogowa, ser twarogowy, serek twarogowy
 pt:quark
 ru:творог, творожный продукт
 sh:quark
@@ -6664,6 +6739,7 @@ de:Magerquark, Speisequark Magerstufe
 fr:séré maigre
 it:quark magro
 nl:magere kwark
+pl:twaróg odtłuszczony, ser twarogowy odtłuszczony, twarożek odtłuszczony, twaróg chudy, ser twarogowy chudy
 # ingredient/fr:séré-maigre has 33 products in 4 languages @2019-03-01
 
 <en:Quark
@@ -6823,7 +6899,7 @@ mk:Горгонѕола
 ro:Brânză Gorgonzola
 ru:Горгондзола
 sd:گارگونزولا
-sl:Gorgonzola
+sl:gorgonzola, sir gorgonzola
 sr:горгонзола
 uk:Ґорґонцола
 xx:gorgonzola
@@ -6867,6 +6943,7 @@ eu:Gouda gazta
 fa:پنیر گودا
 fi:goudajuusto, goudajuustoa
 he:חאודה
+hr:gouda, gouda sir
 hu:gouda sajt
 hy:Գաուդա
 id:Keju Gouda
@@ -6906,6 +6983,7 @@ description:nl:Goudse kaas is een van oorsprong Nederlandse harde kaas. Het is e
 <en:cow cheese
 en:Grana Padano, Grana Padano cheese, Grana Padano cheese from cow's milk
 bg:Грана Падано
+ca:Grana Padano, formatge Grana Padano
 cv:Грана Падано
 da:Grana Padano, Grana Padano ost
 eo:Грана Падано
@@ -6918,6 +6996,7 @@ ja:グラナ・パダーノ
 ko:그라나 파다노
 nl:Grana Padano, Grana Padano kaas
 ru:Грана падано
+sl:ribani trdi sir Grana Padano
 xx:Grana Padano
 uk:Грана Падано
 zh:格拉娜·帕達諾芝士
@@ -6944,6 +7023,7 @@ description:pt:Grana padano é um queijo italiano típico da Planície Padana, m
 
 <en:Grana Padano
 en:Grana Padano PDO cheese, grana padano cheese pdo
+bg:сирене Грана Падано ЗГН
 ca:formatge grana padano DOP
 de:Grana Padano g.U. Käse, Grana Padano Käse g.U.
 es:queso grana padano DOP, queso DOP Grana Padano
@@ -7017,6 +7097,38 @@ description:de:Der Gruyère français ist ein Rohmilchkäse, der in den Bergen d
 description:fr:Le gruyère français est un fromage fabriqué en Franche-Comté et en Savoie. C'est un fromage au lait cru de vache, à pâte pressée cuite
 protected_name_type:en: en:pgi
 origins:en: en:France
+
+#category/Havarti, Havarti cheeses
+<en:cheese
+en:Havarti, Havarti cheeses
+bg:Хаварти
+ca:Havarti
+da:Havarti
+de:Havarti
+es:Havarti, Queso Havarti
+et:Havarti
+eu:Havarti
+fi:Havarti
+fr:Havarti
+id:Havarti
+is:Havarti
+it:Havarti
+ja:ハバーティ
+jv:Havarti
+ko:하바르티
+nb:Havarti
+nl:Havarti
+nn:Havarti
+pl:Havarti
+ro:Havarti
+ru:Хаварти
+tr:Havarti
+zh:哈瓦蒂芝士
+protected_name_file_number:en: PGI-DK-00831
+protected_name_type:en: pgi
+origins:en: en:Denmark
+wikidata:en:Q1591487
+description:en:semisoft Danish cow's milk cheese.
 
 <en:cheese
 en:jarlsberg, jarlsberg cheese
@@ -7355,7 +7467,7 @@ fi:mozzarellajuustoa, mozzarella-juusto
 fr:mozzarella, fromage mozzarella, mozzarelle, fromage mozzarelle
 he:מוצרלה
 hi:मोत्ज़ारेला
-hr:mocarela
+hr:mocarela, mozzarella, mozzarella sir
 hy:Մոցարելա
 it:mozzarella, formaggio mozzarella, formaggi di mozzarella
 ja:モッツァレッラ
@@ -7447,25 +7559,55 @@ en:low moisture part skim mozzarella
 <en:low moisture mozzarella
 en:low moisture whole milk mozzarella
 
+#category/Muenster cheese, Muenster
+<en:cheese
+en:Muenster cheese, Muenster
+es:Muenster
+jv:Kèju Muenster
+sv:Muenster
+th:มึนสเตอร์ชีส
+wikidata:en:Q6931973
+description:en:American cheese.
+
 #category/munsters
 <en:cheese
-en:munster
+en:Munster, Munster cheeses, Munster cheese from cow's milk
+xx:Munsters, Munster
 ar:مونستير
 be:Мюнстэр
 bg:Мюнстер
+ca:Munster
 cv:Мюнстер
+de:Münsterkäse
+es:Munster
+eu:Munster
+fi:Munster
+fr:Munsters, Munster, Munster-Géromé
+hr:Munster
 id:Keju Munster
 ja:マンステール
 ko:묑스테르
+la:Munster
+ms:Keju Munster
+nb:Munster
+nl:Munster
+pl:Munster
+pt:Munster
 ru:Мюнстер
+sv:Munster
 th:เมิงสแตร์ชีส
 uk:Мюнстер
-xx:munster
 zh:芒斯特芝士
 wikidata:en:Q765540
+oqali_family:en: fr:Fromages - Munster
+protected_name_file_number:en: PDO-FR-0125
+protected_name_type:en: pdo
+origins:en: en:France
+agribalyse_food_code:en:12039
 ciqual_food_code:en:12039
 ciqual_food_name:en:Munster cheese, from cow's milk
 ciqual_food_name:fr:Munster
+protected_name_file_number:en: PDO-FR-0125-AM03
 description:de:Munster oder Munster-Géromé ist ein französischer Weichkäse aus den Hochvogesen und traditionell besonders aus dem elsässischen Münstertal (Vallée de Munster).
 description:en:Munster, Munster-géromé, or Minschterkaas, is a strong-smelling soft cheese with a subtle taste, made mainly from milk first produced in the Vosges.
 description:fr:Le munster et le munster-géromé constituent une appellation d'origine désignant un fromage de lait de vache de l'Est de la France.
@@ -7553,7 +7695,7 @@ fi:parmesaani, parmigiano-reggiano, parmesanjuusto
 fr:parmesan, parmigiano reggiano, fromage parmigiano reggiano, fromage parmigiano reggiano aop, fromage parmigiano reggiano dop
 gl:Parmesano
 he:פרמזן
-hr:Parmezan
+hr:Parmezan, Parmigiano Reggiano, sir Parmigiano Reggiano
 hu:Parmezán, Parmigiano Reggiano
 hy:Պարմեզան
 id:Parmesan, Parmigiano-Reggiano
@@ -7662,6 +7804,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Pecorino
 
 <en:pecorino
 en:pecorino romano, pecorino romano cheese, Peccorino Romano PDO cheese
+bg:Пекорино Романо, сирене Пекорино Романо ЗГН
 da:Pecorino Romano, Pecorino Romano ost
 de:Pecorino Romano
 es:Pecorino romano,queso DOP Pecorino romano
@@ -7747,6 +7890,7 @@ ciqual_food_name:fr:Provolone
 <en:cow cheese
 <en:cheese
 en:Raclette
+xx:raclette
 ar:راكليتي
 be:Раклет
 ca:formatge de raclet
@@ -7759,7 +7903,6 @@ ru:Раклет
 sh:Raklet
 sr:Raklet
 uk:Раклет
-xx:raclette
 zh:拉可雷特芝士
 # yue:烘焗瑞士芝士
 # zh-cn:拉可雷特芝士
@@ -7838,7 +7981,7 @@ af:Ricotta
 ar:ريكوتا
 az:Rikotta
 be:Рыкота
-bg:Рикота
+bg:Рикота, сирене Рикота
 bo:རི་ཀོ་ཏ།
 bs:Ricotta
 ca:Ricotta
@@ -8416,7 +8559,7 @@ as:ভিটামিন
 az:Vitaminlər
 ba:Витаминдар
 be:Вітаміны, Вітамін
-bg:Витамини, Витамин
+bg:Витамини, Витамин, vitamins
 bn:ভিটামিন
 bs:Vitamini, Vitamin
 ca:vitamina, vitamines
@@ -8546,7 +8689,7 @@ en:vitamin A
 af:Vitamien A
 ar:فيتامين ألف
 az:A vitamini
-bg:витамин А
+bg:витамин А, vitamin A
 bs:Vitamin A
 ca:Vitamina A, Vitamina A (Retinol)
 cs:vitamín A
@@ -9192,9 +9335,9 @@ bg:сол, трапезна сол, готварска сол
 bn:লবণ
 bo:ཚྭ།
 br:Holen
-bs:So
+bs:so, kuhinjska so
 ca:sal, sal comuna, sal de cuina
-cs:Sůl, jedlá sůl
+cs:Sůl, jedlá sůl, jedlá sûl
 cy:Halen
 da:Husholdningssalt, køkkensalt, bordsalt, salt
 de:Speisesalz, Kochsalz, Tafelsalz, Salz
@@ -9213,7 +9356,7 @@ gn:Juky
 gu:મીઠું
 he:מלח, מלח שולחן, מלח לבישול, מלח יבש
 hi:साधारण नमक
-hr:sol, kuhinjska sol
+hr:sol, kuhinjska sol, jestiva sol
 hu:só, étkezési só, konyhasó, asztali só
 id:Garam dapur
 ig:Ńnú
@@ -9253,11 +9396,11 @@ sd:لوڻ
 sh:So
 si:ලුණු
 sk:jedlá soľ
-sl:Sol, Kuhinjska sol, jedilna sol
+sl:sol, kuhinjska sol, jedilna sol, jedilna morska sol
 sn:Munyu
 so:Milix, Cusbo
 sq:Kripa
-sr:Со, so
+sr:Со, so, kuhinjska so
 su:Uyah
 sv:salt, koksalt, bordssalt, bordssalt utan jod
 ta:உப்பு
@@ -9679,6 +9822,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sodium_iodide
 # ingredient/fr:iodure-de-sodium has 35 products in french @2019-03-13
 
 <en:salt
+en:potassium iodide
+de:Kaliumiodid
+
+<en:salt
 en:non-iodised salt
 de:salz unjodiert
 fr:sel non iodé
@@ -9709,7 +9856,7 @@ es:Sal yodada
 fa:نمک یددار
 fi:jodioitu suola, jodia sisältävä suola, jodisuola
 fr:Sel iodé, sel de cuisine iodé
-hr:jodirana sol, jodirona kuhinjska sol
+hr:jodirana sol, jodirona kuhinjska sol, kuhinjska sol jodirana
 hu:jódozott só
 id:Garam beryodium
 it:Sale iodato
@@ -9719,6 +9866,7 @@ pl:sól jodowana
 pt:Sal iodado
 ro:sare iodată, sare iodata
 ru:Йодированная поваренная соль, соль йодированная
+sl:jodirana sol
 sv:joderat salt, joderad salt, jodsalt, salt med jod
 th:เกลือเสริมไอโอดีน
 uk:Йодована сіль
@@ -9768,7 +9916,7 @@ de:jodiertes Meersalz
 es:sal marina yodada, sal de mar yodada
 fi:jodioitu merisuola
 fr:sel marin iodé
-hr:morska sol jodirana
+hr:morska sol jodirana, sitna jodirana morska sol, krupna jodirana morska sol
 hu:jódozott tengeri só
 it:sale marino iodato
 pl:sól morska jodowana, jodowana sól morska
@@ -9800,6 +9948,10 @@ en:potassium salt, potassium chloride
 bg:калиева сол
 pl:sól potasowa, mineralna sól potasowa
 
+<en:salt
+en:processed salt
+de:verarbeitetes Salz
+
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -9826,6 +9978,7 @@ sv:djur
 
 en:meat
 bg:месо
+bs:meso
 ca:Carn
 cs:Maso
 da:Kød
@@ -9834,6 +9987,7 @@ es:carne
 fi:liha
 fr:viande
 he:בשר
+hr:meso
 hu:hús
 it:carne
 ja:肉
@@ -9904,6 +10058,7 @@ fi:lihapulla, lihapullat, lihapyörykkä, lihapyörykät
 fr:boulette de viande
 gl:albóndega
 gn:so'o josopy
+hr:jetrene okruglice
 id:bola daging
 ja:ミートボール
 kk:тефтели
@@ -9975,7 +10130,7 @@ da:oksekød
 de:Rind
 fi:nauta, naudan, härkä, härän
 fr:bœuf, boeuf, Boeufs
-hr:goveđa
+hr:goveđa, govedina
 hu:marha
 it:manzo
 pl:Wołowina
@@ -10029,6 +10184,7 @@ de:Rindfleischextrakt
 es:extracto de res
 fi:naudanlihauute, häränlihauute
 fr:extrait de bœuf, extrait de boeuf
+hr:govedi ekstrakt
 hu:marhahúskivont
 it:estratto di manzo
 nl:rundvleesextrakt
@@ -10047,6 +10203,7 @@ de:Rindfleisch
 es:carne de vaca, carne de vacuno, carne bovina,  Carne pura de vaca
 fi:naudanliha, naudanlihaa
 fr:viande de bœuf, viande de boeuf, viande bovine, pure viande bovine, pure viande de boeuf, viande de bovin
+hr:goveđe meso, govede meso
 hu:marhahús
 it:carne di manzo, carne bovina, carne di bovino
 ja:牛肉
@@ -10158,6 +10315,7 @@ ciqual_food_name:fr:Boeuf, queue, bouillie/cuite à l'eau
 <en:beef meat
 en:beef kidney, Raw beef kidney
 fr:Rognon de boeuf, Rognon de boeuf cru
+hr:govedi loj, goveđi loj
 ciqual_food_code:en:40402
 ciqual_food_name:en:Kidney, beef, raw
 ciqual_food_name:fr:Rognon, boeuf, cru
@@ -10226,6 +10384,7 @@ de:Rinderleber
 es:foie de res, higado de res
 fi:naudan maksa
 fr:foie de boeuf
+hr:goveda jetra
 sv:nötlever
 # ingredient/fr:foie-de-boeuf has 13 products in french @2019-05-24
 
@@ -11619,6 +11778,7 @@ nl:Varkensvlees
 pl:mięso wieprzowe
 pt:carne de suíno, carne de porco
 ro:carne de porc, carne porc
+sl:svinjsko meso
 sv:fläskkött, griskött, svinkött, fläsk, kött från gris
 zh:猪肉
 carbon_footprint_fr_foodges_ingredient:fr:Viande de porc
@@ -11672,25 +11832,30 @@ ciqual_food_name:fr:Porc, épaule, crue
 
 <en:pork meat
 en:pig cheek
-ca:galtes,galets
+ca:galtes de porc, galtes, galets
 de:Schweinebacke, Schweinebacken, Schweinebäckchen
-es:galtes,galets,carrillada de cerdo,carilleras de cerdo
+es:carrillada de cerdo, carilleras de cerdo
 fr:Joue de cochon
 vegan:en:no
 vegetarian:en:no
 
 <en:pork meat
 en:dewlap
-ca:papada de porc
+ca:papada de porc, papada
 de:Wamme
-es:papada de cerdo
+es:papada de cerdo, papada
 wikipedia:en:https://en.wikipedia.org/wiki/Dewlap
 
 <en:pork meat
 en:lean pork
+ca:magre de porc
 de:mageres Schweinefleisch
-es:magra de cerdo
+es:magra de cerdo, magro de cerdo, magro
 fr:maigre de porc
+
+<en:pork meat
+en:pig snout
+es:morro de cerdo, morro
 
 <en:pork meat
 en:british pork
@@ -12260,6 +12425,7 @@ ciqual_food_name:fr:Jambon de Bayonne
 
 <en:ham
 en:cooked ham
+ca:pernil cuit
 da:kogt skinke
 de:gekochter Schinken
 es:jamón cocido
@@ -12283,6 +12449,7 @@ fr:jambon cuit standard
 
 <en:cooked ham
 en:superior cooked ham
+ca:pernil cuit de qualitat superior
 de:Delikatess Kochschinken
 es:jamón cocido de calidad superior
 fi:Superior keittokinkku
@@ -12340,6 +12507,7 @@ es:Lomo de cerdo
 eu:txerri-solomo
 fr:longe de porc
 gl:lombo de porco
+hr:svinjski but
 it:lonza di maiale
 ko:등심
 pt:lombo
@@ -12436,9 +12604,11 @@ id:hati babi
 it:fegato di maiale
 ja:豚肝臓
 nl:varkenslever
+no:svinelever
 pl:wątroba wieprzowa
 ro:ficat de porc, ficat porc
 ru:Свиная печень, печень свиная
+sl:svinjska jetra
 sv:Grislever
 zh:猪肝
 #yue:豬膶
@@ -12490,7 +12660,7 @@ en:british pork belly
 en:smoked pork belly
 fr:poitrine de porc fumée
 ca:cansalda de por fumat
-es:panceta de cerdo ahumada
+es:panceta de cerdo ahumada, panceta ahumada de cerdo
 it:pancetta affumicata
 nl:gerookt varkensbuik
 ciqual_food_code:en:28502
@@ -12626,6 +12796,7 @@ hu:slanina, sertészsír
 id:lemak babi
 it:grasso di maiale, grasso di suino, grasso suino
 nl:varkensvet
+no:svinefett
 pl:tłuszcz ze świni, tłuszcz wieprzowy
 pt:gordura de porco
 sh:svinjska mast
@@ -12705,6 +12876,7 @@ de:Kalbsfleisch, Kalbfleisch
 es:carne de ternera
 fi:vasikanliha
 fr:viande de veau
+hr:juneće meso
 hu:borjúhús
 nl:kalfsvlees
 sv:kalvkött
@@ -12832,6 +13004,7 @@ wikidata:en:Q1779264
 <en:casing
 <en:collagen
 en:natural casing
+bg:естествена обвивка
 de:Naturdarm
 fi:luonnonsuoli
 fr:boyau naturel
@@ -13078,6 +13251,7 @@ fr:plasma déshydraté
 # <en:context
 <en:meat
 en:liver
+bg:черен дроб
 de:Leber
 es:hígado
 fr:foie
@@ -13090,6 +13264,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Liver_(food)
 <en:meat
 <en:animal
 en:frog legs
+bg:жабешки бутчета
 de:Froschschenkel
 fr:Cuisses de grenouilles
 wikidata:en:Q1258910
@@ -13245,7 +13420,7 @@ et:maisitärklis
 eu:maizena
 fa:نشاسته ذرت
 fi:maissitärkkelys
-fr:amidon de maïs, amidon de mais, fécule de mais, amidon natif de maïs
+fr:amidon de maïs, amidon de mais, fécule de mais
 he:עמילן תירס
 hr:kukuruzni škrob
 hu:kukoricakeményítő
@@ -13295,6 +13470,12 @@ it:amido di mais ceroso
 nl:kleefmaïszetmeel, waxy maiszetmeel, waxy maïszetmeel
 #379 @2021-09-28
 
+#unmodified corn starch
+<en:corn starch
+en:native corn starch
+de:native Maisstärke
+fr:amidon de maïs natif, amidon natif de maïs
+
 <en:corn starch
 <en:modified starch
 en:modified corn starch, modified corn starches, modified maize starch, corn starch modified
@@ -13308,7 +13489,7 @@ es:Almidón modificado de maiz, almidon de maiz modificado, almidones de maiz mo
 et:modifitseeritud maisitärklis
 fi:muunnettu maissitärkkelys, modifioitu maissitärkkelys, muunneltu maissitärkkelys, muunnettua maissitärkkelystä
 fr:amidon transformé de maïs, amidon de maïs transformé, amidon modifié de maïs, amidon de maïs modifié, amidons modifié de maïs, amidons modifiés de maïs
-hr:modificirani kukuruzni škrob
+hr:modificirani kukuruzni škrob, kukuruzni modificirani škrob
 hu:módosított kukoricakeményítő
 is:umbreytt maíssterkja
 it:amido modificato di mais, amido di mais modificato
@@ -13321,6 +13502,7 @@ ro:amidon modificat din porumb, amidon modificat de porumb
 ru:крахмал кукурузный модифицированный
 sk:modifikovaný kukuričný škrob
 sl:modificiran koruzni škrob
+sr:modifikovani kukuruzni skrob
 sv:modifierad majsstärkelse
 
 <en:modified starch
@@ -13352,7 +13534,7 @@ es:fécula de patata, Almidón de papa, Almidón de patata
 et:Kartulitärklis
 fi:perunatärkkelys
 fr:amidon de pommes de terre, amidon de pomme de terre, fécule de pommes de terre, fécule de pomme de terre
-hr:krumpirov škrob
+hr:krumpirov škrob, krumpirov skrob
 hu:burgonyakeményítő
 id:Tepung kentang
 is:kartöflusterkja
@@ -13385,7 +13567,7 @@ de:Pfeilwurzelstärke, Pfeilwurzelmehl
 <en:starch
 # <en:wheat
 en:wheat starch
-bg:пшенично нишесте
+bg:пшенично нишесте, пшеничено нишесте
 ca:Midó de blat, fècula de blat
 cs:pšeničný škrob
 da:Hvedestivelse
@@ -13990,6 +14172,7 @@ de:Rindernierenfett
 <en:dairy
 en:milkfat, milk fat
 bg:млечна мазнина
+bs:mlečna mast
 cs:mléčný tuk
 da:mælkefedt
 de:Milchfett
@@ -14016,6 +14199,7 @@ vegetarian:en:yes
 <en:milkfat
 en:milk fat without lactose
 hr:mliječne masti bez laktoze
+mk:млечна маст без лактоза
 
 <en:milkfat
 nl:gefractioneerd melkvet
@@ -14178,7 +14362,8 @@ af:Plantaardige olie
 ar:زيت نباتي
 az:Bitki yağı
 be:Алеі
-bg:Растително масло, растителни масла, растително олио
+bg:Растително масло, растителни масла, растително олио, растителни масла и олио
+bs:biljno ulje
 ca:Oli vegetal
 cs:Rostlinný olej
 da:vegetabilsk olie, vegetabilisk olie, vegetabilske olier
@@ -14313,7 +14498,7 @@ sv:härdat vegetabiliskt fett
 en:fully hydrogenated vegetable fat
 bg:напълно хидрогенирана растителна мазнина, растително напълно хидрогенирано масло
 de:komplett hydriertes Pflanzenfett
-es:grasa vegetal totalmente hidrogenada
+es:grasa vegetal totalmente hidrogenada, grasa vegetal fraccionada y totalmente hidrogenada
 fi:kokonaan kovetettu kasvirasva, kokonaan hydrogenoitu kasvirasva
 fr:graisse végétale totalement hydrogénée
 hu:teljesen hidrogénezett növényi zsír
@@ -14430,7 +14615,7 @@ ar:زيت النخيل
 be:Пальмавы алей
 bg:Палмово масло
 ca:Oli de palma, oli vegetal de palma
-cs:Palmový olej
+cs:palmový olej
 cz:palmu olejovou
 da:Palmeolie
 de:Palmöl, Ölpalme
@@ -14446,7 +14631,7 @@ ga:Ola phailme
 gl:Aceite de palma
 he:שמן דקלים
 hi:ताड़ का तेल
-hr:palmino ulje
+hr:palmino ulje, ulja od palme
 hu:pálmaolaj
 id:Minyak sawit
 is:pálmaolía
@@ -14570,6 +14755,7 @@ sv:Palm
 
 <en:palm oil
 en:palm olein, palmolein
+bg:палмов олеин
 de:Palmolein
 es:oleína de palma
 fi:palmuoleiini
@@ -14623,7 +14809,7 @@ lt:palmių riebalai
 lv:palmu tauki
 nb:palmefett
 nl:palmvet
-pl:tłuszcz palmowy
+pl:tłuszcz palmowy, tłuszcz roślinny palmowy
 pt:gordura de palma, gordura vegetal de palma
 ro:grăsime palmier
 ru:Пальмовый жир
@@ -14916,10 +15102,12 @@ hr:ekstradjevičansko kokosovo ulje
 
 <en:coconut oil
 en:unhydrogenated coconut oil
+bg:нехидрогенирано кокосово масло
 fr:huile de coco non-hydrogénée, huile de coprah non hydrogénée
 
 <en:coconut oil
 en:hydrogenated coconut oil, fully hydrogenated coconut oil
+bg:хидрогенирано кокосово масло, напълно хидрогенирано кокосово масло
 de:hydriertes Kokosöl, vollständig hydriertes Kokosöl
 es:aceite de coco totalmente hidrogenado, aceite de coco hidrogenado
 fi:kokonaan kovetettu kookosöljy, kokonaan kovetettua kookosöljyä
@@ -14950,7 +15138,7 @@ ru:масло кокосовое рафинированное дезодорир
 <en:vegetable fat
 # producedFrom:en:coconut
 en:coconut fat
-bg:кокосова мазнина
+bg:кокосова мазнина, кокосова
 ca:greix de coco
 da:kokosfedt
 de:Kokosfett
@@ -15010,7 +15198,7 @@ ar:زيت زيتون
 az:Zeytun yağı
 ba:Зәйтүн майы
 be:Аліўкавы алей
-bg:Зехтин
+bg:Зехтин, дървено масло, маслиново масло
 bs:Maslinovo ulje
 ca:Oli d'oliva
 cs:Olivový olej
@@ -15134,7 +15322,7 @@ fr:huile d'olive extra
 
 <en:virgin olive oil
 en:extra virgin olive oil
-bg:екстра върджин зехтин, зехтин екстра върджин
+bg:екстра върджин зехтин, зехтин екстра върджин, маслиново масло extra virgin
 ca:Oli d'oliva verge extra, oli OVE
 cs:Extra panenský olivový olej
 da:ekstra jomfruolivenolie, ekstra jomfru olivenolie
@@ -15157,6 +15345,9 @@ ciqual_food_name:fr:Huile d'olive vierge extra
 
 <en:extra virgin olive oil
 es:aceite de oliva virgen extra de Lubrín
+
+<en:extra virgin olive oil
+fr:huile d'olive chemlali extra vierge
 
 <en:olive oil
 en:organic olive oil
@@ -15304,7 +15495,7 @@ el:κραμβέλαιο
 es:aceite de colza
 fi:rypsiöljy
 fr:huile de colza, huile végétale de colza, huile colza, graisses végétales de colza, graisses vegetales de colza
-hr:uljana repica, ulje uljane repice
+hr:uljana repica, uljane repice, ulje uljane repice
 it:olio di colza, olio vegetale di colza
 nl:koolzaadolie, plantaardige koolzaadolie
 pt:óleo de colza
@@ -15345,6 +15536,7 @@ es:aceite hidrogenado de colza
 #<en:hydrogenated colza oil
 #fr:huile de colza totalement hydrogénée, huiles végétales de colza totalement hydrogénée
 #fi:kokonaan kovetettu rapsiöljy
+#hr:potpuno hidrogenirano repičino ulje
 #nb:fullherdet rapsolje
 #sv:fullhärdad rapsolja
 # ingredient/fr:huile-de-colza-totalement-hydrogenee has 41 products in 4 languages @2020-06-10
@@ -16048,7 +16240,7 @@ fi:auringonkukkaöljy, auringonkukkaöljyä
 fr:huile de tournesol, huile de graines de tournesol, huile tournesol, huile végétale de tournesol, graisses végétales de tournesol
 gl:Aceite de xirasol
 he:שמן חמניות
-hr:suncokretovo ulje
+hr:suncokretovo ulje, suncokretno ulje, pripravak suncokretovog ulja, ulje suncokreta
 hu:napraforgóolaj, napraforgó olaj, napraforgó étolaj
 id:Minyak biji bunga matahari
 is:Sólblómaolía
@@ -16160,6 +16352,7 @@ ca:oli refinat de gira-sol alt oleic, oli de gira-sol alt oleic, oli vegetal de 
 de:High Oleic-Sonnenblumenöl, High-Oleic-Sonnenblumenöl, Sonnenblumenöl mit hohem Fettsäureanteil, Sonnenblumenöl hoch erhitzbar
 es:aceite de girasol alto oleico,aceite refinado de girasol alto oleico
 fr:huile de tournesol à haute teneur en acide oléique, huile de tournesol à teneur élevée en acide oléique, huile de tournesol oléique,huile de tournesol haut oléique
+hr:suncokretovo ulje s visokim udjelom oleinske kiseline, visokooleinsko suncokretovo ulje
 it:olio di girasole alto oleico
 nl:high oleic zonnebloemolie
 pt:óleo refinado de girassol alto oleíco
@@ -16173,6 +16366,7 @@ de:kaltgepresstes Sonnenblumenöl
 es:aceite de girasol prensado en frio
 fi:kylmäpuristettu auringonkukkaöljy
 fr:huile de tournesol pressée à froid
+hr:hladno prešano suncokretovo ulje
 hu:hidegen sajtolt napraforgóolaj
 nl:koudgeperste zonnebloemolie
 pl:olej słonecznikowy tłoczony na zimno, tłoczony na zimno olej słonecznikowy
@@ -16897,6 +17091,7 @@ fr:vinaigre balsamique
 hu:balzsamecet
 it:aceto balsamico
 ja:バルサミコ酢
+ka:ყურძნის წვენი
 ko:발사믹 식초
 lt:balzaminis actas
 nb:balsamico
@@ -16969,6 +17164,7 @@ en:barley malt vinegar, malt barley vinegar
 de:gerstenmalzessig
 fi:ohramallasetikka
 fr:vinaigre de malt d'orge
+hr:slad ječma
 nl:gerstemoutazijn
 pl:ocet ze słodu jęczmiennego
 sv:kornmaltsvinäger
@@ -17113,7 +17309,7 @@ as:ইথান'ল
 az:Etanol
 ba:Этанол
 be:Этанол
-bg:Етанол
+bg:Етанол, етилов алкохол
 bn:ইথানল
 bo:ཨ་རག་ཉིང་ཁུ།
 br:Etanol
@@ -17137,7 +17333,7 @@ gl:Etanol
 gu:ઇથેનોલ
 he:אתנול
 hi:इथेनॉल
-hr:etanol
+hr:etanol, etilni alkohol
 hu:etanol
 hy:Էթիլ սպիրտ
 id:Etanol
@@ -17406,6 +17602,18 @@ wikipedia:en:https://en.wikipedia.org/wiki/Limoncello
 wikidata:en:Q736208
 # https://world.openfoodfacts.org/cgi/search.pl?search_terms=limoncello&search_simple=1&action=process
 # 226 "Limoncello" via OFF search on 2021-01-11
+
+<en:liqueur
+en:Pelinkovachr
+hr:Pelinkovacit
+it:Pelinkovacja
+ja:ペリンコバクlt
+lt:Pelinkovacasmk
+mk:Пелинковец
+ru:Пелинковац
+sr:Пелинковац
+wikipedia:en:https://en.wikipedia.org/wiki/Pelinkovac
+wikidata:en:Q2354863
 
 
 #<en:alcohol
@@ -17754,7 +17962,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Tequila
 #description:en:WINE is an alcoholic beverage made from fermented grapes.
 
 <en:alcohol
-en:wine
+en:wine, fruit wine
 af:wyn
 am:የወይን ጠጅ
 an:Vin
@@ -19054,6 +19262,16 @@ ciqual_food_name:en:Sake or rice wine
 ciqual_food_name:fr:Saké ou Alcool de riz
 
 <en:alcohol
+en:rakia
+hr:rakija
+wikidata:en:Q931946
+wikipedia:en:https://en.wikipedia.org/wiki/Rakia
+
+<en:rakia
+en:rakia sugar
+hr:šećer rakija 
+
+<en:alcohol
 en:rice wine
 bg:оризово вино
 ca:vi d'arròs
@@ -19086,6 +19304,7 @@ ciqual_food_name:fr:Vodka
 # nova:en:flavouring
 en:flavouring, flavour, flavor, flavoring, aroma, flavours, flavors, flavourings, flavorings, aromas
 bg:аромат, аромати, ароматизант, ароматизанти
+bs:aroma
 ca:Aromes, aroma
 cs:Aroma, aromata
 da:smagsstof, smagstoffer, aroma, aromaer
@@ -19103,12 +19322,15 @@ it:aroma, aromi
 ja:香料
 lt:kvapioji medžiaga
 lv:aromatizētājs
+mk:арома
 nb:aroma, aromaer, smakstilsetninger
 nl:aroma, aroma's, smaakstof, smaakstoffen, aromas
+no:aroma
 pl:aromat, aromaty
 pt:aromatizante,aroma,aromas
 ro:aromă, aroma, arome
 sk:aróma
+sl:arome
 sv:arom, aromer, smakämnen, aromämne, aromämnen
 zh:调味剂
 vegan:en:maybe
@@ -19138,7 +19360,7 @@ sv:smakberedning
 en:natural flavouring, natural flavour, natural flavor, natural flavoring, natural flavourings, natural flavorings, natural flavours, natural flavors, natural aroma, natural aromas
 bg:натурален аромат, натурални ароматизанти, натурален ароматизант, естествен ароматизант, натурални аромати
 ca:Aroma natural, aromes naturals
-cs:přírodní aroma
+cs:přírodní aroma, přírod aroma
 da:naturlig aroma, naturlige smagsstoffer, naturlige aromaer
 de:natürliches Aroma, natürliche Aromen, natürliche Aromastoffe
 es:aroma natural, aromas naturales,saborizante natural
@@ -19150,12 +19372,15 @@ hu:természetes aroma, természetes aromák, természetazonos aroma, természeta
 is:náttúruleg bragðefni
 it:aroma naturale, aromi naturali
 lv:dabīgs aromatizētājs
+mk:природна арома
 nb:naturlig aroma
 nl:Natuurlijke smaakstoffen, natuurlijke smaak, natuurlijk aroma, natuurlijke aroma's
 pl:Naturalny aromat, naturalne aromaty, aromat naturalny, aromaty naturalne
 pt:aroma natural
 ro:aromă naturală, aroma naturala, arome naturale
 ru:Натуральный ароматизатор, ароматизатор натуральный, натуральные ароматизаторы, ароматизаторы натуральные, натуральные вкусоароматические вещества
+sl:naravna aroma
+sr:prirodne arome
 sv:naturlig arom, naturliga aromer, naturlig smakämne, naturliga smakämnen, naturligt smakämne, naturliga aromämnen
 zh:天然调味剂
 vegan:en:maybe
@@ -19211,6 +19436,7 @@ de:mit anderen natürlichen Aromen, andere natürliche Aromen
 es:con otros aromas naturales
 fi:muut luontaiset aromit
 fr:avec autres arômes naturels, autres arômes naturels
+hr:sa ostalim prirodnim aromama
 is:með öðrum náttúrulegum bragðefnum
 nl:Met andere natuurlijke smaakstoffen
 ru:ароматизатор идентичный натуральному
@@ -19246,6 +19472,7 @@ fr:arômes naturels d'agrumes avec autres arômes naturels
 da:naturlig citrusaroma med andre naturlige aromaer
 de:natürliches Citrus Aroma mit anderen natürlichen Aromen
 fi:luontainen sitrusaromi ja muut luontaiset aromit
+hr:prirodna citrus aroma sa drugim prirodnim aromama
 nl:natuurlijke aroma's van citrusvruchten met andere natuurlijke aroma's
 nn:naturlig sitrusaroma med andre naturlige aromaer
 sv:naturlig citrusarom med andra naturliga aromer
@@ -19322,6 +19549,7 @@ hu:citromaroma, citrom aroma
 is:sítrónubragðefni
 it:aroma di limone
 nl:citroenaroma
+pl:aromat cytrynowy
 sv:citronarom
 
 <en:natural flavouring
@@ -19331,6 +19559,7 @@ de:natürliches Zitronenaroma, natürliches Zitronen-aroma
 es:Saborizante natural de limón
 fi:luontainen sitruuna-aromi
 fr:arôme naturel de citron, arômes naturels de citron
+hr:prirodna aroma limuna
 hu:természetes citromaroma, természetes citrom aroma
 id:perisa alami lemon
 it:aroma naturale di limone
@@ -19375,6 +19604,7 @@ de:natürliches Limettenaroma
 es:Saborizante de limón natural
 fi:luontainen limettiaromi, luontainen limearomi
 fr:arôme naturel de citron vert
+hr:prirodna aroma limeta
 hu:természetes lime aroma
 it:aroma naturale di lime
 nl:natuurlijk limoen aroma, natuurlijk aroma van limoen
@@ -19483,6 +19713,10 @@ it:Aroma naturale alla banana
 nl:natuurlijke bananensmaak
 
 <en:natural flavouring
+en:blueberry aroma
+hr:aroma borovnice
+
+<en:natural flavouring
 en:natural cola flavouring
 de:natürliches Cola-Aroma, natürliches Colaaroma
 fi:luontainen kola-aromi
@@ -19499,8 +19733,10 @@ hu:csokoládé aroma
 
 <en:flavouring
 en:elderberry flavouring
+bg:аромат на бъз
 de:Holunderaroma, Holunder-Aroma
 fr:arôme de sureau
+hr:bazgine bobice
 hu:bodza aroma
 
 <en:natural flavouring
@@ -19556,7 +19792,8 @@ fr:arôme naturel de sureau
 <en:flavouring
 en:apple flavouring
 bg:ароматизант ябълка
-de:Apfelgeschmack
+de:Apfelgeschmack, Apfelsaftaroma
+es:esencia de manzana
 fi:omena-aromi
 fr:arôme de pomme
 hr:aroma jabuke
@@ -19567,9 +19804,10 @@ en:natural apple flavouring
 de:natürliches Apfelaroma, natürliches Apfel-Aroma
 es:Saborizante de manzana natural
 fi:luontainen omena-aromi
-fr:arôme naturel de pomme
+fr:arôme naturel de pomme, arôme naturel de jus de pomme
 hu:természetes alma aroma
 is:náttúruleg eplabragðefni
+nb:naturlig eplesmak
 nl:natuurlijk appelaroma
 
 <en:flavouring
@@ -19597,6 +19835,7 @@ en:peach flavouring
 de:Pfirsicharoma, Pfirsich-Aroma
 fi:persikka-aromi
 fr:arôme de pêche
+hr:aroma breskve
 hu:őszibarack aroma
 
 <en:natural flavouring
@@ -20029,6 +20268,11 @@ it:Aroma di menta naturale
 nl:natuurlijk muntaroma
 sv:naturlig mintsmak
 
+<en:natural mint flavouring
+<en:natural citrus flavouring
+en:natural aroma of mint and citrus
+hr:prirodna aroma mente i citrusa 
+
 <en:flavouring
 en:smoke flavouring, smoke flavour, aroma of smoke, smoked flavour
 bg:пушилен ароматизант
@@ -20374,6 +20618,7 @@ hu:természetes füge aroma
 
 <en:flavouring
 en:cheese flavouring
+bg:аромат сирене, аромат на сирене
 de:Käsearoma, Käse Aroma
 es:aromas con sabor a queso,aroma queso,aroma de queso
 fr:Goût fromage
@@ -20401,6 +20646,7 @@ en:bergamot orange flavouring, bergamot flavouring
 de:Bergamottenaroma, Bergamotten-Aroma
 fi:bergamottiaromi
 fr:arôme de bergamote
+hr:aroma bergamota
 hu:természetes bergamot narancs aroma
 it:Aroma di bergamotto
 
@@ -20782,6 +21028,7 @@ de:Mehl aus Kleie, Kleiemehl, gemahlene Kleie
 es:harina de salvado
 
 en:cereal, cereal grains
+bg:зърнени продукти
 ca:Cereal, cereals
 cs:Cereálie
 da:Korn
@@ -20792,7 +21039,7 @@ fi:vilja, viljat
 fr:céréale, céréales
 ga:céréeale, céréales
 he:דגן
-hr:žitarice, proizvodi od žitarica
+hr:žitarica, žitarice, proizvodi od žitarica
 hu:gabona, gabonafélék
 it:cereali
 nl:granen, gemaakt van granen
@@ -21013,7 +21260,7 @@ gn:avati mirĩ
 gu:ઘઉં
 he:חיטה
 hi:गेहूँ
-hr:pšenica
+hr:pšenica, pšenicu, pšenične
 ht:ble
 hu:búza
 hy:ցորեն
@@ -21192,7 +21439,7 @@ el:σίτος ολικής αλέσεως
 es:trigo integral
 fi:täysjyvävehnä
 fr:blé complet
-hr:pšenična od cjelovitog zrna
+hr:pšenična od cjelovitog zrna, cjelovito zrno pšenice
 hu:teljes kiőrlésű búza
 it:frumento integrale
 lt:viso kviečių rupiniai
@@ -21526,7 +21773,7 @@ pt:sêmola de trigo duro
 ro:griș din grâu, griș de grău
 ru:борошно з пшеннци тверднх сортив
 sk:krupica z tvrdej pšenice
-sl:pšenični zdrob durum
+sl:pšenični zdrob durum, pšenični durum zdrob
 sr:krupica durum pšenice
 sv:durumvetegryn
 tr:durum buğdayı ırmığı
@@ -21785,6 +22032,7 @@ hu:búzadara
 it:semolino di frumento
 nl:tarwegries, tarwegriesmeel
 pt:sêmola de trigo
+sl:pšenični zdrob
 sv:vetegryn
 wikipedia:en:https://en.wikipedia.org/wiki/Semolina
 wikidata:en:Q381350
@@ -21798,6 +22046,10 @@ fr:semoule de blé tendre
 it:granito di grano tenero
 nl:zachte tarwegriesmeel
 # 22 in 1 language @2021-09-28
+
+<en:semolina
+en:semolina blend
+hr:Žličnjaci od griza
 
 ##################################################################################
 #
@@ -22315,6 +22567,7 @@ de:Malzextrakt
 es:Extracto de malta
 fi:mallasuute
 fr:extrait de malt
+hr:sladni ekstrakt
 hu:malátakivonat
 it:estratto di malto
 ja:麦芽エキス
@@ -22363,6 +22616,7 @@ fr:malt munich
 <en:malt
 en:malted barley, barley malt
 bg:ечемичен малц, ечемично малцов
+ca:malt d'ordi, malta d'ordi
 cs:ječmenný slad
 da:bygmalt
 de:Gerstenmalz
@@ -22384,6 +22638,7 @@ pt:malte de cevada
 ro:malț din orz, malt din orz, malț de orz, malt de orz
 ru:Солодовый ячмень, солод ячменный, солод пивоваренный ячменный
 sk:jechyi slad
+sl:ječmenov slad
 sv:kornmalt, korn malt, malt av korn
 zh:含大麥芽片
 allergens:en: en:gluten
@@ -22429,6 +22684,7 @@ fr:extrait de malte d'orge houblonné
 <en:disaccharide
 en:barley malt syrup
 bn:বার্লি মল্ট সিরাপ
+ca:xarop de malt d'ordi, xarop de malta d'ordi
 cy:surop heiddfrag
 da:bygmaltsirup
 de:Gerstenmalzsirup
@@ -22437,6 +22693,7 @@ fa:شربت مالت جو
 fi:ohramallassiirappi
 fr:sirop d'orge malté
 it:Sciroppo di malto d'orzo
+nl:gerstemoutstroop
 pl:syrop jęczmienny, syrop ze słodu jęczmiennego
 # ingredient/en:barley-malt-syrup has 370 products in 1 language @2020-05-21
 wikidata:en:Q3485291
@@ -22448,8 +22705,9 @@ fr:sirop de malt d'orge déshydraté
 <en:syrup
 <en:disaccharide
 en:malt syrup
+ca:xarop de malta
 de:Malzsirup
-es:jarabe de malta
+es:jarabe de malta, sirope de malta
 fr:Sirop malté
 it:Sciroppo di malto
 
@@ -22644,6 +22902,7 @@ fr:galette en blé noir
 <en:wholemeal flour
 en:whole grain buckwheat flour
 de:Buchweizenvollkornmehl, Buchweizen-Vollkornmehl
+fr:farine de sarrasin complète
 hr:integralno heljdino brašno
 nl:volkoren boekweitmeel
 
@@ -22863,7 +23122,7 @@ ro:amarant
 ru:Амарант
 sa:|वास्तुकम्}}
 sk:amarant
-sl:amarante
+sl:amarante, amaranta
 sr:амарант
 su:bayem
 tr:amaranthus
@@ -23083,7 +23342,7 @@ sv:glutenfri havre
 en:oat flakes, oatflakes, rolled oats, oatmeal flakes,
 af:hawermout
 ar:رقانق الشوفان
-bg:овесени ядки, овесен флейкс
+bg:овесени ядки, овесен флейкс, овесени люспи
 ca:flocs de civada
 cs:ovesné vločky
 da:havregryn, havreflager
@@ -23096,7 +23355,7 @@ eu:olo-malutak
 fi:kaurahiutale, kaurahiutaleet, kaurahiutaleita
 fr:flocons d'avoine, flocon d'avoine
 he:פתיתי שיבולת שועל
-hr:zobene pahuljice
+hr:zobene pahuljice, valjani zob
 hu:zabpehely
 hy:Վարսակի փաթիլներ
 it:fiocchi di avena, fiocchi d'avena
@@ -23344,6 +23603,7 @@ hu:kinoa, quinoa, rizsparéj
 hy:uագախոտ
 id:kinoa
 is:kínóa
+it:quinoa
 ja:キヌア
 kn:ಕೀನೋವಾ
 ko:퀴노아
@@ -23578,6 +23838,7 @@ de:Roggenflocken
 es:copos de centeno
 fi:ruishiutale
 fr:flocons de seigle
+hr:ražene pahuljice
 hu:rozspehely
 it:fiocchi di segale
 ja:ライ麦フレーク
@@ -23827,6 +24088,7 @@ de:Dinkel-Sprossen, Dinkel Sprossen, Dinkelkeimlinge
 fr:flocons d'épeautre
 de:Dinkelflocken
 fi:spelttihiutale
+hr:pirove pahuljice
 hu:tönkölybúzapehely
 it:fiocchi di quinoa
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-d'épeautre
@@ -23909,8 +24171,12 @@ nl:volkoren speltmeel
 pt:farinha integral de espelta
 sv:fullkornsspeltvetemjöl
 
+
 <en:spelt flour
 fr:farine de petit épeautre
+
+<en:wholemeal flour
+fr:farine complète de blé amidonnier
 
 <en:spelt flour
 en:dextrinated spelt flour
@@ -23955,6 +24221,7 @@ de:Khorasan Weizenmehl
 <en:wholemeal flour
 en:whole grain khorasan flour, whole grain kamut flour
 de:Khorasan Vollkornmehl, Kamut-Khorasan Vollkornmehl
+fr:farine de kamut complète
 
 ##################################################################################
 #
@@ -24230,7 +24497,7 @@ fa:آرد گندم
 fi:vehnäjauho, vehnäjauhoa
 fr:farine de blé, farines de blé, farine de froment
 he:קמח חיטה
-hr:pšenično bijelo brašno, pšenično brašno
+hr:pšenično bijelo brašno, pšenično brašno, pšenicno brašno
 hu:búzaliszt
 is:hveitimjöl
 it:farina di frumento, farina di grano
@@ -24242,6 +24509,7 @@ ms:Tepung gandum
 nb:hvetemel
 nl:tarwemeel, tarwebloem, tarwe bloem
 nn:hvetemel
+no:hvetemel
 pl:mąka pszenna
 pt:farinha de trigo
 ro:făină de grâu, faina de grau, făină din grâu, faina din grau
@@ -24265,12 +24533,13 @@ carbon_footprint_fr_foodges_value:fr:1.2
 
 <en:wheat flour
 en:malted wheat flour, wheat malt flour
-bg:пшенично малцово брашно
+bg:пшенично малцово брашно, малцово пшенично брашно
 da:hvedemaltmel
 de:gemaltzen Weizenmehl, Weizenmalzmehl, Weizenrostmalzmehl
 es:harina de trigo malteada, harina de malta de trigo
 fi:vehnämallasjauho, mallastettu vehnäjauho
 fr:farine de blé maltée, farine de blé fermenté, farine de blé malté, farine de malt de froment
+hr:pšenično sladno brašno
 hu:búzamaláta liszt
 it:farina di grano maltato, farina di malto di frumento
 nl:gemout tarwemeel, tarwemoutmeel, tarwemoutbloem
@@ -24339,6 +24608,7 @@ nl:biologische tarwemeel
 
 <en:wheat flour
 en:wheat flour type 0, flour type 0
+bg:Бяло брашно тип 0
 de:Weizenmehl Type 0
 fr:Farine blanche type 0
 hr:pšenično brašno tip "0"
@@ -24360,7 +24630,7 @@ bg:бяло пшенично брашно тип 500, брашно тип 500, �
 en:wheat flour type 550, flour type 550
 bg:бяло пшенично брашно тип 550
 de:Weizenmehl Type 550
-hr:pšenično brašno tip 550, pšenično brašno T-550, pšenično brašno T 550, pšenično brašno tip 550 glatko bijelo
+hr:pšenično brašno tip 550, pšenično brašno T-550, pšenično brašno T 550, pšenično brašno tip 550 glatko bijelo, brašno pšenično T-550, brašno T-550
 
 <en:wheat flour
 en:wheat flour type 850 semi-white
@@ -24414,7 +24684,7 @@ sv:fullkornsmjöl
 <en:wheat flour
 <en:wholemeal flour
 en:whole wheat flour, wholewheat flour, wholemeal wheat flour
-bg:пълнозърнесто пшенично брашно
+bg:пълнозърнесто пшенично брашно, брашно пшенично пълнозърнесто
 ca:farina integral
 da:hvedefuldkornsmel, fuldkornshvedemel
 de:Vollkornweizenmehl, Weizenvollkornmehl
@@ -24422,7 +24692,7 @@ es:harina de trigo integral, harina integral de trigo
 et:täistera nisujahu, täisteranisujahu
 fi:täysjyvävehnäjauho
 fr:farine de blé complète, farine de blé complet, farine complète de blé, farine intégrale de blé, farine complète de froment
-hr:integralno pšenično brašno, pšenično brašno od cjelovitog zrna, pšenično brašno iz cijelog zrna, brašno cijelog zrna pšenice, brašno od cjelovitog zrna pšenice
+hr:integralno pšenično brašno, pšenično brašno od cjelovitog zrna, pšenično brašno iz cijelog zrna, brašno cijelog zrna pšenice, brašno od cjelovitog zrna pšenice, cjelovito pšenično brašno
 hu:teljes kiőrlésű búzaliszt
 it:farina integrale di frumento, farina di frumento integrale
 lt:visų grūdo dalių kvietiniai miltai
@@ -24540,7 +24810,7 @@ ciqual_food_name:fr:Farine d'orge
 <en:wholemeal flour
 <en:barley flour
 en:wholemeal barley flour, whole grain barley flour, wholegrain barley flour
-bg:пълнозърнесто ечемично брашно
+bg:пълнозърнесто ечемично брашно, пълнозърнесто ечемичено брашно
 de:Gerstenvollkornmehl, Gersten-Vollkornmehl
 es:harina de cebada integral, harina integral de cebada
 fi:täysjyväohrajauho
@@ -24578,7 +24848,7 @@ nl:gedextrineerd gerstemeel, gedextrineerd gerstmeel
 
 <en:cereal flour
 en:rye flour
-bg:ръжено брашно, брашно от ръж
+bg:ръжено брашно, брашно от ръж, брашно ръжено
 ca:farina de blat de sègol,farina de blat de segol,farina de sègol
 da:Rugmel
 de:Roggenmehl
@@ -24652,6 +24922,7 @@ en:rye malt flour
 de:Roggenmalzmehl
 fi:ruismallasjauho
 fr:farine de seigle maltée
+hr:raženo sladno brašno
 it:Farina di malto di segale
 nl:gemoute roggemeel
 sv:rågmaltmjöl
@@ -24726,6 +24997,7 @@ nutriscore_fruits_vegetables_nuts:en:no
 
 <en:flour
 en:broad bean flour
+bg:бобено брашно
 ca:farina de fava
 de:Bohnenmehl
 es:Harina de habas
@@ -24762,6 +25034,7 @@ sv:solrosfrömjöl
 <en:soya bean
 en:soya flour, soy flour, soybean meal
 bg:соево брашно
+bs:sojino brašno
 ca:Farina de soja
 da:Sojamel, sojabønnemel
 de:Sojamehl, Sojabohnenmehl
@@ -24777,6 +25050,7 @@ pl:Mąka sojowa
 pt:farinha de soja
 ro:făină de soia, faina de soia
 ru:Соевая мука
+sl:teksturirana sojina moka
 sr:sojino brašno
 sv:sojamjöl, sojabönsmjöl, mjöl av sojabönor
 tr:soya unu
@@ -24839,6 +25113,7 @@ it:Farina di mais biologica
 
 <en:corn
 en:modified cornflour
+bg:модифицирано царевично брашно
 de:Modifiziertes Maismehl
 it:Farina di mais modificata
 nl:gemodificeerd maïsmeel
@@ -24873,6 +25148,7 @@ sv:vitt majsmjöl
 <en:corn flour
 <en:wholemeal flour
 en:whole grain corn flour, wholegrain corn flour, wholegrain maize flour, whole grain maize flour
+bg:пълнозърнесто царевично брашно
 de:Vollkornmaismehl
 es:harina de maíz integral
 fi:täysjyvämaissijauho
@@ -25007,6 +25283,7 @@ es:harina de coco
 et:kookosjahu
 fi:kookosjauho
 fr:farine de noix de coco, farine de coco
+hr:kokosovo brašno
 pl:mąka kokosowa, mąka z kokosa
 sv:kokosmjöl
 # ingredient/fr:farine-de-noix-de-coco has 24 products in 2 languages @2020-06-08
@@ -25055,7 +25332,7 @@ ff:masarji
 fi:maissi
 fj:sila
 fo:mais
-fr:maïs, mais
+fr:maïs, mais, mais à pop-corn, mais à pop corn
 fy:stynske weet
 ga:arbhar indiach
 gd:cruithneachd-innseanach
@@ -25323,7 +25600,7 @@ el:σιμιγδάλι αραβοσίτου
 es:semola de maíz, granos de maíz
 fi:maissisuurimo
 fr:semoule de maïs, semoule de mais
-hr:kukuruzni griz, kukuruzna krupica
+hr:kukuruzni griz, kukuruzna krupica, kukuruzna prekrupa
 hu:kukoricadara
 it:spezzato di mais, semolino di granoturco
 nl:Maïsgrits, maisgrut, maïsgrut
@@ -25504,7 +25781,7 @@ gl:Arroz
 ha:Shinkafa
 he:אורז
 hi:चावल
-hr:riža
+hr:riža, riže
 ht:Diri
 hu:rizs
 hy:բրինձ
@@ -25670,6 +25947,7 @@ vegan:en:yes
 vegetarian:en:yes
 
 <en:rice
+<en:plant protein
 en:rice protein, rice proteins
 bg:оризов протеин
 da:risprotein, ris protein
@@ -25677,6 +25955,7 @@ de:Reisprotein
 es:proteinas de arroz
 fi:riisiproteiini
 fr:protéine de riz
+hr:bjelančevine riže
 hu:rizsfehérje
 pl:białko ryżowe, białko z ryżu
 
@@ -25801,6 +26080,7 @@ pl:ryż brązowy
 pt:arroz integral
 ru:kоричневый рис
 th:ข้าวกล้อง
+sl:rjavi riž
 sv:brunt fullkornris, råris
 ciqual_food_code:en:9102
 ciqual_food_name:en:Rice, brown, raw
@@ -26672,6 +26952,7 @@ es:Harina de algarroba, harina de garrofin
 et:Jaanileivapuujahu
 fi:carob
 fr:caroube, farine de caroube
+hr:rogač
 hu:karob, karob liszt
 it:carruba
 nl:carob, johannesbroodmeel, carobpoeder
@@ -26679,6 +26960,10 @@ pl:karob, karobu, karobowy, karobowe, karobowa
 sv:Johannesbrödfrö
 vegan:en:yes
 vegetarian:en:yes
+
+<en:carob seeds
+en:caroube dalmate
+hr:dalmatinski rogač
 
 # question
 
@@ -26804,7 +27089,7 @@ gl:Azucre
 gn:Eiratã
 he:סוכר
 hi:शर्करा
-hr:šećeri, šećer, šecer, šečer
+hr:šećeri, šećer, šecer, šečer, sečer
 ht:Sik
 hu:cukor
 id:gula
@@ -26920,6 +27205,7 @@ bg:биологична захар, био захар
 de:Zucker aus ökologischem Anbau
 fi:luomusokeri, luomu sokeri
 fr:sucre bio, sucre issu de l'agriculture biologique
+hr:eko šećer
 hu:bio cukor
 
 <en:sugar
@@ -26954,7 +27240,7 @@ ml:ബ്രൗൺ ഷുഗർ
 ms:Gula perang
 nb:brunt sukker
 nl:basterdsuiker
-pl:Brązowy cukier
+pl:Brązowy cukier, cukier brązowy
 pt:açúcar mascavo
 ru:Коричневый сахар
 sv:farinsocker
@@ -27030,6 +27316,7 @@ es:azúcar caramelizado
 et:karamelliseeritud suhkur
 fi:karamellisoitu sokeri, karamellisoitua sokeria, karamellisokeri
 fr:sucre brun, sucre caramel, sucre caramélisé
+hr:karamelizirani šećer
 hu:karamellizált cukor
 it:zucchero caramellato
 nl:gekarameliseerde suiker, gebrande suiker
@@ -27060,6 +27347,7 @@ ciqual_food_name:fr:Sucre blanc
 
 <en:brown sugar
 en:organic brown sugar
+bg:био кафява захар
 de:Bio brauner Zucker
 fi:luomu ruskea sokeri
 fr:sucre roux bio
@@ -27073,6 +27361,7 @@ de:Flüssigzucker, flüssiger Zucker
 es:Azúcar liquido
 fi:nestesokeri
 fr:sucre liquide
+hr:tekući šećer
 hu:folyékony cukor
 it:Zucchero liquido
 sv:sockerlösning
@@ -27147,11 +27436,12 @@ fr:sucre blond
 # comment:en:"granulated sugar" is generally white sugar, but other sugars can be in granulated form too.
 <en:sugar
 en:granulated sugar
+bg:гранулирана захар
 de:Zucker mittelgross
 es:Azúcar cristalizado
 fi:kidesokeri
 fr:Sucre cristal
-hr:šećer bijeli kristal
+hr:šećer bijeli kristal, šećer kristal
 hu:kristálycukor
 it:Zucchero semolato
 nl:Kristalsuiker
@@ -27182,6 +27472,7 @@ nl:gefermenteerde suiker
 #################### Sugars from specific sources ##############
 
 en:sugarcane, sugar cane
+bg:захарна тръстика
 fr:canne à sucre, cannes à sucre
 vegan:en:yes
 vegetarian:en:yes
@@ -27241,6 +27532,7 @@ fr:jus de canne évaporé
 
 <en:cane sugar
 en:cane sugar cubes
+bg:кубчета тръстикова захар, тръстикова захар на кубчета
 de:braune Zuckerwürfel
 fi:ruokopalasokeri
 fr:Sucre en morceaux pure canne
@@ -27270,6 +27562,7 @@ nl:biologische rietsuiker, biologisch rietsuiker
 
 <en:cane sugar
 en:brown cane sugar
+bg:кафява тръстикова захар
 de:Brauner Rohrzucker
 es:Azúcar moreno de caña
 fr:sucre de canne brun
@@ -27282,6 +27575,7 @@ fr:sucre mi-blanc de canne
 
 <en:cane sugar
 en:white cane sugar
+bg:бяла тръстикова захар
 de:weisser Rohrzucker
 es:azúcar de caña blanca
 fi:vaalea ruokosokeri
@@ -27315,6 +27609,7 @@ sv:råsocker
 <en:cane sugar
 <en:unrefined sugar
 en:unrefined cane sugar, raw cane sugar, unrefined raw cane sugar
+bg:нерафинирана тръстикова захар
 cs:nerafinovaný třtinový cukr
 da:rå rørsukker
 de:Rohrohrzucker, Roh-Rohrzucker, roher Rohrzucker, Rohrrohzucker
@@ -27401,6 +27696,7 @@ pl:cukier palmowy
 <en:unrefined sugar
 <en:palm sugar
 en:unrefined palm sugar
+bg:нерафинирана палмова захар
 fr:sucre non raffiné de palme, sucre de palme non raffiné, sucre de palme brut, sucre brut de palme
 
 # description:en:COCONUT SUGAR is a palm sugar produced from the sap of the flower bud stem of the coconut palm.It is used in savory dishes, but mainly in local desserts and cakes of the Southeast Asian region. Coconut sugar is subtly sweet almost like brown sugar but with a slight hint of caramel. The flavor and sweetness is usually similar to table sugar or brown sugar. There is no scientific evidence that coconut sugar is more nutritious or healthier than any other sweetener.
@@ -27979,6 +28275,7 @@ vegetarian:en:yes
 <en:glucose
 en:glucose syrup
 bg:глюкозен сироп, сироп от глюкоза, глюкозов сироп
+bs:glukozni sirup
 ca:xarop de glucosa
 cs:glukózový sirup
 da:glukosesirup, glucosesirup
@@ -28021,7 +28318,7 @@ de:fructosefreier Glucosesirup, fructosefreier Glukosesirup
 
 <en:glucose syrup
 en:dehydrated glucose syrup, powdered glucose syrup, dried glucose syrup
-bg:дехидратиран глюкозен сироп, сироп от глюкоза на прах
+bg:дехидратиран глюкозен сироп, сироп от глюкоза на прах, изсушен глюкозен сироп
 da:tørret glukosesirup
 de:getrockneter Glukosesirup, dehydrierter Glukosesirup
 es:Sirope deshidratado de glucosa, jarabe de glucosa deshidratado
@@ -28063,7 +28360,7 @@ allergens:en: en:gluten
 <en:glucose syrup
 #<en:wheat
 en:wheat glucose syrup
-bg:пшеничен глюкозен сироп
+bg:пшеничен глюкозен сироп, глюкозен сироп от пшеница
 de:Weizenglukosesirup
 es:Sirope de glucosa de trigo
 fi:vehnäglukoosisiirappi
@@ -28212,10 +28509,12 @@ es:Oligofructosa
 fi:oligofruktoosi
 fr:oligofructose
 he:אוליגופרוקטוז
+hr:oligofruktoza
 hu:oligofruktóz
 it:oligofruttosio
 nb:oligofruktose
 nl:oligofructose
+pl:oligofruktoza
 ro:oligofructoză
 sv:oligofruktos
 wikidata:en: Q418945
@@ -28259,7 +28558,7 @@ sv:Glukos-Fruktos
 en:glucose-fructose syrup, fructose-glucose syrup, glucose and fructose syrup
 bg:глюкозо-фруктозен сироп, сироп от глюкоза и фруктоза, фруктозо-глюкозен сироп
 ca:Xarop de glucosa-fructosa, xarop de glicosa-fructosa, xarop de glucosa i fructosa
-cs:glukózo-fruktózový sirup, glukózový-fruktózový sirup
+cs:glukózo-fruktózový sirup, glukózový-fruktózový sirup, glukózovo-fruktózový sirup
 da:glukos-fruktossirap, glukose-fruktosesirup
 de:Glukose-Fruktose-Sirup, Glukose-Fruktosesirup, Glukose Fruktose sirup, Glucose-Fructose-Sirup, Fruktose-Glukose-Sirup
 el:σιρόπι γλυκόζης-φρουκτόζης
@@ -28267,7 +28566,7 @@ es:jarabe de glucosa y fructosa, jarabe de glucosa-fructosa
 et:glükoosi-fruktoosisiirup, glükoosifruktoosisiirup
 fi:glukoosi-fruktoosisiirappi, glukoosi-fruktoosisiirappia, fruktoosi-glukoosisiirappi, glukoosi-fruktoosi-siirappi
 fr:sirop de glucose-fructose, sirop de glucose et de fructose, sirop de fructose-glucose
-hr:fruktozno-glukozni sirup, glukozno-fruktozni sirup
+hr:fruktozno-glukozni sirup, glukozno-fruktozni sirup, glukozno-fruktani sirup
 hu:glükóz-fruktóz szirup, fruktóz-glükóz-szirup, glükóz-fruktózszirup, fruktóz-glükózszörp, glükóz-fruktózszörp
 it:sciroppo di glucosio-fruttosio, sciroppo di fruttosio-glucosio
 ja:果糖ぶどう糖液糖
@@ -28328,13 +28627,13 @@ zh:高果糖浆
 <en:invert sugar
 <en:sugar syrup
 en:invert sugar syrup, invert syrup, liquid invert syrup, inverted syrup
-bg:сироп от инвертна захар, инвертен захарен сироп, инвертиран захарен сироп
+bg:сироп от инвертна захар, инвертен захарен сироп, инвертиран захарен сироп, инвертен сироп
 cs:sirup z invertního cukru
 de:Invertzuckersirup
 es:Jarabe de azúcar invertido
 fi:inverttisokerisiirappi, inverttisokerisiirappia
 fr:sirop de sucre inverti, sucre liquide inverti, sucre inverti en sirop
-hr:invertni šećerni sirup
+hr:invertni šećerni sirup, sirup invertnog šećera, sirup invertnog šečera
 hu:invertcukor szirup, invertcukor-szirup, invertcukorszirup
 it:sciroppo di zucchero invertito
 lv:invertcukura sīrups
@@ -28456,6 +28755,7 @@ hu:bio juharszirup
 <en:disaccharide
 en:sugar syrup
 bg:захарен сироп
+ca:xarop de sucre
 de:Zuckersirup
 es:Sirope de azucar,jarabe de azucar
 fi:sokerisiirappi, sokeriliemi
@@ -28482,6 +28782,7 @@ fr:sirop de sucres issus de fruits
 <en:disaccharide
 en:wheat syrup
 bg:пшеничен сироп
+ca:xarop de blat
 da:hvedesirup
 de:Weizensirup
 es:Jarabe de trigo, sirope de trigo
@@ -28513,6 +28814,7 @@ sv:delvis inverterad sockersirap
 
 en:maltitol syrup
 bg:малтитолов сироп
+ca:xarop de maltitol
 fi:maltitolisiirappi
 fr:sirop de maltitol
 hu:maltit-szirup, maltitol szirup
@@ -28530,6 +28832,7 @@ fr:sirop de sorbitol de blé
 <en:glucose syrup
 en:rice glucose syrup
 bg:оризов глюкозен сироп
+ca:xarop de glucosa d'arròs
 de:Reisglukosesirup
 es:sirope de glucosa de arroz
 fr:Sirop de glucose de riz
@@ -28537,10 +28840,12 @@ fr:Sirop de glucose de riz
 <en:disaccharide
 en:rice syrup
 bg:оризов сироп
+ca:xarop d'arròs
 de:Reissirup
 es:Sirope de arroz
 fi:riisisiirappi
 fr:sirop de riz
+hr:rižin sirup
 hu:rizsszirup
 it:sciroppo di riso
 nl:Rijststroop
@@ -28614,12 +28919,14 @@ lv:dekstroze
 nb:dekstrose
 nl:dextrose
 nn:dekstrose
+no:dekstrose
 pl:dekstroza
 pt:dextrose
 ro:dextroză, dextroza
 ru:Декстроза
 sk:dextróza
 sl:dekstroza
+sr:dekstroza
 sv:dextros
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/dextrose
 # 29818 products in 30 languages @2018-09-24
@@ -28730,6 +29037,7 @@ nl:tapiocadextrose
 en:agave syrup, agave nectar
 ar:شراب أغاف
 bg:сироп от агаве
+ca:xarop d'atzavara, xarop d'agave
 cs:agávovy sirup
 da:agavesirup
 de:Agavensirup
@@ -28737,7 +29045,7 @@ es:jarabe de agave, sirope de agave
 fa:اگاو
 fi:agavesiirappi
 fr:sirop d’agave
-hr:sirup od agave
+hr:sirup od agave, agavin sirup
 hu:agaveszirup
 id:Agave nectar
 is:agave-síróp
@@ -28877,7 +29185,7 @@ ga:Próitéin
 gv:Proteen
 he:חלבונים
 hi:प्रोटीन
-hr:Bjelančevine
+hr:bjelančevine
 ht:pwoteyin
 hu:fehérje, protein
 hy:Սպիտակուցներ
@@ -28918,7 +29226,6 @@ pl:Białko
 pt:proteína, proteínas
 qu:prutina
 ro:Proteine
-rs:Proteini
 ru:Белки
 sh:Protein
 si:ප්‍රෝටීන්
@@ -28926,7 +29233,7 @@ sk:Bielkoviny
 sl:Beljakovine
 so:Borotiin
 sq:Proteina
-sr:Протеин
+sr:Протеин, Proteini
 su:Protéin
 sv:Protein
 sw:Protini
@@ -29001,7 +29308,7 @@ sv:proteinhydrolysat
 en:plant protein, vegetable protein, vegetal protein
 bg:растителен протеин
 cs:rostlinné proteiny
-de:pflanzliches Eiweiß
+de:pflanzliches Eiweiß, Pflanzenprotein, Pflanzenproteine
 es:proteína vegetal
 fi:kasviproteiini
 fr:protéines végétales, protéine végétale
@@ -29016,9 +29323,6 @@ ru:растительный белок
 sv:grönsaksprotein
 vegan:en:yes
 vegetarian:en:yes
-
-<en:plant protein
-de:Eiweißpulver aus Sonnenblumenkernen
 
 <en:plant protein
 fr:protéines végétales réhydratées
@@ -29036,7 +29340,7 @@ de:Erbsenprotein, erbseneiweiß
 es:Proteína de guisante
 fi:herneproteiini
 fr:protéines de pois, protéine de pois
-hr:bjelančevine graška, protein graška
+hr:bjelančevine graška, bjelančevina graška, protein graška
 hu:borsófehérje
 it:proteine di piselli
 nl:boneneiwit, erwteiwit, erwteneiwit, erwteneiwitten
@@ -29082,6 +29386,8 @@ ro:proteină de bob
 
 <en:plant protein
 en:sunflower protein
+de:Sonnenblumenprotein, Eiweißpulver aus Sonnenblumenkernen
+hr:suncokretovih bjelančevina, suncokretove bjelančevine
 pl:białko słonecznika, białko słonecznikowe, białka słonecznika
 ro:proteină de floarea-soarelui
 
@@ -29105,7 +29411,7 @@ de:hydrolysiertes Pflanzenprotein, aufgeschlossenes Pflanzeneiweiß, aufgeschlos
 es:Proteina vegetal hidrolizada, hidrolizado de proteína vegetal
 fi:hydrolysoitu kasviproteiini, kasviproteiinihydrosylaatti
 fr:protéine végétale hydrolysée, protéines végétales hydrolysées
-hr:hirolizirane biljne bjelančevine
+hr:hidrolizirane biljne bjelančevine
 hu:hidrolizált növényi fehérjék, hidolizált növényi fehérje
 it:Proteine vegetali idrolisse
 nb:hydrolysert vegetabilsk protein
@@ -29144,6 +29450,7 @@ pt:Proteína de soja
 ro:proteină de soia, proteina de soia, proteină vegetală din soia, proteina vegetala din soia
 ru:Соевый протеин, соевый белок
 sk:sójová bielkovina
+sl:sojini proteini
 sv:sojaprotein, sojaproteinpeparat
 allergens:en: en:soybeans
 
@@ -29373,6 +29680,7 @@ vegetarian:en:no
 # <en:dairy
 en:milk proteins
 bg:млечни протеини, млечен протеин
+bs:mliječne bjelančevina
 ca:Proteina de la llet,proteines de la llet,proteïnes làcties
 cs:mléčnou bílkovinu
 da:mælkeprotein
@@ -29385,12 +29693,15 @@ hr:mliječne bjelančevine, mliječnih bjelančevina
 hu:tejfehérjék, tejfehérje
 it:proteine del latte
 ja:乳たんぱく質
+mk:млечни протеини
 nl:melkeiwit, melkeiwitten, melk eiwit
 pl:Białka mleczne, białka mleka, białko mleka
 pt:proteína do leite, proteínas lácteas
 ro:proteină din lapte, proteine din lapte, proteine de lapte
 ru:молочный белок, молочные белки
 sk:mliečnu bielkovinu, mliečne bielkoviny
+sl:mlečne beljakovine
+sr:mliječni proteini, mlečni proteini
 sv:mjölkprotein
 nova:en:4
 vegetarian:en:yes
@@ -29453,7 +29764,7 @@ wikidata:en:Q6858051
 <en:milk proteins
 en:whey protein, whey proteins
 ar:بروتين مصل اللبن
-bg:суроватъчен протеин
+bg:суроватъчен протеин, суроватъчни протеини
 de:Molkenprotein, Molkeneiweiß, Molkeneiweiss
 es:Proteína de suero de leche
 fa:پروتیین وی
@@ -29702,6 +30013,7 @@ de:fettarmer Kakao, magerer Kakao
 es:cacao magro, cacao desgrasado
 fi:vähärasvainen kaakao
 fr:cacao maigre, cacao dégraissé, cacao réduit en matières grasses
+hr:kakao smanjene masti
 hu:Csökkentett zsírtartalmú kakaó
 it:cacao magro
 nb:fettfattig kakao
@@ -29729,6 +30041,7 @@ pl:krem kakaowy
 en:cocoa butter, cacao butter, cocoa fat
 ar:زبدة الكاكاو
 bg:какаово масло
+bs:kakao maslac
 ca:mantega de cacau
 cs:kakaové máslo
 da:kakaosmør
@@ -29817,6 +30130,7 @@ fr:beurre de cacao émulsifiant
 <en:cocoa
 en:cocoa paste, cocoa mass, chocolate liquor
 bg:какаова маса, какао маса
+bs:kakao masa
 ca:pasta de cacau, massa de cacau
 cs:kakaová hmota
 da:kakaomasse
@@ -29885,6 +30199,7 @@ id:Kakao padat
 it:cacao in polvere
 ja:ココアパウダー
 ko:코코아 가루
+mk:какао во прав
 ms:Pepejal koko
 nb:kakaopulver
 nl:cacaopoeder
@@ -29913,7 +30228,7 @@ ciqual_food_name:fr:Cacao, non sucré, poudre soluble
 
 <en:cocoa powder
 en:fat reduced cocoa powder, low-fat cocoa powder, low fat cocoa powder, cocoa powder with low fat content
-bg:обеэмаслено какао на прах, какао на прах с намалено маслено съдържание
+bg:обеэмаслено какао на прах, какао на прах с намалено маслено съдържание, нискомаслено какао на прах
 ca:cacau desgreixat en pols, cacau en pols reduït en greix
 cs:Kakaový prášek se sníženým obsahem tuku
 da:fedtfattigt kakaopulver, fedtreduceret kakaopulver, skummet kakaopulver
@@ -29921,8 +30236,8 @@ de:fettarmes Kakaopulver, Kakaopulver stark entölt, fettreduziertes Kakaopulver
 es:cacao magro en polvo, cacao desgrasado en polvo, cacao en polvo desgrasado, cacao en polvo reducido en grasa, cacao deshidratado rebajado en grasa, cacao en polvo semidesgrasado, cacao semidesgrasado en polvo
 et:lahja kakaopulber, vähendatud rasvasisaldusega kakaopulber
 fi:vähärasvainen kaakaojauhe, vähärasvaista kaakaojauhetta
-fr:poudre de cacao maigre, poudre de cacao dégraissé, cacao dégraissé en poudre, cacao en poudre dégraissé, cacao maigre en poudre, cacao sec dégraissé, poudre de cacao à teneur réduite en matières grasses
-hr:kakao u prahu smanjene masnoce, nemasni kakao prah, nemasni kakao u prahu, kakao prah smanjene masti, kakaov prah smanjene masti, kakao smanjene masnoće u prahu, kakaov prahu smanjene mast
+fr:poudre de cacao maigre, poudre de cacao dégraissé, cacao dégraissé en poudre, cacao en poudre dégraissé, cacao maigre en poudre, cacao sec dégraissé, poudre de cacao à teneur réduite en matières grasses, poudre de cacao allegee
+hr:kakao u prahu smanjene masnoce, nemasni kakao prah, nemasni kakao u prahu, kakao prah smanjene masti, kakaov prah smanjene masti, kakao smanjene masnoće u prahu, kakaov prahu smanjene mast, kakao prah sa reduciranim sadržajem kakao maslaca
 hu:zsírszegény kakaópor
 it:cacao magro in polvere, cacao scremato in polvere
 lt:liesi kakavos milteliai
@@ -29996,6 +30311,7 @@ es:Cacao en grano
 et:kakaooad, kakaopuu seemned
 fi:kaakaopapu, kaakaopavut
 fr:fèves de cacao, grains de cacao, cacao en grains
+hr:kakaovog zrna
 hu:kakaóbab
 id:Biji kakao
 it:fave di cacao, semi di cacao, granelli di cacao
@@ -30316,6 +30632,7 @@ de:Schokoladenfüllung
 es:Relleno de chocolate, Relleno de cacao, Relleno cacao
 fi:suklaatäyte
 fr:fourrage au chocolat, fourrage chocolat
+hr:keks s kakaom
 it:ripieno al cioccolato
 # ingredient/fr:fourrage-au-chocolat has 40 products in 4 languages @2019-05-25
 
@@ -30353,6 +30670,7 @@ fi:tumma suklaa
 fr:chocolat noir
 he:שוקולד מריר
 hi:डार्क चॉकलेट
+hr:tamna čokolada
 hu:étcsokoládé
 it:cioccolato fondente
 ja:ビターチョコレート
@@ -30364,7 +30682,7 @@ nb:vanlig sjokolade
 nl:Pure chocola, pure chocolade
 or:ଡାର୍କ ଚୋକୋଲେଟ
 pa:ਡਾਰਕ ਚੌਕਲੇਟ
-pl:Gorzka czekolada
+pl:Gorzka czekolada, czekolada gorzka
 pt:chocolate amargo
 ru:горький шоколад
 sk:horká čokoláda
@@ -30546,6 +30864,7 @@ nl:witte chocolade
 nn:kvit sjokolade
 or:ଧଳା ଚୋକୋଲେଟ
 pa:ਸਫ਼ੇਦ ਚਾਕਲੇਟ
+pl:biała czekolada
 pt:chocolate branco
 ro:ciocolată albă
 ru:белый шоколад
@@ -30644,7 +30963,7 @@ fa:آب
 ff:Ndiyam
 fi:vesi, vettä
 fo:Vatn
-fr:eau
+fr:eau, eau osmosée
 fy:Wetter
 ga:Uisce
 gd:Uisge
@@ -31304,7 +31623,7 @@ ba:Соя
 be:Соя
 bg:Соя, соеви, соево, соева
 br:Soja
-bs:Soja
+bs:soja, sojino
 ca:Soia, soja
 cs:sója, sójové
 cy:Soia
@@ -31345,7 +31664,7 @@ ru:Соя, соевый, сои
 rw:Soya
 sh:Soja
 sk:sójové
-sl:Soja, soje
+sl:soja, soje
 sr:Соја
 sv:soja
 sw:Soya
@@ -31628,7 +31947,7 @@ es:gluten de trigo
 et:nisugluteen
 fi:vehnägluteeni
 fr:gluten de blé, gluten de froment
-hr:pšeničnog glutena,  pšenični gluten
+hr:pšeničnog glutena, pšenični gluten
 hu:Búzaglutén
 it:glutine di grano, glutine di frumento
 nb:hvetegluten
@@ -31636,6 +31955,7 @@ nl:tarwegluten
 pl:gluten pszenny
 pt:glúten de trigo
 ro:gluten de grâu, gluten din grâu
+sl:pšenični gluten
 sv:vetegluten
 
 <en:wheat gluten
@@ -31769,7 +32089,7 @@ bn:ইস্ট
 br:Goell
 bs:Kvasci
 ca:Rent,llevat
-cs:Kvasinky
+cs:Kvasinky, kvasničný
 cy:Burum
 da:gær, gærsvamp
 de:Hefe, Hefen
@@ -31915,6 +32235,7 @@ el:μαγιά σκόνη
 es:levadura en polvo
 fi:kuivahiiva, hiivajauhe
 fr:poudre de levure, levure en poudre
+hr:kvasac u prahu
 hu:porélesztő, élesztőpor
 it:lievito in polvere
 nl:gistpoeder
@@ -31925,7 +32246,7 @@ sv:torrjäst, jästpulver
 
 #<en:raising agent???
 en:baking powder
-bg:бакпулвер, набухвател
+bg:бакпулвер
 da:Bagepulver
 de:Backpulver
 et:küpsetuspulber
@@ -31955,14 +32276,14 @@ de:natürliche Hefe
 es:Levadura natural
 fi:Luontainen hiiva
 fr:levure naturelle
-it:naturale-fermento, lievito naturale
+it:naturale-fermento, lievito naturale, lievito madre
 
 # description:en:Baker's yeast is the common name for the strains of yeast commonly used as a leavening agent in baking bread and bakery products
 
 <en:yeast
 en:Baker's yeast
 ar:فطريات الخميرة
-bg:хлебна мая
+bg:хлебна мая, мая хлебна
 ca:Llevat de forner
 de:Backhefe
 el:Μαγιά αρτοποιίας
@@ -32051,7 +32372,7 @@ en:yeast extract
 bg:екстракт от мая, екстракти от мая
 bs:ekstrakt kvasca
 ca:Extracte de llevat
-cs:Výtažek z kvasnic, kvasnicový extrakt
+cs:Výtažek z kvasnic, kvasnicový extrakt, kvasničný extrakt
 da:gærekstrakt
 de:Hefeextrakt
 el:εκχύλισμα μαιάς
@@ -32160,6 +32481,7 @@ nl:geïnactiveerde desempoeder
 <en:sourdough
 en:wheat sourdough
 bg:пшенична закваска, пшеничен квас
+ca:massa mare de blat, massa mare natural de blat
 de:Weizensauerteig
 es:masa madre de trigo, masa madre natural de trigo
 fi:vehnätaikinanjuuri, vehnähapantaikina
@@ -32227,6 +32549,10 @@ it:lievito madre naturale di riso
 pl:naturalny zakwas ryżowy
 nl:rijstzuurdesem
 sv:rissurdeg
+
+<en:sourdough
+es:masa madre inactiva
+hr:inaktivni suhi kvasac
 
 # description:en:Phosphoric acid (also known as orthophosphoric acid or phosphoric(V) acid) is a weak acid with the chemical formula H3PO4.
 
@@ -32315,7 +32641,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Phosphoric_acid
 # Unspecified phosphate variety
 
 en:phosphate
-bg:фосфат
+bg:фосфат, фосфати
 de:Phosphat
 es:Fosfato
 fi:fosfaatti, fosfaatit
@@ -32979,7 +33305,7 @@ sv:Trinatriumdifosfat, Trinatriumpyrofosfat, trinatriumvätedifosfat
 <en:diphosphates
 en:Tetrasodium diphosphate, Tetrasodium pyrophosphate, sodium pyrophosphate, TSPP, e450iii
 ar:بيروفوسفات صوديوم
-bg:Тетранатриев дифосфат, Тетранатриев пирофосфат
+bg:Тетранатриев дифосфат, Тетранатриев пирофосфат, натриев пирофосфат
 cs:Difosforečnan sodný, Pyrofosforečnan tetrasodný
 da:Tetranatriumdiphosphat, Tetranatriumpyrophosphat
 de:Tetranatriumdiphosphat, Tetranatriumpyrophosphat
@@ -33091,7 +33417,7 @@ ru:сода, сода пищевая, гидрокарбонат натрия, �
 
 
 en:triphosphates, triphosphate, E451, e 451, e-451
-bg:трифосфати
+bg:трифосфат, трифосфати
 ca:trifosfat, trifosfats
 de:Triphosphate
 es:trifosfato, trifosfatos
@@ -33186,7 +33512,7 @@ sv:di- och trifosfater
 
 en:Polyphosphate, Polyphosphate E452, E452, e 452, e-452
 ar:E452, e 452, e-452
-bg:Полифосфати, e 452, e-452
+bg:полифосфат, полифосфати, e 452, e-452
 ca:polifosfats, polifosfat, E452, e 452, e-452
 cs:E452, e 452, e-452
 de:Polyphosphate, E452, e 452, e-452
@@ -33320,7 +33646,7 @@ de:Ammonium und Natriumcarbonat
 fi:ammonium- ja natriumkarbonaatit
 fr:carbonates d'ammonium et de sodium
 hr:amonijev bikarbonat
-it:carbonati di amonio e di sodio
+it:carbonati di ammonio e di sodio
 nl:ammonium- en natriumcarbonaten, ammonium carbonaten en natrium
 # ingredient/fr:carbonates-d’ammonium-et-de-sodium has 110 products in 7 languages @2019-04-06
 
@@ -33359,7 +33685,7 @@ fr:fruit
 gl:Froita
 he:פרי
 hi:फल
-hr:Voće
+hr:voće, voćni
 hu:gyümölcs
 hy:միրգ
 ia:fructo
@@ -33622,7 +33948,7 @@ fi:mehu
 fr:jus
 it:succo
 nl:sap
-pl:Sok
+pl:Sok, soki
 pt:Sumo
 ru:Сок
 # ingredient/fr:jus has 156 products in 4 languages @2019-02-02
@@ -33649,12 +33975,12 @@ es:zumo de frutas, jugo de frutas
 fi:hedelmämehu
 fr:jus de fruits
 he:מיץ פירות
-hr:voćni soka
+hr:voćni soka, soka miješanog voća
 hu:gyümölcslé
 it:succhi di frutta
 nb:fruktjuice
 nl:vruchtensap
-pl:Sok owocowy
+pl:Sok owocowy, soki owocowe
 pt:Suco de fruta
 ru:Фруктовый сок
 sv:Fruktjuice
@@ -33777,7 +34103,7 @@ fr:specialité de fruits pomme poire
 en:fruits preparation
 de:Fruchtzubereitung
 fr:préparation de fruits
-hr:voćni pripravak
+hr:voćni pripravak, voćno punjenje
 it:preparazione di frutta
 sv:fruktberedning
 # usage:de:Fruchtzubereitung (Zucker, Pfirsichsaft aus Pfirsichsaftkonzentrat, Wasser, Pfirsichmark, Maracujasaft aus Maracujasaftkonzentrat, modifizierte Stärke, natürliches Aroma, Säurungsmittel: Citronensäure; Säureregulator: Natriumcitrat)
@@ -33825,7 +34151,7 @@ eu:abrikot
 fa:زردآلو
 fi:aprikoosi
 fo:aprikosa
-fr:abricot
+fr:abricot, Abricots de Haute Ardèche
 fy:abrikoas
 ga:aibreog
 gd:apragod
@@ -33833,7 +34159,7 @@ gl:Albaricoque
 gv:apricoc
 he:מִשְׁמֵשׁ
 hi:खुबानी
-hr:marelica
+hr:marelica, marelice
 ht:zabriko
 hu:sárgabarack
 hy:ծիրան
@@ -33931,6 +34257,10 @@ carbon_footprint_fr_foodges_ingredient:fr:Abricot "Pays du Sud"
 carbon_footprint_fr_foodges_value:fr:1.1
 # 5160 in 25 @2021-09-12
 
+<en:apricot
+en:Bergeron Apricot
+fr:Bergeron, abricots Bergeron de Haute Ardèche, abricot Bergeron
+
 #<en:apricot
 #en:organic apricot
 #fi:luomu aprikoosi
@@ -33942,17 +34272,56 @@ fr:demi-abricots, demi abricots
 #7 in fr @2021-09-12
 
 #processing:en: en:purée
-#<en:apricot
-#en:apricot purée
-#bg:пюре от кайсии, пюре от кайсия
-#de:Aprikosenpüree
-#es:Puré de albaricoques
-#fi:aprikoosipyree
-#fr:purée d'abricots, purée d'abricot, pulpe d'abricot
-#it:purea di albicocca
-#nl:abrikozenpuree
+<en:apricot
+en:apricot puree
+bg:пюре от кайсии, пюре от кайсия
+de:Aprikosenpüree, Aprikosenmark
+es:Puré de albaricoques
+fi:aprikoosipyree
+fr:purée d'abricots, purée d'abricot, pulpe d'abricot, purée d'abricot de la vallée du rhône
+it:polpa di albicocca, purea di albicocca
+nl:abrikozenpuree
+ro:piure de caise
+uk:абрикосове пюре
 # in process de:Aprikosenpüree
 # 873 @2021-09-12
+
+<en:Bergeron apricot
+<en:apricot puree
+fr:purée d'abricots Bergeron, purée d'abricot bergeron, pulpe d'abricot Bergeron
+
+<en:apricot
+en:apricot juice
+es:zumo de albaricoque
+fr:jus d'abricot
+it:succo di albicocca
+pt:suco de damasco
+
+<en:apricot juice
+en:apricot juice from concentrate
+fr:Jus d'abricot à partir de concentré
+nl:abrikoossap uit concentraat
+pt:suco de damasco a partir de concentrado
+
+<en:apricot puree
+en:apricot puree concentrate
+tr:kayısı püre konsantresi
+
+<en:apricot juice
+<en:apricot puree
+en:apricot juice and puree
+fr:jus et purée d'abricot
+it:succo e polpa di albicocca
+
+<en:apricot juice from concentrate
+<en:apricot puree
+en:apricot juice from concentrate and puree, Apricot juice made from cremogenate and concentrate
+de:Aprikosengemisch
+es:zumo de albaricoque a partir de puré y concentrado
+fr:Jus d'abricot à partir de cremé et concentré
+nl:abrikoossap uit concentraat en puree
+pt:suco de damasco a partir de pure e concentrado
+ru:пюре от кайсия от концентрат
 
 #processing:en: en:dried
 <en:apricot
@@ -33993,9 +34362,14 @@ sv:aprikoskärnor
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/apricot-kernels
 # 97 products @2018-09-29
 
-<en:apricot
+#<en:apricot compound
+en:apricot marmalade
 es:mermelada de albaricoque
+hr:marmelada marelica
 
+<en:flavouring
+en:apricot flavouring
+hr:aroma marelice
 
 ###################################################################################################
 #
@@ -34243,6 +34617,29 @@ ciqual_food_name:fr:Banane, pulpe, sèche
 
 ###################################################################################################
 #
+#                                Bearberry
+#
+###################################################################################################
+# common name for several plant species
+
+<en:fruit
+en:arctostaphylos uva-ursi
+fr:arctostaphylos uva-ursi
+hr:arctostaphylos uva-ursi, medvjetka, medvjetke
+wikidata:en:Q208032
+
+###################################################################################################
+#
+#                                Betula
+#
+###################################################################################################
+<en:plant
+en:betula
+hr:betula, betula spp, breze
+wikidata:en:Q25243
+
+###################################################################################################
+#
 #                                Breadfruit
 #
 ###################################################################################################
@@ -34289,6 +34686,15 @@ de:Jackfrucht
 fr:fruit du jacquier, fruit du jaquier, pomme jacque, pomme jaque, jacquier, jaquier
 wikipedia:en:https://en.wikipedia.org/wiki/Jackfruit
 
+###################################################################################################
+#
+#                                Calluna vulgaris
+#
+###################################################################################################
+<en:plant
+en:calluna vulgaris
+hr:calluna vulgaris, zelen vrijeska
+wikidata:en:Q26615
 
 ###################################################################################################
 #
@@ -34466,6 +34872,13 @@ zh:大果蔓越梅
 wikidata:en:Q149397
 wikipedia:en:https://en.wikipedia.org/wiki/Vaccinium_macrocarpon
 
+##########################################
+#              Flavourings
+##########################################
+
+<en:flavouring
+en:cranberry flavouring
+hr:aroma brusnice
 
 ###################################################################################################
 #
@@ -34503,7 +34916,7 @@ fr:mangue, mangues
 ga:Mangó
 gl:Manga
 hi:आम
-hr:Mango
+hr:mango, manga
 ht:Mango
 hu:Mangó
 id:Mangga
@@ -34517,6 +34930,7 @@ kv:Манго
 lb:Mango
 lv:Mango
 mg:Manga
+mk:манго
 ms:Mangga
 my:သရက်သီး
 nl:mango
@@ -34587,6 +35001,14 @@ carbon_footprint_fr_foodges_ingredient:fr:Mangue importée en bateau
 carbon_footprint_fr_foodges_value:fr:0.8
 
 <en:mango
+en:mango juice
+fr:jus de mangue
+
+<en:mango juice
+en:concentrated mango juice
+fr:jus de mangue concentrés
+
+<en:mango
 <en:purée
 en:mango puree
 bg:пюре от манго
@@ -34596,7 +35018,7 @@ fi:mangopyree
 fr:purée de mangue, purée de mangues, pulpe de mangue
 it:polpa di mango
 nl:mangopuree
-pt:Puré de manga
+pt:Puré de manga, polpa de manga
 ru:манговое пюре, пюре манго
 sv:mangopuré
 # In process de:Mangopüree, Mangomark
@@ -34606,6 +35028,26 @@ sv:mangopuré
 ciqual_food_code:en:13025
 ciqual_food_name:en:Mango, pulp, raw
 ciqual_food_name:fr:Mangue, pulpe, crue
+
+<en:mango puree
+en:concentrated mango puree
+fr:puré concentrée de mangue
+
+<en:mango puree
+en:mango puree from concentrate
+fr:purée de mangue à base de purée concentrée
+
+<en:mango puree
+en:mango puree partially from concentrate
+fr:purée de mangue partiellement à base de concentré
+
+<en:mango puree
+<en:concentrated mango puree
+fr:purée et puré concentrée de mangue, purée de mangue et purée de mangue à base de concentré
+
+<en:mango puree
+<en:concentrated mango juice
+fr:purée et jus de mangue concentrés
 
 ##########################################
 #              Flavourings
@@ -34662,7 +35104,7 @@ kk:Шабдалы
 lb:Piisch
 nl:perziken, perzik
 oc:Persec
-pl:Brzoskwinia
+pl:Brzoskwinia, brzoskwinie
 pt:pêssegos
 ro:piersici
 ru:персик
@@ -34991,7 +35433,8 @@ bg:пюре от круши
 de:Birnenpüree
 es:puré de pera
 fi:päärynäpyree
-fr:purée de poires, purée de poire
+fr:purée de poires, purée de poire, purée de poires Williams
+hr:kaša kruške
 it:purea di pere
 nl:perenpuree
 pt:Puré de pêra
@@ -35011,6 +35454,7 @@ eo:pira suko
 es:jugo de pera
 fi:päärynämehu
 fr:jus de poire
+hr:sok od kruške
 it:Succo di pera
 nl:perensap
 pl:Sok gruszkowy
@@ -35035,6 +35479,7 @@ de:Birnensaft aus Birnensaftkonzentrat
 es:zumo de pera a partir de concentrado, jugo de pera procedente de concentrado
 fi:päärynämehu tiivisteestä
 fr:jus de poire à base de concentré
+hr:sok kruške od koncentriranog soka
 it:succo di pera da concentrato
 nl:perensap uit concentraat
 sv:päronjuice från koncentrat
@@ -35060,7 +35505,7 @@ es:ciruela
 et:ploom
 fi:luumu
 fr:prune, prunes
-hr:šljiva
+hr:šljiva, šljive
 it:prugna
 ms:plum, Prun
 nl:pruim, pruimen
@@ -35086,6 +35531,9 @@ ciqual_food_name:fr:Prune, crue
 <en:plum
 en:plum sugar
 
+<en:plum
+en:organic plum
+hr:eko šljiva
 
 # description:en:A prune is a dried plum of any cultivar, mostly Prunus domestica or European Plum.
 # wikidata has an issue not distinguishing between the fresh fruit and the dried fruit
@@ -35157,6 +35605,10 @@ en:prunes from Agen
 fr:pruneaux d'agen
 wikidata:en:Q21093818
 # 141 in fr @2021-09-15
+
+<en:prunes from Agen
+en:prunes from Ente
+fr:prunes d'Ente
 
 #processing:en: en:puree
 #<en:prune
@@ -35541,6 +35993,49 @@ fr:pomme Pink Lady
 it:Mela Pink Lady
 nl:Pink Lady appels, Pink Lady
 
+<en:apple
+en:bramley apple
+de:Bromley Apfel
+wikidata:en:Q2923647
+wikipedia:en:https://en.wikipedia.org/wiki/Bramley_apple
+
+<en:apple
+en:Golden Delicious apple
+de:Golden Delicious Apfel
+es:manzana golden
+fi:golden delicious -omena
+fr:pomme Golden Delicious, pommes Golden Delicious, pommes golden
+wikidata:en:Q201996
+wikipedia:en:https://en.wikipedia.org/wiki/Golden_Delicious
+# ingredient/fr:pommes-golden-delicious has 8 products in french @2019-05-25
+
+#US plant patent 3637, McKenzie, Oct 15 1974
+<en:apple
+en:Gala apple, Gala apples
+de:Gala Apfel
+es:manzana gala
+fr:pomme Gala, pommes Gala
+nl:Gala appel
+wikidata:en:Q494259
+wikipedia:en:https://en.wikipedia.org/wiki/Gala_(apple)
+
+<en:green apple
+en:Granny apple
+es:manzana Granny
+fr:pomme Granny
+it:mela Granny
+nl:Granny Smith, Granny Smith appel, Granny Smith appels
+
+#US plant patent 4121, Ten Hove, Oct 4 1977, muted from Gala variety
+<en:apple
+en:Royal Gala apple
+de:Royal Gala Apfel, Royal Gala Äpfel
+fr:pomme Royal Gala, pommes Royal Gala
+nl:Royal Gala appel, Tenroy, Tenroy appel
+
+<en:apple
+fr:pommes d'Aquitaine
+# 22@2019-06-09
 
 <en:apple
 en:cinnamon apple
@@ -35661,7 +36156,7 @@ ciqual_food_name:fr:Pomme, pulpe, crue
 
 <en:apple
 <en:purée
-en:apple purée
+en:apple puree
 bg:пюре от ябълки
 da:Æblemos
 de:Apfelmus
@@ -35715,10 +36210,6 @@ it:fiocchi di mela
 # 46 products in 4 languages @2018-10-04
 
 <en:apple
-<fr:moût
-fr:moût de pomme concentré
-
-<en:apple
 <en:vegetable fiber
 en:apple fiber
 de:Apfelfaser
@@ -35740,20 +36231,20 @@ sv:äpple preparat
 
 <en:fruit juice
 <en:apple
-en:apple juice
+en:apple juice, apple juice made from fresh apples, juice from select organic apples, 
 ar:عصير تفاح
 bg:сок от ябълки, ябълков сок
 ca:suc de poma
 cs:jablečný mošt
 da:æblemost, æblesaft
-de:Apfelsaft
+de:Apfelsaft, Apfelsaft von Streuobstwiesen-Äpfeln
 el:χυμός μήλου, μηλοχυμός
 eo:poma suko
 es:jugo de manzana, zumo de manzana
 et:õunamahl
 fa:آب سیب
 fi:omenamehu, omenatäysmehu
-fr:jus de pomme, jus de pommes
+fr:jus de pomme, jus de pommes, pur jus de pommes, pur jus de pommes fermier
 ga:sú úill
 he:מיץ תפוחים
 hr:sok od jabuke, jabučni sok
@@ -35764,6 +36255,7 @@ ja:リンゴジュース
 kk:aлма шырыны
 ko:사과 주스
 lt:obuolių sultys
+mk:сок од јаболко
 nb:eplemost
 nl:appelsap
 nn:eplemost
@@ -35773,6 +36265,7 @@ ru:яблочный сок
 sa:सेवफलरसः
 sl:jabolčni sok
 sv:äppelmust, äppeljuice, äpplejuice, juice av äpple
+th:น้ำเอปเปิ้
 tl:yago ng mansanas
 tr:elma suyu
 tt:алма суы
@@ -35798,13 +36291,13 @@ fr:jus de pomme issu de l'agriculture biologique, jus de pomme bio, jus de pomme
 ru:Органический яблочный сок
 sv:ekologisk äppeljuice
 
-# coment:en:Not sure if "pure" has any meaning. It might be just marketing.
-
 <en:apple juice
 en:pure apple juice
-de:reiner Apfelsaft
-fr:pur jus de pomme
+cs:jablečná šťáva
+de:reiner Apfelsaft, Apfeldirektsaft
+fr:pur jus de pomme, jus de pomme non fait de concentre, pommes pressées, jus de pomme non fait de concentré, pur jus de pommes pressées
 it:Succo mela puro
+description:en:apple juice that does NOT come from concentrated apple juice
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/pure-apple-juice
 # 51 products in 2 languages @2018-10-04
 
@@ -35812,8 +36305,9 @@ it:Succo mela puro
 fr:pur jus de pommes à cidre de Bretagne
 
 <en:pure apple juice
-fr:pur jus de pommes pressées
-# 6@2019-06-08
+en:unfiltered apple juice, cloudy apple
+de:Naturtrüber Apfelsaft, Apfelsaft naturtrüb
+fr:jus de pomme trouble, jus de pomme non filtré
 
 <en:apple juice
 en:concentrated apple juice
@@ -35823,10 +36317,11 @@ da:Æblejuicekoncentrat
 de:Apfeldicksaft, Apfelsaftkonzentrat
 es:jarabe de manzana
 fi:omenamehutiiviste
-fr:concentré de jus de pomme, jus de pommes concentré
+fr:concentré de jus de pomme, jus de pommes concentré, jus concentré de pomme
+hr:koncentrirani sok jabuke
 it:concentrato di succo di mele
 nl:appeldiksap, appelsap ingedikt tot stroop, geconcentreerd appelsap, appelsapconcentraat
-pl:zagęszczony sok jabłkowy
+pl:zagęszczony sok jabłkowy, koncentrat soku jabłkowego
 ru:Концентрированный яблочный сок
 sv:äppeljuicekoncentrat
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/concentrated-apple-juice
@@ -35834,17 +36329,21 @@ sv:äppeljuicekoncentrat
 
 <en:concentrated apple juice
 en:apple juice from concentrate
-bg:ябълков сок от концентрат, сок от ябълков концентрат
+bg:ябълков сок от концентрат, сок от ябълков концентрат, сок от ябълка от концентрат
 cs:Jablečná šťáva z koncentrátu
 da:æblejuice fra koncentrat
-de:Apfelsaft aus Konzentrat, Apfelsaft aus Apfelsaftkonzentrat
-es:Zumo de manzana desde concentrado, zumo de manzana a partir de concentrado, jugo de manzana procedente de concentrado
+de:Apfelsaft aus Konzentrat, Apfelsaft aus Apfelsaftkonzentrat, Apfelsaft aus Apfelkonzentrat
+es:Zumo de manzana desde concentrado, zumo de manzana a partir de concentrado, jugo de manzana procedente de concentrado, jugo de manzana concentrado reconstituido
 fi:omenamehu tiivisteestä
 fr:jus de pomme à base de concentré, jus de pomme à base de jus concentré, Jus de pomme à base de jus de pomme concentré, jus de pomme à partir de concentré
+hr:jabuke od koncentriranog soka, Sok od jabuke od koncentriranog soka
 hu:sűrített almalé, almalé sűrítmény, almalé koncentrátum, almalé koncentrátumból
 it:succo di mele a base di concentrato
+nb:eplejuice fra konsentrat
 nl:appelsap uit concentraat
-pl:sok jabłkowy z koncentratu
+pl:sok jabłkowy z koncentratu, Sok jabłkowy z zagęszczonego soku jabłkowego
+pt:Sumo de maçã obtido a partir de um produto concentrado, Suco de maçã reconstituído, suco de maçã verde reconstituído
+ro:suc de mere obţinut din suc concentrat
 sv:äppeljuice från koncentrat
 # ingredient/fr:jus-de-pomme-à-base-de-concentré has 240 products @2018-10-04
 
@@ -35862,51 +36361,23 @@ fr:pur jus de pommes à cidre
 en:organic cider apple juice
 fr:pur jus de pommes à cidre bio
 
-<en:apple
-en:bramley apple
-de:Bromley Apfel
-wikidata:en:Q2923647
-wikipedia:en:https://en.wikipedia.org/wiki/Bramley_apple
+<en:apple juice
+en:Cripps Pink apple juice
+fr:jus de pomme Cripps Pink
 
-<en:apple
-en:Golden Delicious apple
-de:Golden Delicious Apfel
-es:manzana golden
-fi:golden delicious -omena
-fr:pomme Golden Delicious, pommes Golden Delicious, pommes golden
-wikidata:en:Q201996
-wikipedia:en:https://en.wikipedia.org/wiki/Golden_Delicious
-# ingredient/fr:pommes-golden-delicious has 8 products in french @2019-05-25
+<en:apple juice
+en:Granny smith apple juice
 
-#US plant patent 3637, McKenzie, Oct 15 1974
-<en:apple
-en:Gala apple, Gala apples
-de:Gala Apfel
-es:manzana gala
-fr:pomme Gala, pommes Gala
-nl:Gala appel
-wikidata:en:Q494259
-wikipedia:en:https://en.wikipedia.org/wiki/Gala_(apple)
+<en:apple juice
+<en:apple puree
+fr:Jus et purée de pomme
 
-<en:green apple
-en:Granny apple
-es:manzana Granny
-fr:pomme Granny
-it:mela Granny
-nl:Granny Smith, Granny Smith appel, Granny Smith appels
+<en:organic apple juice
+<en:organic apple puree
+fr:Jus et purée de pomme biologiques
 
-#US plant patent 4121, Ten Hove, Oct 4 1977, muted from Gala variety
-<en:apple
-en:Royal Gala apple
-de:Royal Gala Apfel, Royal Gala Äpfel
-fr:pomme Royal Gala, pommes Royal Gala
-nl:Royal Gala appel, Tenroy, Tenroy appel
 
-<en:apple
-fr:pommes d'Aquitaine
-# 22@2019-06-09
-
-<en:apple
+#is compund: en:apple
 en:apple jam
 ru:повидло яблочное, яблочное повидло
 
@@ -35936,7 +36407,8 @@ fr:fibre d'agrume, fibre végétale d'agrumes, fibres d'agrumes, fibres d'agrume
 hr:citrusna vlakna
 it:Fibra di limone
 nl:citrusvezel, citrusvezels
-pl:błonnik cytrusowy
+no:sitrusfiber
+pl:błonnik cytrusowy, błonnik z owoców cytrusowych
 ro:fibră de citrice
 sv:citrusfiber
 
@@ -36063,6 +36535,9 @@ fr:arôme naturel d'agrumes, arômes naturels d'agrumes
 hu:természetes citrus aroma, természetes citrusaroma
 nl:natuurlijke aroma's van citrusvruchten
 sv:naturlig citronarom
+
+<en:citrus fruit
+fr:agrumes à base de concentré
 
 ###################################################################################################
 #
@@ -36594,7 +37069,7 @@ it:limone
 ja:レモン
 nb:sitron
 nl:citroen
-pl:Cytryna
+pl:Cytryna, cytryny
 pt:Limão
 ru:Лимон
 sv:citron, citron frukt
@@ -36614,10 +37089,11 @@ de:Zitronenschalen, Zitronenschale
 es:cáscara de limón
 fi:sitruunankuori
 fr:écorce de citron, écorces de citron, écorces de citrons
+hr:limunova korica
 it:scorza di limone
 nl:citroenschil, schillen citroen
 nn:citronskal
-pl:skórka cytryny
+pl:skórka cytryny, skórka z cytryny
 pt:casca de limão
 sv:citronskal
 wikidata:en:Q104037650
@@ -36662,6 +37138,7 @@ nl:citroenblad
 
 <en:lemon
 en:lemon pulp
+bg:пулпа от лимон
 de:Zitronenpulpe
 es:pulpa de limón
 fi:sitruunan hedelmäliha
@@ -36745,7 +37222,7 @@ el:χυμός λεμονιού
 es:zumo de limón, jugo de limón
 fi:sitruunamehu, sitruunatäysmehu
 fr:jus de citron
-hr:sok od limuna
+hr:sok od limuna, soka limuna, limunov sok, limunovog soka
 hu:Citromlé
 it:succo di limone
 ja:レモンジュース
@@ -36768,6 +37245,7 @@ de:pasteurisierter Zitronensaft
 fr:jus de citron pasteurisé
 
 <en:lemon juice
+en:pure lemon juice
 fr:pur jus de citron
 # 24@2019-06-08
 
@@ -36832,7 +37310,7 @@ et:sidrunimahla kontsentraat
 fi:sitruunamehutiiviste, sitruunatäysmehutiiviste, sitruunatiiviste
 fr:jus concentré de citron, jus de citron concentré, jus de citrons concentré, concentré de jus de citron, jus concentré pulpé de citron
 hu:Citromlé koncentrátum, citromlé sűrítmény, sűrített citromlé
-hr:koncentrirani limunov sok, koncentrat soka od limuna
+hr:koncentrirani limunov sok, koncentrat soka od limuna, koncentrirani sok limuna
 it:succo di limone concentrato,
 lt:citrinų sulčių koncentratas
 nb:sitronjuicekonsentrat
@@ -36840,12 +37318,13 @@ nl:citroenextract, geconcentreerd citroensap, citroensapconcentraat
 pl:Zagęszczony sok cytrynowy, koncentrat soku z cytryny, koncentrat soku cytrynowego
 ru:Концентрированный лимонный сок
 sv:citronkoncentrat, citronsaftkoncentrat, citronjuicekoncentrat
+tr:limon suyu konsantresi
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:concentré-de-citron
 # 170 products @2018-10-01
 
 <en:lemon juice
 en:lemon juice from concentrate
-bg:лимонов сок от концентрат
+bg:лимонов сок от концентрат, сок от лимон от концентрат
 cs:Citronová šťáva z koncetrátu
 da:Citronsaftkoncentrat
 de:Zitronensaft aus Zitronensaftkonzentrat
@@ -36855,7 +37334,7 @@ fr:jus de citron à base de concentré, jus de citron reconstitué, jus de citro
 hu:citromlé koncentrátumból
 it:succo di limone da concentrato
 nl:citroensap uit concentraat, citroensap uit geconcentreerd sap
-pl:sok cytrynowy z koncentratu
+pl:sok cytrynowy z koncentratu, sok cytrynowy z zagęszczonego soku cytrynowego
 sv:citronjuice från koncentrat, citronsaft från koncentrat
 
 
@@ -36988,7 +37467,7 @@ ciqual_food_code:en:13067
 ciqual_food_name:en:Lime, pulp, raw
 ciqual_food_name:fr:Citron vert ou Lime, pulpe, cru
 
-# <en:lime
+<en:lime
 <en:fruit juice
 en:lime juice
 bg:сок от лайм
@@ -37002,7 +37481,7 @@ fr:jus de citron vert
 it:succo di lime
 ja:ライムジュース
 nl:limoensap
-pl:Sok limonkowy
+pl:Sok limonkowy, sok z limonek
 pt:Sumo de lima
 ru:Лаймовый сок
 sv:limejuice, limesaft
@@ -37368,12 +37847,12 @@ fr:jus d'orange
 ga:Sú oráistí
 gl:Zume de laranxa
 he:מיץ תפוזים
-hr:sok od naranče, voćni sok naranče
+hr:sok od naranče, voćni sok naranče, narančin sok
 hu:Narancslé
 hy:Նարնջի հյութ
 id:Sari buah jeruk
 is:Appelsínusafi
-it:succo d'arancia
+it:succo d'arancia, Succo di arance bionde
 ja:オレンジジュース
 ka:ფორთოხლის წვენი
 ko:오렌지 주스
@@ -37466,7 +37945,7 @@ de:Orangensaft aus Konzentrat, Orangensaft aus Orangensaftkonzentrat
 es:Zumo de naranja desde concentrado, zumo de naranja a partir de concentrado, jugo de naranja procedente de concentrado
 fi:appelsiinimehu tiivisteestä, tiivisteestä valmistettu appelsiinitäysmehu, appelsiinitäysmehu tiivisteestä, appelsiinitäysmehu appelsiinitäysmehutiivisteestä, appelsiinitäysmehua tiivisteestä
 fr:jus d'orange à base de concentré, jus d'orange à base de jus d'orange concentré, jus d'orange à base de jus concentré, jus d'orange à partir de concentré
-hr:sok od naranče iz koncentrata soka naranče, sok od naranče koncentrata soka naranče
+hr:sok od naranče iz koncentrata soka naranče, sok od naranče koncentrata soka naranče, sok od naranče od koncentriranog soka, sok od naranče od koncentrirana soka
 hu:narancslé narancslé-koncentrátumból
 it:succo d'arancia a base di concentrato
 nl:Sinaasappelsap uit sapconcentraat
@@ -37552,13 +38031,13 @@ es:cáscara de naranja, corteza de naranja,ralladura de naranja
 et:apelsinikoor
 fi:appelsiininkuori, appelsiinikuori
 fr:zeste d'orange, zestes d'orange, écorce d'orange, écorces d'orange, écorces d'oranges
-hr:narančina korica
+hr:narančina korica, narančina kora, kora od naranča, kora gorke naranče, korica naranče
 hu:narancshéj
 it:scorza d'arancia, scorze di arancia, scorze d'arancia, buccla d'arancia
 lt:apelsinų žievelė
 lv:apelsīna mizņas
 nl:sinaasappelschil, sinaasappelschillen, schillen sinaasappel, appelsienschil
-pl:skórka pomarańczowa
+pl:skórka pomarańczowa, skórka pomarańczy, skórka z pomarańczy
 pt:casca de laranja, gasca de laranja, raspa de laranja
 sv:apelsinskal
 tr:portakal kabuğu
@@ -37605,10 +38084,11 @@ fi:luontainen appelsiiniuute
 fr:Jus d'orange dont pulpe
 # 5@2019-06-07
 
-<en:orange
+# <en:orange
 en:orange marmalade
 de:Orangenmarmelade, Orangen-Marmelade
 es:mermelada de naranja
+fr:marmelade d'orange
 nl:sinaasapplemarmelade
 ciqual_food_code:en:31039
 ciqual_food_name:en:Marmalade, orange
@@ -37647,7 +38127,9 @@ nb:naturling smak fra eterisk appelsinolje
 sv:smak från eterisk apelsinolja
 # ingredient/fi:eteerinen-appelsiiniöljyaromi has 1 product in 1 language @2020-06-08
 
-
+<en:fruit
+en:sweet Valencia orange
+hr:slatka naranča Valencia
 
 ###################################################################################################
 #
@@ -37677,7 +38159,7 @@ fi:pomeranssi, pomeranssin
 fr:bigaradier, Oranges de Séville
 gl:laranxeira amarga
 he:חושחש
-hr:gorka naranča
+hr:gorka naranča, gorka naranča Sevilla
 ht:zoranj konmenn
 hu:keserű narancs
 id:jeruk pahit
@@ -37931,7 +38413,7 @@ fo:sólber
 fr:cassis, baies de cassis
 ga:grosella
 he:ענבי שועל
-hr:crni ribiz
+hr:crni ribiz, crnog ribiza
 hu:fekete ribizli
 io:kasiso
 is:sólber
@@ -37942,7 +38424,7 @@ mk:црна рибизла
 mt:passulina sewda
 nb:solbær
 nl:zwarte bes, cassisbessen
-pl:Czarna porzeczka, czarnej porzeczki
+pl:Czarna porzeczka, czarnej porzeczki, czarne porzeczki
 pt:groselha negra
 ru:чёрная сморо́дина
 sl:črni ribez
@@ -37992,6 +38474,7 @@ description:nl:de vrucht (bes) van de Ribes nigrum
 
 <en:blackcurrant
 en:blackcurrant juice from concentrate
+cs:ovocná šťáva z koncentrátu černého rybízu
 de:schwarzer Johannisbeersaft aus Konzentrat, schwarze Johannisbeere-Konzentrat
 es:zumo de cassis a base de concentrado
 fi:mustaherukkamehu tiivisteestä
@@ -38047,7 +38530,7 @@ fr:myrtille
 hr:borovnica, borovnice
 hu:áfonya
 is:bláber
-it:mirtillo, mirtilli
+it:mirtillo, mirtilli, mirtilli neri
 ja:ビルベリー
 ka:მოცვი
 la:Vaccinium
@@ -38089,6 +38572,7 @@ da:blåbær
 de:Wilde Heidelbeeren
 fi:villimustikka
 fr:myrtille sauvage
+hr:divlja borovnica
 it:mirtilli selvatici
 nl:wilde bosbes, wilde blauwe bosbessen, wilde bosbessen
 pl:borówka dzika, borówki dzikie
@@ -38144,7 +38628,12 @@ de:Heidelbeersaft aus Heidelbeerkonzentrat
 es:Concentrado de jugo de zarzamora
 fi:mustikkamehu tiivisteestä, mustikkatäysmehu tiivisteestä, mustikkatäysmehua tiivisteestä
 fr:jus de myrtille à base de concentré, jus de myrtille à base de jus concentré
+hr:sok od borovnice od koncentriranog soka borovnice
 sv:blåbärssaft av koncentrat
+
+<en:blueberry
+en:blueberry dressing
+hr:preljev od borovnica
 
 ###################################################################################################
 #
@@ -38385,7 +38874,7 @@ gu:ચેરી
 gy:shillish
 he:דובדבן
 hi:आलूबालू
-hr:trešnja
+hr:trešnja, trešnje
 ht:Seriz
 hu:cseresznye
 hy:բալ
@@ -38507,6 +38996,10 @@ ciqual_food_name:en:Cherry, pitted, raw
 ciqual_food_name:fr:Cerise, dénoyautée, crue
 
 <en:cherry
+en:organic cherry
+hr:eko višnja
+
+<en:cherry
 en:wild cherry
 fr:cerise sauvage, cerises sauvages
 
@@ -38532,6 +39025,7 @@ pl:sok wiśniowy, sok z wiśni
 ru:Вишневый сок
 
 <en:cherry
+bg:сок от череши от концентрат
 de:Kirschsaft aus Kirschsaftkonzentrat
 ro:suc de cireșe din suc concentrat de cireș
 
@@ -38560,7 +39054,7 @@ de:Sauerkirsch, Sauerkirsche, Sauerkirschen
 es:Cereza agria
 fi:hapankirsikka, hapankirsikat
 fr:griotte, griottes, cerises griottes
-hr:višnja
+hr:višnja, višnje
 it:amarene
 nl:morellen, kriek, krieken, zure kers
 pl:wiśnia, wiśnie, wiśniowy, wiśniowe, wiśniowa, wiśniowego, wiśniowych, wiśniowej
@@ -38728,7 +39222,7 @@ ar:أرونية
 az:Aroniya
 bg:Арония
 ca:Aronia
-cs:temnoplodec
+cs:temnoplodec, arónie
 cy:Llwyn aeron tagu coch
 da:Surbær
 de:Aronia, Apfelbeer, Apfelbeeren
@@ -38740,7 +39234,7 @@ fa:انگورک گلوگیر
 fi:marja-aronia
 fr:aronie, aronia
 he:ארוניה
-hr:aronija, aronija plod
+hr:aronija, aronija plod, aronije
 hy:արոնիա
 it:aronia
 ja:アロニア属
@@ -38880,6 +39374,7 @@ ciqual_food_name:fr:Lait de coco ou Crème de coco
 <en:coconut
 en:coconut milk
 bg:кокосово мляко
+bs:kokoša mast
 ca:llet de coco
 cs:kokosové mléko
 da:Kokosmælk
@@ -38890,7 +39385,7 @@ fr:lait de noix de coco, lait de coco
 hr:kokosovo mlijeko
 it:latte di noce di cocco
 nb:kokosmelk
-nl:kokosmelk, kokosnootmelk
+nl:kokosmelk, kokosnootmelk, kokosroom
 pl:mleko kokosowe, mleczko kokosowe, mleka kokosowego, mleczka kokosowego
 pt:Leite de cocô
 ru:Кокосовое молоко
@@ -39047,7 +39542,7 @@ et:kookoshelbed
 fi:kookoshiutale, kookoshiutaleet
 fr:flocons de coco, flocons de noix de coco
 hr:kokosove pahuljice
-it:fiocchi di cocco
+it:fiocchi di cocco, cocco in scaglie
 nl:Kokosschilfers
 ru:кокосовая-стружка
 pl:wiórki kokosowe, wiórki z kokosa
@@ -39108,7 +39603,7 @@ fr:datte, dattes
 gl:Dátil
 gu:બોર
 he:תמר, תמרים
-hr:datulje, datumi, datum
+hr:datulja, datulje, datumi, datum
 ht:Dat
 ia:Dactylo
 it:dattero, datteri
@@ -39205,6 +39700,7 @@ en:concentrated date juice
 
 #comment:en:This can refer to the flower of the berries
 en:elder
+cs:černého bezu
 de:Holunder
 es:Saúco
 fi:selja
@@ -39225,7 +39721,7 @@ de:Holunderbeer, Holunderbeere, Holunderbeeren
 es:bayas del sauco
 fi:seljanmarja
 fr:baie de sureau, baies de sureau
-hr:bazga plod
+hr:bazga, bazge, bazga plod
 nl:vlierbes
 pl:owoc czarnego bzu, owoce czarnego bzu, jagody czarnego bzu, jagoda czarnego bzu
 sv:fläderbär
@@ -39261,10 +39757,11 @@ sv:koncentrerad fläderbärsjuice
 
 <en:elderberry juice concentrate
 en:elderberry juice from concentrate
+bg:сок от бъз от концентрат
 de:Holundersaft aus Konzentrat
 fi:seljanmarjamehu tiivisteestä, seljanmarjatäysmehu tiivisteestä
 fr:jus de sureau à base de concentré
-it:succo di sambuco a base di concentrato
+it:succo di sambuco a base di concentrato, succo concentrato di sambuco
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-sureau-à-base-de-concentré
 # 25 products @2018-09-29
 
@@ -39286,6 +39783,10 @@ sv:fläderbär extract
 <en:elderberry extract
 en:natural elderberry extract
 de:natürlicher Holunderbeerenextrakt
+
+<en:elderberry
+en:elderberry syrup
+bg:сироп от бъз
 
 <en:elderberry
 fr:concentré de sureau
@@ -39336,7 +39837,7 @@ et:Viigimari
 fi:viikuna
 fr:figue
 gl:Figo
-hr:smokva
+hr:smokva, smokve
 ia:fico
 it:fico, fichi
 ko:무화과
@@ -39358,6 +39859,10 @@ ciqual_food_code:en:13012
 ciqual_food_name:en:Fig, raw
 ciqual_food_name:fr:Figue, crue
 # 570 products @2018-09-29
+
+<en:fig
+en:organic fig
+hr:eko smokva
 
 <en:fig
 en:Pajarero Figs
@@ -39772,8 +40277,10 @@ ciqual_food_name:fr:Kiwi, pulpe et graines, cru
 
 #processing:en: en:juice
 #processing:en: en:from concentrate
-#<en:kiwi juice
-#fr:jus de kiwi à base de concentré
+<en:kiwi juice
+en:kiwi juice from concentrate
+de:Kiwisaft aus Kiwisaftkonzentrat
+fr:jus de kiwi à base de concentré
 
 # No products
 
@@ -40553,6 +41060,7 @@ it:frutto della passione, maracuja
 jv:markisah
 la:Passiflora
 lt:valgomoji pasiflora
+mk:маракуја
 ms:pokok markisa
 nb:pasjonsfrukt
 nl:passievrucht, maracuja, markieza
@@ -40675,6 +41183,7 @@ ja:パイナップル
 kg:Nanasi
 la:Ananas comosus
 lo:ໝາກນັດ
+mk:ананас
 nl:ananas
 no:ananas
 nv:Bilasáana diwozhí
@@ -40738,7 +41247,7 @@ sv:ananasfiber
 en:pineapple purée
 bg:пюре от ананас
 es:puré de piña
-fr:purée d'ananas
+fr:purée d'ananas, pulpe d'ananas victoria
 fi:ananaspyree
 nl:ananaspuree
 ciqual_food_code:en:13002
@@ -40754,14 +41263,17 @@ bg:сок от ананас
 ca:Suc de pinya
 da:Ananasjuice
 de:Ananassaft
-es:Zumo de piña, jugo de piña, jugo de anana
+es:Zumo de piña, jugo de piña, jugo de ananas, zumo de piña Gold
 fi:ananasmehu
-fr:jus d'ananas
+fr:jus d'ananas, jus d'ananas victoria
+hr:sok od ananasa
 it:succo di ananas
 ja:パイナップルジュース
+nb:ananasjuice
 nl:Ananassap
 pl:sok ananasowy, sok z ananasa
 pt:Sumo de ananás
+ro:suc de ananas
 ru:Ананасовый сок
 sv:ananasjuice
 zh:菠萝汁
@@ -40769,17 +41281,22 @@ zh:菠萝汁
 # 287 products in 6 languages @2018-09-30
 
 <en:pineapple juice
-en:concentrated pineapple juice
+en:concentrated pineapple juice, pineapple juice concentrate
 bg:концентриран сок от ананас
 de:Ananassaftkonzentrat
 es:jugo concentrado de anana
 fi:ananasmehutiiviste
-fr:jus d'ananas concentré
+fr:jus d'ananas concentré, jus concentré d'ananas Queen Tahiti, jus concentré d'ananas Comosus
 it:succo d'ananas concentrato
 nl:geconcentreerd ananassap
 ru:Концентрированный ананасовый сок
 sv:ananasjuice koncentrat
 # ingredient/fr:jus-d'ananas-concentré has 37 products in 3 languages @2018-09-30
+
+<en:pineapple juice
+en:Pure pineapple juice, Pineapple Juice not from Concentrate
+es:zumo de piña exprimida
+fr:Pur jus d'ananas, Pur jus d'ananas victoria
 
 <en:concentrated pineapple juice
 en:organic concentrated pineapple juice
@@ -40787,13 +41304,16 @@ fr:Jus d'ananas issu de l'agriculture biologique
 
 <en:pineapple juice
 en:pineapple juice from concentrate
+bg:сок от ананас от концентрат
 de:Ananassaft aus Konzentrat, Ananassaft aus Ananassaftkonzentrat, Ananassaft aus Fruchtsaftkonzentrat
 es:Zumo de piña a partir de concentrado, jugo de anana procedente de concentrado
 fi:ananasmehu tiivisteestä
 fr:jus d'ananas à base de concentré, Jus d'ananas à base de jus d'ananas concentré, Jus d'ananas à base de jus concentré
-it:succo d'ananas a base di concentrato
+it:succo d'ananas a base di concentrato, succo d'ananas a base di succo concentrato.
+nb:Eplejuice fra konsentrat og puré
 nl:Ananassap van concentraat
 pl:sok ananasowy z koncentratu
+pt:Sumo de ananás obtido a partir de um produto concentrado
 # ingredient/fr:jus-d'ananas-à-base-de-concentré has 96 products in 3 languages @2018-09-30
 
 <en:pineapple
@@ -40962,7 +41482,7 @@ fr:framboise
 ga:Sú craobh
 gd:Sùbh-craoibh
 hi:रसभरी
-hr:malina, maline
+hr:malina, maline, plod maline
 ht:Franbwaz
 hu:málna
 hy:Ազնվամորի
@@ -41228,7 +41748,7 @@ fa:میوه گل رز
 fi:Ruusunmarja, kiulukka
 fr:cynorrhodon, fruit de l'églantier
 ga:mogóir róis
-hr:šipak, šipak plod, plod šipka, plodovi šipka
+hr:šipak, šipak plod, plod šipka, plodovi šipka, šipka
 hu:csipkebogyó
 hy:մասուր
 it:Cinorrodo
@@ -41283,7 +41803,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Rosa_canina
 #                                Strawberry
 #
 ###################################################################################################
-en:description:The garden strawberry (or simply strawberry; Fragaria × ananassa) is a widely grown hybrid species of the genus Fragaria, collectively known as the strawberries.
+# en:description:The garden strawberry (or simply strawberry; Fragaria × ananassa) is a widely grown hybrid species of the genus Fragaria, collectively known as the strawberries.
 
 <en:berries
 en:strawberry, strawberries
@@ -41410,6 +41930,7 @@ ca:melmelada de maduixa
 de:Erdbeerkonfitüre, Erdbeer-Konfitüre
 es:mermelada de fresa
 fr:Confiture de fraises
+hr:pripavak jagoda
 
 <en:strawberry
 en:strawberry filling
@@ -41434,7 +41955,7 @@ hu:eperlé
 it:Succo di fragola
 ja:苺ジュース
 nl:aardbeiensap
-pl:sok truskawokowy
+pl:sok truskawkowy, sok z truskawki, sok z truskawek
 pt:Sumo de morango
 sv:jordgubbsjuice, jordgubbssaft
 
@@ -41797,6 +42318,7 @@ de:weiße Traube
 es:uva blanca
 fi:vaalea viinirypäle
 fr:raisin blanc, raisins blancs
+hr:bijelog grožđa
 it:uva bianca
 nl:witte druif, witte druiven
 ciqual_food_code:en:13044
@@ -41844,6 +42366,10 @@ fr:raisin rouge, raisins rouges
 en:red seedless grape
 de:rote kernlose Traube, rote kernlose Trauben
 fr:raisin rouge sans pépin
+
+<en:red grape
+en:red grape fruit juice
+hr:voćni sok crvenog grožđa
 
 # description:en:A RAISIN is a dried grape.
 
@@ -41975,7 +42501,7 @@ ga:sabhdánach
 he:סולטנה
 hi:सुल्ताना
 id:sultana
-it:sultanina
+it:sultanina, uva sultanina, uvetta, uvetta sultanina
 ja:サルタナ
 kn:ಸುಲ್ತಾನ
 ko:설태너
@@ -42058,6 +42584,7 @@ ru:виноградный сок
 sa:द्राक्षाफलरसः
 sq:Lëngu i rrushit
 sv:druvsaft, druvjuice
+th:น้ำองุ่น
 tt:виноград суы
 zh:葡萄汁
 # yue:提子汁
@@ -42069,26 +42596,44 @@ wikipedia:en:https://en.wikipedia.org/wiki/Grape_juice
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/grape-juice
 # 701 products in 6 languages @2018-10-02
 
-<en:grape juice
-en:organic grape juice
-fi:luomurypälemehu, luomu rypälemehu
-fr:jus de raisin issu de l'agriculture biologique
+
+#processing:organic
+#<en:grape juice
+#en:organic grape juice
+#fi:luomurypälemehu, luomu rypälemehu
+#fr:jus de raisin issu de l'agriculture biologique
 
 <en:grape juice
-en:concentrated grape juice
+en:concentrated grape juice, grape juice concentrate
 de:Traubensaftkonzentrat
 es:zumo de uva concentrado, jugo de uva concentrado
 fi:rypälemehutiiviste, viinirypälemehutiiviste
-fr:jus de raisin concentré, concentré de jus de raisin
+fr:jus de raisin concentré, concentré de jus de raisin, jus concentré de raisin
 it:ssucco concentrato d'uva
 nl:Geconcentreerd grapefruitsap
 sv:druvsaftkoncentrat, druvjuicekoncentrat
+th:จากนำองุ่นเข้มข้น
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/concentrated-grape-juice
 # 139 products in 2 languages @2018-10-02
 # ingredient/fr:concentré-de-jus-de-raisin has 26 products in 3 languages @2018-10-02
 
+# This is a compound product made of concentrate grape juice and water
+<en:grape juice
+en:grape juice from concentrate
+de:Traubensaft aus Traubensaftkonzentrat
+fr:jus de raisin à base de concentré, jus de raisins à base de concentré
+
 <en:concentrated grape juice
 fr:jus de raisin concentré rectifié
+
+<en:grape juice
+en:grape juice from concentrate
+es:jugo de uva concentrado reconstituido
+
+<en:grape juice from concentrate
+<en:white grape juice
+en:white grape juice from concentrate
+de:Weißer Traubensaft aus Konzentrat
 
 <en:grape juice
 en:white grape juice
@@ -42102,42 +42647,73 @@ nl:Witte druivensap
 # 71 products in 4 languages @2018-10-02
 
 <en:white grape juice
-en:concentrated white grape juice
-de:Weißer Traubensaft aus Konzentrat
+en:concentrated white grape juice, white grape juice concentrate
 es:zumo de uva blanca concentrado, jugo de uva blanca concentrado
 fi:vaalea rypälemehutiiviste
 fr:jus de raisin blanc concentré
 
 <en:concentrated white grape juice
-en:organic concentrated white grape juice
+en:organic concentrated white grape juice, organic white grape juice concentrate
 fi:luomu vaalea rypälemehutiiviste
 fr:jus concentre de raisin blanc bio
 
+<en:white grape juice
+en:Chasselas grape juice
+fr:jus de raisin chasselas
+
+<en:white grape juice
+en:Muscat grape juice
+fr:jus de raisin muscat, jus de raisin blanc muscat, jus de raisin muscaté
+
+<en:white grape juice
+fr:jus de raisin blanc sauvignon
+
 <en:grape juice
+en:red grape juice
+es:zumo de uva roja, jugo de uva tinto
 fr:jus de raisin rouge
 de:roter Traubensaft
 fi:punainen rypälemehu
 it:succo d'uva rossa
+nl:blauw druivensap
 pt:sumo de uva tinta
+th:น้ำองุ่นแดง 
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-raisin-rouge
 # 35 products in 4 languages @2018-10-02
 
-<fr:jus de raisin rouge
-<en:concentrated grape juice
+<en:red grape juice
+<en:grape juice from concentrate
 en:red grape from concentrate
 de:rote Trauben aus Traubenkonzentrat
 fi:punainen rypälemehu tiivisteestä
-fr:Raisin rouge à base de concentré
+fr:Raisin rouge à base de concentré, Jus de raisin à base de jus de raisin rouge concentré
 pt:sumo de uva tinta à base de concentrado
+
+<en:red grape juice
+fr:jus de raisin rouge Syrah
+
+<en:red grape juice
+en:Concord grape juice
+
+<en:red grape juice
+en:Muscadine grape juice
+
+<en:grape juice
+en:pure grape juice
+de:Traubendirektsaft, direkt gepresst Traubensaft
+
+<en:white grape juice
+<en:red grape juice
+en:white and red grape juice
+fr:Jus de raisin blanc et rouge
 
 <en:grape juice
 <en:raspberry juice
 fi:rypäle- ja vadelmatäysmehu tiivisteestä
 
-
 # description:en:Must is freshly crushed fruit juice (usually grape juice) that contains the skins, seeds, and stems of the fruit.
 
-<en:grape
+<en:fruit
 en:must
 az:Must
 ca:Most
@@ -42180,7 +42756,10 @@ zh:葡萄漿
 wikipedia:en:https://en.wikipedia.org/wiki/Must
 wikidata:en:Q278818
 
-<en:grape
+<en:must
+en:concentrated apple must
+fr:moût de pomme concentré
+
 <en:must
 en:grape must
 cs:Vinný mošt
@@ -42188,6 +42767,7 @@ de:Traubenmost
 es:Mosto de uva
 fi:puristemehu, rypäleen puristemehu
 fr:moût de raisin
+hr:mošt grožđa
 it:mosto d'uva
 nl:druivenmost
 ro:must de struguri
@@ -42197,13 +42777,13 @@ ta:நொதியேறாப் பழச்சாறு
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:moût-de-raisin
 # 273 products in 4 languages @2018-10-02
 
-<en:must
+<en:grape must
 en:concentrated grape must
 de:Traubenmostkonzentrat, konzentrierter Traubenmost
 es:Mosto de uvas desde concentrado, mosto concentrado de uva
 fi:rypäleen puristemehuntiiviste
 fr:moût de raisin concentré
-hr:koncentrirani grožiani mošt
+hr:koncentrirani grožiani mošt, koncentrirani grožđani mošt
 it:mosto d'uva concentrato
 nl:geconcentreerde druivenmost
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:moût-de-raisin-concentré
@@ -42212,13 +42792,8 @@ nl:geconcentreerde druivenmost
 <en:concentrated grape must
 fr:moût de raisin concentré rectifié
 
-<en:concentrated grape must
-<fr:moût de raisin cuit
-fr:moût de raisin concentré et cuit
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:moût-de-raisin-concentré-et-cuit
-# 36 products in 1 language @2018-10-02
-
-<en:must
+<en:grape must
+en:cooked grape must
 fr:moût de raisin cuit
 de:gekochter Traubenmost
 it:mosto cotto
@@ -42226,6 +42801,11 @@ nl:gekookte druivenmost
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:moût-de-raisin-cuit
 # 117 products in 4 languages @2018-10-02
 
+<en:concentrated grape must
+<en:cooked grape must
+fr:moût de raisin concentré et cuit
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:moût-de-raisin-concentré-et-cuit
+# 36 products in 1 language @2018-10-02
 
 # Technically this is a grape, but not one you will find in the shop
 
@@ -42273,6 +42853,13 @@ ru:Бабич
 uk:Бабич
 wikidata:en:Q2811853
 wikipedia:en:https://en.wikipedia.org/wiki/Babi%C4%87_(grape)
+
+
+<en:varietal
+en:blatina
+hr:blatina, blatina crna, tribidrag, praznobačva, zlorod
+wikidata:en:Q12628015
+wikipedia:en:https://en.wikipedia.org/wiki/Blatina
 
 
 # description:en:Bogdanuša is a white grape variety, which is grown on the Croatian island of Hvar, where it originated on the Stari Grad Plain.
@@ -42525,6 +43112,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cinsaut
 
 <en:varietal
 en:Debit
+hr:debit
 wikidata:en:Q27826727
 wikipedia:en:https://en.wikipedia.org/wiki/Debit_(grape)
 
@@ -42582,6 +43170,11 @@ zh:佳美
 wikidata:en:Q12982
 wikipedia:en:https://en.wikipedia.org/wiki/Gamay
 # ingredient/fr:gamay has 6 products @2019-01-21
+
+
+<en:varietal
+en:Gewürztraminer
+hr:Traminac, traminac mirisavi
 
 
 # description:en:Grenache or Garnacha is one of the most widely planted red wine grape varieties in the world.
@@ -42674,6 +43267,14 @@ wikidata:en:Q1801495
 # ingredient/fr:Lambrusco-Salamino has 1 product @2019-01-20
 
 
+# desciption:en:Vinova loza (lat. Vitis vinifera) is a plant from the Vitaceae family. Some of the common names in Croatia are čokot, loza, trs, vinoloza or wine vine.
+
+<en:varietal
+en:vitis vinifera
+hr:loza
+wikipedia:hr:https://hr.wikipedia.org/wiki/Vinova_loza
+
+
 # description:en:Malbec (pronounced [mal.bɛk]) is a purple grape variety used in making red wine.
 
 <en:varietal
@@ -42735,10 +43336,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Malvasia
 # description:en:Maraština (Rukatac, Maraškin, Mareština, Krizol, Višana) is an indigenous white grape variety from the Dalmatian coast, recommended for all Dalmatian sub-regions, and the Croatian Coast, except Istria.
 
 <en:varietal
-en:Maraština
+en:Maraština, rukatac, maraškin, mareština, krizol, višana
 de:Malvasia Bianca Lunga
 fr:Malvasia bianca lunga
-hr:Maraština
+hr:maraština, rukatac, maraškin, mareština, krizol, višana
 it:Malvasia bianca lunga
 pl:Maraština
 wikidata:en:Q1887929
@@ -43005,6 +43606,11 @@ wikidata:en:Q1887336
 wikipedia:en:https://en.wikipedia.org/wiki/Plavac_Mali
 
 
+<en:varietal
+en:plavina, brajda mala, brajdica, bratkovina, jurkovica, marasovka, modrulj, plavac plavina, plavinac, plavina mala, plavina sitnah, plavina velka, plavka, plavka mala, velika plavka
+hr:plavina, brajda mala, brajdica, bratkovina, jurkovica, marasovka, modrulj, plavac plavina, plavinac, plavina mala, plavina sitnah, plavina velka, plavka, plavka mala, velika plavka
+
+
 # description:en:Poulsard (also Ploussard) is a red French wine grape variety from the Jura wine region.
 
 <en:varietal
@@ -43036,6 +43642,16 @@ uk:Пошип
 wikidata:en:Q832738
 wikipedia:en:https://en.wikipedia.org/wiki/Po%C5%A1ip
 
+<en:varietal
+en:riesling
+hr:rizling, rizling rajnski
+wikidata:en:Q456471
+wikipedia:en:https://en.wikipedia.org/wiki/Riesling
+
+
+<en:varietal
+en:Rkatsiteli
+hr:r'kaciteli
 
 # description:en:Sciacarello (or sciaccarello) is a red Italian wine grape variety that is grown primarily in Corsica.
 
@@ -43171,7 +43787,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Syrah
 <en:varietal
 en:teran
 de:terrano
-hr:teran
+hr:teran, vino teran
 sv:terrano
 wikidata:en:Q1437894
 wikipedia:en:https://en.wikipedia.org/wiki/Teran_grape
@@ -43228,6 +43844,9 @@ hr:Vugava
 wikidata:en:Q17053382
 wikipedia:en:https://en.wikipedia.org/wiki/Vugava
 
+<en:varietal
+en:Welschriesling
+hr:Graševina
 
 # description:en:Zinfandel (also known as Primitivo) is a variety of black-skinned wine grape.
 
@@ -43259,6 +43878,11 @@ uk:Примітиво
 wikidata:en:Q204433
 wikipedia:en:https://en.wikipedia.org/wiki/Zinfandel
 
+<en:varietal
+en:žlahtina
+hr:žlahtina
+wikidata:en:Q394231
+wikipedia:hr:https://hr.wikipedia.org/wiki/%C5%BDlahtina
 
 ###################################################################################################
 #
@@ -43396,13 +44020,14 @@ fr:légume, légumes
 he:ירק
 hr:povrće, biljno
 hu:zöldség, zöldségek
-it:vegetale, ortaggi
+it:vegetale, ortaggi, verdure
 ja:野菜
 nb:grønnsak, grønnsaker
 nl:Groente, groenten
 pl:Warzywo, warzywa
 pt:vegetal
 ru:Овощ
+sr:povrće
 sv:grönsak, grönsaker
 zh:蔬菜
 vegan:en:yes
@@ -43489,6 +44114,8 @@ fr:légumes et jus de cuisson de légumes
 
 <en:vegetable
 en:dried vegetables
+hr:sušeno povrće
+it:verdure disidratate
 pl:suszone warzywa, warzywa suszone
 ru:сушеные овощи и зелень, сушеные овощи
 
@@ -43743,7 +44370,7 @@ nn:Asparges
 nv:Chʼałdą́ą́ʼ, Jádí nátʼoh
 oc:Espargue
 pa:ਛਤਾਵਰ
-pl:Szparag, szparagi, szparagów
+pl:Szparag, szparagi, szparagów, fasola szparagowa
 pt:espargo
 qu:Isparaw
 ro:Sparanghel
@@ -44050,6 +44677,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Radicchio
 # 703 in 7 @2021-10-03
 
 <en:vegetable
+<en:chicory
+it:radicchio rosso
+
+<en:vegetable
 en:chicory
 bg:цикория
 de:Chicoree, Zichorie
@@ -44078,6 +44709,7 @@ de:Zichorienfäser, Zichorienwurzelfaser
 es:fibra de la raíz de achicoria,fibra de achicoria
 fi:sikurikuitu, sikurijuurikuitu
 fr:fibre de chicorée, fibres de chicorée, fibre de racine de chicorée, fibres de racine de chicorée, fibres de racines de chicorée
+hr:vlakna iz korijena cikorije
 it:Fibre di cicoria
 nl:chichoreivezel, chichoreiwortelvezel
 pl:błonnik z cykorii
@@ -44456,7 +45088,7 @@ sk:Cesnak kuchynský
 sl:Česen
 so:Toon
 sq:hudhra
-sr:бели лук
+sr:бели лук, beli luk
 sv:vitlök
 sw:Kitunguu saumu
 ta:பூண்டு
@@ -44878,6 +45510,7 @@ fi:Aloe vera -mehu
 fr:jus d’aloe vera
 it:succo di aloe vera
 nl:aloe vera sap
+pl:sok aloesowy, sok z aloesu
 # ingredient/aloe-vera-juice has 62 products in 5 languages @2019-02-03
 
 # no products @2019-02-03
@@ -44925,7 +45558,7 @@ gu:રીંગણ
 gv:Lus ny h-oohyn
 he:חציל
 hi:बैंगन
-hr:Patlidžan
+hr:patlidžan, plavi patlidžan
 ht:Berejèn
 hu:padlizsán
 hy:բադրիջան
@@ -45242,10 +45875,11 @@ ciqual_food_name:fr:Bambou, pousse, crue
 en:bamboo fibre
 bg:бамбукови фибри
 da:bambusfibre
-de:Bambusfasern
+de:Bambusfaser, Bambusfasern
 es:Fibra de bambú
 fi:bambukuitu
 fr:fibre de bambou, fibres de bambou
+hr:vlakna bambusa
 it:fibre di bambù
 nl:bamboevezel, bamboevezels
 pl:błonnik bambusowy
@@ -45366,6 +46000,7 @@ es:sirope de remolacha
 <en:beetroot
 en:beetroot juice
 bg:сок от цвекло
+cs:šťáva z červené řepy
 de:Randensaft
 es:jugo de remolacha
 fi:punajuurimehu
@@ -45610,7 +46245,7 @@ de:Blumenkohl
 es:coliflor
 fi:kukkakaali
 fr:chou-fleur, choux-fleur, choux-fleurs
-it:cavolfiore
+it:cavolfiore, cavolfiori
 nl:bloemkool
 pl:kalafior
 pt:Couve flor
@@ -46048,6 +46683,10 @@ ciqual_food_name:en:Curly kale, raw
 ciqual_food_name:fr:Chou frisé, cru
 # 2029 in 13 languages @2021-10-19
 
+<en:vegetable
+en:collard greens, collard
+wikidata:en:Q14879985
+
 <en:kale
 en:baby kale
 de:Kohlsprossen
@@ -46421,7 +47060,7 @@ sl:Navadno korenje
 sm:taloti
 so:kaaroot
 sq:karrotë
-sr:шаргарепа
+sr:шаргарепа, šargarepa
 su:wortel
 sv:morot, morötter
 sw:karoti
@@ -46583,6 +47222,7 @@ nl:wortelextract, kleurend wortelextract
 # fr:extrait-de-carotte has 176 products in 6 languages @0218-10-20
 
 <en:carrot
+en:carrot powder
 de:Karottenpulver
 fi:porkkanajauhe
 
@@ -46624,6 +47264,10 @@ da:gulerod
 de:orange Möhre, orange Karotte
 fi:oranssi porkkana
 fr:carottes oranges
+
+<en:carrot
+en:violet carrot
+fr:carotte violette
 
 <en:carrot
 nl:winterpeen
@@ -46721,7 +47365,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Carrot_juice
 en:concentrated carrot juice
 da:gulerodsjuice fra koncentrat
 de:Karottensaftkonzentrat, konzentrierter Karottensaft
-es:Zumo de zanahoria a partir de concentrado, jugo de zanahoria concentrado
+es:jugo de zanahoria concentrado
 fi:porkkanamehutiiviste
 fr:jus concentré de carotte, jus concentré de carottes, jus de carotte concentré
 it:Succo di carota concentrato
@@ -46729,6 +47373,13 @@ nl:Geconcentreerd wortelsap
 ru:Концентрированный морковный сок
 sv:morotjuicekoncentrat
 # fr:jus-concentré-de-carotte has 122 products in 1 language @2018-10-20
+
+#This is not the same as concentrate carrot juice, this one has been reconstructed with water
+<en:carrot juice
+en:carrot juice from concentrate
+de:Karottensaft aus Karottensaftkonzentrat
+es:zumo de zanahoria a partir de concentrado
+fr:jus de carotte à base de concentré, jus de carottes à base de concentré
 
 <en:carrot juice
 en:carrot juice powder
@@ -46798,7 +47449,7 @@ sh:Celer
 sk:Zeler voňavý, zeler
 sl:Navadna zelena, listna zelena
 sq:Selinoja
-sr:Целер
+sr:Целер, celer
 su:Salédri
 sv:Selleri
 ta:சிவரிக்கீரை
@@ -46944,6 +47595,7 @@ nl:knolselderij
 pl:seler korzeń, korzeń selera
 ro:rădăcină de țelină
 ru:корень сельдерея
+sr:koren celera
 sv:Rotselleri
 # ru:сельдерей пахучий translation error, see also en:celery
 allergens:en: en:celery
@@ -47020,7 +47672,7 @@ gl:fiúncho
 gu:વરિયાળી
 he:שומר פשוט
 hi:सौंफ
-hr:komorač
+hr:komorač, koromač, komorača
 ht:anis
 hu:édeskömény
 hy:Հոռոմ-սամիթ սովորական
@@ -47433,6 +48085,14 @@ en:leek powder
 de:Lauchpulver
 #15 in 2 @2021-10-26
 
+# description:en:Asclepias is a genus of herbaceous, perennial, flowering plants known as milkweeds.
+<en:root vegetable
+en:asclepias
+sr:miluk
+wikidata:en:Q162153
+wikipedia:en:https://en.wikipedia.org/wiki/Asclepias
+
+
 # description:en:The ONION (Allium cepa L.), also known as the bulb onion or common onion, is a vegetable that is the most widely cultivated species of the genus Allium. They are usually served cooked, as a vegetable or part of a prepared savoury dish, but can also be eaten raw or used to make pickles or chutneys.
 
 # <en:class:en:Vegetables
@@ -47634,10 +48294,11 @@ nl:rode ui, rode uien
 nn:raudlauk
 or:ନାଲି ପିଆଜ
 pa:ਲਾਲ ਪਿਆਜ਼
-pl:czerwona cebula
+pl:czerwona cebula, cebula czerwona
 ro:ceapă roșie
 ru:красный лук
 sq:qepë e kuqe
+sr:crveni luk
 sv:rödlök
 wikidata:en:Q622350
 wikipedia:en:https://en.wikipedia.org/wiki/Red_onion
@@ -47706,6 +48367,7 @@ pl:czosnek dęty
 pt:cebolleta
 ro:ceapă de tuns
 ru:Лук-батун
+sl:čebula
 sr:аљма
 su:Bawang daun
 sv:Piplök, walesisk lök
@@ -47773,6 +48435,7 @@ sv:lökjuicekoncentrat
 #processing:en: en:dehydrated
 <en:onion
 en:dehydrated onion, dried onion
+bg:сух лук
 ca:ceba deshidratada
 cs:cibule sušená
 da:tørret løg
@@ -47994,7 +48657,7 @@ ru:Пастернак
 sh:Paškanat
 sk:paštrnák
 sl:Pastinak
-sr:Пашканат
+sr:Пашканат, paškanat
 sv:Palsternacka
 th:พาซนิพ
 tl:Pastinaca
@@ -48737,6 +49400,7 @@ rw:Epinari
 sd:پالڪ
 se:spináhtta
 sh:Špinat
+sl:Špinača
 sq:spinaqi
 sr:спанаћ
 sv:spenat
@@ -49128,7 +49792,7 @@ pl:tapioka
 pt:tapioca
 ru:тапиока
 sk:tapiokový škrob
-sl:tapioka
+sl:tapioka, tapiokin škrob
 su:tapioka
 sv:tapioka, tapiokastärkelse
 uk:тапіока
@@ -49335,6 +49999,7 @@ el:πατάτα σε σκόνη
 es:patata en polvo
 fi:perunajauhe, kuivattu peruna
 fr:poudre de pommes de terre, poudre de pomme de terre, pomme de terre déshydratée, pommes de terre déshydratées, pommes de terre en poudre, g de terre déshydratée
+hr:dehidrirani krumpir
 hu:burgonyapor
 it:Patate in polvere
 nl:aardappelpoeder, gedehydrateerde aardappelen
@@ -49427,6 +50092,7 @@ de:getrocknete Kartoffelflocken
 es:copos de patata deshidratados
 fi:kuivatut perunahiutaleet
 fr:flocons de pomme de terre déshydratés
+sl:krompirjevi kosmiči
 # fr:flocons-de-pomme-de-terre-déshydratés has 100 products in 2 languages @2018-10-15
 
 <en:potato flakes
@@ -49613,6 +50279,7 @@ et:punane paprika
 fi:punainen paprika
 fr:poivron rouge, poivrons rouge
 he:פלפל אדום, גמבה אדומה
+hr:crveni papar, crvena paprika
 hu:kaliforniai paprika, piros bell paprika, piros kaliformiai paprika
 it:peperoni rossi
 lt:sarkanā paprika
@@ -49623,6 +50290,7 @@ pl:papryka czerwona, czerwona papryka
 pt:pimento vermelho
 ro:ardei gras roșu
 ru:Красный перец, перец красный, перец красный молотый, паприка красная
+sr:crvena paprika
 sv:röd paprika
 ciqual_food_code:en:20087
 ciqual_food_name:en:Sweet pepper, red, raw
@@ -49632,6 +50300,7 @@ ciqual_food_name:fr:Poivron rouge, cru
 
 <en:red bell pepper
 en:piquillo pepper
+bg:червени чушки Пикильо
 ca:pebrot del piquillo, pebrots del piquillo
 de:Paprika Piquillo, Piquillo Paprika
 es:pimiento del piquillo
@@ -49843,7 +50512,7 @@ fi:säilötty chili
 #these are chili peppers that are red
 <en:chili pepper
 en:red chili pepper, red chili, red chilli pepper, red chilli, red chillies, red chile, red chile pepper
-bg:червени люти чушки
+bg:червени люти чушки, чили чушки
 da:rød chili
 de:roter Chili, rote Chili-Schoten
 es:chile rojo, chiles rojos, red-chili,chili rojo
@@ -49885,6 +50554,7 @@ de:scharfe chilischoten, scharfe Pfefferoni, Paprika scharf
 es:guindilla fuerte
 fi:tuliset chilit, tulinen chili
 fr:piment fort, piments forts
+hr:ljuta začinska paprika, peperoncini, mini ljute papričice cijele, feferoni ljuti
 it:peperoncino piccante
 nl:scherpe peperoni, scherpsmakende pepers
 # ingredient/fr:piment-fort has 391 products in 7 languages @2019-04-14
@@ -49970,6 +50640,7 @@ sv:grön jalapeño
 
 <en:jalapeno pepper
 en:chipotle, chipotle chilli, chipotle chile, chipotle pepper
+bg:Chipotle чили пипер
 ca:chipotle
 cs:chipotle
 da:chipotle
@@ -50036,6 +50707,7 @@ de:Jamaikapfeffer
 es:pimienta de Jamaica
 fi:maustepippuri
 fr:piment de la jamaïque, piment de jamaïque
+hr:pimen
 it:Pepe di Giamaica, pepe garofanato, pimenteira
 nb:allehånde
 nl:Jamaicaanse peper
@@ -50107,6 +50779,10 @@ de:Piri Piri, Piri-Piri
 fr:pili-pili, pili pili
 nl:pili pili
 # en:paprika is very often indicated as a spice. This is probably the same as en:paprika powder
+
+<en:vegetable
+en:sichuan pepper
+hr:sečuanski papar
 
 <en:spice
 en:paprika
@@ -50350,6 +51026,7 @@ en:diced tomatoes in tomato juice
 <en:tomato
 en:cherry tomato, cherry tomatoes
 bg:чери домат, чери домати
+ca:tomàquet cirerol, cirerol
 da:körsbärstomater, cocktailtomater
 de:Kirschtomaten, Cocktailtomaten, Cherrytomaten
 el:τομάτες τσέρυ
@@ -50384,7 +51061,7 @@ fr:tomates semi-séchées marinées, tomates semi-déshydratées et marinées
 #process:en: en:dehydrated
 <en:tomato
 en:dried tomatoes, Dried tomato
-#bg:сушени домати, сушен домат
+#bg:сушени домати, сушен домат, сухи домати
 #da:tørret tomat
 #de:getrocknete Tomaten
 #es:tomate deshidratado
@@ -50525,6 +51202,7 @@ fr:tomates pelées concassées au jus
 
 <en:chopped tomatoes
 en:tomato pulp
+bg:доматен пулп
 de:Tomatenfleisch
 es:Pulpa de tomate
 fi:tomaattimassa, tomaattipulppa, tomaatin hedelmäliha
@@ -50556,6 +51234,7 @@ carbon_footprint_fr_foodges_value:fr:2.9
 <en:tomato
 en:tomato purée
 bg:доматено пюре
+ca:puré de tomàquet
 cs:rajčatové pyré
 da:tomatpuré, tomatpure
 de:Tomatenmark, Tomatenpüree
@@ -50573,6 +51252,7 @@ nl:tomatenpurée, tomatenconcentraat, tomatenpuree
 pl:przecier pomidorowy
 ru:томатное поре
 sk:bravčové mäso
+sr:pire od paradajza
 sv:tomatpuré, tomatpyré, tomatpure, mosade tomater
 carbon_footprint_fr_foodges_ingredient:fr:Sauce tomate
 carbon_footprint_fr_foodges_value:fr:2.9
@@ -50628,7 +51308,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Tomato_paste
 # comment:en:This is where the tomato has been puréed *and* concentrated further.
 <en:tomato concentrate
 en:concentrated tomato purée
-bg:концентрирано пюре от домат
+bg:концентрирано пюре от домат, концентриано доматено пюре
 de:konzentriertes Tomatenmark, Tomatenpüreekonzentrat, Tomatenmarkkonzentrat, konzentriertes Tomatenpüree
 es:puré de tomate concentrado, pure de tomate concentrado, puré de tomates concentrado, pasta de tomate concentrado
 fi:tiivistetty tomaattipyree, tiivistettyä tomaattipyreetä
@@ -51095,7 +51775,7 @@ ga:Puimcín
 gu:કોળું
 he:דלעת
 hi:कुम्हड़ा
-hr:Tikva
+hr:bundeva
 hu:Tök
 id:waluh
 io:Kukurbito
@@ -51360,7 +52040,7 @@ fr:courgette
 ga:cúirséad
 ha:kabewa
 he:קישוא
-hr:bundeva
+hr:tikvice, tikvica
 hu:cukkini
 hy:Դդմիկ
 is:zukini
@@ -51438,6 +52118,7 @@ pl:suszona cukinia
 <en:root vegetable
 en:Rapeseed, rape, oilseed rape, rape seed
 bg:рапична, рапица
+bs:repičino
 ca:Colza, Llavor de colza, Llavors de colza
 da:raps
 de:Raps
@@ -51780,7 +52461,6 @@ wikidata:en:Q159753
 
 
 # description:en:A LEGUME is a plant in the family Fabaceae (or Leguminosae), or the fruit or seed of such a plant (also called a pulse). Legumes are grown agriculturally, primarily for human consumption. Grain legumes include beans, lentils, lupins, peas, and peanuts.
-
 en:legume
 af:Peulgewas
 an:Legumbre
@@ -51810,7 +52490,7 @@ hy:Հատիկաընդեղեն բույսեր
 ia:Legumine
 id:Kacang-kacangan
 is:Baun
-it:legume
+it:legume, legumi
 ja:豆果
 ko:협과
 la:Legumen
@@ -51931,7 +52611,7 @@ da:hvide bønner
 de:weiße Bohnen
 es:Alubias blancas, judia blanca
 fi:valkoinen papu, valkoiset pavut
-fr:haricots blancs, lingots blancs, haricots lingots, cocos blancs, haricots blancs lingots, haricots coco blancs, haricots cocos blancs, haricots coco, haricots cocos, lingots
+fr:haricots blancs, lingots blancs, haricots lingots, cocos blancs, haricots blancs lingots, haricots coco blancs, haricots cocos blancs, haricots coco, haricots cocos, lingots, haricots blancs dits mogette
 it:Fagioli bianchi
 nb:hvite bønner
 nl:witte bonen
@@ -51973,6 +52653,10 @@ nl:Zwarte bonen
 pl:fasola czarna, fasoli czarnej
 sv:svarta bönor
 
+<en:black beans
+en:black bean flour
+fr:farine de haricots noirs
+
 <en:legume
 en:red beans, red kidney beans, kidney beans
 bg:червен боб
@@ -52012,6 +52696,7 @@ fr:haricots rouges réhydratés
 en:cannellini beans, white kidney beans
 de:Cannellini Bohnen, Cannellinibohnen
 fr:haricots cannellini
+it:fagioli cannellini, cannellini
 wikidata:en:Q74663825
 
 #comment:en:Do not confuse these with mungo beans: Vigna mungo
@@ -52218,11 +52903,12 @@ fi:lupiinit, lupiini
 fr:lupin, lupins
 ga:lúipín
 he:תורמוס
+hr:lupin, lupina, lupinu
 hu:csillagfürt
 hy:լուպին
 id:lupino
 is:úlfabaunir
-it:lupini
+it:lupini, lupino
 ja:ルピナス属
 ka:ხანჭკოლა
 kk:люпин
@@ -52412,6 +53098,7 @@ zh:蚕豆
 # zh-hk:蠶豆
 # zh-sg:蚕豆
 # zh-tw:蠶豆
+wikidata:en:Q131342
 wikipedia:en:https://en.wikipedia.org/wiki/Vicia_faba
 # ingredient/fr:feve has 54 products in french @2019-02-17
 ciqual_food_code:en:20518
@@ -52877,6 +53564,9 @@ sv:extra fina söta ärtor
 <en:garden peas
 de:Junge Markerbsen
 
+<en:garden peas
+en:en:garden peas flour
+fr:farine de petits pois
 
 # description:en:The snow pea (Pisum sativum var. saccharatum) is a variety of pea eaten whole in its pod while still unripe.
 
@@ -53399,7 +54089,7 @@ fy:Mangel
 ga:almóinní
 gl:Améndoa
 he:שקד
-hr:badem, bademi
+hr:badem, bademi, bademova jezgra
 hu:mandula
 ia:amandola
 it:mandorla, mandorle
@@ -53488,11 +54178,15 @@ pl:masa migdałowa
 
 <en:almond
 en:blanches almonds, almonds blanched
-de:blanchierte Mandlen, Mandeln blanchiert
+de:blanchierte Mandlen, blanchierten mandeln, mandeln blanchiert
 es:almendras peladas
-fr:amandes blanchies
+fr:amandes blanchies, amandes blanches
 pl:migdały blanszowane
 # ingredient/fr:amandes-blanchies has 31 products in 5 languages @2018-10-06
+
+<en:blanches almonds
+en:raw blanched almonds
+fr:amandes blanches crues
 
 <en:blanches almonds
 fr:amandes blanchies en poudre
@@ -53583,6 +54277,7 @@ pl:kawałki migdałów
 
 <en:almond
 en:dry roasted almonds
+bg:печени бадеми
 ca:ametlles torrades
 de:geröstete Mandeln, Mandeln geröstet
 es:Almendras tostadas secas
@@ -53718,7 +54413,7 @@ et:kašupähklid, India pähkel, kašupähkleid
 fi:cashewpähkinä, cashewpähkinät, cashew
 fr:noix de cajou
 ga:cnónna caisiú
-hr:indijski oraščići
+hr:indijski oraščići, indijski oraščić
 hu:kesudió
 it:noci di acagiù, anacardi
 ja:カシューナッツ
@@ -54080,6 +54775,7 @@ fi:karamellisoidut hasselpähkinät
 
 <en:hazelnut
 en:hazelnut paste
+bg:лешникова паста, крем лешник
 ca:pasta d'avellana, pasta d'avellanes
 cs:oříšková pasta
 da:hasselnödmasse
@@ -54189,6 +54885,7 @@ ar:فول سوداني
 ay:Chuqupa
 az:Araxis
 bg:фъстък, фъстъци
+bs:kikiriki
 ca:Cacauet, cacauets
 cs:arašídy
 da:jordnødder, jordnød, peanuts
@@ -54252,6 +54949,7 @@ ciqual_food_name:en:Peanut
 <en:peanut
 en:peanut paste
 de:Erdnusspaste
+hr:pasta od kikirikija, kikiriki pasta
 
 <en:peanut
 en:roasted peanuts
@@ -54598,10 +55296,11 @@ ciqual_food_name:fr:Noix, fraîche
 
 <en:walnut
 en:walnut kernel, walnuts shelled
-de:Walnusskerne
+de:Walnusskerne, Walnusskern
 es:nuez mondada
 fi:kuoreton saksanpähkinä, kuorettomat saksanpähkinät
 fr:cerneaux de noix
+hr:orah jezgra
 it:gherigli di noci, noci comuni
 nb:Valnøttkjerner
 nl:Gepelde walnoot, walnootpitten
@@ -54915,6 +55614,7 @@ ciqual_food_name:fr:Fenouil, graine
 en:chia
 es:chía negra
 la:Salvia hispanica
+pl:szałwia hiszpańska
 xx:chia
 wikidata:en:Q27688832
 # ingredient/chia has 430 products @2021-08-20
@@ -55039,7 +55739,7 @@ sa:जीरकम्
 sd:اڇو جيرو
 si:සූදුරු
 sl:orientalska kumina
-sr:кумин
+sr:кумин, kim
 su:jinten bodas
 sv:spiskummin
 sw:jira
@@ -55307,7 +56007,7 @@ bg:слънчогледово семе, Слънчогледови семки
 bn:সূর্যমুখী বীজ
 bs:sjemenke od suncokreta
 ca:llavors de gira-sol, pipes de gira-sol
-cs:slunecnicová seminka
+cs:slunecnicová seminka, slunečnicová semínka
 cv:Хĕвелчамăш
 da:Solsikkekerner, solsikkefrø
 de:Sonnenblumenkerne
@@ -55321,7 +56021,7 @@ fr:graines de tournesol
 gl:semente de xirasol
 he:גרעיני חמנייה, גרעין חמנייה, גרעיני חמניה, גרעיני חמניה, גרעיני חמניות
 hi:सूरजमुखी के बीज
-hr:sjemenke od suncokreta
+hr:sjemenke od suncokreta, sjemenke suncokreta
 hu:napraforgómag
 hy:արևածաղկի սերմեր
 id:Biji bunga matahari
@@ -55395,6 +56095,7 @@ et:Linaseemned, linaseeme
 fa:تخم کتان
 fi:pellavansiemen, pellavansiemenet, pellavansiemeniä
 fr:graine de lin, graines de lin
+hr:lanene sjemenke
 hu:Lenmag
 it:semi di lino
 nb:linfrø
@@ -55497,6 +56198,7 @@ pt:pimenta
 ro:piper
 ru:Перец
 sl:poper
+sr:biber
 sv:peppar
 tr:biber
 ur:کالی مرچ
@@ -55659,7 +56361,7 @@ et:must pipar
 fi:mustapippuri
 fr:poivre noir
 ga:piobar dubh
-hr:crni papar, papar crni
+hr:crni papar, papar crni, plod crnog papra, piper nigrum
 hu:feketebors
 it:pepe nero
 ja:黒胡椒
@@ -55875,6 +56577,7 @@ et:seesamiseemned
 fi:seesaminsiemen, seesaminsiemenet, seesaminsiemeniä
 fr:graine de sésame, graines de sésame
 ga:síolta seasamain
+hr:sjemenke sezama
 hu:szezámmag
 it:semi di sesamo, grani di sesamo
 lt:sezamo sėklos
@@ -55960,6 +56663,7 @@ fa:ارده
 fr:crème de sésame, tahin, tahina, tahiné
 he:טחינה
 hi:ताहिनी
+hr:tahini
 hy:Թահին
 it:Tahina
 ja:芝麻醤
@@ -56149,8 +56853,9 @@ fr:pâte miso rouge
 <en:condiment
 en:spice, spices
 # bg:подправка, подправки is already a condiment
+bs:začini
 ca:Espècies
-cs:Koření
+cs:koření
 da:krydderi, krydderier
 de:Gewürze, Würze, Speisewürze, Suppenwürze
 el:Μπαχαρικό, μπαχαρικά
@@ -56159,7 +56864,7 @@ et:vürtsid
 fi:mauste, mausteet
 fr:épice, épices, aromate
 he:תבלין
-hr:začin, začini
+hr:začin, začini, zači
 is:krydd
 it:spezie
 nb:krydder, krydderi, krydderier
@@ -56167,6 +56872,7 @@ nl:specerijen, specerij
 no:krydder
 ru:Специи, пряности
 sl:začimbe
+sr:začini
 sv:krydda, kryddor, kryddört
 zh:香料
 vegan:en:yes
@@ -56193,7 +56899,8 @@ ru:пряности натуральные
 ###################################################################################################
 en:herb, mixed herbs
 bg:билка, билки
-ca:Herbes, herbes aromàtiques
+bs:aromatično bilje
+ca:Herbes, herbes aromàtiques, plantes aromàtiques
 cs:Bylina, byliny
 da:urt, krydderurter
 de:Gewürz, Kräuter
@@ -56203,12 +56910,13 @@ fr:herbe, herbes, plantes aromatiques, plante aromatique, fines herbes, fine her
 he:עשב
 hr:aromatskog bilja
 hu:gyógynövény, gyógynövények
-it:erba, piante aromatiche
+it:erba, piante aromatiche, erbe aromatiche
 ja:ハーブ
 nb:urt, urte
 nl:Kruiden
 pl:Zioło, zioła, ziół, mieszanka ziół
 pt:plantas aromáticas
+sl:zelišča
 sv:örter, örtkryddor, kryddörter
 vegan:en:yes
 vegetarian:en:yes
@@ -56248,7 +56956,7 @@ fr:plantes aromatiques et épices dont herbes aromatiques
 
 <en:spice
 en:spice extract, spices extract
-bg:екстракт от подправки
+bg:екстракт от подправки, екстракти от подправки
 ca:Extracte d'espècies
 cs:extrakty koření
 de:Gewürz Extrakte, Gewürzextrakte, Gewurzextrakte, Gewürzextrakt
@@ -56282,6 +56990,7 @@ nb:krydder og krydderekstrakter
 pl:ekstrakty przypraw i ziół, ekstrakt przypraw i ziół
 ro:condimente și extracte de condimente
 ru:экстракты специй
+sl:začimbe in ekstrati začimb
 sv:kryddor och kryddextrakt
 # ingredient/fr:epices-et-extrait-d'epices has 135 products in 3 languages @2020-05-21
 
@@ -56752,7 +57461,7 @@ gl:cúrcuma
 gu:હળદર
 he:כורכום
 hi:हल्दी
-hr:kurkuma
+hr:kurkuma, curcuma domestica, korijen kurkume
 hu:kurkuma
 id:kunyit
 io:kurkumo
@@ -56887,6 +57596,7 @@ hy:մշկընկույզ
 id:pala
 io:muskado
 is:múskat
+is:noce moscata
 ja:ニクズク属
 jv:pala
 ka:ჯავზის ხე
@@ -57051,7 +57761,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cardamom
 # en:cardamon has 416 products in 12 languages @2018-10-24
 
 <en:cardamom
-en:green cardamom, elettaria cardamomum 
+en:green cardamom, elettaria cardamomum
 de:grüner Kardamom, grüner Cardamom
 fr:cardamome verte
 la:elettaria cardamomum
@@ -57279,6 +57989,7 @@ el:κιννάμωμον η κασσία
 et:hiina kaneelipuu
 fi:kassiakaneli
 fr:cannelle de chine
+hr:kora kineskog cimeta, cinnamomum aromaticum
 id:kayu manis cina
 it:cassia
 ja:シナニッケイ
@@ -57659,7 +58370,7 @@ bo:བཅའ་ལྒ།
 br:Jinjebr
 bs:Đumbir
 ca:gingebre
-cs:zázvor
+cs:zázvor, zázvorová
 cy:Sinsir
 da:Ingefær, Ingefær rod
 de:Ingwer
@@ -57677,7 +58388,7 @@ gl:Sinxebra
 gu:આદુ
 he:זנגביל
 hi:अदरक
-hr:đumbir, đumbira
+hr:đumbir, đumbira, korijen đumbira
 ht:jenjanm
 hu:gyömbér
 hy:կոճապղպեղ
@@ -58170,7 +58881,7 @@ et:Tähtaniis
 eu:Txinatar anis
 fa:بادیان ختایی
 fi:tähtianis, rusotähtianis
-fr:anis étoilé, badiane, badiane chinoise
+fr:anis étoilé, badiane, badiane chinoise, Étoile de badiane
 gl:Anís estrelado
 gu:બાદિયાન
 hi:चक्रफूल
@@ -58444,7 +59155,7 @@ ga:marós
 gl:romeu
 he:רוזמרין רפואי
 hi:गुलमेंहदी
-hr:ružmarin
+hr:ružmarin, ružmarina
 ht:womaren
 hu:rozmaring
 hy:հազրեվարդ բուժիչ
@@ -58541,6 +59252,7 @@ ciqual_food_name:fr:Romarin, séché
 #de:Rosmarinextrakt
 #fi:rosmariiniuute, rosmariiniuutteet
 #fr:extrait de romarin, extraits de romarin
+#hr:ekstrakt ružmarina
 #it:estratto di rosmarino, estratti di rosmarino
 #nl:rozemarijnextract, extracten van rozemarijn
 #pt:extratos de rosmaninho
@@ -58674,7 +59386,7 @@ ml:കർപ്പൂരതുളസി
 mt:nagħniegħ
 my:ပူဒီနာ
 nb:mynteslekta
-nl:munt
+nl:munt, muntblad, zacht muntblad
 nn:mynteslekta
 oc:menta
 or:ପୋଦିନା
@@ -58780,6 +59492,7 @@ fr:menthe verte
 ga:cartlainn gharraí
 gl:hortelá verde
 he:נענע קרחת
+hr:zelene metvice
 hu:fodormenta
 it:menta spicata, menta romana, menta gentile
 ja:スペアミント
@@ -58849,7 +59562,7 @@ ga:lus an phiobair
 gl:menta común
 he:נענע חריפה
 hi:पिपरमिंट
-hr:paprena metvica
+hr:paprena metvica, paprene metvice
 hu:borsmenta
 hy:անանուխ
 id:pepermin
@@ -58911,6 +59624,10 @@ en:peppermint leaf, peppermint leaves
 de:Pfefferminzblätter, Pfefferminzblätter ganz
 fr:feuilles de menthe poivrée, feuilles de menthe poivrée entières
 #83 @2021-10-11
+
+<en:peppermint
+en:concentrated peppermint juice
+fr:jus concentré de menthe poivrée
 
 #<en:peppermint
 #en:organic peppermint
@@ -59263,6 +59980,27 @@ nl:biologisch ijzerhard
 <en:verbena
 fr:feuilles de verveine
 
+<en:verbena
+en:lemon verbena
+fr:verveine citronnee, verveine citronelle
+la:Aloysia citrodora
+nl:citroenverbena
+
+<en:herb
+en:hemp
+fr:chanvre
+nl:hennep
+
+<en:hemp
+en:hemp flour
+fr:farine de chanvre
+nl:hennepmeel
+
+<en:herb
+en:blackberry leaf, blackberry leaves
+fr:feuilles de mûre
+nl:braamblad, braambladeren
+
 ###################################################################################################
 #
 #                                Parsley
@@ -59297,7 +60035,7 @@ ga:peirsil
 gl:perexil
 he:פטרוזיליה
 hi:अजमोद
-hr:peršin, peršina
+hr:peršin, peršina, peršinov
 ht:pèsi
 hu:petrezselyem
 hy:մաղադանոս
@@ -59333,7 +60071,7 @@ sh:peršin
 sk:petržlen
 sl:peteršilj
 sq:majdanozi
-sr:першун
+sr:першун, peršun
 sv:persilja
 ta:வோக்கோசு
 tl:kinchay
@@ -59370,6 +60108,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/parsley
 
 <en:parsley
 en:fresh parsley
+bg:свеж магданоз
 fr:persil frais
 ciqual_food_code:en:11014
 ciqual_food_name:en:Parsley, fresh
@@ -59410,6 +60149,7 @@ la:Petroselinum crispum var. tuberosum
 nl:peterseliewortel
 pl:korzeń pietruszki, pietruszka korzeń
 sl:jeva korenina
+sr:koren peršuna
 wikidata:en:Q68220931
 # 113 @2021-09-16
 
@@ -59722,6 +60462,11 @@ de:Indisches Basilikum (Tulsi), Tulsi
 fr:tulsi
 wikipedia:en:https://en.wikipedia.org/wiki/Ocimum_tenuiflorum
 
+<en:herb
+en:raspberry leaf, raspberry Leaves
+fr:feuilles de framboisier
+nl:frambozenblad, frambozenbladeren
+
 ###################################################################################################
 #
 #                                Lovage
@@ -59750,7 +60495,7 @@ fi:liperi, lipstikka, lippstikka
 fr:livèche
 ga:Luáiste
 he:לאושטיאן
-hr:Ljupčac
+hr:ljupčac
 hu:orvosi lestyán
 is:Skessujurt
 it:sedano di montagna
@@ -59887,7 +60632,7 @@ wikidata:en:Q156921
 fr:bleuets
 
 <fr:bleuets
-fr:pétales de bleuet
+fr:pétales de bleuet, fleurs de bleuet
 
 ###################################################################################################
 #
@@ -59911,7 +60656,7 @@ et:saialill
 eu:Ilen kultibatu
 fa:گل همیشه‌بهار
 fi:kehäkukka, tarhakehäkukka
-fr:souci, soucis
+fr:souci, soucis, fleurs de calendula
 ga:Ór Muire
 gl:Maravalla
 hr:Neven
@@ -59962,6 +60707,12 @@ wikipedia:en:https://en.wikipedia.org/wiki/Calendula_officinalis
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:soucis
 # 2 products in 3 languages @2018-10-10
 
+<en:herb
+en:sweet woodruff
+fr:aspérule odorante, gaillet odorant
+la:galium odoratum
+nl:lievevrouwebedstro
+
 ###################################################################################################
 #
 #                                Marjoram
@@ -59994,7 +60745,7 @@ ga:oragán cumhra
 gl:maiorana
 he:מיורן
 hi:मरुआ
-hr:majoran, origanum majorana
+hr:majoran, origanum majorana, mažuran, divlji mažuran
 hu:majoránna
 id:marjoram
 io:majorano
@@ -60098,7 +60849,7 @@ es:orégano
 et:pune, oregaano
 fi:oregano
 fr:origan
-hr:origana, oregano, mažuran, divlji mažuran
+hr:origana, origano, oregano 
 hu:oregánó, szurokfű
 it:origano
 ja:オレガノ
@@ -60240,7 +60991,7 @@ ht:siv
 hu:metélőhagyma
 id:lokio
 is:graslaukur
-it:cippolina, aglio d'india
+it:cippolina, aglio d'india, erba cipollina
 ja:チャイブ
 jv:lokio
 kk:шалғын жуа, şalğın jwa, شالعىن جۋا
@@ -60262,6 +61013,7 @@ ro:arpagic
 ru:лук скорода
 sk:pažítka
 sl:drobnjak
+sr:vlašac
 sv:gräslök
 ta:இனப்பூண்டு
 tr:yaprak soğanı
@@ -60422,6 +61174,7 @@ fi:kamomilla
 fr:camomille
 ga:Fíogadán
 gv:Camomile
+hr:kamilica
 it:camomilla
 ja:カモミール
 jv:Camomile
@@ -60528,6 +61281,17 @@ wikipedia:en:https://en.wikipedia.org/wiki/Caper
 # ingredient/fr:câpre has 494 products in 6 languages @2018-12-4
 nutriscore_fruits_vegetables_nuts:en:no
 
+###################################################################################################
+#
+#                                Equisetum arvense
+#
+###################################################################################################
+<en:plant
+en:equisetum arvense
+hr:equisetum arvense, zelen poljske preslice
+wikidata:en:Q107592
+
+
 <en:plant
 fr:feuilles de frêne
 
@@ -60568,7 +61332,7 @@ gl:Coandro
 gu:કોથમીર
 he:כוסברה
 hi:धनिया
-hr:Korijander
+hr:korijander, korijandar
 hu:Koriander
 hy:գինձ
 id:Ketumbar
@@ -60748,6 +61512,12 @@ ciqual_food_name:en:Dandelion, raw
 ciqual_food_name:fr:Pissenlit, cru
 #100 @2021-10-06
 
+<en:plant
+en:ginkgo leaf
+de:Ginkgoblätter
+fr:ginkgo feuille
+nl:ginkgoblad
+pt:folha de ginkgo biloba
 # description:en:GUARANA is a climbing plant in the maple family, Sapindaceae, native to the Amazon basin and especially common in Brazil.
 
 <en:plant
@@ -60852,7 +61622,7 @@ fi:humala
 fr:houblon
 ga:Leannlus
 he:כשות
-hr:hmelj
+hr:hmelj, hmeljevi
 hu:komló, komlo
 id:hopio:Lupulo
 is:Humall
@@ -60919,6 +61689,15 @@ fi:humalaöljy
 sv:humleolja
 # ingredient/en:hop-oil has 1 product in 1 language @2020-06-13
 
+<en:hops
+en:processed hops
+hr:prerađeni hmelj
+
+<en:hops
+en:hop preparation
+hr:pripravak od hmelja
+
+
 <en:plant
 fr:pétales de jasmin
 
@@ -60951,7 +61730,7 @@ fr:genièvre
 ga:aiteal
 gl:Xenebreiro
 he:ערער מצוי
-hr:Obična borovica
+hr:Obična borovica, borovica
 hu:közönséges boróka
 hy:գիհի ցածրաաճ
 is:Einir
@@ -61169,7 +61948,7 @@ mk:маточина
 nb:Sitronmelisse
 nl:citroenmelisse, melisse
 nn:Sitronmelisse
-pl:Melisa lekarska
+pl:melisa, melisa lekarska, melissa officinalis, ziele melisy
 ps:ليمو ويلنی
 pt:Erva-cidreira
 ro:Roiniță
@@ -61437,7 +62216,7 @@ en:linden
 de:Lindenblüten
 es:Tila
 fi:lehmus
-fr:tilleul
+fr:tilleul, fleurs de tilleul
 hr:cvijet lipe
 it:Fiori di tiglio
 nl:Linde, lindebloesem
@@ -61715,7 +62494,7 @@ et:Mate
 eu:Mate
 fi:Mate
 fo:Mate
-fr:maté, yerba mate
+fr:maté, yerba mate, feuilles de mate
 gl:Mate
 gn:Ka'ay
 he:מאטה
@@ -61857,7 +62636,7 @@ et:Nõges
 eu:asun
 fa:گزنه
 fi:nokkonen, nokkoset
-fr:ortie, orties
+fr:ortie, orties, herbes d'ortie
 ga:Neantóg
 gl:Ortiga
 he:סרפד
@@ -62015,7 +62794,7 @@ it:olive verdi
 ja:グリーンオリーブ
 nl:groene olijven
 no:grønn oliven, grønne oliven
-pl:zielone oliwki, zielona oliwka, zielonych oliwek
+pl:zielone oliwki, zielona oliwka, zielonych oliwek, oliwki zielone
 ru:Зелёные оливки
 sv:gröna oliver
 wikidata:en:Q26879770
@@ -62155,6 +62934,18 @@ pl:plantan, plantany, plantana
 <en:plant
 fr:pin sylvestre
 la:Pinus sylvestris
+
+###################################################################################################
+#
+#                                Ononis spinosa
+#
+###################################################################################################
+# Ononis spinosa is a plant belonging to the family Fabaceae, that is commonly known as spiny restharrow or just restharrow.
+
+<en:plant
+en:ononis spinosa
+hr:ononis spinosa, korijen zečjeg trna
+wikidata:en:Q160102
 
 
 ###################################################################################################
@@ -62332,6 +63123,7 @@ fi:rooibos, kapinroibospensas, kapinroibos, rooibos-pensaan lehti
 fr:rooibos
 gl:Rooibos
 he:רויבוש
+hr:afričkog crvenog grma, aspalanthus linearis
 hu:Vörös fokföldirekettye
 id:Rooibos
 it:Rooibos
@@ -62420,7 +63212,7 @@ fa:روزل
 fi:teehibiskus, hibiskus, hibiskuksen kukka
 fr:fleurs de carcadé, fleurs d'hibiscus, hibiscus
 gu:અંબાડી
-hr:hibiskus cvijet, cvijet hibiskusa, cvjetovi hibiskusa, hibiskusa
+hr:hibiskus cvijet, cvijet hibiskusa, cvjetovi hibiskusa, Hibiskus, hibiskusa
 hu:rozella
 id:Rosela
 it:flori di carcadè, Ibisco
@@ -62713,8 +63505,10 @@ es:concentrado de cártamo con efecto colorante
 
 
 <en:plant
-bg:листа от стевия, листа стевия
-de:steviablätter
+#bg:листа от стевия, листа стевия
+#de:steviablätter
+#hr:stevia list
+#comment:en:stevia can be found in the file additives.txt under E960
 
 # description:en:Helianthus or SUNFLOWER (/ˌhiːliˈænθəs/)[2] is a genus of plants comprising about 70 species
 # en:sunflower is only found as a specication, i.e. oil (sunflower, ...)
@@ -62728,6 +63522,7 @@ az:günəbaxan
 ba:көнбағыш
 be:Сланечнік
 bg:слънчоглед, слънчогледова
+bs:suncokretovo
 ca:Gira-sol
 cs:slunečnice
 cv:Хĕвелçаврăнăш ретĕнчисем
@@ -62742,7 +63537,7 @@ fa:گل‌آفتاب‌گردانیان
 fi:auringonkukka
 fr:tournesol
 he:חמנית
-hr:suncokret, suncokretov, suncokretova, suncokretovo
+hr:suncokret, suncokreta, suncokretov, suncokretova, suncokretovo
 hu:napraforgó
 hy:արևածաղիկ
 is:Sólblóm
@@ -63023,9 +63818,10 @@ fr:the de ceylan
 <en:tea
 en:tea extract
 bg:екстракт от чай
+ca:extracte de te, extracte de te Chai
 da:te-ekstrakt
 de:Tee-Extrakt
-es:Extracto de té
+es:Extracto de té, extracto de té Chai
 fi:teeuute
 fr:extrait de thé, extraits de thé
 it:estratto di tè
@@ -63546,7 +64342,7 @@ es:vainas de vainilla, vaina de vainilla
 fi:vaniljatanko, vaniljapapu
 fr:gousse de vanille, gousses de vanille, écorce de vanille
 hr:mahune vanilije
-it:baccelli di vaniglia
+it:baccelli di vaniglia, bacche di vaniglia
 nl:vanillestokje, vanillestokjes
 pl:laski wanilii
 pt:vagem de baunilha
@@ -63591,6 +64387,7 @@ en:Bourbon vanilla beans, vanilla bean Bourbon, bourbon vanilla bean, Bourbon va
 de:Bourbon-Vanilleschote
 fi:bourbon-vaniljakodat
 fr:gousses de vanille bourbon, fève de vanille bourbon
+hr:sjemenke bourbon vanilije
 it:baccello di vaniglia Bourbon, bacche di vaniglia Bourbon, bourbon vanilla bean
 # ingredient/fr:gousses-de-vanille-bourbon has 50 products in 4 languages @2019-02-24
 
@@ -63623,6 +64420,9 @@ fr:grains de vanille épuisés, grains de vanille épuisée, graines de vanille 
 it:semi di vaniglia estratti
 # ingredient/fr:grains-de-vanille-épuisés has 31 products in 5 languages @2019-02-24
 
+<en:vanilla
+en:vanilla preparation
+hr:pripravak vanilija
 
 
 en:vine leaves
@@ -63638,7 +64438,7 @@ vegan:en:yes
 vegetarian:en:yes
 
 
-en:description:WASABI (Eutrema japonicum or Wasabia japonica) or Japanese horseradish is a plant of the Brassicaceae family.
+# en:description:WASABI (Eutrema japonicum or Wasabia japonica) or Japanese horseradish is a plant of the Brassicaceae family.
 
 <en:plant
 en:wasabi
@@ -64325,6 +65125,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Saccharina_japonica
 
 <en:seaweed
 en:laver
+de:laver
 
 # en:description:Nori (海苔) is the Japanese name for edible seaweed (a "sea vegetable") species of the red algae genus Pyropia, including P. yezoensis and P. tenera.
 
@@ -64524,15 +65325,13 @@ la:Porphyra yezoensis
 
 # <en:mold
 en:koji, kōji, koji culture, koji spores, koji starter
+xx:A. Oryzae, koji
 ar:رشاشية أوريزه
 de:Koji, Koji-Ferment, Koji-Pilzkultur
 es:koji, fermento koji
 fr:koji, ferment Koji
-it:koji
 ja:ニホンコウジカビ
 ko:누룩곰팡이
-pl:koji
-pt:koji
 zh:米麴菌
 # zh-cn:米曲菌
 # zh-hans:米曲菌
@@ -64963,7 +65762,7 @@ fr:champignon de Paris, champignons de Paris, Agaricus bisporus
 gl:Champiñón común
 he:פקועה דו-נבגית
 hi:श्वेत बटन खुम्ब
-hr:gljive šampinjoni, agaricus bisporus
+hr:agaricus bisporus, gljive, gljive šampinjoni, šampinjoni
 hu:Kétspórás csiperke
 hy:Շամպինյոն
 ia:Champignon commun
@@ -64981,7 +65780,7 @@ mn:Цагаан мөөг
 ms:Cendawan butang
 nb:Sjampinjong
 nl:Parijse champignons, champignons, champignon
-pl:pieczarki, Pieczarka dwuzarodnikowa
+pl:pieczarki, Pieczarka dwuzarodnikowa, pieczarka
 pt:cogumelos-de-Paris, Champignon
 qu:Champiñun
 ru:Шампиньон двуспоровый, шампиньоны сушеные
@@ -66501,6 +67300,7 @@ ms:Ikan bilis
 nb:ansjos
 nl:ansjovis
 nn:ansjos
+no:ansjos
 pl:Sardelowate, anchois
 qu:Chuqi challwa
 ru:Анчоусовые
@@ -68433,9 +69233,8 @@ sv:laxfilé
 wikidata:en:Q67994034
 # ingredient/fr:filet-de-saumon has 46 products in 5 languages @2020-12-19
 
-#<en:salmon
-#fr:pavé de saumon d'élevage
-# no products
+<en:salmon
+fr:pavés de saumon
 
 #<en:salmon
 #fr:saumon fumé d'élevage
@@ -68699,7 +69498,7 @@ af:sardyn
 ar:سردين
 az:sardina
 be:сардзіны
-bg:сардина
+bg:сардина, сардини
 br:sardin
 ca:sardina, sardines
 cs:sardinka obecná
@@ -69071,7 +69870,7 @@ la:Oreochromis niloticus
 en:tuna
 af:Tuna
 ar:تن
-bg:Тунец
+bg:Тунец, риба тон
 ca:tonyina
 da:Tunfisk
 de:Thunfisch
@@ -69230,7 +70029,7 @@ fr:thon listao, bonite à ventre rayé, Thon rose, Thon rosé
 ga:Boiníotó aigéanach
 gl:Atún listado
 he:אטונס שחור קווים
-hr:Prugasta tuna
+hr:prugasta tuna, katsuwonus pelamis, tuna prugasta
 hu:Csíkoshasú tonhal
 id:Cakalang
 is:Randatúnfiskur
@@ -69276,6 +70075,9 @@ description:nl:De echte bonito (Katsuwonus pelamis) is een straalvinnige vis uit
 decription:pt:O bonito, bonito-listado, gaiado, atum-bonito e atum-gaiado (Katsuwonus pelamis) é uma espécie de peixes da família Scombridae com distribuição natural cosmopolita nas águas tropicais e temperadas.
 # 644 products in 16 @2021-09-03
 
+<en:skipjack tuna
+en:skipjack tuna fillet
+hr:fileti tune prugaste
 
 #category/yellowfin-tunas
 <en:tuna
@@ -70541,7 +71343,7 @@ gn:Syrymbe
 gu:મૃદુકાય સમુદાય
 he:רכיכות
 hi:मोलस्का
-hr:Mekušci
+hr:mekušaca, mekušci
 hu:puhatestűek
 hy:փափկամարմիններ
 ia:Mollusca
@@ -72075,6 +72877,7 @@ gu:કરચલો
 gv:કરચલો
 he:סרטנים קצרי בטן
 hi:केकड़ा
+hr:rakova
 ht:Krab
 hu:Rövidfarkú rákok
 hy:խաչափառներ
@@ -72786,6 +73589,7 @@ de:Weißbeingarnele, Litopenaeus vannamei
 es:camarón, Litopenaeus vannamei
 fi:valkokatkarapu, Litopenaeus vannamei
 fr:Crevette à pattes blanches, Litopenaeus vannamei
+hr:kozice, penaeus vannamei
 la:Litopenaeus vannamei, Penaeus vannamei, Litopenaus vanamei
 pl:krewetka białonoga, Litopenaeus vannamei
 pt:camarão-de-patas-brancas, Litopenaeus vannamei
@@ -73247,7 +74051,7 @@ de:Blütenhonig
 es:miel de flores
 fi:kukkahunaja
 fr:miel de fleurs, miel de nectar
-hr:med cvjetni
+hr:med cvjetni, cvjetni med
 it:miele di fiori
 nl:bloemenhoning, bloemen-honing
 pl:miód kwiatowy
@@ -73328,7 +74132,7 @@ fr:miel italien d'acacia
 
 <en:acacia honey
 <fr:mélange de miels originaires et non originaires de l'ue
-fr:Mélanges de miels d'Acacia originaires et non originaires de l'Union Européenne, melange de miels d'acacia originaires et non-originaires de l'union europeenne issus de l'agriculture biologique
+fr:Mélanges de miels d'Acacia originaires et non originaires de l'Union Européenne
 
 <en:acacia honey
 fr:miel d'acacia des forets preservées d'Europe
@@ -73591,13 +74395,11 @@ sv:blandning av honung från länder inom och utanför eu
 # ingredient/fr:mélange-de-miels-originaires-et-non-originaires-de-l’ue has 25 products in french @2018-12-17
 # ingredient/fr:melange-de-miels-originaires-et-non-originaires-de-la-ce has 11 products @2019-05-28
 
-<fr:mélange de miels originaires et non originaires de l'ue
-fr:melange-de-miels-de-fleurs-originaires-et-non-originaires-de-l-union-europeenne-issus-de-l-agriculture-biologique
-
 ##################### HONEY FROM SPECIFIC AREAS
 
 <en:honey
 en:forest honey
+bg:горски мед
 de:Waldhonig
 fi:trooppinen metsähunaja
 fr:miel de forêt
@@ -74085,7 +74887,7 @@ fi:Sulfiitti, sulfiitit
 fr:sulfite, sulfites, sulphites, sulphite, bisulfite, metabisulfite, metabisulphite, disulfites
 ga:suilfítí
 he:סולפיט
-hr:sulfit, sulfite
+hr:sulfit, sulfiti, sulfite
 hu:szulfit
 hy:Սուլֆիտներ
 it:solfito, solfiti
@@ -74523,6 +75325,7 @@ de:Röstkaffee gemahlen
 es:café tostado y molido
 fi:paahdettu kahvijauhe
 fr:café torréfié moulu, Café torréfié et moulu
+hr:pržene mljevene kave
 it:caffè torrefatto macinato
 nl:gemalen gebrande koffie, gebrande koffie gemalen, gebrande en gemalen koffie
 pt:café torrado moído
@@ -75010,6 +75813,7 @@ vegetarian:en:no
 
 <en:poultry
 en:poultry meat
+bg:птиче месо
 da:Fjerkrækød
 de:Geflügelfleisch
 es:Carne de ave
@@ -75109,7 +75913,7 @@ gn:Ryguasu
 ha:Kaza
 he:תרנגול הבית
 hi:मुर्गी
-hr:kokoš, kokošji
+hr:kokoš, kokošji, piletina
 hu:Csirkék, csirke, házityúk
 hy:հավ
 ia:gallina
@@ -75312,7 +76116,7 @@ fi:kananmaksa
 fr:foie de poulet
 it:fegato di pollo
 nl:kippenlever
-pl:wątroba z kurczaka, wątróbka z kurczaka, wątróbki z kurczaka, wątroby z kurczaka, wątroby z kurcząt
+pl:wątroba z kurczaka, wątróbka z kurczaka, wątróbki z kurczaka, wątroby z kurczaka, wątroby z kurcząt, wątroba z kurcząt
 ro:ficat de pui
 zh:鸡肝
 wikidata:en:Q67210929
@@ -75563,6 +76367,7 @@ da:kyllingebrystfilet
 de:hähnchenbrustfilet
 fi:broilerin rintafilee, broilerin rintafileetä
 fr:filet de poitrine de poulet
+hr:file pilećih prsa
 nl:kippenborstfilet
 pl:filet z piersi kurczaka, filet z piersi z kurczaka, filety z piersi kurczaka, filety z piersi z kurczaka, filet z piersi kurcząt
 sv:kycklingbröstfilé
@@ -75922,6 +76727,7 @@ fr:viande de dinde halal
 
 <en:turkey meat
 en:turkey breast, turkey fillet,turkey breast meat
+bg:пуешко филе
 ca:pit de gall d'indi, pit d'indiot
 de:Putenfilet
 es:pechuga de pavo
@@ -76203,6 +77009,7 @@ es:aroma de huevo
 
 <en:eggs
 en:large eggs
+bg:големи яйца
 da:store æg
 de:große Eier, Eier groß
 fi:suuri muna, suuret munat
@@ -76212,6 +77019,7 @@ nl:grote eieren
 
 <en:egg
 en:free range eggs, free range whole egg
+bg:яйца от свободни кокошки
 de:Freilandeier
 es:Huevos de corral,huevos de gallinas criadas en el suelo
 fi:ulkomunat
@@ -76316,6 +77124,7 @@ fr:quartiers d'œufs durs
 
 #process:en: en:pasteurised
 #<en:egg
+#bg:пастьоризирано яйце, пастьоризирани яйца
 #fr:œuf pasteurisé, œufs pasteurisés, oeuf pasteurisé, oeufs pasteurisés
 #de:Eier pasteurisiert
 #hr:pasterizirana jaja
@@ -76397,7 +77206,7 @@ fr:oeufs frais de poules élevées en plein air issus de l'agriculture biologiqu
 
 <en:free range chicken eggs
 <en:category A egg
-fr:Œufs de catégorie A de poules élevées en plein air, Oeufs de catégorie A de poules élevées en plein air, 9 Œufs de catégorie A de poules élevées en plein air
+fr:Œufs de catégorie A de poules élevées en plein air, Oeufs de catégorie A de poules élevées en plein air, 9 Œufs de catégorie A de poules élevées en plein air, Œufs frais de poules élevées en plein air de catégorie A
 # ingredient/fr:oeufs-de-categorie-a-de-poules-elevees-en-plein-air has 5 products @2019-05-31
 
 <en:free range chicken eggs
@@ -76483,6 +77292,7 @@ pt:Ovo inteiro
 # ingredient/fr:œuf-entier has 2004 products in 7 languages @2018-12-18
 
 <en:whole egg
+bg:пастьоризирани цели яйца
 fr:œuf entier pasteurisé, œufs entiers pasteurisés, oeuf entier pasteurisé, oeufs entiers pasteurisés
 de:Vollei pasteurisiert, pasteurisiertes Vollei
 it:uovo intero pastorizzato
@@ -76515,6 +77325,7 @@ de:Vollei flüssig, flüssiges vollei
 es:Huevo entero líquido
 fi:Nestemäinen kokonainen muna
 fr:œuf entier liquide, œufs entiers liquides, oeuf entier liquide, oeufs entiers liquides
+hr:tekuća cijela jaja
 it:uovo intero liquido
 # ingredient/llwiquid-whole-egg has 131 products in 4 languages @2018-12-18
 
@@ -76527,6 +77338,7 @@ fr:oeuf entier liquide pasteurisé salé
 
 <en:whole egg
 en:whole fresh eggs
+bg:цели пресни яйца
 ca:ous sencers frescos, ou sencer fresc
 de:frisches Vollei
 es:huevos enteros frescos
@@ -76606,7 +77418,11 @@ it:Uovo fresco pastorizzato
 
 <en:fresh egg
 fr:œufs frais de poules élevées en plein air, oeufs frais de poules élevées en plein air
+hr:svježa jaja iz slobodnog uzgoja
 # ingredient/fr:œufs-frais-de-poules-élevées-en-plein-air has 44 products in french @2018-12-18
+
+<en:fresh egg
+hr:svježa pasterizirana jaja iz podnog uzgoja, svježa pasterizirana jaja podnog uzgoja
 
 <en:egg
 en:liquid egg
@@ -76636,6 +77452,7 @@ fi:munanvalkuainen
 fr:blanc d'œuf, blancs d'œufs, albumine d'œuf, blancs d'œuf, blanc d'oeuf, blancs d'oeufs, albumine d'oeuf, blancs d'oeuf, blanc d'œufs
 gl:clara de ovo
 hi:חלבון הביצה
+hr:bjelanjak jajeta
 hu:tojásfehérje
 id:putih telur
 io:Albumeno
@@ -76697,7 +77514,7 @@ el:ασπράδι αυγού σε σκόν
 es:clara de huevo en polvo, clara de huevos en polvo
 fi:munanvalkuaisjauhe, kuivattu munanvalkuainen
 fr:blanc d'œuf en poudre, blancs d'œufs en poudre, poudre de blanc d’œuf, blanc d'œuf déshydraté, blanc d'œufs en poudre, blanc d'oeuf en poudre, blancs d'oeufs en poudre, poudre de blanc d’oeuf, blanc d'oeuf déshydraté, blanc d'oeufs en poudre,poudre d'albumen
-hr:bjelanjak u prahu
+hr:bjelanjak u prahu, bjelanjak jaja u prahu, bjelanjak jajate u prahu
 hu:porított tojásfehérje, tojásfehérjepor, szárított tojásfehérje
 it:albume d'uovo in polvere, albume in polvere
 nl:eiwitpoeder, gedroogd ei-eiwit, eiwit in poeder
@@ -76880,7 +77697,7 @@ ga:buíocán
 gd:buidheagan
 he:חלמון
 hi:अंडे की ज़र्दी
-hr:žumanjak
+hr:žumanjak, žumanjak jaja
 hu:tojássárgája
 hy:Ռեբու
 id:kuning telur
@@ -77308,7 +78125,7 @@ hy:մանրաթելեր
 id:Serat
 io:Fibro
 is:Trefjar
-it:fibra, fibra alimentare
+it:fibra, fibra alimentare, fibra di
 ja:繊維
 kk:Волокнит
 kn:ನಾರು
@@ -77403,7 +78220,7 @@ fi:inuliini, inuliinikuitu
 fr:inuline
 gl:Inulina
 he:אינולין
-hr:inulin
+hr:inulin, prehrambena vlakna Beneo, inulin od cikorije
 hu:Inulin
 hy:Ինուլին
 id:Inulin
@@ -77471,12 +78288,18 @@ pl:Błonnik roślinny
 pt:fibra vegetal
 ro:fibre vegetale
 ru:растительное волокно
+sl:rastlinske vlaknine
+sr:biljna vlakna
 sv:vegetabilisk fiber, vegetabilisk fibrer, växtfiber, växtfibrer
 # pt-br:fibra vegetal
 vegan:en:yes
 vegetarian:en:yes
 wikidata:en:Q20026824
 # ingredient/fr:fibres-végétales has 536 products in 7 languages @2019-03-11
+
+<en:vegetable fiber
+en:oat fiber
+de:Haferfaser, Haferpflanzenfaser
 
 <en:vegetable fiber
 en:pea fiber
@@ -77704,7 +78527,7 @@ fi:täyte
 fr:garniture, fourrage, nappage, farce, fourrage blanc, remplissage
 gl:Recheo
 he:מלית
-hr:punjenje, punilo
+hr:punjenje, punjenje od, punilo
 hu:töltelék
 id:Isian
 io:Farso
@@ -77768,6 +78591,7 @@ bg:малинов пълнеж
 de:Himbeerfüllung
 fi:vadelmatäyte
 fr:garniture aux framboises
+hr:punjenje od malina
 sv:hallonfyllning
 # usage:en:raspberry filling (raspberries, water, granulated sugar, pectin, and citric acid)
 # mainIngredient:en:raspberry
@@ -77964,9 +78788,6 @@ ciqual_food_name:fr:Pâte à pizza crue
 <en:dough
 en:inactive dough
 de:inaktive Hefe
-
-<en:sourdough
-es:masa madre inactiva
 
 <en:pasta
 en:cooked pasta
@@ -78629,6 +79450,11 @@ pt:Jodenkoek
 sv:Judebröd
 th:โยเดิงกุก
 
+#category:en: en:Pretzel
+en:bretzel
+fr:bretzel
+nl:pretzel
+
 #comment:en:not sure about the translations. Some prefer the pepper part, other the ginger-part. Need to split?
 #<en:compound
 en:gingerbread
@@ -78784,7 +79610,7 @@ gv:arran
 ha:Gurasa
 he:לחם
 hi:डबलरोटी
-hr:kruh
+hr:kruh, krušne mrvice
 ht:pen
 hu:kenyér
 hy:հաց
@@ -79578,6 +80404,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Speculaas
 en:coating, seasoning
 bg:Покритие
 bs:smjesa za paniranje
+cs:ochucující
 de:Beschichtung
 es:envolviendo, sobrimiento,sazonador
 et:kate
@@ -79639,7 +80466,7 @@ fr:intérieur cône
 en:breadcrumbs, bread crumbs, breading
 ar:بقسماط
 be:Паніровачныя сухары
-bg:Галета
+bg:Галета, панировка
 ca:pa ratllat, farina de galeta
 cs:strouhanka
 da:Rasp, panering, krydret panering
@@ -79666,6 +80493,7 @@ pl:bułka tarta, bułki tartej
 pt:pão ralado
 ru:Панировочные сухари
 sk:Strúhanka
+sl:krušne drobtine
 sv:panering, ströbröd, paneringsmjöl, brödsmulor, skorpmjöl, kryddpanering
 uk:Паніровка
 vi:Vụn bánh mì
@@ -80089,7 +80917,7 @@ ga:tófú
 gl:Tofu
 he:טופו
 hi:टोफ़ू
-hr:Tofu
+hr:tofu
 hu:Tofu
 hy:Տոֆու
 id:tahu
@@ -80608,6 +81436,7 @@ gd:brot
 gl:Caldo
 he:ציר
 hi:यखनी
+hr:bujon
 hu:Húsleves
 hy:արգանակ
 ia:Bouillon
@@ -80752,6 +81581,7 @@ ciqual_food_name:fr:Fond de volaille pour sauces et cuisson, déshydraté
 <en:chickens
 en:chicken broth, chicken stock
 bg:пилешки бульон
+bs:kokošja supa
 ca:brou de pollastre
 da:Kyllingebouillon
 de:Hühnerbrühe
@@ -81804,6 +82634,7 @@ de:Marinade
 es:marinado
 fi:marinadi
 fr:marinade
+hr:marinada
 hu:marinálás
 it:marinata
 lt:marinatas
@@ -82328,7 +83159,7 @@ et:tomatikaste
 eu:tomate saltsa
 fa:سس گوجه فرنگی
 fi:tomaattikastike
-fr:sauce tomate, préparation à base de tomates, préparation aux tomates
+fr:sauce tomate, préparation à base de tomates, préparation aux tomates, preparation a base de tomates cerise
 gl:Salsa de tomate
 gv:soolagh traase
 he:רוטב עגבניות
@@ -82952,7 +83783,9 @@ vegetarian:en:no
 #
 ###################################################################################################
 en:kombucha
+ca:kombucha
 de:Kombucha
+es:Kombucha, cultivo de Kombucha
 fr:kombucha
 pl:kombucha, kombucza
 wikidata:en:Q657032
@@ -82962,7 +83795,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Kombucha
 en:raw kombucha
 de:Roher Kombucha
 fr:Combucha cru, Kombucha cru
-
 
 ###################################################################################################
 #
@@ -83082,7 +83914,7 @@ sv:fruktextrakt
 # 54 products in 4 languages @2018-10-04
 
 <en:fruit extract
-en:apple extract
+en:apple extract, apple essence
 bg:екстракт от ябълка, ябълков екстракт
 de:Apfelextrakt
 es:extracto de manzana

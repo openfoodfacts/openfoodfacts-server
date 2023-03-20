@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -482,10 +482,17 @@ sub create_ecoscore_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
 
 		my $score = $product_ref->{ecoscore_data}{score};
 		my $grade = $product_ref->{ecoscore_data}{grade};
+		my $transportation_warning = undef;
 
-		if (defined $product_ref->{ecoscore_data}{"score_" . $cc}) {
-			$score = $product_ref->{ecoscore_data}{"score_" . $cc};
-			$grade = $product_ref->{ecoscore_data}{"grade_" . $cc};
+		if (defined $product_ref->{ecoscore_data}{scores}{$cc}) {
+			$score = $product_ref->{ecoscore_data}{scores}{$cc};
+			$grade = $product_ref->{ecoscore_data}{grades}{$cc};
+			if ($cc eq "world") {
+				$transportation_warning = lang_in_other_lc($target_lc, "ecoscore_warning_transportation_world");
+			}
+		}
+		else {
+			$transportation_warning = lang_in_other_lc($target_lc, "ecoscore_warning_transportation");
 		}
 
 		$log->debug("create ecoscore panel - known", {code => $product_ref->{code}, score => $score, grade => $grade})
@@ -529,6 +536,7 @@ sub create_ecoscore_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
 			"score" => $score,
 			"grade" => $grade,
 			"title" => $title,
+			"transportation_warning" => $transportation_warning,
 		};
 
 		create_panel_from_json_template("ecoscore", "api/knowledge-panels/environment/ecoscore/ecoscore.tt.json",
@@ -698,7 +706,8 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 
 	# Create the environment_card panel
-	create_panel_from_json_template("environment_card", "api/knowledge-panels/environment/environment_card.tt.json",
+	$panel_data_ref->{packaging_image} = data_to_display_image($product_ref, "packaging", $target_lc),
+		create_panel_from_json_template("environment_card", "api/knowledge-panels/environment/environment_card.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 	return;
 }

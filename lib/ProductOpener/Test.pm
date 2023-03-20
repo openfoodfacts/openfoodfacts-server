@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -128,7 +128,7 @@ TXT
 
 =head2 check_not_production ()
 
-Fail unless we have less than 1000 products in database.
+Fail unless we have less than 10000 products in database.
 
 This is a simple heuristic to ensure we are not in a production database
 
@@ -140,8 +140,8 @@ sub check_not_production() {
 			return get_products_collection()->count_documents({});
 		}
 	);
-	unless ((0 <= $products_count) && ($products_count < 1000)) {
-		confess("Refusing to run destructive test on a DB of more than 1000 items\n");
+	unless ((0 <= $products_count) && ($products_count < 10000)) {
+		confess("Refusing to run destructive test on a DB of more than 10,000 items\n");
 	}
 }
 
@@ -295,10 +295,16 @@ sub compare_to_expected_results ($object_ref, $expected_results_file, $update_ex
 
 	my $json = JSON->new->allow_nonref->canonical;
 
+	my $desc = undef;
+	if (defined $test_ref) {
+		$desc = $test_ref->{desc} // $test_ref->{id};
+	}
+
 	if ($update_expected_results) {
 		open(my $result, ">:encoding(UTF-8)", $expected_results_file)
 			or confess("Could not create $expected_results_file: $!");
-		print $result $json->pretty->encode($object_ref);
+		my $pretty_json = $json->pretty->encode($object_ref);
+		print $result $pretty_json;
 		close($result);
 	}
 	else {
@@ -308,7 +314,7 @@ sub compare_to_expected_results ($object_ref, $expected_results_file, $update_ex
 
 			local $/;    #Enable 'slurp' mode
 			my $expected_object_ref = $json->decode(<$expected_result>);
-			is_deeply($object_ref, $expected_object_ref) or diag(explain $test_ref, explain $object_ref);
+			is_deeply($object_ref, $expected_object_ref, $desc) or diag(explain $test_ref, explain $object_ref);
 		}
 		else {
 			fail("could not load $expected_results_file");

@@ -1,6 +1,5 @@
 {
    "code" : "200000000034",
-   "errors" : [],
    "product" : {
       "_id" : "200000000034",
       "_keywords" : [
@@ -856,13 +855,9 @@
       "traces_tags" : [],
       "unknown_ingredients_n" : 0,
       "unknown_nutrients_tags" : [],
-      "vitamins_tags" : []
+      "vitamins_tags" : [],
+      "weighers_tags" : []
    },
-   "result" : {
-      "id" : "product_found",
-      "lc_name" : "Product found",
-      "name" : "Product found"
-   },
-   "status" : "success",
-   "warnings" : []
+   "status" : 1,
+   "status_verbose" : "product found"
 }

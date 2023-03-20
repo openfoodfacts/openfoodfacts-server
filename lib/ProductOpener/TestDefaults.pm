@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -31,6 +31,7 @@ BEGIN {
 		%admin_user_form
 		%default_org_edit_form
 		%default_org_edit_admin_form
+		%default_product
 		%default_product_form
 		%default_user_form
 		%pro_moderator_user_form
@@ -91,7 +92,7 @@ NB: must be created by an admin
 	name => "Pro Moderator",
 );
 
-%default_product_form = (
+%default_product = (
 	code => '2000000000001',
 	lang => "en",
 	product_name => "test_default",
@@ -102,6 +103,10 @@ NB: must be created by an admin
 	origin => "Germany",
 	categories => "snacks",
 	serving_size => "10 g",
+);
+
+%default_product_form = (
+	%default_product,
 	action => "process",
 	type => "add",
 	".submit" => "submit"

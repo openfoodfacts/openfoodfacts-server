@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -141,6 +141,7 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
+use ProductOpener::HTTP qw(:all);
 use ProductOpener::Store qw(:all);
 use ProductOpener::Config qw(:all);
 use ProductOpener::Tags qw(:all);
@@ -167,6 +168,7 @@ use ProductOpener::Recipes qw(:all);
 use ProductOpener::PackagerCodes qw(:all);
 use ProductOpener::Export qw(:all);
 use ProductOpener::API qw(:all);
+use ProductOpener::Units qw/:all/;
 
 use Cache::Memcached::Fast;
 use Encode;
@@ -369,6 +371,8 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 
 	# Add functions and values that are passed to all templates
 
+	$template_data_ref->{server_options_private_products} = $server_options{private_products};
+	$template_data_ref->{server_options_producers_platform} = $server_options{producers_platform};
 	$template_data_ref->{producers_platform_url} = $producers_platform_url;
 	$template_data_ref->{server_domain} = $server_domain;
 	$template_data_ref->{static_subdomain} = $static_subdomain;
@@ -518,7 +522,7 @@ A scalar value for the parameter, or undef if the parameter is not defined.
 =cut
 
 sub request_param ($request_ref, $param_name) {
-	return (scalar param($param_name)) || deep_get($request_ref, "request_body_json", $param_name);
+	return (scalar param($param_name)) || deep_get($request_ref, "body_json", $param_name);
 }
 
 =head2 init_request ()
@@ -531,24 +535,34 @@ $lc : language code
 
 It also initializes a request object that is returned.
 
+=head3 Parameters
+
+=head4 (optional) Request object reference $request_ref
+
+This function may be passed an existing request object reference
+(e.g. pre-containing some fields of the request, like a JSON body).
+
+If not passed, a new request object will be created.
+
+
 =head3 Return value
 
 Reference to request object.
 
 =cut
 
-sub init_request() {
+sub init_request ($request_ref = {}) {
+
+	$log->debug("init_request - start", {request_ref => $request_ref}) if $log->is_debug();
 
 	# Clear the context
 	delete $log->context->{user_id};
 	delete $log->context->{user_session};
 	$log->context->{request} = generate_token(16);
 
-	# Create and initialize a request object
-	my $request_ref = {
-		'original_query_string' => $ENV{QUERY_STRING},
-		'referer' => referer()
-	};
+	# Initialize the request object
+	$request_ref->{referer} = referer();
+	$request_ref->{original_query_string} = $ENV{QUERY_STRING};
 
 	# Depending on web server configuration, we may get or not get a / at the start of the QUERY_STRING environment variable
 	# remove the / to normalize the query string, as we use it to build some redirect urls
@@ -745,13 +759,36 @@ sub init_request() {
 
 	my $error = ProductOpener::Users::init_user($request_ref);
 	if ($error) {
-		# TODO: currently we always display an HTML message if we were passed a bad user_id and password combination
-		# even if the request is an API request
+		# We were sent bad user_id / password credentials
 
+		# If it is an API v3 query, the error will be handled by API::process_api_request()
+		if ((defined $request_ref->{api_version}) and ($request_ref->{api_version} >= 3)) {
+			$log->debug(
+				"init_request - init_user error - API v3: continue",
+				{init_user_error => $request_ref->{init_user_error}}
+			) if $log->is_debug();
+			add_error(
+				$request_ref->{api_response},
+				{
+					message => {id => "invalid_user_id_and_password"},
+					impact => {id => "failure"},
+				}
+			);
+		}
+		# /cgi/auth.pl returns a JSON body
 		# for requests to /cgi/auth.pl, we will now return a JSON body, set in /cgi/auth.pl
-		# but it would be good to later have a more consistent behaviour for all API requests
-		if ($r->uri() !~ /\/cgi\/auth\.pl/) {
-			print $r->uri();
+		elsif ($r->uri() =~ /\/cgi\/auth\.pl/) {
+			$log->debug(
+				"init_request - init_user error - /cgi/auth.pl: continue",
+				{init_user_error => $request_ref->{init_user_error}}
+			) if $log->is_debug();
+		}
+		# Otherwise we return an error page in HTML (including for v0 / v1 / v2 API queries)
+		else {
+			$log->debug(
+				"init_request - init_user error - display error page",
+				{init_user_error => $request_ref->{init_user_error}}
+			) if $log->is_debug();
 			display_error_and_exit($error, 403);
 		}
 	}
@@ -796,39 +833,23 @@ CSS
 
 	# call format_subdomain($subdomain) only once
 	$formatted_subdomain = format_subdomain($subdomain);
+	$producers_platform_url = $formatted_subdomain . '/';
 
-	# Change the color of the top nav bar for the platform for producers
-	if ($server_options{producers_platform}) {
-		$styles .= <<CSS
-.top-bar {
-    background: #a9e7ff;
-}
-
-.top-bar-section li:not(.has-form) a:not(.button) {
-    background: #a9e7ff;
-}
-
-.top-bar-section .has-form {
-    background: #a9e7ff;
-}
-CSS
-			;
+	# If we are not already on the producers platform: add .pro
+	if ($producers_platform_url !~ /\.pro\.open/) {
+		$producers_platform_url =~ s/\.open/\.pro\.open/;
 	}
 
 	# Enable or disable user food preferences: used to compute attributes and to display
 	# personalized product scores and search results
-	if (    ((defined $options{product_type}) and ($options{product_type} eq "food"))
-		and (not $server_options{producers_platform}))
-	{
+	if (((defined $options{product_type}) and ($options{product_type} eq "food"))) {
 		$request_ref->{user_preferences} = 1;
 	}
 	else {
 		$request_ref->{user_preferences} = 0;
 	}
 
-	if (    ((defined $options{product_type}) and ($options{product_type} eq "food"))
-		and ((defined $ecoscore_countries_enabled{$cc}) or ($User{moderator})))
-	{
+	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 		$show_ecoscore = 1;
 		$attributes_options_ref = {};
 		$knowledge_panels_options_ref = {};
@@ -845,11 +866,6 @@ CSS
 		};
 	}
 
-	# Producers platform url
-
-	$producers_platform_url = $formatted_subdomain . '/';
-	$producers_platform_url =~ s/\.open/\.pro\.open/;
-
 	$log->debug(
 		"owner, org and user",
 		{
@@ -865,6 +881,7 @@ CSS
 	# and remove the $lc, $cc and @lcs global variables
 	$request_ref->{lc} = $lc;
 	$request_ref->{cc} = $cc;
+	$request_ref->{country} = $country;
 	$request_ref->{lcs} = \@lcs;
 
 	return $request_ref;
@@ -996,51 +1013,39 @@ sub display_error_and_exit ($error_message, $status_code) {
 # Specific index for producer on the platform for producers
 sub display_index_for_producer ($request_ref) {
 
-	my $html = "";
-
 	# Check if there are data quality issues or improvement opportunities
+
+	my $template_data_ref = {facets => []};
 
 	foreach my $tagtype ("data_quality_errors_producers", "data_quality_warnings_producers", "improvements") {
 
 		my $count = count_products($request_ref, {$tagtype . "_tags" => {'$exists' => true, '$ne' => []}});
 
 		if ($count > 0) {
-			$html
-				.= "<p>&rarr; <a href=\"/"
-				. $tag_type_plural{$tagtype}{$lc} . "\">"
-				. lang("number_of_products_with_" . $tagtype)
-				. separator_before_colon($lc) . ": "
-				. $count
-				. "</a></p>";
+			push @{$template_data_ref->{facets}},
+				{
+				url => "/" . $tag_type_plural{$tagtype}{$lc},
+				number_of_products => lang("number_of_products_with_" . $tagtype),
+				count => $count,
+				};
 		}
 	}
-
-	$html .= "<h2>" . lang("your_products") . separator_before_colon($lc) . ":" . "</h2>";
-	$html .= '<p>&rarr; <a href="/cgi/import_file_upload.pl">' . lang("add_or_update_products") . '</a></p>';
 
 	# Display a message if some product updates have not been published yet
 
 	my $count = count_products($request_ref, {states_tags => "en:to-be-exported"});
 
-	my $message = "";
-
-	if ($count == 0) {
-		$message = lang("no_products_to_export");
+	if ($count == 1) {
+		$template_data_ref->{products_to_be_exported} = lang("one_product_will_be_exported");
 	}
-	elsif ($count == 1) {
-		$message = lang("one_product_will_be_exported");
-	}
-	else {
-		$message = sprintf(lang("n_products_will_be_exported"), $count);
+	elsif ($count > 1) {
+		$template_data_ref->{products_to_be_exported} = sprintf(lang("n_products_will_be_exported"), $count);
 	}
 
-	if ($count > 0) {
-		$html
-			.= "<p>"
-			. lang("some_product_updates_have_not_been_published_on_the_public_database") . "</p>" . "<p>"
-			. $message . "</p>"
-			. "&rarr; <a href=\"/cgi/export_products.pl\">$Lang{export_product_data_photos}{$lc}</a><br>";
-	}
+	my $html;
+
+	process_template('web/common/includes/producers_platform_front_page.tt.html', $template_data_ref, \$html)
+		|| return "template error: " . $tt->error();
 
 	return $html;
 }
@@ -1081,7 +1086,12 @@ sub display_text ($request_ref) {
 	if (($textid eq 'index-pro') and (defined $Owner_id)) {
 		my $owner_user_or_org = $Owner_id;
 		if (defined $Org_id) {
-			$owner_user_or_org = $Org{name};
+			if ((defined $Org{name}) and ($Org{name} ne "")) {
+				$owner_user_or_org = $Org{name};
+			}
+			else {
+				$owner_user_or_org = $Org_id;
+			}
 		}
 		$html =~ s/<\/h1>/ - $owner_user_or_org<\/h1>/;
 	}
@@ -3976,12 +3986,24 @@ HTML
 		if (not defined $request_ref->{groupby_tagtype}) {
 
 			# Pass template data to generate navigation links
+			# These are variables that ae used to inject data
+			# Used in tag.tt.html
+			#-------------------------------------------------------
+			# Results of these variables based for category/en:snacks
+			#---- tagtype would return-> categories -----
+			#---- tagtype_path would return-> /categories -----
+			#---- tagtype_name would return-> category -----
+			#---- tagid would return-> en:snacks -----
+			#---- tagid_path would return-> /category/snacks -----
+			#---- tag_name would return-> Snacks -----
+
 			$tag_template_data_ref->{tagtype} = $tagtype;
 			$tag_template_data_ref->{tagtype_path} = '/' . $tag_type_plural{$tagtype}{$lc};
 			$tag_template_data_ref->{tagtype_name} = lang($tagtype . '_s');
 			$tag_template_data_ref->{tagid} = $tagid;
 			$tag_template_data_ref->{tagid_path} = $newtagidpath;
 			$tag_template_data_ref->{tag_name} = $display_tag;
+			$tag_template_data_ref->{canon_tagid} = $canon_tagid // $tagid;
 
 			if (defined $tagid2) {
 				$tag_template_data_ref->{tagtype2} = $tagtype2;
@@ -3990,6 +4012,7 @@ HTML
 				$tag_template_data_ref->{tagid2} = $tagid2;
 				$tag_template_data_ref->{tagid2_path} = $newtagid2path;
 				$tag_template_data_ref->{tag2_name} = $display_tag2;
+				$tag_template_data_ref->{canon_tagid2} = $canon_tagid2 // $tagid2;
 			}
 			else {
 
@@ -4023,6 +4046,8 @@ HTML
 	}    # end of if (defined $tagtype)
 
 	$tag_template_data_ref->{country} = $country;
+	$tag_template_data_ref->{country_code} = $cc;
+	$tag_template_data_ref->{facets_kp_url} = $facets_kp_url;
 
 	if ($country ne 'en:world') {
 
@@ -4128,7 +4153,7 @@ HTML
 			$query_ref->{$field} = $tag2_is_negative ? {"\$ne" => $value} : $value;
 		}
 	}
-
+	# Rendering Page tags
 	my $tag_html;
 	process_template('web/pages/tag/tag.tt.html', $tag_template_data_ref, \$tag_html)
 		or $tag_html = "<p>tag.tt.html template error: " . $tt->error() . "</p>";
@@ -5177,16 +5202,16 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			$fields = single_param('fields') || 'all';
 		}
 
-		my $customized_products = [];
+		my $customized_products_ref = [];
 
 		for my $product_ref (@{$request_ref->{structured_response}{products}}) {
 
 			my $customized_product_ref = customize_response_for_product($request_ref, $product_ref, $fields);
 
-			push @{$customized_products}, $customized_product_ref;
+			push @{$customized_products_ref}, $customized_product_ref;
 		}
 
-		$request_ref->{structured_response}{products} = $customized_products;
+		$request_ref->{structured_response}{products} = $customized_products_ref;
 
 		# Disable nested ingredients in ingredients field (bug #2883)
 
@@ -6641,39 +6666,6 @@ sub search_and_map_products ($request_ref, $query_ref, $graph_ref) {
 	return $html;
 }
 
-sub display_on_the_blog ($blocks_ref) {
-
-	if (open(my $IN, "<:encoding(UTF-8)", "$data_root/lang/$lang/texts/blog-foundation.html")) {
-
-		my $html = join('', (<$IN>));
-		push @{$blocks_ref},
-			{
-			'title' => lang("on_the_blog_title"),
-			'content' => lang("on_the_blog_content") . '<ul class="side-nav">' . $html . '</ul>',
-			'id' => 'on_the_blog',
-			};
-		close $IN;
-	}
-
-	return;
-}
-
-sub display_bottom_block ($blocks_ref) {
-
-	if (defined $Lang{bottom_content}{$lang}) {
-
-		my $html = lang("bottom_content");
-
-		push @{$blocks_ref},
-			{
-			'title' => lang("bottom_title"),
-			'content' => $html,
-			};
-	}
-
-	return;
-}
-
 sub display_page ($request_ref) {
 
 	$log->trace("Start of display_page") if $log->is_trace();
@@ -6700,17 +6692,9 @@ sub display_page ($request_ref) {
 		return;
 	}
 
-	if ($server_options{producers_platform}) {
-
-		$template_data_ref->{server_options_producers_platform} = $server_options{producers_platform};
-	}
-
-	not $request_ref->{blocks_ref} and $request_ref->{blocks_ref} = [];
-
 	my $title = $request_ref->{title};
 	my $description = $request_ref->{description};
 	my $content_ref = $request_ref->{content_ref};
-	my $blocks_ref = $request_ref->{blocks_ref};
 
 	my $meta_description = '';
 
@@ -6720,25 +6704,6 @@ sub display_page ($request_ref) {
 
 	my $type;
 	my $id;
-
-	# TODO: 2022/10/12 - in the new website design, we removed the side column where we displayed blocks
-	# Those blocks need to be migrated to the new design (if we want to keep them)
-	# and the corresponding code needs to be removed
-
-	$log->debug("displaying blocks") if $log->is_debug();
-
-	display_login_register($blocks_ref);
-
-	display_my_block($blocks_ref);
-
-	display_on_the_blog($blocks_ref);
-
-	#display_top_block($blocks_ref);
-
-	# Bottom block is used for donations, do not display it on the producers platform
-	if (not $server_options{producers_platform}) {
-		display_bottom_block($blocks_ref);
-	}
 
 	my $site = "<a href=\"/\">" . lang("site_name") . "</a>";
 
@@ -6894,15 +6859,6 @@ sub display_page ($request_ref) {
 	$template_data_ref->{langs} = $langs;
 	$template_data_ref->{selected_lang} = $selected_lang;
 
-	my $blocks = display_blocks($request_ref);
-	my $aside_blocks = $blocks;
-
-	# keep only the login block for off canvas
-	$aside_blocks =~ s/<!-- end off canvas blocks for small screens -->(.*)//s;
-
-	# change ids of the add product image upload form
-	$aside_blocks =~ s/block_side/block_aside/g;
-
 	# Join us on Slack <a href="http://slack.openfoodfacts.org">Slack</a>:
 	my $join_us_on_slack
 		= sprintf($Lang{footer_join_us_on}{$lc}, '<a href="https://slack.openfoodfacts.org">Slack</a>');
@@ -7000,9 +6956,7 @@ sub display_page ($request_ref) {
 
 	$template_data_ref->{search_terms} = ${search_terms};
 	$template_data_ref->{torso_class} = $torso_class;
-	$template_data_ref->{aside_blocks} = $aside_blocks;
 	$template_data_ref->{tagline} = $tagline;
-	$template_data_ref->{blocks} = $blocks;
 	$template_data_ref->{title} = $title;
 	$template_data_ref->{content} = $$content_ref;
 	$template_data_ref->{join_us_on_slack} = $join_us_on_slack;
@@ -7230,7 +7184,6 @@ sub display_product ($request_ref) {
 	my $product_id = product_id_for_owner($Owner_id, $code);
 
 	my $html = '';
-	my $blocks_ref = [];
 	my $title = undef;
 	my $description = "";
 
@@ -7944,8 +7897,6 @@ HTML
 
 	if ($server_options{producers_platform}) {
 
-		$template_data_ref->{server_options_producers_platform} = $server_options{producers_platform};
-
 		$template_data_ref->{display_data_quality_issues_and_improvement_opportunities}
 			= display_data_quality_issues_and_improvement_opportunities($product_ref);
 
@@ -8107,7 +8058,6 @@ JS
 	$request_ref->{content_ref} = \$html;
 	$request_ref->{title} = $title;
 	$request_ref->{description} = $description;
-	$request_ref->{blocks_ref} = $blocks_ref;
 	$request_ref->{page_type} = "product";
 	$request_ref->{page_format} = "banner";
 
@@ -10289,12 +10239,11 @@ sub display_structured_response ($request_ref) {
 			. $xs->XMLout($request_ref->{structured_response});  # noattr -> force nested elements instead of attributes
 
 		my $status_code = $request_ref->{status_code} || "200";
-
+		write_cors_headers();
 		print header(
 			-status => $status_code,
 			-type => 'text/xml',
 			-charset => 'utf-8',
-			-access_control_allow_origin => '*'
 		) . $xml;
 
 	}
@@ -10320,21 +10269,23 @@ sub display_structured_response ($request_ref) {
 
 		if (defined $jsonp) {
 			$jsonp =~ s/[^a-zA-Z0-9_]//g;
+			write_cors_headers();
 			print header(
 				-status => $status_code,
 				-type => 'text/javascript',
 				-charset => 'utf-8',
-				-access_control_allow_origin => '*'
 				)
 				. $jsonp . "("
 				. $data . ");";
 		}
 		else {
+			$log->warning("XXXXXXXXXXXXXXXXXXXXXX");
+			write_cors_headers();
+			$log->warning("YYYYYYYYYYYYYYYY");
 			print header(
 				-status => $status_code,
 				-type => 'application/json',
 				-charset => 'utf-8',
-				-access_control_allow_origin => '*'
 			) . $data;
 		}
 	}
@@ -10412,7 +10363,8 @@ XML
 XML
 		;
 
-	print header(-type => 'application/rss+xml', -charset => 'utf-8', -access_control_allow_origin => '*') . $xml;
+	write_cors_headers();
+	print header(-type => 'application/rss+xml', -charset => 'utf-8') . $xml;
 
 	return;
 }

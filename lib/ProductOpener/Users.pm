@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -99,6 +99,7 @@ my @user_groups = qw(producer database app bot moderator pro_moderator);
 
 my $cookie_name = 'session';
 my $cookie_domain = "." . $server_domain;    # e.g. fr.openfoodfacts.org sets the domain to .openfoodfacts.org
+$cookie_domain =~ s/\.pro\./\./;    # e.g. .pro.openfoodfacts.org -> .openfoodfacts.org
 if (defined $server_options{cookie_domain}) {
 	$cookie_domain
 		= "." . $server_options{cookie_domain};    # e.g. fr.import.openfoodfacts.org sets domain to .openfoodfacts.org
@@ -318,7 +319,7 @@ sub check_user_form ($type, $user_ref, $errors_ref) {
 
 	$log->debug("check_user_form", {type => $type, user_ref => $user_ref, email => $email}) if $log->is_debug();
 
-	if ($user_ref->{email} ne $email) {
+	if ((defined $email) and ($email ne '') and ($user_ref->{email} ne $email)) {
 
 		# check that the email is not already used
 		my $emails_ref = retrieve("$data_root/users/users_emails.sto");
@@ -895,7 +896,7 @@ sub init_user ($request_ref) {
 	%Org = ();
 
 	# Remove persistent cookie if user is logging out
-	if ((defined single_param('length')) and (single_param('length') eq 'logout')) {
+	if ((defined request_param($request_ref, 'length')) and (request_param($request_ref, 'length') eq 'logout')) {
 		$log->debug("user logout") if $log->is_debug();
 		my $session = {};
 		$request_ref->{cookie} = cookie(
@@ -908,12 +909,12 @@ sub init_user ($request_ref) {
 	}
 
 	# Retrieve user_id and password from form parameters
-	elsif ( (defined single_param('user_id'))
-		and (single_param('user_id') ne '')
-		and (((defined single_param('password')) and (single_param('password') ne ''))))
+	elsif ( (defined request_param($request_ref, 'user_id'))
+		and (request_param($request_ref, 'user_id') ne '')
+		and (((defined request_param($request_ref, 'password')) and (request_param($request_ref, 'password') ne ''))))
 	{
 
-		$user_id = remove_tags_and_quote(single_param('user_id'));
+		$user_id = remove_tags_and_quote(request_param($request_ref, 'user_id'));
 
 		if ($user_id =~ /\@/) {
 			$log->info("got email while initializing user", {email => $user_id}) if $log->is_info();
@@ -950,7 +951,8 @@ sub init_user ($request_ref) {
 				$user_id = $user_ref->{'userid'};
 				$log->context->{user_id} = $user_id;
 
-				my $hash_is_correct = check_password_hash(encode_utf8(decode utf8 => single_param('password')),
+				my $hash_is_correct
+					= check_password_hash(encode_utf8(decode utf8 => request_param($request_ref, 'password')),
 					$user_ref->{'encrypted_password'});
 				# We don't have the right password
 				if (not $hash_is_correct) {
@@ -963,7 +965,8 @@ sub init_user ($request_ref) {
 					return ($Lang{error_bad_login_password}{$lang});
 				}
 				# We have the right login/password
-				elsif (not defined single_param('no_log'))    # no need to store sessions for internal requests
+				elsif (
+					not defined request_param($request_ref, 'no_log')) # no need to store sessions for internal requests
 				{
 					$log->info("correct password for user provided") if $log->is_info();
 
@@ -1002,9 +1005,6 @@ sub init_user ($request_ref) {
 
 		if (defined $user_id) {
 			my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
-			if ($user_id =~ /f\/(.*)$/) {
-				$user_file = "$data_root/facebook_users/" . get_string_id_for_lang("no_language", $1) . ".sto";
-			}
 
 			if (-e $user_file) {
 				$user_ref = retrieve($user_file);
@@ -1029,8 +1029,9 @@ sub init_user ($request_ref) {
 
 				if (   (not defined $user_ref->{'user_sessions'})
 					or (not defined $user_session)
-					or (not defined $user_ref->{'user_sessions'}{$user_session})
-					or (not is_ip_known_or_whitelisted($user_ref, $user_session, remote_addr(), $short_ip)))
+					or (not defined $user_ref->{'user_sessions'}{$user_session}))
+					# disable the restriction of sessions by ip address (issue 6842 57E0 C2C7 F629 E4CE 5605 42)
+					#	or (not is_ip_known_or_whitelisted($user_ref, $user_session, remote_addr(), $short_ip)))
 				{
 					$log->debug("no matching session for user") if $log->is_debug();
 					$user_id = undef;

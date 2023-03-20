@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -56,6 +56,7 @@ BEGIN {
 		&get_products_tags_collection
 		&get_emb_codes_collection
 		&get_recent_changes_collection
+		&remove_documents_by_ids
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -212,6 +213,61 @@ sub get_mongodb_client ($timeout = undef) {
 	}
 
 	return $client;
+}
+
+=head2 remove_documents_by_ids($ids_to_remove_ref, $coll, $bulk_write_size=100)
+
+Efficiently removes a set of documents
+
+=head3 Arguments
+
+=head4 $ids_to_remove_ref - ref to list of ids to remove
+
+correspond to the _id field
+
+=head4 $coll - a document collection
+
+=head4 $bulk_size - how many concurrent deletion in a bulk
+
+=head3 Return values
+
+Returns a hash with:
+<dl>
+  <dt>removed</dt>
+  <dd>int - number of effectively removed items</dd>
+  <dt>errors</dt>
+  <dd>ref to a list of errors</dd>
+</dl>
+=cut
+
+sub remove_documents_by_ids ($ids_to_remove_ref, $coll, $bulk_write_size = 100) {
+	my @ids_to_remove = (@$ids_to_remove_ref);    # copy the list because we will use splice
+	my @errors = ();
+
+	if (!@ids_to_remove) {
+		return {removed => 0, errors => \@errors};    # nothing to do
+	}
+
+	# remove found ids
+	my $removed = 0;
+	# prepare a bulk operation, with one operation per slice
+	my $bulk = $coll->unordered_bulk;
+	while (scalar @ids_to_remove) {
+		my @batch_ids = splice(@ids_to_remove, 0, $bulk_write_size);
+		$bulk->find({_id => {'$in' => \@batch_ids}})->delete_many();
+	}
+	# try to do our best
+	eval {
+		# execute
+		my $bulk_result = $bulk->execute();
+		$removed += $bulk_result->deleted_count;
+	};
+	my $error = $@;
+	if ($error) {
+		push @errors, $error;
+	}
+
+	return {removed => $removed, errors => \@errors};
 }
 
 1;
