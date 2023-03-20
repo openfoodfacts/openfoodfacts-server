@@ -13420,7 +13420,7 @@ et:maisitärklis
 eu:maizena
 fa:نشاسته ذرت
 fi:maissitärkkelys
-fr:amidon de maïs, amidon de mais, fécule de mais, amidon natif de maïs
+fr:amidon de maïs, amidon de mais, fécule de mais
 he:עמילן תירס
 hr:kukuruzni škrob
 hu:kukoricakeményítő
@@ -13469,6 +13469,12 @@ fr:amidon de maïs cireux
 it:amido di mais ceroso
 nl:kleefmaïszetmeel, waxy maiszetmeel, waxy maïszetmeel
 #379 @2021-09-28
+
+#unmodified corn starch
+<en:corn starch
+en:native corn starch
+de:native Maisstärke
+fr:amidon de maïs natif, amidon natif de maïs
 
 <en:corn starch
 <en:modified starch
@@ -25941,6 +25947,7 @@ vegan:en:yes
 vegetarian:en:yes
 
 <en:rice
+<en:plant protein
 en:rice protein, rice proteins
 bg:оризов протеин
 da:risprotein, ris protein
@@ -29318,9 +29325,6 @@ vegan:en:yes
 vegetarian:en:yes
 
 <en:plant protein
-de:Eiweißpulver aus Sonnenblumenkernen
-
-<en:plant protein
 fr:protéines végétales réhydratées
 hu:rehidratált növényi fehérjék
 nl:gehydrolyseerde plantaardige eiwitten, plantaardig eiwithydrolysaat
@@ -29382,6 +29386,7 @@ ro:proteină de bob
 
 <en:plant protein
 en:sunflower protein
+de:Sonnenblumenprotein, Eiweißpulver aus Sonnenblumenkernen
 hr:suncokretovih bjelančevina, suncokretove bjelančevine
 pl:białko słonecznika, białko słonecznikowe, białka słonecznika
 ro:proteină de floarea-soarelui
@@ -40272,8 +40277,10 @@ ciqual_food_name:fr:Kiwi, pulpe et graines, cru
 
 #processing:en: en:juice
 #processing:en: en:from concentrate
-#<en:kiwi juice
-#fr:jus de kiwi à base de concentré
+<en:kiwi juice
+en:kiwi juice from concentrate
+de:Kiwisaft aus Kiwisaftkonzentrat
+fr:jus de kiwi à base de concentré
 
 # No products
 
@@ -42609,6 +42616,12 @@ th:จากนำองุ่นเข้มข้น
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/concentrated-grape-juice
 # 139 products in 2 languages @2018-10-02
 # ingredient/fr:concentré-de-jus-de-raisin has 26 products in 3 languages @2018-10-02
+
+# This is a compound product made of concentrate grape juice and water
+<en:grape juice
+en:grape juice from concentrate
+de:Traubensaft aus Traubensaftkonzentrat
+fr:jus de raisin à base de concentré, jus de raisins à base de concentré
 
 <en:concentrated grape juice
 fr:jus de raisin concentré rectifié
@@ -45862,7 +45875,7 @@ ciqual_food_name:fr:Bambou, pousse, crue
 en:bamboo fibre
 bg:бамбукови фибри
 da:bambusfibre
-de:Bambusfasern
+de:Bambusfaser, Bambusfasern
 es:Fibra de bambú
 fi:bambukuitu
 fr:fibre de bambou, fibres de bambou
@@ -47352,7 +47365,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Carrot_juice
 en:concentrated carrot juice
 da:gulerodsjuice fra koncentrat
 de:Karottensaftkonzentrat, konzentrierter Karottensaft
-es:Zumo de zanahoria a partir de concentrado, jugo de zanahoria concentrado
+es:jugo de zanahoria concentrado
 fi:porkkanamehutiiviste
 fr:jus concentré de carotte, jus concentré de carottes, jus de carotte concentré
 it:Succo di carota concentrato
@@ -47360,6 +47373,13 @@ nl:Geconcentreerd wortelsap
 ru:Концентрированный морковный сок
 sv:morotjuicekoncentrat
 # fr:jus-concentré-de-carotte has 122 products in 1 language @2018-10-20
+
+#This is not the same as concentrate carrot juice, this one has been reconstructed with water
+<en:carrot juice
+en:carrot juice from concentrate
+de:Karottensaft aus Karottensaftkonzentrat
+es:zumo de zanahoria a partir de concentrado
+fr:jus de carotte à base de concentré, jus de carottes à base de concentré
 
 <en:carrot juice
 en:carrot juice powder
