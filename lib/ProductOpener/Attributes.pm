@@ -340,7 +340,7 @@ sub initialize_attribute ($attribute_id, $target_lc) {
 			my $name = display_taxonomy_tag($target_lc, "ingredients_analysis", "en:$analysis_tag");
 			$attribute_ref->{name} = $name;
 			$attribute_ref->{setting_name} = $name;
-			$attribute_ref->{panel_id} = "ingredients_analysis_en-" . $analysis_tag;
+		$attribute_ref->{panel_id} = "ingredients_analysis_en:" . $analysis_tag;
 		}
 
 		# Nutrient levels
