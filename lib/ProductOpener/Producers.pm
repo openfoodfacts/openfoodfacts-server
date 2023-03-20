@@ -387,7 +387,7 @@ sub create_off_columns_to_input_columns_match ($default_values_ref, $input_heade
 	foreach my $field (sort keys %{$default_values_ref}) {
 
 		if (not defined $seen_fields{$field}) {
-			shift @$output_headers_ref, $field;
+			unshift @$output_headers_ref, $field;
 			$output_to_input_columns_ref->{$field} = "default value";
 		}
 	}
@@ -418,11 +418,6 @@ sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_f
 
 	my $results_ref = {};
 
-	my $csv_out = Text::CSV->new({binary => 1, sep_char => "\t"})    # should set binary attribute.
-		or die "Cannot use CSV: " . Text::CSV->error_diag();
-
-	open(my $out, ">:encoding(UTF-8)", $converted_file) or die("Cannot write $converted_file: $!\n");
-
 	# Output CSV header
 
 	my $output_headers_ref = [];
@@ -433,8 +428,12 @@ sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_f
 		$output_headers_ref, $output_to_input_columns_ref
 	);
 
-	$csv_out->print($out, $output_headers_ref);
-	print $out "\n";
+	# If we don't have a column mapped to the barcode, then we cannot use the file
+	if (not defined $output_to_input_columns_ref->{"code"}) {
+		$log->error("no column mapped to code", { output_to_input_columns_ref => $output_to_input_columns_ref }) if $log->is_error();
+		$results_ref->{error} = "no_column_mapped_to_code";
+		$results_ref->{status} = "error";
+	}
 
 	# Read the CSV file line by line and construct a hash of products data
 	# Note that some products may have data on multiple lines
@@ -446,7 +445,20 @@ sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_f
 
 		$log->debug("convert_file - row", {row_ref => $row_ref}) if $log->is_debug();
 
-		my $product_ref = {};
+		# First get the barcode of the product
+		my $code = $row_ref->[$output_to_input_columns_ref->{"code"}];
+
+		if (not defined $code) {
+			# The line is missing a barcode, we do not know which product it relates to
+			$log->error("ignoring row without a value for the code column", { code_column => $output_to_input_columns_ref->{"code"}, row_ref => $row_ref  }) if $log->is_error();
+			next;
+		}
+		
+		if (not defined $products_ref->{$code}) {
+			$products_ref->{$code} = {};
+		}
+		my $product_ref = $products_ref->{$code};
+
 		foreach my $field (@$output_headers_ref) {
 			my $col = $output_to_input_columns_ref->{$field};
 
@@ -461,6 +473,21 @@ sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_f
 				$product_ref->{$field} = $default_values_ref->{$field};
 			}
 		}
+	}
+
+	# Output the CSV file
+
+	my $csv_out = Text::CSV->new({binary => 1, sep_char => "\t"})    # should set binary attribute.
+		or die "Cannot use CSV: " . Text::CSV->error_diag();
+
+	open(my $out, ">:encoding(UTF-8)", $converted_file) or die("Cannot write $converted_file: $!\n");
+
+	$csv_out->print($out, $output_headers_ref);
+	print $out "\n";
+
+	foreach my $code (sort keys %$products_ref)	{
+
+		my $product_ref = $products_ref->{$code};
 
 		# Make sure we have a value for lc, as it is needed for clean_fields()
 		# if lc is not a 2 letter code, use the default value
@@ -474,6 +501,7 @@ sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_f
 		my @values = ();
 		foreach my $field (@$output_headers_ref) {
 			push @values, $product_ref->{$field};
+			print STDERR "$field - $product_ref->{$field} . \n";
 		}
 
 		$csv_out->print($out, [@values]);
@@ -481,6 +509,10 @@ sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_f
 	}
 
 	close($out);
+
+	$results_ref->{status} = "success";
+	$results_ref->{rows} = scalar @{$rows_ref};
+	$results_ref->{products} = scalar keys %$products_ref;
 
 	return $results_ref;
 }

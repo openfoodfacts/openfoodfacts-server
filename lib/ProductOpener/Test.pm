@@ -68,6 +68,7 @@ use Test::More;
 use JSON "decode_json";
 use File::Basename "fileparse";
 use File::Path qw/make_path remove_tree/;
+use File::Copy;
 use Path::Tiny qw/path/;
 
 use Log::Any qw($log);
@@ -369,6 +370,14 @@ sub compare_csv_file_to_expected_results ($csv_file, $expected_results_dir, $upd
 	}
 	close($io);
 	compare_array_to_expected_results(\@data, $expected_results_dir, $update_expected_results);
+
+	# If we update the expected results, copy the CSV file so that we can easily see line by line diffs
+	if ($update_expected_results) {
+		my $csv_filename = $csv_file;
+		$csv_filename =~ s/.*\///;
+		copy($csv_file, $expected_results_dir . '/' . $csv_filename) or die "Copy of $csv_file to $expected_results_dir failed: $!";
+	}
+
 	return 1;
 }
 

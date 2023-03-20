@@ -23,7 +23,7 @@ load_data();
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 my $inputs_dir = "$test_dir/inputs/$test_id/";
-my $outputs_dir = "$test_dir/outputs/$test_id";
+my $outputs_dir = "$test_dir/outputs/$test_id/";
 make_path($outputs_dir);
 
 # fake image download using input directory instead of distant server
@@ -77,8 +77,11 @@ sub fake_download_image ($) {
 
 	# step3 convert file
 	my $converted_file = $outputs_dir . "test.converted.csv";
-	my $conv_result = convert_file($default_values_ref, $my_excel, $columns_fields_file, $converted_file);
-	ok(!$conv_result->{error});
+	my $conv_results_ref = convert_file($default_values_ref, $my_excel, $columns_fields_file, $converted_file);
+
+	# Compare the converted CSV file to the expected CSV file
+	compare_csv_file_to_expected_results($converted_file, $expected_result_dir . "/converted_csv", $update_expected_results);
+	compare_to_expected_results($conv_results_ref, $expected_result_dir . "/converted_csv/conversion_results.json", $update_expected_results);
 
 	# step4 import file
 	my $datestring = localtime();
@@ -110,7 +113,7 @@ sub fake_download_image ($) {
 	normalize_products_for_test_comparison(\@products);
 
 	# verify result
-	compare_array_to_expected_results(\@products, $expected_result_dir, $update_expected_results);
+	compare_array_to_expected_results(\@products, $expected_result_dir . "/products", $update_expected_results);
 
 	# also verify sto
 	if (!$update_expected_results) {
@@ -122,13 +125,13 @@ sub fake_download_image ($) {
 		compare_array_to_expected_results(\@products, $expected_result_dir, $update_expected_results);
 	}
 
-	compare_to_expected_results($stats_ref, $expected_result_dir . "/stats.json", $update_expected_results);
+	compare_to_expected_results($stats_ref, $expected_result_dir . "/products/stats.json", $update_expected_results);
 
 	# TODO verify images
 	# clean csv and sto
 	unlink $inputs_dir . "eco-score-template.xlsx.csv";
 	unlink $inputs_dir . "test.columns_fields.sto";
-	rmdir remove_tree($outputs_dir);
+	#rmdir remove_tree($outputs_dir);
 }
 
 done_testing();
