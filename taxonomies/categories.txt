@@ -5473,31 +5473,36 @@ ciqual_food_name:en:Mandarin or clementine juice, pure juice
 ciqual_food_name:fr:Jus de clémentine ou mandarine, pur jus
 
 <en:Fruit juices
-en:Lime juice
+en:Lime juices, Lime juice
 bg:Сок от лайм
+de:Limettensaften
 fr:Jus de citron vert
 lt:Žaliųjų citrinų sultys
-nl:Limoensap
-nl_be:Limoensap
+nl:Limoensappen
 pl:Soki limonkowe
 agribalyse_food_code:en:13067
 agribalyse_proxy_food_name:en:Lime, pulp, raw
 agribalyse_proxy_food_name:fr:Citron vert ou Lime, pulpe, cru
 wikidata:en:Q5361217
 
-<en:Lime juice
-en:Home-made lime juice
-fr:Jus de citron vert maison
-ciqual_food_code:en:2030
-ciqual_food_name:en:Lime juice, home-made
-ciqual_food_name:fr:Jus de citron vert, maison
+#<en:Lime juice
+#en:Home-made lime juice
+#fr:Jus de citron vert maison
+#ciqual_food_code:en:2030
+#ciqual_food_name:en:Lime juice, home-made
+#ciqual_food_name:fr:Jus de citron vert, maison
 
 <en:Lime juice
-en:Squeezed lime juices, Pure lime juice
+en:Squeezed lime juices, Pure lime juices
 fr:Jus de citron vert pur jus
 ciqual_food_code:en:2031
 ciqual_food_name:en:Lime juice, pure juice
 ciqual_food_name:fr:Jus de citron vert, pur jus
+
+<en:Lime juice
+en:Lime juices from concentrate
+fr:Jus de citron vert à partir d'un concentré
+nl:limoensappen uit concentraat
 
 <en:Fruit juices
 en:Lemon juice
@@ -5589,16 +5594,9 @@ ciqual_food_code:en:2074
 ciqual_food_name:en:Apple juice, pure juice
 ciqual_food_name:fr:Jus de pomme, pur jus
 
-<en:Fruit juices
-en:Apricot juices
-bg:Сок от кайсия
-de:Aprikosensäfte, Aprikosensaft
-es:Zumos de albaricoque
-fr:Jus d'abricot
-it:Succo di albicocca
-lt:Abrikosų sultys
-nl:Abrikozensappen, Abrikozensap
-wikidata:en:Q3337673
+#<en:Fruit juices
+#en:Apricot juices
+#comment:en:all these products are listed under apricot nectars as the contain less than 99% juice
 
 <en:Apricot juices
 <en:Fruit juices from concentrate
@@ -5679,6 +5677,8 @@ ciqual_food_name:fr:Jus d'orange, à base de concentré
 <en:Orange juices
 fr:Jus d'orange sans pulpe, Jus d'orange filtrés
 
+##################### Grape juices
+
 <en:Fruit juices
 en:Grape juices
 bg:Сок от грозде
@@ -5718,6 +5718,12 @@ nl:Druivensappen uit concentraat, Druivensap uit concentraat
 ciqual_food_code:en:2019
 ciqual_food_name:en:Grape juice, reconstituted from a concentrate
 ciqual_food_name:fr:Jus de raisin, à base de concentré
+
+<en:Grape juices
+en:Red grape juices
+
+<en:Grape juices
+en:White grape juices
 
 <en:Fruit juices
 en:Grapefruit juices
@@ -5784,37 +5790,38 @@ fr:Jus de pamplemousse rose, Jus de pamplemousses roses
 nl:Roze grapefruitsappen, Roze grapefruitsap
 #wikidata:en:
 
-<en:Fruit juices
-en:Mango juices
-bg:Сок от манго
-de:Mangosäfte
-es:Zumos de mango
-fi:Mangomehut
-fr:Jus de mangue, Jus de mangues
-it:Succo di mango
-lt:Mango sultys, Sultys iš mango
-nl:Mangosappen, Mangosap
-pl:Soki z mango
-zh:芒果汁
-wikidata:en:Q15952031
+#Comment:en:edited out as there are no mango juice products
+#<en:Fruit juices
+#en:Mango juices
+#bg:Сок от манго
+#de:Mangosäfte
+#es:Zumos de mango
+#fi:Mangomehut
+#fr:Jus de mangue, Jus de mangues
+#it:Succo di mango
+#lt:Mango sultys, Sultys iš mango
+#nl:Mangosappen, Mangosap
+#pl:Soki z mango
+#zh:芒果汁
+#wikidata:en:Q15952031
 
-<en:Mango juices
-<en:Fruit juices from concentrate
-en:Mango juices from concentrate, Concentrated mango juices
-de:Mangosäfte aus Konzentrat
-es:Zumos de mango procedente de concentrado
-fr:Jus de mangue à base de concentré, Jus de mangues à base de concentré
-it:Succo di mango da concentrato
-lt:Koncentruotos mangų sultys, Mangų sultys iš koncentrato,
-nl:Mangosappen uit concentraat, Mangosap uit concentraat
+#<en:Mango juices
+#<en:Fruit juices from concentrate
+#en:Mango juices from concentrate, Concentrated mango juices
+#de:Mangosäfte aus Konzentrat
+#es:Zumos de mango procedente de concentrado
+#fr:Jus de mangue à base de concentré, Jus de mangues à base de concentré
+#it:Succo di mango da concentrato
+#lt:Koncentruotos mangų sultys, Mangų sultys iš koncentrato,
+#nl:Mangosappen uit concentraat, Mangosap uit concentraat
 
-<en:Mango juices
-en:Fresh mango juice
-fr:Jus de mangue frais
-agribalyse_food_code:en:2023
-ciqual_food_code:en:2023
-ciqual_food_name:en:Mango juice, fresh
-ciqual_food_name:fr:Jus de mangue, frais
+#<en:Mango juices
+#en:Fresh mango juice
+#fr:Jus de mangue frais
+#agribalyse_food_code:en:2023
+#ciqual_food_code:en:2023
+#ciqual_food_name:en:Mango juice, fresh
+#ciqual_food_name:fr:Jus de mangue, frais
 
 <en:Fruit juices
 en:Multifruit juices
@@ -6043,7 +6050,7 @@ ciqual_food_name:fr:Jus d'ananas, à base de concentré
 
 <en:Pineapple juices
 <en:Squeezed juices
-en:Squeezed pineapple juices, Non-refrigerated squeezed pineapple juices, Pure pineapple juice
+en:Squeezed pineapple juices, Non-refrigerated squeezed pineapple juices
 de:Ananasdirektsäfte
 es:Zumos de piña exprimidos no refrigerados, Zumos de piña exprimidos, Zumos de piña exprimidos ambiente
 fi:puristetut ananasmehut
@@ -6063,31 +6070,24 @@ es:Zumos de piña exprimidos refrigerados
 fr:Jus d'ananas frais
 nl:Verse Ananassappen, Verse Ananassap
 
-<en:Pineapple juices
-en:Pineapple juice for canned pineapple
-fr:Jus d'ananas pour ananas appertisé, Jus d'ananas pour ananas en conserve
-ciqual_food_code:en:20920
-ciqual_food_name:en:Pineapple juice for canned pineapple
-ciqual_food_name:fr:Jus d'ananas pour ananas appertisé au jus
+#no products (yet) 15-03-2023
+#<en:Pineapple juices
+#en:Pineapple juice for canned pineapple
+#fr:Jus d'ananas pour ananas appertisé, Jus d'ananas pour ananas en conserve
+#ciqual_food_code:en:20920
+#ciqual_food_name:en:Pineapple juice for canned pineapple
+#ciqual_food_name:fr:Jus d'ananas pour ananas appertisé au jus
 
 <en:Fruit juices
-en:Plum juices
-de:Pflaumensäfte
-es:Zumos de ciruela
-fr:Jus de prune, jus de prunes
-lt:Slyvų sultys
-nl:Pruimensappen, Pruimensap
-pl:Soki śliwkowe
-wikidata:en:Q19966492
-
-<en:Fruit juices
-en:Prune juice
+en:Prune juices, Prune juice, Plum juices
 bg:Сок от сливи
-de:Backpflaumensäfte, Dörrpflaumensäfte
+de:Pflaumensäfte, Backpflaumensäfte, Dörrpflaumensäfte
+es:Zumos de ciruela
 fi:luumumehu
-fr:Jus de pruneaux
-lt:Džiovintų slyvų sultys
-nl:Pruimedantensappen, Pruimedantensap
+fr:Jus de pruneaux, Jus de prune, jus de prunes
+lt:Slyvų sultys, Džiovintų slyvų sultys
+nl:Pruimensappen, Pruimensap, Pruimedantensappen, Pruimedantensap
+pl:Soki śliwkowe
 ciqual_food_code:en:2018
 ciqual_food_name:en:Prune juice
 ciqual_food_name:fr:Jus de pruneau
@@ -6292,15 +6292,15 @@ wikidata:en:Q3053970
 description:en:Schorle is a German beverage made by diluting juice or wine with carbonated water or lemonade (lemon-lime soda).
 
 <en:Fruit nectars
-en:Apricot nectars
-bg:Нектар от кайсия
-de:Aprikosennektare
-es:Néctares de albaricoque
+en:Apricot nectars, apricot juices
+bg:Нектар от кайсия, Сок от кайсия
+de:Aprikosennektare, Aprikosensäfte, Aprikosensaft
+es:Néctares de albaricoque, Zumos de albaricoque
 fi:aprikoosinektarit
-fr:Nectars d'abricot, nectar d'abricot, nectars d'abricots, nectar abricot
-it:Nettare di albicocca
-lt:Abrikosų nektarai, Abrikosų nektaras
-nl:Abrikozennectars, Abrikozennectar
+fr:Nectars d'abricot, nectar d'abricot, nectars d'abricots, nectar abricot, Jus d'abricot
+it:Nettare di albicocca, Succo di albicocca
+lt:Abrikosų nektarai, Abrikosų nektaras, Abrikosų sultys
+nl:Abrikozennectars, Abrikozennectar, Abrikozensappen, Abrikozensap
 pt:Néctares de damasco
 agribalyse_food_code:en:2043
 ciqual_food_code:en:2043
@@ -7565,7 +7565,7 @@ en:Green teas
 bg:Зелен чай
 ca:Te verd
 da:Grøn te
-de:Grüntee, Grüne Tees
+de:Grüner Tee, Grüntee, Grüne Tees
 es:Tés verdes
 fi:vihreät teet
 fr:Thés verts, Thé vert, Thés vert
@@ -7597,7 +7597,7 @@ ciqual_food_name:fr:Thé vert, infusé, non sucré
 
 <en:Green teas
 en:Roasted Japanese green teas
-de:Geröstete japanische Grüntees
+de:Geröstete japanische grüner Tees, Geröstete japanische Grüntees
 fr:Thés verts torréfiés japonais
 nl:Geroosterde Japanse groene theeën, Geroosterde Japanse groene thee
 
@@ -7610,7 +7610,7 @@ wikidata:en:Q1652744
 
 <en:Green teas
 en:Chinese green teas, Chinese green tea
-de:chinesische Grüntees, chinesische Grüne Tees
+de:Chinesische grüner Tees, chinesische Grüntees, chinesische Grüne Tees
 es:Tés verdes chinos
 fi:Kiinalaiset vihreät teet, Kiinalainen vihreä tee
 fr:Thés verts chinois, Thé vert chinois
@@ -7637,7 +7637,7 @@ wikidata:en:Q1069130
 
 <en:Green teas
 en:Japanese green teas, Green teas from Japan, Japanese green tea
-de:japanische Grüntees, japanische Grüne Tees
+de:Japanische grüner Tees, japanische Grüntees, japanische Grüne Tees
 es:Tés verdes japoneses
 fi:Japanilaiset vihreät teet, Vihreät teet Japanista, Japanilainen vihreä tee
 fr:Thés verts japonais, Thés verts du Japon, Thé vert du Japon
@@ -7682,7 +7682,7 @@ nl:Fukuju, Fukujutheeën, Fukujuthee
 
 <en:Japanese green teas
 en:Roasted Green teas
-de:Geröstete Grüntees
+de:Geröstete grüner Tees, Geröstete Grüntees
 fr:Thés verts torréfiés, Thé vert torréifié
 nl:Geroosterde groene theeën, Geroosterde groene thee
 
@@ -7722,7 +7722,7 @@ wikidata:en:Q937101
 <en:Mint teas
 <en:Green teas
 en:Green teas with mint
-de:Grüntees mit Minze
+de:Grüner Tees mit Minze, Grüntees mit Minze
 fi:Vihreät teet mintulla
 fr:Thés verts à la menthe
 hu:Zöld teák mentával
@@ -71589,7 +71589,7 @@ es:Pizzas de pepperoni
 fi:Pepperonipizzat
 fr:Pizzas au pepperoni, Pizzas avec pepperoni, Pizzas pepperoni
 lt:Pepperoni picos, Picos su pepperoni
-nl:Pepperoninpizza
+nl:Pepperonipizzas
 #wikidata:en:
 
 <en:Pizzas
@@ -87656,6 +87656,7 @@ de:Heidelbeer-Konfitüren, Heidelbeermarmeladen
 es:Mermeladas y confituras de arándanos, Mermeladas de arándanos, Mermeladas de arándano, Confituras de arándanos
 fi:mustikkahillot
 fr:Confitures de myrtilles
+hr:namaz borovnica
 hu:Fekete áfonya lekvár
 it:Confetture di mirtilli
 nl:Bosbessenjams
