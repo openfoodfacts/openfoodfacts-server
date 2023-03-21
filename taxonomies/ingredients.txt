@@ -18282,6 +18282,9 @@ fr:vin blanc réduit
 # fr:vin-blanc-réduit has 33 products in 1 language @2018-10-29
 
 <en:white wine
+fr:vin blanc modifié
+
+<en:white wine
 en:white wine extract
 bg:екстракт от бяло вино
 de:Weißweinextrakt, Weissweinextrakt
@@ -18886,6 +18889,9 @@ wikidata:en:Q146470
 wikipedia:en:https://en.wikipedia.org/wiki/Brandy
 # <category:en:brandys
 # ingredient/fr:brandy has 152 products in 4 languages @2020-06-08
+
+<en:brandy
+fr:brandy modifié
 
 <en:alcohol
 en:eau de vie
@@ -20858,6 +20864,16 @@ fr:arôme champignon
 ru:ароматизатор грибов
 sv:champinjonarom
 # ingredient/fr:arome-champignon has 9 products in 1 language @2020-06-12
+
+<en:natural flavouring
+fr:arôme naturel de clou de girofle
+
+<en:natural flavouring
+en:natural flavouring of aromatic plants
+fr:arôme naturel de plantes aromatiques
+
+<en:natural flavouring of aromatic plants
+fr:arôme naturel de plantes aromatiques avec autres arômes naturels
 
 # description:en:Smoke is a collection of airborne solid and liquid particulates and gases emitted when a material undergoes combustion or pyrolysis, together with the quantity of air that is entrained or otherwise mixed into the mass. Smoke is sometimes used as a flavoring agent, and preservative for various foodstuffs. Smoking is the process of flavoring, browning, cooking, or preserving food by exposing it to smoke from burning or smoldering material, most often wood. Meat, fish, and lapsang souchong tea are often smoked.
 # comment:en:It is assumed that the translations of smoke are the same as cooking smoke.
@@ -24168,6 +24184,10 @@ sv:fullkornsspeltvetemjöl
 <en:spelt flour
 fr:farine de petit épeautre
 
+<fr:farine de petit épeautre
+fr:farine de petit épeautre de Haute Provence
+
+
 <en:wholemeal flour
 fr:farine complète de blé amidonnier
 
@@ -25700,7 +25720,7 @@ fr:grains de maïs à éclater
 
 <en:corn kernel
 <en:sweetcorn
-fr:maïs doux en grains
+fr:maïs doux en grains, grains de mais doux
 nl:zoete maïskorrels
 pt:milho doce em grão
 # ingredient/fr:maïs-doux-en-grains 66 products in 1 language @2018-09-24
@@ -35996,6 +36016,10 @@ nl:biologische appel, Biologische appels
 # ingredient/fr:pommes-bio has 18 products in 4 languages @2019-05-23
 
 <en:apple
+en:cider apples
+fr:pommes à cidre
+
+<en:cider apples
 fr:fruits à cidre de Normandie
 
 <en:apple
@@ -60007,6 +60031,73 @@ wikidata:en:Q68220931
 
 ###################################################################################################
 #
+#                                Achillea millefolium 
+#
+###################################################################################################
+
+<en:herb
+en:Achillea millefolium
+ar:قيصوم ألفي الأوراق
+az:Adi boymadərən
+ba:Меңъяпраҡ
+be:Крываўнік лекавы
+bg:Бял равнец
+bs:Hajdučka trava
+ca:Milfulles
+cs:Řebříček obecný
+cy:Milddail
+da:Almindelig røllike
+de:Gemeine Schafgarbe
+el:Αγριαψιθιά
+eo:Milfolia akileo
+es:Achillea millefolium
+et:Harilik raudrohi
+eu:Milorri
+fa:بومادران معمولی
+fi:Siankärsämö
+fr:Achillée millefeuille
+gl:Milfollas
+gv:Ayr lossey
+he:אכילאה אלף העלה
+hr:Obični stolisnik
+hu:Közönséges cickafark
+hy:Հազարատերևուկ սովորական
+id:Daun seribu
+io:Akileo
+is:Vallhumall
+it:Achillea millefolium
+ja:セイヨウノコギリソウ
+kk:Кәдімгі мыңжапырақ
+ko:서양톱풀
+ku:Gêjînk
+la:Achillea millefolium
+lt:Paprastoji kraujažolė
+lv:Pelašķis
+mk:Ајдучка трева
+nl:Duizendblad (soort)
+nn:Ryllik
+oc:Milafuèlhas
+pl:Krwawnik pospolity
+pt:Milefólio
+ro:Coada șoricelului
+ru:Тысячелистник обыкновенный
+sh:Hajdučka trava
+sk:Rebríček obyčajný
+sl:Navadni rman
+sr:Хајдучка трава
+sv:Röllika
+tl:Achillea millefolium
+tr:Civanperçemi
+uk:Деревій звичайний
+ur:اَلفیہ
+uz:Boʻyimodaron
+vi:Vạn diệp
+zh:歐蓍草
+wikidata:en:Q25408
+
+
+###################################################################################################
+#
 #                                Basil
 #
 ###################################################################################################
@@ -60508,7 +60599,7 @@ et:saialill
 eu:Ilen kultibatu
 fa:گل همیشه‌بهار
 fi:kehäkukka, tarhakehäkukka
-fr:souci, soucis, fleurs de calendula
+fr:souci, soucis, fleurs de calendula, calendula
 ga:Ór Muire
 gl:Maravalla
 hr:Neven
@@ -60555,6 +60646,7 @@ zh:金盞花
 # zh-sg:金盞花
 # zh-tw:金盞花
 wikidata:en:Q145930
+# wikidata:en:Q147281
 wikipedia:en:https://en.wikipedia.org/wiki/Calendula_officinalis
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:soucis
 # 2 products in 3 languages @2018-10-10
@@ -77636,7 +77728,7 @@ en:free range chicken egg yolk
 de:Hühnereigelb aus Freilandhaltung
 es:yema de huevo de gallinas camperas
 fi:ulkokanan munankeltuainen
-fr:jaune d'œuf de poules élevées en plein air, jaunes d'œufs de poules élevées en plein air, jaune d'oeuf de poules élevées en plein air, jaunes d'oeufs de poules élevées en plein air, jaune d'oeuf issu d'oeufs de poules élevées en plein air
+fr:jaune d'œuf de poules élevées en plein air, jaunes d'œufs de poules élevées en plein air, jaune d'oeuf de poules élevées en plein air, jaunes d'oeufs de poules élevées en plein air, jaune d'oeuf issu d'oeufs de poules élevées en plein air, jaune d'oeuf issu de poules élevées en plein air
 nl:Eigeel van vrije uitloop eieren, scharreleigeelpoeder
 pt:gema de ovo de galinhas criadas ao ar livre
 # ingredient/fr:jaune-d’oeuf-de-poules-élevées-en-plein-air has 61 products in 2 languages @2018-12-18
