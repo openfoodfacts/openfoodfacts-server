@@ -622,10 +622,11 @@ ref to an array of lines of the email
 
 sub normalize_mail_for_comparison ($mail) {
 	# remove boundaries
+	$DB::single = 1;
 	my $text = mail_to_text($mail);
-	my @boundaries = $text =~ m/boundary="([^"]+)"/g;
+	my @boundaries = $text =~ m/boundary=([^ ,\n\t]+)/g;
 	foreach my $boundary (@boundaries) {
-		$text =~ s/$boundary/\\"--boundary--\\"/g;
+		$text =~ s/$boundary/boundary/g;
 	}
 	# replace generic dates
 	$text =~ s/\d\d\d\d-\d\d-\d\d/--date--/g;
