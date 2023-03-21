@@ -472,6 +472,7 @@ sub load_ecoscore_data_packaging() {
 		# "Bouteille PET Biosourcé",75
 		# "Bouteille rPET transparente (100%)",100
 
+		# We assign the same score to some target material.shape as a source material.shape 
 		# Use English names for source / target shapes and materials
 		# they will be canonicalized with the taxonomies
 		my @assignments = (
