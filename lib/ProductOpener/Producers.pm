@@ -388,7 +388,7 @@ sub create_off_columns_to_input_columns_match ($default_values_ref, $input_heade
 
 		if (not defined $seen_fields{$field}) {
 			unshift @$output_headers_ref, $field;
-			$output_to_input_columns_ref->{$field} = "default value";
+			$output_to_input_columns_ref->{$field} = undef;
 		}
 	}
 
@@ -434,6 +434,7 @@ sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_f
 			if $log->is_error();
 		$results_ref->{error} = "no_column_mapped_to_code";
 		$results_ref->{status} = "error";
+		return $results_ref;
 	}
 
 	# Read the CSV file line by line and construct a hash of products data
@@ -441,6 +442,12 @@ sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_f
 	# so we need to read all data in memory before writing the converted CSV file
 
 	my $products_ref = {};
+
+	# Keep track of the number of lines for each product
+	my %product_lines = {};
+
+	# We may add some output columns if there are products on multiple lines
+	my $extra_output_headers_ref = [];
 
 	foreach my $row_ref (@{$rows_ref}) {
 
@@ -459,15 +466,35 @@ sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_f
 
 		if (not defined $products_ref->{$code}) {
 			$products_ref->{$code} = {};
+			$product_lines{$code} = 1;
 		}
+		else {
+			$product_lines{$code}++;
+		}
+
 		my $product_ref = $products_ref->{$code};
 
-		foreach my $field (@$output_headers_ref) {
+		foreach my $field_orig (@$output_headers_ref) {
+			my $field = $field_orig; # Needed in order to be able to modify $field without changing the array content
 			my $col = $output_to_input_columns_ref->{$field};
 
-			# If the field is of the form packaging_(%d) and we
+			# If the field is of the form packaging_1_*
+			# and we have multiple lines per product,
+			# we rename the field to packaging_[current number of lines of the product]_*
 
-			$product_ref->{$field} = $row_ref->[$col];
+			if (($product_lines{$code} > 1) and ($field =~ /^packaging_1_/)) {
+				$field = "packaging_" . $product_lines{$code} . "_" . $';
+
+				# Add the field to the list of columns in the output file
+				if (not exists $output_to_input_columns_ref->{$field}) {
+					$output_to_input_columns_ref->{$field} = undef;
+					push @$extra_output_headers_ref, $field;
+				}
+			}
+
+			if (defined $col) {
+				$product_ref->{$field} = $row_ref->[$col];
+			}
 
 			# If no value specified, use default value
 			if (   (defined $default_values_ref->{$field}) and (not defined $product_ref->{$field})
@@ -485,7 +512,7 @@ sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_f
 
 	open(my $out, ">:encoding(UTF-8)", $converted_file) or die("Cannot write $converted_file: $!\n");
 
-	$csv_out->print($out, $output_headers_ref);
+	$csv_out->print($out, [@$output_headers_ref, @$extra_output_headers_ref]);
 	print $out "\n";
 
 	foreach my $code (sort keys %$products_ref) {
@@ -502,7 +529,7 @@ sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_f
 		}
 
 		my @values = ();
-		foreach my $field (@$output_headers_ref) {
+		foreach my $field (@$output_headers_ref, @$extra_output_headers_ref) {
 			push @values, $product_ref->{$field};
 			print STDERR "$field - $product_ref->{$field} . \n";
 		}

@@ -1407,7 +1407,11 @@ sub import_csv_file ($args_ref) {
 
 	$log->debug("importing products", {}) if $log->is_debug();
 
-	open(my $io, '<:encoding(UTF-8)', $args_ref->{csv_file}) or die("Could not open " . $args_ref->{csv_file} . ": $!");
+	my $io;
+	if (not open($io, '<:encoding(UTF-8)', $args_ref->{csv_file})) {
+		$stats_ref->{error} = "Could not open " . $args_ref->{csv_file} . ": $!";
+		return $stats_ref;
+	}
 
 	# first line contains headers
 	my $columns_ref = $csv->getline($io);
@@ -1437,7 +1441,7 @@ sub import_csv_file ($args_ref) {
 		$i++;
 
 		# By default, use the orgid passed in the arguments
-		# it may be overrode later on a per product basis
+		# it may be overriden later on a per product basis
 		my $org_id = $args_ref->{org_id};
 		my $org_ref;
 
