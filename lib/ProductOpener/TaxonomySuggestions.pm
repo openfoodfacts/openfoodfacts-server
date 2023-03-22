@@ -107,12 +107,28 @@ The results of this function are cached using memcached. Restart memcached if yo
 
 sub get_taxonomy_suggestions ($tagtype, $search_lc, $string, $context_ref, $options_ref) {
 
-	$log->debug("get_taxonomy_suggestions - start",
-		{tagtype => $tagtype, search_lc => $search_lc, string => $string, context_ref => $context_ref, options_ref => $options_ref})
-		if $log->is_debug();
+	$log->debug(
+		"get_taxonomy_suggestions - start",
+		{
+			tagtype => $tagtype,
+			search_lc => $search_lc,
+			string => $string,
+			context_ref => $context_ref,
+			options_ref => $options_ref
+		}
+	) if $log->is_debug();
 
 	# Check if we have cached suggestions
-	my $key = "taxonomy-suggestions/" . generate_cache_key({tagtype => $tagtype, search_lc => $search_lc, string => $string, context_ref => $context_ref, options_ref => $options_ref});
+	my $key = "taxonomy-suggestions/"
+		. generate_cache_key(
+		{
+			tagtype => $tagtype,
+			search_lc => $search_lc,
+			string => $string,
+			context_ref => $context_ref,
+			options_ref => $options_ref
+		}
+		);
 
 	my $results_ref = $memd->get($key);
 

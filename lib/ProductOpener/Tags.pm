@@ -2989,7 +2989,6 @@ sub get_taxonomyurl ($tag_lc, $tagid) {
 	}
 }
 
-
 =head2 canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref = undef)
 
 Canonicalize a string to check if matches an entry in a taxonomy
@@ -3169,8 +3168,10 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref 
 
 	my $exists_in_taxonomy = 0;
 
-	if ((defined $translations_from{$tagtype}) and (defined $translations_from{$tagtype}{$tagid})
-		and not((exists $just_synonyms{$tagtype}) and (exists $just_synonyms{$tagtype}{$tagid}))) {
+	if (    (defined $translations_from{$tagtype})
+		and (defined $translations_from{$tagtype}{$tagid})
+		and not((exists $just_synonyms{$tagtype}) and (exists $just_synonyms{$tagtype}{$tagid})))
+	{
 		$tagid = $translations_from{$tagtype}{$tagid};
 		$exists_in_taxonomy = 1;
 	}

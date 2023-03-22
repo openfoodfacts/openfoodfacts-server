@@ -680,7 +680,8 @@ my $exists;
 is(canonicalize_taxonomy_tag("fr", "test", "Yaourts au citron", \$exists), "en:lemon-yogurts");
 is($exists, 1);
 
-is(canonicalize_taxonomy_tag("fr", "test", "Yaourts au citron qui n'existe pas", \$exists), "fr:Yaourts au citron qui n'existe pas");
+is(canonicalize_taxonomy_tag("fr", "test", "Yaourts au citron qui n'existe pas", \$exists),
+	"fr:Yaourts au citron qui n'existe pas");
 is($exists, 0);
 
 done_testing();

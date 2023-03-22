@@ -23,7 +23,7 @@ my @filter_tests = (
 		lc => "en",
 		string => "",
 		expected => ['Banana yogurts', 'Yogurts', 'Soup', 'Vegetable'],
-	},	
+	},
 	{
 		desc => 'Match at start',
 		tags => $tags_ref,
@@ -55,7 +55,7 @@ my @filter_tests = (
 		lc => "en",
 		string => "something else",
 		expected => ["Soup"],
-	},	
+	},
 );
 
 foreach my $test_ref (@filter_tests) {
@@ -87,7 +87,8 @@ my @suggest_tests = (
 );
 
 foreach my $test_ref (@suggest_tests) {
-	my @results = ProductOpener::TaxonomySuggestions::get_taxonomy_suggestions ($test_ref->{tagtype}, $test_ref->{lc}, $test_ref->{string}, {}, {});
+	my @results = ProductOpener::TaxonomySuggestions::get_taxonomy_suggestions($test_ref->{tagtype}, $test_ref->{lc},
+		$test_ref->{string}, {}, {});
 	if (not is_deeply(\@results, $test_ref->{expected})) {
 		diag explain($test_ref, \@results);
 	}

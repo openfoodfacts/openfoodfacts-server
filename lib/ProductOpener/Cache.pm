@@ -70,13 +70,14 @@ MD5 of the key.
 
 =cut
 
-sub generate_cache_key($context_ref) {
+sub generate_cache_key ($context_ref) {
 
 	# We generate a sorted JSON so that we always have the same key for the context object
 	# even if it contains hashes (Storable::freeze may not have the same order of keys)
 	my $key = $server_domain . "/" . $json->encode($context_ref);
 	my $md5_key = md5_hex($key);
-	$log->debug("generate_cache_key", {context_ref => $context_ref, key => $key, md5_key => $md5_key}) if $log->is_debug();
+	$log->debug("generate_cache_key", {context_ref => $context_ref, key => $key, md5_key => $md5_key})
+		if $log->is_debug();
 	return $md5_key;
 }
 

@@ -4915,7 +4915,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 				}
 				elsif (keys %{$query_ref} > 0) {
 					#check if count results is in cache
-					my $key_count = "search-count/" .generate_cache_key($query_ref);
+					my $key_count = "search-count/" . generate_cache_key($query_ref);
 					$log->debug("MongoDB query key - search-count", {key => $key_count}) if $log->is_debug();
 					my $results_count = get_cache_results($key_count, $request_ref);
 					if (not defined $results_count) {

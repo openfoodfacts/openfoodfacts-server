@@ -429,7 +429,8 @@ sub load_ecoscore_data_packaging() {
 			}
 
 			my $material_id_exists_in_taxonomy;
-			my $material_id = canonicalize_taxonomy_tag("fr", "packaging_materials", $material, \$material_id_exists_in_taxonomy);
+			my $material_id
+				= canonicalize_taxonomy_tag("fr", "packaging_materials", $material, \$material_id_exists_in_taxonomy);
 
 			if (not $material_id_exists_in_taxonomy) {
 				$log->error(
@@ -475,7 +476,7 @@ sub load_ecoscore_data_packaging() {
 		# "Bouteille PET Biosourcé",75
 		# "Bouteille rPET transparente (100%)",100
 
-		# We assign the same score to some target material.shape as a source material.shape 
+		# We assign the same score to some target material.shape as a source material.shape
 		# Use English names for source / target shapes and materials
 		# they will be canonicalized with the taxonomies
 		my @assignments = (
@@ -508,12 +509,18 @@ sub load_ecoscore_data_packaging() {
 
 			# We canonicalize the names given in the assignments, as the taxonomies can change over time, including the canonical names
 			my $target_material_id_exists_in_taxonomy;
-			my $target_material
-				= canonicalize_taxonomy_tag("en", "packaging_materials", $assignment_ref->{target_material}, \$target_material_id_exists_in_taxonomy);
-			
+			my $target_material = canonicalize_taxonomy_tag(
+				"en", "packaging_materials",
+				$assignment_ref->{target_material},
+				\$target_material_id_exists_in_taxonomy
+			);
+
 			my $source_material_id_exists_in_taxonomy;
-			my $source_material
-				= canonicalize_taxonomy_tag("en", "packaging_materials", $assignment_ref->{source_material}, \$source_material_id_exists_in_taxonomy);
+			my $source_material = canonicalize_taxonomy_tag(
+				"en", "packaging_materials",
+				$assignment_ref->{source_material},
+				\$source_material_id_exists_in_taxonomy
+			);
 
 			if (not $target_material_id_exists_in_taxonomy) {
 				die(      "target_material "
@@ -531,10 +538,18 @@ sub load_ecoscore_data_packaging() {
 
 			if (defined $assignment_ref->{target_shape}) {
 				my $target_shape_id_exists_in_taxonomy;
-				my $target_shape = canonicalize_taxonomy_tag("en", "packaging_shapes", $assignment_ref->{target_shape}, \$target_shape_id_exists_in_taxonomy);
+				my $target_shape = canonicalize_taxonomy_tag(
+					"en", "packaging_shapes",
+					$assignment_ref->{target_shape},
+					\$target_shape_id_exists_in_taxonomy
+				);
 
 				my $source_shape_id_exists_in_taxonomy;
-				my $source_shape = canonicalize_taxonomy_tag("en", "packaging_shapes", $assignment_ref->{source_shape}, \$source_shape_id_exists_in_taxonomy);
+				my $source_shape = canonicalize_taxonomy_tag(
+					"en", "packaging_shapes",
+					$assignment_ref->{source_shape},
+					\$source_shape_id_exists_in_taxonomy
+				);
 
 				if (not $target_shape_id_exists_in_taxonomy) {
 					die(      "target_shape "
@@ -553,7 +568,8 @@ sub load_ecoscore_data_packaging() {
 
 			if (defined $ecoscore_data{packaging_materials}{$source}) {
 				$ecoscore_data{packaging_materials}{$target} = $ecoscore_data{packaging_materials}{$source};
-				$properties{packaging_materials}{$target}{"ecoscore_score:en"} = $ecoscore_data{packaging_materials}{$source}{"score"};
+				$properties{packaging_materials}{$target}{"ecoscore_score:en"}
+					= $ecoscore_data{packaging_materials}{$source}{"score"};
 			}
 			else {
 				die("source of assignement $source does not have Eco-Score data");
