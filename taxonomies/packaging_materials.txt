@@ -143,7 +143,12 @@ it:PET riciclato, Polietilene tereftalato riciclato
 nl:PET - Hergebruikt
 pt:rPET - Tereftalato de polietileno reciclado, PET reciclado, Tereftalato de polietileno reciclado
 
+<en:Plastic
+en:Biobased plastic
+fr:Plastique biosourcé, Plastiques / Autres plastiques Biosourcés (base amidon)
+
 <xx:PET
+<en:en:Biobased plastic
 en:Biobased PET
 de:Biobasiertes PET
 fr:PET biosourcé
@@ -188,12 +193,13 @@ pt:PET opaco
 <en:Plastic
 en:PE - Polyethylene, Polyethylene
 de:PE - Polyethylen, Polyethylen
-fr:PE - Polyéthylène, Polyéthylène
+fr:PE - Polyéthylène, Polyéthylène, Plastiques / PE - Polyethylène
 hr:PE - Polietilen
 xx:PE, 07 PE, PE 07, 07PE, PE07, 7 PE, PE 7, 7PE, PE7
 wikidata:en:Q143429
 
 <xx:PE
+<en:Biobased plastic
 en:Biobased PE
 de:Biobasiertes PE
 fr:PE biosourcé
@@ -207,7 +213,7 @@ en:HDPE - High-density polyethylene, High-density polyethylene
 xx:HDPE, 2 HDPE, HDPE 2, 02 HDPE, HDPE 02, PEHD, 2 PEHD, PEHD 2, 02 PEHD, PEHD 02, HD-PE, 2 HD-PE, HD-PE 2, 02 HD-PE, HD-PE 02, PE-HD, 2 PE-HD, PE-HD 2, 02 PE-HD, PE-HD 02, RC 2, RC 02, RC2, RC02, ♴
 bg:HDPE - Полиетилен с висока плътност
 de:HDPE - Polyethylen hoher Dichte, Polyethylen hoher Dichte
-fr:PEHD - Polyéthylène haute densité, polyéthylène haute densité
+fr:PEHD - Polyéthylène haute densité, polyéthylène haute densité, Plastiques / PEHD - Polyethylène haute densité / Surlyn
 hr:HDPE - polietilen visoke gustoće            
 hu:HDPE - Nagy sűrűségű polietilén, Nagy sűrűségű polietilén
 it:Polietilene ad alta densità
@@ -245,7 +251,7 @@ en:LDPE - Low-density polyethylene, Low-density polyethylene
 xx:LDPE, 4 LDPE, LDPE 4, 04 LDPE, LDPE 04, PELD, 4 PELD, PELD 4, 04 PELD, PELD 04, LD-PE, 4 LD-PE, LD-PE 4, 04 LD-PE, LD-PE 04, PE-LD, 4 PE-LD, PE-LD 4, 04 PE-LD, PE-LD 04, ♶
 bg:LDPE - Полиетилен с ниска плътност
 de:LDPE - Polyethylen niedriger Dichte, Polyethylen niedriger Dichte
-fr:PEBD - Polyéthylène basse densité, polyéthylène basse densité, PEBD
+fr:PEBD - Polyéthylène basse densité, polyéthylène basse densité, PEBD, Plastiques / PEBD - Polyethylène basse densité, Plastiques / PEBDL - Polyethylène basse densité linéaire
 hr:LDPE - polietilen niske gustoće
 hu:LDPE - Kis sűrűségű polietilén, Kis sűrűségű polietilén
 it:Polietilene a bassa densità
@@ -309,7 +315,7 @@ en:Other plastics, All other plastics, other plastic
 bg:Други пластмаси
 da:Anden plast
 de:Andere Kunststoffe
-fr:Autres plastiques, autre plastique
+fr:Autres plastiques, autre plastique, Plastiques / Autres plastiques
 hr:O - ostali polimerni materijali
 hu:Egyéb műanyag, Más műanyag, Minden más műanyag
 it:Altre plastiche
@@ -324,7 +330,7 @@ non_recyclable_and_non_biodegradable:en:yes
 <en:Other plastics
 en:PC - Polycarbonate, Polycarbonate
 de:PC - Polycarbonate, Polycarbonate
-fr:PC - Polycarbonate, Polycarbonate
+fr:PC - Polycarbonate, Polycarbonate, Plastiques / PC - Polyethylène carbonate
 hr:PC - polikarbonati
 xx:PC, 07 PC, PC 07, 07PC, PC07, 7 PC, PC 7, 7PC, PC7
 wikidata:en:Q62246
@@ -333,7 +339,7 @@ wikidata:en:Q62246
 <en:Other plastics
 en:PA - Polyamide, Polyamide
 de:PA - Polyamide, Polyamide
-fr:PA - Polyamide, Polyamide
+fr:PA - Polyamide, Polyamide, Plastiques / PA - Polyamide (PA 66, Nylon)
 hr:PA - poliamid, poliamidi
 xx:PA, 07 PA, PA 07, 07PA, PA07, 7 PA, PA 7, 7PA, PA7
 wikidata:en:Q145273
@@ -402,10 +408,26 @@ xx:MDPE, 07 MDPE, MDPE 07, 07MDPE, MDPE07, 7 MDPE, MDPE 7, 7MDPE, MDPE7, PE-MD, 
 
 <en:Plastic
 <en:Other plastics
+xx:EVOH, 07 EVOH, EVOH 07, 07EVOH, EVOH07, 7 EVOH, EVOH 7, 7EVOH, EVOH7, EVAL
 en:EVOH - Ethylene vinyl alcohol, Ethylene vinyl alcohol, EVOH - ethylene-vinylalcohol copolymer, ethylene-vinylalcohol copolymer
 de:EVOH - Ethylen-Vinylalkohol-Copolymer, Ethylen-Vinylalkohol-Copolymer
-xx:EVOH, 07 EVOH, EVOH 07, 07EVOH, EVOH07, 7 EVOH, EVOH 7, 7EVOH, EVOH7, EVAL
+fr:EVOH - Ethylène alcool vinylique, Ethylène alcool vinylique, Plastiques / EVOH - Ethylène alcool vinylique
 wikidata:en:Q582510
+
+<en:Plastic
+<en:Other plastics
+xx:EVA
+fr:EVA - Éthylène-acétate de vinyle, Éthylène-acétate de vinyle, Plastiques / EVA - Éthylène-acétate de vinyle
+
+<en:Plastic
+<en:Other plastics
+xx:PAN
+fr:PAN - Polyacrylonitrile, Polyacrylonitrile, Plastiques / PAN - Polyacrylonitrile
+
+<en:Plastic
+<en:Other plastics
+xx:PEF
+fr:PEF - Polyethylène Furanoate, Polyethylène Furanoate, Plastiques / PEF - Polyethylène Furanoate
 
 en:Lead–acid battery
 de:Bleibatterie, Blei-Säure-Batterie
@@ -483,27 +505,33 @@ de:Pappe
 fr:Carton, carton standard, cartonné, cartonnée
 hr:karton
 hu:Hullámkarton, Hullámpapír kartondoboz, kartondoboz
-it:Cartone, cartone ondulato
+it:Cartone
 nl:Karton, Strokarton, Vouwkarton, Massiefkarton, Golfkarton, Turfkarton, Vormkarton, Kartonnen
 pt:Cartão, cartão ondulado, cartão canelado, cartonado, cartonada, papelão, papel grosso
 sv:Kartong
 wikidata:en:Q389782
 
+# fr:Cellulosique / Carton ondulé in data from Les Mousquetaires
 <en:cardboard
 en:Corrugated cardboard
 de:Wellpappe
 bg:Вълнообразен картон
-fr:Carton ondulé
+fr:Carton ondulé, Cellulosique / Carton ondulé
 hr:valovita ljepenka
+it:Cartone ondulato
 xx:20 PAP, PAP 20, 20PAP, PAP20, 20 C PAP, 20 C PCB
 
 <en:cardboard
 en:Non-corrugated cardboard
 de:Ungewellte Pappe, Nicht gewellte Pappe, Sonstige Pappe, Andere Pappe
 bg:Друг картон
-fr:Carton non ondulé
+fr:Carton non ondulé, carton plat, Cellulosique / Carton plat
 hr:ravna ljepenka
 xx:21 PAP, PAP 21, 21PAP, PAP21
+
+<en:cardboard
+en:Armed cardboard
+fr:Carton armé, Cellulosique / Carton armé
 
 <en:Cardboard
 <en:Recycled material
@@ -531,7 +559,7 @@ en:Paper
 bg:Хартия
 da:Papir
 de:Papier
-fr:Papier, papier standard
+fr:Papier, papier standard, Cellulosique / Papier / Vélin
 hr:papir
 hu:Papír
 it:Carta
@@ -547,6 +575,10 @@ wikidata:en:Q11472
 fr:Papier sulfurisé
 
 en:Cellulose
+fr:Cellulose, Cellulose moulée, Cellulosique / Cellulose moulée, Cellulosique / Autres fibres cellulosiques / végétales
+
+en:Rubber
+fr:Caoutchouc, Cellulosique / Caoutchouc
 
 # thick cardboard (e.g. book covers)
 <en:cardboard
@@ -565,7 +597,7 @@ wikidata:en:Q14934005
 <en:paper
 en:Other paper
 de:Sonstiges Papier, Anderes Papier
-fr:Autres papiers, autre papier
+fr:Autres papiers, autre papier, Cellulosique / Autre papier
 hu:Egyéb papír, más papír
 nl:Ander karton
 pt:Outro papel, outros papéis
@@ -614,7 +646,7 @@ en:Metal, Metals
 bg:Метал, метали
 da:Metal, Metaller
 de:Metall, Metalle
-fr:Métal, Métaux, métallique, métalliques
+fr:Métal, Métaux, métallique, métalliques, Métaux / Autres métaux (dont métaux non magnétiques)
 hr:metale
 hu:Fém, fémek
 it:Metallo,Metalli
@@ -639,7 +671,7 @@ en:Steel, iron
 bg:Стомана, желязо
 de:Stahl
 da:Stål
-fr:Acier, fer
+fr:Acier, fer, Métaux / Acier et fer (magnétiques)
 hr:čelik
 hu:Acél
 it:Acciaio
@@ -662,7 +694,7 @@ en:Aluminium
 bg:Алуминий
 da:Aluminium
 de:Aluminium
-fr:Aluminium
+fr:Aluminium, Métaux / Aluminium
 hr:aluminij
 hu:Alumínium
 it:Alluminio
@@ -693,7 +725,7 @@ en:Wood, wooden
 bg:Дърво
 da:Træ
 de:Holz
-fr:Bois
+fr:Bois, Cellulosique / Bois, Cellulosique / Autre bois
 hr:drvo
 hu:Fa
 it:Legno
@@ -707,7 +739,7 @@ en:Cork
 bg:Корк
 da:Kork
 de:Kork
-fr:Liège
+fr:Liège, Cellulosique / Liège
 hr:pluto
 hu:Parafa
 nl:Kurk
@@ -716,11 +748,15 @@ ru:Пробка
 xx:51 FOR, FOR 51
 wikidata:en:Q49444
 
+en:Textile, textiles
+fr:Textile, textiles
+
+<en:Textile
 en:Cotton
 bg:Памук
 da:Bomuld
 de:Baumwolle
-fr:Coton
+fr:Coton, Fibre - Textile / Coton
 hr:pamuk
 hu:Pamut
 it:Cotone
@@ -729,6 +765,10 @@ pt:Algodão
 ru:Хлопок
 xx:60 COT, COT 60, 60 TEX, TEX 60
 wikidata:en:Q8231603
+
+<en:Textile
+en:
+fr:Lin, Fibre - Textile / Lin
 
 en:Jute
 bg:Юта
@@ -741,10 +781,11 @@ ru:Джутовое волокно
 xx:61 TEX, TEX 61
 wikidata:en:Q107211
 
+<en:Textile
 en:Other Textiles
 bg:Друг текстил
 de:Andere Textilien
-fr:Autres textiles, autre textile
+fr:Autres textiles, autre textile, Fibre - Textile / Autre fibre végétale / cellulosique
 hu:Egyéb textilek, Egyéb textil, Egyéb textília, Más textilek
 nl:Ander textiel
 pt:Outros têxteis
