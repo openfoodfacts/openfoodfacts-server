@@ -20,14 +20,14 @@
 
 package ProductOpener::Cache;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter qw< import >;
 
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		$memd
+		&generate_cache_key
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -38,6 +38,8 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 
 use Cache::Memcached::Fast;
+use JSON;
+use Digest::MD5 qw(md5_hex);
 use Log::Any qw($log);
 
 # Initialize exported variables
@@ -46,7 +48,36 @@ $memd = Cache::Memcached::Fast->new(
 	{
 		'servers' => $memd_servers,
 		'utf8' => 1,
+		compress_threshold => 10000,
 	}
 );
+
+my $json = JSON->new->utf8->allow_nonref->canonical;
+
+=head1 FUNCTIONS
+
+=head2  generate_cache_key($context_ref)
+
+Generate a key to use for caching, that depends on the content of the $context_ref object.
+
+=head3 Arguments
+
+=head4 $object_ref Reference to all the context / parameters etc. that have an influence on what we want to cache
+
+=head3 Return values
+
+MD5 of the key.
+
+=cut
+
+sub generate_cache_key($context_ref) {
+
+	# We generate a sorted JSON so that we always have the same key for the context object
+	# even if it contains hashes (Storable::freeze may not have the same order of keys)
+	my $key = $server_domain . "/" . $json->encode($context_ref);
+	my $md5_key = md5_hex($key);
+	$log->debug("generate_cache_key", {context_ref => $context_ref, key => $key, md5_key => $md5_key}) if $log->is_debug();
+	return $md5_key;
+}
 
 1;

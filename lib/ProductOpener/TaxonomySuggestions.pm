@@ -49,6 +49,7 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::PackagerCodes qw/:all/;
+use ProductOpener::Cache qw/:all/;
 
 use List::Util qw/min/;
 use Data::DeepAccess qw(deep_exists deep_get);
@@ -97,17 +98,40 @@ Hash of fields that can be taken into account to generate relevant suggestions
 - categories: comma separated list of categories (tags ids or strings in the $search_lc language)
 - shape: packaging shape (tag id or string in the $search_lc language)
 
+=head3 Note
+
+The results of this function are cached using memcached. Restart memcached if you want fresh results
+(e.g. when taxonomy are category stats change)
+
 =cut
 
 sub get_taxonomy_suggestions ($tagtype, $search_lc, $string, $context_ref, $options_ref) {
 
-	$log->debug("get_taxonomy_suggestions_api",
-		{tagtype => $tagtype, search_lc => $search_lc, context_ref => $context_ref, options_ref => $options_ref})
+	$log->debug("get_taxonomy_suggestions - start",
+		{tagtype => $tagtype, search_lc => $search_lc, string => $string, context_ref => $context_ref, options_ref => $options_ref})
 		if $log->is_debug();
 
-	my @tags = generate_sorted_list_of_taxonomy_entries($tagtype, $search_lc, $context_ref);
+	# Check if we have cached suggestions
+	my $key = "taxonomy-suggestions/" . generate_cache_key({tagtype => $tagtype, search_lc => $search_lc, string => $string, context_ref => $context_ref, options_ref => $options_ref});
 
-	return filter_suggestions_matching_string(\@tags, $tagtype, $search_lc, $string, $options_ref);
+	my $results_ref = $memd->get($key);
+
+	if (not defined $results_ref) {
+		$log->debug("suggestions are not cached", {key => $key}) if $log->is_debug();
+
+		my @tags = generate_sorted_list_of_taxonomy_entries($tagtype, $search_lc, $context_ref);
+
+		my @filtered_tags = filter_suggestions_matching_string(\@tags, $tagtype, $search_lc, $string, $options_ref);
+		$results_ref = \@filtered_tags;
+
+		$log->debug("storing suggestions in cache", {key => $key}) if $log->is_debug();
+		$memd->set($key, $results_ref, 3600);
+	}
+	else {
+		$log->debug("got suggestions from cache", {key => $key}) if $log->is_debug();
+	}
+
+	return @$results_ref;
 }
 
 =head2 generate_sorted_list_of_taxonomy_entries($tagtype, $search_lc, $context_ref)

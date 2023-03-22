@@ -229,9 +229,10 @@ sub load_ecoscore_data_origins_of_ingredients_distances() {
 
 			next if ((not defined $origin) or ($origin eq ""));
 
-			my $origin_id = canonicalize_taxonomy_tag("en", "origins", $origin);
+			my $origin_id_exists_in_taxonomy;
+			my $origin_id = canonicalize_taxonomy_tag("en", "origins", $origin, \$origin_id_exists_in_taxonomy);
 
-			if (not exists_taxonomy_tag("origins", $origin_id)) {
+			if (not $origin_id_exists_in_taxonomy) {
 
 				$log->error("ecoscore origin does not exist in taxonomy", {origin => $origin, origin_id => $origin_id})
 					if $log->is_error();
@@ -310,29 +311,30 @@ sub load_ecoscore_data_origins_of_ingredients() {
 
 			next if ((not defined $origin) or ($origin eq ""));
 
-			my $origin_id = canonicalize_taxonomy_tag("fr", "origins", $origin);
+			my $origin_id_exists_in_taxonomy;
+			my $origin_id = canonicalize_taxonomy_tag("fr", "origins", $origin, \$origin_id_exists_in_taxonomy);
 
-			if (not exists_taxonomy_tag("origins", $origin_id)) {
+			if (not $origin_id_exists_in_taxonomy) {
 
 				# Eco-Score entries like "Macedonia [FYROM]": remove the [..] part
 				# but keep it in the first try, as it is needed to distinguish "Congo [DRC]" and "Congo [Republic]"
 				if ($origin =~ /^(.*)\[(.*)\]/) {
-					$origin_id = canonicalize_taxonomy_tag("fr", "origins", $1);
-					if (not exists_taxonomy_tag("origins", $origin_id)) {
-						$origin_id = canonicalize_taxonomy_tag("fr", "origins", $2);
+					$origin_id = canonicalize_taxonomy_tag("fr", "origins", $1, \$origin_id_exists_in_taxonomy);
+					if (not $origin_id_exists_in_taxonomy) {
+						$origin_id = canonicalize_taxonomy_tag("fr", "origins", $2, \$origin_id_exists_in_taxonomy);
 					}
 				}
 			}
 
 			# La Guyane Française -> Guyane Française
-			if (not exists_taxonomy_tag("origins", $origin_id)) {
+			if (not $origin_id_exists_in_taxonomy) {
 
 				if ($origin =~ /^(la|les|l'|le)\s?(.*)$/i) {
-					$origin_id = canonicalize_taxonomy_tag("fr", "origins", $2);
+					$origin_id = canonicalize_taxonomy_tag("fr", "origins", $2, \$origin_id_exists_in_taxonomy);
 				}
 			}
 
-			if (not exists_taxonomy_tag("origins", $origin_id)) {
+			if (not $origin_id_exists_in_taxonomy) {
 
 				$log->error("ecoscore origin does not exist in taxonomy", {origin => $origin, origin_id => $origin_id})
 					if $log->is_error();
@@ -426,9 +428,10 @@ sub load_ecoscore_data_packaging() {
 				$material = $';
 			}
 
-			my $material_id = canonicalize_taxonomy_tag("fr", "packaging_materials", $material);
+			my $material_id_exists_in_taxonomy;
+			my $material_id = canonicalize_taxonomy_tag("fr", "packaging_materials", $material, \$material_id_exists_in_taxonomy);
 
-			if (not exists_taxonomy_tag("packaging_materials", $material_id)) {
+			if (not $material_id_exists_in_taxonomy) {
 				$log->error(
 					"ecoscore material does not exist in taxonomy",
 					{material => $material, material_id => $material_id}
@@ -504,17 +507,20 @@ sub load_ecoscore_data_packaging() {
 		foreach my $assignment_ref (@assignments) {
 
 			# We canonicalize the names given in the assignments, as the taxonomies can change over time, including the canonical names
+			my $target_material_id_exists_in_taxonomy;
 			my $target_material
-				= canonicalize_taxonomy_tag("en", "packaging_materials", $assignment_ref->{target_material});
+				= canonicalize_taxonomy_tag("en", "packaging_materials", $assignment_ref->{target_material}, \$target_material_id_exists_in_taxonomy);
+			
+			my $source_material_id_exists_in_taxonomy;
 			my $source_material
-				= canonicalize_taxonomy_tag("en", "packaging_materials", $assignment_ref->{source_material});
+				= canonicalize_taxonomy_tag("en", "packaging_materials", $assignment_ref->{source_material}, \$source_material_id_exists_in_taxonomy);
 
-			if (not exists_taxonomy_tag("packaging_materials", $target_material)) {
+			if (not $target_material_id_exists_in_taxonomy) {
 				die(      "target_material "
 						. $assignment_ref->{target_material}
 						. " does not exist in the packaging_materials taxonomy");
 			}
-			if (not exists_taxonomy_tag("packaging_materials", $source_material)) {
+			if (not $source_material_id_exists_in_taxonomy) {
 				die(      "source_material "
 						. $assignment_ref->{source_material}
 						. " does not exist in the packaging_materials taxonomy");
@@ -524,15 +530,18 @@ sub load_ecoscore_data_packaging() {
 			my $source = $source_material;
 
 			if (defined $assignment_ref->{target_shape}) {
-				my $target_shape = canonicalize_taxonomy_tag("en", "packaging_shapes", $assignment_ref->{target_shape});
-				my $source_shape = canonicalize_taxonomy_tag("en", "packaging_shapes", $assignment_ref->{source_shape});
+				my $target_shape_id_exists_in_taxonomy;
+				my $target_shape = canonicalize_taxonomy_tag("en", "packaging_shapes", $assignment_ref->{target_shape}, \$target_shape_id_exists_in_taxonomy);
 
-				if (not exists_taxonomy_tag("packaging_shapes", $target_shape)) {
+				my $source_shape_id_exists_in_taxonomy;
+				my $source_shape = canonicalize_taxonomy_tag("en", "packaging_shapes", $assignment_ref->{source_shape}, \$source_shape_id_exists_in_taxonomy);
+
+				if (not $target_shape_id_exists_in_taxonomy) {
 					die(      "target_shape "
 							. $assignment_ref->{target_shape}
 							. " does not exist in the packaging_shapes taxonomy");
 				}
-				if (not exists_taxonomy_tag("packaging_shapes", $source_shape)) {
+				if (not $source_shape_id_exists_in_taxonomy) {
 					die(      "source_shape "
 							. $assignment_ref->{source_shape}
 							. " does not exist in the packaging_shapes taxonomy");
@@ -542,9 +551,13 @@ sub load_ecoscore_data_packaging() {
 				$source .= '.' . $source_shape;
 			}
 
-			$ecoscore_data{packaging_materials}{$target} = $ecoscore_data{packaging_materials}{$source};
-			$properties{packaging_materials}{$target}{"ecoscore_score:en"}
-				= $ecoscore_data{packaging_materials}{$source}{"score"};
+			if (defined $ecoscore_data{packaging_materials}{$source}) {
+				$ecoscore_data{packaging_materials}{$target} = $ecoscore_data{packaging_materials}{$source};
+				$properties{packaging_materials}{$target}{"ecoscore_score:en"} = $ecoscore_data{packaging_materials}{$source}{"score"};
+			}
+			else {
+				die("source of assignement $source does not have Eco-Score data");
+			}
 		}
 	}
 	else {
@@ -588,15 +601,17 @@ sub load_ecoscore_data_packaging() {
 			# skip ondulated cardboard (should be a material)
 			next if ($shape eq "Carton ondulé");
 
-			my $shape_id = canonicalize_taxonomy_tag("fr", "packaging_shapes", $shape);
+			my $shape_id_exists_in_taxonomy;
+			my $shape_id = canonicalize_taxonomy_tag("fr", "packaging_shapes", $shape, \$shape_id_exists_in_taxonomy);
 
 			# Handle special cases that are not recognized by the packaging shapes taxonomy
 			# conserve is used in preservation taxonomy, but it may be a packaging
 			if ($shape_id =~ /^fr:conserve/i) {
 				$shape_id = "en:can";
+				$shape_id_exists_in_taxonomy = 1;
 			}
 
-			if (not exists_taxonomy_tag("packaging_shapes", $shape_id)) {
+			if (not $shape_id_exists_in_taxonomy) {
 				$log->error("ecoscore shape does not exist in taxonomy", {shape => $shape, shape_id => $shape_id})
 					if $log->is_error();
 				$errors++;
