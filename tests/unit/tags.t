@@ -673,4 +673,14 @@ is(
 	"fr:un label français inconnu, Ecológico, en:A New English label, Missing language prefix, Comercio justo, en:one-percent-for-the-planet"
 );
 
+# canonicalize_taxonomy_tag can now return 0 or 1 to indicate if the tag matched an existing taxonomy entry
+
+my $exists;
+
+is(canonicalize_taxonomy_tag("fr", "test", "Yaourts au citron", \$exists), "en:lemon-yogurts");
+is($exists, 1);
+
+is(canonicalize_taxonomy_tag("fr", "test", "Yaourts au citron qui n'existe pas", \$exists), "fr:Yaourts au citron qui n'existe pas");
+is($exists, 0);
+
 done_testing();
