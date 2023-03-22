@@ -26,3 +26,11 @@
 	});
 
 [% END %]
+
+\$('#no_nutrition_data').change(function() {
+	if (\$(this).prop('checked')) {
+		\$('#nutrition_data_div').hide();
+	} else {
+		\$('#nutrition_data_div').show();
+	}
+});

@@ -827,8 +827,8 @@ CSS
 	$formatted_subdomain = format_subdomain($subdomain);
 	$producers_platform_url = $formatted_subdomain . '/';
 
-	# If we are not on the producers platform: add .pro
-	if ($server_options{producers_platform}) {
+	# If we are not already on the producers platform: add .pro
+	if ($producers_platform_url !~ /\.pro\.open/) {
 		$producers_platform_url =~ s/\.open/\.pro\.open/;
 	}
 

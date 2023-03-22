@@ -295,6 +295,11 @@ sub compare_to_expected_results ($object_ref, $expected_results_file, $update_ex
 
 	my $json = JSON->new->allow_nonref->canonical;
 
+	my $desc = undef;
+	if (defined $test_ref) {
+		$desc = $test_ref->{desc} // $test_ref->{id};
+	}
+
 	if ($update_expected_results) {
 		open(my $result, ">:encoding(UTF-8)", $expected_results_file)
 			or confess("Could not create $expected_results_file: $!");
@@ -309,7 +314,7 @@ sub compare_to_expected_results ($object_ref, $expected_results_file, $update_ex
 
 			local $/;    #Enable 'slurp' mode
 			my $expected_object_ref = $json->decode(<$expected_result>);
-			is_deeply($object_ref, $expected_object_ref) or diag(explain $test_ref, explain $object_ref);
+			is_deeply($object_ref, $expected_object_ref, $desc) or diag(explain $test_ref, explain $object_ref);
 		}
 		else {
 			fail("could not load $expected_results_file");

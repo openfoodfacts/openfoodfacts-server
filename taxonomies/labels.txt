@@ -444,6 +444,13 @@ wikidata:en:Q2612801
 label_categories:en: en:Food awards, en:Beers
 
 <en:World Beer Awards
+en:World Beer Awards 2020
+ca:Millors Cerveses del Món 2020
+he:פרסי הבירה העולמיים 2020
+xx:World Beer Awards 2020
+zh:世界啤酒奖 2020
+
+<en:World Beer Awards
 en:World Beer Awards 2019
 ca:Millors Cerveses del Món 2019
 he:פרסי הבירה העולמיים 2019
@@ -497,6 +504,12 @@ en:Australian International Beer Awards
 wikidata:en:Q2153681
 label_categories:en: en:Food awards, en:Beers
 
+en:Get the facts drink wise
+label_categories:en: en:Health
+image:en:get-the-facts-drink-wise.92x90.png
+country:en:Australia
+website:en:https://drinkwise.org.au/
+
 en:Brazilian Beer Awards
 wikidata:en:Q4958708
 label_categories:en: en:Food awards, en:Beers
@@ -540,6 +553,19 @@ ru:кооперативный продукт
 wikidata:en:Q4539
 
 en:South African National Bottled Water Association, SANBWA, SAN BWA
+
+fr:eauscar
+xx:eauscar
+label_categories:en: en:Food Awards, en:Waters
+image:fr:eauscar.133x90.png
+country:en:France
+description:en:Reward French and foreign mineral waters in different categories.
+
+<fr:eauscar
+fr:eauscar 2003 de la meilleure eau minérale étrangère - catégorie eau pétillante
+xx:eauscar 2003 de la meilleure eau minérale étrangère - catégorie eau pétillante
+label_categories:en: en:Food Awards, en:Waters
+country:en:France
 
 en:HACCP,Hazard analysis and critical control points
 ar:HACCP,تحليل المخاطر ونقاط التحكم الحرجة
@@ -1546,6 +1572,16 @@ fr:Rabbi Schlesinger Strasbourg, Rabbi Schlesinger
 # http://www.hechshers.info/hechshers/165.htm
 # product: https://world.openfoodfacts.org/product/3332792000515/panaches-yeti
 
+<en:Kosher
+hr:Chief-rabbi-Kotel-Da-Don
+xx:Chief-rabbi-Kotel-Da-Don
+label_categories:en: en:Certification, en:Religious diets, en:Specific diets
+image:hr:chief-rabbi-kotel-da-don.105x90.png
+country:en:Croatia
+description:en:List of kosher products in Croatia.
+description:fr:Liste des produits casher en Croatie.
+website:hr:https://www.bet-israel.com/religija/koser-2/
+
 en:Distributor labels, Labels of distributors
 ca:Etiquetes de distribuïdors
 de:Handelsmarken
@@ -1581,6 +1617,26 @@ fr:Testé par le panel test Carrefour, Panel test Carrefour, Inspiré testé et 
 en:Charte LU Harmony, Charte Harmony, LU Harmony, Charte LU
 it:Progetto Harmony di Charte LU
 nl:Charte LU Harmony
+
+<en:distributor labels
+hr:nase mi najbolje pase kaufland, nase mi najbolje pase, NMNP
+xx:nase mi najbolje pase kaufland, nase mi najbolje pase, NMNP
+label_categories:en: en:quality, en:Origins, en:Geographic label
+image:hr:nase-mi-najbolje-pase-kaufland.160x90.png
+country:en:Croatia
+description:en:Label from the distributor Kaufland. 
+website:hr:https://www.kaufland.hr/asortiman/nase-najbolje-pase.html
+
+en:producer labels, labels of producers
+hr:oznaka proizvođača
+fr:label de producteur
+
+<en:producer labels
+hr:100% slavonsko dobro, 100% slavonsko
+xx:100% slavonsko dobro, 100% slavonsko
+label_categories:en: en:Origins, en:Geographic label
+country:en:Croatia
+description:en:Label from the producer Dobro. 
 
 en:LEAF, Linking Environment and Farming, LEAF Linking Environment and Farming
 ru:Связанные окружающая среда и сельское хозяйство
@@ -1851,6 +1907,7 @@ es:Bajo en sal
 fi:vähäsuolainen, matalasuolainen, vähän suolaa
 fr:Peu de sel, peu salé, faible teneur en sel, pauvre en sel, très pauvre en sel
 he:דל במלח
+hr:bez dodane soli
 hu:Alacsony sótartalmú
 it:Basso contenuto di sale
 nl:Weinig zout
@@ -1913,6 +1970,7 @@ de:25% weniger Salz
 es:25% menos de sal
 fi:25% vähemmän suolaa
 fr:Moins 25% de sel, -25% de sel, 25% de sel en moins, Sel réduit de 25%
+hr:-25% soli
 hu:25%-al csökkentett sótartalmú
 it:25% in meno di sale
 nl:25% minder zout
@@ -2280,9 +2338,125 @@ fr:Fabriqué en Bulgarie
 country:en:Bulgaria
 label_categories:en: en:Geographic label
 
-en:croatian quality
-hr:hrvatska kvaliteta
-label_categories:en: en:Geographic label
+hr:dokazana kvaliteta
+xx:dokazana kvaliteta
+label_categories:en: en:Quality
+image:hr:dokazana-kvaliteta.206x90.png
+country:en:Croatia
+description:en:Issued by the Croatian Ministry of Agriculture. 
+website:hr:https://poljoprivreda.gov.hr/istaknute-teme/hrana-111/oznake-kvalitete/dokazana-kvaliteta/4226
+
+hr:hrana hrvatskih farmi
+xx:hrana hrvatskih farmi
+label_categories:en: en:Origins
+country:en:Croatia
+description:en:Issued by the Croatian Ministry of Agriculture. 
+website:hr:https://hrana-hrvatskih-farmi.hpa.hr/
+
+<hr:hrana hrvatskih farmi
+hr:mlijeko hrvatskih farmi
+xx:mlijeko hrvatskih farmi
+label_categories:en: en:Origins
+image:hr:mlijeko-hrvatskih-farmi.90x90.png
+country:en:Croatia
+description:en:Issued by the Croatian Ministry of Agriculture. 
+website:hr:https://hrana-hrvatskih-farmi.hpa.hr/
+
+<hr:hrana hrvatskih farmi
+hr:med hrvatskih pčelinjaka
+xx:med hrvatskih pčelinjaka
+label_categories:en: en:Origins
+image:hr:med-hrvatskih-pcelinjaka.90x90.png
+country:en:Croatia
+description:en:Issued by the Croatian Ministry of Agriculture. 
+website:hr:https://hrana-hrvatskih-farmi.hpa.hr/
+
+<hr:hrana hrvatskih farmi
+hr:jaja hrvatskih farmi
+xx:jaja hrvatskih farmi
+label_categories:en: en:Origins
+image:hr:jaja-hrvatskih-farmi.90x90.png
+country:en:Croatia
+description:en:Issued by the Croatian Ministry of Agriculture. 
+website:hr:https://hrana-hrvatskih-farmi.hpa.hr/
+
+<hr:hrana hrvatskih farmi
+hr:kruh hrvatskih polja
+xx:kruh hrvatskih polja
+label_categories:en: en:Origins
+image:hr:kruh-hrvatskih-polja.90x90.png
+country:en:Croatia
+description:en:Issued by the Croatian Ministry of Agriculture. 
+website:hr:https://hrana-hrvatskih-farmi.hpa.hr/
+
+<hr:hrana hrvatskih farmi
+hr:brašno hrvatskih polja
+xx:brašno hrvatskih polja
+label_categories:en: en:Origins
+image:hr:brasno-hrvatskih-polja.90x90.png
+country:en:Croatia
+description:en:Issued by the Croatian Ministry of Agriculture. 
+website:hr:https://hrana-hrvatskih-farmi.hpa.hr/
+
+<hr:hrana hrvatskih farmi
+hr:meso hrvatskih farmi
+xx:meso hrvatskih farmi
+label_categories:en: en:Origins
+country:en:Croatia
+description:en:Issued by the Croatian Ministry of Agriculture. 
+website:hr:https://hrana-hrvatskih-farmi.hpa.hr/
+
+<hr:meso hrvatskih farmi
+hr:meso hrvatskih farmi rođeno i uzgojeno u rh
+xx:meso hrvatskih farmi rođeno i uzgojeno u rh
+label_categories:en: en:Origins
+image:hr:meso-hrvatskih-farmi-rodeno-i-uzgojeno-u-rh.90x90.png
+country:en:Croatia
+description:en:Issued by the Croatian Ministry of Agriculture. 
+website:hr:https://hrana-hrvatskih-farmi.hpa.hr/
+
+<hr:meso hrvatskih farmi
+hr:meso hrvatskih farmi uzgojeno u rh
+xx:meso hrvatskih farmi uzgojeno u rh
+label_categories:en: en:Origins
+image:hr:meso-hrvatskih-farmi-uzgojeno-u-rh.90x90.png
+country:en:Croatia
+description:en:Issued by the Croatian Ministry of Agriculture. 
+website:hr:https://hrana-hrvatskih-farmi.hpa.hr/
+
+hr:hrvatski otocni proizvod, croatian island product, HOP
+xx:hrvatski otocni proizvod, croatian island product, HOP
+label_categories:en: en:Origins, en:Geographic label
+image:hr:hrvatski-otocni-proizvod.237x90.png
+country:en:Croatia
+description:en:Issued by the Croatian Ministry of Regional Development and Funds of the European Union. 
+website:hr:https://otocniproizvod.hr
+
+hr:izvorno hrvatsko
+xx:izvorno hrvatsko
+label_categories:en: en:Origins, en:Geographic label
+image:hr:izvorno-hrvatsko.169x90.png
+country:en:Croatia
+description:en:Issued by the Croatian Chamber of Commerce. 
+website:hr:https://znakovi.hgk.hr/
+
+hr:hrvtaska kvaliteta
+xx:hrvtaska kvaliteta
+label_categories:en: en:Quality
+image:hr:hrvtaska-kvaliteta.128x90.png
+country:en:Croatia
+description:en:Issued by the Croatian Chamber of Commerce. 
+website:hr:https://znakovi.hgk.hr/
+
+hr:zivjeti zdravo
+xx:zivjeti zdravo
+label_categories:en: en:Certification, en:Health, en:Nutrition Grades
+image:hr:zivjeti-zdravo.122x90.png
+country:en:Croatia
+description:en:Croatian certification "Healthy Living" recognized by the European Commission. The marked products contain less fat (especially saturated), adequate protein content, more fiber and less salt and sugar than other products in the same category.
+description:fr:certification croate "Vivre en bonne santé" reconnue par la Commission Européenne. Les produits marqués contiennent moins de matières grasses (en particulier saturées), une teneur adéquate en protéines, plus de fibres et une quantité réduite de sel et de sucre par rapport aux autres produits de la même catégorie.
+website:hr:https://zivjetizdravo.eu/
+# Ministry of Health and the Croatian Institute of Public Health
 
 en:produced in croatia
 hr:proizvedeno u hrvatskoj
@@ -2290,17 +2464,27 @@ hr:proizvedeno u hrvatskoj
 en:croatian product
 hr:hrvatski proizvod
 
-en:eggs from Croatian farms
-hr:jaja hrvatskih farmi
+hr:povratna naknada
+xx:povratna naknada
+label_categories:en: en:Environment, en:Packaging
+image:hr:povratna-naknada.99x90.png
+country:en:Croatia
+description:en:deposit in Croatia.
+description:fr:consignée en Croatie.
 
-en:milk from croatian farms
-hr:mlijeko hrvatskih farmi
+sv:pant 1kr
+xx:pant 1kr
+label_categories:en: en:Environment, en:Packaging
+image:sv:pant-1kr.61x90.png
+country:en:Sweden
+description:en:deposit in Sweden.
+description:fr:consignée en Suède.
 
-en:croatian milk cheese
-hr:sir od hvatskog mlijeka
-
-en:product of Zagreb County
-hr:proizvod zagrebačke županije
+en:metal recycles forever
+xx:metal recycles forever
+label_categories:en: en:Environment, en:Packaging
+image:en:metal-recycles-forever.89x90.png
+website:en:https://www.metalrecyclesforever.eu/
 
 en:Made in Denmark
 bg:Произведено в Дания
@@ -2482,7 +2666,7 @@ pl:Wyprodukowano w Hiszpanii
 country:en:Spain
 label_categories:en: en:Geographic label
 
-en:Made in Swiss, made in Switzerland
+en:Made in Swiss, made in Switzerland, swiss made
 bg:Произведено в Швейцария
 ca:Fet a Suïssa
 de:Hergestellt in der Schweiz
@@ -2571,8 +2755,15 @@ label_categories:en: en:Geographic label
 
 fr:Fabriqué en Gourmandie, Produit en Gourmandie
 
+en:Artisanal production, Artisinal
 fr:Fabrication artisanale
 es:Fabricación artesanal, Producción artesanal
+nl:Ambachtelijke productie
+
+<en:Artisanal production
+en:Farm production, produced on the farm
+fr:Fabrication à la ferme
+nl:Geproduceerd op de boerderij
 
 fr:La Lorraine notre signature
 origins:en: en:france, fr:Lorraine
@@ -2693,6 +2884,11 @@ fi:osa ainesosista ei Italiasta
 fr:Certains ingrédients ne proviennent pas d'Italie, Certains ingrédients de ce produit ne proviennent pas d'Italie
 it:Alcuni ingredienti non provengono dall'Italia
 
+en:refrigerated
+fr:réfrigeré
+nl:gekoeld, gekoelde producten
+#comment:en:propducts that need to be kept refrigerated before opening
+
 en:Some ingredients not from France, Some ingredients of this product do not come from France
 ca:Alguns ingredients no són de França
 de:Einige Zutaten nicht aus Frankreich
@@ -2737,6 +2933,12 @@ pl:Bez dodatków, Brak dodatków
 pt:Sem aditivos
 th:ไม่มีสารเติมแต่ง
 label_categories:en: en:Health, en:Additives
+opposite:en: en:With additives
+
+en:With additives
+fr:Avec additifs
+nl:Met toevoegingen
+opposite:en: en:No additives
 
 #instruction:en:Do NOT change the english key.
 en:No artificial additives
@@ -2905,6 +3107,11 @@ pl:Bez sztucznych wzmacniaczy smaku
 label_categories:en: en:Health, en:Additives
 
 #instruction:en:Do NOT change the english key.
+en:No emulsifiers, without emulsifiers
+hr:bez emulgatora
+label_categories:en: en:Health, en:Additives
+
+#instruction:en:Do NOT change the english key.
 en:No aspartame, aspartame free, without aspartame
 bg:Без аспартам
 ca:Sense aspartam, Lliure d'aspartam
@@ -2945,6 +3152,11 @@ pl:Bez kofeiny
 pt:Sem cafeína, livre de cafeína
 th:ไม่มีคาเฟอีน
 label_categories:en: en:Health
+
+
+#instruction:en:Do NOT change the english key.
+en:with caffeine
+hr:s kofeinom
 
 #instruction:en:Do NOT change the english key.
 en:No cholesterol, cholesterol-free, without cholesterol
@@ -3009,7 +3221,7 @@ es:Sin aromas, Sin aromas añadidos
 fi:aromiaineeton, ei lisättyjä aromeja
 fr:sans arômes ajoutés, sans arômes, sans arôme
 he:ללא חומרי טעם
-hr:bez aroma
+hr:bez aroma, bez dodanih aroma
 hu:Hozzáadott aromák nélkül, hozzáadott aromát nem tartalmaz
 it:Senza aromi
 nl:Zonder toegevoegde smaakstoffen
@@ -3679,7 +3891,7 @@ es:Ecológico UE, Ecológico U.E., Producto ecológico europeo
 fi:EU Luomu, EU:n luomu, Euroopan luomu, Euroopan lehti, Euroopan luomulehti
 fr:Bio européen, Label bio européen, bio ce, bio europe, Eurofeuille, Euro-Feuille, Feuille bio
 he:אורגני בתקן אירופאי
-hr:EU Oragnic
+hr:EU Organic
 hu:EU Organic, EU bio, EU öko
 it:Biologico UE
 nl:EU Organic
@@ -3713,6 +3925,7 @@ es:Agricultura UE, Agricultura Unión Europea, Agricultura de la UE
 fi:tuotettu EU:ssa
 fr:Agriculture UE, Agriculture Union Européeenne
 he:חקלאות האיחוד האירופי
+hr:EU poljoprivreda
 hu:EU mezőgazdaság
 it:Agricoltura dell'Unione Europea
 nl:EU landbouw
@@ -3741,6 +3954,7 @@ ru:EU/не-EU агрокультура
 <en:Organic
 en:Bio Austria
 de:Bio Austria
+xx:Bio Austria
 country:en:Austria
 image:en:bio-austria.67x90.svg
 wikidata:en:Q864178
@@ -3767,9 +3981,9 @@ image:en:biogarantie-bel.90x90.svg
 
 <en:EU organic
 de:EG-Öko-Verordnung, Deutsches Bio-Siegel, Deutsches staatliches Bio-Siegel, Bio-Siegel, eg oko verordnung
-country:en:Germany
-image:en:eg-oko-verordnung.110x90.svg
 xx:EG-Öko-Verordnung
+country:en:Germany
+image:de:eg-oko-verordnung.110x90.svg
 
 <en:EU organic
 fr:AB Agriculture Biologique, AB, Agence Bio, ab bio, bio ab, Ab-certifie-agriculture-biologique, ab certifié, AB France
@@ -4869,44 +5083,68 @@ en:GR-BIO-18
 xx:GR-BIO-18
 country:en:Greece
 
+# issued together with HR-EKO-XX, producer can show both or one of the two labels
+hr:ekološkog proizvoda, eko hrvatski proizvod, hrvatski eko proizvod, hrvatski proizvod eko
+xx:ekološkog proizvoda, eko hrvatski proizvod, hrvatski eko proizvod, hrvatski proizvod eko
+country:en:Croatia
+label_categories:en: en:Environnement
+image:hr:ekoloskog-proizvoda.91x90.png
+country:en:Croatia
+
 <en:EU Organic
-en:HR-EKO-01
+hr:HR-EKO-01
 xx:HR-EKO-01
 country:en:Croatia
 
 <en:EU Organic
-en:HR-EKO-02
+hr:HR-EKO-02
 xx:HR-EKO-02
 country:en:Croatia
 
 <en:EU Organic
-en:HR-EKO-03
+hr:HR-EKO-03
 xx:HR-EKO-03
 country:en:Croatia
 
 <en:EU Organic
-en:HR-EKO-04
+hr:HR-EKO-04
 xx:HR-EKO-04
 country:en:Croatia
 
 <en:EU Organic
-en:HR-EKO-05
+hr:HR-EKO-05
 xx:HR-EKO-05
 country:en:Croatia
 
 <en:EU Organic
-en:HR-EKO-06
+hr:HR-EKO-06
 xx:HR-EKO-06
 country:en:Croatia
 
 <en:EU Organic
-en:HR-EKO-07
+hr:HR-EKO-07
 xx:HR-EKO-07
 country:en:Croatia
 
 <en:EU Organic
-en:HR-EKO-08
+hr:HR-EKO-08
 xx:HR-EKO-08
+country:en:Croatia
+
+<en:EU Organic
+hr:HR-EKO-09
+xx:HR-EKO-09
+country:en:Croatia
+
+<en:EU Organic
+hr:HR-EKO-10
+xx:HR-EKO-10
+country:en:Croatia
+
+
+<en:EU Organic
+hr:HR-EKO-11
+xx:HR-EKO-11
 country:en:Croatia
 
 <en:EU Organic
@@ -5363,6 +5601,10 @@ xx:SI-EKO-002
 <en:EU Organic
 en:SI-EKO-003
 xx:SI-EKO-003
+
+<en:EU Organic
+en:SI-EKO-004
+xx:SI-EKO-004
 
 <en:EU Organic
 en:SK-BIO-002
@@ -6169,6 +6411,15 @@ exceptions:en: en:except products covered by Annex III,en:in conversion products
 <en:EU organic
 en:ZA-BIO-151
 country:en:South Africa
+eu_groups:en: en:EU Group A: unprocessed plant products,en:EU Group B: live animals or unprocessed animal products,en:EU Group D: processed agricultural products for use as food (*),
+auth_name:en:Agreco R.F. Göderz GmbH
+auth_address:en:Mündener Straße 19, 37218 , Witzenhausen, Germany
+auth_url:en:http://agrecogmbh.de
+exceptions:en: en:except products covered by Annex III,en:in conversion products
+
+<en:EU organic
+en:LK-BIO-149
+country:en:Sri Lanka
 eu_groups:en: en:EU Group A: unprocessed plant products,en:EU Group B: live animals or unprocessed animal products,en:EU Group D: processed agricultural products for use as food (*),
 auth_name:en:Agreco R.F. Göderz GmbH
 auth_address:en:Mündener Straße 19, 37218 , Witzenhausen, Germany
@@ -16576,7 +16827,7 @@ de:gU, g.U., Geschützte Ursprungsbezeichnung
 es:DOP, D.O.P., Denominación de Origen Protegida
 fi:SAN, S.A.N., Suojattu alkuperänimitys
 fr:AOP, A.O.P., Appellation d'origine protégée
-hr:ZOI, Z.O.I., zaštićenu oznaku izvornosti
+hr:ZOI, Z.O.I., zaštićena oznaka izvornosti
 hu:OEM, Oltalom alatt álló redetmegjelölés
 it:DOP, D.O.P., Denominazione di origine protetta
 nl:BGO, Beschermde Geografische Oorsprong, PDO, AOP
@@ -16590,7 +16841,7 @@ de:ggA, g.g.A., Geschützte geografische Angabe, Geschützte geographische Angab
 es:IGP, I.G.P., Indicación Geográfica Protegida
 fi:SMM, S.M.M., Suojattu maantieteellinen merkintä
 fr:IGP, I.G.P, Indication Géographique Protégée, IGP - Indication Géographique Protégée
-hr:ZOZP, Z.O.Z.P., zaštićenu oznaku zemljopisnog podrijetla 
+hr:ZOZP, Z.O.Z.P., zaštićena oznaka zemljopisnog podrijetla 
 hu:Oltalom alatt álló földrajzi jelzés
 it:IGP, I.G.P., Indicazione geografica protetta
 nl:BGA, B.G.A., Beschermde geografische aanduiding
@@ -16737,6 +16988,10 @@ nl:Rainforest Alliance Cassave
 <en:Rainforest Alliance
 en:Rainforest Alliance Black Tea
 nl:Rainforest Alliance Black Tea
+
+<en:Rainforest Alliance
+en:Rainforest Alliance Mango
+xx:Rainforest Alliance Mango
 
 en:Reinheitsgebot
 de:Reinheitsgebot
@@ -17204,7 +17459,7 @@ origins:en: en:france
 # Should not be automatically triggered by the MSC label
 # as we need to differentiate MSC fisheries from more environmentaly friendly fishing methods for the Eco-Score
 # From the Eco-Score documentation: "Techniques de pêche durables : ligne et hameçon, pêche à la canne, casier, pêche à pied. Ces méthodes sont sélectives et sans impact sur les fonds marins et l'habitat."
-<en:Sustainable fishing
+<en:Sustainable fishery
 en:Sustainable fishing method, sustainable fishing technique
 fr:Méthode de pêche durable, Technique de pêche durable, Mode de pêche durable, Méthodes de pêche durables, techniques de pêche durables, modes de pêche durables
 nl:Duurzame vismethoden
@@ -17734,6 +17989,7 @@ es:Unión Vegetariana Europea
 fi:Euroopan vegetaariliitto
 fr:Union Végétarienne Européenne, European Vegetarian Union, EU Vegetarian Union, V-LABEL.EU, European V-Label, EU V-Label
 he:איחוד הצמחונות האירופי
+hr:Europska vegetarijanska unija, European Vegetarian Union, EU Vegetarian Union, V-LABEL.EU, European V-Label, EU V-Label, EVU
 hu:Európai Vegetáriánus Szövetség, European Vegetarian Union, EU Vegetarian Union, V-LABEL.EU, European V-LABEL, EU V-LABEL
 it:Unione Europea Vegetariani
 nl:Europese vegetarische unie
@@ -18673,9 +18929,9 @@ de:DLG, Deutsche Landwirtschafts-Gesellschaft
 es:Sociedad Alemana de agricultura
 fi:Saksan maatalousyhdistys
 he:איגוד החקלאות הגרמנית
+hr:njemačko poljoprivredno udruženje, DLG
 it:Società Agricola Tedesca
 nl:Duitse Landbouw Stichting
-pt:NL-BIO-01
 wikidata:en:Q316331
 country:en: en:Germany
 label_categories:en: en:Quality
@@ -18685,6 +18941,7 @@ en:Bronze medal of the German Agricultural Society
 de:DLG Bronzener Preis
 fi:Saksan maatalousyhdistyksen pronssimitali
 fr:Médaille de bronze de la Société Allemande d'Agriculture
+hr:Brončana medalja Njemačkog poljoprivrednog društva
 it:Medaglia di bronzo della Società Agricola Tedesca
 country:en: en:Germany
 
@@ -18695,6 +18952,7 @@ cs:Stříbrná medaile Německé Zemědělské Společnosti / DLG
 de:DLG Silberner Preis
 fi:Saksan maatalousyhdistyksen hopeamitali
 fr:Médaille d'argent de la Société Allemande d'Agriculture
+hr:Srebrna medalja Njemačkog poljoprivrednog društva
 it:Medaglia d'argento della Società Agricola Tedesca
 
 <en:German Agricultural Society
@@ -18705,6 +18963,7 @@ de:DLG Goldener Preis
 es:Medalla de oro de la sociedad Alemana de agricultura
 fi:Saksan maatalousyhdistyksen kultamitali
 fr:Médaille d'or de la Société Allemande d'Agriculture
+hr:Zlatna medalja Njemačkog poljoprivrednog društva
 it:Medaglia d'oro della Società Agricola Tedesca
 
 <en:Bronze medal of the German Agricultural Society
@@ -18712,30 +18971,35 @@ en:2009 Bronze medal of the German Agricultural Society
 de:DLG Bronzener Preis 2009
 fi:Saksan maatalousyhdistyksen pronssimitali 2009
 fr:Médaille de bronze 2009 de la Société Allemande d'Agriculture
+hr:Brončana medalja Njemačkog poljoprivrednog društva 2009
 
 <en:Bronze medal of the German Agricultural Society
 en:2010 Bronze medal of the German Agricultural Society
 de:DLG Bronzener Preis 2010
 fi:Saksan maatalousyhdistyksen pronssimitali 2010
 fr:Médaille de bronze 2010 de la Société Allemande d'Agriculture
+hr:Brončana medalja Njemačkog poljoprivrednog društva 2010
 
 <en:Bronze medal of the German Agricultural Society
 en:2011 Bronze medal of the German Agricultural Society
 de:DLG Bronzener Preis 2011
 fi:Saksan maatalousyhdistyksen pronssimitali 2011
 fr:Médaille de bronze 2011 de la Société Allemande d'Agriculture
+hr:Brončana medalja Njemačkog poljoprivrednog društva 2011
 
 <en:Bronze medal of the German Agricultural Society
 en:2012 Bronze medal of the German Agricultural Society
 de:DLG Bronzener Preis 2012
 fi:Saksan maatalousyhdistyksen pronssimitali 2012
 fr:Médaille de bronze 2012 de la Société Allemande d'Agriculture
+hr:Brončana medalja Njemačkog poljoprivrednog društva 2012
 
 <en:Bronze medal of the German Agricultural Society
 en:2013 Bronze medal of the German Agricultural Society
 de:DLG Bronzener Preis 2013
 fi:Saksan maatalousyhdistyksen pronssimitali 2013
 fr:Médaille de bronze 2013 de la Société Allemande d'Agriculture
+hr:Brončana medalja Njemačkog poljoprivrednog društva 2013
 
 <en:Bronze medal of the German Agricultural Society
 en:2014 Bronze medal of the German Agricultural Society
@@ -18743,6 +19007,7 @@ ca:Medalla de bronze de la Societat Agrícola Alemanya el 2014
 de:DLG Bronzener Preis 2014
 fi:Saksan maatalousyhdistyksen pronssimitali 2014
 fr:Médaille de bronze 2014 de la Société Allemande d'Agriculture
+hr:Brončana medalja Njemačkog poljoprivrednog društva 2014
 
 <en:Bronze medal of the German Agricultural Society
 en:2015 Bronze medal of the German Agricultural Society
@@ -18750,18 +19015,21 @@ ca:Medalla de bronze de la Societat Agrícola Alemanya el 2015
 de:DLG Bronzener Preis 2015
 fi:Saksan maatalousyhdistyksen pronssimitali 2015
 fr:Médaille de bronze 2015 de la Société Allemande d'Agriculture
+hr:Brončana medalja Njemačkog poljoprivrednog društva 2015
 
 <en:Bronze medal of the German Agricultural Society
 en:2016 Bronze medal of the German Agricultural Society
 de:DLG Bronzener Preis 2016
 fi:Saksan maatalousyhdistyksen pronssimitali 2016
 fr:Médaille de bronze 2016 de la Société Allemande d'Agriculture
+hr:Brončana medalja Njemačkog poljoprivrednog društva 2016
 
 <en:Bronze medal of the German Agricultural Society
 en:2017 Bronze medal of the German Agricultural Society
 de:DLG Bronzener Preis 2017
 fi:Saksan maatalousyhdistyksen pronssimitali 2017
 fr:Médaille de bronze 2017 de la Société Allemande d'Agriculture
+hr:Brončana medalja Njemačkog poljoprivrednog društva 2017
 it:Medaglia di bronzo 2017 della Società Agricola Tedesca
 
 <en:Bronze medal of the German Agricultural Society
@@ -18769,24 +19037,56 @@ en:2018 Bronze medal of the German Agricultural Society
 de:DLG Bronzener Preis 2018
 fi:Saksan maatalousyhdistyksen pronssimitali 2018
 fr:Médaille de bronze 2018 de la Société Allemande d'Agriculture
+hr:Brončana medalja Njemačkog poljoprivrednog društva 2018
 
 <en:Bronze medal of the German Agricultural Society
 en:2019 Bronze medal of the German Agricultural Society
 de:DLG Bronzener Preis 2019
 fi:Saksan maatalousyhdistyksen pronssimitali 2019
 fr:Médaille de bronze 2019 de la Société Allemande d'Agriculture
+hr:Brončana medalja Njemačkog poljoprivrednog društva 2019
+
+<en:Bronze medal of the German Agricultural Society
+en:2020 Bronze medal of the German Agricultural Society
+de:DLG Bronzener Preis 2020
+fi:Saksan maatalousyhdistyksen pronssimitali 2020
+fr:Médaille de bronze 2020 de la Société Allemande d'Agriculture
+hr:Brončana medalja Njemačkog poljoprivrednog društva 2020
+
+<en:Bronze medal of the German Agricultural Society
+en:2021 Bronze medal of the German Agricultural Society
+de:DLG Bronzener Preis 2021
+fi:Saksan maatalousyhdistyksen pronssimitali 2021
+fr:Médaille de bronze 2021 de la Société Allemande d'Agriculture
+hr:Brončana medalja Njemačkog poljoprivrednog društva 2021
+
+<en:Bronze medal of the German Agricultural Society
+en:2022 Bronze medal of the German Agricultural Society
+de:DLG Bronzener Preis 2022
+fi:Saksan maatalousyhdistyksen pronssimitali 2022
+fr:Médaille de bronze 2022 de la Société Allemande d'Agriculture
+hr:Brončana medalja Njemačkog poljoprivrednog društva 2022
+
+<en:Bronze medal of the German Agricultural Society
+en:2023 Bronze medal of the German Agricultural Society
+de:DLG Bronzener Preis 2023
+fi:Saksan maatalousyhdistyksen pronssimitali 2023
+fr:Médaille de bronze 2023 de la Société Allemande d'Agriculture
+hr:Brončana medalja Njemačkog poljoprivrednog društva 2023
 
 <en:Silver medal of the German Agricultural Society
 en:2009 Silver medal of the German Agricultural Society
 de:DLG Silberner Preis 2009
 fi:Saksan maatalousyhdistyksen hopeamitali 2009
 fr:Médaille d'argent 2009 de la Société Allemande d'Agriculture
+hr:Srebrna medalja Njemačkog poljoprivrednog društva 2009
 
 <en:Silver medal of the German Agricultural Society
 en:2010 Silver medal of the German Agricultural Society
 de:DLG Silberner Preis 2010
 fi:Saksan maatalousyhdistyksen hopeamitali 2010
 fr:Médaille d'argent 2010 de la Société Allemande d'Agriculture
+hr:Srebrna medalja Njemačkog poljoprivrednog društva 2010
 
 <en:Silver medal of the German Agricultural Society
 en:2011 Silver medal of the German Agricultural Society
@@ -18794,30 +19094,35 @@ ca:Medalla de plata de la Societat Agrícola Alemanya el 2011
 de:DLG Silberner Preis 2011
 fi:Saksan maatalousyhdistyksen hopeamitali 2011
 fr:Médaille d'argent 2011 de la Société Allemande d'Agriculture
+hr:Srebrna medalja Njemačkog poljoprivrednog društva 2011
 
 <en:Silver medal of the German Agricultural Society
 en:2012 Silver medal of the German Agricultural Society
 de:DLG Silberner Preis 2012
 fi:Saksan maatalousyhdistyksen hopeamitali 2012
 fr:Médaille d'argent 2012 de la Société Allemande d'Agriculture
+hr:Srebrna medalja Njemačkog poljoprivrednog društva 2012
 
 <en:Silver medal of the German Agricultural Society
 en:2013 Silver medal of the German Agricultural Society
 de:DLG Silberner Preis 2013
 fi:Saksan maatalousyhdistyksen hopeamitali 2013
 fr:Médaille d'argent 2013 de la Société Allemande d'Agriculture
+hr:Srebrna medalja Njemačkog poljoprivrednog društva 2013
 
 <en:Silver medal of the German Agricultural Society
 en:2014 Silver medal of the German Agricultural Society
 de:DLG Silberner Preis 2014
 fi:Saksan maatalousyhdistyksen hopeamitali 2014
 fr:Médaille d'argent 2014 de la Société Allemande d'Agriculture
+hr:Srebrna medalja Njemačkog poljoprivrednog društva 2014
 
 <en:Silver medal of the German Agricultural Society
 en:2015 Silver medal of the German Agricultural Society
 de:DLG Silberner Preis 2015
 fi:Saksan maatalousyhdistyksen hopeamitali 2015
 fr:Médaille d'argent 2015 de la Société Allemande d'Agriculture
+hr:Srebrna medalja Njemačkog poljoprivrednog društva 2015
 it:Medaglia d'argento della Società Agricola Tedesca nel 2015
 
 <en:Silver medal of the German Agricultural Society
@@ -18825,12 +19130,14 @@ en:2016 Silver medal of the German Agricultural Society
 de:DLG Silberner Preis 2016
 fi:Saksan maatalousyhdistyksen hopeamitali 2016
 fr:Médaille d'argent 2016 de la Société Allemande d'Agriculture
+hr:Srebrna medalja Njemačkog poljoprivrednog društva 2016
 
 <en:Silver medal of the German Agricultural Society
 en:2017 Silver medal of the German Agricultural Society
 de:DLG Silberner Preis 2017
 fi:Saksan maatalousyhdistyksen hopeamitali 2017
 fr:Médaille d'argent 2017 de la Société Allemande d'Agriculture
+hr:Srebrna medalja Njemačkog poljoprivrednog društva 2017
 
 <en:Silver medal of the German Agricultural Society
 en:2018 Silver medal of the German Agricultural Society
@@ -18838,6 +19145,7 @@ cs:Stříbrná medaile r. 2018 Německé Zemědělské Společnosti / DLG
 de:DLG Silberner Preis 2018
 fi:Saksan maatalousyhdistyksen hopeamitali 2018
 fr:Médaille d'argent 2018 de la Société Allemande d'Agriculture
+hr:Srebrna medalja Njemačkog poljoprivrednog društva 2018
 it:Medaglia d'argento della Società Agricola Tedesca nel 2018
 
 <en:Silver medal of the German Agricultural Society
@@ -18846,30 +19154,67 @@ cs:Stříbrná medaile r. 2019 Německé Zemědělské Společnosti / DLG
 de:DLG Silberner Preis 2019
 fi:Saksan maatalousyhdistyksen hopeamitali 2019
 fr:Médaille d'argent 2019 de la Société Allemande d'Agriculture
+hr:Srebrna medalja Njemačkog poljoprivrednog društva 2019
+
+<en:Silver medal of the German Agricultural Society
+en:2020 Silver medal of the German Agricultural Society
+cs:Stříbrná medaile r. 2020 Německé Zemědělské Společnosti / DLG
+de:DLG Silberner Preis 2020
+fi:Saksan maatalousyhdistyksen hopeamitali 2020
+fr:Médaille d'argent 2020 de la Société Allemande d'Agriculture
+hr:Srebrna medalja Njemačkog poljoprivrednog društva 2020
+
+<en:Silver medal of the German Agricultural Society
+en:2021 Silver medal of the German Agricultural Society
+cs:Stříbrná medaile r. 2021 Německé Zemědělské Společnosti / DLG
+de:DLG Silberner Preis 2021
+fi:Saksan maatalousyhdistyksen hopeamitali 2021
+fr:Médaille d'argent 2021 de la Société Allemande d'Agriculture
+hr:Srebrna medalja Njemačkog poljoprivrednog društva 2021
+
+<en:Silver medal of the German Agricultural Society
+en:2022 Silver medal of the German Agricultural Society
+cs:Stříbrná medaile r. 2022 Německé Zemědělské Společnosti / DLG
+de:DLG Silberner Preis 2022
+fi:Saksan maatalousyhdistyksen hopeamitali 2022
+fr:Médaille d'argent 2022 de la Société Allemande d'Agriculture
+hr:Srebrna medalja Njemačkog poljoprivrednog društva 2022
+
+<en:Silver medal of the German Agricultural Society
+en:2023 Silver medal of the German Agricultural Society
+cs:Stříbrná medaile r. 2023 Německé Zemědělské Společnosti / DLG
+de:DLG Silberner Preis 2023
+fi:Saksan maatalousyhdistyksen hopeamitali 2023
+fr:Médaille d'argent 2023 de la Société Allemande d'Agriculture
+hr:Srebrna medalja Njemačkog poljoprivrednog društva 2023
 
 <en:Gold medal of the German Agricultural Society
 en:2009 Gold medal of the German Agricultural Society
 de:DLG Goldener Preis 2009
 fi:Saksan maatalousyhdistyksen kultamitali 2009
 fr:Médaille d'or 2009 de la Société Allemande d'Agriculture
+hr:Zlatna medalja Njemačkog poljoprivrednog društva 2009
 
 <en:Gold medal of the German Agricultural Society
 en:2010 Gold medal of the German Agricultural Society
 de:DLG Goldener Preis 2010
 fi:Saksan maatalousyhdistyksen kultamitali 2010
 fr:Médaille d'or 2010 de la Société Allemande d'Agriculture
+hr:Zlatna medalja Njemačkog poljoprivrednog društva 2010
 
 <en:Gold medal of the German Agricultural Society
 en:2011 Gold medal of the German Agricultural Society
 de:DLG Goldener Preis 2011
 fi:Saksan maatalousyhdistyksen kultamitali 2011
 fr:Médaille d'or 2011 de la Société Allemande d'Agriculture
+hr:Zlatna medalja Njemačkog poljoprivrednog društva 2011
 
 <en:Gold medal of the German Agricultural Society
 en:2012 Gold medal of the German Agricultural Society
 de:DLG Goldener Preis 2012
 fi:Saksan maatalousyhdistyksen kultamitali 2012
 fr:Médaille d'or 2012 de la Société Allemande d'Agriculture
+hr:Zlatna medalja Njemačkog poljoprivrednog društva 2012
 
 <en:Gold medal of the German Agricultural Society
 en:2013 Gold medal of the German Agricultural Society
@@ -18877,6 +19222,7 @@ de:DLG Goldener Preis 2013
 es:2013 Medalla de oro de la Sociedad Agrícola Alemana
 fi:Saksan maatalousyhdistyksen kultamitali 2013
 fr:Médaille d'or 2013 de la Société Allemande d'Agriculture
+hr:Zlatna medalja Njemačkog poljoprivrednog društva 2013
 it:Medaglia d'oro della Società Agricola Tedesca nel 2013
 
 <en:Gold medal of the German Agricultural Society
@@ -18886,6 +19232,7 @@ de:DLG Goldener Preis 2014
 es:2014 Medalla de oro de la Sociedad Agrícola Alemana
 fi:Saksan maatalousyhdistyksen kultamitali 2014
 fr:Médaille d'or 2014 de la Société Allemande d'Agriculture
+hr:Zlatna medalja Njemačkog poljoprivrednog društva 2014
 it:Medaglia d'oro della Società Agricola Tedesca nel 2014
 
 <en:Gold medal of the German Agricultural Society
@@ -18895,6 +19242,7 @@ de:DLG Goldener Preis 2015
 es:2015 Medalla de oro de la Sociedad Agrícola Alemana
 fi:Saksan maatalousyhdistyksen kultamitali 2015
 fr:Médaille d'or 2015 de la Société Allemande d'Agriculture
+hr:Zlatna medalja Njemačkog poljoprivrednog društva 2015
 it:Medaglia d'oro della Società Agricola Tedesca nel 2015
 
 <en:Gold medal of the German Agricultural Society
@@ -18903,6 +19251,7 @@ ca:Medalla d'or de la Societat Agrícola Alemanya 2016
 de:DLG Goldener Preis 2016
 fi:Saksan maatalousyhdistyksen kultamitali 2016
 fr:Médaille d'or 2016 de la Société Allemande d'Agriculture
+hr:Zlatna medalja Njemačkog poljoprivrednog društva 2016
 it:Medaglia d'oro della Società Agricola Tedesca nel 2016
 
 <en:Gold medal of the German Agricultural Society
@@ -18912,6 +19261,7 @@ cs:Zlatá medaile r. 2017 Německé Zemědělské Společnosti / DLG
 de:DLG Goldener Preis 2017
 fi:Saksan maatalousyhdistyksen kultamitali 2017
 fr:Médaille d'or 2017 de la Société Allemande d'Agriculture
+hr:Zlatna medalja Njemačkog poljoprivrednog društva 2017
 it:Medaglia d'oro della Società Agricola Tedesca nel 2017
 
 <en:Gold medal of the German Agricultural Society
@@ -18921,6 +19271,7 @@ cs:Zlatá medaile r. 2018 Německé Zemědělské Společnosti / DLG
 de:DLG Goldener Preis 2018
 fi:Saksan maatalousyhdistyksen kultamitali 2018
 fr:Médaille d'or 2018 de la Société Allemande d'Agriculture
+hr:Zlatna medalja Njemačkog poljoprivrednog društva 2018
 it:Medaglia d'oro della Società Agricola Tedesca nel 2018
 
 <en:Gold medal of the German Agricultural Society
@@ -18929,6 +19280,7 @@ cs:Zlatá medaile r. 2019 Německé Zemědělské Společnosti / DLG
 de:DLG Goldener Preis 2019
 fi:Saksan maatalousyhdistyksen kultamitali 2019
 fr:Médaille d'or 2019 de la Société Allemande d'Agriculture
+hr:Zlatna medalja Njemačkog poljoprivrednog društva 2019
 it:Medaglia d'oro della Società Agricola Tedesca nel 2019
 
 <en:Gold medal of the German Agricultural Society
@@ -18936,12 +19288,28 @@ en:2020 Gold medal of the German Agricultural Society
 de:DLG Goldener Preis 2020
 fi:Saksan maatalousyhdistyksen kultamitali 2020
 fr:Médaille d'or 2020 de la Société Allemande d'Agriculture
+hr:Zlatna medalja Njemačkog poljoprivrednog društva 2020
 
 <en:Gold medal of the German Agricultural Society
 en:2021 Gold medal of the German Agricultural Society
 de:DLG Goldener Preis 2021
 fi:Saksan maatalousyhdistyksen kultamitali 2021
 fr:Médaille d'or 2021 de la Société Allemande d'Agriculture
+hr:Zlatna medalja Njemačkog poljoprivrednog društva 2021
+
+<en:Gold medal of the German Agricultural Society
+en:2022 Gold medal of the German Agricultural Society
+de:DLG Goldener Preis 2022
+fi:Saksan maatalousyhdistyksen kultamitali 2022
+fr:Médaille d'or 2022 de la Société Allemande d'Agriculture
+hr:Zlatna medalja Njemačkog poljoprivrednog društva 2022
+
+<en:Gold medal of the German Agricultural Society
+en:2023 Gold medal of the German Agricultural Society
+de:DLG Goldener Preis 2023
+fi:Saksan maatalousyhdistyksen kultamitali 2023
+fr:Médaille d'or 2023 de la Société Allemande d'Agriculture
+hr:Zlatna medalja Njemačkog poljoprivrednog društva 2023
 
 <en:German Agricultural Society
 de:DLG Jährlich Prämiert
@@ -19735,17 +20103,42 @@ label_categories:en: en:Environment, en:Cocoa
 
 en:Ethical Tea Partnership, ETP
 wikidata:en:Q5403392
-label_categories:en: en:Faitrade
+label_categories:en: en:Fairtrade
 
-en:pasteurized product
+en:Pasteurized, Pasteurised, pasteurized product
 bg:Пастьоризиран продукт
 ca:Producte pasteuritzat
 de:Pasteurisiertes Produkt
 es:Producto pasteurizado
-fr:produit pasteurisé
+fr:Pasteurisé, produit pasteurisé
 hu:pasztőrözött termék
 it:Prodotto pastorizzato
-nl:gepasteuriseerd product
+nb:Pasteurisert
+nl:gepasteuriseerd, gepasteuriseerd product
+opposite:en: en:unpasteurized
+
+<en:Pasteurized
+en:Flash pasteurized, Flash pasteurised
+fr:Flash pasteurisé
+nl:Flash gepasteuriseerd
+
+en:Unpasteurized
+fr:Non pasteurisé
+nl:Ongepasteuriseerd
+opposite:en: en:pasteurized
+
+en:Cold pressed
+fr:Pression à froid, haute pression à froid
+nl:Koudgeperst
+
+en:Unfiltered, cloudy
+de:Trüb, Naturtrüb
+opposite:en: en:Filtered
+
+en:Filtered
+de:Klar
+fr:Non filtrée, Clair
+opposite:en: en:unfiltered
 
 fr:Haute Valeur Environnementale, HVE
 xx:Haute Valeur Environnementale, HVE
