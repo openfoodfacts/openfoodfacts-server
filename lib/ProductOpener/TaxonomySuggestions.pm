@@ -100,8 +100,8 @@ Hash of fields that can be taken into account to generate relevant suggestions
 
 =head3 Note
 
-The results of this function are cached using memcached. Restart memcached if you want fresh results
-(e.g. when taxonomy are category stats change)
+The results of this function are cached for 1 day using memcached.
+Restart memcached if you want fresh results (e.g. when taxonomy are category stats change).
 
 =cut
 
@@ -119,8 +119,8 @@ sub get_taxonomy_suggestions ($tagtype, $search_lc, $string, $context_ref, $opti
 	) if $log->is_debug();
 
 	# Check if we have cached suggestions
-	my $key = "taxonomy-suggestions/"
-		. generate_cache_key(
+	my $key = generate_cache_key(
+		"get_taxonomy_suggestions",
 		{
 			tagtype => $tagtype,
 			search_lc => $search_lc,
@@ -128,7 +128,7 @@ sub get_taxonomy_suggestions ($tagtype, $search_lc, $string, $context_ref, $opti
 			context_ref => $context_ref,
 			options_ref => $options_ref
 		}
-		);
+	);
 
 	my $results_ref = $memd->get($key);
 
@@ -141,7 +141,7 @@ sub get_taxonomy_suggestions ($tagtype, $search_lc, $string, $context_ref, $opti
 		$results_ref = \@filtered_tags;
 
 		$log->debug("storing suggestions in cache", {key => $key}) if $log->is_debug();
-		$memd->set($key, $results_ref, 3600);
+		$memd->set($key, $results_ref, 24 * 3600);    # Cache suggestions for 1 day
 	}
 	else {
 		$log->debug("got suggestions from cache", {key => $key}) if $log->is_debug();

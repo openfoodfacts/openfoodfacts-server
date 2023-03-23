@@ -76,6 +76,7 @@ BEGIN {
 		&list_taxonomy_tags_in_language
 
 		&canonicalize_taxonomy_tag
+		&canonicalize_taxonomy_tag_or_die
 		&canonicalize_taxonomy_tag_linkeddata
 		&canonicalize_taxonomy_tag_weblink
 		&canonicalize_taxonomy_tag_link
@@ -2989,6 +2990,48 @@ sub get_taxonomyurl ($tag_lc, $tagid) {
 	else {
 		return get_url_id_for_lang($tag_lc, $tagid);
 	}
+}
+
+=head2 canonicalize_taxonomy_tag_or_die ($tag_lc, $tagtype, $tag)
+
+Canonicalize a string to check if matches an entry in a taxonomy, and die otherwise.
+
+This function is used during initialization, to check that some initialization data has matching entries in taxonomies.
+
+=head3 Arguments
+
+=head4 $tag_lc
+
+The language of the string.
+
+=head4 $tagtype
+
+The type of the tag (e.g. categories, labels, allergens)
+
+=head4 $tag
+
+The string that we want to match to a tag.
+
+=head4 $exists_in_taxonomy_ref
+
+A reference to a variable that will be assigned 1 if we found a matching taxonomy entry, or 0 otherwise.
+
+=head3 Return value
+
+If the string could be matched to an existing taxonomy entry, the canonical id for the entry is returned.
+
+Otherwise, the function dies.
+
+=cut
+
+sub canonicalize_taxonomy_tag_or_die ($tag_lc, $tagtype, $tag) {
+
+	my $exists_in_taxonomy;
+	my $tagid = canonicalize_taxonomy_tag($tag_lc, $tagtype, $tag, \$exists_in_taxonomy);
+	if (not $exists_in_taxonomy) {
+		die("$tag ($tag_lc) could not be matched to an entry in the $tagtype taxonomy");
+	}
+	return $tagid;
 }
 
 =head2 canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref = undef)

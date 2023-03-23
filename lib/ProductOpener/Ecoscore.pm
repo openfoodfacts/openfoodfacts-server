@@ -508,59 +508,21 @@ sub load_ecoscore_data_packaging() {
 		foreach my $assignment_ref (@assignments) {
 
 			# We canonicalize the names given in the assignments, as the taxonomies can change over time, including the canonical names
-			my $target_material_id_exists_in_taxonomy;
-			my $target_material = canonicalize_taxonomy_tag(
-				"en", "packaging_materials",
-				$assignment_ref->{target_material},
-				\$target_material_id_exists_in_taxonomy
-			);
+			my $target_material
+				= canonicalize_taxonomy_tag_or_die("en", "packaging_materials", $assignment_ref->{target_material},);
 
-			my $source_material_id_exists_in_taxonomy;
-			my $source_material = canonicalize_taxonomy_tag(
-				"en", "packaging_materials",
-				$assignment_ref->{source_material},
-				\$source_material_id_exists_in_taxonomy
-			);
-
-			if (not $target_material_id_exists_in_taxonomy) {
-				die(      "target_material "
-						. $assignment_ref->{target_material}
-						. " does not exist in the packaging_materials taxonomy");
-			}
-			if (not $source_material_id_exists_in_taxonomy) {
-				die(      "source_material "
-						. $assignment_ref->{source_material}
-						. " does not exist in the packaging_materials taxonomy");
-			}
+			my $source_material
+				= canonicalize_taxonomy_tag_or_die("en", "packaging_materials", $assignment_ref->{source_material},);
 
 			my $target = $target_material;
 			my $source = $source_material;
 
 			if (defined $assignment_ref->{target_shape}) {
-				my $target_shape_id_exists_in_taxonomy;
-				my $target_shape = canonicalize_taxonomy_tag(
-					"en", "packaging_shapes",
-					$assignment_ref->{target_shape},
-					\$target_shape_id_exists_in_taxonomy
-				);
+				my $target_shape
+					= canonicalize_taxonomy_tag_or_die("en", "packaging_shapes", $assignment_ref->{target_shape},);
 
-				my $source_shape_id_exists_in_taxonomy;
-				my $source_shape = canonicalize_taxonomy_tag(
-					"en", "packaging_shapes",
-					$assignment_ref->{source_shape},
-					\$source_shape_id_exists_in_taxonomy
-				);
-
-				if (not $target_shape_id_exists_in_taxonomy) {
-					die(      "target_shape "
-							. $assignment_ref->{target_shape}
-							. " does not exist in the packaging_shapes taxonomy");
-				}
-				if (not $source_shape_id_exists_in_taxonomy) {
-					die(      "source_shape "
-							. $assignment_ref->{source_shape}
-							. " does not exist in the packaging_shapes taxonomy");
-				}
+				my $source_shape
+					= canonicalize_taxonomy_tag_or_die("en", "packaging_shapes", $assignment_ref->{source_shape},);
 
 				$target .= '.' . $target_shape;
 				$source .= '.' . $source_shape;

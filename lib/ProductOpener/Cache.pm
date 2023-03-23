@@ -56,11 +56,15 @@ my $json = JSON->new->utf8->allow_nonref->canonical;
 
 =head1 FUNCTIONS
 
-=head2  generate_cache_key($context_ref)
+=head2  generate_cache_key($name, $context_ref)
 
 Generate a key to use for caching, that depends on the content of the $context_ref object.
+The key is prependend by the name of the variable we want to store, so that we can set multiple variables for the same context
+(e.g. a count of search results + the search results themselves)
 
 =head3 Arguments
+
+=head4 $name Name of the variable we want to cache.
 
 =head4 $object_ref Reference to all the context / parameters etc. that have an influence on what we want to cache
 
@@ -70,15 +74,15 @@ MD5 of the key.
 
 =cut
 
-sub generate_cache_key ($context_ref) {
+sub generate_cache_key ($name, $context_ref) {
 
 	# We generate a sorted JSON so that we always have the same key for the context object
 	# even if it contains hashes (Storable::freeze may not have the same order of keys)
-	my $key = $server_domain . "/" . $json->encode($context_ref);
-	my $md5_key = md5_hex($key);
-	$log->debug("generate_cache_key", {context_ref => $context_ref, key => $key, md5_key => $md5_key})
+	my $context_json = $json->encode($context_ref);
+	my $key = $server_domain . ':' . $name . '/' . md5_hex($context_json);
+	$log->debug("generate_cache_key", {context_ref => $context_ref, context_json => $context_json, key => $key})
 		if $log->is_debug();
-	return $md5_key;
+	return $key;
 }
 
 1;
