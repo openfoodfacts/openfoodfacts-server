@@ -112,6 +112,9 @@ BEGIN {
 		&send_image_to_cloud_vision
 		&send_image_to_robotoff
 
+		@CLOUD_VISION_FEATURES_FULL
+		@CLOUD_VISION_FEATURES_TEXT
+
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -2001,7 +2004,7 @@ sub extract_text_from_image ($product_ref, $id, $field, $ocr_engine, $results_re
 
 		my $json_file = "$www_root/images/products/$path/$filename.json";
 		open(my $gv_logs, ">>:encoding(UTF-8)", "$data_root/logs/cloud_vision.log");
-		my $cloudvision_ref = send_image_to_cloud_vision($image, $json_file, $gv_logs);
+		my $cloudvision_ref = send_image_to_cloud_vision($image, $json_file, \@CLOUD_VISION_FEATURES_TEXT, $gv_logs);
 		close $gv_logs;
 
 		if (    (defined $cloudvision_ref->{responses})
@@ -2026,7 +2029,44 @@ sub extract_text_from_image ($product_ref, $id, $field, $ocr_engine, $results_re
 	return;
 }
 
-sub send_image_to_cloud_vision ($image_path, $json_file, $gv_logs) {
+@CLOUD_VISION_FEATURES_FULL = (
+	{type => 'TEXT_DETECTION'},
+	{type => 'LOGO_DETECTION'},
+	{type => 'LABEL_DETECTION'},
+	{type => 'SAFE_SEARCH_DETECTION'},
+	{type => 'FACE_DETECTION'},
+);
+
+@CLOUD_VISION_FEATURES_TEXT = ({type => 'TEXT_DETECTION'});
+
+=head2 send_image_to_cloud_vision ($image_path, $json_file, $features_ref, $gv_logs)
+
+Call to Google Cloud vision API
+
+=head3 Arguments
+
+=head4 $image_path - str path to image
+
+=head4 $json_file - str path to the file where we will store OCR result as JSON
+
+=head4 $features_ref - hash reference - the "features" parameter of Google Cloud Vision
+
+This determine which detection will be performed.
+Remember each feature is a cost.
+
+C<@CLOUD_VISION_FEATURES_FULL> and C<@CLOUD_VISION_FEATURES_TEXT> are two constant you can use.
+
+=head4 $gv_logs - file handle
+
+A file where we write additional logs, specific to the service.
+
+=head3 Response
+
+Return JSON content of the response.
+
+=cut
+
+sub send_image_to_cloud_vision ($image_path, $json_file, $features_ref, $gv_logs) {
 
 	my $url
 		= $ProductOpener::Config::google_cloud_vision_api_url . "?key="
@@ -2044,13 +2084,7 @@ sub send_image_to_cloud_vision ($image_path, $json_file, $gv_logs) {
 	my $api_request_ref = {
 		requests => [
 			{
-				features => [
-					{type => 'TEXT_DETECTION'},
-					{type => 'LOGO_DETECTION'},
-					{type => 'LABEL_DETECTION'},
-					{type => 'SAFE_SEARCH_DETECTION'},
-					{type => 'FACE_DETECTION'},
-				],
+				features => $features_ref,
 				# image => { source => { imageUri => $image_url}}
 				image => {content => encode_base64($image_data)},
 			}
@@ -2108,6 +2142,26 @@ sub send_image_to_cloud_vision ($image_path, $json_file, $gv_logs) {
 	return $cloudvision_ref;
 
 }
+
+=head2 send_image_to_robotoff ($code, $image_url, $json_url, $api_server_domain)
+
+Send a notification about a new image (already gone through OCR) to Robotoff
+
+=head3 Arguments
+
+=head4 $code - product code
+
+=head4 $image_url - public url of the image
+
+=head4 $json_url - public url of OCR result as JSON
+
+=head4 $api_server_domain - the API url for this product opener instance
+
+=head3 Response
+
+Return Robotoff HTTP::Response object.
+
+=cut
 
 sub send_image_to_robotoff ($code, $image_url, $json_url, $api_server_domain) {
 

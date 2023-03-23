@@ -10,7 +10,7 @@ use File::Slurp;
 use JSON;
 
 use ProductOpener::Test qw/:all/;
-use ProductOpener::Images qw/send_image_to_cloud_vision/;
+use ProductOpener::Images qw/:all/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
@@ -39,7 +39,7 @@ my $image_path = dirname(__FILE__) . "/inputs/small-img.jpg";
 	# expected response
 	my $response = HTTP::Response->new("200", "OK", HTTP::Headers->new(), '{"foo": "blah"}');
 	push @ua_responses, $response;
-	send_image_to_cloud_vision($image_path, $json_path, $gv_logs);
+	send_image_to_cloud_vision($image_path, $json_path, \@CLOUD_VISION_FEATURES_FULL, $gv_logs);
 	close($gv_logs);
 	is(scalar @ua_requests, 1, "Normal test - One request issued to cloud vision");
 	my $issued_request = shift @ua_requests;
@@ -56,7 +56,7 @@ my $image_path = dirname(__FILE__) . "/inputs/small-img.jpg";
 	open($gv_logs, ">:encoding(UTF-8)", $gv_logs_path);
 	$response = HTTP::Response->new("200", "OK", HTTP::Headers->new(), '{"foo": "bar"}');
 	push @ua_responses, $response;
-	send_image_to_cloud_vision($image_path, $json_path, $gv_logs);
+	send_image_to_cloud_vision($image_path, $json_path, \@CLOUD_VISION_FEATURES_FULL, $gv_logs);
 	close($gv_logs);
 	is(scalar @ua_requests, 1, "test request update - One request issued to cloud vision");
 	$issued_request = shift @ua_requests;
@@ -69,11 +69,32 @@ my $image_path = dirname(__FILE__) . "/inputs/small-img.jpg";
 	$logs = read_file($gv_logs_path);
 	like($logs, qr/cloud vision success/, "test request update - cloud vision success in logs");
 
+	# test with different feature set \@CLOUD_VISION_FEATURES_TEXT
+	open($gv_logs, ">:encoding(UTF-8)", $gv_logs_path);
+	$response = HTTP::Response->new("200", "OK", HTTP::Headers->new(), '{"foo": "bar"}');
+	push @ua_responses, $response;
+	send_image_to_cloud_vision($image_path, $json_path, \@CLOUD_VISION_FEATURES_TEXT, $gv_logs);
+	close($gv_logs);
+	is(scalar @ua_requests, 1, "test request features text - One request issued to cloud vision");
+	$issued_request = shift @ua_requests;
+	$request_json_body = decode_json($issued_request->content());
+	compare_to_expected_results($request_json_body, "$expected_result_dir/request_body_3.json",
+		$update_expected_results);
+	$ocr_content = read_file($json_path);
+	$ocr_data = decode_json($ocr_content);
+	compare_to_expected_results($ocr_data, "$expected_result_dir/ocr_data_3.json", $update_expected_results);
+	$logs = read_file($gv_logs_path);
+	like($logs, qr/cloud vision success/, "test request features text - cloud vision success in logs");
+
 	# test with bad json path
 	open($gv_logs, ">:encoding(UTF-8)", $gv_logs_path);
 	$response = HTTP::Response->new("200", "OK", HTTP::Headers->new(), '{"foo": "blah"}');
 	push @ua_responses, $response;
-	send_image_to_cloud_vision($image_path, "/var/lib/not-a-directory/not-writable.json", $gv_logs);
+	send_image_to_cloud_vision(
+		$image_path,
+		"/var/lib/not-a-directory/not-writable.json",
+		\@CLOUD_VISION_FEATURES_FULL, $gv_logs
+	);
 	close($gv_logs);
 	is(scalar @ua_requests, 1, "non writable json - One request issued to cloud vision");
 	$issued_request = shift @ua_requests;
@@ -87,7 +108,7 @@ my $image_path = dirname(__FILE__) . "/inputs/small-img.jpg";
 	$json_path = $tmp_dir . "/small-img2.json";
 	$response = HTTP::Response->new("403", "Not authorized", HTTP::Headers->new(), '{"foo": "blah"}');
 	push @ua_responses, $response;
-	send_image_to_cloud_vision($image_path, $json_path, $gv_logs);
+	send_image_to_cloud_vision($image_path, $json_path, \@CLOUD_VISION_FEATURES_FULL, $gv_logs);
 	close($gv_logs);
 	is(scalar @ua_requests, 1, "request error - one request issued to cloud vision");
 	$issued_request = shift @ua_requests;

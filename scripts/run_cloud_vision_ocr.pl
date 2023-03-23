@@ -74,7 +74,7 @@ sub send_file_to_ocr ($file) {
 	print $LOG "file: $file destination: $destination code: $code image_url: $image_url json_file: $json_file\n";
 	open(my $gv_logs, ">>:encoding(UTF-8)", "$data_root/logs/cloud_vision.log");
 
-	my $cloudvision_ref = send_image_to_cloud_vision($file, $json_file, $gv_logs);
+	my $cloudvision_ref = send_image_to_cloud_vision($file, $json_file, \@CLOUD_VISION_FEATURES_FULL, $gv_logs);
 
 	if (defined $cloudvision_ref) {
 
