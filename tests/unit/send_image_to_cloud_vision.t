@@ -8,7 +8,6 @@ use HTTP::Response;
 use File::Basename "dirname";
 use File::Slurp;
 use JSON;
-use Data::DeepAccess qw(deep_get);
 
 use ProductOpener::Test qw/:all/;
 use ProductOpener::Images qw/send_image_to_cloud_vision/;

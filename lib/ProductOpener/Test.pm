@@ -49,6 +49,7 @@ BEGIN {
 		&remove_all_users
 		&remove_all_orgs
 		&check_not_production
+		&wait_for
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -166,6 +167,10 @@ sub remove_all_products () {
 	);
 	# clean files
 	remove_tree("$data_root/products", {keep_root => 1, error => \my $err});
+	if (@$err) {
+		confess("not able to remove some products directories: " . join(":", @$err));
+	}
+	remove_tree("$www_root/images/products", {keep_root => 1, error => \$err});
 	if (@$err) {
 		confess("not able to remove some products directories: " . join(":", @$err));
 	}
@@ -643,6 +648,40 @@ sub normalize_org_for_test_comparison ($org_ref) {
 
 	normalize_object_for_test_comparison($org_ref, \%specification);
 	return;
+}
+
+=head2 wait_for($code, $timeout=3, $poll_time=1)
+Wait for an event to happen, up to a certain amount of time
+
+=head3 parameters
+
+=head4 $code - sub
+
+This must be the code that check for the event and return a true value if it succeed, false otherwise
+
+=head4 $timeout - float
+
+how many seconds to wait (default 3s)
+
+=head4 $poll_time - float
+
+how much time to wait between checks
+
+=cut
+
+sub wait_for ($code, $timeout = 3, $poll_time = 1) {
+	my $spent_time = 0;
+	my $success = undef;
+	while ((!$success) && $spent_time < $timeout) {
+		$success = $code->();
+		if ($success) {
+			return 1;
+		}
+		sleep $poll_time;
+		$spent_time += $poll_time;
+	}
+	# last try
+	return $code->();
 }
 
 1;

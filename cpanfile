@@ -104,6 +104,8 @@ on 'test' => sub {
   requires 'Devel::Cover';
   requires 'Devel::Cover::Report::Codecov';
   requires 'Devel::Cover::Report::Codecovbash';
+  requires 'Test::Fake::HTTPD';
+  requires 'URL::Encode';
 };
 
 on 'develop' => sub {

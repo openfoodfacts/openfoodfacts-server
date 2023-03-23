@@ -92,8 +92,8 @@ sub send_file_to_ocr ($file) {
 	return;
 }
 
-sub robust_send_file_to_ocr($file) {
-	eval { send_file_to_ocr($file); };
+sub robust_send_file_to_ocr ($file) {
+	eval {send_file_to_ocr($file);};
 	if ($@) {
 		$log->error("send_file_to_ocr failed for $file: $@") if $log->is_error();
 	}

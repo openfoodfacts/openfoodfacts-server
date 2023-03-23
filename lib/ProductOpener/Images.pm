@@ -2029,8 +2029,9 @@ sub extract_text_from_image ($product_ref, $id, $field, $ocr_engine, $results_re
 sub send_image_to_cloud_vision ($image_path, $json_file, $gv_logs) {
 
 	my $url
-		= "https://vision.googleapis.com/v1/images:annotate?key=" . $ProductOpener::Config::google_cloud_vision_api_key;
-	# alpha-vision.googleapis.com/
+		= $ProductOpener::Config::google_cloud_vision_api_url . "?key="
+		. $ProductOpener::Config::google_cloud_vision_api_key;
+	print($gv_logs "CV:sending to $url\n");
 
 	my $ua = LWP::UserAgent->new();
 
