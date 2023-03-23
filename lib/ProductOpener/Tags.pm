@@ -3097,6 +3097,8 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref 
 	$tag = normalize_percentages($tag, $tag_lc);
 	my $tagid = get_string_id_for_lang($tag_lc, $tag);
 
+	print STDERR "tag: $tag - tagid: $tagid\n";
+
 	if ($tagtype =~ /^additives/) {
 		# convert the E-number + name into just E-number (we get those in urls like /additives/e330-citric-acid)
 		# check E + 1 digit in order to not convert Erythorbate-de-sodium to Erythorbate
@@ -3124,11 +3126,15 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref 
 		}
 	}
 
+	my $found = 0;
+
 	if (    (defined $synonyms{$tagtype})
 		and (defined $synonyms{$tagtype}{$tag_lc})
 		and (defined $synonyms{$tagtype}{$tag_lc}{$tagid}))
 	{
 		$tagid = $synonyms{$tagtype}{$tag_lc}{$tagid};
+		$found = 1;
+		print STDERR "tag: $tag - tagid: $tagid -- found\n";
 	}
 	else {
 		# try removing stopwords and plurals
@@ -3146,18 +3152,21 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref 
 			and (defined $synonyms{$tagtype}{$tag_lc}{$tagid2}))
 		{
 			$tagid = $synonyms{$tagtype}{$tag_lc}{$tagid2};
+			$found = 1;
 		}
-		if (    (defined $synonyms{$tagtype})
+		elsif (    (defined $synonyms{$tagtype})
 			and (defined $synonyms{$tagtype}{$tag_lc})
 			and (defined $synonyms{$tagtype}{$tag_lc}{$tagid3}))
 		{
 			$tagid = $synonyms{$tagtype}{$tag_lc}{$tagid3};
+			$found = 1;
 		}
-		if (    (defined $synonyms{$tagtype})
+		elsif (    (defined $synonyms{$tagtype})
 			and (defined $synonyms{$tagtype}{$tag_lc})
 			and (defined $synonyms{$tagtype}{$tag_lc}{$tagid4}))
 		{
 			$tagid = $synonyms{$tagtype}{$tag_lc}{$tagid4};
+			$found = 1;
 		}
 		else {
 
@@ -3195,6 +3204,7 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref 
 				{
 					$tagid = $synonyms{$tagtype}{$test_lc}{$test_lc_tagid};
 					$tag_lc = $test_lc;
+					$found = 1;
 				}
 				else {
 
@@ -3207,6 +3217,7 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref 
 					{
 						$tagid = $synonyms{$tagtype}{$test_lc}{$tagid2};
 						$tag_lc = $test_lc;
+						$found = 1;
 						last;
 					}
 				}
@@ -3214,7 +3225,53 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref 
 		}
 	}
 
-	$tagid = $tag_lc . ':' . $tagid;
+	# If we have not found the tag in the taxonomy, try to see if it is of the form
+	# "Parent / Children" or "Synonym 1 / Synonym 2"
+	if (not $found) {
+		print STDERR "$tag not found\n";
+		if ($tag =~ /\// ) {
+			my $tag1 = $`;
+			my $tag2 = $';
+			my $exists_tag1;
+			my $exists_tag2;
+			my $tagid1 = canonicalize_taxonomy_tag($tag_lc, $tagtype, $tag1, \$exists_tag1);
+			my $tagid2 = canonicalize_taxonomy_tag($tag_lc, $tagtype, $tag2, \$exists_tag2);
+
+			$log->debug("Checking for multiple tags separated by a slash", {tagtype => $tagtype, tag => $tag, tag1 => $tag1, tag2 => $tag2, tagid1 => $tagid1, tagid2 => $tagid2, exists_tag1 => $exists_tag1, exists_tag2 => $exists_tag2}) if $log->is_debug();
+
+			print STDERR "slash: tagtype => $tagtype, tag => $tag, tag1 => $tag1, tag2 => $tag2, tagid1 => $tagid1, tagid2 => $tagid2, exists_tag1 => $exists_tag1, exists_tag2 => $exists_tag2\n";
+
+			if ($exists_tag1 and $exists_tag2) {
+				# "Synonym 1 / Synonym 2"
+				if ($tagid1 eq $tagid2) {
+					$tagid = $tagid1;
+				}
+				# "Parent / Child"
+				elsif (is_a($tagtype, $tagid2, $tagid1)) {
+					$tagid = $tagid2;
+				}					
+				# "Child / Parent"
+				elsif (is_a($tagtype, $tagid1, $tagid2)) {
+					$tagid = $tagid1;
+				}
+				else {
+					print STDERR "tagid1: $tagid1 - tagid2: $tagid2\n";
+				}
+				print STDERR "tagid: $tagid\n";
+			}
+			else {
+				print STDERR "one tag does not exist: $tag1 - $tag2\n";
+			}
+		}
+		else {
+			print STDERR "tag $tag not found\n";
+		}
+	}
+
+	# $tagid may already be a canon tagid with a language prefix, in which case do not add the language prefix
+	if ($tagid !~ /^\w\w:/) {
+		$tagid = $tag_lc . ':' . $tagid;
+	}
 
 	my $exists_in_taxonomy = 0;
 

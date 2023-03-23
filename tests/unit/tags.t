@@ -706,4 +706,11 @@ is(get_tag_image("fr", "labels", "fr:commerce-equitable"), "/images/lang/fr/labe
 is(get_tag_image("fr", "labels", "fi:sydänmerkki"), "/images/lang/fi/labels/sydanmerkki.90x90.png")
 	;    # file name is unaccented, accented language
 
+# strings with multiple tags separated by /
+is(canonicalize_taxonomy_tag('en', 'packaging_materials', 'Plastic/PET'), "en:pet-1-polyethylene-terephthalate");
+is(canonicalize_taxonomy_tag('en', 'packaging_materials', 'Plastic / other plastics'), "en:o-7-other-plastics");
+is(canonicalize_taxonomy_tag('en', 'packaging_materials', 'Plastic/PET'), "en:pet-1-polyethylene-terephthalate");
+is(canonicalize_taxonomy_tag('en', 'packaging_materials', 'Plastic / Metal'), "en:Plastic / Metal"); # Cannot be matched
+is(canonicalize_taxonomy_tag('fr', 'packaging_shapes', 'Ustensiles / couverts / fourchette'), "en:fork");
+
 done_testing();

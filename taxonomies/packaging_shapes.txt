@@ -395,7 +395,7 @@ description:nl:Een klein werktuig waarin iets door samendrukken bijeengehouden o
 
 # fr:Liens ( collier , ficelle , ruban , ruban adhésif , bolduc , feuillard , bande , cordon , fil , elastique , bracelet…) in data from Les Mousquetaires
 en:Tie, knot
-fr:Lien, noeud, Liens ( collier , ficelle , ruban , ruban adhésif , bolduc , feuillard , bande , cordon , fil , elastique , bracelet…)
+fr:Lien, noeud, Liens, noeuds
 nl:Knoop, strik
 weight:en:light
 description:fr:Ce qui sert à lier, à attacher des objets ou des parties ensemble.
@@ -489,7 +489,7 @@ fr:comment:Le Doypack est un sachet souple tenant debout.
 
 # fr:Étui / Fourreau in data from Les Mousquetaires
 en:Sleeve, sleeves, sheath, outer open-end box
-fr:Étui, étuis, Fourreau, Cavalier, Étui / Fourreau
+fr:Étui, étuis, Fourreau, fourreaux
 hu:haskötő
 nl:Banderol, huls
 pt:Manga, mangas
@@ -851,6 +851,7 @@ hu:ömlesztett, csomagolás nélkül, csomagolás nélküli, csomagolatlan
 nl:zonder verpakking
 pt:Granel, a granel, sem embalagem, sem embalagens
 
+<en:dish
 en:Bowl, bows
 bg:Купа, купи
 de:Schüssel
@@ -1011,8 +1012,9 @@ nl:Kleerhanger
 # image:xx:cintre.svg
 # suggest:packaging_materials:en: en:metal, en:cardboard, en:others
 
-en:Wedge, corner piece
-fr:Cale, Coin, Cornière
+#fr:Calage (chips, croisillons, flocons, frites, copeaux de bois, bourre…) / Cale / Coussin / Buvard in data from Les Mousquetaires
+en:Wedge, wedges, wedging, corner piece
+fr:Cale, Coin, Cornière, calage, cales, chips, croisillons, flocons, frites, copeaux, copeaux de bois, bourre, coussin, buvard, Calage (chips - croisillons - flocons - frites - copeaux de bois - bourre…) / Cale / Coussin / Buvard
 # suggest:packaging_materials:en: en:plastic, en:cardboard, en:metal, en:other
 # image:xx:cale-coin-corniere-1.svg (cardboard)
 # image:xx:cale-coin-corniere-2.svg (other)
@@ -1201,9 +1203,14 @@ nl:emmertje
 
 # fr:Plat (Bol, Saladier, Terrine, …) in data from Les Mousquetaires
 en:Dish, dishes
-fr:Plat, plats, Plat (Bol, Saladier, Terrine, …)
+fr:Plat, plats, Plat
+
+<en:dish
+en:salad bowl, salad bowls
+fr:saladier, saladiers
 
 # CITEO only translates it by pot
+<en:dish
 en:Terrine pot, terrine pots
 es:Tarrina, tarrinas
 fr:Terrine, terrines
@@ -1378,6 +1385,3 @@ fr:Bouchon spécial, Pistolet / Pompe / Diffuseur / Robinet / Bouchon Technique
 en:Valve, valves
 fr:Valve, valves, soupape, soupapes
 
-#fr:Calage (chips, croisillons, flocons, frites, copeaux de bois, bourre…) / Cale / Coussin / Buvard in data from Les Mousquetaires
-en:Weding, wedge, wedges
-fr:Calage, cale, cales, Calage (chips, croisillons, flocons, frites, copeaux de bois, bourre…) / Cale / Coussin / Buvard
