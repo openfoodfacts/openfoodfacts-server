@@ -1,5 +1,7 @@
 # How to use Perl REPL (re.pl)
 
+> **_NOTE:_**  New to Perl? Check [how to learn perl](how-to-learn-perl.md)!
+
 On your local dev instance, the "backend" container
 comes with [Devel::REPL](https://metacpan.org/pod/Devel::REPL) installed.
 
