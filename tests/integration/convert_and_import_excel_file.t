@@ -55,7 +55,7 @@ my @tests = (
 		excel_file => "packagings-mousquetaires.xlsx",
 		columns_fields_json => "packagings-mousquetaires.columns_fields.json",
 		default_values => {lc => "fr", countries => "fr"},
-	}	
+	}
 );
 
 # Testing import of a csv file
@@ -101,10 +101,11 @@ foreach my $test_ref (@tests) {
 	my $conv_results_ref = convert_file($default_values_ref, $excel_file, $columns_fields_file, $converted_file);
 
 	# Compare the converted CSV file to the expected CSV file
-	ensure_expected_results_dir($expected_test_results_dir  . "/converted_csv", $update_expected_results);
+	ensure_expected_results_dir($expected_test_results_dir . "/converted_csv", $update_expected_results);
 	compare_csv_file_to_expected_results($converted_file, $expected_test_results_dir . "/converted_csv",
 		$update_expected_results);
-	compare_to_expected_results($conv_results_ref, $expected_test_results_dir . "/converted_csv/conversion_results.json",
+	compare_to_expected_results($conv_results_ref,
+		$expected_test_results_dir . "/converted_csv/conversion_results.json",
 		$update_expected_results);
 
 	# step4 import file

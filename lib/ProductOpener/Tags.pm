@@ -3154,14 +3154,14 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref 
 			$tagid = $synonyms{$tagtype}{$tag_lc}{$tagid2};
 			$found = 1;
 		}
-		elsif (    (defined $synonyms{$tagtype})
+		elsif ( (defined $synonyms{$tagtype})
 			and (defined $synonyms{$tagtype}{$tag_lc})
 			and (defined $synonyms{$tagtype}{$tag_lc}{$tagid3}))
 		{
 			$tagid = $synonyms{$tagtype}{$tag_lc}{$tagid3};
 			$found = 1;
 		}
-		elsif (    (defined $synonyms{$tagtype})
+		elsif ( (defined $synonyms{$tagtype})
 			and (defined $synonyms{$tagtype}{$tag_lc})
 			and (defined $synonyms{$tagtype}{$tag_lc}{$tagid4}))
 		{
@@ -3229,7 +3229,7 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref 
 	# "Parent / Children" or "Synonym 1 / Synonym 2"
 	if (not $found) {
 		print STDERR "$tag not found\n";
-		if ($tag =~ /\// ) {
+		if ($tag =~ /\//) {
 			my $tag1 = $`;
 			my $tag2 = $';
 			my $exists_tag1;
@@ -3237,9 +3237,22 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref 
 			my $tagid1 = canonicalize_taxonomy_tag($tag_lc, $tagtype, $tag1, \$exists_tag1);
 			my $tagid2 = canonicalize_taxonomy_tag($tag_lc, $tagtype, $tag2, \$exists_tag2);
 
-			$log->debug("Checking for multiple tags separated by a slash", {tagtype => $tagtype, tag => $tag, tag1 => $tag1, tag2 => $tag2, tagid1 => $tagid1, tagid2 => $tagid2, exists_tag1 => $exists_tag1, exists_tag2 => $exists_tag2}) if $log->is_debug();
+			$log->debug(
+				"Checking for multiple tags separated by a slash",
+				{
+					tagtype => $tagtype,
+					tag => $tag,
+					tag1 => $tag1,
+					tag2 => $tag2,
+					tagid1 => $tagid1,
+					tagid2 => $tagid2,
+					exists_tag1 => $exists_tag1,
+					exists_tag2 => $exists_tag2
+				}
+			) if $log->is_debug();
 
-			print STDERR "slash: tagtype => $tagtype, tag => $tag, tag1 => $tag1, tag2 => $tag2, tagid1 => $tagid1, tagid2 => $tagid2, exists_tag1 => $exists_tag1, exists_tag2 => $exists_tag2\n";
+			print STDERR
+				"slash: tagtype => $tagtype, tag => $tag, tag1 => $tag1, tag2 => $tag2, tagid1 => $tagid1, tagid2 => $tagid2, exists_tag1 => $exists_tag1, exists_tag2 => $exists_tag2\n";
 
 			if ($exists_tag1 and $exists_tag2) {
 				# "Synonym 1 / Synonym 2"
@@ -3249,7 +3262,7 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref 
 				# "Parent / Child"
 				elsif (is_a($tagtype, $tagid2, $tagid1)) {
 					$tagid = $tagid2;
-				}					
+				}
 				# "Child / Parent"
 				elsif (is_a($tagtype, $tagid1, $tagid2)) {
 					$tagid = $tagid1;

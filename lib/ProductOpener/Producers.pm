@@ -475,7 +475,7 @@ sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_f
 		my $product_ref = $products_ref->{$code};
 
 		foreach my $field_orig (@$output_headers_ref) {
-			my $field = $field_orig; # Needed in order to be able to modify $field without changing the array content
+			my $field = $field_orig;    # Needed in order to be able to modify $field without changing the array content
 			my $col = $output_to_input_columns_ref->{$field};
 
 			# If the field is of the form packaging_1_*
