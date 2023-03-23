@@ -497,7 +497,7 @@ sub load_ecoscore_data_packaging() {
 				target_shape => "bottle",
 				target_material => "rpet",
 				source_shape => "bottle",
-				source_material => "transparent pet"
+				source_material => "transparent rpet"
 			},
 			{
 				target_material => "plastic",
