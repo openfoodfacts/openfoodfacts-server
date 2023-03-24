@@ -1,5 +1,37 @@
 # Changelog
 
+## [2.9.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.8.0...v2.9.0) (2023-03-24)
+
+
+### Features
+
+* Add Perl introductory resources to warm newbies about Perl [#8204](https://github.com/openfoodfacts/openfoodfacts-server/issues/8204) ([#8206](https://github.com/openfoodfacts/openfoodfacts-server/issues/8206)) ([bda3722](https://github.com/openfoodfacts/openfoodfacts-server/commit/bda3722715773c054f90998d010812a31784c525))
+* Match synonyms and xx: entries when computing taxonomy suggestions ([#8190](https://github.com/openfoodfacts/openfoodfacts-server/issues/8190)) ([e1304de](https://github.com/openfoodfacts/openfoodfacts-server/commit/e1304de45393305f27ea80da47bcfacf44f6f90f))
+
+
+### Bug Fixes
+
+* Do not show the lilo prompt in countries where it's unsupported ([#8236](https://github.com/openfoodfacts/openfoodfacts-server/issues/8236)) ([fd4ee43](https://github.com/openfoodfacts/openfoodfacts-server/commit/fd4ee432df4fbca4aa6aad3c090335ad7ea794ee))
+* Hide all nutritional related info if no nutritional info on the box is selected ([#8232](https://github.com/openfoodfacts/openfoodfacts-server/issues/8232)) ([4fbae54](https://github.com/openfoodfacts/openfoodfacts-server/commit/4fbae547ded635a6e538d8438349f94d06d3bd11))
+* Nutri Score Nutriments with an asterisk ([#8205](https://github.com/openfoodfacts/openfoodfacts-server/issues/8205)) ([4ba6017](https://github.com/openfoodfacts/openfoodfacts-server/commit/4ba601783285261baada45e73af1cc790a40ac16))
+
+
+### Technical
+
+* add documentation about unselecting photo ([#8237](https://github.com/openfoodfacts/openfoodfacts-server/issues/8237)) ([b989be3](https://github.com/openfoodfacts/openfoodfacts-server/commit/b989be34a057db1c2e6cafb9ae9b0cdb035c6ec2))
+
+
+### Taxonomy
+
+* added a category ([#8227](https://github.com/openfoodfacts/openfoodfacts-server/issues/8227)) ([412b4a7](https://github.com/openfoodfacts/openfoodfacts-server/commit/412b4a7c78513e9c23c4b957214a3257129b5b8f))
+* de syn E306 ([#8229](https://github.com/openfoodfacts/openfoodfacts-server/issues/8229)) ([aeda389](https://github.com/openfoodfacts/openfoodfacts-server/commit/aeda389cd57febcd75ef2d5c77d82f46c7ef48fa))
+* Fish preparations ([#8226](https://github.com/openfoodfacts/openfoodfacts-server/issues/8226)) ([cd2f65f](https://github.com/openfoodfacts/openfoodfacts-server/commit/cd2f65fdf9e1c414050c82ebd44a480e5c55af82))
+* fix naming hr + taxonomy for mairoluin ([#8239](https://github.com/openfoodfacts/openfoodfacts-server/issues/8239)) ([b5a7994](https://github.com/openfoodfacts/openfoodfacts-server/commit/b5a79942d7f62bdfa4b86ccd045d06e41a0aa21e))
+* German ingredient translation ([#8228](https://github.com/openfoodfacts/openfoodfacts-server/issues/8228)) ([7aa497b](https://github.com/openfoodfacts/openfoodfacts-server/commit/7aa497b07d8cf28abc28cbaef0b3cf897debed2e))
+* German translation 2 ([#8240](https://github.com/openfoodfacts/openfoodfacts-server/issues/8240)) ([be30c89](https://github.com/openfoodfacts/openfoodfacts-server/commit/be30c8931978f4dec21272fb15a2b5fe664a55ec))
+* Mortadella ([#8235](https://github.com/openfoodfacts/openfoodfacts-server/issues/8235)) ([2a89c5d](https://github.com/openfoodfacts/openfoodfacts-server/commit/2a89c5d42b2690aede71fc9a5df1fd94147b5372))
+* Update vitamins.txt ([#8230](https://github.com/openfoodfacts/openfoodfacts-server/issues/8230)) ([5286169](https://github.com/openfoodfacts/openfoodfacts-server/commit/5286169264dd2430b03063cacd6f4e0e4566e45e))
+
 ## [2.8.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.7.0...v2.8.0) (2023-03-17)
 
 
