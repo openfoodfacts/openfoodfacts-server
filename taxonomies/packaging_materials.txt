@@ -205,7 +205,8 @@ description:pt:Plástico usado que foi processado e reutilizado
 
 # Plastics:
 # use the following conventions for plastic:
-# in each language, for the main name, use "abbreviation + name", and put the name as the first synonym
+# in each language, for the main name, use "abbreviation + resin code + ' - ' + name"
+# + abbreviation + name, and name as synonyms
 # all abbreviations, symbols etc. go in the xx: entry, and do not need to be added to the translations in other languages
 # (unless the abbreviation is different: e.g. "PEBD" = "Polyéthylène basse densité" in French instead of PELD)
 
@@ -214,32 +215,17 @@ en:Mixed plastics
 fr:Plastiques mixtes
 
 <en:Plastic
-en:PET - Polyethylene terephthalate, Polyethylene terephthalate
+en:PET 1 - Polyethylene terephthalate, PET - Polyethylene terephthalate, Polyethylene terephthalate
 xx:PET, PET(E), PETE, PET 1, PET 01, 1 PET, 01 PET, ♳
-bg:PET - Полиетилентерефталат, Полиетилен терефталат
-ca:PET - polietilè tereftalat, polietilè tereftalat
-cs:PET - polyethylentereftalát, polyethylentereftalát
-da:PET - Polyetylentereftalat, Polyetylentereftalat
-de:PET - Polyethylenterephtalat, Polyethylenterephtalat
-el:PET - τερεφθαλικό πολυαιθυλένιο, τερεφθαλικό πολυαιθυλένιο
-es:PET - Polietilentereftalato, Polietilentereftalato
-fi:PET - polyetyleenitereftalaatti, polyetyleenitereftalaatti
-fr:PET - Polytéréphtalate d'éthylène, Polytéréphtalate d'éthylène, polyéthylène téréphtalate
-ga:PET - Teireataláit phoileitiléine, Teireataláit phoileitiléine
-he:פוליאתילן טרפתאלט - PET, פוליאתילן טרפתאלט
-hr:PET - polietilen tereftalat, Polietilentereftalat
-hu:PET - Polietilén-tereftalát, Polietilén-tereftalát
-is:PET - PólýetýlenterefþalatPólýetýlenterefþalat
-it:PET - Polietilene tereftalato, Polietilene tereftalato, Polietilentereftalato
-lt:PET - Polietileno tereftalatas, Polietileno tereftalatas
-nl:PET - Polyethyleentereftalaat, Polyethyleentereftalaat
-nn:PET - polyetylentereftalat, polyetylentereftalat
-pt:PET - Tereftalato de polietileno, Tereftalato de polietileno
-ru:PET - Полиэтилентерефталат, Полиэтилентерефталат
-sk:PET - Polyetyléntereftalát, Polyetyléntereftalát
-sl:PET - Polietilentereftalat, Polietilentereftalat
-sv:PET - Polyetentereftalat, Polyetentereftalat
-uk:PET - поліетилентерефталат, поліетилентерефталат
+bg:PET 1 - Полиетилентерефталат, PET - Полиетилентерефталат, Полиетилен терефталат
+de:PET 1 - Polyethylenterephtalat, PET - Polyethylenterephtalat, Polyethylenterephtalat
+fr:PET 1 - Polytéréphtalate d'éthylène, PET - Polytéréphtalate d'éthylène, Polytéréphtalate d'éthylène, polyéthylène téréphtalate
+hr:PET 1 - polietilen tereftalat, PET - polietilen tereftalat, olietilen tereftalat
+hu:PET 1 - Polietilén-tereftalát, PET - Polietilén-tereftalát, Polietilén-tereftalát
+it:PET 1 - Polietilene tereftalato, PET - Polietilene tereftalato, Polietilene tereftalato, Polietilentereftalato
+nl:PET 1 - Polyethyleentereftalaat, PET - Polyethyleentereftalaat, Polyethyleentereftalaat
+pt:PET 1 - Tereftalato de polietileno, PET - Tereftalato de polietileno, Tereftalato de polietileno
+ru:PET 1 - Полиэтилентерефталат, PET - Полиэтилентерефталат, Полиэтилентерефталат
 wikidata:en:Q145863
 recycling_code:en:1
 non_recyclable_and_non_biodegradable:en:no
@@ -252,16 +238,16 @@ description:nl:Polyethyleentereftalaat (PET) is een kunststof die wordt gebruikt
 
 <en:Plastic
 <en:Other plastics
-en:PVDC - Polyvinylidene chloride, Polyvinylidene chloride
-de:PVDC - Polyvinylidenchlorid, Polyvinylidenchlorid
-es:PVDC - cloruro de polivinilideno, cloruro de polivinilideno
-fr:PVDC - Chlorure de polyvinylidène, Chlorure de polyvinylidène
-hu:PVDC - polivinilidén-klorid, polivinilidén-klorid
-it:PVDC - Polivinildencloruro, Polivinildencloruro
-nl:PVDC - Polyvinylidene chloride, Polyvinylidene chloride
-nn:PVDC - polyvinylidenklorid, polyvinylidenklorid
-ru:PVDC - поливинилиденхлорид, поливинилиденхлорид
-sv:PVDC - Polyvinylidenklorid, Polyvinylidenklorid
+en:PVDC 7 - Polyvinylidene chloride, Polyvinylidene chloride
+de:PVDC 7 - Polyvinylidenchlorid, Polyvinylidenchlorid
+es:PVDC 7 - cloruro de polivinilideno, cloruro de polivinilideno
+fr:PVDC 7 - Chlorure de polyvinylidène, Chlorure de polyvinylidène
+hu:PVDC 7 - polivinilidén-klorid, polivinilidén-klorid
+it:PVDC 7 - Polivinildencloruro, Polivinildencloruro
+nl:PVDC 7 - Polyvinylidene chloride, Polyvinylidene chloride
+nn:PVDC 7 - polyvinylidenklorid, polyvinylidenklorid
+ru:PVDC 7 - поливинилиденхлорид, поливинилиденхлорид
+sv:PVDC 7 - Polyvinylidenklorid, Polyvinylidenklorid
 xx:PVDC, 07 PVDC, PVDC 07, 07PVDC, PVDC07, 7 PVDC, PVDC 7, 7PVDC, PVDC7
 wikidata:en:Q146383
 description:de:Polyvinylidenchlorid wird als wasserbasierte Beschichtung auf Folien aus anderen Kunststoffen aufgetragen, was die Haltbarkeit der verpackten Lebensmittel erhöht.
@@ -374,35 +360,35 @@ description:nl:Conventionele PET-flessen die ondoorzichtig zijn gemaakt door bep
 description:pt:Garrafas PET convencionais que foram tornadas opacas pela adição de certos pigmentos de cor, como dióxido de titânio para branco, para ter uma barreira à luz para proteger líquidos, como leite. Este material requer um processo específico de reciclagem.
 
 <en:Plastic
-en:PE - Polyethylene, Polyethylene
-bg:PE - Полиетилен, Полиетилен
-ca:PE - polietilè, polietilè
-cs:PE - polyethylen, polyethylen
-da:PE - polyethylen, polyethylen
-de:PE - Polyethylen, Polyethylen
-el:PE - Πολυαιθυλένιο, Πολυαιθυλένιο
-es:PE - polietileno, polietileno
-et:PE - polüeteen, polüeteen
-fi:PE - polyeteeni, polyeteeni
-fr:PE - Polyéthylène, Polyéthylène
-hr:PE - Polietilen, Polietilen
-hu:PE - polietilén, polietilén
-is:PE - Fjöletýlen, Fjöletýlen
-it:PE - polietilene, polietilene
-lt:PE - Polietilenas, Polietilenas
-lv:PE - Polietilēns, Polietilēns
-nb:PE - polyetenpolyeten, polyeten
-nl:PE - polyetheen, polyetheen
-nn:PE - polyetylen, polyetylen
-pl:PE - polietylen, polietylen
-pt:PE - polietileno, polietileno
-ro:PE - Polietilenă, Polietilenă
-ru:PE - полиэтилен, полиэтилен
-sk:PE - Polyetylén, Polyetylén
-sl:PE - Polieten, Polieten
-sq:PE - Polietileni, Polietileni
-sv:PE - polyeten, polyeten
-uk:PE - поліетилен, поліетилен
+en:PE 7 - Polyethylene, PE - Polyethylene, Polyethylene
+bg:PE 7 - Полиетилен, PE - Полиетилен, Полиетилен
+ca:PE 7- polietilè, PE - polietilè, polietilè
+cs:PE 7 - polyethylen, PE - polyethylen, polyethylen
+da:PE 7 - polyethylen, PE - polyethylen, polyethylen
+de:PE 7 - Polyethylen, PE - Polyethylen, Polyethylen
+el:PE 7 - Πολυαιθυλένιο, PE - Πολυαιθυλένιο, Πολυαιθυλένιο
+es:PE 7 - polietileno, PE - polietileno, polietileno
+et:PE 7 - polüeteen, PE - polüeteen, polüeteen
+fi:PE 7 - polyeteeni, PE - polyeteeni, polyeteeni
+fr:PE 7 - Polyéthylène, PE - Polyéthylène, Polyéthylène
+hr:PE 7 - Polietilen, PE - Polietilen, Polietilen
+hu:PE 7 - polietilén, PE - polietilén, polietilén
+is:PE 7 - Fjöletýlen, PE - Fjöletýlen, Fjöletýlen
+it:PE 7 - polietilene, PE - polietilene, polietilene
+lt:PE 7 - Polietilenas, PE - Polietilenas, Polietilenas
+lv:PE 7 - Polietilēns, PE - Polietilēns, Polietilēns
+nb:PE 7 - polyetenpolyeten, PE - polyetenpolyeten, polyeten
+nl:PE 7 - polyetheen, PE - polyetheen, polyetheen
+nn:PE 7 - polyetylen, PE - polyetylen, polyetylen
+pl:PE 7 - polietylen, PE - polietylen, polietylen
+pt:PE 7 - polietileno, PE - polietileno, polietileno
+ro:PE 7 - Polietilenă, PE - Polietilenă, Polietilenă
+ru:PE 7 - полиэтилен, PE - полиэтилен, полиэтилен
+sk:PE 7 - Polyetylén, PE - Polyetylén, Polyetylén
+sl:PE 7 - Polieten, PE - Polieten, Polieten
+sq:PE 7 - Polietileni, PE - Polietileni, Polietileni
+sv:PE 7 - polyeten,  - polyeten, polyeten
+uk:PE 7 - поліетилен, PE - поліетилен, поліетилен
 xx:PE, 07 PE, PE 07, 07PE, PE07, 7 PE, PE 7, 7PE, PE7
 wikidata:en:Q143429
 description:de:Polyethylen ist der am häufigsten verwendete Kunststoff. Es ist gut zu recyceln, weil es eingeschmolzen werden kann. Es kommt als HDPE (High Density) und als LDPE (Low Density) vor.
@@ -430,25 +416,25 @@ description:pt:O plástico PE de base biológica é feito total ou parcialmente 
 
 <en:Plastic
 <xx:PE
-en:HDPE - High-density polyethylene, High-density polyethylene
+en:HDPE 2 - High-density polyethylene, HDPE - High-density polyethylene, High-density polyethylene
 xx:HDPE, 2 HDPE, HDPE 2, 02 HDPE, HDPE 02, PEHD, 2 PEHD, PEHD 2, 02 PEHD, PEHD 02, HD-PE, 2 HD-PE, HD-PE 2, 02 HD-PE, HD-PE 02, PE-HD, 2 PE-HD, PE-HD 2, 02 PE-HD, PE-HD 02, RC 2, RC 02, RC2, RC02, ♴
-ar:HDPE - متعدد إثيلين عالي الكثافة
-bg:HDPE - Полиетилен с висока плътност, Полиетилен с висока плътност
-ca:HDPE - polietilè d'alta densitat, polietilè d'alta densitat
-cs:HDPE - Polyethylen s vysokou hustotou, Polyethylen s vysokou hustotou
-de:HDPE - Polyethylen hoher Dichte, Polyethylen hoher Dichte
-fi:HDPE - suurtiheyspolyeteeni, suurtiheyspolyeteeni
-fr:PEHD - Polyéthylène haute densité, polyéthylène haute densité
-hr:HDPE - polietilen visoke gustoće, polietilen visoke gustoće        
-hu:HDPE - Nagy sűrűségű polietilén, Nagy sűrűségű polietilén
-it:HDPE - Polietilene ad alta densità, Polietilene ad alta densità
-lt:HDPE - Didelio tankio polietilenas, Didelio tankio polietilenas
-nl:HDPE - Hogedichtheidpolyetheen, Hogedichtheidpolyetheen
-nn:HDPE - høgdensitetspolyetylen, høgdensitetspolyetylen
-pl:HDPE - polietylen wysokiej gęstości, polietylen wysokiej gęstości
-pt:HDPE - Polietileno de alta densidade, Polietileno de alta densidade
-ru:HDPE - полиэтилен высокой плотности, полиэтилен высокой плотности
-uk:HDPE - Поліетилен високої щільності, Поліетилен високої щільності
+ar:HDPE 2 - متعدد إثيلين عالي الكثافة
+bg:HDPE 2 - Полиетилен с висока плътност, Полиетилен с висока плътност
+ca:HDPE 2 - polietilè d'alta densitat, polietilè d'alta densitat
+cs:HDPE 2 - Polyethylen s vysokou hustotou, Polyethylen s vysokou hustotou
+de:HDPE 2 - Polyethylen hoher Dichte, Polyethylen hoher Dichte
+fi:HDPE 2 - suurtiheyspolyeteeni, suurtiheyspolyeteeni
+fr:PEHD 2 - Polyéthylène haute densité, PEHD - Polyéthylène haute densité, polyéthylène haute densité, HDPE - 2 - Polyéthylène haute densité
+hr:HDPE 2 - polietilen visoke gustoće, polietilen visoke gustoće        
+hu:HDPE 2 - Nagy sűrűségű polietilén, Nagy sűrűségű polietilén
+it:HDPE 2 - Polietilene ad alta densità, Polietilene ad alta densità
+lt:HDPE 2 - Didelio tankio polietilenas, Didelio tankio polietilenas
+nl:HDPE 2 - Hogedichtheidpolyetheen, Hogedichtheidpolyetheen
+nn:HDPE 2 - høgdensitetspolyetylen, høgdensitetspolyetylen
+pl:HDPE 2 - polietylen wysokiej gęstości, polietylen wysokiej gęstości
+pt:HDPE 2 - Polietileno de alta densidade, Polietileno de alta densidade
+ru:HDPE 2 - полиэтилен высокой плотности, полиэтилен высокой плотности
+uk:HDPE 2 - Поліетилен високої щільності, Поліетилен високої щільності
 wikidata:en:Q2641430
 non_recyclable_and_non_biodegradable:en:no
 description:de:Polyethylen hoher Dichte (HDPE) wird aus Polyethylen hergestellt, das aus Erdöl gewonnen wird. HDPE wird als Rohstoff für härtere Kunststoffprodukte (Verschlüsse, Flaschen, Beutel) verwendet. HDPE kann als Rohstoff wiederverwendet werden.
@@ -477,30 +463,30 @@ description:nl:Het biobased HDPE is qua structuur vergelijkbaar met conventionee
 description:pt:O HDPE de base biológica é estruturalmente semelhante ao polietileno convencional, mas provém de recursos naturais e renováveis. Pode ser reciclado nos mesmos canais que o polietileno padrão.
 
 <en:Plastic
-en:PVC - Polyvinyl chloride, Polyvinyl chloride
+en:PVC 3 - Polyvinyl chloride, PVC - Polyvinyl chloride, Polyvinyl chloride
 xx:PVC, 3 PVC, PVC 3, 03 PVC, PVC 03, 7 V, V 7, ♵
-bg:PVC - Поливинил хлорид, Поливинил хлорид
-ca:PVC - clorur de polivinil, clorur de polivinil
-cs:PVC - polyvinylchlorid, polyvinylchlorid
-da:PVC - Polyvinylchlorid, Polyvinylchlorid
-de:PVC - Polyvinylchlorid, Polyvinylchlorid
-el:PVC - Πολυβινυλοχλωρίδιο, Πολυβινυλοχλωρίδιο
-es:PVC - cloruro de polivinilo, cloruro de polivinilo
-et:PVC - polüvinüülkloriid, polüvinüülkloriid
-fi:PVC - polyvinyylikloridi, polyvinyylikloridi
-fr:PVC - Polychlorure de vinyle, Polychlorure de vinyle, chlorure de polyvinyle
-ga:PVC - Polaiviniolclóiríd, Polaiviniolclóiríd
-hr:PVC - polivinil-klorid, polivinilklorid
-hu:PVC - Polivinil-klorid, Polivinil-klorid, polivinilklorid, polivinil klorid
-it:PVC - Cloruro di polivinile, polivinilcloruro
-lt:PVC - Polivinilchloridas, Polivinilchloridas
-nl:PVC - Polyvinylchloride, polychlooretheen
-pt:PVC - Policloreto de vinil, Policloreto de vinil
-ro:PVC - Policlorură de vinil, Policlorură de vinil
-ru:ПВХ - Поливинилхлорид, Поливинилхлорид
-sk:PVC - Polyvinylchlorid, Polyvinylchlorid
-sl:PVC - Polivinil klorid, Polivinil klorid
-sv:PVC - polyvinylklorid, polyvinylklorid
+bg:PVC 3 - Поливинил хлорид, PVC - Поливинил хлорид
+ca:PVC 3 - clorur de polivinil, clorur de polivinil
+cs:PVC 3 - polyvinylchlorid, polyvinylchlorid
+da:PVC 3 - Polyvinylchlorid, Polyvinylchlorid
+de:PVC 3 - Polyvinylchlorid, PVC - Polyvinylchlorid, Polyvinylchlorid
+el:PVC 3 - Πολυβινυλοχλωρίδιο, Πολυβινυλοχλωρίδιο
+es:PVC 3 - cloruro de polivinilo, cloruro de polivinilo
+et:PVC 3 - polüvinüülkloriid, polüvinüülkloriid
+fi:PVC 3 - polyvinyylikloridi, polyvinyylikloridi
+fr:PVC 3 - Polychlorure de vinyle, PVC - Polychlorure de vinyle, Polychlorure de vinyle, chlorure de polyvinyle
+ga:PVC 3 - Polaiviniolclóiríd, Polaiviniolclóiríd
+hr:PVC 3 - polivinil-klorid, PVC - polivinil-klorid, polivinilklorid
+hu:PVC 3 - Polivinil-klorid, PVC - Polivinil-klorid, Polivinil-klorid, polivinilklorid, polivinil klorid
+it:PVC 3 - Cloruro di polivinile, PVC - Cloruro di polivinile, polivinilcloruro
+lt:PVC 3 - Polivinilchloridas, Polivinilchloridas
+nl:PVC 3 - Polyvinylchloride, PVC - Polyvinylchloride, polychlooretheen
+pt:PVC 3 - Policloreto de vinil, PVC - Policloreto de vinil, Policloreto de vinil
+ro:PVC 3 - Policlorură de vinil, Policlorură de vinil
+ru:ПВХ 3 - Поливинилхлорид, Поливинилхлорид
+sk:PVC 3 - Polyvinylchlorid, Polyvinylchlorid
+sl:PVC 3 - Polivinil klorid, Polivinil klorid
+sv:PVC 3 - polyvinylklorid, polyvinylklorid
 wikidata:en:Q146368
 description:en:Material from  PVC (Polyvinyl chloride)
 description:de:PVC gehört zu den am häufigsten verwendeten Kunststoffen. Es wird als Folie für frisches Obst und Gemüse sowie Fleischprodukte verwendet. Beim Verbrennen von PVC werden Schadstoffe freigesetzt. Eine Wiederverwendung von Lebensmittelverpackungen findet nicht statt.
@@ -513,24 +499,24 @@ description:pt:O PVC é um dos plásticos mais usados. É usado como folha para 
 
 <en:Plastic
 <xx:PE
-en:LDPE - Low-density polyethylene, Low-density polyethylene
+en:LDPE 4 - Low-density polyethylene, LDPE - Low-density polyethylene, Low-density polyethylene
 xx:LDPE, 4 LDPE, LDPE 4, 04 LDPE, LDPE 04, PELD, 4 PELD, PELD 4, 04 PELD, PELD 04, LD-PE, 4 LD-PE, LD-PE 4, 04 LD-PE, LD-PE 04, PE-LD, 4 PE-LD, PE-LD 4, 04 PE-LD, PE-LD 04, ♶
-bg:LDPE - Полиетилен с ниска плътност, Полиетилен с ниска плътност
-ca:LDPE - Polietilè de baixa densitat, Polietilè de baixa densitat
-cs:LDPE - Polyethylen s nízkou hustotou, Polyethylen s nízkou hustotou
-de:LDPE - Polyethylen niedriger Dichte, Polyethylen niedriger Dichte
-es:LDPE - polietileno de baja densidad, polietileno de baja densidad
-fr:PEBD - Polyéthylène basse densité, polyéthylène basse densité, PEBD
-hr:LDPE - polietilen niske gustoće, polietilen niske gustoće
-hu:LDPE - Kis sűrűségű polietilén, Kis sűrűségű polietilén
-it:LDPE - Polietilene a bassa densità, Polietilene a bassa densità
-lt:LDPE - Mažo tankio polietilenas, Mažo tankio polietilenas
-nl:LDPE - Lagedichtheidpolyetheen, lagedichtheidpolyetheen
-nn:LDPE - polyeten med låg tettleik, polyeten med låg tettleik
-pl:LDPE - polietylen niskiej gęstości, polietylen niskiej gęstości
-pt:LDPE - Polietileno de baixa densidade, Polietileno de baixa densidade
-ru:LDPE - полиэтилен низкой плотности, полиэтилен низкой плотности
-uk:LDPE - поліетилен низької щільності, поліетилен низької щільності
+bg:LDPE 4 - Полиетилен с ниска плътност, LDPE - Полиетилен с ниска плътност
+ca:LDPE 4 - Polietilè de baixa densitat, Polietilè de baixa densitat
+cs:LDPE 4 - Polyethylen s nízkou hustotou, Polyethylen s nízkou hustotou
+de:LDPE 4 - Polyethylen niedriger Dichte, LDPE - Polyethylen niedriger Dichte, Polyethylen niedriger Dichte
+es:LDPE 4 - polietileno de baja densidad, polietileno de baja densidad
+fr:PEBD 4 - Polyéthylène basse densité, PEBD - Polyéthylène basse densité, polyéthylène basse densité, PEBD, PE-BD
+hr:LDPE 4 - polietilen niske gustoće, LDPE - polietilen niske gustoće
+hu:LDPE 4 - Kis sűrűségű polietilén, LDPE - Kis sűrűségű polietilén, Kis sűrűségű polietilén
+it:LDPE 4 - Polietilene a bassa densità, Polietilene a bassa densità
+lt:LDPE 4 - Mažo tankio polietilenas, Mažo tankio polietilenas
+nl:LDPE 4 - Lagedichtheidpolyetheen, LDPE - Lagedichtheidpolyetheen, lagedichtheidpolyetheen
+nn:LDPE 4 - polyeten med låg tettleik, polyeten med låg tettleik
+pl:LDPE 4 - polietylen niskiej gęstości, polietylen niskiej gęstości
+pt:LDPE 4 - Polietileno de baixa densidade, LDPE - Polietileno de baixa densidade, Polietileno de baixa densidade
+ru:LDPE 4 - полиэтилен низкой плотности, полиэтилен низкой плотности
+uk:LDPE 4 - поліетилен низької щільності, поліетилен низької щільності
 wikidata:en:Q2033818
 non_recyclable_and_non_biodegradable:en:no
 description:de:LDPE wird als Folie in Verpackungen verwendet. LDPE kann leicht wiederverwendet werden, um neue Folie herzustellen.
@@ -559,35 +545,35 @@ description:nl:Bio LDPE, of polyethyleen met lage dichtheid, is een soort plasti
 description:pt:O Bio LDPE, ou polietileno de baixa densidade, é um tipo de plástico feito de recursos renováveis, como a cana-de-açúcar, em vez de combustíveis fósseis. É comumente usado em embalagens de alimentos, principalmente para produtos como pão, sanduíches e produtos frescos. Por ser feito de recursos renováveis, é considerado mais sustentável e ecologicamente correto do que o LDPE tradicional. O Bio LDPE pode ser reciclado, mas não é tão amplamente aceito em programas de reciclagem quanto o LDPE tradicional, o que significa que pode ser necessário descartá-lo em um aterro sanitário.
 
 <en:Plastic
-en:PP - Polypropylene, Polypropylene
+en:PP 5 - Polypropylene, PP - Polypropylene, Polypropylene
 xx:PP, 5 PP, PP 5, PP 05, 05 PP, ♷
-bg:PP - Полипропилен, Полипропилен
-ca:PP - polipropilè, polipropilè
-cs:pp - polypropylen, polypropylen
-da:PP - polypropylen, polypropylen
-de:PP - Polypropylen, Polypropylen
-el:PP - Πολυπροπυλένιο, Πολυπροπυλένιο
-et:PP - polüpropeen, polüpropeen
-fi:PP - polypropeeni, polypropeeni
-fr:PP - Polypropylène, Polypropylène, polypropène
-ga:PP - Polaprópailéin, Polaprópailéin
-hr:PP - polipropilen, polipropilen
-hu:PP - Polipropilén, Polipropilén
-is:PP - Fjölprópýlen, Fjölprópýlen
-it:PP - Polipropilene, polipropene
-lt:PP - Polipropilenas, Polipropilenas
-nb:PP - polypropen, polypropen
-nl:PP - Polypropeen, Polypropeen, polypropyleen
-nn:PP - polypropylen, polypropylen
-pl:PP - polipropylen, polipropylen
-pt:PP - Polipropileno, Polipropileno
-ro:PP - Polipropilenă, Polipropilenă
-ru:ПП - Полипропилен, Полипропилен, PP - Полипропилен
-sk:PP - Polypropylén, Polypropylén
-sr:PP - полипропилен, полипропилен
-sv:PP - polypropen, polypropen
-tr:PP - Polipropilen, Polipropilen
-uk:PP - поліпропілен, поліпропілен
+bg:PP 5 - Полипропилен, PP - Полипропилен
+ca:PP 5 - polipropilè, polipropilè
+cs:pp 5 - polypropylen, polypropylen
+da:PP 5 - polypropylen, polypropylen
+de:PP 5 - Polypropylen, PP - Polypropylen, Polypropylen
+el:PP 5 - Πολυπροπυλένιο, Πολυπροπυλένιο
+et:PP 5 - polüpropeen, polüpropeen
+fi:PP 5 - polypropeeni, polypropeeni
+fr:PP 5 - Polypropylène, PP - Polypropylène, Polypropylène, polypropène
+ga:PP 5 - Polaprópailéin, Polaprópailéin
+hr:PP 5 - polipropilen, PP - polipropilen, polipropilen
+hu:PP 5 - Polipropilén, PP - Polipropilén, Polipropilén
+is:PP 5 - Fjölprópýlen, Fjölprópýlen
+it:PP 5 - Polipropilene, PP - Polipropilene, Polipropilene, polipropene
+lt:PP 5 - Polipropilenas, Polipropilenas
+nb:PP 5 - polypropen, polypropen
+nl:PP 5 - Polypropeen, PP - Polypropeen, Polypropeen, polypropyleen
+nn:PP 5 - polypropylen, polypropylen
+pl:PP 5 - polipropylen, polipropylen
+pt:PP 5 - Polipropileno, PP - Polipropileno, Polipropileno
+ro:PP 5 - Polipropilenă, Polipropilenă
+ru:ПП 5 - Полипропилен, Полипропилен, PP - Полипропилен
+sk:PP 5 - Polypropylén, Polypropylén
+sr:PP 5 - полипропилен, полипропилен
+sv:PP 5 - polypropen, polypropen
+tr:PP 5 - Polipropilen, Polipropilen
+uk:PP 5 - поліпропілен, поліпропілен
 wikidata:en:Q146174
 non_recyclable_and_non_biodegradable:en:no
 description:de:Polypropylen (PP) ist ein thermoplastisches Polymer, das aus Öl hergestellt wird. Aufgrund seiner Haltbarkeit und Beständigkeit gegen Feuchtigkeit und Chemikalien wird es häufig in Lebensmittelverpackungen verwendet. PP kann durch mechanische Recyclingprozesse recycelt werden, wird jedoch aufgrund mangelnder Nachfrage nach recycelten PP-Produkten häufig nicht zum Recycling gesammelt.
@@ -627,37 +613,37 @@ description:nl:OPP, of georiënteerd polypropyleen, is een soort plastic film di
 description:pt:OPP, ou polipropileno orientado, é um tipo de filme plástico que é criado esticando o material em uma direção. Isso lhe dá força e clareza, tornando-o útil para embalagens de alimentos, principalmente para itens como doces e assados. O OPP é reciclável, mas não é comumente coletado pela maioria dos programas de reciclagem na calçada.
 
 <en:Plastic
-en:PS - Polystyrene, Polystyrene
-bg:PS - Полистирен, Полистирен
-bs:PS - Polistiren, Polistiren
-ca:PS - poliestirè, poliestirè
-cs:PS - polystyren, polystyren
-da:PS - Polystyren, Polystyren
-de:PS - Polystyrol, Polystyrol
-el:PS - Πολυστυρένιο, Πολυστυρένιο
-et:PS - Polüstürool, Polüstürool
-fi:PS - Polystyreeni, Polystyreeni
-fr:PS - Polystyrène, Polystyrène
-ga:PS - Polaistiréin, Polaistiréin
-hr:PS - polistiren, polistiren
-hu:PS - Polisztirol, Polisztirol
-it:PS - Polistirene, polistirolo
-lt:PS - Polistirenas, Polistirenas
-lv:PS - polistirols, polistirols
-mk:PS - Полистирен, Полистирен
-nb:PS - polystyren, polystyren
-nl:PS - Polystyreen, Polystyreen
-nn:PS - polystyren, polystyren
-pl:PS - polistyren, polistyren
-pt:PS - Poliestireno, Poliestireno
-ro:PS - Polistiren, Polistiren
-ru:PS - Полистирол, Полистирол
-sk:PS - Polystyrén, Polystyrén
-sl:PS - Polistiren, Polistiren
-sv:PS - polystyren, polystyren
-tr:PS - polistiren, polistiren
-uk:PS - полістирол, полістирол
+en:PS 6 - Polystyrene, PS - Polystyrene, Polystyrene
 xx:PS, 6 PS, PS 6, 06 PS, PS 06, ♸
+bg:PS 6 - Полистирен, PS - Полистирен, Полистирен
+bs:PS 6 - Polistiren, Polistiren
+ca:PS 6 - poliestirè, poliestirè
+cs:PS 6 - polystyren, polystyren
+da:PS 6 - Polystyren, Polystyren
+de:PS 6 - Polystyrol, PS - Polystyrol, Polystyrol
+el:PS 6 - Πολυστυρένιο, Πολυστυρένιο
+et:PS 6 - Polüstürool, Polüstürool
+fi:PS 6 - Polystyreeni, Polystyreeni
+fr:PS 6 - Polystyrène, PS - Polystyrène, Polystyrène
+ga:PS 6 - Polaistiréin, Polaistiréin
+hr:PS 6 - polistiren, PS - polistiren, Polistiren
+hu:PS 6 - Polisztirol, PS - Polisztirol, Polisztirol
+it:PS 6 - Polistirene, PS - Polistirene, Polistirolo
+lt:PS 6 - Polistirenas, Polistirenas
+lv:PS 6 - polistirols, polistirols
+mk:PS 6 - Полистирен, Полистирен
+nb:PS 6 - polystyren, polystyren
+nl:PS 6 - Polystyreen, PS - Polystyreen, Polystyreen
+nn:PS 6 - polystyren, polystyren
+pl:PS 6 - polistyren, polistyren
+pt:PS 6 - Poliestireno, PS - Poliestireno, Poliestireno
+ro:PS 6 - Polistiren, Polistiren
+ru:PS 6 - Полистирол, PS - Полистирол, Полистирол
+sk:PS 6 - Polystyrén, Polystyrén
+sl:PS 6 - Polistiren, Polistiren
+sv:PS 6 - polystyren, polystyren
+tr:PS 6 - polistiren, polistiren
+uk:PS 6 - полістирол, полістирол
 wikidata:en:Q146243
 description:de:Polystyrol ist ein Kunststoff, der durch Polymerisation von Styrolmonomeren hergestellt wird. Es wird häufig in Lebensmittelverpackungen verwendet, da es leicht und kostengünstig ist und gute Isoliereigenschaften aufweist. Polystyrol ist jedoch nicht leicht recycelbar und das meiste davon landet auf Mülldeponien oder in der Umwelt und schadet der Tierwelt und dem Ökosystem.
 description:en:Polystyrene is a plastic produced through polymerization of styrene monomers. It is widely used in food packaging as it is lightweight, low-cost, and has good insulation properties. However, polystyrene is not easily recyclable and most of it ends up in landfills or the environment, causing harm to wildlife and the ecosystem.
@@ -668,18 +654,19 @@ description:nl:Polystyreen is een kunststof die wordt geproduceerd door polymeri
 description:pt:O poliestireno é um plástico produzido através da polimerização de monômeros de estireno. É amplamente utilizado em embalagens de alimentos, pois é leve, de baixo custo e possui boas propriedades de isolamento. No entanto, o poliestireno não é facilmente reciclável e a maior parte acaba em aterros sanitários ou no meio ambiente, causando danos à vida selvagem e ao ecossistema.
 
 <en:Plastic
-en:O - Other plastics, other plastics, All other plastics, other plastic
-bg:O - nДруги пластмаси
-da:O - Anden plast
-de:O - Andere Kunststoffe
-fr:O - Autres plastiques, Autres plastiques, autre plastique
-hr:O - ostali polimerni materijali
-hu:O - Egyéb műanyag, Más műanyag, Minden más műanyag
-it:O - Altre plastiche
-nl:O - Andere plastics
-pt:O - Outros plásticos, Todos os outros plásticos, outro plástico
-ru:O - Другие пластики, Другие пластмассы
+en:O 7 - Other plastics, O - Other plastics, Other plastics, All other plastics, other plastic
 xx:07 OTHER, OTHER 07, 7 OTHER, OTHER 7, 07 O, O 07, 7 O, O 7, ♹
+bg:O 7 - Други пластмаси, O - Други пластмаси, Други пластмаси
+da:O 7 - Anden plast, O - Anden plast, Anden plast
+de:O 7 - Andere Kunststoffe, O - Andere Kunststoffe, Andere Kunststoffe
+fr:O 7 - Autres plastiques, O - Autres plastiques, Autres plastiques, autre plastique
+hr:O 7 - ostali polimerni materijali, O - ostali polimerni materijali, ostali polimerni materijali
+hu:O 7 - Egyéb műanyag, O - Egyéb műanyag, Egyéb műanyag, Más műanyag, Minden más műanyag
+it:O 7 - Altre plastiche, O - Altre plastiche, Altre plastiche
+nl:O 7 - Andere plastics, O - Andere plastics, Andere plastics
+pl:O 7 - Inne, O - Inne, Inne
+pt:O 7 - Outros plásticos, O - Outros plásticos, Outros plásticos, Todos os outros plásticos, outro plástico
+ru:O 7 - Другие пластики, O - Другие пластики, Другие пластики, Другие пластмассы
 non_recyclable_and_non_biodegradable:en:yes
 description:en:Unlisted plastics
 description:nl:Plastics die nog niet op de lijst staan.
