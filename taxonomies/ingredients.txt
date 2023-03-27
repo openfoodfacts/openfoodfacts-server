@@ -35443,7 +35443,8 @@ nl:conference peer, conference
 # 3 products in 1 language @2018-09-28
 
 <en:pear
-fr:poire Williams demi-fruits
+de:Williamsbirnen, Walliser Williamsbirnen
+fr:poire Williams, poires Williams des coteaux du Lyonnais
 
 <en:pear
 en:pears in cubes
@@ -35463,14 +35464,23 @@ bg:пюре от круши
 de:Birnenpüree
 es:puré de pera
 fi:päärynäpyree
-fr:purée de poires, purée de poire, purée de poires Williams
+fr:purée de poires, purée de poire, pulpe de poire d'été
 hr:kaša kruške
-it:purea di pere
+it:purea di pera
 nl:perenpuree
 pt:Puré de pêra
 # In process de:Birnenpüree
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-poires
 # 233 products in 5 langauges @2018-09-28
+
+<en:pear puree
+en:Williams pear puree
+fr:purée de poire Williams, pulpe de poire Williams, Pulpe de poire William’s
+it:pureau di pera Williams
+
+<en:pear puree
+en:concentrated pear puree
+fr:purée concentré de poire
 
 <en:pear
 <en:fruit juice
@@ -35510,13 +35520,19 @@ en:pear juice from concentrate
 de:Birnensaft aus Birnensaftkonzentrat
 es:zumo de pera a partir de concentrado, jugo de pera procedente de concentrado, Zumo de pera a partir de pure de pera
 fi:päärynämehu tiivisteestä
-fr:jus de poire à base de concentré
+fr:jus de poire à base de concentré, Jus de poire à base de jus concentré
 hr:sok kruške od koncentriranog soka
 it:succo di pera da concentrato
 nl:perensap uit concentraat
 sv:päronjuice från koncentrat
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-poire-à-base-de-concentré
 # 23 products in 4 languages @2018-09-28
+
+<en:pear juice
+<en:pear puree
+en:pear juice and puree
+fr:jus et purée de poire
+pt:Sumo e polpa de pera
 
 ###################################################################################################
 #
