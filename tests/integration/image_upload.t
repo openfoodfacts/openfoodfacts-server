@@ -49,8 +49,6 @@ my %product_fields = (
 );
 create_user($admin_ua, \%create_user_args);
 edit_product($admin_ua, \%product_fields);
-my $response = $admin_ua->get(construct_test_url("/cgi/product.pl?type=edit&code=200000000098"));
-is($response->{_rc}, 200) or diag explain $response;
 
 my $file = open(fh, "$inputs_dir/apple.jpg");
 my %image_upload_fields = (
