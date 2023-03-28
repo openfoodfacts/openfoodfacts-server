@@ -6277,6 +6277,7 @@ cs:čedar
 cv:Чеддер
 cy:Caws Cheddar
 da:Cheddarost
+de:cheddar
 el:Τσένταρ
 eo:Ĉedder
 es:cheddar, queso Cheddar
@@ -6885,6 +6886,7 @@ be:Гаргандзола
 bg:Горгондзола
 bo:གོར་གོན་ཟོ་ལ།
 cv:Горгонзола
+de:Gorgonzola, Gorgonzola PDO
 el:Γκοργκοντζόλα
 et:Gorgonzola juust
 fa:گورگونتزولا
@@ -7291,7 +7293,7 @@ ca:mascarpone
 cs:mascarpone
 cv:Маскарпоне
 da:mascarpone
-de:Mascarpone
+de:Mascarpone, Mascarpone Frischkäse
 el:μασκαρπόνε
 eo:Maskarpono
 es:mascarpone
@@ -7684,7 +7686,7 @@ cs:Parmezán
 cv:Пармиджано Реджано
 cy:Caws Parmesan
 da:Parmesan, Parmigiano-Reggiano
-de:Parmesan, parmigiano reggiano
+de:Parmesan, parmigiano reggiano, Parmigiano Reggiano Käse
 el:Παρμεζάνα
 eo:Parma fromaĝo
 es:queso parmesano
@@ -13032,6 +13034,12 @@ pl:kolagen wołowy
 # enveloppe:boyau de boeuf
 
 <en:collagen
+<en:beef
+en:beef collagen
+de:Rinderkollagen
+fr:collagène de bœuf, collagène de boeuf
+
+<en:collagen
 <en:pork
 en:pork collagen, pork casing, pork gut
 bg:свински колаген
@@ -15339,7 +15347,7 @@ bg:екстра върджин зехтин, зехтин екстра върд�
 ca:Oli d'oliva verge extra, oli OVE
 cs:Extra panenský olivový olej
 da:ekstra jomfruolivenolie, ekstra jomfru olivenolie
-de:natives Olivenöl Extra, Olivenöl nativ extra, extra natives Olivenöl, Olivenöl extra vergine
+de:natives Olivenöl Extra, Olivenöl nativ extra, extra natives Olivenöl, Olivenöl extra vergine, Extra Virgin Olivenöl
 el:εξαιρετικό Παρθένο ελαιόλαδο
 es:aceite de oliva virgen extra,aceite extra virgen de oliva
 fi:ekstra-neitsytoliiviöljy, ekstraneitsytoliiviöljy
@@ -29392,6 +29400,9 @@ hu:borsófehérje izolátum
 ro:izolat proteic de mazăre
 
 <en:pea protein
+en:textured pea protein, textured pea proteins
+de:texturiertes Erbseneiweiß
+fr:protéines de pois texturées, protéine de pois texturée
 hr:teksturiranog proteina graška
 ro:texturat proteic de mazăre
 
@@ -29514,6 +29525,7 @@ fr:protéines de soja déshydratées
 hu:dehidratált szójafehérje
 
 <en:soy protein
+en:textured soy protein
 cs:texturovaná sojová bílkovina
 fr:protéines de soja texturées
 
@@ -50628,7 +50640,7 @@ bg:халапеньо
 ca:bitxo jalapeño
 cs:jalapeño
 da:jalapeno, jalapeño
-de:Jalapeno-Chilis
+de:Jalapeno-Chilis, Jalapenopfeffer
 eo:ĥalapenjokapsiko
 es:Pimientos Jalapeños,jalapeno,pimiento jalapeño rojo
 et:jalapeño, jalapeno
@@ -62904,7 +62916,7 @@ wikidata:en:Q26879770
 <en:green olive
 bg:обезкостени зелени маслини
 fr:olives vertes dénoyautées
-de:Grüne Oliven eintsteint
+de:grüne entsteinte Oliven, Grüne Oliven eintsteint 
 nl:ontpitte groene olijven
 # ingredient/fr:olives-vertes-dénoyautées has 129 products in 4 languages @2018-12-01
 
@@ -80541,8 +80553,8 @@ ca:cobertura de xocolata, cobertura de cacau
 es:cobertura de chocolate
 
 <en:coating
-en:milk chocolate coating
-fr:enrobage chocolat au lait
+en:milk chocolate coating, couverture milk chocolate
+fr:enrobage chocolat au lait, chocolat au lait de couverture
 hr:miliječno čokoladni preljev
 sv:mjölkchokladsöverdrag
 # ingredient/en:milk-chocolate-coating has 99 products in 3 languages @2020-12-19
