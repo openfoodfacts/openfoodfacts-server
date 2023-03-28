@@ -129,15 +129,6 @@ boîte en carton à recycler"
 			packaging_text => "overig bij plastic afval"
 		}
 	],
-
-	[
-		'packaging_text_nl_blik_bij_restafval',
-		{
-			lc => "nl",
-			packaging_text => "blik bij restafval"
-		}
-	],
-
 	[
 		'packaging_text_nl_verpakking_bij_drankencartons',
 		{
