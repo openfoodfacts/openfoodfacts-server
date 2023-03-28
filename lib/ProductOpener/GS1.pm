@@ -744,19 +744,22 @@ my %gs1_product_to_off = (
 									},
 								],
 
-								[
-									"packaging_information:packagingInformationModule",
-									{
-										fields => [
-											[
-												"packaging",
-												{
-													fields => [["packagingTypeCode", "+packaging%packagingTypeCode"],],
-												},
-											],
-										],
-									},
-								],
+# 20230328: this packaging field is too imprecise, and the packaging field is deprecated,
+# as we have a new packagings components structure
+#
+#								[
+#									"packaging_information:packagingInformationModule",
+#									{
+#										fields => [
+#											[
+#												"packaging",
+#												{
+#													fields => [["packagingTypeCode", "+packaging%packagingTypeCode"],],
+#												},
+#											],
+#										],
+#									},
+#								],
 
 								[
 									"packaging_marking:packagingMarkingModule",
