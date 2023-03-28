@@ -715,6 +715,10 @@ is(canonicalize_taxonomy_tag('en', 'packaging_materials', 'Plastic / other plast
 is(canonicalize_taxonomy_tag('en', 'packaging_materials', 'Plastic/PET'), "en:pet-1-polyethylene-terephthalate");
 is(canonicalize_taxonomy_tag('en', 'packaging_materials', 'Plastic / Metal'), "en:Plastic / Metal"); # Cannot be matched
 is(canonicalize_taxonomy_tag('fr', 'packaging_shapes', 'Ustensiles / couverts / fourchette'), "en:fork");
+# 2023/03/28 - following test does not yet work
+#is(canonicalize_taxonomy_tag('fr', 'packaging_shapes', 'Ustensiles (fourchette, couteau, cuillère)'), "en:utensils");
+is(canonicalize_taxonomy_tag('fr', 'packaging_shapes', 'Plat (Bol, Saladier, Terrine, …)'), "en:dish");
+is(canonicalize_taxonomy_tag('fr', 'packaging_materials', 'Gaz / CO2 - Dioxide de carbone (gaz carbonique)'), "en:co2-carbon-dioxide");
 
 # test the generation of regexps matching tags
 
