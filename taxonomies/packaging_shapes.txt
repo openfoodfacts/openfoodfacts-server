@@ -1,3 +1,7 @@
+# Some entries are of the form A or B, or A / B
+stopwords:en:or,of
+stopwords:fr:ou,de,d'
+
 # Containers
 
 en:Unknown
@@ -188,15 +192,19 @@ it:Cassa, casse
 pt:Engradado, engradados
 
 # fr:Bidon / Bonbonne used by Les Mousquetaires
+en:Jug or canister, canister or jug
+fr:Bidon ou bonbonne, bonbonne ou bidon
+
+<en:Jug or canister
 en:Jug, jugs
-fr:Bidon, bidons, bidon / bonbonne
+fr:Bidon, bidons
 nl:Kruik, kruiken
 pt:garrafão
 # associated_packagings: en:cap
 
-#fr:Bouteille / Flacon in data from Les Mousquetaires: 
-en:Bottle or vial
-fr:Bouteille ou Flacon
+#fr:Bouteille / Flacon in data from Les Mousquetaires
+en:Bottle or vial, Vial or bottle
+fr:Bouteille ou Flacon, Flacon ou bouteille
 
 <en:Bottle or vial
 en:Bottle, bottles
@@ -395,7 +403,7 @@ description:nl:Een klein werktuig waarin iets door samendrukken bijeengehouden o
 
 # fr:Liens ( collier , ficelle , ruban , ruban adhésif , bolduc , feuillard , bande , cordon , fil , elastique , bracelet…) in data from Les Mousquetaires
 en:Tie, knot
-fr:Lien, noeud, Liens, noeuds
+fr:Lien, noeud, Liens, noeuds, Liens ( collier - ficelle - ruban - ruban adhésif - bolduc - feuillard - bande - cordon - fil - elastique - bracelet…)
 nl:Knoop, strik
 weight:en:light
 description:fr:Ce qui sert à lier, à attacher des objets ou des parties ensemble.
@@ -538,7 +546,7 @@ pt:Tampa, tampas
 <en:Lid or cap
 en:Bottle cap, bottle top, cap, top, bottle caps, bottle tops, caps, tops
 bg:Капачка за бутилка, капачка, капачки
-fr:Bouchon de bouteille, bouchon,  bouchons de bouteilles, bouchons
+fr:Bouchon, bouchons, Bouchon de bouteille, bouchons de bouteilles, bouchons
 hu:Kupak, borosdugó, dugó
 nl:Dop, Doppen
 pt:Cápsula de garrafa, cápsulas de garrafa, tampa de garrafa, tampas de garrafa, rolha, rolhas, rolha de garrafa, rolhas de garrafa, rolha de cortiça, rolhas de cortiça, rolha de plástico, rolhas de plástico, carica, caricas, cápsula de rosca, cápsulas de rosca
@@ -560,7 +568,7 @@ wikidata:en:Q1020525
 <en:Bottle cap
 en:Wine cork, wine bottle cork, wine corks, wine bottle corks
 bg:Коркова тапа за вино, Корк за вино
-fr:bouchon de bouteille de vin, bouchons de bouteilles de vin
+fr:bouchon de bouteille de vin, bouchons de bouteilles de vin, bouchon de vin
 hr:pluteni čep
 nl:Wijnkurk, wijnkurken, Wijn kurk
 wikidata:en:Q86511715
@@ -979,8 +987,9 @@ fr:Rouleau, Bobine, Mandrin, Mandrin / Rouleau
 # image:xx:bobine-rouleau-2.svg 
 # suggest:packaging_materials:en: en:cardboard, en:paper
 
+en:Jug or canister
 en:Canister
-fr:Bombonne
+fr:Bombonne, bombonnes, bonbonne, bonbonnes
 nl:Spuitbus, spuitbussen
 # related_categories:en: en:Waters
 # image:xx:bonbonne-plastique.svg https://world.openfoodfacts.org/product/3068320125367/bouteille-d-eau-evian-6l
@@ -1203,7 +1212,7 @@ nl:emmertje
 
 # fr:Plat (Bol, Saladier, Terrine, …) in data from Les Mousquetaires
 en:Dish, dishes
-fr:Plat, plats, Plat
+fr:Plat, plats, Plat, Plat (Bol - Saladier - Terrine - …)
 
 <en:dish
 en:salad bowl, salad bowls
@@ -1246,8 +1255,6 @@ wikidata:en:Q97584727
 # image:xx:bac-plastique-2.svg (bac générique)
 # image:xx:bac-plastique.svg (bac à glace)
 # suggest:packaging_materials:en: en:cardboard, en:metal, en:others
-
-#fr:Bidon
 
 en:drinking straw, straw, straws
 be:саломінка

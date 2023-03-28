@@ -145,9 +145,16 @@ nl:PET - Hergebruikt
 pt:rPET - Tereftalato de polietileno reciclado, PET reciclado, Tereftalato de polietileno reciclado
 
 # Not really PET
+<en:Plastic
+<en:Other plastics
 en:PETG- Polyethylene terephthalate glycol, Polyethylene terephthalate glycol, Glycolized Polyethylene terephthalate, Glycolised Polyethylene terephthalate
 fr:PETG - Polyéthylène téréphtalate glycolisé, Polyéthylène téréphtalate glycolisé
 xx:PETG
+
+# Not exactly a plastic
+# Plastique / Silicone in data from Les Mousquetaires
+en:Silicone
+fr:Silicone, Plastique / Silicone
 
 <en:Plastic
 en:Biobased plastic
@@ -345,11 +352,12 @@ hr:PC - polikarbonati
 xx:PC, 07 PC, PC 07, 07PC, PC07, 7 PC, PC 7, 7PC, PC7
 wikidata:en:Q62246
 
+# PA - Polyamide (PA 66 - Nylon) in data from Les Mousquetaires
 <en:Plastic
 <en:Other plastics
 en:PA - Polyamide, Polyamide
 de:PA - Polyamide, Polyamide
-fr:PA - Polyamide, Polyamide, PA - Polyamide (PA 66, Nylon)
+fr:PA - Polyamide, Polyamide, PA - Polyamide (PA 66 - Nylon)
 hr:PA - poliamid, poliamidi
 xx:PA, 07 PA, PA 07, 07PA, PA07, 7 PA, PA 7, 7PA, PA7
 wikidata:en:Q145273
