@@ -9,6 +9,9 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::Store qw/:all/;
 # Display.pm is currently needed, as we need $lc to be defined for canonicalize_tag2
 use ProductOpener::Display qw/:all/;
+use ProductOpener::Test qw/:all/;
+
+my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
 init_emb_codes();
 
@@ -712,5 +715,10 @@ is(canonicalize_taxonomy_tag('en', 'packaging_materials', 'Plastic / other plast
 is(canonicalize_taxonomy_tag('en', 'packaging_materials', 'Plastic/PET'), "en:pet-1-polyethylene-terephthalate");
 is(canonicalize_taxonomy_tag('en', 'packaging_materials', 'Plastic / Metal'), "en:Plastic / Metal"); # Cannot be matched
 is(canonicalize_taxonomy_tag('fr', 'packaging_shapes', 'Ustensiles / couverts / fourchette'), "en:fork");
+
+# test the generation of regexps matching tags
+
+my $regexps_ref = generate_regexps_matching_taxonomy_entries ("test", "list_of_regexps", {});
+compare_to_expected_results($regexps_ref, "$expected_result_dir/regexps.json", $update_expected_results);
 
 done_testing();
