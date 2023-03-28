@@ -1,5 +1,5 @@
 {
-   "_id" : "org-test-org/3250390020745",
+   "_id" : "3250390020745",
    "_keywords" : [
       "15",
       "boeuf",
@@ -62,7 +62,6 @@
    "created_t" : "--ignore--",
    "creator" : "test-user",
    "data_quality_bugs_tags" : [],
-   "data_quality_errors_producers_tags" : [],
    "data_quality_errors_tags" : [],
    "data_quality_info_tags" : [
       "en:packaging-data-incomplete",
@@ -81,7 +80,6 @@
       "en:ecoscore-production-system-no-label",
       "en:ecoscore-threatened-species-ingredients-missing"
    ],
-   "data_quality_warnings_producers_tags" : [],
    "data_quality_warnings_tags" : [
       "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
       "en:ecoscore-production-system-no-label",
@@ -359,8 +357,6 @@
    "entry_dates_tags" : "--ignore--",
    "food_groups_tags" : [],
    "id" : "3250390020745",
-   "improvements_data" : {},
-   "improvements_tags" : [],
    "informers_tags" : [
       "test-user"
    ],
@@ -488,9 +484,8 @@
          "url" : null
       }
    ],
-   "states" : "en:to-be-exported, en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
+   "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
    "states_hierarchy" : [
-      "en:to-be-exported",
       "en:to-be-completed",
       "en:nutrition-facts-to-be-completed",
       "en:ingredients-to-be-completed",
@@ -506,7 +501,6 @@
       "en:photos-to-be-uploaded"
    ],
    "states_tags" : [
-      "en:to-be-exported",
       "en:to-be-completed",
       "en:nutrition-facts-to-be-completed",
       "en:ingredients-to-be-completed",

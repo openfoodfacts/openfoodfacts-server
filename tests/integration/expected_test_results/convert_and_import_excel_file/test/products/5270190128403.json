@@ -1,5 +1,5 @@
 {
-   "_id" : "org-test-org/5270190128403",
+   "_id" : "5270190128403",
    "_keywords" : [
       "banane",
       "martinique",
@@ -63,7 +63,6 @@
    "created_t" : "--ignore--",
    "creator" : "test-user",
    "data_quality_bugs_tags" : [],
-   "data_quality_errors_producers_tags" : [],
    "data_quality_errors_tags" : [],
    "data_quality_info_tags" : [
       "en:no-packaging-data",
@@ -85,7 +84,6 @@
       "en:ecoscore-packaging-packaging-data-missing",
       "en:ecoscore-production-system-no-label"
    ],
-   "data_quality_warnings_producers_tags" : [],
    "data_quality_warnings_tags" : [
       "en:ecoscore-packaging-packaging-data-missing",
       "en:ecoscore-production-system-no-label"
@@ -343,8 +341,6 @@
    "generic_name_fr" : "Bananes",
    "generic_name_fr_imported" : "Bananes",
    "id" : "5270190128403",
-   "improvements_data" : {},
-   "improvements_tags" : [],
    "informers_tags" : [
       "test-user"
    ],
@@ -512,9 +508,8 @@
          "url" : null
       }
    ],
-   "states" : "en:to-be-exported, en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-completed, en:categories-to-be-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-uploaded",
+   "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-completed, en:categories-to-be-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-uploaded",
    "states_hierarchy" : [
-      "en:to-be-exported",
       "en:to-be-completed",
       "en:nutrition-facts-completed",
       "en:ingredients-completed",
@@ -530,7 +525,6 @@
       "en:photos-to-be-uploaded"
    ],
    "states_tags" : [
-      "en:to-be-exported",
       "en:to-be-completed",
       "en:nutrition-facts-completed",
       "en:ingredients-completed",
