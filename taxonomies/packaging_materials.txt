@@ -129,7 +129,7 @@ non_recyclable_and_non_biodegradable:en:no
 <en:Other plastics
 en:PVDC 7 - Polyvinylidene chloride, PVDC - Polyvinylidene chloride, Polyvinylidene chloride
 de:PVDC 7 - Polyvinylidenchlorid, PVDC - Polyvinylidenchlorid, Polyvinylidenchlorid
-fr:PVDC 7 - Chlorure de polyvinylidène, PVDC - Chlorure de polyvinylidène, Chlorure de polyvinylidène
+fr:PVDC 7 - Chlorure de polyvinylidène, PVDC - Chlorure de polyvinylidène, Chlorure de polyvinylidène, Polychlorure de vinylidène
 xx:PVDC, 07 PVDC, PVDC 07, 07PVDC, PVDC07, 7 PVDC, PVDC 7, 7PVDC, PVDC7
 wikidata:en:Q146383
 
@@ -143,6 +143,11 @@ hu:rPET - Újrahasznosított PET, Újrahasznosított PET, Újrahasznosított pol
 it:PET riciclato, Polietilene tereftalato riciclato
 nl:PET - Hergebruikt
 pt:rPET - Tereftalato de polietileno reciclado, PET reciclado, Tereftalato de polietileno reciclado
+
+# Not really PET
+en:PETG- Polyethylene terephthalate glycol, Polyethylene terephthalate glycol, Glycolized Polyethylene terephthalate, Glycolised Polyethylene terephthalate
+fr:PETG - Polyéthylène téréphtalate glycolisé, Polyéthylène téréphtalate glycolisé
+xx:PETG
 
 <en:Plastic
 en:Biobased plastic
@@ -311,6 +316,10 @@ pt:PS 6 - Poliestireno, PS - Poliestireno, Poliestireno
 ru:PS 6 - Полистирол, PS - Полистирол, Полистирол
 wikidata:en:Q146243
 
+<en:PS 6 - Polystyrene
+en:EPS - Expanded polystyrene, Foamed polystyrene
+fr:PSE - Polystyrène expansé, PSE - Polystyrène expansé / moussé, Polystyrène expansé, Polystyrène moussé
+
 <en:Plastic
 en:O 7 - Other plastics, O - Other plastics, Other plastics, All other plastics, other plastic
 bg:O 7 - Други пластмаси, O - Други пластмаси, Други пластмаси
@@ -340,10 +349,16 @@ wikidata:en:Q62246
 <en:Other plastics
 en:PA - Polyamide, Polyamide
 de:PA - Polyamide, Polyamide
-fr:PA - Polyamide, Polyamide, Plastiques / PA - Polyamide (PA 66, Nylon)
+fr:PA - Polyamide, Polyamide, PA - Polyamide (PA 66, Nylon)
 hr:PA - poliamid, poliamidi
 xx:PA, 07 PA, PA 07, 07PA, PA07, 7 PA, PA 7, 7PA, PA7
 wikidata:en:Q145273
+
+<en:Plastic
+<en:Other plastics
+en:PU/PUR - Polyurethan, Polyurethan
+fr:PU/PUR - Polyuréthane, Polyuréthane
+xx:PU/PUR,PU,PUR
 
 # 09 is for Alkaline batteries, not sure if 09 ABS exists.
 <en:Plastic
@@ -792,12 +807,13 @@ nl:Ander textiel
 pt:Outros têxteis
 xx:62 TEX, TEX 62, 63 TEX, TEX 63, 64 TEX, TEX 64, 65 TEX, TEX 65, 66 TEX, TEX 66, 67 TEX, TEX 67, 68 TEX, TEX 68, 69 TEX, TEX 69
 
+# Silicates / Verre (sodo-calcique) in data from Les Mousquetaires
 en:Glass
 bg:Стъкло
 da:Glas
 de:Glas
 es:Vidrio, cristal
-fr:Verre
+fr:Verre, Silicates / Verre (sodo-calcique), Silicates / Verre autre que sodo-calcique (cristal, pyrex etc.), Silicates / Autre Silicates
 hr:staklo
 hu:Üveg
 it:Vetro
@@ -1602,3 +1618,20 @@ de:Kunststoffklebeband
 en:washi tape
 de:Washi-Tape
 ja:和紙テープ
+
+en:Gas
+fr:Gaz
+
+<en:Gas
+en:CO2 - Carbon dioxide, Carbon dioxide
+fr:CO2 - Dioxide de carbone, CO2, Dioxide de carbone, gaz carbonique
+xx:CO2
+
+<en:Gas
+en:N2 - Azote, Azote
+fr:N2 - Azote, Azote
+xx:N2
+
+<en:Gas
+en:Other gas
+fr:Autre gaz

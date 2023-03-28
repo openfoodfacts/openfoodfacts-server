@@ -4462,6 +4462,9 @@ sub generate_regexps_matching_taxonomy_entries ($taxonomy, $return_type, $option
 
 			foreach my $synonym (get_taxonomy_tag_synonyms($language, $taxonomy, $tagid)) {
 
+				# Escape some characters
+				$synonym =~ s/([\(\)\/\?\*\[\]\{\}])/\\$1/g;
+
 				if ($options_ref->{add_simple_singulars}) {
 					if ($synonym =~ /s$/) {
 						# match entry without final s

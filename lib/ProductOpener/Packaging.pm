@@ -727,6 +727,36 @@ sub canonicalize_packaging_components_properties ($product_ref) {
 	return;
 }
 
+
+=head2 set_packaging_facets_tags ($product_ref)
+
+Set packaging_(shapes|materials|recycling)_tags fields, with values from the packaging components of the product.
+
+=cut
+
+sub set_packaging_facets_tags ($product_ref) {
+
+	my %packaging_tags = (
+		shape => {},
+		material => {},
+		recycling => {},
+	);
+
+	foreach my $packaging_ref (@{$product_ref->{packagings}}) {
+		foreach my $property ("recycling", "material", "shape") {
+			if (defined $packaging_ref->{$property}) {
+				$packaging_tags{$property}{$packaging_ref->{$property}} = 1;
+			}
+		}
+	}
+
+	$product_ref->{packaging_shapes_tags} = [sort keys %{$packaging_tags{"shape"}}];
+	$product_ref->{packaging_materials_tags} = [sort keys %{$packaging_tags{"material"}}];
+	$product_ref->{packaging_recycling_tags} = [sort keys %{$packaging_tags{"recycling"}}];
+
+	return;
+}
+
 =head2 set_packaging_misc_tags($product_ref)
 
 Set some tags in the /misc/ facet so that we can track the products that have 
@@ -901,6 +931,9 @@ sub analyze_and_combine_packaging_data ($product_ref, $response_ref) {
 	# Set misc fields to indicate if the packaging data is complete
 
 	set_packaging_misc_tags($product_ref);
+
+	# Set packaging facets tags for shape, material and recycling
+	set_packaging_facets_tags ($product_ref);
 
 	$log->debug("analyze_and_combine_packaging_data - done",
 		{packagings => $product_ref->{packagings}, response => $response_ref})
