@@ -1001,6 +1001,25 @@ sub compute_sort_keys ($product_ref) {
 	return;
 }
 
+sub created_function($mongodb_to_mongodb, $product_ref, $products_collection, $data_root, $path) {
+
+	# make sure nutrient values are numbers
+	ProductOpener::Products::make_sure_numbers_are_stored_as_numbers($product_ref);
+
+	if (!$mongodb_to_mongodb) {
+		# Store data to .sto file
+		store("$data_root/products/$path/product.sto", $product_ref);
+	}
+
+	# Store data to mongodb
+	# Make sure product _id and code are saved as string and not a number
+	# see bug #1077 - https://github.com/openfoodfacts/openfoodfacts-server/issues/1077
+	# make sure that code is saved as a string, otherwise mongodb saves it as number, and leading 0s are removed
+	$product_ref->{_id} .= '';
+	$product_ref->{code} .= '';
+	$products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
+}
+
 sub store_product ($user_id, $product_ref, $comment) {
 
 	my $code = $product_ref->{code};
