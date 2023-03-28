@@ -1,5 +1,5 @@
 {
-   "_id" : "3270190128403",
+   "_id" : "org-test-org/3270190128403",
    "_keywords" : [
       "ab",
       "agriculture",
@@ -129,6 +129,7 @@
    "created_t" : "--ignore--",
    "creator" : "test-user",
    "data_quality_bugs_tags" : [],
+   "data_quality_errors_producers_tags" : [],
    "data_quality_errors_tags" : [],
    "data_quality_info_tags" : [
       "en:packaging-data-incomplete",
@@ -148,6 +149,7 @@
       "en:food-groups-2-known",
       "en:food-groups-3-unknown"
    ],
+   "data_quality_warnings_producers_tags" : [],
    "data_quality_warnings_tags" : [],
    "data_sources" : "Producers, Producer - carrefour",
    "data_sources_imported" : "Producers, Producer - carrefour",
@@ -570,6 +572,8 @@
    "generic_name_fr" : "Lentilles",
    "generic_name_fr_imported" : "Lentilles",
    "id" : "3270190128403",
+   "improvements_data" : {},
+   "improvements_tags" : [],
    "informers_tags" : [
       "test-user"
    ],
@@ -754,6 +758,15 @@
    ],
    "packaging_imported" : "carton",
    "packaging_lc" : "fr",
+   "packaging_materials_tags" : [
+      "en:cardboard"
+   ],
+   "packaging_recycling_tags" : [
+      "en:recycle"
+   ],
+   "packaging_shapes_tags" : [
+      "en:box"
+   ],
    "packaging_tags" : [
       "en:cardboard"
    ],
@@ -834,8 +847,9 @@
          "url" : null
       }
    ],
-   "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-completed, en:characteristics-to-be-completed, en:origins-completed, en:categories-completed, en:brands-completed, en:packaging-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-uploaded",
+   "states" : "en:to-be-exported, en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-completed, en:characteristics-to-be-completed, en:origins-completed, en:categories-completed, en:brands-completed, en:packaging-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-uploaded",
    "states_hierarchy" : [
+      "en:to-be-exported",
       "en:to-be-completed",
       "en:nutrition-facts-completed",
       "en:ingredients-completed",
@@ -851,6 +865,7 @@
       "en:photos-to-be-uploaded"
    ],
    "states_tags" : [
+      "en:to-be-exported",
       "en:to-be-completed",
       "en:nutrition-facts-completed",
       "en:ingredients-completed",

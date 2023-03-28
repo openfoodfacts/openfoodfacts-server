@@ -1,5 +1,5 @@
 {
-   "_id" : "3250390026044",
+   "_id" : "org-test-org/3250390026044",
    "_keywords" : [
       "adelie",
       "cafe",
@@ -57,6 +57,7 @@
    "created_t" : "--ignore--",
    "creator" : "test-user",
    "data_quality_bugs_tags" : [],
+   "data_quality_errors_producers_tags" : [],
    "data_quality_errors_tags" : [],
    "data_quality_info_tags" : [
       "en:packaging-data-incomplete",
@@ -76,6 +77,7 @@
       "en:ecoscore-production-system-no-label",
       "en:ecoscore-threatened-species-ingredients-missing"
    ],
+   "data_quality_warnings_producers_tags" : [],
    "data_quality_warnings_tags" : [
       "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
       "en:ecoscore-packaging-unscored-shape",
@@ -300,34 +302,36 @@
             "warning" : "origins_are_100_percent_unknown"
          },
          "packaging" : {
-            "non_recyclable_and_non_biodegradable_materials" : 0,
+            "non_recyclable_and_non_biodegradable_materials" : 2,
             "packagings" : [
                {
-                  "ecoscore_material_score" : 0,
+                  "ecoscore_material_score" : 92,
                   "ecoscore_shape_ratio" : 1,
-                  "material" : "fr:Cellulosique / Carton plat",
+                  "material" : "en:non-corrugated-cardboard",
                   "number_of_units" : 1,
-                  "shape" : "fr:Étui / Fourreau",
+                  "shape" : "en:sleeve",
                   "weight_specified" : 52
                },
                {
                   "ecoscore_material_score" : 0,
                   "ecoscore_shape_ratio" : 1,
-                  "material" : "fr:Plastiques / PS - Polystyrène",
+                  "material" : "en:ps-6-polystyrene",
+                  "non_recyclable_and_non_biodegradable" : "maybe",
                   "number_of_units" : 4,
-                  "shape" : "fr:Coupe / Coupelle",
+                  "shape" : "en:pot",
                   "weight_specified" : 4.8
                },
                {
                   "ecoscore_material_score" : 0,
                   "ecoscore_shape_ratio" : 1,
-                  "material" : "fr:Plastiques / PS - Polystyrène",
+                  "material" : "en:ps-6-polystyrene",
+                  "non_recyclable_and_non_biodegradable" : "maybe",
                   "number_of_units" : 4,
-                  "shape" : "fr:Bouchon (non solidaire) / Capsule / Couvercle",
+                  "shape" : "en:lid-or-cap",
                   "weight_specified" : 1.8
                }
             ],
-            "score" : -200,
+            "score" : -108,
             "value" : -15,
             "warning" : "unscored_shape"
          },
@@ -363,6 +367,8 @@
    "entry_dates_tags" : "--ignore--",
    "food_groups_tags" : [],
    "id" : "3250390026044",
+   "improvements_data" : {},
+   "improvements_tags" : [],
    "informers_tags" : [
       "test-user"
    ],
@@ -430,23 +436,33 @@
    "owner" : "org-test-org",
    "owner_fields" : "--ignore--",
    "owners_tags" : "org-test-org",
+   "packaging_materials_tags" : [
+      "en:non-corrugated-cardboard",
+      "en:ps-6-polystyrene"
+   ],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [
+      "en:lid-or-cap",
+      "en:pot",
+      "en:sleeve"
+   ],
    "packagings" : [
       {
-         "material" : "fr:Cellulosique / Carton plat",
+         "material" : "en:non-corrugated-cardboard",
          "number_of_units" : 1,
-         "shape" : "fr:Étui / Fourreau",
+         "shape" : "en:sleeve",
          "weight_specified" : 52
       },
       {
-         "material" : "fr:Plastiques / PS - Polystyrène",
+         "material" : "en:ps-6-polystyrene",
          "number_of_units" : 4,
-         "shape" : "fr:Coupe / Coupelle",
+         "shape" : "en:pot",
          "weight_specified" : 4.8
       },
       {
-         "material" : "fr:Plastiques / PS - Polystyrène",
+         "material" : "en:ps-6-polystyrene",
          "number_of_units" : 4,
-         "shape" : "fr:Bouchon (non solidaire) / Capsule / Couvercle",
+         "shape" : "en:lid-or-cap",
          "weight_specified" : 1.8
       }
    ],
@@ -483,8 +499,9 @@
          "url" : null
       }
    ],
-   "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-uploaded",
+   "states" : "en:to-be-exported, en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-uploaded",
    "states_hierarchy" : [
+      "en:to-be-exported",
       "en:to-be-completed",
       "en:nutrition-facts-to-be-completed",
       "en:ingredients-to-be-completed",
@@ -500,6 +517,7 @@
       "en:photos-to-be-uploaded"
    ],
    "states_tags" : [
+      "en:to-be-exported",
       "en:to-be-completed",
       "en:nutrition-facts-to-be-completed",
       "en:ingredients-to-be-completed",

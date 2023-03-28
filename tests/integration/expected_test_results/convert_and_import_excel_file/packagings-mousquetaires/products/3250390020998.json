@@ -1,5 +1,5 @@
 {
-   "_id" : "3250390020998",
+   "_id" : "org-test-org/3250390020998",
    "_keywords" : [
       "aux",
       "fromage",
@@ -57,6 +57,7 @@
    "created_t" : "--ignore--",
    "creator" : "test-user",
    "data_quality_bugs_tags" : [],
+   "data_quality_errors_producers_tags" : [],
    "data_quality_errors_tags" : [],
    "data_quality_info_tags" : [
       "en:packaging-data-incomplete",
@@ -72,13 +73,12 @@
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown",
       "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-      "en:ecoscore-packaging-unscored-shape",
       "en:ecoscore-production-system-no-label",
       "en:ecoscore-threatened-species-ingredients-missing"
    ],
+   "data_quality_warnings_producers_tags" : [],
    "data_quality_warnings_tags" : [
       "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-      "en:ecoscore-packaging-unscored-shape",
       "en:ecoscore-production-system-no-label",
       "en:ecoscore-threatened-species-ingredients-missing"
    ],
@@ -303,33 +303,33 @@
             "non_recyclable_and_non_biodegradable_materials" : 0,
             "packagings" : [
                {
-                  "ecoscore_material_score" : 0,
+                  "ecoscore_material_score" : 72,
                   "ecoscore_shape_ratio" : 1,
-                  "material" : "fr:Métaux / Aluminium",
+                  "material" : "en:heavy-aluminium",
                   "number_of_units" : 1,
-                  "shape" : "fr:Barquette / Coque",
+                  "shape" : "en:tray",
                   "weight_specified" : 8.2
                },
                {
-                  "ecoscore_material_score" : 0,
-                  "ecoscore_shape_ratio" : 1,
-                  "material" : "fr:Plastiques / PP - Polypropylène",
+                  "ecoscore_material_score" : 21,
+                  "ecoscore_shape_ratio" : 0.1,
+                  "material" : "en:pp-5-polypropylene",
+                  "non_recyclable_and_non_biodegradable" : "no",
                   "number_of_units" : 1,
-                  "shape" : "fr:Film / Enveloppage / Feuille / Housse",
+                  "shape" : "en:film",
                   "weight_specified" : 2.4
                },
                {
-                  "ecoscore_material_score" : 0,
+                  "ecoscore_material_score" : 92,
                   "ecoscore_shape_ratio" : 1,
-                  "material" : "fr:Cellulosique / Carton plat",
+                  "material" : "en:non-corrugated-cardboard",
                   "number_of_units" : 1,
-                  "shape" : "fr:Boîte / Coffret",
+                  "shape" : "en:box",
                   "weight_specified" : 39
                }
             ],
-            "score" : -200,
-            "value" : -15,
-            "warning" : "unscored_shape"
+            "score" : 56.1,
+            "value" : -4
          },
          "production_system" : {
             "labels" : [],
@@ -347,8 +347,7 @@
          "categories" : 1,
          "ingredients" : 1,
          "labels" : 1,
-         "origins" : 1,
-         "packagings" : 1
+         "origins" : 1
       },
       "missing_agribalyse_match_warning" : 1,
       "status" : "unknown"
@@ -363,6 +362,8 @@
    "entry_dates_tags" : "--ignore--",
    "food_groups_tags" : [],
    "id" : "3250390020998",
+   "improvements_data" : {},
+   "improvements_tags" : [],
    "informers_tags" : [
       "test-user"
    ],
@@ -430,23 +431,34 @@
    "owner" : "org-test-org",
    "owner_fields" : "--ignore--",
    "owners_tags" : "org-test-org",
+   "packaging_materials_tags" : [
+      "en:aluminium",
+      "en:non-corrugated-cardboard",
+      "en:pp-5-polypropylene"
+   ],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [
+      "en:box",
+      "en:film",
+      "en:tray"
+   ],
    "packagings" : [
       {
-         "material" : "fr:Métaux / Aluminium",
+         "material" : "en:aluminium",
          "number_of_units" : 1,
-         "shape" : "fr:Barquette / Coque",
+         "shape" : "en:tray",
          "weight_specified" : 8.2
       },
       {
-         "material" : "fr:Plastiques / PP - Polypropylène",
+         "material" : "en:pp-5-polypropylene",
          "number_of_units" : 1,
-         "shape" : "fr:Film / Enveloppage / Feuille / Housse",
+         "shape" : "en:film",
          "weight_specified" : 2.4
       },
       {
-         "material" : "fr:Cellulosique / Carton plat",
+         "material" : "en:non-corrugated-cardboard",
          "number_of_units" : 1,
-         "shape" : "fr:Boîte / Coffret",
+         "shape" : "en:box",
          "weight_specified" : 39
       }
    ],
@@ -483,8 +495,9 @@
          "url" : null
       }
    ],
-   "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-uploaded",
+   "states" : "en:to-be-exported, en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-uploaded",
    "states_hierarchy" : [
+      "en:to-be-exported",
       "en:to-be-completed",
       "en:nutrition-facts-to-be-completed",
       "en:ingredients-to-be-completed",
@@ -500,6 +513,7 @@
       "en:photos-to-be-uploaded"
    ],
    "states_tags" : [
+      "en:to-be-exported",
       "en:to-be-completed",
       "en:nutrition-facts-to-be-completed",
       "en:ingredients-to-be-completed",

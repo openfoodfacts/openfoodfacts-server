@@ -1,5 +1,5 @@
 {
-   "_id" : "3250390024781",
+   "_id" : "org-test-org/3250390024781",
    "_keywords" : [
       "alaska",
       "colin",
@@ -57,6 +57,7 @@
    "created_t" : "--ignore--",
    "creator" : "test-user",
    "data_quality_bugs_tags" : [],
+   "data_quality_errors_producers_tags" : [],
    "data_quality_errors_tags" : [],
    "data_quality_info_tags" : [
       "en:packaging-data-incomplete",
@@ -72,13 +73,14 @@
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown",
       "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-      "en:ecoscore-packaging-unscored-shape",
+      "en:ecoscore-packaging-unscored-material",
       "en:ecoscore-production-system-no-label",
       "en:ecoscore-threatened-species-ingredients-missing"
    ],
+   "data_quality_warnings_producers_tags" : [],
    "data_quality_warnings_tags" : [
       "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-      "en:ecoscore-packaging-unscored-shape",
+      "en:ecoscore-packaging-unscored-material",
       "en:ecoscore-production-system-no-label",
       "en:ecoscore-threatened-species-ingredients-missing"
    ],
@@ -304,48 +306,50 @@
             "packagings" : [
                {
                   "ecoscore_material_score" : 0,
-                  "ecoscore_shape_ratio" : 1,
-                  "material" : "fr:Plastiques / PE - Polyethylène",
+                  "ecoscore_shape_ratio" : 0.1,
+                  "material" : "en:pe-7-polyethylene",
+                  "non_recyclable_and_non_biodegradable" : "maybe",
                   "number_of_units" : 1,
-                  "shape" : "fr:Film / Enveloppage / Feuille / Housse",
+                  "shape" : "en:film",
                   "weight_specified" : 2.3
                },
                {
                   "ecoscore_material_score" : 0,
-                  "ecoscore_shape_ratio" : 1,
+                  "ecoscore_shape_ratio" : 0.1,
                   "material" : "fr:Plastiques / PA - Polyamide (PA 66, Nylon)",
                   "number_of_units" : 1,
-                  "shape" : "fr:Film / Enveloppage / Feuille / Housse",
+                  "shape" : "en:film",
                   "weight_specified" : 2.3
                },
                {
-                  "ecoscore_material_score" : 0,
+                  "ecoscore_material_score" : 92,
                   "ecoscore_shape_ratio" : 1,
-                  "material" : "fr:Cellulosique / Carton plat",
+                  "material" : "en:non-corrugated-cardboard",
                   "number_of_units" : 1,
-                  "shape" : "fr:Étui / Fourreau",
+                  "shape" : "en:sleeve",
                   "weight_specified" : 30.8
                },
                {
                   "ecoscore_material_score" : 0,
-                  "ecoscore_shape_ratio" : 1,
+                  "ecoscore_shape_ratio" : 0.1,
                   "material" : "fr:Plastiques / PA - Polyamide (PA 66, Nylon)",
                   "number_of_units" : 1,
-                  "shape" : "fr:Film / Enveloppage / Feuille / Housse",
+                  "shape" : "en:film",
                   "weight_specified" : 2.3
                },
                {
                   "ecoscore_material_score" : 0,
-                  "ecoscore_shape_ratio" : 1,
-                  "material" : "fr:Plastiques / PE - Polyethylène",
+                  "ecoscore_shape_ratio" : 0.1,
+                  "material" : "en:pe-7-polyethylene",
+                  "non_recyclable_and_non_biodegradable" : "maybe",
                   "number_of_units" : 1,
-                  "shape" : "fr:Film / Enveloppage / Feuille / Housse",
+                  "shape" : "en:film",
                   "weight_specified" : 2.3
                }
             ],
-            "score" : -400,
-            "value" : -15,
-            "warning" : "unscored_shape"
+            "score" : 52,
+            "value" : -5,
+            "warning" : "unscored_material"
          },
          "production_system" : {
             "labels" : [],
@@ -379,6 +383,8 @@
    "entry_dates_tags" : "--ignore--",
    "food_groups_tags" : [],
    "id" : "3250390024781",
+   "improvements_data" : {},
+   "improvements_tags" : [],
    "informers_tags" : [
       "test-user"
    ],
@@ -446,35 +452,45 @@
    "owner" : "org-test-org",
    "owner_fields" : "--ignore--",
    "owners_tags" : "org-test-org",
+   "packaging_materials_tags" : [
+      "en:non-corrugated-cardboard",
+      "en:pe-7-polyethylene",
+      "fr:Plastiques / PA - Polyamide (PA 66, Nylon)"
+   ],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [
+      "en:film",
+      "en:sleeve"
+   ],
    "packagings" : [
       {
-         "material" : "fr:Plastiques / PE - Polyethylène",
+         "material" : "en:pe-7-polyethylene",
          "number_of_units" : 1,
-         "shape" : "fr:Film / Enveloppage / Feuille / Housse",
+         "shape" : "en:film",
          "weight_specified" : 2.3
       },
       {
          "material" : "fr:Plastiques / PA - Polyamide (PA 66, Nylon)",
          "number_of_units" : 1,
-         "shape" : "fr:Film / Enveloppage / Feuille / Housse",
+         "shape" : "en:film",
          "weight_specified" : 2.3
       },
       {
-         "material" : "fr:Cellulosique / Carton plat",
+         "material" : "en:non-corrugated-cardboard",
          "number_of_units" : 1,
-         "shape" : "fr:Étui / Fourreau",
+         "shape" : "en:sleeve",
          "weight_specified" : 30.8
       },
       {
          "material" : "fr:Plastiques / PA - Polyamide (PA 66, Nylon)",
          "number_of_units" : 1,
-         "shape" : "fr:Film / Enveloppage / Feuille / Housse",
+         "shape" : "en:film",
          "weight_specified" : 2.3
       },
       {
-         "material" : "fr:Plastiques / PE - Polyethylène",
+         "material" : "en:pe-7-polyethylene",
          "number_of_units" : 1,
-         "shape" : "fr:Film / Enveloppage / Feuille / Housse",
+         "shape" : "en:film",
          "weight_specified" : 2.3
       }
    ],
@@ -511,8 +527,9 @@
          "url" : null
       }
    ],
-   "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-uploaded",
+   "states" : "en:to-be-exported, en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-uploaded",
    "states_hierarchy" : [
+      "en:to-be-exported",
       "en:to-be-completed",
       "en:nutrition-facts-to-be-completed",
       "en:ingredients-to-be-completed",
@@ -528,6 +545,7 @@
       "en:photos-to-be-uploaded"
    ],
    "states_tags" : [
+      "en:to-be-exported",
       "en:to-be-completed",
       "en:nutrition-facts-to-be-completed",
       "en:ingredients-to-be-completed",

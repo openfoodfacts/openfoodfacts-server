@@ -1,5 +1,5 @@
 {
-   "_id" : "4270190128403",
+   "_id" : "org-test-org/4270190128403",
    "_keywords" : [
       "category",
       "test"
@@ -63,6 +63,7 @@
    "created_t" : "--ignore--",
    "creator" : "test-user",
    "data_quality_bugs_tags" : [],
+   "data_quality_errors_producers_tags" : [],
    "data_quality_errors_tags" : [],
    "data_quality_info_tags" : [
       "en:no-packaging-data",
@@ -82,6 +83,7 @@
       "en:ecoscore-production-system-no-label",
       "en:ecoscore-threatened-species-ingredients-missing"
    ],
+   "data_quality_warnings_producers_tags" : [],
    "data_quality_warnings_tags" : [
       "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
       "en:ecoscore-packaging-packaging-data-missing",
@@ -343,6 +345,8 @@
    "entry_dates_tags" : "--ignore--",
    "food_groups_tags" : [],
    "id" : "4270190128403",
+   "improvements_data" : {},
+   "improvements_tags" : [],
    "informers_tags" : [
       "test-user"
    ],
@@ -419,6 +423,9 @@
    "owner" : "org-test-org",
    "owner_fields" : "--ignore--",
    "owners_tags" : "org-test-org",
+   "packaging_materials_tags" : [],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [],
    "packagings" : [],
    "photographers_tags" : [],
    "pnns_groups_1" : "unknown",
@@ -457,8 +464,9 @@
          "url" : null
       }
    ],
-   "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-to-be-completed, en:photos-to-be-uploaded",
+   "states" : "en:to-be-exported, en:to-be-completed, en:nutrition-facts-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-to-be-completed, en:photos-to-be-uploaded",
    "states_hierarchy" : [
+      "en:to-be-exported",
       "en:to-be-completed",
       "en:nutrition-facts-completed",
       "en:ingredients-to-be-completed",
@@ -474,6 +482,7 @@
       "en:photos-to-be-uploaded"
    ],
    "states_tags" : [
+      "en:to-be-exported",
       "en:to-be-completed",
       "en:nutrition-facts-completed",
       "en:ingredients-to-be-completed",

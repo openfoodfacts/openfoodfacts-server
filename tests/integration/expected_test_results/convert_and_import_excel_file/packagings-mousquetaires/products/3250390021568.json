@@ -1,5 +1,5 @@
 {
-   "_id" : "3250390021568",
+   "_id" : "org-test-org/3250390021568",
    "_keywords" : [
       "15",
       "batonnet",
@@ -57,6 +57,7 @@
    "created_t" : "--ignore--",
    "creator" : "test-user",
    "data_quality_bugs_tags" : [],
+   "data_quality_errors_producers_tags" : [],
    "data_quality_errors_tags" : [],
    "data_quality_info_tags" : [
       "en:packaging-data-incomplete",
@@ -72,13 +73,12 @@
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown",
       "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-      "en:ecoscore-packaging-unscored-shape",
       "en:ecoscore-production-system-no-label",
       "en:ecoscore-threatened-species-ingredients-missing"
    ],
+   "data_quality_warnings_producers_tags" : [],
    "data_quality_warnings_tags" : [
       "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-      "en:ecoscore-packaging-unscored-shape",
       "en:ecoscore-production-system-no-label",
       "en:ecoscore-threatened-species-ingredients-missing"
    ],
@@ -300,28 +300,28 @@
             "warning" : "origins_are_100_percent_unknown"
          },
          "packaging" : {
-            "non_recyclable_and_non_biodegradable_materials" : 0,
+            "non_recyclable_and_non_biodegradable_materials" : 1,
             "packagings" : [
                {
-                  "ecoscore_material_score" : 0,
+                  "ecoscore_material_score" : 92,
                   "ecoscore_shape_ratio" : 1,
-                  "material" : "fr:Cellulosique / Autre papier",
+                  "material" : "en:other-paper",
                   "number_of_units" : 1,
-                  "shape" : "fr:Boîte / Coffret",
+                  "shape" : "en:box",
                   "weight_specified" : 20.4
                },
                {
                   "ecoscore_material_score" : 0,
                   "ecoscore_shape_ratio" : 1,
-                  "material" : "fr:Plastiques / PE - Polyethylène",
+                  "material" : "en:pe-7-polyethylene",
+                  "non_recyclable_and_non_biodegradable" : "maybe",
                   "number_of_units" : 1,
-                  "shape" : "fr:Boîte / Coffret",
+                  "shape" : "en:box",
                   "weight_specified" : 20.4
                }
             ],
-            "score" : -100,
-            "value" : -15,
-            "warning" : "unscored_shape"
+            "score" : -8,
+            "value" : -11
          },
          "production_system" : {
             "labels" : [],
@@ -339,8 +339,7 @@
          "categories" : 1,
          "ingredients" : 1,
          "labels" : 1,
-         "origins" : 1,
-         "packagings" : 1
+         "origins" : 1
       },
       "missing_agribalyse_match_warning" : 1,
       "status" : "unknown"
@@ -355,6 +354,8 @@
    "entry_dates_tags" : "--ignore--",
    "food_groups_tags" : [],
    "id" : "3250390021568",
+   "improvements_data" : {},
+   "improvements_tags" : [],
    "informers_tags" : [
       "test-user"
    ],
@@ -422,17 +423,25 @@
    "owner" : "org-test-org",
    "owner_fields" : "--ignore--",
    "owners_tags" : "org-test-org",
+   "packaging_materials_tags" : [
+      "en:other-paper",
+      "en:pe-7-polyethylene"
+   ],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [
+      "en:box"
+   ],
    "packagings" : [
       {
-         "material" : "fr:Cellulosique / Autre papier",
+         "material" : "en:other-paper",
          "number_of_units" : 1,
-         "shape" : "fr:Boîte / Coffret",
+         "shape" : "en:box",
          "weight_specified" : 20.4
       },
       {
-         "material" : "fr:Plastiques / PE - Polyethylène",
+         "material" : "en:pe-7-polyethylene",
          "number_of_units" : 1,
-         "shape" : "fr:Boîte / Coffret",
+         "shape" : "en:box",
          "weight_specified" : 20.4
       }
    ],
@@ -469,8 +478,9 @@
          "url" : null
       }
    ],
-   "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-uploaded",
+   "states" : "en:to-be-exported, en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-uploaded",
    "states_hierarchy" : [
+      "en:to-be-exported",
       "en:to-be-completed",
       "en:nutrition-facts-to-be-completed",
       "en:ingredients-to-be-completed",
@@ -486,6 +496,7 @@
       "en:photos-to-be-uploaded"
    ],
    "states_tags" : [
+      "en:to-be-exported",
       "en:to-be-completed",
       "en:nutrition-facts-to-be-completed",
       "en:ingredients-to-be-completed",
