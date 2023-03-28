@@ -129,15 +129,6 @@ boîte en carton à recycler"
 			packaging_text => "overig bij plastic afval"
 		}
 	],
-
-	[
-		'packaging_text_nl_blik_bij_restafval',
-		{
-			lc => "nl",
-			packaging_text => "blik bij restafval"
-		}
-	],
-
 	[
 		'packaging_text_nl_verpakking_bij_drankencartons',
 		{
@@ -591,6 +582,30 @@ foreach my $test_ref (@tests) {
 		diag explain $product_ref;
 	}
 }
+
+my $product_ref = {
+	lc => "fr",
+	packagings => [
+		{
+			shape => 'fr:bouteille',
+			material => 'en:pet',
+			recycling => 'à jeter'
+		},
+	],
+};
+
+ProductOpener::Packaging::canonicalize_packaging_components_properties($product_ref);
+
+is_deeply(
+	$product_ref->{packagings},
+	[
+		{
+			'material' => 'en:pet-1-polyethylene-terephthalate',
+			'recycling' => 'en:discard',
+			'shape' => 'en:bottle'
+		},
+	]
+) or diag explain $product_ref->{packagings};
 
 #
 

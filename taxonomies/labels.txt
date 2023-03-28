@@ -1156,6 +1156,7 @@ es:Fuente de proteínas, Alto en proteinas, Rico en Proteinas
 fi:Runsasproteiininen, Paljon proteiineja, Proteiinin lähde, Proteiinipitoinen, Runsaasti proteiinia
 fr:Riche en protéines
 he:עשיר בחלבונים
+hr:bogato bjelančevinama
 hu:Magas fehérjetartalom, Fehérjékben gazdag
 it:Alto contenuto proteico, ricco di proteine, fonte di proteine
 nb:Rik på protein
@@ -2311,6 +2312,9 @@ pl:Obniża cholesterol
 pt:Reduz o Colesterol
 label_categories:en: en:Health, en:Claim
 
+de:100% Milch aus österreich
+xx:100% Milch aus österreich
+
 en:Australian made
 bg:Произведено в Австралия
 ca:Fet a Austràlia
@@ -2366,7 +2370,7 @@ website:hr:https://hrana-hrvatskih-farmi.hpa.hr/
 hr:med hrvatskih pčelinjaka
 xx:med hrvatskih pčelinjaka
 label_categories:en: en:Origins
-image:hr:med-hrvatskih-pcelinjaka.90x90.png
+image:hr:med-hrvatskih-pčelinjaka.90x90.png
 country:en:Croatia
 description:en:Issued by the Croatian Ministry of Agriculture. 
 website:hr:https://hrana-hrvatskih-farmi.hpa.hr/
@@ -2393,7 +2397,7 @@ website:hr:https://hrana-hrvatskih-farmi.hpa.hr/
 hr:brašno hrvatskih polja
 xx:brašno hrvatskih polja
 label_categories:en: en:Origins
-image:hr:brasno-hrvatskih-polja.90x90.png
+image:hr:brašno-hrvatskih-polja.90x90.png
 country:en:Croatia
 description:en:Issued by the Croatian Ministry of Agriculture. 
 website:hr:https://hrana-hrvatskih-farmi.hpa.hr/
@@ -2410,7 +2414,7 @@ website:hr:https://hrana-hrvatskih-farmi.hpa.hr/
 hr:meso hrvatskih farmi rođeno i uzgojeno u rh
 xx:meso hrvatskih farmi rođeno i uzgojeno u rh
 label_categories:en: en:Origins
-image:hr:meso-hrvatskih-farmi-rodeno-i-uzgojeno-u-rh.90x90.png
+image:hr:meso-hrvatskih-farmi-rođeno-i-uzgojeno-u-rh.90x90.png
 country:en:Croatia
 description:en:Issued by the Croatian Ministry of Agriculture. 
 website:hr:https://hrana-hrvatskih-farmi.hpa.hr/
@@ -2424,10 +2428,10 @@ country:en:Croatia
 description:en:Issued by the Croatian Ministry of Agriculture. 
 website:hr:https://hrana-hrvatskih-farmi.hpa.hr/
 
-hr:hrvatski otocni proizvod, croatian island product, HOP
-xx:hrvatski otocni proizvod, croatian island product, HOP
+hr:hrvatski otočni proizvod, croatian island product, HOP
+xx:hrvatski otočni proizvod, croatian island product, HOP
 label_categories:en: en:Origins, en:Geographic label
-image:hr:hrvatski-otocni-proizvod.237x90.png
+image:hr:hrvatski-otočni-proizvod.237x90.png
 country:en:Croatia
 description:en:Issued by the Croatian Ministry of Regional Development and Funds of the European Union. 
 website:hr:https://otocniproizvod.hr
@@ -2440,18 +2444,18 @@ country:en:Croatia
 description:en:Issued by the Croatian Chamber of Commerce. 
 website:hr:https://znakovi.hgk.hr/
 
-hr:hrvtaska kvaliteta
-xx:hrvtaska kvaliteta
+hr:hrvatska kvaliteta
+xx:hrvatska kvaliteta, croatian quality
 label_categories:en: en:Quality
-image:hr:hrvtaska-kvaliteta.128x90.png
+image:hr:hrvatska-kvaliteta.128x90.png
 country:en:Croatia
 description:en:Issued by the Croatian Chamber of Commerce. 
 website:hr:https://znakovi.hgk.hr/
 
-hr:zivjeti zdravo
-xx:zivjeti zdravo
+hr:živjeti zdravo
+xx:živjeti zdravo
 label_categories:en: en:Certification, en:Health, en:Nutrition Grades
-image:hr:zivjeti-zdravo.122x90.png
+image:hr:živjeti-zdravo.122x90.png
 country:en:Croatia
 description:en:Croatian certification "Healthy Living" recognized by the European Commission. The marked products contain less fat (especially saturated), adequate protein content, more fiber and less salt and sugar than other products in the same category.
 description:fr:certification croate "Vivre en bonne santé" reconnue par la Commission Européenne. Les produits marqués contiennent moins de matières grasses (en particulier saturées), une teneur adéquate en protéines, plus de fibres et une quantité réduite de sel et de sucre par rapport aux autres produits de la même catégorie.
@@ -5084,11 +5088,12 @@ xx:GR-BIO-18
 country:en:Greece
 
 # issued together with HR-EKO-XX, producer can show both or one of the two labels
+<en:EU Organic
 hr:ekološkog proizvoda, eko hrvatski proizvod, hrvatski eko proizvod, hrvatski proizvod eko
 xx:ekološkog proizvoda, eko hrvatski proizvod, hrvatski eko proizvod, hrvatski proizvod eko
 country:en:Croatia
 label_categories:en: en:Environnement
-image:hr:ekoloskog-proizvoda.91x90.png
+image:hr:ekološkog-proizvoda.91x90.png
 country:en:Croatia
 
 <en:EU Organic

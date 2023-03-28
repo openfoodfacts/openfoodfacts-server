@@ -76,6 +76,7 @@ BEGIN {
 		&list_taxonomy_tags_in_language
 
 		&canonicalize_taxonomy_tag
+		&canonicalize_taxonomy_tag_or_die
 		&canonicalize_taxonomy_tag_linkeddata
 		&canonicalize_taxonomy_tag_weblink
 		&canonicalize_taxonomy_tag_link
@@ -1063,6 +1064,9 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 						and ($synonyms{$tagtype}{$lc}{$tagid} ne $lc_tagid)
 						# for additives, E101 contains synonyms that corresponds to E101(i) etc.   Make E101(i) override E101.
 						and (not($tagtype =~ /^additives(|_prev|_next|_debug)$/))
+						# we have some exception when we merge packaging shapes and materials
+						# in packaging
+						and (not($tagtype =~ /^packaging(|_prev|_next|_debug)$/))
 						)
 					{
 						# issue an error
@@ -1095,8 +1099,13 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			print STDERR "Errors in the $tagtype taxonomy definition:\n";
 			print STDERR $errors;
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
+			# Disable die for the packaging taxonomy as some legit material and shape might have same name
 			# Temporarily (hopefully) disable die for the categories taxonomy, to give time to fix issues
-			unless (($tagtype eq "ingredients") or ($tagtype eq "categories")) {
+			unless (($tagtype eq "ingredients")
+				or ($tagtype eq "packaging")
+				or ($tagtype eq "categories")
+				or ($tagtype eq "packaging"))
+			{
 				die("Errors in the $tagtype taxonomy definition");
 			}
 		}
@@ -1727,9 +1736,10 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			print STDERR "Errors in the $tagtype taxonomy definition:\n";
 			print STDERR $errors;
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
+			# Disable also for packaging taxonomy for some shapes and materials shares same names
 			# Also temporarily disable die for the categories taxonomy, to give use time to fix it.
 			# Tracking bug: https://github.com/openfoodfacts/openfoodfacts-server/issues/6382
-			unless (($tagtype eq "ingredients") or ($tagtype eq "categories")) {
+			unless (($tagtype eq "ingredients") or ($tagtype eq "packaging") or ($tagtype eq "categories")) {
 				die("Errors in the $tagtype taxonomy definition");
 			}
 		}
@@ -1788,7 +1798,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 =head2 build_all_taxonomies ( $pubish)
 
-Build all taxonomies
+Build all taxonomies, including the test taxonomy
 
 =head3 Parameters
 
@@ -1797,7 +1807,7 @@ Build all taxonomies
 =cut
 
 sub build_all_taxonomies ($publish) {
-	foreach my $taxonomy (@taxonomy_fields) {
+	foreach my $taxonomy (@taxonomy_fields, "test") {
 		# traces and data_quality_xxx are not real taxonomy per se
 		# (but built from allergens and data_quality)
 		if ($taxonomy ne "traces" and rindex($taxonomy, 'data_quality_', 0) != 0) {
@@ -2991,11 +3001,84 @@ sub get_taxonomyurl ($tag_lc, $tagid) {
 	}
 }
 
-# Return the canonical id of a tag string in a specific language
+=head2 canonicalize_taxonomy_tag_or_die ($tag_lc, $tagtype, $tag)
 
-sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag) {
+Canonicalize a string to check if matches an entry in a taxonomy, and die otherwise.
+
+This function is used during initialization, to check that some initialization data has matching entries in taxonomies.
+
+=head3 Arguments
+
+=head4 $tag_lc
+
+The language of the string.
+
+=head4 $tagtype
+
+The type of the tag (e.g. categories, labels, allergens)
+
+=head4 $tag
+
+The string that we want to match to a tag.
+
+=head4 $exists_in_taxonomy_ref
+
+A reference to a variable that will be assigned 1 if we found a matching taxonomy entry, or 0 otherwise.
+
+=head3 Return value
+
+If the string could be matched to an existing taxonomy entry, the canonical id for the entry is returned.
+
+Otherwise, the function dies.
+
+=cut
+
+sub canonicalize_taxonomy_tag_or_die ($tag_lc, $tagtype, $tag) {
+
+	my $exists_in_taxonomy;
+	my $tagid = canonicalize_taxonomy_tag($tag_lc, $tagtype, $tag, \$exists_in_taxonomy);
+	if (not $exists_in_taxonomy) {
+		die("$tag ($tag_lc) could not be matched to an entry in the $tagtype taxonomy");
+	}
+	return $tagid;
+}
+
+=head2 canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref = undef)
+
+Canonicalize a string to check if matches an entry in a taxonomy
+
+=head3 Arguments
+
+=head4 $tag_lc
+
+The language of the string.
+
+=head4 $tagtype
+
+The type of the tag (e.g. categories, labels, allergens)
+
+=head4 $tag
+
+The string that we want to match to a tag.
+
+=head4 $exists_in_taxonomy_ref
+
+A reference to a variable that will be assigned 1 if we found a matching taxonomy entry, or 0 otherwise.
+
+=head3 Return value
+
+If the string could be matched to an existing taxonomy entry, the canonical id for the entry is returned.
+
+Otherwise, we return the string prepended with the language code (e.g. en:An unknown entry)
+
+=cut
+
+sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref = undef) {
 
 	if (not defined $tag) {
+		if (defined $exists_in_taxonomy_ref) {
+			$$exists_in_taxonomy_ref = 0;
+		}
 		return "";
 	}
 
@@ -3029,7 +3112,7 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag) {
 		$tagid =~ s/^e(\d.*?)-(.*)$/e$1/i;
 	}
 
-	if (($tagtype eq "ingredients") or ($tagtype =~ /^additives/)) {
+	if (($tagtype eq "ingredients") or ($tagtype eq "packaging") or ($tagtype =~ /^additives/)) {
 		# convert E-number + name to E-number only if the number match the name
 		my $additive_tagid;
 		my $name;
@@ -3042,7 +3125,7 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag) {
 			$additive_tagid = $2;
 		}
 		if (defined $name) {
-			my $name_id = canonicalize_taxonomy_tag($tag_lc, "additives", $name);
+			my $name_id = canonicalize_taxonomy_tag($tag_lc, "additives", $name, $exists_in_taxonomy_ref);
 			# caramelo e150c -> name_id is e150
 			if (("en:" . $additive_tagid) =~ /^$name_id/) {
 				return "en:" . $additive_tagid;
@@ -3142,8 +3225,14 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag) {
 
 	$tagid = $tag_lc . ':' . $tagid;
 
-	if ((defined $translations_from{$tagtype}) and (defined $translations_from{$tagtype}{$tagid})) {
+	my $exists_in_taxonomy = 0;
+
+	if (    (defined $translations_from{$tagtype})
+		and (defined $translations_from{$tagtype}{$tagid})
+		and not((exists $just_synonyms{$tagtype}) and (exists $just_synonyms{$tagtype}{$tagid})))
+	{
 		$tagid = $translations_from{$tagtype}{$tagid};
+		$exists_in_taxonomy = 1;
 	}
 	elsif (defined $tag) {
 		# no translation available, tag is not in known taxonomy
@@ -3154,8 +3243,11 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag) {
 		$tagid = "";
 	}
 
-	return $tagid;
+	if (defined $exists_in_taxonomy_ref) {
+		$$exists_in_taxonomy_ref = $exists_in_taxonomy;
+	}
 
+	return $tagid;
 }
 
 sub canonicalize_taxonomy_tag_linkeddata ($tagtype, $tag) {

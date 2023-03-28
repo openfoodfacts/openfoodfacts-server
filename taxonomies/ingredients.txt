@@ -6277,6 +6277,7 @@ cs:čedar
 cv:Чеддер
 cy:Caws Cheddar
 da:Cheddarost
+de:cheddar
 el:Τσένταρ
 eo:Ĉedder
 es:cheddar, queso Cheddar
@@ -6885,6 +6886,7 @@ be:Гаргандзола
 bg:Горгондзола
 bo:གོར་གོན་ཟོ་ལ།
 cv:Горгонзола
+de:Gorgonzola, Gorgonzola PDO
 el:Γκοργκοντζόλα
 et:Gorgonzola juust
 fa:گورگونتزولا
@@ -7291,7 +7293,7 @@ ca:mascarpone
 cs:mascarpone
 cv:Маскарпоне
 da:mascarpone
-de:Mascarpone
+de:Mascarpone, Mascarpone Frischkäse
 el:μασκαρπόνε
 eo:Maskarpono
 es:mascarpone
@@ -7684,7 +7686,7 @@ cs:Parmezán
 cv:Пармиджано Реджано
 cy:Caws Parmesan
 da:Parmesan, Parmigiano-Reggiano
-de:Parmesan, parmigiano reggiano
+de:Parmesan, parmigiano reggiano, Parmigiano Reggiano Käse
 el:Παρμεζάνα
 eo:Parma fromaĝo
 es:queso parmesano
@@ -13032,6 +13034,12 @@ pl:kolagen wołowy
 # enveloppe:boyau de boeuf
 
 <en:collagen
+<en:beef
+en:beef collagen
+de:Rinderkollagen
+fr:collagène de bœuf, collagène de boeuf
+
+<en:collagen
 <en:pork
 en:pork collagen, pork casing, pork gut
 bg:свински колаген
@@ -13177,6 +13185,19 @@ wikipedia:en:https://en.wikipedia.org/wiki/Pepperoni
 <en:meat
 en:prepared meat, processed meat, cured meat
 fr:charcuterie
+
+<en:prepared meat
+en:mortadella
+de:Mortadella
+es:mortadela
+fi:mortadella
+fr:mortadelle
+hu:mortadella
+it:mortadella
+nl:mortadella
+pl:mortadela
+pt:mortadela
+wikidata:en:Q169757
 
 <en:meat
 en:smoked sausage
@@ -14754,7 +14775,7 @@ sk:palma
 sv:Palm
 
 <en:palm oil
-en:palm olein, palmolein
+en:palm olein, palmolein, palmolein oil
 bg:палмов олеин
 de:Palmolein
 es:oleína de palma
@@ -14767,6 +14788,9 @@ th:น้ำมันปาล์มโอเลอิน
 wikidata:en:Q57312740
 description:en:The olein (liquid) fraction of palm oil.
 # 328 in 9 @2021-09-09
+
+<en:palm olein
+en:refined palmolein oil
 
 <en:palm oil
 <en:palm olein
@@ -15326,7 +15350,7 @@ bg:екстра върджин зехтин, зехтин екстра върд�
 ca:Oli d'oliva verge extra, oli OVE
 cs:Extra panenský olivový olej
 da:ekstra jomfruolivenolie, ekstra jomfru olivenolie
-de:natives Olivenöl Extra, Olivenöl nativ extra, extra natives Olivenöl, Olivenöl extra vergine
+de:natives Olivenöl Extra, Olivenöl nativ extra, extra natives Olivenöl, Olivenöl extra vergine, Extra Virgin Olivenöl
 el:εξαιρετικό Παρθένο ελαιόλαδο
 es:aceite de oliva virgen extra,aceite extra virgen de oliva
 fi:ekstra-neitsytoliiviöljy, ekstraneitsytoliiviöljy
@@ -18289,6 +18313,9 @@ fr:vin blanc réduit
 # fr:vin-blanc-réduit has 33 products in 1 language @2018-10-29
 
 <en:white wine
+fr:vin blanc modifié
+
+<en:white wine
 en:white wine extract
 bg:екстракт от бяло вино
 de:Weißweinextrakt, Weissweinextrakt
@@ -18893,6 +18920,9 @@ wikidata:en:Q146470
 wikipedia:en:https://en.wikipedia.org/wiki/Brandy
 # <category:en:brandys
 # ingredient/fr:brandy has 152 products in 4 languages @2020-06-08
+
+<en:brandy
+fr:brandy modifié
 
 <en:alcohol
 en:eau de vie
@@ -20865,6 +20895,16 @@ fr:arôme champignon
 ru:ароматизатор грибов
 sv:champinjonarom
 # ingredient/fr:arome-champignon has 9 products in 1 language @2020-06-12
+
+<en:natural flavouring
+fr:arôme naturel de clou de girofle
+
+<en:natural flavouring
+en:natural flavouring of aromatic plants
+fr:arôme naturel de plantes aromatiques
+
+<en:natural flavouring of aromatic plants
+fr:arôme naturel de plantes aromatiques avec autres arômes naturels
 
 # description:en:Smoke is a collection of airborne solid and liquid particulates and gases emitted when a material undergoes combustion or pyrolysis, together with the quantity of air that is entrained or otherwise mixed into the mass. Smoke is sometimes used as a flavoring agent, and preservative for various foodstuffs. Smoking is the process of flavoring, browning, cooking, or preserving food by exposing it to smoke from burning or smoldering material, most often wood. Meat, fish, and lapsang souchong tea are often smoked.
 # comment:en:It is assumed that the translations of smoke are the same as cooking smoke.
@@ -25707,7 +25747,7 @@ fr:grains de maïs à éclater
 
 <en:corn kernel
 <en:sweetcorn
-fr:maïs doux en grains
+fr:maïs doux en grains, grains de mais doux
 nl:zoete maïskorrels
 pt:milho doce em grão
 # ingredient/fr:maïs-doux-en-grains 66 products in 1 language @2018-09-24
@@ -29363,6 +29403,9 @@ hu:borsófehérje izolátum
 ro:izolat proteic de mazăre
 
 <en:pea protein
+en:textured pea protein, textured pea proteins
+de:texturiertes Erbseneiweiß
+fr:protéines de pois texturées, protéine de pois texturée
 hr:teksturiranog proteina graška
 ro:texturat proteic de mazăre
 
@@ -29485,6 +29528,7 @@ fr:protéines de soja déshydratées
 hu:dehidratált szójafehérje
 
 <en:soy protein
+en:textured soy protein
 cs:texturovaná sojová bílkovina
 fr:protéines de soja texturées
 
@@ -36073,6 +36117,10 @@ nl:biologische appel, Biologische appels
 # ingredient/fr:pommes-bio has 18 products in 4 languages @2019-05-23
 
 <en:apple
+en:cider apples
+fr:pommes à cidre
+
+<en:cider apples
 fr:fruits à cidre de Normandie
 
 <en:apple
@@ -50595,7 +50643,7 @@ bg:халапеньо
 ca:bitxo jalapeño
 cs:jalapeño
 da:jalapeno, jalapeño
-de:Jalapeno-Chilis
+de:Jalapeno-Chilis, Jalapenopfeffer
 eo:ĥalapenjokapsiko
 es:Pimientos Jalapeños,jalapeno,pimiento jalapeño rojo
 et:jalapeño, jalapeno
@@ -60155,6 +60203,73 @@ wikidata:en:Q68220931
 
 ###################################################################################################
 #
+#                                Achillea millefolium 
+#
+###################################################################################################
+
+<en:herb
+en:Achillea millefolium
+ar:قيصوم ألفي الأوراق
+az:Adi boymadərən
+ba:Меңъяпраҡ
+be:Крываўнік лекавы
+bg:Бял равнец
+bs:Hajdučka trava
+ca:Milfulles
+cs:Řebříček obecný
+cy:Milddail
+da:Almindelig røllike
+de:Gemeine Schafgarbe
+el:Αγριαψιθιά
+eo:Milfolia akileo
+es:Achillea millefolium
+et:Harilik raudrohi
+eu:Milorri
+fa:بومادران معمولی
+fi:Siankärsämö
+fr:Achillée millefeuille
+gl:Milfollas
+gv:Ayr lossey
+he:אכילאה אלף העלה
+hr:Obični stolisnik
+hu:Közönséges cickafark
+hy:Հազարատերևուկ սովորական
+id:Daun seribu
+io:Akileo
+is:Vallhumall
+it:Achillea millefolium
+ja:セイヨウノコギリソウ
+kk:Кәдімгі мыңжапырақ
+ko:서양톱풀
+ku:Gêjînk
+la:Achillea millefolium
+lt:Paprastoji kraujažolė
+lv:Pelašķis
+mk:Ајдучка трева
+nl:Duizendblad (soort)
+nn:Ryllik
+oc:Milafuèlhas
+pl:Krwawnik pospolity
+pt:Milefólio
+ro:Coada șoricelului
+ru:Тысячелистник обыкновенный
+sh:Hajdučka trava
+sk:Rebríček obyčajný
+sl:Navadni rman
+sr:Хајдучка трава
+sv:Röllika
+tl:Achillea millefolium
+tr:Civanperçemi
+uk:Деревій звичайний
+ur:اَلفیہ
+uz:Boʻyimodaron
+vi:Vạn diệp
+zh:歐蓍草
+wikidata:en:Q25408
+
+
+###################################################################################################
+#
 #                                Basil
 #
 ###################################################################################################
@@ -60656,7 +60771,7 @@ et:saialill
 eu:Ilen kultibatu
 fa:گل همیشه‌بهار
 fi:kehäkukka, tarhakehäkukka
-fr:souci, soucis, fleurs de calendula
+fr:souci, soucis, fleurs de calendula, calendula
 ga:Ór Muire
 gl:Maravalla
 hr:Neven
@@ -60703,6 +60818,7 @@ zh:金盞花
 # zh-sg:金盞花
 # zh-tw:金盞花
 wikidata:en:Q145930
+# wikidata:en:Q147281
 wikipedia:en:https://en.wikipedia.org/wiki/Calendula_officinalis
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:soucis
 # 2 products in 3 languages @2018-10-10
@@ -62803,7 +62919,7 @@ wikidata:en:Q26879770
 <en:green olive
 bg:обезкостени зелени маслини
 fr:olives vertes dénoyautées
-de:Grüne Oliven eintsteint
+de:grüne entsteinte Oliven, Grüne Oliven eintsteint 
 nl:ontpitte groene olijven
 # ingredient/fr:olives-vertes-dénoyautées has 129 products in 4 languages @2018-12-01
 
@@ -77784,7 +77900,7 @@ en:free range chicken egg yolk
 de:Hühnereigelb aus Freilandhaltung
 es:yema de huevo de gallinas camperas
 fi:ulkokanan munankeltuainen
-fr:jaune d'œuf de poules élevées en plein air, jaunes d'œufs de poules élevées en plein air, jaune d'oeuf de poules élevées en plein air, jaunes d'oeufs de poules élevées en plein air, jaune d'oeuf issu d'oeufs de poules élevées en plein air
+fr:jaune d'œuf de poules élevées en plein air, jaunes d'œufs de poules élevées en plein air, jaune d'oeuf de poules élevées en plein air, jaunes d'oeufs de poules élevées en plein air, jaune d'oeuf issu d'oeufs de poules élevées en plein air, jaune d'oeuf issu de poules élevées en plein air
 nl:Eigeel van vrije uitloop eieren, scharreleigeelpoeder
 pt:gema de ovo de galinhas criadas ao ar livre
 # ingredient/fr:jaune-d’oeuf-de-poules-élevées-en-plein-air has 61 products in 2 languages @2018-12-18
@@ -80440,8 +80556,8 @@ ca:cobertura de xocolata, cobertura de cacau
 es:cobertura de chocolate
 
 <en:coating
-en:milk chocolate coating
-fr:enrobage chocolat au lait
+en:milk chocolate coating, couverture milk chocolate
+fr:enrobage chocolat au lait, chocolat au lait de couverture
 hr:miliječno čokoladni preljev
 sv:mjölkchokladsöverdrag
 # ingredient/en:milk-chocolate-coating has 99 products in 3 languages @2020-12-19

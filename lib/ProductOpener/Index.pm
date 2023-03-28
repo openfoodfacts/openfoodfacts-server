@@ -32,7 +32,6 @@ BEGIN {
 
 		&normalize
 
-		$memd
 		$lang_dir
 		%texts
 
@@ -47,7 +46,6 @@ use ProductOpener::Config qw/:all/;
 
 use CGI qw/:standard escape unescape/;
 use Time::Local;
-use Cache::Memcached::Fast;
 use Digest::MD5 qw(md5);
 use URI::Escape;
 use URI::Escape::XS;
@@ -64,15 +62,6 @@ use HTML::Entities qw(decode_entities);
 #use locale;
 #setlocale(LC_CTYPE, "fr_FR");   # May need to be changed depending on system
 # -> setting a locale makes unac_string fail to unaccent... :-(
-
-# Initialize exported variables
-
-$memd = Cache::Memcached::Fast->new(
-	{
-		'servers' => ["127.0.0.1:11211"],
-		'utf8' => 1,
-	}
-);
 
 # Load the texts from the /lang directory
 

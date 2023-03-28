@@ -706,6 +706,27 @@ sub migrate_old_number_and_quantity_fields_202211 ($product_ref) {
 	return;
 }
 
+=head2 canonicalize_packaging_components_properties ($product_ref) {
+
+Re-canonicalize the shape, material and recycling properties of packaging components.
+This is useful in particular if the corresponding taxonomies have changed.
+
+=cut
+
+sub canonicalize_packaging_components_properties ($product_ref) {
+
+	foreach my $packaging_ref (@{$product_ref->{packagings}}) {
+		foreach my $property ("shape", "material", "recycling") {
+			if (defined $packaging_ref->{$property}) {
+				my $tagtype = $packaging_taxonomies{$property};
+				$packaging_ref->{$property}
+					= canonicalize_taxonomy_tag($product_ref->{lc}, $tagtype, $packaging_ref->{$property});
+			}
+		}
+	}
+	return;
+}
+
 =head2 set_packaging_misc_tags($product_ref)
 
 Set some tags in the /misc/ facet so that we can track the products that have 
@@ -866,6 +887,9 @@ sub analyze_and_combine_packaging_data ($product_ref, $response_ref) {
 
 	# TODO: remove once all products have been migrated
 	migrate_old_number_and_quantity_fields_202211($product_ref);
+
+	# Re-canonicalize the packaging components properties, in case the corresponding taxonomies have changed
+	canonicalize_packaging_components_properties($product_ref);
 
 	# The packaging text field (populated by OCR of the packaging image and/or contributors or producers)
 	# is used as input only if the packagings structure is empty
