@@ -24,5 +24,13 @@ analyze_request(\%request);
 is($request{'api'}, "v0");
 is($request{'page'}, "1");
 is($request{'api_version'}, "0");
+# for checking invalid facets or urls having missing facets
+my %testcase = (
+	'original_query_string' => 'category/breads/no-nutrition-data',
+	'referer' => 'http://world.openfoodfacts.localhost/'
+);
+
+analyze_request(\%testcase);
+is($request_ref{'status_code'},"404");
 
 done_testing();
