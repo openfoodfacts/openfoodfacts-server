@@ -55,6 +55,12 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 
+		$empty_regexp
+		$unknown_regexp
+		$not_applicable_regexp
+		$none_regexp
+		$empty_unknown_not_applicable_or_none_regexp
+
 		%fields
 		@fields
 		%products
@@ -121,6 +127,14 @@ use XML::Rules;
 @xml_errors = ();
 
 my $mode = "append";
+
+# Regular expressions that can be combined to match specific inputs
+$empty_regexp = ':|_|-|\/|\\|\.';
+$unknown_regexp = 'unknown|inconnu|inconnue|non renseigné(?:e)?(?:s)?|nr|n\/r';
+$not_applicable_regexp = 'n(?:\/|\\|\.|-)?a(?:\.)?|(?:not|non)(?: |-)applicable|no aplica';
+$none_regexp = 'none|aucun|aucune|aucun\(e\)';
+
+$empty_unknown_not_applicable_or_none_regexp = join('|', ($empty_regexp, $unknown_regexp, $not_applicable_regexp, $none_regexp));
 
 =head1 FUNCTIONS
 
@@ -1125,11 +1139,11 @@ sub clean_fields ($product_ref) {
 		# remove N, N/A, NA etc.
 		# but not "no", "none" that are useful values (e.g. for specific labels "organic:no", allergens : "none")
 		$product_ref->{$field}
-			=~ s/(^|,)\s*((n(\/|\.)?a(\.)?)|(not applicable)|unknown|inconnu|inconnue|non renseigné|non applicable|no aplica|nr|n\/r)\s*(,|$)//ig;
+			=~ s/(^|,)\s*($unknown_regexp|$not_applicable_regexp)\s*(,|$)//ig;
 
 		# remove none except for allergens and traces
 		if ($field !~ /allergens|traces/) {
-			$product_ref->{$field} =~ s/(^|,)\s*(none|aucun|aucune|aucun\(e\))\s*(,|$)//ig;
+			$product_ref->{$field} =~ s/(^|,)\s*($none_regexp)\s*(,|$)//ig;
 		}
 
 		if (   ($field =~ /_fr/)

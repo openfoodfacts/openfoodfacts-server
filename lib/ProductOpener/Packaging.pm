@@ -64,6 +64,7 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::API qw/:all/;
 use ProductOpener::Numbers qw/:all/;
 use ProductOpener::Units qw/:all/;
+use ProductOpener::ImportConvert qw/:all/;
 
 =head1 FUNCTIONS
 
@@ -388,7 +389,8 @@ sub get_checked_and_taxonomized_packaging_component_data ($tags_lc, $input_packa
 			}
 		);
 	}
-	elsif ($input_packaging_ref->{number_of_units} =~ /^\d+$/) {
+	# Require a positive and non zero number of units
+	elsif (($input_packaging_ref->{number_of_units} =~ /^\d+$/) and ($input_packaging_ref->{number_of_units} > 0)) {
 		$packaging_ref->{number_of_units} = $input_packaging_ref->{number_of_units} + 0;
 		$has_data = 1;
 	}
@@ -403,8 +405,10 @@ sub get_checked_and_taxonomized_packaging_component_data ($tags_lc, $input_packa
 		);
 	}
 
+	# For the following fields, we will ignore values that are 0, empty, unknown or not applicable
+
 	# Quantity per unit
-	if ((defined $input_packaging_ref->{quantity_per_unit}) and ($input_packaging_ref->{quantity_per_unit} ne '')) {
+	if ((defined $input_packaging_ref->{quantity_per_unit}) and ($input_packaging_ref->{quantity_per_unit} !~ /^\s*(0|$empty_unknown_not_applicable_or_none_regexp)\s*/i)) {
 		$packaging_ref->{quantity_per_unit} = $input_packaging_ref->{quantity_per_unit};
 		$has_data = 1;
 
@@ -418,7 +422,7 @@ sub get_checked_and_taxonomized_packaging_component_data ($tags_lc, $input_packa
 
 	# Weights
 	foreach my $weight ("weight_measured", "weight_specified") {
-		if ((defined $input_packaging_ref->{$weight}) and ($input_packaging_ref->{$weight} ne '')) {
+		if ((defined $input_packaging_ref->{$weight}) and ($input_packaging_ref->{$weight} !~ /^\s*(0|$empty_unknown_not_applicable_or_none_regexp)\s*/i)) {
 			if ($input_packaging_ref->{$weight} =~ /^\d+((\.|,)\d+)?$/) {
 				$packaging_ref->{$weight} = convert_string_to_number($input_packaging_ref->{$weight});
 				$has_data = 1;
@@ -458,7 +462,7 @@ sub get_checked_and_taxonomized_packaging_component_data ($tags_lc, $input_packa
 
 		my $tagtype = $packaging_taxonomies{$property};
 
-		if ((defined $input_packaging_ref->{$property}) and ($input_packaging_ref->{$property} ne "") and (get_fileid($input_packaging_ref->{$property}) !~ /^-*$/)) {
+		if ((defined $input_packaging_ref->{$property}) and ($input_packaging_ref->{$property} !~ /^\s*(0|$empty_unknown_not_applicable_or_none_regexp)\s*/i) and (get_fileid($input_packaging_ref->{$property}) !~ /^-*$/)) {
 			my $tagid = canonicalize_taxonomy_tag($tags_lc, $tagtype, $input_packaging_ref->{$property});
 			$log->debug(
 				"canonicalize input value",

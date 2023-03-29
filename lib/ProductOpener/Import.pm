@@ -531,7 +531,7 @@ sub set_field_value (
 			next if $tag =~ /^(\s|,|-|\%|;|_|°)*$/;
 			next
 				if $tag
-				=~ /^\s*((n(\/|\.)?a(\.)?)|(not applicable)|unknown|inconnu|inconnue|non renseigné|non applicable|nr|n\/r)\s*$/i;
+				=~ /^\s*($empty_unknow_not_applicable_or_none_regexp)\s*$/i;
 
 			$tag =~ s/^\s+//;
 			$tag =~ s/\s+$//;
