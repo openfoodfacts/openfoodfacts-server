@@ -458,7 +458,7 @@ sub get_checked_and_taxonomized_packaging_component_data ($tags_lc, $input_packa
 
 		my $tagtype = $packaging_taxonomies{$property};
 
-		if ((defined $input_packaging_ref->{$property}) and ($input_packaging_ref->{$property} ne "")) {
+		if ((defined $input_packaging_ref->{$property}) and ($input_packaging_ref->{$property} ne "") and (get_fileid($input_packaging_ref->{$property}) !~ /^-*$/)) {
 			my $tagid = canonicalize_taxonomy_tag($tags_lc, $tagtype, $input_packaging_ref->{$property});
 			$log->debug(
 				"canonicalize input value",
