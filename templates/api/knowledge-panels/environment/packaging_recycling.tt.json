@@ -3,7 +3,7 @@
 [% SET unknown = "en:unknown" %]
 [% IF product.packagings %]
     [% FOREACH packaging IN product.packagings %]
-        [% IF packaging.recycling.defined %]
+        [% IF packaging.recycling.defined AND ((packaging.recycling == "en:discard") OR (packaging.recycling == "en:recycle")) %]
             [% SET recycling_types.${packaging.recycling} = 1 %]
         [% ELSE %]
             [% SET recycling_types.$unknown = 1 %]
