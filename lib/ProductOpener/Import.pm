@@ -89,7 +89,7 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Data qw/:all/;
-use ProductOpener::ImportConvert qw/clean_fields clean_weights assign_quantity_from_field/;
+use ProductOpener::ImportConvert qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Orgs qw/:all/;
 use ProductOpener::Data qw/:all/;
@@ -98,6 +98,7 @@ use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::PackagerCodes qw/:all/;
 use ProductOpener::API qw/:all/;
+
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -531,7 +532,7 @@ sub set_field_value (
 			next if $tag =~ /^(\s|,|-|\%|;|_|°)*$/;
 			next
 				if $tag
-				=~ /^\s*($empty_unknow_not_applicable_or_none_regexp)\s*$/i;
+				=~ /^\s*($empty_unknown_not_applicable_or_none_regexp)\s*$/i;
 
 			$tag =~ s/^\s+//;
 			$tag =~ s/\s+$//;
