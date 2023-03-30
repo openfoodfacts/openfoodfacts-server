@@ -867,6 +867,7 @@ sub add_language_field_column_names ($l, $field) {
 }
 
 # Create column names for packaging data in a specific language
+# It populates %fields_columns_names_for_lang
 
 sub init_packaging_columns_names_for_lang ($l) {
 
@@ -894,6 +895,7 @@ sub init_packaging_columns_names_for_lang ($l) {
 }
 
 # Create column names for all nutrients in a specific language
+# It populates %fields_columns_names_for_lang
 
 sub init_nutrients_columns_names_for_lang ($l) {
 
