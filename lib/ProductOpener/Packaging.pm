@@ -408,8 +408,9 @@ sub get_checked_and_taxonomized_packaging_component_data ($tags_lc, $input_packa
 	# For the following fields, we will ignore values that are 0, empty, unknown or not applicable
 
 	# Quantity per unit
-	if ((defined $input_packaging_ref->{quantity_per_unit})
-		and ($input_packaging_ref->{quantity_per_unit} !~ /^\s*(0|$empty_unknown_not_applicable_or_none_regexp)\s*$/i)) {
+	if (    (defined $input_packaging_ref->{quantity_per_unit})
+		and ($input_packaging_ref->{quantity_per_unit} !~ /^\s*(0|$empty_unknown_not_applicable_or_none_regexp)\s*$/i))
+	{
 		$packaging_ref->{quantity_per_unit} = $input_packaging_ref->{quantity_per_unit};
 		$has_data = 1;
 
@@ -423,8 +424,9 @@ sub get_checked_and_taxonomized_packaging_component_data ($tags_lc, $input_packa
 
 	# Weights
 	foreach my $weight ("weight_measured", "weight_specified") {
-		if ((defined $input_packaging_ref->{$weight})
-			and ($input_packaging_ref->{$weight} !~ /^\s*(0|$empty_unknown_not_applicable_or_none_regexp)\s*$/i)) {
+		if (    (defined $input_packaging_ref->{$weight})
+			and ($input_packaging_ref->{$weight} !~ /^\s*(0|$empty_unknown_not_applicable_or_none_regexp)\s*$/i))
+		{
 			if ($input_packaging_ref->{$weight} =~ /^\d+((\.|,)\d+)?$/) {
 				$packaging_ref->{$weight} = convert_string_to_number($input_packaging_ref->{$weight});
 				$has_data = 1;
@@ -464,9 +466,10 @@ sub get_checked_and_taxonomized_packaging_component_data ($tags_lc, $input_packa
 
 		my $tagtype = $packaging_taxonomies{$property};
 
-		if ((defined $input_packaging_ref->{$property})
+		if (    (defined $input_packaging_ref->{$property})
 			and ($input_packaging_ref->{$property} !~ /^\s*(0|$empty_unknown_not_applicable_or_none_regexp)\s*$/i)
-			and (get_fileid($input_packaging_ref->{$property}) !~ /^-*$/)) {
+			and (get_fileid($input_packaging_ref->{$property}) !~ /^-*$/))
+		{
 			my $tagid = canonicalize_taxonomy_tag($tags_lc, $tagtype, $input_packaging_ref->{$property});
 			$log->debug(
 				"canonicalize input value",
@@ -735,7 +738,6 @@ sub canonicalize_packaging_components_properties ($product_ref) {
 	return;
 }
 
-
 =head2 set_packaging_facets_tags ($product_ref)
 
 Set packaging_(shapes|materials|recycling)_tags fields, with values from the packaging components of the product.
@@ -941,7 +943,7 @@ sub analyze_and_combine_packaging_data ($product_ref, $response_ref) {
 	set_packaging_misc_tags($product_ref);
 
 	# Set packaging facets tags for shape, material and recycling
-	set_packaging_facets_tags ($product_ref);
+	set_packaging_facets_tags($product_ref);
 
 	$log->debug("analyze_and_combine_packaging_data - done",
 		{packagings => $product_ref->{packagings}, response => $response_ref})

@@ -134,7 +134,8 @@ $unknown_regexp = 'unknown|inconnu|inconnue|non renseigné(?:e)?(?:s)?|nr|n\/r';
 $not_applicable_regexp = 'n(?:\/|\\|\.|-)?a(?:\.)?|(?:not|non)(?: |-)applicable|no aplica';
 $none_regexp = 'none|aucun|aucune|aucun\(e\)';
 
-$empty_unknown_not_applicable_or_none_regexp = join('|', ($empty_regexp, $unknown_regexp, $not_applicable_regexp, $none_regexp));
+$empty_unknown_not_applicable_or_none_regexp
+	= join('|', ($empty_regexp, $unknown_regexp, $not_applicable_regexp, $none_regexp));
 
 =head1 FUNCTIONS
 
@@ -1138,8 +1139,7 @@ sub clean_fields ($product_ref) {
 
 		# remove N, N/A, NA etc.
 		# but not "no", "none" that are useful values (e.g. for specific labels "organic:no", allergens : "none")
-		$product_ref->{$field}
-			=~ s/(^|,)\s*($unknown_regexp|$not_applicable_regexp)\s*(,|$)//ig;
+		$product_ref->{$field} =~ s/(^|,)\s*($unknown_regexp|$not_applicable_regexp)\s*(,|$)//ig;
 
 		# remove none except for allergens and traces
 		if ($field !~ /allergens|traces/) {

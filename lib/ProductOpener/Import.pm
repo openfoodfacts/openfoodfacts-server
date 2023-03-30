@@ -99,7 +99,6 @@ use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::PackagerCodes qw/:all/;
 use ProductOpener::API qw/:all/;
 
-
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
@@ -530,8 +529,7 @@ sub set_field_value (
 			my $tagid;
 
 			next
-				if $tag
-				=~ /^\s*($empty_regexp|$unknown_regexp|$not_applicable_regexp)\s*$/i;
+				if $tag =~ /^\s*($empty_regexp|$unknown_regexp|$not_applicable_regexp)\s*$/i;
 
 			$tag =~ s/^\s+//;
 			$tag =~ s/\s+$//;

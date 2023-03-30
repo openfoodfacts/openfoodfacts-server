@@ -31,7 +31,8 @@ my $packaging_ref;
 my @tests = (
 	{
 		lc => "en",
-		input => {"number_of_units" => 1, "shape" => "en:bottle", "material" => "en:glass", "weight_measured" => "55,40"},
+		input =>
+			{"number_of_units" => 1, "shape" => "en:bottle", "material" => "en:glass", "weight_measured" => "55,40"},
 		expected_output => {
 			'material' => 'en:glass',
 			'number_of_units' => 1,
@@ -41,21 +42,33 @@ my @tests = (
 	},
 	{
 		desc => "Value 0 should be considered empty, all values are 0, return undef",
-		lc => "en",		
-		input => {"number_of_units" => 0, "shape" => "0", "material" => "0", "weight_measured" => "0", "quantity_per_unit" => "0"},
+		lc => "en",
+		input => {
+			"number_of_units" => 0,
+			"shape" => "0",
+			"material" => "0",
+			"weight_measured" => "0",
+			"quantity_per_unit" => "0"
+		},
 		expected_output => undef,
 	},
 	{
 		desc => "Value 0 should be considered empty, 1 value is not 0",
-		lc => "en",		
-		input => {"number_of_units" => 0, "shape" => "bottle", "material" => "0", "weight_measured" => "0", "quantity_per_unit" => "0"},
+		lc => "en",
+		input => {
+			"number_of_units" => 0,
+			"shape" => "bottle",
+			"material" => "0",
+			"weight_measured" => "0",
+			"quantity_per_unit" => "0"
+		},
 		expected_output => {
 			'shape' => 'en:bottle',
 		}
 	},
 	{
 		desc => "weights, float",
-		lc => "en",		
+		lc => "en",
 		input => {"weight_measured" => 21.5, "weight_specified" => 14.3},
 		expected_output => {
 			'weight_measured' => '21.5',
@@ -64,13 +77,13 @@ my @tests = (
 	},
 	{
 		desc => "weights, strings",
-		lc => "en",		
+		lc => "en",
 		input => {"weight_measured" => "21.5", "weight_specified" => "14.3"},
 		expected_output => {
 			'weight_measured' => '21.5',
 			'weight_specified' => '14.3'
 		}
-	},		
+	},
 );
 
 foreach my $test_ref (@tests) {

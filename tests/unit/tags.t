@@ -718,11 +718,12 @@ is(canonicalize_taxonomy_tag('fr', 'packaging_shapes', 'Ustensiles / couverts / 
 # 2023/03/28 - following test does not yet work
 #is(canonicalize_taxonomy_tag('fr', 'packaging_shapes', 'Ustensiles (fourchette, couteau, cuillère)'), "en:utensils");
 is(canonicalize_taxonomy_tag('fr', 'packaging_shapes', 'Plat (Bol, Saladier, Terrine, …)'), "en:dish");
-is(canonicalize_taxonomy_tag('fr', 'packaging_materials', 'Gaz / CO2 - Dioxide de carbone (gaz carbonique)'), "en:co2-carbon-dioxide");
+is(canonicalize_taxonomy_tag('fr', 'packaging_materials', 'Gaz / CO2 - Dioxide de carbone (gaz carbonique)'),
+	"en:co2-carbon-dioxide");
 
 # test the generation of regexps matching tags
 
-my $regexps_ref = generate_regexps_matching_taxonomy_entries ("test", "list_of_regexps", {});
+my $regexps_ref = generate_regexps_matching_taxonomy_entries("test", "list_of_regexps", {});
 compare_to_expected_results($regexps_ref, "$expected_result_dir/regexps.json", $update_expected_results);
 
 done_testing();

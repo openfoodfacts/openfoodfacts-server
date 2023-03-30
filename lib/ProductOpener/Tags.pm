@@ -3229,7 +3229,7 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref 
 	# "Parent / Children" or "Synonym 1 / Synonym 2", "Synonym 1 (Synonym 2)"
 	if (not $found) {
 		print STDERR "$tag not found\n";
-		if ($tag =~ /\/|\(/) {	# Match / or the ( opening parenthesis
+		if ($tag =~ /\/|\(/) {    # Match / or the ( opening parenthesis
 			my $tag1 = $`;
 			my $tag2 = $';
 			my $exists_tag1;
@@ -4497,15 +4497,16 @@ sub generate_regexps_matching_taxonomy_entries ($taxonomy, $return_type, $option
 
 	if ($return_type eq 'unique_regexp') {
 		foreach my $language (keys %synonyms_regexps) {
-			$result_ref->{$language} = join(
-				'|', map {$_->[1]}
-					sort {(length $b->[1] <=> length $a->[1]) || ($a->[1] cmp $b->[1])} @{$synonyms_regexps{$language}}
-			);
+			$result_ref->{$language} = join('|',
+				map {$_->[1]}
+					sort {(length $b->[1] <=> length $a->[1]) || ($a->[1] cmp $b->[1])}
+					@{$synonyms_regexps{$language}});
 		}
 	}
 	elsif ($return_type eq 'list_of_regexps') {
 		foreach my $language (keys %synonyms_regexps) {
-			@{$result_ref->{$language}} = sort {(length $b->[1] <=> length $a->[1]) || ($a->[1] cmp $b->[1])} @{$synonyms_regexps{$language}};
+			@{$result_ref->{$language}}
+				= sort {(length $b->[1] <=> length $a->[1]) || ($a->[1] cmp $b->[1])} @{$synonyms_regexps{$language}};
 		}
 	}
 	else {
