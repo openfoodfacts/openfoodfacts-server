@@ -1064,6 +1064,9 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 						and ($synonyms{$tagtype}{$lc}{$tagid} ne $lc_tagid)
 						# for additives, E101 contains synonyms that corresponds to E101(i) etc.   Make E101(i) override E101.
 						and (not($tagtype =~ /^additives(|_prev|_next|_debug)$/))
+						# we have some exception when we merge packaging shapes and materials
+						# in packaging
+						and (not($tagtype =~ /^packaging(|_prev|_next|_debug)$/))
 						)
 					{
 						# issue an error
@@ -1096,8 +1099,13 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			print STDERR "Errors in the $tagtype taxonomy definition:\n";
 			print STDERR $errors;
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
+			# Disable die for the packaging taxonomy as some legit material and shape might have same name
 			# Temporarily (hopefully) disable die for the categories taxonomy, to give time to fix issues
-			unless (($tagtype eq "ingredients") or ($tagtype eq "categories")) {
+			unless (($tagtype eq "ingredients")
+				or ($tagtype eq "packaging")
+				or ($tagtype eq "categories")
+				or ($tagtype eq "packaging"))
+			{
 				die("Errors in the $tagtype taxonomy definition");
 			}
 		}
@@ -1728,9 +1736,10 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			print STDERR "Errors in the $tagtype taxonomy definition:\n";
 			print STDERR $errors;
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
+			# Disable also for packaging taxonomy for some shapes and materials shares same names
 			# Also temporarily disable die for the categories taxonomy, to give use time to fix it.
 			# Tracking bug: https://github.com/openfoodfacts/openfoodfacts-server/issues/6382
-			unless (($tagtype eq "ingredients") or ($tagtype eq "categories")) {
+			unless (($tagtype eq "ingredients") or ($tagtype eq "packaging") or ($tagtype eq "categories")) {
 				die("Errors in the $tagtype taxonomy definition");
 			}
 		}
@@ -3105,7 +3114,7 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref 
 		$tagid =~ s/^e(\d.*?)-(.*)$/e$1/i;
 	}
 
-	if (($tagtype eq "ingredients") or ($tagtype =~ /^additives/)) {
+	if (($tagtype eq "ingredients") or ($tagtype eq "packaging") or ($tagtype =~ /^additives/)) {
 		# convert E-number + name to E-number only if the number match the name
 		my $additive_tagid;
 		my $name;
