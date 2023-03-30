@@ -29,6 +29,6 @@ is($request{'api_version'}, "0");
 my %testcase = ('original_query_string' => 'category/breads/no-nutrition-data');
 
 analyze_request(\%testcase);
-is($request_ref{'status_code'}, "404");
+is($testcase{'status_code'}, "404");
 
-done_testing();
+done_testing(4);
