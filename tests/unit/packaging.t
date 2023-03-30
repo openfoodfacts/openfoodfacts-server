@@ -86,7 +86,7 @@ my @tests = (
 
 foreach my $test_ref (@tests) {
 	$test_ref->{output} = get_checked_and_taxonomized_packaging_component_data($test_ref->{lc}, $test_ref->{input}, {});
-	is_deeply($test_ref->{output}, $test_ref->{expected_output}) or diag explain $test_ref;
+	is_deeply($test_ref->{output}, $test_ref->{expected_output}, $test_ref->{desc}) or diag explain $test_ref;
 }
 
 # Tests for analyze_and_combine_packaging_data()
