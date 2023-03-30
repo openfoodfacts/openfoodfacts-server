@@ -55,6 +55,17 @@ make tests
 ```
 
 To run a single test you can use:
+### On Windows:
+
+* for unit test:
+   ```bash
+   make unit_test test="filename.t"
+   ```
+* for integration test:
+   ```bash
+   make int_test test="filename.t"
+   ```
+### On Other Systems:
 
 * for unit test:
    ```bash
@@ -64,7 +75,6 @@ To run a single test you can use:
    ```bash
    make int-test test="filename.t"
    ```
-
 If you made change that impact stored expected results, you can use:
 
 * to re-generate all expected results:
