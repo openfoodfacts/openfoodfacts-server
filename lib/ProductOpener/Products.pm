@@ -1570,7 +1570,7 @@ sub compute_completeness_and_missing_tags ($product_ref, $current_ref, $previous
 		$complete = 0;
 	}
 
-	if (   ((defined $current_ref->{nutriments}) and (scalar keys %{$current_ref->{nutriments}} > 0))
+	if (   (((defined $current_ref->{nutriments}) and (scalar grep { $_ !~ /^(nova|fruits-vegetables)/ } keys %{$current_ref->{nutriments}}) > 0))
 		or ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')))
 	{
 		push @states_tags, "en:nutrition-facts-completed";
