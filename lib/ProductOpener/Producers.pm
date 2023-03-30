@@ -469,6 +469,7 @@ sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_f
 			$product_lines{$code} = 1;
 		}
 		else {
+            # this is a line complementing info about a product
 			$product_lines{$code}++;
 		}
 
