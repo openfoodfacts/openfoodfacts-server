@@ -10,7 +10,7 @@ synonyms:en:pasteurised, pasteurized
 
 # comment:en:These are words that occur inside the name of one ingredient, but that can be removed for matching the ingredient with entries in the taxonomy
 
-stopwords:bg:съдържа, от, с, със, до, и, или, и/или, минимум, произведено с, с добавенo, включително
+stopwords:bg:съдържа, в, от, с, със, до, и, или, и/или, минимум, произведено с, с добавенo, включително, променливо, отношение, съотношение
 stopwords:bs:i, u promjenljivom odnosu
 stopwords:ca:i,de
 stopwords:da:av, af, blandt andet, bl a, inklusive, heraf, indeholder, tilsat
@@ -3649,6 +3649,7 @@ nl:gecondenseerde halfvolle melk
 
 <en:condensed milk
 en:condensed skimmed milk, concentrated skim milk, concentrated skimmed milk
+bg:кондензирано обезмаслено мляко
 ca:llet descremada condensada, llet desnatada condensada, llet condensada descremada, llet condensada desnatada
 de:Kondensmagermilch, kondensierte Magermilch, konzentrierte Magermilch, Magermilchkonzentrat, eingedickte entrahmte Milch
 es:leche descremada condensada, leche desnatada condensada, leche condensada descremada, leche condensada desnatada
@@ -4611,6 +4612,7 @@ es:suero láctico de oveja
 
 <en:whey
 en:condensed whey
+bg:кондензирана суроватка
 de:kondensierte Molke
 fi:kondensoitu hera
 # ingredient/en:condensed-whey has 55 products in 7 languages @2020-05-24
@@ -14775,7 +14777,7 @@ sk:palma
 sv:Palm
 
 <en:palm oil
-en:palm olein, palmolein
+en:palm olein, palmolein, palmolein oil
 bg:палмов олеин
 de:Palmolein
 es:oleína de palma
@@ -14788,6 +14790,9 @@ th:น้ำมันปาล์มโอเลอิน
 wikidata:en:Q57312740
 description:en:The olein (liquid) fraction of palm oil.
 # 328 in 9 @2021-09-09
+
+<en:palm olein
+en:refined palmolein oil
 
 <en:palm oil
 <en:palm olein
@@ -15043,7 +15048,7 @@ nl:olie van biologische pompoenpitten
 # producedFrom:en:coconut
 en:coconut oil, copra oil, copra
 ar:زيت جوز الهند
-bg:Кокосово масло, кокосово
+bg:Кокосово олио, кокосово
 bn:নারিকেল তেল
 ca:Oli de coco, oli vegetal de coco, oli de copra, copra
 cs:Kokosový olej
@@ -15181,6 +15186,7 @@ from_palm_oil:en:no
 
 <en:coconut fat
 en:coconut butter
+bg:кокосово масло
 de:Kokosbutter
 es:manteca de coco,
 it:Burro cocco, Burro cocco puro
@@ -15702,6 +15708,7 @@ from_palm_oil:en:no
 en:corn oil, maize oil
 ar:زيت الذرة
 be:Кукурузны алей
+bg:Царевично олио, царевично
 ca:Oli de blat de moro
 da:Majsolie
 de:Maiskeimöl, Maisöl
@@ -16247,7 +16254,7 @@ en:sunflower oil, sunflower seed oil, sunflower vegetable oil
 ar:زيت زهرة الشمس
 az:Günəbaxan yağı
 be:Сланечнікавы алей
-bg:Слънчогледово олио, слънчогледово масло, масло слънчогледово, растително слънчогледово масло
+bg:Слънчогледово олио, слънчогледово масло, масло слънчогледово, растително слънчогледово масло, слънчоглед
 ca:oli de gira-sol, oli vegetal de gira-sol, oli de girasol, oli vegetal de girasol
 cs:Slunečnicový olej
 da:solsikkeolie
@@ -16369,6 +16376,7 @@ it:girasole alto oleico
 
 <en:sunflower oil
 en:high oleic sunflower oil
+bg:високоолеиново слънчогледово масло
 ca:oli refinat de gira-sol alt oleic, oli de gira-sol alt oleic, oli vegetal de gira-sol alt oleic
 de:High Oleic-Sonnenblumenöl, High-Oleic-Sonnenblumenöl, Sonnenblumenöl mit hohem Fettsäureanteil, Sonnenblumenöl hoch erhitzbar
 es:aceite de girasol alto oleico,aceite refinado de girasol alto oleico
@@ -16383,6 +16391,7 @@ ru:масло подсолнечное высокоолеиновое рафин
 
 <en:sunflower oil
 en:cold pressed sunflower oil
+bg:студено пресовано слънчогледово масло
 de:kaltgepresstes Sonnenblumenöl
 es:aceite de girasol prensado en frio
 fi:kylmäpuristettu auringonkukkaöljy
@@ -17251,6 +17260,7 @@ nl:tafelazijn
 
 <en:vinegar
 en:red wine vinegar
+bg:червен винен оцет
 da:Rødvinseddike, rødvinseddikke
 de:Rotweinessig
 es:Vinagre de vino tinto
@@ -19385,7 +19395,7 @@ sv:smakberedning
 
 <en:flavouring
 en:natural flavouring, natural flavour, natural flavor, natural flavoring, natural flavourings, natural flavorings, natural flavours, natural flavors, natural aroma, natural aromas
-bg:натурален аромат, натурални ароматизанти, натурален ароматизант, естествен ароматизант, натурални аромати
+bg:натурален аромат, натурални ароматизанти, натурален ароматизант, естествен ароматизант, натурални аромати, натурален ароматизатор
 ca:Aroma natural, aromes naturals
 cs:přírodní aroma, přírod aroma
 da:naturlig aroma, naturlige smagsstoffer, naturlige aromaer
@@ -20116,7 +20126,7 @@ sv:vaniljarom
 <en:natural flavouring
 <en:vanilla flavouring
 en:natural vanilla flavouring
-bg:натурален ароматизант ванилия
+bg:натурален ароматизант ванилия, естествен ванилов аромат
 ca:Aroma natural de vainilla, aromes naturals de vainilla
 da:naturlig vanillearoma, naturlig vaniljearoma
 de:natürliches Vanillearoma, natürliches Vanille-Aroma
@@ -20442,6 +20452,7 @@ sv:naturlig anisarom
 
 <en:flavouring
 en:raspberry flavouring
+bg:аромат малина
 de:Himbeeraroma, Himbeer-Aroma
 es:sabor a frambuesa
 fi:vadelma-aromi, vadelman aromi
@@ -28664,7 +28675,7 @@ zh:高果糖浆
 <en:invert sugar
 <en:sugar syrup
 en:invert sugar syrup, invert syrup, liquid invert syrup, inverted syrup
-bg:сироп от инвертна захар, инвертен захарен сироп, инвертиран захарен сироп, инвертен сироп
+bg:сироп от инвертна захар, инвертен захарен сироп, инвертиран захарен сироп, инвертен сироп, сироп на инвертна захар
 cs:sirup z invertního cukru
 de:Invertzuckersirup
 es:Jarabe de azúcar invertido
@@ -39481,6 +39492,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Nata_de_coco
 
 <en:coconut milk
 en:coconut milk powder, powdered coconut milk
+bg:кокосово мляко на прах
 ca:llet de coco en pols
 de:Kokosnussmilchpulver, Kokosmilchpulver
 es:leche de coco en polvo
@@ -55110,7 +55122,7 @@ es:crema de cacahuete crujiente, crema de cacahuete con trozos
 #category/pecan-nuts
 <en:tree nut
 en:pecan nut, pecan nuts, pecan, pecans
-bg:пеканови ядки
+bg:пеканови ядки, американски орех
 cs:pekanové ořechy
 da:pekannødder
 de:Pekannuss, Pekannüsse, Pecannüsse
@@ -67148,6 +67160,7 @@ sv:fiskpulver
 # ingredient/fr:poudre-de-poisson has 31 products in 2 languages @2019-02-03
 
 <en:fish
+bg:месо от риба
 fr:chair de poisson, chair de poissons
 de:Fischfleisch
 # ingredient/fr:chair-de-poisson has 355 products in 2 languages @2018-12-29
