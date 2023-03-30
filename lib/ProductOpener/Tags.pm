@@ -3236,6 +3236,7 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref 
 	if (not $found) {
 		if ($tag =~ /\/|\(/) {    # Match / or the ( opening parenthesis
 			my $tag1 = $`;
+			# we might get closing parenthesis, but canonicalize will get rid of it
 			my $tag2 = $';
 			my $exists_tag1;
 			my $exists_tag2;
