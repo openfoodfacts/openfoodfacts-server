@@ -186,6 +186,10 @@ description:nl:platte, vierkante, kartonnen doos waarin men een pizza kan stoppe
 # image:xx:boite-boitier-6.svg
 # suggest:category: en:pizzas
 
+<en:box
+en:pill box
+fr:pilulier
+
 en:Case, cases
 fr:Caisse, caisses, caissette, caissettes
 it:Cassa, casse
@@ -263,7 +267,7 @@ fr:flasque
 
 en:Brick, brick carton, brick shaped carton, bricks, brick cartons, brick shaped cartons
 de:Ziegel, Ziegelkarton, ziegelsteinförmiger Karton, Ziegelkartons, ziegelsteinförmige Kartons
-fr:Brique, briques
+fr:Brique, briques, brique alimentaire, briques alimentaires
 hu:tégla, tégladoboz, tégla doboz, tégla karton, tégla alakú karton
 nl:Drankkarton, Melkpak, Drankenkartons, Drankencarton, Drankenkarton, Drinkpahk, Drinkpakken
 description:en:Verpakking voor vloeibare levensmiddelen gemaakt van gelamineerd papier
@@ -483,16 +487,7 @@ it:Borraccia
 pt:Frasco, frascos
 # comment:fr:gourde-plastique-3.svg
 # suggest:packaging_materials:en: en:plastic
-
-en:Doypack with cap
-fr:Doypack avec bouchon
-fr:comment:Le Doypack est un sachet souple tenant debout.
-wikidata:en:Q2026232
 # image:xx:gourde-plastique-2.svg # Doypack avec fermoir
-
-en:Doypack with cap
-fr:Doypack avec bouchon
-fr:comment:Le Doypack est un sachet souple tenant debout.
 # comment:fr:gourde-plastique 1.svg # Doypack avec bouchon lateral
 
 # fr:Étui / Fourreau in data from Les Mousquetaires
@@ -553,6 +548,11 @@ pt:Cápsula de garrafa, cápsulas de garrafa, tampa de garrafa, tampas de garraf
 wikidata:en:Q1440281
 # image:xx:bouchon-1.svg
 # associated_packagings: en:bottle
+
+# for salt and pepper
+<en:Lid or cap
+en:Grinder cap
+fr:Bouchon broyeur, bouchons broyeurs
 
 <en:Lid or cap
 fr:Capsule à vis, bouchon à vis
@@ -1392,3 +1392,6 @@ fr:Bouchon spécial, Pistolet / Pompe / Diffuseur / Robinet / Bouchon Technique
 en:Valve, valves
 fr:Valve, valves, soupape, soupapes
 
+# Used on top of a bottle to reduce the flow (e.g. for oil)
+en:Reducer
+fr:Réducteur
