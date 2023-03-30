@@ -118,8 +118,10 @@ sub create_packaging_components_from_request_parameters ($product_ref) {
 
 		my $input_packaging_ref = {};
 		my $prefix = "packaging_" . $packaging_id . "_";
-		foreach
-			my $property ("number_of_units", "shape", "material", "recycling", "quantity_per_unit", "weight_measured", "weight_specified")
+		foreach my $property (
+			"number_of_units", "shape", "material", "recycling",
+			"quantity_per_unit", "weight_measured", "weight_specified"
+			)
 		{
 			$input_packaging_ref->{$property} = remove_tags_and_quote(decode utf8 => single_param($prefix . $property));
 		}
