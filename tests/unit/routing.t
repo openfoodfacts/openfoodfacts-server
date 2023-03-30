@@ -26,9 +26,7 @@ is($request{'page'}, "1");
 is($request{'api_version'}, "0");
 
 # for checking invalid facets or urls having missing facets
-my %testcase = (
-	'original_query_string' => 'category/breads/no-nutrition-data'	
-);
+my %testcase = ('original_query_string' => 'category/breads/no-nutrition-data');
 
 analyze_request(\%testcase);
 is($request_ref{'status_code'}, "404");

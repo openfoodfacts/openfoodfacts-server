@@ -160,13 +160,13 @@ sub analyze_request ($request_ref) {
 
 	# Split query string by "/" to know where it points
 	my @components = split(/\//, $request_ref->{query_string});
-	
+
 	# Root, ex: https://world.openfoodfacts.org/
 	if ($#components < 0) {
 		$request_ref->{text} = 'index';
 		$request_ref->{current_link} = '';
 	}
-		# Root + page number, ex: https://world.openfoodfacts.org/2
+	# Root + page number, ex: https://world.openfoodfacts.org/2
 	elsif (($#components == 0) and ($components[-1] =~ /^\d+$/)) {
 		$request_ref->{page} = pop @components;
 		$request_ref->{current_link} = '';
@@ -358,7 +358,7 @@ sub analyze_request ($request_ref) {
 			}
 		}
 		# list of tags? (plural of tagtype must be the last field)
-        
+
 		$log->debug("checking last component",
 			{last_component => $components[-1], is_plural => $tag_type_from_plural{$lc}{$components[-1]}})
 			if $log->is_debug();
@@ -404,10 +404,10 @@ sub analyze_request ($request_ref) {
 				or (defined $tag_type_from_singular{"en"}{$components[0]}))
 			)
 		{
-			
+
 			$log->debug("request looks like a singular tag", {lc => $lc, tagid => $components[0]}) if $log->is_debug();
 
-           # If the first component is a valid singular tag type, use it as the tag type
+			# If the first component is a valid singular tag type, use it as the tag type
 			if (defined $tag_type_from_singular{$lc}{$components[0]}) {
 				$request_ref->{tagtype} = $tag_type_from_singular{$lc}{shift @components};
 			}
@@ -429,7 +429,7 @@ sub analyze_request ($request_ref) {
 				else {
 					$request_ref->{tag_prefix} = "";
 				}
-                 # If the tag type is a valid taxonomy field, try to canonicalize the tag ID
+				# If the tag type is a valid taxonomy field, try to canonicalize the tag ID
 				if (defined $taxonomy_fields{$tagtype}) {
 					my $parsed_tag = canonicalize_taxonomy_tag_linkeddata($tagtype, $request_ref->{tag});
 					if (not $parsed_tag) {
@@ -475,7 +475,7 @@ sub analyze_request ($request_ref) {
 
 				if (($#components >= 0)) {
 					$request_ref->{tag2} = shift @components;
-                   
+
 					# if there is a leading dash - before the tag, it indicates we want products without it
 					if ($request_ref->{tag2} =~ /^-/) {
 						$request_ref->{tag2_prefix} = "-";
@@ -484,7 +484,7 @@ sub analyze_request ($request_ref) {
 					else {
 						$request_ref->{tag2_prefix} = "";
 					}
-                   
+
 					if (defined $taxonomy_fields{$tagtype}) {
 						my $parsed_tag2 = canonicalize_taxonomy_tag_linkeddata($tagtype, $request_ref->{tag2});
 						if (not $parsed_tag2) {
@@ -498,7 +498,7 @@ sub analyze_request ($request_ref) {
 							if ($request_ref->{tag2} !~ /^(\w\w):/) {
 								$request_ref->{tag2} = $lc . ":" . $request_ref->{tag2};
 							}
-	
+
 							$request_ref->{tagid2} = get_taxonomyid($lc, $request_ref->{tag2});
 						}
 					}
@@ -516,12 +516,13 @@ sub analyze_request ($request_ref) {
 			}
 			elsif (
 				($#components >= 0)
-				and (  (!defined $tag_type_from_singular{$lc}{$components[0]})
+				and (   (!defined $tag_type_from_singular{$lc}{$components[0]})
 					and (!defined $tag_type_from_singular{"en"}{$components[0]}))
-				){
-				 $request_ref->{status_code} = 404;
-                 $request_ref->{error_message} = lang("error_invalid_address");
-                 return;
+				)
+			{
+				$request_ref->{status_code} = 404;
+				$request_ref->{error_message} = lang("error_invalid_address");
+				return;
 			}
 
 			if ((defined $components[0]) and ($components[0] eq 'points')) {
