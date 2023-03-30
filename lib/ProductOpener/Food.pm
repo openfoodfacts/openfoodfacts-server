@@ -105,6 +105,7 @@ use ProductOpener::FoodGroups qw/:all/;
 use ProductOpener::Units qw/:all/;
 use ProductOpener::Products qw(&remove_fields);
 use ProductOpener::Display qw/single_param/;
+use ProductOpener::APIProductWrite qw/skip_protected_field/;
 
 use Hash::Util;
 use Encode;
@@ -1662,7 +1663,8 @@ sub create_nutrients_level_taxonomy() {
 		my ($nid, $low, $high) = @{$nutrient_level_ref};
 		foreach my $level ('low', 'moderate', 'high') {
 			$nutrient_levels_taxonomy
-				.= "\n" . 'en:'
+				.= "\n"
+				. 'en:'
 				. sprintf(
 				$Lang{nutrient_in_quantity}{en},
 				display_taxonomy_tag("en", "nutrients", "zz:$nid"),
@@ -2145,14 +2147,14 @@ sub assign_categories_properties_to_product ($product_ref) {
 	return;
 }
 
-=head2 assign_nutriments_values_from_request_parameters ( $product_ref, $nutriment_table )
+=head2 assign_nutriments_values_from_request_parameters ( $product_ref, $nutriment_table, $can_edit_owner_fields )
 
 This function reads the nutriment values passed to the product edit form, or the product edit API,
 and assigns them to the product.
 
 =cut
 
-sub assign_nutriments_values_from_request_parameters ($product_ref, $nutriment_table) {
+sub assign_nutriments_values_from_request_parameters ($product_ref, $nutriment_table, $can_edit_owner_fields = 0) {
 
 	# Nutrition data
 
@@ -2247,6 +2249,11 @@ sub assign_nutriments_values_from_request_parameters ($product_ref, $nutriment_t
 		$nid =~ s/-$//g;
 
 		next if $nid =~ /^nutrition-score/;
+
+		# Only moderators can update values for fields sent by the producer
+		if (skip_protected_field($product_ref, $nid, $can_edit_owner_fields)) {
+			next;
+		}
 
 		# Unit and label are the same for as sold and prepared nutrition table
 		my $enid = encodeURIComponent($nid);
