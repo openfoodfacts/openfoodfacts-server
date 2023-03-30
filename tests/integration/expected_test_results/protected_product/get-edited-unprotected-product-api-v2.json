@@ -106,7 +106,7 @@
             "origins_of_ingredients" : {
                "aggregated_origins" : [
                   {
-                     "epi_score" : 0,
+                     "epi_score" : "0",
                      "origin" : "en:unknown",
                      "percent" : 100,
                      "transportation_score" : null
@@ -551,12 +551,12 @@
          "fr" : 2
       },
       "languages_hierarchy" : [
-         "en:french",
-         "en:english"
+         "en:english",
+         "en:french"
       ],
       "languages_tags" : [
-         "en:french",
          "en:english",
+         "en:french",
          "en:2",
          "en:multilingual"
       ],

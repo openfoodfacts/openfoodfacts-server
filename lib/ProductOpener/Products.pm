@@ -2759,7 +2759,7 @@ sub compute_languages ($product_ref) {
 		}
 	}
 
-	my @languages = keys %languages;
+	my @languages = sort keys %languages;
 	my $n = scalar(@languages);
 
 	my @languages_hierarchy = @languages;    # without multilingual and count
