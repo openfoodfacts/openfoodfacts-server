@@ -878,7 +878,7 @@ sub init_packaging_columns_names_for_lang ($l) {
 
 	# Packaging components
 
-	for (my $i = 1; $i <= 10; $i++) {
+	for (my $i = 1; $i <= $IMPORT_MAX_COMPONENTS; $i++) {
 		my $packaging_i = $Lang{"packaging_part_short"}{$l} . " " . $i . " - ";
 		foreach my $property ("number_of_units", "shape", "material", "recycling", "weight", "quantity_per_unit") {
 			my $name = $packaging_i . $Lang{"packaging_" . $property}{$l};
