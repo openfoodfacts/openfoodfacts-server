@@ -456,8 +456,8 @@ sub load_tags_images ($lc, $tagtype) {
 			if ($file =~ /^((.*)\.\d+x${logo_height}.(png|svg))$/) {
 				if ((not defined $tags_images{$lc}{$tagtype}{$2}) or ($3 eq 'svg')) {
 					$tags_images{$lc}{$tagtype}{$2} = $1;
-					print STDERR
-						"load_tags_images - tags_images - loading lc: $lc - tagtype: $tagtype - tag: $2 - img: $1 - ext: $3 \n";
+					#print STDERR
+					#	"load_tags_images - tags_images - loading lc: $lc - tagtype: $tagtype - tag: $2 - img: $1 - ext: $3 \n";
 				}
 			}
 		}
@@ -3106,8 +3106,6 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref 
 	$tag = normalize_percentages($tag, $tag_lc);
 	my $tagid = get_string_id_for_lang($tag_lc, $tag);
 
-	print STDERR "tag: $tag - tagid: $tagid\n";
-
 	if ($tagtype =~ /^additives/) {
 		# convert the E-number + name into just E-number (we get those in urls like /additives/e330-citric-acid)
 		# check E + 1 digit in order to not convert Erythorbate-de-sodium to Erythorbate
@@ -3143,7 +3141,6 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref 
 	{
 		$tagid = $synonyms{$tagtype}{$tag_lc}{$tagid};
 		$found = 1;
-		print STDERR "tag: $tag - tagid: $tagid -- found\n";
 	}
 	else {
 		# try removing stopwords and plurals
@@ -3237,7 +3234,6 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref 
 	# If we have not found the tag in the taxonomy, try to see if it is of the form
 	# "Parent / Children" or "Synonym 1 / Synonym 2", "Synonym 1 (Synonym 2)"
 	if (not $found) {
-		print STDERR "$tag not found\n";
 		if ($tag =~ /\/|\(/) {    # Match / or the ( opening parenthesis
 			my $tag1 = $`;
 			my $tag2 = $';
@@ -3260,9 +3256,6 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref 
 				}
 			) if $log->is_debug();
 
-			print STDERR
-				"slash: tagtype => $tagtype, tag => $tag, tag1 => $tag1, tag2 => $tag2, tagid1 => $tagid1, tagid2 => $tagid2, exists_tag1 => $exists_tag1, exists_tag2 => $exists_tag2\n";
-
 			if ($exists_tag1 and $exists_tag2) {
 				# "Synonym 1 / Synonym 2"
 				if ($tagid1 eq $tagid2) {
@@ -3276,17 +3269,7 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref 
 				elsif (is_a($tagtype, $tagid1, $tagid2)) {
 					$tagid = $tagid1;
 				}
-				else {
-					print STDERR "tagid1: $tagid1 - tagid2: $tagid2\n";
-				}
-				print STDERR "tagid: $tagid\n";
 			}
-			else {
-				print STDERR "one tag does not exist: $tag1 - $tag2\n";
-			}
-		}
-		else {
-			print STDERR "tag $tag not found\n";
 		}
 	}
 
@@ -4099,7 +4082,7 @@ sub add_tags_to_field ($product_ref, $tag_lc, $field, $additional_fields) {
 		if (not exists $existing{$tagid}) {
 			my $current_value = "current: does not exist";
 			(defined $product_ref->{$field}) and $current_value = "current: " . $product_ref->{$field};
-			print STDERR "add_tags_to_field - adding $tagid to $field: $current_value\n";
+			#print STDERR "add_tags_to_field - adding $tagid to $field: $current_value\n";
 			push @added_tags, $tag;
 		}
 
@@ -4113,7 +4096,7 @@ sub add_tags_to_field ($product_ref, $tag_lc, $field, $additional_fields) {
 			# we do not know the language of the current value of $product_ref->{$field}
 			# so regenerate it in the current language used by the interface / caller
 			$value = list_taxonomy_tags_in_language($tag_lc, $field, $product_ref->{$field . "_hierarchy"});
-			print STDERR "add_tags_to_fields value: $value\n";
+			#print STDERR "add_tags_to_fields value: $value\n";
 		}
 		else {
 			$value = $product_ref->{$field};
