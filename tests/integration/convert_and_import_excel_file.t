@@ -157,7 +157,7 @@ foreach my $test_ref (@tests) {
 	# clean csv and sto
 	unlink $inputs_dir . "eco-score-template.xlsx.csv";
 	unlink $inputs_dir . "test.columns_fields.sto";
-	#rmdir remove_tree($outputs_dir);
+	rmdir remove_tree($outputs_dir);
 }
 
 done_testing();
