@@ -529,10 +529,9 @@ sub set_field_value (
 
 			my $tagid;
 
-			next if $tag =~ /^(\s|,|-|\%|;|_|°)*$/;
 			next
 				if $tag
-				=~ /^\s*($empty_unknown_not_applicable_or_none_regexp)\s*$/i;
+				=~ /^\s*($empty_regexp|$unknown_regexp|$not_applicable_regexp)\s*$/i;
 
 			$tag =~ s/^\s+//;
 			$tag =~ s/\s+$//;

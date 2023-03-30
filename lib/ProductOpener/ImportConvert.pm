@@ -129,7 +129,7 @@ use XML::Rules;
 my $mode = "append";
 
 # Regular expressions that can be combined to match specific inputs
-$empty_regexp = ':|_|-|\/|\\|\.';
+$empty_regexp = '(?:,|\%|;|_|°|-|\/|\\|\.|\s)*';
 $unknown_regexp = 'unknown|inconnu|inconnue|non renseigné(?:e)?(?:s)?|nr|n\/r';
 $not_applicable_regexp = 'n(?:\/|\\|\.|-)?a(?:\.)?|(?:not|non)(?: |-)applicable|no aplica';
 $none_regexp = 'none|aucun|aucune|aucun\(e\)';
