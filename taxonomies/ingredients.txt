@@ -37666,20 +37666,19 @@ ciqual_food_name:fr:Mandarine, pulpe, crue
 
 <en:mandarin
 <en:fruit juice
-en:mandarin juice
+en:tangerine juice, mandarin juice
 cs:mandarinková šťáva
 fr:jus de mandarine
 de:Mandarinesaft, Mandarinensaft
 fi:mandariinimehu
 it:succo di mandarino
 nl:mandarijnsap
+pl:sok mandarynkowy
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-mandarine
 # 168 in 3 languages @2021-10-07
 
-<en:mandarin juice
+<en:tangerine juice
 en:concentrated mandarin juice
-da:mandarinjuice fra koncentrat
-de:Mandarinensaft aus Konzentrat
 es:jugo de mandarina concentrado, concentrado de jugo de mandarina
 fi:mandariinimehutiiviste, mandariinitäysmehutiiviste
 fr:Jus de mandarine concentré
@@ -37687,10 +37686,16 @@ ru:Концентрированный мандариновый сок
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:mandariinit%C3%A4ysmehutiiviste
 # 1 entry @ 2019-10-31
 
-<en:mandarin juice
+<en:tangerine juice
 en:Mandarin juice from concentrate
 cs:mandarinková šťáva z koncentrátu
+da:mandarinjuice fra koncentrat
+de:Mandarinensaft aus Konzentrat
 fr:jus de mandarine à base de concentré
+
+<en:tangerine juice
+en:squeezed tangerine juices 
+es:zumo de mandarina exprimada
 
 <en:mandarin
 en:mandarin peel
@@ -41501,8 +41506,10 @@ fi:luomugranaattiomenamehu, luomu granaattiomenamehu
 fr:Jus de Grenade issu de l'agriculture biologique
 
 <en:pomegranate juice
-en:pomegranate juice from concentrate
+en:pomegranate juice from concentrate, pomegranate juice from natural concentrated pomegranate juice
 de:Granatapfelsaft aus Granatapfelsaftkonzentrat
+fr:jus de grenade à base de concentré, Jus de grenade à base de jus de grenade concentré
+it:Succo di melagrana a base di succo concentrato
 
 <en:pomegranate juice
 es:zumo de granada variedad Mollar de Elche
