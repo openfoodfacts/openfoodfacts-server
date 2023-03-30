@@ -835,6 +835,7 @@ sub init_fields_columns_names_for_lang ($l) {
 }
 
 # Generate column names for a language field
+# It populates %fields_columns_names_for_lang
 
 sub add_language_field_column_names ($l, $field) {
 
