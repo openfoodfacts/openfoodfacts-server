@@ -1122,8 +1122,10 @@ sub import_packaging_components (
 	my @input_packagings = ();
 	my $data_is_complete = 0;
 
-	# packaging data is specified in the CSV file in columns named like packagings_1_shape
-	for (my $i = 1; $i <= 10; $i++) {
+	# packaging data is specified in the CSV file in columns named like packagings_1_number_of_units
+	# we currently search up to 10 components
+	$IMPORT_MAX_COMPONENTS = 10;
+	for (my $i = 1; $i <= $IMPORT_MAX_COMPONENTS; $i++) {
 		my $input_packaging_ref = {};
 		foreach
 			my $field (qw(number_of_units shape material recycling quantity_per_unit weight_specified weight_measured))

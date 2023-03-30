@@ -109,6 +109,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Units qw/:all/;
+use ProductOpener::Text qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -867,7 +868,7 @@ sub clean_fields ($product_ref) {
 					$brand =~ s/^\s+//;
 					$brand =~ s/\s+$//;
 					# we may get brands with quantifiers like * + ? etc. we need to escape them
-					$brand =~ s/(\*|\+|\?|\(|\)|\[|\]|\{|\}|\$|\^|\\)/\\$1/g;
+					$brand = regexp_escape($brand);
 
 					# dashes/dots/spaces -> allow matching dashes/dot/spaces
 					# e.g. "bons.mayennais" matches "bons mayennais"
