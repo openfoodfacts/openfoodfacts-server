@@ -26,8 +26,6 @@ is(guess_language_of_packaging_text("something unknown", [qw(de es it fr)]), und
 
 # Tests for get_checked_and_taxonomized_packaging_component_data
 
-my $packaging_ref;
-
 my @tests = (
 	{
 		lc => "en",
