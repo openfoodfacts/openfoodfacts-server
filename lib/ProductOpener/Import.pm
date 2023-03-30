@@ -1122,7 +1122,7 @@ sub import_packaging_components (
 	my @input_packagings = ();
 	my $data_is_complete = 0;
 
-	# packaging data is specified in the CSV file in columns named like packagings_1_number_of_units
+	# packaging data is specified in the CSV file in columns named like packagings_1_shape
 	for (my $i = 1; $i <= 10; $i++) {
 		my $input_packaging_ref = {};
 		foreach
