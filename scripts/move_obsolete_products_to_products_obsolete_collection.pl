@@ -31,25 +31,24 @@ use ProductOpener::Data qw/:all/;
 use Log::Any::Adapter 'TAP';
 
 my $socket_timeout_ms = 2 * 60000;    # 2 mins, instead of 30s default, to not die as easily if mongodb is busy.
-my $products_collection = get_products_collection({timeout=>$socket_timeout_ms});
-my $obsolete_products_collection = get_products_collection({obsolete=>1, timeout=>$socket_timeout_ms});
+my $products_collection = get_products_collection({timeout => $socket_timeout_ms});
+my $obsolete_products_collection = get_products_collection({obsolete => 1, timeout => $socket_timeout_ms});
 
 my $products_count = "";
 
-my $query_ref => {obsolete => 'on'};
+my $query_ref = {obsolete => 'on'};
 
 eval {
-	$products_count = $products_collection->count_documents($query_ref));
+	$products_count = $products_collection->count_documents($query_ref);
 
 	print STDERR "$products_count documents to update.\n";
 };
 
-$cursor = $products_collection->query($query_ref)->fields({_id => 1, code => 1, owner => 1});
+my $cursor = $products_collection->query($query_ref)->fields({_id => 1, code => 1, owner => 1});
 
 $cursor->immortal(1);
 
 my $n = 0;    # number of products updated
-}
 
 while (my $product_ref = $cursor->next) {
 
@@ -72,14 +71,14 @@ while (my $product_ref = $cursor->next) {
 		print STDERR "updating product code: $code $owner_info ($n / $products_count)\n";
 	}
 
-    $product_ref = retrieve_product($productid);
+	$product_ref = retrieve_product($productid);
 
 	if ((defined $product_ref) and ($productid ne '')) {
 
-				$product_ref->{_id} .= '';
-				$product_ref->{code} .= '';
-                $products_collection->delete_one({"_id" => $product_ref->{_id}});
-				$obsolete_products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
+		$product_ref->{_id} .= '';
+		$product_ref->{code} .= '';
+		$products_collection->delete_one({"_id" => $product_ref->{_id}});
+		$obsolete_products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
 
 		$n++;
 	}
