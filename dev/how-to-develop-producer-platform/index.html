@@ -748,22 +748,26 @@
 <h1 id="how-to-develop-on-the-producers-platform">How to develop on the producers platform<a class="headerlink" href="#how-to-develop-on-the-producers-platform" title="Permanent link">#</a></h1>
 <p>Here is how to develop for the producers platform using docker.</p>
 <p>It suppose <a href="../how-to-quick-start-guide/">you already have setup docker for dev</a>.</p>
-<p>You should have two kind of shell:
-- the shell for openfoodfacts
-- the shell for openfoodfacts-pro, this is a shell where you have source the <code>setenv-pro.sh</code>,
+<p>You should have two kind of shell:</p>
+<ul>
+<li>the shell for openfoodfacts</li>
+<li>the shell for openfoodfacts-pro, this is a shell where you have source the <code>setenv-pro.sh</code>,
   that is you run <code>. setenv-pro.sh</code>.
   Your prompt, should now contains a <code>(pro)</code> to recall you you are in producers environment.
-  (this simply sets some environment variables that will overides the one in .env)</p>
+  (this simply sets some environment variables that will overides the one in .env)</li>
+</ul>
 <p>To develop, on producers plateform, you can then us a shell for openfoodfacts-pro and simply do a <code>make dev</code> and everything as usual.</p>
 <p>If you need to work on product import/export, or interacting with public platform,
 you have to start postgres and the minion on off side.
 That is, in a <em>non pro</em> shell, run <code>docker-compose up postgres minion mongodb</code>.</p>
 <p>Note that the setup does not currently support running the http server for both public and pro platform at the same time.
-So as you need the public platform:
-- in your <em>pro shell</em>, run a <code>docker-compose stop backend</code>
-- in your <em>non pro shell</em>, run a <code>docker-compose up backend</code>
+So as you need the public platform:</p>
+<ul>
+<li>in your <em>pro shell</em>, run a <code>docker-compose stop backend</code></li>
+<li>in your <em>non pro shell</em>, run a <code>docker-compose up backend</code>
 Now <code>openfoodfacts.localhost</code> is the public database.
-Of course, do this inside-out to access the pro http server.</p>
+Of course, do this inside-out to access the pro http server.</li>
+</ul>
 <p>Note that if you <a href="../how-to-use-direnv/">use direnv</a>, it should be fine, if you did not redefine variables set by <code>setenv-pro.sh</code>.</p>
 <p>An explanation of the setup can be found at <a href="../explain-pro-dev-setup/">explain-pro-dev-setup.md</a></p>
 <p>If you want to see state of tasks, you can run:</p>

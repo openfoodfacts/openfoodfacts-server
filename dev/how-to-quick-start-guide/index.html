@@ -1053,23 +1053,27 @@
 <p>This guide will allow you to rapidly build a ready-to-use development environment for <strong>Product Opener</strong> running in Docker.
 As an alternative to setting up your environment locally, follow the <a href="../how-to-use-gitpod/">Gitpod how-to guide</a>
 to instantly provision a ready-to-code development environment in the cloud.</p>
-<p>First setup time estimate is <code>~10min</code> with the following specs:
-* <code>8 GB</code> of RAM dedicated to Docker client
-* <code>6</code> cores dedicated to Docker client
-* <code>12 MB/s</code> internet speed</p>
+<p>First setup time estimate is <code>~10min</code> with the following specs:</p>
+<ul>
+<li><code>8 GB</code> of RAM dedicated to Docker client</li>
+<li><code>6</code> cores dedicated to Docker client</li>
+<li><code>12 MB/s</code> internet speed</li>
+</ul>
 <h2 id="1-prerequisites">1. Prerequisites<a class="headerlink" href="#1-prerequisites" title="Permanent link">#</a></h2>
 <p><strong>Docker</strong> is the easiest way to install the Open Food Facts server, play with it, and even modify the code.</p>
 <p>Docker provides an isolated environment, very close to a Virtual Machine. This environment contains everything required to launch the Open Food Facts server. There is <strong>no need to install</strong> Perl, Perl modules, Nginx, nor Apache separately.</p>
 <blockquote>
 <p><strong><em>NOTE:</em></strong>  New to Perl? Check <a href="../how-to-learn-perl/">how to learn perl</a>!</p>
 </blockquote>
-<p><strong>Installation steps:</strong>
-- <a href="https://docs.docker.com/install/#supported-platforms">Install Docker CE</a></p>
-<blockquote>
-<p>If you run e.g. Debian, don't forget to add your user to the <code>docker</code> group!
-- <a href="https://docs.docker.com/compose/install/">Install Docker Compose</a>
-- <a href="https://docs.docker.com/compose/completion/">Enable command-line completion</a></p>
+<p><strong>Installation steps:</strong></p>
+<ul>
+<li><a href="https://docs.docker.com/install/#supported-platforms">Install Docker CE</a><blockquote>
+<p>If you run e.g. Debian, don't forget to add your user to the <code>docker</code> group!</p>
 </blockquote>
+</li>
+<li><a href="https://docs.docker.com/compose/install/">Install Docker Compose</a></li>
+<li><a href="https://docs.docker.com/compose/completion/">Enable command-line completion</a></li>
+</ul>
 <h3 id="windows-prerequisites">Windows Prerequisites<a class="headerlink" href="#windows-prerequisites" title="Permanent link">#</a></h3>
 <p>When running with Windows, install <a href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a> which will cover all of the above.</p>
 <p>The Make tasks use a number of Linux commands, such as rm and nproc, so it is recommeded to run Make commands from the Git Bash shell. In addition, the following need to be installed and included in the PATH:</p>
@@ -1125,16 +1129,22 @@ Product Opener's environment (<code>.env</code> file).</p>
 | <code>CROWDIN_PROJECT_IDENTIFIER</code> and <code>CROWDIN_PROJECT_KEY</code>            | can be set to <strong>run translations</strong>.|
 | <code>GEOLITE2_PATH</code>, <code>GEOLITE2_ACCOUNT_ID</code> and <code>GEOLITE2_LICENSE_KEY</code> | can be set to <strong>enable Geolite2</strong>.|
 | <code>TAG</code>                                                             | Is set to <code>latest</code> by default, but you can specify any Docker Hub tag for the <code>frontend</code> / <code>backend</code> images. <br> Note that this is useful only if you use pre-built images from the Docker Hub (<code>docker/prod.yml</code> override); the default dev setup (<code>docker/dev.yml</code>) builds images locally|</p>
-<p>The <code>.env</code> file also contains some useful Docker Compose variables:
-* <code>COMPOSE_PROJECT_NAME</code> is the compose project name that sets the <strong>prefix to every container name</strong>. Do not update this unless you know what you're doing.
-* <code>COMPOSE_FILE</code> is the <code>;</code>-separated list of Docker compose files that are included in the deployment:
-  * For a <strong>development</strong>-like environment, set it to <code>docker-compose.yml;docker/dev.yml</code> (default)
-  * For a <strong>production</strong>-like environment, set it to <code>docker-compose.yml;docker/prod.yml;docker/mongodb.yml</code>
-  * For more features, you can add:
-    * <code>docker/admin-uis.yml</code>: add the Admin UIS container
-    * <code>docker/geolite2.yml</code>: add the Geolite2 container
-    * <code>docker/perldb.yml</code>: add the Perl debugger container
-* <code>COMPOSE_SEPARATOR</code> is the separator used for <code>COMPOSE_FILE</code>.</p>
+<p>The <code>.env</code> file also contains some useful Docker Compose variables:</p>
+<ul>
+<li><code>COMPOSE_PROJECT_NAME</code> is the compose project name that sets the <strong>prefix to every container name</strong>. Do not update this unless you know what you're doing.</li>
+<li><code>COMPOSE_FILE</code> is the <code>;</code>-separated list of Docker compose files that are included in the deployment:<ul>
+<li>For a <strong>development</strong>-like environment, set it to <code>docker-compose.yml;docker/dev.yml</code> (default)</li>
+<li>For a <strong>production</strong>-like environment, set it to <code>docker-compose.yml;docker/prod.yml;docker/mongodb.yml</code></li>
+<li>For more features, you can add:<ul>
+<li><code>docker/admin-uis.yml</code>: add the Admin UIS container</li>
+<li><code>docker/geolite2.yml</code>: add the Geolite2 container</li>
+<li><code>docker/perldb.yml</code>: add the Perl debugger container</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>COMPOSE_SEPARATOR</code> is the separator used for <code>COMPOSE_FILE</code>.</li>
+</ul>
 <p><strong>Note:</strong>
 Instead of modifying <code>.env</code> (with the risk commit it inadvertently),
 You can also set needed variables in your shell, they will override <code>.env</code> values.
@@ -1154,9 +1164,11 @@ On linux and macOS, you can automatically do it if you <a href="../how-to-use-di
 It can be solved by adding <code>{"base": "172.80.0.0/16","size": 24}, {"base": "172.90.0.0/16","size": 24}</code> to <code>default-address-pools</code> in <code>/etc/docker/daemon.json</code> and then restarting the docker daemon.
 <em>Credits to https://theorangeone.net/posts/increase-docker-ip-space/ for this solution.</em></p>
 </blockquote>
-<p>The command will run 2 subcommands:
-* <code>make up</code>: <strong>Build and run containers</strong> from the local directory and bind local code files, so that you do not have to rebuild everytime.
-* <code>make import_sample_data</code>: <strong>Load sample data</strong> into <code>mongodb</code> container (~100 products).</p>
+<p>The command will run 2 subcommands:</p>
+<ul>
+<li><code>make up</code>: <strong>Build and run containers</strong> from the local directory and bind local code files, so that you do not have to rebuild everytime.</li>
+<li><code>make import_sample_data</code>: <strong>Load sample data</strong> into <code>mongodb</code> container (~100 products).</li>
+</ul>
 <p><strong><em>Notes:</em></strong></p>
 <ul>
 <li>The first build can take between 10 and 30 minutes depending on your machine and internet connection (broadband connection heavily recommended, as this will download Docker base images, install Debian and Perl modules in preparation of the final container image).</li>

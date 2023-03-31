@@ -865,24 +865,30 @@
 <p>If you are a developer you are really encouraged to write tests as you fix bug or develop new features.</p>
 <p>Having a test is also a good way to debug a particular piece of code.</p>
 <p>We would really love to see our test coverage augment.</p>
-<p>If you are new to tests, please read:
-- <a href="https://automationstepbystep.com/2020/05/02/what-is-a-test-pyramid/">something about test pyramid</a> to understand importance of unit tests and integration tests
-- <a href="https://perldoc.perl.org/Test">perldoc on test</a>
-- <a href="https://perldoc.perl.org/Test::More">Test::More module doc</a></p>
+<p>If you are new to tests, please read:</p>
+<ul>
+<li><a href="https://automationstepbystep.com/2020/05/02/what-is-a-test-pyramid/">something about test pyramid</a> to understand importance of unit tests and integration tests</li>
+<li><a href="https://perldoc.perl.org/Test">perldoc on test</a></li>
+<li><a href="https://perldoc.perl.org/Test::More">Test::More module doc</a></li>
+</ul>
 <h2 id="helpers">Helpers<a class="headerlink" href="#helpers" title="Permanent link">#</a></h2>
 <p>We have some helpers for tests.</p>
-<p>See mainly:
-* <a href="https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Test.html">Test.pm</a> (notably <code>init_expected_results</code> and <code>compare_to_expected_results</code>)
-* <a href="https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/APITest.html">TestAPI.pm</a></p>
+<p>See mainly:</p>
+<ul>
+<li><a href="https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Test.html">Test.pm</a> (notably <code>init_expected_results</code> and <code>compare_to_expected_results</code>)</li>
+<li><a href="https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/APITest.html">TestAPI.pm</a></li>
+</ul>
 <p>and other modules with Test in their name !</p>
 <h2 id="unit-and-integration-tests">Unit and Integration tests<a class="headerlink" href="#unit-and-integration-tests" title="Permanent link">#</a></h2>
 <p>Unit tests are located in <code>tests/unit/</code>.</p>
 <p>Integration tests are in <code>tests/integration/</code>.</p>
 <p>Most integration tests issue queries to an open food facts</p>
 <h2 id="integration-with-docker-compose">Integration with docker-compose<a class="headerlink" href="#integration-with-docker-compose" title="Permanent link">#</a></h2>
-<p>Using Makefile targets, tests are run 
-* with a specific `COMPOSE_PROJECT_NAME° to avoid crashing your development data while running tests (as the project name <a href="https://docs.docker.com/compose/environment-variables/envvars/#compose_project_name">changes container, network and volumes names</a>)
-* with a specific expose port for Mongodb, to avoid clashes with dev instance.</p>
+<p>Using Makefile targets, tests are run </p>
+<ul>
+<li>with a specific `COMPOSE_PROJECT_NAME° to avoid crashing your development data while running tests (as the project name <a href="https://docs.docker.com/compose/environment-variables/envvars/#compose_project_name">changes container, network and volumes names</a>)</li>
+<li>with a specific expose port for Mongodb, to avoid clashes with dev instance.</li>
+</ul>
 <h2 id="writing-tests">Writing tests<a class="headerlink" href="#writing-tests" title="Permanent link">#</a></h2>
 <p>You can read other tests to understand how we write them (inspire yourself from recently created tests).</p>
 <p>One effective way is to create a list of tests each represented by a hashmap with inputs and expected outputs and run them in a loop. Add an <code>id</code> and/or a <code>desc</code> (description) and use it as last argument to check functions (like <code>ok</code>, <code>is</code>, …) to easily see tests running and identify failing tests.</p>

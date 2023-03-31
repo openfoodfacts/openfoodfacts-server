@@ -1196,9 +1196,11 @@ db.products.deleteOne({_id: &quot;5053990155354&quot;})
 <p>To juggle between multiple local deployments (e.g: to run different flavors of Open Food Facts on the same host),
 there are different possible strategies.</p>
 <h3 id="a-set-env-script">a set env script<a class="headerlink" href="#a-set-env-script" title="Permanent link">#</a></h3>
-<p>Docker-compose takes it settings from, in order of priority:
-* the environment
-* the <code>.env</code> file</p>
+<p>Docker-compose takes it settings from, in order of priority:</p>
+<ul>
+<li>the environment</li>
+<li>the <code>.env</code> file</li>
+</ul>
 <p>So one strategy to have a different instance,
 can be to keep same <code>.env</code> file, but super-seed some env variables to tweak the configuration.
 This is a good strategy for the pro plateform.</p>
