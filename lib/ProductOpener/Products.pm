@@ -1001,6 +1001,16 @@ sub compute_sort_keys ($product_ref) {
 	return;
 }
 
+=head2 store_product ($user_id, $product_ref, $comment)
+
+Save changes of a product:
+- in a new .sto file on the disk
+- in MongoDB (in the products collection, or products_obsolete collection if the product is obsolete)
+
+Before saving, some field values are computed, and product history and completeness is computed.
+
+=cut
+
 sub store_product ($user_id, $product_ref, $comment) {
 
 	my $code = $product_ref->{code};
@@ -1008,7 +1018,15 @@ sub store_product ($user_id, $product_ref, $comment) {
 	my $path = product_path($product_ref);
 	my $rev = $product_ref->{rev};
 
-	$log->debug("store_product - start", {code => $code, product_id => $product_id}) if $log->is_debug();
+	$log->debug(
+		"store_product - start",
+		{
+			code => $code,
+			product_id => $product_id,
+			obsolete => $product_ref->{obsolete},
+			was_obsolete => $product_ref->{was_obsolete}
+		}
+	) if $log->is_debug();
 
 	# In case we need to move a product from OFF to OBF etc.
 	# the "new_server" value will be set to off, obf etc.
@@ -1021,8 +1039,29 @@ sub store_product ($user_id, $product_ref, $comment) {
 	my $new_data_root = $data_root;
 	my $new_www_root = $www_root;
 
-	my $products_collection = get_products_collection();
-	my $new_products_collection = $products_collection;
+	# We use the was_obsolete flag so that we can remove the product from its old collection
+	# (either products or products_obsolete) if its obsolete status has changed
+	my $previous_products_collection = get_products_collection({obsolete => $product_ref->{was_obsolete}});
+	my $new_products_collection = get_products_collection({obsolete => $product_ref->{obsolete}});
+
+	# the obsolete (and was_obsolete) field is either undef or an empty string, or contains "on"
+	if (   ($product_ref->{was_obsolete} and not $product_ref->{obsolete})
+		or (not $product_ref->{was_obsolete} and $product_ref->{obsolete}))
+	{
+		# The obsolete status changed, we need to remove the product from its previous collection
+		$log->debug(
+			"obsolete status changed",
+			{
+				code => $code,
+				product_id => $product_id,
+				obsolete => $product_ref->{obsolete},
+				was_obsolete => $product_ref->{was_obsolete},
+				previous_products_collection => $previous_products_collection
+			}
+		) if $log->is_debug();
+		$previous_products_collection->delete_one({"_id" => $product_ref->{_id}});
+	}
+	delete $product_ref->{was_obsolete};
 
 	if (    (defined $product_ref->{server})
 		and (defined $options{other_servers})
@@ -1031,7 +1070,8 @@ sub store_product ($user_id, $product_ref, $comment) {
 		my $server = $product_ref->{server};
 		$new_data_root = $options{other_servers}{$server}{data_root};
 		$new_www_root = $options{other_servers}{$server}{www_root};
-		$new_products_collection = get_collection($options{other_servers}{$server}{mongodb}, 'products');
+		$new_products_collection = get_products_collection(
+			{database => $options{other_servers}{$server}{mongodb}, obsolete => $product_ref->{obsolete}});
 	}
 
 	if (defined $product_ref->{old_code}) {
@@ -1043,7 +1083,8 @@ sub store_product ($user_id, $product_ref, $comment) {
 			my $new_server = $product_ref->{new_server};
 			$new_data_root = $options{other_servers}{$new_server}{data_root};
 			$new_www_root = $options{other_servers}{$new_server}{www_root};
-			$new_products_collection = get_collection($options{other_servers}{$new_server}{mongodb}, 'products');
+			$new_products_collection = get_products_collection(
+				{database => $options{other_servers}{$new_server}{mongodb}, obsolete => $product_ref->{obsolete}});
 			$product_ref->{server} = $product_ref->{new_server};
 			delete $product_ref->{new_server};
 		}
@@ -1113,7 +1154,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 			execute_query(
 				sub {
-					return $products_collection->delete_one({"_id" => $product_ref->{_id}});
+					return $previous_products_collection->delete_one({"_id" => $product_ref->{_id}});
 				}
 			);
 

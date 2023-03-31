@@ -614,7 +614,11 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	# Obsolete products
 
+	# We test if the "obsolete_since_date" field is present, as the checkbox field won't be sent if the box is unchecked
 	if (($User{moderator} or $Owner_id) and (defined single_param('obsolete_since_date'))) {
+		# We need to temporarily record if the product was obsolete, so that we can remove it
+		# from the product or product_obsolete collection if its obsolete status changed
+		$product_ref->{was_obsolete} = $product_ref->{obsolete};
 		$product_ref->{obsolete} = remove_tags_and_quote(decode utf8 => single_param("obsolete"));
 		$product_ref->{obsolete_since_date} = remove_tags_and_quote(decode utf8 => single_param("obsolete_since_date"));
 	}

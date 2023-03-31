@@ -123,7 +123,7 @@ sub search_int_codes() {
 
 	# 2 mins, instead of 30s default, to not die as easily if mongodb is busy.
 	my $socket_timeout_ms = 2 * 60000;
-	my $products_collection = get_products_collection($socket_timeout_ms);
+	my $products_collection = get_products_collection({timeout => $socket_timeout_ms});
 
 	# find int codes
 	my @int_ids = ();
@@ -194,7 +194,7 @@ sub remove_int_barcode_mongo ($dry_run, $out) {
 	# remove them from mongodb
 	# 2 mins, instead of 30s default, to not die as easily if mongodb is busy.
 	my $socket_timeout_ms = 2 * 60000;
-	my $products_collection = get_products_collection($socket_timeout_ms);
+	my $products_collection = get_products_collection({timeout => $socket_timeout_ms});
 	$products_collection->delete_many($int_codes_query_ref);
 
 	return;
@@ -211,7 +211,7 @@ sub remove_non_normalized_mongo ($dry_run, $out) {
 	my @ids_to_remove = ();
 	# 2 mins, instead of 30s default, to not die as easily if mongodb is busy.
 	my $socket_timeout_ms = 2 * 60000;
-	my $products_collection = get_products_collection($socket_timeout_ms);
+	my $products_collection = get_products_collection({timeout => $socket_timeout_ms});
 	my $cursor = $products_collection->query({})->fields({_id => 1, code => 1});
 	$cursor->immortal(1);
 	while (my $product_ref = $cursor->next) {
