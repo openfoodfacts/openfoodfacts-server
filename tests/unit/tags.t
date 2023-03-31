@@ -355,10 +355,10 @@ is_deeply(
 	"Getting multiple properties with one undef in the path and an inherited one"
 );
 
-is_deeply(tags_by_prop("test", [], "color:en", ["description:fr"], ["flavour:en"]),
-	{}, "tags_by_prop for no tagids gives empty hashmap");
+is_deeply(get_tags_grouped_by_property("test", [], "color:en", ["description:fr"], ["flavour:en"]),
+	{}, "get_tags_grouped_by_property for no tagids gives empty hashmap");
 is_deeply(
-	tags_by_prop("test", ["en:passion-fruit-yogurts", "fr:yaourts-au-citron-alleges"], "color:en", [], []),
+	get_tags_grouped_by_property("test", ["en:passion-fruit-yogurts", "fr:yaourts-au-citron-alleges"], "color:en", [], []),
 	{
 		'undef' => {
 			'en:passion-fruit-yogurts' => {}
@@ -367,10 +367,10 @@ is_deeply(
 			'fr:yaourts-au-citron-alleges' => {}
 		},
 	},
-	"tags_by_prop with grouping on color:en, no additional property"
+	"get_tags_grouped_by_property with grouping on color:en, no additional property"
 );
 is_deeply(
-	tags_by_prop(
+	get_tags_grouped_by_property(
 		"test",
 		["en:passion-fruit-yogurts", "fr:yaourts-a-la-myrtille", "fr:yaourts-au-citron-alleges", "en:lemon-yogurts"],
 		"color:en", ["description:fr"], ["flavour:en"],
@@ -397,7 +397,7 @@ is_deeply(
 			}
 		},
 	},
-	"tags_by_prop with grouping on color:en"
+	"get_tags_grouped_by_property with grouping on color:en"
 );
 
 my $yuka_uuid = "yuka.R452afga432";

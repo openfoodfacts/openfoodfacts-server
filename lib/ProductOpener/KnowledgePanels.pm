@@ -65,7 +65,7 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::PackagerCodes qw/:all/;
-use ProductOpener::ContributionKnowledgePanels qw/create_contribution_card_panel/;
+use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel/;
 
 use JSON::PP;
 use Encode;

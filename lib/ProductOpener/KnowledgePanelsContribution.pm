@@ -20,7 +20,7 @@
 
 =head1 NAME
 
-ProductOpener::ContributionKnowledgePanels - Generate knowledge panels around contribution
+ProductOpener::KnowledgePanelsContribution - Generate knowledge panels around contribution
 
 =head1 SYNOPSIS
 
@@ -28,7 +28,7 @@ This is a subpart of KnowledgPanels where we concentrate around contribution inf
 
 =cut
 
-package ProductOpener::ContributionKnowledgePanels;
+package ProductOpener::KnowledgePanelsContribution;
 
 use ProductOpener::PerlStandards;
 use Exporter qw< import >;
@@ -140,12 +140,12 @@ sub create_data_quality_panel ($tags_type, $product_ref, $target_lc, $target_cc,
 		&& (scalar @data_quality_tags))
 	{
 		my $panel_data_ref = {};
-		my $quality_tags_by_action = tags_by_prop("data_quality", $product_ref->{$field_name},
+		my $quality_tags_by_action = get_tags_grouped_by_property("data_quality", $product_ref->{$field_name},
 			"fix_action:en", ["description:en"], ["show_to:en"]);
 		if (%$quality_tags_by_action) {
 			_add_quality_tags_names($tags_type, $target_lc, $quality_tags_by_action);
 			$panel_data_ref->{tags_type} = $tags_type;
-			$panel_data_ref->{quality_tags} = $quality_tags_by_action;
+			$panel_data_ref->{quality_actions} = $quality_tags_by_action;
 			create_panel_from_json_template($tags_type, "api/knowledge-panels/contribution/data_quality_tags.tt.json",
 				$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 			$created = 1;

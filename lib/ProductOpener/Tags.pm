@@ -60,7 +60,7 @@ BEGIN {
 		&get_property_with_fallbacks
 		&get_inherited_property
 		&get_inherited_properties
-		&tags_by_prop
+		&get_tags_grouped_by_property
 
 		%canon_tags
 		%tags_images
@@ -322,8 +322,8 @@ sub get_property_with_fallbacks ($tagtype, $tagid, $property, $fallback_lcs = ["
 		if ($property =~ /:..$/) {
 			my $bare_name = $`;
 			# try fallbacks
-			foreach my $lang (@$fallback_lcs) {
-				$property_value = get_property($tagtype, $tagid, "$bare_name:$lang");
+			foreach my $lc (@$fallback_lcs) {
+				$property_value = get_property($tagtype, $tagid, "$bare_name:$lc");
 				last if defined $property_value;
 			}
 		}
@@ -488,7 +488,7 @@ sub get_inherited_properties ($tagtype, $canon_tagid, $properties_names_ref, $fa
 	return \%found_properties;
 }
 
-=head2 tags_by_prop ($tagtype, $tagids_ref, $prop_name, $props_ref, $inherited_props_ref, $fallback_lcs = ["xx", "en"])
+=head2 get_tags_grouped_by_property ($tagtype, $tagids_ref, $prop_name, $props_ref, $inherited_props_ref, $fallback_lcs = ["xx", "en"])
 Retrieve properties of a series of tags given in C<$tagids_ref>
 and return them, but grouped by C<$prop_name>,
 also fetching C<$props_ref> and C<$inherited_props_ref>
@@ -520,18 +520,18 @@ we asks for quality tags, grouped by fix_action, while getting descriptions
 }
 =cut
 
-sub tags_by_prop ($tagtype, $tagids_ref, $prop_name, $props_ref, $inherited_props_ref, $fallback_lcs = ["xx", "en"]) {
+sub get_tags_grouped_by_property ($tagtype, $tagids_ref, $prop_name, $props_ref, $inherited_props_ref, $fallback_lcs = ["xx", "en"]) {
 	my @tagids = @{$tagids_ref};
 	my @props_to_fetch = (@{$inherited_props_ref});
 	push @props_to_fetch, $prop_name;
 
-	my $tags_by_prop = {};
+	my $grouped_tags = {};
 
 	foreach my $tagid (@tagids) {
 		my $found_ref = get_inherited_properties($tagtype, $tagid, \@props_to_fetch);
 		my $prop_value = $found_ref->{$prop_name} // "undef";
 		delete $found_ref->{$prop_name} if defined $found_ref->{$prop_name};
-		defined $tags_by_prop->{$prop_value} or $tags_by_prop->{$prop_value} = {};
+		defined $grouped_tags->{$prop_value} or $grouped_tags->{$prop_value} = {};
 		# properties only on first level
 		foreach my $property (@$props_ref) {
 			my $value = get_property_with_fallbacks($tagtype, $tagid, $property, $fallback_lcs);
@@ -539,10 +539,10 @@ sub tags_by_prop ($tagtype, $tagids_ref, $prop_name, $props_ref, $inherited_prop
 				$found_ref->{$property} = $value;
 			}
 		}
-		$tags_by_prop->{$prop_value}{$tagid} = $found_ref;
+		$grouped_tags->{$prop_value}{$tagid} = $found_ref;
 	}
 
-	return $tags_by_prop;
+	return $grouped_tags;
 }
 
 sub has_tag ($product_ref, $tagtype, $tagid) {

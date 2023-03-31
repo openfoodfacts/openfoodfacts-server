@@ -40,7 +40,7 @@ use ProductOpener::Units qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::KnowledgePanels qw/:all/;
-use ProductOpener::ContributionKnowledgePanels qw/:all/;
+use ProductOpener::KnowledgePanelsContribution qw/:all/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
