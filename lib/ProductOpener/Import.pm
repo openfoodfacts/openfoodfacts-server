@@ -66,6 +66,8 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 
+		$IMPORT_MAX_PACKAGING_COMPONENTS
+
 		&import_csv_file
 		&import_products_categories_from_public_database
 
@@ -112,6 +114,8 @@ use URI;
 use Digest::MD5 qw(md5_hex);
 use LWP::UserAgent;
 use Data::Difference qw(data_diff);
+
+$IMPORT_MAX_PACKAGING_COMPONENTS = 10;
 
 # private function to import images from dir
 # args:
@@ -1124,8 +1128,8 @@ sub import_packaging_components (
 
 	# packaging data is specified in the CSV file in columns named like packagings_1_number_of_units
 	# we currently search up to 10 components
-	$IMPORT_MAX_COMPONENTS = 10;
-	for (my $i = 1; $i <= $IMPORT_MAX_COMPONENTS; $i++) {
+	
+	for (my $i = 1; $i <= $IMPORT_MAX_PACKAGING_COMPONENTS; $i++) {
 		my $input_packaging_ref = {};
 		foreach
 			my $field (qw(number_of_units shape material recycling quantity_per_unit weight_specified weight_measured))
