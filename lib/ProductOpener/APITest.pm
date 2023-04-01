@@ -52,6 +52,7 @@ BEGIN {
 		&wait_dynamic_front
 		&execute_api_tests
 		&wait_server
+		&fake_http_server
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -61,6 +62,7 @@ use vars @EXPORT_OK;
 use ProductOpener::TestDefaults qw/:all/;
 use ProductOpener::Test qw/:all/;
 use ProductOpener::Mail qw/ $LOG_EMAIL_START $LOG_EMAIL_END /;
+use ProductOpener::Store qw/store retrieve/;
 
 use Test::More;
 use LWP::UserAgent;
@@ -71,6 +73,7 @@ use JSON::PP;
 use Carp qw/confess/;
 use Clone qw/clone/;
 use File::Tail;
+use Test::Fake::HTTPD;
 
 # Constants of the test website main domain and url
 # Should be used internally only (see: construct_test_url to build urls in tests)
@@ -153,6 +156,8 @@ Return a user agent
 sub new_client () {
 	my $jar = HTTP::CookieJar::LWP->new;
 	my $ua = LWP::UserAgent->new(cookie_jar => $jar);
+	# set a neutral user-agent, for it may appear in some results
+	$ua->agent("Product-opener-tests/1.0");
 	return $ua;
 }
 
@@ -594,7 +599,7 @@ Especially we replace "3D=" for "=" and join line and their continuation
 =head4 $mail text of mail
 
 =head3 Returns
-Reformated text
+Reformatted text
 =cut
 
 sub mail_to_text ($mail) {
@@ -620,10 +625,11 @@ ref to an array of lines of the email
 
 sub normalize_mail_for_comparison ($mail) {
 	# remove boundaries
+	$DB::single = 1;
 	my $text = mail_to_text($mail);
-	my @boundaries = $text =~ m/boundary="([^"]+)"/g;
+	my @boundaries = $text =~ m/boundary=([^ ,\n\t]+)/g;
 	foreach my $boundary (@boundaries) {
-		$text =~ s/$boundary/\\"--boundary--\\"/g;
+		$text =~ s/$boundary/boundary/g;
 	}
 	# replace generic dates
 	$text =~ s/\d\d\d\d-\d\d-\d\d/--date--/g;
@@ -632,6 +638,76 @@ sub normalize_mail_for_comparison ($mail) {
 	# replace date headers
 	@lines = map {my $text = $_; $text =~ s/^Date: .+/Date: ***/g; $text;} @lines;
 	return \@lines;
+}
+
+=head2 fake_http_server($port, $dump_path, $responses_ref) {
+
+Launch a fake HTTP server.
+
+We use that to simulate Robotoff or any HTTP API in integration tests.
+As it will be launched on the local backend container, we have to pretend
+those service URL is on C<backend:$port>.
+
+You can provide a list of responses to simulate real service responses,
+while requests sent are store for later checks by the tests.
+
+=head3 parameters
+
+=head4 $dump_path - path
+
+A temporary directory to dump requests
+
+You can retrieve requests, in this directory as C<req-n.sto>
+
+=head4 $responses_ref - ref to a list
+
+List of responses to send, in right order, for each received request.
+
+If the number of request exceed this list,
+we will send simple 200 HTTP responses with a json payload.
+
+=head3 returns ref to fake server
+
+Hold the reference until you don't need the server
+
+=cut
+
+sub fake_http_server ($port, $dump_path, $responses_ref) {
+
+	# dump responses
+	my $resp_num = 0;
+	foreach my $resp (@$responses_ref) {
+		store("$dump_path/resp-$resp_num.sto", $resp);
+		$resp_num += 1;
+	}
+
+	my $httpd = Test::Fake::HTTPD->new(
+		timeout => 1000,
+		listen => 10,
+		host => "0.0.0.0",
+		port => $port,
+	);
+
+	$httpd->run(
+		sub {
+			my $req = shift;
+			my @dumped_reqs = glob("$dump_path/req-*.sto");
+			my $num_req = scalar @dumped_reqs;
+			# dump request to the folder
+			store("$dump_path/req-$num_req.sto", $req);
+			# look for an eventual response
+			my $response_ref;
+			if (-e "$dump_path/resp-$num_req.sto") {
+				$response_ref = retrieve("$dump_path/resp-$num_req.sto");
+			}
+			else {
+				# an ok response
+				$response_ref = HTTP::Response->new("200", "OK", HTTP::Headers->new(), '{"foo": "blah"}');
+			}
+			return $response_ref;
+		}
+	);
+	return $httpd;
 }
 
 1;

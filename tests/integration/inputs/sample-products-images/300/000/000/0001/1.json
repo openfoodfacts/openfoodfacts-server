@@ -1,0 +1,75 @@
+{
+  "responses": [
+    {
+      "labelAnnotations": [
+        {
+          "mid": "/m/07xgrh",
+          "description": "Ingredient",
+          "score": 0.86167634,
+          "topicality": 0.86167634
+        },
+        {
+          "mid": "/m/01ykh",
+          "description": "Cuisine",
+          "score": 0.8451197,
+          "topicality": 0.8451197
+        },
+        {
+          "mid": "/m/02wbm",
+          "description": "Food",
+          "score": 0.8418686,
+          "topicality": 0.8418686
+        },
+        {
+          "mid": "/m/02q08p0",
+          "description": "Dish",
+          "score": 0.81159383,
+          "topicality": 0.81159383
+        },
+        {
+          "mid": "/m/083vt",
+          "description": "Wood",
+          "score": 0.7561794,
+          "topicality": 0.7561794
+        },
+        {
+          "mid": "/m/0hwky",
+          "description": "Pattern",
+          "score": 0.7537876,
+          "topicality": 0.7537876
+        },
+        {
+          "mid": "/m/036qh8",
+          "description": "Produce",
+          "score": 0.7300633,
+          "topicality": 0.7300633
+        },
+        {
+          "mid": "/m/08tlbj",
+          "description": "Natural foods",
+          "score": 0.6109067,
+          "topicality": 0.6109067
+        },
+        {
+          "mid": "/m/04jdhxy",
+          "description": "Superfood",
+          "score": 0.60629594,
+          "topicality": 0.60629594
+        },
+        {
+          "mid": "/m/02t2zd",
+          "description": "Cobblestone",
+          "score": 0.59688926,
+          "topicality": 0.59688926
+        }
+      ],
+      "safeSearchAnnotation": {
+        "adult": "VERY_UNLIKELY",
+        "spoof": "VERY_UNLIKELY",
+        "medical": "UNLIKELY",
+        "violence": "VERY_UNLIKELY",
+        "racy": "VERY_UNLIKELY"
+      }
+    }
+  ]
+}
