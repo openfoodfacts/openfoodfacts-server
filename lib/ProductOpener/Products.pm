@@ -105,7 +105,7 @@ BEGIN {
 
 		&process_product_edit_rules
 		&product_data_is_protected
-
+		&update_existing_product_without_creating_a_new_revision
 		&make_sure_numbers_are_stored_as_numbers
 		&change_product_server_or_code
 
@@ -1001,10 +1001,27 @@ sub compute_sort_keys ($product_ref) {
 	return;
 }
 
-sub created_function($mongodb_to_mongodb, $product_ref, $products_collection, $data_root, $path) {
+=head2 update_existing_product_without_creating_a_new_revision( $mongodb_to_mongodb, $product_ref, $products_collection, $data_root, $path)
 
-	# make sure nutrient values are numbers
-	ProductOpener::Products::make_sure_numbers_are_stored_as_numbers($product_ref);
+update existing product without creating a new revision
+
+=head3 Parameters
+
+=head4 $mongodb_to_mongodb
+  
+=head4 $product_ref
+
+Product object reference.
+
+=head4  $products_collection
+=head4 $data_root
+=head4 $path
+
+=cut
+
+sub update_existing_product_without_creating_a_new_revision ($mongodb_to_mongodb, $product_ref, $products_collection,
+	$data_root, $path)
+{
 
 	if (!$mongodb_to_mongodb) {
 		# Store data to .sto file
