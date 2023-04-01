@@ -169,8 +169,8 @@ use ProductOpener::PackagerCodes qw(:all);
 use ProductOpener::Export qw(:all);
 use ProductOpener::API qw(:all);
 use ProductOpener::Units qw/:all/;
+use ProductOpener::Cache qw/:all/;
 
-use Cache::Memcached::Fast;
 use Encode;
 use URI::Escape::XS;
 use CGI qw(:cgi :cgi-lib :form escapeHTML');
@@ -187,7 +187,6 @@ use CLDR::Number;
 use CLDR::Number::Format::Decimal;
 use CLDR::Number::Format::Percent;
 use Storable qw(dclone freeze);
-use Digest::MD5 qw(md5_hex);
 use boolean;
 use Excel::Writer::XLSX;
 use Template;
@@ -291,13 +290,6 @@ $tt = Template->new(
 );
 
 # Initialize exported variables
-$memd = Cache::Memcached::Fast->new(
-	{
-		'servers' => $memd_servers,
-		'utf8' => 1,
-		compress_threshold => 10000,
-	}
-);
 
 $default_request_ref = {page => 1,};
 
@@ -838,8 +830,8 @@ CSS
 	$formatted_subdomain = format_subdomain($subdomain);
 	$producers_platform_url = $formatted_subdomain . '/';
 
-	# If we are not on the producers platform: add .pro
-	if ($server_options{producers_platform}) {
+	# If we are not already on the producers platform: add .pro
+	if ($producers_platform_url !~ /\.pro\.open/) {
 		$producers_platform_url =~ s/\.open/\.pro\.open/;
 	}
 
@@ -1437,9 +1429,8 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 	}
 
 	#get cache results for aggregate query
-	my $key = $server_domain . "/" . freeze($aggregate_parameters);
+	my $key = generate_cache_key("aggregate", $aggregate_parameters);
 	$log->debug("MongoDB query key", {key => $key}) if $log->is_debug();
-	$key = md5_hex($key);
 	my $results = get_cache_results($key, $request_ref);
 
 	if ((not defined $results) or (ref($results) ne "ARRAY") or (not defined $results->[0])) {
@@ -1517,9 +1508,8 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 	else {
 
 		#get total count for aggregate (without limit) and put result in cache
-		my $key_count = $server_domain . "/" . freeze($aggregate_count_parameters);
+		my $key_count = generate_cache_key("aggregate_count", $aggregate_count_parameters);
 		$log->debug("MongoDB aggregate count query key", {key => $key_count}) if $log->is_debug();
-		$key_count = md5_hex($key_count);
 		my $results_count = get_cache_results($key_count, $request_ref);
 
 		if (not defined $results_count) {
@@ -4883,14 +4873,9 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		skip => $skip
 	];
 
-	# Sort the keys of hashes
-	my $json = JSON::PP->new->utf8->canonical->encode($mongodb_query_ref);
+	my $key = generate_cache_key("search_products", $mongodb_query_ref);
 
-	my $key = $server_domain . "/" . $json;
-
-	$log->debug("MongoDB query key - search-products", {key => $key}) if $log->is_debug();
-
-	$key = "search-products-" . md5_hex($key);
+	$log->debug("MongoDB query key - search_products", {key => $key}) if $log->is_debug();
 
 	$request_ref->{structured_response} = get_cache_results($key, $request_ref);
 
@@ -4933,9 +4918,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 				}
 				elsif (keys %{$query_ref} > 0) {
 					#check if count results is in cache
-					my $key_count = $server_domain . "/" . freeze($query_ref);
-					$log->debug("MongoDB query key - search-count", {key => $key_count}) if $log->is_debug();
-					$key_count = "search-count-" . md5_hex($key_count);
+					my $key_count = generate_cache_key("search_products_count", $query_ref);
+					$log->debug("MongoDB query key - search_products_count", {key => $key_count}) if $log->is_debug();
 					my $results_count = get_cache_results($key_count, $request_ref);
 					if (not defined $results_count) {
 

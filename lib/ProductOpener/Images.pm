@@ -56,10 +56,8 @@ Same image saved with a maximum width and height of 100 and 400 pixels. Those th
 
 OCR output from Google Cloud Vision.
 
-When a new image is uploaded, a symbolic link to it is created in /new_images. This triggers a script to generate and save the OCR:
-
-incrontab -l -u off
-/srv/off/new_images IN_ATTRIB,IN_CREATE,IN_MOVED_TO /srv/off/scripts/process_new_image_off.sh $@/$#
+When a new image is uploaded, a symbolic link to it is created in /new_images.
+This triggers a script to generate and save the OCR: C<run_cloud_vision_ocr.pl>.
 
 =item [front|ingredients|nutrition|packaging]_[2 letter language code].[product revision].[full|100|200|400].jpg
 
@@ -111,6 +109,11 @@ BEGIN {
 		&display_image_thumb
 
 		&extract_text_from_image
+		&send_image_to_cloud_vision
+		&send_image_to_robotoff
+
+		@CLOUD_VISION_FEATURES_FULL
+		@CLOUD_VISION_FEATURES_TEXT
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -621,7 +624,7 @@ Format: [front|ingredients|nutrition|packaging|other]_[2 letter language code]
 
 =head4 Comment $comment
 
-=head4 Reference to an imgid $img_id
+=head4 Reference to an image id $img_id
 
 Used to return the number identifying the image to the caller.
 
@@ -1996,93 +1999,198 @@ sub extract_text_from_image ($product_ref, $id, $field, $ocr_engine, $results_re
 		else {
 			$log->warn("no available tesseract dictionary", {lc => $lc, lan => $lan, id => $id}) if $log->is_warn();
 		}
-
 	}
 	elsif ($ocr_engine eq 'google_cloud_vision') {
 
-		my $url = "https://vision.googleapis.com/v1/images:annotate?key="
-			. $ProductOpener::Config::google_cloud_vision_api_key;
+		my $json_file = "$www_root/images/products/$path/$filename.json";
+		open(my $gv_logs, ">>:encoding(UTF-8)", "$data_root/logs/cloud_vision.log");
+		my $cloudvision_ref = send_image_to_cloud_vision($image, $json_file, \@CLOUD_VISION_FEATURES_TEXT, $gv_logs);
+		close $gv_logs;
 
-		my $ua = LWP::UserAgent->new();
+		if (    (defined $cloudvision_ref->{responses})
+			and (defined $cloudvision_ref->{responses}[0])
+			and (defined $cloudvision_ref->{responses}[0]{fullTextAnnotation})
+			and (defined $cloudvision_ref->{responses}[0]{fullTextAnnotation}{text}))
+		{
 
-		open(my $IMAGE, "<", $image) || die "Could not read $image: $!\n";
-		binmode($IMAGE);
-		local $/;
-		my $image_data = do {local $/; <$IMAGE>};    # https://www.perlmonks.org/?node_id=287647
-		close $IMAGE;
+			$log->debug("text found in google cloud vision response") if $log->is_debug();
 
-		my $api_request_ref = {
-			requests => [
-				{
-					features => [{type => 'TEXT_DETECTION'}],
-					# image => { source => { imageUri => $image_url}}
-					image => {content => encode_base64($image_data)}
-				}
-			]
-		};
-		my $json = encode_json($api_request_ref);
-
-		my $request = HTTP::Request->new(POST => $url);
-		$request->header('Content-Type' => 'application/json');
-		$request->content($json);
-
-		my $res = $ua->request($request);
-		# $log->info("google cloud vision response", { json_response => $res->decoded_content, api_token => $ProductOpener::Config::google_cloud_vision_api_key });
-
-		if ($res->is_success) {
-
-			$log->info("request to google cloud vision was successful") if $log->is_info();
-
-			open(my $OUT, ">>:encoding(UTF-8)", "$data_root/logs/cloud_vision.log");
-			print $OUT "success\t" . $image_url . "\t" . $res->code . "\n";
-			close $OUT;
-
-			my $json_response = $res->decoded_content;
-
-			my $cloudvision_ref = decode_json($json_response);
-
-			my $json_file = "$www_root/images/products/$path/$filename.json";
-
-			$log->info("saving google cloud vision json response to file", {path => $json_file}) if $log->is_info();
-
-			# UTF-8 issue , see https://stackoverflow.com/questions/4572007/perl-lwpuseragent-mishandling-utf-8-response
-			$json_response = decode("utf8", $json_response);
-
-			open($OUT, ">:encoding(UTF-8)", $json_file);
-			print $OUT $json_response;
-			close $OUT;
-
-			if (    (defined $cloudvision_ref->{responses})
-				and (defined $cloudvision_ref->{responses}[0])
-				and (defined $cloudvision_ref->{responses}[0]{fullTextAnnotation})
-				and (defined $cloudvision_ref->{responses}[0]{fullTextAnnotation}{text}))
-			{
-
-				$log->debug("text found in google cloud vision response") if $log->is_debug();
-
-				$results_ref->{$field} = $cloudvision_ref->{responses}[0]{fullTextAnnotation}{text};
-				$results_ref->{$field . "_annotations"} = $cloudvision_ref;
-				$results_ref->{status} = 0;
-				$product_ref->{images}{$id}{ocr} = 1;
-				$product_ref->{images}{$id}{orientation}
-					= compute_orientation_from_cloud_vision_annotations($cloudvision_ref);
-			}
-			else {
-				$product_ref->{images}{$id}{ocr} = 0;
-			}
-
+			$results_ref->{$field} = $cloudvision_ref->{responses}[0]{fullTextAnnotation}{text};
+			$results_ref->{$field . "_annotations"} = $cloudvision_ref;
+			$results_ref->{status} = 0;
+			$product_ref->{images}{$id}{ocr} = 1;
+			$product_ref->{images}{$id}{orientation}
+				= compute_orientation_from_cloud_vision_annotations($cloudvision_ref);
 		}
 		else {
-			$log->warn("google cloud vision request not successful", {code => $res->code, response => $res->message})
-				if $log->is_warn();
-
-			open(my $OUT, ">>:encoding(UTF-8)", "$data_root/logs/cloud_vision.log");
-			print $OUT "error\t" . $image_url . "\t" . $res->code . "\t" . $res->message . "\n";
-			close $OUT;
+			$product_ref->{images}{$id}{ocr} = 0;
 		}
 	}
-
 	return;
+}
+
+@CLOUD_VISION_FEATURES_FULL = (
+	{type => 'TEXT_DETECTION'},
+	{type => 'LOGO_DETECTION'},
+	{type => 'LABEL_DETECTION'},
+	{type => 'SAFE_SEARCH_DETECTION'},
+	{type => 'FACE_DETECTION'},
+);
+
+@CLOUD_VISION_FEATURES_TEXT = ({type => 'TEXT_DETECTION'});
+
+=head2 send_image_to_cloud_vision ($image_path, $json_file, $features_ref, $gv_logs)
+
+Call to Google Cloud vision API
+
+=head3 Arguments
+
+=head4 $image_path - str path to image
+
+=head4 $json_file - str path to the file where we will store OCR result as JSON
+
+=head4 $features_ref - hash reference - the "features" parameter of Google Cloud Vision
+
+This determine which detection will be performed.
+Remember each feature is a cost.
+
+C<@CLOUD_VISION_FEATURES_FULL> and C<@CLOUD_VISION_FEATURES_TEXT> are two constant you can use.
+
+=head4 $gv_logs - file handle
+
+A file where we write additional logs, specific to the service.
+
+=head3 Response
+
+Return JSON content of the response.
+
+=cut
+
+sub send_image_to_cloud_vision ($image_path, $json_file, $features_ref, $gv_logs) {
+
+	my $url
+		= $ProductOpener::Config::google_cloud_vision_api_url . "?key="
+		. $ProductOpener::Config::google_cloud_vision_api_key;
+	print($gv_logs "CV:sending to $url\n");
+
+	my $ua = LWP::UserAgent->new();
+
+	open(my $IMAGE, "<", $image_path) || die "Could not read $image_path: $!\n";
+	binmode($IMAGE);
+	local $/;
+	my $image_data = do {local $/; <$IMAGE>};    # https://www.perlmonks.org/?node_id=287647
+	close $IMAGE;
+
+	my $api_request_ref = {
+		requests => [
+			{
+				features => $features_ref,
+				# image => { source => { imageUri => $image_url}}
+				image => {content => encode_base64($image_data)},
+			}
+		]
+	};
+	my $json = encode_json($api_request_ref);
+
+	my $request = HTTP::Request->new(POST => $url);
+	$request->header('Content-Type' => 'application/json');
+	$request->content($json);
+
+	my $cloud_vision_response = $ua->request($request);
+	# $log->info("google cloud vision response", { json_response => $cloud_vision_response->decoded_content, api_token => $ProductOpener::Config::google_cloud_vision_api_key });
+
+	my $cloudvision_ref = undef;
+	if ($cloud_vision_response->is_success) {
+
+		$log->info("request to google cloud vision was successful for $image_path") if $log->is_info();
+
+		my $json_response = $cloud_vision_response->decoded_content(charset => 'UTF-8');
+
+		$cloudvision_ref = decode_json($json_response);
+
+		$log->info("saving google cloud vision json response to file", {path => $json_file}) if $log->is_info();
+
+		# UTF-8 issue , see https://stackoverflow.com/questions/4572007/perl-lwpuseragent-mishandling-utf-8-response
+		$json_response = decode("utf8", $json_response);
+
+		if (open(my $OUT, ">:encoding(UTF-8)", $json_file)) {
+			print($OUT $json_response);
+			close($OUT);
+
+			print($gv_logs "--> cloud vision success for $image_path\n");
+		}
+		else {
+			$log->error("Cannot write $json_file: $!\n");
+			print($gv_logs "Cannot write $json_file: $!\n");
+		}
+
+	}
+	else {
+		$log->warn(
+			"google cloud vision request not successful",
+			{
+				code => $cloud_vision_response->code,
+				image_path => $image_path,
+				response => $cloud_vision_response->message
+			}
+		) if $log->is_warn();
+		print $gv_logs "error\t"
+			. $image_path . "\t"
+			. $cloud_vision_response->code . "\t"
+			. $cloud_vision_response->message . "\n";
+	}
+	return $cloudvision_ref;
+
+}
+
+=head2 send_image_to_robotoff ($code, $image_url, $json_url, $api_server_domain)
+
+Send a notification about a new image (already gone through OCR) to Robotoff
+
+=head3 Arguments
+
+=head4 $code - product code
+
+=head4 $image_url - public url of the image
+
+=head4 $json_url - public url of OCR result as JSON
+
+=head4 $api_server_domain - the API url for this product opener instance
+
+=head3 Response
+
+Return Robotoff HTTP::Response object.
+
+=cut
+
+sub send_image_to_robotoff ($code, $image_url, $json_url, $api_server_domain) {
+
+	my $ua = LWP::UserAgent->new();
+
+	my $robotoff_response = $ua->post(
+		$robotoff_url . "/api/v1/images/import",
+		{
+			'barcode' => $code,
+			'image_url' => $image_url,
+			'ocr_url' => $json_url,
+			'server_domain' => $api_server_domain,
+		}
+	);
+
+	if ($robotoff_response->is_success) {
+		$log->info("request to robotoff was successful") if $log->is_info();
+	}
+	else {
+		$log->warn(
+			"robotoff request not successful",
+			{
+				code => $robotoff_response->code,
+				response => $robotoff_response->message,
+				status_line => $robotoff_response->status_line
+			}
+		) if $log->is_warn();
+	}
+	return $robotoff_response;
 }
 
 1;

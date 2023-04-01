@@ -392,12 +392,12 @@ nav.tab-bar > div {
   font-size: 0.8em;
 }
 
-.note {
+.note ,.asterisk {
   font-size: 0.8em;
 }
 
 .example,
-.note {
+.note,.asterisk {
   margin: 4px 0 0 4px;
 }
 
@@ -1073,10 +1073,6 @@ a.grade_e:hover {
 
 #main_column {
   padding-bottom: 2rem;
-  > h1,
-  > p {
-    display: none;
-  }
 }
 
 @import "cards";
@@ -1434,6 +1430,12 @@ a.panel_title {
 }
 .accordion-navigation a {
   text-decoration:none !important;
+}
+.panel_title a {
+  text-decoration:none !important;
+}
+.panel_text a {
+  text-decoration:underline !important;
 }
 .pagination a {
   text-decoration:none !important;

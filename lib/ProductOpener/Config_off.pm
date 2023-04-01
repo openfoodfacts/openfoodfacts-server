@@ -42,6 +42,7 @@ BEGIN {
 		$producers_email
 
 		$google_cloud_vision_api_key
+		$google_cloud_vision_api_url
 
 		$crowdin_project_identifier
 		$crowdin_project_key
@@ -155,6 +156,11 @@ use ProductOpener::Config2;
 	},
 	# English has very few accented words, and they are very often not accented by users or in ingredients lists etc.
 	en => {
+		unaccent => 1,
+		lowercase => 1,
+	},
+	# xx: language less entries, also deaccent
+	xx => {
 		unaccent => 1,
 		lowercase => 1,
 	},
@@ -338,6 +344,7 @@ $conf_root = $ProductOpener::Config2::conf_root;
 $geolite2_path = $ProductOpener::Config2::geolite2_path;
 
 $google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_key;
+$google_cloud_vision_api_url = $ProductOpener::Config2::google_cloud_vision_api_url;
 
 $crowdin_project_identifier = $ProductOpener::Config2::crowdin_project_identifier;
 $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;

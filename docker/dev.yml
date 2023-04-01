@@ -24,7 +24,7 @@ x-backend-conf: &backend-conf
 x-minion-db-network: &minion-db-network
   networks:
     # we need to be on default, but also on a dedicated network (ease sharing with pro in dev)
-    # see also docs/explanations/pro-dev-setup.md
+    # see also docs/dev/explain-pro-dev-setup.md
     minion_db:
     default:
 
@@ -35,12 +35,10 @@ services:
     profiles: ["off"]
     <<: *minion-db-network
   backend:
-    <<: *backend-conf
-    <<: *minion-db-network
+    <<: [*backend-conf, *minion-db-network] 
   incron: *backend-conf
   minion:
-    <<: *backend-conf
-    <<: *minion-db-network
+    <<: [*backend-conf, *minion-db-network]
   # in dev we want to use watch assets and recompile on the fly
   # also we want to build at start time in case some files changed, as we want to avoid recreating volumes
   dynamicfront:
@@ -100,7 +98,7 @@ volumes:
   html_data:
   products:
   # those one are volumes shared between off and pro, so we assign hard-coded names
-  # see docs/explanations/pro-dev-setup.md
+  # see docs/dev/explain-pro-dev-setup.md
   # PO_COMMON_PREFIX is there to separate env, eg. for tests
   users:
     name: ${PO_COMMON_PREFIX:-}po_users

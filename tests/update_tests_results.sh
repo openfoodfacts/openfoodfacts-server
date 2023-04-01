@@ -24,7 +24,6 @@ do
     perl $FILE --update-expected-results
 done
 
-
 # Integration tests
 
 for FILE in integration/*.t; do perl $FILE --update-expected-results; done
