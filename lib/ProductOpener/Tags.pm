@@ -659,8 +659,6 @@ sub load_tags_images ($lc, $tagtype) {
 			if ($file =~ /^((.*)\.\d+x${logo_height}.(png|svg))$/) {
 				if ((not defined $tags_images{$lc}{$tagtype}{$2}) or ($3 eq 'svg')) {
 					$tags_images{$lc}{$tagtype}{$2} = $1;
-					print STDERR
-						"load_tags_images - tags_images - loading lc: $lc - tagtype: $tagtype - tag: $2 - img: $1 - ext: $3 \n";
 				}
 			}
 		}

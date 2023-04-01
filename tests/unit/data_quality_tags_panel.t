@@ -5,6 +5,8 @@ use ProductOpener::PerlStandards;
 use Test::More;
 use Log::Any::Adapter 'TAP';
 
+use ProductOpener::Display;
+
 use ProductOpener::Test qw/:all/;
 use ProductOpener::TestDefaults qw/:all/;
 
@@ -94,6 +96,9 @@ foreach my $test_ref (@tests) {
 	my $test_id = $test_ref->{id};
 	my %product = (%default_product, %{$test_ref->{product} // {}});
 	my %options = (%default_options, %{$test_ref->{options} // {}});
+	# set language
+	$ProductOpener::Display::lc = "en";
+	# run
 	create_data_quality_panel($test_ref->{tag_type}, \%product, "en", "world", \%options);
 	my $panels_ref = $product{"knowledge_panels_en"};
 	compare_to_expected_results($panels_ref, "$expected_result_dir/$test_id.json", $update_expected_results, $test_ref);

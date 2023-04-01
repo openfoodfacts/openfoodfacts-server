@@ -7,6 +7,7 @@ use Test::More;
 use JSON;
 
 use ProductOpener::Test qw/:all/;
+use ProductOpener::Display;
 use ProductOpener::KnowledgePanelsContribution qw/:all/;
 
 # results of tests are json files
@@ -65,6 +66,8 @@ foreach my $test_ref (@tests) {
 	my $testid = $test_ref->{id};
 	my %product = (%default_product, %{$test_ref->{product} // {}});
 	my %options = (%default_options, %{$test_ref->{options} // {}});
+	# set language
+	$ProductOpener::Display::lc = "en";
 	# run
 	create_contribution_card_panel(
 		\%product,
