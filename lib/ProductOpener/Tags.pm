@@ -510,7 +510,7 @@ we asks for quality tags, grouped by fix_action, while getting descriptions
 			"description:en" => "Kcal is not matching value computed from other nutriments"
 		},
 		"en:kcal-does-not-match-kj" => {
-			"description:en" => "Kcal is not matching kj value"
+			"description:en" => "Kcal is not matching kJ value"
 		},
 	},
 	"add_categories" =>
@@ -522,7 +522,9 @@ we asks for quality tags, grouped by fix_action, while getting descriptions
 }
 =cut
 
-sub get_tags_grouped_by_property ($tagtype, $tagids_ref, $prop_name, $props_ref, $inherited_props_ref, $fallback_lcs = ["xx", "en"]) {
+sub get_tags_grouped_by_property ($tagtype, $tagids_ref, $prop_name, $props_ref, $inherited_props_ref,
+	$fallback_lcs = ["xx", "en"])
+{
 	my @tagids = @{$tagids_ref};
 	my @props_to_fetch = (@{$inherited_props_ref});
 	push @props_to_fetch, $prop_name;

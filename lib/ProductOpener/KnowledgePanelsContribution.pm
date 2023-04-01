@@ -24,7 +24,7 @@ ProductOpener::KnowledgePanelsContribution - Generate knowledge panels around co
 
 =head1 SYNOPSIS
 
-This is a subpart of KnowledgPanels where we concentrate around contribution informations
+This is a subpart of Knowledge Panels where we concentrate around contribution information
 
 =cut
 

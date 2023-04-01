@@ -357,7 +357,10 @@ is_deeply(
 is_deeply(get_tags_grouped_by_property("test", [], "color:en", ["description:fr"], ["flavour:en"]),
 	{}, "get_tags_grouped_by_property for no tagids gives empty hashmap");
 is_deeply(
-	get_tags_grouped_by_property("test", ["en:passion-fruit-yogurts", "fr:yaourts-au-citron-alleges"], "color:en", [], []),
+	get_tags_grouped_by_property(
+		"test", ["en:passion-fruit-yogurts", "fr:yaourts-au-citron-alleges"],
+		"color:en", [], []
+	),
 	{
 		'undef' => {
 			'en:passion-fruit-yogurts' => {}
