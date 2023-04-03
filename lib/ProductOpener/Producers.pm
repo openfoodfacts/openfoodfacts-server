@@ -1873,7 +1873,7 @@ sub export_and_import_to_public_database ($args_ref) {
 
 =head1 Minion tasks
 
-Minion tasks that can be enqueued by standalone scripts or the web site,
+Minion tasks that can be added to the queue by standalone scripts or the web site,
 that are then executed by the minion-off and minion-off-pro daemons.
 
 The daemons are configured in /etc/systemd/system

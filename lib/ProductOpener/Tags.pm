@@ -3067,7 +3067,7 @@ A reference to a variable that will be assigned 1 if we found a matching taxonom
 
 If the string could be matched to an existing taxonomy entry, the canonical id for the entry is returned.
 
-Otherwise, we return the string prepended with the language code (e.g. en:An unknown entry)
+Otherwise, we return the string prefixed with the language code (e.g. en:An unknown entry)
 
 =cut
 

@@ -275,7 +275,7 @@ sub deduped_colnames ($columns_ref) {
 Do some pre-processing on input field values:
 
 - Fields suffixed with _if_not_existing are loaded only if the product does not have an existing value
-- Tags fields have special behaviours:
+- Special handling of tags fields:
 	- Empty values are skipped
 	- For labels and categories, we can have columns like labels:Bio with values like 1, Y, Yes
 	- [tags type]_if_match_in_taxonomy : contains candidate values that we import only if we have a matching taxonomy entry
@@ -297,7 +297,7 @@ sub preprocess_field ($imported_product_ref, $product_ref, $field, $yes_regexp, 
 			. $imported_product_ref->{$field . "_if_not_existing"} . "\n";
 		$imported_product_ref->{$field} = $imported_product_ref->{$field . "_if_not_existing"};
 	}
-	# if it is a field with a tag behaviour (taxonomized or not)
+	# if it is a tag field (taxonomized or not)
 	# (see %tags_fields in Tags.pm)
 	if (defined $tags_fields{$field}) {
 		foreach my $subfield (sort keys %{$imported_product_ref}) {
