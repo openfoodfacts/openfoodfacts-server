@@ -99,6 +99,9 @@ for my $code ('0200000000035', '0200000000135') {
 }
 
 # Note: expected results are stored in json files, see execute_api_tests
+# Each test is composed of two test case: 
+# one that edits a product, 
+# and one that get the product to verify if it was edited or proctected
 my $tests_ref = [
 	# Test with the /cgi/product_jqm_multilingual.pl API v0/v2
 	{
