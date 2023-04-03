@@ -18,10 +18,30 @@ remove_all_products();
 
 wait_application_ready();
 
-my $ua = new_client();
+# Create an admin
+my $admin_ua = new_client();
+my $resp = create_user($admin_ua, \%admin_user_form);
+ok(!html_displays_error($resp));
 
+# Create a normal user
+my $ua = new_client();
 my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
-create_user($ua, \%create_user_args);
+$resp = create_user($ua, \%create_user_args);
+ok(!html_displays_error($resp));
+
+# Create a moderator
+my $moderator_ua = new_client();
+$resp = create_user($moderator_ua, \%moderator_user_form);
+ok(!html_displays_error($resp));
+
+# Admin gives moderator status
+my %moderator_edit_form = (
+	%moderator_user_form,
+	user_group_moderator => "1",
+	type => "edit",
+);
+$resp = edit_user($admin_ua, \%moderator_edit_form);
+ok(!html_displays_error($resp));
 
 # Create some products
 
@@ -73,6 +93,22 @@ my @products = (
 			product_name => "A protected product",
 		)
 	},
+	{
+		%{dclone(\%default_product_form)},
+		%{dclone(\%product_form)},
+		(
+			code => '0200000000235',
+			product_name => "A protected product",
+		)
+	},
+	{
+		%{dclone(\%default_product_form)},
+		%{dclone(\%product_form)},
+		(
+			code => '0200000000335',
+			product_name => "A protected product",
+		)
+	},		
 );
 
 # create the products in the database
@@ -100,8 +136,9 @@ for my $code ('0200000000035', '0200000000135') {
 
 # Note: expected results are stored in json files, see execute_api_tests
 # Each test is composed of two test case: 
-# one that edits a product, 
-# and one that get the product to verify if it was edited or proctected
+# 1. one that edits a product, 
+# 2. one that gets the product to verify if it was edited or protected
+
 my $tests_ref = [
 	# Test with the /cgi/product_jqm_multilingual.pl API v0/v2
 	{
@@ -109,8 +146,6 @@ my $tests_ref = [
 		method => 'POST',
 		path => '/cgi/product_jqm_multilingual.pl',    # API v0/v2
 		form => {
-			user_id => "tests",
-			password => "testtest",
 			cc => "be",
 			lc => "fr",
 			code => "0200000000034",
@@ -137,8 +172,6 @@ my $tests_ref = [
 		method => 'POST',
 		path => '/cgi/product_jqm_multilingual.pl',    # API v0/v2
 		form => {
-			user_id => "tests",
-			password => "testtest",
 			cc => "be",
 			lc => "fr",
 			code => "0200000000035",
@@ -169,8 +202,6 @@ my $tests_ref = [
 			type => "edit",
 			action => "process",
 			sorted_langs => "en,fr",
-			user_id => "tests",
-			password => "testtest",
 			cc => "be",
 			lc => "fr",
 			code => "0200000000134",
@@ -201,8 +232,6 @@ my $tests_ref = [
 			type => "edit",
 			action => "process",
 			sorted_langs => "en,fr",
-			user_id => "tests",
-			password => "testtest",
 			cc => "be",
 			lc => "fr",
 			code => "0200000000135",
@@ -219,14 +248,76 @@ my $tests_ref = [
 			nutriment_sugars => '7',
 		},
 		expected_type => 'html',
+		response_content_must_not_match => "Erreur",
 	},
 	{
 		test_case => 'get-edited-protected-product-web-form',
 		method => 'GET',
 		path => '/api/v2/product/0200000000135',
 	},
+	# Repeat the edition of protected products by a moderator
+	{
+		test_case => 'edit-protected-product-api-v2-moderator',
+		method => 'POST',
+		path => '/cgi/product_jqm_multilingual.pl',    # API v0/v2
+		form => {
+			cc => "be",
+			lc => "fr",
+			code => "0200000000235",
+			product_name_en => "Changed product name",
+			product_name_fr => "New French product name",
+			categories => "Changed category",
+			quantity => "250 g",
+			serving_size => '20 g',
+			ingredients_text_fr => "Farine de blé, eau, sel, sucre",
+			labels => "Bio, Max Havelaar",
+			nutriment_salt => '0.7',
+			nutriment_salt_unit => 'mg',
+			nutriment_fat => '12.7',
+			nutriment_sugars => '7',
+		},
+		ua => $moderator_ua,
+	},
+	{
+		test_case => 'get-edited-protected-product-api-v2-moderator',
+		method => 'GET',
+		path => '/api/v2/product/0200000000235',
+	},
+	{
+		test_case => 'edit-protected-product-web-form-moderator',
+		method => 'POST',
+		path => '/cgi/product.pl',
+		form => {
+			type => "edit",
+			action => "process",
+			sorted_langs => "en,fr",
+			cc => "be",
+			lc => "fr",
+			code => "0200000000335",
+			product_name_en => "Changed product name",
+			product_name_fr => "New French product name",
+			categories => "Changed category",
+			quantity => "250 g",
+			serving_size => '20 g',
+			ingredients_text_fr => "Farine de blé, eau, sel, sucre",
+			labels => "Bio, Max Havelaar",
+			nutriment_salt => '0.7',
+			nutriment_salt_unit => 'mg',
+			nutriment_fat => '12.7',
+			nutriment_sugars => '7',
+		},
+		ua => $moderator_ua,
+		expected_type => 'html',
+		response_content_must_not_match => "Erreur",
+	},
+	{
+		test_case => 'get-edited-protected-product-web-form-moderator',
+		method => 'GET',
+		path => '/api/v2/product/0200000000335',
+	},	
 ];
 
-execute_api_tests(__FILE__, $tests_ref);
+# Note: some tests override $ua with $moderator_ua
+execute_api_tests(__FILE__, $tests_ref, $ua);
 
 done_testing();

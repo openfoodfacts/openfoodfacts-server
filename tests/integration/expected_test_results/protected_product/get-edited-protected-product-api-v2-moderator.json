@@ -1,7 +1,7 @@
 {
-   "code" : "0200000000034",
+   "code" : "0200000000235",
    "product" : {
-      "_id" : "0200000000034",
+      "_id" : "0200000000235",
       "_keywords" : [
          "bio",
          "brand",
@@ -54,7 +54,7 @@
          "fr:changed-category"
       ],
       "checkers_tags" : [],
-      "code" : "0200000000034",
+      "code" : "0200000000235",
       "codes_tags" : [
          "code-13",
          "0200000000xxx",
@@ -71,7 +71,7 @@
       "complete" : 0,
       "completeness" : 0.6,
       "correctors_tags" : [
-         "tests"
+         "moderator"
       ],
       "created_t" : "--ignore--",
       "creator" : "tests",
@@ -387,7 +387,8 @@
          "unknown"
       ],
       "editors_tags" : [
-         "tests"
+         "tests",
+         "moderator"
       ],
       "entry_dates_tags" : "--ignore--",
       "food_groups_tags" : [],
@@ -420,9 +421,10 @@
       },
       "generic_name" : "A generic name",
       "generic_name_en" : "A generic name",
-      "id" : "0200000000034",
+      "id" : "0200000000235",
       "informers_tags" : [
-         "tests"
+         "tests",
+         "moderator"
       ],
       "ingredients" : [
          {
@@ -561,8 +563,8 @@
          "en:multilingual"
       ],
       "last_edit_dates_tags" : "--ignore--",
-      "last_editor" : "tests",
-      "last_modified_by" : "tests",
+      "last_editor" : "moderator",
+      "last_modified_by" : "moderator",
       "last_modified_t" : "--ignore--",
       "lc" : "en",
       "link" : "http://world.openfoodfacts.org/",

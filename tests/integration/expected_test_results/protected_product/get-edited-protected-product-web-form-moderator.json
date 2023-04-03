@@ -1,7 +1,7 @@
 {
-   "code" : "0200000000034",
+   "code" : "0200000000335",
    "product" : {
-      "_id" : "0200000000034",
+      "_id" : "0200000000335",
       "_keywords" : [
          "bio",
          "brand",
@@ -54,7 +54,7 @@
          "fr:changed-category"
       ],
       "checkers_tags" : [],
-      "code" : "0200000000034",
+      "code" : "0200000000335",
       "codes_tags" : [
          "code-13",
          "0200000000xxx",
@@ -71,7 +71,7 @@
       "complete" : 0,
       "completeness" : 0.6,
       "correctors_tags" : [
-         "tests"
+         "moderator"
       ],
       "created_t" : "--ignore--",
       "creator" : "tests",
@@ -100,6 +100,10 @@
          "en:nutrition-value-under-0-001-g-salt",
          "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
          "en:ecoscore-production-system-no-label"
+      ],
+      "debug_param_sorted_langs" : [
+         "en",
+         "fr"
       ],
       "ecoscore_data" : {
          "adjustments" : {
@@ -387,6 +391,7 @@
          "unknown"
       ],
       "editors_tags" : [
+         "moderator",
          "tests"
       ],
       "entry_dates_tags" : "--ignore--",
@@ -420,9 +425,10 @@
       },
       "generic_name" : "A generic name",
       "generic_name_en" : "A generic name",
-      "id" : "0200000000034",
+      "id" : "0200000000335",
       "informers_tags" : [
-         "tests"
+         "tests",
+         "moderator"
       ],
       "ingredients" : [
          {
@@ -527,7 +533,7 @@
       "ingredients_with_unspecified_percent_n" : 4,
       "ingredients_with_unspecified_percent_sum" : 100,
       "interface_version_created" : "20150316.jqm2",
-      "interface_version_modified" : "20150316.jqm2",
+      "interface_version_modified" : "20190830",
       "known_ingredients_n" : 9,
       "labels" : "Bio, Max Havelaar",
       "labels_hierarchy" : [
@@ -561,8 +567,8 @@
          "en:multilingual"
       ],
       "last_edit_dates_tags" : "--ignore--",
-      "last_editor" : "tests",
-      "last_modified_by" : "tests",
+      "last_editor" : "moderator",
+      "last_modified_by" : "moderator",
       "last_modified_t" : "--ignore--",
       "lc" : "en",
       "link" : "http://world.openfoodfacts.org/",

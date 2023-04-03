@@ -371,6 +371,7 @@ my $tests_ref = (
 			form => { field_name => field_value, .. },	# optional, will not be sent if there is a body
 			headers_in => {header1 => value1},  # optional, headers to add to request
 			body => '{"some_json_field": "some_value"}',  # optional, will be fetched in file in needed
+			ua => a LWP::UserAgent object, if a specific user is needed (e.g. with moderator status)
 
 			# expected return
 			headers => {header1 => value1, }  # optional. You may add an undef value to test for the inexistance of a header
@@ -384,6 +385,8 @@ If undef we open a new client.
 
 You might need this to test with an authenticated user.
 
+Note: this setting can be overriden for each test case by specifying a "ua" field.
+
 =cut
 
 sub execute_api_tests ($file, $tests_ref, $ua = undef) {
@@ -393,6 +396,10 @@ sub execute_api_tests ($file, $tests_ref, $ua = undef) {
 	$ua = $ua // LWP::UserAgent->new();
 
 	foreach my $test_ref (@$tests_ref) {
+
+		# We may have a test case specific user agent
+		my $test_ua = $test_ref->{ua} // $ua;
+
 		my $test_case = $test_ref->{test_case};
 		my $url = construct_test_url($test_ref->{path} . ($test_ref->{query_string} || ''),
 			$test_ref->{subdomain} || 'world');
@@ -413,14 +420,14 @@ sub execute_api_tests ($file, $tests_ref, $ua = undef) {
 			# $response = $ua->request(OPTIONS($url));
 			# hacky: use internal method
 			my $request = HTTP::Request::Common::request_type_with_data("OPTIONS", $url, %$headers_in);
-			$response = $ua->request($request);
+			$response = $test_ua->request($request);
 		}
 		elsif ($method eq 'GET') {
-			$response = $ua->get($url, %$headers_in);
+			$response = $test_ua->get($url, %$headers_in);
 		}
 		elsif ($method eq 'POST') {
 			if (defined $test_ref->{body}) {
-				$response = $ua->post(
+				$response = $test_ua->post(
 					$url,
 					Content => encode_utf8($test_ref->{body}),
 					"Content-Type" => "application/json; charset=utf-8",
@@ -428,14 +435,14 @@ sub execute_api_tests ($file, $tests_ref, $ua = undef) {
 				);
 			}
 			elsif (defined $test_ref->{form}) {
-				$response = $ua->post($url, Content => $test_ref->{form}, %$headers_in);
+				$response = $test_ua->post($url, Content => $test_ref->{form}, %$headers_in);
 			}
 			else {
-				$response = $ua->post($url, %$headers_in);
+				$response = $test_ua->post($url, %$headers_in);
 			}
 		}
 		elsif ($method eq 'PUT') {
-			$response = $ua->put(
+			$response = $test_ua->put(
 				$url,
 				Content => encode_utf8($test_ref->{body}),
 				"Content-Type" => "application/json; charset=utf-8",
@@ -443,7 +450,7 @@ sub execute_api_tests ($file, $tests_ref, $ua = undef) {
 			);
 		}
 		elsif ($method eq 'DELETE') {
-			$response = $ua->delete(
+			$response = $test_ua->delete(
 				$url,
 				Content => encode_utf8($test_ref->{body}),
 				"Content-Type" => "application/json; charset=utf-8" % $headers_in,
@@ -456,7 +463,7 @@ sub execute_api_tests ($file, $tests_ref, $ua = undef) {
 				"Content-Type" => "application/json; charset=utf-8",
 				%$headers_in,
 			);
-			$response = $ua->request($request);
+			$response = $test_ua->request($request);
 		}
 
 		# Check if we got the expected response status code, expect 200 if not provided
@@ -480,21 +487,23 @@ sub execute_api_tests ($file, $tests_ref, $ua = undef) {
 			}
 		}
 
+		my $response_content = $response->decoded_content;
+
 		if (not((defined $test_ref->{expected_type}) and ($test_ref->{expected_type} eq "html"))) {
 
 			# Check that we got a JSON response
-			my $json = $response->decoded_content;
+			
 
 			my $decoded_json;
 			eval {
-				$decoded_json = decode_json($json);
+				$decoded_json = decode_json($response_content);
 				1;
 			} or do {
 				my $json_decode_error = $@;
 				diag(
 					"$test_case - The $method request to $url returned a response that is not valid JSON: $json_decode_error"
 				);
-				diag("Response content: " . $json);
+				diag("Response content: " . $response_content);
 				fail($test_case);
 				next;
 			};
@@ -516,6 +525,14 @@ sub execute_api_tests ($file, $tests_ref, $ua = undef) {
 				),
 				1,
 			);
+		}
+
+		# Check if the response content matches what we expect
+		my $must_not_match = $test_ref->{response_content_must_not_match};
+		if ((defined $must_not_match)
+			and ($response_content =~ /$must_not_match/i)) {
+				fail($test_case);
+				diag("Must not match: " . $must_not_match . "\n" . "Response content: " . $response_content);
 		}
 
 	}
