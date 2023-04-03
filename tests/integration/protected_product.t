@@ -75,6 +75,7 @@ my @products = (
 	},
 );
 
+# create the products in the database
 foreach my $product_form_override (@products) {
 	edit_product($ua, $product_form_override);
 }
