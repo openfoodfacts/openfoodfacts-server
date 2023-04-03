@@ -69,11 +69,16 @@ sub fake_download_image ($) {
 
 	my $stats_ref;
 
-	print STDERR "run\n";
+	# run import_csv_file
+	print STDERR "Running ProductOpener::Import::import_csv_file and capturing its output\n";
 
-	$stats_ref = ProductOpener::Import::import_csv_file($args);
-
-	print STDERR "run - done\n";
+	# Note: if the code executed by capture_outputs() dies, the test will end without showing why/where it died.
+	my ($out, $err) = capture_ouputs(
+		sub {
+			$stats_ref = ProductOpener::Import::import_csv_file($args);
+		}
+	);
+	print STDERR "ProductOpener::Import::import_csv_file - done \n";
 
 	# get all products in db, sorted by code for predictability
 	my $cursor = execute_query(

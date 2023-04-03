@@ -1128,7 +1128,7 @@ sub import_packaging_components (
 
 	# packaging data is specified in the CSV file in columns named like packagings_1_number_of_units
 	# we currently search up to 10 components
-	
+
 	for (my $i = 1; $i <= $IMPORT_MAX_PACKAGING_COMPONENTS; $i++) {
 		my $input_packaging_ref = {};
 		foreach
