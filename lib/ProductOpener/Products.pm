@@ -2342,7 +2342,7 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 		delete $current_product_ref->{last_image_dates_tags};
 	}
 
-	$current_product_ref->{editors_tags} = [keys %changed_by];
+	$current_product_ref->{editors_tags} = [sort keys %changed_by];
 
 	$current_product_ref->{photographers_tags} = $users_ref->{photographers}{list};
 	$current_product_ref->{informers_tags} = $users_ref->{informers}{list};
