@@ -50,7 +50,7 @@ In 2020, we made this field a taxonomized field. As a result, we now store the l
 
 #### Packaging information / recycling instructions text field (READ and WRITE)
 
-In 2020, we also added a language specific field ("packaging*text*[language code]" e.g. "packaging_text_en" for English) to store free text data about the packaging. It can contain the text of the recycling instructions printed on the packaging (e.g. "bottle to recycle, cap to discard"), or can be filled in by users (e.g. "1 PET plastic bottle to recycle, 1 plastic cap").
+In 2020, we also added a language specific field ("packaging_text_[language code]" e.g. "packaging_text_en" for English) to store free text data about the packaging. It can contain the text of the recycling instructions printed on the packaging (e.g. "bottle to recycle, cap to discard"), or can be filled in by users (e.g. "1 PET plastic bottle to recycle, 1 plastic cap").
 
 ### Current resulting packagings data structure (READ only)
 
@@ -70,7 +70,7 @@ The "shape" and "material" fields are taxonomized using the packaging_shapes and
 
 #### Extract attributes that relate to different packaging components
 
-The values for each input field ("packaging" tag field and "packaging*text*[language code]" packaging information text field) are analyzed[^parse_packaging_from_text_phrase] to recognize packaging components and their attributes. One product may have multiple "packaging*text*[language code]" values in different languages. Only the value for the main product of the language is currently analyzed.
+The values for each input field ("packaging" tag field and "packaging_text_[language code]" packaging information text field) are analyzed[^parse_packaging_from_text_phrase] to recognize packaging components and their attributes. One product may have multiple "packaging_text_[language code]" values in different languages. Only the value for the main product of the language is currently analyzed.
 
 [^parse_packaging_from_text_phrase]: parse_packaging_from_text_phrase() function in [/lib/ProductOpener/Packagings.pm](https://github.com/openfoodfacts/openfoodfacts-server/blob/main/lib/ProductOpener/Packaging.pm)
 
@@ -144,13 +144,13 @@ We could discard the existing "packaging" tags field, and replace it with an API
 
 For instance, if Robotoff detects that the product is in plastic bottle by analyzing a product photo, it could send {shape:"bottle", material:"en:plastic"} and it would be added / combined with the existing "packagings" data.
 
-### Keep the "packaging*text*[language code]" field
+### Keep the "packaging_text_[language code]" field
 
 It is important to keep this field, as we can display it as-is, use it as input data, and it may contain interesting data that we do not analyze yet.
 
 When filled, the values for this field can be analyzed and added to / combined with the "packagings" data structure. Similarly to ingredient text analysis, we could keep information about which parts of the text were recognized as attributes of a packaging component, and which parts were not recognized and were therefore ignored.
 
-Changing the "packagings" value will not change the "packaging*text*[language code]" values.
+Changing the "packagings" value will not change the "packaging_text_[language code]" values.
 
 ## Challenges
 
