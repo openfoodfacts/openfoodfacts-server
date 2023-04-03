@@ -147,7 +147,8 @@ foreach my $test_ref (@tests) {
 			push(@sto_products, retrieve_product($product->{code}));
 		}
 		normalize_products_for_test_comparison(\@sto_products);
-		compare_array_to_expected_results(\@products, $expected_test_results_dir . "/products", $update_expected_results);
+		compare_array_to_expected_results(\@products, $expected_test_results_dir . "/products",
+			$update_expected_results);
 	}
 
 	compare_to_expected_results($stats_ref, $expected_test_results_dir . "/products/stats.json",
