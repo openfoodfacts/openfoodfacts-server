@@ -108,7 +108,7 @@ my @products = (
 			code => '0200000000335',
 			product_name => "A protected product",
 		)
-	},		
+	},
 );
 
 # create the products in the database
@@ -135,8 +135,8 @@ for my $code ('0200000000035', '0200000000135') {
 }
 
 # Note: expected results are stored in json files, see execute_api_tests
-# Each test is composed of two test case: 
-# 1. one that edits a product, 
+# Each test is composed of two test case:
+# 1. one that edits a product,
 # 2. one that gets the product to verify if it was edited or protected
 
 my $tests_ref = [
@@ -314,7 +314,7 @@ my $tests_ref = [
 		test_case => 'get-edited-protected-product-web-form-moderator',
 		method => 'GET',
 		path => '/api/v2/product/0200000000335',
-	},	
+	},
 ];
 
 # Note: some tests override $ua with $moderator_ua

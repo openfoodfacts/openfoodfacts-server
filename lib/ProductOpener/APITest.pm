@@ -375,6 +375,8 @@ my $tests_ref = (
 
 			# expected return
 			headers => {header1 => value1, }  # optional. You may add an undef value to test for the inexistance of a header
+			response_content_must_match => "regexp"	# optional. You may add a case insensitive regexp (e.g. "Product saved") that must be matched
+			response_content_must_not_match => "regexp"	# optional. You may add a case insensitive regexp (e.g. "error") that must not be matched
 		}
     ],
 );
@@ -492,7 +494,6 @@ sub execute_api_tests ($file, $tests_ref, $ua = undef) {
 		if (not((defined $test_ref->{expected_type}) and ($test_ref->{expected_type} eq "html"))) {
 
 			# Check that we got a JSON response
-			
 
 			my $decoded_json;
 			eval {
@@ -528,11 +529,20 @@ sub execute_api_tests ($file, $tests_ref, $ua = undef) {
 		}
 
 		# Check if the response content matches what we expect
+		my $must_match = $test_ref->{response_content_must_match};
+		if (    (defined $must_match)
+			and ($response_content !~ /$must_match/i))
+		{
+			fail($test_case);
+			diag("Must match: " . $must_match . "\n" . "Response content: " . $response_content);
+		}
+
 		my $must_not_match = $test_ref->{response_content_must_not_match};
-		if ((defined $must_not_match)
-			and ($response_content =~ /$must_not_match/i)) {
-				fail($test_case);
-				diag("Must not match: " . $must_not_match . "\n" . "Response content: " . $response_content);
+		if (    (defined $must_not_match)
+			and ($response_content =~ /$must_not_match/i))
+		{
+			fail($test_case);
+			diag("Must not match: " . $must_not_match . "\n" . "Response content: " . $response_content);
 		}
 
 	}
