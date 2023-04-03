@@ -180,6 +180,7 @@ jobs:
         proxy_host: ${{ env.SSH_PROXY_HOST }}
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        command_timeout: 25m
         script_stop: false
         script: |
           cd ${{ matrix.env }} && \
@@ -194,6 +195,7 @@ jobs:
         proxy_host: ${{ env.SSH_PROXY_HOST }}
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        command_timeout: 15m
         script_stop: false
         script: |
           cd ${{ matrix.env }} && \
