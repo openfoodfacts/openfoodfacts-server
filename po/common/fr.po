@@ -1566,6 +1566,10 @@ msgid "The table lists by default nutriments that are often specified. Leave the
 msgstr "Le tableau liste par défaut les nutriments les plus couramment indiqués. Laissez le champ vide s'il n'est pas présent sur l'emballage.<br />Vous pouvez ajouter d'autres nutriments\n"
 "(vitamines, minéraux, cholestérol, oméga 3 et 6 etc.) en tapant les premières lettres de leur nom dans la dernière ligne du tableau."
 
+msgctxt "nutrition_data_table_asterisk"
+msgid "Essential nutrients to calculate the Nutri-Score."
+msgstr ""
+
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
 msgstr "Notes nutritionnelles"
@@ -6382,12 +6386,12 @@ msgstr "Nombre d'éléments"
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
 msgid "Weight of one empty unit"
-msgstr "Poids d'une unité vide"
+msgstr "Poids d'un élément vide"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit"
 msgid "Quantity of product contained per unit"
-msgstr "Quantité de produit contenu dans chaque unité"
+msgstr "Quantité de produit contenue par élément"
 
 # variable names between { } must not be translated
 msgctxt "f_help_categorize_on_hunger_games"
@@ -6396,7 +6400,7 @@ msgstr "Aidez à classer plus de {title} sur Hunger Games"
 
 msgctxt "packagings_complete"
 msgid "All the packaging parts of the product are listed."
-msgstr "Toutes les pièces d'emballage du produit sont répertoriées."
+msgstr "Tous les éléments de l'emballage du produit sont listés."
 
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
@@ -6426,7 +6430,7 @@ msgstr "Saisissez les consignes de tri seulement si elles apparaîssent sur le p
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
 msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
-msgstr "Retirez tout reste de nourriture et lavez et séchez la partie d'emballage avant la pesée. Si possible, utilisez une balance avec une précision de 0,1 g ou 0,01 g."
+msgstr "Enlevez les restes de nourriture et lavez et séchez les éléments d'emballage avant de les peser. Si possible, utilisez une balance avec une précision de 0.1g ou 0.01g."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
