@@ -20,6 +20,7 @@ x-backend-conf: &backend-conf
     - EVENTS_PASSWORD
     - REDIS_URL
     - GOOGLE_CLOUD_VISION_API_KEY
+    - GOOGLE_CLOUD_VISION_API_URL
     - CROWDIN_PROJECT_IDENTIFIER
     - CROWDIN_PROJECT_KEY
     - GEOLITE2_PATH
@@ -85,10 +86,8 @@ services:
       - "$MINION_QUEUE"
   incron:
     <<: *backend-conf
-    # This service run the incron jobs
-    # Only root can run incron
-    user: root
-    command: ["incrond", "-n"]
+    # This service watch for new images to trigger ocr and robotoff processing
+    command: ["perl", "scripts/run_cloud_vision_ocr.pl", "/mnt/podata/new_images"]
   frontend:
     image: ghcr.io/openfoodfacts/openfoodfacts-server/frontend:${TAG}
     depends_on:
