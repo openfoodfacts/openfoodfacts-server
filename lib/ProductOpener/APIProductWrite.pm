@@ -57,7 +57,7 @@ use Encode;
 
 =head2 skip_protected_field($product_ref, $field, $moderator = 0)
 
-Return 1 if we should ignore a field value sent by an user because we already have a value sent by the producer.
+Return 1 if we should ignore a field value sent by a user because we already have a value sent by the producer.
 
 =cut
 
