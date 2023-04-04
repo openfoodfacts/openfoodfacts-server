@@ -8,11 +8,12 @@ ARG CPANMOPTS=
 ######################
 # Base modperl image stage
 ######################
-FROM bitnami/minideb:buster AS modperl
+FROM debian:bullseye AS modperl
 
 # Install cpm to install cpanfile dependencies
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
-    install_packages \
+    apt update && \
+    apt install -y \
         apache2 \
         apt-utils \
         cpanminus \
@@ -73,6 +74,8 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         #
         # Action::Retry
         libmath-fibonacci-perl \
+        # EV - event loop
+        libev-perl \
         # Algorithm::CheckDigits
         libprobe-perl-perl \
         # CLDR::Number
@@ -137,7 +140,6 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         libtest-number-delta-perl \
         libdevel-size-perl \
         gnumeric \
-        incron \
         # for dev
         # gnu readline
         libreadline-dev \
@@ -203,10 +205,6 @@ RUN \
     chown www-data:www-data -R /var/log
 # Install Product Opener from the workdir
 COPY --chown=www-data:www-data . /opt/product-opener/
-RUN \
-    # www-data user shall be able to use incron
-    echo www-data >> /etc/incron.allow && \
-    incrontab -u www-data /opt/product-opener/conf/incron.conf
 
 EXPOSE 80
 COPY ./docker/docker-entrypoint.sh /

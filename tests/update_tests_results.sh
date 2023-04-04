@@ -28,6 +28,7 @@ perl nutriscore.t --update-expected-results
 perl packaging.t --update-expected-results
 perl recipes.t --update-expected-results
 perl import_convert_carrefour_france.t --update-expected-results
+perl tests/unit/send_image_to_cloud_vision.t --update-expected-results
 
 cd ..
 

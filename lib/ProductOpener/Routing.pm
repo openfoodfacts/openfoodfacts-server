@@ -407,9 +407,11 @@ sub analyze_request ($request_ref) {
 
 			$log->debug("request looks like a singular tag", {lc => $lc, tagid => $components[0]}) if $log->is_debug();
 
+			# If the first component is a valid singular tag type, use it as the tag type
 			if (defined $tag_type_from_singular{$lc}{$components[0]}) {
 				$request_ref->{tagtype} = $tag_type_from_singular{$lc}{shift @components};
 			}
+			# Otherwise, use "en" as the default language and try again
 			else {
 				$request_ref->{tagtype} = $tag_type_from_singular{"en"}{shift @components};
 			}
@@ -427,7 +429,7 @@ sub analyze_request ($request_ref) {
 				else {
 					$request_ref->{tag_prefix} = "";
 				}
-
+				# If the tag type is a valid taxonomy field, try to canonicalize the tag ID
 				if (defined $taxonomy_fields{$tagtype}) {
 					my $parsed_tag = canonicalize_taxonomy_tag_linkeddata($tagtype, $request_ref->{tag});
 					if (not $parsed_tag) {
@@ -511,6 +513,16 @@ sub analyze_request ($request_ref) {
 					. $tag_type_singular{$tagtype}{$lc} . "/"
 					. $request_ref->{tag2_prefix}
 					. $request_ref->{tagid2};
+			}
+			elsif (
+				($#components >= 0)
+				and (   (!defined $tag_type_from_singular{$lc}{$components[0]})
+					and (!defined $tag_type_from_singular{"en"}{$components[0]}))
+				)
+			{
+				$request_ref->{status_code} = 404;
+				$request_ref->{error_message} = lang("error_invalid_address");
+				return;
 			}
 
 			if ((defined $components[0]) and ($components[0] eq 'points')) {
