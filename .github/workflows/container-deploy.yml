@@ -152,6 +152,7 @@ jobs:
           echo "INFLUXDB_HOST=${{ env.INFLUXDB_HOST }}" >> .env
           echo "LOG_LEVEL_ROOT=ERROR" >> .env
           echo "LOG_LEVEL_MONGODB=ERROR" >> .env
+          echo "BUILD_CACHE_REPO=openfoodfacts/openfoodfacts-build-cache" >> .env
 
           # Override domain name in nginx.conf
           sed -i.bak "s/productopener.localhost/${{ env.PRODUCT_OPENER_DOMAIN }}/g" ./conf/nginx.conf
