@@ -105,6 +105,7 @@ volumes:
   podata:  # we also need to share it because users_emails and orgs... are not separated yet
     name: ${PO_COMMON_PREFIX:-}po_podata
   dbdata:
+  build_cache:
 
 networks:
   # this is a specific network to enable pro platform to join the postgres db
