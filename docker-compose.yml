@@ -47,8 +47,12 @@ x-backend-conf: &backend-conf
     - products:/mnt/podata/products # .sto
     - product_images:/opt/product-opener/html/images/products # .jpg
     - orgs:/mnt/podata/orgs # .sto
+    # build-cache
+    - build_cache:/mnt/podata/build-cache
+
     # all the rest
     - podata:/mnt/podata
+
 
     # Logs
     - ./logs/apache2:/var/log/apache2

@@ -202,6 +202,10 @@ description:it:Plastica usato che è stato lavorato e riutilizzato
 description:nl:Gebruikt plastic dat verwerkt is en opnieuw wordt gebruikt
 description:pt:Plástico usado que foi processado e reutilizado
 
+# Note: cellophane is made from cellulose, it is not a plastic
+# The name cellophane might be misused (by consumers or producers) when there is a clear transparent plastic film
+en:Cellophane
+fr:Cellophane
 
 # Plastics:
 # use the following conventions for plastic:
@@ -238,16 +242,16 @@ description:nl:Polyethyleentereftalaat (PET) is een kunststof die wordt gebruikt
 
 <en:Plastic
 <en:Other plastics
-en:PVDC 7 - Polyvinylidene chloride, Polyvinylidene chloride
-de:PVDC 7 - Polyvinylidenchlorid, Polyvinylidenchlorid
-es:PVDC 7 - cloruro de polivinilideno, cloruro de polivinilideno
-fr:PVDC 7 - Chlorure de polyvinylidène, Chlorure de polyvinylidène
-hu:PVDC 7 - polivinilidén-klorid, polivinilidén-klorid
-it:PVDC 7 - Polivinildencloruro, Polivinildencloruro
-nl:PVDC 7 - Polyvinylidene chloride, Polyvinylidene chloride
-nn:PVDC 7 - polyvinylidenklorid, polyvinylidenklorid
-ru:PVDC 7 - поливинилиденхлорид, поливинилиденхлорид
-sv:PVDC 7 - Polyvinylidenklorid, Polyvinylidenklorid
+en:PVDC 7 - Polyvinylidene chloride, PVDC - Polyvinylidene chloride, Polyvinylidene chloride
+de:PVDC 7 - Polyvinylidenchlorid, PVDC - Polyvinylidenchlorid, Polyvinylidenchlorid
+es:PVDC 7 - cloruro de polivinilideno, PVDC - Cloruro de polivinilideno, Cloruro de polivinilideno
+fr:PVDC 7 - Chlorure de polyvinylidène, PVDC - Chlorure de polyvinylidène, Chlorure de polyvinylidène, Polychlorure de vinylidène, PVDC - Polychlorure de vinylidène
+hu:PVDC 7 - polivinilidén-klorid, PVDC - polivinilidén-klorid, polivinilidén-klorid
+it:PVDC 7 - Polivinildencloruro, PVDC - Polivinildencloruro, Polivinildencloruro
+nl:PVDC 7 - Polyvinylidene chloride, PVDC - Polyvinylidene chloride, Polyvinylidene chloride
+nn:PVDC 7 - polyvinylidenklorid, PDVC - polyvinylidenklorid, polyvinylidenklorid
+ru:PVDC 7 - поливинилиденхлорид, PDVC -  поливинилиденхлорид, поливинилиденхлорид
+sv:PVDC 7 - Polyvinylidenklorid, PDVC - Polyvinylidenklorid, Polyvinylidenklorid
 xx:PVDC, 07 PVDC, PVDC 07, 07PVDC, PVDC07, 7 PVDC, PVDC 7, 7PVDC, PVDC7
 wikidata:en:Q146383
 description:de:Polyvinylidenchlorid wird als wasserbasierte Beschichtung auf Folien aus anderen Kunststoffen aufgetragen, was die Haltbarkeit der verpackten Lebensmittel erhöht.
@@ -278,6 +282,22 @@ description:it:Plastica PET riciclata, principalmente basata su bottiglie di con
 description:nl:Gerecycleerde PET plastic, voornamelijk gebaseerd op flessen voor consumenten.
 description:pt:Plástico PET reciclado, principalmente baseado em garrafas de consumo.
 
+# Not really PET
+<en:Plastic
+<en:Other plastics
+en:PETG- Polyethylene terephthalate glycol, Polyethylene terephthalate glycol, Glycolized Polyethylene terephthalate, Glycolised Polyethylene terephthalate
+fr:PETG - Polyéthylène téréphtalate glycolisé, Polyéthylène téréphtalate glycolisé
+xx:PETG
+
+# Not exactly a plastic
+# Plastique / Silicone in data from Les Mousquetaires
+en:Silicone
+fr:Silicone, Plastique / Silicone
+
+<en:Plastic
+en:Biobased plastic
+fr:Plastique biosourcé, Plastiques / Autres plastiques Biosourcés (base amidon)
+
 <xx:PET
 en:bPET - Biobased PET, Biobased PET
 de:bPET - Biobasiertes PET, Biobasiertes PET
@@ -285,7 +305,7 @@ fr:bPET - PET biosourcé, PET biosourcé
 hu:bPET - Biobázisú PET, Biobázisú PET
 nl:bPET - Biobased PET, Biobased PET
 pt:bPET - Bioplástico PET, Bioplástico PET
-xx:bPET
+xx:bPET, bio-PET
 description:de:Biobasiertes PET ist Kunststoff, der teilweise aus jährlich nachwachsender Biomasse wie verschiedenen Zuckern aus landwirtschaftlichen Aktivitäten hergestellt wird.
 description:en:Biobased PET is plastic partially produced using annually renewable biomass like different sugars obtained from agricultural activities.
 description:es:El PET de base biológica es un plástico producido parcialmente a partir de biomasa renovable anualmente como diferentes azúcares obtenidos de actividades agrícolas.
@@ -311,10 +331,10 @@ description:nl:Transparant (doorzichtig) PET (polyethylene terephthalate)
 description:pt:PET transparente (tereftalato de polietileno)
 
 <xx:rPET
-en:rPET - Transparent, Clear rPET
+en:rPET - Transparent, Clear rPET, transparent RPET
 da:rPET - Gennemsigtig 
 de:rPET - Transparentes
-fr:rPET - transparent, rPET transparente, PET clair
+fr:rPET - transparent, rPET transparent, rPET clair
 hu:rPET - Átlátszó 
 nl:rPET - transparant, Transparant rPET
 pt:rPET - transparente
@@ -419,20 +439,20 @@ description:pt:O plástico PE de base biológica é feito total ou parcialmente 
 en:HDPE 2 - High-density polyethylene, HDPE - High-density polyethylene, High-density polyethylene
 xx:HDPE, 2 HDPE, HDPE 2, 02 HDPE, HDPE 02, PEHD, 2 PEHD, PEHD 2, 02 PEHD, PEHD 02, HD-PE, 2 HD-PE, HD-PE 2, 02 HD-PE, HD-PE 02, PE-HD, 2 PE-HD, PE-HD 2, 02 PE-HD, PE-HD 02, RC 2, RC 02, RC2, RC02, ♴
 ar:HDPE 2 - متعدد إثيلين عالي الكثافة
-bg:HDPE 2 - Полиетилен с висока плътност, Полиетилен с висока плътност
+bg:HDPE 2 - Полиетилен с висока плътност, HDPE - Полиетилен с висока плътност, Полиетилен с висока плътност
 ca:HDPE 2 - polietilè d'alta densitat, polietilè d'alta densitat
 cs:HDPE 2 - Polyethylen s vysokou hustotou, Polyethylen s vysokou hustotou
-de:HDPE 2 - Polyethylen hoher Dichte, Polyethylen hoher Dichte
+de:HDPE 2 - Polyethylen hoher Dichte, HDPE - Polyethylen hoher Dichte, Polyethylen hoher Dichte
 fi:HDPE 2 - suurtiheyspolyeteeni, suurtiheyspolyeteeni
-fr:PEHD 2 - Polyéthylène haute densité, PEHD - Polyéthylène haute densité, polyéthylène haute densité, HDPE - 2 - Polyéthylène haute densité
-hr:HDPE 2 - polietilen visoke gustoće, polietilen visoke gustoće        
+fr:PEHD 2 - Polyéthylène haute densité, PEHD - Polyéthylène haute densité, polyéthylène haute densité, HDPE - 2 - Polyéthylène haute densité, Surlyn
+hr:HDPE 2 - polietilen visoke gustoće, HDPE - polietilen visoke gustoće, polietilen visoke gustoće       
 hu:HDPE 2 - Nagy sűrűségű polietilén, Nagy sűrűségű polietilén
-it:HDPE 2 - Polietilene ad alta densità, Polietilene ad alta densità
+it:HDPE 2 - Polietilene ad alta densità, HDPE - Polietilene ad alta densità, Polietilene ad alta densità
 lt:HDPE 2 - Didelio tankio polietilenas, Didelio tankio polietilenas
-nl:HDPE 2 - Hogedichtheidpolyetheen, Hogedichtheidpolyetheen
+nl:HDPE 2 - Hogedichtheidpolyetheen, HDPE - Hogedichtheidpolyetheen, Hogedichtheidpolyetheen
 nn:HDPE 2 - høgdensitetspolyetylen, høgdensitetspolyetylen
 pl:HDPE 2 - polietylen wysokiej gęstości, polietylen wysokiej gęstości
-pt:HDPE 2 - Polietileno de alta densidade, Polietileno de alta densidade
+pt:HDPE 2 - Polietileno de alta densidade, HDPE - Polietileno de alta densidade, Polietileno de alta densidade
 ru:HDPE 2 - полиэтилен высокой плотности, полиэтилен высокой плотности
 uk:HDPE 2 - Поліетилен високої щільності, Поліетилен високої щільності
 wikidata:en:Q2641430
@@ -506,7 +526,7 @@ ca:LDPE 4 - Polietilè de baixa densitat, Polietilè de baixa densitat
 cs:LDPE 4 - Polyethylen s nízkou hustotou, Polyethylen s nízkou hustotou
 de:LDPE 4 - Polyethylen niedriger Dichte, LDPE - Polyethylen niedriger Dichte, Polyethylen niedriger Dichte
 es:LDPE 4 - polietileno de baja densidad, polietileno de baja densidad
-fr:PEBD 4 - Polyéthylène basse densité, PEBD - Polyéthylène basse densité, polyéthylène basse densité, PEBD, PE-BD
+fr:PEBD 4 - Polyéthylène basse densité, PEBD - Polyéthylène basse densité, polyéthylène basse densité, PEBD, PE-BD, PEBDL, PEBDL - Polyethylène basse densité linéaire
 hr:LDPE 4 - polietilen niske gustoće, LDPE - polietilen niske gustoće
 hu:LDPE 4 - Kis sűrűségű polietilén, LDPE - Kis sűrűségű polietilén, Kis sűrűségű polietilén
 it:LDPE 4 - Polietilene a bassa densità, Polietilene a bassa densità
@@ -653,6 +673,10 @@ description:it:Il polistirene è una plastica prodotta attraverso la polimerizza
 description:nl:Polystyreen is een kunststof die wordt geproduceerd door polymerisatie van styreenmonomeren. Het wordt veel gebruikt in voedselverpakkingen omdat het licht van gewicht is, goedkoop is en goede isolerende eigenschappen heeft. Polystyreen is echter niet gemakkelijk te recyclen en het meeste komt terecht op stortplaatsen of in het milieu, met schade aan dieren in het wild en het ecosysteem tot gevolg.
 description:pt:O poliestireno é um plástico produzido através da polimerização de monômeros de estireno. É amplamente utilizado em embalagens de alimentos, pois é leve, de baixo custo e possui boas propriedades de isolamento. No entanto, o poliestireno não é facilmente reciclável e a maior parte acaba em aterros sanitários ou no meio ambiente, causando danos à vida selvagem e ao ecossistema.
 
+<en:PS 6 - Polystyrene
+en:EPS - Expanded polystyrene, Foamed polystyrene
+fr:PSE - Polystyrène expansé, PSE - Polystyrène expansé / moussé, Polystyrène expansé, Polystyrène moussé
+
 <en:Plastic
 en:O 7 - Other plastics, O - Other plastics, Other plastics, All other plastics, other plastic
 xx:07 OTHER, OTHER 07, 7 OTHER, OTHER 7, 07 O, O 07, 7 O, O 7, ♹
@@ -710,6 +734,7 @@ description:it:Il policarbonato è prodotto polimerizzando il bisfenolo A con fo
 description:nl:Polycarbonaat wordt geproduceerd door bisfenol A te polymeriseren met fosgeen. Het wordt vaak gebruikt in voedselverpakkingen vanwege zijn transparantie, sterkte en weerstand tegen hitte. Polycarbonaat kan worden gerecycled, maar het lage recyclingpercentage is te wijten aan de moeilijkheid om het te scheiden van andere materialen en het gebrek aan recyclingfaciliteiten voor dit soort plastic.
 description:pt:O policarbonato é produzido pela polimerização do bisfenol A com fosgênio. É comumente usado em embalagens de alimentos devido à sua transparência, força e resistência ao calor. O policarbonato pode ser reciclado, mas a sua baixa taxa de reciclagem deve-se à dificuldade em separá-lo de outros materiais e à falta de instalações de reciclagem para este tipo de plástico.
 
+# PA - Polyamide (PA 66 - Nylon) in data from Les Mousquetaires
 <en:Plastic
 <en:Other plastics
 en:PA - Polyamide, Polyamide
@@ -720,7 +745,7 @@ el:PA - Πολυαμίδιο, Πολυαμίδιο
 es:PA - poliamida, poliamida
 et:PA - Polüamiid, Polüamiid
 fi:PA - Polyamidi, Polyamidi
-fr:PA - Polyamide, Polyamide
+fr:PA - Polyamide, Polyamide, PA - Polyamide (PA 66 - Nylon)
 hr:PA - poliamid, poliamidi
 hu:PA - poliamid, poliamid
 it:PA - Poliammide, Poliammide
@@ -739,6 +764,12 @@ uk:PA - Поліамід, Поліамід
 xx:PA, 07 PA, PA 07, 07PA, PA07, 7 PA, PA 7, 7PA, PA7
 wikidata:en:Q145273
 description:en:Polyamide (PA), also known as nylon, is a synthetic polymer that was first developed in the 1930s by DuPont. It is commonly used in food packaging because it is strong, durable, and heat-resistant. However, it is not easily recyclable and most PA ends up in landfills or the environment.
+
+<en:Plastic
+<en:Other plastics
+en:PU/PUR - Polyurethan, Polyurethan
+fr:PU/PUR - Polyuréthane, Polyuréthane
+xx:PU/PUR,PU,PUR
 
 # 09 is for Alkaline batteries, not sure if 09 ABS exists.
 
@@ -900,9 +931,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Medium-density_polyethylene
 
 <en:Plastic
 <en:Other plastics
+xx:EVOH, 07 EVOH, EVOH 07, 07EVOH, EVOH07, 7 EVOH, EVOH 7, 7EVOH, EVOH7, EVAL
 en:EVOH - Ethylene vinyl alcohol, Ethylene vinyl alcohol, EVOH - ethylene-vinylalcohol copolymer, ethylene-vinylalcohol copolymer
 de:EVOH - Ethylen-Vinylalkohol-Copolymer, Ethylen-Vinylalkohol-Copolymer
-xx:EVOH, 07 EVOH, EVOH 07, 07EVOH, EVOH07, 7 EVOH, EVOH 7, 7EVOH, EVOH7, EVAL
+fr:EVOH - Ethylène alcool vinylique, Ethylène alcool vinylique, Plastiques / EVOH - Ethylène alcool vinylique
 wikidata:en:Q582510
 description:de:EVOH (Ethylene Vinyl Alcohol) ist ein flexibler, durchscheinender und glänzender Kunststoff und dient als Barriere gegen Außenluft für verderbliche Produkte. EVOH ist nicht recycelbar.
 description:en:EVOH (Ethylene Vinyl Alcohol) is a flexible, translucent and shiny plastic and serves as a barrier against outside air for perishable products. EVOH is not recyclable.
@@ -911,6 +943,21 @@ description:fr:L'EVOH (Ethylene Vinyl Alcohol) est un plastique souple, transluc
 description:it:EVOH (Ethylene Vinyl Alcohol) è una plastica flessibile, traslucida e lucida e funge da barriera contro l'aria esterna per i prodotti deperibili. EVOH non è riciclabile.
 description:nl:EVOH (etheen-vinylalcohol) is een flexibele, doorzichtige en glimmende plastic en dient als bescherming tegen buitenlucht voor beperkt houdbare producten. EVOH is niet recycleerbaar. 
 description:pt:O EVOH (Etileno Vinil Álcool) é um plástico flexível, translúcido e brilhante que serve como barreira contra o ar externo para produtos perecíveis. EVOH não é reciclável.
+
+<en:Plastic
+<en:Other plastics
+xx:EVA
+fr:EVA - Éthylène-acétate de vinyle, Éthylène-acétate de vinyle, Plastiques / EVA - Éthylène-acétate de vinyle
+
+<en:Plastic
+<en:Other plastics
+xx:PAN
+fr:PAN - Polyacrylonitrile, Polyacrylonitrile, Plastiques / PAN - Polyacrylonitrile
+
+<en:Plastic
+<en:Other plastics
+xx:PEF
+fr:PEF - Polyethylène Furanoate, Polyethylène Furanoate, Plastiques / PEF - Polyethylène Furanoate
 
 en:Lead–acid battery
 de:Bleibatterie, Blei-Säure-Batterie
@@ -1034,6 +1081,7 @@ description:it:Cartone è un termine generico per prodotti a base di carta creat
 desription:nl:Karton is een verzamelnaam voor op papier gebaseerde producten gemaakt van hout, vodden en grassen. Karton is duurzaam en voorkomt dat vocht in het voedingsproduct binnendringt. Karton is tot 7 keer recyclebaar.
 description:pt:Papelão é um termo genérico para produtos à base de papel criados a partir de madeira, trapos e gramíneas. O papelão é durável e evita que a umidade se infiltre no produto alimentício. O papelão é reciclável até 7 vezes.
 
+# fr:Cellulosique / Carton ondulé in data from Les Mousquetaires
 <en:cardboard
 en:Corrugated cardboard
 bg:Вълнообразен картон
@@ -1042,7 +1090,7 @@ cs:vlnitá lepenka
 de:Wellpappe
 es:cartón ondulado
 fi:aaltopahvi
-fr:Carton ondulé
+fr:Carton ondulé, Cellulosique / Carton ondulé
 hr:valovita ljepenka
 it:cartone ondulato
 nb:Bølgepapp
@@ -1067,9 +1115,13 @@ description:pt:Material, consistindo de uma ou mais camadas de papelão ondulado
 en:Non-corrugated cardboard
 de:Ungewellte Pappe, Nicht gewellte Pappe, Sonstige Pappe, Andere Pappe
 bg:Друг картон
-fr:Carton non ondulé
+fr:Carton non ondulé, carton plat, Cellulosique / Carton plat
 hr:ravna ljepenka
 xx:21 PAP, PAP 21, 21PAP, PAP21
+
+<en:cardboard
+en:Armed cardboard
+fr:Carton armé, Cellulosique / Carton armé
 
 <en:Cardboard
 <en:Recycled material
@@ -1104,7 +1156,7 @@ en:Paper
 bg:Хартия
 da:Papir
 de:Papier
-fr:Papier, papier standard
+fr:Papier, papier standard, Cellulosique / Papier / Vélin
 hr:papir
 hu:Papír
 it:Carta
@@ -1149,6 +1201,10 @@ description:nl:Speciaal geprepareerd papier dat in de oven gebruikt wordt om te 
 description:pt:O papel manteiga[1] é um tipo de papel translúcido e antiaderente, muito utilizado na culinária.
 
 en:Cellulose
+fr:Cellulose, Cellulose moulée, Cellulosique / Cellulose moulée, Cellulosique / Autres fibres cellulosiques / végétales
+
+en:Rubber
+fr:Caoutchouc, Cellulosique / Caoutchouc
 
 # thick cardboard (e.g. book covers)
 <en:cardboard
@@ -1167,7 +1223,7 @@ wikidata:en:Q14934005
 <en:paper
 en:Other paper
 de:Sonstiges Papier, Anderes Papier
-fr:Autres papiers, autre papier
+fr:Autres papiers, autre papier, Cellulosique / Autre papier
 hu:Egyéb papír, más papír
 nl:Ander karton
 pt:Outro papel, outros papéis
@@ -1238,7 +1294,7 @@ en:Metal, Metals
 bg:Метал, метали
 da:Metal, Metaller
 de:Metall, Metalle
-fr:Métal, Métaux, métallique, métalliques
+fr:Métal, Métaux, métallique, métalliques, Autres métaux (dont métaux non magnétiques)
 es:Metal
 hr:metale
 hu:Fém, fémek
@@ -1279,7 +1335,7 @@ en:Steel, iron
 bg:Стомана, желязо
 de:Stahl
 da:Stål
-fr:Acier, fer
+fr:Acier, fer, Métaux / Acier et fer (magnétiques)
 hr:čelik
 hu:Acél
 it:Acciaio
@@ -1402,7 +1458,7 @@ es:madera
 et:puit
 eu:zur
 fi:puuaines
-fr:Bois
+fr:Bois, Cellulosique / Bois, Cellulosique / Autre bois
 ga:adhmad
 hr:drvo
 hu:Fa
@@ -1448,7 +1504,7 @@ eo:korko
 es:corcho
 fi:korkki
 fo:tøppur
-fr:Liège
+fr:Liège, Cellulosique / Liège
 fy:koark
 hr:pluto
 hu:Parafa
@@ -1471,7 +1527,10 @@ description:it:Il sughero è un materiale leggero ed elastico ricavato dalla cor
 description:nl:Kurk is een licht, elastisch materiaal, dat wordt gemaakt van de schors van de kurkeik. Kurk wordt voornamelijk gebruikt als afdichting van wijnflessen. Wijnkurken kunnen worden hergebruikt voor andere doeleinden.
 description:pt:A cortiça é um material leve e elástico feito da casca do sobreiro. A cortiça é utilizada principalmente como vedante de garrafas de vinho. As rolhas de vinho podem ser reutilizadas para outros fins.
 
-#<en:textile
+en:Textile, textiles
+fr:Textile, textiles, fibre textile, fibres textiles
+
+<en:Textile
 en:Cotton
 af:katoen
 ar:قطن
@@ -1533,6 +1592,10 @@ description:it:Il cotone è una fibra naturale che viene coltivata e raccolta pr
 description:nl:Katoen is een natuurlijke vezel die voornamelijk in warme klimaten wordt verbouwd en geoogst. Het wordt veel gebruikt bij de productie van kleding en textiel, maar kan ook worden gebruikt bij de productie van voedselverpakkingsmaterialen. Katoen kan ook worden gerecycled en gebruikt om nieuwe producten te maken, zoals papier of isolatiemateriaal.
 description:pt:O algodão é uma fibra natural cultivada e colhida principalmente em climas quentes. É comumente usado na produção de roupas e têxteis, mas também pode ser usado na produção de materiais de embalagem de alimentos. O algodão também pode ser reciclado e usado para criar novos produtos, como papel ou isolamento.
 
+<en:Textile
+en:Linen, flax
+fr:Lin, Fibre - Textile / Lin
+
 #<en:Fiber
 en:61 TEX Jute, Jute
 bg:61 TEX юта, юта
@@ -1575,11 +1638,12 @@ description:it:La iuta è una fibra naturale che si ottiene dal fusto della pian
 description:nl:Jute is een natuurlijke vezel die wordt gewonnen uit de stengel van de juteplant. Het wordt vaak gebruikt om jute en andere soorten ruwe stoffen te maken, evenals bij de productie van voedselverpakkingsmaterialen. Jute kan ook worden gerecycled door als grondstof te worden gebruikt voor de productie van andere op jute gebaseerde producten. Jute is biologisch afbreekbaar.
 description:pt:A juta é uma fibra natural obtida do caule da planta de juta. É comumente usado para fazer estopa e outros tipos de tecidos ásperos, bem como na produção de materiais de embalagem de alimentos. A juta também pode ser reciclada, sendo utilizada como matéria-prima para a produção de outros produtos à base de juta. A juta é biodegradável.
 
+<en:Textile
 en:Other Textiles
 bg:Друг текстил
 de:Andere Textilien
 es:Otros textiles
-fr:Autres textiles, autre textile
+fr:Autres textiles, autre textile, Fibre - Textile / Autre fibre végétale / cellulosique
 hu:Egyéb textilek, Egyéb textil, Egyéb textília, Más textilek
 it:Altri Tessili
 nl:Ander textiel
@@ -1587,6 +1651,7 @@ pt:Outros têxteis
 xx:62 TEX, TEX 62, 63 TEX, TEX 63, 64 TEX, TEX 64, 65 TEX, TEX 65, 66 TEX, TEX 66, 67 TEX, TEX 67, 68 TEX, TEX 68, 69 TEX, TEX 69
 description:Elk textiel (uit draden gemaakt materiaal) dat niet jute of katoen is.
 
+# Silicates / Verre (sodo-calcique) in data from Les Mousquetaires
 en:Glass
 bg:Стъкло
 bs:Staklo
@@ -1598,7 +1663,7 @@ el:γυαλί
 es:Vidrio, cristal
 et:klaas
 fi:lasi
-fr:Verre
+fr:Verre, Silicates / Verre (sodo-calcique), Silicates / Verre autre que sodo-calcique (cristal - pyrex etc.), Silicates / Autre Silicates
 ga:gloine
 hr:staklo
 hu:Üveg
@@ -2822,4 +2887,22 @@ comment:en:Should these not be shapes?
 en:washi tape
 de:Washi-Tape
 ja:和紙テープ
-comment:en:Should these not be shapes?
+#comment:en:Should these not be shapes?
+
+en:Gas
+fr:Gaz
+
+<en:Gas
+en:CO2 - Carbon dioxide, Carbon dioxide
+fr:CO2 - Dioxide de carbone, CO2, Dioxide de carbone, gaz carbonique
+xx:CO2
+
+<en:Gas
+en:N2 - Azote, Azote
+fr:N2 - Azote, Azote
+xx:N2
+
+<en:Gas
+en:Other gas
+fr:Autre gaz
+

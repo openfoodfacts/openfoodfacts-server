@@ -152,6 +152,7 @@ jobs:
           echo "INFLUXDB_HOST=${{ env.INFLUXDB_HOST }}" >> .env
           echo "LOG_LEVEL_ROOT=ERROR" >> .env
           echo "LOG_LEVEL_MONGODB=ERROR" >> .env
+          echo "BUILD_CACHE_REPO=openfoodfacts/openfoodfacts-build-cache" >> .env
 
           # Override domain name in nginx.conf
           sed -i.bak "s/productopener.localhost/${{ env.PRODUCT_OPENER_DOMAIN }}/g" ./conf/nginx.conf
@@ -180,6 +181,7 @@ jobs:
         proxy_host: ${{ env.SSH_PROXY_HOST }}
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        command_timeout: 25m
         script_stop: false
         script: |
           cd ${{ matrix.env }} && \
@@ -194,6 +196,7 @@ jobs:
         proxy_host: ${{ env.SSH_PROXY_HOST }}
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        command_timeout: 15m
         script_stop: false
         script: |
           cd ${{ matrix.env }} && \

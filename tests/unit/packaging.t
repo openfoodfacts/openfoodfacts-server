@@ -26,20 +26,68 @@ is(guess_language_of_packaging_text("something unknown", [qw(de es it fr)]), und
 
 # Tests for get_checked_and_taxonomized_packaging_component_data
 
-my $packaging_ref;
-
-$packaging_ref = get_checked_and_taxonomized_packaging_component_data("en",
-	{"number_of_units" => 1, "shape" => "en:bottle", "material" => "en:glass", "weight_measured" => "55,40"}, {});
-
-is_deeply(
-	$packaging_ref,
+my @tests = (
 	{
-		'material' => 'en:glass',
-		'number_of_units' => 1,
-		'shape' => 'en:bottle',
-		'weight_measured' => 55.4,
+		lc => "en",
+		input =>
+			{"number_of_units" => 1, "shape" => "en:bottle", "material" => "en:glass", "weight_measured" => "55,40"},
+		expected_output => {
+			'material' => 'en:glass',
+			'number_of_units' => 1,
+			'shape' => 'en:bottle',
+			'weight_measured' => 55.4,
+		}
 	},
-) or diag explain $packaging_ref;
+	{
+		desc => "Value 0 should be considered empty, all values are 0, return undef",
+		lc => "en",
+		input => {
+			"number_of_units" => 0,
+			"shape" => "0",
+			"material" => "0",
+			"weight_measured" => "0",
+			"quantity_per_unit" => "0"
+		},
+		expected_output => undef,
+	},
+	{
+		desc => "Value 0 should be considered empty, 1 value is not 0",
+		lc => "en",
+		input => {
+			"number_of_units" => 0,
+			"shape" => "bottle",
+			"material" => "0",
+			"weight_measured" => "0",
+			"quantity_per_unit" => "0"
+		},
+		expected_output => {
+			'shape' => 'en:bottle',
+		}
+	},
+	{
+		desc => "weights, float",
+		lc => "en",
+		input => {"weight_measured" => 21.5, "weight_specified" => 14.3},
+		expected_output => {
+			'weight_measured' => '21.5',
+			'weight_specified' => '14.3'
+		}
+	},
+	{
+		desc => "weights, strings",
+		lc => "en",
+		input => {"weight_measured" => "21.5", "weight_specified" => "14.3"},
+		expected_output => {
+			'weight_measured' => '21.5',
+			'weight_specified' => '14.3'
+		}
+	},
+);
+
+foreach my $test_ref (@tests) {
+	$test_ref->{output} = get_checked_and_taxonomized_packaging_component_data($test_ref->{lc}, $test_ref->{input}, {});
+	is_deeply($test_ref->{output}, $test_ref->{expected_output}, $test_ref->{desc}) or diag explain $test_ref;
+}
 
 # Tests for analyze_and_combine_packaging_data()
 

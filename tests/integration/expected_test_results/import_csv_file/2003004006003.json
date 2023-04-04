@@ -51,26 +51,24 @@
    "data_quality_bugs_tags" : [],
    "data_quality_errors_tags" : [],
    "data_quality_info_tags" : [
-      "en:no-packaging-data",
+      "en:packaging-data-incomplete",
       "en:ecoscore-extended-data-not-computed",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown"
    ],
    "data_quality_tags" : [
-      "en:no-packaging-data",
+      "en:packaging-data-incomplete",
       "en:ecoscore-extended-data-not-computed",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown",
       "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-      "en:ecoscore-packaging-packaging-data-missing",
       "en:ecoscore-production-system-no-label",
       "en:ecoscore-threatened-species-ingredients-missing"
    ],
    "data_quality_warnings_tags" : [
       "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-      "en:ecoscore-packaging-packaging-data-missing",
       "en:ecoscore-production-system-no-label",
       "en:ecoscore-threatened-species-ingredients-missing"
    ],
@@ -292,9 +290,23 @@
             "warning" : "origins_are_100_percent_unknown"
          },
          "packaging" : {
-            "non_recyclable_and_non_biodegradable_materials" : 1,
-            "value" : -15,
-            "warning" : "packaging_data_missing"
+            "non_recyclable_and_non_biodegradable_materials" : 0,
+            "packagings" : [
+               {
+                  "ecoscore_material_score" : 100,
+                  "ecoscore_shape_ratio" : 1,
+                  "material" : "en:rpet-recycled-polyethylene-terephthalate",
+                  "material_shape" : "en:rpet-recycled-polyethylene-terephthalate.en:bottle",
+                  "non_recyclable_and_non_biodegradable" : "no",
+                  "quantity_per_unit" : "1l",
+                  "quantity_per_unit_unit" : "l",
+                  "quantity_per_unit_value" : 1,
+                  "shape" : "en:bottle",
+                  "weight_specified" : 42.3
+               }
+            ],
+            "score" : 100,
+            "value" : 0
          },
          "production_system" : {
             "labels" : [],
@@ -312,11 +324,9 @@
          "categories" : 1,
          "ingredients" : 1,
          "labels" : 1,
-         "origins" : 1,
-         "packagings" : 1
+         "origins" : 1
       },
       "missing_agribalyse_match_warning" : 1,
-      "missing_key_data" : 1,
       "status" : "unknown"
    },
    "ecoscore_grade" : "unknown",
@@ -368,7 +378,11 @@
       "en:nutriscore-missing-nutrition-data-proteins",
       "en:nutrition-no-fiber",
       "en:packagings-not-complete",
-      "en:packagings-empty",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty",
+      "en:packagings-with-weights",
+      "en:packagings-with-all-weights",
+      "en:packagings-with-all-weights-not-complete",
       "en:ecoscore-extended-data-not-computed",
       "en:ecoscore-not-computed",
       "en:main-countries-new-product"
@@ -392,7 +406,23 @@
    "owner" : "org-test-org",
    "owner_fields" : "--ignore--",
    "owners_tags" : "org-test-org",
-   "packagings" : [],
+   "packaging_materials_tags" : [
+      "en:rpet-recycled-polyethylene-terephthalate"
+   ],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [
+      "en:bottle"
+   ],
+   "packagings" : [
+      {
+         "material" : "en:rpet-recycled-polyethylene-terephthalate",
+         "quantity_per_unit" : "1l",
+         "quantity_per_unit_unit" : "l",
+         "quantity_per_unit_value" : 1,
+         "shape" : "en:bottle",
+         "weight_specified" : 42.3
+      }
+   ],
    "photographers_tags" : [],
    "pnns_groups_1" : "unknown",
    "pnns_groups_1_tags" : [
