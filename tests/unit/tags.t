@@ -9,6 +9,9 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::Store qw/:all/;
 # Display.pm is currently needed, as we need $lc to be defined for canonicalize_tag2
 use ProductOpener::Display qw/:all/;
+use ProductOpener::Test qw/:all/;
+
+my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
 init_emb_codes();
 
@@ -705,5 +708,22 @@ is(get_tag_image("fr", "labels", "fr:commerce-equitable"), "/images/lang/fr/labe
 	;    # file name is unaccented, unaccented language
 is(get_tag_image("fr", "labels", "fi:sydänmerkki"), "/images/lang/fi/labels/sydanmerkki.90x90.png")
 	;    # file name is unaccented, accented language
+
+# strings with multiple tags separated by /
+is(canonicalize_taxonomy_tag('en', 'packaging_materials', 'Plastic/PET'), "en:pet-1-polyethylene-terephthalate");
+is(canonicalize_taxonomy_tag('en', 'packaging_materials', 'Plastic / other plastics'), "en:o-7-other-plastics");
+is(canonicalize_taxonomy_tag('en', 'packaging_materials', 'Plastic/PET'), "en:pet-1-polyethylene-terephthalate");
+is(canonicalize_taxonomy_tag('en', 'packaging_materials', 'Plastic / Metal'), "en:Plastic / Metal"); # Cannot be matched
+is(canonicalize_taxonomy_tag('fr', 'packaging_shapes', 'Ustensiles / couverts / fourchette'), "en:fork");
+# 2023/03/28 - following test does not yet work
+#is(canonicalize_taxonomy_tag('fr', 'packaging_shapes', 'Ustensiles (fourchette, couteau, cuillère)'), "en:utensils");
+is(canonicalize_taxonomy_tag('fr', 'packaging_shapes', 'Plat (Bol, Saladier, Terrine, …)'), "en:dish");
+is(canonicalize_taxonomy_tag('fr', 'packaging_materials', 'Gaz / CO2 - Dioxide de carbone (gaz carbonique)'),
+	"en:co2-carbon-dioxide");
+
+# test the generation of regexps matching tags
+
+my $regexps_ref = generate_regexps_matching_taxonomy_entries("test", "list_of_regexps", {});
+compare_to_expected_results($regexps_ref, "$expected_result_dir/regexps.json", $update_expected_results);
 
 done_testing();
