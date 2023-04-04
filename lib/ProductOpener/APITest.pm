@@ -530,6 +530,7 @@ sub execute_api_tests ($file, $tests_ref, $ua = undef) {
 					$update_expected_results, $test_ref
 				),
 				1,
+				"$test_case - result"
 			);
 		}
 

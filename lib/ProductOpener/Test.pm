@@ -321,7 +321,12 @@ sub compare_to_expected_results ($object_ref, $expected_results_file, $update_ex
 
 			local $/;    #Enable 'slurp' mode
 			my $expected_object_ref = $json->decode(<$expected_result>);
-			is_deeply($object_ref, $expected_object_ref, $desc) or diag(explain $test_ref, explain $object_ref);
+			my $title;
+			if ($test_ref && (ref($test_ref) eq "HASH")) {
+				$title = $test_ref->{desc} // $test_ref->{test_case} // $test_ref->{id};
+				$title = undef unless $title;
+			}
+			is_deeply($object_ref, $expected_object_ref, $title) or diag(explain $test_ref, explain $object_ref);
 		}
 		else {
 			fail("could not load $expected_results_file");
