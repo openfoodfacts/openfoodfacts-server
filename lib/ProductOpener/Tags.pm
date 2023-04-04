@@ -57,7 +57,10 @@ BEGIN {
 		&is_a
 
 		&get_property
+		&get_property_with_fallbacks
 		&get_inherited_property
+		&get_inherited_properties
+		&get_tags_grouped_by_property
 
 		%canon_tags
 		%tags_images
@@ -313,6 +316,23 @@ sub get_property ($tagtype, $canon_tagid, $property) {
 	}
 }
 
+sub get_property_with_fallbacks ($tagtype, $tagid, $property, $fallback_lcs = ["xx", "en"]) {
+
+	my $property_value = get_property($tagtype, $tagid, $property);
+	if (!defined $property_value) {
+		# is it language dependent ?
+		if ($property =~ /:..$/) {
+			my $bare_name = $`;
+			# try fallbacks
+			foreach my $lc (@$fallback_lcs) {
+				$property_value = get_property($tagtype, $tagid, "$bare_name:$lc");
+				last if defined $property_value;
+			}
+		}
+	}
+	return $property_value;
+}
+
 sub get_inherited_property ($tagtype, $canon_tagid, $property) {
 
 	my @parents = ($canon_tagid);
@@ -344,6 +364,189 @@ sub get_inherited_property ($tagtype, $canon_tagid, $property) {
 		}
 	}
 	return;
+}
+
+=head2 get_inherited_properties ($tagtype, $canon_tagid, $properties_names_ref, $fallback_lcs = ["xx", "en"]) {
+
+Try to get a set of properties for a tag by exploring the taxonomy (using parents).
+
+This methods take into account if a property is defined as "undef"
+(but it cuts value only for the considered branch
+and might still lead to a value if there are multiple parents branches).
+
+B<Warning:> The algorithm is a bit rough and my not work as you would expect on a DAG.
+It does not (currently) respect exploration of nodes that joins from multiple parent
+(in those case you would expect to first explore children from both branches).
+If we want to change the algorithm for this to work we should first explore parents,
+and then decide the order, but this methods is more eager to save time.
+
+=head3 Parameters
+
+=head4 $tagtype - str, name of taxonomy
+=head4 $canon_tagid - tag id for which we want properties
+=head4 $properties_names - ref to a list of property name
+=head4 $fallback_lcs - fallback language code to try
+If may search a description:fr but if fallback is ['xx', 'en']
+and we find a description:xx or description:en property we will use this value.
+
+=head3 Return
+
+A ref to a hashmap where keys are property names and values are found value.
+If a property name is not present it means it was not found.
+
+=cut
+
+sub get_inherited_properties ($tagtype, $canon_tagid, $properties_names_ref, $fallback_lcs = ["xx", "en"]) {
+
+	my @parents = ([0, $canon_tagid]);
+	my @fallback_langs = @$fallback_lcs;
+	my %seen = ($canon_tagid => 1);
+	my %found_properties = ();
+	# we have to handle properties that explicitely have "undef" as value
+	# we will do it by retaining and propagating this undef value for each target tagid
+	my %undef_properties = ();
+	my %unfound_properties = ();
+	foreach my $property (@{$properties_names_ref}) {
+		$unfound_properties{$property} = 1;
+	}
+
+	while (scalar @parents) {
+		my ($depth, $tagid) = @{shift @parents};
+		if (not defined $tagid) {
+			$log->warn("undefined parent for tag", {parent_tagid => $tagid, canon_tagid => $canon_tagid})
+				if $log->is_warn();
+		}
+		else {
+			# harvest properties
+			foreach my $property (keys %unfound_properties) {
+				my $property_value = deep_get(\%properties, $tagtype, $tagid, $property);
+				if (!defined $property_value) {
+					# is it language dependent ?
+					if ($property =~ /:..$/) {
+						my $bare_name = $`;
+						# try fallbacks
+						foreach my $lang (@fallback_langs) {
+							$property_value = deep_get(\%properties, $tagtype, $tagid, "$bare_name:$lang");
+							last if defined $property_value;
+						}
+					}
+				}
+				if (defined $property_value) {
+					# skip if propagation by a previous children with "undef" value
+					next if defined $undef_properties{$tagid} && defined $undef_properties{$tagid}{$property};
+					if ($property_value eq "undef") {
+						# stop the propagation to parents of this tag, but continue with other parents
+						defined $undef_properties{$tagid} or $undef_properties{$tagid} = {};
+						$undef_properties{$tagid}{$property} = 1;
+					}
+					else {
+						#Return only one occurence of the property if several are defined in ingredients.txt
+						$found_properties{$property} = $property_value;
+						delete $unfound_properties{$property};
+					}
+				}
+			}
+			# add parents to the search ?
+			my $propagate = 0;
+			if (exists $direct_parents{$tagtype}{$tagid}) {
+				if (!defined $unfound_properties{$tagid}) {
+					$propagate = scalar %unfound_properties;
+				}
+				else {
+					# check if we have at least one unfonud property which not "undef"
+					for my $property (keys %unfound_properties) {
+						if (!defined $unfound_properties{$tagid}{$property}) {
+							$propagate = 1;
+							last;
+						}
+					}
+				}
+			}
+
+			if ($propagate) {
+				# propagate search to parents
+				foreach my $parent (keys %{$direct_parents{$tagtype}{$tagid}}) {
+					if (!defined $seen{$parent}) {
+						$seen{$parent} = 1;
+						push @parents, [$depth + 1, $parent];
+					}
+					# propagate undef, we merge with maybe existing items
+					if (defined $undef_properties{$tagid}) {
+						defined $undef_properties{$parent} or $undef_properties{$parent} = {};
+						foreach my $property (keys %{$undef_properties{$tagid}}) {
+							$undef_properties{$parent}{$property} = 1;
+						}
+					}
+				}
+
+				# sort parents, lower depth first, name second
+				@parents = sort {(@$a[0] <=> @$b[0]) || (@$a[1] cmp @$b[1])} @parents;
+			}
+
+			# no need to keep undef_properties for $tagid
+			delete $undef_properties{$tagid} if defined $undef_properties{$tagid};
+		}
+	}
+	return \%found_properties;
+}
+
+=head2 get_tags_grouped_by_property ($tagtype, $tagids_ref, $prop_name, $props_ref, $inherited_props_ref, $fallback_lcs = ["xx", "en"])
+Retrieve properties of a series of tags given in C<$tagids_ref>
+and return them, but grouped by C<$prop_name>,
+also fetching C<$props_ref> and C<$inherited_props_ref>
+
+=head3 Return
+A ref to a hashmap, where keys are property C<$prop_name> values,
+and values are in turn hashmaps where keys are tag ids,
+and values are a hashmap with of properties and their values.
+
+Tags with undefined property are with group under "undef" value.
+
+=head4 Example
+we asks for quality tags, grouped by fix_action, while getting descriptions
+{
+	"add_nutrition_facts" => {
+		"en:kcal-does-not-match-other-nutrients" => {
+			"description:en" => "Kcal is not matching value computed from other nutriments"
+		},
+		"en:kcal-does-not-match-kj" => {
+			"description:en" => "Kcal is not matching kJ value"
+		},
+	},
+	"add_categories" =>
+	{
+		"en:detected-category-baby-milk" {
+			"description:en" => "Detected category … may be missing baby milks"
+		}
+	}
+}
+=cut
+
+sub get_tags_grouped_by_property ($tagtype, $tagids_ref, $prop_name, $props_ref, $inherited_props_ref,
+	$fallback_lcs = ["xx", "en"])
+{
+	my @tagids = @{$tagids_ref};
+	my @props_to_fetch = (@{$inherited_props_ref});
+	push @props_to_fetch, $prop_name;
+
+	my $grouped_tags = {};
+
+	foreach my $tagid (@tagids) {
+		my $found_ref = get_inherited_properties($tagtype, $tagid, \@props_to_fetch);
+		my $prop_value = $found_ref->{$prop_name} // "undef";
+		delete $found_ref->{$prop_name} if defined $found_ref->{$prop_name};
+		defined $grouped_tags->{$prop_value} or $grouped_tags->{$prop_value} = {};
+		# properties only on first level
+		foreach my $property (@$props_ref) {
+			my $value = get_property_with_fallbacks($tagtype, $tagid, $property, $fallback_lcs);
+			if (defined $value) {
+				$found_ref->{$property} = $value;
+			}
+		}
+		$grouped_tags->{$prop_value}{$tagid} = $found_ref;
+	}
+
+	return $grouped_tags;
 }
 
 sub has_tag ($product_ref, $tagtype, $tagid) {
@@ -456,8 +659,6 @@ sub load_tags_images ($lc, $tagtype) {
 			if ($file =~ /^((.*)\.\d+x${logo_height}.(png|svg))$/) {
 				if ((not defined $tags_images{$lc}{$tagtype}{$2}) or ($3 eq 'svg')) {
 					$tags_images{$lc}{$tagtype}{$2} = $1;
-					#print STDERR
-					#	"load_tags_images - tags_images - loading lc: $lc - tagtype: $tagtype - tag: $2 - img: $1 - ext: $3 \n";
 				}
 			}
 		}

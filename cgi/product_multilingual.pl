@@ -28,6 +28,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::Web qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
@@ -38,6 +39,8 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Units qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
+use ProductOpener::KnowledgePanels qw/:all/;
+use ProductOpener::KnowledgePanelsContribution qw/:all/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
@@ -1506,6 +1509,7 @@ elsif (($action eq 'display') and ($type eq 'delete') and ($User{moderator})) {
 
 }
 elsif ($action eq 'process') {
+	# process the form
 
 	my $template_data_ref_process = {type => $type};
 
@@ -1513,6 +1517,7 @@ elsif ($action eq 'process') {
 
 	$product_ref->{interface_version_modified} = $interface_version;
 
+	# removal is just putting "on" in delete
 	if (($User{moderator}) and ($type eq 'delete')) {
 		$product_ref->{deleted} = 'on';
 		$comment = lang("deleting_product") . separator_before_colon($lc) . ":";
@@ -1525,18 +1530,13 @@ elsif ($action eq 'process') {
 	$comment = $comment . remove_tags_and_quote(decode utf8 => single_param('comment'));
 	store_product($User_id, $product_ref, $comment);
 
-	my $edited_product_url = product_url($product_ref);
-
+	# now display next page
+	my $url_prefix = "";
 	if (defined $product_ref->{server}) {
 		# product that was moved to OBF from OFF etc.
-		$edited_product_url
-			= "https://"
-			. $subdomain . "."
-			. $options{other_servers}{$product_ref->{server}}{domain}
-			. product_url($product_ref);
+		$url_prefix = "https://" . $subdomain . "." . $options{other_servers}{$product_ref->{server}}{domain};
 	}
 	elsif ($type eq 'delete') {
-
 		my $email = <<MAIL
 $User_id $Lang{has_deleted_product}{$lc}:
 
@@ -1545,37 +1545,51 @@ $html
 MAIL
 			;
 		send_email_to_admin(lang("deleting_product"), $email);
-
+		send_event({user_id => $User_id, event_type => "product_removed", barcode => $code, points => 5});
 	}
 	else {
-
 		# Create an event
 		send_event({user_id => $User_id, event_type => "product_edited", barcode => $code, points => 5});
-
-		$template_data_ref_process->{display_random_sample_of_products_after_edits_options}
-			= $options{display_random_sample_of_products_after_edits};
-
-		# warning: this option is very slow
-		if (    (defined $options{display_random_sample_of_products_after_edits})
-			and ($options{display_random_sample_of_products_after_edits}))
-		{
-
-			my %request = (
-				'titleid' => get_string_id_for_lang($lc, product_name_brand($product_ref)),
-				'query_string' => $ENV{QUERY_STRING},
-				'referer' => referer(),
-				'code' => $code,
-				'product_changes_saved' => 1,
-				'sample_size' => 10
-			);
-
-			display_product(\%request);
-		}
 	}
 
 	$log->debug("product edited", {code => $code}) if $log->is_debug();
 
-	$template_data_ref_process->{edited_product_url} = $edited_product_url;
+	$template_data_ref_process->{display_random_sample_of_products_after_edits_options}
+		= $options{display_random_sample_of_products_after_edits};
+	# warning: this option is very slow
+	if (    (defined $options{display_random_sample_of_products_after_edits})
+		and ($options{display_random_sample_of_products_after_edits}))
+	{
+
+		my %request = (
+			'titleid' => get_string_id_for_lang($lc, product_name_brand($product_ref)),
+			'query_string' => $ENV{QUERY_STRING},
+			'referer' => referer(),
+			'code' => $code,
+			'product_changes_saved' => 1,
+			'sample_size' => 10
+		);
+
+		display_product(\%request);
+	}
+
+	$template_data_ref_process->{edited_product_url} = $url_prefix . product_url($product_ref);
+	$template_data_ref_process->{edit_product_url} = $url_prefix . product_action_url($product_ref->{code}, "");
+
+	if ($type ne 'delete') {
+		# adding contribution card
+		# TODO: we should better have a more flexible way to select panels
+		$product_ref->{"knowledge_panels_" . $lc} = {};
+		$knowledge_panels_options_ref = {};
+		initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref);
+		$knowledge_panels_options_ref->{knowledge_panels_client} = "web";
+		create_contribution_card_panel($product_ref, $lc, $cc, $knowledge_panels_options_ref);
+		if (defined $product_ref->{"knowledge_panels_" . $lc}{data_quality_errors}) {
+			$template_data_ref_process->{contribution_card_panel}
+				= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "contribution_card");
+		}
+	}
+	$template_data_ref_process->{code} = $product_ref->{code};
 	process_template('web/pages/product_edit/product_edit_form_process.tt.html', $template_data_ref_process, \$html)
 		or $html = "<p>" . $tt->error() . "</p>";
 

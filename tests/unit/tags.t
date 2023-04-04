@@ -311,6 +311,19 @@ is(get_property("test", "en:meat", "vegan:en"), "no");
 is($properties{test}{"en:meat"}{"vegan:en"}, "no");
 is(get_inherited_property("test", "en:meat", "vegan:en"), "no");
 is(get_property("test", "en:beef", "vegan:en"), undef);
+is(get_property_with_fallbacks("test", "en:meat", "vegan:en"), "no", "get_property_with_fallback: no need of fallback");
+is(get_property_with_fallbacks("test", "en:meat", "vegan:fr"), "no", "get_property_with_fallback: fallback to en");
+is(get_property_with_fallbacks("test", "en:meat", "vegan:fr", ["de",]),
+	undef, "get_property_with_fallback: fallback to lang with no value");
+is(get_property_with_fallbacks("test", "en:meat", "vegan:fr", []),
+	undef, "get_property_with_fallback: no fallback lang");
+is(get_property_with_fallbacks("test", "en:meat", "vegan:en", "[]"),
+	"no", "get_property_with_fallback: no fallback lang but no need of it");
+is(
+	get_property_with_fallbacks("test", "en:lemon-yogurts", "description:nl", ["fr", "en"]),
+	"un yaourt avec du citron",
+	"get_property_with_fallback: french first"
+);
 is(get_inherited_property("test", "en:beef", "vegan:en"), "no");
 is(get_inherited_property("test", "en:fake-meat", "vegan:en"), "yes");
 is(get_inherited_property("test", "en:fake-duck-meat", "vegan:en"), "yes");
@@ -318,6 +331,79 @@ is(get_inherited_property("test", "en:yogurts", "vegan:en"), undef);
 is(get_inherited_property("test", "en:unknown", "vegan:en"), undef);
 is(get_inherited_property("test", "en:roast-beef", "carbon_footprint_fr_foodges_value:fr"), 15);
 is(get_inherited_property("test", "en:fake-duck-meat", "carbon_footprint_fr_foodges_value:fr"), undef);
+
+is(get_inherited_property("test", "en:fake-duck-meat", "carbon_footprint_fr_foodges_value:fr"), undef);
+
+is_deeply(get_inherited_properties("test", "fr:yaourts-au-citron-alleges", []),
+	{}, "Getting an empty list of property returns an empty hashmap");
+is_deeply(
+	get_inherited_properties("test", "en:fake-meat", ["vegan:en"]),
+	{"vegan:en" => "yes"},
+	"Getting only one property"
+);
+is_deeply(
+	get_inherited_properties("test", "en:lemon-yogurts", ["color:en", "description:fr", "non-existing", "another:fr"]),
+	{"color:en" => "yellow", "description:fr" => "un yaourt avec du citron"},
+	"Getting multiple properties at once"
+);
+is_deeply(
+	get_inherited_properties("test", "fr:yaourts-au-citron-alleges", ["color:en", "description:fr"]),
+	{"color:en" => "yellow", "description:fr" => "for light yogurts with lemon"},
+	"Getting multiple properties with one inherited and one where we use language fallback"
+);
+is_deeply(
+	get_inherited_properties("test", "fr:yaourts-au-fruit-de-la-passion-alleges", ["color:en", "description:fr"]),
+	{"description:fr" => "un yaourt de n'importe quel type"},
+	"Getting multiple properties with one undef in the path and an inherited one"
+);
+
+is_deeply(get_tags_grouped_by_property("test", [], "color:en", ["description:fr"], ["flavour:en"]),
+	{}, "get_tags_grouped_by_property for no tagids gives empty hashmap");
+is_deeply(
+	get_tags_grouped_by_property(
+		"test", ["en:passion-fruit-yogurts", "fr:yaourts-au-citron-alleges"],
+		"color:en", [], []
+	),
+	{
+		'undef' => {
+			'en:passion-fruit-yogurts' => {}
+		},
+		'yellow' => {
+			'fr:yaourts-au-citron-alleges' => {}
+		},
+	},
+	"get_tags_grouped_by_property with grouping on color:en, no additional property"
+);
+is_deeply(
+	get_tags_grouped_by_property(
+		"test",
+		["en:passion-fruit-yogurts", "fr:yaourts-a-la-myrtille", "fr:yaourts-au-citron-alleges", "en:lemon-yogurts"],
+		"color:en", ["description:fr"], ["flavour:en"],
+	),
+	{
+		'undef' => {
+			'en:passion-fruit-yogurts' => {
+				'flavour:en' => 'passion fruit',
+			}
+		},
+		'white' => {
+			'fr:yaourts-a-la-myrtille' => {
+				'flavour:en' => 'blueberry',
+			}
+		},
+		'yellow' => {
+			'en:lemon-yogurts' => {
+				'description:fr' => 'un yaourt avec du citron',
+				'flavour:en' => 'lemon',
+			},
+			'fr:yaourts-au-citron-alleges' => {
+				'description:fr' => 'for light yogurts with lemon',
+				'flavour:en' => 'lemon',
+			}
+		},
+	},
+	"get_tags_grouped_by_property with grouping on color:en"
+);
 
 my $yuka_uuid = "yuka.R452afga432";
 my $tagtype = "editors";
