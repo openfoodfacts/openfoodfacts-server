@@ -50,6 +50,7 @@ use ProductOpener::Web qw(get_languages_options_list);
 use ProductOpener::Text qw/:all/;
 use ProductOpener::Events qw/:all/;
 use ProductOpener::API qw/:all/;
+use ProductOpener::APIProductWrite qw/:all/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -557,22 +558,9 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 		if (defined single_param($field)) {
 
-			# If we are on the public platform, and the field data has been imported from the producer platform
-			# ignore the field changes for non tag fields, unless made by a moderator
-			if (    ((not defined $server_options{private_products}) or (not $server_options{private_products}))
-				and (defined $product_ref->{owner_fields})
-				and (defined $product_ref->{owner_fields}{$field})
-				and (not $User{moderator}))
-			{
-				$log->debug(
-					"skipping field with a value set by the owner",
-					{
-						code => $code,
-						field_name => $field,
-						existing_field_value => $product_ref->{$field},
-						new_field_value => remove_tags_and_quote(decode utf8 => single_param($field))
-					}
-				) if $log->is_debug();
+			# Only moderators can update values for fields sent by the producer
+			if (skip_protected_field($product_ref, $field, $User{moderator})) {
+				next;
 			}
 
 			if ($field eq "lang") {
@@ -626,7 +614,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	# Update the nutrients
 
-	assign_nutriments_values_from_request_parameters($product_ref, $nutriment_table);
+	assign_nutriments_values_from_request_parameters($product_ref, $nutriment_table, $User{moderator});
 
 	# Process packaging components
 	create_packaging_components_from_request_parameters($product_ref);
