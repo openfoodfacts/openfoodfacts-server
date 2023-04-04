@@ -173,8 +173,13 @@ sub update_packagings ($request_ref, $product_ref, $field, $is_addition, $value)
 				$input_packaging_ref, $response_ref);
 
 			if (defined $packaging_ref) {
-				# Add or combine with the existing packagings components array
-				add_or_combine_packaging_component_data($product_ref, $packaging_ref, $response_ref);
+				if (not $is_addition) {
+					push @{$product_ref->{packagings}}, $packaging_ref;
+				}
+				else {
+					# Add or combine with the existing packagings components array
+					add_or_combine_packaging_component_data($product_ref, $packaging_ref, $response_ref);
+				}
 			}
 		}
 	}
