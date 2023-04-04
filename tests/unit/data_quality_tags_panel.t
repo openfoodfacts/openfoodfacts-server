@@ -40,7 +40,6 @@ my @tests = (
 		desc => "A panel with one error of one action type",
 		tag_type => "data_quality_errors",
 		product => {data_quality_errors_tags => ["en:energy-value-in-kcal-does-not-match-value-in-kj"]},
-		desc => "A panel with one error of one action type",
 	},
 	{
 		id => "one_warning_one_action",

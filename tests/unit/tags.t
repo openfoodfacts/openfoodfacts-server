@@ -353,7 +353,7 @@ is_deeply(
 );
 is_deeply(
 	get_inherited_properties("test", "fr:yaourts-au-fruit-de-la-passion-alleges", ["color:en", "description:fr"]),
-	{"description:fr" => "un yaourt de n'import quel type"},
+	{"description:fr" => "un yaourt de n'importe quel type"},
 	"Getting multiple properties with one undef in the path and an inherited one"
 );
 
