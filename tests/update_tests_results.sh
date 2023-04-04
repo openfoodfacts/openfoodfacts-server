@@ -22,13 +22,14 @@ cd unit
 perl attributes.t --update-expected-results
 perl ecoscore.t --update-expected-results
 perl forest_footprint.t --update-expected-results
+perl import_convert_carrefour_france.t --update-expected-results
 perl import_gs1.t --update-expected-results
 perl ingredients.t --update-expected-results
 perl nutriscore.t --update-expected-results
 perl packaging.t --update-expected-results
 perl recipes.t --update-expected-results
-perl import_convert_carrefour_france.t --update-expected-results
-perl tests/unit/send_image_to_cloud_vision.t --update-expected-results
+perl send_image_to_cloud_vision.t --update-expected-results
+perl tags.t --update-expected-results
 
 cd ..
 

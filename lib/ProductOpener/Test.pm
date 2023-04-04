@@ -36,6 +36,7 @@ BEGIN {
 	@EXPORT_OK = qw(
 		&capture_ouputs
 		&compare_arr
+		&ensure_expected_results_dir
 		&compare_to_expected_results
 		&compare_array_to_expected_results
 		&compare_csv_file_to_expected_results
@@ -69,6 +70,7 @@ use Test::More;
 use JSON "decode_json";
 use File::Basename "fileparse";
 use File::Path qw/make_path remove_tree/;
+use File::Copy;
 use Path::Tiny qw/path/;
 
 use Log::Any qw($log);
@@ -360,20 +362,32 @@ sub compare_csv_file_to_expected_results ($csv_file, $expected_results_dir, $upd
 	my $csv = Text::CSV->new({binary => 1, sep_char => "\t"})    # should set binary attribute.
 		or die "Cannot use CSV: " . Text::CSV->error_diag();
 
-	open(my $io, '<:encoding(UTF-8)', $csv_file) or confess("Could not open " . $csv_file . ": $!");
+	if (open(my $io, '<:encoding(UTF-8)', $csv_file)) {
+		# first line contains headers
+		my $columns_ref = $csv->getline($io);
+		$csv->column_names(@{$columns_ref});
 
-	# first line contains headers
-	my $columns_ref = $csv->getline($io);
-	$csv->column_names(@{$columns_ref});
+		# csv --> array
+		my @data = ();
 
-	# csv --> array
-	my @data = ();
+		while (my $product_ref = $csv->getline_hr($io)) {
+			push @data, $product_ref;
+		}
+		close($io);
+		compare_array_to_expected_results(\@data, $expected_results_dir . "/rows", $update_expected_results);
 
-	while (my $product_ref = $csv->getline_hr($io)) {
-		push @data, $product_ref;
+		# If we update the expected results, copy the CSV file so that we can easily see line by line diffs
+		if ($update_expected_results) {
+			my $csv_filename = $csv_file;
+			$csv_filename =~ s/.*\///;
+			copy($csv_file, $expected_results_dir . '/' . $csv_filename)
+				or die "Copy of $csv_file to $expected_results_dir failed: $!";
+		}
 	}
-	close($io);
-	compare_array_to_expected_results(\@data, $expected_results_dir, $update_expected_results);
+	else {
+		fail("Could not open " . $csv_file . ": $!");
+	}
+
 	return 1;
 }
 
