@@ -37995,6 +37995,7 @@ nl:Biologisch sinaasappelsap
 # ingredient/fr:jus-d-orange-issu-de-l-agriculture-biologique has 11 products in french @2019-05-24
 
 <en:orange juice
+en:squeezed oranges
 fr:oranges pressées
 # 5@2019-06-05
 
@@ -38044,11 +38045,12 @@ hr:bio sok od naranče proizveden od koncentriranog soka naranče
 en:orange juice with pulp
 bg:сок от портокал с пулп
 de:Orangensaft mit Fruchtfleisch
-fr:jus d'orange avec pulpe
+fr:jus d'orange avec pulpe, jus d'orange dont pulpe
 nl:Sinaasappelsap met vruchtvlees
 # ingredient/fr:jus-d'orange-avec-pulpe has 38 products in 2 languages @2018-09-28
 
 <en:orange juice
+en:orange juice without pulp
 bg:сок от портокал без пулп
 fr:Jus d'orange sans pulpe
 nl:Sinaasappelsap zonder vruchtvlees
@@ -38370,6 +38372,10 @@ ru:Сок ацеролы
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-concentré-d'acérola
 # 3 products in 1 language @2018-10-03
 # ingredient/fr:extrait-d'acérola has 215 products in 4 languages @2018-10-03
+
+<en:acerola juice
+en:acerola juice from concentrate
+de:Acerolasaft aus Acerolasaftkonzentrat
 
 #processing:en: en:powdered
 <en:acerola
