@@ -192,6 +192,7 @@ RUN \
     done && \
     chown www-data:www-data -R /mnt/podata && \
     # Create symlinks of data files that are indeed conf data in /mnt/podata (because we currently mix data and conf data)
+    # NOTE: do not changes those links for they are in a volume, or handle migration in entry-point
     for path in data-default ecoscore emb_codes forest-footprint ingredients packager-codes po taxonomies templates build-cache; do \
         ln -sf /opt/product-opener/${path} /mnt/podata/${path}; \
     done && \

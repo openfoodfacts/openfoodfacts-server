@@ -57,7 +57,7 @@ sub fake_download_image ($) {
 	# import csv can create some organizations if they don't exist, remove them
 	remove_all_orgs();
 
-	# step4 import file
+	# import file
 	my $datestring = localtime();
 	my $args = {
 		"user_id" => "test-user",
@@ -69,12 +69,16 @@ sub fake_download_image ($) {
 
 	my $stats_ref;
 
-	# run
+	# run import_csv_file
+	print STDERR "Running ProductOpener::Import::import_csv_file and capturing its output\n";
+
+	# Note: if the code executed by capture_outputs() dies, the test will end without showing why/where it died.
 	my ($out, $err) = capture_ouputs(
 		sub {
 			$stats_ref = ProductOpener::Import::import_csv_file($args);
 		}
 	);
+	print STDERR "ProductOpener::Import::import_csv_file - done \n";
 
 	# get all products in db, sorted by code for predictability
 	my $cursor = execute_query(

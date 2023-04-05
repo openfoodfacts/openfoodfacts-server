@@ -2342,7 +2342,7 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 		delete $current_product_ref->{last_image_dates_tags};
 	}
 
-	$current_product_ref->{editors_tags} = [keys %changed_by];
+	$current_product_ref->{editors_tags} = [sort keys %changed_by];
 
 	$current_product_ref->{photographers_tags} = $users_ref->{photographers}{list};
 	$current_product_ref->{informers_tags} = $users_ref->{informers}{list};
@@ -2609,9 +2609,15 @@ sub product_action_url ($code, $action) {
 	elsif ($action eq "add_packaging_text") {
 		$url .= "#packaging";
 	}
+	elsif ($action eq "add_packaging_components") {
+		$url .= "#packaging";
+	}
 	# Note: 27/11/2022 - Pierre - The following HTML anchors links will do nothing unless a matching custom HTML anchor is added in the future to the product edition template
 	elsif ($action eq "add_origins") {
 		$url .= "#origins";
+	}
+	elsif ($action eq "add_quantity") {
+		$url .= "#product_characteristics";
 	}
 	elsif ($action eq "add_stores") {
 		$url .= "#stores";
@@ -2759,7 +2765,7 @@ sub compute_languages ($product_ref) {
 		}
 	}
 
-	my @languages = keys %languages;
+	my @languages = sort keys %languages;
 	my $n = scalar(@languages);
 
 	my @languages_hierarchy = @languages;    # without multilingual and count

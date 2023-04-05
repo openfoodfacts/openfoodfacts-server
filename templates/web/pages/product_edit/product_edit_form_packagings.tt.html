@@ -101,7 +101,14 @@ var packaging_recycling_select2_options = [% generate_select2_options_for_taxono
 
         <div class="small-12 large-1 columns">
             <label class="hide-for-large-up" for="[% packaging_id %]_weight_measured">[% lang("packaging_weight") %] (g)</label>
-            <input id="[% packaging_id %]_weight_measured" name="[% packaging_id %]_weight_measured" type="text" value="[% packaging.weight_measured %]" %]">
+            [%# if we have a weight_specified from the manufacturer, we don't show the weight_measured field %]
+            [% IF packaging.weight_specified.defined %]
+                <input id="[% packaging_id %]_weight_specified" name="[% packaging_id %]_weight_specified" type="hidden" value="[% packaging.weight_specified %]" %]">
+                <input id="[% packaging_id %]_weight_measured" name="[% packaging_id %]_weight_measured" type="hidden" value="[% packaging.weight_measured %]" %]">
+            [% packaging.weight_specified %]
+            [% ELSE %]
+                <input id="[% packaging_id %]_weight_measured" name="[% packaging_id %]_weight_measured" type="text" value="[% packaging.weight_measured %]" %]">
+            [% END %]
         </div>
 
         <div class="small-12 large-1 columns">

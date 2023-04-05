@@ -523,8 +523,11 @@ C<init_request()> is called at the start of each new request (web page or API).
 It initializes a number of variables, in particular:
 
 $cc : country code
+
 $lc : language code
 
+$knowledge_panels_options_ref: Reference to a hashmap that collect options to display knowledge panels for current request
+See also L<ProductOpener::KnowledgePanels/knowledge_panels_options_ref>
 It also initializes a request object that is returned.
 
 =head3 Parameters
@@ -7295,6 +7298,10 @@ JS
 		= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "environment_card");
 	$template_data_ref->{health_card_panel}
 		= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "health_card");
+	if ($product_ref->{"knowledge_panels_" . $lc}{"contribution_card"}) {
+		$template_data_ref->{contribution_card_panel}
+			= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "contribution_card");
+	}
 
 	# The front product image is rendered with the same template as the ingredients, nutrition and packaging images
 	# that are displayed directly through the knowledge panels
