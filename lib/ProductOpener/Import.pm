@@ -501,6 +501,9 @@ sub set_field_value (
 	}
 
 	# for tag fields, only add entries to it, do not remove other entries
+	# exception: for allergens and traces, if the field is not empty
+	# (e.g. we have the entry en:none if there are no allergens)
+	# then replace existing entries with the new entries
 
 	if (defined $tags_fields{$field}) {
 
@@ -513,6 +516,12 @@ sub set_field_value (
 		#	$product_ref->{$field} = "";
 		#	delete $product_ref->{$field . "_tags"};
 		#}
+
+		# if we have a non-empty traces or allergens value, replace existing values
+		if ((($field eq 'allergens') or ($field eq 'traces'))
+			and ($imported_product_ref->{$field} !~ /^\s*($empty_regexp|$unknown_regexp|$not_applicable_regexp)\s*$/i )) {
+			delete $product_ref->{$field . "_tags"};
+		}
 
 		# If we are on the producers platform, remove existing values for brands
 		if (($server_options{producers_platform}) and ($field eq "brands")) {
