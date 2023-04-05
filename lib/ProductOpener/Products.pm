@@ -1043,6 +1043,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 	# (either products or products_obsolete) if its obsolete status has changed
 	my $previous_products_collection = get_products_collection({obsolete => $product_ref->{was_obsolete}});
 	my $new_products_collection = get_products_collection({obsolete => $product_ref->{obsolete}});
+	my $delete_from_previous_products_collection = 0;
 
 	# the obsolete (and was_obsolete) field is either undef or an empty string, or contains "on"
 	if (   ($product_ref->{was_obsolete} and not $product_ref->{obsolete})
@@ -1059,7 +1060,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 				previous_products_collection => $previous_products_collection
 			}
 		) if $log->is_debug();
-		$previous_products_collection->delete_one({"_id" => $product_ref->{_id}});
+		$delete_from_previous_products_collection = 1;
 	}
 	delete $product_ref->{was_obsolete};
 
@@ -1303,6 +1304,10 @@ sub store_product ($user_id, $product_ref, $comment) {
 		#return 0;
 	}
 
+	# First store the product data in a .sto file on disk
+	store("$new_data_root/products/$path/$rev.sto", $product_ref);
+
+	# Also store the product in MongoDB, unless it was marked as deleted
 	if ($product_ref->{deleted}) {
 		$new_products_collection->delete_one({"_id" => $product_ref->{_id}});
 	}
@@ -1310,7 +1315,11 @@ sub store_product ($user_id, $product_ref, $comment) {
 		$new_products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
 	}
 
-	store("$new_data_root/products/$path/$rev.sto", $product_ref);
+	# product that has a changed obsolete status
+	if ($delete_from_previous_products_collection) {
+		$previous_products_collection->delete_one({"_id" => $product_ref->{_id}});
+	}
+
 	# Update link
 	my $link = "$new_data_root/products/$path/product.sto";
 	if (-l $link) {

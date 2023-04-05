@@ -1662,7 +1662,8 @@ sub create_nutrients_level_taxonomy() {
 		my ($nid, $low, $high) = @{$nutrient_level_ref};
 		foreach my $level ('low', 'moderate', 'high') {
 			$nutrient_levels_taxonomy
-				.= "\n" . 'en:'
+				.= "\n"
+				. 'en:'
 				. sprintf(
 				$Lang{nutrient_in_quantity}{en},
 				display_taxonomy_tag("en", "nutrients", "zz:$nid"),
