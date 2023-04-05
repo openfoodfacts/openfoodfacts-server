@@ -1447,7 +1447,8 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 					if $log->is_debug();
 				$results = execute_query(
 					sub {
-						return get_products_collection()->aggregate($aggregate_parameters, {allowDiskUse => 1});
+						return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
+							->aggregate($aggregate_parameters, {allowDiskUse => 1});
 					}
 				);
 			};
@@ -1460,7 +1461,8 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 					if $log->is_debug();
 				$results = execute_query(
 					sub {
-						return get_products_tags_collection()->aggregate($aggregate_parameters, {allowDiskUse => 1});
+						return get_products_collection({obsolete => request_param($request_ref, "obsolete"), tags => 1})
+							->aggregate($aggregate_parameters, {allowDiskUse => 1});
 					}
 				);
 			};
@@ -1527,7 +1529,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 						if $log->is_debug();
 					$count_results = execute_query(
 						sub {
-							return get_products_collection()
+							return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
 								->aggregate($aggregate_count_parameters, {allowDiskUse => 1});
 						}
 					);
@@ -1540,7 +1542,8 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 						if $log->is_debug();
 					$count_results = execute_query(
 						sub {
-							return get_products_tags_collection()
+							return get_products_collection(
+								{obsolete => request_param($request_ref, "obsolete"), tags => 1})
 								->aggregate($aggregate_count_parameters, {allowDiskUse => 1});
 						}
 					);
@@ -4375,7 +4378,8 @@ sub count_products ($request_ref, $query_ref) {
 		$log->debug("Counting MongoDB documents for query", {query => $query_ref}) if $log->is_debug();
 		$count = execute_query(
 			sub {
-				return get_products_collection()->count_documents($query_ref);
+				return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
+					->count_documents($query_ref);
 			}
 		);
 	};
@@ -4894,7 +4898,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 				$log->debug("Counting MongoDB documents for query", {query => $query_ref}) if $log->is_debug();
 				$count = execute_query(
 					sub {
-						return get_products_tags_collection()->count_documents($query_ref);
+						return get_products_collection({obsolete => request_param($request_ref, "obsolete"), tags => 1})
+							->count_documents($query_ref);
 					}
 				);
 				$log->info("MongoDB count query ok", {error => $@, count => $count}) if $log->is_info();
@@ -4904,7 +4909,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 				$log->debug("Executing MongoDB query", {query => $aggregate_parameters}) if $log->is_debug();
 				$cursor = execute_query(
 					sub {
-						return get_products_tags_collection()->aggregate($aggregate_parameters, {allowDiskUse => 1});
+						return get_products_collection({obsolete => request_param($request_ref, "obsolete"), tags => 1})
+							->aggregate($aggregate_parameters, {allowDiskUse => 1});
 					}
 				);
 			}
@@ -4954,7 +4960,9 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 									$log->debug("count_documents on smaller products_tags collection",
 										{key => $key_count})
 										if $log->is_debug();
-									return get_products_tags_collection()->count_documents($query_ref);
+									return get_products_collection(
+										{obsolete => request_param($request_ref, "obsolete"), tags => 1})
+										->count_documents($query_ref);
 								}
 							);
 
@@ -4965,7 +4973,9 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 								sub {
 									$log->debug("count_documents on complete products collection", {key => $key_count})
 										if $log->is_debug();
-									return get_products_collection()->count_documents($query_ref);
+									return get_products_collection(
+										{obsolete => request_param($request_ref, "obsolete")})
+										->count_documents($query_ref);
 								}
 							);
 						}
@@ -4991,7 +5001,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 						sub {
 							$log->debug("empty query_ref, use estimated_document_count fot better performance", {})
 								if $log->is_debug();
-							return get_products_collection()->estimated_document_count();
+							return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
+								->estimated_document_count();
 						}
 					);
 				}
@@ -5002,8 +5013,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 					if $log->is_debug();
 				$cursor = execute_query(
 					sub {
-						return get_products_collection()->query($query_ref)->fields($fields_ref)->sort($sort_ref)
-							->limit($limit)->skip($skip);
+						return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
+							->query($query_ref)->fields($fields_ref)->sort($sort_ref)->limit($limit)->skip($skip);
 					}
 				);
 				$log->info("MongoDB query ok", {error => $@}) if $log->is_info();
@@ -6364,7 +6375,8 @@ sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 	eval {
 		$cursor = execute_query(
 			sub {
-				return get_products_collection()->query($query_ref)->fields($fields_ref);
+				return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
+					->query($query_ref)->fields($fields_ref);
 			}
 		);
 	};
@@ -6496,7 +6508,8 @@ sub search_and_map_products ($request_ref, $query_ref, $graph_ref) {
 	eval {
 		$cursor = execute_query(
 			sub {
-				return get_products_collection()->query($query_ref)->fields(
+				return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
+					->query($query_ref)->fields(
 					{
 						code => 1,
 						lc => 1,
@@ -6508,7 +6521,7 @@ sub search_and_map_products ($request_ref, $query_ref, $graph_ref) {
 						origins => 1,
 						emb_codes_tags => 1,
 					}
-				);
+					);
 			}
 		);
 	};
@@ -10977,7 +10990,8 @@ sub search_and_analyze_recipes ($request_ref, $query_ref) {
 	eval {
 		$cursor = execute_query(
 			sub {
-				return get_products_collection()->query($query_ref)->fields($fields_ref);
+				return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
+					->query($query_ref)->fields($fields_ref);
 			}
 		);
 	};
