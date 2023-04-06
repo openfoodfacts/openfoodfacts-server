@@ -1081,6 +1081,17 @@
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/delete.svg",
                      "type" : "summary"
                   }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "evaluation" : "neutral",
+                     "html" : "\n                        \n                            \n                        \n                            \n                                6 x \n                                <strong>\n                                    Bottle\n                                    25cl \n                                </strong>\n                                    \n                                        (Glass)\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                        \n                        ",
+                     "icon_alt" : "Unknown",
+                     "icon_color_from_evaluation" : true,
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/help.svg",
+                     "type" : "summary"
+                  }
                }
             ],
             "evaluation" : "average",
@@ -1129,6 +1140,12 @@
                   "element_type" : "panel",
                   "panel_element" : {
                      "panel_id" : "environment_card"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "contribution_card"
                   }
                }
             ],

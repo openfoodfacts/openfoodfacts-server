@@ -351,7 +351,7 @@ sub generate_packaging_stats_for_query ($name, $query_ref) {
 	};
 
 	my $socket_timeout_ms = 3 * 60 * 60 * 60000;    # 3 hours
-	my $products_collection = get_products_collection($socket_timeout_ms);
+	my $products_collection = get_products_collection({timeout => $socket_timeout_ms});
 
 	my $products_count = $products_collection->count_documents($query_ref);
 

@@ -9,6 +9,9 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::Store qw/:all/;
 # Display.pm is currently needed, as we need $lc to be defined for canonicalize_tag2
 use ProductOpener::Display qw/:all/;
+use ProductOpener::Test qw/:all/;
+
+my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
 init_emb_codes();
 
@@ -308,6 +311,19 @@ is(get_property("test", "en:meat", "vegan:en"), "no");
 is($properties{test}{"en:meat"}{"vegan:en"}, "no");
 is(get_inherited_property("test", "en:meat", "vegan:en"), "no");
 is(get_property("test", "en:beef", "vegan:en"), undef);
+is(get_property_with_fallbacks("test", "en:meat", "vegan:en"), "no", "get_property_with_fallback: no need of fallback");
+is(get_property_with_fallbacks("test", "en:meat", "vegan:fr"), "no", "get_property_with_fallback: fallback to en");
+is(get_property_with_fallbacks("test", "en:meat", "vegan:fr", ["de",]),
+	undef, "get_property_with_fallback: fallback to lang with no value");
+is(get_property_with_fallbacks("test", "en:meat", "vegan:fr", []),
+	undef, "get_property_with_fallback: no fallback lang");
+is(get_property_with_fallbacks("test", "en:meat", "vegan:en", "[]"),
+	"no", "get_property_with_fallback: no fallback lang but no need of it");
+is(
+	get_property_with_fallbacks("test", "en:lemon-yogurts", "description:nl", ["fr", "en"]),
+	"un yaourt avec du citron",
+	"get_property_with_fallback: french first"
+);
 is(get_inherited_property("test", "en:beef", "vegan:en"), "no");
 is(get_inherited_property("test", "en:fake-meat", "vegan:en"), "yes");
 is(get_inherited_property("test", "en:fake-duck-meat", "vegan:en"), "yes");
@@ -315,6 +331,79 @@ is(get_inherited_property("test", "en:yogurts", "vegan:en"), undef);
 is(get_inherited_property("test", "en:unknown", "vegan:en"), undef);
 is(get_inherited_property("test", "en:roast-beef", "carbon_footprint_fr_foodges_value:fr"), 15);
 is(get_inherited_property("test", "en:fake-duck-meat", "carbon_footprint_fr_foodges_value:fr"), undef);
+
+is(get_inherited_property("test", "en:fake-duck-meat", "carbon_footprint_fr_foodges_value:fr"), undef);
+
+is_deeply(get_inherited_properties("test", "fr:yaourts-au-citron-alleges", []),
+	{}, "Getting an empty list of property returns an empty hashmap");
+is_deeply(
+	get_inherited_properties("test", "en:fake-meat", ["vegan:en"]),
+	{"vegan:en" => "yes"},
+	"Getting only one property"
+);
+is_deeply(
+	get_inherited_properties("test", "en:lemon-yogurts", ["color:en", "description:fr", "non-existing", "another:fr"]),
+	{"color:en" => "yellow", "description:fr" => "un yaourt avec du citron"},
+	"Getting multiple properties at once"
+);
+is_deeply(
+	get_inherited_properties("test", "fr:yaourts-au-citron-alleges", ["color:en", "description:fr"]),
+	{"color:en" => "yellow", "description:fr" => "for light yogurts with lemon"},
+	"Getting multiple properties with one inherited and one where we use language fallback"
+);
+is_deeply(
+	get_inherited_properties("test", "fr:yaourts-au-fruit-de-la-passion-alleges", ["color:en", "description:fr"]),
+	{"description:fr" => "un yaourt de n'importe quel type"},
+	"Getting multiple properties with one undef in the path and an inherited one"
+);
+
+is_deeply(get_tags_grouped_by_property("test", [], "color:en", ["description:fr"], ["flavour:en"]),
+	{}, "get_tags_grouped_by_property for no tagids gives empty hashmap");
+is_deeply(
+	get_tags_grouped_by_property(
+		"test", ["en:passion-fruit-yogurts", "fr:yaourts-au-citron-alleges"],
+		"color:en", [], []
+	),
+	{
+		'undef' => {
+			'en:passion-fruit-yogurts' => {}
+		},
+		'yellow' => {
+			'fr:yaourts-au-citron-alleges' => {}
+		},
+	},
+	"get_tags_grouped_by_property with grouping on color:en, no additional property"
+);
+is_deeply(
+	get_tags_grouped_by_property(
+		"test",
+		["en:passion-fruit-yogurts", "fr:yaourts-a-la-myrtille", "fr:yaourts-au-citron-alleges", "en:lemon-yogurts"],
+		"color:en", ["description:fr"], ["flavour:en"],
+	),
+	{
+		'undef' => {
+			'en:passion-fruit-yogurts' => {
+				'flavour:en' => 'passion fruit',
+			}
+		},
+		'white' => {
+			'fr:yaourts-a-la-myrtille' => {
+				'flavour:en' => 'blueberry',
+			}
+		},
+		'yellow' => {
+			'en:lemon-yogurts' => {
+				'description:fr' => 'un yaourt avec du citron',
+				'flavour:en' => 'lemon',
+			},
+			'fr:yaourts-au-citron-alleges' => {
+				'description:fr' => 'for light yogurts with lemon',
+				'flavour:en' => 'lemon',
+			}
+		},
+	},
+	"get_tags_grouped_by_property with grouping on color:en"
+);
 
 my $yuka_uuid = "yuka.R452afga432";
 my $tagtype = "editors";
@@ -705,5 +794,22 @@ is(get_tag_image("fr", "labels", "fr:commerce-equitable"), "/images/lang/fr/labe
 	;    # file name is unaccented, unaccented language
 is(get_tag_image("fr", "labels", "fi:sydänmerkki"), "/images/lang/fi/labels/sydanmerkki.90x90.png")
 	;    # file name is unaccented, accented language
+
+# strings with multiple tags separated by /
+is(canonicalize_taxonomy_tag('en', 'packaging_materials', 'Plastic/PET'), "en:pet-1-polyethylene-terephthalate");
+is(canonicalize_taxonomy_tag('en', 'packaging_materials', 'Plastic / other plastics'), "en:o-7-other-plastics");
+is(canonicalize_taxonomy_tag('en', 'packaging_materials', 'Plastic/PET'), "en:pet-1-polyethylene-terephthalate");
+is(canonicalize_taxonomy_tag('en', 'packaging_materials', 'Plastic / Metal'), "en:Plastic / Metal"); # Cannot be matched
+is(canonicalize_taxonomy_tag('fr', 'packaging_shapes', 'Ustensiles / couverts / fourchette'), "en:fork");
+# 2023/03/28 - following test does not yet work
+#is(canonicalize_taxonomy_tag('fr', 'packaging_shapes', 'Ustensiles (fourchette, couteau, cuillère)'), "en:utensils");
+is(canonicalize_taxonomy_tag('fr', 'packaging_shapes', 'Plat (Bol, Saladier, Terrine, …)'), "en:dish");
+is(canonicalize_taxonomy_tag('fr', 'packaging_materials', 'Gaz / CO2 - Dioxide de carbone (gaz carbonique)'),
+	"en:co2-carbon-dioxide");
+
+# test the generation of regexps matching tags
+
+my $regexps_ref = generate_regexps_matching_taxonomy_entries("test", "list_of_regexps", {});
+compare_to_expected_results($regexps_ref, "$expected_result_dir/regexps.json", $update_expected_results);
 
 done_testing();
