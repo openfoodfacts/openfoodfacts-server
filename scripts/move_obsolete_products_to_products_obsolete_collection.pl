@@ -20,6 +20,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+# This script is used to move obsolete products to a new collection products_obsolete
+
 use ProductOpener::PerlStandards;
 
 use ProductOpener::Config qw/:all/;
@@ -76,8 +78,8 @@ while (my $product_ref = $cursor->next) {
 
 		$product_ref->{_id} .= '';
 		$product_ref->{code} .= '';
-		$products_collection->delete_one({"_id" => $product_ref->{_id}});
 		$obsolete_products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
+		$products_collection->delete_one({"_id" => $product_ref->{_id}});
 
 		$n++;
 	}
