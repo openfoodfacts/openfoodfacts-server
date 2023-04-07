@@ -16,7 +16,7 @@ stopwords:ca:i,de
 stopwords:da:av, af, blandt andet, bl a, inklusive, heraf, indeholder, tilsat
 stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens, in veränderlichen gewichtsanteilen, wenig, min, max
 stopwords:el:περιέχει
-stopwords:en:contains, contain, from, with, produced with, with added, minimum,including, inter alia, edible, added to enhance freshness, added to maintain flavor and freshness
+stopwords:en:contains, contain, from, with, produced with, with added, minimum,including, inter alia, edible, added to enhance freshness, added to maintain flavor and freshness, less than 1% of:
 stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
 stopwords:fi:sisältää,muun muassa,valio, koskenlaskija, snellmanin, jossa, noin, käymisen aikana muodostuva
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout, sachet, marquants, demeter
@@ -37934,7 +37934,7 @@ hu:Narancslé
 hy:Նարնջի հյութ
 id:Sari buah jeruk
 is:Appelsínusafi
-it:succo d'arancia, Succo di arance bionde
+it:succo d'arancia, Succo di arance bionde, succo di arance
 ja:オレンジジュース
 ka:ფორთოხლის წვენი
 ko:오렌지 주스
@@ -37943,8 +37943,10 @@ nn:Appelsinjuice
 pa:ਸੰਤਰੇ ਦਾ ਰਸ
 pl:Sok pomarańczowy
 pt:suco de laranja
+ro:suc de portocale
 ru:апельсиновый сок
 sa:नारङ्गफलरसः
+sr:voćni sok od narandže
 sv:apelsinjuice, juice av apelsin
 ta:ஆரஞ்சுச் சாறு
 th:น้ำส้ม
