@@ -60,7 +60,30 @@ my @tests = (
 		},
 	},
 	{
-		desc => "URL with a page number",
+		desc => "Facet URL",
+		lc => "en",
+		input_request => {
+			cc => "world",
+			lc => "en",
+			original_query_string => 'category/breads',
+		},
+		expected_output_request => {
+			'api' => 'v0',
+			'canon_rel_url' => '/category/en:breads',
+			'cc' => 'world',
+			'lc' => 'en',
+			'original_query_string' => 'category/breads',
+			'page' => 1,
+			'query_string' => 'category/breads',
+			'tag' => 'en:breads',
+			'tag_prefix' => '',
+			'tagid' => 'en:breads',
+			'tagtype' => 'categories'
+
+		},
+	},
+	{
+		desc => "Facet URL with a page number",
 		lc => "en",
 		input_request => {
 			cc => "world",
@@ -80,7 +103,7 @@ my @tests = (
 			'tagid' => 'en:breads',
 			'tagtype' => 'categories'
 		},
-	},			
+	},
 );
 
 foreach my $test_ref (@tests) {

@@ -538,16 +538,19 @@ sub analyze_request ($request_ref) {
 			$request_ref->{error_message} = lang("error_invalid_address");
 		}
 
-		# We can have a component left, for a page number
-		if (($#components >= 0) and ($components[-1] =~ /^\d+$/)) {
-			$request_ref->{page} = pop @components;
-		}
-		else {
+		# We have a component left
+		if ($#components >= 0) {
+			# The last component can be a page number
+			if ($components[-1] =~ /^\d+$/) {
+				$request_ref->{page} = pop @components;
+			}
+			else {
 				# We have a component left, but we don't know what it is
 				$request_ref->{status_code} = 404;
 				$request_ref->{error_message} = lang("error_invalid_address");
 				return;
 			}
+		}
 
 		$request_ref->{canon_rel_url} .= $canon_rel_url_suffix;
 	}
