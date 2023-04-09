@@ -86,6 +86,12 @@ Sometimes we modify request parameters (param) to correspond to request_ref:
 
 sub analyze_request ($request_ref) {
 
+	# TODO: this function uses the global $lc
+	# we should replace it with $request_ref->{lc}
+	# Ideally, we should remove completely the global $lc
+	# and then in this function we can have
+	# my $lc = $resquest_ref->{lc}
+
 	$request_ref->{query_string} = $request_ref->{original_query_string};
 
 	$log->debug("analyzing query_string, step 0 - unmodified", {query_string => $request_ref->{query_string}})
@@ -514,16 +520,6 @@ sub analyze_request ($request_ref) {
 					. $request_ref->{tag2_prefix}
 					. $request_ref->{tagid2};
 			}
-			elsif (
-				($#components >= 0)
-				and (   (!defined $tag_type_from_singular{$lc}{$components[0]})
-					and (!defined $tag_type_from_singular{"en"}{$components[0]}))
-				)
-			{
-				$request_ref->{status_code} = 404;
-				$request_ref->{error_message} = lang("error_invalid_address");
-				return;
-			}
 
 			if ((defined $components[0]) and ($components[0] eq 'points')) {
 				$request_ref->{points} = 1;
@@ -542,9 +538,16 @@ sub analyze_request ($request_ref) {
 			$request_ref->{error_message} = lang("error_invalid_address");
 		}
 
+		# We can have a component left, for a page number
 		if (($#components >= 0) and ($components[-1] =~ /^\d+$/)) {
 			$request_ref->{page} = pop @components;
 		}
+		else {
+				# We have a component left, but we don't know what it is
+				$request_ref->{status_code} = 404;
+				$request_ref->{error_message} = lang("error_invalid_address");
+				return;
+			}
 
 		$request_ref->{canon_rel_url} .= $canon_rel_url_suffix;
 	}
