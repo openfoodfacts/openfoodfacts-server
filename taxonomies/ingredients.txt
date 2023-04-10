@@ -36309,7 +36309,7 @@ en:apple juice, apple juice made from fresh apples, juice from select organic ap
 ar:عصير تفاح
 bg:сок от ябълки, ябълков сок
 ca:suc de poma
-cs:jablečný mošt
+cs:jablečný mošt, jablečná stáva
 da:æblemost, æblesaft
 de:Apfelsaft, Apfelsaft von Streuobstwiesen-Äpfeln
 el:χυμός μήλου, μηλοχυμός
@@ -36318,7 +36318,7 @@ es:jugo de manzana, zumo de manzana
 et:õunamahl
 fa:آب سیب
 fi:omenamehu, omenatäysmehu
-fr:jus de pomme, jus de pommes, pur jus de pommes, pur jus de pommes fermier
+fr:jus de pomme, jus de pommes, pur jus de pommes, pur jus de pommes fermier, jus de pommes variété Opal
 ga:sú úill
 he:מיץ תפוחים
 hr:sok od jabuke, jabučni sok
@@ -36366,19 +36366,20 @@ ru:Органический яблочный сок
 sv:ekologisk äppeljuice
 
 <en:apple juice
-en:pure apple juice
+en:squeezed apple juice, pure apple juice, Apple juice from fresh pressed apples
 cs:jablečná šťáva
 de:reiner Apfelsaft, Apfeldirektsaft
-fr:pur jus de pomme, jus de pomme non fait de concentre, pommes pressées, jus de pomme non fait de concentré, pur jus de pommes pressées
+fr:pur jus de pomme, jus de pomme non fait de concentre, pommes pressées, jus de pomme non fait de concentré, pur jus de pommes pressées, Pur jus de pommes Juliet
 it:Succo mela puro
+pl:sok jabłkowy wyciskany bezpośrednio z owoców
 description:en:apple juice that does NOT come from concentrated apple juice
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/pure-apple-juice
 # 51 products in 2 languages @2018-10-04
 
-<en:pure apple juice
+<en:squeezed apple juice
 fr:pur jus de pommes à cidre de Bretagne
 
-<en:pure apple juice
+<en:squeezed apple juice
 en:unfiltered apple juice, cloudy apple
 de:Naturtrüber Apfelsaft, Apfelsaft naturtrüb
 fr:jus de pomme trouble, jus de pomme non filtré
@@ -58686,12 +58687,12 @@ fr:Pâte de gingembre
 # ingredient/en:ginger-juice has 304 products in 2 languages @2020-05-23
 
 #processing:en: en:extract
-#<en:ginger
-#en:ginger extract
+<en:ginger
+en:ginger extract
 #de:Ingwer-Extrakt
 #es:extracto de jengibre, extracto de kión, extracto de kion
 #fi:inkivääriuute
-#fr:extrait de gingembre
+fr:extrait de gingembre, l'extrait de gingembre
 #nl:gemberextract
 #vegan:en:yes
 #vegetarian:en:yes
