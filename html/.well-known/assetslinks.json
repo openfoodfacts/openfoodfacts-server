@@ -1,9 +1,11 @@
-[{
-  "relation": ["delegate_permission/common.handle_all_urls"],
-  "target": {
-    "namespace": "android_app",
-    "package_name": "org.openfoodfacts.scanner",
-    "sha256_cert_fingerprints":
-    ["TODOCHANGEFINGERPRINT14:6D:E9:83:C5:73:06:50:D8:EE:B9:95:2F:34:FC:64:16:A0:83:42:E6:1D:BE:A8:8A:04:96:B2:3F:CF:44:E5"]
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "org.openfoodfacts.scanner",
+      "sha256_cert_fingerprints":
+        ["FD:DF:C6:53:AD:25:62:DB:A2:92:C6:D0:5B:A6:98:C9:7F:66:79:43:BD:29:31:D0:DA:3A:2B:CD:5B:6F:1A:DF"]
+    }
   }
-}]
+]
