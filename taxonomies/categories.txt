@@ -5660,24 +5660,6 @@ ciqual_food_code:en:2077
 ciqual_food_name:en:Fruit juice, from concentrate (average)
 ciqual_food_name:fr:Jus de fruits, à base de concentré (aliment moyen)
 
-<en:Fruit juices from concentrate
-<en:Orange juices
-en:Orange juices from concentrate, Orange juices reconstituted from a concentrate
-bg:Сок от портокал от концентрат
-de:Orangensäfte aus Konzentrat
-es:Zumos de naranja procedente de concentrado
-fi:appelsiinimehutiivisteet
-fr:Jus d'orange à base de concentré
-it:Succo di arancia da concentrato
-lt:Koncentruotos apelsinų sultys, Apelsinų sultys iš koncentrato
-nl:Sinaasappelsappen uit concentraat, Sinaasappelsap uit concentraat
-agribalyse_food_code:en:2012
-ciqual_food_code:en:2012
-ciqual_food_name:en:Orange juice, reconstituted from a concentrate
-ciqual_food_name:fr:Jus d'orange, à base de concentré
-
-<en:Orange juices
-fr:Jus d'orange sans pulpe, Jus d'orange filtrés
 
 ##################### Grape juices
 
@@ -5921,11 +5903,36 @@ nl:Sinaasappelsappen, Jus d'Oranges, Sinaasappelsap, Jus d'Orange, Sinasappelsap
 pl:Soki pomarańczowe
 pt:Sumos de laranja
 ru:Апельсиновые соки
+sv:Apfelsinjuice
 zh:橙子汁, 橙汁
 wikidata:en:Q1781317
 agribalyse_proxy_food_code:en:2011
 agribalyse_proxy_food_name:en:Mixed fruits juice, orange based, multivitamin
 # Note: do not put the Agribalyse for home made orange juice, it is not relevant for industrial orange juice.
+
+<en:Fruit juices from concentrate
+<en:Orange juices
+en:Orange juices from concentrate, Orange juices reconstituted from a concentrate
+bg:Сок от портокал от концентрат
+de:Orangensäfte aus Konzentrat
+es:Zumos de naranja procedente de concentrado
+fi:appelsiinimehutiivisteet
+fr:Jus d'orange à base de concentré
+it:Succo di arancia da concentrato
+lt:Koncentruotos apelsinų sultys, Apelsinų sultys iš koncentrato
+nl:Sinaasappelsappen uit concentraat, Sinaasappelsap uit concentraat
+agribalyse_food_code:en:2012
+ciqual_food_code:en:2012
+ciqual_food_name:en:Orange juice, reconstituted from a concentrate
+ciqual_food_name:fr:Jus d'orange, à base de concentré
+
+<en:Orange juices
+en:Orange juices without pulp
+fr:Jus d'orange sans pulpe, Jus d'orange filtrés
+
+<en:Orange juices
+en:Orange juices with pulp
+fr:Jus d'orange avec pulpe
 
 <en:Orange juices
 en:Blood orange juices

@@ -10331,6 +10331,9 @@ ciqual_food_name:en:Kidney, beef, cooked
 ciqual_food_name:fr:Rognon, boeuf, cuit
 
 <en:beef meat
+fr:estomac et pied de bovin
+
+<en:beef meat
 de:rindergehacktes
 
 <en:beef meat
@@ -10372,8 +10375,6 @@ es:preparación de carne molida de res
 
 # <en:compound
 fr:préparation de viande de boeuf cuite
-
-
 
 <en:beef meat
 fr:viande de boeuf mise en oeuvre
@@ -31483,7 +31484,7 @@ fr:Eau minérale naturelle renforcée au gaz de la source
 <en:water
 en:filtered water, purified water
 de:gefiltertes Wasser, gereinigtes Wasser
-es:agua filtrada, agua purificada
+es:agua filtrada, agua purificada, agua filtrada y purificada
 fi:suodatettu vesi, puhdistettu vesi
 fr:eau filtrée, eau purifiée
 hu:szűrt víz, tisztított víz
@@ -33743,7 +33744,7 @@ hy:միրգ
 ia:fructo
 id:buah
 it:frutta
-ja:果物
+ja:果物, 果実
 ka:ხილი
 kk:Салқын тәтті тағамдар
 ko:과일
@@ -37630,7 +37631,7 @@ ht:mandarin
 hu:mandarin
 io:mandarino
 it:mandarino, mandarini
-ja:マンダリンオレンジ
+ja:マンダリンオレンジ, うんしゅうみかん
 lt:mandarina
 lv:mandarīn
 nb:mandarin
@@ -37990,10 +37991,12 @@ fr:jus d'orange et autres agrumes à base de concentrés
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-d'orange-et-autres-agrumes-à-base-de-concentrés
 # 46 products in 1 language @2018-09-30
 
+# label:en: en:Pasteurized
 <en:orange juice
 en:pasteurized orange juice
 da:pasteuriseret appelsinjuice
 de:Pasteurisierter Orangensaft
+es:Jugo de naranja pasteurizado
 fr:jus d'orange pasteurisé
 
 <en:orange juice
@@ -38005,10 +38008,15 @@ nl:Biologisch sinaasappelsap
 
 <en:orange juice
 en:squeezed orange juice, squeezed oranges, freshly squeezed orange juice
+es:zumo de naranja exprimido
 fr:Pur jus d'orange, Oranges pressées à la récolte, jus d'orange non fait de concentre pur, oranges pressées
 nl:geperste sinaasappels
 carbon_footprint_fr_foodges_ingredient:fr:Pur jus d'orange
 carbon_footprint_fr_foodges_value:fr:1.3
+
+<en:pasteurized orange juice
+<en:squeezed orange juice
+en:pure pasteurized orange juice
 
 <en:orange juice
 en:concentrated orange juice
@@ -38028,10 +38036,10 @@ en:orange juice from concentrate, orange juice from orange juice concentrate, Or
 bg:концентриран сок от портокал, сок от портокал от концентрат
 bs:Sok pomorandže od koncentrisanog voćnog soka
 da:Appelsinjuice fra koncentrat
-de:Orangensaft aus Konzentrat, Orangensaft aus Orangensaftkonzentrat
-es:Zumo de naranja desde concentrado, zumo de naranja a partir de concentrado, jugo de naranja procedente de concentrado
+de:Orangensaft aus Konzentrat, Orangensaft aus Orangensaftkonzentrat, Fruchtsaft aus naturreinem Orangensaftkonzentrat
+es:Zumo de naranja desde concentrado, zumo de naranja a partir de concentrado, jugo de naranja procedente,  de concentrado, , zumo de naranja partir de concentrado de naranja
 fi:appelsiinimehu tiivisteestä, tiivisteestä valmistettu appelsiinitäysmehu, appelsiinitäysmehu tiivisteestä, appelsiinitäysmehu appelsiinitäysmehutiivisteestä, appelsiinitäysmehua tiivisteestä
-fr:jus d'orange à base de concentré, jus d'orange à base de jus d'orange concentré, jus d'orange à base de jus concentré, jus d'orange à partir de concentré
+fr:jus d'orange à base de concentré, jus d'orange à base de jus d'orange concentré, jus d'orange à base de jus concentré, jus d'orange à partir de concentré, Jus de fruits à base de concentré d'orange
 hr:sok od naranče iz koncentrata soka naranče, sok od naranče koncentrata soka naranče, sok od naranče od koncentriranog soka, sok od naranče od koncentrirana soka, Sok od naranče od koncentriranog narančina soka.
 hu:narancslé narancslé-koncentrátumból
 it:succo d'arancia a base di concentrato
@@ -38071,6 +38079,8 @@ nl:Sinaasappelsap zonder vruchtvlees
 
 <en:orange juice with pulp
 <en:orange juice from concentrate
+en:orange juice from concentrate with pulp
+nb:Juice fremstilt av appelsinkonsentrat med fruktkjøtt
 sv:apelsinjuice från koncentrat med fruktkött
 
 <en:orange juice
@@ -38114,7 +38124,7 @@ ca:polpa de taronja
 de:Orangenfruchtfleisch
 es:pulpa de naranja
 fi:appelsiinihedelmäliha, appelsiinin hedelmäliha
-fr:pulpe d'orange
+fr:pulpe d'orange, cellules d'oranges
 hr:pulpa naranče
 hu:narancs gyümölcshős, narancs püré
 it:polpe d'arancia
@@ -47399,7 +47409,7 @@ fr:carottes oranges
 
 <en:carrot
 en:violet carrot
-fr:carotte violette
+fr:carotte violette, carotte pourpre
 
 <en:carrot
 nl:winterpeen
@@ -78725,7 +78735,7 @@ es:relleno
 et:Hakkliha
 fa:گوشت چرخ کرده
 fi:täyte
-fr:garniture, fourrage, nappage, farce, fourrage blanc, remplissage
+fr:garniture, fourrage, nappage, farce, fourrage blanc, remplissage, nappage blond
 gl:Recheo
 he:מלית
 hr:punjenje, punjenje od, punilo
@@ -81694,6 +81704,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Broth
 
 <en:broth
 en:fond
+fr:fond de sauce
 wikidata:en:Q96378096
 
 #category:en:beef-broth
