@@ -79,7 +79,6 @@ my @tests = (
 			'tag_prefix' => '',
 			'tagid' => 'en:breads',
 			'tagtype' => 'categories'
-
 		},
 	},
 	{
@@ -104,6 +103,29 @@ my @tests = (
 			'tagtype' => 'categories'
 		},
 	},
+	{
+		desc => "Facet URL with a facet synonym and a page number",
+		lc => "en",
+		input_request => {
+			cc => "world",
+			lc => "en",
+			original_query_string => 'category/bread/4',
+		},
+		expected_output_request => {
+			'api' => 'v0',
+			'canon_rel_url' => '/category/en:bread',
+			'cc' => 'world',
+			'lc' => 'en',
+			'original_query_string' => 'category/bread/4',
+			'page' => '4',
+			'query_string' => 'category/bread/4',
+			'tag' => 'en:bread',
+			'tag_prefix' => '',
+			'tagid' => 'en:bread',
+			'tagtype' => 'categories'
+		},
+	},
+
 );
 
 foreach my $test_ref (@tests) {
