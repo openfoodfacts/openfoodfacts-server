@@ -39,6 +39,8 @@ improve performance of aggregate queries for an improved user experience and mor
 collection was initially proposed in L<issue#1610|https://github.com/openfoodfacts/openfoodfacts-server/issues/1610> on
 GitHub, where some additional context is available.
 
+Obsolete products that have been withdrawn from the market have separate collections: products_obsolete and products_obsolete_tags
+
 =cut
 
 package ProductOpener::Data;
@@ -53,9 +55,9 @@ BEGIN {
 		&get_database
 		&get_collection
 		&get_products_collection
-		&get_products_tags_collection
 		&get_emb_codes_collection
 		&get_recent_changes_collection
+		&remove_documents_by_ids
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -114,15 +116,38 @@ sub execute_query ($sub) {
 	)->run();
 }
 
-=head2 get_products_collection()
+=head2 get_products_collection( $options_ref )
 
 C<get_products_collection()> establishes a connection to MongoDB and uses timeout as an argument. This then selects a collection
 from within the database.
 
 =head3 Arguments
 
-This method takes in arguments of integer type (user defined timeout in milliseconds).
-It is optional for this subroutine to have an argument.
+This method takes parameters in an optional hash reference with the following keys:
+
+=head4 database MongoDB database name
+
+Defaults to $ProductOpener::Config::mongodb
+
+This is useful when moving products to another flavour
+(e.g. from Open Food Facts (database: off) to Open Beauty Facts (database: obf))
+
+=head4 timeout User defined timeout in milliseconds
+
+=head4 obsolete
+
+If set to a true value, the function returns a collection that contains only obsolete products,
+otherwise it returns the collection with products that are not obsolete.
+
+=head4 tags
+
+If set to a true value, the function may return a smaller collection that contains only the *_tags fields,
+in order to speed aggregate queries. The smaller collection is created every night,
+and may therefore contain slightly stale data.
+
+As of 2023/03/13, we return the products_tags collection for non obsolete products.
+For obsolete products, we currently return the products_obsolete collection, but we might
+create a separate products_obsolete_tags collection in the future, if it becomes necessary to create one.
 
 =head3 Return values
 
@@ -130,8 +155,18 @@ Returns a mongoDB collection object.
 
 =cut
 
-sub get_products_collection ($timeout = undef) {
-	return get_collection($mongodb, 'products', $timeout);
+sub get_products_collection ($options_ref = {}) {
+	my $database = $options_ref->{database} // $mongodb;
+	my $collection = 'products';
+	if ($options_ref->{obsolete}) {
+		$collection .= '_obsolete';
+	}
+	# We don't have a products_obsolete_tags collection at this point
+	# if it changes, the following elsif should be changed to a if
+	elsif ($options_ref->{tags}) {
+		$collection .= '_tags';
+	}
+	return get_collection($database, $collection, $options_ref->{timeout});
 }
 
 =head2 get_products_tags_collection()
@@ -148,10 +183,6 @@ It is optional for this subroutine to have an argument.
 Returns a mongoDB collection.
 
 =cut
-
-sub get_products_tags_collection ($timeout = undef) {
-	return get_collection($mongodb, 'products_tags', $timeout);
-}
 
 sub get_emb_codes_collection ($timeout = undef) {
 	return get_collection($mongodb, 'emb_codes', $timeout);
@@ -212,6 +243,61 @@ sub get_mongodb_client ($timeout = undef) {
 	}
 
 	return $client;
+}
+
+=head2 remove_documents_by_ids($ids_to_remove_ref, $coll, $bulk_write_size=100)
+
+Efficiently removes a set of documents
+
+=head3 Arguments
+
+=head4 $ids_to_remove_ref - ref to list of ids to remove
+
+correspond to the _id field
+
+=head4 $coll - a document collection
+
+=head4 $bulk_size - how many concurrent deletion in a bulk
+
+=head3 Return values
+
+Returns a hash with:
+<dl>
+  <dt>removed</dt>
+  <dd>int - number of effectively removed items</dd>
+  <dt>errors</dt>
+  <dd>ref to a list of errors</dd>
+</dl>
+=cut
+
+sub remove_documents_by_ids ($ids_to_remove_ref, $coll, $bulk_write_size = 100) {
+	my @ids_to_remove = (@$ids_to_remove_ref);    # copy the list because we will use splice
+	my @errors = ();
+
+	if (!@ids_to_remove) {
+		return {removed => 0, errors => \@errors};    # nothing to do
+	}
+
+	# remove found ids
+	my $removed = 0;
+	# prepare a bulk operation, with one operation per slice
+	my $bulk = $coll->unordered_bulk;
+	while (scalar @ids_to_remove) {
+		my @batch_ids = splice(@ids_to_remove, 0, $bulk_write_size);
+		$bulk->find({_id => {'$in' => \@batch_ids}})->delete_many();
+	}
+	# try to do our best
+	eval {
+		# execute
+		my $bulk_result = $bulk->execute();
+		$removed += $bulk_result->deleted_count;
+	};
+	my $error = $@;
+	if ($error) {
+		push @errors, $error;
+	}
+
+	return {removed => $removed, errors => \@errors};
 }
 
 1;

@@ -78,7 +78,6 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Lang qw/:all/;
-use ProductOpener::Cache qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Orgs qw/:all/;
 use ProductOpener::Products qw/:all/;
@@ -99,6 +98,7 @@ my @user_groups = qw(producer database app bot moderator pro_moderator);
 
 my $cookie_name = 'session';
 my $cookie_domain = "." . $server_domain;    # e.g. fr.openfoodfacts.org sets the domain to .openfoodfacts.org
+$cookie_domain =~ s/\.pro\./\./;    # e.g. .pro.openfoodfacts.org -> .openfoodfacts.org
 if (defined $server_options{cookie_domain}) {
 	$cookie_domain
 		= "." . $server_options{cookie_domain};    # e.g. fr.import.openfoodfacts.org sets domain to .openfoodfacts.org
@@ -318,7 +318,7 @@ sub check_user_form ($type, $user_ref, $errors_ref) {
 
 	$log->debug("check_user_form", {type => $type, user_ref => $user_ref, email => $email}) if $log->is_debug();
 
-	if ($user_ref->{email} ne $email) {
+	if ((defined $email) and ($email ne '') and ($user_ref->{email} ne $email)) {
 
 		# check that the email is not already used
 		my $emails_ref = retrieve("$data_root/users/users_emails.sto");
@@ -1028,8 +1028,9 @@ sub init_user ($request_ref) {
 
 				if (   (not defined $user_ref->{'user_sessions'})
 					or (not defined $user_session)
-					or (not defined $user_ref->{'user_sessions'}{$user_session})
-					or (not is_ip_known_or_whitelisted($user_ref, $user_session, remote_addr(), $short_ip)))
+					or (not defined $user_ref->{'user_sessions'}{$user_session}))
+					# disable the restriction of sessions by ip address (issue 6842 57E0 C2C7 F629 E4CE 5605 42)
+					#	or (not is_ip_known_or_whitelisted($user_ref, $user_session, remote_addr(), $short_ip)))
 				{
 					$log->debug("no matching session for user") if $log->is_debug();
 					$user_id = undef;

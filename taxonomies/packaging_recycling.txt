@@ -74,10 +74,10 @@ packaging_materials:en: en:plastics
 <en:recycle
 en:return to store, deposit
 fr:consigné, consigne, rapporter au magasin, retourner au magasin
-nl:recycle-als-statiegeld
+# nl:recycle-als-statiegeld is already coer
 
 #In the Netherlands PET bottles must be returned in exchange for the deposit, when it has the statiegeldfles logo
-<en:deposit
+<en:return to store
 en:return PET bottle to store, PET deposit bottle
 fr:bouteille en PET consignée, rapporter la bouteille en PET au magasin
 nl:recycle als statiegeldfles, statiegeldfles
@@ -85,7 +85,7 @@ packaging_materials:en: en:pet-polyethylene-terephthalate
 packaging_shapes:en: en:bottle
 
 # In Croatia, there is a specific label for plastic and glass bottle with deposit
-<en:deposit
+<en:return to store
 en:deposit refunds
 hr:povratna naknada
 fr:consigne remboursable

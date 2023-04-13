@@ -568,7 +568,6 @@
       },
       "generic_name" : "Tester",
       "generic_name_en" : "Tester",
-      "grades" : {},
       "id" : "200000000034",
       "informers_tags" : [
          "tests"
@@ -766,6 +765,23 @@
       "origin" : "france",
       "origin_en" : "france",
       "other_nutritional_substances_tags" : [],
+      "packaging_materials_tags" : [
+         "en:glass",
+         "en:plastic",
+         "en:steel",
+         "en:wood"
+      ],
+      "packaging_recycling_tags" : [
+         "en:discard",
+         "en:recycle",
+         "en:reuse"
+      ],
+      "packaging_shapes_tags" : [
+         "en:bottle",
+         "en:box",
+         "en:film",
+         "en:lid"
+      ],
       "packaging_text" : "1 wooden box to recycle, 6 25cl glass bottles to reuse, 3 steel lids to recycle, 1 plastic film to discard",
       "packaging_text_en" : "1 wooden box to recycle, 6 25cl glass bottles to reuse, 3 steel lids to recycle, 1 plastic film to discard",
       "packagings" : [
@@ -815,7 +831,6 @@
       "quantity" : "100 g",
       "removed_countries_tags" : [],
       "rev" : 1,
-      "scores" : {},
       "serving_quantity" : "10",
       "serving_size" : "10 g",
       "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
@@ -856,7 +871,8 @@
       "traces_tags" : [],
       "unknown_ingredients_n" : 0,
       "unknown_nutrients_tags" : [],
-      "vitamins_tags" : []
+      "vitamins_tags" : [],
+      "weighers_tags" : []
    },
    "result" : {
       "id" : "product_found",

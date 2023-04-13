@@ -517,7 +517,6 @@
          ],
          "generic_name" : "Tester",
          "generic_name_en" : "Tester",
-         "grades" : {},
          "id" : "200000000045",
          "informers_tags" : [
             "tests"
@@ -661,6 +660,9 @@
          "origin" : "China",
          "origin_en" : "China",
          "other_nutritional_substances_tags" : [],
+         "packaging_materials_tags" : [],
+         "packaging_recycling_tags" : [],
+         "packaging_shapes_tags" : [],
          "packaging_text" : "no",
          "packaging_text_en" : "no",
          "packagings" : [],
@@ -682,7 +684,6 @@
          "quantity" : "100 g",
          "removed_countries_tags" : [],
          "rev" : 1,
-         "scores" : {},
          "serving_quantity" : 10,
          "serving_size" : "10 g",
          "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
@@ -724,7 +725,8 @@
          "unknown_ingredients_n" : 2,
          "unknown_nutrients_tags" : [],
          "url" : "http://world.openfoodfacts.localhost/product/200000000045/vegan-test-snack",
-         "vitamins_tags" : []
+         "vitamins_tags" : [],
+         "weighers_tags" : []
       }
    ],
    "skip" : 0

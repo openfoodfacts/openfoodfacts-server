@@ -29,6 +29,7 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::Food qw/:all/;
 
 print STDERR "Build \%Lang - data_root: $data_root\n";
 
@@ -50,6 +51,9 @@ store("$data_root/data/Lang.${server_domain}.sto", \%Lang);
 
 # Generate JSON files for JavaScript I18N
 ProductOpener::Lang::build_json();
+
+# Nutrients level taxonomy file is build using languages
+create_nutrients_level_taxonomy();
 
 exit(0);
 
