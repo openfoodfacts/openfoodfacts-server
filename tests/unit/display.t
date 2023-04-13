@@ -153,9 +153,9 @@ like(display_field($product_ref, 'states'), qr/$expected/);
 
 # should not loose the second facet at the end of the url on redirection
 my $facets_ref = {
-	'current_link' => 'category/en:lemonades/data-quality',
+	'tagtype' => 'categories',
 	'groupby_tagtype' => 'data_quality',
-	'tagid' => 'en:lemonade'
+	'tagid' => 'en:bread'
 };
 
 my $apache_util_module = Test::MockModule->new('Apache2::RequestUtil');
@@ -203,7 +203,7 @@ $display_module->mock(
 
 display_tag($facets_ref);
 
-unlike($facets_ref->{'current_link'}, qr/en:lemonades\/data\-quality/);    # verify that link has been processed
-like($facets_ref->{'redirect'}, qr/lemonade\/data\-quality/);
+is($facets_ref->{'current_link'}, '/category/breads/data-quality');
+is($facets_ref->{'redirect'}, '/category/breads/data-quality');
 
 done_testing();
