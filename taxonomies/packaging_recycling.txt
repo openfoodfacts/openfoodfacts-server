@@ -32,14 +32,14 @@ pt:reutilizar, a reutilizar, para reutilizar, para ser reutilizado, a ser reutil
 en:recycle, to recycle, to be recycled, recyclable
 bg:за рециклиране, рециклирай, да се рециклира
 de:recyceln, zum Recyceln, recycelbar
-fr:bac de tri, recycler, à recycler, recyclable
+fr:recycler, à recycler, recyclable
 hu:újrahasznosítható, újrahasznosítandó, újrahasznosításra
 pt:reciclável, a reciclar, para reciclar
 # associated_materials: en:glass, en:aluminium, en:steel
 
 <en:recycle
 en:recycle in glass bin, recycle in glass container, recycle with glass, in glass bin, in glass container
-fr:tri verre, bac verre, recycler dans le conteneur à verre, recycler dans le bac à verre, recycler avec le verre, dans le conteneur à verre, avec le verre
+fr:recycler dans le conteneur à verre, recycler dans le bac à verre, recycler avec le verre, dans le conteneur à verre, avec le verre, tri verre, bac verre
 nl:recyclen in de glasbak, Glasbak, in de glasbak, in glasbak
 # comment:en:If the recycling instruction is to recycle in the glass bin, we can assume the material is glass
 packaging_materials:en: en:glass
@@ -95,6 +95,11 @@ fr:consigne remboursable
 en:recycle as green waste, compost, green waste
 nl:recycle als GFT, gft
 fr:compostable, à composter
+
+#sorting bin
+<en:recylcle
+en:recycle in sorting bin, sorting bin
+fr:bac de tri
 
 en:discard, to discard, throw away, to throw away, non-recyclable, to be thrown away, to be discarded
 de:wegwerfen, nicht recycelbar, zum Wegwerfen
