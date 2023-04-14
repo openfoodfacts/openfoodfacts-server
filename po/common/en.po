@@ -1924,8 +1924,16 @@ msgid "Product added on"
 msgstr "Product added on"
 
 msgctxt "product_changes_saved"
-msgid "Changes saved."
-msgstr "Changes saved."
+msgid "Changes saved"
+msgstr "Changes saved"
+
+msgctxt "product_edit_you_contributed"
+msgid "You just helped to improve the world largest open data database."
+msgstr "You just helped to improve the world largest open data database."
+
+msgctxt "product_edit_thank_you"
+msgid "Thank you so much for joining us in our journey to data transparency!"
+msgstr "Thank you so much for joining us in our journey to data transparency!"
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
@@ -2452,6 +2460,10 @@ msgstr "Without"
 msgctxt "see_product_page"
 msgid "See the product page"
 msgstr "See the product page"
+
+msgctxt "re_edit_product_page"
+msgid "Edit the product again"
+msgstr "Edit the product again"
 
 msgctxt "select_country"
 msgid "Country"
@@ -3532,6 +3544,10 @@ msgstr "Other information"
 msgctxt "fields_group_images"
 msgid "Product photos"
 msgstr "Product photos"
+
+msgctxt "fields_group_packaging"
+msgid "Packaging"
+msgstr "Packaging"
 
 msgctxt "image_front_url"
 msgid "Link to front product photo"
@@ -6010,6 +6026,38 @@ msgctxt "health"
 msgid "Health"
 msgstr "Health"
 
+msgctxt "contribution_panel_title"
+msgid "Contribution"
+msgstr "Contribution"
+
+msgctxt "contribution_navigation"
+msgid "Contribution"
+msgstr "Contribution"
+
+msgctxt "data_quality_errors_panel_title"
+msgid "Detected Errors"
+msgstr "Detected Errors"
+
+msgctxt "data_quality_errors_panel_subtitle"
+msgid "Help us improve quality of our data by contributing fixes"
+msgstr "Help us improve quality of our data by contributing fixes"
+
+msgctxt "data_quality_warnings_panel_title"
+msgid "Potential issues"
+msgstr "Potential issues"
+
+msgctxt "data_quality_warnings_panel_subtitle"
+msgid "We have detected some potential issues or potential improvement, could you check if some apply ?"
+msgstr "We have detected some potential issues or potential improvement, could you check if some apply ?"
+
+msgctxt "data_quality_info_panel_title"
+msgid "Data Quality infos"
+msgstr "Data Quality infos"
+
+msgctxt "data_quality_info_panel_subtitle"
+msgid "Some infos about data quality on this product"
+msgstr "Some infos about data quality on this product"
+
 # will be followed by : and a value. e.g. "Compared to: bananas"
 msgctxt "compared_to"
 msgid "Compared to"
@@ -6246,6 +6294,10 @@ msgstr "Add the origins of ingredients for this product"
 
 msgctxt "action_add_packaging_image"
 msgid "Take a photo of the recycling information"
+msgstr "Take a photo of the recycling information"
+
+msgctxt "action_add_packaging_components"
+msgid "Add packaging components"
 msgstr "Take a photo of the recycling information"
 
 # this is not used yet

@@ -497,7 +497,7 @@ sub load_ecoscore_data_packaging() {
 				target_shape => "bottle",
 				target_material => "rpet",
 				source_shape => "bottle",
-				source_material => "transparent pet"
+				source_material => "transparent rpet"
 			},
 			{
 				target_material => "plastic",
@@ -851,9 +851,13 @@ sub compute_ecoscore ($product_ref) {
 					$product_ref->{ecoscore_data}{"scores"}{$cc} = 79;
 				}
 
-				$log->debug("compute_ecoscore - final score and grade",
-					{score => $product_ref->{"scores"}{$cc}, grade => $product_ref->{"grades"}{$cc}})
-					if $log->is_debug();
+				$log->debug(
+					"compute_ecoscore - final score and grade",
+					{
+						score => $product_ref->{ecoscore_data}{"scores"}{$cc},
+						grade => $product_ref->{ecoscore_data}{"grades"}{$cc}
+					}
+				) if $log->is_debug();
 			}
 
 			# The following values correspond to the Eco-Score for France.

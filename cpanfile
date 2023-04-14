@@ -68,7 +68,7 @@ requires 'Data::DeepAccess';
 requires 'XML::XML2JSON';
 requires 'Redis';
 requires 'Digest::SHA1';
-
+requires 'Data::Difference';
 
 # Mojolicious/Minion
 requires 'Mojolicious::Lite';

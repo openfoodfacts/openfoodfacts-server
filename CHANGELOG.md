@@ -1,5 +1,41 @@
 # Changelog
 
+## [2.10.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.9.0...v2.10.0) (2023-04-07)
+
+
+### Features
+
+* data quality errors knowledge panel ([#8032](https://github.com/openfoodfacts/openfoodfacts-server/issues/8032)) ([0898399](https://github.com/openfoodfacts/openfoodfacts-server/commit/0898399e3beb6e168c888e6e464b7f4890959277))
+* Packaging import through producers platform ([#8207](https://github.com/openfoodfacts/openfoodfacts-server/issues/8207)) ([bfc1fe2](https://github.com/openfoodfacts/openfoodfacts-server/commit/bfc1fe2c4277eb6140c0f965ae2143766e24b503))
+* replacing incron with a specific script ([#8234](https://github.com/openfoodfacts/openfoodfacts-server/issues/8234)) ([982d1bf](https://github.com/openfoodfacts/openfoodfacts-server/commit/982d1bfd5b3eb2257caca1539d88edd00f1fe105))
+* separate products_obsolete MongoDB collection for obsolete products ([#8277](https://github.com/openfoodfacts/openfoodfacts-server/issues/8277)) ([48b14a0](https://github.com/openfoodfacts/openfoodfacts-server/commit/48b14a088cbb9714e91d5529ef9dfd7b1bd8aa1f))
+
+
+### Bug Fixes
+
+* Docker YAML key mapping duplication ([640c6d1](https://github.com/openfoodfacts/openfoodfacts-server/commit/640c6d1d8c121bbe2987e4811a555b9305ae2a62))
+* docker YAML key mapping duplication  ([#8273](https://github.com/openfoodfacts/openfoodfacts-server/issues/8273)) ([640c6d1](https://github.com/openfoodfacts/openfoodfacts-server/commit/640c6d1d8c121bbe2987e4811a555b9305ae2a62))
+* fix icons and small glitch with nutrition image ([#8288](https://github.com/openfoodfacts/openfoodfacts-server/issues/8288)) ([ff60457](https://github.com/openfoodfacts/openfoodfacts-server/commit/ff60457aa6ed131d8d3f6e019b43e6a994aa6561))
+* Invalid facets in the url should return 404 ([#8255](https://github.com/openfoodfacts/openfoodfacts-server/issues/8255)) ([0174dcf](https://github.com/openfoodfacts/openfoodfacts-server/commit/0174dcf0ec18b5ad729b51327f82a317a5fea3cb))
+* re-canonicalize packaging component properties ([#8246](https://github.com/openfoodfacts/openfoodfacts-server/issues/8246)) ([4668488](https://github.com/openfoodfacts/openfoodfacts-server/commit/46684884173b9fcd790ebffa6d4af74bc39d0568))
+* refactor protection of data imported from producers ([#8274](https://github.com/openfoodfacts/openfoodfacts-server/issues/8274)) ([045a23b](https://github.com/openfoodfacts/openfoodfacts-server/commit/045a23b5a0448a940c9ae34d940c3c7d58828dee))
+
+
+### Translations
+
+* New Crowdin translations to review and merge ([#8220](https://github.com/openfoodfacts/openfoodfacts-server/issues/8220)) ([f771fa7](https://github.com/openfoodfacts/openfoodfacts-server/commit/f771fa757db51463c8b83e687814458e0dfa8119))
+
+
+### Taxonomy
+
+* added refined pamleolein ([#8253](https://github.com/openfoodfacts/openfoodfacts-server/issues/8253)) ([b3c41d9](https://github.com/openfoodfacts/openfoodfacts-server/commit/b3c41d997862318531ed5ac887a97fe04fdf0799))
+* Apple juices ([#8262](https://github.com/openfoodfacts/openfoodfacts-server/issues/8262)) ([a557c6a](https://github.com/openfoodfacts/openfoodfacts-server/commit/a557c6a2f76c13ceb9ebbe221622b36539329f3b))
+* Bruschetta spreads and bruschetta breads ([#8252](https://github.com/openfoodfacts/openfoodfacts-server/issues/8252)) ([970efa1](https://github.com/openfoodfacts/openfoodfacts-server/commit/970efa124278ce4767eb81e20ead2b73642837d6))
+* Bulgarian additions ([#8267](https://github.com/openfoodfacts/openfoodfacts-server/issues/8267)) ([d9072f9](https://github.com/openfoodfacts/openfoodfacts-server/commit/d9072f92ac0d0c0b8cbd6f7e478b3e0cba6a8700))
+* Concentrate fruit juices ([#8268](https://github.com/openfoodfacts/openfoodfacts-server/issues/8268)) ([04b6860](https://github.com/openfoodfacts/openfoodfacts-server/commit/04b68603968983921c08df1774a926781f20f818))
+* minor synonymes ([#8254](https://github.com/openfoodfacts/openfoodfacts-server/issues/8254)) ([85cbc4a](https://github.com/openfoodfacts/openfoodfacts-server/commit/85cbc4a158d826de9fdcdbdd474f078dc8ff2c3b))
+* Taxonomy hr 20230401 ([#8284](https://github.com/openfoodfacts/openfoodfacts-server/issues/8284)) ([5975aa5](https://github.com/openfoodfacts/openfoodfacts-server/commit/5975aa5f96a11423942e7ba223e52cde5be73a0b))
+
 ## [2.9.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.8.0...v2.9.0) (2023-03-24)
 
 

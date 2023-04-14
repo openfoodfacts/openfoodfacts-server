@@ -252,10 +252,11 @@ test-stop:
 	${DOCKER_COMPOSE_TEST} stop
 
 # usage:  make test-unit test=test-name.t
+# you can add args= to pass options, like args="-d" to debug
 test-unit: guard-test
 	@echo "🥫 Running test: 'tests/unit/${test}' …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run --rm backend perl tests/unit/${test}
+	${DOCKER_COMPOSE_TEST} run --rm backend perl ${args} tests/unit/${test}
 
 # usage:  make test-int test=test-name.t
 test-int: guard-test # usage: make test-one test=test-file.t
@@ -369,13 +370,16 @@ prune_cache:
 	@echo "🥫 Pruning Docker builder cache …"
 	docker builder prune -f
 
-clean_folders:
+clean_folders: clean_logs
 	( rm html/images/products || true )
 	( rm -rf node_modules/ || true )
 	( rm -rf html/data/i18n/ || true )
 	( rm -rf html/{css,js}/dist/ || true )
 	( rm -rf tmp/ || true )
+
+clean_logs:
 	( rm -f logs/* logs/apache2/* logs/nginx/* || true )
+
 
 clean: goodbye hdown prune prune_cache clean_folders
 
