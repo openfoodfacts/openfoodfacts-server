@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -106,11 +106,11 @@ foreach my $group_ref (@$select2_options_ref) {
 			my $nid = $field_id;
 			$nid =~ s/_(100g|serving|prepared).*//;
 			$log->debug("field nutrition", {group_id => $group_id, field_id => $field_id, nid => $nid})
-			  if $log->is_debug();
+				if $log->is_debug();
 			my $unit = default_unit_for_nid($nid);
 			$log->debug("field nutrition default unit",
 				{group_id => $group_id, field_id => $field_id, nid => $nid, unit => $unit})
-			  if $log->is_debug();
+				if $log->is_debug();
 			$comment .= sprintf(lang("specify_value_and_unit_or_use_default_unit"), $unit) . "\n\n";
 			$log->debug("field after sprintf", {group_id => $group_id, field_id => $field_id}) if $log->is_debug();
 		}
@@ -127,17 +127,15 @@ foreach my $group_ref (@$select2_options_ref) {
 			$comment .= lang("separate_values_with_commas") . "\n\n";
 		}
 
-		my $note = lang($field_id . "_note");
-		my $import_note = lang($field_id . "_import_note");
+		# Add notes that are defined in the .po files
+		foreach my $note_field ("note", "note_2", "note_3", "import_note") {
+			my $note = lang($field_id . "_" . $note_field);
+			if ($note ne "") {
+				$comment .= $note . "\n\n";
+			}
+		}
+
 		my $example = lang($field_id . "_example");
-
-		if ($note ne "") {
-			$comment .= lang($field_id . "_note") . "\n\n";
-		}
-
-		if ($import_note ne "") {
-			$comment .= lang($field_id . "_import_note") . "\n\n";
-		}
 
 		if ($example ne "") {
 
@@ -192,7 +190,7 @@ foreach my $group_ref (@$select2_options_ref) {
 		$col++;
 
 		$log->debug("field - comment", {group_id => $group_id, field_id => $field_id, comment => $comment})
-		  if $log->is_debug();
+			if $log->is_debug();
 	}
 }
 

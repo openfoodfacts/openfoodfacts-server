@@ -1,0 +1,25 @@
+{
+   "code" : "1234567890010",
+   "errors" : [],
+   "product" : {
+      "packagings" : [
+         {
+            "material" : {
+               "id" : "en:pet-1-polyethylene-terephthalate",
+               "lc_name" : "PET 1 - Polyethylene terephthalate"
+            },
+            "number_of_units" : 2,
+            "recycling" : {
+               "id" : "en:discard",
+               "lc_name" : "Discard"
+            },
+            "shape" : {
+               "id" : "en:film",
+               "lc_name" : "Film"
+            }
+         }
+      ]
+   },
+   "status" : "success",
+   "warnings" : []
+}

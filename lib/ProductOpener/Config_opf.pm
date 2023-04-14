@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -22,11 +22,10 @@ package ProductOpener::Config;
 
 use utf8;
 use Modern::Perl '2017';
-use Exporter    qw< import >;
+use Exporter qw< import >;
 
-BEGIN
-{
-	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
+BEGIN {
+	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		%string_normalization_for_lang
 		%admins
@@ -44,6 +43,7 @@ BEGIN
 		$producers_email
 
 		$google_cloud_vision_api_key
+		$google_cloud_vision_api_url
 
 		$crowdin_project_identifier
 		$crowdin_project_key
@@ -89,7 +89,7 @@ BEGIN
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
-use vars @EXPORT_OK ; # no 'my' keyword for these
+use vars @EXPORT_OK;    # no 'my' keyword for these
 
 use ProductOpener::Config2;
 
@@ -145,7 +145,7 @@ use ProductOpener::Config2;
 	},
 );
 
-%admins = map { $_ => 1 } qw(
+%admins = map {$_ => 1} qw(
 	agamitsudo
 	aleene
 	bcatelin
@@ -173,12 +173,11 @@ use ProductOpener::Config2;
 	m-etchebarne
 );
 
-%moderators = map { $_ => 1 } qw(
+%moderators = map {$_ => 1} qw(
 
 );
 
 @edit_rules = ();
-
 
 # server constants
 $server_domain = $ProductOpener::Config2::server_domain;
@@ -196,6 +195,7 @@ $conf_root = $ProductOpener::Config2::conf_root;
 $geolite2_path = $ProductOpener::Config2::geolite2_path;
 
 $google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_key;
+$google_cloud_vision_api_url = $ProductOpener::Config2::google_cloud_vision_api_url;
 
 $crowdin_project_identifier = $ProductOpener::Config2::crowdin_project_identifier;
 $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
@@ -228,7 +228,6 @@ $zoom_size = 800;
 
 $page_size = 20;
 
-
 $google_analytics = <<HTML
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-31851927-12"></script>
@@ -240,87 +239,91 @@ $google_analytics = <<HTML
   gtag('config', 'UA-31851927-12');
 </script>
 HTML
-;
+	;
 
 #@product_image_fields = qw(front ingredients);
 
 # fields for which we will load taxonomies
 
-@taxonomy_fields = qw(states countries languages labels categories additives allergens traces nutrient_levels ingredients periods_after_opening);
+@taxonomy_fields
+	= qw(states countries languages labels categories additives allergens traces nutrient_levels ingredients periods_after_opening);
 
 # fields in product edit form, above ingredients and nutrition facts
 
 #@product_fields = qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link periods_after_opening expiration_date purchase_places stores countries  );
-@product_fields = qw(quantity packaging brands categories labels origins manufacturing_places emb_codes link periods_after_opening expiration_date purchase_places stores countries  );
+@product_fields
+	= qw(quantity packaging brands categories labels origins manufacturing_places emb_codes link periods_after_opening expiration_date purchase_places stores countries  );
 
 # fields currently not shown in the default edit form, can be used in imports or advanced edit forms
 
 @product_other_fields = qw(
-producer_version_id
-net_weight_value net_weight_unit drained_weight_value drained_weight_unit volume_value volume_unit
-other_information conservation_conditions recycling_instructions_to_recycle recycling_instructions_to_discard
+	producer_version_id
+	net_weight_value net_weight_unit drained_weight_value drained_weight_unit volume_value volume_unit
+	other_information conservation_conditions recycling_instructions_to_recycle recycling_instructions_to_discard
 );
 
 # fields shown on product page
 # do not show purchase_places
 
-@display_fields = qw(generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link periods_after_opening stores countries);
+@display_fields
+	= qw(generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link periods_after_opening stores countries);
 
 # fields displayed in a new section after the nutrition facts
 
-@display_other_fields = qw(other_information conservation_conditions recycling_instructions_to_recycle recycling_instructions_to_discard);
+@display_other_fields
+	= qw(other_information conservation_conditions recycling_instructions_to_recycle recycling_instructions_to_discard);
 
 # fields for drilldown facet navigation
 
 @drilldown_fields = qw(
-brands
-categories
-labels
-packaging
-periods_after_opening
-origins
-manufacturing_places
-emb_codes
-ingredients
-ingredients_n
-additives
-allergens
-traces
-nutrition_grades
-languages
-users
-states
-entry_dates
-last_edit_dates
+	brands
+	categories
+	labels
+	packaging
+	periods_after_opening
+	origins
+	manufacturing_places
+	emb_codes
+	ingredients
+	ingredients_n
+	additives
+	allergens
+	traces
+	nutrition_grades
+	languages
+	users
+	states
+	entry_dates
+	last_edit_dates
 );
 
 @export_fields = qw(
-code
-creator
-created_t
-last_modified_t
-product_name
-generic_name
-quantity
-packaging
-brands
-categories
-origins
-manufacturing_places
-labels
-emb_codes
-cities
-purchase_places
-stores
-countries
-ingredients_text
-allergens
-traces
-serving_size
-serving_quantity
-additives_n
-additives
-states
+	code
+	creator
+	created_t
+	last_modified_t
+	product_name
+	generic_name
+	quantity
+	packaging
+	brands
+	categories
+	origins
+	manufacturing_places
+	labels
+	emb_codes
+	cities
+	purchase_places
+	stores
+	countries
+	ingredients_text
+	allergens
+	traces
+	serving_size
+	serving_quantity
+	additives_n
+	additives
+	states
 );
 
 # for ingredients OCR, we use tesseract-ocr
@@ -336,7 +339,7 @@ states
 	es => "spa",
 	fr => "fra",
 	it => "ita",
-#	ja => "jpn", # not available with tesseract 2
+	#	ja => "jpn", # not available with tesseract 2
 	nl => "nld",
 );
 
@@ -344,48 +347,47 @@ states
 
 %weblink_templates = (
 
-	'wikidata:en' => { href => 'https://www.wikidata.org/wiki/%s', text => 'Wikidata', parse => sub
-	{
-		my ($url) = @_;
-		if ($url =~ /^https?:\/\/www.wikidata.org\/wiki\/(Q\d+)$/) {
-			return $1
-		}
+	'wikidata:en' => {
+		href => 'https://www.wikidata.org/wiki/%s',
+		text => 'Wikidata',
+		parse => sub {
+			my ($url) = @_;
+			if ($url =~ /^https?:\/\/www.wikidata.org\/wiki\/(Q\d+)$/) {
+				return $1;
+			}
 
-		return;
-	} },
+			return;
+		}
+	},
 
 );
 
 # allow moving products to other instances of Product Opener on the same server
 # e.g. OFF -> OBF
 $options{other_servers} = {
-obf =>
-{
-        name => "Open Beauty Facts",
-        data_root => "/srv/obf",
-        www_root => "/srv/obf/html",
-        mongodb => "obf",
-        domain => "openbeautyfacts.org",
-},
-off =>
-{
-        name => "Open Food Facts",
-        data_root => "/srv/off",
-        www_root => "/srv/off/html",
-        mongodb => "off",
-        domain => "openfoodfacts.org",
-},
-opff =>
-{
-        prefix => "opff",
-        name => "Open Pet Food Facts",
-        data_root => "/srv/opff",
-        www_root => "/srv/opff/html",
-        mongodb => "opff",
-        domain => "openpetfoodfacts.org",
-}
+	obf => {
+		name => "Open Beauty Facts",
+		data_root => "/srv/obf",
+		www_root => "/srv/obf/html",
+		mongodb => "obf",
+		domain => "openbeautyfacts.org",
+	},
+	off => {
+		name => "Open Food Facts",
+		data_root => "/srv/off",
+		www_root => "/srv/off/html",
+		mongodb => "off",
+		domain => "openfoodfacts.org",
+	},
+	opff => {
+		prefix => "opff",
+		name => "Open Pet Food Facts",
+		data_root => "/srv/opff",
+		www_root => "/srv/opff/html",
+		mongodb => "opff",
+		domain => "openpetfoodfacts.org",
+	}
 };
-
 
 $options{no_nutrition_table} = 1;
 

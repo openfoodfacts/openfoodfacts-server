@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -36,13 +36,11 @@ package ProductOpener::DataQualityCommon;
 use ProductOpener::PerlStandards;
 use Exporter qw(import);
 
-
-BEGIN
-{
+BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&check_quality_common
-		);    # symbols to export on request
+	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -50,7 +48,6 @@ use ProductOpener::Store qw(:all);
 use ProductOpener::Tags qw(:all);
 
 use Log::Any qw($log);
-
 
 =head1 FUNCTIONS
 
@@ -60,7 +57,7 @@ Checks related to issues that are due to bugs that exist or existed in the code.
 
 =cut
 
-sub check_bugs($product_ref) {
+sub check_bugs ($product_ref) {
 
 	check_bug_missing_or_unknown_main_language($product_ref);
 
@@ -79,13 +76,13 @@ that caused them not to be set in certain conditions.
 
 =cut
 
-sub check_bug_missing_or_unknown_main_language($product_ref) {
+sub check_bug_missing_or_unknown_main_language ($product_ref) {
 
-	if ((not (defined $product_ref->{lc}))) {
+	if ((not(defined $product_ref->{lc}))) {
 		push @{$product_ref->{data_quality_bugs_tags}}, "en:main-language-code-missing";
 	}
 
-	if ((not (defined $product_ref->{lang}))) {
+	if ((not(defined $product_ref->{lang}))) {
 		push @{$product_ref->{data_quality_bugs_tags}}, "en:main-language-missing";
 	}
 	elsif ($product_ref->{lang} eq 'xx') {
@@ -95,10 +92,10 @@ sub check_bug_missing_or_unknown_main_language($product_ref) {
 	return;
 }
 
-sub check_bug_code_missing($product_ref) {
+sub check_bug_code_missing ($product_ref) {
 
 	# https://github.com/openfoodfacts/openfoodfacts-server/issues/185#issuecomment-364653043
-	if ((not (defined $product_ref->{code}))) {
+	if ((not(defined $product_ref->{code}))) {
 		push @{$product_ref->{data_quality_bugs_tags}}, "en:code-missing";
 	}
 	elsif ($product_ref->{code} eq '') {
@@ -111,10 +108,10 @@ sub check_bug_code_missing($product_ref) {
 	return;
 }
 
-sub check_bug_created_t_missing($product_ref) {
+sub check_bug_created_t_missing ($product_ref) {
 
 	# https://github.com/openfoodfacts/openfoodfacts-server/issues/185
-	if ((not (defined $product_ref->{created_t}))) {
+	if ((not(defined $product_ref->{created_t}))) {
 		push @{$product_ref->{data_quality_bugs_tags}}, "en:created-missing";
 	}
 	elsif ($product_ref->{created_t} == 0) {
@@ -130,16 +127,16 @@ Checks related to the barcodes.
 
 =cut
 
-sub check_codes($product_ref) {
+sub check_codes ($product_ref) {
 
 	check_code_gs1_prefixes($product_ref);
-	
+
 	return;
 }
 
-sub check_code_gs1_prefixes($product_ref) {
+sub check_code_gs1_prefixes ($product_ref) {
 
-	if ((not (defined $product_ref->{code}))) {
+	if ((not(defined $product_ref->{code}))) {
 		return;
 	}
 	my $code = $product_ref->{code};
@@ -169,14 +166,13 @@ sub check_code_gs1_prefixes($product_ref) {
 	return;
 }
 
-
 =head2 check_packagings( PRODUCT_REF )
 
 Checks related to the packagings information.
 
 =cut
 
-sub check_packagings($product_ref) {
+sub check_packagings ($product_ref) {
 
 	if ((not defined $product_ref->{packagings}) or (scalar @{$product_ref->{packagings}} == 0)) {
 		push @{$product_ref->{data_quality_info_tags}}, "en:no-packaging-data";
@@ -185,13 +181,22 @@ sub check_packagings($product_ref) {
 		# Loop through every packaging component to check that we have a number of unit, a shape and a material
 		my $complete = 1;
 		foreach my $packaging_ref (@{$product_ref->{packagings}}) {
-			if (not (((defined $packaging_ref->{number}) and (defined $packaging_ref->{shape}) and (defined $packaging_ref->{material}))
-				or ((defined $packaging_ref->{shape}) and ($packaging_ref->{shape} eq "en:bulk")))) {
+			if (
+				not(
+					(
+							(defined $packaging_ref->{number})
+						and (defined $packaging_ref->{shape})
+						and (defined $packaging_ref->{material})
+					)
+					or ((defined $packaging_ref->{shape}) and ($packaging_ref->{shape} eq "en:bulk"))
+				)
+				)
+			{
 				$complete = 0;
 				last;
 			}
 		}
-		
+
 		if ($complete) {
 			push @{$product_ref->{data_quality_info_tags}}, "en:packaging-data-complete";
 		}
@@ -203,14 +208,13 @@ sub check_packagings($product_ref) {
 	return;
 }
 
-
 =head2 check_quality_common( PRODUCT_REF )
 
 Run all quality checks defined in the module.
 
 =cut
 
-sub check_quality_common($product_ref) {
+sub check_quality_common ($product_ref) {
 
 	check_bugs($product_ref);
 	check_codes($product_ref);

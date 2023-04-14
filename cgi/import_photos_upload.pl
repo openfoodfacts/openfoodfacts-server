@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -62,27 +62,30 @@ if (not defined $Owner_id) {
 	display_error_and_exit(lang("no_owner_defined"), 200);
 }
 
-
 else {
 
 	# Enable adding field values for photos uploaded
 
-	my @add_fields = qw(brands categories packaging labels origins manufacturing_places emb_codes purchase_places stores countries);
+	my @add_fields
+		= qw(brands categories packaging labels origins manufacturing_places emb_codes purchase_places stores countries);
 	my %add_fields_labels = ();
-  my @add_fields_options = {value => 'add_tag', label => lang("add_tag_field")};
+	my @add_fields_options = {value => 'add_tag', label => lang("add_tag_field")};
 
 	foreach my $field (@add_fields) {
 		$add_fields_labels{$field} = ucfirst(lang($field . "_p"));
-    push (@add_fields_options, {
-      value => $field,
-      label => $add_fields_labels{$field},
-    });
+		push(
+			@add_fields_options,
+			{
+				value => $field,
+				label => $add_fields_labels{$field},
+			}
+		);
 	}
 	$add_fields_labels{add_tag} = lang("add_tag_field");
 
-  my $i = 0;
-  $template_data_ref->{i} = $i;
-  $template_data_ref->{add_fields_options} = \@add_fields_options;
+	my $i = 0;
+	$template_data_ref->{i} = $i;
+	$template_data_ref->{add_fields_options} = \@add_fields_options;
 
 	$scripts .= <<JS
     <!-- The template to display files available for upload -->
@@ -171,12 +174,14 @@ else {
     <!-- The File Upload user interface plugin -->
     <script src="/js/dist/jquery.fileupload-ui.js"></script>
 JS
-;
+		;
 
-  process_template('web/pages/import_photos_upload/import_photos_upload.tt.html', $template_data_ref, \$html) or $html = "<p>" . $tt->error() . "</p>";
-  process_template('web/pages/import_photos_upload/import_photos_upload.tt.js', $template_data_ref, \$js) or $html = "<p>" . $tt->error() . "</p>";
+	process_template('web/pages/import_photos_upload/import_photos_upload.tt.html', $template_data_ref, \$html)
+		or $html = "<p>" . $tt->error() . "</p>";
+	process_template('web/pages/import_photos_upload/import_photos_upload.tt.js', $template_data_ref, \$js)
+		or $html = "<p>" . $tt->error() . "</p>";
 
-  $initjs .= $js;
+	$initjs .= $js;
 
 	$header .= <<HTML
 <script>
@@ -207,7 +212,7 @@ function waitForPreviousUpload(submitIndex, callback) {
 
 
 HTML
-;
+		;
 
 	$initjs .= <<JS
 
@@ -333,7 +338,7 @@ var images_processed = 0;
 });
 
 JS
-;
+		;
 
 	$styles .= <<CSS
 
@@ -428,11 +433,11 @@ JS
 }
 
 CSS
-;
+		;
 
-  $request_ref->{title} = $title;
-  $request_ref->{content_ref} = \$html;
-  display_page($request_ref);
+	$request_ref->{title} = $title;
+	$request_ref->{content_ref} = \$html;
+	display_page($request_ref);
 }
 
 exit(0);

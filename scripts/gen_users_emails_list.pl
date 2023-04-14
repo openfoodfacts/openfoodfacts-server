@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -19,7 +19,6 @@
 #
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
 
 =head1 NAME
 
@@ -61,8 +60,6 @@ By default, the list is restricted to users registered to Open Food Facts newsle
 
 =cut
 
-
-
 use Modern::Perl '2017';
 use utf8;
 
@@ -80,15 +77,14 @@ if (scalar $#userids < 0) {
 	closedir(DH);
 }
 
-foreach my $userid (@userids)
-{
+foreach my $userid (@userids) {
 	next if $userid eq "." or $userid eq "..";
 	next if $userid eq 'all';
 
 	my $user_ref = retrieve("$data_root/users/$userid");
 
 	my $first = '';
-	if (! exists $user_ref->{discussion}) {
+	if (!exists $user_ref->{discussion}) {
 		$first = 'first';
 	}
 
@@ -104,8 +100,14 @@ foreach my $userid (@userids)
 		my $userid = $user_ref->{userid} || "";
 		my $newsletter = $user_ref->{newsletter} || "";
 		my $moderator = $user_ref->{moderator} || "";
-		print lc($user_ref->{email}) . "\t" . $lc . "\t" .  $cc . "\t" . $t . "\t"
-			. $country . "\t" . $userid . "\t" . $newsletter . "\t" . $moderator . "\n";
+		print lc($user_ref->{email}) . "\t"
+			. $lc . "\t"
+			. $cc . "\t"
+			. $t . "\t"
+			. $country . "\t"
+			. $userid . "\t"
+			. $newsletter . "\t"
+			. $moderator . "\n";
 	}
 
 }

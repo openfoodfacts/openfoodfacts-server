@@ -282,8 +282,8 @@ msgid "Producers Admin manual"
 msgstr ""
 
 msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://fi.openfoodfacts.org/lahjoita-open-food-factsille\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Lahjoita Open Food Factsille\" /></a><p><<site_name>>ia kehittää voittoa tavoittelematon ja toimialasta riippumaton yhdistys. Sitä kehittävät kaikki, kaikille, ja sitä rahoittavat kaikki. Voit tukea työtämme <a href=\"https://fi.openfoodfacts.org/lahjoita-open-food-factsille\">lahjoittamalla Open Food Factsille,</a> ja myös <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">käyttämällä Lilo-hakukonetta</a>.<br/><b>Kiitos!</b></p>"
+msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
+msgstr ""
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -586,8 +586,8 @@ msgid "editor"
 msgstr "muokkaaja"
 
 msgctxt "email"
-msgid "e-mail address"
-msgstr "sähköpostiosoite"
+msgid "E-mail address"
+msgstr ""
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
@@ -1397,6 +1397,10 @@ msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
 msgstr "Tilaa uutiskirje (enintään 2 sähköpostia kuukaudessa)"
 
+msgctxt "subscribe_to_our_newsletter"
+msgid "Subscribe to our newsletter"
+msgstr ""
+
 msgctxt "next"
 msgid "Next"
 msgstr "Seuraava"
@@ -1558,6 +1562,10 @@ msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
 "by typing the first letters of their name in the last row of the table."
 msgstr "Oletusarvoisesti taulukko listaa ravintoaineet, jotka yleensä löytyvät pakkauksista. Jätä kenttä tyhjäksi, jos sitä ei ole etiketissä.<br/>Voit lisätä ylimääräisiä ravintoaineita (vitamiineja, kivennäisaineita, kolesterolin jne.) kirjoittamalla ravinteen nimestä muutaman kirjaimen taulukon viimeiselle riville."
+
+msgctxt "nutrition_data_table_asterisk"
+msgid "Essential nutrients to calculate the Nutri-Score."
+msgstr ""
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
@@ -3134,6 +3142,10 @@ msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
 msgstr "Tärkeä tieto: Tätä tuotetta ei enää myydä. Tiedot säilytetään vain viittaamista varten. Tämä tuote ei enää näy tavallisissa hauissa ja sitä ei oteta huomioon tilastoissa."
 
+# This will be on a button and needs to be as short as possible
+# So instead of something like "Install the mobile application"
+# try to make it very short "Get the app" or "Install the app"
+# Use infinitive instead of imperative
 msgctxt "get_the_app"
 msgid "Get the app"
 msgstr "Hanki sovellus"
@@ -3753,10 +3765,6 @@ msgctxt "import_file_result"
 msgid "Import result"
 msgstr "Tuonnin tulos"
 
-msgctxt "products_added"
-msgid "Products added"
-msgstr "Tuotteita lisätty"
-
 msgctxt "products_modified"
 msgid "Products modified"
 msgstr "Tuotteita muokattu"
@@ -3997,6 +4005,14 @@ msgctxt "export_products_to_public_database_email"
 msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
 msgstr "Tuottajien alusta on vielä kehityksen alla, ja teemme manuaalisia tarkistuksia ennen tuotteiden tuontia julkiseen tietokantaan. Lähetä meille sähköpostia osoitteeseen <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> julkisen tietokannan päivittämiseksi."
 
+msgctxt "crm_user_id"
+msgid "Id of corresponding contact in CRM"
+msgstr ""
+
+msgctxt "crm_org_id"
+msgid "Id of corresponding organization in CRM"
+msgstr ""
+
 msgctxt "user_groups"
 msgid "Groups"
 msgstr "Ryhmät"
@@ -4081,9 +4097,10 @@ msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "Tuottajien alustan moderaatio"
 
-msgctxt "pro_moderator_owner_set"
-msgid "You are currently viewing products from %s."
-msgstr "Katselet tuotteita omistajalta %s."
+# variable names between { } must not be translated
+msgctxt "f_pro_moderator_owner_set"
+msgid "You are currently viewing products from {organization}."
+msgstr ""
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
@@ -4095,8 +4112,8 @@ msgstr "Nähdäksesi tuotteet tietyltä käyttäjältä tai järjestöltä, syö
 
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
-msgid "Change"
-msgstr "Muuta"
+msgid "Switch to another organization"
+msgstr ""
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
@@ -4700,6 +4717,10 @@ msgctxt "packaging_text_note_2"
 msgid "Try to be as specific as possible. For plastic, please indicate if it is opaque or transparent, colored, PET or PEHD."
 msgstr "Yritä olla mahdollisimman tarkka. Ilmoita muovista onko se läpinäkymätöntä vai läpinäkyvää, värillistä, PET tai PEHD."
 
+msgctxt "packaging_text_note_3"
+msgid "Data from this field will be combined with any data provided for each packaging part. It is possible to provide one or the other, or both."
+msgstr ""
+
 msgctxt "product_js_extract_packaging"
 msgid "Extract the recycling instructions and/or packaging information from the picture"
 msgstr "Poimi kuvasta kierrätysohjeet ja/tai pakkaustiedot"
@@ -4954,6 +4975,11 @@ msgstr "Eco-Score"
 msgctxt "packaging_parts"
 msgid "Packaging parts"
 msgstr "Pakkauksen osat"
+
+# A short name for a physical piece of packaging (e.g. in English, "packaging" instead of "packaging part"). Used with a number (e.g. "Packaging 1" to identify a packaging part)
+msgctxt "packaging_part_short"
+msgid "Packaging"
+msgstr "Pakkaus"
 
 # Number of packaging parts
 msgctxt "packaging_number"
@@ -5273,6 +5299,14 @@ msgctxt "org_list_of_gs1_gln_note"
 msgid "A comma separated list of GS1 GLN identifiers to force the association with this organization."
 msgstr "Pilkuilla erotettu luettelo GS1 GLN -tunnisteista yhdistämisen pakottamiseen tämän organisaation kanssa."
 
+msgctxt "org_valid_org"
+msgid "Validate organization as a real producer."
+msgstr ""
+
+msgctxt "org_valid_org_note"
+msgid "The organization is verified as a real producer by a human, also creates entry in CRM."
+msgstr ""
+
 msgctxt "org_enable_manual_export_to_public_platform"
 msgid "Enable organization members to manually export product data and photos to the public database."
 msgstr "Salli organisaation jäsenten viedä tuotetiedot ja -valokuvat manuaalisesti julkiseen tietokantaan."
@@ -5583,6 +5617,14 @@ msgstr ""
 # do not translate Eco-Score
 msgctxt "ecoscore_warning_international"
 msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr ""
+
+msgctxt "ecoscore_warning_transportation_world"
+msgid "Select a country in order to include the full impact of transportation."
+msgstr ""
+
+msgctxt "ecoscore_warning_transportation"
+msgid "The full impact of transportation to your country is currently unknown."
 msgstr ""
 
 msgctxt "app_banner_text"
@@ -6057,6 +6099,69 @@ msgctxt "action_add_nutrition_facts"
 msgid "Add nutrition facts"
 msgstr ""
 
+msgctxt "action_add_origins"
+msgid "Add the origins of ingredients for this product"
+msgstr ""
+
+msgctxt "action_add_packaging_image"
+msgid "Take a photo of the recycling information"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_add_basic_details"
+msgid "Add basic details"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_add_portion_size"
+msgid "Add portion size"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_add_ingredients_image"
+msgid "Take a photo of the ingredients"
+msgstr "Ota kuva ainesosista"
+
+# this is not used yet
+msgctxt "action_add_nutrition_image"
+msgid "Take a photo of the nutrition facts"
+msgstr "Ota kuva ravintosisällöstä"
+
+# this is not used yet
+msgctxt "action_refresh_ingredients_image"
+msgid "Refresh the photo of the ingredients"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_refresh_nutrition_image"
+msgid "Refresh the photo of the nutrition facts"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_add_packaging_text"
+msgid "Extract and check the recycling information"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_add_stores"
+msgid "Add the store where you found this product"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_labels"
+msgid "Add any label present on this product"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_countries"
+msgid "Add the country where you found this product"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_packager_codes_image"
+msgid "Take a photo of traceability codes"
+msgstr ""
+
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
 msgid "What you need to know"
@@ -6116,5 +6221,241 @@ msgstr ""
 
 msgctxt "nutrient_recommendation_fat_and_saturated_fat"
 msgid "Choose products with lower fat and saturated fat content."
+msgstr ""
+
+msgctxt "sign_in"
+msgid "Sign in"
+msgstr "Kirjaudu sisään"
+
+msgctxt "sign_out"
+msgid "Sign out"
+msgstr "Kirjaudu ulos"
+
+msgctxt "your_contributions"
+msgid "Your contributions"
+msgstr "Osallistumisesi"
+
+msgctxt "products_added"
+msgid "Products added"
+msgstr "Tuotteita lisätty"
+
+msgctxt "products_edited"
+msgid "Products edited"
+msgstr ""
+
+msgctxt "products_photographed"
+msgid "Products photographed"
+msgstr ""
+
+# result of the matching with the user preferences: should ne a noun, not a verb
+msgctxt "matching_with_your_preferences"
+msgid "Matching with your preferences"
+msgstr ""
+
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_join_us_on_slack"
+msgid "Join us on <a href=\"{url}\">Slack</a>"
+msgstr ""
+
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_discover_our_code_of_conduct"
+msgid "Discover our <a href=\"{url}\">Code of conduct</a>"
+msgstr ""
+
+# {links} must not be translated, it will be replaced by icons and/or text links
+msgctxt "f_footer_follow_us_links"
+msgid "Follow us: {links}"
+msgstr ""
+
+# Should be as small as possible, e.g. use "app" instead of "application", don't specify "mobile"
+msgctxt "footer_install_the_app_exclamation_mark"
+msgid "Install the app!"
+msgstr ""
+
+# HTML tags must not be translated, keep <span id=\"everyday\"> and <span id=\"foods\"> and put them around the corresponding words in the translation
+# e.g. in French: Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>
+msgctxt "footer_scan_your_everyday_foods"
+msgid "Scan your <span id=\"everyday\">everyday</span> <span id=\"foods\">foods</span>"
+msgstr ""
+
+msgctxt "nutrition"
+msgid "Nutrition"
+msgstr "Ravinto"
+
+# Note: "criteria" is plural here. So in French for instance: "Vos critères"
+msgctxt "your_criteria"
+msgid "Your criteria"
+msgstr ""
+
+msgctxt "product"
+msgid "Product"
+msgstr "Tuote"
+
+msgctxt "environment"
+msgid "Environment"
+msgstr "Ympäristö"
+
+msgctxt "api_result_failure"
+msgid "Failure"
+msgstr ""
+
+msgctxt "api_result_product_found"
+msgid "Product found"
+msgstr ""
+
+msgctxt "api_result_product_not_found"
+msgid "Product not found"
+msgstr "Tuotetta ei löytynyt"
+
+msgctxt "api_result_product_updated"
+msgid "Product updated"
+msgstr ""
+
+msgctxt "api_message_invalid_api_action"
+msgid "Invalid API action"
+msgstr ""
+
+msgctxt "api_message_invalid_api_method"
+msgid "Invalid API method"
+msgstr ""
+
+msgctxt "api_message_empty_request_body"
+msgid "Empty request body"
+msgstr ""
+
+msgctxt "api_message_invalid_json_in_request_body"
+msgid "Invalid JSON in request body"
+msgstr ""
+
+msgctxt "api_message_invalid_type_must_be_object"
+msgid "Invalid type: must be an object"
+msgstr ""
+
+msgctxt "api_message_invalid_type_must_be_array"
+msgid "Invalid type: must be an array"
+msgstr ""
+
+msgctxt "api_message_invalid_type_must_be_integer"
+msgid "Invalid type: must be an integer"
+msgstr ""
+
+msgctxt "api_message_invalid_type_must_be_number"
+msgid "Invalid type: must be a number"
+msgstr ""
+
+msgctxt "api_message_missing_field"
+msgid "Missing field"
+msgstr ""
+
+msgctxt "api_message_unrecognized_value"
+msgid "Unrecognized value"
+msgstr ""
+
+msgctxt "api_impact_none"
+msgid "None"
+msgstr ""
+
+msgctxt "api_impact_warning"
+msgid "Warning"
+msgstr "Varoitus"
+
+msgctxt "api_impact_failure"
+msgid "Failure"
+msgstr ""
+
+msgctxt "api_impact_field_ignored"
+msgid "Field ignored"
+msgstr ""
+
+msgctxt "api_impact_value_converted"
+msgid "Value converted"
+msgstr ""
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units"
+msgid "Number of units"
+msgstr ""
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight"
+msgid "Weight of one empty unit"
+msgstr ""
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit"
+msgid "Quantity of product contained per unit"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_help_categorize_on_hunger_games"
+msgid "Help categorize more {title} on Hunger Games"
+msgstr ""
+
+msgctxt "packagings_complete"
+msgid "All the packaging parts of the product are listed."
+msgstr ""
+
+msgctxt "api_message_invalid_user_id_and_password"
+msgid "Invalid user id and password"
+msgstr ""
+
+msgctxt "api_message_invalid_value_must_be_0_or_1"
+msgid "Invalid value: must be 0 or 1"
+msgstr ""
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units_description"
+msgid "Enter the number of packaging units of the same shape and material contained in the product."
+msgstr ""
+
+msgctxt "packaging_shape_description"
+msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
+msgstr ""
+
+msgctxt "packaging_material_description"
+msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
+msgstr "Lisää materiaali, jos se voidaan määrittää (pakkauksessa materiaalikoodi kolmiossa) tai yleismateriaali (kuten muovi tai lasi), jos olet epävarma."
+
+msgctxt "packaging_recycling_description"
+msgid "Enter recycling instructions only if they are listed on the product."
+msgstr "Lisää kierrätysohje, jos se lukee paketissa."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight_description"
+msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
+msgstr "Poista kaikki ruoka ja huuhtele ja kuivaa pakkaus ennen punnitsemista. Jos mahdollista, käytä vaakaa, joka antaa tuloksen kymmenesosa- tai sadasosagramman tarkkuudella."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit_description"
+msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
+msgstr "Syötä nettopaino tai -tilavuus, muista suure (kuten g tai ml)."
+
+msgctxt "import_and_export_products"
+msgid "Import and export products"
+msgstr ""
+
+msgctxt "add_products"
+msgid "Add products"
+msgstr "Lisää tuotteita"
+
+# Needs to be short (displayed in a menu)
+msgctxt "install_the_app_to_add_products"
+msgid "Install the app to add products"
+msgstr ""
+
+msgctxt "search_and_analyze_products"
+msgid "Search and analyze products"
+msgstr ""
+
+msgctxt "resources"
+msgid "Resources"
+msgstr ""
+
+msgctxt "pro_platform_user_guide"
+msgid "Pro platform user guide"
+msgstr ""
+
+msgctxt "faq_for_producers"
+msgid "FAQ for producers"
 msgstr ""
 

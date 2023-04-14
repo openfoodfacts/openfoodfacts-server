@@ -4,6 +4,9 @@
   "description": "",
   "main": "",
   "private": true,
+  "browserslist": [
+    ">0.05%", "defaults"
+  ],
   "scripts": {
     "build": "gulp",
     "build:watch": "gulp watch",
@@ -42,14 +45,14 @@
   ],
   "dependencies": {
     "@webcomponents/webcomponentsjs": "2.6.0",
-    "@yaireo/tagify": "^4.11.0",
+    "@yaireo/tagify": ">=4.12.0 <4.13.0",
     "blueimp-file-upload": "^10.31.0",
     "cropperjs": "^1.5.12",
     "foundation-sites": "5.5.3",
     "highcharts": "^9.2.2",
     "jquery-cropper": "^1.0.1",
     "jquery-form": "^4.3.0",
-    "jquery-ui": "^1.12.1",
+    "jquery-ui": "1.12.1",
     "jvectormap-content": "^0.1.0",
     "jvectormap-next": "^3.1.1",
     "leaflet": "^1.7.1",
@@ -64,7 +67,7 @@
     "chai": "^4.3.6",
     "chai-http": "^4.3.0",
     "dotenv": "^10.0.0",
-    "eslint": "^8.22.0",
+    "eslint": "^8.34.0",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-csso": "^4.0.1",

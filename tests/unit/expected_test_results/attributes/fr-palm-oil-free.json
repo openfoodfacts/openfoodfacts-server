@@ -285,7 +285,7 @@
                "icon_url" : "https://server_domain/images/attributes/ecoscore-unknown.svg",
                "id" : "ecoscore",
                "match" : 0,
-               "name" : "Éco-Score",
+               "name" : "Eco-Score",
                "panel_id" : "ecoscore",
                "status" : "unknown",
                "title" : "Eco-Score non calculé"
@@ -340,6 +340,39 @@
       "agribalyse-proxy-food-code-unknown",
       "ciqual-food-code-unknown",
       "agribalyse-unknown"
+   ],
+   "data_quality_bugs_tags" : [
+      "en:main-language-missing",
+      "en:code-missing",
+      "en:created-missing"
+   ],
+   "data_quality_errors_tags" : [],
+   "data_quality_info_tags" : [
+      "en:no-packaging-data",
+      "en:ingredients-percent-analysis-ok",
+      "en:ecoscore-extended-data-not-computed",
+      "en:food-groups-1-unknown",
+      "en:food-groups-2-unknown",
+      "en:food-groups-3-unknown"
+   ],
+   "data_quality_tags" : [
+      "en:main-language-missing",
+      "en:code-missing",
+      "en:created-missing",
+      "en:no-packaging-data",
+      "en:ingredients-percent-analysis-ok",
+      "en:ecoscore-extended-data-not-computed",
+      "en:food-groups-1-unknown",
+      "en:food-groups-2-unknown",
+      "en:food-groups-3-unknown",
+      "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
+      "en:ecoscore-packaging-packaging-data-missing",
+      "en:ecoscore-production-system-no-label"
+   ],
+   "data_quality_warnings_tags" : [
+      "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
+      "en:ecoscore-packaging-packaging-data-missing",
+      "en:ecoscore-production-system-no-label"
    ],
    "ecoscore_data" : {
       "adjustments" : {
@@ -689,6 +722,8 @@
       "en:nutriscore-missing-nutrition-data-sodium",
       "en:nutriscore-missing-nutrition-data-proteins",
       "en:nutrition-no-fiber",
+      "en:packagings-not-complete",
+      "en:packagings-empty",
       "en:ecoscore-extended-data-not-computed",
       "en:ecoscore-not-computed"
    ],
@@ -704,6 +739,8 @@
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
+   "nutrition_data_per" : "100g",
+   "nutrition_data_prepared_per" : "100g",
    "nutrition_grades_tags" : [
       "unknown"
    ],
@@ -711,6 +748,9 @@
    "nutrition_score_debug" : "no score when the product does not have a category - missing energy - missing fat - missing saturated-fat - missing sugars - missing sodium - missing proteins",
    "nutrition_score_warning_no_fiber" : 1,
    "other_nutritional_substances_tags" : [],
+   "packaging_materials_tags" : [],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [],
    "packagings" : [],
    "pnns_groups_1" : "unknown",
    "pnns_groups_1_tags" : [

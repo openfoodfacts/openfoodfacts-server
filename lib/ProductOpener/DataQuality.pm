@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -72,12 +72,11 @@ package ProductOpener::DataQuality;
 use ProductOpener::PerlStandards;
 use Exporter qw(import);
 
-BEGIN
-{
+BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&check_quality
-		);    # symbols to export on request
+	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -87,7 +86,6 @@ use ProductOpener::Tags qw(:all);
 use ProductOpener::DataQualityCommon qw(:all);
 use ProductOpener::DataQualityFood qw(:all);
 use ProductOpener::ProducersFood qw(:all);
-
 
 =head1 FUNCTIONS
 
@@ -99,7 +97,7 @@ C<check_quality()> checks the quality of data for a given product.
 
 =cut
 
-sub check_quality($product_ref) {
+sub check_quality ($product_ref) {
 
 	# Remove old quality_tags
 	delete $product_ref->{quality_tags};
@@ -118,10 +116,8 @@ sub check_quality($product_ref) {
 
 	# Also combine all sub facets in a data-quality facet
 	$product_ref->{data_quality_tags} = [
-		@{$product_ref->{data_quality_bugs_tags}},
-		@{$product_ref->{data_quality_info_tags}},
-		@{$product_ref->{data_quality_warnings_tags}},
-		@{$product_ref->{data_quality_errors_tags}},
+		@{$product_ref->{data_quality_bugs_tags}}, @{$product_ref->{data_quality_info_tags}},
+		@{$product_ref->{data_quality_warnings_tags}}, @{$product_ref->{data_quality_errors_tags}},
 	];
 
 	# If we are on the producers platform, also populate facets with the values that exist
@@ -134,7 +130,8 @@ sub check_quality($product_ref) {
 
 			foreach my $value (@{$product_ref->{"data_quality_" . $level . "_tags"}}) {
 				if (exists_taxonomy_tag("data_quality", $value)) {
-					my $show_on_producers_platform = get_property("data_quality", $value, "show_on_producers_platform:en");
+					my $show_on_producers_platform
+						= get_inherited_property("data_quality", $value, "show_on_producers_platform:en");
 					if ((defined $show_on_producers_platform) and ($show_on_producers_platform eq "yes")) {
 						push @{$product_ref->{"data_quality_" . $level . "_producers_tags"}}, $value;
 					}
@@ -150,6 +147,5 @@ sub check_quality($product_ref) {
 
 	return;
 }
-
 
 1;
