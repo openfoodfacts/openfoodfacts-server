@@ -775,7 +775,7 @@ de:Lysozym aus Ei
 el:λυσοζύμη από το ΑΥΓΟ
 es:lisozima de huevo
 fi:lysotsyymi kananmunasta
-fr:lysozyme d'œuf, lysozyme d'oeuf
+fr:lysozyme d'œuf, lysozyme d'oeuf, lysozyme issu de protéine d'oeufs
 hr:jajčani lizozim, lizozim iz jaja, lisozim iz jaja, lizozim (iz jaja)
 it:lisozima da uovo, lisozima d'uovo
 nl:lysozym uit ei, lysozym van ei
@@ -5605,7 +5605,7 @@ es:queso de cabra
 et:kitsejuust
 eu:Ahuntz gazta
 fi:kutunjuusto, vuohenjuusto
-fr:fromage de chèvre
+fr:fromage de chèvre, fromage de chèvre affiné, fromage de chèvre affiné fondu
 he:גבינת עזים
 hu:kecskesajt
 hy:պանիր այծի կաթից
@@ -6985,7 +6985,7 @@ description:nl:Goudse kaas is een van oorsprong Nederlandse harde kaas. Het is e
 
 
 <en:cow cheese
-en:Grana Padano, Grana Padano cheese, Grana Padano cheese from cow's milk
+en:Grana Padano, Grana Padano cheese, Grana Padano cheese from cow's milk, cheese grana padano
 bg:Грана Падано
 ca:Grana Padano, formatge Grana Padano
 cv:Грана Падано
@@ -15522,7 +15522,7 @@ de:Kolzaöl, Kohlsaatöl
 el:κραμβέλαιο
 es:aceite de colza
 fi:rypsiöljy
-fr:huile de colza, huile végétale de colza, huile colza, graisses végétales de colza, graisses vegetales de colza
+fr:huile de colza, huile végétale de colza, huile colza, graisses végétales de colza, graisses vegetales de colza, huiles végétales de colza
 hr:uljana repica, uljane repice, ulje uljane repice
 it:olio di colza, olio vegetale di colza
 nl:koolzaadolie, plantaardige koolzaadolie
@@ -45835,6 +45835,7 @@ nl:gegrilde aubergine
 
 <en:aubergine
 fr:aubergine préfrite, aubergines préfrites
+it:melanzane prefritte
 nl:voorgebakken aubergines
 # fr:aubergine-préfrite has 28 products in 1 language @2018-10-17
 # fr:aubergines-préfrites has 86 products in 2 languages @2018-10-17
@@ -65724,6 +65725,11 @@ ciqual_food_name:en:Mushroom, all types, raw
 ciqual_food_name:fr:Champignon, tout type, cru
 
 <en:mushroom
+<en:protein
+en:mushroom proteins
+fr:protéine de champignon
+
+<en:mushroom
 en:mixed mushrooms
 de:gemischte Pilze, Pilzmischung
 es:mezcla de setas
@@ -77580,6 +77586,9 @@ it:uovo intero da allevamento al suolo
 # ingredient/fr:oeuf-entier-d’élevage-au-sol has 10 products in 4 languages @2018-1-18
 
 <en:whole egg
+fr:oeuf entier issu de poules elevées en plein air
+
+<en:whole egg
 en:whole liquid pasteurised egg
 ca:ou sencer liquid pasteuritzat
 de:pasteurisiertes flüssiges Vollei
@@ -78157,6 +78166,8 @@ ciqual_food_code:en:22060
 ciqual_food_name:en:Duck egg, raw
 ciqual_food_name:fr:Oeuf de cane, cru
 
+#compound
+fr:mélange œufs
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -79179,6 +79190,9 @@ fi:kypsennetty tuore pasta
 fr:pâtes fraîches cuites
 # ingredient/fr:pâtes-fraîches-cuites has 19 products in french @2018-12-10
 
+<en:fresh pasta
+en:fresh egg pasta
+es:pasta alimenticia fresca compuesta al huevo
 
 <en:pasta
 fr:pâtes alimentaires aux oeufs cuites
@@ -79341,7 +79355,7 @@ et:lasanje
 eu:lasagna
 fa:لازانیا
 fi:lasagne, lasagnelevyt
-fr:lasagnes, feuilles de lasagnes, pates a lasagnes cuites, pate a lasagne
+fr:lasagnes, feuilles de lasagnes, pates a lasagnes cuites, pate a lasagne, pâtes à lasagnes, pâte à lasagne sèche, Pâte de lasagne, pâte à lasagne cuite
 gl:lasaña
 he:לזניה
 hi:लज़ान्या
@@ -84201,4 +84215,8 @@ es:momordic
 fr:momordique, margose
 it:momordic
 nl:Sopropo
+
+en:xylose
+xx:xylose
+wikipedia:en:https://en.wikipedia.org/wiki/Xylose
 
