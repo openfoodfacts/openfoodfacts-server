@@ -733,6 +733,36 @@ unit:en: g
 wikidata:en: Q209727
 wikipedia:en: https://en.wikipedia.org/wiki/Palmitic_acid
 
+zz:Allulose, Psicose
+en:Allulose, Psicose
+xx:Allulose, Psicose
+ar:بسايكوز
+be:Псікоза
+bg:Псикоза
+ca:Psicosa
+de:Psicose
+es:Psicosa
+eu:Psikosa
+fa:پسیکوز
+fi:Psikoosi
+fr:Psicose
+fy:Psikoaze
+gl:Psicosa
+it:Allulosio
+ja:プシコース
+ko:프시코스
+pt:Psicose
+ro:Psicoză
+ru:Псикоза
+sh:Psikoza
+sr:Psikoza
+sv:Psicos
+tr:Psikoz
+zh:阿洛酮糖
+unit:en: g
+wikidata:en: Q423198
+wikipedia:en: https://en.wikipedia.org/wiki/Psicose
+
 zz:stearic-acid
 en:Stearic acid
 xx:Stearic acid
@@ -4130,20 +4160,133 @@ wikipedia:en: https://en.wikipedia.org/wiki/Bicarbonate
 
 # SO4--
 zz:Sulphate
-en:Sulphate
+en:Sulphate/Sulfate
 xx:Sulphate
+af:Sulfaat
+ar:كبريتات
+az:Sulfatlar
+be:Сульфаты
+bg:Сулфат
+bs:Sulfat
+ca:Sulfat
+cs:Sírany
+da:Sulfat
+de:Sulfate
+eo:Sulfato
+es:Sulfato
+et:Sulfaadid
+eu:Sulfato
+fa:سولفات
+fi:Sulfaatti
+fr:Sulfate
+gl:Sulfato
+he:סולפט
+hi:सल्फेट
+hr:Sulfati
+hu:Szulfát
+hy:Սուլֆատներ
+id:Sulfat
+it:Solfato
+ja:硫酸塩
+kk:Сульфаттар
+ko:황산염
+lt:Sulfatai
+lv:Sulfāti
+mk:Сулфат
+ms:Sulfat
 nl:Sulfaat, Sulfaten
+nn:Sulfat
+no:Sulfat
+oc:Sulfat
+pl:Siarczany
+pt:Sulfato
+ro:Sulfat
+ru:Сульфаты
+sh:Sulfat
+sk:Síran
+sl:Sulfat
+sq:Sulfat
+sr:Сулфат
+sv:Sulfat
+ta:சல்பேட்டு
+th:ซัลเฟต
+tl:Sulfato
+tr:Sülfat
+uk:Сульфати
+ur:سلفیٹ
+vi:Sulfat
+zh:硫酸鹽
+unit:en: mg
+wikidata:en:Q172290
+wikipedia:en:https://en.wikipedia.org/wiki/Sulfate
 
 # NO3-
 zz:Nitrate
 en:Nitrate
 xx:Nitrate
-nl:Nitraat, Nitraten
+af:Nitraat
+ar:نترات
+az:Nitratlar
+bg:Нитрат
+bn:নাইট্রেট
+br:Nitrat
+bs:Nitrat
+ca:Nitrat
+cs:Dusičnany
+cv:Нитратсем
+da:Nitrat
 de:Nitrate
-# es:Nitrato
-# fr:Nitrate
+eo:Nitrato
+# es:Nitrato # uncomment need to recreate expected_test_results for unit tests
+et:Nitraadid
+eu:Nitrato
+fa:نیترات
+fi:Nitraatti
+# fr:Nitrate # uncomment need to recreate expected_test_results for unit tests
+fy:Nitraat
+ga:Níotráit
+gl:Nitrato
+he:ניטראט
+hi:नाइट्रेट
+hr:Nitrat
+hu:Nitrátion
+hy:Նիտրատներ
+id:Nitrat
+it:Nitrato
+ja:硝酸塩
+ka:ნიტრატები
+kk:Нитраттар
+ko:질산염
+ky:Нитраттар
+li:Nitraot
+lv:Nitrāti
+mk:Нитрат
+ml:നൈട്രേറ്റ്
+ms:Nitrat
+nl:Nitraat, Nitraten
+nn:Nitrat
+no:Nitrat
+oc:Nitrat
+pl:Azotany
 pt:Nitrato, NO3
-# unit:en:
+ro:Azotat
+ru:Нитраты
+sh:Nitrat
+sk:Dusičnan
+sl:Nitrat
+sq:Nitrati
+sr:Нитрат
+sv:Nitrat
+ta:நைத்திரேட்டு
+th:ไนเตรต
+tl:Nitrato
+tr:Nitrat
+uk:Нітрати
+ur:نائٹریٹ
+uz:Nitratlar
+vi:Nitrat
+zh:硝酸盐
+unit:en: mg
 wikidata:en:Q182168
 wikipedia:en:https://en.wikipedia.org/wiki/Nitrate
 
