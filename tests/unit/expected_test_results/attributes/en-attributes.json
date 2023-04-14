@@ -822,7 +822,12 @@
       "grade" : "a",
       "ingredients" : [
          {
-            "conditions_tags" : [],
+            "conditions_tags" : [
+               [
+                  "labels",
+                  "en:organic"
+               ]
+            ],
             "footprint_per_kg" : 0.00176767676767677,
             "matching_tag_id" : "en:egg",
             "percent" : 11.3636363636364,
@@ -831,10 +836,10 @@
             "tag_id" : "en:egg",
             "tag_type" : "ingredients",
             "type" : {
-               "deforestation_risk" : 0.68,
-               "name" : "Oeufs Importés",
-               "soy_feed_factor" : 0.035,
-               "soy_yield" : 0.3
+               "deforestation_risk" : 0.1,
+               "name" : "Oeufs Bio",
+               "soy_feed_factor" : 0.028,
+               "soy_yield" : 0.18
             }
          }
       ]
