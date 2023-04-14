@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -20,6 +20,18 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+=head1 NAME
+
+product_jqm_multilingual.pl - implementation of the product WRITE API v0, v1 and v2
+
+=head1 DESCRIPTION
+
+This CGI script is v0 to v2 of the Product WRITE API.
+
+API v3 is handled by a different /api/v3/product route, implemented in APIProductWrite.pm
+
+=cut
+
 use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
@@ -28,6 +40,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::HTTP qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
@@ -42,6 +55,8 @@ use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Text qw/:all/;
+use ProductOpener::API qw/:all/;
+use ProductOpener::APIProductWrite qw/:all/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -54,6 +69,11 @@ use JSON::PP;
 use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();
+
+# Response structure to keep track of warnings and errors
+# Note: currently some warnings and errors are added,
+# but we do not yet do anything with them
+my $response_ref = get_initialized_response();
 
 my $comment = '(app)';
 
@@ -108,8 +128,8 @@ else {
 		$response{status_verbose} = 'Edit against edit rules';
 
 		my $data = encode_json(\%response);
-
-		print header(-type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*') . $data;
+		write_cors_headers();
+		print header(-type => 'application/json', -charset => 'utf-8') . $data;
 
 		exit(0);
 	}
@@ -210,7 +230,8 @@ else {
 
 			my $data = encode_json(\%response);
 
-			print header(-type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*') . $data;
+			write_cors_headers();
+			print header(-type => 'application/json', -charset => 'utf-8') . $data;
 
 			exit(0);
 		}
@@ -288,10 +309,6 @@ else {
 		}
 	}
 
-	# Do not allow edits / removal through API for data provided by producers (only additions for non existing fields)
-	# when the corresponding organization has the protect_data checkbox checked
-	my $protected_data = product_data_is_protected($product_ref);
-
 	foreach my $field (@app_fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text', 'origin',
 		'packaging_text', 'lang')
 	{
@@ -324,48 +341,45 @@ else {
 					existing_value => $product_ref->{$field}
 				}
 			) if $log->is_debug();
+			next;
 		}
 
-		elsif (defined single_param($field)) {
+		if (defined single_param($field)) {
 
-			# Do not allow edits / removal through API for data provided by producers (only additions for non existing fields)
-			if (($protected_data) and (defined $product_ref->{$field}) and ($product_ref->{$field} ne "")) {
-				$log->debug("producer data already exists for field, skip empty value",
-					{field => $field, code => $code, existing_value => $product_ref->{$field}})
-					if $log->is_debug();
+			# Only moderators can update values for fields sent by the producer
+			if (skip_protected_field($product_ref, $field, $User{moderator})) {
+				next;
+			}
+
+			if ($field eq "lang") {
+				my $value = remove_tags_and_quote(decode utf8 => single_param($field));
+
+				# strip variants fr-BE fr_BE
+				$value =~ s/^([a-z][a-z])(-|_).*$/$1/i;
+				$value = lc($value);
+
+				# skip unrecognized languages (keep the existing lang & lc value)
+				if (defined $lang_lc{$value}) {
+					$product_ref->{lang} = $value;
+					$product_ref->{lc} = $value;
+				}
 
 			}
+			elsif ($field eq "ecoscore_extended_data") {
+				# we expect a JSON value
+				if (defined single_param($field)) {
+					$product_ref->{$field} = decode_json(single_param($field));
+				}
+			}
 			else {
-				if ($field eq "lang") {
-					my $value = remove_tags_and_quote(decode utf8 => single_param($field));
+				$product_ref->{$field} = remove_tags_and_quote(decode utf8 => single_param($field));
 
-					# strip variants fr-BE fr_BE
-					$value =~ s/^([a-z][a-z])(-|_).*$/$1/i;
-					$value = lc($value);
-
-					# skip unrecognized languages (keep the existing lang & lc value)
-					if (defined $lang_lc{$value}) {
-						$product_ref->{lang} = $value;
-						$product_ref->{lc} = $value;
-					}
-
+				if ((defined $language_fields{$field}) and (defined $product_ref->{lc})) {
+					my $field_lc = $field . "_" . $product_ref->{lc};
+					$product_ref->{$field_lc} = $product_ref->{$field};
 				}
-				elsif ($field eq "ecoscore_extended_data") {
-					# we expect a JSON value
-					if (defined single_param($field)) {
-						$product_ref->{$field} = decode_json(single_param($field));
-					}
-				}
-				else {
-					$product_ref->{$field} = remove_tags_and_quote(decode utf8 => single_param($field));
 
-					if ((defined $language_fields{$field}) and (defined $product_ref->{lc})) {
-						my $field_lc = $field . "_" . $product_ref->{lc};
-						$product_ref->{$field_lc} = $product_ref->{$field};
-					}
-
-					compute_field_tags($product_ref, $lc, $field);
-				}
+				compute_field_tags($product_ref, $lc, $field);
 			}
 		}
 
@@ -375,95 +389,23 @@ else {
 				my $field_lc = $field . '_' . $param_lang;
 				if (defined single_param($field_lc)) {
 
-					# Do not allow edits / removal through API for data provided by producers (only additions for non existing fields)
-					if (($protected_data) and (defined $product_ref->{$field_lc}) and ($product_ref->{$field_lc} ne ""))
-					{
-						$log->debug("producer data already exists for field, skip empty value",
-							{field_lc => $field_lc, code => $code, existing_value => $product_ref->{$field_lc}})
-							if $log->is_debug();
+					# Only moderators can update values for fields sent by the producer
+					if (skip_protected_field($product_ref, $field_lc, $User{moderator})) {
+						next;
 					}
-					else {
 
-						$product_ref->{$field_lc} = remove_tags_and_quote(decode utf8 => single_param($field_lc));
-						compute_field_tags($product_ref, $lc, $field_lc);
-					}
+					$product_ref->{$field_lc} = remove_tags_and_quote(decode utf8 => single_param($field_lc));
+					compute_field_tags($product_ref, $lc, $field_lc);
 				}
 			}
 		}
 	}
 
-	if (    (defined $product_ref->{nutriments}{"carbon-footprint"})
-		and ($product_ref->{nutriments}{"carbon-footprint"} ne ''))
-	{
-		push @{$product_ref->{"labels_hierarchy"}}, "en:carbon-footprint";
-		push @{$product_ref->{"labels_tags"}}, "en:carbon-footprint";
-	}
-
-	# For fields that can have different values in different languages, copy the main language value to the non suffixed field
-
-	foreach my $field (keys %language_fields) {
-		if ($field !~ /_image/) {
-			if (defined $product_ref->{$field . "_$product_ref->{lc}"}) {
-				$product_ref->{$field} = $product_ref->{$field . "_$product_ref->{lc}"};
-			}
-		}
-	}
-
-	compute_languages($product_ref);    # need languages for allergens detection and cleaning ingredients
-
-	# Ingredients classes
-	clean_ingredients_text($product_ref);
-	extract_ingredients_from_text($product_ref);
-	extract_ingredients_classes_from_text($product_ref);
-	detect_allergens_from_text($product_ref);
-
-	# Food category rules for sweeetened/sugared beverages
-	# French PNNS groups from categories
-
-	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
-		ProductOpener::Food::special_process_product($product_ref);
-	}
-
 	# Nutrition data
 
-	# Do not allow nutrition edits through API for data provided by producers
-	if (($protected_data) and (defined $product_ref->{"nutriments"})) {
-		print STDERR
-			"product_jqm_multilingual.pm - code: $code - nutrition data provided by producer exists, skip nutrients\n";
-	}
-	else {
-		assign_nutriments_values_from_request_parameters($product_ref, $nutriment_table);
-	}
+	assign_nutriments_values_from_request_parameters($product_ref, $nutriment_table, $User{moderator});
 
-	# Compute nutrition data per 100g and per serving
-
-	$log->trace("compute_serving_size_date") if ($admin and $log->is_trace());
-
-	fix_salt_equivalent($product_ref);
-
-	compute_serving_size_data($product_ref);
-
-	compute_nutrition_score($product_ref);
-
-	compute_nova_group($product_ref);
-
-	compute_nutrient_levels($product_ref);
-
-	compute_unknown_nutrients($product_ref);
-
-	# Until we provide an interface to directly change the packaging data structure
-	# erase it before reconstructing it
-	# (otherwise there is no way to remove incorrect entries)
-	$product_ref->{packagings} = [];
-
-	analyze_and_combine_packaging_data($product_ref);
-
-	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
-		compute_ecoscore($product_ref);
-		compute_forest_footprint($product_ref);
-	}
-
-	ProductOpener::DataQuality::check_quality($product_ref);
+	analyze_and_enrich_product_data($product_ref, $response_ref);
 
 	$log->info("saving product", {code => $code}) if ($log->is_info() and not $log->is_debug());
 	$log->debug("saving product", {code => $code, product => $product_ref})
@@ -474,9 +416,6 @@ else {
 	my $time = time();
 	$comment = $comment . remove_tags_and_quote(decode utf8 => single_param('comment'));
 	if (store_product($User_id, $product_ref, $comment)) {
-		# Notify robotoff
-		send_notification_for_product_change($product_ref, "updated");
-
 		$response{status} = 1;
 		$response{status_verbose} = 'fields saved';
 	}
@@ -488,7 +427,8 @@ else {
 
 my $data = encode_json(\%response);
 
-print header(-type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*') . $data;
+write_cors_headers();
+print header(-type => 'application/json', -charset => 'utf-8') . $data;
 
 exit(0);
 

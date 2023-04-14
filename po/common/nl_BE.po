@@ -283,8 +283,8 @@ msgid "Producers Admin manual"
 msgstr "Admin handleiding van Producenten"
 
 msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Doneer aan Open Food Facts\" /></a><p><<site_name>> wordt gemaakt door een non-profit associatie, onafhankelijk van de industrie. Het is gemaakt voor iedereen, en wordt gefinancierd door iedereen. Je kan ons werk ondersteunen door <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"> te doneren aan Open Food Facts</a> en ook door <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">de Lilo zoekmachine te gebruiken</a>.<br/><b>Bedankt!</b></p>"
+msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
+msgstr ""
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -1563,6 +1563,10 @@ msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
 "by typing the first letters of their name in the last row of the table."
 msgstr "De tabel lijst automatisch de voedingsstoffen op die het vaakst vermeld worden. Laat het veld leeg indien het niet vermeld staat op de verpakking.<br />U kunt andere voedingsstoffen (vitamines, mineralen, cholesterol, omega 3 en 6 etc.) toevoegen door de eerste letters van hun naam in de laatste rij van de tabel in te voeren."
+
+msgctxt "nutrition_data_table_asterisk"
+msgid "Essential nutrients to calculate the Nutri-Score."
+msgstr "Essentiële voedingsstoffen om de Nutri-Score te berekenen."
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
@@ -4004,6 +4008,14 @@ msgctxt "export_products_to_public_database_email"
 msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
 msgstr "Het producentenplatform is nog in ontwikkeling en we voeren handmatige controles uit voordat we producten importeren in de openbare database. Stuur een e-mail naar <a href=\"mailto:producers@openfoodfacts.org\">Producers@openfoodfacts.org</a> om de publieke database bij te werken."
 
+msgctxt "crm_user_id"
+msgid "Id of corresponding contact in CRM"
+msgstr ""
+
+msgctxt "crm_org_id"
+msgid "Id of corresponding organization in CRM"
+msgstr ""
+
 msgctxt "user_groups"
 msgid "Groups"
 msgstr "Groepen"
@@ -4088,9 +4100,10 @@ msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "Producentenplatform moderatie"
 
-msgctxt "pro_moderator_owner_set"
-msgid "You are currently viewing products from %s."
-msgstr "Je bekijkt momenteel producten van %s."
+# variable names between { } must not be translated
+msgctxt "f_pro_moderator_owner_set"
+msgid "You are currently viewing products from {organization}."
+msgstr "Je bekijkt momenteel producten van {organization}."
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
@@ -4102,8 +4115,8 @@ msgstr "Om producten te zien van een specifieke gebruiker of organisatie, vul di
 
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
-msgid "Change"
-msgstr "Veranderen"
+msgid "Switch to another organization"
+msgstr "Overschakelen naar een andere organisatie"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
@@ -4706,6 +4719,10 @@ msgctxt "packaging_text_note_2"
 msgid "Try to be as specific as possible. For plastic, please indicate if it is opaque or transparent, colored, PET or PEHD."
 msgstr "Probeer zo specifiek mogelijk te zijn. Geef voor plastiek aan of het ondoorzichtig of transparant, gekleurd, PET of PEHD is."
 
+msgctxt "packaging_text_note_3"
+msgid "Data from this field will be combined with any data provided for each packaging part. It is possible to provide one or the other, or both."
+msgstr ""
+
 msgctxt "product_js_extract_packaging"
 msgid "Extract the recycling instructions and/or packaging information from the picture"
 msgstr "Haal de recyclinginstructies en/of verpakkingsinformatie uit de afbeelding"
@@ -4960,6 +4977,11 @@ msgstr "Eco-Score"
 msgctxt "packaging_parts"
 msgid "Packaging parts"
 msgstr "Verpakkingsonderdelen"
+
+# A short name for a physical piece of packaging (e.g. in English, "packaging" instead of "packaging part"). Used with a number (e.g. "Packaging 1" to identify a packaging part)
+msgctxt "packaging_part_short"
+msgid "Packaging"
+msgstr "Verpakking"
 
 # Number of packaging parts
 msgctxt "packaging_number"
@@ -5279,6 +5301,14 @@ msgctxt "org_list_of_gs1_gln_note"
 msgid "A comma separated list of GS1 GLN identifiers to force the association with this organization."
 msgstr "Een door komma's gescheiden lijst van GS1 GLN ID's om de koppeling met deze organisatie te forceren."
 
+msgctxt "org_valid_org"
+msgid "Validate organization as a real producer."
+msgstr "Organisatie valideren als echte producent."
+
+msgctxt "org_valid_org_note"
+msgid "The organization is verified as a real producer by a human, also creates entry in CRM."
+msgstr ""
+
 msgctxt "org_enable_manual_export_to_public_platform"
 msgid "Enable organization members to manually export product data and photos to the public database."
 msgstr "Stel organisatiemedewerkers in die handmatig productgegevens en -foto's naar de openbare database mogen exporteren."
@@ -5590,6 +5620,14 @@ msgstr "De Eco-Score-formule is aan verandering onderhevig, omdat deze regelmati
 msgctxt "ecoscore_warning_international"
 msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgstr "De Eco-Score werd oorspronkelijk ontwikkeld voor Frankrijk en wordt uitgebreid naar andere Europese landen. De Eco-Score formule kan veranderen, omdat deze regelmatig wordt verbeterd om hem nauwkeuriger en geschikter voor elk land te maken."
+
+msgctxt "ecoscore_warning_transportation_world"
+msgid "Select a country in order to include the full impact of transportation."
+msgstr "Selecteer een land om de volledige impact van het vervoer op te nemen."
+
+msgctxt "ecoscore_warning_transportation"
+msgid "The full impact of transportation to your country is currently unknown."
+msgstr "De volledige impact van het transport naar uw land is momenteel niet bekend."
 
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
@@ -6063,6 +6101,69 @@ msgctxt "action_add_nutrition_facts"
 msgid "Add nutrition facts"
 msgstr "Voer voedingswaarden in"
 
+msgctxt "action_add_origins"
+msgid "Add the origins of ingredients for this product"
+msgstr "Voeg de oorsprong van de ingrediënten voor dit product toe"
+
+msgctxt "action_add_packaging_image"
+msgid "Take a photo of the recycling information"
+msgstr "Maak een foto van de recyclinginformatie"
+
+# this is not used yet
+msgctxt "action_add_basic_details"
+msgid "Add basic details"
+msgstr "Basisgegevens toevoegen"
+
+# this is not used yet
+msgctxt "action_add_portion_size"
+msgid "Add portion size"
+msgstr "Portiegrootte toevoegen"
+
+# this is not used yet
+msgctxt "action_add_ingredients_image"
+msgid "Take a photo of the ingredients"
+msgstr "Maak een foto van de ingrediënten"
+
+# this is not used yet
+msgctxt "action_add_nutrition_image"
+msgid "Take a photo of the nutrition facts"
+msgstr "Neem een foto van de voedingswaardentabel"
+
+# this is not used yet
+msgctxt "action_refresh_ingredients_image"
+msgid "Refresh the photo of the ingredients"
+msgstr "Vernieuw de foto van de ingrediënten"
+
+# this is not used yet
+msgctxt "action_refresh_nutrition_image"
+msgid "Refresh the photo of the nutrition facts"
+msgstr "Vernieuw de foto van de voedingswaarden"
+
+# this is not used yet
+msgctxt "action_add_packaging_text"
+msgid "Extract and check the recycling information"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_add_stores"
+msgid "Add the store where you found this product"
+msgstr "Voeg de winkel toe waar je dit product hebt gevonden"
+
+# this is not used yet
+msgctxt "action_labels"
+msgid "Add any label present on this product"
+msgstr ""
+
+# this is not used yet
+msgctxt "action_countries"
+msgid "Add the country where you found this product"
+msgstr "Voeg het land toe waar u dit product heeft gevonden"
+
+# this is not used yet
+msgctxt "action_packager_codes_image"
+msgid "Take a photo of traceability codes"
+msgstr "Maak een foto van traceerbaarheidscodes"
+
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
 msgid "What you need to know"
@@ -6195,4 +6296,168 @@ msgstr "Product"
 msgctxt "environment"
 msgid "Environment"
 msgstr "Milieu"
+
+msgctxt "api_result_failure"
+msgid "Failure"
+msgstr "Fout"
+
+msgctxt "api_result_product_found"
+msgid "Product found"
+msgstr "Product gevonden"
+
+msgctxt "api_result_product_not_found"
+msgid "Product not found"
+msgstr "Geen product gevonden"
+
+msgctxt "api_result_product_updated"
+msgid "Product updated"
+msgstr "Product bijgewerkt"
+
+msgctxt "api_message_invalid_api_action"
+msgid "Invalid API action"
+msgstr ""
+
+msgctxt "api_message_invalid_api_method"
+msgid "Invalid API method"
+msgstr ""
+
+msgctxt "api_message_empty_request_body"
+msgid "Empty request body"
+msgstr "Lege aanvraagtekst"
+
+msgctxt "api_message_invalid_json_in_request_body"
+msgid "Invalid JSON in request body"
+msgstr ""
+
+msgctxt "api_message_invalid_type_must_be_object"
+msgid "Invalid type: must be an object"
+msgstr "Ongeldig type: moet een object zijn"
+
+msgctxt "api_message_invalid_type_must_be_array"
+msgid "Invalid type: must be an array"
+msgstr ""
+
+msgctxt "api_message_invalid_type_must_be_integer"
+msgid "Invalid type: must be an integer"
+msgstr "Ongeldig type: moet een geheel getal zijn"
+
+msgctxt "api_message_invalid_type_must_be_number"
+msgid "Invalid type: must be a number"
+msgstr "Ongeldig type: moet een getal zijn"
+
+msgctxt "api_message_missing_field"
+msgid "Missing field"
+msgstr "Ontbrekend veld"
+
+msgctxt "api_message_unrecognized_value"
+msgid "Unrecognized value"
+msgstr "Niet-herkende waarde"
+
+msgctxt "api_impact_none"
+msgid "None"
+msgstr "Geen"
+
+msgctxt "api_impact_warning"
+msgid "Warning"
+msgstr "Waarschuwing"
+
+msgctxt "api_impact_failure"
+msgid "Failure"
+msgstr "Fout"
+
+msgctxt "api_impact_field_ignored"
+msgid "Field ignored"
+msgstr "Veld genegeerd"
+
+msgctxt "api_impact_value_converted"
+msgid "Value converted"
+msgstr "Waarde omgezet"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units"
+msgid "Number of units"
+msgstr "Aantal eenheden"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight"
+msgid "Weight of one empty unit"
+msgstr "Gewicht van één lege eenheid"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit"
+msgid "Quantity of product contained per unit"
+msgstr "Hoeveelheid product per eenheid"
+
+# variable names between { } must not be translated
+msgctxt "f_help_categorize_on_hunger_games"
+msgid "Help categorize more {title} on Hunger Games"
+msgstr "Help meer {title} te categoriseren op Hunger Games"
+
+msgctxt "packagings_complete"
+msgid "All the packaging parts of the product are listed."
+msgstr "Alle verpakkingsonderdelen van het product worden vermeld."
+
+msgctxt "api_message_invalid_user_id_and_password"
+msgid "Invalid user id and password"
+msgstr "Ongeldig gebruikers-Id en wachtwoord"
+
+msgctxt "api_message_invalid_value_must_be_0_or_1"
+msgid "Invalid value: must be 0 or 1"
+msgstr "Ongeldige waarde: moet 0 of 1 zijn"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units_description"
+msgid "Enter the number of packaging units of the same shape and material contained in the product."
+msgstr ""
+
+msgctxt "packaging_shape_description"
+msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
+msgstr ""
+
+msgctxt "packaging_material_description"
+msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
+msgstr ""
+
+msgctxt "packaging_recycling_description"
+msgid "Enter recycling instructions only if they are listed on the product."
+msgstr "Voer recyclinginstructies alleen in als ze op het product vermeld staan."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight_description"
+msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
+msgstr ""
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit_description"
+msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
+msgstr "Vul het netto gewicht of netto volume in en geef de eenheid aan (bijvoorbeeld g of ml)."
+
+msgctxt "import_and_export_products"
+msgid "Import and export products"
+msgstr "Producten importeren en exporteren"
+
+msgctxt "add_products"
+msgid "Add products"
+msgstr "Voeg producten toe"
+
+# Needs to be short (displayed in a menu)
+msgctxt "install_the_app_to_add_products"
+msgid "Install the app to add products"
+msgstr "Installeer de app om producten toe te voegen"
+
+msgctxt "search_and_analyze_products"
+msgid "Search and analyze products"
+msgstr "Zoek en analyseer producten"
+
+msgctxt "resources"
+msgid "Resources"
+msgstr "Bronnen"
+
+msgctxt "pro_platform_user_guide"
+msgid "Pro platform user guide"
+msgstr "Pro-platform gebruikershandleiding"
+
+msgctxt "faq_for_producers"
+msgid "FAQ for producers"
+msgstr "FAQ voor producenten"
 

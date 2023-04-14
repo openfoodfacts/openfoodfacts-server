@@ -67,7 +67,8 @@ requires 'JSON::Parse';
 requires 'Data::DeepAccess';
 requires 'XML::XML2JSON';
 requires 'Redis';
-
+requires 'Digest::SHA1';
+requires 'Data::Difference';
 
 # Mojolicious/Minion
 requires 'Mojolicious::Lite';
@@ -83,6 +84,10 @@ requires 'Log::Any::Adapter::Log4perl', '>= 0.09'; # liblog-any-adapter-log4perl
 requires 'Action::CircuitBreaker';
 requires 'Action::Retry'; # deps: libmath-fibonacci-perl
 
+# AnyEvent
+requires 'AnyEvent';
+requires 'AnyEvent::Inotify::Simple';
+
 on 'test' => sub {
   requires 'Test::More', '>= 1.302186, < 2.0';
   requires 'Test::MockModule';
@@ -94,16 +99,33 @@ on 'test' => sub {
   requires 'IO::Capture::Stdout::Extended';
   requires 'IO::Capture::Stderr::Extended';
   requires 'HTTP::CookieJar::LWP';
+  requires 'File::Tail';
+  requires 'Test2::Plugin::UTF8';
+  requires 'Devel::Cover';
+  requires 'Devel::Cover::Report::Codecov';
+  requires 'Devel::Cover::Report::Codecovbash';
+  requires 'Test::Fake::HTTPD';
+  requires 'URL::Encode';
 };
 
 on 'develop' => sub {
   requires 'Test::Perl::Critic', '>=1.04', '<2.0'; # perl-critic refuse to install without this explicit deps
   requires 'Perl::Critic', '>= 1.140, < 2.0'; # libperl-critic-perl has 1.132 vs 1.138, and all the depended on packages are old too.
   requires 'Apache::DB', '>= 0.18, < 1.00'; # old non-working version also available as the Debian package libapache-db-perl 0.14
+  requires 'Perl::Tidy';
+  requires 'Perl::Critic';
+  requires 'Devel::Cover';
+  requires 'Devel::Cover::Report::Codecov';
+  requires 'Devel::Cover::Report::Codecovbash';
+};
+
+feature "off_server_dev_tools", "Optional development tools" => sub {
+  # Modules needed to ease development but not need to run CI tasks or automated tests
+  # on GitHub, or for production
+  # For docker, use CPANMOPTS=--with-develop  --with-feature=off_server_dev_tools
   requires 'Devel::REPL';
   requires 'Term::ReadLine::Gnu', '>= 1.42, < 2.0'; # readline support for the Perl debugger. libterm-readline-gnu-perl is available.
   requires 'Perl::LanguageServer';
   requires 'Hash::SafeKeys';  # Perl::LanguageServer dependency
-  requires 'Perl::Tidy';
-  requires 'Perl::Critic';
-}
+};
+

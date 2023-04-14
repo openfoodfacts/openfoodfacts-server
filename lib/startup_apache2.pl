@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -52,6 +52,13 @@ use Cache::Memcached::Fast ();
 use URI::Escape::XS ();
 use File::chmod::Recursive;
 
+# The line 'use Minion;', either in this startup script, or in a module
+# loaded by it (e.g. Producers.pm) causes Apache+modperl to exit.
+# A reason / workaround has not been found yet, so commenting out the preloading
+# of Minion and Producers.
+# Corresponding issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/7695
+#use Minion ();
+
 use ProductOpener::Config qw/:all/;
 
 use Log::Any qw($log);
@@ -65,6 +72,7 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
+use ProductOpener::Units qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -84,17 +92,20 @@ use ProductOpener::Web qw(:all);
 use ProductOpener::Recipes qw(:all);
 use ProductOpener::MainCountries qw/:all/;
 use ProductOpener::PackagerCodes qw/:all/;
-#use ProductOpener::API qw/:all/;
-#use ProductOpener::APITest qw/:all/;
-#use ProductOpener::APIProductRead qw/:all/;
-#use ProductOpener::APIProductWrite qw/:all/;
-#use ProductOpener::Routing qw/:all/;
+use ProductOpener::API qw/:all/;
+use ProductOpener::APITest qw/:all/;
+use ProductOpener::APIProductRead qw/:all/;
+use ProductOpener::APIProductWrite qw/:all/;
+use ProductOpener::APITaxonomySuggestions qw/:all/;
+use ProductOpener::TaxonomySuggestions qw/:all/;
+use ProductOpener::Routing qw/:all/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Export qw/:all/;
 use ProductOpener::Import qw/:all/;
 use ProductOpener::ImportConvert qw/:all/;
 use ProductOpener::Numbers qw/:all/;
-use ProductOpener::Producers qw/:all/;
+# Following line cause Apache to crash at startup on dev server https://github.com/openfoodfacts/openfoodfacts-server/issues/7695
+#use ProductOpener::Producers qw/:all/;
 use ProductOpener::ProducersFood qw/:all/;
 use ProductOpener::GeoIP qw/:all/;
 use ProductOpener::GS1 qw/:all/;

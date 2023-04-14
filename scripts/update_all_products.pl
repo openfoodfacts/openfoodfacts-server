@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -75,6 +75,7 @@ use ProductOpener::Packaging qw(:all);
 use ProductOpener::ForestFootprint qw(:all);
 use ProductOpener::MainCountries qw(:all);
 use ProductOpener::PackagerCodes qw/:all/;
+use ProductOpener::API qw/:all/;
 use ProductOpener::LoadData qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
@@ -207,8 +208,7 @@ my $unknown_fields = 0;
 
 foreach my $field (@fields_to_update) {
 	if (    (not defined $tags_fields{$field})
-		and (not defined $taxonomy_fields{$field})
-		and (not defined $hierarchy_fields{$field}))
+		and (not defined $taxonomy_fields{$field}))
 	{
 		print "Unknown field: $field\n";
 		$unknown_fields++;
@@ -349,7 +349,7 @@ use Data::Dumper;
 print STDERR "MongoDB query:\n" . Dumper($query_ref);
 
 my $socket_timeout_ms = 2 * 60000;    # 2 mins, instead of 30s default, to not die as easily if mongodb is busy.
-my $products_collection = get_products_collection($socket_timeout_ms);
+my $products_collection = get_products_collection({timeout => $socket_timeout_ms});
 
 my $products_count = "";
 
@@ -399,6 +399,11 @@ if ($prefix_packaging_tags_with_language) {
 }
 
 while (my $product_ref = $cursor->next) {
+
+	# Response structure to keep track of warnings and errors
+	# Note: currently some warnings and errors are added,
+	# but we do not yet do anything with them
+	my $response_ref = get_initialized_response();
 
 	my $productid = $product_ref->{_id};
 	my $code = $product_ref->{code};
@@ -1191,11 +1196,7 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		if ($process_packagings) {
-			# Until we provide an interface to directly change the packaging data structure
-			# erase it before reconstructing it
-			# (otherwise there is no way to remove incorrect entries)
-			$product_ref->{packagings} = [];
-			analyze_and_combine_packaging_data($product_ref);
+			analyze_and_combine_packaging_data($product_ref, $response_ref);
 		}
 
 		if ($compute_ecoscore) {

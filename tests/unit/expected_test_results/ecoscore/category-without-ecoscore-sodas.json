@@ -67,6 +67,8 @@
    "known_ingredients_n" : 4,
    "lc" : "en",
    "misc_tags" : [
+      "en:packagings-not-complete",
+      "en:packagings-empty",
       "en:ecoscore-extended-data-not-computed",
       "en:ecoscore-not-applicable",
       "en:ecoscore-not-computed"
@@ -75,6 +77,9 @@
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
+   "packaging_materials_tags" : [],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [],
    "packagings" : [],
    "unknown_ingredients_n" : 0
 }

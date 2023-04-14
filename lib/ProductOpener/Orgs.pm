@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -45,6 +45,7 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 
+		&list_org_ids
 		&retrieve_org
 		&store_org
 		&create_org
@@ -67,7 +68,6 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Lang qw/:all/;
-use ProductOpener::Cache qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
 
@@ -116,7 +116,29 @@ sub retrieve_org ($org_id_or_name) {
 	return $org_ref;
 }
 
+=head1 FUNCTIONS
+
+=head2 list_org_ids()
+
+=head3 Return values
+
+This function returns an array of all existing org ids
+
+=cut
+
+sub list_org_ids () {
+	# all .sto but orgs_glns
+	my @org_files = glob("$data_root/orgs/*.sto");
+	# id is the filename without .sto
+	my @org_ids = map {$_ =~ /\/([^\/]+).sto/;} @org_files;
+	# remove "orgs_glns"
+	@org_ids = grep {!/orgs_glns/} @org_ids;
+	return @org_ids;
+}
+
 =head2 store_org ( $org_ref )
+
+Save changes to an org
 
 =head3 Arguments
 
@@ -135,6 +157,14 @@ sub store_org ($org_ref) {
 	$log->debug("store_org", {org_ref => $org_ref}) if $log->is_debug();
 
 	defined $org_ref->{org_id} or die("Missing org_id");
+
+	# retrieve eventual previous values
+	my $previous_org_ref = retrieve("$data_root/orgs/" . $org_ref->{org_id} . ".sto");
+
+	if ((defined $previous_org_ref) && !$previous_org_ref->{validated} && $org_ref->{validated}) {
+		# we switched on validated
+		# TODO: create org and its users in Odoo CRM
+	}
 
 	store("$data_root/orgs/" . $org_ref->{org_id} . ".sto", $org_ref);
 
@@ -156,13 +186,17 @@ or an admin that creates an org by assigning an user to it).
 
 Identifier for the org (without the "org-" prefix), or org name.
 
+=head4 boolean $validated
+
+Indicate if the org should be considered validated
+
 =head3 Return values
 
 This function returns a hash ref for the org.
 
 =cut
 
-sub create_org ($creator, $org_id_or_name) {
+sub create_org ($creator, $org_id_or_name, $validated = 0) {
 
 	my $org_id = get_string_id_for_lang("no_language", $org_id_or_name);
 
@@ -173,6 +207,11 @@ sub create_org ($creator, $org_id_or_name) {
 		creator => $creator,
 		org_id => $org_id,
 		name => $org_id_or_name,
+		# indicates if the org was manually validated
+		validated => $validated,
+		# by default an org has its data protected
+		# we will remove this only if appears later not to be fair-play
+		protect_data => "on",
 		admins => {},
 		members => {},
 	};

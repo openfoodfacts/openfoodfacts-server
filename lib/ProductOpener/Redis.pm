@@ -26,7 +26,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use Log::Any qw/$log/;
-use ProductOpener::Config2 qw/$redis_url/;
+use ProductOpener::Config qw/$redis_url/;
 use Redis;
 
 =head2 $redis_client
@@ -101,7 +101,7 @@ sub push_to_search_service ($product_ref) {
 		$error = "Can't connect to redis";
 	}
 	if (!($error eq "")) {
-		$log->warn("Failed to push to redis", {product_code => $product_ref->{code}, error => $error})
+		$log->error("Failed to push to redis", {product_code => $product_ref->{code}, error => $error})
 			if $log->is_warn();
 		# ask for eventual reconnection for next call
 		$redis_client = undef;

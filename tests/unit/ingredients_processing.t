@@ -6,6 +6,7 @@ use Modern::Perl '2017';
 use utf8;
 
 use Test::More;
+
 #use Log::Any::Adapter 'TAP';
 use Log::Any::Adapter 'TAP', filter => 'trace';
 
@@ -26,7 +27,7 @@ my @tests = (
 		{
 			lc => "en",
 			ingredients_text => "raw milk, sliced tomatoes, garlic powder, powdered eggplant,
-			courgette powder, sieved ham"
+				courgette powder, sieved ham"
 		},
 		[
 			{
@@ -90,7 +91,10 @@ my @tests = (
 
 	# en: smoked (children are lef out at the moment)
 	[
-		{lc => "en", ingredients_text => "sweetened milk, unsweetened tomatoes, sugared ham"},
+		{
+			lc => "en",
+			ingredients_text => "sweetened milk, unsweetened tomatoes, sugared ham"
+		},
 		[
 			{
 				'id' => 'en:milk',
@@ -163,11 +167,60 @@ my @tests = (
 		]
 	],
 
-##################################################################
+	[
+		{lc => "en", ingredients_text => "smoked sea salt, smoked turkey"},
+		[
+			{
+				'id' => 'en:sea-salt',
+				'processing' => 'en:smoked',
+				'text' => 'sea salt'
+			},
+			{
+				'id' => 'en:turkey',
+				'processing' => 'en:smoked',
+				'text' => 'turkey'
+			}
+		]
+	],
+
+	# ingredient with (processing) in parenthesis
+	[
+		{lc => "en", ingredients_text => "garlic (powdered)",},
+		[
+			{
+				'id' => 'en:garlic',
+				'processing' => 'en:powder',
+				'text' => 'garlic'
+			}
+		]
+	],
+
+	[
+		{lc => "en", ingredients_text => "pasteurized eggs"},
+		[
+			{
+				'id' => 'en:egg',
+				'processing' => 'en:pasteurised',
+				'text' => 'eggs'
+			}
+		]
+	],
+
+	[
+		{lc => "en", ingredients_text => "dry whey"},
+		[
+			{
+				'id' => 'en:whey',
+				'processing' => 'en:dried',
+				'text' => 'whey'
+			}
+		]
+	],
+	##################################################################
 	#
 	#                           S P A N I S H   ( E S )
 	#
-##################################################################
+	##################################################################
 
 	[
 		{
@@ -209,17 +262,44 @@ my @tests = (
 		]
 	],
 
-##################################################################
+	[
+		{lc => "es", ingredients_text => "tofu ahumado, panceta ahumada"},
+		[
+			{
+				'id' => 'en:tofu',
+				'processing' => 'en:smoked',
+				'text' => 'tofu'
+			},
+			{
+				'id' => 'en:bacon',
+				'processing' => 'en:smoked',
+				'text' => 'panceta'
+			}
+		]
+	],
+
+	[
+		{lc => "es", ingredients_text => "pimientos amarillos deshidratados"},
+		[
+			{
+				'id' => 'en:yellow-bell-pepper',
+				'processing' => 'en:dehydrated',
+				'text' => 'pimientos amarillos'
+			}
+		]
+	],
+
+	##################################################################
 	#
 	#                           F R E N C H ( F R )
 	#
-##################################################################
+	##################################################################
 
 	[
 		{
 			lc => "fr",
 			ingredients_text => "dés de jambon frits, tomates crues en dés,
-			tomates bio pré-cuites, poudre de noisettes, banane tamisé"
+				tomates bio pré-cuites, poudre de noisettes, banane tamisé"
 		},
 		[
 			{
@@ -355,17 +435,56 @@ my @tests = (
 		]
 	],
 
+	[
+		{
+			lc => "fr",
+			ingredients_text => "sel marin fumé, jambon fumé, arôme de fumée, lardons fumés au bois de hêtre "
+		},
+		[
+			{
+				'id' => 'en:sea-salt',
+				'processing' => 'en:smoked',
+				'text' => 'sel marin'
+			},
+			{
+				'id' => 'en:ham',
+				'processing' => 'en:smoked',
+				'text' => 'jambon'
+			},
+			{
+				'id' => 'en:smoke-flavouring',
+				'text' => "ar\x{f4}me de fum\x{e9}e"
+			},
+			{
+				'id' => 'en:lardon',
+				'processing' => 'en:beech-smoked',
+				'text' => 'lardons'
+			}
+		]
+	],
+
+	[
+		{lc => "fr", ingredients_text => "piment (en poudre)"},
+		[
+			{
+				'id' => 'en:chili-pepper',
+				'processing' => 'en:powder',
+				'text' => 'piment'
+			}
+		]
+	],
+
 	# test for jus and concentré with extra "de"
 	#	[ { lc => "fr", ingredients_text => "jus concentré de baies de sureau"},
 	#		[
 	#		]
 	#	],
 
-##################################################################
+	##################################################################
 	#
 	#                           F I N N I SH ( F I )
 	#
-##################################################################
+	##################################################################
 	# test for mehu inside an ingredient
 
 	#	[ { lc => "fi", ingredients_text => "hedelmätäysmehutiivisteet"},
@@ -394,12 +513,25 @@ my @tests = (
 	# 	]
 	# ],
 
-##################################################################
+	##################################################################
 	#
 	#                           D U T C H ( N L )
 	#
-##################################################################
+	##################################################################
 
+	[
+		{
+			lc => "nl",
+			ingredients_text => "uipoeder"
+		},
+		[
+			{
+				'id' => 'en:onion',
+				'processing' => 'en:powder',
+				'text' => 'ui'
+			}
+		]
+	],
 	[
 		{
 			lc => "nl",
@@ -438,15 +570,18 @@ my @tests = (
 		]
 	],
 
-##################################################################
+	##################################################################
 	#
 	#                           G E R M A N ( D E )
 	#
-##################################################################
+	##################################################################
 
 	# de:pulver and variants
 	[
-		{lc => "de", ingredients_text => "bourbon-vanillepulver, Sauerkrautpulver, acerola-pulver"},
+		{
+			lc => "de",
+			ingredients_text => "bourbon-vanillepulver, Sauerkrautpulver, acerola-pulver"
+		},
 		[
 			{
 				'id' => 'en:bourbon-vanilla-powder',
@@ -467,7 +602,10 @@ my @tests = (
 
 	# de:gehackt and variants
 	[
-		{lc => "de", ingredients_text => "gehacktes Buttermilch, gehackter Dickmilch"},
+		{
+			lc => "de",
+			ingredients_text => "gehacktes Buttermilch, gehackter Dickmilch"
+		},
 		[
 			{
 				'id' => 'en:buttermilk',
@@ -523,7 +661,7 @@ my @tests = (
 		{
 			lc => "de",
 			ingredients_text => "Schalotte gegart, gegarte haselnüsse, gegarter mandeln, gegartes passionsfrucht,
-			sellerie dampfgegart, dampfgegarte acerola, dampfgegarter spinat"
+				sellerie dampfgegart, dampfgegarte acerola, dampfgegarter spinat"
 		},
 		[
 			{
@@ -566,7 +704,10 @@ my @tests = (
 
 	# Test for en:oiled
 	[
-		{lc => "de", ingredients_text => "Schalotte geölt, geölte haselnüsse"},
+		{
+			lc => "de",
+			ingredients_text => "Schalotte geölt, geölte haselnüsse"
+		},
 		[
 			{
 				'id' => 'en:shallot',
@@ -586,7 +727,7 @@ my @tests = (
 		{
 			lc => "de",
 			ingredients_text => "Schalotte gepökelt, gepökeltes haselnüsse,
-			passionsfrucht ungepökelt"
+				passionsfrucht ungepökelt"
 		},
 		[
 			{
@@ -612,7 +753,7 @@ my @tests = (
 		{
 			lc => "de",
 			ingredients_text => "Schalotte gepoppt, gepuffte haselnüsse,
-			passionsfrucht gepufft, gepuffter passionsfrucht, gepufftes sellerie"
+				passionsfrucht gepufft, gepuffter passionsfrucht, gepufftes sellerie"
 		},
 		[
 			{
@@ -648,7 +789,7 @@ my @tests = (
 		{
 			lc => "de",
 			ingredients_text => "Schalotte geschält, geschälte haselnüsse, geschälter mandeln,
-			passionsfrucht ungeschält, ungeschälte sellerie"
+				passionsfrucht ungeschält, ungeschälte sellerie"
 		},
 		[
 			{
@@ -684,7 +825,7 @@ my @tests = (
 		{
 			lc => "de",
 			ingredients_text => "Schalotte geschwefelt, geschwefelte haselnüsse,
-			passionsfrucht ungeschwefelt, geschwefelte sellerie"
+				passionsfrucht ungeschwefelt, geschwefelte sellerie"
 		},
 		[
 			{
@@ -712,7 +853,10 @@ my @tests = (
 
 	#  de:gesüßt
 	[
-		{lc => "de", ingredients_text => "Schalotte gesüßt, gesüßte haselnüsse"},
+		{
+			lc => "de",
+			ingredients_text => "Schalotte gesüßt, gesüßte haselnüsse"
+		},
 		[
 			{
 				'id' => 'en:shallot',
@@ -760,7 +904,10 @@ my @tests = (
 
 	# de:halbiert and variants
 	[
-		{lc => "de", ingredients_text => "Schalotte halbiert, halbierte haselnüsse, halbe mandeln"},
+		{
+			lc => "de",
+			ingredients_text => "Schalotte halbiert, halbierte haselnüsse, halbe mandeln"
+		},
 		[
 			{
 				'id' => 'en:shallot',
@@ -786,8 +933,8 @@ my @tests = (
 			lc => "de",
 			ingredients_text =>
 				"konzentriert schalotte, konzentrierter haselnüsse, konzentrierte mandeln, konzentriertes acerolakirschen,
-			zweifach konzentriert, 2 fach konzentriert, doppelt konzentriertes, zweifach konzentriertes, 2-fach konzentriert, dreifach konzentriert,
-			200fach konzentriertes, eingekochter"
+				zweifach konzentriert, 2 fach konzentriert, doppelt konzentriertes, zweifach konzentriertes, 2-fach konzentriert, dreifach konzentriert,
+				200fach konzentriertes, eingekochter"
 		},
 		[
 			{
@@ -851,11 +998,11 @@ my @tests = (
 			lc => "de",
 			ingredients_text =>
 				"Schalotte zerkleinert, zerkleinerte haselnüsse, zerkleinerter mandeln, zerkleinertes passionsfrucht,
-			sellerie grob zerkleinert,
-			acerolakirschen fein zerkleinert, fein zerkleinerte spinat,
-			zwiebel zum teil fein zerkleinert,
-			haselnüsse feinst zerkleinert,
-			überwiegend feinst zerkleinert Feigen"
+				sellerie grob zerkleinert,
+				acerolakirschen fein zerkleinert, fein zerkleinerte spinat,
+				zwiebel zum teil fein zerkleinert,
+				haselnüsse feinst zerkleinert,
+				überwiegend feinst zerkleinert Feigen"
 		},
 		[
 			{
@@ -916,7 +1063,7 @@ my @tests = (
 		{
 			lc => "de",
 			ingredients_text => "haselnüsse gehackt und geröstet,
-			gehackte und geröstete haselnuss, gehobelte und gehackte mandeln"
+				gehackte und geröstete haselnuss, gehobelte und gehackte mandeln"
 		},
 		[
 			# change on 17:01
@@ -943,7 +1090,7 @@ my @tests = (
 		{
 			lc => "de",
 			ingredients_text => "Schalotte gemahlen, gemahlene mandeln, gemahlener zwiebel,
-			fein gemahlen haselnüsse, grob gemahlen spinat, frischgemahlen sellerie"
+				fein gemahlen haselnüsse, grob gemahlen spinat, frischgemahlen sellerie"
 		},
 		[
 			{
@@ -984,10 +1131,10 @@ my @tests = (
 		{
 			lc => "de",
 			ingredients_text => "Schalotte getrocknet, getrocknete mandeln, getrockneter zwiebel,
-			 haselnüsse in getrockneter form, halbgetrocknete spinat, halbgetrocknet sellerie, Feigen halb getrocknet,
-			 Holunder gefriergetrocknet, gefriergetrocknete Papaya, gefriergetrocknetes Kiwi, sonnengetrocknet Ananas,
-			 sonnengetrocknete Pflaumen, an der Sonne getrocknete Grapefruit, Guaven luftgetrocknet, luftgetrockneter Hagebutten,
-			 Traube sprühgetrocknet, sprühgetrockneter Tamarinde"
+				 haselnüsse in getrockneter form, halbgetrocknete spinat, halbgetrocknet sellerie, Feigen halb getrocknet,
+				 Holunder gefriergetrocknet, gefriergetrocknete Papaya, gefriergetrocknetes Kiwi, sonnengetrocknet Ananas,
+				 sonnengetrocknete Pflaumen, an der Sonne getrocknete Grapefruit, Guaven luftgetrocknet, luftgetrockneter Hagebutten,
+				 Traube sprühgetrocknet, sprühgetrockneter Tamarinde"
 		},
 		[
 			{
@@ -1095,7 +1242,7 @@ my @tests = (
 		{
 			lc => "de",
 			ingredients_text => "hartkäse gesalzen, haselnüsse gesalzene, haselnüsse gesalzenes,
-			gesalzener haselnuss, ungesalzen schalotte, ungesalzene mandeln"
+				gesalzener haselnuss, ungesalzen schalotte, ungesalzene mandeln"
 		},
 		[
 			{
@@ -1181,6 +1328,7 @@ my @tests = (
 			}
 		]
 	],
+
 	# Various tests
 	#[ { lc => "de", ingredients_text => "gehackte und geröstete haselnüs" },
 	#	[
@@ -1197,7 +1345,7 @@ my @tests = (
 		{
 			lc => "de",
 			ingredients_text => "hartkäse gehobelt, haselnüsse gehackt,
-		, gehobelte und gehackte mandeln, Dickmilch in scheiben geschnitten"
+			, gehobelte und gehackte mandeln, Dickmilch in scheiben geschnitten"
 		},
 		[
 			{
@@ -1225,7 +1373,10 @@ my @tests = (
 
 	# All variants of de:rehydriert
 	[
-		{lc => "de", ingredients_text => "Schalotte rehydriert, zwiebel rehydrierte, spinat rehydriertes"},
+		{
+			lc => "de",
+			ingredients_text => "Schalotte rehydriert, zwiebel rehydrierte, spinat rehydriertes"
+		},
 		[
 			{
 				'id' => 'en:shallot',
@@ -1250,7 +1401,7 @@ my @tests = (
 		{
 			lc => "de",
 			ingredients_text => "Schalotte mariniert, zwiebel marinierte, spinat marinierter,
-		mariniertes sellerie"
+			mariniertes sellerie"
 		},
 		[
 			{
@@ -1281,7 +1432,7 @@ my @tests = (
 		{
 			lc => "de",
 			ingredients_text => "Schalotte geschnitten, zwiebel mittelfein geschnittenen, spinat feingeschnitten,
-			fein geschnittenen sellerie, feingeschnittener Mandeln, handgeschnittene haselnüsse"
+				fein geschnittenen sellerie, feingeschnittener Mandeln, handgeschnittene haselnüsse"
 		},
 		[
 			{
@@ -1318,7 +1469,10 @@ my @tests = (
 	],
 
 	[
-		{lc => "de", ingredients_text => "Schalottepüree, zwiebel püree, spinat-püree, selleriemark"},
+		{
+			lc => "de",
+			ingredients_text => "Schalottepüree, zwiebel püree, spinat-püree, selleriemark"
+		},
 		[
 			{
 				'id' => 'en:shallot',
@@ -1345,7 +1499,10 @@ my @tests = (
 
 	# de:gerieben and synonyms tests
 	[
-		{lc => "de", ingredients_text => "Schalotte gerieben, geriebener zwiebel, geriebene spinat"},
+		{
+			lc => "de",
+			ingredients_text => "Schalotte gerieben, geriebener zwiebel, geriebene spinat"
+		},
 		[
 			{
 				'id' => 'en:shallot',
@@ -1370,7 +1527,7 @@ my @tests = (
 		{
 			lc => "de",
 			ingredients_text => "Schalottewürfel, spinat gewürfelt, gewürfelte sellerie,
-			zwiebel in würfel geschnitten, mandeln in würfel"
+				zwiebel in würfel geschnitten, mandeln in würfel"
 		},
 		[
 			{
@@ -1401,121 +1558,59 @@ my @tests = (
 		]
 	],
 
+##################################################################
+	#
+	#                           C R O A T I A N ( H R )
+	#
+##################################################################
+
+	# inspired by 3858881083103
 	[
-		{lc => "en", ingredients_text => "smoked sea salt, smoked turkey"},
+		{lc => "hr", ingredients_text => "papar crni mljeveni"},
 		[
 			{
-				'id' => 'en:sea-salt',
-				'processing' => 'en:smoked',
-				'text' => 'sea salt'
-			},
-			{
-				'id' => 'en:turkey',
-				'processing' => 'en:smoked',
-				'text' => 'turkey'
+				'id' => 'en:black-pepper',
+				'processing' => 'en:ground',
+				'text' => 'papar crni'
 			}
 		]
 	],
-
+	# inspired by 8017596108852
 	[
 		{
-			lc => "fr",
-			ingredients_text => "sel marin fumé, jambon fumé, arôme de fumée, lardons fumés au bois de hêtre "
+			lc => "hr",
+			ingredients_text =>
+				"dehidrirani umak, suncokretovo ulje u prahu, dimljeni slanina, antioksidans (ekstrakt ružmarina)"
 		},
 		[
 			{
-				'id' => 'en:sea-salt',
-				'processing' => 'en:smoked',
-				'text' => 'sel marin'
+				'id' => 'en:sauce',
+				'processing' => 'en:dehydrated',
+				'text' => 'umak'
 			},
 			{
-				'id' => 'en:ham',
-				'processing' => 'en:smoked',
-				'text' => 'jambon'
-			},
-			{
-				'id' => 'en:smoke-flavouring',
-				'text' => "ar\x{f4}me de fum\x{e9}e"
-			},
-			{
-				'id' => 'en:lardon',
-				'processing' => 'en:beech-smoked',
-				'text' => 'lardons'
-			}
-		]
-	],
-
-	[
-		{lc => "es", ingredients_text => "tofu ahumado, panceta ahumada"},
-		[
-			{
-				'id' => 'en:tofu',
-				'processing' => 'en:smoked',
-				'text' => 'tofu'
+				'id' => 'en:sunflower-oil',
+				'processing' => 'en:powder',
+				'text' => 'suncokretovo ulje'
 			},
 			{
 				'id' => 'en:bacon',
 				'processing' => 'en:smoked',
-				'text' => 'panceta'
-			}
-		]
-	],
-
-	# ingredient with (processing) in parenthesis
-	[
-		{lc => "en", ingredients_text => "garlic (powdered)",},
-		[
+				'text' => 'slanina'
+			},
 			{
-				'id' => 'en:garlic',
-				'processing' => 'en:powder',
-				'text' => 'garlic'
-			}
+				'id' => 'en:antioxidant',
+				'text' => 'antioksidans',
+				'ingredients' => [
+					{
+						'id' => "en:rosemary",
+						'processing' => "en:extract",
+						'text' => "ru\x{17e}marina"
+					}
+				],
+			},
 		]
-	],
-
-	[
-		{lc => "fr", ingredients_text => "piment (en poudre)"},
-		[
-			{
-				'id' => 'en:chili-pepper',
-				'processing' => 'en:powder',
-				'text' => 'piment'
-			}
-		]
-	],
-
-	[
-		{lc => "en", ingredients_text => "pasteurized eggs"},
-		[
-			{
-				'id' => 'en:egg',
-				'processing' => 'en:pasteurised',
-				'text' => 'eggs'
-			}
-		]
-	],
-
-	[
-		{lc => "en", ingredients_text => "dry whey"},
-		[
-			{
-				'id' => 'en:whey',
-				'processing' => 'en:dried',
-				'text' => 'whey'
-			}
-		]
-	],
-
-	[
-		{lc => "es", ingredients_text => "pimientos amarillos deshidratados"},
-		[
-			{
-				'id' => 'en:yellow-bell-pepper',
-				'processing' => 'en:dehydrated',
-				'text' => 'pimientos amarillos'
-			}
-		]
-	],
+	]
 
 );
 
@@ -1529,6 +1624,7 @@ foreach my $test_ref (@tests) {
 	parse_ingredients_text($product_ref);
 
 	is_deeply($product_ref->{ingredients}, $expected_ingredients_ref)
+
 		# using print + join instead of diag so that we don't have
 		# hashtags. It makes copy/pasting the resulting structure
 		# inside the test file much easier when tests results need

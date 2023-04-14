@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -127,17 +127,15 @@ foreach my $group_ref (@$select2_options_ref) {
 			$comment .= lang("separate_values_with_commas") . "\n\n";
 		}
 
-		my $note = lang($field_id . "_note");
-		my $import_note = lang($field_id . "_import_note");
+		# Add notes that are defined in the .po files
+		foreach my $note_field ("note", "note_2", "note_3", "import_note") {
+			my $note = lang($field_id . "_" . $note_field);
+			if ($note ne "") {
+				$comment .= $note . "\n\n";
+			}
+		}
+
 		my $example = lang($field_id . "_example");
-
-		if ($note ne "") {
-			$comment .= lang($field_id . "_note") . "\n\n";
-		}
-
-		if ($import_note ne "") {
-			$comment .= lang($field_id . "_import_note") . "\n\n";
-		}
 
 		if ($example ne "") {
 

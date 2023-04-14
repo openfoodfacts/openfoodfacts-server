@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -78,7 +78,6 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Lang qw/:all/;
-use ProductOpener::Cache qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Orgs qw/:all/;
 use ProductOpener::Products qw/:all/;
@@ -99,6 +98,7 @@ my @user_groups = qw(producer database app bot moderator pro_moderator);
 
 my $cookie_name = 'session';
 my $cookie_domain = "." . $server_domain;    # e.g. fr.openfoodfacts.org sets the domain to .openfoodfacts.org
+$cookie_domain =~ s/\.pro\./\./;    # e.g. .pro.openfoodfacts.org -> .openfoodfacts.org
 if (defined $server_options{cookie_domain}) {
 	$cookie_domain
 		= "." . $server_options{cookie_domain};    # e.g. fr.import.openfoodfacts.org sets domain to .openfoodfacts.org
@@ -238,10 +238,71 @@ sub is_admin_user ($user_id) {
 	return ((%admins) and (defined $user_id) and (exists $admins{$user_id}));
 }
 
-=head2 check_user_form()
+=head2 check_user_org($user_ref, $new_org)
 
-C<check_user_form()> This method checks and validates the different entries in the user form. 
-It also handles Spam-usernames, fields for the organization accounts. 
+This method checks a new org entry for a user.
+
+warning: It has the side effect of already listing user in the org,
+and removing it from eventual previous one.
+If new_org is empty, user is removed from previous org.
+
+It also creates the org if did not yet exists.
+
+It should be called only by admin.
+
+=head3 Parameters
+
+=head4 User object $user_ref
+
+=head4 String new org name $new_org
+
+=cut
+
+sub check_user_org ($user_ref, $new_org_id) {
+
+	my $previous_org = $user_ref->{org};
+	$user_ref->{org} = $new_org_id;
+	if ($user_ref->{org} ne "") {
+		$user_ref->{org_id} = get_string_id_for_lang("no_language", $user_ref->{org});
+		# Admin field for org overrides the requested org field
+		delete $user_ref->{requested_org};
+		delete $user_ref->{requested_org_id};
+
+		my $org_ref = retrieve_or_create_org($User_id, $user_ref->{org});
+
+		add_user_to_org($org_ref, $user_ref->{userid}, ["admins", "members"]);
+	}
+	else {
+		# user has no org
+		delete $user_ref->{org};
+		delete $user_ref->{org_id};
+	}
+
+	# eventually remove from previous org
+	if ((defined $previous_org) and ($previous_org ne "") and ($previous_org ne $user_ref->{org})) {
+		my $org_ref = retrieve_org($previous_org);
+		if (defined $org_ref) {
+			remove_user_from_org($org_ref, $user_ref->{userid}, ["admins", "members"]);
+		}
+	}
+	return;
+}
+
+=head2 check_user_form($type, $user_ref, $errors_ref)
+
+C<check_user_form()> This method checks and validates the different entries in the user form.
+It also handles Spam-usernames, fields for the organization accounts.
+
+This will then be used in process_user_form
+
+=head3 Parameters
+
+=head4 String action type $type
+edit / add / delete
+
+=head4 User object $user_ref
+
+=head4 Array to report errors $errors_ref
 
 =cut
 
@@ -257,7 +318,7 @@ sub check_user_form ($type, $user_ref, $errors_ref) {
 
 	$log->debug("check_user_form", {type => $type, user_ref => $user_ref, email => $email}) if $log->is_debug();
 
-	if ($user_ref->{email} ne $email) {
+	if ((defined $email) and ($email ne '') and ($user_ref->{email} ne $email)) {
 
 		# check that the email is not already used
 		my $emails_ref = retrieve("$data_root/users/users_emails.sto");
@@ -279,6 +340,7 @@ sub check_user_form ($type, $user_ref, $errors_ref) {
 		if (single_param("pro")) {
 			$user_ref->{pro} = 1;
 
+			# user request to be part of an org, this submission will be validated later on
 			if (defined single_param("requested_org")) {
 				$user_ref->{requested_org} = remove_tags_and_quote(decode utf8 => single_param("requested_org"));
 
@@ -313,33 +375,9 @@ sub check_user_form ($type, $user_ref, $errors_ref) {
 	if ($admin) {
 
 		# Org
+		check_user_org($user_ref, remove_tags_and_quote(decode utf8 => single_param('org')));
 
-		my $previous_org = $user_ref->{org};
-		$user_ref->{org} = remove_tags_and_quote(decode utf8 => single_param('org'));
-		if ($user_ref->{org} ne "") {
-			$user_ref->{org_id} = get_string_id_for_lang("no_language", $user_ref->{org});
-			# Admin field for org overrides the requested org field
-			delete $user_ref->{requested_org};
-			delete $user_ref->{requested_org_id};
-
-			my $org_ref = retrieve_or_create_org($User_id, $user_ref->{org});
-
-			add_user_to_org($org_ref, $user_ref->{userid}, ["admins", "members"]);
-		}
-		else {
-			delete $user_ref->{org};
-			delete $user_ref->{org_id};
-		}
-
-		if ((defined $previous_org) and ($previous_org ne "") and ($previous_org ne $user_ref->{org})) {
-			my $org_ref = retrieve_org($previous_org);
-			if (defined $org_ref) {
-				remove_user_from_org($org_ref, $user_ref->{userid}, ["admins", "members"]);
-			}
-		}
-
-		# Permission groups
-
+		# Permission groups (moderator, producer moderator, etc.)
 		foreach my $group (@user_groups) {
 			$user_ref->{$group} = remove_tags_and_quote(single_param("user_group_$group"));
 		}
@@ -426,6 +464,135 @@ sub check_user_form ($type, $user_ref, $errors_ref) {
 	return;
 }
 
+=head2 notify_user_requested_org($user_ref, $org_created)
+
+Notify admin that a user requested to be part of an org
+
+=head3 Parameters
+
+=head4 User object $user_ref
+
+=head4 boolean $org_created
+
+Is the org newly created ?
+
+=cut
+
+sub notify_user_requested_org ($user_ref, $org_created) {
+
+	# the template for the email, we will build it gradually
+	my $template_data_ref = {
+		userid => $user_ref->{userid},
+		user => $user_ref,
+		requested_org => $user_ref->{requested_org_id},
+	};
+
+	# construct first part of the mail about new pro account
+	my $mail = '';
+	process_template("emails/user_new_pro_account.tt.txt", $template_data_ref, \$mail);
+	if ($mail =~ /^\s*Subject:\s*(.*)\n/im) {
+		my $subject = $1;
+		my $body = $';
+		$body =~ s/^\n+//;
+		$template_data_ref->{mail_subject_new_pro_account} = URI::Escape::XS::encodeURIComponent($subject);
+		$template_data_ref->{mail_body_new_pro_account} = URI::Escape::XS::encodeURIComponent($body);
+	}
+	else {
+		send_email_to_producers_admin("Error - broken template: emails/user_new_pro_account.tt.txt",
+			"Missing Subject line:\n\n" . $mail);
+	}
+
+	if (not $org_created) {
+		# The requested org already exists
+		# build second part of the mail about it and alter the subject
+		$mail = '';
+		process_template("emails/user_new_pro_account_org_request_validated.tt.txt", $template_data_ref, \$mail);
+		if ($mail =~ /^\s*Subject:\s*(.*)\n/im) {
+			my $subject = $1;
+			my $body = $';
+			$body =~ s/^\n+//;
+			$template_data_ref->{mail_subject_new_pro_account_org_request_validated}
+				= URI::Escape::XS::encodeURIComponent($subject);
+			$template_data_ref->{mail_body_new_pro_account_org_request_validated}
+				= URI::Escape::XS::encodeURIComponent($body);
+		}
+		else {
+			send_email_to_producers_admin(
+				"Error - broken template: emails/user_new_pro_account_org_request_validated.tt.txt",
+				"Missing Subject line:\n\n" . $mail);
+		}
+	}
+
+	# Send an e-mail notification to admins, with links to the organization
+	$mail = '';
+	process_template("emails/user_new_pro_account_admin_notification.tt.html", $template_data_ref, \$mail);
+	if ($mail =~ /^\s*Subject:\s*(.*)\n/im) {
+		my $subject = $1;
+		my $body = $';
+		$body =~ s/^\n+//;
+		send_email_to_producers_admin($subject, $body);
+	}
+	else {
+		send_email_to_producers_admin("Error - broken template: emails/user_new_pro_account_admin_notification.tt.html",
+			"Missing Subject line:\n\n" . $mail);
+	}
+	return;
+}
+
+=head2 process_user_requested_org($user_ref)
+
+A user requested to be part of a producer organization.
+Process it.
+
+=head3 Parameters
+
+=head4 User object $user_ref
+
+=cut
+
+sub process_user_requested_org ($user_ref) {
+
+	(defined $user_ref->{requested_org_id}) or return 1;
+
+	my $userid = $user_ref->{userid};
+	my $org_created = 0;
+	my $requested_org_ref = retrieve_org($user_ref->{requested_org_id});
+
+	if (not(defined $requested_org_ref)) {
+		# The requested org does not exist, create it
+		my $org_ref = create_org($userid, $user_ref->{requested_org});
+		add_user_to_org($org_ref, $userid, ["admins", "members"]);
+
+		$user_ref->{org} = $user_ref->{requested_org_id};
+		$user_ref->{org_id} = get_string_id_for_lang("no_language", $user_ref->{org});
+
+		delete $user_ref->{requested_org};
+		delete $user_ref->{requested_org_id};
+
+		$org_created = 1;
+	}
+	# send a notification to admins
+	notify_user_requested_org($user_ref, $org_created);
+	return 1;
+}
+
+=head2 process_user_form($type, $user_ref, $request_ref)
+
+Process user form.
+
+To be used after check_user_form
+
+=head3 Parameters
+
+=head4 String action type $type
+edit / add / delete
+
+=head4 User object $user_ref
+
+=head4 Request object $request_ref
+
+=cut
+
 sub process_user_form ($type, $user_ref, $request_ref) {
 
 	my $userid = $user_ref->{userid};
@@ -433,83 +600,10 @@ sub process_user_form ($type, $user_ref, $request_ref) {
 
 	$log->debug("process_user_form", {type => $type, user_ref => $user_ref}) if $log->is_debug();
 
-	my $template_data_ref = {
-		userid => $user_ref->{userid},
-		user => $user_ref,
-		$user_ref->{requested_org_id},
-	};
+	# Professional account with a requested org (existing or new)
+	process_user_requested_org($user_ref);
 
-	# Professional account with a requested org (existing or new)
-	if (defined $user_ref->{requested_org_id}) {
-
-		my $requested_org_ref = retrieve_org($user_ref->{requested_org_id});
-
-		$template_data_ref->{requested_org} = $user_ref->{requested_org_id};
-
-		my $mail = '';
-		process_template("emails/user_new_pro_account.tt.txt", $template_data_ref, \$mail);
-		if ($mail =~ /^\s*Subject:\s*(.*)\n/im) {
-			my $subject = $1;
-			my $body = $';
-			$body =~ s/^\n+//;
-			$template_data_ref->{mail_subject_new_pro_account} = URI::Escape::XS::encodeURIComponent($subject);
-			$template_data_ref->{mail_body_new_pro_account} = URI::Escape::XS::encodeURIComponent($body);
-		}
-		else {
-			send_email_to_producers_admin("Error - broken template: emails/user_new_pro_account.tt.txt",
-				"Missing Subject line:\n\n" . $mail);
-		}
-
-		if (defined $requested_org_ref) {
-
-			# The requested org already exists
-			$mail = '';
-			process_template("emails/user_new_pro_account_org_request_validated.tt.txt", $template_data_ref, \$mail);
-			if ($mail =~ /^\s*Subject:\s*(.*)\n/im) {
-				my $subject = $1;
-				my $body = $';
-				$body =~ s/^\n+//;
-				$template_data_ref->{mail_subject_new_pro_account_org_request_validated}
-					= URI::Escape::XS::encodeURIComponent($subject);
-				$template_data_ref->{mail_body_new_pro_account_org_request_validated}
-					= URI::Escape::XS::encodeURIComponent($body);
-			}
-			else {
-				send_email_to_producers_admin(
-					"Error - broken template: emails/user_new_pro_account_org_request_validated.tt.txt",
-					"Missing Subject line:\n\n" . $mail);
-			}
-		}
-		else {
-
-			# The requested org does not exist, create it
-			my $org_ref = create_org($userid, $user_ref->{requested_org});
-			add_user_to_org($org_ref, $userid, ["admins", "members"]);
-
-			$user_ref->{org} = $user_ref->{requested_org_id};
-			$user_ref->{org_id} = get_string_id_for_lang("no_language", $user_ref->{org});
-
-			delete $user_ref->{requested_org};
-			delete $user_ref->{requested_org_id};
-		}
-
-		# Send an e-mail notification to admins, with links to the organization
-		$mail = '';
-		process_template("emails/user_new_pro_account_admin_notification.tt.html", $template_data_ref, \$mail);
-		if ($mail =~ /^\s*Subject:\s*(.*)\n/im) {
-			my $subject = $1;
-			my $body = $';
-			$body =~ s/^\n+//;
-
-			send_email_to_producers_admin($subject, $body);
-		}
-		else {
-			send_email_to_producers_admin(
-				"Error - broken template: emails/user_new_pro_account_admin_notification.tt.html",
-				"Missing Subject line:\n\n" . $mail);
-		}
-	}
-
+	# save user
 	store("$data_root/users/$userid.sto", $user_ref);
 
 	# Update email
@@ -559,8 +653,25 @@ EMAIL
 	return $error;
 }
 
+=head2 check_edit_owner($user_ref, $errors_ref)
+
+This sets pro_moderator_owner according to request parameter.
+Sets it in $User global and $user_ref.
+
+This variable is used to say that a moderator or admin
+is acting on the pro platform as part of a specific company.
+
+=head3 Arguments
+
+=head4 User object $user_ref
+
+=head4 array to collect errors $errors_ref
+
+=cut
+
 sub check_edit_owner ($user_ref, $errors_ref) {
 
+	# temporarily use the org passed as parameter
 	$user_ref->{pro_moderator_owner}
 		= get_string_id_for_lang("no_language", remove_tags_and_quote(single_param('pro_moderator_owner')));
 
@@ -784,7 +895,7 @@ sub init_user ($request_ref) {
 	%Org = ();
 
 	# Remove persistent cookie if user is logging out
-	if ((defined single_param('length')) and (single_param('length') eq 'logout')) {
+	if ((defined request_param($request_ref, 'length')) and (request_param($request_ref, 'length') eq 'logout')) {
 		$log->debug("user logout") if $log->is_debug();
 		my $session = {};
 		$request_ref->{cookie} = cookie(
@@ -797,12 +908,12 @@ sub init_user ($request_ref) {
 	}
 
 	# Retrieve user_id and password from form parameters
-	elsif ( (defined single_param('user_id'))
-		and (single_param('user_id') ne '')
-		and (((defined single_param('password')) and (single_param('password') ne ''))))
+	elsif ( (defined request_param($request_ref, 'user_id'))
+		and (request_param($request_ref, 'user_id') ne '')
+		and (((defined request_param($request_ref, 'password')) and (request_param($request_ref, 'password') ne ''))))
 	{
 
-		$user_id = remove_tags_and_quote(single_param('user_id'));
+		$user_id = remove_tags_and_quote(request_param($request_ref, 'user_id'));
 
 		if ($user_id =~ /\@/) {
 			$log->info("got email while initializing user", {email => $user_id}) if $log->is_info();
@@ -839,7 +950,8 @@ sub init_user ($request_ref) {
 				$user_id = $user_ref->{'userid'};
 				$log->context->{user_id} = $user_id;
 
-				my $hash_is_correct = check_password_hash(encode_utf8(decode utf8 => single_param('password')),
+				my $hash_is_correct
+					= check_password_hash(encode_utf8(decode utf8 => request_param($request_ref, 'password')),
 					$user_ref->{'encrypted_password'});
 				# We don't have the right password
 				if (not $hash_is_correct) {
@@ -852,7 +964,8 @@ sub init_user ($request_ref) {
 					return ($Lang{error_bad_login_password}{$lang});
 				}
 				# We have the right login/password
-				elsif (not defined single_param('no_log'))    # no need to store sessions for internal requests
+				elsif (
+					not defined request_param($request_ref, 'no_log')) # no need to store sessions for internal requests
 				{
 					$log->info("correct password for user provided") if $log->is_info();
 
@@ -891,9 +1004,6 @@ sub init_user ($request_ref) {
 
 		if (defined $user_id) {
 			my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
-			if ($user_id =~ /f\/(.*)$/) {
-				$user_file = "$data_root/facebook_users/" . get_string_id_for_lang("no_language", $1) . ".sto";
-			}
 
 			if (-e $user_file) {
 				$user_ref = retrieve($user_file);
@@ -918,8 +1028,9 @@ sub init_user ($request_ref) {
 
 				if (   (not defined $user_ref->{'user_sessions'})
 					or (not defined $user_session)
-					or (not defined $user_ref->{'user_sessions'}{$user_session})
-					or (not is_ip_known_or_whitelisted($user_ref, $user_session, remote_addr(), $short_ip)))
+					or (not defined $user_ref->{'user_sessions'}{$user_session}))
+					# disable the restriction of sessions by ip address (issue 6842 57E0 C2C7 F629 E4CE 5605 42)
+					#	or (not is_ip_known_or_whitelisted($user_ref, $user_session, remote_addr(), $short_ip)))
 				{
 					$log->debug("no matching session for user") if $log->is_debug();
 					$user_id = undef;

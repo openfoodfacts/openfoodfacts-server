@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -29,6 +29,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::HTTP qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
@@ -70,7 +71,10 @@ if ((defined single_param('search_terms')) and (not defined single_param('action
 	$action = 'process';
 }
 
-foreach my $parameter ('fields', 'json', 'jsonp', 'jqm', 'jqm_loadmore', 'xml', 'rss') {
+# /cgi/search.pl is "v1" of the search API.
+# The api_version parameter enables clients to request the product data to be returned in the format of a different version
+# For instance api_version=3 enables the new format of the packagings field
+foreach my $parameter ('fields', 'json', 'jsonp', 'jqm', 'jqm_loadmore', 'xml', 'rss', 'api_version') {
 
 	if (defined single_param($parameter)) {
 		$request_ref->{$parameter} = single_param($parameter);
@@ -78,9 +82,15 @@ foreach my $parameter ('fields', 'json', 'jsonp', 'jqm', 'jqm_loadmore', 'xml', 
 }
 
 # if the query request json or xml, either through the json=1 parameter or a .json extension
-# set the $request_ref->{api} field
+# set the $request_ref->{api} field to indicate that it is an API query
 if ((defined single_param('json')) or (defined single_param('jsonp')) or (defined single_param('xml'))) {
-	$request_ref->{api} = 'v0';
+	if (not defined $request_ref->{api_version}) {
+		$request_ref->{api_version} = 0;
+		$request_ref->{api} = 'v0';
+	}
+	else {
+		$request_ref->{api} = 'v' . $request_ref->{api_version};
+	}
 }
 
 my @search_fields
@@ -796,7 +806,8 @@ HTML
 
 			my $data = encode_json(\%response);
 
-			print "Content-Type: application/json; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . $data;
+			write_cors_headers();
+			print "Content-Type: application/json; charset=UTF-8\r\n\r\n" . $data;
 		}
 
 		if (single_param('search_terms')) {

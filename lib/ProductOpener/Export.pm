@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -522,7 +522,7 @@ sub export_csv ($args_ref) {
 					# If we export image fields, we first need to generate the paths to images
 
 					if (($field =~ /^image_(.*)_(url|json)/) and (not $added_images_urls)) {
-						ProductOpener::Display::add_images_urls_to_product($product_ref);
+						add_images_urls_to_product($product_ref, $lc);
 						$added_images_urls = 1;
 					}
 

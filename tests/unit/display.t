@@ -4,6 +4,7 @@ use Modern::Perl '2017';
 use utf8;
 
 use Test::More;
+use Test::MockModule;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Display qw/:all/;
@@ -27,18 +28,6 @@ is(display_date_tag($t), '<time datetime="2016-08-27T12:08:49">27. August 2016, 
 #	display_field({link => "producer.com"}, "link"),
 #	'<p><span class="field">Link to the product page on the official site of the producer:</span> <a href="http://producer.com">http://producer.com</a></p>'
 # );
-
-my %request = (
-	'original_query_string' => 'api/v0/attribute_groups',
-	'referer' => 'http://world.openfoodfacts.localhost/product/3564703999971/huile-d-olive-marque-repere'
-);
-print STDERR "before analyze request\n";
-analyze_request(\%request);
-is($request{'api'}, "v0");
-is($request{'page'}, "1");
-is($request{'api_version'}, "0");
-
-print STDERR "after analyze request\n";
 
 # paging tests
 # issue # 1960 - negative query lost during pagination and in other links
@@ -161,5 +150,60 @@ $product_ref = {
 };
 $expected = lang('to_do_status') . separator_before_colon($lc) . q{:};
 like(display_field($product_ref, 'states'), qr/$expected/);
+
+# should not loose the second facet at the end of the url on redirection
+my $facets_ref = {
+	'tagtype' => 'categories',
+	'groupby_tagtype' => 'data_quality',
+	'tagid' => 'en:bread'
+};
+
+my $apache_util_module = Test::MockModule->new('Apache2::RequestUtil');
+$apache_util_module->mock(
+	'request',
+	sub {
+		# Return a mock Apache request object
+		my $r = {};
+		bless $r, 'Apache2::RequestRec';
+
+		return $r;
+	}
+);
+
+my $request_rec_module = Test::MockModule->new('Apache2::RequestRec');
+$request_rec_module->mock(
+	'rflush',
+	sub {
+		# Do nothing, am just mocking the method
+	}
+);
+
+$request_rec_module->mock(
+	'status',
+	sub {
+		# Do nothing, am just mocking the method
+	}
+);
+
+$request_rec_module->mock(
+	'headers_out',
+	sub {
+		# Do nothing, am just mocking the method
+
+	}
+);
+
+my $display_module = Test::MockModule->new('ProductOpener::Display');
+$display_module->mock(
+	'redirect_to_url',
+	sub {
+		# Do nothing, am just mocking the method
+	}
+);
+
+display_tag($facets_ref);
+
+is($facets_ref->{'current_link'}, '/category/breads/data-quality');
+is($facets_ref->{'redirect'}, '/category/breads/data-quality');
 
 done_testing();

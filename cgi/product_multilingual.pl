@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2021 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -28,6 +28,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::Web qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
@@ -35,8 +36,11 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
+use ProductOpener::Units qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
+use ProductOpener::KnowledgePanels qw/:all/;
+use ProductOpener::KnowledgePanelsContribution qw/:all/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
@@ -45,6 +49,8 @@ use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Web qw(get_languages_options_list);
 use ProductOpener::Text qw/:all/;
 use ProductOpener::Events qw/:all/;
+use ProductOpener::API qw/:all/;
+use ProductOpener::APIProductWrite qw/:all/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -67,12 +73,11 @@ sub display_search_or_add_form() {
 	if (($server_options{producers_platform})
 		and not((defined $Owner_id) and (($Owner_id =~ /^org-/) or ($User{moderator}) or $User{pro_moderator})))
 	{
-		return "";
+		display_error_and_exit(lang("no_owner_defined"), 200);
 	}
 
 	my $html = '';
 	my $template_data_ref_content = {};
-	$template_data_ref_content->{server_options_producers_platform} = $server_options{producers_platform};
 
 	$template_data_ref_content->{display_search_image_form} = display_search_image_form("block_side");
 	process_template('web/common/includes/display_product_search_or_add.tt.html', $template_data_ref_content, \$html)
@@ -96,6 +101,67 @@ sub display_search_or_add_form() {
 	return $html;
 }
 
+=head2 create_packaging_components_from_request_parameters($product_ref)
+
+Read form parameters related to packaging components, and create the corresponding packagings structure.
+
+=cut
+
+sub create_packaging_components_from_request_parameters ($product_ref) {
+
+	# Check that the form is showing inputs for packaging components
+	if (not defined single_param("packaging_max")) {
+		return;
+	}
+
+	# The form contains packaging inputs, so we reset the packagings structure
+	$product_ref->{packagings} = [];
+
+	# And then we add each packaging component
+	for (my $packaging_id = 1; $packaging_id <= single_param("packaging_max"); $packaging_id++) {
+
+		my $input_packaging_ref = {};
+		my $prefix = "packaging_" . $packaging_id . "_";
+		foreach my $property (
+			"number_of_units", "shape", "material", "recycling",
+			"quantity_per_unit", "weight_measured", "weight_specified"
+			)
+		{
+			$input_packaging_ref->{$property} = remove_tags_and_quote(decode utf8 => single_param($prefix . $property));
+		}
+
+		my $response_ref = {};   # Currently unused, may be used to display warnings in future versions of the interface
+
+		my $packaging_ref
+			= get_checked_and_taxonomized_packaging_component_data($lc, $input_packaging_ref, $response_ref);
+
+		if (defined $packaging_ref) {
+			apply_rules_to_augment_packaging_component_data($product_ref, $packaging_ref);
+
+			push @{$product_ref->{packagings}}, $packaging_ref;
+
+			$log->debug(
+				"added a packaging component",
+				{
+					prefix => $prefix,
+					packaging_id => $packaging_id,
+					input_packaging => $input_packaging_ref,
+					packaging => $packaging_ref
+				}
+			) if $log->is_debug();
+		}
+	}
+
+	if (single_param("packagings_complete")) {
+		$product_ref->{packagings_complete} = 1;
+	}
+	else {
+		$product_ref->{packagings_complete} = 0;
+	}
+
+	return;
+}
+
 my $request_ref = ProductOpener::Display::init_request();
 
 if ($User_id eq 'unwanted-user-french') {
@@ -104,6 +170,11 @@ if ($User_id eq 'unwanted-user-french') {
 		403
 	);
 }
+
+# Response structure to keep track of warnings and errors
+# Note: currently some warnings and errors are added,
+# but we do not yet do anything with them
+my $response_ref = get_initialized_response();
 
 my $type = single_param('type') || 'search_or_add';
 my $action = single_param('action') || 'display';
@@ -487,22 +558,9 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 		if (defined single_param($field)) {
 
-			# If we are on the public platform, and the field data has been imported from the producer platform
-			# ignore the field changes for non tag fields, unless made by a moderator
-			if (    ((not defined $server_options{private_products}) or (not $server_options{private_products}))
-				and (defined $product_ref->{owner_fields})
-				and (defined $product_ref->{owner_fields}{$field})
-				and (not $User{moderator}))
-			{
-				$log->debug(
-					"skipping field with a value set by the owner",
-					{
-						code => $code,
-						field_name => $field,
-						existing_field_value => $product_ref->{$field},
-						new_field_value => remove_tags_and_quote(decode utf8 => single_param($field))
-					}
-				) if $log->is_debug();
+			# Only moderators can update values for fields sent by the producer
+			if (skip_protected_field($product_ref, $field, $User{moderator})) {
+				next;
 			}
 
 			if ($field eq "lang") {
@@ -547,61 +605,23 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		}
 	}
 
-	if (    (defined $product_ref->{nutriments}{"carbon-footprint"})
-		and ($product_ref->{nutriments}{"carbon-footprint"} ne ''))
-	{
-		push @{$product_ref->{"labels_hierarchy"}}, "en:carbon-footprint";
-		push @{$product_ref->{"labels_tags"}}, "en:carbon-footprint";
-	}
-
-	if ((defined $product_ref->{nutriments}{"glycemic-index"}) and ($product_ref->{nutriments}{"glycemic-index"} ne ''))
-	{
-		push @{$product_ref->{"labels_hierarchy"}}, "en:glycemic-index";
-		push @{$product_ref->{"labels_tags"}}, "en:glycemic-index";
-	}
-
-	# For fields that can have different values in different languages, copy the main language value to the non suffixed field
-
-	foreach my $field (keys %language_fields) {
-		if ($field !~ /_image/) {
-			if (defined $product_ref->{$field . "_$product_ref->{lc}"}) {
-				$product_ref->{$field} = $product_ref->{$field . "_$product_ref->{lc}"};
-			}
-		}
-	}
-
-	$log->debug("compute_languages") if $log->is_debug();
-
-	compute_languages($product_ref);    # need languages for allergens detection and cleaning ingredients
-	$log->debug("clean_ingredients") if $log->is_debug();
-
-	# Ingredients classes
-	clean_ingredients_text($product_ref);
-	$log->debug("extract_ingredients_from_text") if $log->is_debug();
-	extract_ingredients_from_text($product_ref);
-	$log->debug("extract_ingredients_classes_from_text") if $log->is_debug();
-	extract_ingredients_classes_from_text($product_ref);
-	$log->debug("detect_allergens_from_text") if $log->is_debug();
-	detect_allergens_from_text($product_ref);
-
-	# Food category rules for sweetened/sugared beverages
-	# French PNNS groups from categories
-
-	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
-		$log->debug("Food::special_process_product") if $log->is_debug();
-		ProductOpener::Food::special_process_product($product_ref);
-	}
-
 	# Obsolete products
 
+	# We test if the "obsolete_since_date" field is present, as the checkbox field won't be sent if the box is unchecked
 	if (($User{moderator} or $Owner_id) and (defined single_param('obsolete_since_date'))) {
+		# We need to temporarily record if the product was obsolete, so that we can remove it
+		# from the product or product_obsolete collection if its obsolete status changed
+		$product_ref->{was_obsolete} = $product_ref->{obsolete};
 		$product_ref->{obsolete} = remove_tags_and_quote(decode utf8 => single_param("obsolete"));
 		$product_ref->{obsolete_since_date} = remove_tags_and_quote(decode utf8 => single_param("obsolete_since_date"));
 	}
 
 	# Update the nutrients
 
-	assign_nutriments_values_from_request_parameters($product_ref, $nutriment_table);
+	assign_nutriments_values_from_request_parameters($product_ref, $nutriment_table, $User{moderator});
+
+	# Process packaging components
+	create_packaging_components_from_request_parameters($product_ref);
 
 	# product check
 
@@ -627,42 +647,9 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 			delete $product_ref->{last_checker};
 			delete $product_ref->{last_checked_t};
 		}
-
 	}
 
-	# Compute nutrition data per 100g and per serving
-
-	$log->debug("compute nutrition data") if $log->is_debug();
-
-	$log->trace("compute_serving_size_date - start") if $log->is_trace();
-
-	fix_salt_equivalent($product_ref);
-
-	compute_serving_size_data($product_ref);
-
-	compute_nutrition_score($product_ref);
-
-	compute_nova_group($product_ref);
-
-	compute_nutrient_levels($product_ref);
-
-	compute_unknown_nutrients($product_ref);
-
-	# Until we provide an interface to directly change the packaging data structure
-	# erase it before reconstructing it
-	# (otherwise there is no way to remove incorrect entries)
-	$product_ref->{packagings} = [];
-
-	analyze_and_combine_packaging_data($product_ref);
-
-	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
-		compute_ecoscore($product_ref);
-		compute_forest_footprint($product_ref);
-	}
-
-	ProductOpener::DataQuality::check_quality($product_ref);
-
-	$log->trace("end compute_serving_size_date - end") if $log->is_trace();
+	analyze_and_enrich_product_data($product_ref, $response_ref);
 
 	if ($#errors >= 0) {
 		$action = 'display';
@@ -694,7 +681,7 @@ sub display_input_field ($product_ref, $field, $language) {
 	if (defined $tags_fields{$fieldtype}) {
 		$class = "tagify-me";
 		if ((defined $taxonomy_fields{$fieldtype}) or ($fieldtype eq 'emb_codes')) {
-			$autocomplete = "$formatted_subdomain/cgi/suggest.pl?tagtype=$fieldtype&";
+			$autocomplete = "$formatted_subdomain/api/v3/taxonomy_suggestions?tagtype=$fieldtype";
 		}
 	}
 
@@ -733,7 +720,7 @@ sub display_input_field ($product_ref, $field, $language) {
 		$value =~ s/\n/ /g;
 	}
 
-	foreach my $note ("_note", "_note_2") {
+	foreach my $note ("_note", "_note_2", "_note_3") {
 		if (defined $Lang{$fieldtype . $note}{$lang}) {
 
 			push(
@@ -831,12 +818,7 @@ CSS
 	if (    (not((defined $server_options{private_products}) and ($server_options{private_products})))
 		and (defined $Org_id))
 	{
-
 		# Display a link to the producers platform
-
-		my $producers_platform_url = $formatted_subdomain . '/';
-		$producers_platform_url =~ s/\.open/\.pro\.open/;
-
 		$template_data_ref_display->{producers_platform_url} = $producers_platform_url;
 	}
 
@@ -849,7 +831,6 @@ CSS
 	if ($User{moderator}) {
 	}
 
-	$template_data_ref_display->{server_options_private_products} = $server_options{private_products};
 	$template_data_ref_display->{org_id} = $Org_id;
 	$template_data_ref_display->{label_new_code} = $label_new_code;
 	$template_data_ref_display->{owner_id} = $Owner_id;
@@ -1462,6 +1443,16 @@ HTML
 		= display_input_tabs($product_ref, "packaging_image", $product_ref->{sorted_langs}, \%Langs,
 		\@packaging_fields);
 
+	# Add an empty packaging element to the form, that will be hidden and duplicated when the user adds new packaging items,
+	# and another empty packaging element at the end
+	if (not defined $product_ref->{packagings}) {
+		$product_ref->{packagings} = [];
+	}
+	my $number_of_packaging_components = scalar @{$product_ref->{packagings}};
+
+	unshift(@{$product_ref->{packagings}}, {});
+	push(@{$product_ref->{packagings}}, {});
+
 	# Product check
 
 	if ($User{moderator}) {
@@ -1484,6 +1475,7 @@ HTML
 	$template_data_ref_display->{type} = $type;
 	$template_data_ref_display->{code} = $code;
 	$template_data_ref_display->{display_product_history} = display_product_history($code, $product_ref);
+	$template_data_ref_display->{product} = $product_ref;
 
 	process_template('web/pages/product_edit/product_edit_form_display.tt.html', $template_data_ref_display, \$html)
 		or $html = "<p>" . $tt->error() . "</p>";
@@ -1509,6 +1501,7 @@ elsif (($action eq 'display') and ($type eq 'delete') and ($User{moderator})) {
 
 }
 elsif ($action eq 'process') {
+	# process the form
 
 	my $template_data_ref_process = {type => $type};
 
@@ -1516,6 +1509,7 @@ elsif ($action eq 'process') {
 
 	$product_ref->{interface_version_modified} = $interface_version;
 
+	# removal is just putting "on" in delete
 	if (($User{moderator}) and ($type eq 'delete')) {
 		$product_ref->{deleted} = 'on';
 		$comment = lang("deleting_product") . separator_before_colon($lc) . ":";
@@ -1528,21 +1522,13 @@ elsif ($action eq 'process') {
 	$comment = $comment . remove_tags_and_quote(decode utf8 => single_param('comment'));
 	store_product($User_id, $product_ref, $comment);
 
-	my $edited_product_url = product_url($product_ref);
-
+	# now display next page
+	my $url_prefix = "";
 	if (defined $product_ref->{server}) {
 		# product that was moved to OBF from OFF etc.
-		$edited_product_url
-			= "https://"
-			. $subdomain . "."
-			. $options{other_servers}{$product_ref->{server}}{domain}
-			. product_url($product_ref);
+		$url_prefix = "https://" . $subdomain . "." . $options{other_servers}{$product_ref->{server}}{domain};
 	}
 	elsif ($type eq 'delete') {
-
-		# Notify robotoff
-		send_notification_for_product_change($product_ref, "deleted");
-
 		my $email = <<MAIL
 $User_id $Lang{has_deleted_product}{$lc}:
 
@@ -1551,40 +1537,51 @@ $html
 MAIL
 			;
 		send_email_to_admin(lang("deleting_product"), $email);
-
+		send_event({user_id => $User_id, event_type => "product_removed", barcode => $code, points => 5});
 	}
 	else {
-
-		# Notify robotoff
-		send_notification_for_product_change($product_ref, "updated");
-
 		# Create an event
 		send_event({user_id => $User_id, event_type => "product_edited", barcode => $code, points => 5});
-
-		$template_data_ref_process->{display_random_sample_of_products_after_edits_options}
-			= $options{display_random_sample_of_products_after_edits};
-
-		# warning: this option is very slow
-		if (    (defined $options{display_random_sample_of_products_after_edits})
-			and ($options{display_random_sample_of_products_after_edits}))
-		{
-
-			my %request = (
-				'titleid' => get_string_id_for_lang($lc, product_name_brand($product_ref)),
-				'query_string' => $ENV{QUERY_STRING},
-				'referer' => referer(),
-				'code' => $code,
-				'product_changes_saved' => 1,
-				'sample_size' => 10
-			);
-
-			display_product(\%request);
-		}
 	}
 
 	$log->debug("product edited", {code => $code}) if $log->is_debug();
 
-	$template_data_ref_process->{edited_product_url} = $edited_product_url;
+	$template_data_ref_process->{display_random_sample_of_products_after_edits_options}
+		= $options{display_random_sample_of_products_after_edits};
+	# warning: this option is very slow
+	if (    (defined $options{display_random_sample_of_products_after_edits})
+		and ($options{display_random_sample_of_products_after_edits}))
+	{
+
+		my %request = (
+			'titleid' => get_string_id_for_lang($lc, product_name_brand($product_ref)),
+			'query_string' => $ENV{QUERY_STRING},
+			'referer' => referer(),
+			'code' => $code,
+			'product_changes_saved' => 1,
+			'sample_size' => 10
+		);
+
+		display_product(\%request);
+	}
+
+	$template_data_ref_process->{edited_product_url} = $url_prefix . product_url($product_ref);
+	$template_data_ref_process->{edit_product_url} = $url_prefix . product_action_url($product_ref->{code}, "");
+
+	if ($type ne 'delete') {
+		# adding contribution card
+		# TODO: we should better have a more flexible way to select panels
+		$product_ref->{"knowledge_panels_" . $lc} = {};
+		$knowledge_panels_options_ref = {};
+		initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref);
+		$knowledge_panels_options_ref->{knowledge_panels_client} = "web";
+		create_contribution_card_panel($product_ref, $lc, $cc, $knowledge_panels_options_ref);
+		if (defined $product_ref->{"knowledge_panels_" . $lc}{data_quality_errors}) {
+			$template_data_ref_process->{contribution_card_panel}
+				= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "contribution_card");
+		}
+	}
+	$template_data_ref_process->{code} = $product_ref->{code};
 	process_template('web/pages/product_edit/product_edit_form_process.tt.html', $template_data_ref_process, \$html)
 		or $html = "<p>" . $tt->error() . "</p>";
 
