@@ -27097,6 +27097,11 @@ nl:toegevoegde suiker
 
 <en:added sugar
 en:monosaccharide
+de:Monosaccharide
+es:monosacáridos
+fr:monosaccharides
+it:monosaccaridi
+nl:monosachariden
 
 # description:en:SUGAR is the generic name for sweet-tasting, soluble carbohydrates
 
@@ -47889,6 +47894,10 @@ ciqual_food_name:en:Fennel, raw
 ciqual_food_name:fr:Fenouil, cru
 # 2221 in20 @2021-10-09
 
+<en:fennel
+en:fennel powder
+fr:fenouil poudre
+
 #<en:fennel
 #en:organic fennel
 #de:Bio-Fenchel
@@ -51315,8 +51324,10 @@ da:flåede tomater
 de:stückige Tomaten, Tomaten stückig
 # el:πουρές τομάτας is already puree
 fi:tomaattimurska, tomaattimurskaa
+fr:tomates écrasées
 it:Pomodoro schiacciato
 nb:knust tomat
+nl:geplette tomaten
 # pl:Przecier pomidorowy is puree according to google
 sv:krossade tomater
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:tomaattimurska
@@ -79330,7 +79341,7 @@ et:lasanje
 eu:lasagna
 fa:لازانیا
 fi:lasagne, lasagnelevyt
-fr:lasagnes, feuilles de lasagnes
+fr:lasagnes, feuilles de lasagnes, pates a lasagnes cuites, pate a lasagne
 gl:lasaña
 he:לזניה
 hi:लज़ान्या
@@ -81623,7 +81634,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Brine
 
 # <en:compound
 # <en:mainIngredient:en:water
-en:broth, broths, stock, bouillon, Stocks
+en:broth, broths, stock, bouillon, Stocks, fond
 af:bouillon
 ar:زومات
 az:Bulyon
@@ -81642,7 +81653,7 @@ et:puljong
 eu:Salda
 fa:گوشتابه
 fi:liemi, liemivalmiste
-fr:bouillon, fond, Bouillons
+fr:bouillon, fond, Bouillons, fond de sauce
 ga:anraith
 gd:brot
 gl:Caldo
@@ -81702,11 +81713,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Broth
 # category/broths has 527 products @2019-05-19
 # ingredient/fr:bouillon has 1214 products in 6 languages @2019-02-25
 # brodo (acqua, osso di pollo, sale, spezie, carota, sedano (0,01%), cipolla, porro, scalogno, aglio, piante aromatiche)
-
-<en:broth
-en:fond
-fr:fond de sauce
-wikidata:en:Q96378096
 
 #category:en:beef-broth
 <en:beef
