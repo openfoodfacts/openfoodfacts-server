@@ -49,7 +49,7 @@
       "5xxxxxxxxxxxx"
    ],
    "complete" : 0,
-   "completeness" : 0.5,
+   "completeness" : 0.4,
    "correctors_tags" : [],
    "countries" : "en",
    "countries_hierarchy" : [
@@ -508,10 +508,10 @@
          "url" : null
       }
    ],
-   "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-completed, en:categories-to-be-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-uploaded",
+   "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-completed, en:categories-to-be-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-uploaded",
    "states_hierarchy" : [
       "en:to-be-completed",
-      "en:nutrition-facts-completed",
+      "en:nutrition-facts-to-be-completed",
       "en:ingredients-completed",
       "en:expiration-date-to-be-completed",
       "en:packaging-code-to-be-completed",
@@ -526,7 +526,7 @@
    ],
    "states_tags" : [
       "en:to-be-completed",
-      "en:nutrition-facts-completed",
+      "en:nutrition-facts-to-be-completed",
       "en:ingredients-completed",
       "en:expiration-date-to-be-completed",
       "en:packaging-code-to-be-completed",
