@@ -62,8 +62,9 @@ my @tests = (
 		]
 	],
 
-# en:dried (children are left out at the moment) What does this mean????
-	[ { lc => "en", ingredients_text => "dried milk"},
+	# en:dried (children are left out at the moment) What does this mean????
+	[
+		{lc => "en", ingredients_text => "dried milk"},
 		[
 			{
 				'id' => 'en:milk',
@@ -73,8 +74,9 @@ my @tests = (
 		]
 	],
 
-# en: smoked (children are left out at the moment)
-	[ { lc => "en", ingredients_text => "smoked milk, not smoked tomatoes"},
+	# en: smoked (children are left out at the moment)
+	[
+		{lc => "en", ingredients_text => "smoked milk, not smoked tomatoes"},
 		[
 			{
 				'id' => 'en:milk',
