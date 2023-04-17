@@ -585,7 +585,7 @@ my $tests_ref = [
 		method => 'PATCH',
 		path => '/api/v3/product/123',
 		body => '{"product": { "ingredients_text_en": "milk 80%, sugar, cocoa powder"}}',
-	},	
+	},
 	# code "test" to get results for an empty product without saving anything
 	{
 		test_case => 'patch-code-test',
@@ -610,7 +610,7 @@ my $tests_ref = [
 				"ingredients_text_fr": "lait 80%, sucre, poudre de cacao"
 			}
 		}',
-	},	
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
