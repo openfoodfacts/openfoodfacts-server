@@ -450,7 +450,7 @@ sub normalize_requested_code ($requested_code, $response_ref) {
 			$response_ref,
 			{
 				message => {id => "different_normalized_product_code"},
-				field => {id => $code, value => $code},
+				field => {id => "code", value => $code},
 				impact => {id => "none"},
 			}
 		);
