@@ -81,6 +81,8 @@ use Data::DeepAccess qw(deep_get deep_exists);
 
 Loads the Ciqual CALNUT database.
 
+Documentation of Ciqual CALNUT: https://ciqual.anses.fr/cms/sites/default/files/inline-files/Table%20CALNUT%202020_doc_FR_2020%2007%2007.pdf
+
 =cut
 
 sub load_ciqual_data() {
@@ -153,7 +155,10 @@ sub load_ciqual_data() {
 		while ($row_ref = $csv->getline($io)) {
 			my $ciqual_id = $row_ref->[0];    # alim_code
 			my $name_fr = $row_ref->[1];    # FOOD_LABEL
-			my $hypothesis = $row_ref->[2];    # HYPOTH: LB / MB / UB  (lower bound, median bound, upper bound)
+			my $hypothesis = $row_ref->[2];    # HYPOTH: LB / MB / UB  (lower bound, middle bound, upper bound)
+
+			# We select the middle bound value
+			next if $hypothesis ne "MB";
 
 			$ciqual_data{$ciqual_id} = {
 				name_fr => $name_fr,
