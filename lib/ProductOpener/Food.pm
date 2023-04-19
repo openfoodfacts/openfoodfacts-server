@@ -1340,6 +1340,7 @@ sub compute_nutrition_score ($product_ref) {
 		and (defined $product_ref->{nutriments_estimated}))
 	{
 		$nutriments_field = "nutriments_estimated";
+		$product_ref->{nutrition_score_warning_nutriments_estimated} = 1;
 		add_tag($product_ref, "misc", "en:nutriscore-using-estimated-nutrition-facts");
 		$product_ref->{"nutrition_grades_tags"} = [];
 	}
