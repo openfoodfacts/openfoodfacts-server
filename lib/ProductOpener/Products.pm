@@ -3538,6 +3538,8 @@ sub analyze_and_enrich_product_data ($product_ref, $response_ref) {
 
 	compute_serving_size_data($product_ref);
 
+	compute_estimated_nutrients($product_ref);
+
 	compute_nutrition_score($product_ref);
 
 	compute_nova_group($product_ref);

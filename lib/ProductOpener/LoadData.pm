@@ -54,6 +54,7 @@ use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Ecoscore qw(:all);
 use ProductOpener::MainCountries qw(:all);
+use ProductOpener::NutritionCiqual qw(:all);
 
 =head1 FUNCTIONS
 
@@ -81,6 +82,7 @@ sub load_data() {
 		load_agribalyse_data();
 		load_ecoscore_data();
 		load_forest_footprint_data();
+		load_ciqual_data();
 	}
 
 	$log->debug("loading data - done") if $log->is_debug();

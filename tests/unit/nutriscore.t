@@ -14,11 +14,14 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Nutriscore qw/:all/;
+use ProductOpener::NutritionCiqual qw/:all/;
+use ProductOpener::NutritionEstimation qw/:all/;
 use ProductOpener::Test qw/:all/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
-init_emb_codes();
+# Needed to compute estimated nutrients
+load_ciqual_data();
 
 my @tests = (
 
@@ -397,6 +400,24 @@ my @tests = (
 		}
 	],
 
+	# Nutri-Score from estimated nutrients
+	[
+		"en-sugar-estimated-nutrients",
+		{
+			lc => "en",
+			categories => "sugars",
+			ingredients_text => "sugar",
+		}
+	],
+	[
+		"en-apple-estimated-nutrients",
+		{
+			lc => "en",
+			categories => "apples",
+			ingredients_text => "apples",
+		}
+	],
+
 );
 
 my $json = JSON->new->allow_nonref->canonical;
@@ -409,6 +430,7 @@ foreach my $test_ref (@tests) {
 	compute_field_tags($product_ref, $product_ref->{lc}, "categories");
 	extract_ingredients_from_text($product_ref);
 	special_process_product($product_ref);
+	diag explain compute_estimated_nutrients($product_ref);
 	compute_nutrition_score($product_ref);
 
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);

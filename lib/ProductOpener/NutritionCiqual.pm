@@ -20,21 +20,18 @@
 
 =head1 NAME
 
-ProductOpener::Ecoscore - compute the Ecoscore environmental grade of a food product
-
-=head1 SYNOPSIS
-
-C<ProductOpener::Ecoscore> is used to compute the Ecoscore environmental grade
-of a food product.
+ProductOpener::NutritionCiqual - load data from the Ciqual nutritional database
 
 =head1 DESCRIPTION
 
-The modules implements the Eco-Score computation as defined by a collective that Open Food Facts is part of.
+A copy of the Ciqual database is in external-data/ciqual/calnut
 
-It is based on the French AgriBalyse V3 database that contains environmental impact values for 2500 food product categories.
+The present data and information are made available to the public by the French Agency for Food, Environmental and Occupational Health & Safety (ANSES).
+They must not be reproduced in any form without clear indication of the source:
 
-AgriBalyse provides Life Cycle Analysis (LCA) values for food products categories,
-and some adjustments to the score are made for actual specific products using data about labels, origins of ingredients, packagings etc.
+"Anses. 2020. Ciqual French food composition table."
+
+https://ciqual.anses.fr/
 
 =cut
 
@@ -71,7 +68,7 @@ use Data::DeepAccess qw(deep_get deep_exists);
 
 =head2 %ciqual_data
 
-
+Hash table with the ciqual ingredient id as a key, mapped to a hash of Open Food Facts nutrients id to values.
 
 =cut
 
@@ -120,13 +117,15 @@ sub load_ciqual_data() {
 			'g' => 1,
 			'mg' => 1000,
 			'mcg' => 1000 * 1000,
+			'kj' => 1,
+			'kcal' => 1,
 		);
 
 		foreach my $nutrient (@$header_row_ref) {
 			# nrj_kj -> energy-kj-kj
 			$nutrient =~ s/^nrj_(.*)$/energy-$1_$1/;
 
-			if ($nutrient =~ /_(g|mg|mcg)$/) {
+			if ($nutrient =~ /_(g|mg|mcg|kj|kcal)$/) {
 				my $french_nutrient_name = $`;
 				my $unit = $1;
 
@@ -143,6 +142,8 @@ sub load_ciqual_data() {
 						};
 				}
 				else {
+					# TODO: some nutrients are not automatically recognized yet
+					# (e.g. most fatty acids identified with column names like ag_18_3_a_lino_g)
 					$log->error("unrecognized column name (nutrient) in CIQUAL table", {column_name => $nutrient})
 						if $log->is_error();
 				}

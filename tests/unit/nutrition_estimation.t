@@ -13,26 +13,26 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 load_ciqual_data();
 
 my @tests = (
-    {
-        id => '100-percent-white-sugar',
-        desc => '1 ingredient with exact match in CIQUAL',
-        product => {lc => "en", ingredients_text => "white sugar"},
-    },
-    {
-        id => '100-percent-sugar',
-        desc => '1 ingredient with proxy match in CIQUAL',
-        product => {lc => "en", ingredients_text => "sugar"},
-    },
-    {
-        id => '50-percent-sugar-and-unknown-ingredients',
-        desc => 'unknown ingredients',
-        product => {lc => "en", ingredients_text => "sugar 50%, strange ingredient, stranger ingredient"},
-    },       
+	{
+		id => '100-percent-white-sugar',
+		desc => '1 ingredient with exact match in CIQUAL',
+		product => {lc => "en", ingredients_text => "white sugar"},
+	},
+	{
+		id => '100-percent-sugar',
+		desc => '1 ingredient with proxy match in CIQUAL',
+		product => {lc => "en", ingredients_text => "sugar"},
+	},
+	{
+		id => '50-percent-sugar-and-unknown-ingredients',
+		desc => 'unknown ingredients',
+		product => {lc => "en", ingredients_text => "sugar 50%, strange ingredient, stranger ingredient"},
+	},
 );
 
 foreach my $test_ref (@tests) {
 
-    my $testid = $test_ref->{id};
+	my $testid = $test_ref->{id};
 	my $product_ref = $test_ref->{product};
 
 	print STDERR "ingredients_text: " . $product_ref->{ingredients_text} . " (" . $product_ref->{lc} . ")\n";
@@ -45,13 +45,12 @@ foreach my $test_ref (@tests) {
 
 	compute_ingredients_percent_estimates(100, $product_ref->{ingredients});
 
-    my $results_ref = {
-        ingredients => $product_ref->{ingredients},
-        estimated_nutrients => estimate_nutrients_from_ingredients($product_ref->{ingredients}),
-    };
+	my $results_ref = {
+		ingredients => $product_ref->{ingredients},
+		estimated_nutrients => estimate_nutrients_from_ingredients($product_ref->{ingredients}),
+	};
 
 	compare_to_expected_results($results_ref, "$expected_result_dir/$testid.json", $update_expected_results, $test_ref);
 }
-
 
 done_testing();

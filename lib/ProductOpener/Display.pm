@@ -8736,6 +8736,11 @@ sub data_to_display_nutriscore($) {
 		# Do not display a warning for water
 		if (not(has_tag($product_ref, "categories", "en:spring-waters"))) {
 
+			# Warning for nutrients estimated from ingredients
+			if ($product_ref->{nutrition_score_warning_nutriments_estimated}) {
+				push @nutriscore_warnings, lang("nutrition_grade_fr_nutriments_estimated_warning");
+			}
+
 			# Warning for tea and herbal tea in bags: state that the Nutri-Score applies
 			# only when reconstituted with water only (no milk, no sugar)
 			if (

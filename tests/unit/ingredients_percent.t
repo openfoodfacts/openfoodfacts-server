@@ -941,6 +941,39 @@ my @tests = (
 		]
 	],
 
+	# Ingredients indicated in grams, with a sum different than 100
+	# Currently this does not work well, as we assume that ingredients are listed for 100g.
+	[
+		{lc => "en", ingredients_text => "milk (120g), sugar (30g), lemon flavouring (2g)"},
+		[
+			{
+				'id' => 'en:milk',
+				'percent' => 120,
+				'percent_estimate' => 100,
+				'percent_max' => 68,
+				'percent_min' => 120,
+				'text' => 'milk'
+			},
+			{
+				'id' => 'en:sugar',
+				'percent' => 30,
+				'percent_estimate' => 0,
+				'percent_max' => 30,
+				'percent_min' => 30,
+				'text' => 'sugar'
+			},
+			{
+				'id' => 'en:lemon-flavouring',
+				'percent' => '2',
+				'percent_estimate' => 0,
+				'percent_max' => 2,
+				'percent_min' => 2,
+				'text' => 'lemon flavouring'
+			}
+		]
+
+	],
+
 );
 
 foreach my $test_ref (@tests) {
