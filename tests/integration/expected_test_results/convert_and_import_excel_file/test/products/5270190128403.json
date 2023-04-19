@@ -430,7 +430,7 @@
       "en:nutrition-no-fiber",
       "en:nutriscore-using-estimated-nutrition-facts",
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
-      "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
+      "en:nutrition-all-nutriscore-values-known",
       "en:nutriscore-computed",
       "en:packagings-not-complete",
       "en:packagings-empty",
@@ -547,7 +547,7 @@
    "nutrition_score_debug" : "no score when the product does not have a category - missing energy - missing fat - missing saturated-fat - missing sugars - missing sodium - missing proteins",
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 100,
-   "nutrition_score_warning_no_fiber" : 1,
+   "nutrition_score_warning_nutriments_estimated" : 1,
    "origins" : "Martinique",
    "origins_hierarchy" : [
       "en:martinique"

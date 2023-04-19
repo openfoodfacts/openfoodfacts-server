@@ -1343,6 +1343,9 @@ sub compute_nutrition_score ($product_ref) {
 		$product_ref->{nutrition_score_warning_nutriments_estimated} = 1;
 		add_tag($product_ref, "misc", "en:nutriscore-using-estimated-nutrition-facts");
 		$product_ref->{"nutrition_grades_tags"} = [];
+
+		# Delete the warning for missing fiber, as we will get fiber from the estimate
+		delete $product_ref->{nutrition_score_warning_no_fiber};
 	}
 
 	# If the Nutri-Score is unknown or not applicable, exit the function

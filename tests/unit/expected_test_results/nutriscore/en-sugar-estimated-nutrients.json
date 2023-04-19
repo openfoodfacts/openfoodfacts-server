@@ -82,7 +82,7 @@
       "en:nutrition-no-fiber",
       "en:nutriscore-using-estimated-nutrition-facts",
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
-      "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
+      "en:nutrition-all-nutriscore-values-known",
       "en:nutriscore-computed"
    ],
    "nutriments" : {
@@ -184,7 +184,7 @@
    "nutrition_score_debug" : "missing energy - missing fat - missing saturated-fat - missing sugars - missing sodium - missing proteins",
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 0,
-   "nutrition_score_warning_no_fiber" : 1,
+   "nutrition_score_warning_nutriments_estimated" : 1,
    "pnns_groups_1" : "Sugary snacks",
    "pnns_groups_1_tags" : [
       "sugary-snacks",
