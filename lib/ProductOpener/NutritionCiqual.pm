@@ -68,7 +68,7 @@ use Data::DeepAccess qw(deep_get deep_exists);
 
 =head2 %ciqual_data
 
-Hash table with the ciqual ingredient id as a key, mapped to a hash of Open Food Facts nutrients id to values.
+Hash table with the Ciqual ingredient id as a key, mapped to a hash of Open Food Facts nutrients id to values.
 
 =cut
 
