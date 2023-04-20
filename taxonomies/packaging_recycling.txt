@@ -70,7 +70,7 @@ fr:recycler avec le plastique
 nl:recycle bij plastic afval, bij plastic afval, plastic afval
 packaging_materials:en: en:plastics
 
-#packaging that is to be returned to the shop, in exchange for money, might be PET-bottles, meetal cans or glass bottles
+#packaging that is to be returned to the shop, in exchange for money, might be PET-bottles, metal cans or glass bottles
 <en:recycle
 en:return to store, deposit
 fr:consigné, consigne, rapporter au magasin, retourner au magasin
@@ -80,9 +80,14 @@ fr:consigné, consigne, rapporter au magasin, retourner au magasin
 <en:return to store
 en:return PET bottle to store, PET deposit bottle
 fr:bouteille en PET consignée, rapporter la bouteille en PET au magasin
-nl:recycle als statiegeldfles, statiegeldfles
+nl:statiegeldfles, recycle als statiegeldfles
 packaging_materials:en: en:pet-polyethylene-terephthalate
 packaging_shapes:en: en:bottle
+
+#In the Netherlands metal cans must be returned in exchange for the deposit, when it has the statiegeldblik logo
+<en:return to store
+nl:statiegeldblik, recycle als statiegeldblik
+packaging_shapes:en: en:can
 
 # In Croatia, there is a specific label for plastic and glass bottle with deposit
 <en:return to store
