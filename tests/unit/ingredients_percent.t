@@ -496,62 +496,83 @@ my @tests = (
 		]
 	],
 
+	# All ingredients have % specified, but the total is not 100%
+	# We now scale them to 100%.
+	# Note: currently the min part is ignored, we set percent instead of percent_min
 	[
-		{lc => "es", ingredients_text => "Leche min 12.2%, Cacao: min 7%, Avellanas (mínimo 3%)"},
+		{lc => "es", ingredients_text => "Leche min 12.2%, Cacao: min 7%, Avellanas (mínimo 0,8%)"},
 		[
 			{
 				'id' => 'en:milk',
-				'percent' => '12.2',
-				'percent_estimate' => '12.2',
+				'percent' => 61,
+				'percent_estimate' => 61,
+				'percent_max' => 61,
+				'percent_min' => 61,
 				'text' => 'Leche'
 			},
 			{
 				'id' => 'en:cocoa',
-				'percent' => '7',
-				'percent_estimate' => '7',
+				'percent' => 35,
+				'percent_estimate' => 35,
+				'percent_max' => 35,
+				'percent_min' => 35,
 				'text' => 'Cacao'
 			},
 			{
 				'id' => 'en:hazelnut',
-				'percent' => '3',
-				'percent_estimate' => '80.8',
+				'percent' => '4',
+				'percent_estimate' => 4,
+				'percent_max' => 4,
+				'percent_min' => 4,
 				'text' => 'Avellanas'
 			}
 		]
+
 	],
 
+	# bug #3762 "min" in "cumin"
 	# bug #3762 "min" in "cumin"
 	[
 		{lc => "fr", ingredients_text => "sel (min 20%), poivre (min. 10%), piment (min : 5%), cumin 0,4%, ail : 0.1%"},
 		[
 			{
 				'id' => 'en:salt',
-				'percent' => '20',
-				'percent_estimate' => 20,
+				'percent' => '56.3380281690141',
+				'percent_estimate' => '56.3380281690141',
+				'percent_max' => '56.3380281690141',
+				'percent_min' => '56.3380281690141',
 				'text' => 'sel'
 			},
 			{
 				'id' => 'en:pepper',
-				'percent' => '10',
-				'percent_estimate' => 10,
+				'percent' => '28.169014084507',
+				'percent_estimate' => '28.169014084507',
+				'percent_max' => '28.169014084507',
+				'percent_min' => '28.169014084507',
 				'text' => 'poivre'
 			},
 			{
 				'id' => 'en:chili-pepper',
-				'percent' => '5',
-				'percent_estimate' => 5,
+				'percent' => '14.0845070422535',
+				'percent_estimate' => '14.0845070422535',
+				'percent_max' => '14.0845070422535',
+				'percent_min' => '14.0845070422535',
 				'text' => 'piment'
 			},
 			{
 				'id' => 'en:cumin',
-				'percent' => '0.4',
-				'percent_estimate' => '0.4',
+				'percent' => '1.12676056338028',
+				'percent_estimate' => '1.12676056338028',
+				'percent_max' => '1.12676056338027',
+				'percent_min' => '1.12676056338028',
 				'text' => 'cumin'
 			},
 			{
 				'id' => 'en:garlic',
-				'percent' => '0.1',
-				'percent_estimate' => '64.6',
+				'percent' => '0.28169014084507',
+				'percent_estimate' => '0.281690140845058',
+				'percent_max' => '0.281690140845058',
+				'percent_min' => '0.28169014084507',
 				'text' => 'ail'
 			}
 		]
@@ -941,17 +962,87 @@ my @tests = (
 		]
 	],
 
-	# Ingredients indicated in grams, with a sum different than 100
-	# Currently this does not work well, as we assume that ingredients are listed for 100g.
+	# Ingredients indicated in grams, with a sum different than 100 (here 200)
+	# The percents need to be scaled to take into account the actual sum
+	# This works only if we have actual percent values for all ingredients
 	[
-		{lc => "en", ingredients_text => "milk (120g), sugar (30g), lemon flavouring (2g)"},
+		{lc => "en", ingredients_text => "milk (160g), sugar (30g), lemon flavouring (10g)"},
 		[
 			{
 				'id' => 'en:milk',
-				'percent' => 120,
+				'percent' => 80,
+				'percent_estimate' => 80,
+				'percent_max' => 80,
+				'percent_min' => 80,
+				'text' => 'milk'
+			},
+			{
+				'id' => 'en:sugar',
+				'percent' => 15,
+				'percent_estimate' => 15,
+				'percent_max' => 15,
+				'percent_min' => 15,
+				'text' => 'sugar'
+			},
+			{
+				'id' => 'en:lemon-flavouring',
+				'percent' => '5',
+				'percent_estimate' => 5,
+				'percent_max' => 5,
+				'percent_min' => 5,
+				'text' => 'lemon flavouring'
+			}
+		]
+
+	],
+	# smaller sum than 100, sub ingredients, ingredients not in quantity order (as in a recipe)
+	[
+		{lc => "en", ingredients_text => "milk (10g), fruits 30g (apples, pears), lemon flavouring (10g)"},
+		[
+			{
+				'id' => 'en:milk',
+				'percent' => 20,
+				'percent_estimate' => 20,
+				'text' => 'milk'
+			},
+			{
+				'id' => 'en:fruit',
+				'ingredients' => [
+					{
+						'id' => 'en:apple',
+						'percent_estimate' => 30,
+						'text' => 'apples'
+					},
+					{
+						'id' => 'en:pear',
+						'percent_estimate' => 30,
+						'text' => 'pears'
+					}
+				],
+				'percent' => 60,
+				'percent_estimate' => 60,
+				'text' => 'fruits'
+			},
+			{
+				'id' => 'en:lemon-flavouring',
+				'percent' => '20',
+				'percent_estimate' => 20,
+				'text' => 'lemon flavouring'
+			}
+		]
+
+	],
+	# This test currently does not give very good results, as we have one ingredient without quantity,
+	# so we can't do much about it
+	[
+		{lc => "en", ingredients_text => "milk (160g), sugar (30g), lemon flavouring"},
+		[
+			{
+				'id' => 'en:milk',
+				'percent' => 160,
 				'percent_estimate' => 100,
-				'percent_max' => 68,
-				'percent_min' => 120,
+				'percent_max' => 70,
+				'percent_min' => 160,
 				'text' => 'milk'
 			},
 			{
@@ -964,10 +1055,9 @@ my @tests = (
 			},
 			{
 				'id' => 'en:lemon-flavouring',
-				'percent' => '2',
 				'percent_estimate' => 0,
-				'percent_max' => 2,
-				'percent_min' => 2,
+				'percent_max' => 5,
+				'percent_min' => 0,
 				'text' => 'lemon flavouring'
 			}
 		]
