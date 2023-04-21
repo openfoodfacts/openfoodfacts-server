@@ -599,6 +599,7 @@ my $tests_ref = [
 		path => '/api/v3/product/test',
 		body => '{"product": { "some_unrecognized_field": "some value"}}',
 	},
+	# language specific fields
 	{
 		test_case => 'patch-language-fields',
 		method => 'PATCH',
@@ -611,6 +612,36 @@ my $tests_ref = [
 			}
 		}',
 	},
+	# tags fields
+	{
+		test_case => 'patch-tags-fields',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890100',
+		body => '{
+			"fields" : "updated",
+			"product": { 
+				"categories_tags": ["coffee"],
+				"labels_tags": ["en:organic", "fr:max havelaar", "vegan", "Something unrecognized"],
+				"brands_tags": ["Some brand"],
+				"unknown_tags": ["some value"],
+				"stores_tags": "comma,separated,list"
+			}
+		}',
+	},
+	# add to categories (existing) and stores (empty), replace labels
+	{
+		test_case => 'patch-tags-fields-add',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890100',
+		body => '{
+			"fields" : "updated",
+			"product": { 
+				"add_categories_tags": ["en:tea"],
+				"add_stores_tags": ["Carrefour", "Mon Ptit magasin"],
+				"labels_tags_fr": ["végétarien", "Something unrecognized in French"]
+			}
+		}',
+	},	
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
