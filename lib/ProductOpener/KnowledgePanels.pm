@@ -218,11 +218,9 @@ sub convert_multiline_string_to_singleline ($line) {
 
 	# \R will match all Unicode newline sequence
 	$line =~ s/\R/\\n/sg;
-	# Escape quotes unless they have been escaped already
-	# negative look behind to not convert \" to \\"
-	$line =~ s/(?<!\\)"/\\"/g;
-	# Escape \ to \\
-	$line =~ s/(?<!\\)\\/\\\\/g;
+	# Escape " and \ unless they have been escaped already
+	# negative look behind to not convert \" to \\" or \\ to \\\\
+	$line =~ s/(?<!\\)("|\\)/\\$1/g;
 	return '"' . $line . '"';
 }
 
