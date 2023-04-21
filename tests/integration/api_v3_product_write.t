@@ -641,7 +641,7 @@ my $tests_ref = [
 				"labels_tags_fr": ["végétarien", "Something unrecognized in French"]
 			}
 		}',
-	},	
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

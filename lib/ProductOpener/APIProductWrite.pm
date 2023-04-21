@@ -218,14 +218,28 @@ sub update_tags_fields ($request_ref, $product_ref, $field, $is_addition, $tags_
 		else {
 			$product_ref->{$field} = $tags_list;
 		}
-		
+
 		compute_field_tags($product_ref, $tags_lc, $field);
 
-		$request_ref->{updated_product_fields}{$field} = 1;
-		$request_ref->{updated_product_fields}{$field . '_tags'} = 1;
-		$request_ref->{updated_product_fields}{$field . '_tags_' . $tags_lc} = 1;
+		$request_ref->{updated_product_fields}{$field} = 1;    # joined inputs, can be in any language
+		$request_ref->{updated_product_fields}{$field . '_hierarchy'}
+			= 1;  # tags, with entries that are not in the taxonomy in original format (with accents, caps, spaces etc.)
+		$request_ref->{updated_product_fields}{$field . '_tags'}
+			= 1;    # tags, with entries that are not in the taxonomy in a normalized format
+		$request_ref->{updated_product_fields}{$field . '_tags_' . $tags_lc}
+			= 1;    # resulting values in the language used to send input values
 
-		$log->debug("update_tags_fields", {field => $field, tags_lc => $tags_lc, value => $value, tags_list => $tags_list, product_field => $product_ref->{$field}, product_field_tags => $product_ref->{$field . "_tags"}}) if $log->is_debug();
+		$log->debug(
+			"update_tags_fields",
+			{
+				field => $field,
+				tags_lc => $tags_lc,
+				value => $value,
+				tags_list => $tags_list,
+				product_field => $product_ref->{$field},
+				product_field_tags => $product_ref->{$field . "_tags"}
+			}
+		) if $log->is_debug();
 	}
 	return;
 }
@@ -262,7 +276,7 @@ sub update_product_fields ($request_ref, $product_ref, $response_ref) {
 			update_field_with_0_or_1_value($request_ref, $product_ref, $field, $value);
 		}
 		# language fields
-		elsif (($field =~ /^(.*)_(\w\w)$/)
+		elsif ( ($field =~ /^(.*)_(\w\w)$/)
 			and (defined $language_fields{$1}))
 		{
 
@@ -275,7 +289,7 @@ sub update_product_fields ($request_ref, $product_ref, $response_ref) {
 		}
 		# tags fields
 		elsif ( ($field =~ /^(add_)?(.*)_tags(?:_(\w\w))?$/)
-			and (defined $writable_tags_fields{$2}))		
+			and (defined $writable_tags_fields{$2}))
 		{
 			my $is_addition = $1;
 			my $tagtype = $2;
@@ -299,8 +313,6 @@ sub update_product_fields ($request_ref, $product_ref, $response_ref) {
 	}
 	return;
 }
-
-
 
 =head2 write_product_api()
 
