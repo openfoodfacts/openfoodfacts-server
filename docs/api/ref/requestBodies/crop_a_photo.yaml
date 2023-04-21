@@ -9,7 +9,7 @@ properties:
     example: '04963406'
   imgid:
     type: integer
-    description: identifier of the image to select, it should be a digit
+    description: identifier of the image to select, it should be a number
     example: 2
   id:
     type: string
