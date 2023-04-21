@@ -216,11 +216,13 @@ The function converts the multiline string into a single line string.
 
 sub convert_multiline_string_to_singleline ($line) {
 
-	# \R will match all Unicode newline sequence
-	$line =~ s/\R/\\n/sg;
 	# Escape " and \ unless they have been escaped already
 	# negative look behind to not convert \n to \\n or \" to \\" or \\ to \\\\
-	$line =~ s/(?<!\\)(n|"|\\)/\\$1/g;
+	$line =~ s/(?<!\\)("|\\)/\\$1/g;
+
+	# \R will match all Unicode newline sequence
+	$line =~ s/\R/\\n/sg;
+
 	return '"' . $line . '"';
 }
 
