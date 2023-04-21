@@ -48,6 +48,18 @@ jobs:
         # create_pull_request: # default is true
         # The title of the new pull request
         pull_request_title: "l10n: New Crowdin translations to review and merge"
+        pull_request_body: '### What
+
+            - Automated pull request pulling in new or updated translations from Crowdin (https://translate.openfoodfacts.org).
+
+            ## Checklist
+
+            - [ ] Check that they are no bad translations. If there are, correct them directly in Crowdin so that they are not resynced again. Then you can correct them here as well, or wait 24 hours for the sync to happen automatically.
+            - [ ] Put extra attention on Acholi, which is used mistakenly as a sandbox by people discovering the self-service translation button on Open Food Facts
+            - [ ] Once you are happy, that automated checks pass, you can approve the PR and merge it.
+            ### Part of
+            - Translations
+            '
         # The contents of the pull request
         # pull_request_body: # optional
         # To add labels for created pull request
