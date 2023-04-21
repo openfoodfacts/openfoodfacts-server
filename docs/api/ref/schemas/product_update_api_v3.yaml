@@ -1,0 +1,13 @@
+title: Product update API V3 (WRITE)
+x-stoplight:
+  id: qnmmu2yuzc1xf
+type: object
+description: Model for creating or updating products using the v3 version of the product update API.
+examples: []
+properties:
+  packagings:
+    $ref: ./packagings/packagings-write.yaml
+  packagings_add:
+    $ref: ./packagings/packagings-write.yaml
+  packagings_complete:
+    $ref: ./packagings/packagings_complete.yaml

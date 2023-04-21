@@ -128,6 +128,13 @@
                {
                   "element_type" : "text",
                   "text_element" : {
+                     "html" : "Select a country in order to include the full impact of transportation.",
+                     "type" : "warning"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
                      "html" : "The <a href=\"http://world.openfoodfacts.localhost/ecoscore\">Eco-Score</a> is an experimental score that summarizes the environmental impacts of food products."
                   }
                },
@@ -342,7 +349,7 @@
                            "type" : "text"
                         },
                         {
-                           "text" : "Recycling",
+                           "text" : "Recycling instruction",
                            "type" : "text"
                         },
                         {
@@ -1027,6 +1034,15 @@
                      "html" : "\n                The origins of the ingredients of this product are not indicated.<br><br>\n                If they are indicated on the packaging, you can modify the product sheet and add them.<br><br>\n                If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>.\n                    ",
                      "type" : "warning"
                   }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "add_origins"
+                     ],
+                     "html" : "Add the origins of ingredients for this product"
+                  },
+                  "element_type" : "action"
                }
             ],
             "evaluation" : "unknown",
@@ -1048,7 +1064,7 @@
                   "element_type" : "text",
                   "text_element" : {
                      "evaluation" : "good",
-                     "html" : "\n                        \n                            \n                                <strong>Box</strong>\n                                    \n                                        (Wood)\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                                <strong>Lid</strong>\n                                    \n                                        (Steel)\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                        ",
+                     "html" : "\n                        \n                            \n                                1 x \n                                <strong>\n                                    Box\n                                    \n                                </strong>\n                                    \n                                        (Wood)\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                                3 x \n                                <strong>\n                                    Lid\n                                    \n                                </strong>\n                                    \n                                        (Steel)\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                        ",
                      "icon_alt" : "Recycle",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/recycle-variant.svg",
@@ -1059,10 +1075,21 @@
                   "element_type" : "text",
                   "text_element" : {
                      "evaluation" : "bad",
-                     "html" : "\n                        \n                            \n                        \n                            \n                        \n                            \n                        \n                            \n                                <strong>Film</strong>\n                                    \n                                        (Plastic)\n                                    \n                                    <br>\n                            \n                        \n                        ",
+                     "html" : "\n                        \n                            \n                        \n                            \n                        \n                            \n                        \n                            \n                                1 x \n                                <strong>\n                                    Film\n                                    \n                                </strong>\n                                    \n                                        (Plastic)\n                                    \n                                    <br>\n                            \n                        \n                        ",
                      "icon_alt" : "Discard",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/delete.svg",
+                     "type" : "summary"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "evaluation" : "neutral",
+                     "html" : "\n                        \n                            \n                        \n                            \n                                6 x \n                                <strong>\n                                    Bottle\n                                    25cl \n                                </strong>\n                                    \n                                        (Glass)\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                        \n                        ",
+                     "icon_alt" : "Unknown",
+                     "icon_color_from_evaluation" : true,
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/help.svg",
                      "type" : "summary"
                   }
                }

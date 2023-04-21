@@ -24,6 +24,73 @@ is(guess_language_of_packaging_text("boîte", [qw(de es it fr)]), "fr");
 is(guess_language_of_packaging_text("surgelé", [qw(de es it fr)]), "fr");
 is(guess_language_of_packaging_text("something unknown", [qw(de es it fr)]), undef);
 
+# Tests for get_checked_and_taxonomized_packaging_component_data
+
+my @tests = (
+	{
+		lc => "en",
+		input =>
+			{"number_of_units" => 1, "shape" => "en:bottle", "material" => "en:glass", "weight_measured" => "55,40"},
+		expected_output => {
+			'material' => 'en:glass',
+			'number_of_units' => 1,
+			'shape' => 'en:bottle',
+			'weight_measured' => 55.4,
+		}
+	},
+	{
+		desc => "Value 0 should be considered empty, all values are 0, return undef",
+		lc => "en",
+		input => {
+			"number_of_units" => 0,
+			"shape" => "0",
+			"material" => "0",
+			"weight_measured" => "0",
+			"quantity_per_unit" => "0"
+		},
+		expected_output => undef,
+	},
+	{
+		desc => "Value 0 should be considered empty, 1 value is not 0",
+		lc => "en",
+		input => {
+			"number_of_units" => 0,
+			"shape" => "bottle",
+			"material" => "0",
+			"weight_measured" => "0",
+			"quantity_per_unit" => "0"
+		},
+		expected_output => {
+			'shape' => 'en:bottle',
+		}
+	},
+	{
+		desc => "weights, float",
+		lc => "en",
+		input => {"weight_measured" => 21.5, "weight_specified" => 14.3},
+		expected_output => {
+			'weight_measured' => '21.5',
+			'weight_specified' => '14.3'
+		}
+	},
+	{
+		desc => "weights, strings",
+		lc => "en",
+		input => {"weight_measured" => "21.5", "weight_specified" => "14.3"},
+		expected_output => {
+			'weight_measured' => '21.5',
+			'weight_specified' => '14.3'
+		}
+	},
+);
+
+foreach my $test_ref (@tests) {
+	$test_ref->{output} = get_checked_and_taxonomized_packaging_component_data($test_ref->{lc}, $test_ref->{input}, {});
+	is_deeply($test_ref->{output}, $test_ref->{expected_output}, $test_ref->{desc}) or diag explain $test_ref;
+}
+
+# Tests for analyze_and_combine_packaging_data()
+
 my @tests = (
 
 	[
@@ -67,7 +134,7 @@ boîte en carton à recycler"
 		'packaging_text_fr_multiple_semi_colon',
 		{
 			lc => "fr",
-			packaging_text => "barquette en plastique à jeter;film plastique à jeter; boîte en carton à recycler"
+			packaging_text => "barquette en plastique à jeter; film plastique à jeter; boîte en carton à recycler"
 		}
 	],
 	[
@@ -110,15 +177,6 @@ boîte en carton à recycler"
 			packaging_text => "overig bij plastic afval"
 		}
 	],
-
-	[
-		'packaging_text_nl_blik_bij_restafval',
-		{
-			lc => "nl",
-			packaging_text => "blik bij restafval"
-		}
-	],
-
 	[
 		'packaging_text_nl_verpakking_bij_drankencartons',
 		{
@@ -156,7 +214,7 @@ boîte en carton à recycler"
 		'packaging_text_nl_plastic_fles',
 		{
 			lc => "nl",
-			packaging_text => "plastic fles"
+			packaging_text => "plastiek fles"
 		}
 	],
 
@@ -196,7 +254,7 @@ boîte en carton à recycler"
 	],
 
 	# Merge packaging text data with existing packagings structure
-
+	# 20230213: packaging text is now ignored if there is an existing packagings structure
 	[
 		'merge_en_add_packaging',
 		{
@@ -210,6 +268,7 @@ boîte en carton à recycler"
 			]
 		}
 	],
+	# 20230213: packaging text is now ignored if there is an existing packagings structure
 	[
 		'merge_en_merge_packaging_add_property',
 		{
@@ -223,6 +282,7 @@ boîte en carton à recycler"
 			]
 		}
 	],
+	# 20230213: packaging text is now ignored if there is an existing packagings structure
 	[
 		'merge_en_merge_packaging_more_specific_property',
 		{
@@ -498,6 +558,33 @@ boîte en carton à recycler"
 		}
 	],
 
+	# dots were not parsed correctly
+	[
+		'fr-dot-to-separate-components',
+		{
+			lc => "fr",
+			packaging_text => "Film plastique à jeter. Étui carton à recycler.",
+		}
+	],
+
+	# comma inside a number: don't split
+	[
+		'fr-comma-inside-a-number',
+		{
+			lc => "fr",
+			packaging_text => "6 bouteilles en plastique transparent PET de 1,5 L à recycler",
+		}
+	],
+
+	# comma without spaces, not in a number: split
+	[
+		'fr-comma-without-space',
+		{
+			lc => "fr",
+			packaging_text => "1 boîte en métal,4 bouteilles (plastique).",
+		}
+	],
+
 );
 
 my $json = JSON->new->allow_nonref->canonical;
@@ -531,13 +618,42 @@ foreach my $test_ref (@tests) {
 
 		local $/;    #Enable 'slurp' mode
 		my $expected_product_ref = $json->decode(<$expected_result>);
-		is_deeply($product_ref, $expected_product_ref) or diag explain $product_ref;
+		is_deeply($product_ref, $expected_product_ref)
+			or diag explain {
+			testid => $testid,
+			product_ref => $product_ref,
+			expected_product_ref => $expected_product_ref
+			};
 	}
 	else {
 		fail("could not load $expected_result_dir/$testid.json");
 		diag explain $product_ref;
 	}
 }
+
+my $product_ref = {
+	lc => "fr",
+	packagings => [
+		{
+			shape => 'fr:bouteille',
+			material => 'en:pet',
+			recycling => 'à jeter'
+		},
+	],
+};
+
+ProductOpener::Packaging::canonicalize_packaging_components_properties($product_ref);
+
+is_deeply(
+	$product_ref->{packagings},
+	[
+		{
+			'material' => 'en:pet-1-polyethylene-terephthalate',
+			'recycling' => 'en:discard',
+			'shape' => 'en:bottle'
+		},
+	]
+) or diag explain $product_ref->{packagings};
 
 #
 

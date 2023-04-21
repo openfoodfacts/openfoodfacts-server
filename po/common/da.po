@@ -282,8 +282,8 @@ msgid "Producers Admin manual"
 msgstr "Producentadminvejledning"
 
 msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://dk.openfoodfacts.org/doner-til-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> er oprettet af en non-profit forening, uafhængig af branchen. Den er lavet til alle, af alle, og den finansieres af alle. Du kan støtte vores arbejde ved at <a href=\"https://dk.openfoodfacts.org/doner-til-open-food-facts\">donere til Open Food Facts</a> og også ved at <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">benytte Lilo-søgemaskinen</a>.<br/><b>Tak!</b></p>"
+msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> er etableret af en almennyttig, brancheuafhængig forening. Den er lavet til alle, af alle og finansieres af alle. Du kan støtte arbejdet ved at <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donere til Open Food Facts</a> samt ved <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">brug af Lilo-søgemaskinen</a>.<br/><b>Tak!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -1563,6 +1563,10 @@ msgid "The table lists by default nutriments that are often specified. Leave the
 "by typing the first letters of their name in the last row of the table."
 msgstr "Tabellen viser som standard næringsstoffer, som ofte angives. Lad feltet være tomt, hvis informationen ikke fremgår af etiketten.<br/>Du kan tilføje ekstra næringsstoffer (vitaminer, mineraler, kolesterol mv.)\n"
 "ved at angive de første bogstaver i deres navn i den sidste række af tabellen."
+
+msgctxt "nutrition_data_table_asterisk"
+msgid "Essential nutrients to calculate the Nutri-Score."
+msgstr "Væsentlige næringsstoffer for Nutri-Score beregning."
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
@@ -4005,6 +4009,14 @@ msgctxt "export_products_to_public_database_email"
 msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
 msgstr "Platformen til producenter er stadig under udvikling, og der foretages manuel kontrol, inden produkter importeres til den offentlige database. Send en e-mail til <a href=\"mailto:producers@openfoodfacts.org\">producenter@openfoodfacts.org</a> for at opdatere den offentlige database."
 
+msgctxt "crm_user_id"
+msgid "Id of corresponding contact in CRM"
+msgstr "ID for tilsvarende kontakt i CRM"
+
+msgctxt "crm_org_id"
+msgid "Id of corresponding organization in CRM"
+msgstr "ID for tilsvarende organisation i CRM"
+
 msgctxt "user_groups"
 msgid "Groups"
 msgstr "Grupper"
@@ -4089,9 +4101,10 @@ msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "Producentplatformmoderering"
 
-msgctxt "pro_moderator_owner_set"
-msgid "You are currently viewing products from %s."
-msgstr "Du ser i øjeblikket produkter fra %s."
+# variable names between { } must not be translated
+msgctxt "f_pro_moderator_owner_set"
+msgid "You are currently viewing products from {organization}."
+msgstr "Du ser i øjeblikket produkter fra {organization}."
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
@@ -4103,8 +4116,8 @@ msgstr "For at se produkter fra én bestemt bruger/organisation, så angiv det r
 
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
-msgid "Change"
-msgstr "Ændr"
+msgid "Switch to another organization"
+msgstr "Skift til en anden organisation"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
@@ -4707,6 +4720,10 @@ msgctxt "packaging_text_note_2"
 msgid "Try to be as specific as possible. For plastic, please indicate if it is opaque or transparent, colored, PET or PEHD."
 msgstr "Forsøg at være så specifik som muligt. For plast angives, om det er uigennemsigtigt eller gennemsigtigt, farvet, PET eller PEHD."
 
+msgctxt "packaging_text_note_3"
+msgid "Data from this field will be combined with any data provided for each packaging part. It is possible to provide one or the other, or both."
+msgstr "Data fra dette felt kombineres med alle data, som angives for hver emballagedel. Det er muligt at angive det ene eller det andet, eller begge."
+
 msgctxt "product_js_extract_packaging"
 msgid "Extract the recycling instructions and/or packaging information from the picture"
 msgstr "Udtræk genbrugsinstruktioner og/eller emballageoplysninger fra fotoet"
@@ -4961,6 +4978,11 @@ msgstr "Øko-Score"
 msgctxt "packaging_parts"
 msgid "Packaging parts"
 msgstr "Emballagedele"
+
+# A short name for a physical piece of packaging (e.g. in English, "packaging" instead of "packaging part"). Used with a number (e.g. "Packaging 1" to identify a packaging part)
+msgctxt "packaging_part_short"
+msgid "Packaging"
+msgstr "Emballage"
 
 # Number of packaging parts
 msgctxt "packaging_number"
@@ -5280,6 +5302,14 @@ msgctxt "org_list_of_gs1_gln_note"
 msgid "A comma separated list of GS1 GLN identifiers to force the association with this organization."
 msgstr "En kommasepareret liste over GS1 GLN-identifikatorer til at tvinge tilknytningen til denne organisation."
 
+msgctxt "org_valid_org"
+msgid "Validate organization as a real producer."
+msgstr "Validere organisation som en reel producent."
+
+msgctxt "org_valid_org_note"
+msgid "The organization is verified as a real producer by a human, also creates entry in CRM."
+msgstr "Organisationen er af et menneske bekræftet som en reel producent, opretter også adgang til CRM."
+
 msgctxt "org_enable_manual_export_to_public_platform"
 msgid "Enable organization members to manually export product data and photos to the public database."
 msgstr "Tillad organisationsmedlemmer manuelt at eksportere produktdata og -fotos til den offentlige database."
@@ -5592,6 +5622,14 @@ msgctxt "ecoscore_warning_international"
 msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgstr "Eco-Score er oprindeligt udviklet til fransk brug, men udvides til at omfatte andre EU-lande. Eco-Score formlen kan ændres, da den løbende optimeres mhp. øget præcision og landeegnethed."
 
+msgctxt "ecoscore_warning_transportation_world"
+msgid "Select a country in order to include the full impact of transportation."
+msgstr "Vælg et land for at medtage den fulde indvirkning af transport."
+
+msgctxt "ecoscore_warning_transportation"
+msgid "The full impact of transportation to your country is currently unknown."
+msgstr "Den fulde indvirkning af transport til dette land er pt. ukendt."
+
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
 msgstr "Skan stregkoder for at få Nutri-Score, Eco-Score og meget mere!"
@@ -5786,7 +5824,7 @@ msgstr "Livscyklusanalyse"
 
 msgctxt "ecoscore_bonuses_and_maluses"
 msgid "Bonuses and maluses"
-msgstr "Fordele og ulemper"
+msgstr "Pluspoint og negative point"
 
 msgctxt "ecoscore_for_this_product"
 msgid "Eco-Score for this product"
@@ -6065,6 +6103,69 @@ msgctxt "action_add_nutrition_facts"
 msgid "Add nutrition facts"
 msgstr "Tilføj ernæringsfakta"
 
+msgctxt "action_add_origins"
+msgid "Add the origins of ingredients for this product"
+msgstr "Føj ingrediensoprindelserne til dette produkt"
+
+msgctxt "action_add_packaging_image"
+msgid "Take a photo of the recycling information"
+msgstr "Tag et foto af genbrugsvejledningen"
+
+# this is not used yet
+msgctxt "action_add_basic_details"
+msgid "Add basic details"
+msgstr "Tilføj basisoplysninger"
+
+# this is not used yet
+msgctxt "action_add_portion_size"
+msgid "Add portion size"
+msgstr "Tilføj portionsstørrelse"
+
+# this is not used yet
+msgctxt "action_add_ingredients_image"
+msgid "Take a photo of the ingredients"
+msgstr "Tag et foto af ingredienserne"
+
+# this is not used yet
+msgctxt "action_add_nutrition_image"
+msgid "Take a photo of the nutrition facts"
+msgstr "Tag et foto af ernæringsfakta"
+
+# this is not used yet
+msgctxt "action_refresh_ingredients_image"
+msgid "Refresh the photo of the ingredients"
+msgstr "Opdatér ingrediensfotoet"
+
+# this is not used yet
+msgctxt "action_refresh_nutrition_image"
+msgid "Refresh the photo of the nutrition facts"
+msgstr "Opdatér næringsfaktafotoet"
+
+# this is not used yet
+msgctxt "action_add_packaging_text"
+msgid "Extract and check the recycling information"
+msgstr "Udtræk og tjek genbrugsvejledning"
+
+# this is not used yet
+msgctxt "action_add_stores"
+msgid "Add the store where you found this product"
+msgstr "Tilføj butikken, hvori dette produkt blev fundet"
+
+# this is not used yet
+msgctxt "action_labels"
+msgid "Add any label present on this product"
+msgstr "Tilføj alle dette produkts eksisterende etiketter"
+
+# this is not used yet
+msgctxt "action_countries"
+msgid "Add the country where you found this product"
+msgstr "Tilføj landet, hvor dette produkt blev fundet"
+
+# this is not used yet
+msgctxt "action_packager_codes_image"
+msgid "Take a photo of traceability codes"
+msgstr "Tag et foto af sporbarhedskoder"
+
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
 msgid "What you need to know"
@@ -6197,4 +6298,168 @@ msgstr "Produkt"
 msgctxt "environment"
 msgid "Environment"
 msgstr "Miljø"
+
+msgctxt "api_result_failure"
+msgid "Failure"
+msgstr "Fejl"
+
+msgctxt "api_result_product_found"
+msgid "Product found"
+msgstr "Produkt fundet"
+
+msgctxt "api_result_product_not_found"
+msgid "Product not found"
+msgstr "Produktet blev ikke fundet"
+
+msgctxt "api_result_product_updated"
+msgid "Product updated"
+msgstr "Produkt opdateret"
+
+msgctxt "api_message_invalid_api_action"
+msgid "Invalid API action"
+msgstr "Ugyldig API-handling"
+
+msgctxt "api_message_invalid_api_method"
+msgid "Invalid API method"
+msgstr "Ugyldig API-metode"
+
+msgctxt "api_message_empty_request_body"
+msgid "Empty request body"
+msgstr "Forespørgselstekst mangler"
+
+msgctxt "api_message_invalid_json_in_request_body"
+msgid "Invalid JSON in request body"
+msgstr "Ugyldig JSON i forespørgselstekst"
+
+msgctxt "api_message_invalid_type_must_be_object"
+msgid "Invalid type: must be an object"
+msgstr "Ugyldig type: Skal være et objekt"
+
+msgctxt "api_message_invalid_type_must_be_array"
+msgid "Invalid type: must be an array"
+msgstr "Ugyldig type: Skal være en sekvens"
+
+msgctxt "api_message_invalid_type_must_be_integer"
+msgid "Invalid type: must be an integer"
+msgstr "Ugyldig type: Skal være et heltal"
+
+msgctxt "api_message_invalid_type_must_be_number"
+msgid "Invalid type: must be a number"
+msgstr "Ugyldig type: Skal være et tal"
+
+msgctxt "api_message_missing_field"
+msgid "Missing field"
+msgstr "Manglende felt"
+
+msgctxt "api_message_unrecognized_value"
+msgid "Unrecognized value"
+msgstr "Ikke-genkendt værdi"
+
+msgctxt "api_impact_none"
+msgid "None"
+msgstr "Intet"
+
+msgctxt "api_impact_warning"
+msgid "Warning"
+msgstr "Advarsel"
+
+msgctxt "api_impact_failure"
+msgid "Failure"
+msgstr "Fejl"
+
+msgctxt "api_impact_field_ignored"
+msgid "Field ignored"
+msgstr "Felt ignoreret"
+
+msgctxt "api_impact_value_converted"
+msgid "Value converted"
+msgstr "Værdi konverteret"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units"
+msgid "Number of units"
+msgstr "Antal enheder"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight"
+msgid "Weight of one empty unit"
+msgstr "Vægt af én tom enhed"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit"
+msgid "Quantity of product contained per unit"
+msgstr "Mængde af produktindehold pr. enhed"
+
+# variable names between { } must not be translated
+msgctxt "f_help_categorize_on_hunger_games"
+msgid "Help categorize more {title} on Hunger Games"
+msgstr "Hjælp med at kategorisere flere Hunger Games-{title}"
+
+msgctxt "packagings_complete"
+msgid "All the packaging parts of the product are listed."
+msgstr "Alle produktemballagedelene er anført."
+
+msgctxt "api_message_invalid_user_id_and_password"
+msgid "Invalid user id and password"
+msgstr "Ugyldig bruger-ID og adgangskode"
+
+msgctxt "api_message_invalid_value_must_be_0_or_1"
+msgid "Invalid value: must be 0 or 1"
+msgstr "Ugyldig værdi: Skal være 0 eller 1"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units_description"
+msgid "Enter the number of packaging units of the same shape and material contained in the product."
+msgstr "Angiv antallet af emballageenheder af samme form og materiale indeholdt i produktet."
+
+msgctxt "packaging_shape_description"
+msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
+msgstr "Angiv formnavnet oplyst i genbrugsvejledningen (hvis tilgængelig), eller vælg en form."
+
+msgctxt "packaging_material_description"
+msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
+msgstr "Angiv det specifikke materiale, hvis det kan bestemmes (en materialekode i en trekant findes ofte på emballagedele), eller et generisk materiale (f.eks. plastik eller metal), hvis der er tvivl."
+
+msgctxt "packaging_recycling_description"
+msgid "Enter recycling instructions only if they are listed on the product."
+msgstr "Angiv kun genbrugsvejledningen anført på selve produktet."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight_description"
+msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
+msgstr "Fjern evt. madrester, og afvask og aftør emballagedelen før vejning. Brug om muligt en vægt med en præcision på 0,1 g eller 0,01 g."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit_description"
+msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
+msgstr "Angiv nettovægten eller nettovolumen samt enheden (f.eks. g eller ml)."
+
+msgctxt "import_and_export_products"
+msgid "Import and export products"
+msgstr "Importér og eksportér produkter"
+
+msgctxt "add_products"
+msgid "Add products"
+msgstr "Tilføj produkter"
+
+# Needs to be short (displayed in a menu)
+msgctxt "install_the_app_to_add_products"
+msgid "Install the app to add products"
+msgstr "Installér appen for at tilføje produkter"
+
+msgctxt "search_and_analyze_products"
+msgid "Search and analyze products"
+msgstr "Søg efter og analysér produkter"
+
+msgctxt "resources"
+msgid "Resources"
+msgstr "Ressourcer"
+
+msgctxt "pro_platform_user_guide"
+msgid "Pro platform user guide"
+msgstr "Pro-platform brugervejledning"
+
+msgctxt "faq_for_producers"
+msgid "FAQ for producers"
+msgstr "FAQ for producenter"
 

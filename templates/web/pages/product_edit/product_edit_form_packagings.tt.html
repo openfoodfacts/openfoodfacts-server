@@ -10,6 +10,15 @@ var packaging_recycling_select2_options = [% generate_select2_options_for_taxono
     
 <div id="packagings_components_edit">
 
+    <ul>
+        <li><b>[% lang("packaging_number_of_units") %][% sep %]:</b> [% lang("packaging_number_of_units_description") %]</li>
+        <li><b>[% lang("packaging_shape") %][% sep %]:</b> [% lang("packaging_shape_description") %]</li>
+        <li><b>[% lang("packaging_material") %][% sep %]:</b> [% lang("packaging_material_description") %]</li>
+        <li><b>[% lang("packaging_recycling") %][% sep %]:</b> [% lang("packaging_recycling_description") %]</li>
+        <li><b>[% lang("packaging_weight") %][% sep %]:</b> [% lang("packaging_weight_description") %]</li>
+        <li><b>[% lang("packaging_quantity_per_unit") %][% sep %]:</b> [% lang("packaging_quantity_per_unit_description") %]</li>
+    </ul>
+
     <!-- header row for large display -->
     <div class="row show-for-large-up" id="packagings_components_edit_header">
         <div class="large-1 columns">[% lang("packaging_number_of_units") %]</div>
@@ -65,12 +74,7 @@ var packaging_recycling_select2_options = [% generate_select2_options_for_taxono
             <!-- row 0 is a template for new row, we do not populate it -->
             [% IF packaging_max > 0 %]
                 <initjs>
-                    \$("#[% select2_id %]").select2({
-                        placeholder: "[% lang("packaging_$property") %]",
-                        data: [% taxonomy %]_select2_options,
-                        allowClear:true,
-                        tags: true
-                    });
+                    configure_packaging_select2("[% select2_id %]", "[% taxonomy %]", "[% lang("packaging_$property") %]" )
 
                     [% IF packaging.$property.defined %]
                     // Set the value, creating a new option if necessary (for non taxonomy values)
@@ -97,7 +101,14 @@ var packaging_recycling_select2_options = [% generate_select2_options_for_taxono
 
         <div class="small-12 large-1 columns">
             <label class="hide-for-large-up" for="[% packaging_id %]_weight_measured">[% lang("packaging_weight") %] (g)</label>
-            <input id="[% packaging_id %]_weight_measured" name="[% packaging_id %]_weight_measured" type="text" value="[% packaging.weight_measured %]" %]">
+            [%# if we have a weight_specified from the manufacturer, we don't show the weight_measured field %]
+            [% IF packaging.weight_specified.defined %]
+                <input id="[% packaging_id %]_weight_specified" name="[% packaging_id %]_weight_specified" type="hidden" value="[% packaging.weight_specified %]" %]">
+                <input id="[% packaging_id %]_weight_measured" name="[% packaging_id %]_weight_measured" type="hidden" value="[% packaging.weight_measured %]" %]">
+            [% packaging.weight_specified %]
+            [% ELSE %]
+                <input id="[% packaging_id %]_weight_measured" name="[% packaging_id %]_weight_measured" type="text" value="[% packaging.weight_measured %]" %]">
+            [% END %]
         </div>
 
         <div class="small-12 large-1 columns">
@@ -117,6 +128,49 @@ var packaging_recycling_select2_options = [% generate_select2_options_for_taxono
 var packaging_max = [% packaging_max %];
 
 /**
+ * Configure the select2 dropdown with autocomplete for shape, material and recycling
+ */
+function configure_packaging_select2(select2_id, taxonomy, placeholder) {
+    
+    \$("#" + select2_id).select2({
+        placeholder: placeholder,
+        allowClear:true,
+        tags: true,
+        ajax: {
+            url: '/api/v3/taxonomy_suggestions?limit=400&tagtype=' + taxonomy,
+            data: function (params) {
+                // tagify has values in a JSON array, parse it and convert it to a commas separated list
+                var categories_json = \$("#categories").val()
+                
+                var query = {
+                    string: params.term,
+                }
+                // If the product has categories, pass them to get better suggestions
+                if (categories_json) {
+                    var categories_array = JSON.parse(categories_json);
+                    query.categories = categories_array.map(item => item.value).join(',');
+                }
+                // If the select2 is for the material, send the corresponding selected shape
+                if (taxonomy == "packaging_materials") {
+                    
+                    var shape_select2_id = select2_id.replace('_material', '_shape');
+                    query.shape = \$("#" + shape_select2_id).val();
+                }
+                return query;
+            },
+            processResults: function (data) {
+                if (data.suggestions) {
+                    return {
+                        // transform the simple array of suggestions in array of objects expected by select2
+                        results: Array.from(data.suggestions, function (element) { return {"id": element, "text": element}; }) 
+                    };
+                }
+            }
+        }
+    });
+}
+
+/**
  * Add a new row of packaging data
  */
 function add_packaging() {
@@ -127,7 +181,7 @@ function add_packaging() {
     \$("#packaging_" + packaging_max + "_delete").show();
 
     packaging_max = packaging_max + 1;
-    \$("#packaging_max").val(packaging_max);
+    \$('input[name="packaging_max"]').val(packaging_max);
 
     var new_packaging_id = "packaging_" + packaging_max;
     // row 0 is our template row
@@ -145,14 +199,9 @@ function add_packaging() {
         [% ELSIF property == "recycling" %]
             [% SET taxonomy = "packaging_recycling" %]
         [% END %]
+        
+         configure_packaging_select2(new_packaging_id + "_$property", "$taxonomy", "[% lang("packaging_$property") %]");
 
-        [% SET select2_id = new_packaging_id _ "_$property" %]
-    \$("#" + new_packaging_id + "_[% property %]").select2({
-        placeholder: "[% lang("packaging_$property") %]",
-        data: [% taxonomy %]_select2_options,
-        allowClear:true,
-        tags: true
-    });
     [% END %]
 
     \$("#" + new_packaging_id + "_delete").click(function(event) {

@@ -19,5 +19,8 @@ jobs:
               {"type":"feat","section":"Features","hidden":false},
               {"type":"fix","section":"Bug Fixes","hidden":false},
               {"type":"taxonomy","section":"Taxonomy","hidden":false},
-              {"type":"l10n","section":"Translations","hidden":false}
+              {"type":"l10n","section":"Translations","hidden":false},
+              {"type":"style","section":"Technical","hidden":false},
+              {"type":"docs","section":"Technical","hidden":false},
+              {"type":"test","section":"Technical","hidden":false}
             ]

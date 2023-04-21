@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2021 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -139,7 +139,8 @@ use Data::Dumper;
 print STDERR "MongoDB query:\n" . Dumper($query_ref) . "\n";
 
 # harvest products'code from mongo db
-my $cursor = get_products_collection(3 * 60 * 60 * 1000)->query($query_ref)->fields({"code" => 1})->sort({code => 1});
+my $cursor = get_products_collection({timeout => 3 * 60 * 60 * 1000})->query($query_ref)->fields({"code" => 1})
+	->sort({code => 1});
 
 $cursor->immortal(1);
 

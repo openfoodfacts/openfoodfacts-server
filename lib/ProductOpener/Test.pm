@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -36,6 +36,7 @@ BEGIN {
 	@EXPORT_OK = qw(
 		&capture_ouputs
 		&compare_arr
+		&ensure_expected_results_dir
 		&compare_to_expected_results
 		&compare_array_to_expected_results
 		&compare_csv_file_to_expected_results
@@ -49,6 +50,7 @@ BEGIN {
 		&remove_all_users
 		&remove_all_orgs
 		&check_not_production
+		&wait_for
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -68,6 +70,7 @@ use Test::More;
 use JSON "decode_json";
 use File::Basename "fileparse";
 use File::Path qw/make_path remove_tree/;
+use File::Copy;
 use Path::Tiny qw/path/;
 
 use Log::Any qw($log);
@@ -84,7 +87,7 @@ There are two modes: one to update expected results, and one to test against the
 =head3 Parameters
 
 =head4 String $filepath
-The path of the file containing the tetst.
+The path of the file containing the test.
 Generally should be <pre>__FILE__</pre> within the test.
 
 
@@ -128,7 +131,7 @@ TXT
 
 =head2 check_not_production ()
 
-Fail unless we have less than 1000 products in database.
+Fail unless we have less than 10000 products in database.
 
 This is a simple heuristic to ensure we are not in a production database
 
@@ -140,8 +143,8 @@ sub check_not_production() {
 			return get_products_collection()->count_documents({});
 		}
 	);
-	unless ((0 <= $products_count) && ($products_count < 1000)) {
-		confess("Refusing to run destructive test on a DB of more than 1000 items\n");
+	unless ((0 <= $products_count) && ($products_count < 10000)) {
+		confess("Refusing to run destructive test on a DB of more than 10,000 items\n");
 	}
 }
 
@@ -166,6 +169,10 @@ sub remove_all_products () {
 	);
 	# clean files
 	remove_tree("$data_root/products", {keep_root => 1, error => \my $err});
+	if (@$err) {
+		confess("not able to remove some products directories: " . join(":", @$err));
+	}
+	remove_tree("$www_root/images/products", {keep_root => 1, error => \$err});
 	if (@$err) {
 		confess("not able to remove some products directories: " . join(":", @$err));
 	}
@@ -266,7 +273,7 @@ sub ensure_expected_results_dir ($expected_results_dir, $update_expected_results
 	return 1;
 }
 
-=head2 compare_to_expected_results($object_ref, $expected_results_file, $update_expected_results) {
+=head2 compare_to_expected_results($object_ref, $expected_results_file, $update_expected_results, $test_ref = undef) {
 
 Compare an object (e.g. product data or an API result) to expected results.
 
@@ -287,7 +294,7 @@ and the new expected results can be diffed / committed in GitHub.
 
 =head4 $test_ref - an optional reference to an object describing the test case
 
-If the test fail, the test reference will be output in the diag
+If the test fail, the test reference will be output in the C<diag>
 
 =cut
 
@@ -295,10 +302,16 @@ sub compare_to_expected_results ($object_ref, $expected_results_file, $update_ex
 
 	my $json = JSON->new->allow_nonref->canonical;
 
+	my $desc = undef;
+	if (defined $test_ref) {
+		$desc = $test_ref->{desc} // $test_ref->{id};
+	}
+
 	if ($update_expected_results) {
 		open(my $result, ">:encoding(UTF-8)", $expected_results_file)
 			or confess("Could not create $expected_results_file: $!");
-		print $result $json->pretty->encode($object_ref);
+		my $pretty_json = $json->pretty->encode($object_ref);
+		print $result $pretty_json;
 		close($result);
 	}
 	else {
@@ -308,7 +321,12 @@ sub compare_to_expected_results ($object_ref, $expected_results_file, $update_ex
 
 			local $/;    #Enable 'slurp' mode
 			my $expected_object_ref = $json->decode(<$expected_result>);
-			is_deeply($object_ref, $expected_object_ref) or diag(explain $test_ref, explain $object_ref);
+			my $title;
+			if ($test_ref && (ref($test_ref) eq "HASH")) {
+				$title = $test_ref->{desc} // $test_ref->{test_case} // $test_ref->{id};
+				$title = undef unless $title;
+			}
+			is_deeply($object_ref, $expected_object_ref, $title) or diag(explain $test_ref, explain $object_ref);
 		}
 		else {
 			fail("could not load $expected_results_file");
@@ -349,20 +367,32 @@ sub compare_csv_file_to_expected_results ($csv_file, $expected_results_dir, $upd
 	my $csv = Text::CSV->new({binary => 1, sep_char => "\t"})    # should set binary attribute.
 		or die "Cannot use CSV: " . Text::CSV->error_diag();
 
-	open(my $io, '<:encoding(UTF-8)', $csv_file) or confess("Could not open " . $csv_file . ": $!");
+	if (open(my $io, '<:encoding(UTF-8)', $csv_file)) {
+		# first line contains headers
+		my $columns_ref = $csv->getline($io);
+		$csv->column_names(@{$columns_ref});
 
-	# first line contains headers
-	my $columns_ref = $csv->getline($io);
-	$csv->column_names(@{$columns_ref});
+		# csv --> array
+		my @data = ();
 
-	# csv --> array
-	my @data = ();
+		while (my $product_ref = $csv->getline_hr($io)) {
+			push @data, $product_ref;
+		}
+		close($io);
+		compare_array_to_expected_results(\@data, $expected_results_dir . "/rows", $update_expected_results);
 
-	while (my $product_ref = $csv->getline_hr($io)) {
-		push @data, $product_ref;
+		# If we update the expected results, copy the CSV file so that we can easily see line by line diffs
+		if ($update_expected_results) {
+			my $csv_filename = $csv_file;
+			$csv_filename =~ s/.*\///;
+			copy($csv_file, $expected_results_dir . '/' . $csv_filename)
+				or die "Copy of $csv_file to $expected_results_dir failed: $!";
+		}
 	}
-	close($io);
-	compare_array_to_expected_results(\@data, $expected_results_dir, $update_expected_results);
+	else {
+		fail("Could not open " . $csv_file . ": $!");
+	}
+
 	return 1;
 }
 
@@ -637,6 +667,40 @@ sub normalize_org_for_test_comparison ($org_ref) {
 
 	normalize_object_for_test_comparison($org_ref, \%specification);
 	return;
+}
+
+=head2 wait_for($code, $timeout=3, $poll_time=1)
+Wait for an event to happen, up to a certain amount of time
+
+=head3 parameters
+
+=head4 $code - sub
+
+This must be the code that check for the event and return a true value if it succeed, false otherwise
+
+=head4 $timeout - float
+
+how many seconds to wait (default 3s)
+
+=head4 $poll_time - float
+
+how much time to wait between checks
+
+=cut
+
+sub wait_for ($code, $timeout = 3, $poll_time = 1) {
+	my $spent_time = 0;
+	my $success = undef;
+	while ((!$success) && $spent_time < $timeout) {
+		$success = $code->();
+		if ($success) {
+			return 1;
+		}
+		sleep $poll_time;
+		$spent_time += $poll_time;
+	}
+	# last try
+	return $code->();
 }
 
 1;

@@ -4,14 +4,15 @@
 * If you would like to work on an issue, drop in a comment at the issue. If it is already assigned to someone, but there is no sign of any work being done, please free to drop in a comment so that the issue can be assigned to you if the previous assignee has dropped it entirely.
 
 ## Contributing
+
 [![Contribute with Gitpod](https://img.shields.io/badge/Contribute%20with-Gitpod-908a85?logo=gitpod)](https://gitpod.io/#https://github.com/openfoodfacts/openfoodfacts-server)
 
 When contributing to this repository, please first discuss the change you wish to make via issue, or the official [Slack channel](https://openfoodfacts.slack.com/).
 
 
-Get started running server in development mode, see [Dev environment quick start guide](./docs/introduction/dev-environment-quick-start-guide.md)
+Get started running server in development mode, see [Dev environment quick start guide](./docs/dev/how-to-quick-start-guide.md)
 
-## Pull Request Process
+### Pull Request Process
 
 1. Ensure any install or build dependencies are removed before the end of the layer when doing a build.
 2. Check that there are no conflicts and your request passes [Travis](https://travis-ci.org) build. Check the log of the pass test if it fails the build.
@@ -45,6 +46,36 @@ You can save you sometime by running some checks locally before committing.
 ### Feature Requests and Bug Reports
 
 When you file a feature request or when you are submitting a bug report to the [issue tracker](https://github.com/openfoodfacts/openfoodfacts-server/issues), make sure you add steps to reproduce it. Especially if that bug is some weird/rare one.
+
+## Contributing to the documentation
+
+The documentation follows the [diataxis framework](https://diataxis.fr/) which is divided into four:
+
+### Tutorials
+
+They include lessons that take the reader by the hand through a series of steps to complete an implementation of the API.
+
+### How To Guides
+
+These are directions that guide the reader through the steps to achieve a specific end.
+
+### References
+
+The technical descriptions of the API including the OpenAPI schema are contained in this section. [Swagger](https://swagger.io/) and [Stoplight](https://stoplight.io/) are recommended OpenAPI tools you can use to render or edit the Open API schema.
+
+### Explanations
+
+They include discussion that clarifies and illuminates a particular topic when using the API.
+
+<!-- Add links to docs for all the sections and make these sections more detailed -->
+
+You can contribute to any of these sections by following these steps:
+
+* Identify a problem and [create a new issue](https://github.com/openfoodfacts/openfoodfacts-server/issues/new) to describe the fix you will like to make. (if it hasnt been created).
+* Optionally, you can join the [#api-documentation Slack Channel]( https://slack.openfoodfacts.org/) to discuss more about the task with the team and get more information to work with.
+* Clone the project and work on a dedicated branch. Follow the [commits](#commits) guidelines to make your commit messages.
+* Make a pull request. Be decriptive and make sure the pull request describes in detail the proposed changes.
+* Wait for the maintainers to review your pull request and do the changes if requested.
 
 ## Code of Conduct
 
