@@ -636,8 +636,9 @@ my $tests_ref = [
 		body => '{
 			"fields" : "updated",
 			"product": { 
-				"add_categories_tags": ["en:tea"],
-				"add_stores_tags": ["Carrefour", "Mon Ptit magasin"],
+				"categories_tags_add": ["en:tea"],
+				"stores_tags_add": ["Carrefour", "Mon Ptit magasin"],
+				"countries_tags_fr_add": ["Italie", "en:spain"],
 				"labels_tags_fr": ["végétarien", "Something unrecognized in French"]
 			}
 		}',

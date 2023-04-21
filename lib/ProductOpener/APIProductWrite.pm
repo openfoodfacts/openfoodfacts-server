@@ -294,14 +294,15 @@ sub update_product_fields ($request_ref, $product_ref, $response_ref) {
 			$product_ref->{$language_field . '_' . $language_field_lc} = $value;
 		}
 		# tags fields
-		elsif ( ($field =~ /^(add_)?(.*)_tags(?:_(\w\w))?$/)
-			and (defined $writable_tags_fields{$2}))
+		elsif ( ($field =~ /^(.*)_tags(?:_(\w\w))?(_add)?$/)
+			and (defined $writable_tags_fields{$1}))
 		{
-			my $is_addition = $1;
-			my $tagtype = $2;
+			my $tagtype = $1;
 			# If we are passed a language (e.g. categories_tags_fr, use it
 			# otherwise use the value of the tags_lc request field)
-			my $tags_lc = $3 // $request_body_ref->{tags_lc};
+			my $tags_lc = $2 // $request_body_ref->{tags_lc};
+
+			my $is_addition = $3;
 
 			update_tags_fields($request_ref, $product_ref, $tagtype, $is_addition, $tags_lc, $value);
 		}
