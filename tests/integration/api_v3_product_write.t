@@ -57,33 +57,26 @@ my $tests_ref = [
 		test_case => 'patch-packagings-add-one-component',
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890007',
-		body => '{"product": {"fields": "updated", "packagings_add": [{"shape": {"lc_name": "bottle"}}]}}'
-	},
-	# Get updated fields + attributes and knowledge panels
-	{
-		test_case => 'patch-packagings-add-one-component',
-		method => 'PATCH',
-		path => '/api/v3/product/1234567890007',
-		body => '{"product": {"fields": "updated", "packagings_add": [{"shape": {"lc_name": "bottle"}}]}}'
+		body => '{"product": { "packagings_add": [{"shape": {"lc_name": "bottle"}}]}}'
 	},
 	# Only the PATCH method is valid, test other methods
 	{
 		test_case => 'post-packagings',
 		method => 'POST',
 		path => '/api/v3/product/1234567890007',
-		body => '{"product": {"fields": "updated", "packagings": [{"shape": {"lc_name": "bottle"}}]}}'
+		body => '{"product": { "packagings": [{"shape": {"lc_name": "bottle"}}]}}'
 	},
 	{
 		test_case => 'put-packagings',
 		method => 'PUT',
 		path => '/api/v3/product/1234567890007',
-		body => '{"product": {"fields": "updated", "packagings": [{"shape": {"lc_name": "bottle"}}]}}'
+		body => '{"product": { "packagings": [{"shape": {"lc_name": "bottle"}}]}}'
 	},
 	{
 		test_case => 'delete-packagings',
 		method => 'DELETE',
 		path => '/api/v3/product/1234567890007',
-		body => '{"product": {"fields": "updated", "packagings": [{"shape": {"lc_name": "bottle"}}]}}'
+		body => '{"product": { "packagings": [{"shape": {"lc_name": "bottle"}}]}}'
 	},
 	{
 		test_case => 'patch-packagings-add-components-to-existing-product',
@@ -585,6 +578,38 @@ my $tests_ref = [
 				]
 			}
 		}'
+	},
+	# invalid codes
+	{
+		test_case => 'patch-code-123',
+		method => 'PATCH',
+		path => '/api/v3/product/123',
+		body => '{"product": { "ingredients_text_en": "milk 80%, sugar, cocoa powder"}}',
+	},
+	# code "test" to get results for an empty product without saving anything
+	{
+		test_case => 'patch-code-test',
+		method => 'PATCH',
+		path => '/api/v3/product/test',
+		body => '{"product": { "ingredients_text_en": "milk 80%, sugar, cocoa powder"}}',
+	},
+	{
+		test_case => 'patch-unrecognized-field',
+		method => 'PATCH',
+		path => '/api/v3/product/test',
+		body => '{"product": { "some_unrecognized_field": "some value"}}',
+	},
+	{
+		test_case => 'patch-language-fields',
+		method => 'PATCH',
+		path => '/api/v3/product/test',
+		body => '{
+			"fields" : "updated,ingredients_text,ingredients,lc",
+			"product": { 
+				"ingredients_text_en": "milk 80%, sugar, cocoa powder",
+				"ingredients_text_fr": "lait 80%, sucre, poudre de cacao"
+			}
+		}',
 	},
 ];
 
