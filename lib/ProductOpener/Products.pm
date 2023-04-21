@@ -2941,8 +2941,8 @@ sub process_product_edit_rules ($product_ref) {
 
 		if (defined $rule_ref->{conditions}) {
 			foreach my $condition_ref (@{$rule_ref->{conditions}}) {
-				if ($condition_ref->[0] eq 'user_id') {
-					if ($condition_ref->[1] ne $User_id) {
+				if (($condition_ref->[0] eq 'user_id')) {
+					if ((not defined $User_id) or ($condition_ref->[1] ne $User_id)) {
 						$conditions = 0;
 						$log->debug("condition does not match value",
 							{condition => $condition_ref->[0], expected => $condition_ref->[1], actual => $User_id})
@@ -2951,7 +2951,7 @@ sub process_product_edit_rules ($product_ref) {
 					}
 				}
 				elsif ($condition_ref->[0] eq 'user_id_not') {
-					if ($condition_ref->[1] eq $User_id) {
+					if ((defined $User_id) and ($condition_ref->[1] eq $User_id)) {
 						$conditions = 0;
 						$log->debug("condition does not match value",
 							{condition => $condition_ref->[0], expected => $condition_ref->[1], actual => $User_id})

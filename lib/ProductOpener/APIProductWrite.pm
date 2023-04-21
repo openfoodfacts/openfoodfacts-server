@@ -187,6 +187,63 @@ sub update_packagings ($request_ref, $product_ref, $field, $is_addition, $value)
 	return;
 }
 
+=head2 update_tags_fields ($request_ref, $product_ref, $field, $is_addition, $value)
+
+Update packagings.
+
+=cut
+
+sub update_tags_fields ($request_ref, $product_ref, $field, $is_addition, $tags_lc, $value) {
+
+	my $request_body_ref = $request_ref->{body_json};
+	my $response_ref = $request_ref->{api_response};
+
+	if (ref($value) ne 'ARRAY') {
+		add_error(
+			$response_ref,
+			{
+				message => {id => "invalid_type_must_be_array"},
+				field => {id => $field},
+				impact => {id => "field_ignored"},
+			}
+		);
+	}
+	else {
+		# Generate a comma separated list of tags, so that we can use existing functions to add tags
+		my $tags_list = join(',', @$value);
+
+		if ($is_addition) {
+			add_tags_to_field($product_ref, $tags_lc, $field, $tags_list);
+		}
+		else {
+			$product_ref->{$field} = $tags_list;
+		}
+
+		compute_field_tags($product_ref, $tags_lc, $field);
+
+		$request_ref->{updated_product_fields}{$field} = 1;    # joined inputs, can be in any language
+		$request_ref->{updated_product_fields}{$field . '_hierarchy'}
+			= 1;  # tags, with entries that are not in the taxonomy in original format (with accents, caps, spaces etc.)
+		$request_ref->{updated_product_fields}{$field . '_tags'}
+			= 1;    # tags, with entries that are not in the taxonomy in a normalized format
+		$request_ref->{updated_product_fields}{$field . '_tags_' . $tags_lc}
+			= 1;    # resulting values in the language used to send input values
+
+		$log->debug(
+			"update_tags_fields",
+			{
+				field => $field,
+				tags_lc => $tags_lc,
+				value => $value,
+				tags_list => $tags_list,
+				product_field => $product_ref->{$field},
+				product_field_tags => $product_ref->{$field . "_tags"}
+			}
+		) if $log->is_debug();
+	}
+	return;
+}
+
 =head2 update_product_fields ($request_ref, $product_ref, $response_ref)
 
 Update product fields based on input product data.
@@ -229,6 +286,18 @@ sub update_product_fields ($request_ref, $product_ref, $response_ref) {
 			$request_ref->{updated_product_fields}{$field} = 1;
 
 			$product_ref->{$language_field . '_' . $language_field_lc} = $value;
+		}
+		# tags fields
+		elsif ( ($field =~ /^(add_)?(.*)_tags(?:_(\w\w))?$/)
+			and (defined $writable_tags_fields{$2}))
+		{
+			my $is_addition = $1;
+			my $tagtype = $2;
+			# If we are passed a language (e.g. categories_tags_fr, use it
+			# otherwise use the value of the tags_lc request field)
+			my $tags_lc = $3 // $request_body_ref->{tags_lc};
+
+			update_tags_fields($request_ref, $product_ref, $tagtype, $is_addition, $tags_lc, $value);
 		}
 		# Unrecognized field
 		else {
