@@ -173,9 +173,11 @@ use ProductOpener::Config2;
 	hangy
 	manoncorneille
 	raphael0202
+	sarazine
 	stephane
 	tacinte
 	teolemon
+	test-sarazine
 );
 
 $options{export_limit} = 10000;
