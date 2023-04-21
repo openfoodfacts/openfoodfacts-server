@@ -29123,7 +29123,7 @@ hu:szójafehérje
 hr:bjelančevine soje, hidrolizat sojinih bjelančevina, sojine bjelančevine
 it:proteine di soia
 nl:soja-eiwit, sojaeiwitten
-pl:Białko sojowe, hydrolizat białka sojowego, białko soi, białko z soi
+pl:Białko sojowe, hydrolizat białka sojowego, białko soi, białko z soi, białka sojowego
 pt:Proteína de soja
 ro:proteină de soia, proteina de soia, proteină vegetală din soia, proteina vegetala din soia
 ru:Соевый протеин, соевый белок
@@ -29150,9 +29150,9 @@ fr:Fibre de soja réhydratée
 
 <en:soy protein
 de:Sojaeiweißkonzentrat, Sojaeiweisskonzentrat, Sojaproteinkonzentrat
-fr:concentré de protéines de soja
+# fr:concentré de protéines de soja
 fi:soijaproteiini konsentraatti
-pl:koncentrat białka sojowego
+# pl:koncentrat białka sojowego
 
 <en:soy protein
 en:dehydrated soy protein
@@ -40663,7 +40663,7 @@ lo:ໝາກນັດ
 nl:ananas
 no:ananas
 nv:Bilasáana diwozhí
-pl:ananas
+pl:ananas, ananasy
 pt:ananas
 ro:ananas
 ru:ананас
@@ -40787,15 +40787,6 @@ bg:сироп от ананас
 de:Ananassirup
 fr:sirop d'ananas
 nl:ananassiroop
-
-<en:pineapple
-en:dried pineapple
-fr:Ananas séché
-
-<en:dried pineapple
-en:freeze-dried pineapple
-fr:ananas lyophilisé
-pl:liofilizowane ananasy
 
 ###################################################################################################
 #
@@ -45396,11 +45387,6 @@ fr:fibres de betterave
 fi:juurikaskuitu
 sv:betfiber
 #  fr:fibres-de-betterave has 43 products in 1 language @2018-10-22
-
-<en:beetroot
-en:dried beetroot
-fr:betterave déshydratée
-pl:suszony burak
 
 # description:en:As beetroots do not have to be red, the red ones are kept separate
 
@@ -55358,12 +55344,12 @@ wikidata:en:Q1076906
 nutriscore_fruits_vegetables_nuts:en:no
 
 <en:sunflower seed
-en:shelled sunflower seeds
-de:Sonnenblumenkerne geschält
-fi:kuoreton auringonkukansiemen, kuorettomat auringonkukansiemenet
-fr:graines de tournesol décortiquées
-it:semi di girasole sbucciati
-pl:nasiona słonecznika łuskane, łuskane nasiona słonecznika, słonecznik łuskany
+# en:shelled sunflower seeds
+# de:Sonnenblumenkerne geschält
+# fi:kuoreton auringonkukansiemen, kuorettomat auringonkukansiemenet
+# fr:graines de tournesol décortiquées
+# it:semi di girasole sbucciati
+# pl:nasiona słonecznika łuskane, łuskane nasiona słonecznika, słonecznik łuskany
 # ingredient/fr:graines-de-tournesol-decortiquees has 25 products @2019-05-31
 
 <en:sunflower seed
