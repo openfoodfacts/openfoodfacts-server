@@ -642,6 +642,20 @@ my $tests_ref = [
 			}
 		}',
 	},
+	# nutriscore of a test product
+	{
+		test_case => 'patch-ingredients-categories-to-get-nutriscore',
+		method => 'PATCH',
+		path => '/api/v3/product/test',
+		body => '{
+			"fields" : "updated,ingredients,nutriments,nutriments_estimated,nutriscore_grade,nutriscore_score,nutriscore_data",
+			"product": { 
+				"lang": "fr",
+				"categories_tags_fr": ["confiture"],
+				"ingredients_text_fr": "Sucre 300g, pommes 100g"
+			}
+		}',
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

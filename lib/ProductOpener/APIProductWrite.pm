@@ -250,6 +250,12 @@ Update product fields based on input product data.
 
 =cut
 
+# Fields that are not language or tags fields, and that can be written as-is
+my %product_simple_fields = (
+	quantity => 1,
+	serving_size => 1,
+);
+
 sub update_product_fields ($request_ref, $product_ref, $response_ref) {
 
 	my $request_body_ref = $request_ref->{body_json};
@@ -298,6 +304,30 @@ sub update_product_fields ($request_ref, $product_ref, $response_ref) {
 			my $tags_lc = $3 // $request_body_ref->{tags_lc};
 
 			update_tags_fields($request_ref, $product_ref, $tagtype, $is_addition, $tags_lc, $value);
+		}
+		# Simple product fields
+		elsif (defined $product_simple_fields{$field}) {
+			$product_ref->{$field} = remove_tags_and_quote($value);
+			$request_ref->{updated_product_fields}{$field} = 1;
+		}
+		# Main language
+		elsif ($field eq "lang") {
+			if ($value !~ /^[a-z]|[a-z]$/i) {
+				add_error(
+					$response_ref,
+					{
+						message => {id => "invalid_language_code"},
+						field => {id => $field},
+						impact => {id => "field_ignored"},
+					}
+				);
+
+			}
+			else {
+				$product_ref->{$field} = lc($value);
+				$product_ref->{lc} = $value;
+				$request_ref->{updated_product_fields}{$field} = 1;
+			}
 		}
 		# Unrecognized field
 		else {
