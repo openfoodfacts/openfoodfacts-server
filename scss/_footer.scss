@@ -1,47 +1,23 @@
-footer {
-  & > div {
-    min-height: 301px;
-    padding: 1rem;
-  }
-
-  & > .off {
-    border-top: 10px solid $animal;
-  }
-
-  & > .app {
-    border-top: 10px solid $cereal;
-
-    a {
-      padding: 5px;
-      display: block;
-      float: left;
-      height: 70px;
-      width: 160px;
-
-      img {
-        width: 100%;
-        height: 100%;
-      }
-    }
-  }
-
-  & > .project {
-    border-top: 10px solid $plant;
-  }
-
-  & > .community {
-    border-top: 10px solid $dark-fish;
-  }
-
-  .title {
-    font-size: 1.25rem;
-    margin-bottom: 5px;
-  }
+#footer_block_image_banner_outside {
+  background: no-repeat top left url(/images/illustrations/footer-planet.svg)
 }
 
-.sharebuttons {
-  li {
-    text-align: center;
-    width: 100px;
-  }
+#footer_block_image_banner_outside2 {
+  background: no-repeat bottom right url(/images/illustrations/footer-orange.svg)
+}
+
+#footer_block_image_banner_inside {
+//  @media only screen and (max-width: 100rem) {margin-left:140px;}
+}
+
+.tags_links {
+    a {
+        margin-bottom: $inline-list-default-float-list-margin !important;
+    }
+}
+
+#footer_block {
+    ul {
+        display: inline-block;
+    }
 }

@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -88,15 +88,15 @@ use MIME::Base64;
 		$j++;
 
 		print "id: $id\n";
-		
-		next if ($id !~ /^8715/);
-		
+
+		next if ( $id !~ /^8715/ );
+
 		print "deleting id: $id\n";
-		my $response = $browser->request(HTTP::Request->new("DELETE","$ep/ref/$id"));
-		print "response -> " . $response->content . "\n";	
+		my $response = $browser->request(
+			HTTP::Request->new( "DELETE", "$ep/ref/$id" ) );
+		print "response -> " . $response->content . "\n";
 		last;
-	
-	
+
 	}
 		
 		print "deleted $j products\n";

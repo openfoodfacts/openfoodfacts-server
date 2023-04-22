@@ -1,0 +1,18 @@
+{
+    "level": "info",
+    "topics": [
+        "health"
+    ],
+    "type": "inline",
+    "expanded": true,
+    "elements": [
+        [% FOREACH additive IN product.additives_tags %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "additive_[% additive %]",
+            }
+        },            
+        [% END %]
+    ]
+}

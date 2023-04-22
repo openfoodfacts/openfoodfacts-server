@@ -1,22 +1,22 @@
 #!/usr/bin/perl -w
 
 # This file is part of Product Opener.
-# 
+#
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
-# 
+#
 # Product Opener is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
 # License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Affero General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
@@ -40,7 +40,7 @@ it is likely that the MongoDB cursor of products to be updated will expire, and 
 
 --pretend	do not actually update products
 TXT
-;
+	;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -67,7 +67,6 @@ use JSON::PP;
 
 use Getopt::Long;
 
-
 my @fields_to_update = ();
 my $key;
 my $index = '';
@@ -81,26 +80,26 @@ my $process_ingredients = '';
 #			"process-ingredients" => \$process_ingredients,
 #			)
 #  or die("Error in command line arguments:\n$\nusage");
- 
+
 use Data::Dumper;
 
-print Dumper(\@fields_to_update); 
- 
-@fields_to_update = split(/,/,join(',',@fields_to_update));
+print Dumper(\@fields_to_update);
 
-  
+@fields_to_update = split(/,/, join(',', @fields_to_update));
+
 use Data::Dumper;
 
-    # simple procedural interface
-    print Dumper(\@fields_to_update);
-	
-	
+# simple procedural interface
+print Dumper(\@fields_to_update);
+
 print "Updating fields: " . join(", ", @fields_to_update) . "\n\n";
 
 my $unknown_fields = 0;
 
 foreach my $field (@fields_to_update) {
-	if ( (not defined $tags_fields{$field}) and (not defined $taxonomy_fields{$field}) and (not defined $hierarchy_fields{$field}) ) {
+	if (    (not defined $tags_fields{$field})
+		and (not defined $taxonomy_fields{$field}))
+	{
 		print "Unknown field: $field\n";
 		$unknown_fields++;
 	}
@@ -112,13 +111,13 @@ if ($unknown_fields > 0) {
 
 if ((not $process_ingredients) and (scalar @fields_to_update == 0)) {
 	#die("Missing fields to update:\n$\nusage");
-}  
+}
 
 # Get a list of all products not yet updated
 
 my $query_ref = {};
 if (defined $key) {
-	$query_ref = { update_key => { '$ne' => "$key" } };
+	$query_ref = {update_key => {'$ne' => "$key"}};
 }
 else {
 	$key = "key_" . time();
@@ -126,38 +125,36 @@ else {
 
 print "Update key: $key\n\n";
 
-my $cursor = get_products_collection()->query($query_ref)->fields({ code => 1 });;
+my $cursor = get_products_collection()->query($query_ref)->fields({code => 1});
 
 my $n = 0;
-	
+
 while (my $product_ref = $cursor->next) {
-	
+
 	my $code = $product_ref->{code};
 	my $path = product_path($code);
-	
+
 	#next if $code ne "9555118659523";
-	
+
 	print STDERR "updating product $code\n";
-	
+
 	$product_ref = retrieve_product($code);
-	
+
 	if ((defined $product_ref) and ($code ne '') and $product_ref->{creator} eq 'usda-ndb-import') {
-	
+
 		$lc = $product_ref->{lc};
-	
+
 		$product_ref->{deleted} = 'on';
 
-	
-	my $comment = "delete";
-	store_product($product_ref, $comment);
-		
-		
+		my $comment = "delete";
+		store_product($User_id, $product_ref, $comment);
+
 		$n++;
 	}
 
 }
-			
+
 print "$n products updated (pretend: $pretend)\n";
-			
+
 exit(0);
 

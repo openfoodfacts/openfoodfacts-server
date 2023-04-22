@@ -1,0 +1,24 @@
+{
+    "level": "info",
+    "topics": [
+        "health"
+    ],
+    "size": "small",
+    "title_element": {
+        "title": `[% display_taxonomy_tag_name("additives", panel.additive) %]`,
+    },        
+    "elements": [
+        [% IF panel.wikipedia_abstract %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `<strong>[% panel.wikipedia_title %][% sep %]:</strong> [% panel.wikipedia_abstract %]`,
+                "source_text": `Wikipedia`,
+                "source_url": `[% panel.wikipedia_url %]`,
+                "source_lc": "[% panel.wikipedia_url_lc %]",
+                "source_language": "[% panel.wikipedia_url_language %]"
+            }
+        },
+        [% END %]
+    ]
+}
