@@ -723,7 +723,8 @@ check_quality_and_test_product_has_quality_tag($product_ref, 'en:quantity-contai
 	'quantity does not contain e', 0);
 $product_ref = {quantity => "225 g ℮"};
 ProductOpener::DataQuality::check_quality($product_ref);
-check_quality_and_test_product_has_quality_tag($product_ref, 'en:quantity-contains-e', 'quantity contains e', 0);
+check_quality_and_test_product_has_quality_tag($product_ref, 'en:quantity-contains-e', 'quantity does not contain e',
+	0);
 $product_ref = {quantity => "300ge"};
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag($product_ref, 'en:quantity-contains-e', 'quantity contains e', 1);
