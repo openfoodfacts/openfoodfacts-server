@@ -1612,7 +1612,32 @@ my @tests = (
 				],
 			},
 		]
-	]
+	],
+
+	##################################################################
+	#
+	#                           POLISH ( PL )
+	#
+	##################################################################
+
+	[
+		{
+			lc => "pl",
+			ingredients_text => "suszony koperek, liofilizowane ananasy"
+		},
+		[
+			{
+				'id' => 'en:dill',
+				'processing' => 'en:dried',
+				'text' => 'koperek'
+			},
+			{
+				'id' => 'en:pineapple',
+				'processing' => 'en:freeze-dried',
+				'text' => 'ananasy'
+			}
+		]
+	],
 
 );
 
