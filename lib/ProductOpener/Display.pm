@@ -3060,6 +3060,7 @@ sub display_tag ($request_ref) {
 	}
 
 	if (defined $request_ref->{groupby_tagtype}) {
+		$request_ref->{current_link} .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$lc};
 		$request_ref->{world_current_link} .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$lc};
 	}
 

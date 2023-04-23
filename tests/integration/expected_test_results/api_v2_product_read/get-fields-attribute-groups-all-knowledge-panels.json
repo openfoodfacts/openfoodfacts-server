@@ -393,7 +393,7 @@
          "2xxxxxxxxxxx"
       ],
       "complete" : 0,
-      "completeness" : 0.5,
+      "completeness" : 0.4,
       "correctors_tags" : [],
       "created_t" : "--ignore--",
       "creator" : "tests",
@@ -426,7 +426,7 @@
             "origins_of_ingredients" : {
                "aggregated_origins" : [
                   {
-                     "epi_score" : "0",
+                     "epi_score" : 0,
                      "origin" : "en:unknown",
                      "percent" : 100,
                      "transportation_score" : null
@@ -2142,12 +2142,6 @@
                   "panel_element" : {
                      "panel_id" : "environment_card"
                   }
-               },
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "contribution_card"
-                  }
                }
             ],
             "expanded" : true,
@@ -2329,10 +2323,10 @@
       "rev" : 1,
       "serving_quantity" : "10",
       "serving_size" : "10 g",
-      "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
+      "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
       "states_hierarchy" : [
          "en:to-be-completed",
-         "en:nutrition-facts-completed",
+         "en:nutrition-facts-to-be-completed",
          "en:ingredients-completed",
          "en:expiration-date-to-be-completed",
          "en:packaging-code-to-be-completed",
@@ -2347,7 +2341,7 @@
       ],
       "states_tags" : [
          "en:to-be-completed",
-         "en:nutrition-facts-completed",
+         "en:nutrition-facts-to-be-completed",
          "en:ingredients-completed",
          "en:expiration-date-to-be-completed",
          "en:packaging-code-to-be-completed",
