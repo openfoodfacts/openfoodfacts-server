@@ -9231,6 +9231,10 @@ wikidata:en:Q181354
 wikipedia:en:https://en.wikipedia.org/wiki/Biotin
 # ingredient/biotin has 145 products in 3 languages @2018-11-24
 
+<en:vitamins
+en:cobalamin, Vitamin B12, B12 
+ja:コバラミン, ビタミンB12
+
 
 
 
@@ -27524,6 +27528,10 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Sucre_en_morceaux
 en:fermented sugar
 nl:gefermenteerde suiker
 
+<en:sugar
+en:rock candy, crystal candy
+ja:氷砂糖
+
 #################### Sugars from specific sources ##############
 
 en:sugarcane, sugar cane
@@ -38223,6 +38231,16 @@ ciqual_food_name:en:Marmalade, orange
 ciqual_food_name:fr:Marmelade d'orange
 #22 @2021-09-26
 
+###################################################################################################
+#
+#                                Yuzu
+#
+###################################################################################################
+
+<en:cirtus fruit
+en:Yuzu
+ja:柚子, ゆず
+
 ##########################################
 #              Flavourings
 ##########################################
@@ -42176,6 +42194,10 @@ fr:purée de fraise concentrée, puree de fraise concentree, purée de fraise å
 <en:fruit juice
 <en:grape
 fi:mansikoista valmistettu mehu ja viinirypäleet
+
+<en:strawberry
+en:strawberry powder
+ja:イチゴ粉末
 
 
 # description:en:Fragaria vesca, commonly called WILD STRAWBERRY, woodland strawberry, Alpine strawberry, Carpathian strawberry, European strawberry, or fraisier des bois, is a perennial herbaceous plant in the rose family that grows naturally throughout much of the Northern Hemisphere, and that produces edible fruits.
@@ -46837,6 +46859,10 @@ ciqual_food_code:en:20218
 ciqual_food_name:en:Curly kale, raw
 ciqual_food_name:fr:Chou frisé, cru
 # 2029 in 13 languages @2021-10-19
+
+<en:cabbage
+en:komatsuna
+ja:小松菜, コマツナ
 
 <en:vegetable
 en:collard greens, collard
@@ -54691,6 +54717,10 @@ origins:en: en:Europe
 #fi:kypsennetty kastanja, kypsennetyt kastanjat
 
 # comment:en:It seems that only in french there is a difference between chataigne and marron
+
+<en:chestnut
+en:chestnut powder
+ja:くりパウダー
 
 <en:chestnut
 fr:marron, marrons
@@ -66540,6 +66570,11 @@ nl:gerehydrateerde Chinese champignons
 sv:rekonstituerad svart champinjon
 # fr:champignon-noir-réhydraté has 121 products in 3 languages @2018-11-01
 
+<en:shiitake
+<en:mushroom extract
+en:shiitake extract
+en:しいたけエキス
+
 
 # description:en:PLEUROTUS OSTREATUS, the oyster mushroom, is a common edible mushroom.
 
@@ -70313,6 +70348,10 @@ decription:pt:O bonito, bonito-listado, gaiado, atum-bonito e atum-gaiado (Katsu
 <en:skipjack tuna
 en:skipjack tuna fillet
 hr:fileti tune prugaste
+
+<en:skipjack tuna
+en:bonito flakes
+en:鰹節, カツオ節, かつお節
 
 #category/yellowfin-tunas
 <en:tuna
@@ -79025,6 +79064,10 @@ ciqual_food_name:en:Pizza base, raw
 ciqual_food_name:fr:Pâte à pizza crue
 # 93 in 5 @2021-09-26
 
+<en:pizza dough
+en:pizza crust
+ja:ピザクラスト
+
 <en:dough
 en:inactive dough
 de:inaktive Hefe
@@ -83454,6 +83497,10 @@ fr:sauce tomate cuisinée
 <en:tomato sauce
 fr:préparation de tomates décongelée
 # usage:fr:préparation de tomates décongelée (tomates mi-séchées, huile de colza, sel, origan, ail)
+
+<en:tomato sauce
+en:pizza sauce
+ja:ピザソース
 
 # description:en:WORCESTERSHIRE SAUCE is a fermented liquid condiment created in the city of Worcester. Worcestershire sauce is frequently used to enhance food and drink recipes.
 
