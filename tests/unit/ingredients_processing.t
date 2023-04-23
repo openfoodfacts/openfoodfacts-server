@@ -488,32 +488,68 @@ my @tests = (
 	#
 	##################################################################
 	# test for mehu inside an ingredient
-
-	#	[ { lc => "fi", ingredients_text => "hedelmätäysmehutiivisteet"},
-	#		[
-	#		]
-	#	],
-
-	# Assert that processing patterns are in descending length order
-	# i.e 'fi:jauhettu' is matched before 'fi:jauhe'
 	# [
-	# 	{	lc => "fi",
-	# 		ingredients_text =>
-	# 			"raakamaito, mustikkajauhe, jauhettu vaniljatanko"
+	# 	{
+	# 		lc => "fi",
+	# 		ingredients_text => "hedelmämehutiivisteet"
 	# 	},
-	# 	[	{	'id'   => 'en:raw-milk',
-	# 			'text' => 'raakamaito'
-	# 		},
-	# 		{	'id'         => 'en:blueberry',
-	# 			'processing' => 'en:powdered',
-	# 			'text'       => 'mustikka'
-	# 		},
-	# 		{	'id'         => 'en:vanilla-pod',
-	# 			'processing' => 'en:ground',
-	# 			'text'       => 'vaniljatanko'
+	# 	[
+	# 		{
+	# 			'id' => 'en:fruit-juice',
+	# 			'processing' => 'en:concentrated',
+	# 			'text' => 'hedelmämehu'
+	# 		}
+	# 	]
+	# ], 
+
+	# [
+	# 	{
+	# 		lc => "en",
+	# 		ingredients_text => "fruit juice concentrated"
+	# 	},
+	# 	[
+	# 		{
+	# 			'id' => 'en:fruit-juice',
+	# 			'processing' => 'en:concentrated',
+	# 			'text' => 'fruit juice'
 	# 		}
 	# 	]
 	# ],
+	[
+		{
+			lc => "fi",
+			ingredients_text => "kuivattu banaani"
+		},
+		[
+			{
+				'id' => 'en:banana',
+				'processing' => 'en:dried',
+				'text' => 'banaani'
+			}
+		]
+	], 
+	[
+		{
+			lc => "fi",
+			ingredients_text => "raakamaito, mustikkajauhe, jauhettu vaniljatanko"
+		},
+		[
+			{
+				'id' => 'en:raw-milk',
+				'text' => 'raakamaito'
+			},
+			{
+				'id' => 'en:billberry',
+				'processing' => 'en:powder',
+				'text' => 'mustikka'
+			},
+			{
+				'id' => 'en:vanilla-pod',
+				'processing' => 'en:ground',
+				'text' => 'vaniljatanko'
+			}
+		]
+	],
 
 	##################################################################
 	#

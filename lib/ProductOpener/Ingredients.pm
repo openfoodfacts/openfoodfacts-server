@@ -1768,7 +1768,7 @@ sub parse_ingredients_text ($product_ref) {
 									if $log->is_trace();
 
 								if (
-									# English, French etc. match before or after the ingredient, require a space
+									# match before or after the ingredient, require a space
 									(
 										#($product_lc =~ /^(en|es|it|fr)$/)
 										(
@@ -1787,16 +1787,14 @@ sub parse_ingredients_text ($product_ref) {
 										and ($new_ingredient =~ /(^($regexp)\b|\b($regexp)$)/i)
 									)
 
-									#  match after, do not require a space
-									# currently no language
-									#or ( ($product_lc eq 'xx') and ($new_ingredient =~ /($regexp)$/i) )
-
-									#  Dutch: match before or after, do not require a space
+									#  match before or after the ingredient, does not require a space
 									or (    (($product_lc eq 'de') or ($product_lc eq 'nl') or ($product_lc eq 'hu'))
 										and ($new_ingredient =~ /(^($regexp)|($regexp)$)/i))
 
+									# match after the ingredient, does not require a space
+									# match before the ingredient, require a space
 									or (    ($product_lc eq 'fi')
-										and ($new_ingredient =~ /(($regexp)$)/i))
+										and ($new_ingredient =~ /(^($regexp)\b|($regexp)$)/i))
 									)
 								{
 									$new_ingredient = $` . $';
