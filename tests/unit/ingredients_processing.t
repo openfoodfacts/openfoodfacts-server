@@ -487,34 +487,6 @@ my @tests = (
 	#                           F I N N I SH ( F I )
 	#
 	##################################################################
-	# test for mehu inside an ingredient
-	# [
-	# 	{
-	# 		lc => "fi",
-	# 		ingredients_text => "hedelmämehutiivisteet"
-	# 	},
-	# 	[
-	# 		{
-	# 			'id' => 'en:fruit-juice',
-	# 			'processing' => 'en:concentrated',
-	# 			'text' => 'hedelmämehu'
-	# 		}
-	# 	]
-	# ], 
-
-	# [
-	# 	{
-	# 		lc => "en",
-	# 		ingredients_text => "fruit juice concentrated"
-	# 	},
-	# 	[
-	# 		{
-	# 			'id' => 'en:fruit-juice',
-	# 			'processing' => 'en:concentrated',
-	# 			'text' => 'fruit juice'
-	# 		}
-	# 	]
-	# ],
 	[
 		{
 			lc => "fi",
@@ -527,7 +499,7 @@ my @tests = (
 				'text' => 'banaani'
 			}
 		]
-	], 
+	],
 	[
 		{
 			lc => "fi",
