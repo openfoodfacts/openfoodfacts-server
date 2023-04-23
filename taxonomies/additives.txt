@@ -554,7 +554,7 @@ hy:E120, Կարմին
 ia:E120, carmin
 io:E120, Karmino
 it:E120, Cocciniglia, acido carminico, vari tipi di carminio, C22H20O13
-ja:E120, コチニール色素
+ja:E120, コチニール色素, コチニール
 ky:E120, Кармин
 lt:E120, Košenilis, karmino rūgštis, karminai
 lv:E120, Košenils, karmīnskābe, karmīni
@@ -1934,6 +1934,7 @@ fr:E160, Caroténoïdes, carotènes, Caroténoïde, caroténoïdes mélangés
 hr:E160
 hu:E160, Karotinoidok
 it:E160, E160 food additive
+ja:カロチノイド色素
 lt:E160, E160 food additive
 lv:E160, E160 food additive
 mt:E160, E160 food additive
@@ -2181,6 +2182,7 @@ fr:E160c, Extrait de paprika, capsanthéine et capsorubine, Oléorésine de papr
 hr:E160c
 hu:E160c, Paprikakivonat, paprika kivonat, kapszantin, kapszorubin, Paprika-oleorezin
 it:E160c, Estratto di paprica, capsantina, capsorubina
+ja:パプリカ色素
 lt:E160c, Paprikų ekstraktas, kapsantinas, kapsorubinas, Paprikos ekstraktas
 lv:E160c, Paprikas ekstrakts, kapsantīns, kapsorubīns
 mt:E160c, Estratt tal-paprika, kapsantin, kapsorubin
@@ -5195,7 +5197,7 @@ hr:E250, natrijev nitrit
 hu:E250, Nátrium-nitrit
 id:E250, natrium nitrit
 it:E250, Nitrito di sodio
-ja:E250, 亜硝酸ナトリウム
+ja:E250, 亜硝酸ナトリウム, 亜硝酸Na
 ko:E250, 아질산 나트륨
 ky:E250, Натрий нитрити
 lt:E250, Natrio nitritas
@@ -5603,6 +5605,7 @@ fr:E262, Acétates de sodium
 hr:E262, natrijevi acetati
 hu:E262, Nátrium-acetátok
 it:E262, acetati di sodio
+ja:酢酸ナトリウム, 酢酸Na
 lt:E262, E262 food additive
 lv:E262, E262 food additive
 mt:E262, E262 food additive
@@ -6231,7 +6234,7 @@ id:E290, Karbon dioksida
 io:E290, Karbo dioxido
 is:E290, Koltvísýringur
 it:E290, Anidride carbonica, Gas acido carbonico, biossido di carbonio, diossido di carbonio
-ja:E290, 二酸化炭素
+ja:E290, 二酸化炭素, 炭酸ガス
 jv:E290, Karbon dioksida
 ka:E290, ნახშირორჟანგი
 kk:E290, Көмірқышқыл газ
@@ -7552,7 +7555,7 @@ ga:E325, lachtaláit sóidiam
 hr:E325, natrijev laktilat, natrijev laktat
 hu:E325, Nátrium-laktát
 it:E325, lattato di sodio
-ja:E325, 乳酸ナトリウム
+ja:E325, 乳酸ナトリウム, 乳酸Na
 lt:E325, Natrio laktatas
 lv:E325, Nātrija laktāts
 mt:E325, Lattat tas-sodju
@@ -7958,6 +7961,7 @@ fr:E331(iii), Citrate trisodique
 hr:E331(iii), trinatrijev citrat
 hu:E331(iii), Trinátrium-citrát
 it:E331(iii), Citrato trisodico, citrato di trisodio
+ja:クエン酸三ナトリウム, クエン酸ナトリウム, クエン酸Na
 nb:E331(iii), Trinatriumsitrat
 nl:E331(iii), trinatriumcitraat
 pl:E331(iii), Cytrynian trisodowy
@@ -7965,6 +7969,7 @@ pt:E331(iii), Citrato trissódico
 ru:E331(iii), цитрат натрия 3-замещенный, цитрат натрия 3 замещенный
 sv:E331(iii), Trinatriumcitrat
 e_number:en:331
+# Other sodium citrates are not in the additives list in Japan https://www.ffcr.or.jp/tenka/list/post-11.html
 
 
 #comment:en:E332 should be in plural, the specific form can be entered under i or ii. The singlar variant is ii.
@@ -10322,6 +10327,7 @@ fi:E405, Propyleeniglykolialginaatti, Propyleeniglykolialginaattia
 fr:E405, Alginate de propane-1, Alginate d'hydroxypropyle, Alginate de propylène glycol, 2-diol, Alginate de propane-1\,2-diol, E-405
 hu:E405, Propán-1\,2-diol-alginát
 it:E405, Alginato di propan-1\,2-diolo
+ja:アルギン酸エステル
 lt:E405, 1\,2-propandiolio alginatas
 lv:E405, Propān-1\,2-diola algināts
 mt:E405, Alġinat tal-propan-1\,2-diol
@@ -15037,7 +15043,7 @@ ia:E500(ii), Bicarbonato de Sodium
 id:E500(ii), Natrium bikarbonat
 is:E500(ii), Matarsódi
 it:E500(ii), Carbonato acido di sodio, Bicarbonato di sodio, carbonato acido di sodio
-ja:E500(ii), 炭酸水素ナトリウム
+ja:E500(ii), 炭酸水素ナトリウム, 重曹
 kk:E500(ii), Ас содасы
 kn:E500(ii), ಸೋಡಿಯಂ ಬೈ ಕಾರ್ಬೋನೇಟ್
 ko:E500(ii), 탄산 수소 나트륨
@@ -15724,7 +15730,7 @@ hu:E509, Kalcium-klorid
 hy:E509, Կալցիումի քլորիդ
 id:E509, Kalsium klorida
 it:E509, Cloruro di calcio, CaCl2, Dicloruro di calcio, Calcio cloruro
-ja:E509, 塩化カルシウム
+ja:E509, 塩化カルシウム, 塩化Ca
 ko:E509, 염화 칼슘
 ky:E509, Кальций хлориди
 lt:E509, Kalcio chloridas
@@ -18602,6 +18608,7 @@ fi:E640(i), Glysiini, Glysiiniä
 fr:E640(i), Glycine, Sucre de gélatine, acide aminoacétique, Acide aminoéthanoïque, acide 2-aminoéthanoïque, Glycocolle
 hu:E640(i), Glicin
 it:E640(i), Glicina
+ja:E640(i), グリシン
 lt:E640(i), Glicinas
 lv:E640(i), Glicīns
 mt:E640(i), Gliċina
