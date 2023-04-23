@@ -224,6 +224,7 @@
                   "quantity_per_unit" : "6g",
                   "quantity_per_unit_unit" : "g",
                   "quantity_per_unit_value" : 6,
+                  "recycling" : "en:recycle",
                   "shape" : "en:bottle"
                },
                {
@@ -493,6 +494,19 @@
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100
    },
+   "packaging_materials_tags" : [
+      "en:glass",
+      "en:metal",
+      "en:plastic"
+   ],
+   "packaging_recycling_tags" : [
+      "en:recycle"
+   ],
+   "packaging_shapes_tags" : [
+      "en:bottle",
+      "en:capsule",
+      "en:spout"
+   ],
    "packaging_text" : "1 bouteille verre de 6g, verseur plastique de 3g, capsule métal de 1g",
    "packagings" : [
       {
@@ -501,6 +515,7 @@
          "quantity_per_unit" : "6g",
          "quantity_per_unit_unit" : "g",
          "quantity_per_unit_value" : 6,
+         "recycling" : "en:recycle",
          "shape" : "en:bottle"
       },
       {

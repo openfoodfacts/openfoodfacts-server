@@ -1624,6 +1624,11 @@ msgid ""
 "by typing the first letters of their name in the last row of the table."
 msgstr ""
 
+msgctxt "nutrition_data_table_asterisk"
+msgid ""
+"Essential nutrients to calculate the Nutri-Score."
+msgstr ""
+
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
 msgstr ""
@@ -1838,6 +1843,14 @@ msgstr ""
 msgctxt "product_changes_saved"
 msgid "Changes saved."
 msgstr ""
+
+msgctxt "product_edit_you_contributed"
+msgid "You just helped to improve the world largest open data database."
+msgstr "You just helped to improve the world largest open data database."
+
+msgctxt "product_edit_thank_you"
+msgid "Thank you so much for joining us in our journey to data transparency!"
+msgstr "Thank you so much for joining us in our journey to data transparency!"
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
@@ -2390,6 +2403,10 @@ msgstr ""
 msgctxt "see_product_page"
 msgid "See the product page"
 msgstr ""
+
+msgctxt "re_edit_product_page"
+msgid "Edit the product again"
+msgstr "Edit the product again"
 
 msgctxt "select_country"
 msgid "Country"
@@ -3506,6 +3523,10 @@ msgctxt "fields_group_images"
 msgid "Product photos"
 msgstr "Product photos"
 
+msgctxt "fields_group_packaging"
+msgid "Packaging"
+msgstr "Packaging"
+
 msgctxt "image_front_url"
 msgid "Link to front product photo"
 msgstr "Link to front product photo"
@@ -4222,9 +4243,10 @@ msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "Producers platform moderation"
 
-msgctxt "pro_moderator_owner_set"
-msgid "You are currently viewing products from %s."
-msgstr "You are currently viewing products from %s."
+# variable names between { } must not be translated
+msgctxt "f_pro_moderator_owner_set"
+msgid "You are currently viewing products from {organization}."
+msgstr "You are currently viewing products from {organization}."
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
@@ -4236,8 +4258,8 @@ msgstr "To see products from a specific user or organization, enter its id. Leav
 
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
-msgid "Change"
-msgstr "Change"
+msgid "Switch to another organization"
+msgstr "Switch to another organization"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
@@ -5747,6 +5769,14 @@ msgctxt "ecoscore_warning_international"
 msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgstr "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 
+msgctxt "ecoscore_warning_transportation_world"
+msgid "Select a country in order to include the full impact of transportation."
+msgstr "Select a country in order to include the full impact of transportation."
+
+msgctxt "ecoscore_warning_transportation"
+msgid "The full impact of transportation to your country is currently unknown."
+msgstr "The full impact of transportation to your country is currently unknown."
+
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
 msgstr "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
@@ -5990,6 +6020,38 @@ msgctxt "health"
 msgid "Health"
 msgstr "Health"
 
+msgctxt "contribution_panel_title"
+msgid "Contribution"
+msgstr "Contribution"
+
+msgctxt "contribution_navigation"
+msgid "Contribution"
+msgstr "Contribution"
+
+msgctxt "data_quality_errors_panel_title"
+msgid "Detected Errors"
+msgstr "Detected Errors"
+
+msgctxt "data_quality_errors_panel_subtitle"
+msgid "Help us improve quality of our data by contributing fixes"
+msgstr "Help us improve quality of our data by contributing fixes"
+
+msgctxt "data_quality_warnings_panel_title"
+msgid "Potential issues"
+msgstr "Potential issues"
+
+msgctxt "data_quality_warnings_panel_subtitle"
+msgid "We have detected some potential issues or potential improvements, could you check if some apply ?"
+msgstr "We have detected some potential issues or potential improvement, could you check if some apply ?"
+
+msgctxt "data_quality_info_panel_title"
+msgid "Data Quality infos"
+msgstr "Data Quality infos"
+
+msgctxt "data_quality_info_panel_subtitle"
+msgid "Some infos about data quality on this product"
+msgstr "Some infos about data quality on this product"
+
 # will be followed by : and a value. e.g. "Compared to: bananas"
 msgctxt "compared_to"
 msgid "Compared to"
@@ -6228,6 +6290,10 @@ msgctxt "action_add_packaging_image"
 msgid "Take a photo of the recycling information"
 msgstr "Take a photo of the recycling information"
 
+msgctxt "action_add_packaging_components"
+msgid "Add packaging components"
+msgstr "Take a photo of the recycling information"
+
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
@@ -6460,6 +6526,10 @@ msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
 msgstr "Invalid type: must be an integer"
 
+msgctxt "api_message_invalid_type_must_be_number"
+msgid "Invalid type: must be a number"
+msgstr "Invalid type: must be a number"
+
 msgctxt "api_message_missing_field"
 msgid "Missing field"
 msgstr "Missing field"
@@ -6483,6 +6553,10 @@ msgstr "Failure"
 msgctxt "api_impact_field_ignored"
 msgid "Field ignored"
 msgstr "Field ignored"
+
+msgctxt "api_impact_value_converted"
+msgid "Value converted"
+msgstr "Value converted"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
@@ -6508,3 +6582,66 @@ msgctxt "packagings_complete"
 msgid "All the packaging parts of the product are listed."
 msgstr "All the packaging parts of the product are listed."
 
+msgctxt "api_message_invalid_user_id_and_password"
+msgid "Invalid user id and password"
+msgstr "Invalid user id and password"
+
+msgctxt "api_message_invalid_value_must_be_0_or_1"
+msgid "Invalid value: must be 0 or 1"
+msgstr "Invalid value: must be 0 or 1"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units_description"
+msgid "Enter the number of packaging units of the same shape and material contained in the product."
+msgstr "Enter the number of packaging units of the same shape and material contained in the product."
+
+msgctxt "packaging_shape_description"
+msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
+msgstr "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
+
+msgctxt "packaging_material_description"
+msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
+msgstr "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
+
+msgctxt "packaging_recycling_description"
+msgid "Enter recycling instructions only if they are listed on the product."
+msgstr "Enter recycling instructions only if they are listed on the product."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight_description"
+msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
+msgstr "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit_description"
+msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
+msgstr "Enter the net weight or net volume and indicate the unit (for example g or ml)."
+
+msgctxt "import_and_export_products"
+msgid "Import and export products"
+msgstr "Import and export products"
+
+msgctxt "add_products"
+msgid "Add products"
+msgstr "Add products"
+
+# Needs to be short (displayed in a menu)
+msgctxt "install_the_app_to_add_products"
+msgid "Install the app to add products"
+msgstr "Install the app to add products"
+
+msgctxt "search_and_analyze_products"
+msgid "Search and analyze products"
+msgstr "Search and analyze products"
+
+msgctxt "resources"
+msgid "Resources"
+msgstr "Resources"
+
+msgctxt "pro_platform_user_guide"
+msgid "Pro platform user guide"
+msgstr "Pro platform user guide"
+
+msgctxt "faq_for_producers"
+msgid "FAQ for producers"
+msgstr "FAQ for producers"

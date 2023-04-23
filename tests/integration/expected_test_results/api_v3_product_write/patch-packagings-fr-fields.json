@@ -2,6 +2,25 @@
    "code" : "1234567890007",
    "errors" : [],
    "product" : {
+      "misc_tags" : [
+         "en:nutriscore-not-computed",
+         "en:nutriscore-missing-category",
+         "en:nutrition-not-enough-data-to-compute-nutrition-score",
+         "en:nutriscore-missing-nutrition-data",
+         "en:nutriscore-missing-nutrition-data-energy",
+         "en:nutriscore-missing-nutrition-data-fat",
+         "en:nutriscore-missing-nutrition-data-saturated-fat",
+         "en:nutriscore-missing-nutrition-data-sugars",
+         "en:nutriscore-missing-nutrition-data-sodium",
+         "en:nutriscore-missing-nutrition-data-proteins",
+         "en:nutrition-no-fiber",
+         "en:packagings-not-complete",
+         "en:packagings-not-empty-but-not-complete",
+         "en:packagings-not-empty",
+         "en:ecoscore-extended-data-not-computed",
+         "en:ecoscore-not-computed",
+         "en:main-countries-new-product"
+      ],
       "packagings" : [
          {
             "material" : {
@@ -59,7 +78,8 @@
                "lc_name" : "Pot"
             }
          }
-      ]
+      ],
+      "weighers_tags" : []
    },
    "status" : "success_with_warnings",
    "warnings" : [

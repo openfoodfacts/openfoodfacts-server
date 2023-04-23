@@ -129,6 +129,13 @@
                {
                   "element_type" : "text",
                   "text_element" : {
+                     "html" : "Sélectionnez un pays pour inclure l'impact total du transport.",
+                     "type" : "warning"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
                      "html" : "L'<a href=\"http://world-fr.openfoodfacts.localhost/ecoscore\">Eco-Score</a> est un score expérimental qui synthétise les impacts environnementaux des produits alimentaires."
                   }
                },
@@ -179,7 +186,7 @@
             "title_element" : {
                "grade" : "c",
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/ecoscore-c.svg",
-               "title" : "Éco-Score C - Impact modéré sur l'environnement",
+               "title" : "Eco-Score C - Impact modéré sur l'environnement",
                "type" : "grade"
             },
             "topics" : [
@@ -1034,7 +1041,7 @@
                      "actions" : [
                         "add_origins"
                      ],
-                     "html" : ""
+                     "html" : "Ajouter les origines des ingrédients pour ce produit"
                   },
                   "element_type" : "action"
                }
@@ -1073,6 +1080,17 @@
                      "icon_alt" : "Jeter",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/delete.svg",
+                     "type" : "summary"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "evaluation" : "neutral",
+                     "html" : "\n                        \n                            \n                        \n                            \n                                6 x \n                                <strong>\n                                    Bouteille\n                                    25cl \n                                </strong>\n                                    \n                                        (Verre)\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                        \n                        ",
+                     "icon_alt" : "Inconnu",
+                     "icon_color_from_evaluation" : true,
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/help.svg",
                      "type" : "summary"
                   }
                }
@@ -1149,7 +1167,7 @@
    },
    "result" : {
       "id" : "product_found",
-      "lc_name" : "Product found",
+      "lc_name" : "Produit trouvé",
       "name" : "Product found"
    },
    "status" : "success",

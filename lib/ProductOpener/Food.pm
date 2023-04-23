@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -55,17 +55,6 @@ BEGIN {
 		&normalize_nutriment_value_and_modifier
 		&assign_nid_modifier_value_and_unit
 
-		&unit_to_g
-		&g_to_unit
-
-		&unit_to_kcal
-
-		&unit_to_mmoll
-		&mmoll_to_unit
-
-		&normalize_serving_size
-		&normalize_quantity
-
 		&canonicalize_nutriment
 
 		&fix_salt_equivalent
@@ -113,8 +102,10 @@ use ProductOpener::Numbers qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Text qw/:all/;
 use ProductOpener::FoodGroups qw/:all/;
+use ProductOpener::Units qw/:all/;
 use ProductOpener::Products qw(&remove_fields);
 use ProductOpener::Display qw/single_param/;
+use ProductOpener::APIProductWrite qw/skip_protected_field/;
 
 use Hash::Util;
 use Encode;
@@ -323,183 +314,6 @@ sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $
 	return;
 }
 
-=head2 unit_to_kcal($value, $unit)
-
-Converts <xx><unit> into <xx> kcal.
-
-=cut
-
-sub unit_to_kcal ($value, $unit) {
-	$unit = lc($unit);
-
-	(not defined $value) and return $value;
-
-	($unit eq 'kj') and return int($value / 4.184 + 0.5);
-
-	# return value without modification if it's already in kcal
-	return $value + 0;    # + 0 to make sure the value is treated as number
-}
-
-=head2 unit_to_g($value, $unit)
-
-Converts <xx><unit> into <xx>grams. Eg.:
-unit_to_g(2,kg) => returns 2000
-unit_to_g(520,mg) => returns 0.52
-
-=cut
-
-# This is a key:value pairs
-# The keys are the unit names and the values are the multipliers we can use to convert to a standard unit.
-# We can divide by these values to do the reverse ie, Convert from standard to non standard
-my %unit_conversion_map = (
-	# kg = 公斤 - gōngjīn = кг
-	"\N{U+516C}\N{U+65A4}" => 1000,
-	# l = 公升 - gōngshēng = л = liter
-	"\N{U+516C}\N{U+5347}" => 1000,
-	'kg' => 1000,
-	'кг' => 1000,
-	'l' => 1000,
-	'л' => 1000,
-	# mg = 毫克 - háokè = мг
-	"\N{U+6BEB}\N{U+514B}" => 0.001,
-	'mg' => 0.001,
-	'мг' => 0.001,
-	'mcg' => 0.000001,
-	'µg' => 0.000001,
-	'oz' => 28.349523125,
-	'fl oz' => 30,
-	'dl' => 100,
-	'дл' => 100,
-	'cl' => 10,
-	'кл' => 10,
-	# 斤 - jīn = 500 Grams
-	"\N{U+65A4}" => 500,
-	# Standard units: No conversion units
-	# Value without modification if it's already grams or 克 (kè) or 公克 (gōngkè) or г
-	'g' => 1,
-	'' => 1,
-	' ' => 1,
-	'kj' => 1,
-	'克' => 1,
-	'公克' => 1,
-	'г' => 1,
-	'мл' => 1,
-	'ml' => 1,
-	'mmol/l' => 1,
-	"\N{U+6BEB}\N{U+5347}" => 1,
-	'% vol' => 1,
-	'ph' => 1,
-	'%' => 1,
-	'% dv' => 1,
-	'% vol (alcohol)' => 1,
-	'iu' => 1,
-	# Division factors for "non standard unit" to mmoll conversions
-	'mol/l' => 0.001,
-	'mval/l' => 2,
-	'ppm' => 100,
-	"\N{U+00B0}rh" => 40.080,
-	"\N{U+00B0}fh" => 10.00,
-	"\N{U+00B0}e" => 7.02,
-	"\N{U+00B0}dh" => 5.6,
-	'gpg' => 5.847
-);
-
-sub unit_to_g ($value, $unit) {
-	$unit = lc($unit);
-
-	if ($unit =~ /^(fl|fluid)(\.| )*(oz|once|ounce)/) {
-		$unit = "fl oz";
-	}
-
-	(not defined $value) and return $value;
-
-	$value =~ s/,/\./;
-	$value =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
-	$value eq '' and return $value;
-
-	if (exists($unit_conversion_map{$unit})) {
-		return $value * $unit_conversion_map{$unit};
-	}
-
-	(($unit eq 'kcal') or ($unit eq 'ккал')) and return int($value * 4.184 + 0.5);
-
-	# We return with + 0 to make sure the value is treated as number (needed when outputting json and to store in mongodb as a number)
-	# lets not assume that we have a valid unit
-	return;
-}
-
-=head2 g_to_unit($value, $unit)
-
-Converts <xx>grams into <xx><unit>. Eg.:
-g_to_unit(2000,kg) => returns 2
-g_to_unit(0.52,mg) => returns 520
-
-=cut
-
-sub g_to_unit ($value, $unit) {
-	$unit = lc($unit);
-
-	if ((not defined $value) or ($value eq '')) {
-		return "";
-	}
-
-	$unit eq 'fl. oz' and $unit = 'fl oz';
-	$unit eq 'fl.oz' and $unit = 'fl oz';
-
-	$value =~ s/,/\./;
-	$value =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
-
-	$value eq '' and return $value;
-
-	# Divide with the values in the hash
-	if (exists($unit_conversion_map{$unit})) {
-		return $value / $unit_conversion_map{$unit};
-	}
-
-	(($unit eq 'kcal') or ($unit eq 'ккал')) and return int($value / 4.184 + 0.5);
-
-	# return value without modification if unit is already grams or 克 (kè) or 公克 (gōngkè) or г
-	return $value + 0;
-	# + 0 to make sure the value is treated as number
-	# (needed when outputting json and to store in mongodb as a number)
-}
-
-sub unit_to_mmoll ($value, $unit) {
-	$unit = lc($unit);
-
-	if ((not defined $value) or ($value eq '')) {
-		return '';
-	}
-
-	$value =~ s/,/\./;
-	$value =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
-
-	# Divide with the values in the hash
-	if (exists($unit_conversion_map{$unit})) {
-		return $value / $unit_conversion_map{$unit};
-	}
-
-	return $value + 0;
-}
-
-sub mmoll_to_unit ($value, $unit) {
-	$unit = lc($unit);
-
-	if ((not defined $value) or ($value eq '')) {
-		return '';
-	}
-
-	$value =~ s/,/\./;
-	$value =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
-
-	# Multiply with the values in the hash
-	if (exists($unit_conversion_map{$unit})) {
-		return $value * $unit_conversion_map{$unit};
-	}
-
-	return $value + 0;
-}
-
 # For fat, saturated fat, sugars, salt: http://www.diw.de/sixcms/media.php/73/diw_wr_2010-19.pdf
 @nutrient_levels = (['fat', 3, 20], ['saturated-fat', 1.5, 5], ['sugars', 5, 12.5], ['salt', 0.3, 1.5],);
 
@@ -532,25 +346,27 @@ sub mmoll_to_unit ($value, $unit) {
 			'--arachidic-acid-', '--behenic-acid-',
 			'--lignoceric-acid-', '--cerotic-acid-',
 			'--montanic-acid-', '--melissic-acid-',
-			'-monounsaturated-fat-', '-polyunsaturated-fat-',
-			'-omega-3-fat-', '--alpha-linolenic-acid-',
-			'--eicosapentaenoic-acid-', '--docosahexaenoic-acid-',
-			'-omega-6-fat-', '--linoleic-acid-',
-			'--arachidonic-acid-', '--gamma-linolenic-acid-',
-			'--dihomo-gamma-linolenic-acid-', '-omega-9-fat-',
-			'--oleic-acid-', '--elaidic-acid-',
-			'--gondoic-acid-', '--mead-acid-',
-			'--erucic-acid-', '--nervonic-acid-',
-			'-trans-fat-', '-cholesterol-',
-			'!carbohydrates', '!-sugars',
+			'-unsaturated-fat-', '--monounsaturated-fat-',
+			'--polyunsaturated-fat-', '-omega-3-fat-',
+			'--alpha-linolenic-acid-', '--eicosapentaenoic-acid-',
+			'--docosahexaenoic-acid-', '-omega-6-fat-',
+			'--linoleic-acid-', '--arachidonic-acid-',
+			'--gamma-linolenic-acid-', '--dihomo-gamma-linolenic-acid-',
+			'-omega-9-fat-', '--oleic-acid-',
+			'--elaidic-acid-', '--gondoic-acid-',
+			'--mead-acid-', '--erucic-acid-',
+			'--nervonic-acid-', '-trans-fat-',
+			'-cholesterol-', '!carbohydrates',
+			'!-sugars', '--added-sugars-',
 			'--sucrose-', '--glucose-',
 			'--fructose-', '--lactose-',
 			'--maltose-', '--maltodextrins-',
 			'-starch-', '-polyols-',
-			'!fiber', '-soluble-fiber-',
-			'-insoluble-fiber-', '!proteins',
-			'-casein-', '-serum-proteins-',
-			'-nucleotides-', '!salt',
+			'--erythritol-', '!fiber',
+			'-soluble-fiber-', '-insoluble-fiber-',
+			'!proteins', '-casein-',
+			'-serum-proteins-', '-nucleotides-',
+			'!salt', '-added-salt-',
 			'sodium', 'alcohol',
 			'#vitamins', 'vitamin-a-',
 			'beta-carotene-', 'vitamin-d-',
@@ -604,41 +420,42 @@ sub mmoll_to_unit ($value, $unit) {
 			'-trans-fat', 'cholesterol',
 			'!carbohydrates', '-fiber',
 			'--soluble-fiber-', '--insoluble-fiber-',
-			'-sugars', '--sucrose-',
-			'--glucose-', '--fructose-',
-			'--lactose-', '--maltose-',
-			'--maltodextrins-', '-starch-',
-			'-polyols-', '!proteins',
+			'-sugars', '--added-sugars-',
+			'--sucrose-', '--glucose-',
+			'--fructose-', '--lactose-',
+			'--maltose-', '--maltodextrins-',
+			'-starch-', '-polyols-',
+			'-erythritol-', '!proteins',
 			'-casein-', '-serum-proteins-',
 			'-nucleotides-', 'salt',
-			'sodium', 'alcohol',
-			'#vitamins', 'vitamin-a',
-			'beta-carotene-', 'vitamin-d-',
-			'vitamin-e-', 'vitamin-k-',
-			'vitamin-c', 'vitamin-b1-',
-			'vitamin-b2-', 'vitamin-pp-',
-			'vitamin-b6-', 'vitamin-b9-',
-			'folates-', 'vitamin-b12-',
-			'biotin-', 'pantothenic-acid-',
-			'#minerals', 'silica-',
-			'bicarbonate-', 'potassium-',
-			'chloride-', 'calcium',
-			'phosphorus-', 'iron',
-			'magnesium-', 'zinc-',
-			'copper-', 'manganese-',
-			'fluoride-', 'selenium-',
-			'chromium-', 'molybdenum-',
-			'iodine-', 'caffeine-',
-			'taurine-', 'ph-',
-			'fruits-vegetables-nuts-', 'fruits-vegetables-nuts-dried-',
-			'fruits-vegetables-nuts-estimate-', 'collagen-meat-protein-ratio-',
-			'cocoa-', 'chlorophyl-',
-			'carbon-footprint-', 'carbon-footprint-from-meat-or-fish-',
-			'nutrition-score-fr-', 'nutrition-score-uk-',
-			'glycemic-index-', 'water-hardness-',
-			'choline-', 'phylloquinone-',
-			'beta-glucan-', 'inositol-',
-			'carnitine-',
+			'-added-salt-', 'sodium',
+			'alcohol', '#vitamins',
+			'vitamin-a', 'beta-carotene-',
+			'vitamin-d-', 'vitamin-e-',
+			'vitamin-k-', 'vitamin-c',
+			'vitamin-b1-', 'vitamin-b2-',
+			'vitamin-pp-', 'vitamin-b6-',
+			'vitamin-b9-', 'folates-',
+			'vitamin-b12-', 'biotin-',
+			'pantothenic-acid-', '#minerals',
+			'silica-', 'bicarbonate-',
+			'potassium-', 'chloride-',
+			'calcium', 'phosphorus-',
+			'iron', 'magnesium-',
+			'zinc-', 'copper-',
+			'manganese-', 'fluoride-',
+			'selenium-', 'chromium-',
+			'molybdenum-', 'iodine-',
+			'caffeine-', 'taurine-',
+			'ph-', 'fruits-vegetables-nuts-',
+			'fruits-vegetables-nuts-dried-', 'fruits-vegetables-nuts-estimate-',
+			'collagen-meat-protein-ratio-', 'cocoa-',
+			'chlorophyl-', 'carbon-footprint-',
+			'carbon-footprint-from-meat-or-fish-', 'nutrition-score-fr-',
+			'nutrition-score-uk-', 'glycemic-index-',
+			'water-hardness-', 'choline-',
+			'phylloquinone-', 'beta-glucan-',
+			'inositol-', 'carnitine-',
 		)
 	],
 	ru => [
@@ -664,41 +481,42 @@ sub mmoll_to_unit ($value, $unit) {
 			'--erucic-acid-', '--nervonic-acid-',
 			'-trans-fat-', '-cholesterol-',
 			'!carbohydrates', '-sugars',
-			'--sucrose-', '--glucose-',
-			'--fructose-', '--lactose-',
-			'--maltose-', '--maltodextrins-',
-			'-starch-', '-polyols-',
+			'--added-sugars-', '--sucrose-',
+			'--glucose-', '--fructose-',
+			'--lactose-', '--maltose-',
+			'--maltodextrins-', '-starch-',
+			'-polyols-', '--erythritol-',
 			'!energy-kj', '!energy-kcal',
 			'energy-', '-energy-from-fat-',
 			'fiber', 'salt',
-			'sodium', 'alcohol',
-			'#vitamins', 'vitamin-a-',
-			'beta-carotene-', 'vitamin-d-',
-			'vitamin-e-', 'vitamin-k-',
-			'vitamin-c-', 'vitamin-b1-',
-			'vitamin-b2-', 'vitamin-pp-',
-			'vitamin-b6-', 'vitamin-b9-',
-			'folates-', 'vitamin-b12-',
-			'biotin-', 'pantothenic-acid-',
-			'#minerals', 'silica-',
-			'bicarbonate-', 'potassium-',
-			'chloride-', 'calcium-',
-			'phosphorus-', 'iron-',
-			'magnesium-', 'zinc-',
-			'copper-', 'manganese-',
-			'fluoride-', 'selenium-',
-			'chromium-', 'molybdenum-',
-			'iodine-', 'caffeine-',
-			'taurine-', 'ph-',
-			'fruits-vegetables-nuts-', 'fruits-vegetables-nuts-dried-',
-			'fruits-vegetables-nuts-estimate-', 'collagen-meat-protein-ratio-',
-			'cocoa-', 'chlorophyl-',
-			'carbon-footprint-', 'carbon-footprint-from-meat-or-fish-',
-			'nutrition-score-fr-', 'nutrition-score-uk-',
-			'glycemic-index-', 'water-hardness-',
-			'choline-', 'phylloquinone-',
-			'beta-glucan-', 'inositol-',
-			'carnitine-',
+			'-added-salt-', 'sodium',
+			'alcohol', '#vitamins',
+			'vitamin-a-', 'beta-carotene-',
+			'vitamin-d-', 'vitamin-e-',
+			'vitamin-k-', 'vitamin-c-',
+			'vitamin-b1-', 'vitamin-b2-',
+			'vitamin-pp-', 'vitamin-b6-',
+			'vitamin-b9-', 'folates-',
+			'vitamin-b12-', 'biotin-',
+			'pantothenic-acid-', '#minerals',
+			'silica-', 'bicarbonate-',
+			'potassium-', 'chloride-',
+			'calcium-', 'phosphorus-',
+			'iron-', 'magnesium-',
+			'zinc-', 'copper-',
+			'manganese-', 'fluoride-',
+			'selenium-', 'chromium-',
+			'molybdenum-', 'iodine-',
+			'caffeine-', 'taurine-',
+			'ph-', 'fruits-vegetables-nuts-',
+			'fruits-vegetables-nuts-dried-', 'fruits-vegetables-nuts-estimate-',
+			'collagen-meat-protein-ratio-', 'cocoa-',
+			'chlorophyl-', 'carbon-footprint-',
+			'carbon-footprint-from-meat-or-fish-', 'nutrition-score-fr-',
+			'nutrition-score-uk-', 'glycemic-index-',
+			'water-hardness-', 'choline-',
+			'phylloquinone-', 'beta-glucan-',
+			'inositol-', 'carnitine-',
 		)
 	],
 	us => [
@@ -723,14 +541,15 @@ sub mmoll_to_unit ($value, $unit) {
 			'--mead-acid-', '--erucic-acid-',
 			'--nervonic-acid-', '-trans-fat',
 			'cholesterol', 'salt-',
-			'sodium', '!carbohydrates',
-			'-fiber', '--soluble-fiber-',
-			'--insoluble-fiber-', '-sugars',
-			'-added-sugars', '--sucrose-',
-			'--glucose-', '--fructose-',
-			'--lactose-', '--maltose-',
-			'--maltodextrins-', '-starch-',
-			'-polyols-', '!proteins',
+			'-added-salt-', 'sodium',
+			'!carbohydrates', '-fiber',
+			'--soluble-fiber-', '--insoluble-fiber-',
+			'-sugars', '--added-sugars',
+			'--sucrose-', '--glucose-',
+			'--fructose-', '--lactose-',
+			'--maltose-', '--maltodextrins-',
+			'-starch-', '-polyols-',
+			'-erythritol-', '!proteins',
 			'-casein-', '-serum-proteins-',
 			'-nucleotides-', 'alcohol',
 			'#vitamins', 'vitamin-a-',
@@ -787,36 +606,36 @@ sub mmoll_to_unit ($value, $unit) {
 			'--glucose-', '--fructose-',
 			'--lactose-', '--maltose-',
 			'--maltodextrins-', '-starch-',
-			'-polyols-', '!proteins',
-			'-casein-', '-serum-proteins-',
-			'-nucleotides-', 'alcohol',
-			'#vitamins', 'vitamin-a',
-			'beta-carotene-', 'vitamin-d-',
-			'vitamin-e-', 'vitamin-k-',
-			'vitamin-c', 'vitamin-b1-',
-			'vitamin-b2-', 'vitamin-pp-',
-			'vitamin-b6-', 'vitamin-b9-',
-			'folates-', 'vitamin-b12-',
-			'biotin-', 'pantothenic-acid-',
-			'#minerals', 'silica-',
-			'bicarbonate-', 'potassium-',
-			'chloride-', 'calcium',
-			'phosphorus-', 'iron',
-			'magnesium-', 'zinc-',
-			'copper-', 'manganese-',
-			'fluoride-', 'selenium-',
-			'chromium-', 'molybdenum-',
-			'iodine-', 'caffeine-',
-			'taurine-', 'ph-',
-			'fruits-vegetables-nuts-', 'fruits-vegetables-nuts-dried-',
-			'fruits-vegetables-nuts-estimate-', 'collagen-meat-protein-ratio-',
-			'cocoa-', 'chlorophyl-',
-			'carbon-footprint-', 'carbon-footprint-from-meat-or-fish-',
-			'nutrition-score-fr-', 'nutrition-score-uk-',
-			'glycemic-index-', 'water-hardness-',
-			'choline-', 'phylloquinone-',
-			'beta-glucan-', 'inositol-',
-			'carnitine-',
+			'-polyols-', '--erythritol-',
+			'!proteins', '-casein-',
+			'-serum-proteins-', '-nucleotides-',
+			'alcohol', '#vitamins',
+			'vitamin-a', 'beta-carotene-',
+			'vitamin-d-', 'vitamin-e-',
+			'vitamin-k-', 'vitamin-c',
+			'vitamin-b1-', 'vitamin-b2-',
+			'vitamin-pp-', 'vitamin-b6-',
+			'vitamin-b9-', 'folates-',
+			'vitamin-b12-', 'biotin-',
+			'pantothenic-acid-', '#minerals',
+			'silica-', 'bicarbonate-',
+			'potassium-', 'chloride-',
+			'calcium', 'phosphorus-',
+			'iron', 'magnesium-',
+			'zinc-', 'copper-',
+			'manganese-', 'fluoride-',
+			'selenium-', 'chromium-',
+			'molybdenum-', 'iodine-',
+			'caffeine-', 'taurine-',
+			'ph-', 'fruits-vegetables-nuts-',
+			'fruits-vegetables-nuts-dried-', 'fruits-vegetables-nuts-estimate-',
+			'collagen-meat-protein-ratio-', 'cocoa-',
+			'chlorophyl-', 'carbon-footprint-',
+			'carbon-footprint-from-meat-or-fish-', 'nutrition-score-fr-',
+			'nutrition-score-uk-', 'glycemic-index-',
+			'water-hardness-', 'choline-',
+			'phylloquinone-', 'beta-glucan-',
+			'inositol-', 'carnitine-',
 		)
 	],
 	hk => [
@@ -920,103 +739,6 @@ sub canonicalize_nutriment ($target_lc, $nutrient) {
 		$nid = get_string_id_for_lang($lc, $nid);
 	}
 	return $nid;
-}
-
-my $international_units = qr/kg|g|mg|µg|oz|l|dl|cl|ml|(fl(\.?)(\s)?oz)/i;
-# Chinese units: a good start is https://en.wikipedia.org/wiki/Chinese_units_of_measurement#Mass
-my $chinese_units = qr/
-	(?:[\N{U+6BEB}\N{U+516C}]?\N{U+514B})|  # 毫克 or 公克 or 克 or (克 kè is the Chinese word for gram)
-	                                        #                      (公克 gōngkè is for "metric gram")
-	(?:\N{U+516C}?\N{U+65A4})|              # 公斤 or 斤 or         (公斤 gōngjīn is a "metric kg")
-	(?:[\N{U+6BEB}\N{U+516C}]?\N{U+5347})|  # 毫升 or 公升 or 升     (升 is liter)
-	\N{U+5428}                              # 吨                    (ton?)
-	/ix;
-my $russian_units = qr/г|мг|кг|л|дл|кл|мл/i;
-my $units = qr/$international_units|$chinese_units|$russian_units/i;
-
-=head2 normalize_quantity($quantity)
-
-Return the size in g or ml for the whole product. Eg.:
-normalize_quantity(1 barquette de 40g) returns 40
-normalize_quantity(20 tranches 500g)   returns 500
-normalize_quantity(6x90g)              returns 540
-normalize_quantity(2kg)                returns 2000
-
-=cut
-
-sub normalize_quantity ($quantity) {
-
-	my $q = undef;
-	my $u = undef;
-
-	# 12 pots x125 g
-	# 6 bouteilles de 33 cl
-	# 6 bricks de 1 l
-	# 10 unités, 170 g
-	# 4 bouteilles en verre de 20cl
-	if ($quantity =~ /(\d+)(\s(\p{Letter}| )+)?(\s)?( de | of |x|\*)(\s)?((\d+)(\.|,)?(\d+)?)(\s)?($units)/i) {
-		my $m = $1;
-		$q = lc($7);
-		$u = $12;
-		$q = convert_string_to_number($q);
-		$q = unit_to_g($q * $m, $u);
-	}
-	elsif ($quantity =~ /((\d+)(\.|,)?(\d+)?)(\s)?($units)/i) {
-		$q = lc($1);
-		$u = $6;
-		$q = convert_string_to_number($q);
-		$q = unit_to_g($q, $u);
-	}
-
-	return $q;
-}
-
-=head2 normalize_serving_size($serving)
-
-Returns the size in g or ml for the serving. Eg.:
-normalize_serving_size(1 barquette de 40g)->returns 40
-normalize_serving_size(2.5kg)->returns 2500
-
-=cut
-
-sub normalize_serving_size ($serving) {
-
-	# Regex captures any <number>( )?<unit-identifier> group, but leaves allowances for a preceding
-	# token to allow for patterns like "One bag (32g)", "1 small bottle (180ml)" etc
-	if ($serving =~ /^(.*[ \(])?(?<quantity>(\d+)(\.|,)?(\d+)?)( )?(?<unit>\w+)\b/i) {
-		my $q = $+{quantity};
-		my $u = normalize_unit($+{unit});
-		$q = convert_string_to_number($q);
-
-		return unit_to_g($q, $u);
-	}
-
-	#$log->trace("serving size normalized", { serving => $serving, q => $q, u => $u }) if $log->is_trace();
-	return 0;
-}
-
-# @todo we should have equivalences for more units if we are supporting this
-my @unit_equivalences_list = (
-	['g', qr/gram(s)?/],
-	['g', qr/gramme(s)?/],    # French
-);
-
-=head2 normalize_unit ( $unit )
-
-Normalizes units to their standard symbolic forms so that we can support unit names and alternative
-representations in our normalization logic.
-
-=cut
-
-sub normalize_unit ($originalUnit) {
-
-	foreach my $unit_name (@unit_equivalences_list) {
-		if ($originalUnit =~ $unit_name->[1]) {
-			return $unit_name->[0];
-		}
-	}
-
-	return $originalUnit;
 }
 
 =head2 is_beverage_for_nutrition_score( $product_ref )
@@ -1203,6 +925,199 @@ my @fruits_vegetables_nuts_by_category_sorted
 	= sort {$fruits_vegetables_nuts_by_category{$b} <=> $fruits_vegetables_nuts_by_category{$a}}
 	keys %fruits_vegetables_nuts_by_category;
 
+=head2 compute_fruit_ratio($product_ref, $prepared)
+
+Compute the fruit % according to the Nutri-Score rules
+
+<b>Warning</b> Also modifies product_ref->{misc_tags}
+
+=head3 return
+
+The fruit ratio
+
+=cut
+
+sub compute_fruit_ratio ($product_ref, $prepared) {
+
+	my $fruits = undef;
+
+	if (defined $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"}) {
+		$fruits = 2 * $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"};
+		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-dried";
+
+		if (defined $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"}) {
+			$fruits += $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"};
+			push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts";
+		}
+
+		$fruits
+			= $fruits * 100 / (100 + $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"});
+	}
+	elsif (defined $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"}) {
+		$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"};
+		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts";
+	}
+	elsif (defined $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate" . $prepared . "_100g"}) {
+		$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate" . $prepared . "_100g"};
+		$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate} = 1;
+		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-estimate";
+	}
+	# Use the estimate from the ingredients list if we have one
+	elsif (
+			(not defined $fruits)
+		and
+		(defined $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients" . $prepared . "_100g"})
+		)
+	{
+		$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients" . $prepared . "_100g"};
+		$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients} = 1;
+		$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value} = $fruits;
+		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients";
+	}
+	else {
+		# estimates by category of products. not exact values. it's important to distinguish only between the thresholds: 40, 60 and 80
+		foreach my $category_id (@fruits_vegetables_nuts_by_category_sorted) {
+
+			if (has_tag($product_ref, "categories", $category_id)) {
+				$fruits = $fruits_vegetables_nuts_by_category{$category_id};
+				$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category} = $category_id;
+				$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value}
+					= $fruits_vegetables_nuts_by_category{$category_id};
+				push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-from-category";
+				my $category = $category_id;
+				$category =~ s/:/-/;
+				push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-from-category-$category";
+				last;
+			}
+		}
+
+		# If we do not have a fruits estimate, use 0 and add a warning
+		if (not defined $fruits) {
+			$fruits = 0;
+			$product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} = 1;
+			push @{$product_ref->{misc_tags}}, "en:nutrition-no-fruits-vegetables-nuts";
+		}
+	}
+
+	if (   (defined $product_ref->{nutrition_score_warning_no_fiber})
+		or (defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts}))
+	{
+		push @{$product_ref->{misc_tags}}, "en:nutrition-no-fiber-or-fruits-vegetables-nuts";
+	}
+	else {
+		push @{$product_ref->{misc_tags}}, "en:nutrition-all-nutriscore-values-known";
+	}
+
+	return $fruits;
+}
+
+=head2 saturated_fat_ratio( $product_ref, $prepared )
+
+Compute saturated_fat_ratio as needed for nutriscore
+
+=cut
+
+sub saturated_fat_ratio ($product_ref, $prepared) {
+
+	my $saturated_fat = $product_ref->{nutriments}{"saturated-fat" . $prepared . "_100g"};
+	my $fat = $product_ref->{nutriments}{"fat" . $prepared . "_100g"};
+	my $saturated_fat_ratio = 0;
+	if ((defined $saturated_fat) and ($saturated_fat > 0)) {
+		if ($fat <= 0) {
+			$fat = $saturated_fat;
+		}
+		$saturated_fat_ratio = $saturated_fat / $fat * 100;    # in %
+	}
+	return $saturated_fat_ratio;
+}
+
+=head2 saturated_fat_0_because_of_fat_0($product_ref, $prepared)
+
+Detect if we are in the special case where we can detect saturated fat is 0 because fat is 0
+
+=cut
+
+sub saturated_fat_0_because_of_fat_0 ($product_ref, $prepared) {
+	my $fat = $product_ref->{nutriments}{"fat" . $prepared . "_100g"};
+	return (   (!defined $product_ref->{nutriments}{"saturated-fat" . $prepared . "_100g"})
+			&& (defined $fat)
+			&& ($fat == 0));
+}
+
+=head2 sugar_0_because_of_carbohydrates_0($product_ref, $prepared) {
+
+Detect if we are in the special case where we can detect sugars are 0 because carbohydrates are 0
+
+=cut
+
+sub sugar_0_because_of_carbohydrates_0 ($product_ref, $prepared) {
+	my $carbohydrates = $product_ref->{nutriments}{"carbohydrates" . $prepared . "_100g"};
+	return (   (!defined $product_ref->{nutriments}{"sugars" . $prepared . "_100g"})
+			&& (defined $carbohydrates)
+			&& ($carbohydrates == 0));
+}
+
+=head2 compute_nutriscore_data( $product_ref, $prepared )
+
+Compute data for nutriscore computation.
+
+<b>Warning:</b> it also modifies $product_ref
+
+=head3 Arguments
+
+=head4 $product_ref - ref to product
+
+=head4 $prepared - string contains either "" or "prepared"
+
+=head4 $fruits - float - fruit % estimation
+
+=head3 return
+
+Ref to a mapping suitable to call compute_nutriscore_score_and_grade
+
+=cut
+
+sub compute_nutriscore_data ($product_ref, $prepared) {
+	# compute data
+	my $saturated_fat_ratio = saturated_fat_ratio($product_ref, $prepared);
+	my $fruits = compute_fruit_ratio($product_ref, $prepared);
+	my $nutriscore_data = {
+		is_beverage => $product_ref->{nutrition_score_beverage},
+		is_water => is_water_for_nutrition_score($product_ref),
+		is_cheese => is_cheese_for_nutrition_score($product_ref),
+		is_fat => is_fat_for_nutrition_score($product_ref),
+
+		energy => $product_ref->{nutriments}{"energy" . $prepared . "_100g"},
+		sugars => $product_ref->{nutriments}{"sugars" . $prepared . "_100g"},
+		saturated_fat => $product_ref->{nutriments}{"saturated-fat" . $prepared . "_100g"},
+		saturated_fat_ratio => $saturated_fat_ratio,
+		sodium => $product_ref->{nutriments}{"sodium" . $prepared . "_100g"} * 1000,    # in mg,
+
+		fruits_vegetables_nuts_colza_walnut_olive_oils => $fruits,
+		fiber => (
+			(defined $product_ref->{nutriments}{"fiber" . $prepared . "_100g"})
+			? $product_ref->{nutriments}{"fiber" . $prepared . "_100g"}
+			: 0
+		),
+		proteins => $product_ref->{nutriments}{"proteins" . $prepared . "_100g"},
+	};
+
+	# tweak data to take into account special cases
+
+	# if sugar is undefined but carbohydrates is 0, set sugars to 0
+	if (sugar_0_because_of_carbohydrates_0($product_ref, $prepared)) {
+		$nutriscore_data->{sugars} = 0;
+	}
+	# if saturated_fat is undefined but fat is 0, set saturated_fat to 0
+	# as well as saturated_fat_ratio
+	if (saturated_fat_0_because_of_fat_0($product_ref, $prepared)) {
+		$nutriscore_data->{saturated_fat} = 0;
+		$nutriscore_data->{saturated_fat_ratio} = 0;
+	}
+
+	return $nutriscore_data;
+}
+
 =head2 compute_nutrition_score( $product_ref )
 
 Determines if we have enough data to compute the Nutri-Score (category + nutrition facts),
@@ -1344,6 +1259,10 @@ sub compute_nutrition_score ($product_ref) {
 
 		foreach my $nid ("energy", "fat", "saturated-fat", "sugars", "sodium", "proteins") {
 			if (not defined $product_ref->{nutriments}{$nid . $prepared . "_100g"}) {
+				# we have two special case where we can deduce data
+				next
+					if ((($nid eq "saturated-fat") && saturated_fat_0_because_of_fat_0($product_ref, $prepared))
+					|| (($nid eq "sugars") && sugar_0_because_of_carbohydrates_0($product_ref, $prepared)));
 				$product_ref->{"nutrition_grades_tags"} = ["unknown"];
 				add_tag($product_ref, "misc", "en:nutrition-not-enough-data-to-compute-nutrition-score");
 				$product_ref->{nutrition_score_debug} .= "missing " . $nid . $prepared . " - ";
@@ -1381,109 +1300,9 @@ sub compute_nutrition_score ($product_ref) {
 		push @{$product_ref->{misc_tags}}, "en:nutrition-grade-computed-for-prepared-product";
 	}
 
-	# Compute the fruit % according to the Nutri-Score rules
-
-	my $fruits = undef;
-
-	if (defined $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"}) {
-		$fruits = 2 * $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"};
-		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-dried";
-
-		if (defined $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"}) {
-			$fruits += $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"};
-			push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts";
-		}
-
-		$fruits
-			= $fruits * 100 / (100 + $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"});
-	}
-	elsif (defined $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"}) {
-		$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"};
-		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts";
-	}
-	elsif (defined $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate" . $prepared . "_100g"}) {
-		$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate" . $prepared . "_100g"};
-		$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate} = 1;
-		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-estimate";
-	}
-	# Use the estimate from the ingredients list if we have one
-	elsif (
-			(not defined $fruits)
-		and
-		(defined $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients" . $prepared . "_100g"})
-		)
-	{
-		$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients" . $prepared . "_100g"};
-		$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients} = 1;
-		$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value} = $fruits;
-		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients";
-	}
-	else {
-		# estimates by category of products. not exact values. it's important to distinguish only between the thresholds: 40, 60 and 80
-		foreach my $category_id (@fruits_vegetables_nuts_by_category_sorted) {
-
-			if (has_tag($product_ref, "categories", $category_id)) {
-				$fruits = $fruits_vegetables_nuts_by_category{$category_id};
-				$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category} = $category_id;
-				$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value}
-					= $fruits_vegetables_nuts_by_category{$category_id};
-				push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-from-category";
-				my $category = $category_id;
-				$category =~ s/:/-/;
-				push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-from-category-$category";
-				last;
-			}
-		}
-
-		# If we do not have a fruits estimate, use 0 and add a warning
-		if (not defined $fruits) {
-			$fruits = 0;
-			$product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} = 1;
-			push @{$product_ref->{misc_tags}}, "en:nutrition-no-fruits-vegetables-nuts";
-		}
-	}
-
-	if (   (defined $product_ref->{nutrition_score_warning_no_fiber})
-		or (defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts}))
-	{
-		push @{$product_ref->{misc_tags}}, "en:nutrition-no-fiber-or-fruits-vegetables-nuts";
-	}
-	else {
-		push @{$product_ref->{misc_tags}}, "en:nutrition-all-nutriscore-values-known";
-	}
-
-	my $saturated_fat = $product_ref->{nutriments}{"saturated-fat" . $prepared . "_100g"};
-	my $fat = $product_ref->{nutriments}{"fat" . $prepared . "_100g"};
-	my $saturated_fat_ratio = 0;
-	if ((defined $saturated_fat) and ($saturated_fat > 0)) {
-		if ($fat <= 0) {
-			$fat = $saturated_fat;
-		}
-		$saturated_fat_ratio = $saturated_fat / $fat * 100;    # in %
-	}
-
 	# Populate the data structure that will be passed to Food::Nutriscore
 
-	$product_ref->{nutriscore_data} = {
-		is_beverage => $product_ref->{nutrition_score_beverage},
-		is_water => is_water_for_nutrition_score($product_ref),
-		is_cheese => is_cheese_for_nutrition_score($product_ref),
-		is_fat => is_fat_for_nutrition_score($product_ref),
-
-		energy => $product_ref->{nutriments}{"energy" . $prepared . "_100g"},
-		sugars => $product_ref->{nutriments}{"sugars" . $prepared . "_100g"},
-		saturated_fat => $product_ref->{nutriments}{"saturated-fat" . $prepared . "_100g"},
-		saturated_fat_ratio => $saturated_fat_ratio,
-		sodium => $product_ref->{nutriments}{"sodium" . $prepared . "_100g"} * 1000,    # in mg,
-
-		fruits_vegetables_nuts_colza_walnut_olive_oils => $fruits,
-		fiber => (
-			(defined $product_ref->{nutriments}{"fiber" . $prepared . "_100g"})
-			? $product_ref->{nutriments}{"fiber" . $prepared . "_100g"}
-			: 0
-		),
-		proteins => $product_ref->{nutriments}{"proteins" . $prepared . "_100g"},
-	};
+	$product_ref->{nutriscore_data} = compute_nutriscore_data($product_ref, $prepared);
 
 	my ($nutriscore_score, $nutriscore_grade)
 		= ProductOpener::Nutriscore::compute_nutriscore_score_and_grade($product_ref->{nutriscore_data});
@@ -1844,7 +1663,8 @@ sub create_nutrients_level_taxonomy() {
 		my ($nid, $low, $high) = @{$nutrient_level_ref};
 		foreach my $level ('low', 'moderate', 'high') {
 			$nutrient_levels_taxonomy
-				.= "\n" . 'en:'
+				.= "\n"
+				. 'en:'
 				. sprintf(
 				$Lang{nutrient_in_quantity}{en},
 				display_taxonomy_tag("en", "nutrients", "zz:$nid"),
@@ -2327,14 +2147,14 @@ sub assign_categories_properties_to_product ($product_ref) {
 	return;
 }
 
-=head2 assign_nutriments_values_from_request_parameters ( $product_ref, $nutriment_table )
+=head2 assign_nutriments_values_from_request_parameters ( $product_ref, $nutriment_table, $can_edit_owner_fields )
 
 This function reads the nutriment values passed to the product edit form, or the product edit API,
 and assigns them to the product.
 
 =cut
 
-sub assign_nutriments_values_from_request_parameters ($product_ref, $nutriment_table) {
+sub assign_nutriments_values_from_request_parameters ($product_ref, $nutriment_table, $can_edit_owner_fields = 0) {
 
 	# Nutrition data
 
@@ -2429,6 +2249,11 @@ sub assign_nutriments_values_from_request_parameters ($product_ref, $nutriment_t
 		$nid =~ s/-$//g;
 
 		next if $nid =~ /^nutrition-score/;
+
+		# Only moderators can update values for fields sent by the producer
+		if (skip_protected_field($product_ref, $nid, $can_edit_owner_fields)) {
+			next;
+		}
 
 		# Unit and label are the same for as sold and prepared nutrition table
 		my $enid = encodeURIComponent($nid);
