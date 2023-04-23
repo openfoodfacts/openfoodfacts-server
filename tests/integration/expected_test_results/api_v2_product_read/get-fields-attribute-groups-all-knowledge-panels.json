@@ -296,6 +296,35 @@
          {
             "attributes" : [
                {
+                  "description" : "",
+                  "description_short" : "Moderate environmental impact",
+                  "grade" : "c",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/ecoscore-c.svg",
+                  "id" : "ecoscore",
+                  "match" : 47,
+                  "name" : "Eco-Score",
+                  "panel_id" : "ecoscore",
+                  "status" : "known",
+                  "title" : "Eco-Score C"
+               },
+               {
+                  "description" : "",
+                  "description_short" : "Almost no risk of deforestation",
+                  "grade" : "a",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/forest-footprint-a.svg",
+                  "id" : "forest_footprint",
+                  "match" : 99.9416666666667,
+                  "name" : "Forest footprint",
+                  "status" : "known",
+                  "title" : "Very small forest footprint"
+               }
+            ],
+            "id" : "environment",
+            "name" : "Environment"
+         },
+         {
+            "attributes" : [
+               {
                   "description" : "Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives.",
                   "description_short" : "Promotes ecological sustainability and biodiversity.",
                   "grade" : "a",
@@ -364,7 +393,7 @@
          "2xxxxxxxxxxx"
       ],
       "complete" : 0,
-      "completeness" : 0.5,
+      "completeness" : 0.4,
       "correctors_tags" : [],
       "created_t" : "--ignore--",
       "creator" : "tests",
@@ -397,7 +426,7 @@
             "origins_of_ingredients" : {
                "aggregated_origins" : [
                   {
-                     "epi_score" : "0",
+                     "epi_score" : 0,
                      "origin" : "en:unknown",
                      "percent" : 100,
                      "transportation_score" : null
@@ -867,7 +896,6 @@
       },
       "generic_name" : "Tester",
       "generic_name_en" : "Tester",
-      "grades" : {},
       "id" : "200000000034",
       "informers_tags" : [
          "tests"
@@ -1098,6 +1126,13 @@
          },
          "ecoscore" : {
             "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "Select a country in order to include the full impact of transportation.",
+                     "type" : "warning"
+                  }
+               },
                {
                   "element_type" : "text",
                   "text_element" : {
@@ -2047,6 +2082,17 @@
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/delete.svg",
                      "type" : "summary"
                   }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "evaluation" : "neutral",
+                     "html" : "\n                        \n                            \n                        \n                            \n                                6 x \n                                <strong>\n                                    Bottle\n                                    25cl \n                                </strong>\n                                    \n                                        (Glass)\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                        \n                        ",
+                     "icon_alt" : "Unknown",
+                     "icon_color_from_evaluation" : true,
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/help.svg",
+                     "type" : "summary"
+                  }
                }
             ],
             "evaluation" : "average",
@@ -2209,6 +2255,23 @@
       "origin" : "france",
       "origin_en" : "france",
       "other_nutritional_substances_tags" : [],
+      "packaging_materials_tags" : [
+         "en:glass",
+         "en:plastic",
+         "en:steel",
+         "en:wood"
+      ],
+      "packaging_recycling_tags" : [
+         "en:discard",
+         "en:recycle",
+         "en:reuse"
+      ],
+      "packaging_shapes_tags" : [
+         "en:bottle",
+         "en:box",
+         "en:film",
+         "en:lid"
+      ],
       "packaging_text" : "1 wooden box to recycle, 6 25cl glass bottles to reuse, 3 steel lids to recycle, 1 plastic film to discard",
       "packaging_text_en" : "1 wooden box to recycle, 6 25cl glass bottles to reuse, 3 steel lids to recycle, 1 plastic film to discard",
       "packagings" : [
@@ -2258,13 +2321,12 @@
       "quantity" : "100 g",
       "removed_countries_tags" : [],
       "rev" : 1,
-      "scores" : {},
       "serving_quantity" : "10",
       "serving_size" : "10 g",
-      "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
+      "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
       "states_hierarchy" : [
          "en:to-be-completed",
-         "en:nutrition-facts-completed",
+         "en:nutrition-facts-to-be-completed",
          "en:ingredients-completed",
          "en:expiration-date-to-be-completed",
          "en:packaging-code-to-be-completed",
@@ -2279,7 +2341,7 @@
       ],
       "states_tags" : [
          "en:to-be-completed",
-         "en:nutrition-facts-completed",
+         "en:nutrition-facts-to-be-completed",
          "en:ingredients-completed",
          "en:expiration-date-to-be-completed",
          "en:packaging-code-to-be-completed",
@@ -2299,7 +2361,8 @@
       "traces_tags" : [],
       "unknown_ingredients_n" : 0,
       "unknown_nutrients_tags" : [],
-      "vitamins_tags" : []
+      "vitamins_tags" : [],
+      "weighers_tags" : []
    },
    "status" : 1,
    "status_verbose" : "product found"

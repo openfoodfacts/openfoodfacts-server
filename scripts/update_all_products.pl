@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -208,8 +208,7 @@ my $unknown_fields = 0;
 
 foreach my $field (@fields_to_update) {
 	if (    (not defined $tags_fields{$field})
-		and (not defined $taxonomy_fields{$field})
-		and (not defined $hierarchy_fields{$field}))
+		and (not defined $taxonomy_fields{$field}))
 	{
 		print "Unknown field: $field\n";
 		$unknown_fields++;
@@ -350,7 +349,7 @@ use Data::Dumper;
 print STDERR "MongoDB query:\n" . Dumper($query_ref);
 
 my $socket_timeout_ms = 2 * 60000;    # 2 mins, instead of 30s default, to not die as easily if mongodb is busy.
-my $products_collection = get_products_collection($socket_timeout_ms);
+my $products_collection = get_products_collection({timeout => $socket_timeout_ms});
 
 my $products_count = "";
 

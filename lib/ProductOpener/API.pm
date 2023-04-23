@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -74,6 +74,7 @@ use ProductOpener::Packaging qw/:all/;
 
 use ProductOpener::APIProductRead qw/:all/;
 use ProductOpener::APIProductWrite qw/:all/;
+use ProductOpener::APITaxonomySuggestions qw/:all/;
 
 use CGI qw(header);
 use Apache2::RequestIO();
@@ -81,6 +82,7 @@ use Apache2::RequestRec();
 use JSON::PP;
 use Data::DeepAccess qw(deep_get);
 use Storable qw(dclone);
+use Encode;
 
 sub get_initialized_response() {
 	return {
@@ -104,6 +106,24 @@ sub add_warning ($response_ref, $warning_ref) {
 
 sub add_error ($response_ref, $error_ref) {
 	push @{$response_ref->{errors}}, $error_ref;
+	return;
+}
+
+sub add_invalid_method_error ($response_ref, $request_ref) {
+
+	$log->warn("process_api_request - invalid method", {request => $request_ref}) if $log->is_warn();
+	add_error(
+		$response_ref,
+		{
+			message => {id => "invalid_api_method"},
+			field => {
+				id => "api_method",
+				value => $request_ref->{api_method},
+				api_action => $request_ref->{api_action},
+			},
+			impact => {id => "failure"},
+		}
+	);
 	return;
 }
 
@@ -351,6 +371,7 @@ sub process_api_request ($request_ref) {
 
 		# Route the API request to the right processing function, based on API action (from path) and method
 
+		# Product read or write
 		if ($request_ref->{api_action} eq "product") {
 
 			if ($request_ref->{api_method} eq "PATCH") {
@@ -360,17 +381,20 @@ sub process_api_request ($request_ref) {
 				read_product_api($request_ref);
 			}
 			else {
-				$log->warn("process_api_request - invalid method", {request => $request_ref}) if $log->is_warn();
-				add_error(
-					$response_ref,
-					{
-						message => {id => "invalid_api_method"},
-						field => {id => "api_method", value => $request_ref->{api_method}},
-						impact => {id => "failure"},
-					}
-				);
+				add_invalid_method_error($response_ref, $request_ref);
 			}
 		}
+		# Taxonomy suggestions
+		elsif ($request_ref->{api_action} eq "taxonomy_suggestions") {
+
+			if ($request_ref->{api_method} =~ /^(GET|HEAD|OPTIONS)$/) {
+				taxonomy_suggestions_api($request_ref);
+			}
+			else {
+				add_invalid_method_error($response_ref, $request_ref);
+			}
+		}
+		# Unknown action
 		else {
 			$log->warn("process_api_request - unknown action", {request => $request_ref}) if $log->is_warn();
 			add_error(
