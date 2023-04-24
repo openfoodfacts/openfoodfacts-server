@@ -76,6 +76,7 @@ hu: Savanyúságot szabályozó anyag, Savanyúságot szabályozó anyagok, Sava
 id: pengatur keasaman
 is: Sýrustillir, Sýrustillar
 it: correttore di acidità, correttori di acidità, regolatore di acidità, regolatori di acidità, correttore d'acidità
+ja: pH調整剤
 lt: Rūgštingumą reguliuojanti medžiaga
 lv: Skābuma regulētājs
 mt: Regolatur tal-Aċidità
@@ -363,6 +364,7 @@ hr: boja, bojila, bojilo, bojenje, namirnice za bojanje
 hu: Színezék, mesterséges színezék, színezőanyag, színezékek, színezőanyagok, színező anyag
 is: Litarefni
 it: Colorante, coloranti, alimento colorante
+ja: 着色料
 lt: Dažiklis
 lv: Krāsa
 mk: боја
@@ -766,6 +768,7 @@ ga:Oibreán glóthúcháin
 hr:tvar za želiranje, sredstvo za želiranje
 hu:Zselésítőanyag, zselésítő anyag, zselésítő
 it:Gelificante, gelificanti, agente gelificante, agenti gelificanti
+ja:ゲル化剤
 lt:Stingdiklis
 lv:Recinātājs
 mt:Aġent li jgħaqqad f’ġel
@@ -815,6 +818,7 @@ ga: Oibreán glónrúcháin
 hr:sredstvo za glaziranje
 hu: Fényezőanyag, bevonószer, bevonó
 it: Agente di rivestimento, agenti di rivestimento
+ja: 光沢剤
 lt: Glajinė medžiaga
 lv: Glazētājviela
 mt: Aġent li jagħmel l-ikel ileqq
@@ -949,6 +953,7 @@ hr: konzervans, konzervansi, tvar za zadržavanje svježine, tvar za održavanje
 hu: Tartósítószer, tartósítószerek
 is: Rotvarnarefni
 it: Conservante, conservanti, agente conservante, agenti conservanti
+ja: 保存料
 lv: Konservants
 lt: Konservantas
 mt: Preservattiv
@@ -1163,6 +1168,7 @@ hu: Stabilizátor, stabilizátorok, kötőanyag
 ga: Cobhsaitheoir
 is:bindiefni
 it: Stabilizzante, stabilizzanti, agente stabilizzante, agenti stabilizzanti, legante, leganti
+ja: 増粘安定剤, 糊料
 lt: Stabilizatorius
 lv: Stabilizētājs
 mk: стабилизатор, стабилизатори
@@ -1203,6 +1209,8 @@ description:sv:Stabiliseringsmedel: ämnen som gör det möjligt att bevara ett 
 
 <en:stabiliser
 en:natural stabilizer
+
+# ja: 安定剤, 結着剤 -- Binds together material/retain hydration. ex) starches, casein, phosphoric acids, trisodium phosphate. en: binding agent?
 
 
 # nova:en:sweetener
@@ -1328,6 +1336,7 @@ fr:Vitamines
 hr:vitamini, vitamins, vitamin complex
 hu:Vitaminok
 it:Vitamine
+ja:ビタミン
 lt:Vitaminai
 lv:Vitamīni
 mt:Vitamini
@@ -1352,6 +1361,7 @@ fi:Kivennäisaineet, Kivennäisaineita, Kivennäiset, Kivennäisiä, Kivennäine
 fr:Minéraux, Substances d'apport minéral, Apport minéral
 hu:Ásványi anyagok, ásványok
 it:Minerali
+ja:ミネラル
 lt:Mineralinės medžiagos
 lv:Minerālvielas
 mt:Minerali
@@ -1380,6 +1390,7 @@ fi:Aminohapot, Aminohappoja
 fr:Acides aminés
 hu:Aminosavak
 it:Amminoacidi
+ja:アミノ酸
 lt:Aminorūgštys
 lv:Aminoskābes
 mt:Aċidi amminiċi
@@ -1512,6 +1523,7 @@ fi:hyydyte, koagulantti
 fr:agent de coagulation, coagulant
 hu:koagulálószer, koaguláló, koaguláns
 it:agente coagulante, coagulante, agenti coagulanti, coagulanti
+ja:凝固剤
 # ingredient/fr:agents-de-coagulation has 37 products in 5 languages @2019-02-08
 
 en:salt substitute
