@@ -15,13 +15,17 @@ use ProductOpener::Test qw/:all/;
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 my $inputs_dir = "$test_dir/inputs/$test_id/";
 
-# Generate the column names to OFF fields structure in several languages and compare to the stored version
-foreach my $l (qw(en fr es)) {
-	compare_to_expected_results(
-		init_fields_columns_names_for_lang($l),
-		$expected_result_dir . "/column_names_$l.json",
-		$update_expected_results
-	);
+# Generate the files that match potential column names from producers to OFF fields
+# 2023/04/24: the files are growing too much (currently 100Mb), which is too much for GitHub
+# commenting out this test
+if (0) {
+	foreach my $l (qw(en fr es)) {
+		compare_to_expected_results(
+			init_fields_columns_names_for_lang($l),
+			$expected_result_dir . "/column_names_$l.json",
+			$update_expected_results
+		);
+	}
 }
 
 my @tests = (
@@ -123,18 +127,13 @@ my @tests = (
 
 );
 
-# Generate the files that match potential column names from producers to OFF fields
-# 2023/04/24: the files are growing too much (currently 100Mb), which is too much for GitHub
-# commenting out this test
-if (0) {
-	foreach my $test_ref (@tests) {
+foreach my $test_ref (@tests) {
 
-		my $fieldid = get_string_id_for_lang("no_language", normalize_column_name($test_ref->[1]));
-		my $result_ref = match_column_name_to_field($test_ref->[0], $fieldid);
-		is_deeply($result_ref, $test_ref->[2])
-			or diag explain {test => $test_ref, fieldid => $fieldid, result => $result_ref};
+	my $fieldid = get_string_id_for_lang("no_language", normalize_column_name($test_ref->[1]));
+	my $result_ref = match_column_name_to_field($test_ref->[0], $fieldid);
+	is_deeply($result_ref, $test_ref->[2])
+		or diag explain {test => $test_ref, fieldid => $fieldid, result => $result_ref};
 
-	}
 }
 
 done_testing();
