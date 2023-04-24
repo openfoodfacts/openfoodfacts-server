@@ -417,6 +417,14 @@ my @tests = (
 			ingredients_text => "apples",
 		}
 	],
+	[
+		"94-percent-sugar-and-unknown-ingredient",
+		{
+			lc => "en",
+			categories => "sugars",
+			ingredients_text => "sugar 94%, strange ingredient",
+		}
+	],
 
 );
 
