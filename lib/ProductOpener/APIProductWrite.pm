@@ -52,6 +52,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::API qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::Text qw/:all/;
+use ProductOpener::Tags qw/:all/;
 
 use Encode;
 
@@ -186,13 +187,76 @@ sub update_packagings ($request_ref, $product_ref, $field, $is_addition, $value)
 	return;
 }
 
-=head2 update_product_fields ($request_ref, $product_ref)
+=head2 update_tags_fields ($request_ref, $product_ref, $field, $is_addition, $value)
+
+Update packagings.
+
+=cut
+
+sub update_tags_fields ($request_ref, $product_ref, $field, $is_addition, $tags_lc, $value) {
+
+	my $request_body_ref = $request_ref->{body_json};
+	my $response_ref = $request_ref->{api_response};
+
+	if (ref($value) ne 'ARRAY') {
+		add_error(
+			$response_ref,
+			{
+				message => {id => "invalid_type_must_be_array"},
+				field => {id => $field},
+				impact => {id => "field_ignored"},
+			}
+		);
+	}
+	else {
+		# Generate a comma separated list of tags, so that we can use existing functions to add tags
+		my $tags_list = join(',', @$value);
+
+		if ($is_addition) {
+			add_tags_to_field($product_ref, $tags_lc, $field, $tags_list);
+		}
+		else {
+			$product_ref->{$field} = $tags_list;
+		}
+
+		compute_field_tags($product_ref, $tags_lc, $field);
+
+		$request_ref->{updated_product_fields}{$field} = 1;    # joined inputs, can be in any language
+		$request_ref->{updated_product_fields}{$field . '_hierarchy'}
+			= 1;  # tags, with entries that are not in the taxonomy in original format (with accents, caps, spaces etc.)
+		$request_ref->{updated_product_fields}{$field . '_tags'}
+			= 1;    # tags, with entries that are not in the taxonomy in a normalized format
+		$request_ref->{updated_product_fields}{$field . '_tags_' . $tags_lc}
+			= 1;    # resulting values in the language used to send input values
+
+		$log->debug(
+			"update_tags_fields",
+			{
+				field => $field,
+				tags_lc => $tags_lc,
+				value => $value,
+				tags_list => $tags_list,
+				product_field => $product_ref->{$field},
+				product_field_tags => $product_ref->{$field . "_tags"}
+			}
+		) if $log->is_debug();
+	}
+	return;
+}
+
+=head2 update_product_fields ($request_ref, $product_ref, $response_ref)
 
 Update product fields based on input product data.
 
 =cut
 
-sub update_product_fields ($request_ref, $product_ref) {
+# Fields that are not language or tags fields, and that can be written as-is
+my %product_simple_fields = (
+	quantity => 1,
+	serving_size => 1,
+);
+
+sub update_product_fields ($request_ref, $product_ref, $response_ref) {
 
 	my $request_body_ref = $request_ref->{body_json};
 
@@ -217,6 +281,66 @@ sub update_product_fields ($request_ref, $product_ref) {
 
 			update_field_with_0_or_1_value($request_ref, $product_ref, $field, $value);
 		}
+		# language fields
+		elsif ( ($field =~ /^(.*)_(\w\w)$/)
+			and (defined $language_fields{$1}))
+		{
+
+			my $language_field = $1;
+			my $language_field_lc = $2;
+
+			$request_ref->{updated_product_fields}{$field} = 1;
+
+			$product_ref->{$language_field . '_' . $language_field_lc} = $value;
+		}
+		# tags fields
+		elsif ( ($field =~ /^(.*)_tags(?:_(\w\w))?(_add)?$/)
+			and (defined $writable_tags_fields{$1}))
+		{
+			my $tagtype = $1;
+			# If we are passed a language (e.g. categories_tags_fr, use it
+			# otherwise use the value of the tags_lc request field)
+			my $tags_lc = $2 // $request_body_ref->{tags_lc};
+
+			my $is_addition = $3;
+
+			update_tags_fields($request_ref, $product_ref, $tagtype, $is_addition, $tags_lc, $value);
+		}
+		# Simple product fields
+		elsif (defined $product_simple_fields{$field}) {
+			$product_ref->{$field} = remove_tags_and_quote($value);
+			$request_ref->{updated_product_fields}{$field} = 1;
+		}
+		# Main language
+		elsif ($field eq "lang") {
+			if ($value !~ /^[a-z]|[a-z]$/i) {
+				add_error(
+					$response_ref,
+					{
+						message => {id => "invalid_language_code"},
+						field => {id => $field},
+						impact => {id => "field_ignored"},
+					}
+				);
+
+			}
+			else {
+				$product_ref->{$field} = lc($value);
+				$product_ref->{lc} = $value;
+				$request_ref->{updated_product_fields}{$field} = 1;
+			}
+		}
+		# Unrecognized field
+		else {
+			add_warning(
+				$response_ref,
+				{
+					message => {id => "unrecognized_field"},
+					field => {id => $field, value => $value},
+					impact => {id => "warning"},
+				}
+			);
+		}
 	}
 	return;
 }
@@ -239,8 +363,14 @@ sub write_product_api ($request_ref) {
 
 	$log->debug("write_product_api - body", {request_body => $request_body_ref}) if $log->is_debug();
 
+	my $error = 0;
+
+	my $code = $request_ref->{code};
+	my $product_ref;
+
 	if (not defined $request_body_ref) {
 		$log->error("write_product_api - missing or invalid input body", {}) if $log->is_error();
+		$error = 1;
 	}
 	elsif (not defined $request_body_ref->{product}) {
 		$log->error("write_product_api - missing input product", {request_body => $request_body_ref})
@@ -253,8 +383,45 @@ sub write_product_api ($request_ref) {
 				impact => {id => "failure"},
 			}
 		);
+		$error = 1;
 	}
 	else {
+		# If the code is "test", the API won't save any product, but it will analyze the input product data
+		# and return computed fields like Nutri-Score, product attributes etc.
+
+		if ($code ne 'test') {
+			# Load the product
+			$code = normalize_requested_code($request_ref->{code}, $response_ref);
+
+			# Check if the code is valid
+			if ($code !~ /^\d{4,24}$/) {
+
+				$log->info("invalid code", {code => $code, original_code => $request_ref->{code}}) if $log->is_info();
+				add_error(
+					$response_ref,
+					{
+						message => {id => "invalid_code"},
+						field => {id => "code", value => $request_ref->{code}},
+						impact => {id => "failure"},
+					}
+				);
+				$error = 1;
+			}
+			else {
+				my $product_id = product_id_for_owner($Owner_id, $code);
+				$product_ref = retrieve_product($product_id);
+			}
+		}
+	}
+
+	# If we did not get a fatal error, we can update the product
+	if (not $error) {
+
+		# The product does not exist yet, or the requested code is "test"
+		if (not defined $product_ref) {
+			$product_ref = init_product($User_id, $Org_id, $code, $country);
+			$product_ref->{interface_version_created} = "20221102/api/v3";
+		}
 
 		# Use default request language if we did not get tags_lc
 		if (not defined $request_body_ref->{tags_lc}) {
@@ -267,16 +434,6 @@ sub write_product_api ($request_ref) {
 					impact => {id => "warning"},
 				}
 			);
-		}
-
-		# Load the product
-		my $code = normalize_requested_code($request_ref->{code}, $response_ref);
-		my $product_id = product_id_for_owner($Owner_id, $code);
-		my $product_ref = retrieve_product($product_id);
-
-		if (not defined $product_ref) {
-			$product_ref = init_product($User_id, $Org_id, $code, $country);
-			$product_ref->{interface_version_created} = "20221102/api/v3";
 		}
 
 		# Process edit rules
@@ -299,21 +456,17 @@ sub write_product_api ($request_ref) {
 			);
 		}
 		else {
-			# Response structure to keep track of warnings and errors for the whole product
-			# (not for the update fields)
-			# Note: currently some warnings and errors are added,
-			# but we do not yet do anything with them
-			my $product_response_ref = get_initialized_response();
-
 			# Update the product
-			update_product_fields($request_ref, $product_ref);
+			update_product_fields($request_ref, $product_ref, $response_ref);
 
 			# Process the product data
-			analyze_and_enrich_product_data($product_ref, $product_response_ref);
+			analyze_and_enrich_product_data($product_ref, $response_ref);
 
 			# Save the product
-			my $comment = $request_body_ref->{comment} || "API v3";
-			store_product($User_id, $product_ref, $comment);
+			if ($code ne "test") {
+				my $comment = $request_body_ref->{comment} || "API v3";
+				store_product($User_id, $product_ref, $comment);
+			}
 
 			# Select / compute only the fields requested by the caller, default to updated fields
 			$response_ref->{product} = customize_response_for_product($request_ref, $product_ref,
