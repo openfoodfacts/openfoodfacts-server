@@ -352,7 +352,7 @@ print STDERR "Update key: $key\n\n";
 use Data::Dumper;
 print STDERR "MongoDB query:\n" . Dumper($query_ref);
 
-my $socket_timeout_ms = 5 * 60000;    # 2 mins, instead of 30s default, to not die as easily if mongodb is busy.
+my $socket_timeout_ms = 2 * 60000;    # 2 mins, instead of 30s default, to not die as easily if mongodb is busy.
 my $products_collection = get_products_collection($socket_timeout_ms);
 
 my $products_count = "";
