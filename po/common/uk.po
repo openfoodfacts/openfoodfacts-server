@@ -612,7 +612,7 @@ msgstr "коди відстежування"
 
 msgctxt "emb_codes_products"
 msgid "Products with the traceability code %s"
-msgstr "Продукти з кодом простежування"
+msgstr "Продукти з кодом простежування %s"
 
 msgctxt "emb_codes_s"
 msgid "traceability code"
@@ -620,7 +620,7 @@ msgstr "коди відстежування"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the traceability code %s"
-msgstr "Продукти з кодом простежування"
+msgstr "Продукти з кодом простежування %s"
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
@@ -1563,6 +1563,10 @@ msgid "The table lists by default nutriments that are often specified. Leave the
 msgstr "За замовчуванням у таблиці перераховані поживні речовини, які часто вказуються. Залиште поле порожнім, якщо цього немає на етикетці.<br/>Ви можете додати додаткові поживні речовини (вітаміни, мінерали, холестерин тощо), \n"
 "ввівши перші літери їх назви в останньому рядку таблиці."
 
+msgctxt "nutrition_data_table_asterisk"
+msgid "Essential nutrients to calculate the Nutri-Score."
+msgstr ""
+
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
 msgstr "Харчові цінності"
@@ -1613,7 +1617,7 @@ msgstr "джерела інгредієнтів"
 
 msgctxt "origins_products"
 msgid "Products with ingredients originating from %s"
-msgstr "Продукти з інгредієнтами, які походять з"
+msgstr "Продукти з інгредієнтами, які походять з %s"
 
 msgctxt "origins_s"
 msgid "origin of ingredients"
@@ -2810,7 +2814,7 @@ msgstr "Партнери"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
 msgid "/partners"
-msgstr ""
+msgstr "/partners"
 
 msgctxt "adults"
 msgid "Adults"
@@ -4098,9 +4102,10 @@ msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "Уповільнення платформи виробників"
 
-msgctxt "pro_moderator_owner_set"
-msgid "You are currently viewing products from %s."
-msgstr "На даний час ви переглядаєте товари з %s."
+# variable names between { } must not be translated
+msgctxt "f_pro_moderator_owner_set"
+msgid "You are currently viewing products from {organization}."
+msgstr ""
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
@@ -4112,8 +4117,8 @@ msgstr "Для того щоб побачити товари конкретно�
 
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
-msgid "Change"
-msgstr "Відмінити"
+msgid "Switch to another organization"
+msgstr ""
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
@@ -5618,6 +5623,14 @@ msgctxt "ecoscore_warning_international"
 msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgstr "Eco-Score спочатку був розроблений для Франції, і його поширюють в інших європейських країнах. Формула Eco-Score може змінюватися, оскільки її регулярно вдосконалюють, щоб зробити її більш точною та підходящою для кожної країни."
 
+msgctxt "ecoscore_warning_transportation_world"
+msgid "Select a country in order to include the full impact of transportation."
+msgstr ""
+
+msgctxt "ecoscore_warning_transportation"
+msgid "The full impact of transportation to your country is currently unknown."
+msgstr ""
+
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
 msgstr "Скануйте штрих-коди, щоб отримати показник харчової цінності, впливу на довкілля та багато іншого!"
@@ -6026,22 +6039,22 @@ msgstr "Дізнатися більше про Nutri-Score"
 
 msgctxt "ecoscore_learn_more"
 msgid "Learn more about the Eco-Score"
-msgstr ""
+msgstr "Дізнатись більше про Eco-Score"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
-msgstr ""
+msgstr "Чудово поєднується"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_good_match"
 msgid "Good match"
-msgstr ""
+msgstr "Добре поєднується"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_poor_match"
 msgid "Poor match"
-msgstr ""
+msgstr "Погано поєднується"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_unknown_match"
@@ -6051,16 +6064,16 @@ msgstr "Невідоме поєднання"
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_may_not_match"
 msgid "May not match"
-msgstr ""
+msgstr "Може не поєднуватися"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_does_not_match"
 msgid "Does not match"
-msgstr ""
+msgstr "Не поєднується"
 
 msgctxt "reset_preferences"
 msgid "Use default preferences"
-msgstr ""
+msgstr "Використати базові налаштування"
 
 msgctxt "reset_preferences_details"
 msgid "Nutri-Score, Eco-Score and food processing level (NOVA)"
@@ -6068,7 +6081,7 @@ msgstr ""
 
 msgctxt "actions_add_ingredients"
 msgid "Could you add the ingredients list?"
-msgstr ""
+msgstr "Можете додати список інгредієнтів?"
 
 msgctxt "actions_to_compute_nutriscore"
 msgid "Could you add the information needed to compute the Nutri-Score?"
@@ -6080,11 +6093,11 @@ msgstr ""
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
-msgstr ""
+msgstr "Додати інгредієнти"
 
 msgctxt "action_add_categories"
 msgid "Add a category"
-msgstr ""
+msgstr "Додати категорію"
 
 msgctxt "action_add_nutrition_facts"
 msgid "Add nutrition facts"
@@ -6156,11 +6169,11 @@ msgstr ""
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
 msgid "What you need to know"
-msgstr ""
+msgstr "Що вам треба знати"
 
 msgctxt "knowledge_panels_recommendation"
 msgid "Recommendation"
-msgstr ""
+msgstr "Рекомендації"
 
 msgctxt "nutrient_info_salt_risk"
 msgid "A high consumption of salt (or sodium) can cause raised blood pressure, which can increase the risk of heart disease and stroke."
@@ -6330,6 +6343,10 @@ msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
 msgstr ""
 
+msgctxt "api_message_invalid_type_must_be_number"
+msgid "Invalid type: must be a number"
+msgstr ""
+
 msgctxt "api_message_missing_field"
 msgid "Missing field"
 msgstr ""
@@ -6352,6 +6369,10 @@ msgstr ""
 
 msgctxt "api_impact_field_ignored"
 msgid "Field ignored"
+msgstr ""
+
+msgctxt "api_impact_value_converted"
+msgid "Value converted"
 msgstr ""
 
 # Unit = element, not unit of measure
@@ -6384,5 +6405,61 @@ msgstr ""
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
+msgstr ""
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units_description"
+msgid "Enter the number of packaging units of the same shape and material contained in the product."
+msgstr ""
+
+msgctxt "packaging_shape_description"
+msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
+msgstr ""
+
+msgctxt "packaging_material_description"
+msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
+msgstr ""
+
+msgctxt "packaging_recycling_description"
+msgid "Enter recycling instructions only if they are listed on the product."
+msgstr ""
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight_description"
+msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
+msgstr ""
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit_description"
+msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
+msgstr ""
+
+msgctxt "import_and_export_products"
+msgid "Import and export products"
+msgstr ""
+
+msgctxt "add_products"
+msgid "Add products"
+msgstr "Додати продукти"
+
+# Needs to be short (displayed in a menu)
+msgctxt "install_the_app_to_add_products"
+msgid "Install the app to add products"
+msgstr ""
+
+msgctxt "search_and_analyze_products"
+msgid "Search and analyze products"
+msgstr ""
+
+msgctxt "resources"
+msgid "Resources"
+msgstr ""
+
+msgctxt "pro_platform_user_guide"
+msgid "Pro platform user guide"
+msgstr ""
+
+msgctxt "faq_for_producers"
+msgid "FAQ for producers"
 msgstr ""
 

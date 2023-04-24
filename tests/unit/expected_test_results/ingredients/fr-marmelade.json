@@ -1,7 +1,7 @@
 {
    "ingredients" : [
       {
-         "id" : "fr:marmelade-d-oranges",
+         "id" : "en:orange-marmalade",
          "ingredients" : [
             {
                "ciqual_food_code" : "31077",
@@ -341,11 +341,11 @@
          "en:palm-fat"
       ],
       "en:vegan-status-unknown" : [
-         "fr:marmelade-d-oranges",
+         "en:orange-marmalade",
          "en:sodium-citrate"
       ],
       "en:vegetarian-status-unknown" : [
-         "fr:marmelade-d-oranges",
+         "en:orange-marmalade",
          "en:sodium-citrate"
       ]
    },
@@ -355,7 +355,7 @@
       "en:vegetarian-status-unknown"
    ],
    "ingredients_hierarchy" : [
-      "fr:marmelade-d-oranges",
+      "en:orange-marmalade",
       "en:chocolate",
       "en:wheat-flour",
       "en:cereal",
@@ -381,6 +381,7 @@
       "en:fruit",
       "en:citrus-fruit",
       "en:orange",
+      "en:pulp",
       "en:concentrated-orange-juice",
       "en:fruit-juice",
       "en:orange-juice",
@@ -430,7 +431,7 @@
       "41-50"
    ],
    "ingredients_original_tags" : [
-      "fr:marmelade-d-oranges",
+      "en:orange-marmalade",
       "en:chocolate",
       "en:wheat-flour",
       "en:sugar",
@@ -474,7 +475,7 @@
    ],
    "ingredients_percent_analysis" : -1,
    "ingredients_tags" : [
-      "fr:marmelade-d-oranges",
+      "en:orange-marmalade",
       "en:chocolate",
       "en:wheat-flour",
       "en:cereal",
@@ -500,6 +501,7 @@
       "en:fruit",
       "en:citrus-fruit",
       "en:orange",
+      "en:pulp",
       "en:concentrated-orange-juice",
       "en:fruit-juice",
       "en:orange-juice",
@@ -577,5 +579,5 @@
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 6.5,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 6.5
    },
-   "unknown_ingredients_n" : 1
+   "unknown_ingredients_n" : 0
 }

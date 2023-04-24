@@ -1,6 +1,6 @@
 {
    "count" : 5,
-   "page" : "1",
+   "page" : 1,
    "page_count" : 5,
    "page_size" : 24,
    "products" : [
@@ -61,7 +61,7 @@
             "2xxxxxxxxxxx"
          ],
          "complete" : 0,
-         "completeness" : "0.5",
+         "completeness" : 0.4,
          "correctors_tags" : [],
          "created_t" : "--ignore--",
          "creator" : "tests",
@@ -316,25 +316,26 @@
                         "quantity_per_unit" : "25cl",
                         "quantity_per_unit_unit" : "cl",
                         "quantity_per_unit_value" : 25,
+                        "recycling" : "en:recycle",
                         "shape" : "en:bottle"
                      },
                      {
                         "ecoscore_material_score" : 76,
-                        "ecoscore_shape_ratio" : "0.2",
+                        "ecoscore_shape_ratio" : 0.2,
                         "material" : "en:steel",
                         "number_of_units" : 1,
                         "shape" : "en:lid"
                      },
                      {
                         "ecoscore_material_score" : 0,
-                        "ecoscore_shape_ratio" : "0.1",
+                        "ecoscore_shape_ratio" : 0.1,
                         "material" : "en:plastic",
                         "non_recyclable_and_non_biodegradable" : "maybe",
                         "number_of_units" : 1,
                         "shape" : "en:film"
                      }
                   ],
-                  "score" : "66.2",
+                  "score" : 66.2,
                   "value" : -3
                },
                "production_system" : {
@@ -369,23 +370,23 @@
          "entry_dates_tags" : "--ignore--",
          "food_groups_tags" : [],
          "forest_footprint_data" : {
-            "footprint_per_kg" : "0.0074375",
+            "footprint_per_kg" : 0.0074375,
             "grade" : "a",
             "ingredients" : [
                {
                   "conditions_tags" : [],
-                  "footprint_per_kg" : "0.0074375",
+                  "footprint_per_kg" : 0.0074375,
                   "matching_tag_id" : "en:egg",
-                  "percent" : "9.375",
-                  "percent_estimate" : "9.375",
+                  "percent" : 9.375,
+                  "percent_estimate" : 9.375,
                   "processing_factor" : 1,
                   "tag_id" : "en:egg",
                   "tag_type" : "ingredients",
                   "type" : {
-                     "deforestation_risk" : "0.68",
+                     "deforestation_risk" : 0.68,
                      "name" : "Oeufs Importés",
-                     "soy_feed_factor" : "0.035",
-                     "soy_yield" : "0.3"
+                     "soy_feed_factor" : 0.035,
+                     "soy_yield" : 0.3
                   }
                }
             ]
@@ -400,7 +401,7 @@
             {
                "ciqual_food_code" : "13050",
                "id" : "en:apple",
-               "percent_estimate" : "62.5",
+               "percent_estimate" : 62.5,
                "percent_max" : 100,
                "percent_min" : 25,
                "rank" : 1,
@@ -411,7 +412,7 @@
             {
                "ciqual_food_code" : null,
                "id" : "en:milk",
-               "percent_estimate" : "18.75",
+               "percent_estimate" : 18.75,
                "percent_max" : 50,
                "percent_min" : 0,
                "rank" : 2,
@@ -422,8 +423,8 @@
             {
                "ciqual_food_code" : "22000",
                "id" : "en:egg",
-               "percent_estimate" : "9.375",
-               "percent_max" : "33.3333333333333",
+               "percent_estimate" : 9.375,
+               "percent_max" : 33.3333333333333,
                "percent_min" : 0,
                "rank" : 3,
                "text" : "eggs",
@@ -434,7 +435,7 @@
                "ciqual_food_code" : "16129",
                "from_palm_oil" : "yes",
                "id" : "en:palm-oil",
-               "percent_estimate" : "9.375",
+               "percent_estimate" : 9.375,
                "percent_max" : 25,
                "percent_min" : 0,
                "rank" : 4,
@@ -581,6 +582,19 @@
          "origin" : "france",
          "origin_en" : "france",
          "other_nutritional_substances_tags" : [],
+         "packaging_materials_tags" : [
+            "en:glass",
+            "en:plastic",
+            "en:steel"
+         ],
+         "packaging_recycling_tags" : [
+            "en:recycle"
+         ],
+         "packaging_shapes_tags" : [
+            "en:bottle",
+            "en:film",
+            "en:lid"
+         ],
          "packaging_text" : "1 25cl glass bottle, 1 steel lid, 1 plastic wrap",
          "packaging_text_en" : "1 25cl glass bottle, 1 steel lid, 1 plastic wrap",
          "packagings" : [
@@ -590,6 +604,7 @@
                "quantity_per_unit" : "25cl",
                "quantity_per_unit_unit" : "cl",
                "quantity_per_unit_value" : 25,
+               "recycling" : "en:recycle",
                "shape" : "en:bottle"
             },
             {
@@ -623,10 +638,10 @@
          "rev" : 1,
          "serving_quantity" : 10,
          "serving_size" : "10 g",
-         "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
+         "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
          "states_hierarchy" : [
             "en:to-be-completed",
-            "en:nutrition-facts-completed",
+            "en:nutrition-facts-to-be-completed",
             "en:ingredients-completed",
             "en:expiration-date-to-be-completed",
             "en:packaging-code-to-be-completed",
@@ -641,7 +656,7 @@
          ],
          "states_tags" : [
             "en:to-be-completed",
-            "en:nutrition-facts-completed",
+            "en:nutrition-facts-to-be-completed",
             "en:ingredients-completed",
             "en:expiration-date-to-be-completed",
             "en:packaging-code-to-be-completed",
@@ -662,7 +677,8 @@
          "unknown_ingredients_n" : 0,
          "unknown_nutrients_tags" : [],
          "url" : "http://world.openfoodfacts.localhost/product/200000000034/test-1",
-         "vitamins_tags" : []
+         "vitamins_tags" : [],
+         "weighers_tags" : []
       },
       {
          "_id" : "200000000037",
@@ -718,7 +734,7 @@
             "2xxxxxxxxxxx"
          ],
          "complete" : 0,
-         "completeness" : "0.5",
+         "completeness" : 0.4,
          "correctors_tags" : [],
          "created_t" : "--ignore--",
          "creator" : "tests",
@@ -1141,6 +1157,9 @@
          "origin" : "Germany",
          "origin_en" : "Germany",
          "other_nutritional_substances_tags" : [],
+         "packaging_materials_tags" : [],
+         "packaging_recycling_tags" : [],
+         "packaging_shapes_tags" : [],
          "packaging_text" : "no",
          "packaging_text_en" : "no",
          "packagings" : [],
@@ -1164,10 +1183,10 @@
          "rev" : 1,
          "serving_quantity" : 10,
          "serving_size" : "10 g",
-         "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
+         "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
          "states_hierarchy" : [
             "en:to-be-completed",
-            "en:nutrition-facts-completed",
+            "en:nutrition-facts-to-be-completed",
             "en:ingredients-completed",
             "en:expiration-date-to-be-completed",
             "en:packaging-code-to-be-completed",
@@ -1182,7 +1201,7 @@
          ],
          "states_tags" : [
             "en:to-be-completed",
-            "en:nutrition-facts-completed",
+            "en:nutrition-facts-to-be-completed",
             "en:ingredients-completed",
             "en:expiration-date-to-be-completed",
             "en:packaging-code-to-be-completed",
@@ -1203,7 +1222,8 @@
          "unknown_ingredients_n" : 0,
          "unknown_nutrients_tags" : [],
          "url" : "http://world.openfoodfacts.localhost/product/200000000037/vegan-palm-oil-free",
-         "vitamins_tags" : []
+         "vitamins_tags" : [],
+         "weighers_tags" : []
       },
       {
          "_id" : "200000000038",
@@ -1266,7 +1286,7 @@
             "2xxxxxxxxxxx"
          ],
          "complete" : 0,
-         "completeness" : "0.5",
+         "completeness" : 0.4,
          "correctors_tags" : [],
          "created_t" : "--ignore--",
          "creator" : "tests",
@@ -1548,23 +1568,23 @@
          "entry_dates_tags" : "--ignore--",
          "food_groups_tags" : [],
          "forest_footprint_data" : {
-            "footprint_per_kg" : "0.0132222222222222",
+            "footprint_per_kg" : 0.0132222222222222,
             "grade" : "a",
             "ingredients" : [
                {
                   "conditions_tags" : [],
-                  "footprint_per_kg" : "0.0132222222222222",
+                  "footprint_per_kg" : 0.0132222222222222,
                   "matching_tag_id" : "en:egg",
-                  "percent" : "16.6666666666667",
-                  "percent_estimate" : "16.6666666666667",
+                  "percent" : 16.6666666666667,
+                  "percent_estimate" : 16.6666666666667,
                   "processing_factor" : 1,
                   "tag_id" : "en:egg",
                   "tag_type" : "ingredients",
                   "type" : {
-                     "deforestation_risk" : "0.68",
+                     "deforestation_risk" : 0.68,
                      "name" : "Oeufs Importés",
-                     "soy_feed_factor" : "0.035",
-                     "soy_yield" : "0.3"
+                     "soy_feed_factor" : 0.035,
+                     "soy_yield" : 0.3
                   }
                }
             ]
@@ -1579,9 +1599,9 @@
             {
                "ciqual_food_code" : "13050",
                "id" : "en:apple",
-               "percent_estimate" : "66.6666666666667",
+               "percent_estimate" : 66.6666666666667,
                "percent_max" : 100,
-               "percent_min" : "33.3333333333333",
+               "percent_min" : 33.3333333333333,
                "rank" : 1,
                "text" : "apple",
                "vegan" : "yes",
@@ -1590,7 +1610,7 @@
             {
                "ciqual_food_code" : null,
                "id" : "en:milk",
-               "percent_estimate" : "16.6666666666667",
+               "percent_estimate" : 16.6666666666667,
                "percent_max" : 50,
                "percent_min" : 0,
                "rank" : 2,
@@ -1601,8 +1621,8 @@
             {
                "ciqual_food_code" : "22000",
                "id" : "en:egg",
-               "percent_estimate" : "16.6666666666667",
-               "percent_max" : "33.3333333333333",
+               "percent_estimate" : 16.6666666666667,
+               "percent_max" : 33.3333333333333,
                "percent_min" : 0,
                "rank" : 3,
                "text" : "eggs",
@@ -1718,8 +1738,8 @@
          "nutrient_levels" : {},
          "nutrient_levels_tags" : [],
          "nutriments" : {
-            "fruits-vegetables-nuts-estimate-from-ingredients_100g" : "33.3333333333333",
-            "fruits-vegetables-nuts-estimate-from-ingredients_serving" : "33.3333333333333",
+            "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 33.3333333333333,
+            "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 33.3333333333333,
             "nova-group" : 1,
             "nova-group_100g" : 1,
             "nova-group_serving" : 1
@@ -1735,6 +1755,9 @@
          "origin" : "france",
          "origin_en" : "france",
          "other_nutritional_substances_tags" : [],
+         "packaging_materials_tags" : [],
+         "packaging_recycling_tags" : [],
+         "packaging_shapes_tags" : [],
          "packagings" : [],
          "photographers_tags" : [],
          "pnns_groups_1" : "unknown",
@@ -1756,10 +1779,10 @@
          "rev" : 1,
          "serving_quantity" : 10,
          "serving_size" : "10 g",
-         "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
+         "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
          "states_hierarchy" : [
             "en:to-be-completed",
-            "en:nutrition-facts-completed",
+            "en:nutrition-facts-to-be-completed",
             "en:ingredients-completed",
             "en:expiration-date-to-be-completed",
             "en:packaging-code-to-be-completed",
@@ -1774,7 +1797,7 @@
          ],
          "states_tags" : [
             "en:to-be-completed",
-            "en:nutrition-facts-completed",
+            "en:nutrition-facts-to-be-completed",
             "en:ingredients-completed",
             "en:expiration-date-to-be-completed",
             "en:packaging-code-to-be-completed",
@@ -1795,7 +1818,8 @@
          "unknown_ingredients_n" : 0,
          "unknown_nutrients_tags" : [],
          "url" : "http://world.openfoodfacts.localhost/product/200000000038/palm-oil-free-non-vegan",
-         "vitamins_tags" : []
+         "vitamins_tags" : [],
+         "weighers_tags" : []
       },
       {
          "_id" : "200000000039",
@@ -1849,7 +1873,7 @@
             "2xxxxxxxxxxx"
          ],
          "complete" : 0,
-         "completeness" : "0.5",
+         "completeness" : 0.4,
          "correctors_tags" : [],
          "created_t" : "--ignore--",
          "creator" : "tests",
@@ -2144,16 +2168,16 @@
             {
                "ciqual_food_code" : null,
                "id" : "es:apple",
-               "percent_estimate" : "66.6666666666667",
+               "percent_estimate" : 66.6666666666667,
                "percent_max" : 100,
-               "percent_min" : "33.3333333333333",
+               "percent_min" : 33.3333333333333,
                "rank" : 1,
                "text" : "apple"
             },
             {
                "ciqual_food_code" : null,
                "id" : "es:water",
-               "percent_estimate" : "16.6666666666667",
+               "percent_estimate" : 16.6666666666667,
                "percent_max" : 50,
                "percent_min" : 0,
                "rank" : 2,
@@ -2162,8 +2186,8 @@
             {
                "ciqual_food_code" : null,
                "id" : "es:palm-oil",
-               "percent_estimate" : "16.6666666666667",
-               "percent_max" : "33.3333333333333",
+               "percent_estimate" : 16.6666666666667,
+               "percent_max" : 33.3333333333333,
                "percent_min" : 0,
                "rank" : 3,
                "text" : "palm oil"
@@ -2295,6 +2319,9 @@
          "origin" : "spain",
          "origin_en" : "spain",
          "other_nutritional_substances_tags" : [],
+         "packaging_materials_tags" : [],
+         "packaging_recycling_tags" : [],
+         "packaging_shapes_tags" : [],
          "packagings" : [],
          "photographers_tags" : [],
          "pnns_groups_1" : "unknown",
@@ -2316,10 +2343,10 @@
          "rev" : 1,
          "serving_quantity" : 10,
          "serving_size" : "10 g",
-         "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
+         "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
          "states_hierarchy" : [
             "en:to-be-completed",
-            "en:nutrition-facts-completed",
+            "en:nutrition-facts-to-be-completed",
             "en:ingredients-completed",
             "en:expiration-date-to-be-completed",
             "en:packaging-code-to-be-completed",
@@ -2334,7 +2361,7 @@
          ],
          "states_tags" : [
             "en:to-be-completed",
-            "en:nutrition-facts-completed",
+            "en:nutrition-facts-to-be-completed",
             "en:ingredients-completed",
             "en:expiration-date-to-be-completed",
             "en:packaging-code-to-be-completed",
@@ -2355,7 +2382,8 @@
          "unknown_ingredients_n" : 3,
          "unknown_nutrients_tags" : [],
          "url" : "http://world.openfoodfacts.localhost/product/200000000039/vegan-test-snack",
-         "vitamins_tags" : []
+         "vitamins_tags" : [],
+         "weighers_tags" : []
       },
       {
          "_id" : "200000000045",
@@ -2427,7 +2455,7 @@
             "2xxxxxxxxxxx"
          ],
          "complete" : 0,
-         "completeness" : "0.5",
+         "completeness" : 0.4,
          "correctors_tags" : [],
          "created_t" : "--ignore--",
          "creator" : "tests",
@@ -2691,22 +2719,22 @@
             },
             "agribalyse" : {
                "agribalyse_proxy_food_code" : "32135",
-               "co2_agriculture" : "2.2396004",
+               "co2_agriculture" : 2.2396004,
                "co2_consumption" : 0,
-               "co2_distribution" : "0.019530673",
-               "co2_packaging" : "0.28159592",
-               "co2_processing" : "0.77051126",
-               "co2_total" : "3.564111983",
-               "co2_transportation" : "0.25287373",
+               "co2_distribution" : 0.019530673,
+               "co2_packaging" : 0.28159592,
+               "co2_processing" : 0.77051126,
+               "co2_total" : 3.564111983,
+               "co2_transportation" : 0.25287373,
                "code" : "32135",
                "dqr" : "4.03",
-               "ef_agriculture" : "0.50064279",
+               "ef_agriculture" : 0.50064279,
                "ef_consumption" : 0,
-               "ef_distribution" : "0.0048315303",
-               "ef_packaging" : "0.023715692",
-               "ef_processing" : "0.078716079",
-               "ef_total" : "0.6323498093",
-               "ef_transportation" : "0.024443718",
+               "ef_distribution" : 0.0048315303,
+               "ef_packaging" : 0.023715692,
+               "ef_processing" : 0.078716079,
+               "ef_total" : 0.6323498093,
+               "ef_transportation" : 0.024443718,
                "is_beverage" : 0,
                "name_en" : "Breakfast cereals, mix of puffed or extruded cereals, fortified with vitamins and chemical elements",
                "name_fr" : "Multi-céréales soufflées ou extrudées, enrichies en vitamines et minéraux",
@@ -2870,7 +2898,6 @@
          ],
          "generic_name" : "Tester",
          "generic_name_en" : "Tester",
-         "grades" : {},
          "id" : "200000000045",
          "informers_tags" : [
             "tests"
@@ -3021,6 +3048,9 @@
          "origin" : "China",
          "origin_en" : "China",
          "other_nutritional_substances_tags" : [],
+         "packaging_materials_tags" : [],
+         "packaging_recycling_tags" : [],
+         "packaging_shapes_tags" : [],
          "packaging_text" : "no",
          "packaging_text_en" : "no",
          "packagings" : [],
@@ -3042,13 +3072,12 @@
          "quantity" : "100 g",
          "removed_countries_tags" : [],
          "rev" : 1,
-         "scores" : {},
          "serving_quantity" : 10,
          "serving_size" : "10 g",
-         "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
+         "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
          "states_hierarchy" : [
             "en:to-be-completed",
-            "en:nutrition-facts-completed",
+            "en:nutrition-facts-to-be-completed",
             "en:ingredients-completed",
             "en:expiration-date-to-be-completed",
             "en:packaging-code-to-be-completed",
@@ -3063,7 +3092,7 @@
          ],
          "states_tags" : [
             "en:to-be-completed",
-            "en:nutrition-facts-completed",
+            "en:nutrition-facts-to-be-completed",
             "en:ingredients-completed",
             "en:expiration-date-to-be-completed",
             "en:packaging-code-to-be-completed",
@@ -3084,7 +3113,8 @@
          "unknown_ingredients_n" : 2,
          "unknown_nutrients_tags" : [],
          "url" : "http://world.openfoodfacts.localhost/product/200000000045/vegan-test-snack",
-         "vitamins_tags" : []
+         "vitamins_tags" : [],
+         "weighers_tags" : []
       }
    ],
    "skip" : 0
