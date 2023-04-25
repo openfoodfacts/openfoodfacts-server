@@ -39,7 +39,8 @@ HOSTS=127.0.0.1 world.productopener.localhost fr.productopener.localhost static.
 DOCKER_COMPOSE=docker-compose --env-file=${ENV_FILE}
 # we run tests in a specific project name to be separated from dev instances
 # we also publish mongodb on a separate port to avoid conflicts
-DOCKER_COMPOSE_TEST=COMPOSE_PROJECT_NAME=po_test PO_COMMON_PREFIX=test_ MONGO_EXPOSE_PORT=27027 docker-compose --env-file=${ENV_FILE}
+# we also enable the possibility to fake services in po_test_runner
+DOCKER_COMPOSE_TEST=ROBOTOFF_URL="http://backend:8881/" GOOGLE_CLOUD_VISION_API_URL="http://backend:8881/" COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test PO_COMMON_PREFIX=test_ MONGO_EXPOSE_PORT=27027 docker-compose --env-file=${ENV_FILE}
 
 .DEFAULT_GOAL := dev
 
@@ -238,7 +239,8 @@ integration_test:
 	@echo "🥫 Running unit tests …"
 # we launch the server and run tests within same container
 # we also need dynamicfront for some assets to exists
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront
+# this is the place where variables are important
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron
 # note: we need the -T option for ci (non tty environment)
 	${DOCKER_COMPOSE_TEST} exec -T backend prove -l -r tests/integration
 	${DOCKER_COMPOSE_TEST} stop
@@ -250,15 +252,16 @@ test-stop:
 	${DOCKER_COMPOSE_TEST} stop
 
 # usage:  make test-unit test=test-name.t
+# you can add args= to pass options, like args="-d" to debug
 test-unit: guard-test
 	@echo "🥫 Running test: 'tests/unit/${test}' …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run --rm backend perl tests/unit/${test}
+	${DOCKER_COMPOSE_TEST} run --rm backend perl ${args} tests/unit/${test}
 
 # usage:  make test-int test=test-name.t
 test-int: guard-test # usage: make test-one test=test-file.t
 	@echo "🥫 Running test: 'tests/integration/${test}' …"
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron
 	${DOCKER_COMPOSE_TEST} exec backend perl tests/integration/${test}
 # better shutdown, for if we do a modification of the code, we need a restart
 	${DOCKER_COMPOSE_TEST} stop backend
@@ -267,9 +270,13 @@ test-int: guard-test # usage: make test-one test=test-file.t
 stop_tests:
 	${DOCKER_COMPOSE_TEST} stop
 
+# clean tests, remove containers and volume (useful if you changed env variables, etc.)
+clean_tests:
+	${DOCKER_COMPOSE_TEST} down -v --remove-orphans
+
 update_tests_results:
 	@echo "🥫 Updated expected test results with actuals for easy Git diff"
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron
 	${DOCKER_COMPOSE_TEST} exec -T -w /opt/product-opener/tests backend bash update_tests_results.sh
 	${DOCKER_COMPOSE_TEST} stop
 
@@ -363,13 +370,16 @@ prune_cache:
 	@echo "🥫 Pruning Docker builder cache …"
 	docker builder prune -f
 
-clean_folders:
+clean_folders: clean_logs
 	( rm html/images/products || true )
 	( rm -rf node_modules/ || true )
 	( rm -rf html/data/i18n/ || true )
 	( rm -rf html/{css,js}/dist/ || true )
 	( rm -rf tmp/ || true )
+
+clean_logs:
 	( rm -f logs/* logs/apache2/* logs/nginx/* || true )
+
 
 clean: goodbye hdown prune prune_cache clean_folders
 

@@ -57,7 +57,10 @@ BEGIN {
 		&is_a
 
 		&get_property
+		&get_property_with_fallbacks
 		&get_inherited_property
+		&get_inherited_properties
+		&get_tags_grouped_by_property
 
 		%canon_tags
 		%tags_images
@@ -76,6 +79,7 @@ BEGIN {
 		&list_taxonomy_tags_in_language
 
 		&canonicalize_taxonomy_tag
+		&canonicalize_taxonomy_tag_or_die
 		&canonicalize_taxonomy_tag_linkeddata
 		&canonicalize_taxonomy_tag_weblink
 		&canonicalize_taxonomy_tag_link
@@ -312,6 +316,23 @@ sub get_property ($tagtype, $canon_tagid, $property) {
 	}
 }
 
+sub get_property_with_fallbacks ($tagtype, $tagid, $property, $fallback_lcs = ["xx", "en"]) {
+
+	my $property_value = get_property($tagtype, $tagid, $property);
+	if (!defined $property_value) {
+		# is it language dependent ?
+		if ($property =~ /:..$/) {
+			my $bare_name = $`;
+			# try fallbacks
+			foreach my $lc (@$fallback_lcs) {
+				$property_value = get_property($tagtype, $tagid, "$bare_name:$lc");
+				last if defined $property_value;
+			}
+		}
+	}
+	return $property_value;
+}
+
 sub get_inherited_property ($tagtype, $canon_tagid, $property) {
 
 	my @parents = ($canon_tagid);
@@ -343,6 +364,189 @@ sub get_inherited_property ($tagtype, $canon_tagid, $property) {
 		}
 	}
 	return;
+}
+
+=head2 get_inherited_properties ($tagtype, $canon_tagid, $properties_names_ref, $fallback_lcs = ["xx", "en"]) {
+
+Try to get a set of properties for a tag by exploring the taxonomy (using parents).
+
+This methods take into account if a property is defined as "undef"
+(but it cuts value only for the considered branch
+and might still lead to a value if there are multiple parents branches).
+
+B<Warning:> The algorithm is a bit rough and my not work as you would expect on a DAG.
+It does not (currently) respect exploration of nodes that joins from multiple parent
+(in those case you would expect to first explore children from both branches).
+If we want to change the algorithm for this to work we should first explore parents,
+and then decide the order, but this methods is more eager to save time.
+
+=head3 Parameters
+
+=head4 $tagtype - str, name of taxonomy
+=head4 $canon_tagid - tag id for which we want properties
+=head4 $properties_names - ref to a list of property name
+=head4 $fallback_lcs - fallback language code to try
+If may search a description:fr but if fallback is ['xx', 'en']
+and we find a description:xx or description:en property we will use this value.
+
+=head3 Return
+
+A ref to a hashmap where keys are property names and values are found value.
+If a property name is not present it means it was not found.
+
+=cut
+
+sub get_inherited_properties ($tagtype, $canon_tagid, $properties_names_ref, $fallback_lcs = ["xx", "en"]) {
+
+	my @parents = ([0, $canon_tagid]);
+	my @fallback_langs = @$fallback_lcs;
+	my %seen = ($canon_tagid => 1);
+	my %found_properties = ();
+	# we have to handle properties that explicitely have "undef" as value
+	# we will do it by retaining and propagating this undef value for each target tagid
+	my %undef_properties = ();
+	my %unfound_properties = ();
+	foreach my $property (@{$properties_names_ref}) {
+		$unfound_properties{$property} = 1;
+	}
+
+	while (scalar @parents) {
+		my ($depth, $tagid) = @{shift @parents};
+		if (not defined $tagid) {
+			$log->warn("undefined parent for tag", {parent_tagid => $tagid, canon_tagid => $canon_tagid})
+				if $log->is_warn();
+		}
+		else {
+			# harvest properties
+			foreach my $property (keys %unfound_properties) {
+				my $property_value = deep_get(\%properties, $tagtype, $tagid, $property);
+				if (!defined $property_value) {
+					# is it language dependent ?
+					if ($property =~ /:..$/) {
+						my $bare_name = $`;
+						# try fallbacks
+						foreach my $lang (@fallback_langs) {
+							$property_value = deep_get(\%properties, $tagtype, $tagid, "$bare_name:$lang");
+							last if defined $property_value;
+						}
+					}
+				}
+				if (defined $property_value) {
+					# skip if propagation by a previous children with "undef" value
+					next if defined $undef_properties{$tagid} && defined $undef_properties{$tagid}{$property};
+					if ($property_value eq "undef") {
+						# stop the propagation to parents of this tag, but continue with other parents
+						defined $undef_properties{$tagid} or $undef_properties{$tagid} = {};
+						$undef_properties{$tagid}{$property} = 1;
+					}
+					else {
+						#Return only one occurence of the property if several are defined in ingredients.txt
+						$found_properties{$property} = $property_value;
+						delete $unfound_properties{$property};
+					}
+				}
+			}
+			# add parents to the search ?
+			my $propagate = 0;
+			if (exists $direct_parents{$tagtype}{$tagid}) {
+				if (!defined $unfound_properties{$tagid}) {
+					$propagate = scalar %unfound_properties;
+				}
+				else {
+					# check if we have at least one unfonud property which not "undef"
+					for my $property (keys %unfound_properties) {
+						if (!defined $unfound_properties{$tagid}{$property}) {
+							$propagate = 1;
+							last;
+						}
+					}
+				}
+			}
+
+			if ($propagate) {
+				# propagate search to parents
+				foreach my $parent (keys %{$direct_parents{$tagtype}{$tagid}}) {
+					if (!defined $seen{$parent}) {
+						$seen{$parent} = 1;
+						push @parents, [$depth + 1, $parent];
+					}
+					# propagate undef, we merge with maybe existing items
+					if (defined $undef_properties{$tagid}) {
+						defined $undef_properties{$parent} or $undef_properties{$parent} = {};
+						foreach my $property (keys %{$undef_properties{$tagid}}) {
+							$undef_properties{$parent}{$property} = 1;
+						}
+					}
+				}
+
+				# sort parents, lower depth first, name second
+				@parents = sort {(@$a[0] <=> @$b[0]) || (@$a[1] cmp @$b[1])} @parents;
+			}
+
+			# no need to keep undef_properties for $tagid
+			delete $undef_properties{$tagid} if defined $undef_properties{$tagid};
+		}
+	}
+	return \%found_properties;
+}
+
+=head2 get_tags_grouped_by_property ($tagtype, $tagids_ref, $prop_name, $props_ref, $inherited_props_ref, $fallback_lcs = ["xx", "en"])
+Retrieve properties of a series of tags given in C<$tagids_ref>
+and return them, but grouped by C<$prop_name>,
+also fetching C<$props_ref> and C<$inherited_props_ref>
+
+=head3 Return
+A ref to a hashmap, where keys are property C<$prop_name> values,
+and values are in turn hashmaps where keys are tag ids,
+and values are a hashmap with of properties and their values.
+
+Tags with undefined property are with group under "undef" value.
+
+=head4 Example
+we asks for quality tags, grouped by fix_action, while getting descriptions
+{
+	"add_nutrition_facts" => {
+		"en:kcal-does-not-match-other-nutrients" => {
+			"description:en" => "Kcal is not matching value computed from other nutriments"
+		},
+		"en:kcal-does-not-match-kj" => {
+			"description:en" => "Kcal is not matching kJ value"
+		},
+	},
+	"add_categories" =>
+	{
+		"en:detected-category-baby-milk" {
+			"description:en" => "Detected category … may be missing baby milks"
+		}
+	}
+}
+=cut
+
+sub get_tags_grouped_by_property ($tagtype, $tagids_ref, $prop_name, $props_ref, $inherited_props_ref,
+	$fallback_lcs = ["xx", "en"])
+{
+	my @tagids = @{$tagids_ref};
+	my @props_to_fetch = (@{$inherited_props_ref});
+	push @props_to_fetch, $prop_name;
+
+	my $grouped_tags = {};
+
+	foreach my $tagid (@tagids) {
+		my $found_ref = get_inherited_properties($tagtype, $tagid, \@props_to_fetch);
+		my $prop_value = $found_ref->{$prop_name} // "undef";
+		delete $found_ref->{$prop_name} if defined $found_ref->{$prop_name};
+		defined $grouped_tags->{$prop_value} or $grouped_tags->{$prop_value} = {};
+		# properties only on first level
+		foreach my $property (@$props_ref) {
+			my $value = get_property_with_fallbacks($tagtype, $tagid, $property, $fallback_lcs);
+			if (defined $value) {
+				$found_ref->{$property} = $value;
+			}
+		}
+		$grouped_tags->{$prop_value}{$tagid} = $found_ref;
+	}
+
+	return $grouped_tags;
 }
 
 sub has_tag ($product_ref, $tagtype, $tagid) {
@@ -455,8 +659,6 @@ sub load_tags_images ($lc, $tagtype) {
 			if ($file =~ /^((.*)\.\d+x${logo_height}.(png|svg))$/) {
 				if ((not defined $tags_images{$lc}{$tagtype}{$2}) or ($3 eq 'svg')) {
 					$tags_images{$lc}{$tagtype}{$2} = $1;
-					print STDERR
-						"load_tags_images - tags_images - loading lc: $lc - tagtype: $tagtype - tag: $2 - img: $1 - ext: $3 \n";
 				}
 			}
 		}
@@ -1063,6 +1265,9 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 						and ($synonyms{$tagtype}{$lc}{$tagid} ne $lc_tagid)
 						# for additives, E101 contains synonyms that corresponds to E101(i) etc.   Make E101(i) override E101.
 						and (not($tagtype =~ /^additives(|_prev|_next|_debug)$/))
+						# we have some exception when we merge packaging shapes and materials
+						# in packaging
+						and (not($tagtype =~ /^packaging(|_prev|_next|_debug)$/))
 						)
 					{
 						# issue an error
@@ -1095,8 +1300,13 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			print STDERR "Errors in the $tagtype taxonomy definition:\n";
 			print STDERR $errors;
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
+			# Disable die for the packaging taxonomy as some legit material and shape might have same name
 			# Temporarily (hopefully) disable die for the categories taxonomy, to give time to fix issues
-			unless (($tagtype eq "ingredients") or ($tagtype eq "categories")) {
+			unless (($tagtype eq "ingredients")
+				or ($tagtype eq "packaging")
+				or ($tagtype eq "categories")
+				or ($tagtype eq "packaging"))
+			{
 				die("Errors in the $tagtype taxonomy definition");
 			}
 		}
@@ -1727,9 +1937,10 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			print STDERR "Errors in the $tagtype taxonomy definition:\n";
 			print STDERR $errors;
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
+			# Disable also for packaging taxonomy for some shapes and materials shares same names
 			# Also temporarily disable die for the categories taxonomy, to give use time to fix it.
 			# Tracking bug: https://github.com/openfoodfacts/openfoodfacts-server/issues/6382
-			unless (($tagtype eq "ingredients") or ($tagtype eq "categories")) {
+			unless (($tagtype eq "ingredients") or ($tagtype eq "packaging") or ($tagtype eq "categories")) {
 				die("Errors in the $tagtype taxonomy definition");
 			}
 		}
@@ -1788,7 +1999,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 =head2 build_all_taxonomies ( $pubish)
 
-Build all taxonomies
+Build all taxonomies, including the test taxonomy
 
 =head3 Parameters
 
@@ -1797,7 +2008,7 @@ Build all taxonomies
 =cut
 
 sub build_all_taxonomies ($publish) {
-	foreach my $taxonomy (@taxonomy_fields) {
+	foreach my $taxonomy (@taxonomy_fields, "test") {
 		# traces and data_quality_xxx are not real taxonomy per se
 		# (but built from allergens and data_quality)
 		if ($taxonomy ne "traces" and rindex($taxonomy, 'data_quality_', 0) != 0) {
@@ -2144,15 +2355,13 @@ if (opendir my $DH2, "$www_root/images/lang") {
 	foreach my $langid (sort readdir($DH2)) {
 		next if $langid eq '.';
 		next if $langid eq '..';
-		print STDERR "Tags.pm - reading tagtypes for lang $langid\n";
 		next if ((length($langid) ne 2) and not($langid eq 'other'));
 
 		if (-e "$www_root/images/lang/$langid") {
 			opendir my $DH, "$www_root/images/lang/$langid" or die "Couldn't open the current directory: $!";
 			foreach my $tagtype (sort readdir($DH)) {
 				next if $tagtype =~ /\./;
-				print STDERR "Tags: loading tagtype images $langid/$tagtype\n";
-				# print "Tags: loading tagtype images $langid/$tagtype\n";
+				#print STDERR "Tags: loading tagtype images $langid/$tagtype\n";
 				load_tags_images($langid, $tagtype);
 			}
 			closedir($DH);
@@ -2991,11 +3200,84 @@ sub get_taxonomyurl ($tag_lc, $tagid) {
 	}
 }
 
-# Return the canonical id of a tag string in a specific language
+=head2 canonicalize_taxonomy_tag_or_die ($tag_lc, $tagtype, $tag)
 
-sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag) {
+Canonicalize a string to check if matches an entry in a taxonomy, and die otherwise.
+
+This function is used during initialization, to check that some initialization data has matching entries in taxonomies.
+
+=head3 Arguments
+
+=head4 $tag_lc
+
+The language of the string.
+
+=head4 $tagtype
+
+The type of the tag (e.g. categories, labels, allergens)
+
+=head4 $tag
+
+The string that we want to match to a tag.
+
+=head4 $exists_in_taxonomy_ref
+
+A reference to a variable that will be assigned 1 if we found a matching taxonomy entry, or 0 otherwise.
+
+=head3 Return value
+
+If the string could be matched to an existing taxonomy entry, the canonical id for the entry is returned.
+
+Otherwise, the function dies.
+
+=cut
+
+sub canonicalize_taxonomy_tag_or_die ($tag_lc, $tagtype, $tag) {
+
+	my $exists_in_taxonomy;
+	my $tagid = canonicalize_taxonomy_tag($tag_lc, $tagtype, $tag, \$exists_in_taxonomy);
+	if (not $exists_in_taxonomy) {
+		die("$tag ($tag_lc) could not be matched to an entry in the $tagtype taxonomy");
+	}
+	return $tagid;
+}
+
+=head2 canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref = undef)
+
+Canonicalize a string to check if matches an entry in a taxonomy
+
+=head3 Arguments
+
+=head4 $tag_lc
+
+The language of the string.
+
+=head4 $tagtype
+
+The type of the tag (e.g. categories, labels, allergens)
+
+=head4 $tag
+
+The string that we want to match to a tag.
+
+=head4 $exists_in_taxonomy_ref
+
+A reference to a variable that will be assigned 1 if we found a matching taxonomy entry, or 0 otherwise.
+
+=head3 Return value
+
+If the string could be matched to an existing taxonomy entry, the canonical id for the entry is returned.
+
+Otherwise, we return the string prefixed with the language code (e.g. en:An unknown entry)
+
+=cut
+
+sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref = undef) {
 
 	if (not defined $tag) {
+		if (defined $exists_in_taxonomy_ref) {
+			$$exists_in_taxonomy_ref = 0;
+		}
 		return "";
 	}
 
@@ -3029,7 +3311,7 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag) {
 		$tagid =~ s/^e(\d.*?)-(.*)$/e$1/i;
 	}
 
-	if (($tagtype eq "ingredients") or ($tagtype =~ /^additives/)) {
+	if (($tagtype eq "ingredients") or ($tagtype eq "packaging") or ($tagtype =~ /^additives/)) {
 		# convert E-number + name to E-number only if the number match the name
 		my $additive_tagid;
 		my $name;
@@ -3042,7 +3324,7 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag) {
 			$additive_tagid = $2;
 		}
 		if (defined $name) {
-			my $name_id = canonicalize_taxonomy_tag($tag_lc, "additives", $name);
+			my $name_id = canonicalize_taxonomy_tag($tag_lc, "additives", $name, $exists_in_taxonomy_ref);
 			# caramelo e150c -> name_id is e150
 			if (("en:" . $additive_tagid) =~ /^$name_id/) {
 				return "en:" . $additive_tagid;
@@ -3050,11 +3332,14 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag) {
 		}
 	}
 
+	my $found = 0;
+
 	if (    (defined $synonyms{$tagtype})
 		and (defined $synonyms{$tagtype}{$tag_lc})
 		and (defined $synonyms{$tagtype}{$tag_lc}{$tagid}))
 	{
 		$tagid = $synonyms{$tagtype}{$tag_lc}{$tagid};
+		$found = 1;
 	}
 	else {
 		# try removing stopwords and plurals
@@ -3072,18 +3357,21 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag) {
 			and (defined $synonyms{$tagtype}{$tag_lc}{$tagid2}))
 		{
 			$tagid = $synonyms{$tagtype}{$tag_lc}{$tagid2};
+			$found = 1;
 		}
-		if (    (defined $synonyms{$tagtype})
+		elsif ( (defined $synonyms{$tagtype})
 			and (defined $synonyms{$tagtype}{$tag_lc})
 			and (defined $synonyms{$tagtype}{$tag_lc}{$tagid3}))
 		{
 			$tagid = $synonyms{$tagtype}{$tag_lc}{$tagid3};
+			$found = 1;
 		}
-		if (    (defined $synonyms{$tagtype})
+		elsif ( (defined $synonyms{$tagtype})
 			and (defined $synonyms{$tagtype}{$tag_lc})
 			and (defined $synonyms{$tagtype}{$tag_lc}{$tagid4}))
 		{
 			$tagid = $synonyms{$tagtype}{$tag_lc}{$tagid4};
+			$found = 1;
 		}
 		else {
 
@@ -3121,6 +3409,7 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag) {
 				{
 					$tagid = $synonyms{$tagtype}{$test_lc}{$test_lc_tagid};
 					$tag_lc = $test_lc;
+					$found = 1;
 				}
 				else {
 
@@ -3133,6 +3422,7 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag) {
 					{
 						$tagid = $synonyms{$tagtype}{$test_lc}{$tagid2};
 						$tag_lc = $test_lc;
+						$found = 1;
 						last;
 					}
 				}
@@ -3140,10 +3430,62 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag) {
 		}
 	}
 
-	$tagid = $tag_lc . ':' . $tagid;
+	# If we have not found the tag in the taxonomy, try to see if it is of the form
+	# "Parent / Children" or "Synonym 1 / Synonym 2", "Synonym 1 (Synonym 2)"
+	if (not $found) {
+		if ($tag =~ /\/|\(/) {    # Match / or the ( opening parenthesis
+			my $tag1 = $`;
+			# we might get closing parenthesis, but canonicalize will get rid of it
+			my $tag2 = $';
+			my $exists_tag1;
+			my $exists_tag2;
+			my $tagid1 = canonicalize_taxonomy_tag($tag_lc, $tagtype, $tag1, \$exists_tag1);
+			my $tagid2 = canonicalize_taxonomy_tag($tag_lc, $tagtype, $tag2, \$exists_tag2);
 
-	if ((defined $translations_from{$tagtype}) and (defined $translations_from{$tagtype}{$tagid})) {
+			$log->debug(
+				"Checking for multiple tags separated by a slash",
+				{
+					tagtype => $tagtype,
+					tag => $tag,
+					tag1 => $tag1,
+					tag2 => $tag2,
+					tagid1 => $tagid1,
+					tagid2 => $tagid2,
+					exists_tag1 => $exists_tag1,
+					exists_tag2 => $exists_tag2
+				}
+			) if $log->is_debug();
+
+			if ($exists_tag1 and $exists_tag2) {
+				# "Synonym 1 / Synonym 2"
+				if ($tagid1 eq $tagid2) {
+					$tagid = $tagid1;
+				}
+				# "Parent / Child"
+				elsif (is_a($tagtype, $tagid2, $tagid1)) {
+					$tagid = $tagid2;
+				}
+				# "Child / Parent"
+				elsif (is_a($tagtype, $tagid1, $tagid2)) {
+					$tagid = $tagid1;
+				}
+			}
+		}
+	}
+
+	# $tagid may already be a canon tagid with a language prefix, in which case do not add the language prefix
+	if ($tagid !~ /^\w\w:/) {
+		$tagid = $tag_lc . ':' . $tagid;
+	}
+
+	my $exists_in_taxonomy = 0;
+
+	if (    (defined $translations_from{$tagtype})
+		and (defined $translations_from{$tagtype}{$tagid})
+		and not((exists $just_synonyms{$tagtype}) and (exists $just_synonyms{$tagtype}{$tagid})))
+	{
 		$tagid = $translations_from{$tagtype}{$tagid};
+		$exists_in_taxonomy = 1;
 	}
 	elsif (defined $tag) {
 		# no translation available, tag is not in known taxonomy
@@ -3154,8 +3496,11 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag) {
 		$tagid = "";
 	}
 
-	return $tagid;
+	if (defined $exists_in_taxonomy_ref) {
+		$$exists_in_taxonomy_ref = $exists_in_taxonomy;
+	}
 
+	return $tagid;
 }
 
 sub canonicalize_taxonomy_tag_linkeddata ($tagtype, $tag) {
@@ -3937,7 +4282,7 @@ sub add_tags_to_field ($product_ref, $tag_lc, $field, $additional_fields) {
 		if (not exists $existing{$tagid}) {
 			my $current_value = "current: does not exist";
 			(defined $product_ref->{$field}) and $current_value = "current: " . $product_ref->{$field};
-			print STDERR "add_tags_to_field - adding $tagid to $field: $current_value\n";
+			#print STDERR "add_tags_to_field - adding $tagid to $field: $current_value\n";
 			push @added_tags, $tag;
 		}
 
@@ -3951,7 +4296,7 @@ sub add_tags_to_field ($product_ref, $tag_lc, $field, $additional_fields) {
 			# we do not know the language of the current value of $product_ref->{$field}
 			# so regenerate it in the current language used by the interface / caller
 			$value = list_taxonomy_tags_in_language($tag_lc, $field, $product_ref->{$field . "_hierarchy"});
-			print STDERR "add_tags_to_fields value: $value\n";
+			#print STDERR "add_tags_to_fields value: $value\n";
 		}
 		else {
 			$value = $product_ref->{$field};
@@ -4301,13 +4646,16 @@ sub generate_regexps_matching_taxonomy_entries ($taxonomy, $return_type, $option
 
 	foreach my $tagid (get_all_taxonomy_entries($taxonomy)) {
 
-		foreach my $language (keys %{$translations_to{$taxonomy}{$tagid}}) {
+		foreach my $language (sort keys %{$translations_to{$taxonomy}{$tagid}}) {
 
 			defined $synonyms_regexps{$language} or $synonyms_regexps{$language} = [];
 
 			# the synonyms below also contain the main translation as the first entry
 
 			foreach my $synonym (get_taxonomy_tag_synonyms($language, $taxonomy, $tagid)) {
+
+				# Escape some characters
+				$synonym = regexp_escape($synonym);
 
 				if ($options_ref->{add_simple_singulars}) {
 					if ($synonym =~ /s$/) {
@@ -4341,15 +4689,16 @@ sub generate_regexps_matching_taxonomy_entries ($taxonomy, $return_type, $option
 
 	if ($return_type eq 'unique_regexp') {
 		foreach my $language (keys %synonyms_regexps) {
-			$result_ref->{$language} = join(
-				'|', map {$_->[1]}
-					sort {length $b->[1] <=> length $a->[1]} @{$synonyms_regexps{$language}}
-			);
+			$result_ref->{$language} = join('|',
+				map {$_->[1]}
+					sort {(length $b->[1] <=> length $a->[1]) || ($a->[1] cmp $b->[1])}
+					@{$synonyms_regexps{$language}});
 		}
 	}
 	elsif ($return_type eq 'list_of_regexps') {
 		foreach my $language (keys %synonyms_regexps) {
-			@{$result_ref->{$language}} = sort {length $b->[1] <=> length $a->[1]} @{$synonyms_regexps{$language}};
+			@{$result_ref->{$language}}
+				= sort {(length $b->[1] <=> length $a->[1]) || ($a->[1] cmp $b->[1])} @{$synonyms_regexps{$language}};
 		}
 	}
 	else {

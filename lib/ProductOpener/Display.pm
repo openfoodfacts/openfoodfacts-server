@@ -169,8 +169,8 @@ use ProductOpener::PackagerCodes qw(:all);
 use ProductOpener::Export qw(:all);
 use ProductOpener::API qw(:all);
 use ProductOpener::Units qw/:all/;
+use ProductOpener::Cache qw/:all/;
 
-use Cache::Memcached::Fast;
 use Encode;
 use URI::Escape::XS;
 use CGI qw(:cgi :cgi-lib :form escapeHTML');
@@ -187,7 +187,6 @@ use CLDR::Number;
 use CLDR::Number::Format::Decimal;
 use CLDR::Number::Format::Percent;
 use Storable qw(dclone freeze);
-use Digest::MD5 qw(md5_hex);
 use boolean;
 use Excel::Writer::XLSX;
 use Template;
@@ -291,13 +290,6 @@ $tt = Template->new(
 );
 
 # Initialize exported variables
-$memd = Cache::Memcached::Fast->new(
-	{
-		'servers' => $memd_servers,
-		'utf8' => 1,
-		compress_threshold => 10000,
-	}
-);
 
 $default_request_ref = {page => 1,};
 
@@ -531,8 +523,11 @@ C<init_request()> is called at the start of each new request (web page or API).
 It initializes a number of variables, in particular:
 
 $cc : country code
+
 $lc : language code
 
+$knowledge_panels_options_ref: Reference to a hashmap that collect options to display knowledge panels for current request
+See also L<ProductOpener::KnowledgePanels/knowledge_panels_options_ref>
 It also initializes a request object that is returned.
 
 =head3 Parameters
@@ -1434,9 +1429,8 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 	}
 
 	#get cache results for aggregate query
-	my $key = $server_domain . "/" . freeze($aggregate_parameters);
+	my $key = generate_cache_key("aggregate", $aggregate_parameters);
 	$log->debug("MongoDB query key", {key => $key}) if $log->is_debug();
-	$key = md5_hex($key);
 	my $results = get_cache_results($key, $request_ref);
 
 	if ((not defined $results) or (ref($results) ne "ARRAY") or (not defined $results->[0])) {
@@ -1453,7 +1447,8 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 					if $log->is_debug();
 				$results = execute_query(
 					sub {
-						return get_products_collection()->aggregate($aggregate_parameters, {allowDiskUse => 1});
+						return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
+							->aggregate($aggregate_parameters, {allowDiskUse => 1});
 					}
 				);
 			};
@@ -1466,7 +1461,8 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 					if $log->is_debug();
 				$results = execute_query(
 					sub {
-						return get_products_tags_collection()->aggregate($aggregate_parameters, {allowDiskUse => 1});
+						return get_products_collection({obsolete => request_param($request_ref, "obsolete"), tags => 1})
+							->aggregate($aggregate_parameters, {allowDiskUse => 1});
 					}
 				);
 			};
@@ -1514,9 +1510,8 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 	else {
 
 		#get total count for aggregate (without limit) and put result in cache
-		my $key_count = $server_domain . "/" . freeze($aggregate_count_parameters);
+		my $key_count = generate_cache_key("aggregate_count", $aggregate_count_parameters);
 		$log->debug("MongoDB aggregate count query key", {key => $key_count}) if $log->is_debug();
-		$key_count = md5_hex($key_count);
 		my $results_count = get_cache_results($key_count, $request_ref);
 
 		if (not defined $results_count) {
@@ -1534,7 +1529,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 						if $log->is_debug();
 					$count_results = execute_query(
 						sub {
-							return get_products_collection()
+							return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
 								->aggregate($aggregate_count_parameters, {allowDiskUse => 1});
 						}
 					);
@@ -1547,7 +1542,8 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 						if $log->is_debug();
 					$count_results = execute_query(
 						sub {
-							return get_products_tags_collection()
+							return get_products_collection(
+								{obsolete => request_param($request_ref, "obsolete"), tags => 1})
 								->aggregate($aggregate_count_parameters, {allowDiskUse => 1});
 						}
 					);
@@ -3064,6 +3060,7 @@ sub display_tag ($request_ref) {
 	}
 
 	if (defined $request_ref->{groupby_tagtype}) {
+		$request_ref->{current_link} .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$lc};
 		$request_ref->{world_current_link} .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$lc};
 	}
 
@@ -4382,7 +4379,8 @@ sub count_products ($request_ref, $query_ref) {
 		$log->debug("Counting MongoDB documents for query", {query => $query_ref}) if $log->is_debug();
 		$count = execute_query(
 			sub {
-				return get_products_collection()->count_documents($query_ref);
+				return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
+					->count_documents($query_ref);
 			}
 		);
 	};
@@ -4880,14 +4878,9 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		skip => $skip
 	];
 
-	# Sort the keys of hashes
-	my $json = JSON::PP->new->utf8->canonical->encode($mongodb_query_ref);
+	my $key = generate_cache_key("search_products", $mongodb_query_ref);
 
-	my $key = $server_domain . "/" . $json;
-
-	$log->debug("MongoDB query key - search-products", {key => $key}) if $log->is_debug();
-
-	$key = "search-products-" . md5_hex($key);
+	$log->debug("MongoDB query key - search_products", {key => $key}) if $log->is_debug();
 
 	$request_ref->{structured_response} = get_cache_results($key, $request_ref);
 
@@ -4906,7 +4899,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 				$log->debug("Counting MongoDB documents for query", {query => $query_ref}) if $log->is_debug();
 				$count = execute_query(
 					sub {
-						return get_products_tags_collection()->count_documents($query_ref);
+						return get_products_collection({obsolete => request_param($request_ref, "obsolete"), tags => 1})
+							->count_documents($query_ref);
 					}
 				);
 				$log->info("MongoDB count query ok", {error => $@, count => $count}) if $log->is_info();
@@ -4916,7 +4910,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 				$log->debug("Executing MongoDB query", {query => $aggregate_parameters}) if $log->is_debug();
 				$cursor = execute_query(
 					sub {
-						return get_products_tags_collection()->aggregate($aggregate_parameters, {allowDiskUse => 1});
+						return get_products_collection({obsolete => request_param($request_ref, "obsolete"), tags => 1})
+							->aggregate($aggregate_parameters, {allowDiskUse => 1});
 					}
 				);
 			}
@@ -4930,9 +4925,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 				}
 				elsif (keys %{$query_ref} > 0) {
 					#check if count results is in cache
-					my $key_count = $server_domain . "/" . freeze($query_ref);
-					$log->debug("MongoDB query key - search-count", {key => $key_count}) if $log->is_debug();
-					$key_count = "search-count-" . md5_hex($key_count);
+					my $key_count = generate_cache_key("search_products_count", $query_ref);
+					$log->debug("MongoDB query key - search_products_count", {key => $key_count}) if $log->is_debug();
 					my $results_count = get_cache_results($key_count, $request_ref);
 					if (not defined $results_count) {
 
@@ -4967,7 +4961,9 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 									$log->debug("count_documents on smaller products_tags collection",
 										{key => $key_count})
 										if $log->is_debug();
-									return get_products_tags_collection()->count_documents($query_ref);
+									return get_products_collection(
+										{obsolete => request_param($request_ref, "obsolete"), tags => 1})
+										->count_documents($query_ref);
 								}
 							);
 
@@ -4978,7 +4974,9 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 								sub {
 									$log->debug("count_documents on complete products collection", {key => $key_count})
 										if $log->is_debug();
-									return get_products_collection()->count_documents($query_ref);
+									return get_products_collection(
+										{obsolete => request_param($request_ref, "obsolete")})
+										->count_documents($query_ref);
 								}
 							);
 						}
@@ -5004,7 +5002,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 						sub {
 							$log->debug("empty query_ref, use estimated_document_count fot better performance", {})
 								if $log->is_debug();
-							return get_products_collection()->estimated_document_count();
+							return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
+								->estimated_document_count();
 						}
 					);
 				}
@@ -5015,8 +5014,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 					if $log->is_debug();
 				$cursor = execute_query(
 					sub {
-						return get_products_collection()->query($query_ref)->fields($fields_ref)->sort($sort_ref)
-							->limit($limit)->skip($skip);
+						return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
+							->query($query_ref)->fields($fields_ref)->sort($sort_ref)->limit($limit)->skip($skip);
 					}
 				);
 				$log->info("MongoDB query ok", {error => $@}) if $log->is_info();
@@ -6377,7 +6376,8 @@ sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 	eval {
 		$cursor = execute_query(
 			sub {
-				return get_products_collection()->query($query_ref)->fields($fields_ref);
+				return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
+					->query($query_ref)->fields($fields_ref);
 			}
 		);
 	};
@@ -6509,7 +6509,8 @@ sub search_and_map_products ($request_ref, $query_ref, $graph_ref) {
 	eval {
 		$cursor = execute_query(
 			sub {
-				return get_products_collection()->query($query_ref)->fields(
+				return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
+					->query($query_ref)->fields(
 					{
 						code => 1,
 						lc => 1,
@@ -6521,7 +6522,7 @@ sub search_and_map_products ($request_ref, $query_ref, $graph_ref) {
 						origins => 1,
 						emb_codes_tags => 1,
 					}
-				);
+					);
 			}
 		);
 	};
@@ -7311,6 +7312,10 @@ JS
 		= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "environment_card");
 	$template_data_ref->{health_card_panel}
 		= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "health_card");
+	if ($product_ref->{"knowledge_panels_" . $lc}{"contribution_card"}) {
+		$template_data_ref->{contribution_card_panel}
+			= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "contribution_card");
+	}
 
 	# The front product image is rendered with the same template as the ingredients, nutrition and packaging images
 	# that are displayed directly through the knowledge panels
@@ -10986,7 +10991,8 @@ sub search_and_analyze_recipes ($request_ref, $query_ref) {
 	eval {
 		$cursor = execute_query(
 			sub {
-				return get_products_collection()->query($query_ref)->fields($fields_ref);
+				return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
+					->query($query_ref)->fields($fields_ref);
 			}
 		);
 	};
