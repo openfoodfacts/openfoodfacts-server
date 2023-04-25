@@ -83,7 +83,7 @@
                     <input type="email" id="[% field.field %]" name="[% field.field %]" value = "[% field.value %]" autocomplete="email"/>
                 [% ELSIF field.type == 'checkbox' %]
                     [% IF accepted_organization && section.id == "professional" %]
-                        <p>[% field.warning %]</p>
+                        <p>[% f_lang('f_this_is_a_pro_account_for_org', {'org' => accepted_organization}) %]</p>
                     [% ELSE %]
                         <label for="[% field.field %]">
                             <input type="checkbox" id="[% field.field %]" name="[% field.field %]" [% IF field.value == 'on' %]checked="checked"[% END %] />
@@ -146,7 +146,7 @@
     <!-- End form -->
 
 [% ELSIF action == 'process' %]
-    <p>[% lang('${type}_user_result') %]</p>
+    <p>[% lang("${type}_user_result") %]</p>
 
     [% IF type == 'add' %]
 
@@ -205,8 +205,10 @@
         <!-- Do not display donate link on producers platform -->
 
         [% IF !(server_options_producers_platform) %]
-            <h3>[% lang("you_can_also_help_us") %]</h3>
-            <p>[% lang("bottom_content") %]</p>
+            [% IF lc == "en" or lc == "fr" %]
+                <h3>[% lang("you_can_also_help_us") %]</h3>
+                <p>[% lang("bottom_content") %]</p>
+            [% END %]
         [% END %]
 
     [% END %]

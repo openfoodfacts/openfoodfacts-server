@@ -1,0 +1,121 @@
+$sveetoy_foundation_support: 5;
+$include-sv-classes: true !default;
+@import "foundation/functions";
+$white: #ffffff;
+$black: #000000;
+$lightblue:#D9E5F2;
+$lightskyblue: $lightskyblue;
+$deepskyblue4: #00688b;
+$gray25: #4F4F4F;
+$gray82: #d0d0d0;
+$gray88: #e0e0e0;
+$gray94: #f0f0f0;
+$snow1: #fffafa;
+//
+// SVEETOY SETTINGS FOR FOUNDATION5
+// Here are sample settings with Foundation5 values
+//
+// Declare which foundation version we have to support
+$sveetoy_foundation_support: 5;
+// d. Media Query Ranges
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+// This part is a copy of some required Foundation settings used in Sveetoy
+// settings. You may not need to include them depending from your Foundation
+// usage.
+$small-range: (0em, 40em);
+$medium-range: (40.063em, 63.9375em);
+$large-range: (64em, 90em);
+$xlarge-range: (90.063em, 120em);
+$xxlarge-range: (120.063em);
+$screen: "only screen";
+$small-up: $screen;
+$medium-up: "#{$screen} and (min-width:#{lower-bound($medium-range)})";
+$large-up: "#{$screen} and (min-width:#{lower-bound($large-range)})";
+$xlarge-up: "#{$screen} and (min-width:#{lower-bound($xlarge-range)})";
+$xxlarge-up: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)})";
+// A0. Sveetoys component enabler
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+// Global include switcher
+$include-sveetoy-classes: true;
+// Include switcher for every component
+$include-sveetoy-global: $include-sveetoy-classes;
+$include-sveetoy-blocks: $include-sveetoy-classes;
+$include-sveetoy-boxes: $include-sveetoy-classes;
+$include-sveetoy-buttons: $include-sveetoy-classes;
+$include-sveetoy-flex: $include-sveetoy-classes;
+$include-sveetoy-grid: $include-sveetoy-classes;
+$include-sveetoy-lists: $include-sveetoy-classes;
+$include-sveetoy-spaces: $include-sveetoy-classes;
+$include-sveetoy-tables: $include-sveetoy-classes;
+$include-sveetoy-topbar: $include-sveetoy-classes;
+$include-sveetoy-typography: $include-sveetoy-classes;
+// A1. Sveetoys Query Ranges
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+// Common available breakpoints taken from Foundation breakpoints
+$sveetoy-breakpoints: ( small: $small-up, medium: $medium-up, large: $large-up, xlarge: $xlarge-up, );
+// A2. Sveetoys colors
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+// NOTE: You should put these color names (not the schemes) at top of your
+// Foundation settings file so they are available for both Foundation and
+// Sveetoy settings
+$white: #ffffff;
+$black: #000000;
+$white-color-scheme: ( font-color: $gray25, background-color: $white, );
+$black-color-scheme: ( background-color: $black, );
+$lightskyblue-color-scheme: ( background-color: $lightskyblue, );
+$skyblue-color-scheme: ( background-color: $skyblue, );
+$oceanblue-color-scheme: (font-color: $white, background-color: $oceanblue,link-color:$lightskyblue,link-color-hover:$white );
+$sveetoy-colors-scheme-default: $white-color-scheme;
+$sveetoy-colors-schemes: ( white: $white-color-scheme, black: $black-color-scheme, lightskyblue: $lightskyblue-color-scheme, oceanblue:$oceanblue-color-scheme, skyblue:$skyblue-color-scheme);
+$sveetoy-color-text-palette: ( white: $white, black: $black, oceanblue: $oceanblue, dark:$gray25);
+// A3. Sveetoys typography
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+// Thickness
+$font-weight-thin: 100;
+$font-weight-strong: 900;
+$font-weight-medium:600;
+// <small/> sizes
+$sveetoy-smalls: ( small: 75%, big: 120%, large: 150%, );
+// .underline features
+$sveetoy-underline-thickness: ( thin: ( size: rem-calc(1px), style: solid, ), normal: ( size: rem-calc(3px), style: solid, ), bold: ( size: rem-calc(5px), style: solid, ), );
+$sveetoy-underline-widths: ( tiny: 5%, short: 15%, normal: 40%, //default
+large: 70%, full: 100%, );
+$sveetoy-underline-distances: ( far: 2rem, near: 0.5rem, normal: 1rem, //default
+sticked: 0, );
+$sveetoy-underline-colors: $sveetoy-color-text-palette;
+$sveetoy-underline-default-color: $black;
+// Horizontal rule
+$sveetoy-hr-thickness: $sveetoy-underline-thickness;
+$sveetoy-hr-distances: $sveetoy-underline-distances;
+$sveetoy-hr-colors: $sveetoy-underline-colors;
+$sveetoy-hr-default-color: $sveetoy-underline-default-color;
+// A4. Sveetoys spaces
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+// Defines default space sizes with their breakpoint values
+$sveetoy-space-tiny: ( small: 0.25rem, medium: 0.375rem, large: 0.5rem, xlarge: 0.75rem, ) !default;
+$sveetoy-space-short: ( small: 0.5rem, medium: 0.625rem, large: 1rem, xlarge: 1.25rem, ) !default;
+$sveetoy-space-normal: ( small: 0.75rem, medium: 1rem, large: 1.5rem, xlarge: 2rem, ) !default;
+$sveetoy-space-large: ( small: 1rem, medium: 1.5rem, large: 2rem, xlarge: 2.5rem, ) !default;
+$sveetoy-space-wide: ( small: 1.5rem, medium: 2.25rem, large: 3rem, xlarge: 4rem, ) !default;
+// Space scheme
+$sveetoy-spaces: ( tiny: $sveetoy-space-tiny, short: $sveetoy-space-short, normal: $sveetoy-space-normal, large: $sveetoy-space-large, wide: $sveetoy-space-wide, ) !default;
+// Define button variables using default Foundation values
+$button-tny: rem-calc(10);
+$button-sml: rem-calc(14);
+$button-med: rem-calc(16);
+$button-lrg: rem-calc(18);
+// Use button variables for .modest feature
+$sveetoy-button-modests: ( tiny: $button-tny / 2, small: $button-sml / 2, medium: $button-med / 2, large: $button-lrg / 2, );
+// Button color scheme
+$sveetoy-button-colors-schemes: $sveetoy-colors-schemes;
+// A5. Sveetoys Boxes
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+$sveetoy-boxes-thickness: $sveetoy-underline-thickness;
+// A6. Sveetoys Grid
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+// Larger row width for xlarge screens and more
+$sveetoy-row-larger-width: rem-calc(1328px);
+// A7. Sveetoys Flexbox
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+// Fleg grid cell sizes
+$flex-grid-sizes: 20 25 33.3333 50 75 100;
