@@ -397,6 +397,25 @@ my @tests = (
 		}
 	],
 
+	# olive oil without ingredients
+
+	[
+		"en-olive-oil-no-ingredients",
+		{
+			lc => "en",
+			categories => "olive oil",
+			nutriments => {
+				energy_100g => 3365,
+				fat_100g => 91,
+				"saturated-fat_100g" => 14,
+				sugars_100g => 0,
+				sodium_100g => 0,
+				fiber_100g => 0,
+				proteins_100g => 0
+			},
+		}
+	],
+
 );
 
 my $json = JSON->new->allow_nonref->canonical;
