@@ -280,6 +280,26 @@ sub export_csv ($args_ref) {
 						}
 					}
 				}
+				elsif ($group_id eq "packaging") {
+					# packaging data will be exported in the CSV file in columns named like packaging_1_number_of_units
+					if (defined $product_ref->{packagings}) {
+						my $i = 0;    # number of the packaging component
+						foreach my $packaging_ref (@{$product_ref->{packagings}}) {
+							$i++;
+							my $j = 0;    # number of the field
+							foreach my $field (
+								qw(number_of_units shape material recycling quantity_per_unit weight_specified weight_measured)
+								)
+							{
+								$j++;
+								if (defined $packaging_ref->{$field}) {
+									my $field_sort_key = sprintf("%08d", $group_number * 1000 + $i * 10 + $j);
+									$populated_fields{"packaging_" . $i . "_" . $field} = $field_sort_key;
+								}
+							}
+						}
+					}
+				}
 				elsif ($group_id eq "images") {
 					if ($args_ref->{include_images_paths}) {
 						if (defined $product_ref->{images}) {
@@ -575,6 +595,12 @@ sub export_csv ($args_ref) {
 						# but they are not entered directly, but computed from other fields, so we can take their values as is.
 						$value = list_taxonomy_tags_in_language($product_ref->{lc}, $field,
 							$product_ref->{$field . "_hierarchy"});
+					}
+					# packagings field of the form packaging_2_number_of_units
+					elsif ($field =~ /^packaging_(\d+)_(.*)$/) {
+						my $index = $1 - 1;
+						my $property = $2;
+						$value = deep_get($product_ref, ("packagings", $index, $property));
 					}
 					# Allow returning fields that are not at the root of the product structure
 					# e.g. ecoscore_data.agribalyse.score  -> $product_ref->{ecoscore_data}{agribalyse}{score}

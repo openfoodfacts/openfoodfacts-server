@@ -976,6 +976,7 @@ sub clean_fields ($product_ref) {
 			if (not exists_taxonomy_tag("countries", $canon_tagid)) {
 				assign_value($product_ref, "origin_" . $product_ref->{lc}, $product_ref->{$field});
 				delete $product_ref->{$field};
+				next;
 			}
 		}
 
