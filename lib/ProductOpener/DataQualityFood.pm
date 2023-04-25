@@ -758,7 +758,9 @@ sub check_nutrition_data ($product_ref) {
 
 			$nid_n++;
 
-			if (($nid eq 'fat') or ($nid eq 'carbohydrates') or ($nid eq 'proteins') or ($nid eq 'salt')) {
+			if (    (defined $product_ref->{nutriments}{$nid . "_100g"})
+				and (($nid eq 'fat') or ($nid eq 'carbohydrates') or ($nid eq 'proteins') or ($nid eq 'salt')))
+			{
 				$total += $product_ref->{nutriments}{$nid . "_100g"};
 			}
 
