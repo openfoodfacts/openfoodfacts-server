@@ -293,6 +293,9 @@ sub export_csv ($args_ref) {
 							{
 								$j++;
 								if (defined $packaging_ref->{$field}) {
+									# Generate a sort key so that the packaging fields in the CSV file are in this order:
+									# - all fields for packaging component 1, then all fields for packaging component 2
+									# - number_of_units, shape, material etc. (same a for loop above)
 									my $field_sort_key = sprintf("%08d", $group_number * 1000 + $i * 10 + $j);
 									$populated_fields{"packaging_" . $i . "_" . $field} = $field_sort_key;
 								}
