@@ -2334,7 +2334,7 @@ sub extract_ingredients_from_text ($product_ref) {
 	return;
 }
 
-sub assign_ciqual_codes($product_ref) {
+sub assign_ciqual_codes ($product_ref) {
 	my @ingredients_without_ciqual_codes = uniq(sort(get_missing_ciqual_codes($product_ref->{ingredients})));
 	$product_ref->{ingredients_without_ciqual_codes} = \@ingredients_without_ciqual_codes;
 	$product_ref->{ingredients_without_ciqual_codes_n} = @ingredients_without_ciqual_codes;
