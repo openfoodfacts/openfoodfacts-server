@@ -93,6 +93,10 @@ BEGIN {
 
 		&has_specific_ingredient_property
 
+		&init_origins_regexps
+		&match_ingredient_origin
+		&parse_origins_from_text
+
 		&assign_ciqual_codes
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -308,6 +312,8 @@ my %abbreviations = (
 	fi => [["mikro.", "mikrobiologinen"], ["mm.", "muun muassa"], ["sis.", "sisältää"], ["n.", "noin"],],
 
 	fr => [["vit.", "Vitamine"], ["Mat. Gr.", "Matières Grasses"],],
+
+	hr => [["temp.", "temperaturi"],],
 
 	nb => [["bl. a.", "blant annet"], ["inkl.", "inklusive"], ["papr.", "paprika"],],
 
@@ -3774,7 +3780,28 @@ my %phrases_after_ingredients_list = (
 	],
 
 	hr => [
-		'Čuvati na (hladnom|suhom|temperaturi)',    # store in...
+		'bez konzervans',    # without preservatives
+		'Čuvati na (hladnom|sobnoj temperaturi|suhom|temperaturi)',    # store in...
+		'Čuvati zatvoreno na',
+		'Čuvati pri sobnoj temperaturi',
+		'izvor dijetalnih vlakana',    # source of proteins
+		'najbolje upotrijebiti do',    # best before
+		'nakon otvaranja',    # after opening
+		'pakirano u (kontroliranoj|zaštitnoj) atmosferi',    # packed in a ... atmosphere
+		'proizvod je termički obrađen-pasteriziran',    # pasteurized
+		'proizvođač',    # producer
+		'prosječn(a|e) (hranjiva|hranjive|nutritivne) (vrijednost|vrijednosti)',    # Average nutritional value
+		'protresti prije otvaranja',    # shake before opening
+		'upotrijebiti do datuma',    # valid until
+		'upozorenje',    # warning
+		'uputa',    # instructions
+		'uvjeti čuvanja',    # storage conditions
+		'uvoznik za',    # importer
+		'vakuumirana',    # Vacuumed
+		'vrijeme kuhanja',    # Cooking time
+		'zaštićena oznaka zemljopisnog podrijetla',    # ZOI/PDO
+		'zbog (mutan|prisutnosti)',    # Due to ...
+		'zemlja (porijekla|podrijetla|porekla)',    # country of origin
 	],
 
 	hu => [
