@@ -1220,6 +1220,7 @@ fi:Lactobacillus bulgaricus, L. bulgaricus
 it:Lactobacillus bulgaricus, L. bulgaricus
 fr:L bulgaricus, bulgaricus
 hr:lactobacillus bulgaricus
+pl:lactobacillus bulgaricus
 xx:Lactobacillus bulgaricus, L. bulgaricus
 wikidata:en:Q47455075
 wikipedia:en:https://en.wikipedia.org/wiki/Lactobacillus_delbrueckii_subsp._bulgaricus
@@ -1327,6 +1328,7 @@ hr:streptococcus thermophilus
 es:Streptococcus thermophilus, thermophilus
 it:streptococcus thermophilius, s. thermophilus, thermophilus
 ja:サーモフィラス菌
+pl:streptococcus thermophilus, Streptococcus salivarius ssp. thermophilus
 zh:嗜热链球菌
 # zh-hans:嗜熱鏈球菌
 # zh-tw:嗜熱性鏈球菌
@@ -20901,6 +20903,7 @@ en:mushroom flavouring
 de:Pilzaroma, Pilz-Aroma
 fi:sieniaromi
 fr:arôme champignon
+pl:aromat grzybowy
 ru:ароматизатор грибов
 sv:champinjonarom
 # ingredient/fr:arome-champignon has 9 products in 1 language @2020-06-12
@@ -55753,7 +55756,7 @@ ciqual_food_name:fr:Fenouil, graine
 en:chia
 es:chía negra
 la:Salvia hispanica
-pl:szałwia hiszpańska
+pl:szałwia hiszpańska, chia, salvia hispanica, szałwii hiszpańskiej
 xx:chia
 wikidata:en:Q27688832
 # ingredient/chia has 430 products @2021-08-20
@@ -65643,7 +65646,7 @@ nn:matsopp
 nv:Ábishjaaʼ
 or:ଛତୁ
 pa:ਖੁੰਭ
-pl:grzyby jadalne, owocnik
+pl:grzyby jadalne, owocnik, grzyb, grzyby
 pt:cogumelo , cogumelo comestível
 qu:K'allampa puquy
 ro:ciupercă , Ciuperci comestibile
@@ -65723,6 +65726,7 @@ en:forest mushroom
 de:Waldpilze
 fr:champignon forestier, champignons forestiers, champignon des bois, champignons des bois
 nl:bospaddenstoel
+pl:grzyby leśne, grzybów leśnych
 
 en:Greek-style marinated mushrooms
 fr:Champignons à la grecque
@@ -65745,6 +65749,7 @@ fi:sieniuute, herkkusieniuute
 fr:extrait de champignon, extrait de champignons
 it:estratti di funghi
 nl:champignonextract, paddestoelenextract
+pl:ekstrakt grzybowy
 sv:svampextrakt, champinjonextrakt
 # en:mushroom-extract has 94 products in 4 languages @2018-11-02
 
@@ -65757,9 +65762,16 @@ fr:poudre de champignon
 nl:champignonpoeder
 sv:champinjonpulver
 
+<en:mushroom
+en:Cantharellus
+de:Pfifferlinge
+pl:Pieprznik
+xx:Cantharellus
+wikidata:en:Q922335
+
 #description:en:CANTHARELLUS CIBARIUS is a species of golden chanterelle mushroom in the genus Cantharellus.
 
-<en:mushroom
+<en:Cantharellus
 en:golden chanterelle
 ar:فطر الشانتريل
 be:лісічка сапраўдная
@@ -65796,7 +65808,7 @@ mk:лисичарка
 nb:Kantarell
 nl:cantharel, c
 nn:Kantarell
-pl:Pieprznik jadalny
+pl:Pieprznik jadalny, kurka, kurki, pieprznik pospolity
 ro:Gălbior
 ru:лисичка обыкновенная
 se:Kantarella
@@ -65826,9 +65838,17 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cantharellus_cibarius
 # ingredient/fr:cantharellus-cibarius has 26 products in 3 languages @2018-12-16
 # ingredient/fr:girolles has 90 products in 3 languages @2018-12-16
 
+<en:mushroom
+en:boletus
+pl:borowik, borowiki
+xx:Boletus
+wikidata:en:Q19744
+wikipedia:en:https://en.wikipedia.org/wiki/Boletus
+
+
 # description:en:BOLETUS EDULIS (English:penny bun, cep, porcino or porcini) is a basidiomycete fungus, and the type species of the genus Boletus.
 
-<en:mushroom
+<en:boletus
 en:cep, porcini mushroom, porcini mushrooms
 ar:بوليط مأكول
 ba:Аҡ бәшмәк
@@ -65869,7 +65889,7 @@ nb:Steinsopp
 nl:eekhoorntjesbrood
 nn:steinsopp
 oc:Boletus edulis
-pl:Borowik szlachetny
+pl:Borowik szlachetny, prawdziwek, prawdziwki
 ro:Hrib
 ru:Белый гриб
 sh:Vrganj
@@ -65923,7 +65943,7 @@ hr:sušeni vrganji
 <en:cep
 de:Steinpilzpulver
 
-<en:mushroom
+<en:boletus
 en:summer cep, Boletus reticulatus, reticulatus
 de:Sommer-Steinpilz
 es:boleto reticulado, boleto estival
@@ -65931,13 +65951,19 @@ fi:tammenherkkutatti
 fr:Cèpe d'été, reticulatus
 it:Porcino estivo
 la:Boletus reticulatus, Boletus aestivalis
+pl:borowik usiatkowany
+xx:Boletus reticulatus
+wikidata:en:Q26203726
 
 <en:mushroom
-en:dark cep
+en:dark cep, bronze bolete
 de:dunkler Steinpilz
 fr:Cèpe bronzé
 it:Porcino nero, Moreccio
 la:Boletus aereus, aereus
+pl:borowik ciemnobrązowy
+xx:Boletus aereus
+wikidata:en:Q757127
 
 <en:mushroom
 en:pine bolete
@@ -65947,6 +65973,26 @@ fi:männynherkkutatti
 fr:Bolet pinicole
 it:Porcino rosso
 la:Boletus pinophilus, Boletus pinicola, pinicola
+pl:borowik sosnowy
+xx:Boletus pinophilus
+wikidata:en:Q1415435
+
+#description:en:IMLERIA is a genus of mushrooms from the Boletaceae family
+
+<en:mushroom
+en:Imleria
+pl:Podgrzyb
+xx:Imleria
+wikidata:en:Q19286081
+
+<en:Imleria
+en:Imleria badia, bay bolete
+de:Maronen-Röhrling
+es:boleto bayo
+fr:Bolet bai
+pl:Podgrzyb brunatny, podgrzybek brunatny
+xx:Imleria badia
+wikdata:en:Q752497
 
 #description:en:AGARICUS BISPORUS is an edible basidiomycete mushroom native to grasslands in Europe and North America.
 
@@ -65987,7 +66033,7 @@ mn:Цагаан мөөг
 ms:Cendawan butang
 nb:Sjampinjong
 nl:Parijse champignons, champignons, champignon
-pl:pieczarki, Pieczarka dwuzarodnikowa, pieczarka
+pl:pieczarki, Pieczarka dwuzarodnikowa, pieczarka, pieczarek, pieczarkowy, pieczarkowa, pieczarkowe
 pt:cogumelos-de-Paris, Champignon
 qu:Champiñun
 ru:Шампиньон двуспоровый, шампиньоны сушеные
@@ -66011,6 +66057,7 @@ fr:champignons de Paris émincés
 <en:champignon
 en:white mushroom, white mushrooms
 fr:champignon blanc de Paris, Champignons blancs de Paris
+pl:białe pieczarki, pieczarki białe, pieczarka biała
 
 # the brown mushroom, not to be confused with Pholiota adiposa.
 <en:champignon
@@ -66018,11 +66065,19 @@ en:chestnut mushroom, chestnut mushrooms
 de:braune Champignons, Champignons braun, braune Egerlinge
 fr:champignon brun, champignons bruns
 nl:kastanjechampignon, kastanjechampignons, bruine champignon
+pl:brązowe pieczarki, pieczarki brązowe, pieczarka brązowa
 
+
+<en:mushroom
+en:Craterellus
+fr:Craterelle
+pl:Lejkowiec
+xx:Craterellus
+wikidata:en:Q2097845
 
 # description:en:HORN OF PLENTY, is an edible mushroom. This fungus is found in woods in North America, Europe, Japan and Korea.
 
-<en:mushroom
+<en:Craterellus
 en:horn of plenty
 bg:Тръбенка
 ca:trompeta de la mort
@@ -66145,7 +66200,7 @@ mk:рујница
 nb:Furumatriske
 nl:Oranjegroene melkzwam
 nn:Furumatriske
-pl:Mleczaj rydz
+pl:Mleczaj rydz, rydz, rydze
 ro:Râșcov de brad
 ru:Рыжик настоящий
 sh:Rujnica
@@ -66216,7 +66271,7 @@ la:Morchella
 lt:Briedžiukas
 lv:Lāčpurni
 nl:Morielje
-pl:Smardz
+pl:Smardz, smardze
 qu:Wiksa-wiksa
 ro:Zbârciog
 ru:Сморчок
@@ -66251,6 +66306,7 @@ fi:Kartiohuhtasieni
 he:גמצוץ חרוטי
 hu:Hegyes kucsmagomba
 mk:конусна смрчка
+pl:Smardz stożkowaty
 ro:Zbârciog țuguiat
 ru:Сморчок конический
 sk:smrčok vysoký
@@ -66405,7 +66461,7 @@ mn:Эгэл тосондой
 nb:Smørsopp, Suillus luteus
 nl:bruine boleten, Bruine ringboleet, Suillus luteus
 os:Цыргъкъопп зокъо
-pl:Maślak zwyczajny
+pl:Maślak zwyczajny, maślaki zwyczajne
 ro:Turta vacii, Suillus luteus
 ru:Маслёнок обыкновенный
 sv:Smörsopp, Suillus luteus
@@ -66439,7 +66495,7 @@ jv:Jamur merang
 la:Volvariella Volvacea, Agaricus volvaceus, Volvaria volvacea
 nl:tropische beurszwam
 or:ପାଳ ଛତୁ
-pl:Pochwiak wielkopochwowy
+pl:Pochwiak wielkopochwowy, pochwiak pochwiasty, grzyb słomkowy, grzyby słomkowe
 sv:Halmslidskivling
 th:เห็ดฟาง
 vi:Nấm rơm
@@ -66496,6 +66552,7 @@ it:shiitake, funghi shiitake
 ja:椎茸
 la:Lentinula edodes, lentinus edodes
 nl:shiitake, zwarte paddestoel, Chinese champignons
+pl:shiitake, grzyby shiitake
 pt:Shiitake
 sv:svart champinjon
 # fr:champignon-noir has 111 products in 2 languages @2018-11-01
@@ -66506,6 +66563,7 @@ en:dehydrated shiitake
 de:getrockneter Shiitake
 fi:kuivattu siitake
 fr:champignon noir déshydraté
+pl:grzyby suszone shiitake, suszone grzyby shiitake
 
 <en:shiitake
 fr:champignon noir réhydraté, champignons noirs réhydratés
@@ -66513,10 +66571,17 @@ nl:gerehydrateerde Chinese champignons
 sv:rekonstituerad svart champinjon
 # fr:champignon-noir-réhydraté has 121 products in 3 languages @2018-11-01
 
+# description:en:PLEUROTUS is a genus of mushrooms popular in cooking
+
+<en:mushroom
+en:Pleurotus
+de:Seitlinge
+pl:boczniak, boczniaki
+wikidata:en:Q852065
 
 # description:en:PLEUROTUS OSTREATUS, the oyster mushroom, is a common edible mushroom.
 
-<en:mushroom
+<en:Pleurotus
 en:oyster mushroom
 ba:Ҡарама бәшмәге
 be:Вешанка звычайная
@@ -66666,7 +66731,7 @@ li:Judasoeër
 lt:Auricularia auricula-judae
 ml:ചെവിക്കൂൺ
 nl:judasoor, judasoren, Auricularia auricula-judea, Auricularia Auricula Judea
-pl:Uszak bzowy
+pl:Uszak bzowy, grzyby mun, uszaki bzowe
 qu:Linli
 ro:Urechea lui Iuda
 ru:Аурикулярия уховидная, Auricularia auricula-judea, Auricularia Auricula Judea
@@ -66723,6 +66788,7 @@ ko:서양송로
 li:truffel
 nl:truffel
 nn:trøffel
+pl:trufla, trufle
 ru:трюфели
 sr:tartuf
 sv:tryffel
@@ -66787,7 +66853,7 @@ it:Tartufo Scorzione
 la:Tuber aestivum
 lt:Vasarinis trumas
 nl:Zomertruffel
-pl:trufla letnia
+pl:trufla letnia, trufle letnie
 ru:Трюфель летний
 sv:Sommartryffel
 uk:Трюфель літній
@@ -66878,7 +66944,14 @@ de:pencillium roqueforti (Edelschimmel)
 es:Penicillium roqueforti
 fr:penicillium roqueforti
 la:pencillium roqueforti
+pl:pencillium roqueforti
 # ingredient/fr:penicillium-roqueforti has 103 products @2019-01-30
+
+<en:penicillium
+en:penicillium glaucum
+fr:penicillium glaucum
+la:penicillium glaucum
+pl:penicillium glaucum
 
 <en:penicillium
 en:penicillium candidum
@@ -66888,16 +66961,19 @@ ia:penicillium candidum
 it:Penicillium candidum
 la:penicillium candidum
 nl:penicillium candidum
+pl:penicillium candidum
 pt:penicillium candida
 sv:penicillium candida, penicillium candidum
 wikidata:en:Q3942999
 # ingredient/en:penicillium-candidum has 25 products in 1 language @2020-05-25
 
-<en:mushroom
+<en:Craterellus 
 en:yellow foot
 ca:camagroc
 es:camagroc
 la:cantharellus lutescens
+pl:Pieprznik żyłkowany, pieprznik żółtawy
+xx:Cantharellus lutescens, Craterellus lutescens, Cantharellus xanthopus, Cantharellus aurora
 wikipedia:es:https://es.wikipedia.org/wiki/Cantharellus_lutescens
 
 # description:en:QUORN is a meat substitute product originating in the UK and sold primarily in Europe, but also available in 19 countries.
@@ -66908,6 +66984,12 @@ fr:produit champignon quorn
 it:quorn prodotto a base di fungo
 wikipedia:en:https://en.wikipedia.org/wiki/Quorn
 # ingredient/fr:produit-champignon-quorn has 13 products @2019-02-15
+
+#<en:compound
+<en:sauce
+en:mushroom sauce
+pl:sos grzybowy
+wikidata:en:Q12020426
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
