@@ -37,7 +37,7 @@
 
 function show_warning(should_show, nutirent_id, warning_message){
 	if(should_show) {
-		\$('#nutriment_'+nutirent_id).css("background-color", "yellow");
+		\$('#nutriment_'+nutirent_id).css("background-color", "rgb(255 237 235)");
 		\$('#nutriment_question_mark_'+nutirent_id).css("display", "inline-table");
 		\$('#nutriment_sugars_warning_'+nutirent_id).text(warning_message);
 	}else {
@@ -51,17 +51,18 @@ var carbohydrates_value;
 var saturated_fats_value;
 var fat_value;
 
-[% FOREACH nutriment IN nutriments %]
-	\$('#nutriment_[% nutriment.enid %]').on('input', function() {
+var required_nutrients_id = ['energy-kj', 'energy-kcal', 'fat', 'saturated-fat', 'sugars', 'carbohydrates', 'fiber', 'proteins', 'salt', 'sodium', 'alcohol'];
+
+required_nutrients_id.forEach(nutirent_id => {
+	\$('#nutriment_' + nutirent_id).on('input', function() {
 		var nutrient_value = \$(this).val();
 		var is_above_or_below_100 = isNaN(nutrient_value) || nutrient_value < 0 || nutrient_value > 100;
-		show_warning(is_above_or_below_100, '[% nutriment.enid %]', "Please enter a value between 0 and 100");
+		show_warning(is_above_or_below_100, nutirent_id, "Please enter a value between 0 and 100");
 
-		var nutirent_id = '[% nutriment.nid %]';
 		var crutial_nutrients = ['fat', 'saturated-fat', 'sugars', 'carbohydrates'];
 
 		if (crutial_nutrients.includes(nutirent_id)) {
-			switch('[% nutriment.nid %]') {
+			switch(nutirent_id) {
 				case "saturated-fat":
 					saturated_fats_value = nutrient_value;
 					break;
@@ -96,4 +97,4 @@ var fat_value;
 			show_warning(is_fat_above_saturated_fats, 'saturated-fat', 'Saturated fats should not be higher than fat');
 		}
 	});
-[% END %]
+});
