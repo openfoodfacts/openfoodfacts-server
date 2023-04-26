@@ -30,7 +30,7 @@ stopwords:lv:no
 stopwords:nb:av, fra, bl a, blant annet, tilsatt
 stopwords:nl:bevat, met, waarvan, bevatten, van, vervaardigd met, behandeld papier, waaraan toegevoegd, aangezuurd, cacaobestanddelen, o.a
 stopwords:nn:av
-stopwords:pl:w tym, zawiera, z
+stopwords:pl:w tym, zawiera, z, zawierają
 stopwords:pt:do qual, dos quais,e
 stopwords:sk:obsahuje
 stopwords:sl:vsebuje, sestavine
@@ -1575,7 +1575,6 @@ de:vegetarisches Lab
 fi:kasviperäinen juustonjuoksutin, kasviperäinen juoksete
 fr:Présure végétarienne, présure végétale
 it:Caglio vegetale
-pl:podpuszczka mikrobiologiczna
 sv:vegetabiliskt ystenzym
 vegan:en:yes
 vegetarian:en:yes
@@ -1593,6 +1592,7 @@ hu:mikrobiológiai oltóenzim
 it:caglio microbico
 nb:mikrobiell løpe
 nl:microbieel stremsel, microbieel stremmiddel
+pl:podpuszczka mikrobiologiczna
 ro:cheag microbian
 sv:mikrobiell ostlöpe, ystenzym, mikrobiellt ystenzym, mikrobiellt löpe
 # ingredient/microbial-rennet has 537 products in 12 languages @2019-07-08
@@ -1625,7 +1625,7 @@ ja:セルラーゼ
 ko:셀룰레이스
 nl:cellulase
 nn:cellulase
-pl:Celulazy
+pl:Celulaza, celulazy
 pt:celulase
 ru:Целлюлаза
 sh:Celulaza
@@ -9560,6 +9560,7 @@ ca:sal refinada
 de:Raffiniertes Salz
 es:sal refinada
 fr:sel raffiné
+pl:sól rafinowana
 
 <en:salt
 en:unrefined salt
@@ -12804,7 +12805,7 @@ id:lemak babi
 it:grasso di maiale, grasso di suino, grasso suino
 nl:varkensvet
 no:svinefett
-pl:tłuszcz ze świni, tłuszcz wieprzowy
+pl:tłuszcz ze świni, tłuszcz wieprzowy, tłuszcze wieprzowe
 pt:gordura de porco
 sh:svinjska mast
 sl:svinjska mast
@@ -13757,7 +13758,7 @@ lv:Eļļas un tauki
 mt:żjut u xaħmijiet
 nb:olje og fett, oljer of fett
 nl:oliën en vetten, vetstoffen
-pl:oleje i tłuszcze
+pl:oleje i tłuszcze, tłuszcze i oleje
 pt:óleos e gorduras
 ro:uleiuri și grăsimi
 ru:растительным и животным жирам
@@ -13792,7 +13793,7 @@ lv:Augu eļļas un tauki
 mt:xaħam u żejt veġetali
 nb:grønnsaksolje og fett, vegetabilsk olje og fett
 nl:plantaardige vetten en olie, plantaardige oliën en vetten
-pl:tłuszcz olej roślinne
+pl:tłuszcze i oleje roślinne, oleje i tłuszcze roślinne
 pt:gordura e óleo vegetais
 ru:Растительные масла и жиры
 sv:Vegetabilisk olja och fett, vegetabiliskt fett och olja, vegetabiliskt fett och oljor
@@ -13808,6 +13809,7 @@ en:refined vegetable oil
 bg:рафинирано растително масло
 de:Raffinierte pflanzliche Öle, raffinierte Pflanzenöle
 es:grasas vegetales refinadas,aceite vegetal refinado
+pl:rafinowany olej roślinny, olej roślinny rafinowany, oleje roślinne rafinowane
 
 # description:en:Cooking OIL is plant, animal, or synthetic fat used in frying, baking, and other types of cooking. It is also used in food preparation and flavouring not involving heat, such as salad dressings and bread dips, and in this sense might be more accurately termed edible oil.
 
@@ -14014,7 +14016,7 @@ mt:xaħam
 nb:fett
 nl:vet
 nn:feitt
-pl:tłuszcz
+pl:tłuszcz, tłuszcze
 pt:gordura
 qu:wira
 ro:grăsime
@@ -14074,6 +14076,7 @@ hr:hidrogenirana mast
 hu:hidrogénezett zsír
 it:grassi idrogenati
 nl:gehydrogeneerd vet
+pl:tłuszcz uwodorniony, tłuszcze uwodornione
 # ingredient/hydrogenated-fat has 277 products in 8 languages @2019-07-10
 vegan:en:no
 vegetarian:en:maybe
@@ -14088,6 +14091,7 @@ fr:graisse totalement hydrogénée
 hu:teljesen hidrogénezett zsír
 it:grassi totalmente idrogenati
 nl:volledig gehydrogeneerde vet
+pl:tłuszcz całkowicie uwodorniony, tłuszcze całkowicie uwodornione
 
 ######################################## animal fat #################################
 
@@ -14114,7 +14118,7 @@ kk:Жануар майы
 ko:동물성 기름
 ln:Mpɔ́ngɔ
 nl:dierlijk vet
-pl:tłuszcz zwierzęcy
+pl:tłuszcz zwierzęcy, tłuszcze zwierzęce
 pt:Gordura animal
 ru:Животные жиры
 sv:Animaliskt fett
@@ -14174,7 +14178,7 @@ fr:gras de bœuf, graisse de bœuf, gras de bovin, bovin
 hu:marhazsír
 it:grasso di manzo
 nl:rundvet, rundervet
-pl:tłuszcz wołowy
+pl:tłuszcz wołowy, tłuszcze wołowe
 # ingredient/fr:gras-de-bœuf has 365 products in 5 languages @2019-07-10
 
 <en:beef fat
@@ -14214,7 +14218,7 @@ lt:pieno riebalai
 lv:piena tauki
 nb:melkefett
 nl:melkvet
-pl:tłuszcz mlecny, tłuszcz mleczny
+pl:tłuszcz mleczny
 pt:gorda do leite
 ro:grasimi din lapte, grăsimi din lapte, grasime din lapte, grăsime din lapte
 sk:mliečny tuk
@@ -14676,7 +14680,7 @@ nb:Palmeolje
 nl:palmolie, palm olie
 nn:Palmeolje
 oc:Òli de palma
-pl:Olej palmowy
+pl:Olej palmowy, olej roślinny palmowy
 pt:óleo de palma, óleo de palmeira, óleo vegetal de palma
 ro:Ulei de palmier, ulei vegetal de palmier
 ru:Пальмовое масло, масло пальмовое, пальмовое масло и его фракции, масло растительное пальмовое
@@ -14709,6 +14713,7 @@ es:Aceite de palma refinado
 fr:huile de palme raffinée
 it:Olio di palma raffinato
 nl:Verfijnde palmolie
+pl:olej palmowy rafinowany, rafinowany olej palmowy
 ciqual_food_code:en:16150
 ciqual_food_name:en:Palm oil, refined
 
@@ -14870,6 +14875,7 @@ es:grasa de palma hidrogenada
 fi:kovetettu palmurasva
 fr:graisse de palme hydrogénée
 nl:Gehydrogeneerd palmvet
+pl:utwardzony tłuszcz palmowy, tłuszcz palmowy utwardzony
 sv:hydrerad palmfett
 # ingredient/en:hydrogenated-palm-fat has 43 products in 4 languages @2020-06-08
 
@@ -14883,6 +14889,7 @@ fi:kokonaan kovetettu palmurasva, kokonaan kovetettua palmurasvaa, kokonaan hydr
 fr:graisse de palme totalement hydrogénée
 hu:teljes mértékben hidrogénezett pálmazsír, teljesen hidrogénezett pálmazsír, teljes mértékben hidrogénezett pálmamag-zsír
 nl:volledig geharde palm, geheel gehard palmvet
+pl:całkowicie uwodorniony tłuszcz palmowy, całkowicie utwardzony tłuszcz palmowy,
 sv:fullhärdat palmfett
 
 <en:palm oil
@@ -14895,6 +14902,7 @@ fr:huile de palme non hydrogénée
 hu:nem hidrogénezett pálmaolaj
 it:olio di palma non idrogenato
 nl:niet-gehydrogeneerde palm, niet gehydrogeneerde palmolie
+pl:nieutwardzony olej palmowy
 
 <en:palm oil
 <en:hydrogenated vegetable oil
@@ -14907,6 +14915,7 @@ fr:huile de palme hydrogénée
 hu:hidrogénezett pálmaolaj
 it:olio di palma idrogenato
 nl:gehydrogeneerde palmolie
+pl:uwodorniony olej palmowy, utwardzony olej palmowy
 
 <en:hydrogenated palm oil
 en:totally hydrogenated palm oil
@@ -14917,6 +14926,7 @@ fi:kokonaan kovetettu palmuöljy, kokonaan hydrogenoitu palmuöljy
 fr:huile de palme totalement hydrogénée, palme totalement hydrogénée
 hu:teljes mértékben hidrogénezett pálmaolaj, teljesen hidrogénezett pálmaolaj, teljes mértékben hidrogénezett pálmamag-olaj
 nl:geheel geharde palm, geheel geharde palmolie
+pl:całkowicie utwardzony olej palmowy, olej roślinny palmowy całkowicie utwardzony
 ro:unt de palmier complet hidrogenat
 sl:popolnoma hidrogenirano palmino olje
 
@@ -14930,6 +14940,7 @@ fr:huile de palme partiellement hydrogénée
 hu:részben hidrogénezett pálmaolaj, részlegesen hidrogénezett pálmaolaj
 it:Olio di palma parzialmente idrogenato
 nl:gedeeltelijk geharde palmolie
+pl:częściowo utwardzony olej palmowy, olej roślinny palmowy całkowicie utwardzony
 
 # description:en:PALM KERNEL OIL is an edible plant oil derived from the kernel of the oil palm Elaeis guineensis. It should not be confused with the other two edible oils derived from palm fruits:palm oil, extracted from the pulp of the oil palm fruit, and coconut oil, extracted from the kernel of the coconut.
 
@@ -15034,6 +15045,7 @@ de:Kürbiskern-Öl
 fi:kurpitsansiemenöljy
 fr:Huile de pépins de courge
 hu:tökmagolaj
+pl:olej z pestek dyni
 from_palm_oil:en:no
 
 <en:pumpkin seed oil
@@ -15117,6 +15129,7 @@ en:virgin coconut oil, raw coconut oil
 de:Natives Kokosöl, Kokosöl nativ, unraffiniertes Kokosnussöl, Kokosnussöl unraffiniert, Natives Kokosnussöl, Kokosnussöl nativ, unraffiniertes Kokosöl, Kokosöl unraffiniert
 es:Aceite virgen de coco
 fr:huile vierge de noix de coco, huile de coco vierge, Huile vierge de coco
+pl:olej kokosowy virgin
 # ingredient/fr:huile-de-coco-vierge has 10 products @2019-06-02
 
 #<en:organic coconut oil
@@ -15142,6 +15155,7 @@ es:aceite de coco totalmente hidrogenado, aceite de coco hidrogenado
 fi:kokonaan kovetettu kookosöljy, kokonaan kovetettua kookosöljyä
 fr:huile de noix de coco totalement hydrogénée, huile de coprah totalement hydrogénée
 it:Olio di cocco idrogenato
+pl:utwardzony olej kokosowy
 sv:fullhärdad kokosolja
 
 <en:coconut oil
@@ -15161,7 +15175,7 @@ en:refined coconut oil
 de:raffiniertes Kokosöl, raffiniertes Kokosnussöl
 es:aceite de coco refinado
 it:olio di cocco raffinato
-pl:rafinowany olej kokosowy
+pl:rafinowany olej kokosowy, olej kokosowy rafinowany
 ru:масло кокосовое рафинированное дезодорированное
 
 <en:vegetable fat
@@ -15181,7 +15195,7 @@ it:grasso di cocco
 lt:kokoso riebalai
 lv:kokosriekstu tauki
 nl:kokosvet
-pl:tłuszcz kokosowy
+pl:tłuszcz kokosowy, tłuszcz roślinny kokosowy
 sv:kokosfett
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:matière-grasse-de-noix-de-coco
 # 36 products in 4 languages @2018-10-03
@@ -15206,6 +15220,7 @@ fr:graisse de coco totalement hydrogénée
 it:grassi totalmente idrogenati da cocco
 nb:fullherdet kokosfett
 nl:geheel gehard kokosvet
+pl:całkowicie utwardzony tłuszcz kokosowy, tłuszcz kokosowy całkowicie utwardzony
 sv:fullhärdat kokosfett
 # ingredient/fr:graisse-de-coco-totalement-hydrogenee has 21 products in 4 languages @2020-06-08
 
@@ -15388,6 +15403,7 @@ fr:Huile d'olive bio
 hu:bio olívaolaj, bio olíva olaj
 it:Olio di oliva biologico
 nl:olie van biologische olijven
+pl:rafinowana oliwa z oliwek
 # ingredient/nl:olie-van-biologische-olijven has 2 products @2019-05-24
 
 <en:olive oil
@@ -15397,6 +15413,7 @@ de:raffiniertes Olivenöl, Olivenöl raffiniert
 es:aceite de oliva refinado
 fr:huile d'olive rafinée
 it:Olio di oliva raffinato
+pl:rafinowana oliwa z oliwek
 
 <en:olive oil
 en:unrefined olive oil
@@ -15457,7 +15474,7 @@ lv:rapšu eļļa, rapšu ella
 nb:rapsolje
 nl:raapolie, raapzaad, raap, raapzaadolie, gedeeltelijk geharde raapzaadolie
 no:rapsolje
-pl:olej roślinny rzepakowy, olej rzepakowy
+pl:olej roślinny rzepakowy, olej rzepakowy, olej z rzepaku
 ro:ulei de rapiță, ulei vegetal de rapiță, ulei de rapita
 ru:Рапсовое масло
 sk:repkový olej
@@ -15468,6 +15485,10 @@ wikipedia:en:Q1922338
 description:de:Rapsöl oder Rüböl (auch Rübsenöl, Kolzaöl und Kohlsaatöl genannt) ist ein pflanzliches Öl, welches aus den Samen vom Raps (Brassica napus), gewonnen wird.
 description:en:Rapeseed (Brassica napus), also known as rape, or oilseed rape, is a bright-yellow flowering member of the family Brassicaceae, cultivated mainly for its oil-rich seed, which naturally contains appreciable amounts of erucic acid. Rapeseed is the third-largest source of vegetable oil and the second-largest source of protein meal in the world.
 # 62.151 in 35 @2021-08-23
+
+<en:rapeseed oil
+en:refined rapeseed oil
+pl:rafinowany olej rzepakowy, olej rzepakowy rafinowany
 
 <en:rapeseed oil
 en:british rapeseed oil
@@ -15733,7 +15754,7 @@ ko:옥수수기름
 lt:Kukurūzų aliejus
 nb:Maisolje
 nl:Maïskiemolie, Maïsolie, maisolie
-pl:Olej kukurydziany
+pl:Olej kukurydziany, olej z kukurydzy
 pt:Óleo de milho
 ro:ulei de porumb
 ru:Кукурузное масло
@@ -15785,7 +15806,7 @@ ms:Minyak kacang
 nb:Peanøttolje
 nl:Pindaolie
 nn:Jordnøttolje
-pl:Olej arachidowy
+pl:Olej arachidowy, olej z orzeszków ziemnych
 pt:Óleo de amendoim
 ru:Арахисовое масло
 sv:Jordnötsolja
@@ -16070,6 +16091,7 @@ from_palm_oil:en:no
 <en:shea
 en:shea oil
 de:Sheaöl
+pl:olej shea, olej roślinny shea
 sv:sheaolja
 
 <en:vegetable fat
@@ -16090,6 +16112,7 @@ de:Sonnenblumenfett
 fi:auringonkukkarasva
 fr:Matière grasse issue du tournesol
 hu:napraforgózsír
+pl:tłuszcz słonecznikowy
 # ingredient/sunflower-fat has 2 products in english @2019-04-16
 from_palm_oil:en:no
 
@@ -16129,7 +16152,7 @@ fr:huile de carthame
 hu:pórsáfrány olaj
 it:olio di semi di cartamo
 nl:saffloerolie
-pl:olej z krokosza bawierskiego
+pl:olej z krokosza barwierskiego
 ro:ulei de șofrănel
 wikidata:en:Q16642513
 from_palm_oil:en:no
@@ -16286,7 +16309,7 @@ mr:Minyak bunga matahari
 nb:solsikkeolje
 nl:zonnebloemolie, plantaardige zonnebloemolie
 nn:solsikkeolje
-pl:Olej słonecznikowy
+pl:Olej słonecznikowy, olej roślinny słonecznikowy, olej z pestek słonecznika
 pt:óleo de girassol, óleo vegetal de girassol
 ro:ulei de floarea soarelui, Ulei de floarea-soarelui, ulei vegetal de floarea-soarelui
 ru:подсолнечное масло, масло подсолнечное, масло растительное подсолнечное
@@ -16365,6 +16388,7 @@ fi:raffinoitu auringonkukkaöljy
 fr:huile de tournesol raffinée
 hu:finomított napraforgóolaj, finomított napraforgó étolaj
 it:oleo di girasole raffinato
+pl:rafinowany olej słonecznikowy
 ru:масло подсолнечное рафинированное дезодорированное, масло подсолнечное рафинированное
 
 # has a higher oleic oil fraction
@@ -16711,7 +16735,7 @@ ms:Minyak ikan
 my:ငါးကြီးဆီ
 nb:Fiskeolje
 nl:Visolie
-pl:Tran
+pl:Tran, olej rybi
 ru:рыбий жир
 sq:Vaji i peshkut
 sv:Fiskolja
@@ -27675,7 +27699,7 @@ it:zucchero di canna grezzo
 ja:黒糖
 nb:rårørsukker
 nl:Ongeraffineerde rietsuiker
-pl:Cukier trzcinowy nierafinowany
+pl:Cukier trzcinowy nierafinowany, nierafinowany cukier trzcinowy
 sv:rårörsocker
 
 <en:unrefined cane sugar
@@ -31709,7 +31733,7 @@ nb:soya
 nl:soja
 oc:Sòja
 os:Сойæ
-pl:Soja, soję, soi, sojowy, sojowe
+pl:Soja, soję, soi, sojowy, sojowe, soją, sojowa, sojowego, sojowej, sojowych
 pt:Soja
 qu:Suya
 ro:soia
@@ -44191,6 +44215,7 @@ de:Gemüse in verschiedener Größe
 es:verduras en proporción variable, hortalizas en proporción variable
 fr:légumes en proportions variables, légumes en proportion variable
 hr:povrće u promijenljivom udjelu
+pl:warzywa w zmiennych proporcjach
 
 
 <en:vegetable
@@ -45487,7 +45512,7 @@ fi:kuivattu valkosipuli
 it:aglio essicato, aglio secco
 nl:gedroogde knoflook
 nn:tørket hvitløk
-pl:suszony czosnek
+pl:suszony czosnek, czosnek suszony
 sv:torkad vitlök, torkad hvidlök
 # fr:ailséché contains 35 products in 8 languages @2018-10-22
 ciqual_food_code:en:11023
@@ -58838,7 +58863,7 @@ ja:カラシナ,シロガラシ
 nb:sennepsfrø
 nl:mosterdzaad, mosterdzaden
 nn:sennepsfrø
-pl:ziarno gorczycy, ziarna gorczycy, gorczyca, gorczycy, groczycę, nasiona gorczycy
+pl:ziarno gorczycy, ziarna gorczycy, gorczyca, gorczycy, gorczycę, nasiona gorczycy, gorczyce
 pt:Semente de mostarda
 ro:boabe de muștar
 ru:горчичное зерно
@@ -67105,7 +67130,7 @@ om:qurxummii
 or:ମାଛ
 os:кӕсаг
 pa:ਮੱਛੀ
-pl:ryba, ryby
+pl:ryba, ryby, ryb, rybę, rybna, rybne
 ps:کب
 pt:peixe, peixes
 qu:Challwa
@@ -67302,6 +67327,7 @@ fr:poisson blanc, poissons blancs
 it:Pesce bianco
 nb:hvit fisk
 nl:witte vis
+pl:ryby białe, ryb białych
 # ingredient/fr:poisson-blanc has 59 products @2019-03-11
 # Theragra chalcogramma ou Merluccius productus ou Merluccius gayi ou Merluccius hubbsi
 

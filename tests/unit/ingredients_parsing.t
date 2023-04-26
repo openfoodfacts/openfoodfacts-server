@@ -568,6 +568,9 @@ my @lists = (
 		"sunflower vegetable oils, colza vegetable oils and strawberry"
 	],
 
+	# Polish oils
+	["pl", "oleje roślinne (słonecznikowy, rzepakowy)", "olej roślinny słonecznikowy, olej roślinny rzepakowy"],
+
 	# Russian oils (more tests needed)
 	["ru", "масло (Подсолнечное)", "масло Подсолнечное"],
 	["ru", "Масло (подсолнечное)", "Масло подсолнечное"],
