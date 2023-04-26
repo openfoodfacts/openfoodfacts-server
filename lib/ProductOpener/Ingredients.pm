@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -151,7 +151,8 @@ my %may_contain_regexps = (
 	en =>
 		"it may contain traces of|possible traces|traces|may also contain|also may contain|may contain|may be present",
 	bg => "продуктът може да съдържа следи от|може да съдържа следи от|може да съдържа",
-	cs => "může obsahovat",
+	bs => "može da sadrži",
+	cs => "může obsahovat|může obsahovat stopy",
 	da => "produktet kan indeholde|kan indeholde spor af|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
 	de => "Kann enthalten|Kann Spuren|Spuren",
 	es => "puede contener huellas de|puede contener trazas de|puede contener|trazas|traza",
@@ -160,7 +161,7 @@ my %may_contain_regexps = (
 		"saattaa sisältää pienehköjä määriä muita|saattaa sisältää pieniä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää pieniä määriä|voi sisältää vähäisiä määriä|saattaa sisältää hivenen|saattaa sisältää pieniä|saattaa sisältää jäämiä|sisältää pienen määrän|jossa käsitellään myös|saattaa sisältää myös|joka käsittelee myös|jossa käsitellään|saattaa sisältää",
 	fr =>
 		"peut également contenir|peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
-	hr => "može sadržavati|može sadržati",
+	hr => "Mogući sadržaj|može sadržavati|može sadržavati tragove|može sadržati|proizvod može sadržavati|sadrži",
 	is => "getur innihaldið leifar|gæti innihaldið snefil|getur innihaldið",
 	it =>
 		"Pu[òo] contenere tracce di|pu[òo] contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
@@ -1012,6 +1013,38 @@ sub match_ingredient_origin ($product_lc, $text_ref, $matched_ingredient_ref) {
 
 		return 1;
 	}
+	# Try to match without a "from" marker (e.g. "Strawberry France")
+	elsif ($$text_ref
+		=~ /\s*([^,.;:]+)\s+((?:$origins_regexp)(?:(?:,|$and_or)(?:\s?)(?:$origins_regexp))*)\s*(?:,|;|\.| - |$)/i)
+	{
+		# Note: the regexp above does not currently match multiple origins with commas (e.g. "Origins of milk: UK, UE")
+		# in order to not overmatch something like "Origin of milk: UK, some other mention."
+		# In the future, we could try to be smarter and match more if we can recognize the next words exist in the origins taxonomy.
+
+		$matched_ingredient_ref->{ingredient} = $1;
+		$matched_ingredient_ref->{origins} = $2;
+		$matched_ingredient_ref->{matched_text} = $&;
+
+		# keep the matched ingredient only if it is a known ingredient in the taxonomy, in order to avoid false positives
+		# e.g. "something made in France" should not be turned into ingredient "something made in" + origin "France"
+		if (
+			not(
+				exists_taxonomy_tag(
+					"ingredients",
+					canonicalize_taxonomy_tag($product_lc, "ingredients", $matched_ingredient_ref->{ingredient})
+				)
+			)
+			)
+		{
+			$matched_ingredient_ref = {};
+		}
+		else {
+			# Remove the matched text
+			$$text_ref = $` . ' ' . $';
+
+			return 1;
+		}
+	}
 	return 0;
 }
 
@@ -1079,6 +1112,9 @@ Array of specific ingredients.
 sub parse_origins_from_text ($product_ref, $text) {
 
 	my $product_lc = $product_ref->{lc};
+
+	# Normalize single quotes
+	$text =~ s/’/'/g;
 
 	# Go through the ingredient lists multiple times
 	# as long as we have one match
@@ -1731,10 +1767,17 @@ sub parse_ingredients_text ($product_ref) {
 									(
 										#($product_lc =~ /^(en|es|it|fr)$/)
 										(
-											   ($product_lc eq 'en')
+											   ($product_lc eq 'bs')
+											or ($product_lc eq 'cs')
+											or ($product_lc eq 'en')
 											or ($product_lc eq 'es')
 											or ($product_lc eq 'fr')
+											or ($product_lc eq 'hr')
 											or ($product_lc eq 'it')
+											or ($product_lc eq 'mk')
+											or ($product_lc eq 'pl')
+											or ($product_lc eq 'sl')
+											or ($product_lc eq 'sr')
 										)
 										and ($new_ingredient =~ /(^($regexp)\b|\b($regexp)$)/i)
 									)
@@ -1971,6 +2014,14 @@ sub parse_ingredients_text ($product_ref) {
 								'^täysjyväsisältö',
 							],
 
+							'hr' => [
+								'^u tragovima$',    # in traces
+								'označene podebljano',    # marked in bold
+								'savjet kod alergije',    # allergy advice
+								'uključujući žitarice koje sadrže gluten',    # including grains containing gluten
+								'za alergene',    # for allergens
+							],
+
 							'it' => ['^in proporzion[ei] variabil[ei]$',],
 
 							'nb' => ['^Pakket i beskyttende atmosfære$',],
@@ -1987,6 +2038,11 @@ sub parse_ingredients_text ($product_ref) {
 								'^углеводы$', '^не менее$',
 								'^средние значения$', '^содержат$',
 								'^идентичный натуральному$', '^(g|ж|ул)$'
+							],
+
+							'sl' => [
+								'lahko vsebuje',
+								'lahko vsebuje sledi',    # may contain traces
 							],
 
 							'sv' => [
@@ -3427,7 +3483,8 @@ my %phrases_before_ingredients_list = (
 		'composition',
 	],
 
-	hr => ['Sastojci',],
+	hr =>
+		['HR BiH', 'HR/BIH', 'naziv', 'naziv proizvoda', 'popis sastojaka', 'sastav', 'sastojci', 'sastojci/sestavine'],
 
 	hu => ['(ö|ő|o)sszetev(ö|ő|o)k', 'összetétel',],
 
