@@ -1019,10 +1019,11 @@ Product object reference.
 
 =cut
 
-sub update_existing_product_without_creating_a_new_revision ($mongodb_to_mongodb, $product_ref, $products_collection, $path)
+sub update_existing_product_without_creating_a_new_revision ($mongodb_to_mongodb, $product_ref, $products_collection,
+	$path)
 {
 
-     make_sure_numbers_are_stored_as_numbers($product_ref);
+	make_sure_numbers_are_stored_as_numbers($product_ref);
 
 	if (!$mongodb_to_mongodb) {
 		# Store data to .sto file
