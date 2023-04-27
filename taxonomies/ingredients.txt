@@ -16,7 +16,7 @@ stopwords:ca:i,de
 stopwords:da:av, af, blandt andet, bl a, inklusive, heraf, indeholder, tilsat
 stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens, in veränderlichen gewichtsanteilen, wenig, min, max
 stopwords:el:περιέχει
-stopwords:en:contains, contain, from, with, produced with, with added, minimum,including, inter alia, edible, added to enhance freshness, added to maintain flavor and freshness
+stopwords:en:contains, contain, from, with, produced with, with added, minimum,including, inter alia, edible, added to enhance freshness, added to maintain flavor and freshness, less than 1% of:
 stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
 stopwords:fi:sisältää,muun muassa,valio, koskenlaskija, snellmanin, jossa, noin, käymisen aikana muodostuva
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout, sachet, marquants, demeter
@@ -10331,6 +10331,9 @@ ciqual_food_name:en:Kidney, beef, cooked
 ciqual_food_name:fr:Rognon, boeuf, cuit
 
 <en:beef meat
+fr:estomac et pied de bovin
+
+<en:beef meat
 de:rindergehacktes
 
 <en:beef meat
@@ -10372,8 +10375,6 @@ es:preparación de carne molida de res
 
 # <en:compound
 fr:préparation de viande de boeuf cuite
-
-
 
 <en:beef meat
 fr:viande de boeuf mise en oeuvre
@@ -20548,7 +20549,7 @@ fi:luontainen katkeroaromi
 <en:flavouring
 # derivedFrom:en:coconut
 en:coconut flavouring
-de:Kokosaroma
+de:Kokosaroma, Kokosnuss-Aroma
 es:Sabor a coco
 fi:kookosaromi
 fr:arôme de noix de coco
@@ -20561,7 +20562,7 @@ nl:kokosaroma, kokosnoot-aroma
 <en:coconut flavouring
 <en:natural flavouring
 en:natural coconut flavouring
-de:natürliches Kokosaroma
+de:natürliches Kokosaroma, natürliches Kokosnuss-Aroma
 el:φυσικο άρωμα καρύδας
 es:aroma natural de coco
 fi:luontainen kookosaromi
@@ -24682,7 +24683,7 @@ hr:pšenično brašno tip 550, pšenično brašno T-550, pšenično brašno T 55
 
 <en:wheat flour
 en:wheat flour type 850 semi-white
-hr:pšenično brašno tip 850 polubijelo
+hr:pšenično brašno tip 850 polubijelo, polubijelo pšenično brašno T-850 
 
 <en:wheat flour
 en:wheat flour T-1050
@@ -30871,9 +30872,6 @@ comment:en:Milka marketing
 # ingredient/fr:chocolat-au-lait-du-pays-alpin has 22 products @2019-05-25
 
 <en:milk chocolate
-fr:chocolat au lait de couverture
-
-<en:milk chocolate
 fr:chocolat au lait en poudre
 
 # <en:compound
@@ -31483,7 +31481,7 @@ fr:Eau minérale naturelle renforcée au gaz de la source
 <en:water
 en:filtered water, purified water
 de:gefiltertes Wasser, gereinigtes Wasser
-es:agua filtrada, agua purificada
+es:agua filtrada, agua purificada, agua filtrada y purificada
 fi:suodatettu vesi, puhdistettu vesi
 fr:eau filtrée, eau purifiée
 hu:szűrt víz, tisztított víz
@@ -33743,7 +33741,7 @@ hy:միրգ
 ia:fructo
 id:buah
 it:frutta
-ja:果物
+ja:果物, 果実
 ka:ხილი
 kk:Салқын тәтті тағамдар
 ko:과일
@@ -35350,7 +35348,7 @@ bn:নাশপাতি
 bo:ལི།
 br:per
 bs:kruška
-ca:pera
+ca:pera, Selecció de peres
 co:pera
 cs:hruška
 cy:gellygen
@@ -35465,7 +35463,8 @@ nl:conference peer, conference
 # 3 products in 1 language @2018-09-28
 
 <en:pear
-fr:poire Williams demi-fruits
+de:Williamsbirnen, Walliser Williamsbirnen
+fr:poire Williams, poires Williams des coteaux du Lyonnais
 
 <en:pear
 en:pears in cubes
@@ -35485,14 +35484,23 @@ bg:пюре от круши
 de:Birnenpüree
 es:puré de pera
 fi:päärynäpyree
-fr:purée de poires, purée de poire, purée de poires Williams
+fr:purée de poires, purée de poire, pulpe de poire d'été
 hr:kaša kruške
-it:purea di pere
+it:purea di pera
 nl:perenpuree
 pt:Puré de pêra
 # In process de:Birnenpüree
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-poires
 # 233 products in 5 langauges @2018-09-28
+
+<en:pear puree
+en:Williams pear puree
+fr:purée de poire Williams, pulpe de poire Williams, Pulpe de poire William’s
+it:pureau di pera Williams
+
+<en:pear puree
+en:concentrated pear puree
+fr:purée concentré de poire
 
 <en:pear
 <en:fruit juice
@@ -35518,7 +35526,9 @@ wikidata:en:Q2461726
 # 132 products in 4 languages @2018-09-28
 
 <en:pear juice
+en:pear juice concentrate
 fr:jus de poire concentré
+cs:hruškový koncentrát
 de:Birnendicksaft
 fi:päärynämehutiiviste
 it:Succo di pere concentrato
@@ -35528,15 +35538,21 @@ it:Succo di pere concentrato
 <en:pear juice
 en:pear juice from concentrate
 de:Birnensaft aus Birnensaftkonzentrat
-es:zumo de pera a partir de concentrado, jugo de pera procedente de concentrado
+es:zumo de pera a partir de concentrado, jugo de pera procedente de concentrado, Zumo de pera a partir de pure de pera
 fi:päärynämehu tiivisteestä
-fr:jus de poire à base de concentré
+fr:jus de poire à base de concentré, Jus de poire à base de jus concentré
 hr:sok kruške od koncentriranog soka
 it:succo di pera da concentrato
 nl:perensap uit concentraat
 sv:päronjuice från koncentrat
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-poire-à-base-de-concentré
 # 23 products in 4 languages @2018-09-28
+
+<en:pear juice
+<en:pear puree
+en:pear juice and puree
+fr:jus et purée de poire
+pt:Sumo e polpa de pera
 
 ###################################################################################################
 #
@@ -36291,7 +36307,7 @@ en:apple juice, apple juice made from fresh apples, juice from select organic ap
 ar:عصير تفاح
 bg:сок от ябълки, ябълков сок
 ca:suc de poma
-cs:jablečný mošt
+cs:jablečný mošt, jablečná stáva
 da:æblemost, æblesaft
 de:Apfelsaft, Apfelsaft von Streuobstwiesen-Äpfeln
 el:χυμός μήλου, μηλοχυμός
@@ -36300,7 +36316,7 @@ es:jugo de manzana, zumo de manzana
 et:õunamahl
 fa:آب سیب
 fi:omenamehu, omenatäysmehu
-fr:jus de pomme, jus de pommes, pur jus de pommes, pur jus de pommes fermier
+fr:jus de pomme, jus de pommes, pur jus de pommes, pur jus de pommes fermier, jus de pommes variété Opal
 ga:sú úill
 he:מיץ תפוחים
 hr:sok od jabuke, jabučni sok
@@ -36348,19 +36364,20 @@ ru:Органический яблочный сок
 sv:ekologisk äppeljuice
 
 <en:apple juice
-en:pure apple juice
+en:squeezed apple juice, pure apple juice, Apple juice from fresh pressed apples
 cs:jablečná šťáva
 de:reiner Apfelsaft, Apfeldirektsaft
-fr:pur jus de pomme, jus de pomme non fait de concentre, pommes pressées, jus de pomme non fait de concentré, pur jus de pommes pressées
+fr:pur jus de pomme, jus de pomme non fait de concentre, pommes pressées, jus de pomme non fait de concentré, pur jus de pommes pressées, Pur jus de pommes Juliet
 it:Succo mela puro
+pl:sok jabłkowy wyciskany bezpośrednio z owoców
 description:en:apple juice that does NOT come from concentrated apple juice
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/pure-apple-juice
 # 51 products in 2 languages @2018-10-04
 
-<en:pure apple juice
+<en:squeezed apple juice
 fr:pur jus de pommes à cidre de Bretagne
 
-<en:pure apple juice
+<en:squeezed apple juice
 en:unfiltered apple juice, cloudy apple
 de:Naturtrüber Apfelsaft, Apfelsaft naturtrüb
 fr:jus de pomme trouble, jus de pomme non filtré
@@ -36457,7 +36474,7 @@ es:boabab fruto
 en:citrus fibre, citrus fibres
 bg:цитрусови влакнини
 da:citrusfibre
-de:citrusfaser, zitrusfaser, Zitrusfasern, Zitrusfruchtfasern
+de:citrusfaser, zitrusfaser, Zitrusfasern, Zitrusfruchtfasern, Citrusfasern
 fi:sitruskuitu
 fr:fibre d'agrume, fibre végétale d'agrumes, fibres d'agrumes, fibres d'agrume
 hr:citrusna vlakna
@@ -37611,7 +37628,7 @@ ht:mandarin
 hu:mandarin
 io:mandarino
 it:mandarino, mandarini
-ja:マンダリンオレンジ
+ja:マンダリンオレンジ, うんしゅうみかん
 lt:mandarina
 lv:mandarīn
 nb:mandarin
@@ -37640,6 +37657,9 @@ agribalyse_proxy_food_name:en:Mandarin, pulp, raw
 agribalyse_proxy_food_name:fr:Mandarine, pulpe, crue
 
 <en:mandarin
+en:tangerine, tangerines
+
+<en:mandarin
 en:mandarin pulp
 ciqual_food_code:en:13090
 ciqual_food_name:en:Mandarin, pulp, raw
@@ -37648,20 +37668,19 @@ ciqual_food_name:fr:Mandarine, pulpe, crue
 
 <en:mandarin
 <en:fruit juice
-en:mandarin juice
+en:tangerine juice, mandarin juice
 cs:mandarinková šťáva
 fr:jus de mandarine
 de:Mandarinesaft, Mandarinensaft
 fi:mandariinimehu
 it:succo di mandarino
 nl:mandarijnsap
+pl:sok mandarynkowy
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-mandarine
 # 168 in 3 languages @2021-10-07
 
-<en:mandarin juice
+<en:tangerine juice
 en:concentrated mandarin juice
-da:mandarinjuice fra koncentrat
-de:Mandarinensaft aus Konzentrat
 es:jugo de mandarina concentrado, concentrado de jugo de mandarina
 fi:mandariinimehutiiviste, mandariinitäysmehutiiviste
 fr:Jus de mandarine concentré
@@ -37669,10 +37688,16 @@ ru:Концентрированный мандариновый сок
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:mandariinit%C3%A4ysmehutiiviste
 # 1 entry @ 2019-10-31
 
-<en:mandarin juice
+<en:tangerine juice
 en:Mandarin juice from concentrate
 cs:mandarinková šťáva z koncentrátu
+da:mandarinjuice fra koncentrat
+de:Mandarinensaft aus Konzentrat
 fr:jus de mandarine à base de concentré
+
+<en:tangerine juice
+en:squeezed tangerine juices 
+es:zumo de mandarina exprimada
 
 <en:mandarin
 en:mandarin peel
@@ -37883,7 +37908,7 @@ nl:sapsinaasappel
 
 <en:orange
 <en:fruit juice
-en:orange juice
+en:orange juice, acid reduced orange juice
 ar:عصير برتقال
 be:Апельсінавы сок
 bg:Портокалов сок, сок от портокал
@@ -37908,7 +37933,7 @@ hu:Narancslé
 hy:Նարնջի հյութ
 id:Sari buah jeruk
 is:Appelsínusafi
-it:succo d'arancia, Succo di arance bionde
+it:succo d'arancia, Succo di arance bionde, succo di arance
 ja:オレンジジュース
 ka:ფორთოხლის წვენი
 ko:오렌지 주스
@@ -37917,8 +37942,10 @@ nn:Appelsinjuice
 pa:ਸੰਤਰੇ ਦਾ ਰਸ
 pl:Sok pomarańczowy
 pt:suco de laranja
+ro:suc de portocale
 ru:апельсиновый сок
 sa:नारङ्गफलरसः
+sr:voćni sok od narandže
 sv:apelsinjuice, juice av apelsin
 ta:ஆரஞ்சுச் சாறு
 th:น้ำส้ม
@@ -37934,6 +37961,9 @@ zh:橙汁
 wikipedia:en:https://en.wikipedia.org/wiki/Orange_juice
 wikidata:en:Q219059
 # orange-juice 1401 products in 9 languages @2018-09-28
+
+<en:orange juice
+fr:Jus d'orange IGP Valencia
 
 <en:orange
 en:blood orange
@@ -37958,10 +37988,12 @@ fr:jus d'orange et autres agrumes à base de concentrés
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-d'orange-et-autres-agrumes-à-base-de-concentrés
 # 46 products in 1 language @2018-09-30
 
+# label:en: en:Pasteurized
 <en:orange juice
 en:pasteurized orange juice
 da:pasteuriseret appelsinjuice
 de:Pasteurisierter Orangensaft
+es:Jugo de naranja pasteurizado
 fr:jus d'orange pasteurisé
 
 <en:orange juice
@@ -37972,13 +38004,16 @@ nl:Biologisch sinaasappelsap
 # ingredient/fr:jus-d-orange-issu-de-l-agriculture-biologique has 11 products in french @2019-05-24
 
 <en:orange juice
-fr:oranges pressées
-# 5@2019-06-05
-
-<en:orange juice
-fr:Pur jus d'orange
+en:squeezed orange juice, squeezed oranges, freshly squeezed orange juice
+es:zumo de naranja exprimido
+fr:Pur jus d'orange, Oranges pressées à la récolte, jus d'orange non fait de concentre pur, oranges pressées
+nl:geperste sinaasappels
 carbon_footprint_fr_foodges_ingredient:fr:Pur jus d'orange
 carbon_footprint_fr_foodges_value:fr:1.3
+
+<en:pasteurized orange juice
+<en:squeezed orange juice
+en:pure pasteurized orange juice
 
 <en:orange juice
 en:concentrated orange juice
@@ -37994,14 +38029,15 @@ sv:apelsinjuicekoncentrat
 # comment:en:This seems a compound ingredient, i.e. concentrated orange juice + water, but is never described as such.
 
 <en:orange juice
-en:orange juice from concentrate, orange juice from orange juice concentrate
+en:orange juice from concentrate, orange juice from orange juice concentrate, Orange juice made with concentrate
 bg:концентриран сок от портокал, сок от портокал от концентрат
+bs:Sok pomorandže od koncentrisanog voćnog soka
 da:Appelsinjuice fra koncentrat
-de:Orangensaft aus Konzentrat, Orangensaft aus Orangensaftkonzentrat
-es:Zumo de naranja desde concentrado, zumo de naranja a partir de concentrado, jugo de naranja procedente de concentrado
+de:Orangensaft aus Konzentrat, Orangensaft aus Orangensaftkonzentrat, Fruchtsaft aus naturreinem Orangensaftkonzentrat
+es:Zumo de naranja desde concentrado, zumo de naranja a partir de concentrado, jugo de naranja procedente,  de concentrado, , zumo de naranja partir de concentrado de naranja
 fi:appelsiinimehu tiivisteestä, tiivisteestä valmistettu appelsiinitäysmehu, appelsiinitäysmehu tiivisteestä, appelsiinitäysmehu appelsiinitäysmehutiivisteestä, appelsiinitäysmehua tiivisteestä
-fr:jus d'orange à base de concentré, jus d'orange à base de jus d'orange concentré, jus d'orange à base de jus concentré, jus d'orange à partir de concentré
-hr:sok od naranče iz koncentrata soka naranče, sok od naranče koncentrata soka naranče, sok od naranče od koncentriranog soka, sok od naranče od koncentrirana soka
+fr:jus d'orange à base de concentré, jus d'orange à base de jus d'orange concentré, jus d'orange à base de jus concentré, jus d'orange à partir de concentré, Jus de fruits à base de concentré d'orange
+hr:sok od naranče iz koncentrata soka naranče, sok od naranče koncentrata soka naranče, sok od naranče od koncentriranog soka, sok od naranče od koncentrirana soka, Sok od naranče od koncentriranog narančina soka.
 hu:narancslé narancslé-koncentrátumból
 it:succo d'arancia a base di concentrato
 nl:Sinaasappelsap uit sapconcentraat
@@ -38013,28 +38049,43 @@ sv:apelsinjuice från koncentrat, apelsinsaft av koncentrat, apelsinjuice gjord 
 # fr:jus-d'orange-à-base-de-concentré 269 products @2018-09-28
 
 <en:orange juice
-en:ORGANIC orange juice from orange juice concentrate
-de:BIO Orangensaft aus Orangensaftkonzentrat
-hr:BIO sok od naranče proizveden od koncentriranog soka naranče
+en:organic orange juice from orange juice concentrate
+de:bio Orangensaft aus Orangensaftkonzentrat
+hr:bio sok od naranče proizveden od koncentriranog soka naranče
 
 <en:orange juice
+en:orange juice with pulp
 bg:сок от портокал с пулп
 de:Orangensaft mit Fruchtfleisch
-fr:jus d'orange avec pulpe
+fr:jus d'orange avec pulpe, jus d'orange dont pulpe
 nl:Sinaasappelsap met vruchtvlees
 # ingredient/fr:jus-d'orange-avec-pulpe has 38 products in 2 languages @2018-09-28
 
+<en:orange juice with pulp
+<en:squeezed orange juice
+en:squeezed orange juice with pulp
+fr:pur jus d'oranges avec sa pulpe
+
 <en:orange juice
+en:orange juice without pulp
 bg:сок от портокал без пулп
-fr:Jus d'orange sans pulpe
+es:zumo de naranjas sin pulpa
+fr:Jus d'orange sans pulpe, pur jus d'oranges avec sa pulpe
 nl:Sinaasappelsap zonder vruchtvlees
 # ingredient/fr:jus-d-orange-sans-pulpe products has 12 in french @2019-05-23
 
+<en:orange juice with pulp
+<en:orange juice from concentrate
+en:orange juice from concentrate with pulp
+nb:Juice fremstilt av appelsinkonsentrat med fruktkjøtt
+sv:apelsinjuice från koncentrat med fruktkött
+
 <en:orange juice
 <en:blood orange
+en:blood orange juice
 de:Blutorangensaft
 fr:jus d'orange sanguine
-it:succo d'arancia sanguigna
+it:succo d'arancia sanguigna, succo di Arancia Biondo, puro succo di arance rosse
 nl:bloedsinaasappelsap
 # fr:jus-d'orange-sanguine 40 products in 3 languages @2018-09-28
 
@@ -38056,8 +38107,13 @@ nl:bloedsinaasappelsap
 # de:pascalisierter Orangensaft aus Orangensaftkonzentrat
 # treatment:en:en:pascalization
 
+en:pulp
+bg:пулп
+fr:pulpe
+nl:vruchtvlees, pulp
 
 <en:orange
+<en:pulp
 en:orange pulp
 ar: لب البرتقال
 bg:портокалов пулп, пулпа от портокал
@@ -38065,7 +38121,7 @@ ca:polpa de taronja
 de:Orangenfruchtfleisch
 es:pulpa de naranja
 fi:appelsiinihedelmäliha, appelsiinin hedelmäliha
-fr:pulpe d'orange
+fr:pulpe d'orange, cellules d'oranges
 hr:pulpa naranče
 hu:narancs gyümölcshős, narancs püré
 it:polpe d'arancia
@@ -38340,6 +38396,10 @@ ru:Сок ацеролы
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-concentré-d'acérola
 # 3 products in 1 language @2018-10-03
 # ingredient/fr:extrait-d'acérola has 215 products in 4 languages @2018-10-03
+
+<en:acerola juice
+en:acerola juice from concentrate
+de:Acerolasaft aus Acerolasaftkonzentrat
 
 #processing:en: en:powdered
 <en:acerola
@@ -41244,7 +41304,7 @@ mk:ананас
 nl:ananas
 no:ananas
 nv:Bilasáana diwozhí
-pl:ananas
+pl:ananas, ananasy
 pt:ananas
 ro:ananas
 ru:ананас
@@ -41396,7 +41456,7 @@ cs:granátové jablko
 de:Granatapfel
 el:ρόδι
 eo:granato
-es:granada,granadas
+es:granada, granadas, romã
 et:Granaatõun
 fi:granaattiomena
 fr:grenade
@@ -41409,6 +41469,7 @@ ht:Grenad
 hu:gránátalma
 it:melagrana
 ks:دٲن
+la:Punica granatum
 mr:डाळिंब
 my:တလည်း
 ne:दारिम
@@ -41443,6 +41504,12 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Grenade_(fruit)
 # 53 products in 3 languages @2018-10-03
 
 <en:pomegranate
+en:pomegranate Ruby Red
+
+<en:pomegranate
+es:granada variedada Mollar de Elche
+
+<en:pomegranate
 en:pomegranate seeds
 bg:зрънца от нар
 de:Granatapfelkerne
@@ -41453,7 +41520,7 @@ fr:graines de grenade
 
 <en:pomegranate
 <en:fruit juice
-en:pomegranate juice
+en:pomegranate juice, juice of pomegranate
 de:Granatapfelsaft
 es:zumo de granada, jugo de granada
 fi:granaattiomenamehu
@@ -41463,15 +41530,30 @@ it:succo di melagrana
 # 61 products in 3 languages @2018-10-03
 
 <en:pomegranate juice
+en:pomegranate juice
 fr:pur jus de grenade
+
+<en:pomegranate juice
+en:Directly squeezed natural pomegranate juice
+fr:jus de grenade pressé
 
 <en:pomegranate juice
 en:organic pomegranate juice
 fi:luomugranaattiomenamehu, luomu granaattiomenamehu
 fr:Jus de Grenade issu de l'agriculture biologique
 
+<en:pomegranate juice
+en:pomegranate juice from concentrate, pomegranate juice from natural concentrated pomegranate juice
+de:Granatapfelsaft aus Granatapfelsaftkonzentrat
+fr:jus de grenade à base de concentré, Jus de grenade à base de jus de grenade concentré
+it:Succo di melagrana a base di succo concentrato
+
+<en:pomegranate juice
+es:zumo de granada variedad Mollar de Elche
+
 <en:pomegranate
 fr:écorces de grenade
+
 
 ###################################################################################################
 #
@@ -44762,7 +44844,7 @@ pl:korzeń cykorii
 en:chicory fibre, chicory root fiber
 cs:vláknina z kořene čekanky
 da:cikoriefibre
-de:Zichorienfäser, Zichorienwurzelfaser
+de:Zichorienfäser, Zichorienwurzelfaser, Zichorienwurzelfasern
 es:fibra de la raíz de achicoria,fibra de achicoria
 fi:sikurikuitu, sikurijuurikuitu
 fr:fibre de chicorée, fibres de chicorée, fibre de racine de chicorée, fibres de racine de chicorée, fibres de racines de chicorée
@@ -47324,7 +47406,7 @@ fr:carottes oranges
 
 <en:carrot
 en:violet carrot
-fr:carotte violette
+fr:carotte violette, carotte pourpre
 
 <en:carrot
 nl:winterpeen
@@ -52353,7 +52435,7 @@ eu:leka
 fa:لوبیا سبز
 fr:haricot vert, haricots verts, haricot princesse, haricots princesses
 he:שעועית ירוקה
-hr:grah mahunar
+hr:grah mahunar, mahuna zelena
 it:fagiolino, fagiolo verde, fagiolini, fagioli verdi, Fagiolini verdi
 ja:いんげん豆, サヤインゲン
 ko:풋강낭콩
@@ -58612,12 +58694,12 @@ fr:Pâte de gingembre
 # ingredient/en:ginger-juice has 304 products in 2 languages @2020-05-23
 
 #processing:en: en:extract
-#<en:ginger
-#en:ginger extract
+<en:ginger
+en:ginger extract
 #de:Ingwer-Extrakt
 #es:extracto de jengibre, extracto de kión, extracto de kion
 #fi:inkivääriuute
-#fr:extrait de gingembre
+fr:extrait de gingembre, l'extrait de gingembre
 #nl:gemberextract
 #vegan:en:yes
 #vegetarian:en:yes
@@ -76039,7 +76121,7 @@ gn:Ryguasu
 ha:Kaza
 he:תרנגול הבית
 hi:मुर्गी
-hr:kokoš, kokošji, piletina
+hr:kokoš, kokošji, pileći, piletina
 hu:Csirkék, csirke, házityúk
 hy:հավ
 ia:gallina
@@ -78650,7 +78732,7 @@ es:relleno
 et:Hakkliha
 fa:گوشت چرخ کرده
 fi:täyte
-fr:garniture, fourrage, nappage, farce, fourrage blanc, remplissage
+fr:garniture, fourrage, nappage, farce, fourrage blanc, remplissage, nappage blond
 gl:Recheo
 he:מלית
 hr:punjenje, punjenje od, punilo
@@ -80566,18 +80648,22 @@ ca:cobertura de xocolata, cobertura de cacau
 es:cobertura de chocolate
 
 <en:coating
+<en:milk chocolate
 en:milk chocolate coating, couverture milk chocolate
-fr:enrobage chocolat au lait, chocolat au lait de couverture
+de:Milchschokoladenkuvertüre
+fr:chocolat au lait de couverture, enrobage chocolat au lait
 hr:miliječno čokoladni preljev
 sv:mjölkchokladsöverdrag
 # ingredient/en:milk-chocolate-coating has 99 products in 3 languages @2020-12-19
 
 <en:coating
+<en:dark chocolate
 fr:chocolat noir de couverture
 ca:cobertura de xocolata negra, cobertura de xocolata negre, cobertura de cacau pur
 es:cobertura de chocolate puro, cobertura de chocolate negro
 
 <en:coating
+<en:white chocolate
 en:white chocolate coating
 hr:bijeli čokoladni preljev
 
@@ -81619,6 +81705,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Broth
 
 <en:broth
 en:fond
+fr:fond de sauce
 wikidata:en:Q96378096
 
 #category:en:beef-broth
