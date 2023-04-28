@@ -11,6 +11,7 @@ en:Nutrition errors
 description:en:Error on nutrition data (nutrients)
 show_on_producers_platform:en:yes
 fix_action:en: add_nutrition_facts
+marker_type:en: error
 
 <en:Nutrition errors
 en:Energy value in kcal does not match value computed from other nutrients
@@ -774,10 +775,11 @@ description:fr:La taille de portion devrait contenir un nombre. Par exemple : "1
 
 en:Data quality warnings
 description:en: Possible error on data detected. Might be a false alert.
+marker_type:en: warning
 
 en:Data quality ok tags
 description:en: Positive appreciations on data quality
-
+marker_type:en: info
 
 ### Eco-Score and packaging
 <en:Data quality warnings
@@ -900,13 +902,13 @@ en:Fibers warnings
 description:en: There might be an issue with the fibers nutrient
 fix_action:en: add_nutrition_facts
 
-<en:Fiber warnings
+<en:Fibers warnings
 en:Missing nutrition facts - fibers present on photos
-#description:en:Fibers are mentioned on photos, but are not present in the inputed nutrition table
+description:en:Fibers are mentioned on photos, but are not present in the inputed nutrition table
 
-<en:Fiber warnings
+<en:Fibers warnings
 en:Missing nutrition facts - fibers present on nutrition photos
-#description:en:Fibers are mentioned on nutrition photos, but are not present in the inputed nutrition table
+description:en:Fibers are mentioned on nutrition photos, but are not present in the inputed nutrition table
 
 
 ## Ingredients
@@ -2661,7 +2663,7 @@ en:Nutrition Grade FR producer same OK
 
 <en:Data quality ok tags
 en:Nutrition data - Prepared
-#description:en:
+description:en: We have nutrition data for prepared product
 
 <en:Nutrition warnings
 en:Nutrition data - Prepared without category dried products to be rehydrated

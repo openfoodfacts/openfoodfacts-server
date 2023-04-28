@@ -49,6 +49,7 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::PackagerCodes qw/:all/;
+use ProductOpener::Cache qw/:all/;
 
 use List::Util qw/min/;
 use Data::DeepAccess qw(deep_exists deep_get);
@@ -97,17 +98,56 @@ Hash of fields that can be taken into account to generate relevant suggestions
 - categories: comma separated list of categories (tags ids or strings in the $search_lc language)
 - shape: packaging shape (tag id or string in the $search_lc language)
 
+=head3 Note
+
+The results of this function are cached for 1 day using memcached.
+Restart memcached if you want fresh results (e.g. when taxonomy are category stats change).
+
 =cut
 
 sub get_taxonomy_suggestions ($tagtype, $search_lc, $string, $context_ref, $options_ref) {
 
-	$log->debug("get_taxonomy_suggestions_api",
-		{tagtype => $tagtype, search_lc => $search_lc, context_ref => $context_ref, options_ref => $options_ref})
-		if $log->is_debug();
+	$log->debug(
+		"get_taxonomy_suggestions - start",
+		{
+			tagtype => $tagtype,
+			search_lc => $search_lc,
+			string => $string,
+			context_ref => $context_ref,
+			options_ref => $options_ref
+		}
+	) if $log->is_debug();
 
-	my @tags = generate_sorted_list_of_taxonomy_entries($tagtype, $search_lc, $context_ref);
+	# Check if we have cached suggestions
+	my $key = generate_cache_key(
+		"get_taxonomy_suggestions",
+		{
+			tagtype => $tagtype,
+			search_lc => $search_lc,
+			string => $string,
+			context_ref => $context_ref,
+			options_ref => $options_ref
+		}
+	);
 
-	return filter_suggestions_matching_string(\@tags, $tagtype, $search_lc, $string, $options_ref);
+	my $results_ref = $memd->get($key);
+
+	if (not defined $results_ref) {
+		$log->debug("suggestions are not cached", {key => $key}) if $log->is_debug();
+
+		my @tags = generate_sorted_list_of_taxonomy_entries($tagtype, $search_lc, $context_ref);
+
+		my @filtered_tags = filter_suggestions_matching_string(\@tags, $tagtype, $search_lc, $string, $options_ref);
+		$results_ref = \@filtered_tags;
+
+		$log->debug("storing suggestions in cache", {key => $key}) if $log->is_debug();
+		$memd->set($key, $results_ref, 24 * 3600);    # Cache suggestions for 1 day
+	}
+	else {
+		$log->debug("got suggestions from cache", {key => $key}) if $log->is_debug();
+	}
+
+	return @$results_ref;
 }
 
 =head2 generate_sorted_list_of_taxonomy_entries($tagtype, $search_lc, $context_ref)
@@ -245,6 +285,50 @@ sub add_sorted_entries_to_tags ($tags_ref, $seen_tags_ref, $entries_ref, $tagtyp
 	return;
 }
 
+# Match the normalized form of a tag synonym to the normalized input of an user
+
+sub match_stringids ($stringid, $fuzzystringid, $synonymid) {
+
+	$log->debug("match string ids", {stringid => $stringid, fuzzystringid => $fuzzystringid, synonymid => $synonymid})
+		if $log->is_debug();
+
+	# matching at start, best matches
+	if ($synonymid =~ /^$stringid/) {
+		return "start";
+	}
+	# matching inside
+	elsif ($synonymid =~ /$stringid/) {
+		return "inside";
+	}
+	# fuzzy match
+	elsif ($synonymid =~ /$fuzzystringid/) {
+		return "fuzzy";
+	}
+
+	return "none";
+}
+
+# best_match is used to see how well matches the best matching synonym
+
+sub best_match ($stringid, $fuzzystringid, $synonyms_ids_ref) {
+
+	my $best_match = "none";
+
+	foreach my $synonymid (@$synonyms_ids_ref) {
+		my $match = match_stringids($stringid, $fuzzystringid, $synonymid);
+		if ($match eq "start") {
+			# Best match, we can return without looking at the other synonyms
+			return "start";
+		}
+		elsif (($match eq "inside")
+			or (($match eq "fuzzy") and ($best_match eq "none")))
+		{
+			$best_match = $match;
+		}
+	}
+	return $best_match;
+}
+
 =head2 filter_suggestions_matching_string ($tags_ref, $tagtype, $search_lc, $string, $options_ref)
 
 Filter a list of potential taxonomy suggestions matching a string.
@@ -333,44 +417,44 @@ sub filter_suggestions_matching_string ($tags_ref, $tagtype, $search_lc, $string
 			# just_synonyms are not real entries
 			next if defined $just_synonyms{$tagtype}{$canon_tagid};
 
-			my $tag;    # this is the content string
-			my $tagid;    # this is the tag
+			# We will match synonyms in the search language, and in the wildcard xx: language
+			my $tag = display_taxonomy_tag($search_lc, $tagtype, $canon_tagid);
+			my $tag_xx = display_taxonomy_tag("xx", $tagtype, $canon_tagid);
 
-			# search if the tag exists in target language
-			if (defined $translations_to{$tagtype}{$canon_tagid}{$search_lc}) {
+			# Build a list of normalized synonyms in the search language and the wildcard xx: language
+			my @synonyms_ids = map {get_string_id_for_lang($search_lc, $_)} (
+				@{deep_get(\%synonyms_for, $tagtype, $search_lc, get_string_id_for_lang($search_lc, $tag)) || []},
+				@{deep_get(\%synonyms_for, $tagtype, "xx", get_string_id_for_lang("xx", $tag_xx)) || []}
+			);
 
-				$tag = $translations_to{$tagtype}{$canon_tagid}{$search_lc};
-				# TODO: explain why $tagid can be different from $canon_tagid
-				$tagid = get_string_id_for_lang($search_lc, $tag);
+			# check how well the synonyms match the input string
+			my $best_match = best_match($stringid, $fuzzystringid, \@synonyms_ids);
 
-				# add language prefix if we are not searching current interface language
-				if (not($search_lc eq $original_lc)) {
-					$tag = $search_lc . ":" . $tag;
+			$log->debug(
+				"synonyms_ids for canon_tagid",
+				{
+					tagtype => $tagtype,
+					canon_tagid => $canon_tagid,
+					tag => $tag,
+					synonym_ids => \@synonyms_ids,
+					best_match => $best_match
 				}
-			}
-			# also search for special language code "xx" which is universal
-			elsif (defined $translations_to{$tagtype}{$canon_tagid}{xx}) {
-				$tag = $translations_to{$tagtype}{$canon_tagid}{xx};
-				$tagid = get_string_id_for_lang("xx", $tag);
-			}
+			) if $log->is_debug();
 
-			if (defined $tag) {
-				# matching at start, best matches
-				if ($tagid =~ /^$stringid/) {
-					push @suggestions, $tag;
-					# only matches at start are considered
-					$suggestions_count++;
-				}
-				# matching inside
-				elsif ($tagid =~ /$stringid/) {
-					push @suggestions_c, $tag;
-				}
-				# fuzzy match
-				elsif ($tagid =~ /$fuzzystringid/) {
-					push @suggestions_f, $tag;
-				}
-				# end as soon as we got enough
+			# matching at start, best matches
+			if ($best_match eq "start") {
+				push @suggestions, $tag;
+				# count matches at start so that we can return only if we have enough matches
+				$suggestions_count++;
 				last if $suggestions_count >= $limit;
+			}
+			# matching inside
+			elsif ($best_match eq "inside") {
+				push @suggestions_c, $tag;
+			}
+			# fuzzy match
+			elsif ($best_match eq "fuzzy") {
+				push @suggestions_f, $tag;
 			}
 		}
 	}

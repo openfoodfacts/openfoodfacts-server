@@ -55,6 +55,12 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 
+		$empty_regexp
+		$unknown_regexp
+		$not_applicable_regexp
+		$none_regexp
+		$empty_unknown_not_applicable_or_none_regexp
+
 		%fields
 		@fields
 		%products
@@ -103,6 +109,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Units qw/:all/;
+use ProductOpener::Text qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -121,6 +128,15 @@ use XML::Rules;
 @xml_errors = ();
 
 my $mode = "append";
+
+# Regular expressions that can be combined to match specific inputs
+$empty_regexp = '(?:,|\%|;|_|°|-|\/|\\|\.|\s)*';
+$unknown_regexp = 'unknown|inconnu|inconnue|non renseigné(?:e)?(?:s)?|nr|n\/r';
+$not_applicable_regexp = 'n(?:\/|\\|\.|-)?a(?:\.)?|(?:not|non)(?: |-)applicable|no aplica';
+$none_regexp = 'none|aucun|aucune|aucun\(e\)';
+
+$empty_unknown_not_applicable_or_none_regexp
+	= join('|', ($empty_regexp, $unknown_regexp, $not_applicable_regexp, $none_regexp));
 
 =head1 FUNCTIONS
 
@@ -852,7 +868,7 @@ sub clean_fields ($product_ref) {
 					$brand =~ s/^\s+//;
 					$brand =~ s/\s+$//;
 					# we may get brands with quantifiers like * + ? etc. we need to escape them
-					$brand =~ s/(\*|\+|\?|\(|\)|\[|\]|\{|\}|\$|\^|\\)/\\$1/g;
+					$brand = regexp_escape($brand);
 
 					# dashes/dots/spaces -> allow matching dashes/dot/spaces
 					# e.g. "bons.mayennais" matches "bons mayennais"
@@ -959,7 +975,7 @@ sub clean_fields ($product_ref) {
 			my $canon_tagid = canonicalize_taxonomy_tag($product_ref->{lc}, "countries", $product_ref->{$field});
 			if (not exists_taxonomy_tag("countries", $canon_tagid)) {
 				assign_value($product_ref, "origin_" . $product_ref->{lc}, $product_ref->{$field});
-				delete $product_ref->{$field};
+				$product_ref->{$field} = "";
 			}
 		}
 
@@ -1124,12 +1140,11 @@ sub clean_fields ($product_ref) {
 
 		# remove N, N/A, NA etc.
 		# but not "no", "none" that are useful values (e.g. for specific labels "organic:no", allergens : "none")
-		$product_ref->{$field}
-			=~ s/(^|,)\s*((n(\/|\.)?a(\.)?)|(not applicable)|unknown|inconnu|inconnue|non renseigné|non applicable|no aplica|nr|n\/r)\s*(,|$)//ig;
+		$product_ref->{$field} =~ s/(^|,)\s*($unknown_regexp|$not_applicable_regexp)\s*(,|$)//ig;
 
 		# remove none except for allergens and traces
 		if ($field !~ /allergens|traces/) {
-			$product_ref->{$field} =~ s/(^|,)\s*(none|aucun|aucune|aucun\(e\))\s*(,|$)//ig;
+			$product_ref->{$field} =~ s/(^|,)\s*($none_regexp)\s*(,|$)//ig;
 		}
 
 		if (   ($field =~ /_fr/)

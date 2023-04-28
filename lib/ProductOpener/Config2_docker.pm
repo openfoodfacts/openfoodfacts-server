@@ -43,6 +43,7 @@ BEGIN {
 		$mongodb_timeout_ms
 		$memd_servers
 		$google_cloud_vision_api_key
+		$google_cloud_vision_api_url
 		$crowdin_project_identifier
 		$crowdin_project_key
 		$robotoff_url
@@ -86,6 +87,8 @@ $mongodb_timeout_ms = 50000;    # config option max_time_ms/maxTimeMS
 $memd_servers = ["memcached:11211"];
 
 $google_cloud_vision_api_key = $ENV{GOOGLE_CLOUD_VISION_API_KEY};
+$google_cloud_vision_api_url = $ENV{GOOGLE_CLOUD_VISION_API_URL} || "https://vision.googleapis.com/v1/images:annotate";
+
 $crowdin_project_identifier = $ENV{CROWDIN_PROJECT_IDENTIFIER};
 $crowdin_project_key = $ENV{CROWDIN_PROJECT_KEY};
 

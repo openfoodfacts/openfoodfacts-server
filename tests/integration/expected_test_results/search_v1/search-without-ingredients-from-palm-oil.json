@@ -61,7 +61,7 @@
             "2xxxxxxxxxxx"
          ],
          "complete" : 0,
-         "completeness" : 0.5,
+         "completeness" : 0.4,
          "correctors_tags" : [],
          "created_t" : "--ignore--",
          "creator" : "tests",
@@ -574,6 +574,19 @@
          "origin" : "france",
          "origin_en" : "france",
          "other_nutritional_substances_tags" : [],
+         "packaging_materials_tags" : [
+            "en:glass",
+            "en:plastic",
+            "en:steel"
+         ],
+         "packaging_recycling_tags" : [
+            "en:recycle"
+         ],
+         "packaging_shapes_tags" : [
+            "en:bottle",
+            "en:film",
+            "en:lid"
+         ],
          "packaging_text" : "1 25cl glass bottle, 1 steel lid, 1 plastic wrap",
          "packaging_text_en" : "1 25cl glass bottle, 1 steel lid, 1 plastic wrap",
          "packagings" : [
@@ -617,10 +630,10 @@
          "rev" : 1,
          "serving_quantity" : 10,
          "serving_size" : "10 g",
-         "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
+         "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
          "states_hierarchy" : [
             "en:to-be-completed",
-            "en:nutrition-facts-completed",
+            "en:nutrition-facts-to-be-completed",
             "en:ingredients-completed",
             "en:expiration-date-to-be-completed",
             "en:packaging-code-to-be-completed",
@@ -635,7 +648,7 @@
          ],
          "states_tags" : [
             "en:to-be-completed",
-            "en:nutrition-facts-completed",
+            "en:nutrition-facts-to-be-completed",
             "en:ingredients-completed",
             "en:expiration-date-to-be-completed",
             "en:packaging-code-to-be-completed",
@@ -713,7 +726,7 @@
             "2xxxxxxxxxxx"
          ],
          "complete" : 0,
-         "completeness" : 0.5,
+         "completeness" : 0.4,
          "correctors_tags" : [],
          "created_t" : "--ignore--",
          "creator" : "tests",
@@ -1129,6 +1142,9 @@
          "origin" : "Germany",
          "origin_en" : "Germany",
          "other_nutritional_substances_tags" : [],
+         "packaging_materials_tags" : [],
+         "packaging_recycling_tags" : [],
+         "packaging_shapes_tags" : [],
          "packaging_text" : "no",
          "packaging_text_en" : "no",
          "packagings" : [],
@@ -1152,10 +1168,10 @@
          "rev" : 1,
          "serving_quantity" : 10,
          "serving_size" : "10 g",
-         "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
+         "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
          "states_hierarchy" : [
             "en:to-be-completed",
-            "en:nutrition-facts-completed",
+            "en:nutrition-facts-to-be-completed",
             "en:ingredients-completed",
             "en:expiration-date-to-be-completed",
             "en:packaging-code-to-be-completed",
@@ -1170,7 +1186,7 @@
          ],
          "states_tags" : [
             "en:to-be-completed",
-            "en:nutrition-facts-completed",
+            "en:nutrition-facts-to-be-completed",
             "en:ingredients-completed",
             "en:expiration-date-to-be-completed",
             "en:packaging-code-to-be-completed",
@@ -1255,7 +1271,7 @@
             "2xxxxxxxxxxx"
          ],
          "complete" : 0,
-         "completeness" : 0.5,
+         "completeness" : 0.4,
          "correctors_tags" : [],
          "created_t" : "--ignore--",
          "creator" : "tests",
@@ -1717,6 +1733,9 @@
          "origin" : "france",
          "origin_en" : "france",
          "other_nutritional_substances_tags" : [],
+         "packaging_materials_tags" : [],
+         "packaging_recycling_tags" : [],
+         "packaging_shapes_tags" : [],
          "packagings" : [],
          "photographers_tags" : [],
          "pnns_groups_1" : "unknown",
@@ -1738,10 +1757,10 @@
          "rev" : 1,
          "serving_quantity" : 10,
          "serving_size" : "10 g",
-         "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
+         "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
          "states_hierarchy" : [
             "en:to-be-completed",
-            "en:nutrition-facts-completed",
+            "en:nutrition-facts-to-be-completed",
             "en:ingredients-completed",
             "en:expiration-date-to-be-completed",
             "en:packaging-code-to-be-completed",
@@ -1756,7 +1775,7 @@
          ],
          "states_tags" : [
             "en:to-be-completed",
-            "en:nutrition-facts-completed",
+            "en:nutrition-facts-to-be-completed",
             "en:ingredients-completed",
             "en:expiration-date-to-be-completed",
             "en:packaging-code-to-be-completed",
@@ -1832,7 +1851,7 @@
             "2xxxxxxxxxxx"
          ],
          "complete" : 0,
-         "completeness" : 0.5,
+         "completeness" : 0.4,
          "correctors_tags" : [],
          "created_t" : "--ignore--",
          "creator" : "tests",
@@ -2269,6 +2288,9 @@
          "origin" : "spain",
          "origin_en" : "spain",
          "other_nutritional_substances_tags" : [],
+         "packaging_materials_tags" : [],
+         "packaging_recycling_tags" : [],
+         "packaging_shapes_tags" : [],
          "packagings" : [],
          "photographers_tags" : [],
          "pnns_groups_1" : "unknown",
@@ -2290,10 +2312,10 @@
          "rev" : 1,
          "serving_quantity" : 10,
          "serving_size" : "10 g",
-         "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
+         "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
          "states_hierarchy" : [
             "en:to-be-completed",
-            "en:nutrition-facts-completed",
+            "en:nutrition-facts-to-be-completed",
             "en:ingredients-completed",
             "en:expiration-date-to-be-completed",
             "en:packaging-code-to-be-completed",
@@ -2308,7 +2330,7 @@
          ],
          "states_tags" : [
             "en:to-be-completed",
-            "en:nutrition-facts-completed",
+            "en:nutrition-facts-to-be-completed",
             "en:ingredients-completed",
             "en:expiration-date-to-be-completed",
             "en:packaging-code-to-be-completed",
@@ -2402,7 +2424,7 @@
             "2xxxxxxxxxxx"
          ],
          "complete" : 0,
-         "completeness" : 0.5,
+         "completeness" : 0.4,
          "correctors_tags" : [],
          "created_t" : "--ignore--",
          "creator" : "tests",
@@ -2845,7 +2867,6 @@
          ],
          "generic_name" : "Tester",
          "generic_name_en" : "Tester",
-         "grades" : {},
          "id" : "200000000045",
          "informers_tags" : [
             "tests"
@@ -2989,6 +3010,9 @@
          "origin" : "China",
          "origin_en" : "China",
          "other_nutritional_substances_tags" : [],
+         "packaging_materials_tags" : [],
+         "packaging_recycling_tags" : [],
+         "packaging_shapes_tags" : [],
          "packaging_text" : "no",
          "packaging_text_en" : "no",
          "packagings" : [],
@@ -3010,13 +3034,12 @@
          "quantity" : "100 g",
          "removed_countries_tags" : [],
          "rev" : 1,
-         "scores" : {},
          "serving_quantity" : 10,
          "serving_size" : "10 g",
-         "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
+         "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
          "states_hierarchy" : [
             "en:to-be-completed",
-            "en:nutrition-facts-completed",
+            "en:nutrition-facts-to-be-completed",
             "en:ingredients-completed",
             "en:expiration-date-to-be-completed",
             "en:packaging-code-to-be-completed",
@@ -3031,7 +3054,7 @@
          ],
          "states_tags" : [
             "en:to-be-completed",
-            "en:nutrition-facts-completed",
+            "en:nutrition-facts-to-be-completed",
             "en:ingredients-completed",
             "en:expiration-date-to-be-completed",
             "en:packaging-code-to-be-completed",
