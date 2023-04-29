@@ -1,1 +1,11 @@
-
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "org.openpetfoodfacts.scanner",
+      "sha256_cert_fingerprints":
+        ["07:68:9D:0A:9E:A2:F8:89:D3:29:B9:C8:84:E0:AF:68:16:7A:9C:C6:F5:E2:CB:42:CD:2B:6A:83:8E:8F:26:D4"]
+    }
+  }
+]
