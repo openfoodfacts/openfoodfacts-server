@@ -1,1 +1,11 @@
-
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "org.openproductsfacts.scanner",
+      "sha256_cert_fingerprints":
+        ["FD:DF:C6:53:AD:25:62:DB:A2:92:C6:D0:5B:A6:98:C9:7F:66:79:43:BD:29:31:D0:DA:3A:2B:CD:5B:6F:1A:DF"]
+    }
+  }
+]
