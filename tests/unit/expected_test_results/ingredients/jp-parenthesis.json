@@ -1,0 +1,242 @@
+{
+   "ingredients" : [
+      {
+         "id" : "jp:しょうゆ",
+         "ingredients" : [
+            {
+               "id" : "jp:本醸造",
+               "percent_estimate" : 55,
+               "percent_max" : 100,
+               "percent_min" : 10,
+               "text" : "本醸造"
+            }
+         ],
+         "percent_estimate" : 55,
+         "percent_max" : 100,
+         "percent_min" : 10,
+         "text" : "しょうゆ"
+      },
+      {
+         "id" : "jp:糖類",
+         "ingredients" : [
+            {
+               "id" : "jp:ぶどう糖果糖液糖",
+               "percent_estimate" : 11.25,
+               "percent_max" : 50,
+               "percent_min" : 0,
+               "text" : "ぶどう糖果糖液糖"
+            },
+            {
+               "id" : "jp:水あめ",
+               "percent_estimate" : 5.625,
+               "percent_max" : 25,
+               "percent_min" : 0,
+               "text" : "水あめ"
+            },
+            {
+               "id" : "jp:砂糖",
+               "percent_estimate" : 5.625,
+               "percent_max" : 16.6666666666667,
+               "percent_min" : 0,
+               "text" : "砂糖"
+            }
+         ],
+         "percent_estimate" : 22.5,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "糖類"
+      },
+      {
+         "id" : "jp:みりん",
+         "percent_estimate" : 11.25,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "みりん"
+      },
+      {
+         "id" : "jp:食塩",
+         "percent_estimate" : 5.625,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "食塩"
+      },
+      {
+         "id" : "jp:かつお節",
+         "percent_estimate" : 2.8125,
+         "percent_max" : 20,
+         "percent_min" : 0,
+         "text" : "かつお節"
+      },
+      {
+         "id" : "jp:さば節",
+         "percent_estimate" : 1.40625,
+         "percent_max" : 16.6666666666667,
+         "percent_min" : 0,
+         "text" : "さば節"
+      },
+      {
+         "id" : "jp:たん白加水分解物混合物",
+         "percent_estimate" : 0.703125,
+         "percent_max" : 14.2857142857143,
+         "percent_min" : 0,
+         "text" : "たん白加水分解物混合物"
+      },
+      {
+         "id" : "jp:こんぶ",
+         "percent_estimate" : 0.3515625,
+         "percent_max" : 12.5,
+         "percent_min" : 0,
+         "text" : "こんぶ"
+      },
+      {
+         "id" : "jp:調味料",
+         "ingredients" : [
+            {
+               "id" : "jp:アミノ酸等",
+               "percent_estimate" : 0.17578125,
+               "percent_max" : 11.1111111111111,
+               "percent_min" : 0,
+               "text" : "アミノ酸等"
+            }
+         ],
+         "percent_estimate" : 0.17578125,
+         "percent_max" : 11.1111111111111,
+         "percent_min" : 0,
+         "text" : "調味料"
+      },
+      {
+         "id" : "jp:アルコール",
+         "percent_estimate" : 0.17578125,
+         "percent_max" : 10,
+         "percent_min" : 0,
+         "text" : "アルコール"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:palm-oil-content-unknown" : [
+         "jp:しょうゆ",
+         "jp:本醸造",
+         "jp:糖類",
+         "jp:ぶどう糖果糖液糖",
+         "jp:水あめ",
+         "jp:砂糖",
+         "jp:みりん",
+         "jp:食塩",
+         "jp:かつお節",
+         "jp:さば節",
+         "jp:たん白加水分解物混合物",
+         "jp:こんぶ",
+         "jp:調味料",
+         "jp:アミノ酸等",
+         "jp:アルコール"
+      ],
+      "en:vegan-status-unknown" : [
+         "jp:しょうゆ",
+         "jp:本醸造",
+         "jp:糖類",
+         "jp:ぶどう糖果糖液糖",
+         "jp:水あめ",
+         "jp:砂糖",
+         "jp:みりん",
+         "jp:食塩",
+         "jp:かつお節",
+         "jp:さば節",
+         "jp:たん白加水分解物混合物",
+         "jp:こんぶ",
+         "jp:調味料",
+         "jp:アミノ酸等",
+         "jp:アルコール"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "jp:しょうゆ",
+         "jp:本醸造",
+         "jp:糖類",
+         "jp:ぶどう糖果糖液糖",
+         "jp:水あめ",
+         "jp:砂糖",
+         "jp:みりん",
+         "jp:食塩",
+         "jp:かつお節",
+         "jp:さば節",
+         "jp:たん白加水分解物混合物",
+         "jp:こんぶ",
+         "jp:調味料",
+         "jp:アミノ酸等",
+         "jp:アルコール"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-content-unknown",
+      "en:vegan-status-unknown",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_hierarchy" : [
+      "jp:しょうゆ",
+      "jp:糖類",
+      "jp:みりん",
+      "jp:食塩",
+      "jp:かつお節",
+      "jp:さば節",
+      "jp:たん白加水分解物混合物",
+      "jp:こんぶ",
+      "jp:調味料",
+      "jp:アルコール",
+      "jp:本醸造",
+      "jp:ぶどう糖果糖液糖",
+      "jp:水あめ",
+      "jp:砂糖",
+      "jp:アミノ酸等"
+   ],
+   "ingredients_n" : 15,
+   "ingredients_n_tags" : [
+      "15",
+      "11-20"
+   ],
+   "ingredients_original_tags" : [
+      "jp:しょうゆ",
+      "jp:糖類",
+      "jp:みりん",
+      "jp:食塩",
+      "jp:かつお節",
+      "jp:さば節",
+      "jp:たん白加水分解物混合物",
+      "jp:こんぶ",
+      "jp:調味料",
+      "jp:アルコール",
+      "jp:本醸造",
+      "jp:ぶどう糖果糖液糖",
+      "jp:水あめ",
+      "jp:砂糖",
+      "jp:アミノ酸等"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "jp:しょうゆ",
+      "jp:糖類",
+      "jp:みりん",
+      "jp:食塩",
+      "jp:かつお節",
+      "jp:さば節",
+      "jp:たん白加水分解物混合物",
+      "jp:こんぶ",
+      "jp:調味料",
+      "jp:アルコール",
+      "jp:本醸造",
+      "jp:ぶどう糖果糖液糖",
+      "jp:水あめ",
+      "jp:砂糖",
+      "jp:アミノ酸等"
+   ],
+   "ingredients_text" : "しょうゆ（本醸造）、糖類（ぶどう糖果糖液糖、水あめ、砂糖）、みりん、食塩、かつお節、さば節、たん白加水分解物混合物、こんぶ、調味料（アミノ酸等）、アルコール",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 12,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "known_ingredients_n" : 0,
+   "lc" : "jp",
+   "nutriments" : {
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
+   },
+   "unknown_ingredients_n" : 15
+}

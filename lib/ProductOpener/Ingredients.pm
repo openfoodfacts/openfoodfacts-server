@@ -153,8 +153,7 @@ my $obrackets = qr/(?![\N{U+201A}|\N{U+201E}|\N{U+276E}|\N{U+2E42}|\N{U+301D}|\N
 # U+FF09 "）" (Fullwidth Right Parenthesis) used in some countries (Japan)
 my $cbrackets = qr/(?![\N{U+276F}|\N{U+301E}|\N{U+301F}|\N{U+FF09}])[\p{Pe}]/i;
 
-# my $separators_except_comma = qr/(;|:|$middle_dot|\[|\{|\(|\N{U+FF08}|( $dashes ))|(\/)/i  # JAPAN
-my $separators_except_comma = qr/(;|:|$middle_dot|\[|\{|\(|( $dashes ))|(\/)/i
+my $separators_except_comma = qr/(;|:|$middle_dot|\[|\{|\(|\N{U+FF08}|( $dashes ))|(\/)/i
 	;    # separators include the dot . followed by a space, but we don't want to separate 1.4 etc.
 
 my $separators = qr/($stops\s|$commas|$separators_except_comma)/i;
@@ -1294,7 +1293,6 @@ sub parse_ingredients_text ($product_ref) {
 
 			# If the first separator is a column : or a start of parenthesis etc. we may have sub ingredients
 
-			# if ($sep =~ /(:|\[|\{|\()/i) {
 			if ($sep =~ /(:|\[|\{|\(|\N{U+FF08})/i) {
 
 				# Single separators like commas and dashes
@@ -1317,10 +1315,10 @@ sub parse_ingredients_text ($product_ref) {
 				elsif ($sep eq '{') {
 					$ending = '\}';
 				}
-				# # brackets type used in some countries (Japan) "（" and "）"
-				# elsif ($sep =~ '\N{U+FF08}') {
-				# 	$ending = '\N{U+FF09}';
-				# }
+				# brackets type used in some countries (Japan) "（" and "）"
+				elsif ($sep =~ '\N{U+FF08}') {
+					$ending = '\N{U+FF09}';
+				}
 
 				$ending = '(' . $ending . ')';
 
