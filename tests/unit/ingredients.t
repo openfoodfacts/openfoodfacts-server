@@ -513,6 +513,15 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 			ingredients_text => "vitamin a, salt",
 		}
 	],
+
+	# test "（" and "）"parenthesis found in some countries (Japan)
+	# [
+	# 	"jp-parenthesis",
+	# 	{
+	# 		lc => "jp",
+	# 		ingredients_text => "しょうゆ（本醸造）、糖類（ぶどう糖果糖液糖、水あめ、砂糖）、みりん、食塩、かつお節、さば節、たん白加水分解物混合物、こんぶ、調味料（アミノ酸等）、アルコール",
+	# 	}
+	# ],
 );
 
 my $json = JSON->new->allow_nonref->canonical;
