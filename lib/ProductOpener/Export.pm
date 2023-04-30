@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -277,6 +277,29 @@ sub export_csv ($args_ref) {
 						{
 							$populated_fields{$nid . "_prepared_value"} = $field_sort_key . "_3";
 							$populated_fields{$nid . "_prepared_unit"} = $field_sort_key . "_4";
+						}
+					}
+				}
+				elsif ($group_id eq "packaging") {
+					# packaging data will be exported in the CSV file in columns named like packaging_1_number_of_units
+					if (defined $product_ref->{packagings}) {
+						my $i = 0;    # number of the packaging component
+						foreach my $packaging_ref (@{$product_ref->{packagings}}) {
+							$i++;
+							my $j = 0;    # number of the field
+							foreach my $field (
+								qw(number_of_units shape material recycling quantity_per_unit weight_specified weight_measured)
+								)
+							{
+								$j++;
+								if (defined $packaging_ref->{$field}) {
+									# Generate a sort key so that the packaging fields in the CSV file are in this order:
+									# - all fields for packaging component 1, then all fields for packaging component 2
+									# - number_of_units, shape, material etc. (same a for loop above)
+									my $field_sort_key = sprintf("%08d", $group_number * 1000 + $i * 10 + $j);
+									$populated_fields{"packaging_" . $i . "_" . $field} = $field_sort_key;
+								}
+							}
 						}
 					}
 				}
@@ -575,6 +598,12 @@ sub export_csv ($args_ref) {
 						# but they are not entered directly, but computed from other fields, so we can take their values as is.
 						$value = list_taxonomy_tags_in_language($product_ref->{lc}, $field,
 							$product_ref->{$field . "_hierarchy"});
+					}
+					# packagings field of the form packaging_2_number_of_units
+					elsif ($field =~ /^packaging_(\d+)_(.*)$/) {
+						my $index = $1 - 1;
+						my $property = $2;
+						$value = deep_get($product_ref, ("packagings", $index, $property));
 					}
 					# Allow returning fields that are not at the root of the product structure
 					# e.g. ecoscore_data.agribalyse.score  -> $product_ref->{ecoscore_data}{agribalyse}{score}

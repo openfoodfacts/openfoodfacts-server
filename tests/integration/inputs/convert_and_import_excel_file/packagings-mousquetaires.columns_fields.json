@@ -1,0 +1,46 @@
+{
+   "gtin" : {
+      "column_id" : "gtin",
+      "field" : "code",
+      "value_unit" : "value"
+   },
+   "marque" : {
+      "column_id" : "marque",
+      "field" : "brands",
+      "value_unit" : "unit"
+   },
+   "materiau" : {
+      "column_id" : "materiau",
+      "field" : "packaging_1_material",
+      "value_unit" : "value_unit"
+   },
+   "nom" : {
+      "column_id" : "nom",
+      "field" : "product_name",
+      "lc" : "fr",
+      "value_unit" : "value_unit"
+   },
+   "nombre-d-unites-de-composants" : {
+      "column_id" : "nombre-d-unites-de-composants",
+      "field" : "packaging_1_number_of_units",
+      "value_unit" : "value"
+   },
+   "poids-percent" : {
+      "column_id" : "poids-percent",
+      "value_unit" : "value_in_percent"
+   },
+   "poids-unitaire-vide-gramme" : {
+      "column_id" : "poids-unitaire-vide-gramme",
+      "field" : "packaging_1_weight_specified",
+      "value_unit" : "value"
+   },
+   "type-d-emballage" : {
+      "column_id" : "type-d-emballage",
+      "field" : "packaging_1_shape",
+      "value_unit" : "unit"
+   },
+   "usage-de-l-emballage" : {
+      "column_id" : "usage-de-l-emballage",
+      "value_unit" : "unit"
+   }
+}

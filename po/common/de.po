@@ -1564,6 +1564,10 @@ msgid "The table lists by default nutriments that are often specified. Leave the
 "by typing the first letters of their name in the last row of the table."
 msgstr "Die Tabelle listet standardmäßig Nährstoffe auf, die häufig angegeben werden. Lassen Sie das Feld leer, wenn es nicht auf dem Etikett steht.<br/>Sie können zusätzliche Nährstoffe (Vitamine, Mineralien, Cholesterin usw.) hinzufügen, indem Sie die Anfangsbuchstaben des Namens in die letzte Zeile der Tabelle eingeben."
 
+msgctxt "nutrition_data_table_asterisk"
+msgid "Essential nutrients to calculate the Nutri-Score."
+msgstr "Wichtige Nährstoffe zur Berechnung des Nutri-Scores."
+
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
 msgstr "Nährwertqualitäten"
@@ -4097,9 +4101,10 @@ msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "Moderation der Produzentenplattform"
 
-msgctxt "pro_moderator_owner_set"
-msgid "You are currently viewing products from %s."
-msgstr "Ihnen werden derzeit Produkte von %s angezeigt."
+# variable names between { } must not be translated
+msgctxt "f_pro_moderator_owner_set"
+msgid "You are currently viewing products from {organization}."
+msgstr "Sie sehen derzeit Produkte von {organization}."
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
@@ -4111,8 +4116,8 @@ msgstr "Um Produkte eines bestimmten Benutzers oder einer Organisation anzuzeige
 
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
-msgid "Change"
-msgstr "Ändern"
+msgid "Switch to another organization"
+msgstr "Zu einer anderen Organisation wechseln"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
@@ -4717,7 +4722,7 @@ msgstr "Versuchen Sie, so spezifisch wie möglich zu sein. Bei Kunststoff geben 
 
 msgctxt "packaging_text_note_3"
 msgid "Data from this field will be combined with any data provided for each packaging part. It is possible to provide one or the other, or both."
-msgstr ""
+msgstr "Die Daten aus diesem Feld werden mit jenen kombiniert, die für jedes Verpackungsteil angegeben wurden. Es ist möglich, das eine oder das andere oder beides anzugeben."
 
 msgctxt "product_js_extract_packaging"
 msgid "Extract the recycling instructions and/or packaging information from the picture"
@@ -5617,6 +5622,14 @@ msgctxt "ecoscore_warning_international"
 msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgstr "Der Eco-Score wurde ursprünglich für Frankreich entwickelt und wird derzeit auf andere europäische Länder ausgeweitet. Die Formel zur Berechnung des Eco-Score kann sich ändern, da sie regelmäßig verfeinert wird, um sie präziser und besser für jedes Land geeignet zu machen."
 
+msgctxt "ecoscore_warning_transportation_world"
+msgid "Select a country in order to include the full impact of transportation."
+msgstr "Wählen Sie ein Land aus, um die Auswirkungen des Transports vollständig zu erfassen."
+
+msgctxt "ecoscore_warning_transportation"
+msgid "The full impact of transportation to your country is currently unknown."
+msgstr "Die vollständigen Auswirkungen des Transports in Ihr Land sind derzeit nicht bekannt."
+
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
 msgstr "Barcodes einlesen, um den Nutri-Score, den Eco-Score und mehr zu ermitteln!"
@@ -6091,21 +6104,21 @@ msgstr "Nährwertangaben hinzufügen"
 
 msgctxt "action_add_origins"
 msgid "Add the origins of ingredients for this product"
-msgstr ""
+msgstr "Herkunft der Zutaten für dieses Produkt hinzufügen"
 
 msgctxt "action_add_packaging_image"
 msgid "Take a photo of the recycling information"
-msgstr ""
+msgstr "Foto der Recycling-Informationen aufnehmen"
 
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
-msgstr ""
+msgstr "Allgemeine Angaben hinzufügen"
 
 # this is not used yet
 msgctxt "action_add_portion_size"
 msgid "Add portion size"
-msgstr ""
+msgstr "Portionsgröße hinzufügen"
 
 # this is not used yet
 msgctxt "action_add_ingredients_image"
@@ -6120,37 +6133,37 @@ msgstr "Machen Sie ein Foto von den Nährwertangaben"
 # this is not used yet
 msgctxt "action_refresh_ingredients_image"
 msgid "Refresh the photo of the ingredients"
-msgstr ""
+msgstr "Foto der Zutaten aktualisieren"
 
 # this is not used yet
 msgctxt "action_refresh_nutrition_image"
 msgid "Refresh the photo of the nutrition facts"
-msgstr ""
+msgstr "Foto der Nährwertangaben aktualisieren"
 
 # this is not used yet
 msgctxt "action_add_packaging_text"
 msgid "Extract and check the recycling information"
-msgstr ""
+msgstr "Recycling-Informationen extrahieren und überprüfen"
 
 # this is not used yet
 msgctxt "action_add_stores"
 msgid "Add the store where you found this product"
-msgstr ""
+msgstr "Geschäft hinzufügen, in dem Sie dieses Produkt gefunden haben"
 
 # this is not used yet
 msgctxt "action_labels"
 msgid "Add any label present on this product"
-msgstr ""
+msgstr "Jedes auf diesem Produkt vorhandene Etikett hinzufügen"
 
 # this is not used yet
 msgctxt "action_countries"
 msgid "Add the country where you found this product"
-msgstr ""
+msgstr "Land hinzufügen, in dem Sie das Produkt gefunden haben"
 
 # this is not used yet
 msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
-msgstr ""
+msgstr "Foto der Rückverfolgbarkeitscodes aufnehmen"
 
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
@@ -6329,6 +6342,10 @@ msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
 msgstr "Ungültiger Typ: Ganzzahl gefordert"
 
+msgctxt "api_message_invalid_type_must_be_number"
+msgid "Invalid type: must be a number"
+msgstr "Ungültiger Typ: Zahl gefordert"
+
 msgctxt "api_message_missing_field"
 msgid "Missing field"
 msgstr "Fehlendes Feld"
@@ -6353,20 +6370,24 @@ msgctxt "api_impact_field_ignored"
 msgid "Field ignored"
 msgstr "Feld ignoriert"
 
+msgctxt "api_impact_value_converted"
+msgid "Value converted"
+msgstr "Wert umgewandelt"
+
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "Anzahl der Einheiten"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
 msgid "Weight of one empty unit"
-msgstr ""
+msgstr "Gewicht einer leeren Einheit"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit"
 msgid "Quantity of product contained per unit"
-msgstr ""
+msgstr "Menge des enthaltenen Produkts pro Einheit"
 
 # variable names between { } must not be translated
 msgctxt "f_help_categorize_on_hunger_games"
@@ -6375,5 +6396,69 @@ msgstr "Helfen Sie, mehr {title} auf Hunger Games zu kategorisieren"
 
 msgctxt "packagings_complete"
 msgid "All the packaging parts of the product are listed."
-msgstr ""
+msgstr "Alle Verpackungsbestandteile des Produkts sind aufgeführt."
+
+msgctxt "api_message_invalid_user_id_and_password"
+msgid "Invalid user id and password"
+msgstr "Ungültige Benutzerkennung und Passwort"
+
+msgctxt "api_message_invalid_value_must_be_0_or_1"
+msgid "Invalid value: must be 0 or 1"
+msgstr "Ungültiger Wert: muss 0 oder 1 sein"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units_description"
+msgid "Enter the number of packaging units of the same shape and material contained in the product."
+msgstr "Geben Sie die Anzahl der Verpackungseinheiten gleicher Form und gleichen Materials an, die in dem Erzeugnis enthalten sind."
+
+msgctxt "packaging_shape_description"
+msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
+msgstr "Geben Sie den Namen der Form ein, die in der Recycling-Anleitung aufgeführt ist (falls vorhanden) oder wählen Sie eine Form aus."
+
+msgctxt "packaging_material_description"
+msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
+msgstr "Geben Sie das spezifische Material an, wenn es bestimmt werden kann (ein Materialcode in einem Dreieck ist oft auf Verpackungsteilen zu finden), oder ein allgemeines Material (z. B. Kunststoff oder Metall), wenn Sie sich nicht sicher sind."
+
+msgctxt "packaging_recycling_description"
+msgid "Enter recycling instructions only if they are listed on the product."
+msgstr "Geben Sie Recyclinghinweise nur an, wenn sie auf dem Produkt angegeben sind."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight_description"
+msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
+msgstr "Entfernen Sie Lebensmittelreste und waschen und trocknen Sie das Verpackungsteil vor dem Wiegen. Wenn möglich, verwenden Sie eine Waage mit einer Genauigkeit von 0,1g oder 0,01g."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit_description"
+msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
+msgstr "Geben Sie das Nettogewicht oder Nettovolumen ein und geben Sie die Einheit an (z. B. g oder ml)."
+
+msgctxt "import_and_export_products"
+msgid "Import and export products"
+msgstr "Produkte im- und exportieren"
+
+msgctxt "add_products"
+msgid "Add products"
+msgstr "Produkte hinzufügen"
+
+# Needs to be short (displayed in a menu)
+msgctxt "install_the_app_to_add_products"
+msgid "Install the app to add products"
+msgstr "Installieren Sie die App, um Produkte hinzufügen zu können"
+
+msgctxt "search_and_analyze_products"
+msgid "Search and analyze products"
+msgstr "Produkte suchen und analysieren"
+
+msgctxt "resources"
+msgid "Resources"
+msgstr "Ressourcen"
+
+msgctxt "pro_platform_user_guide"
+msgid "Pro platform user guide"
+msgstr "Benutzerhandbuch für die Pro-Plattform"
+
+msgctxt "faq_for_producers"
+msgid "FAQ for producers"
+msgstr "FAQ für Produzenten"
 

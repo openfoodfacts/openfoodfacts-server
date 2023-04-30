@@ -114,7 +114,7 @@ my $tests_ref = [
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890007',
 		body => '{
-			"fields": "updated",
+			"fields": "updated,misc_tags,weighers_tags",
 			"tags_lc": "fr",
 			"product": {
 				"packagings_add": [
@@ -138,7 +138,7 @@ my $tests_ref = [
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890008',
 		body => '{
-			"fields": "updated,misc_tags",
+			"fields": "updated,misc_tags,weighers_tags",
 			"tags_lc": "en",
 			"product": {
 				"packagings_add": [
@@ -517,6 +517,72 @@ my $tests_ref = [
 					}								
 				],
 				"packagings_complete": 2
+			}
+		}'
+	},
+	# Weights sent as strings (with dot or comma)
+	{
+		test_case => 'patch-packagings-weights-as-strings',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890017',
+		body => '{
+			"fields": "updated,misc_tags,weighers_tags",
+			"tags_lc": "en",
+			"product": {
+				"packagings_add": [
+					{
+						"number_of_units": 6,
+						"shape": {"lc_name": "bottle"},
+						"material": {"lc_name": "PET"},
+						"quantity_per_unit": "25cl",
+						"weight_measured": "10"
+					},
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "box"},
+						"material": {"lc_name": "wood"},
+						"weight_specified": "25.5"
+					},
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "film"},
+						"material": {"lc_name": "plastic"},
+						"weight_specified": "2,01"
+					}					
+				]
+			}
+		}'
+	},
+	# Weights sent as strings with units
+	{
+		test_case => 'patch-packagings-weights-as-strings-with-units',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890018',
+		body => '{
+			"fields": "updated,misc_tags,weighers_tags",
+			"tags_lc": "en",
+			"product": {
+				"packagings_add": [
+					{
+						"number_of_units": 6,
+						"shape": {"lc_name": "bottle"},
+						"material": {"lc_name": "PET"},
+						"quantity_per_unit": "25cl",
+						"weight_measured": "10 g"
+					},
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "box"},
+						"material": {"lc_name": "wood"},
+						"weight_specified": "25.5g"
+					},
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "film"},
+						"material": {"lc_name": "plastic"},
+						"weight_specified": "2,01 grams"
+					}		
+				]
 			}
 		}'
 	},

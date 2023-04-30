@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -37,6 +37,7 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&write_product_api
+		&skip_protected_field
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -50,6 +51,38 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::API qw/:all/;
 use ProductOpener::Packaging qw/:all/;
+use ProductOpener::Text qw/:all/;
+
+use Encode;
+
+=head2 skip_protected_field($product_ref, $field, $moderator = 0)
+
+Return 1 if we should ignore a field value sent by a user because we already have a value sent by the producer.
+
+=cut
+
+sub skip_protected_field ($product_ref, $field, $moderator = 0) {
+
+	# If we are on the public platform, and the field data has been imported from the producer platform
+	# ignore the field changes for non tag fields, unless made by a moderator
+	if (    (not $server_options{producers_platform})
+		and (defined $product_ref->{owner_fields})
+		and (defined $product_ref->{owner_fields}{$field})
+		and (not $moderator))
+	{
+		$log->debug(
+			"skipping field with a value set by the owner",
+			{
+				code => $product_ref->{code},
+				field_name => $field,
+				existing_field_value => $product_ref->{$field},
+				new_field_value => remove_tags_and_quote(decode utf8 => single_param($field))
+			}
+		) if $log->is_debug();
+		return 1;
+	}
+	return 0;
+}
 
 =head2 update_field_with_0_or_1_value($request_ref, $product_ref, $field, $value)
 
@@ -140,8 +173,13 @@ sub update_packagings ($request_ref, $product_ref, $field, $is_addition, $value)
 				$input_packaging_ref, $response_ref);
 
 			if (defined $packaging_ref) {
-				# Add or combine with the existing packagings components array
-				add_or_combine_packaging_component_data($product_ref, $packaging_ref, $response_ref);
+				if (not $is_addition) {
+					push @{$product_ref->{packagings}}, $packaging_ref;
+				}
+				else {
+					# Add or combine with the existing packagings components array
+					add_or_combine_packaging_component_data($product_ref, $packaging_ref, $response_ref);
+				}
 			}
 		}
 	}

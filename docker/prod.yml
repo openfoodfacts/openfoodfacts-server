@@ -37,6 +37,8 @@ volumes:
     external: true
   podata:
     external: true
+  # not external, for wiping it will avoid keeping too much cached data
+  build_cache:
 
 networks:
   webnet:

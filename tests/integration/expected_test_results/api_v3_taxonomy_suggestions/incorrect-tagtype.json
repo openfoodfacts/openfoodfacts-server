@@ -1,0 +1,22 @@
+{
+   "errors" : [
+      {
+         "field" : {
+            "id" : "tagtype",
+            "value" : "not_a_taxonomy"
+         },
+         "impact" : {
+            "id" : "failure",
+            "lc_name" : "Failure",
+            "name" : "Failure"
+         },
+         "message" : {
+            "id" : "unrecognized_value",
+            "lc_name" : "Unrecognized value",
+            "name" : "Unrecognized value"
+         }
+      }
+   ],
+   "status" : "failure",
+   "warnings" : []
+}
