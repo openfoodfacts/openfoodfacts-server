@@ -17,12 +17,12 @@ Here are some introductory resources to learn Perl:
 # See the logs while running Perl locally
 ## Types of logs
 ### Logs that are always printed
-Those logs are like this:
+Those logs are like this:  
 ```
 $log->debug("extracting ingredients from text", {text => $text})
      if $log->is_debug();
 ```
-or this:
+or this:  
 ```
 $log->trace("compare_nutriments", {nid => $nid}) if $log->is_trace();
 ```
@@ -38,10 +38,11 @@ There is a make command to see (all) logs:
 
 ```make tail```
 
-Nevertheless, if you want to see only perl-related logs, you can either edit temporarily the **Makefile** (replace ```tail -f logs/**/*``` by following command. **Do not forget to rollback changes!**)file or directly run the following command in a terminal:
+Nevertheless, if you want to see only perl-related logs, you can either edit temporarily the **Makefile** file (replace ```tail -f logs/**/*``` by following command. **Do not forget to rollback changes!**) or directly run the following command in a terminal:  
+  
 ```tail -f logs/apache2/log4perl.log```
 
-Additionally, sometimes you want to focus only to some specific logs in the code. In this case you can use combination of tail and grep commands to find specific text in the logs. For example this command will fetch all logs containing the text "found the first separator":
-```tail -f logs/apache2/log4perl.log | grep -a "found the first separator"```
 
-**Remark:** to 
+Additionally, sometimes you want to focus only to some specific logs in the code. In this case you can use combination of tail and grep commands to find specific text in the logs. For example this command will fetch all logs containing the text "found the first separator":  
+
+```tail -f logs/apache2/log4perl.log | grep -a "found the first separator"```
