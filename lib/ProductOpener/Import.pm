@@ -1126,7 +1126,7 @@ sub import_packaging_components (
 	my @input_packagings = ();
 	my $data_is_complete = 0;
 
-	# packaging data is specified in the CSV file in columns named like packagings_1_number_of_units
+	# packaging data is specified in the CSV file in columns named like packaging_1_number_of_units
 	# we currently search up to 10 components
 
 	for (my $i = 1; $i <= $IMPORT_MAX_PACKAGING_COMPONENTS; $i++) {
@@ -2033,15 +2033,13 @@ sub import_csv_file ($args_ref) {
 				my $source_field = $';
 				defined $product_ref->{sources_fields} or $product_ref->{sources_fields} = {};
 				defined $product_ref->{sources_fields}{$source_id} or $product_ref->{sources_fields}{$source_id} = {};
-				if ($imported_product_ref->{$field} ne $product_ref->{sources_fields}{$source_id}{$source_field}) {
+				if (   (not defined $product_ref->{sources_fields}{$source_id}{$source_field})
+					or ($imported_product_ref->{$field} ne $product_ref->{sources_fields}{$source_id}{$source_field}))
+				{
 					$modified++;
 					defined $stats_ref->{"products_sources_field_" . $field . "_updated"}
 						or $stats_ref->{"products_sources_field_" . $field . "_updated"} = {};
 					$stats_ref->{"products_sources_field_" . $field . "_updated"}{$code} = 1;
-					print "different sources_field values - field: $field - existing: "
-						. $product_ref->{sources_fields}{$source_id}{$source_field}
-						. " - new: "
-						. $imported_product_ref->{$field} . "\n";
 					$product_ref->{sources_fields}{$source_id}{$source_field} = $imported_product_ref->{$field};
 				}
 			}

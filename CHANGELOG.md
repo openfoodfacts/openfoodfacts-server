@@ -1,5 +1,48 @@
 # Changelog
 
+## [2.11.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.10.0...v2.11.0) (2023-04-25)
+
+
+### Features
+
+* add hyphens for properties in folksonomy ([#8278](https://github.com/openfoodfacts/openfoodfacts-server/issues/8278)) ([dee45c2](https://github.com/openfoodfacts/openfoodfacts-server/commit/dee45c20ca58fe06f96c116263269636cff1d502))
+* Create assetslinks.json ([#8306](https://github.com/openfoodfacts/openfoodfacts-server/issues/8306)) ([048acdb](https://github.com/openfoodfacts/openfoodfacts-server/commit/048acdb8b7c9c47bc4c7854a27a235761574e5ca))
+* Enable Polish ingredients processing + tests ([#8331](https://github.com/openfoodfacts/openfoodfacts-server/issues/8331)) ([6bb43ea](https://github.com/openfoodfacts/openfoodfacts-server/commit/6bb43ea2f8fbd2d63b090fe0e6a5c76fce0a7698))
+* export packaging data ([#8359](https://github.com/openfoodfacts/openfoodfacts-server/issues/8359)) ([da04b19](https://github.com/openfoodfacts/openfoodfacts-server/commit/da04b19dd8cee73d455a41803fa558550111a304))
+
+
+### Bug Fixes
+
+* avoid reference to missing panel in root card ([#8297](https://github.com/openfoodfacts/openfoodfacts-server/issues/8297)) ([acfb092](https://github.com/openfoodfacts/openfoodfacts-server/commit/acfb09266888224ef95ced2254542f0bc9322167)), closes [#8295](https://github.com/openfoodfacts/openfoodfacts-server/issues/8295)
+* canonical url for /cgi/top_translators.pl  ([#8342](https://github.com/openfoodfacts/openfoodfacts-server/issues/8342)) ([7a5d838](https://github.com/openfoodfacts/openfoodfacts-server/commit/7a5d838cf629535003bd2016cbdd52724c62e754))
+* canonical url for /cgi/top_translators.pl [#8334](https://github.com/openfoodfacts/openfoodfacts-server/issues/8334) ([7a5d838](https://github.com/openfoodfacts/openfoodfacts-server/commit/7a5d838cf629535003bd2016cbdd52724c62e754))
+* Fix routing pages ([#8305](https://github.com/openfoodfacts/openfoodfacts-server/issues/8305)) ([1991f33](https://github.com/openfoodfacts/openfoodfacts-server/commit/1991f33c8ffbdd8b691a0e05f82fa5d629839f11))
+* loosing the second facet at the end of the url on redirection ([#8307](https://github.com/openfoodfacts/openfoodfacts-server/issues/8307)) ([28aa93d](https://github.com/openfoodfacts/openfoodfacts-server/commit/28aa93d31eecc854d46152ff6e52338d632e74fb))
+* Nutrition facts completed state is not computed properly ([#8271](https://github.com/openfoodfacts/openfoodfacts-server/issues/8271)) ([ec9ca2a](https://github.com/openfoodfacts/openfoodfacts-server/commit/ec9ca2aa880f8be919e739f68b2730e4e643d82c))
+* remove z-index:-3 on nutrition photo  ([#8293](https://github.com/openfoodfacts/openfoodfacts-server/issues/8293)) ([a15bb75](https://github.com/openfoodfacts/openfoodfacts-server/commit/a15bb7507ae23061d4958bb5d91f647244ff4bc3))
+* remove z-index:-3 on nutrition photo [#8292](https://github.com/openfoodfacts/openfoodfacts-server/issues/8292) ([a15bb75](https://github.com/openfoodfacts/openfoodfacts-server/commit/a15bb7507ae23061d4958bb5d91f647244ff4bc3))
+* typo ([#8318](https://github.com/openfoodfacts/openfoodfacts-server/issues/8318)) ([9897243](https://github.com/openfoodfacts/openfoodfacts-server/commit/98972437b675253b47d5b35a3665aba32f60ca25))
+
+
+### Technical
+
+* improve OpenAPI documentation about images ([#8341](https://github.com/openfoodfacts/openfoodfacts-server/issues/8341)) ([4a2e7fc](https://github.com/openfoodfacts/openfoodfacts-server/commit/4a2e7fc31887100b4962e958183490c86101026b))
+
+
+### Taxonomy
+
+* add demain-la-terre and sans-residus-de-pesticides-collectif-nouveaux-champs labels ([#8315](https://github.com/openfoodfacts/openfoodfacts-server/issues/8315)) ([224d686](https://github.com/openfoodfacts/openfoodfacts-server/commit/224d686ebdb7e1ced3ffbd455d1594754242632d))
+* Add labels to labels.txt ([#8299](https://github.com/openfoodfacts/openfoodfacts-server/issues/8299)) ([263cd06](https://github.com/openfoodfacts/openfoodfacts-server/commit/263cd06f1b915f75b3801a016c1f639462d694ac))
+* add new 2022 infotri system ([#7995](https://github.com/openfoodfacts/openfoodfacts-server/issues/7995)) ([b2f9b1d](https://github.com/openfoodfacts/openfoodfacts-server/commit/b2f9b1dd4962d19a3844680a793aad88473ee5eb))
+* added changes from laralem ([#8312](https://github.com/openfoodfacts/openfoodfacts-server/issues/8312)) ([0489a37](https://github.com/openfoodfacts/openfoodfacts-server/commit/0489a377bf21abb09c0088974cd51664b5a0827b))
+* added some categories found in HR ([#8309](https://github.com/openfoodfacts/openfoodfacts-server/issues/8309)) ([98625ff](https://github.com/openfoodfacts/openfoodfacts-server/commit/98625ff2416a8d9ca8b803f28513befb3506539b))
+* added translation and labels found in hr ([#8303](https://github.com/openfoodfacts/openfoodfacts-server/issues/8303)) ([79e41b3](https://github.com/openfoodfacts/openfoodfacts-server/commit/79e41b3bb03714b0bf12167e359d6fd27cd0c9d2))
+* copied pasted contribution from laralem ([#8356](https://github.com/openfoodfacts/openfoodfacts-server/issues/8356)) ([685f426](https://github.com/openfoodfacts/openfoodfacts-server/commit/685f426dc573f7329ceb31a1b7a7c853b01e96af))
+* de syn ([#8301](https://github.com/openfoodfacts/openfoodfacts-server/issues/8301)) ([76dc037](https://github.com/openfoodfacts/openfoodfacts-server/commit/76dc037a56c1c0b9e4548b1272ee6607224e4fdb))
+* de translations ([#8300](https://github.com/openfoodfacts/openfoodfacts-server/issues/8300)) ([a56b765](https://github.com/openfoodfacts/openfoodfacts-server/commit/a56b765426c78452ee2c0976b970b66f813ef84b))
+* More bruschetta ([#8317](https://github.com/openfoodfacts/openfoodfacts-server/issues/8317)) ([1d2ce53](https://github.com/openfoodfacts/openfoodfacts-server/commit/1d2ce53671cb2928f5bce236e8273faf941f6650))
+* reapply changes from previous PR ([#8348](https://github.com/openfoodfacts/openfoodfacts-server/issues/8348)) ([28ba212](https://github.com/openfoodfacts/openfoodfacts-server/commit/28ba2125b51a5409166433efd40c276776c028b1))
+
 ## [2.10.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.9.0...v2.10.0) (2023-04-07)
 
 
