@@ -104,10 +104,10 @@ is_deeply(
 	[
 		# removed product_broken_code
 		"Removed broken-123",
-		# product_non_normalized_code moved
-		"Moved 0000012345678 to 12345678",
 		# removed product with existing id
 		"Removed 0000012345670 as duplicate of 12345670",
+		# product_non_normalized_code moved
+		"Moved 0000012345678 to 12345678",
 		# product_int_code
 		"Int codes: refresh 1, removed 2",
 		# product_broken_code and product_non_normalized_code* removed from mongo directly
