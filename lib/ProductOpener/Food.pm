@@ -2420,6 +2420,7 @@ we store the result in the nutriments_estimated hash.
 sub compute_estimated_nutrients ($product_ref) {
 	my $results_ref = estimate_nutrients_from_ingredients($product_ref->{ingredients});
 
+    # only take the result if we have at least 95% of ingredients with nutrients
 	if (($results_ref->{total} > 0) and (($results_ref->{total_with_nutrients} / $results_ref->{total}) >= 0.95)) {
 		$product_ref->{nutriments_estimated} = {};
 		while (my ($nid, $value) = each(%{$results_ref->{nutrients}})) {
