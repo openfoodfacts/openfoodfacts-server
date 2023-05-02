@@ -8,6 +8,8 @@ synonyms:en:hydrolysed, hydrolyzed
 
 synonyms:en:pasteurised, pasteurized
 
+synonyms:en:fiber, fibre
+
 # comment:en:These are words that occur inside the name of one ingredient, but that can be removed for matching the ingredient with entries in the taxonomy
 
 stopwords:bg:съдържа, в, от, с, със, до, и, или, и/или, минимум, произведено с, с добавенo, включително, променливо, отношение, съотношение
@@ -1901,11 +1903,12 @@ vegetarian:en:maybe
 
 <en:dairy
 en:powdered milk products, dried milk products, product on base on milk powder
+# en:process:en:powder
 bg:сухо мляко на прах
 ca:producte làctic en pols, producte a base de llet en pols, productes làctics en pols, productes a base de llet en pols
 de:Trockenmilcherzeugnis
 es:producto lácteo en polvo, producto a base de leche en polvo, productos lácteos en polvo, productos a base de leche en polvo
-fr:produits laitiers en poudre
+#fr:produits laitiers en poudre
 hu:tejpor alapú termékek
 
 
@@ -3683,6 +3686,7 @@ sv:kondenserad skummjölk
 
 <en:condensed milk
 <en:powdered milk
+#en:process:en:powder
 fr:lait écrémé concentré ou en poudre
 ca:llet en pols condensada, llet condensada en pols
 es:leche en polvo condensada, leche condensada en polvo
@@ -3709,6 +3713,7 @@ vegetarian:en:yes
 ################################ MILK POWDERS ##################################
 
 # nova:en:milk-powder
+#process:en: en:powder
 <en:dairy
 en:milk powder, powdered milk, dry milk
 bg:мляко на прах, сухо мляко
@@ -3740,9 +3745,11 @@ nova:en:3
 
 <en:whole milk powder
 <en:milk from France
+#en:process:en:powder
 fr:lait origine france en poudre écrémé
 
 <en:milk powder
+#process:en: en:powder
 en:Semi-skimmed milk powder
 bg:Полуобезмаслено мляко на прах
 fr:lait en poudre demi-écrémé, lait en poudre partiellement écrémé, poudre de lait partiellement écrémé
@@ -4048,17 +4055,17 @@ vegan:en:no
 vegetarian:en:yes
 wikipedia:en:https://en.wikipedia.org/wiki/Lactose
 
-<en:Lactose
-en:Lactose powder, powdered lactose
-bg:Лактоза на прах
-ca:lactosa en pols
-da:laktosepulver
-de:Laktosepulver
-es:lactosa en polvo
-fi:laktoosijauhe
-fr:poudre de lactose
-hu:laktózpor
-nl:Lactosepoeder
+#<en:Lactose
+# en:processing:en:powder
+#en:Lactose powder, powdered lactose
+#ca:lactosa en pols
+#da:laktosepulver
+# de:Milchpulver
+# es:lactosa en polvo
+#fi:laktoosijauhe
+# fr:poudre de lactose
+# hu:laktózpor
+# nl:Lactosepoeder
 
 
 # <from:en:milk
@@ -4193,8 +4200,10 @@ fr:yogourt au lait entier, yaourt au lait entier
 nl:volle yoghurt, volle melk yoghurt
 
 <en:yogurt
-de:Joghurtpulver
+en:yogurt powder
+#en:process:en:powder
 ca:iogurt en pols
+de:Joghurtpulver
 es:yogur en polvo
 fi:jogurttijauhe
 fr:yaourt en poudre
@@ -4490,7 +4499,7 @@ ja:ホエイパウダー
 lt:išrūgų milteliai
 lv:sūkalu pulveris
 nb:mysepulver, mysepulver av melk
-nl:weipoeder, wei poeder
+nl:weipoeder, wei poeder, wei-poeder
 pl:Serwatka w proszku, preparat serwatkowy
 pt:soro de leite em pó
 ro:produs din zer praf
@@ -4503,6 +4512,7 @@ vegan:en:no
 vegetarian:en:maybe
 
 <en:whey powder
+#en:process:en:powder
 nl:vegetarisch weipoeder
 vegan:en:no
 vegetarian:en:yes
@@ -4513,9 +4523,11 @@ vegan:en:no
 vegetarian:en:yes
 
 <en:whey powder
+#en:process:en:powder
 de:eiweißangereichertes Molkenpulver
 
 <en:whey powder
+#en:process:en:powder
 en:partially demineralized powdered whey
 ca:sèrum de la llet en pols parcialment desmineralitzat
 de:Molkenpulver teilentmineralisiert
@@ -4539,6 +4551,7 @@ pl:słodka serwatka
 
 <en:sweet whey
 en:sweet whey powder
+#en:process:en:powder
 bg:сладка суроватка на прах
 de:Süßmolkepulver, Süssmolkepulver, Sussmolkenpulver, Süssmolkenpulver, Süßmolkenpulver, Sußmolkenpulver
 es:suero de leche azucarado en polvo, lactosuero azucarado en polvo
@@ -4553,6 +4566,7 @@ ro:zer pudră îndulcit
 
 <en:whey powder
 en:filtered whey powder
+#en:process:en:powder
 ca:sèrum de la llet en pols filtrat
 de:gefiltertes Molkepulver
 es:suero de leche en polvo filtrado, lactosuero en polvo filtrado
@@ -4622,12 +4636,13 @@ ca:permeat làctic reconstituit
 
 <en:whey permeate
 en:whey permeate powder
-ca:permeta de sèrum de llet en pols
-de:Molkepermeat Pulver
-es:permeado de suero en polvo
-fi:herapermeaattijauhe
-fr:perméat de petit lait en poudre
-nl:weipermeaat poeder
+#en:process:en:powder
+#ca:permeta de sèrum de llet en pols
+#de:Molkepermeat Pulver
+#es:permeado de suero en polvo
+#fi:herapermeaattijauhe
+#fr:perméat de petit lait en poudre
+#nl:weipermeaat poeder
 
 <en:whey
 en:sheep's whey, Sheep's milk serum
@@ -4658,11 +4673,11 @@ ba:Ҡаймаҡ
 be:Вяршкі
 bg:Сметана, млечна сметана, сметана от краве мляко
 br:dienn
-ca:nata, crema de la llet, crespell, cresp de la llet, doga
+ca:nata, crema de la llet, crespell, cresp de la llet, doga, crema de llet
 cs:Smetana
 cy:Hufen
 da:Fløde
-de:Rahm, Sahne, Obers, Nidel, Nidle
+de:Rahm, Sahne, Obers, Nidel, Nidle, Creme
 el:Κρέμα γάλακτος
 eo:kremo
 es:crema de leche, nata, crema
@@ -5064,13 +5079,9 @@ wikidata:en:Q326061
 wikipedia:en:https://en.wikipedia.org/wiki/Smetana_(dairy_product)
 # ingredient/smetana has 18 products @2019-07-12
 
-<en:Sour cream
-en:sour cream powder
-bg:заквасена сметана на прах
-de:Sauerrahmpulver
-es:nata agria en polvo
-fi:hapankermajauhe
-fr:poudre de crème fraîche
+#<en:Sour cream
+#en:sour cream powder
+#en:process:en:powder
 
 # comment:en:fr:Creme fraiche is often translated into creme.
 # description:en:Crème fraîche is a dairy product, a soured cream, with a pH of approximately 4.5. It is soured with a bacterial culture. European labeling regulations disallow any ingredients other than cream and bacterial culture. Fat percentage is more than 30%
@@ -5146,7 +5157,7 @@ lt:Rūgpienis
 mk:Кисело млеко
 nl:Dikmelk, Hangop, gefermenteerde melk
 nn:Surmjølk
-no:Kulturmelk
+nb:Kulturmelk
 pl:Zsiadłe mleko
 pt:Leite fermentado
 ro:Lapte acru
@@ -5301,6 +5312,8 @@ fr:Solides du babeurre
 it:Solidi di latticello
 #899 @2021-09-21
 
+<en:buttermilk
+es:suero de mantequilla rehidratada
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -5853,7 +5866,7 @@ en:melted cheese
 bg:топено сирене
 ca:formatge fos
 de:Schmelzkäse
-es:Queso derretido
+es:queso fundido, Queso derretido
 fi:sulatejuusto
 fr:fromage fondu
 hr:topljenih sireva
@@ -5864,16 +5877,17 @@ sv:smältost
 # fr:fromage-fondu has 420 products in 5 languages @2018-10-28
 
 <en:melted cheese
+#en:process:en:powder
 en:melted powdered cheese
-ca:formatge fos en pols
-de:Schmelzkäsepulver
-es:queso fundido en polvo
-fi:sulatejuustojauhe
-fr:fromage fondu en poudre
-hr:toplijenih SIREVA u prahu, mješavina toplijenih SIREVA u prahu
-hu:ömlesztett porított sajt
-it:formaggio fuso in polvere
-nl:poeder van gesmolten kazen
+#ca:formatge fos en pols
+#de:Schmelzkäsepulver
+#es:queso fundido en polvo
+#fi:sulatejuustojauhe
+#fr:fromage fondu en poudre
+#hr:toplijenih SIREVA u prahu, mješavina toplijenih SIREVA u prahu
+#hu:ömlesztett porított sajt
+#it:formaggio fuso in polvere
+#nl:poeder van gesmolten kazen
 # fr:fromage-fondu-en-poudre has 98 products in 6 languages @2018-10-28
 
 <en:melted cheese
@@ -5909,26 +5923,27 @@ ca:formatge de llet pasteuritzada
 es:queso de leche pasteurizada
 # fr:fromage-au-lait-pasteurisé has 55 products in 1 language @2018-10-28
 
-<en:cheese
-en:cheese powder
-bg:сирене на прах
-ca:formatge en pols
-da:ostepulver, ostpulver
-de:Käsepulver
-el:τυρί σε σκόνη
-es:queso en polvo
-fi:juustojauhe
-fr:fromage en poudre, poudre de fromage
-hr:sir u prahu, sireva u prahu
-hu:sajtpor, porított sajt
-it:formaggio in polvere
-nb:Ostepulver
-nl:kaaspoeder
-pl:ser w proszku, sproszkowany ser
-pt:queijo em pó
-ru:Сырный порошок
-sk:sirotka v prahu
-sv:ostpulver
+#<en:cheese
+#en:cheese powder
+#en:processing:en:powder
+#bg:сирене на прах
+#ca:formatge en pols
+#da:ostepulver, ostpulver
+#de:Käsepulver
+#el:τυρί σε σκόνη
+#es:queso en polvo
+#fi:juustojauhe
+#fr:fromage en poudre, poudre de fromage
+#hr:sir u prahu, sireva u prahu
+#hu:sajtpor, porított sajt
+#it:formaggio in polvere
+#nb:Ostepulver
+#nl:kaaspoeder
+#pl:ser w proszku, sproszkowany ser
+#pt:queijo em pó
+#ru:Сырный порошок
+#sk:sirotka v prahu
+#sv:ostpulver
 # fr:fromage en poudre has 200 products in 14 languages @2018-10-28
 
 <en:melted cheese
@@ -14325,7 +14340,7 @@ nb:vannfritt melkefett
 nl:boterconcentraat, botervet, watervrij melkvet, boterolie, geconcentreerde boter
 pl:bezwodny tłuszcz mleczny
 pt:gordura butrica, matéria gorda butírica, manteiga concentrada, gordura de leite anhidra
-ro:grasimi din unt, grăsime din unt
+ro:grasimi din unt, grăsime din unt, ulei de unt
 ru:Молочный жир, топленое масло, жир-молочный
 sl:mlečna maščoba
 sr:anhidrovana mlečna
@@ -14425,6 +14440,7 @@ nn:ghi, ghee
 pa:ਘਿਉ
 pl:ghi, ghee
 pt:ghi, ghee
+ro:ghee
 ru:Гхи
 sa:घृतम्
 si:ගිතෙල්
@@ -16312,6 +16328,7 @@ from_palm_oil:en:no
 <en:vegetable oil
 en:almond oil
 bg:бадемово олио
+de:Mandelöl
 fr:huile d'amande
 nl:amandelolie
 
@@ -17087,14 +17104,14 @@ nl:gebufferde azijn, gebufferd azijn
 en:buffered vinegar powder
 nl:gebufferde azijnpoeder
 
-<en:vinegar
-en:vinegar powder
-de:Essigpulver
-es:vinagre en polvo
-fi:etikkajauhe
-fr:Poudre de vinaigre
-it:Aceto in polvere
-pl:ocet w proszku
+#<en:vinegar
+#en:vinegar powder
+#en:processing:en:powder
+#de:Essigpulver
+#es:vinagre en polvo
+#fi:etikkajauhe
+#fr:Poudre de vinaigre
+#it:Aceto in polvere
 
 <en:vinegar
 en:wine vinegar
@@ -17113,7 +17130,7 @@ ja:ワインビネガー
 nl:wijnazijn
 pl:ocet winny, octu winnego
 pt:vinagre de vinho
-ro:oțet din vin, otet din vin
+ro:oțet din vin, otet din vin, oţet de vin
 ru:Винный уксус
 sv:vinsvinäger, vinättika, vinäger av vin
 carbon_footprint_fr_foodges_ingredient:fr:Vinaigre de vin
@@ -17155,7 +17172,10 @@ pt:vinagre de álcool
 sv:ättiksprit
 
 <en:alcohol vinegar
+<en:vinegar powder
+en:alcohol vinegar powder
 fr:poudre de vinaigre d'alcool
+ro:ţet praf din alcool
 
 <en:alcohol vinegar
 es:vinagre de alcohol de caña
@@ -21755,6 +21775,7 @@ it:fibra di frumento, fibre di frumento
 nl:tarwevezel, tarwevezels
 pl:błonnik pszenny, błonnik pszeniczny
 pt:fibras de trigo
+ro:fibră de grâu
 ru:Пшеничные волокна, пищевые волокна пшеничные
 sv:vetefiber, Vete fiber
 tr:buğday lifi
@@ -25488,6 +25509,7 @@ hr:brašno graška
 hu:borsóliszt
 it:farina di piselli
 nl:erwtenmeel
+pl:mąka grochowa
 ro:făină de mazăre
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:farine-de-pois
 # 36 products in 4 languages @2018-09-22
@@ -26181,7 +26203,7 @@ da:risprotein, ris protein
 de:Reisprotein
 es:proteinas de arroz
 fi:riisiproteiini
-fr:protéine de riz
+fr:protéine de riz, protéines de riz
 hr:bjelančevine riže
 hu:rizsfehérje
 pl:białko ryżowe, białko z ryżu
@@ -26189,6 +26211,7 @@ pl:białko ryżowe, białko z ryżu
 <en:rice protein
 en:whole rice protein
 de:Vollkornreisprotein
+pl:białko brązowego ryżu
 
 #<en:rice
 #en:organic rice
@@ -27106,6 +27129,7 @@ hu:főtt rizs
 it:Riso cotto
 nl:gekookte rijst
 pl:ryż gotowany, gotowany ryż
+ro:orez fiert
 sv:kokt ris
 # ingredient/fr:riz-cuisiné has 47 products in french @2018-12-19
 
@@ -27632,6 +27656,22 @@ wikipedia:en:https://en.wikipedia.org/wiki/Powdered_sugar
 
 <en:sugar
 fr:sucre caramélisé en poudre
+
+# comment:en:powdered sugar and icing sugar may be the same thing.
+#<en:sugar
+#en:processing:en:powder
+#en:powdered sugar
+de:Puderzucker
+#es:Azucar en polvo
+#fi:jauhettu sokeri
+#fr:sucre en poudre, sucre en grains
+#hu:porcukor
+#it:zucchero semolato
+#nl:poedersuiker, bloemsuiker
+#pt:Açúcar em pó
+#ru:пудра сахарная
+#wikidata:en:Q151070
+#wikipedia:en:https://en.wikipedia.org/wiki/Powdered_sugar
 
 <en:sugar
 fr:sucre candi
@@ -28576,7 +28616,7 @@ fi:kuivattu glukoosisiirappi
 fr:sirop de glucose déshydraté, sirop de glucose en poudre
 hr:osušeni glukozni sirup
 hu:dehidratált glükózszirup, szárított glükózszirup, dehidratált glükóz szirup, szárított glükóz szirup
-it:sciroppo di glucosio disidratato, sciroppo di glucosio in polvere
+it:sciroppo di glucosio disidratato
 nl:gedroogde glucosestroop
 pl:suszony syrop glukozowy
 sv:torkad glukossirap
@@ -28585,10 +28625,22 @@ sv:torkad glukossirap
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/dehydrated-glucose-syrup
 # 350 products in 8 languages
 
-<en:powdered glucose syrup
-fr:sirop de glucose de blé en poudre
-nl:tarweglucosestrooppoeder
+<en:glucose syrup
+en:powdered glucose syrup
+#en:processing:en:powder
+#fr:sirop de glucose en poudre
+#it:sciroppo di glucosio in polvere
+
+<en:glucose syrup
+fr:sirop de glucose de blé
+nl:tarweglucosestroop
 sv:glukossirap från vetemjöl
+
+<en:cereal glucose syrup
+<en:powdered glucose syrup
+#en:processing:en:powder
+#fr:sirop de glucose de blé en poudre
+#nl:tarweglucosestrooppoeder
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop-de-glucose-de-blé-en-poudre
 # 49 products in 3 languages @2018-09-24
 
@@ -29344,7 +29396,7 @@ fr:sirop d'agave concentré biologique
 es:jarabe de ágave concentrado ecológico
 
 <en:vegetable fiber
-en:agave fibre
+en:agave fiber
 de:Agavenfaser, Agavenfasern
 fr:fibres d'agave
 nl:agavevezel
@@ -29606,11 +29658,10 @@ it:proteine di piselli
 nl:boneneiwit, erwteiwit, erwteneiwit, erwteneiwitten
 pl:białko grochu, białka grochu
 pt:Proteína de ervilha
-ro:proteină de mazăre
+ro:proteină de mazăre, proteină din mazăre
 ru:Гороховый протеин
 sv:Ärtprotein, protein från ärtor
 wikipedia:en:https://en.wikipedia.org/wiki/Pea_protein
-
 
 <en:pea protein
 en:pea protein isolate
@@ -29618,7 +29669,7 @@ cs:izolovaný hrachový protein
 de:Erbsenproteinisolat
 es:aislado de proteina de guisante
 fi:herneproteiini-isolaatti
-fr:isolat de proteines de pois
+fr:isolat de protéines de pois
 hu:borsófehérje izolátum
 ro:izolat proteic de mazăre
 
@@ -29627,6 +29678,7 @@ en:textured pea protein, textured pea proteins
 de:texturiertes Erbseneiweiß
 fr:protéines de pois texturées, protéine de pois texturée
 hr:teksturiranog proteina graška
+pl:teksturat białka grochu
 ro:texturat proteic de mazăre
 
 <en:pea protein
@@ -29710,7 +29762,7 @@ hu:szójafehérje
 hr:bjelančevine soje, hidrolizat sojinih bjelančevina, sojine bjelančevine
 it:proteine di soia
 nl:soja-eiwit, sojaeiwitten
-pl:Białko sojowe, hydrolizat białka sojowego, białko soi, białko z soi
+pl:Białko sojowe, hydrolizat białka sojowego, białko soi, białko z soi, białka sojowego
 pt:Proteína de soja
 ro:proteină de soia, proteina de soia, proteină vegetală din soia, proteina vegetala din soia
 ru:Соевый протеин, соевый белок
@@ -29738,7 +29790,9 @@ fr:Fibre de soja réhydratée
 
 <en:soy protein
 de:Sojaeiweißkonzentrat, Sojaeiweisskonzentrat, Sojaproteinkonzentrat
+# fr:concentré de protéines de soja
 fi:soijaproteiini konsentraatti
+# pl:koncentrat białka sojowego
 
 <en:soy protein
 en:dehydrated soy protein
@@ -29764,9 +29818,6 @@ fr:protéines de soja réhydratées, protéines végétales de soja réhydratée
 hu:rehidratált szójafehérje
 nl:gerehydrateerd soja-eiwit, gerehydrateerde soja-eiwit
 sv:rehydrerat sojaprotein
-
-<en:soy protein
-fr:concentré de protéines de soja
 
 <en:soy protein
 en:soy protein isolate, soya protein isolate, isolated soy protein
@@ -29809,6 +29860,7 @@ fr:protéine de blé, protéines de blé, protéines de froment
 hu:búzafehérje
 it:proteine del grano
 nl:tarwe-eiwit
+pl:białko pszenne
 pt:proteína de trigo
 sv:veteprotein
 allergens:en: en:gluten
@@ -29839,6 +29891,7 @@ de:Texturiertes Weizenprotein
 es:proteína de trigo texturizada
 fr:protéines de blé texturées
 nl:getextuurd tarwe-eiwit, getextureerd tarwe-eiwit
+pl:teksturat białek pszenicy
 # ingredient/en:textured-wheat-protein has 75 products in 3 languages @2020-06-11
 
 <en:vegetable hydrolysed protein
@@ -30276,6 +30329,11 @@ es:Cacao procesado con álcali
 fr:Cacao alcalinisé
 it:Cacao trattato con agenti alcalinizzanti
 
+<en:cocoa-powder
+#en:processing:en:powder
+en:cocoa powder processed with alkali, alkalized cocoa powder
+es:Cacao en polvo procesado con álcali
+
 <en:cocoa
 en:fat reduced cocoa, reduced fat cocoa, low fat cacao
 ca:cacau desgreixat
@@ -30451,6 +30509,7 @@ fr:pâte de cacao bio
 
 <en:cocoa
 en:cocoa powder
+#en:processing:en:powder
 ar:مسحوق الكاكاو
 az:Kakao tozu
 be:Какава-парашок
@@ -30469,7 +30528,7 @@ he:אבקת קקאו
 hr:kakao prah, kakaov prah
 hu:kakaópor
 id:Kakao padat
-it:cacao in polvere
+#it:cacao in polvere
 ja:ココアパウダー
 ko:코코아 가루
 mk:какао во прав
@@ -30525,10 +30584,31 @@ sk:kakaový prášok so zníženým množstvom tuku
 sv:fettreducerat kakaopulver, fettreducerad kakaopulver, skummet kakaopulver, fettreduserat kakaopulver, avfettat kakaopulver, fettfattigt kakaopulver
 # ingredient/fr:poudre-de-cacao-maigre has 843 products in 8 languages @2019-05-25
 
-<en:fat reduced cocoa powder
-fr:cacao en poudre fortement dégraissé, cacao fortement dégraissé en poudre
-de:stark entöltes Kakaopulver
-it:cacao fortemente sgrassato ed cacao in polvere
+<en:cocoa powder
+<en:fat reduced cocoa
+en:fat reduced cocoa powder, low-fat cocoa powder, low fat cocoa powder
+#en:processing:en:powder
+#bg:обеэмаслено какао на прах
+#ca:cacau desgreixat en pols
+#cs:Kakaový prášek se sníženým obsahem tuku
+#da:skummet kakaopulver
+#de:fettarmes Kakaopulver, Kakaopulver stark entölt, mageres Kakaopulver, fettreduziertes Kakaopulver, Magerkakaopulver, stark entöltes Kakaopulver
+#es:cacao magro en polvo, cacao desgrasado en polvo, cacao en polvo desgrasado
+#et:lahja kakaopulber
+#fi:vähärasvainen kaakaojauhe, vähärasvaista kaakaojauhetta
+#fr:poudre de cacao maigre, poudre de cacao dégraissé, cacao dégraissé en poudre, cacao en poudre dégraissé, cacao maigre en poudre, cacao sec dégraissé, cacao en poudre fortement dégraissé, cacao fortement dégraissé en poudre
+#hr:kakao u prahu smanjene masnoce
+#hu:zsírszegény kakaópor
+#it:cacao magro in polvere, cacao scremato in polvere, cacao fortemente sgrassato ed cacao in polvere
+#lt:liesi kakavos milteliai
+#lv:kakao pulveris ar zemu tauku saturu
+#nl:magere cacaopoeder, magere cacao poeder, cacaopoeder met verminderd vetgehalte
+#pl:niskotłuszczowe kakao w proszku
+#pt:cacau magro em pó
+#ro:cacao pudra degresata
+#ru:обезжиренный какаопорошок
+#sv:fettreducerat kakaopulver, skummet kakaopulver
+# ingredient/fr:poudre-de-cacao-maigre has 843 products in 8 languages @2019-05-25
 # ingredient/fr:cacao-en-poudre-fortement-dégraissé has 76 products @2019-05-25
 
 <en:cocoa-powder
@@ -31111,7 +31191,7 @@ bn:সাদা চকোলেট
 ca:xocolata blanca
 cs:bílá čokoláda
 da:hvid chokolade
-de:Weiße Schokolade, weisse Schokolade
+de:Weiße Schokolade, weisse Schokolade, weißes Schokoladen
 eo:blanka ĉokolado
 es:chocolate blanco
 et:valge šokolaad
@@ -31170,10 +31250,11 @@ ciqual_food_name:fr:Chocolat blanc, tablette
 
 <en:chocolate
 en:white chocolate powder
-da:hvidt chokoladepulver
-de:weißes Schokoladenpulver
-fi:valkosuklaajauhe
-fr:chocolat blanc en poudre
+#en:processing:en:powder
+#da:hvidt chokoladepulver
+#de:weißes Schokoladenpulver
+#fi:valkosuklaajauhe
+#fr:chocolat blanc en poudre
 
 <en:chocolate
 en:chocolate sauce
@@ -31300,7 +31381,7 @@ pl:Woda, wody, wodny
 ps:اوبه
 pt:Água
 qu:Yaku
-ro:Apă
+ro:Apă, apa
 ru:Вода, вода питьевая, вода питьевая очищенная, очищенная вода, вода подготовленная, подготовленная вода, вода очищенная
 sa:जलम्
 sc:Aba
@@ -32520,6 +32601,8 @@ pt:levedura em pó
 ru:Дрожжевой порошок
 sv:torrjäst, jästpulver
 
+#en:processing:en:powder
+#en:comment:misses a parent, so entries can not be removed
 #<en:raising agent???
 en:baking powder
 bg:бакпулвер
@@ -39844,6 +39927,19 @@ pt:Polpa de coco
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpe-de-noix-de-coco
 # 21 products in 18 @2021-09-06
 
+
+#<en:coconut
+#en:coconut powder
+#en:processing:en:powder
+#de:Kokosnussepulver
+#es:Coco en polvo
+#fi:kookosjauhe
+#fr:noix de coco en poudre
+#it:noce di cocco in polvere
+#nl:kokospoeder
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-coco-en-poudre
+# 86 products in 5 languages @2108-10-03
+
 <en:coconut
 en:desiccated coconut
 bg:кокосови стърготини
@@ -41688,7 +41784,6 @@ bg:сироп от ананас
 de:Ananassirup
 fr:sirop d'ananas
 nl:ananassiroop
-
 
 ###################################################################################################
 #
@@ -43975,6 +44070,423 @@ wikidata:en:Q223701
 wikipedia:en:https://en.wikipedia.org/wiki/Pinot_noir
 # fr:pinot-noir has 20 products in 1 language @2018-10-29
 
+# Poulsard (also Ploussard) is a red French wine grape variety from the Jura wine region.
+
+<en:varietal
+en:Poulsard
+cy:Poulsard
+de:Poulsard
+es:Poulsard
+fi:poulsard
+fr:Poulsard
+nl:Poulsard Blanc
+wikidata:en:Q1409433
+wikipedia:en:https://en.wikipedia.org/wiki/Poulsard
+# ingredient/fr:Poulsard has no products @2019-01-20
+
+
+# Sciacarello (or sciaccarello) is a red Italian wine grape variety that is grown primarily in Corsica.
+
+<en:varietal
+en:Sciacarello
+de:Sciacarello
+fi:sciacarello
+fr:Sciaccarellu, Sciacarello
+wikidata:en:Q1527364
+wikipedia:en:https://en.wikipedia.org/wiki/Sciacarello
+# ingredient/fr:Sciaccarellu has 1 product @2019-01-20
+
+
+# Sémillon is a golden-skinned grape used to make dry and sweet white wines, mostly in France and Australia.
+
+<en:varietal
+en:Sémillon
+bg:Семийон
+ca:Sémillon
+cs:Sémillon
+cv:Семильон
+de:Sémillon
+es:Sémillon
+et:Sémillon
+fi:Sémillon
+fr:Sémillon
+it:Sémillon
+ja:セミヨン
+nl:Sémillon
+pt:Sémillon
+ru:Семильон
+sr:Семијон
+sv:Sémillon
+uk:Семільйон
+zh:賽美蓉
+# sr-ec:Семијон
+# sr-el:Semijon
+wikidata:en:Q391558
+wikipedia:en:https://en.wikipedia.org/wiki/Sémillon
+# ingredient/fr:Sémillon has 5 products @2019-01-20
+
+
+# Sylvaner or Silvaner is a variety of white wine grape grown primarily in Alsace and Germany, where its official name is Grüner Silvaner.
+
+<en:varietal
+en:sylvaner
+bg:Силванер
+cs:Sylvánské zelené
+cv:Сильванер
+da:sylvaner
+de:sylvaner
+eo:sylvaner
+es:sylvaner
+et:sylvaner
+eu:sylvaner
+fi:sylvaner
+fr:sylvaner
+hr:Silvanac zeleni
+hy:սիլվաներ
+it:sylvaner
+ja:シルヴァーナー
+lb:sylvaner
+nl:sylvaner
+pl:sylvaner
+ru:Сильванер
+sl:Zeleni silvanec
+sv:sylvaner
+# gsw:sylvaner
+# zh-cn:西万尼
+# zh-hans:西万尼
+# zh-hant:西萬尼
+wikidata:en:Q1133517
+wikipedia:en:https://en.wikipedia.org/wiki/Silvaner
+# ingredient/fr:sylvaner has 1 product in french @2019-01-18
+
+
+# Syrah, also known as Shiraz, is a dark-skinned grape variety grown throughout the world and used primarily to produce red wine.
+
+<en:varietal
+en:syrah
+bg:Сира
+ca:sirà
+cs:syrah
+cv:Сира
+da:syrah
+de:Syrah
+es:syrah
+et:syrah
+fa:شیراز
+fi:syrah
+fr:Syrah
+gl:syrah
+hr:syrah
+hu:syrah
+hy:Սիրա
+is:syrah
+it:syrah
+ja:シラー
+ko:시라
+nb:syrah
+nl:syrah
+pl:syrah
+pt:syrah
+ro:Shiraz, syrah
+ru:Сира
+sr:Сира
+sv:Syrah
+tr:Şiraz üzümü
+uk:Сіра
+zh:西拉葡萄
+# ceb:syrah
+# zh-cn:西拉葡萄
+# zh-hans:西拉葡萄
+# zh-hant:西拉葡萄
+# zh-hk:西拉葡萄
+# zh-sg:西拉葡萄
+# zh-tw:西拉葡萄
+wikidata:en:Q332720
+wikipedia:en:https://en.wikipedia.org/wiki/Syrah
+# ingredient/fr:Syrah has 47 products @2019-01-18
+
+
+# Trousseau or Trousseau Noir, also known as Bastardo, is an old variety of red wine grape originating in eastern France.
+
+<en:varietal
+en:Bastardo
+de:Trousseau
+es:Bastardo
+fi:trousseau
+fr:Trousseau
+ja:バスタルド
+nb:Bastardo
+nl:Bastardo
+ru:Бастардо
+sv:Bastardo
+wikidata:en:Q63319
+wikipedia:en:https://en.wikipedia.org/wiki/Trousseau_(grape)
+# ingredient/fr:Trousseau has no products @2019-01-20
+
+
+<en:fruit
+en:pomegranate
+am:ሩማን
+bo:སེ་འབྲུ།
+ca:magrana
+cs:granátové jablko
+de:Granatapfel
+el:ρόδι
+eo:granato
+es:granada
+et:Granaatõun
+fi:granaattiomena
+fr:grenade
+ga:Pomagrainít
+gl:milgranda
+gu:દાડમ
+hi:अनार
+ht:Grenad
+it:melagrana
+ks:دٲن
+mr:डाळिंब
+my:တလည်း
+ne:दारिम
+nl:granaatappel
+pa:ਅਨਾਰ
+pl:granat
+ps:انار
+ru:гранатина
+sd:ڏاڙهون
+sk:granátové jablko
+sq:shegë
+tg:Анор
+ug:ئانار
+uk:Гранатове дерево
+ur:انار
+uz:Ahop
+za:Maksigloux
+# bho:अनार
+# ckb:ھەنار
+# hak:Sa̍k-liù
+# hif:Anaar
+# kaa:Anar
+# lak:Сунув
+# mzn:انار
+# pnb:انار
+# vro:Granaatupin
+wikidata:en:Q13222088
+wikipedia:en:https://fr.wikipedia.org/wiki/Grenade_(fruit)
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:grenade
+# 53 products in 3 languages @2018-10-03
+
+<en:pomegranate
+fr:graines de grenade
+de:Granatapfelkerne
+fi:granaattiomenan siemen, granaattiomenan siemenet
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-grenade
+# 4 products in 3 languages @2018-10-03
+
+<en:pomegranate
+<en:fruit juice
+en:pomegranate juice
+de:Granatapfelsaft
+es:zumo de granada
+fi:granaattiomenamehu
+fr:jus de grenade
+it:succo di melagrana
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-grenade
+# 61 products in 3 languages @2018-10-03
+
+<en:pomegranate juice
+fr:pur jus de grenade
+
+<en:pomegranate juice
+en:organic pomegranate juice
+fi:luomugranaattiomenamehu, luomu granaattiomenamehu
+fr:Jus de Grenade issu de l'agriculture biologique
+
+<en:pomegranate
+fr:écorces de grenade
+
+# Aronia is a genus of deciduous shrubs, the chokeberries, in the family Rosaceae native to eastern North America
+
+<en:fruit
+en:chokeberry
+ar:أرونية
+az:Aroniya
+bg:Арония
+ca:Aronia
+cs:temnoplodec
+cy:Llwyn aeron tagu coch
+da:Surbær
+de:Aronia, Apfelbeer, Apfelbeeren
+el:Αρώνια
+eo:aronio
+es:Aronia
+eu:Aronia
+fa:انگورک گلوگیر
+fi:marja-aronia
+fr:aronie, aronia
+he:ארוניה
+hr:Aronija
+hy:արոնիա
+it:aronia
+ja:アロニア属
+kk:Қара жемісті итжүзім
+ko:아로니아
+la:Aronia
+lt:Aronija
+lv:Aronijas
+mk:Аронија
+nl:appelbes
+pl:aronia
+pt:aronia
+ro:Aronia
+ru:Арония
+sh:Aronija
+sk:Arónia
+sl:Aronija
+sq:aronia
+sr:Аронија
+sv:Aroniasläktet
+tr:Aronia
+uk:Aronia
+vi:Aronia
+zh:野櫻莓
+# de-ch:Apfelbeeren
+# en-ca:Aronia
+# en-gb:Aronia
+# hsb:Aronija
+# kk-arab:قارا جەمىستى ٴىيتجۇزىم
+# kk-cn:قارا جەمىستى ٴىيتجۇزىم
+# kk-cyrl:Қара жемісті итжүзім
+# kk-kz:Қара жемісті итжүзім
+# kk-latn:Qara jemisti ïtjüzim
+# kk-kz:Qara jemisti ïtjüzim
+# nah:Capolin
+# pt-br:aronia
+# sr-ec:Аронија
+# sr-el:Aronija
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:aronia
+# 163 products in 5 languages @2018-10-03
+
+<en:chokeberry
+<en:fruit juice
+en:chokeberry juice
+de:Aroniasaft
+fi:marja-aroniamehu
+fr:jus d'aronia
+it:succo d'aronia
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-d'aronia
+# 20 products in 3 languages @2018-10-03
+
+<en:chokeberry juice
+en:concentrated chokeberry juice
+de:Aroniasaft-Konzentrat, Aroniasaft Konzentrat
+fi:marja-aroniamehutiiviste
+fr:Jus concentré d'aronia
+
+<en:fruit
+en:acerola
+de:Acerolakirschen
+es:acerola
+fi:akerola, acerola
+fr:acérola
+it:acerola
+nl:acerola
+pl:Acerola, acerola
+ru:Ацерола
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/acerola
+# 133 products in 4 languages @2018-10-03
+
+<en:acerola
+<en:fruit juice
+en:acerola juice
+de:Acerolaextrakt
+es:zumo de acerola
+fi:akerola-uute, acerola-uute
+fr:extrait d'acérola, jus concentré d'acérola, extrait sec d'acérola
+it:estratto d'acerola
+nl:acerola-extract
+pl:Sok z aceroli, sok z aceroli
+ru:Сок ацеролы
+# ingredient/acerola-juice has 18 products in 2 languages @2018-10-03
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-concentré-d'acérola
+# 3 products in 1 language @2018-10-03
+# ingredient/fr:extrait-d'acérola has 215 products in 4 languages @2018-10-03
+
+<en:acerola
+en:acerola powder
+#en:processing:en:powder
+#de:Acerolapulver
+#fi:akerola-jauhe, acerola-jauhe
+#fr:poudre d'acérola
+#it:acerola in polvere
+#nl:acerolapoeder
+# ingredient/fr:poudre-d'acérola has 37 products @2018-10-03
+
+<en:acerola powder
+en:acerola powder on manioc starch
+#en:processing:en:powder
+de:Acerolapulver auf Maniokstärke
+fr:poudre d'acérola avec fécule de manioc, poudre d'acérola sur fécule de manioc
+it:acerola in polvere con fecola di manioca, acerola in polvere con amido di manioca
+# ingredient/fr:poudre-d'acérola-avec-fécule-de-manioc has 38 products @2018-10-03
+
+# The term "coconut" can refer to the whole coconut palm, the seed, or the fruit, which botanically is a drupe, not a nut.
+
+# NOTE the oil and fat of a coconut can be found under the fats section
+
+# When coconut is listed as ingredient, probably the white stuff is meant. The watery stuff is probably never used? I.e. coco versus coconut
+
+<en:fruit
+en:coconut
+ak:kube
+ar:نارجيل
+bg:Кокосов орех
+ca:coco
+cs:kokosový ořech
+da:kokos, kokosnød
+de:Kokos, Kokosnuss
+ee:Eneh
+el:καρύδα
+eo:kokosnukso
+es:coco
+et:Kookospähkel
+eu:koko
+fi:kookos, kookospähkinä
+fr:noix de coco, coco
+gl:Coco
+hu:kókuszdió
+it:cocco, noce di cocco
+ml:തേങ്ങ
+nb:kokosnøtt
+nl:kokosnoot, kokos
+nn:kokosnøtt
+pl:Kokos
+pt:cocos
+ru:кокос
+sa:नारिकेलम्
+sq:Arra e kokosit
+sr:kokos
+sv:Kokosnöt, Kokos
+za:Makyehswj
+zh:椰子
+# ast:Cocu
+# jbo:rutrkoko
+# pt-br:coco
+wikipedia:fr:https://fr.wikipedia.org/wiki/Noix_de_coco
+wikidata:en:Q3342808
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-coco
+# 1209 products in 11 languages @2018-10-03
+
+<en:coconut
+en:coconut cream
+de:Kokosnusscreme
+es:Crema de coco
+fi:kookoskerma
+fr:crème de noix de coco, crème de coco
+it:Crema di noce di cocco
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:crème-de-noix-de-coco
+# 33 products @2018-10-03
+nutriscore_fruits_vegetables_nuts:en:no
+
 
 # description:en:Plavac Mali (Croatian pronunciation: [plǎːʋat͡s mǎli]), a cross between Crljenak Kaštelanski (ancestral Zinfandel) and Dobričić grapes, is the primary red wine grape grown along the Dalmatian coast of Croatia.
 
@@ -44083,6 +44595,7 @@ zh:賽美蓉
 wikidata:en:Q391558
 wikipedia:en:https://en.wikipedia.org/wiki/Sémillon
 # ingredient/fr:Sémillon has 5 products @2019-01-20
+
 
 
 # description:en:Susac Crni is a native red wine grape in the Kvarner region of Croatia.
@@ -45409,13 +45922,13 @@ co:Aglia
 cs:česnek, česnek kuchyňský
 cv:Ыхра
 cy:Garlleg
-da:hvidløg
+da:hvidløg, hvidløgs
 de:Knoblauch
 dv:ލޮނުމެދު
 el:Σκόρδο
 eo:ajlo
 es:ajo, diente de ajo, dientes de ajo
-et:küüslauk
+et:küüslauk, küüslaugu
 eu:baratxuri
 fa:سیر
 fi:valkosipuli, valkosipulia
@@ -45433,7 +45946,7 @@ he:שום
 hi:लहसुन
 hr:Češnjak
 ht:Lay
-hu:Fokhagyma
+hu:fokhagyma
 hy:Սխտոր
 id:Bawang putih
 io:Alio
@@ -45465,7 +45978,7 @@ my:ကြက်သွန်ဖြူ
 nb:hvitløk
 ne:लसुन
 nl:knoflook
-nn:hvitløk
+nn:hvitløk, hvitløks
 nv:Tłʼohchin díchʼííʼí
 oc:Alh cultivat
 or:ରସୁଣ
@@ -45487,7 +46000,7 @@ sl:Česen
 so:Toon
 sq:hudhra
 sr:бели лук, beli luk
-sv:vitlök
+sv:vitlök, vitlöks
 sw:Kitunguu saumu
 ta:பூண்டு
 te:వెల్లులి
@@ -45602,35 +46115,30 @@ it:Impasto d'aglio
 fr:Ail semoule déshydraté
 # 4@2019-06-12
 
-<en:garlic
-en:garlic powder
-bg:чесън на прах
-bs:bijeli luk u prahu
-ca:All en pols
-cs:Sušený česnek
-da:hvidløgspulver
-de:Knoblauchpulver
-el:σκόρδο σκόνη, σκόρδο σε σκόνη
-es:ajo en polvo
-et:küüslaugupulber
-fi:valkosipulijauhe
-fr:poudre d'ail, ail en poudre
-hr:češnjak u prahu
-hu:fokhagymapor
-it:aglio in polvere, polvere di aglio
-ja:ガーリックパウダー
-lt:česnakų milteliai
-nb:hvitløkspulver
-nl:knoflookpoeder
-nn:hvitløkspulver
-pl:czosnek sproszkowany, czosnek w proszku
-pt:alho em pó
-ro:pudră de usturoi, usturoi pudră, usturoi granulat
-ru:Чесночный порошок, чеснок сушёный, чеснок сушеный
-sk:sušený cesnak
-sl:česen v prahu
-sv:vitlökspulver, vitlökpulver
-tr:sanmsak tozu
+#<en:garlic
+#en:garlic powder
+#en:processing:en:powder
+#bs:bijeli luk u prahu
+#ca:All en pols
+#da:hvidløgspulver
+#de:Knoblauchpulver
+#el:σκόρδο σκόνη, σκόρδο σε σκόνη
+#es:ajo en polvo
+#et:küüslaugupulber
+#fi:valkosipulijauhe
+#fr:poudre d'ail, ail en poudre
+#hu:fokhagymapor
+#it:aglio in polvere, polvere di aglio
+#lt:česnakų milteliai
+#nl:knoflookpoeder
+#nn:hvitløkspulver
+#pl:czosnek sproszkowany
+#pt:alho em pó
+#ro:pudră de usturoi
+#ru:Чесночный порошок
+#sl:česen v prahu
+#sv:vitlökspulver
+#tr:sarimsak tozu
 # fr:poudre-d'ail has 161 producs in 25 languages @2018-10-22
 
 <en:garlic
@@ -45738,6 +46246,7 @@ nl:biologische knoflook
 en:dried garlic
 bg:сушен чесън
 fr:ail séché, ail déshydraté
+cs:Sušený česnek
 da:tørret hvitløg
 de:getrockneter Knoblauch, Knoblauch getrocknet
 es:ajo deshidratado
@@ -46350,8 +46859,9 @@ af:Beet
 bg:цвекло
 ca:remolatxa
 da:Rødbede, rødbeder
-de:Rüben, Randen
+de:Rüben, Randen, Rote-Bete
 es:remolacha, betarraga
+fi:punajuuri
 fr:betterave, betteraves
 he:סלק
 hr:cikla
@@ -46372,16 +46882,17 @@ carbon_footprint_fr_foodges_value:fr:0.2
 
 # Sometimes it is indicated as a colour.
 
-<en:beetroot
-en:beetroot powder
-bg:цвекло на прах
-ca:remolatxa en pols
-de:Rote-Bete-Pulver, färbendes Lebensmittel Rote-Bete-Pulver, Rote Beete-Pulver, Randenpulver
-es:Remolacha en polvo
-fi:punajuurijauhe
-fr:poudre de betterave
-it:Polvere di barbabietola
-pl:burak w proszku, proszek z buraka
+#<en:beetroot
+#en:beetroot powder
+#en:processing:en:powder
+#bg:цвекло на прах
+#ca:remolatxa en pols
+#de:Rote-Bete-Pulver, färbendes Lebensmittel Rote-Bete-Pulver, Rote Beete-Pulver, Randenpulver
+#es:remolacha en polvo
+#fi:punajuurijauhe
+#fr:poudre de betterave
+#it:Polvere di barbabietola
+#pl:burak w proszku, proszek z buraka
 # fr:poudre-de-betterave has 55 products in 1 language @2018-10-22
 
 <en:beetroot powder
@@ -47928,15 +48439,16 @@ it:Succo di sedano
 
 <en:celery juice
 en:concentrated celery juice
-de:Sellerieextrakt
+de:Sellerieextrakt, Konzentriertes Selleriesaft
 fi:sellerimehutiiviste
 fr:jus de céleri concentré, jus concentré de céleri
 # fr:jus-concentré-de-céleri has 64 products in 1 language @2018-10-21
 
 <en:concentrated celery juice
 en:powdered concentrated celery juice
-de:Konzentriertes Selleriesaftpulver
-fr:jus concentré de céleri en poudre
+#en:processing:en:powder
+#de:Konzentriertes Selleriesaftpulver
+#fr:jus concentré de céleri en poudre
 
 <en:celery
 fr:extrait de céleri
@@ -48512,7 +49024,7 @@ cs:cibule
 cy:Nionyn
 da:løg
 de:Zwiebel, Zwiebeln
-el:κρεμμύδι
+el:κρεμμύδι, κρεμμύδια
 eo:cepo
 es:cebolla, Cebollas
 et:sibul
@@ -48689,7 +49201,7 @@ fi:punasipuli
 fr:oignon rouge, oignons rouges
 he:בצל סגול
 hi:लाल प्याज
-hu:lilahagyma
+hu:lilahagyma, vöröshagyma
 is:rauðlaukur
 it:cipolla rossa
 ja:赤たまねぎ
@@ -48723,15 +49235,16 @@ fr:Oignon rouge mariné
 
 <en:onion
 en:Roscoff onions
-de:Roscoff Zwiebeln
+de:Roscoff Zwiebeln, Roscoff Zwiebel
 fr:oignon de Roscoff
-nl:Roscoffui
+nl:Roscoffui, Roscoff ui
 
 <en:Roscoff onions
 en:Roscoff onion powder
-de:Roscoff Zwiebelpulver
-fr:oignon de Roscoff en poudre
-nl:Roscoff ui in poedervorm
+#en:processing:en:powder
+#de:Roscoff Zwiebelpulver
+#fr:oignon de Roscoff en poudre
+#nl:Roscoff ui in poedervorm
 
 <en:Roscoff onions
 en:Roscoff PDO onions
@@ -48903,6 +49416,11 @@ ciqual_food_name:fr:Oignon, séché
 #wikidata:en:Q7093931
 # 24139 in 36 @2021-09-10
 
+<en:onion
+es:Cebolla seca molida
+
+<en:onion powder
+de:Röstzwiebelpulver
 
 <en:onion
 fr:oignons coupés
@@ -49762,7 +50280,7 @@ eu:Ziazerba
 fa:اسفناج
 fi:pinaatti
 fo:spinat
-fr:épinard
+fr:épinard, épinards
 fy:spinaazje
 ga:Spionáiste
 gd:Bloinigean-gàrraidh
@@ -49868,15 +50386,16 @@ nl:spinazieblad
 
 <en:spinach
 en:spinach powder
-de:Spinatpulver
-es:polvo de espinaca
-fi:pinaattijauhe
-fr:poudre d'épinard, épinards en poudre, épinard en poudre
-hr:špinat u prahu
-it:Polvere di spinaci
-nl:spinaziepoeder
-pl:szpinak w proszku, sproszkowany szpinak
-pt:pó de espinafre
+#en:processing:en:powder
+#de:Spinatpulver
+#es:polvo de espinaca
+#fi:pinaattijauhe
+#fr:poudre d'épinard, épinards en poudre, épinard en poudre
+#hr:špinat u prahu
+#it:Polvere di spinaci
+#nl:spinaziepoeder
+#pl:szpinak w proszku, sproszkowany szpinak
+#pt:pó de espinafre
 # fr:poudre-d'épinard 40 products in 4 languages @2018-10-14
 # fr:épinards-en-poudre 17 products in 4 languages @2018-10-14
 
@@ -50402,22 +50921,27 @@ fr:Pommes de terres rousses
 
 <en:potato
 en:potato powder
-bg:картофи на прах
-da:kartoffelpulver
-de:Kartoffelpulver
-el:πατάτα σε σκόνη
-es:patata en polvo
-fi:perunajauhe, kuivattu peruna
-fr:poudre de pommes de terre, poudre de pomme de terre, pomme de terre déshydratée, pommes de terre déshydratées, pommes de terre en poudre, g de terre déshydratée
-hr:dehidrirani krumpir
-hu:burgonyapor
-it:Patate in polvere
-nl:aardappelpoeder, gedehydrateerde aardappelen
-pt:Patatas en polvo
-sk:sušené zemiaky
-sl:krompir v prahu
-sv:potatispulver, torkad potatis
+#en:processing:en:powder
+#bg:картофи на прах
+#da:kartoffelpulver
+#de:Kartoffelpulver
+#el:πατάτα σε σκόνη
+#es:patata en polvo
+#fi:perunajauhe, kuivattu peruna
+#fr:poudre de pommes de terre, poudre de pomme de terre, pomme de terre déshydratée, pommes de terre déshydratées, pommes de terre en poudre, g de terre déshydratée
+#hr:dehidrirani krumpir
+#hu:burgonyapor
+#it:Patate in polvere
+#nl:aardappelpoeder, gedehydrateerde aardappelen
+#pt:Patatas en polvo
+#sk:sušené zemiaky
+#sl:krompir v prahu
+#sv:potatispulver, torkad potatis
 # en:potato-powder has 67 products in 13 languages @2018-10-15
+
+<en:potato
+fr:pomme de terre déshydratée, pommes de terre déshydratées, 
+sk:sušené zemiaky
 
 <en:potato
 en:cooked potato
@@ -50581,7 +51105,7 @@ oc:pebron
 pl:papryka słodka
 ps:خواږه مرچ
 pt:pimentão
-ro:ardei gras
+ro:ardei gras, ardei capia
 ru:перец овощной, перец сладкий, перец сладкий свежий
 sa:महामरीचिका
 sk:paprika
@@ -51784,24 +52308,25 @@ hr:pire rajčice iz koncentrata
 <en:tomato purée
 fr:purée de tomates triple concentrée, triple concentré de tomate
 
-<en:tomato
-en:tomato powder, powdered tomato
-bg:доматен прах, домати на прах
-ca:tomàquet en pols
-cs:rajčatový prášek
-da:tomatpulver
-de:Tomatenpulver
-es:tomate en polvo
-fi:tomaattijauhe, tomaattijauhetta, tomaattisosejauhe
-fr:tomate en poudre, tomates en poudre, tomate déshydratée, poudre de tomate, poudre de tomates
-hu:Paradicsom por
-hr:rajčica u prahu
-it:pomodoro en polvere
-ja:トマトパウダー
-nb:Tomatpulver
-nl:tomatenpoeder
-pl:pomidory w proszku
-sv:tomatpulver, tomatpurépulver
+#<en:tomato
+#en:tomato powder, powdered tomato
+#en:processing:en:powder
+#bg:доматен прах, домати на прах
+#ca:tomàquet en pols
+#cs:rajčatový prášek
+#da:tomatpulver
+#de:Tomatenpulver
+#es:tomate en polvo
+#fi:tomaattijauhe, tomaattijauhetta, tomaattisosejauhe
+#fr:tomate en poudre, tomates en poudre, tomate déshydratée, poudre de tomate, poudre de tomates
+#hr:rajčica u prahu
+#hu:Paradicsom por
+#it:pomodoro en polvere
+#ja:トマトパウダー
+#nb:Tomatpulver
+#nl:tomatenpoeder
+#pl:pomidory w proszku
+#sv:tomatpulver, tomatpurépulver
 # ingredient/powdered-tomato has 546 products in 1o languages @2018-12-26
 
 <en:tomato purée
@@ -53761,7 +54286,7 @@ pa:ਛੋਲੇ
 pl:ciecierzyca, ciecierzycy
 ps:نخود
 pt:grão-de-bico, grãos-de-bico
-ro:năut
+ro:năut, năut boabe
 ru:нут
 sa:चणकः
 sh:slanutak
@@ -56080,7 +56605,7 @@ ar:بذرة الشيا
 bg:семена от чиа, чиа семена
 bn:চিয়া বীজ
 cs:chia semínka
-da:chiafrø
+da:chiafrø, chia frø 
 de:Chiasamen
 es:semillas de chia, chia
 et:Õlisalvei seemned
@@ -56511,13 +57036,13 @@ wikidata:en:Q1076906
 # 7103 in 28 @2021-09-07
 nutriscore_fruits_vegetables_nuts:en:no
 
-<en:sunflower seed
-en:shelled sunflower seeds
-de:Sonnenblumenkerne geschält
-fi:kuoreton auringonkukansiemen, kuorettomat auringonkukansiemenet
-fr:graines de tournesol décortiquées
-it:semi di girasole sbucciati
-pl:nasiona słonecznika łuskane, łuskane nasiona słonecznika
+# <en:sunflower seed
+# en:shelled sunflower seeds
+# de:Sonnenblumenkerne geschält
+# fi:kuoreton auringonkukansiemen, kuorettomat auringonkukansiemenet
+# fr:graines de tournesol décortiquées
+# it:semi di girasole sbucciati
+# pl:nasiona słonecznika łuskane, łuskane nasiona słonecznika, słonecznik łuskany
 # ingredient/fr:graines-de-tournesol-decortiquees has 25 products @2019-05-31
 
 <en:sunflower seed
@@ -57095,7 +57620,7 @@ fr:pâte de sésame, pâte de graines de sésame
 it:pasta di sesamo
 ja:胡麻ペスト
 nl:sesampasta
-ro:pastă de susan
+ro:pastă de susan, pastă de seminte de susan
 sv:sesam-kräm, sesampasta
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pâte-de-sésame
 # 105 products in 4 languages @2018-10-05
@@ -59584,6 +60109,7 @@ nl:dillezaad
 #de:getrockneter Dill, Dill getrocknet
 #fi:kuivattu tilli
 #fr:aneth déshydraté
+#pl:suszony koperek
 
 <en:dill
 en:dill butter
@@ -61402,18 +61928,15 @@ wikipedia:en:Q92581152
 # plante:https://fr.wikipedia.org/wiki/Origanum_vulgare
 # 9423 in 29 @2021-09-17
 
+#processing:en:dehydrated
 <en:oregano
 en:dried oregano
-fr:Origan séché
+fr:Origan séché, origan déshydraté
+fi:kuivattu oregano
+pl:suszone oregano
 ciqual_food_code:en:11035
 ciqual_food_name:en:Oregano, dried
 ciqual_food_name:fr:Origan, séché
-
-
-#processing:en:dehydrated
-<en:oregano
-fr:origan déshydraté
-fi:kuivattu oregano
 # ingredient/fr:origan-déshydraté has 57 products in french @2018-12-29
 
 #processing:en en:powder
@@ -64573,6 +65096,7 @@ en:matcha, matcha green tea
 de:Matcha
 bg:матча
 ca:té matcha, té matcha verd
+da:matcha
 es:té matcha, té matcha verde
 fr:matcha, thé vert matcha
 ja:抹茶
@@ -64869,7 +65393,7 @@ zh:天然香草精精
 <en:vanilla extract
 <en:Bourbon vanilla
 en:bourbon vanilla extract
-cs:extrakt z burbonské vanilky
+cs:extrakt z burbonské vanilky, extrakt z bourbonské vanilky
 da:bourbon vaniljeekstrakt
 de:Bourbon Vanille Extrakt, Vanille-Extrakt Bourbon, Bourbon-Vanille-Extrakt, Bourbon Vanilleextrakt, Bourbonvanilleextrakt, Bourbonvanille Extrakt
 es:extracto de vainilla de Bourbon
@@ -67575,14 +68099,15 @@ fi:kalauute
 nl:visextract
 # ingredient/fr:extrait-de-poisson has 123 products in 3 languages @2018-12-29
 
-<en:fish
-en:fishpowder, powdered fish
-de:Fischpulver
-fi:kalajauhe, jauhettu kala
-fr:poisson en poudre, poudre de poisson, poisson déshydraté
-it:pesce in polvere
-nl:vispoeder
-sv:fiskpulver
+#<en:fish
+#en:processing:en:powdered
+#en:fishpowder, powdered fish
+#de:Fischpulver
+#fi:kalajauhe, jauhettu kala
+#fr:poisson en poudre, poudre de poisson, poisson déshydraté
+#it:pesce in polvere
+#nl:vispoeder
+#sv:fiskpulver
 # ingredient/fr:poisson-en-poudre has 97 products in 4 languages @2019-04-08
 # ingredient/fr:poudre-de-poisson has 31 products in 2 languages @2019-02-03
 
@@ -77825,15 +78350,16 @@ nl:scharrel ei poeder
 
 #process:en: en:powdered
 <en:egg
+# en:processing:powder
 en:egg powder, powdered egg
 bg:яйчен прах, яйце на прах
 ca:ou en pols, pols d'ou
 da:æggepulver
-de:Eipulver
+de:Eipulver, Volleipulver
 el:αλεύρι σίτου αυγό σκόνη
 es:huevo en polvo
 fi:munajauhe, kananmunajauhe
-fr:œuf en poudre, œufs en poudre, poudre d'œuf, oeuf en poudre, oeufs en poudre, poudre d'oeuf
+fr:œuf en poudre, œuf en poudre, œufs en poudre, poudre d'œuf, poudre d'œuf, oeuf en poudre, oeuf en poudre, oeufs en poudre, poudre d'oeuf, poudre d'oeuf
 hr:jaja u prahu
 hu:tojáspor
 it:uova in polvere
@@ -77847,9 +78373,9 @@ sv:äggpulver
 tr:yumurta tozu
 zh:蛋粉
 # ingredient/powdered-egg has 623 products in 12 languages @2018-12-18
-ciqual_food_code:en:22013
-ciqual_food_name:en:Egg, powder
-ciqual_food_name:fr:Oeuf, en poudre
+#ciqual_food_code:en:22013
+#ciqual_food_name:en:Egg, powder
+#ciqual_food_name:fr:Oeuf, en poudre
 
 <en:egg
 en:whole egg, whole eggs
@@ -77876,13 +78402,14 @@ it:uovo intero pastorizzato
 
 <en:whole egg
 en:whole powdered egg
-ca:Ou sencer en pols
-de:Volleipulver
-es:Huevo entero en polvo
+# en:processing:powder
+#ca:Ou sencer en pols
+#de:Volleipulver
+#es:Huevo entero en polvo
 fi:Kokonainen kuivattu muna
-fr:œuf entier en poudre, œufs entiers en poudre, poudre d'œuf entier, poudre d'œufs entiers, oeuf entier en poudre, oeufs entiers en poudre, poudre d'oeuf entier, poudre d'oeufs entiers
-it:uovo intero in polvere
-nl:heeleipoeder
+#fr:œuf entier en poudre, œufs entiers en poudre, poudre d'œuf entier, poudre d'œufs entiers, oeuf entier en poudre, oeufs entiers en poudre, poudre d'oeuf entier, poudre d'oeufs entiers
+#it:uovo intero in polvere
+#nl:heeleipoeder
 # ingredient/fr:œuf-entier-en-poudre has 592 products in 7 languages @2018-12-18
 
 <en:whole powdered egg
@@ -78108,6 +78635,14 @@ en:free range egg white
 de:Eiweiß aus Freilandhaltung
 nl:scharrelei-eiwit, vrije uitloopei-eiwit, vrije-uitloopei-eiwit, scharreleiwit
 
+<en:egg white
+en:dehydrated egg white
+de:Trockeneiweiß, Eiklar getrocknet
+fi:kuivattu munanvalkuainen
+fr:blanc d'œuf déshydraté, blanc d'oeuf déshydraté
+hu:szárított tojásfehérje
+nl:gedroogd ei-eiwit
+
 <en:chicken egg white
 nl:scharrelkipeiwit, vrije uitloop kippenei-eiwit, kippenei-eiwit van scharreleieren
 
@@ -78119,7 +78654,10 @@ de:Hühnerei-Trockeneiweiß, Hühnereiklarpulver, Hühnereieiweißpulver, Hühne
 fi:kananmunan valkuaisjauhe, kananmunanvalkuaisjauhe
 nl:kippenei-eiwitpoeder
 
-<en:powdered egg white
+<de:Hühnerei-Trockeneiweiß
+nl:scharrelkipeiwitpoeder
+
+<en:egg white powder
 en:rehydrated egg white
 ca:clara d'ou rehidratada
 bg:рехидратиран яйчен белтък
@@ -78132,17 +78670,25 @@ nl:gerehydrateerd eiwit
 sv:rehydrerad äggvita
 # ingredient/rehydrated-egg-white has 150 products in 5 languages @2018-12-18
 
-<en:powdered egg white
-en:pasteurised powdered egg white
+<en:egg white powder
+en:pasteurised egg white powder
+# en:processing:powder
 de:pasteurisiertes Eiweißpulver
 fi:pastöroitu munanvalkuaisjauhe
 fr:blanc d'oeuf en poudre pasteurisé
 ru:продукты яичные, яичные-продукты
 
+<en:egg white powder
+# en:processing:powder
 <en:powdered egg white
 nl:scharrelei-eiwitpoeder, scharreleiwitpoeder
 
-<en:powdered egg white
+<en:egg white powder
+# en:processing:powder
+nl:vrije uitloopeiwitpoeder
+nl:vrije-uitloopei-eiwitpoeder, vrije uitloopeiwitpoeder
+
+<en:egg white powder
 fr:blanc d'oeuf en poudre de poules élevées au sol
 
 <en:egg white
@@ -78398,6 +78944,7 @@ ciqual_food_name:fr:Oeuf, jaune (jaune d'oeuf), en poudre
 
 <en:egg yolk powder
 en:eggs yolk powder from free range hens
+# en:processing:powder
 
 <en:egg yolk
 en:pasteurised egg yolk, pasteurized egg yolk
@@ -83524,7 +84071,7 @@ bn:সয়া সস
 ca:salsa de soia
 cs:sójová omáčka
 da:sojasovs, sojasauce
-de:Sojasauce, Sojasoße, Sojasosse, soja-sauce
+de:Sojasauce, Sojasoße, Sojasosse, Soja Sosse, Sojasoßen, Sojasossen, Sojasaucen
 el:Σάλτσα σόγιας
 eo:sojsaŭco
 es:salsa de soya, salsa de soja,shoyu
@@ -83553,7 +84100,8 @@ mr:सोया सॉस
 ms:kicap
 mt:zalza tas-soja
 nb:soyasaus
-nl:Sojasaus, ketjap
+nl:Sojasaus, soja saus, ketjap
+nl:Sojasaus
 pa:ਸੋਇਆ ਸੌਸ
 pl:sos sojowy, sosu sojowego, sosem sojowym
 pt:molho de soja
@@ -83593,7 +84141,6 @@ description:en:SOY SAUCE is a liquid condiment of Chinese origin, made from a fe
 # zh-hans:酱油
 # zh-hant:醬油
 # zh-tw:醬油
-# en:process:en:powder
 allergens:en: en:soybeans
 wikidata:en:Q229385
 wikipedia:en:https://en.wikipedia.org/wiki/Soy_sauce
@@ -83624,18 +84171,15 @@ fi:soija-seesamikastike
 fr:sauce au soja et au sésame, sauce au sésame et au soja
 allergens:en: en:sesame seeds
 
-<en:soy sauce
-en:soy sauce powder
-bg:Соев сос на прах
-de:Soja Sosse Pulver, Sojasoßenpulver, Sojasossenpulver, Sojasaucenpulver
-es:Salsa de soya en polvo, salsa de soja en polvo
-fi:soijakastikejauhe
-fr:sauce soja en poudre, sauce de soja en poudre
-it:Salsa di soia in polvere
-pl:sos sojowy w proszku, sproszkowany sos sojowy
-nl:sojasauspoeder, soja saus poeder
-sv:sojasåspulver
-
+#<en:soy sauce
+#en:soy sauce powder
+# en:process:en:powder
+#de:Soja Sosse Pulver, Sojasoßenpulver, Sojasossenpulver, Sojasaucenpulver
+#es:Salsa de soya en polvo, salsa de soja en polvo
+#fi:soijakastikejauhe
+#fr:sauce soja en poudre, sauce de soja en poudre
+#nl:sojasauspoeder, soja saus poeder
+#sv:sojasåspulver
 
 
 # description:en:TAMARI is the "original" Japanese soy sauce, as its recipe is closest to the soy sauce originally introduced to Japan from China. It contains little or no wheat. Wheat-free tamari can be used by people with gluten intolerance.
