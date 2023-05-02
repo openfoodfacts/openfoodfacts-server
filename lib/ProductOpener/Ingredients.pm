@@ -2564,6 +2564,7 @@ sub init_percent_values ($total_min, $total_max, $ingredients_ref) {
 	# and we have set percent for all ingredients, then the ingredients percent value
 	# may in fact be a quantity in grams, we will need to scale the quantities to get actual percent values
 	# This is the case in particular for recipes that can be specified in grams with a total greater than 100g
+	# So we start supposing it's grams (as if it's percent it will also work).
 
 	if (($total_min == $total_max) and $all_ingredients_have_a_set_percent) {
 		$percent_mode = "grams";

@@ -109,7 +109,7 @@ sub load_ciqual_data() {
 
 		my $header_row_ref = $csv->getline($io);
 
-		# Column names for nutrients are of the form [name_of_nutrient_in_french]_[unit]
+		# this array will contain hashmaps with a column number, corresponding nid and unit
 		my @nutrients = ();
 		my $col = 0;
 
@@ -121,6 +121,7 @@ sub load_ciqual_data() {
 			'kcal' => 1,
 		);
 
+		# read headers to populate @nutrients, corresponding to each columns
 		foreach my $nutrient (@$header_row_ref) {
 			# nrj_kj -> energy-kj_kj
 			$nutrient =~ s/^nrj_(.*)$/energy-$1_$1/;
@@ -144,7 +145,7 @@ sub load_ciqual_data() {
 				else {
 					# TODO: some nutrients are not automatically recognized yet
 					# (e.g. most fatty acids identified with column names like ag_18_3_a_lino_g)
-					$log->error("unrecognized column name (nutrient) in CIQUAL table", {column_name => $nutrient})
+					$log->warning("unrecognized column name (nutrient) in CIQUAL table", {column_name => $nutrient})
 						if $log->is_error();
 				}
 			}
@@ -166,6 +167,7 @@ sub load_ciqual_data() {
 				nutrients => {}
 			};
 
+            # fetch each nutrients we need
 			foreach my $nutrient_ref (@nutrients) {
 				$ciqual_data{$ciqual_id}{nutrients}{$nutrient_ref->{nid}}
 					= convert_string_to_number($row_ref->[$nutrient_ref->{col}]) / $unit_factor{$nutrient_ref->{unit}};

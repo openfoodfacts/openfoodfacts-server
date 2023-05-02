@@ -76,7 +76,7 @@ sub estimate_nutrients_from_ingredients ($ingredients_ref) {
 	# Go through each first level ingredient
 	foreach my $ingredient_ref (@$ingredients_ref) {
 		if (defined $ingredient_ref->{percent_estimate}) {
-			# Check if we have a ciqual_food_code and ciqual_proxy_food_code property
+			# Check if we have a ciqual_food_code or ciqual_proxy_food_code property
 			my $ciqual_id = get_inherited_property("ingredients", $ingredient_ref->{id}, "ciqual_food_code:en")
 				// get_inherited_property("ingredients", $ingredient_ref->{id}, "ciqual_proxy_food_code:en");
 			$total += $ingredient_ref->{percent_estimate};
