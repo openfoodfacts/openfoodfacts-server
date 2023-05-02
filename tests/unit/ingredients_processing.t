@@ -40,8 +40,9 @@ my @tests = (
 				'text' => 'tomatoes'
 			},
 			{
-				'id' => 'en:garlic-powder',
-				'text' => 'garlic powder'
+				'id' => 'en:garlic',
+				'processing' => 'en:powder',
+				'text' => 'garlic'
 			},
 			{
 				'id' => 'en:aubergine',
@@ -61,7 +62,7 @@ my @tests = (
 		]
 	],
 
-	# en:dried (children are lef out at the moment)
+	# en:dried (children are left out at the moment) What does this mean????
 	[
 		{lc => "en", ingredients_text => "dried milk"},
 		[
@@ -73,7 +74,7 @@ my @tests = (
 		]
 	],
 
-	# en: smoked (children are lef out at the moment)
+	# en: smoked (children are left out at the moment)
 	[
 		{lc => "en", ingredients_text => "smoked milk, not smoked tomatoes"},
 		[
@@ -486,33 +487,41 @@ my @tests = (
 	#                           F I N N I SH ( F I )
 	#
 	##################################################################
-	# test for mehu inside an ingredient
-
-	#	[ { lc => "fi", ingredients_text => "hedelmätäysmehutiivisteet"},
-	#		[
-	#		]
-	#	],
-
-	# Assert that processing patterns are in descending length order
-	# i.e 'fi:jauhettu' is matched before 'fi:jauhe'
-	# [
-	# 	{	lc => "fi",
-	# 		ingredients_text =>
-	# 			"raakamaito, mustikkajauhe, jauhettu vaniljatanko"
-	# 	},
-	# 	[	{	'id'   => 'en:raw-milk',
-	# 			'text' => 'raakamaito'
-	# 		},
-	# 		{	'id'         => 'en:blueberry',
-	# 			'processing' => 'en:powdered',
-	# 			'text'       => 'mustikka'
-	# 		},
-	# 		{	'id'         => 'en:vanilla-pod',
-	# 			'processing' => 'en:ground',
-	# 			'text'       => 'vaniljatanko'
-	# 		}
-	# 	]
-	# ],
+	[
+		{
+			lc => "fi",
+			ingredients_text => "kuivattu banaani"
+		},
+		[
+			{
+				'id' => 'en:banana',
+				'processing' => 'en:dried',
+				'text' => 'banaani'
+			}
+		]
+	],
+	[
+		{
+			lc => "fi",
+			ingredients_text => "raakamaito, mustikkajauhe, jauhettu vaniljatanko"
+		},
+		[
+			{
+				'id' => 'en:raw-milk',
+				'text' => 'raakamaito'
+			},
+			{
+				'id' => 'en:billberry',
+				'processing' => 'en:powder',
+				'text' => 'mustikka'
+			},
+			{
+				'id' => 'en:vanilla-pod',
+				'processing' => 'en:ground',
+				'text' => 'vaniljatanko'
+			}
+		]
+	],
 
 	##################################################################
 	#
@@ -1611,7 +1620,32 @@ my @tests = (
 				],
 			},
 		]
-	]
+	],
+
+	##################################################################
+	#
+	#                           POLISH ( PL )
+	#
+	##################################################################
+
+	[
+		{
+			lc => "pl",
+			ingredients_text => "suszony koperek, liofilizowane ananasy"
+		},
+		[
+			{
+				'id' => 'en:dill',
+				'processing' => 'en:dried',
+				'text' => 'koperek'
+			},
+			{
+				'id' => 'en:pineapple',
+				'processing' => 'en:freeze-dried',
+				'text' => 'ananasy'
+			}
+		]
+	],
 
 );
 
