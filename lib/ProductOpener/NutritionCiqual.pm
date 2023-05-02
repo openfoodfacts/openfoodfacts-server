@@ -167,7 +167,7 @@ sub load_ciqual_data() {
 				nutrients => {}
 			};
 
-            # fetch each nutrients we need
+			# fetch each nutrients we need
 			foreach my $nutrient_ref (@nutrients) {
 				$ciqual_data{$ciqual_id}{nutrients}{$nutrient_ref->{nid}}
 					= convert_string_to_number($row_ref->[$nutrient_ref->{col}]) / $unit_factor{$nutrient_ref->{unit}};
