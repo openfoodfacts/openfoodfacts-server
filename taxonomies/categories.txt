@@ -355,12 +355,12 @@ nl_be:Baby fruitdesserts, Fruitdesserts voor babies, Baby vruchtendesserts, Vruc
 ro:Deserturi cu fructe pentru bebeluși, Deserturi cu fructe bebeluși
 
 <en:Snacks and desserts for babies
-en:Baby dairy desserts, Dairy desserts for babies
+en:Baby dairy desserts, Dairy desserts for babies, Dairy dessert for baby with custard
 ca:Postres lactis per a nadons
 de:Milchdesserts für Babies
 es:Postres lácteos para bebe, Postres lácteos para bebes
-fi:Maitopohjaiset vauvan jälkiruoat
-fr:Desserts lactés pour bébé
+fi:Maitopohjaiset vauvan jälkiruuat
+fr:Desserts lactés pour bébé, Dessert lacté pour bébé, Crème dessert pour bébé
 hu:Baba gyümölcs desszertek
 it:Dessert per neonati a base di latticini, Dessert per neonati a base di prodotti caseari
 lt:Kūdikių pieniški desertai, Pieniški desertai kūdikiams
@@ -39340,8 +39340,14 @@ ciqual_food_name:en:Fermented milk drink, plain, skimmed milk
 ciqual_food_name:fr:Lait fermenté à boire, nature, maigre
 
 <en:Fermented milk drinks
-en:Flavoured dairy drinks with sugar, Flavoured fermented milks with sugar, Flavoured yogurts with sugar
-fr:Boissons lactées aromatisées sucrées au lait fermenté, Yaourts à boire aromatisés sucrés, Laits fermentés aromatisés sucrés
+fr:Yaourts à boire allégés en matières grasses
+
+<en:Drinkable yogurts
+fr:Yaourts à boire nature bio
+
+<en:Drinkable yogurts
+en:Flavoured drinkable yogurts with sugar, Flavoured dairy drinks with sugar, Flavoured fermented milks with sugar
+fr:Yaourts à boire aromatisés sucrés, Boissons lactées aromatisées sucrées au lait fermenté, Laits fermentés aromatisés sucrés
 agribalyse_food_code:en:19508
 ciqual_food_code:en:19508
 ciqual_food_name:en:Dairy drink or fermented milk or yogurt, flavoured, with sugar
@@ -42071,17 +42077,17 @@ nl:Kefiryoghurts met vruchten
 en:Bifidus yogurts
 de:Bifidus-Joghurt
 es:Yogures bifidus, Yogures con bifidus
-fi:Bifidus-jogurtit
+fi:Bifidus-jogurtit, bifidusjugurtit
 fr:Yaourts au Bifidus
 it:Yogurt allo Bifidus
 lt:Bifido jogurtai
-nl:Bifidusyoghurts
+nl:Bifidusyoghurts, Bifidus yoghurts
 #wikidata:en:
 
 <en:Bifidus yogurts
 <en:Plain fermented dairy desserts
 en:Plain bifidus yogurts
-fr:Yaourts au bifidus nature
+fr:Yaourts au bifidus nature, Lait fermenté de type yaourt nature au bifidus, spécialité laitière de type yaourt nature au bifidus
 nl:Bifidusyoghurts natuur
 
 <en:Bifidus yogurts
@@ -46927,7 +46933,7 @@ ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé
 
 <en:Fruit yogurts
 en:Fat free fermented milk yogurt with fruits and sweetener, Fat free dairy specialty with fruits and sweetener
-fr:Yaourt au lait fermenté aux fruits avec édulcorants à 0% de matières grasses, Spécialité laitière aux fruits avec édulcorants à 0% de matières grasses
+fr:Yaourt aux fruits avec édulcorants à 0% de matières grasses, Lait fermenté aux fruits avec édulcorants à 0% de matières grasses, Spécialité laitière aux fruits avec édulcorants à 0% de matières grasses
 agribalyse_food_code:en:19581
 ciqual_food_code:en:19581
 ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, with fruits, with sweetener, fat free
@@ -46935,7 +46941,7 @@ ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux fruits
 
 <en:Fruit yogurts
 en:Fat free fermented milk yogurt with fruits and sweetener fortified with vitamin D, Fat free dairy specialty with fruits and sweetener fortified with vitamin D
-fr:Yaourt au lait fermenté aux fruits avec édulcorants à 0% de matières grasses enrichi en vitamine D, Spécialité laitière aux fruits avec édulcorants à 0% de matières grasses enrichie en vitamine D
+fr:Yaourt aux fruits avec édulcorants à 0% de matières grasses enrichi en vitamine D, Lait fermenté aux fruits avec édulcorants à 0% de matières grasses enrichi en vitamine D, Spécialité laitière aux fruits avec édulcorants à 0% de matières grasses enrichie en vitamine D
 agribalyse_food_code:en:19582
 ciqual_food_code:en:19582
 ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, with fruits, with sweetener, fat free, fortified with vitamin D
@@ -46957,7 +46963,13 @@ ciqual_food_code:en:19592
 ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, with fruits, with sugar, fortified with vitamin D
 ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux fruits, sucré, enrichi en vitamine D
 
-<en:Yogurts
+<en:Sweetened yogurts
+<en:Plain yogurts
+en:Plain sweetened yogurts, Sweetened plain yogurts, Plain fermented milk yogurt with sugar, Plain dairy specialty with sugar
+fr:Yaourts natures sucrés, Yaourts sucrés au lait fermenté, Spécialités laitières natures sucrées
+
+<en:Sweetened yogurts
+<en:Plain yogurts
 en:Plain yogurt with sugar
 fr:Yaourt nature sucré, Yaourt sucré nature
 pl:Jogurt naturalny z cukrem
@@ -46976,7 +46988,7 @@ ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature, 0%
 
 <en:Flavoured yogurts
 en:Fat free flavoured fermented milk yogurt with sweetener, Fat free flavoured dairy specialty with sweetener
-fr:Yaourt au lait fermenté avec édulcorants à 0% de matières grasses, Spécialité laitière aromatisée avec édulcorants à 0% de matières grasses
+fr:Yaourt avec édulcorants à 0% de matières grasses, Lait fermenté avec édulcorants à 0% de matières grasses, Spécialité laitière aromatisée avec édulcorants à 0% de matières grasses
 agribalyse_food_code:en:19559
 ciqual_food_code:en:19559
 ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, flavoured, with sweetener, fat free
@@ -47012,10 +47024,25 @@ agribalyse_proxy_food_name:en:Dairy drink or fermented milk or yogurt, flavoured
 agribalyse_proxy_food_name:fr:Boisson lactée, lait fermenté ou yaourt à boire, aromatisé, sucré
 
 <en:Drinkable yogurts
+fr:Yaourts à boire goût vanille, Yaourts à boire vanille, Yaourts à boire saveur vanille
+ciqual_food_code:en:19508
+
+<en:Drinkable yogurts
+fr:Yaourts à boire goût framboise
+
+<en:Drinkable yogurts
+fr:Yaourts à boire goût chocolat
+
+<en:Drinkable yogurts
 en:Strawberry yogurt drinks
 fr:Yaourts à boire goût fraise, Yaourts à boire fraise, Yaourts à boire saveur fraise
 lt:Braškiniai jogurto gėrimai
 nl:Aardbeiendrinkyoghurts
+ciqual_food_code:en:19535
+
+<en:Drinkable yogurts
+en:Plain drinkable yogurts with sugar, Plain dairy drinks with sugar, Plain fermented milks with sugar
+fr:Yaourts à boire nature sucrés, Boissons lactées nature sucrées au lait fermenté, Laits fermentés nature sucrés, laits-fermentes-sucres
 
 <en:Drinkable yogurts
 en:Vanilla yogurt drinks
@@ -47411,7 +47438,7 @@ hu:Karamellás joghurtok
 it:Yogurt al caramello
 lt:Karameliniai jogurtai, Jogurtai su karamele
 nl:Yoghurt met caramel
-#wikidata:en:
+ciqual_food_code:en:39247
 
 <en:Yogurts
 en:Honey yogurts
@@ -47424,7 +47451,15 @@ it:Yogurt al miele
 lt:Jogurtai su Medumi
 nl:Honingyoghurts
 ro:Iaurturi cu miere
-#wikidata:en:
+ciqual_food_code:en:19575
+
+<en:Yogurts
+fr: Yaourts à la confiture de lait
+ciqual_food_code:en:19575
+
+<en:Yogurts
+fr:Yaourts sucrés au sucre de canne
+ciqual_food_code:en:19575
 
 <en:Yogurts
 en:Greek-style yogurts, Greek yogurts, Greek yogurt
@@ -47554,7 +47589,7 @@ ciqual_food_name:en:Yogurt, goat's milk, plain, around 5% fat
 <en:Yogurts
 en:Stirred yogurts
 de:cremiger Joghurt
-fi:Sekoitetut jogurtit
+fi:sekoitetut jugurtit
 fr:Yaourts brassés, Yaourt brassé
 nl:Roeryoghurts
 #wikidata:en:
@@ -47582,6 +47617,17 @@ fi:Sekoitetut hedelmäjogurtit
 fr:Yaourts brassés aux fruits, Yaourt brassé aux fruits
 nl:Vruchtenroeryoghurts, Vruchtenroeryoghurt
 #wikidata:en:
+
+<en:Stirred yogurts
+<en:Drinkable yogurts
+en:Stirred yogurt drinks, Stirred yoghurt drinks
+fr:Yaourts brassés à boire, Yaourt brassé à boire
+ciqual_food_code:en:19537
+
+<en:Vanilla yogurt
+<en:Stirred yogurts
+en:Stirred vanilla yogurt drinks, Stirred vanilla yoghurt drinks
+fr:Yaourts brassés à la vanille
 
 <en:Yogurts
 en:Sweetened yogurts, sweet yogurts
@@ -47626,9 +47672,9 @@ en:Plain yogurts, Plain yoghurts
 bg:Натурално кисело мляко
 de:Naturjoghurt
 es:Yogures naturales
-fi:Luonnonjogurtit
-fr:Yaourts nature, Yaourt nature
-it:Yogurt bianco
+fi:luonnon jugurtit, luonnonjogurtit
+fr:Yaourts natures, Yaourts nature, Yaourt nature, Lait fermenté nature, Spécialité laitière nature
+it:Yogurt intero, Yogurt bianco
 nl:Natuurlijke yoghurt, Naturelyoghurts
 pl:Jogurty naturalne, Jogurt naturalny
 pt:Iogurtes naturales, iogurte naturale
@@ -47644,8 +47690,8 @@ ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, plain
 ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature
 
 <en:Yogurts
-en:Plain fermented milk yogurt with cream, Plain dairy specialty with cream
-fr:Yaourt au lait fermenté à la crème, Spécialité laitière nature à la crème
+en:Plain fermented milk yogurt with cream, Plain dairy specialty with cream, Plain yogurts with cream, plain fermented milks with cream, plain dairy specialties with cream
+fr:Yaourt au lait fermenté à la crème, Spécialité laitière nature à la crème, Yaourts à la crème, Laits fermentés à la crème, Spécialités laitières nature à la crème, laits-fermentes
 agribalyse_food_code:en:19598
 ciqual_food_code:en:19598
 ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, plain, w cream
@@ -48386,7 +48432,7 @@ agribalyse_proxy_food_name:fr:Crème dessert au café, rayon frais
 
 <en:Coffee creamy puddings
 en:Refrigerated coffee puddings, Refrigerated coffee custard dessert
-fr:Crèmes dessert café réfrigérées,Crème dessert au café rayon frais
+fr:Crèmes dessert café réfrigérées,Crème dessert au café rayon frais, Crèmes dessert au café rayon frais, Yaourts au café
 ciqual_food_code:en:39246
 ciqual_food_name:en:Custard dessert, coffee, refrigerated
 ciqual_food_name:fr:Crème dessert au café, rayon frais
@@ -48571,6 +48617,7 @@ fi:Suklaiset maitojälkiruoat
 fr:Desserts lactés au chocolat, desserts au chocolat et au lait
 lt:Šokoladiniai pieno desertai
 nl:Desserts op basis van melk en chocola
+ciqual_food_code:en:39200
 
 <en:Dairy desserts
 <en:Coffee desserts
@@ -48931,6 +48978,7 @@ fr:Desserts de lait d'amande fermenté
 es:Yogures de leche de almendras
 it:Yogurt al latte di mandorla
 lt:Migdolų pieno jogurtai
+ciqual_food_code:en:18107
 
 <en:Non-dairy yogurts
 en:Soy milk yogurts, soy yogurts, soya yogurts, soygurts, yofu
@@ -48950,11 +48998,12 @@ wikidata:en:Q1757352
 en:Plain soy yogurts, Natural soy yogurts
 de:Einfacher Soja-Joghurt, Natürlicher Soja-Joghurt
 es:Yogures de soja naturales, Yogures de soja natural
-fr:Yaourts soja natures
+fr:Yaourts soja natures, Yaourts au soja natures
 hu:Természetes szójatej
 it:Yogurt di soia semplice
 lt:Paprasti sojų jogurtai, Natūralūs sojų jogurtai
 nl:Naturel sojayoghurts
+ciqual_food_code:en:19693
 agribalyse_food_code:en:19693
 
 <en:Soy milk yogurts
@@ -48966,6 +49015,7 @@ fr:Yaourts de soja aux fruits, Yaourts soja aux fruits, Yaourts au soja aux frui
 it:Yogurt di soia alla frutta
 lt:Vaisių sojų jogurtai
 nl:Fruit sojayoghurts
+ciqual_food_code:en:19692
 agribalyse_food_code:en:19692
 
 <en:Fruit soy yogurts
@@ -49007,6 +49057,7 @@ es:Yogures de soja con cerezas
 fr:Yaourts de soja aux cerises
 lt:Vyšnių sojų jogurtai
 nl:Kersensojayoghurts
+ciqual_food_code:en:19692
 wikidata:en:Q47472145
 
 <en:Fruit soy yogurts
@@ -49030,6 +49081,7 @@ es:Yogures de soja con arándanos
 fr:Yaourts de soja à la myrtille
 lt:Mėlynių sojų jogurtai
 nl:Bosbessensojayoghurts
+ciqual_food_code:en:19692
 
 <en:Fruit soy yogurts
 en:Mixed fruit soy yogurts
@@ -49038,6 +49090,7 @@ es:Yogures de soja con frutas variadas
 fr:Yaourts soja aux fruits mixés
 lt:Įvairių vaisių sojų jogurtai
 nl:Multifruitsojayoghurts, multivruchtensojayoghurts
+ciqual_food_code:en:19692
 
 <en:Mixed fruit soy yogurts
 en:Berries soy yogurts
@@ -73988,6 +74041,10 @@ agribalyse_food_code:en:6002
 ciqual_food_code:en:6002
 ciqual_food_name:en:Beef, shoulder, raw
 ciqual_food_name:fr:Boeuf, épaule, crue
+
+<en:Beef meat
+en:Beef livers, Beef liver
+fr:Foies de boeuf, Foie de boeuf
 
 <en:Beef meat
 en:Young cow liver
@@ -100043,6 +100100,7 @@ nl_be:Taartdeeg
 <en:Pie dough
 en:Shortcrust pastry
 fr:Pâtes brisées, Pâte brisée, Pâtes à tarte brisées
+en:Baked shortcrust pastry
 nl:Zanddegen
 nl_be:Zanddeeg
 agribalyse_food_code:en:23410
@@ -100094,7 +100152,7 @@ en:Puff pastry sheets, Cooked puff pastry
 de:Blätterteig Platten
 fr:Pâtes feuilletées, Pâte feuilletée, Pâtes à tarte feuilletées, Pâte feuilletée cuite
 it:Fogli di pasta sfoglia, Pasta sfoglia tirata
-nl:Bladerdeegbladen
+nl:Bladerdeegbladen, Bladerdegen
 nl_be:Bladerdeeg
 agribalyse_food_code:en:23422
 ciqual_food_code:en:23422
@@ -101339,8 +101397,8 @@ wikidata:en:Q4820063
 # TODO upstream child proxy
 
 <en:Stuffed vine leaves
-en:Dolmas, Vine leaf stuffed wih rice
-fr:Dolmas, Feuille de vigne farcie au riz
+en:Dolmas, Vine leaf stuffed wih rice, Drained vine leaf stuffed wih rice
+fr:Dolmas, Feuille de vigne farcie au riz, Feuille de vigne égouttée farcie au riz
 ciqual_food_code:en:25217
 ciqual_food_name:en:Vine leaf stuffed wih rice or dolmas, drained
 ciqual_food_name:fr:Feuille de vigne farcie au riz ou dolmas, égouttée
@@ -101943,6 +102001,23 @@ en:Beware multiple products
 fr:Attention produits multiples
 nl:Let op, meerdere producten
 
+<en:Specific products
+en:Products that cannot be found in metropolitan France
+fr:produits introuvables en Métropole (pour la France)
+nl:Producten die niet in Frankrijk gevonden kunnen worden
+
+<en:Specific products
+en:Licensed products
+de:Lizensierte Produkte
+fi:Lisensoidut tuotteet
+fr:Produits sous license
+nl:Gelicenseerde producten
+
+<en:Specific products
+en:Special series
+fr:série spéciale
+nl:Speciale serie
+
 en:Non food products
 ca:Productes no alimentaris
 de:Non-Food-Produkte, Non Food Produkte
@@ -102279,6 +102354,14 @@ nl_be:Kiemen
 wikidata:en:Q1057052
 
 <en:Sprouts
+<en:Wheats
+en:Raw sprouted wheat
+fr:Blé germé cru
+ciqual_food_code:en:9011
+ciqual_food_name:en:Wheat sprouted, raw
+ciqual_food_name:fr:Blé germé, cru
+
+<en:Sprouts
 en:Alfalfa sprouts
 fr:Pousses d'alfalfa
 en:Germinados de alfalfa
@@ -102352,6 +102435,9 @@ nl_be:Aardappelpuree
 ru:Пюре картофельное, Картофельное пюре
 sv:Potatismos
 pnns_group_2:en:Potatoes
+ciqual_food_code:en:4047
+ciqual_food_name:en:Mashed potatoes (average)
+ciqual_food_name:fr:Pomme de terre, purée (aliment moyen)
 
 <fr:Purées
 <en:Prepared vegetables
@@ -102867,9 +102953,12 @@ zh:食品装饰品
 
 <en:Food decorations
 <en:Pastry helpers
-en:Sprinkles, Chocolat or sugar sprinkles
-fr:Vermicelles en chocolat ou en sucre
+en:Sprinkles, Chocolat or sugar sprinkles, Multi-coloured vermicelli
+fr:Vermicelles en chocolat ou en sucre, Vermicelles multicolores
 nl:Chocolade of suiker hagel
+ciqual_food_code:en:11510
+ciqual_food_name:en:Multi-coloured vermicelli
+ciqual_food_name:fr:Vermicelles multicolores
 
 en:Halloween foods and drinks
 de:Halloweenspeisen und -getränke
@@ -102972,9 +103061,12 @@ de:Gefüllte Weinblätter
 fr:Feuilles de vigne farcies
 nl:Gevulde wijnbladeren
 
-en:Brick sheets
-fr:Feuilles de brick
+en:Brick sheets, Baked filo pastry sheets without fat, Baked phyllo pastry sheets without fat
+fr:Feuilles de brick, Feuilles de brick cuite à sec sans matière grasse
 nl:Brick vellen
+ciqual_food_code:en:23430
+ciqual_food_name:en:Filo or phyllo pastry sheets, baked, without fat
+ciqual_food_name:fr:Feuille de brick, cuite à sec sans matière grasse
 
 <en:Meals
 en:Khatfa, Phyllo pastry, Filo pastry

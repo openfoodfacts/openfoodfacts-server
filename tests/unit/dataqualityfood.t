@@ -6,6 +6,7 @@ use utf8;
 use Test::More;
 
 use ProductOpener::DataQuality qw/:all/;
+use ProductOpener::DataQualityFood qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 
@@ -706,5 +707,41 @@ check_quality_and_test_product_has_quality_tag(
 	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
 	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 0
 );
+
+# testing of ProductOpener::DataQualityFood::check_quantity subroutine
+$product_ref = {quantity => "300g"};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag($product_ref, 'en:quantity-contains-e',
+	'quantity does not contain e', 0);
+$product_ref = {quantity => "1 verre"};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag($product_ref, 'en:quantity-contains-e',
+	'quantity does not contain e', 0);
+$product_ref = {quantity => "1 litre"};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag($product_ref, 'en:quantity-contains-e',
+	'quantity does not contain e', 0);
+$product_ref = {quantity => "225 g ℮"};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag($product_ref, 'en:quantity-contains-e', 'quantity does not contain e',
+	0);
+$product_ref = {quantity => "300ge"};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag($product_ref, 'en:quantity-contains-e', 'quantity contains e', 1);
+$product_ref = {quantity => "300mge"};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag($product_ref, 'en:quantity-contains-e', 'quantity contains e', 1);
+$product_ref = {quantity => "300 mg e"};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag($product_ref, 'en:quantity-contains-e', 'quantity contains e', 1);
+$product_ref = {quantity => "200 g e (2x100g)"};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag($product_ref, 'en:quantity-contains-e', 'quantity contains e', 1);
+$product_ref = {quantity => "1kge35.27oz"};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag($product_ref, 'en:quantity-contains-e', 'quantity contains e', 1);
+$product_ref = {quantity => "300 ml e / 342 g"};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag($product_ref, 'en:quantity-contains-e', 'quantity contains e', 1);
 
 done_testing();
