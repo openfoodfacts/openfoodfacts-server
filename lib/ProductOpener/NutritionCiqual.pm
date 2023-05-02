@@ -122,7 +122,7 @@ sub load_ciqual_data() {
 		);
 
 		foreach my $nutrient (@$header_row_ref) {
-			# nrj_kj -> energy-kj-kj
+			# nrj_kj -> energy-kj_kj
 			$nutrient =~ s/^nrj_(.*)$/energy-$1_$1/;
 
 			if ($nutrient =~ /_(g|mg|mcg|kj|kcal)$/) {
