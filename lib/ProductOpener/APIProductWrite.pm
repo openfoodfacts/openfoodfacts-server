@@ -114,13 +114,13 @@ sub update_field_with_0_or_1_value ($request_ref, $product_ref, $field, $value) 
 	return;
 }
 
-=head2 update_packagings($request_ref, $product_ref, $field, $is_addition, $value)
+=head2 update_packagings($request_ref, $product_ref, $field, $add_to_existing_components, $value)
 
 Update packagings.
 
 =cut
 
-sub update_packagings ($request_ref, $product_ref, $field, $is_addition, $value) {
+sub update_packagings ($request_ref, $product_ref, $field, $add_to_existing_components, $value) {
 
 	my $request_body_ref = $request_ref->{body_json};
 	my $response_ref = $request_ref->{api_response};
@@ -136,7 +136,7 @@ sub update_packagings ($request_ref, $product_ref, $field, $is_addition, $value)
 		);
 	}
 	else {
-		if (not $is_addition) {
+		if (not $add_to_existing_components) {
 			# We will replace the packagings structure if it already exists
 			$product_ref->{packagings} = [];
 		}
@@ -174,7 +174,7 @@ sub update_packagings ($request_ref, $product_ref, $field, $is_addition, $value)
 				$input_packaging_ref, $response_ref);
 
 			if (defined $packaging_ref) {
-				if (not $is_addition) {
+				if (not $add_to_existing_components) {
 					push @{$product_ref->{packagings}}, $packaging_ref;
 				}
 				else {
@@ -187,13 +187,13 @@ sub update_packagings ($request_ref, $product_ref, $field, $is_addition, $value)
 	return;
 }
 
-=head2 update_tags_fields ($request_ref, $product_ref, $field, $is_addition, $value)
+=head2 update_tags_fields ($request_ref, $product_ref, $field, $add_to_existing_tags, $value)
 
 Update packagings.
 
 =cut
 
-sub update_tags_fields ($request_ref, $product_ref, $field, $is_addition, $tags_lc, $value) {
+sub update_tags_fields ($request_ref, $product_ref, $field, $add_to_existing_tags, $tags_lc, $value) {
 
 	my $request_body_ref = $request_ref->{body_json};
 	my $response_ref = $request_ref->{api_response};
@@ -212,7 +212,7 @@ sub update_tags_fields ($request_ref, $product_ref, $field, $is_addition, $tags_
 		# Generate a comma separated list of tags, so that we can use existing functions to add tags
 		my $tags_list = join(',', @$value);
 
-		if ($is_addition) {
+		if ($add_to_existing_tags) {
 			add_tags_to_field($product_ref, $tags_lc, $field, $tags_list);
 		}
 		else {
@@ -271,9 +271,9 @@ sub update_product_fields ($request_ref, $product_ref, $response_ref) {
 		# Packaging components
 		if ($field =~ /^(packagings)(_add)?$/) {
 			$request_ref->{updated_product_fields}{$1} = 1;
-			my $is_addition = (defined $2) ? 1 : 0;
+			my $add_to_existing_components = (defined $2) ? 1 : 0;
 
-			update_packagings($request_ref, $product_ref, $field, $is_addition, $value);
+			update_packagings($request_ref, $product_ref, $field, $add_to_existing_components, $value);
 		}
 		# packagings_complete contains 0 or 1 and is used to indicate that all packaging components are listed in the packagings field
 		elsif ($field eq "packagings_complete") {
@@ -302,9 +302,9 @@ sub update_product_fields ($request_ref, $product_ref, $response_ref) {
 			# otherwise use the value of the tags_lc request field)
 			my $tags_lc = $2 // $request_body_ref->{tags_lc};
 
-			my $is_addition = $3;
+			my $add_to_existing_tags = $3;
 
-			update_tags_fields($request_ref, $product_ref, $tagtype, $is_addition, $tags_lc, $value);
+			update_tags_fields($request_ref, $product_ref, $tagtype, $add_to_existing_tags, $tags_lc, $value);
 		}
 		# Simple product fields
 		elsif (defined $product_simple_fields{$field}) {
