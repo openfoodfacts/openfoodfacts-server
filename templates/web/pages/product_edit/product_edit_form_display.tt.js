@@ -35,14 +35,14 @@
 	}
 });
 
-function show_warning(should_show, nutirent_id, warning_message){
+function show_warning(should_show, nutrient_id, warning_message){
 	if(should_show) {
-		\$('#nutriment_'+nutirent_id).css("background-color", "rgb(255 237 235)");
-		\$('#nutriment_question_mark_'+nutirent_id).css("display", "inline-table");
-		\$('#nutriment_sugars_warning_'+nutirent_id).text(warning_message);
+		\$('#nutriment_'+nutrient_id).css("background-color", "rgb(255 237 235)");
+		\$('#nutriment_question_mark_'+nutrient_id).css("display", "inline-table");
+		\$('#nutriment_sugars_warning_'+nutrient_id).text(warning_message);
 	}else {
-		\$('#nutriment_'+nutirent_id).css("background-color", "white");
-		\$('#nutriment_question_mark_'+nutirent_id).css("display", "none");
+		\$('#nutriment_'+nutrient_id).css("background-color", "white");
+		\$('#nutriment_question_mark_'+nutrient_id).css("display", "none");
 	}
 }
 
@@ -53,16 +53,16 @@ var fat_value;
 
 var required_nutrients_id = ['energy-kj', 'energy-kcal', 'fat', 'saturated-fat', 'sugars', 'carbohydrates', 'fiber', 'proteins', 'salt', 'sodium', 'alcohol'];
 
-required_nutrients_id.forEach(nutirent_id => {
-	\$('#nutriment_' + nutirent_id).on('input', function() {
+required_nutrients_id.forEach(nutrient_id => {
+	\$('#nutriment_' + nutrient_id).on('input', function() {
 		var nutrient_value = \$(this).val();
 		var is_above_or_below_100 = isNaN(nutrient_value) || nutrient_value < 0 || nutrient_value > 100;
-		show_warning(is_above_or_below_100, nutirent_id, "Please enter a value between 0 and 100");
+		show_warning(is_above_or_below_100, nutrient_id, "Please enter a value between 0 and 100");
 
 		var crutial_nutrients = ['fat', 'saturated-fat', 'sugars', 'carbohydrates'];
 
-		if (crutial_nutrients.includes(nutirent_id)) {
-			switch(nutirent_id) {
+		if (crutial_nutrients.includes(nutrient_id)) {
+			switch(nutrient_id) {
 				case "saturated-fat":
 					saturated_fats_value = nutrient_value;
 					break;
