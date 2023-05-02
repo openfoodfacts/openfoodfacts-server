@@ -758,7 +758,9 @@ sub check_nutrition_data ($product_ref) {
 
 			$nid_n++;
 
-			if (($nid eq 'fat') or ($nid eq 'carbohydrates') or ($nid eq 'proteins') or ($nid eq 'salt')) {
+			if (    (defined $product_ref->{nutriments}{$nid . "_100g"})
+				and (($nid eq 'fat') or ($nid eq 'carbohydrates') or ($nid eq 'proteins') or ($nid eq 'salt')))
+			{
 				$total += $product_ref->{nutriments}{$nid . "_100g"};
 			}
 
@@ -1203,12 +1205,18 @@ Checks related to the quantity and serving quantity.
 
 =cut
 
+# Check quantity values. See https://en.wiki.openfoodfacts.org/Products_quantities
 sub check_quantity ($product_ref) {
 
 	# quantity contains "e" - might be an indicator that the user might have wanted to use "℮" \N{U+212E}
-	if (    (defined $product_ref->{quantity})
-		and ($product_ref->{quantity} =~ /(?:.*e$)|(?:[0-9]+\s*[kmc]?[gl]?\s*e)/i)
-		and (not($product_ref->{quantity} =~ /\N{U+212E}/i)))
+	# example: 650 g e
+	if (
+		(defined $product_ref->{quantity})
+		# contains "kg e", or "g e", or "cl e", etc.
+		and ($product_ref->{quantity} =~ /(?:[0-9]+\s*[kmc]?[gl]\s*e)/i)
+		# contains the "℮" symbol
+		and (not($product_ref->{quantity} =~ /\N{U+212E}/i))
+		)
 	{
 		push @{$product_ref->{data_quality_info_tags}}, "en:quantity-contains-e";
 	}
