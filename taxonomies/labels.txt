@@ -160,6 +160,7 @@ nl:100% natuurlijk
 pt:100% natural, cem por cento natural, cem porcento natural
 ru:100% натуральное, 100% натуральный, 100% натуральная, 100% натуральные, 100% натуральный продукт, натуральный продукт
 th:ธรรมชาติ 100%
+tr:%100 doğal
 
 en:100% vegetable
 ca:100% vegetal
@@ -174,6 +175,7 @@ nl:100% plantaardig
 pt:100% vegetal, cem por cento vegetal, cem porcento vegetal
 ru:100% овощной
 th:ใช้น้ำมันพืช 100%
+tr:%100 sebze
 
 en:Not hardened
 ca:Sense endurir
@@ -210,19 +212,38 @@ en:British Lion Quality, Lion Quality, British Lion Eggs, Lion Eggs, The Lion Ma
 wikidata:en:Q4969906
 
 nl:Beter Leven
+xx:beter leven
+country:en:Netherlands
+description:en:The Better Life label scheme uses a star rating to indicate the animal-friendliness of the systems used to rear livestock for the production of meat, eggs and dairy produce. The higher the number of stars, the more attention is paid to animal welfare. Our website shows the exact criteria per animal species that are applicable for livestock farmers and producers.
+website:en:https://beterleven.dierenbescherming.nl/zakelijk/en/what-is-the-better-life-label/
 label_categories:en: en:Animal welfare
 wikidata:en:Q58477631
 
 <nl:Beter Leven
 nl:Beter Leven 1 ster
+xx:Beter Leven 1 ster
+image:nl:beter-leven-1-ster.176x90.png
+country:en:Netherlands
+description:en:The Better Life label scheme uses a star rating to indicate the animal-friendliness of the systems used to rear livestock for the production of meat, eggs and dairy produce. The higher the number of stars, the more attention is paid to animal welfare. Our website shows the exact criteria per animal species that are applicable for livestock farmers and producers.
+website:en:https://beterleven.dierenbescherming.nl/zakelijk/en/what-is-the-better-life-label/
 label_categories:en: en:Animal welfare
 
 <nl:Beter Leven
 nl:Beter Leven 2 ster, Beter Leven 2 sterren
+xx:Beter Leven 2 ster, Beter Leven 2 sterren
+image:nl:beter-leven-2-ster.176x90.png
+country:en:Netherlands
+description:en:The Better Life label scheme uses a star rating to indicate the animal-friendliness of the systems used to rear livestock for the production of meat, eggs and dairy produce. The higher the number of stars, the more attention is paid to animal welfare. Our website shows the exact criteria per animal species that are applicable for livestock farmers and producers.
+website:en:https://beterleven.dierenbescherming.nl/zakelijk/en/what-is-the-better-life-label/
 label_categories:en: en:Animal welfare
 
 <nl:Beter Leven
 nl:Beter Leven 3 ster, Beter Leven 3 sterren
+xx:Beter Leven 3 ster, Beter Leven 3 sterren
+image:nl:beter-leven-3-ster.176x90.png
+country:en:Netherlands
+description:en:The Better Life label scheme uses a star rating to indicate the animal-friendliness of the systems used to rear livestock for the production of meat, eggs and dairy produce. The higher the number of stars, the more attention is paid to animal welfare. Our website shows the exact criteria per animal species that are applicable for livestock farmers and producers.
+website:en:https://beterleven.dierenbescherming.nl/zakelijk/en/what-is-the-better-life-label/
 label_categories:en: en:Animal welfare
 
 en:RSPCA Assured
@@ -384,6 +405,7 @@ es:Producto carbono neutro
 fi:hiilihyvitetty tuote, hiilikompensoitu tuote, hiilineutraali
 fr:Produit compensé carbone, Carbone neutre, neutre en carbone, carbone compensé
 hu:szénsemleges termék, szénsemleges, Szén-kompenzált termék
+it:Impatto zero, Carbon neutral, Prodotto compensato al carbonio
 nl:Kooldioxide neutraal
 pt:Produto produzido em neutralidade de carbono, Produto neutral de carbono, produto neutro de carbono, produto neutro em carbono, neutro em carbono, neutral em carbono
 ru:углерод компенсирующий продукт, углерод нейтральный
@@ -405,6 +427,7 @@ fr:Empreinte carbone, émissions de carbone
 he:טביעת רגל פחמנית
 hu:Szénlábnyom, szén-dioxid-kibocsátás, karbonlábnyom, szén lábnyom, karbon lábnyom
 it:Emissioni di CO2, impronta climatica
+lt:Anglies dioksido pėdsakas, anglies dioksido išmetimas, produktas nurodantis anglies pėdsaką
 nl:Koolstofvoetafdruk, Klimaatafdruk
 pl:Ślad węglowy produktu
 pt:Pegada de carbono, emissões de CO2, emissões em CO2, emissões de carbono, emissões em carbono
@@ -828,6 +851,7 @@ en:ISO 22000
 bg:ISO 22000
 it:ISO 22000
 pl:ISO 22000
+pt:ISO 22000
 ru:ИСО 22000, ISO 22000
 xx:ISO 22000
 wikidata:en:Q524143
@@ -1217,6 +1241,7 @@ pl:Halal
 pt:Halal
 ru:Халяль
 th:ฮาลาล
+tr:Helal
 wikidata:en:Q177823
 label_categories:en: en:Religious diets, en:Specific diets
 
@@ -1313,7 +1338,7 @@ se:Fiberkälla
 en:High fibres, high fibers, Rich in fiber
 ca:Alt en fibra, ric en fibra
 de:ballaststoffreich
-es:Rico en fibra, Rico en fibras, Alto en Fibra, Alto Contenido en Fibra
+es:Rico en fibra, Rico en fibras, Fuente de Fibra, Alto en Fibra, Alto Contenido en Fibra
 fi:runsaskuituinen, paljon kuituja, kuitupitoinen
 fr:Riche en fibres, Naturellement riches en fibres
 he:עתיר בסיבים תזונתיים
@@ -1321,7 +1346,7 @@ hu:Rostokban gazdag, Magas rosttartalmú
 it:Ricco di fibre
 nb:Fiberrik, rik på fiber
 nl:Vezelrijk, Rijk aan vezels
-pl:Wysoka zawartość błonnika
+pl:wysoka zawartość błonnika
 pt:Rico em fibras, teor elevado de fibras, teor elevado em fibras, alto teor em fibra, alto teor em fibras
 ru:Обогащено клетчаткой
 th:ใยอาหารสูง
@@ -1433,6 +1458,7 @@ es:Fuente de fósforo
 fi:fosforin lähde
 fr:Source de phosphore
 hu:Foszforforrás
+it:Fonte di fosforo
 nl:Bron van fosfor
 pt:Fonte de fósforo
 
@@ -1451,6 +1477,7 @@ nl:bron van Vitamine A
 pl:Źródło witaminy A
 pt:Fonte de vitamina A
 ru:Источник витамина A
+tr:A Vitamini kaynağı
 wikidata:en:Q18225
 
 en:Vitamin B source, Source of vitamin B
@@ -1545,6 +1572,7 @@ nl:Bron van Vitamine C
 pl:Źródło witaminy C
 pt:Fonte de vitamina C
 ru:Источник витамина C
+tr:C Vitamini kaynağı
 
 en:Vitamin D source, Source of vitamin D
 bg:Източник на витамин D
@@ -1592,6 +1620,7 @@ it:Fonte di ferro
 nl:Bron van IJzer, Rijk aan IJzer
 pl:Źródło żelaza
 pt:Fonte de ferro
+tr:Demir Kaynağı
 
 en:Natural source of calcium, Natural calcium source
 ca:Font natural de calci
@@ -1719,6 +1748,7 @@ pl:Koszerny
 pt:Kosher
 ru:Кошерное
 th:โคเชอร์
+tr:Koşer
 wikidata:en:Q1076110
 
 <en:Kosher
@@ -2574,6 +2604,7 @@ pl:Bez cukru, Nie zawiera cukru
 pt:Sem açúcar, sem açúcares
 ru:Без сахара
 th:ไม่มีน้ำตาล
+tr:Şekersiz
 
 en:Lowers cholesterol
 bg:Намалява холестерола
@@ -3012,6 +3043,7 @@ pt:Fabricado na Suíça, feito na Suíça, produzido na Suíça
 country:en:Switzerland
 label_categories:en: en:Geographic label
 
+# Mexico
 en:Made in Mexico
 bg:Произведено в Мексико
 ca:Fet a Mèxic
@@ -3026,6 +3058,121 @@ pl:Wyprodukowano w Meksyku, Wyprodukowano w Mexyku
 pt:Fabricado no México, feito no México, produzido no México
 country:en:Mexico
 label_categories:en: en:Geographic label
+
+es:Sistema de Etiquetado Frontal de Alimentos y Bebidas, Sistema de Etiquetado Frontal de Alimentos y Bebidas (SEFAB), SEFAB
+en:Sistema de Etiquetado Frontal de Alimentos y Bebidas, Sistema de Etiquetado Frontal de Alimentos y Bebidas (SEFAB), SEFAB
+xx:Sistema de Etiquetado Frontal de Alimentos y Bebidas, Sistema de Etiquetado Frontal de Alimentos y Bebidas (SEFAB), SEFAB
+label_categories:en: en:Health
+country:en:Mexico
+description:es:El etiquetado de alimentos en México se refiere a la normatividad alimenticia oficial que consiste principalmente en la colocación de leyendas sobre los alimentos industrializados que se venden en ese país con el fin de que los consumidores tomen una mejor decisión al comprarlos basados en los criterios nutricionales de los ciertos productos alimenticios.
+description:en:Food labeling in Mexico refers to the official norm that mainly consists of placing labels on processed food sold in the country in order to help consumers make a better purchasing decision based on nutritional criteria. The system was approved in 2010 under the Norma Oficial Mexicana (NOM) NOM-051-SCFI/SSA1-2010 (often shortened to NOM-051).
+wikipedia:es:https://es.wikipedia.org/wiki/Etiquetado_de_alimentos_en_M%C3%A9xico
+wikipedia:en:https://en.wikipedia.org/wiki/Food_labeling_in_Mexico
+
+<es:Sistema de Etiquetado Frontal de Alimentos y Bebidas
+es:Exceso Calorías, Exceso Calorías Secretaría de Salud
+en:Exceso Calorías, Exceso Calorías Secretaría de Salud
+xx:Exceso Calorías, Exceso Calorías Secretaría de Salud
+label_categories:en: en:Nutrition Grades, en:Health
+image:es:exceso-calorias.82x90.png
+country:en:Mexico
+description:en:Products must display the EXCESO CALORÍAS seal if they exceed the following threshold for Calories: > 275 kcal total per 100g of solid product > 70 kcal total or > 10 kcal added sugars per 100 mL of liquid product
+
+<es:Sistema de Etiquetado Frontal de Alimentos y Bebidas
+es:Exceso Azúcares, Exceso Azúcares Secretaría de Salud
+en:Exceso Azúcares, Exceso Azúcares Secretaría de Salud
+xx:Exceso Azúcares, Exceso Azúcares Secretaría de Salud
+label_categories:en: en:Nutrition Grades, en:Health
+image:es:exceso-azucares.82x90.png
+country:en:Mexico
+description:en:Products must display the EXCESO AZÚCARES seal if they exceed the following threshold for Added Sugars: >10% total kcal from added sugars per 100g or solid or 100 mL of liquid product (beverages with < 10 kcal added sugars are exempt and do not require a warning symbol.)
+
+<es:Sistema de Etiquetado Frontal de Alimentos y Bebidas
+es:Exceso Grasas Saturadas, Exceso Grasas Saturadas Secretaría de Salud
+en:Exceso Grasas Saturadas, Exceso Grasas Saturadas Secretaría de Salud
+xx:Exceso Grasas Saturadas, Exceso Grasas Saturadas Secretaría de Salud
+label_categories:en: en:Nutrition Grades, en:Health
+image:es:exceso-grasas-saturadas.82x90.png
+country:en:Mexico
+description:en:Products must display the EXCESO GRASAS SATURADAS seal if they exceed the following threshold for Saturated Fat: ≥10% total kcal from saturated fats
+
+<es:Sistema de Etiquetado Frontal de Alimentos y Bebidas
+es:Exceso Grasas Trans, Exceso Grasas Trans Secretaría de Salud
+en:Exceso Grasas Trans, Exceso Grasas Trans Secretaría de Salud
+xx:Exceso Grasas Trans, Exceso Grasas Trans Secretaría de Salud
+label_categories:en: en:Nutrition Grades, en:Health
+image:es:exceso-grasas-trans.82x90.png
+country:en:Mexico
+description:en:Products must display the EXCESO GRASA TRANS seal if they exceed the following threshold for Trans Fat: ≥1% total kcal from trans fats
+
+<es:Sistema de Etiquetado Frontal de Alimentos y Bebidas
+es:Exceso Sodio, Exceso Sodi Secretaría de Salud
+en:Exceso Sodio, Exceso Sodi Secretaría de Salud
+xx:Exceso Sodio, Exceso Sodi Secretaría de Salud
+label_categories:en: en:Nutrition Grades, en:Health
+image:es:exceso-sodio.82x90.png
+country:en:Mexico
+description:en:Products must display the EXCESO GRASA TRANS seal if they exceed the following threshold for Trans Fat: ≥1% total kcal from trans fats
+
+<es:Sistema de Etiquetado Frontal de Alimentos y Bebidas
+es:contiene cafeína evitar en niños
+en:contiene cafeína evitar en niños
+xx:contiene cafeína evitar en niños
+label_categories:en: en:Health
+image:es:contiene-cafeina-evitar-en-ninos.386x90.png
+country:en:Mexico
+description:en:Products that contain caffeine must include the warning “CONTIENE CAFEÍNA — EVITAR EN NIÑOS”
+
+<es:Sistema de Etiquetado Frontal de Alimentos y Bebidas
+es:contiene edulcorantes no recomendable en niños
+en:contiene edulcorantes no recomendable en niños
+xx:contiene edulcorantes no recomendable en niños
+label_categories:en: en:Health
+image:es:contiene-edulcorantes-no-recomendable-en-ninos.436x90.png
+country:en:Mexico
+description:en:Products that contain sweeteners (“substances different from mono- and disaccharides that provide sweet flavor to products”) must display the warning “CONTIENE EDULCORANTES, NO RECOMENDABLE EN NIÑOS”
+
+<es:Sistema de Etiquetado Frontal de Alimentos y Bebidas
+es:1 Sello, 1 Sello Secretaría de Salud
+en:1 Sello, 1 Sello Secretaría de Salud
+xx:1 Sello, 1 Sello Secretaría de Salud
+label_categories:en: en:Nutrition Grades, en:Health
+country:en:Mexico
+description:en:Products with a primary display area of ≤ 5 cm² must include one sign with a number that indicates how many nutrients exceed the recommended threshold.
+
+<es:Sistema de Etiquetado Frontal de Alimentos y Bebidas
+es:2 Sellos, 2 Sellos Secretaría de Salud
+en:2 Sellos, 2 Sellos Secretaría de Salud
+xx:2 Sellos, 2 Sellos Secretaría de Salud
+label_categories:en: en:Nutrition Grades, en:Health
+country:en:Mexico
+description:en:Products with a primary display area of ≤ 5 cm² must include one sign with a number that indicates how many nutrients exceed the recommended threshold.
+
+<es:Sistema de Etiquetado Frontal de Alimentos y Bebidas
+es:3 Sellos, 3 Sellos Secretaría de Salud
+en:3 Sellos, 3 Sellos Secretaría de Salud
+xx:3 Sellos, 3 Sellos Secretaría de Salud
+label_categories:en: en:Nutrition Grades, en:Health
+image:es:3-sellos.82x90.png
+country:en:Mexico
+description:en:Products with a primary display area of ≤ 5 cm² must include one sign with a number that indicates how many nutrients exceed the recommended threshold.
+
+<es:Sistema de Etiquetado Frontal de Alimentos y Bebidas
+es:4 Sellos, 4 Sellos Secretaría de Salud
+en:4 Sellos, 4 Sellos Secretaría de Salud
+xx:4 Sellos, 4 Sellos Secretaría de Salud
+label_categories:en: en:Nutrition Grades, en:Health
+country:en:Mexico
+description:en:Products with a primary display area of ≤ 5 cm² must include one sign with a number that indicates how many nutrients exceed the recommended threshold.
+
+<es:Sistema de Etiquetado Frontal de Alimentos y Bebidas
+es:5 Sellos, 5 Sellos Secretaría de Salud
+en:5 Sellos, 5 Sellos Secretaría de Salud
+xx:5 Sellos, 5 Sellos Secretaría de Salud
+label_categories:en: en:Nutrition Grades, en:Health
+country:en:Mexico
+description:en:Products with a primary display area of ≤ 5 cm² must include one sign with a number that indicates how many nutrients exceed the recommended threshold.
+
 
 en:Made in the EU, Made in the European Union
 label_categories:en: en:Geographic label
@@ -3248,6 +3395,7 @@ bg:Без модифицирани нишестета, без модифицир
 fi:ilman muunneltuja tärkkelyksiä, ilman muunneltua tärkkelystä
 fr:Sans amidons modifiés, sans amidon modifié, sans amidons transformés, sans amidon transformé
 hu:Módosított keményítők nélkül
+it:Senza amidi modificati
 pt:Sem amido modificado, sem amidos modificados
 
 #instruction:en:Do NOT change the english key.
@@ -3290,6 +3438,7 @@ nl:Zonder toevoegingen
 pl:Bez dodatków, Brak dodatków
 pt:Sem aditivos, sem aditivo
 th:ไม่มีสารเติมแต่ง
+tr:Katkı Maddesi yok
 label_categories:en: en:Health, en:Additives
 opposite:en: en:With additives
 
@@ -3344,6 +3493,7 @@ en:Contains alcohol
 bg:Съдържа алкохол
 de:Enthält Alkohol
 hu:Alkoholt tartalmaz
+it:Contiene alcol
 pt:Contém álcool
 opposite:en: en:no-alcohol
 
@@ -3435,6 +3585,7 @@ label_categories:en: en:Health, en:Additives
 <en:No artificial preservatives
 <en:No artificial colors
 en:No artificial colours and preservatives
+it:Senza coloranti e conservanti artificiali
 pt:Sem corantes e conservantes artificiais
 
 #instruction:en:Do NOT change the english key.
@@ -3468,6 +3619,7 @@ es:Sin potenciador artificial del sabor
 fi:ei keinotekoisia arominvahventeita, ilman keinotekoisia arominvahventeita
 fr:Sans exhausteurs de goût artificiels
 hu:Mesterséges ízfokozó nélkül, mesterséges ízfokozót nem tartalmaz
+it:Senza esaltatori artificiali di sapidità
 nl:Zonder smaakversterkers
 pt:Sem intensificador de aroma artificial, sem intensificadores de aromas artificiais
 pl:Bez sztucznych wzmacniaczy smaku
@@ -3568,6 +3720,7 @@ pl:Bez barwników, bez dodatku barwników
 pt:Sem corantes, sem corantes adicionados, 0% corantes
 ru:без красителей
 th:ไม่เติมสี
+tr:Renklendirici yok, Renklendiricisiz
 zh:无色素
 label_categories:en: en:Health, en:Additives
 
@@ -3821,6 +3974,7 @@ ru:Без лактозы
 sk:Bez laktozy
 sv:Laktosfri, Laktosfritt
 th:ไม่มีแลคโตส
+tr:Laktozsuz
 opposite:en: en:contains-lactose
 
 en:Contains lactose
@@ -3886,7 +4040,7 @@ fr:Sans ajout de produit laitiers
 hr:Bez dodataka mliječnih proizvoda
 it:Senza aggiunta di latticini
 nl:Zonder toevoeging van zuivel
-pt:Sem adição de produtos láteos, sem adição de lacticínios, sem adição de laticínios
+pt:Sem adição de produtos lácteos, sem adição de lacticínios, sem adição de laticínios
 ru:Без добавления молочных продуктов
 
 en:Contains milk
@@ -3920,6 +4074,7 @@ he:ללא משמרים, ללא חומרים משמרים, ללא חומרים מ
 hr:bez konzervansa
 hu:Tartósítószermentes, hozzáadott tartósítószer nélkül, tartósítószert nem tartalmaz
 it:Senza conservanti, Senza aggiunta di conservanti, Senza conservanti aggiunti
+lt:Be konservantų, be pridėtų konservantų
 nl:Conserveermiddelvrij
 pl:Bez konserwantów, bez dodatku konserwantów, bez substancji konserwujących
 pt:Sem conservantes, sem conservantes adicionados, sem conservante, sem conservante adicionado
@@ -3927,6 +4082,7 @@ ro:Fără conservanți
 ru:Без консервантов
 sv:Utan konserveringsmedel
 th:ไม่ใช้วัตถุกันเสีย
+tr:Koruyucu yok, Koruyucu madde içermez
 zh:无防腐剂
 
 #instruction:en:Do NOT change the english key.
@@ -4209,10 +4365,12 @@ hr:ekološki uzgoj, iz ekološkog uzgoja, iz kontroliranog ekološkog uzgoja
 hu:Bio, Öko, Organikus, biogazdálkodásból, ellenőrzött ökológiai gazdálkodásból
 it:Biologico, biologici, da agricoltura biologica
 ko:유기농
+lt:Ekologiškas, ekologiškai užaugintas, ekologiškai pagamintas, ingredientas pagamintas ekologiškai, iš ekologiško žemės ūkio, iš ekologiško žemės ūkio
 nl:Biologisch, biologische, van biologische oorsprong, van biologische teelt, van gecontroleerd biologische teelt, afkomstig van biologische productiemethode, van gecontroleerde biologische landbouw
 pt:Orgânico, produção orgânica, produzido de forma orgânica, numa quinta orgânica, de agricultura orgânica, agricultura orgânica
 sv:Ekologisk, Ekologiskt, Ekologiska
 th:ออร์แกนิค
+tr:Organik
 zh:有机
 wikidata:en:Q380778
 label_categories:en: en:Environnement
@@ -4479,6 +4637,7 @@ he:אורגני בתקן אירופאי
 hr:EU Organic
 hu:EU Organic, EU bio, EU öko
 it:Biologico UE
+lt:ES ekologiškas, Europos ekologiškas, europinis lapas, Europos ekologiškas lapas, ES ekologinis ūkininkavimas
 nl:EU Organic
 pt:Orgânico EU, Orgânico Europeu, Folha Europeia, Folha Orgânica Europeia
 sv:EU-ekologisk
@@ -4515,6 +4674,7 @@ he:חקלאות האיחוד האירופי
 hr:EU poljoprivreda
 hu:EU mezőgazdaság
 it:Agricoltura dell'Unione Europea
+lt:ES žemės ūkis, Europos Sąjungos žemės ūkis
 nl:EU landbouw
 pt:Agricultura UE, Agricultura da União Europeia
 ru:EU агрокультура, агрокультура Европейского Союза
@@ -4536,6 +4696,7 @@ fi:Tuotettu EU:ssa ja EU:n ulkopuolella
 fr:Agriculture UE/Non UE
 hu:EU/nem-EU mezőgazdaság
 it:Agricoltura EU/non-EU
+lt:ES / ne ES žemės ūkis, ES ir ne ES žemės ūkis
 nl:EU/Non EU landbouw
 pt:Agricultura EU/não EU, Agricultura da União Europeia EU/não União Europeia
 ru:EU/не-EU агрокультура
@@ -4636,6 +4797,7 @@ en:AT-BIO-402
 ca:AT-BIO-402
 es:AT-BIO-402
 it:AT-BIO-402
+pt:AT-BIO-402
 xx:AT-BIO-402
 country:en:Austria
 
@@ -4654,6 +4816,7 @@ en:AT-BIO-901
 ca:AT-BIO-901
 de:AT-BIO-901
 es:AT-BIO-901
+pt:AT-BIO-901
 xx:AT-BIO-901
 
 <en:EU Organic
@@ -4670,7 +4833,9 @@ en:BE-BIO-01, Certisys BE-BIO-01
 ca:BE-BIO-01
 es:BE-BIO-01
 it:BE-BIO-01, Certisys BE-BIO-01
+nl:BE-BIO-01, Certisys BE-BIO-01
 pl:BE-BIO-01
+pt:BE-BIO-01
 xx:BE-BIO-01, Certisys BE-BIO-01
 country:en:Belgium
 
@@ -4680,6 +4845,7 @@ ca:BE-BIO-02
 es:BE-BIO-02
 it:BE-BIO-02
 nl:BE-BIO-02
+pt:BE-BIO-02
 xx:BE-BIO-02
 country:en:Belgium
 
@@ -4864,6 +5030,7 @@ ca:CZ-BIO-001
 cs:CZ-BIO-001
 es:CZ-BIO-001
 it:CZ-BIO-001
+pt:CZ-BIO-001
 xx:CZ-BIO-001
 country:en:Czech Republic
 
@@ -4893,6 +5060,7 @@ en:DE-ÖKO-001
 ca:DE-ÖKO-001
 es:DE-ÖKO-001
 it:DE-ÖKO-001
+pt:DE-ÖKO-001
 xx:DE-ÖKO-001
 country:en:Germany
 
@@ -4901,6 +5069,7 @@ en:DE-ÖKO-003
 ca:DE-ÖKO-003
 es:DE-ÖKO-003
 it:DE-ÖKO-003
+pt:DE-ÖKO-003
 xx:DE-ÖKO-003
 country:en:Germany
 
@@ -4909,6 +5078,7 @@ en:DE-ÖKO-005
 ca:DE-ÖKO-005
 es:DE-ÖKO-005
 it:DE-ÖKO-005
+pt:DE-ÖKO-005
 xx:DE-ÖKO-005
 country:en:Germany
 
@@ -4917,6 +5087,7 @@ en:DE-ÖKO-006
 ca:DE-ÖKO-006
 es:DE-ÖKO-006
 it:DE-ÖKO-006
+pt:DE-ÖKO-006
 xx:DE-ÖKO-006
 country:en:Germany
 
@@ -4945,6 +5116,7 @@ ca:DE-ÖKO-013
 cs:DE-ÖKO-13
 es:DE-ÖKO-013
 it:DE-ÖKO-13
+pt:DE-ÖKO-013
 xx:DE-ÖKO-013, DE-ÖKO-13
 country:en:Germany
 
@@ -5154,6 +5326,7 @@ en:ES-ECO-006-AR
 ca:ES-ECO-006-AR
 es:ES-ECO-006-AR
 it:ES-ECO-006-AR
+pt:ES-ECO-006-AR
 xx:ES-ECO-006-AR
 country:en:Spain
 
@@ -5230,6 +5403,7 @@ en:ES-ECO-016-CL
 ca:ES-ECO-016-CL
 es:ES-ECO-016-CL
 it:ES-ECO-016-CL
+pt:ES-ECO-016-CL
 xx:ES-ECO-016-CL
 country:en:Spain
 
@@ -5256,6 +5430,7 @@ es:ES-ECO-019-CT
 it:ES-ECO-019-CT
 nl:ES-ECI-019-CT
 pl:ES-ECO-019-CT
+pt:ES-ECO-019-CT
 xx:ES-ECO-019-CT
 country:en:Spain
 
@@ -5265,6 +5440,7 @@ ca:ES-ECO-020-CV
 es:ES-ECO-020-CV
 it:ES-ECO-020-CV
 nl:ES-ECO-020-CV
+pt:ES-ECO-020-CV
 xx:ES-ECO-020-CV
 country:en:Spain
 
@@ -5289,6 +5465,7 @@ en:ES-ECO-023-MA
 ca:ES-ECO-023-MA
 es:ES-ECO-023-MA
 it:ES-ECO-023-MA
+pt:ES-ECO-023-MA
 xx:ES-ECO-023-MA
 country:en:Spain
 
@@ -5297,6 +5474,7 @@ en:ES-ECO-024-MU
 ca:ES-ECO-024-MU
 es:ES-ECO-024-MU
 it:ES-ECO-024-MU
+pt:ES-ECO-024-MU
 xx:ES-ECO-024-MU
 country:en:Spain
 
@@ -5305,6 +5483,7 @@ en:ES-ECO-025-NA
 ca:ES-ECO-025-NA
 es:ES-ECO-025-NA
 it:ES-ECO-025-NA
+pt:ES-ECO-025-NA
 xx:ES-ECO-025-NA
 country:en:Spain
 
@@ -5466,6 +5645,8 @@ ca:FR-BIO-01
 es:FR-BIO-01
 fr:FR-BIO-01, Ecocert-FR-BIO-01
 it:FR-BIO-01
+nl:FR-BIO-01
+pt:FR-BIO-01
 xx:FR-BIO-01
 country:en:france
 
@@ -5551,6 +5732,7 @@ ca:GB-ORG-05
 es:GB-ORG-05
 it:GB-ORG-05
 pl:GB-ORG-05
+pt:GB-ORG-05
 xx:GB-ORG-05
 country:en:United Kingdom
 
@@ -5588,6 +5770,7 @@ country:en:United Kingdom
 en:GR-BIO-01
 es:GR-BIO-01
 it:GR-BIO-01
+pt:GR-BIO-01
 xx:GR-BIO-01
 country:en:Greece
 
@@ -5819,6 +6002,7 @@ xx:IT-BIO-003-BZ
 en:IT-BIO-004
 ca:IT-BIO-004
 es:IT-BIO-004
+it:IT-BIO-004
 nl:IT-BIO-004
 pl:IT-BIO-004
 xx:IT-BIO-004
@@ -5838,6 +6022,7 @@ en:IT-BIO-006
 ca:IT-BIO-006
 es:IT-BIO-006
 it:IT-BIO-006
+pt:IT-BIO-006
 xx:IT-BIO-006
 country:en:Italy
 
@@ -5887,6 +6072,7 @@ country:en:Italy
 <en:EU Organic
 en:IT-BIO-013
 es:IT-BIO-013
+it:IT-BIO-013
 xx:IT-BIO-013
 country:en:Italy
 
@@ -5905,6 +6091,7 @@ en:IT-BIO-015
 ca:IT-BIO-015
 de:IT-BIO-015
 es:IT-BIO-015
+it:IT-BIO-015
 xx:IT-BIO-015
 country:en:Italy
 
@@ -5915,6 +6102,7 @@ xx:li-bio-969
 <en:EU Organic
 en:LT-EKO-001
 de:LT-EKO-001
+pt:LT-EKO-001
 xx:LT-EKO-001
 
 <en:EU Organic
@@ -5948,6 +6136,9 @@ xx:LV-BIO-01
 en:LV-BIO-02
 de:LV-BIO-02
 xx:LV-BIO-02
+
+en:LK-BIO-149
+xx:LK-BIO-149
 
 <en:EU Organic
 en:MT-ORG-01
@@ -6033,6 +6224,7 @@ ca:PT-BIO-02
 de:PT-BIO-02
 es:PT-BIO-02
 nl:PT-BIO-02
+pt:PT-BIO-02
 xx:PT-BIO-02
 country:en:Portugal
 
@@ -6041,6 +6233,7 @@ en:PT-BIO-03
 ca:PT-BIO-03
 de:PT-BIO-03
 es:PT-BIO-03
+pt:PT-BIO-03
 xx:PT-BIO-03
 country:en:Portugal
 
@@ -6049,6 +6242,7 @@ en:PT-BIO-04
 ca:PT-BIO-04
 es:PT-BIO-04
 it:PT-BIO-04
+pt:PT-BIO-04
 xx:PT-BIO-04
 country:en:Portugal
 
@@ -6056,6 +6250,7 @@ country:en:Portugal
 en:PT-BIO-05
 de:PT-BIO-05
 es:PT-BIO-05
+pt:PT-BIO-05
 xx:PT-BIO-05
 country:en:Portugal
 
@@ -10874,11 +11069,6 @@ exceptions:en: en:in-conversion products,en:except products covered by Annex III
 
 <en:EU organic
 en:LK-BIO-149
-ca:LK-BIO-149
-de:LK-BIO-149
-es:LK-BIO-149
-it:LK-BIO-149
-nl:LK-BIO-149
 xx:LK-BIO-149
 country:en:Sri Lanka
 eu_groups:en: en:EU Group A: unprocessed plant products,en:EU Group B: live animals or unprocessed animal products,en:EU Group C: unprocessed aquaculture products and algae,en:EU Group D: processed agricultural products for use as food (*),en:EU Group E: processed agricultural products for use as feed (*),en:EU Group F: vegetative propagating material and seeds for cultivation
@@ -17443,6 +17633,7 @@ opposite:en: en:contains-palm-oil
 en:Contains palm oil
 bg:Съдържа палмово масло
 fr:Contient de l'huile de palme
+it:Contiene olio di palma
 nl:Bevat palmolie
 pl:Zawiera olej palmowy, Z olejem palmowym
 pt:Contém óleo de ppalma, com óleo de palma
@@ -17569,7 +17760,7 @@ hr:Čisti kakao maslac
 hu:100% kakaóvaj, tiszta kakaóvaj
 it:Burro di cacao puro
 nl:Pure cacaoboter
-pt:Pura manteiga de cacau, 100% manteiga de cacau, manteiga de cacau pura
+pt:Pura manteiga de cacau, 100% manteiga de cacau, manteiga de cacau pura, manteiga de coco puro
 
 en:Pure juice
 ca:Pur suc
@@ -18424,8 +18615,8 @@ ca:Cafè amb certificat UTZ
 de:UTZ Certified Kaffee
 es:Café certificado UTZ
 fi:UTZ-sertifioitua kahvia
-hu:UTZ Certified Coffee, UTZ tanúsított kávé
 fr:Café certifié UTZ
+hu:UTZ Certified Coffee, UTZ tanúsított kávé
 it:Caffè certificato UTZ, Caffe certificato UTZ
 nl:UTZ Certified Coffee
 pl:UTZ Certified Kawa
@@ -18449,6 +18640,7 @@ he:צמחוני, מתאים לצמחונים
 hr:Vegetarijanski
 hu:Vegetáriánus
 it:Vegetariano
+lt:Vegetariškas, Tinkamas vegetarams
 nb:Vegetarisk, Egnet for vegetarianere
 nl:Vegetarisch
 pl:Wegetariańskie, przyjazne wegetarianom
@@ -18456,6 +18648,7 @@ pt:Vegetariano, adequado a vegetarianos, adequado para vegetarianos, adequado a 
 ro:Vegetarian
 sv:Vegetarisk, Passar för vegetarianer, Lämplig för vegetarianer
 th:มังสวิรัติ
+tr:Vejetaryen
 zh:素食
 wikidata:en:Q638022
 description:en:Vegetarianism is the practice of abstaining from the consumption of meat, and may also include abstention from by-products of animal slaughter.
@@ -18489,6 +18682,7 @@ he:טבעוני, מתאים לטבעונים
 hr:vegan
 hu:Vegán
 it:Vegano, Vegan
+lt:Veganiškas, Tinkamas veganams, Tinkama vegetarams ir veganams
 nb:Vegan, Vegansk
 nl:Veganistisch, plantaardig, niet dierlijk
 pl:Wegańskie, przyjazne weganom
@@ -18496,6 +18690,7 @@ pt:Vegano, produto vegano, vegan, adequado para veganos, adequado a veganos, ade
 sq:vegan
 sv:Vegansk, Passar för veganer
 th:สูตรเจ
+tr:Vegan
 zh:纯素
 opposite:en: en:non-vegan
 description:en:Veganism is the practice of abstaining from the use of animal products, particularly in diet, and an associated philosophy that rejects the commodity status of animals.
@@ -18702,6 +18897,7 @@ hr:Europska vegetarijanska unija, European Vegetarian Union, EU Vegetarian Union
 hu:Európai Vegetáriánus Szövetség, European Vegetarian Union, EU Vegetarian Union, V-LABEL.EU, European V-LABEL, EU V-LABEL
 it:Unione Europea Vegetariani
 nl:Europese vegetarische unie
+pt:União Vegetariana Europeia
 pl:V-Label
 pt:União Vegetariana Europeia, European Vegetarian Union
 sv:Europeiska Vegetariska Unionen
@@ -18903,6 +19099,7 @@ protected_name_type:en: aoc
 en:with Guérande salt
 ca:Amb sal de Guérande
 fr:Au sel de Guérande
+it:Con sale di Guérande
 
 en:Grown in France
 ca:Cultivat a França
@@ -19194,6 +19391,7 @@ ingredients:en: en:pork
 <en:French meat
 en:French beef
 fr:Viande Bovine Française, VBF, Viande bovine Origine France, Bœuf 100% Français, Viande de bœuf Française, Bœuf 100% France, Bœuf Origine France
+it:Manzo di origine francese, manzo francese
 origins:en: en:france
 ingredients:en: en:beef
 
@@ -19210,6 +19408,7 @@ ingredients:en: en:veal
 <en:French meat
 en:French poultry
 fr:Volaille Française, volaille Origine France
+it:Pollame di origine francese, pollame francese
 origins:en: en:france
 ingredients:en: en:poultry
 
@@ -20099,6 +20298,7 @@ en:2020 Gold medal of the German Agricultural Society
 de:DLG Goldener Preis 2020
 fi:Saksan maatalousyhdistyksen kultamitali 2020
 fr:Médaille d'or 2020 de la Société Allemande d'Agriculture
+it:Medaglia d'oro 2020 della Società agricola tedesca
 hr:Zlatna medalja Njemačkog poljoprivrednog društva 2020
 pt:Medalha de ouro da Sociedade Agrícola Alemã de 2020
 
@@ -20232,6 +20432,292 @@ xx:Migros Bio
 stores:en: Migros
 country:en: en:Switzerland
 
+en:Migros M-Check, M-Check
+de:Migros M-Check, M-Check
+fr:Migros M-Check, M-Check
+it:Migros M-Check, M-Check
+xx:Migros M-Check, M-Check
+label_categories:en: en:Health, en:Quality, en:Environment, en:Animal welfare
+country:en: en:Switzerland
+description:en:M-Check grades Migros own-brand products in terms of climate compatibility, animal welfare, environmentally friendly packaging and fish obtained from responsible sources. This provides you with an overview of how the product compares to the rest of the product range. The more stars awarded, the more sustainable is the product.
+description:de:M-Check die Migros-Eigenmarken hinsichtlich Klimaverträglichkeit, Tierwohl, umweltfreundliche Verpackung und Fisch aus verantwortungsvollen Quellen ein. So erhalten Sie den Überblick, wie das Produkt in diesem Bereich im Vergleich zum Gesamtsortiment abschneidet. Je mehr Sterne, desto nachhaltiger.
+description:fr:M-Check classe les produits des marques Migros en matière de compatibilité climatique, de bien-être animal, d’emballages écologiques et de sources responsables pour les poissons. Vous savez ainsi comment le produit considéré se positionne dans ce domaine par rapport au reste de l’assortiment. Plus il y a d’étoiles, plus c’est durable.
+description:it:l'M-Check classifica i prodotti delle marche proprie Migros sotto il profilo di compatibilità climatica, benessere degli animali, confezione ecologica e pesce proveniente da fonti responsabili. In questo modo ci si rende subito conto di come un determinato prodotto si distingue rispetto all'intero assortimento. Più stelle ottiene, più è sostenibile.
+website:en:https://www.migros.ch/en/content/m-check
+website:de:https://www.migros.ch/de/content/m-check
+website:fr:https://www.migros.ch/fr/content/m-check
+website:it:https://www.migros.ch/it/content/m-check
+
+<en:Migros M-Check
+en:Migros M-Check Climate Compatibility 1/5, M-Check Climate Compatibility 1/5
+de:Migros M-Check Klimaverträglichkeit 1/5, M-Check Klimaverträglichkeit 1/5
+fr:Migros M-Check Compatibilité Climatique 1/5, M-Check Compatibilité Climatique 1/5
+it:Migros M-Check Compatibilità climatica 1/5, M-Check Compatibilità climatica 1/5
+xx:Migros M-Check Climate Compatibility 1/5, M-Check Climate Compatibility 1/5
+label_categories:en: en:Quality, en:Environment
+country:en: en:Switzerland
+
+<en:Migros M-Check
+en:Migros M-Check Climate Compatibility 2/5, M-Check Climate Compatibility 2/5
+de:Migros M-Check Klimaverträglichkeit 2/5, M-Check Klimaverträglichkeit 2/5
+fr:Migros M-Check Compatibilité Climatique 2/5, M-Check Compatibilité Climatique 2/5
+it:Migros M-Check Compatibilità climatica 2/5, M-Check Compatibilità climatica 2/5
+xx:Migros M-Check Climate Compatibility 2/5, M-Check Climate Compatibility 2/5
+label_categories:en: en:Quality, en:Environment
+country:en: en:Switzerland
+
+<en:Migros M-Check
+en:Migros M-Check Climate Compatibility 3/5, M-Check Climate Compatibility 3/5
+de:Migros M-Check Klimaverträglichkeit 3/5, M-Check Klimaverträglichkeit 3/5
+fr:Migros M-Check Compatibilité Climatique 3/5, M-Check Compatibilité Climatique 3/5
+it:Migros M-Check Compatibilità climatica 3/5, M-Check Compatibilità climatica 3/5
+xx:Migros M-Check Climate Compatibility 3/5, M-Check Climate Compatibility 3/5
+label_categories:en: en:Quality, en:Environment
+country:en: en:Switzerland
+
+<en:Migros M-Check
+en:Migros M-Check Climate Compatibility 4/5, M-Check Climate Compatibility 4/5
+de:Migros M-Check Klimaverträglichkeit 4/5, M-Check Klimaverträglichkeit 4/5
+fr:Migros M-Check Compatibilité Climatique 4/5, M-Check Compatibilité Climatique 4/5
+it:Migros M-Check Compatibilità climatica 4/5, M-Check Compatibilità climatica 4/5
+xx:Migros M-Check Climate Compatibility 4/5, M-Check Climate Compatibility 4/5
+label_categories:en: en:Quality, en:Environment
+country:en: en:Switzerland
+
+<en:Migros M-Check
+en:Migros M-Check Climate Compatibility 5/5, M-Check Climate Compatibility 5/5
+de:Migros M-Check Klimaverträglichkeit 5/5, M-Check Klimaverträglichkeit 5/5
+fr:Migros M-Check Compatibilité Climatique 5/5, M-Check Compatibilité Climatique 5/5
+it:Migros M-Check Compatibilità climatica 5/5, M-Check Compatibilità climatica 5/5
+xx:Migros M-Check Climate Compatibility 5/5, M-Check Climate Compatibility 5/5
+label_categories:en: en:Quality, en:Environment
+country:en: en:Switzerland
+
+<en:Migros M-Check
+en:Migros M-Check Animal Welfare 1/5, M-Check Animal Welfare 1/5
+de:Migros M-Check Tierwohl 1/5, M-Check Tierwohl 1/5
+fr:Migros M-Check Bien-être Animal 1/5, M-Check Bien-être Animal 1/5
+it:Migros M-Check Benessere degli animali 1/5, M-Check Benessere degli animali 1/5
+xx:Migros M-Check Animal Welfare 1/5, M-Check Animal Welfare 1/5
+label_categories:en: en:Animal welfare
+country:en: en:Switzerland
+
+<en:Migros M-Check
+en:Migros M-Check Animal Welfare 2/5, M-Check Animal Welfare 2/5
+de:Migros M-Check Tierwohl 2/5, M-Check Tierwohl 2/5
+fr:Migros M-Check Bien-être Animal 2/5, M-Check Bien-être Animal 2/5
+it:Migros M-Check Benessere degli animali 2/5, M-Check Benessere degli animali 2/5
+xx:Migros M-Check Animal Welfare 2/5, M-Check Animal Welfare 2/5
+label_categories:en: en:Animal welfare
+country:en: en:Switzerland
+
+<en:Migros M-Check
+en:Migros M-Check Animal Welfare 3/5, M-Check Animal Welfare 3/5
+de:Migros M-Check Tierwohl 3/5, M-Check Tierwohl 3/5
+fr:Migros M-Check Bien-être Animal 3/5, M-Check Bien-être Animal 3/5
+it:Migros M-Check Benessere degli animali 3/5, M-Check Benessere degli animali 3/5
+xx:Migros M-Check Animal Welfare 3/5, M-Check Animal Welfare 3/5
+label_categories:en: en:Animal welfare
+country:en: en:Switzerland
+
+<en:Migros M-Check
+en:Migros M-Check Animal Welfare 4/5, M-Check Animal Welfare 4/5
+de:Migros M-Check Tierwohl 4/5, M-Check Tierwohl 4/5
+fr:Migros M-Check Bien-être Animal 4/5, M-Check Bien-être Animal 4/5
+it:Migros M-Check Benessere degli animali 4/5, M-Check Benessere degli animali 4/5
+xx:Migros M-Check Animal Welfare 4/5, M-Check Animal Welfare 4/5
+label_categories:en: en:Animal welfare
+country:en: en:Switzerland
+
+<en:Migros M-Check
+en:Migros M-Check Animal Welfare 5/5, M-Check Animal Welfare 5/5
+de:Migros M-Check Tierwohl 5/5, M-Check Tierwohl 5/5
+fr:Migros M-Check Bien-être Animal 5/5, M-Check Bien-être Animal 5/5
+it:Migros M-Check Benessere degli animali 5/5, M-Check Benessere degli animali 5/5
+xx:Migros M-Check Animal Welfare 5/5, M-Check Animal Welfare 5/5
+label_categories:en: en:Animal welfare
+country:en: en:Switzerland
+
+<en:Migros M-Check
+en:Migros M-Check Environmentally friendly packaging 1/5, M-Check Environmentally friendly packaging 1/5
+de:Migros M-Check Umweltfreundliche Verpackung 1/5, M-Check Umweltfreundliche Verpackung 1/5
+fr:Migros M-Check Emballage respectueux de l'environnement 1/5, M-Check Emballage respectueux de l'environnement 1/5
+it:Migros M-Check Imballaggio ecologico 1/5, M-Check Imballaggio ecologico 1/5
+xx:Migros M-Check environmentally friendly packaging 1/5, M-Check environmentally friendly packaging 1/5
+label_categories:en: en:Quality, en:Environment
+country:en: en:Switzerland
+
+<en:Migros M-Check
+en:Migros M-Check Environmentally friendly packaging 2/5, M-Check Environmentally friendly packaging 2/5
+de:Migros M-Check Umweltfreundliche Verpackung 2/5, M-Check Umweltfreundliche Verpackung 2/5
+fr:Migros M-Check Emballage respectueux de l'environnement 2/5, M-Check Emballage respectueux de l'environnement 2/5
+it:Migros M-Check Imballaggio ecologico 2/5, M-Check Imballaggio ecologico 2/5
+xx:Migros M-Check environmentally friendly packaging 2/5, M-Check environmentally friendly packaging 2/5
+label_categories:en: en:Quality, en:Environment
+country:en: en:Switzerland
+
+<en:Migros M-Check
+en:Migros M-Check Environmentally friendly packaging 3/5, M-Check Environmentally friendly packaging 3/5
+de:Migros M-Check Umweltfreundliche Verpackung 3/5, M-Check Umweltfreundliche Verpackung 3/5
+fr:Migros M-Check Emballage respectueux de l'environnement 3/5, M-Check Emballage respectueux de l'environnement 3/5
+it:Migros M-Check Imballaggio ecologico 3/5, M-Check Imballaggio ecologico 3/5
+xx:Migros M-Check environmentally friendly packaging 3/5, M-Check environmentally friendly packaging 3/5
+label_categories:en: en:Quality, en:Environment
+country:en: en:Switzerland
+
+<en:Migros M-Check
+en:Migros M-Check Environmentally friendly packaging 4/5, M-Check Environmentally friendly packaging 4/5
+de:Migros M-Check Umweltfreundliche Verpackung 4/5, M-Check Umweltfreundliche Verpackung 4/5
+fr:Migros M-Check Emballage respectueux de l'environnement 4/5, M-Check Emballage respectueux de l'environnement 4/5
+it:Migros M-Check Imballaggio ecologico 4/5, M-Check Imballaggio ecologico 4/5
+xx:Migros M-Check environmentally friendly packaging 4/5, M-Check environmentally friendly packaging 4/5
+label_categories:en: en:Quality, en:Environment
+country:en: en:Switzerland
+
+<en:Migros M-Check
+en:Migros M-Check Environmentally friendly packaging 5/5, M-Check Environmentally friendly packaging 5/5
+de:Migros M-Check Umweltfreundliche Verpackung 5/5, M-Check Umweltfreundliche Verpackung 5/5
+fr:Migros M-Check Emballage respectueux de l'environnement 5/5, M-Check Emballage respectueux de l'environnement 5/5
+it:Migros M-Check Imballaggio ecologico 5/5, M-Check Imballaggio ecologico 5/5
+xx:Migros M-Check environmentally friendly packaging 5/5, M-Check environmentally friendly packaging 5/5
+label_categories:en: en:Quality, en:Environment
+country:en: en:Switzerland
+
+<en:Migros M-Check
+en:Migros M-Check fish from responsible sources 1/5, M-Check fish from responsible sources 1/5
+de:Migros M-Check Fisch aus verantwortungsvollen Quellen 1/5, M-Check Fisch aus verantwortungsvollen Quellen 1/5
+fr:Migros M-Check Poisson de sources responsables 1/5, M-Check Poisson de sources responsables 1/5
+it:Migros M-Check Pesce proveniente da fonti responsabili 1/5, M-Check Pesce proveniente da fonti responsabili 1/5
+xx:Migros M-Check fish from responsible sources 1/5, M-Check fish from responsible sources 1/5
+label_categories:en: en:Quality, en:Environment, en:Animal welfare
+country:en: en:Switzerland
+
+<en:Migros M-Check
+en:Migros M-Check fish from responsible sources 2/5, M-Check fish from responsible sources 2/5
+de:Migros M-Check Fisch aus verantwortungsvollen Quellen 2/5, M-Check Fisch aus verantwortungsvollen Quellen 2/5
+fr:Migros M-Check Poisson de sources responsables 2/5, M-Check Poisson de sources responsables 2/5
+it:Migros M-Check Pesce proveniente da fonti responsabili 2/5, M-Check Pesce proveniente da fonti responsabili 2/5
+xx:Migros M-Check fish from responsible sources 2/5, M-Check fish from responsible sources 2/5
+label_categories:en: en:Quality, en:Environment, en:Animal welfare
+country:en: en:Switzerland
+
+<en:Migros M-Check
+en:Migros M-Check fish from responsible sources 3/5, M-Check fish from responsible sources 3/5
+de:Migros M-Check Fisch aus verantwortungsvollen Quellen 3/5, M-Check Fisch aus verantwortungsvollen Quellen 3/5
+fr:Migros M-Check Poisson de sources responsables 3/5, M-Check Poisson de sources responsables 3/5
+it:Migros M-Check Pesce proveniente da fonti responsabili 3/5, M-Check Pesce proveniente da fonti responsabili 3/5
+xx:Migros M-Check fish from responsible sources 3/5, M-Check fish from responsible sources 3/5
+label_categories:en: en:Quality, en:Environment, en:Animal welfare
+country:en: en:Switzerland
+
+<en:Migros M-Check
+en:Migros M-Check fish from responsible sources 4/5, M-Check fish from responsible sources 4/5
+de:Migros M-Check Fisch aus verantwortungsvollen Quellen 4/5, M-Check Fisch aus verantwortungsvollen Quellen 4/5
+fr:Migros M-Check Poisson de sources responsables 4/5, M-Check Poisson de sources responsables 4/5
+it:Migros M-Check Pesce proveniente da fonti responsabili 4/5, M-Check Pesce proveniente da fonti responsabili 4/5
+xx:Migros M-Check fish from responsible sources 4/5, M-Check fish from responsible sources 4/5
+label_categories:en: en:Quality, en:Environment, en:Animal welfare
+country:en: en:Switzerland
+
+<en:Migros M-Check
+en:Migros M-Check fish from responsible sources 5/5, M-Check fish from responsible sources 5/5
+de:Migros M-Check Fisch aus verantwortungsvollen Quellen 5/5, M-Check Fisch aus verantwortungsvollen Quellen 5/5
+fr:Migros M-Check Poisson de sources responsables 5/5, M-Check Poisson de sources responsables 5/5
+it:Migros M-Check Pesce proveniente da fonti responsabili 5/5, M-Check Pesce proveniente da fonti responsabili 5/5
+xx:Migros M-Check fish from responsible sources 5/5, M-Check fish from responsible sources 5/5
+label_categories:en: en:Quality, en:Environment, en:Animal welfare
+country:en: en:Switzerland
+
+<en:Migros M-Check
+en:Migros M-Check Recyclable Constituent Materials 1/5, M-Check Recyclable Constituent Materials 1/5
+de:Migros M-Check Rezyklierbare Inhaltsstoffe 1/5, M-Check Rezyklierbare Inhaltsstoffe 1/5
+fr:Migros M-Check Composants recyclables 1/5, M-Check Composants recyclables 1/5
+it:Migros M-Check Componenti riciclabili 1/5, M-Check Componenti riciclabili 1/5
+xx:Migros M-Check Recyclable Constituent Materials 1/5, M-Check Recyclable Constituent Materials 1/5
+label_categories:en: en:Quality, en:Environment
+country:en: en:Switzerland
+
+<en:Migros M-Check
+en:Migros M-Check Recyclable Constituent Materials 2/5, M-Check Recyclable Constituent Materials 2/5
+de:Migros M-Check Rezyklierbare Inhaltsstoffe 2/5, M-Check Rezyklierbare Inhaltsstoffe 2/5
+fr:Migros M-Check Composants recyclables 2/5, M-Check Composants recyclables 2/5
+it:Migros M-Check Componenti riciclabili 2/5, M-Check Componenti riciclabili 2/5
+xx:Migros M-Check Recyclable Constituent Materials 2/5, M-Check Recyclable Constituent Materials 2/5
+label_categories:en: en:Quality, en:Environment
+country:en: en:Switzerland
+
+<en:Migros M-Check
+en:Migros M-Check Recyclable Constituent Materials 3/5, M-Check Recyclable Constituent Materials 3/5
+de:Migros M-Check Rezyklierbare Inhaltsstoffe 3/5, M-Check Rezyklierbare Inhaltsstoffe 3/5
+fr:Migros M-Check Composants recyclables 3/5, M-Check Composants recyclables 3/5
+it:Migros M-Check Componenti riciclabili 3/5, M-Check Componenti riciclabili 3/5
+xx:Migros M-Check Recyclable Constituent Materials 3/5, M-Check Recyclable Constituent Materials 3/5
+label_categories:en: en:Quality, en:Environment
+country:en: en:Switzerland
+
+<en:Migros M-Check
+en:Migros M-Check Recyclable Constituent Materials 4/5, M-Check Recyclable Constituent Materials 4/5
+de:Migros M-Check Rezyklierbare Inhaltsstoffe 4/5, M-Check Rezyklierbare Inhaltsstoffe 4/5
+fr:Migros M-Check Composants recyclables 4/5, M-Check Composants recyclables 4/5
+it:Migros M-Check Componenti riciclabili 4/5, M-Check Componenti riciclabili 4/5
+xx:Migros M-Check Recyclable Constituent Materials 4/5, M-Check Recyclable Constituent Materials 4/5
+label_categories:en: en:Quality, en:Environment
+country:en: en:Switzerland
+
+<en:Migros M-Check
+en:Migros M-Check Recyclable Constituent Materials 5/5, M-Check Recyclable Constituent Materials 5/5
+de:Migros M-Check Rezyklierbare Inhaltsstoffe 5/5, M-Check Rezyklierbare Inhaltsstoffe 5/5
+fr:Migros M-Check Composants recyclables 5/5, M-Check Composants recyclables 5/5
+it:Migros M-Check Componenti riciclabili 5/5, M-Check Componenti riciclabili 5/5
+xx:Migros M-Check Recyclable Constituent Materials 5/5, M-Check Recyclable Constituent Materials 5/5
+label_categories:en: en:Quality, en:Environment
+country:en: en:Switzerland
+
+<en:Migros M-Check
+en:Migros M-Check Environmentally Compatible Constituent Materials 1/5, M-Check Environmentally Compatible Constituent Materials 1/5
+de:Migros M-Check Umweltverträgliche Inhaltsstoffe 1/5, M-Check Umweltverträgliche Inhaltsstoffe 1/5
+fr:Migros M-Check Composants respectueux de l’environnement 1/5, M-Check Composants respectueux de l’environnement 1/5
+it:Migros M-Check Componenti ecocompatibili 1/5, M-Check Componenti ecocompatibili 1/5
+xx:Migros M-Check Environmentally Compatible Constituent Materials 1/5, M-Check Environmentally Compatible Constituent Materials 1/5
+label_categories:en: en:Quality, en:Environment
+country:en: en:Switzerland
+
+<en:Migros M-Check
+en:Migros M-Check Environmentally Compatible Constituent Materials 2/5, M-Check Environmentally Compatible Constituent Materials 2/5
+de:Migros M-Check Umweltverträgliche Inhaltsstoffe 2/5, M-Check Umweltverträgliche Inhaltsstoffe 2/5
+fr:Migros M-Check Composants respectueux de l’environnement 2/5, M-Check Composants respectueux de l’environnement 2/5
+it:Migros M-Check Componenti ecocompatibili 2/5, M-Check Componenti ecocompatibili 2/5
+xx:Migros M-Check Environmentally Compatible Constituent Materials 2/5, M-Check Environmentally Compatible Constituent Materials 2/5
+label_categories:en: en:Quality, en:Environment
+country:en: en:Switzerland
+
+<en:Migros M-Check
+en:Migros M-Check Environmentally Compatible Constituent Materials 3/5, M-Check Environmentally Compatible Constituent Materials 3/5
+de:Migros M-Check Umweltverträgliche Inhaltsstoffe 3/5, M-Check Umweltverträgliche Inhaltsstoffe 3/5
+fr:Migros M-Check Composants respectueux de l’environnement 3/5, M-Check Composants respectueux de l’environnement 3/5
+it:Migros M-Check Componenti ecocompatibili 3/5, M-Check Componenti ecocompatibili 3/5
+xx:Migros M-Check Environmentally Compatible Constituent Materials 3/5, M-Check Environmentally Compatible Constituent Materials 3/5
+label_categories:en: en:Quality, en:Environment
+country:en: en:Switzerland
+
+<en:Migros M-Check
+en:Migros M-Check Environmentally Compatible Constituent Materials 4/5, M-Check Environmentally Compatible Constituent Materials 4/5
+de:Migros M-Check Umweltverträgliche Inhaltsstoffe 4/5, M-Check Umweltverträgliche Inhaltsstoffe 4/5
+fr:Migros M-Check Composants respectueux de l’environnement 4/5, M-Check Composants respectueux de l’environnement 4/5
+it:Migros M-Check Componenti ecocompatibili 4/5, M-Check Componenti ecocompatibili 4/5
+xx:Migros M-Check Environmentally Compatible Constituent Materials 4/5, M-Check Environmentally Compatible Constituent Materials 4/5
+label_categories:en: en:Quality, en:Environment
+country:en: en:Switzerland
+
+<en:Migros M-Check
+en:Migros M-Check Environmentally Compatible Constituent Materials 5/5, M-Check Environmentally Compatible Constituent Materials 5/5
+de:Migros M-Check Umweltverträgliche Inhaltsstoffe 5/5, M-Check Umweltverträgliche Inhaltsstoffe 5/5
+fr:Migros M-Check Composants respectueux de l’environnement 5/5, M-Check Composants respectueux de l’environnement 5/5
+it:Migros M-Check Componenti ecocompatibili 5/5, M-Check Componenti ecocompatibili 5/5
+xx:Migros M-Check Environmentally Compatible Constituent Materials 5/5, M-Check Environmentally Compatible Constituent Materials 5/5
+label_categories:en: en:Quality, en:Environment
+country:en: en:Switzerland
+
 <en:Organic
 en:Naturaplan, Natura-plan
 nl:Naturaplan
@@ -20248,6 +20734,7 @@ en:Tooth-health related labels
 de:Labels zur Zahngesundheit
 fi:Hammasterveyttä koskevat merkit
 fr:Labels liés à la santé des dents
+it:Etichette relative alla salute dei denti
 nl:Gebitsgezondheidslabels
 
 <en:Tooth-health related labels
@@ -20276,6 +20763,7 @@ pl:Nowość, Nowy, Nowe
 pt:Novo, novidade
 ru:Новинка
 th:สินค้าใหม่
+tr:Yeni
 
 en:New recipe
 bg:Нова рецепта
@@ -20394,6 +20882,7 @@ he:דירוג A ב־Nutriscore
 hr:Nutriscore oznaka A
 it:Nutriscore A
 nl:Nutriscore A
+pt:Nutri-Score grau A
 xx:Nutriscore A
 label_categories:en: en:Nutrition Grades, en:Health
 
@@ -20410,6 +20899,7 @@ he:דירוג B ב־Nutriscore
 hr:Nutriscore oznaka B
 it:Nutriscore B
 nl:Nutriscore B
+pt:Nutri-Score grau B
 xx:Nutriscore B
 label_categories:en: en:Nutrition Grades, en:Health
 
@@ -20426,6 +20916,7 @@ he:דירוג C ב־Nutriscore
 hr:Nutriscore oznaka C
 it:Nutriscore C
 nl:Nutriscore C
+pt:Nutri-Score grau C
 xx:Nutriscore C
 label_categories:en: en:Nutrition Grades, en:Health
 
@@ -20442,6 +20933,7 @@ he:דירוג D ב־Nutriscore
 hr:Nutriscore oznaka D
 it:Nutriscore D
 nl:Nutriscore D
+pt:Nutri-Score grau D
 xx:Nutriscore D
 label_categories:en: en:Nutrition Grades, en:Health
 
@@ -20489,54 +20981,6 @@ xx:Nutri-Score C/E
 
 en:Nutri-Score D/E
 xx:Nutri-Score D/E
-
-es:EXCESO CALORÍAS
-description:en:Products must display the EXCESO CALORÍAS seal if they exceed the following threshold for Calories: > 275 kcal total per 100g of solid product > 70 kcal total or > 10 kcal added sugars per 100 mL of liquid product
-label_categories:en: en:Nutrition Grades, en:Health
-
-es:EXCESO GRASA TRANS
-description:en:Products must display the EXCESO GRASA TRANS seal if they exceed the following threshold for Trans Fat: ≥1% total kcal from trans fats
-label_categories:en: en:Nutrition Grades, en:Health
-
-es:EXCESO AZÚCARES
-description:en:Products must display the EXCESO AZÚCARES seal if they exceed the following threshold for Added Sugars: >10% total kcal from added sugars per 100g or solid or 100 mL of liquid product (beverages with < 10 kcal added sugars are exempt and do not require a warning symbol.)
-label_categories:en: en:Nutrition Grades, en:Health
-
-es:EXCESO GRASAS SATURADAS
-description:en:Products must display the EXCESO GRASAS SATURADAS seal if they exceed the following threshold for Saturated Fat: ≥10% total kcal from saturated fats
-label_categories:en: en:Nutrition Grades, en:Health
-
-es:EXCESO SODIO
-label_categories:en: en:Nutrition Grades, en:Health
-description:en:Products must display the EXCESO SODIO icon if they exceed either of the following thresholds for Sodium: ≥350 mg per 100g of solid product or 100 mL of liquid product OR ≥45 mg per 100 mL of calorie-free beverages
-
-es:1 SELLO
-label_categories:en: en:Nutrition Grades, en:Health
-description:en:Products with a primary display area of ≤ 5 cm² must include one sign with a number that indicates how many nutrients exceed the recommended threshold.
-
-es:2 SELLOS
-label_categories:en: en:Nutrition Grades, en:Health
-description:en:Products with a primary display area of ≤ 5 cm² must include one sign with a number that indicates how many nutrients exceed the recommended threshold.
-
-es:3 SELLOS
-label_categories:en: en:Nutrition Grades, en:Health
-description:en:Products with a primary display area of ≤ 5 cm² must include one sign with a number that indicates how many nutrients exceed the recommended threshold.
-
-es:4 SELLOS
-label_categories:en: en:Nutrition Grades, en:Health
-description:en:Products with a primary display area of ≤ 5 cm² must include one sign with a number that indicates how many nutrients exceed the recommended threshold.
-
-es:5 SELLOS
-label_categories:en: en:Nutrition Grades, en:Health
-description:en:Products with a primary display area of ≤ 5 cm² must include one sign with a number that indicates how many nutrients exceed the recommended threshold.
-
-es:CONTIENE CAFEÍNA — EVITAR EN NIÑOS
-description:en:Products that contain caffeine must include the warning “CONTIENE CAFEÍNA — EVITAR EN NIÑOS”
-label_categories:en: en:Health
-
-es:CONTIENE EDULCORANTES - NO RECOMENDABLE EN NIÑOS
-description:en:Products that contain sweeteners (“substances different from mono- and disaccharides that provide sweet flavor to products”) must display the warning “CONTIENE EDULCORANTES, NO RECOMENDABLE EN NIÑOS”
-label_categories:en: en:Health
 
 en:Health Star Rating, Health Star Rating System, HSR
 it:Health Star Rating, Health Star Rating System, HSR
@@ -20713,6 +21157,7 @@ de:Ungarisches Produkt
 fi:Unkarilainen tuote
 he:מוצר הונגרי
 hu:Magyar termék
+it:Prodotto ungherese
 pt:Produto húngaro, produto da Hungria
 
 en:Milkheart
@@ -20760,11 +21205,13 @@ de:Ohne Antibiotika seit der Geburt, keine Antibiotika jemals
 es:Sin antibióticos desde el nacimiento
 fi:Ei antibiootteja syntymän jälkeen
 fr:Sans antibiotique dès la naissance, sans antibiotique de la naissance à l'abattage, sans antibiotique sur toute la vie de l'animal, sans traitement antibiotique sur toute la vie de l'animal
+it:Senza antibiotici dalla nascita, mai antibiotici
 pt:Sem antibióticos desde o nascimento, nenhum antibiótico nunca
 
 <en:No antibiotics
 en:Without antibiotics after weaning
 fr:Sans antibiotique après sevrage, sans antibiotique dès la fin du sevrage, sans antibiotique après la fin du sevrage
+it:Senza antibiotici dopo lo svezzamento
 pt:Sem antibióticos depois da desmama, nenhum antibiótico depois da desmama, Sem antibióticos depois do desmamar, nenhum antibiótico depois do desmamar
 
 <en:No antibiotics
@@ -20791,6 +21238,7 @@ pt:Porco criado sem antibióticos desde o nascimento, porcos criados sem antibi�
 <en:Porks raised without antibiotics
 en:Porks raised without antibiotics after weaning
 fr:Porcs élevés sans antibiotique après sevrage, Porcs élevés sans antibiotique dès la fin du sevrage, Cochons élevés sans antibiotique dès la fin du sevrage
+it:Maiale allevato senza antibiotici dopo lo svezzamento
 pt:Porco criado sem antibióticos desde o desmame, porcos criados sem antibióticos desde o desmame
 
 <en:Without antibiotics after first age
