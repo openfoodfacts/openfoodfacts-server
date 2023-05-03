@@ -1,4 +1,4 @@
-<html><head><title>ProductOpener::LoadData</title>
+<html><head><title>ProductOpener::NutritionCiqual</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" >
 <link rel="stylesheet" title="simple.min" type="text/css" href="../simple.min.css" media="all" >
 
@@ -25,9 +25,13 @@
 <ul   class='indexList indexList1'>
   <li class='indexItem indexItem1'><a href='#NAME'>NAME</a>
   <li class='indexItem indexItem1'><a href='#DESCRIPTION'>DESCRIPTION</a>
+  <li class='indexItem indexItem1'><a href='#VARIABLES'>VARIABLES</a>
+  <ul   class='indexList indexList2'>
+    <li class='indexItem indexItem2'><a href='#%25ciqual_data'>%ciqual_data</a>
+  </ul>
   <li class='indexItem indexItem1'><a href='#FUNCTIONS'>FUNCTIONS</a>
   <ul   class='indexList indexList2'>
-    <li class='indexItem indexItem2'><a href='#load_data()'>load_data()</a>
+    <li class='indexItem indexItem2'><a href='#load_ciqual_data()'>load_ciqual_data()</a>
   </ul>
 </ul>
 </div>
@@ -36,25 +40,46 @@
 name="NAME"
 >NAME</a></h1>
 
-<p>ProductOpener::LoadData - Load and initialize data</p>
+<p>ProductOpener::NutritionCiqual - load data from the Ciqual nutritional database</p>
 
 <h1><a class='u' href='#___top' title='click to go to top of document'
 name="DESCRIPTION"
 >DESCRIPTION</a></h1>
 
-<p>This module provides a load_data() module that loads and initializes data needed by Product Opener.</p>
+<p>A copy of the Ciqual database is in external-data/ciqual/calnut</p>
+
+<p>The present data and information are made available to the public by the French Agency for Food,
+Environmental and Occupational Health &#38; Safety (ANSES).
+They must not be reproduced in any form without clear indication of the source:</p>
+
+<p>&#34;Anses.
+2020.
+Ciqual French food composition table.&#34;</p>
+
+<p>https://ciqual.anses.fr/</p>
+
+<h1><a class='u' href='#___top' title='click to go to top of document'
+name="VARIABLES"
+>VARIABLES</a></h1>
+
+<h2><a class='u' href='#___top' title='click to go to top of document'
+name="%ciqual_data"
+>%ciqual_data</a></h2>
+
+<p>Hash table with the Ciqual ingredient id as a key,
+mapped to a hash of Open Food Facts nutrients id to values.</p>
 
 <h1><a class='u' href='#___top' title='click to go to top of document'
 name="FUNCTIONS"
 >FUNCTIONS</a></h1>
 
 <h2><a class='u' href='#___top' title='click to go to top of document'
-name="load_data()"
->load_data()</a></h2>
+name="load_ciqual_data()"
+>load_ciqual_data()</a></h2>
 
-<p>loads and initializes data needed by Product Opener.</p>
+<p>Loads the Ciqual CALNUT database.</p>
 
-<p>It needs to be called once at startup: - in lib/startup_apache2.pl for Apache - in script files</p>
+<p>Documentation of Ciqual CALNUT: https://ciqual.anses.fr/cms/sites/default/files/inline-files/Table%20CALNUT%202020_doc_FR_2020%2007%2007.pdf</p>
 <p class="backlinkbottom"><b><a name="___bottom" href="../index.html" title="All Documents">&lt;&lt;</a></b></p>
 
 <!-- end doc -->
