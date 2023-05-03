@@ -2,24 +2,24 @@
    "ingredients" : [
       {
          "id" : "en:tomato-puree",
-         "percent" : 19,
-         "percent_estimate" : 19,
+         "percent" : 7.48031496062992,
+         "percent_estimate" : 7.48031496062992,
          "text" : "purée de tomate",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:beef",
-         "percent" : 90,
-         "percent_estimate" : 81,
+         "percent" : 35.4330708661417,
+         "percent_estimate" : 35.4330708661417,
          "text" : "boeuf",
          "vegan" : "no",
          "vegetarian" : "no"
       },
       {
          "id" : "en:fruit-juice",
-         "percent" : 100,
-         "percent_estimate" : 0,
+         "percent" : 39.3700787401575,
+         "percent_estimate" : 39.3700787401575,
          "text" : "jus de fruit",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -27,8 +27,8 @@
       {
          "from_palm_oil" : "maybe",
          "id" : "en:oil-and-fat",
-         "percent" : 45,
-         "percent_estimate" : 0,
+         "percent" : 17.7165354330709,
+         "percent_estimate" : 17.7165354330709,
          "text" : "matière grasses",
          "vegan" : "maybe",
          "vegetarian" : "maybe"
@@ -84,14 +84,14 @@
    ],
    "ingredients_text" : "19% purée de tomate, 90% boeuf, 100% pur jus de fruit, 45% de matière grasses",
    "ingredients_with_specified_percent_n" : 4,
-   "ingredients_with_specified_percent_sum" : 254,
+   "ingredients_with_specified_percent_sum" : 100,
    "ingredients_with_unspecified_percent_n" : 0,
    "ingredients_with_unspecified_percent_sum" : 0,
    "known_ingredients_n" : 8,
    "lc" : "fr",
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 119,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 119
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 46.8503937007874,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 46.8503937007874
    },
    "unknown_ingredients_n" : 0
 }

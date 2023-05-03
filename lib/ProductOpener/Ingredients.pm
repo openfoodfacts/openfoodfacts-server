@@ -2562,14 +2562,28 @@ sub init_percent_values ($total_min, $total_max, $ingredients_ref) {
 	# if the sum of specified percents for the ingredients is greater than the percent max of the parent.
 
 	my $percent_sum = 0;
+	my $all_ingredients_have_a_set_percent = 1;
 	foreach my $ingredient_ref (@{$ingredients_ref}) {
 		if (defined $ingredient_ref->{percent}) {
 			$percent_sum += $ingredient_ref->{percent};
+		}
+		else {
+			$all_ingredients_have_a_set_percent = 0;
 		}
 	}
 
 	if ($percent_sum > $total_max) {
 		$percent_mode = "relative";
+	}
+
+	# If the parent ingredient percent is known (total_min = total_max)
+	# and we have set percent for all ingredients, then the ingredients percent value
+	# may in fact be a quantity in grams, we will need to scale the quantities to get actual percent values
+	# This is the case in particular for recipes that can be specified in grams with a total greater than 100g
+	# So we start supposing it's grams (as if it's percent it will also work).
+
+	if (($total_min == $total_max) and $all_ingredients_have_a_set_percent) {
+		$percent_mode = "grams";
 	}
 
 	$log->debug(
@@ -2579,7 +2593,8 @@ sub init_percent_values ($total_min, $total_max, $ingredients_ref) {
 			ingredients_ref => $ingredients_ref,
 			total_min => $total_min,
 			total_max => $total_max,
-			percent_sum => $percent_sum
+			percent_sum => $percent_sum,
+			all_ingredients_have_a_set_percent => $all_ingredients_have_a_set_percent,
 		}
 	) if $log->is_debug();
 
@@ -2589,6 +2604,16 @@ sub init_percent_values ($total_min, $total_max, $ingredients_ref) {
 		if (defined $ingredient_ref->{percent}) {
 			# There is a specified percent for the ingredient.
 
+			if ($percent_mode eq "grams") {
+				# the specified percent of the ingredient is in fact in grams
+				# (when we parse the ingredients list, if we see a value in grams, we assign it to the percent field,
+				# as values are usually listed for 100g)
+				# we need to convert it to actual %
+				my $percent = $ingredient_ref->{percent} * $total_max / $percent_sum;
+				$ingredient_ref->{percent} = $percent;
+				$ingredient_ref->{percent_min} = $percent;
+				$ingredient_ref->{percent_max} = $percent;
+			}
 			if (($percent_mode eq "absolute") or ($total_min == $total_max)) {
 				# We can assign an absolute percent to the ingredient because
 				# 1. the percent mode is absolute
