@@ -594,6 +594,12 @@ my $tests_ref = [
 		body => '{"product": { "ingredients_text_en": "milk 80%, sugar, cocoa powder"}}',
 	},
 	{
+		test_case => 'patch-code-test',
+		method => 'OPTIONS',
+		path => '/api/v3/product/test',
+		body => '{"product": { "ingredients_text_en": "milk 80%, sugar, cocoa powder"}}',
+	},
+	{
 		test_case => 'patch-unrecognized-field',
 		method => 'PATCH',
 		path => '/api/v3/product/test',
