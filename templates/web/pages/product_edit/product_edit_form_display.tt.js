@@ -34,3 +34,67 @@
 		\$('#nutrition_data_div').show();
 	}
 });
+
+function show_warning(should_show, nutrient_id, warning_message){
+	if(should_show) {
+		\$('#nutriment_'+nutrient_id).css("background-color", "rgb(255 237 235)");
+		\$('#nutriment_question_mark_'+nutrient_id).css("display", "inline-table");
+		\$('#nutriment_sugars_warning_'+nutrient_id).text(warning_message);
+	}else {
+		\$('#nutriment_'+nutrient_id).css("background-color", "white");
+		\$('#nutriment_question_mark_'+nutrient_id).css("display", "none");
+	}
+}
+
+var sugars_value;
+var carbohydrates_value;
+var saturated_fats_value;
+var fat_value;
+
+var required_nutrients_id = ['energy-kj', 'energy-kcal', 'fat', 'saturated-fat', 'sugars', 'carbohydrates', 'fiber', 'proteins', 'salt', 'sodium', 'alcohol'];
+
+required_nutrients_id.forEach(nutrient_id => {
+	\$('#nutriment_' + nutrient_id).on('input', function() {
+		var nutrient_value = \$(this).val();
+		var is_above_or_below_100 = isNaN(nutrient_value) || nutrient_value < 0 || nutrient_value > 100;
+		show_warning(is_above_or_below_100, nutrient_id, "Please enter a value between 0 and 100");
+
+		var crutial_nutrients = ['fat', 'saturated-fat', 'sugars', 'carbohydrates'];
+
+		if (crutial_nutrients.includes(nutrient_id)) {
+			switch(nutrient_id) {
+				case "saturated-fat":
+					saturated_fats_value = nutrient_value;
+					break;
+				case "sugars":
+					sugars_value = nutrient_value;
+					break;
+				case "carbohydrates":
+					carbohydrates_value = nutrient_value;
+					break;
+				case "fat":
+					fat_value = nutrient_value;
+					break;
+			}
+			
+			if(!fat_value) {
+				fat_value = \$('#nutriment_fat').val();
+			}
+			if(!carbohydrates_value){
+				carbohydrates_value = \$('#nutriment_carbohydrates').val();
+			}
+			if(!sugars_value) {
+				sugars_value = \$('#nutriment_sugars').val();
+			}
+			if(!saturated_fats_value) {
+				saturated_fats_value = \$('#nutriment_saturated-fat').val();
+			}
+
+			var is_sugars_above_carbohydrates = carbohydrates_value < sugars_value;
+			show_warning(is_sugars_above_carbohydrates, 'sugars', 'Sugars should not be higher than carbohydrates');
+
+			var is_fat_above_saturated_fats = fat_value < saturated_fats_value;
+			show_warning(is_fat_above_saturated_fats, 'saturated-fat', 'Saturated fats should not be higher than fat');
+		}
+	});
+});
