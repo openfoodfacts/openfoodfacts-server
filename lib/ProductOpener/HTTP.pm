@@ -129,7 +129,7 @@ sub get_cors_headers ($allow_credentials = 0, $sub_domain_only = 0) {
 	# be generous on methods and headers, it does not hurt
 	$headers_ref->{"Access-Control-Allow-Methods"} = "HEAD, GET, PATCH, POST, PUT, OPTIONS";
 	$headers_ref->{"Access-Control-Allow-Headers"}
-		= "DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match";
+		= "DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match,Authorization";
 	$headers_ref->{"Access-Control-Expose-Headers"} = "Content-Length,Content-Range";
 
 	return $headers_ref;
