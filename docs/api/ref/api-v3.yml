@@ -86,9 +86,9 @@ paths:
         name: barcode
         in: path
         required: true
-        description: Barcode of the product
+        description: 'Barcode of the product to create or update, or "test" to analyze the product data sent without creating or updating a product'
     patch:
-      summary: WRITE Product - Create or update product (API V3 - Implementation in progress)
+      summary: 'WRITE Product - Create or update product, or analyze test product (API V3 - Implementation in progress)'
       operationId: patch-api-v3-product-barcode
       responses:
         '200':
@@ -160,6 +160,8 @@ paths:
                           weight: 80
           headers: {}
       description: |-
+        This API allows to create or update a product (if the product already exists, its data is updated, otherwise it is created), or to analyze a test product (in which case no product is created or updated). To analyze a product, the "barcode" path component needs to contain the value "test" instead of a barcode.
+
         New API to send structured product data in a JSON format instead of in a flattened list of key / value pairs field as-in the current product add / edit API that relies on a multipart/form-data format.
 
         Important: this new Product WRITE API is under development. The initial deployment will support only packaging fields.
