@@ -8,6 +8,8 @@ synonyms:en:hydrolysed, hydrolyzed
 
 synonyms:en:pasteurised, pasteurized
 
+synonyms:en:fiber, fibre
+
 # comment:en:These are words that occur inside the name of one ingredient, but that can be removed for matching the ingredient with entries in the taxonomy
 
 stopwords:bg:съдържа, в, от, с, със, до, и, или, и/или, минимум, произведено с, с добавенo, включително, променливо, отношение, съотношение
@@ -14268,7 +14270,7 @@ nb:vannfritt melkefett
 nl:boterconcentraat, botervet, watervrij melkvet, boterolie, geconcentreerde boter
 pl:bezwodny tłuszcz mleczny
 pt:gordura butrica, matéria gorda butírica, manteiga concentrada, gordura de leite anhidra
-ro:grasimi din unt, grăsime din unt
+ro:grasimi din unt, grăsime din unt, ulei de unt
 ru:Молочный жир, топленое масло, жир-молочный
 sl:mlečna maščoba
 sr:anhidrovana mlečna
@@ -14367,6 +14369,7 @@ nn:ghi, ghee
 pa:ਘਿਉ
 pl:ghi, ghee
 pt:ghi, ghee
+ro:ghee
 ru:Гхи
 sa:घृतम्
 si:ගිතෙල්
@@ -16192,6 +16195,7 @@ from_palm_oil:en:no
 <en:vegetable oil
 en:almond oil
 bg:бадемово олио
+de:Mandelöl
 fr:huile d'amande
 nl:amandelolie
 
@@ -16988,7 +16992,7 @@ ja:ワインビネガー
 nl:wijnazijn
 pl:ocet winny, octu winnego
 pt:vinagre de vinho
-ro:oțet din vin, otet din vin
+ro:oțet din vin, otet din vin, oţet de vin
 ru:Винный уксус
 sv:vinsvinäger, vinättika, vinäger av vin
 carbon_footprint_fr_foodges_ingredient:fr:Vinaigre de vin
@@ -17029,7 +17033,10 @@ pt:vinagre de álcool
 sv:ättiksprit
 
 <en:alcohol vinegar
+<en:vinegar powder
+en:alcohol vinegar powder
 fr:poudre de vinaigre d'alcool
+ro:ţet praf din alcool
 
 <en:alcohol vinegar
 es:vinagre de alcohol de caña
@@ -21611,6 +21618,7 @@ it:fibra di frumento, fibre di frumento
 nl:tarwevezel, tarwevezels
 pl:błonnik pszenny, błonnik pszeniczny
 pt:fibras de trigo
+ro:fibră de grâu
 ru:Пшеничные волокна, пищевые волокна пшеничные
 sv:vetefiber, Vete fiber
 
@@ -25327,6 +25335,7 @@ hr:brašno graška
 hu:borsóliszt
 it:farina di piselli
 nl:erwtenmeel
+pl:mąka grochowa
 ro:făină de mazăre
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:farine-de-pois
 # 36 products in 4 languages @2018-09-22
@@ -26016,7 +26025,7 @@ da:risprotein, ris protein
 de:Reisprotein
 es:proteinas de arroz
 fi:riisiproteiini
-fr:protéine de riz
+fr:protéine de riz, protéines de riz
 hr:bjelančevine riže
 hu:rizsfehérje
 pl:białko ryżowe, białko z ryżu
@@ -26024,6 +26033,7 @@ pl:białko ryżowe, białko z ryżu
 <en:rice protein
 en:whole rice protein
 de:Vollkornreisprotein
+pl:białko brązowego ryżu
 
 #<en:rice
 #en:organic rice
@@ -26941,6 +26951,7 @@ hu:főtt rizs
 it:Riso cotto
 nl:gekookte rijst
 pl:ryż gotowany, gotowany ryż
+ro:orez fiert
 sv:kokt ris
 # ingredient/fr:riz-cuisiné has 47 products in french @2018-12-19
 
@@ -29176,7 +29187,7 @@ fr:sirop d'agave concentré biologique
 es:jarabe de ágave concentrado ecológico
 
 <en:vegetable fiber
-en:agave fibre
+en:agave fiber
 de:Agavenfaser, Agavenfasern
 fr:fibres d'agave
 nl:agavevezel
@@ -29436,11 +29447,10 @@ it:proteine di piselli
 nl:boneneiwit, erwteiwit, erwteneiwit, erwteneiwitten
 pl:białko grochu, białka grochu
 pt:Proteína de ervilha
-ro:proteină de mazăre
+ro:proteină de mazăre, proteină din mazăre
 ru:Гороховый протеин
 sv:Ärtprotein, protein från ärtor
 wikipedia:en:https://en.wikipedia.org/wiki/Pea_protein
-
 
 <en:pea protein
 en:pea protein isolate
@@ -29448,7 +29458,7 @@ cs:izolovaný hrachový protein
 de:Erbsenproteinisolat
 es:aislado de proteina de guisante
 fi:herneproteiini-isolaatti
-fr:isolat de proteines de pois
+fr:isolat de protéines de pois
 hu:borsófehérje izolátum
 ro:izolat proteic de mazăre
 
@@ -29457,6 +29467,7 @@ en:textured pea protein, textured pea proteins
 de:texturiertes Erbseneiweiß
 fr:protéines de pois texturées, protéine de pois texturée
 hr:teksturiranog proteina graška
+pl:teksturat białka grochu
 ro:texturat proteic de mazăre
 
 <en:pea protein
@@ -29538,7 +29549,7 @@ hu:szójafehérje
 hr:bjelančevine soje, hidrolizat sojinih bjelančevina, sojine bjelančevine
 it:proteine di soia
 nl:soja-eiwit, sojaeiwitten
-pl:Białko sojowe, hydrolizat białka sojowego, białko soi, białko z soi
+pl:Białko sojowe, hydrolizat białka sojowego, białko soi, białko z soi, białka sojowego
 pt:Proteína de soja
 ro:proteină de soia, proteina de soia, proteină vegetală din soia, proteina vegetala din soia
 ru:Соевый протеин, соевый белок
@@ -29566,7 +29577,9 @@ fr:Fibre de soja réhydratée
 
 <en:soy protein
 de:Sojaeiweißkonzentrat, Sojaeiweisskonzentrat, Sojaproteinkonzentrat
+# fr:concentré de protéines de soja
 fi:soijaproteiini konsentraatti
+# pl:koncentrat białka sojowego
 
 <en:soy protein
 en:dehydrated soy protein
@@ -29592,9 +29605,6 @@ fr:protéines de soja réhydratées, protéines végétales de soja réhydratée
 hu:rehidratált szójafehérje
 nl:gerehydrateerd soja-eiwit, gerehydrateerde soja-eiwit
 sv:rehydrerat sojaprotein
-
-<en:soy protein
-fr:concentré de protéines de soja
 
 <en:soy protein
 en:soy protein isolate, soya protein isolate, isolated soy protein
@@ -29637,6 +29647,7 @@ fr:protéine de blé, protéines de blé, protéines de froment
 hu:búzafehérje
 it:proteine del grano
 nl:tarwe-eiwit
+pl:białko pszenne
 pt:proteína de trigo
 sv:veteprotein
 allergens:en: en:gluten
@@ -29667,6 +29678,7 @@ de:Texturiertes Weizenprotein
 es:proteína de trigo texturizada
 fr:protéines de blé texturées
 nl:getextuurd tarwe-eiwit, getextureerd tarwe-eiwit
+pl:teksturat białek pszenicy
 # ingredient/en:textured-wheat-protein has 75 products in 3 languages @2020-06-11
 
 <en:vegetable hydrolysed protein
@@ -31147,7 +31159,7 @@ pl:Woda, wody, wodny
 ps:اوبه
 pt:Água
 qu:Yaku
-ro:Apă
+ro:Apă, apa
 ru:Вода, вода питьевая, вода питьевая очищенная, очищенная вода, вода подготовленная, подготовленная вода, вода очищенная
 sa:जलम्
 sc:Aba
@@ -41524,7 +41536,6 @@ de:Ananassirup
 fr:sirop d'ananas
 nl:ananassiroop
 
-
 ###################################################################################################
 #
 #                                Pomegranate
@@ -50823,7 +50834,7 @@ oc:pebron
 pl:papryka słodka
 ps:خواږه مرچ
 pt:pimentão
-ro:ardei gras
+ro:ardei gras, ardei capia
 ru:перец овощной, перец сладкий, перец сладкий свежий
 sa:महामरीचिका
 sk:paprika
@@ -53979,7 +53990,7 @@ pa:ਛੋਲੇ
 pl:ciecierzyca, ciecierzycy
 ps:نخود
 pt:grão-de-bico, grãos-de-bico
-ro:năut
+ro:năut, năut boabe
 ru:нут
 sa:चणकः
 sh:slanutak
@@ -56283,7 +56294,7 @@ ar:بذرة الشيا
 bg:семена от чиа, чиа семена
 bn:চিয়া বীজ
 cs:chia semínka
-da:chiafrø
+da:chiafrø, chia frø 
 de:Chiasamen
 es:semillas de chia, chia
 et:Õlisalvei seemned
@@ -56712,13 +56723,13 @@ wikidata:en:Q1076906
 # 7103 in 28 @2021-09-07
 nutriscore_fruits_vegetables_nuts:en:no
 
-<en:sunflower seed
-en:shelled sunflower seeds
-de:Sonnenblumenkerne geschält
-fi:kuoreton auringonkukansiemen, kuorettomat auringonkukansiemenet
-fr:graines de tournesol décortiquées
-it:semi di girasole sbucciati
-pl:nasiona słonecznika łuskane, łuskane nasiona słonecznika
+# <en:sunflower seed
+# en:shelled sunflower seeds
+# de:Sonnenblumenkerne geschält
+# fi:kuoreton auringonkukansiemen, kuorettomat auringonkukansiemenet
+# fr:graines de tournesol décortiquées
+# it:semi di girasole sbucciati
+# pl:nasiona słonecznika łuskane, łuskane nasiona słonecznika, słonecznik łuskany
 # ingredient/fr:graines-de-tournesol-decortiquees has 25 products @2019-05-31
 
 <en:sunflower seed
@@ -57292,7 +57303,7 @@ fr:pâte de sésame, pâte de graines de sésame
 it:pasta di sesamo
 ja:胡麻ペスト
 nl:sesampasta
-ro:pastă de susan
+ro:pastă de susan, pastă de seminte de susan
 sv:sesam-kräm, sesampasta
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pâte-de-sésame
 # 105 products in 4 languages @2018-10-05
@@ -59771,6 +59782,7 @@ nl:dillezaad
 #de:getrockneter Dill, Dill getrocknet
 #fi:kuivattu tilli
 #fr:aneth déshydraté
+#pl:suszony koperek
 
 <en:dill
 en:dill butter
@@ -61588,18 +61600,15 @@ wikipedia:en:Q92581152
 # plante:https://fr.wikipedia.org/wiki/Origanum_vulgare
 # 9423 in 29 @2021-09-17
 
+#processing:en:dehydrated
 <en:oregano
 en:dried oregano
-fr:Origan séché
+fr:Origan séché, origan déshydraté
+fi:kuivattu oregano
+pl:suszone oregano
 ciqual_food_code:en:11035
 ciqual_food_name:en:Oregano, dried
 ciqual_food_name:fr:Origan, séché
-
-
-#processing:en:dehydrated
-<en:oregano
-fr:origan déshydraté
-fi:kuivattu oregano
 # ingredient/fr:origan-déshydraté has 57 products in french @2018-12-29
 
 #processing:en en:powder
@@ -64751,6 +64760,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Green_tea
 en:matcha, matcha green tea
 bg:матча
 ca:té matcha, té matcha verd
+da:matcha
 es:té matcha, té matcha verde
 fr:matcha, thé vert matcha
 ja:抹茶
@@ -65040,7 +65050,7 @@ zh:天然香草精精
 <en:vanilla extract
 <en:Bourbon vanilla
 en:bourbon vanilla extract
-cs:extrakt z burbonské vanilky
+cs:extrakt z burbonské vanilky, extrakt z bourbonské vanilky
 da:bourbon vaniljeekstrakt
 de:Bourbon Vanille Extrakt, Vanille-Extrakt Bourbon, Bourbon-Vanille-Extrakt, Bourbon Vanilleextrakt, Bourbonvanilleextrakt, Bourbonvanille Extrakt
 es:extracto de vainilla de Bourbon
