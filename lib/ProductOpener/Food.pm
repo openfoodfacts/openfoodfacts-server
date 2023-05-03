@@ -1327,15 +1327,18 @@ sub compute_nutrition_score ($product_ref) {
 	# Remove ending -
 	$product_ref->{nutrition_score_debug} =~ s/ - $//;
 
-	# By default we use the "nutriments" hash as a source, but if we don't have specified nutrients,
-	# we can use use the nutriments_estimated hash if it exists.
-	# We only do so if there are no key nutrients specified, so that we don't compute an estimated Nutri-Score
-	# if we are only missing a few nutrients.
+	# By default we use the "nutriments" hash as a source (specified nutriements),
+	# but if we don't have specified nutrients, we can use use the "nutriments_estimated" hash if it exists.
+	# If we have some specified nutrients but are missing required nutrients for the Nutri-Score,
+	# we do not use estimated nutrients, in order to encourage users to complete the nutrition facts
+	# (that we know exist, and that we may even have a photo for).
+	# If we don't have nutrients at all (or the no nutriments checkbox is checked),
+	# we can use estimated nutrients for the Nutri-Score.
 	my $nutriments_field = "nutriments";
 
 	if (    (defined $product_ref->{"nutrition_grades_tags"})
 		and (($product_ref->{"nutrition_grades_tags"}[0] eq "unknown"))
-		and ($key_nutrients == 0)
+		and (($key_nutrients == 0) or ($product_ref->{no_nutrition_data}))
 		and ($prepared eq '')
 		and (defined $product_ref->{nutriments_estimated}))
 	{

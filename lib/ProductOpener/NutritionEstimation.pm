@@ -52,7 +52,7 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::NutritionCiqual qw/:all/;
 
-use Data::DeepAccess qw(deep_get deep_set deep_exists deep_val);
+use Data::DeepAccess qw(deep_get deep_set deep_exists);
 
 =head1 FUNCTIONS
 
@@ -85,12 +85,12 @@ sub estimate_nutrients_from_ingredients ($ingredients_ref) {
 
 				# Add nutrient value of the ingredient for all nutrients
 				while (my ($nid, $value) = each(%{$ciqual_data{$ciqual_id}{nutrients}})) {
-					deep_val($nutrients{$nid}) += $value * $ingredient_ref->{percent_estimate} / 100;
+					$nutrients{$nid} += $value * $ingredient_ref->{percent_estimate} / 100;
 				}
 			}
 			else {
 				# Keep track of ingredients for which we don't have nutrient values
-				deep_val($unknown_ingredients{$ingredient_ref->{id}}) += $ingredient_ref->{percent_estimate} / 100;
+				$unknown_ingredients{$ingredient_ref->{id}} += $ingredient_ref->{percent_estimate} / 100;
 			}
 		}
 	}
