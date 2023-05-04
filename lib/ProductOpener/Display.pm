@@ -8736,6 +8736,11 @@ sub data_to_display_nutriscore($) {
 		# Do not display a warning for water
 		if (not(has_tag($product_ref, "categories", "en:spring-waters"))) {
 
+			# Warning for nutrients estimated from ingredients
+			if ($product_ref->{nutrition_score_warning_nutriments_estimated}) {
+				push @nutriscore_warnings, lang("nutrition_grade_fr_nutriments_estimated_warning");
+			}
+
 			# Warning for tea and herbal tea in bags: state that the Nutri-Score applies
 			# only when reconstituted with water only (no milk, no sugar)
 			if (
@@ -8750,36 +8755,27 @@ sub data_to_display_nutriscore($) {
 			}
 
 			# Combined message when we miss both fruits and fiber
-			if (    (defined $product_ref->{nutrition_score_warning_no_fiber})
-				and ($product_ref->{nutrition_score_warning_no_fiber} == 1)
+			if (    ($product_ref->{nutrition_score_warning_no_fiber})
 				and (defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts})
 				and ($product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} == 1))
 			{
 				push @nutriscore_warnings, lang("nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning");
 			}
-			elsif ( (defined $product_ref->{nutrition_score_warning_no_fiber})
-				and ($product_ref->{nutrition_score_warning_no_fiber} == 1))
-			{
+			elsif ($product_ref->{nutrition_score_warning_no_fiber}) {
 				push @nutriscore_warnings, lang("nutrition_grade_fr_fiber_warning");
 			}
-			elsif ( (defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts})
-				and ($product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} == 1))
-			{
+			elsif ($product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts}) {
 				push @nutriscore_warnings, lang("nutrition_grade_fr_no_fruits_vegetables_nuts_warning");
 			}
 
-			if (    (defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate})
-				and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate} == 1))
-			{
+			if ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate}) {
 				push @nutriscore_warnings,
 					sprintf(
 					lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"),
 					$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate_100g"}
 					);
 			}
-			if (    (defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category})
-				and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category} ne ''))
-			{
+			if ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category}) {
 				push @nutriscore_warnings,
 					sprintf(
 					lang("nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"),
@@ -8789,9 +8785,7 @@ sub data_to_display_nutriscore($) {
 					$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value}
 					);
 			}
-			if (    (defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients})
-				and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients} ne ''))
-			{
+			if ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients}) {
 				push @nutriscore_warnings,
 					sprintf(
 					lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"),

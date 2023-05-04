@@ -23,11 +23,13 @@
                "vegetarian" : "maybe"
             },
             {
-               "id" : "fr:feuilles-de-basilic",
+               "id" : "en:basil-leaf",
                "percent_estimate" : 11.6666666666667,
                "percent_max" : 23.3333333333333,
                "percent_min" : 0,
-               "text" : "feuilles de basilic"
+               "text" : "feuilles de basilic",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             }
          ],
          "percent" : 70,
@@ -80,20 +82,15 @@
       "en:non-vegan" : [
          "en:cheese"
       ],
-      "en:palm-oil-content-unknown" : [
-         "fr:feuilles-de-basilic"
-      ],
       "en:vegan-status-unknown" : [
-         "fr:feuilles-de-basilic",
          "en:pizza-dough"
       ],
       "en:vegetarian-status-unknown" : [
-         "fr:feuilles-de-basilic",
          "en:pizza-dough"
       ]
    },
    "ingredients_analysis_tags" : [
-      "en:palm-oil-content-unknown",
+      "en:palm-oil-free",
       "en:non-vegan",
       "en:vegetarian-status-unknown"
    ],
@@ -106,7 +103,9 @@
       "en:tomato",
       "en:cheese",
       "en:dairy",
-      "fr:feuilles-de-basilic",
+      "en:basil-leaf",
+      "en:herb",
+      "en:basil",
       "en:wheat-flour",
       "en:cereal",
       "en:flour",
@@ -125,7 +124,7 @@
       "en:pizza-dough",
       "en:chopped-tomatoes",
       "en:cheese",
-      "fr:feuilles-de-basilic",
+      "en:basil-leaf",
       "en:wheat-flour",
       "en:water",
       "en:salt"
@@ -140,7 +139,9 @@
       "en:tomato",
       "en:cheese",
       "en:dairy",
-      "fr:feuilles-de-basilic",
+      "en:basil-leaf",
+      "en:herb",
+      "en:basil",
       "en:wheat-flour",
       "en:cereal",
       "en:flour",
@@ -154,7 +155,7 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 6,
    "ingredients_with_unspecified_percent_sum" : 100,
-   "known_ingredients_n" : 15,
+   "known_ingredients_n" : 18,
    "lc" : "fr",
    "nutriments" : {
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 23.3333333333333,
@@ -165,8 +166,8 @@
       "en:flour" : 20,
       "en:tomato" : 46.6666666666667,
       "en:water" : 5,
-      "other" : 5,
-      "unknown" : 11.6666666666667
+      "other" : 16.6666666666667,
+      "unknown" : 0
    },
-   "unknown_ingredients_n" : 1
+   "unknown_ingredients_n" : 0
 }
