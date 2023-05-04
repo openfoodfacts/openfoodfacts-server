@@ -15,7 +15,7 @@ muti-line string
 a slash A / B and anti-slash \
 HTML <a href="https://url.com">test</a>
 '),
-	'"\ntest\nmuti-line string\na slash A / B and anti-slash \\\nHTML <a href=\"https://url.com\">test</a>\n"'
+	'"\ntest\nmuti-line string\na slash A / B and anti-slash \\\\\nHTML <a href=\"https://url.com\">test</a>\n"'
 );
 
 is(
