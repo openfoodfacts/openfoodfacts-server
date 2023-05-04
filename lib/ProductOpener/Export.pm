@@ -159,6 +159,10 @@ for front, ingredients and nutrition in all languages.
 This option is used in particular for exporting from the producers platform
 and importing to the public database.
 
+=head4 include_obsolete_products - optional - Also export obsolete products
+
+Obsolete products are in the products_obsolete collection.
+
 =head4 Return value
 
 Count of the exported documents.
