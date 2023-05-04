@@ -15,13 +15,16 @@ use ProductOpener::Test qw/:all/;
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 my $inputs_dir = "$test_dir/inputs/$test_id/";
 
-# Generate the column names to OFF fields structure in several languages and compare to the stored version
+# Generate the files that match potential column names from producers to OFF fields
 foreach my $l (qw(en fr es)) {
-	compare_to_expected_results(
-		init_fields_columns_names_for_lang($l),
-		$expected_result_dir . "/column_names_$l.json",
-		$update_expected_results
-	);
+	init_fields_columns_names_for_lang($l)
+		# 2023/04/24: the files are growing too much (currently 100Mb), which is too much for GitHub
+		# commenting out this test
+		#compare_to_expected_results(
+		#	init_fields_columns_names_for_lang($l),
+		#	$expected_result_dir . "/column_names_$l.json",
+		#	$update_expected_results
+		#);
 }
 
 my @tests = (
