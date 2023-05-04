@@ -74,7 +74,7 @@ my $allow_submit = (
 
 if ($action eq "display") {
 
-	my $template_data_ref = {lang => \&lang,};
+	my $template_data_ref = {};
 
 	# Query filters
 
@@ -95,25 +95,10 @@ if ($action eq "display") {
 		}
 	}
 
-	# Number of products matching the optional query
-	my $count = count_products({}, $query_ref);
-
 	# Number of products matching the query with changes that have not yet been imported
 	$query_ref->{states_tags} = "en:to-be-exported";
-	my $count_to_be_exported = count_products({}, $query_ref);
-
-	$template_data_ref->{count} = $count;
-	$template_data_ref->{count_to_be_exported} = $count_to_be_exported;
-
-	if ($count == 0) {
-		$template_data_ref->{n_products_will_be_exported} = lang("no_products_to_export");
-	}
-	elsif ($count == 1) {
-		$template_data_ref->{n_products_will_be_exported} = lang("one_product_will_be_exported");
-	}
-	else {
-		$template_data_ref->{n_products_will_be_exported} = sprintf(lang("n_products_will_be_exported"), $count);
-	}
+	$template_data_ref->{count_to_be_exported} = count_products({}, $query_ref);
+	$template_data_ref->{count_obsolete_to_be_exported} = count_products({}, $query_ref, 1);
 
 	my $export_photos_value = "";
 	my $replace_selected_photos_value = "";
