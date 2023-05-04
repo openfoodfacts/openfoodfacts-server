@@ -1631,8 +1631,7 @@ my @tests = (
 	[
 		{
 			lc => "pl",
-			ingredients_text => 
-				"liofilizowane ananasy"
+			ingredients_text => "liofilizowane ananasy"
 		},
 		[
 			{
@@ -1647,8 +1646,7 @@ my @tests = (
 	[
 		{
 			lc => "pl",
-			ingredients_text => 
-				"czosnek suszony, suszony czosnek"
+			ingredients_text => "czosnek suszony, suszony czosnek"
 		},
 		[
 			{
@@ -1666,8 +1664,7 @@ my @tests = (
 	[
 		{
 			lc => "pl",
-			ingredients_text => 
-				"suszony koperek, pomidory suszone, grzyby suszone, koper suszony"
+			ingredients_text => "suszony koperek, pomidory suszone, grzyby suszone, koper suszony"
 		},
 		[
 			{
