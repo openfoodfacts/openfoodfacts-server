@@ -1568,7 +1568,7 @@ msgstr "Le tableau liste par défaut les nutriments les plus couramment indiqué
 
 msgctxt "nutrition_data_table_asterisk"
 msgid "Essential nutrients to calculate the Nutri-Score."
-msgstr "Des nutriments essentiels pour calculer le Nutri-Score."
+msgstr "Nutriments essentiels pour calculer le Nutri-Score."
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
@@ -2646,7 +2646,7 @@ msgstr "Charger les images en basse résolution (pour les connexions lentes)"
 
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
-msgstr ""
+msgstr "Avertissement : les valeurs nutritionnelles n'étant pas renseignées, elles ont été estimées à partir de la liste des ingrédients."
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -2662,7 +2662,7 @@ msgstr "Avertissement : Le taux de fruits, légumes et noix n'étant pas renseig
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
-msgstr ""
+msgstr "Avertissement : Le taux de fruits, légumes et noix n'est pas indiqué sur l'étiquette, il a été estimé manuellement en fonction de la liste des ingrédients : %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
@@ -3412,7 +3412,7 @@ msgstr "Photos des produits"
 
 msgctxt "fields_group_packaging"
 msgid "Packaging"
-msgstr "Conditionnement"
+msgstr "Emballage"
 
 msgctxt "image_front_url"
 msgid "Link to front product photo"
@@ -5006,7 +5006,7 @@ msgstr "Elements d'emballage"
 # A short name for a physical piece of packaging (e.g. in English, "packaging" instead of "packaging part"). Used with a number (e.g. "Packaging 1" to identify a packaging part)
 msgctxt "packaging_part_short"
 msgid "Packaging"
-msgstr "Conditionnement"
+msgstr "Emballage"
 
 # Number of packaging parts
 msgctxt "packaging_number"
