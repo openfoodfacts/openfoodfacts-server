@@ -1779,6 +1779,14 @@ msgctxt "product_changes_saved"
 msgid "Changes saved."
 msgstr "Промените са запазени."
 
+msgctxt "product_edit_you_contributed"
+msgid "You just helped to improve the world largest open data database."
+msgstr "Ти току-що помогна за подобряването на най-голямата отворена база данни в света."
+
+msgctxt "product_edit_thank_you"
+msgid "Thank you so much for joining us in our journey to data transparency!"
+msgstr "Много ти благодарим, че се присъедини към нас в нашето пътуване към прозрачността на данните!"
+
 msgctxt "product_characteristics"
 msgid "Product characteristics"
 msgstr "Продуктова характеристика"
@@ -2305,6 +2313,10 @@ msgctxt "see_product_page"
 msgid "See the product page"
 msgstr "Виж продуктовата страница"
 
+msgctxt "re_edit_product_page"
+msgid "Edit the product again"
+msgstr "Редактирай продукта отново"
+
 msgctxt "select_country"
 msgid "Country"
 msgstr "Страна"
@@ -2630,6 +2642,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "Зареждане на изображения с по-ниска разделителна способност (за бавни връзки)"
 
+msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
+msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
+msgstr ""
+
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "Предупреждение: количеството влакна не е посочено, техният възможен положителен принос към оценката не може да бъде взет предвид."
@@ -2643,16 +2659,16 @@ msgid "Warning: the amount of fruits, vegetables and nuts is not specified, thei
 msgstr "Предупреждение: количеството на плодовете, зеленчуците и ядките не е посочено, техният възможен положителен принос към оценката не може да се вземе предвид."
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
-msgstr "Предупреждение: количеството плодове, зеленчуци и ядки не е посочено на етикета заради което е ръчно изчислено от списъка със съставки: %d"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d%"
+msgstr "Предупреждение: количеството плодове, зеленчуци и ядки не е посочено на етикета заради което е ръчно изчислено от списъка със съставки: %d%"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
-msgstr "Предупреждение: количеството плодове, зеленчуци и ядки не е посочено на етикета, изчислено е от категория (%s) на продукта: %d"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
+msgstr "Предупреждение: количеството плодове, зеленчуци и ядки не е посочено на етикета, изчислено е от категорията (%s) на продукта: %d%"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
-msgstr "Предупреждение: количеството плодове, зеленчуци и ядки не е посочено на етикета, беше изчислено от списъка със съставки: %d"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
+msgstr "Предупреждение: количеството плодове, зеленчуци и ядки не е посочено на етикета, беше изчислено от списъка със съставки: %d%"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -3391,6 +3407,10 @@ msgstr "Друга информация"
 msgctxt "fields_group_images"
 msgid "Product photos"
 msgstr "Снимки на продукта"
+
+msgctxt "fields_group_packaging"
+msgid "Packaging"
+msgstr "Опаковка"
 
 msgctxt "image_front_url"
 msgid "Link to front product photo"
@@ -5875,6 +5895,38 @@ msgctxt "health"
 msgid "Health"
 msgstr "Здраве"
 
+msgctxt "contribution_panel_title"
+msgid "Contribution"
+msgstr "Принос"
+
+msgctxt "contribution_navigation"
+msgid "Contribution"
+msgstr "Принос"
+
+msgctxt "data_quality_errors_panel_title"
+msgid "Detected Errors"
+msgstr "Открити грешки"
+
+msgctxt "data_quality_errors_panel_subtitle"
+msgid "Help us improve quality of our data by contributing fixes"
+msgstr "Помогни ни да подобрим качеството на нашите данни, като допринесеш с корекции"
+
+msgctxt "data_quality_warnings_panel_title"
+msgid "Potential issues"
+msgstr "Потенциални проблеми"
+
+msgctxt "data_quality_warnings_panel_subtitle"
+msgid "We have detected some potential issues or potential improvements, could you check if some apply ?"
+msgstr "Открихме някои потенциални проблема или потенциални подобрения, можеш ли да провериш дали някои са приложими?"
+
+msgctxt "data_quality_info_panel_title"
+msgid "Data Quality infos"
+msgstr "Информация за качеството на данните"
+
+msgctxt "data_quality_info_panel_subtitle"
+msgid "Some infos about data quality on this product"
+msgstr "Малко информация за качеството на данните за този продукт"
+
 # will be followed by : and a value. e.g. "Compared to: bananas"
 msgctxt "compared_to"
 msgid "Compared to"
@@ -6112,6 +6164,10 @@ msgctxt "action_add_packaging_image"
 msgid "Take a photo of the recycling information"
 msgstr "Направи снимка на инструкциите за рециклиране"
 
+msgctxt "action_add_packaging_components"
+msgid "Add packaging components"
+msgstr "Добави компоненти от опаковката"
+
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
@@ -6332,6 +6388,10 @@ msgctxt "api_message_invalid_json_in_request_body"
 msgid "Invalid JSON in request body"
 msgstr "Невалиден JSON в тялото на заявката"
 
+msgctxt "api_message_invalid_code"
+msgid "Invalid code"
+msgstr "Невалиден код"
+
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
 msgstr "Невалиден тип: трябва да е обект"
@@ -6351,6 +6411,10 @@ msgstr "Невалиден тип: трябва да е число"
 msgctxt "api_message_missing_field"
 msgid "Missing field"
 msgstr "Липсващо поле"
+
+msgctxt "api_message_unrecognized_field"
+msgid "Unrecognized field"
+msgstr ""
 
 msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"
