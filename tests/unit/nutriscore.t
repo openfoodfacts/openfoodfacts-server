@@ -423,9 +423,10 @@ my @tests = (
 			lc => "en",
 			categories => "sugars",
 			ingredients_text => "sugar 94%, strange ingredient",
+		}
+	],
 
 	# olive oil without ingredients
-
 	[
 		"en-olive-oil-no-ingredients",
 		{
