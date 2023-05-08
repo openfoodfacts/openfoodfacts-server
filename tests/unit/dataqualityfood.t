@@ -744,7 +744,6 @@ $product_ref = {quantity => "300 ml e / 342 g"};
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag($product_ref, 'en:quantity-contains-e', 'quantity contains e', 1);
 
-
 # category with expected nutriscore grade. Prerequisite: "expected_nutriscore_grade:en:c" under "en:Extra-virgin olive oils" category, in the taxonomy
 # category with expected nutriscore grade. Different nutriscore grade as compared to the expected nutriscore grade
 $product_ref = {
