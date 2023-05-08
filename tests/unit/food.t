@@ -518,4 +518,58 @@ is_deeply(
 	}
 ) or diag explain $product_ref;
 
+# Test that 100g values are not extrapolated where nutrient is 0
+# and serving size <=5
+$product_ref = {
+	serving_size => '5 g',
+	nutrition_data_per => 'serving'
+};
+
+assign_nid_modifier_value_and_unit($product_ref, "fat", undef, '0', 'g');
+compute_serving_size_data($product_ref);
+
+is_deeply(
+	$product_ref,
+	{
+		'nutriments' => {
+			'fat' => '0',
+			'fat_serving' => '0',
+			'fat_unit' => 'g',
+			'fat_value' => '0',
+		},
+		'nutrition_data_per' => 'serving',
+		'nutrition_data_prepared_per' => '100g',
+		'serving_quantity' => 5,
+		'serving_size' => '5 g'
+	}
+) or diag explain $product_ref;
+
+# Test that 100g values are extrapolated where nutrient is expressed with decimals
+$product_ref = {
+	serving_size => '5 g',
+	nutrition_data_per => 'serving'
+};
+
+assign_nid_modifier_value_and_unit($product_ref, "fat", undef, '0.0', 'g');
+compute_serving_size_data($product_ref);
+
+is_deeply(
+	$product_ref,
+	{
+		'nutriments' => {
+			'fat' => 0,
+			'fat_100g' => 0,
+			'fat_serving' => 0,
+			'fat_unit' => 'g',
+			'fat_value' => '0.0',
+		},
+		'nutrition_data' => 'on',
+		'nutrition_data_per' => 'serving',
+		'nutrition_data_prepared_per' => '100g',
+		'serving_quantity' => 5,
+		'serving_size' => '5 g'
+	}
+) or diag explain $product_ref;
+
+
 done_testing();
