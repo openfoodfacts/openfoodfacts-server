@@ -114,6 +114,7 @@ BEGIN {
 		&init_emb_codes
 
 		%tags_fields
+		%writable_tags_fields
 		%users_tags_fields
 		%taxonomy_fields
 		@drilldown_fields
@@ -232,6 +233,20 @@ To this initial list, taxonomized fields will be added by retrieve_tags_taxonomy
 	checkers => 1,
 	correctors => 1,
 	weighers => 1,
+);
+
+# Writable tags fields that can be written directly (e.g. categories, labels) and that are not derived from other fields (e.g. states)
+%writable_tags_fields = (
+	categories => 1,
+	labels => 1,
+	origins => 1,
+	manufacturing_places => 1,
+	emb_codes => 1,
+	allergens => 1,
+	traces => 1,
+	purchase_places => 1,
+	stores => 1,
+	countries => 1,
 );
 
 # Fields that are tags related to users
