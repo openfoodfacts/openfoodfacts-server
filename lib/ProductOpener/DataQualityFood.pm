@@ -957,8 +957,6 @@ sub check_nutrition_data ($product_ref) {
 			# 1-ingredients differs from expected ingredients
 			# 2-is missing
 
-			$log->debug("benbenben - start use case 2") if $log->debug();
-
 			# start from end, categories_tags has the most specific categories at the end
 			$i = @{$product_ref->{categories_tags}} - 1;
 			while (
@@ -1003,7 +1001,6 @@ sub check_nutrition_data ($product_ref) {
 					}
 
 					if ($ingredients_count > 1) {
-						$log->debug("benbenben - test 2 inside") if $log->debug();
 						push @{$product_ref->{data_quality_errors_tags}},
 							"en:ingredients-for-category-$category_with_expected_ingredients-expected-to-have-single-ingredient-$ingredients_text_for_this_category";
 					}
