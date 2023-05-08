@@ -893,6 +893,123 @@ sub check_nutrition_data ($product_ref) {
 				push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-value-under-0-1-g-salt";
 			}
 		}
+
+		# some categories have - case 1 - expected nutriscore grade or -case 2 - expected ingredients
+		if (defined $product_ref->{categories_tags}) {
+			# case 1 - push data quality error:
+			# 1-if calculated nutriscore grade differs from expected nutriscore grade or
+			# 2-if it is not calculated
+
+			# start from end, categories_tags has the most specific categories at the end
+			my $i = @{$product_ref->{categories_tags}} - 1;
+			while (
+				($i >= 0)
+				and (
+					not(
+						# category - or a parent - with expected nutriscore grade
+						defined get_inherited_property(
+							"categories",
+							$product_ref->{categories_tags}[$i],
+							"expected_nutriscore_grade:en"
+						)
+						and (
+							# we expect single letter a, b, c, d, e for nutriscore grade in the taxonomy. Case insensitive (/i).
+							get_inherited_property(
+								"categories",
+								$product_ref->{categories_tags}[$i],
+								"expected_nutriscore_grade:en"
+							) =~ /^([a-e]){1}$/i
+						)
+					)
+				)
+				)
+			{
+				$i--;
+			}
+			# previous loop interrupted before 0, i.e. found category with expected nutriscore grade
+			if ($i >= 0) {
+				my $category_with_expected_nutriscore_grade = $product_ref->{categories_tags}[$i];
+
+				my $nutriscore_grade_for_this_category = lc(
+					get_inherited_property(
+						"categories",
+						$category_with_expected_nutriscore_grade,
+						"expected_nutriscore_grade:en"
+					)
+				);
+
+				# nutriscore not calculated but should have expected nutriscore grade
+				if (not(defined $product_ref->{nutrition_grade_fr})) {
+					push @{$product_ref->{data_quality_errors_tags}},
+						"en:nutri-score-grade-for-category-$category_with_expected_nutriscore_grade-expected-to-be-$nutriscore_grade_for_this_category-instead-of-undefined";
+				}
+				# nutriscore calculated but unexpected nutriscore grade
+				if (    (defined $product_ref->{nutrition_grade_fr})
+					and ($product_ref->{nutrition_grade_fr} ne $nutriscore_grade_for_this_category))
+				{
+					push @{$product_ref->{data_quality_errors_tags}},
+						"en:nutri-score-grade-for-category-$category_with_expected_nutriscore_grade-expected-to-be-$nutriscore_grade_for_this_category-instead-of-$product_ref->{nutrition_grade_fr}";
+					# }
+				}
+			}
+
+			# case 2 - push data quality error:
+			# 1-ingredients differs from expected ingredients
+			# 2-is missing
+
+			$log->debug("benbenben - start use case 2") if $log->debug();
+
+			# start from end, categories_tags has the most specific categories at the end
+			$i = @{$product_ref->{categories_tags}} - 1;
+			while (
+				($i >= 0)
+				and (
+					not(
+						# category - or a parent - with expected ingredients
+						defined get_inherited_property(
+							"categories", $product_ref->{categories_tags}[$i],
+							"expected_ingredients:en"
+						)
+					)
+				)
+				)
+			{
+				$i--;
+			}
+
+			# previous loop interrupted before 0, i.e. found category with expected ingredients
+			if ($i >= 0) {
+				my $category_with_expected_ingredients = $product_ref->{categories_tags}[$i];
+
+				my $ingredients_text_for_this_category = lc(
+					get_inherited_property(
+						"categories", $category_with_expected_ingredients, "expected_ingredients:en"
+					)
+				) =~ s/ /-/gr;
+
+				# ingredients text missing
+				if (not(defined $product_ref->{ingredients})) {
+					push @{$product_ref->{data_quality_errors_tags}},
+						"en:ingredients-for-category-$category_with_expected_ingredients-expected-to-be-$ingredients_text_for_this_category-instead-of-undefined";
+				}
+				else {
+					my $ingredients_count = @{$product_ref->{ingredients}};
+
+					if (    ($ingredients_count == 1)
+						and ($product_ref->{ingredients}[0]{id} ne $ingredients_text_for_this_category))
+					{
+						push @{$product_ref->{data_quality_errors_tags}},
+							"en:ingredients-for-category-$category_with_expected_ingredients-expected-to-be-$ingredients_text_for_this_category";
+					}
+
+					if ($ingredients_count > 1) {
+						$log->debug("benbenben - test 2 inside") if $log->debug();
+						push @{$product_ref->{data_quality_errors_tags}},
+							"en:ingredients-for-category-$category_with_expected_ingredients-expected-to-have-single-ingredient-$ingredients_text_for_this_category";
+					}
+				}
+			}
+		}
 	}
 	$log->debug("has_prepared_data: " . $has_prepared_data) if $log->debug();
 

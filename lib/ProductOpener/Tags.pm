@@ -1287,6 +1287,36 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 				}
 
 			}
+			elsif ($line =~ /^expected_nutriscore_grade:en:/) {
+				# the line should be the nutriscore grade: a, b, c, d or e
+				my $nutriscore_grade = $';    # everything after the matched string
+
+				if (not($nutriscore_grade =~ /^([a-e]){1}$/i)) {
+					my $msg
+						= "expected_nutriscore_grade:en: in "
+						. $tagtype
+						. " should be followed by a single letter between a and e. expected_nutriscore_grade:en: "
+						. $nutriscore_grade
+						. " is incorrect\n";
+
+					$errors .= "ERROR - " . $msg;
+				}
+			}
+			elsif ($line =~ /^expected_ingredients:en:/) {
+				# the line should contain a single ingredient
+				my $expected_ingredients = $';    # everything after the matched string
+
+				if ($expected_ingredients =~ /,/i) {
+					my $msg
+						= "expected_ingredients:en: in "
+						. $tagtype
+						. " should contain a single letter "
+						. $expected_ingredients
+						. " is incorrect\n";
+
+					$errors .= "ERROR - " . $msg;
+				}
+			}
 			else {
 				$log->info("unrecognized line in taxonomy", {tagtype => $tagtype, line => $line}) if $log->is_info();
 			}

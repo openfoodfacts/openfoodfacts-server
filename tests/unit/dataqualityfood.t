@@ -707,4 +707,178 @@ check_quality_and_test_product_has_quality_tag(
 	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 0
 );
 
+# category with expected nutriscore grade. Prerequisite: "expected_nutriscore_grade:en:c" under "en:Extra-virgin olive oils" category, in the taxonomy
+# category with expected nutriscore grade. Different nutriscore grade as compared to the expected nutriscore grade
+$product_ref = {
+	categories_tags => [
+		'en:plant-based-foods-and-beverages', 'en:plant-based-foods',
+		'en:fats', 'en:vegetable-fats',
+		'en:olive-tree-products', 'en:vegetable-oils',
+		'en:olive-oils', 'en:virgin-olive-oils',
+		'en:extra-virgin-olive-oils'
+	],
+	nutrition_grade_fr => "d"
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutri-score-grade-for-category-en:extra-virgin-olive-oils-expected-to-be-c-instead-of-d',
+	'Calculate nutriscore grade should be the same as the one provided in the taxonomy for this category', 1
+);
+# category with expected nutriscore grade. Different nutriscore grade as compared to the expected nutriscore grade. Two specific categories
+$product_ref = {
+	categories_tags => [
+		"en:plant-based-foods-and-beverages", "en:plant-based-foods",
+		"en:desserts", "en:fats",
+		"en:frozen-foods", "en:vegetable-fats",
+		"en:frozen-desserts", "en:olive-tree-products",
+		"en:vegetable-oils", "en:ice-creams-and-sorbets",
+		"en:olive-oils", "en:ice-creams",
+		"en:ice-cream-tubs", "en:virgin-olive-oils",
+		"en:extra-virgin-olive-oils", "fr:glace-aux-calissons"
+	],
+	nutrition_grade_fr => "d"
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutri-score-grade-for-category-en:extra-virgin-olive-oils-expected-to-be-c-instead-of-d',
+	'Calculate nutriscore grade should be the same as the one provided in the taxonomy for this category even if some other categories tags do not have expected nutriscore grade',
+	1
+);
+# category with expected nutriscore grade. Not calculated (missing nutriscore grade)
+$product_ref = {
+	categories_tags => [
+		'en:plant-based-foods-and-beverages', 'en:plant-based-foods',
+		'en:fats', 'en:vegetable-fats',
+		'en:olive-tree-products', 'en:vegetable-oils',
+		'en:olive-oils', 'en:virgin-olive-oils',
+		'en:extra-virgin-olive-oils'
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutri-score-grade-for-category-en:extra-virgin-olive-oils-expected-to-be-c-instead-of-undefined',
+	'Calculate nutriscore grade should be the same as the one provided in the taxonomy for this category', 1
+);
+# category with expected nutriscore grade. Same nutriscore grade as compared to the expected nutriscore grade
+$product_ref = {
+	categories_tags => [
+		'en:plant-based-foods-and-beverages', 'en:plant-based-foods',
+		'en:fats', 'en:vegetable-fats',
+		'en:olive-tree-products', 'en:vegetable-oils',
+		'en:olive-oils', 'en:virgin-olive-oils',
+		'en:extra-virgin-olive-oils'
+	],
+	nutrition_grade_fr => "c"
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutri-score-grade-for-category-en:extra-virgin-olive-oils-expected-to-be-c-instead-of-d',
+	'Calculate nutriscore grade should be the same as the one provided in the taxonomy for this category', 0
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutri-score-grade-for-category-en:extra-virgin-olive-oils-expected-to-be-c-instead-of-undefined',
+	'Calculate nutriscore grade should be the same as the one provided in the taxonomy for this category', 0
+);
+
+# category with expected ingredient. Prerequisite: "expected_ingredients:en: en:olive-oil" under "en:Extra-virgin olive oils" category, in the taxonomy
+# category with expected ingredient. Missing ingredients
+$product_ref = {
+	categories_tags => [
+		'en:plant-based-foods-and-beverages', 'en:plant-based-foods',
+		'en:fats', 'en:vegetable-fats',
+		'en:olive-tree-products', 'en:vegetable-oils',
+		'en:olive-oils', 'en:virgin-olive-oils',
+		'en:extra-virgin-olive-oils'
+	],
+	# Missing ingredients
+	# ingredients => [
+	# 	{id => "en:olive-oil"}
+	# ]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:ingredients-for-category-en:extra-virgin-olive-oils-expected-to-be-en:olive-oil-instead-of-undefined',
+	'We expect the ingredient given in the taxonomy for this product', 1
+);
+# category with expected ingredient. More than one ingredient
+$product_ref = {
+	categories_tags => [
+		'en:plant-based-foods-and-beverages', 'en:plant-based-foods',
+		'en:fats', 'en:vegetable-fats',
+		'en:olive-tree-products', 'en:vegetable-oils',
+		'en:olive-oils', 'en:virgin-olive-oils',
+		'en:extra-virgin-olive-oils'
+	],
+	ingredients => [{id => "en:extra-virgin-olive-oil"}, {id => "en:virgin-olive-oil"}]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:ingredients-for-category-en:extra-virgin-olive-oils-expected-to-have-single-ingredient-en:olive-oil',
+	'We expect the ingredient given in the taxonomy for this product', 1
+);
+# category with expected ingredient. Single ingredient but different than expected one.
+$product_ref = {
+	categories_tags => [
+		'en:plant-based-foods-and-beverages', 'en:plant-based-foods',
+		'en:fats', 'en:vegetable-fats',
+		'en:olive-tree-products', 'en:vegetable-oils',
+		'en:olive-oils', 'en:virgin-olive-oils',
+		'en:extra-virgin-olive-oils'
+	],
+	ingredients => [{id => 'en:extra-virgin-olive-oil'}]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:ingredients-for-category-en:extra-virgin-olive-oils-expected-to-be-en:olive-oil',
+	'We expect the ingredient given in the taxonomy for this product', 1
+);
+# category with expected ingredient. Single ingredient but different than expected one. Two specific categories
+$product_ref = {
+	categories_tags => [
+		"en:plant-based-foods-and-beverages", "en:plant-based-foods",
+		"en:desserts", "en:fats",
+		"en:frozen-foods", "en:vegetable-fats",
+		"en:frozen-desserts", "en:olive-tree-products",
+		"en:vegetable-oils", "en:ice-creams-and-sorbets",
+		"en:olive-oils", "en:ice-creams",
+		"en:ice-cream-tubs", "en:virgin-olive-oils",
+		"en:extra-virgin-olive-oils", "fr:glace-aux-calissons"
+	],
+	ingredients => [{id => 'en:extra-virgin-olive-oil'}]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:ingredients-for-category-en:extra-virgin-olive-oils-expected-to-be-en:olive-oil',
+	'We expect the ingredient given in the taxonomy for this product', 1
+);
+# category with expected ingredient. Single ingredient identical as expected one
+$product_ref = {
+	categories_tags => [
+		"en:plant-based-foods-and-beverages", "en:plant-based-foods",
+		"en:desserts", "en:fats",
+		"en:frozen-foods", "en:vegetable-fats",
+		"en:frozen-desserts", "en:olive-tree-products",
+		"en:vegetable-oils", "en:ice-creams-and-sorbets",
+		"en:olive-oils", "en:ice-creams",
+		"en:ice-cream-tubs", "en:virgin-olive-oils",
+		"en:extra-virgin-olive-oils", "fr:glace-aux-calissons"
+	],
+	ingredients => [{id => 'en:olive-oil'}]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:ingredients-for-category-en:extra-virgin-olive-oils-expected-to-be-en:olive-oil',
+	'We expect the ingredient given in the taxonomy for this product', 0
+);
+
 done_testing();

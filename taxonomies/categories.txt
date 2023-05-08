@@ -36,6 +36,13 @@ stopwords:nl:bevat,en
 stopwords:nl_be:bevat,en
 stopwords:de:und,mit,von
 
+# add following tag for category having always same nutriscore garde
+# only 1 letter is allowed
+# expected_nutriscore_grade:en:c
+# add following tag for category having always same ingredient
+# only 1 ingredient tag is allowed (use "en:olive-oil" and not "en:Olive oil")
+# expected_ingredients:en: en:olive-oil
+
 en:Artisan products
 ca:Prouctes artesans
 de:Handgefertigte Produkte, Artisanale Produkte, Handgemachte Produkte
@@ -52185,6 +52192,8 @@ agribalyse_food_code:en:17270
 ciqual_food_code:en:17270
 ciqual_food_name:en:Olive oil, extra virgin
 ciqual_food_name:fr:Huile d'olive vierge extra
+expected_nutriscore_grade:en:c
+expected_ingredients:en: en:olive-oil
 
 <en:Olive oils
 en:Olive pomace oils
