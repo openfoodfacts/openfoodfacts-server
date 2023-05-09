@@ -956,11 +956,11 @@ sub analyze_and_combine_packaging_data ($product_ref, $response_ref) {
 		delete $product_ref->{packagings_n};
 	}
 
-        # Set misc fields to indicate if the packaging data is complete
-        set_packaging_misc_tags($product_ref);
+	# Set misc fields to indicate if the packaging data is complete
+	set_packaging_misc_tags($product_ref);
 
-        # Set packaging facets tags for shape, material and recycling
-        set_packaging_facets_tags($product_ref);
+	# Set packaging facets tags for shape, material and recycling
+	set_packaging_facets_tags($product_ref);
 
 	$log->debug("analyze_and_combine_packaging_data - done",
 		{packagings => $product_ref->{packagings}, response => $response_ref})
