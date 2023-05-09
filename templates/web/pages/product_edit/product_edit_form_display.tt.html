@@ -226,7 +226,9 @@
                                     </td>
 
                                             <td class="nutriment_col" [% column_display_style_nutrition_data %]>
-                                                <input class="nutriment_value nutriment_value_as_sold" id="nutriment_[% nutriment.enid %]" name="nutriment_[% nutriment.enid %]" value="[% nutriment.value %]" [% nutriment.disabled %] autocomplete="off"/>
+                                                <input class="nutriment_value nutriment_value_as_sold soft-background" id="nutriment_[% nutriment.enid %]" name="nutriment_[% nutriment.enid %]" value="[% nutriment.value %]" [% nutriment.disabled %] autocomplete="off"/>
+                                                <span id="nutriment_question_mark_[% nutriment.enid %]" class="question_mark">?</span>
+                                                <span id="nutriment_sugars_warning_[% nutriment.enid %]" class="sugars_warning">Please enter a valid value.</span>
                                             </td>
                                             <td class="nutriment_col_prepared" [% column_display_style_nutrition_data_prepared %]>
                                                 <input class="nutriment_value nutriment_value_prepared" id="nutriment_[% nutriment.enidp %]" name="nutriment_[% nutriment.enidp %]" value="[% nutriment.valuep %]" [% nutriment.disabled %] autocomplete="off"/>
@@ -347,4 +349,44 @@
     
 
 </body>
+
+<style>
+.question_mark {
+    display: none;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #999;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    cursor: help;
+}
+
+.sugars_warning {
+  display: none;
+  position: absolute;
+  left: 16%;
+  transform: translateX(50%);
+  padding: 0.5em;
+  background-color: #333;
+  color: #fff;
+  font-size: 0.8em;
+  white-space: nowrap;
+  margin-top: 1%;
+}
+
+.soft-background {
+    background-color: #f5f5f5;
+}
+
+.question_mark:hover + .sugars_warning {
+    display: inline-block;
+}
+
+.question_mark:hover {
+    opacity: 0.7;
+}
+</style>
 <!-- end templates/[% template.name %] -->

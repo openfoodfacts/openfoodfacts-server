@@ -589,7 +589,7 @@ msgstr ""
 
 msgctxt "email"
 msgid "E-mail address"
-msgstr ""
+msgstr "மின்னஞ்சல் முகவரி"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
@@ -1771,6 +1771,14 @@ msgctxt "product_changes_saved"
 msgid "Changes saved."
 msgstr ""
 
+msgctxt "product_edit_you_contributed"
+msgid "You just helped to improve the world largest open data database."
+msgstr "உலகின் மிகப் பெரிய திறந்த தரவுத்தளத்தை மேம்படுத்த நீங்கள் உதவினீர்கள்."
+
+msgctxt "product_edit_thank_you"
+msgid "Thank you so much for joining us in our journey to data transparency!"
+msgstr "தரவு வெளிப்படைத்தன்மைக்கான எங்கள் பயணத்தில் எங்களுடன் இணைந்ததற்கு மிக்க நன்றி!"
+
 msgctxt "product_characteristics"
 msgid "Product characteristics"
 msgstr ""
@@ -2288,6 +2296,10 @@ msgctxt "see_product_page"
 msgid "See the product page"
 msgstr ""
 
+msgctxt "re_edit_product_page"
+msgid "Edit the product again"
+msgstr "தயாரிப்பை மீண்டும் திருத்தவும்"
+
 msgctxt "select_country"
 msgid "Country"
 msgstr ""
@@ -2610,6 +2622,10 @@ msgstr ""
 
 msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
+msgstr ""
+
+msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
+msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
 msgstr ""
 
 msgctxt "nutrition_grade_fr_fiber_warning"
@@ -3372,6 +3388,10 @@ msgstr ""
 
 msgctxt "fields_group_images"
 msgid "Product photos"
+msgstr ""
+
+msgctxt "fields_group_packaging"
+msgid "Packaging"
 msgstr ""
 
 msgctxt "image_front_url"
@@ -5857,6 +5877,38 @@ msgctxt "health"
 msgid "Health"
 msgstr ""
 
+msgctxt "contribution_panel_title"
+msgid "Contribution"
+msgstr "பங்களிப்பு"
+
+msgctxt "contribution_navigation"
+msgid "Contribution"
+msgstr "பங்களிப்பு"
+
+msgctxt "data_quality_errors_panel_title"
+msgid "Detected Errors"
+msgstr "கண்டறியப்பட்ட பிழைகள்"
+
+msgctxt "data_quality_errors_panel_subtitle"
+msgid "Help us improve quality of our data by contributing fixes"
+msgstr "திருத்தங்களை வழங்குவதன் மூலம் எங்கள் தரவின் தரத்தை மேம்படுத்த உதவுங்கள்"
+
+msgctxt "data_quality_warnings_panel_title"
+msgid "Potential issues"
+msgstr "சாத்தியமான சிக்கல்கள்"
+
+msgctxt "data_quality_warnings_panel_subtitle"
+msgid "We have detected some potential issues or potential improvements, could you check if some apply ?"
+msgstr "சில சாத்தியமான சிக்கல்கள் அல்லது சாத்தியமான மேம்பாடுகளை நாங்கள் கண்டறிந்துள்ளோம், சில பொருந்துமா என்பதை நீங்கள் சரிபார்க்க முடியுமா?"
+
+msgctxt "data_quality_info_panel_title"
+msgid "Data Quality infos"
+msgstr "தரவுத் தரத் தகவல்கள்"
+
+msgctxt "data_quality_info_panel_subtitle"
+msgid "Some infos about data quality on this product"
+msgstr "இந்தத் தயாரிப்பின் தரவைப் பற்றிய சில தகவல்கள்"
+
 # will be followed by : and a value. e.g. "Compared to: bananas"
 msgctxt "compared_to"
 msgid "Compared to"
@@ -6094,6 +6146,10 @@ msgctxt "action_add_packaging_image"
 msgid "Take a photo of the recycling information"
 msgstr ""
 
+msgctxt "action_add_packaging_components"
+msgid "Add packaging components"
+msgstr ""
+
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
@@ -6314,6 +6370,10 @@ msgctxt "api_message_invalid_json_in_request_body"
 msgid "Invalid JSON in request body"
 msgstr ""
 
+msgctxt "api_message_invalid_code"
+msgid "Invalid code"
+msgstr ""
+
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
 msgstr ""
@@ -6332,6 +6392,10 @@ msgstr ""
 
 msgctxt "api_message_missing_field"
 msgid "Missing field"
+msgstr ""
+
+msgctxt "api_message_unrecognized_field"
+msgid "Unrecognized field"
 msgstr ""
 
 msgctxt "api_message_unrecognized_value"

@@ -71,6 +71,7 @@ BEGIN {
 		&compute_unknown_nutrients
 		&compute_nutrient_levels
 		&compute_units_of_alcohol
+		&compute_estimated_nutrients
 
 		&compare_nutriments
 
@@ -106,6 +107,7 @@ use ProductOpener::Units qw/:all/;
 use ProductOpener::Products qw(&remove_fields);
 use ProductOpener::Display qw/single_param/;
 use ProductOpener::APIProductWrite qw/skip_protected_field/;
+use ProductOpener::NutritionEstimation qw/:all/;
 
 use Hash::Util;
 use Encode;
@@ -1011,16 +1013,24 @@ sub compute_fruit_ratio ($product_ref, $prepared) {
 	return $fruits;
 }
 
-=head2 saturated_fat_ratio( $product_ref, $prepared )
+=head2 saturated_fat_ratio( $nutriments_ref, $prepared )
 
 Compute saturated_fat_ratio as needed for nutriscore
 
+=head3 Arguments
+
+=head4 $nutriments_ref - ref to the nutriments of a product
+
+Reference to either the "nutriments" or "nutriments_estimated" structure.
+
+=head4 $prepared - string contains either "" or "prepared"
+
 =cut
 
-sub saturated_fat_ratio ($product_ref, $prepared) {
+sub saturated_fat_ratio ($nutriments_ref, $prepared) {
 
-	my $saturated_fat = $product_ref->{nutriments}{"saturated-fat" . $prepared . "_100g"};
-	my $fat = $product_ref->{nutriments}{"fat" . $prepared . "_100g"};
+	my $saturated_fat = $nutriments_ref->{"saturated-fat" . $prepared . "_100g"};
+	my $fat = $nutriments_ref->{"fat" . $prepared . "_100g"};
 	my $saturated_fat_ratio = 0;
 	if ((defined $saturated_fat) and ($saturated_fat > 0)) {
 		if ($fat <= 0) {
@@ -1031,33 +1041,47 @@ sub saturated_fat_ratio ($product_ref, $prepared) {
 	return $saturated_fat_ratio;
 }
 
-=head2 saturated_fat_0_because_of_fat_0($product_ref, $prepared)
+=head2 saturated_fat_0_because_of_fat_0($nutriments_ref, $prepared)
 
 Detect if we are in the special case where we can detect saturated fat is 0 because fat is 0
 
+=head3 Arguments
+
+=head4 $nutriments_ref - ref to the nutriments of a product
+
+Reference to either the "nutriments" or "nutriments_estimated" structure.
+
+=head4 $prepared - string contains either "" or "prepared"
+
 =cut
 
-sub saturated_fat_0_because_of_fat_0 ($product_ref, $prepared) {
-	my $fat = $product_ref->{nutriments}{"fat" . $prepared . "_100g"};
-	return (   (!defined $product_ref->{nutriments}{"saturated-fat" . $prepared . "_100g"})
-			&& (defined $fat)
-			&& ($fat == 0));
+sub saturated_fat_0_because_of_fat_0 ($nutriments_ref, $prepared) {
+	my $fat = $nutriments_ref->{"fat" . $prepared . "_100g"};
+	return ((!defined $nutriments_ref->{"saturated-fat" . $prepared . "_100g"}) && (defined $fat) && ($fat == 0));
 }
 
-=head2 sugar_0_because_of_carbohydrates_0($product_ref, $prepared) {
+=head2 sugar_0_because_of_carbohydrates_0($nutriments_ref, $prepared) {
 
 Detect if we are in the special case where we can detect sugars are 0 because carbohydrates are 0
 
+=head3 Arguments
+
+=head4 $nutriments_ref - ref to the nutriments of a product
+
+Reference to either the "nutriments" or "nutriments_estimated" structure.
+
+=head4 $prepared - string contains either "" or "prepared"
+
 =cut
 
-sub sugar_0_because_of_carbohydrates_0 ($product_ref, $prepared) {
-	my $carbohydrates = $product_ref->{nutriments}{"carbohydrates" . $prepared . "_100g"};
-	return (   (!defined $product_ref->{nutriments}{"sugars" . $prepared . "_100g"})
+sub sugar_0_because_of_carbohydrates_0 ($nutriments_ref, $prepared) {
+	my $carbohydrates = $nutriments_ref->{"carbohydrates" . $prepared . "_100g"};
+	return (   (!defined $nutriments_ref->{"sugars" . $prepared . "_100g"})
 			&& (defined $carbohydrates)
 			&& ($carbohydrates == 0));
 }
 
-=head2 compute_nutriscore_data( $product_ref, $prepared )
+=head2 compute_nutriscore_data( $products_ref, $prepared, $nutriments_field )
 
 Compute data for nutriscore computation.
 
@@ -1065,11 +1089,15 @@ Compute data for nutriscore computation.
 
 =head3 Arguments
 
-=head4 $product_ref - ref to product
+=head4 $nutriments_ref - ref to the nutriments of a product
+
+Reference to either the "nutriments" or "nutriments_estimated" structure.
 
 =head4 $prepared - string contains either "" or "prepared"
 
 =head4 $fruits - float - fruit % estimation
+
+=head4
 
 =head3 return
 
@@ -1077,9 +1105,12 @@ Ref to a mapping suitable to call compute_nutriscore_score_and_grade
 
 =cut
 
-sub compute_nutriscore_data ($product_ref, $prepared) {
+sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field) {
+
+	my $nutriments_ref = $product_ref->{$nutriments_field};
+
 	# compute data
-	my $saturated_fat_ratio = saturated_fat_ratio($product_ref, $prepared);
+	my $saturated_fat_ratio = saturated_fat_ratio($nutriments_ref, $prepared);
 	my $fruits = compute_fruit_ratio($product_ref, $prepared);
 	my $nutriscore_data = {
 		is_beverage => $product_ref->{nutrition_score_beverage},
@@ -1087,30 +1118,30 @@ sub compute_nutriscore_data ($product_ref, $prepared) {
 		is_cheese => is_cheese_for_nutrition_score($product_ref),
 		is_fat => is_fat_for_nutrition_score($product_ref),
 
-		energy => $product_ref->{nutriments}{"energy" . $prepared . "_100g"},
-		sugars => $product_ref->{nutriments}{"sugars" . $prepared . "_100g"},
-		saturated_fat => $product_ref->{nutriments}{"saturated-fat" . $prepared . "_100g"},
+		energy => $nutriments_ref->{"energy" . $prepared . "_100g"},
+		sugars => $nutriments_ref->{"sugars" . $prepared . "_100g"},
+		saturated_fat => $nutriments_ref->{"saturated-fat" . $prepared . "_100g"},
 		saturated_fat_ratio => $saturated_fat_ratio,
-		sodium => $product_ref->{nutriments}{"sodium" . $prepared . "_100g"} * 1000,    # in mg,
+		sodium => $nutriments_ref->{"sodium" . $prepared . "_100g"} * 1000,    # in mg,
 
 		fruits_vegetables_nuts_colza_walnut_olive_oils => $fruits,
 		fiber => (
-			(defined $product_ref->{nutriments}{"fiber" . $prepared . "_100g"})
-			? $product_ref->{nutriments}{"fiber" . $prepared . "_100g"}
+			(defined $nutriments_ref->{"fiber" . $prepared . "_100g"})
+			? $nutriments_ref->{"fiber" . $prepared . "_100g"}
 			: 0
 		),
-		proteins => $product_ref->{nutriments}{"proteins" . $prepared . "_100g"},
+		proteins => $nutriments_ref->{"proteins" . $prepared . "_100g"},
 	};
 
 	# tweak data to take into account special cases
 
 	# if sugar is undefined but carbohydrates is 0, set sugars to 0
-	if (sugar_0_because_of_carbohydrates_0($product_ref, $prepared)) {
+	if (sugar_0_because_of_carbohydrates_0($nutriments_ref, $prepared)) {
 		$nutriscore_data->{sugars} = 0;
 	}
 	# if saturated_fat is undefined but fat is 0, set saturated_fat to 0
 	# as well as saturated_fat_ratio
-	if (saturated_fat_0_because_of_fat_0($product_ref, $prepared)) {
+	if (saturated_fat_0_because_of_fat_0($nutriments_ref, $prepared)) {
 		$nutriscore_data->{saturated_fat} = 0;
 		$nutriscore_data->{saturated_fat_ratio} = 0;
 	}
@@ -1241,6 +1272,9 @@ sub compute_nutrition_score ($product_ref) {
 		}
 	}
 
+	# Track the number of key nutrients present
+	my $key_nutrients = 0;
+
 	# Spring waters have grade A automatically, and have a different nutrition table without sugars etc.
 	# do not display warnings about missing fiber and fruits
 
@@ -1252,7 +1286,6 @@ sub compute_nutrition_score ($product_ref) {
 		)
 		)
 	{
-
 		# compute the score only if all values are known
 		# for fiber, compute score without fiber points if the value is not known
 		# foreach my $nid ("energy", "saturated-fat", "sugars", "sodium", "fiber", "proteins") {
@@ -1261,13 +1294,21 @@ sub compute_nutrition_score ($product_ref) {
 			if (not defined $product_ref->{nutriments}{$nid . $prepared . "_100g"}) {
 				# we have two special case where we can deduce data
 				next
-					if ((($nid eq "saturated-fat") && saturated_fat_0_because_of_fat_0($product_ref, $prepared))
-					|| (($nid eq "sugars") && sugar_0_because_of_carbohydrates_0($product_ref, $prepared)));
+					if (
+					(
+						($nid eq "saturated-fat")
+						&& saturated_fat_0_because_of_fat_0($product_ref->{nutriments}, $prepared)
+					)
+					|| (($nid eq "sugars") && sugar_0_because_of_carbohydrates_0($product_ref->{nutriments}, $prepared))
+					);
 				$product_ref->{"nutrition_grades_tags"} = ["unknown"];
 				add_tag($product_ref, "misc", "en:nutrition-not-enough-data-to-compute-nutrition-score");
 				$product_ref->{nutrition_score_debug} .= "missing " . $nid . $prepared . " - ";
 				add_tag($product_ref, "misc", "en:nutriscore-missing-nutrition-data");
 				add_tag($product_ref, "misc", "en:nutriscore-missing-nutrition-data-$nid");
+			}
+			else {
+				$key_nutrients++;
 			}
 		}
 
@@ -1286,6 +1327,30 @@ sub compute_nutrition_score ($product_ref) {
 	# Remove ending -
 	$product_ref->{nutrition_score_debug} =~ s/ - $//;
 
+	# By default we use the "nutriments" hash as a source (specified nutriements),
+	# but if we don't have specified nutrients, we can use use the "nutriments_estimated" hash if it exists.
+	# If we have some specified nutrients but are missing required nutrients for the Nutri-Score,
+	# we do not use estimated nutrients, in order to encourage users to complete the nutrition facts
+	# (that we know exist, and that we may even have a photo for).
+	# If we don't have nutrients at all (or the no nutriments checkbox is checked),
+	# we can use estimated nutrients for the Nutri-Score.
+	my $nutriments_field = "nutriments";
+
+	if (    (defined $product_ref->{"nutrition_grades_tags"})
+		and (($product_ref->{"nutrition_grades_tags"}[0] eq "unknown"))
+		and (($key_nutrients == 0) or ($product_ref->{no_nutrition_data}))
+		and ($prepared eq '')
+		and (defined $product_ref->{nutriments_estimated}))
+	{
+		$nutriments_field = "nutriments_estimated";
+		$product_ref->{nutrition_score_warning_nutriments_estimated} = 1;
+		add_tag($product_ref, "misc", "en:nutriscore-using-estimated-nutrition-facts");
+		$product_ref->{"nutrition_grades_tags"} = [];
+
+		# Delete the warning for missing fiber, as we will get fiber from the estimate
+		delete $product_ref->{nutrition_score_warning_no_fiber};
+	}
+
 	# If the Nutri-Score is unknown or not applicable, exit the function
 	if (
 		(defined $product_ref->{"nutrition_grades_tags"})
@@ -1302,7 +1367,7 @@ sub compute_nutrition_score ($product_ref) {
 
 	# Populate the data structure that will be passed to Food::Nutriscore
 
-	$product_ref->{nutriscore_data} = compute_nutriscore_data($product_ref, $prepared);
+	$product_ref->{nutriscore_data} = compute_nutriscore_data($product_ref, $prepared, $nutriments_field);
 
 	my ($nutriscore_score, $nutriscore_grade)
 		= ProductOpener::Nutriscore::compute_nutriscore_score_and_grade($product_ref->{nutriscore_data});
@@ -2344,6 +2409,29 @@ sub assign_nutriments_values_from_request_parameters ($product_ref, $nutriment_t
 		}
 	}
 	return;
+}
+
+=head2 compute_estimated_nutrients ( $product_ref )
+
+Compute estimated nutrients from ingredients.
+
+If we have a high enough confidence (95% of the ingredients (by quantity) have a known nutrient profile),
+we store the result in the nutriments_estimated hash.
+
+=cut
+
+sub compute_estimated_nutrients ($product_ref) {
+	my $results_ref = estimate_nutrients_from_ingredients($product_ref->{ingredients});
+
+	# only take the result if we have at least 95% of ingredients with nutrients
+	if (($results_ref->{total} > 0) and (($results_ref->{total_with_nutrients} / $results_ref->{total}) >= 0.95)) {
+		$product_ref->{nutriments_estimated} = {};
+		while (my ($nid, $value) = each(%{$results_ref->{nutrients}})) {
+			$product_ref->{nutriments_estimated}{$nid . '_100g'} = $value;
+		}
+	}
+
+	return $results_ref;
 }
 
 1;
