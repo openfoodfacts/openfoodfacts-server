@@ -132,8 +132,7 @@ sub convert_string_to_number ($value) {
 	$value =~ s/,//g;
 
 	# If number has been recorded as 0.0 without decimals then want to preserve this
-	if (($value + 0) ne 0)
-	{
+	if (($value + 0) ne 0) {
 		$value += 0;
 	}
 

@@ -571,5 +571,4 @@ is_deeply(
 	}
 ) or diag explain $product_ref;
 
-
 done_testing();
