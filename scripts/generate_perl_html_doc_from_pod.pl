@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -25,7 +25,7 @@
 generate_perl_html_doc_from_pod.pl scans the Perl source code of Product Opener
 for documentation in POD format to generate documentation in HTML files.
 
-=head1 SYNOPSYS
+=head1 SYNOPSIS
 
 The script needs to be run from the root of the Product Opener installation
 (e.g. /srv/off/)
@@ -41,4 +41,16 @@ use Pod::Simple::HTMLBatch;
 
 my $batchconv = Pod::Simple::HTMLBatch->new;
 
-$batchconv->batch_convert( ["cgi", "scripts", "lib"] , "html/files/doc/perl");
+$batchconv->add_css("simple.min.css");
+$batchconv->contents_page_start('
+<html>
+<head>
+<title>Product Opener Perl Documentation</title>
+</head>
+<body class="contentspage">
+<h1>Product Opener Perl Documentation</h1>
+<p><a href="https://github.com/openfoodfacts/openfoodfacts-server">github repository</a></p>
+');
+$batchconv->css_flurry(0);
+$batchconv->javascript_flurry(0);
+$batchconv->batch_convert(["cgi", "scripts", "lib"], "html/files/doc/perl");

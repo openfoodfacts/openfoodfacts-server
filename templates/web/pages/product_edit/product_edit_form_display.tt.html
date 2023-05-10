@@ -1,0 +1,392 @@
+<!-- start templates/[% template.name %] -->
+
+<a href="#upNav" class="back-to-top scrollto button">
+    <span class="material-icons size-20 ">
+        arrow_upward
+    </span>
+</a>
+
+<div class="block v-space-tiny product_banner_unranked" id="prodHead">
+    <div class="row">
+        <div class="small-12 columns">
+            <h1>[% title %]</h1>
+        </div>
+    </div>
+</div>
+
+    [% IF !( server_options_private_products.defined && server_options_private_products ) && org_id %]
+        <div class="panel callout">
+            <p><strong>[% lang("product_edits_by_producers") %] </strong></p>
+            <p>[% lang("product_edits_by_producers_platform") %]</p>
+            <p>[% lang("product_edits_by_producers_import") %]</p>
+            <p>[% lang("product_edits_by_producers_analysis") %] [% lang("product_edits_by_producers_indicators") %]</p>
+            <p><a href="[% producers_platform_url %]" class="button">[% lang("manage_your_products_on_the_producers_platform") %]</a></p>
+		</div>
+    [% END %]
+
+    [% IF errors_index >=0 %]
+        <p>[% lang("correct_the_following_errors") %]</p>
+        
+        [% FOREACH error IN errors %]
+            <p class="error">[% error %]</p><br/>
+        [% END %]
+    [% END %]
+
+    <form id="product_form" action="/cgi/product.pl" method="POST" enctype="multipart/form-data">
+
+        <div class="block v-space-tiny prod-nav product_banner_unranked" id="prodNav">
+            <div class="row h-space-normal">
+                <div class="large-12">
+                   <nav id="navbar" class="navbar h-space-tiny">
+                        <ul class="inline-list">
+                            <li><a class="nav-link scrollto button small round white-button" href="#product_characteristics"><span>[% lang('product_characteristics') %]</span></a></li>
+                            <li><a class="nav-link scrollto button small round white-button" href="#ingredients"><span>[% lang("ingredients") %]</span></a></li>
+                            <li><a class="nav-link scrollto button small round white-button" href="#nutrition"><span>[% lang("nutrition") %]</span></a></li>
+                            <li><a class="nav-link scrollto button small round white-button" href="#packaging_section"><span>[% lang("packaging") %]</span></a></li>
+                        </ul>
+                    </nav><!-- .navbar -->
+                </div> 
+            </div>
+        </div>
+
+        <div id="prodInfos">
+
+            <div class="row">
+                <div class="small-12 columns">
+
+
+        <section id="misc" class="card fieldset">
+            <div class="card-section">
+                <p id="barcode_paragraph"> [% lang("barcode") %][% sep %]:
+                    <span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">[% code %]</span>
+                </p>
+                
+
+        [% IF moderator %]
+            <label for="new_code" id="label_new_code">[% label_new_code %]</label>
+            <input type="text" name="new_code" id="new_code" class="text" value="" /><br/>
+        [% END %]
+
+        [% IF moderator || owner_id %]
+            <input type="checkbox" id="obsolete" name="obsolete" [% obsolete_checked %]/>
+            <label for="obsolete" class="checkbox_label">[% lang("obsolete") %]</label>
+            [% display_field_obsolete %]
+        [% END %]
+
+        [%# On the pro platform, no warning about uploading data from the producer %]
+        [% IF !server_options_producers_platform %]
+        <div data-alert class="alert-box info store-state" id="warning_3rd_party_content" style="display:none;">
+            <span>[% lang("warning_3rd_party_content") %]</span>
+             <a href="#" class="close">&times;</a>
+        </div>
+        [% END %]
+
+        <div data-alert class="alert-box secondary store-state" id="licence_accept" style="display:none;">
+            <span>[% lang("licence_accept") %]</span>
+             <a href="#" class="close">&times;</a>
+        </div>
+
+        [% IF moderator %]
+            <ul id="manage_images_accordion" class="accordion" data-accordion>
+                <li class="accordion-navigation">
+                    <a href="#manage_images_drop">[% display_icon('collections') %] [% lang("manage_images") %]</a>
+                    <div id="manage_images_drop" class="content" style="background:#eeeeee">
+                        [% display_select_manage %]
+                        <p>[% manage_images_info %]</p>
+                        <a id="delete_images" class="button small disabled">[% display_icon('delete') %] [% lang("delete_the_images") %]</a><br/>
+                        <div class="row">
+                            <div class="small-12 medium-5 columns">
+                                <button id="move_images" class="button small disabled">[% display_icon('arrow_right_alt') %] [% lang("move_images_to_another_product") %]</a>
+                            </div>
+                            <div class="small-4 medium-2 columns">
+                                <label for="move_to" class="right inline">[% lang("barcode") %]</label>
+                            </div>
+                            <div class="small-8 medium-5 columns">
+                                <input type="text" id="move_to" name="move_to" />
+                            </div>
+                        </div>
+                        <input type="checkbox" id="copy_data" name="copy_data"><label for="copy_data">[% lang("copy_data") %]</label>
+                        <div id="moveimagesmsg"></div>
+                    </div>
+                </li>
+            </ul>
+        [% END %]
+
+            </div>
+        </section>
+        
+        <section id="product_image" class="card fieldset">
+            <div class="card-section">
+                <legend>[% lang("product_image") %]</legend>
+                <input type="hidden" id="sorted_langs" name="sorted_langs" value="[% product_ref_sorted_langs %]"/>
+
+                <label for="lang"> [% lang('lang') %] </label>
+                <select name="lang" id="lang">
+                    [% FOREACH language IN lang_options %]
+                        <option value="[% language.value %]" [% IF language.value== product_lang_value %] selected="selected" [% END %]>[% language.label %]</option>
+                    [% END %]
+                </select>
+
+                [% display_tab_product_picture %]
+            </div>
+        </section>         
+
+        <section id="product_characteristics" class="fieldset card">
+            <div class="card-section">
+                <legend>[% lang('product_characteristics') %]</legend>
+
+                [% display_tab_product_characteristics %]
+
+                [% FOREACH field IN display_fields_arr %]
+                    [% field %]
+                [% END %]
+            </div>
+        </section>
+
+        <section id="ingredients" class="card fieldset">
+            <div class="card-section">
+                <legend>[% lang('ingredients') %]</legend>
+                [% display_tab_ingredients_image %]
+                [% display_field_allergens %]
+                [% display_field_traces %]
+                [% display_field_origins %]
+            </div>
+        </section>
+
+        <!--nutrient fieldset-->
+        <section class="card fieldset" id="nutrition">
+            <div class="card-section">
+                <legend>[% lang('nutrition_data') %]</legend>
+                <!-- extra field suffixed with _displayed to allow detecting when a box is unchecked -->
+                <input type="hidden" name="no_nutrition_data_displayed" value="1" />
+                <input type="checkbox" id="no_nutrition_data" name="no_nutrition_data" [% nutrition_checked %] />
+                <label for="no_nutrition_data" class="checkbox_label">[% lang('no_nutrition_data') %]</label><br/>
+                <div id="nutrition_data_div">
+                    [% display_tab_nutrition_image %]
+                    [% display_field_serving_size %]
+
+                    [% FOREACH nutrient IN nutrition_products %]
+                        <!-- extra field suffixed with _displayed to allow detecting when a box is unchecked -->
+                        <input type="hidden" name="[% nutrient.nutrition_data %]_displayed" value="1" />
+                        <input type="checkbox" id="[% nutrient.nutrition_data %]" name="[% nutrient.nutrition_data %]" [% nutrient.checked %] />
+                        <label for="[% nutrient.nutrition_data %]" class="checkbox_label">[% nutrient.nutrition_data_exists %]</label> &nbsp;
+                        <input type="radio" id="[% nutrient.nutrition_data_per %]_100g" value="100g" name="[% nutrient.nutrition_data_per %]" [% nutrient.checked_per_100g %] />
+                        <label for="[% nutrient.nutrition_data_per %]_100g">[% lang('nutrition_data_per_100g') %]</label>
+                        <input type="radio" id="[% nutrient.nutrition_data_per %]_serving" value="serving" name="[% nutrient.nutrition_data_per %]" [% nutrient.checked_per_serving %] />
+                        <label for="[%nutrient. nutrition_data_per %]_serving">[% lang('nutrition_data_per_serving') %]</label><br/>
+
+                        [% IF nutrition_data_instructions_check && nutrition_data_instructions_check != '' %]
+                            <p id="[% nutrient.nutrition_data_instructions %]" [% nutrient.hidden %]>[% lang(nutrient.nutrition_data_instructions) %]</p>
+                        [% END %]
+                    [% END %]
+
+                    <div style="position:relative">
+
+                        <table id="nutrition_data_table" class="data_table" style="[% tablestyle %]" aria-label="nutrition table">
+                            <thead class="nutriment_header">
+                                <th id="col_1">
+                                    [% lang('nutrition_data_table') %]
+                                </th>
+                                <th id="col_2" class="nutriment_col" [% column_display_style_nutrition_data %]>
+                                    [% lang('product_as_sold') %]<br/>
+                                    <span id="nutrition_data_100g" [% nutrition_data_100g_style %]>[% lang('nutrition_data_per_100g') %]</span>
+                                    <span id="nutrition_data_serving" [% nutrition_data_serving_style %]>[% lang('nutrition_data_per_serving') %]</span>
+                                </th>
+                                <th id="col_3" class="nutriment_col_prepared" [% column_display_style_nutrition_data_prepared %]>
+                                    [% lang('prepared_product') %]<br/>
+                                    <span id="nutrition_data_prepared_100g" [% nutrition_data_prepared_100g_style %]>[% lang('nutrition_data_per_100g') %]</span>
+                                    <span id="nutrition_data_prepared_serving" [% nutrition_data_prepared_serving_style %]>[% lang('nutrition_data_per_serving') %]</span>
+                                </th>
+                                <th id="col_4">
+                                    [% lang('unit') %]
+                                </th>
+                            </thead>
+
+                            <tbody>
+
+                                [% FOREACH nutriment IN nutriments %]
+
+                                    [% IF nutriment.shown %]
+                                        <tr id="nutriment_[% nutriment.enid %]_tr" class="nutriment_[% nutriment.class %]"[% nutriment.display %]>
+
+                                    <td>
+                                        <!--label starts-->
+                                        [% IF nutriment.name.defined %]
+                                        [% IF nutriment.nid == 'energy-kj' || nutriment.nid == 'saturated-fat' || nutriment.nid == 'salt'|| nutriment.nid =='sugars' || nutriment.nid == 'fiber' || nutriment.nid =='fat' || nutriment.nid =='proteins' %]
+                                            <label class="nutriment_label" for="nutriment_[% nutriment.enid %]">[% nutriment.prefix %][% nutriment.name %]*</label>
+                                        [% ELSE %]
+                                            <label class="nutriment_label" for="nutriment_[% nutriment.enid %]">[% nutriment.prefix %][% nutriment.name %]</label>
+                                        [% END %] 
+                                        [% ELSIF nutriment.label_value.defined %]
+                                            <input class="nutriment_label" id="nutriment_[% nutriment.enid %]_label" name="nutriment_[% nutriment.enid %]_label" value="[% nutriment.label_value %]" />
+                                        [% ELSE %]
+                                            <input class="nutriment_label" id="nutriment_[% nutriment.enid %]_label" name="nutriment_[% nutriment.enid %]_label" placeholder="[% nutriment.product_add_nutrient %]"/>
+                                        [% END %]
+                                        <!--label ends-->
+                                    </td>
+
+                                            <td class="nutriment_col" [% column_display_style_nutrition_data %]>
+                                                <input class="nutriment_value nutriment_value_as_sold soft-background" id="nutriment_[% nutriment.enid %]" name="nutriment_[% nutriment.enid %]" value="[% nutriment.value %]" [% nutriment.disabled %] autocomplete="off"/>
+                                                <span id="nutriment_question_mark_[% nutriment.enid %]" class="question_mark">?</span>
+                                                <span id="nutriment_sugars_warning_[% nutriment.enid %]" class="sugars_warning">Please enter a valid value.</span>
+                                            </td>
+                                            <td class="nutriment_col_prepared" [% column_display_style_nutrition_data_prepared %]>
+                                                <input class="nutriment_value nutriment_value_prepared" id="nutriment_[% nutriment.enidp %]" name="nutriment_[% nutriment.enidp %]" value="[% nutriment.valuep %]" [% nutriment.disabled %] autocomplete="off"/>
+                                            </td>
+
+                                            [% IF nutriment.nid == 'alcohol' || nutriment.nid == 'energy-kj' || nutriment.nid == 'energy-kcal' %]
+                                                <td>
+                                                    <span class="nutriment_unit">[% nutriment.nutriment_unit %]</span>
+
+                                            [% ELSE %]
+                                                <td>
+                                                    <span class="nutriment_unit_percent" id="nutriment_[% nutriment.enid %]_unit_percent"[% nutriment.hide_percent %]>%</span>
+                                                    <select class="nutriment_unit" id="nutriment_[% nutriment.enid %]_unit" name="nutriment_[% nutriment.enid %]_unit"[% nutriment.hide_select %] [% nutriment.nutriment_unit_disabled %]>
+                                                        [% FOREACH unit IN nutriment.units_arr %]
+                                                            <option value="[% unit.u %]" [% unit.selected %]>[% unit.label %]</option>
+                                                        [% END %]
+                                                        </select>
+                                            [% END %]
+                                                    </td>
+                                            </tr>
+
+                                    [% END %]
+
+                                [% END %]
+
+                            </tbody>
+                        </table>
+
+                        <input type="hidden" name="new_max" id="new_max" value="1" />
+                        <div id="nutrition_image_copy" style="position:absolute;bottom:0;"></div>
+                    </div>
+
+                [% IF moderator %]
+                    <div><a class="small button" onclick="\$('.nutriment_value').val('')">[% lang('remove_all_nutrient_values') %]</a></div>
+                [% END %]
+
+                <p class="asterisk">&rarr;*[% sep %]:[% lang('nutrition_data_table_asterisk') %]</p>
+                <p class="note">&rarr; [% lang('nutrition_data_table_note') %]</p>
+                </div>
+                
+            </div>
+    </section><!--nutrient field set-->
+
+        <!--packaging field-->
+        <section id="packaging_section" class="card fieldset">
+            <div class="card-section">
+                <legend>[% lang('packaging') %]</legend>
+                [% display_tab_packaging %]
+
+                [% INCLUDE web/pages/product_edit/product_edit_form_packagings.tt.html product = product %]
+            </div>
+        </section>
+
+        [% IF moderator %]
+            <div class="fieldset" id="check"><legend>[% lang('photos_and_data_check') %]</legend>
+                <p>[% lang('photos_and_data_check_description') %]</p>
+
+                <input type="checkbox" id="photos_and_data_checked" name="photos_and_data_checked" [% product_check_checked %] />
+                <label for="photos_and_data_checked" class="checkbox_label">[% lang('photos_and_data_checked') %]</label><br/>
+
+                [% IF product_ref_checked.defined && product_ref_checked == 'on' %]
+                    <input type="checkbox" id="photos_and_data_rechecked" name="photos_and_data_rechecked" />
+                    <label for="photos_and_data_rechecked" class="checkbox_label">[% lang('i_checked_the_photos_and_data_again') %]</label><br/>
+                [% END %]
+            </div>
+        [% END %]
+
+        [% IF admin %]
+                [% IF param_fields %]
+                    <input type="hidden"  name="fields" value="[% param_fields %]">
+                [% END %]
+        [% END %]
+
+        <input type="hidden" name="type" value="[% type %]">
+        <input type="hidden" id="code" name="code" value="[% code %]">
+        <input type="hidden" name="action" value="process">
+
+        <div id="fixed_bar" class="bottom-validation">
+            [% IF type == 'edit' %]
+
+                <div class="row">
+                    <div class="small-12 medium-12 large-8 xlarge-8 columns" style="margin-bottom:0.5rem;">
+                        <input id="comment" name="comment" placeholder="[% lang('edit_comment') %]" value="" type="text" class="text" style="margin:0" />
+                    </div>
+                    <div class="small-6 medium-6 large-2 xlarge-2 columns">
+                        <button type="submit" id="save" name=".submit" class="button postfix success small">
+                            [% display_icon('check') %] [% lang('save') %]
+                        </button>
+                    </div>
+                    <div class="small-6 medium-6 large-2 xlarge-2 columns">
+                        <button type="button" id="back-btn" class="button postfix small secondary">
+                            [% display_icon('cancel') %] [% lang('cancel') %]
+                        </button>
+                    </div>
+                </div>
+
+            [% ELSE %]
+
+                <div class="row">
+                    <div class="small-12 medium-12 large-12 xlarge-12 columns bg-primary h-space-normal v-space-normal text-center">
+                        <input type="submit" name=".submit" value="[% lang('save') %]" class="button success">
+                    </div>
+                </div>
+
+            [% END %]
+        </div>
+
+        [% display_product_history %]
+
+        </div>
+
+        </div>
+
+        </div>
+
+    </form>
+
+    
+
+</body>
+
+<style>
+.question_mark {
+    display: none;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #999;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    cursor: help;
+}
+
+.sugars_warning {
+  display: none;
+  position: absolute;
+  left: 16%;
+  transform: translateX(50%);
+  padding: 0.5em;
+  background-color: #333;
+  color: #fff;
+  font-size: 0.8em;
+  white-space: nowrap;
+  margin-top: 1%;
+}
+
+.soft-background {
+    background-color: #f5f5f5;
+}
+
+.question_mark:hover + .sugars_warning {
+    display: inline-block;
+}
+
+.question_mark:hover {
+    opacity: 0.7;
+}
+</style>
+<!-- end templates/[% template.name %] -->

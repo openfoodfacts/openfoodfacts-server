@@ -1,11 +1,10 @@
-<!-- start templates/[% template.name %] -->
-
 [% IF user.requested_org_id %]
 Subject: New pro account for existing org [% user.requested_org_id %] - [% user.userid %]
 [% ELSE %]
 Subject: New pro account for new org [% user.org_id %] - [% user.userid %]
 [% END %]
 
+<!-- start templates/[% template.name %] -->
 
 org_id: [% user.org_id or user.requested_org_id %]<br>
 org_name: [% user.org or user.requested_org %]<br>
@@ -15,22 +14,26 @@ email: [% user.email %]<br>
 lc: [% user.initial_lc %]<br>
 cc: [% user.initial_cc %]<br>
 
+<a href="https://world.openfoodfacts.org/cgi/org.pl?type=edit&orgid=[% user.org or user.requested_org %]">Access org [% user.org or user.requested_org %] to validate if it is a real organization</a>
+<br>
 <a href="https://world.pro.openfoodfacts.org/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-[% user.org_id or user.requested_org_id %]">Access the pro platform as organization [% user.requested_org_id %]</a>
 <br>
 <br>
 <a href="mailto:[% user.email %]?subject=[% mail_subject_new_pro_account %]&cc=producteurs@openfoodfacts.org&body=[% mail_body_new_pro_account %]">E-mail de relance</a>
 <br>
 <br>
-
 [% IF user.requested_org_id %]
 <a href="mailto:[% user.email %]?subject=[% mail_subject_new_pro_account_org_request_validated %]&cc=producteurs@openfoodfacts.org&body=[% mail_body_new_pro_account_org_request_validated %]">E-mail de rattachement à l'organisation</a>
 <br>
 <br>
 [% END %]
-
+<br>
+<a href="https://connect.openfoodfacts.org/web#cids=1&menu_id=111&action=139&model=res.partner&view_type=list">Go to Connect</a>
+<br>
 Here is the tabular data for the producer if they are not in the tracking spreadsheet yet.
 <br>
-<br>Tracking spreadsheet: https://docs.google.com/spreadsheets/d/1Smx74TevmNlPyEqrcCtvN9uJIdUh-mC1cznLCQaV0V8/edit#gid=0
+<a href="https://docs.google.com/spreadsheets/d/1Smx74TevmNlPyEqrcCtvN9uJIdUh-mC1cznLCQaV0V8/edit#gid=0">Tracking spreadsheet</a>
+<br>
 <br>
 <br>
 <table>
@@ -63,3 +66,4 @@ Here is the tabular data for the producer if they are not in the tracking spread
 </table>
 
 <!-- end templates/[% template.name %] -->
+

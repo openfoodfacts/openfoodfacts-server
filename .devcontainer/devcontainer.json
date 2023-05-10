@@ -1,10 +1,10 @@
 {
   "name": "Perl",
   "dockerComposeFile": [
-    "../docker/docker-compose.yml",
-    "../docker/docker-compose.dev.yml",
-    "../docker/docker-compose.admin-uis.yml",
-    "../docker/docker-compose.vscode.yml"
+    "../docker-compose.yml",
+    "../docker/dev.yml",
+    "../docker/admin-uis.yml",
+    "../docker/vscode.yml"
   ],
   "service": "backend",
   "workspaceFolder": "/opt/product-opener",
@@ -14,6 +14,12 @@
   "runArgs": ["-u", "vscode", "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined"],
   "extensions": [
     "mortenhenriksen.perl-debug",
-    "d9705996.perl-toolbox"
+    "d9705996.perl-toolbox",
+    "redhat.vscode-yaml",
+    "dbaeumer.vscode-eslint",
+    "stylelint.vscode-stylelint",
+    "syler.sass-indented",
+    "mrorz.language-gettext",
+    "eg2.vscode-npm-script"
   ]
 }
