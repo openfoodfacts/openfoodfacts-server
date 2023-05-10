@@ -80978,14 +80978,6 @@ nl:Judasoren
 pl:Grzyby mun
 
 <en:Mushrooms
-en:oyster mushrooms
-fr:Pleurotes, Champignons pleurotes
-ciqual_food_code:en:20114
-ciqual_food_name:en:Oyster mushroom, raw
-ciqual_food_name:fr:Champignon, pleurote, crue
-# Is this a duplicate?
-
-<en:Mushrooms
 en:King trumpet mushrooms, French horn mushrooms, King oyster mushrooms, King brown mushrooms, Boletus of the steppes, Trumpet royale, Pleurotus eryngii
 es:Setas de cardo, Pleurotus eryngii
 fr:Pleurotes du panicaut, Encore argouane, Bérigoule, Girboulot, Pleurotus eryngii
@@ -81009,10 +81001,13 @@ la:Pholiota nameko
 <en:Mushrooms
 en:Oyster mushrooms, Pleurotus ostreatus
 es:Setas de ostra, Setas ostra, Champiñones ostra, Gírgolas, Pleurotus ostreatus
-fr:Pleurotes en huître, Pleurotus ostreatus
+fr:Pleurotes, Champignons pleurotes, Pleurotes en huître, Pleurotus ostreatus
 ja:ヒラタケ
 la:Pleurotus ostreatus
 nl:Oesterzwammen
+ciqual_food_code:en:20114
+ciqual_food_name:en:Oyster mushroom, raw
+ciqual_food_name:fr:Champignon, pleurote, crue
 
 <en:Oyster mushrooms
 en:Chopped oyster mushrooms
