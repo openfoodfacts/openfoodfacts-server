@@ -86509,15 +86509,6 @@ ciqual_food_code:en:26009
 ciqual_food_name:en:Atlantic halibut, raw
 ciqual_food_name:fr:Flétan de l'Atlantique ou flétan blanc, cru
 
-<en:fishes
-en:Atlantic bluefin tuna
-fr:Thon rouge
-ja:タイセイヨウクロマグロ
-ciqual_food_code:en:26069
-ciqual_food_name:en:Atlantic bluefin tuna, raw
-ciqual_food_name:fr:Thon rouge, cru
-# Is this a duplicate?
-
 <en:Fishes
 en:Swordfish
 fr:Espadon
@@ -87343,14 +87334,17 @@ it:Tonno intero
 nl:Hele tonijn
 
 <en:Tunas
-en:Atlantic bluefin tunas, northern bluefin tunas, giant bluefin tunas
+en:Atlantic bluefin tunas, atlantic bluefin tuna, northern bluefin tunas, giant bluefin tunas
 de:Roter Thun, Großer Thun, Nordatlantischer Thun, Blauflossen-Thunfische
-fr:thons rouges
+fr:thons rouges, thon rouge
 ja:タイセイヨウクロマグロ
 la:Thunnus thynnus, Scomber thynnus
 nl:Blauwvintonijn
 ro:Bucăți de ton
 wikidata:en:Q214415
+ciqual_food_code:en:26069
+ciqual_food_name:en:Atlantic bluefin tuna, raw
+ciqual_food_name:fr:Thon rouge, cru
 
 <en:Smoked fishes
 <en:Tunas
