@@ -25594,7 +25594,7 @@ fi:sokerimaissi
 fr:maïs doux, mais doux
 hu:csemegekukorica
 it:mais dolce
-ja:スイートコーン
+ja:スイートコーン, スィートコーン
 nl:suikermaïs, zoete maïs
 pl:kukurydza słodka, słodka kukurydza
 # ingredient/fr:maïs-doux 103 products in 5 languages @2018-09-24
@@ -37322,7 +37322,7 @@ fr:jus de citron
 hr:sok od limuna, soka limuna, limunov sok, limunovog soka
 hu:Citromlé
 it:succo di limone
-ja:レモンジュース
+ja:レモンジュース, レモン果汁
 nb:sitronjuice
 nl:citroensap
 nn:sitronsaft
@@ -37576,7 +37576,7 @@ es:Zumo de lima, jugo de lima
 fi:limettimehu, limetäysmehu, limetinmehu
 fr:jus de citron vert
 it:succo di lime
-ja:ライムジュース
+ja:ライムジュース, ライム果汁
 nl:limoensap
 pl:Sok limonkowy, sok z limonek
 pt:Sumo de lima
@@ -37958,7 +37958,7 @@ hy:Նարնջի հյութ
 id:Sari buah jeruk
 is:Appelsínusafi
 it:succo d'arancia, Succo di arance bionde, succo di arance
-ja:オレンジジュース
+ja:オレンジジュース, オレンジ果汁
 ka:ფორთოხლის წვენი
 ko:오렌지 주스
 nl:sinaasappelsap
@@ -40816,7 +40816,7 @@ hu:Görögdinnye
 hy:ձմերուկ
 id:Semangka
 it:anguria
-ja:スイカ
+ja:スイカ, 西瓜
 jv:Semangka
 ka:საზამთრო
 kk:Қарбыз
@@ -40929,6 +40929,7 @@ en:bitter melon
 es:melón amargo
 fr:melon amer
 it:melone amaro
+ja:ゴーヤ, ニガウリ, 苦瓜, にがうり
 
 #category/honeydew-melons
 <en:melon
@@ -40957,6 +40958,10 @@ ciqual_food_code:en:13742
 ciqual_food_name:en:Melon, honeydew, pulp, raw
 ciqual_food_name:fr:Melon miel ou melon honeydew, pulpe, cru
 #27 @2021-10-10
+
+<en:melon
+en:Wax gourd, inter melon
+ja:トウガン, 冬瓜
 
 ###################################################################################################
 #
@@ -41419,7 +41424,7 @@ fi:ananasmehu
 fr:jus d'ananas, jus d'ananas victoria
 hr:sok od ananasa
 it:succo di ananas
-ja:パイナップルジュース
+ja:パイナップルジュース, パイナップル果汁
 nb:ananasjuice
 nl:Ananassap
 pl:sok ananasowy, sok z ananasa
@@ -42126,7 +42131,7 @@ fi:mansikkamehu
 fr:jus de fraise
 hu:eperlé
 it:Succo di fragola
-ja:苺ジュース
+ja:苺ジュース, イチゴジュース, いちごジュース, 苺果汁, イチゴ果汁, いちご果汁
 nl:aardbeiensap
 pl:sok truskawkowy, sok z truskawki, sok z truskawek
 pt:Sumo de morango
@@ -42751,7 +42756,7 @@ fi:rypälemehu, viinirypälemehu
 fr:jus de raisin
 he:מיץ ענבים
 it:succo d'uva
-ja:ぶどうジュース
+ja:ぶどうジュース, ぶどう果汁
 ko:포도 주스
 la:Mustum conditum
 nl:druivensap, druivesap
@@ -44304,6 +44309,7 @@ es:Zumo vegetal, caldo vegetal, jugo vegetal
 fi:kasvismehu
 fr:Jus de légumes
 it:succo di verdura
+ja:野菜汁, 野菜ジュース
 nb:grønnsaksjuice
 nl:groentensap
 pl:Sok warzywny
@@ -44866,6 +44872,7 @@ fi:sikuri
 fr:Chicorée
 he:עולש
 it:Cicoria
+ja:チコリー
 nl:chicorij
 pl:cykoria, cykorii
 
@@ -45743,7 +45750,7 @@ id:Terung
 io:Berenjeno
 is:Eggaldin
 it:melanzana, melanzane
-ja:ナス
+ja:ナス, 茄子, なす
 jv:Térong
 ka:ბადრიჯანი
 kg:Kitsukulu
@@ -46013,7 +46020,7 @@ gn:takuarembo
 hu:bambuszrügy
 id:rebung
 it:germoglio di bambù, germogli di bambù, bambu a fette
-ja:タケノコ
+ja:タケノコ, 筍, たけのこ
 kn:ಕಳಲೆ
 ko:죽순
 lt:bambuko ūglis
@@ -46423,6 +46430,7 @@ es:coliflor
 fi:kukkakaali
 fr:chou-fleur, choux-fleur, choux-fleurs
 it:cavolfiore, cavolfiori
+ja:カリフラワー
 nl:bloemkool
 pl:kalafior
 pt:Couve flor
@@ -46640,7 +46648,7 @@ hy:կարմիր կաղամբ
 id:kol merah
 is:rauðkál
 it:cavolo rosso
-ja:赤キャベツ
+ja:赤キャベツ, 紫キャベツ, レッドキャベツ
 ka:წითელი კომბოსტო
 ko:적채
 lg:emboga
@@ -46750,7 +46758,7 @@ hu:bordáskel, bok choy, pak choi, bok choi
 id:pakcoy, bok choy
 is:blaðkál, salatkál, kínverskt selleríkál
 it:bok choy, pak-choi
-ja:チンゲンサイ
+ja:チンゲンサイ, チンゲン菜, 青梗菜
 kn:ಬಾಯ್ ಚಾಯ್
 ko:청경채
 la:Brassica rapa subsp. chinensis
@@ -46913,7 +46921,7 @@ hu:bimbós kel
 id:kubis brussel
 is:rósakál
 it:cavolini di Bruxelles, cavolo di Bruxelles
-ja:メキャベツ
+ja:メキャベツ, 芽キャベツ
 ka:ბრიუსელის კომბოსტო
 kk:Брюссель қырыққабаты
 ko:방울다다기
@@ -47728,6 +47736,7 @@ es:Semilla de apio
 fi:sellerinsiemen
 fr:graines de céleri
 it:Semi di sedano
+ja:セロリシード
 nl:selderij zaad, selderijzaad
 sv:sellerifrö
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-céleri
@@ -47794,15 +47803,23 @@ fr:céleri rave râpé
 <en:celeriac
 fr:jus de céleri-rave concentré, jus de céleri rave concentré, jus concentré de céleri rave
 
+<en:root vegetable
 en:taro tuber
 fr:Tubercule de taro
+ja:タロイモ
+wikidata:en:Q1771944
 ciqual_food_code:en:53200
 ciqual_food_name:en:Taro, tuber, raw
 ciqual_food_name:fr:Taro, tubercule, cru
 
+<en:taro tuber
+ja:サトイモ, 里芋, さといも
+wikidata:en:Q227997
+
 en:Konjac
 de:Konjak
 fr:Konjac
+ja:コンニャク, こんにゃく芋, 蒟蒻芋, こんにゃく玉, 蒟蒻玉, こんにゃくいも
 wikidata:en:Q674443
 description:en:Konjac is a common name of the East and Southeast Asian plant Amorphophallus konjac (syn. A. rivieri), which has an edible corm (bulbo-tuber).
 
@@ -48534,7 +48551,7 @@ hr:Zimski luk
 id:Bawang daun
 io:Cibolo
 it:cipolla d'inverno
-ja:ネギ
+ja:ネギ, ねぎ, 葱
 jv:Bawang godhong
 ka:ჭლაკვი
 kk:Батун
@@ -48915,7 +48932,7 @@ hu:Retek
 id:Lobak
 is:Hreðka
 it:ravanello
-ja:ダイコン
+ja:ダイコン (広義)
 jv:Lobak
 ka:ბოლოკი
 kk:Шомыр
@@ -49025,6 +49042,7 @@ ciqual_food_name:fr:Radis noir, cru
 <en:radish
 en:Red radish
 fr:Radis rouge
+ja:ラディッシュ
 ciqual_food_code:en:20045
 ciqual_food_name:en:Radish, raw
 ciqual_food_name:fr:Radis rouge, cru
@@ -49045,7 +49063,7 @@ de:Winterrettich
 es:rábano blanco
 fr:radis blanc, radis d'hiver, radis chinois, daikon
 it:ravanello bianco
-ja:大根
+ja:ダイコン, 大根, だいこん
 nl:witte rammenas
 
 
@@ -49055,6 +49073,7 @@ de:Lotuswurzel, Lotuswurzeln
 es:raíz de loto
 fr:racine de lotus
 it:radice di loto
+ja:レンコン, 蓮根, れんこん
 
 <en:vegetable
 en:okra
@@ -49063,6 +49082,7 @@ de:Okra, Gemüse-Eibisch
 es:quimbombó, quingombó, gombo, molondrón, ocra, okra, bamia, candia, abelmosco,ñajú
 fr:gombo
 it:gombo, ocra, okra
+ja:オクラ
 nl:okra
 pt:Quiabo
 wikidata:en:Q12047207
@@ -49728,7 +49748,7 @@ id:Ubi jalar
 io:Patato
 is:Sætar kartöflur
 it:Patata dolce, patate dolci
-ja:サツマイモ
+ja:サツマイモ, さつまいも, さつま芋, 薩摩芋, 甘藷
 jv:Ketéla rambat
 ka:ბატატი
 kk:Батат
@@ -49815,6 +49835,10 @@ wikidata:en:Q37937
 wikipedia:en:https://en.wikipedia.org/wiki/Sweet_potato
 # ingredient/fr:patate-douce has 327 products in 6 languages @2018-12-22
 nutriscore_fruits_vegetables_nuts:en:no
+
+<en:sweet potato
+en:purple sweet potato
+ja:ムラサキイモ, 紫芋, 紫いも, むらさきいも, 有色甘藷
 
 #comment:en: put tapioka-related translations under en:tapioc starch
 <en:root vegetable
@@ -50408,6 +50432,7 @@ es:pimiento amarillo, pimientos amarillos
 fi:keltainen paprika
 fr:poivron jaune, poivrons jaunes
 it:peperone giallo
+ja:黄ピーマン
 nl:gele paprika
 pl:żółta papryka, papryka żółta, żółtej papryki
 pt:pimentos amarelos
@@ -50463,6 +50488,7 @@ he:פלפל אדום, גמבה אדומה
 hr:crveni papar, crvena paprika
 hu:kaliforniai paprika, piros bell paprika, piros kaliformiai paprika
 it:peperoni rossi
+ja:赤ピーマン
 lt:sarkanā paprika
 lv:sarkanā paprika
 nb:rød paprika
@@ -51215,6 +51241,7 @@ es:tomates cerezas, tomate cherry, tomates cherry
 fi:kirsikkatomaatti, kirsikkatomaatit
 fr:tomate cerise, tomates cerises, tomates cerise
 it:pomodorini, pomodorini ciliegia, pomodoro ciliegino
+ja:ミニトマト
 nl:kerstomaatjes, cherry tomaat, cheryytomaatjes, cherrytomaten, tomaatjes, snoeptomaatjes
 nn:cocktailtomater
 pl:pomidor koktajlowy, pomidory koktajlowe, pomidorów koktajlowych
@@ -51576,6 +51603,7 @@ fr:jus de tomate, Jus de tomates
 hr:sok od rajčica
 hu:paradicsomlé
 it:succo di pomodoro
+ja:トマトジュース, トマト果汁
 nb:tomatjuice
 nl:tomatensap
 pl:Sok pomidorowy
@@ -51822,6 +51850,7 @@ gl:Agrón
 id:Selada Air
 io:Kreso
 it:Crescione
+ja:オランダガラシ, クレソン, クレス
 ko:물냉이
 la:Nasturtium officinale
 nb:Brønnkarse
@@ -51964,7 +51993,7 @@ id:waluh
 io:Kukurbito
 is:Grasker
 it:zucca
-ja:カボチャ
+ja:カボチャ, 南瓜, かぼちゃ
 jv:Waluh
 kn:ಕುಂಬಳಕಾಯಿ
 ko:호박
@@ -52388,7 +52417,7 @@ id:Buncis
 io:Fazeolo
 is:Matbaun
 it:fagioli, fagiolo comune
-ja:インゲンマメ
+ja:豆
 jv:Buncis
 kg:Dideso
 ko:강낭콩
@@ -52481,7 +52510,7 @@ fr:haricot vert, haricots verts, haricot princesse, haricots princesses
 he:שעועית ירוקה
 hr:grah mahunar, mahuna zelena
 it:fagiolino, fagiolo verde, fagiolini, fagioli verdi, Fagiolini verdi
-ja:いんげん豆, サヤインゲン
+ja:インゲンマメ, インゲン豆, いんげん豆, インゲン, いんげん, サヤインゲン
 ko:풋강낭콩
 lv:zaļās pupiņas
 mk:боранија
@@ -52909,7 +52938,7 @@ hr:zlatni grah
 hu:mungóbab
 id:kacang hijau
 it:fagioli mung, fagiolo mung
-ja:リョクトウ
+ja:リョクトウ, 緑豆, りょくとう
 jv:kacang ijo
 kn:ಹೆಸರು ಕಾಳು
 ko:녹두
@@ -52968,7 +52997,7 @@ es:brote de soja verde, brotes de judia mungo, brotes de soja verde
 fr:pousse de soja vert, pousses de haricot mungo, germe de haricot mungo, pousses de haricots mungo, germes de haricot mungo, pousse de haricot mungo
 id:taoge
 it:germogli di fagioli mung
-ja:もやし, 萌やし
+ja:緑豆スプラウト, 緑豆もやし, りょくとうもやし, もやし, 萌やし
 jv:kecambah
 km:សណ្ដែកបណ្
 ko:숙주나물
@@ -55686,6 +55715,7 @@ ciqual_food_name:fr:Luzerne, graine
 <en:alfalfa seeds
 en:sprouted alfalfa seeds, germinated alfalfa
 fr:Graines de Luzerne germées
+ja:糸もやし, アルファルファもやし
 
 <en:sprouted alfalfa seeds
 en:raw sprouted alfalfa seeds
@@ -56376,7 +56406,7 @@ ht:Pwav
 hu:Bors
 is:pipar
 it:pepe
-ja:胡椒, こしょう
+ja:胡椒, こしょう, コショウ
 lt:Pipirai
 lv:pipari
 ms:Lada
@@ -56463,7 +56493,7 @@ fr:poivre blanc
 hr:bijeli papor
 hu:fehérbors
 it:pepe bianco
-ja:白胡椒, ホワイトペッパー
+ja:白胡椒, 白コショウ, 白こしょう, ホワイトペッパー
 nb:hvit pepper
 nl:witte peper
 pl:Pieprz biały
@@ -56555,7 +56585,7 @@ ga:piobar dubh
 hr:crni papar, papar crni, plod crnog papra, piper nigrum
 hu:feketebors
 it:pepe nero
-ja:黒胡椒
+ja:黒胡椒, 黒こしょう, 黒コショウ, ブラックペッパー
 kk:қара бұрыш
 lt:juodieji piperai
 nb:svart pepper, piper nigrum
@@ -59874,6 +59904,24 @@ pt:hortelã-comum
 
 # description:en:The dried fruits of some sumac species are ground to produce a tangy, crimson spice popular in many countries.
 
+
+<en:herb
+en:Perilla
+ja:シソ属
+
+<en:Perilla
+en:Shiso
+ja:シソ, 紫蘇, しそ
+
+<en:Shiso
+en:Red shiso
+ja:アカジソ, 赤紫蘇, 赤じそ, 赤ジソ
+
+<en:Shiso
+en:Green shiso
+ja:アオジソ, 青紫蘇, 青じそ, 青ジソ, 大葉
+
+
 <en:herb
 en:sumac
 ar:سماق
@@ -61160,6 +61208,13 @@ fi:kuivattu oregano
 #fr:extrait d'origan
 #hr:ekstrakt origana
 
+
+<en:herb
+en:Yomogi, Japanese magwort, Korean wormwood, Korean mugwort
+ja:ヨモギ, よもぎ, 蓬, 艾, モチグサ, もちぐさ, 餅草
+wikidata:en:Q1076280
+wikipedia:en:https://en.wikipedia.org/wiki/Artemisia_princeps
+
 ###################################################################################################
 #
 #                                Bay leaf
@@ -61491,7 +61546,7 @@ fr:bardane
 hr:čičak
 io:bardano
 it:arctium, bardana
-ja:牛蒡
+ja:牛蒡, ごぼう, ゴボウ
 kk:шоңайна
 ku:gula fişek
 ky:уйгак
@@ -62473,6 +62528,12 @@ fr:jeunes pousses de laitue verte
 fr:jeunes pousses de laitue rouge
 # 20 in fr @2021-10-08
 
+<en:lettuce
+en:Red leaf lettuce
+ja:サニーレタス, アカチリメンチシャ, 赤チリメンチシャ
+wikidata:en:Q7305343
+wikipedia:en:https://en.wikipedia.org/wiki/Red_leaf_lettuce
+
 # description:en:TILIA is a genus of about 30 species of trees, or bushes, native throughout most of the temperate Northern Hemisphere.
 
 <en:plant
@@ -62731,6 +62792,12 @@ tr:zeytin yaprağı
 <en:plant
 en:myrtle leaf
 tr:mersin yaprağı
+
+<en:plant
+en:Corchorus olitorius, Jute mallow, bush okra, krinkrin, etinyung, mulkhiyah
+ja:シマツナソ, モロヘイヤ
+wikidata:en:Q165343
+wikipedia:en:https://en.wikipedia.org/wiki/Corchorus_olitorius
 
 
 ###################################################################################################
@@ -64849,6 +64916,42 @@ zh:睡茄
 wikidata:en:Q852660
 wikipedia:en:https://en.wikipedia.org/wiki/Withania_somnifera
 # ingredient/en:ashwagandha has 16 products in 2 languages @2020-06-13
+
+<en:plant
+en:Yacón
+ja:ヤーコン
+wikidata:en:Q1075177
+wikipedia:en:https://en.wikipedia.org/wiki/Yac%C3%B3n
+
+<en:plant
+en:Ashitaba
+ja:アシタバ, 明日葉, あしたば
+wikidata:en:Q4805168
+wikipedia:en:https://en.wikipedia.org/wiki/Ashitaba
+
+<en:plant
+en:Japanese hornwort
+ja:ミツバ, ミツバゼリ, 三つ葉, 三葉, みつば
+wikidata:en:Q1352532
+wikipedia:en:https://en.wikipedia.org/wiki/Cryptotaenia_japonica
+
+<en:plant
+en:Garlic chive, Asian chive, Chinese chive
+ja:ニラ, にら
+wikidata:en:Q42285
+wikipedia:en:https://en.wikipedia.org/wiki/Allium_tuberosum
+
+<en:plant
+en:Mizuna, kyona, Japanese mustard greens
+ja:ミズナ, 水菜, みずな, キョウナ, 京菜, きょうな
+wikidata:en:Q50912348
+wikipedia:en:https://en.wikipedia.org/wiki/Mizuna
+
+<en:plant
+en:Nozawana
+ja:ノザワナ, 野沢菜, のざわな
+wikidata:en:Q3049961
+wikipedia:en:https://en.wikipedia.org/wiki/Nozawana
 
 # description:en:Algae is an informal term for a large, diverse group of photosynthetic eukaryotic organisms that are not necessarily closely related, and is thus polyphyletic.
 
@@ -84258,6 +84361,7 @@ en:alfalfa
 es:alfalfa
 fr:luzerne
 it:erba medica
+ja:アルファルファ
 pl:lucerna
 wikidata:en:Q156106
 wikipedia:en:https://en.wikipedia.org/wiki/Alfalfa
