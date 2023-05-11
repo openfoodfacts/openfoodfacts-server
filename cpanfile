@@ -67,7 +67,8 @@ requires 'JSON::Parse';
 requires 'Data::DeepAccess';
 requires 'XML::XML2JSON';
 requires 'Redis';
-
+requires 'Digest::SHA1';
+requires 'Data::Difference';
 
 # Mojolicious/Minion
 requires 'Mojolicious::Lite';
@@ -82,6 +83,10 @@ requires 'Log::Any::Adapter::Log4perl', '>= 0.09'; # liblog-any-adapter-log4perl
 # Retry
 requires 'Action::CircuitBreaker';
 requires 'Action::Retry'; # deps: libmath-fibonacci-perl
+
+# AnyEvent
+requires 'AnyEvent';
+requires 'AnyEvent::Inotify::Simple';
 
 on 'test' => sub {
   requires 'Test::More', '>= 1.302186, < 2.0';
@@ -99,6 +104,8 @@ on 'test' => sub {
   requires 'Devel::Cover';
   requires 'Devel::Cover::Report::Codecov';
   requires 'Devel::Cover::Report::Codecovbash';
+  requires 'Test::Fake::HTTPD';
+  requires 'URL::Encode';
 };
 
 on 'develop' => sub {

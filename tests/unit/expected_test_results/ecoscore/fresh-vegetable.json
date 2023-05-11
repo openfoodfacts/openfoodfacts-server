@@ -55,6 +55,7 @@
    "known_ingredients_n" : 2,
    "lc" : "en",
    "misc_tags" : [
+      "en:packagings-number-of-components-1",
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty",
@@ -66,6 +67,13 @@
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100
    },
+   "packaging_materials_tags" : [
+      "en:plastic"
+   ],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [
+      "en:film"
+   ],
    "packaging_text" : "1 plastic film",
    "packagings" : [
       {
@@ -74,5 +82,6 @@
          "shape" : "en:film"
       }
    ],
+   "packagings_n" : 1,
    "unknown_ingredients_n" : 0
 }

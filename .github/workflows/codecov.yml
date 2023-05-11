@@ -12,7 +12,7 @@ jobs:
        - name: rebuild taxonomies
          run:  |
           git ls-files taxonomies/ | xargs -I{} git log -1 --date=format:%Y%m%d%H%M.%S --format='touch -t %ad "{}"' "{}" | bash
-          make build_taxonomies
+          make build_taxonomies  GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
        - uses: actions/checkout@master
        - name: generate coverage results
          run: make cover

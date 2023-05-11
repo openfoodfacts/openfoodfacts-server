@@ -129,7 +129,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "Select a country in order to include the full impact of transportation.",
+                     "html" : "Sélectionnez un pays pour inclure l'impact total du transport.",
                      "type" : "warning"
                   }
                },
@@ -350,7 +350,7 @@
                            "type" : "text"
                         },
                         {
-                           "text" : "Consigne de tri",
+                           "text" : "Recyclage",
                            "type" : "text"
                         },
                         {
@@ -1041,7 +1041,7 @@
                      "actions" : [
                         "add_origins"
                      ],
-                     "html" : "Add the origins of ingredients for this product"
+                     "html" : "Ajouter les origines des ingrédients pour ce produit"
                   },
                   "element_type" : "action"
                }
@@ -1080,6 +1080,17 @@
                      "icon_alt" : "Jeter",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/delete.svg",
+                     "type" : "summary"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "evaluation" : "neutral",
+                     "html" : "\n                        \n                            \n                        \n                            \n                                6 x \n                                <strong>\n                                    Bouteille\n                                    25cl \n                                </strong>\n                                    \n                                        (Verre)\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                        \n                        ",
+                     "icon_alt" : "Inconnu",
+                     "icon_color_from_evaluation" : true,
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/help.svg",
                      "type" : "summary"
                   }
                }
@@ -1156,7 +1167,7 @@
    },
    "result" : {
       "id" : "product_found",
-      "lc_name" : "Product found",
+      "lc_name" : "Produit trouvé",
       "name" : "Product found"
    },
    "status" : "success",

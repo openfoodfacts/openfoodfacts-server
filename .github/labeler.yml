@@ -196,6 +196,7 @@ data quality:
 - lib/ProductOpener/DataQualityFood.pm
 - tests/unit/dataquality.t
 - tests/unit/dataqualityfood.t
+- taxonomies/data_quality.txt
 
 Display:
 - lib/ProductOpener/Display.pm
@@ -352,7 +353,7 @@ knowledge-panels:
 - templates/api/knowledge-panels/health/nutrition/nutrition_facts_table.tt.json
 - tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels.json
 - tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels-fr.json
-- docs/reference/schemas/knowledge_panels/**
+- docs/api/ref/schemas/knowledge_panels/**
 
 serving size:
 - templates/api/knowledge-panels/health/nutrition/serving_size.tt.json
@@ -398,6 +399,7 @@ packager codes:
 - scripts/update_packager_codes_fsa_ratings.pl
 - scripts/test_normalize_packaging_codes.pl
 - scripts/update_emb_codes_in_mongodb.pl
+- packager-codes/**
 
 Packaging:
 - lib/ProductOpener/Packaging.pm
@@ -427,7 +429,7 @@ Packaging:
 - templates/api/knowledge-panels/environment/packaging_recycling.tt.json
 - templates/api/knowledge-panels/environment/ecoscore/packaging.tt.json
 - tests/unit/packaging.t
-- docs/reference/schemas/packagings/**
+- docs/api/ref/schemas/packagings/**
 - scripts/gen_packaging_stats.pl
   
 producers platform:
@@ -476,9 +478,9 @@ images:
 - cgi/product_image_unselect.pl
 - cgi/product_image_upload.pl
 - scripts/delete_old_cropped_images.pl
-- docs/reference/requestBodies/crop_a_photo.yaml
-- docs/reference/requestBodies/add_photo_to_existing_product.yaml
-- docs/tutorials/uploading-photo-to-a-product.md
+- docs/ref/api/requestBodies/crop_a_photo.yaml
+- docs/ref/api/requestBodies/add_photo_to_existing_product.yaml
+- docs/api/tutorial-uploading-photo-to-a-product.md
 
 Products:
 - lib/ProductOpener/Products.pm
@@ -514,7 +516,7 @@ editing:
 - templates/web/pages/product_edit/display_input_tabs.tt.html
 - templates/web/pages/product_edit/product_edit_form_display.tt.html
 - templates/web/pages/product_edit/product_edit_form_process.tt.html
-- docs/reference/requestBodies/add_or_edit_a_product.yaml
+- docs/api/ref/requestBodies/add_or_edit_a_product.yaml
 
 Product page:
 - templates/web/pages/product/includes/edit_history.tt.html
@@ -737,14 +739,14 @@ API:
 - scripts/api_stats.pl
 - tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels.json
 - tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels-fr.json
-- docs/reference/api-v3.yml
+- docs/api/ref-v3.yml
 - lib/ProductOpener/API.pm
 - tests/integration/api_v2_product_read.t
-- docs/reference/requestBodies/lc_cc.yaml
-- docs/reference/requestBodies/fields_tags_lc.yaml
+- docs/api/ref/requestBodies/lc_cc.yaml
+- docs/api/ref/requestBodies/fields_tags_lc.yaml
 
 API v3:
-- docs/reference/api-v3.yml
+- docs/api/ref/api-v3.yml
 - tests/integration/api_v3_product_read.t
 - tests/integration/api_v3_product_write.t
 
@@ -753,9 +755,9 @@ API read:
 
 API write:
 - tests/integration/api_v3_product_write.t
-- docs/reference/requestBodies/add_or_edit_a_product.yaml
-- docs/reference/requestBodies/crop_a_photo.yaml
-- docs/reference/requestBodies/add_photo_to_existing_product.yaml
+- docs/api/ref/requestBodies/add_or_edit_a_product.yaml
+- docs/api/ref/requestBodies/crop_a_photo.yaml
+- docs/api/ref/requestBodies/add_photo_to_existing_product.yaml
   
 monitoring:
 - scripts/api_stats.pl

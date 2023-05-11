@@ -1543,6 +1543,10 @@ msgid "The table lists by default nutriments that are often specified. Leave the
 "by typing the first letters of their name in the last row of the table."
 msgstr "crwdns201926:0crwdne201926:0"
 
+msgctxt "nutrition_data_table_asterisk"
+msgid "Essential nutrients to calculate the Nutri-Score."
+msgstr "crwdns208171:0crwdne208171:0"
+
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
 msgstr "crwdns201928:0crwdne201928:0"
@@ -1750,6 +1754,14 @@ msgstr "crwdns202026:0crwdne202026:0"
 msgctxt "product_changes_saved"
 msgid "Changes saved."
 msgstr "crwdns202028:0crwdne202028:0"
+
+msgctxt "product_edit_you_contributed"
+msgid "You just helped to improve the world largest open data database."
+msgstr "crwdns208753:0crwdne208753:0"
+
+msgctxt "product_edit_thank_you"
+msgid "Thank you so much for joining us in our journey to data transparency!"
+msgstr "crwdns208755:0crwdne208755:0"
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
@@ -2268,6 +2280,10 @@ msgctxt "see_product_page"
 msgid "See the product page"
 msgstr "crwdns202282:0crwdne202282:0"
 
+msgctxt "re_edit_product_page"
+msgid "Edit the product again"
+msgstr "crwdns208757:0crwdne208757:0"
+
 msgctxt "select_country"
 msgid "Country"
 msgstr "crwdns202284:0crwdne202284:0"
@@ -2592,6 +2608,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "crwdns202442:0crwdne202442:0"
 
+msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
+msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
+msgstr "crwdns208797:0crwdne208797:0"
+
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "crwdns202444:0crwdne202444:0"
@@ -2606,15 +2626,15 @@ msgstr "crwdns202448:0crwdne202448:0"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
-msgstr "crwdns202450:0%dcrwdne202450:0"
+msgstr "crwdns208799:0%dcrwdne208799:0"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
-msgstr "crwdns202452:0%scrwdnd202452:0%dcrwdne202452:0"
+msgstr "crwdns208801:0%scrwdnd208801:0%dcrwdne208801:0"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
-msgstr "crwdns202454:0%dcrwdne202454:0"
+msgstr "crwdns208803:0%dcrwdne208803:0"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -3354,6 +3374,10 @@ msgctxt "fields_group_images"
 msgid "Product photos"
 msgstr "crwdns202818:0crwdne202818:0"
 
+msgctxt "fields_group_packaging"
+msgid "Packaging"
+msgstr "crwdns208759:0crwdne208759:0"
+
 msgctxt "image_front_url"
 msgid "Link to front product photo"
 msgstr "crwdns202820:0crwdne202820:0"
@@ -4065,9 +4089,10 @@ msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "crwdns203158:0crwdne203158:0"
 
-msgctxt "pro_moderator_owner_set"
-msgid "You are currently viewing products from %s."
-msgstr "crwdns203160:0%scrwdne203160:0"
+# variable names between { } must not be translated
+msgctxt "f_pro_moderator_owner_set"
+msgid "You are currently viewing products from {organization}."
+msgstr "crwdns206719:0{organization}crwdne206719:0"
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
@@ -4079,8 +4104,8 @@ msgstr "crwdns203164:0crwdne203164:0"
 
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
-msgid "Change"
-msgstr "crwdns203166:0crwdne203166:0"
+msgid "Switch to another organization"
+msgstr "crwdns206721:0crwdne206721:0"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
@@ -5585,6 +5610,14 @@ msgctxt "ecoscore_warning_international"
 msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgstr "crwdns203888:0crwdne203888:0"
 
+msgctxt "ecoscore_warning_transportation_world"
+msgid "Select a country in order to include the full impact of transportation."
+msgstr "crwdns206529:0crwdne206529:0"
+
+msgctxt "ecoscore_warning_transportation"
+msgid "The full impact of transportation to your country is currently unknown."
+msgstr "crwdns206531:0crwdne206531:0"
+
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
 msgstr "crwdns203890:0crwdne203890:0"
@@ -5828,6 +5861,38 @@ msgctxt "health"
 msgid "Health"
 msgstr "crwdns204006:0crwdne204006:0"
 
+msgctxt "contribution_panel_title"
+msgid "Contribution"
+msgstr "crwdns208761:0crwdne208761:0"
+
+msgctxt "contribution_navigation"
+msgid "Contribution"
+msgstr "crwdns208763:0crwdne208763:0"
+
+msgctxt "data_quality_errors_panel_title"
+msgid "Detected Errors"
+msgstr "crwdns208765:0crwdne208765:0"
+
+msgctxt "data_quality_errors_panel_subtitle"
+msgid "Help us improve quality of our data by contributing fixes"
+msgstr "crwdns208767:0crwdne208767:0"
+
+msgctxt "data_quality_warnings_panel_title"
+msgid "Potential issues"
+msgstr "crwdns208769:0crwdne208769:0"
+
+msgctxt "data_quality_warnings_panel_subtitle"
+msgid "We have detected some potential issues or potential improvements, could you check if some apply ?"
+msgstr "crwdns208771:0crwdne208771:0"
+
+msgctxt "data_quality_info_panel_title"
+msgid "Data Quality infos"
+msgstr "crwdns208773:0crwdne208773:0"
+
+msgctxt "data_quality_info_panel_subtitle"
+msgid "Some infos about data quality on this product"
+msgstr "crwdns208775:0crwdne208775:0"
+
 # will be followed by : and a value. e.g. "Compared to: bananas"
 msgctxt "compared_to"
 msgid "Compared to"
@@ -6065,6 +6130,10 @@ msgctxt "action_add_packaging_image"
 msgid "Take a photo of the recycling information"
 msgstr "crwdns206377:0crwdne206377:0"
 
+msgctxt "action_add_packaging_components"
+msgid "Add packaging components"
+msgstr "crwdns208777:0crwdne208777:0"
+
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
@@ -6285,6 +6354,10 @@ msgctxt "api_message_invalid_json_in_request_body"
 msgid "Invalid JSON in request body"
 msgstr "crwdns205545:0crwdne205545:0"
 
+msgctxt "api_message_invalid_code"
+msgid "Invalid code"
+msgstr "crwdns208805:0crwdne208805:0"
+
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
 msgstr "crwdns205589:0crwdne205589:0"
@@ -6297,9 +6370,17 @@ msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
 msgstr "crwdns205549:0crwdne205549:0"
 
+msgctxt "api_message_invalid_type_must_be_number"
+msgid "Invalid type: must be a number"
+msgstr "crwdns206607:0crwdne206607:0"
+
 msgctxt "api_message_missing_field"
 msgid "Missing field"
 msgstr "crwdns205551:0crwdne205551:0"
+
+msgctxt "api_message_unrecognized_field"
+msgid "Unrecognized field"
+msgstr "crwdns208807:0crwdne208807:0"
 
 msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"
@@ -6320,6 +6401,10 @@ msgstr "crwdns205559:0crwdne205559:0"
 msgctxt "api_impact_field_ignored"
 msgid "Field ignored"
 msgstr "crwdns205561:0crwdne205561:0"
+
+msgctxt "api_impact_value_converted"
+msgid "Value converted"
+msgstr "crwdns206609:0crwdne206609:0"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
@@ -6352,4 +6437,60 @@ msgstr "crwdns206411:0crwdne206411:0"
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
 msgstr "crwdns206413:0crwdne206413:0"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units_description"
+msgid "Enter the number of packaging units of the same shape and material contained in the product."
+msgstr "crwdns206555:0crwdne206555:0"
+
+msgctxt "packaging_shape_description"
+msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
+msgstr "crwdns206557:0crwdne206557:0"
+
+msgctxt "packaging_material_description"
+msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
+msgstr "crwdns206559:0crwdne206559:0"
+
+msgctxt "packaging_recycling_description"
+msgid "Enter recycling instructions only if they are listed on the product."
+msgstr "crwdns206561:0crwdne206561:0"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight_description"
+msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
+msgstr "crwdns206563:0crwdne206563:0"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit_description"
+msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
+msgstr "crwdns206565:0crwdne206565:0"
+
+msgctxt "import_and_export_products"
+msgid "Import and export products"
+msgstr "crwdns206723:0crwdne206723:0"
+
+msgctxt "add_products"
+msgid "Add products"
+msgstr "crwdns206725:0crwdne206725:0"
+
+# Needs to be short (displayed in a menu)
+msgctxt "install_the_app_to_add_products"
+msgid "Install the app to add products"
+msgstr "crwdns206727:0crwdne206727:0"
+
+msgctxt "search_and_analyze_products"
+msgid "Search and analyze products"
+msgstr "crwdns206729:0crwdne206729:0"
+
+msgctxt "resources"
+msgid "Resources"
+msgstr "crwdns206731:0crwdne206731:0"
+
+msgctxt "pro_platform_user_guide"
+msgid "Pro platform user guide"
+msgstr "crwdns206733:0crwdne206733:0"
+
+msgctxt "faq_for_producers"
+msgid "FAQ for producers"
+msgstr "crwdns206735:0crwdne206735:0"
 

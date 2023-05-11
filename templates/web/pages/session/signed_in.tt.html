@@ -2,12 +2,43 @@
 
 <p>[% lang('hello')%] [% user_name %]!</p>
 
-[% IF !server_options_producers %]
-    <h3>[% lang('you_can_also_help_us') %]</h3>
-    <p>[% lang('bottom_content') %]</p>
+[% IF !server_options_producers_platform %]
+    [% IF lc == "en" or lc == "fr" %]
+        <h3>[% lang('you_can_also_help_us') %]</h3>
+        <p>[% lang('bottom_content') %]</p>
+    [% END %]
+[% ELSE %]
+
+    <h3>[% lang("resources") %]</h3>
+
+    <ul>
+        <li>
+            <a href="[% IF lc == 'fr' -%]
+                https://blog.openfoodfacts.org/fr/Guide-dutilisation-Plateforme-Pro.pdf
+                [%- ELSIF lc == 'it' -%]
+                https://blog.openfoodfacts.org/it/guida-pratica-piattaforma-produttori.pdf
+                [%- ELSIF lc == 'de' -%]
+                https://blog.openfoodfacts.org/de/Pro-Plateform-Benutzerhandbuch.pdf
+                [%- ELSE -%]
+                https://blog.openfoodfacts.org/en/EN-Pro-Plateform-User-Guide.pdf
+                [%- END %]">
+                [% lang('pro_platform_user_guide') %]
+            </a>
+        </li>
+        <li>
+            <a href="[% IF lc == "fr" -%]
+                    https://support.openfoodfacts.org/help/fr-fr/3-producers
+                    [%- ELSE -%]
+                    https://support.openfoodfacts.org/help/en-gb/3-producers
+                    [%- END %]">
+                [% lang('faq_for_producers') %]
+            </a>
+        </li>
+    </ul>
+
 [% END %]
 
-[% IF admin and server_options_producers %]
+[% IF admin and server_options_producers_platform %]
     <p>
         <a href="https://docs.google.com/document/d/106LAPvseRcMA_6mBj0uNXZcEDiiCKWH9SKzg0JMeg0w/edit">
             [% lang('producers_administration_manual') %]

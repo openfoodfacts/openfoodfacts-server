@@ -14,6 +14,7 @@
          "en:nutriscore-missing-nutrition-data-sodium",
          "en:nutriscore-missing-nutrition-data-proteins",
          "en:nutrition-no-fiber",
+         "en:packagings-number-of-components-4",
          "en:packagings-not-complete",
          "en:packagings-not-empty-but-not-complete",
          "en:packagings-not-empty",
@@ -78,7 +79,8 @@
                "lc_name" : "Pot"
             }
          }
-      ]
+      ],
+      "weighers_tags" : []
    },
    "status" : "success_with_warnings",
    "warnings" : [

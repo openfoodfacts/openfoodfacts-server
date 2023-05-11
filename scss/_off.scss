@@ -264,6 +264,7 @@ ul.products {
   padding: 10px;
   width: 120px;
   word-wrap: break-word;
+  text-decoration:none !important;
 }
 
 .products div {
@@ -391,12 +392,12 @@ nav.tab-bar > div {
   font-size: 0.8em;
 }
 
-.note {
+.note ,.asterisk {
   font-size: 0.8em;
 }
 
 .example,
-.note {
+.note,.asterisk {
   margin: 4px 0 0 4px;
 }
 
@@ -837,6 +838,12 @@ html[dir="rtl"] {
   max-width: 300px;
 }
 
+/* smaller text for descriptions */
+.panel_text .description {
+  color: #555;
+  font-size: .8em;
+}
+
 .ecoscore_panel {
   border-radius: 1rem;
 }
@@ -926,11 +933,11 @@ html[dir="rtl"] {
 
 a.attribute_card {
   color: $body-font-color;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 a.attribute_card:hover {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 // Knowledge panels
@@ -1066,10 +1073,6 @@ a.grade_e:hover {
 
 #main_column {
   padding-bottom: 2rem;
-  > h1,
-  > p {
-    display: none;
-  }
 }
 
 @import "cards";
@@ -1117,6 +1120,7 @@ span.ico-bold {
 }
 
 $section-blue: #6d85d9;
+$section-cyan: #008c8c;
 
 .donation-banner,
 .donation-banner-footer {
@@ -1200,6 +1204,82 @@ $section-blue: #6d85d9;
 .footer_social_icon {
   height: 24px;
   vertical-align: middle;
+}
+
+// Packagings banner
+
+
+.packagings-banner {
+  position: relative;
+  display: flex;
+  padding: 2rem 0;
+  background-color: $section-cyan;
+  @media #{$small-only} {
+    flex-direction: column;
+    padding: 1rem 0;
+  }
+  &__image {
+    display: block;
+    content: "";
+    background: no-repeat bottom url(/images/illustrations/products-scan-2.png);
+    min-width: 150px;
+    height: 81px;
+  }
+  &__content {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 1rem;
+    margin: 0 auto;
+    max-width: 100rem;
+    @media #{$small-only} {
+      flex-direction: column;
+      gap: 0;
+      margin-top: -2rem;
+    }
+    &--button {
+      appearance: button;
+      display: inline-flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
+      height: fit-content;
+      margin-bottom: 0;
+      @media #{$small-only} {
+        order: 3;
+      }
+    }
+    &-paragraphs {
+      > p { color: $white; }
+      a { color: #ffffcc; }
+      @media #{$small-only} {
+        text-align: center;
+        order: 2;
+        padding: 1rem;
+      }
+      &--thank-you {
+        font-weight: bold;
+        span {
+          color: red;
+          font-size: 1rem;
+        }
+      }
+    }
+    &-close {
+      align-self: flex-start;
+      cursor: pointer;
+      color: white;
+      opacity: 0.5;
+      margin-right: 1rem;
+      @media #{$small-only} { 
+        position: relative;
+        top: -25px;
+        margin-right: 2rem;
+        align-self: flex-end;
+        order: 1;
+      }
+    }
+  }
 }
 
 // Footer: Scan your everyday foods
@@ -1350,4 +1430,24 @@ a.panel_title {
 }
 .accordion-navigation a {
   text-decoration:none !important;
+}
+.panel_title a {
+  text-decoration:none !important;
+}
+.panel_text a {
+  text-decoration:underline !important;
+}
+.pagination a {
+  text-decoration:none !important;
+}
+.f-dropdown a {
+  text-decoration:none !important;
+}
+.dataTable a {
+  text-decoration:none !important;
+}
+
+.button:focus, .button:hover, button:focus, button:hover {
+    background-color: scale-color($button-bg-color, $lightness: -$button-function-factor / 2);
+    color: #fff;
 }

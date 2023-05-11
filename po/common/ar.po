@@ -183,7 +183,7 @@ msgstr "إضافي"
 
 msgctxt "advanced_search"
 msgid "Advanced search"
-msgstr "البحث المتقدم"
+msgstr ""
 
 msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
@@ -1108,7 +1108,7 @@ msgstr "العنصر الذي قد يكون من زيت النخيل"
 
 msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
-msgstr "المنتجات التي لا تحتوي على المكون %s"
+msgstr ""
 
 # Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
 msgctxt "ios_app_icon_url"
@@ -1563,6 +1563,10 @@ msgid "The table lists by default nutriments that are often specified. Leave the
 msgstr "يسرد الجدول حسب العناصر الغذائية الافتراضية التي غالبًا ما يتم تحديدها. اترك الحقل فارغًا إذا لم يكن على الملصق. <br/> يمكنك إضافة المزيد من العناصر الغذائية (الفيتامينات والمعادن والكوليسترول وما إلى ذلك)\n"
 "عن طريق كتابة الأحرف الأولى من اسمهم في الصف الأخير من الجدول."
 
+msgctxt "nutrition_data_table_asterisk"
+msgid "Essential nutrients to calculate the Nutri-Score."
+msgstr ""
+
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
 msgstr "درجات التغذية"
@@ -1771,6 +1775,14 @@ msgstr "وأضاف المنتج على"
 msgctxt "product_changes_saved"
 msgid "Changes saved."
 msgstr "تم حفظ التغييرات."
+
+msgctxt "product_edit_you_contributed"
+msgid "You just helped to improve the world largest open data database."
+msgstr ""
+
+msgctxt "product_edit_thank_you"
+msgid "Thank you so much for joining us in our journey to data transparency!"
+msgstr ""
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
@@ -2298,6 +2310,10 @@ msgctxt "see_product_page"
 msgid "See the product page"
 msgstr "راجع صفحة المنتج"
 
+msgctxt "re_edit_product_page"
+msgid "Edit the product again"
+msgstr ""
+
 msgctxt "select_country"
 msgid "Country"
 msgstr ""
@@ -2622,6 +2638,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "تحميل صور أقل دقة (للاتصال البطيء)"
 
+msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
+msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
+msgstr ""
+
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "تحذير: لم يتم تحديد كمية الألياف ، ولا يمكن أخذ مساهمتها الإيجابية المحتملة في التقدير."
@@ -2640,11 +2660,11 @@ msgstr ""
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
-msgstr ""
+msgstr "تحذير: كمية الفواكه والخضروات والمكسرات غير محددة على الملصق ، تم تقديرها من فئة (%s) من المنتج: %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
-msgstr ""
+msgstr "تحذير: كمية الفواكه والخضروات والمكسرات غير محددة على الملصق ، فقد قدرت من قائمة المكونات: %d"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -2842,7 +2862,7 @@ msgstr "المراهقين"
 
 msgctxt "adolescents_age"
 msgid "10 to 17"
-msgstr "10 الى 17"
+msgstr "١٠ إلى ١٧"
 
 msgctxt "adolescents_description"
 msgid "From 10 years up to and including 17 years of age"
@@ -3250,7 +3270,7 @@ msgstr "الترجمة الحالية"
 
 msgctxt "button_caption_yes"
 msgid "Yes"
-msgstr "نعم"
+msgstr ""
 
 msgctxt "button_caption_no"
 msgid "No"
@@ -3383,6 +3403,10 @@ msgstr "معلومات أخرى"
 msgctxt "fields_group_images"
 msgid "Product photos"
 msgstr "صور المنتج"
+
+msgctxt "fields_group_packaging"
+msgid "Packaging"
+msgstr "التعبئة والتغليف"
 
 msgctxt "image_front_url"
 msgid "Link to front product photo"
@@ -4095,9 +4119,10 @@ msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "اعتدال منصة المنتجين"
 
-msgctxt "pro_moderator_owner_set"
-msgid "You are currently viewing products from %s."
-msgstr "تعرض عليا حاليًا المنتجات من %s."
+# variable names between { } must not be translated
+msgctxt "f_pro_moderator_owner_set"
+msgid "You are currently viewing products from {organization}."
+msgstr ""
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
@@ -4109,8 +4134,8 @@ msgstr "لمشاهدة منتجات من مستخدم أو منظمة محددة
 
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
-msgid "Change"
-msgstr "تغيير"
+msgid "Switch to another organization"
+msgstr ""
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
@@ -5615,6 +5640,14 @@ msgctxt "ecoscore_warning_international"
 msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgstr ""
 
+msgctxt "ecoscore_warning_transportation_world"
+msgid "Select a country in order to include the full impact of transportation."
+msgstr ""
+
+msgctxt "ecoscore_warning_transportation"
+msgid "The full impact of transportation to your country is currently unknown."
+msgstr ""
+
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
 msgstr ""
@@ -5858,6 +5891,38 @@ msgctxt "health"
 msgid "Health"
 msgstr ""
 
+msgctxt "contribution_panel_title"
+msgid "Contribution"
+msgstr ""
+
+msgctxt "contribution_navigation"
+msgid "Contribution"
+msgstr ""
+
+msgctxt "data_quality_errors_panel_title"
+msgid "Detected Errors"
+msgstr ""
+
+msgctxt "data_quality_errors_panel_subtitle"
+msgid "Help us improve quality of our data by contributing fixes"
+msgstr ""
+
+msgctxt "data_quality_warnings_panel_title"
+msgid "Potential issues"
+msgstr ""
+
+msgctxt "data_quality_warnings_panel_subtitle"
+msgid "We have detected some potential issues or potential improvements, could you check if some apply ?"
+msgstr ""
+
+msgctxt "data_quality_info_panel_title"
+msgid "Data Quality infos"
+msgstr ""
+
+msgctxt "data_quality_info_panel_subtitle"
+msgid "Some infos about data quality on this product"
+msgstr ""
+
 # will be followed by : and a value. e.g. "Compared to: bananas"
 msgctxt "compared_to"
 msgid "Compared to"
@@ -6095,6 +6160,10 @@ msgctxt "action_add_packaging_image"
 msgid "Take a photo of the recycling information"
 msgstr ""
 
+msgctxt "action_add_packaging_components"
+msgid "Add packaging components"
+msgstr ""
+
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
@@ -6273,7 +6342,7 @@ msgstr "التغذية"
 # Note: "criteria" is plural here. So in French for instance: "Vos critères"
 msgctxt "your_criteria"
 msgid "Your criteria"
-msgstr ""
+msgstr "هل هيا اصلية"
 
 msgctxt "product"
 msgid "Product"
@@ -6315,6 +6384,10 @@ msgctxt "api_message_invalid_json_in_request_body"
 msgid "Invalid JSON in request body"
 msgstr ""
 
+msgctxt "api_message_invalid_code"
+msgid "Invalid code"
+msgstr ""
+
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
 msgstr ""
@@ -6327,8 +6400,16 @@ msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
 msgstr ""
 
+msgctxt "api_message_invalid_type_must_be_number"
+msgid "Invalid type: must be a number"
+msgstr "نوع غير صالح: يجب أن يكون رقم"
+
 msgctxt "api_message_missing_field"
 msgid "Missing field"
+msgstr ""
+
+msgctxt "api_message_unrecognized_field"
+msgid "Unrecognized field"
 msgstr ""
 
 msgctxt "api_message_unrecognized_value"
@@ -6350,6 +6431,10 @@ msgstr ""
 msgctxt "api_impact_field_ignored"
 msgid "Field ignored"
 msgstr ""
+
+msgctxt "api_impact_value_converted"
+msgid "Value converted"
+msgstr "تم تحويل القيمة"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
@@ -6381,5 +6466,61 @@ msgstr ""
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
+msgstr ""
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units_description"
+msgid "Enter the number of packaging units of the same shape and material contained in the product."
+msgstr ""
+
+msgctxt "packaging_shape_description"
+msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
+msgstr ""
+
+msgctxt "packaging_material_description"
+msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
+msgstr ""
+
+msgctxt "packaging_recycling_description"
+msgid "Enter recycling instructions only if they are listed on the product."
+msgstr ""
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight_description"
+msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
+msgstr ""
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit_description"
+msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
+msgstr ""
+
+msgctxt "import_and_export_products"
+msgid "Import and export products"
+msgstr ""
+
+msgctxt "add_products"
+msgid "Add products"
+msgstr "أضف المنتجات"
+
+# Needs to be short (displayed in a menu)
+msgctxt "install_the_app_to_add_products"
+msgid "Install the app to add products"
+msgstr ""
+
+msgctxt "search_and_analyze_products"
+msgid "Search and analyze products"
+msgstr ""
+
+msgctxt "resources"
+msgid "Resources"
+msgstr ""
+
+msgctxt "pro_platform_user_guide"
+msgid "Pro platform user guide"
+msgstr ""
+
+msgctxt "faq_for_producers"
+msgid "FAQ for producers"
 msgstr ""
 

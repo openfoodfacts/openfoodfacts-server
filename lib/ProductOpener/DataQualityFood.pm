@@ -690,6 +690,9 @@ sub check_nutrition_data ($product_ref) {
 		my $nid_non_zero = 0;
 
 		my $total = 0;
+		# variables to check if there are 3 or more duplicates in nutriments
+		my @major_nutriments_values = ();
+		my %nutriments_values_occurences = ();
 
 		if (    (defined $product_ref->{nutriments}{"energy-kcal_value"})
 			and (defined $product_ref->{nutriments}{"energy-kj_value"}))
@@ -755,8 +758,46 @@ sub check_nutrition_data ($product_ref) {
 
 			$nid_n++;
 
-			if (($nid eq 'fat') or ($nid eq 'carbohydrates') or ($nid eq 'proteins') or ($nid eq 'salt')) {
+			if (    (defined $product_ref->{nutriments}{$nid . "_100g"})
+				and (($nid eq 'fat') or ($nid eq 'carbohydrates') or ($nid eq 'proteins') or ($nid eq 'salt')))
+			{
 				$total += $product_ref->{nutriments}{$nid . "_100g"};
+			}
+
+			# variables to check if there are 3 or more duplicates in nutriments
+			if (
+				(
+					   ($nid eq 'fat_100g')
+					or ($nid eq 'saturated-fat_100g')
+					or ($nid eq 'carbohydrates_100g')
+					or ($nid eq 'sugars_100g')
+					or ($nid eq 'fiber_100g')
+					or ($nid eq 'proteins_100g')
+					or ($nid eq 'salt_100g')
+					or ($nid eq 'sodium_100g')
+				)
+				and ($product_ref->{nutriments}{$nid} > 1)
+				)
+			{
+				push(@major_nutriments_values, $product_ref->{nutriments}{$nid});
+			}
+
+		}
+
+		# create a hash key: nutriment value, value: number of occurence
+		foreach my $nutriment_value (@major_nutriments_values) {
+			if (exists($nutriments_values_occurences{$nutriment_value})) {
+				$nutriments_values_occurences{$nutriment_value}++;
+			}
+			else {
+				$nutriments_values_occurences{$nutriment_value} = 1;
+			}
+		}
+		# raise warning if there are 3 or more duplicates in nutriments
+		foreach my $keys (keys %nutriments_values_occurences) {
+			if ($nutriments_values_occurences{$keys} > 2) {
+				push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-3-or-more-values-are-identical";
+				last;
 			}
 		}
 
@@ -795,6 +836,36 @@ sub check_nutrition_data ($product_ref) {
 
 			push @{$product_ref->{data_quality_errors_tags}},
 				"en:nutrition-sugars-plus-starch-greater-than-carbohydrates";
+		}
+
+		# sum of nutriments that compose sugar can not be greater than sugar value
+		if (
+			(defined $product_ref->{nutriments}{sugars_100g})
+			and (
+				(
+					(
+						(defined $product_ref->{nutriments}{fructose_100g}) ? $product_ref->{nutriments}{fructose_100g}
+						: 0
+					) + (
+						(defined $product_ref->{nutriments}{glucose_100g}) ? $product_ref->{nutriments}{glucose_100g}
+						: 0
+					) + (
+						(defined $product_ref->{nutriments}{maltose_100g}) ? $product_ref->{nutriments}{maltose_100g}
+						: 0
+					) + (
+						(defined $product_ref->{nutriments}{lactose_100g}) ? $product_ref->{nutriments}{lactose_100g}
+						: 0
+					) + (
+						(defined $product_ref->{nutriments}{sucrose_100g}) ? $product_ref->{nutriments}{sucrose_100g}
+						: 0
+					)
+				) > ($product_ref->{nutriments}{sugars_100g}) + 0.001
+			)
+			)
+		{
+
+			push @{$product_ref->{data_quality_errors_tags}},
+				"en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars";
 		}
 
 		if (
@@ -962,7 +1033,7 @@ sub check_ingredients ($product_ref) {
 		($product_ref->{ingredients_text} =~ /\b(ingrédients|sucre|eau|sel|farine)\b/i) and $nb_languages++;
 		($product_ref->{ingredients_text} =~ /\b(sugar|salt|flour|milk)\b/i) and $nb_languages++;
 		($product_ref->{ingredients_text} =~ /\b(ingrediënten|suiker|zout|bloem)\b/i) and $nb_languages++;
-		($product_ref->{ingredients_text} =~ /\b(ingredientes|azucar|agua|sal|harina)\b/i) and $nb_languages++;
+		($product_ref->{ingredients_text} =~ /\b(azucar|agua|harina)\b/i) and $nb_languages++;
 		($product_ref->{ingredients_text} =~ /\b(zutaten|Zucker|Salz|Wasser|Mehl)\b/i) and $nb_languages++;
 		($product_ref->{ingredients_text} =~ /\b(açúcar|farinha|água)\b/i) and $nb_languages++;
 		($product_ref->{ingredients_text} =~ /\b(ingredienti|zucchero|farina|acqua)\b/i) and $nb_languages++;
@@ -1049,7 +1120,7 @@ sub check_ingredients ($product_ref) {
 				}
 
 				# Dutch and other languages can have 4 consecutive consonants
-				if ($display_lc !~ /de|nl/) {
+				if ($display_lc !~ /de|hr|nl/) {
 					if ($product_ref->{$ingredients_text_lc} =~ /[bcdfghjklmnpqrstvwxz]{5}/is) {
 
 						push @{$product_ref->{data_quality_warnings_tags}},
@@ -1134,12 +1205,18 @@ Checks related to the quantity and serving quantity.
 
 =cut
 
+# Check quantity values. See https://en.wiki.openfoodfacts.org/Products_quantities
 sub check_quantity ($product_ref) {
 
 	# quantity contains "e" - might be an indicator that the user might have wanted to use "℮" \N{U+212E}
-	if (    (defined $product_ref->{quantity})
-		and ($product_ref->{quantity} =~ /(?:.*e$)|(?:[0-9]+\s*[kmc]?[gl]?\s*e)/i)
-		and (not($product_ref->{quantity} =~ /\N{U+212E}/i)))
+	# example: 650 g e
+	if (
+		(defined $product_ref->{quantity})
+		# contains "kg e", or "g e", or "cl e", etc.
+		and ($product_ref->{quantity} =~ /(?:[0-9]+\s*[kmc]?[gl]\s*e)/i)
+		# contains the "℮" symbol
+		and (not($product_ref->{quantity} =~ /\N{U+212E}/i))
+		)
 	{
 		push @{$product_ref->{data_quality_info_tags}}, "en:quantity-contains-e";
 	}
@@ -1328,8 +1405,22 @@ sub check_ingredients_with_specified_percent ($product_ref) {
 		if (    ($product_ref->{ingredients_with_specified_percent_n} > 0)
 			and ($product_ref->{ingredients_with_specified_percent_sum} > 200))
 		{
-			push @{$product_ref->{data_quality_warning_tags}},
+			push @{$product_ref->{data_quality_warnings_tags}},
 				'en:sum-of-ingredients-with-specified-percent-greater-than-200';
+		}
+
+		# Percentage for ingredient is higher than 100% in extracted ingredients from the picture
+		if ($product_ref->{ingredients_with_specified_percent_n} > 0) {
+			foreach my $ingredient_id (@{$product_ref->{ingredients}}) {
+				if (    (defined $ingredient_id->{percent})
+					and ($ingredient_id->{percent} > 100))
+				{
+					push @{$product_ref->{data_quality_warnings_tags}},
+						'en:ingredients-extracted-ingredient-from-picture-with-more-than-100-percent';
+					last;
+				}
+
+			}
 		}
 	}
 

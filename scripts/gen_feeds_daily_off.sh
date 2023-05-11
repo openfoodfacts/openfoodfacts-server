@@ -10,7 +10,7 @@ export PERL5LIB="../lib:${PERL5LIB}"
 ./remove_empty_products.pl
 #./compute_missions.pl
 ./export_database.pl
-./mongodb_dump.sh /srv2/off/html openfoodfacts 10.0.0.2 off
+./mongodb_dump.sh /srv2/off/html openfoodfacts 10.0.0.3 off
 
 cd /srv2/off/html/data
 gzip < en.openfoodfacts.org.products.rdf > en.openfoodfacts.org.products.rdf.gz
