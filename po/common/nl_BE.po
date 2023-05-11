@@ -1564,6 +1564,10 @@ msgid "The table lists by default nutriments that are often specified. Leave the
 "by typing the first letters of their name in the last row of the table."
 msgstr "De tabel lijst automatisch de voedingsstoffen op die het vaakst vermeld worden. Laat het veld leeg indien het niet vermeld staat op de verpakking.<br />U kunt andere voedingsstoffen (vitamines, mineralen, cholesterol, omega 3 en 6 etc.) toevoegen door de eerste letters van hun naam in de laatste rij van de tabel in te voeren."
 
+msgctxt "nutrition_data_table_asterisk"
+msgid "Essential nutrients to calculate the Nutri-Score."
+msgstr "Essentiële voedingsstoffen om de Nutri-Score te berekenen."
+
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
 msgstr "Voedingswaarden"
@@ -1772,6 +1776,14 @@ msgstr "Product toegevoegd op"
 msgctxt "product_changes_saved"
 msgid "Changes saved."
 msgstr "De wijzigingen werden opgeslagen."
+
+msgctxt "product_edit_you_contributed"
+msgid "You just helped to improve the world largest open data database."
+msgstr "Je hebt zojuist geholpen om 's werelds grootste open data database te verbeteren."
+
+msgctxt "product_edit_thank_you"
+msgid "Thank you so much for joining us in our journey to data transparency!"
+msgstr ""
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
@@ -2298,6 +2310,10 @@ msgctxt "see_product_page"
 msgid "See the product page"
 msgstr "De pagina van het product bekijken"
 
+msgctxt "re_edit_product_page"
+msgid "Edit the product again"
+msgstr "Bewerk het product opnieuw"
+
 msgctxt "select_country"
 msgid "Country"
 msgstr "Land"
@@ -2623,6 +2639,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "Laad afbeeldingen met een lagere resolutie (voor langzame verbindingen)"
 
+msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
+msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
+msgstr "Waarschuwing: de voedingswaarden zijn niet opgegeven. Ze zijn geschat uit de lijst met ingrediënten."
+
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "Waarschuwing: de hoeveelheid vezels is niet gespecificeerd, hun mogelijke positieve bijdrage aan de klasse kan niet in aanmerking worden genomen."
@@ -2637,15 +2657,15 @@ msgstr "Waarschuwing: de hoeveelheid fruit, groenten en noten is niet gespecific
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
-msgstr "Waarschuwing: de hoeveelheid fruit, groenten en noten staat niet op het etiket, maar werd geschat op basis van de ingrediëntenlijst: %d%"
+msgstr "Waarschuwing: de hoeveelheid fruit, groenten en noten staat niet op het etiket, deze werd handmatig geschat uit de lijst met ingrediënten: %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
-msgstr "Waarschuwing: de hoeveelheid fruit, groenten en noten staat niet op het etiket, deze is geschat op basis van de categorie (%s) van het product:%d%"
+msgstr "Waarschuwing: de hoeveelheid fruit, groenten en noten staat niet op het etiket, deze is geschat op basis van de categorie (%s) van het product:%d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
-msgstr "Waarschuwing: de hoeveelheid fruit, groenten en noten staat niet op het etiket, maar is geschat op basis van de ingrediëntenlijst: %d%"
+msgstr "Waarschuwing: de hoeveelheid fruit, groenten en noten staat niet op het etiket, maar werd geschat op basis van de ingrediëntenlijst: %d"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -3385,6 +3405,10 @@ msgctxt "fields_group_images"
 msgid "Product photos"
 msgstr "Productfoto's"
 
+msgctxt "fields_group_packaging"
+msgid "Packaging"
+msgstr "Verpakking"
+
 msgctxt "image_front_url"
 msgid "Link to front product photo"
 msgstr "Link naar productfoto voorzijde"
@@ -4096,9 +4120,10 @@ msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "Producentenplatform moderatie"
 
-msgctxt "pro_moderator_owner_set"
-msgid "You are currently viewing products from %s."
-msgstr "Je bekijkt momenteel producten van %s."
+# variable names between { } must not be translated
+msgctxt "f_pro_moderator_owner_set"
+msgid "You are currently viewing products from {organization}."
+msgstr "Je bekijkt momenteel producten van {organization}."
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
@@ -4110,8 +4135,8 @@ msgstr "Om producten te zien van een specifieke gebruiker of organisatie, vul di
 
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
-msgid "Change"
-msgstr "Veranderen"
+msgid "Switch to another organization"
+msgstr "Overschakelen naar een andere organisatie"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
@@ -5616,6 +5641,14 @@ msgctxt "ecoscore_warning_international"
 msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgstr "De Eco-Score werd oorspronkelijk ontwikkeld voor Frankrijk en wordt uitgebreid naar andere Europese landen. De Eco-Score formule kan veranderen, omdat deze regelmatig wordt verbeterd om hem nauwkeuriger en geschikter voor elk land te maken."
 
+msgctxt "ecoscore_warning_transportation_world"
+msgid "Select a country in order to include the full impact of transportation."
+msgstr "Selecteer een land om de volledige impact van het vervoer op te nemen."
+
+msgctxt "ecoscore_warning_transportation"
+msgid "The full impact of transportation to your country is currently unknown."
+msgstr "De volledige impact van het transport naar uw land is momenteel niet bekend."
+
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
 msgstr "Scan barcodes om de Nutri-Score, de Eco-Score en meer te krijgen!"
@@ -5859,6 +5892,38 @@ msgctxt "health"
 msgid "Health"
 msgstr "Gezondheid"
 
+msgctxt "contribution_panel_title"
+msgid "Contribution"
+msgstr "Bijdrage"
+
+msgctxt "contribution_navigation"
+msgid "Contribution"
+msgstr "Bijdrage"
+
+msgctxt "data_quality_errors_panel_title"
+msgid "Detected Errors"
+msgstr "Gedetecteerde fouten"
+
+msgctxt "data_quality_errors_panel_subtitle"
+msgid "Help us improve quality of our data by contributing fixes"
+msgstr "Help ons de kwaliteit van onze gegevens te verbeteren door oplossingen aan te bieden"
+
+msgctxt "data_quality_warnings_panel_title"
+msgid "Potential issues"
+msgstr "Potentiële problemen"
+
+msgctxt "data_quality_warnings_panel_subtitle"
+msgid "We have detected some potential issues or potential improvements, could you check if some apply ?"
+msgstr "We hebben enkele potentiële problemen of mogelijke verbeteringen ontdekt. Kunt u controleren of deze van toepassing zijn?"
+
+msgctxt "data_quality_info_panel_title"
+msgid "Data Quality infos"
+msgstr "Informatie over gegevenskwaliteit"
+
+msgctxt "data_quality_info_panel_subtitle"
+msgid "Some infos about data quality on this product"
+msgstr "Wat info over de gegevenskwaliteit van dit product"
+
 # will be followed by : and a value. e.g. "Compared to: bananas"
 msgctxt "compared_to"
 msgid "Compared to"
@@ -6096,6 +6161,10 @@ msgctxt "action_add_packaging_image"
 msgid "Take a photo of the recycling information"
 msgstr "Maak een foto van de recyclinginformatie"
 
+msgctxt "action_add_packaging_components"
+msgid "Add packaging components"
+msgstr "Voeg verpakkingsonderdelen toe"
+
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
@@ -6139,7 +6208,7 @@ msgstr "Voeg de winkel toe waar je dit product hebt gevonden"
 # this is not used yet
 msgctxt "action_labels"
 msgid "Add any label present on this product"
-msgstr ""
+msgstr "Voeg een eventueel aanwezig label op dit product toe"
 
 # this is not used yet
 msgctxt "action_countries"
@@ -6302,19 +6371,23 @@ msgstr "Product bijgewerkt"
 
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
-msgstr ""
+msgstr "Ongeldige API-actie"
 
 msgctxt "api_message_invalid_api_method"
 msgid "Invalid API method"
-msgstr ""
+msgstr "Ongeldige API-methode"
 
 msgctxt "api_message_empty_request_body"
 msgid "Empty request body"
-msgstr ""
+msgstr "Lege aanvraagtekst"
 
 msgctxt "api_message_invalid_json_in_request_body"
 msgid "Invalid JSON in request body"
 msgstr ""
+
+msgctxt "api_message_invalid_code"
+msgid "Invalid code"
+msgstr "Ongeldige code"
 
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
@@ -6328,9 +6401,17 @@ msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
 msgstr "Ongeldig type: moet een geheel getal zijn"
 
+msgctxt "api_message_invalid_type_must_be_number"
+msgid "Invalid type: must be a number"
+msgstr "Ongeldig type: moet een getal zijn"
+
 msgctxt "api_message_missing_field"
 msgid "Missing field"
 msgstr "Ontbrekend veld"
+
+msgctxt "api_message_unrecognized_field"
+msgid "Unrecognized field"
+msgstr "Onbekend veld"
 
 msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"
@@ -6352,15 +6433,19 @@ msgctxt "api_impact_field_ignored"
 msgid "Field ignored"
 msgstr "Veld genegeerd"
 
+msgctxt "api_impact_value_converted"
+msgid "Value converted"
+msgstr "Waarde omgezet"
+
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "Aantal eenheden"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
 msgid "Weight of one empty unit"
-msgstr ""
+msgstr "Gewicht van één lege eenheid"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit"
@@ -6383,4 +6468,60 @@ msgstr "Ongeldig gebruikers-Id en wachtwoord"
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
 msgstr "Ongeldige waarde: moet 0 of 1 zijn"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units_description"
+msgid "Enter the number of packaging units of the same shape and material contained in the product."
+msgstr ""
+
+msgctxt "packaging_shape_description"
+msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
+msgstr ""
+
+msgctxt "packaging_material_description"
+msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
+msgstr ""
+
+msgctxt "packaging_recycling_description"
+msgid "Enter recycling instructions only if they are listed on the product."
+msgstr "Voer recyclinginstructies alleen in als ze op het product vermeld staan."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight_description"
+msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
+msgstr "Verwijder eventueel achtergebleven voedsel en was en droog het verpakkingsgedeelte voordat u gaat wegen. Gebruik indien mogelijk een weegschaal met een nauwkeurigheid van 0,1 g of 0,01 g."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit_description"
+msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
+msgstr "Vul het netto gewicht of netto volume in en geef de eenheid aan (bijvoorbeeld g of ml)."
+
+msgctxt "import_and_export_products"
+msgid "Import and export products"
+msgstr "Producten importeren en exporteren"
+
+msgctxt "add_products"
+msgid "Add products"
+msgstr "Voeg producten toe"
+
+# Needs to be short (displayed in a menu)
+msgctxt "install_the_app_to_add_products"
+msgid "Install the app to add products"
+msgstr "Installeer de app om producten toe te voegen"
+
+msgctxt "search_and_analyze_products"
+msgid "Search and analyze products"
+msgstr "Zoek en analyseer producten"
+
+msgctxt "resources"
+msgid "Resources"
+msgstr "Bronnen"
+
+msgctxt "pro_platform_user_guide"
+msgid "Pro platform user guide"
+msgstr "Pro-platform gebruikershandleiding"
+
+msgctxt "faq_for_producers"
+msgid "FAQ for producers"
+msgstr "Veelgestelde vragen voor producenten"
 

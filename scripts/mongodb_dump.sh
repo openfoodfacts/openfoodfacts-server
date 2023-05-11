@@ -14,11 +14,17 @@ cd $DIR
 
 mongoexport --collection products --host $HOST --db $DB | gzip > data/$PREFIX-products.jsonl.gz
 
+mongodump --collection products --host $HOST --db $DB --gzip --archive="data/${PREFIX}-mongodbdump.gz"
+
 mongodump --collection products --host $HOST --db $DB
 tar cvfz data/$PREFIX-mongodbdump.tar.gz dump
 pushd data/ > /dev/null
 sha256sum $PREFIX-mongodbdump.tar.gz > sha256sum
 md5sum $PREFIX-mongodbdump.tar.gz > md5sum
+
+sha256sum $PREFIX-mongodbdump.gz > gz-sha256sum
+md5sum $PREFIX-mongodbdump.gz > gz-md5sum
+
 
 # Export delta of products modified in the last 24h or since last run of the script
 mkdir -p delta

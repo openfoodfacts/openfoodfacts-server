@@ -205,8 +205,10 @@
         <!-- Do not display donate link on producers platform -->
 
         [% IF !(server_options_producers_platform) %]
-            <h3>[% lang("you_can_also_help_us") %]</h3>
-            <p>[% lang("bottom_content") %]</p>
+            [% IF lc == "en" or lc == "fr" %]
+                <h3>[% lang("you_can_also_help_us") %]</h3>
+                <p>[% lang("bottom_content") %]</p>
+            [% END %]
         [% END %]
 
     [% END %]

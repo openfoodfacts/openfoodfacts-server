@@ -1565,6 +1565,10 @@ msgid "The table lists by default nutriments that are often specified. Leave the
 msgstr "Bảng liệt kê các nutriments mặc định thường được chỉ định. Để trống trường nếu nó không nằm trên nhãn.<br/>Bạn có thể thêm các chất dinh dưỡng phụ (vitamin, khoáng chất, cholesterol, vv)\n"
 "bằng cách gõ các chữ cái đầu tiên của tên của chúng trong hàng cuối cùng của bảng."
 
+msgctxt "nutrition_data_table_asterisk"
+msgid "Essential nutrients to calculate the Nutri-Score."
+msgstr ""
+
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
 msgstr "Các lớp dinh dưỡng"
@@ -1773,6 +1777,14 @@ msgstr "Sản phẩm thêm vào"
 msgctxt "product_changes_saved"
 msgid "Changes saved."
 msgstr "Đã lưu thay đổi."
+
+msgctxt "product_edit_you_contributed"
+msgid "You just helped to improve the world largest open data database."
+msgstr ""
+
+msgctxt "product_edit_thank_you"
+msgid "Thank you so much for joining us in our journey to data transparency!"
+msgstr ""
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
@@ -2300,6 +2312,10 @@ msgctxt "see_product_page"
 msgid "See the product page"
 msgstr "Xem trang sản phẩm"
 
+msgctxt "re_edit_product_page"
+msgid "Edit the product again"
+msgstr ""
+
 msgctxt "select_country"
 msgid "Country"
 msgstr "Quốc gia"
@@ -2625,6 +2641,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "Tải hình ảnh có độ phân giải thấp hơn (đối với kết nối chậm)"
 
+msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
+msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
+msgstr ""
+
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "Cảnh báo: lượng chất xơ không được chỉ định, có thể không tính đến sự đóng góp tích cực của chúng đối với cấp."
@@ -2639,15 +2659,15 @@ msgstr "Cảnh báo: số lượng trái cây, rau và quả hạch không đư�
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
-msgstr "Cảnh báo: lượng trái cây, rau và quả hạch không được ghi trên nhãn, được ước tính từ danh sách các thành phần: %d"
+msgstr ""
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
-msgstr "Cảnh báo: số lượng trái cây, rau và quả hạch không được ghi trên nhãn, thông tin được ước tính từ danh mục (%s) của sản phẩm: %d"
+msgstr "Cảnh báo: số lượng trái cây, rau và quả hạch không được ghi trên nhãn, được ước tính từ loại (%s) của sản phẩm: %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
-msgstr "Cảnh báo: lượng trái cây, rau và quả hạch không được ghi trên nhãn, thông tin được ước tính từ danh sách các thành phần: %d"
+msgstr "Cảnh báo: lượng trái cây, rau và quả hạch không được ghi trên nhãn, được ước tính từ danh sách các thành phần: %d"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -3387,6 +3407,10 @@ msgctxt "fields_group_images"
 msgid "Product photos"
 msgstr "Ảnh sản phẩm"
 
+msgctxt "fields_group_packaging"
+msgid "Packaging"
+msgstr "Bao bì"
+
 msgctxt "image_front_url"
 msgid "Link to front product photo"
 msgstr "Liên kết đến ảnh mặt trước sản phẩm"
@@ -4098,9 +4122,10 @@ msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "Kiểm duyệt nền tảng của nhà sản xuất"
 
-msgctxt "pro_moderator_owner_set"
-msgid "You are currently viewing products from %s."
-msgstr "Bạn đang xem sản phẩm từ %s."
+# variable names between { } must not be translated
+msgctxt "f_pro_moderator_owner_set"
+msgid "You are currently viewing products from {organization}."
+msgstr ""
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
@@ -4112,8 +4137,8 @@ msgstr "Để xem các sản phẩm từ một người dùng hoặc tổ chức
 
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
-msgid "Change"
-msgstr "Thay đổi"
+msgid "Switch to another organization"
+msgstr ""
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
@@ -5618,6 +5643,14 @@ msgctxt "ecoscore_warning_international"
 msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgstr "Điểm Sinh Thái ban đầu được phát triển cho riêng nước Pháp và đang dần được mở rộng sang các nước châu Âu khác. Công thức Điểm sinh thái có thể thay đổi do thường xuyên được cải tiến để chính xác hơn và phù hợp hơn với từng quốc gia."
 
+msgctxt "ecoscore_warning_transportation_world"
+msgid "Select a country in order to include the full impact of transportation."
+msgstr ""
+
+msgctxt "ecoscore_warning_transportation"
+msgid "The full impact of transportation to your country is currently unknown."
+msgstr ""
+
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
 msgstr "Quét mã vạch để nhận Điểm dinh dưỡng, Điểm sinh thái và hơn thế nữa!"
@@ -5861,6 +5894,38 @@ msgctxt "health"
 msgid "Health"
 msgstr "Sức khoẻ"
 
+msgctxt "contribution_panel_title"
+msgid "Contribution"
+msgstr ""
+
+msgctxt "contribution_navigation"
+msgid "Contribution"
+msgstr ""
+
+msgctxt "data_quality_errors_panel_title"
+msgid "Detected Errors"
+msgstr ""
+
+msgctxt "data_quality_errors_panel_subtitle"
+msgid "Help us improve quality of our data by contributing fixes"
+msgstr ""
+
+msgctxt "data_quality_warnings_panel_title"
+msgid "Potential issues"
+msgstr ""
+
+msgctxt "data_quality_warnings_panel_subtitle"
+msgid "We have detected some potential issues or potential improvements, could you check if some apply ?"
+msgstr ""
+
+msgctxt "data_quality_info_panel_title"
+msgid "Data Quality infos"
+msgstr ""
+
+msgctxt "data_quality_info_panel_subtitle"
+msgid "Some infos about data quality on this product"
+msgstr ""
+
 # will be followed by : and a value. e.g. "Compared to: bananas"
 msgctxt "compared_to"
 msgid "Compared to"
@@ -6098,6 +6163,10 @@ msgctxt "action_add_packaging_image"
 msgid "Take a photo of the recycling information"
 msgstr ""
 
+msgctxt "action_add_packaging_components"
+msgid "Add packaging components"
+msgstr ""
+
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
@@ -6176,7 +6245,7 @@ msgstr "Hầu hết mọi người tiêu thụ quá nhiều muối (trung bình 
 
 msgctxt "nutrient_recommendation_salt_title"
 msgid "Limit the consumption of salt and salted food"
-msgstr "Hạn chế ăn muối và đồ ăn nhiều muối"
+msgstr "Toan1"
 
 msgctxt "nutrient_recommendation_salt_cooking_and_table"
 msgid "Reduce the quantity of salt used when cooking, and don't salt again at the table."
@@ -6318,6 +6387,10 @@ msgctxt "api_message_invalid_json_in_request_body"
 msgid "Invalid JSON in request body"
 msgstr "JSON không hợp lệ trong nội dung yêu cầu"
 
+msgctxt "api_message_invalid_code"
+msgid "Invalid code"
+msgstr ""
+
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
 msgstr "Loại không hợp lệ: phải là một đối tượng"
@@ -6330,9 +6403,17 @@ msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
 msgstr "Loại không hợp lệ: phải là số nguyên"
 
+msgctxt "api_message_invalid_type_must_be_number"
+msgid "Invalid type: must be a number"
+msgstr ""
+
 msgctxt "api_message_missing_field"
 msgid "Missing field"
 msgstr "Trường bị thiếu"
+
+msgctxt "api_message_unrecognized_field"
+msgid "Unrecognized field"
+msgstr ""
 
 msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"
@@ -6353,6 +6434,10 @@ msgstr "Thất bại"
 msgctxt "api_impact_field_ignored"
 msgid "Field ignored"
 msgstr "Trường bị bỏ qua"
+
+msgctxt "api_impact_value_converted"
+msgid "Value converted"
+msgstr ""
 
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
@@ -6384,5 +6469,61 @@ msgstr ""
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
+msgstr ""
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units_description"
+msgid "Enter the number of packaging units of the same shape and material contained in the product."
+msgstr ""
+
+msgctxt "packaging_shape_description"
+msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
+msgstr ""
+
+msgctxt "packaging_material_description"
+msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
+msgstr ""
+
+msgctxt "packaging_recycling_description"
+msgid "Enter recycling instructions only if they are listed on the product."
+msgstr ""
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight_description"
+msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
+msgstr ""
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit_description"
+msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
+msgstr ""
+
+msgctxt "import_and_export_products"
+msgid "Import and export products"
+msgstr ""
+
+msgctxt "add_products"
+msgid "Add products"
+msgstr "Thêm sản phẩm"
+
+# Needs to be short (displayed in a menu)
+msgctxt "install_the_app_to_add_products"
+msgid "Install the app to add products"
+msgstr ""
+
+msgctxt "search_and_analyze_products"
+msgid "Search and analyze products"
+msgstr ""
+
+msgctxt "resources"
+msgid "Resources"
+msgstr ""
+
+msgctxt "pro_platform_user_guide"
+msgid "Pro platform user guide"
+msgstr ""
+
+msgctxt "faq_for_producers"
+msgid "FAQ for producers"
 msgstr ""
 

@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -60,6 +60,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::HTTP qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Products qw/:all/;
@@ -73,6 +74,7 @@ use ProductOpener::Packaging qw/:all/;
 
 use ProductOpener::APIProductRead qw/:all/;
 use ProductOpener::APIProductWrite qw/:all/;
+use ProductOpener::APITaxonomySuggestions qw/:all/;
 
 use CGI qw(header);
 use Apache2::RequestIO();
@@ -80,6 +82,7 @@ use Apache2::RequestRec();
 use JSON::PP;
 use Data::DeepAccess qw(deep_get);
 use Storable qw(dclone);
+use Encode;
 
 sub get_initialized_response() {
 	return {
@@ -103,6 +106,24 @@ sub add_warning ($response_ref, $warning_ref) {
 
 sub add_error ($response_ref, $error_ref) {
 	push @{$response_ref->{errors}}, $error_ref;
+	return;
+}
+
+sub add_invalid_method_error ($response_ref, $request_ref) {
+
+	$log->warn("process_api_request - invalid method", {request => $request_ref}) if $log->is_warn();
+	add_error(
+		$response_ref,
+		{
+			message => {id => "invalid_api_method"},
+			field => {
+				id => "api_method",
+				value => $request_ref->{api_method},
+				api_action => $request_ref->{api_action},
+			},
+			impact => {id => "failure"},
+		}
+	);
 	return;
 }
 
@@ -277,7 +298,7 @@ sub add_localized_messages_to_api_response ($target_lc, $response_ref) {
 	return;
 }
 
-=head2 send_api_reponse ($request_ref)
+=head2 send_api_response ($request_ref)
 
 Send the API response with the right headers and status code.
 
@@ -293,36 +314,32 @@ Reference to the customized product object.
 
 =cut
 
-sub send_api_reponse ($request_ref) {
+sub send_api_response ($request_ref) {
 
 	my $status_code = $request_ref->{status_code} || "200";
 
 	my $json = JSON::PP->new->allow_nonref->canonical->utf8->encode($request_ref->{api_response});
 
+	# add headers
 	# We need to send the header Access-Control-Allow-Credentials=true so that websites
 	# such has hunger.openfoodfacts.org that send a query to world.openfoodfacts.org/cgi/auth.pl
 	# can read the resulting response.
-
-	# The Access-Control-Allow-Origin header must be set to the value of the Origin header
-	my $r = Apache2::RequestUtil->request();
-	my $origin = $r->headers_in->{Origin} || '';
-
-	# Only allow requests from one of our subdomains
-
-	if ($origin =~ /^https:\/\/[a-z0-9-.]+\.${server_domain}(:\d+)?$/) {
-		$r->err_headers_out->set("Access-Control-Allow-Credentials", "true");
-		$r->err_headers_out->set("Access-Control-Allow-Origin", $origin);
+	my $allow_credentials = 0;
+	if ($request_ref->{query_string} =~ "/auth.pl") {
+		$allow_credentials = 1;
 	}
-
+	write_cors_headers($allow_credentials);
 	print header(-status => $status_code, -type => 'application/json', -charset => 'utf-8');
-
+	# write json response
 	print $json;
+
+	my $r = Apache2::RequestUtil->request();
 
 	$r->rflush;
 
 	# Setting the status makes mod_perl append a default error to the body
 	# $r->status($status);
-	# Send 200 instead.
+	# Send 200 instead. (note: this does not affect the real returned status)
 	$r->status(200);
 	return;
 }
@@ -345,7 +362,7 @@ sub process_api_request ($request_ref) {
 
 	my $response_ref = $request_ref->{api_response};
 
-	# Check if we already have errors (e.g. authentification error, invalid JSON body)
+	# Check if we already have errors (e.g. authentification error, invalid JSON body)
 	if ((scalar @{$response_ref->{errors}}) > 0) {
 		$log->warn("process_api_request - we already have errors, skipping processing", {request => $request_ref})
 			if $log->is_warn();
@@ -354,26 +371,33 @@ sub process_api_request ($request_ref) {
 
 		# Route the API request to the right processing function, based on API action (from path) and method
 
+		# Product read or write
 		if ($request_ref->{api_action} eq "product") {
 
-			if ($request_ref->{api_method} eq "PATCH") {
+			if ($request_ref->{api_method} eq "OPTIONS") {
+				# Just return CORS headers
+			}
+			elsif ($request_ref->{api_method} eq "PATCH") {
 				write_product_api($request_ref);
 			}
-			elsif ($request_ref->{api_method} =~ /^(GET|HEAD|OPTIONS)$/) {
+			elsif ($request_ref->{api_method} =~ /^(GET|HEAD)$/) {
 				read_product_api($request_ref);
 			}
 			else {
-				$log->warn("process_api_request - invalid method", {request => $request_ref}) if $log->is_warn();
-				add_error(
-					$response_ref,
-					{
-						message => {id => "invalid_api_method"},
-						field => {id => "api_method", value => $request_ref->{api_method}},
-						impact => {id => "failure"},
-					}
-				);
+				add_invalid_method_error($response_ref, $request_ref);
 			}
 		}
+		# Taxonomy suggestions
+		elsif ($request_ref->{api_action} eq "taxonomy_suggestions") {
+
+			if ($request_ref->{api_method} =~ /^(GET|HEAD|OPTIONS)$/) {
+				taxonomy_suggestions_api($request_ref);
+			}
+			else {
+				add_invalid_method_error($response_ref, $request_ref);
+			}
+		}
+		# Unknown action
 		else {
 			$log->warn("process_api_request - unknown action", {request => $request_ref}) if $log->is_warn();
 			add_error(
@@ -391,7 +415,7 @@ sub process_api_request ($request_ref) {
 
 	add_localized_messages_to_api_response($request_ref->{lc}, $response_ref);
 
-	send_api_reponse($request_ref);
+	send_api_response($request_ref);
 
 	$log->debug("process_api_request - stop", {request => $request_ref}) if $log->is_debug();
 	return;
@@ -429,7 +453,7 @@ sub normalize_requested_code ($requested_code, $response_ref) {
 			$response_ref,
 			{
 				message => {id => "different_normalized_product_code"},
-				field => {id => $code, value => $code},
+				field => {id => "code", value => $code},
 				impact => {id => "none"},
 			}
 		);

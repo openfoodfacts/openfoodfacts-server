@@ -234,7 +234,7 @@
                {
                   "ecoscore_material_score" : 21,
                   "ecoscore_shape_ratio" : 0.1,
-                  "material" : "en:pp-polypropylene",
+                  "material" : "en:pp-5-polypropylene",
                   "non_recyclable_and_non_biodegradable" : "no",
                   "number_of_units" : 1,
                   "recycling" : "en:discard",
@@ -496,6 +496,7 @@
    ],
    "lc" : "fr",
    "misc_tags" : [
+      "en:packagings-number-of-components-3",
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty",
@@ -510,6 +511,20 @@
    },
    "origins_tags" : [
       "en:france"
+   ],
+   "packaging_materials_tags" : [
+      "en:glass",
+      "en:pp-5-polypropylene",
+      "en:steel"
+   ],
+   "packaging_recycling_tags" : [
+      "en:discard",
+      "en:recycle"
+   ],
+   "packaging_shapes_tags" : [
+      "en:label",
+      "en:lid",
+      "en:pot"
    ],
    "packaging_text" : "1 Pot verre A recycler, 1 Couvercle acier A recycler,1 Etiquette Polypropylène A jeter",
    "packagings" : [
@@ -526,11 +541,12 @@
          "shape" : "en:lid"
       },
       {
-         "material" : "en:pp-polypropylene",
+         "material" : "en:pp-5-polypropylene",
          "number_of_units" : 1,
          "recycling" : "en:discard",
          "shape" : "en:label"
       }
    ],
+   "packagings_n" : 3,
    "unknown_ingredients_n" : 0
 }

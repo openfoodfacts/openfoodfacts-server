@@ -478,6 +478,7 @@
    "known_ingredients_n" : 6,
    "lc" : "fr",
    "misc_tags" : [
+      "en:packagings-number-of-components-3",
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty",
@@ -494,6 +495,19 @@
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100
    },
+   "packaging_materials_tags" : [
+      "en:glass",
+      "en:metal",
+      "en:plastic"
+   ],
+   "packaging_recycling_tags" : [
+      "en:recycle"
+   ],
+   "packaging_shapes_tags" : [
+      "en:bottle",
+      "en:capsule",
+      "en:spout"
+   ],
    "packaging_text" : "1 bouteille verre de 6g, verseur plastique de 3g, capsule métal de 1g",
    "packagings" : [
       {
@@ -520,5 +534,6 @@
          "shape" : "en:capsule"
       }
    ],
+   "packagings_n" : 3,
    "unknown_ingredients_n" : 0
 }

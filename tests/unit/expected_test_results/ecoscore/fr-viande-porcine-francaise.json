@@ -23,7 +23,7 @@
                }
             ],
             "epi_score" : 46.5,
-            "epi_value" : 0,
+            "epi_value" : -0,
             "origins_from_origins_field" : [
                "en:unknown"
             ],
@@ -517,6 +517,7 @@
    ],
    "lc" : "fr",
    "misc_tags" : [
+      "en:packagings-number-of-components-0",
       "en:packagings-not-complete",
       "en:packagings-empty",
       "en:ecoscore-extended-data-not-computed",
@@ -532,6 +533,9 @@
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 40,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 40
    },
+   "packaging_materials_tags" : [],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [],
    "packagings" : [],
    "specific_ingredients" : [
       {

@@ -1563,6 +1563,10 @@ msgid "The table lists by default nutriments that are often specified. Leave the
 "by typing the first letters of their name in the last row of the table."
 msgstr "Pagal numatytuosius parametrus lentelėje išvardijamos dažnai nurodomos maistinės medžiagos. Palikite lauką tuščią, jei jo nėra etiketėje.<br/>Galite pridėti papildomų maistinių medžiagų (vitaminų, mineralų, cholesterolio ir kt.), paskutinėje lentelės eilutėje įvesdami pirmąsias jų vardo raides."
 
+msgctxt "nutrition_data_table_asterisk"
+msgid "Essential nutrients to calculate the Nutri-Score."
+msgstr ""
+
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
 msgstr "Mitybos pažymiai"
@@ -1770,6 +1774,14 @@ msgstr "Produktas pridėtas"
 msgctxt "product_changes_saved"
 msgid "Changes saved."
 msgstr "Pakeitimai išsaugoti."
+
+msgctxt "product_edit_you_contributed"
+msgid "You just helped to improve the world largest open data database."
+msgstr "Jūs ką tik padėjote gerinti didžiausią pasaulyje atvirųjų duomenų bazę."
+
+msgctxt "product_edit_thank_you"
+msgid "Thank you so much for joining us in our journey to data transparency!"
+msgstr "Labai dėkojame, kad prisijungėte prie mūsų duomenų skaidrumo kelionės!"
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
@@ -2296,6 +2308,10 @@ msgctxt "see_product_page"
 msgid "See the product page"
 msgstr "Žr. Produkto puslapį"
 
+msgctxt "re_edit_product_page"
+msgid "Edit the product again"
+msgstr "Redaguoti produktą dar kartą"
+
 msgctxt "select_country"
 msgid "Country"
 msgstr ""
@@ -2620,6 +2636,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "Įkelkite mažesnės raiškos vaizdus (lėtam interneto ryšiui)"
 
+msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
+msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
+msgstr "Įspėjimas: maistinės vertės nenurodytos. Jos apskaičiuotos pagal ingredientų sąrašą."
+
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "Įspėjimas: skaidulinių medžiagų kiekis nenurodytas, neatsižvelgiama į galimą teigiamą jų indėlį į įvertinimą."
@@ -2634,15 +2654,15 @@ msgstr "Įspėjimas: vaisių, daržovių ir riešutų kiekis nenurodytas, neatsi
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
-msgstr "Įspėjimas: vaisių, daržovių ir riešutų kiekis etiketėje nenurodytas, jis buvo apskaičiuotas rankiniu būdu iš ingredientų sąrašo: %d"
+msgstr "Įspėjimas: vaisių, daržovių ir riešutų kiekis etiketėje nenurodytas, jis buvo apskaičiuotas rankiniu būdu pagal ingredientų sąrašą: %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
-msgstr "Įspėjimas: vaisių, daržovių ir riešutų kiekis etiketėje nenurodytas, jis buvo apskaičiuotas pagal %d produkto kategoriją: %s"
+msgstr "Įspėjimas: vaisių, daržovių ir riešutų kiekis nenurodytas etiketėje, jis buvo apskaičiuotas pagal kategoriją (%s) produkto: %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
-msgstr "Įspėjimas: vaisių, daržovių ir riešutų kiekis etiketėje nenurodytas, apskaičiuotas pagal ingredientų sąrašą: %d"
+msgstr "Įspėjimas: vaisių, daržovių ir riešutų kiekis nenurodytas etiketėje, jis buvo apskaičiuotas pagal sudėtį %d"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -3382,6 +3402,10 @@ msgctxt "fields_group_images"
 msgid "Product photos"
 msgstr "Produktų nuotraukos"
 
+msgctxt "fields_group_packaging"
+msgid "Packaging"
+msgstr "Pakuotė"
+
 msgctxt "image_front_url"
 msgid "Link to front product photo"
 msgstr "Nuoroda į priekinę produkto nuotrauką"
@@ -4093,9 +4117,10 @@ msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "Gamintojų platformos valdymas"
 
-msgctxt "pro_moderator_owner_set"
-msgid "You are currently viewing products from %s."
-msgstr "Jūs šiuo metu žiūrite produktus iš %s."
+# variable names between { } must not be translated
+msgctxt "f_pro_moderator_owner_set"
+msgid "You are currently viewing products from {organization}."
+msgstr ""
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
@@ -4107,8 +4132,8 @@ msgstr "Norėdami pamatyti konkretaus vartotojo ar organizacijos produktus, žem
 
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
-msgid "Change"
-msgstr "Pakeisti"
+msgid "Switch to another organization"
+msgstr ""
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
@@ -5613,6 +5638,14 @@ msgctxt "ecoscore_warning_international"
 msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgstr "„Eco-Score“ iš pradžių buvo sukurtas Prancūzijai ir yra plečiamas ir kitose Europos šalyse. Eco-Score formulė gali keistis, nes ji nuolat tobulinama, kad būtų tikslesnė ir geriau pritaikyta kiekvienai šaliai."
 
+msgctxt "ecoscore_warning_transportation_world"
+msgid "Select a country in order to include the full impact of transportation."
+msgstr "Pasirinkite šalį, kad įtrauktumėte visą transportavimo poveikį."
+
+msgctxt "ecoscore_warning_transportation"
+msgid "The full impact of transportation to your country is currently unknown."
+msgstr "Visas transportavimo į jūsų šalį poveikis šiuo metu nežinomas."
+
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
 msgstr "Nuskaitykite brūkšninius kodus, kad gautumėte Nutri-Score, Eco-Score ir dar daugiau!"
@@ -5856,6 +5889,38 @@ msgctxt "health"
 msgid "Health"
 msgstr "Sveikata"
 
+msgctxt "contribution_panel_title"
+msgid "Contribution"
+msgstr "Bendradarbiavimas"
+
+msgctxt "contribution_navigation"
+msgid "Contribution"
+msgstr "Bendradarbiavimas"
+
+msgctxt "data_quality_errors_panel_title"
+msgid "Detected Errors"
+msgstr "Aptiktos klaidos"
+
+msgctxt "data_quality_errors_panel_subtitle"
+msgid "Help us improve quality of our data by contributing fixes"
+msgstr "Padėkite mums gerinti duomenų kokybę atlikdami taisymus"
+
+msgctxt "data_quality_warnings_panel_title"
+msgid "Potential issues"
+msgstr "Galimos problemos"
+
+msgctxt "data_quality_warnings_panel_subtitle"
+msgid "We have detected some potential issues or potential improvements, could you check if some apply ?"
+msgstr "Aptikome kelias galimas problemas arba galimus taisymus. Gal patikrintumėte, ar kurias nors taikyti?"
+
+msgctxt "data_quality_info_panel_title"
+msgid "Data Quality infos"
+msgstr "Duomenų kokybės informacija"
+
+msgctxt "data_quality_info_panel_subtitle"
+msgid "Some infos about data quality on this product"
+msgstr "Šiek tiek informacijos apie šio produkto duomenų kokybę"
+
 # will be followed by : and a value. e.g. "Compared to: bananas"
 msgctxt "compared_to"
 msgid "Compared to"
@@ -6093,6 +6158,10 @@ msgctxt "action_add_packaging_image"
 msgid "Take a photo of the recycling information"
 msgstr ""
 
+msgctxt "action_add_packaging_components"
+msgid "Add packaging components"
+msgstr "Pridėti pakuotės komponentus"
+
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
@@ -6313,6 +6382,10 @@ msgctxt "api_message_invalid_json_in_request_body"
 msgid "Invalid JSON in request body"
 msgstr "Netinkamas JSON užklausos tekste"
 
+msgctxt "api_message_invalid_code"
+msgid "Invalid code"
+msgstr "Neteisingas kodas"
+
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
 msgstr "Individualus tipas: būtinai turi būti objektas"
@@ -6325,9 +6398,17 @@ msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
 msgstr "Netinkamas tipas: turi būti sveikasis skaičius"
 
+msgctxt "api_message_invalid_type_must_be_number"
+msgid "Invalid type: must be a number"
+msgstr "Netinkamas tipas: turi būti skaičius"
+
 msgctxt "api_message_missing_field"
 msgid "Missing field"
 msgstr "Trūksta lauko"
+
+msgctxt "api_message_unrecognized_field"
+msgid "Unrecognized field"
+msgstr "Neatpažintas laukas"
 
 msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"
@@ -6348,6 +6429,10 @@ msgstr "Triktis"
 msgctxt "api_impact_field_ignored"
 msgid "Field ignored"
 msgstr "Laukas nepaisomas"
+
+msgctxt "api_impact_value_converted"
+msgid "Value converted"
+msgstr "Vertė konvertuota"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
@@ -6380,4 +6465,60 @@ msgstr "Neteisingas vartotojo vardas arba slaptažodis"
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
 msgstr "Netinkama vertė: turi būti 0 arba 1"
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units_description"
+msgid "Enter the number of packaging units of the same shape and material contained in the product."
+msgstr "Įveskite tokios pačios formos ir medžiagos, esančios produkto sudėtyje, pakuočių vienetų skaičių."
+
+msgctxt "packaging_shape_description"
+msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
+msgstr "Įveskite formos pavadinimą, įtrauktą į perdirbimo instrukcijų, jei tokios yra, sąrašą, arba pasirinkite formą."
+
+msgctxt "packaging_material_description"
+msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
+msgstr "Įveskite konkrečią medžiagą, jei ją galima nustatyti (medžiagos kodą trikampyje dažnai galima rasti ant pakuotės dalių), arba bendrąją medžiagą (pvz., plastikas arba metalas), jei nesate tikri."
+
+msgctxt "packaging_recycling_description"
+msgid "Enter recycling instructions only if they are listed on the product."
+msgstr "Įveskite perdirbimo instrukcijas tik, jei jos yra nurodytas ant produkto."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight_description"
+msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
+msgstr "Pašalinkite likusį maistą, išplaukite ir išdžiovinkite pakuotės dalį prieš sverdami. Jei įmanoma, naudokite 0,1 g arba 0,01 g tikslumo svarstykles."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit_description"
+msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
+msgstr "Įveskite grynąjį svorį arba grynąjį tūrį ir nurodykite vienetą (pvz., g arba ml)."
+
+msgctxt "import_and_export_products"
+msgid "Import and export products"
+msgstr ""
+
+msgctxt "add_products"
+msgid "Add products"
+msgstr ""
+
+# Needs to be short (displayed in a menu)
+msgctxt "install_the_app_to_add_products"
+msgid "Install the app to add products"
+msgstr ""
+
+msgctxt "search_and_analyze_products"
+msgid "Search and analyze products"
+msgstr ""
+
+msgctxt "resources"
+msgid "Resources"
+msgstr ""
+
+msgctxt "pro_platform_user_guide"
+msgid "Pro platform user guide"
+msgstr ""
+
+msgctxt "faq_for_producers"
+msgid "FAQ for producers"
+msgstr ""
 

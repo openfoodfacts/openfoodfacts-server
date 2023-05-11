@@ -1,15 +1,44 @@
 <!-- start templates/[% template.name %] -->
-
+[%# This template is called after editing a product %]
 [%  IF display_random_sample_of_products_after_edits_options.defined && display_random_sample_of_products_after_edits_options %]
-
+    [%# Nothing todo we already display a product %]
 [% ELSIF type == 'delete' %]
 
     <p>[% lang("product_deleted") %]</p>
 
 [% ELSE %]
 
-    <p>[% lang("product_changes_saved") %]</p>
-    <p>&rarr; <a href="[% edited_product_url %]">[% lang("see_product_page") %]</a></p>
+    <section class="row" id="changes_saved">
+        <div class="large-12 column">
+            <div class="card">
+                <div class="card-section">
+                    <div class="panel_card radius"style="margin-top:0.5rem;margin-bottom:1.5rem;">
+                        <h2 class="panel_title_card text-medium">[% lang("product_changes_saved") %]</h2>
+                        <div class="content panel_content_card active" style="margin-bottom: 1rem;">
+                            <img src="[% static_subdomain %]/images/icons/dist/volunteer_activism.svg" style="height:72px;float:left;margin-right:1rem;" alt="icon" class="filter-grey">
+                            <div>
+                                <p>[% lang("product_edit_you_contributed") %]</p>
+                                <p>[% lang("product_edit_thank_you") %]</p>
+                            </div>
+                        </div>
+                        <div>
+                            <a class="button small" href="[% edited_product_url %]" style="margin-right: 1rem;">[% lang("see_product_page") %]</a>
+                            <a class="button small warning" href="[% edit_product_url %]">[% lang("re_edit_product_page") %]</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="row" id="contribution">
+        <div class="large-12 column">
+            <div class="card">
+                <div class="card-section">
+                    [% contribution_card_panel %]
+                </div>
+            </div>
+        </div>
+    </section>
 
 [% END %]
 

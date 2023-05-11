@@ -6,6 +6,7 @@ use utf8;
 use Test::More;
 
 use ProductOpener::DataQuality qw/:all/;
+use ProductOpener::DataQualityFood qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 
@@ -461,5 +462,286 @@ ok(
 	!has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
 	'energy not matching nutrient'
 ) or diag explain $product_ref;
+
+# en:nutrition-value-negative-$nid should be raised - for nutriments (except nutriments containing "nutrition-score") below 0
+$product_ref = {
+	nutriments => {
+		"proteins_100g" => -1,
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-value-negative-proteins',
+	'nutriment should have positive value (except nutrition-score)', 1
+);
+
+# en:nutrition-value-negative-$nid should NOT be raised - for nutriments containing "nutrition-score" and below 0
+$product_ref = {
+	nutriments => {
+		"nutrition-score-fr_100g" => -1,
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-value-negative-nutrition-score-fr',
+	'nutriment should have positive value (except nutrition-score)', 0
+);
+
+# serving size should contains digits
+$product_ref = {serving_size => "serving_size"};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:serving-size-is-missing-digits',
+	'serving size should contains digits', 1
+);
+$product_ref = {serving_size => "120g"};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:serving-size-is-missing-digits',
+	'serving size should contains digits', 0
+);
+
+# percentage for ingredient is higher than 100% in extracted ingredients from the picture
+$product_ref = {
+	ingredients => [
+		{
+			percent => 110,
+			percent_estimate => 100
+		},
+		{
+			percent => 5,
+			percent_estimate => 0
+		},
+		{
+			percent_estimate => 0
+		}
+	],
+	ingredients_with_specified_percent_n => 2
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:ingredients-extracted-ingredient-from-picture-with-more-than-100-percent',
+	'percentage should not be above 100, error when extracting the ingredients from the picture', 1
+);
+$product_ref = {
+	ingredients => [
+		{
+			percent => 1.1,
+			percent_estimate => 1.1
+		},
+		{
+			percent => 5,
+			percent_estimate => 0
+		},
+		{
+			percent_estimate => 0
+		}
+	],
+	ingredients_with_specified_percent_n => 2
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:ingredients-extracted-ingredient-from-picture-with-more-than-100-percent',
+	'percentage should not be above 100, error when extracting the ingredients from the picture', 0
+);
+
+# en:nutrition-3-or-more-values-are-identical
+$product_ref = {
+	nutriments => {
+		"carbohydrates_100g" => 0,
+		"fat_100g" => 0,
+		"proteins_100g" => 0,
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-3-or-more-values-are-identical',
+	'3 or more identical values and above 1 in the nutrition table', 0
+);
+$product_ref = {
+	nutriments => {
+		"carbohydrates_100g" => 1,
+		"fat_100g" => 2,
+		"proteins_100g" => 3,
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-3-or-more-values-are-identical',
+	'3 or more identical values and above 1 in the nutrition table', 0
+);
+$product_ref = {
+	nutriments => {
+		"carbohydrates_100g" => 3,
+		"fat_100g" => 3,
+		"proteins_100g" => 3,
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-3-or-more-values-are-identical',
+	'3 or more identical values and above 1 in the nutrition table', 1
+);
+
+# sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars
+$product_ref = {nutriments => {}};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
+	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 0
+);
+$product_ref = {
+	nutriments => {
+		"sugars_100g" => 1,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
+	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 0
+);
+$product_ref = {
+	nutriments => {
+		"fructose_100g" => 1,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
+	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 0
+);
+$product_ref = {
+	nutriments => {
+		"sugars_100g" => 2,
+		"fructose_100g" => 1,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
+	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 0
+);
+$product_ref = {
+	nutriments => {
+		"sugars_100g" => 0,
+		"fructose_100g" => 2,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
+	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 1
+);
+$product_ref = {
+	nutriments => {
+		"sugars_100g" => 1,
+		"fructose_100g" => 1,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
+	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 0
+);
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
+	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 0
+);
+$product_ref = {
+	nutriments => {
+		"sugars_100g" => 20,
+		"fructose_100g" => 1,
+		"glucose_100g" => 1,
+		"maltose_100g" => 1,
+		"lactose_100g" => 1,
+		"sucrose_100g" => 1,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
+	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 0
+);
+$product_ref = {
+	nutriments => {
+		"sugars_100g" => 1,
+		"fructose_100g" => 1,
+		"glucose_100g" => 1,
+		"maltose_100g" => 1,
+		"lactose_100g" => 1,
+		"sucrose_100g" => 1,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
+	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 1
+);
+$product_ref = {
+	nutriments => {
+		"sugars_100g" => 20,
+		"fructose_100g" => 4,
+		"glucose_100g" => 4,
+		"maltose_100g" => 4,
+		"lactose_100g" => 4,
+		"sucrose_100g" => 4,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
+	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 0
+);
+
+# testing of ProductOpener::DataQualityFood::check_quantity subroutine
+$product_ref = {quantity => "300g"};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag($product_ref, 'en:quantity-contains-e',
+	'quantity does not contain e', 0);
+$product_ref = {quantity => "1 verre"};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag($product_ref, 'en:quantity-contains-e',
+	'quantity does not contain e', 0);
+$product_ref = {quantity => "1 litre"};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag($product_ref, 'en:quantity-contains-e',
+	'quantity does not contain e', 0);
+$product_ref = {quantity => "225 g ℮"};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag($product_ref, 'en:quantity-contains-e', 'quantity does not contain e',
+	0);
+$product_ref = {quantity => "300ge"};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag($product_ref, 'en:quantity-contains-e', 'quantity contains e', 1);
+$product_ref = {quantity => "300mge"};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag($product_ref, 'en:quantity-contains-e', 'quantity contains e', 1);
+$product_ref = {quantity => "300 mg e"};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag($product_ref, 'en:quantity-contains-e', 'quantity contains e', 1);
+$product_ref = {quantity => "200 g e (2x100g)"};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag($product_ref, 'en:quantity-contains-e', 'quantity contains e', 1);
+$product_ref = {quantity => "1kge35.27oz"};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag($product_ref, 'en:quantity-contains-e', 'quantity contains e', 1);
+$product_ref = {quantity => "300 ml e / 342 g"};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag($product_ref, 'en:quantity-contains-e', 'quantity contains e', 1);
 
 done_testing();

@@ -496,6 +496,7 @@
    ],
    "lc" : "fr",
    "misc_tags" : [
+      "en:packagings-number-of-components-3",
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty",
@@ -510,6 +511,20 @@
    },
    "origins_tags" : [
       "en:france"
+   ],
+   "packaging_materials_tags" : [
+      "en:glass",
+      "en:plastic",
+      "en:steel"
+   ],
+   "packaging_recycling_tags" : [
+      "en:discard",
+      "en:recycle"
+   ],
+   "packaging_shapes_tags" : [
+      "en:label",
+      "en:lid",
+      "en:pot"
    ],
    "packaging_text" : "1 Pot verre A recycler, 1 Couvercle acier A recycler,1 Etiquette plastique A jeter",
    "packagings" : [
@@ -532,5 +547,6 @@
          "shape" : "en:label"
       }
    ],
+   "packagings_n" : 3,
    "unknown_ingredients_n" : 0
 }

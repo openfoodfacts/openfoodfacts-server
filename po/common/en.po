@@ -1709,6 +1709,10 @@ msgid "The table lists by default nutriments that are often specified. Leave the
 msgstr "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
 "by typing the first letters of their name in the last row of the table."
 
+msgctxt "nutrition_data_table_asterisk"
+msgid "Essential nutrients to calculate the Nutri-Score."
+msgstr "Essential nutrients to calculate the Nutri-Score."
+
 msgctxt "nutrition_data_table_sub"
 msgid "-"
 msgstr "-"
@@ -1920,8 +1924,16 @@ msgid "Product added on"
 msgstr "Product added on"
 
 msgctxt "product_changes_saved"
-msgid "Changes saved."
-msgstr "Changes saved."
+msgid "Changes saved"
+msgstr "Changes saved"
+
+msgctxt "product_edit_you_contributed"
+msgid "You just helped to improve the world largest open data database."
+msgstr "You just helped to improve the world largest open data database."
+
+msgctxt "product_edit_thank_you"
+msgid "Thank you so much for joining us in our journey to data transparency!"
+msgstr "Thank you so much for joining us in our journey to data transparency!"
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
@@ -2449,6 +2461,10 @@ msgctxt "see_product_page"
 msgid "See the product page"
 msgstr "See the product page"
 
+msgctxt "re_edit_product_page"
+msgid "Edit the product again"
+msgstr "Edit the product again"
+
 msgctxt "select_country"
 msgid "Country"
 msgstr "Country"
@@ -2773,6 +2789,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "Load lower resolution images (for slow connections)"
 
+msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
+msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
+msgstr "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
+
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -2838,8 +2858,8 @@ msgid "Some of the data and/or photos for this product come from those sources:"
 msgstr "Some of the data and/or photos for this product come from those sources:"
 
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
-msgstr "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgid "This product page is not complete. You can help by editing it based on the photos we have, by taking more photos <a href=\"https://world.openfoodfacts.org/open-food-facts-mobile-app\">using the Android or iPhone/iPad app</a> or by <a href=\"https://world.pro.openfoodfacts.org\">signing up to our Platform for Producers</a> if relevant. Thank you!"
+msgstr "This product page is not complete. You can help by editing it based on the photos we have, by taking more photos <a href=\"https://world.openfoodfacts.org/open-food-facts-mobile-app\">using the Android or iPhone/iPad app</a> or, if you are the producer of this product, by <a href=\"https://world.pro.openfoodfacts.org\">signing up to our Platform for Producers</a>. Thank you!"
 
 msgctxt "title_separator"
 msgid " - "
@@ -3246,6 +3266,10 @@ msgctxt "editors_products"
 msgid "Products edited by %s"
 msgstr "Products edited by %s"
 
+msgctxt "contributors_products"
+msgid "Products added by %s"
+msgstr "Products added by %s"
+
 msgctxt "editors_without_products"
 msgid "Products not edited by %s"
 msgstr "Products not edited by %s"
@@ -3528,6 +3552,10 @@ msgstr "Other information"
 msgctxt "fields_group_images"
 msgid "Product photos"
 msgstr "Product photos"
+
+msgctxt "fields_group_packaging"
+msgid "Packaging"
+msgstr "Packaging"
 
 msgctxt "image_front_url"
 msgid "Link to front product photo"
@@ -4221,9 +4249,10 @@ msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "Producers platform moderation"
 
-msgctxt "pro_moderator_owner_set"
-msgid "You are currently viewing products from %s."
-msgstr "You are currently viewing products from %s."
+# variable names between { } must not be translated
+msgctxt "f_pro_moderator_owner_set"
+msgid "You are currently viewing products from {organization}."
+msgstr "You are currently viewing products from {organization}."
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
@@ -4235,8 +4264,8 @@ msgstr "To see products from a specific user or organization, enter its id. Leav
 
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
-msgid "Change"
-msgstr "Change"
+msgid "Switch to another organization"
+msgstr "Switch to another organization"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
@@ -4408,11 +4437,6 @@ msgstr "Brand owner"
 msgctxt "brand_owner_example"
 msgid "The Coca Cola Company"
 msgstr "The Coca Cola Company"
-
-# leave the %d, it will be replaced by a number
-msgctxt "n_products_will_be_exported"
-msgid "%d products will be exported."
-msgstr "%d products will be exported."
 
 msgctxt "categories_properties"
 msgid "Categories properties"
@@ -4736,10 +4760,6 @@ msgstr "Ultra processed foods"
 msgctxt "export_product_page"
 msgid "Export product to public database"
 msgstr "Export product to public database"
-
-msgctxt "one_product_will_be_exported"
-msgid "1 product will be exported."
-msgstr "1 product will be exported."
 
 msgctxt "no_products_to_export"
 msgid "No products to export."
@@ -5268,6 +5288,10 @@ msgctxt "number_of_products_with_changes_since_last_export"
 msgid "Number of products with changes since last export"
 msgstr "Number of products with changes since last export"
 
+msgctxt "number_of_products_withdrawn_from_the_market_since_last_export"
+msgid "Number of products withdrawn from the market since last export"
+msgstr "Number of products withdrawn from the market since last export"
+
 msgctxt "only_export_products_with_changes"
 msgid "Only export products with changes"
 msgstr "Only export products with changes"
@@ -5754,6 +5778,14 @@ msgctxt "ecoscore_warning_international"
 msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgstr "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 
+msgctxt "ecoscore_warning_transportation_world"
+msgid "Select a country in order to include the full impact of transportation."
+msgstr "Select a country in order to include the full impact of transportation."
+
+msgctxt "ecoscore_warning_transportation"
+msgid "The full impact of transportation to your country is currently unknown."
+msgstr "The full impact of transportation to your country is currently unknown."
+
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
 msgstr "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
@@ -5997,6 +6029,38 @@ msgctxt "health"
 msgid "Health"
 msgstr "Health"
 
+msgctxt "contribution_panel_title"
+msgid "Contribution"
+msgstr "Contribution"
+
+msgctxt "contribution_navigation"
+msgid "Contribution"
+msgstr "Contribution"
+
+msgctxt "data_quality_errors_panel_title"
+msgid "Detected Errors"
+msgstr "Detected Errors"
+
+msgctxt "data_quality_errors_panel_subtitle"
+msgid "Help us improve quality of our data by contributing fixes"
+msgstr "Help us improve quality of our data by contributing fixes"
+
+msgctxt "data_quality_warnings_panel_title"
+msgid "Potential issues"
+msgstr "Potential issues"
+
+msgctxt "data_quality_warnings_panel_subtitle"
+msgid "We have detected some potential issues or potential improvement, could you check if some apply ?"
+msgstr "We have detected some potential issues or potential improvement, could you check if some apply ?"
+
+msgctxt "data_quality_info_panel_title"
+msgid "Data Quality infos"
+msgstr "Data Quality infos"
+
+msgctxt "data_quality_info_panel_subtitle"
+msgid "Some infos about data quality on this product"
+msgstr "Some infos about data quality on this product"
+
 # will be followed by : and a value. e.g. "Compared to: bananas"
 msgctxt "compared_to"
 msgid "Compared to"
@@ -6235,6 +6299,10 @@ msgctxt "action_add_packaging_image"
 msgid "Take a photo of the recycling information"
 msgstr "Take a photo of the recycling information"
 
+msgctxt "action_add_packaging_components"
+msgid "Add packaging components"
+msgstr "Take a photo of the recycling information"
+
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
@@ -6455,6 +6523,10 @@ msgctxt "api_message_invalid_json_in_request_body"
 msgid "Invalid JSON in request body"
 msgstr "Invalid JSON in request body"
 
+msgctxt "api_message_invalid_code"
+msgid "Invalid code"
+msgstr "Invalid code"
+
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
 msgstr "Invalid type: must be an object"
@@ -6467,9 +6539,17 @@ msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
 msgstr "Invalid type: must be an integer"
 
+msgctxt "api_message_invalid_type_must_be_number"
+msgid "Invalid type: must be a number"
+msgstr "Invalid type: must be a number"
+
 msgctxt "api_message_missing_field"
 msgid "Missing field"
 msgstr "Missing field"
+
+msgctxt "api_message_unrecognized_field"
+msgid "Unrecognized field"
+msgstr "Unrecognized field"
 
 msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"
@@ -6490,6 +6570,10 @@ msgstr "Failure"
 msgctxt "api_impact_field_ignored"
 msgid "Field ignored"
 msgstr "Field ignored"
+
+msgctxt "api_impact_value_converted"
+msgid "Value converted"
+msgstr "Value converted"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
@@ -6549,3 +6633,32 @@ msgstr "Remove any remaining food and wash and dry the packaging part before wei
 msgctxt "packaging_quantity_per_unit_description"
 msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
 msgstr "Enter the net weight or net volume and indicate the unit (for example g or ml)."
+
+msgctxt "import_and_export_products"
+msgid "Import and export products"
+msgstr "Import and export products"
+
+msgctxt "add_products"
+msgid "Add products"
+msgstr "Add products"
+
+# Needs to be short (displayed in a menu)
+msgctxt "install_the_app_to_add_products"
+msgid "Install the app to add products"
+msgstr "Install the app to add products"
+
+msgctxt "search_and_analyze_products"
+msgid "Search and analyze products"
+msgstr "Search and analyze products"
+
+msgctxt "resources"
+msgid "Resources"
+msgstr "Resources"
+
+msgctxt "pro_platform_user_guide"
+msgid "Pro platform user guide"
+msgstr "Pro platform user guide"
+
+msgctxt "faq_for_producers"
+msgid "FAQ for producers"
+msgstr "FAQ for producers"

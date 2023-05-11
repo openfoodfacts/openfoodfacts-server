@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2021 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -54,6 +54,7 @@ use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Ecoscore qw(:all);
 use ProductOpener::MainCountries qw(:all);
+use ProductOpener::NutritionCiqual qw(:all);
 
 =head1 FUNCTIONS
 
@@ -81,6 +82,7 @@ sub load_data() {
 		load_agribalyse_data();
 		load_ecoscore_data();
 		load_forest_footprint_data();
+		load_ciqual_data();
 	}
 
 	$log->debug("loading data - done") if $log->is_debug();
