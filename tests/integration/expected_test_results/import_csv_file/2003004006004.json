@@ -551,12 +551,12 @@
       "en:nutriscore-missing-nutrition-data-sodium",
       "en:nutriscore-missing-nutrition-data-proteins",
       "en:nutrition-no-fiber",
-      "en:packagings-not-complete",
-      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-number-of-components-1",
+      "en:packagings-complete",
       "en:packagings-not-empty",
       "en:packagings-with-weights",
       "en:packagings-with-all-weights",
-      "en:packagings-with-all-weights-not-complete",
+      "en:packagings-with-all-weights-complete",
       "en:ecoscore-extended-data-not-computed",
       "en:ecoscore-missing-data-warning",
       "en:ecoscore-missing-data-labels",
@@ -604,6 +604,8 @@
          "weight_specified" : 55.2
       }
    ],
+   "packagings_complete" : 1,
+   "packagings_n" : 1,
    "photographers_tags" : [],
    "pnns_groups_1" : "Fat and sauces",
    "pnns_groups_1_tags" : [
