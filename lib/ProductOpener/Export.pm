@@ -205,6 +205,7 @@ sub export_csv ($args_ref) {
 	my %other_images = ();
 
 	# We will have one cursor for each collection
+	# We store cursors because we will iterate them twice
 	my %cursors = ();
 
 	if (defined $fields_ref) {
