@@ -91,7 +91,7 @@ foreach my $test_ref (@tests) {
 
 # Tests for analyze_and_combine_packaging_data()
 
-my @tests = (
+@tests = (
 
 	[
 		'packaging_text_en_glass_bottle',
