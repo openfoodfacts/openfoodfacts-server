@@ -1027,15 +1027,10 @@ sub display_index_for_producer ($request_ref) {
 	}
 
 	# Display a message if some product updates have not been published yet
+	# Updates can also be on obsolete products
 
-	my $count = count_products($request_ref, {states_tags => "en:to-be-exported"});
-
-	if ($count == 1) {
-		$template_data_ref->{products_to_be_exported} = lang("one_product_will_be_exported");
-	}
-	elsif ($count > 1) {
-		$template_data_ref->{products_to_be_exported} = sprintf(lang("n_products_will_be_exported"), $count);
-	}
+	$template_data_ref->{count_to_be_exported} = count_products({}, {states_tags => "en:to-be-exported"});
+	$template_data_ref->{count_obsolete_to_be_exported} = count_products({}, {states_tags => "en:to-be-exported"}, 1);
 
 	my $html;
 
@@ -4373,7 +4368,7 @@ sub add_country_and_owner_filters_to_query ($request_ref, $query_ref) {
 	return;
 }
 
-sub count_products ($request_ref, $query_ref) {
+sub count_products ($request_ref, $query_ref, $obsolete = 0) {
 
 	add_country_and_owner_filters_to_query($request_ref, $query_ref);
 
@@ -4383,8 +4378,7 @@ sub count_products ($request_ref, $query_ref) {
 		$log->debug("Counting MongoDB documents for query", {query => $query_ref}) if $log->is_debug();
 		$count = execute_query(
 			sub {
-				return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
-					->count_documents($query_ref);
+				return get_products_collection({obsolete => $obsolete})->count_documents($query_ref);
 			}
 		);
 	};
