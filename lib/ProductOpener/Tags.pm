@@ -1251,7 +1251,8 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					# issue an error message and continue
 					my $msg
 						= "$lc:$lc_tagid already is associated to "
-						. $translations_from{$tagtype}{"$lc:$lc_tagid"} . " (" . $tagtype . ")"
+						. $translations_from{$tagtype}{"$lc:$lc_tagid"} . " ("
+						. $tagtype . ")"
 						. " - $lc:$lc_tagid cannot be mapped to entry $canon_tagid\n";
 					$errors .= "ERROR - " . $msg;
 					next;
@@ -1290,7 +1291,8 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 							= "$lc:$tagid already is a synonym of $lc:"
 							. $synonyms{$tagtype}{$lc}{$tagid}
 							. " for entry "
-							. $translations_from{$tagtype}{$lc . ":" . $synonyms{$tagtype}{$lc}{$tagid}} . " ($tagtype)"
+							. $translations_from{$tagtype}{$lc . ":" . $synonyms{$tagtype}{$lc}{$tagid}}
+							. " ($tagtype)"
 							. " - $lc:$tagid cannot be mapped to entry $canon_tagid / $lc:$lc_tagid\n";
 						$errors .= "ERROR - " . $msg;
 						next;
