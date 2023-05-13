@@ -1251,7 +1251,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					# issue an error message and continue
 					my $msg
 						= "$lc:$lc_tagid already is associated to "
-						. $translations_from{$tagtype}{"$lc:$lc_tagid"}
+						. $translations_from{$tagtype}{"$lc:$lc_tagid"} . " (" . $tagtype . ")"
 						. " - $lc:$lc_tagid cannot be mapped to entry $canon_tagid\n";
 					$errors .= "ERROR - " . $msg;
 					next;
@@ -1290,7 +1290,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 							= "$lc:$tagid already is a synonym of $lc:"
 							. $synonyms{$tagtype}{$lc}{$tagid}
 							. " for entry "
-							. $translations_from{$tagtype}{$lc . ":" . $synonyms{$tagtype}{$lc}{$tagid}}
+							. $translations_from{$tagtype}{$lc . ":" . $synonyms{$tagtype}{$lc}{$tagid}} . " ($tagtype)"
 							. " - $lc:$tagid cannot be mapped to entry $canon_tagid / $lc:$lc_tagid\n";
 						$errors .= "ERROR - " . $msg;
 						next;
@@ -1316,10 +1316,8 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			print STDERR $errors;
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
 			# Disable die for the packaging taxonomy as some legit material and shape might have same name
-			# Temporarily (hopefully) disable die for the categories taxonomy, to give time to fix issues
 			unless (($tagtype eq "ingredients")
 				or ($tagtype eq "packaging")
-				or ($tagtype eq "categories")
 				or ($tagtype eq "packaging"))
 			{
 				die("Errors in the $tagtype taxonomy definition");
@@ -1953,9 +1951,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			print STDERR $errors;
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
 			# Disable also for packaging taxonomy for some shapes and materials shares same names
-			# Also temporarily disable die for the categories taxonomy, to give use time to fix it.
-			# Tracking bug: https://github.com/openfoodfacts/openfoodfacts-server/issues/6382
-			unless (($tagtype eq "ingredients") or ($tagtype eq "packaging") or ($tagtype eq "categories")) {
+			unless (($tagtype eq "ingredients") or ($tagtype eq "packaging")) {
 				die("Errors in the $tagtype taxonomy definition");
 			}
 		}
