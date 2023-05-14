@@ -115,13 +115,11 @@
          "vegetarian" : "ignore"
       },
       {
-         "id" : "en:alcohol",
+         "id" : "ja:アルコール",
          "percent_estimate" : 0.17578125,
          "percent_max" : 10,
          "percent_min" : 0,
-         "text" : "アルコール",
-         "vegan" : "maybe",
-         "vegetarian" : "yes"
+         "text" : "アルコール"
       }
    ],
    "ingredients_analysis" : {
@@ -134,7 +132,8 @@
          "ja:さば節",
          "ja:たん白加水分解物混合物",
          "ja:こんぶ",
-         "ja:アミノ酸等"
+         "ja:アミノ酸等",
+         "ja:アルコール"
       ],
       "en:vegan-status-unknown" : [
          "ja:本醸造",
@@ -145,7 +144,8 @@
          "ja:さば節",
          "ja:たん白加水分解物混合物",
          "ja:こんぶ",
-         "ja:アミノ酸等"
+         "ja:アミノ酸等",
+         "ja:アルコール"
       ],
       "en:vegetarian-status-unknown" : [
          "ja:本醸造",
@@ -156,7 +156,8 @@
          "ja:さば節",
          "ja:たん白加水分解物混合物",
          "ja:こんぶ",
-         "ja:アミノ酸等"
+         "ja:アミノ酸等",
+         "ja:アルコール"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -175,7 +176,7 @@
       "ja:たん白加水分解物混合物",
       "ja:こんぶ",
       "en:condiment",
-      "en:alcohol",
+      "ja:アルコール",
       "ja:本醸造",
       "ja:ぶどう糖果糖液糖",
       "ja:水あめ",
@@ -199,7 +200,7 @@
       "ja:たん白加水分解物混合物",
       "ja:こんぶ",
       "en:condiment",
-      "en:alcohol",
+      "ja:アルコール",
       "ja:本醸造",
       "ja:ぶどう糖果糖液糖",
       "ja:水あめ",
@@ -218,7 +219,7 @@
       "ja:たん白加水分解物混合物",
       "ja:こんぶ",
       "en:condiment",
-      "en:alcohol",
+      "ja:アルコール",
       "ja:本醸造",
       "ja:ぶどう糖果糖液糖",
       "ja:水あめ",
@@ -232,11 +233,11 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 12,
    "ingredients_with_unspecified_percent_sum" : 100,
-   "known_ingredients_n" : 9,
+   "known_ingredients_n" : 8,
    "lc" : "ja",
    "nutriments" : {
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
-   "unknown_ingredients_n" : 9
+   "unknown_ingredients_n" : 10
 }
