@@ -20,7 +20,9 @@
     [% END %]
 [% END %]
 
-<p class="example">[% examples %][% field_type_examples %]</p>
+[% IF field_type_examples.defined %]
+    <p class="example">[% examples %] [% field_type_examples %]</p>
+[% END %]
 
 <!-- end templates/[% template.name %] -->
 

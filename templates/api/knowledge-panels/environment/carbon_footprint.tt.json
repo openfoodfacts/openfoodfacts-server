@@ -1,0 +1,75 @@
+// Compute the Carbon Impact for 100g
+[% SET co2_100g = product.ecoscore_data.agribalyse.co2_total / 10 %]
+[% SET driving_100g = co2_100g  * 100 / 19.3 %]
+{
+    "level" :"info",
+    "topics": [
+        "environment"
+    ],
+    "expanded": false,
+    [% IF driving_100g >= 3 %]
+    "evaluation": "bad",
+    [% ELSIF driving_100g >= 1.5 %]
+    "evaluation": "average",
+    [% ELSE %]
+    "evaluation": "good",
+    [% END %]
+    "title_element": {
+        [% SET driving_100g_rounded = sprintf('%.1f', driving_100g) %]
+        "title": "[% f_lang('f_equal_to_driving_km_in_a_petrol_car',  { 'kilometers' => driving_100g_rounded } ) %]",
+        [% SET co2_100g_rounded = sprintf('%.0f', co2_100g * 1000) %]
+        "subtitle": "[% f_lang('f_carbon_footprint_per_100g_of_product', { 'grams' => co2_100g_rounded }) %]",
+        "icon_url": "[% static_subdomain %]/images/icons/dist/car.svg",
+        "icon_color_from_evaluation": true,
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "summary",
+                "html": `
+                    <p>[% lang('source_ademe_agribalyse_for_category') %] 
+                    <a href="https://agribalyse.ademe.fr/app/aliments/[% product.ecoscore_data.agribalyse.code %]">[% panel.agribalyse_category_name.dquote %]</a>
+                    ([% lang('source_ademe_agribalyse') %])
+                    </p>
+                    `
+            }
+        },
+        {
+            "element_type": "table",
+            "table_element": {
+                "id": "ecoscore_carbon_impact_by_stages_table",
+                "table_type": "percents",
+                "title": "[% lang('ecoscore_impact_detail_by_stages') %]",
+                "columns": [
+                    {
+                        "text": "[% lang('ecoscore_stage') %]",
+                        "type": "text",
+                    },
+                    {
+                        "text": "[% lang('ecoscore_impact') %]",
+                        "type": "percent",
+                    }
+                ],
+                "rows": [
+                    [% FOREACH step IN ["agriculture", "processing", "packaging", "transportation", "distribution", "consumption"] %]
+                    {
+                        "id": "[% step %]",
+                        "values": [
+                            {
+                                "icon_url": "[% static_subdomain %]/images/icons/dist/[% step %].svg",
+                                "text": "[% lang("ecoscore_$step") %]"
+                            },
+                            {
+                                [% co2_step = "co2_$step" %]
+                                "text": "[% (100 * product.ecoscore_data.agribalyse.$co2_step / product.ecoscore_data.agribalyse.co2_total) FILTER format('%.1f'); %] %",
+                                "percent": [% (100 * product.ecoscore_data.agribalyse.$co2_step / product.ecoscore_data.agribalyse.co2_total) %]
+                            }
+                        ],
+                    },
+                    [% END %]
+                ]
+            }
+        }
+    ]
+}

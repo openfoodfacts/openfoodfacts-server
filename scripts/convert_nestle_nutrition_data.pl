@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -47,7 +47,7 @@ my $headers_ref = $results_ref->{headers};
 my $rows_ref = $results_ref->{rows};
 
 my %headers = ();
-my $i =0;
+my $i = 0;
 foreach my $header (@{$headers_ref}) {
 
 	$headers{$header} = $i;
@@ -100,12 +100,11 @@ foreach my $row_ref (@{$rows_ref}) {
 	$products{$code}{$key} = $value;
 }
 
-my $csv_out = Text::CSV->new ( { binary => 1 , sep_char => "\t" } )  # should set binary attribute.
-                 or die "Cannot use CSV: ".Text::CSV->error_diag ();
+my $csv_out = Text::CSV->new({binary => 1, sep_char => "\t"})    # should set binary attribute.
+	or die "Cannot use CSV: " . Text::CSV->error_diag();
 
-
-open (my $out, ">:encoding(UTF-8)", $ARGV[0] . ".merged.csv") or die("Cannot write " . $ARGV[0] . ".merged.csv : $!\n");
-$csv_out->print ($out, \@keys);
+open(my $out, ">:encoding(UTF-8)", $ARGV[0] . ".merged.csv") or die("Cannot write " . $ARGV[0] . ".merged.csv : $!\n");
+$csv_out->print($out, \@keys);
 print $out "\n";
 
 foreach my $code (sort keys %products) {
@@ -125,7 +124,7 @@ foreach my $code (sort keys %products) {
 		push @values, $value;
 	}
 
-	$csv_out->print ($out, [@values]);
+	$csv_out->print($out, [@values]);
 	print $out "\n";
 }
 

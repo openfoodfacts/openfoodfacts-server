@@ -1,0 +1,23 @@
+/*
+ * Browsers fallbacks using Modernizr detection classes
+ */
+
+// Fix issues with browser without flexbox support like IE9
+html.no-flexbox{
+    // Little hack fix for SVG with IE (9 to Edge included)
+    // This is not really the right parent selector where it should be, but we
+    // dont have one more accurate
+    img[src$=".svg"] {
+        width: 100%;
+    }
+}
+
+// For IE 10 and Edge
+html.no-flexboxlegacy{
+    // Little hack fix for SVG with IE (9 to Edge included)
+    // This is not really the right parent selector where it should be, but we
+    // dont have one more accurate
+    img[src$=".svg"] {
+        width: 100%;
+    }
+}

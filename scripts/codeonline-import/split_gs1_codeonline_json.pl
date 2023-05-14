@@ -23,7 +23,7 @@ Usage:
 split_gs1_codeonline_json.pl [YYYYMM]
 
 TXT
-;
+	;
 
 my $date = $ARGV[0];
 
@@ -38,22 +38,22 @@ $output_dir .= "/$date";
 
 print STDERR "processing $input_file in $output_dir\n";
 
-if (! -e $output_dir) {
-	mkdir($output_dir, oct(755)) or die ("Cannot create $output_dir : $!\n");
+if (!-e $output_dir) {
+	mkdir($output_dir, oct(755)) or die("Cannot create $output_dir : $!\n");
 }
 
 my $json = JSON->new->allow_nonref->canonical;
 
-open (my $gs1, "<:encoding(UTF-8)", $input_file) or die("Cannot open $input_file: $!\n");
-local $/; #Enable 'slurp' mode
+open(my $gs1, "<:encoding(UTF-8)", $input_file) or die("Cannot open $input_file: $!\n");
+local $/;    #Enable 'slurp' mode
 my $gs1_product_ref = $json->decode(<$gs1>);
 close($gs1);
 
 print scalar(@{$gs1_product_ref}) . " products\n\n";
 
-for (my $i = 0; $i < scalar(@{$gs1_product_ref})  ; $i++) {
+for (my $i = 0; $i < scalar(@{$gs1_product_ref}); $i++) {
 
-	open (my $out, ">:encoding(UTF-8)", "$output_dir/" . $gs1_product_ref->[$i]{tradeItem}{gtin} . ".json");
+	open(my $out, ">:encoding(UTF-8)", "$output_dir/" . $gs1_product_ref->[$i]{tradeItem}{gtin} . ".json");
 	print $out $json->pretty->encode($gs1_product_ref->[$i]);
 	print "\n";
 	close $out;

@@ -1,7 +1,7 @@
 // This file is part of Product Opener.
 //
 // Product Opener
-// Copyright (C) 2011-2020 Association Open Food Facts
+// Copyright (C) 2011-2023 Association Open Food Facts
 // Contact: contact@openfoodfacts.org
 // Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 //
@@ -115,14 +115,26 @@ function displayPointers(pointers) {
     var markers = [];
     for (var i = 0; i < pointers.length; ++i) {
       var pointer = pointers[i];
-      var marker = new L.marker(pointer);
+      var coordinates;
+
+      // If pointer is an array, it just contains (lat, lng) geo coordinates
+      if (Array.isArray(pointer)) {
+        coordinates = pointer;
+      }
+      // Otherwise we have a structured object
+      // e.g. from a map element of a knowledge panel
+      else {
+        coordinates = [ pointer.geo.lat, pointer.geo.lng ];
+      }
+
+      var marker = new L.marker(coordinates);
       markers.push(marker);
     }
 
     if (markers.length > 0) {
       L.featureGroup(markers).addTo(actualMap);
       fitBoundsToAllLayers(actualMap);
-      actualMap.setZoom(10);
+      actualMap.setZoom(8);
     }
   });
 }

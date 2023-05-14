@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -35,22 +34,28 @@ use Apache2::Const qw(OK HTTP_BAD_REQUEST HTTP_NOT_FOUND HTTP_INTERNAL_SERVER_ER
 use CGI qw/:cgi :form escapeHTML/;
 use Log::Any qw($log);
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
-my $code = normalize_code(param('code'));
+my $code = normalize_code(single_param('code'));
 my $product_id = product_id_for_owner($Owner_id, $code);
 my $path = product_path_from_id($product_id);
-my $imgid = param('imgid');
-my $angle = param('angle');
-my $normalize = param('normalize');
-my $white_magic = param('white_magic');
+my $imgid = single_param('imgid');
+my $angle = single_param('angle');
+my $normalize = single_param('normalize');
+my $white_magic = single_param('white_magic');
 
-$log->debug('start', { code => $code, imgid => $imgid, angle => $angle, normalize => $normalize }) if $log->is_debug(); ## no critic (ProhibitPostfixControls)
+$log->debug('start', {code => $code, imgid => $imgid, angle => $angle, normalize => $normalize})
+	if $log->is_debug();    ## no critic (ProhibitPostfixControls)
 
 my $r = shift;
-if ((not defined $imgid) or (not defined $angle) or
-	($imgid !~ /^\d+$/sx) or ## no critic (RequireLineBoundaryMatching)
-	($angle !~ /^(?:[\d]|[1-8][\d]|9[\d]|[12][\d]{2}|3[0-5][\d]|360)$/sx)) { ## no critic (RequireLineBoundaryMatching)
+if (
+	   (not defined $imgid)
+	or (not defined $angle)
+	or ($imgid !~ /^\d+$/sx)
+	or    ## no critic (RequireLineBoundaryMatching)
+	($angle !~ /^(?:[\d]|[1-8][\d]|9[\d]|[12][\d]{2}|3[0-5][\d]|360)$/sx)
+	)
+{    ## no critic (RequireLineBoundaryMatching)
 	$r->status(HTTP_BAD_REQUEST);
 	return OK;
 }
@@ -58,7 +63,9 @@ if ((not defined $imgid) or (not defined $angle) or
 my $image = Image::Magick->new;
 my $x = $image->Read("$www_root/images/products/$path/$imgid.${crop_size}.jpg");
 if ("$x") {
-	$log->error('could not read image', { path => "$www_root/images/products/$path/$imgid.${crop_size}.jpg", status => $x }) if $log->is_error(); ## no critic (ProhibitPostfixControls)
+	$log->error('could not read image',
+		{path => "$www_root/images/products/$path/$imgid.${crop_size}.jpg", status => $x})
+		if $log->is_error();    ## no critic (ProhibitPostfixControls)
 	$r->status(HTTP_NOT_FOUND);
 	return OK;
 }
@@ -66,16 +73,17 @@ if ("$x") {
 $image->Rotate($angle);
 
 if ($normalize eq 'checked') {
-	$image->Normalize( channel => 'RGB' );
+	$image->Normalize(channel => 'RGB');
 	if ("$x") {
-		$log->error('could not normalize image', { status => $x }) if $log->is_error(); ## no critic (ProhibitPostfixControls)
+		$log->error('could not normalize image', {status => $x})
+			if $log->is_error();    ## no critic (ProhibitPostfixControls)
 		$r->status(HTTP_INTERNAL_SERVER_ERROR);
 		return OK;
 	}
 }
 
-$r->content_type( 'image/jpeg' );
-$r->print( $image->ImageToBlob(magick => 'jpeg') );
+$r->content_type('image/jpeg');
+$r->print($image->ImageToBlob(magick => 'jpeg'));
 
 $log->info('ok');
 
