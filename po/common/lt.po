@@ -1775,6 +1775,14 @@ msgctxt "product_changes_saved"
 msgid "Changes saved."
 msgstr "Pakeitimai išsaugoti."
 
+msgctxt "product_edit_you_contributed"
+msgid "You just helped to improve the world largest open data database."
+msgstr "Jūs ką tik padėjote gerinti didžiausią pasaulyje atvirųjų duomenų bazę."
+
+msgctxt "product_edit_thank_you"
+msgid "Thank you so much for joining us in our journey to data transparency!"
+msgstr "Labai dėkojame, kad prisijungėte prie mūsų duomenų skaidrumo kelionės!"
+
 msgctxt "product_characteristics"
 msgid "Product characteristics"
 msgstr "Produkto charakteristikos"
@@ -2300,6 +2308,10 @@ msgctxt "see_product_page"
 msgid "See the product page"
 msgstr "Žr. Produkto puslapį"
 
+msgctxt "re_edit_product_page"
+msgid "Edit the product again"
+msgstr "Redaguoti produktą dar kartą"
+
 msgctxt "select_country"
 msgid "Country"
 msgstr ""
@@ -2624,6 +2636,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "Įkelkite mažesnės raiškos vaizdus (lėtam interneto ryšiui)"
 
+msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
+msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
+msgstr "Įspėjimas: maistinės vertės nenurodytos. Jos apskaičiuotos pagal ingredientų sąrašą."
+
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "Įspėjimas: skaidulinių medžiagų kiekis nenurodytas, neatsižvelgiama į galimą teigiamą jų indėlį į įvertinimą."
@@ -2638,15 +2654,15 @@ msgstr "Įspėjimas: vaisių, daržovių ir riešutų kiekis nenurodytas, neatsi
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
-msgstr "Įspėjimas: vaisių, daržovių ir riešutų kiekis etiketėje nenurodytas, jis buvo apskaičiuotas rankiniu būdu iš ingredientų sąrašo: %d"
+msgstr "Įspėjimas: vaisių, daržovių ir riešutų kiekis etiketėje nenurodytas, jis buvo apskaičiuotas rankiniu būdu pagal ingredientų sąrašą: %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
-msgstr "Įspėjimas: vaisių, daržovių ir riešutų kiekis etiketėje nenurodytas, jis buvo apskaičiuotas pagal %d produkto kategoriją: %s"
+msgstr "Įspėjimas: vaisių, daržovių ir riešutų kiekis nenurodytas etiketėje, jis buvo apskaičiuotas pagal kategoriją (%s) produkto: %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
-msgstr "Įspėjimas: vaisių, daržovių ir riešutų kiekis etiketėje nenurodytas, apskaičiuotas pagal ingredientų sąrašą: %d"
+msgstr "Įspėjimas: vaisių, daržovių ir riešutų kiekis nenurodytas etiketėje, jis buvo apskaičiuotas pagal sudėtį %d"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -3385,6 +3401,10 @@ msgstr "Kita informacija"
 msgctxt "fields_group_images"
 msgid "Product photos"
 msgstr "Produktų nuotraukos"
+
+msgctxt "fields_group_packaging"
+msgid "Packaging"
+msgstr "Pakuotė"
 
 msgctxt "image_front_url"
 msgid "Link to front product photo"
@@ -5869,6 +5889,38 @@ msgctxt "health"
 msgid "Health"
 msgstr "Sveikata"
 
+msgctxt "contribution_panel_title"
+msgid "Contribution"
+msgstr "Bendradarbiavimas"
+
+msgctxt "contribution_navigation"
+msgid "Contribution"
+msgstr "Bendradarbiavimas"
+
+msgctxt "data_quality_errors_panel_title"
+msgid "Detected Errors"
+msgstr "Aptiktos klaidos"
+
+msgctxt "data_quality_errors_panel_subtitle"
+msgid "Help us improve quality of our data by contributing fixes"
+msgstr "Padėkite mums gerinti duomenų kokybę atlikdami taisymus"
+
+msgctxt "data_quality_warnings_panel_title"
+msgid "Potential issues"
+msgstr "Galimos problemos"
+
+msgctxt "data_quality_warnings_panel_subtitle"
+msgid "We have detected some potential issues or potential improvements, could you check if some apply ?"
+msgstr "Aptikome kelias galimas problemas arba galimus taisymus. Gal patikrintumėte, ar kurias nors taikyti?"
+
+msgctxt "data_quality_info_panel_title"
+msgid "Data Quality infos"
+msgstr "Duomenų kokybės informacija"
+
+msgctxt "data_quality_info_panel_subtitle"
+msgid "Some infos about data quality on this product"
+msgstr "Šiek tiek informacijos apie šio produkto duomenų kokybę"
+
 # will be followed by : and a value. e.g. "Compared to: bananas"
 msgctxt "compared_to"
 msgid "Compared to"
@@ -6106,6 +6158,10 @@ msgctxt "action_add_packaging_image"
 msgid "Take a photo of the recycling information"
 msgstr ""
 
+msgctxt "action_add_packaging_components"
+msgid "Add packaging components"
+msgstr "Pridėti pakuotės komponentus"
+
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
@@ -6326,6 +6382,10 @@ msgctxt "api_message_invalid_json_in_request_body"
 msgid "Invalid JSON in request body"
 msgstr "Netinkamas JSON užklausos tekste"
 
+msgctxt "api_message_invalid_code"
+msgid "Invalid code"
+msgstr "Neteisingas kodas"
+
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
 msgstr "Individualus tipas: būtinai turi būti objektas"
@@ -6345,6 +6405,10 @@ msgstr "Netinkamas tipas: turi būti skaičius"
 msgctxt "api_message_missing_field"
 msgid "Missing field"
 msgstr "Trūksta lauko"
+
+msgctxt "api_message_unrecognized_field"
+msgid "Unrecognized field"
+msgstr "Neatpažintas laukas"
 
 msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"

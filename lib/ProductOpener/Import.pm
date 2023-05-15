@@ -1144,6 +1144,8 @@ sub import_packaging_components (
 
 		# Record if we have complete input data, with all key fields (for at least 1 component)
 		# not considered a key field (and thus may be lost): recycling instruction, quantity per unit
+		# If we have complete data for one component in an import, we assume the data is reasonably
+		# complete for all components (e.g. we might miss a weight for a very light component)
 		if (
 				(defined $input_packaging_ref->{number_of_units})
 			and (defined $input_packaging_ref->{shape})
@@ -1159,6 +1161,8 @@ sub import_packaging_components (
 	if ($data_is_complete) {
 		# We seem to have complete data, replace existing data
 		$product_ref->{packagings} = \@input_packagings;
+		# and set the packagings complete checkbox
+		$product_ref->{packagings_complete} = 1;
 	}
 	else {
 		# We have partial data, that may be missing fields like number of units, weight etc.

@@ -1773,6 +1773,14 @@ msgctxt "product_changes_saved"
 msgid "Changes saved."
 msgstr "Değişiklikler kaydedildi."
 
+msgctxt "product_edit_you_contributed"
+msgid "You just helped to improve the world largest open data database."
+msgstr "Az önce dünyanın en büyük açık veri veritabanının geliştirilmesine yardımcı oldunuz."
+
+msgctxt "product_edit_thank_you"
+msgid "Thank you so much for joining us in our journey to data transparency!"
+msgstr "Veri şeffaflığı yolculuğumuzda bize katıldığınız için çok teşekkür ederiz!"
+
 msgctxt "product_characteristics"
 msgid "Product characteristics"
 msgstr "Ürün özellikleri"
@@ -2299,6 +2307,10 @@ msgctxt "see_product_page"
 msgid "See the product page"
 msgstr "Ürün sayfasına bakın"
 
+msgctxt "re_edit_product_page"
+msgid "Edit the product again"
+msgstr "Ürünü tekrar düzenleyin"
+
 msgctxt "select_country"
 msgid "Country"
 msgstr "Ülke"
@@ -2624,6 +2636,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "Daha düşük çözünürlüklü görüntüler yükleyin (yavaş bağlantıdan dolayı)"
 
+msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
+msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
+msgstr "Uyarı: beslenme faktörleri belirtilmemiştir. İçindekiler listesinden tahmin edilmiştir."
+
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "Uyarı: lif miktarı belirtilmediği için, olası olumlu katkı notuna dahil edilemedi."
@@ -2638,15 +2654,15 @@ msgstr "Uyarı: Meyve, sebze ve fındık fıstık belirtilmedi. Olası olumlu ka
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
-msgstr "Dikkat: meyvelerin, sebzelerin ve fındık miktarları etikette belirlenmemiş, temel olarak içerik listesinden esas alınmıştır:%d"
+msgstr "Uyarı: Meyve, sebze ve kuruyemiş miktarı etikette belirtilmemiştir, içindekiler listesinden manuel olarak tahmin edilmiştir: %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
-msgstr ""
+msgstr "Uyarı: Meyve, sebze ve fındık miktarı etiket üzerinde belirtilmemiş, (%s) kategorisinden %d ürününe göre hesaplanmıştır"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
-msgstr ""
+msgstr "Uyarı: Meyve, sebze ve fındık miktarı etiket üzerinde belirtilmemiş, içerikler listesinden hesaplanmıştır: %d"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -3385,6 +3401,10 @@ msgstr "Diğer bilgiler"
 msgctxt "fields_group_images"
 msgid "Product photos"
 msgstr "Ürün fotoğrafları"
+
+msgctxt "fields_group_packaging"
+msgid "Packaging"
+msgstr "Ambalaj"
 
 msgctxt "image_front_url"
 msgid "Link to front product photo"
@@ -5272,7 +5292,7 @@ msgstr ""
 
 msgctxt "ecoscore_not_applicable_coming_soon"
 msgid "The Eco-Score is not yet applicable for this category, but we are working on adding support for it."
-msgstr ""
+msgstr "Eco-Score bu kategori için henüz geçerli değil, ancak bu kategori için destek eklemeye çalışıyoruz."
 
 msgctxt "attribute_ecoscore_unknown_title"
 msgid "Eco-Score not computed"
@@ -5644,7 +5664,7 @@ msgstr ""
 
 msgctxt "org_gs1_product_name_is_abbreviated_description"
 msgid "Some manufacturers have incorrect values for some fields in GS1. The features below can be used to fix some of them."
-msgstr ""
+msgstr "Bazı üreticiler, GS1'deki bazı alanlar için yanlış değerlere sahiptir. Aşağıdaki özellikler, bazılarını düzeltmek için kullanılabilir."
 
 # do not remove %s, it will be replaced with the source name
 msgctxt "import_source_string"
@@ -5835,7 +5855,7 @@ msgstr "Bonusların ve kötü kullanımların toplamı"
 
 msgctxt "ecoscore_sum_of_bonuses_and_maluses_is_capped"
 msgid "The sum of bonuses and maluses is capped at +25."
-msgstr ""
+msgstr "Bonusların ve kötü kullanımların toplamı +25 ile sınırlıdır."
 
 msgctxt "ecoscore_lca_score"
 msgid "Life cycle analysis score"
@@ -5868,6 +5888,38 @@ msgstr ""
 msgctxt "health"
 msgid "Health"
 msgstr "Sağlık"
+
+msgctxt "contribution_panel_title"
+msgid "Contribution"
+msgstr "Katkı"
+
+msgctxt "contribution_navigation"
+msgid "Contribution"
+msgstr "Katkı"
+
+msgctxt "data_quality_errors_panel_title"
+msgid "Detected Errors"
+msgstr "Algılanan Hatalar"
+
+msgctxt "data_quality_errors_panel_subtitle"
+msgid "Help us improve quality of our data by contributing fixes"
+msgstr "Düzeltmelere katkıda bulunarak verilerimizin kalitesini iyileştirmemize yardımcı olun"
+
+msgctxt "data_quality_warnings_panel_title"
+msgid "Potential issues"
+msgstr "Potansiyel sorunlar"
+
+msgctxt "data_quality_warnings_panel_subtitle"
+msgid "We have detected some potential issues or potential improvements, could you check if some apply ?"
+msgstr "Bazı potansiyel sorunlar veya potansiyel iyileştirmeler tespit ettik, bazılarının geçerli olup olmadığını kontrol edebilir misiniz?"
+
+msgctxt "data_quality_info_panel_title"
+msgid "Data Quality infos"
+msgstr "Veri Kalitesi bilgileri"
+
+msgctxt "data_quality_info_panel_subtitle"
+msgid "Some infos about data quality on this product"
+msgstr "Bu üründeki veri kalitesi hakkında bazı bilgiler"
 
 # will be followed by : and a value. e.g. "Compared to: bananas"
 msgctxt "compared_to"
@@ -6106,6 +6158,10 @@ msgctxt "action_add_packaging_image"
 msgid "Take a photo of the recycling information"
 msgstr "Geri dönüşüm bilgilerinin fotoğrafını çekin"
 
+msgctxt "action_add_packaging_components"
+msgid "Add packaging components"
+msgstr "Paketleme bileşenleri ekleyin"
+
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
@@ -6326,6 +6382,10 @@ msgctxt "api_message_invalid_json_in_request_body"
 msgid "Invalid JSON in request body"
 msgstr "İstek gövdesinde geçersiz JSON"
 
+msgctxt "api_message_invalid_code"
+msgid "Invalid code"
+msgstr "Geçersiz kod"
+
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
 msgstr "Geçersiz tür: bir nesne olmalıdır"
@@ -6345,6 +6405,10 @@ msgstr "Geçersiz tür: bir sayı olmalıdır"
 msgctxt "api_message_missing_field"
 msgid "Missing field"
 msgstr "Eksik alan"
+
+msgctxt "api_message_unrecognized_field"
+msgid "Unrecognized field"
+msgstr "Tanınmayan alan"
 
 msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"

@@ -1,6 +1,7 @@
 {
    "ingredients" : [
       {
+         "ciqual_food_code" : "20087",
          "id" : "en:red-bell-pepper",
          "origins" : "en:spain,en:south-america",
          "percent_estimate" : 75,
@@ -11,6 +12,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "20168",
          "id" : "en:yellow-bell-pepper",
          "origins" : "en:mexico,en:canada,en:california",
          "percent_estimate" : 25,
@@ -54,6 +56,8 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 2,
    "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
    "known_ingredients_n" : 4,
    "lc" : "en",
    "nutriments" : {
