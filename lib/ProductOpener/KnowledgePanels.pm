@@ -989,9 +989,7 @@ sub create_serving_size_panel ($product_ref, $target_lc, $target_cc, $options_re
 		if (($product_ref->{serving_quantity} <= 5) and ($product_ref->{nutrition_data_per} eq 'serving')) {
 			$serving_warning = lang_in_other_lc($target_lc, "serving_too_small_for_nutrition_analysis");
 		}
-		my $panel_data_ref = {
-			"serving_warning" => $serving_warning,
-		};
+		my $panel_data_ref = {"serving_warning" => $serving_warning,};
 		create_panel_from_json_template("serving_size", "api/knowledge-panels/health/nutrition/serving_size.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 	}
