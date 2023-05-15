@@ -975,7 +975,7 @@ sub clean_fields ($product_ref) {
 			my $canon_tagid = canonicalize_taxonomy_tag($product_ref->{lc}, "countries", $product_ref->{$field});
 			if (not exists_taxonomy_tag("countries", $canon_tagid)) {
 				assign_value($product_ref, "origin_" . $product_ref->{lc}, $product_ref->{$field});
-				delete $product_ref->{$field};
+				$product_ref->{$field} = "";
 			}
 		}
 

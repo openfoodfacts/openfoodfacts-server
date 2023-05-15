@@ -96,7 +96,7 @@ sub read_product_api ($request_ref) {
 			$response_ref,
 			{
 				message => {id => "invalid_code"},
-				field => {id => "code", value => $code},
+				field => {id => "code", value => $request_ref->{code}},
 				impact => {id => "failure"},
 			}
 		);
