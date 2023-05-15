@@ -2415,7 +2415,7 @@ sub get_missing_ciqual_codes ($ingredients_ref) {
 				$ingredient_ref->{ciqual_food_code} = $ciqual_food_code;
 			}
 			else {
-				$ingredient_ref->{ciqual_food_code} = undef;
+				exists $ingredient_ref->{ciqual_food_code} and delete $ingredient_ref->{ciqual_food_code};
 				push(@ingredients_without_ciqual_codes, $ingredient_ref->{id});
 			}
 		}
