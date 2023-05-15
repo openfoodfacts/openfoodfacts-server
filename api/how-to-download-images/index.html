@@ -331,9 +331,47 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          How to download product images
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         How to download product images
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#download-from-aws" class="md-nav__link">
+    Download from AWS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#download-from-open-food-facts-server" class="md-nav__link">
+    Download from Open Food Facts server
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -390,6 +428,20 @@
     <li class="md-nav__item">
       <a href="../ref-v3/" class="md-nav__link">
         Reference OpenAPI documentation for v3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws-images-dataset/" class="md-nav__link">
+        Open Food Facts AWS images dataset
       </a>
     </li>
   
@@ -723,6 +775,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#download-from-aws" class="md-nav__link">
+    Download from AWS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#download-from-open-food-facts-server" class="md-nav__link">
+    Download from Open Food Facts server
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -740,10 +814,37 @@
 
 
 <h1 id="how-to-download-product-images">How to download product images<a class="headerlink" href="#how-to-download-product-images" title="Permanent link">#</a></h1>
-<p>All images can be found on <a href="https://static.openfoodfacts.org/images/products/">https://images.openfoodfacts.org/images/products/</a>. Images of a product are stored in a single directory. The path of this directory can be inferred easily from the product barcode. If the product barcode length is lower or equal to 8 (ex: \"22222222\"), the directory path is simply the barcode: all images can be found on <code>https://images.openfoodfacts.org/images/products/{barcode}</code>.
-Otherwise, the following regex is used to split the barcode into subfolders: <code>r"^(...)(...)(...)(.*)$"</code>. For example, the barcode 3435660768163 is split as follows: 343/566/076/8163, and all images of the products can be found on
+<p>The prefered method of downloading Open Food Facts images depends on what you
+which to achieve.</p>
+<p>If you want to download a limited number of images, especially if these images
+have been uploaded recently, you should <a href="./#download-from-open-food-facts-server">download the image from Open Food
+Facts
+server</a>.</p>
+<p>If you plan to download a large amount of images, you should on the contrary
+<a href="./#download-from-aws">use Open Food Facts images dataset hosted on
+AWS</a>.</p>
+<h2 id="download-from-aws">Download from AWS<a class="headerlink" href="#download-from-aws" title="Permanent link">#</a></h2>
+<p>If you want to download a large number of images, this is the recommended
+option, as AWS S3 will be faster and allow concurrent download, contrary to
+Open Food Facts server, where you should preferably download images one at a
+time. See <a href="../aws-images-dataset/">AWS Images dataset</a> for more information
+about how to download images from AWS dataset.</p>
+<h2 id="download-from-open-food-facts-server">Download from Open Food Facts server<a class="headerlink" href="#download-from-open-food-facts-server" title="Permanent link">#</a></h2>
+<p>All images can be found on
+<a href="https://static.openfoodfacts.org/images/products/">https://images.openfoodfacts.org/images/products/</a>.
+Images of a product are stored in a single directory. The path of this
+directory can be inferred easily from the product barcode. If the product
+barcode length is lower or equal to 8 (ex: "22222222"), the directory path is
+simply the barcode: all images can be found on
+<code>https://images.openfoodfacts.org/images/products/{barcode}</code>.</p>
+<p>Otherwise, the following regex is used to split the barcode into subfolders:
+<code>r"^(...)(...)(...)(.*)$"</code>. For example, the barcode <code>3435660768163</code> is split as
+follows: <code>343/566/076/8163</code>, and all images of the products can be found on
 <a href="https://images.openfoodfacts.org/images/products/343/566/076/8163">https://images.openfoodfacts.org/images/products/343/566/076/8163</a>.</p>
-<p>To get the image file names, we have to use the database dump or the API. All images information are stored in the <code>images</code> field. For product <a href="https://world.openfoodfacts.org/api/v0/product/3168930010883.json">3168930010883</a>, we have:</p>
+<p>To get the image file names, we have to use the database dump or the API. All
+images information are stored in the <code>images</code> field. For product
+<a href="https://world.openfoodfacts.org/api/v0/product/3168930010883.json">3168930010883</a>,
+we have:</p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p">{</span>
 <span class="w">      </span><span class="nt">&quot;4&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nt">&quot;uploader&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;openfoodfacts-contributors&quot;</span><span class="p">,</span>
@@ -915,21 +1016,33 @@ Otherwise, the following regex is used to split the barcode into subfolders: <co
 </code></pre></div>
 <p>The keys of the map are the keys of the images. These keys can be:</p>
 <ul>
-<li>digits: the image is the raw image sent by the contributor.</li>
-<li>selected images: <code>front_{lang}</code>, <code>nutrition_{lang}</code> and <code>ingredients_{lang}</code>, selected as front, nutrition and ingredients
-    images respectively for <code>lang</code>. Here, <code>lang</code> is a 2-letter ISO 639-1 language code (fr, en, es,...).</li>
+<li>digits: the image is the raw image sent by the contributor (full resolution).</li>
+<li>selected images: <code>front_{lang}</code>, <code>nutrition_{lang}</code> and
+    <code>ingredients_{lang}</code>, selected as front, nutrition and ingredients images
+    respectively for <code>lang</code>. Here, <code>lang</code> is a 2-letter ISO 639-1 language code
+    (fr, en, es,...).</li>
 </ul>
-<p>Each image is available in different resolutions: \"100\", \"200\", \"400\" or \"full\", each corresponding to image height (\"full\" means
-not resized). The available resolutions can be found in the <code>sizes</code> subfield.</p>
+<p>Each image is available in different resolutions: <code>100</code>, <code>200</code>, <code>400</code> or
+<code>full</code>, each corresponding to image height (<code>full</code> means not resized). The
+available resolutions can be found in the <code>sizes</code> subfield.</p>
 <p>Selected images have additional fields:</p>
 <ul>
-<li><code>rev</code> (as revision) indicates the revision number of the image to use (each time a new image is selected, cropped or rotated, a new image with an incremented rev is generated).</li>
+<li><code>rev</code> (as revision) indicates the revision number of the image to use (each
+    time a new image is selected, cropped or rotated, a new image with an
+    incremented rev is generated).</li>
 <li><code>imgid</code>, the image ID of the raw image used to generate the selected image.</li>
 <li><code>angle</code>, <code>x1</code>, <code>x2</code>, <code>y1</code>, <code>y2</code>: rotation angle and cropping coordinates.</li>
 </ul>
-<p>For selected images, the file name is the image key followed by the revision number and the resolution: <code>front_fr.1.400.jpg</code>. For raw images, the file name is either the image ID (<code>1.jpg</code>) or the image ID followed by the resolution (<code>1.100.jpg</code>).</p>
-<p>To get the full URL, simply concatenate the product directory path and the image name.</p>
-<p>If you want to download a significant number of images, let us know before on our <a href="https://slack.openfoodfacts.org/">Slack</a> and don\'t be too eager to keep our servers safe!</p>
+<p>For selected images, the file name is the image key followed by the revision
+number and the resolution: <code>front_fr.1.400.jpg</code>. For raw images, the file name
+is either the image ID (<code>1.jpg</code>) or the image ID followed by the resolution
+(<code>1.100.jpg</code>).</p>
+<p>To get the full URL, simply concatenate the product directory path and the
+image name. Examples:</p>
+<ul>
+<li><a href="https://images.openfoodfacts.org/images/products/343/566/076/8163/1.jpg">https://images.openfoodfacts.org/images/products/343/566/076/8163/1.jpg</a></li>
+<li><a href="https://images.openfoodfacts.org/images/products/343/566/076/8163/1.400.jpg">https://images.openfoodfacts.org/images/products/343/566/076/8163/1.400.jpg</a></li>
+</ul>
 
 
 
