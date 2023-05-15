@@ -4429,11 +4429,6 @@ msgctxt "edit_link_in_search"
 msgid "Add an edit link in search results"
 msgstr "Add an edit link in search results"
 
-# leave the %d, it will be replaced by a number
-msgctxt "n_products_will_be_exported"
-msgid "%d products will be exported."
-msgstr "%d products will be exported."
-
 msgctxt "ciqual_food_name"
 msgid "CIQUAL food name"
 msgstr "CIQUAL food name"
@@ -4757,10 +4752,6 @@ msgstr "Ultra processed foods"
 msgctxt "export_product_page"
 msgid "Export product to public database"
 msgstr "Export product to public database"
-
-msgctxt "one_product_will_be_exported"
-msgid "1 product will be exported."
-msgstr "1 product will be exported."
 
 msgctxt "no_products_to_export"
 msgid "No products to export."
@@ -5259,6 +5250,10 @@ msgstr "Manage your products on the platform for producers"
 msgctxt "number_of_products_with_changes_since_last_export"
 msgid "Number of products with changes since last export"
 msgstr "Number of products with changes since last export"
+
+msgctxt "number_of_products_withdrawn_from_the_market_since_last_export"
+msgid "Number of products withdrawn from the market since last export"
+msgstr "Number of products withdrawn from the market since last export"
 
 msgctxt "only_export_products_with_changes"
 msgid "Only export products with changes"
