@@ -1460,7 +1460,7 @@ sub compute_serving_size_data ($product_ref) {
 			);
 		}
 		# Otherwise use the energy-kcal value for energy
-		elsif (defined $product_ref->{nutriments}{"energy-kcal" . $product_type}) {    # Why is there no "_value" here?
+		elsif (defined $product_ref->{nutriments}{"energy-kcal" . $product_type}) {
 			if (not defined $product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"}) {
 				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"} = "kcal";
 			}
@@ -1512,19 +1512,15 @@ sub compute_serving_size_data ($product_ref) {
 
 				my $unit = get_property("nutrients", "zz:$nid", "unit:en")
 					;    # $unit will be undef if the nutrient is not in the taxonomy
-				print STDERR "nid: $nid - unit: $unit value: $value\n";
+				print STDERR "nid: $nid - unit: $unit\n";
 
 				# If the nutrient has no unit (e.g. pH), or is a % (e.g. "% vol" for alcohol), it is the same regardless of quantity
 				# otherwise we adjust the value for 100g
 				if ((defined $unit) and (($unit eq '') or ($unit =~ /^\%/))) {
 					$product_ref->{nutriments}{$nid . $product_type . "_100g"} = $value + 0.0;
 				}
-				# Don't adjust the value for 100g if there is no serving quantity or
-				# the serving quantity is 5 or less and the value is excatly '0'
-				elsif ( (defined $serving_quantity)
-					and ($serving_quantity > 0)
-					and ($serving_quantity > 5 or $product_ref->{nutriments}{$nid . $product_type . "_value"} ne '0'))
-				{
+				# Don't adjust the value for 100g if the serving quantity is 5 or less
+				elsif ((defined $serving_quantity) and ($serving_quantity > 5)) {
 					$product_ref->{nutriments}{$nid . $product_type . "_100g"}
 						= sprintf("%.2e", $value * 100.0 / $product_ref->{serving_quantity}) + 0.0;
 

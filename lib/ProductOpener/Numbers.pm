@@ -130,11 +130,7 @@ sub convert_string_to_number ($value) {
 	}
 	# Remove remaining commas that can be used as separators
 	$value =~ s/,//g;
-
-	# If number has been recorded as 0.0 without decimals then want to preserve this
-	if (($value + 0) ne 0) {
-		$value += 0;
-	}
+	$value += 0;
 
 	return $value;
 }
