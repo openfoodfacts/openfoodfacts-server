@@ -1,0 +1,23 @@
+{
+   "code" : "123",
+   "errors" : [
+      {
+         "field" : {
+            "id" : "code",
+            "value" : "123"
+         },
+         "impact" : {
+            "id" : "failure",
+            "lc_name" : "Failure",
+            "name" : "Failure"
+         },
+         "message" : {
+            "id" : "invalid_code",
+            "lc_name" : "Invalid code",
+            "name" : "Invalid code"
+         }
+      }
+   ],
+   "status" : "failure",
+   "warnings" : []
+}

@@ -70,6 +70,7 @@ use File::Path qw(mkpath);
 use JSON::PP;
 use Data::DeepAccess qw(deep_exists deep_get deep_set deep_val);
 use Getopt::Long;
+use Text::CSV;
 
 my $quiet;
 
@@ -322,6 +323,45 @@ sub store_stats ($name, $packagings_stats_ref) {
 	return;
 }
 
+=head2 export_product_packaging_components_to_csv($csv, $filehandle, $product_ref)
+
+Export each packaging component of the product as one line in the CSV file.
+
+=cut
+
+sub export_product_packaging_components_to_csv ($csv, $filehandle, $product_ref) {
+
+	# Go through all packaging components
+	if (defined $product_ref->{packagings}) {
+
+		my $countries_tags;
+		if (defined $product_ref->{countries_tags}) {
+			$countries_tags = join(",", @{$product_ref->{countries_tags}});
+		}
+
+		my $categories_tags;
+		if (defined $product_ref->{categories_tags}) {
+			$categories_tags = join(",", @{$product_ref->{categories_tags}});
+		}
+
+		foreach my $packaging_ref (@{$product_ref->{packagings}}) {
+
+			my $weight = $packaging_ref->{weight_specified} // $packaging_ref->{weight_measured};
+
+			my @values = (
+				$product_ref->{code}, $countries_tags,
+				$categories_tags, $packaging_ref->{number_of_units},
+				$packaging_ref->{shape}, $packaging_ref->{material},
+				$packaging_ref->{recycling}, $packaging_ref->{weight},
+				$packaging_ref->{weight_measured}, $packaging_ref->{weight_specified},
+				$packaging_ref->{quantity_per_unit},
+			);
+
+			$csv->print($filehandle, \@values);
+		}
+	}
+}
+
 =head2 generate_packaging_stats_for_query($name, $query_ref)
 
 Generate packaging stats for products matching a specific query.
@@ -345,6 +385,7 @@ sub generate_packaging_stats_for_query ($name, $query_ref) {
 
 	# fields to retrieve
 	my $fields_ref = {
+		code => 1,
 		countries_tags => 1,
 		categories_tags => 1,
 		packagings => 1,
@@ -365,6 +406,30 @@ sub generate_packaging_stats_for_query ($name, $query_ref) {
 
 	my $packagings_stats_ref = {};
 
+	# Export packaging components of all products to a CSV file
+	my $filehandle;
+	my $filename = "$www_root/data/$name.csv";
+	open($filehandle, ">:encoding(UTF-8)", $filename)
+		or die("Could not write " . $filename . " : $!\n");
+	my $csv = Text::CSV->new(
+		{
+			eol => "\n",
+			sep => "\t",
+			quote_space => 0,
+			binary => 1
+		}
+	) or die "Cannot use CSV: " . Text::CSV->error_diag();
+
+	# Print the header line with fields names
+	$csv->print(
+		$filehandle,
+		[
+			"code", "countries_tags", "categories_tags", "number_of_units",
+			"shape", "material", "recycling", "weight", "weight_measured",
+			"weight_specified", "quantity_per_unit"
+		]
+	);
+
 	# Go through all products
 	while (my $product_ref = $cursor->next) {
 		$total++;
@@ -372,6 +437,7 @@ sub generate_packaging_stats_for_query ($name, $query_ref) {
 		if ($total % 1000 == 0) {
 			$quiet or print STDERR "$name: $total / $products_count processed\n";
 		}
+		export_product_packaging_components_to_csv($csv, $filehandle, $product_ref);
 
 		add_product_to_stats($name, $packagings_stats_ref, $product_ref);
 	}
