@@ -350,12 +350,12 @@ rebuild_taxonomies: build_taxonomies
 create_external_volumes:
 	@echo "🥫 Creating external volumes (production only) …"
 # zfs clones hosted on Ovh3 as NFS
-	docker volume create --driver=local --opt type=nfs --opt o=addr=${NFS_VOLUMES_ADDRESS},rw --opt device=:${NFS_VOLUMES_BASE_PATH}/data ${COMPOSE_PROJECT_NAME}_html_data
 	docker volume create --driver=local --opt type=nfs --opt o=addr=${NFS_VOLUMES_ADDRESS},rw --opt device=:${NFS_VOLUMES_BASE_PATH}/users ${COMPOSE_PROJECT_NAME}_users
 	docker volume create --driver=local --opt type=nfs --opt o=addr=${NFS_VOLUMES_ADDRESS},rw --opt device=:${NFS_VOLUMES_BASE_PATH}/products ${COMPOSE_PROJECT_NAME}_products
 	docker volume create --driver=local --opt type=nfs --opt o=addr=${NFS_VOLUMES_ADDRESS},rw --opt device=:${NFS_VOLUMES_BASE_PATH}/products_images ${COMPOSE_PROJECT_NAME}_product_images
 	docker volume create --driver=local --opt type=nfs --opt o=addr=${NFS_VOLUMES_ADDRESS},rw --opt device=:${NFS_VOLUMES_BASE_PATH}/orgs ${COMPOSE_PROJECT_NAME}_orgs
 # local data
+	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/data ${COMPOSE_PROJECT_NAME}_html_data
 	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/podata ${COMPOSE_PROJECT_NAME}_podata
 
 create_external_networks:
