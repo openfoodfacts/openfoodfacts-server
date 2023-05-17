@@ -14,7 +14,7 @@ MOUNT_POINT ?= /mnt
 DOCKER_LOCAL_DATA ?= /srv/off/docker_data
 OS := $(shell uname)
 
-# monut point for shared data (default to the one on staging)
+# mount point for shared data (default to the one on staging)
 NFS_VOLUMES_ADDRESS ?= 10.0.0.3
 NFS_VOLUMES_BASE_PATH ?= /rpool/off/clones
 
