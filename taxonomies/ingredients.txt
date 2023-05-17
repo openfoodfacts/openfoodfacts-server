@@ -11858,7 +11858,6 @@ it:suino
 ja:豚
 nb:svin, flesk
 nl:varken
-fnl:varken
 pl:Wieprzowina
 pt:Porco
 ro:porc
@@ -19983,6 +19982,7 @@ ro:aromă de ananas
 <en:flavouring
 en:banana flavouring
 de:Bananengeschmack, Bananenaroma, Bananen-Aroma
+es:aroma de plátano, aroma de banana
 fi:banaaniaromi
 fr:arôme de banane
 hu:banán aroma, banánaroma
@@ -26704,6 +26704,7 @@ fr:riz rond biologique de qualité supérieure
 en:risotto rice
 bg:ориз за ризото
 de:Risotto-Reis
+es:arroz de risotto
 fi:risottoriisi
 fr:riz pour risotto, riz à risotto
 hu:rizottó rizs
@@ -26958,7 +26959,7 @@ fi:valkoinen jasmiiniriisi
 
 <en:Thai rice
 <en:black rice
-en:blaack Thai rice
+en:black Thai rice
 de:Thailändischer schwarzer Naturreis, Thailändischer schwarzer Reis, Thailändischer schwarzer Klebreis
 fr:thai riz noir
 hu:fekete jázminrizs, fekete jázmin rizs
@@ -28015,6 +28016,7 @@ fr:sucre non raffiné, sucre brut, sucre complet
 it:Zucchero non raffinato
 ja:粗糖
 nl:ongeraffineerde suiker, ruwe suiker
+pl:Cukier nierafinowany
 pt:açúcar não refinado
 sv:råsocker
 
@@ -32958,7 +32960,7 @@ zh:老麵
 # nap:Criscito
 wikidata:en:Q904889
 wikipedia:en:https://en.wikipedia.org/wiki/Sourdough
-allergens:en: en:gluten
+likely_allergens:en: en:gluten
 
 <en:sourdough
 fr:levain lactique
@@ -39597,6 +39599,7 @@ fr:cerise sauvage, cerises sauvages
 en:Pitted cherry
 de:entsteinte Kirschen, entkernte Kirschen
 bg:Обезкостени череши
+es:cereza deshuesada, cereza sin hueso, cerezas deshuesadas, cerezas sin hueso
 fr:Cerise dénoyautée
 ciqual_food_code:en:13008
 ciqual_food_name:en:Cherry, pitted, raw
@@ -39655,10 +39658,6 @@ ciqual_food_name:en:Morello cherry, raw
 ciqual_food_name:fr:Griotte, crue
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:griottes
 # 182 products in 7 languages @2018-09-29
-
-<en:cherry
-en:pitted cherry
-es:cereza deshuesada, cereza sin hueso, cerezas deshuesadas, cerezas sin hueso
 
 <en:sour cherry
 en:sour cherry juice
@@ -41949,6 +41948,7 @@ nl:ananassiroop
 <en:fruit
 en:pomegranate
 am:ሩማን
+bg:нар
 bo:སེ་འབྲུ།
 ca:magrana
 cs:granátové jablko
@@ -41976,6 +41976,7 @@ nl:granaatappel
 pa:ਅਨਾਰ
 pl:granat
 ps:انار
+ro:rodie
 ru:гранатина
 sd:ڏاڙهون
 sk:granátové jablko
@@ -55283,7 +55284,7 @@ pt:amêndoa crua, amêndoas cruas
 
 <en:almond
 fr:amandes biologiques
-fi:luomumanteli, luomumantelit, luomu manteli, luomu mantelits
+fi:luomumanteli, luomumantelit, luomu manteli, luomu mantelit
 pt:amêndoa biológica, amêndoas biológicas
 
 <en:almond
@@ -62041,7 +62042,7 @@ tr:mercanköşk
 uk:майоран
 wa:mariolinne
 zh:墨角蘭
-# aeb-arab:
+# aeb-arab:مردقوش
 # azb:مرزه
 # be-tarask:маяран
 # en-gb:marjoram
@@ -62983,7 +62984,7 @@ de:Wacholder, Wachholder
 el:άρκευθος
 eo:Ordinara junipero
 es:enebro
-et:harilik kadakas
+et:kadakas, harilik kadakas
 eu:Ipar-ipuru
 fa:پیرو
 fi:kataja
@@ -63831,7 +63832,7 @@ cs:tužebník jilmový
 cy:Erwain
 da:Almindelig Mjødurt
 de:Echtes Mädesüß
-et:Harilik angervaks
+et:angervaks, harilik angervaks
 eu:Nasai-lore
 fa:اسپیره
 fi:Mesiangervo
@@ -64116,7 +64117,6 @@ fr:olives noires confites entières
 <en:black olive
 en:olive paté
 de:Olivenpastete
-es:aceituna kalamata
 fi:oliivimassa
 fr:pâte d'olives
 sv:olivmassa
@@ -64125,6 +64125,7 @@ sv:olivmassa
 en:kalamata olive
 bg:маслини каламата
 de:Kalamata Oliven
+es:aceituna kalamata
 fi:kalamata-oliivi, kalamataoliivi
 fr:Olive de Kalamata
 it:olive Kalamata
@@ -65970,6 +65971,7 @@ wikidata:en:Q37868
 wikipedia:en:https://en.wikipedia.org/wiki/Algae
 vegan:en:yes
 vegetarian:en:yes
+nutriscore_fruits_vegetables_nuts:en:yes
 # ingredient/algae has 135 products in 4 languages @2019-01-27
 
 
@@ -66842,7 +66844,7 @@ de:Pfifferlinge, Echter Pfifferling (cantharellus cibarius)
 el:Κανθαρέλλα
 eo:Kantarelo
 es:Chantarela
-et:Harilik kukeseen
+et:kukeseen, harilik kukeseen
 eu:Zizahori
 fa:قارچ قیفی
 fi:keltavahvero
@@ -66913,7 +66915,7 @@ da:Karl Johan
 de:Steinpilze
 el:Βωλίτης ο εδώδιμος
 es:boletus
-et:Harilik kivipuravik
+et:kivipuravik, harilik kivipuravik
 eu:Onddozuri
 fa:قارچ تیره‌سر
 fi:Herkkutatti
@@ -67005,6 +67007,7 @@ la:Boletus reticulatus, Boletus aestivalis
 en:dark cep
 de:dunkler Steinpilz
 fr:Cèpe bronzé
+it:Porcino nero, Moreccio
 la:Boletus aereus, aereus
 
 <en:mushroom
