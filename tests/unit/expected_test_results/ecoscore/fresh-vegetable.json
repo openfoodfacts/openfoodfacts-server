@@ -15,6 +15,7 @@
    ],
    "ingredients" : [
       {
+         "ciqual_food_code" : "20047",
          "id" : "en:tomato",
          "percent_estimate" : 100,
          "percent_max" : 100,
@@ -52,9 +53,12 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
    "known_ingredients_n" : 2,
    "lc" : "en",
    "misc_tags" : [
+      "en:packagings-number-of-components-1",
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty",
@@ -81,5 +85,6 @@
          "shape" : "en:film"
       }
    ],
+   "packagings_n" : 1,
    "unknown_ingredients_n" : 0
 }

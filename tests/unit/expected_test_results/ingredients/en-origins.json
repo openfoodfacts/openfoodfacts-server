@@ -1,6 +1,7 @@
 {
    "ingredients" : [
       {
+         "ciqual_food_code" : "15041",
          "id" : "en:almond",
          "origins" : "en:california",
          "percent_estimate" : 58.3333333333333,
@@ -31,6 +32,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "20047",
          "id" : "en:fresh-tomatoes",
          "origins" : "en:california",
          "percent_estimate" : 5.20833333333333,
@@ -121,6 +123,13 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 6,
    "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:black-olive",
+      "en:orange",
+      "en:orange-juice",
+      "en:peach"
+   ],
+   "ingredients_without_ciqual_codes_n" : 4,
    "known_ingredients_n" : 15,
    "lc" : "en",
    "nutriments" : {

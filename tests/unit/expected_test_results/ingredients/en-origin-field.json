@@ -1,6 +1,7 @@
 {
    "ingredients" : [
       {
+         "ciqual_food_code" : "13014",
          "id" : "en:strawberry",
          "origins" : "en:spain",
          "percent_estimate" : 58.3333333333333,
@@ -11,6 +12,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "13015",
          "id" : "en:raspberry",
          "origins" : "en:new-caledonia",
          "percent_estimate" : 20.8333333333333,
@@ -31,6 +33,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "13020",
          "id" : "en:gooseberry",
          "percent_estimate" : 5.20833333333333,
          "percent_max" : 25,
@@ -50,6 +53,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "20041",
          "id" : "en:bell-pepper",
          "origins" : "en:guatemala",
          "percent_estimate" : 2.60416666666666,
@@ -109,6 +113,11 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 6,
    "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:blueberry",
+      "en:white-peach"
+   ],
+   "ingredients_without_ciqual_codes_n" : 2,
    "known_ingredients_n" : 10,
    "lc" : "en",
    "nutriments" : {

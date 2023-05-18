@@ -30,7 +30,7 @@ C<ProductOpener::Web> consists of functions used only in OpenFoodFacts website f
 
 The module implements http utilities to use in different part of the code.
 
-FIXME: a lot of fuctions in Display.pm should be moved here.
+FIXME: a lot of functions in Display.pm should be moved here.
 
 =cut
 
@@ -61,7 +61,7 @@ use ProductOpener::Config qw/:all/;
 
 =head2 get_cors_headers($allow_credentials = 0, $sub_domain_only = 0)
 
-We handle CORS headers from perl code, NGINX should not interfere.
+We handle CORS headers from Perl code, NGINX should not interfere.
 So this is the central place for it.
 
 Some parts needs to be more strict than others (eg. auth).
@@ -129,7 +129,7 @@ sub get_cors_headers ($allow_credentials = 0, $sub_domain_only = 0) {
 	# be generous on methods and headers, it does not hurt
 	$headers_ref->{"Access-Control-Allow-Methods"} = "HEAD, GET, PATCH, POST, PUT, OPTIONS";
 	$headers_ref->{"Access-Control-Allow-Headers"}
-		= "DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match";
+		= "DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match,Authorization";
 	$headers_ref->{"Access-Control-Expose-Headers"} = "Content-Length,Content-Range";
 
 	return $headers_ref;

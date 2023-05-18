@@ -2806,16 +2806,16 @@ msgid "Warning: the amounts of fiber and of fruits, vegetables and nuts are not 
 msgstr "Warning: the amounts of fiber and of fruits, vegetables and nuts are not specified, their possible positive contribution to the grade could not be taken into account."
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d%"
-msgstr "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d%"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
+msgstr "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
-msgstr "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
+msgstr "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
+msgstr "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -3265,6 +3265,10 @@ msgstr "Products not corrected by %s"
 msgctxt "editors_products"
 msgid "Products edited by %s"
 msgstr "Products edited by %s"
+
+msgctxt "contributors_products"
+msgid "Products added by %s"
+msgstr "Products added by %s"
 
 msgctxt "editors_without_products"
 msgid "Products not edited by %s"
@@ -4434,11 +4438,6 @@ msgctxt "brand_owner_example"
 msgid "The Coca Cola Company"
 msgstr "The Coca Cola Company"
 
-# leave the %d, it will be replaced by a number
-msgctxt "n_products_will_be_exported"
-msgid "%d products will be exported."
-msgstr "%d products will be exported."
-
 msgctxt "categories_properties"
 msgid "Categories properties"
 msgstr "Categories properties"
@@ -4761,10 +4760,6 @@ msgstr "Ultra processed foods"
 msgctxt "export_product_page"
 msgid "Export product to public database"
 msgstr "Export product to public database"
-
-msgctxt "one_product_will_be_exported"
-msgid "1 product will be exported."
-msgstr "1 product will be exported."
 
 msgctxt "no_products_to_export"
 msgid "No products to export."
@@ -5292,6 +5287,10 @@ msgstr "Manage your products on the platform for producers"
 msgctxt "number_of_products_with_changes_since_last_export"
 msgid "Number of products with changes since last export"
 msgstr "Number of products with changes since last export"
+
+msgctxt "number_of_products_withdrawn_from_the_market_since_last_export"
+msgid "Number of products withdrawn from the market since last export"
+msgstr "Number of products withdrawn from the market since last export"
 
 msgctxt "only_export_products_with_changes"
 msgid "Only export products with changes"
@@ -6663,3 +6662,15 @@ msgstr "Pro platform user guide"
 msgctxt "faq_for_producers"
 msgid "FAQ for producers"
 msgstr "FAQ for producers"
+
+msgctxt "product_js_enter_value_between_0_and_100"
+msgid "Please enter a value between 0 and 100."
+msgstr "Please enter a value between 0 and 100."
+
+msgctxt "product_js_sugars_warning"
+msgid "Sugars should not be higher than carbohydrates."
+msgstr "Sugars should not be higher than carbohydrates."
+
+msgctxt "product_js_saturated_fat_warning"
+msgid "Saturated fat should not be higher than fat."
+msgstr "Saturated fat should not be higher than fat."

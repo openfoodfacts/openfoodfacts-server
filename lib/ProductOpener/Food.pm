@@ -396,7 +396,8 @@ sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $
 			'glycemic-index-', 'water-hardness-',
 			'choline-', 'phylloquinone-',
 			'beta-glucan-', 'inositol-',
-			'carnitine-',
+			'carnitine-', 'sulphate-',
+			'nitrate-',
 		)
 	],
 	ca => [
@@ -458,6 +459,7 @@ sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $
 			'water-hardness-', 'choline-',
 			'phylloquinone-', 'beta-glucan-',
 			'inositol-', 'carnitine-',
+			'sulphate-', 'nitrate-',
 		)
 	],
 	ru => [
@@ -519,6 +521,7 @@ sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $
 			'water-hardness-', 'choline-',
 			'phylloquinone-', 'beta-glucan-',
 			'inositol-', 'carnitine-',
+			'sulphate-', 'nitrate-',
 		)
 	],
 	us => [
@@ -578,6 +581,7 @@ sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $
 			'carbon-footprint-', 'carbon-footprint-from-meat-or-fish-',
 			'nutrition-score-fr-', 'nutrition-score-uk-',
 			'glycemic-index-', 'water-hardness-',
+			'sulfate-', 'nitrate-',
 		)
 	],
 	us_before_2017 => [
@@ -638,6 +642,7 @@ sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $
 			'water-hardness-', 'choline-',
 			'phylloquinone-', 'beta-glucan-',
 			'inositol-', 'carnitine-',
+			'sulfate-', 'nitrate-',
 		)
 	],
 	hk => [
@@ -650,6 +655,7 @@ sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $
 			'vitamin-pp-', 'vitamin-b6-', 'vitamin-b9-', 'folates-',
 			'vitamin-b12-', '#minerals', 'calcium', 'potassium-',
 			'phosphorus-', 'iron', 'alcohol', 'nutrition-score-fr-',
+			'sulphate-', 'nitrate-',
 		)
 	],
 );
