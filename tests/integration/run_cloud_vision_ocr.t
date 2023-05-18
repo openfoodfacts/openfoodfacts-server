@@ -39,7 +39,7 @@ dircopy("$sample_products_images_path/$product_code_path", $image_dir);
 fcopy($input_image_path, "$image_dir/2.jpg");
 # fake responses for OCR and robtoff
 my @responses = (
-	HTTP::Response->new("200", "OK", HTTP::Headers->new(), '{"ocr": "success"}'),
+	HTTP::Response->new("200", "OK", HTTP::Headers->new(), '{"responses": [{}]}'),
 	HTTP::Response->new("200", "OK", HTTP::Headers->new(), '{"robotoff": "success"}'),
 );
 my $dump_path = File::Temp->newdir();
@@ -56,10 +56,10 @@ is(scalar @requests, 2, "Two request issued");
 my $ocr_request = retrieve("$dump_path/req-0.sto");
 my $request_json_body = decode_json($ocr_request->content());
 compare_to_expected_results($request_json_body, "$expected_result_dir/ocr_request_body.json", $update_expected_results);
-my $ocr_content = read_file("$image_dir/2.json");
+my $ocr_content = read_gzip_file("$image_dir/2.json.gz");
 ok($ocr_content, "OCR file is not empty");
 my $ocr_data = decode_json($ocr_content);
-compare_to_expected_results($ocr_data, "$expected_result_dir/ocr_data.json", $update_expected_results);
+check_ocr_result($ocr_data);
 my $robotoff_request = retrieve("$dump_path/req-1.sto");
 # we have url encoded parameters, and order might change --> convert to hash
 my $request_content = url_params_mixed($robotoff_request->content());

@@ -2741,6 +2741,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "Load lower resolution images (for slow connections)"
 
+msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
+msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
+msgstr ""
+
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid ""
 "Warning: the amount of fiber is not specified, their possible positive "
@@ -4425,11 +4429,6 @@ msgctxt "edit_link_in_search"
 msgid "Add an edit link in search results"
 msgstr "Add an edit link in search results"
 
-# leave the %d, it will be replaced by a number
-msgctxt "n_products_will_be_exported"
-msgid "%d products will be exported."
-msgstr "%d products will be exported."
-
 msgctxt "ciqual_food_name"
 msgid "CIQUAL food name"
 msgstr "CIQUAL food name"
@@ -4753,10 +4752,6 @@ msgstr "Ultra processed foods"
 msgctxt "export_product_page"
 msgid "Export product to public database"
 msgstr "Export product to public database"
-
-msgctxt "one_product_will_be_exported"
-msgid "1 product will be exported."
-msgstr "1 product will be exported."
 
 msgctxt "no_products_to_export"
 msgid "No products to export."
@@ -5255,6 +5250,10 @@ msgstr "Manage your products on the platform for producers"
 msgctxt "number_of_products_with_changes_since_last_export"
 msgid "Number of products with changes since last export"
 msgstr "Number of products with changes since last export"
+
+msgctxt "number_of_products_withdrawn_from_the_market_since_last_export"
+msgid "Number of products withdrawn from the market since last export"
+msgstr "Number of products withdrawn from the market since last export"
 
 msgctxt "only_export_products_with_changes"
 msgid "Only export products with changes"
@@ -6514,6 +6513,10 @@ msgctxt "api_message_invalid_json_in_request_body"
 msgid "Invalid JSON in request body"
 msgstr "Invalid JSON in request body"
 
+msgctxt "api_message_invalid_code"
+msgid "Invalid code"
+msgstr "Invalid code"
+
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
 msgstr "Invalid type: must be an object"
@@ -6533,6 +6536,10 @@ msgstr "Invalid type: must be a number"
 msgctxt "api_message_missing_field"
 msgid "Missing field"
 msgstr "Missing field"
+
+msgctxt "api_message_unrecognized_field"
+msgid "Unrecognized field"
+msgstr "Unrecognized field"
 
 msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"
@@ -6645,3 +6652,15 @@ msgstr "Pro platform user guide"
 msgctxt "faq_for_producers"
 msgid "FAQ for producers"
 msgstr "FAQ for producers"
+
+msgctxt "product_js_enter_value_between_0_and_100"
+msgid "Please enter a value between 0 and 100."
+msgstr "Please enter a value between 0 and 100."
+
+msgctxt "product_js_sugars_warning"
+msgid "Sugars should not be higher than carbohydrates."
+msgstr "Sugars should not be higher than carbohydrates."
+
+msgctxt "product_js_saturated_fat_warning"
+msgid "Saturated fat should not be higher than fat."
+msgstr "Saturated fat should not be higher than fat."

@@ -1,0 +1,203 @@
+{
+   "categories" : "sugars",
+   "categories_hierarchy" : [
+      "en:sweeteners",
+      "en:sugars"
+   ],
+   "categories_lc" : "en",
+   "categories_properties" : {
+      "agribalyse_proxy_food_code:en" : "31016"
+   },
+   "categories_properties_tags" : [
+      "all-products",
+      "categories-known",
+      "agribalyse-food-code-unknown",
+      "agribalyse-proxy-food-code-31016",
+      "agribalyse-proxy-food-code-known",
+      "ciqual-food-code-unknown",
+      "agribalyse-known",
+      "agribalyse-31016"
+   ],
+   "categories_tags" : [
+      "en:sweeteners",
+      "en:sugars"
+   ],
+   "food_groups" : "en:sweets",
+   "food_groups_tags" : [
+      "en:sugary-snacks",
+      "en:sweets"
+   ],
+   "ingredients" : [
+      {
+         "id" : "en:sugar",
+         "percent_estimate" : 100,
+         "percent_max" : 100,
+         "percent_min" : 100,
+         "text" : "sugar",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {},
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide"
+   ],
+   "ingredients_n" : 1,
+   "ingredients_n_tags" : [
+      "1",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:sugar"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide"
+   ],
+   "ingredients_text" : "sugar",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 1,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:sugar"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
+   "known_ingredients_n" : 3,
+   "lc" : "en",
+   "misc_tags" : [
+      "en:nutrition-not-enough-data-to-compute-nutrition-score",
+      "en:nutriscore-missing-nutrition-data",
+      "en:nutriscore-missing-nutrition-data-energy",
+      "en:nutriscore-missing-nutrition-data-fat",
+      "en:nutriscore-missing-nutrition-data-saturated-fat",
+      "en:nutriscore-missing-nutrition-data-sugars",
+      "en:nutriscore-missing-nutrition-data-sodium",
+      "en:nutriscore-missing-nutrition-data-proteins",
+      "en:nutrition-no-fiber",
+      "en:nutriscore-using-estimated-nutrition-facts",
+      "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
+      "en:nutrition-all-nutriscore-values-known",
+      "en:nutriscore-computed"
+   ],
+   "nutriments" : {
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0,
+      "nutrition-score-fr" : 15,
+      "nutrition-score-fr_100g" : 15
+   },
+   "nutriments_estimated" : {
+      "alcohol_100g" : 0,
+      "beta-carotene_100g" : 0,
+      "calcium_100g" : 0.00369,
+      "carbohydrates_100g" : 99.8,
+      "cholesterol_100g" : 0,
+      "copper_100g" : 5.5e-06,
+      "energy-kcal_100g" : 399,
+      "energy-kj_100g" : 1700,
+      "energy_100g" : 1700,
+      "fat_100g" : 0,
+      "fiber_100g" : 0,
+      "fructose_100g" : 0,
+      "galactose_100g" : 0,
+      "glucose_100g" : 0,
+      "iodine_100g" : 3e-07,
+      "iron_100g" : 7.7e-05,
+      "lactose_100g" : 0,
+      "magnesium_100g" : 0.00165,
+      "maltose_100g" : 0,
+      "manganese_100g" : 6.3e-06,
+      "pantothenic-acid_100g" : 0,
+      "phosphorus_100g" : 0,
+      "phylloquinone_100g" : 0,
+      "polyols_100g" : 0,
+      "potassium_100g" : 0.0135,
+      "proteins_100g" : 0,
+      "salt_100g" : 0.0054,
+      "saturated-fat_100g" : 0,
+      "selenium_100g" : 5e-06,
+      "sodium_100g" : 0.00217,
+      "starch_100g" : 0,
+      "sucrose_100g" : 99.8,
+      "sugars_100g" : 99.8,
+      "vitamin-a_100g" : 0,
+      "vitamin-b12_100g" : 0,
+      "vitamin-b1_100g" : 0,
+      "vitamin-b2_100g" : 1.9e-05,
+      "vitamin-b6_100g" : 0,
+      "vitamin-b9_100g" : 0,
+      "vitamin-c_100g" : 0,
+      "vitamin-d_100g" : 0,
+      "vitamin-e_100g" : 0,
+      "vitamin-pp_100g" : 0,
+      "water_100g" : 0.17,
+      "zinc_100g" : 2e-05
+   },
+   "nutriscore_data" : {
+      "energy" : 1700,
+      "energy_points" : 5,
+      "energy_value" : 1700,
+      "fiber" : 0,
+      "fiber_points" : 0,
+      "fiber_value" : 0,
+      "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
+      "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 0,
+      "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 0,
+      "grade" : "d",
+      "is_beverage" : 0,
+      "is_cheese" : 0,
+      "is_fat" : 0,
+      "is_water" : 0,
+      "negative_points" : 15,
+      "positive_points" : 0,
+      "proteins" : 0,
+      "proteins_points" : 0,
+      "proteins_value" : 0,
+      "saturated_fat" : 0,
+      "saturated_fat_points" : 0,
+      "saturated_fat_ratio" : 0,
+      "saturated_fat_ratio_points" : 0,
+      "saturated_fat_ratio_value" : 0,
+      "saturated_fat_value" : 0,
+      "score" : 15,
+      "sodium" : 2.17,
+      "sodium_points" : 0,
+      "sodium_value" : 2.2,
+      "sugars" : 99.8,
+      "sugars_points" : 10,
+      "sugars_value" : 99.8
+   },
+   "nutriscore_grade" : "d",
+   "nutriscore_score" : 15,
+   "nutriscore_score_opposite" : -15,
+   "nutrition_grade_fr" : "d",
+   "nutrition_grades" : "d",
+   "nutrition_grades_tags" : [
+      "d"
+   ],
+   "nutrition_score_beverage" : 0,
+   "nutrition_score_debug" : "missing energy - missing fat - missing saturated-fat - missing sugars - missing sodium - missing proteins",
+   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
+   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 0,
+   "nutrition_score_warning_nutriments_estimated" : 1,
+   "pnns_groups_1" : "Sugary snacks",
+   "pnns_groups_1_tags" : [
+      "sugary-snacks",
+      "known"
+   ],
+   "pnns_groups_2" : "Sweets",
+   "pnns_groups_2_tags" : [
+      "sweets",
+      "known"
+   ],
+   "unknown_ingredients_n" : 0
+}

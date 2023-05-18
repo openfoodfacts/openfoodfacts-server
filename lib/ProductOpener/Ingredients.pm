@@ -97,6 +97,7 @@ BEGIN {
 		&match_ingredient_origin
 		&parse_origins_from_text
 
+		&assign_ciqual_codes
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -138,11 +139,23 @@ my $commas = qr/(?:\N{U+002C}|\N{U+FE50}|\N{U+FF0C}|\N{U+3001}|\N{U+FE51}|\N{U+F
 my $stops = qr/(?:\N{U+002E}|\N{U+FE52}|\N{U+FF0E}|\N{U+3002}|\N{U+FE61})/i;
 
 # '(' and other opening brackets ('Punctuation, Open' without QUOTEs)
+# U+201A "‚" (Single Low-9 Quotation Mark)
+# U+201E "„" (Double Low-9 Quotation Mark)
+# U+276E "❮" (Heavy Left-Pointing Angle Quotation Mark Ornament)
+# U+2E42 "⹂" (Double Low-Reversed-9 Quotation Mark)
+# U+301D "〝" (Reversed Double Prime Quotation Mark)
+# U+FF08 "（" (Fullwidth Left Parenthesis) used in some countries (Japan)
 my $obrackets = qr/(?![\N{U+201A}|\N{U+201E}|\N{U+276E}|\N{U+2E42}|\N{U+301D}|\N{U+FF08}])[\p{Ps}]/i;
+
 # ')' and other closing brackets ('Punctuation, Close' without QUOTEs)
+# U+276F "❯" (Heavy Right-Pointing Angle Quotation Mark Ornament )
+# U+301E "⹂" (Double Low-Reversed-9 Quotation Mark)
+# U+301F "〟" (Low Double Prime Quotation Mark)
+# U+FF09 "）" (Fullwidth Right Parenthesis) used in some countries (Japan)
 my $cbrackets = qr/(?![\N{U+276F}|\N{U+301E}|\N{U+301F}|\N{U+FF09}])[\p{Pe}]/i;
 
-my $separators_except_comma = qr/(;|:|$middle_dot|\[|\{|\(|( $dashes ))|(\/)/i
+# U+FF0F "／" (Fullwidth Solidus) used in some countries (Japan)
+my $separators_except_comma = qr/(;|:|$middle_dot|\[|\{|\(|\N{U+FF08}|( $dashes ))|(\/|\N{U+FF0F})/i
 	;    # separators include the dot . followed by a space, but we don't want to separate 1.4 etc.
 
 my $separators = qr/($stops\s|$commas|$separators_except_comma)/i;
@@ -1268,8 +1281,7 @@ sub parse_ingredients_text ($product_ref) {
 		my $processing = '';
 
 		$debug_ingredients and $log->debug("analyze_ingredients_function", {string => $s}) if $log->is_debug();
-
-		# find the first separator or ( or [ or :
+		# find the first separator or ( or [ or : etc.
 		if ($s =~ $separators) {
 
 			$before = $`;
@@ -1283,7 +1295,7 @@ sub parse_ingredients_text ($product_ref) {
 
 			# If the first separator is a column : or a start of parenthesis etc. we may have sub ingredients
 
-			if ($sep =~ /(:|\[|\{|\()/i) {
+			if ($sep =~ /(:|\[|\{|\(|\N{U+FF08})/i) {
 
 				# Single separators like commas and dashes
 				my $match = '.*?';    # non greedy match
@@ -1304,6 +1316,10 @@ sub parse_ingredients_text ($product_ref) {
 				}
 				elsif ($sep eq '{') {
 					$ending = '\}';
+				}
+				# brackets type used in some countries (Japan) "（" and "）"
+				elsif ($sep =~ '\N{U+FF08}') {
+					$ending = '\N{U+FF09}';
 				}
 
 				$ending = '(' . $ending . ')';
@@ -1768,7 +1784,7 @@ sub parse_ingredients_text ($product_ref) {
 									if $log->is_trace();
 
 								if (
-									# English, French etc. match before or after the ingredient, require a space
+									# match before or after the ingredient, require a space
 									(
 										#($product_lc =~ /^(en|es|it|fr)$/)
 										(
@@ -1787,13 +1803,14 @@ sub parse_ingredients_text ($product_ref) {
 										and ($new_ingredient =~ /(^($regexp)\b|\b($regexp)$)/i)
 									)
 
-									#  match after, do not require a space
-									# currently no language
-									#or ( ($product_lc eq 'xx') and ($new_ingredient =~ /($regexp)$/i) )
-
-									#  Dutch: match before or after, do not require a space
+									#  match before or after the ingredient, does not require a space
 									or (    (($product_lc eq 'de') or ($product_lc eq 'nl') or ($product_lc eq 'hu'))
 										and ($new_ingredient =~ /(^($regexp)|($regexp)$)/i))
+
+									# match after the ingredient, does not require a space
+									# match before the ingredient, require a space
+									or (    ($product_lc eq 'fi')
+										and ($new_ingredient =~ /(^($regexp)\b|($regexp)$)/i))
 									)
 								{
 									$new_ingredient = $` . $';
@@ -2356,6 +2373,9 @@ sub extract_ingredients_from_text ($product_ref) {
 		# Add properties like origins from specific ingredients extracted from labels or the end of the ingredients list
 		add_properties_from_specific_ingredients($product_ref);
 
+		# Obtain Ciqual codes ready for ingredients estimation from nutrients
+		assign_ciqual_codes($product_ref);
+
 		# Compute minimum and maximum percent ranges for each ingredient and sub ingredient
 
 		if (compute_ingredients_percent_values(100, 100, $product_ref->{ingredients}) < 0) {
@@ -2390,6 +2410,34 @@ sub extract_ingredients_from_text ($product_ref) {
 	}
 
 	return;
+}
+
+sub assign_ciqual_codes ($product_ref) {
+	my @ingredients_without_ciqual_codes = uniq(sort(get_missing_ciqual_codes($product_ref->{ingredients})));
+	$product_ref->{ingredients_without_ciqual_codes} = \@ingredients_without_ciqual_codes;
+	$product_ref->{ingredients_without_ciqual_codes_n} = @ingredients_without_ciqual_codes + 0.0;
+	return;
+}
+
+sub get_missing_ciqual_codes ($ingredients_ref) {
+	my @ingredients_without_ciqual_codes = ();
+	foreach my $ingredient_ref (@{$ingredients_ref}) {
+		if (defined $ingredient_ref->{ingredients}) {
+			push(@ingredients_without_ciqual_codes, get_missing_ciqual_codes($ingredient_ref->{ingredients}));
+		}
+		else {
+			my $ciqual_food_code = get_inherited_property("ingredients", $ingredient_ref->{id}, "ciqual_food_code:en");
+			if (defined $ciqual_food_code) {
+				$ingredient_ref->{ciqual_food_code} = $ciqual_food_code;
+			}
+			else {
+				exists $ingredient_ref->{ciqual_food_code} and delete $ingredient_ref->{ciqual_food_code};
+				push(@ingredients_without_ciqual_codes, $ingredient_ref->{id});
+			}
+		}
+	}
+
+	return @ingredients_without_ciqual_codes;
 }
 
 =head2 delete_ingredients_percent_values ( ingredients_ref )
@@ -2546,14 +2594,28 @@ sub init_percent_values ($total_min, $total_max, $ingredients_ref) {
 	# if the sum of specified percents for the ingredients is greater than the percent max of the parent.
 
 	my $percent_sum = 0;
+	my $all_ingredients_have_a_set_percent = 1;
 	foreach my $ingredient_ref (@{$ingredients_ref}) {
 		if (defined $ingredient_ref->{percent}) {
 			$percent_sum += $ingredient_ref->{percent};
+		}
+		else {
+			$all_ingredients_have_a_set_percent = 0;
 		}
 	}
 
 	if ($percent_sum > $total_max) {
 		$percent_mode = "relative";
+	}
+
+	# If the parent ingredient percent is known (total_min = total_max)
+	# and we have set percent for all ingredients, then the ingredients percent value
+	# may in fact be a quantity in grams, we will need to scale the quantities to get actual percent values
+	# This is the case in particular for recipes that can be specified in grams with a total greater than 100g
+	# So we start supposing it's grams (as if it's percent it will also work).
+
+	if (($total_min == $total_max) and $all_ingredients_have_a_set_percent) {
+		$percent_mode = "grams";
 	}
 
 	$log->debug(
@@ -2563,7 +2625,8 @@ sub init_percent_values ($total_min, $total_max, $ingredients_ref) {
 			ingredients_ref => $ingredients_ref,
 			total_min => $total_min,
 			total_max => $total_max,
-			percent_sum => $percent_sum
+			percent_sum => $percent_sum,
+			all_ingredients_have_a_set_percent => $all_ingredients_have_a_set_percent,
 		}
 	) if $log->is_debug();
 
@@ -2573,6 +2636,16 @@ sub init_percent_values ($total_min, $total_max, $ingredients_ref) {
 		if (defined $ingredient_ref->{percent}) {
 			# There is a specified percent for the ingredient.
 
+			if ($percent_mode eq "grams") {
+				# the specified percent of the ingredient is in fact in grams
+				# (when we parse the ingredients list, if we see a value in grams, we assign it to the percent field,
+				# as values are usually listed for 100g)
+				# we need to convert it to actual %
+				my $percent = $ingredient_ref->{percent} * $total_max / $percent_sum;
+				$ingredient_ref->{percent} = $percent;
+				$ingredient_ref->{percent_min} = $percent;
+				$ingredient_ref->{percent_max} = $percent;
+			}
 			if (($percent_mode eq "absolute") or ($total_min == $total_max)) {
 				# We can assign an absolute percent to the ingredient because
 				# 1. the percent mode is absolute

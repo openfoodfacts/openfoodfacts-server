@@ -114,6 +114,7 @@ BEGIN {
 		&init_emb_codes
 
 		%tags_fields
+		%writable_tags_fields
 		%users_tags_fields
 		%taxonomy_fields
 		@drilldown_fields
@@ -232,6 +233,20 @@ To this initial list, taxonomized fields will be added by retrieve_tags_taxonomy
 	checkers => 1,
 	correctors => 1,
 	weighers => 1,
+);
+
+# Writable tags fields that can be written directly (e.g. categories, labels) and that are not derived from other fields (e.g. states)
+%writable_tags_fields = (
+	categories => 1,
+	labels => 1,
+	origins => 1,
+	manufacturing_places => 1,
+	emb_codes => 1,
+	allergens => 1,
+	traces => 1,
+	purchase_places => 1,
+	stores => 1,
+	countries => 1,
 );
 
 # Fields that are tags related to users
@@ -1236,7 +1251,8 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					# issue an error message and continue
 					my $msg
 						= "$lc:$lc_tagid already is associated to "
-						. $translations_from{$tagtype}{"$lc:$lc_tagid"}
+						. $translations_from{$tagtype}{"$lc:$lc_tagid"} . " ("
+						. $tagtype . ")"
 						. " - $lc:$lc_tagid cannot be mapped to entry $canon_tagid\n";
 					$errors .= "ERROR - " . $msg;
 					next;
@@ -1276,6 +1292,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 							. $synonyms{$tagtype}{$lc}{$tagid}
 							. " for entry "
 							. $translations_from{$tagtype}{$lc . ":" . $synonyms{$tagtype}{$lc}{$tagid}}
+							. " ($tagtype)"
 							. " - $lc:$tagid cannot be mapped to entry $canon_tagid / $lc:$lc_tagid\n";
 						$errors .= "ERROR - " . $msg;
 						next;
@@ -1301,10 +1318,8 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			print STDERR $errors;
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
 			# Disable die for the packaging taxonomy as some legit material and shape might have same name
-			# Temporarily (hopefully) disable die for the categories taxonomy, to give time to fix issues
 			unless (($tagtype eq "ingredients")
 				or ($tagtype eq "packaging")
-				or ($tagtype eq "categories")
 				or ($tagtype eq "packaging"))
 			{
 				die("Errors in the $tagtype taxonomy definition");
@@ -1938,9 +1953,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			print STDERR $errors;
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
 			# Disable also for packaging taxonomy for some shapes and materials shares same names
-			# Also temporarily disable die for the categories taxonomy, to give use time to fix it.
-			# Tracking bug: https://github.com/openfoodfacts/openfoodfacts-server/issues/6382
-			unless (($tagtype eq "ingredients") or ($tagtype eq "packaging") or ($tagtype eq "categories")) {
+			unless (($tagtype eq "ingredients") or ($tagtype eq "packaging")) {
 				die("Errors in the $tagtype taxonomy definition");
 			}
 		}

@@ -1126,7 +1126,7 @@ sub import_packaging_components (
 	my @input_packagings = ();
 	my $data_is_complete = 0;
 
-	# packaging data is specified in the CSV file in columns named like packagings_1_number_of_units
+	# packaging data is specified in the CSV file in columns named like packaging_1_number_of_units
 	# we currently search up to 10 components
 
 	for (my $i = 1; $i <= $IMPORT_MAX_PACKAGING_COMPONENTS; $i++) {
@@ -1144,6 +1144,8 @@ sub import_packaging_components (
 
 		# Record if we have complete input data, with all key fields (for at least 1 component)
 		# not considered a key field (and thus may be lost): recycling instruction, quantity per unit
+		# If we have complete data for one component in an import, we assume the data is reasonably
+		# complete for all components (e.g. we might miss a weight for a very light component)
 		if (
 				(defined $input_packaging_ref->{number_of_units})
 			and (defined $input_packaging_ref->{shape})
@@ -1159,6 +1161,8 @@ sub import_packaging_components (
 	if ($data_is_complete) {
 		# We seem to have complete data, replace existing data
 		$product_ref->{packagings} = \@input_packagings;
+		# and set the packagings complete checkbox
+		$product_ref->{packagings_complete} = 1;
 	}
 	else {
 		# We have partial data, that may be missing fields like number of units, weight etc.
@@ -2033,15 +2037,13 @@ sub import_csv_file ($args_ref) {
 				my $source_field = $';
 				defined $product_ref->{sources_fields} or $product_ref->{sources_fields} = {};
 				defined $product_ref->{sources_fields}{$source_id} or $product_ref->{sources_fields}{$source_id} = {};
-				if ($imported_product_ref->{$field} ne $product_ref->{sources_fields}{$source_id}{$source_field}) {
+				if (   (not defined $product_ref->{sources_fields}{$source_id}{$source_field})
+					or ($imported_product_ref->{$field} ne $product_ref->{sources_fields}{$source_id}{$source_field}))
+				{
 					$modified++;
 					defined $stats_ref->{"products_sources_field_" . $field . "_updated"}
 						or $stats_ref->{"products_sources_field_" . $field . "_updated"} = {};
 					$stats_ref->{"products_sources_field_" . $field . "_updated"}{$code} = 1;
-					print "different sources_field values - field: $field - existing: "
-						. $product_ref->{sources_fields}{$source_id}{$source_field}
-						. " - new: "
-						. $imported_product_ref->{$field} . "\n";
 					$product_ref->{sources_fields}{$source_id}{$source_field} = $imported_product_ref->{$field};
 				}
 			}

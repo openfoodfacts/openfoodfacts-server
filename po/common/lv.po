@@ -1773,6 +1773,14 @@ msgctxt "product_changes_saved"
 msgid "Changes saved."
 msgstr ""
 
+msgctxt "product_edit_you_contributed"
+msgid "You just helped to improve the world largest open data database."
+msgstr ""
+
+msgctxt "product_edit_thank_you"
+msgid "Thank you so much for joining us in our journey to data transparency!"
+msgstr ""
+
 msgctxt "product_characteristics"
 msgid "Product characteristics"
 msgstr ""
@@ -2290,6 +2298,10 @@ msgctxt "see_product_page"
 msgid "See the product page"
 msgstr ""
 
+msgctxt "re_edit_product_page"
+msgid "Edit the product again"
+msgstr ""
+
 msgctxt "select_country"
 msgid "Country"
 msgstr ""
@@ -2614,6 +2626,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr ""
 
+msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
+msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
+msgstr ""
+
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "Brīdinājums: šķiedru daudzums nav norādīts, to iespējamo pozitīvo ietekmi uz kategoriju nevarēja ņemt vērā."
@@ -2632,11 +2648,11 @@ msgstr ""
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
-msgstr ""
+msgstr "Brīdinājums: uz etiķetes nav norādīts augļu, dārzeņu un riekstu daudzums, tika novērtēts no produkta kategorijas (%s): %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
-msgstr ""
+msgstr "Brīdinājums: uz etiķetes nav norādīts augļu, dārzeņu un riekstu daudzums, tika novērtēts no sastāvdaļu saraksta: %d"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -3375,6 +3391,10 @@ msgstr ""
 msgctxt "fields_group_images"
 msgid "Product photos"
 msgstr ""
+
+msgctxt "fields_group_packaging"
+msgid "Packaging"
+msgstr "Iepakojums"
 
 msgctxt "image_front_url"
 msgid "Link to front product photo"
@@ -5859,6 +5879,38 @@ msgctxt "health"
 msgid "Health"
 msgstr ""
 
+msgctxt "contribution_panel_title"
+msgid "Contribution"
+msgstr ""
+
+msgctxt "contribution_navigation"
+msgid "Contribution"
+msgstr ""
+
+msgctxt "data_quality_errors_panel_title"
+msgid "Detected Errors"
+msgstr ""
+
+msgctxt "data_quality_errors_panel_subtitle"
+msgid "Help us improve quality of our data by contributing fixes"
+msgstr ""
+
+msgctxt "data_quality_warnings_panel_title"
+msgid "Potential issues"
+msgstr ""
+
+msgctxt "data_quality_warnings_panel_subtitle"
+msgid "We have detected some potential issues or potential improvements, could you check if some apply ?"
+msgstr ""
+
+msgctxt "data_quality_info_panel_title"
+msgid "Data Quality infos"
+msgstr ""
+
+msgctxt "data_quality_info_panel_subtitle"
+msgid "Some infos about data quality on this product"
+msgstr ""
+
 # will be followed by : and a value. e.g. "Compared to: bananas"
 msgctxt "compared_to"
 msgid "Compared to"
@@ -6096,6 +6148,10 @@ msgctxt "action_add_packaging_image"
 msgid "Take a photo of the recycling information"
 msgstr ""
 
+msgctxt "action_add_packaging_components"
+msgid "Add packaging components"
+msgstr ""
+
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
@@ -6316,6 +6372,10 @@ msgctxt "api_message_invalid_json_in_request_body"
 msgid "Invalid JSON in request body"
 msgstr ""
 
+msgctxt "api_message_invalid_code"
+msgid "Invalid code"
+msgstr ""
+
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
 msgstr ""
@@ -6334,6 +6394,10 @@ msgstr ""
 
 msgctxt "api_message_missing_field"
 msgid "Missing field"
+msgstr ""
+
+msgctxt "api_message_unrecognized_field"
+msgid "Unrecognized field"
 msgstr ""
 
 msgctxt "api_message_unrecognized_value"

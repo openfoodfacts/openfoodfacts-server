@@ -1027,15 +1027,10 @@ sub display_index_for_producer ($request_ref) {
 	}
 
 	# Display a message if some product updates have not been published yet
+	# Updates can also be on obsolete products
 
-	my $count = count_products($request_ref, {states_tags => "en:to-be-exported"});
-
-	if ($count == 1) {
-		$template_data_ref->{products_to_be_exported} = lang("one_product_will_be_exported");
-	}
-	elsif ($count > 1) {
-		$template_data_ref->{products_to_be_exported} = sprintf(lang("n_products_will_be_exported"), $count);
-	}
+	$template_data_ref->{count_to_be_exported} = count_products({}, {states_tags => "en:to-be-exported"});
+	$template_data_ref->{count_obsolete_to_be_exported} = count_products({}, {states_tags => "en:to-be-exported"}, 1);
 
 	my $html;
 
@@ -3908,6 +3903,10 @@ HTML
 
 					$user_template_data_ref->{links} = [
 						{
+							text => sprintf(lang('contributors_products'), $products_title),
+							url => canonicalize_tag_link("contributors", get_string_id_for_lang("no_language", $tagid)),
+						},
+						{
 							text => sprintf(lang('editors_products'), $products_title),
 							url => canonicalize_tag_link("editors", get_string_id_for_lang("no_language", $tagid)),
 						},
@@ -4369,7 +4368,7 @@ sub add_country_and_owner_filters_to_query ($request_ref, $query_ref) {
 	return;
 }
 
-sub count_products ($request_ref, $query_ref) {
+sub count_products ($request_ref, $query_ref, $obsolete = 0) {
 
 	add_country_and_owner_filters_to_query($request_ref, $query_ref);
 
@@ -4379,8 +4378,7 @@ sub count_products ($request_ref, $query_ref) {
 		$log->debug("Counting MongoDB documents for query", {query => $query_ref}) if $log->is_debug();
 		$count = execute_query(
 			sub {
-				return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
-					->count_documents($query_ref);
+				return get_products_collection({obsolete => $obsolete})->count_documents($query_ref);
 			}
 		);
 	};
@@ -8736,6 +8734,11 @@ sub data_to_display_nutriscore($) {
 		# Do not display a warning for water
 		if (not(has_tag($product_ref, "categories", "en:spring-waters"))) {
 
+			# Warning for nutrients estimated from ingredients
+			if ($product_ref->{nutrition_score_warning_nutriments_estimated}) {
+				push @nutriscore_warnings, lang("nutrition_grade_fr_nutriments_estimated_warning");
+			}
+
 			# Warning for tea and herbal tea in bags: state that the Nutri-Score applies
 			# only when reconstituted with water only (no milk, no sugar)
 			if (
@@ -8750,36 +8753,27 @@ sub data_to_display_nutriscore($) {
 			}
 
 			# Combined message when we miss both fruits and fiber
-			if (    (defined $product_ref->{nutrition_score_warning_no_fiber})
-				and ($product_ref->{nutrition_score_warning_no_fiber} == 1)
+			if (    ($product_ref->{nutrition_score_warning_no_fiber})
 				and (defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts})
 				and ($product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} == 1))
 			{
 				push @nutriscore_warnings, lang("nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning");
 			}
-			elsif ( (defined $product_ref->{nutrition_score_warning_no_fiber})
-				and ($product_ref->{nutrition_score_warning_no_fiber} == 1))
-			{
+			elsif ($product_ref->{nutrition_score_warning_no_fiber}) {
 				push @nutriscore_warnings, lang("nutrition_grade_fr_fiber_warning");
 			}
-			elsif ( (defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts})
-				and ($product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} == 1))
-			{
+			elsif ($product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts}) {
 				push @nutriscore_warnings, lang("nutrition_grade_fr_no_fruits_vegetables_nuts_warning");
 			}
 
-			if (    (defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate})
-				and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate} == 1))
-			{
+			if ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate}) {
 				push @nutriscore_warnings,
 					sprintf(
 					lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"),
 					$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate_100g"}
 					);
 			}
-			if (    (defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category})
-				and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category} ne ''))
-			{
+			if ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category}) {
 				push @nutriscore_warnings,
 					sprintf(
 					lang("nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"),
@@ -8789,9 +8783,7 @@ sub data_to_display_nutriscore($) {
 					$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value}
 					);
 			}
-			if (    (defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients})
-				and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients} ne ''))
-			{
+			if ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients}) {
 				push @nutriscore_warnings,
 					sprintf(
 					lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"),
