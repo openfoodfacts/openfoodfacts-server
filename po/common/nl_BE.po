@@ -1777,6 +1777,14 @@ msgctxt "product_changes_saved"
 msgid "Changes saved."
 msgstr "De wijzigingen werden opgeslagen."
 
+msgctxt "product_edit_you_contributed"
+msgid "You just helped to improve the world largest open data database."
+msgstr "Je hebt zojuist geholpen om 's werelds grootste open data database te verbeteren."
+
+msgctxt "product_edit_thank_you"
+msgid "Thank you so much for joining us in our journey to data transparency!"
+msgstr ""
+
 msgctxt "product_characteristics"
 msgid "Product characteristics"
 msgstr "Eigenschappen van het product"
@@ -2302,6 +2310,10 @@ msgctxt "see_product_page"
 msgid "See the product page"
 msgstr "De pagina van het product bekijken"
 
+msgctxt "re_edit_product_page"
+msgid "Edit the product again"
+msgstr "Bewerk het product opnieuw"
+
 msgctxt "select_country"
 msgid "Country"
 msgstr "Land"
@@ -2627,6 +2639,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "Laad afbeeldingen met een lagere resolutie (voor langzame verbindingen)"
 
+msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
+msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
+msgstr "Waarschuwing: de voedingswaarden zijn niet opgegeven. Ze zijn geschat uit de lijst met ingrediënten."
+
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "Waarschuwing: de hoeveelheid vezels is niet gespecificeerd, hun mogelijke positieve bijdrage aan de klasse kan niet in aanmerking worden genomen."
@@ -2641,15 +2657,15 @@ msgstr "Waarschuwing: de hoeveelheid fruit, groenten en noten is niet gespecific
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
-msgstr "Waarschuwing: de hoeveelheid fruit, groenten en noten staat niet op het etiket, maar werd geschat op basis van de ingrediëntenlijst: %d%"
+msgstr "Waarschuwing: de hoeveelheid fruit, groenten en noten staat niet op het etiket, deze werd handmatig geschat uit de lijst met ingrediënten: %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
-msgstr "Waarschuwing: de hoeveelheid fruit, groenten en noten staat niet op het etiket, deze is geschat op basis van de categorie (%s) van het product:%d%"
+msgstr "Waarschuwing: de hoeveelheid fruit, groenten en noten staat niet op het etiket, deze is geschat op basis van de categorie (%s) van het product:%d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
-msgstr "Waarschuwing: de hoeveelheid fruit, groenten en noten staat niet op het etiket, maar is geschat op basis van de ingrediëntenlijst: %d%"
+msgstr "Waarschuwing: de hoeveelheid fruit, groenten en noten staat niet op het etiket, maar werd geschat op basis van de ingrediëntenlijst: %d"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -3388,6 +3404,10 @@ msgstr "Overige informatie"
 msgctxt "fields_group_images"
 msgid "Product photos"
 msgstr "Productfoto's"
+
+msgctxt "fields_group_packaging"
+msgid "Packaging"
+msgstr "Verpakking"
 
 msgctxt "image_front_url"
 msgid "Link to front product photo"
@@ -5872,6 +5892,38 @@ msgctxt "health"
 msgid "Health"
 msgstr "Gezondheid"
 
+msgctxt "contribution_panel_title"
+msgid "Contribution"
+msgstr "Bijdrage"
+
+msgctxt "contribution_navigation"
+msgid "Contribution"
+msgstr "Bijdrage"
+
+msgctxt "data_quality_errors_panel_title"
+msgid "Detected Errors"
+msgstr "Gedetecteerde fouten"
+
+msgctxt "data_quality_errors_panel_subtitle"
+msgid "Help us improve quality of our data by contributing fixes"
+msgstr "Help ons de kwaliteit van onze gegevens te verbeteren door oplossingen aan te bieden"
+
+msgctxt "data_quality_warnings_panel_title"
+msgid "Potential issues"
+msgstr "Potentiële problemen"
+
+msgctxt "data_quality_warnings_panel_subtitle"
+msgid "We have detected some potential issues or potential improvements, could you check if some apply ?"
+msgstr "We hebben enkele potentiële problemen of mogelijke verbeteringen ontdekt. Kunt u controleren of deze van toepassing zijn?"
+
+msgctxt "data_quality_info_panel_title"
+msgid "Data Quality infos"
+msgstr "Informatie over gegevenskwaliteit"
+
+msgctxt "data_quality_info_panel_subtitle"
+msgid "Some infos about data quality on this product"
+msgstr "Wat info over de gegevenskwaliteit van dit product"
+
 # will be followed by : and a value. e.g. "Compared to: bananas"
 msgctxt "compared_to"
 msgid "Compared to"
@@ -6109,6 +6161,10 @@ msgctxt "action_add_packaging_image"
 msgid "Take a photo of the recycling information"
 msgstr "Maak een foto van de recyclinginformatie"
 
+msgctxt "action_add_packaging_components"
+msgid "Add packaging components"
+msgstr "Voeg verpakkingsonderdelen toe"
+
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
@@ -6152,7 +6208,7 @@ msgstr "Voeg de winkel toe waar je dit product hebt gevonden"
 # this is not used yet
 msgctxt "action_labels"
 msgid "Add any label present on this product"
-msgstr ""
+msgstr "Voeg een eventueel aanwezig label op dit product toe"
 
 # this is not used yet
 msgctxt "action_countries"
@@ -6315,11 +6371,11 @@ msgstr "Product bijgewerkt"
 
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
-msgstr ""
+msgstr "Ongeldige API-actie"
 
 msgctxt "api_message_invalid_api_method"
 msgid "Invalid API method"
-msgstr ""
+msgstr "Ongeldige API-methode"
 
 msgctxt "api_message_empty_request_body"
 msgid "Empty request body"
@@ -6328,6 +6384,10 @@ msgstr "Lege aanvraagtekst"
 msgctxt "api_message_invalid_json_in_request_body"
 msgid "Invalid JSON in request body"
 msgstr ""
+
+msgctxt "api_message_invalid_code"
+msgid "Invalid code"
+msgstr "Ongeldige code"
 
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
@@ -6348,6 +6408,10 @@ msgstr "Ongeldig type: moet een getal zijn"
 msgctxt "api_message_missing_field"
 msgid "Missing field"
 msgstr "Ontbrekend veld"
+
+msgctxt "api_message_unrecognized_field"
+msgid "Unrecognized field"
+msgstr "Onbekend veld"
 
 msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"
@@ -6425,7 +6489,7 @@ msgstr "Voer recyclinginstructies alleen in als ze op het product vermeld staan.
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
 msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
-msgstr ""
+msgstr "Verwijder eventueel achtergebleven voedsel en was en droog het verpakkingsgedeelte voordat u gaat wegen. Gebruik indien mogelijk een weegschaal met een nauwkeurigheid van 0,1 g of 0,01 g."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
@@ -6459,5 +6523,5 @@ msgstr "Pro-platform gebruikershandleiding"
 
 msgctxt "faq_for_producers"
 msgid "FAQ for producers"
-msgstr "FAQ voor producenten"
+msgstr "Veelgestelde vragen voor producenten"
 
