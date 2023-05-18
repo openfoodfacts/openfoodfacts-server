@@ -1776,6 +1776,14 @@ msgctxt "product_changes_saved"
 msgid "Changes saved."
 msgstr "Los cambios han sido guardados."
 
+msgctxt "product_edit_you_contributed"
+msgid "You just helped to improve the world largest open data database."
+msgstr "Acabas de ayudar a mejorar la mayor base de datos abierta del mundo."
+
+msgctxt "product_edit_thank_you"
+msgid "Thank you so much for joining us in our journey to data transparency!"
+msgstr "¡Muchas gracias por acompañarnos en nuestro viaje hacia la transparencia de datos!"
+
 msgctxt "product_characteristics"
 msgid "Product characteristics"
 msgstr "Características del producto"
@@ -2302,6 +2310,10 @@ msgctxt "see_product_page"
 msgid "See the product page"
 msgstr "Ver la página del producto"
 
+msgctxt "re_edit_product_page"
+msgid "Edit the product again"
+msgstr "Editar el producto nuevamente"
+
 msgctxt "select_country"
 msgid "Country"
 msgstr "País"
@@ -2627,6 +2639,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "Cargar imágenes de baja resolución (para conexiones lentas)"
 
+msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
+msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
+msgstr ""
+
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "Atención: la cantidad de fibra no se ha especificado, por lo que su posible contribución positiva a la clasificación no se tendrá en cuenta."
@@ -2641,7 +2657,7 @@ msgstr "Atención: la cantidad de frutas, verduras y frutos secos no se ha espec
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
-msgstr "Atención: la cantidad de frutas, verduras y frutos secos no viene especificada en la etiqueta, por lo que se ha calculado manualmente de acuerdo con la lista de ingredientes: %d"
+msgstr ""
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
@@ -2649,7 +2665,7 @@ msgstr "Atención: la cantidad de frutas, verduras y frutos secos no viene espec
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
-msgstr "Atención: la cantidad de frutas, verduras y frutos secos no viene especificada en la etiqueta, por lo que se ha hecho una estimación a partir la lista de ingredientes: %d"
+msgstr "Atención: la cantidad de frutas, verduras y frutos secos no viene especificada en la etiqueta, por lo que se ha calculado de acuerdo con la lista de ingredientes: %d"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -3388,6 +3404,10 @@ msgstr "Otra información"
 msgctxt "fields_group_images"
 msgid "Product photos"
 msgstr "Fotos de producto"
+
+msgctxt "fields_group_packaging"
+msgid "Packaging"
+msgstr "Envase"
 
 msgctxt "image_front_url"
 msgid "Link to front product photo"
@@ -5872,6 +5892,38 @@ msgctxt "health"
 msgid "Health"
 msgstr "Salud"
 
+msgctxt "contribution_panel_title"
+msgid "Contribution"
+msgstr "Contribución"
+
+msgctxt "contribution_navigation"
+msgid "Contribution"
+msgstr "Contribución"
+
+msgctxt "data_quality_errors_panel_title"
+msgid "Detected Errors"
+msgstr "Errores detectados"
+
+msgctxt "data_quality_errors_panel_subtitle"
+msgid "Help us improve quality of our data by contributing fixes"
+msgstr "Ayúdanos a mejorar la calidad de nuestros datos aportando correcciones"
+
+msgctxt "data_quality_warnings_panel_title"
+msgid "Potential issues"
+msgstr "Posibles problemas"
+
+msgctxt "data_quality_warnings_panel_subtitle"
+msgid "We have detected some potential issues or potential improvements, could you check if some apply ?"
+msgstr "Hemos detectado algunos problemas potenciales o posibles mejoras, ¿podrías comprobar si se aplican algunos?"
+
+msgctxt "data_quality_info_panel_title"
+msgid "Data Quality infos"
+msgstr "Información sobre la calidad de los datos"
+
+msgctxt "data_quality_info_panel_subtitle"
+msgid "Some infos about data quality on this product"
+msgstr "Algunas informaciones sobre la calidad de los datos en este producto"
+
 # will be followed by : and a value. e.g. "Compared to: bananas"
 msgctxt "compared_to"
 msgid "Compared to"
@@ -6109,6 +6161,10 @@ msgctxt "action_add_packaging_image"
 msgid "Take a photo of the recycling information"
 msgstr "Toma una fotografía de la información de reciclaje"
 
+msgctxt "action_add_packaging_components"
+msgid "Add packaging components"
+msgstr "Añadir un componente del embalaje"
+
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
@@ -6329,6 +6385,10 @@ msgctxt "api_message_invalid_json_in_request_body"
 msgid "Invalid JSON in request body"
 msgstr "JSON inválido en el cuerpo de la solicitud"
 
+msgctxt "api_message_invalid_code"
+msgid "Invalid code"
+msgstr ""
+
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
 msgstr "Tipo no válido: debe ser un objeto"
@@ -6348,6 +6408,10 @@ msgstr "Tipo no válido: Debe ser una cifra"
 msgctxt "api_message_missing_field"
 msgid "Missing field"
 msgstr "Capo vacío"
+
+msgctxt "api_message_unrecognized_field"
+msgid "Unrecognized field"
+msgstr ""
 
 msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"

@@ -1561,7 +1561,7 @@ msgstr "Tabelul listează în mod implicit nutrienții care sunt adesea specific
 
 msgctxt "nutrition_data_table_asterisk"
 msgid "Essential nutrients to calculate the Nutri-Score."
-msgstr ""
+msgstr "Nutrienți esențiali pentru a calcula Nutri-Score."
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
@@ -1772,6 +1772,14 @@ msgstr "Produs adăugat în"
 msgctxt "product_changes_saved"
 msgid "Changes saved."
 msgstr "Schimbările au fost salvate."
+
+msgctxt "product_edit_you_contributed"
+msgid "You just helped to improve the world largest open data database."
+msgstr "Tocmai ați contribuit la îmbunătățirea celei mai mari baze de date deschise din lume."
+
+msgctxt "product_edit_thank_you"
+msgid "Thank you so much for joining us in our journey to data transparency!"
+msgstr "Vă mulțumim foarte mult că v-ați alăturat nouă în călătoria noastră către transparența datelor!"
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
@@ -2299,6 +2307,10 @@ msgctxt "see_product_page"
 msgid "See the product page"
 msgstr "Vedeți pagina produsului"
 
+msgctxt "re_edit_product_page"
+msgid "Edit the product again"
+msgstr "Editați din nou produsul"
+
 msgctxt "select_country"
 msgid "Country"
 msgstr "Țară"
@@ -2624,6 +2636,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "Încărcați imagini cu rezoluție mai mică (pentru conexiuni lente)"
 
+msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
+msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
+msgstr "Atenție: valorile nutriționale nu sunt specificate. Au fost estimate din lista de ingrediente."
+
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "Avertisment: cantitatea de fructe, legume și nuci nu este specificată, contribuția lor pozitivă nu a putut fi luată în considerare."
@@ -2642,11 +2658,11 @@ msgstr "Atenție: cantitatea de fructe, legume și nuci nu este specificată pe 
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
-msgstr "Atenție: cantitatea de fructe, legume și nuci nu este specificată pe etichetă, s-a estimat din categoria (%s) a produsului: %d"
+msgstr "Avertisment: cantitatea de fructe, legume și nuci nu este specificată pe etichetă, a fost estimată din lista ingredientelor: %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
-msgstr "Atenție: cantitatea de fructe, legume și nuci nu este specificată pe etichetă, s-a estimat din lista de ingrediente: %d"
+msgstr "Avertisment: cantitatea de fructe, legume și nuci nu este specificată pe etichetă, a fost estimată din lista ingredientelor: %d"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -3385,6 +3401,10 @@ msgstr "Alte informații"
 msgctxt "fields_group_images"
 msgid "Product photos"
 msgstr "Fotografii produs"
+
+msgctxt "fields_group_packaging"
+msgid "Packaging"
+msgstr "Ambalare"
 
 msgctxt "image_front_url"
 msgid "Link to front product photo"
@@ -5869,6 +5889,38 @@ msgctxt "health"
 msgid "Health"
 msgstr "Sănătate"
 
+msgctxt "contribution_panel_title"
+msgid "Contribution"
+msgstr "Contribuiți"
+
+msgctxt "contribution_navigation"
+msgid "Contribution"
+msgstr "Contribuiți"
+
+msgctxt "data_quality_errors_panel_title"
+msgid "Detected Errors"
+msgstr "Erori detectate"
+
+msgctxt "data_quality_errors_panel_subtitle"
+msgid "Help us improve quality of our data by contributing fixes"
+msgstr "Ajutați-ne să îmbunătățim calitatea datelor noastre contribuind cu remedieri"
+
+msgctxt "data_quality_warnings_panel_title"
+msgid "Potential issues"
+msgstr "Probleme potențiale"
+
+msgctxt "data_quality_warnings_panel_subtitle"
+msgid "We have detected some potential issues or potential improvements, could you check if some apply ?"
+msgstr "Am detectat unele probleme potențiale sau îmbunătățiri potențiale, puteți verifica dacă unele se aplică?"
+
+msgctxt "data_quality_info_panel_title"
+msgid "Data Quality infos"
+msgstr "Informații despre calitatea datelor"
+
+msgctxt "data_quality_info_panel_subtitle"
+msgid "Some infos about data quality on this product"
+msgstr "Câteva informații despre calitatea datelor despre acest produs"
+
 # will be followed by : and a value. e.g. "Compared to: bananas"
 msgctxt "compared_to"
 msgid "Compared to"
@@ -6106,6 +6158,10 @@ msgctxt "action_add_packaging_image"
 msgid "Take a photo of the recycling information"
 msgstr "Faceți o fotografie a informațiilor despre reciclare"
 
+msgctxt "action_add_packaging_components"
+msgid "Add packaging components"
+msgstr "Adăugați componente de ambalare"
+
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
@@ -6326,6 +6382,10 @@ msgctxt "api_message_invalid_json_in_request_body"
 msgid "Invalid JSON in request body"
 msgstr "JSON nevalid în corpul solicitării"
 
+msgctxt "api_message_invalid_code"
+msgid "Invalid code"
+msgstr "Cod invalid"
+
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
 msgstr "Tip nevalid: trebuie să fie un obiect"
@@ -6345,6 +6405,10 @@ msgstr "Tip nevalid: trebuie să fie un număr"
 msgctxt "api_message_missing_field"
 msgid "Missing field"
 msgstr "Câmp lipsă"
+
+msgctxt "api_message_unrecognized_field"
+msgid "Unrecognized field"
+msgstr "Câmp nerecunoscut"
 
 msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"

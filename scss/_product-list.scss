@@ -25,6 +25,30 @@ $productsGutter:12;
     }
 }
 
+.search_results::before {
+  content: none;
+}
+
+.search_results::after {
+  content: "";
+  position: relative;
+  display: flex;
+  width: calc((100% - ($productsGutter*1px)) / 2);
+  margin-bottom: #{$productsGutter}px;
+  @media #{$medium-up} {
+      width: calc((100% - ($productsGutter*2px)) / 3);
+      margin-bottom: #{$productsGutter}px;
+  }
+  @media #{$large-up} {
+      width: calc((100% - ($productsGutter*3px)) / 4);
+      margin-bottom: #{$productsGutter}px;
+  }
+  @media #{$xlarge-up} {
+      width: calc((100% - ($productsGutter*5px)) / 6);
+      margin-bottom: #{$productsGutter}px;
+  }
+}
+
 .list_product_a {
     border-radius: 8px;
     padding: 0px;
