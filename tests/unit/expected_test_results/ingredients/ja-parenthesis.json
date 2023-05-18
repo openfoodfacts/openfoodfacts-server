@@ -115,14 +115,11 @@
          "vegetarian" : "ignore"
       },
       {
-         "ciqual_food_code" : "1014",
-         "id" : "en:alcohol",
+         "id" : "ja:アルコール",
          "percent_estimate" : 0.17578125,
          "percent_max" : 10,
          "percent_min" : 0,
-         "text" : "アルコール",
-         "vegan": "maybe",
-         "vegetarian":"yes"
+         "text" : "アルコール"
       }
    ],
    "ingredients_analysis" : {
@@ -246,11 +243,12 @@
       "ja:たん白加水分解物混合物",
       "ja:ぶどう糖果糖液糖",
       "ja:アミノ酸等",
+      "ja:アルコール",
       "ja:本醸造",
       "ja:水あめ"
    ],
-   "ingredients_without_ciqual_codes_n" : 11,
-   "known_ingredients_n" : 9,
+   "ingredients_without_ciqual_codes_n" : 12,
+   "known_ingredients_n" : 8,
    "lc" : "ja",
    "nutriments" : {
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
