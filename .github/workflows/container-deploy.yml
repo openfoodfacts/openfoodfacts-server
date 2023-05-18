@@ -89,14 +89,17 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
+          # while we would use shallow clone on a normal repo,
+          # comparison is too costly for this project and takes too much time, so we use a regular clone
           # Clone Git repository if not already there
-          [ ! -d '${{ matrix.env }}' ] && git clone --depth 1 https://github.com/${{ github.repository }} ${{ matrix.env }} --no-single-branch 2>&1
+          [ ! -d '${{ matrix.env }}' ] && git clone https://github.com/${{ github.repository }} ${{ matrix.env }} 2>&1
 
           # Go to repository directory
           cd ${{ matrix.env }}
 
           # Fetch newest commits (in case it wasn't freshly cloned)
-          git fetch --depth 1
+          # here again we use full depth instead of usual --depth 1, because of perf problems
+          git fetch
 
           # Checkout current commit SHA
           git checkout -qf ${{ github.sha }}

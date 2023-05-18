@@ -1,6 +1,7 @@
 {
    "ingredients" : [
       {
+         "ciqual_food_code" : "13014",
          "id" : "en:strawberry",
          "percent" : 55.1569506726457,
          "percent_estimate" : 55.1569506726457,
@@ -21,6 +22,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "13050",
          "id" : "en:apple",
          "percent" : 15.695067264574,
          "percent_estimate" : 15.695067264574,
@@ -69,6 +71,10 @@
    "ingredients_with_specified_percent_sum" : 100,
    "ingredients_with_unspecified_percent_n" : 0,
    "ingredients_with_unspecified_percent_sum" : 0,
+   "ingredients_without_ciqual_codes" : [
+      "en:orange"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
    "known_ingredients_n" : 6,
    "lc" : "fi",
    "nutriments" : {

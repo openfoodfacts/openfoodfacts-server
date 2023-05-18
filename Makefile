@@ -14,6 +14,10 @@ MOUNT_POINT ?= /mnt
 DOCKER_LOCAL_DATA ?= /srv/off/docker_data
 OS := $(shell uname)
 
+# mount point for shared data (default to the one on staging)
+NFS_VOLUMES_ADDRESS ?= 10.0.0.3
+NFS_VOLUMES_BASE_PATH ?= /rpool/off/clones
+
 export DOCKER_BUILDKIT=1
 export COMPOSE_DOCKER_CLI_BUILD=1
 UID ?= $(shell id -u)
@@ -345,14 +349,14 @@ rebuild_taxonomies: build_taxonomies
 #------------#
 create_external_volumes:
 	@echo "🥫 Creating external volumes (production only) …"
-# zfs replications
-	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/data html_data
-	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/users users
-	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/products products
-	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/product_images product_images
-	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/orgs orgs
+# zfs clones hosted on Ovh3 as NFS
+	docker volume create --driver=local --opt type=nfs --opt o=addr=${NFS_VOLUMES_ADDRESS},rw --opt device=:${NFS_VOLUMES_BASE_PATH}/users ${COMPOSE_PROJECT_NAME}_users
+	docker volume create --driver=local --opt type=nfs --opt o=addr=${NFS_VOLUMES_ADDRESS},rw --opt device=:${NFS_VOLUMES_BASE_PATH}/products ${COMPOSE_PROJECT_NAME}_products
+	docker volume create --driver=local --opt type=nfs --opt o=addr=${NFS_VOLUMES_ADDRESS},rw --opt device=:${NFS_VOLUMES_BASE_PATH}/images/products ${COMPOSE_PROJECT_NAME}_product_images
+	docker volume create --driver=local --opt type=nfs --opt o=addr=${NFS_VOLUMES_ADDRESS},rw --opt device=:${NFS_VOLUMES_BASE_PATH}/orgs ${COMPOSE_PROJECT_NAME}_orgs
 # local data
-	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/podata podata
+	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/data ${COMPOSE_PROJECT_NAME}_html_data
+	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/podata ${COMPOSE_PROJECT_NAME}_podata
 
 create_external_networks:
 	@echo "🥫 Creating external networks (production only) …"
