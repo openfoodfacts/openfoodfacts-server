@@ -753,9 +753,35 @@ sub init_product ($userid, $orgid, $code, $countryid) {
 	return $product_ref;
 }
 
-# Notify robotoff when products are updated
+=head2 send_notification_for_product_change ( $user_id, $product_ref, $action, $comment, $diffs )
 
-sub send_notification_for_product_change ($product_ref, $action) {
+Notify Robotoff when products are updated or deleted.
+
+=head3 Parameters
+
+=head4 $user_id
+
+ID of the user that triggered the update/deletion (String, may be undefined)
+
+=head4 $product_ref
+
+Reference to the updated/deleted product.
+
+=head4 $action
+
+The action performed, either `deleted` or `updated` (String).
+
+=head4 $comment
+
+The update comment (String)
+
+=head4 $diffs
+
+The `diffs` of the update (Hash)
+
+=cut
+
+sub send_notification_for_product_change ($user_id, $product_ref, $action, $comment, $diffs) {
 
 	if ((defined $robotoff_url) and (length($robotoff_url) > 0)) {
 		my $ua = LWP::UserAgent->new();
@@ -768,7 +794,9 @@ sub send_notification_for_product_change ($product_ref, $action) {
 				endpoint => $endpoint,
 				barcode => $product_ref->{code},
 				action => $action,
-				server_domain => "api." . $server_domain
+				server_domain => "api." . $server_domain,
+				user_id => $user_id,
+				comment => $comment
 			}
 		) if $log->is_debug();
 		my $response = $ua->post(
@@ -776,7 +804,10 @@ sub send_notification_for_product_change ($product_ref, $action) {
 			{
 				'barcode' => $product_ref->{code},
 				'action' => $action,
-				'server_domain' => "api." . $server_domain
+				'server_domain' => "api." . $server_domain,
+				'user_id' => $user_id,
+				'comment' => $comment,
+				'diffs' => $diffs
 			}
 		);
 		$log->debug(
@@ -1340,7 +1371,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 	# Notify Robotoff
 	my $update_type = $product_ref->{deleted} ? "deleted" : "updated";
-	send_notification_for_product_change($product_ref, $update_type);
+	send_notification_for_product_change($user_id, $product_ref, $update_type, $comment, $diffs);
 
 	return 1;
 }
