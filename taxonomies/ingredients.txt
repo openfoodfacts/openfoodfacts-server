@@ -21823,10 +21823,19 @@ ciqual_food_name:fr:Son de blé
 
 <en:wheat
 en:einkorn wheat, einkorn
-bg:лимец
+bg:еднозърнест лимец
+ca:espelta petita
+da:enkorn
 de:Einkorn
-fr:engrain
+es:escaña menor, escanda menor, espelta pequeña, escaña cultivada
+fi:einkorn-vehnä, einkorn
+fr:petit épeautre, engrain
+it:piccolo farro, farro monococco
+ja:ヒトツブコムギ
 la:Triticum monococcum
+nl:eenkoren,eenkoorn,einkorn
+pt:einkorn
+sv:enkornsvete
 wikidata:en:Q161397
 wikipedia:en:https://en.wikipedia.org/wiki/Einkorn_wheat
 
@@ -21835,6 +21844,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Einkorn_wheat
 en:einkorn flour
 bg:брашно от лимец, лимецово брашно
 de:Einkornmehl, Einkorn-Mehl
+fr:farine de petit épeautre
 
 <en:einkorn flour
 <en:wholemeal flour
@@ -24227,14 +24237,14 @@ sv:rågfiber
 
 ##################################################################################
 #
-#                        Spelt
+#                        Spelt / Triticum spelta
 #
 ##################################################################################
 
 <en:cereal
 en:spelt
 ar:حنطة
-bg:спелта
+bg:спелта 
 br:yell
 ca:espelta
 cs:špalda, pšenice špalda
@@ -24258,7 +24268,7 @@ is:spelt
 it:farro, farro spelta
 ja:スペルトコムギ
 ko:스펠트밀
-la:Triticum aestivum ssp. spelta
+la:Triticum aestivum ssp. spelta, Triticum spelta
 lb:Spelz
 lt:speltos, spelta
 lv:speltas kvieši
@@ -24335,10 +24345,6 @@ it:fiocchi di quinoa
 <en:spelt
 nl:speltschroot
 
-<en:spelt
-fr:Petit épeautre
-# ingredient/fr:petit-epeautre has 37 products @2019-06-03
-
 <en:whole spelt
 en:whole grain spelt flakes
 de:Dinkelvollkornflocken, Dinkelvollkornschrot
@@ -24408,10 +24414,6 @@ it:farina integrale di spelta
 nl:volkoren speltmeel
 pt:farinha integral de espelta
 sv:fullkornsspeltvetemjöl
-
-
-<en:spelt flour
-fr:farine de petit épeautre
 
 <en:wholemeal flour
 fr:farine complète de blé amidonnier
@@ -53861,9 +53863,10 @@ nl:extra fijne groene flageolets
 
 
 # description:en:Lupin or lupini beans are the yellow legume seeds of the genus Lupinus. They are traditionally eaten as a pickled snack food. The lupin is devoid of starch, which is very unusual for a species of edible bean. Lupin allergy may cause life-threatening anaphylaxis in sensitive individuals.
+# only "sweet" varieties of lupin are used for human food
 
 <en:legume
-en:lupin bean, lupin, lupines, lupine
+en:lupin bean, lupin, lupines, lupine, sweet lupin, lupini, lupini beans
 ar:ترمس
 az:Acıpaxla
 ba:әсе борсаҡ
@@ -53878,7 +53881,7 @@ eo:lupenoj
 es:altramuz, altramuces
 et:lupiin
 fi:lupiinit, lupiini
-fr:lupin, lupins
+fr:lupin, lupins, lupin doux, lupins doux
 ga:lúipín
 he:תורמוס
 hr:lupin, lupina, lupinu
@@ -53937,8 +53940,24 @@ ciqual_food_name:en:lupin grain, raw
 ciqual_food_name:fr:Lupin, graine crue
 # 957 in 12 @2021-10-01
 
+<en:lupin
+en:white lupin
+fr:lupin blanc, lupin blanc doux
+la:lupinus albus
+
+<en:lupin
+en:blue lupine
+fr:lupin bleu, lupin bleu doux
+la:lupinus angustifolius
+
+<en:lupin
+en:yellow lupin
+fr:lupin jaune, lupin jaune doux
+la:lupinus luteus
+
 <en:lupin bean
 en:lupin grit
+fr:grains de lupin, grain de lupin, graines de lupin, graine de lupin
 nl:lupinegrut
 
 #processing:en: en:flour
@@ -54627,6 +54646,12 @@ nl:groene spliterwten
 fr:Farine de pois cassés
 es:Harina de guisantes partidos
 # 9@2019-06-05
+
+# popular in Latvia
+<en:pea
+en:grey pea, grey peas
+fr:pois gris
+sv:gråärtan
 
 # description:en:The lentil (Lens culinaris or Lens esculenta) is an edible legume. Lentils are consumed in many ways. They can be eaten soaked, germinated, boiled, fried and baked.
 # comment:en:The wikidata entry is more about the plan, so translations can be wrong.
@@ -85156,3 +85181,11 @@ en:xylose
 xx:xylose
 wikipedia:en:https://en.wikipedia.org/wiki/Xylose
 
+# Tonka beans are prohibited for use in food in the US: https://www.govinfo.gov/content/pkg/CFR-2006-title21-vol3/xml/CFR-2006-title21-vol3-sec189-130.xml
+en:tonka bean
+es:haba tonka
+de:Tonkabohn, Tonkabohnen
+fr:fève de tonka, fèves de tonka, fève tonka, fèves tonka
+it:fava de tonka, fave di tonka
+nl:tonkaboon
+pt:fava tonka, fava de cumaru
