@@ -1650,11 +1650,11 @@ my @tests = (
 		},
 		[
 			{
-				'id' => 'en:dried garlic',
+				'id' => 'en:dried-garlic',
 				'text' => 'czosnek suszony'
 			},
 			{
-				'id' => 'en:dried garlic',
+				'id' => 'en:dried-garlic',
 				'text' => 'suszony czosnek'
 			}
 		]
