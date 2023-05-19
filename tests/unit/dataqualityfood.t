@@ -759,7 +759,7 @@ $product_ref = {
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:nutri-score-grade-for-category-en:extra-virgin-olive-oils-expected-to-be-c-instead-of-d',
+	'en:nutri-score-grade-from-category-does-not-match-calculated-grade',
 	'Calculate nutriscore grade should be the same as the one provided in the taxonomy for this category', 1
 );
 # category with expected nutriscore grade. Different nutriscore grade as compared to the expected nutriscore grade. Two specific categories
@@ -779,7 +779,7 @@ $product_ref = {
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:nutri-score-grade-for-category-en:extra-virgin-olive-oils-expected-to-be-c-instead-of-d',
+	'en:nutri-score-grade-from-category-does-not-match-calculated-grade',
 	'Calculate nutriscore grade should be the same as the one provided in the taxonomy for this category even if some other categories tags do not have expected nutriscore grade',
 	1
 );
@@ -796,7 +796,7 @@ $product_ref = {
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:nutri-score-grade-for-category-en:extra-virgin-olive-oils-expected-to-be-c-instead-of-undefined',
+	'en:nutri-score-grade-from-category-does-not-match-calculated-grade',
 	'Calculate nutriscore grade should be the same as the one provided in the taxonomy for this category', 1
 );
 # category with expected nutriscore grade. Same nutriscore grade as compared to the expected nutriscore grade
@@ -813,12 +813,12 @@ $product_ref = {
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:nutri-score-grade-for-category-en:extra-virgin-olive-oils-expected-to-be-c-instead-of-d',
+	'en:nutri-score-grade-from-category-does-not-match-calculated-grade',
 	'Calculate nutriscore grade should be the same as the one provided in the taxonomy for this category', 0
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:nutri-score-grade-for-category-en:extra-virgin-olive-oils-expected-to-be-c-instead-of-undefined',
+	'en:nutri-score-grade-from-category-does-not-match-calculated-grade',
 	'Calculate nutriscore grade should be the same as the one provided in the taxonomy for this category', 0
 );
 
@@ -840,7 +840,7 @@ $product_ref = {
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:ingredients-for-category-en:extra-virgin-olive-oils-expected-to-be-en:olive-oil-instead-of-undefined',
+	'en:ingredients-ingredient-from-category-does-not-match-actual-ingredient',
 	'We expect the ingredient given in the taxonomy for this product', 1
 );
 # category with expected ingredient. More than one ingredient
@@ -857,10 +857,10 @@ $product_ref = {
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:ingredients-for-category-en:extra-virgin-olive-oils-expected-to-have-single-ingredient-en:olive-oil',
+	'en:ingredients-ingredient-from-category-does-not-match-actual-ingredient',
 	'We expect the ingredient given in the taxonomy for this product', 1
 );
-# category with expected ingredient. Single ingredient but different than expected one.
+# category with expected ingredient. Single ingredient that is a child of the expected one.
 $product_ref = {
 	categories_tags => [
 		'en:plant-based-foods-and-beverages', 'en:plant-based-foods',
@@ -874,10 +874,10 @@ $product_ref = {
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:ingredients-for-category-en:extra-virgin-olive-oils-expected-to-be-en:olive-oil',
-	'We expect the ingredient given in the taxonomy for this product', 1
+	'en:ingredients-ingredient-from-category-does-not-match-actual-ingredient',
+	'We expect the ingredient given in the taxonomy for this product', 0
 );
-# category with expected ingredient. Single ingredient but different than expected one. Two specific categories
+# category with expected ingredient. Single ingredient that is a child of the expected one. Two specific categories
 $product_ref = {
 	categories_tags => [
 		"en:plant-based-foods-and-beverages", "en:plant-based-foods",
@@ -894,8 +894,8 @@ $product_ref = {
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:ingredients-for-category-en:extra-virgin-olive-oils-expected-to-be-en:olive-oil',
-	'We expect the ingredient given in the taxonomy for this product', 1
+	'en:ingredients-ingredient-from-category-does-not-match-actual-ingredient',
+	'We expect the ingredient given in the taxonomy for this product', 0
 );
 # category with expected ingredient. Single ingredient identical as expected one
 $product_ref = {
@@ -914,7 +914,7 @@ $product_ref = {
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:ingredients-for-category-en:extra-virgin-olive-oils-expected-to-be-en:olive-oil',
+	'en:ingredients-ingredient-from-category-does-not-match-actual-ingredient',
 	'We expect the ingredient given in the taxonomy for this product', 0
 );
 

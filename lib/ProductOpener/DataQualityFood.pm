@@ -898,9 +898,7 @@ sub check_nutrition_data ($product_ref) {
 
 		# some categories have - case 1 - expected nutriscore grade or -case 2 - expected ingredients
 		if (defined $product_ref->{categories_tags}) {
-			# case 1 - push data quality error:
-			# 1-if calculated nutriscore grade differs from expected nutriscore grade or
-			# 2-if it is not calculated
+			# case 1 - push data quality error if calculated nutriscore grade differs from expected nutriscore grade or if it is not calculated
 
 			# start from end, categories_tags has the most specific categories at the end
 			my $i = @{$product_ref->{categories_tags}} - 1;
@@ -928,8 +926,9 @@ sub check_nutrition_data ($product_ref) {
 			{
 				$i--;
 			}
-			# previous loop interrupted before 0, i.e. found category with expected nutriscore grade
+
 			if ($i >= 0) {
+
 				my $category_with_expected_nutriscore_grade = $product_ref->{categories_tags}[$i];
 
 				my $nutriscore_grade_for_this_category = lc(
@@ -940,24 +939,20 @@ sub check_nutrition_data ($product_ref) {
 					)
 				);
 
-				# nutriscore not calculated but should have expected nutriscore grade
-				if (not(defined $product_ref->{nutrition_grade_fr})) {
-					push @{$product_ref->{data_quality_errors_tags}},
-						"en:nutri-score-grade-for-category-$category_with_expected_nutriscore_grade-expected-to-be-$nutriscore_grade_for_this_category-instead-of-undefined";
-				}
-				# nutriscore calculated but unexpected nutriscore grade
-				if (    (defined $product_ref->{nutrition_grade_fr})
-					and ($product_ref->{nutrition_grade_fr} ne $nutriscore_grade_for_this_category))
+				if (
+					# nutriscore not calculated but should have expected nutriscore grade
+					(not(defined $product_ref->{nutrition_grade_fr}))
+					# nutriscore calculated but unexpected nutriscore grade
+					or (    (defined $product_ref->{nutrition_grade_fr})
+						and ($product_ref->{nutrition_grade_fr} ne $nutriscore_grade_for_this_category))
+					)
 				{
 					push @{$product_ref->{data_quality_errors_tags}},
-						"en:nutri-score-grade-for-category-$category_with_expected_nutriscore_grade-expected-to-be-$nutriscore_grade_for_this_category-instead-of-$product_ref->{nutrition_grade_fr}";
-					# }
+						"en:nutri-score-grade-from-category-does-not-match-calculated-grade";
 				}
 			}
 
-			# case 2 - push data quality error:
-			# 1-ingredients differs from expected ingredients
-			# 2-is missing
+			# case 2 - push data quality error if ingredient differs from expected ingredient or is missing
 
 			# start from end, categories_tags has the most specific categories at the end
 			$i = @{$product_ref->{categories_tags}} - 1;
@@ -987,25 +982,37 @@ sub check_nutrition_data ($product_ref) {
 					)
 				) =~ s/ /-/gr;
 
+				my $raise_unexpected_ingredient_for_catagory = 0;
 				# ingredients text missing
-				if (not(defined $product_ref->{ingredients})) {
-					push @{$product_ref->{data_quality_errors_tags}},
-						"en:ingredients-for-category-$category_with_expected_ingredients-expected-to-be-$ingredients_text_for_this_category-instead-of-undefined";
+				if ((not(defined $product_ref->{ingredients}))) {
+					$raise_unexpected_ingredient_for_catagory = 1;
 				}
 				else {
 					my $ingredients_count = @{$product_ref->{ingredients}};
-
-					if (    ($ingredients_count == 1)
-						and ($product_ref->{ingredients}[0]{id} ne $ingredients_text_for_this_category))
+					if (
+						# ingredients text missing
+						(not(defined $product_ref->{ingredients}))
+						# ingredients text longer than 1 ingredients, hence, different than expected
+						or ($ingredients_count > 1)
+						# ingredients text different than expected
+						or (
+							($ingredients_count == 1)
+							and not(
+								is_a(
+									"ingredients", $product_ref->{ingredients}[0]{id},
+									$ingredients_text_for_this_category
+								)
+							)
+						)
+						)
 					{
-						push @{$product_ref->{data_quality_errors_tags}},
-							"en:ingredients-for-category-$category_with_expected_ingredients-expected-to-be-$ingredients_text_for_this_category";
+						$raise_unexpected_ingredient_for_catagory = 1;
 					}
+				}
 
-					if ($ingredients_count > 1) {
-						push @{$product_ref->{data_quality_errors_tags}},
-							"en:ingredients-for-category-$category_with_expected_ingredients-expected-to-have-single-ingredient-$ingredients_text_for_this_category";
-					}
+				if ($raise_unexpected_ingredient_for_catagory) {
+					push @{$product_ref->{data_quality_errors_tags}},
+						"en:ingredients-ingredient-from-category-does-not-match-actual-ingredient";
 				}
 			}
 		}
