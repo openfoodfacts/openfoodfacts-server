@@ -43,7 +43,8 @@ use Data::DeepAccess qw(deep_get deep_set deep_exists);
 
 my $separator = "\t";
 
-my $csv_options_ref = {binary => 1, sep_char => $separator, eol => "\n", quote_space => 0};    # should set binary attribute.
+my $csv_options_ref
+	= {binary => 1, sep_char => $separator, eol => "\n", quote_space => 0};    # should set binary attribute.
 
 my $csv_file = $ARGV[0];
 
@@ -83,8 +84,8 @@ while (my $row_ref = $csv->getline($in)) {
 		;
 
 	my $material = $row_ref->[9];
-	my $percent_weight = $row_ref->[10] || 0;   # some rows have no values for the weight
-    $percent_weight =~ s/\%//;
+	my $percent_weight = $row_ref->[10] || 0;    # some rows have no values for the weight
+	$percent_weight =~ s/\%//;
 
 	deep_set(\%packaging_components, ($key, $material), [$percent_weight, $row_ref]);
 }
