@@ -151,6 +151,7 @@ use ProductOpener::DataQuality qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
+use JSON;
 use Log::Any qw($log);
 use Data::DeepAccess qw(deep_get);
 
@@ -787,6 +788,7 @@ sub send_notification_for_product_change ($user_id, $product_ref, $action, $comm
 		my $ua = LWP::UserAgent->new();
 		my $endpoint = "$robotoff_url/api/v1/webhook/product";
 		$ua->timeout(2);
+		my $diffs_json_text = encode_json($diffs);
 
 		$log->debug(
 			"send_notif_robotoff_product_update",
@@ -796,7 +798,8 @@ sub send_notification_for_product_change ($user_id, $product_ref, $action, $comm
 				action => $action,
 				server_domain => "api." . $server_domain,
 				user_id => $user_id,
-				comment => $comment
+				comment => $comment,
+				diffs => $diffs_json_text
 			}
 		) if $log->is_debug();
 		my $response = $ua->post(
@@ -807,7 +810,7 @@ sub send_notification_for_product_change ($user_id, $product_ref, $action, $comm
 				'server_domain' => "api." . $server_domain,
 				'user_id' => $user_id,
 				'comment' => $comment,
-				'diffs' => $diffs
+				'diffs' => $diffs_json_text
 			}
 		);
 		$log->debug(

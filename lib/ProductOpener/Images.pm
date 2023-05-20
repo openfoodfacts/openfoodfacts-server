@@ -140,6 +140,7 @@ use ProductOpener::URL qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Text qw/:all/;
 
+use IO::Compress::Gzip qw(gzip $GzipError);
 use Log::Any qw($log);
 use Encode;
 use JSON::PP;
@@ -2002,7 +2003,7 @@ sub extract_text_from_image ($product_ref, $id, $field, $ocr_engine, $results_re
 	}
 	elsif ($ocr_engine eq 'google_cloud_vision') {
 
-		my $json_file = "$www_root/images/products/$path/$filename.json";
+		my $json_file = "$www_root/images/products/$path/$filename.json.gz";
 		open(my $gv_logs, ">>:encoding(UTF-8)", "$data_root/logs/cloud_vision.log");
 		my $cloudvision_ref = send_image_to_cloud_vision($image, $json_file, \@CLOUD_VISION_FEATURES_TEXT, $gv_logs);
 		close $gv_logs;
@@ -2047,7 +2048,7 @@ Call to Google Cloud vision API
 
 =head4 $image_path - str path to image
 
-=head4 $json_file - str path to the file where we will store OCR result as JSON
+=head4 $json_file - str path to the file where we will store OCR result as gzipped JSON
 
 =head4 $features_ref - hash reference - the "features" parameter of Google Cloud Vision
 
@@ -2108,14 +2109,17 @@ sub send_image_to_cloud_vision ($image_path, $json_file, $features_ref, $gv_logs
 
 		$cloudvision_ref = decode_json($json_response);
 
+		# Adding creation timestamp, to know when the OCR has been generated
+		$cloudvision_ref->{created_at} = time();
+
 		$log->info("saving google cloud vision json response to file", {path => $json_file}) if $log->is_info();
 
-		# UTF-8 issue , see https://stackoverflow.com/questions/4572007/perl-lwpuseragent-mishandling-utf-8-response
-		$json_response = decode("utf8", $json_response);
-
-		if (open(my $OUT, ">:encoding(UTF-8)", $json_file)) {
-			print($OUT $json_response);
-			close($OUT);
+		if (open(my $OUT, ">:raw", $json_file)) {
+			my $gzip_handle = IO::Compress::Gzip->new($OUT)
+				or die "Cannot create gzip filehandle: $GzipError\n";
+			my $encoded_json = encode_json($cloudvision_ref);
+			$gzip_handle->print($encoded_json);
+			$gzip_handle->close;
 
 			print($gv_logs "--> cloud vision success for $image_path\n");
 		}
