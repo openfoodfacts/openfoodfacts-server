@@ -8,20 +8,20 @@
       
       
       
-        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/dev/how-to-use-direnv/">
+        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/dev/explain-nutition-data/">
       
       
-        <link rel="prev" href="../how-to-update-agribalyse-ecoscore/">
+        <link rel="prev" href="../how-to-write-and-run-tests/">
       
       
-        <link rel="next" href="../how-to-use-gitpod/">
+        <link rel="next" href="../explain-packaging-data/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.14">
     
     
       
-        <title>How to use direnv - Product Opener (Open Food Facts Server)</title>
+        <title>Explain nutition data - Product Opener (Open Food Facts Server)</title>
       
     
     
@@ -62,11 +62,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#how-to-use-direnv" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -98,7 +93,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              How to use direnv
+              Explain nutition data
             
           </span>
         </div>
@@ -537,21 +532,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../how-to-use-direnv/" class="md-nav__link">
         How to use direnv
       </a>
-      
     </li>
   
 
@@ -631,11 +616,19 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../explain-nutition-data/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Explain nutition data
       </a>
+      
     </li>
   
 
@@ -748,8 +741,6 @@
   
   
   
-    
-  
   
 </nav>
                   </div>
@@ -767,32 +758,22 @@
   
 
 
-<h1 id="how-to-use-direnv">How to use direnv<a class="headerlink" href="#how-to-use-direnv" title="Permanent link">#</a></h1>
-<p>As a developer, it can be better not to think too much about setting right env variables as you enter a project.
-<a href="https://direnv.net/"><code>direnv</code></a> aims at providing a solution.</p>
-<p>As a quick guide as an openfoodfacts developer:</p>
+  <h1>Explain nutition data</h1>
+
+<p>Product fields:</p>
 <ul>
-<li>install direnv on your system using usual package manager</li>
-<li>in your .bashrc add:
-    <div class="highlight"><pre><span></span><code><span class="c1"># direnv</span>
-<span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>direnv<span class="w"> </span>hook<span class="w"> </span>bash<span class="k">)</span><span class="s2">&quot;</span>
-</code></pre></div>
-  you have adapt the direnv line according to what you use, see <a href="https://direnv.net/docs/hook.html">direnv doc</a></li>
-<li>In your project directory add a file, where you superseed variables from <code>.env</code>
-  that you wan't to</li>
+<li>nutrition_data_per: Whether it is per "serving" or "100g"</li>
+<li>serving_size: Entered data from packaging</li>
+<li>serving_quantity: Computed value in g</li>
 </ul>
-<div class="highlight"><pre><span></span><code>echo &quot;setting up docker-compose env&quot;
-export DOCKER_BUILDKIT=1
-export USER_UID=${UID}
-export USER_UID=$(id -g)
-</code></pre></div>
+<p>For each nutrient:</p>
 <ul>
-<li>in project directory, run <code>direnv allow .</code></li>
-<li>in a new shell:<ul>
-<li>go in project directory</li>
-<li>you should have direnv trigger and load your variables</li>
-</ul>
-</li>
+<li>_value: What was entered</li>
+<li>_unit: Unit of what was entered</li>
+<li>_100g: Amount per 100g in original unit</li>
+<li>_serving: Amount per serving normalised unit</li>
+<li><em>no suffix</em>: What was entered in normalised unit</li>
+<li>_label: Entered label for an unknown untrient?</li>
 </ul>
 
 
