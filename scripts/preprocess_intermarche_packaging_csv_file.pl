@@ -77,6 +77,8 @@ while (my $row_ref = $csv->getline($in)) {
 	# % en poids
 
 	# Build a key to identify unique packaging components
+	# We start with barcode, as we will sort on this key in output
+	# and want to keep one product's packaging components together
 	my $key = $row_ref->[4]    # barcode
 		. " - " . $row_ref->[6]    # shape
 		. " - " . $row_ref->[7]    # total weight of unit
@@ -97,9 +99,12 @@ close $in;
 $csv->print($out, $header_row_ref);
 
 foreach my $key (sort keys %packaging_components) {
+    # we are considering a unique packaging component
+    # sort on percent_weight for each material
 	my @materials = sort {$packaging_components{$key}{$b}[0] <=> $packaging_components{$key}{$a}[0]}
 		keys %{$packaging_components{$key}};
 
+    # only keep most relevant material for sake of simplicity
 	$csv->print($out, $packaging_components{$key}{$materials[0]}[1]);
 }
 
