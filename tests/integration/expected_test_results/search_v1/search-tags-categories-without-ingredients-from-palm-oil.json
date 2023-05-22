@@ -588,6 +588,11 @@
          "ingredients_with_specified_percent_sum" : 0,
          "ingredients_with_unspecified_percent_n" : 2,
          "ingredients_with_unspecified_percent_sum" : 100,
+         "ingredients_without_ciqual_codes" : [
+            "es:apple",
+            "es:water"
+         ],
+         "ingredients_without_ciqual_codes_n" : 2,
          "interface_version_created" : "20150316.jqm2",
          "interface_version_modified" : "20150316.jqm2",
          "known_ingredients_n" : 0,

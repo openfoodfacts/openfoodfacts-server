@@ -74,6 +74,12 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 3,
    "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:another-unknown-ingredient",
+      "en:peach",
+      "en:some-unknown-ingredient"
+   ],
+   "ingredients_without_ciqual_codes_n" : 3,
    "known_ingredients_n" : 2,
    "lc" : "en",
    "nutriments" : {

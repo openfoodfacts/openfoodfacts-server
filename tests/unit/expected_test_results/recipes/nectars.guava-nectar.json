@@ -105,6 +105,14 @@
    "ingredients_with_specified_percent_sum" : 38,
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 62,
+   "ingredients_without_ciqual_codes" : [
+      "en:cane-sugar",
+      "en:e330",
+      "en:guava",
+      "en:some-unknown-ingredient",
+      "en:water"
+   ],
+   "ingredients_without_ciqual_codes_n" : 5,
    "known_ingredients_n" : 8,
    "lc" : "en",
    "nutriments" : {

@@ -69,7 +69,7 @@ sub send_file_to_ocr ($file) {
 
 	my $json_file = $destination;
 	$json_file =~ s/\.([^\.]+)$//;
-	$json_file .= ".json";
+	$json_file .= ".json.gz";
 
 	print $LOG "file: $file destination: $destination code: $code image_url: $image_url json_file: $json_file\n";
 	open(my $gv_logs, ">>:encoding(UTF-8)", "$data_root/logs/cloud_vision.log");

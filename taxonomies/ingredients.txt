@@ -779,7 +779,7 @@ de:Lysozym aus Ei
 el:λυσοζύμη από το ΑΥΓΟ
 es:lisozima de huevo
 fi:lysotsyymi kananmunasta
-fr:lysozyme d'œuf, lysozyme d'oeuf
+fr:lysozyme d'œuf, lysozyme d'oeuf, lysozyme issu de protéine d'oeufs
 hr:jajčani lizozim, lizozim iz jaja, lisozim iz jaja, lizozim (iz jaja)
 it:lisozima da uovo, lisozima d'uovo
 nl:lysozym uit ei, lysozym van ei
@@ -5644,7 +5644,7 @@ es:queso de cabra
 et:kitsejuust
 eu:Ahuntz gazta
 fi:kutunjuusto, vuohenjuusto
-fr:fromage de chèvre
+fr:fromage de chèvre, fromage de chèvre affiné, fromage de chèvre affiné fondu
 he:גבינת עזים
 hu:kecskesajt
 hy:պանիր այծի կաթից
@@ -7033,7 +7033,7 @@ description:nl:Goudse kaas is een van oorsprong Nederlandse harde kaas. Het is e
 
 
 <en:cow cheese
-en:Grana Padano, Grana Padano cheese, Grana Padano cheese from cow's milk
+en:Grana Padano, Grana Padano cheese, Grana Padano cheese from cow's milk, cheese grana padano
 bg:Грана Падано
 ca:Grana Padano, formatge Grana Padano
 cv:Грана Падано
@@ -15668,7 +15668,7 @@ de:Kolzaöl, Kohlsaatöl
 el:κραμβέλαιο
 es:aceite de colza
 fi:rypsiöljy
-fr:huile de colza, huile végétale de colza, huile colza, graisses végétales de colza, graisses vegetales de colza
+fr:huile de colza, huile végétale de colza, huile colza, graisses végétales de colza, graisses vegetales de colza, huiles végétales de colza
 hr:uljana repica, uljane repice, ulje uljane repice
 it:olio di colza, olio vegetale di colza
 nl:koolzaadolie, plantaardige koolzaadolie
@@ -21823,10 +21823,19 @@ ciqual_food_name:fr:Son de blé
 
 <en:wheat
 en:einkorn wheat, einkorn
-bg:лимец
+bg:еднозърнест лимец
+ca:espelta petita
+da:enkorn
 de:Einkorn
-fr:engrain
+es:escaña menor, escanda menor, espelta pequeña, escaña cultivada
+fi:einkorn-vehnä, einkorn
+fr:petit épeautre, engrain
+it:piccolo farro, farro monococco
+ja:ヒトツブコムギ
 la:Triticum monococcum
+nl:eenkoren,eenkoorn,einkorn
+pt:einkorn
+sv:enkornsvete
 wikidata:en:Q161397
 wikipedia:en:https://en.wikipedia.org/wiki/Einkorn_wheat
 
@@ -21835,6 +21844,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Einkorn_wheat
 en:einkorn flour
 bg:брашно от лимец, лимецово брашно
 de:Einkornmehl, Einkorn-Mehl
+fr:farine de petit épeautre
 
 <en:einkorn flour
 <en:wholemeal flour
@@ -23553,7 +23563,7 @@ sv:havre korn
 
 <en:oat
 en:wholemeal oat, wholegrain oats, whole grain oats
-de:Vollkornhafer, Vollkorn-Hafer, Vollkornhaferglocken
+de:Vollkornhafer, Vollkorn-Hafer
 el:Βρώμη ολικής άλεσης
 es:Avena integral, Avena entera en grano
 et:täisterakaer
@@ -24227,14 +24237,14 @@ sv:rågfiber
 
 ##################################################################################
 #
-#                        Spelt
+#                        Spelt / Triticum spelta
 #
 ##################################################################################
 
 <en:cereal
 en:spelt
 ar:حنطة
-bg:спелта
+bg:спелта 
 br:yell
 ca:espelta
 cs:špalda, pšenice špalda
@@ -24258,7 +24268,7 @@ is:spelt
 it:farro, farro spelta
 ja:スペルトコムギ
 ko:스펠트밀
-la:Triticum aestivum ssp. spelta
+la:Triticum aestivum ssp. spelta, Triticum spelta
 lb:Spelz
 lt:speltos, spelta
 lv:speltas kvieši
@@ -24335,10 +24345,6 @@ it:fiocchi di quinoa
 <en:spelt
 nl:speltschroot
 
-<en:spelt
-fr:Petit épeautre
-# ingredient/fr:petit-epeautre has 37 products @2019-06-03
-
 <en:whole spelt
 en:whole grain spelt flakes
 de:Dinkelvollkornflocken, Dinkelvollkornschrot
@@ -24408,10 +24414,6 @@ it:farina integrale di spelta
 nl:volkoren speltmeel
 pt:farinha integral de espelta
 sv:fullkornsspeltvetemjöl
-
-
-<en:spelt flour
-fr:farine de petit épeautre
 
 <en:wholemeal flour
 fr:farine complète de blé amidonnier
@@ -27229,7 +27231,7 @@ en:carob seed flour, carob kernel flour, carob flour
 bg:брашно от рожков
 cs:Karobová mouka
 da:Johannesbrødkernemel
-de:Johannisbrotkernmehl
+de:Johannisbrotkernmehl, Johannisbrotkeimmehl
 es:Harina de semillas de algarroba, semillas de algarroba
 fi:johanneksenleipäpuujauhe, Johanneksenleipäpuujauhetta
 fr:farine de graines de caroube, farine de graine de caroube, farine de graines de caroubes, graines de caroube, graine de caroube
@@ -27319,6 +27321,11 @@ nl:toegevoegde suiker
 
 <en:added sugar
 en:monosaccharide
+de:Monosaccharide
+es:monosacáridos
+fr:monosaccharides
+it:monosaccaridi
+nl:monosachariden
 
 # description:en:SUGAR is the generic name for sweet-tasting, soluble carbohydrates
 
@@ -29696,7 +29703,7 @@ sv:rehydrerat ärtprotein
 
 <en:plant protein
 en:broad bean protein
-de:Bohnenprotein
+de:Ackerbohnenprotein
 fi:härkäpapuproteiini
 fr:protéine de fèves, protéines de fèves
 nl:tuinbooneiwit
@@ -29730,7 +29737,7 @@ en:hydrolysed vegetable protein, HVP, vegetable hydrolysed proteins
 ca:Proteïna vegetal hidrolitzada
 cs:Hydrolyzované rostlinné bílkoviny
 da:hydrolyseret vegetabllsk protein. hydrolysert vegetabilsk protein
-de:hydrolysiertes Pflanzenprotein, aufgeschlossenes Pflanzeneiweiß, aufgeschlossenes Pflanzenprotein
+de:hydrolysiertes Pflanzenprotein, aufgeschlossenes Pflanzeneiweiß, aufgeschlossenes Pflanzenprotein, hydrolysiertes Pflanzeneiweiß
 es:Proteina vegetal hidrolizada, hidrolizado de proteína vegetal
 fi:hydrolysoitu kasviproteiini, kasviproteiinihydrosylaatti
 fr:protéine végétale hydrolysée, protéines végétales hydrolysées
@@ -34829,7 +34836,7 @@ or:କଦଳୀ
 pa:ਕੇਲਾ
 pl:banan, banany, bananowe, bananowy, bananowa, banana
 ps:كيله
-pt:bananas
+pt:banana, bananas
 ru:Банан
 rw:Umuneke
 sa:कदलीफलम्
@@ -42914,7 +42921,7 @@ nn:rosin
 no:rosin, rosiner
 pa:ਮੁਨੱਕਾ
 pl:Rodzynki
-pt:passa
+pt:passa de uva, passas de uva, passa, passas
 qu:Pasa
 ro:Stafidă, stafide
 ru:Изюм, виноград сушеный
@@ -46606,6 +46613,7 @@ nl:gegrilde aubergine
 
 <en:aubergine
 fr:aubergine préfrite, aubergines préfrites
+it:melanzane prefritte
 nl:voorgebakken aubergines
 # fr:aubergine-préfrite has 28 products in 1 language @2018-10-17
 # fr:aubergines-préfrites has 86 products in 2 languages @2018-10-17
@@ -48672,6 +48680,10 @@ ciqual_food_code:en:20028
 ciqual_food_name:en:Fennel, raw
 ciqual_food_name:fr:Fenouil, cru
 # 2221 in20 @2021-10-09
+
+<en:fennel
+en:fennel powder
+fr:fenouil poudre
 
 #<en:fennel
 #en:organic fennel
@@ -51263,7 +51275,7 @@ wikidata:en:Q3121337
 en:red and green bell peppers, green and red bell peppers
 bg:червени и зелени чушки, зелени и червени чушки
 de:rote und grüne Peperoni
-es:Morrones rojos y verdes.
+es:Morrones rojos y verdes, pimiento rojo y verde
 fi:punainen ja vihreä paprika, punaiset ja vihreät paprikat
 fr:poivrons rouges et verts, poivrons verts et rouges
 hr:zelena i crvena paprika
@@ -52129,8 +52141,10 @@ da:flåede tomater
 de:stückige Tomaten, Tomaten stückig
 # el:πουρές τομάτας is already puree
 fi:tomaattimurska, tomaattimurskaa
+fr:tomates écrasées
 it:Pomodoro schiacciato
 nb:knust tomat
+nl:geplette tomaten
 # pl:Przecier pomidorowy is puree according to google
 sv:krossade tomater
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:tomaattimurska
@@ -53849,9 +53863,10 @@ nl:extra fijne groene flageolets
 
 
 # description:en:Lupin or lupini beans are the yellow legume seeds of the genus Lupinus. They are traditionally eaten as a pickled snack food. The lupin is devoid of starch, which is very unusual for a species of edible bean. Lupin allergy may cause life-threatening anaphylaxis in sensitive individuals.
+# only "sweet" varieties of lupin are used for human food
 
 <en:legume
-en:lupin bean, lupin, lupines, lupine
+en:lupin bean, lupin, lupines, lupine, sweet lupin, lupini, lupini beans
 ar:ترمس
 az:Acıpaxla
 ba:әсе борсаҡ
@@ -53866,7 +53881,7 @@ eo:lupenoj
 es:altramuz, altramuces
 et:lupiin
 fi:lupiinit, lupiini
-fr:lupin, lupins
+fr:lupin, lupins, lupin doux, lupins doux
 ga:lúipín
 he:תורמוס
 hr:lupin, lupina, lupinu
@@ -53925,8 +53940,24 @@ ciqual_food_name:en:lupin grain, raw
 ciqual_food_name:fr:Lupin, graine crue
 # 957 in 12 @2021-10-01
 
+<en:lupin
+en:white lupin
+fr:lupin blanc, lupin blanc doux
+la:lupinus albus
+
+<en:lupin
+en:blue lupine
+fr:lupin bleu, lupin bleu doux
+la:lupinus angustifolius
+
+<en:lupin
+en:yellow lupin
+fr:lupin jaune, lupin jaune doux
+la:lupinus luteus
+
 <en:lupin bean
 en:lupin grit
+fr:grains de lupin, grain de lupin, graines de lupin, graine de lupin
 nl:lupinegrut
 
 #processing:en: en:flour
@@ -54615,6 +54646,12 @@ nl:groene spliterwten
 fr:Farine de pois cassés
 es:Harina de guisantes partidos
 # 9@2019-06-05
+
+# popular in Latvia
+<en:pea
+en:grey pea, grey peas
+fr:pois gris
+sv:gråärtan
 
 # description:en:The lentil (Lens culinaris or Lens esculenta) is an edible legume. Lentils are consumed in many ways. They can be eaten soaked, germinated, boiled, fried and baked.
 # comment:en:The wikidata entry is more about the plan, so translations can be wrong.
@@ -58221,7 +58258,7 @@ ar:فليفلة حريفة
 ca:pebre de caiena
 cs:kajenský pepř
 da:cayennepeber
-de:cayennepfeffer
+de:cayennepfeffer, Cayenne-pfeffer
 el:πιπέρι καγιέν, καγιέν
 eo:kajena pipro
 es:pimienta de cayena, pimienta roja, cayena, ají cayena, pimienta roja picante
@@ -65504,6 +65541,9 @@ it:semi di vaniglia estratti
 en:vanilla preparation
 hr:pripravak vanilija
 
+<en:herbs
+en:za'atar
+xx:za'atar
 
 en:vine leaves
 bg:лозови листа
@@ -66584,6 +66624,11 @@ nutriscore_fruits_vegetables_nuts:en:yes
 ciqual_food_code:en:20010
 ciqual_food_name:en:Mushroom, all types, raw
 ciqual_food_name:fr:Champignon, tout type, cru
+
+<en:mushroom
+<en:protein
+en:mushroom proteins
+fr:protéine de champignon
 
 <en:mushroom
 en:mixed mushrooms
@@ -76663,6 +76708,7 @@ bg:краставица, краставици
 ca:cogombre
 cs:Okurek
 da:agurk, agurker
+de:Gurke, Gurken
 el:Αγγούρι
 eo:serpentkukumo
 es:pepino
@@ -77170,6 +77216,13 @@ de:Huhn aus Freilandhaltung
 fr:poulet fermier, poulet fermier élevé en plein air
 # ingredient/fr:poulet-fermier has 13 products in french @2019-05-25
 
+<en:chicken
+en:whole chicken, whole chickens
+fr:poulet entier, poulets entiers
+proxy_ciqual_food_code:en:36016
+proxy_ciqual_food_name:en:Chicken, meat and skin, raw
+proxy_ciqual_food_name:fr:Poulet, viande et peau, cru
+
 <en:animal protein
 <en:chicken
 en:chicken blood
@@ -77266,7 +77319,6 @@ carbon_footprint_fr_foodges_value:fr:4.9
 ciqual_food_code:en:36003
 ciqual_food_name:en:Chicken, meat, raw
 ciqual_food_name:fr:Poulet, viande, crue
-
 
 #<en:chicken meat
 #en:raw hen meat
@@ -78470,6 +78522,9 @@ it:uovo intero da allevamento al suolo
 # ingredient/fr:oeuf-entier-d’élevage-au-sol has 10 products in 4 languages @2018-1-18
 
 <en:whole egg
+fr:oeuf entier issu de poules elevées en plein air
+
+<en:whole egg
 en:whole liquid pasteurised egg
 ca:ou sencer liquid pasteuritzat
 de:pasteurisiertes flüssiges Vollei
@@ -79069,6 +79124,8 @@ ciqual_food_code:en:22060
 ciqual_food_name:en:Duck egg, raw
 ciqual_food_name:fr:Oeuf de cane, cru
 
+#compound
+fr:mélange œufs
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -80092,6 +80149,9 @@ fi:kypsennetty tuore pasta
 fr:pâtes fraîches cuites
 # ingredient/fr:pâtes-fraîches-cuites has 19 products in french @2018-12-10
 
+<en:fresh pasta
+en:fresh egg pasta
+es:pasta alimenticia fresca compuesta al huevo
 
 <en:pasta
 fr:pâtes alimentaires aux oeufs cuites
@@ -80254,7 +80314,7 @@ et:lasanje
 eu:lasagna
 fa:لازانیا
 fi:lasagne, lasagnelevyt
-fr:lasagnes, feuilles de lasagnes
+fr:lasagnes, feuilles de lasagnes, pates a lasagnes cuites, pate a lasagne, pâtes à lasagnes, pâte à lasagne sèche, Pâte de lasagne, pâte à lasagne cuite
 gl:lasaña
 he:לזניה
 hi:लज़ान्या
@@ -80529,6 +80589,9 @@ pl:makaron jajeczny
 wikidata:en:Q53619707
 allergens:en: en:eggs
 # 92 in 4 languages @2021-09-16
+
+<en:egg pasta
+fr:pâtes aux œufs aux épinards
 
 #processing:en: en:fresh
 #kept for french and italian and ciqual
@@ -82551,7 +82614,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Brine
 
 # <en:compound
 # <en:mainIngredient:en:water
-en:broth, broths, stock, bouillon, Stocks
+en:broth, broths, stock, bouillon, Stocks, fond
 af:bouillon
 ar:زومات
 az:Bulyon
@@ -82570,7 +82633,7 @@ et:puljong
 eu:Salda
 fa:گوشتابه
 fi:liemi, liemivalmiste
-fr:bouillon, fond, Bouillons
+fr:bouillon, fond, Bouillons, fond de sauce
 ga:anraith
 gd:brot
 gl:Caldo
@@ -82630,11 +82693,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Broth
 # category/broths has 527 products @2019-05-19
 # ingredient/fr:bouillon has 1214 products in 6 languages @2019-02-25
 # brodo (acqua, osso di pollo, sale, spezie, carota, sedano (0,01%), cipolla, porro, scalogno, aglio, piante aromatiche)
-
-<en:broth
-en:fond
-fr:fond de sauce
-wikidata:en:Q96378096
 
 #category:en:beef-broth
 <en:beef
@@ -85125,3 +85183,15 @@ fr:momordique, margose
 it:momordic
 nl:Sopropo
 
+en:xylose
+xx:xylose
+wikipedia:en:https://en.wikipedia.org/wiki/Xylose
+
+# Tonka beans are prohibited for use in food in the US: https://www.govinfo.gov/content/pkg/CFR-2006-title21-vol3/xml/CFR-2006-title21-vol3-sec189-130.xml
+en:tonka bean
+es:haba tonka
+de:Tonkabohn, Tonkabohnen
+fr:fève de tonka, fèves de tonka, fève tonka, fèves tonka
+it:fava de tonka, fave di tonka
+nl:tonkaboon
+pt:fava tonka, fava de cumaru
