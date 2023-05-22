@@ -36,6 +36,13 @@ stopwords:nl:bevat,en
 stopwords:nl_be:bevat,en
 stopwords:de:und,mit,von
 
+# add following tag to ignore "Energy value in kJ does not correspond to the value calculated from the other nutrients error
+# only for categories having nutrients that are not displayed in the nutrition table and contributing to the energy
+# for example, lemon juices containing organic acid, it is forbidden to display organic acid in nutrition tables but
+# organic acid contributes to the total energy calculation. Only option is yes for this tag
+# ignore_energy_calculated_error:en:yes
+
+
 en:Artisan products
 ca:Prouctes artesans
 de:Handgefertigte Produkte, Artisanale Produkte, Handgemachte Produkte
@@ -5631,22 +5638,23 @@ agribalyse_food_code:en:13067
 agribalyse_proxy_food_name:en:Lime, pulp, raw
 agribalyse_proxy_food_name:fr:Citron vert ou Lime, pulpe, cru
 wikidata:en:Q5361217
+ignore_energy_calculated_error:en:yes
 
-#<en:Lime juice
+#<en:Lime juices
 #en:Home-made lime juice
 #fr:Jus de citron vert maison
 #ciqual_food_code:en:2030
 #ciqual_food_name:en:Lime juice, home-made
 #ciqual_food_name:fr:Jus de citron vert, maison
 
-<en:Lime juice
+<en:Lime juices
 en:Squeezed lime juices, Pure lime juices
 fr:Jus de citron vert pur jus
 ciqual_food_code:en:2031
 ciqual_food_name:en:Lime juice, pure juice
 ciqual_food_name:fr:Jus de citron vert, pur jus
 
-<en:Lime juice
+<en:Lime juices
 en:Lime juices from concentrate
 fr:Jus de citron vert à partir d'un concentré
 nl:limoensappen uit concentraat
@@ -5669,6 +5677,7 @@ pt:Sumos de limão
 ru:Лимонный сок
 zh:柠檬汁
 wikidata:en:Q1375049
+ignore_energy_calculated_error:en:yes
 
 <en:Lemon juice
 en:Home-made lemon juice
