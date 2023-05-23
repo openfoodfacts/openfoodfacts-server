@@ -301,8 +301,7 @@ sub initialize_attribute ($attribute_id, $target_lc) {
 		my $analysis_tag = $attribute_id;
 		$analysis_tag =~ s/_/-/g;
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/$analysis_tag.svg";
-		$attribute_ref->{panel_id} = "ingredients_analysis_en-" . $analysis_tag;
-		# does not seem to be working
+		$attribute_ref->{panel_id} = "ingredients_analysis_en:" . $analysis_tag;
 	}
 	elsif ($attribute_id =~ /^(labels)_(.*)$/) {
 		my $tagtype = $1;
