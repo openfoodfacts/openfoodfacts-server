@@ -308,7 +308,8 @@ sub initialize_attribute ($attribute_id, $target_lc) {
 		my $tag = $2;
 		$tag =~ s/_/-/g;
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/${tag}.svg";
-		$attribute_ref->{panel_id} = "${tag}";
+        # Will be relevant when we have panels for all labels
+		# $attribute_ref->{panel_id} = "${tag}";
 	}
 
 	# Initialize name and setting name if a language is requested
