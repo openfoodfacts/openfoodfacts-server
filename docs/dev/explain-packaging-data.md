@@ -160,9 +160,8 @@ Changing the "packagings" value will not change the "packaging_text_[language co
 
 For a single product, we might get partial packaging data from different sources that we map to similar but distinct shapes, like "bottle", "jar" and "jug". It may be difficult to determine if the data concerns a single packaging component, or different components.
 
-
 ### Products with packaging changes
 
-## Ressources
+## Resources
 
 - 2020 project to start structuring packaging data: https://wiki.openfoodfacts.org/Packagings_data_structure
