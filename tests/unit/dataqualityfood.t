@@ -744,4 +744,77 @@ $product_ref = {quantity => "300 ml e / 342 g"};
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag($product_ref, 'en:quantity-contains-e', 'quantity contains e', 1);
 
+# testing of ProductOpener::DataQualityFood::check_nutrition_data kJ vs kcal
+$product_ref = {
+	nutriments => {
+		"energy-kj_value" => 686,
+		"energy-kcal_value" => 165,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:energy-value-in-kcal-greater-than-in-kj',
+	'1 kcal = 4.184 kJ', 0
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:energy-value-in-kcal-does-not-match-value-in-kj',
+	'1 kcal = 4.184 kJ, value in kJ is between 165*3.7-2=608.5 and 165*4.7+2=777.5', 0
+);
+$product_ref = {
+	nutriments => {
+		"energy-kj_value" => 100,
+		"energy-kcal_value" => 200,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:energy-value-in-kcal-greater-than-in-kj',
+	'1 kcal = 4.184 kJ', 1
+);
+$product_ref = {
+	nutriments => {
+		"energy-kj_value" => 496,
+		"energy-kcal_value" => 105,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:energy-value-in-kcal-does-not-match-value-in-kj',
+	'1 kcal = 4.184 kJ, value in kJ is larger than 105*4.7+2=495.5', 1
+);
+$product_ref = {
+	nutriments => {
+		"energy-kj_value" => 386,
+		"energy-kcal_value" => 105,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:energy-value-in-kcal-does-not-match-value-in-kj',
+	'1 kcal = 4.184 kJ, value in kJ is lower than 105*3.7-2=495.5', 1
+);
+$product_ref = {
+	nutriments => {
+		"energy-kj_value" => 165,
+		"energy-kcal_value" => 686,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:energy-value-in-kcal-greater-than-in-kj',
+	'1 kcal = 4.184 kJ', 1
+);
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:energy-value-in-kcal-and-kj-are-reversed',
+	'1 kcal = 4.184 kJ, value in kcal is between 165*3.7-2=608.5 and 165*4.7+2=777.5', 1
+);
+
 done_testing();
