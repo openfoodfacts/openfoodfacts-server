@@ -59,6 +59,7 @@ BEGIN {
 		&get_property
 		&get_property_with_fallbacks
 		&get_inherited_property
+		&get_inherited_property_from_categories_tags
 		&get_inherited_properties
 		&get_tags_grouped_by_property
 
@@ -379,6 +380,47 @@ sub get_inherited_property ($tagtype, $canon_tagid, $property) {
 		}
 	}
 	return;
+}
+
+=head2 get_inherited_property_from_categories_tags ($product_ref, $property) {
+
+Iterating from the most specific category, try to get a property for a tag by exploring the taxonomy (using parents).
+
+=head3 Parameters
+
+=head4 $product_ref - the product reference
+=head4 $property - the property - string
+
+=head3 Return
+
+The property if found.
+
+=cut
+
+sub get_inherited_property_from_categories_tags ($product_ref, $property) {
+	# loop -> for each
+	# reduce calls to get_inherited_property
+	
+	my $category_match;
+	
+	if ((defined $product_ref->{categories_tags}) and (scalar @{$product_ref->{categories_tags}} > 0)) {
+
+		# Start with most specific category first
+		foreach my $category (reverse @{$product_ref->{categories_tags}}) {
+
+			$category_match = lc(get_inherited_property("categories", $category, $property));
+			last if $category_match;
+		}
+		if ($category_match) {
+			return $category_match;
+		}
+		else {
+			return;
+		}
+	}
+	else {
+		return;
+	}
 }
 
 =head2 get_inherited_properties ($tagtype, $canon_tagid, $properties_names_ref, $fallback_lcs = ["xx", "en"]) {

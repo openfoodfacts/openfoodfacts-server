@@ -594,39 +594,10 @@ sub check_nutrition_data_energy_computation ($product_ref) {
 			# following error/warning should be ignored for some categories
 			# for example, lemon juices containing organic acid, it is forbidden to display organic acid in nutrition tables but
 			# organic acid contributes to the total energy calculation
-			my $skip_energy_error = 0;
-			if (defined $product_ref->{categories_tags}) {
-				# start from end, categories_tags has the most specific categories at the end
-				my $i = @{$product_ref->{categories_tags}} - 1;
-				while (
-					($i >= 0)
-					and (
-						not(
-							# category - or a parent - with expected tag
-							defined get_inherited_property(
-								"categories", $product_ref->{categories_tags}[$i],
-								"ignore_energy_calculated_error:en"
-							)
-							and (
-								# we expect single letter a, b, c, d, e for nutriscore grade in the taxonomy. Case insensitive (/i).
-								get_inherited_property(
-									"categories", $product_ref->{categories_tags}[$i],
-									"ignore_energy_calculated_error:en"
-								) =~ /yes$/i
-							)
-						)
-					)
-					)
-				{
-					$i--;
-				}
+			my $ignore_energy_calculated_error
+				= get_inherited_property_from_categories_tags($product_ref, "ignore_energy_calculated_error:en");
 
-				if ($i >= 0) {
-					$skip_energy_error = 1;
-				}
-			}
-
-			if (not($skip_energy_error)) {
+			if (not($ignore_energy_calculated_error)) {
 				# Compare to specified energy value with a tolerance of 30% + an additiontal tolerance of 5
 				if (   ($computed_energy < ($specified_energy * 0.7 - 5))
 					or ($computed_energy > ($specified_energy * 1.3 + 5)))
