@@ -523,8 +523,11 @@ C<init_request()> is called at the start of each new request (web page or API).
 It initializes a number of variables, in particular:
 
 $cc : country code
+
 $lc : language code
 
+$knowledge_panels_options_ref: Reference to a hashmap that collect options to display knowledge panels for current request
+See also L<ProductOpener::KnowledgePanels/knowledge_panels_options_ref>
 It also initializes a request object that is returned.
 
 =head3 Parameters
@@ -1024,15 +1027,10 @@ sub display_index_for_producer ($request_ref) {
 	}
 
 	# Display a message if some product updates have not been published yet
+	# Updates can also be on obsolete products
 
-	my $count = count_products($request_ref, {states_tags => "en:to-be-exported"});
-
-	if ($count == 1) {
-		$template_data_ref->{products_to_be_exported} = lang("one_product_will_be_exported");
-	}
-	elsif ($count > 1) {
-		$template_data_ref->{products_to_be_exported} = sprintf(lang("n_products_will_be_exported"), $count);
-	}
+	$template_data_ref->{count_to_be_exported} = count_products({}, {states_tags => "en:to-be-exported"});
+	$template_data_ref->{count_obsolete_to_be_exported} = count_products({}, {states_tags => "en:to-be-exported"}, 1);
 
 	my $html;
 
@@ -1444,7 +1442,8 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 					if $log->is_debug();
 				$results = execute_query(
 					sub {
-						return get_products_collection()->aggregate($aggregate_parameters, {allowDiskUse => 1});
+						return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
+							->aggregate($aggregate_parameters, {allowDiskUse => 1});
 					}
 				);
 			};
@@ -1457,7 +1456,8 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 					if $log->is_debug();
 				$results = execute_query(
 					sub {
-						return get_products_tags_collection()->aggregate($aggregate_parameters, {allowDiskUse => 1});
+						return get_products_collection({obsolete => request_param($request_ref, "obsolete"), tags => 1})
+							->aggregate($aggregate_parameters, {allowDiskUse => 1});
 					}
 				);
 			};
@@ -1524,7 +1524,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 						if $log->is_debug();
 					$count_results = execute_query(
 						sub {
-							return get_products_collection()
+							return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
 								->aggregate($aggregate_count_parameters, {allowDiskUse => 1});
 						}
 					);
@@ -1537,7 +1537,8 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 						if $log->is_debug();
 					$count_results = execute_query(
 						sub {
-							return get_products_tags_collection()
+							return get_products_collection(
+								{obsolete => request_param($request_ref, "obsolete"), tags => 1})
 								->aggregate($aggregate_count_parameters, {allowDiskUse => 1});
 						}
 					);
@@ -3054,6 +3055,7 @@ sub display_tag ($request_ref) {
 	}
 
 	if (defined $request_ref->{groupby_tagtype}) {
+		$request_ref->{current_link} .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$lc};
 		$request_ref->{world_current_link} .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$lc};
 	}
 
@@ -3901,6 +3903,10 @@ HTML
 
 					$user_template_data_ref->{links} = [
 						{
+							text => sprintf(lang('contributors_products'), $products_title),
+							url => canonicalize_tag_link("contributors", get_string_id_for_lang("no_language", $tagid)),
+						},
+						{
 							text => sprintf(lang('editors_products'), $products_title),
 							url => canonicalize_tag_link("editors", get_string_id_for_lang("no_language", $tagid)),
 						},
@@ -4362,7 +4368,7 @@ sub add_country_and_owner_filters_to_query ($request_ref, $query_ref) {
 	return;
 }
 
-sub count_products ($request_ref, $query_ref) {
+sub count_products ($request_ref, $query_ref, $obsolete = 0) {
 
 	add_country_and_owner_filters_to_query($request_ref, $query_ref);
 
@@ -4372,7 +4378,7 @@ sub count_products ($request_ref, $query_ref) {
 		$log->debug("Counting MongoDB documents for query", {query => $query_ref}) if $log->is_debug();
 		$count = execute_query(
 			sub {
-				return get_products_collection()->count_documents($query_ref);
+				return get_products_collection({obsolete => $obsolete})->count_documents($query_ref);
 			}
 		);
 	};
@@ -4891,7 +4897,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 				$log->debug("Counting MongoDB documents for query", {query => $query_ref}) if $log->is_debug();
 				$count = execute_query(
 					sub {
-						return get_products_tags_collection()->count_documents($query_ref);
+						return get_products_collection({obsolete => request_param($request_ref, "obsolete"), tags => 1})
+							->count_documents($query_ref);
 					}
 				);
 				$log->info("MongoDB count query ok", {error => $@, count => $count}) if $log->is_info();
@@ -4901,7 +4908,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 				$log->debug("Executing MongoDB query", {query => $aggregate_parameters}) if $log->is_debug();
 				$cursor = execute_query(
 					sub {
-						return get_products_tags_collection()->aggregate($aggregate_parameters, {allowDiskUse => 1});
+						return get_products_collection({obsolete => request_param($request_ref, "obsolete"), tags => 1})
+							->aggregate($aggregate_parameters, {allowDiskUse => 1});
 					}
 				);
 			}
@@ -4951,7 +4959,9 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 									$log->debug("count_documents on smaller products_tags collection",
 										{key => $key_count})
 										if $log->is_debug();
-									return get_products_tags_collection()->count_documents($query_ref);
+									return get_products_collection(
+										{obsolete => request_param($request_ref, "obsolete"), tags => 1})
+										->count_documents($query_ref);
 								}
 							);
 
@@ -4962,7 +4972,9 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 								sub {
 									$log->debug("count_documents on complete products collection", {key => $key_count})
 										if $log->is_debug();
-									return get_products_collection()->count_documents($query_ref);
+									return get_products_collection(
+										{obsolete => request_param($request_ref, "obsolete")})
+										->count_documents($query_ref);
 								}
 							);
 						}
@@ -4988,7 +5000,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 						sub {
 							$log->debug("empty query_ref, use estimated_document_count fot better performance", {})
 								if $log->is_debug();
-							return get_products_collection()->estimated_document_count();
+							return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
+								->estimated_document_count();
 						}
 					);
 				}
@@ -4999,8 +5012,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 					if $log->is_debug();
 				$cursor = execute_query(
 					sub {
-						return get_products_collection()->query($query_ref)->fields($fields_ref)->sort($sort_ref)
-							->limit($limit)->skip($skip);
+						return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
+							->query($query_ref)->fields($fields_ref)->sort($sort_ref)->limit($limit)->skip($skip);
 					}
 				);
 				$log->info("MongoDB query ok", {error => $@}) if $log->is_info();
@@ -6361,7 +6374,8 @@ sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 	eval {
 		$cursor = execute_query(
 			sub {
-				return get_products_collection()->query($query_ref)->fields($fields_ref);
+				return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
+					->query($query_ref)->fields($fields_ref);
 			}
 		);
 	};
@@ -6493,7 +6507,8 @@ sub search_and_map_products ($request_ref, $query_ref, $graph_ref) {
 	eval {
 		$cursor = execute_query(
 			sub {
-				return get_products_collection()->query($query_ref)->fields(
+				return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
+					->query($query_ref)->fields(
 					{
 						code => 1,
 						lc => 1,
@@ -6505,7 +6520,7 @@ sub search_and_map_products ($request_ref, $query_ref, $graph_ref) {
 						origins => 1,
 						emb_codes_tags => 1,
 					}
-				);
+					);
 			}
 		);
 	};
@@ -7295,6 +7310,10 @@ JS
 		= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "environment_card");
 	$template_data_ref->{health_card_panel}
 		= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "health_card");
+	if ($product_ref->{"knowledge_panels_" . $lc}{"contribution_card"}) {
+		$template_data_ref->{contribution_card_panel}
+			= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "contribution_card");
+	}
 
 	# The front product image is rendered with the same template as the ingredients, nutrition and packaging images
 	# that are displayed directly through the knowledge panels
@@ -8715,6 +8734,11 @@ sub data_to_display_nutriscore($) {
 		# Do not display a warning for water
 		if (not(has_tag($product_ref, "categories", "en:spring-waters"))) {
 
+			# Warning for nutrients estimated from ingredients
+			if ($product_ref->{nutrition_score_warning_nutriments_estimated}) {
+				push @nutriscore_warnings, lang("nutrition_grade_fr_nutriments_estimated_warning");
+			}
+
 			# Warning for tea and herbal tea in bags: state that the Nutri-Score applies
 			# only when reconstituted with water only (no milk, no sugar)
 			if (
@@ -8729,36 +8753,27 @@ sub data_to_display_nutriscore($) {
 			}
 
 			# Combined message when we miss both fruits and fiber
-			if (    (defined $product_ref->{nutrition_score_warning_no_fiber})
-				and ($product_ref->{nutrition_score_warning_no_fiber} == 1)
+			if (    ($product_ref->{nutrition_score_warning_no_fiber})
 				and (defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts})
 				and ($product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} == 1))
 			{
 				push @nutriscore_warnings, lang("nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning");
 			}
-			elsif ( (defined $product_ref->{nutrition_score_warning_no_fiber})
-				and ($product_ref->{nutrition_score_warning_no_fiber} == 1))
-			{
+			elsif ($product_ref->{nutrition_score_warning_no_fiber}) {
 				push @nutriscore_warnings, lang("nutrition_grade_fr_fiber_warning");
 			}
-			elsif ( (defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts})
-				and ($product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} == 1))
-			{
+			elsif ($product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts}) {
 				push @nutriscore_warnings, lang("nutrition_grade_fr_no_fruits_vegetables_nuts_warning");
 			}
 
-			if (    (defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate})
-				and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate} == 1))
-			{
+			if ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate}) {
 				push @nutriscore_warnings,
 					sprintf(
 					lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"),
 					$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate_100g"}
 					);
 			}
-			if (    (defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category})
-				and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category} ne ''))
-			{
+			if ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category}) {
 				push @nutriscore_warnings,
 					sprintf(
 					lang("nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"),
@@ -8768,9 +8783,7 @@ sub data_to_display_nutriscore($) {
 					$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value}
 					);
 			}
-			if (    (defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients})
-				and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients} ne ''))
-			{
+			if ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients}) {
 				push @nutriscore_warnings,
 					sprintf(
 					lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"),
@@ -10970,7 +10983,8 @@ sub search_and_analyze_recipes ($request_ref, $query_ref) {
 	eval {
 		$cursor = execute_query(
 			sub {
-				return get_products_collection()->query($query_ref)->fields($fields_ref);
+				return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
+					->query($query_ref)->fields($fields_ref);
 			}
 		);
 	};

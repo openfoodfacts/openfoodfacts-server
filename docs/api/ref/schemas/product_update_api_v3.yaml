@@ -11,3 +11,18 @@ properties:
     $ref: ./packagings/packagings-write.yaml
   packagings_complete:
     $ref: ./packagings/packagings_complete.yaml
+  lang:
+    type: string
+    minLength: 2
+    maxLength: 2
+    example: fr
+    description: 2 letter language code of the main language of the product (the most prominent on the packaging)
+  quantity:
+    type: string
+  serving_size:
+    type: string
+  categories_tags:
+    type: array
+    description: An array of categories
+    items:
+      $ref: ./packagings/input_taxonomy_tag.yaml

@@ -234,4 +234,21 @@ foreach my $rem_field (@$fields_to_remove) {
 }
 is($product_ref->{name}, "test_prod");
 
+# Test that NOVA and estimated % of fruits and vegetables are ignored when determining if the nutrients are completed.
+$product_ref->{nutriments} = {
+	"fruits-vegetables-nuts-estimate-from-ingredients_100g" => 0,
+	"fruits-vegetables-nuts-estimate-from-ingredients_serving" => 0,
+	"nova-group" => 4,
+	"nova-group_100g" => 4,
+	"nova-group_serving" => 4
+};
+
+compute_completeness_and_missing_tags($product_ref, $product_ref, {});
+
+my $facts_to_be_completed_state_found = grep {/en:nutrition-facts-to-be-completed/} $product_ref->{states};
+my $facts_completed_state_found = grep {/en:nutrition-facts-completed/} $product_ref->{states};
+
+is($facts_completed_state_found, 0);
+is($facts_to_be_completed_state_found, 1);
+
 done_testing();

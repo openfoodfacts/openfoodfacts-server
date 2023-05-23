@@ -142,6 +142,17 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 8,
    "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:another-unknown-ingredient",
+      "en:milk",
+      "en:pepper",
+      "en:salt",
+      "en:some-unknown-ingredient",
+      "en:spice",
+      "en:sugar",
+      "en:water"
+   ],
+   "ingredients_without_ciqual_codes_n" : 8,
    "known_ingredients_n" : 11,
    "lc" : "en",
    "nutriments" : {

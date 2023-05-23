@@ -83,7 +83,7 @@ my @tests = (
 		["en:salt", "en:acid", "en:e330"],
 	],
 
-	[{lc => "fi", ingredients_text => "valkosipulijauhe ja suola"}, ["en:garlic-powder", "en:salt",],],
+	[{lc => "fi", ingredients_text => "valkosipuli ja suola"}, ["en:garlic", "en:salt",],],
 	[
 		{
 			lc => "fi",
