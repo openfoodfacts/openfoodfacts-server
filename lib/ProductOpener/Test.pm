@@ -36,6 +36,7 @@ BEGIN {
 	@EXPORT_OK = qw(
 		&capture_ouputs
 		&compare_arr
+		&ensure_expected_results_dir
 		&compare_to_expected_results
 		&compare_array_to_expected_results
 		&compare_csv_file_to_expected_results
@@ -50,6 +51,8 @@ BEGIN {
 		&remove_all_orgs
 		&check_not_production
 		&wait_for
+		&read_gzip_file
+		&check_ocr_result
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -65,13 +68,56 @@ use ProductOpener::Store "store";
 use Carp qw/confess/;
 use Data::DeepAccess qw(deep_exists deep_get deep_set);
 use Getopt::Long;
+use IO::Uncompress::AnyInflate qw(anyinflate $AnyInflateError);
 use Test::More;
 use JSON "decode_json";
 use File::Basename "fileparse";
 use File::Path qw/make_path remove_tree/;
+use File::Copy;
 use Path::Tiny qw/path/;
+use Scalar::Util qw(looks_like_number);
 
 use Log::Any qw($log);
+
+=head2 read_gzip_file($filepath)
+
+Read gzipped file and return binary content
+
+=head3 Parameters
+
+=head4 String $filepath
+The path of the gzipped file.
+
+=cut
+
+sub read_gzip_file ($filepath) {
+	my $input = IO::File->new($filepath) or die "Cannot open '$filepath'\n";
+	my $buffer;
+	anyinflate $input => \$buffer or die "anyinflate failed: $AnyInflateError\n";
+	return $buffer;
+}
+
+=head2 check_ocr_result($ocr_result)
+
+Check that OCR result returned by Google Cloud Vision is as expected:
+  - a single [response] object in `responses` field
+  - `created_at` integer field
+
+=head3 Parameters
+
+=head4 String $ocr_result
+String of OCR result JSON as returned by Google Cloud Vision.
+
+=cut
+
+sub check_ocr_result ($ocr_result) {
+	ok(defined $ocr_result->{responses}, "OCR result contains the 'responses' field");
+	my @responses = $ocr_result->{responses};
+	my $created_at = $ocr_result->{created_at};
+	is(scalar @responses, 1, "OCR result contains a single response");
+	ok((defined $created_at and looks_like_number($created_at)), "OCR result `created_at` field is valid, $created_at");
+	return;
+}
 
 =head2 init_expected_results($filepath)
 
@@ -319,7 +365,12 @@ sub compare_to_expected_results ($object_ref, $expected_results_file, $update_ex
 
 			local $/;    #Enable 'slurp' mode
 			my $expected_object_ref = $json->decode(<$expected_result>);
-			is_deeply($object_ref, $expected_object_ref, $desc) or diag(explain $test_ref, explain $object_ref);
+			my $title;
+			if ($test_ref && (ref($test_ref) eq "HASH")) {
+				$title = $test_ref->{desc} // $test_ref->{test_case} // $test_ref->{id};
+				$title = undef unless $title;
+			}
+			is_deeply($object_ref, $expected_object_ref, $title) or diag(explain $test_ref, explain $object_ref);
 		}
 		else {
 			fail("could not load $expected_results_file");
@@ -360,20 +411,32 @@ sub compare_csv_file_to_expected_results ($csv_file, $expected_results_dir, $upd
 	my $csv = Text::CSV->new({binary => 1, sep_char => "\t"})    # should set binary attribute.
 		or die "Cannot use CSV: " . Text::CSV->error_diag();
 
-	open(my $io, '<:encoding(UTF-8)', $csv_file) or confess("Could not open " . $csv_file . ": $!");
+	if (open(my $io, '<:encoding(UTF-8)', $csv_file)) {
+		# first line contains headers
+		my $columns_ref = $csv->getline($io);
+		$csv->column_names(@{$columns_ref});
 
-	# first line contains headers
-	my $columns_ref = $csv->getline($io);
-	$csv->column_names(@{$columns_ref});
+		# csv --> array
+		my @data = ();
 
-	# csv --> array
-	my @data = ();
+		while (my $product_ref = $csv->getline_hr($io)) {
+			push @data, $product_ref;
+		}
+		close($io);
+		compare_array_to_expected_results(\@data, $expected_results_dir . "/rows", $update_expected_results);
 
-	while (my $product_ref = $csv->getline_hr($io)) {
-		push @data, $product_ref;
+		# If we update the expected results, copy the CSV file so that we can easily see line by line diffs
+		if ($update_expected_results) {
+			my $csv_filename = $csv_file;
+			$csv_filename =~ s/.*\///;
+			copy($csv_file, $expected_results_dir . '/' . $csv_filename)
+				or die "Copy of $csv_file to $expected_results_dir failed: $!";
+		}
 	}
-	close($io);
-	compare_array_to_expected_results(\@data, $expected_results_dir, $update_expected_results);
+	else {
+		fail("Could not open " . $csv_file . ": $!");
+	}
+
 	return 1;
 }
 

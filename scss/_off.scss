@@ -838,6 +838,12 @@ html[dir="rtl"] {
   max-width: 300px;
 }
 
+/* smaller text for descriptions */
+.panel_text .description {
+  color: #555;
+  font-size: .8em;
+}
+
 .ecoscore_panel {
   border-radius: 1rem;
 }

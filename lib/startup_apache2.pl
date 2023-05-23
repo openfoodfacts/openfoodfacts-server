@@ -114,6 +114,8 @@ use ProductOpener::FoodGroups qw/:all/;
 use ProductOpener::Events qw/:all/;
 use ProductOpener::Data qw/:all/;
 use ProductOpener::LoadData qw/:all/;
+use ProductOpener::NutritionCiqual qw/:all/;
+use ProductOpener::NutritionEstimation qw/:all/;
 
 use Apache2::Const -compile => qw(OK);
 use Apache2::Connection ();

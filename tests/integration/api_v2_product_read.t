@@ -28,6 +28,8 @@ my @products = (
 	{
 		%{dclone(\%default_product_form)},
 		(
+			lc => "en",
+			lang => "en",
 			code => '200000000034',
 			product_name => "Some product",
 			generic_name => "Tester",

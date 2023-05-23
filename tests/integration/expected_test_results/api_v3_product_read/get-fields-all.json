@@ -70,7 +70,7 @@
          "2xxxxxxxxxxx"
       ],
       "complete" : 0,
-      "completeness" : 0.5,
+      "completeness" : 0.4,
       "correctors_tags" : [],
       "created_t" : "--ignore--",
       "creator" : "tests",
@@ -573,13 +573,13 @@
       },
       "generic_name" : "Tester",
       "generic_name_en" : "Tester",
-      "grades" : {},
       "id" : "200000000034",
       "informers_tags" : [
          "tests"
       ],
       "ingredients" : [
          {
+            "ciqual_food_code" : "13050",
             "id" : "en:apple",
             "percent_estimate" : 62.5,
             "percent_max" : 100,
@@ -598,6 +598,7 @@
             "vegetarian" : "yes"
          },
          {
+            "ciqual_food_code" : "22000",
             "id" : "en:egg",
             "percent_estimate" : 9.375,
             "percent_max" : 33.3333333333333,
@@ -607,6 +608,7 @@
             "vegetarian" : "yes"
          },
          {
+            "ciqual_food_code" : "16129",
             "from_palm_oil" : "yes",
             "id" : "en:palm-oil",
             "percent_estimate" : 9.375,
@@ -678,6 +680,10 @@
       "ingredients_with_specified_percent_sum" : 0,
       "ingredients_with_unspecified_percent_n" : 4,
       "ingredients_with_unspecified_percent_sum" : 100,
+      "ingredients_without_ciqual_codes" : [
+         "en:milk"
+      ],
+      "ingredients_without_ciqual_codes_n" : 1,
       "interface_version_created" : "20150316.jqm2",
       "interface_version_modified" : "20150316.jqm2",
       "known_ingredients_n" : 9,
@@ -722,6 +728,7 @@
          "en:nutriscore-missing-nutrition-data-sodium",
          "en:nutriscore-missing-nutrition-data-proteins",
          "en:nutrition-no-fiber",
+         "en:packagings-number-of-components-4",
          "en:packagings-not-complete",
          "en:packagings-not-empty-but-not-complete",
          "en:packagings-not-empty",
@@ -771,6 +778,23 @@
       "origin" : "france",
       "origin_en" : "france",
       "other_nutritional_substances_tags" : [],
+      "packaging_materials_tags" : [
+         "en:glass",
+         "en:plastic",
+         "en:steel",
+         "en:wood"
+      ],
+      "packaging_recycling_tags" : [
+         "en:discard",
+         "en:recycle",
+         "en:reuse"
+      ],
+      "packaging_shapes_tags" : [
+         "en:bottle",
+         "en:box",
+         "en:film",
+         "en:lid"
+      ],
       "packaging_text" : "1 wooden box to recycle, 6 25cl glass bottles to reuse, 3 steel lids to recycle, 1 plastic film to discard",
       "packaging_text_en" : "1 wooden box to recycle, 6 25cl glass bottles to reuse, 3 steel lids to recycle, 1 plastic film to discard",
       "packagings" : [
@@ -826,6 +850,7 @@
             }
          }
       ],
+      "packagings_n" : 4,
       "photographers_tags" : [],
       "pnns_groups_1" : "Sugary snacks",
       "pnns_groups_1_tags" : [
@@ -844,13 +869,12 @@
       "quantity" : "100 g",
       "removed_countries_tags" : [],
       "rev" : 1,
-      "scores" : {},
       "serving_quantity" : "10",
       "serving_size" : "10 g",
-      "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
+      "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
       "states_hierarchy" : [
          "en:to-be-completed",
-         "en:nutrition-facts-completed",
+         "en:nutrition-facts-to-be-completed",
          "en:ingredients-completed",
          "en:expiration-date-to-be-completed",
          "en:packaging-code-to-be-completed",
@@ -865,7 +889,7 @@
       ],
       "states_tags" : [
          "en:to-be-completed",
-         "en:nutrition-facts-completed",
+         "en:nutrition-facts-to-be-completed",
          "en:ingredients-completed",
          "en:expiration-date-to-be-completed",
          "en:packaging-code-to-be-completed",

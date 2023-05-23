@@ -701,12 +701,24 @@ sub check_nutrition_data ($product_ref) {
 			# energy in kcal greater than in kj
 			if ($product_ref->{nutriments}{"energy-kcal_value"} > $product_ref->{nutriments}{"energy-kj_value"}) {
 				push @{$product_ref->{data_quality_errors_tags}}, "en:energy-value-in-kcal-greater-than-in-kj";
+
+				# additionally check if kcal value and kj value are reversed. Exact opposite condition as next error below
+				if (
+					(
+						$product_ref->{nutriments}{"energy-kcal_value"}
+						> 3.7 * $product_ref->{nutriments}{"energy-kj_value"} - 2
+					)
+					and ($product_ref->{nutriments}{"energy-kcal_value"}
+						< 4.7 * $product_ref->{nutriments}{"energy-kj_value"} + 2)
+					)
+				{
+					push @{$product_ref->{data_quality_errors_tags}}, "en:energy-value-in-kcal-and-kj-are-reversed";
+				}
 			}
 
 			# check energy in kcal is ~ 4.2 (+/- 0.5) energy in kj
 			#   +/- 2 to avoid false positives due to rounded values below 2 Kcal.
 			#   Eg. 1.49 Kcal -> 6.26 KJ in reality, can be rounded by the producer to 1 Kcal -> 6 KJ.
-			# TODO: add tests in /tests/unit/dataqualityfood.t
 			if (
 				(
 					$product_ref->{nutriments}{"energy-kj_value"}
@@ -758,7 +770,9 @@ sub check_nutrition_data ($product_ref) {
 
 			$nid_n++;
 
-			if (($nid eq 'fat') or ($nid eq 'carbohydrates') or ($nid eq 'proteins') or ($nid eq 'salt')) {
+			if (    (defined $product_ref->{nutriments}{$nid . "_100g"})
+				and (($nid eq 'fat') or ($nid eq 'carbohydrates') or ($nid eq 'proteins') or ($nid eq 'salt')))
+			{
 				$total += $product_ref->{nutriments}{$nid . "_100g"};
 			}
 
@@ -1203,12 +1217,18 @@ Checks related to the quantity and serving quantity.
 
 =cut
 
+# Check quantity values. See https://en.wiki.openfoodfacts.org/Products_quantities
 sub check_quantity ($product_ref) {
 
 	# quantity contains "e" - might be an indicator that the user might have wanted to use "℮" \N{U+212E}
-	if (    (defined $product_ref->{quantity})
-		and ($product_ref->{quantity} =~ /(?:.*e$)|(?:[0-9]+\s*[kmc]?[gl]?\s*e)/i)
-		and (not($product_ref->{quantity} =~ /\N{U+212E}/i)))
+	# example: 650 g e
+	if (
+		(defined $product_ref->{quantity})
+		# contains "kg e", or "g e", or "cl e", etc.
+		and ($product_ref->{quantity} =~ /(?:[0-9]+\s*[kmc]?[gl]\s*e)/i)
+		# contains the "℮" symbol
+		and (not($product_ref->{quantity} =~ /\N{U+212E}/i))
+		)
 	{
 		push @{$product_ref->{data_quality_info_tags}}, "en:quantity-contains-e";
 	}

@@ -63,7 +63,7 @@ $data_root = "/home/off";
 
 $geolite2_path = '/usr/local/share/GeoLite2-Country/GeoLite2-Country.mmdb';
 
-$mongodb = "off";
+$mongodb = "off";    # MongoDB database name
 $mongodb_host = "mongodb://localhost";
 $mongodb_timeout_ms = 50000;    # config option max_time_ms/maxTimeMS
 
