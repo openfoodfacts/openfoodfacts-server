@@ -22135,6 +22135,10 @@ ciqual_food_name:fr:Frik (blé dur immature concassé), cru
 #en:cooked freekeh
 #fr:freekeh cuit
 
+# (Triticum turgidum L. subsp. turgidum),
+<en:wheat
+en:poulard wheat
+fr:blé poulard
 
 
 ##################################################################################
@@ -22453,12 +22457,22 @@ fr:boulgour de blé dur
 #
 ##################################################################################
 
+# Triticum turgidum subsp. dicoccum and T. t. conv. durum
 <en:cereal
-en:emmer
+en:emmer, emmer wheat
 de:Emmer
+es:trigo farro, farro
 fr:blé amidonnier, amidonnier
+it:farro dicocco
+la:Triticum dicoccum
+pt:farro
 ru:двузернянка
 allergens:en: en:gluten
+
+<en:cereal flour
+<en:emmer wheat
+en:emmer flour, emmer wheat flour
+fr:farine de blé amidonnier
 
 # <en:compound
 fr:préparation pain d'épices
@@ -54124,6 +54138,17 @@ la:Vicia faba
 en:broad bean protein
 nl:tuinbooneiwit
 
+# rare bean from the Lyon region in France
+<en:legume
+en:meat bean
+fr:haricot viande, haricots viande
+
+<en:legume
+en:Adzuki bean
+fr:haricot azuki, haricots azuki
+it:fagiolo azuki, fagioli azuki
+la:vigna angularis
+
 # description:en:The pea is most commonly the small spherical seed or the seed-pod of the pod fruit Pisum sativum. Fresh peas are often eaten boiled and flavored with butter and/or spearmint as a side dish vegetable. Peas are usually boiled or steamed, which breaks down the cell walls and makes the taste sweeter and the nutrients more bioavailable.
 # comment:en:The wikidata translations are not clear between seed name, plant name and latin name.
 
@@ -54652,6 +54677,17 @@ es:Harina de guisantes partidos
 en:grey pea, grey peas
 fr:pois gris
 sv:gråärtan
+
+<en:pea
+en:grass pea, grass peas, cicerchia, blue sweet pea, chickling pea
+de:Saat-Platterbse
+es:almorta, chicharo
+fi:peltonätkelmä
+fr:pois carré, gesse
+it:cicerchia
+la:lathyrus sativus
+pt:chícharo
+sv:plattvial
 
 # description:en:The lentil (Lens culinaris or Lens esculenta) is an edible legume. Lentils are consumed in many ways. They can be eaten soaked, germinated, boiled, fried and baked.
 # comment:en:The wikidata entry is more about the plan, so translations can be wrong.
