@@ -2955,29 +2955,31 @@ or "slack_CHANNEL_NAME" (B<warning> currently channel name is ignored, we post t
 
 =cut
 
-sub removeEmailValues($product_ref) {
+sub removeEmailValues ($product_ref) {
 
-  # Iterate over the product fields
-  foreach my $field (keys %{$product_ref->{product}}) {
+	# Iterate over the product fields
+	foreach my $field (keys %{$product_ref->{product}}) {
 
-    if (defined $product_ref->{product}->{$field}) {
-      my $value = $product_ref->{product}->{$field};
-      my $emailRegex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+		if (defined $product_ref->{product}->{$field}) {
+			my $value = $product_ref->{product}->{$field};
+			my $emailRegex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 
-      # Check if the field is multi-valued
-      if (ref($value) eq 'ARRAY') {
-        my @new_values;
-        foreach my $entry (@$value) {
-          push @new_values, $entry unless $entry && $entry =~ $emailRegex;
-        }
-        @$value = @new_values;
-      } else {
-        # Remove the field edit if the value is an email
-        delete $product_ref->{product}->{$field} if $value && $value =~ $emailRegex;
-      }
-    }
-  }
+			# Check if the field is multi-valued
+			if (ref($value) eq 'ARRAY') {
+				my @new_values;
+				foreach my $entry (@$value) {
+					push @new_values, $entry unless $entry && $entry =~ $emailRegex;
+				}
+				@$value = @new_values;
+			}
+			else {
+				# Remove the field edit if the value is an email
+				delete $product_ref->{product}->{$field} if $value && $value =~ $emailRegex;
+			}
+		}
+	}
 }
+
 sub process_product_edit_rules ($product_ref) {
 
 	my $code = $product_ref->{code};
