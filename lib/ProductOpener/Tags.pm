@@ -408,16 +408,8 @@ sub get_inherited_property_from_categories_tags ($product_ref, $property) {
 			$category_match = lc(get_inherited_property("categories", $category, $property));
 			last if $category_match;
 		}
-		if ($category_match) {
-			return $category_match;
-		}
-		else {
-			return;
-		}
 	}
-	else {
-		return;
-	}
+	return $category_match;
 }
 
 =head2 get_inherited_properties ($tagtype, $canon_tagid, $properties_names_ref, $fallback_lcs = ["xx", "en"]) {
