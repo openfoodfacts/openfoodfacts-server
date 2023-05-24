@@ -398,11 +398,8 @@ The property if found.
 =cut
 
 sub get_inherited_property_from_categories_tags ($product_ref, $property) {
-	# loop -> for each
-	# reduce calls to get_inherited_property
-	
 	my $category_match;
-	
+
 	if ((defined $product_ref->{categories_tags}) and (scalar @{$product_ref->{categories_tags}} > 0)) {
 
 		# Start with most specific category first
