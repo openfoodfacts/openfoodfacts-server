@@ -7,6 +7,7 @@ const sourcemaps = require("gulp-sourcemaps");
 const minifyCSS = require("gulp-csso");
 const terser = require("gulp-terser-js");
 const svgmin = require("gulp-svgmin");
+const babel = require("gulp-babel");
 
 const jsSrc = [
   './html/js/display*.js',
@@ -47,8 +48,8 @@ function attributesIcons() {
 
 function css() {
   console.log("(re)building css");
-  
-return src(sassSrc).
+
+  return src(sassSrc).
     pipe(sourcemaps.init()).
     pipe(sass(sassOptions).on("error", sass.logError)).
     pipe(minifyCSS()).
@@ -87,12 +88,15 @@ function copyJs() {
 
 function buildJs() {
   console.log("(re)building js");
-  
-return src(jsSrc).
-  pipe(sourcemaps.init()).
-  pipe(terser()).
-  pipe(sourcemaps.write(".")).
-  pipe(dest("./html/js/dist"));
+
+  return src(jsSrc).
+    pipe(sourcemaps.init()).
+    pipe(babel({
+      presets: ["@babel/preset-env"]
+    })).
+    pipe(terser()).
+    pipe(sourcemaps.write(".")).
+    pipe(dest("./html/js/dist"));
 }
 
 function buildjQueryUi() {
@@ -106,20 +110,20 @@ function buildjQueryUi() {
     './node_modules/jquery-ui/ui/widgets/autocomplete.js',
     './node_modules/jquery-ui/ui/widgets/menu.js'
   ]).
-  pipe(sourcemaps.init()).
-  pipe(terser()).
-  pipe(concat('jquery-ui.js')).
-  pipe(sourcemaps.write(".")).
-  pipe(dest('./html/js/dist'));
+    pipe(sourcemaps.init()).
+    pipe(terser()).
+    pipe(concat('jquery-ui.js')).
+    pipe(sourcemaps.write(".")).
+    pipe(dest('./html/js/dist'));
 }
 
 function jQueryUiThemes() {
   return src([
-      './node_modules/jquery-ui/themes/base/core.css',
-      './node_modules/jquery-ui/themes/base/autocomplete.css',
-      './node_modules/jquery-ui/themes/base/menu.css',
-      './node_modules/jquery-ui/themes/base/theme.css',
-    ]).
+    './node_modules/jquery-ui/themes/base/core.css',
+    './node_modules/jquery-ui/themes/base/autocomplete.css',
+    './node_modules/jquery-ui/themes/base/menu.css',
+    './node_modules/jquery-ui/themes/base/theme.css',
+  ]).
     pipe(sourcemaps.init()).
     pipe(minifyCSS()).
     pipe(concat('jquery-ui.css')).
@@ -129,14 +133,14 @@ function jQueryUiThemes() {
 
 function copyCss() {
   return src([
-      "./node_modules/leaflet/dist/leaflet.css",
-      "./node_modules/leaflet.markercluster/dist/MarkerCluster.css",
-      "./node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css",
-      "./node_modules/@yaireo/tagify/dist/tagify.css",
-      "./node_modules/cropperjs/dist/cropper.css",
-      "./node_modules/jvectormap-next/jquery-jvectormap.css",
-      "./node_modules/select2/dist/css/select2.min.css"
-    ]).
+    "./node_modules/leaflet/dist/leaflet.css",
+    "./node_modules/leaflet.markercluster/dist/MarkerCluster.css",
+    "./node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css",
+    "./node_modules/@yaireo/tagify/dist/tagify.css",
+    "./node_modules/cropperjs/dist/cropper.css",
+    "./node_modules/jvectormap-next/jquery-jvectormap.css",
+    "./node_modules/select2/dist/css/select2.min.css"
+  ]).
     pipe(sourcemaps.init()).
     pipe(minifyCSS()).
     pipe(sourcemaps.write(".")).
@@ -157,7 +161,7 @@ function buildAll() {
   );
 }
 
-function watchAll () {
+function watchAll() {
   watch(jsSrc, { delay: 500 }, buildJs);
   watch(sassSrc, { delay: 500 }, css);
   watch(imagesSrc, { delay: 500 }, copyImages);
