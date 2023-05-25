@@ -216,11 +216,13 @@ The function converts the multiline string into a single line string.
 
 sub convert_multiline_string_to_singleline ($line) {
 
+	# Escape " and \ unless they have been escaped already
+	# negative look behind to not convert \n to \\n or \" to \\" or \\ to \\\\
+	$line =~ s/(?<!\\)("|\\)/\\$1/g;
+
 	# \R will match all Unicode newline sequence
 	$line =~ s/\R/\\n/sg;
-	# Escape quotes unless they have been escaped already
-	# negative look behind to not convert \" to \\"
-	$line =~ s/(?<!\\)"/\\"/g;
+
 	return '"' . $line . '"';
 }
 
@@ -983,7 +985,11 @@ sub create_serving_size_panel ($product_ref, $target_lc, $target_cc, $options_re
 
 	# Generate a panel only for food products that have a serving size
 	if (defined $product_ref->{serving_size}) {
-		my $panel_data_ref = {};
+		my $serving_warning = undef;
+		if (($product_ref->{serving_quantity} <= 5) and ($product_ref->{nutrition_data_per} eq 'serving')) {
+			$serving_warning = lang_in_other_lc($target_lc, "serving_too_small_for_nutrition_analysis");
+		}
+		my $panel_data_ref = {"serving_warning" => $serving_warning,};
 		create_panel_from_json_template("serving_size", "api/knowledge-panels/health/nutrition/serving_size.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 	}
@@ -1290,6 +1296,26 @@ sub create_ingredients_analysis_panel ($product_ref, $target_lc, $target_cc, $op
 	return;
 }
 
+sub remove_latex_sequences ($string) {
+
+	# Some wikipedia abstracts have chemical formulas like {\\displaystyle \\mathrm {NaNO_{3}} +\\mathrm {Pb} \\to \\mathrm {NaNO_{2}} +\\mathrm {PbO} }
+	# In practice, we remove everything between { }
+
+	$string =~ s/
+        (                   
+        {                   # match an opening {
+            (?:
+                [^{}]++     # one or more non angle brackets, non backtracking
+                  |
+                (?1)        # found { or }, so recurse to capture group 1
+            )*
+        }                   # match a closing }
+        )                   
+        //xg;
+
+	return $string;
+}
+
 =head2 add_taxonomy_properties_in_target_languages_to_object ( $object_ref, $tagtype, $tagid, $properties_ref, $target_lcs_ref )
 
 This function adds to the hash ref $object_ref (for instance a data structure passed to a template) the values
@@ -1332,7 +1358,7 @@ sub add_taxonomy_properties_in_target_languages_to_object ($object_ref, $tagtype
 			}
 		}
 		if (defined $property_value) {
-			$object_ref->{$property} = $property_value;
+			$object_ref->{$property} = remove_latex_sequences($property_value);
 			$object_ref->{$property . "_lc"} = $property_lc;
 			$object_ref->{$property . "_language"}
 				= display_taxonomy_tag($target_lcs_ref->[0], "languages", $language_codes{$property_lc});

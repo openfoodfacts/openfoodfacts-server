@@ -701,6 +701,13 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 4,
    "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:chocolate",
+      "en:flour",
+      "en:sugar",
+      "en:water"
+   ],
+   "ingredients_without_ciqual_codes_n" : 4,
    "known_ingredients_n" : 6,
    "languages" : {},
    "languages_codes" : {},
@@ -722,6 +729,7 @@
       "en:nutriscore-missing-nutrition-data-sodium",
       "en:nutriscore-missing-nutrition-data-proteins",
       "en:nutrition-no-fiber",
+      "en:packagings-number-of-components-0",
       "en:packagings-not-complete",
       "en:packagings-empty",
       "en:ecoscore-extended-data-not-computed",

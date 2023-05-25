@@ -1804,6 +1804,7 @@ sub export_and_import_to_public_database ($args_ref) {
 	$args_ref->{csv_file} = $exported_file;
 	$args_ref->{export_id} = $export_id;
 	$args_ref->{comment} = "Import from producers platform";
+	$args_ref->{include_obsolete_products} = 1;
 	$args_ref->{include_images_paths} = 1;    # Export file paths to images
 	$args_ref->{exported_t} = $started_t;
 

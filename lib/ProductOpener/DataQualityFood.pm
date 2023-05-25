@@ -591,22 +591,30 @@ sub check_nutrition_data_energy_computation ($product_ref) {
 				$computed_energy += $grams * $energy_per_gram;
 			}
 
-			# Compare to specified energy value with a tolerance of 30% + an additiontal tolerance of 5
-			if (   ($computed_energy < ($specified_energy * 0.7 - 5))
-				or ($computed_energy > ($specified_energy * 1.3 + 5)))
-			{
-				# we have a quality problem
-				push @{$product_ref->{data_quality_errors_tags}},
-					"en:energy-value-in-$unit-does-not-match-value-computed-from-other-nutrients";
-			}
+			# following error/warning should be ignored for some categories
+			# for example, lemon juices containing organic acid, it is forbidden to display organic acid in nutrition tables but
+			# organic acid contributes to the total energy calculation
+			my $ignore_energy_calculated_error
+				= get_inherited_property_from_categories_tags($product_ref, "ignore_energy_calculated_error:en");
 
-			# Compare to specified energy value with a tolerance of 15% + an additiontal tolerance of 5
-			if (   ($computed_energy < ($specified_energy * 0.85 - 5))
-				or ($computed_energy > ($specified_energy * 1.15 + 5)))
-			{
-				# we have a quality warning
-				push @{$product_ref->{data_quality_warnings_tags}},
-					"en:energy-value-in-$unit-may-not-match-value-computed-from-other-nutrients";
+			if (not($ignore_energy_calculated_error)) {
+				# Compare to specified energy value with a tolerance of 30% + an additiontal tolerance of 5
+				if (   ($computed_energy < ($specified_energy * 0.7 - 5))
+					or ($computed_energy > ($specified_energy * 1.3 + 5)))
+				{
+					# we have a quality problem
+					push @{$product_ref->{data_quality_errors_tags}},
+						"en:energy-value-in-$unit-does-not-match-value-computed-from-other-nutrients";
+				}
+
+				# Compare to specified energy value with a tolerance of 15% + an additiontal tolerance of 5
+				if (   ($computed_energy < ($specified_energy * 0.85 - 5))
+					or ($computed_energy > ($specified_energy * 1.15 + 5)))
+				{
+					# we have a quality warning
+					push @{$product_ref->{data_quality_warnings_tags}},
+						"en:energy-value-in-$unit-may-not-match-value-computed-from-other-nutrients";
+				}
 			}
 
 			$nutriments_ref->{"energy-${unit}_value_computed"} = $computed_energy;
@@ -701,12 +709,24 @@ sub check_nutrition_data ($product_ref) {
 			# energy in kcal greater than in kj
 			if ($product_ref->{nutriments}{"energy-kcal_value"} > $product_ref->{nutriments}{"energy-kj_value"}) {
 				push @{$product_ref->{data_quality_errors_tags}}, "en:energy-value-in-kcal-greater-than-in-kj";
+
+				# additionally check if kcal value and kj value are reversed. Exact opposite condition as next error below
+				if (
+					(
+						$product_ref->{nutriments}{"energy-kcal_value"}
+						> 3.7 * $product_ref->{nutriments}{"energy-kj_value"} - 2
+					)
+					and ($product_ref->{nutriments}{"energy-kcal_value"}
+						< 4.7 * $product_ref->{nutriments}{"energy-kj_value"} + 2)
+					)
+				{
+					push @{$product_ref->{data_quality_errors_tags}}, "en:energy-value-in-kcal-and-kj-are-reversed";
+				}
 			}
 
 			# check energy in kcal is ~ 4.2 (+/- 0.5) energy in kj
 			#   +/- 2 to avoid false positives due to rounded values below 2 Kcal.
 			#   Eg. 1.49 Kcal -> 6.26 KJ in reality, can be rounded by the producer to 1 Kcal -> 6 KJ.
-			# TODO: add tests in /tests/unit/dataqualityfood.t
 			if (
 				(
 					$product_ref->{nutriments}{"energy-kj_value"}
@@ -896,124 +916,53 @@ sub check_nutrition_data ($product_ref) {
 			}
 		}
 
-		# some categories have - case 1 - expected nutriscore grade or -case 2 - expected ingredients
-		if (defined $product_ref->{categories_tags}) {
-			# case 1 - push data quality error if calculated nutriscore grade differs from expected nutriscore grade or if it is not calculated
+		# some categories have expected nutriscore grade - push data quality error if calculated nutriscore grade differs from expected nutriscore grade or if it is not calculated
+		my $expected_nutriscore_grade
+			= get_inherited_property_from_categories_tags($product_ref, "expected_nutriscore_grade:en");
 
-			# start from end, categories_tags has the most specific categories at the end
-			my $i = @{$product_ref->{categories_tags}} - 1;
-			while (
-				($i >= 0)
-				and (
-					not(
-						# category - or a parent - with expected nutriscore grade
-						defined get_inherited_property(
-							"categories",
-							$product_ref->{categories_tags}[$i],
-							"expected_nutriscore_grade:en"
-						)
-						and (
-							# we expect single letter a, b, c, d, e for nutriscore grade in the taxonomy. Case insensitive (/i).
-							get_inherited_property(
-								"categories",
-								$product_ref->{categories_tags}[$i],
-								"expected_nutriscore_grade:en"
-							) =~ /^([a-e]){1}$/i
-						)
-					)
-				)
+		# we expect single letter a, b, c, d, e for nutriscore grade in the taxonomy. Case insensitive (/i).
+		if ((defined $expected_nutriscore_grade) and ($expected_nutriscore_grade =~ /^([a-e]){1}$/i)) {
+			if (
+				# nutriscore not calculated but should have expected nutriscore grade
+				(not(defined $product_ref->{nutrition_grade_fr}))
+				# nutriscore calculated but unexpected nutriscore grade
+				or (    (defined $product_ref->{nutrition_grade_fr})
+					and ($product_ref->{nutrition_grade_fr} ne $expected_nutriscore_grade))
 				)
 			{
-				$i--;
+				push @{$product_ref->{data_quality_errors_tags}},
+					"en:nutri-score-grade-from-category-does-not-match-calculated-grade";
 			}
+		}
 
-			if ($i >= 0) {
+		# some categories have expected ingredient - push data quality error if ingredient differs from expected ingredient or is missing
+		my $expected_ingredients = get_inherited_property_from_categories_tags($product_ref, "expected_ingredients:en");
 
-				my $category_with_expected_nutriscore_grade = $product_ref->{categories_tags}[$i];
+		if (defined $expected_ingredients) {
+			$expected_ingredients = $expected_ingredients =~ s/ /-/gr;
 
-				my $nutriscore_grade_for_this_category = lc(
-					get_inherited_property(
-						"categories",
-						$category_with_expected_nutriscore_grade,
-						"expected_nutriscore_grade:en"
-					)
-				);
-
+			my $raise_unexpected_ingredient_for_catagory = 0;
+			# ingredients text missing
+			if ((not(defined $product_ref->{ingredients}))) {
+				$raise_unexpected_ingredient_for_catagory = 1;
+			}
+			else {
+				my $ingredients_count = @{$product_ref->{ingredients}};
 				if (
-					# nutriscore not calculated but should have expected nutriscore grade
-					(not(defined $product_ref->{nutrition_grade_fr}))
-					# nutriscore calculated but unexpected nutriscore grade
-					or (    (defined $product_ref->{nutrition_grade_fr})
-						and ($product_ref->{nutrition_grade_fr} ne $nutriscore_grade_for_this_category))
+					# ingredients text longer than 1 ingredients, hence, different than expected
+					($ingredients_count > 1)
+					# ingredients text different than expected
+					or (($ingredients_count == 1)
+						and not(is_a("ingredients", $product_ref->{ingredients}[0]{id}, $expected_ingredients)))
 					)
 				{
-					push @{$product_ref->{data_quality_errors_tags}},
-						"en:nutri-score-grade-from-category-does-not-match-calculated-grade";
-				}
-			}
-
-			# case 2 - push data quality error if ingredient differs from expected ingredient or is missing
-
-			# start from end, categories_tags has the most specific categories at the end
-			$i = @{$product_ref->{categories_tags}} - 1;
-			while (
-				($i >= 0)
-				and (
-					not(
-						# category - or a parent - with expected ingredients
-						defined get_inherited_property(
-							"categories", $product_ref->{categories_tags}[$i],
-							"expected_ingredients:en"
-						)
-					)
-				)
-				)
-			{
-				$i--;
-			}
-
-			# previous loop interrupted before 0, i.e. found category with expected ingredients
-			if ($i >= 0) {
-				my $category_with_expected_ingredients = $product_ref->{categories_tags}[$i];
-
-				my $ingredients_text_for_this_category = lc(
-					get_inherited_property(
-						"categories", $category_with_expected_ingredients, "expected_ingredients:en"
-					)
-				) =~ s/ /-/gr;
-
-				my $raise_unexpected_ingredient_for_catagory = 0;
-				# ingredients text missing
-				if ((not(defined $product_ref->{ingredients}))) {
 					$raise_unexpected_ingredient_for_catagory = 1;
 				}
-				else {
-					my $ingredients_count = @{$product_ref->{ingredients}};
-					if (
-						# ingredients text missing
-						(not(defined $product_ref->{ingredients}))
-						# ingredients text longer than 1 ingredients, hence, different than expected
-						or ($ingredients_count > 1)
-						# ingredients text different than expected
-						or (
-							($ingredients_count == 1)
-							and not(
-								is_a(
-									"ingredients", $product_ref->{ingredients}[0]{id},
-									$ingredients_text_for_this_category
-								)
-							)
-						)
-						)
-					{
-						$raise_unexpected_ingredient_for_catagory = 1;
-					}
-				}
+			}
 
-				if ($raise_unexpected_ingredient_for_catagory) {
-					push @{$product_ref->{data_quality_errors_tags}},
-						"en:ingredients-ingredient-from-category-does-not-match-actual-ingredient";
-				}
+			if ($raise_unexpected_ingredient_for_catagory) {
+				push @{$product_ref->{data_quality_errors_tags}},
+					"en:ingredients-ingredient-from-category-does-not-match-actual-ingredient";
 			}
 		}
 	}

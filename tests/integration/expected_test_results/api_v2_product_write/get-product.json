@@ -614,6 +614,13 @@
       "ingredients_with_specified_percent_sum" : 0,
       "ingredients_with_unspecified_percent_n" : 4,
       "ingredients_with_unspecified_percent_sum" : 100,
+      "ingredients_without_ciqual_codes" : [
+         "en:salt",
+         "en:sugar",
+         "en:water",
+         "en:wheat-flour"
+      ],
+      "ingredients_without_ciqual_codes_n" : 4,
       "interface_version_created" : "20150316.jqm2",
       "interface_version_modified" : "20150316.jqm2",
       "known_ingredients_n" : 10,
@@ -657,6 +664,7 @@
          "en:nutriscore-missing-nutrition-data-saturated-fat",
          "en:nutriscore-missing-nutrition-data-proteins",
          "en:nutrition-no-fiber",
+         "en:packagings-number-of-components-0",
          "en:packagings-not-complete",
          "en:packagings-empty",
          "en:ecoscore-extended-data-not-computed",

@@ -448,12 +448,17 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:chicken"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
    "known_ingredients_n" : 2,
    "labels_tags" : [
       "en:demeter"
    ],
    "lc" : "fr",
    "misc_tags" : [
+      "en:packagings-number-of-components-1",
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty",
@@ -479,5 +484,6 @@
          "shape" : "en:bulk"
       }
    ],
+   "packagings_n" : 1,
    "unknown_ingredients_n" : 0
 }

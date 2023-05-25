@@ -396,7 +396,8 @@ sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $
 			'glycemic-index-', 'water-hardness-',
 			'choline-', 'phylloquinone-',
 			'beta-glucan-', 'inositol-',
-			'carnitine-',
+			'carnitine-', 'sulphate-',
+			'nitrate-',
 		)
 	],
 	ca => [
@@ -458,6 +459,7 @@ sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $
 			'water-hardness-', 'choline-',
 			'phylloquinone-', 'beta-glucan-',
 			'inositol-', 'carnitine-',
+			'sulphate-', 'nitrate-',
 		)
 	],
 	ru => [
@@ -519,6 +521,7 @@ sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $
 			'water-hardness-', 'choline-',
 			'phylloquinone-', 'beta-glucan-',
 			'inositol-', 'carnitine-',
+			'sulphate-', 'nitrate-',
 		)
 	],
 	us => [
@@ -578,6 +581,7 @@ sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $
 			'carbon-footprint-', 'carbon-footprint-from-meat-or-fish-',
 			'nutrition-score-fr-', 'nutrition-score-uk-',
 			'glycemic-index-', 'water-hardness-',
+			'sulfate-', 'nitrate-',
 		)
 	],
 	us_before_2017 => [
@@ -638,6 +642,7 @@ sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $
 			'water-hardness-', 'choline-',
 			'phylloquinone-', 'beta-glucan-',
 			'inositol-', 'carnitine-',
+			'sulfate-', 'nitrate-',
 		)
 	],
 	hk => [
@@ -650,6 +655,7 @@ sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $
 			'vitamin-pp-', 'vitamin-b6-', 'vitamin-b9-', 'folates-',
 			'vitamin-b12-', '#minerals', 'calcium', 'potassium-',
 			'phosphorus-', 'iron', 'alcohol', 'nutrition-score-fr-',
+			'sulphate-', 'nitrate-',
 		)
 	],
 );
@@ -1291,6 +1297,7 @@ sub compute_nutrition_score ($product_ref) {
 		# foreach my $nid ("energy", "saturated-fat", "sugars", "sodium", "fiber", "proteins") {
 
 		foreach my $nid ("energy", "fat", "saturated-fat", "sugars", "sodium", "proteins") {
+			# If we don't set the 100g figure then this should flag the item as not enough data
 			if (not defined $product_ref->{nutriments}{$nid . $prepared . "_100g"}) {
 				# we have two special case where we can deduce data
 				next
@@ -1429,6 +1436,7 @@ sub compute_serving_size_data ($product_ref) {
 	# Record if we have nutrient values for as sold or prepared types,
 	# so that we can check the nutrition_data and nutrition_data_prepared boxes if we have data
 	my %nutrition_data = ();
+	my $serving_quantity = $product_ref->{serving_quantity};
 
 	foreach my $product_type ("", "_prepared") {
 
@@ -1495,8 +1503,8 @@ sub compute_serving_size_data ($product_ref) {
 				}
 				$nid =~ s/_prepared$//;
 
-				$product_ref->{nutriments}{$nid . $product_type . "_serving"}
-					= $product_ref->{nutriments}{$nid . $product_type};
+				my $value = $product_ref->{nutriments}{$nid . $product_type};
+				$product_ref->{nutriments}{$nid . $product_type . "_serving"} = $value;
 				$product_ref->{nutriments}{$nid . $product_type . "_serving"}
 					=~ s/^(<|environ|max|maximum|min|minimum)( )?//;
 				$product_ref->{nutriments}{$nid . $product_type . "_serving"} += 0.0;
@@ -1509,14 +1517,12 @@ sub compute_serving_size_data ($product_ref) {
 				# If the nutrient has no unit (e.g. pH), or is a % (e.g. "% vol" for alcohol), it is the same regardless of quantity
 				# otherwise we adjust the value for 100g
 				if ((defined $unit) and (($unit eq '') or ($unit =~ /^\%/))) {
-					$product_ref->{nutriments}{$nid . $product_type . "_100g"}
-						= $product_ref->{nutriments}{$nid . $product_type} + 0.0;
+					$product_ref->{nutriments}{$nid . $product_type . "_100g"} = $value + 0.0;
 				}
-				elsif ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
-
-					$product_ref->{nutriments}{$nid . $product_type . "_100g"} = sprintf("%.2e",
-						$product_ref->{nutriments}{$nid . $product_type} * 100.0 / $product_ref->{serving_quantity})
-						+ 0.0;
+				# Don't adjust the value for 100g if the serving quantity is 5 or less
+				elsif ((defined $serving_quantity) and ($serving_quantity > 5)) {
+					$product_ref->{nutriments}{$nid . $product_type . "_100g"}
+						= sprintf("%.2e", $value * 100.0 / $product_ref->{serving_quantity}) + 0.0;
 
 					# Record that we have a nutrient value for this product type (with a unit, not NOVA, alcohol % etc.)
 					$nutrition_data{$product_type} = 1;

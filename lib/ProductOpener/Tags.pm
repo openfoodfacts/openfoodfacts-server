@@ -59,6 +59,7 @@ BEGIN {
 		&get_property
 		&get_property_with_fallbacks
 		&get_inherited_property
+		&get_inherited_property_from_categories_tags
 		&get_inherited_properties
 		&get_tags_grouped_by_property
 
@@ -379,6 +380,36 @@ sub get_inherited_property ($tagtype, $canon_tagid, $property) {
 		}
 	}
 	return;
+}
+
+=head2 get_inherited_property_from_categories_tags ($product_ref, $property) {
+
+Iterating from the most specific category, try to get a property for a tag by exploring the taxonomy (using parents).
+
+=head3 Parameters
+
+=head4 $product_ref - the product reference
+=head4 $property - the property - string
+
+=head3 Return
+
+The property if found.
+
+=cut
+
+sub get_inherited_property_from_categories_tags ($product_ref, $property) {
+	my $category_match;
+
+	if ((defined $product_ref->{categories_tags}) and (scalar @{$product_ref->{categories_tags}} > 0)) {
+
+		# Start with most specific category first
+		foreach my $category (reverse @{$product_ref->{categories_tags}}) {
+
+			$category_match = lc(get_inherited_property("categories", $category, $property));
+			last if $category_match;
+		}
+	}
+	return $category_match;
 }
 
 =head2 get_inherited_properties ($tagtype, $canon_tagid, $properties_names_ref, $fallback_lcs = ["xx", "en"]) {
@@ -1251,7 +1282,8 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					# issue an error message and continue
 					my $msg
 						= "$lc:$lc_tagid already is associated to "
-						. $translations_from{$tagtype}{"$lc:$lc_tagid"}
+						. $translations_from{$tagtype}{"$lc:$lc_tagid"} . " ("
+						. $tagtype . ")"
 						. " - $lc:$lc_tagid cannot be mapped to entry $canon_tagid\n";
 					$errors .= "ERROR - " . $msg;
 					next;
@@ -1291,6 +1323,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 							. $synonyms{$tagtype}{$lc}{$tagid}
 							. " for entry "
 							. $translations_from{$tagtype}{$lc . ":" . $synonyms{$tagtype}{$lc}{$tagid}}
+							. " ($tagtype)"
 							. " - $lc:$tagid cannot be mapped to entry $canon_tagid / $lc:$lc_tagid\n";
 						$errors .= "ERROR - " . $msg;
 						next;
@@ -1346,10 +1379,8 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			print STDERR $errors;
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
 			# Disable die for the packaging taxonomy as some legit material and shape might have same name
-			# Temporarily (hopefully) disable die for the categories taxonomy, to give time to fix issues
 			unless (($tagtype eq "ingredients")
 				or ($tagtype eq "packaging")
-				or ($tagtype eq "categories")
 				or ($tagtype eq "packaging"))
 			{
 				die("Errors in the $tagtype taxonomy definition");
@@ -1983,9 +2014,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			print STDERR $errors;
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
 			# Disable also for packaging taxonomy for some shapes and materials shares same names
-			# Also temporarily disable die for the categories taxonomy, to give use time to fix it.
-			# Tracking bug: https://github.com/openfoodfacts/openfoodfacts-server/issues/6382
-			unless (($tagtype eq "ingredients") or ($tagtype eq "packaging") or ($tagtype eq "categories")) {
+			unless (($tagtype eq "ingredients") or ($tagtype eq "packaging")) {
 				die("Errors in the $tagtype taxonomy definition");
 			}
 		}

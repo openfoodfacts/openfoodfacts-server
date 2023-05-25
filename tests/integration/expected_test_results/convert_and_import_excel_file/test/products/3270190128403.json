@@ -624,6 +624,10 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:green-lentils"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
    "interface_version_created" : "import_csv_file - version 2019/09/17",
    "known_ingredients_n" : 3,
    "labels" : "Organic, EU Organic, FR-BIO-01, AB Agriculture Biologique, Agriculture France",
@@ -688,6 +692,7 @@
       "en:nutriscore-missing-nutrition-data-sodium",
       "en:nutriscore-missing-nutrition-data-proteins",
       "en:nutrition-no-fiber",
+      "en:packagings-number-of-components-1",
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty",
@@ -776,6 +781,7 @@
          "shape" : "en:box"
       }
    ],
+   "packagings_n" : 1,
    "periods_after_opening" : "48 mois",
    "periods_after_opening_hierarchy" : [
       "en:48-months"

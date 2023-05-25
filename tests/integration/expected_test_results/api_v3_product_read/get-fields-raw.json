@@ -574,6 +574,7 @@
       ],
       "ingredients" : [
          {
+            "ciqual_food_code" : "13050",
             "id" : "en:apple",
             "percent_estimate" : 62.5,
             "percent_max" : 100,
@@ -592,6 +593,7 @@
             "vegetarian" : "yes"
          },
          {
+            "ciqual_food_code" : "22000",
             "id" : "en:egg",
             "percent_estimate" : 9.375,
             "percent_max" : 33.3333333333333,
@@ -601,6 +603,7 @@
             "vegetarian" : "yes"
          },
          {
+            "ciqual_food_code" : "16129",
             "from_palm_oil" : "yes",
             "id" : "en:palm-oil",
             "percent_estimate" : 9.375,
@@ -672,6 +675,10 @@
       "ingredients_with_specified_percent_sum" : 0,
       "ingredients_with_unspecified_percent_n" : 4,
       "ingredients_with_unspecified_percent_sum" : 100,
+      "ingredients_without_ciqual_codes" : [
+         "en:milk"
+      ],
+      "ingredients_without_ciqual_codes_n" : 1,
       "interface_version_created" : "20150316.jqm2",
       "interface_version_modified" : "20150316.jqm2",
       "known_ingredients_n" : 9,
@@ -716,6 +723,7 @@
          "en:nutriscore-missing-nutrition-data-sodium",
          "en:nutriscore-missing-nutrition-data-proteins",
          "en:nutrition-no-fiber",
+         "en:packagings-number-of-components-4",
          "en:packagings-not-complete",
          "en:packagings-not-empty-but-not-complete",
          "en:packagings-not-empty",
@@ -813,6 +821,7 @@
             "shape" : "en:film"
          }
       ],
+      "packagings_n" : 4,
       "photographers_tags" : [],
       "pnns_groups_1" : "Sugary snacks",
       "pnns_groups_1_tags" : [

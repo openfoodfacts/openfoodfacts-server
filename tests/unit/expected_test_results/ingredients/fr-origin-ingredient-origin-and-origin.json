@@ -84,6 +84,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "31008",
          "id" : "en:flower-honey",
          "origins" : "en:france",
          "percent" : 2.69353551476456,
@@ -219,6 +220,18 @@
    "ingredients_with_specified_percent_sum" : 94.0642458100559,
    "ingredients_with_unspecified_percent_n" : 0,
    "ingredients_with_unspecified_percent_sum" : 0,
+   "ingredients_without_ciqual_codes" : [
+      "en:butter",
+      "en:cream",
+      "en:finegrained-salt",
+      "en:pork",
+      "en:potato",
+      "en:semi-skimmed-milk",
+      "en:single-cream",
+      "en:spice",
+      "en:water"
+   ],
+   "ingredients_without_ciqual_codes_n" : 9,
    "known_ingredients_n" : 23,
    "lc" : "fr",
    "nutriments" : {
