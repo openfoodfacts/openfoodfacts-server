@@ -2978,7 +2978,7 @@ sub removeEmailValues ($product_ref) {
 			}
 		}
 	}
-	return ;
+	return;
 }
 
 sub process_product_edit_rules ($product_ref) {
