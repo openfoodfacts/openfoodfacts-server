@@ -1,0 +1,89 @@
+/*
+ * Some usefull stuff for Grids
+ */
+// Larger row max width, default is 83rem (around ~1328px depending on your
+// base font)
+$sveetoy-row-larger-width: 83rem !default;
+
+$include-sveetoy-grid: $include-sveetoy-classes !default;
+
+@if $include-sveetoy-grid {
+    .row{
+        ///
+        /// Fluid row, take the full width but keep normal row and columns behaviors
+        ///
+        &.fluid {
+            max-width: 100%;
+            // Restore the initial behavior restrained to the grid
+            .row {
+                margin: auto;
+                @include grid-row;
+                // Preserve nested fluid behavior
+                &.fluid {
+                    max-width: 100%;
+                }
+            }
+        }
+
+        ///
+        /// More larger rows
+        ///
+        /// Currently only for Foundation5
+        @if $sveetoy_foundation_support == 5{
+            &.larger{
+                @media #{$xlarge-up} {
+                    max-width: $sveetoy-row-larger-width;
+                }
+            }
+
+            .columns{
+                ///
+                /// Remove padding on columns
+                ///
+                &.unpadded {
+                    padding: 0;
+                }
+                @media #{$small-only} {
+                    &.small-unpadded{
+                        padding: 0;
+                    }
+                }
+                @media #{$medium-only} {
+                    &.medium-unpadded{
+                        padding: 0;
+                    }
+                }
+                @media #{$large-only} {
+                    &.large-unpadded{
+                        padding: 0;
+                    }
+                }
+            }
+        } @else {
+            @if map-has-key($breakpoints, xlarge) {
+                @include breakpoint(xlarge) {
+                    &.larger{
+                        max-width: $sveetoy-row-larger-width;
+                    }
+                }
+            }
+
+            .columns{
+                ///
+                /// Remove padding on columns
+                ///
+                &.unpadded{
+                    padding: 0;
+                }
+                @each $name, $size in $breakpoints {
+                    @include breakpoint($name only) {
+                        &.unpadded{
+                            padding: 0;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}

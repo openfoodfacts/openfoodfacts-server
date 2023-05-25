@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2021 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -27,6 +27,7 @@ use CGI qw/:cgi :form escapeHTML/;
 
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::HTTP qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Tags qw/:all/;
 
@@ -108,10 +109,10 @@ foreach (@{$nutriments_tables{$nutriment_table}}) {
 
 my %result = (nutrients => \@table);
 my $data = encode_json(\%result);
+write_cors_headers();
 print header(
 	-type => 'application/json',
 	-content_language => $lc,
 	-charset => 'utf-8',
-	-access_control_allow_origin => '*',
 	-cache_control => 'public, max-age: 86400'
 ) . $data;

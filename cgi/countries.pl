@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -45,18 +45,18 @@ use JSON::PP;
 
 ProductOpener::Display::init_request();
 
-my $term = decode utf8 => param('term');
+my $term = decode utf8 => single_param('term');
 
 my %result = ();
 foreach my $country (
 	sort {
-		(        get_string_id_for_lang("no_language", $translations_to{countries}{$a}{$lang})
-			  || get_string_id_for_lang("no_language", $translations_to{countries}{$a}{'en'}))
-		  cmp(   get_string_id_for_lang("no_language", $translations_to{countries}{$b}{$lang})
-			  || get_string_id_for_lang("no_language", $translations_to{countries}{$b}{'en'}))
+		(          get_string_id_for_lang("no_language", $translations_to{countries}{$a}{$lang})
+				|| get_string_id_for_lang("no_language", $translations_to{countries}{$a}{'en'}))
+			cmp(   get_string_id_for_lang("no_language", $translations_to{countries}{$b}{$lang})
+				|| get_string_id_for_lang("no_language", $translations_to{countries}{$b}{'en'}))
 	}
 	keys %{$properties{countries}}
-  )
+	)
 {
 
 	my $cc = country_to_cc($country);

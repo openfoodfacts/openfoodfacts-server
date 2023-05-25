@@ -21,30 +21,10 @@ use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Test qw/:all/;
 
-use File::Basename "dirname";
-
 use Getopt::Long;
 use JSON;
 
-my $test_id = "export";
-my $test_dir = dirname(__FILE__);
-
-my $usage = <<TXT
-
-The expected results of the tests are saved in $test_dir/expected_test_results/$test_id
-
-To verify differences and update the expected test results,
-actual test results can be saved by passing --update-expected-results
-
-The directory will be created if it does not already exist.
-
-TXT
-  ;
-
-my $update_expected_results;
-
-GetOptions("update-expected-results" => \$update_expected_results)
-  or die("Error in command line arguments.\n\n" . $usage);
+my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
 # Remove all products
 
@@ -87,8 +67,7 @@ export_csv($export_args_ref);
 
 close($exported_csv);
 
-ProductOpener::Test::compare_csv_file_to_expected_results($exported_csv_file,
-	$test_dir . "/expected_test_results/export",
+ProductOpener::Test::compare_csv_file_to_expected_results($exported_csv_file, $expected_result_dir,
 	$update_expected_results);
 
 # Export more fields
@@ -104,8 +83,7 @@ export_csv($export_args_ref);
 
 close($exported_csv);
 
-ProductOpener::Test::compare_csv_file_to_expected_results($exported_csv_file,
-	$test_dir . "/expected_test_results/export_more_fields",
+ProductOpener::Test::compare_csv_file_to_expected_results($exported_csv_file, "${expected_result_dir}_more_fields",
 	$update_expected_results);
 
 done_testing();

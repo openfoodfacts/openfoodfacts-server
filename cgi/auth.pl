@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -27,6 +27,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::HTTP qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
 
@@ -40,13 +41,35 @@ $log->info('start') if $log->is_info();
 
 my $request_ref = ProductOpener::Display::init_request();
 
-my $status = 403;
+my $status;
+my $response_ref;
 
 if (defined $User_id) {
 	$status = 200;
+
+	# Return basic data about the user
+	$response_ref = {
+		status => 1,
+		status_verbose => 'user signed-in',
+		user_id => $User_id,
+		user => {
+			email => $User{email},
+			name => $User{name},
+		},
+	};
+
+	use JSON::PP;
+
+}
+else {
+	$status = 403;
+	$response_ref = {
+		status => 0,
+		status_verbose => 'user not signed-in',
+	};
 }
 
-print header(-status => $status);
+my $json = JSON::PP->new->allow_nonref->canonical->utf8->encode($response_ref);
 
 # We need to send the header Access-Control-Allow-Credentials=true so that websites
 # such has hunger.openfoodfacts.org that send a query to world.openfoodfacts.org/cgi/auth.pl
@@ -54,14 +77,21 @@ print header(-status => $status);
 
 # The Access-Control-Allow-Origin header must be set to the value of the Origin header
 my $r = Apache2::RequestUtil->request();
-my $origin = $r->headers_in->{Origin} || '';
+my $allow_credentials = 1;
+write_cors_headers($allow_credentials);
+print header(-status => $status, -type => 'application/json', -charset => 'utf-8');
 
-# Only allow requests from one of our subdomains to see if a user is logged in or not
-
-if ($origin =~ /^https:\/\/[a-z0-9-.]+\.${server_domain}(:\d+)?$/) {
-	$r->err_headers_out->set("Access-Control-Allow-Credentials", "true");
-	$r->err_headers_out->set("Access-Control-Allow-Origin", $origin);
+# 2022-10-11 - The Open Food Facts Flutter app is expecting an empty body
+# see https://github.com/openfoodfacts/smooth-app/issues/3118
+# only send a body if we have the body=1 parameter
+# TODO: remove this condition when new versions of the app are deployed
+if (single_param("body")) {
+	print $json;
 }
 
 $r->rflush;
-$r->status($status);
+
+# Setting the status makes mod_perl append a default error to the body
+# $r->status($status);
+# Send 200 instead.
+$r->status(200);

@@ -8,7 +8,7 @@ use ProductOpener::Test qw/:all/;
 use ProductOpener::TestDefaults qw/:all/;
 
 remove_all_users();
-wait_dynamic_front();
+wait_application_ready();
 my $ua = new_client();
 
 my %create_user_args = (%default_user_form, (email => 'bob@test.com'));

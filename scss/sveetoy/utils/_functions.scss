@@ -1,0 +1,53 @@
+/*
+ *
+ * Some useful common functions
+ *
+ */
+$image-directory: '../images/' !default;
+$font-directory: '../fonts/' !default;
+
+///
+/// Strip unit from a number value
+///
+/// Usage :
+///    strip-units(16px);
+///
+/// Will return "16" (as a number)
+///
+@function strip-units($number) {
+    @return $number / ($number * 0 + 1);
+}
+
+///
+/// Shortand to augment given url with '$font-directory' url
+///
+@function font-url($url) {
+    @return url($font-directory + $url);
+}
+
+///
+/// Shortand to augment given url with '$image-directory' url
+///
+@function image-url($url) {
+    @return url($image-directory + $url);
+}
+
+///
+/// Calc plugin
+///
+@mixin sveecalc($property, $expression) {
+    #{$property}: -moz-calc(#{$expression});
+    #{$property}: -webkit-calc(#{$expression});
+    #{$property}: calc(#{$expression});
+}
+
+///
+/// Translate plugin
+///
+@mixin sveetranslate($x, $y) {
+    -webkit-transform: translate($x, $y);
+    -moz-transform: translate($x, $y);
+    -o-transform: translate($x, $y);
+    -ms-transform: translate($x, $y);
+    transform: translate($x, $y);
+}

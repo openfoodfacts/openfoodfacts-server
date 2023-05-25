@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -28,30 +28,30 @@ binmode(STDIN, ":encoding(UTF-8)");
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
 
-my $csv = Text::CSV->new ( { binary => 1 , sep_char => "\t" } );  # should set binary attribute.
+my $csv = Text::CSV->new({binary => 1, sep_char => "\t"});    # should set binary attribute.
 
-open (my $io, '<:encoding(UTF-8)', "agribalyse_food_codes.csv") or die("Could not open agribalyse_food_codes.csv : $!");
+open(my $io, '<:encoding(UTF-8)', "agribalyse_food_codes.csv") or die("Could not open agribalyse_food_codes.csv : $!");
 
-$csv->column_names($csv->getline ($io));
+$csv->column_names($csv->getline($io));
 
 my %agb_ciqual_names_fr = ();
 
-while (my $agb_ref = $csv->getline_hr ($io)) {
+while (my $agb_ref = $csv->getline_hr($io)) {
 	$agb_ciqual_names_fr{$agb_ref->{ciqual_code}} = $agb_ref->{ciqual_name_fr};
 	print STDERR "ciqual_code : " . $agb_ref->{ciqual_code} . " - ciqual_name_fr: " . $agb_ref->{ciqual_name_fr} . "\n";
 }
 
-close ($io);
+close($io);
 
 while (<STDIN>) {
-	
+
 	my $line = $_;
-	
+
 	if ($line =~ /^ciqual_food_code:en:(\d+)/) {
 		if (defined $agb_ciqual_names_fr{$1}) {
 			print "agribalyse_food_code:en:" . $1 . "\n";
 		}
 	}
-	
+
 	print $line;
 }

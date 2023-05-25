@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -28,6 +28,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::HTTP qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
@@ -43,10 +44,10 @@ use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();
 
-my $code = normalize_code(param('code'));
-my $id = param('id');
-my $ocr_engine = param('ocr_engine');
-my $annotations = param('annotations') | 0;
+my $code = normalize_code(single_param('code'));
+my $id = single_param('id');
+my $ocr_engine = single_param('ocr_engine');
+my $annotations = single_param('annotations') || 0;
 
 if (not defined $ocr_engine) {
 	$ocr_engine = "tesseract";
@@ -66,7 +67,7 @@ my $product_ref = retrieve_product($product_id);
 
 my $results_ref = {};
 
-if (($id =~ /^ingredients/) and (param('process_image'))) {
+if (($id =~ /^ingredients/) and (single_param('process_image'))) {
 	extract_ingredients_from_image($product_ref, $id, $ocr_engine, $results_ref);
 	if ($results_ref->{status} == 0) {
 		$results_ref->{ingredients_text_from_image} =~ s/\n/ /g;
@@ -79,7 +80,8 @@ my $data = encode_json($results_ref);
 
 $log->debug("JSON data output", {data => $data}) if $log->is_debug();
 
-print header (-charset => 'UTF-8', -access_control_allow_origin => '*') . $data;
+write_cors_headers();
+print header (-charset => 'UTF-8') . $data;
 
 exit(0);
 

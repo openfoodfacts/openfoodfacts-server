@@ -22,7 +22,7 @@ Subject: Result of import_csv_file.pl: org: [% args.org_id %] - source: [% args.
     [% END %]
 </ul>
 
-[% FOREACH orgs_stat IN ["orgs_in_file", "orgs_existing", "orgs_created", "orgs_without_source_authorization"] %]
+[% FOREACH orgs_stat IN ["orgs_in_file", "orgs_existing", "orgs_created", "orgs_without_source_authorization", "orgs_with_gln_but_no_party_name"] %]
 
 [% IF stats.$orgs_stat %]
 <p>$orgs_stat:</p>

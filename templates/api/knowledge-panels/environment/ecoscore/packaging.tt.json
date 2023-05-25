@@ -71,7 +71,7 @@
                     {
                         "values": [
                             {
-                                "text": "[% IF packaging.number %][% packaging.number %] [% END %][% display_taxonomy_tag_name('packaging_shapes',packaging.shape) %][% IF packaging.quantity %] ([% packaging.quantity %])[% END %]"
+                                "text": "[% IF packaging.number_of_units %][% packaging.number_of_units %] [% END %][% display_taxonomy_tag_name('packaging_shapes',packaging.shape) %][% IF packaging.quantity %] ([% packaging.quantity %])[% END %]"
                             },
                             {
                                 "text": "[% display_taxonomy_tag_name('packaging_materials',packaging.material) %]"

@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2022 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -27,20 +27,20 @@ use feature ();
 use utf8;
 
 sub import {
-    warnings->import;
-    warnings->unimport('experimental::signatures');
-    strict->import;
-    feature->import(qw/signatures :5.24/);
-    utf8->import;
-    return;
+	warnings->import;
+	warnings->unimport('experimental::signatures');
+	strict->import;
+	feature->import(qw/signatures :5.24/);
+	utf8->import;
+	return;
 }
 
 sub unimport {
-    warnings->unimport;
-    strict->unimport;
-    feature->unimport;
-    utf8->unimport;
-    return;
+	warnings->unimport;
+	strict->unimport;
+	feature->unimport;
+	utf8->unimport;
+	return;
 }
 
 1;

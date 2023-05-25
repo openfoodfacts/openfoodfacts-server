@@ -27,7 +27,8 @@ my @tests = (
 		"Issue #4232 - fr - 'Farine de blé contient Gluten (...)' - https://github.com/openfoodfacts/openfoodfacts-server/issues/4232",
 		{
 			lc => "fr",
-			ingredients_text => "Farine de blé contient Gluten (avec Farine de blé, Carbonate de calcium, Fer, Niacine, Thiamine), Lait entier • Eau",
+			ingredients_text =>
+				"Farine de blé contient Gluten (avec Farine de blé, Carbonate de calcium, Fer, Niacine, Thiamine), Lait entier • Eau",
 			#ingredients_text => "Farine de blé (avec Farine de blé, Carbonate de calcium, Fer, Niacine, Thiamine), Lait entier • Eau",
 			#ingredients_text => "Farine de blé (avec Farine de blé, Fer, Niacine, Thiamine), Lait entier • Eau",
 		},
@@ -74,7 +75,8 @@ my @tests = (
 		"Issue #4232 - en - 'Wheatflour contains Gluten (...)' - https://github.com/openfoodfacts/openfoodfacts-server/issues/4232",
 		{
 			lc => "en",
-			ingredients_text => "Wheatflour contains Gluten (with Wheatflour, Calcium Carbonate, Iron, Niacin, Thiamin)· Sugar, Palm Oil",
+			ingredients_text =>
+				"Wheatflour contains Gluten (with Wheatflour, Calcium Carbonate, Iron, Niacin, Thiamin)· Sugar, Palm Oil",
 		},
 		[
 			{
@@ -169,18 +171,13 @@ my @tests = (
 		]
 	],
 
-
-
-
 );
-
-
 
 foreach my $test_ref (@tests) {
 
 	# tell the testing framework it's okay to fail these
-	TODO: {
-		local $TODO = $test_ref->[0]; # human readable reason for the test
+TODO: {
+		local $TODO = $test_ref->[0];    # human readable reason for the test
 
 		my $product_ref = $test_ref->[1];
 		my $expected_ingredients_ref = $test_ref->[2];
@@ -189,7 +186,7 @@ foreach my $test_ref (@tests) {
 
 		parse_ingredients_text($product_ref);
 
-		is_deeply ($product_ref->{ingredients}, $expected_ingredients_ref)
+		is_deeply($product_ref->{ingredients}, $expected_ingredients_ref)
 			# using print + join instead of diag so that we don't have
 			# hashtags. It makes copy/pasting the resulting structure
 			# inside the test file much easier when tests results need
@@ -200,17 +197,17 @@ foreach my $test_ref (@tests) {
 			#or diag explain $product_ref->{ingredients};
 
 			or do {
-				print STDERR "# Got:\n";
-				print STDERR join("\n", explain $product_ref->{ingredients});
-				print STDERR "# Expected:\n";
-				print STDERR join("\n", explain $expected_ingredients_ref );
+			print STDERR "# Got:\n";
+			print STDERR join("\n", explain $product_ref->{ingredients});
+			print STDERR "# Expected:\n";
+			print STDERR join("\n", explain $expected_ingredients_ref );
 			};
 
-#			or do {
-#				my $str_got = join("\n", explain $product_ref->{ingredients});
-#				my $str_expected = join("\n", explain $expected_ingredients_ref );
-#				print STDERR diff(\$str_expected, \$str_got);
-#			};
+		#			or do {
+		#				my $str_got = join("\n", explain $product_ref->{ingredients});
+		#				my $str_expected = join("\n", explain $expected_ingredients_ref );
+		#				print STDERR diff(\$str_expected, \$str_got);
+		#			};
 
 	}
 

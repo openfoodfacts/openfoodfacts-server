@@ -38,3 +38,11 @@ body:
       placeholder: Estimate of timeloss provoked or saved by the issue, per product
     validations:
       required: false
+  - type: textarea
+    attributes:
+      label: Code pointers
+      placeholder: Add any pointers to relevant parts of the code. List of files: https://github.com/openfoodfacts/openfoodfacts-server/blob/main/.github/labeler.yml
+    validations:
+      required: false
+      
+      

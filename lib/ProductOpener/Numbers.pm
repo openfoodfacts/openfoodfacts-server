@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -30,23 +30,22 @@ with different sets of separators for digit grouping and to indicate decimals.
 package ProductOpener::Numbers;
 
 use ProductOpener::PerlStandards;
-use Exporter    qw< import >;
+use Exporter qw< import >;
 
 use Log::Any qw($log);
 
-BEGIN
-{
-	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
+BEGIN {
+	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 
 		&remove_insignificant_digits
 		&convert_string_to_number
 
-		);    # symbols to export on request
+	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
-use vars @EXPORT_OK ;
+use vars @EXPORT_OK;
 
 =head1 FUNCTIONS
 
@@ -85,29 +84,27 @@ The desired output is thus:
 
 =cut
 
-
-sub remove_insignificant_digits($value) {
+sub remove_insignificant_digits ($value) {
 
 	# Make the value a string
 	$value .= '';
-	
+
 	# Very small values may have been converted to scientific notation
-	
+
 	if ($value =~ /\.(\d*?[1-9]\d*?)0{3}/) {
-		$value = $`. '.' . $1;
+		$value = $` . '.' . $1;
 	}
 	elsif ($value =~ /([1-9]0*)\.0{3}/) {
-		$value = $`. $1;
+		$value = $` . $1;
 	}
 	elsif ($value =~ /\.(\d*)([0-8]+)9999/) {
-		$value = $`. '.' . $1 . ($2 + 1);
+		$value = $` . '.' . $1 . ($2 + 1);
 	}
 	elsif ($value =~ /\.9999/) {
 		$value = $` + 1;
 	}
 	return $value;
 }
-
 
 =head2 convert_string_to_number($)
 
@@ -117,10 +114,10 @@ digit grouping separators or used to indicate decimals.
 
 =cut
 
-sub convert_string_to_number($value) {
+sub convert_string_to_number ($value) {
 
 	$value =~ s/(\d) (\d)/$1$2/g;
-	
+
 	# In some languages like French, a comma is used instead of a dot to indicate decimals
 	# If we have 1 and only 1 comma, and no dot, change the comma to a dot
 	if (($value !~ /\./) and ($value !~ /,.*,/)) {
@@ -134,7 +131,7 @@ sub convert_string_to_number($value) {
 	# Remove remaining commas that can be used as separators
 	$value =~ s/,//g;
 	$value += 0;
-	
+
 	return $value;
 }
 

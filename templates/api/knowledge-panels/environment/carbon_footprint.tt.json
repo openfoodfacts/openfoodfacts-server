@@ -26,10 +26,10 @@
         {
             "element_type": "text",
             "text_element": {
-                "text_type": "summary",
+                "type": "summary",
                 "html": `
                     <p>[% lang('source_ademe_agribalyse_for_category') %] 
-                    <a href=\"https://agribalyse.ademe.fr/app/aliments/[% product.ecoscore_data.agribalyse.code %]\">[% panel.agribalyse_category_name.dquote %]</a>
+                    <a href="https://agribalyse.ademe.fr/app/aliments/[% product.ecoscore_data.agribalyse.code %]">[% panel.agribalyse_category_name.dquote %]</a>
                     ([% lang('source_ademe_agribalyse') %])
                     </p>
                     `

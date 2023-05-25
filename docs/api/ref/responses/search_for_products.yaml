@@ -1,0 +1,21 @@
+type: object
+properties:
+  count:
+    type: integer
+    example: 2701
+  page:
+    type: integer
+    example: 1
+  page_count:
+    type: integer
+    example: 24
+  page_size:
+    type: integer
+    example: 24
+  products:
+    type: array
+    items:
+      $ref: ../schemas/product.yaml
+  skip:
+    type: integer
+    example: 0

@@ -1,0 +1,64 @@
+<!-- start templates/[% component.name %] -->
+
+[% INCLUDE 'web/common/includes/producers_platform_top_panel.tt.html' %]
+
+<div class="row">
+    <div class="small-12 columns" style="margin-bottom:1rem;">
+
+        [% FOREACH facet IN facets %]
+            <p>
+                &rarr;
+                <a href="[% facet.url %]">[% facet.number_of_products %][% sep %]: [% facet.count %]</a>
+                <br>
+            </p>
+        [% END %]        
+
+        <h2>[% lang("your_products") %]</h2>
+        
+        <div class="flex-grid direction-row">
+
+            <a class="button small round" href="/cgi/product.pl?type=search_or_add&action=display" role="button" style="display:flex;margin-right:1rem;">
+                <span class="material-icons size-20">add</span>&nbsp;<span>[% lang('add_product') %]</span>
+            </a>
+            <a class="button small round" href="/cgi/import_file_upload.pl" role="button" style="display:flex;margin-right:1rem;">
+                <span class="material-icons size-20">upload</span>&nbsp;<span>[% lang("import_product_data") %]</span>
+            </a>
+            <a class="button small round" href="/cgi/import_photos_upload.pl" role="button" style="display:flex;">
+                <span class="material-icons size-20">add_to_photos</span>&nbsp;<span>[% lang("import_product_photos") %]</span>
+            </a>
+            <!-- hidden button to avoid a rule on the last child that sets the margin-bottom to 0 -->
+            <a class="button" style="display:none"></a>
+        </div>
+
+        [% IF count_to_be_exported + count_obsolete_to_be_exported > 0 %]
+            <p>[% lang("some_product_updates_have_not_been_published_on_the_public_database") %]</p>
+
+            <ul>
+                <li>[% lang('number_of_products_with_changes_since_last_export') %][% sep %]:
+                    [% IF count_to_be_exported %]
+                        <a href="/state/en:to-be-exported">[% count_to_be_exported %]</a>
+                    [% ELSE %]
+                        [% count_to_be_exported %]
+                    [% END %]
+                </li>
+                <li>[% lang('number_of_products_withdrawn_from_the_market_since_last_export') %][% sep %]:
+                    [% IF count_obsolete_to_be_exported %]
+                        <a href="/state/en:to-be-exported?obsolete=1">[% count_obsolete_to_be_exported %]</a>
+                    [% ELSE %]
+                        [% count_obsolete_to_be_exported %]
+                    [% END %]
+                </li>
+            </ul>            
+
+            <div class="flex-grid direction-row">
+                <a class="button small round" href="/cgi/export_products.pl" role="button" style="display:flex;margin-right:1rem;">
+                    <span class="material-icons size-20">publish</span>&nbsp;<span>[% lang("export_product_data_photos") %]</span>
+                </a>
+            </div>                
+        [% ELSE %]
+            <p>[% lang("no_products_to_export") %]</p>
+        [% END %]
+    </div>
+</div>
+
+<!-- end templates/[% component.name %] -->

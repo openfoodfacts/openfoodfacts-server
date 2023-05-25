@@ -1,22 +1,22 @@
 #!/usr/bin/perl -w
 
 # This file is part of Product Opener.
-# 
+#
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
-# 
+#
 # Product Opener is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
 # License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Affero General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
@@ -28,10 +28,9 @@ use ProductOpener::Config qw/:all/;
 
 # tmx files contain translations from the EU laws
 
-
 my $wikipedia_file = "$data_root/taxonomies/off/additives/additives.wikipedia.txt";
 
-open (my $IN, "<:encoding(UTF-8)", $wikipedia_file) or die("Could not open $wikipedia_file: $!");
+open(my $IN, "<:encoding(UTF-8)", $wikipedia_file) or die("Could not open $wikipedia_file: $!");
 
 my %properties = ();
 
@@ -53,15 +52,15 @@ my $property;
 my $lc;
 my $value;
 
-while(<$IN>) {
+while (<$IN>) {
 
 	# Humectant;450(ii);Trisodium diphosphate
 	my $line = $_;
 	chomp($line);
 	$line =~ s/\r|\n//g;
-	
+
 	next if ($line =~ /:\w\w:$/);
-	
+
 	if ($line =~ /^wikidata:en:(.*)$/) {
 		$wikidata = $1;
 		$property = undef;
@@ -83,16 +82,11 @@ while(<$IN>) {
 
 #exit;
 
-
 binmode(STDIN, ":encoding(UTF-8)");
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
 
-
-
-
 require Encode;
-
 
 my $j = 0;
 
@@ -102,16 +96,16 @@ $wikidata = undef;
 while (<STDIN>) {
 
 	my $line = $_;
-	
+
 	if ($line =~ /^en:(.*?)(,|$)/i) {
 		$id = $1;
 		$wikidata = undef;
 	}
-	
+
 	if ($line =~ /wikidata:en:(.*)$/) {
 		$wikidata = $1;
 		if (defined $properties{$wikidata}) {
-		
+
 			print "\nen:$id\n";
 			foreach my $lc (sort keys %{$properties{$wikidata}}) {
 				foreach my $property (sort keys %{$properties{$wikidata}{$lc}}) {
@@ -126,7 +120,6 @@ while (<STDIN>) {
 		$id = undef;
 		$wikidata = undef;
 	}
-	
-}
 
+}
 
