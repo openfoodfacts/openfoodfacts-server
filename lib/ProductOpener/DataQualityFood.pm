@@ -591,22 +591,30 @@ sub check_nutrition_data_energy_computation ($product_ref) {
 				$computed_energy += $grams * $energy_per_gram;
 			}
 
-			# Compare to specified energy value with a tolerance of 30% + an additiontal tolerance of 5
-			if (   ($computed_energy < ($specified_energy * 0.7 - 5))
-				or ($computed_energy > ($specified_energy * 1.3 + 5)))
-			{
-				# we have a quality problem
-				push @{$product_ref->{data_quality_errors_tags}},
-					"en:energy-value-in-$unit-does-not-match-value-computed-from-other-nutrients";
-			}
+			# following error/warning should be ignored for some categories
+			# for example, lemon juices containing organic acid, it is forbidden to display organic acid in nutrition tables but
+			# organic acid contributes to the total energy calculation
+			my $ignore_energy_calculated_error
+				= get_inherited_property_from_categories_tags($product_ref, "ignore_energy_calculated_error:en");
 
-			# Compare to specified energy value with a tolerance of 15% + an additiontal tolerance of 5
-			if (   ($computed_energy < ($specified_energy * 0.85 - 5))
-				or ($computed_energy > ($specified_energy * 1.15 + 5)))
-			{
-				# we have a quality warning
-				push @{$product_ref->{data_quality_warnings_tags}},
-					"en:energy-value-in-$unit-may-not-match-value-computed-from-other-nutrients";
+			if (not($ignore_energy_calculated_error)) {
+				# Compare to specified energy value with a tolerance of 30% + an additiontal tolerance of 5
+				if (   ($computed_energy < ($specified_energy * 0.7 - 5))
+					or ($computed_energy > ($specified_energy * 1.3 + 5)))
+				{
+					# we have a quality problem
+					push @{$product_ref->{data_quality_errors_tags}},
+						"en:energy-value-in-$unit-does-not-match-value-computed-from-other-nutrients";
+				}
+
+				# Compare to specified energy value with a tolerance of 15% + an additiontal tolerance of 5
+				if (   ($computed_energy < ($specified_energy * 0.85 - 5))
+					or ($computed_energy > ($specified_energy * 1.15 + 5)))
+				{
+					# we have a quality warning
+					push @{$product_ref->{data_quality_warnings_tags}},
+						"en:energy-value-in-$unit-may-not-match-value-computed-from-other-nutrients";
+				}
 			}
 
 			$nutriments_ref->{"energy-${unit}_value_computed"} = $computed_energy;
