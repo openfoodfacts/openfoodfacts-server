@@ -15,10 +15,10 @@
 
 	\$('input[name=[% nutrition.nutrition_data_per %]]').change(function() {
 		if (\$('input[name=[% nutrition.nutrition_data_per %]]:checked').val() == '100g') {
-			\$('#[% nutrition.nutrition_data %]_maxg').show();
+			\$('#[% nutrition.nutrition_data %]_100g').show();
 			\$('#[% nutrition.nutrition_data %]_serving').hide();
 		} else {
-			\$('#[% nutrition.nutrition_data %]_maxg').hide();
+			\$('#[% nutrition.nutrition_data %]_100g').hide();
 			\$('#[% nutrition.nutrition_data %]_serving').show();
 		}
 		update_nutrition_image_copy();
