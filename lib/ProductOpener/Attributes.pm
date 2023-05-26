@@ -289,8 +289,6 @@ sub initialize_attribute ($attribute_id, $target_lc) {
 		my $allergen = $1;
 		$allergen =~ s/_/-/g;
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/no-$allergen.svg";
-		# There is currently no knowledge panel related to allergens
-		# $attribute_ref->{panel_id} = "$allergen";
 	}
 	elsif ($attribute_id =~ /^(low)_(salt|sugars|fat|saturated_fat)$/) {
 		my $nid = $2;
@@ -301,15 +299,13 @@ sub initialize_attribute ($attribute_id, $target_lc) {
 		my $analysis_tag = $attribute_id;
 		$analysis_tag =~ s/_/-/g;
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/$analysis_tag.svg";
-		$attribute_ref->{panel_id} = "ingredients_analysis_en:" . $analysis_tag;
 	}
 	elsif ($attribute_id =~ /^(labels)_(.*)$/) {
 		my $tagtype = $1;
 		my $tag = $2;
 		$tag =~ s/_/-/g;
+
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/${tag}.svg";
-        # Will be relevant when we have panels for all labels
-		# $attribute_ref->{panel_id} = "${tag}";
 	}
 
 	# Initialize name and setting name if a language is requested
@@ -340,7 +336,7 @@ sub initialize_attribute ($attribute_id, $target_lc) {
 			my $name = display_taxonomy_tag($target_lc, "ingredients_analysis", "en:$analysis_tag");
 			$attribute_ref->{name} = $name;
 			$attribute_ref->{setting_name} = $name;
-		$attribute_ref->{panel_id} = "ingredients_analysis_en:" . $analysis_tag;
+
 		}
 
 		# Nutrient levels
@@ -1320,6 +1316,17 @@ sub compute_attribute_allergen ($product_ref, $target_lc, $attribute_id) {
 			display_taxonomy_tag($target_lc, "allergens", $allergen_id)
 		);
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/$allergen-content-unknown.svg";
+
+		if (not($product_ref->{ingredients_n})) {
+			# If we don't have ingredients,
+			# link to the ingredients panel that will have an action to add ingredients
+			$attribute_ref->{panel_id} = "ingredients";
+		}
+		else {
+			# If we have ingredients, then we have too many ingredients that we did not recognize,
+			# link to the ingredients analysis details
+			$attribute_ref->{panel_id} = "ingredients_analysis_details";
+		}
 	}
 	elsif ($attribute_ref->{match} == 100) {
 		$attribute_ref->{title} = sprintf(
@@ -1467,8 +1474,18 @@ sub compute_attribute_ingredients_analysis ($product_ref, $target_lc, $analysis)
 	# the ingredients_analysis taxonomy contains en:palm-oil and not en:contains-palm-oil
 	$analysis_tag =~ s/contains-(.*)$/$1/;
 
-	# Link to the corresponding knowledge panel (the panel id depends on the value of the property)
-	$attribute_ref->{panel_id} = "ingredients_analysis_en:" . $analysis_tag;
+	# Link to the corresponding knowledge panel
+	if (($status eq "unknown") and not($product_ref->{ingredients_n})) {
+		# If the status is unknown, and we don't have ingredients,
+		# link to the ingredients panel that will have an action to add ingredients
+		# Note that the status may be known (e.g. from labels like "Palm oil free")
+		# even if we don't have ingredients
+		$attribute_ref->{panel_id} = "ingredients";
+	}
+	else {
+		# Otherwise we link to the panel specific to the ingredients analysis property
+		$attribute_ref->{panel_id} = "ingredients_analysis_en:" . $analysis_tag;
+	}
 
 	if ($target_lc ne "data") {
 		$attribute_ref->{title} = display_taxonomy_tag($target_lc, "ingredients_analysis", "en:$analysis_tag");
