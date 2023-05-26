@@ -168,10 +168,9 @@ my @tests = (
 			lc => "en",
 			categories => "Cheeses",
 			categories_tags => ["en:cheeses"],
-			ingredients_text =>
-				"some ingredient that we do not recognize",
+			ingredients_text => "some ingredient that we do not recognize",
 		}
-	],	
+	],
 );
 
 foreach my $test_ref (@tests) {
