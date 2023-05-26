@@ -181,7 +181,7 @@ module.exports = {
     "no-useless-constructor": "error",
     "no-useless-rename": "error",
     "no-useless-return": "error",
-    "no-var": "off",
+    "no-var": "warn",
     "no-void": "error",
     "no-warning-comments": "error",
     "no-whitespace-before-property": "error",
