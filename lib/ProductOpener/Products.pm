@@ -2958,7 +2958,7 @@ or "slack_CHANNEL_NAME" (B<warning> currently channel name is ignored, we post t
 sub removeEmailValues ($product_ref) {
 
 	# Iterate over the product fields
-	foreach my $field (keys %{$product_ref->{product}}) {
+	foreach my $field (keys %$product_ref) {
 
 		if (defined $product_ref->{product}->{$field}) {
 			my $value = $product_ref->{product}->{$field};
