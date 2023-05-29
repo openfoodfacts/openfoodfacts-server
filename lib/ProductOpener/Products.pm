@@ -1844,7 +1844,7 @@ we can rename it to a generic user account like openfoodfacts-contributors.
 # Fields that contain usernames
 my @users_fields = qw(editors_tags photographers_tags informers_tags correctors_tags checkers_tags weighers_tags);
 
-sub replace_user_id_in_product ($product_id, $user_id, $new_user_id) {
+sub replace_user_id_in_product ($product_id, $user_id, $new_user_id, $existing_collection) {
 
 	my $path = product_path_from_id($product_id);
 
@@ -1852,7 +1852,8 @@ sub replace_user_id_in_product ($product_id, $user_id, $new_user_id) {
 
 	my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
 	if (not defined $changes_ref) {
-		$changes_ref = [];
+		$log->warn("replace_user_id_in_products - no changes file found for " . $product_id);
+		return;
 	}
 
 	my $most_recent_product_ref;
@@ -1925,7 +1926,7 @@ sub replace_user_id_in_product ($product_id, $user_id, $new_user_id) {
 	}
 
 	if ((defined $most_recent_product_ref) and (not $most_recent_product_ref->{deleted})) {
-		my $products_collection = get_products_collection();
+		my $products_collection = $existing_collection // get_products_collection();
 		$products_collection->replace_one({"_id" => $most_recent_product_ref->{_id}},
 			$most_recent_product_ref, {upsert => 1});
 	}
@@ -1964,18 +1965,9 @@ sub find_and_replace_user_id_in_products ($user_id, $new_user_id) {
 
 	my $query_ref = {'$or' => $or};
 
-	my $products_collection = get_products_collection();
+	my $products_collection = get_products_collection({timeout => 60 * 60 * 1000});
 
-	my $count = $products_collection->count_documents($query_ref);
-
-	$log->info(
-		"find_and_replace_user_id_in_products - matching products",
-		{user_id => $user_id, new_user_id => $new_user_id, count => $count}
-	) if $log->is_info();
-
-	# wait to give time to display the product count
-	sleep(2) if $log->is_debug();
-
+	my $count = 0;
 	my $cursor = $products_collection->query($query_ref)->fields({_id => 1, code => 1, owner => 1});
 	$cursor->immortal(1);
 
@@ -1987,10 +1979,11 @@ sub find_and_replace_user_id_in_products ($user_id, $new_user_id) {
 		next if (not defined $product_id) or ($product_id eq "");
 
 		$log->info("find_and_replace_user_id_in_products - product_id",
-			{user_id => $user_id, new_user_id => $product_id, product_id => $product_id})
+			{user_id => $user_id, new_user_id => $new_user_id, product_id => $product_id})
 			if $log->is_info();
 
-		replace_user_id_in_product($product_id, $user_id, $new_user_id);
+		replace_user_id_in_product($product_id, $user_id, $new_user_id, $products_collection);
+		$count++;
 	}
 
 	$log->info("find_and_replace_user_id_in_products - done",
