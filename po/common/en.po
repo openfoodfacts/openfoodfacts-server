@@ -6667,9 +6667,10 @@ msgctxt "faq_for_producers"
 msgid "FAQ for producers"
 msgstr "FAQ for producers"
 
-msgctxt "product_js_enter_value_between_0_and_100"
-msgid "Please enter a value between 0 and 100."
-msgstr "Please enter a value between 0 and 100."
+# variable names between { } must not be translated
+msgctxt "product_js_enter_value_between_0_and_max"
+msgid "Please enter a value between 0 and {max}."
+msgstr "Please enter a value between 0 and {max}."
 
 msgctxt "product_js_sugars_warning"
 msgid "Sugars should not be higher than carbohydrates."
