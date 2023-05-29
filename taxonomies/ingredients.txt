@@ -22220,6 +22220,10 @@ ciqual_food_name:fr:Frik (blé dur immature concassé), cru
 #en:cooked freekeh
 #fr:freekeh cuit
 
+# (Triticum turgidum L. subsp. turgidum),
+<en:wheat
+en:poulard wheat
+fr:blé poulard
 
 
 ##################################################################################
@@ -22538,12 +22542,45 @@ fr:boulgour de blé dur
 #
 ##################################################################################
 
-<en:cereal
-en:emmer
+# Triticum turgidum subsp. dicoccum and T. t. conv. durum
+<en:wheat
+en:emmer, emmer wheat
+ar:قمح ثنائي الحبة
+bg:Двузърнест лимец
+ca:pisana
+cv:Пăри
+da:Emmer
 de:Emmer
+el:Δίκοκκο σιτάρι
+es:trigo farro, farro
+fa:گندم دودانه
+fi:emmervehnä
 fr:blé amidonnier, amidonnier
-ru:двузернянка
+hi:खपली गेहूँ
+hu:tönkebúza
+hy:Հաճար
+it:farro dicocco
+ja:エンマーコムギ
+ka:ასლი
+la:Triticum dicoccum
+ml:എമ്മെർ
+nl:Emmertarwe
+nn:Emmer
+os:Уасылы
+pl:Pszenica płaskurka
+pt:farro
+ru:двузернянка, Пшеница двузернянка
+sv:Emmervete
+tr:Kavılca buğdayı
+uk:Полба
+zh:二粒小麦
+wikidata:en:Q167339
 allergens:en: en:gluten
+
+<en:cereal flour
+<en:emmer wheat
+en:emmer flour, emmer wheat flour
+fr:farine de blé amidonnier
 
 # <en:compound
 fr:préparation pain d'épices
@@ -54290,6 +54327,90 @@ la:Vicia faba
 en:broad bean protein
 nl:tuinbooneiwit
 
+# rare bean from the Lyon region in France
+<en:legume
+en:meat bean
+fr:haricot viande, haricots viande
+
+<en:legume
+en:Adzuki bean, azuki bean
+en:Adzuki bean, azuki bean
+ar:لوبياء مقرنة
+ca:mongeta azuki
+cs:vigna hranatá
+de:Adzukibohne
+eo:Azukio
+eu:azuki
+fa:لوبیای آزوکی
+fi:Adsukipapu
+fr:haricot azuki, haricots azuki
+he:אזוקי
+hu:Azukibab
+id:Kacang azuki
+it:fagiolo azuki, fagioli azuki
+ja:アズキ
+ko:팥
+la:vigna angularis
+lt:Japoninė pupuolė
+ms:Kacang merah
+nl:adukiboon
+pl:fasola adzuki
+ru:Адзуки
+sr:Азуки пасуљ
+sv:Adzukiböna
+sw:Muazuki
+th:ถั่วอาซูกิ
+uk:Адзукі
+vi:Đậu đỏ
+za:Lwglimz
+zh:紅豆
+wikidata:en:Q380279
+
+<en:legume
+en:cowpea, cowpeas
+ar:لوبياء ظفرية
+bg:Папуда
+bn:বিউলির ডাল
+de:Augenbohne
+dv:ރިހަ ތޮޅި
+el:Αμπελοφάσουλο
+eo:Okulvigno
+es:feijão-frade
+fa:لوبیا چشم‌بلبلی
+fi:Lehmänpapu
+fr:niébé, voème
+gu:ચોળા
+he:לוביה
+hi:लोबिया
+is:Augnbaun
+it:fagiolo dall'occhio
+ja:ササゲ
+jv:Polong sapi
+ka:ძაძა
+ko:동부 (식물)
+la:vigna unguiculata
+mg:Voanemba
+ml:വൻപയർ
+ne:बोडी
+pa:ਲੋਬੀਆ
+pl:Wspięga wężowata
+ru:Коровий горох
+rw:Igishyimbo
+sg:Gbari
+si:කව්පි
+sn:Nyemba
+sr:Крављи грашак
+sv:Ögonböna
+sw:Mkunde
+ta:காராமணி
+te:అలసంద
+tl:Paayap
+tr:Börülce
+uk:Вігна китайська
+vi:Đậu dải
+zh:豇豆
+wikidata:en:Q498940
+
 # description:en:The pea is most commonly the small spherical seed or the seed-pod of the pod fruit Pisum sativum. Fresh peas are often eaten boiled and flavored with butter and/or spearmint as a side dish vegetable. Peas are usually boiled or steamed, which breaks down the cell walls and makes the taste sweeter and the nutrients more bioavailable.
 # comment:en:The wikidata translations are not clear between seed name, plant name and latin name.
 
@@ -54825,8 +54946,19 @@ en:grey pea, grey peas
 fr:pois gris
 sv:gråärtan
 
+<en:pea
+en:grass pea, grass peas, cicerchia, blue sweet pea, chickling pea
+de:Saat-Platterbse
+es:almorta, chicharo
+fi:peltonätkelmä
+fr:pois carré, gesse
+it:cicerchia
+la:lathyrus sativus
+pt:chícharo
+sv:plattvial
+
 # description:en:The lentil (Lens culinaris or Lens esculenta) is an edible legume. Lentils are consumed in many ways. They can be eaten soaked, germinated, boiled, fried and baked.
-# comment:en:The wikidata entry is more about the plan, so translations can be wrong.
+# comment:en:The wikidata entry is more about the plant, so translations can be wrong.
 
 <en:legume
 en:lentils, lentil
