@@ -9,6 +9,7 @@ requires 'LWP::UserAgent'; # libwww-perl
 requires 'Image::Magick'; # libimage-magick-perl
 requires 'XML::Encoding'; # libxml-encoding-perl
 requires 'MIME::Lite'; # libmime-lite-perl
+requires 'MIME::Base32';
 requires 'Cache::Memcached::Fast'; #libcache-memcached-fast-perl
 requires 'JSON'; # libjson-perl
 requires 'JSON::PP'; # libjson-pp-perl
@@ -69,7 +70,6 @@ requires 'XML::XML2JSON';
 requires 'Redis';
 requires 'Digest::SHA1';
 requires 'Data::Difference';
-requires 'Data::TUID';
 
 # Mojolicious/Minion
 requires 'Mojolicious::Lite';
