@@ -1964,25 +1964,26 @@ sub find_and_replace_user_id_in_products ($user_id, $new_user_id) {
 
 	my $query_ref = {'$or' => $or};
 
-	my $products_collection = get_products_collection({timeout => 60 * 60 * 1000});
-
 	my $count = 0;
-	my $cursor = $products_collection->query($query_ref)->fields({_id => 1, code => 1, owner => 1});
-	$cursor->immortal(1);
+	for (my $obsolete = 0; $obsolete <= 1; $obsolete++) {
+		my $products_collection = get_products_collection({obsolete => $obsolete, timeout => 60 * 60 * 1000});
+		my $cursor = $products_collection->query($query_ref)->fields({_id => 1, code => 1, owner => 1});
+		$cursor->immortal(1);
 
-	while (my $product_ref = $cursor->next) {
+		while (my $product_ref = $cursor->next) {
 
-		my $product_id = $product_ref->{_id};
+			my $product_id = $product_ref->{_id};
 
-		# Ignore bogus product that might have been saved in the database
-		next if (not defined $product_id) or ($product_id eq "");
+			# Ignore bogus product that might have been saved in the database
+			next if (not defined $product_id) or ($product_id eq "");
 
-		$log->info("find_and_replace_user_id_in_products - product_id",
-			{user_id => $user_id, new_user_id => $new_user_id, product_id => $product_id})
-			if $log->is_info();
+			$log->info("find_and_replace_user_id_in_products - product_id",
+				{user_id => $user_id, new_user_id => $new_user_id, product_id => $product_id})
+				if $log->is_info();
 
-		replace_user_id_in_product($product_id, $user_id, $new_user_id, $products_collection);
-		$count++;
+			replace_user_id_in_product($product_id, $user_id, $new_user_id, $products_collection);
+			$count++;
+		}
 	}
 
 	$log->info("find_and_replace_user_id_in_products - done",
