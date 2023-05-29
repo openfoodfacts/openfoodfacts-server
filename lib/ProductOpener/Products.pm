@@ -2955,32 +2955,6 @@ or "slack_CHANNEL_NAME" (B<warning> currently channel name is ignored, we post t
 
 =cut
 
-sub removeEmailValues ($product_ref) {
-
-	# Iterate over the product fields
-	foreach my $field (keys %$product_ref) {
-
-		if (defined $product_ref->{product}->{$field}) {
-			my $value = $product_ref->{product}->{$field};
-			my $emailRegex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
-
-			# Check if the field is multi-valued
-			if (ref($value) eq 'ARRAY') {
-				my @new_values;
-				foreach my $entry (@$value) {
-					push @new_values, $entry unless $entry && $entry =~ $emailRegex;
-				}
-				@$value = @new_values;
-			}
-			else {
-				# Remove the field edit if the value is an email
-				delete $product_ref->{product}->{$field} if $value && $value =~ $emailRegex;
-			}
-		}
-	}
-	return;
-}
-
 sub process_product_edit_rules ($product_ref) {
 
 	my $code = $product_ref->{code};
@@ -2990,7 +2964,22 @@ sub process_product_edit_rules ($product_ref) {
 
 	# return value to indicate if the edit should proceed
 	my $proceed_with_edit = 1;
-	removeEmailValues($product_ref);
+	my @string_fields = qw(product_name generic_name);
+	my @tag_fields = qw(brands categories origins labels);
+	foreach my $field (@string_fields, @tag_fields) {
+		if (defined $product_ref->{$field}) {
+			my @filtered_tags;
+			foreach my $tag (split(/,|'|’|\s/, $product_ref->{$field})) {
+				if ($tag !~ qr/^\w+[\w.-]*@\w+[\w.-]*\.[A-Za-z]{2,}$/) {
+					push @filtered_tags, $tag;
+				}
+				else {
+					$log->debug("Tag '$tag' matched the pattern") if $log->is_debug();
+				}
+			}
+			$product_ref->{$field} = join(',', @filtered_tags);
+		}
+	}
 
 	foreach my $rule_ref (@edit_rules) {
 
