@@ -3992,11 +3992,8 @@ sub canonicalize_tag_link ($tagtype, $tagid) {
 		die "ERROR: canonicalize_tag_link called for a taxonomy tagtype: $tagtype - tagid: $tagid - $!";
 	}
 
-	my $tag_lc = $lc;
-
 	if ($tagtype eq 'missions') {
 		if ($tagid =~ /\./) {
-			$tag_lc = $`;
 			$tagid = $';
 		}
 	}
@@ -4008,19 +4005,9 @@ sub canonicalize_tag_link ($tagtype, $tagid) {
 
 	my $link = "/$path/" . URI::Escape::XS::encodeURIComponent($tagid);
 
-	#if ($tag_lc ne $lc) {
-	#	my $test = '';
-	#	if ($data_root =~ /-test/) {
-	#		$test = "-test";
-	#	}
-	#	$link = "http://" . $tag_lc . $test . "." . $server_domain . $link;
-	#}
-
-	#print STDERR "tagtype: $tagtype - $lc: $lc - lang: $lang - link: $link\n";
 	$log->info("canonicalize_tag_link $tagtype $tagid $path $link") if $log->is_info();
 
 	return $link;
-
 }
 
 sub export_tags_hierarchy ($lc, $tagtype) {
