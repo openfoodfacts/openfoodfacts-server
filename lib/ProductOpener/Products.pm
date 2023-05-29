@@ -1844,7 +1844,7 @@ we can rename it to a generic user account like openfoodfacts-contributors.
 # Fields that contain usernames
 my @users_fields = qw(editors_tags photographers_tags informers_tags correctors_tags checkers_tags weighers_tags);
 
-sub replace_user_id_in_product ($product_id, $user_id, $new_user_id, $existing_collection) {
+sub replace_user_id_in_product ($product_id, $user_id, $new_user_id, $products_collection) {
 
 	my $path = product_path_from_id($product_id);
 
@@ -1926,7 +1926,6 @@ sub replace_user_id_in_product ($product_id, $user_id, $new_user_id, $existing_c
 	}
 
 	if ((defined $most_recent_product_ref) and (not $most_recent_product_ref->{deleted})) {
-		my $products_collection = $existing_collection // get_products_collection();
 		$products_collection->replace_one({"_id" => $most_recent_product_ref->{_id}},
 			$most_recent_product_ref, {upsert => 1});
 	}
