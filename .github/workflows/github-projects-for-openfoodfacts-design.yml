@@ -76,3 +76,9 @@ jobs:
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
           labeled: infrastructure
           label-operator: OR   
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/92 # Add issue to the Nutri-Score project
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: nutriscore
+          label-operator: OR   

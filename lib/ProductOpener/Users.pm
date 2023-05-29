@@ -91,6 +91,7 @@ use Crypt::PasswdMD5 qw(unix_md5_crypt);
 use Math::Random::Secure qw(irand);
 use Crypt::ScryptKDF qw(scrypt_hash scrypt_hash_verify);
 use Log::Any qw($log);
+use MIME::Base32 qw(encode_base32);
 
 my @user_groups = qw(producer database app bot moderator pro_moderator);
 
@@ -193,7 +194,8 @@ Takes in the $user_ref of the user to be deleted
 sub delete_user ($user_ref) {
 
 	my $userid = get_string_id_for_lang("no_language", $user_ref->{userid});
-	my $new_userid = "openfoodfacts-contributors";
+	# Suffix is a combination of seconds since epoch plus a 16 bit random number
+	my $new_userid = "anonymous-" . lc(encode_base32(pack('LS', time(), rand(65536))));
 
 	$log->info("delete_user", {userid => $userid, new_userid => $new_userid}) if $log->is_info();
 
