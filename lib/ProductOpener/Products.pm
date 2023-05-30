@@ -82,7 +82,6 @@ BEGIN {
 		&retrieve_product
 		&retrieve_product_or_deleted_product
 		&retrieve_product_rev
-		&removeEmailValues
 		&store_product
 		&send_notification_for_product_change
 		&product_name_brand
@@ -105,6 +104,7 @@ BEGIN {
 		&add_back_field_values_removed_by_user
 
 		&process_product_edit_rules
+		&preprocess_product_field
 		&product_data_is_protected
 
 		&make_sure_numbers_are_stored_as_numbers
@@ -2947,6 +2947,21 @@ or "slack_CHANNEL_NAME" (B<warning> currently channel name is ignored, we post t
 
 =cut
 
+sub preprocess_product_field($product_ref) {
+
+	my @tag_fields = qw(brands categories origins labels packaging stores manufacturing_places);
+	foreach my $field (@tag_fields) {
+		if (defined $product_ref->{$field}) {
+			my @tags = split(/,/, $product_ref->{$field});
+			foreach my $tag (@tags){
+			$tag= remove_email($tag) unless $tag !~ /^[\w\.-]+@[\w\.-]+\.[A-Za-z]{2,}$/;
+			}
+			$product_ref->{$field} = join(',', @tags);
+		}
+	}
+	return;
+}
+
 sub process_product_edit_rules ($product_ref) {
 
 	my $code = $product_ref->{code};
@@ -2956,22 +2971,6 @@ sub process_product_edit_rules ($product_ref) {
 
 	# return value to indicate if the edit should proceed
 	my $proceed_with_edit = 1;
-	my @string_fields = qw(product_name generic_name);
-	my @tag_fields = qw(brands categories origins labels);
-	foreach my $field (@string_fields, @tag_fields) {
-		if (defined $product_ref->{$field}) {
-			my @filtered_tags;
-			foreach my $tag (split(/,|'|’|\s/, $product_ref->{$field})) {
-				if ($tag !~ qr/^\w+[\w.-]*@\w+[\w.-]*\.[A-Za-z]{2,}$/) {
-					push @filtered_tags, $tag;
-				}
-				else {
-					$log->debug("Tag '$tag' matched the pattern") if $log->is_debug();
-				}
-			}
-			$product_ref->{$field} = join(',', @filtered_tags);
-		}
-	}
 
 	foreach my $rule_ref (@edit_rules) {
 
