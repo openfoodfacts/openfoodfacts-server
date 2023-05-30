@@ -2971,6 +2971,8 @@ sub process_product_edit_rules ($product_ref) {
 
 	# return value to indicate if the edit should proceed
 	my $proceed_with_edit = 1;
+	#preprocessing fields to remove email entries
+	preprocess_product_field ($product_ref);
 
 	foreach my $rule_ref (@edit_rules) {
 
