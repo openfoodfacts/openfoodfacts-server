@@ -1007,7 +1007,7 @@ $options{redirect_texts} = {
 $options{display_tag_additives} = [
 	'@additives_classes',
 	'wikipedia',
-	'title:efsa_evaluation_overexposure_risk_title',
+	#'title:efsa_evaluation_overexposure_risk_title',
 	'efsa_evaluation',
 	'efsa_evaluation_overexposure_risk',
 	'efsa_evaluation_exposure_table',

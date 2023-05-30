@@ -3040,12 +3040,12 @@ msgid "Risk of overexposure"
 msgstr ""
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_high"
-msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
-msgstr ""
+msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of reaching or exceeding the Acceptable Daily Intake (ADI) for <tag>."
+msgstr "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
-msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of consuming too much <tag>."
-msgstr ""
+msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of reaching or exceeding the Acceptable Daily Intake (ADI) for <tag>."
+msgstr "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of reaching or exceeding the Acceptable Daily Intake (ADI) for <tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_description"
 msgid "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
@@ -3072,11 +3072,11 @@ msgid "No or very low risk of over exposure"
 msgstr ""
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
-msgid "Risk of exceeding the acceptable daily intake (ADI)"
+msgid "Risk of reaching or exceeding the acceptable daily intake (ADI)"
 msgstr ""
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_noael"
-msgid "Risk of exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
+msgid "Risk of reaching exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
 msgstr ""
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
@@ -3100,7 +3100,7 @@ msgid "Some people"
 msgstr ""
 
 msgctxt "exposure_description_95th"
-msgid "over 5%"
+msgid "5% or more"
 msgstr ""
 
 msgctxt "exposure_title_mean"
@@ -3108,7 +3108,7 @@ msgid "Most people"
 msgstr ""
 
 msgctxt "exposure_description_mean"
-msgid "over 50%"
+msgid "50% or more"
 msgstr ""
 
 msgctxt "wikipedia"
