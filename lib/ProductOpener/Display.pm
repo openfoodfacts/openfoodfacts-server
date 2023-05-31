@@ -3129,6 +3129,10 @@ sub display_tag ($request_ref) {
 	if (defined $tagtype) {
 
 		# check if there is a template to display additional fields from the taxonomy
+		# the template is set in the Config.pm file
+		# This feature was coded before the introduction of knowledge panels
+		# It is in maintenance mode, and should be reimplemented as facets knowledge panels
+		# (server side, or with client side facets knowledge panels)
 
 		if (exists $options{"display_tag_" . $tagtype}) {
 
@@ -3386,9 +3390,9 @@ HTML
 
 				if ((defined $propertyid{property}) or (defined $propertyid{abstract})) {
 
-					# abstract?
+					# wikipedia abstract?
 
-					if (defined $propertyid{abstract}) {
+					if ((defined $propertyid{abstract}) and ($fieldid eq "wikipedia")) {
 
 						my $site = $fieldid;
 
@@ -3588,6 +3592,14 @@ HTML
 							}
 							else {
 								$log->debug("display_tag - no date", {valueid => $valueid}) if $log->is_debug();
+							}
+
+							# abstract
+							if (exists $propertyid{abstract}) {
+								$display
+									.= "<blockquote>"
+									. $properties{$tagtype}{$canon_tagid}{$propertyid{abstract}}
+									. "</blockquote>";
 							}
 
 						}
