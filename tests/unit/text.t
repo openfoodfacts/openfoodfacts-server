@@ -61,4 +61,26 @@ is(normalize_percentages('2500%', 'fr'), "2\N{U+00A0}500\N{U+00A0}%");
 is(normalize_percentages('2,50%', 'en'), "2.5%");
 is(normalize_percentages('2.50%', 'en'), "2.5%");
 
+# Test preprocess_product_field
+my $product_ref = {
+	'brands' => 'brand1,email@example.com,brand2,brand3',
+	'categories' => 'category1,category2,email@example.com,category3',
+	'origins' => 'origin1,origin2,origin3',
+	'labels' => 'label1,label2,label3,email@example.com,', 
+	'packaging' => 'packaging1,packaging2,packaging3',
+	'stores' => 'email@example.com,store1,store2,store3',
+	'manufacturing_places' => 'place1,place2,place3,email@example.com,',
+};
+
+preprocess_product_field($product_ref);
+
+
+is($product_ref->{'brands'}, 'brand1,,brand2,brand3');
+is($product_ref->{'categories'}, 'category1,category2,,category3');
+is($product_ref->{'origins'}, 'origin1,origin2,origin3');
+is($product_ref->{'labels'}, 'label1,label2,label3,');
+is($product_ref->{'packaging'}, 'packaging1, packaging2, packaging3');
+is($product_ref->{'stores'}, ',store1,store2,store3');
+is($product_ref->{'manufacturing_places'}, 'place1,place2,place3,');
+
 done_testing();

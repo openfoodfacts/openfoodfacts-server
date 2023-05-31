@@ -2947,7 +2947,7 @@ or "slack_CHANNEL_NAME" (B<warning> currently channel name is ignored, we post t
 
 =cut
 
-sub preprocess_product_field($product_ref) {
+sub preprocess_product_field ($product_ref) {
 
 	my @tag_fields = qw(brands categories origins labels packaging stores manufacturing_places);
 	foreach my $field (@tag_fields) {

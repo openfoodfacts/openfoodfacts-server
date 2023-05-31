@@ -299,7 +299,7 @@ sub regexp_escape ($s) {
 	return $s;
 }
 
-sub remove_email ($s){
+sub remove_email ($s) {
 	# Removes email patterns
 	$s =~ s/\b[\w.-]+@[\w.-]+\.[A-Za-z]{2,}\b//g;
 	return $s;

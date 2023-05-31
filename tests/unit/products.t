@@ -251,4 +251,26 @@ my $facts_completed_state_found = grep {/en:nutrition-facts-completed/} $product
 is($facts_completed_state_found, 0);
 is($facts_to_be_completed_state_found, 1);
 
+# Test preprocess_product_field
+$product_ref = {
+	'brands' => 'Ferrero,abc@gmail.com',
+	'categories' => 'Beverages,email@example.com,Cola',
+	'origins' => 'email@example.com,France',
+	'labels' => 'email@example.com,Green Dot',
+	'packaging' => 'Aluminium,Can,abc@gmail.com',
+	'stores' => 'Carrefour,abc@gmail.com',
+	'manufacturing_places' => 'Atlanta,email@example.com',
+
+};
+
+preprocess_product_field($product_ref);
+
+is($product_ref->{'brands'}, 'Ferrero,');
+is($product_ref->{'categories'}, 'Beverages,,Cola');
+is($product_ref->{'origins'}, ',France');
+is($product_ref->{'labels'}, ',Green Dot');
+is($product_ref->{'packaging'}, 'Aluminium,Can,');
+is($product_ref->{'stores'}, 'Carrefour,');
+is($product_ref->{'manufacturing_places'}, 'Atlanta,');
+
 done_testing();
