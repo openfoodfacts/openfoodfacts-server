@@ -143,10 +143,6 @@ else {
 	open(my $out, ">", "$data_root/debug/product_jqm_multilingual." . time() . "." . $code);
 	print $out encode_json(Vars());
 	close $out;
-
-	# Processes fields to remove email values as entries
-	preprocess_product_field($product_ref);
-
 	# Fix too low salt values
 	# 2020/02/25 - https://github.com/openfoodfacts/openfoodfacts-server/issues/2945
 	if ((defined $User_id) and ($User_id eq 'kiliweb') and (defined single_param("nutriment_salt"))) {

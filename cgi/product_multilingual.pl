@@ -603,7 +603,8 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 		}
 		else {
-			$log->debug("could not find field in params", {field => $field}) if $log->is_debug();
+			# Preprocesses fields to remove email values as entries
+			$product_ref->{$field} = preprocess_product_field($field, decode utf8 => single_param($field));
 		}
 	}
 

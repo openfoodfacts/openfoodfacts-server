@@ -2947,19 +2947,13 @@ or "slack_CHANNEL_NAME" (B<warning> currently channel name is ignored, we post t
 
 =cut
 
-sub preprocess_product_field ($product_ref) {
+sub preprocess_product_field ($field, $value) {
 
-	my @tag_fields = qw(brands categories origins labels packaging stores manufacturing_places);
-	foreach my $field (@tag_fields) {
-		if (defined $product_ref->{$field}) {
-			my @tags = split(/,/, $product_ref->{$field});
-			foreach my $tag (@tags) {
-				$tag = remove_email($tag) unless $tag !~ /^[\w\.-]+@[\w\.-]+\.[A-Za-z]{2,}$/;
-			}
-			$product_ref->{$field} = join(',', @tags);
-		}
+	$value = remove_tags_and_quote($value);
+	if ($field ne 'customer_service' && $field ne 'other_information') {
+		$value = remove_email($value);
 	}
-	return;
+	return $value;
 }
 
 sub process_product_edit_rules ($product_ref) {
