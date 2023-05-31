@@ -2953,8 +2953,8 @@ sub preprocess_product_field ($product_ref) {
 	foreach my $field (@tag_fields) {
 		if (defined $product_ref->{$field}) {
 			my @tags = split(/,/, $product_ref->{$field});
-			foreach my $tag (@tags){
-			$tag= remove_email($tag) unless $tag !~ /^[\w\.-]+@[\w\.-]+\.[A-Za-z]{2,}$/;
+			foreach my $tag (@tags) {
+				$tag = remove_email($tag) unless $tag !~ /^[\w\.-]+@[\w\.-]+\.[A-Za-z]{2,}$/;
 			}
 			$product_ref->{$field} = join(',', @tags);
 		}
@@ -2972,7 +2972,7 @@ sub process_product_edit_rules ($product_ref) {
 	# return value to indicate if the edit should proceed
 	my $proceed_with_edit = 1;
 	#preprocessing fields to remove email entries
-	preprocess_product_field ($product_ref);
+	preprocess_product_field($product_ref);
 
 	foreach my $rule_ref (@edit_rules) {
 

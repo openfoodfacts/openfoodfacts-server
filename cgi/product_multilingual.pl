@@ -587,7 +587,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 				}
 			}
 
-			preprocess_product_field ($product_ref);
+			preprocess_product_field($product_ref);
 
 			$log->debug("before compute field_tags",
 				{code => $code, field_name => $field, field_value => $product_ref->{$field}})
