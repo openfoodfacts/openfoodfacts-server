@@ -268,6 +268,9 @@ sub update_product_fields ($request_ref, $product_ref, $response_ref) {
 
 		my $value = $input_product_ref->{$field};
 
+		# Call preprocess_product_field function for each field
+		$value = preprocess_product_field($field, $value);
+
 		# Packaging components
 		if ($field =~ /^(packagings)(_add)?$/) {
 			$request_ref->{updated_product_fields}{$1} = 1;

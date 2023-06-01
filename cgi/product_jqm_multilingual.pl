@@ -372,7 +372,7 @@ else {
 				}
 			}
 			else {
-				$product_ref->{$field} = remove_tags_and_quote(decode utf8 => single_param($field));
+				$product_ref->{$field} = preprocess_product_field($field, decode utf8 => single_param($field));
 
 				if ((defined $language_fields{$field}) and (defined $product_ref->{lc})) {
 					my $field_lc = $field . "_" . $product_ref->{lc};
