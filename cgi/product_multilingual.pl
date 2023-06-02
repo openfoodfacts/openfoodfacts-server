@@ -993,7 +993,7 @@ CSS
 
 	my @display_fields_arr;
 	foreach my $field (@fields) {
-		next if $field eq "origins";    # now displayed below allergens and traces in the ingredients section
+		next if $field eq "origins" || $field eq "packaging";    # hide packaging field & origins are now displayed below allergens and traces in the ingredients section
 		$log->debug("display_field", {field_name => $field, field_value => $product_ref->{$field}}) if $log->is_debug();
 		my $display_field = display_input_field($product_ref, $field, undef);
 		push(@display_fields_arr, $display_field);
