@@ -36,6 +36,13 @@ stopwords:nl:bevat,en
 stopwords:nl_be:bevat,en
 stopwords:de:und,mit,von
 
+# add following tag to ignore "Energy value in kJ does not correspond to the value calculated from the other nutrients error
+# only for categories having nutrients that are not displayed in the nutrition table and contributing to the energy
+# for example, lemon juices containing organic acid, it is forbidden to display organic acid in nutrition tables but
+# organic acid contributes to the total energy calculation. Only option is yes for this tag
+# ignore_energy_calculated_error:en:yes
+
+
 en:Artisan products
 ca:Prouctes artesans
 de:Handgefertigte Produkte, Artisanale Produkte, Handgemachte Produkte
@@ -5631,22 +5638,23 @@ agribalyse_food_code:en:13067
 agribalyse_proxy_food_name:en:Lime, pulp, raw
 agribalyse_proxy_food_name:fr:Citron vert ou Lime, pulpe, cru
 wikidata:en:Q5361217
+ignore_energy_calculated_error:en:yes
 
-#<en:Lime juice
+#<en:Lime juices
 #en:Home-made lime juice
 #fr:Jus de citron vert maison
 #ciqual_food_code:en:2030
 #ciqual_food_name:en:Lime juice, home-made
 #ciqual_food_name:fr:Jus de citron vert, maison
 
-<en:Lime juice
+<en:Lime juices
 en:Squeezed lime juices, Pure lime juices
 fr:Jus de citron vert pur jus
 ciqual_food_code:en:2031
 ciqual_food_name:en:Lime juice, pure juice
 ciqual_food_name:fr:Jus de citron vert, pur jus
 
-<en:Lime juice
+<en:Lime juices
 en:Lime juices from concentrate
 fr:Jus de citron vert à partir d'un concentré
 nl:limoensappen uit concentraat
@@ -5669,6 +5677,7 @@ pt:Sumos de limão
 ru:Лимонный сок
 zh:柠檬汁
 wikidata:en:Q1375049
+ignore_energy_calculated_error:en:yes
 
 <en:Lemon juice
 en:Home-made lemon juice
@@ -30788,6 +30797,7 @@ ro:Biscuiți cu stafide, Fursecuri cu stafide
 
 <en:Biscuits
 en:Almond cookies, Thin biscuits with almonds
+bg:Бадемови бисквити
 de:Mandelkekse, Mandel-Cookie
 fi:mantelikeksit
 fr:Croquants aux amandes, Cookies aux amandes, Biscuits aux amandes, Biscuits secs aux amandes
@@ -30805,6 +30815,7 @@ fr:tuile aux amandes
 
 <en:Biscuits
 en:Oatmeal cookies
+bg:Овесени бисквити
 de:Hafer-Cookies
 es:Galletas de avena
 fi:Kaurakeksit
@@ -35454,11 +35465,8 @@ ru:Шоколадные плитки, плитки шоколада, шокол�
 zh:巧克力棒
 wikidata:en:Q1361086
 #, barre chocolatée, barre au chocolat, barres au chocolat
-ciqual_food_code:en:31120
-ciqual_food_name:en:Chocolate bar
-ciqual_food_name:fr:Chocolat, en tablette (aliment moyen)
 
-<en:Chocolate bars
+<en:Bars covered with chocolate
 en:Chocolate biscuity bars
 de:Schokoladenbiscuits
 fi:Keksisuklaapatukat
@@ -35473,25 +35481,31 @@ agribalyse_food_code:en:31000
 fr:Barre chocolatée biscuitée type KitKat, Barre chocolatée biscuitée, Kitkat
 # Q367251
 
-<en:Chocolate bars
+# Bounty-style bars
+<en:Bars covered with chocolate
 fr:Barres chocolatées à la noix de coco, barre chocolatée à la noix de coco type Bounty, Bounty
 nl:Chocorepen met kokosvulling
 agribalyse_food_code:en:31002
 ciqual_food_code:en:31002
 ciqual_food_name:en:Coconut bar, with chocolate coating
 
-<en:Chocolate bars
-fr:Barres chocolatées au lait et aux céréales, barre chocolatée au lait et aux céréales type Kinder Country, Kinder Country
+# Kinder country style bars
+<en:Bars covered with chocolate
+en:Chocolate covered bars with milk and cereals, Milky cereal breakfast bar with chocolate fortified with vitamins and minerals, Milky cereal breakfast bar fortified with vitamins and minerals
+fr:Barres chocolatées au lait et aux céréales, barre chocolatée au lait et aux céréales type Kinder Country, Kinder Country, barre de céréales au lait et au chocolat
 #Q3815377
+agribalyse_food_code:en:31100
+ciqual_food_code:en:31100
+ciqual_food_name:en:Milky cereal breakfast bar, with chocolate or not, fortified with vitamins and minerals
 
-<en:Chocolate bars
+<en:Bars covered with chocolate
 fr:Barres chocolatées aux fruits oléagineux, barre chocolatée aux fruits oléagineux type Snickers, Snickers
 #Q714179
 
-<en:Chocolate bars
+<en:Bars covered with chocolate
 fr:Barres chocolatées fourrées aux fruits, barre chocolatée fourrée aux fruits
 
-<en:Chocolate bars
+<en:Bars covered with chocolate
 en:Caramel chocolate bars
 de:Schokoriegel mit Karamell, Schokoriegel mit Karamellüberzug, Schokoriegel mit Karamellfüllung
 fi:Toffee-suklaapatukat
@@ -35501,14 +35515,42 @@ lt:Šokoladiniai batonėliai su karamele
 nl:Chococaramelrepen
 pt:Barras de chocolate caramelo
 
+<en:Bars covered with chocolate
+en:Chocolate nuts cookie bars
+de:Schokoladenkekse mit Nüssen
+fr:Barres chocolatées biscuitées aux noisettes
+it:Barrette biscottate alle noci e cioccolato
+lt:Šokoladiniai batonėliai su riešutais ir sausainiais
+nl:Chocorepen met noten en biscuit
 
-<en:Chocolate bars
+<en:Bars covered with chocolate
 en:Caramel chocolate cookie bars
 de:Kekse mit Karamellschokolade
 fr:Barres chocolatées biscuitées au caramel
 it:Barrette biscottate al cioccolato e caramello
 lt:Šokoladiniai batonėliai su karamele ir sausainiais
 nl:Koekjesrepen met caramel en chocola
+
+<en:Bars covered with chocolate
+en:Chocolate confectionery with dairy filling, Chocolate bar with dairy filling
+fr:Barres chocolatées au lait, Confiserie chocolatées au lait, Barres chocolatées au lait, Barre chocolatée au lait, Barres chocolatées au lait type Kinder Maxi, Kinder Maxi
+agribalyse_food_code:en:31012
+ciqual_food_code:en:31012
+ciqual_food_name:en:Chocolate confectionery or bar, with dairy filling
+
+<en:Bars covered with chocolate
+en:Chocolate snack bar dairy filling
+fr:Barre de chocolat au lait frais
+agribalyse_food_code:en:31073
+ciqual_food_code:en:31073
+ciqual_food_name:en:Chocolate snack bar, dairy filling
+
+<en:Bars covered with chocolate
+en:Chocolate snack bar dairy filling with sponge cake
+fr:barre de chocolat au lait frais avec génoise
+agribalyse_food_code:en:31099
+ciqual_food_code:en:31099
+ciqual_food_name:en:Chocolate snack bar, dairy filling with sponge cake
 
 <en:Confectioneries
 <en:Cocoa and its products
@@ -38965,7 +39007,7 @@ wikidata:en:Q67858763
 
 <en:Canned corn
 en:Canned sweet corn, Canned sweet corn
-bg:Сладка царевица в консерва
+bg:Консервирана сладка царевица
 de:Dosenzuckermais, Zuckermaiskonserve
 es:Maíz dulce en conserva
 fi:purkitettu makea maissi
@@ -39940,7 +39982,7 @@ lt:Sūriai vaikams
 
 <en:Cheeses
 en:Brined cheeses
-bg:Саламурено сирене
+bg:Бяло саламурено сирене
 fr:Fromages saumurés
 lt:Sūdyti sūriai
 nl:Gepeklde kazen
@@ -52661,7 +52703,7 @@ nl:Virgin olijfoliën
 
 <en:Olive oils
 en:Extra-virgin olive oils, Extra virgin olive oil
-bg:Зехтин екстра върджин
+bg:Маслиново масло екстра върджин, Дървено масло екстра върджин, Зехтин екстра върджин
 ca:Oli d'oliva verge extra
 de:Native Olivenöle Extra, Natives Olivenöl Extra
 es:Aceites de oliva virgen extra, Aceite de oliva virgen extra
@@ -54584,6 +54626,7 @@ ciqual_food_name:en:Sunflower oil
 
 <en:Sunflower oils
 en:Nonrefined sunflower oils, unrefined sunflower oils
+bg:Шарлан, Нерафинирано слънчогледово масло
 lt:Nerafinuoti saulėgrąžų aliejai, Nerafinuotas saulėgrąžų aliejus
 ru:Масло подсолнечное нерафинированное
 
@@ -56283,6 +56326,7 @@ de:Roggenbackschrot Type 1800
 
 <en:Cereal flours
 en:Stone ground flours
+bg:Брашно смляно на каменна мелница
 es:Harinas molidas a piedra
 fr:Farines de meule
 lt:Akmenimis malti miltai
@@ -56328,6 +56372,7 @@ en:refined wheat flour, maida
 
 <en:Wheat flours
 en:Self-raising wheat flour
+bg:Пшенично брашно с набухвател
 fr:Farine de blé tendre avec levure incorporée, Farine de froment avec levure incorporée
 agribalyse_food_code:en:9437
 ciqual_food_code:en:9437
@@ -56437,6 +56482,7 @@ ciqual_food_name:fr:Farine de blé tendre ou froment T110
 
 <en:Wheat flours
 en:Whole wheat flours
+bg:Пълнозърнесто пшенично брашно
 de:Vollkornweizenmehle
 es:Harina de trigo integral
 fi:Täysjyvävehnäjauhot
@@ -60156,6 +60202,7 @@ origins:en: en:France
 
 <en:Citrus
 en:Lemons
+bg:Лимони
 de:Zitronen
 es:Limones
 fi:sitruunat
@@ -60262,7 +60309,7 @@ origins:en: en:Italy
 
 <en:Citrus
 en:Limes
-bg:Зелен лимон
+bg:Зелени лимони
 de:Limetten
 es:Limas
 fr:Citrons verts
@@ -76446,6 +76493,7 @@ ciqual_food_name:en:Poultry nuggets
 <en:Breaded chicken
 <en:Poultry nuggets
 en:Chicken nuggets
+bg:Пилешки хапки
 de:Hähnchen-Nuggets
 es:Nugget de pollo
 fi:kananugetit
@@ -76469,11 +76517,13 @@ fr:Escalopes de viande panées
 <en:Breaded meat cutlets
 <en:Pork preparations
 en:Breaded pork cutlets
+bg:Паниран свински котлет
 de:Schweineschnitzel
 fr:Escalopes de porc panées
 
 <en:Breaded meat cutlets
 en:Breaded veal cutlets, Breaded veal escalopes
+bg:Паниран телешки котлет
 de:Kalbsschnitzel
 fr:Escalopes de veau panées, Escalopes panées de veau
 agribalyse_food_code:en:25173
@@ -76485,6 +76535,7 @@ wikidata:en:Q67881839
 <en:Breaded meat cutlets
 <en:Breaded chicken
 en:Breaded chicken cutlets, Breaded turkey escalope
+bg:Паниран пилешки котлет
 de:Panierte Hähnchenschnitzel
 fi:Leivitetyt kanaleikkeet
 fr:Escalopes de poulet panées, Escalopes de poulet panée, Escalope de poulet panée
@@ -76553,6 +76604,7 @@ ciqual_food_name:fr:Caille, viande, crue
 
 <en:Poultries
 en:Pheasant
+bg:Фазан
 fr:Faisans
 
 <en:Game
@@ -79283,6 +79335,7 @@ ciqual_food_name:en:Pâté w green pepper
 
 <fr:Pâté
 en:Pork Pâtés
+bg:Свински пастет
 de:Schweinepasteten
 es:Patés de cerdo
 fr:Pâtés de porc
@@ -79294,6 +79347,7 @@ ro:Pate de porc
 <en:Pork Pâtés
 <en:Liver Pâtés
 en:Pork liver Pâtés
+bg:Пастет от свински черен дроб
 es:Patés de hígado de cerdo
 fr:Pâtés de foie de porc
 pt:Patês de figado de porco
@@ -95643,6 +95697,7 @@ ciqual_food_name:fr:Pois chiche, sec
 <en:Chickpeas
 <en:Cooked vegetables
 en:Cooked chick peas
+bg:Сварен нахут
 fr:Pois chiche cuits
 agribalyse_food_code:en:20507
 ciqual_food_code:en:20507
@@ -99472,40 +99527,12 @@ agribalyse_food_code:en:31106
 ciqual_food_code:en:31106
 ciqual_food_name:en:Chocolate cereal bar
 
-<en:Cereal bars
-en:Milky cereal breakfast bar with chocolate fortified with vitamins and minerals, Milky cereal breakfast bar fortified with vitamins and minerals
-fr:barre de céréales au lait et au chocolat
-agribalyse_food_code:en:31100
-ciqual_food_code:en:31100
-ciqual_food_name:en:Milky cereal breakfast bar, with chocolate or not, fortified with vitamins and minerals
-
 <en:Chocolate cereal bars
 en:Cereal bar with chocolate fortified with vitamins and minerals
 fr:barre de céréales au chocolat renforcée en vitamines et minéraux
 agribalyse_food_code:en:31102
 ciqual_food_code:en:31102
 ciqual_food_name:en:Cereal bar with chocolate, fortified with vitamins and minerals
-
-<en:Chocolate cereal bars
-en:Chocolate confectionery with dairy filling, Chocolate bar with dairy filling
-fr:Barres chocolatées au lait, Confiserie chocolatées au lait, Barres chocolatées au lait, Barre chocolatée au lait, Barres chocolatées au lait type Kinder Maxi, Kinder Maxi
-agribalyse_food_code:en:31012
-ciqual_food_code:en:31012
-ciqual_food_name:en:Chocolate confectionery or bar, with dairy filling
-
-<en:Chocolate cereal bars
-en:Chocolate snack bar dairy filling
-fr:Barre de chocolat au lait frais
-agribalyse_food_code:en:31073
-ciqual_food_code:en:31073
-ciqual_food_name:en:Chocolate snack bar, dairy filling
-
-<en:Chocolate cereal bars
-en:Chocolate snack bar dairy filling with sponge cake
-fr:barre de chocolat au lait frais avec génoise
-agribalyse_food_code:en:31099
-ciqual_food_code:en:31099
-ciqual_food_name:en:Chocolate snack bar, dairy filling with sponge cake
 
 <en:Cereal bars
 en:Nuts cereal bars
