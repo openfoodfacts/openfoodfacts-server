@@ -5,6 +5,7 @@ github_actions:
 
 nginx:
 - conf/nginx/**/*
+- conf/nginx.conf
 
 mongodb:
 - conf/mongodb/create_indexes.js
