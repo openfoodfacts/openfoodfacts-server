@@ -3898,6 +3898,11 @@ HTML
 						$user_template_data_ref->{edit_profile} = 1;
 						$user_template_data_ref->{orgid} = $orgid;
 					}
+					my @org_members;
+					foreach my $member_id (keys %{$user_or_org_ref->{members}}) {
+						push @org_members, $member_id;
+					}
+					$user_template_data_ref->{org_members} = \@org_members;
 
 					process_template('web/pages/org_profile/org_profile.tt.html',
 						$user_template_data_ref, \$profile_html)

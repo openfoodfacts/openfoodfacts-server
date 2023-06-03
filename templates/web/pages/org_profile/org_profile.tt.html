@@ -14,6 +14,31 @@
 	<p>&rarr; <a href="[% link %]">[% lang("official_site") %]</a></p>
 [% END %]
 
+[% IF org_members.size %]
+<h2>Organization Members</h2>
+	<p>Number of members: [% org_members.size %]</p>
+	<table>
+		<tr>
+			<th>S.No</th>
+			<th>UserId</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Language</th>
+			<th>Country</th>
+
+		</tr>
+		[% SET count = 1 %]
+		[% FOREACH users IN org_members %]
+		<tr>
+			<td>[% count %]</td>
+			<td>[% users %]</td>
+		</tr>
+		[% SET count = count + 1 %]
+		[% END %]
+	</table>
+[% END %]
+
+
 <div class="row">
 
 [% FOREACH contact IN ['customer_service', 'commercial_service'] %]
