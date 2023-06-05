@@ -63,6 +63,7 @@ BEGIN {
 		&is_admin_user
 		&create_password_hash
 		&check_password_hash
+		&retrieve_user
 
 		&check_session
 
@@ -883,6 +884,15 @@ sub open_user_session ($user_ref, $request_ref) {
 	$request_ref->{cookie} = generate_session_cookie($user_id, $user_session);
 
 	return;
+}
+
+sub retrieve_user($user_id){
+	my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
+	my $user_ref;
+	if (-e $user_file) {
+		$user_ref = retrieve($user_file);
+	}
+	return $user_ref;
 }
 
 sub init_user ($request_ref) {

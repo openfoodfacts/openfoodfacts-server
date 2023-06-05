@@ -3901,9 +3901,10 @@ HTML
 					if(defined $User{pro_moderator}){
 						my @org_members;
 						foreach my $member_id (keys %{$user_or_org_ref->{members}}) {
-							push @org_members, $member_id;
+							my $member_details = retrieve_user($member_id);
+							push @org_members, $member_details;
 						}
-					$user_template_data_ref->{org_members} = \@org_members;
+						$user_template_data_ref->{org_members} = \@org_members;
 					}
 
 					process_template('web/pages/org_profile/org_profile.tt.html',
