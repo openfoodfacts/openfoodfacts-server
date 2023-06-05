@@ -3898,7 +3898,7 @@ HTML
 						$user_template_data_ref->{edit_profile} = 1;
 						$user_template_data_ref->{orgid} = $orgid;
 					}
-					if(defined $User{pro_moderator}){
+					if (defined $User{pro_moderator}) {
 						my @org_members;
 						foreach my $member_id (keys %{$user_or_org_ref->{members}}) {
 							my $member_details = retrieve_user($member_id);

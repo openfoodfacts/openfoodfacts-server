@@ -886,7 +886,7 @@ sub open_user_session ($user_ref, $request_ref) {
 	return;
 }
 
-sub retrieve_user($user_id){
+sub retrieve_user ($user_id) {
 	my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
 	my $user_ref;
 	if (-e $user_file) {
