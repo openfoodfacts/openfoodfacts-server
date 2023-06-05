@@ -1,4 +1,4 @@
-<html><head><title>matomo_to_scan_logs.pl</title>
+<html><head><title>preprocess_intermarche_packaging_csv_file</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" >
 <link rel="stylesheet" title="simple.min" type="text/css" href="simple.min.css" media="all" >
 
@@ -33,52 +33,17 @@
 name="NAME"
 >NAME</a></h1>
 
-<p>matomo_to_scan_logs.pl - Converts Matomo API exports to NGINX style logs</p>
-
 <h1><a class='u' href='#___top' title='click to go to top of document'
 name="DESCRIPTION"
 >DESCRIPTION</a></h1>
 
-<p>Matomo has an API to export individual visits with a list of the actions/events.</p>
+<p>The Excel file that contains packaging data for Intermarch&#233; / Les Mousquetaires products has 1 line for each product / packaging component / packaging material combination.</p>
 
-<p>e.g.
-https://analytics.openfoodfacts.org/?module=API&#38;method=Live.getLastVisitsDetails&#38;idSite=2&#38;period=month&#38;date=2022-12-01&#38;format=JSON&#38;token_auth=[token]</p>
+<p>Packaging components can have multiple materials (e.g.
+a lid may be 95% steel and 5% plastic),
+which is currently not supported in the OFF packagings structure.</p>
 
-<p>This script filters scan events to convert them to NGINX style logs that can be used as input to scanbot.pl</p>
-
-<p>Usage:</p>
-
-<p>./matomo_to_scan_logs.pl [list of JSON files]</p>
-
-<p>Sample format:</p>
-
-<p>[ { idSite: &#34;2&#34;,
-idVisit: &#34;...&#34;,
-visitIp: &#34;[ip]&#34;,
-visitorId: &#34;...&#34;,
-fingerprint: &#34;...&#34;,
-actionDetails: [ { type: &#34;event&#34;,
-url: &#34;https://org.openfoodfacts.scanner&#34;,
-pageIdAction: &#34;3223185&#34;,
-idpageview: &#34;WpZhmY&#34;,
-serverTimePretty: &#34;31 d&#233;c.
-2022 23:52:42&#34;,
-pageId: &#34;38550883&#34;,
-eventCategory: &#34;scanning&#34;,
-eventAction: &#34;scanAction&#34;,
-pageviewPosition: &#34;5&#34;,
-timestamp: 1672530762,
-icon: &#34;plugins/Morpheus/images/event.png&#34;,
-iconSVG: &#34;plugins/Morpheus/images/event.svg&#34;,
-title: &#34;Ev&#232;nement&#34;,
-subtitle: &#34;Cat&#233;gorie: &#34;scanning&#39;,
-Action: &#34;scanAction&#34;&#34;,
-eventName: &#34;scanAction&#34;,
-eventValue: 3270160743223 },</p>
-
-<p>Target format:</p>
-
-<p>[ip] &#34;GET /api/v?/product/[code]&#34;</p>
+<p>This script filters the CSV file corresponding to the Excel file in order to keep only the dominant material of each packaging component.</p>
 
 <h1><a class='u' href='#___top' title='click to go to top of document'
 name="POD_ERRORS"
@@ -89,11 +54,11 @@ name="POD_ERRORS"
 which are explained below:</b></p>
 
 <dl>
-<dt><a name="Around_line_55:"
->Around line 55:</a></dt>
+<dt><a name="Around_line_28:"
+>Around line 28:</a></dt>
 
 <dd>
-<p>Non-ASCII character seen before =encoding in &#39;d&#233;c.&#39;.
+<p>Non-ASCII character seen before =encoding in &#39;Intermarch&#233;&#39;.
 Assuming UTF-8</p>
 </dd>
 </dl>
