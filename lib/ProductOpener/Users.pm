@@ -82,7 +82,6 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::Orgs qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Text qw/:all/;
-use ProductOpener::Producers qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
@@ -198,7 +197,8 @@ sub delete_user ($user_ref) {
 		email => $user_ref->{email},
 	};
 
-	$minion->enqueue(delete_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
+	require ProductOpener::Producers;
+	ProductOpener::Producers::queue_job(delete_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
 
 	return;
 }
