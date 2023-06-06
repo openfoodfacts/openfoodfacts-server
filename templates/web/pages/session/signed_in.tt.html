@@ -12,28 +12,7 @@
     <h3>[% lang("resources") %]</h3>
 
     <ul>
-        <li>
-            <a href="[% IF lc == 'fr' -%]
-                https://blog.openfoodfacts.org/fr/Guide-dutilisation-Plateforme-Pro.pdf
-                [%- ELSIF lc == 'it' -%]
-                https://blog.openfoodfacts.org/it/guida-pratica-piattaforma-produttori.pdf
-                [%- ELSIF lc == 'de' -%]
-                https://blog.openfoodfacts.org/de/Pro-Plateform-Benutzerhandbuch.pdf
-                [%- ELSE -%]
-                https://blog.openfoodfacts.org/en/EN-Pro-Plateform-User-Guide.pdf
-                [%- END %]">
-                [% lang('pro_platform_user_guide') %]
-            </a>
-        </li>
-        <li>
-            <a href="[% IF lc == "fr" -%]
-                    https://support.openfoodfacts.org/help/fr-fr/3-producers
-                    [%- ELSE -%]
-                    https://support.openfoodfacts.org/help/en-gb/3-producers
-                    [%- END %]">
-                [% lang('faq_for_producers') %]
-            </a>
-        </li>
+        [% INCLUDE 'web/common/producers_resources_list.tt.html' %]
     </ul>
 
 [% END %]

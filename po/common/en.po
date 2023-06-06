@@ -5477,8 +5477,8 @@ msgid "Remove all nutrient values"
 msgstr "Remove all nutrient values"
 
 msgctxt "delete_user_process"
-msgid "User deleted."
-msgstr "User deleted."
+msgid "User is being deleted. This may take a few minutes."
+msgstr "User is being deleted. This may take a few minutes."
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
@@ -6698,6 +6698,10 @@ msgstr "Pro platform user guide"
 msgctxt "faq_for_producers"
 msgid "FAQ for producers"
 msgstr "FAQ for producers"
+
+msgctxt "join_the_next_pros_meet_up"
+msgid "Join the next Pros' Meet-up"
+msgstr "Join the next Pros' Meet-up"
 
 # variable names between { } must not be translated
 msgctxt "product_js_enter_value_between_0_and_max"
