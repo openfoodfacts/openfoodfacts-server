@@ -16,7 +16,7 @@
 
 [% IF org_members.size %]
 <h2>[% lang("organization_members") %]</h2>
-	<p>[% lang("number_of_members") %]: [% org_members.size %]</p>
+	<p>[% lang("number_of_members") %][% sep %]: [% org_members.size %]</p>
 	<div style="position:relative">
 	<table id="org_member_table" class="data_table" style="[% tablestyle %];">
 		<tr>
