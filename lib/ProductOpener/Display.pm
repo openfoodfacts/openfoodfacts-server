@@ -3900,7 +3900,7 @@ HTML
 					}
 					if (defined $User{pro_moderator}) {
 						my @org_members;
-						foreach my $member_id (keys %{$user_or_org_ref->{members}}) {
+						foreach my $member_id (sort keys %{$user_or_org_ref->{members}}) {
 							my $member_details = retrieve_user($member_id);
 							push @org_members, $member_details;
 						}
