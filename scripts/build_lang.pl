@@ -31,7 +31,7 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Food qw/:all/;
 
-print STDERR "Build \%Lang - data_root: $data_root\n";
+print STDERR "Build \%Lang - data_root: $data_root - server_domain: $server_domain\n";
 
 # This script is used a stored Lang.sto file with %Lang that contains:
 # - strings from the .po files (loaded by Lang.pm and I18N.pm - Lang::build_lang())
