@@ -37,10 +37,15 @@ ifneq (,$(wildcard ./${ENV_FILE}))
     export
 endif
 
+ifneq (${EXTRA_ENV_FILE},'')
+    -include ${EXTRA_ENV_FILE}
+    export
+endif
+
 
 HOSTS=127.0.0.1 world.productopener.localhost fr.productopener.localhost static.productopener.localhost ssl-api.productopener.localhost fr-en.productopener.localhost
 # commands aliases
-DOCKER_COMPOSE=docker-compose --env-file=${ENV_FILE}
+DOCKER_COMPOSE=docker-compose --env-file=${ENV_FILE} ${LOAD_EXTRA_ENV_FILE}
 # we run tests in a specific project name to be separated from dev instances
 # we also publish mongodb on a separate port to avoid conflicts
 # we also enable the possibility to fake services in po_test_runner

@@ -37066,7 +37066,7 @@ fr:Plats préparés en conserve, plats cuisinés en conserve, plat préparé en 
 hu:Konzerv ételek
 it:Piatti pronti in scatola
 lt:Konservuotas paruoštas maistas, Konservuotas maistas
-nl:Kant en klaargerechten in blik/pot
+nl:Kant-en-klaarmaaltijden in blik/pot
 pl:Dania gotowe w puszkach
 pt:Refeições enlatadas
 ru:Консервированные блюда
@@ -37110,7 +37110,7 @@ fr:Plats préparés déshydratés, Plats cuisinés déshydratés
 he:מנות מיובשות
 it:Piatti pronti disidratati
 lt:Džiovinti patiekalai, dehidratuoti patiekalai, džiovinti paruošti patiekalai
-nl:Gedroogde kant en klaarmaaltijden
+nl:kant-en-klaarmaaltijden (gedroogd)
 pl:Dania gotowe suszone, Dania gotowe w proszku
 pt:Refeições desidratadas
 ro:Mese uscate, Mese preparate uscate
@@ -37127,7 +37127,7 @@ fr:Plats préparés réfrigérés, Plats cuisinés réfrigérés
 hu:Hűtött húsok
 it:Piatti pronti refrigerati
 lt:Šaldyti patiekalai, Šaldyti paruošti patiekalai,
-nl:Diepvrieskant en klaarmaaltijden
+nl:Kant-en-klaarmaaltijden (diepvries)
 pt:Refeições refrigeradas
 ru:Замороженные обеды
 
@@ -46266,7 +46266,7 @@ fi:maitotiivisteet
 fr:Laits concentrés, Lait concentré
 it:Latti evaporati
 lt:Išgarintas pienas
-nl:Verdikte melken
+nl:Ingedikte melken
 wikidata:en:Q13417087
 
 <en:Evaporated milks
@@ -46279,6 +46279,10 @@ nl:Koffiemelken, Koffiemelk
 <en:Coffee milks
 en:Dried Coffee milks
 nl:Koffiecreamers
+
+<en:Dairies
+nl:Opschuimmelken
+#comment:en:Milks especially created for cappucino's etc.
 
 <en:Dairies
 en:Condensed milks
@@ -61739,10 +61743,12 @@ en:Fresh pineapple
 de:Frische Ananas
 fr:Ananas frais
 lt:Švieži ananasai
+nl:verse ananas
 
 <en:Pineapple
 en:Pineapple pulp
 fr:Pulpe d'ananas
+nl:ananaspulp
 agribalyse_food_code:en:13002
 ciqual_food_code:en:13002
 ciqual_food_name:en:Pineapple, pulp, raw
@@ -61879,7 +61885,7 @@ de:Gefrorene Ananas
 es:Piñas congeladas
 fr:Ananas surgelés
 lt:Šaldyti ananasai
-nl:Bevroren ananas
+nl:Bevroren ananas, Diepvriesananas
 
 <en:Frozen fruits
 en:Frozen mixed fruits
@@ -62086,6 +62092,7 @@ agribalyse_proxy_food_name:fr:Abricot, dénoyauté, sec
 en:Pitted dried apricots
 fr:Abricots dénoyautés secs
 lt:Džiovinti abrikosai be kauliukų
+nl:Gedroogde ontpitte abrikozen
 agribalyse_food_code:en:13001
 ciqual_food_code:en:13001
 ciqual_food_name:en:Apricot, pitted, dried
@@ -76047,7 +76054,7 @@ en:Frozen poultry
 de:Gefrorenes Geflügel
 fi:Siipikarjapakasteet
 fr:Volailles surgelées, Volaille surgelée
-nl:Diepvres gevogelten
+nl:Diepvries gevogelten
 
 <en:Meats
 en:Poultries, poultry
@@ -94965,6 +94972,7 @@ wikidata:en:Q3928641
 <en:Vegetables
 en:Salads without dressing
 fr:Crudités sans assaisonnement
+nl:Rauwkost (zonder saus)
 ciqual_food_code:en:25616
 ciqual_food_name:en:Salad, vegetable, without dressing (average)
 ciqual_food_name:fr:Crudité, sans assaisonnement (aliment moyen)
@@ -101426,6 +101434,7 @@ wikidata:en:Q636056
 <en:Cereals and potatoes
 en:Prepared potatoes
 fr:Pommes de terre préparées
+nl:Geprepareerde aardappelen
 
 <en:Prepared potatoes
 en:Precooked potatoes
@@ -103786,7 +103795,7 @@ en:Raw vegetable sandwiches, vegetable sandwiches
 de:Sandwiches mit rohem Gemüse
 fi:Raakakasvisvoileivät
 fr:Sandwichs aux crudités
-nl:Rauwe groentensandwiches
+nl:Rauwkostsandwiches
 wikidata:en:Q7918342
 
 <en:Dairy desserts
