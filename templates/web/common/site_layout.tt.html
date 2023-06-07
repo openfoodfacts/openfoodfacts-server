@@ -169,8 +169,8 @@
 						</li>
 					</ul>
 
-					[%# Don't show the search bar on the producers platform %]
-					[% IF !(server_options_producers_platform) %]
+					[%# Show the search bar on the producers platform only when the producer is logged in %]
+					[% IF !(server_options_producers_platform) || (user_id.defined) %]
 					<section class="top-bar-section">
 					
 						<ul class="left small-4" style="margin-right:2rem;">
