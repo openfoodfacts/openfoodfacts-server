@@ -405,7 +405,7 @@ sub get_inherited_property_from_categories_tags ($product_ref, $property) {
 		# Start with most specific category first
 		foreach my $category (reverse @{$product_ref->{categories_tags}}) {
 
-			$category_match = lc(get_inherited_property("categories", $category, $property));
+			$category_match = get_inherited_property("categories", $category, $property);
 			last if $category_match;
 		}
 	}
