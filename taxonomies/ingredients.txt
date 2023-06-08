@@ -2073,6 +2073,9 @@ wikidata:en:Q34172
 wikipedia:en:https://en.wikipedia.org/wiki/Butter
 vegan:en:no
 vegetarian:en:yes
+proxy_ciqual_food_code:en:16400
+proxy_ciqual_food_name:en:Butter, 82% fat, unsalted
+proxy_ciqual_food_name:fr:Beurre à 82% MG, doux
 # ingredient/butter has 19735 products @2019-07-10
 
 # description:en:All categories of butter are sold in both salted and unsalted forms. Either granular salt or a strong brine are added to salted butter during processing. In addition to enhanced flavor, the addition of salt acts as a preservative.
@@ -4769,6 +4772,8 @@ vegan:en:no
 vegetarian:en:yes
 carbon_footprint_fr_foodges_ingredient:fr:Crème, 40% MG, pasteurisée
 carbon_footprint_fr_foodges_value:fr:4.2
+ciqual_food_code:en:19402
+ciqual_food_name:fr:Crème de lait ou spécialité à base de crème légère, teneur en matière grasse inconnue (aliment moyen)
 description:de:Als Rahm (Sahne, Obers, Nidel) wird die fetthaltige Phase der Milch bezeichnet, die beim Stehenlassen ungesäuerter Rohmilch natürlich an der Oberfläche aufschwimmt oder aus Rohmilch abzentrifugiert werden kann.
 description:en:CREAM is a dairy product composed of the higher-butterfat layer skimmed from the top of milk before homogenization.
 description:es:La crema de leche o nata es una sustancia de consistencia grasa y tonalidad blanca o amarillenta dulce que se encuentra de forma emulsionada en la leche recién ordeñada o cruda
@@ -5007,6 +5012,8 @@ it:Panna fresca
 nl:verse room
 pl:Świeża śmietana
 sv:Färsk grädde
+ciqual_food_code:en:19402
+ciqual_food_name:fr:Crème de lait ou spécialité à base de crème légère, teneur en matière grasse inconnue (aliment moyen)
 
 ###################################################################################################
 #
@@ -9554,6 +9561,8 @@ carbon_footprint_fr_foodges_ingredient:fr:Sel
 vegan:en:yes
 vegetarian:en:yes
 carbon_footprint_fr_foodges_value:fr:0.5
+ciqual_food_code:en:11058
+ciqual_food_name:fr:Sel blanc alimentaire, iodé, non fluoré (marin, ignigène ou gemme)
 
 <en:salt
 de:Siedesalz
@@ -10319,6 +10328,8 @@ tr:Sığır eti
 zh:牛肉
 carbon_footprint_fr_foodges_ingredient:fr:Viande de bœuf moyen France
 carbon_footprint_fr_foodges_value:fr:35.8
+proxy_ciqual_food_code:en:6101
+proxy_ciqual_food_name:fr:Boeuf, braisé
 
 <en:beef meat
 en:angus beef
@@ -10626,11 +10637,14 @@ sv:Lammkött
 wikidata:en:Q643419
 carbon_footprint_fr_foodges_ingredient:fr:Côtelettes d'Agneau
 carbon_footprint_fr_foodges_value:fr:55
+ciqual_food_code:en:21523
+ciqual_food_name:en:Lamb cutlet, grilled
+ciqual_food_name:fr:Agneau, viande, cuite (aliment moyen)
 # ingredient/fr:viande-d’agneau has 71 products in 5 languages @2019-04-16
 
-<en:meat
+<en:lamb-meat
 en:lamb cutlet
-fr:cotelettes d'agneau
+fr:côtelette d'agneau, côtelettes d'agneau, côte d'agneau, côtes d'agneau
 ciqual_food_code:en:21501
 ciqual_food_name:en:Lamb cutlet, grilled
 ciqual_food_name:fr:Agneau, côtelette, grillée
@@ -11745,6 +11759,8 @@ es:stick tartar de ternera, stick tartar de res, filete picado de ternera, filet
 fi:naudan jauhelihapihvi
 sv:pannbiff
 # ingredient/fr:steak-hache-pur-boeuf has 12 in french products @2019-05-24
+ciqual_food_code:en:6259
+ciqual_food_name:fr:Boeuf, steak haché, cuit (aliment moyen)
 
 en:Cooked minced beef steak with 5% fat
 fr:Steak haché de bœuf cuit à 5% de matières grasses
@@ -15451,6 +15467,10 @@ description:fr:L’huile d'olive est une variété d'huile alimentaire, à base 
 description:nl:Olijfolie is een plantaardige olie die door persing uit olijven, de vruchten van de olijfboom, wordt gewonnen.
 description:pt:Azeite é um produto alimentar extraído da azeitona, o fruto da oliveira.
 #ingredient/olive-oil 26977 in 33 @2021-08-20
+proxy_ciqual_food_code:en:17270
+proxy_ciqual_food_name:fr:Huile d'olive vierge extra
+
+
 
 <en:olive oil
 en:black olives oil, black olive oil
@@ -15668,6 +15688,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Colza_oil
 wikidata:en:Q697248
 carbon_footprint_fr_foodges_ingredient:fr:Huile de colza
 carbon_footprint_fr_foodges_value:fr:2.2
+ciqual_food_code:en:17130
+ciqual_food_name:fr:Huile de colza
 from_palm_oil:en:no
 nutriscore_fruits_vegetables_nuts:en:yes
 
@@ -18541,6 +18563,8 @@ zh:白葡萄酒
 # yue:白葡萄酒
 wikidata:en:Q10210
 wikipedia:en:https://en.wikipedia.org/wiki/White_wine
+proxy_ciqual_food_code:en:5215
+proxy_ciqual_food_name:fr:Vin blanc (sec)
 # en:white-wine has 2793 products in 5 languages @2018-10-29
 
 <en:white wine
@@ -18552,6 +18576,8 @@ fi:kuiva valkoviini
 fr:vin blanc sec
 hu:száraz fehérbor
 nl:droge witte wijn
+ciqual_food_code:en:5215
+ciqual_food_name:fr:Vin blanc (sec)
 # 2019-05-29
 
 <en:white wine
@@ -18675,6 +18701,8 @@ zh:紅葡萄酒
 # zh-tw:紅葡萄酒
 wikidata:en:Q1827
 wikipedia:en:https://en.wikipedia.org/wiki/Red_wine
+ciqual_food_code:en:5214
+ciqual_food_name:fr:Vin rouge
 # ingredient/red-wine has 658 products @2019-05-29
 # category/red-wines has 920 products @2019-05-29
 
@@ -18782,6 +18810,8 @@ zh:桃红葡萄酒
 # zh-hant:桃红葡萄酒
 wikidata:en:Q12979
 wikipedia:en:https://en.wikipedia.org/wiki/Rosé
+ciqual_food_code:en:5216
+ciqual_food_name:fr:Vin rosé
 # fr:vin-rosé has 33 products @2018-10-29
 
 <en:wine
@@ -22199,7 +22229,7 @@ en:freekeh, cooked spelt freekeh, frik
 ar:فريكة
 ba:фәрикә
 de:Freekeh, Farik
-fr:freekeh, blé vert freekeh, frik
+fr:frik, freekeh, blé vert freekeh, blé concassé frik, blé concassé
 he:פריקה
 it:freekeh
 ja:フリーカ
@@ -22371,6 +22401,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Semolina
 wikidata:en:Q381350
 carbon_footprint_fr_foodges_ingredient:fr:Semoule de blé dur
 carbon_footprint_fr_foodges_value:fr:0.6
+proxy_ciqual_food_code:en:9610
+proxy_ciqual_food_name:en:Durum wheat semolina, raw
+proxy_ciqual_food_name:fr:Semoule de blé dur, crue
 #980 @2021-09-28
 
 #comment:en:This is in many languages synonym of en:wheat semolina
@@ -24909,6 +24942,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Wheat_flour
 wikidata:en:Q2249305
 carbon_footprint_fr_foodges_ingredient:fr:Farine de blé
 carbon_footprint_fr_foodges_value:fr:1.2
+proxy_ciqual_food_code:en:9410
+proxy_ciqual_food_name:fr:Farine de blé tendre ou froment T110
 
 <en:wheat flour
 en:malted wheat flour, wheat malt flour
@@ -26345,6 +26380,8 @@ wikidata:en:Q5090
 wikipedia:en:https://en.wikipedia.org/wiki/Rice
 carbon_footprint_fr_foodges_ingredient:fr:Riz jasmin (Thaïlande)
 carbon_footprint_fr_foodges_value:fr:1.4
+proxy_ciqual_food_code:en:9100
+proxy_ciqual_food_name:fr:Riz blanc, cru
 vegan:en:yes
 vegetarian:en:yes
 
@@ -31465,7 +31502,7 @@ ciqual_food_name:fr:Sauce au chocolat
 
 # description:en:WATER is a transparent, tasteless, odorless, and nearly colorless chemical substance that is the main constituent of Earth's streams, lakes, and oceans, and the fluids of most living organisms.
 
-en:water, drinking water
+en:water, drinking water, tap water
 ab:Аӡы
 af:Water
 am:ውሃ
@@ -31505,7 +31542,7 @@ fa:آب
 ff:Ndiyam
 fi:vesi, vettä
 fo:Vatn
-fr:eau, eau osmosée
+fr:eau, eau potable, eau du robinet, eau osmosée
 fy:Wetter
 ga:Uisce
 gd:Uisge
@@ -31697,9 +31734,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Water
 wikidata:en:Q283
 carbon_footprint_fr_foodges_ingredient:fr:Eau en bouteille PET, plate, 0.5 L
 carbon_footprint_fr_foodges_value:fr:0.4
+ciqual_food_code:en:18066
+ciqual_food_name:fr:Eau du robinet
 
-<en:water
-fr:eau potable
 
 <en:water
 en:distilled water
@@ -31998,11 +32035,6 @@ nl:kookwater
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:eau-de-cuisson
 # 410 products in 2 languages @2018-09-29
 
-<en:water
-fr:Eau du robinet
-carbon_footprint_fr_foodges_ingredient:fr:Eau du robinet
-carbon_footprint_fr_foodges_value:fr:0
-# ingredient/fr:Eau-du-robinet has 1 product @2019-04-29
 
 # description:en:Ice is water frozen into a solid state.
 # comment:en:We differentiate between ice and icecream. This is not posisible in every language. In french the accent is not respected and it should sometimes be glacé.
@@ -32150,12 +32182,6 @@ ast:Xelu
 wikidata:en:Q23392
 wikipedia:en:https://en.wikipedia.org/wiki/Ice
 # ingredient/fr:glace has 145 products in 6 languages @2019-04-27
-
-
-<en:water
-<en:salt
-fr:eau et sel
-
 
 
 description:en:SOYA is used as a generic word to indicate it is made from soybeans
@@ -37831,6 +37857,9 @@ ru:Лимонный сок
 sv:citronsaft, citronjuice
 tr:limon suyu
 zh:柠檬汁
+ciqual_food_code:en:2028
+ciqual_food_name:fr:Jus de citron, pur jus
+
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/lemon-juice
 # 9259 products in 16 languages @2018-10-01
 
@@ -47098,6 +47127,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Beetroot
 carbon_footprint_fr_foodges_ingredient:fr:Betteraves
 carbon_footprint_fr_foodges_value:fr:0.2
 # en:beetroot has 319 products in 5 languages @2018-10-22
+proxy_ciqual_food_code:en:20091
+proxy_ciqual_food_name:fr:Betterave rouge, crue
 
 # Sometimes it is indicated as a colour.
 
@@ -47186,6 +47217,8 @@ nl:rode biet
 pl:burak czerwony, buraki czerwone, buraków czerwonych, buraka czerwonego, czerwony burak , czerwone buraki , czerwonych buraków , czerwonego buraka
 pt:beterraba vermelha
 # fr:betterave-rouge has 298 products in 6 languages @2018-10-22
+ciqual_food_code:en:20091
+ciqual_food_name:fr:Betterave rouge, crue
 
 <en:red beetroot
 fr:betterave rouge déshydratée, betterave rouge en poudre, poudre de betterave rouge
@@ -51093,6 +51126,8 @@ carbon_footprint_fr_foodges_ingredient:fr:Pomme de terre
 carbon_footprint_fr_foodges_value:fr:0.6
 # en:potato has 2269 products in 23 languages @2018-10-15
 nutriscore_fruits_vegetables_nuts:en:no
+ciqual_food_code:en:4003
+ciqual_food_name:fr:Pomme de terre, bouillie/cuite à l'eau
 
 <en:potato
 en:table potatoes
@@ -52388,6 +52423,8 @@ pt:polpa de tomate
 carbon_footprint_fr_foodges_ingredient:fr:Tomate pelées ou pulpe de tomate
 carbon_footprint_fr_foodges_value:fr:1.4
 # ingredient/fr:pulpe-de-tomate has 501 products in 6 languages @2018-12-26
+ciqual_food_code:en:20169
+ciqual_food_name:fr:Tomate, pulpe, appertisée
 
 <en:tomato
 en:sifted tomato
@@ -52482,6 +52519,8 @@ ru:Томатная паста, томатный концентрат, паст�
 sv:tomatkoncentrat
 wikidata:en:Q1499073
 wikipedia:en:https://en.wikipedia.org/wiki/Tomato_paste
+ciqual_food_code:en:20068
+ciqual_food_name:fr:Tomate, concentré, appertisé
 
 # comment:en:This is where the tomato has been puréed *and* concentrated further.
 <en:tomato concentrate
@@ -53276,7 +53315,10 @@ wikidata:en:Q7533
 wikipedia:en:https://en.wikipedia.org/wiki/Zucchini
 carbon_footprint_fr_foodges_ingredient:fr:Courgette
 carbon_footprint_fr_foodges_value:fr:0.7
+ciqual_food_code:en:20020
+ciqual_food_name:fr:Courgette, pulpe et peau, crue
 # fr:courgette contains 2098 products in 9 languages @2018-10-26
+
 
 <en:Courgette
 en:grilled courgette
@@ -54666,6 +54708,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Chickpea
 carbon_footprint_fr_foodges_ingredient:fr:Pois surgelés
 carbon_footprint_fr_foodges_value:fr:1.5
 # ingredient/fr:pois-chiche has 700 products in 13 languages @2019-02-15
+ciqual_food_code:en:20532
+ciqual_food_name:fr:Pois chiche, appertisé, égoutté
 
 <en:chickpea
 en:pedrosillano chickpeas
@@ -55073,6 +55117,8 @@ wikidata:en:Q131226
 wikipedia:en:https://en.wikipedia.org/wiki/Lentil
 carbon_footprint_fr_foodges_ingredient:fr:Lentilles vertes
 carbon_footprint_fr_foodges_value:fr:0.3
+ciqual_food_code:en:20505
+ciqual_food_name:fr:Lentille, bouillie/cuite à l'eau
 
 <en:lentils
 en:pardina lentils
@@ -68481,6 +68527,8 @@ nb:hvit fisk
 nl:witte vis
 # ingredient/fr:poisson-blanc has 59 products @2019-03-11
 # Theragra chalcogramma ou Merluccius productus ou Merluccius gayi ou Merluccius hubbsi
+ciqual_food_code:en:26249
+ciqual_food_name:fr:Poisson blanc, cuit (aliment moyen)
 
 <en:fish
 fr:extrait de poisson
@@ -77560,9 +77608,8 @@ fr:poulet fermier, poulet fermier élevé en plein air
 <en:chicken
 en:whole chicken, whole chickens
 fr:poulet entier, poulets entiers
-proxy_ciqual_food_code:en:36016
-proxy_ciqual_food_name:en:Chicken, meat and skin, raw
-proxy_ciqual_food_name:fr:Poulet, viande et peau, cru
+proxy_ciqual_food_code:en:36005
+proxy_ciqual_food_name:fr:Poulet, viande et peau, rôti/cuit au four
 
 <en:animal protein
 <en:chicken
@@ -77657,9 +77704,8 @@ zh:鸡肉
 # ingredient/chicken-meat has 2349 products in 8 languages @2019-04-16
 carbon_footprint_fr_foodges_ingredient:fr:Cuisse de poulet
 carbon_footprint_fr_foodges_value:fr:4.9
-ciqual_food_code:en:36003
-ciqual_food_name:en:Chicken, meat, raw
-ciqual_food_name:fr:Poulet, viande, crue
+ciqual_food_code:en:36005
+ciqual_food_name:fr:Poulet, viande et peau, rôti/cuit au four
 
 #<en:chicken meat
 #en:raw hen meat
@@ -77694,7 +77740,7 @@ fr:produit à base de viande de poulet
 <en:chicken meat
 en:white chicken meat
 de:Hähnchenfleisch
-fr:Blanc de poulet
+fr:viande blanche de poulet
 
 <en:chicken meat
 fr:viande de cuisse de poulet
@@ -77781,18 +77827,20 @@ da:kyllingefilet
 de:Hühnerfilet
 es:Filete de pechuga de pollo
 fi:kanafilee
-fr:filet de poulet, viande de filet de poulet
+fr:filet de poulet, fillets de poulet, viande de filet de poulet
 it:Filetto di pollo
 nl:kipfilet
 pl:filet z kurczaka, filety z kurczaka, filet z kurcząt
 ru:Куриное филе
 sv:kycklingfilé, kycklinginnerfilé, kycklinglårfilé, filé av kyckling
 # ingredient/fr:filet-de-poulet has 836 products in 6 languages @2019-03-19
+ciqual_food_code:en:36018
+ciqual_food_name:fr:Poulet, filet, sans peau, sauté/poêlé
 
 <en:chicken fillet
 en:chicken fillet with skin
 de:Hühnerfilet mit Haut
-fr:filet de poulet avec peau, filets de poulet avec pea
+fr:filet de poulet avec peau, filets de poulet avec peau
 
 <en:chicken fillet
 <de:Hähnchenfleisch
@@ -77802,10 +77850,10 @@ fi:broilerinfilee, broilerin filee, broilerin sisäfilee
 <en:chicken fillet
 en:superior chicken fillet
 de:Premium Hähnchenbrustfilet
-fr:filet de poulet de qualité supérieure
+fr:filet de poulet de qualité supérieure, filets de poulet de qualité supérieure
 
 <en:chicken fillet
-fr:Filets de poulet jaune
+fr:filet de poulet jaune, filets de poulet jaune
 # 6@2019-06-07
 
 <en:chicken fillet
@@ -77838,7 +77886,7 @@ bg:пилешки гърди
 ca:pit de pollastre
 de:Hähnchenbrust, Hähnchenbrustfleisch
 es:pechuga de pollo,carne de pechuga de pollo
-fr:blanc de poulet, poitrine de poulet
+fr:blanc de poulet, blancs de poulet, poitrine de poulet
 it:Petto di pollo
 nl:kippenborst
 pl:pierś z kurczaka, pierś kurczaka, piersi z kurczaka, piersi kurczaka, mięso z piersi kurczaka, mięso z piersi kurcząt
@@ -77847,6 +77895,8 @@ sv:kycklingbröst
 tr:tavuk göğsü
 carbon_footprint_fr_foodges_ingredient:fr:Blanc de poulet
 carbon_footprint_fr_foodges_value:fr:4.9
+ciqual_food_code:en:36018
+ciqual_food_name:fr:Poulet, filet, sans peau, sauté/poêlé
 
 <en:chicken breast
 en:british chicken breast
@@ -77865,20 +77915,19 @@ sv:kycklingbröstfilé
 # ingredient/fr:filet-de-poitrine-de-poulet has 9 products in 2 languages @2020-06-13
 
 <en:chicken meat
-en:chicken thigh,chicken drumstick
+en:chicken thigh, chicken drumstick
 bg:пилешко бутче
 de:Hähnchenschenkel, Hähnchenkeule, Hähnchenschlegel
 es:muslo de pollo
 fi:kanankoipi
-fr:cuisse de poulet
+fr:cuisse de poulet, cuisses de poulet
 nb:kyllinglår
 pl:udko z kurczaka, udko kurczaka, udka z kurczaka
 sv:kyckling lårkött
 carbon_footprint_fr_foodges_ingredient:fr:Cuisse de poulet
 carbon_footprint_fr_foodges_value:fr:4.9
-ciqual_food_code:en:36024
-ciqual_food_name:en:Chicken, leg, meat, raw
-ciqual_food_name:fr:Poulet, cuisse, viande, cru
+ciqual_food_code:en:36004
+ciqual_food_name:fr:Poulet, cuisse, viande et peau, rôtie/cuite au four
 
 # description:en:Chicken Cutlet is a thin slice of meat from the leg or ribs of chicken.
 
@@ -80456,6 +80505,8 @@ wikidata:en:Q178
 wikipedia:en:https://en.wikipedia.org/wiki/Pasta
 carbon_footprint_fr_foodges_ingredient:fr:Pâtes sèches
 carbon_footprint_fr_foodges_value:fr:0.5
+proxy_ciqual_food_code:en:9810
+proxy_ciqual_food_name:fr:Pâtes sèches standard, crues
 # ingredient/fr:pâtes-alimentaires has 115 products 2019-05-20
 # ingredient/paste has 1809 products @2018-12-10
 
