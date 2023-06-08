@@ -519,6 +519,14 @@ sub set_field_value (
 			$product_ref->{$field} = "";
 			delete $product_ref->{$field . "_tags"};
 		}
+
+		if (($server_options{producers_platform}) and (($field eq "allergens") or ($field eq "traces"))) {
+			if ($imported_product_ref->{$field} ne "") {
+				$product_ref->{$field} = "";
+				delete $product_ref->{$field . "_tags"};
+			}
+		}
+
 		# existing is the list of already existing tags
 		# that will be completed with more values
 		my %existing = ();
