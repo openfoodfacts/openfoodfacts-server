@@ -60,6 +60,7 @@
          "vegetarian" : "ignore"
       },
       {
+         "ciqual_food_code" : "11058",
          "id" : "en:salt",
          "percent_estimate" : 5.625,
          "percent_max" : 25,
@@ -235,7 +236,6 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:mirin",
-      "en:salt",
       "en:sugar",
       "ja:かつお節",
       "ja:こんぶ",
@@ -246,7 +246,7 @@
       "ja:本醸造",
       "ja:水あめ"
    ],
-   "ingredients_without_ciqual_codes_n" : 11,
+   "ingredients_without_ciqual_codes_n" : 10,
    "known_ingredients_n" : 9,
    "lc" : "ja",
    "nutriments" : {

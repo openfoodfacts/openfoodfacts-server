@@ -438,6 +438,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "11058",
          "id" : "en:salt",
          "percent_estimate" : 10,
          "percent_max" : 20,
@@ -505,10 +506,9 @@
    "ingredients_with_unspecified_percent_n" : 3,
    "ingredients_with_unspecified_percent_sum" : 60,
    "ingredients_without_ciqual_codes" : [
-      "en:cooked-ham",
-      "en:salt"
+      "en:cooked-ham"
    ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes_n" : 1,
    "known_ingredients_n" : 11,
    "labels" : "viande porcine française, oeufs de France",
    "labels_hierarchy" : [
