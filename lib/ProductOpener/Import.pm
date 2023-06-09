@@ -520,7 +520,7 @@ sub set_field_value (
 			delete $product_ref->{$field . "_tags"};
 		}
 
-		if (($server_options{producers_platform}) and (($field eq "allergens") or ($field eq "traces"))) {
+		if (($field eq "allergens") or ($field eq "traces")) {
 			if ($imported_product_ref->{$field} ne "") {
 				$product_ref->{$field} = "";
 				delete $product_ref->{$field . "_tags"};
