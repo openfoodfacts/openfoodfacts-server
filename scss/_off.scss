@@ -1451,3 +1451,50 @@ a.panel_title {
     background-color: scale-color($button-bg-color, $lightness: -$button-function-factor / 2);
     color: #fff;
 }
+// organization members table in producers platform
+$breakpoint-tablet: 636px;
+
+#org_main_table {
+ box-shadow: 0 0 5px rgba(0,0,0,.25);
+ vertical-align: middle;
+}
+
+#org_table_header {
+  background-color:$macchiato;
+  @media (max-width: $breakpoint-tablet){
+    tr{ 
+      display:none;
+    }
+  }
+  th {
+  color:white;
+  font-weight: 600;
+  padding:.5rem;
+  text-align: center;
+  }
+}
+
+#org_table_body {
+ td{
+  padding:.5rem;
+ }
+    @media (max-width: $breakpoint-tablet) {
+      tr {
+      display:block;
+      }
+     td{
+      text-align: right;
+      display:block;
+      padding: .5rem;
+     }
+     td::before {
+      content:attr(data-cell) ": ";
+      float:left;
+      text-transform: capitalize;
+      font-weight: 600;
+     }
+    }
+}
+#org_table_body tr:nth-child(even){
+  background-color:$latte;
+}
