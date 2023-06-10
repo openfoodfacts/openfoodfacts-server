@@ -61,4 +61,9 @@ is(normalize_percentages('2500%', 'fr'), "2\N{U+00A0}500\N{U+00A0}%");
 is(normalize_percentages('2,50%', 'en'), "2.5%");
 is(normalize_percentages('2.50%', 'en'), "2.5%");
 
+# Test remove_email
+is(remove_email('test@example.com'), '');
+is(remove_email('test string'), "test string");
+is(remove_email('no email address'), 'no email address');
+
 done_testing();
