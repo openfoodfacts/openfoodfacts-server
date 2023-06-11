@@ -42,20 +42,40 @@ sub fake_download_image ($) {
 	return $response;
 }
 
+my @tests = (
+	{
+		test_case => "test",
+		csv_file => "test.csv",
+	},
+	{
+		test_case => "replace_existing_values_1",
+		csv_file => "replace_existing_values_1.csv",
+
+	},
+	{
+		test_case => "replace_existing_values_2",
+		csv_file => "replace_existing_values_2.csv",
+
+	}
+);
+
 # Testing import of a csv file
-{
+foreach my $test_ref (@tests) {
+
 	my $import_module = Test::MockModule->new('ProductOpener::Import');
 
 	# mock download image to fetch image in inputs_dir
 	$import_module->mock('download_image', \&fake_download_image);
 
 	# inputs
-	my $csv_file = $inputs_dir . "test.csv";
+	my $csv_file = $inputs_dir . $test_ref->{csv_file};
 
 	# clean data
 	remove_all_products();
 	# import csv can create some organizations if they don't exist, remove them
 	remove_all_orgs();
+	# Make allergens and traces values supplied by producers completely replace existing values
+	replace_existing_values_when_importing_those_tags_fields();
 
 	# import file
 	my $datestring = localtime();
