@@ -49,7 +49,7 @@ my @tests = (
 	},
 	{
 		test_case => "replace_existing_values",
-		csv_files => ["replace_existing_values_1.csv", "replace_existing_values_1.csv"],
+		csv_files => ["replace_existing_values_1.csv", "replace_existing_values_2.csv"],
 
 	}
 );
@@ -63,66 +63,70 @@ foreach my $test_ref (@tests) {
 	$import_module->mock('download_image', \&fake_download_image);
 
 	# inputs
-	my $csv_file = $inputs_dir . $test_ref->{csv_file};
+	foreach my $csv (@{$test_ref->{csv_files}}) {
+		my $csv_file = $inputs_dir . $csv;
 
-	# clean data
-	remove_all_products();
-	# import csv can create some organizations if they don't exist, remove them
-	remove_all_orgs();
-
-	# import file
-	my $datestring = localtime();
-	my $args = {
-		"user_id" => "test-user",
-		"org_id" => "test-org",
-		"owner_id" => "org-test-org",
-		"csv_file" => $csv_file,
-		"exported_t" => $datestring,
-	};
-
-	my $stats_ref;
-
-	# run import_csv_file
-	print STDERR "Running ProductOpener::Import::import_csv_file and capturing its output\n";
-
-	# Note: if the code executed by capture_outputs() dies, the test will end without showing why/where it died.
-	my ($out, $err) = capture_ouputs(
-		sub {
-			$stats_ref = ProductOpener::Import::import_csv_file($args);
+		# Clean data for the first test case only
+		if ($test_ref->{test_case} eq "test") {
+			remove_all_products();
+			# import csv can create some organizations if they don't exist, remove them
+			remove_all_orgs();
 		}
-	);
-	print STDERR "ProductOpener::Import::import_csv_file - done \n";
 
-	# get all products in db, sorted by code for predictability
-	my $cursor = execute_query(
-		sub {
-			return get_products_collection()->query({})->sort({code => 1});
+		# import file
+		my $datestring = localtime();
+		my $args = {
+			"user_id" => "test-user",
+			"org_id" => "test-org",
+			"owner_id" => "org-test-org",
+			"csv_file" => $csv_file,
+			"exported_t" => $datestring,
+		};
+
+		my $stats_ref;
+
+		# run import_csv_file
+		print STDERR "Running ProductOpener::Import::import_csv_file and capturing its output\n";
+
+		# Note: if the code executed by capture_outputs() dies, the test will end without showing why/where it died.
+		my ($out, $err) = capture_ouputs(
+			sub {
+				$stats_ref = ProductOpener::Import::import_csv_file($args);
+			}
+		);
+		print STDERR "ProductOpener::Import::import_csv_file - done \n";
+
+		# get all products in db, sorted by code for predictability
+		my $cursor = execute_query(
+			sub {
+				return get_products_collection()->query({})->sort({code => 1});
+			}
+		);
+		my @products = ();
+		while (my $doc = $cursor->next) {
+			push(@products, $doc);
 		}
-	);
-	my @products = ();
-	while (my $doc = $cursor->next) {
-		push(@products, $doc);
-	}
 
-	# clean
-	normalize_products_for_test_comparison(\@products);
+		# clean
+		normalize_products_for_test_comparison(\@products);
 
-	# verify result
-	compare_array_to_expected_results(\@products, $expected_result_dir, $update_expected_results);
-
-	# also verify sto
-	if (!$update_expected_results) {
-		my @sto_products = ();
-		foreach my $product (@products) {
-			push(@sto_products, retrieve_product($product->{code}));
-		}
-		normalize_products_for_test_comparison(\@sto_products);
+		# verify result
 		compare_array_to_expected_results(\@products, $expected_result_dir, $update_expected_results);
+
+		# also verify sto
+		if (!$update_expected_results) {
+			my @sto_products = ();
+			foreach my $product (@products) {
+				push(@sto_products, retrieve_product($product->{code}));
+			}
+			normalize_products_for_test_comparison(\@sto_products);
+			compare_array_to_expected_results(\@products, $expected_result_dir, $update_expected_results);
+		}
+
+		compare_to_expected_results($stats_ref, $expected_result_dir . "/stats.json", $update_expected_results);
+
+		# TODO verify images
 	}
-
-	compare_to_expected_results($stats_ref, $expected_result_dir . "/stats.json", $update_expected_results);
-
-	# TODO verify images
 }
 
 done_testing();
