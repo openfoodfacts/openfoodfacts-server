@@ -21,6 +21,8 @@ requires 'URI::Find'; # liburi-find-perl
 requires 'XML::Simple'; # libxml-simple-perl
 requires 'experimental'; # libexperimental-perl
 requires 'Apache2::Request'; # libapache2-request-perl
+requires 'Apache::Bootstrap'; # needed by Apache2::Connection::XForwardedFor
+requires 'Apache2::Connection::XForwardedFor';
 requires 'Digest::MD5'; # libdigest-md5-perl
 requires 'Time::Local'; # libtime-local-perl
 
