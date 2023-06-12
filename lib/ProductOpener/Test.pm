@@ -49,6 +49,7 @@ BEGIN {
 		&remove_all_products
 		&remove_all_users
 		&remove_all_orgs
+		&allergens_traces_replace_existing_values
 		&check_not_production
 		&wait_for
 		&read_gzip_file
@@ -257,6 +258,19 @@ sub remove_all_orgs () {
 	if (@$err) {
 		confess("not able to remove some orgs directories: " . join(":", @$err));
 	}
+}
+
+=head2 allergens_traces_replace_existing_values ()
+
+For integration tests, we need to start from an empty organizations base
+
+This function should only be called by tests, and never on production environments.
+
+=cut
+
+sub allergens_traces_replace_existing_values(){
+	# Important: check we are not on a prod database
+	check_not_production();
 }
 
 =head2 capture_ouputs ($meth)

@@ -75,7 +75,7 @@ foreach my $test_ref (@tests) {
 	# import csv can create some organizations if they don't exist, remove them
 	remove_all_orgs();
 	# Make allergens and traces values supplied by producers completely replace existing values
-	replace_existing_values_when_importing_those_tags_fields();
+	allergens_traces_replace_existing_values();
 
 	# import file
 	my $datestring = localtime();
