@@ -520,7 +520,7 @@ sub set_field_value (
 			delete $product_ref->{$field . "_tags"};
 		}
 
-		if (($field eq "allergens") or ($field eq "traces")) {
+		if (($field eq "allergens") or ($field eq "traces") && $options{replace_existing_values_when_importing_those_tags_fields}) {
 			if ($imported_product_ref->{$field} ne "") {
 				$product_ref->{$field} = "";
 				delete $product_ref->{$field . "_tags"};

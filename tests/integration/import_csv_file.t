@@ -45,16 +45,11 @@ sub fake_download_image ($) {
 my @tests = (
 	{
 		test_case => "test",
-		csv_file => "test.csv",
+		csv_files => ["test.csv"],
 	},
 	{
-		test_case => "replace_existing_values_1",
-		csv_file => "replace_existing_values_1.csv",
-
-	},
-	{
-		test_case => "replace_existing_values_2",
-		csv_file => "replace_existing_values_2.csv",
+		test_case => "replace_existing_values",
+		csv_files => ["replace_existing_values_1.csv", "replace_existing_values_1.csv"],
 
 	}
 );
@@ -74,7 +69,7 @@ foreach my $test_ref (@tests) {
 	remove_all_products();
 	# import csv can create some organizations if they don't exist, remove them
 	remove_all_orgs();
-	
+
 	# import file
 	my $datestring = localtime();
 	my $args = {
