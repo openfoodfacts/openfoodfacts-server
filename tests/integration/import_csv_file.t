@@ -74,9 +74,7 @@ foreach my $test_ref (@tests) {
 	remove_all_products();
 	# import csv can create some organizations if they don't exist, remove them
 	remove_all_orgs();
-	# Make allergens and traces values supplied by producers completely replace existing values
-	allergens_traces_replace_existing_values();
-
+	
 	# import file
 	my $datestring = localtime();
 	my $args = {
