@@ -8,7 +8,7 @@ allOf:
       product:
         type: object
         allOf:
-          - $ref: ../schemas/product.yaml#/Product
+          - $ref: ../schemas/product.yaml
 x-examples:
   example-1:
     code: '3017620422003'

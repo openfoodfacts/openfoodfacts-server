@@ -1,0 +1,36 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "org.openfoodfacts.scanner",
+      "sha256_cert_fingerprints": [
+        "08:D9:42:D7:76:7B:55:B5:20:ED:0A:EE:F3:76:5A:25:1D:56:81:76:F9:F0:59:E7:50:E5:50:4A:CB:3D:67:E8",
+        "FD:DF:C6:53:AD:25:62:DB:A2:92:C6:D0:5B:A6:98:C9:7F:66:79:43:BD:29:31:D0:DA:3A:2B:CD:5B:6F:1A:DF"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "web",
+      "site": "https://world.openfoodfacts.org"
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "org.openfoodfacts.scanner",
+      "sha256_cert_fingerprints": [
+        "08:D9:42:D7:76:7B:55:B5:20:ED:0A:EE:F3:76:5A:25:1D:56:81:76:F9:F0:59:E7:50:E5:50:4A:CB:3D:67:E8"
+      ]
+    }
+  }
+]
