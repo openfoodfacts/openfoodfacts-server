@@ -21,8 +21,9 @@ use ProductOpener::LoadData qw/:all/;
 
 load_data();
 
-my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
+my ($test_id, $test_dir, $expected_results_dir, $update_expected_results) = (init_expected_results(__FILE__));
 my $inputs_dir = "$test_dir/inputs/$test_id/";
+my $outputs_dir = "$test_dir/outputs/$test_id/";
 
 # fake image download using input directory instead of distant server
 sub fake_download_image ($) {
@@ -62,16 +63,22 @@ foreach my $test_ref (@tests) {
 	# mock download image to fetch image in inputs_dir
 	$import_module->mock('download_image', \&fake_download_image);
 
+	# clean data
+	remove_all_products();
+	# import csv can create some organizations if they don't exist, remove them
+	remove_all_orgs();
+
+	# expected results
+	my $test_case = $test_ref->{test_case};
+	my $expected_test_results_dir = $expected_results_dir . "/" . $test_case;
+	my $outputs_test_dir = $outputs_dir . "/" . $test_case;
+	make_path($outputs_test_dir);
+	my $stats_ref;
+
 	# inputs
 	foreach my $csv (@{$test_ref->{csv_files}}) {
-		my $csv_file = $inputs_dir . $csv;
 
-		# Clean data for the first test case only
-		if ($test_ref->{test_case} eq "test") {
-			remove_all_products();
-			# import csv can create some organizations if they don't exist, remove them
-			remove_all_orgs();
-		}
+		my $csv_file = $inputs_dir . $csv;
 
 		# import file
 		my $datestring = localtime();
@@ -82,8 +89,6 @@ foreach my $test_ref (@tests) {
 			"csv_file" => $csv_file,
 			"exported_t" => $datestring,
 		};
-
-		my $stats_ref;
 
 		# run import_csv_file
 		print STDERR "Running ProductOpener::Import::import_csv_file and capturing its output\n";
@@ -96,37 +101,37 @@ foreach my $test_ref (@tests) {
 		);
 		print STDERR "ProductOpener::Import::import_csv_file - done \n";
 
-		# get all products in db, sorted by code for predictability
-		my $cursor = execute_query(
-			sub {
-				return get_products_collection()->query({})->sort({code => 1});
-			}
-		);
-		my @products = ();
-		while (my $doc = $cursor->next) {
-			push(@products, $doc);
-		}
-
-		# clean
-		normalize_products_for_test_comparison(\@products);
-
-		# verify result
-		compare_array_to_expected_results(\@products, $expected_result_dir, $update_expected_results);
-
-		# also verify sto
-		if (!$update_expected_results) {
-			my @sto_products = ();
-			foreach my $product (@products) {
-				push(@sto_products, retrieve_product($product->{code}));
-			}
-			normalize_products_for_test_comparison(\@sto_products);
-			compare_array_to_expected_results(\@products, $expected_result_dir, $update_expected_results);
-		}
-
-		compare_to_expected_results($stats_ref, $expected_result_dir . "/stats.json", $update_expected_results);
-
-		# TODO verify images
 	}
+	# get all products in db, sorted by code for predictability
+	my $cursor = execute_query(
+		sub {
+			return get_products_collection()->query({})->sort({code => 1});
+		}
+	);
+	my @products = ();
+	while (my $doc = $cursor->next) {
+		push(@products, $doc);
+	}
+
+	# clean
+	normalize_products_for_test_comparison(\@products);
+
+	# verify result
+	compare_array_to_expected_results(\@products, $expected_test_results_dir, $update_expected_results);
+
+	# also verify sto
+	if (!$update_expected_results) {
+		my @sto_products = ();
+		foreach my $product (@products) {
+			push(@sto_products, retrieve_product($product->{code}));
+		}
+		normalize_products_for_test_comparison(\@sto_products);
+		compare_array_to_expected_results(\@products, $expected_test_results_dir, $update_expected_results);
+	}
+
+	compare_to_expected_results($stats_ref, $expected_test_results_dir . "/stats.json", $update_expected_results);
+
+	# TODO verify images
 }
 
 done_testing();
