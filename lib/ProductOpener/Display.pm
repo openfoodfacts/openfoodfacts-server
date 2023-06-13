@@ -793,6 +793,8 @@ sub init_request ($request_ref = {}) {
 	if (is_admin_user($User_id)) {
 		$admin = 1;
 	}
+	$request_ref->{admin} = $admin;
+	# TODO: remove the $admin global variable, and use $request_ref->{admin} instead.
 
 	# Producers platform: not logged in users, or users with no permission to add products
 
@@ -1442,7 +1444,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 					if $log->is_debug();
 				$results = execute_query(
 					sub {
-						return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
+						return get_products_collection(get_products_collection_request_parameters())
 							->aggregate($aggregate_parameters, {allowDiskUse => 1});
 					}
 				);
@@ -1456,7 +1458,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 					if $log->is_debug();
 				$results = execute_query(
 					sub {
-						return get_products_collection({obsolete => request_param($request_ref, "obsolete"), tags => 1})
+						return get_products_collection(get_products_collection_request_parameters({tags => 1}))
 							->aggregate($aggregate_parameters, {allowDiskUse => 1});
 					}
 				);
@@ -1524,7 +1526,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 						if $log->is_debug();
 					$count_results = execute_query(
 						sub {
-							return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
+							return get_products_collection(get_products_collection_request_parameters())
 								->aggregate($aggregate_count_parameters, {allowDiskUse => 1});
 						}
 					);
@@ -1538,7 +1540,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 					$count_results = execute_query(
 						sub {
 							return get_products_collection(
-								{obsolete => request_param($request_ref, "obsolete"), tags => 1})
+								get_products_collection_request_parameters({tags => 1}))
 								->aggregate($aggregate_count_parameters, {allowDiskUse => 1});
 						}
 					);
@@ -4909,7 +4911,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 				$log->debug("Counting MongoDB documents for query", {query => $query_ref}) if $log->is_debug();
 				$count = execute_query(
 					sub {
-						return get_products_collection({obsolete => request_param($request_ref, "obsolete"), tags => 1})
+						return get_products_collection(get_products_collection_request_parameters({tags => 1}))
 							->count_documents($query_ref);
 					}
 				);
@@ -4920,7 +4922,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 				$log->debug("Executing MongoDB query", {query => $aggregate_parameters}) if $log->is_debug();
 				$cursor = execute_query(
 					sub {
-						return get_products_collection({obsolete => request_param($request_ref, "obsolete"), tags => 1})
+						return get_products_collection(get_products_collection_request_parameters({tags => 1}))
 							->aggregate($aggregate_parameters, {allowDiskUse => 1});
 					}
 				);
@@ -4972,7 +4974,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 										{key => $key_count})
 										if $log->is_debug();
 									return get_products_collection(
-										{obsolete => request_param($request_ref, "obsolete"), tags => 1})
+										get_products_collection_request_parameters({tags => 1}))
 										->count_documents($query_ref);
 								}
 							);
@@ -4985,7 +4987,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 									$log->debug("count_documents on complete products collection", {key => $key_count})
 										if $log->is_debug();
 									return get_products_collection(
-										{obsolete => request_param($request_ref, "obsolete")})
+										get_products_collection_request_parameters())
 										->count_documents($query_ref);
 								}
 							);
@@ -5012,7 +5014,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 						sub {
 							$log->debug("empty query_ref, use estimated_document_count fot better performance", {})
 								if $log->is_debug();
-							return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
+							return get_products_collection(get_products_collection_request_parameters())
 								->estimated_document_count();
 						}
 					);
@@ -5024,7 +5026,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 					if $log->is_debug();
 				$cursor = execute_query(
 					sub {
-						return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
+						return get_products_collection(get_products_collection_request_parameters())
 							->query($query_ref)->fields($fields_ref)->sort($sort_ref)->limit($limit)->skip($skip);
 					}
 				);
@@ -6386,7 +6388,7 @@ sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 	eval {
 		$cursor = execute_query(
 			sub {
-				return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
+				return get_products_collection(get_products_collection_request_parameters())
 					->query($query_ref)->fields($fields_ref);
 			}
 		);
@@ -6519,7 +6521,7 @@ sub search_and_map_products ($request_ref, $query_ref, $graph_ref) {
 	eval {
 		$cursor = execute_query(
 			sub {
-				return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
+				return get_products_collection(get_products_collection_request_parameters())
 					->query($query_ref)->fields(
 					{
 						code => 1,
@@ -10995,7 +10997,7 @@ sub search_and_analyze_recipes ($request_ref, $query_ref) {
 	eval {
 		$cursor = execute_query(
 			sub {
-				return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
+				return get_products_collection(get_products_collection_request_parameters())
 					->query($query_ref)->fields($fields_ref);
 			}
 		);

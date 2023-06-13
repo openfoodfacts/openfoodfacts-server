@@ -54,6 +54,7 @@ BEGIN {
 		&execute_query
 		&get_database
 		&get_collection
+		&get_products_collection_request_parameters
 		&get_products_collection
 		&get_emb_codes_collection
 		&get_recent_changes_collection
@@ -116,7 +117,48 @@ sub execute_query ($sub) {
 	)->run();
 }
 
-=head2 get_products_collection( $options_ref )
+=head2 get_products_collection_request_parameters ($request_ref, $additional_parameters_ref = {} )
+
+This function looks at the request object to set parameters to pass to the get_products_collection() function.
+
+=head3 Arguments
+
+=head4 $request_ref request object
+
+=head4 $additional_parameters_ref
+
+An optional reference to a hash of parameters that should be added to the parameters extracted from the request object.
+This is useful in particular to request the query to be executed on the smaller products_tags category, by passing
+{ tags = 1 }
+
+=head3 Return value
+
+A reference to a parameters object that can be passed to get_products_collection()
+
+=cut
+
+sub get_products_collection_request_parameters ($request_ref, $additional_parameters_ref = {} ) {
+
+	my $parameters_ref = {}
+
+	# If the request is for obsolete products, we will select a specific products collection
+	# for obsolete products
+	$parameters_ref->{obsolete} = request_param($request_ref, "obsolete");
+
+	# Admin users can request a specific query_timeout for MongoDB queries
+	if ($request_ref->{admin}) {
+		$parameters_ref->{timeout} = request_param($request_ref, "timeout");
+	}
+
+	# Add / overwrite request parameters with additional parameters passed as arguments
+	foreach my $parameter (keys %$additional_parameters_ref) {
+		$parameters_ref->{$parameter} = $additional_parameters_ref->{$parameter};
+	}
+
+	return $parameters_ref;
+}
+
+=head2 get_products_collection( $parameters_ref )
 
 C<get_products_collection()> establishes a connection to MongoDB and uses timeout as an argument. This then selects a collection
 from within the database.
@@ -155,34 +197,19 @@ Returns a mongoDB collection object.
 
 =cut
 
-sub get_products_collection ($options_ref = {}) {
+sub get_products_collection ($parameters_ref = {}) {
 	my $database = $options_ref->{database} // $mongodb;
 	my $collection = 'products';
-	if ($options_ref->{obsolete}) {
+	if ($parameters_ref->{obsolete}) {
 		$collection .= '_obsolete';
 	}
 	# We don't have a products_obsolete_tags collection at this point
 	# if it changes, the following elsif should be changed to a if
-	elsif ($options_ref->{tags}) {
+	elsif ($parameters_ref->{tags}) {
 		$collection .= '_tags';
 	}
 	return get_collection($database, $collection, $options_ref->{timeout});
 }
-
-=head2 get_products_tags_collection()
-
-C<get_products_collection()> This selects the product tag collection from within the database.
-
-=head3 Arguments
-
-This method takes in arguments of integer type (user defined timeout in milliseconds).
-It is optional for this subroutine to have an argument.
-
-=head3 Return values
-
-Returns a mongoDB collection.
-
-=cut
 
 sub get_emb_codes_collection ($timeout = undef) {
 	return get_collection($mongodb, 'emb_codes', $timeout);
