@@ -3901,8 +3901,8 @@ HTML
 					if (defined $User{pro_moderator}) {
 						my @org_members;
 						foreach my $member_id (sort keys %{$user_or_org_ref->{members}}) {
-							my $member_details = retrieve_user($member_id);
-							push @org_members, $member_details;
+							my $member_user_ref = retrieve_user($member_id);
+							push @org_members, $member_user_ref;
 						}
 						$user_template_data_ref->{org_members} = \@org_members;
 					}

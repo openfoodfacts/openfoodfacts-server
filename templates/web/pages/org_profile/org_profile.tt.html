@@ -18,11 +18,11 @@
 <h2>[% lang("organization_members") %]</h2>
 	<p>[% lang("number_of_members") %][% sep %]: [% org_members.size %]</p>
 	<div style="position:relative">
-	<table id="org_main_table">
-		<thead id="org_table_header">
+	<table>
+		<thead>
 		<tr>
 			<th>[% lang("serial_no") %]</th>
-			<th>[% lang("member_userid") %]</th>
+			<th>[% lang("username") %]</th>
 			<th>[% lang("name") %]</th>
 			<th>[% lang("email") %]</th>
 			<th>[% lang("select_lang") %]</th>
@@ -30,20 +30,20 @@
 
 		</tr>
 	</thead>
-		[% SET count = 1 %]
+		<tbody>
 		[% FOREACH users IN org_members %]
-		<tbody id="org_table_body">
+		[% SET count = 1 %]
 		<tr>
-			<td data-cell =[% lang("serial_no") %]>[% count %].</td>
-			<td data-cell =[% lang("member_userid") %]>[% users.userid %]</td>
-			<td data-cell =[% lang("name") %]>[% users.name %]</td>
-			<td data-cell =[% lang("email") %]>[% users.email %]</td>
-			<td data-cell =[% lang("select_lang") %]>[% users.initial_lc %]</td>
-			<td data-cell =[% lang("select_country") %]>[% users.initial_cc %]</td>
+			<td>[% count %].</td>
+			<td>[% users.userid %]</td>
+			<td>[% users.name %]</td>
+			<td>[% users.email %]</td>
+			<td>[% users.initial_lc %]</td>
+			<td>[% users.initial_cc %]</td>
 		</tr>
-	</tbody>
 		[% SET count = count + 1 %]
 		[% END %]
+	</tbody>
 	</table>
 </div>
 [% END %]
