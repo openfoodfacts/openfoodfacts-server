@@ -139,7 +139,7 @@ A reference to a parameters object that can be passed to get_products_collection
 
 sub get_products_collection_request_parameters ($request_ref, $additional_parameters_ref = {} ) {
 
-	my $parameters_ref = {}
+	my $parameters_ref = {};
 
 	# If the request is for obsolete products, we will select a specific products collection
 	# for obsolete products
@@ -198,7 +198,7 @@ Returns a mongoDB collection object.
 =cut
 
 sub get_products_collection ($parameters_ref = {}) {
-	my $database = $options_ref->{database} // $mongodb;
+	my $database = $parameters_ref->{database} // $mongodb;
 	my $collection = 'products';
 	if ($parameters_ref->{obsolete}) {
 		$collection .= '_obsolete';
@@ -208,7 +208,7 @@ sub get_products_collection ($parameters_ref = {}) {
 	elsif ($parameters_ref->{tags}) {
 		$collection .= '_tags';
 	}
-	return get_collection($database, $collection, $options_ref->{timeout});
+	return get_collection($database, $collection, $parameters_ref->{timeout});
 }
 
 sub get_emb_codes_collection ($timeout = undef) {
