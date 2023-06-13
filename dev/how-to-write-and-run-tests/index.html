@@ -668,6 +668,19 @@
     Writing tests
   </a>
   
+    <nav class="md-nav" aria-label="Writing tests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-json-files-to-save-expected-results-of-tests" class="md-nav__link">
+    Using JSON files to save expected results of tests
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -849,6 +862,19 @@
     Writing tests
   </a>
   
+    <nav class="md-nav" aria-label="Writing tests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-json-files-to-save-expected-results-of-tests" class="md-nav__link">
+    Using JSON files to save expected results of tests
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -898,7 +924,7 @@
 <p>See mainly:</p>
 <ul>
 <li><a href="https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Test.html">Test.pm</a> (notably <code>init_expected_results</code> and <code>compare_to_expected_results</code>)</li>
-<li><a href="https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/APITest.html">TestAPI.pm</a></li>
+<li><a href="https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/APITest.html">APITest.pm</a></li>
 </ul>
 <p>and other modules with Test in their name !</p>
 <h2 id="unit-and-integration-tests">Unit and Integration tests<a class="headerlink" href="#unit-and-integration-tests" title="Permanent link">#</a></h2>
@@ -914,7 +940,14 @@
 <h2 id="writing-tests">Writing tests<a class="headerlink" href="#writing-tests" title="Permanent link">#</a></h2>
 <p>You can read other tests to understand how we write them (inspire yourself from recently created tests).</p>
 <p>One effective way is to create a list of tests each represented by a hashmap with inputs and expected outputs and run them in a loop. Add an <code>id</code> and/or a <code>desc</code> (description) and use it as last argument to check functions (like <code>ok</code>, <code>is</code>, …) to easily see tests running and identify failing tests.</p>
-<p>If your outputs are consequent, you might use json files (one per tests), stored on disk. See tests using <code>init_expected_results</code> (and see below to refresh those files).</p>
+<h3 id="using-json-files-to-save-expected-results-of-tests">Using JSON files to save expected results of tests<a class="headerlink" href="#using-json-files-to-save-expected-results-of-tests" title="Permanent link">#</a></h3>
+<p>If the output of the function you are testing is small (e.g. a function that returns one single value), the expected return value can be stored in the .t test file.</p>
+<p>If your outputs are complex and/or large (e.g. for unit tests of functions that return a complex structure, or for API integration tests that return a JSON response), you can use json files to save the expected result of each test, stored on disk. </p>
+<p><a href="https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Test.html">Test.pm</a> contains helper functions to compare results to expected results and to update the expected results. For instance if your function returns a reference $results_ref to a complex object (like a product):</p>
+<p><code>compare_to_expected_results($results_ref, "$expected_result_dir/$testid.json", $update_expected_results);</code></p>
+<p>After writing the test, you need to use once <code>init_expected_results</code> (see below) to create a JSON file that contains the resulting object.</p>
+<p>Then the next time you run the test, the results will be compared to the stored expected results.</p>
+<p>You can also use <code>init_expected_results</code> to generate new expected results file and easily what has changed using it <code>git diff</code>. If the changes are expected, you can commit the new expected results.</p>
 <h2 id="running-tests">Running tests<a class="headerlink" href="#running-tests" title="Permanent link">#</a></h2>
 <p>The best way to run all test is to run:</p>
 <div class="highlight"><pre><span></span><code>make<span class="w"> </span>tests
