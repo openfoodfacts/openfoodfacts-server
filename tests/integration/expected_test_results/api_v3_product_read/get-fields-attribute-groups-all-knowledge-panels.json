@@ -399,7 +399,9 @@
       "created_t" : "--ignore--",
       "creator" : "tests",
       "data_quality_bugs_tags" : [],
-      "data_quality_errors_tags" : [],
+      "data_quality_errors_tags" : [
+         "en:ingredients-ingredient-from-category-does-not-match-actual-ingredient"
+      ],
       "data_quality_info_tags" : [
          "en:packaging-data-incomplete",
          "en:ingredients-percent-analysis-ok",
@@ -416,7 +418,8 @@
          "en:food-groups-2-known",
          "en:food-groups-3-unknown",
          "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-         "en:ecoscore-production-system-no-label"
+         "en:ecoscore-production-system-no-label",
+         "en:ingredients-ingredient-from-category-does-not-match-actual-ingredient"
       ],
       "data_quality_warnings_tags" : [
          "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",

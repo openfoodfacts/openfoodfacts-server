@@ -7,6 +7,12 @@
                {
                   "element_type" : "panel",
                   "panel_element" : {
+                     "panel_id" : "data_quality_errors"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
                      "panel_id" : "data_quality_warnings"
                   }
                },
@@ -25,6 +31,37 @@
                "contribution"
             ],
             "type" : "card"
+         },
+         "data_quality_errors" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<ul> <li id=\"data-error-en:ingredients-ingredient-from-category-does-not-match-actual-ingredient\"> Ingredients-ingredient-from-category-does-not-match-actual-ingredient <br><span class=\"description\">This category expect a single and specific ingredient</span> </li> </ul>"
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "add_ingredients_text"
+                     ],
+                     "html" : ""
+                  },
+                  "element_type" : "action"
+               }
+            ],
+            "evaluation" : "bad",
+            "expand_for" : "large",
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/data-error.svg",
+               "subtitle" : "Help us improve quality of our data by contributing fixes",
+               "title" : "Detected Errors"
+            },
+            "topics" : [
+               "contribution"
+            ]
          },
          "data_quality_info" : {
             "elements" : [
