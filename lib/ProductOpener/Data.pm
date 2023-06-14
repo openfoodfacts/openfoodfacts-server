@@ -54,7 +54,6 @@ BEGIN {
 		&execute_query
 		&get_database
 		&get_collection
-		&get_products_collection_request_parameters
 		&get_products_collection
 		&get_emb_codes_collection
 		&get_recent_changes_collection
@@ -115,47 +114,6 @@ sub execute_query ($sub) {
 			# Do not retry the query, as it will make things worse
 		strategy => {Fibonacci => {max_retries_number => 0,}},
 	)->run();
-}
-
-=head2 get_products_collection_request_parameters ($request_ref, $additional_parameters_ref = {} )
-
-This function looks at the request object to set parameters to pass to the get_products_collection() function.
-
-=head3 Arguments
-
-=head4 $request_ref request object
-
-=head4 $additional_parameters_ref
-
-An optional reference to a hash of parameters that should be added to the parameters extracted from the request object.
-This is useful in particular to request the query to be executed on the smaller products_tags category, by passing
-{ tags = 1 }
-
-=head3 Return value
-
-A reference to a parameters object that can be passed to get_products_collection()
-
-=cut
-
-sub get_products_collection_request_parameters ($request_ref, $additional_parameters_ref = {} ) {
-
-	my $parameters_ref = {};
-
-	# If the request is for obsolete products, we will select a specific products collection
-	# for obsolete products
-	$parameters_ref->{obsolete} = request_param($request_ref, "obsolete");
-
-	# Admin users can request a specific query_timeout for MongoDB queries
-	if ($request_ref->{admin}) {
-		$parameters_ref->{timeout} = request_param($request_ref, "timeout");
-	}
-
-	# Add / overwrite request parameters with additional parameters passed as arguments
-	foreach my $parameter (keys %$additional_parameters_ref) {
-		$parameters_ref->{$parameter} = $additional_parameters_ref->{$parameter};
-	}
-
-	return $parameters_ref;
 }
 
 =head2 get_products_collection( $parameters_ref )
