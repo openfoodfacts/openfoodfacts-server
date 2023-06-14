@@ -1458,7 +1458,8 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 					if $log->is_debug();
 				$results = execute_query(
 					sub {
-						return get_products_collection(get_products_collection_request_parameters($request_ref, {tags => 1}))
+						return get_products_collection(
+							get_products_collection_request_parameters($request_ref, {tags => 1}))
 							->aggregate($aggregate_parameters, {allowDiskUse => 1});
 					}
 				);
@@ -4420,7 +4421,7 @@ A reference to a parameters object that can be passed to get_products_collection
 
 =cut
 
-sub get_products_collection_request_parameters ($request_ref, $additional_parameters_ref = {} ) {
+sub get_products_collection_request_parameters ($request_ref, $additional_parameters_ref = {}) {
 
 	my $parameters_ref = {};
 
@@ -4952,7 +4953,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 				$log->debug("Counting MongoDB documents for query", {query => $query_ref}) if $log->is_debug();
 				$count = execute_query(
 					sub {
-						return get_products_collection(get_products_collection_request_parameters($request_ref, {tags => 1}))
+						return get_products_collection(
+							get_products_collection_request_parameters($request_ref, {tags => 1}))
 							->count_documents($query_ref);
 					}
 				);
@@ -4963,7 +4965,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 				$log->debug("Executing MongoDB query", {query => $aggregate_parameters}) if $log->is_debug();
 				$cursor = execute_query(
 					sub {
-						return get_products_collection(get_products_collection_request_parameters($request_ref, {tags => 1}))
+						return get_products_collection(
+							get_products_collection_request_parameters($request_ref, {tags => 1}))
 							->aggregate($aggregate_parameters, {allowDiskUse => 1});
 					}
 				);
