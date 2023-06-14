@@ -522,7 +522,7 @@ sub set_field_value (
 		}
 
 		# If we are on the producers platform, replace existing values by producer supplied values for allergens and traces
-		if (deep_exists(%options, "replace_existing_values_when_importing_those_tags_fields", $field)) {
+		if (deep_exists(\%options, "replace_existing_values_when_importing_those_tags_fields", $field)) {
 			if ($imported_product_ref->{$field} ne "") {
 				$product_ref->{$field} = "";
 				delete $product_ref->{$field . "_tags"};
