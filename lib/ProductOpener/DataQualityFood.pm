@@ -935,34 +935,26 @@ sub check_nutrition_data ($product_ref) {
 			}
 		}
 
-		# some categories have expected ingredient - push data quality error if ingredient differs from expected ingredient or is missing
+		# some categories have an expected ingredient - push data quality error if ingredient differs from expected ingredient
+		# note: we currently support only 1 expected ingredient
 		my $expected_ingredients = get_inherited_property_from_categories_tags($product_ref, "expected_ingredients:en");
 
-		if (defined $expected_ingredients) {
-			$expected_ingredients = $expected_ingredients =~ s/ /-/gr;
+		if ((defined $expected_ingredients)) {
+			$expected_ingredients = canonicalize_taxonomy_tag("en", "ingredients", $expected_ingredients);
+			my $number_of_ingredients = (defined $product_ref->{ingredients}) ? @{$product_ref->{ingredients}} : 0;
 
-			my $raise_unexpected_ingredient_for_catagory = 0;
-			# ingredients text missing
-			if ((not(defined $product_ref->{ingredients}))) {
-				$raise_unexpected_ingredient_for_catagory = 1;
+			if ($number_of_ingredients == 0) {
+				push @{$product_ref->{data_quality_warnings_tags}}, "en:ingredients-single-ingredient-from-category-missing";
 			}
-			else {
-				my $ingredients_count = @{$product_ref->{ingredients}};
-				if (
-					# ingredients text longer than 1 ingredients, hence, different than expected
-					($ingredients_count > 1)
-					# ingredients text different than expected
-					or (($ingredients_count == 1)
-						and not(is_a("ingredients", $product_ref->{ingredients}[0]{id}, $expected_ingredients)))
-					)
-				{
-					$raise_unexpected_ingredient_for_catagory = 1;
-				}
-			}
-
-			if ($raise_unexpected_ingredient_for_catagory) {
+			elsif (
+				# more than 1 ingredient
+				($number_of_ingredients > 1)
+				# ingredient different than expected ingredient
+				or not(is_a("ingredients", $product_ref->{ingredients}[0]{id}, $expected_ingredients))
+				)
+			{
 				push @{$product_ref->{data_quality_errors_tags}},
-					"en:ingredients-ingredient-from-category-does-not-match-actual-ingredient";
+					"en:ingredients-single-ingredient-from-category-does-not-match-actual-ingredients";
 			}
 		}
 	}
