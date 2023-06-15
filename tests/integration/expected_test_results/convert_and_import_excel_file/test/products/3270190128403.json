@@ -130,7 +130,7 @@
    "creator" : "test-user",
    "data_quality_bugs_tags" : [],
    "data_quality_errors_tags" : [
-      "en:ingredients-ingredient-from-category-does-not-match-actual-ingredient"
+      "en:ingredients-single-ingredient-from-category-does-not-match-actual-ingredients"
    ],
    "data_quality_info_tags" : [
       "en:packaging-data-incomplete",
@@ -149,7 +149,7 @@
       "en:food-groups-1-known",
       "en:food-groups-2-known",
       "en:food-groups-3-unknown",
-      "en:ingredients-ingredient-from-category-does-not-match-actual-ingredient"
+      "en:ingredients-single-ingredient-from-category-does-not-match-actual-ingredients"
    ],
    "data_quality_warnings_tags" : [],
    "data_sources" : "Producers, Producer - carrefour",
