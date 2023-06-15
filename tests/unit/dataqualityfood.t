@@ -931,7 +931,7 @@ $product_ref = {
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:ingredients-ingredient-from-category-does-not-match-actual-ingredient',
+	'en:ingredients-single-ingredient-from-category-missing',
 	'We expect the ingredient given in the taxonomy for this product', 1
 );
 # category with expected ingredient. More than one ingredient
@@ -948,7 +948,7 @@ $product_ref = {
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:ingredients-ingredient-from-category-does-not-match-actual-ingredient',
+	'en:ingredients-single-ingredient-from-category-does-not-match-actual-ingredients',
 	'We expect the ingredient given in the taxonomy for this product', 1
 );
 # category with expected ingredient. Single ingredient that is a child of the expected one.
@@ -965,7 +965,7 @@ $product_ref = {
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:ingredients-ingredient-from-category-does-not-match-actual-ingredient',
+	'en:ingredients-single-ingredient-from-category-does-not-match-actual-ingredients',
 	'We expect the ingredient given in the taxonomy for this product', 0
 );
 # category with expected ingredient. Single ingredient that is a child of the expected one. Two specific categories
@@ -985,7 +985,7 @@ $product_ref = {
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:ingredients-ingredient-from-category-does-not-match-actual-ingredient',
+	'en:ingredients-single-ingredient-from-category-does-not-match-actual-ingredients',
 	'We expect the ingredient given in the taxonomy for this product', 0
 );
 # category with expected ingredient. Single ingredient identical as expected one
@@ -1005,7 +1005,7 @@ $product_ref = {
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:ingredients-ingredient-from-category-does-not-match-actual-ingredient',
+	'en:ingredients-single-ingredient-from-category-does-not-match-actual-ingredients',
 	'We expect the ingredient given in the taxonomy for this product', 0
 );
 
