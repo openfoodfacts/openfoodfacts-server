@@ -23,6 +23,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "18066",
          "id" : "en:water",
          "percent_estimate" : 21.5,
          "percent_max" : 26,
@@ -66,6 +67,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "11058",
          "id" : "en:salt",
          "percent_estimate" : 0.3125,
          "percent_max" : 6.2,
@@ -178,13 +180,11 @@
    "ingredients_with_unspecified_percent_sum" : 57,
    "ingredients_without_ciqual_codes" : [
       "en:herb",
-      "en:salt",
       "en:spice",
-      "en:water",
       "en:wheat-flour",
       "en:yeast"
    ],
-   "ingredients_without_ciqual_codes_n" : 6,
+   "ingredients_without_ciqual_codes_n" : 4,
    "known_ingredients_n" : 21,
    "lc" : "fr",
    "nutriments" : {
