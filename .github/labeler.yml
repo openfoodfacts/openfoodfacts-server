@@ -5,6 +5,7 @@ github_actions:
 
 nginx:
 - conf/nginx/**/*
+- conf/nginx.conf
 
 mongodb:
 - conf/mongodb/create_indexes.js
@@ -399,6 +400,7 @@ packager codes:
 - scripts/update_packager_codes_fsa_ratings.pl
 - scripts/test_normalize_packaging_codes.pl
 - scripts/update_emb_codes_in_mongodb.pl
+- packager-codes/**
 
 Packaging:
 - lib/ProductOpener/Packaging.pm

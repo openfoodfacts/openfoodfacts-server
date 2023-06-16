@@ -251,4 +251,14 @@ my $facts_completed_state_found = grep {/en:nutrition-facts-completed/} $product
 is($facts_completed_state_found, 0);
 is($facts_to_be_completed_state_found, 1);
 
+# Test preprocess_product_field
+is(preprocess_product_field('product_name', 'Test Product'), 'Test Product');
+is(preprocess_product_field('customer_service', 'abc@gmail.com'), 'abc@gmail.com');
+is(preprocess_product_field('categories', 'Beverages, email@example.com, Cola'), 'Beverages, , Cola');
+is(preprocess_product_field('ingredients', 'Water, Salt, abc@gmail.com'), 'Water, Salt, ');
+is(preprocess_product_field('origin', 'France'), 'France');
+is(preprocess_product_field('packaging', 'Aluminium, Can, abc@gmail.com'), 'Aluminium, Can, ');
+is(preprocess_product_field('labels', 'email@example.com, Green Dot'), ', Green Dot');
+is(preprocess_product_field('stores', 'Carrefour, abc@gmail.com'), 'Carrefour, ');
+
 done_testing();

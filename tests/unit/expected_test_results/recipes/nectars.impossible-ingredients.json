@@ -9,6 +9,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "18066",
          "id" : "en:water",
          "percent_estimate" : 25,
          "text" : "water",
@@ -68,6 +69,11 @@
    "ingredients_with_specified_percent_sum" : 80,
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 25,
+   "ingredients_without_ciqual_codes" : [
+      "en:orange-juice",
+      "en:sugar"
+   ],
+   "ingredients_without_ciqual_codes_n" : 2,
    "known_ingredients_n" : 9,
    "lc" : "en",
    "nutriments" : {

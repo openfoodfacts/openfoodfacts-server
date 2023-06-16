@@ -1,5 +1,108 @@
 # Changelog
 
+## [2.13.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.12.0...v2.13.0) (2023-05-31)
+
+
+### Features
+
+* add all logo variants for all projects in a normalized way ([#8459](https://github.com/openfoodfacts/openfoodfacts-server/issues/8459)) ([a05b4c0](https://github.com/openfoodfacts/openfoodfacts-server/commit/a05b4c0fb6f944bf29dae821fcca357664d0e250))
+* added quality facet error for reversed kcal and kj ([#8438](https://github.com/openfoodfacts/openfoodfacts-server/issues/8438)) ([0c76d76](https://github.com/openfoodfacts/openfoodfacts-server/commit/0c76d7692b81d1537dc1458bbaaf77e6b539dd10))
+* bypass data quality error for citrus ([#8444](https://github.com/openfoodfacts/openfoodfacts-server/issues/8444)) ([e3a7394](https://github.com/openfoodfacts/openfoodfacts-server/commit/e3a73942b84a948e9531c09188608614b9d7a3a5))
+* Don't calculate 100g nutriment if serving_quantity &lt;=5 and value = '0', fixes [#5848](https://github.com/openfoodfacts/openfoodfacts-server/issues/5848) ([#8403](https://github.com/openfoodfacts/openfoodfacts-server/issues/8403)) ([5031077](https://github.com/openfoodfacts/openfoodfacts-server/commit/5031077661a635517d24520b5c299b8b6d786a1d))
+* fix assetlinks.json after deployment ([#8448](https://github.com/openfoodfacts/openfoodfacts-server/issues/8448)) ([de2fe3e](https://github.com/openfoodfacts/openfoodfacts-server/commit/de2fe3e1fd615bc8d036f7f8ff4d7f5de2150273))
+* ingredient analysis translations ([#7908](https://github.com/openfoodfacts/openfoodfacts-server/issues/7908)) ([9561506](https://github.com/openfoodfacts/openfoodfacts-server/commit/956150633fb5b353985a0caf8b49262675f02828))
+* Update delete_user to append unique hash ([#8472](https://github.com/openfoodfacts/openfoodfacts-server/issues/8472)) ([a510fec](https://github.com/openfoodfacts/openfoodfacts-server/commit/a510fec6ade3f96597bbbf81fdfe810fbdee499e))
+
+
+### Bug Fixes
+
+* add more linked panels for attributes ([#6808](https://github.com/openfoodfacts/openfoodfacts-server/issues/6808)) ([f861059](https://github.com/openfoodfacts/openfoodfacts-server/commit/f86105927af9b2faa68c6019d524d1d187968e36))
+* correct the link to products added by one user ([#8463](https://github.com/openfoodfacts/openfoodfacts-server/issues/8463)) ([65d99c5](https://github.com/openfoodfacts/openfoodfacts-server/commit/65d99c544151a8edfe9d4434c2b9c3388a0c8a20))
+* encode `diffs` as JSON text in send_notification_for_product_change ([#8419](https://github.com/openfoodfacts/openfoodfacts-server/issues/8419)) ([2ab7fe6](https://github.com/openfoodfacts/openfoodfacts-server/commit/2ab7fe6980bba3baca34b516fc3870dd53d8cc70))
+* gzip all JSON OCRs when saving OCR file on disk ([#8320](https://github.com/openfoodfacts/openfoodfacts-server/issues/8320)) ([45df380](https://github.com/openfoodfacts/openfoodfacts-server/commit/45df380ee67c357fe86aa25880374d4133389081))
+* Iterate over both product collections on user delete ([#8476](https://github.com/openfoodfacts/openfoodfacts-server/issues/8476)) ([146698c](https://github.com/openfoodfacts/openfoodfacts-server/commit/146698cff6a4601de7f70067c4f4617a973279f0))
+* make products aligned again in list ([#7309](https://github.com/openfoodfacts/openfoodfacts-server/issues/7309)) ([cf700f0](https://github.com/openfoodfacts/openfoodfacts-server/commit/cf700f05354a1951bd6bb0778e209d6ad68e1ab1))
+* make products aligned again in list [#7309](https://github.com/openfoodfacts/openfoodfacts-server/issues/7309) ([#8423](https://github.com/openfoodfacts/openfoodfacts-server/issues/8423)) ([cf700f0](https://github.com/openfoodfacts/openfoodfacts-server/commit/cf700f05354a1951bd6bb0778e209d6ad68e1ab1))
+* on the fly nutrition edit checks [#8420](https://github.com/openfoodfacts/openfoodfacts-server/issues/8420) ([#8464](https://github.com/openfoodfacts/openfoodfacts-server/issues/8464)) ([a82b5ea](https://github.com/openfoodfacts/openfoodfacts-server/commit/a82b5ea1c0b599012f09208876821addbdd3c574))
+* product added by user url [#8421](https://github.com/openfoodfacts/openfoodfacts-server/issues/8421) ([65d99c5](https://github.com/openfoodfacts/openfoodfacts-server/commit/65d99c544151a8edfe9d4434c2b9c3388a0c8a20))
+* removing the old logos for OBF, OPF, OPFF ([#7276](https://github.com/openfoodfacts/openfoodfacts-server/issues/7276)) ([ea5a5c7](https://github.com/openfoodfacts/openfoodfacts-server/commit/ea5a5c7519578b0f01bd2038b51c9c2505d00dc3))
+* Update nova-group-unknown.svg ([#8436](https://github.com/openfoodfacts/openfoodfacts-server/issues/8436)) ([f58b6ae](https://github.com/openfoodfacts/openfoodfacts-server/commit/f58b6aeb0563fe0f452218602126e500c9740051))
+* update vitamin b5 ([#8440](https://github.com/openfoodfacts/openfoodfacts-server/issues/8440)) ([d5a60be](https://github.com/openfoodfacts/openfoodfacts-server/commit/d5a60beca63453072ac7f889531a6ee44785ad49))
+
+
+### Taxonomy
+
+* BG Additions ([#8465](https://github.com/openfoodfacts/openfoodfacts-server/issues/8465)) ([819df0c](https://github.com/openfoodfacts/openfoodfacts-server/commit/819df0c554ff7d9a28aaa626c9b2938a31de50d2))
+* Correction bars ([#8451](https://github.com/openfoodfacts/openfoodfacts-server/issues/8451)) ([8d6d754](https://github.com/openfoodfacts/openfoodfacts-server/commit/8d6d7545872afa6ff8ff230c68d087fd70de70f3))
+* e-243 additive exposure ([#8453](https://github.com/openfoodfacts/openfoodfacts-server/issues/8453)) ([c38bf68](https://github.com/openfoodfacts/openfoodfacts-server/commit/c38bf6847d82969091506a6cc968434ea2234ad2))
+* german ingredients ([#8426](https://github.com/openfoodfacts/openfoodfacts-server/issues/8426)) ([606f25e](https://github.com/openfoodfacts/openfoodfacts-server/commit/606f25ecbbd0e2966515d9d478f410bc4d134c60))
+* ingredients - whole chicken ([#8433](https://github.com/openfoodfacts/openfoodfacts-server/issues/8433)) ([95bb4e2](https://github.com/openfoodfacts/openfoodfacts-server/commit/95bb4e2f56a47b06662c96ffaf4a06357784af42))
+* lupine, einkorn, grey pea for Divinfood + tonka bean ([#8434](https://github.com/openfoodfacts/openfoodfacts-server/issues/8434)) ([a8a6387](https://github.com/openfoodfacts/openfoodfacts-server/commit/a8a638777f081b339a2b699431099063d36c04bf))
+* non-vegetarian Brown Triangle India ([#8410](https://github.com/openfoodfacts/openfoodfacts-server/issues/8410)) ([d7fd285](https://github.com/openfoodfacts/openfoodfacts-server/commit/d7fd285cc031103e48339e3c3f23fbd1affedd6a))
+* portuguese synonyme ([#8429](https://github.com/openfoodfacts/openfoodfacts-server/issues/8429)) ([32256a0](https://github.com/openfoodfacts/openfoodfacts-server/commit/32256a0b3a4e473e3cd8c1f624db2cccf18ccfce))
+* rare legumes and wheat / divinfood project ([#8454](https://github.com/openfoodfacts/openfoodfacts-server/issues/8454)) ([0442a1e](https://github.com/openfoodfacts/openfoodfacts-server/commit/0442a1e4d92b39598b8b8cbb321d6d777b857deb))
+
+
+### Technical
+
+* Edit spellling errors in Read.md files [#8264](https://github.com/openfoodfacts/openfoodfacts-server/issues/8264) ([#8279](https://github.com/openfoodfacts/openfoodfacts-server/issues/8279)) ([7953dbc](https://github.com/openfoodfacts/openfoodfacts-server/commit/7953dbc8f668378239d1bac4bb495e27d7e2a369))
+* fix how-to-develop-producer-platform ([#8482](https://github.com/openfoodfacts/openfoodfacts-server/issues/8482)) ([a6027dc](https://github.com/openfoodfacts/openfoodfacts-server/commit/a6027dcbc42c159d8eb0394223454a7d860dd04f))
+* fix OpenAPI `Product` schema file, extract agribalyze.yaml ([#8450](https://github.com/openfoodfacts/openfoodfacts-server/issues/8450)) ([f970234](https://github.com/openfoodfacts/openfoodfacts-server/commit/f9702340c1cd7b1869272e22c63cfbed048c46ef))
+
+## [2.12.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.11.0...v2.12.0) (2023-05-15)
+
+
+### Features
+
+* added nitrate sulfate as suggestions in table ([#8412](https://github.com/openfoodfacts/openfoodfacts-server/issues/8412)) ([eadb61a](https://github.com/openfoodfacts/openfoodfacts-server/commit/eadb61ae56788ba79d533bf63c258d52f3b385c5))
+* Estimate Ingredient percentages from nutritional data ([#8025](https://github.com/openfoodfacts/openfoodfacts-server/issues/8025)) ([c1ebb27](https://github.com/openfoodfacts/openfoodfacts-server/commit/c1ebb27274b3ed6eeda0134f9f6b5244f3a930c9))
+* export packaging components data  ([#8362](https://github.com/openfoodfacts/openfoodfacts-server/issues/8362)) ([c84cee3](https://github.com/openfoodfacts/openfoodfacts-server/commit/c84cee3f892f86b5ec4f040376800c94cf9ad340))
+* export packaging components data [#8361](https://github.com/openfoodfacts/openfoodfacts-server/issues/8361) ([c84cee3](https://github.com/openfoodfacts/openfoodfacts-server/commit/c84cee3f892f86b5ec4f040376800c94cf9ad340))
+* link to new pro platform manuals ([#8375](https://github.com/openfoodfacts/openfoodfacts-server/issues/8375)) ([2e95d72](https://github.com/openfoodfacts/openfoodfacts-server/commit/2e95d729170fe0571ec9be8f28e88f6536cc2d5a))
+* Prevention - On the fly quality checks in the product edit form ([#8258](https://github.com/openfoodfacts/openfoodfacts-server/issues/8258)) ([89da8ff](https://github.com/openfoodfacts/openfoodfacts-server/commit/89da8ff9e468f025000cad1415313335af372f03))
+* use ciqual to estimate nutrients and nutriscore ([#8351](https://github.com/openfoodfacts/openfoodfacts-server/issues/8351)) ([a43c187](https://github.com/openfoodfacts/openfoodfacts-server/commit/a43c187fb68aae3659750b32e3ff32fb1736d69b))
+
+
+### Bug Fixes
+
+* Add contributors link in user profile for easier account deletion ([#8399](https://github.com/openfoodfacts/openfoodfacts-server/issues/8399)) ([232b32c](https://github.com/openfoodfacts/openfoodfacts-server/commit/232b32c1eee2c8fe1073311ac969e08e0fa019d1))
+* escape issue in additives knowledge panel - remove latex formulas ([#8340](https://github.com/openfoodfacts/openfoodfacts-server/issues/8340)) ([1d8583b](https://github.com/openfoodfacts/openfoodfacts-server/commit/1d8583ba22d0bf44b443bbb0f531010c6956df1c))
+* explore files in sorted order to make tests non-random ([#8384](https://github.com/openfoodfacts/openfoodfacts-server/issues/8384)) ([bf5e755](https://github.com/openfoodfacts/openfoodfacts-server/commit/bf5e7552f806574658e96cc506250cf746467db9))
+* export obsolete products - draft ([#8397](https://github.com/openfoodfacts/openfoodfacts-server/issues/8397)) ([efa8c72](https://github.com/openfoodfacts/openfoodfacts-server/commit/efa8c72ef67d393bf591dc54cc6bf4c5ac65cecf))
+* japanese parenthesis ([#8381](https://github.com/openfoodfacts/openfoodfacts-server/issues/8381)) ([2f9efb4](https://github.com/openfoodfacts/openfoodfacts-server/commit/2f9efb4cf1b385a38083c656b0635d3203c7a9da))
+* make CORS work on dev server and API v3 ([#8392](https://github.com/openfoodfacts/openfoodfacts-server/issues/8392)) ([a0cfac9](https://github.com/openfoodfacts/openfoodfacts-server/commit/a0cfac92f8e1666fc1acaf4277ce0699e273b65e))
+* new misc tags for packaging imports, + set packagings_complete ([#8409](https://github.com/openfoodfacts/openfoodfacts-server/issues/8409)) ([c78a458](https://github.com/openfoodfacts/openfoodfacts-server/commit/c78a4582396fb51752782be9bb5e790ce75ffe95))
+* nutrition edit warnings ([#8411](https://github.com/openfoodfacts/openfoodfacts-server/issues/8411)) ([2af05a9](https://github.com/openfoodfacts/openfoodfacts-server/commit/2af05a9389bf325ba3983ca7e066bbd45fa744be))
+* provide Robotoff details about product updates ([#8416](https://github.com/openfoodfacts/openfoodfacts-server/issues/8416)) ([0a73218](https://github.com/openfoodfacts/openfoodfacts-server/commit/0a73218b82c56d85d6757041d9cb7d9199beb3c8)), closes [#8286](https://github.com/openfoodfacts/openfoodfacts-server/issues/8286)
+* solve quantity false positives issue [#2037](https://github.com/openfoodfacts/openfoodfacts-server/issues/2037) ([#2038](https://github.com/openfoodfacts/openfoodfacts-server/issues/2038)) ([80f01b6](https://github.com/openfoodfacts/openfoodfacts-server/commit/80f01b67f602d29326b0b276d84533cf3aa7434b))
+* uncomment error raised in tag and fix errors ([#8417](https://github.com/openfoodfacts/openfoodfacts-server/issues/8417)) ([225935f](https://github.com/openfoodfacts/openfoodfacts-server/commit/225935f3908a2640457fe52bdbba7269f8c222f9))
+
+
+### Translations
+
+* New Crowdin translations to review and merge ([#8302](https://github.com/openfoodfacts/openfoodfacts-server/issues/8302)) ([e70a705](https://github.com/openfoodfacts/openfoodfacts-server/commit/e70a705b9cb2d715ce070c4d0c72370b839250de))
+
+
+### Taxonomy
+
+* add migros stars labels ([#8376](https://github.com/openfoodfacts/openfoodfacts-server/issues/8376)) ([7c9a62c](https://github.com/openfoodfacts/openfoodfacts-server/commit/7c9a62c17fce7071c51d22aa6b1ad0012dc6b3cd))
+* added logo for mexican labels ([#8377](https://github.com/openfoodfacts/openfoodfacts-server/issues/8377)) ([17fa03b](https://github.com/openfoodfacts/openfoodfacts-server/commit/17fa03b00eecb62353d5bf5e45c25ebb22bdb38e))
+* added logos for beter leven ([#8370](https://github.com/openfoodfacts/openfoodfacts-server/issues/8370)) ([3d37269](https://github.com/openfoodfacts/openfoodfacts-server/commit/3d372697fa264db69af019eb95ddf91c1b047b73))
+* added some nutrients ([#8323](https://github.com/openfoodfacts/openfoodfacts-server/issues/8323)) ([bea641d](https://github.com/openfoodfacts/openfoodfacts-server/commit/bea641d19c95f695521ef198fc1c3b22e8bf62e8))
+* chicken kievs ([#8366](https://github.com/openfoodfacts/openfoodfacts-server/issues/8366)) ([73a32d8](https://github.com/openfoodfacts/openfoodfacts-server/commit/73a32d8834768200368abf0e0cf1d11b1f3b2195))
+* Danish ingredients ([#8378](https://github.com/openfoodfacts/openfoodfacts-server/issues/8378)) ([dfc4f70](https://github.com/openfoodfacts/openfoodfacts-server/commit/dfc4f7093c1ab59742dafe48c6aa5a7f1969cbb0))
+* Labels and categories additions ([#7910](https://github.com/openfoodfacts/openfoodfacts-server/issues/7910)) ([1dc577d](https://github.com/openfoodfacts/openfoodfacts-server/commit/1dc577d2e7e4b9968bba8f4f660b7889d62093dc))
+* Pl ingredients ([#7791](https://github.com/openfoodfacts/openfoodfacts-server/issues/7791)) ([2a3244f](https://github.com/openfoodfacts/openfoodfacts-server/commit/2a3244f4ae392c37c8798557cf8e04d80e11f491))
+* Prepared potatoes ([#8383](https://github.com/openfoodfacts/openfoodfacts-server/issues/8383)) ([3e09af7](https://github.com/openfoodfacts/openfoodfacts-server/commit/3e09af78b4631951677b994f2996e8f2148845aa))
+* ro translations ([#8290](https://github.com/openfoodfacts/openfoodfacts-server/issues/8290)) ([8f55d1f](https://github.com/openfoodfacts/openfoodfacts-server/commit/8f55d1f3119e3a6dba1fbece5b6642fc0b8788f6))
+* Test populating a category using ChatGPT ([#8084](https://github.com/openfoodfacts/openfoodfacts-server/issues/8084)) ([3c945d8](https://github.com/openfoodfacts/openfoodfacts-server/commit/3c945d8aa5069ab254dbc739d34a6cfb3a54fc41))
+* Update ingredients in Catalan ([#8372](https://github.com/openfoodfacts/openfoodfacts-server/issues/8372)) ([ae42679](https://github.com/openfoodfacts/openfoodfacts-server/commit/ae426790c084cefda01407fb1c2b8cf5af975690))
+
+
+### Technical
+
+* update docs about downloading images ([#8415](https://github.com/openfoodfacts/openfoodfacts-server/issues/8415)) ([dbf1da6](https://github.com/openfoodfacts/openfoodfacts-server/commit/dbf1da66ea4a9f79150857055263d5c60d35cecf))
+
 ## [2.11.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.10.0...v2.11.0) (2023-04-25)
 
 

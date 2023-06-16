@@ -51,6 +51,8 @@ BEGIN {
 		&remove_all_orgs
 		&check_not_production
 		&wait_for
+		&read_gzip_file
+		&check_ocr_result
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -66,14 +68,56 @@ use ProductOpener::Store "store";
 use Carp qw/confess/;
 use Data::DeepAccess qw(deep_exists deep_get deep_set);
 use Getopt::Long;
+use IO::Uncompress::AnyInflate qw(anyinflate $AnyInflateError);
 use Test::More;
 use JSON "decode_json";
 use File::Basename "fileparse";
 use File::Path qw/make_path remove_tree/;
 use File::Copy;
 use Path::Tiny qw/path/;
+use Scalar::Util qw(looks_like_number);
 
 use Log::Any qw($log);
+
+=head2 read_gzip_file($filepath)
+
+Read gzipped file and return binary content
+
+=head3 Parameters
+
+=head4 String $filepath
+The path of the gzipped file.
+
+=cut
+
+sub read_gzip_file ($filepath) {
+	my $input = IO::File->new($filepath) or die "Cannot open '$filepath'\n";
+	my $buffer;
+	anyinflate $input => \$buffer or die "anyinflate failed: $AnyInflateError\n";
+	return $buffer;
+}
+
+=head2 check_ocr_result($ocr_result)
+
+Check that OCR result returned by Google Cloud Vision is as expected:
+  - a single [response] object in `responses` field
+  - `created_at` integer field
+
+=head3 Parameters
+
+=head4 String $ocr_result
+String of OCR result JSON as returned by Google Cloud Vision.
+
+=cut
+
+sub check_ocr_result ($ocr_result) {
+	ok(defined $ocr_result->{responses}, "OCR result contains the 'responses' field");
+	my @responses = $ocr_result->{responses};
+	my $created_at = $ocr_result->{created_at};
+	is(scalar @responses, 1, "OCR result contains a single response");
+	ok((defined $created_at and looks_like_number($created_at)), "OCR result `created_at` field is valid, $created_at");
+	return;
+}
 
 =head2 init_expected_results($filepath)
 

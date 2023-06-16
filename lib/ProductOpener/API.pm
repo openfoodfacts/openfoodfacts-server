@@ -374,10 +374,13 @@ sub process_api_request ($request_ref) {
 		# Product read or write
 		if ($request_ref->{api_action} eq "product") {
 
-			if ($request_ref->{api_method} eq "PATCH") {
+			if ($request_ref->{api_method} eq "OPTIONS") {
+				# Just return CORS headers
+			}
+			elsif ($request_ref->{api_method} eq "PATCH") {
 				write_product_api($request_ref);
 			}
-			elsif ($request_ref->{api_method} =~ /^(GET|HEAD|OPTIONS)$/) {
+			elsif ($request_ref->{api_method} =~ /^(GET|HEAD)$/) {
 				read_product_api($request_ref);
 			}
 			else {
