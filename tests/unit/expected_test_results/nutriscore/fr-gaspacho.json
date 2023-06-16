@@ -84,6 +84,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "18066",
          "id" : "en:water",
          "percent_estimate" : 3.10681818181818,
          "percent_max" : 19.78,
@@ -122,6 +123,7 @@
          "text" : "pain de riz"
       },
       {
+         "ciqual_food_code" : "11058",
          "id" : "en:salt",
          "percent_estimate" : 0.113352272727269,
          "percent_max" : 1.1,
@@ -141,6 +143,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "2028",
          "id" : "en:lemon-juice",
          "percent_estimate" : 0.0566761363636346,
          "percent_max" : 1.1,
@@ -238,12 +241,9 @@
    "ingredients_with_unspecified_percent_sum" : 98.9,
    "ingredients_without_ciqual_codes" : [
       "en:cucumber",
-      "en:lemon-juice",
-      "en:salt",
-      "en:water",
       "fr:pain-de-riz"
    ],
-   "ingredients_without_ciqual_codes_n" : 5,
+   "ingredients_without_ciqual_codes_n" : 2,
    "known_ingredients_n" : 20,
    "lc" : "fr",
    "misc_tags" : [

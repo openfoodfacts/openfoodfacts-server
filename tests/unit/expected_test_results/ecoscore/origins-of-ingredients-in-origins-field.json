@@ -421,6 +421,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "2028",
          "id" : "en:lemon-juice",
          "percent_estimate" : 10,
          "percent_max" : 10,
@@ -474,10 +475,9 @@
    "ingredients_with_unspecified_percent_sum" : 10,
    "ingredients_without_ciqual_codes" : [
       "en:apricot",
-      "en:cane-sugar",
-      "en:lemon-juice"
+      "en:cane-sugar"
    ],
-   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ciqual_codes_n" : 2,
    "known_ingredients_n" : 8,
    "lc" : "en",
    "misc_tags" : [

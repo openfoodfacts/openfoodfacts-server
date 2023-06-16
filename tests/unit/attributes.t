@@ -151,9 +151,26 @@ my @tests = (
 			ingredients_text =>
 				"Cow milk, salt, microbial culture, garlic flavouring, guar gum, sugar, high fructose corn syrup",
 		}
-	]
+	],
 
-	#
+	# Ingredients analysis and allergens when we don't have ingredients, or ingredients are not recognized
+	[
+		'en-no-ingredients',
+		{
+			lc => "en",
+			categories => "Cheeses",
+			categories_tags => ["en:cheeses"],
+		}
+	],
+	[
+		'en-unknown-ingredients',
+		{
+			lc => "en",
+			categories => "Cheeses",
+			categories_tags => ["en:cheeses"],
+			ingredients_text => "some ingredient that we do not recognize",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {

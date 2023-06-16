@@ -928,6 +928,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "11058",
          "id" : "en:salt",
          "percent_estimate" : 0.17755681818182,
          "percent_max" : 11.1111111111111,
@@ -1068,11 +1069,10 @@
       "en:e120",
       "en:milk-proteins",
       "en:rapeseed-oil",
-      "en:salt",
       "en:sugar",
       "en:wheat-flour"
    ],
-   "ingredients_without_ciqual_codes_n" : 7,
+   "ingredients_without_ciqual_codes_n" : 6,
    "known_ingredients_n" : 30,
    "labels_tags" : [
       "en:organic",

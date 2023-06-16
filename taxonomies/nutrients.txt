@@ -1931,11 +1931,12 @@ en:Carbohydrates, carbohydrate
 xx:Carbohydrates, carbohydrate
 ar:الكاربوهايدريد
 bg:Въглехидрати
+ca:Hidrats de carboni, Glúcids, Carbohidrats
 cs:Sacharidy
 da:Kulhydrat
 de:Kohlenhydrate
 el:Υδατάνθρακες
-es:Hidratos de carbono, Glúcidos
+es:Hidratos de carbono, Glúcidos, Carbohidratos
 et:Süsivesikud
 fa:کربوهیدرات ها
 fi:Hiilihydraatit, hiilihydraatti
@@ -1985,7 +1986,7 @@ bh:चीनी
 bn:চিনি
 br:Sukr
 bs:Šećer
-ca:Sucre
+ca:Sucre, Sucres
 ce:Шекар
 cs:Cukry, Cukr
 cv:Сахăр
@@ -2179,7 +2180,7 @@ wikidata:en: Q4027534
 wikipedia:en: https://en.wikipedia.org/wiki/Sucrose
 
 zz:glucose
-en:Glucose
+en:Glucose, Dextrose
 xx:Glucose
 af:Glukose
 ar:جلوكوز
@@ -2189,13 +2190,13 @@ be:Глюкоза
 bg:Глюкоза
 bn:গ্লুকোজ
 bs:Glukoza
-ca:Glucosa
+ca:Glucosa, Dextrosa
 cs:Glukóza
 da:glukose
 de:Traubenzucker, Glukose
 el:Γλυκόζη
 eo:Glukozo
-es:Glucosa
+es:Glucosa, Dextrosa
 et:glükoos
 eu:Glukosa
 fa:گلوکز
@@ -2342,6 +2343,16 @@ zh_TW:果糖
 unit:en: g
 wikidata:en: Q122043
 wikipedia:en: https://en.wikipedia.org/wiki/Fructose
+
+zz:oligosaccharide
+en:Oligosaccharide, oligosaccharides
+xx:Oligosaccharide, oligosaccharides
+ca:Oligosacàrids
+es:Oligosacáridos
+unit:en: g
+wikidata:en: Q320607
+wikipedia:en: https://en.wikipedia.org/wiki/Oligosaccharide
+description:en: a saccharide polymer containing a small number (typically two to ten) of simple sugars (monosaccharides)
 
 zz:lactose
 en:Lactose
@@ -5955,6 +5966,8 @@ zh_tw:牛磺酸
 unit:en: g
 zh_hans:en: 牛磺酸
 zh_hant:en: 牛磺酸
+wikidata:en: Q207051
+wikipedia:en: https://en.wikipedia.org/wiki/Taurine
 
 zz:ph
 en:pH
@@ -6078,10 +6091,26 @@ unit:en: %
 zz:fruits-vegetables-nuts-estimate-from-ingredients
 en:Fruits\, vegetables\, nuts and rapeseed\, walnut and olive oils (estimate from ingredients list analysis)
 xx:Fruits\, vegetables\, nuts and rapeseed\, walnut and olive oils (estimate from ingredients list analysis)
+ar:الفواكه \ ، الخضار \ ، المكسرات والبذور \ ، زيوت الجوز والزيتون (تقدير من تحليل قائمة المكونات)
+cs:Ovoce \, zelenina \, ořechy a řepky \, ořechové a olivové oleje (odhad z analýzy seznamu ingrediencí)
 bg:Плодове\, зеленчуци\, ядки и рапица\, орехи и зехтин (оценка от анализ на списъка на съставките)
 de:Obst\, Gemüse und Nüsse (Schätzung aus der Analyse der Zutatenliste)
+el:Fruits \, λαχανικά \, καρύδια και κράμβη \, καρυδιά και ελαιόλαδο (εκτίμηση από την ανάλυση λίστας συστατικών)
+es:Frutas \, verduras \, nueces y colza \, aceites de nuez y oliva (estimación del análisis de la lista de ingredientes)
+fi:Hedelmät \, vihannekset \, pähkinät ja rypäleet \, pähkinä- ja oliiviöljyt (arvio ainesosaluettelon analyysistä)
 fr:Fruits\, légumes\, noix et huiles de colza\, noix et olive (estimation par analyse de la liste des ingrédients)
-it:Frutta\, verdura\, noci e olio di colza\, noci e oliva (stima dall'analisi dell'elenco degli ingredienti)    
+it:Frutta\, verdura\, noci e olio di colza\, noci e oliva (stima dall'analisi dell'elenco degli ingredienti)  
+he:פירות \, ירקות \, אגוזים ונאנס \, שמני אגוז וזית (הערכת מניתוח רשימת החומרים)
+ja:果物\、野菜\、ナッツと菜種\、クルミ\、オリーブオイル（成分リスト分析からの推定）
+ko:과일 \, 야채 \, 견과류 및 유채 \, 호두 및 올리브 오일 (성분 목록 분석에서 추정)
+nl:Vruchten \, groenten \, noten en raapzaad \, walnoot- en olijfolie (schatting van ingrediëntenlijstanalyse)
+ru:Фрукты \, овощи \, орехи и рапса \, ореховые и оливковые масла (оценка из анализа ингредиентов)
+pl:Owoce \, warzywa \, orzechy i rzepak \, orzech orzechowy i oliwek (ocena analizy listy składników)
+pt:Frutas \, vegetais \, nozes e colza \, nogueira e azeite (estimativa da análise da lista de ingredientes)
+ro:Fructe \, legume \, nuci și rapsee \, nuc și uleiuri de măsline (estimare din analiza listei de ingrediente)
+th:ผลไม้ \, ผัก \, ถั่วและเรพซีด \, วอลนัทและน้ำมันมะกอก (ประมาณจากการวิเคราะห์รายการส่วนผสม)
+vi:Trái cây \, rau \, các loại hạt và dầu hạt cải dầu\, gỗ óc chó và dầu ô liu (ước tính từ phân tích danh sách thành phần)
+zh:水果\，蔬菜\，坚果和菜籽油，核桃和橄榄油（根据成分清单分析估算）  
 unit:en: %
 automatically_computed:en: yes
 
@@ -6415,7 +6444,7 @@ bg:Инозитол
 ca:inositol
 cs:inositol
 da:inositol
-de:Inositol
+de:Inosit, Inositol
 el:Ινοσιτόλη
 es:inositol
 et:Inositool
@@ -6534,5 +6563,7 @@ description:en:Spermidine is a polyamine compound (C7H19N3) found in ribosomes a
 
 zz:water
 en:Water
+ca:Aigua
+es:Agua
 fr:Eau
 unit:en: g

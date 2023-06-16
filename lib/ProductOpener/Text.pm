@@ -58,6 +58,7 @@ BEGIN {
 		&remove_tags_and_quote
 		&xml_escape
 		&regexp_escape
+		&remove_email
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -295,6 +296,12 @@ sub xml_escape ($s) {
 
 sub regexp_escape ($s) {
 	$s =~ s/(\*|\+|\?|\(|\)|\[|\]|\{|\}|\$|\^|\\|\/|\@|\%)/\\$1/g;
+	return $s;
+}
+
+sub remove_email ($s) {
+	# Removes email patterns
+	$s =~ s/\b[\w.-]+@[\w.-]+\.[A-Za-z]{2,}\b//g;
 	return $s;
 }
 

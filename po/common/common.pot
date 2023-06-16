@@ -504,7 +504,15 @@ msgid "Delete the images"
 msgstr ""
 
 msgctxt "delete_user"
-msgid "Delete an user"
+msgid "Delete a user"
+msgstr ""
+
+msgctxt "delete_confirmation"
+msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
+msgstr ""
+
+msgctxt "danger_zone"
+msgid "Danger Zone"
 msgstr ""
 
 msgctxt "diff_add"
@@ -2675,6 +2683,10 @@ msgctxt "users_without_products"
 msgid "Products not added by %s"
 msgstr ""
 
+msgctxt "video_tutorials"
+msgid "Video Tutorials"
+msgstr ""
+
 msgctxt "view"
 msgid "view"
 msgstr ""
@@ -2714,7 +2726,7 @@ msgstr ""
 
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
-msgid "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
 msgstr ""
 
 msgctxt "you_are_connected_as_x"
@@ -3040,12 +3052,12 @@ msgid "Risk of overexposure"
 msgstr ""
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_high"
-msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
-msgstr ""
+msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of reaching or exceeding the Acceptable Daily Intake (ADI) for <tag>."
+msgstr "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
-msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of consuming too much <tag>."
-msgstr ""
+msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of reaching or exceeding the Acceptable Daily Intake (ADI) for <tag>."
+msgstr "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of reaching or exceeding the Acceptable Daily Intake (ADI) for <tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_description"
 msgid "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
@@ -3072,11 +3084,11 @@ msgid "No or very low risk of over exposure"
 msgstr ""
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
-msgid "Risk of exceeding the acceptable daily intake (ADI)"
+msgid "Risk of reaching or exceeding the acceptable daily intake (ADI)"
 msgstr ""
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_noael"
-msgid "Risk of exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
+msgid "Risk of reaching exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
 msgstr ""
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
@@ -3096,20 +3108,20 @@ msgid "Groups with more than 5% of members exceeding the maximum dose without ad
 msgstr ""
 
 msgctxt "exposure_title_95th"
-msgid "Some people"
-msgstr ""
+msgid "Moderate risk"
+msgstr "Moderate risk"
 
 msgctxt "exposure_description_95th"
-msgid "over 5%"
-msgstr ""
+msgid "5% of people or more"
+msgstr "5% of people or more"
 
 msgctxt "exposure_title_mean"
-msgid "Most people"
-msgstr ""
+msgid "High risk"
+msgstr "High risk"
 
 msgctxt "exposure_description_mean"
-msgid "over 50%"
-msgstr ""
+msgid "50% of people or more"
+msgstr "50% of people or more"
 
 msgctxt "wikipedia"
 msgid "Wikipedia"
@@ -4422,8 +4434,8 @@ msgid "Contributor"
 msgstr "Contributor"
 
 msgctxt "contributor_settings_description"
-msgid "Those settings allow you to personalize some aspect of the website"
-msgstr "Those settings allow you to personalize some aspect of the website"
+msgid "Those settings allow you to personalize some aspects of the website"
+msgstr "Those settings allow you to personalize some aspects of the website"
 
 msgctxt "display_barcode_in_search"
 msgid "Display barcode in search results"
@@ -5039,6 +5051,19 @@ msgctxt "official_site"
 msgid "Official site"
 msgstr "Official site"
 
+msgctxt "organization_members"
+msgid "Organization Members"
+msgstr "Organization Members"
+
+msgctxt "number_of_members"
+msgid "Number of Members"
+msgstr "Number of Members"
+
+msgctxt "serial_no"
+msgid "S.No"
+msgstr "S.No"
+
+
 msgctxt "contact_form"
 msgid "Contact form"
 msgstr "Contact form"
@@ -5408,8 +5433,8 @@ msgid "Remove all nutrient values"
 msgstr "Remove all nutrient values"
 
 msgctxt "delete_user_process"
-msgid "User deleted."
-msgstr "User deleted."
+msgid "User is being deleted. This may take a few minutes."
+msgstr "User is being deleted. This may take a few minutes."
 
 msgctxt "attribute_ecoscore_not_applicable_title"
 msgid "Eco-Score not yet applicable"
@@ -6657,9 +6682,14 @@ msgctxt "faq_for_producers"
 msgid "FAQ for producers"
 msgstr "FAQ for producers"
 
-msgctxt "product_js_enter_value_between_0_and_100"
-msgid "Please enter a value between 0 and 100."
-msgstr "Please enter a value between 0 and 100."
+msgctxt "join_the_next_pros_meet_up"
+msgid "Join the next Pros' Meet-up"
+msgstr "Join the next Pros' Meet-up"
+
+# variable names between { } must not be translated
+msgctxt "product_js_enter_value_between_0_and_max"
+msgid "Please enter a value between 0 and {max}."
+msgstr "Please enter a value between 0 and {max}."
 
 msgctxt "product_js_sugars_warning"
 msgid "Sugars should not be higher than carbohydrates."

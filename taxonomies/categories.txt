@@ -30805,6 +30805,7 @@ ro:Biscuiți cu stafide, Fursecuri cu stafide
 
 <en:Biscuits
 en:Almond cookies, Thin biscuits with almonds
+bg:Бадемови бисквити
 de:Mandelkekse, Mandel-Cookie
 fi:mantelikeksit
 fr:Croquants aux amandes, Cookies aux amandes, Biscuits aux amandes, Biscuits secs aux amandes
@@ -30822,6 +30823,7 @@ fr:tuile aux amandes
 
 <en:Biscuits
 en:Oatmeal cookies
+bg:Овесени бисквити
 de:Hafer-Cookies
 es:Galletas de avena
 fi:Kaurakeksit
@@ -33621,8 +33623,12 @@ wikidata:en:Q616601
 
 #Finnish dessert made with water, rye flour and sugar
 <en:Desserts
-fi:Mämmi
+fi:Mämmi, mammi
 wikidata:en:Q1630666
+
+<en:Desserts
+es:Roscón, roscon
+wikidata:en:Q7367597
 
 <en:Cakes
 <en:Desserts
@@ -35471,11 +35477,8 @@ ru:Шоколадные плитки, плитки шоколада, шокол�
 zh:巧克力棒
 wikidata:en:Q1361086
 #, barre chocolatée, barre au chocolat, barres au chocolat
-ciqual_food_code:en:31120
-ciqual_food_name:en:Chocolate bar
-ciqual_food_name:fr:Chocolat, en tablette (aliment moyen)
 
-<en:Chocolate bars
+<en:Bars covered with chocolate
 en:Chocolate biscuity bars
 de:Schokoladenbiscuits
 fi:Keksisuklaapatukat
@@ -35490,25 +35493,31 @@ agribalyse_food_code:en:31000
 fr:Barre chocolatée biscuitée type KitKat, Barre chocolatée biscuitée, Kitkat
 # Q367251
 
-<en:Chocolate bars
+# Bounty-style bars
+<en:Bars covered with chocolate
 fr:Barres chocolatées à la noix de coco, barre chocolatée à la noix de coco type Bounty, Bounty
 nl:Chocorepen met kokosvulling
 agribalyse_food_code:en:31002
 ciqual_food_code:en:31002
 ciqual_food_name:en:Coconut bar, with chocolate coating
 
-<en:Chocolate bars
-fr:Barres chocolatées au lait et aux céréales, barre chocolatée au lait et aux céréales type Kinder Country, Kinder Country
+# Kinder country style bars
+<en:Bars covered with chocolate
+en:Chocolate covered bars with milk and cereals, Milky cereal breakfast bar with chocolate fortified with vitamins and minerals, Milky cereal breakfast bar fortified with vitamins and minerals
+fr:Barres chocolatées au lait et aux céréales, barre chocolatée au lait et aux céréales type Kinder Country, Kinder Country, barre de céréales au lait et au chocolat
 #Q3815377
+agribalyse_food_code:en:31100
+ciqual_food_code:en:31100
+ciqual_food_name:en:Milky cereal breakfast bar, with chocolate or not, fortified with vitamins and minerals
 
-<en:Chocolate bars
+<en:Bars covered with chocolate
 fr:Barres chocolatées aux fruits oléagineux, barre chocolatée aux fruits oléagineux type Snickers, Snickers
 #Q714179
 
-<en:Chocolate bars
+<en:Bars covered with chocolate
 fr:Barres chocolatées fourrées aux fruits, barre chocolatée fourrée aux fruits
 
-<en:Chocolate bars
+<en:Bars covered with chocolate
 en:Caramel chocolate bars
 de:Schokoriegel mit Karamell, Schokoriegel mit Karamellüberzug, Schokoriegel mit Karamellfüllung
 fi:Toffee-suklaapatukat
@@ -35518,14 +35527,42 @@ lt:Šokoladiniai batonėliai su karamele
 nl:Chococaramelrepen
 pt:Barras de chocolate caramelo
 
+<en:Bars covered with chocolate
+en:Chocolate nuts cookie bars
+de:Schokoladenkekse mit Nüssen
+fr:Barres chocolatées biscuitées aux noisettes
+it:Barrette biscottate alle noci e cioccolato
+lt:Šokoladiniai batonėliai su riešutais ir sausainiais
+nl:Chocorepen met noten en biscuit
 
-<en:Chocolate bars
+<en:Bars covered with chocolate
 en:Caramel chocolate cookie bars
 de:Kekse mit Karamellschokolade
 fr:Barres chocolatées biscuitées au caramel
 it:Barrette biscottate al cioccolato e caramello
 lt:Šokoladiniai batonėliai su karamele ir sausainiais
 nl:Koekjesrepen met caramel en chocola
+
+<en:Bars covered with chocolate
+en:Chocolate confectionery with dairy filling, Chocolate bar with dairy filling
+fr:Barres chocolatées au lait, Confiserie chocolatées au lait, Barres chocolatées au lait, Barre chocolatée au lait, Barres chocolatées au lait type Kinder Maxi, Kinder Maxi
+agribalyse_food_code:en:31012
+ciqual_food_code:en:31012
+ciqual_food_name:en:Chocolate confectionery or bar, with dairy filling
+
+<en:Bars covered with chocolate
+en:Chocolate snack bar dairy filling
+fr:Barre de chocolat au lait frais
+agribalyse_food_code:en:31073
+ciqual_food_code:en:31073
+ciqual_food_name:en:Chocolate snack bar, dairy filling
+
+<en:Bars covered with chocolate
+en:Chocolate snack bar dairy filling with sponge cake
+fr:barre de chocolat au lait frais avec génoise
+agribalyse_food_code:en:31099
+ciqual_food_code:en:31099
+ciqual_food_name:en:Chocolate snack bar, dairy filling with sponge cake
 
 <en:Confectioneries
 <en:Cocoa and its products
@@ -37037,7 +37074,7 @@ fr:Plats préparés en conserve, plats cuisinés en conserve, plat préparé en 
 hu:Konzerv ételek
 it:Piatti pronti in scatola
 lt:Konservuotas paruoštas maistas, Konservuotas maistas
-nl:Kant en klaargerechten in blik/pot
+nl:Kant-en-klaarmaaltijden in blik/pot
 pl:Dania gotowe w puszkach
 pt:Refeições enlatadas
 ru:Консервированные блюда
@@ -37081,7 +37118,7 @@ fr:Plats préparés déshydratés, Plats cuisinés déshydratés
 he:מנות מיובשות
 it:Piatti pronti disidratati
 lt:Džiovinti patiekalai, dehidratuoti patiekalai, džiovinti paruošti patiekalai
-nl:Gedroogde kant en klaarmaaltijden
+nl:kant-en-klaarmaaltijden (gedroogd)
 pl:Dania gotowe suszone, Dania gotowe w proszku
 pt:Refeições desidratadas
 ro:Mese uscate, Mese preparate uscate
@@ -37098,7 +37135,7 @@ fr:Plats préparés réfrigérés, Plats cuisinés réfrigérés
 hu:Hűtött húsok
 it:Piatti pronti refrigerati
 lt:Šaldyti patiekalai, Šaldyti paruošti patiekalai,
-nl:Diepvrieskant en klaarmaaltijden
+nl:Kant-en-klaarmaaltijden (diepvries)
 pt:Refeições refrigeradas
 ru:Замороженные обеды
 
@@ -38982,7 +39019,7 @@ wikidata:en:Q67858763
 
 <en:Canned corn
 en:Canned sweet corn, Canned sweet corn
-bg:Сладка царевица в консерва
+bg:Консервирана сладка царевица
 de:Dosenzuckermais, Zuckermaiskonserve
 es:Maíz dulce en conserva
 fi:purkitettu makea maissi
@@ -39061,10 +39098,6 @@ pnns_group_2:en:Appetizers
 en:Salty roasted chickpeas
 fr:Pois chiches grillés salés
 lt:Sūdyti skrudinti avinžirniai
-
-<en:Salty snacks
-en:Vegetables cakes
-fr:Cake aux legumes
 
 <en:Salty snacks
 en:Tapas
@@ -39957,7 +39990,7 @@ lt:Sūriai vaikams
 
 <en:Cheeses
 en:Brined cheeses
-bg:Саламурено сирене
+bg:Бяло саламурено сирене
 fr:Fromages saumurés
 lt:Sūdyti sūriai
 nl:Gepeklde kazen
@@ -46241,7 +46274,7 @@ fi:maitotiivisteet
 fr:Laits concentrés, Lait concentré
 it:Latti evaporati
 lt:Išgarintas pienas
-nl:Verdikte melken
+nl:Ingedikte melken
 wikidata:en:Q13417087
 
 <en:Evaporated milks
@@ -46254,6 +46287,10 @@ nl:Koffiemelken, Koffiemelk
 <en:Coffee milks
 en:Dried Coffee milks
 nl:Koffiecreamers
+
+<en:Dairies
+nl:Opschuimmelken
+#comment:en:Milks especially created for cappucino's etc.
 
 <en:Dairies
 en:Condensed milks
@@ -49510,9 +49547,6 @@ tr:Tuzlu atıştırmalıklar
 zh:咸味零食
 nova:en:3
 
-<en:Salty snacks
-fr:Grignotage salé
-
 <en:Plant-based foods
 en:Nuts and their products
 bg:Ядкови продукти
@@ -52678,7 +52712,7 @@ nl:Virgin olijfoliën
 
 <en:Olive oils
 en:Extra-virgin olive oils, Extra virgin olive oil
-bg:Зехтин екстра върджин
+bg:Маслиново масло екстра върджин, Дървено масло екстра върджин, Зехтин екстра върджин
 ca:Oli d'oliva verge extra
 de:Native Olivenöle Extra, Natives Olivenöl Extra
 es:Aceites de oliva virgen extra, Aceite de oliva virgen extra
@@ -54603,6 +54637,7 @@ ciqual_food_name:en:Sunflower oil
 
 <en:Sunflower oils
 en:Nonrefined sunflower oils, unrefined sunflower oils
+bg:Шарлан, Нерафинирано слънчогледово масло
 lt:Nerafinuoti saulėgrąžų aliejai, Nerafinuotas saulėgrąžų aliejus
 ru:Масло подсолнечное нерафинированное
 
@@ -56302,6 +56337,7 @@ de:Roggenbackschrot Type 1800
 
 <en:Cereal flours
 en:Stone ground flours
+bg:Брашно смляно на каменна мелница
 es:Harinas molidas a piedra
 fr:Farines de meule
 lt:Akmenimis malti miltai
@@ -56347,6 +56383,7 @@ en:refined wheat flour, maida
 
 <en:Wheat flours
 en:Self-raising wheat flour
+bg:Пшенично брашно с набухвател
 fr:Farine de blé tendre avec levure incorporée, Farine de froment avec levure incorporée
 agribalyse_food_code:en:9437
 ciqual_food_code:en:9437
@@ -56456,6 +56493,7 @@ ciqual_food_name:fr:Farine de blé tendre ou froment T110
 
 <en:Wheat flours
 en:Whole wheat flours
+bg:Пълнозърнесто пшенично брашно
 de:Vollkornweizenmehle
 es:Harina de trigo integral
 fi:Täysjyvävehnäjauhot
@@ -60175,6 +60213,7 @@ origins:en: en:France
 
 <en:Citrus
 en:Lemons
+bg:Лимони
 de:Zitronen
 es:Limones
 fi:sitruunat
@@ -60281,7 +60320,7 @@ origins:en: en:Italy
 
 <en:Citrus
 en:Limes
-bg:Зелен лимон
+bg:Зелени лимони
 de:Limetten
 es:Limas
 fr:Citrons verts
@@ -61714,10 +61753,12 @@ en:Fresh pineapple
 de:Frische Ananas
 fr:Ananas frais
 lt:Švieži ananasai
+nl:verse ananas
 
 <en:Pineapple
 en:Pineapple pulp
 fr:Pulpe d'ananas
+nl:ananaspulp
 agribalyse_food_code:en:13002
 ciqual_food_code:en:13002
 ciqual_food_name:en:Pineapple, pulp, raw
@@ -61854,7 +61895,7 @@ de:Gefrorene Ananas
 es:Piñas congeladas
 fr:Ananas surgelés
 lt:Šaldyti ananasai
-nl:Bevroren ananas
+nl:Bevroren ananas, Diepvriesananas
 
 <en:Frozen fruits
 en:Frozen mixed fruits
@@ -62061,6 +62102,7 @@ agribalyse_proxy_food_name:fr:Abricot, dénoyauté, sec
 en:Pitted dried apricots
 fr:Abricots dénoyautés secs
 lt:Džiovinti abrikosai be kauliukų
+nl:Gedroogde ontpitte abrikozen
 agribalyse_food_code:en:13001
 ciqual_food_code:en:13001
 ciqual_food_name:en:Apricot, pitted, dried
@@ -73740,7 +73782,8 @@ lt:Kepsniai
 nl:Steaks
 zh:肉排
 
-<en:Meats
+# Don't put this category in meats. All patties, except for some beef ones, contain additional ingredients to prevent the pattie falling appart
+<en:Meat preparations
 en:Meat patties
 fr:Galettes à la viande
 lt:Mėsos paplotėliai
@@ -75470,6 +75513,10 @@ fr:Porc et dérivés
 en:Pork preparations
 fr:Préparations au porc
 
+<en:Pork preparations
+en:Canned cooked lean pork
+es:Magro de cerdo cocido en conserva
+
 <en:Pork and its products
 <en:Meats
 en:Pork, Pork meat
@@ -76017,7 +76064,7 @@ en:Frozen poultry
 de:Gefrorenes Geflügel
 fi:Siipikarjapakasteet
 fr:Volailles surgelées, Volaille surgelée
-nl:Diepvres gevogelten
+nl:Diepvries gevogelten
 
 <en:Meats
 en:Poultries, poultry
@@ -76465,6 +76512,7 @@ ciqual_food_name:en:Poultry nuggets
 <en:Breaded chicken
 <en:Poultry nuggets
 en:Chicken nuggets
+bg:Пилешки хапки
 de:Hähnchen-Nuggets
 es:Nugget de pollo
 fi:kananugetit
@@ -76488,11 +76536,13 @@ fr:Escalopes de viande panées
 <en:Breaded meat cutlets
 <en:Pork preparations
 en:Breaded pork cutlets
+bg:Паниран свински котлет
 de:Schweineschnitzel
 fr:Escalopes de porc panées
 
 <en:Breaded meat cutlets
 en:Breaded veal cutlets, Breaded veal escalopes
+bg:Паниран телешки котлет
 de:Kalbsschnitzel
 fr:Escalopes de veau panées, Escalopes panées de veau
 agribalyse_food_code:en:25173
@@ -76504,6 +76554,7 @@ wikidata:en:Q67881839
 <en:Breaded meat cutlets
 <en:Breaded chicken
 en:Breaded chicken cutlets, Breaded turkey escalope
+bg:Паниран пилешки котлет
 de:Panierte Hähnchenschnitzel
 fi:Leivitetyt kanaleikkeet
 fr:Escalopes de poulet panées, Escalopes de poulet panée, Escalope de poulet panée
@@ -76572,6 +76623,7 @@ ciqual_food_name:fr:Caille, viande, crue
 
 <en:Poultries
 en:Pheasant
+bg:Фазан
 fr:Faisans
 
 <en:Game
@@ -77293,38 +77345,6 @@ ciqual_food_code:en:36031
 ciqual_food_name:en:Chicken, leg, meat and skin, boiled/cooked in water
 ciqual_food_name:fr:Poulet, cuisse, viande et peau, bouilli/cuit à l'eau
 
-<en:Poultry hams
-en:Cooked chicken breast slices, chicken ham
-de:Hähnchen-brustfilet in Scheiben
-es:Fiambre de pechuga de pollo, Pechuga de pollo cocida en lonchas
-fi:kanaleikkele
-fr:Blancs de poulet en tranches, Blancs de poulet, Blanc de poulet, Jambons de poulet, Jambon de poulet
-it:Affettati di petto di pollo
-nl:Gekookte gesneden kippenborsten
-zh:鸡火腿
-agribalyse_food_code:en:28963
-ciqual_food_code:en:28963
-ciqual_food_name:en:Chicken cooked ham, in slices
-ciqual_food_name:fr:Jambon de poulet ou Blanc de poulet en tranche
-
-<en:Cooked chicken breast slices
-fr:Blancs de poulet doré au four, Blanc de poulet doré au four
-
-<en:Cooked chicken breast slices
-en:Smoked chicken breast
-fr:Blancs de poulet fumé, Blanc de poulet fumé
-nl:Gerookte kippenborst
-
-<en:Cooked chicken breast slices
-fr:Blancs de poulet rôti à la broche, Blanc de poulet rôti à la broche
-
-<en:Cooked chicken breast slices
-fr:Blancs de poulet aux herbes, Blanc de poulet aux fines herbes
-
-<en:Cooked chicken breast slices
-en:Reconstituted chicken breast slices
-fr:Blancs de poulet reconstitués
-
 <en:Cooked poultries
 <en:Chickens
 en:Chicken cutlets
@@ -77432,26 +77452,6 @@ fi:kalkkunan rinnat
 fr:Blancs de dinde, blancs de dindes, blanc de dindes, blanc de dinde
 it:Petti di tacchino
 nl:Kalkoenborsten
-agribalyse_food_code:en:28964
-ciqual_food_code:en:28964
-ciqual_food_name:en:Turkey cooked ham, in slices
-ciqual_food_name:fr:Jambon de dinde ou Blanc de dinde en tranche
-
-<en:Poultry hams
-en:Cooked turkey breast slices, Turkey ham, cooked turkey breast
-es:Fiambre de pechuga de pavo, Pechuga de pavo cocida en lonchas
-fr:Blancs de dinde en tranches, blanc de dinde en tranche, jambon de dinde
-agribalyse_food_code:en:28964
-ciqual_food_code:en:28964
-ciqual_food_name:en:Turkey cooked ham, in slices
-ciqual_food_name:fr:Jambon de dinde ou Blanc de dinde en tranche
-
-<en:Cooked turkey breast slices
-en:Reconstituted turkey breast slices
-fr:Blancs de dinde reconstitués
-
-<en:Poultry hams
-fr:Blancs de dinde doré au four
 
 <en:Turkeys
 en:Turkey wings
@@ -79112,6 +79112,62 @@ fr:Charcuteries à cuire, charcuterie à cuire
 <en:Prepared meats
 fr:Charcuteries cuites, Charcuterie cuite
 
+<fr:Charcuteries cuites
+en:Cooked poultry breast slices, Poultry hams
+de:Geflügelschinken
+fi:siipikarjakinkut
+fr:Blancs de volaille en tranches, Jambons de volaille
+it:Prosciutti di pollame
+nl:Gevogelte bilvlees
+
+<en:Poultry hams
+en:Cooked chicken breast slices, chicken ham
+de:Hähnchen-brustfilet in Scheiben
+es:Fiambre de pechuga de pollo, Pechuga de pollo cocida en lonchas
+fi:kanaleikkele
+fr:Blancs de poulet en tranches, Blancs de poulet, Blanc de poulet, Jambons de poulet, Jambon de poulet
+it:Affettati di petto di pollo
+nl:Gekookte gesneden kippenborsten
+zh:鸡火腿
+agribalyse_food_code:en:28963
+ciqual_food_code:en:28963
+ciqual_food_name:en:Chicken cooked ham, in slices
+ciqual_food_name:fr:Jambon de poulet ou Blanc de poulet en tranche
+
+<en:Cooked chicken breast slices
+fr:Blancs de poulet doré au four, Blanc de poulet doré au four
+
+<en:Cooked chicken breast slices
+en:Smoked chicken breast
+fr:Blancs de poulet fumé, Blanc de poulet fumé
+nl:Gerookte kippenborst
+
+<en:Cooked chicken breast slices
+fr:Blancs de poulet rôti à la broche, Blanc de poulet rôti à la broche
+
+<en:Cooked chicken breast slices
+fr:Blancs de poulet aux herbes, Blanc de poulet aux fines herbes
+
+<en:Cooked chicken breast slices
+en:Reconstituted chicken breast slices
+fr:Blancs de poulet reconstitués
+
+<en:Poultry hams
+en:Cooked turkey breast slices, Turkey ham, cooked turkey breast
+es:Fiambre de pechuga de pavo, Pechuga de pavo cocida en lonchas
+fr:Blancs de dinde en tranches, blanc de dinde en tranche, jambon de dinde
+agribalyse_food_code:en:28964
+ciqual_food_code:en:28964
+ciqual_food_name:en:Turkey cooked ham, in slices
+ciqual_food_name:fr:Jambon de dinde ou Blanc de dinde en tranche
+
+<en:Cooked turkey breast slices
+en:Reconstituted turkey breast slices
+fr:Blancs de dinde reconstitués
+
+<en:Poultry hams
+fr:Blancs de dinde doré au four
+
 # Belgian processed meat made with pork and beef also sometimes
 <fr:Charcuteries cuites
 fr:Saucissons de jambon
@@ -79302,6 +79358,7 @@ ciqual_food_name:en:Pâté w green pepper
 
 <fr:Pâté
 en:Pork Pâtés
+bg:Свински пастет
 de:Schweinepasteten
 es:Patés de cerdo
 fr:Pâtés de porc
@@ -79313,6 +79370,7 @@ ro:Pate de porc
 <en:Pork Pâtés
 <en:Liver Pâtés
 en:Pork liver Pâtés
+bg:Пастет от свински черен дроб
 es:Patés de hígado de cerdo
 fr:Pâtés de foie de porc
 pt:Patês de figado de porco
@@ -90603,6 +90661,8 @@ wikidata:en:Q914538
 <en:Sugars
 en:Dextrose
 xx:Dextrose
+ca:Dextrosa
+es:Dextrosa
 nl:Dextrose, Druivensuiker
 
 <en:Sugars
@@ -90772,8 +90832,9 @@ ciqual_food_name:fr:Fructose
 
 <en:Natural sugar substitutes
 en:Glucose
+es:Glucosa
 bg:Глюкоза
-es:Glucosa, Dextrosa
+es:Glucosa
 fr:Glucose
 nl:Glucose
 pl:Glukoza
@@ -94924,6 +94985,7 @@ wikidata:en:Q3928641
 <en:Vegetables
 en:Salads without dressing
 fr:Crudités sans assaisonnement
+nl:Rauwkost (zonder saus)
 ciqual_food_code:en:25616
 ciqual_food_name:en:Salad, vegetable, without dressing (average)
 ciqual_food_name:fr:Crudité, sans assaisonnement (aliment moyen)
@@ -95662,6 +95724,7 @@ ciqual_food_name:fr:Pois chiche, sec
 <en:Chickpeas
 <en:Cooked vegetables
 en:Cooked chick peas
+bg:Сварен нахут
 fr:Pois chiche cuits
 agribalyse_food_code:en:20507
 ciqual_food_code:en:20507
@@ -99491,40 +99554,12 @@ agribalyse_food_code:en:31106
 ciqual_food_code:en:31106
 ciqual_food_name:en:Chocolate cereal bar
 
-<en:Cereal bars
-en:Milky cereal breakfast bar with chocolate fortified with vitamins and minerals, Milky cereal breakfast bar fortified with vitamins and minerals
-fr:barre de céréales au lait et au chocolat
-agribalyse_food_code:en:31100
-ciqual_food_code:en:31100
-ciqual_food_name:en:Milky cereal breakfast bar, with chocolate or not, fortified with vitamins and minerals
-
 <en:Chocolate cereal bars
 en:Cereal bar with chocolate fortified with vitamins and minerals
 fr:barre de céréales au chocolat renforcée en vitamines et minéraux
 agribalyse_food_code:en:31102
 ciqual_food_code:en:31102
 ciqual_food_name:en:Cereal bar with chocolate, fortified with vitamins and minerals
-
-<en:Chocolate cereal bars
-en:Chocolate confectionery with dairy filling, Chocolate bar with dairy filling
-fr:Barres chocolatées au lait, Confiserie chocolatées au lait, Barres chocolatées au lait, Barre chocolatée au lait, Barres chocolatées au lait type Kinder Maxi, Kinder Maxi
-agribalyse_food_code:en:31012
-ciqual_food_code:en:31012
-ciqual_food_name:en:Chocolate confectionery or bar, with dairy filling
-
-<en:Chocolate cereal bars
-en:Chocolate snack bar dairy filling
-fr:Barre de chocolat au lait frais
-agribalyse_food_code:en:31073
-ciqual_food_code:en:31073
-ciqual_food_name:en:Chocolate snack bar, dairy filling
-
-<en:Chocolate cereal bars
-en:Chocolate snack bar dairy filling with sponge cake
-fr:barre de chocolat au lait frais avec génoise
-agribalyse_food_code:en:31099
-ciqual_food_code:en:31099
-ciqual_food_name:en:Chocolate snack bar, dairy filling with sponge cake
 
 <en:Cereal bars
 en:Nuts cereal bars
@@ -101412,6 +101447,7 @@ wikidata:en:Q636056
 <en:Cereals and potatoes
 en:Prepared potatoes
 fr:Pommes de terre préparées
+nl:Geprepareerde aardappelen
 
 <en:Prepared potatoes
 en:Precooked potatoes
@@ -102159,8 +102195,10 @@ nl:Vertakte keten aminozuren
 wikidata:en:Q420726
 
 <en:Bodybuilding supplements
-en:Glutamine
+en:Glutamine, L-Glutamine
+ca:Glutamina, L-Glutamina
 de:Glutamin, L-Glutamin, 2-Amino-4-carbamoylbutansäure, 2-Amino-4-carbamoylbuttersäure, Glutaminsäure-5-amid
+es:Glutamina, L-Glutamina
 fr:Glutamine
 pl:Glutamina
 wikidata:en:Q181619
@@ -102176,9 +102214,11 @@ de:Prohormone
 wikidata:en:Q419119
 
 <en:Bodybuilding supplements
-en:Creatine, Creatine supplements
+en:Creatine, Creatine supplements, Creatine monohydrate
+ca:Creatina, Monohidrat de creatina
 bg:Креатин
 de:Kreatin, N-Amidinosarkosin, N-(Aminoiminomethyl)-N-methyl-glycin, α-Methylguanidinoessigsäure
+es:Creatina, Monohidrato de creatina
 fi:Kreatiini, Kreatiinilisäravinteet
 wikidata:en:Q1058872
 
@@ -102577,9 +102617,9 @@ ciqual_food_name:en:Madeira wine aspic, dehydrated
 ciqual_food_name:fr:Gelée au madère, déshydratée
 
 <en:Salty snacks
-en:Vegetable cakes
+en:Vegetable cakes, Vegetables cakes
 fi:kasvispihvit
-fr:Cakes aux légumes
+fr:Cakes aux légumes, Cake aux legumes
 it:Torte vegetali
 nl:Groentencakes
 
@@ -102765,14 +102805,6 @@ wikidata:en:Q2878697
 
 <fr:Saucisses sèches
 fr:Saucisses sèches de jambon
-
-<fr:Charcuteries cuites
-en:Cooked poultry breast slices, Poultry hams
-de:Geflügelschinken
-fi:siipikarjakinkut
-fr:Blancs de volaille en tranches, Jambons de volaille
-it:Prosciutti di pollame
-nl:Gevogelte bilvlees
 
 <en:Sandwiches
 en:Surprise breads
@@ -103780,7 +103812,7 @@ en:Raw vegetable sandwiches, vegetable sandwiches
 de:Sandwiches mit rohem Gemüse
 fi:Raakakasvisvoileivät
 fr:Sandwichs aux crudités
-nl:Rauwe groentensandwiches
+nl:Rauwkostsandwiches
 wikidata:en:Q7918342
 
 <en:Dairy desserts
